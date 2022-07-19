@@ -19416,17 +19416,403 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  Input </span><span class="ansi-green-intense-fg ansi-bold">In [52]</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    data &gt;&gt; row_slice(list(!range(2,10)))</span>
-<span class="ansi-white-intense-fg ansi-bold">                           ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
-</pre>
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>neighborhood</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>price</th>
+      <th>size_in_sqft</th>
+      <th>price_per_sqft</th>
+      <th>no_of_bedrooms</th>
+      <th>no_of_bathrooms</th>
+      <th>quality</th>
+      <th>maid_room</th>
+      <th>unfurnished</th>
+      <th>balcony</th>
+      <th>barbecue_area</th>
+      <th>built_in_wardrobes</th>
+      <th>central_ac</th>
+      <th>childrens_play_area</th>
+      <th>childrens_pool</th>
+      <th>concierge</th>
+      <th>covered_parking</th>
+      <th>kitchen_appliances</th>
+      <th>lobby_in_building</th>
+      <th>maid_service</th>
+      <th>networked</th>
+      <th>pets_allowed</th>
+      <th>private_garden</th>
+      <th>private_gym</th>
+      <th>private_jacuzzi</th>
+      <th>private_pool</th>
+      <th>security</th>
+      <th>shared_gym</th>
+      <th>shared_pool</th>
+      <th>shared_spa</th>
+      <th>study</th>
+      <th>vastu_compliant</th>
+      <th>view_of_landmark</th>
+      <th>view_of_water</th>
+      <th>walk_in_closet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>6034542</td>
+      <td>Jumeirah Lake Towers</td>
+      <td>25.063302</td>
+      <td>55.137728</td>
+      <td>1150000</td>
+      <td>1951</td>
+      <td>589.44</td>
+      <td>3</td>
+      <td>5</td>
+      <td>Medium</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6326063</td>
+      <td>Culture Village</td>
+      <td>25.227295</td>
+      <td>55.341761</td>
+      <td>2850000</td>
+      <td>2020</td>
+      <td>1410.89</td>
+      <td>2</td>
+      <td>3</td>
+      <td>Low</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>6356778</td>
+      <td>Palm Jumeirah</td>
+      <td>25.114275</td>
+      <td>55.139764</td>
+      <td>1729200</td>
+      <td>507</td>
+      <td>3410.65</td>
+      <td>0</td>
+      <td>1</td>
+      <td>Medium</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6356784</td>
+      <td>Palm Jumeirah</td>
+      <td>25.114275</td>
+      <td>55.139764</td>
+      <td>3119900</td>
+      <td>1015</td>
+      <td>3073.79</td>
+      <td>1</td>
+      <td>2</td>
+      <td>Medium</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6356790</td>
+      <td>Palm Jumeirah</td>
+      <td>25.114275</td>
+      <td>55.139764</td>
+      <td>8503600</td>
+      <td>2062</td>
+      <td>4123.96</td>
+      <td>2</td>
+      <td>3</td>
+      <td>High</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>6356797</td>
+      <td>Palm Jumeirah</td>
+      <td>25.114275</td>
+      <td>55.139764</td>
+      <td>3119900</td>
+      <td>1015</td>
+      <td>3073.79</td>
+      <td>1</td>
+      <td>2</td>
+      <td>Medium</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>6376886</td>
+      <td>Palm Jumeirah</td>
+      <td>25.106668</td>
+      <td>55.149275</td>
+      <td>2100000</td>
+      <td>2186</td>
+      <td>960.66</td>
+      <td>3</td>
+      <td>3</td>
+      <td>Low</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>6406935</td>
+      <td>Downtown Dubai</td>
+      <td>25.194935</td>
+      <td>55.282665</td>
+      <td>2690000</td>
+      <td>1521</td>
+      <td>1768.57</td>
+      <td>2</td>
+      <td>3</td>
+      <td>Medium</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
 </div>
+</div>
+
 </div>
 
 </div>
@@ -19718,16 +20104,98 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   </thead>
   <tbody>
     <tr>
-      <th>1287</th>
-      <td>7662808</td>
+      <th>1816</th>
+      <td>7698708</td>
       <td>Jumeirah Village Circle</td>
-      <td>25.049772</td>
-      <td>55.204243</td>
-      <td>1199999</td>
-      <td>1361</td>
-      <td>881.70</td>
-      <td>2</td>
-      <td>3</td>
+      <td>25.066475</td>
+      <td>55.214533</td>
+      <td>365000</td>
+      <td>419</td>
+      <td>871.12</td>
+      <td>0</td>
+      <td>1</td>
+      <td>Medium</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1139</th>
+      <td>7651845</td>
+      <td>Jumeirah Village Circle</td>
+      <td>25.053111</td>
+      <td>55.206630</td>
+      <td>280000</td>
+      <td>387</td>
+      <td>723.51</td>
+      <td>0</td>
+      <td>1</td>
+      <td>Low</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>961</th>
+      <td>7632829</td>
+      <td>Downtown Dubai</td>
+      <td>25.191404</td>
+      <td>55.273896</td>
+      <td>999999</td>
+      <td>838</td>
+      <td>1193.32</td>
+      <td>1</td>
+      <td>1</td>
       <td>Medium</td>
       <td>False</td>
       <td>True</td>
@@ -19735,9 +20203,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>False</td>
       <td>True</td>
       <td>True</td>
+      <td>False</td>
+      <td>False</td>
       <td>True</td>
-      <td>False</td>
-      <td>False</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
@@ -19759,57 +20227,57 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>False</td>
     </tr>
     <tr>
-      <th>1821</th>
-      <td>7698876</td>
-      <td>Jumeirah Village Circle</td>
-      <td>25.048095</td>
-      <td>55.206373</td>
-      <td>610502</td>
-      <td>812</td>
-      <td>751.85</td>
-      <td>1</td>
-      <td>2</td>
-      <td>Ultra</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>1404</th>
-      <td>7669561</td>
+      <th>1484</th>
+      <td>7673726</td>
       <td>Dubai Marina</td>
       <td>25.086376</td>
       <td>55.147360</td>
-      <td>949999</td>
-      <td>619</td>
-      <td>1534.73</td>
+      <td>1550000</td>
+      <td>860</td>
+      <td>1802.33</td>
       <td>1</td>
-      <td>1</td>
+      <td>2</td>
+      <td>Low</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1607</th>
+      <td>7684402</td>
+      <td>Palm Jumeirah</td>
+      <td>25.112237</td>
+      <td>55.138630</td>
+      <td>2300943</td>
+      <td>1095</td>
+      <td>2101.32</td>
+      <td>2</td>
+      <td>3</td>
       <td>Medium</td>
       <td>False</td>
       <td>True</td>
@@ -19820,48 +20288,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>False</td>
       <td>False</td>
       <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
       <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>493</th>
-      <td>7566522</td>
-      <td>Town Square</td>
-      <td>25.010570</td>
-      <td>55.289787</td>
-      <td>1100000</td>
-      <td>1462</td>
-      <td>752.39</td>
-      <td>3</td>
-      <td>3</td>
-      <td>Low</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
@@ -19877,49 +20304,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>False</td>
       <td>False</td>
       <td>False</td>
+      <td>False</td>
       <td>True</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>122</th>
-      <td>7282005</td>
-      <td>Dubai Hills Estate</td>
-      <td>25.115760</td>
-      <td>55.248755</td>
-      <td>700000</td>
-      <td>646</td>
-      <td>1083.59</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Low</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
       <td>False</td>
     </tr>
     <tr>
@@ -19964,181 +20350,191 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>...</td>
     </tr>
     <tr>
-      <th>612</th>
-      <td>7590274</td>
-      <td>World Trade Center</td>
-      <td>25.223728</td>
-      <td>55.285118</td>
-      <td>2800000</td>
-      <td>2938</td>
-      <td>953.03</td>
-      <td>3</td>
-      <td>3</td>
-      <td>Medium</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>1441</th>
-      <td>7670734</td>
-      <td>Jumeirah Village Circle</td>
-      <td>25.058746</td>
-      <td>55.209389</td>
-      <td>426000</td>
-      <td>390</td>
-      <td>1092.31</td>
-      <td>0</td>
-      <td>1</td>
-      <td>Medium</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>870</th>
-      <td>7623173</td>
-      <td>Culture Village</td>
-      <td>25.226946</td>
-      <td>55.343628</td>
-      <td>1000000</td>
-      <td>707</td>
-      <td>1414.43</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Low</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>533</th>
-      <td>7580761</td>
-      <td>The Views</td>
-      <td>25.093319</td>
-      <td>55.168887</td>
-      <td>1300000</td>
-      <td>1342</td>
-      <td>968.70</td>
-      <td>2</td>
-      <td>2</td>
-      <td>Low</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>799</th>
-      <td>7613338</td>
+      <th>1454</th>
+      <td>7671819</td>
       <td>Dubai Marina</td>
-      <td>25.087979</td>
-      <td>55.146464</td>
-      <td>3950000</td>
-      <td>3882</td>
-      <td>1017.52</td>
+      <td>25.071718</td>
+      <td>55.135145</td>
+      <td>720000</td>
+      <td>941</td>
+      <td>765.14</td>
+      <td>1</td>
+      <td>2</td>
+      <td>Medium</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>949</th>
+      <td>7631138</td>
+      <td>Downtown Dubai</td>
+      <td>25.201842</td>
+      <td>55.280473</td>
+      <td>1390000</td>
+      <td>1162</td>
+      <td>1196.21</td>
+      <td>2</td>
       <td>3</td>
-      <td>6</td>
-      <td>Low</td>
+      <td>Medium</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1039</th>
+      <td>7642767</td>
+      <td>Palm Jumeirah</td>
+      <td>25.126233</td>
+      <td>55.154510</td>
+      <td>5045846</td>
+      <td>1740</td>
+      <td>2899.91</td>
+      <td>2</td>
+      <td>2</td>
+      <td>Medium</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>515</th>
+      <td>7575254</td>
+      <td>Downtown Dubai</td>
+      <td>25.196398</td>
+      <td>55.271002</td>
+      <td>1025000</td>
+      <td>740</td>
+      <td>1385.14</td>
+      <td>1</td>
+      <td>2</td>
+      <td>Medium</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1727</th>
+      <td>7693164</td>
+      <td>Motor City</td>
+      <td>25.044699</td>
+      <td>55.246543</td>
+      <td>600000</td>
+      <td>1044</td>
+      <td>574.71</td>
+      <td>1</td>
+      <td>2</td>
+      <td>Medium</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
@@ -20149,18 +20545,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>False</td>
       <td>False</td>
       <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
+      <td>True</td>
+      <td>True</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
@@ -20271,18 +20657,23 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   </thead>
   <tbody>
     <tr>
-      <th>1686</th>
-      <td>7688910</td>
-      <td>Greens</td>
-      <td>25.094173</td>
-      <td>55.169437</td>
-      <td>1780000</td>
-      <td>2050</td>
-      <td>868.29</td>
-      <td>3</td>
-      <td>3</td>
+      <th>236</th>
+      <td>7453919</td>
+      <td>Motor City</td>
+      <td>25.046706</td>
+      <td>55.246714</td>
+      <td>629000</td>
+      <td>1051</td>
+      <td>598.48</td>
+      <td>1</td>
+      <td>1</td>
       <td>Low</td>
       <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
@@ -20298,12 +20689,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>False</td>
       <td>False</td>
       <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
+      <td>True</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
@@ -20312,155 +20698,32 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>False</td>
     </tr>
     <tr>
-      <th>688</th>
-      <td>7600585</td>
-      <td>Palm Jumeirah</td>
-      <td>25.113366</td>
-      <td>55.136090</td>
-      <td>1395000</td>
-      <td>1953</td>
-      <td>714.29</td>
-      <td>2</td>
-      <td>2</td>
-      <td>Low</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>1438</th>
-      <td>7670619</td>
-      <td>Business Bay</td>
-      <td>25.189020</td>
-      <td>55.282216</td>
-      <td>1500000</td>
-      <td>1741</td>
-      <td>861.57</td>
-      <td>2</td>
-      <td>3</td>
-      <td>Medium</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>1096</th>
-      <td>7647809</td>
-      <td>Jumeirah Village Circle</td>
-      <td>25.056706</td>
-      <td>55.207907</td>
-      <td>603000</td>
-      <td>997</td>
-      <td>604.81</td>
+      <th>1054</th>
+      <td>7644074</td>
+      <td>Jumeirah Beach Residence</td>
+      <td>25.073590</td>
+      <td>55.126352</td>
+      <td>1980000</td>
+      <td>705</td>
+      <td>2808.51</td>
       <td>1</td>
       <td>2</td>
       <td>Medium</td>
       <td>False</td>
       <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>True</td>
       <td>True</td>
+      <td>False</td>
+      <td>False</td>
       <td>False</td>
       <td>True</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
-    </tr>
-    <tr>
-      <th>1233</th>
-      <td>7658635</td>
-      <td>Jumeirah Lake Towers</td>
-      <td>25.067019</td>
-      <td>55.139829</td>
-      <td>1305000</td>
-      <td>1338</td>
-      <td>975.34</td>
-      <td>2</td>
-      <td>3</td>
-      <td>Medium</td>
       <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
@@ -20476,35 +20739,22 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>False</td>
     </tr>
     <tr>
-      <th>1344</th>
-      <td>7666763</td>
-      <td>Al Barari</td>
-      <td>25.099422</td>
-      <td>55.312967</td>
-      <td>4300000</td>
-      <td>4026</td>
-      <td>1068.06</td>
+      <th>711</th>
+      <td>7602634</td>
+      <td>Dubai Harbour</td>
+      <td>25.099380</td>
+      <td>55.141275</td>
+      <td>4222888</td>
+      <td>1968</td>
+      <td>2145.78</td>
       <td>3</td>
       <td>4</td>
       <td>Low</td>
       <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
-      <td>False</td>
-      <td>False</td>
       <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
@@ -20515,70 +20765,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>False</td>
       <td>False</td>
       <td>False</td>
-    </tr>
-    <tr>
-      <th>941</th>
-      <td>7630166</td>
-      <td>Dubai Marina</td>
-      <td>25.086376</td>
-      <td>55.147360</td>
-      <td>2175000</td>
-      <td>1312</td>
-      <td>1657.77</td>
-      <td>2</td>
-      <td>3</td>
-      <td>Medium</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>1090</th>
-      <td>7647086</td>
-      <td>Jumeirah Village Circle</td>
-      <td>25.059555</td>
-      <td>55.201659</td>
-      <td>750000</td>
-      <td>1321</td>
-      <td>567.75</td>
-      <td>2</td>
-      <td>3</td>
-      <td>Medium</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
@@ -20592,105 +20778,264 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>True</td>
       <td>True</td>
       <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
     </tr>
     <tr>
-      <th>877</th>
-      <td>7623483</td>
-      <td>Mirdif</td>
-      <td>25.227240</td>
-      <td>55.441623</td>
-      <td>936000</td>
-      <td>780</td>
-      <td>1200.00</td>
-      <td>1</td>
-      <td>2</td>
-      <td>Medium</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>1895</th>
-      <td>7705052</td>
-      <td>Dubai Marina</td>
-      <td>25.081243</td>
-      <td>55.145120</td>
-      <td>1350000</td>
-      <td>1578</td>
-      <td>855.51</td>
-      <td>2</td>
-      <td>4</td>
-      <td>Low</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>641</th>
-      <td>7593307</td>
-      <td>Discovery Gardens</td>
-      <td>25.044519</td>
-      <td>55.137291</td>
+      <th>1137</th>
+      <td>7651633</td>
+      <td>Meydan</td>
+      <td>25.172418</td>
+      <td>55.306951</td>
       <td>525000</td>
-      <td>968</td>
-      <td>542.36</td>
+      <td>330</td>
+      <td>1590.91</td>
+      <td>0</td>
       <td>1</td>
+      <td>Medium</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1519</th>
+      <td>7677927</td>
+      <td>DIFC</td>
+      <td>25.207533</td>
+      <td>55.277978</td>
+      <td>2100000</td>
+      <td>1836</td>
+      <td>1143.79</td>
+      <td>2</td>
+      <td>2</td>
+      <td>Medium</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1276</th>
+      <td>7661690</td>
+      <td>Dubai Marina</td>
+      <td>25.074307</td>
+      <td>55.132694</td>
+      <td>1300000</td>
+      <td>1076</td>
+      <td>1208.18</td>
       <td>1</td>
+      <td>2</td>
+      <td>Medium</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>459</th>
+      <td>7554665</td>
+      <td>Downtown Dubai</td>
+      <td>25.196593</td>
+      <td>55.269631</td>
+      <td>1275000</td>
+      <td>1282</td>
+      <td>994.54</td>
+      <td>2</td>
+      <td>3</td>
+      <td>Medium</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1671</th>
+      <td>7688380</td>
+      <td>Downtown Dubai</td>
+      <td>25.197520</td>
+      <td>55.270168</td>
+      <td>1100000</td>
+      <td>744</td>
+      <td>1478.49</td>
+      <td>1</td>
+      <td>2</td>
+      <td>Low</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1167</th>
+      <td>7652627</td>
+      <td>Jumeirah Village Circle</td>
+      <td>25.050227</td>
+      <td>55.213350</td>
+      <td>440500</td>
+      <td>520</td>
+      <td>847.12</td>
+      <td>0</td>
+      <td>1</td>
+      <td>Ultra</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>681</th>
+      <td>7599900</td>
+      <td>Jumeirah</td>
+      <td>25.240419</td>
+      <td>55.252770</td>
+      <td>1700000</td>
+      <td>1200</td>
+      <td>1416.67</td>
+      <td>2</td>
+      <td>3</td>
       <td>Low</td>
       <td>False</td>
       <td>True</td>
@@ -20712,7 +21057,48 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>False</td>
       <td>False</td>
       <td>False</td>
+      <td>True</td>
+      <td>True</td>
       <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1075</th>
+      <td>7645950</td>
+      <td>The Views</td>
+      <td>25.093596</td>
+      <td>55.166634</td>
+      <td>1500000</td>
+      <td>2528</td>
+      <td>593.35</td>
+      <td>3</td>
+      <td>3</td>
+      <td>Medium</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>False</td>
@@ -20722,19 +21108,60 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>False</td>
     </tr>
     <tr>
-      <th>1813</th>
-      <td>7698637</td>
+      <th>1117</th>
+      <td>7650786</td>
       <td>Jumeirah Village Circle</td>
-      <td>25.048660</td>
-      <td>55.209550</td>
-      <td>750204</td>
-      <td>1045</td>
-      <td>717.90</td>
+      <td>25.046296</td>
+      <td>55.200783</td>
+      <td>439205</td>
+      <td>401</td>
+      <td>1095.27</td>
+      <td>0</td>
+      <td>1</td>
+      <td>Medium</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <th>707</th>
+      <td>7602004</td>
+      <td>Jumeirah Village Circle</td>
+      <td>25.051528</td>
+      <td>55.212972</td>
+      <td>1131000</td>
+      <td>1558</td>
+      <td>725.93</td>
       <td>2</td>
       <td>3</td>
       <td>Ultra</td>
       <td>True</td>
-      <td>False</td>
+      <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
@@ -20763,78 +21190,37 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>True</td>
     </tr>
     <tr>
-      <th>1113</th>
-      <td>7650745</td>
+      <th>1006</th>
+      <td>7638368</td>
       <td>Jumeirah Village Circle</td>
-      <td>25.051528</td>
-      <td>55.212972</td>
-      <td>1045734</td>
-      <td>1592</td>
-      <td>656.87</td>
-      <td>2</td>
-      <td>3</td>
-      <td>High</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>1079</th>
-      <td>7646080</td>
-      <td>Jumeirah Beach Residence</td>
-      <td>25.077150</td>
-      <td>55.135515</td>
-      <td>1200000</td>
-      <td>1286</td>
-      <td>933.13</td>
-      <td>2</td>
-      <td>2</td>
+      <td>25.046296</td>
+      <td>55.200697</td>
+      <td>443000</td>
+      <td>423</td>
+      <td>1047.28</td>
+      <td>0</td>
+      <td>1</td>
       <td>Low</td>
       <td>False</td>
       <td>True</td>
-      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
       <td>False</td>
       <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
@@ -20845,32 +21231,32 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>False</td>
     </tr>
     <tr>
-      <th>1612</th>
-      <td>7684637</td>
-      <td>Dubai Healthcare City</td>
-      <td>25.213527</td>
-      <td>55.320758</td>
-      <td>500000</td>
-      <td>474</td>
-      <td>1054.85</td>
-      <td>0</td>
-      <td>1</td>
-      <td>High</td>
+      <th>674</th>
+      <td>7599517</td>
+      <td>Mirdif</td>
+      <td>25.227337</td>
+      <td>55.441623</td>
+      <td>1688000</td>
+      <td>1581</td>
+      <td>1067.68</td>
+      <td>3</td>
+      <td>4</td>
+      <td>Medium</td>
+      <td>True</td>
+      <td>True</td>
+      <td>True</td>
       <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>True</td>
       <td>False</td>
       <td>False</td>
+      <td>True</td>
       <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
       <td>False</td>
       <td>False</td>
       <td>False</td>
@@ -20878,10 +21264,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>True</td>
       <td>True</td>
       <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
       <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
       <td>False</td>
       <td>False</td>
     </tr>
@@ -26171,31 +26557,31 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>0</th>
       <td>2700000</td>
       <td>Medium</td>
-      <td>29</td>
+      <td>49</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2850000</td>
       <td>Medium</td>
-      <td>11</td>
+      <td>14</td>
     </tr>
     <tr>
       <th>2</th>
       <td>1150000</td>
       <td>Medium</td>
-      <td>49</td>
+      <td>31</td>
     </tr>
     <tr>
       <th>3</th>
       <td>2850000</td>
       <td>Low</td>
-      <td>43</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>4</th>
       <td>1729200</td>
       <td>Medium</td>
-      <td>3</td>
+      <td>28</td>
     </tr>
     <tr>
       <th>...</th>
@@ -26207,31 +26593,31 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <th>1900</th>
       <td>1500000</td>
       <td>Ultra</td>
-      <td>37</td>
+      <td>28</td>
     </tr>
     <tr>
       <th>1901</th>
       <td>1230000</td>
       <td>Medium</td>
-      <td>49</td>
+      <td>14</td>
     </tr>
     <tr>
       <th>1902</th>
       <td>2900000</td>
       <td>Medium</td>
-      <td>39</td>
+      <td>33</td>
     </tr>
     <tr>
       <th>1903</th>
       <td>675000</td>
       <td>Medium</td>
-      <td>29</td>
+      <td>18</td>
     </tr>
     <tr>
       <th>1904</th>
       <td>760887</td>
       <td>High</td>
-      <td>7</td>
+      <td>35</td>
     </tr>
   </tbody>
 </table>
@@ -26318,31 +26704,31 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     <tr>
       <th>0</th>
       <td>2700000</td>
-      <td>25</td>
+      <td>27</td>
       <td>2700.000</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2850000</td>
-      <td>38</td>
+      <td>13</td>
       <td>2850.000</td>
     </tr>
     <tr>
       <th>2</th>
       <td>1150000</td>
-      <td>27</td>
+      <td>41</td>
       <td>1150.000</td>
     </tr>
     <tr>
       <th>3</th>
       <td>2850000</td>
-      <td>17</td>
+      <td>9</td>
       <td>2850.000</td>
     </tr>
     <tr>
       <th>4</th>
       <td>1729200</td>
-      <td>12</td>
+      <td>7</td>
       <td>1729.200</td>
     </tr>
     <tr>
@@ -26354,31 +26740,31 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     <tr>
       <th>1900</th>
       <td>1500000</td>
-      <td>50</td>
+      <td>29</td>
       <td>1500.000</td>
     </tr>
     <tr>
       <th>1901</th>
       <td>1230000</td>
-      <td>21</td>
+      <td>42</td>
       <td>1230.000</td>
     </tr>
     <tr>
       <th>1902</th>
       <td>2900000</td>
-      <td>26</td>
+      <td>7</td>
       <td>2900.000</td>
     </tr>
     <tr>
       <th>1903</th>
       <td>675000</td>
-      <td>50</td>
+      <td>3</td>
       <td>675.000</td>
     </tr>
     <tr>
       <th>1904</th>
       <td>760887</td>
-      <td>8</td>
+      <td>21</td>
       <td>760.887</td>
     </tr>
   </tbody>
@@ -26461,27 +26847,27 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   <tbody>
     <tr>
       <th>0</th>
-      <td>25</td>
+      <td>27</td>
       <td>2700.000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>38</td>
+      <td>13</td>
       <td>2850.000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>27</td>
+      <td>41</td>
       <td>1150.000</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>17</td>
+      <td>9</td>
       <td>2850.000</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>12</td>
+      <td>7</td>
       <td>1729.200</td>
     </tr>
     <tr>
@@ -26491,27 +26877,27 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
     </tr>
     <tr>
       <th>1900</th>
-      <td>50</td>
+      <td>29</td>
       <td>1500.000</td>
     </tr>
     <tr>
       <th>1901</th>
-      <td>21</td>
+      <td>42</td>
       <td>1230.000</td>
     </tr>
     <tr>
       <th>1902</th>
-      <td>26</td>
+      <td>7</td>
       <td>2900.000</td>
     </tr>
     <tr>
       <th>1903</th>
-      <td>50</td>
+      <td>3</td>
       <td>675.000</td>
     </tr>
     <tr>
       <th>1904</th>
-      <td>8</td>
+      <td>21</td>
       <td>760.887</td>
     </tr>
   </tbody>
@@ -28528,8 +28914,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span> <span class="n">data_long</span> <span class="o">=</span> <span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">gather</span><span class="p">(</span><span class="s1">&#39;variable&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;quality&#39;</span><span class="p">]</span> <span class="p">,</span>  <span class="n">add_id</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span> <span class="o">&gt;&gt;</span> 
-<span class="n">select</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">_ID</span> <span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">size_in_sqft</span> <span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">no_of_bedrooms</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">variable</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_long</span> <span class="o">=</span> <span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">gather</span><span class="p">(</span><span class="s1">&#39;variable&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;quality&#39;</span><span class="p">]</span> <span class="p">,</span>  <span class="n">add_id</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">select</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">_ID</span> <span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">size_in_sqft</span> <span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">no_of_bedrooms</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">variable</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> 
 <span class="c1"># add_id=True is needed </span>
 <span class="n">data_long</span>
 </pre></div>
@@ -28549,17 +28934,131 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-cyan-intense-fg ansi-bold">  Input </span><span class="ansi-green-intense-fg ansi-bold">In [46]</span>
-<span class="ansi-yellow-intense-fg ansi-bold">    ( data_long = data &gt;&gt; gather(&#39;variable&#39;, &#39;value&#39;, [&#39;price&#39;, &#39;quality&#39;] ,  add_id=True ) &gt;&gt;</span>
-<span class="ansi-white-intense-fg ansi-bold">                ^</span>
-<span class="ansi-red-intense-fg ansi-bold">SyntaxError</span><span class="ansi-red-intense-fg ansi-bold">:</span> invalid syntax
-</pre>
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>_ID</th>
+      <th>size_in_sqft</th>
+      <th>no_of_bedrooms</th>
+      <th>variable</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1079</td>
+      <td>1</td>
+      <td>price</td>
+      <td>2700000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1582</td>
+      <td>2</td>
+      <td>price</td>
+      <td>2850000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>1951</td>
+      <td>3</td>
+      <td>price</td>
+      <td>1150000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>2020</td>
+      <td>2</td>
+      <td>price</td>
+      <td>2850000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>507</td>
+      <td>0</td>
+      <td>price</td>
+      <td>1729200</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>3805</th>
+      <td>1900</td>
+      <td>1087</td>
+      <td>2</td>
+      <td>quality</td>
+      <td>Ultra</td>
+    </tr>
+    <tr>
+      <th>3806</th>
+      <td>1901</td>
+      <td>760</td>
+      <td>1</td>
+      <td>quality</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <th>3807</th>
+      <td>1902</td>
+      <td>1930</td>
+      <td>3</td>
+      <td>quality</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <th>3808</th>
+      <td>1903</td>
+      <td>740</td>
+      <td>1</td>
+      <td>quality</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <th>3809</th>
+      <td>1904</td>
+      <td>800</td>
+      <td>1</td>
+      <td>quality</td>
+      <td>High</td>
+    </tr>
+  </tbody>
+</table>
+<p>3810 rows × 5 columns</p>
 </div>
+</div>
+
 </div>
 
 </div>
@@ -30069,7 +30568,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -30083,6 +30582,102 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>[&#39;X3&#39;, &#39;X4&#39;] // False maintain
+</pre>
+</div>
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sex</th>
+      <th>X2</th>
+      <th>X3</th>
+      <th>X4</th>
+      <th>united</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Femenino</td>
+      <td>12</td>
+      <td>a-3</td>
+      <td>22</td>
+      <td>a-3//22</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Masculino</td>
+      <td>32</td>
+      <td>+b</td>
+      <td>5</td>
+      <td>+b//5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Masculino</td>
+      <td>30</td>
+      <td>10</td>
+      <td>-30</td>
+      <td>10//-30</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Femenino</td>
+      <td>-13</td>
+      <td>NaN</td>
+      <td>23</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
