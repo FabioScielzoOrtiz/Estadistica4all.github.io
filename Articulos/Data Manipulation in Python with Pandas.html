@@ -14580,7 +14580,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Data-Manipulation-in-Python-with-Pandas">Data Manipulation in Python with <code>Pandas</code><a class="anchor-link" href="#Data-Manipulation-in-Python-with-Pandas">&#182;</a></h1><p>This article is about data manipulation in Python using <code>Pandas</code>, one of the most important Python packages.</p>
-<h2 id="Indice:">Indice:<a class="anchor-link" href="#Indice:">&#182;</a></h2><ul>
+<h2 id="Index">Index<a class="anchor-link" href="#Index">&#182;</a></h2><ul>
 <li><a href="#1">Load Packages</a></li>
 <li><a href="#2">Vectors in Python</a></li>
 <li><a href="#3">Data-frames in Python</a></li>
@@ -14882,20 +14882,20 @@ dtype: float64</pre>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">FabioScielzoOrtiz\Estadistica4all-blog\Data Manipulation in Python\Data Manipulation in Python with Pandas.ipynb Celda 12</span> in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; &lt;a href=&#39;vscode-notebook-cell://github/FabioScielzoOrtiz/Estadistica4all-blog/Data%20Manipulation%20in%20Python/Data%20Manipulation%20in%20Python%20with%20Pandas.ipynb#ch0000011vscode-vfs?line=0&#39;&gt;1&lt;/a&gt;</span> vector_1 = pd.Series(data = [46350000, 44380000, 18120000, 31970000, 10330000], 
-<span class="ansi-green-fg">      &lt;a href=&#39;vscode-notebook-cell://github/FabioScielzoOrtiz/Estadistica4all-blog/Data%20Manipulation%20in%20Python/Data%20Manipulation%20in%20Python%20with%20Pandas.ipynb#ch0000011vscode-vfs?line=1&#39;&gt;2&lt;/a&gt;</span>                      index=[&#39;Spain&#39;, &#39;Argentina&#39;, &#39;Chile&#39;, &#39;Peru&#39;, &#39;Cuba&#39;])
-<span class="ansi-green-fg">      &lt;a href=&#39;vscode-notebook-cell://github/FabioScielzoOrtiz/Estadistica4all-blog/Data%20Manipulation%20in%20Python/Data%20Manipulation%20in%20Python%20with%20Pandas.ipynb#ch0000011vscode-vfs?line=2&#39;&gt;3&lt;/a&gt;</span> vector_1
 
-<span class="ansi-red-intense-fg ansi-bold">NameError</span>: name &#39;pd&#39; is not defined</pre>
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>Spain        46350000
+Argentina    44380000
+Chile        18120000
+Peru         31970000
+Cuba         10330000
+dtype: int64</pre>
 </div>
+
 </div>
 
 </div>
@@ -23799,8 +23799,8 @@ Name: X2, dtype: int64</pre>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([ 2,  8,  8,  6,  9,  7,  6,  9,  6, 10,  2,  0,  9,  9,  1,  8,  6,
-        4,  5,  0,  9,  2, 10,  6,  3])</pre>
+<pre>array([ 3,  5,  5,  1,  9,  8,  7, 10,  6,  4,  0,  4,  2,  8, 10,  2, 10,
+        7,  8,  9,  5,  1,  5,  6,  5])</pre>
 </div>
 
 </div>
@@ -23841,11 +23841,13 @@ Name: X2, dtype: int64</pre>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([-1.16602801, -0.29126619,  0.0448093 , -1.53064805, -0.77986426,
-        0.27946259,  0.70557339,  1.8947552 , -1.27201557, -2.38266208,
-       -0.01028826,  0.48448163,  0.19373876,  0.51062877,  0.82499295,
-       -1.2261926 , -0.64026091, -1.34130035,  0.72050095, -0.28182476,
-       -1.41238308,  0.27093805,  0.12293903, -1.7454195 ,  0.59769211])</pre>
+<pre>array([-9.22539382e-01, -1.21220166e+00,  1.19861439e+00, -2.33322091e+00,
+       -1.09733050e+00, -3.85046744e-01, -1.58304695e+00, -1.27276344e+00,
+        2.64181621e-01,  1.46064437e-01, -2.90614116e-01, -4.08778139e-01,
+        1.26501157e+00,  3.39870224e-01, -3.30400541e-01, -2.77566681e-01,
+       -7.86608156e-01, -2.15424579e-01, -1.25739706e+00,  1.49626155e+00,
+       -7.35843170e-01, -2.88271540e-02,  4.15446416e-01,  1.81086791e-03,
+        2.51235542e-02])</pre>
 </div>
 
 </div>
@@ -23888,8 +23890,8 @@ Name: X2, dtype: int64</pre>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([ 7.,  7.,  7., 10.,  5.,  6.,  6.,  7.,  8.,  8.,  9.,  7.,  4.,
-        8.,  4.,  5.,  9.,  3.,  9.,  8.,  6.,  5.,  7.,  3.,  5.])</pre>
+<pre>array([ 3.,  4.,  9.,  6.,  7.,  5., 10.,  6.,  9.,  6.,  6.,  8.,  6.,
+        8.,  7.,  9.,  3.,  6.,  9.,  6.,  7., 10.,  3.,  5.,  6.])</pre>
 </div>
 
 </div>
@@ -23931,11 +23933,11 @@ Name: X2, dtype: int64</pre>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([4.38980167, 5.01942705, 8.37021446, 9.42328139, 5.23363136,
-       6.7893964 , 7.0109037 , 4.19368942, 4.15756273, 8.35902992,
-       5.12349693, 9.11500802, 8.33674298, 4.81632377, 5.75544898,
-       4.69384069, 3.74076656, 9.63161338, 8.42379325, 9.56909962,
-       5.34208547, 6.15814084, 7.27295296, 9.98284627, 9.96300636])</pre>
+<pre>array([8.02731644, 9.77083856, 8.10808657, 9.92954689, 7.25011977,
+       9.27247149, 3.19374425, 5.85693781, 6.95516708, 5.21406587,
+       4.87985465, 8.24980427, 5.27716625, 9.41378978, 9.23330831,
+       9.19857059, 9.82296994, 3.66599063, 7.53242815, 8.57834732,
+       5.29524619, 3.1633167 , 3.35224247, 8.62437622, 7.37950369])</pre>
 </div>
 
 </div>
@@ -23976,8 +23978,8 @@ Name: X2, dtype: int64</pre>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([7.27295296, 9.96300636, 5.01942705, 9.63161338, 5.12349693,
-       5.23363136, 9.96300636, 4.81632377, 5.75544898, 4.69384069])</pre>
+<pre>array([9.23330831, 9.92954689, 7.37950369, 8.02731644, 9.77083856,
+       9.41378978, 5.29524619, 4.87985465, 8.57834732, 5.85693781])</pre>
 </div>
 
 </div>
