@@ -1,0 +1,189 @@
+---
+title: "Reticulate: Python dentro de R"
+output: 
+ html_document:
+  theme: united
+  number_sections: no
+  toc: yes
+  toc_float: false
+  df_print: kable
+editor_options: 
+  markdown: 
+    wrap: 72
+  knit: pagedown::chrome_print
+---
+
+
+Se debe instalar el paquete reticulate y cargar su libreria con el mismo nombre
+```{r}
+# --- R ---
+
+library(reticulate)
+```
+
+Despues tenemos que fijar el directorio donde tengamos Python. En mi caso uso el environment Anaconda.
+```{r}
+# --- R ---
+
+use_condaenv("C:/Users/Usuario/anaconda3/python.exe")
+```
+
+Ahora ya se puede ejecutar codigo de Python, pero solo en chunks de python, es decir, en chunks que empiezan con ```{python}
+```{python}
+# --- PYTHON ---
+
+a = "Hola " + "Mundo"
+print(a)
+```
+Si ejecutamos un codigo de Python en un chunk de R, es decir, en un chunk que empieza por ```{r} , obtenemos un error.
+```{r}
+# --- R ---
+
+# b = "Hola " + "Mundo"
+# print(b)
+
+# Si se ejecuta sale error porque estamos usando lenguaje Python dentro de un chunk de R
+```
+
+Podemos acceder a los objetos creados con Python desde un chunk de R con la instruccion py$
+```{r}
+# --- R ---
+
+py$a
+```
+
+Podemos equivalentemente acceder a los objetos creados en R desde un chunk de Python con instruccion r.
+```{r}
+# --- R ---
+
+b="ey chavales"
+```
+
+```{python}
+# --- PYTHON ---
+
+r.b
+```
+
+Podemos cargar librerias de Python usando un chunk de R del siguiente modo
+```{r}
+# --- R ---
+
+# py_install("pandas")
+
+# py_install("numpy")
+
+# py_install("scipy")
+```
+
+\
+
+Vamos a hacer un ejemplo de una analisis estadistico mezclando el uso de Python y R. Esta es la principal utilidad de reticulete, nos permite hacer analisis con R y Python simultaneamente
+```{python}
+# --- PYTHON ---
+
+# Tratamiento de datos
+import pandas as pd
+import numpy as np
+
+# Gráficos
+import matplotlib.pyplot as plt
+from matplotlib import style
+import seaborn as sns
+
+# Preprocesado y modelado
+from scipy.stats import pearsonr
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import r2_score
+from sklearn.metrics import mean_squared_error
+import statsmodels.api as sm
+import statsmodels.formula.api as smf
+
+# Configuración matplotlib
+
+plt.rcParams['image.cmap'] = "bwr"
+#plt.rcParams['figure.dpi'] = "100"
+plt.rcParams['savefig.bbox'] = "tight"
+style.use('ggplot') or plt.style.use('ggplot')
+
+# Configuración warnings
+
+import warnings
+warnings.filterwarnings('ignore')
+```
+
+
+
+```{python}
+# --- PYTHON ---
+
+# Datos
+
+equipos = ["Texas","Boston","Detroit","Kansas","St.","New_S.","New_Y.",            "Milwaukee","Colorado","Houston","Baltimore","Los_An.","Chicago",           "Cincinnati","Los_P.","Philadelphia","Chicago","Cleveland","Arizona", "Toronto","Minnesota","Florida","Pittsburgh","Oakland","Tampa",           "Atlanta","Washington","San.F","San.I","Seattle"]
+           
+bateos = [5659,  5710, 5563, 5672, 5532, 5600, 5518, 5447, 5544, 5598, 5585, 5436, 5549, 5612, 5513, 5579, 5502, 5509, 5421, 5559,           5487, 5508, 5421, 5452, 5436, 5528, 5441, 5486, 5417, 5421]
+
+runs = [855, 875, 787, 730, 762, 718, 867, 721, 735, 615, 708, 644, 654, 735, 667, 713, 654, 704, 731, 743, 619, 625, 610, 645, 707, 641, 624, 570, 593, 556]
+
+datos = pd.DataFrame({'equipos': equipos, 'bateos': bateos, 'runs': runs})
+
+datos.head(3)
+```
+```{r}
+# --- R ---
+
+py$datos[1:7, ]
+```
+
+```{r}
+# --- R ---
+
+library(ggplot2)
+
+ggplot(data = py$datos, aes( x=bateos, y=runs) )+
+  geom_point()
+
+```
+
+```{python}
+# --- PYTHON ---
+
+# División de los datos en train y test
+# ==============================================================================
+X = datos[['bateos']]
+y = datos['runs']
+
+X_train, X_test, y_train, y_test = train_test_split(
+X.values.reshape(-1,1),  y.values.reshape(-1,1), train_size   = 0.8,  random_state = 1234, shuffle = True  )
+
+# Creación del modelo
+# ==============================================================================
+modelo =  LinearRegression()
+modelo.fit(X = X_train.reshape(-1, 1), y = y_train)
+```
+
+```{python}
+# --- PYTHON ---
+
+# Información del modelo
+# ==============================================================================
+print("Intercept:", modelo.intercept_)
+print("Coeficiente:", list(zip(X.columns, modelo.coef_.flatten(), )))
+print("Coeficiente de determinación R^2:", modelo.score(X, y))
+```
+
+
+```{python}
+# --- PYTHON ---
+
+corr_test = pearsonr(x = datos['bateos'], y =  datos['runs'])
+
+print("Coeficiente de correlación de Pearson: ", corr_test[0])
+```
+
+
+
+
+
+
