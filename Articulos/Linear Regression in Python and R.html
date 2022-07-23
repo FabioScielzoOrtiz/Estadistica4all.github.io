@@ -15117,6 +15117,17 @@ limpieza) (true/false)</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>We load the data-set with which we are going to work:</p>
 
 </div>
@@ -15175,6 +15186,17 @@ i Specify the column types or set `show_col_types = FALSE` to quiet this message
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15245,7 +15267,7 @@ i Specify the column types or set `show_col_types = FALSE` to quiet this message
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The following step will be remove in the data-set the variables that we will not take into account:</p>
+<p>The following step will be convert the categorical variables to factor in R and remove in the data-set the variables that we will not take into account:</p>
 
 </div>
 </div>
@@ -16889,7 +16911,7 @@ x_{n}
 </li>
 <li><p>$Var(y_i) = \sigma^2$</p>
 </li>
-<li><p>$y_i \sim N(x_i^t \cdot \beta , \sigma)$</p>
+<li><p>$y_i \sim N(\hspace{0.1cm} x_i^t  \cdot \beta \hspace{0.1cm} , \hspace{0.1cm} \sigma^2 \hspace{0.1cm} )$</p>
 </li>
 <li><p>$cov(y_i , y_j)=0$</p>
 </li>
@@ -16988,7 +17010,7 @@ using the ordinary least square (OLS) method.</p>
 <p>$\hat{\beta}$  is compute as the solution of the following optimitation
 problem:</p>
 \begin{gather*}
-Min  \sum_{i=1}^{n} (y_i - \widehat{y}_i)^2 = \sum_{i=1}^{n} (y_i - x_i^t \cdot \beta)^2 
+\underset{\beta}{Min} \hspace{0.2cm} \sum_{i=1}^{n} (y_i - \widehat{y}_i)^2 = \sum_{i=1}^{n} (y_i - x_i^t \cdot \beta)^2 
 \end{gather*}<p><br></p>
 <p>The problem solution is:</p>
 \begin{gather*}
@@ -19259,7 +19281,7 @@ model errors:</p>
 <h2 id="Estimation-of-the-error-variance-">Estimation of the error variance <a class="anchor" id="24" /><a class="anchor-link" href="#Estimation-of-the-error-variance-">&#182;</a></h2><p>The estimator of the error variance $Var(\varepsilon_i)=\sigma^2$ is
 called residual variance, and is defined as:</p>
 $$
-S_R^2 = \dfrac{1}{n-p-1} \cdot \sum_{i=1}^{n} \hat{\varepsilon}_i =  \dfrac{1}{n-p-1} \cdot (Y^t \cdot Y - \hat{\beta}^t \cdot X^t \cdot Y)
+\hat{\sigma}^2 = S_R^2 = \dfrac{1}{n-p-1} \cdot \sum_{i=1}^{n} \hat{\varepsilon}_i^2 =  \dfrac{1}{n-p-1} \cdot (Y^t \cdot Y - \hat{\beta}^t \cdot X^t \cdot Y)
 $$<p>The following is fulfilled:</p>
 $$
 \dfrac{n-p-1}{\sigma^2} \cdot S_R^2 \sim \chi_{n-p-1}^2 \\
@@ -21743,8 +21765,8 @@ pvalue = 0.015
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="ANOVA-Test--">ANOVA Test  <a class="anchor" id="48" /><a class="anchor-link" href="#ANOVA-Test--">&#182;</a></h3><p>The ANOVA test is also called test of Model Global Significance :</p>
 \begin{gather*}
-H_0: \beta_0=\beta_1=...=\beta_p=0 \\
-H_1: \exists \ j=0,1,...,p , \ \beta_j \neq 0
+\hspace{-0.7 cm} H_0: \hspace{0.15cm} \beta_1=...=\beta_p=0 \\
+H_1: \hspace{0.15cm} \exists \ j=1,...,p , \hspace{0.2cm} \beta_j \neq 0
 \end{gather*}
 </div>
 </div>
@@ -22096,16 +22118,16 @@ strong multicollinearity or other numerical problems.
 R^2 = \dfrac{RegSS}{TSS}
 \end{gather*}<p><strong>Properties</strong></p>
 <ul>
-<li><p>\$ R\^2\$ is the propotion of total variance of the response
-variable data that is explained by the model.</p>
+<li><p>$ R^2$ is the proportion of total variance of the response
+variable  that is explained by the model.</p>
 </li>
 <li><p>$R^2 \in \left[ 0 , 1 \right]$</p>
 </li>
 </ul>
-<p>For this reason R\^2 is used as a measure of how well the model fits the
-response variable data.</p>
+<p>For this reason $R^2$ is used as a measure of how well the model fits the
+response variable .</p>
 <p><strong>Interpretation</strong></p>
-<p>The interpretation of R\^2 is the following:</p>
+<p>The interpretation of $R^2$ is the following:</p>
 <ul>
 <li><p>If $R^2$ is close to 1, indicates good fit of model to response
 variable data</p>
@@ -22387,8 +22409,19 @@ with different $R^2$</p>
 </ol>
 <p>For avoid the disadvantages of $R^2$ was created the adjusted $R^2$ ,
 denoted as $\widehat{R^2}$, and defined as:</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 \begin{gather*}
-\widehat{R^2} = 1 - (1- R^2)\cdot \dfrac{n-1}{n-p}
+\widehat{R}^2 = 1 - \left( 1- R^2 \right) \cdot \dfrac{n-1}{n-p}
 \end{gather*}
 </div>
 </div>
