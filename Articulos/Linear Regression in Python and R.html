@@ -17010,12 +17010,48 @@ using the ordinary least square (OLS) method.</p>
 <p>$\hat{\beta}$  is compute as the solution of the following optimitation
 problem:</p>
 \begin{gather*}
-\underset{\beta}{Min} \hspace{0.2cm} \sum_{i=1}^{n} (y_i - \widehat{y}_i)^2 = \sum_{i=1}^{n} (y_i - x_i^t \cdot \beta)^2 
+\underset{\beta}{Min} \hspace{0.2cm} \sum_{i=1}^{n} e_i^2 \hspace{0.2cm} = \hspace{0.2cm} \underset{\beta}{Min} \hspace{0.2cm} \sum_{i=1}^{n} (y_i - \widehat{y}_i)^2 \hspace{0.2cm} = \hspace{0.2cm} \underset{\beta}{Min} \hspace{0.2cm} \sum_{i=1}^{n} (y_i - x_i^t \cdot \beta)^2 
 \end{gather*}<p><br></p>
 <p>The problem solution is:</p>
 \begin{gather*}
-\hat{\beta}=(X^t \cdot X)^{-1} \cdot X^t \cdot Y
+\widehat{\beta}=(X^t \cdot X)^{-1} \cdot X^t \cdot Y
 \end{gather*}<p><br></p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><strong>Interpretation :</strong></p>
+<p>$\hspace{0.2cm} \widehat{y}_i = x_i^t \cdot \widehat{\beta} \hspace{0.2cm} $ is the hyperplane that <strong>minimize</strong> the <strong>euclidean distance</strong> between the given values of the response variable $(y)$ and the points of the hyperplane.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p><img src="hyperplane.png" class="center" width="400" height="400"></p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><strong>Observation:</strong></p>
 <p>We will not view here the mathematical details about the resolution of
 this optimization problem. But is a classic convex optimization problem,
@@ -20909,7 +20945,8 @@ longitude         -3031977.51  -322344.39
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Then, for example, we have:</p>
 $$
-IC(\beta_0)=\left[-1.208060e+08 \ , \ -3.336873e+06 \right] \\
+IC(\beta_0)=\left[-1.208060e+08 \ , \ -3.336873e+06 \right] 
+$$$$
 IC(\beta_{size\_in\_m\_2})=\left[ 3.424446e+04   \ , \ 3.708364e+04 \right] 
 $$
 </div>
@@ -21540,7 +21577,7 @@ strong multicollinearity or other numerical problems.
 H_0: \beta_{quality1}=0 \\
 H_1: \beta_{quality1} \neq 0 \\ \\
 pvalue = 0.094   
-\end{gather*}<p>For $\hspace{0.05cm} \alpha = 0.05 &lt; 0.094$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Not \hspace{0.08cm} Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{quality1}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $quality1$ isn´t a significance variable</p>
+\end{gather*}<p>For $\hspace{0.05cm} \alpha = 0.05 &lt; 0.094$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Not \hspace{0.08cm} Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{quality1}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $quality1 \hspace{0.1cm}$ isn´t a significance variable</p>
 
 </div>
 </div>
@@ -21567,7 +21604,7 @@ pvalue = 0.094
 H_0: \beta_{quality2}=0 \\
 H_1: \beta_{quality2} \neq 0 \\ \\
 pvalue = 0.028    
-\end{gather*}<p>For $\hspace{0.05cm} \alpha = 0.05 &gt; 0.028$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{quality2}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm} Accept  \hspace{0.08cm} H_1 : \hspace{0.05cm} \beta_{quality2}\neq 0$ $quality2$ is a significance variable</p>
+\end{gather*}<p>For $\hspace{0.05cm} \alpha = 0.05 &gt; 0.028$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{quality2}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm} Accept  \hspace{0.08cm} H_1 : \hspace{0.05cm} \beta_{quality2}\neq 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$  $quality2 \hspace{0.1cm}$ is a significance variable</p>
 
 </div>
 </div>
@@ -21594,7 +21631,7 @@ pvalue = 0.028
 H_0: \beta_{quality3}=0 \\
 H_1: \beta_{quality3} \neq 0 \\ \\
 pvalue = 0.159 
-\end{gather*}<p>For $\hspace{0.05cm} \alpha = 0.05 &lt; 0.159$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Not Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{quality3}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $quality3$ isn´t a significance variable</p>
+\end{gather*}<p>For $\hspace{0.05cm} \alpha = 0.05 &lt; 0.159$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Not Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{quality3}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $quality3 \hspace{0.1cm}$ isn´t a significance variable</p>
 
 </div>
 </div>
@@ -21621,7 +21658,7 @@ pvalue = 0.159
 H_0: \beta_{size\_in\_m\_2}=0 \\
 H_1: \beta_{size\_in\_m\_2} \neq 0 \\ \\
 pvalue \simeq 0
-\end{gather*}<p>For $\hspace{0.05cm} \alpha = 0.05 &lt; 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{size\_in\_m\_2}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $size\_in\_m\_2$ is a significance variable</p>
+\end{gather*}<p>For $\hspace{0.05cm} \alpha = 0.05 &lt; 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{size\_in\_m\_2}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $size\_in\_m\_2  \hspace{0.1cm}$ is a significance variable</p>
 
 </div>
 </div>
@@ -21648,7 +21685,7 @@ pvalue \simeq 0
 H_0: \beta_{no\_of\_bedrooms}=0 \\
 H_1: \beta_{no\_of\_bedrooms} \neq 0 \\ \\
 pvalue \simeq 0
-\end{gather*}<p>For $\hspace{0.05cm} \alpha = 0.05 &lt; 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{no\_of\_bedrooms}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $no\_of\_bedrooms$ is a significance variable</p>
+\end{gather*}<p>For $\hspace{0.05cm} \alpha = 0.05 &lt; 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{no\_of\_bedrooms}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $no\_of\_bedrooms  \hspace{0.1cm}$ is a significance variable</p>
 
 </div>
 </div>
@@ -21675,7 +21712,7 @@ pvalue \simeq 0
 H_0: \beta_{no\_of\_bathrooms}=0 \\
 H_1: \beta_{no\_of\_bathrooms} \neq 0 \\ \\
 pvalue =  0.403
-\end{gather*}<p>For $\hspace{0.05cm} \alpha = 0.05 &lt; 0.403$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Not Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{no\_of\_bathrooms}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $no\_of\_bathrooms$ isn´t a significance variable</p>
+\end{gather*}<p>For $\hspace{0.05cm} \alpha = 0.05 &lt; 0.403$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Not Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{no\_of\_bathrooms}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $no\_of\_bathrooms  \hspace{0.1cm}$ isn´t a significance variable</p>
 
 </div>
 </div>
@@ -21702,7 +21739,7 @@ pvalue =  0.403
 H_0: \beta_{latitude}=0 \\
 H_1: \beta_{latitude} \neq 0 \\ \\
 pvalue \simeq 0
-\end{gather*}<p>For $\hspace{0.05cm} \alpha = 0.05 &gt; 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{latitude}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $latitude$ is a significance variable</p>
+\end{gather*}<p>For $\hspace{0.05cm} \alpha = 0.05 &gt; 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{latitude}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $latitude  \hspace{0.1cm}$ is a significance variable</p>
 
 </div>
 </div>
@@ -21729,7 +21766,7 @@ pvalue \simeq 0
 H_0: \beta_{longitude}=0 \\
 H_1: \beta_{longitude} \neq 0 \\ \\
 pvalue = 0.015
-\end{gather*}<p>For $\hspace{0.05cm} \alpha = 0.05 &gt; 0.015$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{longitude}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $longitude$ is a significance variable</p>
+\end{gather*}<p>For $\hspace{0.05cm} \alpha = 0.05 &gt; 0.015$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{longitude}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $longitude  \hspace{0.1cm}$ is a significance variable</p>
 
 </div>
 </div>
