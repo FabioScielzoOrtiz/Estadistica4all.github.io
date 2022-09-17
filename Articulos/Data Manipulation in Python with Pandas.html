@@ -17641,6 +17641,1375 @@ dtype: float64</pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_frame</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable 1</th>
+      <th>variable 2</th>
+      <th>variable 3</th>
+      <th>new_variable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Spain</th>
+      <td>46350000</td>
+      <td>5.0</td>
+      <td>Europe</td>
+      <td>9270000.0</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>44380000</td>
+      <td>6.0</td>
+      <td>South America</td>
+      <td>7396667.0</td>
+    </tr>
+    <tr>
+      <th>Chile</th>
+      <td>18120000</td>
+      <td>3.0</td>
+      <td>South America</td>
+      <td>6040000.0</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>31970000</td>
+      <td>2.0</td>
+      <td>South America</td>
+      <td>15985000.0</td>
+    </tr>
+    <tr>
+      <th>Cuba</th>
+      <td>10330000</td>
+      <td>1.5</td>
+      <td>Caribbean</td>
+      <td>6886667.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Selecting multiple columns by names:</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span> <span class="p">,</span> <span class="p">[</span><span class="s2">"variable 2"</span><span class="p">,</span><span class="s2">"new_variable"</span><span class="p">]]</span>  
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable 2</th>
+      <th>new_variable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Spain</th>
+      <td>5.0</td>
+      <td>9270000.0</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>6.0</td>
+      <td>7396667.0</td>
+    </tr>
+    <tr>
+      <th>Chile</th>
+      <td>3.0</td>
+      <td>6040000.0</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>2.0</td>
+      <td>15985000.0</td>
+    </tr>
+    <tr>
+      <th>Cuba</th>
+      <td>1.5</td>
+      <td>6886667.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Select columns between two columns</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span> <span class="p">,</span> <span class="s1">'variable 1'</span><span class="p">:</span><span class="s1">'variable 3'</span><span class="p">]</span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable 1</th>
+      <th>variable 2</th>
+      <th>variable 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Spain</th>
+      <td>46350000</td>
+      <td>5.0</td>
+      <td>Europe</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>44380000</td>
+      <td>6.0</td>
+      <td>South America</td>
+    </tr>
+    <tr>
+      <th>Chile</th>
+      <td>18120000</td>
+      <td>3.0</td>
+      <td>South America</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>31970000</td>
+      <td>2.0</td>
+      <td>South America</td>
+    </tr>
+    <tr>
+      <th>Cuba</th>
+      <td>10330000</td>
+      <td>1.5</td>
+      <td>Caribbean</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span> <span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable 1</th>
+      <th>variable 2</th>
+      <th>variable 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Spain</th>
+      <td>46350000</td>
+      <td>5.0</td>
+      <td>Europe</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>44380000</td>
+      <td>6.0</td>
+      <td>South America</td>
+    </tr>
+    <tr>
+      <th>Chile</th>
+      <td>18120000</td>
+      <td>3.0</td>
+      <td>South America</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>31970000</td>
+      <td>2.0</td>
+      <td>South America</td>
+    </tr>
+    <tr>
+      <th>Cuba</th>
+      <td>10330000</td>
+      <td>1.5</td>
+      <td>Caribbean</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Select columns from one variable to the right</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span> <span class="p">,</span> <span class="s1">'variable 3'</span><span class="p">:</span> <span class="p">]</span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable 3</th>
+      <th>new_variable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Spain</th>
+      <td>Europe</td>
+      <td>9270000.0</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>South America</td>
+      <td>7396667.0</td>
+    </tr>
+    <tr>
+      <th>Chile</th>
+      <td>South America</td>
+      <td>6040000.0</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>South America</td>
+      <td>15985000.0</td>
+    </tr>
+    <tr>
+      <th>Cuba</th>
+      <td>Caribbean</td>
+      <td>6886667.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span> <span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="p">]</span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable 3</th>
+      <th>new_variable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Spain</th>
+      <td>Europe</td>
+      <td>9270000.0</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>South America</td>
+      <td>7396667.0</td>
+    </tr>
+    <tr>
+      <th>Chile</th>
+      <td>South America</td>
+      <td>6040000.0</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>South America</td>
+      <td>15985000.0</td>
+    </tr>
+    <tr>
+      <th>Cuba</th>
+      <td>Caribbean</td>
+      <td>6886667.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span> <span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="n">data_frame</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable 3</th>
+      <th>new_variable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Spain</th>
+      <td>Europe</td>
+      <td>9270000.0</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>South America</td>
+      <td>7396667.0</td>
+    </tr>
+    <tr>
+      <th>Chile</th>
+      <td>South America</td>
+      <td>6040000.0</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>South America</td>
+      <td>15985000.0</td>
+    </tr>
+    <tr>
+      <th>Cuba</th>
+      <td>Caribbean</td>
+      <td>6886667.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Select columns from one variable to the left</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span> <span class="p">,</span> <span class="p">:</span><span class="s1">'variable 3'</span> <span class="p">]</span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable 1</th>
+      <th>variable 2</th>
+      <th>variable 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Spain</th>
+      <td>46350000</td>
+      <td>5.0</td>
+      <td>Europe</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>44380000</td>
+      <td>6.0</td>
+      <td>South America</td>
+    </tr>
+    <tr>
+      <th>Chile</th>
+      <td>18120000</td>
+      <td>3.0</td>
+      <td>South America</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>31970000</td>
+      <td>2.0</td>
+      <td>South America</td>
+    </tr>
+    <tr>
+      <th>Cuba</th>
+      <td>10330000</td>
+      <td>1.5</td>
+      <td>Caribbean</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span> <span class="p">,</span> <span class="p">:</span><span class="mi">3</span><span class="p">]</span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable 1</th>
+      <th>variable 2</th>
+      <th>variable 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Spain</th>
+      <td>46350000</td>
+      <td>5.0</td>
+      <td>Europe</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>44380000</td>
+      <td>6.0</td>
+      <td>South America</td>
+    </tr>
+    <tr>
+      <th>Chile</th>
+      <td>18120000</td>
+      <td>3.0</td>
+      <td>South America</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>31970000</td>
+      <td>2.0</td>
+      <td>South America</td>
+    </tr>
+    <tr>
+      <th>Cuba</th>
+      <td>10330000</td>
+      <td>1.5</td>
+      <td>Caribbean</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_frame</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span> <span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable 1</th>
+      <th>variable 2</th>
+      <th>variable 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Spain</th>
+      <td>46350000</td>
+      <td>5.0</td>
+      <td>Europe</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>44380000</td>
+      <td>6.0</td>
+      <td>South America</td>
+    </tr>
+    <tr>
+      <th>Chile</th>
+      <td>18120000</td>
+      <td>3.0</td>
+      <td>South America</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>31970000</td>
+      <td>2.0</td>
+      <td>South America</td>
+    </tr>
+    <tr>
+      <th>Cuba</th>
+      <td>10330000</td>
+      <td>1.5</td>
+      <td>Caribbean</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Selecting all the columns different to one</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span> <span class="n">data_frame</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span> <span class="p">,</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">columns</span> <span class="o">!=</span> <span class="s1">'variable 2'</span><span class="p">]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable 1</th>
+      <th>variable 3</th>
+      <th>new_variable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Spain</th>
+      <td>46350000</td>
+      <td>Europe</td>
+      <td>9270000.0</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>44380000</td>
+      <td>South America</td>
+      <td>7396667.0</td>
+    </tr>
+    <tr>
+      <th>Chile</th>
+      <td>18120000</td>
+      <td>South America</td>
+      <td>6040000.0</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>31970000</td>
+      <td>South America</td>
+      <td>15985000.0</td>
+    </tr>
+    <tr>
+      <th>Cuba</th>
+      <td>10330000</td>
+      <td>Caribbean</td>
+      <td>6886667.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_frame</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'variable 2'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable 1</th>
+      <th>variable 3</th>
+      <th>new_variable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Spain</th>
+      <td>46350000</td>
+      <td>Europe</td>
+      <td>9270000.0</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>44380000</td>
+      <td>South America</td>
+      <td>7396667.0</td>
+    </tr>
+    <tr>
+      <th>Chile</th>
+      <td>18120000</td>
+      <td>South America</td>
+      <td>6040000.0</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>31970000</td>
+      <td>South America</td>
+      <td>15985000.0</td>
+    </tr>
+    <tr>
+      <th>Cuba</th>
+      <td>10330000</td>
+      <td>Caribbean</td>
+      <td>6886667.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Selecting all the columns different to more than one</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_frame</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'variable 2'</span><span class="p">,</span> <span class="s1">'variable 3'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable 1</th>
+      <th>new_variable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Spain</th>
+      <td>46350000</td>
+      <td>9270000.0</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>44380000</td>
+      <td>7396667.0</td>
+    </tr>
+    <tr>
+      <th>Chile</th>
+      <td>18120000</td>
+      <td>6040000.0</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>31970000</td>
+      <td>15985000.0</td>
+    </tr>
+    <tr>
+      <th>Cuba</th>
+      <td>10330000</td>
+      <td>6886667.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Filtering-observations-(rows)-in-a-data-frame-">Filtering observations (rows) in a data-frame <a class="anchor" id="12" /><a class="anchor-link" href="#Filtering-observations-(rows)-in-a-data-frame-">&#182;</a></h3>
 </div>
 </div>
@@ -18339,7 +19708,7 @@ Name: variable 2, dtype: bool</pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Deleting-columns-in-a-data-frame-">Deleting columns in a data-frame <a class="anchor" id="13" /><a class="anchor-link" href="#Deleting-columns-in-a-data-frame-">&#182;</a></h3>
+
 </div>
 </div>
 </div>
@@ -18350,8 +19719,7 @@ Name: variable 2, dtype: bool</pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Delete columns:</p>
-
+<h3 id="Deleting-columns-in-a-data-frame-">Deleting columns in a data-frame <a class="anchor" id="13" /><a class="anchor-link" href="#Deleting-columns-in-a-data-frame-">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -18363,9 +19731,7 @@ Name: variable 2, dtype: bool</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">del</span> <span class="p">[</span> <span class="n">df</span><span class="p">[</span><span class="s1">'X3'</span><span class="p">]</span> <span class="p">]</span>
-
-<span class="n">df</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_frame</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'variable 2'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
 </pre></div>
 
      </div>
@@ -18404,47 +19770,41 @@ Name: variable 2, dtype: bool</pre>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Countries</th>
-      <th>Continent</th>
-      <th>X4</th>
-      <th>X5</th>
+      <th>variable 1</th>
+      <th>variable 3</th>
+      <th>new_variable</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>France</td>
+      <th>Spain</th>
+      <td>46350000</td>
       <td>Europe</td>
-      <td>22</td>
-      <td>15</td>
+      <td>9270000.0</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>Spain</td>
-      <td>Europe</td>
-      <td>7</td>
-      <td>22</td>
+      <th>Argentina</th>
+      <td>44380000</td>
+      <td>South America</td>
+      <td>7396667.0</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>Italy</td>
-      <td>Europe</td>
-      <td>40</td>
-      <td>5</td>
+      <th>Chile</th>
+      <td>18120000</td>
+      <td>South America</td>
+      <td>6040000.0</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>Russia</td>
-      <td>Not Europe</td>
-      <td>16</td>
-      <td>-30</td>
+      <th>Peru</th>
+      <td>31970000</td>
+      <td>South America</td>
+      <td>15985000.0</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>USA</td>
-      <td>Not Europe</td>
-      <td>45</td>
-      <td>21</td>
+      <th>Cuba</th>
+      <td>10330000</td>
+      <td>Caribbean</td>
+      <td>6886667.0</td>
     </tr>
   </tbody>
 </table>
@@ -18457,6 +19817,542 @@ Name: variable 2, dtype: bool</pre>
 
 </div>
 
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_frame</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'variable 2'</span><span class="p">,</span> <span class="s1">'variable 3'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable 1</th>
+      <th>new_variable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Spain</th>
+      <td>46350000</td>
+      <td>9270000.0</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>44380000</td>
+      <td>7396667.0</td>
+    </tr>
+    <tr>
+      <th>Chile</th>
+      <td>18120000</td>
+      <td>6040000.0</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>31970000</td>
+      <td>15985000.0</td>
+    </tr>
+    <tr>
+      <th>Cuba</th>
+      <td>10330000</td>
+      <td>6886667.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_frame</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">data_frame</span><span class="o">.</span><span class="n">columns</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable 1</th>
+      <th>new_variable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Spain</th>
+      <td>46350000</td>
+      <td>9270000.0</td>
+    </tr>
+    <tr>
+      <th>Argentina</th>
+      <td>44380000</td>
+      <td>7396667.0</td>
+    </tr>
+    <tr>
+      <th>Chile</th>
+      <td>18120000</td>
+      <td>6040000.0</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>31970000</td>
+      <td>15985000.0</td>
+    </tr>
+    <tr>
+      <th>Cuba</th>
+      <td>10330000</td>
+      <td>6886667.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Deleting-rows-in-a-data-frame-">Deleting rows in a data-frame <a class="anchor" id="13" /><a class="anchor-link" href="#Deleting-rows-in-a-data-frame-">&#182;</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>If row names (index) are words:</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_frame</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">'Spain'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable 1</th>
+      <th>variable 2</th>
+      <th>variable 3</th>
+      <th>new_variable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Argentina</th>
+      <td>44380000</td>
+      <td>6.0</td>
+      <td>South America</td>
+      <td>7396667.0</td>
+    </tr>
+    <tr>
+      <th>Chile</th>
+      <td>18120000</td>
+      <td>3.0</td>
+      <td>South America</td>
+      <td>6040000.0</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>31970000</td>
+      <td>2.0</td>
+      <td>South America</td>
+      <td>15985000.0</td>
+    </tr>
+    <tr>
+      <th>Cuba</th>
+      <td>10330000</td>
+      <td>1.5</td>
+      <td>Caribbean</td>
+      <td>6886667.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>If the rown names (index) are numbers</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_frame</span><span class="p">[</span> <span class="s1">'index'</span> <span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">data_frame</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'index'</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable 1</th>
+      <th>variable 2</th>
+      <th>variable 3</th>
+      <th>new_variable</th>
+    </tr>
+    <tr>
+      <th>index</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>46350000</td>
+      <td>5.0</td>
+      <td>Europe</td>
+      <td>9270000.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>44380000</td>
+      <td>6.0</td>
+      <td>South America</td>
+      <td>7396667.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>18120000</td>
+      <td>3.0</td>
+      <td>South America</td>
+      <td>6040000.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>31970000</td>
+      <td>2.0</td>
+      <td>South America</td>
+      <td>15985000.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10330000</td>
+      <td>1.5</td>
+      <td>Caribbean</td>
+      <td>6886667.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_frame</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">data_frame</span><span class="o">.</span><span class="n">index</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span> <span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable 1</th>
+      <th>variable 2</th>
+      <th>variable 3</th>
+      <th>new_variable</th>
+      <th>index</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Spain</th>
+      <td>46350000</td>
+      <td>5.0</td>
+      <td>Europe</td>
+      <td>9270000.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Peru</th>
+      <td>31970000</td>
+      <td>2.0</td>
+      <td>South America</td>
+      <td>15985000.0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Cuba</th>
+      <td>10330000</td>
+      <td>1.5</td>
+      <td>Caribbean</td>
+      <td>6886667.0</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -23781,8 +25677,8 @@ Name: X2, dtype: int64</pre>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([ 8,  9,  3,  3,  0,  3,  3,  4,  8,  5,  5,  8,  0,  6, 10,  1,  5,
-        2,  4,  2, 10,  6,  7,  4,  5])</pre>
+<pre>array([ 3,  3,  4,  8,  9,  5,  5,  5,  2,  7,  7,  1,  0,  6,  3, 10,  6,
+        3,  3,  5,  5,  4, 10, 10,  6])</pre>
 </div>
 
 </div>
@@ -23821,11 +25717,11 @@ Name: X2, dtype: int64</pre>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([-0.84405402,  0.71846134, -1.06318515,  0.02181927, -0.8803183 ,
-        0.16617375,  0.62576029, -0.53095237,  1.66082731,  1.52108913,
-       -0.72504624, -0.69447706,  0.46906109, -0.06975825, -1.56388487,
-        2.60201002, -0.39912035,  0.54924838,  0.42136859, -1.03717653,
-       -0.98789694,  1.20529588, -0.88511714, -0.87460987, -0.57925877])</pre>
+<pre>array([ 0.70760089,  0.55020741,  0.99372936, -0.85581795,  0.72139878,
+        0.16219549, -0.00273593,  0.52160731, -0.5646466 ,  0.91987246,
+       -0.12807525, -0.8026815 ,  0.39776141,  1.76805148,  1.62774072,
+        1.89541331, -0.80631476,  0.06951489, -1.2797862 , -1.7863993 ,
+        0.60890065, -0.36930361,  1.00238915,  1.67406014,  0.43488302])</pre>
 </div>
 
 </div>
@@ -23866,8 +25762,8 @@ Name: X2, dtype: int64</pre>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([ 6., 10.,  4.,  9., 10.,  5.,  9.,  7.,  5., 10., 10.,  8.,  7.,
-        6.,  4.,  7.,  5.,  4.,  4.,  5.,  6.,  6.,  3.,  7.,  3.])</pre>
+<pre>array([ 7.,  6.,  8.,  7.,  9.,  7.,  7.,  4.,  8.,  6.,  8.,  8.,  7.,
+        6.,  3.,  8.,  3.,  8.,  4.,  3., 10.,  9.,  4.,  7.,  8.])</pre>
 </div>
 
 </div>
@@ -23907,11 +25803,11 @@ Name: X2, dtype: int64</pre>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([3.99962655, 7.47492977, 9.8784819 , 6.37680164, 4.48750425,
-       5.73191664, 4.64925063, 9.94828065, 4.87174113, 8.16891815,
-       8.23390162, 6.99770649, 8.03685577, 4.12358955, 8.17536312,
-       5.42387033, 7.80351148, 3.28877479, 8.52227885, 7.29931865,
-       9.29305456, 9.15771325, 8.48463775, 7.58825308, 8.55012616])</pre>
+<pre>array([9.48216411, 6.39229953, 6.81950249, 8.02225061, 9.08132961,
+       5.6481793 , 9.05511811, 4.23518368, 8.01869641, 4.48909864,
+       3.04766331, 8.72125047, 5.88795039, 6.99284987, 8.52961987,
+       3.86010173, 8.45971185, 5.48136768, 6.2986178 , 9.28815886,
+       7.21883731, 8.97206253, 7.56866854, 9.78712602, 7.4787692 ])</pre>
 </div>
 
 </div>
@@ -23950,8 +25846,8 @@ Name: X2, dtype: int64</pre>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([7.29931865, 8.23390162, 8.48463775, 8.48463775, 8.17536312,
-       3.28877479, 5.42387033, 8.23390162, 7.80351148, 9.15771325])</pre>
+<pre>array([6.2986178 , 9.08132961, 7.56866854, 7.4787692 , 8.52961987,
+       5.48136768, 8.72125047, 8.02225061, 9.78712602, 9.28815886])</pre>
 </div>
 
 </div>
@@ -24958,6 +26854,47 @@ Name: X2, dtype: int64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>array([[1., 1., 1., 1.],
+       [1., 1., 1., 1.],
+       [1., 1., 1., 1.]])</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">A</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 <span class="n">A</span>
 </pre></div>
@@ -25175,6 +27112,17 @@ Name: X2, dtype: int64</pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Inverse</p>
 
 </div>
@@ -25229,6 +27177,17 @@ Name: X2, dtype: int64</pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Transpose</p>
 
 </div>
@@ -25276,6 +27235,17 @@ Name: X2, dtype: int64</pre>
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -25401,17 +27371,6 @@ Name: X2, dtype: int64</pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>We have to do this necessary step with 1D array to transpose  it:</p>
 
 </div>
@@ -25463,7 +27422,7 @@ Name: X2, dtype: int64</pre>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>array([[[1, 3, 4, 9]]])</pre>
+<pre>array([[1, 3, 4, 9]])</pre>
 </div>
 
 </div>
@@ -25472,7 +27431,7 @@ Name: X2, dtype: int64</pre>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -25486,6 +27445,32 @@ Name: X2, dtype: int64</pre>
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>array([[1],
+       [3],
+       [4],
+       [9]])</pre>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
