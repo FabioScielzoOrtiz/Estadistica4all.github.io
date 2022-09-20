@@ -17085,6 +17085,18 @@ x_{n}
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Why are these latest assumptions  important ? $\hspace{0.1cm} \Rightarrow\hspace{0.1cm} $ Dimensionality problem (will be seen in other article of the blog)</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 
 </div>
 </div>
@@ -17243,7 +17255,7 @@ problem:</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<img src="hyperplane.png" class="center" width="400" height="400">
+<img src="hyperplane.png" class="right" width="400" height="400">
 
 </div>
 </div>
@@ -21079,9 +21091,44 @@ called residual variance, and is defined as:</p>
 $$
 \hat{\sigma}^2 = S_R^2 = \dfrac{1}{n-p-1} \cdot \sum_{i=1}^{n} \hat{\varepsilon}_i^2 =  \dfrac{1}{n-p-1} \cdot (Y^t \cdot Y - \hat{\beta}^t \cdot X^t \cdot Y)
 $$<p>The following is fulfilled:</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$
-\dfrac{n-p-1}{\sigma^2} \cdot S_R^2 \sim \chi_{n-p-1}^2 \\
-E[S_R^2]=\sigma^2 \\
+\dfrac{n-p-1}{\sigma^2} \cdot S_R^2 \sim \chi_{n-p-1}^2
+$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+$$
+E[S_R^2]=\sigma^2 
+$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+$$
 Var(S_R^2)=\dfrac{2 \cdot \sigma^4}{n-p-1}
 $$
 </div>
@@ -21343,9 +21390,31 @@ $$
 <h2 id="Model-Training-Validation-">Model Training Validation <a class="anchor" id="30" /><a class="anchor-link" href="#Model-Training-Validation-">&#182;</a></h2><p>We can compute some metric in order to measure how much distant are the
 predictions and observations of the response variable.</p>
 <p>Two of the most common metrics are the mean absolute deviation (MAD) and the mean square error (MSE):</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 $$
 MAD=  \dfrac{1}{n} \sum_{i=1}^{n} \mid y_i - \hat{y}_i \mid = \dfrac{1}{n} \sum_{i=1}^{n} \mid \hat{\varepsilon}_i \mid
-$$$$
+$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+$$
 MSE = \dfrac{1}{n} \sum_{i=1}^{n} ( y_i - \hat{y}_i )^2 = \dfrac{1}{n} \sum_{i=1}^{n} \hat{\varepsilon}_i^2
 $$
 </div>
@@ -21627,6 +21696,17 @@ be more developed in another article about validation techniques.</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Null-Coefficient-">Null Coefficient <a class="anchor" id="34" /><a class="anchor-link" href="#Null-Coefficient-">&#182;</a></h3><p>We have the following estimated linear regression model</p>
 <p>$$\hat{y}= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + ...+ \hat{\beta_p}\cdot x_{ip}$$</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
 <li>$\hat{\beta}_0$ $\hspace{0.05cm}$ is the model estimated value for the response variable, i.e $\hspace{0.05cm}$  $\hat{y}_i$ $\hspace{0.05cm}$</li>
 </ul>
@@ -21655,7 +21735,18 @@ be more developed in another article about validation techniques.</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Quantitative-Predictor-Coefficient-">Quantitative Predictor Coefficient <a class="anchor" id="35" /><a class="anchor-link" href="#Quantitative-Predictor-Coefficient-">&#182;</a></h3><p>Let $X_k$ a <strong>quantitative</strong> variable, and $\hspace{0.05cm}$ $h&gt;0$,</p>
 <p>We have the following estimated linear regression model</p>
-$$\hat{y}_i= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + .. + \hat{\beta_k}\cdot x_{ik} + ..+ \hat{\beta_p}\cdot x_{ip}$$<ul>
+$$\hat{y}_i= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + .. + \hat{\beta_k}\cdot x_{ik} + ..+ \hat{\beta_p}\cdot x_{ip}$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
 <li><p>If $\hat{\beta}_k &gt; 0$  , then</p>
 <ul>
 <li><p>If  $x_{ik}$  <strong>increases</strong> in $h$ units $\hspace{0.05cm}$  $\Rightarrow$  $\hspace{0.05cm}$ $\hat{y}_i$
@@ -22494,6 +22585,17 @@ IC\left(\beta_j  \right)= \left[  \hat{\beta}_j \ \pm \ t_{\alpha/2}^{n-k-1} \cd
 \end{gather*}<p>Where:</p>
 <p>$q_{jj}$ is the element $j+1$ of the principal diagonal of the matrix
 $(X^t \cdot X)^{-1}$ for $j=0,1,...,p$</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Confidence-Interval-for-$%5Csigma%5E2$-">Confidence Interval for $\sigma^2$ <a class="anchor" id="42" /><a class="anchor-link" href="#Confidence-Interval-for-$%5Csigma%5E2$-">&#182;</a></h3>\begin{gather*}
 IC\left(\sigma^2  \right)= \left[ 0 \ , \ \dfrac{n-k-1}{\chi_{1-\alpha/2}^{n-k-1}}\cdot S_R^2  \right]
 \end{gather*}
@@ -23020,12 +23122,45 @@ IC(\sigma^2)=\left[2.418577e+12   \ , \ 2.747045e+12 \right]
 |:------------------------:|:---------------------:|:---------------------:|
 |  $H_0: \beta_j = \beta_j^*$   | $H_0: \beta_j = \beta_j^*$ | $H_0: \beta_j = \beta_j^*$ |
 | $H_1: \beta_j \neq \beta_j^*$ | $H_1: \beta_j &gt; \beta_j^*$ | $H_1: \beta_j &lt; \beta_j^*$ |</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h4 id="Test-Statistic:">Test Statistic:<a class="anchor-link" href="#Test-Statistic:">&#182;</a></h4><p>The test statistic for any of the previous test is:</p>
 \begin{gather*}
 t_{exp | H_0}=\dfrac{\hat{\beta}_j - \beta_j^*}{\sqrt{S_R \cdot q_{jj}}} \sim t_{n-p}
-\end{gather*}<h4 id="Decision-Rule">Decision Rule<a class="anchor-link" href="#Decision-Rule">&#182;</a></h4><p>For a fixed signification level $\alpha$</p>
+\end{gather*}
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Decision-Rule">Decision Rule<a class="anchor-link" href="#Decision-Rule">&#182;</a></h4><p>For a fixed signification level $\alpha$</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
-<li>Caso   $H_0: \beta_j = \beta_j^*$  vs  $H_1: \beta_j \neq \beta_j^*$</li>
+<li>Case   $H_0: \beta_j = \beta_j^*$  vs  $H_1: \beta_j \neq \beta_j^*$</li>
 </ul>
 <p>Based in test statistic</p>
 \begin{gather*}
@@ -23034,8 +23169,19 @@ Reject \ H_0 \ \Leftrightarrow \ t_{exp|H_0} &gt; t_{\alpha/2}^{n-p} \ ó \ t_{e
 \begin{gather*}
 pvalue=2\cdot P( t_{n-p} \geqslant \mid t_{exp|H_0} \mid ) \\ \\
 Reject \ H_0  \ \Leftrightarrow \ pvalue &lt; \alpha
-\end{gather*}<ul>
-<li>Caso   $H_0: \beta_j = \beta_j^*$  vs  $H_1: \beta_j &gt; \beta_j^*$</li>
+\end{gather*}
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>Case   $H_0: \beta_j = \beta_j^*$  vs  $H_1: \beta_j &gt; \beta_j^*$</li>
 </ul>
 <p>Based in test statistic</p>
 \begin{gather*}
@@ -23044,8 +23190,19 @@ Reject \ H_0 \ \Leftrightarrow \ t_{exp|H_0} &gt; t_{\alpha/2}^{n-p}
 \begin{gather*}
 pvalue=2\cdot P( t_{n-p} \geqslant t_{exp|H_0} ) \\ \\
 Reject \ H_0  \ \Leftrightarrow \ pvalue &lt; \alpha
-\end{gather*}<ul>
-<li>Caso   $H_0: \beta_j = \beta_j^*$  vs  $H_1: \beta_j &lt; \beta_j^*$</li>
+\end{gather*}
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>Case   $H_0: \beta_j = \beta_j^*$  vs  $H_1: \beta_j &lt; \beta_j^*$</li>
 </ul>
 <p>Based in test statistic</p>
 \begin{gather*}
@@ -24455,7 +24612,7 @@ $$ \widehat{R^2} = 0.697$$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>At least one of the predictors is a linear combination of the rest of the predictors, so $Rg(X) &lt; p+1$ (not full range)</p>
+<p>At least one of the predictors is a linear combination of the rest of the predictors, so $Rg(X) &lt; p+1 \hspace{0.1cm}$ (not full range)</p>
 <p>By the null rank theorem, $R(X^t \cdot X) &lt; p+1$ , therefore there is no $(X^t \cdot X)^{-1}$ , so it cannot be estimate $\beta$ with the method of least squares.</p>
 
 </div>
@@ -25202,8 +25359,8 @@ $$ VIF(i) = \dfrac{1}{1- R^2_{X_i}} $$<p>Where:</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><strong>Criterion:</strong></p>
 <p>If $\hspace{0.15cm}VIF(i) &gt; 10$ $\hspace{0.15cm}\left( R^2_{X_i} &gt; 0.90 \right)$ $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ <strong>High</strong> multicollinearity</p>
-<p>If $\hspace{0.15cm}VIF(i)  \in [4, 10]$  $\hspace{0.15cm}\left(R^2_{X_i} \in [0.75 , 0.90]\right)$ $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ Medium multicollinearity</p>
-<p>If  $\hspace{0.15cm}VIF(i) &lt; 4$ $\hspace{0.15cm}\left(R^2_{X_i} &lt; 0.75 \right)$ $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ Low multicollinearity</p>
+<p>If $\hspace{0.15cm}VIF(i)  \in [4, 10]$  $\hspace{0.15cm}\left(R^2_{X_i} \in [0.75 , 0.90]\right)$ $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ <strong>Medium</strong> multicollinearity</p>
+<p>If  $\hspace{0.15cm}VIF(i) &lt; 4$ $\hspace{0.15cm}\left(R^2_{X_i} &lt; 0.75 \right)$ $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ <strong>Low</strong> multicollinearity</p>
 
 </div>
 </div>
