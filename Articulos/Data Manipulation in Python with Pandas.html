@@ -18123,66 +18123,93 @@ dtype: float64</pre>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputArea-child">
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">KeyError</span>                                  Traceback (most recent call last)
+File <span class="ansi-green-intense-fg ansi-bold">c:\Users\Usuario\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\indexes\base.py:3621</span>, in <span class="ansi-cyan-fg">Index.get_loc</span><span class="ansi-blue-intense-fg ansi-bold">(self, key, method, tolerance)</span>
+<span class="ansi-green-fg">   3620</span> try:
+<span class="ansi-green-intense-fg ansi-bold">-&gt; 3621</span>     return self._engine.get_loc(casted_key)
+<span class="ansi-green-fg">   3622</span> except KeyError as err:
 
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+File <span class="ansi-green-intense-fg ansi-bold">c:\Users\Usuario\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\_libs\index.pyx:136</span>, in <span class="ansi-cyan-fg">pandas._libs.index.IndexEngine.get_loc</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+File <span class="ansi-green-intense-fg ansi-bold">c:\Users\Usuario\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\_libs\index.pyx:163</span>, in <span class="ansi-cyan-fg">pandas._libs.index.IndexEngine.get_loc</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>variable 3</th>
-      <th>new_variable</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Spain</th>
-      <td>Europe</td>
-      <td>9270000.0</td>
-    </tr>
-    <tr>
-      <th>Argentina</th>
-      <td>South America</td>
-      <td>7396667.0</td>
-    </tr>
-    <tr>
-      <th>Chile</th>
-      <td>South America</td>
-      <td>6040000.0</td>
-    </tr>
-    <tr>
-      <th>Peru</th>
-      <td>South America</td>
-      <td>15985000.0</td>
-    </tr>
-    <tr>
-      <th>Cuba</th>
-      <td>Caribbean</td>
-      <td>6886667.0</td>
-    </tr>
-  </tbody>
-</table>
+File <span class="ansi-green-intense-fg ansi-bold">pandas\_libs\hashtable_class_helper.pxi:5198</span>, in <span class="ansi-cyan-fg">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+
+File <span class="ansi-green-intense-fg ansi-bold">pandas\_libs\hashtable_class_helper.pxi:5206</span>, in <span class="ansi-cyan-fg">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+
+<span class="ansi-red-intense-fg ansi-bold">KeyError</span>: 0
+
+The above exception was the direct cause of the following exception:
+
+<span class="ansi-red-intense-fg ansi-bold">KeyError</span>                                  Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">c:\Users\Usuario\Documents\fabio\Fabio\Estadistica4all.github.io\Notebooks\Data Manipulation in Python\Data Manipulation in Python with Pandas.ipynb Celda 80</span> in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; &lt;a href=&#39;vscode-notebook-cell:/c%3A/Users/Usuario/Documents/fabio/Fabio/Estadistica4all.github.io/Notebooks/Data%20Manipulation%20in%20Python/Data%20Manipulation%20in%20Python%20with%20Pandas.ipynb#Y505sZmlsZQ%3D%3D?line=0&#39;&gt;1&lt;/a&gt;</span> data_frame.loc[0 , &#39;variable 3&#39;: ]
+
+File <span class="ansi-green-intense-fg ansi-bold">c:\Users\Usuario\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\indexing.py:961</span>, in <span class="ansi-cyan-fg">_LocationIndexer.__getitem__</span><span class="ansi-blue-intense-fg ansi-bold">(self, key)</span>
+<span class="ansi-green-fg">    959</span>     if self._is_scalar_access(key):
+<span class="ansi-green-fg">    960</span>         return self.obj._get_value(*key, takeable=self._takeable)
+<span class="ansi-green-intense-fg ansi-bold">--&gt; 961</span>     return self._getitem_tuple(key)
+<span class="ansi-green-fg">    962</span> else:
+<span class="ansi-green-fg">    963</span>     # we by definition only have the 0th axis
+<span class="ansi-green-fg">    964</span>     axis = self.axis or 0
+
+File <span class="ansi-green-intense-fg ansi-bold">c:\Users\Usuario\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\indexing.py:1140</span>, in <span class="ansi-cyan-fg">_LocIndexer._getitem_tuple</span><span class="ansi-blue-intense-fg ansi-bold">(self, tup)</span>
+<span class="ansi-green-fg">   1138</span> with suppress(IndexingError):
+<span class="ansi-green-fg">   1139</span>     tup = self._expand_ellipsis(tup)
+<span class="ansi-green-intense-fg ansi-bold">-&gt; 1140</span>     return self._getitem_lowerdim(tup)
+<span class="ansi-green-fg">   1142</span> # no multi-index, so validate all of the indexers
+<span class="ansi-green-fg">   1143</span> tup = self._validate_tuple_indexer(tup)
+
+File <span class="ansi-green-intense-fg ansi-bold">c:\Users\Usuario\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\indexing.py:867</span>, in <span class="ansi-cyan-fg">_LocationIndexer._getitem_lowerdim</span><span class="ansi-blue-intense-fg ansi-bold">(self, tup)</span>
+<span class="ansi-green-fg">    863</span> for i, key in enumerate(tup):
+<span class="ansi-green-fg">    864</span>     if is_label_like(key):
+<span class="ansi-green-fg">    865</span>         # We don&#39;t need to check for tuples here because those are
+<span class="ansi-green-fg">    866</span>         #  caught by the _is_nested_tuple_indexer check above.
+<span class="ansi-green-intense-fg ansi-bold">--&gt; 867</span>         section = self._getitem_axis(key, axis=i)
+<span class="ansi-green-fg">    869</span>         # We should never have a scalar section here, because
+<span class="ansi-green-fg">    870</span>         #  _getitem_lowerdim is only called after a check for
+<span class="ansi-green-fg">    871</span>         #  is_scalar_access, which that would be.
+<span class="ansi-green-fg">    872</span>         if section.ndim == self.ndim:
+<span class="ansi-green-fg">    873</span>             # we&#39;re in the middle of slicing through a MultiIndex
+<span class="ansi-green-fg">    874</span>             # revise the key wrt to `section` by inserting an _NS
+
+File <span class="ansi-green-intense-fg ansi-bold">c:\Users\Usuario\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\indexing.py:1202</span>, in <span class="ansi-cyan-fg">_LocIndexer._getitem_axis</span><span class="ansi-blue-intense-fg ansi-bold">(self, key, axis)</span>
+<span class="ansi-green-fg">   1200</span> # fall thru to straight lookup
+<span class="ansi-green-fg">   1201</span> self._validate_key(key, axis)
+<span class="ansi-green-intense-fg ansi-bold">-&gt; 1202</span> return self._get_label(key, axis=axis)
+
+File <span class="ansi-green-intense-fg ansi-bold">c:\Users\Usuario\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\indexing.py:1153</span>, in <span class="ansi-cyan-fg">_LocIndexer._get_label</span><span class="ansi-blue-intense-fg ansi-bold">(self, label, axis)</span>
+<span class="ansi-green-fg">   1151</span> def _get_label(self, label, axis: int):
+<span class="ansi-green-fg">   1152</span>     # GH#5667 this will fail if the label is not present in the axis.
+<span class="ansi-green-intense-fg ansi-bold">-&gt; 1153</span>     return self.obj.xs(label, axis=axis)
+
+File <span class="ansi-green-intense-fg ansi-bold">c:\Users\Usuario\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\generic.py:3864</span>, in <span class="ansi-cyan-fg">NDFrame.xs</span><span class="ansi-blue-intense-fg ansi-bold">(self, key, axis, level, drop_level)</span>
+<span class="ansi-green-fg">   3862</span>             new_index = index[loc]
+<span class="ansi-green-fg">   3863</span> else:
+<span class="ansi-green-intense-fg ansi-bold">-&gt; 3864</span>     loc = index.get_loc(key)
+<span class="ansi-green-fg">   3866</span>     if isinstance(loc, np.ndarray):
+<span class="ansi-green-fg">   3867</span>         if loc.dtype == np.bool_:
+
+File <span class="ansi-green-intense-fg ansi-bold">c:\Users\Usuario\AppData\Local\Programs\Python\Python310\lib\site-packages\pandas\core\indexes\base.py:3623</span>, in <span class="ansi-cyan-fg">Index.get_loc</span><span class="ansi-blue-intense-fg ansi-bold">(self, key, method, tolerance)</span>
+<span class="ansi-green-fg">   3621</span>     return self._engine.get_loc(casted_key)
+<span class="ansi-green-fg">   3622</span> except KeyError as err:
+<span class="ansi-green-intense-fg ansi-bold">-&gt; 3623</span>     raise KeyError(key) from err
+<span class="ansi-green-fg">   3624</span> except TypeError:
+<span class="ansi-green-fg">   3625</span>     # If we have a listlike key, _check_indexing_error will raise
+<span class="ansi-green-fg">   3626</span>     #  InvalidIndexError. Otherwise we fall through and re-raise
+<span class="ansi-green-fg">   3627</span>     #  the TypeError.
+<span class="ansi-green-fg">   3628</span>     self._check_indexing_error(key)
+
+<span class="ansi-red-intense-fg ansi-bold">KeyError</span>: 0</pre>
 </div>
-</div>
-
 </div>
 
 </div>
@@ -27473,6 +27500,51 @@ Name: X2, dtype: int64</pre>
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Bibliography">Bibliography<a class="anchor-link" href="#Bibliography">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Pandas Developers.  <em>Pandas</em>.   https://pandas.pydata.org/</p>
+
+</div>
+</div>
+</div>
 </div>
 </body>
 

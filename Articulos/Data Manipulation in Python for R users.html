@@ -14464,10 +14464,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14477,9 +14473,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14647,7 +14660,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>All merits must go to Kiefer Katovich, who is the developer of the <code>Dfply</code> package.</p>
 <p>Here the repository of the package, on which this article is based:</p>
-<p><a href="https://github.com/kieferk/dfply">https://github.com/kieferk/dfply</a></p>
+<p>https://github.com/kieferk/dfply</p>
 
 </div>
 </div>
@@ -14677,7 +14690,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">max_columns</span> <span class="o">=</span> <span class="kc">None</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14749,7 +14762,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>We will use the following url to obtein the data:</p>
-<p><a href="https://raw.githubusercontent.com/FabioScielzoOrtiz/Estadistica4all-blog/main/Data%20Manipulation%20in%20Python/properties_data.csv">https://raw.githubusercontent.com/FabioScielzoOrtiz/Estadistica4all-blog/main/Data%20Manipulation%20in%20Python/properties_data.csv</a></p>
+<p>https://raw.githubusercontent.com/FabioScielzoOrtiz/Estadistica4all-blog/main/Data%20Manipulation%20in%20Python/properties_data.csv</p>
 
 </div>
 </div>
@@ -14762,7 +14775,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/FabioScielzoOrtiz/Estadistica4all-blog/main/Data%20Manipulation</span><span class="si">%20i</span><span class="s1">n%20Python/properties_data.csv&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">'https://raw.githubusercontent.com/FabioScielzoOrtiz/Estadistica4all-blog/main/Data%20Manipulation</span><span class="si">%20i</span><span class="s1">n%20Python/properties_data.csv'</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="n">data</span>
 </pre></div>
@@ -14778,9 +14791,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -15354,9 +15365,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -15672,9 +15681,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -16012,9 +16019,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -16157,9 +16162,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -16302,9 +16305,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -16829,7 +16830,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">select</span><span class="p">(</span><span class="n">starts_with</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">))</span> <span class="o">&gt;&gt;</span> <span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">select</span><span class="p">(</span><span class="n">starts_with</span><span class="p">(</span><span class="s1">'p'</span><span class="p">))</span> <span class="o">&gt;&gt;</span> <span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16843,9 +16844,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -16961,7 +16960,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">select</span><span class="p">(</span> <span class="o">~</span> <span class="n">starts_with</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">))</span> <span class="o">&gt;&gt;</span> <span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">select</span><span class="p">(</span> <span class="o">~</span> <span class="n">starts_with</span><span class="p">(</span><span class="s1">'p'</span><span class="p">))</span> <span class="o">&gt;&gt;</span> <span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16975,9 +16974,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -17225,7 +17222,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">select</span><span class="p">(</span> <span class="n">ends_with</span><span class="p">(</span><span class="s1">&#39;e&#39;</span><span class="p">))</span> <span class="o">&gt;&gt;</span> <span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">select</span><span class="p">(</span> <span class="n">ends_with</span><span class="p">(</span><span class="s1">'e'</span><span class="p">))</span> <span class="o">&gt;&gt;</span> <span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17239,9 +17236,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -17333,7 +17328,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">select</span><span class="p">(</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;of&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">select</span><span class="p">(</span><span class="n">contains</span><span class="p">(</span><span class="s1">'of'</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -17347,9 +17342,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -17492,9 +17485,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -17637,9 +17628,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -18142,9 +18131,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -18275,9 +18262,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -18420,9 +18405,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -18553,9 +18536,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -18710,9 +18691,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -19227,9 +19206,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -19412,9 +19389,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -19856,9 +19831,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -20035,9 +20008,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -20588,9 +20559,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -21338,9 +21307,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -21889,7 +21856,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s1">'price'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -21903,9 +21870,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -22454,7 +22419,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">filter_by</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">quality</span> <span class="o">==</span> <span class="s1">&#39;Low&#39;</span> <span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">price</span> <span class="o">&gt;</span> <span class="mi">500000</span> <span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">filter_by</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">quality</span> <span class="o">==</span> <span class="s1">'Low'</span> <span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">price</span> <span class="o">&gt;</span> <span class="mi">500000</span> <span class="p">)</span>
 </pre></div>
 
      </div>
@@ -22468,9 +22433,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -23007,7 +22970,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">filter_by</span><span class="p">(</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">quality</span> <span class="o">==</span> <span class="s1">&#39;Low&#39;</span><span class="p">)</span> <span class="o">&amp;</span>  <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">price</span> <span class="o">&gt;</span> <span class="mi">500000</span><span class="p">)</span> <span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">filter_by</span><span class="p">(</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">quality</span> <span class="o">==</span> <span class="s1">'Low'</span><span class="p">)</span> <span class="o">&amp;</span>  <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">price</span> <span class="o">&gt;</span> <span class="mi">500000</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 
      </div>
@@ -23021,9 +22984,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -23572,7 +23533,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">filter_by</span><span class="p">(</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;quality&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Low&#39;</span><span class="p">)</span> <span class="o">&amp;</span>  <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">500000</span><span class="p">)</span> <span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">filter_by</span><span class="p">(</span> <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s1">'quality'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Low'</span><span class="p">)</span> <span class="o">&amp;</span>  <span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s1">'price'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">500000</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 
      </div>
@@ -23586,9 +23547,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -24137,7 +24096,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">filter_by</span><span class="p">(</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">quality</span> <span class="o">==</span> <span class="s1">&#39;Low&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">price</span> <span class="o">&gt;</span> <span class="mi">500000</span><span class="p">)</span> <span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">filter_by</span><span class="p">(</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">quality</span> <span class="o">==</span> <span class="s1">'Low'</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">price</span> <span class="o">&gt;</span> <span class="mi">500000</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 
      </div>
@@ -24151,9 +24110,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -24690,7 +24647,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">filter_by</span><span class="p">(</span> <span class="o">~</span> <span class="p">(</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">quality</span> <span class="o">==</span> <span class="s1">&#39;Low&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">price</span> <span class="o">&gt;</span> <span class="mi">500000</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">filter_by</span><span class="p">(</span> <span class="o">~</span> <span class="p">(</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">quality</span> <span class="o">==</span> <span class="s1">'Low'</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">price</span> <span class="o">&gt;</span> <span class="mi">500000</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
 </pre></div>
 
      </div>
@@ -24704,9 +24661,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -25243,7 +25198,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">filter_by</span><span class="p">(</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">quality</span> <span class="o">!=</span> <span class="s1">&#39;Low&#39;</span><span class="p">)</span> <span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">filter_by</span><span class="p">(</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">quality</span> <span class="o">!=</span> <span class="s1">'Low'</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 
      </div>
@@ -25257,9 +25212,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -25810,9 +25763,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -26397,9 +26348,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -26520,9 +26469,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -26668,9 +26615,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -26813,9 +26758,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -26957,9 +26900,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -27510,9 +27451,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -28086,9 +28025,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -28647,7 +28584,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span> <span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">gather</span><span class="p">(</span><span class="s1">&#39;variable&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;quality&#39;</span><span class="p">])</span> <span class="o">&gt;&gt;</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span> <span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">gather</span><span class="p">(</span><span class="s1">'variable'</span><span class="p">,</span> <span class="s1">'value'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'price'</span><span class="p">,</span> <span class="s1">'quality'</span><span class="p">])</span> <span class="o">&gt;&gt;</span> 
 <span class="n">select</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">size_in_sqft</span> <span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">no_of_bedrooms</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">variable</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 
@@ -28662,9 +28599,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -28793,7 +28728,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">gather</span><span class="p">(</span><span class="s1">&#39;variable&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">gather</span><span class="p">(</span><span class="s1">'variable'</span><span class="p">,</span> <span class="s1">'value'</span><span class="p">)</span> 
 </pre></div>
 
      </div>
@@ -28807,9 +28742,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -28914,7 +28847,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_long</span> <span class="o">=</span> <span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">gather</span><span class="p">(</span><span class="s1">&#39;variable&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;quality&#39;</span><span class="p">]</span> <span class="p">,</span>  <span class="n">add_id</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">select</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">_ID</span> <span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">size_in_sqft</span> <span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">no_of_bedrooms</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">variable</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_long</span> <span class="o">=</span> <span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">gather</span><span class="p">(</span><span class="s1">'variable'</span><span class="p">,</span> <span class="s1">'value'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'price'</span><span class="p">,</span> <span class="s1">'quality'</span><span class="p">]</span> <span class="p">,</span>  <span class="n">add_id</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">select</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">_ID</span> <span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">size_in_sqft</span> <span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">no_of_bedrooms</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">variable</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> 
 <span class="c1"># add_id=True is needed </span>
 <span class="n">data_long</span>
 </pre></div>
@@ -28930,9 +28863,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -29098,9 +29029,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -29264,12 +29193,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span> <span class="s2">&quot;Femenino&quot;</span> <span class="p">,</span> <span class="s2">&quot;Masculino&quot;</span><span class="p">,</span> <span class="s2">&quot;Masculino&quot;</span><span class="p">,</span> <span class="s2">&quot;Femenino&quot;</span> <span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span> <span class="s2">"Femenino"</span> <span class="p">,</span> <span class="s2">"Masculino"</span><span class="p">,</span> <span class="s2">"Masculino"</span><span class="p">,</span> <span class="s2">"Femenino"</span> <span class="p">])</span>
 <span class="n">X2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">])</span>
-<span class="n">X3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span>  <span class="s1">&#39;1-a-3&#39;</span> <span class="p">,</span> <span class="s1">&#39;1-b&#39;</span><span class="p">,</span> <span class="s1">&#39;1-c-3-4&#39;</span><span class="p">,</span> <span class="s1">&#39;9-d-1&#39;</span><span class="p">,</span> <span class="s1">&#39;10&#39;</span> <span class="p">])</span>
+<span class="n">X3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span>  <span class="s1">'1-a-3'</span> <span class="p">,</span> <span class="s1">'1-b'</span><span class="p">,</span> <span class="s1">'1-c-3-4'</span><span class="p">,</span> <span class="s1">'9-d-1'</span><span class="p">,</span> <span class="s1">'10'</span> <span class="p">])</span>
 <span class="n">X4</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">23</span><span class="p">])</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">{</span><span class="s2">&quot;Sex&quot;</span><span class="p">:</span> <span class="n">X1</span> <span class="p">,</span> <span class="s2">&quot;X2&quot;</span><span class="p">:</span> <span class="n">X2</span> <span class="p">,</span> <span class="s2">&quot;X3&quot;</span><span class="p">:</span> <span class="n">X3</span> <span class="p">,</span> <span class="s2">&quot;X4&quot;</span><span class="p">:</span> <span class="n">X4</span><span class="p">}</span> <span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">{</span><span class="s2">"Sex"</span><span class="p">:</span> <span class="n">X1</span> <span class="p">,</span> <span class="s2">"X2"</span><span class="p">:</span> <span class="n">X2</span> <span class="p">,</span> <span class="s2">"X3"</span><span class="p">:</span> <span class="n">X3</span> <span class="p">,</span> <span class="s2">"X4"</span><span class="p">:</span> <span class="n">X4</span><span class="p">}</span> <span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 
@@ -29284,9 +29213,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -29395,8 +29322,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">separate</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">X3</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;col1&#39;</span><span class="p">,</span> <span class="s1">&#39;col2&#39;</span><span class="p">],</span> <span class="n">remove</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">convert</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                       <span class="n">extra</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">separate</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">X3</span><span class="p">,</span> <span class="p">[</span><span class="s1">'col1'</span><span class="p">,</span> <span class="s1">'col2'</span><span class="p">],</span> <span class="n">remove</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">convert</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                       <span class="n">extra</span><span class="o">=</span><span class="s1">'drop'</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">'right'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -29410,9 +29337,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -29504,8 +29429,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">separate</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">X3</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;col1&#39;</span><span class="p">,</span> <span class="s1">&#39;col2&#39;</span><span class="p">,</span> <span class="s1">&#39;col3&#39;</span><span class="p">,</span> <span class="s1">&#39;col4&#39;</span><span class="p">],</span> <span class="n">remove</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">convert</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                                     <span class="n">extra</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">separate</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">X3</span><span class="p">,</span> <span class="p">[</span><span class="s1">'col1'</span><span class="p">,</span> <span class="s1">'col2'</span><span class="p">,</span> <span class="s1">'col3'</span><span class="p">,</span> <span class="s1">'col4'</span><span class="p">],</span> <span class="n">remove</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">convert</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                                     <span class="n">extra</span><span class="o">=</span><span class="s1">'drop'</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">'right'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -29519,9 +29444,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -29625,8 +29548,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">separate</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">X3</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;col1&#39;</span><span class="p">,</span> <span class="s1">&#39;col2&#39;</span><span class="p">,</span> <span class="s1">&#39;col3&#39;</span><span class="p">,</span> <span class="s1">&#39;col4&#39;</span><span class="p">],</span> <span class="n">remove</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">convert</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                                       <span class="n">extra</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">separate</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">X3</span><span class="p">,</span> <span class="p">[</span><span class="s1">'col1'</span><span class="p">,</span> <span class="s1">'col2'</span><span class="p">,</span> <span class="s1">'col3'</span><span class="p">,</span> <span class="s1">'col4'</span><span class="p">],</span> <span class="n">remove</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">convert</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                                       <span class="n">extra</span><span class="o">=</span><span class="s1">'drop'</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">'left'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -29640,9 +29563,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -29746,8 +29667,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">separate</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">X3</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;col1&#39;</span><span class="p">,</span> <span class="s1">&#39;col2&#39;</span><span class="p">,</span> <span class="s1">&#39;col3&#39;</span><span class="p">,</span> <span class="s1">&#39;col4&#39;</span><span class="p">],</span> <span class="n">remove</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">convert</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                                       <span class="n">extra</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">separate</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">X3</span><span class="p">,</span> <span class="p">[</span><span class="s1">'col1'</span><span class="p">,</span> <span class="s1">'col2'</span><span class="p">,</span> <span class="s1">'col3'</span><span class="p">,</span> <span class="s1">'col4'</span><span class="p">],</span> <span class="n">remove</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">convert</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                                       <span class="n">extra</span><span class="o">=</span><span class="s1">'drop'</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">'left'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -29761,9 +29682,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -29873,9 +29792,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">separate</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">X3</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;col1&#39;</span><span class="p">,</span> <span class="s1">&#39;col2&#39;</span><span class="p">,</span> <span class="s1">&#39;col3&#39;</span><span class="p">,</span> <span class="s1">&#39;col4&#39;</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">separate</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">X3</span><span class="p">,</span> <span class="p">[</span><span class="s1">'col1'</span><span class="p">,</span> <span class="s1">'col2'</span><span class="p">,</span> <span class="s1">'col3'</span><span class="p">,</span> <span class="s1">'col4'</span><span class="p">],</span> <span class="n">sep</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> <span class="p">,</span>
                <span class="n">remove</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">convert</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-               <span class="n">extra</span><span class="o">=</span><span class="s1">&#39;drop&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+               <span class="n">extra</span><span class="o">=</span><span class="s1">'drop'</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">'left'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -29889,9 +29808,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -30014,12 +29931,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">NaN</span>
 
-<span class="n">X1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span> <span class="s2">&quot;Femenino&quot;</span> <span class="p">,</span> <span class="s2">&quot;Masculino&quot;</span><span class="p">,</span> <span class="s2">&quot;Masculino&quot;</span><span class="p">,</span> <span class="s2">&quot;Femenino&quot;</span> <span class="p">])</span>
+<span class="n">X1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span> <span class="s2">"Femenino"</span> <span class="p">,</span> <span class="s2">"Masculino"</span><span class="p">,</span> <span class="s2">"Masculino"</span><span class="p">,</span> <span class="s2">"Femenino"</span> <span class="p">])</span>
 <span class="n">X2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="o">-</span><span class="mi">13</span><span class="p">])</span>
-<span class="n">X3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span>  <span class="s1">&#39;a-3&#39;</span> <span class="p">,</span> <span class="s1">&#39;+b&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">NaN</span> <span class="p">])</span>
+<span class="n">X3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span>  <span class="s1">'a-3'</span> <span class="p">,</span> <span class="s1">'+b'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">NaN</span> <span class="p">])</span>
 <span class="n">X4</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">23</span><span class="p">])</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">{</span><span class="s2">&quot;Sex&quot;</span><span class="p">:</span> <span class="n">X1</span> <span class="p">,</span> <span class="s2">&quot;X2&quot;</span><span class="p">:</span> <span class="n">X2</span> <span class="p">,</span> <span class="s2">&quot;X3&quot;</span><span class="p">:</span> <span class="n">X3</span> <span class="p">,</span> <span class="s2">&quot;X4&quot;</span><span class="p">:</span> <span class="n">X4</span><span class="p">}</span> <span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">{</span><span class="s2">"Sex"</span><span class="p">:</span> <span class="n">X1</span> <span class="p">,</span> <span class="s2">"X2"</span><span class="p">:</span> <span class="n">X2</span> <span class="p">,</span> <span class="s2">"X3"</span><span class="p">:</span> <span class="n">X3</span> <span class="p">,</span> <span class="s2">"X4"</span><span class="p">:</span> <span class="n">X4</span><span class="p">}</span> <span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 
@@ -30034,9 +29951,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -30138,7 +30053,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">unite</span><span class="p">(</span><span class="s1">&#39;united&#39;</span><span class="p">,</span>  <span class="p">[</span><span class="s1">&#39;X3&#39;</span><span class="p">,</span> <span class="s1">&#39;X4&#39;</span><span class="p">],</span> <span class="n">remove</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">na_action</span><span class="o">=</span><span class="s1">&#39;maintain&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">unite</span><span class="p">(</span><span class="s1">'united'</span><span class="p">,</span>  <span class="p">[</span><span class="s1">'X3'</span><span class="p">,</span> <span class="s1">'X4'</span><span class="p">],</span> <span class="n">remove</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">na_action</span><span class="o">=</span><span class="s1">'maintain'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -30152,9 +30067,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -30164,9 +30077,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </pre>
 </div>
 </div>
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -30250,7 +30161,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">unite</span><span class="p">(</span><span class="s1">&#39;united&#39;</span><span class="p">,</span>  <span class="p">[</span><span class="s1">&#39;X3&#39;</span><span class="p">,</span> <span class="s1">&#39;X4&#39;</span><span class="p">],</span> <span class="n">remove</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">na_action</span><span class="o">=</span><span class="s1">&#39;as_string&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">unite</span><span class="p">(</span><span class="s1">'united'</span><span class="p">,</span>  <span class="p">[</span><span class="s1">'X3'</span><span class="p">,</span> <span class="s1">'X4'</span><span class="p">],</span> <span class="n">remove</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">na_action</span><span class="o">=</span><span class="s1">'as_string'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -30264,9 +30175,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -30276,9 +30185,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </pre>
 </div>
 </div>
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -30362,7 +30269,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">unite</span><span class="p">(</span><span class="s1">&#39;united&#39;</span><span class="p">,</span>  <span class="p">[</span><span class="s1">&#39;X3&#39;</span><span class="p">,</span> <span class="s1">&#39;X4&#39;</span><span class="p">],</span> <span class="n">remove</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">na_action</span><span class="o">=</span><span class="s1">&#39;maintain&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">unite</span><span class="p">(</span><span class="s1">'united'</span><span class="p">,</span>  <span class="p">[</span><span class="s1">'X3'</span><span class="p">,</span> <span class="s1">'X4'</span><span class="p">],</span> <span class="n">remove</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">na_action</span><span class="o">=</span><span class="s1">'maintain'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -30376,9 +30283,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -30388,9 +30293,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </pre>
 </div>
 </div>
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -30464,7 +30367,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">unite</span><span class="p">(</span><span class="s1">&#39;united&#39;</span><span class="p">,</span>  <span class="p">[</span><span class="s1">&#39;X3&#39;</span><span class="p">,</span> <span class="s1">&#39;X4&#39;</span><span class="p">],</span> <span class="n">remove</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">na_action</span><span class="o">=</span><span class="s1">&#39;maintain&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;**&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">unite</span><span class="p">(</span><span class="s1">'united'</span><span class="p">,</span>  <span class="p">[</span><span class="s1">'X3'</span><span class="p">,</span> <span class="s1">'X4'</span><span class="p">],</span> <span class="n">remove</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">na_action</span><span class="o">=</span><span class="s1">'maintain'</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">'**'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -30478,9 +30381,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -30490,9 +30391,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </pre>
 </div>
 </div>
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -30576,7 +30475,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">unite</span><span class="p">(</span><span class="s1">&#39;united&#39;</span><span class="p">,</span>  <span class="p">[</span><span class="s1">&#39;X3&#39;</span><span class="p">,</span> <span class="s1">&#39;X4&#39;</span><span class="p">],</span> <span class="n">remove</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">na_action</span><span class="o">=</span><span class="s1">&#39;maintain&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;//&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">&gt;&gt;</span> <span class="n">unite</span><span class="p">(</span><span class="s1">'united'</span><span class="p">,</span>  <span class="p">[</span><span class="s1">'X3'</span><span class="p">,</span> <span class="s1">'X4'</span><span class="p">],</span> <span class="n">remove</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">na_action</span><span class="o">=</span><span class="s1">'maintain'</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">'//'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -30590,9 +30489,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -30602,9 +30499,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </pre>
 </div>
 </div>
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -30723,21 +30618,21 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Alumnos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-        <span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;Pepe&#39;</span><span class="p">,</span><span class="s1">&#39;Juan&#39;</span><span class="p">,</span><span class="s1">&#39;Eva&#39;</span><span class="p">,</span> <span class="s1">&#39;Rosa&#39;</span><span class="p">,</span> <span class="s1">&#39;Ricardo&#39;</span><span class="p">],</span>
-        <span class="s1">&#39;DNI&#39;</span><span class="p">:[</span><span class="s1">&#39;2234X&#39;</span><span class="p">,</span> <span class="s1">&#39;3987Y&#39;</span><span class="p">,</span> <span class="s1">&#39;5412U&#39;</span> <span class="p">,</span> <span class="s1">&#39;7814J&#39;</span> <span class="p">,</span> <span class="s1">&#39;2233K&#39;</span><span class="p">],</span>
-        <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">15</span> <span class="p">,</span> <span class="mi">17</span> <span class="p">,</span> <span class="mi">16</span> <span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span> <span class="p">]</span>
+        <span class="s1">'Name'</span><span class="p">:[</span><span class="s1">'Pepe'</span><span class="p">,</span><span class="s1">'Juan'</span><span class="p">,</span><span class="s1">'Eva'</span><span class="p">,</span> <span class="s1">'Rosa'</span><span class="p">,</span> <span class="s1">'Ricardo'</span><span class="p">],</span>
+        <span class="s1">'DNI'</span><span class="p">:[</span><span class="s1">'2234X'</span><span class="p">,</span> <span class="s1">'3987Y'</span><span class="p">,</span> <span class="s1">'5412U'</span> <span class="p">,</span> <span class="s1">'7814J'</span> <span class="p">,</span> <span class="s1">'2233K'</span><span class="p">],</span>
+        <span class="s1">'Age'</span><span class="p">:</span> <span class="p">[</span><span class="mi">15</span> <span class="p">,</span> <span class="mi">17</span> <span class="p">,</span> <span class="mi">16</span> <span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span> <span class="p">]</span>
     <span class="p">})</span>
 
 <span class="n">Repetidores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;Pepe&#39;</span><span class="p">,</span><span class="s1">&#39;Juan&#39;</span><span class="p">,</span><span class="s1">&#39;Rosa&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;Final_Score&#39;</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">],</span>
-    <span class="s1">&#39;Repeater&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;yes&#39;</span><span class="p">,</span> <span class="s1">&#39;yes&#39;</span><span class="p">,</span> <span class="s1">&#39;yes&#39;</span><span class="p">]</span>
+    <span class="s1">'Name'</span><span class="p">:[</span><span class="s1">'Pepe'</span><span class="p">,</span><span class="s1">'Juan'</span><span class="p">,</span><span class="s1">'Rosa'</span><span class="p">],</span>
+    <span class="s1">'Final_Score'</span><span class="p">:[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">],</span>
+    <span class="s1">'Repeater'</span> <span class="p">:</span> <span class="p">[</span><span class="s1">'yes'</span><span class="p">,</span> <span class="s1">'yes'</span><span class="p">,</span> <span class="s1">'yes'</span><span class="p">]</span>
 <span class="p">})</span>
 
 <span class="n">Deportistas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s1">&#39;Name&#39;</span><span class="p">:[</span><span class="s1">&#39;Eva&#39;</span><span class="p">,</span><span class="s1">&#39;Juan&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;Sport&#39;</span><span class="p">:[</span><span class="s1">&#39;Basket&#39;</span><span class="p">,</span> <span class="s1">&#39;Soccer&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;Sporty&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;true&#39;</span> <span class="p">,</span> <span class="s1">&#39;true&#39;</span><span class="p">]</span>
+    <span class="s1">'Name'</span><span class="p">:[</span><span class="s1">'Eva'</span><span class="p">,</span><span class="s1">'Juan'</span><span class="p">],</span>
+    <span class="s1">'Sport'</span><span class="p">:[</span><span class="s1">'Basket'</span><span class="p">,</span> <span class="s1">'Soccer'</span><span class="p">],</span>
+    <span class="s1">'Sporty'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'true'</span> <span class="p">,</span> <span class="s1">'true'</span><span class="p">]</span>
 <span class="p">})</span>
 </pre></div>
 
@@ -30768,9 +30663,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -30864,9 +30757,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -30948,9 +30839,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -31023,7 +30912,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Alumnos</span> <span class="o">&gt;&gt;</span> <span class="n">inner_join</span><span class="p">(</span><span class="n">Repetidores</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Alumnos</span> <span class="o">&gt;&gt;</span> <span class="n">inner_join</span><span class="p">(</span><span class="n">Repetidores</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">'Name'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -31037,9 +30926,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -31126,7 +31013,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Alumnos</span> <span class="o">&gt;&gt;</span> <span class="n">full_join</span><span class="p">(</span><span class="n">Repetidores</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Alumnos</span> <span class="o">&gt;&gt;</span> <span class="n">full_join</span><span class="p">(</span><span class="n">Repetidores</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">'Name'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -31140,9 +31027,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -31245,7 +31130,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Alumnos</span> <span class="o">&gt;&gt;</span>  <span class="n">left_join</span><span class="p">(</span><span class="n">Repetidores</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Alumnos</span> <span class="o">&gt;&gt;</span>  <span class="n">left_join</span><span class="p">(</span><span class="n">Repetidores</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">'Name'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -31259,9 +31144,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -31353,7 +31236,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Deportistas</span> <span class="o">&gt;&gt;</span>  <span class="n">left_join</span><span class="p">(</span><span class="n">Repetidores</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Deportistas</span> <span class="o">&gt;&gt;</span>  <span class="n">left_join</span><span class="p">(</span><span class="n">Repetidores</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">'Name'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -31367,9 +31250,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -31437,7 +31318,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Repetidores</span> <span class="o">&gt;&gt;</span>  <span class="n">left_join</span><span class="p">(</span><span class="n">Deportistas</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Repetidores</span> <span class="o">&gt;&gt;</span>  <span class="n">left_join</span><span class="p">(</span><span class="n">Deportistas</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">'Name'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -31451,9 +31332,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -31540,9 +31419,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Deportistas</span> <span class="o">&gt;&gt;</span>  <span class="n">right_join</span><span class="p">(</span><span class="n">Repetidores</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Deportistas</span> <span class="o">&gt;&gt;</span>  <span class="n">right_join</span><span class="p">(</span><span class="n">Repetidores</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">'Name'</span><span class="p">)</span> 
 
-<span class="c1"># equivalent to Repetidores &gt;&gt;  left_join(Deportistas, by=&#39;Name&#39;)</span>
+<span class="c1"># equivalent to Repetidores &gt;&gt;  left_join(Deportistas, by='Name')</span>
 </pre></div>
 
      </div>
@@ -31556,9 +31435,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -31634,9 +31511,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Repetidores</span> <span class="o">&gt;&gt;</span>  <span class="n">right_join</span><span class="p">(</span><span class="n">Deportistas</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Repetidores</span> <span class="o">&gt;&gt;</span>  <span class="n">right_join</span><span class="p">(</span><span class="n">Deportistas</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">'Name'</span><span class="p">)</span> 
 
-<span class="c1"># equivalent to Deportistas &gt;&gt;  left_join(Repetidores, by=&#39;Name&#39;)</span>
+<span class="c1"># equivalent to Deportistas &gt;&gt;  left_join(Repetidores, by='Name')</span>
 </pre></div>
 
      </div>
@@ -31650,9 +31527,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -31731,7 +31606,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Alumnos</span> <span class="o">&gt;&gt;</span>  <span class="n">semi_join</span><span class="p">(</span><span class="n">Repetidores</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Alumnos</span> <span class="o">&gt;&gt;</span>  <span class="n">semi_join</span><span class="p">(</span><span class="n">Repetidores</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">'Name'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -31745,9 +31620,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -31826,7 +31699,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Alumnos</span> <span class="o">&gt;&gt;</span>  <span class="n">anti_join</span><span class="p">(</span><span class="n">Repetidores</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Alumnos</span> <span class="o">&gt;&gt;</span>  <span class="n">anti_join</span><span class="p">(</span><span class="n">Repetidores</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">'Name'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -31840,9 +31713,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -31905,12 +31776,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-        <span class="s1">&#39;X1&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">],</span>
-        <span class="s1">&#39;X2&#39;</span><span class="p">:[</span><span class="mi">55</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">63</span><span class="p">]</span>
+        <span class="s1">'X1'</span><span class="p">:[</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'B'</span><span class="p">,</span><span class="s1">'C'</span><span class="p">],</span>
+        <span class="s1">'X2'</span><span class="p">:[</span><span class="mi">55</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">63</span><span class="p">]</span>
     <span class="p">})</span>
 <span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-      <span class="s1">&#39;X1&#39;</span><span class="p">:[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">],</span>
-      <span class="s1">&#39;X2&#39;</span><span class="p">:[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">74</span><span class="p">]</span>
+      <span class="s1">'X1'</span><span class="p">:[</span><span class="s1">'B'</span><span class="p">,</span><span class="s1">'C'</span><span class="p">,</span><span class="s1">'D'</span><span class="p">],</span>
+      <span class="s1">'X2'</span><span class="p">:[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">74</span><span class="p">]</span>
 <span class="p">})</span>
 </pre></div>
 
@@ -31963,9 +31834,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -32059,9 +31928,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -32145,9 +32012,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -32215,9 +32080,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -32306,14 +32169,14 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-        <span class="s1">&#39;X1&#39;</span><span class="p">:[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">],</span>
-        <span class="s1">&#39;X2&#39;</span><span class="p">:[</span><span class="mi">55</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">63</span><span class="p">],</span> 
-        <span class="s1">&#39;X3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+        <span class="s1">'X1'</span><span class="p">:[</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'B'</span><span class="p">,</span><span class="s1">'C'</span><span class="p">],</span>
+        <span class="s1">'X2'</span><span class="p">:[</span><span class="mi">55</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">63</span><span class="p">],</span> 
+        <span class="s1">'X3'</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
     <span class="p">})</span>
 <span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-      <span class="s1">&#39;X1&#39;</span><span class="p">:[</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">],</span>
-      <span class="s1">&#39;X2&#39;</span><span class="p">:[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">74</span><span class="p">],</span>
-      <span class="s1">&#39;X4&#39;</span><span class="p">:[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">74</span><span class="p">]</span>
+      <span class="s1">'X1'</span><span class="p">:[</span><span class="s1">'B'</span><span class="p">,</span><span class="s1">'C'</span><span class="p">,</span><span class="s1">'D'</span><span class="p">],</span>
+      <span class="s1">'X2'</span><span class="p">:[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">74</span><span class="p">],</span>
+      <span class="s1">'X4'</span><span class="p">:[</span><span class="mi">32</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">74</span><span class="p">]</span>
 <span class="p">})</span>
 </pre></div>
 
@@ -32344,9 +32207,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -32428,9 +32289,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -32510,7 +32369,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span> <span class="o">&gt;&gt;</span> <span class="n">bind_rows</span><span class="p">(</span><span class="n">df2</span> <span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span> <span class="o">&gt;&gt;</span> <span class="n">bind_rows</span><span class="p">(</span><span class="n">df2</span> <span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -32524,9 +32383,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -32605,7 +32462,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span> <span class="o">&gt;&gt;</span> <span class="n">bind_rows</span><span class="p">(</span><span class="n">df2</span> <span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span> <span class="o">&gt;&gt;</span> <span class="n">bind_rows</span><span class="p">(</span><span class="n">df2</span> <span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">'outer'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -32619,9 +32476,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -32714,7 +32569,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span> <span class="o">&gt;&gt;</span> <span class="n">bind_rows</span><span class="p">(</span><span class="n">df2</span> <span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span> <span class="o">&gt;&gt;</span> <span class="n">bind_rows</span><span class="p">(</span><span class="n">df2</span> <span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">'outer'</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -32728,9 +32583,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -32835,7 +32688,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span> <span class="o">&gt;&gt;</span> <span class="n">bind_cols</span><span class="p">(</span><span class="n">df2</span> <span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span> <span class="o">&gt;&gt;</span> <span class="n">bind_cols</span><span class="p">(</span><span class="n">df2</span> <span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">'inner'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -32849,9 +32702,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -32931,7 +32782,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span> <span class="o">&gt;&gt;</span> <span class="n">bind_cols</span><span class="p">(</span><span class="n">df2</span> <span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df1</span> <span class="o">&gt;&gt;</span> <span class="n">bind_cols</span><span class="p">(</span><span class="n">df2</span> <span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">'outer'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -32945,9 +32796,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -33050,7 +32899,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span> <span class="nb">round</span><span class="p">(</span> <span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">group_by</span><span class="p">(</span><span class="s1">&#39;quality&#39;</span><span class="p">)</span> <span class="o">&gt;&gt;</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span> <span class="nb">round</span><span class="p">(</span> <span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">group_by</span><span class="p">(</span><span class="s1">'quality'</span><span class="p">)</span> <span class="o">&gt;&gt;</span> 
 <span class="n">summarize</span><span class="p">(</span><span class="n">price_mean</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> 
           <span class="n">price_median</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> 
           <span class="n">price_std</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">std</span><span class="p">())</span> <span class="p">)</span> <span class="p">)</span>
@@ -33067,9 +32916,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -33148,7 +32995,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">round</span><span class="p">(</span> <span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">group_by</span><span class="p">(</span><span class="s1">&#39;quality&#39;</span><span class="p">)</span> <span class="o">&gt;&gt;</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">round</span><span class="p">(</span> <span class="n">data</span> <span class="o">&gt;&gt;</span> <span class="n">group_by</span><span class="p">(</span><span class="s1">'quality'</span><span class="p">)</span> <span class="o">&gt;&gt;</span> 
 <span class="n">summarize</span><span class="p">(</span><span class="n">price_mean</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> 
           <span class="n">price_median</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">median</span><span class="p">(),</span> <span class="n">price_var</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">var</span><span class="p">(),</span> 
           <span class="n">price_std</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>  <span class="p">,</span> <span class="n">price_max</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="p">,</span>  
@@ -33168,9 +33015,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -33306,9 +33151,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -33439,9 +33282,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -33561,9 +33402,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -33683,9 +33522,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -33805,9 +33642,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[&nbsp;]:</div>
 
@@ -33904,6 +33739,51 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Bibliography">Bibliography<a class="anchor-link" href="#Bibliography">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Katovich, K. dfply. <em>GitHub repository</em>.  https://github.com/kieferk/dfply</p>
+
+</div>
+</div>
+</div>
 </div>
 </body>
 
