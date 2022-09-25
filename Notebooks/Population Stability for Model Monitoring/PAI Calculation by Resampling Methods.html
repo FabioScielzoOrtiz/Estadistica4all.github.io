@@ -15404,8 +15404,17 @@ $$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The $(k , r)$ element of the $nxB$ matrix <code>y_predictions_Old_Data</code> is $\widehat{y_k}$ (the $Y$ estimation for the $k$-th individual of the sample) when the model is trained with the $r$-th boot sample of  <code>Old_Data_Set</code></p>
-<p>Where:</p>
+<p>The $\hspace{0.1cm}(r,k)\hspace{0.1cm}$ element of the $Bxn$ matrix <code>y_predictions_Old_Data</code> is $\hspace{0.1cm}\widehat{y_k}\hspace{0.1cm}$ (the $Y$ estimation for the $k$-th individual of the sample) when the model is trained with the $r$-th boot sample of  <code>Old_Data_Set</code></p>
+<p>In other words:</p>
+$$
+ y\_predictions\_Old\_Data = \begin{pmatrix}
+    \widehat{y_1}^1 &amp; \widehat{y_2}^1&amp; ...&amp;\widehat{y_n}^1\\
+    \widehat{y_1}^2 &amp;  \widehat{y_2}^2&amp; ...&amp;\widehat{y_n}^2\\
+    ...&amp;...&amp;...&amp;...\\
+    \widehat{y_1}^B&amp; \widehat{y_2}^B&amp; ...&amp;\widehat{y_n}^B
+    \end{pmatrix}
+$$<p>Where:</p>
+<p>$\widehat{y_k}\hspace{0.05cm}^r$ is the response prediction for the $k$-th element of the original Old_Data_Set, obtained using the model trained  with the $r$-th boot sample of Old_Data_Set</p>
 <p>$n =$ len(Old_Data_Set)</p>
 <p>$B=$ nº of boot samples</p>
 
