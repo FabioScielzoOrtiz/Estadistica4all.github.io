@@ -1,20 +1,23 @@
 ---
-title: ""
-author: ""
-date: ""
-geometry: "left=3cm,right=3cm,top=3cm,bottom=3cm"
+title: ''
+author: ''
+date: ''
+output:
+  pdf_document:
+    includes:
+      in_header: "wrap-code.tex"
+      before_body: portada4.sty
+    toc_depth: 6
+    number_sections: yes
+  html_document:
+    toc_depth: '6'
+    df_print: paged
 header_includes:
- - \usepackage{longtable}
- - \usepackage{lscape}
-output: 
-        pdf_document:
-                includes:
-                        in_header: "wrap-code.tex"
-                        before_body: "portada4.sty"
-                toc_depth: 6
-                number_sections: true
-institute: "Universidad Carlos III de Madrid"
-documentclass: "article"
+- \usepackage{longtable}
+- \usepackage{lscape}
+geometry: left=3cm,right=3cm,top=2cm,bottom=2cm
+institute: Universidad Carlos III de Madrid
+documentclass: article
 papersize: a4
 linestrech: 1.5
 fontsize: 11pt
@@ -2615,7 +2618,7 @@ rpart.plot(tree_learner$model)
 
 
     
-![Arbol rpart con mlr3](output_342_0.png)
+![Arbol rpart podado con mlr3](output_342_0.png)
     
 
 
@@ -2624,7 +2627,7 @@ rpart.plot(tree_learner$model)
 \newpage
 
 
-### 4.4.4.  Algoritmo C5.0 en `R` con `mlr3`  <a class="anchor" id="25"></a>
+### Algoritmo C5.0 en `R` con `mlr3`  <a class="anchor" id="25"></a>
 
 
 ```r
@@ -2756,8 +2759,10 @@ tree_acc
       0.6986301 
     
 
+TAC = 0.6986
 
 
+\vspace{0.25cm}
 
  Visualizamos el modelo :
 
@@ -2798,16 +2803,15 @@ Ahora hemos intentado graficar el modelo, pero nos sale un error.
 # plot(tree_learner$model)
 ```
 
-    NULL
+    
     
 
 
 
-<p><p style="page-break-after:always;"></p></p>
+\newpage
 
 
-
-### 4.4.5.  Comparación entre `R` y `mlr3`  <a class="anchor" id="25.1"></a>
+###    Comparación entre `R` y `mlr3`  
 
 Algoritmo RPART con Rpart (R)
 Inicializamos la semilla y dividimos el data frame en datos de muestra de entrenamiento y muestra de test con funciones de dplyr.
@@ -2859,11 +2863,10 @@ En ninguno de los casos, hace falta un preproceso de los datos.
 
 
 
-<p><p style="page-break-after:always;"></p></p>
+\newpage
 
 
-
-### 4.4.6. Comparación de resultados  <a class="anchor" id="25.2"></a>
+###  Comparación de resultados  <a class="anchor" id="25.2"></a>
 
 
 **Rpart con R** 
@@ -2889,7 +2892,7 @@ Accuracy modelo: 0.6879
 Primeros índices: 1 2 3 5 6
 
 
-
+\vspace{0.5cm}
 
 
 **C5.0 con R**
@@ -2916,8 +2919,7 @@ Primeros índices: 1 2 3 5 6
 
 
 
-
-<p><p style="page-break-after:always;"></p></p>
+ \vspace{0.5cm}
 
 
 
@@ -2939,6 +2941,7 @@ Accuracy modelo: 0.6986
 
 Primeros índices: 4 9 11 12 13
 
+\vspace{0.5cm}
 
 
 Se puede ver como dan cosas distintas con R y Mlr3 aunque la diferencia es mínima.
@@ -2947,26 +2950,17 @@ En cuanto a los índices, podemos ver como Mlr3 coge distintos de los que toma R
 
 
 
-<p><p style="page-break-after:always;"></p></p>
+ \newpage
 
+##  Arboles de clasificación en `Python` <a class="anchor" id="26"></a>
 
-## 4.5. Arboles de clasificación en `Python` <a class="anchor" id="26"></a>
-
-### 4.5.1. Arboles de clasificación: *teoría*  <a class="anchor" id="27"></a>
+### Arboles de clasificación: *teoría*  <a class="anchor" id="27"></a>
 
 Vamos a considerar el siguiente tipo de arboles (matematicos):
 
 
-```python
-from IPython.display import Image
-Image(filename='arbol.jpg', width = 1000, height = 400) 
-```
 
-
-
-
-    
-![jpeg](output_397_0.jpg)
+![Arbol matemático](output_397_0.jpg)
     
 
 
@@ -2977,20 +2971,19 @@ Los arboles estan compuestos de iteraciones, que a su vez cada una de ellas se d
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
-
-#### **Arboles de clasificación**
-
-La idea de los algoritmos de arboles de clasificacion es segmentar las observaciones de los predictores $X_1,...,X_p$ para predecir el valor de la respuesta $Y$ en base a esa informacion segmentada. Es algo asi como predecir Y por grupos/segmentos.
-
+\newpage
 
 
 
 
 ### Definicion formal de los arboles de clasificación:
 
-  ##### **Elementos Básicos**
+
+La idea de los algoritmos de arboles de clasificacion es segmentar las observaciones de los predictores $X_1,...,X_p$ para predecir el valor de la respuesta $Y$ en base a esa informacion segmentada. Es algo asi como predecir Y por grupos/segmentos.
+  
+  \vspace{1cm}
+
+  **Elementos Básicos**
 
 - Tenemos unos predictores $\hspace{0.1cm} X_1,...,X_p \hspace{0.1cm}$ y una variable respuesta **categorica** $\hspace{0.1cm} Y$
 
@@ -3013,32 +3006,35 @@ La idea de los algoritmos de arboles de clasificacion es segmentar las observaci
 - $R_{ht} \hspace{0.1cm}$ es la region (rectangulo $n$-dimensional) definida por la rama $\hspace{0.1cm} h \hspace{0.1cm}$    de un arbol con $t$ iteraciones
 
 
+\newpage
 
-
-
-##### **Criterio de prediccion de la variable respuesta**
+ **Criterio de prediccion de la variable respuesta**
 
 
 Dada una nueva observacion $\hspace{0.1cm} x_{new}= (x_{new,1},x_{new,2},...,x_{new,p} ) \hspace{0.1cm}$ la idea es predecir $\hspace{0.1cm} y_{new} \hspace{0.1cm}$ como sigue:
 
 
-Sea $ \hspace{0.1 cm} f_{r, R_{ht}} \hspace{0.1 cm}$ la frecuencia relativa de la clase/grupo r en la rama $h$ de un arbol con $t$ iteraciones. 
+Sea $\hspace{0.1 cm} f_{r, R_{ht}} \hspace{0.1 cm}$ la frecuencia relativa de la clase/grupo r en la rama $h$ de un arbol con $t$ iteraciones. 
 
 Es decir, es la proporcion  de individuos de la muestra de entrenamiento que caen en la rama $h$ de un arbol  con $t$ iteraciones  que pertenecen a la clase $r$ (es decir, para los que $Y=r$ ) : 
 
 $$ \hspace{0.1 cm} f_{r , R_{ht}} \hspace{0.1 cm} = \hspace{0.1 cm} \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{ht} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{ht}  \rbrace} $$
 
+\vspace{0.5cm}
+
 Donde: $\hspace{0.25cm} r \in Rango(Y) = \lbrace 0,1,..,c-1 \rbrace$
 
+\vspace{0.7cm}
 
 
-  $Si \hspace{0.3cm} x_{new} \in R_{ht} \hspace{0.12cm}  \Rightarrow  \hspace{0.12cm}$ $x_{new}$ es clasificado en la clase/grupo mayoritaria (mas frecuente) en la rama $h$ $(r_h)$
+  - $Si \hspace{0.3cm} x_{new} \in R_{ht} \hspace{0.15cm}  \Rightarrow  \hspace{0.15cm}$ $x_{new}$ es clasificado en la clase/grupo mayoritaria (más frecuente) en la rama $h$ $(r_h)$
 
 
+\vspace{0.5cm}
 
 Por tanto:
 
- $\hspace{0.4 cm} Si \hspace{0.22 cm} r_{R_{ht}}^*  \hspace{0.05 cm}= \hspace{0.05 cm} \underset{\hspace{0.7 cm} r}{arg \hspace{0.1 cm} Max} \hspace{0.05 cm} \left(\hspace{0.1 cm} f_{r, R_{ht}} \hspace{0.1 cm}\right) \hspace{0.2 cm} ,\hspace{0.05 cm} entonces:$  
+ - $\hspace{0.4 cm} Si \hspace{0.22 cm} r_{R_{ht}}^*  \hspace{0.05 cm}= \hspace{0.05 cm} \underset{\hspace{0.7 cm} r}{arg \hspace{0.1 cm} Max} \hspace{0.05 cm} \left(\hspace{0.1 cm} f_{r, R_{ht}} \hspace{0.1 cm}\right) \hspace{0.2 cm} ,\hspace{0.05 cm} entonces:$  
 
 
 
@@ -3046,14 +3042,22 @@ Por tanto:
 
  $$Si \hspace{0.3cm} x_{new} \in R_h \hspace{0.22cm}  \Rightarrow  \hspace{0.22cm}  \widehat{y}_{new} = r_{R_{ht}}^*$$
 
+
+\vspace{0.7cm}
+
+
 *Observación:*
 
 Definida la region $\hspace{0.05 cm} R_{ht} \hspace{0.05 cm}$ , es relativamente sencillo resolver el problema $\hspace{0.05 cm} \underset{  r}{    Max} \hspace{0.05 cm} \left(\hspace{0.1 cm} f_{r, R_{ht}} \hspace{0.1 cm}\right)  \hspace{0.05 cm}$  y asi obtener $\hspace{0.05 cm}  r_{R_{ht}}^*$
 
 
 
-##### **Objetivo** : Usando la **tasa de error de clasificacion** como métrica a optimizar
+\newpage
 
+
+ **Objetivo** : Usando la **tasa de error de clasificacion** como métrica a optimizar
+
+\vspace{0.35cm}
 
 
 
@@ -3062,6 +3066,7 @@ Definimos el **error de entrenamiento de la rama $h$ de un arbol de clasificacio
 
 $$TEC(R_{ht}) = 1 - f_{r^*_{R_{ht}} , R_{ht}}$$
 
+\vspace{0.35cm}
 
 
 *Observación:*
@@ -3074,6 +3079,7 @@ $f_{r^*_{R_{ht}} , R_{ht}}$ es la proporcion de individuos de la muestra de entr
 
 $TEC(R_{ht})$ es la proporcion de individuos de la muestra de entrenamiento que caen en la rama $h$ de un arbol con $t$ iteraciones $($ sus observaciones de los predictores pertenecen a $R_{ht}$ $)$ y que han sido clasificados erroneamente. Se les ha clasificado en la clase $r^*_{R_{ht}}$ y su clase era otra diferente, es decir, tenian un valor distinto a $r^*_{R_{ht}}$ para la variable respeusta, que es el valor que el modelo les predice para la respuesta.
 
+\vspace{0.35cm}
 
 
 
@@ -3086,6 +3092,7 @@ Definimos el **error global de entrenamiento de un arbol de clasificación** com
 $$\sum_{h=1}^{m} \hspace{0.1cm} TEC(R_h) $$
 
 
+\vspace{0.35cm}
 
 
 El **objetivo** es construir un arbol de regresion con $m$ ramas tal que **minimice** el **error global de entrenamiento**. 
@@ -3094,6 +3101,7 @@ Es decir, formalmente el objetivo es:
 
 $$ \underset{R_1,..,R_m}{Min}  \hspace{0.12cm}  \sum_{h=1}^{m} \hspace{0.1cm} TEC(R_h)  $$
 
+\vspace{0.35cm}
 
 
 
@@ -3112,11 +3120,14 @@ Para cada iteracion $\hspace{0.1cm} i \hspace{0.1cm}$ escoger $\hspace{0.1cm} X_
 
 
 
-<p><p style="page-break-after:always;"></p></p>
 
 
-##### **Objetivo** : Usando el **índice de Gini** como métrica a optimizar
+\vspace{1.5cm}
 
+
+ **Objetivo** : Usando el **índice de Gini** como métrica a optimizar
+
+\vspace{0.35cm}
 
 
 
@@ -3127,9 +3138,12 @@ Definimos el **error de entrenamiento de la rama $h$ de un arbol de clasificacio
 
 $$ G_{R_{ht}} = \sum_{r=0,1,..,c-1}^{} f_{r , R_{ht}}\cdot(1 - f_{r , R_{ht}}) $$
 
+\vspace{0.35cm}
+
 
 Donde: $\hspace{0.15cm} Rango(Y) = \lbrace 0,1,...,c-1 \rbrace$
 
+\vspace{0.35cm}
 
 
 $G_{R_{ht}}$  toma valores pequeños cuando la frecuencia de una clase $r=0,1,...$ en la region $R_{ht}$ es alta , y por tanto la del resto baja.
@@ -3137,24 +3151,26 @@ $G_{R_{ht}}$  toma valores pequeños cuando la frecuencia de una clase $r=0,1,..
 $G_{R_{ht}}$ toma valores altos cuando las frecuencias de las clases se reparten de manera "igualitaria" en la region $R_{ht}$. Y cuanto mas igualitaria es la reparticion de las classes, mas alto es $G_{R_{ht}}$ . Hasta el punto que cuando la reparticion es totalmente igualitaria, esto es, cada clase tiene la misma frecuencia , si hay $c$ clases, cada una tiene una frecuencia relativa de $1/c$ en la region, entonces en indicide de Gini alcanza su maximo valor.
 
 
+\vspace{0.35cm}
 
-Ejemplo: 
+*Ejemplo:*
 
 Para $\hspace{0.1 cm} c=3$  $\hspace{0.15cm} ( Rango(Y)=\lbrace 0,1,2 \rbrace )$ 
 
-Si tenemos: $\hspace{0.15cm} f_{0 , R_{ht}} = 0.40 \hspace{0.15cm}$ , $\hspace{0.15cm} f_{1 , R_{ht}}=0.30 \hspace{0.15cm}$ y $\hspace{0.15cm} f_{2 , R_{ht}}=0.30$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$  $G_{R_{ht}} = 0.66 $
+Si tenemos: $\hspace{0.15cm} f_{0 , R_{ht}} = 0.40 \hspace{0.15cm}$ , $\hspace{0.15cm} f_{1 , R_{ht}}=0.30 \hspace{0.15cm}$ y $\hspace{0.15cm} f_{2 , R_{ht}}=0.30$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$  $G_{R_{ht}} = 0.66$
 
-Si tenemos: $\hspace{0.15cm} f_{0 , R_{ht}} = 0.80 \hspace{0.15cm}$ , $\hspace{0.15cm} f_{1 , R_{ht}}=0.10 \hspace{0.15cm}$ y $\hspace{0.15cm} f_{2 , R_{ht}}=0.10$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$  $G_{R_{ht}} = 0.34 $
+Si tenemos: $\hspace{0.15cm} f_{0 , R_{ht}} = 0.80 \hspace{0.15cm}$ , $\hspace{0.15cm} f_{1 , R_{ht}}=0.10 \hspace{0.15cm}$ y $\hspace{0.15cm} f_{2 , R_{ht}}=0.10$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$  $G_{R_{ht}} = 0.34$
 
-Si tenemos: $\hspace{0.15cm} f_{0 , R_{ht}} = 0.9 \hspace{0.15cm}$ , $\hspace{0.15cm} f_{1 , R_{ht}}=0.05 \hspace{0.15cm}$ y $\hspace{0.15cm} f_{2 , R_{ht}}=0.05$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$  $G_{R_{ht}} = 0.185 $
+Si tenemos: $\hspace{0.15cm} f_{0 , R_{ht}} = 0.9 \hspace{0.15cm}$ , $\hspace{0.15cm} f_{1 , R_{ht}}=0.05 \hspace{0.15cm}$ y $\hspace{0.15cm} f_{2 , R_{ht}}=0.05$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$  $G_{R_{ht}} = 0.185$
 
 
+\vspace{0.35cm}
 
 Teniendo esto en cuenta nos interesan que en cada rama (region $R_{ht}$) la frecuencia de la clase mayoritaria sea lo mayor posible, y eso equivale a que el indice de Gini sea lo menos posible dentro de cada rama, siguiendo la filosofia empleada con la $TEC$, donde nos interesaba que  $f_{r^*_{R_{ht}} , R_{ht}}$ fuese lo mayor posible en cada rama.
 
 
 
-<p><p style="page-break-after:always;"></p></p>
+\newpage
 
 
 
@@ -3165,6 +3181,7 @@ Definimos el **error global de entrenamiento de un arbol de clasificación** com
 $$\sum_{h=1}^{m} \hspace{0.1cm} G_{R_{ht}} $$
 
 
+\vspace{0.35cm}
 
 
 El **objetivo** es construir un arbol de regresion con $m$ ramas tal que **minimice** el **error global de entrenamiento**. 
@@ -3175,10 +3192,12 @@ Es decir, formalmente el objetivo es:
 
 $$ \underset{R_1,..,R_m}{Min}  \hspace{0.12cm}  \sum_{h=1}^{m} \hspace{0.1cm} G_{R_{ht}}  $$
 
+\vspace{0.35cm}
 
 En el fondo minimizar el error de clasificacion de un arbol de clasificacion equivale a minimizar el indice de Gini en las ramas del arbol conjuntamente (a nivel global).
 
 
+\vspace{0.35cm}
 
 Pero para escoger las regiones $\hspace{0.1cm} R_1,...,R_m \hspace{0.1cm}$ que definen las ramas del arbol  hay que determinar dos elementos que definen a su vez a las regiones:
 
@@ -3186,6 +3205,7 @@ $1.\hspace{0.1cm}$ Qué predictores estan asociados a cada iteracion del arbol $
    
 $2.\hspace{0.1cm}$ Qué intervalos estan asociados a cada uno de los dos tallos de cada interaccion $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ Para cada iteracion $i$ escoger $I_{1i}$ y $I_{2i}\hspace{0.1cm}$ $(\hspace{0.01cm}$ es decir, escoger el punto de corte $\hspace{0.07cm}s_i \hspace{0.04cm} )$
    
+\vspace{0.35cm}
 
 
 
@@ -3195,12 +3215,12 @@ Para cada iteracion $\hspace{0.1cm} i \hspace{0.1cm}$ escoger $\hspace{0.1cm} X_
 
 
 
-<p><p style="page-break-after:always;"></p></p>
+\newpage
 
+ **Algoritmo para la resolucion del problema :
+ algoritmo de particion binaria**  
 
-#### Algoritmo para la resolucion del problema $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ **Algoritmo de particion binaria** <a class="anchor" id="8"></a>
-
-
+\vspace{0.2cm}
 
 El siguiente algoritmo es una forma de resolver el problema planteado anteriormente. Consiste en ir generando el arbol de manera secuencial, iteracion a iteracion, minimizando en cada paso el error de clasificacion para las observaciones de train que caen en las ramas asociadas a la iteracion en cuestion que esta siendo optimizada.
 
@@ -3208,42 +3228,27 @@ El algoritmo se basa en la resolucion secuencial de problemas de minimizacion, u
 
 
 
-**Importante:**
-
-Para esta exposicion teorica del algoritmo se va a usar como metrica principal la TEC , pero es facilmente extrapolable al caso en el que se usase el índice de Gini como metrica a optimizar.
+\vspace{0.5cm}
 
 
+**Problema de la Iteración 1**
 
 
+Arbol con 1 iteración:
 
 
-
-##### **Problema de la Iteracion 1**
-
-
-Arbol con 1 iteracion:
-
-
-```python
-from IPython.display import Image
-Image(filename='arbol 1iter.jpg', width = 400, height = 200) 
-```
-
-
-
-
-    
-![jpeg](output_465_0.jpg)
+![Arbol 1ª Iteración](output_465_0.jpg){height=300px width=420px}
     
 
+\vspace{0.5cm}
 
 
 La idea es, determinar las regiones $R_{11}$ y $R_{21}\hspace{0.1cm}$ $($ es decir, $j$ y $s_1 \hspace{0.05cm}) \hspace{0.1cm}$  del arbol con 1 iteracion   tal que minimizan el error de entrenamiento global de dicho arbol con 1 iteracion.
 
 
+\vspace{0.5cm}
 
-<p><p style="page-break-after:always;"></p></p>
-
+ 
 
 Mas formalmente el problema planteado es:
 
@@ -3272,22 +3277,27 @@ Mas formalmente el problema planteado es:
 \end{gather*}
 
 
+\vspace{1.5cm}
 
 
 Notar que:
+
+\vspace{0.5cm}
 
 $R_{11} = \lbrace  (v_1 ,..., v_n) / v_j < s_1 \rbrace   \hspace{0.3cm}\Rightarrow\hspace{0.3cm}  [\hspace{0.1cm}  x_i \in R_{11}  \hspace{0.1cm} \Leftrightarrow \hspace{0.1cm} x_{ij} < s_1 \hspace{0.1cm}] \hspace{0.3cm}\Rightarrow\hspace{0.3cm} \lbrace i/x_i \in R_{11} \rbrace  = \lbrace i / x_{ij} < s_1 \rbrace$  
 
 $R_{21} = \lbrace  (v_1 ,..., v_n) / v_j \geqslant s_1 \rbrace   \hspace{0.3cm}\Rightarrow\hspace{0.3cm} [\hspace{0.1cm} x_i \in R_{21} \hspace{0.1cm} \Leftrightarrow \hspace{0.1cm} x_{ij} \geqslant s_1 \hspace{0.1cm}] \hspace{0.2cm}\Rightarrow\hspace{0.2cm} \lbrace i/x_i \in R_{11} \rbrace  = \lbrace i / x_{ij} \geqslant s_1 \rbrace$  
 
+\vspace{0.5cm}
 
 
 Notese que determinar $R_{11}$ y $R_{21}$  es equivalente a determinar el predictor $X_j$ $($ es decir $j)$  y el punto de corte $s_1$ asociados a la Iteracion 1, ya que $R_{11}$ y $R_{21}$ quedan determinadas al fijar $X_j$ y $s_1$
 
-
+\newpage
 
 Notar también que:
 
+\vspace{0.5cm}
 
 
 Fijado $(j, s_1)$ puede calcularse $r_{R_{11}}^*$ como solucion al problema de maximizacion:
@@ -3305,6 +3315,7 @@ Fijado $(j, s_2)$ puede calcularse $r_{R_{21}}^*$ como solucion al problema de m
 
 $$\underset{  r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm} f_{r, R_{21}} \hspace{0.1 cm}\right) = \underset{ r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{21} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{21}  \rbrace}  \hspace{0.1 cm}\right) = \underset{  r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} \geqslant s_1 \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} \geqslant s_1 \rbrace}  \hspace{0.1 cm}\right)$$
 
+\vspace{0.5cm}
 
 
 Donde : 
@@ -3319,13 +3330,14 @@ Donde :
 $$  s_1 \in \Biggl\{ \dfrac{ x_{(1)j} + x_{(2)j} }{2} \hspace{0.1cm}, \hspace{0.1cm} \dfrac{x_{(2)j} + x_{(3)j} }{2} \hspace{0.1cm} ,...,\hspace{0.1cm} \dfrac{x_{(n-1)j} + x_{(n)j} }{2}   \Biggl\}$$
 
 
-Donde $\hspace{0.1cm} x_{(i)j} \hspace{0.1cm} $ es la observacion que ocupa la posicion $i$-esima en $\hspace{0.1cm}  X_j^{order}$
+Donde $\hspace{0.1cm} x_{(i)j} \hspace{0.1cm}$ es la observacion que ocupa la posicion $i$-esima en $\hspace{0.1cm}  X_j^{order}$
 
 
 - Si $X_j$ es categorica con $c$ categorias:
 
 $$ s_1 \in Rango(X_j) = \lbrace 0,1,..., c-1 \rbrace $$ 
 
+\vspace{0.5cm}
 
 Notese que la eleccion de $X_j$ determina el campo de variacion de $s_1$
 
@@ -3345,20 +3357,14 @@ Estos elementos no volveran a ser definidos en los sucesivos problemas de iterac
 - Denotaremos por $\hspace{0.1cm} \left(\hspace{0.1cm} j^{*(i)} \hspace{0.05cm},\hspace{0.05cm} s^{*(i)} \hspace{0.1cm}\right) \hspace{0.1cm}$ a una solucion del problema de la Iteracion $i$ , para $i=1,...,m-1$
 
 
+\vspace{1.5cm}
 
 Arbol obtenido tras resolver el problema de la Iteracion 1:
 
 
-```python
-from IPython.display import Image
-Image(filename='iter1.jpg', width = 400, height = 200) 
-```
 
+![Arbol óptimo tras resolver el problema de la 1ª Iteración](output_494_0.jpg){height=300px width=420px}
 
-
-
-    
-![jpeg](output_494_0.jpg)
     
 
 
@@ -3371,28 +3377,19 @@ Notese que $k$ será un ***hiperparametro*** del algoritmo.
 
 
 
-<p><p style="page-break-after:always;"></p></p>
+\newpage
 
-
-##### **Problema de la Iteracion 2**
+**Problema de la Iteracion 2**
 
 
 Arbol con 2 iteraciones tras resolver el problema anterior:
 
 
-```python
-from IPython.display import Image
-Image(filename='arbol 2iter.jpg', width = 550, height = 300) 
-```
 
-
-
-
-    
-![jpeg](output_500_0.jpg)
+![Arbol con 2 Iteraciones tras resolver el problema de la 1ª Iteración](output_500_0.jpg){height=300px width=420px}
     
 
-
+\vspace{0.15cm}
 
 Si estamos en este problema es porque ninguna rama del arbol resultante del problema de la Iteracion 1 tiene menos de $k$ observaciones
 
@@ -3402,8 +3399,7 @@ Notese que $R_{32}$ ya esta determinada tras la resolucion del problema anterior
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+\newpage
 
 Mas formalmente el problema planteado es:
 
@@ -3412,36 +3408,47 @@ Mas formalmente el problema planteado es:
 
 \begin{gather*}
 \underset{R_{12}  ,  R_{22},  R_{32}}  {Min} \hspace{0.15cm}  \Biggl\{ \hspace{0.1cm} TEC_2 = TEC(R_{12})  +  TEC(R_{22}) +  TEC(R_{32}) \hspace{0.1cm} \Biggl\}   \hspace{0.1cm} =   \\ \\
-=\hspace{0.2cm} \underset{R_{12}  ,  R_{22}, R_{32}}  {Min} \hspace{0.1cm} \Biggl\{  \hspace{0.2cm}  \left( 1 - f_{r^*_{R_{12}} , R_{12}} \right)  \hspace{0.3cm} +  \hspace{0.1cm}       \left( 1 - f_{r^*_{R_{22}} , R_{22}} \right) \hspace{0.3cm} +  \hspace{0.1cm}    \left( 1 - f_{r^*_{R_{32}} , R_{32}} \right)  \hspace{0.2cm}  \Biggl\}  \\[25pt]
-=\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_2}  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.2cm}     1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{12}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12}  \rbrace}      \hspace{0.4cm} +  \hspace{0.4cm}   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{22}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22}  \rbrace} \hspace{0.4cm} +    \hspace{0.4cm}       1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{32} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{32}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{32}  \rbrace}  \hspace{0.2cm}  \Biggl\}   \\ \\
-=\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_2}  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.2cm}     1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{12}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }      \hspace{0.4cm} +  \hspace{0.4cm}      1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{22}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace } \hspace{0.3cm} +    \hspace{0.1cm}       1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij^{*(1)}} \geqslant s^{*(1)} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{32}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij^{*(1)}} \geqslant s^{*(1)} \rbrace}  \hspace{0.2cm}  \Biggl\}
-\\ \\  =\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_2}  {Min} \hspace{0.1cm} \Biggl\{   \hspace{0.2cm}    1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{12}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }      \hspace{0.4cm} +  \hspace{0.4cm}   1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{22}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }    \hspace{0.2cm}  \Biggl\} \\[35pt]
+=\hspace{0.2cm} \underset{R_{12}  ,  R_{22}, R_{32}}  {Min} \hspace{0.1cm} \Biggl\{  \hspace{0.2cm}  \left( 1 - f_{r^*_{R_{12}} , R_{12}} \right)  \hspace{0.3cm} +  \hspace{0.1cm}       \left( 1 - f_{r^*_{R_{22}} , R_{22}} \right) \hspace{0.1cm} +  \hspace{0.1cm} \left( 1 - f_{r^*_{R_{32}} , R_{32}} \right)  \hspace{0.2cm}  \Biggl\}  \\ \\
+=\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_2}  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.2cm}     1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{12}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12}  \rbrace}      \hspace{0.1cm} +  \hspace{0.1cm} 1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{22}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22}  \rbrace} \hspace{0.1cm} +    \hspace{0.1cm}   \\ \\ + \hspace{0.1 cm}   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{32} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{32}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{32}  \rbrace}  \hspace{0.2cm}  \Biggl\}   \\ \\
+=\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_2}  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.2cm}     1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{12}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }      \hspace{0.3cm} + 
+\\  \\
+1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{22}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace } \hspace{0.3cm} +  \\ \\
+1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij^{*(1)}} \geqslant s^{*(1)} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{32}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij^{*(1)}} \geqslant s^{*(1)} \rbrace}  \hspace{0.2cm}  \Biggl\}
+\\ \\  =\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_2}  {Min} \hspace{0.1cm} \Biggl\{   \hspace{0.2cm}    1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{12}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }      \hspace{0.4cm} + \\ \\
+\hspace{0.4cm}   1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{22}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }    \hspace{0.2cm}  \Biggl\} \\  \\
 =\hspace{0.2cm} \underset{R_{12}  ,  R_{22} }  {Min} \hspace{0.1cm} \Biggl\{  \hspace{0.2cm}  \left( 1 - f_{r^*_{R_{12}} , R_{12}} \right)  \hspace{0.3cm} +  \hspace{0.1cm}       \left( 1 - f_{r^*_{R_{22}} , R_{22}} \right)   \hspace{0.2cm}  \Biggl\}
 \end{gather*}
 
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+\newpage
 
 - Si utilizamos el **índice de Gini** como metrica de error a minimizar:
 
-\begin{gather*}
-\underset{R_{12}  ,  R_{22}, R_{32}}  {Min} \hspace{0.15cm} \Biggl\{  \hspace{0.1cm} G_1 = G_{R_{12}} + G_{R_{22}} +  G_{R_{32}}  \hspace{0.1cm} \Biggl\}    \hspace{0.1cm} =   \\ \\ 
-=\hspace{0.2cm} \underset{R_{12}  ,  R_{22}, R_{32}}  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.3cm}  \sum_{r=0,1,..,c-1}^{} f_{r , R_{12}}\cdot(1 - f_{r , R_{12}})  \hspace{0.1cm} + \hspace{0.1cm}  \sum_{r=0,1,..,c-1}^{} f_{r , R_{22}}\cdot(1 - f_{r , R_{22}}) \hspace{0.1cm} + \hspace{0.1cm}  \sum_{r=0,1,..,c-1}^{} f_{r , R_{32}}\cdot(1 - f_{r , R_{32}})  \hspace{0.3cm} \Biggl\}     \\ \\
-=\hspace{0.2cm}   \underset{R_{12}  ,  R_{22}  ,  R_{32}}  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.3cm}   \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12}  \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12}  \rbrace}  \right)  \\ \\ 
-\hspace{0.3cm} +  \hspace{0.3cm}         \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22}  \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22}  \rbrace}  \right)    \\ \\
-\hspace{0.3cm} +  \hspace{0.3cm}  \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{32} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{32}  \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{32} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{32}  \rbrace}  \right)    \hspace{0.3cm} \Biggl\}     \\ \\ 
-=  \hspace{0.2cm}   \underset{j  ,  s_2}  {Min} \hspace{0.1cm} \Biggl\{     \hspace{0.3cm}  \sum_{r=0,1,..,c-1}^{}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace } \cdot \left(   1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace } \right) \\ \\ 
-\hspace{0.3cm} +  \hspace{0.3cm}         \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }  \right)  \\ \\
-\hspace{0.3cm} +  \hspace{0.3cm}         \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij^{*(1)}} \geqslant s^{*(1)} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij^{*(1)}} \geqslant s^{*(1)} \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij^{*(1)}} \geqslant s^{*(1)} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij^{*(1)}} \geqslant s^{*(1)} \rbrace}  \right)      \hspace{0.3cm}       \Biggl\}  \\[35pt]
-\end{gather*}
+
 
 \begin{gather*}
-=  \hspace{0.2cm}   \underset{j  ,  s_2}  {Min} \hspace{0.1cm} \Biggl\{     \hspace{0.3cm}  \sum_{r=0,1,..,c-1}^{}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace } \cdot \left(   1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace } \right) \\ \\
-\hspace{0.3cm} +  \hspace{0.3cm}         \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }  \right)    \Biggl\} \\ \\
-= \hspace{0.2cm}  \underset{R_{12}  ,  R_{22} }  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.3cm}  \sum_{r=0,1,..,c-1}^{} f_{r , R_{12}}\cdot(1 - f_{r , R_{12}})  \hspace{0.1cm} + \hspace{0.1cm}  \sum_{r=0,1,..,c-1}^{} f_{r , R_{22}}\cdot(1 - f_{r , R_{22}})  \hspace{0.3cm} \Biggl\}  
+\underset{R_{12}  ,  R_{22}, R_{32}}  {Min} \hspace{0.15cm} \Biggl\{  \hspace{0.1cm} G_1 = G_{R_{12}} + G_{R_{22}} +  G_{R_{32}}  \hspace{0.1cm} \Biggl\}    \hspace{0.1cm} =   \\ \\ 
+=\hspace{0.2cm} \underset{R_{12}  ,  R_{22}, R_{32}}  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.3cm}  \sum_{r=0,1,..,c-1}^{} f_{r , R_{12}}\cdot(1 - f_{r , R_{12}})  \hspace{0.1cm} + \hspace{0.1cm}  \sum_{r=0,1,..,c-1}^{} f_{r , R_{22}}\cdot(1 - f_{r , R_{22}}) \hspace{0.1cm} + \\ \\
+\hspace{0.1cm}  \sum_{r=0,1,..,c-1}^{} f_{r , R_{32}}\cdot(1 - f_{r , R_{32}})  \hspace{0.3cm} \Biggl\} =     \\ \\
+=\hspace{0.2cm}   \underset{R_{12}  ,  R_{22}  ,  R_{32}}  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.3cm}   \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12}  \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12}  \rbrace}  \right)  \\ \\ 
+\hspace{0.3cm} +  \hspace{0.3cm}         \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22}  \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22}  \rbrace}  \right)    \\ \\
+\hspace{0.3cm} +  \hspace{0.3cm}  \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{32} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{32}  \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{32} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{32}  \rbrace}  \right)    \hspace{0.3cm} \Biggl\} =    \\ \\ 
+ \hspace{-2.5 cm}=     \underset{j  ,  s_2}  {Min} \Biggl\{     \hspace{0.3cm}  \sum_{r=0,1,..,c-1}^{}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace } \cdot 
+\left(   1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace } \right) \\ \\ 
+\hspace{-1.5 cm} +  \hspace{0.3cm}         \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }  \right)  \\ \\
+ +  \hspace{0.3cm}         \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij^{*(1)}} \geqslant s^{*(1)} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij^{*(1)}} \geqslant s^{*(1)} \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij^{*(1)}} \geqslant s^{*(1)} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij^{*(1)}} \geqslant s^{*(1)} \rbrace}  \right)      \hspace{0.3cm}       \Biggl\}  
+\end{gather*}
+
+
+
+
+
+\begin{gather*}
+\hspace{-2.5 cm} =     \underset{j  ,  s_2}  {Min} \hspace{0.1cm} \Biggl\{     \hspace{0.3cm}  \sum_{r=0,1,..,c-1}^{}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace } \cdot \left(   1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace } \right) \\ \\
+\hspace{-1.5 cm} +  \hspace{0.1cm}         \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }  \right)    \Biggl\} \\ \\
+\hspace{-1.5 cm} =   \underset{R_{12}  ,  R_{22} }  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.3cm}  \sum_{r=0,1,..,c-1}^{} f_{r , R_{12}}\cdot(1 - f_{r , R_{12}})  \hspace{0.1cm} + \hspace{0.1cm}  \sum_{r=0,1,..,c-1}^{} f_{r , R_{22}}\cdot(1 - f_{r , R_{22}})  \hspace{0.3cm} \Biggl\}  
 \end{gather*}
 
 
@@ -3454,11 +3461,12 @@ Fijado $(j, s_2)$ puede calcularse $r_{R_{12}}^*$ como solucion al problema de m
 
 
 
+\begin{gather*}
+\underset{  r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm} f_{r, R_{12}} \hspace{0.1 cm}\right) = \underset{ r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12}  \rbrace}  \hspace{0.1 cm}\right) = \\ \\ \underset{  r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }\right)
+\end{gather*}
 
-$$\underset{  r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm} f_{r, R_{12}} \hspace{0.1 cm}\right) = \underset{ r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12}  \rbrace}  \hspace{0.1 cm}\right) = \underset{  r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }\right)$$
 
-
-
+\vspace{0.35cm}
 
 
 
@@ -3466,12 +3474,13 @@ Fijado $(j, s_2)$ puede calcularse $r_{R_{22}}^*$ como solucion al problema de m
 
 
 
-
-$$\underset{  r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm} f_{r, R_{22}} \hspace{0.1 cm}\right) = \underset{ r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22}  \rbrace}  \hspace{0.1 cm}\right) = \underset{  r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace } \right)$$
+\begin{gather*}
+\underset{  r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm} f_{r, R_{22}} \hspace{0.1 cm}\right) = \underset{ r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22}  \rbrace}  \hspace{0.1 cm}\right) = \\ \\ \underset{  r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace } \right)
+\end{gather*}
  
 
 
-
+\vspace{0.35cm}
 
 Notese que ninguna de las siguientes expresiones:
 
@@ -3482,21 +3491,12 @@ Notese que ninguna de las siguientes expresiones:
  dependen de $(j, s_2)$ , por lo que puede sacarse de la funcion objetivo de sus respectivos problemas de minimizacion sin que esto altere la solucion del problema.
 
 
+\vspace{0.35cm}
 
-Arbol tras resolver el problema de la Iteracion 2:
-
-
-
-```python
-from IPython.display import Image
-Image(filename='iter2.jpg', width = 940, height = 320)
-```
+Arbol tras resolver el problema de la Iteración 2:
 
 
-
-
-    
-![jpeg](output_523_0.jpg)
+![Arbol óptimo tras resolver el problema de la 2ª Iteración ](output_523_0.jpg)
     
 
 
@@ -3505,24 +3505,18 @@ Image(filename='iter2.jpg', width = 940, height = 320)
 
 - Si todas las ramas tienen $\hspace{0.05cm}k\hspace{0.05cm}$ o mas observaciones de train $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ el algoritmo continua, se pasa a resolver el problema de la iteracion siguiente, en este caso el de la iteracion 2
 
-<p><p style="page-break-after:always;"></p></p>
 
 
-##### **Problema de la Iteracion 3:**
+
+\vspace{0.35cm}
+
+
+**Problema de la Iteracion 3:**
 
 Arbol con 3 iteraciones tras resolver el problema anterior:
 
 
-```python
-from IPython.display import Image
-Image(filename='arbol 3iter.jpg', width = 940, height = 320)
-```
-
-
-
-
-    
-![jpeg](output_528_0.jpg)
+![Arbol con 3 Iteraciones tras resolver el problema de la 2ª Iteración](output_528_0.jpg)
     
 
 
@@ -3535,60 +3529,37 @@ Notese que $R_{13}$ y $R_{23}$ ya están determinadas tras la resolucion del pro
 
 
 
-
+\newpage
 
 Mas formalmente el problema se plantea como sigue:
 
 - Usando $TEC$ como métrica a optimizar
 
-$$
-\underset{R_{13}  ,  R_{23},  R_{33},  R_{43}}  {Min} \hspace{0.15cm}  \Biggl\{\hspace{0.1cm} TEC_3 = TEC(R_{13})  +  TEC(R_{23}) +  TEC(R_{33}) +  TEC(R_{43}) \hspace{0.1cm} \Biggl\}   \hspace{0.1cm} =   \\[35pt] 
-=\hspace{0.2cm} \underset{R_{13}  ,  R_{23},  R_{33},  R_{43}}  {Min} \hspace{0.1cm}  \Biggl\{ \hspace{0.05cm}   \left( 1 - f_{r^*_{R_{13}} , R_{13}} \right)   \hspace{0.05cm} +  \hspace{0.05cm}    \left( 1 - f_{r^*_{R_{23}} , R_{23}} \right) \hspace{0.05cm} +  \hspace{0.05cm}    \left( 1 - f_{r^*_{R_{33}} , R_{33}} \right)  \hspace{0.05cm} +  \hspace{0.05cm}    \left( 1 - f_{r^*_{R_{43}} , R_{43}} \right)  \hspace{0.05cm}   \Biggl\}     \\[45pt] 
-$$
-
-
-<p><p style="page-break-after:always;"></p></p>
-
-
-
-$$
-=\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_3}  {Min} \hspace{0.1cm}  \Biggl\{ \hspace{0.2cm}     1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{13} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{13}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12}  \rbrace}      \hspace{0.4cm} +  \hspace{0.4cm}   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{23} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{23}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{23}  \rbrace} \hspace{0.4cm} +    \hspace{0.4cm}   \\[35pt]     1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{33} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{33}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{33}  \rbrace}   \hspace{0.4cm} +    \hspace{0.4cm}       1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{43} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{43}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{43}  \rbrace} \hspace{0.2cm}    \Biggl\}  \\[35pt]  
-=\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_3}  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.2cm}     1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij^{*(2)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(2)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{13}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(2)}  \hspace{0.1 cm} \rbrace }      \hspace{0.4cm} +  \hspace{0.4cm}     1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s^{*(2)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{23}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s^{*(2)}  \hspace{0.1 cm} \rbrace } \hspace{0.3cm} +    \hspace{0.1cm}  \\[35pt]
- \hspace{1cm}  1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}  < \hspace{0.05cm} s_3 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{33}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_3  \hspace{0.1 cm} \rbrace }  \hspace{0.2cm}   \hspace{0.3cm} +    \hspace{0.3cm} 
+\begin{gather*}
+\underset{R_{13}  ,  R_{23},  R_{33},  R_{43}}  {Min} \hspace{0.15cm}  \Biggl\{\hspace{0.1cm} TEC_3 = TEC(R_{13})  +  TEC(R_{23}) +  TEC(R_{33}) +  TEC(R_{43}) \hspace{0.1cm} \Biggl\}   \hspace{0.1cm} =   \\ \\
+= \underset{R_{13}  ,  R_{23},  R_{33},  R_{43}}  {Min} \hspace{0.1cm}  \Biggl\{ \hspace{0.05cm}   \left( 1 - f_{r^*_{R_{13}} , R_{13}} \right)   \hspace{0.05cm} +  \hspace{0.05cm}    \left( 1 - f_{r^*_{R_{23}} , R_{23}} \right) \hspace{0.05cm} +  \hspace{0.05cm}    \left( 1 - f_{r^*_{R_{33}} , R_{33}} \right)  \hspace{0.05cm} +  \hspace{0.05cm}    \left( 1 - f_{r^*_{R_{43}} , R_{43}} \right)  \hspace{0.05cm}   \Biggl\}  \\ \\    
+=\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_3}  {Min} \hspace{0.1cm}  \Biggl\{ \hspace{0.2cm}     1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{13} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{13}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12}  \rbrace}      \hspace{0.4cm} +  \hspace{0.4cm}   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{23} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{23}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{23}  \rbrace} \hspace{0.4cm} +    \hspace{0.4cm}   \\ \\     1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{33} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{33}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{33}  \rbrace}   \hspace{0.4cm} +    \hspace{0.4cm}       1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{43} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{43}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{43}  \rbrace} \hspace{0.2cm}    \Biggl\}  \\ \\ 
+=\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_3}  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.2cm}     1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij^{*(2)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(2)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{13}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(2)}  \hspace{0.1 cm} \rbrace }      \hspace{0.4cm} +  \\ \\
+\hspace{0.4cm} 1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s^{*(2)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{23}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s^{*(2)}  \hspace{0.1 cm} \rbrace } \hspace{0.3cm} +    \hspace{0.1cm}  \\ \\
+1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}  < \hspace{0.05cm} s_3 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{33}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_3  \hspace{0.1 cm} \rbrace }  \hspace{0.2cm}   \hspace{0.3cm} +    \\ \\ 
 1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}  \geqslant \hspace{0.05cm} s_3 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{43}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_3  \hspace{0.1 cm} \rbrace }  \hspace{0.2cm} \Biggl\}
-\\[35pt]  =\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_3}  {Min} \hspace{0.1cm} \Biggl\{   \hspace{0.2cm}    1 -   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}  < \hspace{0.05cm} s_3 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{33}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_3  \hspace{0.1 cm} \rbrace }    \hspace{0.3cm} +    \hspace{0.3cm}        1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}  \geqslant \hspace{0.05cm} s_3 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{43}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_3  \hspace{0.1 cm} \rbrace }  \hspace{0.2cm}      \Biggl\} \\[35pt]
-=\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_3}  {Min} \hspace{0.1cm}  \Biggl\{ \hspace{0.2cm}    \left( 1 - f_{r^*_{R_{33}} , R_{33}} \right)  \hspace{0.3cm} +  \hspace{0.1cm}     \left( 1 - f_{r^*_{R_{43}} , R_{43}} \right)   \hspace{0.2cm}  \Biggl\} \\[35pt]
+\\ \\  =\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_3}  {Min} \hspace{0.1cm} \Biggl\{   \hspace{0.2cm}    1 -   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}  < \hspace{0.05cm} s_3 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{33}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_3  \hspace{0.1 cm} \rbrace }    \hspace{0.3cm} +    \\ \\  \hspace{0.3cm}      1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}  \geqslant \hspace{0.05cm} s_3 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{43}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_3  \hspace{0.1 cm} \rbrace }  \hspace{0.2cm}      \Biggl\} \\ \\
+=\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_3}  {Min} \hspace{0.1cm}  \Biggl\{ \hspace{0.2cm}    \left( 1 - f_{r^*_{R_{33}} , R_{33}} \right)  \hspace{0.3cm} +  \hspace{0.1cm}     \left( 1 - f_{r^*_{R_{43}} , R_{43}} \right)   \hspace{0.2cm}  \Biggl\} \\ \\
 =\hspace{0.2cm} \underset{  R_{33},  R_{43}}  {Min} \hspace{0.15cm}  \Biggl\{\hspace{0.1cm} TEC(R_{33}) +  TEC(R_{43}) \hspace{0.1cm} \Biggl\}   \hspace{0.1cm} 
-$$
+\end{gather*}
 
 
-
-
-Notar  que:
-
-
-Fijado $(j, s_3)$ puede calcularse $r_{R_{33}}^*$ como solucion al problema de maximizacion:
+\newpage
 
 
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
-
-Arbol tras resolver el problema de la Iteracion 3
-
-
-```python
-from IPython.display import Image
-Image(filename='iter3.jpg', width = 900, height = 300)
-```
+Arbol tras resolver el problema de la Iteración 3:
 
 
 
-
-    
-![jpeg](output_544_0.jpg)
+![Arbol tras resolver el problema de la 3ª Iteración ](output_544_0.jpg)
     
 
 
@@ -3605,7 +3576,4963 @@ No seguiremos exponiendo mas iteraciones del algoritmo, puesto que es facilmente
 
 
 
+\newpage
+
+
+
+
+
+
+### Arboles de Clasificación Penalizados  
+
+La idea es esencialmente la misma la ya comentada en la sección de arboles de regresion penalizados.
+
+Los arboles de clasificación penalizados son esencialemte iguales que los arboles de clasificacion ordinarios pero tienen una modificacion en el problema de optimizacion tal que permiten penalizar los arboles con muchas ramas. 
+
+El problema de optimizacion a resolver en los arboles de regresion ordinarios (usando Gini como métrica, sin perdida de generalidad) era:
+
+
+$$ \underset{R_1,..,R_m}{Min}  \hspace{0.12cm}  \sum_{h=1}^{m} \hspace{0.1cm} G_{R_{ht}}  $$
+
+
+En los arboles de regresion penalizados el problema a resolver es:
+
+$$ \underset{R_1,..,R_m}{Min}  \hspace{0.12cm}  \sum_{h=1}^{m} \hspace{0.1cm} G_{R_{ht}} + \alpha \cdot m $$
+
+Donde $m$ es el numero de ramas del arbol 
+
+De este modo, si $\alpha = 0$ estamos en el caso de arboles de clasificacion ordinarios.
+
+Si $\alpha > 0$ , entonces se penalizara el numero de ramas del arbil (m).
+
+Dado un $\alpha >0$ , cuanto mayor sea el tamaño del arbol (m) mas dificil sera que sea optimo en el sentido de que resuelva el probema deminimizacion. Y viceversa.
+
+Cuanto mayor sea $\alpha$ más se estará penalizando a los arboles de tamaño grande.
+
+Con $\alpha >0$ ( y especialmente $\alpha >> 0$ ( relativamente grande)) tienden a salir como optimos arboles que son mas pequeños que los que salen pusando elalgoritmo ordinario (sin penalizacion).
+
+En el algoritmo ordinario se prioriza que el arbol se ajuste a los datos de entrenamiento, lo que psuele provocar overfiting (sobreajuse). Esto es un problema porque hace que el arbol funcione muy bien (prediga bien) en la muestra de entrenamiento (cuando usa los datos que ya ha "visto"), pero bastante peor en la muestra de test. Estos modelos tendran poco sesgo pero mucha varianza a nivel predictivo, lo cual es negativo.
+
+El algoritmo penalizado permite obtener un equilibrio entre sesgo y varianza a traves del parametro de penalizacion $\alpha$
+
+La idea es seleccionar un alpha que nos genere un modelo con quiza un poco mas de sesgo pero con considerable menos varianza que el ordinario, lo cualq conduzca a un erro de prediccion menor que en el caso ordinario.
+
+
+\vspace{0.15cm}
+
+**¿ Cómo escoger $\alpha$ en la practica ?**
+
+Una idea razonable es entrenar un arbol con los mismos datos de entrenamiento pero con $B$ distintos $\alpha$
+
+Calcular con una muestra de test el error de cada uno de los $B$ modelos.
+
+Quedarse con el  $\alpha$ asociado al modelo con menor error de test.
+
+Una cuestion relevante aqui es como definir el conjunto de $B$ valores de $\alpha$ que se van a tener en consideracion. 
+
+No entraremos aqui en esta cuestión.
+
+
+\newpage
+
+
+###  Arboles de clasificación: algoritmo de creación propia en `Python`
+
+ **Algoritmo de creacion propia con TEC**  
+
+
+```python
+def classification_tree(Data_set, iterations_vector, k, Y_categories) :
+
+# POR AHORA SOLO GENERA 4 ITERACIONES EN EL ARBOL --> iterations_vector = range(1,5) como mucho (=[1,2,3,4])
+
+# Data_set tiene que ser tal que, su columna 0 sea Y, y la j-esima sea la variable Xj , para j=1,...,p
+
+# Si se quiere que el arbol tenga como mucho 3 iteraciones --> iterations_vector = range(1,4) = [1,2,3]
+
+# Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+# k = numero de obsrevaciones minimas por rama del arbol --> criterio de parada
+
+########################################################################
+    
+    def s_values(j, Data_set):
+
+        s_values = []
+
+        if  (Data_set.dtypes[j] != 'float64') & (Data_set.dtypes[j] != 'int64') : # Para las variables categoricas s_value sera simplemente su rango.
+
+            s_values = Data_set.sort_values(by=[Data_set.columns[j]], axis=0, ascending=True, ignore_index=True).iloc[:, j].unique()
+
+
+        elif (Data_set.dtypes[j] == 'float64') | (Data_set.dtypes[j] == 'int64') :
+
+            Xj_sorted = Data_set.sort_values(by=[Data_set.columns[j]], axis=0, ascending=True, ignore_index=True).iloc[:, j].unique()
+
+        
+            for i in range(0, len(Xj_sorted)-1):
+
+                s_values.append( (Xj_sorted[i] + Xj_sorted[i+1] ) / 2  )
+
+    
+        return s_values
+
+
+########################################################################  
+
+   ## ITERACION 1
+
+    if iterations_vector[0] == 1 : # nacimiento del arbol
+
+        
+        ###################################
+        
+        def f_R11(j, s, r, Data_set):
+
+           # Verificando si se cumplen las siguientes dos condiciones conjuntamente nos garantizamos que todas las ramas tienes observaciones de train. 
+           # Es decir, no habra ninguna rama sin observaciones de train que caigan en ella.
+
+            cond_R11 = len(Data_set.loc[ (Data_set.iloc[:, j] < s) , : ] )
+
+            if  cond_R11 != 0 :
+
+                f_R11 = len( Data_set.loc[ (Data_set.iloc[:, j] < s) & (Data_set.loc[:, 'Y'] == r) , : ] ) / len( Data_set.loc[ (Data_set.iloc[:, j] < s) , : ] )
+
+            
+            elif cond_R11 == 0 :
+
+                f_R11 = 0
+
+            
+            return f_R11 
+
+        ######################################
+
+        def f_R21(j, s, r, Data_set):
+
+            cond_R21 = len(Data_set.loc[ (Data_set.iloc[:, j] >= s) , : ] )
+
+            if cond_R21 != 0 :
+
+                f_R21 = len( Data_set.loc[ (Data_set.iloc[:, j] >= s) & (Data_set.loc[:, 'Y'] == r) , : ] ) / len( Data_set.loc[ (Data_set.iloc[:, j] >= s) , : ] )
+            
+            elif cond_R21 == 0 :
+
+                f_R21 = 0
+
+            
+            return f_R21 
+
+
+        ###################################
+
+        TEC_vector = []
+        j_vector = []
+        s_vector = []
+
+        j_star_vector = []
+        s_star_vector = []
+        TEC_star_vector = []
+
+        for j in range(1, Data_set.shape[1]) :
+
+            for s in s_values(j, Data_set) :
+
+                # Busqueda de r_star_R11 :
+
+                f_R11_r_vector = []
+
+                for r in Y_categories:  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R11_r_vector.append( f_R11(j, s, r , Data_set) )
+
+                f_R11_df = pd.DataFrame({'r':Y_categories  , 'f_R11':f_R11_r_vector })
+        
+                f_R11_df_sorted = f_R11_df.sort_values(by=['f_R11'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R11 = f_R11_df_sorted.loc[0, 'r']
+
+
+                # Busqueda de r_star_R21 :
+
+                f_R21_r_vector = []
+
+                for r in Y_categories:  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R21_r_vector.append( f_R21(j, s, r , Data_set) )
+
+                f_R21_df = pd.DataFrame({'r':Y_categories  , 'f_R21':f_R21_r_vector })
+        
+                f_R21_df_sorted = f_R21_df.sort_values(by=['f_R21'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R21 = f_R21_df_sorted.loc[0, 'r']
+
+
+                # Calculo de TEC_1 para la combinacion (j, s) dada:
+
+                TEC_1 = 1- f_R11(j, s, r_star_R11, Data_set) + 1- f_R21(j, s, r_star_R21, Data_set)
+
+                TEC_vector.append(TEC_1)
+                j_vector.append(j)
+                s_vector.append(s)
+
+
+        # Busqueda de j_star y s_star de la itracion 1:
+
+        TEC_df = pd.DataFrame({'TEC':TEC_vector, 'j':j_vector, 's':s_vector})
+
+        TEC_df_sorted = TEC_df.sort_values(by=['TEC'], axis=0, ascending=True, ignore_index=True)
+
+        s_star_vector.append( TEC_df_sorted.loc[0, 's'] )
+        j_star_vector.append( TEC_df_sorted.loc[0, 'j'] )
+        TEC_star_vector.append(TEC_df_sorted.loc[0, 'TEC'])
+
+        # OJO: s_star_vector[i] sera el s_star de la iteracion i+1 , para i=0,1,...
+        # OJO: j_star_vector[i] sera el j_star de la iteracion i+1 , para i=0,1,...    
+        
+      ###################################
+
+        # Condicion de parada:
+
+        obs_r11 = len( Data_set.loc[ Data_set.iloc[:, j_star_vector[0] ] < s_star_vector[0] , : ] )
+        obs_r21 = len( Data_set.loc[ Data_set.iloc[:, j_star_vector[0] ] >= s_star_vector[0] , : ] )
+
+        if(obs_r11 < k) | (obs_r21 < k) : # Si se cumple el criterio de parada
+
+
+            print('El arbol final es el arbol con 1 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo', k ,'de observaciones por rama')
+
+            number_iterations=1
+
+            obs_ramas = [obs_r11 , obs_r21]
+
+       
+            ###################
+            
+            return(number_iterations, j_star_vector, s_star_vector, TEC_star_vector, obs_ramas ) 
+
+            ###################
+
+        elif (obs_r11 >= k) & (obs_r21 >= k) : # No se cumple el criterio de parada
+
+            pass
+
+
+#######################################################################
+
+    ## ITERACION 2   ·········· POR MODIFICAR !! ·············
+
+    if iterations_vector[1] == 2 :  # Desarrollar nodo R1 de la 1ª iteracion
+
+    ################################################################
+
+
+        def f_R12(j, s, r, Data_set):
+
+           # Verificando si se cumplen las siguientes dos condiciones conjuntamente nos garantizamos que todas las ramas tienes observaciones de train. 
+           # Es decir, no habra ninguna rama sin observaciones de train que caigan en ella.
+
+            cond_R12 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j] < s) , : ] ) 
+
+            if  cond_R12 != 0 :
+
+                f_R12 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j] < s) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R12
+
+            
+            elif cond_R12 == 0 :
+
+                f_R12 = 0
+
+            
+            return f_R12 
+
+        #########
+
+        def f_R22(j, s, r, Data_set):
+
+           # Verificando si se cumplen las siguientes dos condiciones conjuntamente nos garantizamos que todas las ramas tienes observaciones de train. 
+           # Es decir, no habra ninguna rama sin observaciones de train que caigan en ella.
+
+            cond_R22 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j] >= s) , : ] ) 
+
+            if  cond_R22 != 0 :
+
+                f_R22 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j] >= s) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R22
+
+            
+            elif cond_R22 == 0 :
+
+                f_R22 = 0
+
+            
+            return f_R22 
+
+
+        ###################################
+
+        TEC_vector = []
+        j_vector = []
+        s_vector = []
+
+
+        for j in range(1, Data_set.shape[1]) :
+
+            for s in s_values(j, Data_set) :
+
+                # Busqueda de r_star_R12 :
+
+                f_R12_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R12_r_vector.append( f_R12(j, s, r , Data_set) )
+
+                f_R12_df = pd.DataFrame({'r':Y_categories  , 'f_R12':f_R11_r_vector })
+        
+                f_R12_df_sorted = f_R12_df.sort_values(by=['f_R12'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R12 = f_R11_df_sorted.loc[0, 'r']
+
+
+                # Busqueda de r_star_R22 :
+
+                f_R22_r_vector = []
+
+                for r in Y_categories:  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R22_r_vector.append( f_R22(j, s, r , Data_set) )
+
+                f_R22_df = pd.DataFrame({'r':Y_categories , 'f_R22':f_R22_r_vector })
+        
+                f_R22_df_sorted = f_R22_df.sort_values(by=['f_R22'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R22 = f_R22_df_sorted.loc[0, 'r']
+
+
+                # Calculo de TEC_1 para la combinacion (j, s) dada:
+
+                TEC_2 = 1- f_R12(j, s, r_star_R12, Data_set) + 1- f_R22(j, s, r_star_R22, Data_set)
+
+                TEC_vector.append(TEC_2)
+                j_vector.append(j)
+                s_vector.append(s)
+
+
+        # Busqueda de j_star y s_star de la itracion 1:
+
+        TEC_df = pd.DataFrame({'TEC':TEC_vector, 'j':j_vector, 's':s_vector})
+
+        TEC_df_sorted = TEC_df.sort_values(by=['TEC'], axis=0, ascending=True, ignore_index=True)
+
+        s_star_vector.append( TEC_df_sorted.loc[0, 's'] )
+        j_star_vector.append( TEC_df_sorted.loc[0, 'j'] )
+        TEC_star_vector.append(TEC_df_sorted.loc[0, 'TEC'])
+
+        # OJO: s_star_vector[i] sera el s_star de la iteracion i+1 , para i=0,1,...
+        # OJO: j_star_vector[i] sera el j_star de la iteracion i+1 , para i=0,1,... 
+
+
+      ###################################
+
+        # Condicion de parada:
+
+        obs_r12 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) , : ] )
+        obs_r22 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] >= s_star_vector[1]) , : ] )
+        obs_r32 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] >= s_star_vector[0]) , : ] )
+
+        if(obs_r12 < k) | (obs_r22 < k) : # Si se cumple el criterio de parada
+
+
+            print('El arbol final es el arbol con 2 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo', k ,'de observaciones por rama')
+
+            number_iterations=2
+            
+            obs_ramas = [obs_r12 , obs_r22, obs_r32]
+
+        
+            ###################
+            
+            return(number_iterations, j_star_vector, s_star_vector, TEC_star_vector, obs_ramas ) 
+
+            ###################
+
+
+        elif (obs_r12 >= k) & (obs_r22 >= k) : # No se cumple el criterio de parada
+
+            pass
+
+
+
+####################################################################################
+
+## ITERACION 3
+
+    if iterations_vector[2] == 3 :  # Desarrollar nodo R2 de la 1ª iteracion -->  considerar j_star_vector[0] y s_star_vector[0] (1ª iteracion) y >= (R2)
+
+       #########################################
+
+        def f_R33(j, s, r, Data_set):
+
+           # Verificando si se cumplen las siguientes dos condiciones conjuntamente nos garantizamos que todas las ramas tienes observaciones de train. 
+           # Es decir, no habra ninguna rama sin observaciones de train que caigan en ella.
+
+            cond_R33 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) & (Data_set.iloc[:, j] < s) , : ] ) 
+
+            if  cond_R33 != 0 :
+
+                f_R33 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) & (Data_set.iloc[:, j] < s) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R33
+
+            
+            elif cond_R33 == 0 :
+
+                f_R33 = 0
+            
+            return f_R33
+
+        #########
+
+        def f_R43(j, s, r, Data_set):
+
+           # Verificando si se cumplen las siguientes dos condiciones conjuntamente nos garantizamos que todas las ramas tienes observaciones de train. 
+           # Es decir, no habra ninguna rama sin observaciones de train que caigan en ella.
+
+            cond_R43 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) & (Data_set.iloc[:, j] >= s) , : ] ) 
+
+            if  cond_R43 != 0 :
+
+                f_R43 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) & (Data_set.iloc[:, j] >= s) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R43
+
+            
+            elif cond_R43 == 0 :
+
+                f_R43 = 0
+
+            
+            return f_R43 
+
+        
+        ###################################
+
+        TEC_vector = []
+        j_vector = []
+        s_vector = []
+
+
+        for j in range(1, Data_set.shape[1]) :
+
+            for s in s_values(j, Data_set) :
+
+                # Busqueda de r_star_R11 :
+
+                f_R33_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R33_r_vector.append( f_R33(j, s, r , Data_set) )
+
+                f_R33_df = pd.DataFrame({'r':Y_categories  , 'f_R33':f_R11_r_vector })
+        
+                f_R33_df_sorted = f_R33_df.sort_values(by=['f_R33'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R33 = f_R11_df_sorted.loc[0, 'r']
+
+
+                # Busqueda de r_star_R21 :
+
+                f_R43_r_vector = []
+
+                for r in Y_categories:  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R43_r_vector.append( f_R43(j, s, r , Data_set) )
+
+                f_R43_df = pd.DataFrame({'r':Y_categories  , 'f_R43':f_R21_r_vector })
+        
+                f_R43_df_sorted = f_R43_df.sort_values(by=['f_R43'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R43 = f_R43_df_sorted.loc[0, 'r']
+
+
+                # Calculo de TEC_1 para la combinacion (j, s) dada:
+
+                TEC_1 = 1- f_R33(j, s, r_star_R33, Data_set) + 1- f_R43(j, s, r_star_R43, Data_set)
+
+                TEC_vector.append(TEC_1)
+                j_vector.append(j)
+                s_vector.append(s)
+
+
+        # Busqueda de j_star y s_star de la itracion 1:
+
+        TEC_df = pd.DataFrame({'TEC':TEC_vector, 'j':j_vector, 's':s_vector})
+
+        TEC_df_sorted = TEC_df.sort_values(by=['TEC'], axis=0, ascending=True, ignore_index=True)
+
+        s_star_vector.append( TEC_df_sorted.loc[0, 's'] )
+        j_star_vector.append( TEC_df_sorted.loc[0, 'j'] )
+        TEC_star_vector.append(TEC_df_sorted.loc[0, 'TEC'])
+
+        # OJO: s_star_vector[i] sera el s_star de la iteracion i+1 , para i=0,1,...
+        # OJO: j_star_vector[i] sera el j_star de la iteracion i+1 , para i=0,1,... 
+
+
+      ###################################
+
+        # Condicion de parada:
+
+        obs_r13 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) , : ] )
+        obs_r23 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] >= s_star_vector[1]) , : ] )
+
+        obs_r33 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] >= s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[2]] < s_star_vector[2]) , : ] )
+        obs_r43 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] >= s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[2]] >= s_star_vector[2]) , : ] )
+
+
+        if(obs_r33 < k) | (obs_r43 < k) : # Si se cumple el criterio de parada
+
+
+            print('El arbol final es el arbol con 3 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo', k ,'de observaciones por rama')
+
+            number_iterations = 3
+            
+            obs_ramas = [obs_r13, obs_r23, obs_r33 , obs_r43]
+
+            
+            ###################
+            
+            return(number_iterations, j_star_vector, s_star_vector, TEC_star_vector, obs_ramas ) 
+
+            ###################
+
+
+        elif (obs_r33 >= k) & (obs_r43 >= k) : # No se cumple el criterio de parada
+
+            pass
+
+    #######################
+
+
+    ## ITERACION 4
+
+    if iterations_vector[3] == 4 :  
+
+       #########################################
+
+       #########################################
+
+        def f_R14(j, s, r, Data_set):
+
+           # Verificando si se cumplen las siguientes dos condiciones conjuntamente nos garantizamos que todas las ramas tienes observaciones de train. 
+           # Es decir, no habra ninguna rama sin observaciones de train que caigan en ella.
+
+            cond_R14 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) & (Data_set.iloc[:, j] < s) , : ] ) 
+
+            if  cond_R14 != 0 :
+
+                f_R14 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) & (Data_set.iloc[:, j] < s) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R14
+
+            
+            elif cond_R14 == 0 :
+
+                f_R14 = 0
+
+            
+            return f_R14 
+
+        #########
+
+        def f_R24(j, s, r, Data_set):
+
+           # Verificando si se cumplen las siguientes dos condiciones conjuntamente nos garantizamos que todas las ramas tienes observaciones de train. 
+           # Es decir, no habra ninguna rama sin observaciones de train que caigan en ella.
+
+            cond_R24 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) & (Data_set.iloc[:, j] >= s) , : ] ) 
+
+            if  cond_R24 != 0 :
+
+                f_R24 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) & (Data_set.iloc[:, j] >= s) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R24
+
+            
+            elif cond_R24 == 0 :
+
+                f_R24 = 0
+
+            
+            return f_R24 
+
+
+ ###################################
+
+        TEC_vector = []
+        j_vector = []
+        s_vector = []
+
+
+        for j in range(1, Data_set.shape[1]) :
+
+            for s in s_values(j, Data_set) :
+
+                # Busqueda de r_star_R11 :
+
+                f_R14_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R14_r_vector.append( f_R14(j, s, r , Data_set) )
+
+                f_R14_df = pd.DataFrame({'r':Y_categories  , 'f_R14':f_R11_r_vector })
+        
+                f_R14_df_sorted = f_R14_df.sort_values(by=['f_R14'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R14 = f_R11_df_sorted.loc[0, 'r']
+
+
+                # Busqueda de r_star_R21 :
+
+                f_R24_r_vector = []
+
+                for r in Y_categories:  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R24_r_vector.append( f_R24(j, s, r , Data_set) )
+
+                f_R24_df = pd.DataFrame({'r':Y_categories  , 'f_R24':f_R21_r_vector })
+        
+                f_R24_df_sorted = f_R24_df.sort_values(by=['f_R24'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R24 = f_R24_df_sorted.loc[0, 'r']
+
+
+                # Calculo de TEC_1 para la combinacion (j, s) dada:
+
+                TEC_1 = 1- f_R14(j, s, r_star_R14, Data_set) + 1- f_R24(j, s, r_star_R24, Data_set)
+
+                TEC_vector.append(TEC_1)
+                j_vector.append(j)
+                s_vector.append(s)
+
+
+        # Busqueda de j_star y s_star de la itracion 1:
+
+        TEC_df = pd.DataFrame({'TEC':TEC_vector, 'j':j_vector, 's':s_vector})
+
+        TEC_df_sorted = TEC_df.sort_values(by=['TEC'], axis=0, ascending=True, ignore_index=True)
+
+        s_star_vector.append( TEC_df_sorted.loc[0, 's'] )
+        j_star_vector.append( TEC_df_sorted.loc[0, 'j'] )
+        TEC_star_vector.append(TEC_df_sorted.loc[0, 'TEC'])
+
+        # OJO: s_star_vector[i] sera el s_star de la iteracion i+1 , para i=0,1,...
+        # OJO: j_star_vector[i] sera el j_star de la iteracion i+1 , para i=0,1,...        
+
+
+      ###################################
+
+        # Condicion de parada:
+
+        obs_r14 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) & (Data_set.iloc[:, j_star_vector[3]] < s_star_vector[3]) , : ] )
+        obs_r24 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) & (Data_set.iloc[:, j_star_vector[3]] >= s_star_vector[3]) , : ] )
+
+        obs_r34 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] >= s_star_vector[1]) , : ] )
+        obs_r44 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] >= s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[2]] < s_star_vector[2]) , : ] )
+        obs_r54 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] >= s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[2]] >= s_star_vector[2]) , : ] )
+
+
+        if(obs_r14 < k) | (obs_r24 < k) : # Si se cumple el criterio de parada
+
+
+            print('El arbol final es el arbol con 3 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo', k ,'de observaciones por rama')
+
+            number_iterations = 4
+            
+            obs_ramas = [obs_r14, obs_r24, obs_r34 , obs_r44, obs_r54]
+
+            
+            ###################
+            
+            return(number_iterations, j_star_vector, s_star_vector, TEC_star_vector, obs_ramas ) 
+
+            ###################
+
+
+        elif (obs_r14 >= k) & (obs_r24 >= k) : # No se cumple el criterio de parada
+
+            print('Se ha generado el arbol mas grande permitido por el algoritmo (arbol con 4 Iteraciones)')
+
+        # Aunque no se haya cummplido el criterio de parada como esta es la ultima Iteracion contemplada por el algoritmo, 
+        # debemos calcular las metricas finales para que sean escupidas por el algoritmo. 
+            
+            number_iterations=4
+            
+            obs_ramas = [obs_r14, obs_r24, obs_r34, obs_r44, obs_r54]
+
+            
+              
+            pass
+
+    #######################
+        
+    return( number_iterations, j_star_vector, s_star_vector, TEC_star_vector, obs_ramas ) 
+
+```
+
+
+\newpage
+
+
+Definimos una funcion para obtener predicciones de la respuesta:
+
+
+```python
+def classification_tree_PREDICTIONS(Data_set, Y_categories, number_iterations, j_star_vector, s_star_vector, obs_ramas, x_new):
+
+    if number_iterations == 1 :
+
+            obs_r11 = obs_ramas[0]
+            obs_r21 = obs_ramas[1]
+
+
+        ### Prediccion:
+
+            # Si x_new cae en R11 
+
+            if x_new[j_star_vector[0] - 1] < s_star_vector[0] :  # Ojo: el elemento j-1 de x_new es el valor de X_{j} , con j=1,2,...
+
+                
+                def f_R11(r, Data_set):
+
+                    cond_R11 = len(Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) , : ] )
+
+                    if  cond_R11 != 0 :
+
+                        f_R11 = len( Data_set.loc[  (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R11
+
+            
+                    elif cond_R11 == 0 :
+
+                        f_R11 = 0
+ 
+            
+                    return f_R11
+                
+
+
+                # Busqueda de r_star_R11 :
+
+                f_R11_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R11_r_vector.append( f_R11(r , Data_set) )
+
+                f_R11_df = pd.DataFrame({'r':Y_categories  , 'f_R11':f_R11_r_vector })
+        
+                f_R11_df_sorted = f_R11_df.sort_values(by=['f_R11'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R11 = f_R11_df_sorted.loc[0, 'r']
+
+                y_new_predict = r_star_R11 
+
+                
+                
+            # Si x_new cae en r21
+
+            elif x_new[j_star_vector[0] - 1] >= s_star_vector[0] :  
+                
+                
+                def f_R21(r, Data_set):
+
+                    cond_R21 = len(Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) , : ] )
+
+                    if cond_R21 != 0 :
+
+                        f_R21 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R21
+            
+                    elif cond_R21 == 0 :
+
+                        f_R21 = 0
+
+                    return f_R21
+
+            
+            # Busqueda de r_star_R21 :
+
+                f_R21_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R21_r_vector.append( f_R21(r , Data_set) )
+
+                f_R21_df = pd.DataFrame({'r':Y_categories  , 'f_R21':f_R21_r_vector })
+        
+                f_R21_df_sorted = f_R21_df.sort_values(by=['f_R21'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R21 = f_R21_df_sorted.loc[0, 'r']
+
+                y_new_predict = r_star_R21 
+
+    ###################################       
+
+        
+    if number_iterations == 2 :
+
+            obs_r12 = obs_ramas[0]
+            obs_r22 = obs_ramas[1]
+            obs_r32 = obs_ramas[2]
+
+
+        ### Prediccion:
+
+            # Si x_new cae en R12
+           
+            if (x_new[j_star_vector[0] - 1] < s_star_vector[0]) & (x_new[j_star_vector[1] - 1] < s_star_vector[1]) :  # Ojo: el elemento j-1 de x_new es el valor de X_{j} , con j=1,2,...
+
+
+                def f_R12(r, Data_set):
+
+ 
+                    cond_R12 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) , : ] ) 
+
+                    if  cond_R12 != 0 :
+
+                        f_R12 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R12
+
+            
+                    elif cond_R12 == 0 :
+
+                        f_R12 = 0
+
+                
+            # Busqueda de r_star_R12 :
+
+                f_R12_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R12_r_vector.append( f_R12(r , Data_set) )
+
+                f_R12_df = pd.DataFrame({'r':Y_categories  , 'f_R12':f_R12_r_vector })
+        
+                f_R12_df_sorted = f_R12_df.sort_values(by=['f_R12'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R12 = f_R12_df_sorted.loc[0, 'r']
+
+
+                y_new_predict = r_star_R12
+
+
+
+            
+            # Si x_new cae en R22
+
+            elif (x_new[j_star_vector[0] - 1] < s_star_vector[0]) & (x_new[j_star_vector[1] - 1] >= s_star_vector[1])  :
+
+                
+                def f_R22(r, Data_set):
+
+                    cond_R22 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] >= s_star_vector[1]) , : ] ) 
+
+                    if  cond_R22 != 0 :
+
+                        f_R22 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] >= s_star_vector[1]) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R22
+
+            
+                    elif cond_R22 == 0 :
+
+                        f_R22 = 0
+
+            
+                    return f_R22 
+
+                
+            # Busqueda de r_star_R22 :
+
+                f_R22_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R22_r_vector.append( f_R22(r , Data_set) )
+
+                f_R22_df = pd.DataFrame({'r':Y_categories  , 'f_R22':f_R22_r_vector })
+        
+                f_R22_df_sorted = f_R22_df.sort_values(by=['f_R22'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R22 = f_R22_df_sorted.loc[0, 'r']
+
+
+                y_new_predict = r_star_R22
+
+
+ 
+
+            # Si x_new cae en R32
+
+            elif (x_new[j_star_vector[0] - 1] >= s_star_vector[0]) :
+
+                def f_R32(r, Data_set):
+
+                        cond_R32 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) , : ] ) 
+
+                        if  cond_R32 != 0 :
+
+                            f_R32 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R32
+
+            
+                        elif cond_R32 == 0 :
+
+                            f_R32 = 0
+           
+                        return f_R32 
+
+                
+            # Busqueda de r_star_R32 :
+
+                f_R32_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R32_r_vector.append( f_R32(r , Data_set) )
+
+                f_R32_df = pd.DataFrame({'r':Y_categories  , 'f_R32':f_R32_r_vector })
+        
+                f_R32_df_sorted = f_R22_df.sort_values(by=['f_R32'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R32 = f_R32_df_sorted.loc[0, 'r']
+
+
+                y_new_predict = r_star_R32
+
+
+        
+    if number_iterations == 3:
+
+            obs_r13 = obs_ramas[0]
+            obs_r23 = obs_ramas[1]
+            obs_r33 = obs_ramas[2]
+            obs_r43 = obs_ramas[3]
+
+        ### Prediccion:
+
+            # Si x_new cae en R13
+
+            if (x_new[j_star_vector[0] - 1] < s_star_vector[0]) & (x_new[j_star_vector[1] - 1] < s_star_vector[1]) :  # Ojo: el elemento j-1 de x_new es el valor de X_{j} , con j=1,2,...
+
+                def f_R13(r, Data_set):
+
+                    cond_R13 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) , : ] ) 
+
+                    if  cond_R13 != 0 :
+
+                        f_R13 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R13
+
+                    elif cond_R13 == 0 :
+
+                        f_R13 = 0
+
+                    return f_R13
+
+                
+            # Busqueda de r_star_R13
+
+                f_R13_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R13_r_vector.append( f_R13(r , Data_set) )
+
+                f_R13_df = pd.DataFrame({'r':Y_categories  , 'f_R13':f_R13_r_vector })
+        
+                f_R13_df_sorted = f_R13_df.sort_values(by=['f_R13'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R13 = f_R13_df_sorted.loc[0, 'r']
+
+
+                y_new_predict = r_star_R13
+
+
+
+        # Si x_new cae en R23
+
+
+            if (x_new[j_star_vector[0] - 1] < s_star_vector[0]) & (x_new[j_star_vector[1] - 1] >= s_star_vector[1]) :  # Ojo: el elemento j-1 de x_new es el valor de X_{j} , con j=1,2,...
+
+                
+                def f_R23(r, Data_set):
+
+                    cond_R23 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] >= s_star_vector[1]) , : ] ) 
+
+                    if  cond_R23 != 0 :
+
+                        f_R23 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] >= s_star_vector[1]) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R23
+
+                    elif cond_R23 == 0 :
+
+                        f_R23 = 0
+
+                    return f_R23
+
+                
+            # Busqueda de r_star_R23
+
+                f_R23_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R23_r_vector.append( f_R23( r , Data_set) )
+
+                f_R23_df = pd.DataFrame({'r':Y_categories  , 'f_R23':f_R23_r_vector })
+        
+                f_R23_df_sorted = f_R23_df.sort_values(by=['f_R23'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R23 = f_R23_df_sorted.loc[0, 'r']
+
+
+                y_new_predict = r_star_R23
+
+
+
+        # Si x_new cae en R33
+
+            if (x_new[j_star_vector[0] - 1] >= s_star_vector[0]) & (x_new[j_star_vector[2] - 1] < s_star_vector[2]) :  # Ojo: el elemento j-1 de x_new es el valor de X_{j} , con j=1,2,...
+
+                def f_R33(r, Data_set):
+
+                        cond_R33 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[2]] < s_star_vector[2]) , : ] ) 
+
+                        if  cond_R33 != 0 :
+
+                            f_R33 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[2]] < s_star_vector[2]) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R33
+
+                        elif cond_R33 == 0 :
+
+                            f_R33 = 0
+
+                        return f_R33
+
+                
+            # Busqueda de r_star_R33
+
+                f_R33_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R33_r_vector.append( f_R33( r , Data_set) )
+
+                f_R33_df = pd.DataFrame({'r':Y_categories  , 'f_R33':f_R33_r_vector })
+        
+                f_R33_df_sorted = f_R33_df.sort_values(by=['f_R33'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R33 = f_R33_df_sorted.loc[0, 'r']
+
+
+                y_new_predict = r_star_R33         
+
+            
+
+        # Si x_new cae en R43
+
+            elif (x_new[j_star_vector[0] - 1] >= s_star_vector[0]) & (x_new[j_star_vector[2] - 1] >= s_star_vector[2])  :
+
+
+                def f_R43(r, Data_set):
+
+                        cond_R43 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[2]] >= s_star_vector[2]) , : ] ) 
+
+                        if  cond_R43 != 0 :
+
+                            f_R43 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[2]] >= s_star_vector[2]) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R43
+
+                        elif cond_R43 == 0 :
+
+                            f_R43 = 0
+
+                        return f_R43
+
+                
+            # Busqueda de r_star_R33
+
+                f_R43_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R43_r_vector.append( f_R43( r , Data_set) )
+
+                f_R43_df = pd.DataFrame({'r':Y_categories  , 'f_R43':f_R43_r_vector })
+        
+                f_R43_df_sorted = f_R43_df.sort_values(by=['f_R43'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R43 = f_R43_df_sorted.loc[0, 'r']
+
+
+                y_new_predict = r_star_R43
+
+
+    
+    if number_iterations == 4 :
+
+            obs_r14 = obs_ramas[0]
+            obs_r24 = obs_ramas[1]
+            obs_r34 = obs_ramas[2]
+            obs_r44 = obs_ramas[3]
+            obs_r54 = obs_ramas[4]
+
+
+         ### Prediccion:
+
+            # Si x_new cae en R14
+
+            if (x_new[j_star_vector[0] - 1] < s_star_vector[0]) & (x_new[j_star_vector[1] - 1] < s_star_vector[1]) & (x_new[j_star_vector[3] - 1] < s_star_vector[3]) :  # Ojo: el elemento j-1 de x_new es el valor de X_{j} , con j=1,2,...
+
+
+                def f_R14(r, Data_set):
+
+                        cond_R14 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) & (Data_set.iloc[:, j_star_vector[3]] < s_star_vector[3]) , : ] ) 
+
+                        if  cond_R14 != 0 :
+
+                            f_R14 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1])  & (Data_set.iloc[:, j_star_vector[3]] < s_star_vector[3]) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R14
+
+                        elif cond_R14 == 0 :
+
+                            f_R14 = 0
+
+                        return f_R14
+
+                
+            # Busqueda de r_star_R14
+
+                f_R14_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R14_r_vector.append( f_R14(r , Data_set) )
+
+                f_R14_df = pd.DataFrame({'r':Y_categories  , 'f_R14':f_R14_r_vector })
+        
+                f_R14_df_sorted = f_R14_df.sort_values(by=['f_R14'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R14 = f_R14_df_sorted.loc[0, 'r']
+
+
+                y_new_predict = r_star_R14
+
+
+
+
+            # Si x_new cae en R24
+
+
+            if (x_new[j_star_vector[0] - 1] < s_star_vector[0]) & (x_new[j_star_vector[1] - 1] < s_star_vector[1]) & (x_new[j_star_vector[3] - 1] >= s_star_vector[3]) :  # Ojo: el elemento j-1 de x_new es el valor de X_{j} , con j=1,2,...
+
+                def f_R24(r, Data_set):
+
+                        cond_R24 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) & (Data_set.iloc[:, j_star_vector[3]] >= s_star_vector[3]) , : ] ) 
+
+                        if  cond_R24 != 0 :
+
+                            f_R24 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1])  & (Data_set.iloc[:, j_star_vector[3]] >= s_star_vector[3]) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R24
+
+                        elif cond_R24 == 0 :
+
+                            f_R24 = 0
+
+                        return f_R24
+
+                
+            # Busqueda de r_star_R24
+
+                f_R24_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R24_r_vector.append( f_R24(r , Data_set) )
+
+                f_R24_df = pd.DataFrame({'r':Y_categories  , 'f_R24':f_R24_r_vector })
+        
+                f_R24_df_sorted = f_R24_df.sort_values(by=['f_R24'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R24 = f_R24_df_sorted.loc[0, 'r']
+
+
+                y_new_predict = r_star_R24
+
+
+
+            # Si x_new cae en R34
+
+            if (x_new[j_star_vector[0] - 1] < s_star_vector[0]) & (x_new[j_star_vector[1] - 1] >= s_star_vector[1]) :  # Ojo: el elemento j-1 de x_new es el valor de X_{j} , con j=1,2,...
+
+                def f_R34(r, Data_set):
+
+                        cond_R34 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] >= s_star_vector[1]) , : ] ) 
+
+                        if  cond_R34 != 0 :
+
+                            f_R34 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] >= s_star_vector[1]) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R34
+
+                        elif cond_R34 == 0 :
+
+                            f_R34 = 0
+
+                        return f_R34
+
+                
+            # Busqueda de r_star_R34
+
+                f_R34_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R34_r_vector.append( f_R34(r , Data_set) )
+
+                f_R34_df = pd.DataFrame({'r':Y_categories  , 'f_R34':f_R34_r_vector })
+        
+                f_R34_df_sorted = f_R34_df.sort_values(by=['f_R34'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R34 = f_R34_df_sorted.loc[0, 'r']
+
+
+                y_new_predict = r_star_R34
+
+
+            
+            # Si x_new cae en R44
+
+            elif (x_new[j_star_vector[0] - 1] >= s_star_vector[0]) & (x_new[j_star_vector[2] - 1] < s_star_vector[2])  :
+
+                def f_R44(r, Data_set):
+
+                        cond_R44 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[2]] < s_star_vector[2]) , : ] ) 
+
+                        if  cond_R44 != 0 :
+
+                            f_R44 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[2]] < s_star_vector[2]) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R44
+
+                        elif cond_R44 == 0 :
+
+                            f_R44 = 0
+
+                        return f_R44
+
+                
+            # Busqueda de r_star_R44
+
+                f_R44_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R44_r_vector.append( f_R44(r , Data_set) )
+
+                f_R44_df = pd.DataFrame({'r':Y_categories  , 'f_R44':f_R44_r_vector })
+        
+                f_R44_df_sorted = f_R44_df.sort_values(by=['f_R44'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R44 = f_R44_df_sorted.loc[0, 'r']
+
+
+                y_new_predict = r_star_R44
+
+
+            
+            # Si x_new cae en R54
+
+            elif (x_new[j_star_vector[0] - 1] >= s_star_vector[0]) & (x_new[j_star_vector[2] - 1] >= s_star_vector[2])  :
+
+ 
+                def f_R54(r, Data_set):
+
+                        cond_R54 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[2]] >= s_star_vector[2]) , : ] ) 
+
+                        if  cond_R54 != 0 :
+
+                            f_R54 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[2]] >= s_star_vector[2]) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R44
+
+                        elif cond_R54 == 0 :
+
+                            f_R54 = 0
+
+                        return f_R54
+
+                
+            # Busqueda de r_star_R54
+
+                f_R54_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R54_r_vector.append( f_R54(r , Data_set) )
+
+                f_R54_df = pd.DataFrame({'r':Y_categories  , 'f_R54':f_R54_r_vector })
+        
+                f_R54_df_sorted = f_R54_df.sort_values(by=['f_R54'], axis=0, ascending=False, ignore_index=True)
+
+                r_star_R54 = f_R54_df_sorted.loc[0, 'r']
+
+
+                y_new_predict = r_star_R54
+
+        
+
+
+        
+    return(y_new_predict)
+```
+
+
+
+\newpage
+
+### Testeo del algoritmo de arbol de clasificacion creado en `Python` 
+
+
+```python
+import numpy as np
+import pandas as pd
+```
+
+
+```python
+Data_Python = Data_Python.iloc[: , 0:11]
+```
+
+
+```python
+Data_Python.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Total_Bilirubin</th>
+      <th>Direct_Bilirubin</th>
+      <th>Alkaline_Phosphotase</th>
+      <th>Alamine_Aminotransferase</th>
+      <th>Aspartate_Aminotransferase</th>
+      <th>Total_Protiens</th>
+      <th>Albumin</th>
+      <th>Albumin_and_Globulin_Ratio</th>
+      <th>Diseased</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>65</td>
+      <td>0.0</td>
+      <td>0.7</td>
+      <td>0.1</td>
+      <td>187</td>
+      <td>16</td>
+      <td>18</td>
+      <td>6.8</td>
+      <td>3.3</td>
+      <td>0.90</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>62</td>
+      <td>1.0</td>
+      <td>10.9</td>
+      <td>5.5</td>
+      <td>699</td>
+      <td>64</td>
+      <td>100</td>
+      <td>7.5</td>
+      <td>3.2</td>
+      <td>0.74</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>62</td>
+      <td>1.0</td>
+      <td>7.3</td>
+      <td>4.1</td>
+      <td>490</td>
+      <td>60</td>
+      <td>68</td>
+      <td>7.0</td>
+      <td>3.3</td>
+      <td>0.89</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>58</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.4</td>
+      <td>182</td>
+      <td>14</td>
+      <td>20</td>
+      <td>6.8</td>
+      <td>3.4</td>
+      <td>1.00</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>72</td>
+      <td>1.0</td>
+      <td>3.9</td>
+      <td>2.0</td>
+      <td>195</td>
+      <td>27</td>
+      <td>59</td>
+      <td>7.3</td>
+      <td>2.4</td>
+      <td>0.40</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+Transformaciones necesarias para poder aplicar sobre este data-set nuestro algoritmo:
+
+- Tranformar las variables categoricas a type=Object en Python (ya hecho en la parte de EDA)
+- Llamar 'Y' a la variable respuesta (y hacer que sea la primera columna del data-set)
+- La variable respuesta tiene que ser la primera columna (columna cero en Python)
+
+
+
+Renombramos la variable respuesta y la ponemos como primera columna:
+
+
+```python
+Data_Python.insert(0, 'Y', Data_Python['Diseased'])
+```
+
+
+```python
+Data_Python = Data_Python.drop(['Diseased'], axis=1)
+```
+
+
+```python
+Data_Python.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Y</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Total_Bilirubin</th>
+      <th>Direct_Bilirubin</th>
+      <th>Alkaline_Phosphotase</th>
+      <th>Alamine_Aminotransferase</th>
+      <th>Aspartate_Aminotransferase</th>
+      <th>Total_Protiens</th>
+      <th>Albumin</th>
+      <th>Albumin_and_Globulin_Ratio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>65</td>
+      <td>0.0</td>
+      <td>0.7</td>
+      <td>0.1</td>
+      <td>187</td>
+      <td>16</td>
+      <td>18</td>
+      <td>6.8</td>
+      <td>3.3</td>
+      <td>0.90</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0</td>
+      <td>62</td>
+      <td>1.0</td>
+      <td>10.9</td>
+      <td>5.5</td>
+      <td>699</td>
+      <td>64</td>
+      <td>100</td>
+      <td>7.5</td>
+      <td>3.2</td>
+      <td>0.74</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+      <td>62</td>
+      <td>1.0</td>
+      <td>7.3</td>
+      <td>4.1</td>
+      <td>490</td>
+      <td>60</td>
+      <td>68</td>
+      <td>7.0</td>
+      <td>3.3</td>
+      <td>0.89</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.0</td>
+      <td>58</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.4</td>
+      <td>182</td>
+      <td>14</td>
+      <td>20</td>
+      <td>6.8</td>
+      <td>3.4</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0</td>
+      <td>72</td>
+      <td>1.0</td>
+      <td>3.9</td>
+      <td>2.0</td>
+      <td>195</td>
+      <td>27</td>
+      <td>59</td>
+      <td>7.3</td>
+      <td>2.4</td>
+      <td>0.40</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
 <p><p style="page-break-after:always;"></p></p>
+
+
+Ahora dividimos el data-set en train y test :
+
+
+```python
+Data_Python_Train = Data_Python.sample(frac=0.8, replace=False, weights=None, random_state=666, axis=None, ignore_index=False)
+
+Data_Python_Test = Data_Python.drop( Data_Python_Train.index , )
+```
+
+
+```python
+## TEST
+
+X_test = Data_Python_Test.loc[: , Data_Python_Test.columns != 'Y']
+Y_test = Data_Python_Test.loc[: , 'Y']
+
+Data_Test = pd.concat([Y_test , X_test], axis=1)
+
+##################################################################################################
+
+## TRAIN
+
+X_train = Data_Python_Train.loc[: , Data_Python_Train.columns != 'Y']
+Y_train = Data_Python_Train.loc[: , 'Y']
+
+Data_Train = pd.concat([Y_train , X_train], axis=1)
+```
+
+
+
+
+
+Testeamos la funcion creada `classification_tree`
+
+
+```python
+number_iterations, j_star_vector, s_star_vector, TEC_star_vector, obs_ramas = classification_tree(Data_set=Data_Train, iterations_vector=range(1,5), k=20, Y_categories=range(0,2))
+```
+
+    El arbol final es el arbol con 1 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo 20 de observaciones por rama
+    
+
+
+
+Los predictores seleccionados en cada iteración son:
+
+
+```python
+j_star_vector
+```
+
+
+
+
+    [1]
+
+
+
+
+
+Los puntos de corte seleccionados en cada iteración son:
+
+
+```python
+s_star_vector
+```
+
+
+
+
+    [6.5]
+
+
+
+
+
+El TEC óptimo obtenido en cada iteración es:
+
+
+```python
+TEC_star_vector
+```
+
+
+
+
+    [0.2764578833693304]
+
+
+
+
+
+El número de observaciones por rama es:
+
+
+```python
+obs_ramas
+```
+
+
+
+
+    [3, 463]
+
+
+
+
+
+
+
+### Validacion Simple con funcion de validación propia y funcion Classification Tree propia 
+
+
+```python
+def Simple_Validation_Classification(Data_Test, X_train, Y_train, Y_test) :
+
+    ##########################
+
+    from joblib import Parallel, delayed
+    import multiprocessing
+
+    n_jobs  = multiprocessing.cpu_count()
+
+    ##########################
+
+    number_iterations, j_star_vector, s_star_vector, TEC_star_vector, obs_ramas = classification_tree(Data_set=Data_Train, iterations_vector=range(1,5), k=20, Y_categories=range(0,2))    
+    
+    Y_categories = range(0,2)
+
+    def prediction(i, Data_Test, X_train, Y_train ):
+
+     x_new = Data_Test.iloc[ i , range(1, Data_Test.shape[1])]
+
+     y_new_predict = classification_tree_PREDICTIONS(Data_Test, Y_categories ,number_iterations, j_star_vector, s_star_vector, obs_ramas, x_new)
+  
+     return(y_new_predict)
+
+    ##########################
+
+    y_predictions_vector = []
+
+    # Paralelizamos el siguiente bucle for :
+
+    # for i in  range(0, len(Data_Test)):
+
+        # y_new_predict = prediction(i, Data_Test, X_train, Y_train )
+
+        # y_predictions_vector.append( y_new_predict )
+
+    
+    y_predictions_vector = Parallel(n_jobs=n_jobs)( delayed(prediction)( i, Data_Test, X_train, Y_train) for i in range(0, len(Data_Test)) )
+
+    #########################
+
+ 
+    TEC = ( y_predictions_vector != Y_test ).sum()  / len(Y_test)     
+
+ 
+    return(y_predictions_vector , TEC)
+```
+
+
+```python
+y_predictions_vector , TEC_classification_tree_own_function = Simple_Validation_Classification(Data_Test, X_train, Y_train, Y_test)
+```
+
+    El arbol final es el arbol con 1 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo 20 de observaciones por rama
+    
+
+
+```python
+TEC_classification_tree_own_function
+```
+
+
+
+
+    0.3076923076923077
+
+
+
+
+
+
+
+### Algoritmo de creacion propia con Gini  
+
+
+```python
+def classification_tree_Gini(Data_set, iterations_vector, k, Y_categories) :
+
+# POR AHORA SOLO GENERA 4 ITERACIONES EN EL ARBOL --> iterations_vector = range(1,5) como mucho (=[1,2,3,4])
+
+# Data_set tiene que ser tal que, su columna 0 sea Y, y la j-esima sea la variable Xj , para j=1,...,p
+
+# Si se quuiere que el arbol tenga como mucho 3 iteraciones --> iterations_vector = range(1,4) = [1,2,3]
+
+# Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+# k = numero de obsrevaciones minimas por rama del arbol --> criterio de parada
+
+########################################################################
+    
+    def s_values(j, Data_set):
+
+        s_values = []
+
+        if  (Data_set.dtypes[j] != 'float64') & (Data_set.dtypes[j] != 'int64') : # Para las variables categoricas s_value sera simplemente su rango.
+
+            s_values = Data_set.sort_values(by=[Data_set.columns[j]], axis=0, ascending=True, ignore_index=True).iloc[:, j].unique()
+
+
+        elif (Data_set.dtypes[j] == 'float64') | (Data_set.dtypes[j] == 'int64') :
+
+            Xj_sorted = Data_set.sort_values(by=[Data_set.columns[j]], axis=0, ascending=True, ignore_index=True).iloc[:, j].unique()
+
+        
+            for i in range(0, len(Xj_sorted)-1):
+
+                s_values.append( (Xj_sorted[i] + Xj_sorted[i+1] ) / 2  )
+
+    
+        return s_values
+
+
+########################################################################  
+
+   ## ITERACION 1
+
+    if iterations_vector[0] == 1 : # nacimiento del arbol
+
+        
+        ###################################
+        
+        def f_R11(j, s, r, Data_set):
+
+           # Verificando si se cumplen las siguientes dos condiciones conjuntamente nos garantizamos que todas las ramas tienes observaciones de train. 
+           # Es decir, no habra ninguna rama sin observaciones de train que caigan en ella.
+
+            cond_R11 = len(Data_set.loc[ (Data_set.iloc[:, j] < s) , : ] )
+
+            if  cond_R11 != 0 :
+
+                f_R11 = len( Data_set.loc[ (Data_set.iloc[:, j] < s) & (Data_set.loc[:, 'Y'] == r) , : ] ) / len( Data_set.loc[ (Data_set.iloc[:, j] < s) , : ] )
+
+            
+            elif cond_R11 == 0 :
+
+                f_R11 = 0
+
+            
+            return f_R11 
+
+        ######################################
+
+        def f_R21(j, s, r, Data_set):
+
+            cond_R21 = len(Data_set.loc[ (Data_set.iloc[:, j] >= s) , : ] )
+
+            if cond_R21 != 0 :
+
+                f_R21 = len( Data_set.loc[ (Data_set.iloc[:, j] >= s) & (Data_set.loc[:, 'Y'] == r) , : ] ) / len( Data_set.loc[ (Data_set.iloc[:, j] >= s) , : ] )
+            
+            elif cond_R21 == 0 :
+
+                f_R21 = 0
+
+            
+            return f_R21 
+
+
+        ###################################
+
+        G_vector = []
+        j_vector = []
+        s_vector = []
+
+        j_star_vector = []
+        s_star_vector = []
+        G_star_vector = []
+
+        for j in range(1, Data_set.shape[1]) :
+
+            for s in s_values(j, Data_set) :
+
+
+                f_R11_r_vector = []
+                f_R21_r_vector = []
+
+                for r in Y_categories:  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R11_r_vector.append( f_R11(j, s, r , Data_set)*(1 - f_R11(j, s, r , Data_set)) )
+
+                    f_R21_r_vector.append( f_R21(j, s, r , Data_set)*(1 - f_R21(j, s, r , Data_set)) )
+
+                                  
+            # Calculo de G_1 para la combinacion (j, s) dada:
+
+                G_R11 =  sum(f_R11_r_vector)
+                G_R21 =  sum(f_R21_r_vector)
+
+                G_1 =  G_R11 + G_R21
+
+                G_vector.append(G_1)
+                j_vector.append(j)
+                s_vector.append(s)
+
+
+        # Busqueda de j_star y s_star de la itracion 1:
+
+        G_df = pd.DataFrame({'G':G_vector, 'j':j_vector, 's':s_vector})
+
+        G_df_sorted = G_df.sort_values(by=['G'], axis=0, ascending=True, ignore_index=True)
+
+        s_star_vector.append( G_df_sorted.loc[0, 's'] )
+        j_star_vector.append( G_df_sorted.loc[0, 'j'] )
+        G_star_vector.append(G_df_sorted.loc[0, 'G'])
+
+        # OJO: s_star_vector[i] sera el s_star de la iteracion i+1 , para i=0,1,...
+        # OJO: j_star_vector[i] sera el j_star de la iteracion i+1 , para i=0,1,...    
+        
+      ###################################
+
+        # Condicion de parada:
+
+        obs_r11 = len( Data_set.loc[ Data_set.iloc[:, j_star_vector[0] ] < s_star_vector[0] , : ] )
+        obs_r21 = len( Data_set.loc[ Data_set.iloc[:, j_star_vector[0] ] >= s_star_vector[0] , : ] )
+
+        if(obs_r11 < k) | (obs_r21 < k) : # Si se cumple el criterio de parada
+
+
+            print('El arbol final es el arbol con 1 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo', k ,'de observaciones por rama')
+
+            number_iterations=1
+
+            obs_ramas = [obs_r11 , obs_r21]
+
+       
+            ###################
+            
+            return(number_iterations, j_star_vector, s_star_vector, G_star_vector, obs_ramas ) 
+
+            ###################
+
+        elif (obs_r11 >= k) & (obs_r21 >= k) : # No se cumple el criterio de parada
+
+            pass
+
+
+######################################################################################
+
+    ## ITERACION 2   ·········· POR MODIFICAR !! ·············
+
+    if iterations_vector[1] == 2 :  # Desarrollar nodo R1 de la 1ª iteracion
+
+        ################################################################
+
+
+        def f_R12(j, s, r, Data_set):
+
+           # Verificando si se cumplen las siguientes dos condiciones conjuntamente nos garantizamos que todas las ramas tienes observaciones de train. 
+           # Es decir, no habra ninguna rama sin observaciones de train que caigan en ella.
+
+            cond_R12 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j] < s) , : ] ) 
+
+            if  cond_R12 != 0 :
+
+                f_R12 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j] < s) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R12
+
+            
+            elif cond_R12 == 0 :
+
+                f_R12 = 0
+
+            
+            return f_R12 
+
+        #########
+
+        def f_R22(j, s, r, Data_set):
+
+           # Verificando si se cumplen las siguientes dos condiciones conjuntamente nos garantizamos que todas las ramas tienes observaciones de train. 
+           # Es decir, no habra ninguna rama sin observaciones de train que caigan en ella.
+
+            cond_R22 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j] >= s) , : ] ) 
+
+            if  cond_R22 != 0 :
+
+                f_R22 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j] >= s) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R22
+
+            
+            elif cond_R22 == 0 :
+
+                f_R22 = 0
+
+            
+            return f_R22 
+
+
+        ###################################
+
+        G_vector = []
+        j_vector = []
+        s_vector = []
+
+
+        for j in range(1, Data_set.shape[1]) :
+
+            for s in s_values(j, Data_set) :
+
+                # Busqueda de r_star_R11 :
+
+                f_R12_r_vector = []
+                f_R22_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R12_r_vector.append( f_R12(j, s, r , Data_set)*(1 - f_R12(j, s, r , Data_set)) )
+
+                    f_R22_r_vector.append( f_R22(j, s, r , Data_set)*(1 - f_R22(j, s, r , Data_set)))
+
+
+            # Calculo de G_2 para la combinacion (j, s) dada:
+
+                G_R12 =  sum(f_R12_r_vector)
+                G_R22 =  sum(f_R22_r_vector)
+
+                G_2 =  G_R12 + G_R22
+
+                G_vector.append(G_2)
+                j_vector.append(j)
+                s_vector.append(s)
+
+
+
+        # Busqueda de j_star y s_star de la itracion 1:
+
+        G_df = pd.DataFrame({'G':G_vector, 'j':j_vector, 's':s_vector})
+
+        G_df_sorted = G_df.sort_values(by=['G'], axis=0, ascending=True, ignore_index=True)
+
+        s_star_vector.append( G_df_sorted.loc[0, 's'] )
+        j_star_vector.append( G_df_sorted.loc[0, 'j'] )
+        G_star_vector.append(G_df_sorted.loc[0, 'G'])
+
+
+        # OJO: s_star_vector[i] sera el s_star de la iteracion i+1 , para i=0,1,...
+        # OJO: j_star_vector[i] sera el j_star de la iteracion i+1 , para i=0,1,... 
+
+
+      ###################################
+
+        # Condicion de parada:
+
+        obs_r12 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) , : ] )
+        obs_r22 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] >= s_star_vector[1]) , : ] )
+        obs_r32 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] >= s_star_vector[0]) , : ] )
+
+        if(obs_r12 < k) | (obs_r22 < k) : # Si se cumple el criterio de parada
+
+
+            print('El arbol final es el arbol con 2 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo', k ,'de observaciones por rama')
+
+            number_iterations=2
+            
+            obs_ramas = [obs_r12 , obs_r22, obs_r32]
+
+        
+            ###################
+            
+            return(number_iterations, j_star_vector, s_star_vector, G_star_vector, obs_ramas ) 
+
+            ###################
+
+
+        elif (obs_r12 >= k) & (obs_r22 >= k) : # No se cumple el criterio de parada
+
+            pass
+
+
+
+####################################################################################
+
+## ITERACION 3
+
+    if iterations_vector[2] == 3 :  # Desarrollar nodo R2 de la 1ª iteracion -->  considerar j_star_vector[0] y s_star_vector[0] (1ª iteracion) y >= (R2)
+
+       #########################################
+
+        def f_R33(j, s, r, Data_set):
+
+           # Verificando si se cumplen las siguientes dos condiciones conjuntamente nos garantizamos que todas las ramas tienes observaciones de train. 
+           # Es decir, no habra ninguna rama sin observaciones de train que caigan en ella.
+
+            cond_R33 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) & (Data_set.iloc[:, j] < s) , : ] ) 
+
+            if  cond_R33 != 0 :
+
+                f_R33 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) & (Data_set.iloc[:, j] < s) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R33
+
+            
+            elif cond_R33 == 0 :
+
+                f_R33 = 0
+
+            
+            return f_R33
+
+        #########
+
+        def f_R43(j, s, r, Data_set):
+
+           # Verificando si se cumplen las siguientes dos condiciones conjuntamente nos garantizamos que todas las ramas tienes observaciones de train. 
+           # Es decir, no habra ninguna rama sin observaciones de train que caigan en ella.
+
+            cond_R43 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) & (Data_set.iloc[:, j] >= s) , : ] ) 
+
+            if  cond_R43 != 0 :
+
+                f_R43 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] >= s_star_vector[0]) & (Data_set.iloc[:, j] >= s) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R43
+
+            
+            elif cond_R43 == 0 :
+
+                f_R43 = 0
+
+            
+            return f_R43 
+
+        
+        ###################################
+
+        G_vector = []
+        j_vector = []
+        s_vector = []
+
+
+        for j in range(1, Data_set.shape[1]) :
+
+            for s in s_values(j, Data_set) :
+
+ 
+                f_R33_r_vector = []
+                f_R43_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R33_r_vector.append( f_R33(j, s, r , Data_set)*(1 - f_R33(j, s, r , Data_set)) )
+
+                    f_R43_r_vector.append( f_R43(j, s, r , Data_set)*(1 - f_R43(j, s, r , Data_set)) )
+ 
+
+            # Calculo de G_3 para la combinacion (j, s) dada:
+
+                G_R33 =  sum(f_R33_r_vector)
+                G_R43 =  sum(f_R43_r_vector)
+
+                G_3 =  G_R33 + G_R43
+
+                G_vector.append(G_3)
+                j_vector.append(j)
+                s_vector.append(s)
+ 
+
+
+        # Busqueda de j_star y s_star de la itracion 1:
+
+        G_df = pd.DataFrame({'G':G_vector, 'j':j_vector, 's':s_vector})
+
+        G_df_sorted = G_df.sort_values(by=['G'], axis=0, ascending=True, ignore_index=True)
+
+        s_star_vector.append( G_df_sorted.loc[0, 's'] )
+        j_star_vector.append( G_df_sorted.loc[0, 'j'] )
+        G_star_vector.append(G_df_sorted.loc[0, 'G'])
+
+        # OJO: s_star_vector[i] sera el s_star de la iteracion i+1 , para i=0,1,...
+        # OJO: j_star_vector[i] sera el j_star de la iteracion i+1 , para i=0,1,... 
+
+
+      ###################################
+
+        # Condicion de parada:
+
+        obs_r13 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) , : ] )
+        obs_r23 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] >= s_star_vector[1]) , : ] )
+
+        obs_r33 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] >= s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[2]] < s_star_vector[2]) , : ] )
+        obs_r43 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] >= s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[2]] >= s_star_vector[2]) , : ] )
+
+
+        if(obs_r33 < k) | (obs_r43 < k) : # Si se cumple el criterio de parada
+
+
+            print('El arbol final es el arbol con 3 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo', k ,'de observaciones por rama')
+
+            number_iterations = 3
+            
+            obs_ramas = [obs_r13, obs_r23, obs_r33 , obs_r43]
+
+            
+            ###################
+            
+            return(number_iterations, j_star_vector, s_star_vector, G_star_vector, obs_ramas ) 
+
+            ###################
+
+
+        elif (obs_r33 >= k) & (obs_r43 >= k) : # No se cumple el criterio de parada
+
+            pass
+
+    #######################
+
+
+    ## ITERACION 4
+
+    if iterations_vector[3] == 4 :  
+
+       #########################################
+
+       #########################################
+
+        def f_R14(j, s, r, Data_set):
+
+           # Verificando si se cumplen las siguientes dos condiciones conjuntamente nos garantizamos que todas las ramas tienes observaciones de train. 
+           # Es decir, no habra ninguna rama sin observaciones de train que caigan en ella.
+
+            cond_R14 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) & (Data_set.iloc[:, j] < s) , : ] ) 
+
+            if  cond_R14 != 0 :
+
+                f_R14 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) & (Data_set.iloc[:, j] < s) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R14
+
+            
+            elif cond_R14 == 0 :
+
+                f_R14 = 0
+
+            
+            return f_R14 
+
+        #########
+
+        def f_R24(j, s, r, Data_set):
+
+           # Verificando si se cumplen las siguientes dos condiciones conjuntamente nos garantizamos que todas las ramas tienes observaciones de train. 
+           # Es decir, no habra ninguna rama sin observaciones de train que caigan en ella.
+
+            cond_R24 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) & (Data_set.iloc[:, j] >= s) , : ] ) 
+
+            if  cond_R24 != 0 :
+
+                f_R24 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0]] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) & (Data_set.iloc[:, j] >= s) & (Data_set.loc[:, 'Y'] == r) , : ] ) / cond_R24
+
+            
+            elif cond_R24 == 0 :
+
+                f_R24 = 0
+
+            
+            return f_R24 
+
+
+ ###################################
+
+        G_vector = []
+        j_vector = []
+        s_vector = []
+
+
+        for j in range(1, Data_set.shape[1]) :
+
+            for s in s_values(j, Data_set) :
+
+ 
+                f_R14_r_vector = []
+                f_R24_r_vector = []
+
+                for r in Y_categories :  # Si Y tiene como categorias 0,1,2 --> Y_categories = range(0,3)
+
+                    f_R14_r_vector.append( f_R14(j, s, r , Data_set)*(1 - f_R14(j, s, r , Data_set)) )
+
+                    f_R24_r_vector.append( f_R24(j, s, r , Data_set)*(1 - f_R24(j, s, r , Data_set)) )
+
+
+            # Calculo de G_4 para la combinacion (j, s) dada:
+
+                G_R33 =  sum(f_R33_r_vector)
+                G_R43 =  sum(f_R43_r_vector)
+
+                G_3 =  G_R33 + G_R43
+
+                G_vector.append(G_3)
+                j_vector.append(j)
+                s_vector.append(s)
+
+
+        # Busqueda de j_star y s_star de la itracion 1:
+
+        G_df = pd.DataFrame({'G':G_vector, 'j':j_vector, 's':s_vector})
+
+        G_df_sorted = G_df.sort_values(by=['G'], axis=0, ascending=True, ignore_index=True)
+
+        s_star_vector.append( G_df_sorted.loc[0, 's'] )
+        j_star_vector.append( G_df_sorted.loc[0, 'j'] )
+        G_star_vector.append(G_df_sorted.loc[0, 'G'])
+
+        # OJO: s_star_vector[i] sera el s_star de la iteracion i+1 , para i=0,1,...
+        # OJO: j_star_vector[i] sera el j_star de la iteracion i+1 , para i=0,1,...        
+
+
+      ###################################
+
+        # Condicion de parada:
+
+        obs_r14 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) & (Data_set.iloc[:, j_star_vector[3]] < s_star_vector[3]) , : ] )
+        obs_r24 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] < s_star_vector[1]) & (Data_set.iloc[:, j_star_vector[3]] >= s_star_vector[3]) , : ] )
+
+        obs_r34 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] < s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[1]] >= s_star_vector[1]) , : ] )
+        obs_r44 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] >= s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[2]] < s_star_vector[2]) , : ] )
+        obs_r54 = len( Data_set.loc[ (Data_set.iloc[:, j_star_vector[0] ] >= s_star_vector[0]) & (Data_set.iloc[:, j_star_vector[2]] >= s_star_vector[2]) , : ] )
+
+
+        if(obs_r14 < k) | (obs_r24 < k) : # Si se cumple el criterio de parada
+
+
+            print('El arbol final es el arbol con 3 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo', k ,'de observaciones por rama')
+
+            number_iterations = 4
+            
+            obs_ramas = [obs_r14, obs_r24, obs_r34 , obs_r44, obs_r54]
+
+            
+            ###################
+            
+            return(number_iterations, j_star_vector, s_star_vector, G_star_vector, obs_ramas ) 
+
+            ###################
+
+
+        elif (obs_r14 >= k) & (obs_r24 >= k) : # No se cumple el criterio de parada
+
+            print('Se ha generado el arbol mas grande permitido por el algoritmo (arbol con 4 Iteraciones)')
+
+        # Aunque no se haya cummplido el criterio de parada como esta es la ultima Iteracion contemplada por el algoritmo, 
+        # debemos calcular las metricas finales para que sean escupidas por el algoritmo. 
+            
+            number_iterations=4
+            
+            obs_ramas = [obs_r14, obs_r24, obs_r34, obs_r44, obs_r54]
+
+            
+              
+            pass
+
+    #######################
+        
+   
+    return( number_iterations, j_star_vector, s_star_vector, G_star_vector, obs_ramas ) 
+
+```
+
+
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+### Testeo del algoritmo  
+
+
+```python
+number_iterations, j_star_vector, s_star_vector, G_star_vector, obs_ramas = classification_tree_Gini(Data_set=Data_Train, iterations_vector=range(1,5), k=20 , Y_categories=range(0,2))
+```
+
+    El arbol final es el arbol con 1 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo 20 de observaciones por rama
+    
+
+
+```python
+number_iterations
+```
+
+
+
+
+    1
+
+
+
+
+```python
+j_star_vector
+```
+
+
+
+
+    [6]
+
+
+
+
+```python
+s_star_vector
+```
+
+
+
+
+    [11.5]
+
+
+
+
+```python
+G_star_vector
+```
+
+
+
+
+    [0.40005784418456025]
+
+
+
+
+```python
+obs_ramas
+```
+
+
+
+
+    [3, 463]
+
+
+
+
+
+### Validacion Simple con funcion de validación propia y funcion Regresssion Tree Gini propia 
+
+
+```python
+def Simple_Validation_Classification(Data_Test, X_train, Y_train, Y_test) :
+
+    ##########################
+
+    from joblib import Parallel, delayed
+    import multiprocessing
+
+    n_jobs  = multiprocessing.cpu_count()
+
+    ##########################
+
+    number_iterations, j_star_vector, s_star_vector, G_star_vector, obs_ramas = classification_tree_Gini(Data_set=Data_Train, iterations_vector=range(1,5), k=20 , Y_categories=range(0,2))
+    
+    Y_categories = range(0,2)
+
+    def prediction(i, Data_Test, X_train, Y_train ):
+
+     x_new = Data_Test.iloc[ i , range(1, Data_Test.shape[1])]
+
+     y_new_predict = classification_tree_PREDICTIONS(Data_Test, Y_categories ,number_iterations, j_star_vector, s_star_vector, obs_ramas, x_new)
+  
+     return(y_new_predict)
+
+    ##########################
+
+    y_predictions_vector = []
+
+    # Paralelizamos el siguiente bucle for :
+
+    # for i in  range(0, len(Data_Test)):
+
+        # y_new_predict = prediction(i, Data_Test, X_train, Y_train )
+
+        # y_predictions_vector.append( y_new_predict )
+
+    
+    y_predictions_vector = Parallel(n_jobs=n_jobs)( delayed(prediction)( i, Data_Test, X_train, Y_train) for i in range(0, len(Data_Test)) )
+
+    #########################
+
+ 
+    TEC = ( y_predictions_vector != Y_test ).sum()  / len(Y_test)     
+
+ 
+    return(y_predictions_vector , TEC)
+```
+
+
+
+
+```python
+y_predictions_vector , TEC_classification_tree_Gini_own_function = Simple_Validation_Classification(Data_Test, X_train, Y_train, Y_test)
+```
+
+    El arbol final es el arbol con 1 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo 20 de observaciones por rama
+    
+
+
+```python
+TEC_classification_tree_Gini_own_function
+```
+
+
+
+
+    0.28205128205128205
+
+
+
+
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+### 4.5.3. Arboles de clasificación en `Python` con `Sklearn` <a class="anchor" id="29"></a>
+
+La función de `sklearn` para arboles de clasificación es la siguiente :
+
+> sklearn.tree.DecisionTreeClassifier(criterion='gini', splitter='best', max_depth=None, min_samples_split=2, min_samples_leaf=1, min_weight_fraction_leaf=0.0, max_features=None, random_state=None, max_leaf_nodes=None, min_impurity_decrease=0.0, class_weight=None, ccp_alpha=0.0)
+
+Donde algunos de los parámetros más importantes son:
+
+- criterion{“gini”, “entropy”, “log_loss”}, default=”gini”
+
+- splitter{“best”, “random”}, default=”best”
+
+The strategy used to choose the split at each node. Supported strategies are “best” to choose the best split and “random” to choose the best random split.
+
+
+
+- max_depthint, default=None
+
+Es la profundidad maxima del arbol (la distancia maxima entre el nodo raiz y alguno de los nodos terminales)
+
+
+
+- min_samples_split int or float, default=2
+
+Es el numero minimo de observaciones que tienen que tener un nodo para  separarlo/dividirlo (split) en dos nuesvos cuadrados/nodos. Si cierto nodo tiene menos de min_samples_split observaciones, el algoritmo ya no lo dividirá.
+
+If int, then consider min_samples_split as the minimum number.
+
+If float, then min_samples_split is a fraction and ceil(min_samples_split * n_samples) are the minimum number of samples for each split.
+
+- min_samples_leaf
+
+Es el numero minimo de observaciones que tienen que tener cada rama del arbol.  Para que un nodo sea dividido en dos nuevos nodos (generando dos nuevas ramas)  es necesario (aunque no suficiente) que el numero de observaciones que tendrían las dos nuevas ramas (los dos nuevos nodos) sea mayor que min_samples_leaf.
+
+- ccp_alpha non-negative float, default=0.0
+
+Complexity parameter used for Minimal Cost-Complexity Pruning. The subtree with the largest cost complexity that is smaller than ccp_alpha will be chosen. By default, no pruning is performed. See Minimal Cost-Complexity Pruning for details
+
+
+
+Probamos la funcion de `sklearn` :
+
+
+```python
+import sklearn
+
+from sklearn.tree import DecisionTreeClassifier
+```
+
+
+```python
+x_new = X_test.iloc[ 8 , :]
+```
+
+
+```python
+Classification_Tree_sklearn = sklearn.tree.DecisionTreeClassifier(criterion='gini', splitter='best', min_samples_split=40, min_samples_leaf=50,  max_depth=None,  ccp_alpha=0, random_state=666)
+```
+
+
+
+Para poder ajustar el modelo con el metodo `fit` de `sklearn` la respuesta tiene que ser type = int o float
+
+
+```python
+Y_train = Y_train.astype('int')
+Y_test = Y_test.astype('int')
+```
+
+
+```python
+Classification_Tree_sklearn.fit(X_train, Y_train)
+```
+
+
+
+
+    DecisionTreeClassifier(ccp_alpha=0, min_samples_leaf=50, min_samples_split=40,
+                           random_state=666)
+
+
+
+
+
+**Predecir la respuesta para un vector de predictores :**
+
+
+```python
+Classification_Tree_sklearn.predict( [x_new] ) 
+```
+
+
+
+
+    array([0])
+
+
+
+**Obtener la profundidad del arbol generado :**
+
+
+```python
+Classification_Tree_sklearn.get_depth()
+```
+
+
+
+
+    4
+
+
+
+**Obtener el numero de ramas del arbol generado:**
+
+
+```python
+Classification_Tree_sklearn.get_n_leaves()
+```
+
+
+
+
+    8
+
+
+
+nº de iteraciones (nodos que se han dividido en otros dos nodos) = nº ramas - 1 
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+**Plotear el arbol :**
+
+
+```python
+from sklearn import tree
+
+import graphviz 
+
+import os
+os.environ["PATH"] += os.pathsep + 'C:/Program Files (x86)/graphviz/Graphviz/bin'
+```
+
+
+```python
+fit = Classification_Tree_sklearn.fit(X_train, Y_train)
+
+dot_data = tree.export_graphviz( fit , out_file=None) 
+graph = graphviz.Source(dot_data) 
+graph.render("plot") 
+
+dot_data = tree.export_graphviz(fit, out_file=None, 
+                     feature_names=X_train.columns,  
+                     filled=True, rounded=True,  
+                      special_characters=True)  
+
+graph = graphviz.Source(dot_data)  
+```
+
+
+```python
+from IPython.display import Image
+Image(filename='arbol_skl.jpg', width = 1000, height = 500) 
+```
+
+
+
+
+    
+![jpeg](output_660_0.jpg)
+    
+
+
+
+
+
+Para demostrar que entendemos los parametros que vienen en cada nodo (en cada recuadro) los vamos a calcular "manualmente" para el nodo que se deriva de True en el nodo raiz,  el que tiene como parametros: gini = 0.478 , samples = 289 , value = [175, 114]
+
+
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+*samples = 289*
+
+
+```python
+df = Data_Train.loc[Data_Python['Total_Bilirubin']<=1.65 , :]
+```
+
+
+```python
+len(df)
+```
+
+
+
+
+    289
+
+
+
+Por tanto, dado un nodo, su parametro *samples* indica el numero de observaciones de entrenamiento que caerian en la rama que contiene a ese nodo, si este nodo fuera el nodo terminal de la rama. En el caso escogido seria la rama definida por Total_Bilirubin <= 1.65.
+
+
+
+*value = [175, 114]*
+
+
+```python
+len(df.loc[df['Y'] == 0 , ])
+```
+
+
+
+
+    175
+
+
+
+
+```python
+len(df.loc[df['Y'] == 1 , ])
+```
+
+
+
+
+    114
+
+
+
+Por tanto, dado un nodo, su parametro *value* es un vector con las frecuencias de las categorias de la variable respuesta (Y) para las observaciones de train que caerian en la rama que contiene a ese nodo, si este nodo fuera el nodo terminal de la rama.
+
+
+
+*gini = 0.478*
+
+
+```python
+p0 = len(df.loc[df['Y'] == 0 , ])/len(df)
+p1 = len(df.loc[df['Y'] == 1 , ])/len(df)
+```
+
+
+```python
+p0*(1-p0) + p1*(1-p1)
+```
+
+
+
+
+    0.4777241651800146
+
+
+
+Por tanto, dado un nodo del arbol, el parametro *gini* indica el indice de gini para las observaciones de train que caerian en rama  que contiene a dicho nodo, si este nodo fuera el nodo terminal de dicha rama.
+
+
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+### Validación simple con función de validacion propia y funcion Classification Tree de `sklearn`
+
+
+```python
+def Simple_Validation_Classification(Data_Test, X_train, Y_train, Y_test) :
+
+    ##########################
+
+    from joblib import Parallel, delayed
+    import multiprocessing
+
+    n_jobs  = multiprocessing.cpu_count()
+
+    ##########################
+
+    Classification_Tree_sklearn =  sklearn.tree.DecisionTreeClassifier(criterion='gini', splitter='best', min_samples_split=40, min_samples_leaf=50,  max_depth=None,  ccp_alpha=0, random_state=666)
+    ##########################
+
+    def prediction(i, Data_Test, X_train, Y_train ):
+
+     x_new = Data_Test.iloc[ i , range(1, Data_Test.shape[1])]
+
+     Classification_Tree_sklearn.fit(X_train, Y_train)
+
+     y_new_predict = Classification_Tree_sklearn.predict( [x_new] ) 
+  
+     return(y_new_predict)
+
+    ##########################
+
+    y_predictions_vector = []
+
+    # Paralelizamos el siguiente bucle for :
+
+    # for i in  range(0, len(Data_Test)):
+
+        # y_new_predict = prediction(i, Data_Test, X_train, Y_train )
+
+        # y_predictions_vector.append( y_new_predict )
+
+    
+    y_predictions_vector = Parallel(n_jobs=n_jobs)( delayed(prediction)( i, Data_Test, X_train, Y_train) for i in range(0, len(Data_Test)) )
+
+    #########################
+
+    from itertools import chain
+
+    y_predictions_vector = list(chain(*y_predictions_vector))
+
+ 
+    TEC = sum(y_predictions_vector != Y_test)/len(Y_test)     
+
+ 
+    return(y_predictions_vector , TEC)
+```
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+
+```python
+y_predictions_vector , TEC_classification_tree_sklearn = Simple_Validation_Classification(Data_Test, X_train, Y_train, Y_test)
+```
+
+
+```python
+TEC_classification_tree_sklearn
+```
+
+
+
+
+    0.3418803418803419
+
+
+
+
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+### 4.5.4. Arboles de clasificación penalizados en `sklearn` :  $\alpha$ óptimo <a class="anchor" id="30"></a>
+
+Vamos a obtener para los datos dados el $\alpha$ optimo para un arbol de clasificacion del tipo  tipo sklearn.tree.DecisionTreeClassifier(criterion='gini', splitter='best',  random_state=222)
+
+Es decir para un arbol de clasificacion en el que por defecto ccp_alpha=0, min_samples_split=2, min_samples_leaf=2
+
+
+```python
+Classification_Tree_sklearn =  sklearn.tree.DecisionTreeClassifier(criterion='gini', splitter='best', ccp_alpha=0, random_state=222)
+
+path = Classification_Tree_sklearn.cost_complexity_pruning_path(X_train, Y_train)
+path
+```
+
+
+
+
+    {'ccp_alphas': array([0.        , 0.00190749, 0.00190749, 0.00198085, 0.00199264,
+            0.00204838, 0.00204838, 0.00208281, 0.00208792, 0.00214592,
+            0.00256706, 0.00286123, 0.00286123, 0.00286123, 0.00286123,
+            0.00321888, 0.00321888, 0.00321888, 0.00330839, 0.0033381 ,
+            0.0033632 , 0.00339575, 0.00343348, 0.00357654, 0.00367872,
+            0.00367872, 0.00375536, 0.00375687, 0.00381497, 0.00390878,
+            0.00393419, 0.00394962, 0.00398529, 0.00422372, 0.00429185,
+            0.0046785 , 0.00525751, 0.00530546, 0.00554939, 0.00566861,
+            0.00578789, 0.00579405, 0.00633117, 0.00718679, 0.00983335,
+            0.01012134, 0.01438729, 0.0419547 ]),
+     'impurities': array([0.        , 0.00381497, 0.00762995, 0.01159165, 0.01557694,
+            0.0196737 , 0.02786722, 0.03203284, 0.03620869, 0.03835461,
+            0.04862283, 0.05148406, 0.05720652, 0.06006775, 0.06292898,
+            0.06614787, 0.06936675, 0.07258564, 0.0891276 , 0.09580381,
+            0.10589341, 0.10928915, 0.11272263, 0.11629917, 0.11997789,
+            0.12365662, 0.12741198, 0.13116885, 0.1387988 , 0.14661635,
+            0.15055054, 0.15844978, 0.16243507, 0.17088251, 0.1794662 ,
+            0.19818019, 0.2034377 , 0.21404863, 0.21959801, 0.2762841 ,
+            0.28207199, 0.29366009, 0.30632242, 0.3278828 , 0.33771614,
+            0.34783749, 0.36222478, 0.40417948])}
+
+
+
+
+```python
+ccp_alphas, impurities = path.ccp_alphas, path.impurities
+```
+
+
+```python
+Classification_Tree_sklearn_vector = []
+
+for ccp_alpha in ccp_alphas:
+    
+    Classification_Tree_sklearn = DecisionTreeClassifier(ccp_alpha=ccp_alpha, criterion='gini', splitter='best', random_state=222)
+    
+    Classification_Tree_sklearn.fit(X_train, Y_train)
+
+    Classification_Tree_sklearn_vector.append(Classification_Tree_sklearn)
+```
+
+
+```python
+from sklearn.metrics import accuracy_score
+```
+
+
+```python
+acc_scores = [accuracy_score(Y_test, Classification_Tree_sklearn.predict(X_test)) for Classification_Tree_sklearn in Classification_Tree_sklearn_vector]
+
+ramas = [Classification_Tree_sklearn.get_n_leaves() for Classification_Tree_sklearn in Classification_Tree_sklearn_vector]
+```
+
+
+```python
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(9,  9))
+plt.grid()
+plt.plot(ccp_alphas[:-1], acc_scores[:-1], color='red')
+plt.xlabel("alpha")
+plt.ylabel("score (TAC = 1 - TEC)")
+```
+
+
+
+
+    Text(0, 0.5, 'score (TAC = 1 - TEC)')
+
+
+
+
+    
+![png](output_695_1.png)
+    
+
+
+
+```python
+alpha_score_df = pd.DataFrame({'alpha':ccp_alphas, 'score (TAC = 1-TEC)': acc_scores , 'ramas': ramas})
+```
+
+
+```python
+alpha_score_df_sorted = alpha_score_df.sort_values(by=["score (TAC = 1-TEC)"], ascending=False).reset_index(drop=False)
+alpha_score_df_sorted['TEC']= 1 - alpha_score_df_sorted['score (TAC = 1-TEC)']
+```
+
+
+```python
+alpha_score_df_sorted.head(7)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>alpha</th>
+      <th>score (TAC = 1-TEC)</th>
+      <th>ramas</th>
+      <th>TEC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>23</td>
+      <td>0.003577</td>
+      <td>0.700855</td>
+      <td>47</td>
+      <td>0.299145</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>47</td>
+      <td>0.041955</td>
+      <td>0.692308</td>
+      <td>1</td>
+      <td>0.307692</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>46</td>
+      <td>0.014387</td>
+      <td>0.692308</td>
+      <td>2</td>
+      <td>0.307692</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>45</td>
+      <td>0.010121</td>
+      <td>0.692308</td>
+      <td>3</td>
+      <td>0.307692</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>44</td>
+      <td>0.009833</td>
+      <td>0.692308</td>
+      <td>4</td>
+      <td>0.307692</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>43</td>
+      <td>0.007187</td>
+      <td>0.692308</td>
+      <td>5</td>
+      <td>0.307692</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>22</td>
+      <td>0.003433</td>
+      <td>0.692308</td>
+      <td>48</td>
+      <td>0.307692</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+**Validacion simple con $\alpha$ óptimo:**
+
+
+```python
+def Simple_Validation_Classification(Data_Test, X_train, Y_train, Y_test) :
+
+    ##########################
+
+    from joblib import Parallel, delayed
+    import multiprocessing
+
+    n_jobs  = multiprocessing.cpu_count()
+
+    ##########################
+
+    Classification_Tree_penalized_star = sklearn.tree.DecisionTreeClassifier(ccp_alpha=alpha_score_df_sorted['alpha'][0], criterion='gini', splitter='best', random_state=222)
+    ##########################
+
+    def prediction(i, Data_Test, X_train, Y_train ):
+
+     x_new = Data_Test.iloc[ i , range(1, Data_Test.shape[1])]
+
+     Classification_Tree_penalized_star.fit(X_train, Y_train)
+
+     y_new_predict = Classification_Tree_penalized_star.predict( [x_new] ) 
+  
+     return(y_new_predict)
+
+    ##########################
+
+    y_predictions_vector = []
+
+    # Paralelizamos el siguiente bucle for :
+
+    # for i in  range(0, len(Data_Test)):
+
+        # y_new_predict = prediction(i, Data_Test, X_train, Y_train )
+
+        # y_predictions_vector.append( y_new_predict )
+
+    
+    y_predictions_vector = Parallel(n_jobs=n_jobs)( delayed(prediction)( i, Data_Test, X_train, Y_train) for i in range(0, len(Data_Test)) )
+
+    #########################
+
+    from itertools import chain
+
+    y_predictions_vector = list(chain(*y_predictions_vector))
+
+ 
+    TEC = sum(y_predictions_vector != Y_test)/len(Y_test)    
+
+ 
+    return(y_predictions_vector , TEC)
+```
+
+
+
+
+```python
+y_predictions_vector , TEC_classification_tree_penalized_star = Simple_Validation_Classification(Data_Test, X_train, Y_train, Y_test)
+```
+
+
+```python
+TEC_classification_tree_penalized_star
+```
+
+
+
+
+    0.29914529914529914
+
+
+
+
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+### 4.5.5. Comparación final entre árboles de clasificación por validación simple <a class="anchor" id="31"></a>
+
+
+```python
+[TEC_classification_tree_penalized_star , TEC_classification_tree_sklearn, TEC_classification_tree_own_function, TEC_classification_tree_Gini_own_function,]
+```
+
+
+
+
+    [0.29914529914529914,
+     0.3418803418803419,
+     0.3076923076923077,
+     0.28205128205128205]
+
+
+
+
+
+El ranking de modelos segun validacion simple sería :
+
+1) TEC_classification_tree_Gini_own_function
+
+
+2) TEC_classification_tree_penalized_star(ccp_alpha=alpha_score_df_sorted['alpha'][0] , criterion='gini', splitter='best', random_state=222)) 
+
+
+3) TEC_classification_tree_own_function
+
+
+4) TEC_classification_tree_sklearn (DecisionTreeRegressor(criterion='gini', splitter='best', min_samples_split=40, min_samples_leaf=50,  max_depth=None,  ccp_alpha=0, random_state=222)  )
+ 
+
+
+
+
+
+## 4.6. KNN para clasificación en `Python` <a class="anchor" id="32"></a>
+
+### 4.6.1. KNN para clasificación: teoría  <a class="anchor" id="33"></a>
+
+- Tenemos $\hspace{0.1cm} p \hspace{0.1cm}$ variables $\hspace{0.1cm} X=(X_1,...,X_p) \hspace{0.1cm}$ medidas en un $n$ muestra de tamaño.
+
+- También tenemos una variable de respuesta **categórica** $\hspace{0.1cm} Y \hspace{0.1cm}$ con $\hspace{0.1cm} g \hspace{0.1cm}$ categorías que indica el grupo al que cada elemento de la muestra pertenece $( \hspace{0.05cm} Range(Y)=\lbrace c_1 ,..., c_g \rbrace \hspace{0.05cm})$
+
+- Los grupos generados por $\hspace{0.1cm} Y \hspace{0.1cm}$ se denotan como $\hspace{0.1cm} \Omega_1 ,..., \Omega_g \hspace{0.15cm}$ $\hspace{ 0.15cm}( \hspace{0.1cm} y_i = c_r \hspace{0.15cm} \Leftrightarrow \hspace{0.15cm}$ $i \in \Omega_r \hspace{0.1cm})$
+
+El problema de clasificación supervisada consiste en, para una nueva observación de las variables $X_1,...,X_p \hspace{0.1cm}$, $\hspace{0.1cm} x_{nueva} = (x_{nueva,1}\ hspace{0.1cm},\hspace{0.1cm}x_{nuevo,2}\hspace{0.1cm},\dots,\hspace{0.1cm}x_{nuevo,p}) \hspace{0.1cm}$, predecir es $\hspace{0.1cm} Y \hspace{0.1cm}$ valor $\hspace{0.1cm} (y_{nuevo})\hspace{0.1cm}$ usando la información disponible de $\hspace{0.1cm} X_1 ,...,X_p \hspace{0.1cm}$ y $ \hspace{0.1cm} Y$
+
+Entonces, el problema es clasificar un nuevo elemento/individuo en uno de los $\hspace{0.1cm} g \hspace{0.1cm}$ grupos generados por $\hspace{0.1cm} Y \hspace{0.1cm}$ usando la información disponible de $\hspace{0.1cm} X_1,...,X_p \hspace{0.1cm}$ y $Y$, y también $\hspace{0.1cm} x_{nuevo} = (x_{nuevo,1 }\hspace{0.1cm},\hspace{0.1cm}x_{nuevo,2}\hspace{0.1cm},\dots,\hspace{0.1cm}x_{nuevo,p}) \hspace{0.1cm}$
+
+Tenga en cuenta que si no tenemos información sobre $\hspace{0.1cm} Y \hspace{0.1cm}$, esto sería un problema de clasificación no supervisado.
+
+
+
+El algoritmo KNN (K-vecinos más cercanos) para la clasificación supervisada tiene los siguientes pasos:
+
+$1. \hspace{0.15cm}$ Define una medida de **distancia** entre las observaciones de la muestra original respecto a las variables $X_1,...,X_p$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\delta$
+
+
+
+ $2. \hspace{0.15cm}$ Calcula las distancias entre $\hspace{0.1 cm}x_{new}\hspace{0.1 cm}$ y las observaciones iniciales $\hspace{0.1cm} \lbrace x_1,...,x_n \rbrace$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\lbrace \hspace{0.1 cm} \delta(x_{nuevo}\hspace{0.03 cm},\hspace{0.03 cm} x_i) \hspace{0.1 cm} / \hspace{0.1 cm} i=1,...,n \hspace{0.1 cm} \rbrace$
+
+  
+ $3. \hspace{0.15cm}$ Seleccione la $\hspace{0.03 cm} k \hspace{0.03 cm}$ observación más cercana a $\hspace{0.06 cm} x_{nuevo}\hspace{0.06 cm}$ basado en $\hspace {0.05cm} \delta \hspace{0.12cm}$ $(k$ vecinos más cercanos de $x_{nuevo})$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ El conjunto de estas observaciones será denotar por $KNN(x_{nuevo})$
+
+ $4. \hspace{0.15cm}$ Calcula la proporción de estas observaciones (vecinos) que pertenecen a cada grupo $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$
+ 
+ $\hspace{0.65cm} \Rightarrow \hspace{0.15cm}$ La proporción de $KNN$ que pertenece al grupo $\hspace{0.15cm} \Omega_r$ $\hspace{0.1cm}(Y=c_r) \hspace{0.1cm}$ será denotado por $\hspace{0.1 cm} f^{knn}_{r} $
+
+
+   $$ \hspace{0.1 cm} f^{KNN(x_{new})}_{r} \hspace{0.15cm}=\hspace{0.15cm} \dfrac{ \# \hspace{0.1cm}\lbrace\hspace{0.1cm} i \in KNN(x_{new}) \hspace{0.1cm}/\hspace{0.1cm} i \in \Omega_r \hspace{0.1cm}\rbrace  }{\# \hspace{0.1cm} KNN(x_{new}) = k} \hspace{0.15cm}=\hspace{0.15cm}  \dfrac{ \# \hspace{0.1cm}\lbrace\hspace{0.1cm} i \in KNN \hspace{0.1cm}/\hspace{0.1cm} y_i = r \hspace{0.1cm}\rbrace  }{ k}$$
+   
+
+
+
+
+$5. \hspace{0.15cm}$ Clasifica $\hspace{0.1cm} x_{new} \hspace{0.1cm}$ en ese grupo/clase $($ definido por $Y)$ más frecuente en KNN:
+
+$\hspace{0.25cm} \hspace{0.2cm}$ $\text{If} \hspace{0.15cm} \underbrace{ f^{knn}_{s} \geqslant f^{knn}_{r} \ hspace{0.15cm},\hspace{0.15cm} \forall r = 1,...,g }_{\Omega_s \hspace{0.1cm}\text{es el grupo más frecuente en}\hspace{0.1cm} KNN }$ $\hspace{0.1cm} \hspace{0.15cm} \Rightarrow \hspace{0.15cm} x_{new} \hspace{0.1cm}$ se clasifica en $\hspace{0.1cm} \Omega_s$ $\hspace{0.25cm} \Rightarrow \hspace{0.15cm} \widehat{y}_{new} = s \hspace{0.1cm}$
+
+
+
+$\hspace{0.2 cm}$ En otras palabras:
+
+$\hspace{0.6 cm} \text{If} \hspace{0.4 cm} r^* \hspace{0.05 cm}= \hspace{0.05 cm} \underset{\hspace{0.7 cm} r}{arg \hspace{ 0.1 cm} Máx.} \hspace{0.05 cm} \left(\hspace{0.1 cm} f^{KNN(x_{new})}_{r} \hspace{0.1 cm}\right) \hspace{0.2 cm} \hspace{0.15cm} \Rightarrow \hspace{0.25cm} \widehat{y}_{new} = r^* \hspace{0.1cm}$
+
+
+
+
+
+### 4.6.2. Algoritmo de creación proia en `Python`  <a class="anchor" id="34"></a>
+
+Vamos a desarrollar nuestro propio algoritmo para no depender de sklearn
+
+
+```python
+def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, p2=0, p3=0 ):
+
+    
+## Para paralelizar el algoritmo 
+
+    from joblib import Parallel, delayed
+    import multiprocessing
+
+    n_jobs  = multiprocessing.cpu_count()
+
+####################################################################################################################################################################################################################################################
+
+    # Y, X y x_new deben ser objetos Pandas ya que luego seran convertidos a objetos Numpy automaticamente por el algoritmo
+    
+    # Y tiene que ser un Pandas data frame con la variable respuesta (que en este caso debe ser categorica y con categorias estandar {0,1,2,...}) 
+
+    # X tiene que ser un Pandas data frame con los predictotres (X1,...,Xp). 
+
+    # x_new tiene que ser un vector con una nueva observacion de los predictores. 
+
+
+####################################################################################################################################################################################################################################################
+
+    Y = Y.to_numpy()
+
+    X = X.to_numpy() 
+
+    x_new = x_new.to_numpy()
+
+    X = np.concatenate((X, [x_new]), axis=0)
+
+
+    distances = []
+
+    groups_knn = []
+
+##########################################################################################
+    
+    def a(Binary_Data) :
+
+            X = Binary_Data
+
+            a = X @ X.T
+
+            return(a)
+
+##########################################################################################
+
+    def d(Binary_Data):
+
+            X = Binary_Data
+
+            ones_matrix = np.ones(( X.shape[0] , X.shape[1])) 
+
+            d = (ones_matrix - X) @ (ones_matrix - X).T
+
+            return(d)
+
+##########################################################################################
+
+    def alpha_py(i,j, Multiple_Categorical_Data):
+
+        X = Multiple_Categorical_Data
+
+        alpha = np.repeat(0, X.shape[1])
+
+        for k in range(0, X.shape[1]) :
+
+            if X[i-1, k] == X[j-1, k] :
+
+                alpha[k] = 1
+
+            else :
+
+                alpha[k] = 0
+
+        alpha = alpha.sum()
+
+        return(alpha)
+
+####################################################################################################################################################################################################################################################
+    
+    if distance == "Euclidean":
+
+        def Dist_Euclidea_Python(i, j, Quantitative_Data_set): 
+
+            Dist_Euclidea = ( ( Quantitative_Data_set[i-1, :] - Quantitative_Data_set[j-1, :] )**2 ).sum()
+
+            Dist_Euclidea = np.sqrt(Dist_Euclidea)
+
+            return Dist_Euclidea
+
+    ###################################################################
+           
+        ## PARTE DEL CODIGO A PARALELIZAR
+
+        #for j in range(1, len(X)):
+
+          # distances.append( Dist_Euclidea_Python( len(X), i , X ) )
+
+        n_jobs  = multiprocessing.cpu_count()
+
+        distances = Parallel(n_jobs=n_jobs)( delayed(Dist_Euclidea_Python)( len(X), s , X ) for s in range(1, len(X)) )
+           
+
+    ###################################################################
+
+    if distance == "Minkowski":
+
+        def Dist_Minkowski_Python(i,j, q , Quantitative_Data_set):
+
+            Dist_Minkowski = ( ( ( abs( Quantitative_Data_set[i-1, :] - Quantitative_Data_set[j-1, :] ) )**q ).sum() )**(1/q)
+
+            return Dist_Minkowski
+
+    ###################################################################
+
+        ## PARTE DEL CODIGO A PARALELIZAR
+
+        # for i in range(1, len(X)):
+
+          #  distances.append( Dist_Minkowski_Python( len(X), i , q , X) )
+
+        n_jobs  = multiprocessing.cpu_count()
+
+        distances = Parallel(n_jobs=n_jobs)( delayed(Dist_Minkowski_Python)( len(X), s , q , X) for s in range(1, len(X)) )
+
+    ###################################################################
+
+    if distance == "Canberra":
+
+        def Dist_Canberra_Python(i,j, Quantitative_Data_set):
+
+            numerator =  abs( Quantitative_Data_set[i-1, :] - Quantitative_Data_set[j-1, :] )  
+
+            denominator =  ( abs(Quantitative_Data_set[i-1, :]) + abs(Quantitative_Data_set[j-1, :]) )
+       
+            numerator=np.array([numerator], dtype=float)
+
+            denominator=np.array([denominator], dtype=float)
+
+            Dist_Canberra = ( np.divide( numerator , denominator , out=np.zeros_like(numerator), where=denominator!=0) ).sum()
+
+            return Dist_Canberra
+
+    ###################################################################
+
+        ## PARTE DEL CODIGO A PARALELIZAR
+
+        # for i in range(1, len(X)):
+
+          #  distances.append( Dist_Canberra_Python( len(X), i , X) )
+
+        n_jobs  = multiprocessing.cpu_count()
+
+        distances = Parallel(n_jobs=n_jobs)( delayed(Dist_Canberra_Python)( len(X), s , X) for s in range(1, len(X)) )
+                
+
+    ###################################################################
+   
+    if distance == "Pearson":
+
+        def Dist_Pearson_Python(i, j, Quantitative_Data_set):
+
+            Dist_Pearson = ( ( Quantitative_Data_set[i-1, ] - Quantitative_Data_set[j-1, ] )**2 / Quantitative_Data_set.var() ).sum()
+
+            Dist_Pearson = np.sqrt(Dist_Pearson)
+
+            return Dist_Pearson
+
+    ###################################################################
+
+       ## PARTE DEL CODIGO A PARALELIZAR
+       
+       # for i in range(1, len(X)):
+
+        #   distances.append( Dist_Pearson_Python( len(X), i , X) )
+
+        
+        n_jobs  = multiprocessing.cpu_count()
+
+        distances = Parallel(n_jobs=n_jobs)( delayed(Dist_Pearson_Python)( len(X), s , X) for s in range(1, len(X)) )
+
+    ###################################################################
+    
+    if distance == "Mahalanobis":
+
+        def Dist_Mahalanobis_Python(i, j, Quantitative_Data_set):
+
+            # All the columns of Quantitative_Data_set must be type = 'float' or 'int' (specially not 'object'), in other case we will find 
+            # dimensional problems when Python compute   x @ S_inv @ x.T
+
+            x = (Quantitative_Data_set[i-1, :] - Quantitative_Data_set[j-1, :])
+
+            x = np.array([x]) # necessary step to transpose a 1D array
+
+            S_inv = np.linalg.inv( np.cov(Quantitative_Data_set , rowvar=False) ) # inverse of covariance matrix
+
+            Dist_Maha = np.sqrt( x @ S_inv @ x.T )  # x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )
+
+            
+
+            return Dist_Maha
+
+        
+    ###################################################################
+
+    ## PARTE DEL CODIGO A PARALELIZAR
+
+       # for i in range(1, len(X)):
+
+        #    distances.append( Dist_Mahalanobis_Python( len(X), i , X) )
+
+        n_jobs  = multiprocessing.cpu_count()
+
+        distances = Parallel(n_jobs=n_jobs)( delayed(Dist_Mahalanobis_Python)( len(X), s , X) for s in range(1, len(X)) )
+       
+
+    ###################################################################
+    
+    if distance == "Sokal":
+
+        a = X @ X.T
+        n = X.shape[0]
+        p = X.shape[1]
+        ones_matrix = np.ones((n, p))
+        b = (ones_matrix - X) @ X.T
+        c = b.T
+        d = (ones_matrix - X) @ (ones_matrix - X).T
+
+
+        def Sokal_Similarity_Py(i, j):
+
+            Sokal_Similarity = ( a[i-1 , j-1] + d[i-1 , j-1] ) / p
+
+            return Sokal_Similarity
+
+
+        def Dist_Sokal_Python(i, j, Binary_Data_set):
+
+            dist_Sokal = np.sqrt( 2 - 2*Sokal_Similarity_Py(i,j, Binary_Data_set) )
+
+            return dist_Sokal
+
+    ###################################################################
+
+    ## PARTE DEL CODIGO A PARALELIZAR
+
+      #  for i in range(1, len(X)):
+
+        #    distances.append( Dist_Sokal_Python( len(X), i , X) )
+
+        n_jobs  = multiprocessing.cpu_count()
+
+        distances = Parallel(n_jobs=n_jobs)( delayed(Dist_Sokal_Python)( len(X), s , X) for s in range(1, len(X)) )
+
+    ###################################################################
+   
+    if distance == "Jaccard":
+
+
+        a = X @ X.T
+        n = X.shape[0]
+        p = X.shape[1]
+        ones_matrix = np.ones((n, p))
+        b = (ones_matrix - X) @ X.T
+        c = b.T
+        d = (ones_matrix - X) @ (ones_matrix - X).T
+
+
+        def Jaccard_Similarity_Py(i, j):
+
+            Jaccard_Similarity = a[i-1,j-1] / (a[i-1,j-1] + b[i-1,j-1] + c[i-1,j-1])
+            
+            return Jaccard_Similarity
+
+
+        def Dist_Jaccard_Python(i, j):
+
+            dist_Jaccard = np.sqrt( Jaccard_Similarity_Py(i,i) + Jaccard_Similarity_Py(i,i) - 2*Jaccard_Similarity_Py(i,j) )
+
+            return dist_Jaccard
+
+    ###################################################################
+
+    ## PARTE DEL CODIGO A PARALELIZAR
+
+       # for i in range(1, len(X)):
+
+        #    distances.append( Dist_Jaccard_Python( len(X), i , X) )
+
+        n_jobs  = multiprocessing.cpu_count()
+
+        distances = Parallel(n_jobs=n_jobs)( delayed(Dist_Jaccard_Python)( len(X), s , X) for s in range(1, len(X)) )
+
+    ###################################################################
+    
+    if distance == "Matches":
+
+        def matches_similarity_py(i, j, Multiple_Categorical_Data):
+
+            p = Multiple_Categorical_Data.shape[1]
+
+            matches_similarity = alpha_py(i,j, Multiple_Categorical_Data) / p
+
+            return(matches_similarity)
+
+
+        def Dist_Matches_Py(i,j, Multiple_Categorical_Data):
+
+            Dist_Matches = np.sqrt( matches_similarity_py(i, i, Multiple_Categorical_Data) +  matches_similarity_py(j, j, Multiple_Categorical_Data) - 2*matches_similarity_py(i, j, Multiple_Categorical_Data) )
+
+            return( Dist_Matches )
+
+    ###################################################################
+
+        # for i in range(1, len(X)):
+
+          #  distances.append( Dist_Matches_Py( len(X), i , X) )
+
+        n_jobs  = multiprocessing.cpu_count()
+
+        distances = Parallel(n_jobs=n_jobs)( delayed(Dist_Matches_Py)( len(X), s , X) for s in range(1, len(X)) )
+
+ ##############################################################################################################################################   
+   
+    if distance == "Gower":
+
+        # The data matrix X have to be order in the following way:
+        # The p1 first are quantitative, the following p2 are binary categorical, and the following p3 are multiple categorical.
+
+
+
+##########################################################################################
+
+
+        def Gower_Similarity_Python(i,j, Mixed_Data_Set, p1, p2, p3):
+
+            X = Mixed_Data_Set
+
+   # The data matrix X have to be order in the following way:
+   # The p1 first are quantitative, the following p2 are binary categorical, and the following p3 are multiple categorical.
+
+   #####################################################################################
+        
+            def G(k, X):
+
+                range = X[:,k].max() - X[:,k].min() 
+
+                return(range)
+
+            G_vector = np.repeat(0.5, p1)
+
+            for r in range(0, p1):
+
+                G_vector[r] = G(r, X)
+                
+      
+    ##########################################################################################
+    
+            ones = np.repeat(1, p1)
+
+            Quantitative_Data = X[: , 0:p1]
+
+            Binary_Data = X[: , (p1):(p1+p2)]
+            
+            Multiple_Categorical_Data = X[: , (p1+p2):(p1+p2+p3) ]
+
+    ##########################################################################################
+
+            numerator_part_1 = ( ones - ( abs(Quantitative_Data[i-1,:] - Quantitative_Data[j-1,:]) / G_vector ) ).sum() 
+
+            numerator_part_2 = a(Binary_Data)[i-1,j-1] + alpha_py(i,j, Multiple_Categorical_Data)
+
+            numerator = numerator_part_1 + numerator_part_2
+ 
+            denominator = p1 + (p2 - d(Binary_Data)[i-1,j-1]) + p3
+
+            Similarity_Gower = numerator / denominator  
+
+            return(Similarity_Gower)
+
+##########################################################################################
+
+        def Dist_Gower_Py(i, j, Mixed_Data , p1, p2, p3):
+
+            Dist_Gower = np.sqrt( 1 - Gower_Similarity_Python(i, j, Mixed_Data , p1, p2, p3) )
+
+            return(Dist_Gower)    
+
+    ###################################################################
+
+        # for i in range(1, len(X)):
+
+            # distances.append( Dist_Gower_Py( len(X), i , X, p1, p2, p3) )
+
+        n_jobs  = multiprocessing.cpu_count()
+
+        distances = Parallel(n_jobs=n_jobs)( delayed(Dist_Gower_Py)( len(X), s , X, p1, p2, p3) for s in range(1, len(X)) )
+
+##############################################################################################################################################
+
+    if distance == "Gower-BM" :
+
+        def GowerBM_Similarity_Python(i,j, BM_Data_Set, p2, p3):
+
+            X = BM_Data_Set
+
+          # The data matrix X have to be order in the following way:
+          # The p2 first are binary categorical, and the following p3 are multiple categorical.
+
+##########################################################################################
+       
+            Binary_Data = X[: , 0:p2]
+
+            Multiple_Categorical_Data = X[: , (p2):(p2+p3)]
+ 
+##########################################################################################
+
+ 
+            numerator_part_2 = a(Binary_Data)[i-1,j-1] + alpha_py(i,j, Multiple_Categorical_Data)
+
+            numerator = numerator_part_2
+
+            denominator = (p2 - d(Binary_Data)[i-1,j-1]) + p3
+
+            Similarity_Gower = numerator / denominator  
+
+            return(Similarity_Gower)
+
+##############################################################################################################################################
+        
+        def Dist_GowerBM_Py(i, j, BM_Data ,  p2, p3):
+
+            Dist_Gower = np.sqrt( 1 - GowerBM_Similarity_Python(i, j, BM_Data , p2, p3) )
+
+            return(Dist_Gower)
+
+##############################################################################################################################################
+
+        # for i in range(1, len(X)):
+
+            # distances.append( Dist_GowerBM_Py( len(X), i , X, p2, p3) )
+
+        n_jobs  = multiprocessing.cpu_count()
+
+        distances = Parallel(n_jobs=n_jobs)( delayed(Dist_GowerBM_Py)( len(X), s , X, p2, p3) for s in range(1, len(X)) )
+
+##############################################################################################################################################
+    
+    if distance == "Gower-BQ" :
+
+        def GowerBQ_Similarity_Python(i,j, BQ_Data_Set, p1, p2):
+
+            X = BQ_Data_Set
+
+
+        # The data matrix X have to be order in the following way:
+        # The p1 first are quantitative, the following p2 are binary categorical 
+
+##########################################################################################
+        
+            def G(k, X):
+
+                range = X[:,k].max() - X[:,k].min() 
+
+                return(range)
+
+            G_vector = np.repeat(0.5, p1)
+
+            for r in range(0, p1):
+
+                G_vector[r] = G(r, X)
+##########################################################################################
+    
+            ones = np.repeat(1, p1)
+
+            Quantitative_Data = X[: , 0:p1]
+
+            Binary_Data = X[: , (p1):(p1+p2)]
+         
+ 
+##########################################################################################
+
+            numerator_part_1 = ( ones - ( abs(Quantitative_Data[i-1,:] - Quantitative_Data[j-1,:]) / G_vector ) ).sum() 
+
+            numerator_part_2 = a(Binary_Data)[i-1,j-1] 
+     
+            numerator = numerator_part_1 + numerator_part_2
+
+            denominator = p1 + (p2 - d(Binary_Data)[i-1,j-1])  
+
+            Similarity_Gower = numerator / denominator  
+
+            return(Similarity_Gower)
+
+###############################################################################
+
+        def Dist_GowerBQ_Py(i, j, BQ_Data ,  p1, p2):
+
+            Dist_Gower = np.sqrt( 1 - GowerBQ_Similarity_Python(i, j, BQ_Data , p1, p2) )
+
+            return(Dist_Gower)
+
+##############################################################################################################################################
+
+        # for i in range(1, len(X)):
+
+        # distances.append( Dist_GowerBQ_Py( len(X), i , X, p1, p2) )
+
+        n_jobs  = multiprocessing.cpu_count()
+
+        distances = Parallel(n_jobs=n_jobs)( delayed(Dist_GowerBQ_Py)( len(X), s , X, p1, p2) for s in range(1, len(X)) )
+
+
+##############################################################################################################################################
+    
+    if distance == "Gower-MQ" :
+        
+        def GowerMQ_Similarity_Python(i,j, MQ_Data_Set, p1, p3):
+
+            X = MQ_Data_Set
+
+   # The data matrix X have to be order in the following way:
+   # The p1 first are quantitative, the following p2 are binary categorical, and the following p3 are multiple categorical.
+
+##########################################################################################
+            
+            def G(k, X):
+
+                range = X[:,k].max() - X[:,k].min() 
+
+                return(range)
+
+            G_vector = np.repeat(0.5, p1)
+
+            for r in range(0, p1):
+
+                G_vector[r] = G(r, X)
+
+##########################################################################################
+    
+            ones = np.repeat(1, p1)
+
+            Quantitative_Data = X[: , 0:p1]
+    
+            Multiple_Categorical_Data = X[: , (p1):(p1+p3)]
+ 
+    
+##########################################################################################
+
+            numerator_part_1 = ( ones - ( abs(Quantitative_Data[i-1,:] - Quantitative_Data[j-1,:]) / G_vector ) ).sum() 
+
+            numerator_part_2 =   alpha_py(i,j, Multiple_Categorical_Data)
+
+            numerator = numerator_part_1 + numerator_part_2
+
+            denominator = p1 + p3
+
+            Similarity_Gower = numerator / denominator  
+
+            return(Similarity_Gower)
+
+
+
+############################################################################################
+
+        def Dist_GowerMQ_Py(i, j, MQ_Data ,  p1, p3):
+
+                Dist_Gower = np.sqrt( 1 - GowerMQ_Similarity_Python(i, j, MQ_Data , p1, p3) )
+
+                return(Dist_Gower)
+
+
+######################################################################################################################################
+        # for i in range(1, len(X)):
+
+        # distances.append( Dist_GowerMQ_Py( len(X), i , X, p1, p3) )
+
+        n_jobs  = multiprocessing.cpu_count()
+
+        distances = Parallel(n_jobs=n_jobs)( delayed(Dist_GowerMQ_Py)( len(X), s , X, p1, p3) for s in range(1, len(X)) )
+
+######################################################################################################################################
+
+######################################################################################################################################
+
+    distances = pd.DataFrame({'distances': distances})
+
+    distances = distances.sort_values(by=["distances"]).reset_index(drop=False)
+        
+    knn = distances.iloc[0:k , :]
+
+    for i in knn.iloc[:,0]:
+
+        groups_knn.append(Y[i])
+
+    unique, counts = np.unique(groups_knn , return_counts=True)
+
+    unique_Y , counts_Y = np.unique(Y , return_counts=True)
+
+    if len(unique) == len(unique_Y) :
+
+        proportions_groups_knn = pd.DataFrame({'proportions_groups': counts/k, 'groups': unique_Y })
+    
+    elif len(unique) < len(unique_Y) :
+
+        proportions_groups_knn = pd.DataFrame({'proportions_groups': counts/k, 'groups': unique })
+
+
+
+    prediction_group = proportions_groups_knn.sort_values(by=["proportions_groups"], ascending=False).iloc[0,:]['groups']
+                                      
+
+    return prediction_group, proportions_groups_knn   
+```
+
+
+
+Probamos el algoritmo con un ejemplo:
+
+
+```python
+prediction_group, proportions_groups_knn  = KNN_classification( X_train , Y_train , x_new, 10 , distance = "Euclidean" )
+```
+
+
+```python
+prediction_group
+```
+
+
+
+
+    0.0
+
+
+
+
+```python
+proportions_groups_knn
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>proportions_groups</th>
+      <th>groups</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.8</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.2</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+#### Validación simple con función de validación propia y función de clasificación KNN propia <a class="anchor" id="3.1"></a>
+
+
+```python
+def Simple_Validation_Classification(distance, Data_Test, X_train, Y_train, Y_test) :
+
+    ##########################
+
+    from joblib import Parallel, delayed
+    import multiprocessing
+
+    n_jobs  = multiprocessing.cpu_count()
+
+    ##########################
+
+    ##########################
+
+    def prediction(i, Data_Test, X_train, Y_train ):
+
+     x_new = Data_Test.iloc[ i , range(1, Data_Test.shape[1])]
+
+     prediction_group, proportions_groups_knn  =  KNN_classification( X_train , Y_train , x_new, 10 , distance = distance )
+     
+     y_new_predict = prediction_group
+
+     return(y_new_predict)
+
+    ##########################
+
+    y_predictions_vector = []
+
+    # Paralelizamos el siguiente bucle for :
+
+    # for i in  range(0, len(Data_Test)):
+
+        # y_new_predict = prediction(i, Data_Test, X_train, Y_train )
+
+        # y_predictions_vector.append( y_new_predict )
+
+    
+    y_predictions_vector = Parallel(n_jobs=n_jobs)( delayed(prediction)( i, Data_Test, X_train, Y_train) for i in range(0, len(Data_Test)) )
+
+    #########################
+
+    from itertools import chain
+
+    TEC = 1 - sum(y_predictions_vector == Y_test)/len(Y_test)     
+
+ 
+    return(y_predictions_vector , TEC)
+```
+
+Se va a probar el algoritmo con distancias diferentes a las que pueden usarse conn `sklearn` para asi cubrir un mayor campo.
+
+**Usando la distancia de Canberra:**
+
+
+```python
+y_predictions_vector , TEC_KNN_Canberra = Simple_Validation_Classification('Canberra', Data_Test, X_train, Y_train, Y_test)
+```
+
+
+```python
+TEC_KNN_Canberra
+```
+
+
+
+
+    0.23931623931623935
+
+
+
+
+
+**Usando la distancia de Pearson:**
+
+
+```python
+y_predictions_vector , TEC_KNN_Pearson = Simple_Validation_Classification('Pearson', Data_Test, X_train, Y_train, Y_test)
+```
+
+
+```python
+TEC_KNN_Pearson
+```
+
+
+
+
+    0.2991452991452992
+
+
+
+
+
+**Usando la distancia de Mahalanobis:**
+
+Ahora vamos a usar la distancia de Mhalanobis, pero teniendo especial cuidado, porque como pone dentro de la propia funcion (# All the columns of Quantitative_Data_set must be type = 'float' or 'int' (specially not 'object'), in other case we will find dimensional problems when Python compute   x @ S_inv @ x.T) todas las variables de X_train asi como x_new tienen que ser tipo float o int , y especialmente no ser tipo object, y resulta que tenemos Gender como object, luego tenemos que modificar esto para poder usar el algoritmo con la distancia de Mahalanobis.
+
+Para hacer que todas las variables de X_train sean tipo float o int basta con cambiar a int la variable Gender que es la unica tipo object.
+
+
+```python
+X_train.dtypes
+```
+
+
+
+
+    Age                             int64
+    Gender                         object
+    Total_Bilirubin               float64
+    Direct_Bilirubin              float64
+    Alkaline_Phosphotase            int64
+    Alamine_Aminotransferase        int64
+    Aspartate_Aminotransferase      int64
+    Total_Protiens                float64
+    Albumin                       float64
+    Albumin_and_Globulin_Ratio    float64
+    dtype: object
+
+
+
+
+```python
+X_train['Gender'] = X_train['Gender'].astype('int')
+
+```
+
+Pero por otro lado como x_new se define en el algoritmo de validacion como x_new = Data_Test.iloc[ i , range(1, Data_Test.shape[1])] y Data_test tambien tiene variables tipo object, por lo que hay que convertirlas en tipo float o int, ya que si no x_new será tipo object y no podrá intervenir en ciertas operaciones entre arrays con Numpy , cosa que pasa en el algoritmo.   En general para quitarnos problemas siempre que se usen operaciones entre arrays con Numpy estos deberian ser tipo float o int, nunca object.
+
+
+```python
+Data_Test.dtypes
+```
+
+
+
+
+    Y                              object
+    Age                             int64
+    Gender                         object
+    Total_Bilirubin               float64
+    Direct_Bilirubin              float64
+    Alkaline_Phosphotase            int64
+    Alamine_Aminotransferase        int64
+    Aspartate_Aminotransferase      int64
+    Total_Protiens                float64
+    Albumin                       float64
+    Albumin_and_Globulin_Ratio    float64
+    dtype: object
+
+
+
+
+```python
+Data_Test['Gender'] = Data_Test['Gender'].astype('int')
+Data_Test['Y'] = Data_Test['Y'].astype('int')
+```
+
+
+
+
+```python
+y_predictions_vector , TEC_KNN_Mahalanobis = Simple_Validation_Classification('Mahalanobis', Data_Test, X_train, Y_train, Y_test)
+```
+
+
+```python
+TEC_KNN_Mahalanobis
+```
+
+
+
+
+    0.3504273504273504
+
+
+
+
+
+**Usando la distancia de Gower:**
+
+Ahora vamos a probar con la distancia de Gower, que es la ideal para conjuntos de datos de tipo mixto (que tienen por lo menos dos tipos de vairbales (cuantitativas-binarias , cuantitativas-multiclase, binarias-multiclase o cuantitativas-binarias-multiclase)).
+
+Notese que las distancias usadas hasta el momento (Minkowski con p=1,2 (es decir, Euclidea y Manhattan), Canberra, Pearson y Mahalanobis) NO son distancias apropiadas, desde un punto de vista estadistico, para matrices de datos de tipo mixto.
+La distancia mas estandarizada para este tipo de conjunto de datos es la de Gower. En este caso como tenemos un conjunto de datos de tipo cuantitativo-binario usaremos una version de la distancia de Gower adecuada para este tipo de datos.
+
+Para ello podemos usar el parametro distance="Gower-BQ" en nuestra funcion de KNN. Pero para ello debemos hacer unas modificaciones en el data-set de predictores para que nuestra funcion pueda operar correctamente.
+
+Por un lado tenemos que hacer que las primeras p1 variables (columnas) de X_train sean las cuantitativas, y las siguientes p2 variables las binarias. Tras esto ya podremos usar nuestra funcion KKN con la distancia de Gower para datos binarios-cuantitativos, pasandole como parametros adicionales p1 y p2.
+
+
+```python
+X_train_rearranged = X_train.loc[ : , [  'Age', 'Total_Bilirubin', 'Direct_Bilirubin',
+                                         'Alkaline_Phosphotase', 'Alamine_Aminotransferase',          # Cuantitativas (9)
+                                         'Aspartate_Aminotransferase', 'Total_Protiens', 'Albumin',
+                                         'Albumin_and_Globulin_Ratio',
+    
+                                         'Gender'   # Binarias (1)
+
+                                       ]]
+```
+
+Como x_new = Data_Test.iloc[ i , range(1, Data_Test.shape[1])]  y tambien tiene que ser un vector con el mismo orden que X_train_rearranged tenemos que reordenar Data_test del mismo modo que lo hemos hecho con X_train.
+
+
+```python
+Data_Test_rearranged = Data_Test.loc[ : , [ 'Y' ,  # Respuesta 
+
+                                         'Age', 'Total_Bilirubin', 'Direct_Bilirubin',
+                                         'Alkaline_Phosphotase', 'Alamine_Aminotransferase',          # Cuantitativas (9)
+                                         'Aspartate_Aminotransferase', 'Total_Protiens', 'Albumin',
+                                         'Albumin_and_Globulin_Ratio',
+    
+                                         'Gender'   # Binarias (1)
+
+                                       ]]
+```
+
+
+```python
+Data_Test_rearranged.shape
+```
+
+
+
+
+    (117, 11)
+
+
+
+
+```python
+def Simple_Validation_Classification(Data_Test, X_train, Y_train, Y_test) :
+
+    ##########################
+
+    from joblib import Parallel, delayed
+    import multiprocessing
+
+    n_jobs  = multiprocessing.cpu_count()
+
+    ##########################
+
+    ##########################
+
+    def prediction(i, Data_Test, X_train, Y_train ):
+
+     x_new = Data_Test.iloc[ i , range(1, Data_Test.shape[1])]
+
+     prediction_group, proportions_groups_knn  =  KNN_classification( X_train , Y_train , x_new, 10 , distance = "Gower-BQ" , p1=9 , p2=1)
+     
+     y_new_predict = prediction_group
+
+     return(y_new_predict)
+
+    ##########################
+
+    y_predictions_vector = []
+
+    # Paralelizamos el siguiente bucle for :
+
+    # for i in  range(0, len(Data_Test)):
+
+        # y_new_predict = prediction(i, Data_Test, X_train, Y_train )
+
+        # y_predictions_vector.append( y_new_predict )
+
+    
+    y_predictions_vector = Parallel(n_jobs=n_jobs)( delayed(prediction)( i, Data_Test, X_train, Y_train) for i in range(0, len(Data_Test)) )
+
+    #########################
+
+    from itertools import chain
+
+    TEC = 1 - sum(y_predictions_vector == Y_test)/len(Y_test)     
+
+ 
+    return(y_predictions_vector , TEC)
+```
+
+
+```python
+prediction_group, proportions_groups_knn  =  KNN_classification( X=X_train_rearranged , Y=Y_train , x_new=x_new, k=10 , distance="Gower-BQ" , p1=9 , p2=1)
+
+```
+
+
+```python
+y_predictions_vector , TEC_KNN_Gower_BQ  = Simple_Validation_Classification(Data_Test_rearranged, X_train_rearranged, Y_train, Y_test)
+```
+
+
+```python
+TEC_KNN_Gower_BQ
+```
+
+
+
+
+    0.3418803418803419
+
+
+
+
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+### 4.6.3. KNN para clasificación en `Python` con `sklearn`  <a class="anchor" id="35"></a>
+
+
+```python
+import sklearn
+
+from sklearn.neighbors import NearestNeighbors
+```
+
+
+```python
+## sklearn.neighbors.KNeighborsClassifier(n_neighbors=5, *, weights='uniform', algorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=None) 
+```
+
+Es recomendable ver primero la documentación de sklearn: https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html
+
+
+```python
+knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform', p=2, metric='minkowski')
+```
+
+
+```python
+knn_classification.fit(X_train, Y_train)
+```
+
+
+
+
+    KNeighborsClassifier(n_neighbors=10)
+
+
+
+
+```python
+knn_classification.predict( [x_new] ) 
+```
+
+
+
+
+    array([0])
+
+
+
+
+```python
+knn_classification.predict_proba([x_new])
+```
+
+
+
+
+    array([[0.8, 0.2]])
+
+
+
+
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+#### Validación simple con función de validación propia y función de clasificación KNN `sklearn`<a class="anchor" id="3.1"></a>
+
+
+```python
+def Simple_Validation_Classification(Data_Test, X_train, Y_train, Y_test) :
+
+    ##########################
+
+    from joblib import Parallel, delayed
+    import multiprocessing
+
+    n_jobs  = multiprocessing.cpu_count()
+
+    ##########################
+
+    knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform', p=2, metric='minkowski')
+
+    ##########################
+
+    def prediction(i, Data_Test, X_train, Y_train ):
+
+     x_new = Data_Test.iloc[ i , range(1, Data_Test.shape[1])]
+
+     knn_classification.fit(X_train, Y_train)
+     
+     y_new_predict = knn_classification.predict( [x_new] )
+
+     return(y_new_predict)
+
+    ##########################
+
+    y_predictions_vector = []
+
+    # Paralelizamos el siguiente bucle for :
+
+    # for i in  range(0, len(Data_Test)):
+
+        # y_new_predict = prediction(i, Data_Test, X_train, Y_train )
+
+        # y_predictions_vector.append( y_new_predict )
+
+    
+    y_predictions_vector = Parallel(n_jobs=n_jobs)( delayed(prediction)( i, Data_Test, X_train, Y_train) for i in range(0, len(Data_Test)) )
+
+    #########################
+
+    from itertools import chain
+
+    y_predictions_vector = list(chain(*y_predictions_vector))
+
+    TEC = 1 - sum(y_predictions_vector == Y_test)/len(Y_test)     
+
+ 
+    return(y_predictions_vector , TEC)
+```
+
+
+```python
+y_predictions_vector , TEC_KNN_Minkowski_p_2 = Simple_Validation_Classification(Data_Test, X_train, Y_train, Y_test)
+```
+
+
+```python
+TEC_KNN_Minkowski_p_2
+```
+
+
+
+
+    0.2991452991452992
+
+
+
+
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+#### Validación simple con la función de validación `sklearn` <a class="anchor" id="3.2"></a>
+
+**Usando la distancia de Minkowski con q=2:**
+
+
+```python
+knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform', p=2, metric='minkowski')
+
+knn_classification.fit(X_train, Y_train)
+```
+
+
+
+
+    KNeighborsClassifier(n_neighbors=10)
+
+
+
+
+```python
+TEC_KNN_skl_Minkowski_p_2 = 1 - knn_classification.score(X_test, Y_test)
+
+TEC_KNN_skl_Minkowski_p_2
+```
+
+
+
+
+    0.2991452991452992
+
+
+
+
+
+**Usando la distancia de Minkowski con q=1:**
+
+
+```python
+knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform', p=1, metric='minkowski')
+
+knn_classification.fit(X_train, Y_train)
+```
+
+
+
+
+    KNeighborsClassifier(n_neighbors=10, p=1)
+
+
+
+
+```python
+TEC_skl_Minkowski_p_1 = 1 - knn_classification.score(X_test, Y_test)
+
+TEC_skl_Minkowski_p_1
+```
+
+
+
+
+    0.32478632478632474
+
+
+
+
+
+**Usando la distancia coseno:**
+
+
+```python
+knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform', metric='cosine')
+
+knn_classification.fit(X_train, Y_train)
+```
+
+
+
+
+    KNeighborsClassifier(metric='cosine', n_neighbors=10)
+
+
+
+
+```python
+TEC_skl_Coseno = 1 - knn_classification.score(X_test, Y_test)
+
+TEC_skl_Coseno
+```
+
+
+
+
+    0.2991452991452992
+
+
+
+
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+### Selección óptima del hiperparámetro $k$ en KNN 
+
+Vamos a hacer una seleccion óptima del hiperparametro $k$ por validacion simple para KNN con varias distancias.
+
+
+
+**$k$ óptimo con distancia Canberra**
+
+
+```python
+def Simple_Validation_Classification(k, Data_Test, X_train, Y_train, Y_test) :
+
+    ##########################
+
+    from joblib import Parallel, delayed
+    import multiprocessing
+
+    n_jobs  = multiprocessing.cpu_count()
+
+    ##########################
+
+    ##########################
+
+    def prediction(i, Data_Test, X_train, Y_train ):
+
+     x_new = Data_Test.iloc[ i , range(1, Data_Test.shape[1])]
+
+     prediction_group, proportions_groups_knn  =  KNN_classification( X_train , Y_train , x_new, k , distance = 'Canberra' )
+     
+     y_new_predict = prediction_group
+
+     return(y_new_predict)
+
+    ##########################
+
+    y_predictions_vector = []
+
+    # Paralelizamos el siguiente bucle for :
+
+    # for i in  range(0, len(Data_Test)):
+
+        # y_new_predict = prediction(i, Data_Test, X_train, Y_train )
+
+        # y_predictions_vector.append( y_new_predict )
+
+    
+    y_predictions_vector = Parallel(n_jobs=n_jobs)( delayed(prediction)( i, Data_Test, X_train, Y_train) for i in range(0, len(Data_Test)) )
+
+    #########################
+
+    from itertools import chain
+
+    TEC = 1 - sum(y_predictions_vector == Y_test)/len(Y_test)     
+
+ 
+    return(y_predictions_vector , TEC)
+```
+
+
+```python
+TEC_KNN_Canberra_vector = [ ]
+
+for k in range(1, 50) :
+
+    y_predictions_vector , TEC = Simple_Validation_Classification(k, Data_Test, X_train, Y_train, Y_test)
+
+    TEC_KNN_Canberra_vector.append(TEC)
+```
+
+
+```python
+k_KNN_Canberra_df = pd.DataFrame({'k':range(1,50), 'TEC':TEC_KNN_Canberra_vector})
+
+k_KNN_Canberra_df = k_KNN_Canberra_df.sort_values(by=["TEC"]).reset_index(drop=False)
+```
+
+
+```python
+k_KNN_Canberra_df.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>k</th>
+      <th>TEC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>4</td>
+      <td>0.230769</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4</td>
+      <td>5</td>
+      <td>0.230769</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5</td>
+      <td>6</td>
+      <td>0.230769</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7</td>
+      <td>8</td>
+      <td>0.230769</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>9</td>
+      <td>10</td>
+      <td>0.239316</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+**$k$ óptimo con distancia Pearson**
+
+
+```python
+def Simple_Validation_Classification(k, Data_Test, X_train, Y_train, Y_test) :
+
+    ##########################
+
+    from joblib import Parallel, delayed
+    import multiprocessing
+
+    n_jobs  = multiprocessing.cpu_count()
+
+    ##########################
+
+    ##########################
+
+    def prediction(i, Data_Test, X_train, Y_train ):
+
+     x_new = Data_Test.iloc[ i , range(1, Data_Test.shape[1])]
+
+     prediction_group, proportions_groups_knn  =  KNN_classification( X_train , Y_train , x_new, k , distance = 'Pearson' )
+     
+     y_new_predict = prediction_group
+
+     return(y_new_predict)
+
+    ##########################
+
+    y_predictions_vector = []
+
+    # Paralelizamos el siguiente bucle for :
+
+    # for i in  range(0, len(Data_Test)):
+
+        # y_new_predict = prediction(i, Data_Test, X_train, Y_train )
+
+        # y_predictions_vector.append( y_new_predict )
+
+    
+    y_predictions_vector = Parallel(n_jobs=n_jobs)( delayed(prediction)( i, Data_Test, X_train, Y_train) for i in range(0, len(Data_Test)) )
+
+    #########################
+
+    from itertools import chain
+
+    TEC = 1 - sum(y_predictions_vector == Y_test)/len(Y_test)     
+
+ 
+    return(y_predictions_vector , TEC)
+```
+
+
+```python
+TEC_KNN_Pearson_vector = [ ]
+
+for k in range(1, 50) :
+
+    y_predictions_vector , TEC = Simple_Validation_Classification(k, Data_Test, X_train, Y_train, Y_test)
+
+    TEC_KNN_Pearson_vector.append(TEC)
+```
+
+
+```python
+k_KNN_Pearson_df = pd.DataFrame({'k':range(1,50), 'TEC':TEC_KNN_Pearson_vector})
+
+k_KNN_Pearson_df = k_KNN_Pearson_df.sort_values(by=["TEC"]).reset_index(drop=False)
+```
+
+
+```python
+k_KNN_Pearson_df.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>k</th>
+      <th>TEC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>4</td>
+      <td>0.256410</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>0.264957</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>5</td>
+      <td>0.264957</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>3</td>
+      <td>0.273504</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>6</td>
+      <td>0.273504</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+**$k$ óptimo con distancia Euclidea**
+
+
+```python
+def Simple_Validation_Classification(k, Data_Test, X_train, Y_train, Y_test) :
+
+    ##########################
+
+    from joblib import Parallel, delayed
+    import multiprocessing
+
+    n_jobs  = multiprocessing.cpu_count()
+
+    ##########################
+
+    ##########################
+
+    def prediction(i, Data_Test, X_train, Y_train ):
+
+     x_new = Data_Test.iloc[ i , range(1, Data_Test.shape[1])]
+
+     prediction_group, proportions_groups_knn  =  KNN_classification( X_train , Y_train , x_new, k , distance = 'Euclidean' )
+     
+     y_new_predict = prediction_group
+
+     return(y_new_predict)
+
+    ##########################
+
+    y_predictions_vector = []
+
+    # Paralelizamos el siguiente bucle for :
+
+    # for i in  range(0, len(Data_Test)):
+
+        # y_new_predict = prediction(i, Data_Test, X_train, Y_train )
+
+        # y_predictions_vector.append( y_new_predict )
+
+    
+    y_predictions_vector = Parallel(n_jobs=n_jobs)( delayed(prediction)( i, Data_Test, X_train, Y_train) for i in range(0, len(Data_Test)) )
+
+    #########################
+
+    from itertools import chain
+
+    TEC = 1 - sum(y_predictions_vector == Y_test)/len(Y_test)     
+
+ 
+    return(y_predictions_vector , TEC)
+```
+
+
+```python
+TEC_KNN_Euclidean_vector = [ ]
+
+for k in range(1, 50) :
+
+    y_predictions_vector , TEC = Simple_Validation_Classification(k, Data_Test, X_train, Y_train, Y_test)
+
+    TEC_KNN_Euclidean_vector.append(TEC)
+```
+
+
+```python
+k_KNN_Euclidean_df = pd.DataFrame({'k':range(1,50), 'TEC':TEC_KNN_Pearson_vector})
+
+k_KNN_Euclidean_df = k_KNN_Euclidean_df.sort_values(by=["TEC"]).reset_index(drop=False)
+```
+
+
+```python
+k_KNN_Euclidean_df.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>k</th>
+      <th>TEC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>4</td>
+      <td>0.256410</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>0.264957</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>5</td>
+      <td>0.264957</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>3</td>
+      <td>0.273504</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>6</td>
+      <td>0.273504</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+## 4.7. Comparación final entre árboles y KNN para clasificación por validacion simple
+
+
+
+
+```python
+modelos = ['']
+
+TAC = []
+
+TEC = []
+```
+
+rpart sin podar  TAC 0.6667
+rpart podado (maxdepth=4)  TAC 0.6879
+c5.0 sin podar 0.6986
+c5.0 podado control = C5.0Control(minCases = 10,earlyStopping = TRUE)  TAC0.7123 (segun marcos)
+rpart con mlr3 maxdepth=4 TAC 0.6917
+c5.0 con mlr3 TAC 0.6986
+
+arbol clasificacion algoritmo de creacion propia con TEC como metrica a optimizar y k=20 TAC = 0.6923
+
+arbol clasificacion algoritmo de creacion propia con Gini como metrica a optimizar y k=20  TAC = 0.7179
+
+arbol de clasificacion con sklearn DecisionTreeClassifier(criterion='gini', splitter='best', min_samples_split=40, min_samples_leaf=50,  max_depth=None,  ccp_alpha=0, random_state=666) TAC 0.6581
+
+arbol de clasificacion con sklearn penalizacion optima DecisionTreeClassifier(ccp_alpha=alpha_score_df_sorted['alpha'][0], criterion='gini', splitter='best', random_state=222) TAC 0.7008
+
+KNN funcion propia con distancia canberra y k=10   TAC 0.7607
+
+KNN funcion propia con distancia Pearson y k=10   TAC 0.7008
+
+KNN funcion propia con distancia Mahalanobis y k=10   TAC 0.6496
+
+KNN funcion propia con distancia Gower y k=10   TAC 0.6581
+
+KNN funcion sklearn con distancia Minkowski q=2 y k=10   TAC 0.7008
+
+KNN funcion sklearn con distancia Minkowski q=1 y k=10   TAC 0.67521
+
+KNN funcion sklearn con distancia Coseno y k=10   TAC 0.7008
+
+KNN con k optimio para la distancia Canberra
+
+KNN con k optimio para la distancia Pearson
+
+KNN con k optimio para la distancia Euclidea
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
