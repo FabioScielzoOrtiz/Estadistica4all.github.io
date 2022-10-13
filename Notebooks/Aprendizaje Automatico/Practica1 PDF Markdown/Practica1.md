@@ -1,23 +1,20 @@
 ---
-title: ''
-author: ''
-date: ''
-output:
-  pdf_document:
-    includes:
-      in_header: "wrap-code.tex"
-      before_body: portada4.sty
-    toc_depth: 6
-    number_sections: yes
-  html_document:
-    toc_depth: '6'
-    df_print: paged
+title: ""
+author: ""
+date: ""
+geometry: "left=3cm,right=3cm,top=3cm,bottom=3cm"
 header_includes:
-- \usepackage{longtable}
-- \usepackage{lscape}
-geometry: left=3cm,right=3cm,top=3cm,bottom=3cm
-institute: Universidad Carlos III de Madrid
-documentclass: article
+ - \usepackage{longtable}
+ - \usepackage{lscape}
+output: 
+        pdf_document:
+                includes:
+                        in_header: "wrap-code.tex"
+                        before_body: "portada4.sty"
+                toc_depth: 6
+                number_sections: true
+institute: "Universidad Carlos III de Madrid"
+documentclass: "article"
 papersize: a4
 linestrech: 1.5
 fontsize: 11pt
@@ -26,8 +23,7 @@ urlcolor: blue
 
 
 
-
-#  Objetivos 
+# Objetivos <a class="anchor" id="1"></a>
 
 - Conocer un contexto de aplicación real.
 
@@ -39,7 +35,7 @@ urlcolor: blue
 
 
 
-# Problema 
+#  Problema <a class="anchor" id="2"></a>
 
 - Resolver un problema de clasificación para el diagnóstico de pacientes hepáticos.
 
@@ -47,7 +43,7 @@ urlcolor: blue
 
 
 
-# Datos  
+#  Datos <a class="anchor" id="3"></a>
 
 - Usaremos el conjunto de datos “Indian Liver Patient Dataset”: Los pacientes con enfermedades del hígado han ido aumentando continuamente debido al consumo excesivo de alcohol, inhalación de gases nocivos, ingesta de alimentos contaminados, encurtidos y drogas. 
 
@@ -61,9 +57,12 @@ data("ilpd", package = "mlr3data")
 
 
 
+ 
+\newpage
 
 
-#  Desarrollo de la práctica  
+
+#  Desarrollo de la práctica <a class="anchor" id="4"></a>
 
 
 Vamos a desarrollar esta práctica en los lenguajes de programación `R` y `Python` simultaneamente. 
@@ -72,7 +71,7 @@ En general lo haremos a través el lenguaje `Python` utilizando un paquete llama
 
 
 
-## Carga de los datos  
+##  Carga de los datos 
 
 
 Empezamos la práctica cargando los datos, tanto en `R` como en `Python` :
@@ -92,6 +91,9 @@ import rpy2
 %load_ext rpy2.ipython
 ```
 
+  
+    
+
 
 ```r
 %%R
@@ -100,12 +102,12 @@ import rpy2
 # install.packages("mlr3")
 ```
 
-    NULL
+    
     
 
 
+\newpage
 
- 
 
 Cargamos los datos en `R`
 
@@ -140,7 +142,7 @@ head(ilpd,5)
 
 
 
-
+\newpage
 
 Cargamos los datos en `Python`
 
@@ -163,121 +165,32 @@ Data_Python = Data_Python.rename({'Dataset': 'Diseased'}, axis=1)
 ```python
 Data_Python.head()
 ```
+```
+   Age  Gender  Total_Bilirubin  Direct_Bilirubin  Alkaline_Phosphotase  
+0   65  Female              0.7               0.1                   187   
+1   62    Male             10.9               5.5                   699   
+2   62    Male              7.3               4.1                   490   
+3   58    Male              1.0               0.4                   182   
+4   72    Male              3.9               2.0                   195   
 
+   Alamine_Aminotransferase  Aspartate_Aminotransferase  Total_Protiens  
+0                        16                          18             6.8   
+1                        64                         100             7.5   
+2                        60                          68             7.0   
+3                        14                          20             6.8   
+4                        27                          59             7.3   
 
+   Albumin  Albumin_and_Globulin_Ratio  Diseased  
+0      3.3                        0.90         1  
+1      3.2                        0.74         1  
+2      3.3                        0.89         1  
+3      3.4                        1.00         1  
+4      2.4                        0.40         1 
+```
 
+ 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Age</th>
-      <th>Gender</th>
-      <th>Total_Bilirubin</th>
-      <th>Direct_Bilirubin</th>
-      <th>Alkaline_Phosphotase</th>
-      <th>Alamine_Aminotransferase</th>
-      <th>Aspartate_Aminotransferase</th>
-      <th>Total_Protiens</th>
-      <th>Albumin</th>
-      <th>Albumin_and_Globulin_Ratio</th>
-      <th>Diseased</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>65</td>
-      <td>Female</td>
-      <td>0.7</td>
-      <td>0.1</td>
-      <td>187</td>
-      <td>16</td>
-      <td>18</td>
-      <td>6.8</td>
-      <td>3.3</td>
-      <td>0.90</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>62</td>
-      <td>Male</td>
-      <td>10.9</td>
-      <td>5.5</td>
-      <td>699</td>
-      <td>64</td>
-      <td>100</td>
-      <td>7.5</td>
-      <td>3.2</td>
-      <td>0.74</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>62</td>
-      <td>Male</td>
-      <td>7.3</td>
-      <td>4.1</td>
-      <td>490</td>
-      <td>60</td>
-      <td>68</td>
-      <td>7.0</td>
-      <td>3.3</td>
-      <td>0.89</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>58</td>
-      <td>Male</td>
-      <td>1.0</td>
-      <td>0.4</td>
-      <td>182</td>
-      <td>14</td>
-      <td>20</td>
-      <td>6.8</td>
-      <td>3.4</td>
-      <td>1.00</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>72</td>
-      <td>Male</td>
-      <td>3.9</td>
-      <td>2.0</td>
-      <td>195</td>
-      <td>27</td>
-      <td>59</td>
-      <td>7.3</td>
-      <td>2.4</td>
-      <td>0.40</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-
-<p><p style="page-break-after:always;"></p></p>
+\vspace{1cm}
 
 
 **Describiremos cada una de las variables:**
@@ -301,13 +214,12 @@ Data_Python.head()
 Ahora que ya tenenmos cargados los datos y hemos visto la apariencia de los mismo procedemos a hacer un EDA (exploratory data analysis).
 
 
-<p><p style="page-break-after:always;"></p></p>
+ 
+
+##   EDA en `R` <a class="anchor" id="6"></a>
 
 
-## 4.2. EDA en `R` <a class="anchor" id="6"></a>
-
-
-### 4.2.1. EDA con `skimr` <a class="anchor" id="6"></a>
+###   EDA con `skimr` <a class="anchor" id="6"></a>
 
 
 
@@ -365,8 +277,7 @@ skim(ilpd) # EDA con librería
     9   0.947   1.1    2.8 <U+2586><U+2587><U+2582><U+2581><U+2581>
     
 
-<p><p style="page-break-after:always;"></p></p>
-
+ 
 
 
 También haremos uso de la función `str()` que nos da la estructura de nuestro dataset.
@@ -399,7 +310,7 @@ Claramente podemos ver como con skimr, las variables que son numéricas las cons
 
 
 
-### 4.2.2. EDA con `DataExplorer` <a class="anchor" id="6"></a>
+###  EDA con `DataExplorer` <a class="anchor" id="6"></a>
 
 
 
@@ -415,7 +326,7 @@ Por último sacaremos un reporte con la librería `DataExplorer`:
 # DataExplorer::create_report(ilpd,y="diseased") 
 ```
 
-    NULL
+    
     
 
 Se genera un reporte en HTML que puede ser abierto en el navegador. 
@@ -428,8 +339,7 @@ https://github.com/FabioScielzoOrtiz/Estadistica4all.github.io/blob/main/Noteboo
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+\newpage
 
 
 Aunque hemos visto el número de valores ausentes en la salida que nos da skimr, esto se puede hacer a mano como sigue:
@@ -443,9 +353,12 @@ Aunque hemos visto el número de valores ausentes en la salida que nos da skimr,
 
 library(tidyverse)
 
-ilpd %>% map_dbl(.f = function(x){sum(is.na(x))}) # Número de missing values
+ilpd %>% map_dbl(.f = function(x){sum(is.na(x))}) 
+
+# Número de missing values
 ```
 
+   
                        age                 gender        total_bilirubin 
                          0                      0                      0 
           direct_bilirubin   alkaline_phosphatase   alanine_transaminase 
@@ -468,12 +381,11 @@ Podemos sacar las siguientes conclusiones del EDA anterior:
 
 
 
+\newpage
 
+ 
 
-<p><p style="page-break-after:always;"></p></p>
-
-
-## 4.3. EDA en `Python` <a class="anchor" id="7"></a>
+##   EDA en `Python` <a class="anchor" id="7"></a>
 
 
 Ahora vamos a realizar un EDA del data-set pero usando `Python`
@@ -488,7 +400,7 @@ El EDA (Exploratory Data Analysis) en lineas generales va a consistir en:
 
 
 
-### 4.3.1. Estructura del data-set <a class="anchor" id="8"></a>
+###   Estructura del data-set <a class="anchor" id="8"></a>
 
 
 ```python
@@ -501,12 +413,10 @@ warnings.filterwarnings("ignore")
 Data_Python.shape
 ```
 
-
-
-
     (583, 11)
 
 
+\vspace{0.5cm}
 
 Tenemos un data-set con 11 variables y 583 observaciones.
 
@@ -525,9 +435,8 @@ Las variables **cuantitativas** del data-set son:
 - age , Alkaline_Phosphotase, Alamine_Aminotransferase  , Aspartate_Aminotransferase (*discretas*) y   Total_Bilirubin , Direct_Bilirubin, Total_Protiens, Albumin, Albumin_and_Globulin_Ratio (*continuas*)
 
 
-
-<p><p style="page-break-after:always;"></p></p>
-
+\newpage
+ 
 
 Con el siguiente código podemos ver el tipo de cada una de las variables en Python (que podría no coincidir con el descrito anteriormente, en su caso habría que modificarlo.)
 
@@ -556,7 +465,7 @@ Data_Python.info()
     memory usage: 50.2+ KB
     
 
-
+\vspace{0.5cm}
 
 En este caso el tipo en Python es correcto para todas las variables salvo para la respuesta (Diseased) ya que Python la considera entera (cuantitativa discreta: int64) cuando realmente es categórica binaria, por ello tranformamos su tipo de int64 a object (el tipo clasico de las variables categoricas en Python).
 
@@ -567,8 +476,7 @@ Data_Python['Diseased'] = Data_Python['Diseased'].astype('object')
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+ 
 
 Comprobamos que los cambios se han producido correctamente:
 
@@ -597,6 +505,7 @@ Data_Python.info()
     memory usage: 50.2+ KB
     
 
+\vspace{0.5cm}
 
 
 Ahora vamos a ver si existe algún valor nulo en el data-set:
@@ -628,7 +537,7 @@ Ninguna de las variables tiene valores faltantes (nulos).
 
 
 
-<p><p style="page-break-after:always;"></p></p>
+\vspace{0.7cm}
 
 
 Ahora vamos a ver cual es el rango de las variables categoricas, y posteriormete lo codificaremos en formato estandar $\lbrace 0,1,2,...\rbrace$ , si es que no lo están ya.
@@ -707,8 +616,7 @@ Data_Python['Diseased'].unique()
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+ 
 
 Pero cuidado, tras realizar estos cambios tambien se cambia en Python el tipo de las variables codificadas a 'float64' , que es un tipo cuantitativo (continuo), por lo que debemos volver a fijar el tipo de Diseased y Gender como 'object' (ya que son categoricas).
 
@@ -741,6 +649,8 @@ Data_Python['Diseased'] = Data_Python['Diseased'].astype('object')
 Data_Python['Gender'] = Data_Python['Gender'].astype('object')
 ```
 
+\newpage
+
 Verificamos que se han realizado correctamente los cambios:
 
 
@@ -767,11 +677,10 @@ Data_Python.dtypes
 
 
 
+\newpage
+ 
 
-<p><p style="page-break-after:always;"></p></p>
-
-
-### 4.3.2. Resumen Estadístico Descriptivo Básico <a class="anchor" id="9"></a>
+###   Resumen Estadístico Descriptivo Básico <a class="anchor" id="9"></a>
 
 Ahora vamos a hacer una descripcion estadística básica de las variables del data-set:
 
@@ -779,220 +688,85 @@ Ahora vamos a hacer una descripcion estadística básica de las variables del da
 ```python
 Data_Python.describe(include='all') # include='all' para dar un tratamiento diferente a las categoricas que a las cuantitativas
 ```
+```
+            Y         Age  Gender  Total_Bilirubin  Direct_Bilirubin  
+count   583.0  583.000000   583.0       583.000000        583.000000   
+unique    2.0         NaN     2.0              NaN               NaN   
+top       0.0         NaN     1.0              NaN               NaN   
+freq    416.0         NaN   441.0              NaN               NaN   
+mean      NaN   44.746141     NaN         3.298799          1.486106   
+std       NaN   16.189833     NaN         6.209522          2.808498   
+min       NaN    4.000000     NaN         0.400000          0.100000   
+25%       NaN   33.000000     NaN         0.800000          0.200000   
+50%       NaN   45.000000     NaN         1.000000          0.300000   
+75%       NaN   58.000000     NaN         2.600000          1.300000   
+max       NaN   90.000000     NaN        75.000000         19.700000   
+
+        Alkaline_Phosphotase  Alamine_Aminotransferase  
+count             583.000000                583.000000   
+unique                   NaN                       NaN   
+top                      NaN                       NaN   
+freq                     NaN                       NaN   
+mean              290.576329                 80.713551   
+std               242.937989                182.620356   
+min                63.000000                 10.000000   
+25%               175.500000                 23.000000   
+50%               208.000000                 35.000000   
+75%               298.000000                 60.500000   
+max              2110.000000               2000.000000   
+
+        Aspartate_Aminotransferase  Total_Protiens     Albumin  
+count                   583.000000      583.000000  583.000000   
+unique                         NaN             NaN         NaN   
+top                            NaN             NaN         NaN   
+freq                           NaN             Nan         NaN                      
+mean                     109.910806     6.483190         3.141852
+std                      288.918529     1.085451         0.795519
+min                      10.000000      2.700000         0.900000
+25%                      25.000000      5.800000         2.600000
+50%                      42.000000      6.600000         3.100000
+75%                      87.000000      7.200000         3.800000
+max                      4929.000000    9.600000         5.500000
+
+```
+\newpage
+
+```
+
+        Albumin_and_Globulin_Ratio  
+count                   583.000000         
+unique                         NaN         
+top                            NaN           
+freq                           NaN                           
+mean                      0.947064
+std                       0.318492
+min                       0.300000  
+25%                       0.700000  
+50%                       0.947064  
+75%                       1.100000  
+max                       2.800000
+
+```
+
+\newpage
+
+ 
+
+###   Análisis gráfico general  
 
 
+**Histogramas para las variables cuantitativas**  
 
+\vspace{0.25cm}
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Age</th>
-      <th>Gender</th>
-      <th>Total_Bilirubin</th>
-      <th>Direct_Bilirubin</th>
-      <th>Alkaline_Phosphotase</th>
-      <th>Alamine_Aminotransferase</th>
-      <th>Aspartate_Aminotransferase</th>
-      <th>Total_Protiens</th>
-      <th>Albumin</th>
-      <th>Albumin_and_Globulin_Ratio</th>
-      <th>Diseased</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>count</th>
-      <td>583.000000</td>
-      <td>583.0</td>
-      <td>583.000000</td>
-      <td>583.000000</td>
-      <td>583.000000</td>
-      <td>583.000000</td>
-      <td>583.000000</td>
-      <td>583.000000</td>
-      <td>583.000000</td>
-      <td>583.000000</td>
-      <td>583.0</td>
-    </tr>
-    <tr>
-      <th>unique</th>
-      <td>NaN</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>top</th>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>freq</th>
-      <td>NaN</td>
-      <td>441.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>416.0</td>
-    </tr>
-    <tr>
-      <th>mean</th>
-      <td>44.746141</td>
-      <td>NaN</td>
-      <td>3.298799</td>
-      <td>1.486106</td>
-      <td>290.576329</td>
-      <td>80.713551</td>
-      <td>109.910806</td>
-      <td>6.483190</td>
-      <td>3.141852</td>
-      <td>0.947064</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>16.189833</td>
-      <td>NaN</td>
-      <td>6.209522</td>
-      <td>2.808498</td>
-      <td>242.937989</td>
-      <td>182.620356</td>
-      <td>288.918529</td>
-      <td>1.085451</td>
-      <td>0.795519</td>
-      <td>0.318492</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>4.000000</td>
-      <td>NaN</td>
-      <td>0.400000</td>
-      <td>0.100000</td>
-      <td>63.000000</td>
-      <td>10.000000</td>
-      <td>10.000000</td>
-      <td>2.700000</td>
-      <td>0.900000</td>
-      <td>0.300000</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>25%</th>
-      <td>33.000000</td>
-      <td>NaN</td>
-      <td>0.800000</td>
-      <td>0.200000</td>
-      <td>175.500000</td>
-      <td>23.000000</td>
-      <td>25.000000</td>
-      <td>5.800000</td>
-      <td>2.600000</td>
-      <td>0.700000</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>45.000000</td>
-      <td>NaN</td>
-      <td>1.000000</td>
-      <td>0.300000</td>
-      <td>208.000000</td>
-      <td>35.000000</td>
-      <td>42.000000</td>
-      <td>6.600000</td>
-      <td>3.100000</td>
-      <td>0.947064</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>58.000000</td>
-      <td>NaN</td>
-      <td>2.600000</td>
-      <td>1.300000</td>
-      <td>298.000000</td>
-      <td>60.500000</td>
-      <td>87.000000</td>
-      <td>7.200000</td>
-      <td>3.800000</td>
-      <td>1.100000</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>90.000000</td>
-      <td>NaN</td>
-      <td>75.000000</td>
-      <td>19.700000</td>
-      <td>2110.000000</td>
-      <td>2000.000000</td>
-      <td>4929.000000</td>
-      <td>9.600000</td>
-      <td>5.500000</td>
-      <td>2.800000</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-
-<p><p style="page-break-after:always;"></p></p>
-
-
-### 4.3.3. Análisis gráfico general <a class="anchor" id="10"></a>
-
-#### 4.3.3.1. Histogramas para las variables cuantitativas <a class="anchor" id="11"></a>
-
+Vamos a generar un histograma para cadda variable cuantitativa.
 
 ```python
 import numpy as np
-
 import seaborn as sns
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 ```
-
 
 
 
@@ -1046,18 +820,17 @@ p9.set_yticks( np.arange(0, 1, 0.1)  )
 plt.show()
 ```
 
-
+\clearpage
     
-![png](output_125_0.png)
+![Histogramas variables cuantitativas](output_125_0.png)
     
 
 
+\clearpage
 
+ 
 
-<p><p style="page-break-after:always;"></p></p>
-
-
-#### 4.3.3.2. Diagramas de barras para las variables categóricas <a class="anchor" id="12"></a>
+**Diagramas de barras para las variables categóricas**
 
 Ahora vamos a realizar una serie de operaciones para generar dos diagramas de barrras, uno para la variable Gender y otro para Diseased.
 
@@ -1121,9 +894,9 @@ plt.show()
 
 
     
-![png](output_133_0.png)
+![Diagramas de barras variables categoricas](output_133_0.png){height=400px width=500px}
     
-
+ 
 
 
 ```python
@@ -1155,10 +928,9 @@ Por otro lado el porcentaje de endfermos es del71.36%, mientras que el de no enf
 
 
 
-<p><p style="page-break-after:always;"></p></p>
+\newpage
 
-
-#### 4.3.3.3. Box-plots para las variables cuantitativas  <a class="anchor" id="13"></a>
+###   Box-plots para las variables cuantitativas  <a class="anchor" id="13"></a>
 
 
 ```python
@@ -1197,18 +969,19 @@ plt.show()
 
 
     
-![png](output_140_0.png)
+![Box-plots variables cuantitativas](output_140_0.png)
     
 
 
 
+\newpage
+ 
 
-<p><p style="page-break-after:always;"></p></p>
+###   Análisis de la relación entre los predictores categoricos y la respuesta <a class="anchor" id="14"></a>
 
+**Analisis relación entre respuesta (Diseased) y Gender**
 
-### 4.3.4. Análisis de la relación entre los predictores categoricos y la respuesta <a class="anchor" id="14"></a>
-
-#### 4.3.4.1. Analisis relación entre respuesta (Diseased) y Gender <a class="anchor" id="15"></a>
+\vspace{0.55cm}
 
 **Frecuencia relativa de genero condicionada a enfermedad**
 
@@ -1283,50 +1056,23 @@ p1.legend(title='Gender', loc='upper right', labels=['Female', 'Male'])
 
 
 
-
-    <matplotlib.legend.Legend at 0x2736f2a9750>
-
-
-
-
     
-![png](output_152_1.png)
+![Diagrama de barras de Gender condicionada a Diseased](output_152_1.png){height=320px width=420px}
     
 
-
+\newpage
 
 ```python
 Frec_Relativas_Condicionadas_Gender_in_Diseased
 ```
 
-
-
-
-<style type="text/css">
-</style>
-<table id="T_1791c">
-  <caption>Gender  |  Diseased </caption>
-  <thead>
-    <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_1791c_level0_col0" class="col_heading level0 col0" >Yes</th>
-      <th id="T_1791c_level0_col1" class="col_heading level0 col1" >No</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th id="T_1791c_level0_row0" class="row_heading level0 row0" >Female</th>
-      <td id="T_1791c_row0_col0" class="data row0 col0" >0.221154</td>
-      <td id="T_1791c_row0_col1" class="data row0 col1" >0.299401</td>
-    </tr>
-    <tr>
-      <th id="T_1791c_level0_row1" class="row_heading level0 row1" >Male</th>
-      <td id="T_1791c_row1_col0" class="data row1 col0" >0.778846</td>
-      <td id="T_1791c_row1_col1" class="data row1 col1" >0.700599</td>
-    </tr>
-  </tbody>
-</table>
-
+```
+Gender | Diseased
+                
+            Yes	        No
+Female  	0.221154	0.299401
+Male	    0.778846	0.700599
+```
 
 
 
@@ -1360,8 +1106,7 @@ Por otro lado el porcentaje de mujeres dentro del grupo de los no enfermos es de
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+\vspace{0.5cm}
 
 **Frecuencia relativa de enfermedad condicionada al genero**
 
@@ -1383,15 +1128,8 @@ p.legend(title='Diseased', loc='upper right', labels=['Yes', 'No'])
 ```
 
 
-
-
-    <matplotlib.legend.Legend at 0x2736f2d2bc0>
-
-
-
-
     
-![png](output_162_1.png)
+![Diagrama de barras de Diseased condicionada a Gender](output_162_1.png){height=320px width=420px}
     
 
 
@@ -1399,35 +1137,13 @@ p.legend(title='Diseased', loc='upper right', labels=['Yes', 'No'])
 ```python
 Frec_Relativas_Condicionadas_Diseased_in_Gender
 ```
-
-
-
-
-<style type="text/css">
-</style>
-<table id="T_d675a">
-  <caption>Diseased | Gender</caption>
-  <thead>
-    <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_d675a_level0_col0" class="col_heading level0 col0" >Female</th>
-      <th id="T_d675a_level0_col1" class="col_heading level0 col1" >Male</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th id="T_d675a_level0_row0" class="row_heading level0 row0" >Yes</th>
-      <td id="T_d675a_row0_col0" class="data row0 col0" >0.647887</td>
-      <td id="T_d675a_row0_col1" class="data row0 col1" >0.734694</td>
-    </tr>
-    <tr>
-      <th id="T_d675a_level0_row1" class="row_heading level0 row1" >No</th>
-      <td id="T_d675a_row1_col0" class="data row1 col0" >0.352113</td>
-      <td id="T_d675a_row1_col1" class="data row1 col1" >0.265306</td>
-    </tr>
-  </tbody>
-</table>
-
+```
+Diseased | Gender
+ 	
+      Female	  Male
+Yes	0.647887	0.734694
+No	0.352113	0.265306
+```
 
 
 
@@ -1437,10 +1153,11 @@ Por otro lado el porcentaje de enfermos dentro del grupo de los hombres es del 7
 
 
 
-<p><p style="page-break-after:always;"></p></p>
+\newpage
 
+**Analisis relación entre respuesta (Diseased) y Grupo de Edad**
 
-#### 4.3.4.2. Analisis relación entre respuesta (Diseased) y Grupo de Edad <a class="anchor" id="16"></a>
+\vspace{0.25cm}
 
 **Frecuecnia relativa de enfermedad en funcion del grupo de edad**
 
@@ -1531,13 +1248,15 @@ pd.cut(x=Data_Python['Age'] , bins=intervals , labels=False)
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+\vspace{0.1cm}
 
 
 ```python
 Data_Python['Age_cat'] = pd.cut(x=Data_Python['Age'] , bins=intervals , labels=False)
 ```
+
+\vspace{0.2cm}
+
 
 La nueva variable $Age\_cat$ es tal que:
 
@@ -1548,6 +1267,7 @@ $$
 
 para $\hspace{0.1cm} i=1,...,n$
 
+\vspace{0.2cm}
 
 
 Ahora tenemos una variable que nos indica el grupo de edad de cada individuo. Tenemos tes grupos de edad. 
@@ -1562,8 +1282,7 @@ grupo 3: $\hspace{0.2cm}$ $> 58$ años
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+\newpage
 
 Ahora vamos a generar una tabla de frecuencias relativas de la variable respuesta (Diseased) condicionada a la nueva variable Grupo de edad (Age_cat), también generaremos su gráfico de barras asociado.
 
@@ -1582,16 +1301,8 @@ p.set_xticklabels(['(3, 33]', '(33, 45]' , '(45, 58]' , '(58, 90]'])
 p.legend(title='Diseased', loc='upper right', labels=['Yes', 'No'] )
 ```
 
-
-
-
-    <matplotlib.legend.Legend at 0x2736ed18ac0>
-
-
-
-
     
-![png](output_187_1.png)
+![ Grafico de barras de Diseased condicionada a grupo de edad (Age_cat)](output_187_1.png){height=320px width=420px}
     
 
 
@@ -1601,49 +1312,22 @@ Frec_Relativas_Condicionadas_Diseased_in_Aged
 ```
 
 
+```
+ Diseased | Age Group
+ 
+ 	    (3, 33]	    (33, 45]	 (45, 58]	  (58, 90]
+Yes 	0.645570	 0.676056	  0.800000    0.736842
+No  	0.354430	 0.323944	  0.200000    0.263158
+``` 
 
-
-<style type="text/css">
-</style>
-<table id="T_82261">
-  <caption>Diseased | Age Group</caption>
-  <thead>
-    <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_82261_level0_col0" class="col_heading level0 col0" >(3, 33]</th>
-      <th id="T_82261_level0_col1" class="col_heading level0 col1" >(33, 45]</th>
-      <th id="T_82261_level0_col2" class="col_heading level0 col2" >(45, 58]</th>
-      <th id="T_82261_level0_col3" class="col_heading level0 col3" >(58, 90]</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th id="T_82261_level0_row0" class="row_heading level0 row0" >Yes</th>
-      <td id="T_82261_row0_col0" class="data row0 col0" >0.645570</td>
-      <td id="T_82261_row0_col1" class="data row0 col1" >0.676056</td>
-      <td id="T_82261_row0_col2" class="data row0 col2" >0.800000</td>
-      <td id="T_82261_row0_col3" class="data row0 col3" >0.736842</td>
-    </tr>
-    <tr>
-      <th id="T_82261_level0_row1" class="row_heading level0 row1" >No</th>
-      <td id="T_82261_row1_col0" class="data row1 col0" >0.354430</td>
-      <td id="T_82261_row1_col1" class="data row1 col1" >0.323944</td>
-      <td id="T_82261_row1_col2" class="data row1 col2" >0.200000</td>
-      <td id="T_82261_row1_col3" class="data row1 col3" >0.263158</td>
-    </tr>
-  </tbody>
-</table>
-
-
-
+\newpage
 
 Como puede observarse dentro del grupo de los más jovenes (de edad menor o igual a 33) el procentaje de enfermos es del 64.56% , este porcentaje aumenta hasta el 67.60% en el grupo de individuos cuya edad esta entre 33 y 45 años, y hasta el 80% en el de los individuos con una edad entre 45 y 58 años, luego pasa a ser del 73.68% en el grupo de edad superior a 58 años.
 
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+\vspace{1cm}
 
 **Frecuecnia relativa de grupo de edad en funcion de enfermedad**
 
@@ -1667,13 +1351,9 @@ p.legend(title='Group Age', loc='upper right', labels= ['(3, 33]', '(33, 45]' , 
 
 
 
-    <matplotlib.legend.Legend at 0x2736ed181c0>
-
-
-
 
     
-![png](output_195_1.png)
+![Grafico de barras de grupo de edad (Age_cat) condicionada Diseased](output_195_1.png){height=320px width=420px}
     
 
 
@@ -1682,43 +1362,20 @@ p.legend(title='Group Age', loc='upper right', labels= ['(3, 33]', '(33, 45]' , 
 Frec_Relativas_Condicionadas_Age_in_Diseased
 ```
 
+```
+
+Age Group | Diseased
+
+ 	            Yes	         No
+(3, 33]	     0.245192	  0.335329
+(33, 45]	 0.230769	  0.275449
+(45, 58]	 0.288462	  0.179641
+(58, 90]	 0.235577	  0.209581
+
+```
 
 
-
-<style type="text/css">
-</style>
-<table id="T_52393">
-  <caption>Age Group | Diseased</caption>
-  <thead>
-    <tr>
-      <th class="blank level0" >&nbsp;</th>
-      <th id="T_52393_level0_col0" class="col_heading level0 col0" >Yes</th>
-      <th id="T_52393_level0_col1" class="col_heading level0 col1" >No</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th id="T_52393_level0_row0" class="row_heading level0 row0" >(3, 33]</th>
-      <td id="T_52393_row0_col0" class="data row0 col0" >0.245192</td>
-      <td id="T_52393_row0_col1" class="data row0 col1" >0.335329</td>
-    </tr>
-    <tr>
-      <th id="T_52393_level0_row1" class="row_heading level0 row1" >(33, 45]</th>
-      <td id="T_52393_row1_col0" class="data row1 col0" >0.230769</td>
-      <td id="T_52393_row1_col1" class="data row1 col1" >0.275449</td>
-    </tr>
-    <tr>
-      <th id="T_52393_level0_row2" class="row_heading level0 row2" >(45, 58]</th>
-      <td id="T_52393_row2_col0" class="data row2 col0" >0.288462</td>
-      <td id="T_52393_row2_col1" class="data row2 col1" >0.179641</td>
-    </tr>
-    <tr>
-      <th id="T_52393_level0_row3" class="row_heading level0 row3" >(58, 90]</th>
-      <td id="T_52393_row3_col0" class="data row3 col0" >0.235577</td>
-      <td id="T_52393_row3_col1" class="data row3 col1" >0.209581</td>
-    </tr>
-  </tbody>
-</table>
+  
 
 
 
@@ -1729,12 +1386,14 @@ Por otro lado dentro del grupo de los no enfermos el grupo de edad claramente ma
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+\vspace{1cm}
 
 ### 4.3.5. Análisis de la relación entre los predictores cuantitativos y la respuesta  <a class="anchor" id="17"></a>
 
-#### 4.3.5.1. Resumen Estadístico Descriptivo Cuantitativo en función de Diseased  <a class="anchor" id="18"></a>
+\vspace{0.21cm}
+
+
+**Resumen Estadístico Descriptivo Cuantitativo en función de Diseased**
 
 Ahora vamos a hacer una serie de operaciones para obtener una tabla en la que se pueden comparar los valores de diferentes estadísticos descriptivos básicos para cada variable cuantitativa en función del valor de la respuesta (Diseased).
 
@@ -1804,205 +1463,90 @@ Statistics_Quantitatives_Diseased = pd.DataFrame({
                })
 ```
 
+\newpage
 
 ```python
 Statistics_Quantitatives_Diseased
 ```
 
+```
+          Age_yes     Age_no  Total_Bilirubin_yes  Total_Bilirubin_no  
+mean    46.153846  41.239521             4.164423            1.142515   
+min      7.000000   4.000000             0.400000            0.500000   
+Q25     34.000000  28.000000             0.800000            0.700000   
+median  46.000000  40.000000             1.400000            0.800000   
+Q75     58.000000  55.000000             3.625000            1.100000   
+max     90.000000  85.000000            75.000000            7.300000   
+std     15.654412  16.999366             7.144831            1.004472   
+
+        Direct_Bilirubin_yes  Direct_Bilirubin_no  Alkaline_Phosphotase_yes  
+mean                1.923558             0.396407                319.007212   
+min                 0.100000             0.100000                 63.000000   
+Q25                 0.200000             0.200000                186.000000   
+median              0.500000             0.200000                229.000000   
+Q75                 1.800000             0.350000                315.250000   
+max                19.700000             3.600000               2110.000000   
+std                 3.206901             0.519255                268.307911   
+
+        Alkaline_Phosphotase_no  Alamine_Aminotransferase_yes  
+mean                 219.754491                     99.605769   
+min                   90.000000                     12.000000   
+Q25                  161.500000                     25.000000   
+median               186.000000                     41.000000   
+Q75                  213.000000                     76.500000   
+max                 1580.000000                   2000.000000   
+std                  140.986262                    212.768472 
 
 
+    Alkaline_Phosphotase_no  Alamine_Aminotransferase_yes  
+mean                 219.754491                     99.605769   
+min                   90.000000                     12.000000   
+Q25                  161.500000                     25.000000   
+median               186.000000                     41.000000   
+Q75                  213.000000                     76.500000   
+max                 1580.000000                   2000.000000   
+std                  140.986262                    212.768472   
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+        Alamine_Aminotransferase_no  Aspartate_Aminotransferase_yes  
+mean                      33.652695                      137.699519   
+min                       10.000000                       11.000000   
+Q25                       20.000000                       29.750000   
+median                    27.000000                       52.500000   
+Q75                       37.500000                      108.750000   
+max                      181.000000                     4929.000000   
+std                       25.060392                      337.389980   
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Age_yes</th>
-      <th>Age_no</th>
-      <th>Total_Bilirubin_yes</th>
-      <th>Total_Bilirubin_no</th>
-      <th>Direct_Bilirubin_yes</th>
-      <th>Direct_Bilirubin_no</th>
-      <th>Alkaline_Phosphotase_yes</th>
-      <th>Alkaline_Phosphotase_no</th>
-      <th>Alamine_Aminotransferase_yes</th>
-      <th>Alamine_Aminotransferase_no</th>
-      <th>Aspartate_Aminotransferase_yes</th>
-      <th>Aspartate_Aminotransferase_no</th>
-      <th>Total_Protiens_yes</th>
-      <th>Total_Protiens_no</th>
-      <th>Albumin_yes</th>
-      <th>Albumin_no</th>
-      <th>Albumin_and_Globulin_Ratio_yes</th>
-      <th>Albumin_and_Globulin_Ratio_no</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>mean</th>
-      <td>46.153846</td>
-      <td>41.239521</td>
-      <td>4.164423</td>
-      <td>1.142515</td>
-      <td>1.923558</td>
-      <td>0.396407</td>
-      <td>319.007212</td>
-      <td>219.754491</td>
-      <td>99.605769</td>
-      <td>33.652695</td>
-      <td>137.699519</td>
-      <td>40.688623</td>
-      <td>6.459135</td>
-      <td>6.543114</td>
-      <td>3.060577</td>
-      <td>3.344311</td>
-      <td>0.914337</td>
-      <td>1.028588</td>
-    </tr>
-    <tr>
-      <th>min</th>
-      <td>7.000000</td>
-      <td>4.000000</td>
-      <td>0.400000</td>
-      <td>0.500000</td>
-      <td>0.100000</td>
-      <td>0.100000</td>
-      <td>63.000000</td>
-      <td>90.000000</td>
-      <td>12.000000</td>
-      <td>10.000000</td>
-      <td>11.000000</td>
-      <td>10.000000</td>
-      <td>2.700000</td>
-      <td>3.700000</td>
-      <td>0.900000</td>
-      <td>1.400000</td>
-      <td>0.300000</td>
-      <td>0.370000</td>
-    </tr>
-    <tr>
-      <th>Q25</th>
-      <td>34.000000</td>
-      <td>28.000000</td>
-      <td>0.800000</td>
-      <td>0.700000</td>
-      <td>0.200000</td>
-      <td>0.200000</td>
-      <td>186.000000</td>
-      <td>161.500000</td>
-      <td>25.000000</td>
-      <td>20.000000</td>
-      <td>29.750000</td>
-      <td>21.000000</td>
-      <td>5.700000</td>
-      <td>5.900000</td>
-      <td>2.500000</td>
-      <td>2.900000</td>
-      <td>0.700000</td>
-      <td>0.900000</td>
-    </tr>
-    <tr>
-      <th>median</th>
-      <td>46.000000</td>
-      <td>40.000000</td>
-      <td>1.400000</td>
-      <td>0.800000</td>
-      <td>0.500000</td>
-      <td>0.200000</td>
-      <td>229.000000</td>
-      <td>186.000000</td>
-      <td>41.000000</td>
-      <td>27.000000</td>
-      <td>52.500000</td>
-      <td>29.000000</td>
-      <td>6.550000</td>
-      <td>6.600000</td>
-      <td>3.000000</td>
-      <td>3.400000</td>
-      <td>0.900000</td>
-      <td>1.000000</td>
-    </tr>
-    <tr>
-      <th>Q75</th>
-      <td>58.000000</td>
-      <td>55.000000</td>
-      <td>3.625000</td>
-      <td>1.100000</td>
-      <td>1.800000</td>
-      <td>0.350000</td>
-      <td>315.250000</td>
-      <td>213.000000</td>
-      <td>76.500000</td>
-      <td>37.500000</td>
-      <td>108.750000</td>
-      <td>43.500000</td>
-      <td>7.200000</td>
-      <td>7.300000</td>
-      <td>3.625000</td>
-      <td>4.000000</td>
-      <td>1.100000</td>
-      <td>1.200000</td>
-    </tr>
-    <tr>
-      <th>max</th>
-      <td>90.000000</td>
-      <td>85.000000</td>
-      <td>75.000000</td>
-      <td>7.300000</td>
-      <td>19.700000</td>
-      <td>3.600000</td>
-      <td>2110.000000</td>
-      <td>1580.000000</td>
-      <td>2000.000000</td>
-      <td>181.000000</td>
-      <td>4929.000000</td>
-      <td>285.000000</td>
-      <td>9.600000</td>
-      <td>9.200000</td>
-      <td>5.500000</td>
-      <td>5.000000</td>
-      <td>2.800000</td>
-      <td>1.900000</td>
-    </tr>
-    <tr>
-      <th>std</th>
-      <td>15.654412</td>
-      <td>16.999366</td>
-      <td>7.144831</td>
-      <td>1.004472</td>
-      <td>3.206901</td>
-      <td>0.519255</td>
-      <td>268.307911</td>
-      <td>140.986262</td>
-      <td>212.768472</td>
-      <td>25.060392</td>
-      <td>337.389980</td>
-      <td>36.411620</td>
-      <td>1.094659</td>
-      <td>1.063042</td>
-      <td>0.786595</td>
-      <td>0.783690</td>
-      <td>0.325374</td>
-      <td>0.285658</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+        Aspartate_Aminotransferase_no  Total_Protiens_yes  Total_Protiens_no  
+mean                        40.688623            6.459135           6.543114   
+min                         10.000000            2.700000           3.700000   
+Q25                         21.000000            5.700000           5.900000   
+median                      29.000000            6.550000           6.600000   
+Q75                         43.500000            7.200000           7.300000   
+max                        285.000000            9.600000           9.200000   
+std                         36.411620            1.094659           1.063042 
 
 
+Total_Protiens_yes  Total_Protiens_no  Albumin_yes  Albumin_no  
+mean              6.459135           6.543114     3.060577    3.344311   
+min               2.700000           3.700000     0.900000    1.400000   
+Q25               5.700000           5.900000     2.500000    2.900000   
+median            6.550000           6.600000     3.000000    3.400000   
+Q75               7.200000           7.300000     3.625000    4.000000   
+max               9.600000           9.200000     5.500000    5.000000   
+std               1.094659           1.063042     0.786595    0.783690   
+
+        Albumin_and_Globulin_Ratio_yes  Albumin_and_Globulin_Ratio_no  
+mean                          0.914337                       1.028588  
+min                           0.300000                       0.370000  
+Q25                           0.700000                       0.900000  
+median                        0.900000                       1.000000  
+Q75                           1.100000                       1.200000  
+max                           2.800000                       1.900000  
+std                           0.325374                       0.285658 
+
+```
+
+\vspace{0.2cm}
 
 Esta tabla nos aporta información muy relevante, algunos ejemplos son los siguientes:
 
@@ -2013,14 +1557,14 @@ Esta tabla nos aporta información muy relevante, algunos ejemplos son los sigui
 
 
 
+\newpage
 
-<p><p style="page-break-after:always;"></p></p>
 
-
-#### 4.3.5.2. Diagrama de puntos de la respuesta (Diseased) en función de predictores cuantitativos  <a class="anchor" id="19"></a>
+**Diagrama de puntos de la respuesta (Diseased) en función de predictores cuantitativos**
 
 En este caso vamos a generar unos diagramas de puntos de la respuesta en función de cada uno de los predictores cuantitativos. El diagrama de puntos que usaremos es un tipo especial que añade ruido horizontal a los puntos para poder así visulalizar varios puntos que tengan un mismo valor real (valor sin ruido).
 
+\vspace{0.25cm}
 
 ```python
 fig, axs = plt.subplots(3, 3, figsize=(15, 15))
@@ -2060,22 +1604,21 @@ plt.show()
 
 
     
-![png](output_214_0.png)
+![Diagrama de puntos Diseased en función de los predictores cuantitativos](output_214_0.png)
     
 
 
 
 
-<p><p style="page-break-after:always;"></p></p>
+\newpage
+
+
+## Arboles de clasificación en `R`  <a class="anchor" id="21"></a>
 
 
 
-## 4.4. Arboles de clasificación en `R`  <a class="anchor" id="21"></a>
 
-
-
-
-### 4.4.1. Algoritmo rpart con `R`  <a class="anchor" id="22"></a>
+###  Algoritmo `rpart` con `R`  <a class="anchor" id="22"></a>
 
 
 
@@ -2089,21 +1632,7 @@ library(caret)
 library(tidyverse)
 ```
 
-    R[write to console]: Loading required package: lattice
     
-    R[write to console]: 
-    Attaching package: 'caret'
-    
-    
-    R[write to console]: The following object is masked from 'package:purrr':
-    
-        lift
-    
-    
-    
-
-
-
 
 Vamos a hacer la visualización del arbol con `rpart`
 
@@ -2128,14 +1657,13 @@ rpart.plot(arbol_0,
 
 
     
-![png](output_222_0.png)
+![Arbol rpart con R](output_222_0.png)
     
 
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+\newpage
 
 Ahora vamos a calcular las predicciones y la matriz de confusión:
 
@@ -2215,14 +1743,15 @@ matriz_confusion1
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+\vspace{0.25cm}
 
 
 Debido a la alta complejidad de estos arboles le vamos a hacer un proceso de prepoda, para ello podemos hacer uso tanto del parámetro cp o directamente manipulando los hiperparametros de los modelos.
 
+\vspace{0.25cm}
 
-Arbol podado con un profundidad maxima de 4:
+
+Arbol podado con una profundidad maxima de 4:
 
 
 ```r
@@ -2244,10 +1773,10 @@ rpart.plot(arbol_1,
 
 
     
-![png](output_234_0.png)
+![Arbol rpart podado en R](output_234_0.png)
     
 
-
+\newpage
 
 Con esto hemos conseguido un modelo mucho más simple que el anterior sin prepoda. El cual es más facil de interpretar.
 
@@ -2260,7 +1789,7 @@ Dentro del rectángulo de cada nodo se nos muestra qué proporción de casos per
 
 Estas proporciones nos dan una idea de la precisión de nuestro modelo al hacer predicciones.
 
-
+\vspace{0.25cm}
 
 Calculamos las predicciones y la matriz de confusión:
 
@@ -2298,8 +1827,7 @@ prediccion2
     Levels: yes no
     
 
-<p><p style="page-break-after:always;"></p></p>
-
+\newpage
 
 
 ```r
@@ -2344,11 +1872,10 @@ Se puede ver como hemos mejorado un poco la precisión de la predicción simplem
 
 
 
-<p><p style="page-break-after:always;"></p></p>
+\newpage
 
 
-
-### 4.4.2. Algoritmo C5.0 con  `R`  <a class="anchor" id="23"></a>
+### Algoritmo C5.0 con  `R`  <a class="anchor" id="23"></a>
 
 
  
@@ -2427,7 +1954,7 @@ modeloC50 <- C5.0(diseased~.,data=datos_entreno,trials=1,rules=FALSE)
 ```
 
 
-
+\newpage
 
 Información del modelo creado
 
@@ -2446,7 +1973,7 @@ summary(modeloC50)
      = FALSE)
     
     
-    C5.0 [Release 2.07 GPL Edition]  	Wed Oct 12 23:37:09 2022
+    C5.0 [Release 2.07 GPL Edition]  	Thu Oct 13 16:14:45 2022
     -------------------------------
     
     Class specified by attribute `outcome'
@@ -2555,7 +2082,6 @@ summary(modeloC50)
 
 
 
-<p><p style="page-break-after:always;"></p></p>
 
 
  Podemos ver el gráfico del modelo:
@@ -2570,10 +2096,10 @@ plot(modeloC50)
 
 
     
-![png](output_265_0.png)
+![Arbol C5.0 en R](output_265_0.png){height=350px width=450px}
     
 
-
+\newpage
 
 
 Calculamos las predicciones del modelo:
@@ -2600,8 +2126,7 @@ Calculamos las predicciones del modelo:
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+\vspace{0.2cm}
 
 Calculamos la matriz de confusión:
 
@@ -2619,6 +2144,7 @@ Calculamos la matriz de confusión:
          no   14 10
     
 
+\vspace{0.2cm}
 
 
 Calculamos la tasa de acierto en la clasificacion (TAC) obtenida parte del modelo, es decir el porcentaje de clasificaciones correctas.
@@ -2637,6 +2163,7 @@ Calculamos la tasa de acierto en la clasificacion (TAC) obtenida parte del model
 
 TAC = 0.6986
 
+\vspace{0.2cm}
 
 
 Calculamos la tasa de error de clasificacion (TEC = 1 - TAC) cometido por el modelo, que es el porcentaje de clasificaciones incorrectas
@@ -2658,6 +2185,7 @@ paste(
 TEC = 0.301
 
 
+\vspace{1cm}
 
 
 Ahora vamos a podar el arbol con la libreria C5.0
@@ -2742,7 +2270,7 @@ summary(modeloC50)
      = FALSE, control = C5.0Control(minCases = 10, earlyStopping = TRUE))
     
     
-    C5.0 [Release 2.07 GPL Edition]  	Wed Oct 12 23:37:24 2022
+    C5.0 [Release 2.07 GPL Edition]  	Thu Oct 13 16:14:56 2022
     -------------------------------
     
     Class specified by attribute `outcome'
@@ -2811,11 +2339,11 @@ plot(modeloC50)
 
 
     
-![png](output_295_0.png)
+![Arbol C5.0 podado con R](output_295_0.png){height=300px width=420px}
     
 
 
-
+\newpage
 
 Calculamos las predicciones:
 
@@ -2843,7 +2371,6 @@ Calculamos las predicciones:
 
 
 
-<p><p style="page-break-after:always;"></p></p>
 
 
 Calculamos la matriz de confusión:
@@ -2863,6 +2390,7 @@ Calculamos la matriz de confusión:
     
 
 
+\vspace{0.5cm}
 
 
 Porcentaje de clasificados correctamente:
@@ -2881,14 +2409,11 @@ Porcentaje de clasificados correctamente:
 TAC = 0.7123
 
 
-
+\newpage
 
  Error de clasificación :
 
  
-
-
-
 ```r
 %%R
 
@@ -2905,11 +2430,10 @@ TEC = 0.288
 
 
 
-<p><p style="page-break-after:always;"></p></p>
+\vspace{1cm}
 
 
-
-### 4.4.3.  Algoritmo CART en `R` con `mlr3`  <a class="anchor" id="24"></a>
+###   Algoritmo CART en `R` con `mlr3`  
 
 
 No es necesario preprocesar los datos para árboles (dummy y normalización).
@@ -2949,7 +2473,7 @@ Creamos la tarea de clasificación:
 ILPD_task <- as_task_classif(ilpd , target = "diseased")
 ```
 
-
+\newpage
 
 
 Partimos el data-set en parte de test y parte de train:
@@ -2981,8 +2505,7 @@ tree_learner <- lrn("classif.rpart" , maxdepth=4)
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+ 
 
 
 Entrenamos y evaluamos el modelo:
@@ -2995,7 +2518,7 @@ Entrenamos y evaluamos el modelo:
 tree_resample<-resample(task = ILPD_task, learner = tree_learner,resampling = res_desc,store_models = TRUE)
 ```
 
-    INFO  [23:37:39.510] [mlr3] Applying learner 'classif.rpart' on task 'ilpd' (iter 1/1)
+    INFO  [16:15:05.775] [mlr3] Applying learner 'classif.rpart' on task 'ilpd' (iter 1/1)
     
 
 
@@ -3022,7 +2545,7 @@ tree_test[[1]]
             583    no      yes
     
 
-
+\newpage
 
 
 Calculamos la accuracy (que es la TAC):
@@ -3043,11 +2566,10 @@ tree_acc
 
 
 
-<p><p style="page-break-after:always;"></p></p>
+\vspace{0.25cm}
 
 
-
- Visualizamos el modelo:
+Visualizamos el modelo:
 
 
 Primero obtenderemos la expresion en texto del modelo, luego su gráfico.
@@ -3082,8 +2604,7 @@ tree_learner$model
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+ \newpage
 
 
 ```r
@@ -3094,14 +2615,13 @@ rpart.plot(tree_learner$model)
 
 
     
-![png](output_342_0.png)
+![Arbol rpart con mlr3](output_342_0.png)
     
 
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+\newpage
 
 
 ### 4.4.4.  Algoritmo C5.0 en `R` con `mlr3`  <a class="anchor" id="25"></a>
@@ -3188,7 +2708,7 @@ Entrenamos y evaluamos el modelo:
 tree_resample<-resample(task = ILPD_task, learner = tree_learner, resampling = res_desc, store_models = TRUE)
 ```
 
-    INFO  [23:37:50.846] [mlr3] Applying learner 'classif.C50' on task 'ilpd' (iter 1/1)
+    INFO  [16:15:13.538] [mlr3] Applying learner 'classif.C50' on task 'ilpd' (iter 1/1)
     
 
 
@@ -3697,7 +3217,6 @@ Para esta exposicion teorica del algoritmo se va a usar como metrica principal l
 
 
 
-\clearpage
 
 ##### **Problema de la Iteracion 1**
 
@@ -3709,8 +3228,13 @@ Arbol con 1 iteracion:
 from IPython.display import Image
 Image(filename='arbol 1iter.jpg', width = 400, height = 200) 
 ```
+
+
+
+
     
 ![jpeg](output_465_0.jpg)
+    
 
 
 
@@ -3718,27 +3242,370 @@ La idea es, determinar las regiones $R_{11}$ y $R_{21}\hspace{0.1cm}$ $($ es dec
 
 
 
-\newpage
+<p><p style="page-break-after:always;"></p></p>
 
-hola
 
+Mas formalmente el problema planteado es:
+
+
+
+
+- Si utilizamos la **TEC** como metrica de error a minimizar:
 
 \begin{gather*}
-\underset{R_{11}  ,  R_{21}}  {Min} \hspace{0.15cm} \left(\hspace{0.1cm} G_1 = G_{R_{11}} + G_{R_{21}}  \hspace{0.1cm}\right)   \hspace{0.1cm} =
- \\ \\
-=\hspace{0.2cm} \underset{R_{11}  ,  R_{21}}  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.2cm}  \sum_{r=0,1,..,c-1}^{} f_{r , R_{11}}\cdot(1 - f_{r , R_{11}})  \hspace{0.1cm} + \hspace{0.1cm}  \sum_{r=0,1,..,c-1}^{} f_{r , R_{21}}\cdot(1 - f_{r , R_{21}})   \hspace{0.2cm} \Biggl\}  =   \\ \\
-=\hspace{0.2cm}   \underset{R_{11}  ,  R_{21}}  {Min} \hspace{0.1cm} \Biggl\{\hspace{0.2cm}   \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{11} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{11}  \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{11} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{11}  \rbrace}  \right)
-\hspace{0.3cm} +  \hspace{0.3cm}   \\ \\
-\sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{21} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{21}  \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{21} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{21}  \rbrace}  \right)            \hspace{0.2cm} \Biggl\} =     \\ \\
-=\hspace{0.2cm}   \underset{j  ,  s_1}  {Min} \hspace{0.1cm} \Biggl\{     \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} < s_1 \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} < s_1  \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} < s_1 \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} < s_1  \rbrace}  \right)
-\hspace{0.3cm} +  \hspace{0.3cm}    \\ \\
-\sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} \geqslant s_1 \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} \geqslant s_1 \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} \geqslant s_1 \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} \geqslant s_1 \rbrace}  \right)           \Biggl\} 
+\underset{R_{11}  ,  R_{21}}  {Min} \hspace{0.15cm} \left(\hspace{0.1cm} TEC_1 = TEC(R_{11}) + TEC(R_{21})  \hspace{0.1cm}\right)   \hspace{0.1cm} =   \\ \\
+=\hspace{0.2cm} \underset{R_{11}  ,  R_{21}}  {Min} \hspace{0.1cm} \left( \hspace{0.2cm}  \left( 1 - f_{r^*_{R_{11}} , R_{11}} \right)  \hspace{0.3cm} +  \hspace{0.1cm}    \left( 1 - f_{r^*_{R_{21}} , R_{21}} \right)  \hspace{0.2cm} \right)     \\ \\
+=\hspace{0.2cm}   \underset{R_{11}  ,  R_{21}}  {Min} \hspace{0.1cm} \left( \hspace{0.2cm}    1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{11} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{11}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{11}  \rbrace}  \hspace{0.3cm} +  \hspace{0.3cm}      1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{21} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{21}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{21}  \rbrace}   \hspace{0.2cm} \right)     \\ \\
+=\hspace{0.2cm}   \underset{j  ,  s_1}  {Min} \hspace{0.1cm} \left( \hspace{0.2cm}    1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i < s_1 \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{11}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i < s_1  \rbrace} \hspace{0.3cm} +  \hspace{0.3cm}      1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \geqslant s_1 \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{21}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \geqslant s_1 \rbrace}    \hspace{0.2cm} \right)    
+\end{gather*}
+
+
+- Si utilizamos el **índice de Gini** como metrica de error a minimizar:
+
+\begin{gather*}
+\underset{R_{11}  ,  R_{21}}  {Min} \hspace{0.15cm} \left(\hspace{0.1cm} G_1 = G_{R_{11}} + G_{R_{21}}  \hspace{0.1cm}\right)   \hspace{0.1cm} =   \\ \\
+=\hspace{0.2cm} \underset{R_{11}  ,  R_{21}}  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.2cm}  \sum_{r=0,1,..,c-1}^{} f_{r , R_{11}}\cdot(1 - f_{r , R_{11}})  \hspace{0.1cm} + \hspace{0.1cm}  \sum_{r=0,1,..,c-1}^{} f_{r , R_{21}}\cdot(1 - f_{r , R_{21}})   \hspace{0.2cm} \Biggl\}     \\ \\ 
+=\hspace{0.2cm}   \underset{R_{11}  ,  R_{21}}  {Min} \hspace{0.1cm} \Biggl\{\hspace{0.2cm}   \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{11} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{11}  \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{11} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{11}  \rbrace}  \right) \\ \\
+\hspace{0.3cm} +  \hspace{0.3cm}         \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{21} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{21}  \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{21} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{21}  \rbrace}  \right)            \hspace{0.2cm} \Biggl\}     \\ \\
+=\hspace{0.2cm}   \underset{j  ,  s_1}  {Min} \hspace{0.1cm} \Biggl\{     \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} < s_1 \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} < s_1  \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} < s_1 \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} < s_1  \rbrace}  \right) \\ \\
+\hspace{0.3cm} +  \hspace{0.3cm}         \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} \geqslant s_1 \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} \geqslant s_1 \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} \geqslant s_1 \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} \geqslant s_1 \rbrace}  \right)           \Biggl\} 
 \end{gather*}
 
 
 
+
+Notar que:
+
+$R_{11} = \lbrace  (v_1 ,..., v_n) / v_j < s_1 \rbrace   \hspace{0.3cm}\Rightarrow\hspace{0.3cm}  [\hspace{0.1cm}  x_i \in R_{11}  \hspace{0.1cm} \Leftrightarrow \hspace{0.1cm} x_{ij} < s_1 \hspace{0.1cm}] \hspace{0.3cm}\Rightarrow\hspace{0.3cm} \lbrace i/x_i \in R_{11} \rbrace  = \lbrace i / x_{ij} < s_1 \rbrace$  
+
+$R_{21} = \lbrace  (v_1 ,..., v_n) / v_j \geqslant s_1 \rbrace   \hspace{0.3cm}\Rightarrow\hspace{0.3cm} [\hspace{0.1cm} x_i \in R_{21} \hspace{0.1cm} \Leftrightarrow \hspace{0.1cm} x_{ij} \geqslant s_1 \hspace{0.1cm}] \hspace{0.2cm}\Rightarrow\hspace{0.2cm} \lbrace i/x_i \in R_{11} \rbrace  = \lbrace i / x_{ij} \geqslant s_1 \rbrace$  
+
+
+
+Notese que determinar $R_{11}$ y $R_{21}$  es equivalente a determinar el predictor $X_j$ $($ es decir $j)$  y el punto de corte $s_1$ asociados a la Iteracion 1, ya que $R_{11}$ y $R_{21}$ quedan determinadas al fijar $X_j$ y $s_1$
+
+
+
+Notar también que:
+
+
+
+Fijado $(j, s_1)$ puede calcularse $r_{R_{11}}^*$ como solucion al problema de maximizacion:
+
+
+
+$$\underset{  r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm} f_{r, R_{11}} \hspace{0.1 cm}\right) = \underset{ r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{11} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{11}  \rbrace}  \hspace{0.1 cm}\right) = \underset{  r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} < s_1 \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} < s_1 \rbrace}  \hspace{0.1 cm}\right)$$
+
+
+
+
+Fijado $(j, s_2)$ puede calcularse $r_{R_{21}}^*$ como solucion al problema de maximizacion:
+
+
+
+$$\underset{  r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm} f_{r, R_{21}} \hspace{0.1 cm}\right) = \underset{ r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{21} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{21}  \rbrace}  \hspace{0.1 cm}\right) = \underset{  r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} \geqslant s_1 \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij} \geqslant s_1 \rbrace}  \hspace{0.1 cm}\right)$$
+
+
+
+Donde : 
+
+- $\hspace{0.2cm} j \in \lbrace  1,2,...,p \rbrace$
+
+- Si $X_j$ es cuantitativa:
+
+ $\hspace{0.7cm}$  Ordenamos las observaciones de $X_j$ y quitamos repeticiones, obtenemos $X_j^{order}$, entonces:
+
+
+$$  s_1 \in \Biggl\{ \dfrac{ x_{(1)j} + x_{(2)j} }{2} \hspace{0.1cm}, \hspace{0.1cm} \dfrac{x_{(2)j} + x_{(3)j} }{2} \hspace{0.1cm} ,...,\hspace{0.1cm} \dfrac{x_{(n-1)j} + x_{(n)j} }{2}   \Biggl\}$$
+
+
+Donde $\hspace{0.1cm} x_{(i)j} \hspace{0.1cm} $ es la observacion que ocupa la posicion $i$-esima en $\hspace{0.1cm}  X_j^{order}$
+
+
+- Si $X_j$ es categorica con $c$ categorias:
+
+$$ s_1 \in Rango(X_j) = \lbrace 0,1,..., c-1 \rbrace $$ 
+
+
+Notese que la eleccion de $X_j$ determina el campo de variacion de $s_1$
+
+
+
+- $TEC(R_{11})$ es el error de entrenamiento de la rama $1$ de un arbol de clasificación con 1 iteracion  
+
+- $TEC(R_{21})$ es el error de entrenamiento de la rama $2$ de un arbol de clasificación con 1 iteracion  
+
+
+
+
+Estos elementos no volveran a ser definidos en los sucesivos problemas de iteracion para no pecar de ser repetitivo, puesto que pueden ser facilmente extrapolados a cualquier problema de iteracion. Ademas las definiciones generales de estos elementos han sido expuestas ya anteriormente.
+
+
+
+- Denotaremos por $\hspace{0.1cm} \left(\hspace{0.1cm} j^{*(i)} \hspace{0.05cm},\hspace{0.05cm} s^{*(i)} \hspace{0.1cm}\right) \hspace{0.1cm}$ a una solucion del problema de la Iteracion $i$ , para $i=1,...,m-1$
+
+
+
+Arbol obtenido tras resolver el problema de la Iteracion 1:
+
+
+```python
+from IPython.display import Image
+Image(filename='iter1.jpg', width = 400, height = 200) 
+```
+
+
+
+
+    
+![jpeg](output_494_0.jpg)
+    
+
+
+
+- Si alguna de las ramas del arbol resultante de resolver el problema la iteracion 1 tiene menos de $\hspace{0.05cm}k\hspace{0.05cm}$ observaciones de train $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ se para el algoritmo
+
+- Si todas las ramas tienen $\hspace{0.05cm}k\hspace{0.05cm}$ o mas observaciones de train $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ el algoritmo continua, se pasa a resolver el problema de la iteracion siguiente, en este caso el de la iteracion 2
+
+Notese que $k$ será un ***hiperparametro*** del algoritmo.
+
+
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+##### **Problema de la Iteracion 2**
+
+
+Arbol con 2 iteraciones tras resolver el problema anterior:
+
+
+```python
+from IPython.display import Image
+Image(filename='arbol 2iter.jpg', width = 550, height = 300) 
+```
+
+
+
+
+    
+![jpeg](output_500_0.jpg)
+    
+
+
+
+Si estamos en este problema es porque ninguna rama del arbol resultante del problema de la Iteracion 1 tiene menos de $k$ observaciones
+
+La idea es, determinar las regiones $R_{12}$ , $R_{22}$ y $R_{32}$ del arbol con 2 iteraciones (es decir, $j$ y $s_2$), considerando la solucion del problema de la iteracion 1 (arbol de arriba) , que minimizan el error de entrenamiento global de dicho arbol.
+
+Notese que $R_{32}$ ya esta determinada tras la resolucion del problema anterior, por ello realmente solo hay que determinar las regiones $R_{12}$ y $R_{22}$ óptimas (a saber, $j$ y $s_2$ óptimos)
+
+
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+Mas formalmente el problema planteado es:
+
+
+- Si utilizamos la **TEC** como metrica de error a minimizar:
+
+\begin{gather*}
+\underset{R_{12}  ,  R_{22},  R_{32}}  {Min} \hspace{0.15cm}  \Biggl\{ \hspace{0.1cm} TEC_2 = TEC(R_{12})  +  TEC(R_{22}) +  TEC(R_{32}) \hspace{0.1cm} \Biggl\}   \hspace{0.1cm} =   \\ \\
+=\hspace{0.2cm} \underset{R_{12}  ,  R_{22}, R_{32}}  {Min} \hspace{0.1cm} \Biggl\{  \hspace{0.2cm}  \left( 1 - f_{r^*_{R_{12}} , R_{12}} \right)  \hspace{0.3cm} +  \hspace{0.1cm}       \left( 1 - f_{r^*_{R_{22}} , R_{22}} \right) \hspace{0.3cm} +  \hspace{0.1cm}    \left( 1 - f_{r^*_{R_{32}} , R_{32}} \right)  \hspace{0.2cm}  \Biggl\}  \\[25pt]
+=\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_2}  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.2cm}     1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{12}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12}  \rbrace}      \hspace{0.4cm} +  \hspace{0.4cm}   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{22}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22}  \rbrace} \hspace{0.4cm} +    \hspace{0.4cm}       1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{32} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{32}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{32}  \rbrace}  \hspace{0.2cm}  \Biggl\}   \\ \\
+=\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_2}  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.2cm}     1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{12}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }      \hspace{0.4cm} +  \hspace{0.4cm}      1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{22}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace } \hspace{0.3cm} +    \hspace{0.1cm}       1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij^{*(1)}} \geqslant s^{*(1)} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{32}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij^{*(1)}} \geqslant s^{*(1)} \rbrace}  \hspace{0.2cm}  \Biggl\}
+\\ \\  =\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_2}  {Min} \hspace{0.1cm} \Biggl\{   \hspace{0.2cm}    1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{12}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }      \hspace{0.4cm} +  \hspace{0.4cm}   1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{22}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }    \hspace{0.2cm}  \Biggl\} \\[35pt]
+=\hspace{0.2cm} \underset{R_{12}  ,  R_{22} }  {Min} \hspace{0.1cm} \Biggl\{  \hspace{0.2cm}  \left( 1 - f_{r^*_{R_{12}} , R_{12}} \right)  \hspace{0.3cm} +  \hspace{0.1cm}       \left( 1 - f_{r^*_{R_{22}} , R_{22}} \right)   \hspace{0.2cm}  \Biggl\}
+\end{gather*}
+
+
+
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+- Si utilizamos el **índice de Gini** como metrica de error a minimizar:
+
+\begin{gather*}
+\underset{R_{12}  ,  R_{22}, R_{32}}  {Min} \hspace{0.15cm} \Biggl\{  \hspace{0.1cm} G_1 = G_{R_{12}} + G_{R_{22}} +  G_{R_{32}}  \hspace{0.1cm} \Biggl\}    \hspace{0.1cm} =   \\ \\ 
+=\hspace{0.2cm} \underset{R_{12}  ,  R_{22}, R_{32}}  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.3cm}  \sum_{r=0,1,..,c-1}^{} f_{r , R_{12}}\cdot(1 - f_{r , R_{12}})  \hspace{0.1cm} + \hspace{0.1cm}  \sum_{r=0,1,..,c-1}^{} f_{r , R_{22}}\cdot(1 - f_{r , R_{22}}) \hspace{0.1cm} + \hspace{0.1cm}  \sum_{r=0,1,..,c-1}^{} f_{r , R_{32}}\cdot(1 - f_{r , R_{32}})  \hspace{0.3cm} \Biggl\}     \\ \\
+=\hspace{0.2cm}   \underset{R_{12}  ,  R_{22}  ,  R_{32}}  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.3cm}   \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12}  \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12}  \rbrace}  \right)  \\ \\ 
+\hspace{0.3cm} +  \hspace{0.3cm}         \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22}  \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22}  \rbrace}  \right)    \\ \\
+\hspace{0.3cm} +  \hspace{0.3cm}  \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{32} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{32}  \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{32} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r  \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{32}  \rbrace}  \right)    \hspace{0.3cm} \Biggl\}     \\ \\ 
+=  \hspace{0.2cm}   \underset{j  ,  s_2}  {Min} \hspace{0.1cm} \Biggl\{     \hspace{0.3cm}  \sum_{r=0,1,..,c-1}^{}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace } \cdot \left(   1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace } \right) \\ \\ 
+\hspace{0.3cm} +  \hspace{0.3cm}         \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }  \right)  \\ \\
+\hspace{0.3cm} +  \hspace{0.3cm}         \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij^{*(1)}} \geqslant s^{*(1)} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij^{*(1)}} \geqslant s^{*(1)} \rbrace}  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij^{*(1)}} \geqslant s^{*(1)} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_{ij^{*(1)}} \geqslant s^{*(1)} \rbrace}  \right)      \hspace{0.3cm}       \Biggl\}  \\[35pt]
+\end{gather*}
+
+\begin{gather*}
+=  \hspace{0.2cm}   \underset{j  ,  s_2}  {Min} \hspace{0.1cm} \Biggl\{     \hspace{0.3cm}  \sum_{r=0,1,..,c-1}^{}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace } \cdot \left(   1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace } \right) \\ \\
+\hspace{0.3cm} +  \hspace{0.3cm}         \sum_{r=0,1,..,c-1}^{}  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }  \cdot \left(   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }  \right)    \Biggl\} \\ \\
+= \hspace{0.2cm}  \underset{R_{12}  ,  R_{22} }  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.3cm}  \sum_{r=0,1,..,c-1}^{} f_{r , R_{12}}\cdot(1 - f_{r , R_{12}})  \hspace{0.1cm} + \hspace{0.1cm}  \sum_{r=0,1,..,c-1}^{} f_{r , R_{22}}\cdot(1 - f_{r , R_{22}})  \hspace{0.3cm} \Biggl\}  
+\end{gather*}
+
+
+
+Notar  que:
+
+
+
+Fijado $(j, s_2)$ puede calcularse $r_{R_{12}}^*$ como solucion al problema de maximizacion:
+
+
+
+
+$$\underset{  r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm} f_{r, R_{12}} \hspace{0.1 cm}\right) = \underset{ r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12}  \rbrace}  \hspace{0.1 cm}\right) = \underset{  r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace }\right)$$
+
+
+
+
+
+
+Fijado $(j, s_2)$ puede calcularse $r_{R_{22}}^*$ como solucion al problema de maximizacion:
+
+
+
+
+$$\underset{  r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm} f_{r, R_{22}} \hspace{0.1 cm}\right) = \underset{ r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{22}  \rbrace}  \hspace{0.1 cm}\right) = \underset{  r}{ Max} \hspace{0.05 cm} \left(\hspace{0.1 cm}   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_2  \hspace{0.1 cm} \rbrace } \right)$$
  
 
+
+
+
+Notese que ninguna de las siguientes expresiones:
+
+ $$\left( 1 - f_{r^*_{R_{32}} , R_{32}} \right)$$ 
+ 
+ $$\sum_{r=0,1,..,c-1}^{} f_{r , R_{32}}\cdot(1 - f_{r , R_{32}})$$
+ 
+ dependen de $(j, s_2)$ , por lo que puede sacarse de la funcion objetivo de sus respectivos problemas de minimizacion sin que esto altere la solucion del problema.
+
+
+
+Arbol tras resolver el problema de la Iteracion 2:
+
+
+
+```python
+from IPython.display import Image
+Image(filename='iter2.jpg', width = 940, height = 320)
+```
+
+
+
+
+    
+![jpeg](output_523_0.jpg)
+    
+
+
+
+- Si alguna de las ramas tiene menos de $\hspace{0.05cm}k\hspace{0.05cm}$ observaciones de train $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ se para el algoritmo
+
+- Si todas las ramas tienen $\hspace{0.05cm}k\hspace{0.05cm}$ o mas observaciones de train $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ el algoritmo continua, se pasa a resolver el problema de la iteracion siguiente, en este caso el de la iteracion 2
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+##### **Problema de la Iteracion 3:**
+
+Arbol con 3 iteraciones tras resolver el problema anterior:
+
+
+```python
+from IPython.display import Image
+Image(filename='arbol 3iter.jpg', width = 940, height = 320)
+```
+
+
+
+
+    
+![jpeg](output_528_0.jpg)
+    
+
+
+
+Si estamos en este problema es porque ninguna rama del arbol resultante del problema de la Iteracion 2 tiene menos de $k$ observaciones
+
+La idea es, determinar las regiones $R_{13}$ , $R_{23}$, $R_{33}$ y $R_{43}$ del arbol con 3 iteraciones $($ es decir, $j$ y $s_3 \hspace{0.05cm})$, considerando la solucion del problema de la iteracion 2 (arbol de arriba),  que minimizan el error de entrenamiento global de dicho arbol.
+
+Notese que $R_{13}$ y $R_{23}$ ya están determinadas tras la resolucion del problema anterior, por ello realmente solo hay que determinar las regiones $R_{33}$ y $R_{43}$ óptimas (a saber, $j$ y $s_3$ óptimos)
+
+
+
+
+
+Mas formalmente el problema se plantea como sigue:
+
+- Usando $TEC$ como métrica a optimizar
+
+$$
+\underset{R_{13}  ,  R_{23},  R_{33},  R_{43}}  {Min} \hspace{0.15cm}  \Biggl\{\hspace{0.1cm} TEC_3 = TEC(R_{13})  +  TEC(R_{23}) +  TEC(R_{33}) +  TEC(R_{43}) \hspace{0.1cm} \Biggl\}   \hspace{0.1cm} =   \\[35pt] 
+=\hspace{0.2cm} \underset{R_{13}  ,  R_{23},  R_{33},  R_{43}}  {Min} \hspace{0.1cm}  \Biggl\{ \hspace{0.05cm}   \left( 1 - f_{r^*_{R_{13}} , R_{13}} \right)   \hspace{0.05cm} +  \hspace{0.05cm}    \left( 1 - f_{r^*_{R_{23}} , R_{23}} \right) \hspace{0.05cm} +  \hspace{0.05cm}    \left( 1 - f_{r^*_{R_{33}} , R_{33}} \right)  \hspace{0.05cm} +  \hspace{0.05cm}    \left( 1 - f_{r^*_{R_{43}} , R_{43}} \right)  \hspace{0.05cm}   \Biggl\}     \\[45pt] 
+$$
+
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+
+$$
+=\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_3}  {Min} \hspace{0.1cm}  \Biggl\{ \hspace{0.2cm}     1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{13} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{13}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{12}  \rbrace}      \hspace{0.4cm} +  \hspace{0.4cm}   1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{23} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{23}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{23}  \rbrace} \hspace{0.4cm} +    \hspace{0.4cm}   \\[35pt]     1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{33} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{33}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{33}  \rbrace}   \hspace{0.4cm} +    \hspace{0.4cm}       1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{43} \hspace{0.15 cm}\text{y}\hspace{0.15 cm} y_i = r^*_{R_{43}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm} x_i \in R_{43}  \rbrace} \hspace{0.2cm}    \Biggl\}  \\[35pt]  
+=\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_3}  {Min} \hspace{0.1cm} \Biggl\{ \hspace{0.2cm}     1 - \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij^{*(2)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(2)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{13}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(2)}  \hspace{0.1 cm} \rbrace }      \hspace{0.4cm} +  \hspace{0.4cm}     1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s^{*(2)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{23}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s^{*(2)}  \hspace{0.1 cm} \rbrace } \hspace{0.3cm} +    \hspace{0.1cm}  \\[35pt]
+ \hspace{1cm}  1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}  < \hspace{0.05cm} s_3 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{33}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_3  \hspace{0.1 cm} \rbrace }  \hspace{0.2cm}   \hspace{0.3cm} +    \hspace{0.3cm} 
+1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}  \geqslant \hspace{0.05cm} s_3 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{43}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_3  \hspace{0.1 cm} \rbrace }  \hspace{0.2cm} \Biggl\}
+\\[35pt]  =\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_3}  {Min} \hspace{0.1cm} \Biggl\{   \hspace{0.2cm}    1 -   \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}  < \hspace{0.05cm} s_3 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{33}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   < \hspace{0.05cm} s_3  \hspace{0.1 cm} \rbrace }    \hspace{0.3cm} +    \hspace{0.3cm}        1 -  \dfrac{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm}/\hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}  \geqslant \hspace{0.05cm} s_3 \hspace{0.25 cm}\text{y}\hspace{0.25 cm} y_i = r^*_{R_{43}} \rbrace}{\# \hspace{0.1 cm}\lbrace i \hspace{0.1 cm} / \hspace{0.1 cm}  x_{ij^{*(1)}} \hspace{0.05cm}   < \hspace{0.05cm} s^{*(1)} \hspace{0.25 cm}\text{y}\hspace{0.25 cm} x_{ij} \hspace{0.05cm}   \geqslant \hspace{0.05cm} s_3  \hspace{0.1 cm} \rbrace }  \hspace{0.2cm}      \Biggl\} \\[35pt]
+=\hspace{0.2cm}   \underset{j \hspace{0.02cm},\hspace{0.02cm} s_3}  {Min} \hspace{0.1cm}  \Biggl\{ \hspace{0.2cm}    \left( 1 - f_{r^*_{R_{33}} , R_{33}} \right)  \hspace{0.3cm} +  \hspace{0.1cm}     \left( 1 - f_{r^*_{R_{43}} , R_{43}} \right)   \hspace{0.2cm}  \Biggl\} \\[35pt]
+=\hspace{0.2cm} \underset{  R_{33},  R_{43}}  {Min} \hspace{0.15cm}  \Biggl\{\hspace{0.1cm} TEC(R_{33}) +  TEC(R_{43}) \hspace{0.1cm} \Biggl\}   \hspace{0.1cm} 
+$$
+
+
+
+
+Notar  que:
+
+
+Fijado $(j, s_3)$ puede calcularse $r_{R_{33}}^*$ como solucion al problema de maximizacion:
+
+
+
+
+
+<p><p style="page-break-after:always;"></p></p>
+
+
+Arbol tras resolver el problema de la Iteracion 3
+
+
+```python
+from IPython.display import Image
+Image(filename='iter3.jpg', width = 900, height = 300)
+```
+
+
+
+
+    
+![jpeg](output_544_0.jpg)
+    
+
+
+
+- Si alguna de las ramas tiene menos de $\hspace{0.05cm}k\hspace{0.05cm}$ observaciones de train $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ se para el algoritmo
+
+- Si todas las ramas tienen $\hspace{0.05cm}k\hspace{0.05cm}$ o mas observaciones de train $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ el algoritmo continua, se pasa a resolver el problema de la iteracion siguiente, en este caso el de la iteracion 2
+
+
+
+Siempre que no se cumpla la condicion de parada se seguiria haciendo crecer el arbol generando nuevas iteraciones.
+
+No seguiremos exponiendo mas iteraciones del algoritmo, puesto que es facilmente extrapolable lo expuesto a cualquier iteracion superior.
+
+
+
+<p><p style="page-break-after:always;"></p></p>
 
 
 
