@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.13)  13 OCT 2022 23:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.13)  14 OCT 2022 00:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1387,509 +1387,544 @@ Underfull \vbox (badness 10000) detected at line 5139
 Overfull \vbox (0.56383pt too high) detected at line 5139
  []
 
-[110] [111] [112] [113] [114] [115]
-Overfull \hbox (138.48558pt too wide) in paragraph at lines 5506--5506
+[110] [111] [112]
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 5249--5249
+[]     \T1/lmtt/m/n/10.95 Y  Age Gender  Total_Bilirubin  Direct_Bilirubin  Alkaline_Phosphotase[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 5249--5249
+[]\T1/lmtt/m/n/10.95 0  0.0   65    0.0              0.7               0.1                   187[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 5249--5249
+[]\T1/lmtt/m/n/10.95 1  0.0   62    1.0             10.9               5.5                   699[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 5249--5249
+[]\T1/lmtt/m/n/10.95 2  0.0   62    1.0              7.3               4.1                   490[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 5249--5249
+[]\T1/lmtt/m/n/10.95 3  0.0   58    1.0              1.0               0.4                   182[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 5249--5249
+[]\T1/lmtt/m/n/10.95 4  0.0   72    1.0              3.9               2.0                   195[] 
+ []
+
+
+Overfull \hbox (138.48558pt too wide) in paragraph at lines 5272--5272
 | | | |[]\T1/lmtt/m/it/10.95 ##################################################################################################[]|  
  []
 
-
-Overfull \hbox (337.7902pt too wide) in paragraph at lines 5527--5527
+[113]
+Overfull \hbox (337.7902pt too wide) in paragraph at lines 5295--5295
 []\T1/lmtt/m/n/10.95 El arbol final es el arbol con 1 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo 20 de observaciones por rama[] 
  []
 
-[116] [117]
-Overfull \hbox (337.7902pt too wide) in paragraph at lines 5640--5640
+[114]
+Overfull \vbox (4.03555pt too high) detected at line 5400
+ []
+
+[115]
+Overfull \hbox (337.7902pt too wide) in paragraph at lines 5410--5410
 []\T1/lmtt/m/n/10.95 El arbol final es el arbol con 1 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo 20 de observaciones por rama[] 
  []
 
-
-Overfull \hbox (69.50078pt too wide) in paragraph at lines 5818--5818
+[116]
+Overfull \hbox (69.50078pt too wide) in paragraph at lines 5590--5590
 | | | |[]\T1/lmtt/m/it/10.95 ######################################################################################[]|  
  []
 
 
-Overfull \hbox (58.00331pt too wide) in paragraph at lines 5950--5950
+Overfull \hbox (58.00331pt too wide) in paragraph at lines 5722--5722
 | | | |[]\T1/lmtt/m/it/10.95 ####################################################################################[]|  
  []
 
-[118]
-Underfull \vbox (badness 10000) detected at line 6229
+
+Overfull \vbox (4.0356pt too high) detected at line 6001
+ []
+
+[117]
+Underfull \vbox (badness 10000) detected at line 6001
  []
 
 
-Overfull \vbox (14.16382pt too high) detected at line 6229
+Overfull \vbox (0.5638pt too high) detected at line 6001
+ []
+
+[118]
+Underfull \vbox (badness 10000) detected at line 6001
+ []
+
+
+Overfull \vbox (0.56377pt too high) detected at line 6001
  []
 
 [119]
-Underfull \vbox (badness 10000) detected at line 6229
+Underfull \vbox (badness 10000) detected at line 6001
  []
 
 
-Overfull \vbox (0.56375pt too high) detected at line 6229
+Overfull \vbox (27.76385pt too high) detected at line 6001
  []
 
 [120]
-Underfull \vbox (badness 10000) detected at line 6229
+Underfull \vbox (badness 10000) detected at line 6001
  []
 
 
-Overfull \vbox (0.56381pt too high) detected at line 6229
+Overfull \vbox (0.56381pt too high) detected at line 6001
  []
 
 [121]
-Underfull \vbox (badness 10000) detected at line 6229
+Underfull \vbox (badness 10000) detected at line 6001
  []
 
 
-Overfull \vbox (0.56386pt too high) detected at line 6229
+Overfull \vbox (27.76378pt too high) detected at line 6001
  []
 
 [122]
-Underfull \vbox (badness 10000) detected at line 6229
+Underfull \vbox (badness 10000) detected at line 6001
  []
 
 
-Overfull \vbox (0.5638pt too high) detected at line 6229
+Overfull \vbox (27.76389pt too high) detected at line 6001
  []
 
 [123]
-Underfull \vbox (badness 10000) detected at line 6229
+Underfull \vbox (badness 10000) detected at line 6001
  []
 
 
-Overfull \vbox (14.16383pt too high) detected at line 6229
+Overfull \vbox (0.56381pt too high) detected at line 6001
  []
 
 [124]
-Underfull \vbox (badness 10000) detected at line 6229
+Underfull \vbox (badness 10000) detected at line 6001
  []
 
 
-Overfull \vbox (0.56387pt too high) detected at line 6229
+Overfull \vbox (0.5638pt too high) detected at line 6001
  []
 
 [125]
-Underfull \vbox (badness 10000) detected at line 6229
+Underfull \vbox (badness 10000) detected at line 6001
  []
 
 
-Overfull \vbox (0.56378pt too high) detected at line 6229
+Overfull \vbox (14.16386pt too high) detected at line 6001
  []
 
 [126]
-Underfull \vbox (badness 10000) detected at line 6229
+Underfull \vbox (badness 10000) detected at line 6001
  []
 
 
-Overfull \vbox (14.16385pt too high) detected at line 6229
+Overfull \vbox (0.56392pt too high) detected at line 6001
  []
 
 [127]
-Underfull \vbox (badness 10000) detected at line 6229
+Underfull \vbox (badness 10000) detected at line 6001
  []
 
 
-Overfull \vbox (14.16386pt too high) detected at line 6229
+Overfull \vbox (0.56377pt too high) detected at line 6001
  []
 
 [128]
-Underfull \vbox (badness 10000) detected at line 6229
+Underfull \vbox (badness 10000) detected at line 6001
  []
 
 
-Overfull \vbox (0.56386pt too high) detected at line 6229
+Overfull \vbox (0.56395pt too high) detected at line 6001
  []
 
 [129]
-Underfull \vbox (badness 10000) detected at line 6229
- []
-
-
-Overfull \vbox (41.36378pt too high) detected at line 6229
+Overfull \hbox (337.7902pt too wide) in paragraph at lines 6014--6014
+[]\T1/lmtt/m/n/10.95 El arbol final es el arbol con 1 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo 20 de observaciones por rama[] 
  []
 
 [130]
-Underfull \vbox (badness 10000) detected at line 6229
+Overfull \vbox (4.03555pt too high) detected at line 6121
  []
 
-
-Overfull \vbox (0.56393pt too high) detected at line 6229
- []
-
-[131]
-Overfull \hbox (337.7902pt too wide) in paragraph at lines 6242--6242
-[]\T1/lmtt/m/n/10.95 El arbol final es el arbol con 1 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo 20 de observaciones por rama[] 
- []
-
-[132] [133]
-Overfull \hbox (337.7902pt too wide) in paragraph at lines 6357--6357
-[]\T1/lmtt/m/n/10.95 El arbol final es el arbol con 1 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo 20 de observaciones por rama[] 
- []
-
-
-Overfull \hbox (39.49712pt too wide) in paragraph at lines 6378--6383
+[131] [132]
+Overfull \hbox (39.49712pt too wide) in paragraph at lines 6158--6163
 []\T1/lmr/m/n/10.95 sklearn.tree.DecisionTreeClassifier(criterion=`gini', split-ter=`best', max_depth=None,
  []
 
 
-Overfull \hbox (1.68642pt too wide) in paragraph at lines 6378--6383
+Overfull \hbox (1.68642pt too wide) in paragraph at lines 6158--6163
 \T1/lmr/m/n/10.95 min_samples_split=2, min_samples_leaf=1, min_weight_fraction_leaf=0.0,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6378--6383
+Underfull \hbox (badness 10000) in paragraph at lines 6158--6163
 \T1/lmr/m/n/10.95 max_features=None, ran-dom_state=None, max_leaf_nodes=None,
  []
 
-[134]
-Overfull \hbox (21.60986pt too wide) in paragraph at lines 6488--6488
+[133]
+Overfull \hbox (21.60986pt too wide) in paragraph at lines 6270--6270
 []\T1/lmtt/m/n/10.95 DecisionTreeClassifier(ccp_alpha=0, min_samples_leaf=50, min_samples_split=40,[] 
  []
 
-[135]
-<output_660_0.jpg, id=901, 1080.4365pt x 516.7305pt>
+[134]
+<output_660_0.jpg, id=897, 1080.4365pt x 516.7305pt>
 File: output_660_0.jpg Graphic file (type jpg)
 <use output_660_0.jpg>
-Package pdftex.def Info: output_660_0.jpg  used on input line 6568.
-(pdftex.def)             Requested size: 426.79247pt x 204.11813pt.
-[136 <./output_660_0.jpg>] [137] [138]
-Underfull \hbox (badness 1152) in paragraph at lines 6732--6736
+Package pdftex.def Info: output_660_0.jpg  used on input line 6345.
+(pdftex.def)             Requested size: 466.7548pt x 223.23056pt.
+
+Overfull \hbox (39.96346pt too wide) in paragraph at lines 6345--6348
+ [][] 
+ []
+
+
+Underfull \hbox (badness 1158) in paragraph at lines 6348--6348
+[]\T1/lmr/m/n/10.95 Figure 21: []Arbol sklearn (cri-te-rion=`gini', split-ter=`best', min_samples_split=40,
+ []
+
+[135 <./output_660_0.jpg>] [136]
+Underfull \vbox (badness 10000) detected at line 6490
+ []
+
+
+Underfull \vbox (badness 4341) detected at line 6490
+ []
+
+[137]
+Underfull \hbox (badness 1152) in paragraph at lines 6513--6517
 \T1/lmr/m/n/10.95 del tipo tipo sklearn.tree.DecisionTreeClassifier(criterion=`gini', split-ter=`best', ran-
  []
 
 
-Overfull \hbox (28.14998pt too wide) in paragraph at lines 6737--6739
+Overfull \hbox (28.14998pt too wide) in paragraph at lines 6518--6520
 []\T1/lmr/m/n/10.95 Es de-cir para un ar-bol de clasi-fi-ca-cion en el que por de-fecto ccp_alpha=0, min_samples_split=2,
  []
 
 
-Overfull \hbox (38.85606pt too wide) in paragraph at lines 6770--6770
+Overfull \hbox (38.85606pt too wide) in paragraph at lines 6551--6551
 []\T1/lmtt/m/n/10.95 {\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ccp_alphas\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 : array([0.        , 0.00190749, 0.00190749, 0.00198085, 0.00199264,[] 
  []
 
 
-Overfull \hbox (38.85606pt too wide) in paragraph at lines 6770--6770
+Overfull \hbox (38.85606pt too wide) in paragraph at lines 6551--6551
 [] \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 impurities\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 : array([0.        , 0.00381497, 0.00762995, 0.01159165, 0.01557694,[] 
  []
 
-[139]
-<output_695_1.png, id=922, 561.09625pt x 536.0025pt>
+[138]
+<output_695_1.png, id=917, 561.09625pt x 536.0025pt>
 File: output_695_1.png Graphic file (type png)
 <use output_695_1.png>
-Package pdftex.def Info: output_695_1.png  used on input line 6824.
+Package pdftex.def Info: output_695_1.png  used on input line 6605.
 (pdftex.def)             Requested size: 426.7886pt x 407.70146pt.
-[140] [141 <./output_695_1.png>] [142]
-Overfull \hbox (56.10226pt too wide) in paragraph at lines 6956--6956
+[139] [140 <./output_695_1.png>] [141]
+Overfull \hbox (56.10226pt too wide) in paragraph at lines 6737--6737
 \T1/lmtt/m/n/10.95 sklearn.tree.DecisionTreeClassifier(ccp_alpha[]\T1/lmtt/b/n/10.95 =[]\T1/lmtt/m/n/10.95 alpha_score_df_sorted[[]\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 alpha\TS1/lmtt/m/n/10.95 '[]\T1/lmtt/m/n/10.95 ][[]0[]], 
  []
 
-
-Underfull \vbox (badness 10000) detected at line 6996
- []
-
-
-Overfull \vbox (0.56375pt too high) detected at line 6996
- []
-
-[143]
-Overfull \hbox (24.5611pt too wide) in paragraph at lines 7039--7042
+[142]
+Overfull \hbox (24.5611pt too wide) in paragraph at lines 6820--6823
 []\T1/lmr/m/n/10.95 TEC_classification_tree_penalized_star(ccp_alpha=alpha_score_df_sorted[`alpha'][0]
  []
 
 
-Underfull \hbox (badness 6236) in paragraph at lines 7044--7048
+Underfull \hbox (badness 6236) in paragraph at lines 6825--6829
 []\T1/lmr/m/n/10.95 TEC_classification_tree_sklearn (De-ci-sion-TreeRe-gres-sor(criterion=`gini', split-
  []
 
 
-Underfull \hbox (badness 2173) in paragraph at lines 7044--7048
+Underfull \hbox (badness 2173) in paragraph at lines 6825--6829
 \T1/lmr/m/n/10.95 ter=`best', min_samples_split=40, min_samples_leaf=50, max_depth=None,
  []
 
-[144]
+[143]
 
-LaTeX Warning: Command \' invalid in math mode on input line 7140.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 7140.
+LaTeX Warning: Command \' invalid in math mode on input line 6921.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 7140.
+LaTeX Warning: Command \' invalid in math mode on input line 6921.
 
 
-Overfull \hbox (977.80067pt too wide) in paragraph at lines 7161--7161
+LaTeX Warning: Command \' invalid in math mode on input line 6921.
+
+
+Overfull \hbox (977.80067pt too wide) in paragraph at lines 6942--6942
 | | | |[]\T1/lmtt/m/it/10.95 ####################################################################################################################################################################################################################################################[]|  
  []
 
 
-Overfull \hbox (977.80067pt too wide) in paragraph at lines 7172--7172
+Overfull \hbox (977.80067pt too wide) in paragraph at lines 6953--6953
 | | | |[]\T1/lmtt/m/it/10.95 ####################################################################################################################################################################################################################################################[]|  
  []
 
 
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7187--7187
+Overfull \hbox (92.49571pt too wide) in paragraph at lines 6968--6968
 | | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
  []
 
 
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7197--7197
+Overfull \hbox (92.49571pt too wide) in paragraph at lines 6978--6978
 | | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
  []
 
 
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7209--7209
+Overfull \hbox (92.49571pt too wide) in paragraph at lines 6990--6990
 | | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
  []
 
 
-Overfull \hbox (977.80067pt too wide) in paragraph at lines 7231--7231
+Overfull \hbox (977.80067pt too wide) in paragraph at lines 7012--7012
 | | | |[]\T1/lmtt/m/it/10.95 ####################################################################################################################################################################################################################################################[]|  
  []
 
 
-Overfull \hbox (418.27248pt too wide) in paragraph at lines 7475--7475
+Overfull \hbox (418.27248pt too wide) in paragraph at lines 7256--7256
 []\T1/lmtt/m/it/10.95 ############################################################################################################################################## 
  []
 
 
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7484--7484
+Overfull \hbox (92.49571pt too wide) in paragraph at lines 7265--7265
 | | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
  []
 
 
-Overfull \hbox (103.99318pt too wide) in paragraph at lines 7494--7494
+Overfull \hbox (103.99318pt too wide) in paragraph at lines 7275--7275
 []\T1/lmtt/m/it/10.95 #####################################################################################[]|  
  []
 
 
-Overfull \hbox (138.48558pt too wide) in paragraph at lines 7509--7509
+Overfull \hbox (138.48558pt too wide) in paragraph at lines 7290--7290
 []\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
  []
 
 
-Overfull \hbox (138.48558pt too wide) in paragraph at lines 7519--7519
+Overfull \hbox (138.48558pt too wide) in paragraph at lines 7300--7300
 []\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
  []
 
 
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7533--7533
+Overfull \hbox (92.49571pt too wide) in paragraph at lines 7314--7314
 | | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
  []
 
 
-Overfull \hbox (391.42986pt too wide) in paragraph at lines 7551--7551
+Overfull \hbox (391.42986pt too wide) in paragraph at lines 7332--7332
 | | | |[]\T1/lmtt/m/it/10.95 ##############################################################################################################################################[]|  
  []
 
 
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7562--7562
+Overfull \hbox (92.49571pt too wide) in paragraph at lines 7343--7343
 | | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
  []
 
 
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7568--7568
+Overfull \hbox (92.49571pt too wide) in paragraph at lines 7349--7349
 | | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
  []
 
 
-Overfull \hbox (391.42986pt too wide) in paragraph at lines 7581--7581
+Overfull \hbox (391.42986pt too wide) in paragraph at lines 7362--7362
 | | | |[]\T1/lmtt/m/it/10.95 ##############################################################################################################################################[]|  
  []
 
 
-Overfull \hbox (391.42986pt too wide) in paragraph at lines 7589--7589
+Overfull \hbox (391.42986pt too wide) in paragraph at lines 7370--7370
 | | | |[]\T1/lmtt/m/it/10.95 ##############################################################################################################################################[]|  
  []
 
 
-Overfull \hbox (391.42986pt too wide) in paragraph at lines 7599--7599
+Overfull \hbox (391.42986pt too wide) in paragraph at lines 7380--7380
 | | | |[]\T1/lmtt/m/it/10.95 ##############################################################################################################################################[]|  
  []
 
 
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7611--7611
+Overfull \hbox (92.49571pt too wide) in paragraph at lines 7392--7392
 | | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
  []
 
 
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7624--7624
+Overfull \hbox (92.49571pt too wide) in paragraph at lines 7405--7405
 | | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
  []
 
 
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7633--7633
+Overfull \hbox (92.49571pt too wide) in paragraph at lines 7414--7414
 | | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
  []
 
 
-Overfull \hbox (29.25964pt too wide) in paragraph at lines 7647--7647
+Overfull \hbox (29.25964pt too wide) in paragraph at lines 7428--7428
 | | | |[]\T1/lmtt/m/it/10.95 ###############################################################################[]|  
  []
 
 
-Overfull \hbox (391.42986pt too wide) in paragraph at lines 7655--7655
+Overfull \hbox (391.42986pt too wide) in paragraph at lines 7436--7436
 | | | |[]\T1/lmtt/m/it/10.95 ##############################################################################################################################################[]|  
  []
 
 
-Overfull \hbox (391.42986pt too wide) in paragraph at lines 7666--7666
+Overfull \hbox (391.42986pt too wide) in paragraph at lines 7447--7447
 | | | |[]\T1/lmtt/m/it/10.95 ##############################################################################################################################################[]|  
  []
 
 
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7677--7677
+Overfull \hbox (92.49571pt too wide) in paragraph at lines 7458--7458
 | | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
  []
 
 
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7691--7691
+Overfull \hbox (92.49571pt too wide) in paragraph at lines 7472--7472
 | | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
  []
 
 
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7700--7700
+Overfull \hbox (92.49571pt too wide) in paragraph at lines 7481--7481
 | | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
  []
 
 
-Overfull \hbox (103.99318pt too wide) in paragraph at lines 7716--7716
+Overfull \hbox (103.99318pt too wide) in paragraph at lines 7497--7497
 | | | |[]\T1/lmtt/m/it/10.95 ############################################################################################[]|  
  []
 
 
-Overfull \hbox (345.43999pt too wide) in paragraph at lines 7725--7725
+Overfull \hbox (345.43999pt too wide) in paragraph at lines 7506--7506
 | | | |[]\T1/lmtt/m/it/10.95 ######################################################################################################################################[]|  
  []
 
 
-Overfull \hbox (345.43999pt too wide) in paragraph at lines 7734--7734
+Overfull \hbox (345.43999pt too wide) in paragraph at lines 7515--7515
 | | | |[]\T1/lmtt/m/it/10.95 ######################################################################################################################################[]|  
  []
 
 
-Overfull \hbox (345.43999pt too wide) in paragraph at lines 7736--7736
+Overfull \hbox (345.43999pt too wide) in paragraph at lines 7517--7517
 | | | |[]\T1/lmtt/m/it/10.95 ######################################################################################################################################[]|  
+ []
+
+[144]
+Underfull \vbox (badness 10000) detected at line 7548
+ []
+
+
+Overfull \vbox (0.56377pt too high) detected at line 7548
  []
 
 [145]
-Underfull \vbox (badness 10000) detected at line 7767
+Underfull \vbox (badness 10000) detected at line 7548
  []
 
 
-Overfull \vbox (0.56374pt too high) detected at line 7767
+Overfull \vbox (0.56369pt too high) detected at line 7548
  []
 
 [146]
-Underfull \vbox (badness 10000) detected at line 7767
+Underfull \vbox (badness 10000) detected at line 7548
  []
 
 
-Overfull \vbox (0.56374pt too high) detected at line 7767
+Overfull \vbox (0.56381pt too high) detected at line 7548
  []
 
 [147]
-Underfull \vbox (badness 10000) detected at line 7767
+Underfull \vbox (badness 10000) detected at line 7548
  []
 
 
-Overfull \vbox (0.5638pt too high) detected at line 7767
+Overfull \vbox (14.16377pt too high) detected at line 7548
  []
 
 [148]
-Underfull \vbox (badness 10000) detected at line 7767
+Underfull \vbox (badness 10000) detected at line 7548
  []
 
 
-Overfull \vbox (0.5638pt too high) detected at line 7767
+Overfull \vbox (0.56375pt too high) detected at line 7548
  []
 
 [149]
-Underfull \vbox (badness 10000) detected at line 7767
+Underfull \vbox (badness 10000) detected at line 7548
  []
 
 
-Overfull \vbox (0.56372pt too high) detected at line 7767
+Overfull \vbox (0.56374pt too high) detected at line 7548
  []
 
 [150]
-Underfull \vbox (badness 10000) detected at line 7767
+Underfull \vbox (badness 10000) detected at line 7548
  []
 
 
-Overfull \vbox (0.56374pt too high) detected at line 7767
+Overfull \vbox (0.56381pt too high) detected at line 7548
  []
 
 [151]
-Underfull \vbox (badness 10000) detected at line 7767
+Underfull \vbox (badness 10000) detected at line 7548
  []
 
 
-Overfull \vbox (0.56383pt too high) detected at line 7767
+Overfull \vbox (0.56377pt too high) detected at line 7548
  []
 
 [152]
-Underfull \vbox (badness 10000) detected at line 7767
+Underfull \vbox (badness 10000) detected at line 7548
  []
 
 
-Overfull \vbox (0.56375pt too high) detected at line 7767
+Overfull \vbox (0.56375pt too high) detected at line 7548
  []
 
 [153]
-Underfull \vbox (badness 10000) detected at line 7767
+Underfull \vbox (badness 10000) detected at line 7548
  []
 
 
-Overfull \vbox (0.56375pt too high) detected at line 7767
+Overfull \vbox (0.56372pt too high) detected at line 7548
  []
 
 [154]
-Underfull \vbox (badness 10000) detected at line 7767
+Underfull \vbox (badness 10000) detected at line 7548
  []
 
 
-Overfull \vbox (0.56372pt too high) detected at line 7767
+Overfull \vbox (0.56374pt too high) detected at line 7548
  []
 
 [155]
-Underfull \vbox (badness 10000) detected at line 7767
+Underfull \vbox (badness 10000) detected at line 7548
  []
 
 
-Overfull \vbox (0.56372pt too high) detected at line 7767
+Overfull \vbox (0.5637pt too high) detected at line 7548
  []
 
-[156]
-Underfull \vbox (badness 10000) detected at line 7767
- []
-
-
-Overfull \vbox (14.16373pt too high) detected at line 7767
- []
-
-[157] [158] [159] [160] [161] [162] [163] [164] [165] [166] [167] [168] [169] [170]
-Underfull \vbox (badness 1975) detected at line 8678
- []
-
-[171] [172]
-Overfull \hbox (158.57634pt too wide) in paragraph at lines 8771--8774
+[156] [157] [158] [159] [160] [161] [162] [163] [164] [165] [166] [167] [168] [169] [170] [171]
+Overfull \hbox (158.57634pt too wide) in paragraph at lines 8552--8555
 []\T1/lmr/m/n/10.95 arbol de clasi-fi-ca-cion con sklearn pe-nal-iza-cion op-tima De-ci-sion-TreeClas-si-fier(ccp_alpha=alpha_score_df_sorted[`alpha'][0],
  []
 
-[173] (./Practica1.aux)
+[172] [173] (./Practica1.aux)
 Package rerunfilecheck Info: File `Practica1.out' has not changed.
-(rerunfilecheck)             Checksum: DF32B7062D5D8857CCDD6E1C33EF1B73;12035.
+(rerunfilecheck)             Checksum: 3F3827C6645CA793115ABA384B7C3D24;11989.
  ) 
 Here is how much of TeX's memory you used:
  14213 strings out of 477031
  232058 string characters out of 5826468
- 755979 words of memory out of 5000000
+ 755963 words of memory out of 5000000
  34807 multiletter control sequences out of 15000+600000
  539645 words of font info for 75 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  72i,13n,77p,1309b,607s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on Practica1.pdf (173 pages, 2156205 bytes).
+Output written on Practica1.pdf (173 pages, 2155690 bytes).
 PDF statistics:
  1256 PDF objects out of 1440 (max. 8388607)
  992 compressed objects within 10 object streams

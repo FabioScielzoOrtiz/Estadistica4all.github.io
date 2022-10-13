@@ -4897,114 +4897,31 @@ Data_Python = Data_Python.iloc[: , 0:11]
 Data_Python.head()
 ```
 
+```
+  Age Gender  Total_Bilirubin  Direct_Bilirubin  Alkaline_Phosphotase  \
+0   65    0.0              0.7               0.1                   187   
+1   62    1.0             10.9               5.5                   699   
+2   62    1.0              7.3               4.1                   490   
+3   58    1.0              1.0               0.4                   182   
+4   72    1.0              3.9               2.0                   195   
+
+   Alamine_Aminotransferase  Aspartate_Aminotransferase  Total_Protiens  \
+0                        16                          18             6.8   
+1                        64                         100             7.5   
+2                        60                          68             7.0   
+3                        14                          20             6.8   
+4                        27                          59             7.3   
+
+   Albumin  Albumin_and_Globulin_Ratio Diseased  
+0      3.3                        0.90      0.0  
+1      3.2                        0.74      0.0  
+2      3.3                        0.89      0.0  
+3      3.4                        1.00      0.0  
+4      2.4                        0.40      0.0 
+```
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Age</th>
-      <th>Gender</th>
-      <th>Total_Bilirubin</th>
-      <th>Direct_Bilirubin</th>
-      <th>Alkaline_Phosphotase</th>
-      <th>Alamine_Aminotransferase</th>
-      <th>Aspartate_Aminotransferase</th>
-      <th>Total_Protiens</th>
-      <th>Albumin</th>
-      <th>Albumin_and_Globulin_Ratio</th>
-      <th>Diseased</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>65</td>
-      <td>0.0</td>
-      <td>0.7</td>
-      <td>0.1</td>
-      <td>187</td>
-      <td>16</td>
-      <td>18</td>
-      <td>6.8</td>
-      <td>3.3</td>
-      <td>0.90</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>62</td>
-      <td>1.0</td>
-      <td>10.9</td>
-      <td>5.5</td>
-      <td>699</td>
-      <td>64</td>
-      <td>100</td>
-      <td>7.5</td>
-      <td>3.2</td>
-      <td>0.74</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>62</td>
-      <td>1.0</td>
-      <td>7.3</td>
-      <td>4.1</td>
-      <td>490</td>
-      <td>60</td>
-      <td>68</td>
-      <td>7.0</td>
-      <td>3.3</td>
-      <td>0.89</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>58</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.4</td>
-      <td>182</td>
-      <td>14</td>
-      <td>20</td>
-      <td>6.8</td>
-      <td>3.4</td>
-      <td>1.00</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>72</td>
-      <td>1.0</td>
-      <td>3.9</td>
-      <td>2.0</td>
-      <td>195</td>
-      <td>27</td>
-      <td>59</td>
-      <td>7.3</td>
-      <td>2.4</td>
-      <td>0.40</td>
-      <td>0.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
 
 
 
@@ -5030,125 +4947,36 @@ Data_Python.insert(0, 'Y', Data_Python['Diseased'])
 Data_Python = Data_Python.drop(['Diseased'], axis=1)
 ```
 
+\newpage
+
 
 ```python
 Data_Python.head()
 ```
+```
+     Y  Age Gender  Total_Bilirubin  Direct_Bilirubin  Alkaline_Phosphotase  
+0  0.0   65    0.0              0.7               0.1                   187   
+1  0.0   62    1.0             10.9               5.5                   699   
+2  0.0   62    1.0              7.3               4.1                   490   
+3  0.0   58    1.0              1.0               0.4                   182   
+4  0.0   72    1.0              3.9               2.0                   195   
 
+   Alamine_Aminotransferase  Aspartate_Aminotransferase  Total_Protiens  
+0                        16                          18             6.8   
+1                        64                         100             7.5   
+2                        60                          68             7.0   
+3                        14                          20             6.8   
+4                        27                          59             7.3   
 
+   Albumin  Albumin_and_Globulin_Ratio  
+0      3.3                        0.90  
+1      3.2                        0.74  
+2      3.3                        0.89  
+3      3.4                        1.00  
+4      2.4                        0.40
+```
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Y</th>
-      <th>Age</th>
-      <th>Gender</th>
-      <th>Total_Bilirubin</th>
-      <th>Direct_Bilirubin</th>
-      <th>Alkaline_Phosphotase</th>
-      <th>Alamine_Aminotransferase</th>
-      <th>Aspartate_Aminotransferase</th>
-      <th>Total_Protiens</th>
-      <th>Albumin</th>
-      <th>Albumin_and_Globulin_Ratio</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.0</td>
-      <td>65</td>
-      <td>0.0</td>
-      <td>0.7</td>
-      <td>0.1</td>
-      <td>187</td>
-      <td>16</td>
-      <td>18</td>
-      <td>6.8</td>
-      <td>3.3</td>
-      <td>0.90</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.0</td>
-      <td>62</td>
-      <td>1.0</td>
-      <td>10.9</td>
-      <td>5.5</td>
-      <td>699</td>
-      <td>64</td>
-      <td>100</td>
-      <td>7.5</td>
-      <td>3.2</td>
-      <td>0.74</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.0</td>
-      <td>62</td>
-      <td>1.0</td>
-      <td>7.3</td>
-      <td>4.1</td>
-      <td>490</td>
-      <td>60</td>
-      <td>68</td>
-      <td>7.0</td>
-      <td>3.3</td>
-      <td>0.89</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.0</td>
-      <td>58</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.4</td>
-      <td>182</td>
-      <td>14</td>
-      <td>20</td>
-      <td>6.8</td>
-      <td>3.4</td>
-      <td>1.00</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.0</td>
-      <td>72</td>
-      <td>1.0</td>
-      <td>3.9</td>
-      <td>2.0</td>
-      <td>195</td>
-      <td>27</td>
-      <td>59</td>
-      <td>7.3</td>
-      <td>2.4</td>
-      <td>0.40</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-
-<p><p style="page-break-after:always;"></p></p>
+\vspace{0.5cm}
 
 
 Ahora dividimos el data-set en train y test :
@@ -5181,6 +5009,7 @@ Data_Train = pd.concat([Y_train , X_train], axis=1)
 
 
 
+\newpage
 
 
 Testeamos la funcion creada `classification_tree`
@@ -5257,7 +5086,7 @@ obs_ramas
 
 
 
-
+\newpage
 
 
 
@@ -5333,7 +5162,7 @@ TEC_classification_tree_own_function
 
 
 
-
+\newpage
 
 
 ### Algoritmo de creacion propia con Gini  
@@ -5915,8 +5744,6 @@ def classification_tree_Gini(Data_set, iterations_vector, k, Y_categories) :
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
 
 ### Testeo del algoritmo  
 
@@ -5987,7 +5814,7 @@ obs_ramas
     [3, 463]
 
 
-
+\newpage
 
 
 ### Validacion Simple con funcion de validación propia y funcion Regresssion Tree Gini propia 
@@ -6042,13 +5869,15 @@ def Simple_Validation_Classification(Data_Test, X_train, Y_train, Y_test) :
 ```
 
 
-
+\vspace{0.3cm}
 
 ```python
 y_predictions_vector , TEC_classification_tree_Gini_own_function = Simple_Validation_Classification(Data_Test, X_train, Y_train, Y_test)
 ```
 
-    El arbol final es el arbol con 1 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo 20 de observaciones por rama
+    El arbol final es el arbol con 1 Iteracion. 
+    Se ha cumplido el criterio de parada basado en numero minimo 20 
+    de observaciones por rama.
     
 
 
@@ -6056,19 +5885,14 @@ y_predictions_vector , TEC_classification_tree_Gini_own_function = Simple_Valida
 TEC_classification_tree_Gini_own_function
 ```
 
-
-
-
     0.28205128205128205
 
 
 
+\newpage
 
 
-<p><p style="page-break-after:always;"></p></p>
-
-
-### 4.5.3. Arboles de clasificación en `Python` con `Sklearn` <a class="anchor" id="29"></a>
+###  Arboles de clasificación en `Python` con `Sklearn`
 
 La función de `sklearn` para arboles de clasificación es la siguiente :
 
@@ -6106,7 +5930,7 @@ Es el numero minimo de observaciones que tienen que tener cada rama del arbol.  
 
 Complexity parameter used for Minimal Cost-Complexity Pruning. The subtree with the largest cost complexity that is smaller than ccp_alpha will be chosen. By default, no pruning is performed. See Minimal Cost-Complexity Pruning for details
 
-
+\newpage
 
 Probamos la funcion de `sklearn` :
 
@@ -6173,9 +5997,6 @@ Classification_Tree_sklearn.predict( [x_new] )
 Classification_Tree_sklearn.get_depth()
 ```
 
-
-
-
     4
 
 
@@ -6187,16 +6008,16 @@ Classification_Tree_sklearn.get_depth()
 Classification_Tree_sklearn.get_n_leaves()
 ```
 
-
-
-
     8
 
 
 
 nº de iteraciones (nodos que se han dividido en otros dos nodos) = nº ramas - 1 
 
-<p><p style="page-break-after:always;"></p></p>
+
+
+
+\newpage
 
 
 **Plotear el arbol :**
@@ -6228,21 +6049,15 @@ graph = graphviz.Source(dot_data)
 ```
 
 
-```python
-from IPython.display import Image
-Image(filename='arbol_skl.jpg', width = 1000, height = 500) 
-```
 
-
-
-
-    
-![jpeg](output_660_0.jpg)
+![Arbol sklearn (criterion='gini', splitter='best',
+min_samples_split=40, min_samples_leaf=50, max_depth=None,
+ccp_alpha=0) ](output_660_0.jpg){height=550px width=620px}
     
 
 
 
-
+\newpage
 
 Para demostrar que entendemos los parametros que vienen en cada nodo (en cada recuadro) los vamos a calcular "manualmente" para el nodo que se deriva de True en el nodo raiz,  el que tiene como parametros: gini = 0.478 , samples = 289 , value = [175, 114]
 
