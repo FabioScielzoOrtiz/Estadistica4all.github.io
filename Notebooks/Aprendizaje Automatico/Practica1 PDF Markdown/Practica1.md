@@ -4997,7 +4997,7 @@ Y_test = Data_Python_Test.loc[: , 'Y']
 
 Data_Test = pd.concat([Y_test , X_test], axis=1)
 
-##################################################################################################
+#########################
 
 ## TRAIN
 
@@ -5329,13 +5329,13 @@ def classification_tree_Gini(Data_set, iterations_vector, k, Y_categories) :
             pass
 
 
-######################################################################################
+#################################################################
 
     ## ITERACION 2   ·········· POR MODIFICAR !! ·············
 
     if iterations_vector[1] == 2 :  # Desarrollar nodo R1 de la 1ª iteracion
 
-        ################################################################
+        #######################################################
 
 
         def f_R12(j, s, r, Data_set):
@@ -5461,7 +5461,7 @@ def classification_tree_Gini(Data_set, iterations_vector, k, Y_categories) :
 
 
 
-####################################################################################
+##########################################################
 
 ## ITERACION 3
 
@@ -6063,8 +6063,7 @@ Para demostrar que entendemos los parametros que vienen en cada nodo (en cada re
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+\vspace{0.2cm}
 
 *samples = 289*
 
@@ -6087,6 +6086,8 @@ len(df)
 
 Por tanto, dado un nodo, su parametro *samples* indica el numero de observaciones de entrenamiento que caerian en la rama que contiene a ese nodo, si este nodo fuera el nodo terminal de la rama. En el caso escogido seria la rama definida por Total_Bilirubin <= 1.65.
 
+
+\vspace{0.2cm}
 
 
 *value = [175, 114]*
@@ -6118,6 +6119,7 @@ len(df.loc[df['Y'] == 1 , ])
 Por tanto, dado un nodo, su parametro *value* es un vector con las frecuencias de las categorias de la variable respuesta (Y) para las observaciones de train que caerian en la rama que contiene a ese nodo, si este nodo fuera el nodo terminal de la rama.
 
 
+\vspace{0.2cm}
 
 *gini = 0.478*
 
@@ -6143,8 +6145,7 @@ Por tanto, dado un nodo del arbol, el parametro *gini* indica el indice de gini 
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+ \newpage
 
 ### Validación simple con función de validacion propia y funcion Classification Tree de `sklearn`
 
@@ -6223,9 +6224,8 @@ TEC_classification_tree_sklearn
 
 
 
-
-<p><p style="page-break-after:always;"></p></p>
-
+\newpage
+ 
 
 ### 4.5.4. Arboles de clasificación penalizados en `sklearn` :  $\alpha$ óptimo <a class="anchor" id="30"></a>
 
@@ -6309,17 +6309,11 @@ plt.ylabel("score (TAC = 1 - TEC)")
 ```
 
 
-
-
-    Text(0, 0.5, 'score (TAC = 1 - TEC)')
-
-
-
-
     
-![png](output_695_1.png)
+![TAC vs $\alpha$](output_695_1.png){height=500px width=600px}
     
 
+\newpage
 
 
 ```python
@@ -6337,98 +6331,21 @@ alpha_score_df_sorted['TEC']= 1 - alpha_score_df_sorted['score (TAC = 1-TEC)']
 alpha_score_df_sorted.head(7)
 ```
 
+```
+       index       alpha      score (TAC = 1-TEC)     ramas       TEC
+0        23      0.003577             0.700855         47       0.299145
+1        47      0.041955             0.692308         1        0.307692
+2        46      0.014387             0.692308         2        0.307692
+3        45      0.010121             0.692308         3        0.307692
+4        44      0.009833             0.692308         4        0.307692
+5        43      0.007187             0.692308         5        0.307692
+6        22      0.003433             0.692308         48       0.307692
+
+```
+ 
 
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>index</th>
-      <th>alpha</th>
-      <th>score (TAC = 1-TEC)</th>
-      <th>ramas</th>
-      <th>TEC</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>23</td>
-      <td>0.003577</td>
-      <td>0.700855</td>
-      <td>47</td>
-      <td>0.299145</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>47</td>
-      <td>0.041955</td>
-      <td>0.692308</td>
-      <td>1</td>
-      <td>0.307692</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>46</td>
-      <td>0.014387</td>
-      <td>0.692308</td>
-      <td>2</td>
-      <td>0.307692</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>45</td>
-      <td>0.010121</td>
-      <td>0.692308</td>
-      <td>3</td>
-      <td>0.307692</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>44</td>
-      <td>0.009833</td>
-      <td>0.692308</td>
-      <td>4</td>
-      <td>0.307692</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>43</td>
-      <td>0.007187</td>
-      <td>0.692308</td>
-      <td>5</td>
-      <td>0.307692</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>22</td>
-      <td>0.003433</td>
-      <td>0.692308</td>
-      <td>48</td>
-      <td>0.307692</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
+\vspace{0.5cm}
 
 
 
@@ -6488,7 +6405,7 @@ def Simple_Validation_Classification(Data_Test, X_train, Y_train, Y_test) :
     return(y_predictions_vector , TEC)
 ```
 
-
+\vspace{0.25cm}
 
 
 ```python
@@ -6500,17 +6417,13 @@ y_predictions_vector , TEC_classification_tree_penalized_star = Simple_Validatio
 TEC_classification_tree_penalized_star
 ```
 
-
-
-
     0.29914529914529914
 
 
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+\newpage
 
 ### 4.5.5. Comparación final entre árboles de clasificación por validación simple <a class="anchor" id="31"></a>
 
@@ -6533,25 +6446,27 @@ TEC_classification_tree_penalized_star
 
 El ranking de modelos segun validacion simple sería :
 
-1) TEC_classification_tree_Gini_own_function
+1. TEC_classification_tree_Gini_own_function
 
 
-2) TEC_classification_tree_penalized_star(ccp_alpha=alpha_score_df_sorted['alpha'][0] , criterion='gini', splitter='best', random_state=222)) 
+2. TEC_classification_tree_penalized_star(ccp_alpha=alpha_score_df_sorted['alpha'][0] , criterion='gini', splitter='best', random_state=222)) 
 
 
-3) TEC_classification_tree_own_function
+3. TEC_classification_tree_own_function
 
 
-4) TEC_classification_tree_sklearn (DecisionTreeRegressor(criterion='gini', splitter='best', min_samples_split=40, min_samples_leaf=50,  max_depth=None,  ccp_alpha=0, random_state=222)  )
+4. TEC_classification_tree_sklearn (DecisionTreeRegressor(criterion='gini', splitter='best', min_samples_split=40, min_samples_leaf=50,  max_depth=None,  ccp_alpha=0, random_state=222)  )
  
 
 
+\newpage
+
+
+##. KNN para clasificación en `Python`  
 
 
 
-## 4.6. KNN para clasificación en `Python` <a class="anchor" id="32"></a>
-
-### 4.6.1. KNN para clasificación: teoría  <a class="anchor" id="33"></a>
+### KNN para clasificación: teoría  
 
 - Tenemos $\hspace{0.1cm} p \hspace{0.1cm}$ variables $\hspace{0.1cm} X=(X_1,...,X_p) \hspace{0.1cm}$ medidas en un $n$ muestra de tamaño.
 
@@ -6559,49 +6474,61 @@ El ranking de modelos segun validacion simple sería :
 
 - Los grupos generados por $\hspace{0.1cm} Y \hspace{0.1cm}$ se denotan como $\hspace{0.1cm} \Omega_1 ,..., \Omega_g \hspace{0.15cm}$ $\hspace{ 0.15cm}( \hspace{0.1cm} y_i = c_r \hspace{0.15cm} \Leftrightarrow \hspace{0.15cm}$ $i \in \Omega_r \hspace{0.1cm})$
 
+\vspace{0.3cm}
+
 El problema de clasificación supervisada consiste en, para una nueva observación de las variables $X_1,...,X_p \hspace{0.1cm}$, $\hspace{0.1cm} x_{nueva} = (x_{nueva,1}\ hspace{0.1cm},\hspace{0.1cm}x_{nuevo,2}\hspace{0.1cm},\dots,\hspace{0.1cm}x_{nuevo,p}) \hspace{0.1cm}$, predecir es $\hspace{0.1cm} Y \hspace{0.1cm}$ valor $\hspace{0.1cm} (y_{nuevo})\hspace{0.1cm}$ usando la información disponible de $\hspace{0.1cm} X_1 ,...,X_p \hspace{0.1cm}$ y $ \hspace{0.1cm} Y$
 
 Entonces, el problema es clasificar un nuevo elemento/individuo en uno de los $\hspace{0.1cm} g \hspace{0.1cm}$ grupos generados por $\hspace{0.1cm} Y \hspace{0.1cm}$ usando la información disponible de $\hspace{0.1cm} X_1,...,X_p \hspace{0.1cm}$ y $Y$, y también $\hspace{0.1cm} x_{nuevo} = (x_{nuevo,1 }\hspace{0.1cm},\hspace{0.1cm}x_{nuevo,2}\hspace{0.1cm},\dots,\hspace{0.1cm}x_{nuevo,p}) \hspace{0.1cm}$
 
-Tenga en cuenta que si no tenemos información sobre $\hspace{0.1cm} Y \hspace{0.1cm}$, esto sería un problema de clasificación no supervisado.
+Tengase en cuenta que si no tenemos información sobre $\hspace{0.1cm} Y \hspace{0.1cm}$, esto sería un problema de clasificación no supervisado.
 
+
+\vspace{0.3cm}
 
 
 El algoritmo KNN (K-vecinos más cercanos) para la clasificación supervisada tiene los siguientes pasos:
 
+\vspace{0.2cm}
+
 $1. \hspace{0.15cm}$ Define una medida de **distancia** entre las observaciones de la muestra original respecto a las variables $X_1,...,X_p$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\delta$
 
+\vspace{0.2cm}
 
 
  $2. \hspace{0.15cm}$ Calcula las distancias entre $\hspace{0.1 cm}x_{new}\hspace{0.1 cm}$ y las observaciones iniciales $\hspace{0.1cm} \lbrace x_1,...,x_n \rbrace$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\lbrace \hspace{0.1 cm} \delta(x_{nuevo}\hspace{0.03 cm},\hspace{0.03 cm} x_i) \hspace{0.1 cm} / \hspace{0.1 cm} i=1,...,n \hspace{0.1 cm} \rbrace$
 
-  
+  \vspace{0.2cm}
+
  $3. \hspace{0.15cm}$ Seleccione la $\hspace{0.03 cm} k \hspace{0.03 cm}$ observación más cercana a $\hspace{0.06 cm} x_{nuevo}\hspace{0.06 cm}$ basado en $\hspace {0.05cm} \delta \hspace{0.12cm}$ $(k$ vecinos más cercanos de $x_{nuevo})$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ El conjunto de estas observaciones será denotar por $KNN(x_{nuevo})$
 
- $4. \hspace{0.15cm}$ Calcula la proporción de estas observaciones (vecinos) que pertenecen a cada grupo $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$
+\vspace{0.2cm}
+
+ $4. \hspace{0.15cm}$ Calcular la proporción de estas observaciones (vecinos) que pertenecen a cada grupo :
  
- $\hspace{0.65cm} \Rightarrow \hspace{0.15cm}$ La proporción de $KNN$ que pertenece al grupo $\hspace{0.15cm} \Omega_r$ $\hspace{0.1cm}(Y=c_r) \hspace{0.1cm}$ será denotado por $\hspace{0.1 cm} f^{knn}_{r} $
+La proporción de $KNN$ que pertenece al grupo $\hspace{0.15cm} \Omega_r$ $\hspace{0.1cm}(Y=c_r) \hspace{0.1cm}$ será denotado por $\hspace{0.1 cm} f^{knn}_{r}$
 
 
-   $$ \hspace{0.1 cm} f^{KNN(x_{new})}_{r} \hspace{0.15cm}=\hspace{0.15cm} \dfrac{ \# \hspace{0.1cm}\lbrace\hspace{0.1cm} i \in KNN(x_{new}) \hspace{0.1cm}/\hspace{0.1cm} i \in \Omega_r \hspace{0.1cm}\rbrace  }{\# \hspace{0.1cm} KNN(x_{new}) = k} \hspace{0.15cm}=\hspace{0.15cm}  \dfrac{ \# \hspace{0.1cm}\lbrace\hspace{0.1cm} i \in KNN \hspace{0.1cm}/\hspace{0.1cm} y_i = r \hspace{0.1cm}\rbrace  }{ k}$$
+   $$\hspace{0.1 cm} f^{KNN(x_{new})}_{r} \hspace{0.15cm}=\hspace{0.15cm} \dfrac{ \# \hspace{0.1cm}\lbrace\hspace{0.1cm} i \in KNN(x_{new}) \hspace{0.1cm}/\hspace{0.1cm} i \in \Omega_r \hspace{0.1cm}\rbrace  }{\# \hspace{0.1cm} KNN(x_{new}) = k} \hspace{0.15cm}=\hspace{0.15cm}  \dfrac{ \# \hspace{0.1cm}\lbrace\hspace{0.1cm} i \in KNN \hspace{0.1cm}/\hspace{0.1cm} y_i = r \hspace{0.1cm}\rbrace  }{ k}$$
    
 
 
+\vspace{0.2cm}
 
 
 $5. \hspace{0.15cm}$ Clasifica $\hspace{0.1cm} x_{new} \hspace{0.1cm}$ en ese grupo/clase $($ definido por $Y)$ más frecuente en KNN:
 
-$\hspace{0.25cm} \hspace{0.2cm}$ $\text{If} \hspace{0.15cm} \underbrace{ f^{knn}_{s} \geqslant f^{knn}_{r} \ hspace{0.15cm},\hspace{0.15cm} \forall r = 1,...,g }_{\Omega_s \hspace{0.1cm}\text{es el grupo más frecuente en}\hspace{0.1cm} KNN }$ $\hspace{0.1cm} \hspace{0.15cm} \Rightarrow \hspace{0.15cm} x_{new} \hspace{0.1cm}$ se clasifica en $\hspace{0.1cm} \Omega_s$ $\hspace{0.25cm} \Rightarrow \hspace{0.15cm} \widehat{y}_{new} = s \hspace{0.1cm}$
+$\hspace{0.25cm} \hspace{0.2cm}$ $\text{If} \hspace{0.15cm} \underbrace{ f^{knn}_{s} \geqslant f^{knn}_{r} \hspace{0.15cm},\hspace{0.15cm} \forall r = 1,...,g }_{s \hspace{0.1cm}\text{es la clase más frecuente en}\hspace{0.1cm} KNN }$ $\hspace{0.1cm} \hspace{0.15cm} \Rightarrow \hspace{0.15cm} x_{new} \hspace{0.1cm}$ se clasifica en $\hspace{0.1cm} \Omega_s$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm} \widehat{y}_{new} = s$
 
+\vspace{0.2cm}
 
 
 $\hspace{0.2 cm}$ En otras palabras:
 
-$\hspace{0.6 cm} \text{If} \hspace{0.4 cm} r^* \hspace{0.05 cm}= \hspace{0.05 cm} \underset{\hspace{0.7 cm} r}{arg \hspace{ 0.1 cm} Máx.} \hspace{0.05 cm} \left(\hspace{0.1 cm} f^{KNN(x_{new})}_{r} \hspace{0.1 cm}\right) \hspace{0.2 cm} \hspace{0.15cm} \Rightarrow \hspace{0.25cm} \widehat{y}_{new} = r^* \hspace{0.1cm}$
+$\hspace{0.6 cm} \text{If} \hspace{0.4 cm} s^* \hspace{0.05 cm}= \hspace{0.05 cm} \underset{\hspace{0.7 cm} s}{arg \hspace{ 0.1 cm} Máx.} \hspace{0.05 cm} \left(\hspace{0.1 cm} f^{KNN(x_{new})}_{s} \hspace{0.1 cm}\right) \hspace{0.2 cm} \hspace{0.15cm} \Rightarrow \hspace{0.25cm} \widehat{y}_{new} = s^* \hspace{0.1cm}$
 
 
 
-
+\newpage
 
 ### 4.6.2. Algoritmo de creación proia en `Python`  <a class="anchor" id="34"></a>
 
@@ -6619,7 +6546,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
     n_jobs  = multiprocessing.cpu_count()
 
-####################################################################################################################################################################################################################################################
+#############################################################
 
     # Y, X y x_new deben ser objetos Pandas ya que luego seran convertidos a objetos Numpy automaticamente por el algoritmo
     
@@ -6630,7 +6557,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
     # x_new tiene que ser un vector con una nueva observacion de los predictores. 
 
 
-####################################################################################################################################################################################################################################################
+#############################################################
 
     Y = Y.to_numpy()
 
@@ -6645,7 +6572,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
     groups_knn = []
 
-##########################################################################################
+###############################################################
     
     def a(Binary_Data) :
 
@@ -6655,7 +6582,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
             return(a)
 
-##########################################################################################
+###############################################################
 
     def d(Binary_Data):
 
@@ -6667,7 +6594,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
             return(d)
 
-##########################################################################################
+###############################################################
 
     def alpha_py(i,j, Multiple_Categorical_Data):
 
@@ -6689,8 +6616,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
         return(alpha)
 
-####################################################################################################################################################################################################################################################
-    
+###############################################################    
     if distance == "Euclidean":
 
         def Dist_Euclidea_Python(i, j, Quantitative_Data_set): 
@@ -6701,7 +6627,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
             return Dist_Euclidea
 
-    ###################################################################
+###############################################################
            
         ## PARTE DEL CODIGO A PARALELIZAR
 
@@ -6714,7 +6640,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
         distances = Parallel(n_jobs=n_jobs)( delayed(Dist_Euclidea_Python)( len(X), s , X ) for s in range(1, len(X)) )
            
 
-    ###################################################################
+###############################################################
 
     if distance == "Minkowski":
 
@@ -6724,7 +6650,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
             return Dist_Minkowski
 
-    ###################################################################
+###############################################################
 
         ## PARTE DEL CODIGO A PARALELIZAR
 
@@ -6736,7 +6662,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
         distances = Parallel(n_jobs=n_jobs)( delayed(Dist_Minkowski_Python)( len(X), s , q , X) for s in range(1, len(X)) )
 
-    ###################################################################
+###############################################################
 
     if distance == "Canberra":
 
@@ -6754,7 +6680,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
             return Dist_Canberra
 
-    ###################################################################
+###############################################################
 
         ## PARTE DEL CODIGO A PARALELIZAR
 
@@ -6767,7 +6693,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
         distances = Parallel(n_jobs=n_jobs)( delayed(Dist_Canberra_Python)( len(X), s , X) for s in range(1, len(X)) )
                 
 
-    ###################################################################
+###############################################################
    
     if distance == "Pearson":
 
@@ -6779,7 +6705,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
             return Dist_Pearson
 
-    ###################################################################
+###############################################################
 
        ## PARTE DEL CODIGO A PARALELIZAR
        
@@ -6792,7 +6718,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
         distances = Parallel(n_jobs=n_jobs)( delayed(Dist_Pearson_Python)( len(X), s , X) for s in range(1, len(X)) )
 
-    ###################################################################
+###############################################################
     
     if distance == "Mahalanobis":
 
@@ -6814,7 +6740,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
             return Dist_Maha
 
         
-    ###################################################################
+###############################################################
 
     ## PARTE DEL CODIGO A PARALELIZAR
 
@@ -6827,7 +6753,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
         distances = Parallel(n_jobs=n_jobs)( delayed(Dist_Mahalanobis_Python)( len(X), s , X) for s in range(1, len(X)) )
        
 
-    ###################################################################
+###############################################################
     
     if distance == "Sokal":
 
@@ -6853,7 +6779,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
             return dist_Sokal
 
-    ###################################################################
+###############################################################
 
     ## PARTE DEL CODIGO A PARALELIZAR
 
@@ -6865,7 +6791,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
         distances = Parallel(n_jobs=n_jobs)( delayed(Dist_Sokal_Python)( len(X), s , X) for s in range(1, len(X)) )
 
-    ###################################################################
+###############################################################
    
     if distance == "Jaccard":
 
@@ -6892,7 +6818,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
             return dist_Jaccard
 
-    ###################################################################
+###############################################################
 
     ## PARTE DEL CODIGO A PARALELIZAR
 
@@ -6904,7 +6830,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
         distances = Parallel(n_jobs=n_jobs)( delayed(Dist_Jaccard_Python)( len(X), s , X) for s in range(1, len(X)) )
 
-    ###################################################################
+###############################################################
     
     if distance == "Matches":
 
@@ -6923,7 +6849,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
             return( Dist_Matches )
 
-    ###################################################################
+###############################################################
 
         # for i in range(1, len(X)):
 
@@ -6933,8 +6859,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
         distances = Parallel(n_jobs=n_jobs)( delayed(Dist_Matches_Py)( len(X), s , X) for s in range(1, len(X)) )
 
- ##############################################################################################################################################   
-   
+###############################################################   
     if distance == "Gower":
 
         # The data matrix X have to be order in the following way:
@@ -6942,7 +6867,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
 
 
-##########################################################################################
+###############################################################
 
 
         def Gower_Similarity_Python(i,j, Mixed_Data_Set, p1, p2, p3):
@@ -6952,7 +6877,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
    # The data matrix X have to be order in the following way:
    # The p1 first are quantitative, the following p2 are binary categorical, and the following p3 are multiple categorical.
 
-   #####################################################################################
+###############################################################
         
             def G(k, X):
 
@@ -6967,8 +6892,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
                 G_vector[r] = G(r, X)
                 
       
-    ##########################################################################################
-    
+###############################################################    
             ones = np.repeat(1, p1)
 
             Quantitative_Data = X[: , 0:p1]
@@ -6977,7 +6901,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
             
             Multiple_Categorical_Data = X[: , (p1+p2):(p1+p2+p3) ]
 
-    ##########################################################################################
+###############################################################
 
             numerator_part_1 = ( ones - ( abs(Quantitative_Data[i-1,:] - Quantitative_Data[j-1,:]) / G_vector ) ).sum() 
 
@@ -6991,7 +6915,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
             return(Similarity_Gower)
 
-##########################################################################################
+###############################################################
 
         def Dist_Gower_Py(i, j, Mixed_Data , p1, p2, p3):
 
@@ -6999,7 +6923,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
             return(Dist_Gower)    
 
-    ###################################################################
+###############################################################
 
         # for i in range(1, len(X)):
 
@@ -7009,7 +6933,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
         distances = Parallel(n_jobs=n_jobs)( delayed(Dist_Gower_Py)( len(X), s , X, p1, p2, p3) for s in range(1, len(X)) )
 
-##############################################################################################################################################
+###############################################################
 
     if distance == "Gower-BM" :
 
@@ -7020,13 +6944,13 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
           # The data matrix X have to be order in the following way:
           # The p2 first are binary categorical, and the following p3 are multiple categorical.
 
-##########################################################################################
+###############################################################
        
             Binary_Data = X[: , 0:p2]
 
             Multiple_Categorical_Data = X[: , (p2):(p2+p3)]
  
-##########################################################################################
+###############################################################
 
  
             numerator_part_2 = a(Binary_Data)[i-1,j-1] + alpha_py(i,j, Multiple_Categorical_Data)
@@ -7039,7 +6963,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
             return(Similarity_Gower)
 
-##############################################################################################################################################
+###############################################################
         
         def Dist_GowerBM_Py(i, j, BM_Data ,  p2, p3):
 
@@ -7047,7 +6971,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
             return(Dist_Gower)
 
-##############################################################################################################################################
+###############################################################
 
         # for i in range(1, len(X)):
 
@@ -7057,7 +6981,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
         distances = Parallel(n_jobs=n_jobs)( delayed(Dist_GowerBM_Py)( len(X), s , X, p2, p3) for s in range(1, len(X)) )
 
-##############################################################################################################################################
+###############################################################
     
     if distance == "Gower-BQ" :
 
@@ -7069,7 +6993,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
         # The data matrix X have to be order in the following way:
         # The p1 first are quantitative, the following p2 are binary categorical 
 
-##########################################################################################
+###############################################################
         
             def G(k, X):
 
@@ -7082,7 +7006,8 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
             for r in range(0, p1):
 
                 G_vector[r] = G(r, X)
-##########################################################################################
+                
+###############################################################
     
             ones = np.repeat(1, p1)
 
@@ -7091,7 +7016,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
             Binary_Data = X[: , (p1):(p1+p2)]
          
  
-##########################################################################################
+###############################################################
 
             numerator_part_1 = ( ones - ( abs(Quantitative_Data[i-1,:] - Quantitative_Data[j-1,:]) / G_vector ) ).sum() 
 
@@ -7105,7 +7030,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
             return(Similarity_Gower)
 
-###############################################################################
+###############################################################
 
         def Dist_GowerBQ_Py(i, j, BQ_Data ,  p1, p2):
 
@@ -7113,7 +7038,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
             return(Dist_Gower)
 
-##############################################################################################################################################
+###############################################################
 
         # for i in range(1, len(X)):
 
@@ -7124,7 +7049,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
         distances = Parallel(n_jobs=n_jobs)( delayed(Dist_GowerBQ_Py)( len(X), s , X, p1, p2) for s in range(1, len(X)) )
 
 
-##############################################################################################################################################
+###############################################################
     
     if distance == "Gower-MQ" :
         
@@ -7135,7 +7060,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
    # The data matrix X have to be order in the following way:
    # The p1 first are quantitative, the following p2 are binary categorical, and the following p3 are multiple categorical.
 
-##########################################################################################
+###############################################################
             
             def G(k, X):
 
@@ -7149,7 +7074,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
                 G_vector[r] = G(r, X)
 
-##########################################################################################
+###############################################################
     
             ones = np.repeat(1, p1)
 
@@ -7158,7 +7083,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
             Multiple_Categorical_Data = X[: , (p1):(p1+p3)]
  
     
-##########################################################################################
+###############################################################
 
             numerator_part_1 = ( ones - ( abs(Quantitative_Data[i-1,:] - Quantitative_Data[j-1,:]) / G_vector ) ).sum() 
 
@@ -7174,7 +7099,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
 
 
-############################################################################################
+###############################################################
 
         def Dist_GowerMQ_Py(i, j, MQ_Data ,  p1, p3):
 
@@ -7183,7 +7108,8 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
                 return(Dist_Gower)
 
 
-######################################################################################################################################
+###############################################################
+
         # for i in range(1, len(X)):
 
         # distances.append( Dist_GowerMQ_Py( len(X), i , X, p1, p3) )
@@ -7192,9 +7118,9 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
         distances = Parallel(n_jobs=n_jobs)( delayed(Dist_GowerMQ_Py)( len(X), s , X, p1, p3) for s in range(1, len(X)) )
 
-######################################################################################################################################
+###############################################################
 
-######################################################################################################################################
+###############################################################
 
     distances = pd.DataFrame({'distances': distances})
 
@@ -7226,6 +7152,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
     return prediction_group, proportions_groups_knn   
 ```
 
+\newpage
 
 
 Probamos el algoritmo con un ejemplo:
@@ -7240,66 +7167,23 @@ prediction_group, proportions_groups_knn  = KNN_classification( X_train , Y_trai
 prediction_group
 ```
 
-
-
-
-    0.0
-
-
+  0.0
 
 
 ```python
 proportions_groups_knn
 ```
+``` 
+    proportions_groups     groups
+0             0.8              0
+1             0.2              1
+ 
+```
 
 
+\newpage
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>proportions_groups</th>
-      <th>groups</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.8</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.2</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-
-<p><p style="page-break-after:always;"></p></p>
-
-
-#### Validación simple con función de validación propia y función de clasificación KNN propia <a class="anchor" id="3.1"></a>
+**Validación simple con función de validación propia y función de clasificación KNN propia**
 
 
 ```python
@@ -7351,7 +7235,12 @@ def Simple_Validation_Classification(distance, Data_Test, X_train, Y_train, Y_te
     return(y_predictions_vector , TEC)
 ```
 
+
+\newpage
+
 Se va a probar el algoritmo con distancias diferentes a las que pueden usarse conn `sklearn` para asi cubrir un mayor campo.
+
+\vspace{0.35cm}
 
 **Usando la distancia de Canberra:**
 
@@ -7372,6 +7261,7 @@ TEC_KNN_Canberra
 
 
 
+\vspace{0.35cm}
 
 
 **Usando la distancia de Pearson:**
@@ -7392,6 +7282,7 @@ TEC_KNN_Pearson
     0.2991452991452992
 
 
+\vspace{0.35cm}
 
 
 
@@ -7479,6 +7370,7 @@ TEC_KNN_Mahalanobis
 
 
 
+\vspace{0.35cm}
 
 
 **Usando la distancia de Gower:**
@@ -7521,16 +7413,12 @@ Data_Test_rearranged = Data_Test.loc[ : , [ 'Y' ,  # Respuesta
 ```
 
 
-```python
-Data_Test_rearranged.shape
-```
 
 
 
+\vspace{0.35cm}
 
-    (117, 11)
-
-
+Validamos el algoritmo por validación simple:
 
 
 ```python
@@ -7598,19 +7486,16 @@ y_predictions_vector , TEC_KNN_Gower_BQ  = Simple_Validation_Classification(Data
 TEC_KNN_Gower_BQ
 ```
 
-
-
-
     0.3418803418803419
 
 
 
 
 
-<p><p style="page-break-after:always;"></p></p>
+\newpage
 
 
-### 4.6.3. KNN para clasificación en `Python` con `sklearn`  <a class="anchor" id="35"></a>
+### KNN para clasificación en `Python` con `sklearn` 
 
 
 ```python
@@ -7621,11 +7506,12 @@ from sklearn.neighbors import NearestNeighbors
 
 
 ```python
-## sklearn.neighbors.KNeighborsClassifier(n_neighbors=5, *, weights='uniform', algorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=None) 
+# sklearn.neighbors.KNeighborsClassifier(n_neighbors=5, *, weights='uniform', algorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=None) 
 ```
 
 Es recomendable ver primero la documentación de sklearn: https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html
 
+\vspace{0.3cm}
 
 ```python
 knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform', p=2, metric='minkowski')
@@ -7636,10 +7522,7 @@ knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  we
 knn_classification.fit(X_train, Y_train)
 ```
 
-
-
-
-    KNeighborsClassifier(n_neighbors=10)
+   KNeighborsClassifier(n_neighbors=10)
 
 
 
@@ -7647,9 +7530,6 @@ knn_classification.fit(X_train, Y_train)
 ```python
 knn_classification.predict( [x_new] ) 
 ```
-
-
-
 
     array([0])
 
@@ -7660,19 +7540,15 @@ knn_classification.predict( [x_new] )
 knn_classification.predict_proba([x_new])
 ```
 
-
-
-
     array([[0.8, 0.2]])
 
 
 
 
+\newpage
 
-<p><p style="page-break-after:always;"></p></p>
 
-
-#### Validación simple con función de validación propia y función de clasificación KNN `sklearn`<a class="anchor" id="3.1"></a>
+**Validación simple con función de validación propia y función de clasificación KNN `sklearn`**
 
 
 ```python
@@ -7739,18 +7615,17 @@ TEC_KNN_Minkowski_p_2
 ```
 
 
-
-
     0.2991452991452992
 
 
 
 
+\vspace{0.6cm}
 
-<p><p style="page-break-after:always;"></p></p>
 
+**Validación simple con la función de validación `sklearn`**
 
-#### Validación simple con la función de validación `sklearn` <a class="anchor" id="3.2"></a>
+\vspace{0.2cm}
 
 **Usando la distancia de Minkowski con q=2:**
 
@@ -7782,7 +7657,7 @@ TEC_KNN_skl_Minkowski_p_2
 
 
 
-
+\vspace{0.2cm}
 
 **Usando la distancia de Minkowski con q=1:**
 
@@ -7814,7 +7689,7 @@ TEC_skl_Minkowski_p_1
 
 
 
-
+\vspace{0.2cm}
 
 **Usando la distancia coseno:**
 
@@ -7848,13 +7723,15 @@ TEC_skl_Coseno
 
 
 
-<p><p style="page-break-after:always;"></p></p>
+\newpage
 
 
 ### Selección óptima del hiperparámetro $k$ en KNN 
 
 Vamos a hacer una seleccion óptima del hiperparametro $k$ por validacion simple para KNN con varias distancias.
 
+
+\vspace{0.35cm}
 
 
 **$k$ óptimo con distancia Canberra**
@@ -7909,6 +7786,8 @@ def Simple_Validation_Classification(k, Data_Test, X_train, Y_train, Y_test) :
     return(y_predictions_vector , TEC)
 ```
 
+\vspace{0.35cm}
+
 
 ```python
 TEC_KNN_Canberra_vector = [ ]
@@ -7931,74 +7810,19 @@ k_KNN_Canberra_df = k_KNN_Canberra_df.sort_values(by=["TEC"]).reset_index(drop=F
 ```python
 k_KNN_Canberra_df.head()
 ```
+```
+   index   k       TEC
+0      3   4  0.230769
+1      4   5  0.230769
+2      5   6  0.230769
+3      7   8  0.230769
+4      9  10  0.239316
+```
 
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>index</th>
-      <th>k</th>
-      <th>TEC</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>3</td>
-      <td>4</td>
-      <td>0.230769</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>4</td>
-      <td>5</td>
-      <td>0.230769</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>5</td>
-      <td>6</td>
-      <td>0.230769</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>7</td>
-      <td>8</td>
-      <td>0.230769</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>9</td>
-      <td>10</td>
-      <td>0.239316</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-
-<p><p style="page-break-after:always;"></p></p>
-
+\newpage
 
 **$k$ óptimo con distancia Pearson**
 
@@ -8075,72 +7899,19 @@ k_KNN_Pearson_df = k_KNN_Pearson_df.sort_values(by=["TEC"]).reset_index(drop=Fal
 k_KNN_Pearson_df.head()
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>index</th>
-      <th>k</th>
-      <th>TEC</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>3</td>
-      <td>4</td>
-      <td>0.256410</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-      <td>2</td>
-      <td>0.264957</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>4</td>
-      <td>5</td>
-      <td>0.264957</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2</td>
-      <td>3</td>
-      <td>0.273504</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>6</td>
-      <td>0.273504</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+```
+   index  k       TEC
+0      3  4  0.256410
+1      1  2  0.264957
+2      4  5  0.264957
+3      2  3  0.273504
+4      5  6  0.273504
+```
 
 
 
 
-
-<p><p style="page-break-after:always;"></p></p>
+\newpage
 
 
 **$k$ óptimo con distancia Euclidea**
@@ -8217,92 +7988,42 @@ k_KNN_Euclidean_df = k_KNN_Euclidean_df.sort_values(by=["TEC"]).reset_index(drop
 ```python
 k_KNN_Euclidean_df.head()
 ```
+```
+      index  k       TEC
+0      3     4    0.256410
+1      1     2    0.264957
+2      4     5    0.264957
+3      2     3    0.273504
+4      5     6    0.273504
+```
 
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>index</th>
-      <th>k</th>
-      <th>TEC</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>3</td>
-      <td>4</td>
-      <td>0.256410</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-      <td>2</td>
-      <td>0.264957</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>4</td>
-      <td>5</td>
-      <td>0.264957</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2</td>
-      <td>3</td>
-      <td>0.273504</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>6</td>
-      <td>0.273504</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-
-<p><p style="page-break-after:always;"></p></p>
-
+\newpage
 
 ## 4.7. Comparación final entre árboles y KNN para clasificación por validacion simple
 
 
 
 
-```python
-modelos = ['']
+| Modelo                                                     |    TAC      |  
+|---------------------------------------------------------------------------|-------------|
+| rpart sin podar                                | 0.6667      |
+| rpart podado                                     | 0.6879      |        
+| c5.0 sin podar                                  |  0.6986     |        
+| c5.0 podado                                      | 0.7123      |                  
+| rpart podado (mlr3)                               | 0.6917     |        
+| c5.0 (mlr3 )                                      | 0.6986      |        
+|  AC propio TEC k=20                                 |        |         
+|  AC propio Gini k=20                                |        |       
+|  AC sklearn (criterion='gini', min_samples_split=40, min_samples_leaf=50)   |        |              | 
 
-TAC = []
-
-TEC = []
-```
 
 rpart sin podar  TAC 0.6667
 rpart podado (maxdepth=4)  TAC 0.6879
 c5.0 sin podar 0.6986
-c5.0 podado control = C5.0Control(minCases = 10,earlyStopping = TRUE)  TAC0.7123 (segun marcos)
+c5.0 podado control = C5.0Control(minCases = 10,earlyStopping = TRUE)  TAC 0.7123 (segun marcos)
 rpart con mlr3 maxdepth=4 TAC 0.6917
 c5.0 con mlr3 TAC 0.6986
 

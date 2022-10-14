@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.13)  14 OCT 2022 00:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.13)  14 OCT 2022 15:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -203,6 +203,71 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \fb@frh=\dimen159
 \FrameRule=\dimen160
 \FrameSep=\dimen161
+) (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
+Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
+\LTleft=\skip53
+\LTright=\skip54
+\LTpre=\skip55
+\LTpost=\skip56
+\LTchunksize=\count277
+\LTcapwidth=\dimen162
+\LT@head=\box54
+\LT@firsthead=\box55
+\LT@foot=\box56
+\LT@lastfoot=\box57
+\LT@gbox=\box58
+\LT@cols=\count278
+\LT@rows=\count279
+\c@LT@tables=\count280
+\c@LT@chunks=\count281
+\LT@p@ftn=\toks25
+) (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen163
+\lightrulewidth=\dimen164
+\cmidrulewidth=\dimen165
+\belowrulesep=\dimen166
+\belowbottomsep=\dimen167
+\aboverulesep=\dimen168
+\abovetopsep=\dimen169
+\cmidrulesep=\dimen170
+\cmidrulekern=\dimen171
+\defaultaddspace=\dimen172
+\@cmidla=\count282
+\@cmidlb=\count283
+\@aboverulesep=\dimen173
+\@belowrulesep=\dimen174
+\@thisruleclass=\count284
+\@lastruleclass=\count285
+\@thisrulewidth=\dimen175
+) (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
+Package: array 2022/03/10 v2.5f Tabular extension package (FMi)
+\col@sep=\dimen176
+\ar@mcellbox=\box59
+\extrarowheight=\dimen177
+\NC@list=\toks26
+\extratabsurround=\skip57
+\backup@length=\skip58
+\ar@cellbox=\box60
+) (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count286
+\calc@Bcount=\count287
+\calc@Adimen=\dimen178
+\calc@Bdimen=\dimen179
+\calc@Askip=\skip59
+\calc@Bskip=\skip60
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count288
+\calc@Cskip=\skip61
+) (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count289
+) (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
+Package: footnote 1997/01/28 1.13 Save footnotes around boxes
+\fn@notes=\box61
+\fn@width=\dimen180
 ) (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
@@ -214,114 +279,81 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
 )
-\Gin@req@height=\dimen162
-\Gin@req@width=\dimen163
+\Gin@req@height=\dimen181
+\Gin@req@width=\dimen182
 ) (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fvextra/fvextra.sty
 Package: fvextra 2019/02/04 v1.4 fvextra - extensions and patches for fancyvrb
 (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
-) (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count277
 ) (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lineno/lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count278
-\output=\toks25
-\linenoprevgraf=\count279
-\linenumbersep=\dimen164
-\linenumberwidth=\dimen165
-\c@linenumber=\count280
-\c@pagewiselinenumber=\count281
-\c@LN@truepage=\count282
-\c@internallinenumber=\count283
-\c@internallinenumbers=\count284
-\quotelinenumbersep=\dimen166
-\bframerule=\dimen167
-\bframesep=\dimen168
-\bframebox=\box54
+\linenopenalty=\count290
+\output=\toks27
+\linenoprevgraf=\count291
+\linenumbersep=\dimen183
+\linenumberwidth=\dimen184
+\c@linenumber=\count292
+\c@pagewiselinenumber=\count293
+\c@LN@truepage=\count294
+\c@internallinenumber=\count295
+\c@internallinenumbers=\count296
+\quotelinenumbersep=\dimen185
+\bframerule=\dimen186
+\bframesep=\dimen187
+\bframebox=\box62
 LaTeX Info: Redefining \\ on input line 3056.
 )
-\c@FV@TrueTabGroupLevel=\count285
-\c@FV@TrueTabCounter=\count286
-\FV@TabBox@Group=\box55
-\FV@TmpLength=\skip53
-\c@FV@HighlightLinesStart=\count287
-\c@FV@HighlightLinesStop=\count288
-\FV@LoopCount=\count289
-\FV@NCharsBox=\box56
-\FV@BreakIndent=\dimen169
-\FV@BreakIndentNChars=\count290
-\FV@BreakSymbolSepLeft=\dimen170
-\FV@BreakSymbolSepLeftNChars=\count291
-\FV@BreakSymbolSepRight=\dimen171
-\FV@BreakSymbolSepRightNChars=\count292
-\FV@BreakSymbolIndentLeft=\dimen172
-\FV@BreakSymbolIndentLeftNChars=\count293
-\FV@BreakSymbolIndentRight=\dimen173
-\FV@BreakSymbolIndentRightNChars=\count294
-\c@FancyVerbLineBreakLast=\count295
-\FV@LineBox=\box57
-\FV@LineIndentBox=\box58
-\FV@LineWidth=\dimen174
+\c@FV@TrueTabGroupLevel=\count297
+\c@FV@TrueTabCounter=\count298
+\FV@TabBox@Group=\box63
+\FV@TmpLength=\skip62
+\c@FV@HighlightLinesStart=\count299
+\c@FV@HighlightLinesStop=\count300
+\FV@LoopCount=\count301
+\FV@NCharsBox=\box64
+\FV@BreakIndent=\dimen188
+\FV@BreakIndentNChars=\count302
+\FV@BreakSymbolSepLeft=\dimen189
+\FV@BreakSymbolSepLeftNChars=\count303
+\FV@BreakSymbolSepRight=\dimen190
+\FV@BreakSymbolSepRightNChars=\count304
+\FV@BreakSymbolIndentLeft=\dimen191
+\FV@BreakSymbolIndentLeftNChars=\count305
+\FV@BreakSymbolIndentRight=\dimen192
+\FV@BreakSymbolIndentRightNChars=\count306
+\c@FancyVerbLineBreakLast=\count307
+\FV@LineBox=\box65
+\FV@LineIndentBox=\box66
+\FV@LineWidth=\dimen193
 ) (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mathtools/mathtools.sty
 Package: mathtools 2022/06/29 v1.29 mathematical typesetting tools
-(c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
-Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count296
-\calc@Bcount=\count297
-\calc@Adimen=\dimen175
-\calc@Bdimen=\dimen176
-\calc@Askip=\skip54
-\calc@Bskip=\skip55
-LaTeX Info: Redefining \setlength on input line 80.
-LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count298
-\calc@Cskip=\skip56
-) (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mathtools/mhsetup.sty
+(c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
 )
-\g_MT_multlinerow_int=\count299
-\l_MT_multwidth_dim=\dimen177
-\origjot=\skip57
-\l_MT_shortvdotswithinadjustabove_dim=\dimen178
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen179
-\l_MT_above_intertext_sep=\dimen180
-\l_MT_below_intertext_sep=\dimen181
-\l_MT_above_shortintertext_sep=\dimen182
-\l_MT_below_shortintertext_sep=\dimen183
-\xmathstrut@box=\box59
-\xmathstrut@dim=\dimen184
-) (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty
-Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
-\LTleft=\skip58
-\LTright=\skip59
-\LTpre=\skip60
-\LTpost=\skip61
-\LTchunksize=\count300
-\LTcapwidth=\dimen185
-\LT@head=\box60
-\LT@firsthead=\box61
-\LT@foot=\box62
-\LT@lastfoot=\box63
-\LT@gbox=\box64
-\LT@cols=\count301
-\LT@rows=\count302
-\c@LT@tables=\count303
-\c@LT@chunks=\count304
-\LT@p@ftn=\toks26
+\g_MT_multlinerow_int=\count308
+\l_MT_multwidth_dim=\dimen194
+\origjot=\skip63
+\l_MT_shortvdotswithinadjustabove_dim=\dimen195
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen196
+\l_MT_above_intertext_sep=\dimen197
+\l_MT_below_intertext_sep=\dimen198
+\l_MT_above_shortintertext_sep=\dimen199
+\l_MT_below_shortintertext_sep=\dimen256
+\xmathstrut@box=\box67
+\xmathstrut@dim=\dimen257
 ) (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/lscape.sty
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 ) (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box65
-\UL@hyphenbox=\box66
-\UL@skip=\skip62
-\UL@hook=\toks27
-\UL@height=\dimen186
-\UL@pe=\count305
-\UL@pixel=\dimen187
-\ULC@box=\box67
+\UL@box=\box68
+\UL@hyphenbox=\box69
+\UL@skip=\skip64
+\UL@hook=\toks28
+\UL@height=\dimen258
+\UL@pe=\count309
+\UL@pixel=\dimen259
+\ULC@box=\box70
 Package: ulem 2019/11/18
-\ULdepth=\dimen188
+\ULdepth=\dimen260
 ) (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2022-09-22 v7.00t Hypertext links for LaTeX
 (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
@@ -355,11 +387,11 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count306
+\c@section@level=\count310
 )
-\@linkdim=\dimen189
-\Hy@linkcounter=\count307
-\Hy@pagecounter=\count308
+\@linkdim=\dimen261
+\Hy@linkcounter=\count311
+\Hy@pagecounter=\count312
 (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2022-09-22 v7.00t Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -369,7 +401,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count309
+\Hy@SavedSpaceFactor=\count313
 (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2022-09-22 v7.00t Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -383,21 +415,21 @@ Package hyperref Info: Plain pages OFF on input line 4177.
 Package hyperref Info: Backreferencing OFF on input line 4182.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4410.
-\c@Hy@tempcnt=\count310
+\c@Hy@tempcnt=\count314
 (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4748.
-\XeTeXLinkMargin=\dimen190
+\XeTeXLinkMargin=\dimen262
 (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count311
-\Field@Width=\dimen191
-\Fld@charsize=\dimen192
+\Fld@menulength=\count315
+\Field@Width=\dimen263
+\Fld@charsize=\dimen264
 Package hyperref Info: Hyper figures OFF on input line 6027.
 Package hyperref Info: Link nesting OFF on input line 6032.
 Package hyperref Info: Hyper index ON on input line 6035.
@@ -409,9 +441,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6057.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count312
-\c@Item=\count313
-\c@Hfootnote=\count314
+\Hy@abspage=\count316
+\c@Item=\count317
+\c@Hfootnote=\count318
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
@@ -420,8 +452,8 @@ File: hpdftex.def 2022-09-22 v7.00t Hyperref driver for pdfTeX
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\Fld@listcount=\count315
-\c@bookmark@seq@number=\count316
+\Fld@listcount=\count319
+\c@bookmark@seq@number=\count320
 (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
 (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -429,34 +461,34 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
-\Hy@SectionHShift=\skip63
+\Hy@SectionHShift=\skip65
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 123.
+Package hyperref Info: Option `colorlinks' set `true' on input line 133.
 (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-09-28 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count317
-\l__pdf_internal_box=\box68
+\l__color_backend_stack_int=\count321
+\l__pdf_internal_box=\box71
 ) (./Practica1.aux)
 \openout1 = `Practica1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 128.
-LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
 (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -497,24 +529,19 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 128.
+Package hyperref Info: Link coloring ON on input line 138.
 (./Practica1.out) (./Practica1.out)
 \@outlinefile=\write4
 \openout4 = `Practica1.out'.
 
-<images//uc3m.png, id=172, 456.2865pt x 45.99pt>
-File: images//uc3m.png Graphic file (type png)
-<use images//uc3m.png>
-Package pdftex.def Info: images//uc3m.png  used on input line 136.
-(pdftex.def)             Requested size: 456.29929pt x 45.99127pt.
-
-Overfull \hbox (29.50793pt too wide) in paragraph at lines 136--136
- [] 
- []
-
+<images//uc3m.jpg, id=168, 338.4645pt x 119.0046pt>
+File: images//uc3m.jpg Graphic file (type jpg)
+<use images//uc3m.jpg>
+Package pdftex.def Info: images//uc3m.jpg  used on input line 146.
+(pdftex.def)             Requested size: 338.47398pt x 119.00792pt.
 [1
 
-{c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./images//uc3m.png>] (./Practica1.toc
+{c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./images//uc3m.jpg>] (./Practica1.toc
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 5.
 (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -553,1381 +580,1203 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 \openout5 = `Practica1.toc'.
 
 [3]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 159.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 169.
 (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [4]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 234.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 244.
 [5] [6]
-LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 294.
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 304.
 (c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 370.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 380.
 [7]
-Overfull \hbox (33.10733pt too wide) in paragraph at lines 430--430
+Overfull \hbox (33.10733pt too wide) in paragraph at lines 440--440
 []\T1/lmtt/m/n/10.95 -- Variable type: factor -------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 430--430
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 440--440
 []\T1/lmtt/m/n/10.95 1 gender                0             1 FALSE          2 Mal: 441, Fem: 142[] 
  []
 
 
-Overfull \hbox (33.10733pt too wide) in paragraph at lines 430--430
+Overfull \hbox (33.10733pt too wide) in paragraph at lines 440--440
 []\T1/lmtt/m/n/10.95 -- Variable type: numeric ------------------------------------------------------[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 430--430
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 440--440
 []  \T1/lmtt/m/n/10.95 skim_variable          n_missing complete_rate    mean      sd   p0   p25[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 430--430
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 440--440
 []\T1/lmtt/m/n/10.95 2 total_bilirubin                0             1   3.30    6.21   0.4   0.8[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 430--430
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 440--440
 []\T1/lmtt/m/n/10.95 3 direct_bilirubin               0             1   1.49    2.81   0.1   0.2[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 430--430
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 440--440
 []\T1/lmtt/m/n/10.95 7 total_protein                  0             1   6.48    1.09   2.7   5.8[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 430--430
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 440--440
 []\T1/lmtt/m/n/10.95 8 albumin                        0             1   3.14    0.796  0.9   2.6[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 430--430
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 440--440
 []\T1/lmtt/m/n/10.95 9 albumin_globulin_ratio         0             1   0.947   0.318  0.3   0.7[] 
  []
 
 [8]
-Overfull \hbox (67.59973pt too wide) in paragraph at lines 456--456
+Overfull \hbox (67.59973pt too wide) in paragraph at lines 466--466
 [] \T1/lmtt/m/n/10.95 $ gender                : Factor w/ 2 levels "Female","Male": 1 2 2 2 2 2 1 1 2 2 ...[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 456--456
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 466--466
 [] \T1/lmtt/m/n/10.95 $ alkaline_phosphatase  : int  187 699 490 182 195 208 154 202 202 290 ...[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 456--456
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 466--466
 [] \T1/lmtt/m/n/10.95 $ albumin               : num  3.3 3.2 3.3 3.4 2.4 4.4 3.5 3.6 4.1 3.4 ...[] 
  []
 
 
-Overfull \hbox (38.85606pt too wide) in paragraph at lines 456--456
+Overfull \hbox (38.85606pt too wide) in paragraph at lines 466--466
 [] \T1/lmtt/m/n/10.95 $ diseased              : Factor w/ 2 levels "yes","no": 1 1 1 1 1 1 1 1 2 1 ...[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 483--484
+Underfull \hbox (badness 10000) in paragraph at lines 493--494
 [][][]$\T1/lmr/m/n/10.95 https : / / github . com / FabioScielzoOrtiz / Estadistica4all . github . io / blob / main / Notebooks /
  []
 
 [9] [10]
-Underfull \hbox (badness 1852) in paragraph at lines 582--587
+Underfull \hbox (badness 1852) in paragraph at lines 592--597
 []\T1/lmr/m/n/10.95 10 pre-dic-tores (age , gen-der , To-tal_Bilirubin , Di-rect_Bilirubin , Al-ka-
  []
 
 
-Underfull \hbox (badness 2205) in paragraph at lines 582--587
+Underfull \hbox (badness 2205) in paragraph at lines 592--597
 \T1/lmr/m/n/10.95 line_Phosphotase , Alamine_Aminotransferase , As-par-tate_Aminotransferase
  []
 
 
-Overfull \hbox (16.62196pt too wide) in paragraph at lines 603--607
+Overfull \hbox (16.62196pt too wide) in paragraph at lines 613--617
 []\T1/lmr/m/n/10.95 age , Al-ka-line_Phosphotase, Alamine_Aminotransferase , As-par-tate_Aminotransferase
  []
 
 [11] [12] [13] [14] [15]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 855.
+(Font)              <5> on input line 865.
 [16] [17] [18] [19]
-<output_125_0.png, id=337, 778.91pt x 758.835pt>
+<output_125_0.png, id=330, 778.91pt x 758.835pt>
 File: output_125_0.png Graphic file (type png)
 <use output_125_0.png>
-Package pdftex.def Info: output_125_0.png  used on input line 995.
+Package pdftex.def Info: output_125_0.png  used on input line 1005.
 (pdftex.def)             Requested size: 426.78545pt x 415.78581pt.
 [20
 
  <./output_125_0.png>] [21
 
 ]
-<output_133_0.png, id=348, 498.86375pt x 485.815pt>
+<output_133_0.png, id=342, 498.86375pt x 485.815pt>
 File: output_133_0.png Graphic file (type png)
 <use output_133_0.png>
-Package pdftex.def Info: output_133_0.png  used on input line 1070.
+Package pdftex.def Info: output_133_0.png  used on input line 1080.
 (pdftex.def)             Requested size: 309.20859pt x 301.12064pt.
 [22 <./output_133_0.png>]
-<output_140_0.png, id=355, 745.78625pt x 754.82pt>
+<output_140_0.png, id=349, 745.78625pt x 754.82pt>
 File: output_140_0.png Graphic file (type png)
 <use output_140_0.png>
-Package pdftex.def Info: output_140_0.png  used on input line 1145.
+Package pdftex.def Info: output_140_0.png  used on input line 1155.
 (pdftex.def)             Requested size: 426.78679pt x 431.95648pt.
 [23] [24 <./output_140_0.png>] [25]
-Overfull \hbox (15.86113pt too wide) in paragraph at lines 1224--1224
+Overfull \hbox (15.86113pt too wide) in paragraph at lines 1234--1234
 \T1/lmtt/m/n/10.95 Frec_Relativas_Condicionadas_Gender_in_Diseased.style.set_caption([]"Gender 
  []
 
-<output_152_1.png, id=373, 390.45876pt x 262.9825pt>
+<output_152_1.png, id=367, 390.45876pt x 262.9825pt>
 File: output_152_1.png Graphic file (type png)
 <use output_152_1.png>
-Package pdftex.def Info: output_152_1.png  used on input line 1238.
+Package pdftex.def Info: output_152_1.png  used on input line 1248.
 (pdftex.def)             Requested size: 316.1924pt x 212.96248pt.
 [26 <./output_152_1.png>]
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 1298--1298
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 1308--1308
 \T1/lmtt/m/n/10.95 Frec_Relativas_Condicionadas_Diseased_in_Gender.style.set_caption([]"Diseased 
  []
 
-<output_162_1.png, id=380, 390.45876pt x 262.9825pt>
+<output_162_1.png, id=374, 390.45876pt x 262.9825pt>
 File: output_162_1.png Graphic file (type png)
 <use output_162_1.png>
-Package pdftex.def Info: output_162_1.png  used on input line 1312.
+Package pdftex.def Info: output_162_1.png  used on input line 1322.
 (pdftex.def)             Requested size: 316.1924pt x 212.96248pt.
 [27] [28 <./output_162_1.png>]
-Overfull \hbox (148.082pt too wide) in paragraph at lines 1412--1412
+Overfull \hbox (148.082pt too wide) in paragraph at lines 1422--1422
 []\T1/lmtt/m/n/10.95 Categories (4, interval[float64, right]): [(3.0, 33.0] < (33.0, 45.0] < (45.0, 58.0] < (58.0, 90.0]][] 
  []
 
 [29] [30]
-Overfull \hbox (15.86113pt too wide) in paragraph at lines 1478--1478
+Overfull \hbox (15.86113pt too wide) in paragraph at lines 1488--1488
 \T1/lmtt/m/n/10.95 Frec_Relativas_Condicionadas_Diseased_in_Aged.style.set_caption([]"Diseased 
  []
 
-<output_187_1.png, id=402, 390.45876pt x 263.98625pt>
+<output_187_1.png, id=396, 390.45876pt x 263.98625pt>
 File: output_187_1.png Graphic file (type png)
 <use output_187_1.png>
-Package pdftex.def Info: output_187_1.png  used on input line 1492.
+Package pdftex.def Info: output_187_1.png  used on input line 1502.
 (pdftex.def)             Requested size: 316.1924pt x 213.77531pt.
 [31 <./output_187_1.png>]
-<output_195_1.png, id=410, 390.45876pt x 262.9825pt>
+<output_195_1.png, id=404, 390.45876pt x 262.9825pt>
 File: output_195_1.png Graphic file (type png)
 <use output_195_1.png>
-Package pdftex.def Info: output_195_1.png  used on input line 1547.
+Package pdftex.def Info: output_195_1.png  used on input line 1557.
 (pdftex.def)             Requested size: 316.1924pt x 212.96248pt.
 [32 <./output_195_1.png>] [33] [34]
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 1743--1743
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1753--1753
 []        \T1/lmtt/m/n/10.95 Direct_Bilirubin_yes  Direct_Bilirubin_no  Alkaline_Phosphotase_yes[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 1743--1743
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1753--1753
 []\T1/lmtt/m/n/10.95 mean                1.923558             0.396407                319.007212[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 1743--1743
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1753--1753
 []\T1/lmtt/m/n/10.95 min                 0.100000             0.100000                 63.000000[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 1743--1743
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1753--1753
 []\T1/lmtt/m/n/10.95 Q25                 0.200000             0.200000                186.000000[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 1743--1743
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1753--1753
 []\T1/lmtt/m/n/10.95 median              0.500000             0.200000                229.000000[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 1743--1743
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1753--1753
 []\T1/lmtt/m/n/10.95 Q75                 1.800000             0.350000                315.250000[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 1743--1743
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1753--1753
 []\T1/lmtt/m/n/10.95 max                19.700000             3.600000               2110.000000[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 1743--1743
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1753--1753
 []\T1/lmtt/m/n/10.95 std                 3.206901             0.519255                268.307911[] 
  []
 
 
-Overfull \hbox (10.1124pt too wide) in paragraph at lines 1743--1743
+Overfull \hbox (10.1124pt too wide) in paragraph at lines 1753--1753
 []        \T1/lmtt/m/n/10.95 Aspartate_Aminotransferase_no  Total_Protiens_yes  Total_Protiens_no[] 
  []
 
 
-Overfull \hbox (10.1124pt too wide) in paragraph at lines 1743--1743
+Overfull \hbox (10.1124pt too wide) in paragraph at lines 1753--1753
 []\T1/lmtt/m/n/10.95 mean                        40.688623            6.459135           6.543114[] 
  []
 
 
-Overfull \hbox (10.1124pt too wide) in paragraph at lines 1743--1743
+Overfull \hbox (10.1124pt too wide) in paragraph at lines 1753--1753
 []\T1/lmtt/m/n/10.95 min                         10.000000            2.700000           3.700000[] 
  []
 
 
-Overfull \hbox (10.1124pt too wide) in paragraph at lines 1743--1743
+Overfull \hbox (10.1124pt too wide) in paragraph at lines 1753--1753
 []\T1/lmtt/m/n/10.95 Q25                         21.000000            5.700000           5.900000[] 
  []
 
 
-Overfull \hbox (10.1124pt too wide) in paragraph at lines 1743--1743
+Overfull \hbox (10.1124pt too wide) in paragraph at lines 1753--1753
 []\T1/lmtt/m/n/10.95 median                      29.000000            6.550000           6.600000[] 
  []
 
 
-Overfull \hbox (10.1124pt too wide) in paragraph at lines 1743--1743
+Overfull \hbox (10.1124pt too wide) in paragraph at lines 1753--1753
 []\T1/lmtt/m/n/10.95 Q75                         43.500000            7.200000           7.300000[] 
  []
 
 [35]
-Overfull \hbox (10.1124pt too wide) in paragraph at lines 1743--1743
+Overfull \hbox (10.1124pt too wide) in paragraph at lines 1753--1753
 []\T1/lmtt/m/n/10.95 max                        285.000000            9.600000           9.200000[] 
  []
 
 
-Overfull \hbox (10.1124pt too wide) in paragraph at lines 1743--1743
+Overfull \hbox (10.1124pt too wide) in paragraph at lines 1753--1753
 []\T1/lmtt/m/n/10.95 std                         36.411620            1.094659           1.063042[] 
  []
 
 [36] [37]
-<output_214_0.png, id=439, 901.3675pt x 863.225pt>
+<output_214_0.png, id=433, 901.3675pt x 863.225pt>
 File: output_214_0.png Graphic file (type png)
 <use output_214_0.png>
-Package pdftex.def Info: output_214_0.png  used on input line 1812.
+Package pdftex.def Info: output_214_0.png  used on input line 1822.
 (pdftex.def)             Requested size: 426.79239pt x 408.73213pt.
 [38 <./output_214_0.png>]
-<output_222_0.png, id=446, 481.8pt x 481.8pt>
+<output_222_0.png, id=440, 481.8pt x 481.8pt>
 File: output_222_0.png Graphic file (type png)
 <use output_222_0.png>
-Package pdftex.def Info: output_222_0.png  used on input line 1860.
+Package pdftex.def Info: output_222_0.png  used on input line 1870.
 (pdftex.def)             Requested size: 426.801pt x 426.801pt.
 [39] [40 <./output_222_0.png (PNG copy)>]
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 1904--1904
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 1914--1914
 []  \T1/lmtt/m/n/10.95 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 1904--1904
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 1914--1914
 [] \T1/lmtt/m/n/10.95 no  no yes yes yes yes  no yes  no yes yes yes yes  no  no yes yes yes yes yes[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 1904--1904
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 1914--1914
 [] \T1/lmtt/m/n/10.95 21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 1904--1904
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 1914--1914
 []\T1/lmtt/m/n/10.95 yes yes yes yes  no yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 1904--1904
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 1914--1914
 [] \T1/lmtt/m/n/10.95 41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 1904--1904
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 1914--1914
 [] \T1/lmtt/m/n/10.95 no yes  no  no yes yes yes  no yes yes yes  no yes yes yes  no yes yes yes yes[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 1904--1904
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 1914--1914
 [] \T1/lmtt/m/n/10.95 61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 1904--1904
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 1914--1914
 []\T1/lmtt/m/n/10.95 yes yes yes  no  no yes yes  no yes yes yes  no yes yes  no  no yes yes yes yes[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 1904--1904
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 1914--1914
 [] \T1/lmtt/m/n/10.95 81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 1904--1904
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 1914--1914
 []\T1/lmtt/m/n/10.95 yes yes  no yes  no yes yes yes yes yes  no yes  no  no  no yes yes  no yes yes[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 1904--1904
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 1914--1914
 []\T1/lmtt/m/n/10.95 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 1904--1904
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 1914--1914
 []\T1/lmtt/m/n/10.95 yes yes yes yes yes  no  no yes yes yes  no  no  no yes  no yes yes yes  no yes[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 1904--1904
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 1914--1914
 []\T1/lmtt/m/n/10.95 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 1904--1904
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 1914--1914
 []\T1/lmtt/m/n/10.95 yes yes yes yes  no yes yes yes  no yes yes  no yes yes yes yes yes yes yes yes[] 
  []
 
 [41]
-<output_234_0.png, id=463, 481.8pt x 481.8pt>
+<output_234_0.png, id=457, 481.8pt x 481.8pt>
 File: output_234_0.png Graphic file (type png)
 <use output_234_0.png>
-Package pdftex.def Info: output_234_0.png  used on input line 1974.
+Package pdftex.def Info: output_234_0.png  used on input line 1984.
 (pdftex.def)             Requested size: 426.801pt x 426.801pt.
 [42] [43 <./output_234_0.png (PNG copy)>]
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 2036--2036
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 2046--2046
 []  \T1/lmtt/m/n/10.95 1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 2036--2036
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 2046--2046
 [] \T1/lmtt/m/n/10.95 no  no yes yes yes yes  no yes  no yes yes yes yes  no  no yes yes yes yes yes[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 2036--2036
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 2046--2046
 [] \T1/lmtt/m/n/10.95 21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 2036--2036
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 2046--2046
 []\T1/lmtt/m/n/10.95 yes yes yes yes  no yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 2036--2036
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 2046--2046
 [] \T1/lmtt/m/n/10.95 41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 2036--2036
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 2046--2046
 [] \T1/lmtt/m/n/10.95 no yes yes  no yes yes yes  no yes yes yes yes yes  no yes yes yes yes yes yes[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 2036--2036
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 2046--2046
 [] \T1/lmtt/m/n/10.95 61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 2036--2036
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 2046--2046
 []\T1/lmtt/m/n/10.95 yes yes yes  no  no yes yes  no yes yes yes yes yes yes yes yes yes yes yes yes[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 2036--2036
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 2046--2046
 [] \T1/lmtt/m/n/10.95 81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 2036--2036
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 2046--2046
 []\T1/lmtt/m/n/10.95 yes yes  no yes yes yes yes yes yes yes yes yes  no yes  no yes yes  no yes yes[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 2036--2036
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 2046--2046
 []\T1/lmtt/m/n/10.95 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 2036--2036
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 2046--2046
 []\T1/lmtt/m/n/10.95 yes yes yes yes yes yes  no yes yes yes  no  no  no yes  no yes yes yes yes yes[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 2036--2036
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 2046--2046
 []\T1/lmtt/m/n/10.95 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140[] 
  []
 
 
-Overfull \hbox (27.3586pt too wide) in paragraph at lines 2036--2036
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 2046--2046
 []\T1/lmtt/m/n/10.95 yes yes yes yes yes yes yes yes  no yes yes  no yes yes yes yes yes yes yes yes[] 
  []
 
 [44] [45] [46]
-Overfull \hbox (10.1124pt too wide) in paragraph at lines 2277--2277
+Overfull \hbox (10.1124pt too wide) in paragraph at lines 2287--2287
 []\T1/lmtt/m/n/10.95 C5.0.formula(formula = diseased ~ ., data = datos_entreno, trials = 1, rules[] 
  []
 
 [47] [48]
-<output_265_0.png, id=495, 481.8pt x 481.8pt>
+<output_265_0.png, id=489, 481.8pt x 481.8pt>
 File: output_265_0.png Graphic file (type png)
 <use output_265_0.png>
-Package pdftex.def Info: output_265_0.png  used on input line 2291.
+Package pdftex.def Info: output_265_0.png  used on input line 2301.
 (pdftex.def)             Requested size: 263.49107pt x 263.49107pt.
 [49 <./output_265_0.png (PNG copy)>]
-Overfull \hbox (10.1124pt too wide) in paragraph at lines 2318--2318
+Overfull \hbox (10.1124pt too wide) in paragraph at lines 2328--2328
 []  \T1/lmtt/m/n/10.95 [1] no  yes yes yes yes yes no  yes yes yes yes no  yes no  yes yes yes no[] 
  []
 
 
-Overfull \hbox (15.86113pt too wide) in paragraph at lines 2318--2318
+Overfull \hbox (15.86113pt too wide) in paragraph at lines 2328--2328
 [] \T1/lmtt/m/n/10.95 [19] yes yes yes yes yes yes yes yes yes yes no  yes yes yes yes yes yes yes[] 
  []
 
 
-Overfull \hbox (15.86113pt too wide) in paragraph at lines 2318--2318
+Overfull \hbox (15.86113pt too wide) in paragraph at lines 2328--2328
 [] \T1/lmtt/m/n/10.95 [37] yes yes yes yes yes yes yes yes yes no  yes no  no  yes yes yes no  yes[] 
  []
 
 
-Overfull \hbox (15.86113pt too wide) in paragraph at lines 2318--2318
+Overfull \hbox (15.86113pt too wide) in paragraph at lines 2328--2328
 [] \T1/lmtt/m/n/10.95 [55] yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes yes[] 
  []
 
 
-Overfull \hbox (15.86113pt too wide) in paragraph at lines 2318--2318
+Overfull \hbox (15.86113pt too wide) in paragraph at lines 2328--2328
 [] \T1/lmtt/m/n/10.95 [73] yes yes yes yes no  yes no  no  yes yes yes yes yes yes yes yes yes yes[] 
  []
 
 
-Overfull \hbox (15.86113pt too wide) in paragraph at lines 2318--2318
+Overfull \hbox (15.86113pt too wide) in paragraph at lines 2328--2328
 [] \T1/lmtt/m/n/10.95 [91] yes yes yes yes yes yes yes no  yes no  yes yes no  yes yes yes yes yes[] 
  []
 
 
-Overfull \hbox (15.86113pt too wide) in paragraph at lines 2318--2318
+Overfull \hbox (15.86113pt too wide) in paragraph at lines 2328--2328
 []\T1/lmtt/m/n/10.95 [109] yes yes yes yes yes no  yes no  yes no  yes no  yes yes no  yes yes yes[] 
  []
 
 
-Overfull \hbox (15.86113pt too wide) in paragraph at lines 2318--2318
+Overfull \hbox (15.86113pt too wide) in paragraph at lines 2328--2328
 []\T1/lmtt/m/n/10.95 [127] yes yes yes no  yes yes yes no  yes yes no  yes yes yes yes yes yes yes[] 
  []
 
 
-Overfull \hbox (61.851pt too wide) in paragraph at lines 2369--2369
+Overfull \hbox (61.851pt too wide) in paragraph at lines 2379--2379
 \T1/lmtt/m/n/10.95 del:"[],[]100[][]*[]error_clas,[]"%."[],[]sum[](prediccion[]==[]datos_test[]$[]diseased),[]"clasificaciones 
  []
 
 
-Overfull \hbox (125.08707pt too wide) in paragraph at lines 2376--2376
+Overfull \hbox (125.08707pt too wide) in paragraph at lines 2386--2386
 []\T1/lmtt/m/n/10.95 [1] "El error de clasificacion es del: 30.1 %. 102 clasificaciones correctas de un total de 146"[] 
  []
 
 [50]
-Overfull \hbox (10.1124pt too wide) in paragraph at lines 2508--2508
+Overfull \hbox (10.1124pt too wide) in paragraph at lines 2518--2518
 []\T1/lmtt/m/n/10.95 C5.0.formula(formula = diseased ~ ., data = datos_entreno, trials = 1, rules[] 
  []
 
 [51] [52]
-<output_295_0.png, id=514, 481.8pt x 481.8pt>
+<output_295_0.png, id=508, 481.8pt x 481.8pt>
 File: output_295_0.png Graphic file (type png)
 <use output_295_0.png>
-Package pdftex.def Info: output_295_0.png  used on input line 2522.
+Package pdftex.def Info: output_295_0.png  used on input line 2532.
 (pdftex.def)             Requested size: 225.84319pt x 225.84319pt.
 [53 <./output_295_0.png>]
-Overfull \hbox (15.86113pt too wide) in paragraph at lines 2549--2549
+Overfull \hbox (15.86113pt too wide) in paragraph at lines 2559--2559
 []  \T1/lmtt/m/n/10.95 [1] no  no  yes yes yes yes yes yes yes no  yes yes yes yes yes yes yes yes[] 
  []
 
 
-Overfull \hbox (15.86113pt too wide) in paragraph at lines 2549--2549
+Overfull \hbox (15.86113pt too wide) in paragraph at lines 2559--2559
 [] \T1/lmtt/m/n/10.95 [19] yes yes yes yes yes yes yes yes yes yes no  yes yes yes yes yes yes yes[] 
  []
 
 
-Overfull \hbox (15.86113pt too wide) in paragraph at lines 2549--2549
+Overfull \hbox (15.86113pt too wide) in paragraph at lines 2559--2559
 [] \T1/lmtt/m/n/10.95 [37] yes yes yes yes yes yes yes yes yes no  yes no  no  yes yes yes yes yes[] 
  []
 
 
-Overfull \hbox (15.86113pt too wide) in paragraph at lines 2549--2549
+Overfull \hbox (15.86113pt too wide) in paragraph at lines 2559--2559
 [] \T1/lmtt/m/n/10.95 [55] yes yes yes yes yes yes yes yes yes no  no  yes no  yes no  no  yes yes[] 
  []
 
 
-Overfull \hbox (10.1124pt too wide) in paragraph at lines 2549--2549
+Overfull \hbox (10.1124pt too wide) in paragraph at lines 2559--2559
 [] \T1/lmtt/m/n/10.95 [73] no  yes yes yes yes yes no  yes yes yes yes yes yes yes yes no  yes no[] 
  []
 
 
-Overfull \hbox (15.86113pt too wide) in paragraph at lines 2549--2549
+Overfull \hbox (15.86113pt too wide) in paragraph at lines 2559--2559
 [] \T1/lmtt/m/n/10.95 [91] yes no  yes yes yes yes yes no  yes no  yes yes no  yes no  yes yes yes[] 
  []
 
 
-Overfull \hbox (15.86113pt too wide) in paragraph at lines 2549--2549
+Overfull \hbox (15.86113pt too wide) in paragraph at lines 2559--2559
 []\T1/lmtt/m/n/10.95 [109] yes yes yes yes yes yes yes no  yes yes no  no  yes yes yes yes yes yes[] 
  []
 
 
-Overfull \hbox (15.86113pt too wide) in paragraph at lines 2549--2549
+Overfull \hbox (15.86113pt too wide) in paragraph at lines 2559--2559
 []\T1/lmtt/m/n/10.95 [127] yes yes yes yes yes yes yes no  yes yes no  yes yes yes yes yes yes yes[] 
  []
 
 [54]
-Overfull \hbox (61.851pt too wide) in paragraph at lines 2596--2596
+Overfull \hbox (61.851pt too wide) in paragraph at lines 2606--2606
 \T1/lmtt/m/n/10.95 del:"[],[]100[][]*[]error_clas,[]"%."[],[]sum[](prediccion[]==[]datos_test[]$[]diseased),[]"clasificaciones 
  []
 
 
-Overfull \hbox (125.08707pt too wide) in paragraph at lines 2603--2603
+Overfull \hbox (125.08707pt too wide) in paragraph at lines 2613--2613
 []\T1/lmtt/m/n/10.95 [1] "El error de clasificacion es del: 28.8 %. 104 clasificaciones correctas de un total de 146"[] 
  []
 
 [55]
-Overfull \hbox (67.59973pt too wide) in paragraph at lines 2685--2685
+Overfull \hbox (67.59973pt too wide) in paragraph at lines 2695--2695
 []\T1/lmtt/m/n/10.95 INFO  [16:15:05.775] [mlr3] Applying learner \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 classif.rpart\TS1/lmtt/m/n/10.95 ' \T1/lmtt/m/n/10.95 on task \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ilpd\TS1/lmtt/m/n/10.95 ' \T1/lmtt/m/n/10.95 (iter 1/1)[] 
  []
 
 [56]
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 2763--2763
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 2773--2773
 []      \T1/lmtt/m/n/10.95 10) aspartate_transaminase>=45.5 20   2 yes (0.90000000 0.10000000) *[] 
  []
 
 
-Overfull \hbox (15.86113pt too wide) in paragraph at lines 2763--2763
+Overfull \hbox (15.86113pt too wide) in paragraph at lines 2773--2773
 []        \T1/lmtt/m/n/10.95 22) aspartate_transaminase< 27.5 14   3 yes (0.78571429 0.21428571) *[] 
  []
 
 
-Overfull \hbox (10.1124pt too wide) in paragraph at lines 2763--2763
+Overfull \hbox (10.1124pt too wide) in paragraph at lines 2773--2773
 []        \T1/lmtt/m/n/10.95 23) aspartate_transaminase>=27.5 13   4 no (0.30769231 0.69230769) *[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 2763--2763
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 2773--2773
 []      \T1/lmtt/m/n/10.95 14) aspartate_transaminase>=26.5 99  42 yes (0.57575758 0.42424242) *[] 
  []
 
 [57]
-<output_342_0.png, id=539, 481.8pt x 481.8pt>
+<output_342_0.png, id=533, 481.8pt x 481.8pt>
 File: output_342_0.png Graphic file (type png)
 <use output_342_0.png>
-Package pdftex.def Info: output_342_0.png  used on input line 2777.
+Package pdftex.def Info: output_342_0.png  used on input line 2787.
 (pdftex.def)             Requested size: 426.801pt x 426.801pt.
 [58 <./output_342_0.png (PNG copy)>]
-Overfull \hbox (56.10226pt too wide) in paragraph at lines 2856--2856
+Overfull \hbox (56.10226pt too wide) in paragraph at lines 2866--2866
 []\T1/lmtt/m/n/10.95 INFO  [16:15:13.538] [mlr3] Applying learner \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 classif.C50\TS1/lmtt/m/n/10.95 ' \T1/lmtt/m/n/10.95 on task \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ilpd\TS1/lmtt/m/n/10.95 ' \T1/lmtt/m/n/10.95 (iter 1/1)[] 
  []
 
 [59] [60] [61] [62] [63] [64]
-<output_397_0.jpg, id=573, 1863.96375pt x 726.715pt>
+<output_397_0.jpg, id=567, 1863.96375pt x 726.715pt>
 File: output_397_0.jpg Graphic file (type jpg)
 <use output_397_0.jpg>
-Package pdftex.def Info: output_397_0.jpg  used on input line 3109.
+Package pdftex.def Info: output_397_0.jpg  used on input line 3119.
 (pdftex.def)             Requested size: 426.7686pt x 166.38689pt.
 [65 <./output_397_0.jpg>] [66] [67] [68] [69] [70]
-<output_465_0.jpg, id=608, 1416.29124pt x 669.50125pt>
+<output_465_0.jpg, id=602, 1416.29124pt x 669.50125pt>
 File: output_465_0.jpg Graphic file (type jpg)
 <use output_465_0.jpg>
-Package pdftex.def Info: output_465_0.jpg  used on input line 3455.
+Package pdftex.def Info: output_465_0.jpg  used on input line 3465.
 (pdftex.def)             Requested size: 316.16653pt x 149.45647pt.
 [71 <./output_465_0.jpg>] [72]
-Overfull \hbox (10.68697pt too wide) detected at line 3526
+Overfull \hbox (10.68697pt too wide) detected at line 3536
 []  [] \OT1/lmr/m/n/10.95 = []  [] = []  []
  []
 
 
-Overfull \hbox (10.68697pt too wide) detected at line 3531
+Overfull \hbox (10.68697pt too wide) detected at line 3541
 []  [] \OT1/lmr/m/n/10.95 = []  [] = []  []
  []
 
-<output_494_0.jpg, id=618, 1496.59125pt x 638.385pt>
+<output_494_0.jpg, id=612, 1496.59125pt x 638.385pt>
 File: output_494_0.jpg Graphic file (type jpg)
 <use output_494_0.jpg>
-Package pdftex.def Info: output_494_0.jpg  used on input line 3595.
+Package pdftex.def Info: output_494_0.jpg  used on input line 3605.
 (pdftex.def)             Requested size: 316.166pt x 134.86356pt.
 [73] [74 <./output_494_0.jpg>]
-<output_500_0.jpg, id=629, 1983.41pt x 827.09pt>
+<output_500_0.jpg, id=623, 1983.41pt x 827.09pt>
 File: output_500_0.jpg Graphic file (type jpg)
 <use output_500_0.jpg>
-Package pdftex.def Info: output_500_0.jpg  used on input line 3622.
+Package pdftex.def Info: output_500_0.jpg  used on input line 3632.
 (pdftex.def)             Requested size: 316.17177pt x 131.8449pt.
 [75 <./output_500_0.jpg>] [76]
-Overfull \hbox (72.89285pt too wide) detected at line 3685
+Overfull \hbox (72.89285pt too wide) detected at line 3695
 []
  []
 
 
-Overfull \hbox (75.7383pt too wide) detected at line 3691
+Overfull \hbox (75.7383pt too wide) detected at line 3701
 []
  []
 
 [77]
-<output_523_0.jpg, id=643, 2507.3675pt x 701.62125pt>
+<output_523_0.jpg, id=637, 2507.3675pt x 701.62125pt>
 File: output_523_0.jpg Graphic file (type jpg)
 <use output_523_0.jpg>
-Package pdftex.def Info: output_523_0.jpg  used on input line 3729.
+Package pdftex.def Info: output_523_0.jpg  used on input line 3739.
 (pdftex.def)             Requested size: 426.78247pt x 119.4239pt.
-<output_528_0.jpg, id=644, 2289.55376pt x 751.80875pt>
+<output_528_0.jpg, id=638, 2289.55376pt x 751.80875pt>
 File: output_528_0.jpg Graphic file (type jpg)
 <use output_528_0.jpg>
-Package pdftex.def Info: output_528_0.jpg  used on input line 3753.
+Package pdftex.def Info: output_528_0.jpg  used on input line 3763.
 (pdftex.def)             Requested size: 426.7749pt x 140.13783pt.
 [78 <./output_523_0.jpg>] [79 <./output_528_0.jpg>]
-Overfull \hbox (10.27315pt too wide) detected at line 3793
+Overfull \hbox (10.27315pt too wide) detected at line 3803
 []
  []
 
 [80]
-<output_544_0.jpg, id=660, 2607.7425pt x 678.535pt>
+<output_544_0.jpg, id=654, 2607.7425pt x 678.535pt>
 File: output_544_0.jpg Graphic file (type jpg)
 <use output_544_0.jpg>
-Package pdftex.def Info: output_544_0.jpg  used on input line 3801.
+Package pdftex.def Info: output_544_0.jpg  used on input line 3811.
 (pdftex.def)             Requested size: 426.75735pt x 111.04233pt.
 [81 <./output_544_0.jpg>] [82]
-Overfull \hbox (58.00331pt too wide) in paragraph at lines 4230--4230
+Overfull \hbox (58.00331pt too wide) in paragraph at lines 4240--4240
 | | | |[]\T1/lmtt/m/it/10.95 ####################################################################################[]|  
  []
 
 [83]
-Underfull \vbox (badness 10000) detected at line 4538
+Underfull \vbox (badness 10000) detected at line 4548
  []
 
 
-Overfull \vbox (0.5638pt too high) detected at line 4538
+Overfull \vbox (0.5638pt too high) detected at line 4548
  []
 
 [84]
-Underfull \vbox (badness 10000) detected at line 4538
+Underfull \vbox (badness 10000) detected at line 4548
  []
 
 
-Overfull \vbox (0.56378pt too high) detected at line 4538
+Overfull \vbox (0.56378pt too high) detected at line 4548
  []
 
 [85]
-Underfull \vbox (badness 10000) detected at line 4538
+Underfull \vbox (badness 10000) detected at line 4548
  []
 
 
-Overfull \vbox (0.56384pt too high) detected at line 4538
+Overfull \vbox (0.56384pt too high) detected at line 4548
  []
 
 [86]
-Underfull \vbox (badness 10000) detected at line 4538
+Underfull \vbox (badness 10000) detected at line 4548
  []
 
 
-Overfull \vbox (0.56387pt too high) detected at line 4538
+Overfull \vbox (0.56387pt too high) detected at line 4548
  []
 
 [87]
-Underfull \vbox (badness 10000) detected at line 4538
+Underfull \vbox (badness 10000) detected at line 4548
  []
 
 
-Overfull \vbox (0.56377pt too high) detected at line 4538
+Overfull \vbox (0.56377pt too high) detected at line 4548
  []
 
 [88]
-Underfull \vbox (badness 10000) detected at line 4538
+Underfull \vbox (badness 10000) detected at line 4548
  []
 
 
-Overfull \vbox (0.56387pt too high) detected at line 4538
+Overfull \vbox (0.56387pt too high) detected at line 4548
  []
 
 [89]
-Underfull \vbox (badness 10000) detected at line 4538
+Underfull \vbox (badness 10000) detected at line 4548
  []
 
 
-Overfull \vbox (0.56387pt too high) detected at line 4538
+Overfull \vbox (0.56387pt too high) detected at line 4548
  []
 
 [90]
-Underfull \vbox (badness 10000) detected at line 4538
+Underfull \vbox (badness 10000) detected at line 4548
  []
 
 
-Overfull \vbox (0.5638pt too high) detected at line 4538
+Overfull \vbox (0.5638pt too high) detected at line 4548
  []
 
 [91]
-Underfull \vbox (badness 10000) detected at line 4538
+Underfull \vbox (badness 10000) detected at line 4548
  []
 
 
-Overfull \vbox (14.1638pt too high) detected at line 4538
+Overfull \vbox (14.1638pt too high) detected at line 4548
  []
 
 [92]
-Underfull \vbox (badness 10000) detected at line 4538
+Underfull \vbox (badness 10000) detected at line 4548
  []
 
 
-Overfull \vbox (0.56389pt too high) detected at line 4538
+Overfull \vbox (0.56389pt too high) detected at line 4548
  []
 
 [93]
-Underfull \vbox (badness 10000) detected at line 4538
+Underfull \vbox (badness 10000) detected at line 4548
  []
 
 
-Overfull \vbox (41.36392pt too high) detected at line 4538
+Overfull \vbox (41.36392pt too high) detected at line 4548
  []
 
 [94]
-Underfull \vbox (badness 10000) detected at line 4538
+Underfull \vbox (badness 10000) detected at line 4548
  []
 
 
-Overfull \vbox (0.56377pt too high) detected at line 4538
+Overfull \vbox (0.56377pt too high) detected at line 4548
  []
 
 [95]
-Underfull \vbox (badness 10000) detected at line 4538
+Underfull \vbox (badness 10000) detected at line 4548
  []
 
 
-Overfull \vbox (14.16393pt too high) detected at line 4538
+Overfull \vbox (14.16393pt too high) detected at line 4548
  []
 
 [96] [97]
-Underfull \vbox (badness 1975) detected at line 5139
+Underfull \vbox (badness 1975) detected at line 5149
  []
 
 [98]
-Underfull \vbox (badness 10000) detected at line 5139
+Underfull \vbox (badness 10000) detected at line 5149
  []
 
 
-Overfull \vbox (0.56378pt too high) detected at line 5139
+Overfull \vbox (0.56378pt too high) detected at line 5149
  []
 
 [99]
-Underfull \vbox (badness 10000) detected at line 5139
+Underfull \vbox (badness 10000) detected at line 5149
  []
 
 
-Overfull \vbox (0.56384pt too high) detected at line 5139
+Overfull \vbox (0.56384pt too high) detected at line 5149
  []
 
 [100]
-Underfull \vbox (badness 10000) detected at line 5139
+Underfull \vbox (badness 10000) detected at line 5149
  []
 
 
-Overfull \vbox (0.56381pt too high) detected at line 5139
+Overfull \vbox (0.56381pt too high) detected at line 5149
  []
 
 [101]
-Underfull \vbox (badness 10000) detected at line 5139
+Underfull \vbox (badness 10000) detected at line 5149
  []
 
 
-Overfull \vbox (0.56377pt too high) detected at line 5139
+Overfull \vbox (0.56377pt too high) detected at line 5149
  []
 
 [102]
-Underfull \vbox (badness 10000) detected at line 5139
+Underfull \vbox (badness 10000) detected at line 5149
  []
 
 
-Overfull \vbox (0.56384pt too high) detected at line 5139
+Overfull \vbox (0.56384pt too high) detected at line 5149
  []
 
 [103]
-Underfull \vbox (badness 10000) detected at line 5139
+Underfull \vbox (badness 10000) detected at line 5149
  []
 
 
-Overfull \vbox (0.56384pt too high) detected at line 5139
+Overfull \vbox (0.56384pt too high) detected at line 5149
  []
 
 [104]
-Underfull \vbox (badness 10000) detected at line 5139
+Underfull \vbox (badness 10000) detected at line 5149
  []
 
 
-Overfull \vbox (14.16385pt too high) detected at line 5139
+Overfull \vbox (14.16385pt too high) detected at line 5149
  []
 
 [105]
-Underfull \vbox (badness 10000) detected at line 5139
+Underfull \vbox (badness 10000) detected at line 5149
  []
 
 
-Overfull \vbox (0.5638pt too high) detected at line 5139
+Overfull \vbox (0.5638pt too high) detected at line 5149
  []
 
 [106]
-Underfull \vbox (badness 10000) detected at line 5139
+Underfull \vbox (badness 10000) detected at line 5149
  []
 
 
-Overfull \vbox (0.56389pt too high) detected at line 5139
+Overfull \vbox (0.56389pt too high) detected at line 5149
  []
 
 [107]
-Underfull \vbox (badness 10000) detected at line 5139
+Underfull \vbox (badness 10000) detected at line 5149
  []
 
 
-Overfull \vbox (0.56389pt too high) detected at line 5139
+Overfull \vbox (0.56389pt too high) detected at line 5149
  []
 
 [108]
-Underfull \vbox (badness 10000) detected at line 5139
+Underfull \vbox (badness 10000) detected at line 5149
  []
 
 
-Overfull \vbox (0.56384pt too high) detected at line 5139
+Overfull \vbox (0.56384pt too high) detected at line 5149
  []
 
 [109]
-Underfull \vbox (badness 10000) detected at line 5139
+Underfull \vbox (badness 10000) detected at line 5149
  []
 
 
-Overfull \vbox (0.56383pt too high) detected at line 5139
+Overfull \vbox (0.56383pt too high) detected at line 5149
  []
 
 [110] [111] [112]
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 5249--5249
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 5259--5259
 []     \T1/lmtt/m/n/10.95 Y  Age Gender  Total_Bilirubin  Direct_Bilirubin  Alkaline_Phosphotase[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 5249--5249
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 5259--5259
 []\T1/lmtt/m/n/10.95 0  0.0   65    0.0              0.7               0.1                   187[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 5249--5249
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 5259--5259
 []\T1/lmtt/m/n/10.95 1  0.0   62    1.0             10.9               5.5                   699[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 5249--5249
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 5259--5259
 []\T1/lmtt/m/n/10.95 2  0.0   62    1.0              7.3               4.1                   490[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 5249--5249
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 5259--5259
 []\T1/lmtt/m/n/10.95 3  0.0   58    1.0              1.0               0.4                   182[] 
  []
 
 
-Overfull \hbox (4.36366pt too wide) in paragraph at lines 5249--5249
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 5259--5259
 []\T1/lmtt/m/n/10.95 4  0.0   72    1.0              3.9               2.0                   195[] 
  []
 
-
-Overfull \hbox (138.48558pt too wide) in paragraph at lines 5272--5272
-| | | |[]\T1/lmtt/m/it/10.95 ##################################################################################################[]|  
- []
-
 [113]
-Overfull \hbox (337.7902pt too wide) in paragraph at lines 5295--5295
+Overfull \hbox (337.7902pt too wide) in paragraph at lines 5305--5305
 []\T1/lmtt/m/n/10.95 El arbol final es el arbol con 1 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo 20 de observaciones por rama[] 
  []
 
 [114]
-Overfull \vbox (4.03555pt too high) detected at line 5400
+Overfull \vbox (4.03555pt too high) detected at line 5410
  []
 
 [115]
-Overfull \hbox (337.7902pt too wide) in paragraph at lines 5410--5410
+Overfull \hbox (337.7902pt too wide) in paragraph at lines 5420--5420
 []\T1/lmtt/m/n/10.95 El arbol final es el arbol con 1 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo 20 de observaciones por rama[] 
  []
 
 [116]
-Overfull \hbox (69.50078pt too wide) in paragraph at lines 5590--5590
-| | | |[]\T1/lmtt/m/it/10.95 ######################################################################################[]|  
- []
-
-
-Overfull \hbox (58.00331pt too wide) in paragraph at lines 5722--5722
-| | | |[]\T1/lmtt/m/it/10.95 ####################################################################################[]|  
- []
-
-
-Overfull \vbox (4.0356pt too high) detected at line 6001
+Overfull \vbox (4.0356pt too high) detected at line 6011
  []
 
 [117]
-Underfull \vbox (badness 10000) detected at line 6001
+Underfull \vbox (badness 10000) detected at line 6011
  []
 
 
-Overfull \vbox (0.5638pt too high) detected at line 6001
+Overfull \vbox (0.5638pt too high) detected at line 6011
  []
 
 [118]
-Underfull \vbox (badness 10000) detected at line 6001
+Underfull \vbox (badness 10000) detected at line 6011
  []
 
 
-Overfull \vbox (0.56377pt too high) detected at line 6001
+Overfull \vbox (0.56377pt too high) detected at line 6011
  []
 
 [119]
-Underfull \vbox (badness 10000) detected at line 6001
+Underfull \vbox (badness 10000) detected at line 6011
  []
 
 
-Overfull \vbox (27.76385pt too high) detected at line 6001
+Overfull \vbox (27.76385pt too high) detected at line 6011
  []
 
 [120]
-Underfull \vbox (badness 10000) detected at line 6001
+Underfull \vbox (badness 10000) detected at line 6011
  []
 
 
-Overfull \vbox (0.56381pt too high) detected at line 6001
+Overfull \vbox (0.56381pt too high) detected at line 6011
  []
 
 [121]
-Underfull \vbox (badness 10000) detected at line 6001
+Underfull \vbox (badness 10000) detected at line 6011
  []
 
 
-Overfull \vbox (27.76378pt too high) detected at line 6001
+Overfull \vbox (27.76378pt too high) detected at line 6011
  []
 
 [122]
-Underfull \vbox (badness 10000) detected at line 6001
+Underfull \vbox (badness 10000) detected at line 6011
  []
 
 
-Overfull \vbox (27.76389pt too high) detected at line 6001
+Overfull \vbox (27.76389pt too high) detected at line 6011
  []
 
 [123]
-Underfull \vbox (badness 10000) detected at line 6001
+Underfull \vbox (badness 10000) detected at line 6011
  []
 
 
-Overfull \vbox (0.56381pt too high) detected at line 6001
+Overfull \vbox (0.56381pt too high) detected at line 6011
  []
 
 [124]
-Underfull \vbox (badness 10000) detected at line 6001
+Underfull \vbox (badness 10000) detected at line 6011
  []
 
 
-Overfull \vbox (0.5638pt too high) detected at line 6001
+Overfull \vbox (0.5638pt too high) detected at line 6011
  []
 
 [125]
-Underfull \vbox (badness 10000) detected at line 6001
+Underfull \vbox (badness 10000) detected at line 6011
  []
 
 
-Overfull \vbox (14.16386pt too high) detected at line 6001
+Overfull \vbox (14.16386pt too high) detected at line 6011
  []
 
 [126]
-Underfull \vbox (badness 10000) detected at line 6001
+Underfull \vbox (badness 10000) detected at line 6011
  []
 
 
-Overfull \vbox (0.56392pt too high) detected at line 6001
+Overfull \vbox (0.56392pt too high) detected at line 6011
  []
 
 [127]
-Underfull \vbox (badness 10000) detected at line 6001
+Underfull \vbox (badness 10000) detected at line 6011
  []
 
 
-Overfull \vbox (0.56377pt too high) detected at line 6001
+Overfull \vbox (0.56377pt too high) detected at line 6011
  []
 
 [128]
-Underfull \vbox (badness 10000) detected at line 6001
+Underfull \vbox (badness 10000) detected at line 6011
  []
 
 
-Overfull \vbox (0.56395pt too high) detected at line 6001
+Overfull \vbox (0.56395pt too high) detected at line 6011
  []
 
 [129]
-Overfull \hbox (337.7902pt too wide) in paragraph at lines 6014--6014
+Overfull \hbox (337.7902pt too wide) in paragraph at lines 6024--6024
 []\T1/lmtt/m/n/10.95 El arbol final es el arbol con 1 Iteracion. Se ha cumplido el criterio de parada basado en numero minimo 20 de observaciones por rama[] 
  []
 
 [130]
-Overfull \vbox (4.03555pt too high) detected at line 6121
+Overfull \vbox (4.03555pt too high) detected at line 6131
  []
 
 [131] [132]
-Overfull \hbox (39.49712pt too wide) in paragraph at lines 6158--6163
+Overfull \hbox (39.49712pt too wide) in paragraph at lines 6168--6173
 []\T1/lmr/m/n/10.95 sklearn.tree.DecisionTreeClassifier(criterion=`gini', split-ter=`best', max_depth=None,
  []
 
 
-Overfull \hbox (1.68642pt too wide) in paragraph at lines 6158--6163
+Overfull \hbox (1.68642pt too wide) in paragraph at lines 6168--6173
 \T1/lmr/m/n/10.95 min_samples_split=2, min_samples_leaf=1, min_weight_fraction_leaf=0.0,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6158--6163
+Underfull \hbox (badness 10000) in paragraph at lines 6168--6173
 \T1/lmr/m/n/10.95 max_features=None, ran-dom_state=None, max_leaf_nodes=None,
  []
 
 [133]
-Overfull \hbox (21.60986pt too wide) in paragraph at lines 6270--6270
+Overfull \hbox (21.60986pt too wide) in paragraph at lines 6280--6280
 []\T1/lmtt/m/n/10.95 DecisionTreeClassifier(ccp_alpha=0, min_samples_leaf=50, min_samples_split=40,[] 
  []
 
 [134]
-<output_660_0.jpg, id=897, 1080.4365pt x 516.7305pt>
+<output_660_0.jpg, id=891, 1080.4365pt x 516.7305pt>
 File: output_660_0.jpg Graphic file (type jpg)
 <use output_660_0.jpg>
-Package pdftex.def Info: output_660_0.jpg  used on input line 6345.
+Package pdftex.def Info: output_660_0.jpg  used on input line 6355.
 (pdftex.def)             Requested size: 466.7548pt x 223.23056pt.
 
-Overfull \hbox (39.96346pt too wide) in paragraph at lines 6345--6348
+Overfull \hbox (39.96346pt too wide) in paragraph at lines 6355--6358
  [][] 
  []
 
 
-Underfull \hbox (badness 1158) in paragraph at lines 6348--6348
+Underfull \hbox (badness 1158) in paragraph at lines 6358--6358
 []\T1/lmr/m/n/10.95 Figure 21: []Arbol sklearn (cri-te-rion=`gini', split-ter=`best', min_samples_split=40,
  []
 
 [135 <./output_660_0.jpg>] [136]
-Underfull \vbox (badness 10000) detected at line 6490
+Overfull \vbox (4.03554pt too high) detected at line 6508
  []
 
-
-Underfull \vbox (badness 4341) detected at line 6490
- []
-
-[137]
-Underfull \hbox (badness 1152) in paragraph at lines 6513--6517
+[137] [138]
+Underfull \hbox (badness 1152) in paragraph at lines 6533--6537
 \T1/lmr/m/n/10.95 del tipo tipo sklearn.tree.DecisionTreeClassifier(criterion=`gini', split-ter=`best', ran-
  []
 
 
-Overfull \hbox (28.14998pt too wide) in paragraph at lines 6518--6520
+Overfull \hbox (28.14998pt too wide) in paragraph at lines 6538--6540
 []\T1/lmr/m/n/10.95 Es de-cir para un ar-bol de clasi-fi-ca-cion en el que por de-fecto ccp_alpha=0, min_samples_split=2,
  []
 
 
-Overfull \hbox (38.85606pt too wide) in paragraph at lines 6551--6551
+Overfull \hbox (38.85606pt too wide) in paragraph at lines 6571--6571
 []\T1/lmtt/m/n/10.95 {\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ccp_alphas\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 : array([0.        , 0.00190749, 0.00190749, 0.00198085, 0.00199264,[] 
  []
 
 
-Overfull \hbox (38.85606pt too wide) in paragraph at lines 6551--6551
+Overfull \hbox (38.85606pt too wide) in paragraph at lines 6571--6571
 [] \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 impurities\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 : array([0.        , 0.00381497, 0.00762995, 0.01159165, 0.01557694,[] 
  []
 
-[138]
-<output_695_1.png, id=917, 561.09625pt x 536.0025pt>
+[139]
+<output_695_1.png, id=916, 561.09625pt x 536.0025pt>
 File: output_695_1.png Graphic file (type png)
 <use output_695_1.png>
-Package pdftex.def Info: output_695_1.png  used on input line 6605.
-(pdftex.def)             Requested size: 426.7886pt x 407.70146pt.
-[139] [140 <./output_695_1.png>] [141]
-Overfull \hbox (56.10226pt too wide) in paragraph at lines 6737--6737
+Package pdftex.def Info: output_695_1.png  used on input line 6621.
+(pdftex.def)             Requested size: 394.02325pt x 376.40146pt.
+[140 <./output_695_1.png>]
+Overfull \hbox (56.10226pt too wide) in paragraph at lines 6674--6674
 \T1/lmtt/m/n/10.95 sklearn.tree.DecisionTreeClassifier(ccp_alpha[]\T1/lmtt/b/n/10.95 =[]\T1/lmtt/m/n/10.95 alpha_score_df_sorted[[]\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 alpha\TS1/lmtt/m/n/10.95 '[]\T1/lmtt/m/n/10.95 ][[]0[]], 
  []
 
-[142]
-Overfull \hbox (24.5611pt too wide) in paragraph at lines 6820--6823
+[141] [142]
+Overfull \hbox (24.5611pt too wide) in paragraph at lines 6761--6764
 []\T1/lmr/m/n/10.95 TEC_classification_tree_penalized_star(ccp_alpha=alpha_score_df_sorted[`alpha'][0]
  []
 
 
-Underfull \hbox (badness 6236) in paragraph at lines 6825--6829
+Underfull \hbox (badness 6236) in paragraph at lines 6766--6770
 []\T1/lmr/m/n/10.95 TEC_classification_tree_sklearn (De-ci-sion-TreeRe-gres-sor(criterion=`gini', split-
  []
 
 
-Underfull \hbox (badness 2173) in paragraph at lines 6825--6829
+Underfull \hbox (badness 2173) in paragraph at lines 6766--6770
 \T1/lmr/m/n/10.95 ter=`best', min_samples_split=40, min_samples_leaf=50, max_depth=None,
  []
 
 [143]
 
-LaTeX Warning: Command \' invalid in math mode on input line 6921.
+LaTeX Warning: Command \' invalid in math mode on input line 6875.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 6921.
+LaTeX Warning: Command \' invalid in math mode on input line 6875.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 6921.
+LaTeX Warning: Command \' invalid in math mode on input line 6875.
 
-
-Overfull \hbox (977.80067pt too wide) in paragraph at lines 6942--6942
-| | | |[]\T1/lmtt/m/it/10.95 ####################################################################################################################################################################################################################################################[]|  
+[144] [145]
+Underfull \vbox (badness 10000) detected at line 7503
  []
 
 
-Overfull \hbox (977.80067pt too wide) in paragraph at lines 6953--6953
-| | | |[]\T1/lmtt/m/it/10.95 ####################################################################################################################################################################################################################################################[]|  
- []
-
-
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 6968--6968
-| | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
- []
-
-
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 6978--6978
-| | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
- []
-
-
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 6990--6990
-| | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
- []
-
-
-Overfull \hbox (977.80067pt too wide) in paragraph at lines 7012--7012
-| | | |[]\T1/lmtt/m/it/10.95 ####################################################################################################################################################################################################################################################[]|  
- []
-
-
-Overfull \hbox (418.27248pt too wide) in paragraph at lines 7256--7256
-[]\T1/lmtt/m/it/10.95 ############################################################################################################################################## 
- []
-
-
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7265--7265
-| | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
- []
-
-
-Overfull \hbox (103.99318pt too wide) in paragraph at lines 7275--7275
-[]\T1/lmtt/m/it/10.95 #####################################################################################[]|  
- []
-
-
-Overfull \hbox (138.48558pt too wide) in paragraph at lines 7290--7290
-[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
- []
-
-
-Overfull \hbox (138.48558pt too wide) in paragraph at lines 7300--7300
-[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
- []
-
-
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7314--7314
-| | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
- []
-
-
-Overfull \hbox (391.42986pt too wide) in paragraph at lines 7332--7332
-| | | |[]\T1/lmtt/m/it/10.95 ##############################################################################################################################################[]|  
- []
-
-
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7343--7343
-| | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
- []
-
-
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7349--7349
-| | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
- []
-
-
-Overfull \hbox (391.42986pt too wide) in paragraph at lines 7362--7362
-| | | |[]\T1/lmtt/m/it/10.95 ##############################################################################################################################################[]|  
- []
-
-
-Overfull \hbox (391.42986pt too wide) in paragraph at lines 7370--7370
-| | | |[]\T1/lmtt/m/it/10.95 ##############################################################################################################################################[]|  
- []
-
-
-Overfull \hbox (391.42986pt too wide) in paragraph at lines 7380--7380
-| | | |[]\T1/lmtt/m/it/10.95 ##############################################################################################################################################[]|  
- []
-
-
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7392--7392
-| | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
- []
-
-
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7405--7405
-| | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
- []
-
-
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7414--7414
-| | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
- []
-
-
-Overfull \hbox (29.25964pt too wide) in paragraph at lines 7428--7428
-| | | |[]\T1/lmtt/m/it/10.95 ###############################################################################[]|  
- []
-
-
-Overfull \hbox (391.42986pt too wide) in paragraph at lines 7436--7436
-| | | |[]\T1/lmtt/m/it/10.95 ##############################################################################################################################################[]|  
- []
-
-
-Overfull \hbox (391.42986pt too wide) in paragraph at lines 7447--7447
-| | | |[]\T1/lmtt/m/it/10.95 ##############################################################################################################################################[]|  
- []
-
-
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7458--7458
-| | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
- []
-
-
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7472--7472
-| | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
- []
-
-
-Overfull \hbox (92.49571pt too wide) in paragraph at lines 7481--7481
-| | | |[]\T1/lmtt/m/it/10.95 ##########################################################################################[]|  
- []
-
-
-Overfull \hbox (103.99318pt too wide) in paragraph at lines 7497--7497
-| | | |[]\T1/lmtt/m/it/10.95 ############################################################################################[]|  
- []
-
-
-Overfull \hbox (345.43999pt too wide) in paragraph at lines 7506--7506
-| | | |[]\T1/lmtt/m/it/10.95 ######################################################################################################################################[]|  
- []
-
-
-Overfull \hbox (345.43999pt too wide) in paragraph at lines 7515--7515
-| | | |[]\T1/lmtt/m/it/10.95 ######################################################################################################################################[]|  
- []
-
-
-Overfull \hbox (345.43999pt too wide) in paragraph at lines 7517--7517
-| | | |[]\T1/lmtt/m/it/10.95 ######################################################################################################################################[]|  
- []
-
-[144]
-Underfull \vbox (badness 10000) detected at line 7548
- []
-
-
-Overfull \vbox (0.56377pt too high) detected at line 7548
- []
-
-[145]
-Underfull \vbox (badness 10000) detected at line 7548
- []
-
-
-Overfull \vbox (0.56369pt too high) detected at line 7548
+Overfull \vbox (0.56369pt too high) detected at line 7503
  []
 
 [146]
-Underfull \vbox (badness 10000) detected at line 7548
+Underfull \vbox (badness 10000) detected at line 7503
  []
 
 
-Overfull \vbox (0.56381pt too high) detected at line 7548
+Overfull \vbox (0.5638pt too high) detected at line 7503
  []
 
 [147]
-Underfull \vbox (badness 10000) detected at line 7548
+Underfull \vbox (badness 10000) detected at line 7503
  []
 
 
-Overfull \vbox (14.16377pt too high) detected at line 7548
+Overfull \vbox (0.56377pt too high) detected at line 7503
  []
 
 [148]
-Underfull \vbox (badness 10000) detected at line 7548
+Underfull \vbox (badness 10000) detected at line 7503
  []
 
 
-Overfull \vbox (0.56375pt too high) detected at line 7548
+Overfull \vbox (0.56378pt too high) detected at line 7503
  []
 
 [149]
-Underfull \vbox (badness 10000) detected at line 7548
+Underfull \vbox (badness 10000) detected at line 7503
  []
 
 
-Overfull \vbox (0.56374pt too high) detected at line 7548
+Overfull \vbox (0.56374pt too high) detected at line 7503
  []
 
 [150]
-Underfull \vbox (badness 10000) detected at line 7548
+Underfull \vbox (badness 10000) detected at line 7503
  []
 
 
-Overfull \vbox (0.56381pt too high) detected at line 7548
+Overfull \vbox (0.56378pt too high) detected at line 7503
  []
 
 [151]
-Underfull \vbox (badness 10000) detected at line 7548
+Underfull \vbox (badness 10000) detected at line 7503
  []
 
 
-Overfull \vbox (0.56377pt too high) detected at line 7548
+Overfull \vbox (0.56372pt too high) detected at line 7503
  []
 
 [152]
-Underfull \vbox (badness 10000) detected at line 7548
+Underfull \vbox (badness 10000) detected at line 7503
  []
 
 
-Overfull \vbox (0.56375pt too high) detected at line 7548
+Overfull \vbox (0.56375pt too high) detected at line 7503
  []
 
 [153]
-Underfull \vbox (badness 10000) detected at line 7548
+Underfull \vbox (badness 10000) detected at line 7503
  []
 
 
-Overfull \vbox (0.56372pt too high) detected at line 7548
+Overfull \vbox (0.56372pt too high) detected at line 7503
  []
 
 [154]
-Underfull \vbox (badness 10000) detected at line 7548
+Underfull \vbox (badness 10000) detected at line 7503
  []
 
 
-Overfull \vbox (0.56374pt too high) detected at line 7548
+Overfull \vbox (0.56374pt too high) detected at line 7503
  []
 
 [155]
-Underfull \vbox (badness 10000) detected at line 7548
+Underfull \vbox (badness 10000) detected at line 7503
  []
 
 
-Overfull \vbox (0.5637pt too high) detected at line 7548
+Overfull \vbox (0.5637pt too high) detected at line 7503
  []
 
-[156] [157] [158] [159] [160] [161] [162] [163] [164] [165] [166] [167] [168] [169] [170] [171]
-Overfull \hbox (158.57634pt too wide) in paragraph at lines 8552--8555
+[156] [157] [158] [159] [160] [161] [162] [163] [164]
+Underfull \vbox (badness 1975) detected at line 7989
+ []
+
+[165] [166] [167] [168] [169] [170] [171] [172] [173]
+Overfull \hbox (158.57634pt too wide) in paragraph at lines 8424--8427
 []\T1/lmr/m/n/10.95 arbol de clasi-fi-ca-cion con sklearn pe-nal-iza-cion op-tima De-ci-sion-TreeClas-si-fier(ccp_alpha=alpha_score_df_sorted[`alpha'][0],
  []
 
-[172] [173] (./Practica1.aux)
+[174] (./Practica1.aux)
 Package rerunfilecheck Info: File `Practica1.out' has not changed.
-(rerunfilecheck)             Checksum: 3F3827C6645CA793115ABA384B7C3D24;11989.
+(rerunfilecheck)             Checksum: C45137948F8663F4E442C3E317487373;11632.
  ) 
 Here is how much of TeX's memory you used:
- 14213 strings out of 477031
- 232058 string characters out of 5826468
- 755963 words of memory out of 5000000
- 34807 multiletter control sequences out of 15000+600000
+ 14400 strings out of 477031
+ 235034 string characters out of 5826468
+ 757499 words of memory out of 5000000
+ 34990 multiletter control sequences out of 15000+600000
  539645 words of font info for 75 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  72i,13n,77p,1309b,607s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on Practica1.pdf (173 pages, 2155690 bytes).
+Output written on Practica1.pdf (174 pages, 2389941 bytes).
 PDF statistics:
- 1256 PDF objects out of 1440 (max. 8388607)
- 992 compressed objects within 10 object streams
- 291 named destinations out of 1000 (max. 500000)
- 452 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1246 PDF objects out of 1440 (max. 8388607)
+ 982 compressed objects within 10 object streams
+ 285 named destinations out of 1000 (max. 500000)
+ 444 words of extra memory for PDF output out of 10000 (max. 10000000)
 
