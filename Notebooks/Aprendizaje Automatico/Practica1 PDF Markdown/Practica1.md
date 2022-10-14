@@ -8009,12 +8009,12 @@ k_KNN_Euclidean_df.head()
 
 | Modelo                                                     |    TAC      |  
 |-----------------------------------------------------------------------|-------------|
-| rpart sin podar                                                       | 0.6667      |
-| rpart podado                                                          | 0.6879      |        
-| c5.0 sin podar                                                        |   0.6986     |        
-| c5.0 podado                                                           | 0.7123             |                  
-| rpart podado (mlr3)                                                   | 0.6917     |        
-| c5.0 (mlr3 )                                                          | 0.6986      |        
+| Rpart sin podar                                                       | 0.6667      |
+| Rpart podado                                                          | 0.6879      |        
+| C5.0 sin podar                                                        |   0.6986     |        
+| C5.0 podado                                                           | 0.7123             |                  
+| Rpart podado (mlr3)                                                   | 0.6917     |        
+| C5.0 (mlr3 )                                                          | 0.6986      |        
 |  AC propio TEC $k=20$                                                   |   0.6923     |         
 |  **AC propio Gini $k=20$**                                                  |   **0.7179**   |       
 |  AC sklearn (criterion='gini', min_samples_split=40, min_samples_leaf=50) | 0.6581   |  
@@ -8026,11 +8026,14 @@ k_KNN_Euclidean_df.head()
 |  KNN Minkowski $q=2$ $k=10$  |    0.7008    |
 |  KNN Minkowski $q=1$ $k=10$  |    0.67521   |
 |  KNN Coseno $k=10$  |    0.7008    |
-|  **KNN Canbera $k*$**  |     **0.7692**     |
+|  **KNN CanberRa $k*$**  |     **0.7692**     |
 |  KNN Pearson $k^*$  |    0.74359   |
 |  KNN Euclidea $k^*$  |   0.74359    |
 
 
+Donde:
+
+AC = Arbol de clasificación
 
 
 
