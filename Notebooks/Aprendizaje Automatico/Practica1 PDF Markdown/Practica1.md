@@ -8008,52 +8008,29 @@ k_KNN_Euclidean_df.head()
 
 
 | Modelo                                                     |    TAC      |  
-|---------------------------------------------------------------------------|-------------|
-| rpart sin podar                                | 0.6667      |
-| rpart podado                                     | 0.6879      |        
-| c5.0 sin podar                                  |  0.6986     |        
-| c5.0 podado                                      | 0.7123      |                  
-| rpart podado (mlr3)                               | 0.6917     |        
-| c5.0 (mlr3 )                                      | 0.6986      |        
-|  AC propio TEC k=20                                 |        |         
-|  AC propio Gini k=20                                |        |       
-|  AC sklearn (criterion='gini', min_samples_split=40, min_samples_leaf=50)   |        |              | 
+|-----------------------------------------------------------------------|-------------|
+| rpart sin podar                                                       | 0.6667      |
+| rpart podado                                                          | 0.6879      |        
+| c5.0 sin podar                                                        |   0.6986     |        
+| c5.0 podado                                                           | 0.7123             |                  
+| rpart podado (mlr3)                                                   | 0.6917     |        
+| c5.0 (mlr3 )                                                          | 0.6986      |        
+|  AC propio TEC $k=20$                                                   |   0.6923     |         
+|  **AC propio Gini $k=20$**                                                  |   **0.7179**   |       
+|  AC sklearn (criterion='gini', min_samples_split=40, min_samples_leaf=50) | 0.6581   |  
+|  AC sklearn penalizacion $\alpha^*$ (criterion='gini')                    |   0.7008     |
+|  KNN Canberra $k=10$  |    0.7607    |
+|  KNN Pearson $k=10$  |    0.7008    |
+|  KNN Mahalanobis $k=10$  |    0.6496    |
+|  KNN Gower $k=10$  |    0.6581    |
+|  KNN Minkowski $q=2$ $k=10$  |    0.7008    |
+|  KNN Minkowski $q=1$ $k=10$  |    0.67521   |
+|  KNN Coseno $k=10$  |    0.7008    |
+|  **KNN Canbera $k*$**  |     **0.7692**     |
+|  KNN Pearson $k^*$  |    0.74359   |
+|  KNN Euclidea $k^*$  |   0.74359    |
 
 
-rpart sin podar  TAC 0.6667
-rpart podado (maxdepth=4)  TAC 0.6879
-c5.0 sin podar 0.6986
-c5.0 podado control = C5.0Control(minCases = 10,earlyStopping = TRUE)  TAC 0.7123 (segun marcos)
-rpart con mlr3 maxdepth=4 TAC 0.6917
-c5.0 con mlr3 TAC 0.6986
-
-arbol clasificacion algoritmo de creacion propia con TEC como metrica a optimizar y k=20 TAC = 0.6923
-
-arbol clasificacion algoritmo de creacion propia con Gini como metrica a optimizar y k=20  TAC = 0.7179
-
-arbol de clasificacion con sklearn DecisionTreeClassifier(criterion='gini', splitter='best', min_samples_split=40, min_samples_leaf=50,  max_depth=None,  ccp_alpha=0, random_state=666) TAC 0.6581
-
-arbol de clasificacion con sklearn penalizacion optima DecisionTreeClassifier(ccp_alpha=alpha_score_df_sorted['alpha'][0], criterion='gini', splitter='best', random_state=222) TAC 0.7008
-
-KNN funcion propia con distancia canberra y k=10   TAC 0.7607
-
-KNN funcion propia con distancia Pearson y k=10   TAC 0.7008
-
-KNN funcion propia con distancia Mahalanobis y k=10   TAC 0.6496
-
-KNN funcion propia con distancia Gower y k=10   TAC 0.6581
-
-KNN funcion sklearn con distancia Minkowski q=2 y k=10   TAC 0.7008
-
-KNN funcion sklearn con distancia Minkowski q=1 y k=10   TAC 0.67521
-
-KNN funcion sklearn con distancia Coseno y k=10   TAC 0.7008
-
-KNN con k optimio para la distancia Canberra
-
-KNN con k optimio para la distancia Pearson
-
-KNN con k optimio para la distancia Euclidea
 
 
 
