@@ -933,7 +933,7 @@ Por otro lado el porcentaje de endfermos es del71.36%, mientras que el de no enf
 
 \newpage
 
-###   Box-plots para las variables cuantitativas  <a class="anchor" id="13"></a>
+**Box-plots para las variables cuantitativas**  <a class="anchor" id="13"></a>
 
 
 ```python
@@ -1201,8 +1201,7 @@ intervals
 
 
 
-<p><p style="page-break-after:always;"></p></p>
-
+ 
 
 
 ```python
@@ -1391,7 +1390,7 @@ Por otro lado dentro del grupo de los no enfermos el grupo de edad claramente ma
 
 \vspace{1cm}
 
-### 4.3.5. Análisis de la relación entre los predictores cuantitativos y la respuesta  <a class="anchor" id="17"></a>
+### Análisis de la relación entre los predictores cuantitativos y la respuesta  <a class="anchor" id="17"></a>
 
 \vspace{0.21cm}
 
