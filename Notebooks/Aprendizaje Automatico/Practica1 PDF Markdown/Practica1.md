@@ -8026,7 +8026,7 @@ k_KNN_Euclidean_df.head()
 |  KNN Minkowski $q=2$ $k=10$  |    0.7008    |
 |  KNN Minkowski $q=1$ $k=10$  |    0.67521   |
 |  KNN Coseno $k=10$  |    0.7008    |
-|  **KNN CanberRa $k*$**  |     **0.7692**     |
+|  **KNN Canberra $k*$**  |     **0.7692**     |
 |  KNN Pearson $k^*$  |    0.74359   |
 |  KNN Euclidea $k^*$  |   0.74359    |
 
