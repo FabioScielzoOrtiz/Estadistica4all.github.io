@@ -8038,10 +8038,22 @@ AC = Arbol de clasificación
 
 
 
+\newpage
+
+# Bibliografia 
 
 
+James, G. ; Tibshirani, R. ; Hastie, T. ;  Witten, D. (2021). *An Introduction to Statistical Learning* (second edition). Springer.
 
+Tibshirani, R. ; Hastie, T. ;  Friedman, H. (2008). *The elements of Statistical Learning* (second edition). Springer.
 
+Grané, A. (2022). *Análisis Discriminante* [Presentación de PowerPoint]. Aula Global UC3M.
+
+Grané, A. (2022). *Distancias Estadisticas* [Presentación de PowerPoint]. Aula Global UC3M.
+
+scikit-learn Developers. *scikit-learn*.  https://scikit-learn.org/stable/
+
+mlr3 Developers. *mlr3*. https://mlr3.mlr-org.com/
 
 
 
