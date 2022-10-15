@@ -6462,7 +6462,7 @@ El ranking de modelos segun validacion simple sería :
 \newpage
 
 
-##. KNN para clasificación en `Python`  
+## KNN para clasificación en `Python`  
 
 
 
