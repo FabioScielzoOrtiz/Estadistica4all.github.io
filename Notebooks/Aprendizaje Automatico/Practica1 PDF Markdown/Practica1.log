@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.13)  15 OCT 2022 12:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.13)  15 OCT 2022 13:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -682,7 +682,7 @@ Overfull \hbox (16.62196pt too wide) in paragraph at lines 613--617
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 865.
 [16] [17] [18] [19]
-<output_125_0.png, id=340, 778.91pt x 758.835pt>
+<output_125_0.png, id=339, 778.91pt x 758.835pt>
 File: output_125_0.png Graphic file (type png)
 <use output_125_0.png>
 Package pdftex.def Info: output_125_0.png  used on input line 1005.
@@ -692,13 +692,13 @@ Package pdftex.def Info: output_125_0.png  used on input line 1005.
  <./output_125_0.png>] [21
 
 ]
-<output_133_0.png, id=352, 498.86375pt x 485.815pt>
+<output_133_0.png, id=351, 498.86375pt x 485.815pt>
 File: output_133_0.png Graphic file (type png)
 <use output_133_0.png>
 Package pdftex.def Info: output_133_0.png  used on input line 1080.
 (pdftex.def)             Requested size: 309.20859pt x 301.12064pt.
 [22 <./output_133_0.png>]
-<output_140_0.png, id=359, 745.78625pt x 754.82pt>
+<output_140_0.png, id=358, 745.78625pt x 754.82pt>
 File: output_140_0.png Graphic file (type png)
 <use output_140_0.png>
 Package pdftex.def Info: output_140_0.png  used on input line 1155.
@@ -708,7 +708,7 @@ Overfull \hbox (15.86113pt too wide) in paragraph at lines 1234--1234
 \T1/lmtt/m/n/10.95 Frec_Relativas_Condicionadas_Gender_in_Diseased.style.set_caption([]"Gender 
  []
 
-<output_152_1.png, id=377, 390.45876pt x 262.9825pt>
+<output_152_1.png, id=376, 390.45876pt x 262.9825pt>
 File: output_152_1.png Graphic file (type png)
 <use output_152_1.png>
 Package pdftex.def Info: output_152_1.png  used on input line 1248.
@@ -718,7 +718,7 @@ Overfull \hbox (27.3586pt too wide) in paragraph at lines 1308--1308
 \T1/lmtt/m/n/10.95 Frec_Relativas_Condicionadas_Diseased_in_Gender.style.set_caption([]"Diseased 
  []
 
-<output_162_1.png, id=384, 390.45876pt x 262.9825pt>
+<output_162_1.png, id=383, 390.45876pt x 262.9825pt>
 File: output_162_1.png Graphic file (type png)
 <use output_162_1.png>
 Package pdftex.def Info: output_162_1.png  used on input line 1322.
@@ -733,13 +733,13 @@ Overfull \hbox (15.86113pt too wide) in paragraph at lines 1488--1488
 \T1/lmtt/m/n/10.95 Frec_Relativas_Condicionadas_Diseased_in_Aged.style.set_caption([]"Diseased 
  []
 
-<output_187_1.png, id=406, 390.45876pt x 263.98625pt>
+<output_187_1.png, id=405, 390.45876pt x 263.98625pt>
 File: output_187_1.png Graphic file (type png)
 <use output_187_1.png>
 Package pdftex.def Info: output_187_1.png  used on input line 1502.
 (pdftex.def)             Requested size: 316.1924pt x 213.77531pt.
 [31 <./output_187_1.png>]
-<output_195_1.png, id=414, 390.45876pt x 262.9825pt>
+<output_195_1.png, id=413, 390.45876pt x 262.9825pt>
 File: output_195_1.png Graphic file (type png)
 <use output_195_1.png>
 Package pdftex.def Info: output_195_1.png  used on input line 1557.
@@ -825,13 +825,13 @@ Overfull \hbox (10.1124pt too wide) in paragraph at lines 1753--1753
  []
 
 [36] [37]
-<output_214_0.png, id=443, 901.3675pt x 863.225pt>
+<output_214_0.png, id=442, 901.3675pt x 863.225pt>
 File: output_214_0.png Graphic file (type png)
 <use output_214_0.png>
 Package pdftex.def Info: output_214_0.png  used on input line 1822.
 (pdftex.def)             Requested size: 426.79239pt x 408.73213pt.
 [38 <./output_214_0.png>]
-<output_222_0.png, id=450, 481.8pt x 481.8pt>
+<output_222_0.png, id=449, 481.8pt x 481.8pt>
 File: output_222_0.png Graphic file (type png)
 <use output_222_0.png>
 Package pdftex.def Info: output_222_0.png  used on input line 1870.
@@ -907,7 +907,7 @@ Overfull \hbox (27.3586pt too wide) in paragraph at lines 1914--1914
  []
 
 [41]
-<output_234_0.png, id=467, 481.8pt x 481.8pt>
+<output_234_0.png, id=466, 481.8pt x 481.8pt>
 File: output_234_0.png Graphic file (type png)
 <use output_234_0.png>
 Package pdftex.def Info: output_234_0.png  used on input line 1984.
@@ -988,7 +988,7 @@ Overfull \hbox (10.1124pt too wide) in paragraph at lines 2287--2287
  []
 
 [47] [48]
-<output_265_0.png, id=499, 481.8pt x 481.8pt>
+<output_265_0.png, id=498, 481.8pt x 481.8pt>
 File: output_265_0.png Graphic file (type png)
 <use output_265_0.png>
 Package pdftex.def Info: output_265_0.png  used on input line 2301.
@@ -1049,7 +1049,7 @@ Overfull \hbox (10.1124pt too wide) in paragraph at lines 2518--2518
  []
 
 [51] [52]
-<output_295_0.png, id=518, 481.8pt x 481.8pt>
+<output_295_0.png, id=517, 481.8pt x 481.8pt>
 File: output_295_0.png Graphic file (type png)
 <use output_295_0.png>
 Package pdftex.def Info: output_295_0.png  used on input line 2532.
@@ -1130,7 +1130,7 @@ Overfull \hbox (4.36366pt too wide) in paragraph at lines 2773--2773
  []
 
 [57]
-<output_342_0.png, id=543, 481.8pt x 481.8pt>
+<output_342_0.png, id=542, 481.8pt x 481.8pt>
 File: output_342_0.png Graphic file (type png)
 <use output_342_0.png>
 Package pdftex.def Info: output_342_0.png  used on input line 2787.
@@ -1141,13 +1141,13 @@ Overfull \hbox (56.10226pt too wide) in paragraph at lines 2866--2866
  []
 
 [59] [60] [61] [62] [63] [64]
-<output_397_0.jpg, id=577, 1863.96375pt x 726.715pt>
+<output_397_0.jpg, id=576, 1863.96375pt x 726.715pt>
 File: output_397_0.jpg Graphic file (type jpg)
 <use output_397_0.jpg>
 Package pdftex.def Info: output_397_0.jpg  used on input line 3119.
 (pdftex.def)             Requested size: 426.7686pt x 166.38689pt.
 [65 <./output_397_0.jpg>] [66] [67] [68] [69] [70]
-<output_465_0.jpg, id=612, 1416.29124pt x 669.50125pt>
+<output_465_0.jpg, id=611, 1416.29124pt x 669.50125pt>
 File: output_465_0.jpg Graphic file (type jpg)
 <use output_465_0.jpg>
 Package pdftex.def Info: output_465_0.jpg  used on input line 3465.
@@ -1162,13 +1162,13 @@ Overfull \hbox (10.68697pt too wide) detected at line 3541
 []  [] \OT1/lmr/m/n/10.95 = []  [] = []  []
  []
 
-<output_494_0.jpg, id=622, 1496.59125pt x 638.385pt>
+<output_494_0.jpg, id=621, 1496.59125pt x 638.385pt>
 File: output_494_0.jpg Graphic file (type jpg)
 <use output_494_0.jpg>
 Package pdftex.def Info: output_494_0.jpg  used on input line 3605.
 (pdftex.def)             Requested size: 316.166pt x 134.86356pt.
 [73] [74 <./output_494_0.jpg>]
-<output_500_0.jpg, id=633, 1983.41pt x 827.09pt>
+<output_500_0.jpg, id=632, 1983.41pt x 827.09pt>
 File: output_500_0.jpg Graphic file (type jpg)
 <use output_500_0.jpg>
 Package pdftex.def Info: output_500_0.jpg  used on input line 3632.
@@ -1184,12 +1184,12 @@ Overfull \hbox (75.7383pt too wide) detected at line 3701
  []
 
 [77]
-<output_523_0.jpg, id=647, 2507.3675pt x 701.62125pt>
+<output_523_0.jpg, id=646, 2507.3675pt x 701.62125pt>
 File: output_523_0.jpg Graphic file (type jpg)
 <use output_523_0.jpg>
 Package pdftex.def Info: output_523_0.jpg  used on input line 3739.
 (pdftex.def)             Requested size: 426.78247pt x 119.4239pt.
-<output_528_0.jpg, id=648, 2289.55376pt x 751.80875pt>
+<output_528_0.jpg, id=647, 2289.55376pt x 751.80875pt>
 File: output_528_0.jpg Graphic file (type jpg)
 <use output_528_0.jpg>
 Package pdftex.def Info: output_528_0.jpg  used on input line 3763.
@@ -1200,7 +1200,7 @@ Overfull \hbox (10.27315pt too wide) detected at line 3803
  []
 
 [80]
-<output_544_0.jpg, id=664, 2607.7425pt x 678.535pt>
+<output_544_0.jpg, id=663, 2607.7425pt x 678.535pt>
 File: output_544_0.jpg Graphic file (type jpg)
 <use output_544_0.jpg>
 Package pdftex.def Info: output_544_0.jpg  used on input line 3811.
@@ -1588,7 +1588,7 @@ Overfull \hbox (21.60986pt too wide) in paragraph at lines 6280--6280
  []
 
 [134]
-<output_660_0.jpg, id=901, 1080.4365pt x 516.7305pt>
+<output_660_0.jpg, id=900, 1080.4365pt x 516.7305pt>
 File: output_660_0.jpg Graphic file (type jpg)
 <use output_660_0.jpg>
 Package pdftex.def Info: output_660_0.jpg  used on input line 6355.
@@ -1628,7 +1628,7 @@ Overfull \hbox (38.85606pt too wide) in paragraph at lines 6571--6571
  []
 
 [139]
-<output_695_1.png, id=926, 561.09625pt x 536.0025pt>
+<output_695_1.png, id=925, 561.09625pt x 536.0025pt>
 File: output_695_1.png Graphic file (type png)
 <use output_695_1.png>
 Package pdftex.def Info: output_695_1.png  used on input line 6621.
@@ -1654,124 +1654,139 @@ Underfull \hbox (badness 2173) in paragraph at lines 6766--6770
  []
 
 [143]
-
-LaTeX Warning: Command \' invalid in math mode on input line 6877.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 6877.
-
-
-LaTeX Warning: Command \' invalid in math mode on input line 6877.
-
-[144] [145]
-Underfull \vbox (badness 10000) detected at line 7505
+Underfull \hbox (badness 2165) in paragraph at lines 6788--6794
+[]\T1/lmr/m/n/10.95 También ten-emos una vari-able de re-spuesta \T1/lmr/bx/n/10.95 categórica $ \OML/lmm/m/it/10.95 Y $ \T1/lmr/m/n/10.95 con $ \OML/lmm/m/it/10.95 g $ \T1/lmr/m/n/10.95 cat-e-
  []
 
 
-Overfull \vbox (0.56369pt too high) detected at line 7505
+Underfull \hbox (badness 1515) in paragraph at lines 6788--6794
+\T1/lmr/m/n/10.95 gorías que in-dica el grupo al que cada el-e-mento de la mues-tra pertenece
+ []
+
+
+Underfull \hbox (badness 2698) in paragraph at lines 6870--6875
+[]$  $ $[]  []$ $  \OMS/lmsy/m/n/10.95 )  \OML/lmm/m/it/10.95 x[] $ \T1/lmr/m/n/10.95 se clasi-fica en $ \OT1/lmr/m/n/10.95 
+[]$
+ []
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 6880.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 6880.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 6880.
+
+[144] [145]
+Underfull \vbox (badness 10000) detected at line 7508
+ []
+
+
+Overfull \vbox (0.56369pt too high) detected at line 7508
  []
 
 [146]
-Underfull \vbox (badness 10000) detected at line 7505
+Underfull \vbox (badness 10000) detected at line 7508
  []
 
 
-Overfull \vbox (0.5638pt too high) detected at line 7505
+Overfull \vbox (0.5638pt too high) detected at line 7508
  []
 
 [147]
-Underfull \vbox (badness 10000) detected at line 7505
+Underfull \vbox (badness 10000) detected at line 7508
  []
 
 
-Overfull \vbox (0.56377pt too high) detected at line 7505
+Overfull \vbox (0.56377pt too high) detected at line 7508
  []
 
 [148]
-Underfull \vbox (badness 10000) detected at line 7505
+Underfull \vbox (badness 10000) detected at line 7508
  []
 
 
-Overfull \vbox (0.56378pt too high) detected at line 7505
+Overfull \vbox (0.56378pt too high) detected at line 7508
  []
 
 [149]
-Underfull \vbox (badness 10000) detected at line 7505
+Underfull \vbox (badness 10000) detected at line 7508
  []
 
 
-Overfull \vbox (0.56374pt too high) detected at line 7505
+Overfull \vbox (0.56374pt too high) detected at line 7508
  []
 
 [150]
-Underfull \vbox (badness 10000) detected at line 7505
+Underfull \vbox (badness 10000) detected at line 7508
  []
 
 
-Overfull \vbox (0.56378pt too high) detected at line 7505
+Overfull \vbox (0.56378pt too high) detected at line 7508
  []
 
 [151]
-Underfull \vbox (badness 10000) detected at line 7505
+Underfull \vbox (badness 10000) detected at line 7508
  []
 
 
-Overfull \vbox (0.56372pt too high) detected at line 7505
+Overfull \vbox (0.56372pt too high) detected at line 7508
  []
 
 [152]
-Underfull \vbox (badness 10000) detected at line 7505
+Underfull \vbox (badness 10000) detected at line 7508
  []
 
 
-Overfull \vbox (0.56375pt too high) detected at line 7505
+Overfull \vbox (0.56375pt too high) detected at line 7508
  []
 
 [153]
-Underfull \vbox (badness 10000) detected at line 7505
+Underfull \vbox (badness 10000) detected at line 7508
  []
 
 
-Overfull \vbox (0.56372pt too high) detected at line 7505
+Overfull \vbox (0.56372pt too high) detected at line 7508
  []
 
 [154]
-Underfull \vbox (badness 10000) detected at line 7505
+Underfull \vbox (badness 10000) detected at line 7508
  []
 
 
-Overfull \vbox (0.56374pt too high) detected at line 7505
+Overfull \vbox (0.56374pt too high) detected at line 7508
  []
 
 [155]
-Underfull \vbox (badness 10000) detected at line 7505
+Underfull \vbox (badness 10000) detected at line 7508
  []
 
 
-Overfull \vbox (0.5637pt too high) detected at line 7505
+Overfull \vbox (0.5637pt too high) detected at line 7508
  []
 
 [156] [157] [158] [159] [160] [161] [162] [163] [164]
-Underfull \vbox (badness 1975) detected at line 7991
+Underfull \vbox (badness 1975) detected at line 7994
  []
 
 [165] [166] [167] [168] [169] [170] [171] [172] [173] [174] [175] (./Practica1.aux)
 Package rerunfilecheck Info: File `Practica1.out' has not changed.
-(rerunfilecheck)             Checksum: 426A1F20F6CF14740ACA582CF1FE4811;11965.
+(rerunfilecheck)             Checksum: 5A431D2FB29FD0D18BFC59D2516C13BC;11891.
  ) 
 Here is how much of TeX's memory you used:
  14409 strings out of 477031
  235182 string characters out of 5826468
- 757637 words of memory out of 5000000
+ 757436 words of memory out of 5000000
  34994 multiletter control sequences out of 15000+600000
  539645 words of font info for 75 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  72i,13n,77p,1309b,607s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb><c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on Practica1.pdf (175 pages, 2394279 bytes).
+Output written on Practica1.pdf (175 pages, 2394215 bytes).
 PDF statistics:
- 1268 PDF objects out of 1440 (max. 8388607)
- 1002 compressed objects within 11 object streams
+ 1267 PDF objects out of 1440 (max. 8388607)
+ 1001 compressed objects within 11 object streams
  290 named destinations out of 1000 (max. 500000)
  460 words of extra memory for PDF output out of 10000 (max. 10000000)
 

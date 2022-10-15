@@ -6425,7 +6425,7 @@ TEC_classification_tree_penalized_star
 
 \newpage
 
-### 4.5.5. Comparación final entre árboles de clasificación por validación simple <a class="anchor" id="31"></a>
+### Comparación final entre árboles de clasificación por validación simple 
 
 
 ```python
@@ -6470,15 +6470,15 @@ El ranking de modelos segun validacion simple sería :
 
 - Tenemos $\hspace{0.1cm} p \hspace{0.1cm}$ variables $\hspace{0.1cm} X=(X_1,...,X_p) \hspace{0.1cm}$ medidas en un $n$ muestra de tamaño.
 
-- También tenemos una variable de respuesta **categórica** $\hspace{0.1cm} Y \hspace{0.1cm}$ con $\hspace{0.1cm} g \hspace{0.1cm}$ categorías que indica el grupo al que cada elemento de la muestra pertenece $( \hspace{0.05cm} Range(Y)=\lbrace c_1 ,..., c_g \rbrace \hspace{0.05cm})$
+- También tenemos una variable de respuesta **categórica** $\hspace{0.1cm} Y \hspace{0.1cm}$ con $\hspace{0.1cm} g \hspace{0.1cm}$ categorías que indica el grupo al que cada elemento de la muestra pertenece $( \hspace{0.05cm} Range(Y)=\lbrace c_0 ,..., c_{g-1} \rbrace \hspace{0.05cm})$
 
-- Los grupos generados por $\hspace{0.1cm} Y \hspace{0.1cm}$ se denotan como $\hspace{0.1cm} \Omega_1 ,..., \Omega_g \hspace{0.15cm}$ $\hspace{ 0.15cm}( \hspace{0.1cm} y_i = c_r \hspace{0.15cm} \Leftrightarrow \hspace{0.15cm}$ $i \in \Omega_r \hspace{0.1cm})$
+- Los grupos generados por $\hspace{0.1cm} Y \hspace{0.1cm}$ se denotan como $\hspace{0.1cm} \Omega_0 ,..., \Omega_{g-1} \hspace{0.15cm}$ $\hspace{ 0.15cm}( \hspace{0.1cm} y_i = c_r \hspace{0.15cm} \Leftrightarrow \hspace{0.15cm}$ $i \in \Omega_r \hspace{0.1cm})$
 
 \vspace{0.3cm}
 
-El problema de clasificación supervisada consiste en, para una nueva observación de las variables $X_1,...,X_p \hspace{0.1cm}$, $\hspace{0.1cm} x_{nueva} = (x_{nueva,1}\ hspace{0.1cm},\hspace{0.1cm}x_{nuevo,2}\hspace{0.1cm},\dots,\hspace{0.1cm}x_{nuevo,p}) \hspace{0.1cm}$, predecir es $\hspace{0.1cm} Y \hspace{0.1cm}$ valor $\hspace{0.1cm} (y_{nuevo})\hspace{0.1cm}$ usando la información disponible de $\hspace{0.1cm} X_1 ,...,X_p \hspace{0.1cm}$ y $ \hspace{0.1cm} Y$
+El problema de clasificación supervisada consiste en, para una nueva observación de las variables $X_1,...,X_p \hspace{0.1cm}$, $\hspace{0.1cm} x_{new} = (x_{new,1}\hspace{0.1cm},\hspace{0.1cm}x_{new,2}\hspace{0.1cm},\dots,\hspace{0.1cm}x_{new ,p}) \hspace{0.1cm}$, predecir es $\hspace{0.1cm} Y \hspace{0.1cm}$ valor $\hspace{0.1cm} (y_{new})\hspace{0.1cm}$ usando la información disponible de $\hspace{0.1cm} X_1 ,...,X_p \hspace{0.1cm}$ y $\hspace{0.1cm} Y$
 
-Entonces, el problema es clasificar un nuevo elemento/individuo en uno de los $\hspace{0.1cm} g \hspace{0.1cm}$ grupos generados por $\hspace{0.1cm} Y \hspace{0.1cm}$ usando la información disponible de $\hspace{0.1cm} X_1,...,X_p \hspace{0.1cm}$ y $Y$, y también $\hspace{0.1cm} x_{nuevo} = (x_{nuevo,1 }\hspace{0.1cm},\hspace{0.1cm}x_{nuevo,2}\hspace{0.1cm},\dots,\hspace{0.1cm}x_{nuevo,p}) \hspace{0.1cm}$
+Entonces, el problema es clasificar un nuevo elemento/individuo en uno de los $\hspace{0.1cm} g \hspace{0.1cm}$ grupos generados por $\hspace{0.1cm} Y \hspace{0.1cm}$ usando la información disponible de $\hspace{0.1cm} X_1,...,X_p \hspace{0.1cm}$ y $\hspace{0.1cm}Y\hspace{0.1cm}$, y también $\hspace{0.1cm} x_{new} = (x_{new,1 }\hspace{0.1cm},\hspace{0.1cm}x_{new,2}\hspace{0.1cm},\dots,\hspace{0.1cm}x_{new,p}) \hspace{0.1cm}$
 
 Tengase en cuenta que si no tenemos información sobre $\hspace{0.1cm} Y \hspace{0.1cm}$, esto sería un problema de clasificación no supervisado.
 
@@ -6492,16 +6492,16 @@ El algoritmo KNN (K-vecinos más cercanos) para la clasificación supervisada ti
 
 $1. \hspace{0.15cm}$ Define una medida de **distancia** entre las observaciones de la muestra original respecto a las variables $X_1,...,X_p$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\delta$
 
-\vspace{0.2cm}
+\vspace{0.3cm}
 
 
  $2. \hspace{0.15cm}$ Calcula las distancias entre $\hspace{0.1 cm}x_{new}\hspace{0.1 cm}$ y las observaciones iniciales $\hspace{0.1cm} \lbrace x_1,...,x_n \rbrace$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\lbrace \hspace{0.1 cm} \delta(x_{nuevo}\hspace{0.03 cm},\hspace{0.03 cm} x_i) \hspace{0.1 cm} / \hspace{0.1 cm} i=1,...,n \hspace{0.1 cm} \rbrace$
 
-  \vspace{0.2cm}
+  \vspace{0.3cm}
 
- $3. \hspace{0.15cm}$ Seleccione la $\hspace{0.03 cm} k \hspace{0.03 cm}$ observación más cercana a $\hspace{0.06 cm} x_{nuevo}\hspace{0.06 cm}$ basado en $\hspace {0.05cm} \delta \hspace{0.12cm}$ $(k$ vecinos más cercanos de $x_{nuevo})$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ El conjunto de estas observaciones será denotar por $KNN(x_{nuevo})$
+ $3. \hspace{0.15cm}$ Seleccione la $\hspace{0.03 cm} k \hspace{0.03 cm}$ observación más cercana a $\hspace{0.06 cm} x_{nuevo}\hspace{0.06 cm}$ basado en $\hspace {0.05cm} \delta \hspace{0.12cm}$ $(k$ vecinos más cercanos de $x_{nuevo})$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ El conjunto de estas observaciones será denotar por $KNN(x_{new})$
 
-\vspace{0.2cm}
+\vspace{0.3cm}
 
  $4. \hspace{0.15cm}$ Calcular la proporción de estas observaciones (vecinos) que pertenecen a cada grupo :
  
@@ -6512,14 +6512,16 @@ La proporción de $KNN$ que pertenece al grupo $\hspace{0.15cm} \Omega_r$ $\hspa
    
 
 
-\vspace{0.2cm}
+\vspace{0.3cm}
 
 
 $5. \hspace{0.15cm}$ Clasifica $\hspace{0.1cm} x_{new} \hspace{0.1cm}$ en ese grupo/clase $($ definido por $Y)$ más frecuente en KNN:
 
-$\hspace{0.25cm} \hspace{0.2cm}$ $\text{If} \hspace{0.15cm} \underbrace{ f^{knn}_{s} \geqslant f^{knn}_{r} \hspace{0.15cm},\hspace{0.15cm} \forall r = 1,...,g }_{s \hspace{0.1cm}\text{es la clase más frecuente en}\hspace{0.1cm} KNN }$ $\hspace{0.1cm} \hspace{0.15cm} \Rightarrow \hspace{0.15cm} x_{new} \hspace{0.1cm}$ se clasifica en $\hspace{0.1cm} \Omega_s$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm} \widehat{y}_{new} = s$
+\vspace{0.25cm}
 
-\vspace{0.2cm}
+$\hspace{0.25cm} \hspace{0.2cm}$ $\text{If} \hspace{0.15cm} \underbrace{ f^{KNN(x_{new})}_{s} \geqslant f^{KNN(x_{new})}_{r} \hspace{0.15cm},\hspace{0.15cm} \forall r = 0,...,g-1 }_{s \hspace{0.1cm}\text{es la clase más frecuente en}\hspace{0.1cm} KNN }$ $\hspace{0.1cm} \hspace{0.15cm} \Rightarrow \hspace{0.15cm} x_{new} \hspace{0.1cm}$ se clasifica en $\hspace{0.1cm} \Omega_s$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm} \widehat{y}_{new} = s$
+
+\vspace{0.3cm}
 
 
 $\hspace{0.2 cm}$ En otras palabras:
@@ -8002,7 +8004,7 @@ k_KNN_Euclidean_df.head()
 
 \newpage
 
-## 4.7. Comparación final entre árboles y KNN para clasificación por validacion simple
+## Comparación final entre árboles y KNN para clasificación por validacion simple
 
 
 
