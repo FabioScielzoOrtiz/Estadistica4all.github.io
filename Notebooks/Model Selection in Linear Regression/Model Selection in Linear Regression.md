@@ -2242,9 +2242,9 @@ $\hspace{0.8cm} \dots$
 
 
 
-## Best Subset Selection in `Python` <a class="anchor" id="21"></a>
+### Best Subset Selection in `Python` <a class="anchor" id="21"></a>
 
-### varcharProcessing function <a class="anchor" id="21.1"></a>
+#### varcharProcessing function <a class="anchor" id="21.1"></a>
 
 We are going to define a function to process categorical variables:
 
@@ -3565,8 +3565,6 @@ for k in tnrange( 1, len(X.columns) + 1, desc = 'Loop...'):
 ```
 
 
-    Loop...:   0%|          | 0/6 [00:00<?, ?it/s]
-
 
     ('size_in_m_2',)
     ('longitude',)
@@ -3662,7 +3660,7 @@ def BestSubset (X , y,  varchar_process="dummy_dropfirst", criteria="AIC"):
     cols = X.columns[1:len(X.columns)] # We are not selecting the intercept
 
 
-######################################################################################################################################################
+############################################################################################################################################
 
    # Null Model:
 
@@ -3737,7 +3735,7 @@ def BestSubset (X , y,  varchar_process="dummy_dropfirst", criteria="AIC"):
 
 
 
----
+<br>
 
 Let's check how the function `BestSubset` works :
 
@@ -3747,8 +3745,7 @@ Models , Final_Model = BestSubset (X , y, varchar_process="dummy_dropfirst", cri
 ```
 
 
-    Loop...:   0%|          | 0/8 [00:00<?, ?it/s]
-
+ 
 
 
 ```python
@@ -4229,7 +4226,7 @@ ols_step_best_subset(model)
 
 
 
-### Forward Selection <a class="anchor" id="23"></a>
+## Forward Selection <a class="anchor" id="23"></a>
 
 Forward selection  consist in the following algorithm :
 
@@ -4733,7 +4730,7 @@ ols_step_forward_p(model)
 
 
 
-### Backward Selection <a class="anchor" id="26"></a>
+## Backward Selection <a class="anchor" id="26"></a>
 
 Backward selection consist in the following algorithm :
 
@@ -5387,7 +5384,7 @@ ols_step_backward_p(model)
 
 
 
-### Simple Validation:
+## Simple Validation:
 
 calcular ECM de test de los modelos seleecionados por cada algoritmo y metrica (best subser- R2 adj, Best subset- AIC, Best Subset - Bic , forward - R2 adj, forward- AIC, forward- Bic , backward- R2 adj, backward- AIC, backward - Bic )
 

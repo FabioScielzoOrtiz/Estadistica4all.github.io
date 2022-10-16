@@ -1592,7 +1592,9 @@ margin-left: 0 !important;
       <li><a href="#metrics" id="toc-metrics"><span class="toc-section-number">3.1</span> Metrics <a class="anchor" id="10"></a></a></li>
       <li><a href="#maximum-likelihood-estimation-in-the-linear-regression-model" id="toc-maximum-likelihood-estimation-in-the-linear-regression-model"><span class="toc-section-number">3.2</span> Maximum Likelihood Estimation in the Linear Regression Model <a class="anchor" id="14"></a></a></li>
       <li><a href="#best-subset-selection" id="toc-best-subset-selection"><span class="toc-section-number">3.3</span> Best Subset Selection <a class="anchor" id="20"></a></a></li>
-      <li><a href="#best-subset-selection-in-python" id="toc-best-subset-selection-in-python"><span class="toc-section-number">3.4</span> Best Subset Selection in <code>Python</code> <a class="anchor" id="21"></a></a></li>
+      <li><a href="#forward-selection" id="toc-forward-selection"><span class="toc-section-number">3.4</span> Forward Selection <a class="anchor" id="23"></a></a></li>
+      <li><a href="#backward-selection" id="toc-backward-selection"><span class="toc-section-number">3.5</span> Backward Selection <a class="anchor" id="26"></a></a></li>
+      <li><a href="#simple-validation" id="toc-simple-validation"><span class="toc-section-number">3.6</span> Simple Validation:</a></li>
       </ul></li>
       <li><a href="#bibliography" id="toc-bibliography"><span class="toc-section-number">4</span> Bibliography</a></li>
       </ul>
@@ -3461,11 +3463,10 @@ R[write to console]: The following object is masked from &#39;package:datasets&#
 <p>The growth of the computational requirements is exponential, for example, with <span class="math inline">\(\hspace{0.05cm} p=10\)</span> predictors we need to calculate <span class="math inline">\(\hspace{0.05cm} 2^{10}=1024 \hspace{0.05cm}\)</span> models, but with $ p=15 $ the models to be calculated are too many, <span class="math inline">\(\hspace{0.05cm} 2^{15}=32768\)</span></p></li>
 </ul>
 <p><br></p>
-</div>
-<div id="best-subset-selection-in-python" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Best Subset Selection in <code>Python</code> <a class="anchor" id="21"></a></h2>
-<div id="varcharprocessing-function" class="section level3" number="3.4.1">
-<h3><span class="header-section-number">3.4.1</span> varcharProcessing function <a class="anchor" id="21.1"></a></h3>
+<div id="best-subset-selection-in-python" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Best Subset Selection in <code>Python</code> <a class="anchor" id="21"></a></h3>
+<div id="varcharprocessing-function" class="section level4" number="3.3.1.1">
+<h4><span class="header-section-number">3.3.1.1</span> varcharProcessing function <a class="anchor" id="21.1"></a></h4>
 <p>We are going to define a function to process categorical variables:</p>
 <div class="sourceCode" id="cb87"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> varcharProcessing(X, varchar_process <span class="op">=</span> <span class="st">&quot;dummy_dropfirst&quot;</span>):</span>
 <span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -5963,10 +5964,7 @@ strong multicollinearity or other numerical problems.</code></pre>
 <span id="cb109-5"><a href="#cb109-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(combo)</span>
 <span id="cb109-6"><a href="#cb109-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb109-7"><a href="#cb109-7" aria-hidden="true" tabindex="-1"></a><span class="co"># itertools.combinations(X.columns , k) generate all the possible combinations with k columns of X (predictors)</span></span></code></pre></div>
-<pre><code>Loop...:   0%|          | 0/6 [00:00&lt;?, ?it/s]
-
-
-(&#39;size_in_m_2&#39;,)
+<pre><code>(&#39;size_in_m_2&#39;,)
 (&#39;longitude&#39;,)
 (&#39;latitude&#39;,)
 (&#39;no_of_bedrooms&#39;,)
@@ -6032,8 +6030,9 @@ strong multicollinearity or other numerical problems.</code></pre>
 <p><code>itertools.combinations(X.columns , k)</code> generate all the possible combinations with <span class="math inline">\(k\)</span> columns of <span class="math inline">\(X\)</span> (<code>X.columns</code>), and <span class="math inline">\(k\)</span> goes from <span class="math inline">\(1\)</span> to the number of columns of <span class="math inline">\(X\)</span></p>
 <p><br></p>
 </div>
-<div id="best-subset-selection-algorithm-in-python" class="section level3" number="3.4.2">
-<h3><span class="header-section-number">3.4.2</span> Best Subset Selection Algorithm in <code>Python</code></h3>
+</div>
+<div id="best-subset-selection-algorithm-in-python" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Best Subset Selection Algorithm in <code>Python</code></h3>
 <p>We are going to develop the Best Subset Selection algorithm in <code>Python</code> :</p>
 <div class="sourceCode" id="cb111"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> BestSubset (X , y,  varchar_process<span class="op">=</span><span class="st">&quot;dummy_dropfirst&quot;</span>, criteria<span class="op">=</span><span class="st">&quot;AIC&quot;</span>):</span>
 <span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -6048,7 +6047,7 @@ strong multicollinearity or other numerical problems.</code></pre>
 <span id="cb111-11"><a href="#cb111-11" aria-hidden="true" tabindex="-1"></a>    cols <span class="op">=</span> X.columns[<span class="dv">1</span>:<span class="bu">len</span>(X.columns)] <span class="co"># We are not selecting the intercept</span></span>
 <span id="cb111-12"><a href="#cb111-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb111-13"><a href="#cb111-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb111-14"><a href="#cb111-14" aria-hidden="true" tabindex="-1"></a><span class="co">######################################################################################################################################################</span></span>
+<span id="cb111-14"><a href="#cb111-14" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################################################################################################</span></span>
 <span id="cb111-15"><a href="#cb111-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb111-16"><a href="#cb111-16" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Null Model:</span></span>
 <span id="cb111-17"><a href="#cb111-17" aria-hidden="true" tabindex="-1"></a></span>
@@ -6119,11 +6118,10 @@ strong multicollinearity or other numerical problems.</code></pre>
 <span id="cb111-82"><a href="#cb111-82" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb111-83"><a href="#cb111-83" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb111-84"><a href="#cb111-84" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Models , Final_Model</span></code></pre></div>
-<hr />
+<p><br></p>
 <p>Let’s check how the function <code>BestSubset</code> works :</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>Models , Final_Model <span class="op">=</span> BestSubset (X , y, varchar_process<span class="op">=</span><span class="st">&quot;dummy_dropfirst&quot;</span>, criteria<span class="op">=</span><span class="st">&quot;AIC&quot;</span>)</span></code></pre></div>
-<pre><code>Loop...:   0%|          | 0/8 [00:00&lt;?, ?it/s]</code></pre>
-<div class="sourceCode" id="cb114"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>Models</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>Models</span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -6457,9 +6455,9 @@ ADJ_R2
 256 rows × 7 columns
 </p>
 </div>
-<div class="sourceCode" id="cb115"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML </span>
-<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a>HTML(Models[<span class="dv">0</span>:<span class="dv">7</span>].to_html(classes<span class="op">=</span><span class="st">&#39;table table-striped&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML </span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a>HTML(Models[<span class="dv">0</span>:<span class="dv">7</span>].to_html(classes<span class="op">=</span><span class="st">&#39;table table-striped&#39;</span>))</span></code></pre></div>
 <table border="1" class="dataframe table table-striped">
 <thead>
 <tr style="text-align: right;">
@@ -6676,7 +6674,7 @@ ADJ_R2
 <p><br></p>
 <p>So, the linear regression model selected with <strong><em>best subset</em></strong> algorithm and the <span class="math inline">\(AIC\)</span> criteria is saved in <code>Final_Model</code>, and it is:</p>
 <p><span class="math inline">\(price = intercept + size\_in\_m\_2 + longitude + latitude + no\_of\_bedrooms + quality\_2\)</span></p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Final_Model.summary())</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(Final_Model.summary())</span></code></pre></div>
 <pre><code>                            OLS Regression Results                            
 ==============================================================================
 Dep. Variable:                  price   R-squared:                       0.697
@@ -6710,10 +6708,10 @@ Notes:
 strong multicollinearity or other numerical problems.</code></pre>
 <p><br></p>
 <p>Let us now try another criteria, for example <span class="math inline">\(\widehat{R}^2\)</span></p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>Models , Final_Model <span class="op">=</span> BestSubset (X , y, varchar_process<span class="op">=</span><span class="st">&quot;dummy_dropfirst&quot;</span>, criteria<span class="op">=</span><span class="st">&quot;ADJ_R2&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb119"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML </span>
-<span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a>HTML(Models[<span class="dv">0</span>:<span class="dv">7</span>].to_html(classes<span class="op">=</span><span class="st">&#39;table table-striped&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>Models , Final_Model <span class="op">=</span> BestSubset (X , y, varchar_process<span class="op">=</span><span class="st">&quot;dummy_dropfirst&quot;</span>, criteria<span class="op">=</span><span class="st">&quot;ADJ_R2&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML </span>
+<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-3"><a href="#cb118-3" aria-hidden="true" tabindex="-1"></a>HTML(Models[<span class="dv">0</span>:<span class="dv">7</span>].to_html(classes<span class="op">=</span><span class="st">&#39;table table-striped&#39;</span>))</span></code></pre></div>
 <table border="1" class="dataframe table table-striped">
 <thead>
 <tr style="text-align: right;">
@@ -6929,17 +6927,17 @@ ADJ_R2
 </table>
 <p><br></p>
 </div>
-<div id="best-subset-selection-in-r" class="section level3" number="3.4.3">
-<h3><span class="header-section-number">3.4.3</span> Best Subset Selection in <code>R</code> <a class="anchor" id="22"></a></h3>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
-<span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-3"><a href="#cb120-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;olsrr&quot;)</span></span></code></pre></div>
+<div id="best-subset-selection-in-r" class="section level3" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Best Subset Selection in <code>R</code> <a class="anchor" id="22"></a></h3>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
+<span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages(&quot;olsrr&quot;)</span></span></code></pre></div>
 <pre><code>NULL</code></pre>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
-<span id="cb122-2"><a href="#cb122-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-3"><a href="#cb122-3" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(price  <span class="sc">~</span> size_in_m_2  <span class="sc">+</span> longitude  <span class="sc">+</span> latitude <span class="sc">+</span> no_of_bedrooms  <span class="sc">+</span> no_of_bathrooms <span class="sc">+</span> quality , <span class="at">data =</span> data_R)</span>
-<span id="cb122-4"><a href="#cb122-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-5"><a href="#cb122-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ols_step_best_subset</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
+<span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(price  <span class="sc">~</span> size_in_m_2  <span class="sc">+</span> longitude  <span class="sc">+</span> latitude <span class="sc">+</span> no_of_bedrooms  <span class="sc">+</span> no_of_bathrooms <span class="sc">+</span> quality , <span class="at">data =</span> data_R)</span>
+<span id="cb121-4"><a href="#cb121-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-5"><a href="#cb121-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ols_step_best_subset</span>(model)</span></code></pre></div>
 <pre><code>                              Best Subsets Regression                               
 ------------------------------------------------------------------------------------
 Model Index    Predictors
@@ -6973,8 +6971,9 @@ AIC: Akaike Information Criteria
  APC: Amemiya Prediction Criteria </code></pre>
 <p><br></p>
 </div>
-<div id="forward-selection" class="section level3" number="3.4.4">
-<h3><span class="header-section-number">3.4.4</span> Forward Selection <a class="anchor" id="23"></a></h3>
+</div>
+<div id="forward-selection" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Forward Selection <a class="anchor" id="23"></a></h2>
 <p>Forward selection consist in the following algorithm :</p>
 <p>We have <span class="math inline">\(p\)</span> predictors: <span class="math inline">\(X_1,...,X_p\)</span> and a response variable <span class="math inline">\(Y\)</span></p>
 <ul>
@@ -7010,104 +7009,103 @@ AIC: Akaike Information Criteria
 <p>Where:</p>
 <p><span class="math inline">\(\lbrace M_j \hspace{0.1cm} \text{+ 1 predictor} \rbrace \hspace{0.1cm}\)</span> is the set of the linear regression models that are the result of adding one predictor to the model <span class="math inline">\(M_j\)</span></p>
 <p><br></p>
-</div>
-<div id="forward-selection-in-python" class="section level3" number="3.4.5">
-<h3><span class="header-section-number">3.4.5</span> Forward Selection in <code>Python</code> <a class="anchor" id="24"></a></h3>
+<div id="forward-selection-in-python" class="section level3" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Forward Selection in <code>Python</code> <a class="anchor" id="24"></a></h3>
 <p>We are going to develop the Forward algorithm in <code>Python</code> :</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> forward ( X, y, varchar_process<span class="op">=</span><span class="st">&quot;dummy_dropfirst&quot;</span>, criteria<span class="op">=</span><span class="st">&quot;AIC&quot;</span> ):</span>
-<span id="cb124-2"><a href="#cb124-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-3"><a href="#cb124-3" aria-hidden="true" tabindex="-1"></a>        X <span class="op">=</span> varcharProcessing(X , varchar_process <span class="op">=</span> varchar_process)</span>
-<span id="cb124-4"><a href="#cb124-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-5"><a href="#cb124-5" aria-hidden="true" tabindex="-1"></a>        cols <span class="op">=</span> X.columns.tolist()</span>
-<span id="cb124-6"><a href="#cb124-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-7"><a href="#cb124-7" aria-hidden="true" tabindex="-1"></a>        regressor <span class="op">=</span> sm.OLS(y, X).fit()</span>
-<span id="cb124-8"><a href="#cb124-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-9"><a href="#cb124-9" aria-hidden="true" tabindex="-1"></a>        selected_cols <span class="op">=</span> [<span class="st">&quot;intercept&quot;</span>]</span>
-<span id="cb124-10"><a href="#cb124-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-11"><a href="#cb124-11" aria-hidden="true" tabindex="-1"></a>        other_cols <span class="op">=</span> cols.copy()</span>
-<span id="cb124-12"><a href="#cb124-12" aria-hidden="true" tabindex="-1"></a>        other_cols.remove(<span class="st">&quot;intercept&quot;</span>)</span>
-<span id="cb124-13"><a href="#cb124-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-14"><a href="#cb124-14" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb124-15"><a href="#cb124-15" aria-hidden="true" tabindex="-1"></a>        model <span class="op">=</span> sm.OLS(y, X[selected_cols]).fit() </span>
-<span id="cb124-16"><a href="#cb124-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-17"><a href="#cb124-17" aria-hidden="true" tabindex="-1"></a>        train_errors_MSE <span class="op">=</span> [ ( (y <span class="op">-</span> model.predict(X[ selected_cols ]))<span class="op">**</span><span class="dv">2</span> ).mean()  ]</span>
-<span id="cb124-18"><a href="#cb124-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-19"><a href="#cb124-19" aria-hidden="true" tabindex="-1"></a>        Models <span class="op">=</span> pd.DataFrame( [[ selected_cols[<span class="dv">0</span>], <span class="bu">round</span>(train_errors_MSE[<span class="dv">0</span>]), model.aic, model.bic, <span class="bu">round</span>(model.rsquared_adj, <span class="dv">4</span>) ]] ,</span>
-<span id="cb124-20"><a href="#cb124-20" aria-hidden="true" tabindex="-1"></a>                                 columns <span class="op">=</span> [<span class="st">&quot;model&quot;</span>,<span class="st">&quot;train_error_MSE&quot;</span>,<span class="st">&quot;AIC&quot;</span>,<span class="st">&quot;BIC&quot;</span>,<span class="st">&quot;Adj.R2&quot;</span>] )</span>
-<span id="cb124-21"><a href="#cb124-21" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb124-22"><a href="#cb124-22" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb124-23"><a href="#cb124-23" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################################################################################################################################ </span></span>
-<span id="cb124-24"><a href="#cb124-24" aria-hidden="true" tabindex="-1"></a>     </span>
-<span id="cb124-25"><a href="#cb124-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(X.shape[<span class="dv">1</span>] <span class="op">-</span> <span class="dv">1</span>):</span>
-<span id="cb124-26"><a href="#cb124-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-27"><a href="#cb124-27" aria-hidden="true" tabindex="-1"></a>                train_errors <span class="op">=</span> pd.DataFrame(columns <span class="op">=</span> [<span class="st">&quot;Cols&quot;</span>, <span class="st">&quot;train_error_MSE&quot;</span>])</span>
-<span id="cb124-28"><a href="#cb124-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-29"><a href="#cb124-29" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> j <span class="kw">in</span> other_cols:</span>
-<span id="cb124-30"><a href="#cb124-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-31"><a href="#cb124-31" aria-hidden="true" tabindex="-1"></a>                        model <span class="op">=</span> sm.OLS(y, X[ selected_cols <span class="op">+</span> [j] ] ).fit()</span>
-<span id="cb124-32"><a href="#cb124-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-33"><a href="#cb124-33" aria-hidden="true" tabindex="-1"></a>                        train_error_MSE <span class="op">=</span> ( (y <span class="op">-</span> model.predict(X[ selected_cols <span class="op">+</span> [j] ]))<span class="op">**</span><span class="dv">2</span> ).mean()</span>
-<span id="cb124-34"><a href="#cb124-34" aria-hidden="true" tabindex="-1"></a>                                              </span>
-<span id="cb124-35"><a href="#cb124-35" aria-hidden="true" tabindex="-1"></a>                        train_errors <span class="op">=</span> pd.concat( [train_errors, pd.DataFrame([[ j , train_error_MSE ]], columns <span class="op">=</span> [<span class="st">&quot;Cols&quot;</span>,<span class="st">&quot;train_error_MSE&quot;</span>] ) ] )</span>
-<span id="cb124-36"><a href="#cb124-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-37"><a href="#cb124-37" aria-hidden="true" tabindex="-1"></a>                train_errors <span class="op">=</span> train_errors.sort_values(by<span class="op">=</span>[<span class="st">&quot;train_error_MSE&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb124-38"><a href="#cb124-38" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb124-39"><a href="#cb124-39" aria-hidden="true" tabindex="-1"></a>                model <span class="op">=</span> sm.OLS(y, X[ selected_cols <span class="op">+</span> [train_errors[<span class="st">&quot;Cols&quot;</span>][<span class="dv">0</span>]] ]).fit()  </span>
-<span id="cb124-40"><a href="#cb124-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-41"><a href="#cb124-41" aria-hidden="true" tabindex="-1"></a>                train_error_MSE <span class="op">=</span> ( (y <span class="op">-</span> model.predict(X[ selected_cols <span class="op">+</span> [train_errors[<span class="st">&quot;Cols&quot;</span>][<span class="dv">0</span>]] ]))<span class="op">**</span><span class="dv">2</span> ).mean()</span>
-<span id="cb124-42"><a href="#cb124-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-43"><a href="#cb124-43" aria-hidden="true" tabindex="-1"></a>                train_errors_MSE.append( train_error_MSE )</span>
-<span id="cb124-44"><a href="#cb124-44" aria-hidden="true" tabindex="-1"></a>                              </span>
-<span id="cb124-45"><a href="#cb124-45" aria-hidden="true" tabindex="-1"></a>                selected_cols.append( train_errors[<span class="st">&quot;Cols&quot;</span>][<span class="dv">0</span>] )</span>
-<span id="cb124-46"><a href="#cb124-46" aria-hidden="true" tabindex="-1"></a>                other_cols.remove( train_errors[<span class="st">&quot;Cols&quot;</span>][<span class="dv">0</span>] )</span>
-<span id="cb124-47"><a href="#cb124-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-48"><a href="#cb124-48" aria-hidden="true" tabindex="-1"></a>                Models <span class="op">=</span> pd.concat([Models, pd.DataFrame([[ selected_cols[<span class="dv">0</span>:(i<span class="op">+</span><span class="dv">2</span>)] , <span class="bu">round</span>(train_errors_MSE[i<span class="op">+</span><span class="dv">1</span>]), model.aic, model.bic, <span class="bu">round</span>(model.rsquared_adj,<span class="dv">5</span>) ]], </span>
-<span id="cb124-49"><a href="#cb124-49" aria-hidden="true" tabindex="-1"></a>                                                            columns <span class="op">=</span> [<span class="st">&quot;model&quot;</span>, <span class="st">&quot;train_error_MSE&quot;</span>, <span class="st">&quot;AIC&quot;</span>,<span class="st">&quot;BIC&quot;</span>, <span class="st">&quot;Adj.R2&quot;</span>]) ])        </span>
-<span id="cb124-50"><a href="#cb124-50" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb124-51"><a href="#cb124-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-52"><a href="#cb124-52" aria-hidden="true" tabindex="-1"></a> <span class="co">############################################################################################################################################################################</span></span>
-<span id="cb124-53"><a href="#cb124-53" aria-hidden="true" tabindex="-1"></a>              </span>
-<span id="cb124-54"><a href="#cb124-54" aria-hidden="true" tabindex="-1"></a>        Models.index <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(Models))</span>
-<span id="cb124-55"><a href="#cb124-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-56"><a href="#cb124-56" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (criteria <span class="op">==</span> <span class="st">&quot;AIC&quot;</span>):</span>
-<span id="cb124-57"><a href="#cb124-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-58"><a href="#cb124-58" aria-hidden="true" tabindex="-1"></a>                Models <span class="op">=</span> Models.sort_values(by<span class="op">=</span>[<span class="st">&quot;AIC&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb124-59"><a href="#cb124-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-60"><a href="#cb124-60" aria-hidden="true" tabindex="-1"></a>                Final_Model <span class="op">=</span> sm.OLS(y, X[ Models[<span class="st">&quot;model&quot;</span>][<span class="dv">0</span>] ]).fit() </span>
-<span id="cb124-61"><a href="#cb124-61" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb124-62"><a href="#cb124-62" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> (criteria <span class="op">==</span> <span class="st">&quot;BIC&quot;</span>):</span>
-<span id="cb124-63"><a href="#cb124-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-64"><a href="#cb124-64" aria-hidden="true" tabindex="-1"></a>                Models <span class="op">=</span> Models.sort_values(by<span class="op">=</span>[<span class="st">&quot;BIC&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb124-65"><a href="#cb124-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-66"><a href="#cb124-66" aria-hidden="true" tabindex="-1"></a>                Final_Model <span class="op">=</span> sm.OLS(y, X[ Models[<span class="st">&quot;model&quot;</span>][<span class="dv">0</span>] ]).fit() </span>
-<span id="cb124-67"><a href="#cb124-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-68"><a href="#cb124-68" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> (criteria <span class="op">==</span> <span class="st">&quot;Cp&quot;</span>):</span>
-<span id="cb124-69"><a href="#cb124-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-70"><a href="#cb124-70" aria-hidden="true" tabindex="-1"></a>                 Models <span class="op">=</span> Models.sort_values(by<span class="op">=</span>[<span class="st">&quot;Cp&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb124-71"><a href="#cb124-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-72"><a href="#cb124-72" aria-hidden="true" tabindex="-1"></a>                 Final_Model <span class="op">=</span> sm.OLS(y, X[ Models[<span class="st">&quot;model&quot;</span>][<span class="dv">0</span>] ]).fit() </span>
-<span id="cb124-73"><a href="#cb124-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-74"><a href="#cb124-74" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> (criteria <span class="op">==</span> <span class="st">&quot;Adj.R2&quot;</span>):</span>
-<span id="cb124-75"><a href="#cb124-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-76"><a href="#cb124-76" aria-hidden="true" tabindex="-1"></a>                  Models <span class="op">=</span> Models.sort_values(by<span class="op">=</span>[<span class="st">&quot;Adj.R2&quot;</span>], ascending<span class="op">=</span><span class="va">False</span>).reset_index(drop<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb124-77"><a href="#cb124-77" aria-hidden="true" tabindex="-1"></a>                  </span>
-<span id="cb124-78"><a href="#cb124-78" aria-hidden="true" tabindex="-1"></a>                  Final_Model <span class="op">=</span> sm.OLS(y, X[ Models[<span class="st">&quot;model&quot;</span>][<span class="dv">0</span>] ]).fit() </span>
-<span id="cb124-79"><a href="#cb124-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-80"><a href="#cb124-80" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> (criteria <span class="op">==</span> <span class="st">&quot;train_error_MSE&quot;</span>):</span>
-<span id="cb124-81"><a href="#cb124-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-82"><a href="#cb124-82" aria-hidden="true" tabindex="-1"></a>                  Models <span class="op">=</span> Models.sort_values(by<span class="op">=</span>[<span class="st">&quot;train_error_MSE&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb124-83"><a href="#cb124-83" aria-hidden="true" tabindex="-1"></a>                  </span>
-<span id="cb124-84"><a href="#cb124-84" aria-hidden="true" tabindex="-1"></a>                  Final_Model <span class="op">=</span> sm.OLS(y, X[ Models[<span class="st">&quot;model&quot;</span>][<span class="dv">0</span>] ]).fit() </span>
-<span id="cb124-85"><a href="#cb124-85" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb124-86"><a href="#cb124-86" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> ( criteria <span class="op">==</span> <span class="st">&quot;none&quot;</span>):</span>
-<span id="cb124-87"><a href="#cb124-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-88"><a href="#cb124-88" aria-hidden="true" tabindex="-1"></a>                  Final_Model <span class="op">=</span> <span class="st">&quot;not compute, use some criteria (AIC, BIC, Adj.R2 or train_error_MSE)&quot;</span></span>
-<span id="cb124-89"><a href="#cb124-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-90"><a href="#cb124-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-91"><a href="#cb124-91" aria-hidden="true" tabindex="-1"></a>               </span>
-<span id="cb124-92"><a href="#cb124-92" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Models , Final_Model</span></code></pre></div>
-<div class="sourceCode" id="cb125"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a>Models , Final_Model <span class="op">=</span> forward(X, y, criteria<span class="op">=</span><span class="st">&quot;AIC&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb126"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a>Models</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> forward ( X, y, varchar_process<span class="op">=</span><span class="st">&quot;dummy_dropfirst&quot;</span>, criteria<span class="op">=</span><span class="st">&quot;AIC&quot;</span> ):</span>
+<span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-3"><a href="#cb123-3" aria-hidden="true" tabindex="-1"></a>        X <span class="op">=</span> varcharProcessing(X , varchar_process <span class="op">=</span> varchar_process)</span>
+<span id="cb123-4"><a href="#cb123-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-5"><a href="#cb123-5" aria-hidden="true" tabindex="-1"></a>        cols <span class="op">=</span> X.columns.tolist()</span>
+<span id="cb123-6"><a href="#cb123-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-7"><a href="#cb123-7" aria-hidden="true" tabindex="-1"></a>        regressor <span class="op">=</span> sm.OLS(y, X).fit()</span>
+<span id="cb123-8"><a href="#cb123-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-9"><a href="#cb123-9" aria-hidden="true" tabindex="-1"></a>        selected_cols <span class="op">=</span> [<span class="st">&quot;intercept&quot;</span>]</span>
+<span id="cb123-10"><a href="#cb123-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-11"><a href="#cb123-11" aria-hidden="true" tabindex="-1"></a>        other_cols <span class="op">=</span> cols.copy()</span>
+<span id="cb123-12"><a href="#cb123-12" aria-hidden="true" tabindex="-1"></a>        other_cols.remove(<span class="st">&quot;intercept&quot;</span>)</span>
+<span id="cb123-13"><a href="#cb123-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-14"><a href="#cb123-14" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb123-15"><a href="#cb123-15" aria-hidden="true" tabindex="-1"></a>        model <span class="op">=</span> sm.OLS(y, X[selected_cols]).fit() </span>
+<span id="cb123-16"><a href="#cb123-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-17"><a href="#cb123-17" aria-hidden="true" tabindex="-1"></a>        train_errors_MSE <span class="op">=</span> [ ( (y <span class="op">-</span> model.predict(X[ selected_cols ]))<span class="op">**</span><span class="dv">2</span> ).mean()  ]</span>
+<span id="cb123-18"><a href="#cb123-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-19"><a href="#cb123-19" aria-hidden="true" tabindex="-1"></a>        Models <span class="op">=</span> pd.DataFrame( [[ selected_cols[<span class="dv">0</span>], <span class="bu">round</span>(train_errors_MSE[<span class="dv">0</span>]), model.aic, model.bic, <span class="bu">round</span>(model.rsquared_adj, <span class="dv">4</span>) ]] ,</span>
+<span id="cb123-20"><a href="#cb123-20" aria-hidden="true" tabindex="-1"></a>                                 columns <span class="op">=</span> [<span class="st">&quot;model&quot;</span>,<span class="st">&quot;train_error_MSE&quot;</span>,<span class="st">&quot;AIC&quot;</span>,<span class="st">&quot;BIC&quot;</span>,<span class="st">&quot;Adj.R2&quot;</span>] )</span>
+<span id="cb123-21"><a href="#cb123-21" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb123-22"><a href="#cb123-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb123-23"><a href="#cb123-23" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################################################################################################################################ </span></span>
+<span id="cb123-24"><a href="#cb123-24" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb123-25"><a href="#cb123-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(X.shape[<span class="dv">1</span>] <span class="op">-</span> <span class="dv">1</span>):</span>
+<span id="cb123-26"><a href="#cb123-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-27"><a href="#cb123-27" aria-hidden="true" tabindex="-1"></a>                train_errors <span class="op">=</span> pd.DataFrame(columns <span class="op">=</span> [<span class="st">&quot;Cols&quot;</span>, <span class="st">&quot;train_error_MSE&quot;</span>])</span>
+<span id="cb123-28"><a href="#cb123-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-29"><a href="#cb123-29" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> j <span class="kw">in</span> other_cols:</span>
+<span id="cb123-30"><a href="#cb123-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-31"><a href="#cb123-31" aria-hidden="true" tabindex="-1"></a>                        model <span class="op">=</span> sm.OLS(y, X[ selected_cols <span class="op">+</span> [j] ] ).fit()</span>
+<span id="cb123-32"><a href="#cb123-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-33"><a href="#cb123-33" aria-hidden="true" tabindex="-1"></a>                        train_error_MSE <span class="op">=</span> ( (y <span class="op">-</span> model.predict(X[ selected_cols <span class="op">+</span> [j] ]))<span class="op">**</span><span class="dv">2</span> ).mean()</span>
+<span id="cb123-34"><a href="#cb123-34" aria-hidden="true" tabindex="-1"></a>                                              </span>
+<span id="cb123-35"><a href="#cb123-35" aria-hidden="true" tabindex="-1"></a>                        train_errors <span class="op">=</span> pd.concat( [train_errors, pd.DataFrame([[ j , train_error_MSE ]], columns <span class="op">=</span> [<span class="st">&quot;Cols&quot;</span>,<span class="st">&quot;train_error_MSE&quot;</span>] ) ] )</span>
+<span id="cb123-36"><a href="#cb123-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-37"><a href="#cb123-37" aria-hidden="true" tabindex="-1"></a>                train_errors <span class="op">=</span> train_errors.sort_values(by<span class="op">=</span>[<span class="st">&quot;train_error_MSE&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb123-38"><a href="#cb123-38" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb123-39"><a href="#cb123-39" aria-hidden="true" tabindex="-1"></a>                model <span class="op">=</span> sm.OLS(y, X[ selected_cols <span class="op">+</span> [train_errors[<span class="st">&quot;Cols&quot;</span>][<span class="dv">0</span>]] ]).fit()  </span>
+<span id="cb123-40"><a href="#cb123-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-41"><a href="#cb123-41" aria-hidden="true" tabindex="-1"></a>                train_error_MSE <span class="op">=</span> ( (y <span class="op">-</span> model.predict(X[ selected_cols <span class="op">+</span> [train_errors[<span class="st">&quot;Cols&quot;</span>][<span class="dv">0</span>]] ]))<span class="op">**</span><span class="dv">2</span> ).mean()</span>
+<span id="cb123-42"><a href="#cb123-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-43"><a href="#cb123-43" aria-hidden="true" tabindex="-1"></a>                train_errors_MSE.append( train_error_MSE )</span>
+<span id="cb123-44"><a href="#cb123-44" aria-hidden="true" tabindex="-1"></a>                              </span>
+<span id="cb123-45"><a href="#cb123-45" aria-hidden="true" tabindex="-1"></a>                selected_cols.append( train_errors[<span class="st">&quot;Cols&quot;</span>][<span class="dv">0</span>] )</span>
+<span id="cb123-46"><a href="#cb123-46" aria-hidden="true" tabindex="-1"></a>                other_cols.remove( train_errors[<span class="st">&quot;Cols&quot;</span>][<span class="dv">0</span>] )</span>
+<span id="cb123-47"><a href="#cb123-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-48"><a href="#cb123-48" aria-hidden="true" tabindex="-1"></a>                Models <span class="op">=</span> pd.concat([Models, pd.DataFrame([[ selected_cols[<span class="dv">0</span>:(i<span class="op">+</span><span class="dv">2</span>)] , <span class="bu">round</span>(train_errors_MSE[i<span class="op">+</span><span class="dv">1</span>]), model.aic, model.bic, <span class="bu">round</span>(model.rsquared_adj,<span class="dv">5</span>) ]], </span>
+<span id="cb123-49"><a href="#cb123-49" aria-hidden="true" tabindex="-1"></a>                                                            columns <span class="op">=</span> [<span class="st">&quot;model&quot;</span>, <span class="st">&quot;train_error_MSE&quot;</span>, <span class="st">&quot;AIC&quot;</span>,<span class="st">&quot;BIC&quot;</span>, <span class="st">&quot;Adj.R2&quot;</span>]) ])        </span>
+<span id="cb123-50"><a href="#cb123-50" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb123-51"><a href="#cb123-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-52"><a href="#cb123-52" aria-hidden="true" tabindex="-1"></a> <span class="co">############################################################################################################################################################################</span></span>
+<span id="cb123-53"><a href="#cb123-53" aria-hidden="true" tabindex="-1"></a>              </span>
+<span id="cb123-54"><a href="#cb123-54" aria-hidden="true" tabindex="-1"></a>        Models.index <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(Models))</span>
+<span id="cb123-55"><a href="#cb123-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-56"><a href="#cb123-56" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (criteria <span class="op">==</span> <span class="st">&quot;AIC&quot;</span>):</span>
+<span id="cb123-57"><a href="#cb123-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-58"><a href="#cb123-58" aria-hidden="true" tabindex="-1"></a>                Models <span class="op">=</span> Models.sort_values(by<span class="op">=</span>[<span class="st">&quot;AIC&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb123-59"><a href="#cb123-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-60"><a href="#cb123-60" aria-hidden="true" tabindex="-1"></a>                Final_Model <span class="op">=</span> sm.OLS(y, X[ Models[<span class="st">&quot;model&quot;</span>][<span class="dv">0</span>] ]).fit() </span>
+<span id="cb123-61"><a href="#cb123-61" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb123-62"><a href="#cb123-62" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> (criteria <span class="op">==</span> <span class="st">&quot;BIC&quot;</span>):</span>
+<span id="cb123-63"><a href="#cb123-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-64"><a href="#cb123-64" aria-hidden="true" tabindex="-1"></a>                Models <span class="op">=</span> Models.sort_values(by<span class="op">=</span>[<span class="st">&quot;BIC&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb123-65"><a href="#cb123-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-66"><a href="#cb123-66" aria-hidden="true" tabindex="-1"></a>                Final_Model <span class="op">=</span> sm.OLS(y, X[ Models[<span class="st">&quot;model&quot;</span>][<span class="dv">0</span>] ]).fit() </span>
+<span id="cb123-67"><a href="#cb123-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-68"><a href="#cb123-68" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> (criteria <span class="op">==</span> <span class="st">&quot;Cp&quot;</span>):</span>
+<span id="cb123-69"><a href="#cb123-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-70"><a href="#cb123-70" aria-hidden="true" tabindex="-1"></a>                 Models <span class="op">=</span> Models.sort_values(by<span class="op">=</span>[<span class="st">&quot;Cp&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb123-71"><a href="#cb123-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-72"><a href="#cb123-72" aria-hidden="true" tabindex="-1"></a>                 Final_Model <span class="op">=</span> sm.OLS(y, X[ Models[<span class="st">&quot;model&quot;</span>][<span class="dv">0</span>] ]).fit() </span>
+<span id="cb123-73"><a href="#cb123-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-74"><a href="#cb123-74" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> (criteria <span class="op">==</span> <span class="st">&quot;Adj.R2&quot;</span>):</span>
+<span id="cb123-75"><a href="#cb123-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-76"><a href="#cb123-76" aria-hidden="true" tabindex="-1"></a>                  Models <span class="op">=</span> Models.sort_values(by<span class="op">=</span>[<span class="st">&quot;Adj.R2&quot;</span>], ascending<span class="op">=</span><span class="va">False</span>).reset_index(drop<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb123-77"><a href="#cb123-77" aria-hidden="true" tabindex="-1"></a>                  </span>
+<span id="cb123-78"><a href="#cb123-78" aria-hidden="true" tabindex="-1"></a>                  Final_Model <span class="op">=</span> sm.OLS(y, X[ Models[<span class="st">&quot;model&quot;</span>][<span class="dv">0</span>] ]).fit() </span>
+<span id="cb123-79"><a href="#cb123-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-80"><a href="#cb123-80" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> (criteria <span class="op">==</span> <span class="st">&quot;train_error_MSE&quot;</span>):</span>
+<span id="cb123-81"><a href="#cb123-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-82"><a href="#cb123-82" aria-hidden="true" tabindex="-1"></a>                  Models <span class="op">=</span> Models.sort_values(by<span class="op">=</span>[<span class="st">&quot;train_error_MSE&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb123-83"><a href="#cb123-83" aria-hidden="true" tabindex="-1"></a>                  </span>
+<span id="cb123-84"><a href="#cb123-84" aria-hidden="true" tabindex="-1"></a>                  Final_Model <span class="op">=</span> sm.OLS(y, X[ Models[<span class="st">&quot;model&quot;</span>][<span class="dv">0</span>] ]).fit() </span>
+<span id="cb123-85"><a href="#cb123-85" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb123-86"><a href="#cb123-86" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> ( criteria <span class="op">==</span> <span class="st">&quot;none&quot;</span>):</span>
+<span id="cb123-87"><a href="#cb123-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-88"><a href="#cb123-88" aria-hidden="true" tabindex="-1"></a>                  Final_Model <span class="op">=</span> <span class="st">&quot;not compute, use some criteria (AIC, BIC, Adj.R2 or train_error_MSE)&quot;</span></span>
+<span id="cb123-89"><a href="#cb123-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-90"><a href="#cb123-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-91"><a href="#cb123-91" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb123-92"><a href="#cb123-92" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Models , Final_Model</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a>Models , Final_Model <span class="op">=</span> forward(X, y, criteria<span class="op">=</span><span class="st">&quot;AIC&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a>Models</span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -7356,9 +7354,9 @@ intercept
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb127"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML </span>
-<span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb127-3"><a href="#cb127-3" aria-hidden="true" tabindex="-1"></a>HTML(Models.to_html(classes<span class="op">=</span><span class="st">&#39;table table-striped&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML </span>
+<span id="cb126-2"><a href="#cb126-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-3"><a href="#cb126-3" aria-hidden="true" tabindex="-1"></a>HTML(Models.to_html(classes<span class="op">=</span><span class="st">&#39;table table-striped&#39;</span>))</span></code></pre></div>
 <table border="1" class="dataframe table table-striped">
 <thead>
 <tr style="text-align: right;">
@@ -7599,14 +7597,14 @@ intercept
 <p><span class="math display">\[ price = intercept + size\_in\_m\_2 + longitude + latitude + no\_of\_bedrooms + quality\_2 \]</span></p>
 <p><br></p>
 </div>
-<div id="forward-selection-in-r" class="section level3" number="3.4.6">
-<h3><span class="header-section-number">3.4.6</span> Forward Selection in <code>R</code> <a class="anchor" id="25"></a></h3>
+<div id="forward-selection-in-r" class="section level3" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Forward Selection in <code>R</code> <a class="anchor" id="25"></a></h3>
 <p>We are going to use the <code>step</code> function, with which we can do a forward selection based on <span class="math inline">\(AIC\)</span> criteria in <code>R</code></p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
-<span id="cb128-2"><a href="#cb128-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb128-3"><a href="#cb128-3" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">step</span>( <span class="at">object =</span> <span class="fu">lm</span>(price  <span class="sc">~</span> size_in_m_2  <span class="sc">+</span> longitude  <span class="sc">+</span> latitude <span class="sc">+</span> no_of_bedrooms  <span class="sc">+</span> no_of_bathrooms <span class="sc">+</span> quality , <span class="at">data =</span> data_R), <span class="at">direction =</span> <span class="st">&quot;forward&quot;</span>)</span>
-<span id="cb128-4"><a href="#cb128-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb128-5"><a href="#cb128-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
+<span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-3"><a href="#cb127-3" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">step</span>( <span class="at">object =</span> <span class="fu">lm</span>(price  <span class="sc">~</span> size_in_m_2  <span class="sc">+</span> longitude  <span class="sc">+</span> latitude <span class="sc">+</span> no_of_bedrooms  <span class="sc">+</span> no_of_bathrooms <span class="sc">+</span> quality , <span class="at">data =</span> data_R), <span class="at">direction =</span> <span class="st">&quot;forward&quot;</span>)</span>
+<span id="cb127-4"><a href="#cb127-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-5"><a href="#cb127-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
 <pre><code>Start:  AIC=54447.87
 price ~ size_in_m_2 + longitude + latitude + no_of_bedrooms + 
     no_of_bathrooms + quality
@@ -7640,11 +7638,11 @@ F-statistic: 547.4 on 8 and 1896 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>We get different results in R and Python, this could be because the <code>step</code> function is using another version of the direct selection algorithm, or something similar. Also, our Python algorithms allow to consider models like price ~ size_in_m_2 + quality_2, while in R this is not possible, in R you have to include all the dummies associated to a categorical variable, so in that case, in R, just you could set price ~ size_in_m_2 + quality ( = price ~ size_in_m_2 + quality_1 + quality_2 + quality_3 in Python)</p>
 <p>In this article I have focused mainly on Python, so I recommend use Python algorithms , since they have been developed from zero, taking all the care, and all the procedures have been exposed here, so that everyone can check it out.</p>
 <p>Using <code>olsrr</code> package :</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R </span>
-<span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb130-3"><a href="#cb130-3" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">step</span>( <span class="at">object =</span> <span class="fu">lm</span>(price  <span class="sc">~</span> size_in_m_2  <span class="sc">+</span> longitude  <span class="sc">+</span> latitude <span class="sc">+</span> no_of_bedrooms  <span class="sc">+</span> no_of_bathrooms <span class="sc">+</span> quality , <span class="at">data =</span> data_R), <span class="at">direction =</span> <span class="st">&quot;forward&quot;</span>)</span>
-<span id="cb130-4"><a href="#cb130-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb130-5"><a href="#cb130-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ols_step_forward_p</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R </span>
+<span id="cb129-2"><a href="#cb129-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-3"><a href="#cb129-3" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">step</span>( <span class="at">object =</span> <span class="fu">lm</span>(price  <span class="sc">~</span> size_in_m_2  <span class="sc">+</span> longitude  <span class="sc">+</span> latitude <span class="sc">+</span> no_of_bedrooms  <span class="sc">+</span> no_of_bathrooms <span class="sc">+</span> quality , <span class="at">data =</span> data_R), <span class="at">direction =</span> <span class="st">&quot;forward&quot;</span>)</span>
+<span id="cb129-4"><a href="#cb129-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-5"><a href="#cb129-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ols_step_forward_p</span>(model)</span></code></pre></div>
 <pre><code>Start:  AIC=54447.87
 price ~ size_in_m_2 + longitude + latitude + no_of_bedrooms + 
     no_of_bathrooms + quality
@@ -7663,8 +7661,9 @@ Step       Entered        R-Square    R-Square      C(p)         AIC            
 ----------------------------------------------------------------------------------------</code></pre>
 <p><br></p>
 </div>
-<div id="backward-selection" class="section level3" number="3.4.7">
-<h3><span class="header-section-number">3.4.7</span> Backward Selection <a class="anchor" id="26"></a></h3>
+</div>
+<div id="backward-selection" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Backward Selection <a class="anchor" id="26"></a></h2>
 <p>Backward selection consist in the following algorithm :</p>
 <p>We have <span class="math inline">\(p\)</span> predictors: <span class="math inline">\(X_1,...,X_p\)</span></p>
 <ul>
@@ -7698,132 +7697,131 @@ Step       Entered        R-Square    R-Square      C(p)         AIC            
 <li><span class="math inline">\(\lbrace M_0, M_1 , ..., M_p \rbrace \underset{\text{train error}, AIC, BIC, C_p, \widehat{R}^2 }{\Rightarrow} \hspace{0.1cm} M\hspace{0.05cm}^* \hspace{0.1cm} (Best \hspace{0.1cm} Model)\)</span></li>
 </ul>
 <p><br></p>
-</div>
-<div id="backward-selection-in-python" class="section level3" number="3.4.8">
-<h3><span class="header-section-number">3.4.8</span> Backward Selection in <code>Python</code> <a class="anchor" id="27"></a></h3>
+<div id="backward-selection-in-python" class="section level3" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Backward Selection in <code>Python</code> <a class="anchor" id="27"></a></h3>
 <p>We are going to develop the Backward algorithm in <code>Python</code> :</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> multiprocessing.resource_sharer <span class="im">import</span> stop</span>
-<span id="cb132-2"><a href="#cb132-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-3"><a href="#cb132-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-4"><a href="#cb132-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> backward ( X,y, varchar_process<span class="op">=</span><span class="st">&quot;dummy_dropfirst&quot;</span>, criteria<span class="op">=</span><span class="st">&quot;AIC&quot;</span>):</span>
-<span id="cb132-5"><a href="#cb132-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-6"><a href="#cb132-6" aria-hidden="true" tabindex="-1"></a>        X <span class="op">=</span> varcharProcessing(X , varchar_process <span class="op">=</span> varchar_process)</span>
-<span id="cb132-7"><a href="#cb132-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-8"><a href="#cb132-8" aria-hidden="true" tabindex="-1"></a>        cols <span class="op">=</span> X.columns.tolist()</span>
-<span id="cb132-9"><a href="#cb132-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-10"><a href="#cb132-10" aria-hidden="true" tabindex="-1"></a>        regressor <span class="op">=</span> sm.OLS(y, X).fit()</span>
-<span id="cb132-11"><a href="#cb132-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-12"><a href="#cb132-12" aria-hidden="true" tabindex="-1"></a>        selected_cols <span class="op">=</span> cols.copy()</span>
-<span id="cb132-13"><a href="#cb132-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-14"><a href="#cb132-14" aria-hidden="true" tabindex="-1"></a>        other_cols <span class="op">=</span> cols.copy()</span>
-<span id="cb132-15"><a href="#cb132-15" aria-hidden="true" tabindex="-1"></a>        other_cols.remove(<span class="st">&quot;intercept&quot;</span>)</span>
-<span id="cb132-16"><a href="#cb132-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-17"><a href="#cb132-17" aria-hidden="true" tabindex="-1"></a>        predictor_out <span class="op">=</span> [ ]</span>
-<span id="cb132-18"><a href="#cb132-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-19"><a href="#cb132-19" aria-hidden="true" tabindex="-1"></a>        predictor_out_reversed <span class="op">=</span> []</span>
-<span id="cb132-20"><a href="#cb132-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-21"><a href="#cb132-21" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb132-22"><a href="#cb132-22" aria-hidden="true" tabindex="-1"></a>        model <span class="op">=</span> sm.OLS(y, X[selected_cols]).fit() </span>
-<span id="cb132-23"><a href="#cb132-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-24"><a href="#cb132-24" aria-hidden="true" tabindex="-1"></a>        train_errors_MSE <span class="op">=</span> [ ( (y <span class="op">-</span> model.predict(X[ selected_cols ]))<span class="op">**</span><span class="dv">2</span> ).mean()  ]</span>
-<span id="cb132-25"><a href="#cb132-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-26"><a href="#cb132-26" aria-hidden="true" tabindex="-1"></a>        Models <span class="op">=</span> pd.DataFrame([[ <span class="bu">round</span>(train_errors_MSE[<span class="dv">0</span>]) , model.aic, model.bic, <span class="bu">round</span>(model.rsquared_adj, <span class="dv">4</span>) ]], </span>
-<span id="cb132-27"><a href="#cb132-27" aria-hidden="true" tabindex="-1"></a>                                 columns <span class="op">=</span> [<span class="st">&quot;train_error_MSE&quot;</span>,<span class="st">&quot;AIC&quot;</span>,<span class="st">&quot;BIC&quot;</span>, <span class="st">&quot;Adj.R2&quot;</span>])</span>
-<span id="cb132-28"><a href="#cb132-28" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb132-29"><a href="#cb132-29" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb132-30"><a href="#cb132-30" aria-hidden="true" tabindex="-1"></a> <span class="co">######################################################################################  </span></span>
-<span id="cb132-31"><a href="#cb132-31" aria-hidden="true" tabindex="-1"></a>       </span>
-<span id="cb132-32"><a href="#cb132-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(X.shape[<span class="dv">1</span>]<span class="op">-</span><span class="dv">1</span>):</span>
-<span id="cb132-33"><a href="#cb132-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-34"><a href="#cb132-34" aria-hidden="true" tabindex="-1"></a>                train_errors <span class="op">=</span> pd.DataFrame(columns <span class="op">=</span> [<span class="st">&quot;Cols&quot;</span>, <span class="st">&quot;train_error_MSE&quot;</span>])</span>
-<span id="cb132-35"><a href="#cb132-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-36"><a href="#cb132-36" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> j <span class="kw">in</span> other_cols:</span>
-<span id="cb132-37"><a href="#cb132-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-38"><a href="#cb132-38" aria-hidden="true" tabindex="-1"></a>                        selected_cols.remove(j)</span>
-<span id="cb132-39"><a href="#cb132-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-40"><a href="#cb132-40" aria-hidden="true" tabindex="-1"></a>                        model <span class="op">=</span> sm.OLS(y, X[ selected_cols ] ).fit()</span>
-<span id="cb132-41"><a href="#cb132-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-42"><a href="#cb132-42" aria-hidden="true" tabindex="-1"></a>                        train_error_MSE <span class="op">=</span> ( (y <span class="op">-</span> model.predict(X[ selected_cols ]))<span class="op">**</span><span class="dv">2</span> ).mean()</span>
-<span id="cb132-43"><a href="#cb132-43" aria-hidden="true" tabindex="-1"></a>                                             </span>
-<span id="cb132-44"><a href="#cb132-44" aria-hidden="true" tabindex="-1"></a>                        train_errors <span class="op">=</span> pd.concat( [train_errors, pd.DataFrame([[ j , train_error_MSE ]], columns <span class="op">=</span> [<span class="st">&quot;Cols&quot;</span>, <span class="st">&quot;train_error_MSE&quot;</span>] ) ] )</span>
-<span id="cb132-45"><a href="#cb132-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-46"><a href="#cb132-46" aria-hidden="true" tabindex="-1"></a>                        selected_cols.append(j)</span>
-<span id="cb132-47"><a href="#cb132-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-48"><a href="#cb132-48" aria-hidden="true" tabindex="-1"></a>                train_errors <span class="op">=</span> train_errors.sort_values(by<span class="op">=</span>[<span class="st">&quot;train_error_MSE&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb132-49"><a href="#cb132-49" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb132-50"><a href="#cb132-50" aria-hidden="true" tabindex="-1"></a>                selected_cols.remove(train_errors[<span class="st">&quot;Cols&quot;</span>][<span class="dv">0</span>])</span>
-<span id="cb132-51"><a href="#cb132-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-52"><a href="#cb132-52" aria-hidden="true" tabindex="-1"></a>                predictor_out.append(train_errors[<span class="st">&quot;Cols&quot;</span>][<span class="dv">0</span>])</span>
-<span id="cb132-53"><a href="#cb132-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-54"><a href="#cb132-54" aria-hidden="true" tabindex="-1"></a>                model <span class="op">=</span> sm.OLS(y, X[ selected_cols ]).fit()  </span>
-<span id="cb132-55"><a href="#cb132-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-56"><a href="#cb132-56" aria-hidden="true" tabindex="-1"></a>                train_error_MSE <span class="op">=</span> ( (y <span class="op">-</span> model.predict(X[ selected_cols ]))<span class="op">**</span><span class="dv">2</span> ).mean()</span>
-<span id="cb132-57"><a href="#cb132-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-58"><a href="#cb132-58" aria-hidden="true" tabindex="-1"></a>                train_errors_MSE.append( train_error_MSE )</span>
-<span id="cb132-59"><a href="#cb132-59" aria-hidden="true" tabindex="-1"></a>                              </span>
-<span id="cb132-60"><a href="#cb132-60" aria-hidden="true" tabindex="-1"></a>                other_cols.remove( train_errors[<span class="st">&quot;Cols&quot;</span>][<span class="dv">0</span>] )</span>
-<span id="cb132-61"><a href="#cb132-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-62"><a href="#cb132-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-63"><a href="#cb132-63" aria-hidden="true" tabindex="-1"></a>                Models <span class="op">=</span> pd.concat([Models, pd.DataFrame([[ <span class="bu">round</span>(train_errors_MSE[i<span class="op">+</span><span class="dv">1</span>]), model.aic, model.bic, <span class="bu">round</span>(model.rsquared_adj,<span class="dv">5</span>) ]], </span>
-<span id="cb132-64"><a href="#cb132-64" aria-hidden="true" tabindex="-1"></a>                                                            columns <span class="op">=</span> [<span class="st">&quot;train_error_MSE&quot;</span>, <span class="st">&quot;AIC&quot;</span>,<span class="st">&quot;BIC&quot;</span>, <span class="st">&quot;Adj.R2&quot;</span>]) ])        </span>
-<span id="cb132-65"><a href="#cb132-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-66"><a href="#cb132-66" aria-hidden="true" tabindex="-1"></a><span class="co">##################################################################################################</span></span>
-<span id="cb132-67"><a href="#cb132-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-68"><a href="#cb132-68" aria-hidden="true" tabindex="-1"></a>        Models.index <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>,X.shape[<span class="dv">1</span>])</span>
-<span id="cb132-69"><a href="#cb132-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-70"><a href="#cb132-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-71"><a href="#cb132-71" aria-hidden="true" tabindex="-1"></a>        idx <span class="op">=</span> <span class="bu">len</span>(predictor_out <span class="op">+</span> [<span class="st">&#39;intercept&#39;</span>]) <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb132-72"><a href="#cb132-72" aria-hidden="true" tabindex="-1"></a>        newList <span class="op">=</span> []</span>
-<span id="cb132-73"><a href="#cb132-73" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb132-74"><a href="#cb132-74" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> (idx <span class="op">&gt;=</span> <span class="dv">0</span>):</span>
-<span id="cb132-75"><a href="#cb132-75" aria-hidden="true" tabindex="-1"></a>                predictor_out_reversed.append((predictor_out <span class="op">+</span> [<span class="st">&#39;intercept&#39;</span>])[idx])</span>
-<span id="cb132-76"><a href="#cb132-76" aria-hidden="true" tabindex="-1"></a>                idx <span class="op">=</span> idx <span class="op">-</span> <span class="dv">1</span></span>
-<span id="cb132-77"><a href="#cb132-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-78"><a href="#cb132-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-79"><a href="#cb132-79" aria-hidden="true" tabindex="-1"></a>        a <span class="op">=</span> pd.Series([])</span>
-<span id="cb132-80"><a href="#cb132-80" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb132-81"><a href="#cb132-81" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(X.shape[<span class="dv">1</span>]):</span>
-<span id="cb132-82"><a href="#cb132-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-83"><a href="#cb132-83" aria-hidden="true" tabindex="-1"></a>                a[i] <span class="op">=</span>  predictor_out_reversed[<span class="dv">0</span>:(<span class="bu">len</span>(cols)<span class="op">-</span>i)] </span>
-<span id="cb132-84"><a href="#cb132-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-85"><a href="#cb132-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-86"><a href="#cb132-86" aria-hidden="true" tabindex="-1"></a>        Models <span class="op">=</span> pd.concat([pd.DataFrame({<span class="st">&#39;model&#39;</span>: a}) , Models],  axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb132-87"><a href="#cb132-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-88"><a href="#cb132-88" aria-hidden="true" tabindex="-1"></a><span class="co">################################################################################################</span></span>
-<span id="cb132-89"><a href="#cb132-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-90"><a href="#cb132-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-91"><a href="#cb132-91" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (criteria <span class="op">==</span> <span class="st">&quot;AIC&quot;</span>):</span>
-<span id="cb132-92"><a href="#cb132-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-93"><a href="#cb132-93" aria-hidden="true" tabindex="-1"></a>                Models <span class="op">=</span> Models.sort_values(by<span class="op">=</span>[<span class="st">&quot;AIC&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb132-94"><a href="#cb132-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-95"><a href="#cb132-95" aria-hidden="true" tabindex="-1"></a>                Final_Model <span class="op">=</span> sm.OLS(y, X[ Models[<span class="st">&quot;model&quot;</span>][<span class="dv">0</span>] ]).fit() </span>
-<span id="cb132-96"><a href="#cb132-96" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb132-97"><a href="#cb132-97" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> (criteria <span class="op">==</span> <span class="st">&quot;BIC&quot;</span>):</span>
-<span id="cb132-98"><a href="#cb132-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-99"><a href="#cb132-99" aria-hidden="true" tabindex="-1"></a>                Models <span class="op">=</span> Models.sort_values(by<span class="op">=</span>[<span class="st">&quot;BIC&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb132-100"><a href="#cb132-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-101"><a href="#cb132-101" aria-hidden="true" tabindex="-1"></a>                Final_Model <span class="op">=</span> sm.OLS(y, X[ Models[<span class="st">&quot;model&quot;</span>][<span class="dv">0</span>] ]).fit() </span>
-<span id="cb132-102"><a href="#cb132-102" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-103"><a href="#cb132-103" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> (criteria <span class="op">==</span> <span class="st">&quot;Adj.R2&quot;</span>):</span>
-<span id="cb132-104"><a href="#cb132-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-105"><a href="#cb132-105" aria-hidden="true" tabindex="-1"></a>                  Models <span class="op">=</span> Models.sort_values(by<span class="op">=</span>[<span class="st">&quot;Adj.R2&quot;</span>], ascending<span class="op">=</span><span class="va">False</span>).reset_index(drop<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb132-106"><a href="#cb132-106" aria-hidden="true" tabindex="-1"></a>                  </span>
-<span id="cb132-107"><a href="#cb132-107" aria-hidden="true" tabindex="-1"></a>                  Final_Model <span class="op">=</span> sm.OLS(y, X[ Models[<span class="st">&quot;model&quot;</span>][<span class="dv">0</span>] ]).fit() </span>
-<span id="cb132-108"><a href="#cb132-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-109"><a href="#cb132-109" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> (criteria <span class="op">==</span> <span class="st">&quot;train_error_MSE&quot;</span>):</span>
-<span id="cb132-110"><a href="#cb132-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-111"><a href="#cb132-111" aria-hidden="true" tabindex="-1"></a>                  Models <span class="op">=</span> Models.sort_values(by<span class="op">=</span>[<span class="st">&quot;train_error_MSE&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb132-112"><a href="#cb132-112" aria-hidden="true" tabindex="-1"></a>                  </span>
-<span id="cb132-113"><a href="#cb132-113" aria-hidden="true" tabindex="-1"></a>                  Final_Model <span class="op">=</span> sm.OLS(y, X[ Models[<span class="st">&quot;model&quot;</span>][<span class="dv">0</span>] ]).fit() </span>
-<span id="cb132-114"><a href="#cb132-114" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb132-115"><a href="#cb132-115" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> ( criteria <span class="op">==</span> <span class="st">&quot;none&quot;</span>):</span>
-<span id="cb132-116"><a href="#cb132-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-117"><a href="#cb132-117" aria-hidden="true" tabindex="-1"></a>                Final_Model <span class="op">=</span> <span class="st">&quot;not compute, use some criteria (AIC, BIC, Adj.R2 or train_error_MSE)&quot;</span></span>
-<span id="cb132-118"><a href="#cb132-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-119"><a href="#cb132-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb132-120"><a href="#cb132-120" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Models , Final_Model</span></code></pre></div>
-<div class="sourceCode" id="cb133"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>Models , Final_Model <span class="op">=</span> backward ( X , y, varchar_process<span class="op">=</span><span class="st">&quot;dummy_dropfirst&quot;</span>, criteria<span class="op">=</span><span class="st">&quot;AIC&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb134"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a>Models</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> multiprocessing.resource_sharer <span class="im">import</span> stop</span>
+<span id="cb131-2"><a href="#cb131-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-3"><a href="#cb131-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-4"><a href="#cb131-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> backward ( X,y, varchar_process<span class="op">=</span><span class="st">&quot;dummy_dropfirst&quot;</span>, criteria<span class="op">=</span><span class="st">&quot;AIC&quot;</span>):</span>
+<span id="cb131-5"><a href="#cb131-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-6"><a href="#cb131-6" aria-hidden="true" tabindex="-1"></a>        X <span class="op">=</span> varcharProcessing(X , varchar_process <span class="op">=</span> varchar_process)</span>
+<span id="cb131-7"><a href="#cb131-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-8"><a href="#cb131-8" aria-hidden="true" tabindex="-1"></a>        cols <span class="op">=</span> X.columns.tolist()</span>
+<span id="cb131-9"><a href="#cb131-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-10"><a href="#cb131-10" aria-hidden="true" tabindex="-1"></a>        regressor <span class="op">=</span> sm.OLS(y, X).fit()</span>
+<span id="cb131-11"><a href="#cb131-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-12"><a href="#cb131-12" aria-hidden="true" tabindex="-1"></a>        selected_cols <span class="op">=</span> cols.copy()</span>
+<span id="cb131-13"><a href="#cb131-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-14"><a href="#cb131-14" aria-hidden="true" tabindex="-1"></a>        other_cols <span class="op">=</span> cols.copy()</span>
+<span id="cb131-15"><a href="#cb131-15" aria-hidden="true" tabindex="-1"></a>        other_cols.remove(<span class="st">&quot;intercept&quot;</span>)</span>
+<span id="cb131-16"><a href="#cb131-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-17"><a href="#cb131-17" aria-hidden="true" tabindex="-1"></a>        predictor_out <span class="op">=</span> [ ]</span>
+<span id="cb131-18"><a href="#cb131-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-19"><a href="#cb131-19" aria-hidden="true" tabindex="-1"></a>        predictor_out_reversed <span class="op">=</span> []</span>
+<span id="cb131-20"><a href="#cb131-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-21"><a href="#cb131-21" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb131-22"><a href="#cb131-22" aria-hidden="true" tabindex="-1"></a>        model <span class="op">=</span> sm.OLS(y, X[selected_cols]).fit() </span>
+<span id="cb131-23"><a href="#cb131-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-24"><a href="#cb131-24" aria-hidden="true" tabindex="-1"></a>        train_errors_MSE <span class="op">=</span> [ ( (y <span class="op">-</span> model.predict(X[ selected_cols ]))<span class="op">**</span><span class="dv">2</span> ).mean()  ]</span>
+<span id="cb131-25"><a href="#cb131-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-26"><a href="#cb131-26" aria-hidden="true" tabindex="-1"></a>        Models <span class="op">=</span> pd.DataFrame([[ <span class="bu">round</span>(train_errors_MSE[<span class="dv">0</span>]) , model.aic, model.bic, <span class="bu">round</span>(model.rsquared_adj, <span class="dv">4</span>) ]], </span>
+<span id="cb131-27"><a href="#cb131-27" aria-hidden="true" tabindex="-1"></a>                                 columns <span class="op">=</span> [<span class="st">&quot;train_error_MSE&quot;</span>,<span class="st">&quot;AIC&quot;</span>,<span class="st">&quot;BIC&quot;</span>, <span class="st">&quot;Adj.R2&quot;</span>])</span>
+<span id="cb131-28"><a href="#cb131-28" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb131-29"><a href="#cb131-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb131-30"><a href="#cb131-30" aria-hidden="true" tabindex="-1"></a> <span class="co">######################################################################################  </span></span>
+<span id="cb131-31"><a href="#cb131-31" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb131-32"><a href="#cb131-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(X.shape[<span class="dv">1</span>]<span class="op">-</span><span class="dv">1</span>):</span>
+<span id="cb131-33"><a href="#cb131-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-34"><a href="#cb131-34" aria-hidden="true" tabindex="-1"></a>                train_errors <span class="op">=</span> pd.DataFrame(columns <span class="op">=</span> [<span class="st">&quot;Cols&quot;</span>, <span class="st">&quot;train_error_MSE&quot;</span>])</span>
+<span id="cb131-35"><a href="#cb131-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-36"><a href="#cb131-36" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> j <span class="kw">in</span> other_cols:</span>
+<span id="cb131-37"><a href="#cb131-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-38"><a href="#cb131-38" aria-hidden="true" tabindex="-1"></a>                        selected_cols.remove(j)</span>
+<span id="cb131-39"><a href="#cb131-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-40"><a href="#cb131-40" aria-hidden="true" tabindex="-1"></a>                        model <span class="op">=</span> sm.OLS(y, X[ selected_cols ] ).fit()</span>
+<span id="cb131-41"><a href="#cb131-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-42"><a href="#cb131-42" aria-hidden="true" tabindex="-1"></a>                        train_error_MSE <span class="op">=</span> ( (y <span class="op">-</span> model.predict(X[ selected_cols ]))<span class="op">**</span><span class="dv">2</span> ).mean()</span>
+<span id="cb131-43"><a href="#cb131-43" aria-hidden="true" tabindex="-1"></a>                                             </span>
+<span id="cb131-44"><a href="#cb131-44" aria-hidden="true" tabindex="-1"></a>                        train_errors <span class="op">=</span> pd.concat( [train_errors, pd.DataFrame([[ j , train_error_MSE ]], columns <span class="op">=</span> [<span class="st">&quot;Cols&quot;</span>, <span class="st">&quot;train_error_MSE&quot;</span>] ) ] )</span>
+<span id="cb131-45"><a href="#cb131-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-46"><a href="#cb131-46" aria-hidden="true" tabindex="-1"></a>                        selected_cols.append(j)</span>
+<span id="cb131-47"><a href="#cb131-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-48"><a href="#cb131-48" aria-hidden="true" tabindex="-1"></a>                train_errors <span class="op">=</span> train_errors.sort_values(by<span class="op">=</span>[<span class="st">&quot;train_error_MSE&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb131-49"><a href="#cb131-49" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb131-50"><a href="#cb131-50" aria-hidden="true" tabindex="-1"></a>                selected_cols.remove(train_errors[<span class="st">&quot;Cols&quot;</span>][<span class="dv">0</span>])</span>
+<span id="cb131-51"><a href="#cb131-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-52"><a href="#cb131-52" aria-hidden="true" tabindex="-1"></a>                predictor_out.append(train_errors[<span class="st">&quot;Cols&quot;</span>][<span class="dv">0</span>])</span>
+<span id="cb131-53"><a href="#cb131-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-54"><a href="#cb131-54" aria-hidden="true" tabindex="-1"></a>                model <span class="op">=</span> sm.OLS(y, X[ selected_cols ]).fit()  </span>
+<span id="cb131-55"><a href="#cb131-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-56"><a href="#cb131-56" aria-hidden="true" tabindex="-1"></a>                train_error_MSE <span class="op">=</span> ( (y <span class="op">-</span> model.predict(X[ selected_cols ]))<span class="op">**</span><span class="dv">2</span> ).mean()</span>
+<span id="cb131-57"><a href="#cb131-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-58"><a href="#cb131-58" aria-hidden="true" tabindex="-1"></a>                train_errors_MSE.append( train_error_MSE )</span>
+<span id="cb131-59"><a href="#cb131-59" aria-hidden="true" tabindex="-1"></a>                              </span>
+<span id="cb131-60"><a href="#cb131-60" aria-hidden="true" tabindex="-1"></a>                other_cols.remove( train_errors[<span class="st">&quot;Cols&quot;</span>][<span class="dv">0</span>] )</span>
+<span id="cb131-61"><a href="#cb131-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-62"><a href="#cb131-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-63"><a href="#cb131-63" aria-hidden="true" tabindex="-1"></a>                Models <span class="op">=</span> pd.concat([Models, pd.DataFrame([[ <span class="bu">round</span>(train_errors_MSE[i<span class="op">+</span><span class="dv">1</span>]), model.aic, model.bic, <span class="bu">round</span>(model.rsquared_adj,<span class="dv">5</span>) ]], </span>
+<span id="cb131-64"><a href="#cb131-64" aria-hidden="true" tabindex="-1"></a>                                                            columns <span class="op">=</span> [<span class="st">&quot;train_error_MSE&quot;</span>, <span class="st">&quot;AIC&quot;</span>,<span class="st">&quot;BIC&quot;</span>, <span class="st">&quot;Adj.R2&quot;</span>]) ])        </span>
+<span id="cb131-65"><a href="#cb131-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-66"><a href="#cb131-66" aria-hidden="true" tabindex="-1"></a><span class="co">##################################################################################################</span></span>
+<span id="cb131-67"><a href="#cb131-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-68"><a href="#cb131-68" aria-hidden="true" tabindex="-1"></a>        Models.index <span class="op">=</span> <span class="bu">range</span>(<span class="dv">0</span>,X.shape[<span class="dv">1</span>])</span>
+<span id="cb131-69"><a href="#cb131-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-70"><a href="#cb131-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-71"><a href="#cb131-71" aria-hidden="true" tabindex="-1"></a>        idx <span class="op">=</span> <span class="bu">len</span>(predictor_out <span class="op">+</span> [<span class="st">&#39;intercept&#39;</span>]) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb131-72"><a href="#cb131-72" aria-hidden="true" tabindex="-1"></a>        newList <span class="op">=</span> []</span>
+<span id="cb131-73"><a href="#cb131-73" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb131-74"><a href="#cb131-74" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> (idx <span class="op">&gt;=</span> <span class="dv">0</span>):</span>
+<span id="cb131-75"><a href="#cb131-75" aria-hidden="true" tabindex="-1"></a>                predictor_out_reversed.append((predictor_out <span class="op">+</span> [<span class="st">&#39;intercept&#39;</span>])[idx])</span>
+<span id="cb131-76"><a href="#cb131-76" aria-hidden="true" tabindex="-1"></a>                idx <span class="op">=</span> idx <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb131-77"><a href="#cb131-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-78"><a href="#cb131-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-79"><a href="#cb131-79" aria-hidden="true" tabindex="-1"></a>        a <span class="op">=</span> pd.Series([])</span>
+<span id="cb131-80"><a href="#cb131-80" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb131-81"><a href="#cb131-81" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(X.shape[<span class="dv">1</span>]):</span>
+<span id="cb131-82"><a href="#cb131-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-83"><a href="#cb131-83" aria-hidden="true" tabindex="-1"></a>                a[i] <span class="op">=</span>  predictor_out_reversed[<span class="dv">0</span>:(<span class="bu">len</span>(cols)<span class="op">-</span>i)] </span>
+<span id="cb131-84"><a href="#cb131-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-85"><a href="#cb131-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-86"><a href="#cb131-86" aria-hidden="true" tabindex="-1"></a>        Models <span class="op">=</span> pd.concat([pd.DataFrame({<span class="st">&#39;model&#39;</span>: a}) , Models],  axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb131-87"><a href="#cb131-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-88"><a href="#cb131-88" aria-hidden="true" tabindex="-1"></a><span class="co">################################################################################################</span></span>
+<span id="cb131-89"><a href="#cb131-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-90"><a href="#cb131-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-91"><a href="#cb131-91" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (criteria <span class="op">==</span> <span class="st">&quot;AIC&quot;</span>):</span>
+<span id="cb131-92"><a href="#cb131-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-93"><a href="#cb131-93" aria-hidden="true" tabindex="-1"></a>                Models <span class="op">=</span> Models.sort_values(by<span class="op">=</span>[<span class="st">&quot;AIC&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb131-94"><a href="#cb131-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-95"><a href="#cb131-95" aria-hidden="true" tabindex="-1"></a>                Final_Model <span class="op">=</span> sm.OLS(y, X[ Models[<span class="st">&quot;model&quot;</span>][<span class="dv">0</span>] ]).fit() </span>
+<span id="cb131-96"><a href="#cb131-96" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb131-97"><a href="#cb131-97" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> (criteria <span class="op">==</span> <span class="st">&quot;BIC&quot;</span>):</span>
+<span id="cb131-98"><a href="#cb131-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-99"><a href="#cb131-99" aria-hidden="true" tabindex="-1"></a>                Models <span class="op">=</span> Models.sort_values(by<span class="op">=</span>[<span class="st">&quot;BIC&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb131-100"><a href="#cb131-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-101"><a href="#cb131-101" aria-hidden="true" tabindex="-1"></a>                Final_Model <span class="op">=</span> sm.OLS(y, X[ Models[<span class="st">&quot;model&quot;</span>][<span class="dv">0</span>] ]).fit() </span>
+<span id="cb131-102"><a href="#cb131-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-103"><a href="#cb131-103" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> (criteria <span class="op">==</span> <span class="st">&quot;Adj.R2&quot;</span>):</span>
+<span id="cb131-104"><a href="#cb131-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-105"><a href="#cb131-105" aria-hidden="true" tabindex="-1"></a>                  Models <span class="op">=</span> Models.sort_values(by<span class="op">=</span>[<span class="st">&quot;Adj.R2&quot;</span>], ascending<span class="op">=</span><span class="va">False</span>).reset_index(drop<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb131-106"><a href="#cb131-106" aria-hidden="true" tabindex="-1"></a>                  </span>
+<span id="cb131-107"><a href="#cb131-107" aria-hidden="true" tabindex="-1"></a>                  Final_Model <span class="op">=</span> sm.OLS(y, X[ Models[<span class="st">&quot;model&quot;</span>][<span class="dv">0</span>] ]).fit() </span>
+<span id="cb131-108"><a href="#cb131-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-109"><a href="#cb131-109" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> (criteria <span class="op">==</span> <span class="st">&quot;train_error_MSE&quot;</span>):</span>
+<span id="cb131-110"><a href="#cb131-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-111"><a href="#cb131-111" aria-hidden="true" tabindex="-1"></a>                  Models <span class="op">=</span> Models.sort_values(by<span class="op">=</span>[<span class="st">&quot;train_error_MSE&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb131-112"><a href="#cb131-112" aria-hidden="true" tabindex="-1"></a>                  </span>
+<span id="cb131-113"><a href="#cb131-113" aria-hidden="true" tabindex="-1"></a>                  Final_Model <span class="op">=</span> sm.OLS(y, X[ Models[<span class="st">&quot;model&quot;</span>][<span class="dv">0</span>] ]).fit() </span>
+<span id="cb131-114"><a href="#cb131-114" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb131-115"><a href="#cb131-115" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> ( criteria <span class="op">==</span> <span class="st">&quot;none&quot;</span>):</span>
+<span id="cb131-116"><a href="#cb131-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-117"><a href="#cb131-117" aria-hidden="true" tabindex="-1"></a>                Final_Model <span class="op">=</span> <span class="st">&quot;not compute, use some criteria (AIC, BIC, Adj.R2 or train_error_MSE)&quot;</span></span>
+<span id="cb131-118"><a href="#cb131-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-119"><a href="#cb131-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-120"><a href="#cb131-120" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Models , Final_Model</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a>Models , Final_Model <span class="op">=</span> backward ( X , y, varchar_process<span class="op">=</span><span class="st">&quot;dummy_dropfirst&quot;</span>, criteria<span class="op">=</span><span class="st">&quot;AIC&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>Models</span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -8072,9 +8070,9 @@ Adj.R2
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb135"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML </span>
-<span id="cb135-2"><a href="#cb135-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb135-3"><a href="#cb135-3" aria-hidden="true" tabindex="-1"></a>HTML(Models.to_html(classes<span class="op">=</span><span class="st">&#39;table table-striped&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML </span>
+<span id="cb134-2"><a href="#cb134-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-3"><a href="#cb134-3" aria-hidden="true" tabindex="-1"></a>HTML(Models.to_html(classes<span class="op">=</span><span class="st">&#39;table table-striped&#39;</span>))</span></code></pre></div>
 <table border="1" class="dataframe table table-striped">
 <thead>
 <tr style="text-align: right;">
@@ -8314,8 +8312,8 @@ Adj.R2
 <p>So, the linear regression model selected with <strong><em>backward</em></strong> algorithm and the <span class="math inline">\(AIC\)</span> criteria is saved in <code>Final_Model</code>, and it is the same model that is selected with <strong><em>best subset</em></strong> and <strong><em>forward</em></strong> algorithms :</p>
 <p><span class="math display">\[ price = intercept + size\_in\_m\_2 + longitude + latitude + no\_of\_bedrooms + quality\_2 \]</span></p>
 <p><br></p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>Models , Final_Model <span class="op">=</span> backward ( X , y, varchar_process<span class="op">=</span><span class="st">&quot;dummy_dropfirst&quot;</span>, criteria<span class="op">=</span><span class="st">&quot;none&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb137"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a>HTML(Models.to_html(classes<span class="op">=</span><span class="st">&#39;table table-striped&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a>Models , Final_Model <span class="op">=</span> backward ( X , y, varchar_process<span class="op">=</span><span class="st">&quot;dummy_dropfirst&quot;</span>, criteria<span class="op">=</span><span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>HTML(Models.to_html(classes<span class="op">=</span><span class="st">&#39;table table-striped&#39;</span>))</span></code></pre></div>
 <table border="1" class="dataframe table table-striped">
 <thead>
 <tr style="text-align: right;">
@@ -8521,18 +8519,18 @@ Adj.R2
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb138"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a>Final_Model</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a>Final_Model</span></code></pre></div>
 <pre><code>&#39;not compute, use some criteria (AIC, BIC, Adj.R2 or train_error_MSE)&#39;</code></pre>
 <p><br></p>
 </div>
-<div id="backward-selection-in-r" class="section level3" number="3.4.9">
-<h3><span class="header-section-number">3.4.9</span> Backward Selection in <code>R</code> <a class="anchor" id="28"></a></h3>
+<div id="backward-selection-in-r" class="section level3" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Backward Selection in <code>R</code> <a class="anchor" id="28"></a></h3>
 <p>We are going to use the <code>step</code> function, with which we can do a backward selection based on <span class="math inline">\(AIC\)</span> criteria in <code>R</code></p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
-<span id="cb140-2"><a href="#cb140-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb140-3"><a href="#cb140-3" aria-hidden="true" tabindex="-1"></a>Modelo_Backward <span class="ot">&lt;-</span> <span class="fu">step</span>( <span class="at">object =</span> <span class="fu">lm</span>(price  <span class="sc">~</span> size_in_m_2  <span class="sc">+</span> longitude  <span class="sc">+</span> latitude <span class="sc">+</span> no_of_bedrooms  <span class="sc">+</span> no_of_bathrooms <span class="sc">+</span> quality , <span class="at">data =</span> data_R), <span class="at">direction =</span> <span class="st">&quot;backward&quot;</span>)</span>
-<span id="cb140-4"><a href="#cb140-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb140-5"><a href="#cb140-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Modelo_Backward)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
+<span id="cb139-2"><a href="#cb139-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-3"><a href="#cb139-3" aria-hidden="true" tabindex="-1"></a>Modelo_Backward <span class="ot">&lt;-</span> <span class="fu">step</span>( <span class="at">object =</span> <span class="fu">lm</span>(price  <span class="sc">~</span> size_in_m_2  <span class="sc">+</span> longitude  <span class="sc">+</span> latitude <span class="sc">+</span> no_of_bedrooms  <span class="sc">+</span> no_of_bathrooms <span class="sc">+</span> quality , <span class="at">data =</span> data_R), <span class="at">direction =</span> <span class="st">&quot;backward&quot;</span>)</span>
+<span id="cb139-4"><a href="#cb139-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-5"><a href="#cb139-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(Modelo_Backward)</span></code></pre></div>
 <pre><code>Start:  AIC=54447.87
 price ~ size_in_m_2 + longitude + latitude + no_of_bedrooms + 
     no_of_bathrooms + quality
@@ -8583,11 +8581,11 @@ Residual standard error: 1605000 on 1897 degrees of freedom
 Multiple R-squared:  0.6978,    Adjusted R-squared:  0.6966 
 F-statistic: 625.6 on 7 and 1897 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Using <code>olsrr</code> package :</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R </span>
-<span id="cb142-2"><a href="#cb142-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb142-3"><a href="#cb142-3" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">step</span>( <span class="at">object =</span> <span class="fu">lm</span>(price  <span class="sc">~</span> size_in_m_2  <span class="sc">+</span> longitude  <span class="sc">+</span> latitude <span class="sc">+</span> no_of_bedrooms  <span class="sc">+</span> no_of_bathrooms <span class="sc">+</span> quality , <span class="at">data =</span> data_R), <span class="at">direction =</span> <span class="st">&quot;forward&quot;</span>)</span>
-<span id="cb142-4"><a href="#cb142-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb142-5"><a href="#cb142-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ols_step_backward_p</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R </span>
+<span id="cb141-2"><a href="#cb141-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb141-3"><a href="#cb141-3" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">step</span>( <span class="at">object =</span> <span class="fu">lm</span>(price  <span class="sc">~</span> size_in_m_2  <span class="sc">+</span> longitude  <span class="sc">+</span> latitude <span class="sc">+</span> no_of_bedrooms  <span class="sc">+</span> no_of_bathrooms <span class="sc">+</span> quality , <span class="at">data =</span> data_R), <span class="at">direction =</span> <span class="st">&quot;forward&quot;</span>)</span>
+<span id="cb141-4"><a href="#cb141-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb141-5"><a href="#cb141-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ols_step_backward_p</span>(model)</span></code></pre></div>
 <pre><code>Start:  AIC=54447.87
 price ~ size_in_m_2 + longitude + latitude + no_of_bedrooms + 
     no_of_bathrooms + quality
@@ -8603,12 +8601,12 @@ Step        Removed        R-Square    R-Square     C(p)        AIC            R
 ---------------------------------------------------------------------------------------</code></pre>
 <p><br></p>
 </div>
-<div id="simple-validation" class="section level3" number="3.4.10">
-<h3><span class="header-section-number">3.4.10</span> Simple Validation:</h3>
+</div>
+<div id="simple-validation" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Simple Validation:</h2>
 <p>calcular ECM de test de los modelos seleecionados por cada algoritmo y metrica (best subser- R2 adj, Best subset- AIC, Best Subset - Bic , forward - R2 adj, forward- AIC, forward- Bic , backward- R2 adj, backward- AIC, backward - Bic )</p>
 <p>Creo que se podria hacer una funcion de validacion simple usando la columna “model” del df Models para entrenar el modelo en funcion del tipo de algoritmo y metrica pasada como parametro.</p>
 <p><br></p>
-</div>
 </div>
 </div>
 <div id="bibliography" class="section level1" number="4">
