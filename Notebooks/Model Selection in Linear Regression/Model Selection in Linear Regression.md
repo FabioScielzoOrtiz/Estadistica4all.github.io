@@ -1,7 +1,7 @@
 ---
 title: 'Model Selection in Linear Regression'
 author: 'Fabio Scielzo Ortiz'
-date: "`r Sys.Date()`"
+date: '16/10/22'
 output: 
    rmdformats::readthedown:
       use_bookdown: true
