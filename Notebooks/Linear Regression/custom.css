@@ -40,7 +40,7 @@ a:visited{
 }
 
 #sidebar {
-    color: #682929;
+    color: #131212;
     background: #f8f7f7;
 }
 
@@ -50,11 +50,9 @@ a:visited{
 }
 
 #sidebar a {
-    color: #000000;
+    color: #ffffff;
 }
-#sidebar p {
-    color: #000000;
-}
+ 
 #sidebar a:hover {
     background-color: #989898;
     color: #FFFFFF;
