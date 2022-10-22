@@ -25,10 +25,10 @@ h1, h2, h3, h4, h5, h6, legend {
 }
 
 #main a {
-    background-image: linear-gradient(180deg,#d64a70,#d64a70);
-    color: #c7254e;
+    background-image: linear-gradient(180deg,#3cf65e,#b5d64a);
+    color: #e716f1;
 }
 
 a:hover {
-    color: #3d1308;
+    color: #ff9277;
 }
