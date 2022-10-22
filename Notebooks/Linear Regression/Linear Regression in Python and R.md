@@ -15,7 +15,35 @@ output:
 css: custom.css
 ---
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+    
+ 
+    table {
+     display: block;
+     overflow-x: auto;
+     border-collapse: collapse;
+     border-spacing: 0;
+     border: 0px solid;
+     color: var(--jp-ui-font-color1);
+     font-size: 14px;
+     margin-left: auto;
+     margin-right: auto;
+     
+            }
+            
+</style>
 
 
 
@@ -29,7 +57,7 @@ Scielzo Ortiz, F. (2022). Linear Regression with Python and R. *Estadistica4all*
 
 
 
-
+<br>
 
 
 #  Data-set description <a class="anchor" id="1"></a>
@@ -286,6 +314,8 @@ data_Python = pd.read_csv(url)
 
 data_Python
 ```
+
+
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -299,6 +329,9 @@ data_Python
     .dataframe thead th {
         text-align: right;
     }
+    
+
+    
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -622,8 +655,10 @@ data_Python
     .dataframe thead th {
         text-align: right;
     }
+    
+    
 </style>
-<table border="1" class="dataframe">
+<table border="1" class="dataframe" align="center">
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -3980,7 +4015,7 @@ IC\left(\sigma^2  \right)= \left[ 0 \ , \ \dfrac{n-p-1}{\chi_{1-\alpha/2}^{n-p-1
 
 
 
-### Confidence Interval for  $\beta_j$  in `R` <a class="anchor" id="43"></a>
+### Confidence Interval for \beta_j  in `R` <a class="anchor" id="43"></a>
 
  
 
@@ -4849,6 +4884,69 @@ Probability_Intervals_Response = pd.DataFrame({ 'y': 0 , 'y_predict': 0 ,  'Prob
 ```python
 Probability_Intervals_Response.head()
 ```
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>y</th>
+      <th>y_predict</th>
+      <th>Prob_Interval_lower</th>
+      <th>Prob_Interval_upper</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
 ```python
@@ -4885,6 +4983,114 @@ for i in range(0, len(data_Python)-1):
 ```python
  Probability_Intervals_Response
 ```
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>y</th>
+      <th>y_predict</th>
+      <th>Prob_Interval_lower</th>
+      <th>Prob_Interval_upper</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2700000</td>
+      <td>1.781426e+06</td>
+      <td>1.756811e+05</td>
+      <td>3.387171e+06</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2850000</td>
+      <td>2.551625e+06</td>
+      <td>9.459896e+05</td>
+      <td>4.157260e+06</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1150000</td>
+      <td>2.522740e+06</td>
+      <td>9.137789e+05</td>
+      <td>4.131701e+06</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2850000</td>
+      <td>4.222873e+06</td>
+      <td>2.615568e+06</td>
+      <td>5.830179e+06</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1729200</td>
+      <td>7.851530e+05</td>
+      <td>-8.220643e+05</td>
+      <td>2.392370e+06</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1900</th>
+      <td>1500000</td>
+      <td>1.211313e+06</td>
+      <td>-4.053818e+05</td>
+      <td>2.828007e+06</td>
+    </tr>
+    <tr>
+      <th>1901</th>
+      <td>1230000</td>
+      <td>8.171580e+05</td>
+      <td>-7.881622e+05</td>
+      <td>2.422478e+06</td>
+    </tr>
+    <tr>
+      <th>1902</th>
+      <td>2900000</td>
+      <td>2.981084e+06</td>
+      <td>1.371368e+06</td>
+      <td>4.590800e+06</td>
+    </tr>
+    <tr>
+      <th>1903</th>
+      <td>675000</td>
+      <td>2.651215e+05</td>
+      <td>-1.340281e+06</td>
+      <td>1.870524e+06</td>
+    </tr>
+    <tr>
+      <th>1904</th>
+      <td>760887</td>
+      <td>8.227585e+05</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+    </tr>
+  </tbody>
+</table>
+<p>1905 rows × 4 columns</p>
+</div>
 
 
 
@@ -4955,7 +5161,7 @@ The value of $\hspace{0.1cm} R^2$  could be found in the output obtained with `s
 summary(model_R)$r.squared 
 ```
 
-
+    [1] 0.6978674
 
 &nbsp;
 
@@ -4972,12 +5178,17 @@ The value of $\hspace{0.1cm} R^2$  could be found in the output obtained with `p
 model_Py_smf.rsquared
 ```
 
+    0.6978674339747218
+
+
 We can compute $R^2$ with `sk-learn` as follows:
 
 
 ```python
 Model_Py_sklearn.score(X, y)
 ```
+
+    0.6978674339747218
 
 
 
@@ -5039,6 +5250,7 @@ The value of $\hspace{0.1cm} \widehat{R^2}$  could be found in the output obtain
 summary(model_R)$adj.r.squared 
 ```
 
+    [1] 0.6965926
 
 
 &nbsp;
@@ -5055,6 +5267,8 @@ The value of $\hspace{0.1cm} \widehat{R^2}$  could be found in the output obtain
 ```python
 model_Py_smf.rsquared_adj
 ```
+
+    0.6965926130210287
 
 
 
@@ -5189,7 +5403,19 @@ R <- cor(data_R %>% select(-price, -quality))
 R
 ```
 
-
+                    size_in_m_2   longitude  latitude no_of_bedrooms
+    size_in_m_2      1.00000000 -0.06665722 0.1375185     0.77511298
+    longitude       -0.06665722  1.00000000 0.6058747    -0.04566789
+    latitude         0.13751849  0.60587468 1.0000000     0.12416175
+    no_of_bedrooms   0.77511298 -0.04566789 0.1241617     1.00000000
+    no_of_bathrooms  0.72539720 -0.02499958 0.1411599     0.85438384
+                    no_of_bathrooms
+    size_in_m_2          0.72539720
+    longitude           -0.02499958
+    latitude             0.14115992
+    no_of_bedrooms       0.85438384
+    no_of_bathrooms      1.00000000
+    
 
 Now we will compute a heatmap with the correlation matrix:
 
@@ -5202,6 +5428,7 @@ library(GGally)
 ggcorr(data_R %>% select(-price, -quality), label=TRUE, digits=3)
 ```
 
+![png](output_638_1.png)
 
 
 &nbsp;
@@ -5223,7 +5450,75 @@ R = X.corr()
 R
 ```
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>size_in_m_2</th>
+      <th>longitude</th>
+      <th>latitude</th>
+      <th>no_of_bedrooms</th>
+      <th>no_of_bathrooms</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>size_in_m_2</th>
+      <td>1.000000</td>
+      <td>-0.066657</td>
+      <td>0.137518</td>
+      <td>0.775113</td>
+      <td>0.725397</td>
+    </tr>
+    <tr>
+      <th>longitude</th>
+      <td>-0.066657</td>
+      <td>1.000000</td>
+      <td>0.605875</td>
+      <td>-0.045668</td>
+      <td>-0.025000</td>
+    </tr>
+    <tr>
+      <th>latitude</th>
+      <td>0.137518</td>
+      <td>0.605875</td>
+      <td>1.000000</td>
+      <td>0.124162</td>
+      <td>0.141160</td>
+    </tr>
+    <tr>
+      <th>no_of_bedrooms</th>
+      <td>0.775113</td>
+      <td>-0.045668</td>
+      <td>0.124162</td>
+      <td>1.000000</td>
+      <td>0.854384</td>
+    </tr>
+    <tr>
+      <th>no_of_bathrooms</th>
+      <td>0.725397</td>
+      <td>-0.025000</td>
+      <td>0.141160</td>
+      <td>0.854384</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
 ```python
@@ -5238,6 +5533,8 @@ corr = R
 
 sb.heatmap(corr, cmap="Blues", annot=True)
 ```
+
+![png](output_647_1.png)
 
 
 
@@ -5316,7 +5613,9 @@ R_inverse <- solve(R)
 diag(R_inverse)
 ```
 
-
+        size_in_m_2       longitude        latitude  no_of_bedrooms no_of_bathrooms 
+           2.642728        1.639554        1.667913        4.565980        3.857961 
+           
 ```r
 %%R 
 
@@ -5327,6 +5626,8 @@ vif(lm(price ~ size_in_m_2  + longitude + latitude + no_of_bedrooms + no_of_bath
 ```
 
 
+        size_in_m_2       longitude        latitude  no_of_bedrooms no_of_bathrooms 
+           2.642728        1.639554        1.667913        4.565980        3.85796
 
 &nbsp;
 
@@ -5358,6 +5659,58 @@ VIF_Python = pd.DataFrame({'predictor': predictors_names , 'VIF': R_inv_diag })
 VIF_Python = VIF_Python.set_index('predictor')
 VIF_Python
 ```
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>VIF</th>
+    </tr>
+    <tr>
+      <th>predictor</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>size_in_m_2</th>
+      <td>2.642728</td>
+    </tr>
+    <tr>
+      <th>longitude</th>
+      <td>1.639554</td>
+    </tr>
+    <tr>
+      <th>latitude</th>
+      <td>1.667913</td>
+    </tr>
+    <tr>
+      <th>no_of_bedrooms</th>
+      <td>4.565980</td>
+    </tr>
+    <tr>
+      <th>no_of_bathrooms</th>
+      <td>3.857961</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 There is a quantitative predictor with $\hspace{0.1cm} VIF > 4 \hspace{0.1cm}$ , but none with $\hspace{0.1cm} VIF > 10 \hspace{0.1cm}$ , so following this criteria the linear regression model $\hspace{0.1cm}$  **price ~ size\_in\_m\_2  + longitude + latitude + no\_of\_bedrooms + no\_of\_bathrooms** $\hspace{0.1cm}$ has **medium** multicollinearity .
 
@@ -5409,7 +5762,7 @@ cond_R = sqrt(max(eigen(R)$values)/min(eigen(R)$values))
 cond_R
 ```
 
-
+    [1] 4.325045
 
 &nbsp;
 
@@ -5437,6 +5790,9 @@ eigenvalues , eigenvectors = LA.eig(R)
 cond_R = math.sqrt(max(eigenvalues)/min(eigenvalues))
 cond_R
 ```
+
+    4.325045221905223
+    
 
 We have get $ \hspace{0.1cm} cond(R) = 4.33 < 10  \hspace{0.1cm}$ , so following this criterion, the linear regression model $\hspace{0.1cm}$ **price ~ size\_in\_m\_2  + longitude + latitude + no\_of\_bedrooms + no\_of\_bathrooms** $\hspace{0.1cm}$ has **low** multicollinearity
 
@@ -5646,6 +6002,14 @@ library(carData)
 vif(lm(price ~ size_in_m_2  + longitude + latitude + no_of_bedrooms + no_of_bathrooms + quality , data=data_R))
 ```
 
+                        GVIF Df GVIF^(1/(2*Df))
+    size_in_m_2     2.657446  1        1.630168
+    longitude       1.670001  1        1.292285
+    latitude        1.769812  1        1.330343
+    no_of_bedrooms  4.572529  1        2.138347
+    no_of_bathrooms 3.897807  1        1.974286
+    quality         1.080988  3        1.013064
+    
 
 
 &nbsp;
@@ -5767,6 +6131,85 @@ GVIF_Python_df = pd.DataFrame({'predictor': a , 'GVIF': b , 'GVIF^(1/(2*df))': c
 GVIF_Python_df
 ```
 
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>predictor</th>
+      <th>GVIF</th>
+      <th>GVIF^(1/(2*df))</th>
+      <th>df</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>size_in_m_2</td>
+      <td>2.642728</td>
+      <td>1.625647</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>longitude</td>
+      <td>1.639554</td>
+      <td>1.280451</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>latitude</td>
+      <td>1.667913</td>
+      <td>1.291477</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>no_of_bedrooms</td>
+      <td>4.565980</td>
+      <td>2.136815</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>no_of_bathrooms</td>
+      <td>3.857961</td>
+      <td>1.964169</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>quality</td>
+      <td>1.080988</td>
+      <td>1.013064</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
 In this case all the quantitative predictors have $\hspace{0.1cm} GVIF^{1/2df} < 3.16 \hspace{0.1cm}$, but $\hspace{0.1cm} GVIF^{1/2df} \hspace{0.1cm}$ of $\hspace{0.1cm}$ **no\_of\_bathrooms** $\hspace{0.1cm}$ is $\hspace{0.1cm} 2.14 > 2$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm} $  **medium** multicollinearity
 
 On the other hand the 4-ary categorical predictor **quality** has $\hspace{0.1cm} GVIF^{1/2df}\hspace{0.1cm} = 1.01 < 1.26$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm} $  **low** multicollinearity
@@ -5826,6 +6269,7 @@ geom_point(mapping = aes(x=model_R$fitted.values , y = estimated_errors ), color
 geom_hline(yintercept =0 , color="red")
 ```
 
+![png](output_785_0.png)
 
 
 &nbsp;
@@ -5850,6 +6294,10 @@ ggplot()
 )
 ```
 
+![png](output_791_0.png)
+
+
+
 Since we can see a cone shape at the points, we cannot accept the constant error variance assumption $Var(\varepsilon)=\sigma^2$.
 
 
@@ -5870,7 +6318,7 @@ First we compute the  estimated errors mean to get first idea:
 df_predictions_Python['estimated_errors'].mean()
 ```
 
-
+    -1.5501118707531706e-07
 
 &nbsp;
 
@@ -5886,7 +6334,16 @@ df_predictions_Python['estimated_errors'].mean()
 t.test(x=estimated_errors , mu=0)
 ```
 
-
+    	One Sample t-test
+    
+    data:  estimated_errors
+    t = -5.1697e-12, df = 1904, p-value = 1
+    alternative hypothesis: true mean is not equal to 0
+    95 percent confidence interval:
+     -71952.49  71952.49
+    sample estimates:
+        mean of x 
+    -1.896638e-07 
 
 &nbsp;
 
@@ -5907,6 +6364,50 @@ import pingouin as pg
 pg.ttest(x= df_predictions_Python['estimated_errors'] , y=0)
 ```
 
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>T</th>
+      <th>dof</th>
+      <th>alternative</th>
+      <th>p-val</th>
+      <th>CI95%</th>
+      <th>cohen-d</th>
+      <th>BF10</th>
+      <th>power</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>T-test</th>
+      <td>-4.225144e-12</td>
+      <td>1904</td>
+      <td>two-sided</td>
+      <td>1.0</td>
+      <td>[-71952.49, 71952.49]</td>
+      <td>9.680415e-14</td>
+      <td>0.026</td>
+      <td>0.05</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
 For any significance level we can accept that the errors mean is zero (0)
@@ -5941,7 +6442,7 @@ ggplot(data = as.data.frame(estimated_errors) ,
  )
 ```
 
-
+![png](output_820_1.png)
 
 &nbsp;
 
@@ -5961,6 +6462,7 @@ ggplot(data = df_predictions_Python ,
 )
 ```
 
+![png](output_825_0.png)
 
 
 &nbsp;
@@ -5982,6 +6484,11 @@ Now we are going to check the error normality assumption using the Shapiro stati
 shapiro.test(estimated_errors)
 ```
 
+    	Shapiro-Wilk normality test
+    
+    data:  estimated_errors
+    W = 0.79149, p-value < 2.2e-16
+    
 
 
 &nbsp;
@@ -5997,6 +6504,7 @@ shapiro_test = stats.shapiro(df_predictions_Python['estimated_errors'])
 shapiro_test
 ```
 
+    ShapiroResult(statistic=0.7914911508560181, pvalue=4.203895392974451e-44)
 
 
 For any significance level we have to reject the errors normality hypothesis.
@@ -6067,6 +6575,7 @@ ggplot() +
 geom_point(mapping = aes(x=estimated_errors_1 , y = estimated_errors_2 ), color="blue")
 ```
 
+![png](output_856_0.png)
 
 
 
@@ -6078,7 +6587,11 @@ library(lmtest)
 dwtest(price ~ size_in_m_2  + longitude + latitude + no_of_bedrooms + no_of_bathrooms + quality , data=data_R, alternative = 'two.sided' )
 ```
 
-
+    	Durbin-Watson test
+    
+    data:  price ~ size_in_m_2 + longitude + latitude + no_of_bedrooms +     no_of_bathrooms + quality
+    DW = 1.7158, p-value = 4.52e-10
+    alternative hypothesis: true autocorrelation is not 0
 
 &nbsp;
 
@@ -6102,6 +6615,7 @@ ggplot()
 )
 ```
 
+![png](output_863_0.png)
 
 
 
@@ -6111,6 +6625,7 @@ import statsmodels
 statsmodels.stats.stattools.durbin_watson(df_predictions_Python['estimated_errors'], axis=0)
 ```
 
+    1.7158064595327671
 
 
 Another alternative in Python that gives us the p-value:
@@ -6137,6 +6652,7 @@ statistic, pvalue = dwtest( 'price ~ size_in_m_2  + longitude + latitude + no_of
 statistic, pvalue
 ```
 
+    (1.720186802122348, 5.373510268400102e-10)
 
 
 For any $\alpha$ we reject the null  error correlation hypothesis.
@@ -6180,6 +6696,7 @@ ggplot(aes(x = 'size_in_m_2' , y = 'price') , data_Python)
  + scale_y_continuous( breaks = range(int(data_Python['price'].min()) , int(data_Python['price'].max()) , 2000000) )
 )
 ```
+![png](output_883_0.png)
 
 
 ```python
@@ -6194,6 +6711,8 @@ ggplot(aes(x = 'longitude' , y = 'price') , data_Python)
 )
 ```
 
+![png](output_884_0.png)
+
 
 ```python
 (
@@ -6206,6 +6725,7 @@ ggplot(aes(x = 'latitude' , y = 'price') , data_Python)
  + scale_y_continuous( breaks = range(int(data_Python['price'].min()) , int(data_Python['price'].max()) , 2000000) )
 )
 ```
+![png](output_885_0.png)
 
 
 ```python
@@ -6219,6 +6739,7 @@ ggplot(aes(x = 'no_of_bedrooms' , y = 'price') , data_Python)
  + scale_y_continuous( breaks = range(int(data_Python['price'].min()) , int(data_Python['price'].max()) , 2000000) )
 )
 ```
+![png](output_886_0.png)
 
 
 ```python
@@ -6232,6 +6753,7 @@ ggplot(aes(x = 'no_of_bathrooms' , y = 'price') , data_Python)
  + scale_y_continuous( breaks = range(int(data_Python['price'].min()) , int(data_Python['price'].max()) , 2000000) )
 )
 ```
+![png](output_887_0.png)
 
 
 ```python
@@ -6251,6 +6773,7 @@ ggplot(aes(x = 'quality' , y = 'price') , data_Python)
 )
 ```
 
+![png](output_889_0.png)
 
 
 
@@ -6318,6 +6841,54 @@ Outliers_df.head()
 ```
 
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>standardized_estimated_errors &gt; 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 ```python
 Outliers = Outliers_df.loc[ Outliers_df['standardized_estimated_errors > 3'] == True , : ].index
 ```
@@ -6327,7 +6898,10 @@ Outliers = Outliers_df.loc[ Outliers_df['standardized_estimated_errors > 3'] == 
 Outliers
 ```
 
-
+     Int64Index([  60,  216,  235,  336,  343,  427,  456,  460,  461,  462,           
+      463, 464,  465,  475,  476,  517,  576,  790,  836,  970,  989, 1189,
+      
+      1259, 1487, 1515, 1690, 1697, 1869, 1885], dtype='int64')
 
 
 
