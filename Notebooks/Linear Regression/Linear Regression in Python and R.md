@@ -5,7 +5,7 @@ date: '16/10/22'
 output: 
    rmdformats::readthedown:
       use_bookdown: true
-      self_contained: true
+      self_contained: false
       thumbnails: true
       lightbox: true
       gallery: false
@@ -27,176 +27,10 @@ Scielzo Ortiz, F. (2022). Linear Regression with Python and R. *Estadistica4all*
 
 
 
-## Index
 
 
 
-* [Data-set description](#1)
-* * [Data Manipulation in `R`](#2)
-* * [Data Manipulation in `Python`](#3)
-
-
-
-
-  
-* [Introduction to the Linear Regression Model](#4)
-* * [Usefulness of the Linear Regression Model](#5)
-* * [Formal Approach to the Linear Regression Modelo](#6)
-* * [Basic Assumptions](#7)
-* * [Assumptions Consequences](#8)
-* * [Matrix representation of the basic assumption of the model](#9)
-  
- <br>
-
-  
-* [Estimation](#10)
-  
-  
-* * [Prediction of Response Variable](#11)
-* * [Estimation of model coefficients](#12)
-* * [Estimation of model errors](#13)
-* * [Residual sum of squares (RSS)](#13.1)
-* * [Regression Hyperplane ](#14)
-* * [Hat-Matrix](#15)
-  
-
-* * [Estimation of the Linear Regression Model in `R`](#16)
-* * [Estimation of Linear Regression Model in `Python` with `statsmodels`](#17)
-* * [Estimation of Linear Regression Model in `Python` with `scikit-learn`](#18)
-
-
-* * [Precision of the estimations of model coefficients](#19)
-* * * [Estimation of the standard deviation of coefficients estimators in `R`](#20)
-* * * [Estimation of the standard deviation of coefficients estimators in `Python`](#21)
-
-
-* * [Model Predictions in `R`](#22)
-* * [ Model Predictions in `Python` with `Statsmodels`](#23)
-* * [Model Predictions in `Python` with `Sk-learn`](#24)
-
-
-* * [Estimation of model errors in `R` ](#25)
-* * [Estimation of model errors in `Python`](#26)
-  
-
-
-* * [Estimation of the error variance (Residual Variance)](#27)
-* * * [Estimation of the error variance in `R` ](#28)
-* * * [Estimation of the error variance in `Python` ](#29)
-
-<br>
-
- 
-
-* [Model Training Validation ](#30)
-* * [Model Training Validation in `R`](#31)
-* * [Model Training Validation in `Python`](#32)
-
-<br>
-
-
-
-* [Model Coefficients Interpretation](#33)
-* * [Null Coefficient](#34)
-* * [Quantitative Predictor Coefficient](#35)
-* * [Categorical Predictor Coefficient](#36)
-* * * [Example of coefficients interpretation](#37)
-* * [Interaction  Coefficient](#38)
-* * * [Example of interaction coefficient interpretation](#39)
-  
-<br>
-
-* [Inference](#40)
-  
- 
-* * [Confidence Interval for $\beta_j$](#41)
-* * [Confidence Interval for $\sigma^2$](#42)
-* * * [Confidence Interval for  $\beta_j$  in `R`](#43)
-* * * [Confidence Interval for  $\beta_j$  in `Python`](#44)
-* * * [Confidence Interval for  $\sigma^2$  in `R`](#45)
-* * * [Confidence Interval for  $\sigma^2$  in `Python`](#46)
-  
-  <br>
-
-* * [t-test: Test for $\beta_j$](#47)
-* * [Test of Significance for $\beta_j$](#48)
-* * * [Test of Significance  in `R` ](#49)
-* * * [Test of Significance  in `Python` ](#50)
-* * [ANOVA test](#51)
-* * * [ANOVA test in `R`](#52)
-* * * [ANOVA test in `Python`](#53)
-
-
-
-
-
-* * [Prediction Interval for $y_i$](#53.1)
-* * * [Prediction Interval for $y_i$ in `Python`](#53.2)
-
-<br>
-
-
-* [Goodness of Fit: R-square](#54)
-* * [Compute $R^2$ in `R`](#55)
-* * [Compute $R^2$ in `Python`](#56)
-
-
-* [Goodness of Fit: Adjusted R-square ](#57)
-* * [Compute $\widehat{R^2}$ in `R`](#58)
-* * [Compute $\widehat{R^2}$ in `Python`](#59)
-  
-  <br>
-
-  
-* [Model Problems](#60)
-  
-
-
-
-
-* * [Multicollinearity](#61)
-* * * [Types of multicollinearity](#62)
-* * * [Identification of multicollinearity](#63)
-* * * * [Identification of multicollinearity with $VIF$](#64)
-* * * * [Identification of multicollinearity with $R$](#65)
-* * * * [Identification of multicollinearity with  condition number of $\hspace{0.05cm} R$](#66)
-* * * * [Identification of multicollinearity with $GVIF$](#67)
-  
-
-
-
-  
-* * [Checking Error Assumptions](#68)
-* * * [Checking Error Constant Variance](#69)
-* * * [Checking Null Error Mean](#70)
-* * * [Checking Error Normality](#71)
-* * * [Checking Null Error Correlation](#72)
-
-
-
-
-
-* * [Checking Linear Assumption](#73)
-
-
-
-
-
- 
-
-* * [Finding Outliers](#74)
-
-  
-
-
-
-
-
-----------------------------
-
-
-
- ##     Data-set description <a class="anchor" id="1"></a>
+ #     Data-set description <a class="anchor" id="1"></a>
  
 
 
