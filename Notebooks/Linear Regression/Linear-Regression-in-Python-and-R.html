@@ -2683,7 +2683,6 @@ price of houses with high quality <span class="math inline">\((quality0_i=1)\)</
 <p><br></p>
 <p>Note that in all these cases it is assumed that the rest of the model variables don´t vary (have the same values) from one scenario to another.</p>
 <p><br></p>
-<p><br></p>
 </div>
 <div id="interaction-coefficient" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> Interaction Coefficient <a class="anchor" id="38"></a></h2>
@@ -2700,8 +2699,9 @@ x_{i r1}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i r}=1
 x_{i r0}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i r}=0
 \]</span></p>
 <p><br></p>
-<p>We have the following estimated linear regression model  </p>
+<p>We have the following estimated linear regression model:</p>
 <p><span class="math display">\[\hat{y}_i= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + ... + \hat{\beta_p}\cdot x_{ip} + \hat{\beta}_{r}\cdot x_{ir} + \hat{\beta}_{k}\cdot x_{ik} + \hat{\beta}_{rk}\cdot x_{ir}\cdot x_{ik}  \]</span></p>
+<p><br></p>
 <ul>
 <li><p>If <span class="math inline">\(\hspace{0.05cm} \hat{\beta}_{r1} + \hat{\beta}_{r1}\cdot x_{ki} \hspace{0.05cm} &gt; \hspace{0.05cm} 0\)</span> , then</p>
 <ul>
@@ -2715,11 +2715,13 @@ x_{i r0}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i r}=0
 <li><span class="math inline">\(\hat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hspace{0.05cm} \hat{\beta}_{r1} + \hat{\beta}_{r1}\cdot x_{ki} \hspace{0.05cm}\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> units <strong>less</strong> if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ir}= 1\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> than if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ir}= 0\)</span></li>
 </ul></li>
 </ul>
+<p><br></p>
 <p>Note these magnitudes depend on <span class="math inline">\(x_{ik}\)</span> value, because we have set an interaction between <span class="math inline">\(X_k\)</span> and <span class="math inline">\(X_r\)</span> in the model.</p>
+<p><br></p>
 <p><strong>Observation:</strong></p>
 <p>The above affirmations are based in the following:</p>
 <p><span class="math inline">\((\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir1}=1 ) - (\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir0}=1 ) = \hat{\beta}_{r1} + \hat{\beta}_{r1k}\cdot x_{ik}\)</span></p>
-<p> </p>
+<p><br></p>
 </div>
 <div id="interaction-between-ternary-and-quantitative-variables" class="section level3" number="5.5.2">
 <h3><span class="header-section-number">5.5.2</span> Interaction between ternary and quantitative variables</h3>
@@ -2791,7 +2793,7 @@ x_{i r0}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i r}=0
 <li><p><span class="math inline">\((\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir2}=1 ) - (\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir1}=1 ) = (\hat{\beta}_{r2} - \hat{\beta}_{r1} ) + (\hat{\beta}_{r2k} - \hat{\beta}_{r1k})\cdot x_{ki}\)</span></p></li>
 </ul>
 <p>Note that this can easily be extrapolated to the case of interaction between an <span class="math inline">\(r\)</span>-ary categorical variable and a quantitative variable, for <span class="math inline">\(r&gt;3\)</span>.</p>
-<p> </p>
+<p><br></p>
 </div>
 </div>
 <div id="example-of-interaction-coefficient-interpretation" class="section level2" number="5.6">
@@ -2802,47 +2804,66 @@ x_{i r0}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i r}=0
 <span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a>model_Python_2 <span class="op">=</span> model_Python_2.fit()</span>
 <span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model_Python_2.summary())</span></code></pre></div>
+<p><br></p>
 <p>We have got the following:</p>
-<p><span class="math inline">\(\left( \widehat{price}_i | quality1_i=1 \right) - \left(\widehat{price}_i | quality0_i=1 \right) = \hat{\beta}_{quality1} + \hat{\beta}_{quality1:size\_in\_m\_2} \cdot size\_in\_m\_2_i = -2.353\cdot 10^5 + 2908.2719 \cdot size\_in\_m\_2_i\)</span></p>
-<p>This magnitude depends on the value of <span class="math inline">\(size\_in\_m\_2_i\)</span></p>
+<ul>
+<li><span class="math inline">\(\left( \widehat{price}_i | quality1_i=1 \right) - \left(\widehat{price}_i | quality0_i=1 \right) = \hat{\beta}_{quality1} + \hat{\beta}_{quality1:size\_in\_m\_2} \cdot size\_in\_m\_2_i = -2.353\cdot 10^5 + 2908.2719 \cdot size\_in\_m\_2_i\)</span></li>
+</ul>
+<p>This magnitude depends on the value of <span class="math inline">\(\hspace{0.1cm} size\_in\_m\_2_i\)</span></p>
+<p><br></p>
 <p>For example if <span class="math inline">\(size\_in\_m\_2_i = 100\)</span> , then:</p>
 <p><span class="math inline">\(\left( \widehat{price}_i | quality1_i=1 \right) - \left(\widehat{price}_i | quality0_i=1 \right) = 55527.19\)</span></p>
-<p>So the estimated price of a 100 <span class="math inline">\(m^2\)</span> house is <span class="math inline">\(55527.19\)</span> units greater if <span class="math inline">\(quality1_i=1\)</span> (it has medium quality) than <span class="math inline">\(quality0_i=1\)</span> (it has low quality)</p>
-<p><span class="math inline">\(\left( \widehat{price}_i | quality2_i=1 \right) - \left(\widehat{price}_i | quality0_i=1 \right) = \hat{\beta}_{quality2} + \hat{\beta}_{quality2:size\_in\_m\_2} \cdot size\_in\_m\_2_i = -1.373\cdot 10^6 + 1.208\cdot 10^4 \cdot size\_in\_m\_2_i\)</span></p>
-<p>This magnitude depends on the value of <span class="math inline">\(size\_in\_m\_2_i\)</span></p>
-<p>For example if <span class="math inline">\(size\_in\_m\_2_i = 100\)</span> , then:</p>
+<p>So the estimated price of a 100 <span class="math inline">\(m^2\)</span> house is 55527.19 units greater if <span class="math inline">\(\hspace{0.1cm} quality1_i=1 \hspace{0.1cm}\)</span> (it has medium quality) than <span class="math inline">\(quality0_i=1\)</span> (it has low quality)</p>
+<p><br></p>
+<ul>
+<li><span class="math inline">\(\left( \widehat{price}_i | quality2_i=1 \right) - \left(\widehat{price}_i | quality0_i=1 \right) = \hat{\beta}_{quality2} + \hat{\beta}_{quality2:size\_in\_m\_2} \cdot size\_in\_m\_2_i = -1.373\cdot 10^6 + 1.208\cdot 10^4 \cdot size\_in\_m\_2_i\)</span></li>
+</ul>
+<p>This magnitude depends on the value of <span class="math inline">\(\hspace{0.1cm} size\_in\_m\_2_i\)</span></p>
+<p><br></p>
+<p>For example if <span class="math inline">\(\hspace{0.1cm}size\_in\_m\_2_i = 100\hspace{0.1cm}\)</span> , then:</p>
 <p><span class="math inline">\(\left( \widehat{price}_i | quality2_i=1 \right) - \left(\widehat{price}_i | quality0_i=1 \right) = 55527.19\)</span></p>
-<p>So the estimated price of a 100 <span class="math inline">\(m^2\)</span> house is <span class="math inline">\(165000\)</span> units less if <span class="math inline">\(quality2_i=1\)</span> (it has high quality) than <span class="math inline">\(quality0_i=1\)</span> (it has low quality)</p>
-<p>$( <em>i | quality3_i=1 ) - (<em>i | quality1_i=1 ) = (</em>{quality3} - </em>{quality1}) + ( <em>{quality3:size_in_m_2} - </em>{quality1:size_in_m_2}) size_in_m_2_i = (1.318e+06 - (-2.353e+05 )) + (-1.145e+04 + 2908.2719 )size_in_m_2_i $</p>
-<p>This magnitude depends on the value of <span class="math inline">\(size\_in\_m\_2_i\)</span></p>
-<p>For example if <span class="math inline">\(size\_in\_m\_2_i = 100\)</span> , then:</p>
+<p>So the estimated price of a 100 <span class="math inline">\(\hspace{0.1cm}m^2\hspace{0.1cm}\)</span> house is 165000 units less if <span class="math inline">\(\hspace{0.1cm}quality2_i=1\hspace{0.1cm}\)</span> (it has high quality) than <span class="math inline">\(\hspace{0.1cm}quality0_i=1\hspace{0.1cm}\)</span> (it has low quality)</p>
+<p><br></p>
+<ul>
+<li><span class="math inline">\(\left( \widehat{price}_i | quality3_i=1 \right) - \left(\widehat{price}_i | quality1_i=1 \right) = \left(\hat{\beta}_{quality3} - \hat{\beta}_{quality1}\right) + \left( \hat{\beta}_{quality3:size\_in\_m\_2} - \hat{\beta}_{quality1:size\_in\_m\_2}\right) \cdot size\_in\_m\_2_i = (1.318e+06 - (-2.353e+05 )) + (-1.145e+04 + 2908.2719 )\cdot size\_in\_m\_2_i\)</span></li>
+</ul>
+<p>This magnitude depends on the value of <span class="math inline">\(\hspace{0.1cm}size\_in\_m\_2_i\)</span></p>
+<p><br></p>
+<p>For example if <span class="math inline">\(\hspace{0.1cm}size\_in\_m\_2_i = 100\hspace{0.1cm}\)</span> , then:</p>
 <p><span class="math inline">\(\left( \widehat{price}_i | quality3_i=1 \right) - \left(\widehat{price}_i | quality1_i=1 \right) = 699127.19\)</span></p>
-<p>So the estimated price of a 100 <span class="math inline">\(m^2\)</span> house is <span class="math inline">\(699127.19\)</span> units greater if <span class="math inline">\(quality3_i=1\)</span> (it has ultra quality) than <span class="math inline">\(quality1_i=1\)</span> (it has medium quality)</p>
+<p>So the estimated price of a 100 <span class="math inline">\(\hspace{0.1cm}m^2\hspace{0.1cm}\)</span> house is 699127.19 units greater if <span class="math inline">\(\hspace{0.1cm}quality3_i=1\hspace{0.1cm}\)</span> (it has ultra quality) than <span class="math inline">\(\hspace{0.1cm}quality1_i=1\hspace{0.1cm}\)</span> (it has medium quality)</p>
 <p>Note that in all these cases it is assumed that the rest of the model variables don´t vary (have the same values) from one scenario to another.</p>
-<p> </p>
+<p><br></p>
 </div>
 </div>
 <div id="inference" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Inference <a class="anchor" id="40"></a></h1>
 <div id="confidence-interval-for-beta_j" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Confidence Interval for <span class="math inline">\(\beta_j\)</span> <a class="anchor" id="41"></a></h2>
-<p><span class="math inline">\(\hspace{0.05cm}\widehat{Var}(\widehat{\beta}_j)\hspace{0.05cm}\)</span></p>
+<p>We have the following confidence interval for <span class="math inline">\(\hspace{0.1cm}\beta_j\)</span></p>
+<p><br></p>
 <p><span class="math display">\[\begin{gather*}
 IC\left(\beta_j  \right)= \left[ \hspace{0.05cm} \hat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{\widehat{Var}(\widehat{\beta}_j)} \hspace{0.05cm} \right] = \left[\hspace{0.05cm}  \hat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{S_R^2 \cdot q_{jj}} \hspace{0.05cm} \right]
 \end{gather*}\]</span></p>
+<p><br></p>
 <p>Where:</p>
-<p><span class="math inline">\(q_{jj} \hspace{0.1cm}\)</span> is the element <span class="math inline">\(\hspace{0.1cm} j+1 \hspace{0.1cm}\)</span> of the principal diagonal of the matrix
-<span class="math inline">\(\hspace{0.1cm} (X^t \cdot X)^{-1} \hspace{0.1cm}\)</span> for <span class="math inline">\(\hspace{0.1cm} j=0,1,...,p\)</span></p>
+<ul>
+<li><span class="math inline">\(q_{jj} \hspace{0.1cm}\)</span> is the element <span class="math inline">\(\hspace{0.1cm} j+1 \hspace{0.1cm}\)</span> of the principal diagonal of the matrix
+<span class="math inline">\(\hspace{0.1cm} (X^t \cdot X)^{-1} \hspace{0.1cm}\)</span> for <span class="math inline">\(\hspace{0.1cm} j=0,1,...,p\)</span></li>
+</ul>
+<p><br></p>
 <p><strong>Observation:</strong></p>
-<p>The smaller <span class="math inline">\(\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_j)}\hspace{0.1cm}\)</span> is, the smaller the confidence interval of <span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}\)</span> will be.</p>
+<p>The smaller <span class="math inline">\(\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_j)}\hspace{0.13cm}\)</span> is, the smaller the confidence interval of <span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}\)</span> will be.</p>
 <p> </p>
 </div>
 <div id="confidence-interval-for-sigma2" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Confidence Interval for <span class="math inline">\(\sigma^2\)</span> <a class="anchor" id="42"></a></h2>
+<p>We have the following confidence interval for <span class="math inline">\(\hspace{0.1cm}\sigma^2\)</span></p>
+<p><br></p>
 <p><span class="math display">\[\begin{gather*}
-IC\left(\sigma^2  \right)= \left[ 0 \ , \ \dfrac{n-p-1}{\chi_{1-\alpha/2}^{n-p-1}}\cdot S_R^2  \right]
+IC\left(\sigma^2  \right)= \left[ 0 \ , \ \dfrac{n-p-1}{\chi_{1-\alpha/2}^{n-p-1}}\cdot \widehat{\sigma}^2  \right]
 \end{gather*}\]</span></p>
-<p> </p>
+<p><br></p>
 <div id="confidence-interval-for-beta_j-in-r" class="section level3" number="6.2.1">
 <h3><span class="header-section-number">6.2.1</span> Confidence Interval for  <span class="math inline">\(\beta_j\)</span>  in <code>R</code> <a class="anchor" id="43"></a></h3>
 <p>We can compute de confidence interval of <span class="math inline">\(\beta_j\)</span> with a confidence
@@ -2858,12 +2879,9 @@ level of <span class="math inline">\(95\%\)</span> for <span class="math inline"
 <span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>beta_intervals.columns <span class="op">=</span> [<span class="st">&#39;2.5%&#39;</span>, <span class="st">&#39;97.5%&#39;</span>]</span>
 <span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>beta_intervals</span></code></pre></div>
 <p>Then, for example, we have:</p>
-<p><span class="math display">\[
-IC(\beta_0)=\left[-1.208060e+08 \ , \ -3.336873e+06 \right]
-\]</span>
-<span class="math display">\[
-IC(\beta_{size\_in\_m\_2})=\left[ 3.424446e+04   \ , \ 3.708364e+04 \right]
-\]</span></p>
+<p><span class="math display">\[\begin{gather*}
+IC(\beta_0)=\left[-1.208060e+08 \ , \ -3.336873e+06 \right] \\[0.25cm]
+IC(\beta_{size\_in\_m\_2})=\left[ 3.424446e+04   \ , \ 3.708364e+04 \right] \end{gather*}\]</span></p>
 <p>We also have this information in the output obtained with <code>print(model_Python_1.summary())</code></p>
 <p> </p>
 </div>

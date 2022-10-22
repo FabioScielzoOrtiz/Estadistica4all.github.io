@@ -1995,7 +1995,7 @@ Note that in all these cases it is assumed that the rest of the model variables 
 
 
 
-<br>
+
 
 <br>
 
@@ -2023,9 +2023,14 @@ $$
 
 <br>
 
-We have the following estimated linear regression model  
+We have the following estimated linear regression model:
+
 
 $$\hat{y}_i= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + ... + \hat{\beta_p}\cdot x_{ip} + \hat{\beta}_{r}\cdot x_{ir} + \hat{\beta}_{k}\cdot x_{ik} + \hat{\beta}_{rk}\cdot x_{ir}\cdot x_{ik}  $$
+
+
+<br> 
+
 
 -   If  $\hspace{0.05cm} \hat{\beta}_{r1} + \hat{\beta}_{r1}\cdot x_{ki} \hspace{0.05cm} > \hspace{0.05cm} 0$  , then
 
@@ -2036,8 +2041,12 @@ $$\hat{y}_i= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + ... + \hat{\beta_p}\cdo
 -   If  $\hspace{0.05cm} \hat{\beta}_{r1} + \hat{\beta}_{r1}\cdot x_{ki} \hspace{0.05cm} < \hspace{0.05cm} 0$  , then
 
     -  $\hat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \hat{\beta}_{r1} + \hat{\beta}_{r1}\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$ $x_{ir}= 1$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 0$
+    
+<br>
 
 Note these magnitudes depend on $x_{ik}$ value, because we have set an interaction between $X_k$ and $X_r$ in the model.
+
+<br> 
 
 **Observation:**
 
@@ -2048,7 +2057,7 @@ $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir1}=1 ) - (\hat{y}_i  \hspace{
 
 
 
-&nbsp;
+<br>
 
 
 ### Interaction  between ternary and quantitative variables
@@ -2142,8 +2151,7 @@ Note that this can easily be extrapolated to the case of interaction between an 
 
 
 
-&nbsp;
-
+<br>
 
 
 
@@ -2160,41 +2168,55 @@ model_Python_2 = model_Python_2.fit()
 print(model_Python_2.summary())
 ```
 
+<br>
+
 We have got the following:
 
- $\left( \widehat{price}_i | quality1_i=1 \right) - \left(\widehat{price}_i | quality0_i=1 \right) = \hat{\beta}_{quality1} + \hat{\beta}_{quality1:size\_in\_m\_2} \cdot size\_in\_m\_2_i = -2.353\cdot 10^5 + 2908.2719  \cdot size\_in\_m\_2_i$  
+ - $\left( \widehat{price}_i | quality1_i=1 \right) - \left(\widehat{price}_i | quality0_i=1 \right) = \hat{\beta}_{quality1} + \hat{\beta}_{quality1:size\_in\_m\_2} \cdot size\_in\_m\_2_i = -2.353\cdot 10^5 + 2908.2719  \cdot size\_in\_m\_2_i$  
 
-This magnitude depends on the value of $size\_in\_m\_2_i$
+This magnitude depends on the value of $\hspace{0.1cm} size\_in\_m\_2_i$
+
+<br>
 
 For example if $size\_in\_m\_2_i = 100$ , then:
 
 $\left( \widehat{price}_i | quality1_i=1 \right) - \left(\widehat{price}_i | quality0_i=1 \right) = 55527.19$
 
-So the estimated price of a 100 $m^2$ house is $55527.19$ units greater if $quality1_i=1$ (it has medium quality) than $quality0_i=1$ (it has low quality)
+So the estimated price of a 100 $m^2$ house is 55527.19 units greater if $\hspace{0.1cm} quality1_i=1 \hspace{0.1cm}$ (it has medium quality) than $quality0_i=1$ (it has low quality)
 
 
 
-$\left( \widehat{price}_i | quality2_i=1 \right) - \left(\widehat{price}_i | quality0_i=1 \right) = \hat{\beta}_{quality2} + \hat{\beta}_{quality2:size\_in\_m\_2} \cdot size\_in\_m\_2_i = -1.373\cdot 10^6 + 1.208\cdot 10^4  \cdot size\_in\_m\_2_i$  
+<br>
 
-This magnitude depends on the value of $size\_in\_m\_2_i$
 
-For example if $size\_in\_m\_2_i = 100$ , then:
+- $\left( \widehat{price}_i | quality2_i=1 \right) - \left(\widehat{price}_i | quality0_i=1 \right) = \hat{\beta}_{quality2} + \hat{\beta}_{quality2:size\_in\_m\_2} \cdot size\_in\_m\_2_i = -1.373\cdot 10^6 + 1.208\cdot 10^4  \cdot size\_in\_m\_2_i$  
+
+This magnitude depends on the value of $\hspace{0.1cm} size\_in\_m\_2_i$
+
+<br>
+
+For example if $\hspace{0.1cm}size\_in\_m\_2_i = 100\hspace{0.1cm}$ , then:
 
 $\left( \widehat{price}_i | quality2_i=1 \right) - \left(\widehat{price}_i | quality0_i=1 \right) = 55527.19$
 
-So the estimated price of a 100 $m^2$ house is $165000$ units less if $quality2_i=1$ (it has high quality) than $quality0_i=1$ (it has low quality)
+So the estimated price of a 100 $\hspace{0.1cm}m^2\hspace{0.1cm}$ house is 165000 units less if $\hspace{0.1cm}quality2_i=1\hspace{0.1cm}$ (it has high quality) than $\hspace{0.1cm}quality0_i=1\hspace{0.1cm}$ (it has low quality)
+
+
+<br>
 
 
 
-$\left( \widehat{price}_i | quality3_i=1 \right) - \left(\widehat{price}_i | quality1_i=1 \right) = \left(\hat{\beta}_{quality3} - \hat{\beta}_{quality1}\right) + \left( \hat{\beta}_{quality3:size\_in\_m\_2} - \hat{\beta}_{quality1:size\_in\_m\_2}\right)  \cdot size\_in\_m\_2_i =  (1.318e+06 - (-2.353e+05 )) + (-1.145e+04 + 2908.2719 )\cdot size\_in\_m\_2_i $  
+- $\left( \widehat{price}_i | quality3_i=1 \right) - \left(\widehat{price}_i | quality1_i=1 \right) = \left(\hat{\beta}_{quality3} - \hat{\beta}_{quality1}\right) + \left( \hat{\beta}_{quality3:size\_in\_m\_2} - \hat{\beta}_{quality1:size\_in\_m\_2}\right)  \cdot size\_in\_m\_2_i =  (1.318e+06 - (-2.353e+05 )) + (-1.145e+04 + 2908.2719 )\cdot size\_in\_m\_2_i$  
 
-This magnitude depends on the value of $size\_in\_m\_2_i$
+This magnitude depends on the value of $\hspace{0.1cm}size\_in\_m\_2_i$
 
-For example if $size\_in\_m\_2_i = 100$ , then:
+<br> 
+
+For example if $\hspace{0.1cm}size\_in\_m\_2_i = 100\hspace{0.1cm}$ , then:
 
 $\left( \widehat{price}_i | quality3_i=1 \right) - \left(\widehat{price}_i | quality1_i=1 \right) = 699127.19$
 
-So the estimated price of a 100 $m^2$ house is $699127.19$ units greater if $quality3_i=1$ (it has ultra quality) than $quality1_i=1$ (it has medium quality)
+So the estimated price of a 100 $\hspace{0.1cm}m^2\hspace{0.1cm}$ house is 699127.19 units greater if $\hspace{0.1cm}quality3_i=1\hspace{0.1cm}$ (it has ultra quality) than $\hspace{0.1cm}quality1_i=1\hspace{0.1cm}$ (it has medium quality)
 
 
 
@@ -2202,8 +2224,7 @@ Note that in all these cases it is assumed that the rest of the model variables 
 
 
 
-&nbsp;
-
+<br>
 
 
 
@@ -2215,25 +2236,29 @@ Note that in all these cases it is assumed that the rest of the model variables 
 ## Confidence Interval for $\beta_j$ <a class="anchor" id="41"></a>
 
 
-$\hspace{0.05cm}\widehat{Var}(\widehat{\beta}_j)\hspace{0.05cm}$
- 
+We have the following confidence interval for $\hspace{0.1cm}\beta_j$
+
+<br>
+
 \begin{gather*}
 IC\left(\beta_j  \right)= \left[ \hspace{0.05cm} \hat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{\widehat{Var}(\widehat{\beta}_j)} \hspace{0.05cm} \right] = \left[\hspace{0.05cm}  \hat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{S_R^2 \cdot q_{jj}} \hspace{0.05cm} \right]
 \end{gather*}
  
+<br>
+
 Where:
 
-$q_{jj} \hspace{0.1cm}$ is the element $\hspace{0.1cm} j+1 \hspace{0.1cm}$ of the principal diagonal of the matrix
+- $q_{jj} \hspace{0.1cm}$ is the element $\hspace{0.1cm} j+1 \hspace{0.1cm}$ of the principal diagonal of the matrix
 $\hspace{0.1cm} (X^t \cdot X)^{-1} \hspace{0.1cm}$ for $\hspace{0.1cm} j=0,1,...,p$
 
  
 
-
+<br>
 
 
 **Observation:**
 
-The smaller $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_j)}\hspace{0.1cm}$  is, the smaller the confidence interval of $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ will be.
+The smaller $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_j)}\hspace{0.13cm}$  is, the smaller the confidence interval of $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ will be.
 
 
 
@@ -2243,19 +2268,17 @@ The smaller $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_j)}\hspace{0.1cm}
 ## Confidence Interval for $\sigma^2$ <a class="anchor" id="42"></a>
 
 
+We have the following confidence interval for $\hspace{0.1cm}\sigma^2$
 
+<br>
  
 \begin{gather*}
-IC\left(\sigma^2  \right)= \left[ 0 \ , \ \dfrac{n-p-1}{\chi_{1-\alpha/2}^{n-p-1}}\cdot S_R^2  \right]
+IC\left(\sigma^2  \right)= \left[ 0 \ , \ \dfrac{n-p-1}{\chi_{1-\alpha/2}^{n-p-1}}\cdot \widehat{\sigma}^2  \right]
 \end{gather*}
  
 
 
-
-
-&nbsp;
-
-
+<br>
 
 
 
@@ -2297,12 +2320,10 @@ beta_intervals
 Then, for example, we have:
 
  
-$$
-IC(\beta_0)=\left[-1.208060e+08 \ , \ -3.336873e+06 \right] 
-$$
-$$
-IC(\beta_{size\_in\_m\_2})=\left[ 3.424446e+04   \ , \ 3.708364e+04 \right] 
-$$
+\begin{gather*}
+IC(\beta_0)=\left[-1.208060e+08 \ , \ -3.336873e+06 \right] \\[0.25cm]
+IC(\beta_{size\_in\_m\_2})=\left[ 3.424446e+04   \ , \ 3.708364e+04 \right] \end{gather*}
+
  
 
 
