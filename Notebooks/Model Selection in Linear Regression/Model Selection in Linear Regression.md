@@ -10,10 +10,9 @@ output:
       lightbox: true
       gallery: false
       highlight: tango
+      
+css: custom.css
 ---
-
-
-
 
 
 
