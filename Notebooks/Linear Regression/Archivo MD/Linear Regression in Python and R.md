@@ -2,10 +2,10 @@
 title: 'Model Selection in Linear Regression'
 author: 'Fabio Scielzo Ortiz'
 date: '16/10/22'
-css:  custom.css
 output: 
    rmdformats::readthedown
-    
+
+css:  custom.css
       
 ---
 
