@@ -695,6 +695,8 @@ to  $\hspace{0.1cm} \beta$
 
 The model errors  $\varepsilon_i$  are estimated as:
 
+<br>
+
 $$
 \widehat{\varepsilon}_i \hspace{0.1 cm} = \hspace{0.1 cm} y_i - \widehat{y}_i \hspace{0.1 cm} = \hspace{0.1 cm} y_i - x_i^t \cdot \widehat{\beta}  
 $$
@@ -702,6 +704,7 @@ $$
 for $\hspace{0.1cm}$ $i=1,...,n$
 
 
+<br>
 
 
 **Observation:**
@@ -722,7 +725,7 @@ predicts  $y_i$  as  $\hat{y}_i=x_i^t \cdot \hat{\beta}$
 
 The size of the errors is quantify as the estimated errors sum of squares :
 
-
+<br>
 
 $$ RSS \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} \hat{\varepsilon}_i\hspace{0.02cm}^2 \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} (y_i - \widehat{y}_i)\hspace{0.02cm}^2 \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} (y_i - x_i^t \cdot \widehat{\beta})\hspace{0.02cm}^2 $$
 
@@ -739,9 +742,13 @@ $$ RSS \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} \hat{\varepsilon}_i\hspa
 The regression hyperplane is the matrix expression of the predictions
 that the model does of the response variable values: 
 
-$$ \hat{Y} = X \cdot \hat{\beta}$$
+<br>
 
-Where:    $\hat{Y}=(\hat{y}_1,\hat{y}_2,...,\hat{y}_n)^t$
+$$ \widehat{Y} = X \cdot \widehat{\beta}$$
+
+<br>
+
+Where:    $\widehat{Y}=(\widehat{y}_1,\widehat{y}_2,...,\widehat{y}_n)^t$
 
 
 
@@ -756,13 +763,13 @@ Where:    $\hat{Y}=(\hat{y}_1,\hat{y}_2,...,\hat{y}_n)^t$
 ## Hat-Matrix <a class="anchor" id="15"></a>
 
 
-
+<br>
 
 \begin{gather*}
-\hat{Y} = X \cdot \hat{\beta} = X \cdot (X^t \cdot X)^{-1} \cdot X^t \cdot Y = H \cdot Y  
+\widehat{Y} = X \cdot \widehat{\beta} = X \cdot (X^t \cdot X)^{-1} \cdot X^t \cdot Y = H \cdot Y  
 \end{gather*}
 
-
+<br>
 
 Where:  
 
@@ -779,9 +786,6 @@ Where:
 
 
 ## Estimation of the Linear Regression Model in `R` <a class="anchor" id="16"></a>
-
-
-
 
 
 
@@ -815,15 +819,15 @@ summary(model_R)
 
 ## Estimation of Linear Regression Model in `Python`   
 
-
+<br>
 
 ### Estimation of Linear Regression Model in `Python` with `statsmodels` <a class="anchor" id="17"></a>
 
 
 
-We can implement a linear regression model in Python with `statsmodels` in two ways.
+We can implement a linear regression model in Python with `statsmodels` following two ways.
 
-
+<br>
 
 ***First way:*** $\hspace{0.1cm}$ `statsmodels.formula.api`
 
@@ -848,10 +852,10 @@ print(model_Py_smf.summary())
 ```
 
 
+<br>
 
 
-
-  ***Second way:***  $\hspace{0.1cm}$  `statsmodels.api`
+***Second way:***  $\hspace{0.1cm}$  `statsmodels.api`
 
 One of the most important differences is that `statsmodels.api` does not fit the intercept, while `statsmodels.formula.api` does.
 
@@ -934,17 +938,17 @@ The previous output gives us the estimation of the model coefficients
 
 <br>
 
-$
-\hat{\beta}_0 =  -6.207e+07  \\
-\hat{\beta}_{quality1} =1.4e+05\\
-\hat{\beta}_{quality2} = 3.406e+05 \\ 
-\hat{\beta}_{quality3} = 2.788e+05 \\
-\hat{\beta}_{size\_in\_m\_2} =3.566e+04 \\
-\hat{\beta}_{no\_of\_bedrooms} = -8.367e+05 \\
-\hat{\beta}_{no\_of\_bathrooms} = -5.712e+04 \\
-\hat{\beta}_{latitude}=6.115e+06 \\
-\hat{\beta}_{longitude}= -1.677e+06 \\
-$
+\begin{gather*}
+\widehat{\beta}_0 =  -6.207e+07  \\[0.2cm]
+\widehat{\beta}_{quality1} =1.4e+05\\[0.2cm]
+\widehat{\beta}_{quality2} = 3.406e+05 \\[0.2cm]
+\widehat{\beta}_{quality3} = 2.788e+05 \\[0.2cm]
+\widehat{\beta}_{size\_in\_m\_2} =3.566e+04 \\[0.2cm]
+\widehat{\beta}_{no\_of\_bedrooms} = -8.367e+05 \\[0.2cm]
+\widehat{\beta}_{no\_of\_bathrooms} = -5.712e+04 \\[0.2cm]
+\widehat{\beta}_{latitude}=6.115e+06 \\[0.2cm]
+\widehat{\beta}_{longitude}= -1.677e+06 \\[0.2cm]
+\end{gather*}
 
 <br>
 
@@ -970,7 +974,7 @@ Later it will be seen how this affects model coefficients interpretation.
 
 
 
------
+<br>
 
 
 
@@ -1062,42 +1066,42 @@ Note that the order of the array values follows the order of $X$ columns.
 The precision of the estimations of model beta coefficients  is given by the
  variance of the beta coefficient estimators, that is, by $\hspace{0.02cm}$  $Var(\widehat{\beta}_j)$
 
+<br>
 
+It´s true that $\hspace{0.1cm}$ 
+$\widehat{\beta}_j \sim N(\beta_j , \sqrt{ \sigma^2 \cdot q_{jj} } )$ $\hspace{0.1cm}$ then we have:
 
-It´s true that $\hspace{0.07cm}$ 
-$\hat{\beta_j} \sim N(\beta_j , \sqrt{ \sigma^2 \cdot q_{jj} } )$ $\hspace{0.07cm}$ then we have:
+<br>
 
+ $$Var(\widehat{\beta}_j)=\sigma^2 \cdot q_{jj}$$
 
-
- $$Var(\hat{\beta_j})=\sigma^2 \cdot q_{jj}$$
-
-
+<br>
 
 
 
 Therefore, the estimation of the variance of $\hspace{0.05cm}$  $\widehat{\beta}_j$  $\hspace{0.05cm}$  is : 
 
-
+<br>
 
    $$\widehat{Var}(\widehat{\beta}_j) = \widehat{\sigma}\hspace{0.02cm}^2 \cdot q_{jj}$$
  
 
 
 
-
+<br>
 
 Where:
 
 
 
-$\widehat{\sigma}\hspace{0.02cm}^2 \hspace{0.05cm}$  is the estimation of the  error variance  , i.e, $\hspace{0.06cm}$ $\widehat{\sigma}\hspace{0.02cm}^2 = \widehat{Var}(\varepsilon_i)$
+$\widehat{\sigma}\hspace{0.02cm}^2 \hspace{0.1cm}$  is the estimation of the  error variance  , i.e, $\hspace{0.1cm}$ $\widehat{\sigma}\hspace{0.02cm}^2 = \widehat{Var}(\varepsilon_i)$
 
 
-$q_{jj}$ $\hspace{0.05cm}$  is the element  $j+1$  of the principal diagonal of the matrix $\hspace{0.05cm}$ $(X^t \cdot X)^{-1}$  $\hspace{0.05cm}$ , $\forall j=0,1,...,p$
+$q_{jj}$ $\hspace{0.05cm}$  is the element  $\hspace{0.1cm}j+1\hspace{0.1cm}$  of the principal diagonal of the matrix $\hspace{0.1cm}$ $(X^t \cdot X)^{-1}$  $\hspace{0.1cm}$ , $\forall j=0,1,...,p$
 
 
 
-
+<br>
 
  ***¿ Why are the variance of the coefficient estimators important ?***
 
@@ -1111,22 +1115,22 @@ Suppose many samples are obtained, and with each of them a linear
 regression model is trained. Then, we get many estimations of the model
 coefficients, one with each sample.
 
-Then  $\sqrt{\widehat{Var}(\hat{\beta_j})}$  indicates how much
-$\hat{\beta_j}$ varies, in mean, from one sample to another.
+Then  $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_j)}\hspace{0.1cm}$  indicates how much
+$\hspace{0.1cm}\hat{\beta_j}\hspace{0.1cm}$ varies, in mean, from one sample to another.
 
 
 
 If the standard deviation is **high**, this indicates that will be obtained
-big differences when $\beta_j$ is estimate with $\hat{\beta_j}$
+big differences when $\hspace{0.1cm}\beta_j\hspace{0.1cm}$ is estimate with $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$
 depending on the sample that is used for estimate it, that means
-estimator $\hat{\beta_j}$ is **imprecise**, because it will be much
-dispersion of the values of $\hat{\beta_j}$ respect to the mean.
+estimator $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ is **imprecise**, because it will be much
+dispersion of the values of $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ respect to the mean.
 
 On the contrary, if the standard deviation is **low**, this indicates that
-will be obtained small differences when $\beta_j$ is estimate with
-$\hat{\beta_j}$ depending on the sample that is used for estimate it,
-that means estimator $\hat{\beta_j}$ is **precise**, because it will be little
-dispersion of the values of $\hat{\beta_j}$ respect to the mean.
+will be obtained small differences when $\hspace{0.1cm}\beta_j\hspace{0.1cm}$ is estimate with
+$\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ depending on the sample that is used for estimate it,
+that means estimator $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ is **precise**, because it will be little
+dispersion of the values of $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ respect to the mean.
 
 
 
@@ -1172,17 +1176,19 @@ will be seen later.
 
 Now we will focus in the part of the output where are the estimation of   coefficients estimators standard error (`std err` in Python , `Std.Error` in R).
 
-$
-\sqrt{\widehat{Var}(\hat{\beta_0})}=2.995e+07 \\
- \sqrt{\widehat{Var}(\hat{\beta}_{quality1})}=8.358e+04 \\
-\sqrt{\widehat{Var}(\hat{\beta}_{quality2})}=1.551e+05\\ 
-\sqrt{\widehat{Var}(\hat{\beta}_{quality3})}= 1.976e+05 \\ 
-\sqrt{\widehat{Var}(\hat{\beta}_{size\_in\_m\_2})}= 7.238e+02 \\
-\sqrt{\widehat{Var}(\hat{\beta}_{no\_of\_bedrooms})}=8.282e+04 \\ 
-\sqrt{\widehat{Var}(\hat{\beta}_{no\_of\_bathrooms})}=6.829e+04 \\  
-\sqrt{\widehat{Var}(\hat{\beta}_{latitude})}=7.809e+05\\ 
+\begin{gather*}
+\sqrt{\widehat{Var}(\hat{\beta_0})}=2.995e+07 \\[0.2cm]
+ \sqrt{\widehat{Var}(\hat{\beta}_{quality1})}=8.358e+04 \\[0.2cm]
+\sqrt{\widehat{Var}(\hat{\beta}_{quality2})}=1.551e+05\\[0.2cm] 
+\sqrt{\widehat{Var}(\hat{\beta}_{quality3})}= 1.976e+05 \\[0.2cm] 
+\sqrt{\widehat{Var}(\hat{\beta}_{size\_in\_m\_2})}= 7.238e+02 \\[0.2cm]
+\sqrt{\widehat{Var}(\hat{\beta}_{no\_of\_bedrooms})}=8.282e+04 \\[0.2cm] 
+\sqrt{\widehat{Var}(\hat{\beta}_{no\_of\_bathrooms})}=6.829e+04 \\[0.2cm]  
+\sqrt{\widehat{Var}(\hat{\beta}_{latitude})}=7.809e+05\\[0.2cm] 
 \sqrt{\widehat{Var}(\hat{\beta}_{longitude})}=6.908e+05
-$
+\end{gather*}
+
+<br>
 
 The standard deviation estimates of the coefficients estimators are, in
 general, so high. This implies if we train the model with another
@@ -1208,7 +1214,7 @@ different results with each sample.
 With the function `predict` we can get the predictions made by the model
 for the response variable $(y)$ in R, for the data-set with which the model has been trained and also for a new data-set that the model hasn't seen.
 
-
+<br>
 
 **Predictions with the train data:**
 
@@ -1219,7 +1225,7 @@ for the response variable $(y)$ in R, for the data-set with which the model has 
 predict(model_R)[1:20]
 ```
 
-
+<br>
 
 **Predictions with new data:**
 
@@ -1260,10 +1266,12 @@ predict(model_R, new_data)
 
 ## Model Predictions in `Python`
 
+<br>
+
 ### Model Predictions in `Python` with `Statsmodels` <a class="anchor" id="23"></a>
 
 
-With `smf` :
+**Option one: `smf`**
 
 
 ```python
@@ -1273,7 +1281,7 @@ model_Py_smf = smf.ols(formula = 'price ~ size_in_m_2 + no_of_bedrooms + no_of_b
 
 
 
-Using the training data:
+**Using the training data:**
 
 
 ```python
@@ -1282,7 +1290,7 @@ Using the training data:
 
 
 
-Using new data:
+**Using new data:**
 
 
 ```python
@@ -1308,16 +1316,19 @@ new_data.head()
  model_Py_smf.predict(new_data)
 ```
 
+<br>
 
 
-With `sm` :
+**Option two: `sm`**
 
 
 ```python
 model_Py_sm = sm.OLS(y , X).fit()
 ```
 
-Using the training data:
+ 
+
+**Using the training data:**
 
 
 ```python
@@ -1326,7 +1337,7 @@ Using the training data:
 
 
 
-Using new data : 
+**Using new data:** 
 
 
 ```python
@@ -1370,7 +1381,7 @@ new_data.head()
 
 
 
-Using the training data:
+**Using the training data:**
 
 
 
@@ -1380,7 +1391,7 @@ Model_Py_sklearn.predict(X)
 
 
 
-Using new data:
+**Using new data:**
 
 
 
@@ -1410,7 +1421,7 @@ Model_Py_sklearn.predict(new_data)
 
 
 
----
+<br>
 
 
 
@@ -1480,7 +1491,7 @@ df_predictions_Python.head()
 
 
 
-----
+<br>
 
 
 
@@ -1492,33 +1503,25 @@ df_predictions_Python.head()
 The estimator of the error variance $\hspace{0.1cm} Var(\varepsilon_i)=\sigma^2 \hspace{0.1cm}$ is
 called **residual variance**, and is defined as:
 
-
+<br>
 
 $$
  \widehat{Var}(\varepsilon_i) = \widehat{\sigma}^2 = S_R^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n-p-1} \cdot \sum_{i=1}^{n} \hat{\varepsilon}_i\hspace{0.02cm}^2 \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{1}{n-p-1} \cdot (Y^t \cdot Y - \hat{\beta}^t \cdot X^t \cdot Y)
 $$
 
 
+<br>
 
 The following is fulfilled:
 
+<br>
+
+- $\hspace{0.2cm} \dfrac{n-p-1}{\sigma^2} \cdot \widehat{\sigma}^2 \hspace{0.1cm} \sim \hspace{0.1cm} \chi_{n-p-1}^2 \\[0.2cm]$
+
+- $\hspace{0.2cm} E[\widehat{\sigma}^2]=\sigma^2 \\[0.2cm]$
 
 
-$$
-\dfrac{n-p-1}{\sigma^2} \cdot \widehat{\sigma}^2 \hspace{0.1cm} \sim \hspace{0.1cm} \chi_{n-p-1}^2
-$$
-
-
-
-$$
-E[\widehat{\sigma}^2]=\sigma^2 
-$$
-
-
-
-$$
-Var(\widehat{\sigma}^2)=\dfrac{2 \cdot \sigma^4}{n-p-1}
-$$
+- $\hspace{0.2cm} Var(\widehat{\sigma}^2)=\dfrac{2 \cdot \sigma^4}{n-p-1}$
 
 
 
@@ -1595,18 +1598,19 @@ predictions and observations of the response variable.
 
 Two of the most common metrics are the mean absolute deviation (MAD) and the mean square error (MSE):
 
-
+<br>
 
 $$
 MAD \hspace{0.1cm} = \hspace{0.1cm}   \dfrac{1}{n} \sum_{i=1}^{n} \mid \hat{\varepsilon}_i \mid \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^{n} \hspace{0.1cm} \mid y_i - \hat{y}_i \mid \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^{n} \hspace{0.1cm}\mid   y_i - x_i \cdot \widehat{\beta}  \mid 
 $$
 
-
+<br>
 
 $$
 MSE \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^{n} \hat{\varepsilon}_i^2 \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^{n} \hspace{0.1cm}(\hspace{0.1cm} y_i - \hat{y}_i \hspace{0.1cm})^2 = \dfrac{1}{n} \sum_{i=1}^{n} \hspace{0.1cm}(\hspace{0.1cm} y_i - x_i \cdot \widehat{\beta} \hspace{0.1cm})^2
 $$ 
 
+<br>
 
 When these metrics are computing using the data for $y_i$ and $x_i$ that were used to train the model it is called  *model train validation*.
 
@@ -1685,25 +1689,25 @@ be more developed in another article about validation techniques.
 # Model Coefficients Interpretation <a class="anchor" id="33"></a>
 
 
-
+<br>
 
 ## Null Coefficient <a class="anchor" id="34"></a>
 
 
-We have the following estimated linear regression model 
+We have the following estimated linear regression model: 
 
-  $$\hat{y}= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + ...+ \hat{\beta_p}\cdot x_{ip}$$
+  $$\hat{y}= \widehat{\beta}_0 + \widehat{\beta}_0\cdot x_{i1} + ...+ \widehat{\beta}_p\cdot x_{ip}$$
 
 
+<br>
 
-- $\hat{\beta}_0$ $\hspace{0.05cm}$ is the model estimated value for the response variable, i.e $\hspace{0.05cm}$  $\hat{y}_i$ $\hspace{0.05cm}$
+- $\hat{\beta}_0$ $\hspace{0.05cm}$ is the model estimated value for the response variable, i.e $\hspace{0.05cm}$  $\widehat{y}_i$ $\hspace{0.05cm}$
 , when $\hspace{0.05cm}$ $x_{ij}=0$ $\hspace{0.05cm}$ , $\forall j=1,2,...,p$
 
 
 
 
-&nbsp;
-
+<br>
 
 
 
@@ -1711,35 +1715,43 @@ We have the following estimated linear regression model
 
 
 
-Let $X_k$ a **quantitative** variable, and $\hspace{0.05cm}$ $h>0$,
+Let $X_k$ a **quantitative** variable and $\hspace{0.05cm}$ $h>0$
 
 We have the following estimated linear regression model  
 
+<br>
+
 $$\hat{y}_i= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + .. + \hat{\beta_k}\cdot x_{ik} + ..+ \hat{\beta_p}\cdot x_{ip}$$
 
+<br>
 
 
-
--   If $\hat{\beta}_k > 0$  , then
+-   If $\hspace{0.1cm} \hat{\beta}_k > 0 \hspace{0.1cm}$  , then
 
     -   If  $x_{ik}$  **increases** in $h$ units $\hspace{0.05cm}$  $\Rightarrow$  $\hspace{0.05cm}$ $\hat{y}_i$
         **increases** in $\hspace{0.05cm}$ $\hat{\beta}_k \cdot h$  $\hspace{0.05cm}$ units.
         
         And the opposite if it decreases.
         
-   
--   If  $\hat{\beta}_k < 0$  , then
+
+<br>
+
+-   If  $\hspace{0.1cm} \hat{\beta}_k < 0 \hspace{0.1cm}$  , then
 
     -  If $x_{ik}$ **increases** in $h$ units $\hspace{0.05cm}$ $\Rightarrow$ $\hspace{0.05cm}$  $\hat{y}_i$
         **decreases** in $\hspace{0.05cm}$ $\hat{\beta}_k \cdot h$ $\hspace{0.05cm}$ units. 
 
         And the opposite if it decreases.
 
+<br>
 
--   If  $\hat{\beta}_k = 0$  , then
+
+-   If  $\hspace{0.1cm} \hat{\beta}_k = 0 \hspace{0.1cm}$  , then
 
     -   $\hat{y}_i$ $\hspace{0.05cm}$ doesn´t depend on $\hspace{0.05cm}$  $x_{ik}$
 
+
+<br>
 
 **Observation:**
 
@@ -1763,14 +1775,14 @@ The above affirmations are based in the following:
 
 
 
-Let $X_k$ a categorical variable with 2 categories 
-$\lbrace 0 , 1 \rbrace$,
+Let $\hspace{0.1cm} X_k \hspace{0.1cm}$ a categorical variable with 2 categories 
+$\hspace{0.1cm} \lbrace 0 , 1 \rbrace$,
 
-If the reference category is  $0$  , then  $X_k$ enter in the model as the binary (0,1) variable $X_{k1}$ defined as:
+If the reference category is  $\hspace{0.1cm} 0 \hspace{0.1cm}$  , then  $\hspace{0.1cm} X_k \hspace{0.1cm}$ enter in the model as the binary  variable $\hspace{0.1cm} X_{k1} \hspace{0.1cm}$ defined as:
 
 $$
 x_{i k1}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i k}=1 
- $$
+$$
 
 <br>
 
@@ -1781,6 +1793,8 @@ x_{i k0}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i k}=0
 $$
 
 <br>
+
+----
 
 We have the following estimated linear regression model:
 
@@ -1840,6 +1854,8 @@ $$
 
 <br>
 
+----
+
 We have the following estimated linear regression model:
 
 $$\hat{y}= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + .. + \hat{\beta}_{k1} \cdot x_{ik1} + \hat{\beta}_{k2} \cdot x_{ik2} + ..+ \hat{\beta_p}\cdot x_{ip}$$
@@ -1848,37 +1864,37 @@ $$\hat{y}= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + .. + \hat{\beta}_{k1} \cd
 
 -   If  $\hat{\beta}_{k1} > 0$  , then
 
-    -  $\hat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hat{\beta}_{k1}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$ $x_{ik}= 1$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ik}= 0$
+    -  $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hat{\beta}_{k1}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$ $x_{ik}= 1$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ik}= 0$
 
 <br>
 
 -   If  $\hat{\beta}_{k1} < 0$  , then
 
-    -   $\hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\hat{\beta}_{k1}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$  $x_{ik}= 1$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 0$
+    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\hat{\beta}_{k1}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$  $x_{ik}= 1$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 0$
 
 <br>
 
 -   If $\hat{\beta}_{k2} > 0$ , then
 
-    -   $\hat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hat{\beta}_{k2}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$  $x_{ik}= 1$  $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 0$
+    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hat{\beta}_{k2}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$  $x_{ik}= 1$  $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 0$
 
 <br>
 
 -   If $\hat{\beta}_{k2} < 0$  , then 
 
-    -  $\hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\hat{\beta}_{k2}$ $\hspace{0.05cm}$ units **less** if  $\hspace{0.05cm}$ $x_{ik}= 1$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 0$
+    -  $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\hat{\beta}_{k2}$ $\hspace{0.05cm}$ units **less** if  $\hspace{0.05cm}$ $x_{ik}= 1$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 0$
 
 <br>
 
 -   If  $\hat{\beta}_{k2} - \hat{\beta}_{k1} > 0$ , then
 
-    -   $\hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\hat{\beta}_{k2} - \hat{\beta}_{k1}$  $\hspace{0.05cm}$ units  **greater** if $\hspace{0.05cm}$ $x_{ik}= 2$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 1$
+    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\hat{\beta}_{k2} - \hat{\beta}_{k1}$  $\hspace{0.05cm}$ units  **greater** if $\hspace{0.05cm}$ $x_{ik}= 2$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 1$
 
 <br>
 
 -   If  $\hat{\beta}_{k2} - \hat{\beta}_{k1} < 0$  , then
 
-    -   $\hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\hat{\beta}_{k2} - \hat{\beta}_{k1}$ $\hspace{0.05cm}$ units
+    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\hat{\beta}_{k2} - \hat{\beta}_{k1}$ $\hspace{0.05cm}$ units
         **less** if $\hspace{0.05cm}$ $x_{ik}= 2$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 1$
 
 <br>
@@ -1886,6 +1902,7 @@ $$\hat{y}= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + .. + \hat{\beta}_{k1} \cd
 Note that the above is easily extrapolated to the case in which we have a
 categorical predictor with $r$ categories, for $r>3$.
 
+<br>
 
 **Observation:**
 
@@ -1896,7 +1913,7 @@ The above affirmations are based in the following:
 
 - $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik2}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik0}=1 ) =  \hat{\beta}_{k2}$
   
-- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik2}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik1}=1 ) =  \hat{\beta}_{k2} - \hat{\beta}_{k1} $
+- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik2}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik1}=1 ) =  \hat{\beta}_{k2} - \hat{\beta}_{k1}$
 
 
 
@@ -1927,39 +1944,48 @@ The interpretation of the estimated model coefficients is the following:
 
 -   $\hat{\beta}_0 = -6.207e+07$   is the estimated  $price$  by the model for the  houses with $size\_in\_m\_2_i =0$  ,  $no\_of\_bedrooms_i =0$  ,  $no\_of\_bathrooms_i =0$  ,   $qualityLow_i=0$ ,   $qualityMedium_i=0$  ,  $qualityUltra_i=0$  ,  $latitude_i=longitude_i=0$
 
+<br>
 
 -   $\hat{\beta}_{size\_in\_m\_2} =3.566e+04$   $\Rightarrow$   if
     $size\_in\_m\_2_i$ increases in $h$ units, the estimated housing
     $price$ **increases** in  $h\cdot 3.566e+04$  units.
 
+<br>
 
 -   $\hat{\beta}_{no\_of\_bedrooms} = -8.367e+05$   $\Rightarrow$   if
     $no\_of\_bedrooms_i$ increases in  $h$  units, the estimated housing
     $price$ **decreases** in  $-h\cdot 8.367e+05$  units.
 
+<br>
 
 -   $\hat{\beta}_{no\_of\_bathrooms} = -5.712e+04$   $\Rightarrow$   if
     $no\_of\_bathrooms_i$ increases in  $h$  units, the estimated housing
     $price$ **decreases** in  $-h\cdot 5.712e+04$  units.
 
+<br>
 
 -   $\hat{\beta}_{quality1} = 1.4e+05$   $\Rightarrow$    the estimated
     $price$ of houses with medium quality  $(quality1_i=1)$  is  $1.4e+05$   units **greater** than the estimated price of houses with low quality
     $(quality0_i=1)$ , because low quality is the reference category  of $quality$ variable.
 
+<br>
 
 -   $\hat{\beta}_{quality2} = 3.406e+05$  $\Rightarrow$    the
     estimated $price$ of houses with medium quality 
     $(quality2_i=1)$  is  $3.406e+05$ units **greater** than the estimated
     price of houses with high quality  $(quality0_i=1)$  
 
+<br>
 
 -   $\hat{\beta}_{quality3} = 2.788e+05$   $\Rightarrow$     the estimated
     $price$ of houses with ultra quality  $(quality1_i=1)$   is
   $2.788e+05$  units **greater** than the estimated price of houses with low quality  $(quality0_i=1)$ 
 
+<br>
 
--   $\hat{\beta}_{quality2} - \hat{\beta}_{quality1} = 3.406e+05  - 1.4e+05 =2.006e+05$     $\Rightarrow$   the estimated price of houses  with high quality  $(quality2_i=1)$   is  $2.006e+05$ units **greater**   than the estimated price of houses with medium quality  $(quality1_i=1)$ 
+-    $\hat{\beta}_{quality2} - \hat{\beta}_{quality1} = 3.406e+05  - 1.4e+05    =2.006e+05$     $\Rightarrow$   the estimated price of houses  with high    quality  $(quality2_i=1)$   is  $2.006e+05$ units **greater**   than the estimated price of houses with medium quality  $(quality1_i=1)$ 
+
+<br>
 
 -  $\hat{\beta}_{quality3} - \hat{\beta}_{quality2} = 2.788e+05   - 3.406e+05 =-61800$     $\Rightarrow$  the estimated price of houses  with ultra quality  $(quality3_i=1)$   is  $61800$ units **less**   than the estimated price of houses with high quality  $(quality2_i=1)$ 
 
@@ -1969,14 +1995,12 @@ Note that in all these cases it is assumed that the rest of the model variables 
 
 
 
-&nbsp;
+<br>
 
-
-
+<br>
 
 ## Interaction  Coefficient <a class="anchor" id="38"></a>
 
-&nbsp;
 
 
 ### Interaction  between binary and quantitative variables
@@ -1989,13 +2013,15 @@ $$
 x_{i r1}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i r}=1
 $$
 
-
+<br>
 
 In addition, we define the variable $X_{r0}$ as:
 
 $$
 x_{i r0}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i r}=0 
 $$
+
+<br>
 
 We have the following estimated linear regression model  
 

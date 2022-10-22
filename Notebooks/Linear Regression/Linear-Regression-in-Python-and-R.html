@@ -1999,10 +1999,12 @@ to <span class="math inline">\(\hspace{0.1cm} \beta\)</span></p>
 <div id="estimation-of-model-errors-residuals" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Estimation of model errors (residuals) <a class="anchor" id="13"></a></h2>
 <p>The model errors  <span class="math inline">\(\varepsilon_i\)</span>  are estimated as:</p>
+<p><br></p>
 <p><span class="math display">\[
 \widehat{\varepsilon}_i \hspace{0.1 cm} = \hspace{0.1 cm} y_i - \widehat{y}_i \hspace{0.1 cm} = \hspace{0.1 cm} y_i - x_i^t \cdot \widehat{\beta}  
 \]</span></p>
 <p>for <span class="math inline">\(\hspace{0.1cm}\)</span> <span class="math inline">\(i=1,...,n\)</span></p>
+<p><br></p>
 <p><strong>Observation:</strong></p>
 <p><span class="math inline">\(\hat{\varepsilon}_i\)</span>  is the error done by the model when it
 predicts  <span class="math inline">\(y_i\)</span>  as  <span class="math inline">\(\hat{y}_i=x_i^t \cdot \hat{\beta}\)</span></p>
@@ -2011,6 +2013,7 @@ predicts  <span class="math inline">\(y_i\)</span>  as  <span class="math inl
 <div id="residual-sum-of-squares-rss" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Residual sum of squares (RSS) <a class="anchor" id="13.1"></a></h2>
 <p>The size of the errors is quantify as the estimated errors sum of squares :</p>
+<p><br></p>
 <p><span class="math display">\[ RSS \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} \hat{\varepsilon}_i\hspace{0.02cm}^2 \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} (y_i - \widehat{y}_i)\hspace{0.02cm}^2 \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} (y_i - x_i^t \cdot \widehat{\beta})\hspace{0.02cm}^2 \]</span></p>
 <p> </p>
 </div>
@@ -2018,15 +2021,19 @@ predicts  <span class="math inline">\(y_i\)</span>  as  <span class="math inl
 <h2><span class="header-section-number">3.5</span> Regression Hyperplane <a class="anchor" id="14"></a></h2>
 <p>The regression hyperplane is the matrix expression of the predictions
 that the model does of the response variable values:</p>
-<p><span class="math display">\[ \hat{Y} = X \cdot \hat{\beta}\]</span></p>
-<p>Where:   <span class="math inline">\(\hat{Y}=(\hat{y}_1,\hat{y}_2,...,\hat{y}_n)^t\)</span></p>
+<p><br></p>
+<p><span class="math display">\[ \widehat{Y} = X \cdot \widehat{\beta}\]</span></p>
+<p><br></p>
+<p>Where:   <span class="math inline">\(\widehat{Y}=(\widehat{y}_1,\widehat{y}_2,...,\widehat{y}_n)^t\)</span></p>
 <p> </p>
 </div>
 <div id="hat-matrix" class="section level2" number="3.6">
 <h2><span class="header-section-number">3.6</span> Hat-Matrix <a class="anchor" id="15"></a></h2>
+<p><br></p>
 <p><span class="math display">\[\begin{gather*}
-\hat{Y} = X \cdot \hat{\beta} = X \cdot (X^t \cdot X)^{-1} \cdot X^t \cdot Y = H \cdot Y  
+\widehat{Y} = X \cdot \widehat{\beta} = X \cdot (X^t \cdot X)^{-1} \cdot X^t \cdot Y = H \cdot Y  
 \end{gather*}\]</span></p>
+<p><br></p>
 <p>Where:</p>
 <p> <span class="math display">\[H= X \cdot (X^t \cdot X)^{-1} \cdot X^t\]</span></p>
 <p> is called <strong>Hat-Matrix</strong></p>
@@ -2050,9 +2057,11 @@ price_i = \beta_0 +  \beta_1 \cdot size\_in\_m\_2_i + \beta_2 \cdot no\_of\_bedr
 </div>
 <div id="estimation-of-linear-regression-model-in-python" class="section level2" number="3.8">
 <h2><span class="header-section-number">3.8</span> Estimation of Linear Regression Model in <code>Python</code></h2>
+<p><br></p>
 <div id="estimation-of-linear-regression-model-in-python-with-statsmodels" class="section level3" number="3.8.1">
 <h3><span class="header-section-number">3.8.1</span> Estimation of Linear Regression Model in <code>Python</code> with <code>statsmodels</code> <a class="anchor" id="17"></a></h3>
-<p>We can implement a linear regression model in Python with <code>statsmodels</code> in two ways.</p>
+<p>We can implement a linear regression model in Python with <code>statsmodels</code> following two ways.</p>
+<p><br></p>
 <p><strong><em>First way:</em></strong> <span class="math inline">\(\hspace{0.1cm}\)</span> <code>statsmodels.formula.api</code></p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install statmodels</span></span></code></pre></div>
 <div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span></code></pre></div>
@@ -2062,6 +2071,7 @@ price_i = \beta_0 +  \beta_1 \cdot size\_in\_m\_2_i + \beta_2 \cdot no\_of\_bedr
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>model_Py_smf <span class="op">=</span> model_Py_smf.fit()</span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model_Py_smf.summary())</span></code></pre></div>
+<p><br></p>
 <p><strong><em>Second way:</em></strong> <span class="math inline">\(\hspace{0.1cm}\)</span> <code>statsmodels.api</code></p>
 <p>One of the most important differences is that <code>statsmodels.api</code> does not fit the intercept, while <code>statsmodels.formula.api</code> does.</p>
 <p>Another important difference is that <code>statsmodels.api</code> doesn’t deal well with categorical predictors, while <code>statsmodels.formula.api</code> does.</p>
@@ -2104,17 +2114,17 @@ price_i = \beta_0 +  \beta_1 \cdot size\_in\_m\_2_i + \beta_2 \cdot no\_of\_bedr
 <p>The previous output gives us the estimation of the model coefficients
 (betas), both outputs give similar results (but we will consider the python output):</p>
 <p><br></p>
-<p>$
-<em>0 = -6.207e+07 \
-</em>{quality1} =1.4e+05\
-<em>{quality2} = 3.406e+05 \
-</em>{quality3} = 2.788e+05 \
-<em>{size_in_m_2} =3.566e+04 \
-</em>{no_of_bedrooms} = -8.367e+05 \
-<em>{no_of_bathrooms} = -5.712e+04 \
-</em>{latitude}=6.115e+06 \
-_{longitude}= -1.677e+06 \
-$</p>
+<p><span class="math display">\[\begin{gather*}
+\widehat{\beta}_0 =  -6.207e+07  \\[0.2cm]
+\widehat{\beta}_{quality1} =1.4e+05\\[0.2cm]
+\widehat{\beta}_{quality2} = 3.406e+05 \\[0.2cm]
+\widehat{\beta}_{quality3} = 2.788e+05 \\[0.2cm]
+\widehat{\beta}_{size\_in\_m\_2} =3.566e+04 \\[0.2cm]
+\widehat{\beta}_{no\_of\_bedrooms} = -8.367e+05 \\[0.2cm]
+\widehat{\beta}_{no\_of\_bathrooms} = -5.712e+04 \\[0.2cm]
+\widehat{\beta}_{latitude}=6.115e+06 \\[0.2cm]
+\widehat{\beta}_{longitude}= -1.677e+06 \\[0.2cm]
+\end{gather*}\]</span></p>
 <p><br></p>
 <p>So, the estimated model is:</p>
 <p><span class="math display">\[\begin{gather*}
@@ -2127,7 +2137,7 @@ High (2), Ultra (3)), enter in the model with 3 variables (quality1 ,
 quality2, quality3 ). The category. that is out of the model is Low (0) because is the firs category.</p>
 <p>This isn´t a particularity of this variable, but rather it´s a property of the categorical variables in the regression models.</p>
 <p>Later it will be seen how this affects model coefficients interpretation.</p>
-<hr />
+<p><br></p>
 </div>
 <div id="estimation-of-linear-regression-model-in-python-with-scikit-learn" class="section level3" number="3.8.2">
 <h3><span class="header-section-number">3.8.2</span> Estimation of Linear Regression Model in <code>Python</code> with <code>scikit-learn</code> <a class="anchor" id="18"></a></h3>
@@ -2158,32 +2168,38 @@ quality2, quality3 ). The category. that is out of the model is Low (0) because 
 <h2><span class="header-section-number">3.9</span> Precision of beta coefficients estimation <a class="anchor" id="19"></a></h2>
 <p>The precision of the estimations of model beta coefficients is given by the
 variance of the beta coefficient estimators, that is, by <span class="math inline">\(\hspace{0.02cm}\)</span> <span class="math inline">\(Var(\widehat{\beta}_j)\)</span></p>
-<p>It´s true that <span class="math inline">\(\hspace{0.07cm}\)</span>
-<span class="math inline">\(\hat{\beta_j} \sim N(\beta_j , \sqrt{ \sigma^2 \cdot q_{jj} } )\)</span> <span class="math inline">\(\hspace{0.07cm}\)</span> then we have:</p>
-<p><span class="math display">\[Var(\hat{\beta_j})=\sigma^2 \cdot q_{jj}\]</span></p>
+<p><br></p>
+<p>It´s true that <span class="math inline">\(\hspace{0.1cm}\)</span>
+<span class="math inline">\(\widehat{\beta}_j \sim N(\beta_j , \sqrt{ \sigma^2 \cdot q_{jj} } )\)</span> <span class="math inline">\(\hspace{0.1cm}\)</span> then we have:</p>
+<p><br></p>
+<p><span class="math display">\[Var(\widehat{\beta}_j)=\sigma^2 \cdot q_{jj}\]</span></p>
+<p><br></p>
 <p>Therefore, the estimation of the variance of <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\widehat{\beta}_j\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is :</p>
+<p><br></p>
 <p><span class="math display">\[\widehat{Var}(\widehat{\beta}_j) = \widehat{\sigma}\hspace{0.02cm}^2 \cdot q_{jj}\]</span></p>
+<p><br></p>
 <p>Where:</p>
-<p><span class="math inline">\(\widehat{\sigma}\hspace{0.02cm}^2 \hspace{0.05cm}\)</span> is the estimation of the error variance , i.e, <span class="math inline">\(\hspace{0.06cm}\)</span> <span class="math inline">\(\widehat{\sigma}\hspace{0.02cm}^2 = \widehat{Var}(\varepsilon_i)\)</span></p>
-<p><span class="math inline">\(q_{jj}\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is the element <span class="math inline">\(j+1\)</span> of the principal diagonal of the matrix <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\((X^t \cdot X)^{-1}\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> , <span class="math inline">\(\forall j=0,1,...,p\)</span></p>
+<p><span class="math inline">\(\widehat{\sigma}\hspace{0.02cm}^2 \hspace{0.1cm}\)</span> is the estimation of the error variance , i.e, <span class="math inline">\(\hspace{0.1cm}\)</span> <span class="math inline">\(\widehat{\sigma}\hspace{0.02cm}^2 = \widehat{Var}(\varepsilon_i)\)</span></p>
+<p><span class="math inline">\(q_{jj}\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is the element <span class="math inline">\(\hspace{0.1cm}j+1\hspace{0.1cm}\)</span> of the principal diagonal of the matrix <span class="math inline">\(\hspace{0.1cm}\)</span> <span class="math inline">\((X^t \cdot X)^{-1}\)</span> <span class="math inline">\(\hspace{0.1cm}\)</span> , <span class="math inline">\(\forall j=0,1,...,p\)</span></p>
+<p><br></p>
 <p><strong><em>¿ Why are the variance of the coefficient estimators important ?</em></strong></p>
 <p>The standard deviation of the coefficient estimators indicates how much
 the estimations of the coefficients deviate/vary, in mean, when the model is re-trained using many different samples.</p>
 <p>Suppose many samples are obtained, and with each of them a linear
 regression model is trained. Then, we get many estimations of the model
 coefficients, one with each sample.</p>
-<p>Then  <span class="math inline">\(\sqrt{\widehat{Var}(\hat{\beta_j})}\)</span>  indicates how much
-<span class="math inline">\(\hat{\beta_j}\)</span> varies, in mean, from one sample to another.</p>
+<p>Then  <span class="math inline">\(\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_j)}\hspace{0.1cm}\)</span>  indicates how much
+<span class="math inline">\(\hspace{0.1cm}\hat{\beta_j}\hspace{0.1cm}\)</span> varies, in mean, from one sample to another.</p>
 <p>If the standard deviation is <strong>high</strong>, this indicates that will be obtained
-big differences when <span class="math inline">\(\beta_j\)</span> is estimate with <span class="math inline">\(\hat{\beta_j}\)</span>
+big differences when <span class="math inline">\(\hspace{0.1cm}\beta_j\hspace{0.1cm}\)</span> is estimate with <span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}\)</span>
 depending on the sample that is used for estimate it, that means
-estimator <span class="math inline">\(\hat{\beta_j}\)</span> is <strong>imprecise</strong>, because it will be much
-dispersion of the values of <span class="math inline">\(\hat{\beta_j}\)</span> respect to the mean.</p>
+estimator <span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}\)</span> is <strong>imprecise</strong>, because it will be much
+dispersion of the values of <span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}\)</span> respect to the mean.</p>
 <p>On the contrary, if the standard deviation is <strong>low</strong>, this indicates that
-will be obtained small differences when <span class="math inline">\(\beta_j\)</span> is estimate with
-<span class="math inline">\(\hat{\beta_j}\)</span> depending on the sample that is used for estimate it,
-that means estimator <span class="math inline">\(\hat{\beta_j}\)</span> is <strong>precise</strong>, because it will be little
-dispersion of the values of <span class="math inline">\(\hat{\beta_j}\)</span> respect to the mean.</p>
+will be obtained small differences when <span class="math inline">\(\hspace{0.1cm}\beta_j\hspace{0.1cm}\)</span> is estimate with
+<span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}\)</span> depending on the sample that is used for estimate it,
+that means estimator <span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}\)</span> is <strong>precise</strong>, because it will be little
+dispersion of the values of <span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}\)</span> respect to the mean.</p>
 <p>Also <span class="math inline">\(\hspace{0.05cm}\widehat{Var}(\widehat{\beta}_j)\hspace{0.05cm}\)</span> allow us to create a confidence interval for <span class="math inline">\(\hspace{0.05cm}\widehat{\beta}_j\)</span></p>
 <p> </p>
 <div id="estimation-of-beta-estimators-standard-deviation-in-r" class="section level3" number="3.9.1">
@@ -2200,17 +2216,18 @@ dispersion of the values of <span class="math inline">\(\hat{\beta_j}\)</span> r
 information has been seen (estimates coefficients), an other information
 will be seen later.</p>
 <p>Now we will focus in the part of the output where are the estimation of coefficients estimators standard error (<code>std err</code> in Python , <code>Std.Error</code> in R).</p>
-<p>$
-=2.995e+07 \
-=8.358e+04 \
-=1.551e+05\
-= 1.976e+05 \
-= 7.238e+02 \
-=8.282e+04 \
-=6.829e+04 \<br />
-=7.809e+05\
-=6.908e+05
-$</p>
+<p><span class="math display">\[\begin{gather*}
+\sqrt{\widehat{Var}(\hat{\beta_0})}=2.995e+07 \\[0.2cm]
+\sqrt{\widehat{Var}(\hat{\beta}_{quality1})}=8.358e+04 \\[0.2cm]
+\sqrt{\widehat{Var}(\hat{\beta}_{quality2})}=1.551e+05\\[0.2cm]
+\sqrt{\widehat{Var}(\hat{\beta}_{quality3})}= 1.976e+05 \\[0.2cm]
+\sqrt{\widehat{Var}(\hat{\beta}_{size\_in\_m\_2})}= 7.238e+02 \\[0.2cm]
+\sqrt{\widehat{Var}(\hat{\beta}_{no\_of\_bedrooms})}=8.282e+04 \\[0.2cm]
+\sqrt{\widehat{Var}(\hat{\beta}_{no\_of\_bathrooms})}=6.829e+04 \\[0.2cm]  
+\sqrt{\widehat{Var}(\hat{\beta}_{latitude})}=7.809e+05\\[0.2cm]
+\sqrt{\widehat{Var}(\hat{\beta}_{longitude})}=6.908e+05
+\end{gather*}\]</span></p>
+<p><br></p>
 <p>The standard deviation estimates of the coefficients estimators are, in
 general, so high. This implies if we train the model with another
 samples, we will get estimates of the coefficients quite different than
@@ -2225,10 +2242,12 @@ different results with each sample.</p>
 <h2><span class="header-section-number">3.10</span> Model Predictions in <code>R</code> <a class="anchor" id="22"></a></h2>
 <p>With the function <code>predict</code> we can get the predictions made by the model
 for the response variable <span class="math inline">\((y)\)</span> in R, for the data-set with which the model has been trained and also for a new data-set that the model hasn’t seen.</p>
+<p><br></p>
 <p><strong>Predictions with the train data:</strong></p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(model_R)[<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>]</span></code></pre></div>
+<p><br></p>
 <p><strong>Predictions with new data:</strong></p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>size_in_m_2  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">140</span>,<span class="dv">160</span>,<span class="dv">180</span>,<span class="dv">98</span>,<span class="dv">120</span>,<span class="dv">200</span>)</span>
@@ -2252,14 +2271,15 @@ for the response variable <span class="math inline">\((y)\)</span> in R, for the
 </div>
 <div id="model-predictions-in-python" class="section level2" number="3.11">
 <h2><span class="header-section-number">3.11</span> Model Predictions in <code>Python</code></h2>
+<p><br></p>
 <div id="model-predictions-in-python-with-statsmodels" class="section level3" number="3.11.1">
 <h3><span class="header-section-number">3.11.1</span> Model Predictions in <code>Python</code> with <code>Statsmodels</code> <a class="anchor" id="23"></a></h3>
-<p>With <code>smf</code> :</p>
+<p><strong>Option one: <code>smf</code></strong></p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>model_Py_smf <span class="op">=</span> smf.ols(formula <span class="op">=</span> <span class="st">&#39;price ~ size_in_m_2 + no_of_bedrooms + no_of_bathrooms + quality + latitude + longitude&#39;</span>, </span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>                 data <span class="op">=</span>data_Python).fit()</span></code></pre></div>
-<p>Using the training data:</p>
+<p><strong>Using the training data:</strong></p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a> model_Py_smf.predict(data_Python)</span></code></pre></div>
-<p>Using new data:</p>
+<p><strong>Using new data:</strong></p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>size_in_m_2  <span class="op">=</span> pd.Series([<span class="dv">100</span>, <span class="dv">140</span>,<span class="dv">160</span>,<span class="dv">180</span>,<span class="dv">98</span>,<span class="dv">120</span>,<span class="dv">200</span>]) </span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>longitude  <span class="op">=</span> pd.Series([<span class="fl">55.1</span>,<span class="fl">55.3</span>,<span class="fl">55.2</span>,<span class="fl">55.1</span>,<span class="fl">55.2</span>,<span class="fl">55.1</span>,<span class="fl">55.1</span>]) </span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>latitude <span class="op">=</span> pd.Series([<span class="fl">25.1</span>,<span class="fl">25.2</span>,<span class="fl">25.1</span>,<span class="fl">25.1</span>,<span class="fl">25.3</span>,<span class="fl">25.1</span>,<span class="fl">25.2</span>])</span>
@@ -2272,11 +2292,12 @@ for the response variable <span class="math inline">\((y)\)</span> in R, for the
 <span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>new_data[<span class="st">&#39;quality&#39;</span>] <span class="op">=</span> new_data[<span class="st">&#39;quality&#39;</span>].astype(<span class="st">&#39;category&#39;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>new_data.head()</span></code></pre></div>
 <div class="sourceCode" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a> model_Py_smf.predict(new_data)</span></code></pre></div>
-<p>With <code>sm</code> :</p>
+<p><br></p>
+<p><strong>Option two: <code>sm</code></strong></p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>model_Py_sm <span class="op">=</span> sm.OLS(y , X).fit()</span></code></pre></div>
-<p>Using the training data:</p>
+<p><strong>Using the training data:</strong></p>
 <div class="sourceCode" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a> model_Py_sm.predict(X)</span></code></pre></div>
-<p>Using new data :</p>
+<p><strong>Using new data:</strong></p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>intercept <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>size_in_m_2  <span class="op">=</span> pd.Series([<span class="dv">100</span>, <span class="dv">140</span>,<span class="dv">160</span>,<span class="dv">180</span>,<span class="dv">98</span>,<span class="dv">120</span>,<span class="dv">200</span>]) </span>
 <span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>longitude  <span class="op">=</span> pd.Series([<span class="fl">55.1</span>,<span class="fl">55.3</span>,<span class="fl">55.2</span>,<span class="fl">55.1</span>,<span class="fl">55.2</span>,<span class="fl">55.1</span>,<span class="fl">55.1</span>]) </span>
@@ -2295,9 +2316,9 @@ for the response variable <span class="math inline">\((y)\)</span> in R, for the
 <div id="model-predictions-in-python-with-sklearn" class="section level3" number="3.11.2">
 <h3><span class="header-section-number">3.11.2</span> Model Predictions in Python with <code>sklearn</code> <a class="anchor" id="24"></a></h3>
 <div class="sourceCode" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a> Model_Py_sklearn <span class="op">=</span> LinearRegression().fit(X, y)</span></code></pre></div>
-<p>Using the training data:</p>
+<p><strong>Using the training data:</strong></p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>Model_Py_sklearn.predict(X)</span></code></pre></div>
-<p>Using new data:</p>
+<p><strong>Using new data:</strong></p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>intercept <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>size_in_m_2  <span class="op">=</span> pd.Series([<span class="dv">100</span>, <span class="dv">140</span>,<span class="dv">160</span>,<span class="dv">180</span>,<span class="dv">98</span>,<span class="dv">120</span>,<span class="dv">200</span>]) </span>
 <span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>longitude  <span class="op">=</span> pd.Series([<span class="fl">55.1</span>,<span class="fl">55.3</span>,<span class="fl">55.2</span>,<span class="fl">55.1</span>,<span class="fl">55.2</span>,<span class="fl">55.1</span>,<span class="fl">55.1</span>]) </span>
@@ -2311,7 +2332,7 @@ for the response variable <span class="math inline">\((y)\)</span> in R, for the
 <span id="cb60-11"><a href="#cb60-11" aria-hidden="true" tabindex="-1"></a>new_data <span class="op">=</span> pd.DataFrame({<span class="st">&#39;intercept&#39;</span>:intercept , <span class="st">&#39;size_in_m_2&#39;</span>:size_in_m_2, <span class="st">&#39;longitude&#39;</span>:longitude , <span class="st">&#39;latitude&#39;</span>:latitude, <span class="st">&#39;no_of_bedrooms&#39;</span>:no_of_bedrooms , <span class="st">&#39;no_of_bathrooms&#39;</span>:no_of_bathrooms , <span class="st">&#39;quality_1&#39;</span>:quality_1, <span class="st">&#39;quality_2&#39;</span>:quality_2, <span class="st">&#39;quality_3&#39;</span>:quality_3 }) </span></code></pre></div>
 <div class="sourceCode" id="cb61"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>new_data.head()</span></code></pre></div>
 <div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>Model_Py_sklearn.predict(new_data)</span></code></pre></div>
-<hr />
+<p><br></p>
 </div>
 </div>
 <div id="estimation-of-model-errors-residuals-in-r" class="section level2" number="3.12">
@@ -2341,25 +2362,24 @@ model errors:</p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>df_predictions_Python[<span class="st">&#39;estimated_errors&#39;</span>] <span class="op">=</span> estimated_errors </span>
 <span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>df_predictions_Python.head()</span></code></pre></div>
-<hr />
+<p><br></p>
 </div>
 <div id="estimation-of-the-error-variance-residual-variance" class="section level2" number="3.14">
 <h2><span class="header-section-number">3.14</span> Estimation of the error variance (residual variance) <a class="anchor" id="27"></a></h2>
 <p>The estimator of the error variance <span class="math inline">\(\hspace{0.1cm} Var(\varepsilon_i)=\sigma^2 \hspace{0.1cm}\)</span> is
 called <strong>residual variance</strong>, and is defined as:</p>
+<p><br></p>
 <p><span class="math display">\[
 \widehat{Var}(\varepsilon_i) = \widehat{\sigma}^2 = S_R^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n-p-1} \cdot \sum_{i=1}^{n} \hat{\varepsilon}_i\hspace{0.02cm}^2 \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{1}{n-p-1} \cdot (Y^t \cdot Y - \hat{\beta}^t \cdot X^t \cdot Y)
 \]</span></p>
+<p><br></p>
 <p>The following is fulfilled:</p>
-<p><span class="math display">\[
-\dfrac{n-p-1}{\sigma^2} \cdot \widehat{\sigma}^2 \hspace{0.1cm} \sim \hspace{0.1cm} \chi_{n-p-1}^2
-\]</span></p>
-<p><span class="math display">\[
-E[\widehat{\sigma}^2]=\sigma^2
-\]</span></p>
-<p><span class="math display">\[
-Var(\widehat{\sigma}^2)=\dfrac{2 \cdot \sigma^4}{n-p-1}
-\]</span></p>
+<p><br></p>
+<ul>
+<li><p><span class="math inline">\(\hspace{0.2cm} \dfrac{n-p-1}{\sigma^2} \cdot \widehat{\sigma}^2 \hspace{0.1cm} \sim \hspace{0.1cm} \chi_{n-p-1}^2 \\[0.2cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.2cm} E[\widehat{\sigma}^2]=\sigma^2 \\[0.2cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.2cm} Var(\widehat{\sigma}^2)=\dfrac{2 \cdot \sigma^4}{n-p-1}\)</span></p></li>
+</ul>
 <p> </p>
 <div id="estimation-of-the-error-variance-in-r" class="section level3" number="3.14.1">
 <h3><span class="header-section-number">3.14.1</span> Estimation of the error variance in <code>R</code> <a class="anchor" id="28"></a></h3>
@@ -2394,12 +2414,15 @@ Var(\widehat{\sigma}^2)=\dfrac{2 \cdot \sigma^4}{n-p-1}
 <p>We can compute some metric in order to measure how much distant are the
 predictions and observations of the response variable.</p>
 <p>Two of the most common metrics are the mean absolute deviation (MAD) and the mean square error (MSE):</p>
+<p><br></p>
 <p><span class="math display">\[
 MAD \hspace{0.1cm} = \hspace{0.1cm}   \dfrac{1}{n} \sum_{i=1}^{n} \mid \hat{\varepsilon}_i \mid \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^{n} \hspace{0.1cm} \mid y_i - \hat{y}_i \mid \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^{n} \hspace{0.1cm}\mid   y_i - x_i \cdot \widehat{\beta}  \mid
 \]</span></p>
+<p><br></p>
 <p><span class="math display">\[
 MSE \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^{n} \hat{\varepsilon}_i^2 \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^{n} \hspace{0.1cm}(\hspace{0.1cm} y_i - \hat{y}_i \hspace{0.1cm})^2 = \dfrac{1}{n} \sum_{i=1}^{n} \hspace{0.1cm}(\hspace{0.1cm} y_i - x_i \cdot \widehat{\beta} \hspace{0.1cm})^2
 \]</span></p>
+<p><br></p>
 <p>When these metrics are computing using the data for <span class="math inline">\(y_i\)</span> and <span class="math inline">\(x_i\)</span> that were used to train the model it is called <em>model train validation</em>.</p>
 <p> </p>
 <div id="model-train-validation-in-r" class="section level2" number="4.1">
@@ -2433,39 +2456,50 @@ be more developed in another article about validation techniques.</p>
 </div>
 <div id="model-coefficients-interpretation" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Model Coefficients Interpretation <a class="anchor" id="33"></a></h1>
+<p><br></p>
 <div id="null-coefficient" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Null Coefficient <a class="anchor" id="34"></a></h2>
-<p>We have the following estimated linear regression model</p>
-<p>  <span class="math display">\[\hat{y}= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + ...+ \hat{\beta_p}\cdot x_{ip}\]</span></p>
+<p>We have the following estimated linear regression model:</p>
+<p>  <span class="math display">\[\hat{y}= \widehat{\beta}_0 + \widehat{\beta}_0\cdot x_{i1} + ...+ \widehat{\beta}_p\cdot x_{ip}\]</span></p>
+<p><br></p>
 <ul>
-<li><span class="math inline">\(\hat{\beta}_0\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is the model estimated value for the response variable, i.e <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span>
+<li><span class="math inline">\(\hat{\beta}_0\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is the model estimated value for the response variable, i.e <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\widehat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span>
 , when <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ij}=0\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> , <span class="math inline">\(\forall j=1,2,...,p\)</span></li>
 </ul>
-<p> </p>
+<p><br></p>
 </div>
 <div id="quantitative-predictor-coefficient" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Quantitative Predictor Coefficient <a class="anchor" id="35"></a></h2>
-<p>Let <span class="math inline">\(X_k\)</span> a <strong>quantitative</strong> variable, and <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(h&gt;0\)</span>,</p>
+<p>Let <span class="math inline">\(X_k\)</span> a <strong>quantitative</strong> variable and <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(h&gt;0\)</span></p>
 <p>We have the following estimated linear regression model  </p>
+<p><br></p>
 <p><span class="math display">\[\hat{y}_i= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + .. + \hat{\beta_k}\cdot x_{ik} + ..+ \hat{\beta_p}\cdot x_{ip}\]</span></p>
+<p><br></p>
 <ul>
-<li><p>If <span class="math inline">\(\hat{\beta}_k &gt; 0\)</span> , then</p>
+<li><p>If <span class="math inline">\(\hspace{0.1cm} \hat{\beta}_k &gt; 0 \hspace{0.1cm}\)</span> , then</p>
 <ul>
 <li><p>If <span class="math inline">\(x_{ik}\)</span> <strong>increases</strong> in <span class="math inline">\(h\)</span> units <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hat{y}_i\)</span>
 <strong>increases</strong> in <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hat{\beta}_k \cdot h\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> units.</p>
 <p>And the opposite if it decreases.</p></li>
 </ul></li>
-<li><p>If <span class="math inline">\(\hat{\beta}_k &lt; 0\)</span> , then</p>
+</ul>
+<p><br></p>
+<ul>
+<li><p>If <span class="math inline">\(\hspace{0.1cm} \hat{\beta}_k &lt; 0 \hspace{0.1cm}\)</span> , then</p>
 <ul>
 <li><p>If <span class="math inline">\(x_{ik}\)</span> <strong>increases</strong> in <span class="math inline">\(h\)</span> units <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\Rightarrow\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hat{y}_i\)</span>
 <strong>decreases</strong> in <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hat{\beta}_k \cdot h\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> units.</p>
 <p>And the opposite if it decreases.</p></li>
 </ul></li>
-<li><p>If <span class="math inline">\(\hat{\beta}_k = 0\)</span> , then</p>
+</ul>
+<p><br></p>
+<ul>
+<li><p>If <span class="math inline">\(\hspace{0.1cm} \hat{\beta}_k = 0 \hspace{0.1cm}\)</span> , then</p>
 <ul>
 <li><span class="math inline">\(\hat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> doesn´t depend on <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}\)</span></li>
 </ul></li>
 </ul>
+<p><br></p>
 <p><strong>Observation:</strong></p>
 <p>The above affirmations are based in the following:</p>
 <ul>
@@ -2477,9 +2511,9 @@ be more developed in another article about validation techniques.</p>
 <h2><span class="header-section-number">5.3</span> Categorical Predictor Coefficient <a class="anchor" id="36"></a></h2>
 <div id="categorical-predictors-with-2-categories" class="section level3" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> Categorical Predictors with 2 categories</h3>
-<p>Let <span class="math inline">\(X_k\)</span> a categorical variable with 2 categories
-<span class="math inline">\(\lbrace 0 , 1 \rbrace\)</span>,</p>
-<p>If the reference category is <span class="math inline">\(0\)</span> , then <span class="math inline">\(X_k\)</span> enter in the model as the binary (0,1) variable <span class="math inline">\(X_{k1}\)</span> defined as:</p>
+<p>Let <span class="math inline">\(\hspace{0.1cm} X_k \hspace{0.1cm}\)</span> a categorical variable with 2 categories
+<span class="math inline">\(\hspace{0.1cm} \lbrace 0 , 1 \rbrace\)</span>,</p>
+<p>If the reference category is <span class="math inline">\(\hspace{0.1cm} 0 \hspace{0.1cm}\)</span> , then <span class="math inline">\(\hspace{0.1cm} X_k \hspace{0.1cm}\)</span> enter in the model as the binary variable <span class="math inline">\(\hspace{0.1cm} X_{k1} \hspace{0.1cm}\)</span> defined as:</p>
 <p><span class="math display">\[
 x_{i k1}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i k}=1
 \]</span></p>
@@ -2489,6 +2523,7 @@ x_{i k1}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i k}=1
 x_{i k0}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i k}=0
 \]</span></p>
 <p><br></p>
+<hr />
 <p>We have the following estimated linear regression model:</p>
 <p><span class="math display">\[\hat{y}_i= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + .. + \hat{\beta}_{k1} \cdot x_{ik1} + ..+ \hat{\beta_p}\cdot x_{ip}\]</span></p>
 <p><br></p>
@@ -2528,60 +2563,62 @@ x_{i k2}=1  \Leftrightarrow     x_{i k}=2
 x_{i k0}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i k}=0
 \]</span></p>
 <p><br></p>
+<hr />
 <p>We have the following estimated linear regression model:</p>
 <p><span class="math display">\[\hat{y}= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + .. + \hat{\beta}_{k1} \cdot x_{ik1} + \hat{\beta}_{k2} \cdot x_{ik2} + ..+ \hat{\beta_p}\cdot x_{ip}\]</span></p>
 <p><br></p>
 <ul>
 <li><p>If <span class="math inline">\(\hat{\beta}_{k1} &gt; 0\)</span> , then</p>
 <ul>
-<li><span class="math inline">\(\hat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hat{\beta}_{k1}\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> units <strong>greater</strong> if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 1\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> than if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 0\)</span></li>
+<li><span class="math inline">\(\hspace{0.1cm} \hat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hat{\beta}_{k1}\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> units <strong>greater</strong> if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 1\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> than if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 0\)</span></li>
 </ul></li>
 </ul>
 <p><br></p>
 <ul>
 <li><p>If <span class="math inline">\(\hat{\beta}_{k1} &lt; 0\)</span> , then</p>
 <ul>
-<li><span class="math inline">\(\hat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hat{\beta}_{k1}\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> units <strong>less</strong> if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 1\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> than if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 0\)</span></li>
+<li><span class="math inline">\(\hspace{0.1cm} \hat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hat{\beta}_{k1}\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> units <strong>less</strong> if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 1\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> than if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 0\)</span></li>
 </ul></li>
 </ul>
 <p><br></p>
 <ul>
 <li><p>If <span class="math inline">\(\hat{\beta}_{k2} &gt; 0\)</span> , then</p>
 <ul>
-<li><span class="math inline">\(\hat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hat{\beta}_{k2}\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> units <strong>greater</strong> if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 1\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> than if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 0\)</span></li>
+<li><span class="math inline">\(\hspace{0.1cm} \hat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hat{\beta}_{k2}\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> units <strong>greater</strong> if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 1\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> than if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 0\)</span></li>
 </ul></li>
 </ul>
 <p><br></p>
 <ul>
 <li><p>If <span class="math inline">\(\hat{\beta}_{k2} &lt; 0\)</span> , then</p>
 <ul>
-<li><span class="math inline">\(\hat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hat{\beta}_{k2}\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> units <strong>less</strong> if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 1\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> than if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 0\)</span></li>
+<li><span class="math inline">\(\hspace{0.1cm} \hat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hat{\beta}_{k2}\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> units <strong>less</strong> if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 1\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> than if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 0\)</span></li>
 </ul></li>
 </ul>
 <p><br></p>
 <ul>
 <li><p>If <span class="math inline">\(\hat{\beta}_{k2} - \hat{\beta}_{k1} &gt; 0\)</span> , then</p>
 <ul>
-<li><span class="math inline">\(\hat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hat{\beta}_{k2} - \hat{\beta}_{k1}\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> units <strong>greater</strong> if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 2\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> than if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 1\)</span></li>
+<li><span class="math inline">\(\hspace{0.1cm} \hat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hat{\beta}_{k2} - \hat{\beta}_{k1}\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> units <strong>greater</strong> if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 2\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> than if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 1\)</span></li>
 </ul></li>
 </ul>
 <p><br></p>
 <ul>
 <li><p>If <span class="math inline">\(\hat{\beta}_{k2} - \hat{\beta}_{k1} &lt; 0\)</span> , then</p>
 <ul>
-<li><span class="math inline">\(\hat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hat{\beta}_{k2} - \hat{\beta}_{k1}\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> units
+<li><span class="math inline">\(\hspace{0.1cm} \hat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hat{\beta}_{k2} - \hat{\beta}_{k1}\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> units
 <strong>less</strong> if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 2\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> than if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 1\)</span></li>
 </ul></li>
 </ul>
 <p><br></p>
 <p>Note that the above is easily extrapolated to the case in which we have a
 categorical predictor with <span class="math inline">\(r\)</span> categories, for <span class="math inline">\(r&gt;3\)</span>.</p>
+<p><br></p>
 <p><strong>Observation:</strong></p>
 <p>The above affirmations are based in the following:</p>
 <ul>
 <li><p><span class="math inline">\((\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik1}=1 ) - (\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik0}=1 ) = \hat{\beta}_{k1}\)</span></p></li>
 <li><p><span class="math inline">\((\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik2}=1 ) - (\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik0}=1 ) = \hat{\beta}_{k2}\)</span></p></li>
-<li><p>$(<em>i | x</em>{ik2}=1 ) - (<em>i | x</em>{ik1}=1 ) = <em>{k2} - </em>{k1} $</p></li>
+<li><p><span class="math inline">\((\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik2}=1 ) - (\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik1}=1 ) = \hat{\beta}_{k2} - \hat{\beta}_{k1}\)</span></p></li>
 </ul>
 <p>Note that this can easily be extrapolated to the case of an <span class="math inline">\(r\)</span>-ary categorical variable with <span class="math inline">\(r &gt; 3\)</span></p>
 <p> </p>
@@ -2596,36 +2633,60 @@ categorical predictor with <span class="math inline">\(r\)</span> categories, fo
 <p>The interpretation of the estimated model coefficients is the following:</p>
 <p><br></p>
 <ul>
-<li><p><span class="math inline">\(\hat{\beta}_0 = -6.207e+07\)</span>   is the estimated <span class="math inline">\(price\)</span> by the model for the houses with <span class="math inline">\(size\_in\_m\_2_i =0\)</span> , <span class="math inline">\(no\_of\_bedrooms_i =0\)</span> , <span class="math inline">\(no\_of\_bathrooms_i =0\)</span> , <span class="math inline">\(qualityLow_i=0\)</span> , <span class="math inline">\(qualityMedium_i=0\)</span> , <span class="math inline">\(qualityUltra_i=0\)</span> , <span class="math inline">\(latitude_i=longitude_i=0\)</span></p></li>
-<li><p><span class="math inline">\(\hat{\beta}_{size\_in\_m\_2} =3.566e+04\)</span>  <span class="math inline">\(\Rightarrow\)</span>  if
+<li><span class="math inline">\(\hat{\beta}_0 = -6.207e+07\)</span>   is the estimated <span class="math inline">\(price\)</span> by the model for the houses with <span class="math inline">\(size\_in\_m\_2_i =0\)</span> , <span class="math inline">\(no\_of\_bedrooms_i =0\)</span> , <span class="math inline">\(no\_of\_bathrooms_i =0\)</span> , <span class="math inline">\(qualityLow_i=0\)</span> , <span class="math inline">\(qualityMedium_i=0\)</span> , <span class="math inline">\(qualityUltra_i=0\)</span> , <span class="math inline">\(latitude_i=longitude_i=0\)</span></li>
+</ul>
+<p><br></p>
+<ul>
+<li><span class="math inline">\(\hat{\beta}_{size\_in\_m\_2} =3.566e+04\)</span>  <span class="math inline">\(\Rightarrow\)</span>  if
 <span class="math inline">\(size\_in\_m\_2_i\)</span> increases in <span class="math inline">\(h\)</span> units, the estimated housing
-<span class="math inline">\(price\)</span> <strong>increases</strong> in <span class="math inline">\(h\cdot 3.566e+04\)</span> units.</p></li>
-<li><p><span class="math inline">\(\hat{\beta}_{no\_of\_bedrooms} = -8.367e+05\)</span>  <span class="math inline">\(\Rightarrow\)</span>  if
+<span class="math inline">\(price\)</span> <strong>increases</strong> in <span class="math inline">\(h\cdot 3.566e+04\)</span> units.</li>
+</ul>
+<p><br></p>
+<ul>
+<li><span class="math inline">\(\hat{\beta}_{no\_of\_bedrooms} = -8.367e+05\)</span>  <span class="math inline">\(\Rightarrow\)</span>  if
 <span class="math inline">\(no\_of\_bedrooms_i\)</span> increases in <span class="math inline">\(h\)</span> units, the estimated housing
-<span class="math inline">\(price\)</span> <strong>decreases</strong> in <span class="math inline">\(-h\cdot 8.367e+05\)</span> units.</p></li>
-<li><p><span class="math inline">\(\hat{\beta}_{no\_of\_bathrooms} = -5.712e+04\)</span>  <span class="math inline">\(\Rightarrow\)</span>  if
+<span class="math inline">\(price\)</span> <strong>decreases</strong> in <span class="math inline">\(-h\cdot 8.367e+05\)</span> units.</li>
+</ul>
+<p><br></p>
+<ul>
+<li><span class="math inline">\(\hat{\beta}_{no\_of\_bathrooms} = -5.712e+04\)</span>  <span class="math inline">\(\Rightarrow\)</span>  if
 <span class="math inline">\(no\_of\_bathrooms_i\)</span> increases in <span class="math inline">\(h\)</span> units, the estimated housing
-<span class="math inline">\(price\)</span> <strong>decreases</strong> in <span class="math inline">\(-h\cdot 5.712e+04\)</span> units.</p></li>
-<li><p><span class="math inline">\(\hat{\beta}_{quality1} = 1.4e+05\)</span>  <span class="math inline">\(\Rightarrow\)</span>   the estimated
+<span class="math inline">\(price\)</span> <strong>decreases</strong> in <span class="math inline">\(-h\cdot 5.712e+04\)</span> units.</li>
+</ul>
+<p><br></p>
+<ul>
+<li><span class="math inline">\(\hat{\beta}_{quality1} = 1.4e+05\)</span>  <span class="math inline">\(\Rightarrow\)</span>   the estimated
 <span class="math inline">\(price\)</span> of houses with medium quality <span class="math inline">\((quality1_i=1)\)</span> is <span class="math inline">\(1.4e+05\)</span> units <strong>greater</strong> than the estimated price of houses with low quality
-<span class="math inline">\((quality0_i=1)\)</span> , because low quality is the reference category of <span class="math inline">\(quality\)</span> variable.</p></li>
-<li><p><span class="math inline">\(\hat{\beta}_{quality2} = 3.406e+05\)</span>  <span class="math inline">\(\Rightarrow\)</span>   the
+<span class="math inline">\((quality0_i=1)\)</span> , because low quality is the reference category of <span class="math inline">\(quality\)</span> variable.</li>
+</ul>
+<p><br></p>
+<ul>
+<li><span class="math inline">\(\hat{\beta}_{quality2} = 3.406e+05\)</span>  <span class="math inline">\(\Rightarrow\)</span>   the
 estimated <span class="math inline">\(price\)</span> of houses with medium quality
 <span class="math inline">\((quality2_i=1)\)</span> is <span class="math inline">\(3.406e+05\)</span> units <strong>greater</strong> than the estimated
-price of houses with high quality <span class="math inline">\((quality0_i=1)\)</span></p></li>
-<li><p><span class="math inline">\(\hat{\beta}_{quality3} = 2.788e+05\)</span>  <span class="math inline">\(\Rightarrow\)</span>   the estimated
+price of houses with high quality <span class="math inline">\((quality0_i=1)\)</span></li>
+</ul>
+<p><br></p>
+<ul>
+<li><span class="math inline">\(\hat{\beta}_{quality3} = 2.788e+05\)</span>  <span class="math inline">\(\Rightarrow\)</span>   the estimated
 <span class="math inline">\(price\)</span> of houses with ultra quality <span class="math inline">\((quality1_i=1)\)</span> is
-<span class="math inline">\(2.788e+05\)</span> units <strong>greater</strong> than the estimated price of houses with low quality <span class="math inline">\((quality0_i=1)\)</span></p></li>
-<li><p><span class="math inline">\(\hat{\beta}_{quality2} - \hat{\beta}_{quality1} = 3.406e+05 - 1.4e+05 =2.006e+05\)</span>   <span class="math inline">\(\Rightarrow\)</span>  the estimated price of houses with high quality <span class="math inline">\((quality2_i=1)\)</span> is <span class="math inline">\(2.006e+05\)</span> units <strong>greater</strong> than the estimated price of houses with medium quality <span class="math inline">\((quality1_i=1)\)</span></p></li>
-<li><p><span class="math inline">\(\hat{\beta}_{quality3} - \hat{\beta}_{quality2} = 2.788e+05 - 3.406e+05 =-61800\)</span>   <span class="math inline">\(\Rightarrow\)</span> the estimated price of houses with ultra quality <span class="math inline">\((quality3_i=1)\)</span> is <span class="math inline">\(61800\)</span> units <strong>less</strong> than the estimated price of houses with high quality <span class="math inline">\((quality2_i=1)\)</span></p></li>
+<span class="math inline">\(2.788e+05\)</span> units <strong>greater</strong> than the estimated price of houses with low quality <span class="math inline">\((quality0_i=1)\)</span></li>
+</ul>
+<p><br></p>
+<ul>
+<li><span class="math inline">\(\hat{\beta}_{quality2} - \hat{\beta}_{quality1} = 3.406e+05 - 1.4e+05 =2.006e+05\)</span>   <span class="math inline">\(\Rightarrow\)</span>  the estimated price of houses with high quality <span class="math inline">\((quality2_i=1)\)</span> is <span class="math inline">\(2.006e+05\)</span> units <strong>greater</strong> than the estimated price of houses with medium quality <span class="math inline">\((quality1_i=1)\)</span></li>
+</ul>
+<p><br></p>
+<ul>
+<li><span class="math inline">\(\hat{\beta}_{quality3} - \hat{\beta}_{quality2} = 2.788e+05 - 3.406e+05 =-61800\)</span>   <span class="math inline">\(\Rightarrow\)</span> the estimated price of houses with ultra quality <span class="math inline">\((quality3_i=1)\)</span> is <span class="math inline">\(61800\)</span> units <strong>less</strong> than the estimated price of houses with high quality <span class="math inline">\((quality2_i=1)\)</span></li>
 </ul>
 <p><br></p>
 <p>Note that in all these cases it is assumed that the rest of the model variables don´t vary (have the same values) from one scenario to another.</p>
-<p> </p>
+<p><br></p>
+<p><br></p>
 </div>
 <div id="interaction-coefficient" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> Interaction Coefficient <a class="anchor" id="38"></a></h2>
-<p> </p>
 <div id="interaction-between-binary-and-quantitative-variables" class="section level3" number="5.5.1">
 <h3><span class="header-section-number">5.5.1</span> Interaction between binary and quantitative variables</h3>
 <p>Let <span class="math inline">\(X_k\)</span> a quantitative variable, and <span class="math inline">\(X_r\)</span> a <strong>binary</strong> <span class="math inline">\(\lbrace 0, 1\rbrace\)</span> categorical variable.</p>
@@ -2633,10 +2694,12 @@ price of houses with high quality <span class="math inline">\((quality0_i=1)\)</
 <p><span class="math display">\[
 x_{i r1}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i r}=1
 \]</span></p>
+<p><br></p>
 <p>In addition, we define the variable <span class="math inline">\(X_{r0}\)</span> as:</p>
 <p><span class="math display">\[
 x_{i r0}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i r}=0
 \]</span></p>
+<p><br></p>
 <p>We have the following estimated linear regression model  </p>
 <p><span class="math display">\[\hat{y}_i= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + ... + \hat{\beta_p}\cdot x_{ip} + \hat{\beta}_{r}\cdot x_{ir} + \hat{\beta}_{k}\cdot x_{ik} + \hat{\beta}_{rk}\cdot x_{ir}\cdot x_{ik}  \]</span></p>
 <ul>
