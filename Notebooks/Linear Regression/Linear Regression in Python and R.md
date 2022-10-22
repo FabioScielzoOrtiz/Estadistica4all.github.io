@@ -1,16 +1,18 @@
 ---
-title: 'Model Selection in Linear Regression'
+title: 'Linear Regression'
 author: 'Fabio Scielzo Ortiz'
 date: '16/10/22'
 output: 
-   rmdformats::readthedown
+   rmdformats::readthedown:
+      use_bookdown: true
+      self_contained: true
+      thumbnails: true
+      lightbox: true
+      gallery: false
+      highlight: tango
 
-css:  custom.css
-      
+css: custom.css
 ---
-
-
-
 
 # Linear Regression with `Python` and `R`
 
