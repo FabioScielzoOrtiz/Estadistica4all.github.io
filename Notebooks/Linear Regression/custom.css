@@ -2,15 +2,15 @@
 #main .nav-pills > li.active > a,
 #main .nav-pills > li.active > a:hover,
 #main .nav-pills > li.active > a:focus {
-   background-color: #22983B;
+   background-color: #edf81b;
 }
 
 #main .nav-pills > li > a:hover {
-  background-color: #008B8B;
+  background-color: #16f1f1;
 }
 
 h1,h2,h3,h4,h5,h6,legend{
-    color: #008B8B;
+    color: #ba32e4;
 }
 
 #nav-top span.glyphicon {
