@@ -1,4 +1,8 @@
 
+#content{         
+    max-width:1920px; 
+    }
+
 #main .nav-pills > li.active > a,
 #main .nav-pills > li.active > a:hover,
 #main .nav-pills > li.active > a:focus {

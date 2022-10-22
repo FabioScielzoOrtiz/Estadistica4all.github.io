@@ -8,12 +8,17 @@ output:
       self_contained: true
       thumbnails: true
       lightbox: true
-      gallery: false
+      gallery: true
       highlight: tango
 
 css: custom.css
 ---
 
+```{css, echo = FALSE}
+    #content{
+        max-width:1920px;
+    }
+``` 
 
 
 
@@ -645,27 +650,27 @@ problem:
 
 The problem solution is:
 
->\begin{gather*}
+\begin{gather*}
 \widehat{\beta}=(X^t \cdot X)^{-1} \cdot X^t \cdot Y
 \end{gather*}
 
  
-
+<br>
 
 **Interpretation :**
 
-$\hspace{0.2cm} \widehat{y} = x^t \cdot \widehat{\beta} \hspace{0.2cm} $ is the hyperplane that **minimize** the **euclidean distance** between the given values of the response variable $(Y)$ and the points of the hyperplane given by $\hspace{0.1cm} \hat{y}_i = x_i^t \cdot \widehat{\beta}$
+$\hspace{0.2cm} \widehat{y} = x^t \cdot \widehat{\beta} \hspace{0.2cm}$ is the hyperplane that **minimize** the **euclidean distance** between the given values of the response variable $(Y)$ and the points of the hyperplane given by $\hspace{0.1cm} \hat{y}_i = x_i^t \cdot \widehat{\beta}$
 
 
 
+  
+<div>
+<p style = 'text-align:center;'>
+<img src="hyperplane.png" alt=" " width="500px">
+</p>
+</div>
 
-```python
-from IPython.display import Image
-Image(filename='hyperplane.png') 
-```
-
-
-
+<br>
 
 **Observation:**
 
