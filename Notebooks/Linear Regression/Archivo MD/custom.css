@@ -1,11 +1,11 @@
 #main .nav-pills > li.active > a,
 #main .nav-pills > li.active > a:hover,
 #main .nav-pills > li.active > a:focus {
-    background-color: #22983B;
+    background-color: #3c18f0;
 }
 
 #main .nav-pills > li > a:hover {
-    background-color: #22983B;
+    background-color: #e2d115;
 }
 
 h1, h2, h3, h4, h5, h6, legend {
@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6, legend {
 }
 
 #nav-top span.glyphicon {
-    color: #22983B;
+    color: #18c1eb;
 }
 #table-of-contents {
     color:orange;
