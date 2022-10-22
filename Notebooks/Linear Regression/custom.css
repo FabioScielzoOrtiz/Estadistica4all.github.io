@@ -27,11 +27,29 @@ h1,h2,h3,h4,h5,h6,legend{
 }
 
 
-
 a:hover{
     color:#008B8B
 }
 
 a:visited{
     color:#008B8B
+}
+
+#sidebar {
+    color: #D9AB16;
+    background: #113458;
+}
+
+#sidebar h2 {
+    color: #FFFFFF;
+    background-color: #4096B8;
+}
+
+#sidebar a {
+    color: #3F4548;
+}
+
+#sidebar a:hover {
+    background-color: #3F4548;
+    color: #FFFFFF;
 }
