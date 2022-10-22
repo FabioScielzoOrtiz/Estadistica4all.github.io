@@ -5,7 +5,7 @@ date: '16/10/22'
 output: 
    rmdformats::readthedown:
       use_bookdown: true
-      self_contained: false
+      self_contained: true
       thumbnails: true
       lightbox: true
       gallery: false
@@ -30,7 +30,7 @@ Scielzo Ortiz, F. (2022). Linear Regression with Python and R. *Estadistica4all*
 
 
 
- #     Data-set description <a class="anchor" id="1"></a>
+#  Data-set description <a class="anchor" id="1"></a>
  
 
 
@@ -135,14 +135,11 @@ Now we are going to do the following:
 2. We will repeat this task in Python
 
 
+&nbsp;
 
 
 
-----------------------------
-
-
-
-### Data Manipulation in `R` <a class="anchor" id="2"></a>
+## Data Manipulation in `R` <a class="anchor" id="2"></a>
 
 
 ```python
@@ -243,11 +240,12 @@ head(data_R,15)
 
 
 
-----------------------------
+&nbsp;
 
 
 
-### Data Manipulation in `Python` <a class="anchor" id="3"></a>
+
+## Data Manipulation in `Python` <a class="anchor" id="3"></a>
 
 
 ```python
@@ -364,7 +362,7 @@ We can write the last data-frame as csv as follows:
 data_Python.to_csv('data_Python.csv' , index=False)
 ```
 
-**Important**: to use categorical variables in a linear regression model in Python they must be recoded (their values must be numbers that represents their categories), i.e, we cannot use the variable *quality* , insteaf of it we can use *quality_recode*
+**Important**: to use categorical variables in a linear regression model in Python they must be recoded (their values must be numbers that represents their categories), i.e, we cannot use the variable *quality* , instead of it we can use *quality_recode*
 
 This is the reason we have recoded *quality* in Python but not in R, because in R is not strictly necessary.
 
@@ -381,11 +379,12 @@ We will use both of them throughout this article.
 
 
 
-----------------------------
+&nbsp;
 
 
 
-## Introduction to the Linear Regression Model <a class="anchor" id="4"></a>
+
+# Introduction to the Linear Regression Model <a class="anchor" id="4"></a>
 
 
 
@@ -405,10 +404,11 @@ techniques, so that is highly recommended study it enough, before to go deeper i
 
 
 
+&nbsp;
 
 
 
-### Usefulness of the Linear Regression Model <a class="anchor" id="5"></a>
+## Usefulness of the Linear Regression Model <a class="anchor" id="5"></a>
 
 
 
@@ -421,11 +421,12 @@ The other important usefulness of the linear regression model is to do inference
 
 
 
-----------------------------
+&nbsp;
 
 
 
-### Formal Approach to the Linear Regression Model <a class="anchor" id="6"></a>
+
+## Formal Approach to the Linear Regression Model <a class="anchor" id="6"></a>
 
 
 
@@ -496,12 +497,13 @@ X_p = (x_{1p}, x_{2p}, ..., x_{np})^t
 
 
 
-----------------------------
+&nbsp;
 
 
 
 
-### Basic Assumptions <a class="anchor" id="7"></a>
+
+## Basic Assumptions <a class="anchor" id="7"></a>
 
 
 
