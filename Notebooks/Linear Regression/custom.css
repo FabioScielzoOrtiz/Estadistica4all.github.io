@@ -10,7 +10,7 @@
 }
 
 h1,h2,h3,h4,h5,h6,legend{
-    color: #d11c1c;
+    color: #b10d0d;
 }
 
 #nav-top span.glyphicon {
@@ -36,13 +36,13 @@ a:visited{
 }
 
 #sidebar {
-    color: #b63b3b;
-    background: #b63b3b;
+    color: #6b3e3e;
+    background: #6b3e3e;
 }
 
 #sidebar h2 {
     color: #fafafa;
-    background-color: #852727;
+    background-color: #891111;
 }
 
 #sidebar a {
@@ -50,6 +50,6 @@ a:visited{
 }
 
 #sidebar a:hover {
-    background-color: #a06d15;
+    background-color: #a29e9e;
     color: #FFFFFF;
 }
