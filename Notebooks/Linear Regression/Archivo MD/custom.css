@@ -17,7 +17,7 @@ h1, h2, h3, h4, h5, h6, legend {
 }
 #table-of-contents {
     color:orange;
-    background: rgb(11, 209, 110) !important; 
+    background: rgb(194, 240, 29) !important; 
     }
 
 #table-of-contents header {
@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6, legend {
 }
 
 #main a {
-    background-image: linear-gradient(180deg,#3cf65e,#b5d64a);
+    background-image: linear-gradient(180deg,#3c52f6,#b5d64a);
     color: #e716f1;
 }
 
