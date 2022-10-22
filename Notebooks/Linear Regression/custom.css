@@ -6,7 +6,7 @@
 #main .nav-pills > li.active > a,
 #main .nav-pills > li.active > a:hover,
 #main .nav-pills > li.active > a:focus {
-   background-color: #ffffff;
+   background-color: #a5ea50;
 }
 
 #main .nav-pills > li > a:hover {
@@ -40,13 +40,13 @@ a:visited{
 }
 
 #sidebar {
-    color: #1a1212;
-    background: #510a0a;
+    color: #ffffff;
+    background: #752020;
 }
 
 #sidebar h2 {
     color: #fafafa;
-    background-color: #c00a0a;
+    background-color: #a70303;
 }
 
 #sidebar a {
@@ -54,6 +54,6 @@ a:visited{
 }
  
 #sidebar a:hover {
-    background-color: #989898;
+    background-color: #9d9595;
     color: #FFFFFF;
 }

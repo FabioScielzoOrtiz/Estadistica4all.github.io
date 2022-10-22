@@ -3966,7 +3966,7 @@ Note that in all these cases it is assumed that the rest of the model variables 
 
 
 
-## Confidence Interval for $\beta_j$ <a class="anchor" id="41"></a>
+## Confidence Interval for beta coefficients  <a class="anchor" id="41"></a>
 
 
 We have the following confidence interval for $\hspace{0.1cm}\beta_j$
@@ -3998,7 +3998,10 @@ The smaller $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_j)}\hspace{0.13cm
 &nbsp;
 
 
-## Confidence Interval for $\sigma^2$ <a class="anchor" id="42"></a>
+
+
+
+## Confidence Interval for error variance 
 
 
 We have the following confidence interval for $\hspace{0.1cm}\sigma^2$
@@ -4015,7 +4018,7 @@ IC\left(\sigma^2  \right)= \left[ 0 \ , \ \dfrac{n-p-1}{\chi_{1-\alpha/2}^{n-p-1
 
 
 
-### Confidence Interval for \beta_j  in `R` <a class="anchor" id="43"></a>
+### Confidence Interval for $\beta_j$  in `R` <a class="anchor" id="43"></a>
 
  
 
@@ -4134,14 +4137,14 @@ beta_intervals
 </div>
 
 
-
+<br>
 
 
 Then, for example, we have:
 
  
 \begin{gather*}
-IC(\beta_0)=\left[-1.208060e+08 \ , \ -3.336873e+06 \right] \\[0.25cm]
+IC(\beta_0)=\left[-1.208060e+08 \ , \ -3.336873e+06 \right] \\[0.35cm]
 IC(\beta_{size\_in\_m\_2})=\left[ 3.424446e+04   \ , \ 3.708364e+04 \right] 
 \end{gather*}
 
@@ -4154,8 +4157,7 @@ We also have this information in the output obtained with `print(model_Python_1.
 
 
 
-&nbsp;
-
+<br>
 
 
 ### Confidence Interval for  $\sigma^2$  in `R` <a class="anchor" id="45"></a>
@@ -4189,7 +4191,7 @@ confint_sigma2(object=model_R , level=0.95)
     Sigma2 2.418577e+12 2.747045e+12
     
 
-<br>
+
 
 Then, we have:
 
@@ -4203,8 +4205,7 @@ IC(\sigma^2)=\left[2.418577e+12   \ , \ 2.747045e+12 \right]
 
 
 
-&nbsp;
-
+<br>
 
 
 
@@ -4244,7 +4245,7 @@ interval_sigma2
 
 
 
-## Hypothesis Test for $\beta_j$ <a class="anchor" id="47"></a>
+## Hypothesis Test for beta coefficients <a class="anchor" id="47"></a>
 
  
 
@@ -4272,7 +4273,7 @@ The test statistic for any of the previous test is:
 
  
 \begin{gather*}
-t_{exp | H_0}=\dfrac{\hat{\beta}_j - \beta_j^*}{\sqrt{S_R \cdot q_{jj}}} \sim t_{n-p}
+t_{exp | H_0}=\dfrac{\widehat{\beta}_j - \beta_j^*}{\sqrt{S_R \cdot q_{jj}}} \sim t_{n-p}
 \end{gather*}
  
 
@@ -4286,43 +4287,41 @@ t_{exp | H_0}=\dfrac{\hat{\beta}_j - \beta_j^*}{\sqrt{S_R \cdot q_{jj}}} \sim t_
 
  
 
-For a fixed signification level $\alpha$
+For a fixed signification level $\hspace{0.1cm}\alpha$
+
+<br>
+
+-   Case   $H_0: \beta_j = \beta_j^* \hspace{0.1cm}$  vs  $\hspace{0.1cm} H_1: \beta_j \neq \beta_j^*$
 
 
 
--   Case   $H_0: \beta_j = \beta_j^*$  vs  $H_1: \beta_j \neq \beta_j^*$
 
-
-
-
--   - Based in the test statistic:      
+*Based in the test statistic:*      
 
  
 \begin{gather*}
-Reject \ H_0 \ \Leftrightarrow \ t_{exp|H_0} > t_{\alpha/2}^{n-p} \ ó \ t_{exp|H_0} < t_{1-\alpha/2}^{n-p}
+Reject \ H_0 \hspace{0.1cm} \Leftrightarrow \hspace{0.1cm} t_{exp|H_0} > t_{\alpha/2}^{n-p} \hspace{0.2cm} or \hspace{0.2cm} t_{exp|H_0} < t_{1-\alpha/2}^{n-p}
 \end{gather*}
  
  
--   - Based in p-value: 
-         
+*Based in p-value:*
 
- 
 \begin{gather*}
-pvalue=2\cdot P( t_{n-p} \geqslant \mid t_{exp|H_0} \mid ) \\ \\
+pvalue=2\cdot P( t_{n-p} \hspace{0.2cm} \geqslant \hspace{0.2cm} \mid t_{exp|H_0} \mid ) \\ \\
 Reject \ H_0  \ \Leftrightarrow \ pvalue < \alpha
 \end{gather*}
  
  
 
 
+<br>
+
+
+-   Case   $H_0: \beta_j = \beta_j^*$ \hspace{0.2cm} vs \hspace{0.2cm} $H_1: \beta_j > \beta_j^*$
 
 
 
--   Case   $H_0: \beta_j = \beta_j^*$  vs  $H_1: \beta_j > \beta_j^*$
-
-
-
--   - Based in the test statistic: 
+*Based in the test statistic:* 
 
 
  
@@ -4331,24 +4330,23 @@ Reject \ H_0 \ \Leftrightarrow \ t_{exp|H_0} > t_{\alpha/2}^{n-p}
 \end{gather*}
  
 
--   - Based in p-value: 
-
+*Based in p-value:* 
 
  
 \begin{gather*}
-pvalue=2\cdot P( t_{n-p} \geqslant t_{exp|H_0} ) \\ \\
+pvalue= P( t_{n-p} \hspace{0.2cm} \geqslant\hspace{0.2cm} t_{exp|H_0} ) \\ \\
 Reject \ H_0  \ \Leftrightarrow \ pvalue < \alpha
 \end{gather*}
  
 
-
+<br>
 
 
 -   Case   $H_0: \beta_j = \beta_j^*$  vs  $H_1: \beta_j < \beta_j^*$
 
 
 
--   - Based in the test statistic: 
+*Based in the test statistic:*
 
  
 \begin{gather*}
@@ -4356,12 +4354,11 @@ Reject \ H_0 \ \Leftrightarrow \ t_{exp|H_0} < t_{1-\alpha/2}^{n-p}
 \end{gather*}
  
  
-
--   - Based in p-value:
+*Based in p-value:*
 
  
 \begin{gather*}
-pvalue=2\cdot P( t_{n-p} \leqslant t_{exp|H_0} ) \\ \\
+pvalue= P( t_{n-p} \hspace{0.2cm} \leqslant \hspace{0.2cm} t_{exp|H_0} ) \\ \\
 Reject \ H_0  \ \Leftrightarrow \ pvalue < \alpha
 \end{gather*}
  
@@ -4371,13 +4368,12 @@ Reject \ H_0  \ \Leftrightarrow \ pvalue < \alpha
 
 
 
-&nbsp;
+<br>
 
 
 
 
-
-## Test of Significance for $\beta_j$ <a class="anchor" id="48"></a>
+## Test of Significance for beta coefficients <a class="anchor" id="48"></a>
 
  
 
@@ -4393,19 +4389,20 @@ H_1: \beta_j \neq 0
 \end{gather*}
  
  
-
+<br>
 
 
 The test statistic is the previously exposed, taking into account that
 now $\beta_j^*=0$
 
- 
+<br>
+
 \begin{gather*}
 t_{exp | H_0}=\dfrac{\hat{\beta}_j - 0}{\sqrt{S_R \cdot q_{jj}}} = \dfrac{\hat{\beta}_j}{\sqrt{\widehat{Var}(\widehat{\beta}_j) }} \sim t_{n-p}
 \end{gather*}
  
 
-
+<br>
  
 
 The decision rules are the same too
@@ -4517,7 +4514,7 @@ print(model_Py_sm.summary())
     strong multicollinearity or other numerical problems.
     
 
-
+<br>
 
 The p-values we have got are the following:
 
@@ -4529,11 +4526,11 @@ pvalue = 0.094
 \end{gather*}
 
 
-
 For $\hspace{0.05cm} \alpha = 0.05 < 0.094$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Not \hspace{0.08cm} Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{quality1}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $quality1 \hspace{0.1cm}$ isn´t a significance variable
 
 
 
+<br>
 
 \begin{gather*}
 H_0: \beta_{quality2}=0 \\
@@ -4542,10 +4539,12 @@ pvalue = 0.028
 \end{gather*}
 
 
+
+
 For $\hspace{0.05cm} \alpha = 0.05 > 0.028$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{quality2}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm} Accept  \hspace{0.08cm} H_1 : \hspace{0.05cm} \beta_{quality2}\neq 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$  $quality2 \hspace{0.1cm}$ is a significance variable
 
 
-
+<br>
 
 \begin{gather*}
 H_0: \beta_{quality3}=0 \\
@@ -4553,11 +4552,11 @@ H_1: \beta_{quality3} \neq 0 \\ \\
 pvalue = 0.159 
 \end{gather*}
 
+
+
 For $\hspace{0.05cm} \alpha = 0.05 < 0.159$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Not Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{quality3}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $quality3 \hspace{0.1cm}$ isn´t a significance variable
 
-
-
-
+<br>
 
 
 \begin{gather*}
@@ -4566,10 +4565,13 @@ H_1: \beta_{size\_in\_m\_2} \neq 0 \\ \\
 pvalue \simeq 0
 \end{gather*}
 
+
+
+
 For $\hspace{0.05cm} \alpha = 0.05 < 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{size\_in\_m\_2}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $size\_in\_m\_2  \hspace{0.1cm}$ is a significance variable
 
 
-
+<br>
 
 
 \begin{gather*}
@@ -4578,12 +4580,12 @@ H_1: \beta_{no\_of\_bedrooms} \neq 0 \\ \\
 pvalue \simeq 0
 \end{gather*}
 
+
+
+
 For $\hspace{0.05cm} \alpha = 0.05 < 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{no\_of\_bedrooms}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $no\_of\_bedrooms  \hspace{0.1cm}$ is a significance variable
 
-
-
-
-
+<br>
 
 \begin{gather*}
 H_0: \beta_{no\_of\_bathrooms}=0 \\
@@ -4591,11 +4593,12 @@ H_1: \beta_{no\_of\_bathrooms} \neq 0 \\ \\
 pvalue =  0.403
 \end{gather*}
 
+
+
+
 For $\hspace{0.05cm} \alpha = 0.05 < 0.403$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Not Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{no\_of\_bathrooms}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $no\_of\_bathrooms  \hspace{0.1cm}$ isn´t a significance variable
 
-
-
-
+<br>
 
 \begin{gather*}
 H_0: \beta_{latitude}=0 \\
@@ -4603,9 +4606,12 @@ H_1: \beta_{latitude} \neq 0 \\ \\
 pvalue \simeq 0
 \end{gather*}
 
+
+
+
 For $\hspace{0.05cm} \alpha = 0.05 > 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{latitude}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $latitude  \hspace{0.1cm}$ is a significance variable
 
-
+<br>
 
 \begin{gather*}
 H_0: \beta_{longitude}=0 \\
@@ -4844,7 +4850,7 @@ So for any $\alpha$ we can reject $\hspace{0.1cm}  H_0:   \hspace{0.05cm} \beta_
 
 
 
-## Prediction Interval for $\hspace{0.1cm} y_i$  <a class="anchor" id="53.1"></a>
+## Prediction Interval for response variable <a class="anchor" id="53.1"></a>
 
 
 We have that
@@ -5102,7 +5108,7 @@ for i in range(0, len(data_Python)-1):
 # Goodness of Fit: $\hspace{0.1cm}$ Determination Coefficient  <a class="anchor" id="54"></a>
 
  
-## Determination Coefficient
+## Determination Coefficient $\hspace{0.12cm}\color{lightgray}{R^2}$
 
 
 
@@ -5203,7 +5209,7 @@ $$ R^2 = 0.698$$
 
 
 
-## Adjusted Determination Coefficient
+## Adjusted Determination Coefficient $\hspace{0.12cm}\color{lightgray}{\widehat{R}^2}$
 
 
 $R^2$ has several problems.
@@ -5239,7 +5245,7 @@ This metric doesn't grow when including irrelevant predictors since if $RSS$ is 
 
 
 
-## Computing $\widehat{R^2}$ in `R` <a class="anchor" id="58"></a> 
+### Computing $\color{lightgray}{\widehat{R}^2}$ in `R`  
 
 The value of $\hspace{0.1cm} \widehat{R^2}$  could be found in the output obtained with `summary(model_R)`
 
@@ -5258,7 +5264,7 @@ summary(model_R)$adj.r.squared
 
 
 
-## Computing $\widehat{R^2}$ in `Python` <a class="anchor" id="59"></a>
+### Computing $\color{lightgray}{\widehat{R}^2}$ in `Python` <a class="anchor" id="59"></a>
 
 
 The value of $\hspace{0.1cm} \widehat{R^2}$  could be found in the output obtained with `print(model_Py_smf.summary())`
