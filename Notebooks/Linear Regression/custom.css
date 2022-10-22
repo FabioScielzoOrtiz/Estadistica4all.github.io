@@ -49,10 +49,10 @@ a:visited{
     background-color: #c00a0a;
 }
 
-#sidebar h3 {
+#sidebar a {
     color: #000000;
 }
-#sidebar b {
+#sidebar a2 {
     color: #000000;
 }
 #sidebar a:hover {
