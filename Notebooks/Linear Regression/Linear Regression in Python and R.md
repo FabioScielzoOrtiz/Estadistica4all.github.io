@@ -10,15 +10,12 @@ output:
       lightbox: true
       gallery: true
       highlight: tango
+      
 
 css: custom.css
 ---
 
-```{css, echo = FALSE}
-    #content{
-        max-width:1920px;
-    }
-``` 
+
 
 
 
@@ -663,22 +660,24 @@ $\hspace{0.2cm} \widehat{y} = x^t \cdot \widehat{\beta} \hspace{0.2cm}$ is the h
 
 
 
-  
-<div>
-<p style = 'text-align:center;'>
-<img src="hyperplane.png" alt=" " width="500px">
-</p>
-</div>
+<br>
+
+<center>
+
+![](hyperplane.png){width="40%"}
+
+</center>
 
 <br>
+
 
 **Observation:**
 
 We will not view here the mathematical details about the resolution of
 this optimization problem. But is a classic convex optimization problem,
 so it´s enough to take first derivatives of the objetive function with
-respect to the coefficients  $\beta_0,\beta_1,...,\beta_p$ ,  set them equal to zero (0), and solve the resultant equation system with respect
-to  $\beta$
+respect to the coefficients  $\hspace{0.1cm}\beta_0,\beta_1,...,\beta_p \hspace{0.1cm}$ ,  set them equal to zero (0), and solve the resultant equation system with respect
+to  $\hspace{0.1cm} \beta$
 
 
 
