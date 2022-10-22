@@ -14,7 +14,6 @@ output:
 css: custom.css
 ---
 
-# Linear Regression with `Python` and `R`
 
 
 
