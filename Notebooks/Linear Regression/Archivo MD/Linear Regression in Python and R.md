@@ -4,13 +4,8 @@ author: 'Fabio Scielzo Ortiz'
 date: '16/10/22'
 css:  custom.css
 output: 
-   rmdformats::readthedown:
-      use_bookdown: true
-      self_contained: true
-      thumbnails: true
-      lightbox: true
-      gallery: false
-      highlight: tango
+   rmdformats::readthedown
+    
       
 ---
 
