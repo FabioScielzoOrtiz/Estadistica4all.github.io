@@ -2,11 +2,11 @@
 #main .nav-pills > li.active > a,
 #main .nav-pills > li.active > a:hover,
 #main .nav-pills > li.active > a:focus {
-   background-color: #edf81b;
+   background-color: #ffffff;
 }
 
 #main .nav-pills > li > a:hover {
-  background-color: #16f1f1;
+  background-color: #ffffff;
 }
 
 h1,h2,h3,h4,h5,h6,legend{
@@ -18,31 +18,31 @@ h1,h2,h3,h4,h5,h6,legend{
 }
 
 #table-of-contents header{
-    color:#008B8B;
+    color:#ffffff;
     background-color: #b51d1d;
 }
 
 #table-of-contents h2{
-    background-color:#22983B;
+    background-color:#ffffff;
 }
 
 
 a:hover{
-    color:#008B8B
+    color:#ffffff
 }
 
 a:visited{
-    color:#008B8B
+    color:#ffffff
 }
 
 #sidebar {
-    color: #6b3e3e;
-    background: #6b3e3e;
+    color: #682929;
+    background: #652323;
 }
 
 #sidebar h2 {
     color: #fafafa;
-    background-color: #891111;
+    background-color: #970f0f;
 }
 
 #sidebar a {
@@ -50,6 +50,6 @@ a:visited{
 }
 
 #sidebar a:hover {
-    background-color: #fbfbfb;
+    background-color: #767272;
     color: #FFFFFF;
 }

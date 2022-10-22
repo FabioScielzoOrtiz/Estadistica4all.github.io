@@ -1483,7 +1483,7 @@ code span.vs { color: #4e9a06; }
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } 
 </style>
     
-        <style type="text/css">#main .nav-pills > li.active > a,#main .nav-pills > li.active > a:hover,#main .nav-pills > li.active > a:focus {background-color: #edf81b;}#main .nav-pills > li > a:hover {background-color: #16f1f1;}h1,h2,h3,h4,h5,h6,legend{color: #b10d0d;}#nav-top span.glyphicon {color: #008B8B;}#table-of-contents header{color:#008B8B;background-color: #b51d1d;}#table-of-contents h2{background-color:#22983B;}a:hover{color:#008B8B}a:visited{color:#008B8B}#sidebar {color: #6b3e3e;background: #6b3e3e;}#sidebar h2 {color: #fafafa;background-color: #891111;}#sidebar a {color: #ffffff;}#sidebar a:hover {background-color: #a29e9e;color: #FFFFFF;}</style>
+        <style type="text/css">#main .nav-pills > li.active > a,#main .nav-pills > li.active > a:hover,#main .nav-pills > li.active > a:focus {background-color: #ffffff;}#main .nav-pills > li > a:hover {background-color: #ffffff;}h1,h2,h3,h4,h5,h6,legend{color: #b10d0d;}#nav-top span.glyphicon {color: #008B8B;}#table-of-contents header{color:#ffffff;background-color: #b51d1d;}#table-of-contents h2{background-color:#ffffff;}a:hover{color:#ffffff}a:visited{color:#ffffff}#sidebar {color: #682929;background: #652323;}#sidebar h2 {color: #fafafa;background-color: #970f0f;}#sidebar a {color: #ffffff;}#sidebar a:hover {background-color: #767272;color: #FFFFFF;}</style>
     
     <!-- tabsets -->
     <script>
@@ -1585,19 +1585,64 @@ margin-left: 0 !important;
       <li><a href="#usefulness-of-the-linear-regression-model" id="toc-usefulness-of-the-linear-regression-model"><span class="toc-section-number">2.1</span> Usefulness of the Linear Regression Model <a class="anchor" id="5"></a></a></li>
       <li><a href="#formal-approach-to-the-linear-regression-model" id="toc-formal-approach-to-the-linear-regression-model"><span class="toc-section-number">2.2</span> Formal Approach to the Linear Regression Model <a class="anchor" id="6"></a></a></li>
       <li><a href="#basic-assumptions" id="toc-basic-assumptions"><span class="toc-section-number">2.3</span> Basic Assumptions <a class="anchor" id="7"></a></a></li>
-      <li><a href="#estimation" id="toc-estimation"><span class="toc-section-number">2.4</span> Estimation <a class="anchor" id="10"></a></a></li>
-      <li><a href="#model-train-validation" id="toc-model-train-validation"><span class="toc-section-number">2.5</span> Model Train Validation <a class="anchor" id="30"></a></a></li>
-      <li><a href="#model-coefficients-interpretation" id="toc-model-coefficients-interpretation"><span class="toc-section-number">2.6</span> Model Coefficients Interpretation <a class="anchor" id="33"></a></a></li>
-      <li><a href="#inference" id="toc-inference"><span class="toc-section-number">2.7</span> Inference <a class="anchor" id="40"></a></a></li>
-      <li><a href="#goodness-of-fit-hspace0.1cm-determination-coefficient-r2" id="toc-goodness-of-fit-hspace0.1cm-determination-coefficient-r2"><span class="toc-section-number">2.8</span> Goodness of Fit: <span class="math inline">\(\hspace{0.1cm}\)</span> Determination Coefficient <span class="math inline">\((R^2)\)</span> <a class="anchor" id="54"></a></a></li>
-      <li><a href="#goodness-of-fit-hspace0.1cm-adjusted-r2" id="toc-goodness-of-fit-hspace0.1cm-adjusted-r2"><span class="toc-section-number">2.9</span> Goodness of Fit: <span class="math inline">\(\hspace{0.1cm}\)</span> Adjusted <span class="math inline">\(R^2\)</span> <a class="anchor" id="57"></a></a></li>
-      <li><a href="#model-problems" id="toc-model-problems"><span class="toc-section-number">2.10</span> Model Problems <a class="anchor" id="60"></a></a></li>
-      <li><a href="#multicollinearity" id="toc-multicollinearity"><span class="toc-section-number">2.11</span> Multicollinearity <a class="anchor" id="61"></a></a></li>
-      <li><a href="#checking-error-assumptions" id="toc-checking-error-assumptions"><span class="toc-section-number">2.12</span> Checking Error Assumptions <a class="anchor" id="68"></a></a></li>
-      <li><a href="#checking-linear-assumption" id="toc-checking-linear-assumption"><span class="toc-section-number">2.13</span> Checking Linear Assumption <a class="anchor" id="73"></a></a></li>
-      <li><a href="#finding-outliers" id="toc-finding-outliers"><span class="toc-section-number">2.14</span> Finding Outliers <a class="anchor" id="74"></a></a></li>
-      <li><a href="#bibliography" id="toc-bibliography"><span class="toc-section-number">2.15</span> Bibliography</a></li>
+      <li><a href="#assumptions-consequences" id="toc-assumptions-consequences"><span class="toc-section-number">2.4</span> Assumptions Consequences <a class="anchor" id="8"></a></a></li>
+      <li><a href="#matrix-representation-of-the-model-basic-assumption" id="toc-matrix-representation-of-the-model-basic-assumption"><span class="toc-section-number">2.5</span> Matrix representation of the model basic assumption <a class="anchor" id="9"></a></a></li>
       </ul></li>
+      <li><a href="#estimation" id="toc-estimation"><span class="toc-section-number">3</span> Estimation <a class="anchor" id="10"></a></a>
+      <ul>
+      <li><a href="#prediction-of-response-variable" id="toc-prediction-of-response-variable"><span class="toc-section-number">3.1</span> Prediction of Response Variable <a class="anchor" id="11"></a></a></li>
+      <li><a href="#estimation-of-model-coefficients" id="toc-estimation-of-model-coefficients"><span class="toc-section-number">3.2</span> Estimation of model coefficients <a class="anchor" id="12"></a></a></li>
+      <li><a href="#estimation-of-model-errors-residuals" id="toc-estimation-of-model-errors-residuals"><span class="toc-section-number">3.3</span> Estimation of model errors (residuals) <a class="anchor" id="13"></a></a></li>
+      <li><a href="#residual-sum-of-squares-rss" id="toc-residual-sum-of-squares-rss"><span class="toc-section-number">3.4</span> Residual sum of squares (RSS) <a class="anchor" id="13.1"></a></a></li>
+      <li><a href="#regression-hyperplane" id="toc-regression-hyperplane"><span class="toc-section-number">3.5</span> Regression Hyperplane <a class="anchor" id="14"></a></a></li>
+      <li><a href="#hat-matrix" id="toc-hat-matrix"><span class="toc-section-number">3.6</span> Hat-Matrix <a class="anchor" id="15"></a></a></li>
+      <li><a href="#estimation-of-the-linear-regression-model-in-r" id="toc-estimation-of-the-linear-regression-model-in-r"><span class="toc-section-number">3.7</span> Estimation of the Linear Regression Model in <code>R</code> <a class="anchor" id="16"></a></a></li>
+      <li><a href="#estimation-of-linear-regression-model-in-python" id="toc-estimation-of-linear-regression-model-in-python"><span class="toc-section-number">3.8</span> Estimation of Linear Regression Model in <code>Python</code></a></li>
+      <li><a href="#precision-of-beta-coefficients-estimation" id="toc-precision-of-beta-coefficients-estimation"><span class="toc-section-number">3.9</span> Precision of beta coefficients estimation <a class="anchor" id="19"></a></a></li>
+      <li><a href="#model-predictions-in-r" id="toc-model-predictions-in-r"><span class="toc-section-number">3.10</span> Model Predictions in <code>R</code> <a class="anchor" id="22"></a></a></li>
+      <li><a href="#model-predictions-in-python" id="toc-model-predictions-in-python"><span class="toc-section-number">3.11</span> Model Predictions in <code>Python</code></a></li>
+      <li><a href="#estimation-of-model-errors-residuals-in-r" id="toc-estimation-of-model-errors-residuals-in-r"><span class="toc-section-number">3.12</span> Estimation of model errors (residuals) in <code>R</code> <a class="anchor" id="25"></a></a></li>
+      <li><a href="#estimation-of-model-errors-residuals-in-python" id="toc-estimation-of-model-errors-residuals-in-python"><span class="toc-section-number">3.13</span> Estimation of model errors (residuals) in <code>Python</code> <a class="anchor" id="26"></a></a></li>
+      <li><a href="#estimation-of-the-error-variance-residual-variance" id="toc-estimation-of-the-error-variance-residual-variance"><span class="toc-section-number">3.14</span> Estimation of the error variance (residual variance) <a class="anchor" id="27"></a></a></li>
+      </ul></li>
+      <li><a href="#model-train-validation" id="toc-model-train-validation"><span class="toc-section-number">4</span> Model Train Validation <a class="anchor" id="30"></a></a>
+      <ul>
+      <li><a href="#model-train-validation-in-r" id="toc-model-train-validation-in-r"><span class="toc-section-number">4.1</span> Model Train Validation in <code>R</code> <a class="anchor" id="31"></a></a></li>
+      <li><a href="#model-train-validation-in-python" id="toc-model-train-validation-in-python"><span class="toc-section-number">4.2</span> Model Train Validation in <code>Python</code> <a class="anchor" id="32"></a></a></li>
+      </ul></li>
+      <li><a href="#model-coefficients-interpretation" id="toc-model-coefficients-interpretation"><span class="toc-section-number">5</span> Model Coefficients Interpretation <a class="anchor" id="33"></a></a>
+      <ul>
+      <li><a href="#null-coefficient" id="toc-null-coefficient"><span class="toc-section-number">5.1</span> Null Coefficient <a class="anchor" id="34"></a></a></li>
+      <li><a href="#quantitative-predictor-coefficient" id="toc-quantitative-predictor-coefficient"><span class="toc-section-number">5.2</span> Quantitative Predictor Coefficient <a class="anchor" id="35"></a></a></li>
+      <li><a href="#categorical-predictor-coefficient" id="toc-categorical-predictor-coefficient"><span class="toc-section-number">5.3</span> Categorical Predictor Coefficient <a class="anchor" id="36"></a></a></li>
+      <li><a href="#example-of-coefficient-interpretation" id="toc-example-of-coefficient-interpretation"><span class="toc-section-number">5.4</span> Example of coefficient interpretation <a class="anchor" id="37"></a></a></li>
+      <li><a href="#interaction-coefficient" id="toc-interaction-coefficient"><span class="toc-section-number">5.5</span> Interaction Coefficient <a class="anchor" id="38"></a></a></li>
+      <li><a href="#example-of-interaction-coefficient-interpretation" id="toc-example-of-interaction-coefficient-interpretation"><span class="toc-section-number">5.6</span> Example of interaction coefficient interpretation <a class="anchor" id="39"></a></a></li>
+      </ul></li>
+      <li><a href="#inference" id="toc-inference"><span class="toc-section-number">6</span> Inference <a class="anchor" id="40"></a></a>
+      <ul>
+      <li><a href="#confidence-interval-for-beta_j" id="toc-confidence-interval-for-beta_j"><span class="toc-section-number">6.1</span> Confidence Interval for <span class="math inline">\(\beta_j\)</span> <a class="anchor" id="41"></a></a></li>
+      <li><a href="#confidence-interval-for-sigma2" id="toc-confidence-interval-for-sigma2"><span class="toc-section-number">6.2</span> Confidence Interval for <span class="math inline">\(\sigma^2\)</span> <a class="anchor" id="42"></a></a></li>
+      <li><a href="#hypothesis-test-for-beta_j" id="toc-hypothesis-test-for-beta_j"><span class="toc-section-number">6.3</span> Hypothesis Test for <span class="math inline">\(\beta_j\)</span> <a class="anchor" id="47"></a></a></li>
+      <li><a href="#test-of-significance-for-beta_j" id="toc-test-of-significance-for-beta_j"><span class="toc-section-number">6.4</span> Test of Significance for <span class="math inline">\(\beta_j\)</span> <a class="anchor" id="48"></a></a></li>
+      <li><a href="#anova-test" id="toc-anova-test"><span class="toc-section-number">6.5</span> ANOVA Test <a class="anchor" id="51"></a></a></li>
+      <li><a href="#prediction-interval-for-hspace0.1cm-y_i" id="toc-prediction-interval-for-hspace0.1cm-y_i"><span class="toc-section-number">6.6</span> Prediction Interval for <span class="math inline">\(\hspace{0.1cm} y_i\)</span> <a class="anchor" id="53.1"></a></a></li>
+      </ul></li>
+      <li><a href="#goodness-of-fit-hspace0.1cm-determination-coefficient-r2" id="toc-goodness-of-fit-hspace0.1cm-determination-coefficient-r2"><span class="toc-section-number">7</span> Goodness of Fit: <span class="math inline">\(\hspace{0.1cm}\)</span> Determination Coefficient <span class="math inline">\((R^2)\)</span> <a class="anchor" id="54"></a></a>
+      <ul>
+      <li><a href="#determination-coefficient" id="toc-determination-coefficient"><span class="toc-section-number">7.1</span> Determination Coefficient</a></li>
+      <li><a href="#adjusted-determination-coefficient" id="toc-adjusted-determination-coefficient"><span class="toc-section-number">7.2</span> Adjusted Determination Coefficient</a></li>
+      <li><a href="#computing-widehatr2-in-r" id="toc-computing-widehatr2-in-r"><span class="toc-section-number">7.3</span> Computing <span class="math inline">\(\widehat{R^2}\)</span> in <code>R</code> <a class="anchor" id="58"></a></a></li>
+      <li><a href="#computing-widehatr2-in-python" id="toc-computing-widehatr2-in-python"><span class="toc-section-number">7.4</span> Computing <span class="math inline">\(\widehat{R^2}\)</span> in <code>Python</code> <a class="anchor" id="59"></a></a></li>
+      </ul></li>
+      <li><a href="#model-problems" id="toc-model-problems"><span class="toc-section-number">8</span> Model Problems <a class="anchor" id="60"></a></a>
+      <ul>
+      <li><a href="#multicollinearity" id="toc-multicollinearity"><span class="toc-section-number">8.1</span> Multicollinearity <a class="anchor" id="61"></a></a></li>
+      <li><a href="#checking-error-assumptions" id="toc-checking-error-assumptions"><span class="toc-section-number">8.2</span> Checking Error Assumptions <a class="anchor" id="68"></a></a></li>
+      <li><a href="#checking-linear-assumption" id="toc-checking-linear-assumption"><span class="toc-section-number">8.3</span> Checking Linear Assumption <a class="anchor" id="73"></a></a></li>
+      <li><a href="#finding-outliers" id="toc-finding-outliers"><span class="toc-section-number">8.4</span> Finding Outliers <a class="anchor" id="74"></a></a></li>
+      </ul></li>
+      <li><a href="#bibliography" id="toc-bibliography"><span class="toc-section-number">9</span> Bibliography</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1807,10 +1852,13 @@ called <strong>predictors</strong>.</p>
 <h2><span class="header-section-number">2.2</span> Formal Approach to the Linear Regression Model <a class="anchor" id="6"></a></h2>
 <p>We have the following elements:</p>
 <ul>
-<li><p><strong><em>Response Variable:</em></strong>  a <strong>quantitative</strong> variable
-  <span class="math inline">\(Y=(y_{1} , y_2,...,y_n)^t\)</span></p></li>
-<li><p><strong><em>Predictors:</em></strong> a set of <strong>quantitative</strong> or <strong>categorical</strong>
-variables:</p></li>
+<li><strong><em>Response Variable:</em></strong>  a <strong>quantitative</strong> variable
+  <span class="math inline">\(Y=(y_{1} , y_2,...,y_n)^t\)</span></li>
+</ul>
+<p> </p>
+<ul>
+<li><strong><em>Predictors:</em></strong> a set of <strong>quantitative</strong> or <strong>categorical</strong>
+variables:</li>
 </ul>
 <p><span class="math display">\[\begin{gather*}
 X_1 = (x_{11}, x_{21}, ..., x_{n1})^t \\
@@ -1818,6 +1866,7 @@ X_2 = (x_{12}, x_{22}, ..., x_{n2})^t \\
 ... \\
 X_p = (x_{1p}, x_{2p}, ..., x_{np})^t
 \end{gather*}\]</span></p>
+<p> </p>
 <ul>
 <li><p><strong><em>Predictors Matrix:</em></strong></p>
 <p><span class="math display">\[\begin{gather*}
@@ -1835,11 +1884,15 @@ x_{2}\\
 x_{n}
 \end{pmatrix}
 \end{gather*}\]</span></p></li>
-<li><p><strong><em>Beta Coefficients vector:</em></strong></p></li>
+</ul>
+<p> </p>
+<ul>
+<li><strong><em>Beta Coefficients vector:</em></strong></li>
 </ul>
 <p><span class="math display">\[\begin{gather*}
 \beta=(\beta_{1}, \beta_{2}, ..., \beta_{n})^t
 \end{gather*}\]</span></p>
+<p> </p>
 <ul>
 <li><strong><em>Errors (residuals) vector:</em></strong></li>
 </ul>
@@ -1852,66 +1905,83 @@ x_{n}
 <h2><span class="header-section-number">2.3</span> Basic Assumptions <a class="anchor" id="7"></a></h2>
 <p>The basic assumptions of the model are the following:</p>
 <ul>
-<li><p>$ y_i = x_i^t + _i = <em>0 + </em>{j=1}^{p} ( <em>j x</em>{ij} ) + _i = _0 + <em>1 x</em>{i1} + <em>2 x</em>{i2} + + <em>p x</em>{ip} + _i $</p></li>
+<li><span class="math inline">\(\hspace{0.3cm} y_i \hspace{0.1cm} = \hspace{0.1cm} x_i^t \cdot \beta + \varepsilon_i \hspace{0.1cm} = \hspace{0.1cm} \beta_0 + \sum_{j=1}^{p} \left( \beta_j \cdot x_{ij} \right) + \varepsilon_i \hspace{0.1cm} = \hspace{0.1cm} \beta_0 + \beta_1 \cdot x_{i1} + \beta_2 \cdot x_{i2} + \dots + \beta_p \cdot x_{ip} + \varepsilon_i\)</span></li>
+</ul>
+<p> </p>
+<ul>
 <li><p><span class="math inline">\(\hspace{0.3cm} \varepsilon_i\)</span> is a random variable such that:</p>
 <ul>
-<li><p><span class="math inline">\(\hspace{0.3cm} E[\varepsilon_i]=0\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.3cm} Var(\varepsilon_i)=\sigma^2\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.3cm} \varepsilon_i \sim N(0,\sigma)\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.3cm} cov(\varepsilon_i , \varepsilon_j)=0 \hspace{0.15cm} ,\forall i\neq j\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.3cm} E[\varepsilon_i]=0 \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.3cm} Var(\varepsilon_i)=\sigma^2 \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.3cm} \varepsilon_i \sim N(0,\sigma) \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.3cm} cov(\varepsilon_i , \varepsilon_j)=0 \hspace{0.25cm} ,\forall i\neq j\)</span></p></li>
 </ul></li>
+</ul>
+<p> </p>
+<ul>
 <li><p><span class="math inline">\(\hspace{0.3cm}\)</span> Additional assumptions:</p>
 <ul>
-<li><p><span class="math inline">\(\hspace{0.3cm} n &gt; p+1 \hspace{0.3cm}\)</span> ( nº observations <span class="math inline">\(&gt;\)</span> nº of beta coefficients )</p></li>
+<li><p><span class="math inline">\(\hspace{0.3cm} n &gt; p+1 \\\)</span></p></li>
 <li><p><span class="math inline">\(\hspace{0.3cm} Rg(X)=p+1\)</span></p></li>
 </ul></li>
 </ul>
 <p>Why are these additional assumptions important ? $ $ Dimensionality problem (will be seen it in other article of the blog)</p>
-<hr />
-<div id="assumptions-consequences" class="section level3" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> Assumptions Consequences <a class="anchor" id="8"></a></h3>
+<p> </p>
+</div>
+<div id="assumptions-consequences" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Assumptions Consequences <a class="anchor" id="8"></a></h2>
 <ul>
-<li><p><span class="math inline">\(\hspace{0.15cm} y_i\)</span> is a random variable because <span class="math inline">\(\varepsilon_i\)</span> is a random variable</p></li>
-<li><p><span class="math inline">\(\hspace{0.15cm} E[y_i]= x_i^t \cdot \beta\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.15cm} Var(y_i) = \sigma^2\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.15cm} y_i \sim N(\hspace{0.1cm} x_i^t \cdot \beta \hspace{0.1cm} , \hspace{0.1cm} \sigma^2 \hspace{0.1cm} )\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.15cm} cov(y_i , y_j)=0 \hspace{0.15cm}, \forall i\neq j\)</span></p></li>
-</ul>
-<hr />
-</div>
-<div id="matrix-representation-of-the-basic-assumption-of-the-model" class="section level3" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Matrix representation of the basic assumption of the model <a class="anchor" id="9"></a></h3>
+<li><p><span class="math inline">\(\hspace{0.15cm} y_i\)</span> is a random variable because <span class="math inline">\(\varepsilon_i\)</span> is a random variable, and has the following propierties:</p>
 <ul>
-<li><p>$ Y=X+ $</p></li>
-<li><p>$_i N(0,) i=1,…,n $</p></li>
-<li><p>$cov(_i , _j)=0 ij =1,…,n $</p></li>
+<li><p><span class="math inline">\(\hspace{0.15cm} E[y_i]= x_i^t \cdot \beta \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.15cm} Var(y_i) = \sigma^2 \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.15cm} y_i \sim N(\hspace{0.1cm} x_i^t \cdot \beta \hspace{0.1cm} , \hspace{0.1cm} \sigma^2 \hspace{0.1cm} ) \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.15cm} cov(y_i , y_j)=0 \hspace{0.25cm}, \forall i\neq j\)</span></p></li>
+</ul></li>
 </ul>
-<hr />
+<p> </p>
+</div>
+<div id="matrix-representation-of-the-model-basic-assumption" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Matrix representation of the model basic assumption <a class="anchor" id="9"></a></h2>
+<ul>
+<li><span class="math inline">\(Y=X\cdot \beta + \varepsilon \\\)</span></li>
+</ul>
+<p>Where:</p>
+<ul>
+<li><p><span class="math inline">\(\varepsilon_i \sim N(0,\sigma) \hspace{0.4cm} \forall \hspace{0.1cm} i=1,...,n \\\)</span></p></li>
+<li><p><span class="math inline">\(cov(\varepsilon_i , \varepsilon_j)=0 \hspace{0.4cm} \forall \hspace{0.1cm} i\neq j =1,...,n\)</span></p></li>
+</ul>
+<p> </p>
 </div>
 </div>
-<div id="estimation" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Estimation <a class="anchor" id="10"></a></h2>
-<div id="prediction-of-response-variable" class="section level3" number="2.4.1">
-<h3><span class="header-section-number">2.4.1</span> Prediction of Response Variable <a class="anchor" id="11"></a></h3>
-<p>The linear regression model predict the response variable value <span class="math inline">\(y_i\)</span> for the combination of predictors values <span class="math inline">\(x_i = (1,x_{i1}, x_{i2}, ..., x_{ip})^t\)</span> as:</p>
+<div id="estimation" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Estimation <a class="anchor" id="10"></a></h1>
+<div id="prediction-of-response-variable" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Prediction of Response Variable <a class="anchor" id="11"></a></h2>
+<p>The linear regression model predict the response variable value <span class="math inline">\(y_i\)</span> for the combination of predictors values <span class="math inline">\(\hspace{0.1cm} x_i = (1,x_{i1}, x_{i2}, ..., x_{ip})^t \hspace{0.1cm}\)</span> as:</p>
+<p><br></p>
 <p><span class="math display">\[\begin{gather*}
 \widehat{y}_i \hspace{0.1cm}=\hspace{0.1cm} x_i^t \cdot \widehat{\beta}  \hspace{0.1cm}=\hspace{0.1cm} \widehat{\beta}_0 + \sum_{j=1}^{p} \widehat{\beta}_j \cdot x_{ij} \hspace{0.1cm}=\hspace{0.1cm} \widehat{\beta}_0 + \widehat{\beta}_1 \cdot x_{i1} + \widehat{\beta}_2 \cdot x_{i2} + ... + \widehat{\beta}_p \cdot x_{ip}
 \end{gather*}\]</span></p>
-<hr />
+<p> </p>
 </div>
-<div id="estimation-of-model-coefficients" class="section level3" number="2.4.2">
-<h3><span class="header-section-number">2.4.2</span> Estimation of model coefficients <a class="anchor" id="12"></a></h3>
-<p>The estimation of <span class="math inline">\(\beta\)</span> in the classic linear regression model is done
+<div id="estimation-of-model-coefficients" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Estimation of model coefficients <a class="anchor" id="12"></a></h2>
+<p>The estimation of <span class="math inline">\(\hspace{0.1cm} \beta \hspace{0.1cm}\)</span> in the classic linear regression model is done
 using the ordinary least square (OLS) method.</p>
-<p><span class="math inline">\(\widehat{\beta}\)</span> is compute as the solution of the following optimitation
+<p><span class="math inline">\(\widehat{\beta} \hspace{0.1cm}\)</span> is compute as the solution of the following optimitation
 problem:</p>
+<p><br></p>
 <p><span class="math display">\[\begin{gather*}
   \underset{\beta}{Min} \hspace{0.2cm} RSS(\beta) \hspace{0.2cm} = \hspace{0.2cm}  \underset{\beta}{Min} \hspace{0.2cm}  \sum_{i=1}^{n} \hspace{0.1cm}(y_i - x_i^t \cdot \beta)\hspace{0.02cm}^2  \hspace{0.2cm} = \hspace{0.2cm}  \underset{\beta_0,\beta_1,...,\beta_p}{Min} \hspace{0.2cm}  \sum_{i=1}^{n} \hspace{0.1cm}(y_i - \beta_0 - \beta_1 \cdot x_{i1} - \dots - \beta_p \cdot x_{ip})\hspace{0.02cm}^2
 \end{gather*}\]</span></p>
+<p><br></p>
 <p>The problem solution is:</p>
+<blockquote>
 <p><span class="math display">\[\begin{gather*}
 \widehat{\beta}=(X^t \cdot X)^{-1} \cdot X^t \cdot Y
 \end{gather*}\]</span></p>
+</blockquote>
 <p><strong>Interpretation :</strong></p>
 <p>$ = x^t $ is the hyperplane that <strong>minimize</strong> the <strong>euclidean distance</strong> between the given values of the response variable <span class="math inline">\((Y)\)</span> and the points of the hyperplane given by <span class="math inline">\(\hspace{0.1cm} \hat{y}_i = x_i^t \cdot \widehat{\beta}\)</span></p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Image</span>
@@ -1922,10 +1992,10 @@ this optimization problem. But is a classic convex optimization problem,
 so it´s enough to take first derivatives of the objetive function with
 respect to the coefficients <span class="math inline">\(\beta_0,\beta_1,...,\beta_p\)</span> , set them equal to zero (0), and solve the resultant equation system with respect
 to <span class="math inline">\(\beta\)</span></p>
-<hr />
+<p> </p>
 </div>
-<div id="estimation-of-model-errors-residuals" class="section level3" number="2.4.3">
-<h3><span class="header-section-number">2.4.3</span> Estimation of model errors (residuals) <a class="anchor" id="13"></a></h3>
+<div id="estimation-of-model-errors-residuals" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Estimation of model errors (residuals) <a class="anchor" id="13"></a></h2>
 <p>The model errors  <span class="math inline">\(\varepsilon_i\)</span>  are estimated as:</p>
 <p><span class="math display">\[
 \widehat{\varepsilon}_i \hspace{0.1 cm} = \hspace{0.1 cm} y_i - \widehat{y}_i \hspace{0.1 cm} = \hspace{0.1 cm} y_i - x_i^t \cdot \widehat{\beta}  
@@ -1934,34 +2004,34 @@ to <span class="math inline">\(\beta\)</span></p>
 <p><strong>Observation:</strong></p>
 <p><span class="math inline">\(\hat{\varepsilon}_i\)</span>  is the error done by the model when it
 predicts  <span class="math inline">\(y_i\)</span>  as  <span class="math inline">\(\hat{y}_i=x_i^t \cdot \hat{\beta}\)</span></p>
-<hr />
+<p> </p>
 </div>
-<div id="residual-sum-of-squares-rss" class="section level3" number="2.4.4">
-<h3><span class="header-section-number">2.4.4</span> Residual sum of squares (RSS) <a class="anchor" id="13.1"></a></h3>
+<div id="residual-sum-of-squares-rss" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Residual sum of squares (RSS) <a class="anchor" id="13.1"></a></h2>
 <p>The size of the errors is quantify as the estimated errors sum of squares :</p>
 <p><span class="math display">\[ RSS \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} \hat{\varepsilon}_i\hspace{0.02cm}^2 \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} (y_i - \widehat{y}_i)\hspace{0.02cm}^2 \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} (y_i - x_i^t \cdot \widehat{\beta})\hspace{0.02cm}^2 \]</span></p>
-<hr />
+<p> </p>
 </div>
-<div id="regression-hyperplane" class="section level3" number="2.4.5">
-<h3><span class="header-section-number">2.4.5</span> Regression Hyperplane <a class="anchor" id="14"></a></h3>
+<div id="regression-hyperplane" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Regression Hyperplane <a class="anchor" id="14"></a></h2>
 <p>The regression hyperplane is the matrix expression of the predictions
 that the model does of the response variable values:</p>
 <p><span class="math display">\[ \hat{Y} = X \cdot \hat{\beta}\]</span></p>
 <p>Where:   <span class="math inline">\(\hat{Y}=(\hat{y}_1,\hat{y}_2,...,\hat{y}_n)^t\)</span></p>
-<hr />
+<p> </p>
 </div>
-<div id="hat-matrix" class="section level3" number="2.4.6">
-<h3><span class="header-section-number">2.4.6</span> Hat-Matrix <a class="anchor" id="15"></a></h3>
+<div id="hat-matrix" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Hat-Matrix <a class="anchor" id="15"></a></h2>
 <p><span class="math display">\[\begin{gather*}
 \hat{Y} = X \cdot \hat{\beta} = X \cdot (X^t \cdot X)^{-1} \cdot X^t \cdot Y = H \cdot Y  
 \end{gather*}\]</span></p>
 <p>Where:</p>
 <p> <span class="math display">\[H= X \cdot (X^t \cdot X)^{-1} \cdot X^t\]</span></p>
 <p> is called <strong>Hat-Matrix</strong></p>
-<hr />
+<p> </p>
 </div>
-<div id="estimation-of-the-linear-regression-model-in-r" class="section level3" number="2.4.7">
-<h3><span class="header-section-number">2.4.7</span> Estimation of the Linear Regression Model in <code>R</code> <a class="anchor" id="16"></a></h3>
+<div id="estimation-of-the-linear-regression-model-in-r" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Estimation of the Linear Regression Model in <code>R</code> <a class="anchor" id="16"></a></h2>
 <p>In this section we are going to show how estimate a linear regression
 model in R, using for this purpose the data-set that was showed at the begining of the article.</p>
 <p>The linear regression model that we propose is the following:</p>
@@ -1974,13 +2044,12 @@ price_i = \beta_0 +  \beta_1 \cdot size\_in\_m\_2_i + \beta_2 \cdot no\_of\_bedr
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="at">data =</span> data_R)</span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_R)</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="estimation-of-linear-regression-model-in-python" class="section level3" number="2.4.8">
-<h3><span class="header-section-number">2.4.8</span> Estimation of Linear Regression Model in <code>Python</code></h3>
-</div>
-<div id="estimation-of-linear-regression-model-in-python-with-statsmodels" class="section level3" number="2.4.9">
-<h3><span class="header-section-number">2.4.9</span> Estimation of Linear Regression Model in <code>Python</code> with <code>statsmodels</code> <a class="anchor" id="17"></a></h3>
+<div id="estimation-of-linear-regression-model-in-python" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> Estimation of Linear Regression Model in <code>Python</code></h2>
+<div id="estimation-of-linear-regression-model-in-python-with-statsmodels" class="section level3" number="3.8.1">
+<h3><span class="header-section-number">3.8.1</span> Estimation of Linear Regression Model in <code>Python</code> with <code>statsmodels</code> <a class="anchor" id="17"></a></h3>
 <p>We can implement a linear regression model in Python with <code>statsmodels</code> in two ways.</p>
 <p><strong><em>First way:</em></strong> <span class="math inline">\(\hspace{0.1cm}\)</span> <code>statsmodels.formula.api</code></p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install statmodels</span></span></code></pre></div>
@@ -2058,8 +2127,8 @@ quality2, quality3 ). The category. that is out of the model is Low (0) because 
 <p>Later it will be seen how this affects model coefficients interpretation.</p>
 <hr />
 </div>
-<div id="estimation-of-linear-regression-model-in-python-with-scikit-learn" class="section level3" number="2.4.10">
-<h3><span class="header-section-number">2.4.10</span> Estimation of Linear Regression Model in <code>Python</code> with <code>scikit-learn</code> <a class="anchor" id="18"></a></h3>
+<div id="estimation-of-linear-regression-model-in-python-with-scikit-learn" class="section level3" number="3.8.2">
+<h3><span class="header-section-number">3.8.2</span> Estimation of Linear Regression Model in <code>Python</code> with <code>scikit-learn</code> <a class="anchor" id="18"></a></h3>
 <div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install sklearn</span></span></code></pre></div>
 <div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sklearn</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -2080,10 +2149,11 @@ quality2, quality3 ). The category. that is out of the model is Low (0) because 
 <div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>Model_Py_sklearn.intercept_</span></code></pre></div>
 <div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>Model_Py_sklearn.coef_</span></code></pre></div>
 <p>Note that the order of the array values follows the order of <span class="math inline">\(X\)</span> columns.</p>
-<hr />
+<p> </p>
 </div>
-<div id="precision-of-the-estimation-of-beta-coefficients" class="section level3" number="2.4.11">
-<h3><span class="header-section-number">2.4.11</span> Precision of the estimation of beta coefficients <a class="anchor" id="19"></a></h3>
+</div>
+<div id="precision-of-beta-coefficients-estimation" class="section level2" number="3.9">
+<h2><span class="header-section-number">3.9</span> Precision of beta coefficients estimation <a class="anchor" id="19"></a></h2>
 <p>The precision of the estimations of model beta coefficients is given by the
 variance of the beta coefficient estimators, that is, by <span class="math inline">\(\hspace{0.02cm}\)</span> <span class="math inline">\(Var(\widehat{\beta}_j)\)</span></p>
 <p>It´s true that <span class="math inline">\(\hspace{0.07cm}\)</span>
@@ -2113,17 +2183,16 @@ will be obtained small differences when <span class="math inline">\(\beta_j\)</s
 that means estimator <span class="math inline">\(\hat{\beta_j}\)</span> is <strong>precise</strong>, because it will be little
 dispersion of the values of <span class="math inline">\(\hat{\beta_j}\)</span> respect to the mean.</p>
 <p>Also <span class="math inline">\(\hspace{0.05cm}\widehat{Var}(\widehat{\beta}_j)\hspace{0.05cm}\)</span> allow us to create a confidence interval for <span class="math inline">\(\hspace{0.05cm}\widehat{\beta}_j\)</span></p>
-<hr />
-<div id="estimation-of-the-standard-deviation-of-the-beta-coefficient-estimators-in-r" class="section level4" number="2.4.11.1">
-<h4><span class="header-section-number">2.4.11.1</span> Estimation of the standard deviation of the beta coefficient estimators in <code>R</code> <a class="anchor" id="20"></a></h4>
+<p> </p>
+<div id="estimation-of-beta-estimators-standard-deviation-in-r" class="section level3" number="3.9.1">
+<h3><span class="header-section-number">3.9.1</span> Estimation of beta estimators standard deviation in <code>R</code> <a class="anchor" id="20"></a></h3>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R </span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_R)</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-</div>
-<div id="estimation-of-the-standard-deviation-of-the-coefficient-estimators-in-python" class="section level3" number="2.4.12">
-<h3><span class="header-section-number">2.4.12</span> Estimation of the standard deviation of the coefficient estimators in <code>Python</code> <a class="anchor" id="21"></a></h3>
+<div id="estimation-of-beta-estimators-standard-deviation-in-python" class="section level3" number="3.9.2">
+<h3><span class="header-section-number">3.9.2</span> Estimation of beta estimators standard deviation in <code>Python</code> <a class="anchor" id="21"></a></h3>
 <div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model_Py_sm.summary())</span></code></pre></div>
 <p>This output give us a lot of information about the model, some of this
 information has been seen (estimates coefficients), an other information
@@ -2147,10 +2216,11 @@ the one obtained with our initial sample.</p>
 <p>And this is a big problem, because from one sample to another are
 obtained very different linear regression models, so that, very
 different results with each sample.</p>
-<hr />
+<p> </p>
 </div>
-<div id="model-predictions-in-r" class="section level3" number="2.4.13">
-<h3><span class="header-section-number">2.4.13</span> Model Predictions in <code>R</code> <a class="anchor" id="22"></a></h3>
+</div>
+<div id="model-predictions-in-r" class="section level2" number="3.10">
+<h2><span class="header-section-number">3.10</span> Model Predictions in <code>R</code> <a class="anchor" id="22"></a></h2>
 <p>With the function <code>predict</code> we can get the predictions made by the model
 for the response variable <span class="math inline">\((y)\)</span> in R, for the data-set with which the model has been trained and also for a new data-set that the model hasn’t seen.</p>
 <p><strong>Predictions with the train data:</strong></p>
@@ -2176,10 +2246,12 @@ for the response variable <span class="math inline">\((y)\)</span> in R, for the
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(model_R, new_data)</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="model-predictions-in-python-with-statsmodels" class="section level3" number="2.4.14">
-<h3><span class="header-section-number">2.4.14</span> Model Predictions in <code>Python</code> with <code>Statsmodels</code> <a class="anchor" id="23"></a></h3>
+<div id="model-predictions-in-python" class="section level2" number="3.11">
+<h2><span class="header-section-number">3.11</span> Model Predictions in <code>Python</code></h2>
+<div id="model-predictions-in-python-with-statsmodels" class="section level3" number="3.11.1">
+<h3><span class="header-section-number">3.11.1</span> Model Predictions in <code>Python</code> with <code>Statsmodels</code> <a class="anchor" id="23"></a></h3>
 <p>With <code>smf</code> :</p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>model_Py_smf <span class="op">=</span> smf.ols(formula <span class="op">=</span> <span class="st">&#39;price ~ size_in_m_2 + no_of_bedrooms + no_of_bathrooms + quality + latitude + longitude&#39;</span>, </span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>                 data <span class="op">=</span>data_Python).fit()</span></code></pre></div>
@@ -2216,10 +2288,10 @@ for the response variable <span class="math inline">\((y)\)</span> in R, for the
 <span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a>new_data <span class="op">=</span> pd.DataFrame({<span class="st">&#39;intercept&#39;</span>:intercept , <span class="st">&#39;size_in_m_2&#39;</span>:size_in_m_2, <span class="st">&#39;longitude&#39;</span>:longitude , <span class="st">&#39;latitude&#39;</span>:latitude, <span class="st">&#39;no_of_bedrooms&#39;</span>:no_of_bedrooms , <span class="st">&#39;no_of_bathrooms&#39;</span>:no_of_bathrooms , <span class="st">&#39;quality_1&#39;</span>:quality_1, <span class="st">&#39;quality_2&#39;</span>:quality_2, <span class="st">&#39;quality_3&#39;</span>:quality_3 }) </span></code></pre></div>
 <div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>new_data.head()</span></code></pre></div>
 <div class="sourceCode" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a> model_Py_sm.predict(new_data)</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="model-predictions-in-python-with-sk-learn" class="section level3" number="2.4.15">
-<h3><span class="header-section-number">2.4.15</span> Model Predictions in Python with <code>Sk-learn</code> <a class="anchor" id="24"></a></h3>
+<div id="model-predictions-in-python-with-sklearn" class="section level3" number="3.11.2">
+<h3><span class="header-section-number">3.11.2</span> Model Predictions in Python with <code>sklearn</code> <a class="anchor" id="24"></a></h3>
 <div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a> Model_Py_sklearn <span class="op">=</span> LinearRegression().fit(X, y)</span></code></pre></div>
 <p>Using the training data:</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>Model_Py_sklearn.predict(X)</span></code></pre></div>
@@ -2239,8 +2311,9 @@ for the response variable <span class="math inline">\((y)\)</span> in R, for the
 <div class="sourceCode" id="cb63"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>Model_Py_sklearn.predict(new_data)</span></code></pre></div>
 <hr />
 </div>
-<div id="estimation-of-model-errors-in-r" class="section level3" number="2.4.16">
-<h3><span class="header-section-number">2.4.16</span> Estimation of model errors in <code>R</code> <a class="anchor" id="25"></a></h3>
+</div>
+<div id="estimation-of-model-errors-residuals-in-r" class="section level2" number="3.12">
+<h2><span class="header-section-number">3.12</span> Estimation of model errors (residuals) in <code>R</code> <a class="anchor" id="25"></a></h2>
 <p>We estimate the model errors as <span class="math inline">\(\hspace{0.1cm}\)</span> <span class="math inline">\(\hat{\varepsilon}_i= y_i - \hat{y}_i\)</span></p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R </span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -2255,10 +2328,10 @@ model errors:</p>
 <span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>(df_predictions <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">y=</span>y , </span>
 <span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">y_predictions=</span><span class="fu">predict</span>(model_R), </span>
 <span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>                         estimated_errors))[<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>, ]</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="estimation-of-model-errors-in-python" class="section level3" number="2.4.17">
-<h3><span class="header-section-number">2.4.17</span> Estimation of model errors in <code>Python</code> <a class="anchor" id="26"></a></h3>
+<div id="estimation-of-model-errors-residuals-in-python" class="section level2" number="3.13">
+<h2><span class="header-section-number">3.13</span> Estimation of model errors (residuals) in <code>Python</code> <a class="anchor" id="26"></a></h2>
 <div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>predictions <span class="op">=</span> pd.DataFrame( {<span class="st">&#39;predictions&#39;</span>:  model_Py_sm.predict(X)} )</span></code></pre></div>
 <div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>df_predictions_Python <span class="op">=</span> pd.concat([y, predictions], axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>df_predictions_Python.head()</span></code></pre></div>
@@ -2268,8 +2341,8 @@ model errors:</p>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>df_predictions_Python.head()</span></code></pre></div>
 <hr />
 </div>
-<div id="estimation-of-the-error-variance-residual-variance" class="section level3" number="2.4.18">
-<h3><span class="header-section-number">2.4.18</span> Estimation of the error variance (Residual Variance) <a class="anchor" id="27"></a></h3>
+<div id="estimation-of-the-error-variance-residual-variance" class="section level2" number="3.14">
+<h2><span class="header-section-number">3.14</span> Estimation of the error variance (residual variance) <a class="anchor" id="27"></a></h2>
 <p>The estimator of the error variance <span class="math inline">\(\hspace{0.1cm} Var(\varepsilon_i)=\sigma^2 \hspace{0.1cm}\)</span> is
 called <strong>residual variance</strong>, and is defined as:</p>
 <p><span class="math display">\[
@@ -2285,10 +2358,9 @@ E[\widehat{\sigma}^2]=\sigma^2
 <p><span class="math display">\[
 Var(\widehat{\sigma}^2)=\dfrac{2 \cdot \sigma^4}{n-p-1}
 \]</span></p>
-<hr />
-</div>
-<div id="estimation-of-the-error-variance-in-r" class="section level3" number="2.4.19">
-<h3><span class="header-section-number">2.4.19</span> Estimation of the error variance in <code>R</code> <a class="anchor" id="28"></a></h3>
+<p> </p>
+<div id="estimation-of-the-error-variance-in-r" class="section level3" number="3.14.1">
+<h3><span class="header-section-number">3.14.1</span> Estimation of the error variance in <code>R</code> <a class="anchor" id="28"></a></h3>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span> <span class="fu">length</span>(estimated_errors)</span>
@@ -2298,10 +2370,10 @@ Var(\widehat{\sigma}^2)=\dfrac{2 \cdot \sigma^4}{n-p-1}
 <div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>( estimated_standard_deviation_error <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(estimated_variance_error) )</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="estimation-of-the-error-variance-in-python" class="section level3" number="2.4.20">
-<h3><span class="header-section-number">2.4.20</span> Estimation of the error variance in <code>Python</code> <a class="anchor" id="29"></a></h3>
+<div id="estimation-of-the-error-variance-in-python" class="section level3" number="3.14.2">
+<h3><span class="header-section-number">3.14.2</span> Estimation of the error variance in <code>Python</code> <a class="anchor" id="29"></a></h3>
 <div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(data_Python)</span>
 <span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">6</span></span></code></pre></div>
 <div class="sourceCode" id="cb73"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>estimated_variance_error <span class="op">=</span> <span class="bu">sum</span>(df_predictions_Python[<span class="st">&#39;estimated_errors&#39;</span>]<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span>(n<span class="op">-</span>p<span class="op">-</span><span class="dv">1</span>) </span>
@@ -2311,11 +2383,12 @@ Var(\widehat{\sigma}^2)=\dfrac{2 \cdot \sigma^4}{n-p-1}
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>estimated_standard_deviation_error <span class="op">=</span> math.sqrt(estimated_variance_error)</span>
 <span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>estimated_standard_deviation_error</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
 </div>
-<div id="model-train-validation" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Model Train Validation <a class="anchor" id="30"></a></h2>
+</div>
+<div id="model-train-validation" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Model Train Validation <a class="anchor" id="30"></a></h1>
 <p>We can compute some metric in order to measure how much distant are the
 predictions and observations of the response variable.</p>
 <p>Two of the most common metrics are the mean absolute deviation (MAD) and the mean square error (MSE):</p>
@@ -2326,19 +2399,19 @@ MAD \hspace{0.1cm} = \hspace{0.1cm}   \dfrac{1}{n} \sum_{i=1}^{n} \mid \hat{\var
 MSE \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^{n} \hat{\varepsilon}_i^2 \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^{n} \hspace{0.1cm}(\hspace{0.1cm} y_i - \hat{y}_i \hspace{0.1cm})^2 = \dfrac{1}{n} \sum_{i=1}^{n} \hspace{0.1cm}(\hspace{0.1cm} y_i - x_i \cdot \widehat{\beta} \hspace{0.1cm})^2
 \]</span></p>
 <p>When these metrics are computing using the data for <span class="math inline">\(y_i\)</span> and <span class="math inline">\(x_i\)</span> that were used to train the model it is called <em>model train validation</em>.</p>
-<hr />
-<div id="model-train-validation-in-r" class="section level3" number="2.5.1">
-<h3><span class="header-section-number">2.5.1</span> Model Train Validation in <code>R</code> <a class="anchor" id="31"></a></h3>
+<p> </p>
+<div id="model-train-validation-in-r" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Model Train Validation in <code>R</code> <a class="anchor" id="31"></a></h2>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
 <span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>( MAD <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">abs</span>((estimated_errors))) ) </span></code></pre></div>
 <div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
 <span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>( MSE <span class="ot">&lt;-</span> <span class="fu">mean</span>((estimated_errors)<span class="sc">^</span><span class="dv">2</span>) ) </span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="model-train-validation-in-python" class="section level3" number="2.5.2">
-<h3><span class="header-section-number">2.5.2</span> Model Train Validation in <code>Python</code> <a class="anchor" id="32"></a></h3>
+<div id="model-train-validation-in-python" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Model Train Validation in <code>Python</code> <a class="anchor" id="32"></a></h2>
 <div class="sourceCode" id="cb77"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>MAD_Py <span class="op">=</span> ( (y <span class="op">-</span> model_Py_sm.predict(X)).<span class="bu">abs</span>() ).mean()</span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>MAD_Py</span></code></pre></div>
 <div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>MSE_Py <span class="op">=</span> ( (y <span class="op">-</span> model_Py_sm.predict(X))<span class="op">**</span><span class="dv">2</span> ).mean()</span>
@@ -2353,22 +2426,23 @@ computed with predictors observations which haven´t been used to train
 the model.</p>
 <p>In this article, we will not go deeper unto that, but this concepts will
 be more developed in another article about validation techniques.</p>
-<hr />
+<p> </p>
 </div>
 </div>
-<div id="model-coefficients-interpretation" class="section level2" number="2.6">
-<h2><span class="header-section-number">2.6</span> Model Coefficients Interpretation <a class="anchor" id="33"></a></h2>
-<div id="null-coefficient" class="section level3" number="2.6.1">
-<h3><span class="header-section-number">2.6.1</span> Null Coefficient <a class="anchor" id="34"></a></h3>
+<div id="model-coefficients-interpretation" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Model Coefficients Interpretation <a class="anchor" id="33"></a></h1>
+<div id="null-coefficient" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Null Coefficient <a class="anchor" id="34"></a></h2>
 <p>We have the following estimated linear regression model</p>
 <p>  <span class="math display">\[\hat{y}= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + ...+ \hat{\beta_p}\cdot x_{ip}\]</span></p>
 <ul>
 <li><span class="math inline">\(\hat{\beta}_0\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is the model estimated value for the response variable, i.e <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span>
 , when <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ij}=0\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> , <span class="math inline">\(\forall j=1,2,...,p\)</span></li>
 </ul>
+<p> </p>
 </div>
-<div id="quantitative-predictor-coefficient" class="section level3" number="2.6.2">
-<h3><span class="header-section-number">2.6.2</span> Quantitative Predictor Coefficient <a class="anchor" id="35"></a></h3>
+<div id="quantitative-predictor-coefficient" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Quantitative Predictor Coefficient <a class="anchor" id="35"></a></h2>
 <p>Let <span class="math inline">\(X_k\)</span> a <strong>quantitative</strong> variable, and <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(h&gt;0\)</span>,</p>
 <p>We have the following estimated linear regression model  </p>
 <p><span class="math display">\[\hat{y}_i= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + .. + \hat{\beta_k}\cdot x_{ik} + ..+ \hat{\beta_p}\cdot x_{ip}\]</span></p>
@@ -2395,11 +2469,12 @@ be more developed in another article about validation techniques.</p>
 <ul>
 <li><span class="math inline">\((\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=c+h ) - (\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=c ) = \hat{\beta_k}\cdot h\)</span></li>
 </ul>
+<p> </p>
 </div>
-<div id="categorical-predictor-coefficient" class="section level3" number="2.6.3">
-<h3><span class="header-section-number">2.6.3</span> Categorical Predictor Coefficient <a class="anchor" id="36"></a></h3>
-<div id="categorical-predictors-with-2-categories" class="section level4" number="2.6.3.1">
-<h4><span class="header-section-number">2.6.3.1</span> Categorical Predictors with 2 categories</h4>
+<div id="categorical-predictor-coefficient" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Categorical Predictor Coefficient <a class="anchor" id="36"></a></h2>
+<div id="categorical-predictors-with-2-categories" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Categorical Predictors with 2 categories</h3>
 <p>Let <span class="math inline">\(X_k\)</span> a categorical variable with 2 categories
 <span class="math inline">\(\lbrace 0 , 1 \rbrace\)</span>,</p>
 <p>If the reference category is <span class="math inline">\(0\)</span> , then <span class="math inline">\(X_k\)</span> enter in the model as the binary (0,1) variable <span class="math inline">\(X_{k1}\)</span> defined as:</p>
@@ -2433,9 +2508,10 @@ x_{i k0}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i k}=0
 <ul>
 <li><span class="math inline">\((\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik1}=1 ) - (\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik1}=0 ) = \hat{\beta}_{k1}\)</span></li>
 </ul>
+<p> </p>
 </div>
-<div id="categorical-predictors-with-3-categories" class="section level4" number="2.6.3.2">
-<h4><span class="header-section-number">2.6.3.2</span> Categorical Predictors with 3 categories:</h4>
+<div id="categorical-predictors-with-3-categories" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Categorical Predictors with 3 categories:</h3>
 <p>Let <span class="math inline">\(X_k\)</span> a categorical variable with 3 categories
 <span class="math inline">\(\lbrace 0 , 1, 2 \rbrace\)</span>,</p>
 <p>If the reference category is <span class="math inline">\(0\)</span>, then <span class="math inline">\(X_k\)</span> enter in the model with
@@ -2506,11 +2582,11 @@ categorical predictor with <span class="math inline">\(r\)</span> categories, fo
 <li><p>$(<em>i | x</em>{ik2}=1 ) - (<em>i | x</em>{ik1}=1 ) = <em>{k2} - </em>{k1} $</p></li>
 </ul>
 <p>Note that this can easily be extrapolated to the case of an <span class="math inline">\(r\)</span>-ary categorical variable with <span class="math inline">\(r &gt; 3\)</span></p>
-<hr />
+<p> </p>
 </div>
 </div>
-<div id="example-of-coefficient-interpretation" class="section level3" number="2.6.4">
-<h3><span class="header-section-number">2.6.4</span> Example of coefficient interpretation <a class="anchor" id="37"></a></h3>
+<div id="example-of-coefficient-interpretation" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Example of coefficient interpretation <a class="anchor" id="37"></a></h2>
 <p>We had obtained the following estimated model:</p>
 <p><span class="math display">\[\begin{gather*}
 \widehat{price}_i =  -6.207e+07 +  3.566e+04 \cdot size\_in\_m\_2_i -8.367e+05 \cdot no\_of\_bedrooms_i -5.712e+04 \cdot no\_of\_bathrooms_i + \\ 1.4e+05 \cdot quality1_i + 3.406e+05\cdot quality2_i + 2.788e+05  \cdot quality3_i  +6.115e+06\cdot  latitude_i -1.677e+06   \cdot longitude_i
@@ -2543,12 +2619,13 @@ price of houses with high quality <span class="math inline">\((quality0_i=1)\)</
 </ul>
 <p><br></p>
 <p>Note that in all these cases it is assumed that the rest of the model variables don´t vary (have the same values) from one scenario to another.</p>
-<hr />
+<p> </p>
 </div>
-<div id="interaction-coefficient" class="section level3" number="2.6.5">
-<h3><span class="header-section-number">2.6.5</span> Interaction Coefficient <a class="anchor" id="38"></a></h3>
-<div id="interaction-between-binary-and-quantitative-variables" class="section level4" number="2.6.5.1">
-<h4><span class="header-section-number">2.6.5.1</span> Interaction between binary and quantitative variables</h4>
+<div id="interaction-coefficient" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Interaction Coefficient <a class="anchor" id="38"></a></h2>
+<p> </p>
+<div id="interaction-between-binary-and-quantitative-variables" class="section level3" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Interaction between binary and quantitative variables</h3>
 <p>Let <span class="math inline">\(X_k\)</span> a quantitative variable, and <span class="math inline">\(X_r\)</span> a <strong>binary</strong> <span class="math inline">\(\lbrace 0, 1\rbrace\)</span> categorical variable.</p>
 <p>If the reference category is <span class="math inline">\(0\)</span> , then <span class="math inline">\(X_r\)</span> enter in the model as the binary <span class="math inline">\(\lbrace 0, 1\rbrace\)</span> variable <span class="math inline">\(X_{r1}\)</span> defined as:</p>
 <p><span class="math display">\[
@@ -2577,9 +2654,10 @@ x_{i r0}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i r}=0
 <p><strong>Observation:</strong></p>
 <p>The above affirmations are based in the following:</p>
 <p><span class="math inline">\((\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir1}=1 ) - (\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir0}=1 ) = \hat{\beta}_{r1} + \hat{\beta}_{r1k}\cdot x_{ik}\)</span></p>
+<p> </p>
 </div>
-<div id="interaction-between-ternary-and-quantitative-variables" class="section level4" number="2.6.5.2">
-<h4><span class="header-section-number">2.6.5.2</span> Interaction between ternary and quantitative variables</h4>
+<div id="interaction-between-ternary-and-quantitative-variables" class="section level3" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> Interaction between ternary and quantitative variables</h3>
 <p>Let <span class="math inline">\(X_k\)</span> a quantitative variable, and <span class="math inline">\(X_r\)</span> a <strong>ternary</strong> <span class="math inline">\(\lbrace 0, 1, 2 \rbrace\)</span> categorical variable.</p>
 <p><br></p>
 <p>If the reference category is <span class="math inline">\(0\)</span> , then <span class="math inline">\(X_r\)</span> enter in the model with
@@ -2648,11 +2726,11 @@ x_{i r0}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i r}=0
 <li><p><span class="math inline">\((\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir2}=1 ) - (\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir1}=1 ) = (\hat{\beta}_{r2} - \hat{\beta}_{r1} ) + (\hat{\beta}_{r2k} - \hat{\beta}_{r1k})\cdot x_{ki}\)</span></p></li>
 </ul>
 <p>Note that this can easily be extrapolated to the case of interaction between an <span class="math inline">\(r\)</span>-ary categorical variable and a quantitative variable, for <span class="math inline">\(r&gt;3\)</span>.</p>
-<hr />
+<p> </p>
 </div>
 </div>
-<div id="example-of-interaction-coefficient-interpretation" class="section level3" number="2.6.6">
-<h3><span class="header-section-number">2.6.6</span> Example of interaction coefficient interpretation <a class="anchor" id="39"></a></h3>
+<div id="example-of-interaction-coefficient-interpretation" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Example of interaction coefficient interpretation <a class="anchor" id="39"></a></h2>
 <div class="sourceCode" id="cb79"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>model_Python_2 <span class="op">=</span> smf.ols(formula <span class="op">=</span> <span class="st">&#39;price ~  quality*size_in_m_2 + no_of_bedrooms + no_of_bathrooms + latitude + longitude&#39;</span>, </span>
 <span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>                               data <span class="op">=</span>data_Python)</span>
 <span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2676,13 +2754,13 @@ x_{i r0}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i r}=0
 <p><span class="math inline">\(\left( \widehat{price}_i | quality3_i=1 \right) - \left(\widehat{price}_i | quality1_i=1 \right) = 699127.19\)</span></p>
 <p>So the estimated price of a 100 <span class="math inline">\(m^2\)</span> house is <span class="math inline">\(699127.19\)</span> units greater if <span class="math inline">\(quality3_i=1\)</span> (it has ultra quality) than <span class="math inline">\(quality1_i=1\)</span> (it has medium quality)</p>
 <p>Note that in all these cases it is assumed that the rest of the model variables don´t vary (have the same values) from one scenario to another.</p>
-<hr />
+<p> </p>
 </div>
 </div>
-<div id="inference" class="section level2" number="2.7">
-<h2><span class="header-section-number">2.7</span> Inference <a class="anchor" id="40"></a></h2>
-<div id="confidence-interval-for-beta_j" class="section level3" number="2.7.1">
-<h3><span class="header-section-number">2.7.1</span> Confidence Interval for <span class="math inline">\(\beta_j\)</span> <a class="anchor" id="41"></a></h3>
+<div id="inference" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Inference <a class="anchor" id="40"></a></h1>
+<div id="confidence-interval-for-beta_j" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Confidence Interval for <span class="math inline">\(\beta_j\)</span> <a class="anchor" id="41"></a></h2>
 <p><span class="math inline">\(\hspace{0.05cm}\widehat{Var}(\widehat{\beta}_j)\hspace{0.05cm}\)</span></p>
 <p><span class="math display">\[\begin{gather*}
 IC\left(\beta_j  \right)= \left[ \hspace{0.05cm} \hat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{\widehat{Var}(\widehat{\beta}_j)} \hspace{0.05cm} \right] = \left[\hspace{0.05cm}  \hat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{S_R^2 \cdot q_{jj}} \hspace{0.05cm} \right]
@@ -2692,24 +2770,25 @@ IC\left(\beta_j  \right)= \left[ \hspace{0.05cm} \hat{\beta}_j \ \hspace{0.1cm} 
 <span class="math inline">\(\hspace{0.1cm} (X^t \cdot X)^{-1} \hspace{0.1cm}\)</span> for <span class="math inline">\(\hspace{0.1cm} j=0,1,...,p\)</span></p>
 <p><strong>Observation:</strong></p>
 <p>The smaller <span class="math inline">\(\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_j)}\hspace{0.1cm}\)</span> is, the smaller the confidence interval of <span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}\)</span> will be.</p>
+<p> </p>
 </div>
-<div id="confidence-interval-for-sigma2" class="section level3" number="2.7.2">
-<h3><span class="header-section-number">2.7.2</span> Confidence Interval for <span class="math inline">\(\sigma^2\)</span> <a class="anchor" id="42"></a></h3>
+<div id="confidence-interval-for-sigma2" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Confidence Interval for <span class="math inline">\(\sigma^2\)</span> <a class="anchor" id="42"></a></h2>
 <p><span class="math display">\[\begin{gather*}
 IC\left(\sigma^2  \right)= \left[ 0 \ , \ \dfrac{n-p-1}{\chi_{1-\alpha/2}^{n-p-1}}\cdot S_R^2  \right]
 \end{gather*}\]</span></p>
-<hr />
-<div id="confidence-interval-for-beta_j-in-r" class="section level4" number="2.7.2.1">
-<h4><span class="header-section-number">2.7.2.1</span> Confidence Interval for  <span class="math inline">\(\beta_j\)</span>  in <code>R</code> <a class="anchor" id="43"></a></h4>
+<p> </p>
+<div id="confidence-interval-for-beta_j-in-r" class="section level3" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Confidence Interval for  <span class="math inline">\(\beta_j\)</span>  in <code>R</code> <a class="anchor" id="43"></a></h3>
 <p>We can compute de confidence interval of <span class="math inline">\(\beta_j\)</span> with a confidence
 level of <span class="math inline">\(95\%\)</span> for <span class="math inline">\(j=0,1,...,p\)</span></p>
 <div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
 <span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(model_R , <span class="at">conf.level=</span><span class="fl">0.95</span>)</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="confidence-interval-for-beta_j-in-python" class="section level4" number="2.7.2.2">
-<h4><span class="header-section-number">2.7.2.2</span> Confidence Interval for  <span class="math inline">\(\beta_j\)</span>  in <code>Python</code> <a class="anchor" id="44"></a></h4>
+<div id="confidence-interval-for-beta_j-in-python" class="section level3" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> Confidence Interval for  <span class="math inline">\(\beta_j\)</span>  in <code>Python</code> <a class="anchor" id="44"></a></h3>
 <div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>beta_intervals <span class="op">=</span> model_Py_sm.conf_int(alpha<span class="op">=</span><span class="fl">0.05</span>)</span>
 <span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>beta_intervals.columns <span class="op">=</span> [<span class="st">&#39;2.5%&#39;</span>, <span class="st">&#39;97.5%&#39;</span>]</span>
 <span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>beta_intervals</span></code></pre></div>
@@ -2721,10 +2800,10 @@ IC(\beta_0)=\left[-1.208060e+08 \ , \ -3.336873e+06 \right]
 IC(\beta_{size\_in\_m\_2})=\left[ 3.424446e+04   \ , \ 3.708364e+04 \right]
 \]</span></p>
 <p>We also have this information in the output obtained with <code>print(model_Python_1.summary())</code></p>
-<hr />
+<p> </p>
 </div>
-<div id="confidence-interval-for-sigma2-in-r" class="section level4" number="2.7.2.3">
-<h4><span class="header-section-number">2.7.2.3</span> Confidence Interval for  <span class="math inline">\(\sigma^2\)</span>  in <code>R</code> <a class="anchor" id="45"></a></h4>
+<div id="confidence-interval-for-sigma2-in-r" class="section level3" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> Confidence Interval for  <span class="math inline">\(\sigma^2\)</span>  in <code>R</code> <a class="anchor" id="45"></a></h3>
 <p>We can compute de confidence interval of <span class="math inline">\(\sigma^2\)</span> with a confidence
 level of <span class="math inline">\(95\%\)</span> usingl the package “model”.</p>
 <p>We can load this package running the following code:</p>
@@ -2741,10 +2820,10 @@ level of <span class="math inline">\(95\%\)</span> usingl the package “model�
 <p><span class="math display">\[\begin{gather*}
 IC(\sigma^2)=\left[2.418577e+12   \ , \ 2.747045e+12 \right]
 \end{gather*}\]</span></p>
-<hr />
+<p> </p>
 </div>
-<div id="confidence-interval-for-sigma2-in-python" class="section level4" number="2.7.2.4">
-<h4><span class="header-section-number">2.7.2.4</span> Confidence Interval for  <span class="math inline">\(\sigma^2\)</span>  in <code>Python</code> <a class="anchor" id="46"></a></h4>
+<div id="confidence-interval-for-sigma2-in-python" class="section level3" number="6.2.4">
+<h3><span class="header-section-number">6.2.4</span> Confidence Interval for  <span class="math inline">\(\sigma^2\)</span>  in <code>Python</code> <a class="anchor" id="46"></a></h3>
 <p>In this case we will use the interval expression before defined:</p>
 <div class="sourceCode" id="cb84"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy</span></code></pre></div>
 <div class="sourceCode" id="cb85"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>n<span class="op">=</span><span class="bu">len</span>(data_Python)</span>
@@ -2754,11 +2833,11 @@ IC(\sigma^2)=\left[2.418577e+12   \ , \ 2.747045e+12 \right]
 <span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>interval_sigma2 <span class="op">=</span> [<span class="dv">0</span>,b]</span>
 <span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a>interval_sigma2</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
 </div>
-<div id="hypothesis-test-for-beta_j" class="section level3" number="2.7.3">
-<h3><span class="header-section-number">2.7.3</span> Hypothesis Test for <span class="math inline">\(\beta_j\)</span> <a class="anchor" id="47"></a></h3>
+<div id="hypothesis-test-for-beta_j" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Hypothesis Test for <span class="math inline">\(\beta_j\)</span> <a class="anchor" id="47"></a></h2>
 <p>We can carry out the following three test:</p>
 <table>
 <colgroup>
@@ -2779,15 +2858,17 @@ IC(\sigma^2)=\left[2.418577e+12   \ , \ 2.747045e+12 \right]
 </tr>
 </tbody>
 </table>
-<div id="test-statistic" class="section level4" number="2.7.3.1">
-<h4><span class="header-section-number">2.7.3.1</span> Test Statistic:</h4>
+<p> </p>
+<div id="test-statistic" class="section level3" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Test Statistic:</h3>
 <p>The test statistic for any of the previous test is:</p>
 <p><span class="math display">\[\begin{gather*}
 t_{exp | H_0}=\dfrac{\hat{\beta}_j - \beta_j^*}{\sqrt{S_R \cdot q_{jj}}} \sim t_{n-p}
 \end{gather*}\]</span></p>
+<p> </p>
 </div>
-<div id="decision-rule" class="section level4" number="2.7.3.2">
-<h4><span class="header-section-number">2.7.3.2</span> Decision Rule</h4>
+<div id="decision-rule" class="section level3" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> Decision Rule</h3>
 <p>For a fixed signification level <span class="math inline">\(\alpha\)</span></p>
 <ul>
 <li><p>Case   <span class="math inline">\(H_0: \beta_j = \beta_j^*\)</span>  vs  <span class="math inline">\(H_1: \beta_j \neq \beta_j^*\)</span></p></li>
@@ -2844,11 +2925,11 @@ Reject \ H_0 \ \Leftrightarrow \ t_{exp|H_0} &lt; t_{1-\alpha/2}^{n-p}
 pvalue=2\cdot P( t_{n-p} \leqslant t_{exp|H_0} ) \\ \\
 Reject \ H_0  \ \Leftrightarrow \ pvalue &lt; \alpha
 \end{gather*}\]</span></p>
-<hr />
+<p> </p>
 </div>
 </div>
-<div id="test-of-significance-for-beta_j" class="section level3" number="2.7.4">
-<h3><span class="header-section-number">2.7.4</span> Test of Significance for <span class="math inline">\(\beta_j\)</span> <a class="anchor" id="48"></a></h3>
+<div id="test-of-significance-for-beta_j" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Test of Significance for <span class="math inline">\(\beta_j\)</span> <a class="anchor" id="48"></a></h2>
 <p>The test of significance for the coefficient <span class="math inline">\(\beta_j\)</span> is the following
 test:</p>
 <p><span class="math display">\[\begin{gather*}
@@ -2864,16 +2945,16 @@ t_{exp | H_0}=\dfrac{\hat{\beta}_j - 0}{\sqrt{S_R \cdot q_{jj}}} = \dfrac{\hat{\
 <p><span class="math display">\[\begin{gather*}
 Reject \ H_0  \ \Leftrightarrow \ pvalue &lt; \alpha
 \end{gather*}\]</span></p>
-<hr />
-<div id="test-of-significance-in-r" class="section level4" number="2.7.4.1">
-<h4><span class="header-section-number">2.7.4.1</span> Test of Significance in <code>R</code> <a class="anchor" id="49"></a></h4>
+<p> </p>
+<div id="test-of-significance-in-r" class="section level3" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Test of Significance in <code>R</code> <a class="anchor" id="49"></a></h3>
 <p>The value of <span class="math inline">\(\hspace{0.1cm} t_{exp|H_0} \hspace{0.1cm}\)</span> and also the p-value of the test of significance for <span class="math inline">\(\beta_j\)</span> could be found in the output obtained with <code>summary(model_R_1)</code></p>
 <div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
 <span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_R)</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="test-of-significance-in-python" class="section level4" number="2.7.4.2">
-<h4><span class="header-section-number">2.7.4.2</span> Test of Significance in <code>Python</code> <a class="anchor" id="50"></a></h4>
+<div id="test-of-significance-in-python" class="section level3" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> Test of Significance in <code>Python</code> <a class="anchor" id="50"></a></h3>
 <p>The value of <span class="math inline">\(\hspace{0.1cm} t_{exp|H_0} \hspace{0.1cm}\)</span> and also the p-value of the test of significance for <span class="math inline">\(\beta_j\)</span> could be found in the output obtained with <code>print(model_Python_1.summary())</code></p>
 <div class="sourceCode" id="cb88"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model_Py_sm.summary())</span></code></pre></div>
 <p>The p-values we have got are the following:</p>
@@ -2925,18 +3006,19 @@ H_1: \beta_{longitude} \neq 0 \\ \\
 pvalue = 0.015
 \end{gather*}\]</span></p>
 <p>For <span class="math inline">\(\hspace{0.05cm} \alpha = 0.05 &gt; 0.015\)</span> <span class="math inline">\(\hspace{0.1cm} \Rightarrow \hspace{0.1cm}\)</span> <span class="math inline">\(Reject \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{longitude}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}\)</span> <span class="math inline">\(longitude \hspace{0.1cm}\)</span> is a significance variable</p>
-<hr />
+<p> </p>
 </div>
 </div>
-<div id="anova-test" class="section level3" number="2.7.5">
-<h3><span class="header-section-number">2.7.5</span> ANOVA Test <a class="anchor" id="51"></a></h3>
+<div id="anova-test" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> ANOVA Test <a class="anchor" id="51"></a></h2>
 <p>The ANOVA test is also called <strong>test of model global significance</strong> :</p>
 <p><span class="math display">\[\begin{gather*}
 \hspace{-0.7 cm} H_0: \hspace{0.15cm} \beta_1=\dots =\beta_p=0 \\
 H_1: \hspace{0.15cm} \exists \ j=1,...,p , \hspace{0.2cm} \beta_j \neq 0
 \end{gather*}\]</span></p>
-<div id="statistic-test" class="section level4" number="2.7.5.1">
-<h4><span class="header-section-number">2.7.5.1</span> Statistic test</h4>
+<p> </p>
+<div id="statistic-test" class="section level3" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> Statistic test</h3>
 <p>For define the test statistic , firt we have to define some elements:</p>
 <ul>
 <li>Total Sum Squares <span class="math inline">\((TSS)\)</span></li>
@@ -2976,9 +3058,10 @@ F_{exp|H_0}= \dfrac{(TSS-RSS)/p}{RSS/(n-p-1)} = \dfrac{(TSS-RSS)/p}{ \hat{\varep
 <p>Where:  <span class="math inline">\(\hspace{0.1cm} p\)</span> is the number of predictor variables <span class="math inline">\(X_1,...,X_p\)</span> of the
 model</p>
 <p> </p>
+<p> </p>
 </div>
-<div id="decision-rule-1" class="section level4" number="2.7.5.2">
-<h4><span class="header-section-number">2.7.5.2</span> Decision Rule</h4>
+<div id="decision-rule-1" class="section level3" number="6.5.2">
+<h3><span class="header-section-number">6.5.2</span> Decision Rule</h3>
 <ul>
 <li>Based on statistic test:</li>
 </ul>
@@ -2991,36 +3074,35 @@ Reject \ H_0 \ \Leftrightarrow \ F_{exp|H_0} &gt; F_{\alpha}^{\hspace{0.1cm}p,\h
 <p><span class="math display">\[\begin{gather*}
 Reject \ H_0  \ \Leftrightarrow \ pvalue &lt; \alpha
 \end{gather*}\]</span></p>
-<hr />
+<p> </p>
 </div>
-<div id="anova-test-in-r" class="section level4" number="2.7.5.3">
-<h4><span class="header-section-number">2.7.5.3</span> ANOVA test in <code>R</code> <a class="anchor" id="52"></a></h4>
+<div id="anova-test-in-r" class="section level3" number="6.5.3">
+<h3><span class="header-section-number">6.5.3</span> ANOVA test in <code>R</code> <a class="anchor" id="52"></a></h3>
 <p>The value of <span class="math inline">\(\hspace{0.1cm} F_{exp|H_0}\)</span> and also the p-value of the ANOVA test could be found in the output obtained with <code>summary(model_R_1)</code></p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
 <span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_R)</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="anova-test-in-python" class="section level4" number="2.7.5.4">
-<h4><span class="header-section-number">2.7.5.4</span> ANOVA test in <code>Python</code> <a class="anchor" id="53"></a></h4>
+<div id="anova-test-in-python" class="section level3" number="6.5.4">
+<h3><span class="header-section-number">6.5.4</span> ANOVA test in <code>Python</code> <a class="anchor" id="53"></a></h3>
 <p>The value of <span class="math inline">\(\hspace{0.1cm} F_{exp|H_0}\)</span> and also the p-value of the ANOVA test could be found in the output obtained with <code>print(model_Python_1.summary())</code></p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model_Py_sm.summary())</span></code></pre></div>
 <p>We have got the following:</p>
 <p><span class="math inline">\(\hspace{4cm} F_{exp|H_0} = 547.4\)</span> <span class="math inline">\(\hspace{0.3cm}\)</span> (F-statistic)</p>
 <p><span class="math inline">\(\hspace{4cm} pvalue \simeq 0\)</span> <span class="math inline">\(\hspace{0.3cm}\)</span> (Prob (F-statistic))</p>
 <p>So for any <span class="math inline">\(\alpha\)</span> we can reject <span class="math inline">\(\hspace{0.1cm} H_0: \hspace{0.05cm} \beta_1=\dots =\beta_p=0 \hspace{0.15cm}\)</span>, so we can affirm the model is globally significant</p>
-<hr />
+<p> </p>
 </div>
 </div>
-<div id="prediction-interval-for-hspace0.1cm-y_i" class="section level3" number="2.7.6">
-<h3><span class="header-section-number">2.7.6</span> Prediction Interval for <span class="math inline">\(\hspace{0.1cm} y_i\)</span> <a class="anchor" id="53.1"></a></h3>
+<div id="prediction-interval-for-hspace0.1cm-y_i" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> Prediction Interval for <span class="math inline">\(\hspace{0.1cm} y_i\)</span> <a class="anchor" id="53.1"></a></h2>
 <p>We have that</p>
 <p><span class="math display">\[\hat{y}_i = x_i^t \cdot \hat{\beta} \hspace{0.1cm} \sim \hspace{0.1cm} N \left( \hspace{0.1cm} E[\hat{y}_i] \hspace{0.15cm},\hspace{0.15cm} \sigma^2 \cdot (1 + x_i^t \cdot (X^t \cdot X)^{-1} \cdot x_i ) \hspace{0.1cm} \right)\]</span></p>
 <p>Using that we can get the following probability interval for <span class="math inline">\(y_i\)</span></p>
 <p><span class="math display">\[ IP(y_i)_{1-\alpha} = \left[\hspace{0.1cm} \hat{y}_i  \hspace{0.1cm}\pm\hspace{0.1cm} t_{\alpha/2}^{n-p-1} \sqrt{ \widehat{\sigma}^2 \cdot \left( 1 + x_i^t \cdot (X^t \cdot X)^{-1} \cdot x_i \right) } \hspace{0.1cm} \right] \]</span></p>
-<hr />
-</div>
-<div id="prediction-interval-for-hspace0.1cm-y_i-in-python" class="section level3" number="2.7.7">
-<h3><span class="header-section-number">2.7.7</span> Prediction Interval for <span class="math inline">\(\hspace{0.1cm} y_i\)</span> in <code>Python</code> <a class="anchor" id="53.2"></a></h3>
+<p> </p>
+<div id="prediction-interval-for-hspace0.1cm-y_i-in-python" class="section level3" number="6.6.1">
+<h3><span class="header-section-number">6.6.1</span> Prediction Interval for <span class="math inline">\(\hspace{0.1cm} y_i\)</span> in <code>Python</code> <a class="anchor" id="53.2"></a></h3>
 <div class="sourceCode" id="cb91"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> data_Python[[<span class="st">&#39;price&#39;</span>]]</span>
 <span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> data_Python[[<span class="st">&#39;size_in_m_2&#39;</span>, <span class="st">&#39;longitude&#39;</span>, <span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;no_of_bedrooms&#39;</span>, <span class="st">&#39;no_of_bathrooms&#39;</span>, <span class="st">&#39;quality&#39;</span>]]</span>
@@ -3056,11 +3138,14 @@ Reject \ H_0  \ \Leftrightarrow \ pvalue &lt; \alpha
 <span id="cb94-26"><a href="#cb94-26" aria-hidden="true" tabindex="-1"></a>    Probability_Intervals_Response.iloc[i, <span class="dv">2</span>] <span class="op">=</span> a</span>
 <span id="cb94-27"><a href="#cb94-27" aria-hidden="true" tabindex="-1"></a>    Probability_Intervals_Response.iloc[i, <span class="dv">3</span>] <span class="op">=</span> b</span></code></pre></div>
 <div class="sourceCode" id="cb95"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a> Probability_Intervals_Response</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
 </div>
-<div id="goodness-of-fit-hspace0.1cm-determination-coefficient-r2" class="section level2" number="2.8">
-<h2><span class="header-section-number">2.8</span> Goodness of Fit: <span class="math inline">\(\hspace{0.1cm}\)</span> Determination Coefficient <span class="math inline">\((R^2)\)</span> <a class="anchor" id="54"></a></h2>
+</div>
+<div id="goodness-of-fit-hspace0.1cm-determination-coefficient-r2" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Goodness of Fit: <span class="math inline">\(\hspace{0.1cm}\)</span> Determination Coefficient <span class="math inline">\((R^2)\)</span> <a class="anchor" id="54"></a></h1>
+<div id="determination-coefficient" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Determination Coefficient</h2>
 <p>The determination coefficient, also called R-square, is defined as:</p>
 <p><span class="math display">\[\begin{gather*}
 R^2 = \dfrac{RegSS}{TSS} = \dfrac{TSS-RSS}{TSS} =1 - \dfrac{RSS}{TSS}
@@ -3081,28 +3166,28 @@ variable data</p></li>
 <li><p>If <span class="math inline">\(R^2\)</span> is clode to 0, indicates bad fit of model to the response
 variable data</p></li>
 </ul>
-<hr />
-<div id="compute-r2-in-r" class="section level3" number="2.8.1">
-<h3><span class="header-section-number">2.8.1</span> Compute <span class="math inline">\(R^2\)</span> in <code>R</code> <a class="anchor" id="55"></a></h3>
+<p> </p>
+<div id="computing-r2-in-r" class="section level3" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Computing <span class="math inline">\(R^2\)</span> in <code>R</code> <a class="anchor" id="55"></a></h3>
 <p>The value of <span class="math inline">\(\hspace{0.1cm} R^2\)</span> could be found in the output obtained with <code>summary(model_R)</code></p>
 <div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
 <span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_R)<span class="sc">$</span>r.squared </span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="compute-r2-in-python" class="section level3" number="2.8.2">
-<h3><span class="header-section-number">2.8.2</span> Compute <span class="math inline">\(R^2\)</span> in <code>Python</code> <a class="anchor" id="56"></a></h3>
+<div id="computing-r2-in-python" class="section level3" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Computing <span class="math inline">\(R^2\)</span> in <code>Python</code> <a class="anchor" id="56"></a></h3>
 <p>The value of <span class="math inline">\(\hspace{0.1cm} R^2\)</span> could be found in the output obtained with <code>print(model_Py_smf.summary())</code></p>
 <div class="sourceCode" id="cb97"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>model_Py_smf.rsquared</span></code></pre></div>
 <p>We can compute <span class="math inline">\(R^2\)</span> with <code>sk-learn</code> as follows:</p>
 <div class="sourceCode" id="cb98"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>Model_Py_sklearn.score(X, y)</span></code></pre></div>
 <p>We have got the following:</p>
 <p><span class="math display">\[ R^2 = 0.698\]</span></p>
-<hr />
+<p> </p>
 </div>
 </div>
-<div id="goodness-of-fit-hspace0.1cm-adjusted-r2" class="section level2" number="2.9">
-<h2><span class="header-section-number">2.9</span> Goodness of Fit: <span class="math inline">\(\hspace{0.1cm}\)</span> Adjusted <span class="math inline">\(R^2\)</span> <a class="anchor" id="57"></a></h2>
+<div id="adjusted-determination-coefficient" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Adjusted Determination Coefficient</h2>
 <p><span class="math inline">\(R^2\)</span> has several problems.</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(R^2\)</span> always increase when increase the number of predictors,
@@ -3116,49 +3201,49 @@ denoted as <span class="math inline">\(\widehat{R^2}\)</span>, and defined as:</
 \widehat{R}^2 =  1 - \dfrac{RSS/(n-p-1)}{TSS/(n-1)} = 1 - \left( 1- R^2 \right) \cdot \dfrac{n-1}{n-p}
 \end{gather*}\]</span></p>
 <p>This metric doesn’t grow when including irrelevant predictors since if <span class="math inline">\(RSS\)</span> is small as <span class="math inline">\(p\)</span> is large, <span class="math inline">\(1/(n-p-1)\)</span> will be large compensating the <span class="math inline">\(RSS\)</span> value</p>
-<hr />
-<div id="compute-widehatr2-in-r" class="section level3" number="2.9.1">
-<h3><span class="header-section-number">2.9.1</span> Compute <span class="math inline">\(\widehat{R^2}\)</span> in <code>R</code> <a class="anchor" id="58"></a></h3>
+<p> </p>
+</div>
+<div id="computing-widehatr2-in-r" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Computing <span class="math inline">\(\widehat{R^2}\)</span> in <code>R</code> <a class="anchor" id="58"></a></h2>
 <p>The value of <span class="math inline">\(\hspace{0.1cm} \widehat{R^2}\)</span> could be found in the output obtained with <code>summary(model_R)</code></p>
 <div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
 <span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_R)<span class="sc">$</span>adj.r.squared </span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="compute-widehatr2-in-python" class="section level3" number="2.9.2">
-<h3><span class="header-section-number">2.9.2</span> Compute <span class="math inline">\(\widehat{R^2}\)</span> in <code>Python</code> <a class="anchor" id="59"></a></h3>
+<div id="computing-widehatr2-in-python" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Computing <span class="math inline">\(\widehat{R^2}\)</span> in <code>Python</code> <a class="anchor" id="59"></a></h2>
 <p>The value of <span class="math inline">\(\hspace{0.1cm} \widehat{R^2}\)</span> could be found in the output obtained with <code>print(model_Py_smf.summary())</code></p>
 <div class="sourceCode" id="cb100"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>model_Py_smf.rsquared_adj</span></code></pre></div>
 <p>We have got the following:</p>
 <p><span class="math display">\[ \widehat{R^2} = 0.697\]</span></p>
-<hr />
+<p> </p>
 </div>
 </div>
-<div id="model-problems" class="section level2" number="2.10">
-<h2><span class="header-section-number">2.10</span> Model Problems <a class="anchor" id="60"></a></h2>
-</div>
-<div id="multicollinearity" class="section level2" number="2.11">
-<h2><span class="header-section-number">2.11</span> Multicollinearity <a class="anchor" id="61"></a></h2>
+<div id="model-problems" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Model Problems <a class="anchor" id="60"></a></h1>
+<div id="multicollinearity" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Multicollinearity <a class="anchor" id="61"></a></h2>
 <p>Multicollinearity problem happens when some of the predictors are lineary dependients.</p>
 <p>Why multicollinearity is a problem ?</p>
 <p><span class="math inline">\(1.\hspace{0.1cm}\)</span> In the worst case it makes the estimation of the model impossible.</p>
 <p><span class="math inline">\(2.\hspace{0.1cm}\)</span> At best, it causes the beta estimators to have a lot of variance, which makes the model’s predictions and inference very imprecise. And it also causes predictors that are relevant to come out as non-significant in the significance test.</p>
-<div id="types-of-multicollinearity" class="section level3" number="2.11.1">
-<h3><span class="header-section-number">2.11.1</span> Types of multicollinearity <a class="anchor" id="62"></a></h3>
-<div id="perfect-multicollinearity" class="section level4" number="2.11.1.1">
-<h4><span class="header-section-number">2.11.1.1</span> Perfect Multicollinearity</h4>
+<div id="types-of-multicollinearity" class="section level3" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Types of multicollinearity <a class="anchor" id="62"></a></h3>
+<div id="perfect-multicollinearity" class="section level4" number="8.1.1.1">
+<h4><span class="header-section-number">8.1.1.1</span> Perfect Multicollinearity</h4>
 <p>At least one of the predictors is a linear combination of the rest of the predictors, so <span class="math inline">\(\hspace{0.1cm}Rg(X) &lt; p+1 \hspace{0.1cm}\)</span> (not full range)</p>
 <p>By the null rank theorem, <span class="math inline">\(\hspace{0.1cm}R(X^t \cdot X) &lt; p+1\hspace{0.1cm}\)</span> , therefore there is no <span class="math inline">\(\hspace{0.1cm}(X^t \cdot X)^{-1}\hspace{0.1cm}\)</span> , so it cannot be estimate <span class="math inline">\(\hspace{0.1cm}\beta\hspace{0.1cm}\)</span> with the ordinary least squares method .</p>
 </div>
-<div id="high-multicollinearity" class="section level4" number="2.11.1.2">
-<h4><span class="header-section-number">2.11.1.2</span> High Multicollinearity</h4>
+<div id="high-multicollinearity" class="section level4" number="8.1.1.2">
+<h4><span class="header-section-number">8.1.1.2</span> High Multicollinearity</h4>
 <p>There are predictors with high linear correlation between them.</p>
 <p>In this case is still possible estimate <span class="math inline">\(\beta\)</span> because the multicolinearity isn´t perfect, but the variance of the <span class="math inline">\(\beta\)</span> estimators, <span class="math inline">\(Var(\hat{\beta}_j)\)</span>, will be too high, therefore the model will be very imprecise, so the results will not be good.</p>
-<hr />
+<p> </p>
 </div>
 </div>
-<div id="identification-of-multicollinearity" class="section level3" number="2.11.2">
-<h3><span class="header-section-number">2.11.2</span> Identification of multicollinearity <a class="anchor" id="63"></a></h3>
+<div id="identification-of-multicollinearity" class="section level3" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Identification of multicollinearity <a class="anchor" id="63"></a></h3>
 <p>Identification of multicollinearity is carry out by several ways:</p>
 <p>If the linear regression model has only <strong>quantitative</strong> predictors:</p>
 <ol style="list-style-type: decimal">
@@ -3170,10 +3255,9 @@ denoted as <span class="math inline">\(\widehat{R^2}\)</span>, and defined as:</
 <ol style="list-style-type: decimal">
 <li>With <span class="math inline">\(GVIF\)</span> (generalize variance increase factor)</li>
 </ol>
-<hr />
-</div>
-<div id="identification-of-multicollinearity-with-r" class="section level3" number="2.11.3">
-<h3><span class="header-section-number">2.11.3</span> Identification of multicollinearity with <span class="math inline">\(R\)</span> <a class="anchor" id="64"></a></h3>
+<p> </p>
+<div id="identification-of-multicollinearity-with-r" class="section level4" number="8.1.2.1">
+<h4><span class="header-section-number">8.1.2.1</span> Identification of multicollinearity with <span class="math inline">\(R\)</span> <a class="anchor" id="64"></a></h4>
 <p>The Pearson correlation matrix of a given data matrix <span class="math inline">\(X=[X_1 ,..., X_p]\)</span> is defined as:</p>
 <p><br></p>
 <p><span class="math display">\[
@@ -3189,9 +3273,9 @@ R= \begin{pmatrix}
 <p>If we have the following estimated linear regression model <span class="math inline">\(\hspace{0.1cm} Y=X\cdot \widehat{\beta} \hspace{0.1cm}\)</span> where <span class="math inline">\(\hspace{0.1cm}X=(1, X_1, ..., X_p)\hspace{0.1cm}\)</span> are all <strong>quantitative</strong> predictors.</p>
 <p>We compute the Pearson linear correlation matrix of the predictors <span class="math inline">\(\hspace{0.1cm} [ X_1 ,..., X_p] \hspace{0.2cm} \Rightarrow \hspace{0.2cm} R = [r_{ij} ]\hspace{0.05cm}_{i,j=1,..,p}\)</span></p>
 <p>If there is any <strong>high</strong> <span class="math inline">\(\hspace{0.1cm} r_{ij}\hspace{0.1cm} (\hspace{0.1cm} &gt; 0.75 \hspace{0.1cm})\)</span> <span class="math inline">\(\hspace{0.1cm} \Rightarrow\hspace{0.1cm}\)</span> possible multicollinearity problem</p>
-<hr />
-<div id="identification-of-multicollinearity-with-r-in-r" class="section level4" number="2.11.3.1">
-<h4><span class="header-section-number">2.11.3.1</span> Identification of multicollinearity with <span class="math inline">\(R\)</span> in <code>R</code></h4>
+<p> </p>
+<div id="identification-of-multicollinearity-with-r-in-r" class="section level5" number="8.1.2.1.1">
+<h5><span class="header-section-number">8.1.2.1.1</span> Identification of multicollinearity with <span class="math inline">\(R\)</span> in <code>R</code></h5>
 <p>We will suposse our linear regression model only has <strong>quatitative</strong> predictors.</p>
 <p>We need to compute the Pearson correlation matrix for these quantitative predictors.</p>
 <div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
@@ -3204,10 +3288,10 @@ R= \begin{pmatrix}
 <span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GGally)</span>
 <span id="cb102-4"><a href="#cb102-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb102-5"><a href="#cb102-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggcorr</span>(data_R <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>price, <span class="sc">-</span>quality), <span class="at">label=</span><span class="cn">TRUE</span>, <span class="at">digits=</span><span class="dv">3</span>)</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="identification-of-multicollinearity-with-r-in-python" class="section level4" number="2.11.3.2">
-<h4><span class="header-section-number">2.11.3.2</span> Identification of multicollinearity with <span class="math inline">\(R\)</span> in <code>Python</code></h4>
+<div id="identification-of-multicollinearity-with-r-in-python" class="section level5" number="8.1.2.1.2">
+<h5><span class="header-section-number">8.1.2.1.2</span> Identification of multicollinearity with <span class="math inline">\(R\)</span> in <code>Python</code></h5>
 <div class="sourceCode" id="cb103"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> data_Python.loc[: , [<span class="st">&#39;size_in_m_2&#39;</span>, <span class="st">&#39;longitude&#39;</span>, <span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;no_of_bedrooms&#39;</span>, <span class="st">&#39;no_of_bathrooms&#39;</span>]]</span></code></pre></div>
 <div class="sourceCode" id="cb104"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> X.corr()</span>
 <span id="cb104-2"><a href="#cb104-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -3220,11 +3304,12 @@ R= \begin{pmatrix}
 <span id="cb106-5"><a href="#cb106-5" aria-hidden="true" tabindex="-1"></a>sb.heatmap(corr, cmap<span class="op">=</span><span class="st">&quot;Blues&quot;</span>, annot<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
 <p>We can see there are several pairs of predictor with high correlation, such as <strong>(no_of_bathrooms , no_of_bedrooms )</strong> , <strong>(size_in_m_2 , no_of_bedrooms)</strong> , <strong>(size_in_m_2 , no_of_bathrooms)</strong></p>
 <p>So following this criteria the linear regression model <strong>price ~ size_in_m_2 + longitude + latitude + no_of_bedrooms + no_of_bathrooms</strong> could has multicollinearity problems.</p>
-<hr />
+<p> </p>
 </div>
 </div>
-<div id="identification-of-multicollinearity-with-vif" class="section level3" number="2.11.4">
-<h3><span class="header-section-number">2.11.4</span> Identification of multicollinearity with <span class="math inline">\(VIF\)</span> <a class="anchor" id="64"></a></h3>
+</div>
+<div id="identification-of-multicollinearity-with-vif" class="section level3" number="8.1.3">
+<h3><span class="header-section-number">8.1.3</span> Identification of multicollinearity with <span class="math inline">\(VIF\)</span> <a class="anchor" id="64"></a></h3>
 <p>If we have the following estimated linear regression model <span class="math inline">\(\hspace{0.1cm} Y=X\cdot \widehat{\beta} \hspace{0.1cm}\)</span> where <span class="math inline">\(\hspace{0.1cm}X=(1, X_1, ..., X_p)\hspace{0.1cm}\)</span> are all <strong>quantitative</strong> predictors.</p>
 <p>We compute the <strong>inverse</strong> of the Pearson correlation matrix of the predictors $ [ X_1 ,…, X_p] R^{-1} $</p>
 <p>The variance increase factor <span class="math inline">\(\left(VIF\right)\)</span> of the quantitative predictor <span class="math inline">\(X_j\)</span> is:</p>
@@ -3238,9 +3323,9 @@ R= \begin{pmatrix}
 <p>If <span class="math inline">\(\hspace{0.15cm}VIF(X_j) &gt; 10\)</span> <span class="math inline">\(\hspace{0.15cm}\left( R^2_{X_j} &gt; 0.90 \right)\)</span> <span class="math inline">\(\hspace{0.15cm}\Rightarrow\hspace{0.15cm}\)</span> <strong>High</strong> multicollinearity</p>
 <p>If <span class="math inline">\(\hspace{0.15cm}VIF(X_j) \in [4, 10]\)</span> <span class="math inline">\(\hspace{0.15cm}\left(R^2_{X_j} \in [0.75 , 0.90]\right)\)</span> <span class="math inline">\(\hspace{0.15cm}\Rightarrow\hspace{0.15cm}\)</span> <strong>Medium</strong> multicollinearity</p>
 <p>If <span class="math inline">\(\hspace{0.15cm}VIF(X_j) &lt; 4\)</span> <span class="math inline">\(\hspace{0.15cm}\left(R^2_{X_j} &lt; 0.75 \right)\)</span> <span class="math inline">\(\hspace{0.15cm}\Rightarrow\hspace{0.15cm}\)</span> <strong>Low</strong> multicollinearity</p>
-<hr />
-<div id="identification-of-multicollinearity-with-vif-in-r" class="section level4" number="2.11.4.1">
-<h4><span class="header-section-number">2.11.4.1</span> Identification of multicollinearity with <span class="math inline">\(VIF\)</span> in <code>R</code></h4>
+<p> </p>
+<div id="identification-of-multicollinearity-with-vif-in-r" class="section level4" number="8.1.3.1">
+<h4><span class="header-section-number">8.1.3.1</span> Identification of multicollinearity with <span class="math inline">\(VIF\)</span> in <code>R</code></h4>
 <div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
 <span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb107-3"><a href="#cb107-3" aria-hidden="true" tabindex="-1"></a>R_inverse <span class="ot">&lt;-</span> <span class="fu">solve</span>(R)</span>
@@ -3252,10 +3337,10 @@ R= \begin{pmatrix}
 <span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(carData)</span>
 <span id="cb108-5"><a href="#cb108-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb108-6"><a href="#cb108-6" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(<span class="fu">lm</span>(price <span class="sc">~</span> size_in_m_2  <span class="sc">+</span> longitude <span class="sc">+</span> latitude <span class="sc">+</span> no_of_bedrooms <span class="sc">+</span> no_of_bathrooms , <span class="at">data=</span>data_R))</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="identification-of-multicollinearity-with-vif-in-python" class="section level4" number="2.11.4.2">
-<h4><span class="header-section-number">2.11.4.2</span> Identification of multicollinearity with <span class="math inline">\(VIF\)</span> in <code>Python</code></h4>
+<div id="identification-of-multicollinearity-with-vif-in-python" class="section level4" number="8.1.3.2">
+<h4><span class="header-section-number">8.1.3.2</span> Identification of multicollinearity with <span class="math inline">\(VIF\)</span> in <code>Python</code></h4>
 <div class="sourceCode" id="cb109"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> data_Python.loc[: , [<span class="st">&#39;size_in_m_2&#39;</span>, <span class="st">&#39;longitude&#39;</span>, <span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;no_of_bedrooms&#39;</span>, <span class="st">&#39;no_of_bathrooms&#39;</span>]]</span>
 <span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb109-3"><a href="#cb109-3" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> X.corr()</span></code></pre></div>
@@ -3265,11 +3350,11 @@ R= \begin{pmatrix}
 <span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>VIF_Python <span class="op">=</span> VIF_Python.set_index(<span class="st">&#39;predictor&#39;</span>)</span>
 <span id="cb112-3"><a href="#cb112-3" aria-hidden="true" tabindex="-1"></a>VIF_Python</span></code></pre></div>
 <p>There is a quantitative predictor with <span class="math inline">\(\hspace{0.1cm} VIF &gt; 4 \hspace{0.1cm}\)</span> , but none with <span class="math inline">\(\hspace{0.1cm} VIF &gt; 10 \hspace{0.1cm}\)</span> , so following this criteria the linear regression model <span class="math inline">\(\hspace{0.1cm}\)</span> <strong>price ~ size_in_m_2 + longitude + latitude + no_of_bedrooms + no_of_bathrooms</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> has <strong>medium</strong> multicollinearity .</p>
-<hr />
+<p> </p>
 </div>
 </div>
-<div id="identification-of-multicollinearity-with-condition-number-of-hspace0.05cm-r" class="section level3" number="2.11.5">
-<h3><span class="header-section-number">2.11.5</span> Identification of multicollinearity with Condition Number of <span class="math inline">\(\hspace{0.05cm} R\)</span> <a class="anchor" id="66"></a></h3>
+<div id="identification-of-multicollinearity-with-condition-number-of-hspace0.05cm-r" class="section level3" number="8.1.4">
+<h3><span class="header-section-number">8.1.4</span> Identification of multicollinearity with Condition Number of <span class="math inline">\(\hspace{0.05cm} R\)</span> <a class="anchor" id="66"></a></h3>
 <p>If we have the following estimated linear regression model <span class="math inline">\(\hspace{0.1cm} Y=X\cdot \widehat{\beta} \hspace{0.1cm}\)</span> where <span class="math inline">\(\hspace{0.1cm}X=(1, X_1, ..., X_p)\hspace{0.1cm}\)</span> are all <strong>quantitative</strong> predictors.</p>
 <p>We compute the Pearson linear correlation matrix of the predictors <span class="math inline">\(\hspace{0.1cm} [ X_1 ,..., X_p] \hspace{0.2cm} \Rightarrow \hspace{0.2cm} R = [r_{ij} ]\hspace{0.05cm}_{i,j=1,..,p}\)</span></p>
 <p>The <strong>condition number</strong> of <span class="math inline">\(R\)</span> is defined as:</p>
@@ -3278,17 +3363,17 @@ R= \begin{pmatrix}
 <p>If <span class="math inline">\(\hspace{0.1cm} cond(R) &gt; 30\)</span> <span class="math inline">\(\hspace{0.1cm} \Rightarrow\hspace{0.1cm}\)</span> <strong>High</strong> multicollinearity</p>
 <p>If <span class="math inline">\(\hspace{0.1cm}cond(R) \in (10 , 30)\)</span> <span class="math inline">\(\hspace{0.1cm} \Rightarrow\hspace{0.1cm}\)</span> <strong>Medium</strong> multicollinearity</p>
 <p>If <span class="math inline">\(\hspace{0.1cm}cond(R) &lt; 10\)</span> <span class="math inline">\(\hspace{0.1cm} \Rightarrow\hspace{0.1cm}\)</span> <strong>Low</strong> multicollinearity</p>
-<hr />
-<div id="identification-of-multicollinearity-with-condition-number-of-hspace0.05cm-r-in-r" class="section level5" number="2.11.5.0.1">
-<h5><span class="header-section-number">2.11.5.0.1</span> Identification of multicollinearity with condition number of <span class="math inline">\(\hspace{0.05cm} R\)</span> in <code>R</code></h5>
+<p> </p>
+<div id="identification-of-multicollinearity-with-condition-number-of-hspace0.05cm-r-in-r" class="section level4" number="8.1.4.1">
+<h4><span class="header-section-number">8.1.4.1</span> Identification of multicollinearity with condition number of <span class="math inline">\(\hspace{0.05cm} R\)</span> in <code>R</code></h4>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
 <span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>cond_R <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="fu">max</span>(<span class="fu">eigen</span>(R)<span class="sc">$</span>values)<span class="sc">/</span><span class="fu">min</span>(<span class="fu">eigen</span>(R)<span class="sc">$</span>values))</span>
 <span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a>cond_R</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="identification-of-multicollinearity-with-condition-number-of-hspace0.05cm-r-in-python" class="section level5" number="2.11.5.0.2">
-<h5><span class="header-section-number">2.11.5.0.2</span> Identification of multicollinearity with condition number of <span class="math inline">\(\hspace{0.05cm} R\)</span> in <code>Python</code></h5>
+<div id="identification-of-multicollinearity-with-condition-number-of-hspace0.05cm-r-in-python" class="section level4" number="8.1.4.2">
+<h4><span class="header-section-number">8.1.4.2</span> Identification of multicollinearity with condition number of <span class="math inline">\(\hspace{0.05cm} R\)</span> in <code>Python</code></h4>
 <div class="sourceCode" id="cb114"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> data_Python.loc[: , [<span class="st">&#39;size_in_m_2&#39;</span>, <span class="st">&#39;longitude&#39;</span>, <span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;no_of_bedrooms&#39;</span>, <span class="st">&#39;no_of_bathrooms&#39;</span>]]</span>
 <span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> X.corr()</span></code></pre></div>
@@ -3298,15 +3383,15 @@ R= \begin{pmatrix}
 <div class="sourceCode" id="cb116"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>cond_R <span class="op">=</span> math.sqrt(<span class="bu">max</span>(eigenvalues)<span class="op">/</span><span class="bu">min</span>(eigenvalues))</span>
 <span id="cb116-2"><a href="#cb116-2" aria-hidden="true" tabindex="-1"></a>cond_R</span></code></pre></div>
 <p>We have get $ cond(R) = 4.33 &lt; 10 $ , so following this criterion, the linear regression model <span class="math inline">\(\hspace{0.1cm}\)</span> <strong>price ~ size_in_m_2 + longitude + latitude + no_of_bedrooms + no_of_bathrooms</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> has <strong>low</strong> multicollinearity</p>
-<hr />
+<p> </p>
 </div>
 </div>
-<div id="identification-of-multicollinearity-with-gvif" class="section level3" number="2.11.6">
-<h3><span class="header-section-number">2.11.6</span> Identification of multicollinearity with <span class="math inline">\(GVIF\)</span> <a class="anchor" id="67"></a></h3>
+<div id="identification-of-multicollinearity-with-gvif" class="section level3" number="8.1.5">
+<h3><span class="header-section-number">8.1.5</span> Identification of multicollinearity with <span class="math inline">\(GVIF\)</span> <a class="anchor" id="67"></a></h3>
 <p><span class="math inline">\(VIF\)</span> is only a good multicollinearity measure when <strong>all</strong> the <strong>predictors</strong> of the model are <strong>quantitative</strong>.</p>
 <p><span class="math inline">\(GVIF\)</span> is the measure proposed by Fox and Monette (1992) to deal with linear regression models that have <strong>categorical predictors</strong>.</p>
 <p>Suppose we have the following estimated linear regression model <span class="math inline">\(\hspace{0.1cm} Y=X\cdot \widehat{\beta} \hspace{0.1cm}\)</span> where <span class="math inline">\(\hspace{0.1cm}X=(1, X_1, ..., X_p)\hspace{0.1cm}\)</span> are some <strong>quantitative</strong> and others <strong>categorical</strong> predictors.</p>
-<hr />
+<p> </p>
 <p>If <span class="math inline">\(X_j\)</span> is a <strong>quantitative</strong> predictor</p>
 <p>We have to consider the following matrix:</p>
 <ul>
@@ -3322,7 +3407,7 @@ R= \begin{pmatrix}
 </ul>
 <p>Then, <span class="math inline">\(\hspace{0.1cm} GVIF \hspace{0.1cm}\)</span> of <span class="math inline">\(\hspace{0.1cm} X_j \hspace{0.1cm}\)</span> is defined as:</p>
 <p><span class="math display">\[ GVIF(X_j) = det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)} \]</span></p>
-<hr />
+<p> </p>
 <p>If <span class="math inline">\(X_j\)</span> is a <strong>categorical</strong> predictor with <span class="math inline">\(r\)</span> categories, <span class="math inline">\(\hspace{0.1cm} Range(X_j) = \lbrace 0,1,..., r-1 \rbrace \hspace{0.1cm}\)</span> , that enter in the model with the dummy variables <span class="math inline">\(\hspace{0.1cm} X_{j1},X_{j2},...,X_{j(r-1)}\)</span></p>
 <p>We have to consider the following matrix:</p>
 <ul>
@@ -3338,7 +3423,7 @@ R= \begin{pmatrix}
 </ul>
 <p>Then, <span class="math inline">\(\hspace{0.05cm} GVIF \hspace{0.05cm}\)</span> of <span class="math inline">\(\hspace{0.05cm} X_j \hspace{0.05cm}\)</span> is defined as:</p>
 <p><span class="math display">\[ GVIF(X_j) = det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)} \]</span></p>
-<hr />
+<p> </p>
 <p><strong>Criteria:</strong> Identification of multicollinearity with <span class="math inline">\(GVIF\)</span></p>
 <p>In this criteria the key quantity is <span class="math inline">\(\hspace{0.15cm} GVIF(X_j)^{1/2 df}\)</span></p>
 <p>Where: <span class="math inline">\(\hspace{0.15cm}df\hspace{0.1cm}\)</span> is the number of parameters that enter in the linear regression model when <span class="math inline">\(\hspace{0.1cm} X_j\hspace{0.1cm}\)</span> is added as predictor</p>
@@ -3362,19 +3447,19 @@ R= \begin{pmatrix}
 <p>If $ GVIF(X_j)^{1/(2(r-1))} &gt; 10^{1/(2(r-1))} $ <span class="math inline">\(\hspace{0.1cm}\Rightarrow\hspace{0.1cm}\)</span> <strong>High</strong> multicollinearity</p>
 <p>If <span class="math inline">\(\hspace{0.15cm} GVIF(X_j)^{1/(2(r-1))} \in [4^{1/(2(r-1))}, 10^{1/(2(r-1))}]\)</span> <span class="math inline">\(\hspace{0.1cm} \Rightarrow\hspace{0.1cm}\)</span> <strong>Medium</strong> multicollinearity</p>
 <p>If <span class="math inline">\(\hspace{0.15cm} GVIF(X_j)^{1/(2(r-1))} &lt; 4^{1/(2(r-1))}\)</span> <span class="math inline">\(\hspace{0.1cm}\Rightarrow\hspace{0.1cm}\)</span> <strong>Low</strong> multicollinearity</p>
-<hr />
-<div id="identification-of-multicollinearity-with-gvif-in-r" class="section level5" number="2.11.6.0.1">
-<h5><span class="header-section-number">2.11.6.0.1</span> Identification of multicollinearity with <span class="math inline">\(GVIF\)</span> in <code>R</code></h5>
+<p> </p>
+<div id="identification-of-multicollinearity-with-gvif-in-r" class="section level4" number="8.1.5.1">
+<h4><span class="header-section-number">8.1.5.1</span> Identification of multicollinearity with <span class="math inline">\(GVIF\)</span> in <code>R</code></h4>
 <div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R </span>
 <span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
 <span id="cb117-4"><a href="#cb117-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(carData)</span>
 <span id="cb117-5"><a href="#cb117-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb117-6"><a href="#cb117-6" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(<span class="fu">lm</span>(price <span class="sc">~</span> size_in_m_2  <span class="sc">+</span> longitude <span class="sc">+</span> latitude <span class="sc">+</span> no_of_bedrooms <span class="sc">+</span> no_of_bathrooms <span class="sc">+</span> quality , <span class="at">data=</span>data_R))</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="identification-of-multicollinearity-with-gvif-in-python" class="section level5" number="2.11.6.0.2">
-<h5><span class="header-section-number">2.11.6.0.2</span> Identification of multicollinearity with <span class="math inline">\(GVIF\)</span> in <code>Python</code></h5>
+<div id="identification-of-multicollinearity-with-gvif-in-python" class="section level4" number="8.1.5.2">
+<h4><span class="header-section-number">8.1.5.2</span> Identification of multicollinearity with <span class="math inline">\(GVIF\)</span> in <code>Python</code></h4>
 <p><span class="math inline">\(GVIF\)</span> for the <strong>categorical</strong> predictor <span class="math inline">\(quality\)</span></p>
 <div class="sourceCode" id="cb118"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> data_Python.loc[: , [<span class="st">&#39;size_in_m_2&#39;</span>, <span class="st">&#39;longitude&#39;</span>, <span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;no_of_bedrooms&#39;</span>, <span class="st">&#39;no_of_bathrooms&#39;</span>, <span class="st">&#39;quality&#39;</span>]]</span></code></pre></div>
 <div class="sourceCode" id="cb119"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>X1 <span class="op">=</span> varcharProcessing(X).loc[:, [<span class="st">&#39;quality_1&#39;</span>, <span class="st">&#39;quality_2&#39;</span>, <span class="st">&#39;quality_3&#39;</span>]]</span>
@@ -3448,18 +3533,18 @@ R= \begin{pmatrix}
 <p>In this case all the quantitative predictors have <span class="math inline">\(\hspace{0.1cm} GVIF^{1/2df} &lt; 3.16 \hspace{0.1cm}\)</span>, but <span class="math inline">\(\hspace{0.1cm} GVIF^{1/2df} \hspace{0.1cm}\)</span> of <span class="math inline">\(\hspace{0.1cm}\)</span> <strong>no_of_bathrooms</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> is <span class="math inline">\(\hspace{0.1cm} 2.14 &gt; 2\)</span> $ $ <strong>medium</strong> multicollinearity</p>
 <p>On the other hand the 4-ary categorical predictor <strong>quality</strong> has <span class="math inline">\(\hspace{0.1cm} GVIF^{1/2df}\hspace{0.1cm} = 1.01 &lt; 1.26\)</span> $ $ <strong>low</strong> multicollinearity</p>
 <p>So using the GVIF method, we can conclude that there is a <strong>medium</strong> multicollinearity between the predictors of the model <span class="math inline">\(\hspace{0.1cm}\)</span> <strong>price ~ size_in_m_2 + longitude + latitude + no_of_bedrooms + no_of_bathrooms</strong> <span class="math inline">\(\hspace{0.1cm}\)</span></p>
-<hr />
+<p> </p>
 </div>
 </div>
 </div>
-<div id="checking-error-assumptions" class="section level2" number="2.12">
-<h2><span class="header-section-number">2.12</span> Checking Error Assumptions <a class="anchor" id="68"></a></h2>
+<div id="checking-error-assumptions" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Checking Error Assumptions <a class="anchor" id="68"></a></h2>
 <ul>
 <li><p>$_i N(0,) i=1,…,n $</p></li>
 <li><p>$corr(_i , _j)=0 ij =1,…,n $</p></li>
 </ul>
-<div id="checking-error-constant-variance" class="section level3" number="2.12.1">
-<h3><span class="header-section-number">2.12.1</span> Checking Error Constant Variance <a class="anchor" id="69"></a></h3>
+<div id="checking-error-constant-variance" class="section level3" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Checking Error Constant Variance <a class="anchor" id="69"></a></h3>
 <p>It is not possible to check the assumption of constant variance just by examining
 the residuals alone, some will be large and some will be small, but this proves nothing. We need to check whether the variance in the residuals is related to some
 other quantity.</p>
@@ -3474,18 +3559,18 @@ other quantity.</p>
 <ul>
 <li>If we can see a non-linear shape at the points <span class="math inline">\(\Rightarrow\)</span> evidence of non-linearity between the response variable and the predictors</li>
 </ul>
-<hr />
-<div id="checking-error-constant-variance-in-r" class="section level5" number="2.12.1.0.1">
-<h5><span class="header-section-number">2.12.1.0.1</span> Checking Error Constant Variance in <code>R</code></h5>
+<p> </p>
+<div id="checking-error-constant-variance-in-r" class="section level4" number="8.2.1.1">
+<h4><span class="header-section-number">8.2.1.1</span> Checking Error Constant Variance in <code>R</code></h4>
 <div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
 <span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb127-3"><a href="#cb127-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb127-4"><a href="#cb127-4" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>model_R<span class="sc">$</span>fitted.values , <span class="at">y =</span> estimated_errors ), <span class="at">color=</span><span class="st">&quot;blue&quot;</span>)<span class="sc">+</span></span>
 <span id="cb127-5"><a href="#cb127-5" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_hline</span>(<span class="at">yintercept =</span><span class="dv">0</span> , <span class="at">color=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="checking-error-constant-variance-in-python" class="section level5" number="2.12.1.0.2">
-<h5><span class="header-section-number">2.12.1.0.2</span> Checking Error Constant Variance in <code>Python</code></h5>
+<div id="checking-error-constant-variance-in-python" class="section level4" number="8.2.1.2">
+<h4><span class="header-section-number">8.2.1.2</span> Checking Error Constant Variance in <code>Python</code></h4>
 <div class="sourceCode" id="cb128"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> ggplot, aes, geom_line, geom_point, geom_smooth, geom_histogram, geom_bar, geom_boxplot, scale_y_continuous, scale_x_continuous, scale_x_discrete, scale_y_discrete, labs, after_stat,  geom_vline, scale_color_manual, theme_gray, theme_xkcd, scale_color_identity, geom_hline, facet_wrap, scale_fill_discrete, scale_fill_manual,  scale_fill_hue, guides, guide_legend, geom_hline, stat_function </span></code></pre></div>
 <div class="sourceCode" id="cb129"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb129-2"><a href="#cb129-2" aria-hidden="true" tabindex="-1"></a>ggplot()</span>
@@ -3494,37 +3579,38 @@ other quantity.</p>
 <span id="cb129-5"><a href="#cb129-5" aria-hidden="true" tabindex="-1"></a><span class="op">+</span> labs(x<span class="op">=</span><span class="st">&#39;response predictions&#39;</span> , y<span class="op">=</span><span class="st">&#39;estimated errors&#39;</span>)</span>
 <span id="cb129-6"><a href="#cb129-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p>Since we can see a cone shape at the points, we cannot accept the constant error variance assumption <span class="math inline">\(Var(\varepsilon)=\sigma^2\)</span>.</p>
-<hr />
+<p> </p>
 </div>
 </div>
-<div id="checking-null-error-mean" class="section level3" number="2.12.2">
-<h3><span class="header-section-number">2.12.2</span> Checking Null Error Mean <a class="anchor" id="70"></a></h3>
+<div id="checking-null-error-mean" class="section level3" number="8.2.2">
+<h3><span class="header-section-number">8.2.2</span> Checking Null Error Mean <a class="anchor" id="70"></a></h3>
 <p>We are going to use the typical t-test to verify this assumption.</p>
 <p>First we compute the estimated errors mean to get first idea:</p>
 <div class="sourceCode" id="cb130"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a>df_predictions_Python[<span class="st">&#39;estimated_errors&#39;</span>].mean()</span></code></pre></div>
-<hr />
-<div id="checking-null-error-mean-in-r" class="section level5" number="2.12.2.0.1">
-<h5><span class="header-section-number">2.12.2.0.1</span> Checking Null Error Mean in <code>R</code></h5>
+<p> </p>
+<div id="checking-null-error-mean-in-r" class="section level4" number="8.2.2.1">
+<h4><span class="header-section-number">8.2.2.1</span> Checking Null Error Mean in <code>R</code></h4>
 <div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
 <span id="cb131-2"><a href="#cb131-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb131-3"><a href="#cb131-3" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x=</span>estimated_errors , <span class="at">mu=</span><span class="dv">0</span>)</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="checking-null-error-mean-in-python" class="section level5" number="2.12.2.0.2">
-<h5><span class="header-section-number">2.12.2.0.2</span> Checking Null Error Mean in <code>Python</code></h5>
+<div id="checking-null-error-mean-in-python" class="section level4" number="8.2.2.2">
+<h4><span class="header-section-number">8.2.2.2</span> Checking Null Error Mean in <code>Python</code></h4>
 <div class="sourceCode" id="cb132"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install --upgrade pingouin</span></span></code></pre></div>
 <div class="sourceCode" id="cb133"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pingouin <span class="im">as</span> pg</span>
 <span id="cb133-2"><a href="#cb133-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb133-3"><a href="#cb133-3" aria-hidden="true" tabindex="-1"></a>pg.ttest(x<span class="op">=</span> df_predictions_Python[<span class="st">&#39;estimated_errors&#39;</span>] , y<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
 <p>For any significance level we can accept that the errors mean is zero (0)</p>
-<hr />
+<p> </p>
 </div>
 </div>
-<div id="checking-error-normality" class="section level3" number="2.12.3">
-<h3><span class="header-section-number">2.12.3</span> Checking Error Normality <a class="anchor" id="71"></a></h3>
-<p>First we are going to check the error normality assumption using the <strong>histogram method</strong>:</p>
-<div id="checking-error-normality-in-r-with-histogram-method" class="section level4" number="2.12.3.1">
-<h4><span class="header-section-number">2.12.3.1</span> Checking Error Normality in <code>R</code> with histogram method</h4>
+<div id="checking-error-normality" class="section level3" number="8.2.3">
+<h3><span class="header-section-number">8.2.3</span> Checking Error Normality <a class="anchor" id="71"></a></h3>
+<p>First we are going to check the error normality assumption using the <strong>histogram method</strong></p>
+<p> </p>
+<div id="checking-error-normality-in-r-with-histogram-method" class="section level4" number="8.2.3.1">
+<h4><span class="header-section-number">8.2.3.1</span> Checking Error Normality in <code>R</code> with histogram method</h4>
 <div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
 <span id="cb134-2"><a href="#cb134-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb134-3"><a href="#cb134-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">as.data.frame</span>(estimated_errors) ,</span>
@@ -3535,10 +3621,10 @@ other quantity.</p>
 <span id="cb134-8"><a href="#cb134-8" aria-hidden="true" tabindex="-1"></a> <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> <span class="fu">mean</span>(estimated_errors), <span class="at">sd =</span> <span class="fu">sd</span>(estimated_errors)),</span>
 <span id="cb134-9"><a href="#cb134-9" aria-hidden="true" tabindex="-1"></a> <span class="at">lwd =</span> <span class="fl">1.2</span>,  <span class="at">col =</span> <span class="st">&#39;blue&#39;</span></span>
 <span id="cb134-10"><a href="#cb134-10" aria-hidden="true" tabindex="-1"></a> )</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="checking-error-normality-in-python-with-histogram-method" class="section level4" number="2.12.3.2">
-<h4><span class="header-section-number">2.12.3.2</span> Checking Error Normality in <code>Python</code> with histogram method</h4>
+<div id="checking-error-normality-in-python-with-histogram-method" class="section level4" number="8.2.3.2">
+<h4><span class="header-section-number">8.2.3.2</span> Checking Error Normality in <code>Python</code> with histogram method</h4>
 <div class="sourceCode" id="cb135"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
 <span id="cb135-2"><a href="#cb135-2" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb135-3"><a href="#cb135-3" aria-hidden="true" tabindex="-1"></a>ggplot(data <span class="op">=</span> df_predictions_Python ,</span>
@@ -3546,37 +3632,36 @@ other quantity.</p>
 <span id="cb135-5"><a href="#cb135-5" aria-hidden="true" tabindex="-1"></a><span class="op">+</span> geom_histogram(aes(y <span class="op">=</span> after_stat(<span class="st">&#39;density&#39;</span>)), color<span class="op">=</span><span class="st">&quot;black&quot;</span>, fill<span class="op">=</span><span class="st">&quot;pink&quot;</span>, position <span class="op">=</span> <span class="st">&#39;identity&#39;</span>, bins<span class="op">=</span><span class="dv">35</span>) </span>
 <span id="cb135-6"><a href="#cb135-6" aria-hidden="true" tabindex="-1"></a><span class="op">+</span> stat_function( fun <span class="op">=</span> stats.norm.pdf , args <span class="op">=</span> <span class="bu">dict</span>( loc<span class="op">=</span>mean(df_predictions_Python[<span class="st">&#39;estimated_errors&#39;</span>]), scale<span class="op">=</span>sd(df_predictions_Python[<span class="st">&#39;estimated_errors&#39;</span>])) , color<span class="op">=</span><span class="st">&#39;blue&#39;</span>, size<span class="op">=</span><span class="dv">1</span> )</span>
 <span id="cb135-7"><a href="#cb135-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<hr />
-<p>Now we are going to check the error normality assumption using the Shapiro statistical test:</p>
+<p> </p>
+<p>Now we are going to check the error normality assumption using the Shapiro statistical test.</p>
+<p> </p>
 </div>
-<div id="checking-error-normality-in-r-with-shapiro-test" class="section level4" number="2.12.3.3">
-<h4><span class="header-section-number">2.12.3.3</span> Checking Error Normality in <code>R</code> with Shapiro test</h4>
+<div id="checking-error-normality-in-r-with-shapiro-test" class="section level4" number="8.2.3.3">
+<h4><span class="header-section-number">8.2.3.3</span> Checking Error Normality in <code>R</code> with Shapiro test</h4>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
 <span id="cb136-2"><a href="#cb136-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb136-3"><a href="#cb136-3" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(estimated_errors)</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="checking-error-normality-in-python-with-shapiro-test" class="section level4" number="2.12.3.4">
-<h4><span class="header-section-number">2.12.3.4</span> Checking Error Normality in <code>Python</code> with Shapiro test</h4>
+<div id="checking-error-normality-in-python-with-shapiro-test" class="section level4" number="8.2.3.4">
+<h4><span class="header-section-number">8.2.3.4</span> Checking Error Normality in <code>Python</code> with Shapiro test</h4>
 <div class="sourceCode" id="cb137"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a>shapiro_test <span class="op">=</span> stats.shapiro(df_predictions_Python[<span class="st">&#39;estimated_errors&#39;</span>])</span>
 <span id="cb137-2"><a href="#cb137-2" aria-hidden="true" tabindex="-1"></a>shapiro_test</span></code></pre></div>
 <p>For any significance level we have to reject the errors normality hypothesis.</p>
-<hr />
+<p> </p>
 </div>
 </div>
-<div id="checking-null-error-correlation" class="section level3" number="2.12.4">
-<h3><span class="header-section-number">2.12.4</span> Checking Null Error Correlation <a class="anchor" id="72"></a></h3>
+<div id="checking-null-error-correlation" class="section level3" number="8.2.4">
+<h3><span class="header-section-number">8.2.4</span> Checking Null Error Correlation <a class="anchor" id="72"></a></h3>
 <p>We are going to check the null error correlation assumption through the <strong>Durban-Watson test</strong>.</p>
-<div id="hypothesis" class="section level5" number="2.12.4.0.1">
-<h5><span class="header-section-number">2.12.4.0.1</span> Hypothesis:</h5>
+<p> </p>
+<p><strong>Hypothesis:</strong></p>
 <p><span class="math display">\[H_0: \hspace{0.1cm} corr\left(\hat{\varepsilon}_{(1)},\hat{\varepsilon}_{(2)}\right) = 0 \]</span></p>
 <p><span class="math display">\[H_1: \hspace{0.1cm} corr\left(\hat{\varepsilon}_{(1)},\hat{\varepsilon}_{(2)}\right) \neq 0\]</span></p>
 <p>Where:</p>
 <p><span class="math display">\[\hat{\varepsilon}_{(1)} = (\hat{\varepsilon}_1 , \hat{\varepsilon}_2 ,..., \hat{\varepsilon}_{n-1})\]</span></p>
 <p><span class="math display">\[\hat{\varepsilon}_{(2)} = (\hat{\varepsilon}_2  ,...,\hat{\varepsilon}_{n-1}, \hat{\varepsilon}_{n})\]</span></p>
-</div>
-<div id="test-statistic-1" class="section level5" number="2.12.4.0.2">
-<h5><span class="header-section-number">2.12.4.0.2</span> Test Statistic :</h5>
+<p><strong>Test Statistic :</strong></p>
 <p><span class="math display">\[\begin{gather*}
 DW = \dfrac{\sum_{i=2}^n (\hat{\varepsilon}_i - \hat{\varepsilon}_{i-1})^2 }{\sum_{i=2}^n \hat{\varepsilon}_{i}^2 } = \dfrac{sum\left( \hspace{0.1cm}( \hat{\varepsilon}_{(2)} - \hat{\varepsilon}_{(1)})^2 \hspace{0.1cm} \right)}{sum\left( \hspace{0.1cm} (\hat{\varepsilon}_{(2)})^2 \hspace{0.1cm} \right)}
 \end{gather*}\]</span></p>
@@ -3584,10 +3669,9 @@ DW = \dfrac{\sum_{i=2}^n (\hat{\varepsilon}_i - \hat{\varepsilon}_{i-1})^2 }{\su
 <p>A test statistic of <span class="math inline">\(2\)</span> indicates <strong>no serial correlation</strong>.</p>
 <p>The closer the test statistics is to <span class="math inline">\(0\)</span>, the more evidence of <strong>positive serial correlation</strong>.</p>
 <p>The closer the test statistics is to <span class="math inline">\(4\)</span>, the more evidence of <strong>negative serial correlation</strong>.</p>
-<hr />
-</div>
-<div id="durban-watson-test-in-r" class="section level5" number="2.12.4.0.3">
-<h5><span class="header-section-number">2.12.4.0.3</span> Durban-Watson test in <code>R</code></h5>
+<p> </p>
+<div id="durban-watson-test-in-r" class="section level4" number="8.2.4.1">
+<h4><span class="header-section-number">8.2.4.1</span> Durban-Watson test in <code>R</code></h4>
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="sc">%%</span>R</span>
 <span id="cb138-2"><a href="#cb138-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb138-3"><a href="#cb138-3" aria-hidden="true" tabindex="-1"></a>estimated_errors_1 <span class="ot">=</span> estimated_errors[<span class="sc">-</span><span class="dv">1</span>]</span>
@@ -3600,10 +3684,10 @@ DW = \dfrac{\sum_{i=2}^n (\hat{\varepsilon}_i - \hat{\varepsilon}_{i-1})^2 }{\su
 <span id="cb139-3"><a href="#cb139-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span>
 <span id="cb139-4"><a href="#cb139-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb139-5"><a href="#cb139-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dwtest</span>(price <span class="sc">~</span> size_in_m_2  <span class="sc">+</span> longitude <span class="sc">+</span> latitude <span class="sc">+</span> no_of_bedrooms <span class="sc">+</span> no_of_bathrooms <span class="sc">+</span> quality , <span class="at">data=</span>data_R, <span class="at">alternative =</span> <span class="st">&#39;two.sided&#39;</span> )</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="durban-watson-test-in-python" class="section level5" number="2.12.4.0.4">
-<h5><span class="header-section-number">2.12.4.0.4</span> Durban-Watson test in <code>Python</code></h5>
+<div id="durban-watson-test-in-python" class="section level4" number="8.2.4.2">
+<h4><span class="header-section-number">8.2.4.2</span> Durban-Watson test in <code>Python</code></h4>
 <div class="sourceCode" id="cb140"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a>train_errors_1 <span class="op">=</span> pd.DataFrame({ <span class="st">&#39;train_errors_1&#39;</span>: df_predictions_Python.iloc[<span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(df_predictions_Python)) , <span class="dv">2</span> ] } )</span>
 <span id="cb140-2"><a href="#cb140-2" aria-hidden="true" tabindex="-1"></a>train_errors_2 <span class="op">=</span> pd.DataFrame({ <span class="st">&#39;train_errors_1&#39;</span>: df_predictions_Python.iloc[<span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(df_predictions_Python)<span class="op">-</span><span class="dv">1</span>) , <span class="dv">2</span> ] } )  </span>
 <span id="cb140-3"><a href="#cb140-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3625,12 +3709,12 @@ DW = \dfrac{\sum_{i=2}^n (\hat{\varepsilon}_i - \hat{\varepsilon}_{i-1})^2 }{\su
 <div class="sourceCode" id="cb144"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a>statistic, pvalue <span class="op">=</span> dwtest( <span class="st">&#39;price ~ size_in_m_2  + longitude + latitude + no_of_bedrooms + no_of_bathrooms&#39;</span>  , data_Python)</span></code></pre></div>
 <div class="sourceCode" id="cb145"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb145-1"><a href="#cb145-1" aria-hidden="true" tabindex="-1"></a>statistic, pvalue</span></code></pre></div>
 <p>For any <span class="math inline">\(\alpha\)</span> we reject the null error correlation hypothesis.</p>
-<hr />
+<p> </p>
 </div>
 </div>
 </div>
-<div id="checking-linear-assumption" class="section level2" number="2.13">
-<h2><span class="header-section-number">2.13</span> Checking Linear Assumption <a class="anchor" id="73"></a></h2>
+<div id="checking-linear-assumption" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Checking Linear Assumption <a class="anchor" id="73"></a></h2>
 <p>The linear regression model assumes that there is a linear relationship between the response and the predictors.</p>
 <p>If the actually existing relationship is not linear, then all the conclusions we draw from the linear model are questionable.</p>
 <p>How to identify nonlinearity?</p>
@@ -3695,10 +3779,10 @@ DW = \dfrac{\sum_{i=2}^n (\hat{\varepsilon}_i - \hat{\varepsilon}_{i-1})^2 }{\su
 <span id="cb152-7"><a href="#cb152-7" aria-hidden="true" tabindex="-1"></a> <span class="op">+</span> scale_x_continuous( breaks <span class="op">=</span> np.arange (data_Python[<span class="st">&#39;quality&#39;</span>].<span class="bu">min</span>() , data_Python[<span class="st">&#39;quality&#39;</span>].<span class="bu">max</span>()<span class="op">+</span><span class="dv">1</span> , <span class="dv">1</span>) ) </span>
 <span id="cb152-8"><a href="#cb152-8" aria-hidden="true" tabindex="-1"></a> <span class="op">+</span> scale_y_continuous( breaks <span class="op">=</span> <span class="bu">range</span>(<span class="bu">int</span>(data_Python[<span class="st">&#39;price&#39;</span>].<span class="bu">min</span>()) , <span class="bu">int</span>(data_Python[<span class="st">&#39;price&#39;</span>].<span class="bu">max</span>()) , <span class="dv">2000000</span>) )</span>
 <span id="cb152-9"><a href="#cb152-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="finding-outliers" class="section level2" number="2.14">
-<h2><span class="header-section-number">2.14</span> Finding Outliers <a class="anchor" id="74"></a></h2>
+<div id="finding-outliers" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Finding Outliers <a class="anchor" id="74"></a></h2>
 <p>An outlier is a point that clearly deviates from the relationship between the response and the predictors.</p>
 <p>Outliers can greatly affect the estimates of model parameters.</p>
 <p>How to identify outliers?</p>
@@ -3721,17 +3805,17 @@ DW = \dfrac{\sum_{i=2}^n (\hat{\varepsilon}_i - \hat{\varepsilon}_{i-1})^2 }{\su
 <div class="sourceCode" id="cb155"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb155-1"><a href="#cb155-1" aria-hidden="true" tabindex="-1"></a>Outliers_df.head()</span></code></pre></div>
 <div class="sourceCode" id="cb156"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true" tabindex="-1"></a>Outliers <span class="op">=</span> Outliers_df.loc[ Outliers_df[<span class="st">&#39;standardized_estimated_errors &gt; 3&#39;</span>] <span class="op">==</span> <span class="va">True</span> , : ].index</span></code></pre></div>
 <div class="sourceCode" id="cb157"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb157-1"><a href="#cb157-1" aria-hidden="true" tabindex="-1"></a>Outliers</span></code></pre></div>
-<hr />
+<p> </p>
 </div>
-<div id="bibliography" class="section level2" number="2.15">
-<h2><span class="header-section-number">2.15</span> Bibliography</h2>
+</div>
+<div id="bibliography" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Bibliography</h1>
 <p>Benitez Peña, S. (2021). <em>El modelo de regresión lineal múltiple</em> [Presentación de PowerPoint]. Aula Global UC3M.</p>
 <p>Benitez Peña, S. (2021). <em>Inferencia en el modelo de regresión lineal múltiple</em> [Presentación de PowerPoint]. Aula Global UC3M.</p>
 <p>Benitez Peña, S. (2021). <em>Diagnosis y validacion del modelo de regresión lineal múltiple</em> [Presentación de PowerPoint]. Aula Global UC3M.</p>
 <p>Galeano, P. (2022). <em>Regresion Lineal Múltiple</em> [Presentación de PowerPoint]. Aula Global UC3M.</p>
 <p>Fox, J. (2022). <em>Diagnosing Collinearity</em> [Presentación de PowerPoint]. McMaster University</p>
 <p>Faraway, J (2015). <em>Linear Models with R</em> (second edition). CRC Press.</p>
-</div>
 </div>
 </div>
 

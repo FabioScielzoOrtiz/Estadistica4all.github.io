@@ -437,6 +437,7 @@ We have the following elements:
 -   ***Response Variable:***  a **quantitative** variable
       $Y=(y_{1} , y_2,...,y_n)^t$
 
+&nbsp;
 
 
 -   ***Predictors:*** a set of **quantitative** or **categorical**
@@ -453,6 +454,7 @@ X_p = (x_{1p}, x_{2p}, ..., x_{np})^t
 \end{gather*}
 
 
+&nbsp;
 
 
 -   ***Predictors Matrix:***
@@ -475,6 +477,7 @@ X_p = (x_{1p}, x_{2p}, ..., x_{np})^t
     \end{gather*}
     
 
+&nbsp;
 
 
 -   ***Beta Coefficients vector:***
@@ -484,7 +487,7 @@ X_p = (x_{1p}, x_{2p}, ..., x_{np})^t
 \beta=(\beta_{1}, \beta_{2}, ..., \beta_{n})^t 
 \end{gather*}
 
-
+&nbsp;
 
 -   ***Errors (residuals) vector:***
 
@@ -511,29 +514,33 @@ The basic assumptions of the model are the following:
 
 
 
-- $\hspace{0.3cm} y_i \hspace{0.1cm} =  \hspace{0.1cm} x_i^t \cdot \beta  +  \varepsilon_i \hspace{0.1cm} =  \hspace{0.1cm}   \beta_0 + \sum_{j=1}^{p} \left( \beta_j \cdot x_{ij} \right) + \varepsilon_i \hspace{0.1cm} =  \hspace{0.1cm}  \beta_0 + \beta_1 \cdot x_{i1} + \beta_2 \cdot x_{i2} + \dots + \beta_p \cdot x_{ip} + \varepsilon_i $
+- $\hspace{0.3cm} y_i \hspace{0.1cm} =  \hspace{0.1cm} x_i^t \cdot \beta  +  \varepsilon_i \hspace{0.1cm} =  \hspace{0.1cm}   \beta_0 + \sum_{j=1}^{p} \left( \beta_j \cdot x_{ij} \right) + \varepsilon_i \hspace{0.1cm} =  \hspace{0.1cm}  \beta_0 + \beta_1 \cdot x_{i1} + \beta_2 \cdot x_{i2} + \dots + \beta_p \cdot x_{ip} + \varepsilon_i$
  
 
+&nbsp;
 
  
 -  $\hspace{0.3cm} \varepsilon_i$ is a random variable such that:
 
 
-   - $\hspace{0.3cm} E[\varepsilon_i]=0$
+   - $\hspace{0.3cm} E[\varepsilon_i]=0 \\$
    
-   - $\hspace{0.3cm} Var(\varepsilon_i)=\sigma^2$
+   
+   
+   - $\hspace{0.3cm} Var(\varepsilon_i)=\sigma^2 \\$
   
-   - $\hspace{0.3cm} \varepsilon_i \sim N(0,\sigma)$ 
+   - $\hspace{0.3cm} \varepsilon_i \sim N(0,\sigma) \\$ 
   
-   - $\hspace{0.3cm} cov(\varepsilon_i , \varepsilon_j)=0  \hspace{0.15cm} ,\forall i\neq j$ 
+   - $\hspace{0.3cm} cov(\varepsilon_i , \varepsilon_j)=0  \hspace{0.25cm} ,\forall i\neq j$ 
 
 
+&nbsp;
 
 
 
 - $\hspace{0.3cm}$ Additional assumptions:
 
-  -  $\hspace{0.3cm} n > p+1 \hspace{0.3cm}$ ( nº observations $>$ nº of beta coefficients  )
+  -  $\hspace{0.3cm} n > p+1 \\$  
 
   -  $\hspace{0.3cm} Rg(X)=p+1$
 
@@ -542,62 +549,66 @@ Why are these additional assumptions important ? $\hspace{0.1cm} \Rightarrow\hsp
 
 
 
-------------------------
+&nbsp;
+
+
+
+
+## Assumptions Consequences <a class="anchor" id="8"></a>
+
+
+   -  $\hspace{0.15cm} y_i$ is a random variable because  $\varepsilon_i$ is a random variable, and has the following propierties:
+   
+
+      -  $\hspace{0.15cm} E[y_i]= x_i^t \cdot \beta \\$
+
+      -  $\hspace{0.15cm} Var(y_i) = \sigma^2 \\$
+
+      -  $\hspace{0.15cm} y_i \sim N(\hspace{0.1cm} x_i^t  \cdot \beta \hspace{0.1cm} , \hspace{0.1cm} \sigma^2 \hspace{0.1cm} ) \\$
+
+      -  $\hspace{0.15cm} cov(y_i , y_j)=0  \hspace{0.25cm}, \forall i\neq j$
 
 
 
 
 
-### Assumptions Consequences <a class="anchor" id="8"></a>
-
-
-   -  $\hspace{0.15cm} y_i$ is a random variable because  $\varepsilon_i$ is a random variable
-
-   -  $\hspace{0.15cm} E[y_i]= x_i^t \cdot \beta$
-
-   -  $\hspace{0.15cm} Var(y_i) = \sigma^2$
-
-   -  $\hspace{0.15cm} y_i \sim N(\hspace{0.1cm} x_i^t  \cdot \beta \hspace{0.1cm} , \hspace{0.1cm} \sigma^2 \hspace{0.1cm} )$
-
-   -  $\hspace{0.15cm} cov(y_i , y_j)=0  \hspace{0.15cm}, \forall i\neq j$
+&nbsp;
 
 
 
 
 
-----------------
+## Matrix representation of the model basic assumption  <a class="anchor" id="9"></a>
 
 
 
+- $Y=X\cdot \beta + \varepsilon \\$
 
+Where:
 
-
-### Matrix representation of the basic assumption of the model <a class="anchor" id="9"></a>
-
-
-
-- $ Y=X\cdot \beta + \varepsilon $
-
-- $\varepsilon_i \sim N(0,\sigma) \hspace{0.4cm} \forall \hspace{0.1cm} i=1,...,n $
+ - $\varepsilon_i \sim N(0,\sigma) \hspace{0.4cm} \forall \hspace{0.1cm} i=1,...,n \\$
   
-- $cov(\varepsilon_i , \varepsilon_j)=0 \hspace{0.4cm} \forall \hspace{0.1cm} i\neq j =1,...,n $
+- $cov(\varepsilon_i , \varepsilon_j)=0 \hspace{0.4cm} \forall \hspace{0.1cm} i\neq j =1,...,n$
 
 
 
------
-
-
-
-## Estimation  <a class="anchor" id="10"></a>
+&nbsp;
 
 
 
 
+# Estimation  <a class="anchor" id="10"></a>
 
-###  Prediction of Response Variable <a class="anchor" id="11"></a>
 
 
-The linear regression model predict the response variable value $y_i$  for the combination of predictors values  $x_i = (1,x_{i1}, x_{i2}, ..., x_{ip})^t$  as:
+
+
+##  Prediction of Response Variable <a class="anchor" id="11"></a>
+
+
+The linear regression model predict the response variable value $y_i$  for the combination of predictors values  $\hspace{0.1cm} x_i = (1,x_{i1}, x_{i2}, ..., x_{ip})^t \hspace{0.1cm}$  as:
+
+<br>
 
 \begin{gather*}
 \widehat{y}_i \hspace{0.1cm}=\hspace{0.1cm} x_i^t \cdot \widehat{\beta}  \hspace{0.1cm}=\hspace{0.1cm} \widehat{\beta}_0 + \sum_{j=1}^{p} \widehat{\beta}_j \cdot x_{ij} \hspace{0.1cm}=\hspace{0.1cm} \widehat{\beta}_0 + \widehat{\beta}_1 \cdot x_{i1} + \widehat{\beta}_2 \cdot x_{i2} + ... + \widehat{\beta}_p \cdot x_{ip} 
@@ -607,33 +618,34 @@ The linear regression model predict the response variable value $y_i$  for the c
 
 
 
------
+&nbsp;
 
 
 
 
-### Estimation of model coefficients <a class="anchor" id="12"></a>
+
+## Estimation of model coefficients <a class="anchor" id="12"></a>
 
 
-The estimation of $\beta$  in the classic linear regression model is done
+The estimation of $\hspace{0.1cm} \beta \hspace{0.1cm}$  in the classic linear regression model is done
 using the ordinary least square (OLS) method.
 
-$\widehat{\beta}$  is compute as the solution of the following optimitation
+$\widehat{\beta} \hspace{0.1cm}$  is compute as the solution of the following optimitation
 problem:
 
-
+<br>
 
 \begin{gather*}
   \underset{\beta}{Min} \hspace{0.2cm} RSS(\beta) \hspace{0.2cm} = \hspace{0.2cm}  \underset{\beta}{Min} \hspace{0.2cm}  \sum_{i=1}^{n} \hspace{0.1cm}(y_i - x_i^t \cdot \beta)\hspace{0.02cm}^2  \hspace{0.2cm} = \hspace{0.2cm}  \underset{\beta_0,\beta_1,...,\beta_p}{Min} \hspace{0.2cm}  \sum_{i=1}^{n} \hspace{0.1cm}(y_i - \beta_0 - \beta_1 \cdot x_{i1} - \dots - \beta_p \cdot x_{ip})\hspace{0.02cm}^2 
 \end{gather*}
 
  
-
+<br>
 
 
 The problem solution is:
 
-\begin{gather*}
+>\begin{gather*}
 \widehat{\beta}=(X^t \cdot X)^{-1} \cdot X^t \cdot Y
 \end{gather*}
 
@@ -666,12 +678,13 @@ to  $\beta$
 
 
 
----------
+&nbsp;
 
 
 
 
-### Estimation of model errors (residuals) <a class="anchor" id="13"></a>
+
+## Estimation of model errors (residuals) <a class="anchor" id="13"></a>
 
 
 
@@ -696,11 +709,12 @@ predicts  $y_i$  as  $\hat{y}_i=x_i^t \cdot \hat{\beta}$
 
 
 
-----
+&nbsp;
 
 
 
-### Residual sum of squares (RSS) <a class="anchor" id="13.1"></a>
+
+## Residual sum of squares (RSS) <a class="anchor" id="13.1"></a>
 
 The size of the errors is quantify as the estimated errors sum of squares :
 
@@ -710,12 +724,13 @@ $$ RSS \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} \hat{\varepsilon}_i\hspa
 
 
 
------
+&nbsp;
 
 
 
 
-### Regression Hyperplane <a class="anchor" id="14"></a>
+
+## Regression Hyperplane <a class="anchor" id="14"></a>
 
 The regression hyperplane is the matrix expression of the predictions
 that the model does of the response variable values: 
@@ -728,12 +743,13 @@ Where:    $\hat{Y}=(\hat{y}_1,\hat{y}_2,...,\hat{y}_n)^t$
 
 
 
------
+&nbsp;
 
 
 
 
-### Hat-Matrix <a class="anchor" id="15"></a>
+
+## Hat-Matrix <a class="anchor" id="15"></a>
 
 
 
@@ -753,11 +769,12 @@ Where:
 
 
 
------
+&nbsp;
 
 
 
-### Estimation of the Linear Regression Model in `R` <a class="anchor" id="16"></a>
+
+## Estimation of the Linear Regression Model in `R` <a class="anchor" id="16"></a>
 
 
 
@@ -787,11 +804,12 @@ summary(model_R)
 
 
 
-------
+&nbsp;
 
 
 
-### Estimation of Linear Regression Model in `Python`   
+
+## Estimation of Linear Regression Model in `Python`   
 
 
 
@@ -1028,11 +1046,12 @@ Note that the order of the array values follows the order of $X$ columns.
 
 
 
------
+&nbsp;
 
 
 
-### Precision of the estimation of beta coefficients <a class="anchor" id="19"></a>
+
+## Precision of beta coefficients estimation <a class="anchor" id="19"></a>
 
 
 
@@ -1111,11 +1130,11 @@ Also $\hspace{0.05cm}\widehat{Var}(\widehat{\beta}_j)\hspace{0.05cm}$ allow us t
 
 
 
----
+&nbsp;
 
 
 
-#### Estimation of the standard deviation of the beta coefficient estimators in `R` <a class="anchor" id="20"></a>
+### Estimation of beta estimators standard deviation  in `R` <a class="anchor" id="20"></a>
 
 
 
@@ -1127,11 +1146,12 @@ summary(model_R)
 
 
 
----
+&nbsp;
 
 
 
-### Estimation of the standard deviation of the coefficient estimators in `Python` <a class="anchor" id="21"></a>
+
+### Estimation of beta estimators standard deviation  in `Python` <a class="anchor" id="21"></a>
 
 
 
@@ -1173,11 +1193,12 @@ different results with each sample.
 
 
 
-----
+&nbsp;
 
 
 
-### Model Predictions in `R` <a class="anchor" id="22"></a>
+
+## Model Predictions in `R` <a class="anchor" id="22"></a>
 
 
 With the function `predict` we can get the predictions made by the model
@@ -1230,9 +1251,10 @@ predict(model_R, new_data)
 
 
 
----
+&nbsp;
 
 
+## Model Predictions in `Python`
 
 ### Model Predictions in `Python` with `Statsmodels` <a class="anchor" id="23"></a>
 
@@ -1329,11 +1351,12 @@ new_data.head()
 
 
 
----
+&nbsp;
 
 
 
-### Model Predictions in Python with `Sk-learn` <a class="anchor" id="24"></a>
+
+### Model Predictions in Python with `sklearn` <a class="anchor" id="24"></a>
 
 
 
@@ -1387,7 +1410,7 @@ Model_Py_sklearn.predict(new_data)
 
 
 
-### Estimation of model errors in `R` <a class="anchor" id="25"></a>
+## Estimation of model errors (residuals) in `R` <a class="anchor" id="25"></a>
 
 
 
@@ -1420,11 +1443,12 @@ model errors:
 
 
 
----
+&nbsp;
 
 
 
-### Estimation of model errors in `Python` <a class="anchor" id="26"></a>
+
+## Estimation of model errors (residuals) in `Python` <a class="anchor" id="26"></a>
 
 
 
@@ -1456,7 +1480,7 @@ df_predictions_Python.head()
 
 
 
-### Estimation of the error variance (Residual  Variance) <a class="anchor" id="27"></a>
+## Estimation of the error variance (residual  variance) <a class="anchor" id="27"></a>
 
 
 
@@ -1495,7 +1519,8 @@ $$
 
 
 
----
+&nbsp;
+
 
 
 
@@ -1522,7 +1547,8 @@ p<-6
 
 
 
----
+&nbsp;
+
 
 
 
@@ -1552,11 +1578,12 @@ estimated_standard_deviation_error
 
 
 
----
+&nbsp;
 
 
 
-## Model Train Validation <a class="anchor" id="30"></a>
+
+# Model Train Validation <a class="anchor" id="30"></a>
 
 
 We can compute some metric in order to measure how much distant are the
@@ -1581,12 +1608,13 @@ When these metrics are computing using the data for $y_i$ and $x_i$ that were us
 
 
 
----
+&nbsp;
 
 
 
 
-### Model Train Validation in `R` <a class="anchor" id="31"></a>
+
+## Model Train Validation in `R` <a class="anchor" id="31"></a>
 
 
 
@@ -1605,11 +1633,11 @@ When these metrics are computing using the data for $y_i$ and $x_i$ that were us
 
 
 
----
+&nbsp;
 
 
 
-### Model Train Validation in `Python`  <a class="anchor" id="32"></a>
+## Model Train Validation in `Python`  <a class="anchor" id="32"></a>
 
 
 ```python
@@ -1645,16 +1673,17 @@ be more developed in another article about validation techniques.
 
 
 
----
-
-
-
-## Model Coefficients Interpretation <a class="anchor" id="33"></a>
+&nbsp;
 
 
 
 
-### Null Coefficient <a class="anchor" id="34"></a>
+# Model Coefficients Interpretation <a class="anchor" id="33"></a>
+
+
+
+
+## Null Coefficient <a class="anchor" id="34"></a>
 
 
 We have the following estimated linear regression model 
@@ -1669,11 +1698,12 @@ We have the following estimated linear regression model
 
 
 
+&nbsp;
 
 
 
 
-###  Quantitative Predictor Coefficient <a class="anchor" id="35"></a>
+##  Quantitative Predictor Coefficient <a class="anchor" id="35"></a>
 
 
 
@@ -1716,15 +1746,16 @@ The above affirmations are based in the following:
 
 
 
+&nbsp;
 
 
 
-### Categorical Predictor Coefficient <a class="anchor" id="36"></a>
+## Categorical Predictor Coefficient <a class="anchor" id="36"></a>
 
 
 
 
-#### Categorical Predictors with 2 categories
+### Categorical Predictors with 2 categories
 
 
 
@@ -1777,9 +1808,10 @@ The above affirmations are based in the following:
 
 
 
+&nbsp;
 
 
-#### Categorical Predictors with 3 categories:
+### Categorical Predictors with 3 categories:
 
 
 
@@ -1868,12 +1900,13 @@ Note that this can easily be extrapolated to the case of  an $r$-ary categorical
 
 
 
-----
+&nbsp;
 
 
 
 
-### Example of coefficient interpretation <a class="anchor" id="37"></a>
+
+## Example of coefficient interpretation <a class="anchor" id="37"></a>
 
 We had obtained the following estimated model:
 
@@ -1932,15 +1965,17 @@ Note that in all these cases it is assumed that the rest of the model variables 
 
 
 
-----
+&nbsp;
 
 
 
-### Interaction  Coefficient <a class="anchor" id="38"></a>
+
+## Interaction  Coefficient <a class="anchor" id="38"></a>
+
+&nbsp;
 
 
-
-#### Interaction  between binary and quantitative variables
+### Interaction  between binary and quantitative variables
 
 Let $X_k$ a quantitative variable, and $X_r$ a **binary** $\lbrace 0, 1\rbrace$ categorical variable.
 
@@ -1983,8 +2018,10 @@ $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir1}=1 ) - (\hat{y}_i  \hspace{
 
 
 
+&nbsp;
 
-#### Interaction  between ternary and quantitative variables
+
+### Interaction  between ternary and quantitative variables
 
 Let $X_k$ a quantitative variable, and $X_r$ a **ternary** $\lbrace 0, 1, 2 \rbrace$ categorical variable.
 
@@ -2075,11 +2112,12 @@ Note that this can easily be extrapolated to the case of interaction between an 
 
 
 
----
+&nbsp;
 
 
 
-### Example of interaction coefficient interpretation <a class="anchor" id="39"></a>
+
+## Example of interaction coefficient interpretation <a class="anchor" id="39"></a>
 
 
 
@@ -2134,16 +2172,17 @@ Note that in all these cases it is assumed that the rest of the model variables 
 
 
 
-----
-
-
-
-## Inference <a class="anchor" id="40"></a>
+&nbsp;
 
 
 
 
-### Confidence Interval for $\beta_j$ <a class="anchor" id="41"></a>
+# Inference <a class="anchor" id="40"></a>
+
+
+
+
+## Confidence Interval for $\beta_j$ <a class="anchor" id="41"></a>
 
 
 $\hspace{0.05cm}\widehat{Var}(\widehat{\beta}_j)\hspace{0.05cm}$
@@ -2168,9 +2207,10 @@ The smaller $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_j)}\hspace{0.1cm}
 
 
 
+&nbsp;
 
 
-### Confidence Interval for $\sigma^2$ <a class="anchor" id="42"></a>
+## Confidence Interval for $\sigma^2$ <a class="anchor" id="42"></a>
 
 
 
@@ -2183,12 +2223,13 @@ IC\left(\sigma^2  \right)= \left[ 0 \ , \ \dfrac{n-p-1}{\chi_{1-\alpha/2}^{n-p-1
 
 
 
----
+&nbsp;
 
 
 
 
-#### Confidence Interval for  $\beta_j$  in `R` <a class="anchor" id="43"></a>
+
+### Confidence Interval for  $\beta_j$  in `R` <a class="anchor" id="43"></a>
 
  
 
@@ -2205,11 +2246,12 @@ confint(model_R , conf.level=0.95)
 
 
 
----
+&nbsp;
 
 
 
-#### Confidence Interval for  $\beta_j$  in `Python` <a class="anchor" id="44"></a>
+
+### Confidence Interval for  $\beta_j$  in `Python` <a class="anchor" id="44"></a>
 
 
 
@@ -2238,12 +2280,13 @@ We also have this information in the output obtained with `print(model_Python_1.
 
 
 
----
+
+
+&nbsp;
 
 
 
-
-#### Confidence Interval for  $\sigma^2$  in `R` <a class="anchor" id="45"></a>
+### Confidence Interval for  $\sigma^2$  in `R` <a class="anchor" id="45"></a>
 
  
 
@@ -2283,11 +2326,12 @@ IC(\sigma^2)=\left[2.418577e+12   \ , \ 2.747045e+12 \right]
 
 
 
----
+&nbsp;
 
 
 
-#### Confidence Interval for  $\sigma^2$  in `Python` <a class="anchor" id="46"></a>
+
+### Confidence Interval for  $\sigma^2$  in `Python` <a class="anchor" id="46"></a>
 
 
 In this case we will use the interval expression before defined:
@@ -2314,12 +2358,13 @@ interval_sigma2
 
 
 
----
+&nbsp;
 
 
 
 
-### Hypothesis Test for $\beta_j$ <a class="anchor" id="47"></a>
+
+## Hypothesis Test for $\beta_j$ <a class="anchor" id="47"></a>
 
  
 
@@ -2334,11 +2379,12 @@ We can carry out the following three test:
 
   
 
+&nbsp;
 
 
 
 
-#### Test Statistic:
+### Test Statistic:
 
  
 
@@ -2352,10 +2398,11 @@ t_{exp | H_0}=\dfrac{\hat{\beta}_j - \beta_j^*}{\sqrt{S_R \cdot q_{jj}}} \sim t_
 
 
 
+&nbsp;
 
  
 
-#### Decision Rule
+### Decision Rule
 
  
 
@@ -2444,12 +2491,13 @@ Reject \ H_0  \ \Leftrightarrow \ pvalue < \alpha
 
 
 
-----
+&nbsp;
 
 
 
 
-### Test of Significance for $\beta_j$ <a class="anchor" id="48"></a>
+
+## Test of Significance for $\beta_j$ <a class="anchor" id="48"></a>
 
  
 
@@ -2491,12 +2539,13 @@ Reject \ H_0  \ \Leftrightarrow \ pvalue < \alpha
 
 
 
----
+&nbsp;
 
 
 
 
-#### Test of Significance  in `R` <a class="anchor" id="49"></a>
+
+### Test of Significance  in `R` <a class="anchor" id="49"></a>
 
 The value of $\hspace{0.1cm} t_{exp|H_0} \hspace{0.1cm}$ and also the p-value of the test of significance for $\beta_j$ could be found in the output obtained with `summary(model_R_1)`
 
@@ -2508,11 +2557,12 @@ summary(model_R)
 
 
 
----
+&nbsp;
 
 
 
-#### Test of Significance  in `Python` <a class="anchor" id="50"></a>
+
+### Test of Significance  in `Python` <a class="anchor" id="50"></a>
 
 
 The value of $\hspace{0.1cm} t_{exp|H_0} \hspace{0.1cm}$ and also the p-value of the test of significance for $\beta_j$ could be found in the output obtained with `print(model_Python_1.summary())`
@@ -2622,12 +2672,13 @@ For $\hspace{0.05cm} \alpha = 0.05 > 0.015$ $\hspace{0.1cm} \Rightarrow \hspace{
 
 
 
----
+&nbsp;
 
 
 
 
-### ANOVA Test  <a class="anchor" id="51"></a>
+
+## ANOVA Test  <a class="anchor" id="51"></a>
 
 
 
@@ -2641,8 +2692,10 @@ H_1: \hspace{0.15cm} \exists \ j=1,...,p , \hspace{0.2cm} \beta_j \neq 0
  
 
 
+&nbsp;
 
-#### Statistic test
+
+### Statistic test
 
  
 
@@ -2707,9 +2760,10 @@ model
 
  
 
+&nbsp;
 
 
-#### Decision Rule
+### Decision Rule
 
  
 
@@ -2731,11 +2785,12 @@ Reject \ H_0  \ \Leftrightarrow \ pvalue < \alpha
 
 
 
----
+&nbsp;
 
 
 
-#### ANOVA test in `R` <a class="anchor" id="52"></a>
+
+### ANOVA test in `R` <a class="anchor" id="52"></a>
 
 The value of $\hspace{0.1cm} F_{exp|H_0}$ and also the p-value of the ANOVA test could be found in the output obtained with `summary(model_R_1)`
 
@@ -2747,11 +2802,12 @@ summary(model_R)
 
 
 
----
+&nbsp;
 
 
 
-#### ANOVA test in `Python`  <a class="anchor" id="53"></a>
+
+### ANOVA test in `Python`  <a class="anchor" id="53"></a>
 
 The value of $\hspace{0.1cm} F_{exp|H_0}$ and also the p-value of the ANOVA test could be found in the output obtained with `print(model_Python_1.summary())`
 
@@ -2774,11 +2830,12 @@ So for any $\alpha$ we can reject $\hspace{0.1cm}  H_0:   \hspace{0.05cm} \beta_
 
 
 
-----
+&nbsp;
 
 
 
-### Prediction Interval for $\hspace{0.1cm} y_i$  <a class="anchor" id="53.1"></a>
+
+## Prediction Interval for $\hspace{0.1cm} y_i$  <a class="anchor" id="53.1"></a>
 
 
 We have that
@@ -2793,7 +2850,8 @@ $$ IP(y_i)_{1-\alpha} = \left[\hspace{0.1cm} \hat{y}_i  \hspace{0.1cm}\pm\hspace
 
 
 
-----
+&nbsp;
+
 
 
 
@@ -2856,14 +2914,15 @@ for i in range(0, len(data_Python)-1):
 
 
 
-----
+&nbsp;
 
 
 
-## Goodness of Fit: $\hspace{0.1cm}$ Determination Coefficient $(R^2)$ <a class="anchor" id="54"></a>
+
+# Goodness of Fit: $\hspace{0.1cm}$ Determination Coefficient $(R^2)$ <a class="anchor" id="54"></a>
 
  
-
+## Determination Coefficient
 
 
 
@@ -2905,12 +2964,13 @@ The interpretation of $R^2$ is the following:
 
 
 
-----
+&nbsp;
 
 
 
 
-### Compute $R^2$ in `R` <a class="anchor" id="55"></a>
+
+### Computing $R^2$ in `R` <a class="anchor" id="55"></a>
 
 The value of $\hspace{0.1cm} R^2$  could be found in the output obtained with `summary(model_R)`
 
@@ -2923,11 +2983,12 @@ summary(model_R)$r.squared
 
 
 
----
+&nbsp;
 
 
 
-### Compute $R^2$ in `Python` <a class="anchor" id="56"></a>
+
+### Computing $R^2$ in `Python` <a class="anchor" id="56"></a>
 
 
 The value of $\hspace{0.1cm} R^2$  could be found in the output obtained with `print(model_Py_smf.summary())`
@@ -2952,12 +3013,13 @@ $$ R^2 = 0.698$$
 
 
 
----
+&nbsp;
 
 
 
 
-## Goodness of Fit: $\hspace{0.1cm}$ Adjusted $R^2$ <a class="anchor" id="57"></a>
+## Adjusted Determination Coefficient
+
 
 $R^2$ has several problems.
 
@@ -2987,11 +3049,12 @@ This metric doesn't grow when including irrelevant predictors since if $RSS$ is 
 
 
 
----
+&nbsp;
 
 
 
-### Compute $\widehat{R^2}$ in `R` <a class="anchor" id="58"></a> 
+
+## Computing $\widehat{R^2}$ in `R` <a class="anchor" id="58"></a> 
 
 The value of $\hspace{0.1cm} \widehat{R^2}$  could be found in the output obtained with `summary(model_R)`
 
@@ -3004,11 +3067,12 @@ summary(model_R)$adj.r.squared
 
 
 
-----
+&nbsp;
 
 
 
-### Compute $\widehat{R^2}$ in `Python` <a class="anchor" id="59"></a>
+
+## Computing $\widehat{R^2}$ in `Python` <a class="anchor" id="59"></a>
 
 
 The value of $\hspace{0.1cm} \widehat{R^2}$  could be found in the output obtained with `print(model_Py_smf.summary())`
@@ -3026,11 +3090,12 @@ $$ \widehat{R^2} = 0.697$$
 
 
 
-----
+&nbsp;
 
 
 
-## Model Problems <a class="anchor" id="60"></a>
+
+# Model Problems <a class="anchor" id="60"></a>
 
 
 
@@ -3067,7 +3132,8 @@ In this case is still possible estimate $\beta$ because the multicolinearity isn
 
 
 
----
+&nbsp;
+
 
 
 
@@ -3091,11 +3157,12 @@ If the linear model has **quantitative and categorical** predictors:
 
 
 
----
+&nbsp;
 
 
 
-### Identification of multicollinearity with  $R$ <a class="anchor" id="64"></a>
+
+#### Identification of multicollinearity with  $R$ <a class="anchor" id="64"></a>
 
 The Pearson correlation matrix of a given data matrix $X=[X_1 ,..., X_p]$  is defined as:
 
@@ -3129,11 +3196,12 @@ If there is any **high** $\hspace{0.1cm} r_{ij}\hspace{0.1cm} (\hspace{0.1cm} > 
 
 
 
-----
+&nbsp;
 
 
 
-#### Identification of multicollinearity with $R$ in `R`
+
+##### Identification of multicollinearity with $R$ in `R`
 
 We will suposse our linear regression model only has **quatitative** predictors.
 
@@ -3162,11 +3230,12 @@ ggcorr(data_R %>% select(-price, -quality), label=TRUE, digits=3)
 
 
 
-----
+&nbsp;
 
 
 
-#### Identification of multicollinearity with $R$ in `Python`
+
+##### Identification of multicollinearity with $R$ in `Python`
 
 
 ```python
@@ -3204,7 +3273,8 @@ So following this criteria the linear regression model  **price ~ size\_in\_m\_2
 
 
 
----
+&nbsp;
+
 
 
 
@@ -3256,7 +3326,8 @@ If  $\hspace{0.15cm}VIF(X_j) < 4$ $\hspace{0.15cm}\left(R^2_{X_j} < 0.75 \right)
 
 
 
----
+&nbsp;
+
 
 
 
@@ -3283,7 +3354,8 @@ vif(lm(price ~ size_in_m_2  + longitude + latitude + no_of_bedrooms + no_of_bath
 
 
 
----
+&nbsp;
+
 
 
 
@@ -3317,7 +3389,8 @@ There is a quantitative predictor with $\hspace{0.1cm} VIF > 4 \hspace{0.1cm}$ ,
 
 
 
----
+&nbsp;
+
 
 
 
@@ -3347,11 +3420,12 @@ If $\hspace{0.1cm}cond(R) < 10$ $\hspace{0.1cm} \Rightarrow\hspace{0.1cm}$ **Low
 
 
 
----
+&nbsp;
 
 
 
-##### Identification of multicollinearity  with condition number of $\hspace{0.05cm} R$ in `R`
+
+#### Identification of multicollinearity  with condition number of $\hspace{0.05cm} R$ in `R`
 
 
 ```r
@@ -3363,11 +3437,12 @@ cond_R
 
 
 
----
+&nbsp;
 
 
 
-##### Identification of multicollinearity  with condition number of $\hspace{0.05cm} R$ in `Python`
+
+#### Identification of multicollinearity  with condition number of $\hspace{0.05cm} R$ in `Python`
 
 
 ```python
@@ -3393,7 +3468,8 @@ We have get $ \hspace{0.1cm} cond(R) = 4.33 < 10  \hspace{0.1cm}$ , so following
 
 
 
----
+&nbsp;
+
 
 
 
@@ -3412,7 +3488,8 @@ Suppose we have the following estimated linear regression model $\hspace{0.1cm} 
 
 
 
---- 
+&nbsp;
+
 
 
 
@@ -3454,7 +3531,8 @@ $$ GVIF(X_j) = det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)} $$
 
 
 
-----
+&nbsp;
+
 
 
 
@@ -3497,7 +3575,8 @@ $$ GVIF(X_j) = det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)} $$
 
 
 
-----
+&nbsp;
+
 
 
 
@@ -3576,11 +3655,12 @@ If  $\hspace{0.15cm} GVIF(X_j)^{1/(2(r-1))} < 4^{1/(2(r-1))}$  $\hspace{0.1cm}\R
 
 
 
----
+&nbsp;
 
 
 
-##### Identification of multicollinearity with $GVIF$ in `R`
+
+#### Identification of multicollinearity with $GVIF$ in `R`
 
 
 ```r
@@ -3594,11 +3674,12 @@ vif(lm(price ~ size_in_m_2  + longitude + latitude + no_of_bedrooms + no_of_bath
 
 
 
----
+&nbsp;
 
 
 
-##### Identification of multicollinearity with $GVIF$ in `Python`
+
+#### Identification of multicollinearity with $GVIF$ in `Python`
 
 
 
@@ -3720,7 +3801,8 @@ So using the GVIF method, we can conclude that there is a **medium** multicollin
 
 
 
----
+&nbsp;
+
 
 
 
@@ -3754,11 +3836,12 @@ This plot can also provide evidence of nonlinearity between the response variabl
 
 
 
----
+&nbsp;
 
 
 
-##### Checking Error Constant Variance in `R`
+
+#### Checking Error Constant Variance in `R`
 
 
 ```r
@@ -3771,11 +3854,12 @@ geom_hline(yintercept =0 , color="red")
 
 
 
----
+&nbsp;
 
 
 
-##### Checking Error Constant Variance in `Python`
+
+#### Checking Error Constant Variance in `Python`
 
 
 ```python
@@ -3796,7 +3880,8 @@ Since we can see a cone shape at the points, we cannot accept the constant error
 
 
 
-----
+&nbsp;
+
 
 
 
@@ -3813,11 +3898,12 @@ df_predictions_Python['estimated_errors'].mean()
 
 
 
----
+&nbsp;
 
 
 
-##### Checking Null Error Mean in `R`
+
+#### Checking Null Error Mean in `R`
 
 
 ```r
@@ -3828,11 +3914,12 @@ t.test(x=estimated_errors , mu=0)
 
 
 
----
+&nbsp;
 
 
 
-##### Checking Null Error Mean in `Python`
+
+#### Checking Null Error Mean in `Python`
 
 
 ```python
@@ -3852,14 +3939,16 @@ For any significance level we can accept that the errors mean is zero (0)
 
 
 
----
+&nbsp;
+
 
 
 
 ### Checking Error Normality <a class="anchor" id="71"></a>
 
-First we are going to check the error normality assumption using the **histogram method**:
+First we are going to check the error normality assumption using the **histogram method**
 
+&nbsp;
 
 
 #### Checking Error Normality in `R` with histogram method
@@ -3880,7 +3969,8 @@ ggplot(data = as.data.frame(estimated_errors) ,
 
 
 
----
+&nbsp;
+
 
 
 
@@ -3899,11 +3989,15 @@ ggplot(data = df_predictions_Python ,
 
 
 
----
+&nbsp;
 
 
 
-Now we are going to check the error normality assumption using the Shapiro statistical test:
+
+Now we are going to check the error normality assumption using the Shapiro statistical test.
+
+&nbsp;
+
 
 #### Checking Error Normality in `R` with Shapiro test
 
@@ -3916,7 +4010,8 @@ shapiro.test(estimated_errors)
 
 
 
-----
+&nbsp;
+
 
 
 
@@ -3934,7 +4029,8 @@ For any significance level we have to reject the errors normality hypothesis.
 
 
 
-----
+&nbsp;
+
 
 
 
@@ -3943,9 +4039,9 @@ For any significance level we have to reject the errors normality hypothesis.
 We are going to check the null error correlation assumption through  the **Durban-Watson test**.
 
 
+&nbsp;
 
-
-##### Hypothesis:
+**Hypothesis:**
 
 $$H_0: \hspace{0.1cm} corr\left(\hat{\varepsilon}_{(1)},\hat{\varepsilon}_{(2)}\right) = 0 $$ 
 
@@ -3960,7 +4056,7 @@ $$\hat{\varepsilon}_{(2)} = (\hat{\varepsilon}_2  ,...,\hat{\varepsilon}_{n-1}, 
 
 
 
-##### Test Statistic :
+**Test Statistic :**
 
 \begin{gather*}
 DW = \dfrac{\sum_{i=2}^n (\hat{\varepsilon}_i - \hat{\varepsilon}_{i-1})^2 }{\sum_{i=2}^n \hat{\varepsilon}_{i}^2 } = \dfrac{sum\left( \hspace{0.1cm}( \hat{\varepsilon}_{(2)} - \hat{\varepsilon}_{(1)})^2 \hspace{0.1cm} \right)}{sum\left( \hspace{0.1cm} (\hat{\varepsilon}_{(2)})^2 \hspace{0.1cm} \right)}
@@ -3979,11 +4075,12 @@ The closer the test statistics is to $4$, the more evidence of **negative serial
 
 
 
----
+&nbsp;
 
 
 
-##### Durban-Watson test in `R`
+
+#### Durban-Watson test in `R`
 
 
 ```r
@@ -4009,11 +4106,12 @@ dwtest(price ~ size_in_m_2  + longitude + latitude + no_of_bedrooms + no_of_bath
 
 
 
------
+&nbsp;
 
 
 
-##### Durban-Watson test in `Python`
+
+#### Durban-Watson test in `Python`
 
 
 ```python
@@ -4071,7 +4169,8 @@ For any $\alpha$ we reject the null  error correlation hypothesis.
 
 
 
-----
+&nbsp;
+
 
 ## Checking Linear Assumption <a class="anchor" id="73"></a>
 
@@ -4182,7 +4281,8 @@ ggplot(aes(x = 'quality' , y = 'price') , data_Python)
 
 
 
-----
+&nbsp;
+
 
 
 
@@ -4257,11 +4357,12 @@ Outliers
 
 
 
-----
+&nbsp;
 
 
 
-## Bibliography
+
+# Bibliography
 
 Benitez Peña, S. (2021). *El modelo de regresión lineal múltiple* [Presentación de PowerPoint]. Aula Global UC3M.
 
