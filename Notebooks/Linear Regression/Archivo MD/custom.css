@@ -9,7 +9,7 @@
 }
 
 h1, h2, h3, h4, h5, h6, legend {
-    color: #22983B;
+    color: #e924f3;
 }
 
 #nav-top span.glyphicon {
@@ -17,9 +17,9 @@ h1, h2, h3, h4, h5, h6, legend {
 }
 #table-of-contents {
     color:orange;
-    background: grey !important; 
+    background: rgb(11, 209, 110) !important; 
     }
-    
+
 #table-of-contents header {
     color: #3011e0;
 }
