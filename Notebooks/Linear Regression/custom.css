@@ -37,16 +37,16 @@ a:visited{
 
 #sidebar {
     color: #D9AB16;
-    background: #e7a23c;
+    background: #d08d29;
 }
 
 #sidebar h2 {
-    color: #000000;
+    color: #fafafa;
     background-color: #d77213;
 }
 
 #sidebar a {
-    color: #000000;
+    color: #ffffff;
 }
 
 #sidebar a:hover {
