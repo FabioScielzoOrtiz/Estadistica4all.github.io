@@ -1155,9 +1155,9 @@ We will use both of them throughout this article.
 The principal propose of this article is carry out a theoretical and
 also practical exposition of the linear regression model.
 
-Without any doubt the this is the most know statistical model.
+Without any doubt this is the most know statistical model.
 
-There is the idea that the linear regression model is outdated compared
+There is the idea that linear regression model is outdated compared
 with other modern statistical models. But I would like to defend his
 validity nowadays, first of all as a statistical tool, and second as a
 previous necessary step to learn other most modern and complex methods.
@@ -1175,13 +1175,19 @@ techniques, so that is highly recommended study it enough, before to go deeper i
 
 
 
-The main usefulness of the linear regression model is to predict the
+The main usefulness of the linear regression model is to **predict** the
 values of a **quantitative** variable, called **response variable**,  depending on the values of other, **quantitative** or **categorical** variables ,
 called **predictors**.
 
-The other important usefulness of the linear regression model is to do inference, in other words, analyze the relation between the response variable and the predictors.
+The other important usefulness of the linear regression model is to do **inference**, in other words, analyze the relation between the response variable and the predictors.
 
+Some questions related to making inferences are as follows:
 
+- Which predictors are most important in explaining the response?
+
+- What is the relationship between the response and each predictor? Is the relationship positive, negative, or does it depend on the value of another predictor?
+
+- Can the relationship between response and predictors be summarized with a linear equation, or is it a more complex relationship?
 
 
 &nbsp;
@@ -1197,13 +1203,18 @@ We have the following elements:
 
 
 
--   ***Response Variable:***  a **quantitative** variable
-      $Y=(y_{1} , y_2,...,y_n)^t$
+-   ***Response Variable:***  
+
+$\hspace{1.5cm}$ A **quantitative** variable:
+
+   $$Y=(y_{1} , y_2,...,y_n)^t$$
 
 &nbsp;
 
 
--   ***Predictors:*** a set of **quantitative** or **categorical**
+-   ***Predictors:*** 
+
+$\hspace{1.5cm}$ A set of **quantitative** or **categorical**
     variables:
 
 
@@ -1292,9 +1303,9 @@ The basic assumptions of the model are the following:
    
    - $\hspace{0.3cm} Var(\varepsilon_i)=\sigma^2 \\$
   
-   - $\hspace{0.3cm} \varepsilon_i \sim N(0,\sigma) \\$ 
+   - $\hspace{0.3cm} \varepsilon_i \sim N(0,\sigma^2) \\$ 
   
-   - $\hspace{0.3cm} cov(\varepsilon_i , \varepsilon_j)=0  \hspace{0.25cm} ,\forall i\neq j$ 
+   - $\hspace{0.3cm} cov(\varepsilon_i , \varepsilon_j)=0  \hspace{0.35cm} ,\forall i\neq j$ 
 
 
 &nbsp;
@@ -1308,7 +1319,7 @@ The basic assumptions of the model are the following:
   -  $\hspace{0.3cm} Rg(X)=p+1$
 
 
-Why are these additional assumptions important ? $\hspace{0.1cm} \Rightarrow\hspace{0.1cm} $ Dimensionality problem (will be seen it in other article of the blog)
+Why are these additional assumptions important ? $\hspace{0.1cm} \Rightarrow\hspace{0.1cm}$ **Dimensionality problem** (will be seen it in other article of the blog)
 
 
 
@@ -1341,17 +1352,17 @@ Why are these additional assumptions important ? $\hspace{0.1cm} \Rightarrow\hsp
 
 
 
-## Matrix representation of the model basic assumption  <a class="anchor" id="9"></a>
+## Matrix representation of the model   <a class="anchor" id="9"></a>
 
+&nbsp;
 
-
-- $Y=X\cdot \beta + \varepsilon \\$
+$$Y=X\cdot \beta + \varepsilon \\$$
 
 Where:
 
- - $\varepsilon_i \sim N(0,\sigma) \hspace{0.4cm} \forall \hspace{0.1cm} i=1,...,n \\$
+ - $\hspace{0.2cm} \varepsilon_i \sim N(0,\sigma) \hspace{0.4cm} \forall \hspace{0.1cm} i=1,...,n \\$
   
-- $cov(\varepsilon_i , \varepsilon_j)=0 \hspace{0.4cm} \forall \hspace{0.1cm} i\neq j =1,...,n$
+- $\hspace{0.2cm} cov(\varepsilon_i , \varepsilon_j)=0 \hspace{0.4cm} \forall \hspace{0.1cm} i\neq j =1,...,n$
 
 
 
@@ -1369,7 +1380,7 @@ Where:
 ##  Prediction of Response Variable <a class="anchor" id="11"></a>
 
 
-The linear regression model predict the response variable value $y_i$  for the combination of predictors values  $\hspace{0.1cm} x_i = (1,x_{i1}, x_{i2}, ..., x_{ip})^t \hspace{0.1cm}$  as:
+The linear regression model predict the response variable value $\hspace{0.1cm}y_i\hspace{0.1cm}$  for the combination of predictors values  $\hspace{0.1cm} x_i = (1,x_{i1}, x_{i2}, ..., x_{ip})^t \hspace{0.1cm}$  as:
 
 <br>
 
@@ -1378,7 +1389,9 @@ The linear regression model predict the response variable value $y_i$  for the c
 \end{gather*}
 
 
+Where:
 
+- $\hspace{0.2cm}\widehat{\beta} = (\widehat{\beta}_1 ,..., \widehat{\beta}_p) \hspace{0.2cm}$ is the estimated beta coefficients vector.
 
 
 &nbsp;
@@ -1391,7 +1404,7 @@ The linear regression model predict the response variable value $y_i$  for the c
 
 
 The estimation of $\hspace{0.1cm} \beta \hspace{0.1cm}$  in the classic linear regression model is done
-using the ordinary least square (OLS) method.
+using ordinary least square  method (OLS).
 
 $\widehat{\beta} \hspace{0.1cm}$  is compute as the solution of the following optimitation
 problem:
@@ -1399,14 +1412,21 @@ problem:
 <br>
 
 \begin{gather*}
-  \underset{\beta}{Min} \hspace{0.2cm} RSS(\beta) \hspace{0.2cm} = \hspace{0.2cm}  \underset{\beta}{Min} \hspace{0.2cm}  \sum_{i=1}^{n} \hspace{0.1cm}(y_i - x_i^t \cdot \beta)\hspace{0.02cm}^2  \hspace{0.2cm} = \hspace{0.2cm}  \underset{\beta_0,\beta_1,...,\beta_p}{Min} \hspace{0.2cm}  \sum_{i=1}^{n} \hspace{0.1cm}(y_i - \beta_0 - \beta_1 \cdot x_{i1} - \dots - \beta_p \cdot x_{ip})\hspace{0.02cm}^2 
+  \underset{\beta}{Min} \hspace{0.2cm} \lbrace \hspace{0.15cm} RSS(\beta) \hspace{0.15cm} \rbrace \hspace{0.2cm} = \hspace{0.2cm}  \underset{\beta}{Min} \hspace{0.2cm}  \sum_{i=1}^{n} \hspace{0.1cm}(y_i - x_i^t \cdot \beta)\hspace{0.02cm}^2  \hspace{0.2cm} = \hspace{0.2cm}  \underset{\beta_0,\beta_1,...,\beta_p}{Min} \hspace{0.2cm}  \sum_{i=1}^{n} \hspace{0.1cm}(y_i - \beta_0 - \beta_1 \cdot x_{i1} - \dots - \beta_p \cdot x_{ip})\hspace{0.02cm}^2 
 \end{gather*}
 
  
 <br>
 
+So, other symbolic way to express that is:
 
-The problem solution is:
+$$\widehat{\beta}\hspace{0.15cm} =\hspace{0.15cm} arg  \hspace{0.15cm} \underset{\beta}{Min} \hspace{0.15cm} \lbrace \hspace{0.15cm} RSS(\beta) \hspace{0.15cm} \rbrace$$
+
+
+<br>
+
+
+The **problem solution** is:
 
 \begin{gather*}
 \widehat{\beta}=(X^t \cdot X)^{-1} \cdot X^t \cdot Y
@@ -1417,7 +1437,7 @@ The problem solution is:
 
 **Interpretation :**
 
-$\hspace{0.2cm} \widehat{y} = x^t \cdot \widehat{\beta} \hspace{0.2cm}$ is the hyperplane that **minimize** the **euclidean distance** between the given values of the response variable $(Y)$ and the points of the hyperplane given by $\hspace{0.1cm} \hat{y}_i = x_i^t \cdot \widehat{\beta}$
+$\hspace{0.2cm} \widehat{y} = x^t \cdot \widehat{\beta} \hspace{0.2cm}$ with $\hspace{0.2cm} x\in \mathbb{R}^p \hspace{0.2cm}$ is the  hyperplane (with $\hspace{0.1cm}p+1\hspace{0.1cm}$ dimension) that **minimize** the **euclidean distance** between the given values of the response variable $(Y)$ and the points of the hyperplane given by the set $\hspace{0.1cm} \lbrace \hspace{0.2cm} \hat{y}_i = x_i^t \cdot \widehat{\beta} \hspace{0.2cm}/\hspace{0.2cm} i=1,...,n \hspace{0.2cm} \rbrace$
 
 
 
@@ -1425,7 +1445,7 @@ $\hspace{0.2cm} \widehat{y} = x^t \cdot \widehat{\beta} \hspace{0.2cm}$ is the h
 
 <center>
 
-![](hyperplane.png){width="40%"}
+![](hyperplane.png){width="45%"}
 
 </center>
 
@@ -1438,7 +1458,7 @@ We will not view here the mathematical details about the resolution of
 this optimization problem. But is a classic convex optimization problem,
 so it´s enough to take first derivatives of the objetive function with
 respect to the coefficients  $\hspace{0.1cm}\beta_0,\beta_1,...,\beta_p \hspace{0.1cm}$ ,  set them equal to zero (0), and solve the resultant equation system with respect
-to  $\hspace{0.1cm} \beta$
+to  $\hspace{0.1cm}\beta_0,\beta_1,...,\beta_p \hspace{0.1cm}$
 
 
 
@@ -1454,7 +1474,7 @@ to  $\hspace{0.1cm} \beta$
 
 
 
-The model errors  $\varepsilon_i$  are estimated as:
+The model errors  $\varepsilon$  are estimated as:
 
 <br>
 
@@ -1471,7 +1491,7 @@ for $\hspace{0.1cm}$ $i=1,...,n$
 **Observation:**
 
 $\hat{\varepsilon}_i$  is the error done by the model when it
-predicts  $y_i$  as  $\hat{y}_i=x_i^t \cdot \hat{\beta}$
+predicts  $y_i$  as  $\widehat{y}_i=x_i^t \cdot \widehat{\beta}$
 
 
 
@@ -1490,7 +1510,11 @@ The size of the errors is quantify as the estimated errors sum of squares :
 
 $$ RSS \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} \hat{\varepsilon}_i\hspace{0.02cm}^2 \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} (y_i - \widehat{y}_i)\hspace{0.02cm}^2 \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} (y_i - x_i^t \cdot \widehat{\beta})\hspace{0.02cm}^2 $$
 
+&nbsp;
 
+**Observation:**
+
+This quantity plays a central role in regression methods. As it was seen is the objective function in the OLS problem.
 
 &nbsp;
 
@@ -1509,7 +1533,7 @@ $$ \widehat{Y} = X \cdot \widehat{\beta}$$
 
 <br>
 
-Where:    $\widehat{Y}=(\widehat{y}_1,\widehat{y}_2,...,\widehat{y}_n)^t$
+Where:    $\hspace{0.2cm} \widehat{Y}=(\widehat{y}_1,\widehat{y}_2,...,\widehat{y}_n)^t$
 
 
 
@@ -1556,11 +1580,11 @@ model in R, using for this purpose the data-set that was showed at the begining 
 The linear regression model that we propose is the following:
 
 \begin{gather*}
-price_i = \beta_0 +  \beta_1 \cdot size\_in\_m\_2_i + \beta_2 \cdot no\_of\_bedrooms_i +  \beta_3 \cdot no\_of\_bathrooms_i + \\ + \beta_4 \cdot quality_i + \beta_5\cdot  latitude_i +  \beta_6 \cdot longitude_i + \varepsilon_i
+price_i = \beta_0 +  \beta_1 \cdot size\_in\_m\_2_i + \beta_2 \cdot no\_of\_bedrooms_i +  \beta_3 \cdot no\_of\_bathrooms_i  + \beta_4 \cdot quality_i + \beta_5\cdot  latitude_i +  \beta_6 \cdot longitude_i + \varepsilon_i
 \end{gather*}
 
 
-
+<br>
 
 ```r
 %%R
@@ -1603,8 +1627,7 @@ summary(model_R)
 
 
 
-&nbsp;
-
+<br>
 
 
 
@@ -1616,7 +1639,7 @@ summary(model_R)
 
 
 
-We can implement a linear regression model in Python with `statsmodels` following two ways.
+We can implement a linear regression model in Python with the package `statsmodels` following two ways.
 
 <br>
 
@@ -1716,7 +1739,7 @@ def varcharProcessing(X, varchar_process = "dummy_dropfirst"):
     return X
 ```
 
-
+<br>
 
 Let's see how `varcharProcessing ` works:
 
@@ -1905,7 +1928,7 @@ varcharProcessing(X, varchar_process = "dummy_dropfirst").head()
 </div>
 
 
-
+<br>
 
 
 ```python
@@ -1965,24 +1988,35 @@ print(model_Py_sm.summary())
     strong multicollinearity or other numerical problems.
     
 
-
+<br>
 
 The previous output gives us the estimation of the model coefficients
 (betas), both outputs give similar results (but we will consider the python output):
 
 <br>
 
-\begin{gather*}
-\widehat{\beta}_0 =  -6.207e+07  \\[0.2cm]
-\widehat{\beta}_{quality1} =1.4e+05\\[0.2cm]
-\widehat{\beta}_{quality2} = 3.406e+05 \\[0.2cm]
-\widehat{\beta}_{quality3} = 2.788e+05 \\[0.2cm]
-\widehat{\beta}_{size\_in\_m\_2} =3.566e+04 \\[0.2cm]
-\widehat{\beta}_{no\_of\_bedrooms} = -8.367e+05 \\[0.2cm]
-\widehat{\beta}_{no\_of\_bathrooms} = -5.712e+04 \\[0.2cm]
-\widehat{\beta}_{latitude}=6.115e+06 \\[0.2cm]
-\widehat{\beta}_{longitude}= -1.677e+06 \\[0.2cm]
-\end{gather*}
+- $\widehat{\beta}_0 =  -6.207e+07 \\$
+
+
+- $\widehat{\beta}_{size\_in\_m\_2} =3.566e+04 \\$
+
+- $\widehat{\beta}_{longitude}= -1.677e+06 \\$
+
+- $\widehat{\beta}_{latitude}=6.115e+06 \\$
+
+- $\widehat{\beta}_{no\_of\_bedrooms} = -8.367e+05 \\$
+
+- $\widehat{\beta}_{no\_of\_bathrooms} = -5.712e+04 \\$
+
+- $\widehat{\beta}_{quality1} =1.4e+05 \\$
+
+- $\widehat{\beta}_{quality2} = 3.406e+05 \\$
+
+- $\widehat{\beta}_{quality3} = 2.788e+05 \\$
+
+
+ 
+
 
 <br>
 
@@ -1999,9 +2033,9 @@ So, the estimated model is:
 
 The  categorical variable, *quality*, that has 4 categories (Low (0), Medium (1),
 High (2), Ultra (3)), enter in the model with 3 variables (quality1 ,
-quality2, quality3 ). The category. that is out of the model is Low (0) because is the firs category. 
+quality2, quality3 ). The category that is out of the model is Low (0) because is the firs category (also called reference category). 
 
-This isn´t a particularity of this variable, but rather it´s a property of the categorical variables in the regression models.
+This isn´t a particularity of this variable, but rather it´s a property of the categorical variables in the linear regression model.
 
 Later it will be seen how this affects model coefficients interpretation.  
 
@@ -2029,6 +2063,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 ```
 
+<br>
 
 We can use a training data-set to train the model in Python with the  `scikit-learn` module. 
 
@@ -2151,7 +2186,7 @@ X.head()
 
 
 
-
+<br>
 
 We can fit a linear regression model with `sk-learn` :
 
@@ -2160,7 +2195,7 @@ We can fit a linear regression model with `sk-learn` :
 from sklearn.linear_model import LinearRegression
 ```
 
-
+<br>
 
 We can fit the model with the full data-set:
 
@@ -2169,7 +2204,7 @@ We can fit the model with the full data-set:
 Model_Py_sklearn = LinearRegression().fit(X, y)
 ```
 
-
+<br>
 
 We can compute the coefficients of the model:
 
@@ -2196,8 +2231,7 @@ Note that the order of the array values follows the order of $X$ columns.
 
 
 
-&nbsp;
-
+<br>
 
 
 
