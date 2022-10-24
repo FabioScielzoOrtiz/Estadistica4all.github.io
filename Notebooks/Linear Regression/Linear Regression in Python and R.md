@@ -2245,11 +2245,11 @@ The precision of the estimations of model beta coefficients  is given by the
 <br>
 
 It´s true that $\hspace{0.1cm}$ 
-$\widehat{\beta}_j \sim N(\beta_j , \sqrt{ \sigma^2 \cdot q_{jj} } )$ $\hspace{0.1cm}$ then we have:
+$\widehat{\beta}_j \sim N \left( \beta_j \hspace{0.1cm},\hspace{0.1cm} \sqrt{ \sigma^2 \cdot q_{jj} } \right)$ $\hspace{0.1cm}$ then we have:
 
 <br>
 
- $$Var(\widehat{\beta}_j)=\sigma^2 \cdot q_{jj}$$
+ $$Var(\widehat{\beta}_j)\hspace{0.1cm}= \hspace{0.1cm}\sigma^2 \cdot q_{jj}$$
 
 <br>
 
@@ -2259,7 +2259,7 @@ Therefore, the estimation of the variance of $\hspace{0.05cm}$  $\widehat{\beta}
 
 <br>
 
-   $$\widehat{Var}(\widehat{\beta}_j) = \widehat{\sigma}\hspace{0.02cm}^2 \cdot q_{jj}$$
+   $$\widehat{Var}(\widehat{\beta}_j) \hspace{0.1cm} = \hspace{0.1cm} \widehat{\sigma}\hspace{0.02cm}^2 \cdot q_{jj}$$
  
 
 
@@ -2282,17 +2282,17 @@ $q_{jj}$ $\hspace{0.05cm}$  is the element  $\hspace{0.1cm}j+1\hspace{0.1cm}$  o
  ***¿ Why are the variance of the coefficient estimators important ?***
 
 
-The standard deviation of the coefficient estimators indicates how much
-the estimations of the coefficients deviate/vary, in mean, when the model is re-trained using many different samples.
+The standard deviation of beta coefficient estimators indicates how much
+the estimations of the coefficients deviate/vary, in mean, when the model is re-trained using many different samples of the predictors and response variable.
 
 
 
-Suppose many samples are obtained, and with each of them a linear
-regression model is trained. Then, we get many estimations of the model
+Suppose many samples of the predictors and response are obtained, and with each of them a linear
+regression model is trained. Then, we get many estimations of the model beta
 coefficients, one with each sample.
 
 Then  $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_j)}\hspace{0.1cm}$  indicates how much
-$\hspace{0.1cm}\hat{\beta_j}\hspace{0.1cm}$ varies, in mean, from one sample to another.
+$\hspace{0.1cm}\widehat{\beta_j}\hspace{0.1cm}$ varies, in mean, from one sample to another.
 
 
 
@@ -2310,7 +2310,7 @@ dispersion of the values of $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ resp
 
 
 
-Also $\hspace{0.05cm}\widehat{Var}(\widehat{\beta}_j)\hspace{0.05cm}$ allow us to create a confidence interval for $\hspace{0.05cm}\widehat{\beta}_j$
+$\widehat{Var}(\widehat{\beta}_j)\hspace{0.05cm}$ allow us to create a confidence interval for $\hspace{0.05cm}\widehat{\beta}_j \hspace{0.05cm}$ too
 
 
 
@@ -2415,23 +2415,35 @@ will be seen later.
 
 Now we will focus in the part of the output where are the estimation of   coefficients estimators standard error (`std err` in Python , `Std.Error` in R).
 
-\begin{gather*}
-\sqrt{\widehat{Var}(\hat{\beta_0})}=2.995e+07 \\[0.2cm]
- \sqrt{\widehat{Var}(\hat{\beta}_{quality1})}=8.358e+04 \\[0.2cm]
-\sqrt{\widehat{Var}(\hat{\beta}_{quality2})}=1.551e+05\\[0.2cm] 
-\sqrt{\widehat{Var}(\hat{\beta}_{quality3})}= 1.976e+05 \\[0.2cm] 
-\sqrt{\widehat{Var}(\hat{\beta}_{size\_in\_m\_2})}= 7.238e+02 \\[0.2cm]
-\sqrt{\widehat{Var}(\hat{\beta}_{no\_of\_bedrooms})}=8.282e+04 \\[0.2cm] 
-\sqrt{\widehat{Var}(\hat{\beta}_{no\_of\_bathrooms})}=6.829e+04 \\[0.2cm]  
-\sqrt{\widehat{Var}(\hat{\beta}_{latitude})}=7.809e+05\\[0.2cm] 
-\sqrt{\widehat{Var}(\hat{\beta}_{longitude})}=6.908e+05
-\end{gather*}
-
 <br>
 
-The standard deviation estimates of the coefficients estimators are, in
+- $\sqrt{\widehat{Var}(\widehat{\beta_0})}=2.995e+07 \\$
+
+- $\sqrt{\widehat{Var}(\widehat{\beta}_{quality1})}=8.358e+04 \\$ 
+
+- $\sqrt{\widehat{Var}(\widehat{\beta}_{quality2})}=1.551e+05 \\$
+
+- $\sqrt{\widehat{Var}(\widehat{\beta}_{quality3})}= 1.976e+05 \\$
+
+- $\sqrt{\widehat{Var}(\widehat{\beta}_{size\_in\_m\_2})}= 7.238e+02 \\$
+
+- $\sqrt{\widehat{Var}(\widehat{\beta}_{no\_of\_bedrooms})}=8.282e+04 \\$
+
+- $\sqrt{\widehat{Var}(\widehat{\beta}_{no\_of\_bathrooms})}=6.829e+04 \\$
+
+- $\sqrt{\widehat{Var}(\widehat{\beta}_{latitude})}=7.809e+05 \\$
+
+- $\sqrt{\widehat{Var}(\widehat{\beta}_{longitude})}=6.908e+05 \\$
+ 
+  
+  
+   
+  
+<br>
+
+The estimations of the estimators standard of the beta coefficients estimators  are, in
 general, so high. This implies if we train the model with another
-samples, we will get estimates of the coefficients quite different than
+samples, we will get estimations of beta coefficients quite different than
 the one obtained with our initial sample.
 
 And this is a big problem, because from one sample to another are
@@ -2442,8 +2454,7 @@ different results with each sample.
 
 
 
-&nbsp;
-
+<br>
 
 
 
@@ -2538,7 +2549,7 @@ model_Py_smf = smf.ols(formula = 'price ~ size_in_m_2 + no_of_bedrooms + no_of_b
 
 
 
-**Using the training data:**
+**Using train data:**
 
 
 ```python
@@ -2686,7 +2697,7 @@ model_Py_sm = sm.OLS(y , X).fit()
 
  
 
-**Using the training data:**
+**Using train data:**
 
 
 ```python
@@ -3221,7 +3232,7 @@ called **residual variance**, and is defined as:
 <br>
 
 $$
- \widehat{Var}(\varepsilon_i) = \widehat{\sigma}^2 = S_R^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n-p-1} \cdot \sum_{i=1}^{n} \hat{\varepsilon}_i\hspace{0.02cm}^2 \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{1}{n-p-1} \cdot (Y^t \cdot Y - \hat{\beta}^t \cdot X^t \cdot Y)
+ \widehat{Var}(\varepsilon_i) \hspace{0.1cm} =\hspace{0.1cm} \widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S_R^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n-p-1} \cdot \sum_{i=1}^{n} \hat{\varepsilon}_i\hspace{0.02cm}^2 \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{1}{n-p-1} \cdot (Y^t \cdot Y - \hat{\beta}^t \cdot X^t \cdot Y)
 $$
 
 
@@ -3231,12 +3242,12 @@ The following is fulfilled:
 
 <br>
 
-- $\hspace{0.2cm} \dfrac{n-p-1}{\sigma^2} \cdot \widehat{\sigma}^2 \hspace{0.1cm} \sim \hspace{0.1cm} \chi_{n-p-1}^2 \\[0.2cm]$
+- $\hspace{0.3cm} \dfrac{n-p-1}{\sigma^2} \cdot \widehat{\sigma}^2 \hspace{0.1cm} \sim \hspace{0.1cm} \chi_{n-p-1}^2 \\[0.3cm]$
 
-- $\hspace{0.2cm} E[\widehat{\sigma}^2]=\sigma^2 \\[0.2cm]$
+- $\hspace{0.3cm} E[\widehat{\sigma}^2]=\sigma^2 \\[0.3cm]$
 
 
-- $\hspace{0.2cm} Var(\widehat{\sigma}^2)=\dfrac{2 \cdot \sigma^4}{n-p-1}$
+- $\hspace{0.3cm} Var(\widehat{\sigma}^2)=\dfrac{2 \cdot \sigma^4}{n-p-1}$
 
 
 
@@ -3398,7 +3409,7 @@ There is a more interesting model error, called test error, that is
 computed with predictors observations which haven´t been used to train
 the model.
 
-In this article, we will not go deeper unto that, but this concepts will
+In this article, we will not go deeper into that, but this concepts will
 be more developed in another article about validation techniques.
 
 
@@ -3421,12 +3432,12 @@ be more developed in another article about validation techniques.
 
 We have the following estimated linear regression model: 
 
-  $$\hat{y}= \widehat{\beta}_0 + \widehat{\beta}_0\cdot x_{i1} + ...+ \widehat{\beta}_p\cdot x_{ip}$$
+  $$\widehat{y}_i= \widehat{\beta}_0 + \widehat{\beta}_0\cdot x_{i1} + ...+ \widehat{\beta}_p\cdot x_{ip}$$
 
 
 <br>
 
-- $\hat{\beta}_0$ $\hspace{0.05cm}$ is the model estimated value for the response variable, i.e $\hspace{0.05cm}$  $\widehat{y}_i$ $\hspace{0.05cm}$
+- $\widehat{\beta}_0$ $\hspace{0.05cm}$ is the model estimated value for the response variable, i.e $\hspace{0.05cm}$  $\widehat{y}_i$ $\hspace{0.05cm}$
 , when $\hspace{0.05cm}$ $x_{ij}=0$ $\hspace{0.05cm}$ , $\forall j=1,2,...,p$
 
 
@@ -3440,40 +3451,40 @@ We have the following estimated linear regression model:
 
 
 
-Let $X_k$ a **quantitative** variable and $\hspace{0.05cm}$ $h>0$
+Let $\hspace{0.05cm} X_k \hspace{0.05cm}$ a **quantitative** variable and $\hspace{0.05cm}$ $h>0$
 
 We have the following estimated linear regression model  
 
 <br>
 
-$$\hat{y}_i= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + .. + \hat{\beta_k}\cdot x_{ik} + ..+ \hat{\beta_p}\cdot x_{ip}$$
+$$\widehat{y}_i= \widehat{\beta_0} + \widehat{\beta_0}\cdot x_{i1} + .. + \widehat{\beta_k}\cdot x_{ik} + ..+ \widehat{\beta_p}\cdot x_{ip}$$
 
 <br>
 
 
--   If $\hspace{0.1cm} \hat{\beta}_k > 0 \hspace{0.1cm}$  , then
+-   If $\hspace{0.1cm} \widehat{\beta}_k > 0 \hspace{0.1cm}$  , then
 
-    -   If  $x_{ik}$  **increases** in $h$ units $\hspace{0.05cm}$  $\Rightarrow$  $\hspace{0.05cm}$ $\hat{y}_i$
-        **increases** in $\hspace{0.05cm}$ $\hat{\beta}_k \cdot h$  $\hspace{0.05cm}$ units.
+    -   If  $\hspace{0.1cm} x_{ik} \hspace{0.1cm}$  **increases** in $\hspace{0.1cm}h\hspace{0.1cm}$ units $\hspace{0.05cm}$  $\Rightarrow$  $\hspace{0.05cm}$ $\widehat{y}_i\hspace{0.1cm}$
+        **increases** in $\hspace{0.05cm}$ $\widehat{\beta}_k \cdot h$  $\hspace{0.05cm}$ units.
         
         And the opposite if it decreases.
         
 
 <br>
 
--   If  $\hspace{0.1cm} \hat{\beta}_k < 0 \hspace{0.1cm}$  , then
+-   If  $\hspace{0.1cm} \widehat{\beta}_k < 0 \hspace{0.1cm}$  , then
 
-    -  If $x_{ik}$ **increases** in $h$ units $\hspace{0.05cm}$ $\Rightarrow$ $\hspace{0.05cm}$  $\hat{y}_i$
-        **decreases** in $\hspace{0.05cm}$ $\hat{\beta}_k \cdot h$ $\hspace{0.05cm}$ units. 
+    -  If $\hspace{0.1cm}x_{ik}\hspace{0.1cm}$ **increases** in $\hspace{0.1cm}h\hspace{0.1cm}$ units $\hspace{0.05cm}$ $\Rightarrow$ $\hspace{0.05cm}$  $\widehat{y}_i$
+        **decreases** in $\hspace{0.05cm}$ $\widehat{\beta}_k \cdot h$ $\hspace{0.05cm}$ units. 
 
         And the opposite if it decreases.
 
 <br>
 
 
--   If  $\hspace{0.1cm} \hat{\beta}_k = 0 \hspace{0.1cm}$  , then
+-   If  $\hspace{0.1cm} \widehat{\beta}_k = 0 \hspace{0.1cm}$  , then
 
-    -   $\hat{y}_i$ $\hspace{0.05cm}$ doesn´t depend on $\hspace{0.05cm}$  $x_{ik}$
+    -   $\widehat{y}_i$ $\hspace{0.05cm}$ doesn´t depend on $\hspace{0.05cm}$  $x_{ik}$
 
 
 <br>
@@ -3483,7 +3494,7 @@ $$\hat{y}_i= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + .. + \hat{\beta_k}\cdot
 
 The above affirmations are based in the following:
 
-- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=c+h ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik}=c ) =  \hat{\beta_k}\cdot h$
+- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=c+h ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik}=c ) \hspace{0.1cm}=\hspace{0.1cm}  \hat{\beta_k}\cdot h$
 
 
 
@@ -3523,30 +3534,30 @@ $$
 
 We have the following estimated linear regression model:
 
-$$\hat{y}_i= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + .. + \hat{\beta}_{k1} \cdot x_{ik1} + ..+ \hat{\beta_p}\cdot x_{ip}$$
+$$\hat{y}_i= \widehat{\beta_0} + \widehat{\beta_0}\cdot x_{i1} + .. + \widehat{\beta}_{k1} \cdot x_{ik1} + ..+ \widehat{\beta_p}\cdot x_{ip}$$
 
 <br>
 
--   If $\hat{\beta}_{k1} > 0$ , then
+-   If $\widehat{\beta}_{k1} > 0$ , then
 
 
 
-    -   $\hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\hat{\beta}_{k1}$ $\hspace{0.05cm}$ units greater if  $\hspace{0.05cm}$ $x_{ik}=1$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 0$
+    -   $\widehat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\widehat{\beta}_{k1}$ $\hspace{0.05cm}$ units **greater** if  $\hspace{0.05cm}$ $x_{ik}=1$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 0$
 
 <br>
 
--   If $\hat{\beta}_{k1} < 0$ , then
+-   If $\widehat{\beta}_{k1} < 0$ , then
 
-    -   $\hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\hat{\beta}_{k1}$ $\hspace{0.05cm}$ units less if $\hspace{0.05cm}$  $x_{ik}= 1$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}=0$
+    -   $\hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\widehat{\beta}_{k1}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$  $x_{ik}= 1$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}=0$
 
-
+<br>
 
 **Observation:**
 
 
 The above affirmations are based in the following:
 
-- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik1}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik1}=0 ) =  \hat{\beta}_{k1}$
+- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik1}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik1}=0 ) =  \widehat{\beta}_{k1}$
 
 
 
@@ -3558,11 +3569,11 @@ The above affirmations are based in the following:
 
 
 
-Let $X_k$ a categorical variable with 3 categories
-$\lbrace 0 , 1, 2 \rbrace$,
+Let $\hspace{0.1cm} X_k \hspace{0.1cm}$ a categorical variable with 3 categories
+$\hspace{0.1cm} \lbrace 0 , 1, 2 \rbrace$,
 
-If the reference category is $0$, then $X_k$ enter in the model with
-two binary $\lbrace 0,1\rbrace$ variables $X_{k1}$ y $X_{k2}$ defined as:
+If the reference category is $\hspace{0.1cm}0\hspace{0.1cm}$, then $\hspace{0.1cm}X_k\hspace{0.1cm}$ enter in the model with
+two binary $\hspace{0.1cm}\lbrace 0,1\rbrace\hspace{0.1cm}$ variables $\hspace{0.1cm}X_{k1}\hspace{0.1cm}$ and $\hspace{0.1cm}X_{k2}\hspace{0.1cm}$ defined as:
 
 \begin{gather*}
 x_{i k1}=1   \Leftrightarrow   x_{i k}=1 \\
@@ -3583,43 +3594,43 @@ $$
 
 We have the following estimated linear regression model:
 
-$$\hat{y}= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + .. + \hat{\beta}_{k1} \cdot x_{ik1} + \hat{\beta}_{k2} \cdot x_{ik2} + ..+ \hat{\beta_p}\cdot x_{ip}$$
+$$\widehat{y}_i= \widehat{\beta}_0 + \widehat{\beta}_0\cdot x_{i1} + .. + \widehat{\beta}_{k1} \cdot x_{ik1} + \widehat{\beta}_{k2} \cdot x_{ik2} + ..+ \widehat{\beta}_p\cdot x_{ip}$$
 
 <br>
 
--   If  $\hat{\beta}_{k1} > 0$  , then
+-   If  $\hspace{0.1cm}\widehat{\beta}_{k1} > 0\hspace{0.1cm}$  , then
 
-    -  $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hat{\beta}_{k1}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$ $x_{ik}= 1$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ik}= 0$
-
-<br>
-
--   If  $\hat{\beta}_{k1} < 0$  , then
-
-    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\hat{\beta}_{k1}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$  $x_{ik}= 1$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 0$
+    -  $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\widehat{\beta}_{k1}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$ $x_{ik}= 1$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ik}= 0$
 
 <br>
 
--   If $\hat{\beta}_{k2} > 0$ , then
+-   If  $\hspace{0.1cm}\widehat{\beta}_{k1} < 0\hspace{0.1cm}$  , then
 
-    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hat{\beta}_{k2}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$  $x_{ik}= 1$  $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 0$
-
-<br>
-
--   If $\hat{\beta}_{k2} < 0$  , then 
-
-    -  $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\hat{\beta}_{k2}$ $\hspace{0.05cm}$ units **less** if  $\hspace{0.05cm}$ $x_{ik}= 1$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 0$
+    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\widehat{\beta}_{k1}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$  $x_{ik}= 1$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 0$
 
 <br>
 
--   If  $\hat{\beta}_{k2} - \hat{\beta}_{k1} > 0$ , then
+-   If $\hspace{0.1cm}\widehat{\beta}_{k2} > 0\hspace{0.1cm}$ , then
 
-    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\hat{\beta}_{k2} - \hat{\beta}_{k1}$  $\hspace{0.05cm}$ units  **greater** if $\hspace{0.05cm}$ $x_{ik}= 2$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 1$
+    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\widehat{\beta}_{k2}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$  $x_{ik}= 1$  $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 0$
 
 <br>
 
--   If  $\hat{\beta}_{k2} - \hat{\beta}_{k1} < 0$  , then
+-   If $\hspace{0.1cm}\widehat{\beta}_{k2} < 0\hspace{0.1cm}$  , then 
 
-    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\hat{\beta}_{k2} - \hat{\beta}_{k1}$ $\hspace{0.05cm}$ units
+    -  $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\widehat{\beta}_{k2}$ $\hspace{0.05cm}$ units **less** if  $\hspace{0.05cm}$ $x_{ik}= 1$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 0$
+
+<br>
+
+-   If  $\hspace{0.1cm}\widehat{\beta}_{k2} - \widehat{\beta}_{k1} > 0\hspace{0.1cm}$ , then
+
+    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\widehat{\beta}_{k2} - \widehat{\beta}_{k1}$  $\hspace{0.05cm}$ units  **greater** if $\hspace{0.05cm}$ $x_{ik}= 2$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 1$
+
+<br>
+
+-   If  $\hspace{0.1cm}\hat{\beta}_{k2} - \widehat{\beta}_{k1} < 0\hspace{0.1cm}$  , then
+
+    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.1cm}$ $\widehat{\beta}_{k2} - \widehat{\beta}_{k1}$ $\hspace{0.1cm}$ units
         **less** if $\hspace{0.05cm}$ $x_{ik}= 2$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 1$
 
 <br>
@@ -3634,11 +3645,11 @@ categorical predictor with $r$ categories, for $r>3$.
 
 The above affirmations are based in the following:
 
-- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik1}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik0}=1 ) =  \hat{\beta}_{k1}$
+- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik1}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik0}=1 ) =  \widehat{\beta}_{k1}$
 
-- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik2}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik0}=1 ) =  \hat{\beta}_{k2}$
+- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik2}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik0}=1 ) =  \widehat{\beta}_{k2}$
   
-- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik2}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik1}=1 ) =  \hat{\beta}_{k2} - \hat{\beta}_{k1}$
+- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik2}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik1}=1 ) =  \widehat{\beta}_{k2} - \widehat{\beta}_{k1}$
 
 
 
@@ -3667,56 +3678,56 @@ The interpretation of the estimated model coefficients is the following:
 
 <br>
 
--   $\hat{\beta}_0 = -6.207e+07$   is the estimated  $price$  by the model for the  houses with $size\_in\_m\_2_i =0$  ,  $no\_of\_bedrooms_i =0$  ,  $no\_of\_bathrooms_i =0$  ,   $qualityLow_i=0$ ,   $qualityMedium_i=0$  ,  $qualityUltra_i=0$  ,  $latitude_i=longitude_i=0$
+-   $\widehat{\beta}_0 = -6.207e+07 \hspace{0.1cm}$   is the estimated  $\hspace{0.1cm}price\hspace{0.1cm}$  by the model for the  houses with $\hspace{0.1cm}size\_in\_m\_2_i =0\hspace{0.1cm}$  ,  $\hspace{0.1cm}no\_of\_bedrooms_i =0\hspace{0.1cm}$  ,  $\hspace{0.1cm}no\_of\_bathrooms_i =0\hspace{0.1cm}$  ,   $qualityLow_i=0$ ,   $\hspace{0.1cm}qualityMedium_i=0\hspace{0.1cm}$  ,  $\hspace{0.1cm}qualityUltra_i=0\hspace{0.1cm}$  ,  $\hspace{0.1cm}latitude_i=longitude_i=0$
 
 <br>
 
--   $\hat{\beta}_{size\_in\_m\_2} =3.566e+04$   $\Rightarrow$   if
-    $size\_in\_m\_2_i$ increases in $h$ units, the estimated housing
-    $price$ **increases** in  $h\cdot 3.566e+04$  units.
+-   $\widehat{\beta}_{size\_in\_m\_2} =3.566e+04\hspace{0.15cm}$   $\Rightarrow\hspace{0.15cm}$   if
+    $\hspace{0.1cm}size\_in\_m\_2_i\hspace{0.1cm}$ increases in $\hspace{0.1cm}h\hspace{0.1cm}$ units, the estimated housing
+    $\hspace{0.1cm}price\hspace{0.1cm}$ **increases** in  $\hspace{0.1cm}h\cdot 3.566e+04\hspace{0.15cm}$  units.
 
 <br>
 
--   $\hat{\beta}_{no\_of\_bedrooms} = -8.367e+05$   $\Rightarrow$   if
-    $no\_of\_bedrooms_i$ increases in  $h$  units, the estimated housing
-    $price$ **decreases** in  $-h\cdot 8.367e+05$  units.
+-   $\widehat{\beta}_{no\_of\_bedrooms} = -8.367e+05$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$   if
+    $\hspace{0.15cm}no\_of\_bedrooms_i\hspace{0.15cm}$ increases in  $\hspace{0.15cm}h\hspace{0.15cm}$  units, the estimated housing
+    $\hspace{0.15cm}price\hspace{0.15cm}$ **decreases** in  $\hspace{0.15cm}-h\cdot 8.367e+05\hspace{0.15cm}$  units.
 
 <br>
 
--   $\hat{\beta}_{no\_of\_bathrooms} = -5.712e+04$   $\Rightarrow$   if
-    $no\_of\_bathrooms_i$ increases in  $h$  units, the estimated housing
-    $price$ **decreases** in  $-h\cdot 5.712e+04$  units.
+-   $\widehat{\beta}_{no\_of\_bathrooms} = -5.712e+04$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$   if
+    $\hspace{0.15cm}no\_of\_bathrooms_i\hspace{0.15cm}$ increases in  $h$  units, the estimated housing
+    $price$ **decreases** in  $\hspace{0.15cm}-h\cdot 5.712e+04\hspace{0.15cm}$  units.
 
 <br>
 
--   $\hat{\beta}_{quality1} = 1.4e+05$   $\Rightarrow$    the estimated
+-   $\widehat{\beta}_{quality1} = 1.4e+05$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$    the estimated
     $price$ of houses with medium quality  $(quality1_i=1)$  is  $1.4e+05$   units **greater** than the estimated price of houses with low quality
-    $(quality0_i=1)$ , because low quality is the reference category  of $quality$ variable.
+    $\hspace{0.15cm}(quality0_i=1)\hspace{0.15cm}$ , because low quality is the reference category  of $\hspace{0.15cm}quality\hspace{0.15cm}$ 
 
 <br>
 
--   $\hat{\beta}_{quality2} = 3.406e+05$  $\Rightarrow$    the
+-   $\widehat{\beta}_{quality2} = 3.406e+05$  $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$    the
     estimated $price$ of houses with medium quality 
-    $(quality2_i=1)$  is  $3.406e+05$ units **greater** than the estimated
-    price of houses with high quality  $(quality0_i=1)$  
+    $\hspace{0.15cm}(quality2_i=1)\hspace{0.15cm}$  is  $\hspace{0.15cm}3.406e+05\hspace{0.15cm}$ units **greater** than the estimated
+    price of houses with high quality  $\hspace{0.15cm}(quality0_i=1)$  
 
 <br>
 
--   $\hat{\beta}_{quality3} = 2.788e+05$   $\Rightarrow$     the estimated
-    $price$ of houses with ultra quality  $(quality1_i=1)$   is
-  $2.788e+05$  units **greater** than the estimated price of houses with low quality  $(quality0_i=1)$ 
+-   $\widehat{\beta}_{quality3} = 2.788e+05$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$     the estimated
+    $\hspace{0.15cm}price\hspace{0.15cm}$ of houses with ultra quality  $\hspace{0.15cm}(quality1_i=1)\hspace{0.15cm}$   is
+  $\hspace{0.15cm}2.788e+05\hspace{0.15cm}$  units **greater** than the estimated price of houses with low quality  $\hspace{0.15cm}(quality0_i=1)$ 
 
 <br>
 
--    $\hat{\beta}_{quality2} - \hat{\beta}_{quality1} = 3.406e+05  - 1.4e+05    =2.006e+05$     $\Rightarrow$   the estimated price of houses  with high    quality  $(quality2_i=1)$   is  $2.006e+05$ units **greater**   than the estimated price of houses with medium quality  $(quality1_i=1)$ 
+-    $\widehat{\beta}_{quality2} - \widehat{\beta}_{quality1} = 3.406e+05  - 1.4e+05    =2.006e+05$     $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$   the estimated price of houses  with high    quality  $\hspace{0.15cm}(quality2_i=1)\hspace{0.15cm}$   is  $\hspace{0.15cm}2.006e+05\hspace{0.15cm}$ units **greater**   than the estimated price of houses with medium quality  $\hspace{0.15cm}(quality1_i=1)$ 
 
 <br>
 
--  $\hat{\beta}_{quality3} - \hat{\beta}_{quality2} = 2.788e+05   - 3.406e+05 =-61800$     $\Rightarrow$  the estimated price of houses  with ultra quality  $(quality3_i=1)$   is  $61800$ units **less**   than the estimated price of houses with high quality  $(quality2_i=1)$ 
+-  $\widehat{\beta}_{quality3} - \widehat{\beta}_{quality2} = 2.788e+05   - 3.406e+05 =-61800$     $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$  the estimated price of houses  with ultra quality  $\hspace{0.15cm}(quality3_i=1)\hspace{0.15cm}$   is  $\hspace{0.15cm}61800\hspace{0.15cm}$ units **less**   than the estimated price of houses with high quality  $\hspace{0.15cm}(quality2_i=1)$ 
 
 <br>
 
-Note that in all these cases it is assumed that the rest of the model variables don´t vary (have the same values) from one scenario to another.
+Note that in all these cases it's assumed that the rest of the model variables don't vary (have the same values) from one scenario to another.
 
 
 
@@ -3730,7 +3741,7 @@ Note that in all these cases it is assumed that the rest of the model variables 
 
 ### Interaction  between binary and quantitative variables
 
-Let $X_k$ a quantitative variable, and $X_r$ a **binary** $\lbrace 0, 1\rbrace$ categorical variable.
+Let $X_k$ a **quantitative** variable, and $X_r$ a **binary** $\lbrace 0, 1\rbrace$ categorical variable.
 
 If the reference category is  $0$  , then  $X_r$ enter in the model as the binary $\lbrace 0, 1\rbrace$ variable $X_{r1}$ defined as:
 
@@ -3751,21 +3762,21 @@ $$
 We have the following estimated linear regression model:
 
 
-$$\hat{y}_i= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + ... + \hat{\beta_p}\cdot x_{ip} + \hat{\beta}_{r}\cdot x_{ir} + \hat{\beta}_{k}\cdot x_{ik} + \hat{\beta}_{rk}\cdot x_{ir}\cdot x_{ik}  $$
+$$\widehat{y}_i= \widehat{\beta_0} + \widehat{\beta}_0\cdot x_{i1} + ... + \widehat{\beta}_p\cdot x_{ip} + \widehat{\beta}_{r1}\cdot x_{ir1} + \widehat{\beta}_{k}\cdot x_{ik} + \widehat{\beta}_{r1k}\cdot x_{ir1}\cdot x_{ik}  $$
 
 
 <br> 
 
 
--   If  $\hspace{0.05cm} \hat{\beta}_{r1} + \hat{\beta}_{r1}\cdot x_{ki} \hspace{0.05cm} > \hspace{0.05cm} 0$  , then
+-   If  $\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm} > \hspace{0.05cm} 0$  , then
 
-    -  $\hat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \hat{\beta}_{r1} + \hat{\beta}_{r1}\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$ $x_{ir}= 1$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 0$
+    -  $\widehat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$ $x_{ir}= 1$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 0$
 
 <br>
 
--   If  $\hspace{0.05cm} \hat{\beta}_{r1} + \hat{\beta}_{r1}\cdot x_{ki} \hspace{0.05cm} < \hspace{0.05cm} 0$  , then
+-   If  $\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm} < \hspace{0.05cm} 0$  , then
 
-    -  $\hat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \hat{\beta}_{r1} + \hat{\beta}_{r1}\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$ $x_{ir}= 1$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 0$
+    -  $\widehat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$ $x_{ir}= 1$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 0$
     
 <br>
 
@@ -3777,7 +3788,7 @@ Note these magnitudes depend on $x_{ik}$ value, because we have set an interacti
 
 The above affirmations are based in the following:
 
-$(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir1}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ir0}=1 ) =  \hat{\beta}_{r1} + \hat{\beta}_{r1k}\cdot x_{ik}$
+$(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir1}=1 ) - (\widehat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ir0}=1 ) =  \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ik}$
 
 
 
@@ -3811,44 +3822,44 @@ $$
  
 We have the following estimated linear regression model  
 
-$$\hat{y}_i= \hat{\beta_0} + \hat{\beta_0}\cdot x_{i1} + ... + \hat{\beta_p}\cdot x_{ip}  + \hat{\beta}_{k}\cdot x_{ik} + \hat{\beta}_{r1}\cdot x_{ir1} + \hat{\beta}_{r2}\cdot x_{ir2} + \hat{\beta}_{r1k}\cdot x_{ir1}\cdot x_{ik} + \hat{\beta}_{r2 k}\cdot x_{ir2}\cdot x_{ik} $$
+$$\widehat{y}_i= \widehat{\beta_0} + \widehat{\beta_0}\cdot x_{i1} + ... + \widehat{\beta_p}\cdot x_{ip}  + \widehat{\beta}_{k}\cdot x_{ik} + \widehat{\beta}_{r1}\cdot x_{ir1} + \widehat{\beta}_{r2}\cdot x_{ir2} + \widehat{\beta}_{r1k}\cdot x_{ir1}\cdot x_{ik} + \widehat{\beta}_{r2 k}\cdot x_{ir2}\cdot x_{ik} $$
 
 <br>
 
--   If  $\hspace{0.05cm} \hat{\beta}_{r1} + \hat{\beta}_{r1}\cdot x_{ki} \hspace{0.05cm} > \hspace{0.05cm} 0$  , then
+-   If  $\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm} > \hspace{0.05cm} 0$  , then
 
-    -  $\hat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \hat{\beta}_{r1} + \hat{\beta}_{r1}\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$ $x_{ir}= 1$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 0$
-
-<br>
-
--   If  $\hspace{0.05cm} \hat{\beta}_{r1} + \hat{\beta}_{r1}\cdot x_{ki} \hspace{0.05cm} < \hspace{0.05cm} 0$  , then
-
-    -  $\hat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \hat{\beta}_{r1} + \hat{\beta}_{r1}\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$ $x_{ir}= 1$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 0$
+    -  $\widehat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$ $x_{ir}= 1$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 0$
 
 <br>
 
--   If  $\hspace{0.05cm} \hat{\beta}_{r2} + \hat{\beta}_{r2}\cdot x_{ki} \hspace{0.05cm} > \hspace{0.05cm} 0$  , then
+-   If  $\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm} < \hspace{0.05cm} 0$  , then
 
-    -  $\hat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \hat{\beta}_{r2} + \hat{\beta}_{r2}\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$ $x_{ir}= 2$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 0$
-
-<br>
-
--   If  $\hspace{0.05cm} \hat{\beta}_{r2} + \hat{\beta}_{r2}\cdot x_{ki} \hspace{0.05cm} < \hspace{0.05cm} 0$  , then
-
-    -  $\hat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \hat{\beta}_{r2} + \hat{\beta}_{r2}\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$ $x_{ir}= 2$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 0$
+    -  $\widehat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$ $x_{ir}= 1$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 0$
 
 <br>
 
+-   If  $\hspace{0.05cm} \widehat{\beta}_{r2} + \widehat{\beta}_{r2k}\cdot x_{ki} \hspace{0.05cm} > \hspace{0.05cm} 0$  , then
 
--   If  $\hspace{0.05cm} (\hat{\beta}_{r2} - \hat{\beta}_{r1} ) + (\hat{\beta}_{r2} - \hat{\beta}_{r1})\cdot x_{ki} \hspace{0.05cm} > \hspace{0.05cm} 0$  , then
-
-    -  $\hat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} (\hat{\beta}_{r2} - \hat{\beta}_{r1} ) + (\hat{\beta}_{r2} - \hat{\beta}_{r1})\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$ $x_{ir}= 2$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 1$
+    -  $\widehat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \widehat{\beta}_{r2} + \widehat{\beta}_{r2k}\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$ $x_{ir}= 2$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 0$
 
 <br>
 
--   If  $\hspace{0.05cm} (\hat{\beta}_{r2} - \hat{\beta}_{r1} ) + (\hat{\beta}_{r2} - \hat{\beta}_{r1})\cdot x_{ki} \hspace{0.05cm} < \hspace{0.05cm} 0$  , then
+-   If  $\hspace{0.05cm} \widehat{\beta}_{r2} + \widehat{\beta}_{r2k}\cdot x_{ki} \hspace{0.05cm} < \hspace{0.05cm} 0$  , then
 
-    -  $\hat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} (\hat{\beta}_{r2} - \hat{\beta}_{r1} ) + (\hat{\beta}_{r2} - \hat{\beta}_{r1})\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$ $x_{ir}= 2$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 1$
+    -  $\widehat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \widehat{\beta}_{r2} + \widehat{\beta}_{r2k}\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$ $x_{ir}= 2$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 0$
+
+<br>
+
+
+-   If  $\hspace{0.05cm} (\widehat{\beta}_{r2} - \widehat{\beta}_{r1} ) + (\widehat{\beta}_{r2k} - \widehat{\beta}_{r1k})\cdot x_{ki} \hspace{0.05cm} > \hspace{0.05cm} 0$  , then
+
+    -  $\widehat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} (\widehat{\beta}_{r2} - \widehat{\beta}_{r1} ) + (\widehat{\beta}_{r2k} - \widehat{\beta}_{r1k})\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$ $x_{ir}= 2$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 1$
+
+<br>
+
+-   If  $\hspace{0.05cm} (\widehat{\beta}_{r2} - \widehat{\beta}_{r1} ) + (\widehat{\beta}_{r2k} - \widehat{\beta}_{r1k})\cdot x_{ki} \hspace{0.05cm} < \hspace{0.05cm} 0$  , then
+
+    -  $\widehat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} (\widehat{\beta}_{r2} - \widehat{\beta}_{r1} ) + (\widehat{\beta}_{r2k} - \widehat{\beta}_{r1k})\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$ $x_{ir}= 2$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 1$
 
 <br>
 
@@ -3862,11 +3873,11 @@ Note these magnitudes depend on $x_{ik}$ value, because we have set an interacti
 
 The above affirmations are based in the following:
 
-- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir1}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ir0}=1 ) =  \hat{\beta}_{r1} + \hat{\beta}_{r1k}\cdot x_{ik}$
+- $(\widehat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir1}=1 ) - (\widehat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ir0}=1 ) =  \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ik}$
 
-- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir2}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ir0}=1 ) =  \hat{\beta}_{r2} + \hat{\beta}_{r2k}\cdot x_{ik}$
+- $(\widehat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir2}=1 ) - (\widehat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ir0}=1 ) =  \widehat{\beta}_{r2} + \widehat{\beta}_{r2k}\cdot x_{ik}$
 
-- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir2}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ir1}=1 ) =  (\hat{\beta}_{r2} - \hat{\beta}_{r1} ) + (\hat{\beta}_{r2k} - \hat{\beta}_{r1k})\cdot x_{ki}$
+- $(\widehat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir2}=1 ) - (\widehat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ir1}=1 ) =  (\widehat{\beta}_{r2} - \widehat{\beta}_{r1} ) + (\widehat{\beta}_{r2k} - \widehat{\beta}_{r1k})\cdot x_{ki}$
 
 
 
@@ -3939,6 +3950,8 @@ print(model_Python_2.summary())
 
 We have got the following:
 
+<br>
+
  - $\left( \widehat{price}_i | quality1_i=1 \right) - \left(\widehat{price}_i | quality0_i=1 \right) = \hat{\beta}_{quality1} + \hat{\beta}_{quality1:size\_in\_m\_2} \cdot size\_in\_m\_2_i = -2.353\cdot 10^5 + 2908.2719  \cdot size\_in\_m\_2_i$  
 
 This magnitude depends on the value of $\hspace{0.1cm} size\_in\_m\_2_i$
@@ -3956,7 +3969,7 @@ So the estimated price of a 100 $m^2$ house is 55527.19 units greater if $\hspac
 <br>
 
 
-- $\left( \widehat{price}_i | quality2_i=1 \right) - \left(\widehat{price}_i | quality0_i=1 \right) = \hat{\beta}_{quality2} + \hat{\beta}_{quality2:size\_in\_m\_2} \cdot size\_in\_m\_2_i = -1.373\cdot 10^6 + 1.208\cdot 10^4  \cdot size\_in\_m\_2_i$  
+- $\left( \widehat{price}_i | quality2_i=1 \right) - \left(\widehat{price}_i | quality0_i=1 \right) = \hat{\beta}_{quality2} + \hat{\beta}_{quality2:size\_in\_m\_2} \cdot size\_in\_m\_2_i  = -1.373\cdot 10^6 + 1.208\cdot 10^4  \cdot size\_in\_m\_2_i$  
 
 This magnitude depends on the value of $\hspace{0.1cm} size\_in\_m\_2_i$
 
@@ -3973,7 +3986,7 @@ So the estimated price of a 100 $\hspace{0.1cm}m^2\hspace{0.1cm}$ house is 16500
 
 
 
-- $\left( \widehat{price}_i | quality3_i=1 \right) - \left(\widehat{price}_i | quality1_i=1 \right) = \left(\hat{\beta}_{quality3} - \hat{\beta}_{quality1}\right) + \left( \hat{\beta}_{quality3:size\_in\_m\_2} - \hat{\beta}_{quality1:size\_in\_m\_2}\right)  \cdot size\_in\_m\_2_i =  (1.318e+06 - (-2.353e+05 )) + (-1.145e+04 + 2908.2719 )\cdot size\_in\_m\_2_i$  
+- $\left( \widehat{price}_i | quality3_i=1 \right) - \left(\widehat{price}_i | quality1_i=1 \right) = \left(\hat{\beta}_{quality3} - \hat{\beta}_{quality1}\right) + \left( \hat{\beta}_{quality3:size\_in\_m\_2} - \hat{\beta}_{quality1:size\_in\_m\_2}\right)  \cdot size\_in\_m\_2_i = \\ \\ = (1.318e+06 - (-2.353e+05 )) + (-1.145e+04 + 2908.2719 )\cdot size\_in\_m\_2_i$  
 
 This magnitude depends on the value of $\hspace{0.1cm}size\_in\_m\_2_i$
 
@@ -4008,7 +4021,7 @@ We have the following confidence interval for $\hspace{0.1cm}\beta_j$
 <br>
 
 \begin{gather*}
-IC\left(\beta_j  \right)= \left[ \hspace{0.05cm} \hat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{\widehat{Var}(\widehat{\beta}_j)} \hspace{0.05cm} \right] = \left[\hspace{0.05cm}  \hat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{S_R^2 \cdot q_{jj}} \hspace{0.05cm} \right]
+CI\left(\beta_j  \right)= \left[ \hspace{0.05cm} \widehat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{\widehat{Var}(\widehat{\beta}_j)} \hspace{0.05cm} \right] = \left[\hspace{0.05cm}  \widehat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{\widehat{\sigma}^2 \cdot q_{jj}} \hspace{0.05cm} \right]
 \end{gather*}
  
 <br>
@@ -4043,7 +4056,7 @@ We have the following confidence interval for $\hspace{0.1cm}\sigma^2$
 <br>
  
 \begin{gather*}
-IC\left(\sigma^2  \right)= \left[ 0 \ , \ \dfrac{n-p-1}{\chi_{1-\alpha/2}^{n-p-1}}\cdot \widehat{\sigma}^2  \right]
+CI\left(\sigma^2  \right)= \left[ 0 \hspace{0.15cm} , \hspace{0.15cm}  \dfrac{n-p-1}{\chi_{1-\alpha/2}^{n-p-1}}\cdot \widehat{\sigma}^2  \right]
 \end{gather*}
  
 
@@ -4178,8 +4191,8 @@ Then, for example, we have:
 
  
 \begin{gather*}
-IC(\beta_0)=\left[-1.208060e+08 \ , \ -3.336873e+06 \right] \\[0.35cm]
-IC(\beta_{size\_in\_m\_2})=\left[ 3.424446e+04   \ , \ 3.708364e+04 \right] 
+CI(\beta_0)=\left[-1.208060e+08 \ , \ -3.336873e+06 \right] \\[0.35cm]
+CI(\beta_{size\_in\_m\_2})=\left[ 3.424446e+04   \ , \ 3.708364e+04 \right] 
 \end{gather*}
 
  
@@ -4231,7 +4244,7 @@ Then, we have:
 
  
 \begin{gather*}
-IC(\sigma^2)=\left[2.418577e+12   \ , \ 2.747045e+12 \right]
+CI(\sigma^2)=\left[2.418577e+12   \ , \ 2.747045e+12 \right]
 \end{gather*}
  
  
@@ -4305,6 +4318,7 @@ We can carry out the following three test:
 
 The test statistic for any of the previous test is:
 
+<br>
  
 \begin{gather*}
 t_{exp | H_0}=\dfrac{\widehat{\beta}_j - \beta_j^*}{\sqrt{S_R \cdot q_{jj}}} \sim t_{n-p}
@@ -4416,7 +4430,8 @@ Reject \ H_0  \ \Leftrightarrow \ pvalue < \alpha
 The test of significance for the coefficient $\beta_j$ is the following
 test:
 
- 
+<br>
+
 \begin{gather*}
 H_0: \beta_j=0 \\
 H_1: \beta_j \neq 0
@@ -4439,7 +4454,7 @@ t_{exp | H_0}=\dfrac{\hat{\beta}_j - 0}{\sqrt{S_R \cdot q_{jj}}} = \dfrac{\hat{\
 <br>
  
 
-The decision rules are the same too
+The decision rules are the same too:
 
  
 \begin{gather*}
@@ -4552,6 +4567,7 @@ print(model_Py_sm.summary())
 
 The p-values we have got are the following:
 
+<br>
 
 \begin{gather*}
 H_0: \beta_{quality1}=0 \\
@@ -4560,7 +4576,7 @@ pvalue = 0.094
 \end{gather*}
 
 
-For $\hspace{0.05cm} \alpha = 0.05 < 0.094$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Not \hspace{0.08cm} Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{quality1}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $quality1 \hspace{0.1cm}$ isn´t a significance variable
+- For $\hspace{0.05cm} \alpha = 0.05 < 0.094$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Not \hspace{0.08cm} Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{quality1}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $quality1 \hspace{0.1cm}$ isn´t a significance variable
 
 
 
@@ -4575,7 +4591,7 @@ pvalue = 0.028
 
 
 
-For $\hspace{0.05cm} \alpha = 0.05 > 0.028$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{quality2}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm} Accept  \hspace{0.08cm} H_1 : \hspace{0.05cm} \beta_{quality2}\neq 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$  $quality2 \hspace{0.1cm}$ is a significance variable
+- For $\hspace{0.05cm} \alpha = 0.05 > 0.028$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{quality2}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm} Accept  \hspace{0.08cm} H_1 : \hspace{0.05cm} \beta_{quality2}\neq 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$  $quality2 \hspace{0.1cm}$ is a significance variable
 
 
 <br>
@@ -4588,7 +4604,7 @@ pvalue = 0.159
 
 
 
-For $\hspace{0.05cm} \alpha = 0.05 < 0.159$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Not Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{quality3}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $quality3 \hspace{0.1cm}$ isn´t a significance variable
+- For $\hspace{0.05cm} \alpha = 0.05 < 0.159$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Not Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{quality3}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $quality3 \hspace{0.1cm}$ isn´t a significance variable
 
 <br>
 
@@ -4602,7 +4618,7 @@ pvalue \simeq 0
 
 
 
-For $\hspace{0.05cm} \alpha = 0.05 < 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{size\_in\_m\_2}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $size\_in\_m\_2  \hspace{0.1cm}$ is a significance variable
+- For $\hspace{0.05cm} \alpha = 0.05 < 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{size\_in\_m\_2}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $size\_in\_m\_2  \hspace{0.1cm}$ is a significance variable
 
 
 <br>
@@ -4617,7 +4633,7 @@ pvalue \simeq 0
 
 
 
-For $\hspace{0.05cm} \alpha = 0.05 < 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{no\_of\_bedrooms}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $no\_of\_bedrooms  \hspace{0.1cm}$ is a significance variable
+- For $\hspace{0.05cm} \alpha = 0.05 < 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{no\_of\_bedrooms}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $no\_of\_bedrooms  \hspace{0.1cm}$ is a significance variable
 
 <br>
 
@@ -4630,7 +4646,7 @@ pvalue =  0.403
 
 
 
-For $\hspace{0.05cm} \alpha = 0.05 < 0.403$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Not Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{no\_of\_bathrooms}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $no\_of\_bathrooms  \hspace{0.1cm}$ isn´t a significance variable
+- For $\hspace{0.05cm} \alpha = 0.05 < 0.403$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Not Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{no\_of\_bathrooms}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $no\_of\_bathrooms  \hspace{0.1cm}$ isn´t a significance variable
 
 <br>
 
@@ -4643,7 +4659,7 @@ pvalue \simeq 0
 
 
 
-For $\hspace{0.05cm} \alpha = 0.05 > 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{latitude}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $latitude  \hspace{0.1cm}$ is a significance variable
+- For $\hspace{0.05cm} \alpha = 0.05 > 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{latitude}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $latitude  \hspace{0.1cm}$ is a significance variable
 
 <br>
 
@@ -4653,7 +4669,7 @@ H_1: \beta_{longitude} \neq 0 \\ \\
 pvalue = 0.015
 \end{gather*}
 
-For $\hspace{0.05cm} \alpha = 0.05 > 0.015$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{longitude}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $longitude  \hspace{0.1cm}$ is a significance variable
+- For $\hspace{0.05cm} \alpha = 0.05 > 0.015$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{longitude}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $longitude  \hspace{0.1cm}$ is a significance variable
 
 
 
@@ -4668,6 +4684,8 @@ For $\hspace{0.05cm} \alpha = 0.05 > 0.015$ $\hspace{0.1cm} \Rightarrow \hspace{
 
 
 The ANOVA test is also called **test of model global significance** :
+
+<br>
  
 \begin{gather*}
 \hspace{-0.7 cm} H_0: \hspace{0.15cm} \beta_1=\dots =\beta_p=0 \\
@@ -4687,12 +4705,15 @@ H_1: \hspace{0.15cm} \exists \ j=1,...,p , \hspace{0.2cm} \beta_j \neq 0
 For define the test statistic , firt we have to define some elements:
 
 
+<br>
 
 -   Total Sum Squares $(TSS)$
 
  \begin{gather*}
-TSS =  \sum_{i=1}^n ( y_i - \overline{y})\hspace{0.02cm}^2
+TSS =  \sum_{i=1}^n ( y_i - \overline{y} \hspace{0.03cm})\hspace{0.02cm}^2
 \end{gather*}
+ 
+ <br>
  
 -   Residual Sum Squares $(RSS)$
 
@@ -4700,50 +4721,74 @@ TSS =  \sum_{i=1}^n ( y_i - \overline{y})\hspace{0.02cm}^2
 RSS=  \sum_{i=1}^n \widehat{\varepsilon}_i\hspace{0.01cm}^2 =  \sum_{i=1}^n ( y_i - \hat{y}_i)\hspace{0.02cm}^2
 \end{gather*}
  
+ 
+ <br>
+ 
 -   Regression Sum Squares $(RegSS)$
 
  
 \begin{gather*}
-RegSS =  \sum_{i=1}^n ( \hat{y}_i - \overline{y} )\hspace{0.02cm}^2
+RegSS =  \sum_{i=1}^n ( \hat{y}_i - \overline{y} \hspace{0.03cm} )\hspace{0.02cm}^2
 \end{gather*}
  
 
-
+<br>
 
 It can be proved that:
 
  
 \begin{gather*}
-TSS=RSS+RegSS
+TSS\hspace{0.1cm}=\hspace{0.1cm}RSS\hspace{0.1cm}+\hspace{0.1cm}RegSS
 \end{gather*}
  
 <br>
 
--   $TSS \hspace{0.1cm}$ is the total variance of the response variable $Y$
+-   $TSS \hspace{0.1cm}$ is the total variance of the response variable $Y \\$
 
 -   $RegSS \hspace{0.1cm}$ is the variance of the response variable $Y$ **explained** by the
-    model using $X$
+    model using $X \\$
 
 -   $RSS \hspace{0.1cm}$ is the variance of the response variable $Y$ **not explained** by the
     model using $X$
 
+<br>
 
+<center>
 
+![](TSS.jpg){width="60%"}
 
+</center>
+
+<br>
+
+<br>
 
 Now we can define the test statistic as:
 
+<br>
  
 \begin{gather*}
-F_{exp|H_0}= \dfrac{(TSS-RSS)/p}{RSS/(n-p-1)} = \dfrac{(TSS-RSS)/p}{ \hat{\varepsilon}_i\hspace{0.02cm}^2  } \sim F_{\hspace{0.05cm}p,\hspace{0.05cm} n-p-1}
+F_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{(TSS-RSS)/p}{RSS/(n-p-1)} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{(RegSS)/p}{RSS/(n-p-1) } \sim F_{\hspace{0.05cm}p,\hspace{0.05cm} n-p-1}
 \end{gather*}
  
  <br>
 
-Where:  $\hspace{0.1cm} p$ is the number of predictor variables $X_1,...,X_p$ of the
+Where:  $\hspace{0.1cm} p \hspace{0.1cm}$ is the number of predictor variables $X_1,...,X_p$ of the
 model
 
- 
+<br>
+
+**Observation:**
+
+If $\hspace{0.1cm}RegSS\hspace{0.1cm}$ is large compared to $\hspace{0.1cm}RSS\hspace{0.1cm}$ then the variance of $\hspace{0.1cm}Y\hspace{0.1cm}$ explained by the model using $\hspace{0.1cm}X\hspace{0.1cm}$ will be large compared to the unexplained variance and $\hspace{0.1cm}F_{exp|H_0}\hspace{0.1cm}$ will be large
+
+So large values of $\hspace{0.1cm}F_{exp|H_0}\hspace{0.1cm}$ indicate large values of $\hspace{0.1cm}RegSS\hspace{0.1cm}$ compared to $\hspace{0.1cm}RSS\hspace{0.1cm}$ , which is an indication that the model explains $\hspace{0.1cm}Y\hspace{0.1cm}$ well, so it would be reasonable to reject $\hspace{0.1cm}H_0\hspace{0.1cm}$ in favor of $\hspace{0.1cm}H_1\hspace{0.1cm}$, that is, reject that all the predictors are jointly insignificant in explaining the response, and accept that some of them are significant.
+
+The decision rule that we will see next is based on this reasoning. The larger $\hspace{0.1cm}F_{exp|H_0}\hspace{0.1cm}$ is, the easier it is to reject $\hspace{0.1cm}H_0\hspace{0.1cm}$ in favor of $\hspace{0.1cm}H_1\hspace{0.1cm}$
+
+
+$H_0\hspace{0.1cm}$ is rejected when $\hspace{0.1cm}F_{exp|H_0}\hspace{0.1cm}$ is large enough, that is, when $\hspace{0.1cm}RegSS\hspace{0.1cm}$ is large enough compared to $\hspace{0.1cm}RSS$
+
 
 &nbsp;
 
@@ -4865,17 +4910,20 @@ print(model_Py_sm.summary())
     strong multicollinearity or other numerical problems.
     
 
-
+<br>
 
 We have got the following:
 
-$\hspace{4cm} F_{exp|H_0} = 547.4$ $\hspace{0.3cm}$ (F-statistic) 
+<br>
 
-$\hspace{4cm} pvalue \simeq 0$ $\hspace{0.3cm}$  (Prob (F-statistic))
+$$F_{exp|H_0} = 547.4 \hspace{0.5cm} \text{(F-statistic)}$$ 
+
+$$pvalue \simeq 0 \hspace{0.5cm} \text{(Prob (F-statistic))}$$
 
 
+<br> 
 
-So for any $\alpha$ we can reject $\hspace{0.1cm}  H_0:   \hspace{0.05cm} \beta_1=\dots =\beta_p=0  \hspace{0.15cm}$, so we can affirm the model is globally significant 
+So for any $\hspace{0.1cm} \alpha > 0 \hspace{0.1cm}$ we can reject $\hspace{0.1cm}  H_0:   \hspace{0.05cm} \beta_1=\dots =\beta_p=0  \hspace{0.15cm}$, so we can affirm the model is globally significant 
 
 
 
@@ -4889,18 +4937,21 @@ So for any $\alpha$ we can reject $\hspace{0.1cm}  H_0:   \hspace{0.05cm} \beta_
 
 We have that
 
- $$\hat{y}_i = x_i^t \cdot \hat{\beta} \hspace{0.1cm} \sim \hspace{0.1cm} N \left( \hspace{0.1cm} E[\hat{y}_i] \hspace{0.15cm},\hspace{0.15cm} \sigma^2 \cdot (1 + x_i^t \cdot (X^t \cdot X)^{-1} \cdot x_i ) \hspace{0.1cm} \right)$$
+<br>
 
+ $$\hat{y}_i \hspace{0.1cm}=\hspace{0.1cm} x_i^t \cdot \widehat{\beta} \hspace{0.1cm} \sim \hspace{0.1cm} N \left( \hspace{0.1cm} E[\hspace{0.1cm} \hat{y}_i \hspace{0.1cm}] \hspace{0.25cm},\hspace{0.25cm} \sigma^2 \cdot (1 + x_i^t \cdot (X^t \cdot X)^{-1} \cdot x_i ) \hspace{0.1cm} \right)$$
 
+<br>
 
 Using that we  can get the following probability interval for $y_i$
 
-$$ IP(y_i)_{1-\alpha} = \left[\hspace{0.1cm} \hat{y}_i  \hspace{0.1cm}\pm\hspace{0.1cm} t_{\alpha/2}^{n-p-1} \sqrt{ \widehat{\sigma}^2 \cdot \left( 1 + x_i^t \cdot (X^t \cdot X)^{-1} \cdot x_i \right) } \hspace{0.1cm} \right] $$
+<br>
+
+$$ PI(y_i)_{1-\alpha}\hspace{0.1cm} =\hspace{0.1cm} \left[\hspace{0.15cm} \hat{y}_i  \hspace{0.15cm}\pm\hspace{0.15cm} t_{\alpha/2}^{n-p-1} \cdot \sqrt{ \widehat{\sigma}^2 \cdot \left( 1 + x_i^t \cdot (X^t \cdot X)^{-1} \cdot x_i \right) } \hspace{0.15cm} \right] $$
 
 
 
-&nbsp;
-
+<br>
 
 
 
@@ -4921,72 +4972,6 @@ Probability_Intervals_Response = pd.DataFrame({ 'y': 0 , 'y_predict': 0 ,  'Prob
 ```
 
 
-```python
-Probability_Intervals_Response.head()
-```
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>y</th>
-      <th>y_predict</th>
-      <th>Prob_Interval_lower</th>
-      <th>Prob_Interval_upper</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
 
 
 ```python
@@ -5142,7 +5127,7 @@ for i in range(0, len(data_Python)-1):
 # Goodness of Fit: $\hspace{0.1cm}$ Determination Coefficient  <a class="anchor" id="54"></a>
 
  
-## Determination Coefficient $\hspace{0.12cm}\color{lightgray}{R^2}$
+## Determination Coefficient  
 
 
 
@@ -5159,8 +5144,8 @@ R^2 = \dfrac{RegSS}{TSS} = \dfrac{TSS-RSS}{TSS} =1 - \dfrac{RSS}{TSS}
 
 **Properties**
 
--   $ R^2$ is the proportion of total variance of the response
-    variable $Y$ that is explained by the model using $X$
+-   $R^2$ is the proportion of total variance of the response
+    variable $Y$ that is explained by the model using $X \\$
 
 -   $R^2 \in \left[ 0 , 1 \right]$
 
@@ -5175,10 +5160,12 @@ response variable .
 
 The interpretation of $R^2$ is the following:
 
--   If $R^2$ is close to 1, indicates good fit of model to the response
-    variable data
+-   If $R^2$ is close to $1$, indicates good fit of model to the response
+variable data 
+    
+    
 
--   If $R^2$ is clode to 0, indicates bad fit of model to the response
+-   If $R^2$ is clode to $0$, indicates bad fit of model to the response
     variable data
 
 
@@ -5243,7 +5230,7 @@ $$ R^2 = 0.698$$
 
 
 
-## Adjusted Determination Coefficient $\hspace{0.12cm}\color{lightgray}{\widehat{R}^2}$
+## Adjusted Determination Coefficient  
 
 
 $R^2$ has several problems.
