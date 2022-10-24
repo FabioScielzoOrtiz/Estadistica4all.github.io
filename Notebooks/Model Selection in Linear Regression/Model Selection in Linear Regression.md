@@ -45,6 +45,8 @@ css: custom.css
             
 </style>
 
+
+
 <br>
 
 More articles in my blog:   $\hspace{0.1cm}$   [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)
@@ -54,6 +56,13 @@ More articles in my blog:   $\hspace{0.1cm}$   [Estadistica4all](https://fabiosc
 How to reference this article ? 
 
 Scielzo Ortiz, F. (2022). Model Selection in Linear Regression. *Estadistica4all*.  [Model Selection in Linear Regression](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/Articulos/Model-Selection-in-Linear-Regression-new.html)
+
+
+<br>
+
+Before reading this article, it's recommended to read the following article:
+
+[Linear Regression](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/Articulos/Linear-Regression-in-Python-and-R-new.html)
 
 
 <br>
@@ -290,26 +299,6 @@ library(tidyverse)
 data_R = read_csv('data_Python_copy.csv')
 ```
 
-    R[write to console]: -- Attaching packages --------------------------------------- tidyverse 1.3.1 --
-    
-    R[write to console]: v ggplot2 3.3.6     v purrr   0.3.4
-    v tibble  3.1.7     v dplyr   1.0.9
-    v tidyr   1.2.0     v stringr 1.4.0
-    v readr   2.1.2     v forcats 0.5.1
-    
-    R[write to console]: -- Conflicts ------------------------------------------ tidyverse_conflicts() --
-    x dplyr::filter() masks stats::filter()
-    x dplyr::lag()    masks stats::lag()
-    
-    
-
-    Rows: 1905 Columns: 7
-    -- Column specification --------------------------------------------------------
-    Delimiter: ","
-    dbl (7): price, size_in_m_2, longitude, latitude, no_of_bedrooms, no_of_bath...
-    
-    i Use `spec()` to retrieve the full column specification for this data.
-    i Specify the column types or set `show_col_types = FALSE` to quiet this message.
     
 
 
@@ -341,36 +330,82 @@ data_R[1:7, ]
     5 1729200        47.1      55.1     25.1              0               1 1      
     6 3119900        94.3      55.1     25.1              1               2 1      
     7 8503600       192.       55.1     25.1              2               3 2      
+
     
+<br>
+
+
+# The Curse of Dimensionality
+
+- If the true relationship between the response $Y$ and the predictors $X_1,...,X_p$ is approximately linear, the predictions obtained with the linear regression model (estimated by OLS) will have a small bias. But if the true relationship is not linear, the bias will be large.
+
+
+Suppose we are in the best case and the true relationship between response and predictors is approximately linear:
+
+- If $\hspace{0.15cm}n\hspace{0.15cm}$ is notably larger than $\hspace{0.15cm}p\hspace{0.15cm}$ $\hspace{0.15cm}(n >> p)\ hspace{0.15cm}$ $\Rightarrow\hspace{0.15cm}$ the predictions obtained with the linear regression model will have little variance (in addition to little bias, due to the starting hypothesis), so the model will work well with the test sample, that is, it will have a good test error (comparatively low test error). $\\[0.5cm]$
+
+
+- If $\hspace{0.15cm}n \approx p\hspace{0.15cm}$ $\Rightarrow\hspace{0.15cm}$ the predictions obtained with the linear regression model will have a lot of variance (although they have little bias), for that the model will perform poorly on the test sample, i.e. will have a bad test error (comparatively high test error). $\\[0.5cm]$
+
+- If $\hspace{0.15cm} n < p$ $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ the linear regression model (estimated by OLS) cannot even be estimated, there is no unique estimation of the beta coefficients. This fact is known as the **curse of dimensionality**.
+
+ <br>
 
 
 
+>We need methods that allow us to obtain linear regression models with a number of predictors **less** than $\hspace{0.15cm}p\hspace{0.15cm}$ but that are nevertheless equal to or better than the predictive level linear regression model with the $\hspace{0.15cm}p\hspace{0.15cm}$ predictors.
 
 
 <br>
+
+## Demonstration of the "Curse of Dimensionality"
+
+Suppose $\hspace{0.12cm} p>n\hspace{0.12cm}$ , then it is obvious $\hspace{0.12cm} p +1 >n\hspace{0.12cm}$
+
+
+We know that
+$X=(1,X_1,...,X_p)\hspace{0.12cm}$ is of size $\hspace{0.12cm}n$x$(p+1)\hspace{0.12cm}$, so
+$\hspace{0.12cm}X^t \cdot X\hspace{0.12cm}$ is of size $\hspace{0.12cm}(p+1)$x$(p+1)$
+
+And since $\hspace{0.12cm}p+1 > n\hspace{0.12cm}$ , then $\hspace{0.12cm}Max\hspace{0.12cm}Rg(X) = n \\[0.5cm]$
+
+
+
+Suppose $\hspace{0.12cm}Rg(X) = r \leq n \hspace{0.12cm}$,
+then by the **nullity rank theorem** we have that $\hspace{0.12cm}Rg(X^t \cdot X)= r$
+
+Since $\hspace{0.12cm}X^t \cdot X\hspace{0.12cm}$ is $\hspace{0.12cm}(p+1)x(p+1)\hspace{0.12cm}\hspace{0.12 cm}$
+then $\hspace{0.12cm}Max\hspace{0.12cm}Rg(X^t \cdot X) = p+1$
+
+And since $\hspace{0.12cm}Rg(X^t \cdot X)=r \leq n < p+1\hspace{0.12cm}$
+so $\hspace{0.12cm}X^t \cdot X\hspace{0.12cm}$ **has no maximum range**
+
+Therefore, the inverse of $\hspace{0.12cm}X^t \cdot X\hspace{0.12cm}$ does not exist, that is, there is no $\hspace{0.12cm}(X^t \cdot X )^{ -1}$
+
+Therefore **does not exist** $\hspace{0.12cm}\widehat{\beta} = (X^t \cdot X)^{-1} \cdot X^t \cdot Y\hspace{0.12cm}$ since there is no $\hspace{0.12cm}(X^t \cdot X )^{-1}$
+
+
+<br>
+
 
 # F-test: test to compare models <a class="anchor" id="4"></a>
 
 
 The ANOVA and significance test are a particular case of a more general test that is useful to compere linear regression models, but always under the assumptions of the model.
 
-\vspace{0.5cm}
+
 
 
 -   We have a linear regression model with $\hspace{0.1cm} k \hspace{0.1cm}$ coefficients (betas)  $\hspace{0.1cm} \Rightarrow \hspace{0.1cm} \Omega_k$
 
-     -  $\Omega_k \ : \  \ y_i = \beta_0 + \beta_1\cdot x_{i1} +...+ \beta_{k-1}\cdot x_{i(k-1)} + \varepsilon_i$ \ \
+     -  $\Omega_k \ : \  \ y_i = \beta_0 + \beta_1\cdot x_{i1} +...+ \beta_{k-1}\cdot x_{i(k-1)} + \varepsilon_i \\[0.5cm]$
 
-\vspace{0.5cm}
 
 
 -   We have another linear regression model with only
     $\hspace{0.1cm} q<k \hspace{0.1cm}$ coefficients (betas) of $\Omega_p$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}  \omega_q$
 
-     -  $\omega_q \ : \  \ y_i = \beta_0 + \beta_1\cdot x_{i1} +...+ \beta_{q-1}\cdot x_{i(q-1)} + \varepsilon_i \hspace{0.2cm}$ , with $q < k$
-
-
-\vspace{0.5cm}
+     -  $\omega_q \ : \  \ y_i = \beta_0 + \beta_1\cdot x_{i1} +...+ \beta_{q-1}\cdot x_{i(q-1)} + \varepsilon_i \\[0.2cm]$ 
 
 
 
@@ -383,6 +418,8 @@ The ANOVA and significance test are a particular case of a more general test tha
 
 The hypothesis test we want to carry out is the following:
 
+<br>
+
 \begin{gather*}
 H_0: \hspace{0.15cm} \omega_q  \\
 H_1: \hspace{0.15cm} \Omega_k
@@ -392,24 +429,24 @@ H_1: \hspace{0.15cm} \Omega_k
 
 Where :
 
-- $\omega_q \subset \Omega_p$
+- $\hspace{0.2cm} \omega_q \subset \Omega_p \\[0.2cm]$
 
-- Reject $H_0$ means  $\hspace{0.1cm} \Omega_k\hspace{0.1cm}$ is a "better" model than $\hspace{0.1cm} \omega_q$
+- $\hspace{0.2cm}$ Reject $H_0$ means  $\hspace{0.1cm} \Omega_k\hspace{0.1cm}$ is a "better" model than $\hspace{0.1cm} \omega_q \\[0.2cm]$
 
-- Not Reject $H_0$ means $\hspace{0.1cm} \Omega_k \hspace{0.1cm}$ isn´t a "better" model than $\hspace{0.1cm} \omega_q$
+- $\hspace{0.2cm}$ Not Reject $H_0$ means $\hspace{0.1cm} \Omega_k \hspace{0.1cm}$ isn't a "better" model than $\hspace{0.1cm} \omega_q$
 
 <br>
 
 
 
-Now we have to determinate a rule to reject $H_0$ in favor of $H_1$ or not
+Now we have to determinate a rule to reject $\hspace{0.1cm}H_0\hspace{0.1cm}$ in favor of $\hspace{0.1cm}H_1\hspace{0.1cm}$ or not
 
 A first approach is the following:
 
 Let :
 
 $$
-RSS_{\Omega_k} =  \sum_{i=1}^n ( \hat{\varepsilon}_{\Omega_k \hspace{0.05cm},\hspace{0.05cm} i} )^2 =  \sum_{i=1}^n \left( y_i - \hat{y}_{\hspace{0.01cm} \Omega_k \hspace{0.05cm},\hspace{0.02cm} i}\right)^2   
+RSS_{\Omega_k} =  \sum_{i=1}^n ( \hat{\varepsilon}_{\Omega_k \hspace{0.05cm},\hspace{0.05cm} i} )^2 =  \sum_{i=1}^n \left( y_i - \hat{y}_{\hspace{0.01cm} \Omega_k \hspace{0.05cm},\hspace{0.02cm} i}\right)^2   \\[0.2cm]
 $$
 
 $$
@@ -418,19 +455,17 @@ $$
 
 <br>
 
--   If $\hspace{0.1cm} RSS_{\omega_q} - RSS_{\Omega_k} \hspace{0.1cm}$ is **small**, then the
+-   If $\hspace{0.15cm} RSS_{\omega_q} - RSS_{\Omega_k} \hspace{0.15cm}$ is **small**, then the (train)
     predictions of the **smaller model** $(\omega_q)$ are almost as good as the **larger
-    model** $(\Omega_k)$, so we would prefer the smaller model on the grounds of
-    simplicity.
+    model** $(\Omega_k)$, so we would prefer the smaller model on the grounds of simplicity. $\\[0.8cm]$
 
-\hspace{1cm} 
+ 
 
--   If $\hspace{0.1cm} RSS_{\omega_q} - RSS_{\Omega_k} \hspace{0.1cm}$ is **large**, then the
-    predictions of the **smaller model** $(\omega_q)$  are much worse than the **larger
-    model** $(\Omega_k)$, so we would prefer the larger model.
+-   If $\hspace{0.1cm} RSS_{\omega_q} - RSS_{\Omega_k} \hspace{0.1cm}$ is **large**, then the (train)
+    predictions  of the **smaller model** $(\omega_q)$  are much worse than the **larger
+    model** $(\Omega_k)$, so we would prefer the larger model.$\\[0.35cm]$
 
-\hspace{1cm} 
-
+<br>
 
 That suggest that something like
 
@@ -450,7 +485,7 @@ would be a potentially good test statistic, where the denominator is used for sc
 
 ## Statistic Test
 
-Finally we can get to an statistic test based on the previous
+Finally we can get  an statistic test based on the previous
 expression, called **F-statistic**:
 
 <br>
@@ -463,7 +498,7 @@ $$
 <br>
 
 
-If $\hspace{0.1cm} df_{\Omega_k} = n-k \hspace{0.1cm}$ and $\hspace{0.1cm} df_{\omega_q} = n-q \hspace{0.1cm}$ , then :
+If $\hspace{0.15cm} df_{\Omega_k} = n-k \hspace{0.15cm}$ and $\hspace{0.15cm} df_{\omega_q} = n-q \hspace{0.15cm}$ , then :
 
 
 <br>
@@ -477,9 +512,9 @@ $$
 
 Where:
 
-$k$ is the number of coefficients (betas) of the model $\Omega_k$
+$k\hspace{0.15cm}$ is the number of coefficients (betas) of the model $\hspace{0.15cm}\Omega_k$
 
-$q$ is the number of coefficients (betas) of the model $\omega_q$
+$q\hspace{0.15cm}$ is the number of coefficients (betas) of the model $\hspace{0.15cm}\omega_q$
 
 
 The beauty of this approach is you only need to know the general form.
@@ -551,15 +586,15 @@ The usage of anova_lm is pretty simple:
 
 > anova_lm(Model $H_0$ , Model $H_1$)
 
-$\hspace{0.25cm}$ Where : $\hspace{0.15cm}$ Model $H_0$ $\subset$ Model $H_1$
+$\hspace{0.35cm}$ Where : $\hspace{0.25cm}$ Model $H_0$ $\subset$ Model $H_1$
 
 <br>
 
 Remember that the hypothesis test that we want to do is: 
 
 $$
-H_0: \hspace{0.15cm} \omega_q \hspace{0.1cm} (Model \hspace{0.1cm} H_0) \\ 
-H_1: \hspace{0.15cm} \Omega_k \hspace{0.1cm} (Model \hspace{0.1cm} H_1)
+H_0: \hspace{0.15cm} \omega_q \hspace{0.2cm} (Model \hspace{0.1cm} H_0) \\ 
+H_1: \hspace{0.15cm} \Omega_k \hspace{0.2cm} (Model \hspace{0.1cm} H_1)
 $$
 
 
@@ -572,7 +607,7 @@ H_0: \hspace{0.15cm} M2\_py  \hspace{0.15cm} (\omega_q)  \\
 H_1: \hspace{0.15cm} M1\_py  \hspace{0.15cm} (\Omega_q)
 $$
 
-where M2\_py is the **smallest** model and M1\_py the **largest**, we use the following code:
+where $\hspace{0.15cm}M2\_py\hspace{0.15cm}$ is the **smallest** model and $\hspace{0.15cm}M1\_py\hspace{0.15cm}$ the **largest**, we use the following code:
 
 <br>
 
@@ -636,6 +671,7 @@ anova_lm(M2_py, M1_py)
 
 For example, this output gives to us the following information:
 
+<br>
 
 $$
 F=\dfrac{(RSS_{M2\_{py}} - RSS_{M1\_py})/(df_{\omega_q} - df_{\Omega_k})}{RSS_{M1\_{py}}/ df_{\Omega_k}} = 25.203983
@@ -644,6 +680,8 @@ $$
 <br>
 
 And the p-value of the test is:
+
+<br>
 
 $$
 P(F_{\hspace{0.05cm} (df_{\omega_q} - df_{\Omega_k}) \hspace{0.05cm},\hspace{0.05cm} df_{\Omega_k}} > 25.203983) = 5.483226e-16
@@ -657,7 +695,7 @@ So, the conclusion for any $\hspace{0.15cm} \alpha > 5.483226e-16 \hspace{0.15cm
 
 Let's to check that ;
 
-First of all, note that the number of betas of model $\hspace{0.15cm}M1_py\hspace{0.15cm}$ is $\hspace{0.15cm}k=12\hspace{0.15cm}$ (because *quality* has four categories and there are an interaction between *quality* and *size\_in\_m\_2* , and for $\hspace{0.15cm}M2_py\hspace{0.15cm}$ is $\hspace{0.15cm}q=9$
+First of all, note that the number of betas of model $\hspace{0.15cm}M1\_py\hspace{0.15cm}$ is $\hspace{0.15cm}k=12\hspace{0.15cm}$ (because *quality* has four categories and there are an interaction between *quality* and *size\_in\_m\_2* , and for $\hspace{0.15cm}M2\_py\hspace{0.15cm}$ is $\hspace{0.15cm}q=9$
 
 This can be easily seen in the following outputs given by `print(M1_py.summary())` and `print(M2_py.summary())`
 
@@ -788,6 +826,7 @@ anova_lm(M3_py, M2_py)
 
 This output gives to us the following information:
 
+<br>
 
 $$
 F=\dfrac{(RSS_{M2\_{py}} - RSS_{M1\_py})/(df_{\omega_q} - df_{\Omega_k})}{RSS_{M1\_{py}}/ df_{\Omega_k}} = 2.146975
@@ -797,9 +836,13 @@ $$
 
 And the p-value of the test is:
 
+<br>
+
 $$
 P(F_{\hspace{0.05cm} (df_{\omega_q} - df_{\Omega_k}) \hspace{0.05cm},\hspace{0.05cm} df_{\Omega_k}} > 25.203983) = 0.092395
 $$
+
+<br>
 
 So, the conclusion for the habitual $\hspace{0.1cm}\alpha = 0.01 \hspace{0.1cm}or\hspace{0.1cm} 0.05\hspace{0.1cm}$
  , is **not reject** $\hspace{0.1cm} H_0: M3\_py\hspace{0.1cm}$ in favor of $\hspace{0.1cm}H_1: M2\_py\hspace{0.1cm}$, so we can accept that $\hspace{0.1cm} M3\_py \hspace{0.1cm}$ is a **better** model than $\hspace{0.1cm} M2\_py \hspace{0.1cm}$
@@ -866,16 +909,21 @@ anova_lm(M4_py, M3_py)
 
 This output gives to us the following information:
 
+<br>
 
 $$
 F=\dfrac{(RSS_{M2\_{py}} - RSS_{M1\_py})/(df_{\omega_q} - df_{\Omega_k})}{RSS_{M1\_{py}}/ df_{\Omega_k}} = 35.205892
 $$ 
+
+<br>
 
 And the p-value of the test is:
 
 $$
 P(F_{\hspace{0.05cm} (df_{\omega_q} - df_{\Omega_k}) \hspace{0.05cm},\hspace{0.05cm} df_{\Omega_k}} > 25.203983) = 9.703235e-16
 $$
+
+<br>
 
 So, the conclusion for any $\hspace{0.1cm} \alpha > 9.703235e-16 \hspace{0.1cm}$ is **reject** $\hspace{0.1cm} H_0: M4\_py\hspace{0.1cm}$ in favor of $\hspace{0.1cm}H_1: M3\_py\hspace{0.1cm}$, so we can accept that $\hspace{0.1cm} M3\_py \hspace{0.1cm}$ is a **better** model than $\hspace{0.1cm} M4\_py \hspace{0.1cm}$
 
@@ -944,6 +992,7 @@ anova_lm(M5_py, M1_py)
 
 This output gives to us the following information:
 
+<br>
 
 $$
 F=\dfrac{(RSS_{M2\_{py}} - RSS_{M1\_py})/(df_{\omega_q} - df_{\Omega_k})}{RSS_{M1\_{py}}/ df_{\Omega_k}} = 36.257642
@@ -952,6 +1001,8 @@ $$
 <br>
 
 And the p-value of the test is:
+
+<br>
 
 $$
 P(F_{\hspace{0.05cm} (df_{\omega_q} - df_{\Omega_k}) \hspace{0.05cm},\hspace{0.05cm} df_{\Omega_k}} > 25.203983) = 2.127326e-65
@@ -1082,9 +1133,11 @@ anova(M5_R, M1_R)
 
 Remember that the hypothesis of the ANOVA test are these:
 
+<br>
+
 \begin{gather*}
-\hspace{-0.7 cm} H_0: \hspace{0.15cm} \beta_1=...=\beta_p=0 \\
-H_1: \hspace{0.15cm} \exists \ j=1,...,p , \hspace{0.2cm} \beta_j \neq 0
+\hspace{-1cm} H_0: \hspace{0.15cm} \beta_1=...=\beta_p=0 \\
+H_1: \hspace{0.25cm} \beta_j \neq 0  \hspace{0.5cm}  \exists \ j=1,...,p
 \end{gather*}
 
 
@@ -1092,19 +1145,21 @@ H_1: \hspace{0.15cm} \exists \ j=1,...,p , \hspace{0.2cm} \beta_j \neq 0
 
 Let us consider the following models:
 
+<br>
   
--    $\Omega_k \ : \  \ y_i = \beta_0 + \beta_1\cdot x_{i1} +...+ \beta_{k-1}\cdot x_{i(k-1)} + \varepsilon_i$
+-    $\hspace{0.2cm} \Omega_k \ : \  \ y_i = \beta_0 + \beta_1\cdot x_{i1} +...+ \beta_{k-1}\cdot x_{i(k-1)} + \varepsilon_i \\[0.3cm]$
 
--   $\omega_{q} \ : \ \ y_i = \beta_0 + \varepsilon_i \hspace{0.15cm}$ $(\hspace{0.05cm}
-    Null \hspace{0.1cm} Model \hspace{0.05cm})$
+-   $\hspace{0.2cm} \omega_{q} \ : \ \ y_i = \beta_0 + \varepsilon_i \hspace{0.15cm}$ $\hspace{0.2cm}(\hspace{0.05cm} \text{Null Model}\hspace{0.05cm})$
 
 <br>
 
 Then, the ANOVA test is equivalent to the following:
 
+<br>
+
 \begin{gather*}
-H_0: \hspace{0.15cm}  \ \hat{y}_i = \beta_0 + \beta_1\cdot x_{i1} +...+ \beta_{p}\cdot x_{ip} + \varepsilon_i  \ \hspace{0.2cm} ( \Omega_k ) \\
-\hspace{-3.7cm} H_1: \hspace{0.15cm} \hat{y}_i = \beta_0 + \varepsilon_i  \ \hspace{0.2cm} ( \omega_{q} )
+H_0: \hspace{0.15cm}  \ \hat{y}_i = \beta_0 + \beta_1\cdot x_{i1} +...+ \beta_{p}\cdot x_{ip} + \varepsilon_i  \ \hspace{0.2cm} ( \Omega_k ) \\[0.25cm]
+\hspace{-5.7cm} H_1: \hspace{0.15cm} \hat{y}_i = \beta_0 + \varepsilon_i  \ \hspace{0.2cm} ( \omega_{q} )
 \end{gather*}
 
 
@@ -1112,21 +1167,18 @@ H_0: \hspace{0.15cm}  \ \hat{y}_i = \beta_0 + \beta_1\cdot x_{i1} +...+ \beta_{p
 
 Where:
 
-- $k=p+1$
+- $k=p+1 \\[0.3cm]$
 
-- $q=1$
+- $q=1 \\[0.3cm]$
 
-\vspace{0.5cm}
 
--   $RSS_{\Omega_{k=p+1}} = \sum_{i=1}^n ( y_i - \widehat{y}_{\hspace{0.01cm} \Omega_{k=p+1} \hspace{0.02cm},\hspace{0.02cm} i})^2 = \sum_{i=1}^n \left( y_i - ( \hat{\beta}_0 + \hat{\beta}_1\cdot x_{i1} +...+ \hat{\beta}_{p}\cdot x_{ip} ) \right)^2$
+-   $RSS_{\Omega_{k=p+1}} = \sum_{i=1}^n ( y_i - \widehat{y}_{\hspace{0.01cm} \Omega_{k=p+1} \hspace{0.02cm},\hspace{0.02cm} i})^2 = \sum_{i=1}^n \left( y_i - ( \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} +...+ \widehat{\beta}_{p}\cdot x_{ip} ) \right)^2 \\[0.5cm]$
 
-\vspace{0.5cm}
 
--   $RSS_{\omega_{q=1}} = \sum_{i=1}^n ( y_i - \widehat{y}_{\hspace{0.01cm} \omega_{q=1} \hspace{0.02cm},\hspace{0.02cm} i})^2 = \sum_{i=1}^n ( y_i - \hat{\beta}_0 )^2$
+-   $RSS_{\omega_{q=1}} = \sum_{i=1}^n ( y_i - \widehat{y}_{\hspace{0.01cm} \omega_{q=1} \hspace{0.02cm},\hspace{0.02cm} i})^2 = \sum_{i=1}^n ( y_i - \widehat{\beta}_0 )^2 \\[0.5cm]$
 
-\vspace{0.5cm}
-
--   Note that in the null model $\hspace{0.1cm} \hat{\beta}_0=\overline{y} \hspace{0.1cm}$, therefore we have:
+ 
+-   Note that in the null model $\hspace{0.1cm} \widehat{\beta}_0=\overline{y} \hspace{0.1cm}$, therefore we have: $\\[0.35cm]$
 
     - $\hspace{0.1cm} RSS_{\omega_{q=1}}=\sum_{i=1}^n ( y_i - \overline{y} )^2= TSS_{\omega_{q=1}}= TSS_{\Omega_{k=p+1}}=TSS$
 
@@ -1134,8 +1186,7 @@ Where:
 <br>
 
 
-More details about the ANOVA  terms (RSS, TSS, RegSS)  can be seen in the following article https://fabioscielzoortiz.github.io/Estadistica4all.github.io/Articulos/Linear%20Regression%20in%20Python%20and%20R.html
-
+More details about the ANOVA  terms (RSS, TSS, RegSS)  can be seen in the following article https://fabioscielzoortiz.github.io/Estadistica4all.github.io/Articulos/Linear-Regression-in-Python-and-R-new.html
 
 <br>
 
@@ -1145,7 +1196,7 @@ Using the above facts and the F-statistic we get the statistic test of the ANOVA
 <br>
 
 \begin{gather*}
-F=\dfrac{(RSS_{\omega_{q=1}} - RSS_{\Omega_{k=p+1}})/(k-q)}{RSS_{\Omega_{k=p+1}}/(n-k)} = \dfrac{(TSS-RSS)/(p+1-1)}{RSS/(n-(p+1))} \\[0.5 cm]
+F=\dfrac{(RSS_{\omega_{q=1}} - RSS_{\Omega_{k=p+1}})/(k-q)}{RSS_{\Omega_{k=p+1}}/(n-k)} = \dfrac{(TSS-RSS)/(p+1-1)}{RSS/(n-(p+1))} \\[0.6 cm]
 = \dfrac{(TSS-RSS)/p}{RSS/(n-p-1))} \sim F_{p+1-1 \hspace{0.03cm},\hspace{0.03cm} n-(p+1)} = F_{p \hspace{0.03cm},\hspace{0.03cm} n-p-1}
 \end{gather*}
 
@@ -1155,16 +1206,14 @@ F=\dfrac{(RSS_{\omega_{q=1}} - RSS_{\Omega_{k=p+1}})/(k-q)}{RSS_{\Omega_{k=p+1}}
 
 Where:
 
-$TSS= RSS_{\omega_q}$
+$\hspace{0.3cm} TSS= RSS_{\omega_q}$
 
-$RSS= RSS_{\Omega_k}$
-
-
+$\hspace{0.3cm} RSS= RSS_{\Omega_k}$
 
 
-And this is the test statistic of the ANOVA test, you can check that in the ANOVA test part of this article https://fabioscielzoortiz.github.io/Estadistica4all.github.io/Articulos/Linear%20Regression%20in%20Python%20and%20R.html
+<br>
 
-
+And this is the test statistic of the ANOVA test.
 
 <br>
 
@@ -1287,6 +1336,8 @@ anova(null_model_R, full_model_R)
 
 Remember that the hypothesis of the significance test of $\beta_j$ are these:
 
+<br>
+
 \begin{gather*}
 H_0: \beta_j=0 \\
 H_1: \beta_j \neq 0
@@ -1302,31 +1353,33 @@ Let us consider the following models:
 -   $\Omega_k : \ \ y_i = \beta_0 + \beta_1\cdot x_{i1} +..+\beta_j \cdot x_{ij}+..+ \beta_{p}\cdot x_{ip} + \varepsilon_i$
     
 
-$\\[0.5cm]$
+<br>
 
 
 Then, the significance test of $\beta_j$ is equivalent to the following:
+
+<br>
 
 \begin{gather*}
 H_0: \hspace{0.2cm} y_i = \beta_0 + \beta_1\cdot x_{i1} +..+\beta_{j-1} \cdot x_{i,j-1}+\beta_{j+1} \cdot x_{i,j+1}+..+ \beta_{p}\cdot x_{ip} + \varepsilon_i \ \hspace{0.2cm} (\omega_q) \\[0.2cm]
 \hspace{-3.7cm} H_1: \hspace{0.2cm}  y_i = \beta_0 + \beta_1\cdot x_{i1} +...+\beta_j \cdot x_{ij}+...+ \beta_{p}\cdot x_{ip} + \varepsilon_i  \ \hspace{0.2cm} ( \Omega_k )
 \end{gather*}
 
-
+<br>
 
 
 Where:
 
-- $k=p+1$
+- $k=p+1 \\[0.2cm]$
 
 - $q=k-1=p \\[0.2cm]$
  
 
--   $RSS_{\Omega_{k=p+1}} = \sum_{i=1}^n ( y_i - \hat{y}_{\hspace{0.01cm} \Omega_k \hspace{0.02cm},\hspace{0.02cm} i})^2 = \\[0.2cm] = \sum_{i=1}^n\left( y_i -  ( \hat{\beta}_0 + \hat{\beta}_1\cdot x_{i1}  +... +  \hat{\beta}_{j} \cdot x_{i,j}+...+ \hat{\beta}_{p}\cdot x_{ip} )  \right)^2 \\[0.3cm]$
+-   $RSS_{\Omega_{k=p+1}} = \sum_{i=1}^n ( y_i - \widehat{y}_{\hspace{0.01cm} \Omega_k \hspace{0.02cm},\hspace{0.02cm} i})^2  = \sum_{i=1}^n\left( y_i -  ( \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1}  +... +  \widehat{\beta}_{j} \cdot x_{i,j}+...+ \widehat{\beta}_{p}\cdot x_{ip} )  \right)^2 \\[0.5cm]$
 
-\vspace{1cm}
 
--   $RSS_{\omega_{q=p}} = \sum_{i=1}^n ( y_i - \hat{y}_{\hspace{0.01cm} \omega_k \hspace{0.02cm},\hspace{0.02cm} i})^2 =   \\[0.2cm] = \sum_{i=1}^n \left( y_i - ( \hat{\beta}_0 + \hat{\beta}_1\cdot x_{i1}  +..+ \hat{\beta}_{j-1} \cdot x_{i,j-1} +  \hat{\beta}_{j+1} \cdot x_{i,j+1}+..+ \hat{\beta}_{p}\cdot x_{ip} ) \right)^2$
+
+-   $RSS_{\omega_{q=p}} = \sum_{i=1}^n ( y_i - \widehat{y}_{\hspace{0.01cm} \omega_k \hspace{0.02cm},\hspace{0.02cm} i})^2  = \sum_{i=1}^n \left( y_i - ( \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1}  +..+ \widehat{\beta}_{j-1} \cdot x_{i,j-1} +  \widehat{\beta}_{j+1} \cdot x_{i,j+1}+..+ \widehat{\beta}_{p}\cdot x_{ip} ) \right)^2$
 
 
 
@@ -1338,14 +1391,14 @@ So, the statistic test is obtained applying the F-statistic formula:
 <br>
 
 \begin{gather*}
-F=\dfrac{(RSS_{\omega_q} - RSS_{\Omega_k})/(k-q)}{RSS_{\Omega_k}/(n-k)} =\dfrac{(RSS_{\omega_{k-1}} - RSS_{\Omega_k})/(k-(k-1))}{RSS_{\Omega_k}/(n-k)} \\[0.35cm]  = \dfrac{(RSS_{\omega_{k-1}} - RSS_{\Omega_k})/1)}{RSS_{\Omega_k}/(n-p-1)}  \sim F_{k-q, n-k} = F_{1, n-p-1} \\[0.5cm]
+F=\dfrac{(RSS_{\omega_q} - RSS_{\Omega_k})/(k-q)}{RSS_{\Omega_k}/(n-k)} =\dfrac{(RSS_{\omega_{k-1}} - RSS_{\Omega_k})/(k-(k-1))}{RSS_{\Omega_k}/(n-k)} \\[0.55cm]  = \dfrac{(RSS_{\omega_{k-1}} - RSS_{\Omega_k})/1)}{RSS_{\Omega_k}/(n-p-1)}  \sim F_{k-q, n-k} = F_{1, n-p-1} \\[0.5cm]
 \end{gather*}
 
-\vspace{2cm}
+<br>
 
 The results of the test using the F-test is approximately equal to the result obtained with the other alternative (t-test).
 
-\vspace{1cm}
+<br>
 
 **Important**: $\hspace{0.1cm}$ this is the way to test the significance of categorical variables (compare the model without the categorical variable vs the model with it), and also to test the significance of two or more variables at the same time.
 
@@ -1428,13 +1481,14 @@ anova_lm(Model_without_quality_py, Model_with_quality_py)
 
 
 
-\vspace{1cm}
+<br>
 
 $pvalor = 0.092395 \hspace{0.25cm}  \Rightarrow \hspace{0.25cm}$  if $\hspace{0.1cm} \alpha = 0.01 \hspace{0.15cm}$ or $\hspace{0.15cm}  0.05 \hspace{0.15cm}$ we reject $\hspace{0.15cm} H_0: \beta_{quality} = 0 \hspace{0.15cm}$  , so we can accept $\hspace{0.15cm} H_1: \beta_{quality} \neq 0 \hspace{0.15cm}$ , so *quality* is significant.
 
 
 <br>
 
+----
 
 $$
 \hspace{-1.4cm} H_0: \beta_{longitude}= \beta_{latitude} = 0 \\
@@ -1504,9 +1558,9 @@ anova_lm(M1_py, M2_py)
 </table>
 </div>
 
-\vspace{1cm}
+<br>
 
-$pvalor = 5.131535e-16 \hspace{0.15cm}  \Rightarrow \hspace{0.15cm}$   $\hspace{0.1cm} \forall \alpha  \hspace{0.15cm} $ we reject $\hspace{0.15cm} H_0: \beta_{longitude}= \beta_{latitude} = 0 \hspace{0.15cm}$  , so we can accept $\hspace{0.15cm} H_1: \beta_{longitude}\neq 0 \hspace{0.2cm} or \hspace{0.2cm} \beta_{latitude}\neq 0 \hspace{0.15cm}$ , so $\hspace{0.1cm} longitude \hspace{0.1cm}$ or $\hspace{0.1cm} latitude \hspace{0.1cm}$ is significant.
+$pvalor = 5.131535e-16 \hspace{0.15cm}  \Rightarrow \hspace{0.15cm}$   $\hspace{0.1cm} \forall \alpha  \hspace{0.15cm}$ we reject $\hspace{0.15cm} H_0: \beta_{longitude}= \beta_{latitude} = 0 \hspace{0.15cm}$  , so we can accept $\hspace{0.15cm} H_1: \beta_{longitude}\neq 0 \hspace{0.2cm} or \hspace{0.2cm} \beta_{latitude}\neq 0 \hspace{0.15cm}$ , so $\hspace{0.1cm} longitude \hspace{0.1cm}$ or $\hspace{0.1cm} latitude \hspace{0.1cm}$ is significant.
 
 
 
@@ -1552,6 +1606,7 @@ anova(Model_without_quality_R, Model_with_quality_R)
 
 <br>
 
+--- 
 
 $$
 \hspace{-1.7cm} H_0: \beta_{longitude}= \beta_{latitude} = 0 \\
@@ -1605,15 +1660,15 @@ These metrics are one of the most important concepts in modern statistics and ma
 
 Some of them are:
 
-- Test error by a validation strategy as simple or cross validation
-- $\widehat{R}^2$  
-- $AIC$
-- $BIC$
-- $Cp$
+- **Test error** computed by simple or cross validation
+- $\widehat{R}^2 \hspace{0.3cm}$  (Adjusted Determination Coefficient)
+- $AIC \hspace{0.3cm}$ (Akaike Information Criteria)
+- $BIC \hspace{0.3cm}$ (Bayesian Information Criteria)
+- $Cp \hspace{0.3cm}$ (Mallow's Cp)
 
 
 
-A detailed review of cross-validation methods will be done in a future article on my blog. The test error by cross validation will not be used as a criteria in our practical implementation of the following iterative algorithms, because in the iterative selection of linear regression models the most common criteria is to use $AIC$, $BIC$ or $\widehat{R}^2$, so we will do a review of these last.
+A detailed review of simple and cross validation methods will be done in a future article on my blog. The test error computed by cross validation will not be used as a criteria in our practical implementation of the following iterative algorithms, because in the iterative selection of linear regression models the most common criteria is to use $AIC$, $BIC$ or $\widehat{R}^2$, so we will do a review of these last.
 
 But in model selection in general, cross-validation plays a very prominent role.
 
@@ -1623,15 +1678,16 @@ But in model selection in general, cross-validation plays a very prominent role.
 
 
 
-###  $\widehat{R}^2$  <a class="anchor" id="11"></a>
+### Adjusted Determination Coefficient $\hspace{0.2cm} \widehat{R}^2$   
 
 This metric is explained with more details in the following article about linear regression :  
 
-https://fabioscielzoortiz.github.io/Estadistica4all.github.io/Articulos/Linear%20Regression%20in%20Python%20and%20R.html
+https://fabioscielzoortiz.github.io/Estadistica4all.github.io/Articulos/Linear-Regression-in-Python-and-R-new.html
+
+<br>
 
 Here we will just show the formula that characterizes the adjusted $R^2$:
 
-<br>
 
 Given a linear regression model $\hspace{0.05cm} M \hspace{0.05cm}$  with $\hspace{0.05cm} p_M \hspace{0.051cm}$ predictors (independent variables) and $n$ observations:
 
@@ -1651,14 +1707,14 @@ This metric is usually used as a criteria to select linear regression models.
 
 <br>
 
-#### **$\widehat{R}^2$ criteria**: 
+**$\widehat{R}^2$ criteria:** 
 
 Given $h$ linear regression models $\hspace{0.1cm}M_1 , M_2, \dots, M_h$
 
 <br>
 
 $$
-\text{If} \hspace{0.3cm}  \widehat{R}^2 (M_j) > \widehat{R}^2 (M_r) \hspace{0.2cm} , \forall r \in \lbrace 1,...,h\rbrace - \lbrace j \rbrace \hspace{0.2cm} \Rightarrow \\[0.5cm]  \Rightarrow \hspace{0.2cm} M_j \hspace{0.2cm} \text{is selected instead of} \hspace{0.2cm} M_1, ..., M_{j-1},M_{j+1},...,M_h
+\text{If} \hspace{0.3cm}  \widehat{R}^2 (M_j) > \widehat{R}^2 (M_r) \hspace{0.2cm} , \forall r \in \lbrace 1,...,h\rbrace - \lbrace j \rbrace \hspace{0.2cm} \Rightarrow \\[0.7cm]  \Rightarrow \hspace{0.2cm} M_j \hspace{0.2cm} \text{is selected instead of} \hspace{0.2cm} M_1, ..., M_{j-1},M_{j+1},...,M_h
 $$
 
 <br>
@@ -1720,7 +1776,7 @@ summary(model)$adj.r.squared
 
 
 
-### $AIC$ <a class="anchor" id="12"></a>
+### Akaike Information Criteria $\hspace{0.2cm} AIC$ 
 
 Given a linear regression model $\hspace{0.05cm} M \hspace{0.05cm}$  with $\hspace{0.05cm} p_M \hspace{0.051cm}$ predictors and $n$ observations:
 
@@ -5418,16 +5474,6 @@ ols_step_backward_p(model)
     
 
 
-
-<br>
-
-
-
-## Simple Validation:
-
-calcular ECM de test de los modelos seleecionados por cada algoritmo y metrica (best subser- R2 adj, Best subset- AIC, Best Subset - Bic , forward - R2 adj, forward- AIC, forward- Bic , backward- R2 adj, backward- AIC, backward - Bic )
-
-Creo que se podria hacer una funcion de validacion simple usando la columna "model" del df Models para entrenar el modelo en funcion del tipo de algoritmo y metrica pasada como parametro. 
 
 
 
