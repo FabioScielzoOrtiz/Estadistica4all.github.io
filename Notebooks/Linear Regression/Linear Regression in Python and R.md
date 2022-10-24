@@ -3457,15 +3457,15 @@ We have the following estimated linear regression model  
 
 <br>
 
-$$\widehat{y}_i= \widehat{\beta_0} + \widehat{\beta_0}\cdot x_{i1} + .. + \widehat{\beta_k}\cdot x_{ik} + ..+ \widehat{\beta_p}\cdot x_{ip}$$
+$$\widehat{y}_i= \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} + .. + \widehat{\beta}_k\cdot x_{ik} + ..+ \widehat{\beta}_p\cdot x_{ip}$$
 
 <br>
 
 
 -   If $\hspace{0.1cm} \widehat{\beta}_k > 0 \hspace{0.1cm}$  , then
 
-    -   If  $\hspace{0.1cm} x_{ik} \hspace{0.1cm}$  **increases** in $\hspace{0.1cm}h\hspace{0.1cm}$ units $\hspace{0.05cm}$  $\Rightarrow$  $\hspace{0.05cm}$ $\widehat{y}_i\hspace{0.1cm}$
-        **increases** in $\hspace{0.05cm}$ $\widehat{\beta}_k \cdot h$  $\hspace{0.05cm}$ units.
+    -   If  $\hspace{0.1cm} x_{ik} \hspace{0.1cm}$  **increases** in $\hspace{0.1cm}h\hspace{0.15cm}$ $x_k$-units $\hspace{0.05cm}$  $\Rightarrow$  $\hspace{0.05cm}$ $\widehat{y}_i\hspace{0.1cm}$
+        **increases** in $\hspace{0.05cm}$ $\widehat{\beta}_k \cdot h$  $\hspace{0.15cm}$ $y$-units.
         
         And the opposite if it decreases.
         
@@ -3474,8 +3474,8 @@ $$\widehat{y}_i= \widehat{\beta_0} + \widehat{\beta_0}\cdot x_{i1} + .. + \wideh
 
 -   If  $\hspace{0.1cm} \widehat{\beta}_k < 0 \hspace{0.1cm}$  , then
 
-    -  If $\hspace{0.1cm}x_{ik}\hspace{0.1cm}$ **increases** in $\hspace{0.1cm}h\hspace{0.1cm}$ units $\hspace{0.05cm}$ $\Rightarrow$ $\hspace{0.05cm}$  $\widehat{y}_i$
-        **decreases** in $\hspace{0.05cm}$ $\widehat{\beta}_k \cdot h$ $\hspace{0.05cm}$ units. 
+    -  If $\hspace{0.1cm}x_{ik}\hspace{0.1cm}$ **increases** in $\hspace{0.1cm}h\hspace{0.15cm}$ $x_k$-units $\hspace{0.05cm}$ $\Rightarrow$ $\hspace{0.05cm}$  $\widehat{y}_i$
+        **decreases** in $\hspace{0.05cm}$ $\widehat{\beta}_k \cdot h$ $\hspace{0.15cm}$ $y$-units. 
 
         And the opposite if it decreases.
 
@@ -3484,7 +3484,7 @@ $$\widehat{y}_i= \widehat{\beta_0} + \widehat{\beta_0}\cdot x_{i1} + .. + \wideh
 
 -   If  $\hspace{0.1cm} \widehat{\beta}_k = 0 \hspace{0.1cm}$  , then
 
-    -   $\widehat{y}_i$ $\hspace{0.05cm}$ doesn´t depend on $\hspace{0.05cm}$  $x_{ik}$
+    -   $\widehat{y}_i$ $\hspace{0.05cm}$ doesn't depend on $\hspace{0.05cm}$  $x_{ik}$
 
 
 <br>
@@ -3494,11 +3494,59 @@ $$\widehat{y}_i= \widehat{\beta_0} + \widehat{\beta_0}\cdot x_{i1} + .. + \wideh
 
 The above affirmations are based in the following:
 
-- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=c+h ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik}=c ) \hspace{0.1cm}=\hspace{0.1cm}  \hat{\beta_k}\cdot h$
+- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=c+h ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik}=c ) \hspace{0.15cm}=\hspace{0.15cm}  \widehat{\beta}_k\cdot h$
+
+
+<br>
+
+### Interpretation of coefficients and units of measurement
+
+In the previous section $\hspace{0.15cm} y$-units refers to the unit of measure of the response variable $Y$, and $\hspace{0.15cm} x_k$-units refers to the unit of measure of the predictor $X_k$
+
+
+Let's show why
+ $\hspace{0.15cm}\widehat{\beta}_k\cdot h\hspace{0.15cm}$ is measured in $\hspace{0.15cm} y$-units . Which is a fundamental property for the interpretation of the beta coefficients in the linear regression model.
+
+<br>
+
+Suppose we have the following estimated model:
+
+$$\widehat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} + .. + \widehat{\beta}_k\cdot x_{ik} + .. + \widehat{\beta}_p\cdot x_{ip}$$
+
+<br>
+
+Now consider the following:
+
+$\hspace{0.5cm}\widehat{y}_i \hspace{0.15cm}$ is measured in $\hspace{0.15cm}y$-units
+
+$\hspace{0.5cm}x_{ik} \hspace{0.15cm}$ is measured in $\hspace{0.15cm}x_k$-units
+
+<br>
+
+Then you have to:
+
+$\hspace{0.5cm}\widehat{\beta}_k \hspace{0.15cm}$ is measured in $\hspace{0.15cm}\dfrac{y\text{-units}}{x_k\text{-units} }\hspace{0.25cm}$ (fundamental property)
+
+<br>
+
+Therefore you will have to:
+
+$\hspace{0.5cm}\widehat{\beta}_k \cdot x_{ik}\hspace{0.15cm}$ is measured in $\hspace{0.15cm}\dfrac{y\text{-units}}{x_k \text{-units}} \cdot x_k\text{-units} \hspace{0.15cm}= \hspace{0.15cm} y\text{-units}$
+
+<br>
+
+Which implies that if $h$ is measured in $\hspace{0.15cm}x_k$-units then:
+
+$\hspace{0.5cm}\widehat{\beta}_k \cdot h\hspace{0.15cm}$ is measured in $\hspace{0.15cm} and\text{-units}$
+
+And this is what allows us to interpret 
+$\hspace{0.15cm}(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=c+h ) - (\hat{y} _i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=c ) \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_k\cdot h\hspace{0.15cm}$   as the number of $\hspace{0.15cm}y$-units by which the estimated response increases or decreases $\hspace{0.15cm}\hat{y}_i\hspace{0.15cm}$ when the value of the predictor $\hspace{0.15cm}x_k\hspace{0.15cm}$ increases by $h$ $\hspace{0.15cm}x_k$-units.
 
 
 
-&nbsp;
+
+
+<br>
 
 
 
@@ -4761,6 +4809,21 @@ TSS\hspace{0.1cm}=\hspace{0.1cm}RSS\hspace{0.1cm}+\hspace{0.1cm}RegSS
 
 <br>
 
+The image gives us relevant information:
+
+
+
+Case A of the image is enough to prove that the following statement is false:
+
+$$(y_i - \overline{y})^2 \hspace{0.1cm}= \hspace{0.1cm} (y_i - \widehat{y}_i)^2 + (\widehat{y}_i - \overline{ y})^2 \hspace{0.2cm} , \forall i=1,..,n$$
+
+Although it is true that:
+
+$$\sum_{i=1}^{n} (y_i - \overline{y})^2 \hspace{0.1cm}= \hspace{0.1cm} \sum_{i=1}^{n} (y_i - \widehat{y}_i)^2 + \sum_{i=1}^{n} (\widehat{y}_i - \overline{y})^2$$
+
+ 
+----
+
 <br>
 
 Now we can define the test statistic as:
@@ -5136,11 +5199,11 @@ The determination coefficient, also called R-square, is defined as:
 
  
 \begin{gather*}
-R^2 = \dfrac{RegSS}{TSS} = \dfrac{TSS-RSS}{TSS} =1 - \dfrac{RSS}{TSS}
+R^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{RegSS}{TSS} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{TSS-RSS}{TSS} \hspace{0.1cm}=\hspace{0.1cm} 1 - \dfrac{RSS}{TSS}
 \end{gather*}
  
 
-
+<br>
 
 **Properties**
 
@@ -5149,23 +5212,24 @@ R^2 = \dfrac{RegSS}{TSS} = \dfrac{TSS-RSS}{TSS} =1 - \dfrac{RSS}{TSS}
 
 -   $R^2 \in \left[ 0 , 1 \right]$
 
-For this reason $R^2$ is used as a measure of how well the model fits the
+For this reason $\hspace{0.1cm}R^2\hspace{0.1cm}$ is used as a measure of how well the model fits the
 response variable .
 
  
 
-
+<br>
 
 **Interpretation**
 
-The interpretation of $R^2$ is the following:
+The interpretation of $\hspace{0.1cm}R^2\hspace{0.1cm}$ is the following:
 
--   If $R^2$ is close to $1$, indicates good fit of model to the response
-variable data 
-    
-    
+-   If $\hspace{0.1cm}R^2\hspace{0.1cm}$ is close to $1$, indicates good fit of model to the response
+variable data  $\\[0.5cm]$
 
--   If $R^2$ is clode to $0$, indicates bad fit of model to the response
+
+
+
+-   If $\hspace{0.1cm}R^2\hspace{0.1cm}$ is clode to $0$, indicates bad fit of model to the response
     variable data
 
 
@@ -5235,18 +5299,20 @@ $$ R^2 = 0.698$$
 
 $R^2$ has several problems.
 
-1.  $R^2$ always increase when increase the number of predictors,
+$1.$  $\hspace{0.2cm} R^2$ always increase when increase the number of predictors,
     although they are not significative.
 
-2.  It´s possible estimate two models with the same prediction power but
-    with different $R^2$
+$2.\hspace{0.2cm}$  It´s possible estimate two models with the same prediction power but
+    with different $\hspace{0.1cm}R^2$
 
 
+<br>
 
 
+For avoid the disadvantages of $\hspace{0.1cm}R^2\hspace{0.1cm}$ was created the adjusted $\hspace{0.1cm}R^2\hspace{0.1cm}$ ,
+denoted as $\widehat{R^2}$, and defined as: 
 
-For avoid the disadvantages of $R^2$ was created the adjusted $R^2$ ,
-denoted as $\widehat{R^2}$, and defined as:
+<br>
 
 
 
@@ -5254,10 +5320,10 @@ denoted as $\widehat{R^2}$, and defined as:
 \widehat{R}^2 =  1 - \dfrac{RSS/(n-p-1)}{TSS/(n-1)} = 1 - \left( 1- R^2 \right) \cdot \dfrac{n-1}{n-p}
 \end{gather*}
 
+<br>
 
 
-
-This metric doesn't grow when including irrelevant predictors since if $RSS$ is small as $p$ is large, $1/(n-p-1)$ will be large compensating the $RSS$ value
+This metric doesn't grow when including irrelevant predictors, because if $\hspace{0.1cm} RSS\hspace{0.1cm}$ is small because of $\hspace{0.1cm}p\hspace{0.1cm}$ is large, then  $\hspace{0.1cm}1/(n-p-1)\hspace{0.1cm}$ will be large compensating the $\hspace{0.1cm}RSS\hspace{0.1cm}$ value
 
 
 
@@ -5266,7 +5332,7 @@ This metric doesn't grow when including irrelevant predictors since if $RSS$ is 
 
 
 
-### Computing $\color{lightgray}{\widehat{R}^2}$ in `R`  
+### Computing $\widehat{R}^2$ in `R`  
 
 The value of $\hspace{0.1cm} \widehat{R^2}$  could be found in the output obtained with `summary(model_R)`
 
@@ -5285,7 +5351,7 @@ summary(model_R)$adj.r.squared
 
 
 
-### Computing $\color{lightgray}{\widehat{R}^2}$ in `Python` <a class="anchor" id="59"></a>
+### Computing $\widehat{R}^2$ in `Python` <a class="anchor" id="59"></a>
 
 
 The value of $\hspace{0.1cm} \widehat{R^2}$  could be found in the output obtained with `print(model_Py_smf.summary())`
@@ -5307,6 +5373,7 @@ $$ \widehat{R^2} = 0.697$$
 
 &nbsp;
 
+<br>
 
 
 
@@ -5318,13 +5385,13 @@ $$ \widehat{R^2} = 0.697$$
 
 Multicollinearity problem happens when some of the predictors are lineary dependients.
 
-Why multicollinearity is a problem ?
+**Why multicollinearity is a problem ?**
 
-$1.\hspace{0.1cm}$ In the worst case it makes the estimation of the model impossible.
+$1.\hspace{0.2cm}$ In the worst case it makes the estimation of the model impossible.
 
-$2.\hspace{0.1cm}$ At best, it causes the beta estimators to have a lot of variance, which makes the model's predictions and inference very imprecise. And it also causes predictors that are relevant to come out as non-significant in the significance test.
+$2.\hspace{0.2cm}$ At best, it causes the beta estimators to have a lot of variance, which makes the model's predictions and inference very imprecise. And it also causes predictors that are relevant to come out as non-significant in the significance test.
  
-
+<br>
 
 
 ### Types of multicollinearity  <a class="anchor" id="62"></a>
@@ -5335,13 +5402,13 @@ At least one of the predictors is a linear combination of the rest of the predic
 
 By the null rank theorem, $\hspace{0.1cm}R(X^t \cdot X) < p+1\hspace{0.1cm}$ , therefore there is no $\hspace{0.1cm}(X^t \cdot X)^{-1}\hspace{0.1cm}$ , so it cannot be estimate $\hspace{0.1cm}\beta\hspace{0.1cm}$ with the ordinary least squares method .
 
-
+<br>
 
 #### High Multicollinearity
 
 There are predictors with high linear correlation between them. 
 
-In this case is still possible estimate $\beta$ because the multicolinearity isn´t perfect, but the variance of the $\beta$ estimators, $Var(\hat{\beta}_j)$, will be too high, therefore the model will be very imprecise, so the results will not be good.
+In this case is still possible estimate $\hspace{0.1cm}\beta\hspace{0.1cm}$ because the multicolinearity isn´t perfect, but the variance of the $\hspace{0.1cm}\beta\hspace{0.1cm}$ estimators, $\hspace{0.1cm}Var(\widehat{\beta}_j)\hspace{0.1cm}$, will be too high, therefore the model will be very imprecise, so the results will not be good.
 
 
 
@@ -5352,7 +5419,7 @@ In this case is still possible estimate $\beta$ because the multicolinearity isn
 
 
 
-### Identification of multicollinearity <a class="anchor" id="63"></a>
+### Identification of multicollinearity 
 
 Identification of multicollinearity is carry out by several ways:
 
@@ -5361,18 +5428,18 @@ Identification of multicollinearity is carry out by several ways:
 If the linear regression model has only **quantitative** predictors:
 
 1. With the correlation matrix of the predictors $\hspace{0.05cm} R$
-2. With  $VIF$ (variance increase factor )
+2. With  $\hspace{0.1cm}VIF\hspace{0.1cm}$ (variance increase factor )
 3. With  condition number of $\hspace{0.05cm} R$
 
 
 
 If the linear model has **quantitative and categorical** predictors:
 
-1. With $GVIF$ (generalize variance increase factor) 
+1. With $\hspace{0.1cm}GVIF\hspace{0.1cm}$ (generalize variance increase factor) 
 
 
 
-&nbsp;
+<br>
 
 
 
@@ -5392,11 +5459,11 @@ R= \begin{pmatrix}
 \end{pmatrix} = [r_{ij} ]\hspace{0.05cm}_{i,j=1,..,p}
 $$ 
 
-
+<br>
 
 Where: $\hspace{0.2cm} r_{i j} \hspace{0.1cm}$ is the Pearson linear correlation between $X_i$ and $X_j$
 
-
+<br>
 
 **Criteria :**  Identification of multicollinearity with  $R$
 
@@ -5407,7 +5474,7 @@ We compute the Pearson linear correlation matrix of the predictors $\hspace{0.1c
 
 
 
-If there is any **high** $\hspace{0.1cm} r_{ij}\hspace{0.1cm} (\hspace{0.1cm} > 0.75 \hspace{0.1cm})$  $\hspace{0.1cm} \Rightarrow\hspace{0.1cm}$ possible multicollinearity problem
+- If there is any **high** $\hspace{0.1cm} r_{ij}\hspace{0.1cm} (\hspace{0.1cm} > 0.75 \hspace{0.1cm})$  $\hspace{0.1cm} \Rightarrow\hspace{0.1cm}$ possible multicollinearity problem
 
 
 
@@ -5580,18 +5647,18 @@ So following this criteria the linear regression model  **price ~ size\_in\_m\_2
 
 If we have the following estimated linear regression model $\hspace{0.1cm} Y=X\cdot \widehat{\beta}   \hspace{0.1cm}$  where $\hspace{0.1cm}X=(1, X_1, ..., X_p)\hspace{0.1cm}$ are all **quantitative** predictors.
 
-We compute the **inverse** of the Pearson correlation matrix of the predictors $\hspace{0.1cm} [ X_1 ,..., X_p] \hspace{0.2cm} \Rightarrow \hspace{0.2cm} R\hspace{0.07cm}^{-1} $ 
+We compute the **inverse** of the Pearson correlation matrix of the predictors $\hspace{0.1cm} [ X_1 ,..., X_p] \hspace{0.2cm} \Rightarrow \hspace{0.2cm} R\hspace{0.07cm}^{-1}$ 
 
 
 
 
-The variance increase factor $\left(VIF\right)$ of the quantitative predictor $X_j$ is:
+The variance increase factor $\hspace{0.1cm}\left(VIF\right)\hspace{0.1cm}$ of the quantitative predictor $\hspace{0.1cm}X_j\hspace{0.1cm}$ is:
 
-
+<br>
 
 $$VIF(X_j) \hspace{0.05cm}=\hspace{0.05cm} Diag(R\hspace{0.07cm}^{-1})[\hspace{0.1cm} j \hspace{0.1cm}] \hspace{0.05cm}=\hspace{0.05cm} j \text{ element of} \hspace{0.1cm} Diag(R\hspace{0.07cm}^{-1})$$
 
-
+<br>
 
 And it´s fullfield that:
 
@@ -5601,25 +5668,25 @@ $$ VIF(X_j) = \dfrac{1}{1- R^2_{X_j}} $$
 
 Where:
 
-$R^2_{X_j}\hspace{0.07cm} $ is the determination coefficient  $\hspace{0.07cm} (R^2)\hspace{0.07cm}$  of the linear regression model $\hspace{0.1cm} X_i = \beta_0 + \beta_1 \cdot  X_1 +...+ \beta_{j-1}\cdot X_{j-1} + \beta_{i+1}\cdot X_{i+1} + ... + \beta_p \cdot X_p$
+$R^2_{X_j}\hspace{0.1cm}$ is the determination coefficient  $\hspace{0.1cm} (R^2)\hspace{0.1cm}$  of the linear regression model $\hspace{0.1cm} X_i = \beta_0 + \beta_1 \cdot  X_1 +...+ \beta_{j-1}\cdot X_{j-1} + \beta_{i+1}\cdot X_{i+1} + ... + \beta_p \cdot X_p$
 
 So, $\hspace{0.07cm} R^2_{X_i} \hspace{0.07cm}$  is the proportion of variability of $\hspace{0.07cm}X_j\hspace{0.07cm}$ explained by $\hspace{0.07cm}X_1,..,X_{j-1},X_{j+1},..,X_p$
 
 
 
-
+<br>
 
 
 **Criteria:** Identification of multicollinearity with $VIF$ 
 
 
 
-If $\hspace{0.15cm}VIF(X_j) > 10$ $\hspace{0.15cm}\left( R^2_{X_j} > 0.90 \right)$ $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ **High** multicollinearity
+- If $\hspace{0.15cm}VIF(X_j) > 10$ $\hspace{0.15cm}\left( R^2_{X_j} > 0.90 \right)$ $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ **High** multicollinearity
 
-If $\hspace{0.15cm}VIF(X_j)  \in [4, 10]$  $\hspace{0.15cm}\left(R^2_{X_j} \in [0.75 , 0.90]\right)$ $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ **Medium** multicollinearity
+- If $\hspace{0.15cm}VIF(X_j)  \in [4, 10]$  $\hspace{0.15cm}\left(R^2_{X_j} \in [0.75 , 0.90]\right)$ $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ **Medium** multicollinearity
 
 
-If  $\hspace{0.15cm}VIF(X_j) < 4$ $\hspace{0.15cm}\left(R^2_{X_j} < 0.75 \right)$ $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ **Low** multicollinearity
+- If  $\hspace{0.15cm}VIF(X_j) < 4$ $\hspace{0.15cm}\left(R^2_{X_j} < 0.75 \right)$ $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ **Low** multicollinearity
 
 
 
