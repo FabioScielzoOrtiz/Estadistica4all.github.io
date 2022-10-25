@@ -3524,6 +3524,10 @@ RSS(M) \hspace{0.1cm}=\hspace{0.1cm}  \sum_{i=1}^n \hat{\varepsilon}_i^2 \hspace
 <li><p><span class="math inline">\(M_0 , M_1^* , ..., M_{p-1}^*, M_p \underset{ \hspace{0.15cm} AIC\hspace{0.08cm},\hspace{0.08cm} BIC, \hspace{0.08cm}C_p \hspace{0.08cm},\hspace{0.08cm} \widehat{R}^2 \hspace{0.15cm}}{\Rightarrow} \hspace{0.1cm} M\hspace{0.05cm}^* \hspace{0.2cm}(Best \hspace{0.1cm} Model)\)</span></p></li>
 </ul>
 <p><br></p>
+<p><strong>Observation:</strong></p>
+<p>Due to the characteristics of the Backward algorithm, it <strong>doesn’t have to be true</strong> that:</p>
+<p><span class="math inline">\(M_0 \subset M_1^* \subset M_2^* \subset M_3^* ,..., M_{p-1}^* \subset M_p\)</span></p>
+<p><br></p>
 <p><strong>Why don’t we select the final model using the training error?</strong></p>
 <p>The train error of a linear regression model is defined as:</p>
 <p><span class="math display">\[\text{Train Error} (M_j) = ECM_{train}(M_j) =
@@ -7125,6 +7129,10 @@ AIC: Akaike Information Criteria
 <p>Where:</p>
 <p><span class="math inline">\(\lbrace M_j \hspace{0.1cm} \text{+ 1 predictor} \rbrace \hspace{0.1cm}\)</span> is the set of the linear regression models that are the result of adding one predictor to the model <span class="math inline">\(M_j\)</span></p>
 <p><br></p>
+<p><strong>Observation:</strong></p>
+<p>Due to the characteristics of the Backward algorithm, it is true that:</p>
+<p><span class="math inline">\(M_0 \subset M_1^* \subset M_2^* \subset M_3^* ,..., M_{p-1}^* \subset M_p\)</span></p>
+<p><br></p>
 <p><strong>Why don’t we select the final model using the train error?</strong></p>
 <p>The train error of a linear regression model is defined as:</p>
 <p><span class="math display">\[\text{Train Error} (M_j) = ECM_{train}(M_j) =
@@ -7825,6 +7833,10 @@ Step       Entered        R-Square    R-Square      C(p)         AIC            
 <ul>
 <li><span class="math inline">\(\lbrace M_0, M_1^* ,M_2^*, ...,M_{p-1}^*, M_p \rbrace \underset{\hspace{0.15cm} AIC, BIC, C_p, \widehat{R}^2 \hspace{0.15cm}}{\Rightarrow} \hspace{0.1cm} M\hspace{0.05cm}^* \hspace{0.2cm} (Best \hspace{0.1cm} Model)\)</span></li>
 </ul>
+<p><br></p>
+<p><strong>Observation:</strong></p>
+<p>Due to the characteristics of the Backward algorithm, it is true that:</p>
+<p><span class="math inline">\(M_0 \subset M_1^* \subset M_2^* \subset M_3^* ,..., M_{p-1}^* \subset M_p\)</span></p>
 <p><br></p>
 <p><strong>Why don’t we select the final model using the training error?</strong></p>
 <p>The train error of a linear regression model is defined as:</p>

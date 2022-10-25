@@ -2342,6 +2342,14 @@ $\dots$
 
 - $M_0 ,  M_1^* , ..., M_{p-1}^*, M_p  \underset{ \hspace{0.15cm} AIC\hspace{0.08cm},\hspace{0.08cm} BIC, \hspace{0.08cm}C_p \hspace{0.08cm},\hspace{0.08cm} \widehat{R}^2 \hspace{0.15cm}}{\Rightarrow} \hspace{0.1cm} M\hspace{0.05cm}^* \hspace{0.2cm}(Best \hspace{0.1cm} Model)$
 
+<br>
+
+**Observation:**
+
+Due to the characteristics of the Backward algorithm, it **doesn't have to be true** that:
+
+$M_0 \subset M_1^* \subset M_2^* \subset M_3^* ,..., M_{p-1}^* \subset M_p$
+
 
 <br>
 
@@ -4487,6 +4495,22 @@ Where:
 $\lbrace  M_j \hspace{0.1cm} \text{+ 1 predictor} \rbrace \hspace{0.1cm}$ is the set of the linear regression models that are the result of adding one predictor to the model $M_j$
 
 
+
+
+
+<br>
+
+**Observation:**
+
+Due to the characteristics of the Backward algorithm, it is true that:
+
+$M_0 \subset M_1^* \subset M_2^* \subset M_3^* ,..., M_{p-1}^* \subset M_p$
+
+
+
+
+
+
 <br>
 
  
@@ -5017,7 +5041,14 @@ $\hspace{0.8cm} \dots$
 
 <br>
 
+**Observation:**
 
+Due to the characteristics of the Backward algorithm, it is true that:
+
+$M_0 \subset M_1^* \subset M_2^* \subset M_3^* ,..., M_{p-1}^* \subset M_p$
+
+
+<br>
 
 **Why don't we select the final model using the training error?**
 
