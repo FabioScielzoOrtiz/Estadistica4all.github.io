@@ -5387,20 +5387,22 @@ Multicollinearity problem happens when some of the predictors are lineary depend
 
 **Why multicollinearity is a problem ?**
 
-$1.\hspace{0.2cm}$ In the worst case it makes the estimation of the model impossible.
+1. In the worst case it makes the estimation of the model impossible.
 
-$2.\hspace{0.2cm}$ At best, it causes the beta estimators to have a lot of variance, which makes the model's predictions and inference very imprecise. And it also causes predictors that are relevant to come out as non-significant in the significance test.
+2. At best, it makes the beta estimators have a lot of variance, which makes model predictions and inference very imprecise. And it also makes the predictors that are relevant turn out to be non-significant following the significance test.
  
 <br>
 
 
 ### Types of multicollinearity  <a class="anchor" id="62"></a>
 
+<br>
+
 #### Perfect Multicollinearity
 
-At least one of the predictors is a linear combination of the rest of the predictors, so $\hspace{0.1cm}Rg(X) < p+1 \hspace{0.1cm}$ (not full range)
+At least one of the predictors is a linear combination of the rest, so $\hspace{0.1cm}Rg(X) < p+1 \hspace{0.1cm}$ (not full range)
 
-By the null rank theorem, $\hspace{0.1cm}R(X^t \cdot X) < p+1\hspace{0.1cm}$ , therefore there is no $\hspace{0.1cm}(X^t \cdot X)^{-1}\hspace{0.1cm}$ , so it cannot be estimate $\hspace{0.1cm}\beta\hspace{0.1cm}$ with the ordinary least squares method .
+By the null rank theorem, $\hspace{0.1cm}R(X^t \cdot X) < p+1\hspace{0.1cm}$ , therefore $\hspace{0.1cm}X^t \cdot X\hspace{0.1cm}$ hasn't full range, so there is no $\hspace{0.1cm}(X^t \cdot X)^{-1}\hspace{0.1cm}$ , so it cannot be estimate $\hspace{0.1cm}\beta\hspace{0.1cm}$ with the ordinary least squares method .
 
 <br>
 
@@ -5408,7 +5410,7 @@ By the null rank theorem, $\hspace{0.1cm}R(X^t \cdot X) < p+1\hspace{0.1cm}$ , t
 
 There are predictors with high linear correlation between them. 
 
-In this case is still possible estimate $\hspace{0.1cm}\beta\hspace{0.1cm}$ because the multicolinearity isn´t perfect, but the variance of the $\hspace{0.1cm}\beta\hspace{0.1cm}$ estimators, $\hspace{0.1cm}Var(\widehat{\beta}_j)\hspace{0.1cm}$, will be too high, therefore the model will be very imprecise, so the results will not be good.
+In this case is still possible estimate $\hspace{0.1cm}\beta\hspace{0.1cm}$ because the multicolinearity isn´t perfect, but the variance of the $\hspace{0.1cm}\beta_j\hspace{0.1cm}$ estimators, $\hspace{0.1cm}Var(\widehat{\beta}_j)\hspace{0.1cm}$, will be too high, therefore the model will be very imprecise, so the results will not be good.
 
 
 
@@ -5427,15 +5429,15 @@ Identification of multicollinearity is carry out by several ways:
 
 If the linear regression model has only **quantitative** predictors:
 
-1. With the correlation matrix of the predictors $\hspace{0.05cm} R$
-2. With  $\hspace{0.1cm}VIF\hspace{0.1cm}$ (variance increase factor )
-3. With  condition number of $\hspace{0.05cm} R$
+1. $\hspace{0.2cm}$ With the correlation matrix of the predictors $\hspace{0.05cm} R$
+2. $\hspace{0.2cm}$ With  $\hspace{0.1cm}VIF\hspace{0.1cm}$ (variance increase factor )
+3. $\hspace{0.2cm}$ With  condition number of $\hspace{0.05cm} R$
 
 
 
-If the linear model has **quantitative and categorical** predictors:
+If the linear model has **quantitative** and **categorical** predictors:
 
-1. With $\hspace{0.1cm}GVIF\hspace{0.1cm}$ (generalize variance increase factor) 
+1. $\hspace{0.2cm}$  With $\hspace{0.1cm}GVIF\hspace{0.1cm}$ (generalize variance increase factor) 
 
 
 
@@ -5465,16 +5467,16 @@ Where: $\hspace{0.2cm} r_{i j} \hspace{0.1cm}$ is the Pearson linear correlation
 
 <br>
 
-**Criteria :**  Identification of multicollinearity with  $R$
+**Criteria :  Identification of multicollinearity with  $R$**
 
-If we have the following estimated linear regression model $\hspace{0.1cm} Y=X\cdot \widehat{\beta}   \hspace{0.1cm}$  where $\hspace{0.1cm}X=(1, X_1, ..., X_p)\hspace{0.1cm}$ are all **quantitative** predictors.
+If we have the following estimated linear regression model $\hspace{0.2cm} Y=X\cdot \widehat{\beta}   \hspace{0.2cm}$  where $\hspace{0.2cm}X=(1, X_1, ..., X_p)\hspace{0.2cm}$ are all **quantitative** predictors.
 
-We compute the Pearson linear correlation matrix of the predictors $\hspace{0.1cm} [ X_1 ,..., X_p] \hspace{0.2cm} \Rightarrow \hspace{0.2cm} R = [r_{ij} ]\hspace{0.05cm}_{i,j=1,..,p}$
+We compute the Pearson linear correlation matrix of the predictors $\hspace{0.2cm} [ X_1 ,..., X_p] \hspace{0.2cm} \Rightarrow \hspace{0.2cm} R = [r_{ij} ]\hspace{0.05cm}_{i,j=1,..,p}$
+
+<br>
 
 
-
-
-- If there is any **high** $\hspace{0.1cm} r_{ij}\hspace{0.1cm} (\hspace{0.1cm} > 0.75 \hspace{0.1cm})$  $\hspace{0.1cm} \Rightarrow\hspace{0.1cm}$ possible multicollinearity problem
+- If there is any **high** $\hspace{0.2cm} r_{ij}\hspace{0.2cm} (\hspace{0.1cm} > 0.75 \hspace{0.1cm})$  $\hspace{0.2cm} \Rightarrow\hspace{0.2cm}$ possible multicollinearity problem
 
 
 
@@ -5522,8 +5524,14 @@ library(GGally)
 ggcorr(data_R %>% select(-price, -quality), label=TRUE, digits=3)
 ```
 
-![png](output_638_1.png)
 
+<center>
+
+![ ](output_638_1.png){width="45%"}
+
+</center>
+
+<br>
 
 &nbsp;
 
@@ -5628,7 +5636,14 @@ corr = R
 sb.heatmap(corr, cmap="Blues", annot=True)
 ```
 
-![png](output_647_1.png)
+<center>
+
+![ ](output_647_1.png)
+
+</center>
+
+<br>
+
 
 
 
@@ -5645,7 +5660,7 @@ So following this criteria the linear regression model  **price ~ size\_in\_m\_2
 
 ### Identification of multicollinearity with $VIF$ <a class="anchor" id="64"></a>
 
-If we have the following estimated linear regression model $\hspace{0.1cm} Y=X\cdot \widehat{\beta}   \hspace{0.1cm}$  where $\hspace{0.1cm}X=(1, X_1, ..., X_p)\hspace{0.1cm}$ are all **quantitative** predictors.
+If we have the following estimated linear regression model $\hspace{0.2cm} Y=X\cdot \widehat{\beta}   \hspace{0.2cm}$  where $\hspace{0.2cm}X=(1, X_1, ..., X_p)\hspace{0.2cm}$ are all **quantitative** predictors.
 
 We compute the **inverse** of the Pearson correlation matrix of the predictors $\hspace{0.1cm} [ X_1 ,..., X_p] \hspace{0.2cm} \Rightarrow \hspace{0.2cm} R\hspace{0.07cm}^{-1}$ 
 
@@ -5660,33 +5675,35 @@ $$VIF(X_j) \hspace{0.05cm}=\hspace{0.05cm} Diag(R\hspace{0.07cm}^{-1})[\hspace{0
 
 <br>
 
-And it´s fullfield that:
+And also it´s fullfield that:
+
+<br>
 
 $$ VIF(X_j) = \dfrac{1}{1- R^2_{X_j}} $$
 
-
+<br>
 
 Where:
 
-$R^2_{X_j}\hspace{0.1cm}$ is the determination coefficient  $\hspace{0.1cm} (R^2)\hspace{0.1cm}$  of the linear regression model $\hspace{0.1cm} X_i = \beta_0 + \beta_1 \cdot  X_1 +...+ \beta_{j-1}\cdot X_{j-1} + \beta_{i+1}\cdot X_{i+1} + ... + \beta_p \cdot X_p$
+$R^2_{X_j}\hspace{0.1cm}$ is the determination coefficient  $\hspace{0.1cm} (R^2)\hspace{0.1cm}$  of the linear regression model $\hspace{0.1cm} X_i = \beta_0 + \beta_1 \cdot  X_1 +...+ \beta_{j-1}\cdot X_{j-1} + \beta_{i+1}\cdot X_{i+1} + ... + \beta_p \cdot X_p + \varepsilon$
 
-So, $\hspace{0.07cm} R^2_{X_i} \hspace{0.07cm}$  is the proportion of variability of $\hspace{0.07cm}X_j\hspace{0.07cm}$ explained by $\hspace{0.07cm}X_1,..,X_{j-1},X_{j+1},..,X_p$
+So, $\hspace{0.07cm} R^2_{X_i} \hspace{0.07cm}$  is the proportion of variability of the predictor $\hspace{0.07cm}X_j\hspace{0.07cm}$ explained by the rest $\hspace{0.07cm}X_1,..,X_{j-1},X_{j+1},..,X_p$
 
 
 
 <br>
 
 
-**Criteria:** Identification of multicollinearity with $VIF$ 
+**Criteria: Identification of multicollinearity with $VIF$** 
 
 
 
-- If $\hspace{0.15cm}VIF(X_j) > 10$ $\hspace{0.15cm}\left( R^2_{X_j} > 0.90 \right)$ $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ **High** multicollinearity
+- If $\hspace{0.2cm}VIF(X_j) > 10$ $\hspace{0.25cm}\left( R^2_{X_j} > 0.90 \right)$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ **High** multicollinearity $\\[0.5cm]$
 
-- If $\hspace{0.15cm}VIF(X_j)  \in [4, 10]$  $\hspace{0.15cm}\left(R^2_{X_j} \in [0.75 , 0.90]\right)$ $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ **Medium** multicollinearity
+- If $\hspace{0.2cm}VIF(X_j)  \in [4, 10]$  $\hspace{0.25cm}\left(R^2_{X_j} \in [0.75 , 0.90]\right)$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ **Medium** multicollinearity $\\[0.5cm]$
 
 
-- If  $\hspace{0.15cm}VIF(X_j) < 4$ $\hspace{0.15cm}\left(R^2_{X_j} < 0.75 \right)$ $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ **Low** multicollinearity
+- If  $\hspace{0.2cm}VIF(X_j) < 4$ $\hspace{0.15cm}\left(R^2_{X_j} < 0.75 \right)$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ **Low** multicollinearity
 
 
 
@@ -5817,27 +5834,29 @@ There is a quantitative predictor with $\hspace{0.1cm} VIF > 4 \hspace{0.1cm}$ ,
 
 ### Identification of multicollinearity with Condition Number of $\hspace{0.05cm} R$ <a class="anchor" id="66"></a>
 
-If we have the following estimated linear regression model $\hspace{0.1cm} Y=X\cdot \widehat{\beta}   \hspace{0.1cm}$  where $\hspace{0.1cm}X=(1, X_1, ..., X_p)\hspace{0.1cm}$ are all **quantitative** predictors.
+If we have the following estimated linear regression model $\hspace{0.2cm} Y=X\cdot \widehat{\beta}   \hspace{0.2cm}$  where $\hspace{0.2cm}X=(1, X_1, ..., X_p)\hspace{0.2cm}$ are all **quantitative** predictors.
 
-We compute the Pearson linear correlation matrix of the predictors $\hspace{0.1cm} [ X_1 ,..., X_p] \hspace{0.2cm} \Rightarrow \hspace{0.2cm} R = [r_{ij} ]\hspace{0.05cm}_{i,j=1,..,p}$
+We compute the Pearson linear correlation matrix of the predictors $\hspace{0.2cm} [ X_1 ,..., X_p] \hspace{0.2cm} \Rightarrow \hspace{0.2cm} R = [r_{ij} ]\hspace{0.05cm}_{i,j=1,..,p}$
 
-
+<br>
 
 The **condition number** of $R$ is defined as:
 
+<br>
+
 $$cond(R) = \sqrt{\dfrac{max\lbrace eigenvalues(R)\rbrace}{min\lbrace eigenvalues(R)\rbrace}} $$
 
+<br>
+
+**Criteria :  Identification of multicollinearity with Condition Number of $\hspace{0.05cm} R$**
 
 
-**Criteria :**  Identification of multicollinearity with Condition Number of $\hspace{0.05cm} R$
 
+- If $\hspace{0.1cm} cond(R) > 30$ $\hspace{0.1cm} \Rightarrow\hspace{0.1cm}$ **High** multicollinearity $\\[0.5cm]$
 
+- If $\hspace{0.1cm}cond(R) \in (10 , 30)$ $\hspace{0.1cm} \Rightarrow\hspace{0.1cm}$ **Medium** multicollinearity $\\[0.5cm]$
 
-If $\hspace{0.1cm} cond(R) > 30$ $\hspace{0.1cm} \Rightarrow\hspace{0.1cm}$ **High** multicollinearity
-
-If $\hspace{0.1cm}cond(R) \in (10 , 30)$ $\hspace{0.1cm} \Rightarrow\hspace{0.1cm}$ **Medium** multicollinearity
-
-If $\hspace{0.1cm}cond(R) < 10$ $\hspace{0.1cm} \Rightarrow\hspace{0.1cm}$ **Low** multicollinearity
+- If $\hspace{0.1cm}cond(R) < 10$ $\hspace{0.1cm} \Rightarrow\hspace{0.1cm}$ **Low** multicollinearity $\\[0.5cm]$
 
 
 
@@ -5888,7 +5907,7 @@ cond_R
     4.325045221905223
     
 
-We have get $ \hspace{0.1cm} cond(R) = 4.33 < 10  \hspace{0.1cm}$ , so following this criterion, the linear regression model $\hspace{0.1cm}$ **price ~ size\_in\_m\_2  + longitude + latitude + no\_of\_bedrooms + no\_of\_bathrooms** $\hspace{0.1cm}$ has **low** multicollinearity
+We have get $\hspace{0.1cm} cond(R) = 4.33 < 10  \hspace{0.1cm}$ , so following this criterion, the linear regression model $\hspace{0.1cm}$ **price ~ size\_in\_m\_2  + longitude + latitude + no\_of\_bedrooms + no\_of\_bathrooms** $\hspace{0.1cm}$ has **low** multicollinearity
 
 
 
@@ -5899,16 +5918,16 @@ We have get $ \hspace{0.1cm} cond(R) = 4.33 < 10  \hspace{0.1cm}$ , so following
 
 ### Identification of multicollinearity with $GVIF$ <a class="anchor" id="67"></a>
 
-$VIF$ is only a good multicollinearity measure when **all** the **predictors** of the model are **quantitative**.
+$VIF\hspace{0.2cm}$ is only a good multicollinearity measure when **all** the **predictors** of the model are **quantitative**.
 
 
 
-$GVIF$ is the measure proposed by Fox and Monette (1992) to deal with linear regression models that have **categorical predictors**.
+$GVIF\hspace{0.2cm}$ is the measure proposed by Fox and Monette (1992) to deal with linear regression models that have **categorical predictors**.
 
 
 
 
-Suppose we have the following estimated linear regression model $\hspace{0.1cm} Y=X\cdot \widehat{\beta}   \hspace{0.1cm}$  where $\hspace{0.1cm}X=(1, X_1, ..., X_p)\hspace{0.1cm}$ are some **quantitative** and others **categorical** predictors.
+Suppose we have the following estimated linear regression model $\hspace{0.2cm} Y=X\cdot \widehat{\beta}   \hspace{0.2cm}$  where $\hspace{0.2cm}X=(1, X_1, ..., X_p)\hspace{0.2cm}$ are some **quantitative** and others **categorical** predictors.
 
 
 
@@ -5922,32 +5941,32 @@ Suppose we have the following estimated linear regression model $\hspace{0.1cm} 
 
 We have to consider the following matrix:
 
-- $\mathcal{X}_1 = [\hspace{0.1cm} X_j \hspace{0.1cm}]$
+- $\hspace{0.2cm}\mathcal{X}_1 = [\hspace{0.1cm} X_j \hspace{0.1cm}]\\[0.45cm]$
 
-- $\mathcal{X}_2 = [\hspace{0.1cm} X_1 , .. , X_{j-1}, X_{j+1},.., X_p \hspace{0.1cm}]$
+- $\hspace{0.2cm}\mathcal{X}_2 = [\hspace{0.1cm} X_1 , .. , X_{j-1}, X_{j+1},.., X_p \hspace{0.1cm}]\\[0.45cm]$
 
-- $\mathcal{X}_3 = [\hspace{0.1cm} X_1,..,X_j,.., X_p \hspace{0.1cm}] $
+- $\hspace{0.2cm}\mathcal{X}_3 = [\hspace{0.1cm} X_1,..,X_j,.., X_p \hspace{0.1cm}]$
 
 
 
  
 And the following Pearson correlation matrix:
 
-- $R_1$ is the Pearson correlation matrix of $\mathcal{X}_1$ 
+- $\hspace{0.2cm}R_1$ is the Pearson correlation matrix of $\hspace{0.2cm}\mathcal{X}_1 \\[0.45cm]$
 
-- $R_2$ is the Pearson correlation matrix of $\mathcal{X}_2$
+- $\hspace{0.2cm}R_2$ is the Pearson correlation matrix of $\hspace{0.2cm}\mathcal{X}_2\\[0.45cm]$
 
-- $R_3$ is the Pearson correlation matrix of $\mathcal{X}_3$
+- $\hspace{0.2cm}R_3$ is the Pearson correlation matrix of $\hspace{0.2cm}\mathcal{X}_3$
 
  
 
-
+<br>
 
 
 
 Then,  $\hspace{0.1cm} GVIF \hspace{0.1cm}$ of $\hspace{0.1cm} X_j \hspace{0.1cm}$ is defined as:
 
-
+<br>
 
 $$ GVIF(X_j) = det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)} $$ 
 
@@ -5960,18 +5979,18 @@ $$ GVIF(X_j) = det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)} $$
 
 
 
-If $X_j$ is a **categorical** predictor with $r$ categories, $\hspace{0.1cm} Range(X_j) = \lbrace 0,1,..., r-1 \rbrace \hspace{0.1cm}$ , that enter in the model with the dummy variables $\hspace{0.1cm} X_{j1},X_{j2},...,X_{j(r-1)}$
+If $X_j$ is a **categorical** predictor with $r$ categories, $\hspace{0.2cm} Range(X_j) = \lbrace 0,1,..., r-1 \rbrace \hspace{0.2cm}$ , that enter in the model with the dummy variables $\hspace{0.2cm} X_{j1},X_{j2},...,X_{j(r-1)}$
 
 
 
 
 We have to consider the following matrix:
 
-- $\mathcal{X}_1 = [\hspace{0.1cm} X_{j1},X_{j2},..,X_{j(r-1)} \hspace{0.1cm}]$
+- $\mathcal{X}_1 = [\hspace{0.1cm} X_{j1},X_{j2},..,X_{j(r-1)} \hspace{0.1cm}]\\[0.45cm]$
 
-- $\mathcal{X}_2 = [\hspace{0.1cm} X_1 , .. , X_{j-1}, X_{j+1},.., X_p \hspace{0.1cm}]$
+- $\mathcal{X}_2 = [\hspace{0.1cm} X_1 , .. , X_{j-1}, X_{j+1},.., X_p \hspace{0.1cm}]\\[0.45cm]$
 
-- $\mathcal{X}_3 = [\hspace{0.1cm} X_1,..,X_{j-1},X_{j1},X_{j2},..,X_{j(r-1)}, X_{j+1},.., X_p \hspace{0.1cm}] $
+- $\mathcal{X}_3 = [\hspace{0.1cm} X_1,..,X_{j-1},X_{j1},X_{j2},..,X_{j(r-1)}, X_{j+1},.., X_p \hspace{0.1cm}]$
 
 
 
@@ -5979,14 +5998,14 @@ We have to consider the following matrix:
 
 And the following Pearson correlation matrix:
 
-- $R_1$ is the Pearson correlation matrix of $\mathcal{X}_1$ 
+- $R_1$ is the Pearson correlation matrix of $\mathcal{X}_1\\[0.45cm]$ 
 
-- $R_2$ is the Pearson correlation matrix of $\mathcal{X}_2$
+- $R_2$ is the Pearson correlation matrix of $\mathcal{X}_2\\[0.45cm]$
 
 - $R_3$ is the Pearson correlation matrix of $\mathcal{X}_3$
 
 
-
+<br>
 
 
 Then, $\hspace{0.05cm} GVIF \hspace{0.05cm}$ of $\hspace{0.05cm} X_j \hspace{0.05cm}$ is defined as:
@@ -6004,78 +6023,82 @@ $$ GVIF(X_j) = det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)} $$
 
 
 
-**Criteria:** Identification of multicollinearity with $GVIF$
+**Criteria: Identification of multicollinearity with $GVIF$**
 
 
-In this criteria the key quantity is $\hspace{0.15cm} GVIF(X_j)^{1/2 df}$
+In this criteria the key quantity is $\hspace{0.2cm} GVIF(X_j)^{1/2 df}$
 
-Where: $\hspace{0.15cm}df\hspace{0.1cm}$ is the number of parameters that enter in the linear regression model when $\hspace{0.1cm} X_j\hspace{0.1cm}$ is added as predictor
-
-
+Where: $\hspace{0.2cm}df\hspace{0.2cm}$ is the number of parameters that enter in the linear regression model when $\hspace{0.2cm} X_j\hspace{0.2cm}$ is added as predictor
 
 
-If $X_j$ is a **quantitative** predictor $\hspace{0.1cm} ( \Rightarrow df=1)$  :
+<br>
 
-
-
-If $\hspace{0.15cm} GVIF(X_j)^{1/2} > \sqrt{10} = 3.16$  $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ **High** multicollinearity
-
-If $\hspace{0.15cm} GVIF(X_j)^{1/2}  \in [\sqrt{4}, \sqrt{10}]= [2 \hspace{0.1cm},\hspace{0.1cm} 3.16]$    $\hspace{0.1cm}  \Rightarrow\hspace{0.1cm}$ **Medium** multicollinearity
-
-
-If  $\hspace{0.15cm} GVIF(X_j)^{1/2} < \sqrt{4} = 2$  $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ **Low** multicollinearity
+- If $\hspace{0.2cm}X_j\hspace{0.2cm}$ is a **quantitative** predictor $\hspace{0.2cm} ( \Rightarrow df=1)$  :
 
 
 
-If $X_j$ is a **categorical** predictor with $2$ categories $\hspace{0.1cm} ( \Rightarrow df=2-1=1)$ :
+    - If $\hspace{0.2cm} GVIF(X_j)^{1/2} > \sqrt{10} = 3.16$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **High** multicollinearity $\\[0.45cm]$
+
+    - If $\hspace{0.2cm} GVIF(X_j)^{1/2}  \in [\sqrt{4}, \sqrt{10}]= [2 \hspace{0.1cm},\hspace{0.1cm} 3.16]$    $\hspace{0.2cm}  \Rightarrow\hspace{0.2cm}$ **Medium** multicollinearity $\\[0.45cm]$
+
+
+    - If  $\hspace{0.2cm} GVIF(X_j)^{1/2} < \sqrt{4} = 2$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **Low** multicollinearity
 
 
 
-If $\hspace{0.15cm} GVIF(X_j)^{1/2} > 10^{1/2} = 3.16 $  $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ **High** multicollinearity
+<br>
 
-If $\hspace{0.15cm} GVIF(X_j)^{1/2}  \in [4^{1/2}, 10^{1/2}] = [2 \hspace{0.1cm} , \hspace{0.1cm}  3.16]$    $\hspace{0.1cm}  \Rightarrow\hspace{0.1cm}$ **Medium** multicollinearity
-
-
-If  $\hspace{0.15cm} GVIF(X_j)^{1/2} < 4^{1/2} = 2$  $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ **Low** multicollinearity
+- If $\hspace{0.2cm}X_j$ is a **categorical** predictor with $2$ categories $\hspace{0.2cm} ( \Rightarrow df=2-1=1)$ 
 
 
 
-If $X_j$ is a **categorical** predictor with $3$ categories $\hspace{0.1cm} ( \Rightarrow df=3-1=2 )$ :
+    - If $\hspace{0.2cm} GVIF(X_j)^{1/2} > 10^{1/2} = 3.16$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **High** multicollinearity  $\\[0.45cm]$
+
+    - If $\hspace{0.2cm} GVIF(X_j)^{1/2}  \in [4^{1/2}, 10^{1/2}] = [2 \hspace{0.1cm} , \hspace{0.1cm}  3.16]$    $\hspace{0.2cm}  \Rightarrow\hspace{0.2cm}$ **Medium** multicollinearity  $\\[0.45cm]$
+
+
+    - If  $\hspace{0.2cm} GVIF(X_j)^{1/2} < 4^{1/2} = 2$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **Low** multicollinearity
+
+<br>
+
+- If $X_j$ is a **categorical** predictor with $3$ categories $\hspace{0.2cm} ( \Rightarrow df=3-1=2 )$ :
 
 
 
-If $\hspace{0.15cm} GVIF(X_j)^{1/4} > 10^{1/4} = 1.78$  $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ **High** multicollinearity
+    - If $\hspace{0.2cm} GVIF(X_j)^{1/4} > 10^{1/4} = 1.78$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **High** multicollinearity $\\[0.45cm]$
 
-If $\hspace{0.15cm} GVIF(X_j)^{1/4}  \in [4^{1/4}, 10^{1/4}] = [1.41 \hspace{0.1cm} , \hspace{0.1cm}  1.78]$    $\hspace{0.1cm}  \Rightarrow\hspace{0.1cm}$ **Medium** multicollinearity
-
-
-If  $\hspace{0.15cm} GVIF(X_j)^{1/4} < 4^{1/4} = 1.41$  $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ **Low** multicollinearity
+    - If $\hspace{0.2 cm} GVIF(X_j)^{1/4}  \in [4^{1/4}, 10^{1/4}] = [1.41 \hspace{0.1cm} , \hspace{0.1cm}  1.78]$    $\hspace{0.2cm}  \Rightarrow\hspace{0.2cm}$ **Medium** multicollinearity $\\[0.45cm]$
 
 
+    - If  $\hspace{0.2cm} GVIF(X_j)^{1/4} < 4^{1/4} = 1.41$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **Low** multicollinearity
 
-If $X_j$ is a **categorical** predictor with $4$ categories $(\hspace{0.1cm} \Rightarrow df=4-1=3 )$ :
+<br>
 
-
-
-If $\hspace{0.15cm} GVIF(X_j)^{1/6} > 10^{1/6} = 1.47$  $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ **High** multicollinearity
-
-If $\hspace{0.15cm} GVIF(X_j)^{1/6}  \in [4^{1/6}, 10^{1/6}] = [1.26 \hspace{0.1cm} , \hspace{0.1cm}  1.47]$    $\hspace{0.1cm}  \Rightarrow\hspace{0.1cm}$ **Medium** multicollinearity
-
-
-If  $\hspace{0.15cm} GVIF(X_j)^{1/6} < 4^{1/6} = 1.26$  $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ **Low** multicollinearity
+- If $\hspace{0.2cm}X_j\hspace{0.2cm}$ is a **categorical** predictor with $4$ categories $(\hspace{0.2cm} \Rightarrow df=4-1=3 )$ 
 
 
 
-If $X_j$ is a **categorical** predictor with $r$ categories $(\hspace{0.1cm} \Rightarrow df=r-1 )$ :
+    - If $\hspace{0.2cm} GVIF(X_j)^{1/6} > 10^{1/6} = 1.47$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **High** multicollinearity $\\[0.45cm]$
+
+    - If $\hspace{0.2cm} GVIF(X_j)^{1/6}  \in [4^{1/6}, 10^{1/6}] = [1.26 \hspace{0.1cm} , \hspace{0.1cm}  1.47]$    $\hspace{0.2cm}  \Rightarrow\hspace{0.2cm}$ **Medium** multicollinearity $\\[0.45cm]$
+
+
+    - If  $\hspace{0.2cm} GVIF(X_j)^{1/6} < 4^{1/6} = 1.26$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **Low** multicollinearity
 
 
 
-If $\hspace{0.15cm} GVIF(X_j)^{1/(2(r-1))} > 10^{1/(2(r-1))} $  $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ **High** multicollinearity
+<br>
 
-If $\hspace{0.15cm} GVIF(X_j)^{1/(2(r-1))}  \in [4^{1/(2(r-1))}, 10^{1/(2(r-1))}]$    $\hspace{0.1cm}  \Rightarrow\hspace{0.1cm}$ **Medium** multicollinearity
+- If $\hspace{0.2cm}X_j\hspace{0.2cm}$ is a **categorical** predictor with $r$ categories $(\hspace{0.2cm} \Rightarrow df=r-1 )$ :
 
 
-If  $\hspace{0.15cm} GVIF(X_j)^{1/(2(r-1))} < 4^{1/(2(r-1))}$  $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ **Low** multicollinearity
+
+    - If $\hspace{0.2cm} GVIF(X_j)^{1/(2(r-1))} > 10^{1/(2(r-1))}$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **High** multicollinearity $\\[0.45cm]$
+
+    - If $\hspace{0.2cm} GVIF(X_j)^{1/(2(r-1))}  \in [4^{1/(2(r-1))}, 10^{1/(2(r-1))}]$    $\hspace{0.2cm}  \Rightarrow\hspace{0.2cm}$ **Medium** multicollinearity $\\[0.45cm]$
+
+
+    - If  $\hspace{0.2cm} GVIF(X_j)^{1/(2(r-1))} < 4^{1/(2(r-1))}$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **Low** multicollinearity
 
 
 
@@ -6301,7 +6324,7 @@ GVIF_Python_df
 </div>
 
 
-
+<br>
 
 
 In this case all the quantitative predictors have $\hspace{0.1cm} GVIF^{1/2df} < 3.16 \hspace{0.1cm}$, but $\hspace{0.1cm} GVIF^{1/2df} \hspace{0.1cm}$ of $\hspace{0.1cm}$ **no\_of\_bathrooms** $\hspace{0.1cm}$ is $\hspace{0.1cm} 2.14 > 2$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm} $  **medium** multicollinearity
@@ -6319,11 +6342,12 @@ So using the GVIF method, we can conclude that there is a **medium** multicollin
 
 ## Checking Error Assumptions <a class="anchor" id="68"></a>
 
-- $\varepsilon_i \sim N(0,\sigma) \hspace{0.4cm} \forall \hspace{0.1cm} i=1,...,n $
+- $\hspace{0.2cm} \varepsilon_i \sim N(0,\sigma) \hspace{0.5cm} \forall \hspace{0.1cm} i=1,...,n \\[0.35cm]$
   
-- $corr(\varepsilon_i , \varepsilon_j)=0 \hspace{0.4cm} \forall \hspace{0.1cm} i\neq j =1,...,n $
+- $\hspace{0.2cm} corr(\varepsilon_i , \varepsilon_j)=0 \hspace{0.5cm} \forall \hspace{0.1cm} i\neq j =1,...,n$
 
 
+<br>
 
 ### Checking Error Constant Variance <a class="anchor" id="69"></a>
 
@@ -6331,13 +6355,17 @@ It is not possible to check the assumption of constant variance just by examinin
 the residuals alone, some will be large and some will be small, but this proves nothing. We need to check whether the variance in the residuals is related to some
 other quantity.
 
-The most useful diagnostic is a plot of $\hat{\varepsilon}$ vs $\hat{y}$
+<br>
 
-Interpretation of the graph $\hat{\varepsilon}$ vs $\hat{y}$:
+- The most useful diagnostic is a plot of $\hat{\varepsilon}$ vs $\hat{Y}$
 
-- If the dispersion of the points is uniform random $\Rightarrow$ There is no problem (evidence of constant variance of the error).
 
-- If we can see a cone shape at the points $\Rightarrow$ Problem (evidence of error not constant variance)
+
+- Interpretation of the graph $\hat{\varepsilon}$ vs $\hat{y}$:
+
+    - If the dispersion of the points is uniform random $\Rightarrow$ There is no problem (evidence of constant variance of the error).
+
+    - If we can see a cone shape at the points $\Rightarrow$ Problem (evidence of error not constant variance)
 
 <br>
 
@@ -6363,7 +6391,14 @@ geom_point(mapping = aes(x=model_R$fitted.values , y = estimated_errors ), color
 geom_hline(yintercept =0 , color="red")
 ```
 
-![png](output_785_0.png)
+
+<center>
+
+![ ](output_785_0.png){width="45%"}
+
+</center>
+
+ 
 
 
 &nbsp;
@@ -6388,9 +6423,13 @@ ggplot()
 )
 ```
 
-![png](output_791_0.png)
+ 
 
+<center>
 
+![ ](output_791_0.png){width="45%"}
+
+</center>
 
 Since we can see a cone shape at the points, we cannot accept the constant error variance assumption $Var(\varepsilon)=\sigma^2$.
 
@@ -6536,7 +6575,12 @@ ggplot(data = as.data.frame(estimated_errors) ,
  )
 ```
 
-![png](output_820_1.png)
+ 
+<center>
+
+![ ](output_820_1.png){width="45%"}
+
+</center>
 
 &nbsp;
 
@@ -6556,8 +6600,13 @@ ggplot(data = df_predictions_Python ,
 )
 ```
 
-![png](output_825_0.png)
 
+
+<center>
+
+![ ](output_825_0.png){width="45%"}
+
+</center>
 
 &nbsp;
 
@@ -6639,7 +6688,7 @@ DW = \dfrac{\sum_{i=2}^n (\hat{\varepsilon}_i - \hat{\varepsilon}_{i-1})^2 }{\su
 \end{gather*}
 
 
-
+<br>
 
 The test statistic is approximately equal to $\hspace{0.1cm} 2\cdot (1-r) \hspace{0.1cm}$ where $r$ is the sample autocorrelation of the residuals. Thus, the test statistic will always be between $0$ and $4$ with the following interpretation:
 
@@ -6669,9 +6718,12 @@ ggplot() +
 geom_point(mapping = aes(x=estimated_errors_1 , y = estimated_errors_2 ), color="blue")
 ```
 
-![png](output_856_0.png)
+ 
+<center>
 
+![ ](output_856_0.png){width="45%"}
 
+</center>
 
 ```r
 %%R
@@ -6709,9 +6761,12 @@ ggplot()
 )
 ```
 
-![png](output_863_0.png)
+ 
+<center>
 
+![ ](output_863_0.png){width="45%"}
 
+</center>
 
 ```python
 import statsmodels
@@ -6758,25 +6813,31 @@ For any $\alpha$ we reject the null  error correlation hypothesis.
 
 ## Checking Linear Assumption <a class="anchor" id="73"></a>
 
-The linear regression model assumes that there is a linear relationship between the response and the predictors.
+The linear regression model assumes that there is a **linear** relationship between the response and the predictors.
 
-If the actually existing relationship is not linear, then all the conclusions we draw from the linear model are questionable.
+If the actual relationship is not linear, then all the conclusions we draw from the linear model are questionable.
 
-How to identify nonlinearity?
+<br>
 
-Make a plot of the estimated errors (residuals) against the predictions of the response (all with the train data).
+**How to identify non-linearity?**
 
-It is the same plot as the one used to diagnose heteroscedasticity of the residuals (non-constant variance of the residuals). If a non-linear relationship is observed in the graph, it indicates non-linearity between the predictors and the response.
+Make a plot of the estimated errors (residuals) against the predictions of the response (all with the train data) $\hspace{0.2cm}\Rightarrow\hspace{0.2cm} \widehat{\varepsilon}\hspace{0.2cm} vs \hspace{0.2cm}\widehat{Y}$
 
-They can also help detect nonlinearity in the relationship between response and predictors by plotting the response versus predictors (one-to-one).
+It is the same plot as the one used to diagnose heteroscedasticity of the residuals (non-constant variance of the residuals). 
 
-Solutions:
+If a non-linear relationship is observed in the graph, it indicates non-linearity between the predictors and the response.
+
+They can also help detect non-linearity in the relationship between response and predictors by plotting the response versus predictors (one-to-one).
+
+<br>
+
+**Solutions:**
 
 A logarithmic transformation of the response variable could help. But the best option is to use a nonlinear (or nonparametric) regression method.
 
+<br>
 
-
-Scatter Plots: response vs predictors (one-to-one)
+**Identification non-linearity with scatter plots: response vs predictors (one-to-one)**
 
 
 ```python
@@ -6790,8 +6851,15 @@ ggplot(aes(x = 'size_in_m_2' , y = 'price') , data_Python)
  + scale_y_continuous( breaks = range(int(data_Python['price'].min()) , int(data_Python['price'].max()) , 2000000) )
 )
 ```
-![png](output_883_0.png)
+ 
 
+<center>
+
+![ ](output_883_0.png){width="45%"}
+
+</center>
+
+<br>
 
 ```python
 (
@@ -6805,8 +6873,14 @@ ggplot(aes(x = 'longitude' , y = 'price') , data_Python)
 )
 ```
 
-![png](output_884_0.png)
+<center>
 
+![ ](output_884_0.png){width="45%"}
+
+</center>
+
+ 
+<br>
 
 ```python
 (
@@ -6819,8 +6893,16 @@ ggplot(aes(x = 'latitude' , y = 'price') , data_Python)
  + scale_y_continuous( breaks = range(int(data_Python['price'].min()) , int(data_Python['price'].max()) , 2000000) )
 )
 ```
-![png](output_885_0.png)
+ 
 
+<center>
+
+![ ](output_885_0.png){width="45%"}
+
+</center>
+
+
+<br>
 
 ```python
 (
@@ -6833,7 +6915,15 @@ ggplot(aes(x = 'no_of_bedrooms' , y = 'price') , data_Python)
  + scale_y_continuous( breaks = range(int(data_Python['price'].min()) , int(data_Python['price'].max()) , 2000000) )
 )
 ```
-![png](output_886_0.png)
+ 
+<center>
+
+![ ](output_886_0.png){width="45%"}
+
+</center>
+
+
+<br>
 
 
 ```python
@@ -6847,8 +6937,15 @@ ggplot(aes(x = 'no_of_bathrooms' , y = 'price') , data_Python)
  + scale_y_continuous( breaks = range(int(data_Python['price'].min()) , int(data_Python['price'].max()) , 2000000) )
 )
 ```
-![png](output_887_0.png)
+ 
+<center>
 
+![ ](output_887_0.png){width="45%"}
+
+</center>
+
+
+<br>
 
 ```python
 data_Python['quality'] = data_Python['quality'].astype('int')
@@ -6867,15 +6964,18 @@ ggplot(aes(x = 'quality' , y = 'price') , data_Python)
 )
 ```
 
-![png](output_889_0.png)
+ 
 
+<center>
 
+![ ](output_889_0.png){width="45%"}
 
+</center>
 
 &nbsp;
 
 
-
+<br>
 
 ## Finding Outliers <a class="anchor" id="74"></a>
 
@@ -6887,15 +6987,19 @@ How to identify outliers?
 
 A simple option is with the standardized  residuals, given by:
 
-
+<br>
 
 $$ \tilde{\varepsilon_i} = \dfrac{\hat{\varepsilon}_i}{\sqrt{\widehat{Var}(\hat{\varepsilon}_i)}} = \dfrac{\hat{\varepsilon}_i}{ \sqrt{ \widehat{\sigma}^2 \cdot (1-h_{ii})} }  $$
 
+<br>
 
 
 Where:
 
 $\hspace{0.1cm} h_{ii} \hspace{0.1cm}$ is the $i$-th element of the principal diagonal of $\hspace{0.1cm} H=X \cdot (X^t \cdot X)^{-1} \cdot X^t \hspace{0.1cm}$
+
+
+<br>
 
 Note that:
 
@@ -6906,17 +7010,20 @@ Because  $\varepsilon_i$ is a random variable such that $\hspace{0.1cm}\varepsil
 
 And $\hspace{0.1cm} \hat{\varepsilon}_i = y_i - \hat{y}_i \hspace{0.1cm}$ is another random variable such that  $\hspace{0.1cm} \hat{\varepsilon}_i \sim N(0\hspace{0.1cm},\hspace{0.1cm}\sigma^2 \cdot (1-h_{ii})) \hspace{0.1cm}$  (can be proof) 
 
+<br>
 
-Criteria:
+**Criteria: Outliers Identification **
 
-Observations whose studentized residuals are greater than 3 (in absolute value) will be considered outliers.
+**Observations** whose **studentized residuals** are **greater than 3** (in absolute value) will be considered outliers.
 
 What to do with outliers:
 
 If they are the result of an error in data collection, they can be deleted. If not, it shouldn't, since it is part of the reality reflected by the sample, and is therefore relevant information.
 
 
+<br>
 
+### Outliers Identification in `Python`
 
 ```python
 H = np.dot(X @ np.linalg.inv( X.T @ X ) , X.T) 
@@ -6992,16 +7099,13 @@ Outliers = Outliers_df.loc[ Outliers_df['standardized_estimated_errors > 3'] == 
 Outliers
 ```
 
-     Int64Index([  60,  216,  235,  336,  343,  427,  456,  460,  461,  462,           
-      463, 464,  465,  475,  476,  517,  576,  790,  836,  970,  989, 1189,
-      
-      1259, 1487, 1515, 1690, 1697, 1869, 1885], dtype='int64')
+    Int64Index([  60,  216,  235,  336,  343,  427,  456,  460,  461,  462, 463, 464,  465,  475,  476,  517,  576,  790,  836,  970,  989, 1189, 1259, 1487, 1515, 1690, 1697, 1869, 1885], dtype='int64')
 
 
 
 &nbsp;
 
-
+<br>
 
 
 # Bibliography
