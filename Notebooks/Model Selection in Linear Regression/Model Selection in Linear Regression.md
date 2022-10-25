@@ -1689,7 +1689,9 @@ https://fabioscielzoortiz.github.io/Estadistica4all.github.io/Articulos/Linear-R
 Here we will just show the formula that characterizes the adjusted $R^2$:
 
 
-Given a linear regression model $\hspace{0.05cm} M \hspace{0.05cm}$  with $\hspace{0.05cm} p_M \hspace{0.051cm}$ predictors (independent variables) and $n$ observations:
+Given a linear regression model $\hspace{0.1cm} M \hspace{0.1cm}$  with $\hspace{0.1cm} p_M \hspace{0.1cm}$ predictors and $n$ observations:
+
+<br>
 
 \begin{gather*}
 \widehat{R}^2 = 1 - \left( 1- R^2 \right) \cdot \dfrac{n-1}{n-p_M}
@@ -1701,25 +1703,25 @@ Where:
 R^2 = \dfrac{RegSS}{TSS}
 \end{gather*}
 
-
+<br>
 
 This metric is usually used as a criteria to select linear regression models.
 
 <br>
 
-**$\widehat{R}^2$ criteria:** 
+**$\widehat{R}\hspace{0.1cm}^2$ criteria:** 
 
-Given $h$ linear regression models $\hspace{0.1cm}M_1 , M_2, \dots, M_h$
+Given $\hspace{0.1cm} h \hspace{0.1cm}$ linear regression models $\hspace{0.1cm}M_1 , M_2, \dots, M_h$
 
 <br>
 
 $$
-\text{If} \hspace{0.3cm}  \widehat{R}^2 (M_j) > \widehat{R}^2 (M_r) \hspace{0.2cm} , \forall r \in \lbrace 1,...,h\rbrace - \lbrace j \rbrace \hspace{0.2cm} \Rightarrow \\[0.7cm]  \Rightarrow \hspace{0.2cm} M_j \hspace{0.2cm} \text{is selected instead of} \hspace{0.2cm} M_1, ..., M_{j-1},M_{j+1},...,M_h
+\text{If} \hspace{0.4cm}  \widehat{R}^2 (M_j) > \widehat{R}^2 (M_r) \hspace{0.35cm} , \hspace{0.1cm} \forall r \in \lbrace 1,...,h\rbrace - \lbrace j \rbrace \hspace{0.3cm} \Rightarrow \\[0.7cm]  \Rightarrow \hspace{0.3cm} M_j \hspace{0.2cm} \text{is selected instead of} \hspace{0.2cm} M_1, ..., M_{j-1},M_{j+1},...,M_h
 $$
 
 <br>
 
-> That is, the model with the **highest** $\hspace{0.1cm} \widehat{R}^2 \hspace{0.1cm}$ is selected over the rest.
+> That is, the model with the **highest** $\hspace{0.15cm} \widehat{R}^2 \hspace{0.15cm}$ is selected over the rest.
 
 
 <br>
@@ -1778,18 +1780,18 @@ summary(model)$adj.r.squared
 
 ### Akaike Information Criteria $\hspace{0.2cm} AIC$ 
 
-Given a linear regression model $\hspace{0.05cm} M \hspace{0.05cm}$  with $\hspace{0.05cm} p_M \hspace{0.051cm}$ predictors and $n$ observations:
+Given a linear regression model $\hspace{0.1cm} M \hspace{0.1cm}$  with $\hspace{0.1cm} p_M \hspace{0.1cm}$ predictors and $\hspace{0.1cm} n \hspace{0.1cm}$ observations:
 
 <br>
 
-$$ AIC(M) = -2 \cdot ln\left(\widehat{L}(M)\right) + 2 \cdot  \left(\hspace{0.1cm} p_M +1 \hspace{0.1cm}\right)  $$
+$$ AIC(M) = -2 \cdot ln\left(\widehat{L}(M)\right) \hspace{0.1cm}+\hspace{0.1cm} 2 \cdot  \left(\hspace{0.1cm} p_M +1 \hspace{0.1cm}\right)  $$
 
 
 
 
 Where:
 
-$\widehat{L}(M)$ is the value of the likelihood function of the model $M$ evaluated at the MLE (Maximum Likelihood Estimators)
+$\widehat{L}(M)$ is the value of the **likelihood function** of the model $M$ evaluated at the MLE (Maximum Likelihood Estimation) of model parameters.
 
 
 This metric is usually used as a criteria to select linear regression models.
@@ -1799,18 +1801,18 @@ This metric is usually used as a criteria to select linear regression models.
 
 #### **$AIC$ criteria**:
 
-Given $h$ linear regression models $\hspace{0.1cm}M_1 , M_2, \dots, M_h$
+Given $\hspace{0.1cm}h\hspace{0.1cm}$ linear regression models $\hspace{0.1cm}M_1 , M_2, \dots, M_h$
 
 <br>
 
 $$
-\text{If} \hspace{0.2cm}  AIC (M_j) < AIC(M_r) \hspace{0.2cm} , \forall r \in \lbrace 1,...,h\rbrace - \lbrace j \rbrace \hspace{0.2cm} \Rightarrow \\[0.5cm]
- \Rightarrow \hspace{0.2cm} M_j \hspace{0.2cm}\text{is selected instead of}\hspace{0.2cm} M_r   \hspace{0.2cm} , \forall r \in \lbrace 1,...,h\rbrace - \lbrace j \rbrace
+\text{If} \hspace{0.35cm}  AIC (M_j) < AIC(M_r) \hspace{0.35cm} , \forall r \in \lbrace 1,...,h\rbrace - \lbrace j \rbrace \hspace{0.35cm} \Rightarrow \\[0.7cm]
+ \Rightarrow \hspace{0.35cm} M_j \hspace{0.2cm}\text{is selected instead of}\hspace{0.2cm} M_r   \hspace{0.2cm} , \forall r \in \lbrace 1,...,h\rbrace - \lbrace j \rbrace
 $$
 
 <br>
 
-> That is, the model with the **less** $AIC$ is selected over the rest.
+> That is, the model with the **less** $\hspace{0.1cm}AIC\hspace{0.1cm}$ is selected over the rest.
 
 
 
@@ -1825,13 +1827,13 @@ Given a linear regression model $\hspace{0.05cm} M \hspace{0.05cm}$  with $\hspa
 
 <br>
 
-$$ BIC(M) = -2 \cdot ln\left(\widehat{L}(M)\right) + ln(n) \cdot  \left(\hspace{0.1cm} p_M +1 \hspace{0.1cm}\right)  $$
+$$BIC(M) = -2 \cdot ln\left(\widehat{L}(M)\right) + ln(n) \cdot  \left(\hspace{0.1cm} p_M +1 \hspace{0.1cm}\right)$$
 
 
 
 Where:
 
-$\widehat{L}(M)$ is the value of the likelihood function of the model $M$ evaluated at the MLE (Maximum Likelihood Estimators)
+$\widehat{L}(M)$ is the value of the likelihood function of the model $M$ evaluated at the MLE (Maximum Likelihood Estimation) of model parameters.
 
 
 
@@ -1844,13 +1846,16 @@ This metric is usually used as a criteria to select linear regression models.
 $BIC$ **criteria**:
 
 
-Given $h$ linear regression models $\hspace{0.1cm}M_1 , M_2, \dots, M_h$
+Given $\hspace{0.1cm}h\hspace{0.1cm}$ linear regression models $\hspace{0.1cm}M_1 , M_2, \dots, M_h$
 
 $$
-\text{If} \hspace{0.2cm}  BIC (M_j) < BIC(M_r) \hspace{0.2cm} , \forall r \in \lbrace 1,...,h\rbrace - \lbrace j \rbrace \hspace{0.2cm} \Rightarrow \hspace{0.2cm}  M_j \hspace{0.2cm}\text{is selected instead of}\hspace{0.2cm} M_r   \hspace{0.1cm} , \forall r \in \lbrace 1,...,h\rbrace - \lbrace j \rbrace
+\text{If} \hspace{0.35cm}  BIC (M_j) < BIC(M_r) \hspace{0.2cm} , \forall r \in \lbrace 1,...,h\rbrace - \lbrace j \rbrace \hspace{0.35cm} \Rightarrow \\[0.7cm]
+\Rightarrow \hspace{0.35cm}   M_j \hspace{0.2cm}\text{is selected instead of}\hspace{0.2cm} M_r   \hspace{0.1cm} , \forall r \in \lbrace 1,...,h\rbrace - \lbrace j \rbrace
 $$
 
-That is, the model with the **less** $BIC$ is selected over the rest.
+<br>
+
+>That is, the model with the **less** $BIC$ is selected over the rest.
 
 
 
@@ -1861,45 +1866,68 @@ That is, the model with the **less** $BIC$ is selected over the rest.
 ## Maximum Likelihood Estimation in the Linear Regression Model <a class="anchor" id="14"></a>
 
 
-Given a linear regression model $\hspace{0.1cm} M \hspace{0.1cm}$  with $\hspace{0.1cm} p_M \hspace{0.1cm}$ predictors and $n$ observations:
+Given a linear regression model $\hspace{0.1cm} M \hspace{0.1cm}$  with $\hspace{0.1cm} p_M \hspace{0.1cm}$ predictors and $n$ observations, the probability distribution of a random sample of response variable $\hspace{0.1cm}Y_1,...,Y_n\hspace{0.1cm}$ , is the following:
 
 <br>
 
-$$ y_i \sim N(\hspace{0.1cm} x_i^t  \cdot \beta \hspace{0.1cm} , \hspace{0.1cm} \sigma^2 \hspace{0.1cm} )$$
-
-$$ y_i \sim f(y_i) = \dfrac{1}{\sqrt{2\pi \sigma^2}} \cdot exp\lbrace \hspace{0.1cm} - \dfrac{1}{2\sigma^2} \cdot (y_i - x^t_i\cdot \beta)^2 \hspace{0.1cm} \rbrace $$
-
+\begin{gather*}
+Y_i \sim N(\hspace{0.1cm} x_i^t  \cdot \beta \hspace{0.15cm} , \hspace{0.15cm} \sigma^2 \hspace{0.1cm} ) \\[0.7cm]
+ f_{Y_i}(z) = \dfrac{1}{\sqrt{2\pi \sigma^2}} \cdot exp\lbrace \hspace{0.1cm} - \dfrac{1}{2\sigma^2} \cdot (z - x^t_i\cdot \beta)^2 \hspace{0.1cm} \rbrace 
+\end{gather*}
+ 
+For $\hspace{0.2cm} i=1,...,n$
+ 
 <br>
 
-The likelihood function of the model $M$ is:
+Given a sample of  realizations $\hspace{0.1cm}y_1,...,y_n\hspace{0.1cm}$ of the random sample $\hspace{0.1cm}Y_1,...,Y_n\hspace{0.1cm}$ of the response variable.
 
-$$ L(  M )=L(\beta, \sigma \hspace{0.1cm}|\hspace{0.1cm} x_i, y_i)= \prod_{i=1}^{n} f(y_i) = (2\pi \sigma^2)^{-n/2} \cdot exp\lbrace \hspace{0.1cm} - \dfrac{1}{2\sigma^2}\cdot \sum_{i=1}^{n} (y_i - x^t_i\cdot \beta)^2 \hspace{0.1cm} \rbrace$$
+The likelihood function of the model $\hspace{0.1cm}M\hspace{0.1cm}$ is:
+
+
+$$L( M )=L(\beta, \sigma \hspace{0.1cm}|\hspace{0.1cm} x_i, y_i) \hspace{0.2cm}=\hspace{0.2cm} f_{Y_1,...,Y_n}(y_1,...,y_n) \hspace{0.2cm}=\hspace{0.2cm} \prod_{i=1}^{n} f_{Y_i}(y_i) \hspace{0.2cm}=\hspace{0.2cm} (2\pi \sigma^2)^{-n/2} \cdot exp\lbrace \hspace{0.1cm} - \dfrac{1}{2\sigma^2}\cdot \sum_{i=1}^{n} (y_i - x^t_i\cdot \beta)^2 \hspace{0.1cm} \rbrace \\[0.3cm]$$
+
+
+**Observation:** 
+
+$f_{Y_1,...,Y_n}(y_1,...,y_n)\hspace{0.1cm}$ is the value of the joint density function of the random variables $\hspace{0.1cm}Y_1,...,Y_n\hspace{0.1cm}$ evaluated in $\hspace{0.1cm}y_1,...,y_n$
+
+$f_{Y_i}(y_i)\hspace{0.1cm}$ is the value of the density function of the random variable $\hspace{0.1cm}Y_i\hspace{0.1cm}$ evaluated in $\hspace{0.1cm}y_i$
+
+<br>
 
 Taking natural logarithm we have:
 
-$$ln\left(\hspace{0.1cm}L(M)\hspace{0.1cm}\right)=ln(\hspace{0.1cm} L(\beta, \sigma \hspace{0.1cm}|\hspace{0.1cm} x_i, y_i)\hspace{0.1cm}) = - \dfrac{n}{2} \left(ln(2\pi) + ln(\sigma^2) \right) - \dfrac{1}{2\sigma^2} \sum_{i=1}^{n} \left( y_i - x^t_i\cdot \beta \right) ^2   $$
+$$ln\left(\hspace{0.1cm}L(M)\hspace{0.1cm}\right)\hspace{0.1cm}=\hspace{0.1cm}ln(\hspace{0.1cm} L(\beta, \sigma \hspace{0.1cm}|\hspace{0.1cm} x_i, y_i)\hspace{0.1cm}) \hspace{0.1cm}=\hspace{0.1cm} - \dfrac{n}{2} \left(ln(2\pi) + ln(\sigma^2) \right) - \dfrac{1}{2\sigma^2} \sum_{i=1}^{n} \left( y_i - x^t_i\cdot \beta \right) ^2   $$
 
 
 <br>
 
 
-The maximum likelihood estimators  of the parameters $\hspace{0.1cm} \beta$ , $\sigma \hspace{0.1cm}$ of the linear regression model $M$ are calculated as the solution of the following optimization problem:
+The maximum likelihood estimation (MLE)  of the parameters $\hspace{0.1cm} \beta$ , $\sigma \hspace{0.1cm}$ of the linear regression model $M$ are calculated as the solution of the following optimization problem:
+
+<br>
 
 $$
-\underset{\beta \hspace{0.05cm},\hspace{0.05cm} \sigma}{Max} \hspace{0.2cm} ln(\hspace{0.1cm}L(M)\hspace{0.1cm})
+\underset{\beta \hspace{0.05cm},\hspace{0.05cm} \sigma}{Max} \hspace{0.2cm} \lbrace \hspace{0.1cm} ln(\hspace{0.1cm}L(M)\hspace{0.1cm}) \hspace{0.1cm}\rbrace\\[0.3cm] 
 $$
+
+So, in other words:
+
+$$\widehat{\beta}_{MLE} \hspace{0.1cm},\hspace{0.1cm} \widehat{\sigma}^2_{MLE} \hspace{0.2cm}=\hspace{0.2cm} arg \hspace{0.1cm} \underset{\beta \hspace{0.05cm},\hspace{0.05cm} \sigma}{Max} \hspace{0.2cm} \lbrace\hspace{0.1cm} ln(\hspace{0.1cm}L(M)\hspace{0.1cm}) \hspace{0.1cm}\rbrace
+$$
+
+  
 
 
 <br>
 
 **Solutions:**
 
-$$
-\hat{\beta}_{MLE}=(X^t \cdot X)^{-1} \cdot X^t \cdot Y = \hat{\beta}_{OLS}
-$$
-$$
-\hat{\sigma}^2_{MLE} = \dfrac{RSS(M)}{n}
-$$
+\begin{gather*}
+\widehat{\beta}_{MLE}\hspace{0.1cm}=\hspace{0.1cm}(X^t \cdot X)^{-1} \cdot X^t \cdot Y  \hspace{0.1cm}=\hspace{0.1cm} \widehat{\beta}_{OLS} \\[0.5cm]
+\widehat{\sigma}^2_{MLE} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{RSS(M)}{n}
+\end{gather*}
+
 
 
 <br>
@@ -1912,9 +1940,9 @@ $$
 
 <br>
 
-So, the function $\hspace{0.1cm} ln \left( \hspace{0.1cm}L(M)\hspace{0.1cm} \right) \hspace{0.1cm}$ evaluated in $\hspace{0.1cm} \beta=\hat{\beta}_{MLE} \hspace{0.1cm}, \hspace{0.1cm}\sigma^2 = \hat{\sigma}^2_{MLE} \hspace{0.1cm}$ is :
+So, the function $\hspace{0.1cm} ln \left( \hspace{0.1cm}L(M)\hspace{0.1cm} \right) \hspace{0.1cm}$ evaluated in $\hspace{0.1cm} \beta=\widehat{\beta}_{MLE} \hspace{0.1cm}, \hspace{0.1cm}\sigma^2 = \widehat{\sigma}^2_{MLE} \hspace{0.1cm}$ is :
 
-
+<br>
 
 $$ ln \left( \hspace{0.1cm}\widehat{L}(M)\hspace{0.1cm} \right) =  - \dfrac{n}{2} \left( ln(2\pi) + ln\left(\dfrac{RSS(M)}{n}\right) - ln(n) + 1 \right) $$
 
@@ -1924,19 +1952,21 @@ $$ ln \left( \hspace{0.1cm}\widehat{L}(M)\hspace{0.1cm} \right) =  - \dfrac{n}{2
 
 <br>
 
+<br>
+
 
 
 ### $AIC$ and $BIC$ in the Linear Regression Model <a class="anchor" id="14.1"></a> 
 
 
-Then, in the linear regression model:
+Then, in the linear regression model $\hspace{0.1cm}M\hspace{0.1cm}$ with $\hspace{0.1cm}p_M\hspace{0.1cm}$ predictors and $\hspace{0.1cm}n\hspace{0.1cm}$ observations:
 
 <br>
 
-
-$$ AIC(M) = n \cdot \left( \hspace{0.1cm}  ln(2\pi) + ln(RSS(M)) - ln(n) \hspace{0.1cm} \right) + n + 2\cdot (\hspace{0.1cm}p_M + 1\hspace{0.1cm}) $$
-
-$$ BIC(M) =  n \cdot \left(  \hspace{0.1cm} ln(2\pi) + ln(RSS(M)) - ln(n) \hspace{0.1cm} \right) + n + ln(n)\cdot(\hspace{0.1cm} p_M + 1\hspace{0.1cm}) $$
+\begin{gather*}
+AIC(M) = n \cdot \left( \hspace{0.1cm}  ln(2\pi) + ln(RSS(M)) - ln(n) \hspace{0.1cm} \right) + n + 2\cdot (\hspace{0.1cm}p_M + 1\hspace{0.1cm}) \\[0.6cm]
+BIC(M) =  n \cdot \left(  \hspace{0.1cm} ln(2\pi) + ln(RSS(M)) - ln(n) \hspace{0.1cm} \right) + n + ln(n)\cdot(\hspace{0.1cm} p_M + 1\hspace{0.1cm}) 
+\end{gather*}
 
 
 <br>
@@ -1944,7 +1974,7 @@ $$ BIC(M) =  n \cdot \left(  \hspace{0.1cm} ln(2\pi) + ln(RSS(M)) - ln(n) \hspac
 Where:
 
 $$
-RSS(M) =  \sum_{i=1}^n \hat{\varepsilon}_i^2 =  \sum_{i=1}^n ( y_i - \hat{y}_i)^2
+RSS(M) \hspace{0.1cm}=\hspace{0.1cm}  \sum_{i=1}^n \hat{\varepsilon}_i^2 \hspace{0.1cm}=\hspace{0.1cm}  \sum_{i=1}^n ( y_i - \hat{y}_i)^2
 $$
 
 
@@ -2154,28 +2184,26 @@ BIC(model)
 
 
 
-### $C_p$ <a class="anchor" id="18"></a>
+### Mallow's $C_p$ <a class="anchor" id="18"></a>
 
-Given a full linear regression model  with $\hspace{0.1cm} p\hspace{0.1cm}$ predictors $\hspace{0.1cm} M_{Full}:\hspace{0.1cm} y_i = \beta_0 + \sum_{j=1}^{p} \hspace{0.02cm} \beta_j \cdot x_{ij}$
+Given a full linear regression model  with $\hspace{0.1cm} p\hspace{0.1cm}$ predictors $\hspace{0.1cm} M_{Full}:\hspace{0.15cm} y_i \hspace{0.1cm}=\hspace{0.1cm} \beta_0 + \sum_{j=1}^{p} \hspace{0.02cm} \beta_j \cdot x_{ij}$
 
-Given a linear regression model $\hspace{0.1cm} M \subseteq M_{Full}\hspace{0.1cm}$  with $\hspace{0.1cm} p_M \leq p\hspace{0.1cm}$ predictors and $n$ observations:
+Given a linear regression model $\hspace{0.1cm} M \subseteq M_{Full}\hspace{0.1cm}$  with $\hspace{0.1cm} p_M \leq p\hspace{0.1cm}$ predictors and $\hspace{0.1cm}n\hspace{0.1cm}$ observations:
 
+<br>
 
-
-$$ C_p(M) = \dfrac{RSS(M)}{\hat{\sigma}_{M_{Full}}^2} - n + 2\cdot \left(\hspace{0.1cm} p_M +1 \hspace{0.1cm}\right) $$
+$$C_p(M) \hspace{0.15cm}=\hspace{0.15cm} \dfrac{RSS(M)}{\widehat{\sigma}_{M_{Full}}^2} - n \hspace{0.1cm}+\hspace{0.1cm} 2\cdot \left(\hspace{0.1cm} p_M +1 \hspace{0.1cm}\right)$$
 
 
 
 Where:
 
-$ \hat{\sigma}_{M_{Full}}^2 =  \dfrac{RSS(M_{Full})}{n-p-1}  \hspace{0.2cm} $ is the residual variance of the full model.
+$\hat{\sigma}_{M_{Full}}^2 \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{RSS(M_{Full})}{n-p-1}  \hspace{0.35cm}$ is the residual variance of the full model.$\\$
 
-$
-RSS(M_{Full}) =    \sum_{i=1}^{n} (y_i - \widehat{y}_{M_{Full}\hspace{0.02cm},\hspace{0.02cm} i})^2
-$
+$RSS(M_{Full}) \hspace{0.1cm}=\hspace{0.1cm}  \sum_{i=1}^{n} (y_i - \widehat{y}_{M_{Full}\hspace{0.02cm},\hspace{0.02cm} i})^2$
 
 
-
+<br>
 <br>
 
 ### $C_p$ in `Python` <a class="anchor" id="14"></a>
@@ -2242,7 +2270,7 @@ Cp_lm(data_Python, full_model, model)
 # install.packages("olsrr")
 ```
 
-    NULL
+  
     
 
 
@@ -2263,65 +2291,81 @@ library(olsrr)
 ols_mallows_cp(model, full_model)
 ```
 
-    R[write to console]: 
-    Attaching package: 'olsrr'
-    
-    
-    R[write to console]: The following object is masked from 'package:datasets':
-    
-        rivers
-    
-    
-    
-
     [1] 75.98029
     
+
+
+<br>
+
+<br>
+
+## Classic Best Subset Selection <a class="anchor" id="20"></a>
+
+Classic best subset selection  consist in the following algorithm :
+
+We have $p$ predictors: $\hspace{0.1cm} X_1,...,X_p$
+
+- We train the null linear model $(M_0)\\[0.25cm]$
+   
+- We train all possible linear models with $\hspace{0.1cm}1\hspace{0.1cm}$ predictor and select the one with the smallest train error $(M^*_1)\\[0.25cm]$  
+
+- We train all the possible linear models with $\hspace{0.1cm}2\hspace{0.1cm}$ predictors and select the one with the smallest train error $(M^*_2)$ 
+  
+   $\dots \\[0.3cm]$ 
+
+- We train all the possible linear models with $\hspace{0.1cm}p-1\hspace{0.1cm}$ predictors and select the one with the smallest train error $(M^*_{p-1})\\[0.25cm]$ 
+
+- We train the full linear model $(M_p)\\[0.25cm]$
+
+
+- We select one of those models under some criteria, for example the one with **less**    $\hspace{0.05cm}AIC\hspace{0.05cm}$, $\hspace{0.05cm}BIC\hspace{0.05cm}$ or $\hspace{0.05cm}Cp\hspace{0.05cm}$, or **greater**  $\hspace{0.05cm}\widehat{R}^2\hspace{0.05cm}$. That model will be consider "the best model".
 
 
 
 <br>
 
+**Scheme of the algorithm:**
 
+- Train $\hspace{0.08cm}M_0 =  \text{null linear model}  \\[0.35cm]$
 
-## Best Subset Selection <a class="anchor" id="20"></a>
+- Train $\hspace{0.08cm}M_1=\lbrace \text{linear models with 1 predictor} \rbrace \hspace{0.12cm}\underset{\text{train error}}{\Rightarrow}\hspace{0.12cm} M_1^*\\[0.35cm]$ 
 
-Best subset selection  consist in the following algorithm :
+- Train $\hspace{0.08cm}M_2=\lbrace \text{linear models with 2 predictors} \rbrace \hspace{0.12cm}\underset{\text{train error}}{\Rightarrow}\hspace{0.12cm} M_2^*$
 
-We have $p$ predictors: $\hspace{0.1cm} X_1,...,X_p$
+$\dots$
 
-- We train the null linear model  
-   
-- We train all the possible linear models with  $1$ predictor 
+- Train $\hspace{0.08cm}M_{p-1}=\lbrace \text{linear models with p-1 predictors} \rbrace \hspace{0.12cm}\underset{\text{train error}}{\Rightarrow}\hspace{0.12cm} M_{p-1}^*\\[0.35cm]$
 
-- We train all the possible linear models with $2$ predictors
-  
-   $\dots$ 
-
-- We train all the possible linear models with $\hspace{0.05cm}p-1\hspace{0.05cm}$ predictors
-
-- We train the full linear model 
-
-
-We select one of those models under some criteria, for example the one with **less**  train error , $AIC$, $BIC$ or $Cp$, or **greater**  $\widehat{R}^2$. That model will be consider "the best model".
-
-
-Scheme of the algorithm:
-
-- Train $\hspace{0.08cm}M_0 = \lbrace \text{null model} \rbrace$
-
-- Train $\hspace{0.08cm}M_1=\lbrace \text{models with 1 predictor} \rbrace$
-
-- Train $\hspace{0.08cm}M_2=\lbrace \text{models with 2 predictors} \rbrace$
-
-$\hspace{0.8cm} \dots$
-
-- Train $\hspace{0.08cm}M_{p-1}=\lbrace \text{models with p-1 predictors} \rbrace$
-
-- Train $\hspace{0.08cm}M_{p}=\lbrace \text{full model} \rbrace$
+- Train $\hspace{0.08cm}M_{p}= \text{full linear model} \\[0.35cm]$
 
 
 
-- $ M_0 \cup M_1 \cup ...\cup M_p  \underset{ Train Error, AIC, BIC, C_p, \widehat{R}^2 }{\Rightarrow} \hspace{0.1cm} M\hspace{0.05cm}^* \hspace{0.1cm}(Best \hspace{0.1cm} Model) $
+- $M_0 ,  M_1^* , ..., M_{p-1}^*, M_p  \underset{ \hspace{0.15cm} AIC\hspace{0.08cm},\hspace{0.08cm} BIC, \hspace{0.08cm}C_p \hspace{0.08cm},\hspace{0.08cm} \widehat{R}^2 \hspace{0.15cm}}{\Rightarrow} \hspace{0.1cm} M\hspace{0.05cm}^* \hspace{0.2cm}(Best \hspace{0.1cm} Model)$
+
+
+<br>
+
+**Why don't we select the final model using the training error?**
+
+The train error of a linear regression model is defined as:
+
+$$\text{Train Error} (M_j) = ECM_{train}(M_j) =
+\dfrac{1}{n} \cdot RSS_{train}(M_j)$$
+
+And it is fulfilled that:
+
+$$RSS_{train}(M_0) > RSS_{train}(M_1^*) > RSS_{train}(M_2^*) > ... > RSS_{train}(M_{p-1}^*) > RSS_ {train}(M_p^*)$$
+
+So:
+
+$$\text{Train Error} (M_0) > \text{Train Error} (M_1^*) >\text{Train Error} (M_2^*)>...>\text{Train Error} (M_{p -1}^*)>\text{Train Error} (M_p)$$
+
+
+So if the train error were used as a metric to select the final model, the largest model (the one with the most parameters, that is, the complete model $M_p$) would always be selected.
+
+For this reason we don't select the final model using the training error.
+
+Although this isn't true with the test error, for this reason the test error    could be used to select the final model.
 
 <br>
 
@@ -2329,15 +2373,77 @@ $\hspace{0.8cm} \dots$
 
 - **Large computational requirements:** compute $2^p$ models is required, which is impossible with more than $\hspace{0.05cm} p=40 \hspace{0.05cm}$ predictors, because $\hspace{0.05cm} 2^{40}=1099511627776$.
   
-  The growth of the computational requirements is exponential, for example, with $\hspace{0.05cm} p=10$ predictors we need to calculate $\hspace{0.05cm} 2^{10}=1024 \hspace{0.05cm}$ models, but with $\hspace{0.05cm} p=15\hspace{0.05cm} $ the models to be calculated are too many, $\hspace{0.05cm} 2^{15}=32768$
+  The growth of the computational requirements is exponential, for example, with $\hspace{0.05cm} p=10$ predictors we need to calculate $\hspace{0.05cm} 2^{10}=1024 \hspace{0.05cm}$ models, but with $\hspace{0.05cm} p=15\hspace{0.05cm}$ the models to be calculated are too many, $\hspace{0.05cm} 2^{15}=32768$
 
 
 
 <br>
 
+## Alternative Best Subset Selection <a class="anchor" id="20"></a>
 
+Alternative best subset selection  consist in the following algorithm :
+
+We have $p$ predictors: $\hspace{0.1cm} X_1,...,X_p \\[0.25cm]$
+
+- We train the null linear model $\\[0.25cm]$
+   
+- We train all the possible linear models with  $\hspace{0.1cm}1\hspace{0.1cm}$ predictor $\\[0.25cm]$
+
+- We train all the possible linear models with $\hspace{0.1cm}2\hspace{0.1cm}$ predictors 
+  
+   $\dots \\[0.3cm]$ 
+
+- We train all the possible linear models with $\hspace{0.1cm}p-1\hspace{0.1cm}$ predictors $\\[0.25cm]$
+
+- We train the full linear model $\\[0.25cm]$
+
+
+- We select one of those models under some criteria, for example the one with **less**  $\hspace{0.05cm}AIC\hspace{0.05cm}$, $\hspace{0.05cm}BIC\hspace{0.05cm}$ or $\hspace{0.05cm}Cp\hspace{0.05cm}$, or **greater**  $\hspace{0.05cm}\widehat{R}^2\hspace{0.05cm}$. That model will be consider "the best model".
+
+
+
+<br>
+
+**Scheme of the algorithm:**
+
+- Train $\hspace{0.08cm}M_0 = \lbrace \text{null linear model} \rbrace$
+
+- Train $\hspace{0.08cm}M_1=\lbrace \text{linear models with 1 predictor} \rbrace$
+
+- Train $\hspace{0.08cm}M_2=\lbrace \text{linear models with 2 predictors} \rbrace$
+
+$\dots$
+
+- Train $\hspace{0.08cm}M_{p-1}=\lbrace \text{linear models with p-1 predictors} \rbrace$
+
+- Train $\hspace{0.08cm}M_{p}=\lbrace \text{full linear model} \rbrace \\[0.25cm]$
+
+
+
+- $M_0 \cup M_1 \cup ...\cup M_p  \underset{ \hspace{0.15cm}  AIC\hspace{0.08cm},\hspace{0.08cm} BIC, \hspace{0.08cm}C_p \hspace{0.08cm},\hspace{0.08cm} \widehat{R}^2 \hspace{0.15cm}}{\Rightarrow} \hspace{0.1cm} M\hspace{0.05cm}^* \hspace{0.2cm}(Best \hspace{0.1cm} Model)$
+
+<br>
+
+**Problems:**
+
+- **Large computational requirements:** compute $2^p$ models is required, which is impossible with more than $\hspace{0.05cm} p=40 \hspace{0.05cm}$ predictors, because $\hspace{0.05cm} 2^{40}=1099511627776$.
+  
+  The growth of the computational requirements is exponential, for example, with $\hspace{0.05cm} p=10$ predictors we need to calculate $\hspace{0.05cm} 2^{10}=1024 \hspace{0.05cm}$ models, but with $\hspace{0.05cm} p=15\hspace{0.05cm}$ the models to be calculated are too many, $\hspace{0.05cm} 2^{15}=32768$
+
+
+
+
+
+
+
+<br>
 
 ### Best Subset Selection in `Python` <a class="anchor" id="21"></a>
+
+
+We are going to program the **alternative best subset selection** in `Python`
+
+<br>
 
 #### varcharProcessing function <a class="anchor" id="21.1"></a>
 
@@ -4327,56 +4433,87 @@ Forward selection  consist in the following algorithm :
 
 We have $p$ predictors: $X_1,...,X_p$ and a response variable $Y$
 
-- We train the null linear model $(M_0)$ 
+- We train the null linear model $(M_0)\\[0.25cm]$ 
   
-- We train all the  linear models that are the result of *add one predictor* to the model $M_0$ , and we select one $(M_1)$ under some criteria, for example the one with **less** $train \hspace{0.1cm} error$.
+- We train all the  linear models that are the result of *adding one predictor* to the model $M_0$ , and we select the one with **less** train error $(M_1^*)\\[0.25cm]$ 
 
+- We train all the  linear models that are the result of *adding one predictor* to the model $M_1^*$ , and we select the one with **less** train error $(M_2^*) \\[0.25cm]$ 
 
-- We train all the linear models that are the result of *add one predictor* to the model $M_1$ , and we select one $(M_2)$ under the same criteria.
+ 
   
-   $\dots$ 
+  $\dots$ 
 
-- We train all the linear models that are the result of *add one predictor* to the model $M_{p-2}$ , and we select one $(M_{p-1})$ under the same criteria.
+- We train all the linear models that are the result of *adding one predictor* to the model $M_{p-2}^*$ , and we select  the one with **less** train error   $(M_{p-1}^*)\\[0.25cm]$  
 
-- We train the full linear model $(M_p)$
+- We train the full linear model $(M_p)\\[0.25cm]$
 
 
-We select one of the models $\hspace{0.1cm} \lbrace M_0, M_1,...,M_{p-1},M_p \rbrace \hspace{0.1cm}$ under some criteria, for example the one with **less**  train error, $AIC$, $BIC$ or $Cp \hspace{0.1cm}$, or **greater**  $\hspace{0.1cm} \widehat{R}^2$ 
+- We select one of the models $\hspace{0.15cm} \lbrace M_0, M_1^*,M_2^*,...,M_{p-1}^*,M_p \rbrace \hspace{0.15cm}$ under some criteria, for example, the one with **less**  $AIC$, $BIC$ or $Cp \hspace{0.1cm}$, or **greater**  $\hspace{0.1cm} \widehat{R}^2$ 
 
 
 <br>
 
 **Scheme of the algorithm:**
 
-- $M_0$
+- Train $M_0$
 
 \vspace{1cm}
 
-- $\lbrace  M_0 \hspace{0.1cm} \text{+ 1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_1$
+- Train $\lbrace  M_0 \hspace{0.1cm} \text{+ 1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_1^*$
 
 \vspace{1cm}
 
-- $\lbrace  M_1 \hspace{0.1cm} \text{+ 1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_2$
+- Train $\lbrace  M_1^* \hspace{0.1cm} \text{+ 1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_2^*$
 
  
 $\hspace{0.8cm} \dots$
 
  
-- $\lbrace  M_{p-2} \hspace{0.1cm} \text{+ 1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_{p-1}$
+- Train $\lbrace  M_{p-2}^* \hspace{0.1cm} \text{+ 1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_{p-1}^*$
 
 \vspace{1cm}
 
-- $M_p$
+- Train $M_p$
 
 \vspace{1cm}
 
-- $\lbrace M_0, M_1 , ..., M_{p-1}, M_p \rbrace \underset{ \text{train  error}, AIC, BIC, C_p, \widehat{R}^2 }{\Rightarrow} \hspace{0.1cm} M\hspace{0.05cm}^* \hspace{0.1cm} (Best \hspace{0.1cm} Model)$
+- $\lbrace M_0, M_1^*, M_2^*, ..., M_{p-1}^*, M_p \rbrace \underset{ AIC, BIC, C_p, \widehat{R}^2 }{\Rightarrow} \hspace{0.1cm} M\hspace{0.05cm}^* \hspace{0.2cm} (Best \hspace{0.1cm} Model)$
 
+
+<br>
 
 Where:
 
 $\lbrace  M_j \hspace{0.1cm} \text{+ 1 predictor} \rbrace \hspace{0.1cm}$ is the set of the linear regression models that are the result of adding one predictor to the model $M_j$
 
+
+<br>
+
+ 
+
+**Why don't we select the final model using the train error?**
+
+The train error of a linear regression model is defined as:
+
+$$\text{Train Error} (M_j) = ECM_{train}(M_j) =
+\dfrac{1}{n} \cdot RSS_{train}(M_j)$$
+
+And it is fulfilled that:
+
+$$RSS_{train}(M_0) > RSS_{train}(M_1^*) > RSS_{train}(M_2^*) > ... > RSS_{train}(M_{p-1}^*) > RSS_ {train}(M_p^*)$$
+
+So:
+
+$$\text{Train Error} (M_0) > \text{Train Error} (M_1^*) >\text{Train Error} (M_2^*)>...>\text{Train Error} (M_{p -1}^*)>\text{Train Error} (M_p)$$
+
+
+So if the train error were used as a metric to select the final model, the largest model (the one with the most parameters, that is, the complete model $M_p$) would always be selected.
+
+For this reason we don't select the final model using the training error.
+
+Although this isn't true with the test error, for this reason the test error    could be used to select the final model.
+
+<br>
 
 
 <br>
@@ -4833,41 +4970,41 @@ We have $p$ predictors: $X_1,...,X_p$
 
 - We train the full linear regression model $(M_p)$ 
   
-- We train all the  linear models that are the result of removing one predictor to the model $M_p$ , and we select one $(M_{p-1})$ under some criteria, for example the one with **less** $train \hspace{0.1cm} error$.
+- We train all the  linear models that are the result of removing one predictor to the model $M_p$ , and we select the one with **less** train error $(M_{p-1}^*)$ 
 
 
-- We train all the linear models that are the result of removing one predictor to the model $M_{p-1}$ , and we select one $(M_{p-2})$ under the same criteria.
+- We train all the linear models that are the result of removing one predictor to the model $M_{p-1}^*$ , and we select the one with **less** train error $(M_{p-2}^*)$ 
   
    $\dots$ 
 
-- We train all the linear models that are the result of removing one predictor to the model $M_{2}$ , and we select one $(M_{1})$ under the same criteria.
+- We train all the linear models that are the result of removing one predictor to the model $M_{2}^*$ , and we select the   one with **less** train error    $(M_{1}^*)$  
 
 - We train the null linear model $(M_0)$
 
 
-We select one of the models $\hspace{0.1cm}\lbrace M_0,M_1,...,M_{p-1},M_p \rbrace\hspace{0.1cm} $ under some criteria, for example the one with **less** $ \hspace{0.1cm} train\hspace{0.1cm} error$, $AIC$, $BIC$ or $Cp \hspace{0.1cm}$, or **greater**  $\hspace{0.1cm} \widehat{R}^2$  
+- We select one of the models $\hspace{0.1cm}\lbrace M_0,M_1,...,M_{p-1},M_p \rbrace\hspace{0.1cm}$ under some criteria, for example, the one with **less** $AIC$, $BIC$ or $Cp \hspace{0.1cm}$, or **greater**  $\hspace{0.1cm} \widehat{R}^2$  
 
 
 <br>
 
 **Scheme of the algorithm:**
 
-- $M_p$
+- Train  $M_p$
 
 \vspace{1cm}
 
-- $\lbrace  M_p \hspace{0.1cm} - \text{1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_{p-1}$
+- Train $\lbrace  M_p \hspace{0.1cm} - \text{1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_{p-1}^*$
 
 \vspace{1cm}
 
-- $\lbrace  M_{p-1} \hspace{0.1cm} - \text{1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_{p-2}$
+- Train $\lbrace  M_{p-1}^* \hspace{0.1cm} - \text{1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_{p-2}^*$
 
 
 $\hspace{0.8cm} \dots$
 
 \vspace{1cm}
 
-- $\lbrace  M_{2} \hspace{0.1cm} - \text{1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_{1}$
+- Train $\lbrace  M_{2}^* \hspace{0.1cm} - \text{1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_{1}^*$
 
 \vspace{1cm}
 
@@ -4875,8 +5012,36 @@ $\hspace{0.8cm} \dots$
 
 \vspace{1cm}
 
-- $\lbrace M_0, M_1 , ..., M_p \rbrace \underset{\text{train error}, AIC, BIC, C_p, \widehat{R}^2 }{\Rightarrow} \hspace{0.1cm} M\hspace{0.05cm}^* \hspace{0.1cm} (Best \hspace{0.1cm} Model)$
+- $\lbrace M_0, M_1^* ,M_2^*, ...,M_{p-1}^*, M_p \rbrace \underset{\hspace{0.15cm} AIC, BIC, C_p, \widehat{R}^2 \hspace{0.15cm}}{\Rightarrow} \hspace{0.1cm} M\hspace{0.05cm}^* \hspace{0.2cm} (Best \hspace{0.1cm} Model)$
 
+
+<br>
+
+
+
+**Why don't we select the final model using the training error?**
+
+The train error of a linear regression model is defined as:
+
+$$\text{Train Error} (M_j) = ECM_{train}(M_j) =
+\dfrac{1}{n} \cdot RSS_{train}(M_j)$$
+
+And it is fulfilled that:
+
+$$RSS_{train}(M_0) > RSS_{train}(M_1^*) > RSS_{train}(M_2^*) > ... > RSS_{train}(M_{p-1}^*) > RSS_ {train}(M_p^*)$$
+
+So:
+
+$$\text{Train Error} (M_0) > \text{Train Error} (M_1^*) >\text{Train Error} (M_2^*)>...>\text{Train Error} (M_{p -1}^*)>\text{Train Error} (M_p)$$
+
+
+So if the train error were used as a metric to select the final model, the largest model (the one with the most parameters, that is, the complete model $M_p$) would always be selected.
+
+For this reason we don't select the final model using the training error.
+
+Although this isn't true with the test error, for this reason the test error    could be used to select the final model.
+
+<br>
 
 
 <br>
