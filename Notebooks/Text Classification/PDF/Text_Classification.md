@@ -679,6 +679,43 @@ id_text  Fake
 
 ```
 
+Algunos ejemplos de estas noticias son los siguientes:
+
+```python
+Fake_News_Data.loc[Fake_News_Data.id_text == 9358]
+```
+
+```
+        Fake   title  
+9358     1     https://100percentfedup.com/served-roy-moore-v...   
+
+
+        text  
+9358    https://100percentfedup.com/served-roy-moore-v...   
+
+
+        date  word_count  
+9358              1   
+
+
+      text_tokenizado   id_text  
+9358        []           9358  
+```
+
+
+
+```python
+Fake_News_Data.loc[Fake_News_Data.id_text == 10923]
+```
+```
+       Fake      title 
+10923    1       TAKE OUR POLL: Who Do You Think President Trum...        
+
+       text     date            word_count   text_tokenizado   id_text  
+10923           May 10, 2017        0              []           10923
+
+```
+
 
 Nos quedamos por tanto solo con las noticias que tienen algun token :
 
@@ -723,6 +760,51 @@ Fake
  
 Se puede interpretar como la longitud media de las noticas fake y de las no fake
 
+\vspace{0.5cm}
+
+
+Hay diferencias entre lo obtenido mediante esta operación y lo obtenido al usar el siguiente código, que fue visto anteriormente:
+
+```python
+Fake_News_Data['word_count'] = Fake_News_Data['text'].str.split().str.len()
+
+Fake_News_Data.groupby('Fake')['word_count'].mean()
+```
+```
+Fake   Mean word_count
+    
+0        385.640099
+    
+1        423.197905
+```
+
+Y esto es debido a que el  código `Fake_News_Data['text'].str.split()` hace una operacion  similar a la realizada por nuestra funcion `limpiar_tokenizar` pero **no exactamente igual**, y esto lleva a que con la primera opcion se obtiene un conjunto de tokens diferente al obtenido con la funcion `limpiar_tokenizar`, en los distintos documentos, y esto lleva a que la longitud de los documentos sea diferente si se consideran los tokens obtenidos con  `Fake_News_Data['text'].str.split()`    a si se usan los obtenidos con `limpiar_tokenizar`, llo que lleva a diferencias en las longitudes medias obtenidas.
+
+
+
+```python
+Fake_News_Data['text'].str.split()
+```
+
+```
+
+0        [Donald, Trump, just, couldn, t, wish, all, Am...
+1        [House, Intelligence, Committee, Chairman, Dev...
+2        [On, Friday,, it, was, revealed, that, former,...
+3        [On, Christmas, day,, Donald, Trump, announced...
+4        [Pope, Francis, used, his, annual, Christmas, ...
+                               ...                        
+44893    [BRUSSELS, (Reuters), -, NATO, allies, on, Tue...
+44894    [LONDON, (Reuters), -, LexisNexis,, a, provide...
+44895    [MINSK, (Reuters), -, In, the, shadow, of, dis...
+44896    [MOSCOW, (Reuters), -, Vatican, Secretary, of,...
+44897    [JAKARTA, (Reuters), -, Indonesia, will, buy, ...
+```
+
+Como se pueden ver con el código anterior se obtiene por ejemplo que '-' y ', Donald' son tokens , cuando con la función `limpiar_tokenizar`  no serían  considerados un tokens.
+
+\vspace{0.5cm}
+
 
 
 Otra forma de calcular lo anterior:
@@ -755,9 +837,6 @@ pd.DataFrame({'fake_new': [0,1] , 'tokens_mean':[m0 , m1]})
  
  
  
- 
- 
- 
 
 
 
@@ -773,103 +852,22 @@ df = pd.DataFrame(  (Fake_News_Tokens.groupby(by = ["Fake", "token"] )["token"].
 df # Nos da el nº de veces que sale cada token en el conjunto de las noticas fake y por otro lado en el de las no fake (solo salen tokens con count > 0 )
 ```
 
+```
+        Fake       token  frecuencia_token
+0          0          aa                22
+1          0         aaa                 7
+2          0  aaaaaaaand                 0
+3          0   aaaaackkk                 0
+4          0  aaaaapkfhk                 0
+...      ...         ...               ...
+251605     1        ””it                 0
+251606     1      ””when                 0
+251607     1         •if                 0
+251608     1        $\surd$                 0
+251609     1 $\Rightarrow$              0
 
+```
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Fake</th>
-      <th>token</th>
-      <th>frecuencia_token</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>aa</td>
-      <td>22</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0</td>
-      <td>aaa</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0</td>
-      <td>aaaaaaaand</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0</td>
-      <td>aaaaackkk</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0</td>
-      <td>aaaaapkfhk</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>251605</th>
-      <td>1</td>
-      <td>””it</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>251606</th>
-      <td>1</td>
-      <td>””when</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>251607</th>
-      <td>1</td>
-      <td>•if</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>251608</th>
-      <td>1</td>
-      <td> $\surd$   </td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>251609</th>
-      <td>1</td>
-      <td> $\Rightarrow$ </td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-<p>251610 rows × 3 columns</p>
-</div>
 
 
 
