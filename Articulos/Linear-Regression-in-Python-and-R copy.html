@@ -8330,10 +8330,14 @@ alternative hypothesis: true autocorrelation is not 0</code></pre>
 <p>If the actual relationship is not linear, then all the conclusions we draw from the linear model are questionable.</p>
 <p><br></p>
 <p><strong>How to identify non-linearity?</strong></p>
-<p>Make a plot of the estimated errors (residuals) against the predictions of the response (all with the train data) <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm} \widehat{\varepsilon}\hspace{0.2cm} vs \hspace{0.2cm}\widehat{Y}\)</span></p>
-<p>It is the same plot as the one used to diagnose heteroscedasticity of the residuals (non-constant variance of the residuals).</p>
-<p>If a non-linear relationship is observed in the graph, it indicates non-linearity between the predictors and the response.</p>
-<p>Non-linearity can also be detectedby plotting the response versus predictors (one-to-one) <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm} Y \hspace{0.2cm} vs X_j\)</span></p>
+<ul>
+<li><p>Make a plot of the estimated errors (residuals) against the predictions of the response (all with the train data) <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm} \widehat{\varepsilon}\hspace{0.2cm} vs \hspace{0.2cm}\widehat{Y}\)</span></p>
+<ul>
+<li><p>It is the same plot as the one used to diagnose heteroscedasticity of the residuals (non-constant variance of the residuals).</p></li>
+<li><p>If a non-linear relationship is observed in the graph, it indicates non-linearity between the predictors and the response.</p></li>
+</ul></li>
+<li><p>Non-linearity can also be detectedby plotting the response versus predictors (one-to-one) <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm} Y \hspace{0.2cm} vs \hspace{0.2cm} X_j\)</span></p></li>
+</ul>
 <p><br></p>
 <p><strong>Solutions:</strong></p>
 <p>A logarithmic transformation of the response variable could help. But the best option is to use a nonlinear (or nonparametric) regression method.</p>
