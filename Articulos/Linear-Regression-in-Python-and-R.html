@@ -8333,7 +8333,7 @@ alternative hypothesis: true autocorrelation is not 0</code></pre>
 <p>Make a plot of the estimated errors (residuals) against the predictions of the response (all with the train data) <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm} \widehat{\varepsilon}\hspace{0.2cm} vs \hspace{0.2cm}\widehat{Y}\)</span></p>
 <p>It is the same plot as the one used to diagnose heteroscedasticity of the residuals (non-constant variance of the residuals).</p>
 <p>If a non-linear relationship is observed in the graph, it indicates non-linearity between the predictors and the response.</p>
-<p>They can also help detect non-linearity in the relationship between response and predictors by plotting the response versus predictors (one-to-one).</p>
+<p>Non-linearity can also be detectedby plotting the response versus predictors (one-to-one) <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm} Y \hspace{0.2cm} vs X_j\)</span></p>
 <p><br></p>
 <p><strong>Solutions:</strong></p>
 <p>A logarithmic transformation of the response variable could help. But the best option is to use a nonlinear (or nonparametric) regression method.</p>
@@ -8519,6 +8519,7 @@ False
 <div class="sourceCode" id="cb212"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb212-1"><a href="#cb212-1" aria-hidden="true" tabindex="-1"></a>Outliers</span></code></pre></div>
 <pre><code>Int64Index([  60,  216,  235,  336,  343,  427,  456,  460,  461,  462, 463, 464,  465,  475,  476,  517,  576,  790,  836,  970,  989, 1189, 1259, 1487, 1515, 1690, 1697, 1869, 1885], dtype=&#39;int64&#39;)</code></pre>
 <p> </p>
+<p><br></p>
 </div>
 </div>
 </div>
