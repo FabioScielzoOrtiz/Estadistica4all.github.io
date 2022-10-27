@@ -6821,13 +6821,15 @@ If the actual relationship is not linear, then all the conclusions we draw from 
 
 **How to identify non-linearity?**
 
-Make a plot of the estimated errors (residuals) against the predictions of the response (all with the train data) $\hspace{0.2cm}\Rightarrow\hspace{0.2cm} \widehat{\varepsilon}\hspace{0.2cm} vs \hspace{0.2cm}\widehat{Y}$
+- Make a plot of the estimated errors (residuals) against the predictions of the response (all with the train data) $\hspace{0.2cm}\Rightarrow\hspace{0.2cm} \widehat{\varepsilon}\hspace{0.2cm} vs \hspace{0.2cm}\widehat{Y}$
 
-It is the same plot as the one used to diagnose heteroscedasticity of the residuals (non-constant variance of the residuals). 
+    - It is the same plot as the one used to diagnose heteroscedasticity of the residuals (non-constant variance of the residuals). 
 
-If a non-linear relationship is observed in the graph, it indicates non-linearity between the predictors and the response.
+    - If a non-linear relationship is observed in the graph, it indicates non-linearity between the predictors and the response.
+    
+    
 
-Non-linearity  can also be detectedby plotting the response versus predictors (one-to-one) $\hspace{0.2cm}\Rightarrow\hspace{0.2cm} Y \hspace{0.2cm} vs \hspace{0.2cm} X_j$
+- Non-linearity  can also be detectedby plotting the response versus predictors (one-to-one) $\hspace{0.2cm}\Rightarrow\hspace{0.2cm} Y \hspace{0.2cm} vs \hspace{0.2cm} X_j$
 
 
 <br>
