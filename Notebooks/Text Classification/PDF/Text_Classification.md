@@ -310,6 +310,8 @@ Fake_News_Data
 ```
 
 
+## Numero medio de palabras por noticia en función de si son fake o no
+
 Calculamos ahora la media de palabras de las fakes news y de la sno fake news. Es decir, el nº medio de palabras en el cojuntos de las noticias fake, y por otro lado en el conjutno de las no fake:
 
 
@@ -338,6 +340,7 @@ Este tipo de preprocesado es básico y fundamental en areas de la ciencia de dat
 
 
 Una de las operaciones centrales del preproceso de textos es la `tokenización`.
+
 
 
 ## Tokenizacion
@@ -576,9 +579,12 @@ Fake_News_Tokens
 
 ```
 
+\newpage
+
+# Descripción estadística de los datos tras la `tokenización`
 
 
-
+## Numero de tokens del conjunto de noticias en funcion de si son fake o no
 
 ```python
 # nº de palabras (tokens) en el conjunto de textos clasificados como fake y en los no fake
@@ -595,10 +601,11 @@ Fake_News_Tokens.groupby(by='Fake')['token'].count()
     Name: token, dtype: int64
 
 
+## Numero de tokens *únicos* del conjunto de noticias en funcion de si son fake o no
 
 
 ```python
-# nº de palabras (tokens) *unicas* en el conjunto de textos clasificados como fake y en los no fake
+# nº de palabras (tokens) *unicos* en el conjunto de textos clasificados como fake y en los no fake
 
 Fake_News_Tokens.groupby(by='Fake')['token'].nunique()
 ```
@@ -613,6 +620,7 @@ Fake_News_Tokens.groupby(by='Fake')['token'].nunique()
 
 
 
+## Numero de tokens en cada una de las noticias individualmente
 
 ```python
 # nº de palabras (tokens) en cada texto individual clasificados como fake y en los no fake
@@ -625,251 +633,99 @@ df1 = pd.DataFrame( Fake_News_Tokens.groupby(by = ["id_text" , "Fake"] )["token"
 df1
 ```
 
+```
+                     nº_tokens
+id_text   Fake           
+  0         1           447
+  1         1           294
+  2         1           563
+  3         1           426
+  4         1           415
+
+ ...       ...          ...
+
+44893       0           433
+44894       0           120
+44895       0           307
+44896       0           196
+44897       0           197
+
+```
 
 
+Hay noticias que no tienen tokens :
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+```python
+df1.loc[df1['nº_tokens'] == 0, :]
+```
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
+```
+                 nº_tokens
+id_text  Fake           
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>nº_tokens</th>
-    </tr>
-    <tr>
-      <th>id_text</th>
-      <th>Fake</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <th>1</th>
-      <td>447</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>1</th>
-      <td>294</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>1</th>
-      <td>563</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <th>1</th>
-      <td>426</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <th>1</th>
-      <td>415</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <th>...</th>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>44893</th>
-      <th>0</th>
-      <td>433</td>
-    </tr>
-    <tr>
-      <th>44894</th>
-      <th>0</th>
-      <td>120</td>
-    </tr>
-    <tr>
-      <th>44895</th>
-      <th>0</th>
-      <td>307</td>
-    </tr>
-    <tr>
-      <th>44896</th>
-      <th>0</th>
-      <td>196</td>
-    </tr>
-    <tr>
-      <th>44897</th>
-      <th>0</th>
-      <td>197</td>
-    </tr>
-  </tbody>
-</table>
-<p>44898 rows × 1 columns</p>
-</div>
+9358      1           0
+10923     1           0
+11041     1           0
+11190     1           0
+11225     1           0
+
+ ...     ...         ...
+
+21857     1           0
+21869     1           0
+21870     1           0
+21873     1           0
+32451     0           0
+
+```
 
 
-
+Nos quedamos por tanto solo con las noticias que tienen algun token :
 
 ```python
 df2 = df1.loc[df1['nº_tokens'] != 0, :]
-```
 
-
-```python
 df2
 ```
+```
+                 nº_tokens
+id_text   Fake           
 
+0          1           447
+1          1           294
+2          1           563
+3          1           426
+4          1           415
 
+...       ...          ...
 
+44893      0           433
+44894      0           120
+44895      0           307
+44896      0           196
+44897      0           197
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+```
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>nº_tokens</th>
-    </tr>
-    <tr>
-      <th>id_text</th>
-      <th>Fake</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <th>1</th>
-      <td>447</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <th>1</th>
-      <td>294</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <th>1</th>
-      <td>563</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <th>1</th>
-      <td>426</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <th>1</th>
-      <td>415</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <th>...</th>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>44893</th>
-      <th>0</th>
-      <td>433</td>
-    </tr>
-    <tr>
-      <th>44894</th>
-      <th>0</th>
-      <td>120</td>
-    </tr>
-    <tr>
-      <th>44895</th>
-      <th>0</th>
-      <td>307</td>
-    </tr>
-    <tr>
-      <th>44896</th>
-      <th>0</th>
-      <td>196</td>
-    </tr>
-    <tr>
-      <th>44897</th>
-      <th>0</th>
-      <td>197</td>
-    </tr>
-  </tbody>
-</table>
-<p>44183 rows × 1 columns</p>
-</div>
-
-
-
+ 
+Calculamos el numero medio de tokens para las noticas que tienen uno o mas tokens en funcion se si son fake o no:
 
 ```python
 df2.groupby("Fake")["nº_tokens"].agg(['mean'])
 ```
 
+```
+            mean
+Fake            
+0     368.486225
+1     422.169983
+```
+ 
+Se puede interpretar como la longitud media de las noticas fake y de las no fake
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>mean</th>
-    </tr>
-    <tr>
-      <th>Fake</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>368.486225</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>422.169983</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-Otra forma de hacer lo anterior (longitud media de las noticias fake y no fake)
+Otra forma de calcular lo anterior:
 
 
 ```python
@@ -885,48 +741,23 @@ m1 = ( Fake_News_Tokens.loc[Fake_News_Tokens['Fake']==1].groupby('id_text')['tok
 ```python
 pd.DataFrame({'fake_new': [0,1] , 'tokens_mean':[m0 , m1]})
 ```
+```
+   fake_new  tokens_mean
+0         0   368.469020
+1         1   409.332822
+
+```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>fake_new</th>
-      <th>tokens_mean</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>368.469020</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-      <td>409.332822</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 
 
 
