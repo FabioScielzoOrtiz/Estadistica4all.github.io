@@ -6827,7 +6827,8 @@ It is the same plot as the one used to diagnose heteroscedasticity of the residu
 
 If a non-linear relationship is observed in the graph, it indicates non-linearity between the predictors and the response.
 
-They can also help detect non-linearity in the relationship between response and predictors by plotting the response versus predictors (one-to-one).
+Non-linearity  can also be detectedby plotting the response versus predictors (one-to-one) $\hspace{0.2cm}\Rightarrow\hspace{0.2cm} Y \hspace{0.2cm} vs \hspace{0.2cm} X_j$
+
 
 <br>
 
