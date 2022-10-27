@@ -838,19 +838,17 @@ pd.DataFrame({'fake_new': [0,1] , 'tokens_mean':[m0 , m1]})
  
  
 
-
+## Número de veces que aparece cada token en el conjunto de las noticias en funcion de si es fake o no
 
 
 ```python
 df = pd.DataFrame(  (Fake_News_Tokens.groupby(by = ["Fake", "token"] )["token"].count().unstack(fill_value=0).stack().reset_index(name='frecuencia_token')))
 
 # .unstack(fill_value=0).stack() para que tambien aparezcan los tokens con count = 0 , si no solo aprecerian los que tienen count > 0.
+
+df
 ```
 
-
-```python
-df # Nos da el nº de veces que sale cada token en el conjunto de las noticas fake y por otro lado en el de las no fake (solo salen tokens con count > 0 )
-```
 
 ```
         Fake       token  frecuencia_token
@@ -859,65 +857,32 @@ df # Nos da el nº de veces que sale cada token en el conjunto de las noticas fa
 2          0  aaaaaaaand                 0
 3          0   aaaaackkk                 0
 4          0  aaaaapkfhk                 0
+
 ...      ...         ...               ...
+
 251605     1        ””it                 0
 251606     1      ””when                 0
 251607     1         •if                 0
-251608     1        $\surd$                 0
-251609     1 $\Rightarrow$              0
+251608     1      $emoji1$               0
+251609     1      $emoji2$               0
 
 ```
 
+La salida anterior nos da para cada token el numero de veces que aparece en el conjunto de las fake news por un lado (Fake = 1), y por otro lado en el conjunto de las no fake (Fake=0)
 
-
+Veamos algunos ejemplos para tokens concretos:
 
 
 ```python
 df.loc[df['token']=='yes' , ] # El token 'yes' aprece 1775 veces en el conjunto de las fake news y 336 en el de las no fake news
 ```
 
+```
+        Fake token  frecuencia_token
+116577     0   yes               336
+242382     1   yes              1775
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Fake</th>
-      <th>token</th>
-      <th>frecuencia_token</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>116577</th>
-      <td>0</td>
-      <td>yes</td>
-      <td>336</td>
-    </tr>
-    <tr>
-      <th>242382</th>
-      <td>1</td>
-      <td>yes</td>
-      <td>1775</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+```
 
 
 
@@ -925,49 +890,14 @@ df.loc[df['token']=='yes' , ] # El token 'yes' aprece 1775 veces en el conjunto 
 ```python
 df.loc[df['token']=='true' , ] # El token 'true' aparece 2595 veces en el conjunto de las fake news y 412 en el de las no fake news
 ```
+```
+        Fake token  frecuencia_token
+106608     0  true               412
+232413     1  true              2595
+```
 
 
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Fake</th>
-      <th>token</th>
-      <th>frecuencia_token</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>106608</th>
-      <td>0</td>
-      <td>true</td>
-      <td>412</td>
-    </tr>
-    <tr>
-      <th>232413</th>
-      <td>1</td>
-      <td>true</td>
-      <td>2595</td>
-    </tr>
-  </tbody>
-</table>
-</div>
 
 
 
@@ -978,101 +908,6 @@ df.loc[df['Fake']==0 , ] # frecuencia de tokens en el conjunto de las no fake ne
 
 
 
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Fake</th>
-      <th>token</th>
-      <th>frecuencia_token</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>aa</td>
-      <td>22</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0</td>
-      <td>aaa</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0</td>
-      <td>aaaaaaaand</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0</td>
-      <td>aaaaackkk</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0</td>
-      <td>aaaaapkfhk</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>125800</th>
-      <td>0</td>
-      <td>””it</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>125801</th>
-      <td>0</td>
-      <td>””when</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>125802</th>
-      <td>0</td>
-      <td>•if</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>125803</th>
-      <td>0</td>
-      <td> $\surd$  </td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>125804</th>
-      <td>0</td>
-      <td> $\Rightarrow$  </td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-<p>125805 rows × 3 columns</p>
-</div>
 
 
 
