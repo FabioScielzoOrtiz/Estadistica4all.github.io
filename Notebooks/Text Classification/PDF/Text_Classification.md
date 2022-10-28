@@ -38,7 +38,9 @@ En la parte en la que trabajamos con `R` se seguirán los pasos del ejemplo ilus
 
 # Carga de los datos (`Python`)
 
-El data-set con el que vamos a trabajar contiene como observaciones noticias, y como variables la fecha, el título y el texto de la noticia, y si es una noticia falsa (fake new) o es verdadera (no fake new). La variable respuesta será `Fake` . Las variables predictoras que se usaran en el apartado de aplicación de algoritmos de clasificación   no aparecen en el data-set original, pero serán creadas usando la información de la variable `texto`
+El data-set con el que vamos a trabajar contiene como observaciones noticias fechadas entre el 31 de marzo de 2015 y el 18 de febrero de 2018, y como variables la fecha, el título y el texto de la noticia, y si es una noticia falsa (fake new) o es verdadera (no fake new). La variable respuesta será `Fake` . Las variables predictoras que se usaran en el apartado de aplicación de algoritmos de clasificación   no aparecen en el data-set original, pero serán creadas usando la información de la variable `texto`.
+
+El data set ha sido obtenido de la pagina web [Kaggle](https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset)
 
 Importamos la libreria `pandas`, que es la liberia de `Python` mas usada para la manipulación y manejo de datos en formato de tabla, es decir, data-frames.
 
@@ -123,6 +125,40 @@ Fake_News_Data.isnull().sum()
     date     0
     
 
+Vamos a imprimir el data set para hacernos una mejor idea de su contenido:
+
+```python
+Fake_News_Data 
+```
+```
+      Fake                                              title  
+      
+0        1   Donald Trump Sends Out Embarrassing New Year’...   
+1        1   Drunk Bragging Trump Staffer Started Russian ...   
+2        1   Sheriff David Clarke Becomes An Internet Joke...   
+3        1   Trump Is So Obsessed He Even Has Obama’s Name...   
+4        1   Pope Francis Just Called Out Donald Trump Dur...   
+...    ...                                                ...   
+44893    0  'Fully committed' NATO backs new U.S. approach...   
+44894    0  LexisNexis withdrew two products from Chinese ...   
+44895    0  Minsk cultural hub becomes haven from authorities   
+44896    0  Vatican upbeat on possibility of Pope Francis ...   
+44897    0  Indonesia to buy $1.14 billion worth of Russia...   
+
+                                                    text               date 
+                                                    
+0      Donald Trump just couldn t wish all Americans ...  December 31, 2017  
+1      House Intelligence Committee Chairman Devin Nu...  December 31, 2017  
+2      On Friday, it was revealed that former Milwauk...  December 30, 2017  
+3      On Christmas day, Donald Trump announced that ...  December 29, 2017  
+4      Pope Francis used his annual Christmas Day mes...  December 25, 2017  
+...                                                  ...                ...  
+44893  BRUSSELS (Reuters) - NATO allies on Tuesday we...   August 22, 2017   
+44894  LONDON (Reuters) - LexisNexis, a provider of l...   August 22, 2017   
+44895  MINSK (Reuters) - In the shadow of disused Sov...   August 22, 2017   
+44896  MOSCOW (Reuters) - Vatican Secretary of State ...   August 22, 2017   
+44897  JAKARTA (Reuters) - Indonesia will buy 11 Sukh...   August 22, 2017  
+```
 
 # Descripción estadistica de los datos (`Python`)
 
@@ -1692,6 +1728,46 @@ fig.savefig('p3.png', format='png', dpi=1200)
 ![Ranking de los 15 tokens mas representativos de las Fake News](p3.png)
 
 
+Vamos a hacer un pequeño analisis de los tokens que son los mas representativos para las fake news, es decir, aquellos tokens con mayor odds ratio fake - no fake, esto es, aquellos que son mucho mas frecuentes en las fake news que en las no fake news.
+
+- El token mas representativa de las fake news analizadas es 'finicum'
+
+    - El token 'finicum' podria hace referencia a Robert LaVoy Finicum, que según [Wikipedia](https://en.wikipedia.org/wiki/LaVoy_Finicum) fue uno de los militantes estadounidenses que organizaron una ocupación armada del Refugio Nacional de Vida Silvestre Malheur en enero de 2016. Después de que comenzó, la fuerza de ocupación se organizó como Ciudadanos por la Libertad Constitucional. , de la que Finicum fue portavoz. Fue la única víctima mortal de la ocupación. El 26 de enero de 2016, agentes del orden público intentaron arrestar a Finicum y a otros líderes de la ocupación mientras viajaban por una carretera remota para reunirse con simpatizantes en el condado vecino. Cuando el camión de Finicum finalmente fue detenido por una barricada, salió del vehículo hacia la nieve profunda y le dispararon, pero los oficiales fallaron. Finicum hizo dos movimientos a su chaqueta mientras le gritaba a la policía que tendrían que dispararle. Luego, Finicum fue asesinado a tiros. Más tarde, los oficiales encontraron un arma cargada en su bolsillo.
+
+
+
+
+- El segundo token mas representativo de las fakes news es 'wikipedia'
+
+     - La Fundación Wikimedia (en inglés: Wikimedia Foundation, Inc.) es una organización sin ánimo de lucro. Es la organización matriz de Wikipedia
+     
+     
+- El tercer token mas representativo de las fakes news es 'uninterruptible' que significa 'ininterrumpible' en español.
+
+- El cuarto token mas representativo de las fakes news es 'philosophers' que significa 'filosofos' en español.
+
+- El quinto token mas representativo de las fakes news es 'lovable' que significa 'amable' en español.
+
+- El sexto token mas representativo de las fakes news es 'savants' que significa 'sabios' en español.
+
+- El septimo token mas representativo de las fakes news es 'moralist' que significa 'moralistas' en español.
+
+- El octavo token mas representativo de las fakes news es 'spore' que significa 'espora' en español.
+
+- El noveno token mas representatico de las fake news es 'rascals' que podria hacer alusion a la pelicula 'The Little Rascals' en la cual participo como parte del elenco de actores el ex-presidente de Estados Unidos (actualmente, pero presidente en las fechas de las noticias analizadas)   Donald Trump.
+
+- El decimo token mas representativo es 'evangelist' que significa 'evangelistas' en español.
+
+- El undecimo token mas representativo es 'masochist' que significa 'masoquista' en español.
+
+
+- El duodecimo token mas representativo es 'boiler' que significa 'caldera' en español.
+
+ - El decimotercero token mas representativo es 'bundy' que significa 'paquete' en español.
+
+- El decimocuarto token mas representativo es 'screengrab' que significa 'captura de pantalla' en español.
+
+- El decimoquinto token mas representativo es 'whined' que significa 'quejarse' en español.
 
 
 ```python
@@ -1708,11 +1784,73 @@ fig.savefig('p4.png', format='png', dpi=1200)
 
 
 
+Vamos a hacer un pequeño analisis de los tokens que son los mas representativos para las fake news, es decir, aquellos tokens con mayor odds ratio fake - no fake, esto es, aquellos que son mucho mas frecuentes en las fake news que en las no fake news.
+
+- El token mas representativa de las fake news analizadas es 'trump's'
+
+    - Este token hace referencia a Donald John Trump es un empresario, director ejecutivo, inversor en bienes inmuebles, personalidad televisiva y político estadounidense que ejerció como el 45.º presidente de los Estados Unidos de América desde el 20 de enero de 2017 hasta el 20 de enero de 2021
+
+
+
+
+- El segundo token mas representativo de las fakes news es 'obama's'
+
+    - Este token hace referencia a Barack Hussein Obama  es un político estadounidense que ejerció como el 44.º presidente de los Estados Unidos de América desde el 20 de enero de 2009 hasta el 20 de enero de 2017
+
+  
+     
+     
+- El tercer token mas representativo de las fakes news es 'clinton's'
+
+    - William Jefferson Clinton  es un político y abogado estadounidense que ejerció como el 42.º presidente de los Estados Unidos de América de 1993 a 2001
+
+
+
+
+- El cuarto token mas representativo de las fakes news es 'party's'  que hace referencia a 'partidos politicos' en español.
+
+    
+
+- El quinto token mas representativo de las fakes news es 'state's' que significa 'estados' en español.
+
+- El sexto token mas representativo de las fakes news es 'president's' que significa 'presidentes' en español.
+
+- El septimo token mas representativo de las fakes news es 'rakhine'
+
+    - Rakhine es un estado de Birmania. 
+
+- El octavo token mas representativo de las fakes news es 'spore' que significa 'espora' en español.
+
+- El noveno token mas representatico de las fake news es 'rascals' que podria hacer alusion a la pelicula 'The Little Rascals' en la cual participo como parte del elenco de actores el ex-presidente de Estados Unidos (actualmente, pero presidente en las fechas de las noticias analizadas)   Donald Trump.
+
+- El decimo token mas representativo es 'evangelist' que significa 'evangelistas' en español.
+
+- El undecimo token mas representativo es 'masochist' que significa 'masoquista' en español.
+
+
+- El duodecimo token mas representativo es 'boiler' que significa 'caldera' en español.
+
+ - El decimotercero token mas representativo es 'bundy' que significa 'paquete' en español.
+
+- El decimocuarto token mas representativo es 'screengrab' que significa 'captura de pantalla' en español.
+
+- El decimoquinto token mas representativo es 'whined' que significa 'quejarse' en español.
+
+
+
+
+La interpretacion de estos términos no es una tarea en la que necesariamente el cientifico de datos que los ha obtenido pueda aportar un gran valor. Desde mi punto de vista, es mas adecuado que la interpretacion de estas palabras se haga por parte de expertos en el contexto en el que se encuentran las noticias analizadas, a saber, en el contexto politico de estados unidos entre los años 2015 y 2018.
+
 
 # Term frequency – Inverse document frequency (Tf - Idf)
 
 
+Uno de los principales intereses en text mining, natural language processing e information retrieval es cuantificar la temática de un texto, así como la importancia de cada término que lo forma. Una manera sencilla de medir la importancia de un término dentro de un documento es utilizando la frecuencia con la que aparece (tf, term-frequency). Esta aproximación, aunque simple, tiene la limitación de atribuir mucha importancia a aquellas palabras que aparecen muchas veces aunque no aporten información selectiva. Por ejemplo, si la palabra matemáticas aparece 5 veces en un documento y la palabra página aparece 50, la segunda tendrá 10 veces más peso a pesar de que no aporte tanta información sobre la temática del documento. Para solucionar este problema se pueden ponderar los valores tf multiplicándolos por la inversa de la frecuencia con la que el término en cuestión aparece en el resto de documentos(idf). De esta forma, se consigue reducir el valor de aquellos términos que aparecen en muchos documentos y que, por lo tanto, no aportan información selectiva.
 
+
+
+
+El estadístico tf-idf mide cómo de informativo es un término en un documento teniendo en cuenta la frecuencia con la que ese término aparece en otros documentos.
 
 
 
