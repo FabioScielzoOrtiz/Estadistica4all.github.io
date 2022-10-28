@@ -873,6 +873,7 @@ La salida anterior nos da para cada token el numero de veces que aparece en el c
 Veamos algunos ejemplos para tokens concretos:
 
 
+En la siguiente salida vemos el nº de veces que aparece el token 'yes' en eñ conjunto de las fake news (1775), asi como en el conjunto de las no fake news (336).
 ```python
 df.loc[df['token']=='yes' , ] # El token 'yes' aprece 1775 veces en el conjunto de las fake news y 336 en el de las no fake news
 ```
@@ -885,7 +886,7 @@ df.loc[df['token']=='yes' , ] # El token 'yes' aprece 1775 veces en el conjunto 
 ```
 
 
-
+En la siguiente salida vemos el nº de veces que aparece el token 'true' en eñ conjunto de las fake news (2595), asi como en el conjunto de las no fake news (412).
 
 ```python
 df.loc[df['token']=='true' , ] # El token 'true' aparece 2595 veces en el conjunto de las fake news y 412 en el de las no fake news
@@ -899,11 +900,576 @@ df.loc[df['token']=='true' , ] # El token 'true' aparece 2595 veces en el conjun
 
 
 
+En la siguiente salida podemos ver el nº de veces que aparece cada token en el conjunto de las no fake news.
+
 
 
 
 ```python
-df.loc[df['Fake']==0 , ] # frecuencia de tokens en el conjunto de las no fake news
+df.loc[df['Fake']==0 , ] 
+```
+
+``` 
+         Fake       token  frecuencia_token
+         
+0          0          aa                22
+1          0         aaa                 7
+2          0  aaaaaaaand                 0
+3          0   aaaaackkk                 0
+4          0  aaaaapkfhk                 0
+
+...      ...         ...               ...
+
+125800     0        ””it                 1
+125801     0      ””when                 1
+125802     0         •if                 3
+125803     0      $emoji1$               3
+125804     0      $emoji2$               1
+```
+ 
+ 
+
+Y en la siguiente salida podemos ver el nº de veces que aparece cada token en el conjunto de las fake news.
+
+
+
+```python
+df.loc[df['Fake']==1 , ] 
+```
+
+
+```
+        Fake       token  frecuencia_token
+125805     1          aa                24
+125806     1         aaa                 9
+125807     1  aaaaaaaand                 1
+125808     1   aaaaackkk                 1
+125809     1  aaaaapkfhk                 1
+...      ...         ...               ...
+251605     1        ””it                 0
+251606     1      ””when                 0
+251607     1         •if                 0
+251608     1      $emoji1$               0
+251609     1      $emoji2$               0
+```
+
+
+
+
+## Ranking de tokens mas frecuentes en el conjunto de las noticas en funcion de si son fake y no fake 
+
+
+Ahora vamos a ordenar los dos data-frames anteriores en función de la columna `frecuencia_token` , de mayor a menor, para así poder ver cuales son los tokens con mayor frecuencia tanto en el conjunto de las fake news, como en el de las no fake news.
+
+```python
+df_fake_sort = df.loc[df['Fake']==1 , ].sort_values(by=["frecuencia_token"], ascending=False).reset_index(drop=False)
+```
+
+
+```python
+df_no_fake_sort = df.loc[df['Fake']==0 , ].sort_values(by=["frecuencia_token"], ascending=False).reset_index(drop=False)
+```
+
+
+
+
+
+Imprimimos las primeras 15 filas de cada uno de los nuevos data-frames ordenados:
+
+```python
+df_fake_sort.head(15)
+```
+
+```
+     index  Fake  token  frecuencia_token
+     
+0   229301     1    the            544521
+1   230713     1     to            290882
+2   199217     1     of            236735
+3   129697     1    and            227349
+4   174372     1     in            171433
+5   229261     1   that            151789
+6   176603     1     is            111278
+7   162672     1    for             93538
+8   176868     1     it             83693
+9   199777     1     on             83661
+10  232444     1  trump             79922
+11  169936     1     he             79124
+12  238650     1    was             67865
+13  240547     1   with             63441
+14  229776     1   this             58581
+
+```
+
+
+```python
+df_no_fake_sort.head(15)
+```
+
+```
+     index  Fake token  frecuencia_token
+     
+0   103496     0   the            478548
+1   104908     0    to            245378
+2    73412     0    of            205193
+3     3892     0   and            181715
+4    48567     0    in            181082
+5    73972     0    on            108459
+6    90350     0  said             99054
+7   103456     0  that             86723
+8    36867     0   for             79705
+9    50798     0    is             55298
+10  114742     0  with             54327
+11   44131     0    he             52605
+12  112845     0   was             47892
+13   14219     0    by             47871
+14    5659     0    as             46935
+
+```
+
+Se puede observar que en ambas tablas la mayoria de los 15 tokens mas frecuentees se corresponden con artículos, preposiciones, pronombres, etc. En general, palabras que no aportan información relevante sobre el texto. A estas palabras se les conoce como **stopwords**. Para cada idioma existen distintos listados de stopwords, además, dependiendo del contexto, puede ser necesario adaptar el listado. Con frecuencia, a medida que se realiza un análisis se encuentran palabras que deben incluirse en el listado de stopwords.
+
+
+
+### Stop words
+
+
+Vamos a obtener un listado de **stopwords** en ingles, ya que nuestros textos (noticias) están en ingles. Si estuvieran en varios idiosmas habra que formar un listado de stopwords para todos esos idomas.
+
+Para ontener el listado de stopwords usaremos la libreria `nltk` (Natural Language Toolki) , una de las librerias mas importantes en `Python` en el área de procesamiento de lenguaje natural.
+
+
+```python
+# pip install nltk
+```
+
+
+```python
+import nltk
+nltk.download('stopwords')
+from nltk.corpus import stopwords
+```
+    
+    
+Obtenemos el listado de stopwords que provee `nltk` para el idioma inglés, y ademas le añadimos una lista extra de palabras que también vamos a considerar stopwords:
+
+```python
+# Obtencion de listado de stopwords del ingles
+
+stop_words = stopwords.words('english') + ["pic" , "getty", "quot", "acr", "filessupport", "flickr", "fjs", "js", "somodevilla", "var", "henningsen",
+"ck", "cdata", "subscribing", "mcnamee", "amp", "wfb", "screenshot", "hesher","nyp", "cking", "helton", "raedle", "donnell",
+"getelementbyid", "src", "behar", "createelement", "getelementsbytagname", "parentnode", "wnd","insertbefore",
+"jssdk", "nowicki", "xfbml", "camerota", "sdk",  "“i" , "“the", "“we", "it’s", "don’t", "“this", "“it", "“a",
+"“if",  "“it’s", "we’re", "that’s",  "“he", "“there", "i’m",  "he’s",  "“we’re", "doesn’t", "can’t", "“i’m", "“in",
+"suu", "“they", "you’re", "“but", "didn’t", "“you", "they’re", "“no", "“as", "“very" , "there’s", "“what",  "“and", "won’t",
+  "“to", "“that", "“one", "we’ve", "“when" , "“our", "“not", "’”" ,"“that’s", "“these", "“there’s", "“he’s", "we’ll", 'one',
+   'would', 'like', 'us', 'even', 'could', 'two', 'many', 'angerer', 'reilly']
+```
+
+
+Imprimimos la lista de stopwords que se van a considerar en este trabajo:
+
+```python
+print(stop_words)
+```
+```
+    ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll", "you'd", 'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', 'she', "she's", 'her', 'hers', 'herself', 'it', "it's", 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this', 'that', "that'll", 'these', 'those', 'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing', 'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'of', 'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 'further', 'then', 'once', 'here', 'there', 'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', "don't", 'should', "should've", 'now', 'd', 'll', 'm', 'o', 're', 've', 'y', 'ain', 'aren', "aren't", 'couldn', "couldn't", 'didn', "didn't", 'doesn', "doesn't", 'hadn', "hadn't", 'hasn', "hasn't", 'haven', "haven't", 'isn', "isn't", 'ma', 'mightn', "mightn't", 'mustn', "mustn't", 'needn', "needn't", 'shan', "shan't", 'shouldn', "shouldn't", 'wasn', "wasn't", 'weren', "weren't", 'won', "won't", 'wouldn', "wouldn't", 'pic', 'getty', 'quot', 'acr', 'filessupport', 'flickr', 'fjs', 'js', 'somodevilla', 'var', 'henningsen', 'ck', 'cdata', 'subscribing', 'mcnamee', 'amp', 'wfb', 'screenshot', 'hesher', 'nyp', 'cking', 'helton', 'raedle', 'donnell', 'getelementbyid', 'src', 'behar', 'createelement', 'getelementsbytagname', 'parentnode', 'wnd', 'insertbefore', 'jssdk', 'nowicki', 'xfbml', 'camerota', 'sdk', '“i', '“the', '“we', 'it’s', 'don’t', '“this', '“it', '“a', '“if', '“it’s', 'we’re', 'that’s', '“he', '“there', 'i’m', 'he’s', '“we’re', 'doesn’t', 'can’t', '“i’m', '“in', 'suu', '“they', 'you’re', '“but', 'didn’t', '“you', 'they’re', '“no', '“as', '“very', 'there’s', '“what', '“and', 'won’t', '“to', '“that', '“one', 'we’ve', '“when', '“our', '“not', '’”', '“that’s', '“these', '“there’s', '“he’s', 'we’ll', 'one', 'would', 'like', 'us', 'even', 'could', 'two', 'many', 'angerer', 'reilly']
+    
+```
+
+
+
+De los data-frames `df_fake_sort` y `df_no_fake_sort` eliminamos aquellos tokens que estan en la lista de stopwords:
+
+```python
+df_fake_sort_not_StopWords = df_fake_sort[ ~ df_fake_sort['token'].isin(stop_words) ] # ranking de tokens para las fake news sin stop words
+```
+
+
+```python
+df_no_fake_sort_not_StopWords = df_no_fake_sort[ ~ df_no_fake_sort['token'].isin(stop_words) ] # ranking de tokens para las no fake news sin stop words
+```
+
+Imprimimos las primeras 15 filas de los nuevos data-frames creados:
+
+```python
+df_fake_sort_not_StopWords.head(15)
+```
+```
+     index  Fake      token  frecuencia_token
+     
+10  232444     1      trump             79922
+31  216155     1       said             33763
+34  206880     1  president             27801
+35  203392     1     people             26591
+56  144568     1    clinton             19209
+59  198761     1      obama             18833
+62  154174     1     donald             17789
+67  128977     1       also             15420
+69  196554     1       news             14688
+73  196507     1        new             14414
+75  171064     1    hillary             14184
+77  230293     1       time             13854
+79  224427     1      state             13471
+82  239806     1      white             13194
+84  237031     1        via             12830
+
+```
+
+
+
+```python
+df_no_fake_sort_not_StopWords.head(15)
+```
+```
+
+     index  Fake       token  frecuencia_token
+     
+6    90350     0        said             99054
+17  106639     0       trump             42755
+26   87534     0     reuters             28880
+28   81075     0   president             27128
+36   98622     0       state             19912
+41   41076     0  government             18484
+44   70702     0         new             16849
+47   46493     0       house             16480
+48   98655     0      states             16380
+49   86922     0  republican             16175
+50    3172     0        also             15948
+51  109089     0      united             15584
+53   77587     0      people             14945
+54  116463     0        year             14276
+55  105051     0        told             14245
+
+```
+
+Ahora vamos a crear unos graficos de barras para representar el ranking de los 15 tokens mas frecuentes en el conjunto de las fake news por un lado, y por otro las no fake news:
+
+
+```python
+p1 = sns.barplot(data=df_fake_sort_not_StopWords.head(15), x='frecuencia_token', y='token', color='tomato').set(title='Ranking 15 Tokens in Fake News') 
+```
+
+
+    
+![Ranking 15 Tokens in Fake News](output_63_0.png)
+    
+
+
+
+```python
+p2 = sns.barplot(data=df_no_fake_sort_not_StopWords.head(15), x='frecuencia_token', y='token', color='cyan').set(title='Ranking 15 Tokens in Not Fake News') 
+```
+
+
+    
+![Ranking 15 Tokens in Not Fake News](output_64_0.png)
+    
+
+
+
+## Odds Ratio
+
+
+A continuación, se estudia qué palabras se utilizan de forma más diferenciada en cada tipo de noticia (fake / no fake), es decir, palabras que utiliza mucho en las fake news y que no se utilizan tanto en las no fakes, y viceversa. 
+
+Una forma de hacer este análisis es mediante el odds ratio de las frecuencias.
+
+Sea  $\hspace{0.2cm}p_k1 = \cfrac{n_{k1} + 1}{N_1 + 1}\hspace{0.2cm}$ y $\hspace{0.2cm}p_k0 = \cfrac{n_{k0} + 1}{N_0 +1}$
+
+ 
+$$OR(Fake|NoFake , k) = \dfrac{ p_{k1} }{ p_{k0} }$$
+ 
+
+
+Donde:
+
+$n_{k1}$  el número de veces que aparece el token $k$ en las **fake news**.
+
+$n_{k0}$ el numero de veces  que aparece el termino $k$ en las **no fake news**.
+
+$N_1$ es el número de tokens, contando repeticiones, que aparecen en las **fake news**. 
+
+$N_0$ es el número de tokens, contando repeticiones, que aparecen en las **no fake news** 
+
+
+Por tanto:
+
+$p_{k1} \approx$ proporcion de apariciones del token $k$ en las **fake news**
+
+
+$p_{k0} \approx$ proporcion de apariciones del token $k$ en las **no fake news**
+
+Si $OddsRatio(k) = \dfrac{ p_k1 }{  p_k0  } = h$ , entonces:
+
+Si $h>1$  $\Rightarrow$ el token $k$ es $h$ veces mas frecuente en las **fake news** que en las **no fake news**, ya que $p_{k1} = h \cdot p_{k0}$
+
+Si $h \in (0 , 1)$ $\Rightarrow$ el token $k$ es $1/h$ veces mas frecuente en las **no fake news** que en las **fake news**, ya que $p_{k0} = (1/h) \cdot p_{k1}$ , donde $(1/h)>1$
+
+Si $h= 1$ $\Rightarrow$ el token $k$ es igual de frecuente en las **fake news** que en las **no fake news**, ya que $p_{k1} =  p_{k0}$ 
+
+
+
+A continuacion definimos funciones para calcular $n_{k1}$ y $n_{k0}$ en `Python` 
+
+```python
+def n_k1(token) : 
+
+    n_k1 = df_fake_sort_not_StopWords.loc[ df_fake_sort_not_StopWords['token']==token , 'frecuencia_token']
+
+    return(n_k1)
+```
+
+
+```python
+def n_k0(token) : 
+
+    n_k0 = df_no_fake_sort_not_StopWords.loc[ df_no_fake_sort_not_StopWords['token']==token , 'frecuencia_token']
+
+    return(n_k0)
+```
+
+ 
+Probamos las funciones para algunos tokens concretos:
+ 
+
+
+```python
+n_k0('trump') 
+```
+
+    17    42755
+    Name: frecuencia_token 
+
+
+
+
+```python
+n_k1('trump') 
+```
+
+
+    10    79922
+    Name: frecuencia_token 
+
+
+Estas salidas nos indican que el nº de veces que aparece el token 'trump' en el conjunto de las fake news es 79922 , mientras que en el conjunto de las no fake news es 42755.
+
+
+
+
+
+
+$N_0$ y $N_1$ coinciden con el nº de tokens, contando repeticiones y sin considerar las stopwords, que aparecen el las no fake  y  fake news, respectivamente:
+
+
+```python
+Fake_News_Tokens_not_StopWords = Fake_News_Tokens[ ~ Fake_News_Tokens['token'].isin(stop_words) ]
+
+Fake_News_Tokens_not_StopWords
+```
+```
+       id_text       token Fake
+       
+0            0      donald    1
+0            0       trump    1
+0            0        wish    1
+0            0   americans    1
+0            0       happy    1
+
+...        ...         ...  ...
+
+44897    44897      energy    0
+44897    44897  technology    0
+44897    44897    aviation    0
+44897    44897       among    0
+44897    44897      others    0
+```
+
+
+```python
+Fake_News_Tokens_not_StopWords.groupby(by='Fake')['token'].count()
+```
+```
+Fake
+0    4782198
+1    5396339
+
+Name: token
+```
+
+```python
+N0 = Fake_News_Tokens_not_StopWords.groupby(by='Fake')['token'].count()[0]
+
+N1 = Fake_News_Tokens_not_StopWords.groupby(by='Fake')['token'].count()[1]
+```
+
+
+```python
+N0
+```
+
+    4782198
+
+
+```python
+N1
+```
+
+    5396339
+
+
+ 
+
+Como ejemplo vamos a calcular el Odds Ratio fake - no fake para el toke 'trump' : 
+
+
+```python
+n_k0('trump') / N0 
+```
+
+
+    17    0.00894
+    Name: frecuencia_token, dtype: float64
+
+
+
+
+```python
+n_k1('trump') / N1
+```
+
+
+
+
+    10    0.01481
+    Name: frecuencia_token, dtype: float64
+
+
+
+
+```python
+# Odds Ratio fake - no fake para el token 'trump'
+
+float( n_k0('trump') / N0 ) / float( n_k1('trump') / N1 )
+```
+
+
+
+
+    1.6565622548396417
+
+
+Por tanto el token 'trump' es 1.66 veces mas frecuente en las fake news que en las no fake.
+
+
+
+
+
+
+
+
+```python
+df1 = df_fake_sort_not_StopWords.sort_values(by=["token"]).reset_index(drop=True)
+df1
+```
+```
+         index  Fake       token  frecuencia_token
+0       125805     1          aa                24
+1       125806     1         aaa                 9
+2       125807     1  aaaaaaaand                 1
+3       125808     1   aaaaackkk                 1
+4       125809     1  aaaaapkfhk                 1
+...        ...   ...         ...               ...
+125561  251605     1        ””it                 0
+125562  251606     1      ””when                 0
+125563  251607     1         •if                 0
+125564  251608     1    $emoji1$                 0
+125565  251609     1    $emoji2$️                 0
+
+```
+
+```python
+df0 = df_no_fake_sort_not_StopWords.sort_values(by=["token"]).reset_index(drop=True)
+df0
+```
+
+```
+         index  Fake       token  frecuencia_token
+0            0     0          aa                22
+1            1     0         aaa                 7
+2            2     0  aaaaaaaand                 0
+3            3     0   aaaaackkk                 0
+4            4     0  aaaaapkfhk                 0
+...        ...   ...         ...               ...
+125561  125800     0        ””it                 1
+125562  125801     0      ””when                 1
+125563  125802     0         •if                 3
+125564  125803     0    $emoji1$                 3
+125565  125804     0    ️$emoji2$                 1
+```
+
+
+
+
+
+```python
+
+n_k0_vector = df0['frecuencia_token']
+
+n_k1_vector = df1['frecuencia_token']
+
+
+Odds_ratio = ( ( n_k1_vector + 1 ) / ( N1 + 1) ) / ( ( n_k0_vector + 1 ) / ( N0 + 1) )
+
+```
+
+```python
+df0['Odds_ratio_Fake_NotFake'] = Odds_ratio  
+df1['Odds_ratio_Fake_NotFake'] = Odds_ratio  
+
+df0['Odds_ratio_NotFake_Fake'] = 1 / df0["Odds_ratio_Fake_NotFake"] 
+df1['Odds_ratio_NotFake_Fake'] = 1 / df1["Odds_ratio_Fake_NotFake"]  
+```
+
+
+```python
+df0
+```
+
+```
+         index  Fake       token  frecuencia_token  Odds_ratio_Fake_NotFake  \
+0            0     0          aa                22                 0.963253   
+1            1     0         aaa                 7                 1.107741   
+2            2     0  aaaaaaaand                 0                 1.772386   
+3            3     0   aaaaackkk                 0                 1.772386   
+4            4     0  aaaaapkfhk                 0                 1.772386   
+...        ...   ...         ...               ...                      ...   
+125561  125800     0        ””it                 1                 0.443097   
+125562  125801     0      ””when                 1                 0.443097   
+125563  125802     0         •if                 3                 0.221548   
+125564  125803     0    ️$emoji1$                 3                 0.221548   
+125565  125804     0    $emoji2$                 1                 0.443097   
+
+        Odds_ratio_NotFake_Fake  
+0                      1.038149  
+1                      0.902738  
+2                      0.564211  
+3                      0.564211  
+4                      0.564211  
+...                         ...  
+125561                 2.256845  
+125562                 2.256845  
+125563                 4.513689  
+125564                 4.513689  
+125565                 2.256845  
+
+```
+
+
+
+```python
+df1
 ```
 
 
@@ -912,123 +1478,172 @@ df.loc[df['Fake']==0 , ] # frecuencia de tokens en el conjunto de las no fake ne
 
 
 
+
+ 
 ```python
-df.loc[df['Fake']==1 , ] # nº de tokens en el conjunto de las fake news
+df0.sort_values(by=["Odds_ratio_Fake_NotFake"], ascending=False).reset_index(drop=True).head(5)
+```
+
+```
+    index  Fake            token  frecuencia_token  Odds_ratio_Fake_NotFake  \
+0   35830     0          finicum                 0               320.801884   
+1  114264     0        wikimedia                 0               200.279629   
+2  109040     0  uninterruptible                 0               189.645313   
+3   78372     0     philosophers                 0               186.100540   
+4   60711     0          lovable                 0               183.441961   
+
+   Odds_ratio_NotFake_Fake  
+0                 0.003117  
+1                 0.004993  
+2                 0.005273  
+3                 0.005373  
+4                 0.005451
+```
+
+```python
+df0.sort_values(by=["Odds_ratio_NotFake_Fake"], ascending=False).reset_index(drop=True).head(5)
+
+```
+```
+    index  Fake      token  frecuencia_token  Odds_ratio_Fake_NotFake  \
+0  106864     0    trump’s             11629                 0.000076   
+1   72989     0    obama’s              2132                 0.000415   
+2   18791     0  clinton’s              1604                 0.000552   
+3   76630     0    party’s              1101                 0.000804   
+4   98675     0    state’s              1010                 0.000877   
+
+   Odds_ratio_NotFake_Fake  
+0             13123.551362  
+1              2406.924768  
+2              1811.117793  
+3              1243.521376  
+4              1140.834946
+```
+
+```python
+df1.sort_values(by=["Odds_ratio_Fake_NotFake"], ascending=False).reset_index(drop=True).head(5)
+```
+```
+    index  Fake            token  frecuencia_token  Odds_ratio_Fake_NotFake  \
+0  161635     1          finicum               361               320.801884   
+1  240069     1        wikimedia               225               200.279629   
+2  234845     1  uninterruptible               213               189.645313   
+3  204177     1     philosophers               209               186.100540   
+4  186516     1          lovable               206               183.441961   
+
+   Odds_ratio_NotFake_Fake  
+0                 0.003117  
+1                 0.004993  
+2                 0.005273  
+3                 0.005373  
+4                 0.005451
+```
+
+```python
+df1.sort_values(by=["Odds_ratio_NotFake_Fake"], ascending=False).reset_index(drop=True).head(5)
+```
+```
+    index  Fake      token  frecuencia_token  Odds_ratio_Fake_NotFake  \
+0  232669     1    trump’s                 0                 0.000076   
+1  198794     1    obama’s                 0                 0.000415   
+2  144596     1  clinton’s                 0                 0.000552   
+3  202435     1    party’s                 0                 0.000804   
+4  224480     1    state’s                 0                 0.000877   
+
+   Odds_ratio_NotFake_Fake  
+0             13123.551362  
+1              2406.924768  
+2              1811.117793  
+3              1243.521376  
+4              1140.834946 
+
+```
+
+Notese que en ambos data sets las columnas Odds_ratio_Fake_NotFake  y Odds_ratio_NotFake_Fake son las mismas, por tanto podemos construir un nuevo data set solo con esas columnas y otra para los tokens, a partir de cualquiera de esos dos data-sets.
+
+```python
+Odds_ratio_df = df1.loc[: , ['token', 'Odds_ratio_Fake_NotFake' , 'Odds_ratio_NotFake_Fake']]  
+
+Odds_ratio_df
 ```
 
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Fake</th>
-      <th>token</th>
-      <th>frecuencia_token</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>125805</th>
-      <td>1</td>
-      <td>aa</td>
-      <td>24</td>
-    </tr>
-    <tr>
-      <th>125806</th>
-      <td>1</td>
-      <td>aaa</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th>125807</th>
-      <td>1</td>
-      <td>aaaaaaaand</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>125808</th>
-      <td>1</td>
-      <td>aaaaackkk</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>125809</th>
-      <td>1</td>
-      <td>aaaaapkfhk</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>251605</th>
-      <td>1</td>
-      <td>””it</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>251606</th>
-      <td>1</td>
-      <td>””when</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>251607</th>
-      <td>1</td>
-      <td>•if</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>251608</th>
-      <td>1</td>
-      <td> $\surd$ </td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>251609</th>
-      <td>1</td>
-      <td> $\Rightarrow$  </td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-<p>125805 rows × 3 columns</p>
-</div>
 
 
 
 
 
 
+```python
+Odds_ratio_df.sort_values(by=["Odds_ratio_Fake_NotFake"], ascending=False).head(15)
+```
+```
+                  token  Odds_ratio_Fake_NotFake  Odds_ratio_NotFake_Fake
+35775           finicum               320.801884                 0.003117
+114071        wikimedia               200.279629                 0.004993
+108870  uninterruptible               189.645313                 0.005273
+78242      philosophers               186.100540                 0.005373
+60612           lovable               183.441961                 0.005451
+91113           savants               182.555768                 0.005478
+67583         moralists               182.555768                 0.005478
+97785             spore               182.555768                 0.005478
+84324           rascals               181.669575                 0.005504
+32976       evangelists               181.669575                 0.005504
+63302        masochists               181.669575                 0.005504
+11482            boiler               172.586096                 0.005794
+13727             bundy               170.813710                 0.005854
+92025        screengrab               167.490486                 0.005970
+113747           whined               166.604293                 0.006002
+
+```
+
+
+```python
+Odds_ratio_df.sort_values(by=["Odds_ratio_NotFake_Fake"], ascending=False).head(15)
+```
+```
+                   token  Odds_ratio_Fake_NotFake  Odds_ratio_NotFake_Fake
+106696           trump’s                 0.000076             13123.551362
+72874            obama’s                 0.000415              2406.924768
+18756          clinton’s                 0.000552              1811.117793
+76500            party’s                 0.000804              1243.521376
+98529            state’s                 0.000877              1140.834946
+80975        president’s                 0.000979              1021.222183
+83999            rakhine                 0.000987              1013.323226
+1242    administration’s                 0.001157               864.371483
+88673           rohingya                 0.001294               772.969276
+117944              zuma                 0.001298               770.712432
+82344         puigdemont                 0.001372               728.960807
+17524            china’s                 0.001400               714.291317
+89715           russia’s                 0.001439               695.108137
+21888          country’s                 0.001541               648.842823
+69047            myanmar                 0.001579               633.496280
+```
+
+
+
+```python
+
+p1 = sns.barplot(data=Odds_ratio_df.sort_values(by=["Odds_ratio_Fake_NotFake"], ascending=False).head(15) ,
+                 x='Odds_ratio_Fake_NotFake', y='token', color='tomato').set(title='Ranking 15 most representative tokens in Fake News') 
+
+```
+
+
+![png](output_95_0.png)
 
 
 
 
+```python
+p2 = sns.barplot(data=Odds_ratio_df.sort_values(by=["Odds_ratio_NotFake_Fake"], ascending=False).head(15) ,
+                 x='Odds_ratio_NotFake_Fake', y='token', color='cyan').set(title='Ranking 15 most representative tokens in Not Fake News') 
+```
 
 
-
-
-
-
+![png](output_96_0.png)
 
 
 
