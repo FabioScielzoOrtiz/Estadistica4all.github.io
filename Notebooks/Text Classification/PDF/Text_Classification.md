@@ -998,7 +998,7 @@ df.loc[df['Fake']==1 , ]
 
 
 
-## Ranking de tokens mas frecuentes en el conjunto de las noticas en funcion de si son fake y no fake 
+
 
 
 Ahora vamos a ordenar los dos data-frames anteriores en función de la columna `frecuencia_token` , de mayor a menor, para así poder ver cuales son los tokens con mayor frecuencia tanto en el conjunto de las fake news, como en el de las no fake news.
@@ -1073,7 +1073,7 @@ Se puede observar que en ambas tablas la mayoria de los 15 tokens mas frecuentee
 
 
 
-### Stop words
+## Stop words
 
 
 Vamos a obtener un listado de **stopwords** en ingles, ya que nuestros textos (noticias) están en ingles. Si estuvieran en varios idiosmas habra que formar un listado de stopwords para todos esos idomas.
@@ -1185,7 +1185,10 @@ df_no_fake_sort_not_StopWords.head(15)
 
 ```
 
-Ahora vamos a crear unos graficos de barras para representar el ranking de los 15 tokens mas frecuentes en el conjunto de las fake news por un lado, y por otro las no fake news:
+
+## Ranking de tokens mas frecuentes en el conjunto de las noticas en funcion de si son fake y no fake tras eliminar stopwords
+
+Una vez eliminadas las stopwords vamos a crear unos graficos de barras para representar el ranking de los 15 tokens mas frecuentes en el conjunto de las fake news por un lado, y por otro las no fake news:
 
 
 ```python
@@ -1489,7 +1492,7 @@ df1['Odds_ratio_NotFake_Fake'] = 1 / df1["Odds_ratio_Fake_NotFake"]
 df0
 ```
 ```
-         index  Fake       token  frecuencia_token  Odds_ratio_Fake_NotFake  \
+         index  Fake       token  frecuencia_token  Odds_ratio_Fake_NotFake  
 0            0     0          aa                22                 0.963253   
 1            1     0         aaa                 7                 1.107741   
 2            2     0  aaaaaaaand                 0                 1.772386   
@@ -1564,7 +1567,7 @@ df0.sort_values(by=["Odds_ratio_Fake_NotFake"], ascending=False).reset_index(dro
 ```
 
 ```
-    index  Fake            token  frecuencia_token  Odds_ratio_Fake_NotFake  \
+    index  Fake            token  frecuencia_token  Odds_ratio_Fake_NotFake  
 0   35830     0          finicum                 0               320.801884   
 1  114264     0        wikimedia                 0               200.279629   
 2  109040     0  uninterruptible                 0               189.645313   
@@ -1584,7 +1587,7 @@ df0.sort_values(by=["Odds_ratio_NotFake_Fake"], ascending=False).reset_index(dro
 
 ```
 ```
-    index  Fake      token  frecuencia_token  Odds_ratio_Fake_NotFake  \
+    index  Fake      token  frecuencia_token  Odds_ratio_Fake_NotFake  
 0  106864     0    trump’s             11629                 0.000076   
 1   72989     0    obama’s              2132                 0.000415   
 2   18791     0  clinton’s              1604                 0.000552   
@@ -1603,7 +1606,7 @@ df0.sort_values(by=["Odds_ratio_NotFake_Fake"], ascending=False).reset_index(dro
 df1.sort_values(by=["Odds_ratio_Fake_NotFake"], ascending=False).reset_index(drop=True).head(5)
 ```
 ```
-    index  Fake            token  frecuencia_token  Odds_ratio_Fake_NotFake  \
+    index  Fake            token  frecuencia_token  Odds_ratio_Fake_NotFake  
 0  161635     1          finicum               361               320.801884   
 1  240069     1        wikimedia               225               200.279629   
 2  234845     1  uninterruptible               213               189.645313   
@@ -1622,7 +1625,7 @@ df1.sort_values(by=["Odds_ratio_Fake_NotFake"], ascending=False).reset_index(dro
 df1.sort_values(by=["Odds_ratio_NotFake_Fake"], ascending=False).reset_index(drop=True).head(5)
 ```
 ```
-    index  Fake      token  frecuencia_token  Odds_ratio_Fake_NotFake  \
+    index  Fake      token  frecuencia_token  Odds_ratio_Fake_NotFake  
 0  232669     1    trump’s                 0                 0.000076   
 1  198794     1    obama’s                 0                 0.000415   
 2  144596     1  clinton’s                 0                 0.000552   
@@ -1910,7 +1913,7 @@ $$idf (k)=log\left(\dfrac{n(D)}{n(k, D)}\right)$$
 
 > $n(D)= \# D$  es el número total de documentos , donde $D$ es el conjunto de los documentos 
     
-> $n(k, D)=\# \lbrace d\in D / k \in d \rbrace$  el número de documentos que contienen el término  $k$ 
+> $n(D, k)=\# \lbrace d\in D / k \in d \rbrace$  el número de documentos que contienen el término  $k$ 
 
 > $log()$ es la función logaritmo en base $e$
     
@@ -1972,13 +1975,13 @@ $$tfidf(k, d) = \dfrac{tfidf(k, d)}{ \sum_{k\in T(D)} tfidf(k, d)^2 }$$
 
 df_tf = pd.DataFrame( Fake_News_Tokens_not_StopWords.groupby(['id_text','token'])['token'].count().reset_index(name='n_k') )
 
-# nº de terminos (tokens) en cada noticia (longitud(d))
+# nº de terminos (tokens) en cada noticia (size(d))
 
-df_tf['longitud(d)'] = df_tf.groupby('id_text')['n_k'].transform(sum)
+df_tf['size(d)'] = df_tf.groupby('id_text')['n_k'].transform(sum)
 
 # Calculo de term-frequency (tf)
 
-df_tf['tf'] = df_tf['n_k'] / df_tf['longitud(d)']
+df_tf['tf'] = df_tf['n_k'] / df_tf['size(d)']
 
 
 # Calculo de term-frequency normalizado (tf_norm)
@@ -1996,7 +1999,7 @@ Veamos como queda el data-frame creado:
 df_tf
 ```
 ```
-         id_text         token  n_k  longitud(d)        tf    max_tf   tf_norm
+         id_text         token  n_k      size(d)        tf    max_tf   tf_norm
 0              0        accept    1          251  0.003984  0.059761  0.066667
 1              0          alan    1          251  0.003984  0.059761  0.066667
 2              0  alansandoval    1          251  0.003984  0.059761  0.066667
@@ -2013,6 +2016,426 @@ df_tf
 
 
 
+
+
+### Cálculo de idf
+
+```python
+# Calculo del nº de documentos en los que aparece cada termino (token) (n(D,k))
+
+df_Idf = pd.DataFrame( Fake_News_Tokens_not_StopWords.groupby(['token'])['id_text'].nunique().reset_index(name='n_D_k') )
+
+# Ojo, si se usa count en lugar de nunique no se estaria contando el nº de documentos
+# en los que aparece cada termino, si no el nº de veces en total (contando repeticiones) que
+# aparece un termino en el conjunto de documentos. Por ejemplo, dado un termino k que aparece 10 veces en el documento d1 y 3 veces en el d3 , usando count() la cuenta sale 13 , que es el  nº de veces que aparece k en el conjunto de los documentos, en cambio usando nunique()  la cuenta sale 2 que es el nº de documentos en los que aparece el termino k, que es lo que buscamos
+
+# Calculo del nº total de documentos (n_D)
+
+df_Idf['n_D'] = len(Fake_News_Data)
+
+# Calculo de Idf
+
+df_Idf['Idf'] = np.log( (df_Idf['n_D'] ) / (df_Idf['n_d_k']) ) + 1 
+
+```
+
+
+Vemos como queda el data-frame creado:
+
+```python
+df_Idf
+```
+```
+             token  n_D_k    n_D        Idf
+             
+0               aa     28  44898   8.379944
+1              aaa     11  44898   9.314253
+2       aaaaaaaand      1  44898  11.712149
+3        aaaaackkk      1  44898  11.712149
+4       aaaaapkfhk      1  44898  11.712149
+
+...            ...    ...    ...        ...
+
+125561        ””it      1  44898  11.712149
+125562      ””when      1  44898  11.712149
+125563          if      1  44898  11.712149
+125564    ️$emoji1$      1  44898  11.712149
+125565    $emoji2$      1  44898  11.712149
+
+```
+
+### Cálculo de tf-idf
+
+```python
+df_tf_Idf = pd.merge(df_tf, df_Idf, on='token')
+
+df_tf_Idf['tf_Idf'] = df_tf_Idf['tf'] * df_tf_Idf['Idf'] 
+
+df_tf_Idf['tf_Idf_norm'] = df_tf_Idf['tf_norm'] * df_tf_Idf['Idf']
+
+df_tf_Idf = df_tf_Idf.sort_values(by="id_text")
+
+######################################
+
+def euclidean_norm( v ):
+
+  return np.sqrt( (v**2).sum() )
+  
+#######################################
+
+df_tf_Idf['euclidean_norm'] = df_tf_Idf.groupby('id_text')['tf_Idf'].transform( euclidean_norm)
+
+df_tf_Idf['tf_Idf_sklearn'] = df_tf_Idf['tf_Idf'] / df_tf_Idf['euclidean_norm']
+
+```
+
+Vemos con es el nuevo data-frame creado:
+
+```python
+df_tf_Idf
+```
+
+```   
+         id_text         token  n_k      size(d)        tf    max_tf  
+         
+0              0        accept    1          251  0.003984  0.059761   
+304262         0       pollitt    1          251  0.003984  0.059761   
+304263         0         power    1          251  0.003984  0.059761   
+309320         0     president    3          251  0.011952  0.059761   
+332891         0  presidential    1          251  0.003984  0.059761   
+
+...          ...           ...  ...          ...       ...       ...   
+
+5516302    44897          amid    1          132  0.007576  0.030303   
+5350014    44897        string    1          132  0.007576  0.030303   
+2043348    44897         state    2          132  0.015152  0.030303   
+1423490    44897     delivered    1          132  0.007576  0.030303   
+7155411    44897        suhkoi    1          132  0.007576  0.030303   
+
+
+          tf_norm  n_d_k    n_d        Idf    tf_Idf  tf_Idf_sklearn  
+          
+0        0.066667   1395  44898   4.471499  0.017815     0.298100  
+304262   0.066667      1  44898  11.712149  0.046662     0.780810  
+304263   0.066667   5057  44898   3.183620  0.012684     0.212241  
+309320   0.200000  23571  44898   1.644376  0.019654     0.328875  
+332891   0.066667   8823  44898   2.627031  0.010466     0.175135  
+
+...           ...    ...    ...        ...       ...          ...  
+
+5516302  0.250000   1316  44898   4.529796  0.034317     1.132449  
+5350014  0.250000    404  44898   5.710734  0.043263     1.427683  
+2043348  0.500000  14226  44898   2.149322  0.032565     1.074661  
+1423490  0.250000    882  44898   4.929956  0.037348     1.232489  
+7155411  0.250000      1  44898  11.712149  0.088728     2.928037  
+```
+
+
+
+## Matriz Tf-Idf
+
+Para poder aplicar algoritmos de clasificación a un texto, es necesario crear una representación numérica del mismo. Para ello se utiliza una matriz que tiene como filas los documentos y como columnas los tokens. Existen diferentes criterios para definir los elementos internos de esta matriz. Sea $(i,j)$ el elemento de la fila $i y columna j distinguimos varias aproximaciones. Una es que (i,j) sea la frecuencia del token j en el documento i , es decir, tf(j,i) , otra aproximacion es que (i, j) sea 0 si el token j no aparece en el documento i y 1 en el caso de que si aparece. Otra aprozimacion es que (i,j) sea tfidf(j,i).
+
+El criterio seguido en esta seccion del trabajo es que (i,j) = tfidf(j,i) , ya que es el criterio seguido por la libreria `sklearn`, la cual será empleada para calcular la matriz tf-idf. Además es uno de los criterios mas habituales para definir dicha matriz.  
+
+
+Se ha intentado construir esta matriz a traves de bucles, pero dado que es una matriz con 44898 filas (documentos) y 125565 columnas (tokens) , la sola operacion de crear la primera fila no ha podido ser ejecutada por el computador por sobrepasar la memoria necesaria para ello. Por tanto deben usarse métodos de programación mas eficientes, o usar opciones eficientes ya implementadas por desarrolladores profesionales, como el equipo de `sklearn`. Esta segunda opción es la que seguiresmos, es decir, usaremos dicha funciones de dicha libreria para crear la matriz tf-idf.
+
+
+
+Para crear la matriz tf-idf con `sklearn` necesitamos construir por un un vector con los documentos (en este caso noticias). Además también vamos a crear otro con la variable respuesta (en este caso la variable  binaria `Fake` que indica si las noticias son o no fakes), que será necesario para la parte de clasificación de texto.
+
+
+```python
+X_data = Fake_News_Data.loc[ : , 'text']
+
+X_data
+```
+
+```
+0        Donald Trump just couldn t wish all Americans ...
+1        House Intelligence Committee Chairman Devin Nu...
+2        On Friday, it was revealed that former Milwauk...
+3        On Christmas day, Donald Trump announced that ...
+4        Pope Francis used his annual Christmas Day mes...
+                               
+                               ... 
+                               
+44893    BRUSSELS (Reuters) - NATO allies on Tuesday we...
+44894    LONDON (Reuters) - LexisNexis, a provider of l...
+44895    MINSK (Reuters) - In the shadow of disused Sov...
+44896    MOSCOW (Reuters) - Vatican Secretary of State ...
+44897    JAKARTA (Reuters) - Indonesia will buy 11 Sukh...
+```
+
+
+```python
+Y_data = Fake_News_Data.loc[ : , 'Fake']
+
+Y_data
+```
+```
+0        1
+1        1
+2        1
+3        1
+4        1
+
+        ...
+
+44893    0
+44894    0
+44895    0
+44896    0
+44897    0
+```
+
+
+Importamos la funcion `TfidfVectorizer` de `sklearn` la cual nos permitirá generar la matriz tf-idf. 
+
+Es recomendable ver la documentación de `sklearn` para esta función [documentación](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html)
+
+En este caso usaremos como funcion de tokenizacion la anteriormente creada `limpiar_tokenizar` , podria usarse la que usa por defecto `sklearn`, además la lista de stopwords que también se ha usado anteriormente. Ademas usamos los argumentos min_df = 0 , lo cual significa que se van a considerar todos los tokens generados por la funcion tokenizer, si min_df=h  la función solo consideraria los tokens que aparecen en mas de h documentos. Por ultimo usaremos el argumento smooth_idf=False , el cual ya fue mencionado en la seccion *definición formal del estadistico tf-idf*.
+
+```python
+from sklearn.feature_extraction.text import TfidfVectorizer
+
+tfidf_vectorizador = TfidfVectorizer(tokenizer  = limpiar_tokenizar, min_df = 0, stop_words = stop_words, smooth_idf=False)
+
+```
+
+Ahora necesitamos usar el método `fit` con el vector de documentos `X_data`
+
+```python
+tfidf_vectorizador.fit(X_data)
+```
+
+Creamos la matriz tf-idf con el metodo `transform`
+
+```python
+tfidf_matrix = tfidf_vectorizador.transform(X_data)
+```
+
+
+Comprobamos el tamaño de la matriz
+
+```python
+tfidf_matrix.shape
+```
+```
+(44898, 125566)
+```
+
+Podemos obtener los nombres de las columnas de la matriz, a saber, los tokens, con el metodo `get_feature_names_out`  , en este caso imprimimos los 50 primeros:
+
+```python
+print(tfidf_vectorizador.get_feature_names_out()[0:50])
+```
+```
+['aa' 'aaa' 'aaaaaaaand' 'aaaaackkk' 'aaaaapkfhk' 'aaaahhhh' 'aaaand'
+ 'aaaarrgh' 'aaab' 'aaarf' 'aab' 'aaba' 'aabfsv' 'aabge' 'aabo'
+ 'aaccording' 'aachen' 'aacnr' 'aadhaar' 'aadhar' 'aadl' 'aaf' 'aafn'
+ 'aag' 'aahd' 'aahwuhvvnh' 'aai' 'aaj' 'aaja' 'aal' 'aalberg' 'aalberts'
+ 'aaldef' 'aaliyah' 'aamer' 'aamin' 'aammir' 'aamom' 'aamrrd' 'aan'
+ 'aaofj' 'aapa' 'aapi' 'aapl' 'aapxim' 'aar' 'aardal' 'aardvark'
+ 'aardvarks' 'aargh'] 
+ ```
+
+`sklearn` no permite imprimir la matriz tf-idf obtenida debido a sus dimension excesiva, pero si podemos acceder a sus elementos del siguiente modo:
+
+Por ejemplo, podemos acceder al tf-idf del token asociado a la columna 645 y el documento asociado a la columna 0
+
+```python
+tfidf_matrix[0, 645]
+```
+
+     0.034889784479772486
+
+
+Vamos a crear un data-frame para identificar cada columna con su token asociado:
+
+```python
+df_index_token = pd.DataFrame( {'index' : range(0,len(tfidf_vectorizador.get_feature_names_out())) , 'token' : tfidf_vectorizador.get_feature_names_out() })
+
+df_index_token
+```
+
+
+
+
+
+```
+         index       token
+0            0          aa
+1            1         aaa
+2            2  aaaaaaaand
+3            3   aaaaackkk
+4            4  aaaaapkfhk
+...        ...         ...
+125561  125561        ””it
+125562  125562      ””when
+125563  125563          if
+125564  125564    $emoji1$
+125565  125565    $emoji2$
+```
+
+
+Utilizando este da-frame vamos a comparar algunos valores de la matriz tf-idf obtenida con `sklearn`con los valores que calculamos nosotros en las secciones anteriores y que se encuentran registrados en el data-frame `df_tf_Idf`
+
+```python
+df_tf_Idf
+```
+
+
+```
+
+         id_text         token  n_k  longitud(d)        tf    max_tf  
+0              0        accept    1          251  0.003984  0.059761   
+304262         0       pollitt    1          251  0.003984  0.059761   
+304263         0         power    1          251  0.003984  0.059761   
+309320         0     president    3          251  0.011952  0.059761   
+332891         0  presidential    1          251  0.003984  0.059761   
+...          ...           ...  ...          ...       ...       ...   
+5516302    44897          amid    1          132  0.007576  0.030303   
+5350014    44897        string    1          132  0.007576  0.030303   
+2043348    44897         state    2          132  0.015152  0.030303   
+1423490    44897     delivered    1          132  0.007576  0.030303   
+7155411    44897        suhkoi    1          132  0.007576  0.030303   
+
+          tf_norm  n_d_k    n_d        Idf    tf_Idf  tf_Idf_norm  
+0        0.066667   1395  44898   4.471499  0.017815     0.298100   
+304262   0.066667      1  44898  11.712149  0.046662     0.780810   
+304263   0.066667   5057  44898   3.183620  0.012684     0.212241   
+309320   0.200000  23571  44898   1.644376  0.019654     0.328875   
+332891   0.066667   8823  44898   2.627031  0.010466     0.175135   
+...           ...    ...    ...        ...       ...          ...   
+5516302  0.250000   1316  44898   4.529796  0.034317     1.132449   
+5350014  0.250000    404  44898   5.710734  0.043263     1.427683   
+2043348  0.500000  14226  44898   2.149322  0.032565     1.074661   
+1423490  0.250000    882  44898   4.929956  0.037348     1.232489   
+7155411  0.250000      1  44898  11.712149  0.088728     2.928037   
+
+         euclidean_norm  tf_Idf_sklearn  
+0              0.510600        0.034890  
+304262         0.510600        0.091386  
+304263         0.510600        0.024841  
+309320         0.510600        0.038492  
+332891         0.510600        0.020498  
+...                 ...             ...  
+5516302        0.585168        0.058644  
+5350014        0.585168        0.073933  
+2043348        0.585168        0.055651  
+1423490        0.585168        0.063825  
+7155411        0.585168        0.151629 
+
+```
+
+
+Vamos a comparar concretamente los tf-idf obtenidos "manualmente" y con `sklearn` para los tokens 'accept' , 'pollit' , 'string'  , 'suhkoi' , 'black', 'never', 'dinner' e 'investigation' :
+
+
+```python
+df_index_token.loc[df_index_token.token == 'accept', ]
+```
+     index   token
+645    645  accept
+
+
+```python
+tfidf_matrix[0, 645]
+```
+0.034889784479772486
+
+```python
+df_tf_Idf.loc[ ( df_tf_Idf.id_text == 0 ) &  ( df_tf_Idf.token == 'accept' ) , ]
+```
+```
+   id_text   token  n_k  longitud(d)        tf    max_tf   tf_norm  n_d_k  
+0        0  accept    1          251  0.003984  0.059761  0.066667   1395   
+
+     n_d       Idf    tf_Idf  tf_Idf_norm  euclidean_norm  tf_Idf_sklearn  
+0  44898  4.471499  0.017815       0.2981          0.5106         0.03489 
+```
+
+```python
+df_index_token.loc[df_index_token.token == 'pollitt', ]
+```
+```
+       index    token
+79741  79741  pollitt
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+df_index_token.loc[df_index_token.token == 'string', ]
+```
+       index   token
+99546  99546  string
+
+```python
+
+```
+
+
+```python
+
+```
+
+```python
+df_index_token.loc[df_index_token.token == 'suhkoi', ]
+```
+
+         index   token
+100181  100181  suhkoi
+
+
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+df_index_token.loc[df_index_token.token == 'black', ]
+```
+
+       index  token
+10627  10627  black
+
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+df_index_token.loc[df_index_token.token == 'never', ]
+```
+
+       index  token
+70560  70560  never
+
+
+```python
+
+```
+
+```python
+
+```
 
 
 
