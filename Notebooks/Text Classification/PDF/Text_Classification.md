@@ -203,16 +203,23 @@ for i in range(0, len(Fake_News_Data)):
 
 
 ```python
-p1 = sns.barplot(x='Fake', y='proportion_Fakes', data=Fake_News_Data, palette="Spectral") 
-p1.set_yticks( np.arange(0, 0.85, 0.1)  )
-p1.set_xticklabels(['No', 'Yes'])
-p1.axes.set(xlabel='Fakes', ylabel='proportion')
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+
+
+p = sns.barplot(x='Fake', y='proportion_Fakes', data=Fake_News_Data, palette="Spectral") 
+p.set_yticks( np.arange(0, 0.85, 0.1)  )
+p.set_xticklabels(['No', 'Yes'])
+p.axes.set(xlabel='Fakes', ylabel='proportion')
+
+fig.savefig('p.png', format='png', dpi=1200)
 ```
 
 
 
     
-![Gráfico de barras de la variable `Fake` ](output_15_1.png)
+![Gráfico de barras de la variable `Fake` ](p.png)
     
 
 
@@ -1146,23 +1153,31 @@ Ahora vamos a crear unos graficos de barras para representar el ranking de los 1
 
 
 ```python
-p1 = sns.barplot(data=df_fake_sort_not_StopWords.head(15), x='frecuencia_token', y='token', color='tomato').set(title='Ranking 15 Tokens in Fake News') 
+fig, ax = plt.subplots()
+
+sns.barplot(data=df_fake_sort_not_StopWords.head(15), x='frecuencia_token', y='token', color='tomato').set(title='Ranking 15 Tokens in Fake News') 
+
+fig.savefig('p1.png', format='png', dpi=1200)
 ```
 
 
     
-![Ranking 15 Tokens in Fake News](output_63_0.png)
+![Ranking 15 Tokens in Fake News](p1.png)
     
 
 
 
 ```python
-p2 = sns.barplot(data=df_no_fake_sort_not_StopWords.head(15), x='frecuencia_token', y='token', color='cyan').set(title='Ranking 15 Tokens in Not Fake News') 
+fig, ax = plt.subplots()
+
+sns.barplot(data=df_no_fake_sort_not_StopWords.head(15), x='frecuencia_token', y='token', color='cyan').set(title='Ranking 15 Tokens in Not Fake News') 
+
+fig.savefig('p2.png', format='png', dpi=1200)
 ```
 
 
     
-![Ranking 15 Tokens in Not Fake News](output_64_0.png)
+![Ranking 15 Tokens in Not Fake News](p2.png)
     
 
 
@@ -1665,25 +1680,50 @@ Odds_ratio_df.sort_values(by=["Odds_ratio_NotFake_Fake"], ascending=False).head(
 
 
 ```python
+fig, ax = plt.subplots()
 
-p1 = sns.barplot(data=Odds_ratio_df.sort_values(by=["Odds_ratio_Fake_NotFake"], ascending=False).head(15) ,
+sns.barplot(data=Odds_ratio_df.sort_values(by=["Odds_ratio_Fake_NotFake"], ascending=False).head(15) ,
                  x='Odds_ratio_Fake_NotFake', y='token', color='tomato').set(title='Ranking 15 most representative tokens in Fake News') 
 
+fig.savefig('p3.png', format='png', dpi=1200)
 ```
 
 
-![png](output_95_0.png)
+![Ranking de los 15 tokens mas representativos de las Fake News](p3.png)
 
 
 
 
 ```python
-p2 = sns.barplot(data=Odds_ratio_df.sort_values(by=["Odds_ratio_NotFake_Fake"], ascending=False).head(15) ,
+fig, ax = plt.subplots()
+
+sns.barplot(data=Odds_ratio_df.sort_values(by=["Odds_ratio_NotFake_Fake"], ascending=False).head(15) ,
                  x='Odds_ratio_NotFake_Fake', y='token', color='cyan').set(title='Ranking 15 most representative tokens in Not Fake News') 
+                 
+fig.savefig('p4.png', format='png', dpi=1200)
 ```
 
 
-![png](output_96_0.png)
+![Ranking de los 15 tokens mas representativos de las No Fake News](p4.png)
+
+
+
+
+# Term frequency – Inverse document frequency (Tf - Idf)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
