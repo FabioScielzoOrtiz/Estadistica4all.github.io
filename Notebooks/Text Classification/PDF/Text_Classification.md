@@ -787,7 +787,6 @@ Fake_News_Data['text'].str.split()
 ```
 
 ```
-
 0        [Donald, Trump, just, couldn, t, wish, all, Am...
 1        [House, Intelligence, Committee, Chairman, Dev...
 2        [On, Friday,, it, was, revealed, that, former,...
@@ -1373,6 +1372,7 @@ Por tanto el token 'trump' es 1.66 veces mas frecuente en las fake news que en l
 df1 = df_fake_sort_not_StopWords.sort_values(by=["token"]).reset_index(drop=True)
 df1
 ```
+
 ```
          index  Fake       token  frecuencia_token
 0       125805     1          aa                24
@@ -1383,18 +1383,21 @@ df1
 ...        ...   ...         ...               ...
 125561  251605     1        ””it                 0
 125562  251606     1      ””when                 0
-125563  251607     1         •if                 0
-125564  251608     1    $emoji1$                 0
-125565  251609     1    $emoji2$️                 0
-
+125563  251607     1          if                 0
+125564  251608     1      emoji1                 0
+125565  251609     1      emoji2                 0
 ```
+
+
+
+
 
 ```python
 df0 = df_no_fake_sort_not_StopWords.sort_values(by=["token"]).reset_index(drop=True)
 df0
 ```
 
-```
+``` 
          index  Fake       token  frecuencia_token
 0            0     0          aa                22
 1            1     0         aaa                 7
@@ -1404,12 +1407,10 @@ df0
 ...        ...   ...         ...               ...
 125561  125800     0        ””it                 1
 125562  125801     0      ””when                 1
-125563  125802     0         •if                 3
-125564  125803     0    $emoji1$                 3
-125565  125804     0    ️$emoji2$                 1
+125563  125802     0          if                 3
+125564  125803     0       emoji1                3
+125565  125804     0       emoji2                1
 ```
-
-
 
 
 
@@ -1437,34 +1438,9 @@ df1['Odds_ratio_NotFake_Fake'] = 1 / df1["Odds_ratio_Fake_NotFake"]
 df0
 ```
 
-```
-         index  Fake       token  frecuencia_token  Odds_ratio_Fake_NotFake  \
-0            0     0          aa                22                 0.963253   
-1            1     0         aaa                 7                 1.107741   
-2            2     0  aaaaaaaand                 0                 1.772386   
-3            3     0   aaaaackkk                 0                 1.772386   
-4            4     0  aaaaapkfhk                 0                 1.772386   
-...        ...   ...         ...               ...                      ...   
-125561  125800     0        ””it                 1                 0.443097   
-125562  125801     0      ””when                 1                 0.443097   
-125563  125802     0         •if                 3                 0.221548   
-125564  125803     0    ️$emoji1$                 3                 0.221548   
-125565  125804     0    $emoji2$                 1                 0.443097   
 
-        Odds_ratio_NotFake_Fake  
-0                      1.038149  
-1                      0.902738  
-2                      0.564211  
-3                      0.564211  
-4                      0.564211  
-...                         ...  
-125561                 2.256845  
-125562                 2.256845  
-125563                 4.513689  
-125564                 4.513689  
-125565                 2.256845  
 
-```
+
 
 
 
