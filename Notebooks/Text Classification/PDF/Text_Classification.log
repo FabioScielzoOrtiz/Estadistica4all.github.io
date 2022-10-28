@@ -517,4 +517,431 @@ File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 2.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4.
-(c:/U
+(c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4.
+(c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 4.
+(c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 4.
+(c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 4.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 4.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 4.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
+(c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
+(c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
+\tf@toc=\write5
+\openout5 = `Text_Classification.toc'.
+
+[2]
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 175.
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 201.
+(c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
+File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 232.
+[3]
+Overfull \hbox (50.35353pt too wide) in paragraph at lines 318--318
+[]\T1/lmtt/m/n/10.95 top           1                   Factbox: Trump fills top jobs for his administ...[] 
+ []
+
+[4]
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 329.
+[5]
+<p.png, id=130, 433.62pt x 289.08pt>
+File: p.png Graphic file (type png)
+<use p.png>
+Package pdftex.def Info: p.png  used on input line 401.
+(pdftex.def)             Requested size: 426.81056pt x 284.54036pt.
+[6 <./p.png>]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 453.
+(c:/Users/Usuario/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 512--512
+[]\T1/lmtt/m/n/10.95 0      Donald Trump just couldn t wish all Americans ...  December 31, 2017[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 512--512
+[]\T1/lmtt/m/n/10.95 1      House Intelligence Committee Chairman Devin Nu...  December 31, 2017[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 512--512
+[]\T1/lmtt/m/n/10.95 2      On Friday, it was revealed that former Milwauk...  December 30, 2017[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 512--512
+[]\T1/lmtt/m/n/10.95 3      On Christmas day, Donald Trump announced that ...  December 29, 2017[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 512--512
+[]\T1/lmtt/m/n/10.95 4      Pope Francis used his annual Christmas Day mes...  December 25, 2017[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 512--512
+[]\T1/lmtt/m/n/10.95 ...                                                  ...                ...[] 
+ []
+
+[7]
+
+Package hyperref Warning: Suppressing link with empty target on input line 564.
+
+[8]
+Overfull \hbox (171.07693pt too wide) in paragraph at lines 629--629
+[]\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 [[][]\\[][]![][]\\[][]"[][]\\[][]#[][]\\[][]$[][]\\[][]%[][]\\[][]&[][]\\\\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 \\[][]([][]\\[][])[][]\\[][]*[][]\\[][]+[][]\\[][],[][]\\[][]-[][]\\[][].[][]\\[][]/[][]\\[][]:[][]\\[][];[][]\\[][]<[][]\\[][]=[][]\\[][]>[][]\\[][]?[][]\\[][]@[][]\\[][][[][]\\\\\\[][]][][]\\[][]^^B_[][]\\[][]\TS1/lmtt/m/n/10.95 `[][]\T1/lmtt/m/n/10.95 \\[][]{[][]\\[][]|[][]\\[][]}[][]\\[][]~]\TS1/lmtt/m/n/10.95 '[]|  
+ []
+
+[9]
+Underfull \vbox (badness 10000) detected at line 664
+ []
+
+
+Overfull \vbox (0.564pt too high) detected at line 664
+ []
+
+[10]
+Overfull \hbox (90.59467pt too wide) in paragraph at lines 680--680
+[]\T1/lmtt/m/n/10.95 [\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 esto\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 es\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ejemplo\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 de\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 limpieza\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 de\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 texto\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 cienciadedatos\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 textmining\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ][] 
+ []
+
+
+Overfull \hbox (16215.79219pt too wide) in paragraph at lines 693--693
+[]\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 Donald Trump just couldn t wish all Americans a Happy New Year and leave it at that. Instead, he had to give a shout out to his enemies, haters and  the very dishonest fake news media.  The former reality show star had just one job to do and he couldn t do it. As our Country rapidly grows stronger and smarter, I want to wish all of my friends, supporters, enemies, haters, and even the very dishonest Fake News Media, a Happy and Healthy New Year,  President Angry Pants tweeted.  2018 will be a great year for America! As our Country rapidly grows stronger and smarter, I want to wish all of my friends, supporters, enemies, haters, and even the very dishonest Fake News Media, a Happy and Healthy New Year. 2018 will be a great year for America!  Donald J. Trump (@realDonaldTrump) December 31, 2017Trump s tweet went down about as welll as you d expect.What kind of president sends a New Year s greeting like this despicable, petty, infantile gibberish? Only Trump! His lack of decency won t even allow him to rise above the gutter long enough to wish the American citizens a happy new year!  Bishop Talbert Swan (@TalbertSwan) December 31, 2017no one likes you  Calvin (@calvinstowell) December 31, 2017Your impeachment would make 2018 a great year for America, but I ll also accept regaining control of Congress.  Miranda Yaver (@mirandayaver) December 31, 2017Do you hear yourself talk? When you have to include that many people that hate you you have to wonder? Why do the they all hate me?  Alan Sandoval (@AlanSandoval13) December 31, 2017Who uses the word Haters in a New Years wish??  Marlene (@marlene399) December 31, 2017You can t just say happy new year?  Koren pollitt (@Korencarpenter) December 31, 2017Here s Trump s New Year s Eve tweet from 2016.Happy New Year to all, including to my many enemies and those who have fought me and lost so badly they just don t know what to do. Love!  Donald J. Trump (@realDonaldTrump) December 31, 2016This is nothing new for Trump. He s been doing this for years.Trump has directed messages to his  enemies  and  haters  for New Year s, Easter, Thanksgiving, and the anniversary of 9/11. pic.twitter.com/4FPAe2KypA  Daniel Dale (@ddale8) December 31, 2017Trump s holiday tweets are clearly not presidential.How long did he work at Hallmark before becoming President?  Steven Goodine (@SGoodine) December 31, 2017He s always been like this . . . the only difference is that in the last few years, his filter has been breaking down.  Roy Schulze (@thbthttt) December 31, 2017Who, apart from a teenager uses the term haters?  Wendy (@WendyWhistles) December 31, 2017he s a fucking 5 year old  Who Knows (@rainyday80) December 31, 2017So, to all the people who voted for this a hole thinking he would change once he got into power, you were wrong! 70-year-old men don t change and now he s a year older.Photo by Andrew Burton/Getty Images.\TS1/lmtt/m/n/10.95 '[] 
+ []
+
+
+Overfull \hbox (21981.77191pt too wide) in paragraph at lines 703--703
+[]\T1/lmtt/m/n/10.95 [\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 donald\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 trump\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 just\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 couldn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 wish\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 all\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 americans\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 happy\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 new\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 year\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 and\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 leave\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 it\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 at\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 that\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 instead\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 he\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 had\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 to\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 give\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 shout\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 out\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 to\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 his\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 enemies\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 haters\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 and\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 the\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 very\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 dishonest\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 fake\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 news\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 media\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 the\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 former\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 reality\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 show\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 star\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 had\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 just\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 one\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 job\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 to\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 do\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 and\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 he\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 couldn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 do\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 it\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 as\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 our\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 country\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 rapidly\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 grows\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 stronger\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 and\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 smarter\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 want\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 to\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 wish\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 all\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 of\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 my\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 friends\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 supporters\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 enemies\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 haters\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 and\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 even\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 the\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 very\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 dishonest\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 fake\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 news\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 media\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 happy\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 and\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 healthy\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 new\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 year\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 president\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 angry\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 pants\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 tweeted\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 will\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 be\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 great\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 year\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 for\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 america\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 as\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 our\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 country\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 rapidly\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 grows\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 stronger\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 and\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 smarter\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 want\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 to\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 wish\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 all\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 of\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 my\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 friends\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 supporters\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 enemies\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 haters\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 and\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 even\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 the\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 very\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 dishonest\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 fake\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 news\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n
+/10.95 media\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 happy\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 and\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 healthy\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 new\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 year\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 will\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 be\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 great\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 year\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 for\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 america\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 donald\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 trump\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 realdonaldtrump\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 december\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 trump\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 tweet\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 went\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 down\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 about\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 as\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 welll\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 as\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 you\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 expect\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 what\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 kind\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 of\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 president\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 sends\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 new\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 year\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 greeting\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 like\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 this\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 despicable\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 petty\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 infantile\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 gibberish\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 only\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 trump\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 his\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 lack\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 of\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 decency\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 won\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 even\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 allow\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 him\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 to\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 rise\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 above\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 the\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 gutter\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 long\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 enough\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 to\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 wish\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 the\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 american\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 citizens\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 happy\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 new\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 year\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 bishop\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 talbert\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 swan\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 talbertswan\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 december\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 no\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 one\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 likes\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 you\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 calvin\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 calvinstowell\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 december\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 your\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 impeachment\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 would\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 make\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 great\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 year\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 for\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 america\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 but\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ll\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 also\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 accept\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 regaining\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 control\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 of\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 congress\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 miranda\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 yaver\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 mirandayaver\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 december\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 do\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 you\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 hear\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 yourself\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 talk\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 when\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 you\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 have\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 to\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 include\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 that\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 many\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 people\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 that\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 hate\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 you\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 you\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 have\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1
+/lmtt/m/n/10.95 to\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 wonder\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 why\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 do\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 the\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 they\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 all\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 hate\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 me\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 alan\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 sandoval\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 alansandoval\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 december\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 who\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 uses\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 the\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 word\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 haters\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 in\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 new\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 years\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 wish\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 marlene\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 marlene\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 december\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 you\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 can\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 just\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 say\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 happy\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 new\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 year\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 koren\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 pollitt\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 korencarpenter\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 december\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 here\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 trump\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 new\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 year\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 eve\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 tweet\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 from\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 happy\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 new\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 year\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 to\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 all\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 including\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 to\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 my\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 many\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 enemies\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 and\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 those\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 who\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 have\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 fought\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 me\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 and\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 lost\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 so\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 badly\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 they\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 just\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 don\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 know\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 what\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 to\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 do\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 love\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 donald\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 trump\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 realdonaldtrump\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 december\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 this\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 is\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 nothing\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 new\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 for\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 trump\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 he\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 been\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 doing\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 this\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 for\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 years\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 trump\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 has\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 directed\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 messages\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 to\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 his\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 enemies\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 and\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 haters\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 for\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 new\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 year\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 easter\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 thanksgiving\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 and\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 the\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 anniversary\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 of\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 pic\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 twitter\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 com\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 fpae\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 kypa\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 daniel\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 dale\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ddale\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 december\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 trump\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 holiday\TS1/lmtt/m/n/10
+.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 tweets\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 are\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 clearly\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 not\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 presidential\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 how\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 long\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 did\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 he\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 work\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 at\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 hallmark\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 before\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 becoming\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 president\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 steven\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 goodine\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 sgoodine\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 december\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 he\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 always\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 been\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 like\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 this\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 the\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 only\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 difference\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 is\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 that\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 in\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 the\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 last\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 few\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 years\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 his\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 filter\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 has\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 been\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 breaking\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 down\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 roy\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 schulze\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 thbthttt\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 december\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 who\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 apart\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 from\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 teenager\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 uses\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 the\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 term\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 haters\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 wendy\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 wendywhistles\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 december\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 he\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 fucking\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 year\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 old\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 who\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 knows\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 rainyday\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 december\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 so\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 to\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 all\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 the\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 people\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 who\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 voted\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 for\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 this\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 hole\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 thinking\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 he\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 would\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 change\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 once\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 he\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 got\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 into\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 power\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 you\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 were\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 wrong\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 year\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 old\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 men\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 don\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 change\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 and\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 now\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 he\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 year\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 older\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 photo\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 by\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 andrew\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 burton\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 getty\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 images\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ][] 
+ []
+
+[11]
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 781--781
+[]\T1/lmtt/m/n/10.95 0      Donald Trump just couldn t wish all Americans ...  December 31, 2017[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 781--781
+[]\T1/lmtt/m/n/10.95 1      House Intelligence Committee Chairman Devin Nu...  December 31, 2017[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 781--781
+[]\T1/lmtt/m/n/10.95 2      On Friday, it was revealed that former Milwauk...  December 30, 2017[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 781--781
+[]\T1/lmtt/m/n/10.95 3      On Christmas day, Donald Trump announced that ...  December 29, 2017[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 781--781
+[]\T1/lmtt/m/n/10.95 4      Pope Francis used his annual Christmas Day mes...  December 25, 2017[] 
+ []
+
+
+Overfull \hbox (15.86113pt too wide) in paragraph at lines 781--781
+[]       \T1/lmtt/m/n/10.95 word_count              text_tokenizado                        id_text[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 781--781
+[]\T1/lmtt/m/n/10.95 ...       ...                        ...                                ...[] 
+ []
+
+
+Overfull \hbox (10.1124pt too wide) in paragraph at lines 781--781
+[]\T1/lmtt/m/n/10.95 44893     466     [brussels, reuters, nato, allies, on, tuesday,...    44893[] 
+ []
+
+
+Overfull \hbox (10.1124pt too wide) in paragraph at lines 781--781
+[]\T1/lmtt/m/n/10.95 44894     125     [london, reuters, lexisnexis, provider, of, le...    44894[] 
+ []
+
+
+Overfull \hbox (10.1124pt too wide) in paragraph at lines 781--781
+[]\T1/lmtt/m/n/10.95 44895     320     [minsk, reuters, in, the, shadow, of, disused,...    44895[] 
+ []
+
+
+Overfull \hbox (10.1124pt too wide) in paragraph at lines 781--781
+[]\T1/lmtt/m/n/10.95 44896     205     [moscow, reuters, vatican, secretary, of, stat...    44896[] 
+ []
+
+
+Overfull \hbox (10.1124pt too wide) in paragraph at lines 781--781
+[]\T1/lmtt/m/n/10.95 44897     210     [jakarta, reuters, indonesia, will, buy, sukho...    44897[] 
+ []
+
+
+Overfull \hbox (5.39761pt too wide) in paragraph at lines 783--793
+[]\T1/lmr/m/n/10.95 Creamos un nuevo data-frame solo con las colum-nas (vari-ables) \T1/lmtt/m/n/10.95 id_text \T1/lmr/m/n/10.95 , \T1/lmtt/m/n/10.95 text_tokenizado
+ []
+
+[12] [13] [14] [15] [16]
+Overfull \hbox (84.84593pt too wide) in paragraph at lines 1091--1091
+\T1/lmtt/m/n/10.95 Fake_News_Tokens.loc[Fake_News_Tokens[[]\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 Fake\TS1/lmtt/m/n/10.95 '[]\T1/lmtt/m/n/10.95 ][]\T1/lmtt/b/n/10.95 ==[][]\T1/lmtt/m/n/10.95 0[]].groupby([]\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 id_text\TS1/lmtt/m/n/10.95 '[]\T1/lmtt/m/n/10.95 )[[]\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 token\TS1/lmtt/m/n/10.95 '[]\T1/lmtt/m/n/10.95 ].count() 
+ []
+
+
+Overfull \hbox (84.84593pt too wide) in paragraph at lines 1097--1097
+\T1/lmtt/m/n/10.95 Fake_News_Tokens.loc[Fake_News_Tokens[[]\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 Fake\TS1/lmtt/m/n/10.95 '[]\T1/lmtt/m/n/10.95 ][]\T1/lmtt/b/n/10.95 ==[][]\T1/lmtt/m/n/10.95 1[]].groupby([]\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 id_text\TS1/lmtt/m/n/10.95 '[]\T1/lmtt/m/n/10.95 )[[]\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 token\TS1/lmtt/m/n/10.95 '[]\T1/lmtt/m/n/10.95 ].count() 
+ []
+
+
+Overfull \hbox (96.3434pt too wide) in paragraph at lines 1120--1120
+\T1/lmtt/m/n/10.95 )[[]"token"[]].count().unstack(fill_value[]\T1/lmtt/b/n/10.95 =[][]\T1/lmtt/m/n/10.95 0[]).stack().reset_index(name[]\T1/lmtt/b/n/10.95 =[][]\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 frecuencia_token\TS1/lmtt/m/n/10.95 '[]\T1/lmtt/m/n/10.95 )))|  
+ []
+
+[17] [18] [19] [20]
+Overfull \hbox (13151.71722pt too wide) in paragraph at lines 1377--1377
+[]    \T1/lmtt/m/n/10.95 [\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 i\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 me\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 my\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 myself\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 we\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 our\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ours\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ourselves\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 you\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "you\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 re", "you\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ve", "you\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ll", "you\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 d", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 your\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 yours\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 yourself\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 yourselves\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 he\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 him\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 his\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 himself\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 she\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "she\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 s", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 her\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 hers\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 herself\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 it\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "it\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 s", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 its\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 itself\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 they\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 them\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 their\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 theirs\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 themselves\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 what\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 which\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 who\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 whom\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 this\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 that\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "that\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ll", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 these\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 those\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 am\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 is\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 are\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 was\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 were\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 be\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 been\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 being\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 have\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 has\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 had\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 having\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 do\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 does\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 did\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 doing\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 a\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 an\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 the\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 and\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 but\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 if\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 or\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 because\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 as\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 until\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 while\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 of\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 at\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 by\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 for\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 with\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 about\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 against\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 between\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 into\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 through\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 during\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 before\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 after\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 above\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 below\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 to\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 from\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 up\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 down\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 in\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 out\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 on\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 off\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 over\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 under\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 again\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 further\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 then\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 once\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 here\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 there\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 when\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 where\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 why\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 how\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 all\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 any\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 both\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 each\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 few\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 more\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 most\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 other\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 some\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 such\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 no\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 nor\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 not\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1
+/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 only\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 own\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 same\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 so\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 than\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 too\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 very\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 s\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 t\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 can\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 will\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 just\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 don\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "don\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 t", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 should\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "should\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ve", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 now\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 d\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ll\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 m\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 o\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 re\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ve\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 y\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ain\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 aren\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "aren\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 t", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 couldn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "couldn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 t", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 didn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "didn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 t", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 doesn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "doesn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 t", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 hadn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "hadn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 t", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 hasn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "hasn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 t", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 haven\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "haven\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 t", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 isn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "isn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 t", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ma\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 mightn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "mightn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 t", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 mustn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "mustn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 t", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 needn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "needn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 t", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 shan\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "shan\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 t", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 shouldn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "shouldn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 t", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 wasn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "wasn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 t", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 weren\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "weren\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 t", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 won\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "won\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 t", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 wouldn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , "wouldn\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 t", \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 pic\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 getty\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 quot\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 acr\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 filessupport\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 flickr\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 fjs\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 js\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 somodevilla\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 var\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 henningsen\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ck\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 cdata\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 subscribing\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 mcnamee\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 amp\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 wfb\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 screenshot\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 hesher\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 nyp\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 cking\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 helton\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 raedle\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 donnell\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 getelementbyid\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 src\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 behar\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 createelement\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 getelementsbytagname\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 parentnode\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 wnd\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 insertbefore\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 jssdk\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 nowicki\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 xfbml\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 camerota\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 sdk\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pi\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pthe\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pwe\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 it's\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 don't\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pthis\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pit\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pa\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pif\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pit's\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 we're\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 that's\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Phe\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pthere\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 i'm\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 he's\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pwe're\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 doesn't\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 can't\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pi'm\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pin\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 suu\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pthey\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 you're\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pbut\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 didn't\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \
+TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pyou\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 they're\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pno\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pas\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pvery\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 there's\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pwhat\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pand\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 won't\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pto\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pthat\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pone\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 we've\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pwhen\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pour\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pnot\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 '^^Q\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pthat's\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pthese\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Pthere's\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ^^Phe's\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 we'll\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 one\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 would\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 like\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 us\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 even\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 could\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 two\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 many\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 angerer\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 , \TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 reilly\TS1/lmtt/m/n/10.95 '\T1/lmtt/m/n/10.95 ][] 
+ []
+
+[21] [22]
+<p1.png, id=223, 578.16pt x 578.16pt>
+File: p1.png Graphic file (type png)
+<use p1.png>
+Package pdftex.def Info: p1.png  used on input line 1465.
+(pdftex.def)             Requested size: 426.79071pt x 426.79071pt.
+<p2.png, id=224, 578.16pt x 578.16pt>
+File: p2.png Graphic file (type png)
+<use p2.png>
+Package pdftex.def Info: p2.png  used on input line 1481.
+(pdftex.def)             Requested size: 426.79071pt x 426.79071pt.
+[23 <./p1.png>] [24 <./p2.png>] [25] [26]
+Overfull \hbox (27.3586pt too wide) in paragraph at lines 1702--1702
+\T1/lmtt/m/n/10.95 df_fake_sort_not_StopWords.sort_values(by[]\T1/lmtt/b/n/10.95 =[]\T1/lmtt/m/n/10.95 [[]"token"[]]).reset_index(drop[]\T1/lmtt/b/n/10.95 =[][]\T1/lmtt/m/n/10.95 True[])|  
+ []
+
+
+Overfull \hbox (44.6048pt too wide) in paragraph at lines 1724--1724
+\T1/lmtt/m/n/10.95 df_no_fake_sort_not_StopWords.sort_values(by[]\T1/lmtt/b/n/10.95 =[]\T1/lmtt/m/n/10.95 [[]"token"[]]).reset_index(drop[]\T1/lmtt/b/n/10.95 =[][]\T1/lmtt/m/n/10.95 True[])|  
+ []
+
+[27]
+Overfull \hbox (21.60986pt too wide) in paragraph at lines 1798--1798
+[]         \T1/lmtt/m/n/10.95 index  Fake       token  frecuencia_token  Odds_ratio_Fake_NotFake  \[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1798--1798
+[]\T1/lmtt/m/n/10.95 0            0     0          aa                22                 0.963253[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1798--1798
+[]\T1/lmtt/m/n/10.95 1            1     0         aaa                 7                 1.107741[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1798--1798
+[]\T1/lmtt/m/n/10.95 2            2     0  aaaaaaaand                 0                 1.772386[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1798--1798
+[]\T1/lmtt/m/n/10.95 3            3     0   aaaaackkk                 0                 1.772386[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1798--1798
+[]\T1/lmtt/m/n/10.95 4            4     0  aaaaapkfhk                 0                 1.772386[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1798--1798
+[]\T1/lmtt/m/n/10.95 ...        ...   ...         ...               ...                      ...[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1798--1798
+[]\T1/lmtt/m/n/10.95 125561  125800     0        ^^Q^^Qit                 1                 0.443097[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1798--1798
+[]\T1/lmtt/m/n/10.95 125562  125801     0      ^^Q^^Qwhen                 1                 0.443097[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1798--1798
+[]\T1/lmtt/m/n/10.95 125563  125802     0          if                 3                 0.221548[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1798--1798
+[]\T1/lmtt/m/n/10.95 125564  125803     0    $emoji1$                 3                 0.221548[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1798--1798
+[]\T1/lmtt/m/n/10.95 125565  125804     0    $emoji2$                 1                 0.443097[] 
+ []
+
+[28]
+Overfull \hbox (21.60986pt too wide) in paragraph at lines 1832--1832
+[]         \T1/lmtt/m/n/10.95 index  Fake       token  frecuencia_token  Odds_ratio_Fake_NotFake  \[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1832--1832
+[]\T1/lmtt/m/n/10.95 0       125805     1          aa                24                 0.963253[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1832--1832
+[]\T1/lmtt/m/n/10.95 1       125806     1         aaa                 9                 1.107741[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1832--1832
+[]\T1/lmtt/m/n/10.95 2       125807     1  aaaaaaaand                 1                 1.772386[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1832--1832
+[]\T1/lmtt/m/n/10.95 3       125808     1   aaaaackkk                 1                 1.772386[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1832--1832
+[]\T1/lmtt/m/n/10.95 4       125809     1  aaaaapkfhk                 1                 1.772386[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1832--1832
+[]\T1/lmtt/m/n/10.95 ...        ...   ...         ...               ...                      ...[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1832--1832
+[]\T1/lmtt/m/n/10.95 125561  251605     1        ^^Q^^Qit                 0                 0.443097[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1832--1832
+[]\T1/lmtt/m/n/10.95 125562  251606     1      ^^Q^^Qwhen                 0                 0.443097[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1832--1832
+[]\T1/lmtt/m/n/10.95 125563  251607     1          if                 0                 0.221548[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1832--1832
+[]\T1/lmtt/m/n/10.95 125564  251608     1    $emoji1$                 0                 0.221548[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1832--1832
+[]\T1/lmtt/m/n/10.95 125565  251609     1    $emoji2$                 0                 0.443097[] 
+ []
+
+
+Overfull \hbox (21.60986pt too wide) in paragraph at lines 1854--1854
+[]    \T1/lmtt/m/n/10.95 index  Fake            token  frecuencia_token  Odds_ratio_Fake_NotFake  \[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1854--1854
+[]\T1/lmtt/m/n/10.95 0   35830     0          finicum                 0               320.801884[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1854--1854
+[]\T1/lmtt/m/n/10.95 1  114264     0        wikimedia                 0               200.279629[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1854--1854
+[]\T1/lmtt/m/n/10.95 2  109040     0  uninterruptible                 0               189.645313[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1854--1854
+[]\T1/lmtt/m/n/10.95 3   78372     0     philosophers                 0               186.100540[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1854--1854
+[]\T1/lmtt/m/n/10.95 4   60711     0          lovable                 0               183.441961[] 
+ []
+
+[29]
+Overfull \hbox (21.60986pt too wide) in paragraph at lines 1898--1898
+[]    \T1/lmtt/m/n/10.95 index  Fake            token  frecuencia_token  Odds_ratio_Fake_NotFake  \[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1898--1898
+[]\T1/lmtt/m/n/10.95 0  161635     1          finicum               361               320.801884[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1898--1898
+[]\T1/lmtt/m/n/10.95 1  240069     1        wikimedia               225               200.279629[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1898--1898
+[]\T1/lmtt/m/n/10.95 2  234845     1  uninterruptible               213               189.645313[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1898--1898
+[]\T1/lmtt/m/n/10.95 3  204177     1     philosophers               209               186.100540[] 
+ []
+
+
+Overfull \hbox (4.36366pt too wide) in paragraph at lines 1898--1898
+[]\T1/lmtt/m/n/10.95 4  186516     1          lovable               206               183.441961[] 
+ []
+
+
+Overfull \hbox (58.29628pt too wide) in paragraph at lines 1922--1926
+[]\T1/lmr/m/n/10.95 Notese que en am-bos data sets las colum-nas Odds_ratio_Fake_NotFake y Odds_ratio_NotFake_Fake
+ []
+
+[30] [31]
+<p3.png, id=273, 578.16pt x 578.16pt>
+File: p3.png Graphic file (type png)
+<use p3.png>
+Package pdftex.def Info: p3.png  used on input line 2013.
+(pdftex.def)             Requested size: 426.79071pt x 426.79071pt.
+<p4.png, id=274, 578.16pt x 578.16pt>
+File: p4.png Graphic file (type png)
+<use p4.png>
+Package pdftex.def Info: p4.png  used on input line 2030.
+(pdft
