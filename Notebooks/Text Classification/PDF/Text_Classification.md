@@ -1797,7 +1797,8 @@ Vamos a hacer un pequeño analisis de los tokens que son los mas representativos
 
     - Este token hace referencia a Barack Hussein Obama  es un político estadounidense que ejerció como el 44.º presidente de los Estados Unidos de América desde el 20 de enero de 2009 hasta el 20 de enero de 2017
 
-  
+ 
+ 
      
      
 - El tercer token mas representativo de las fakes news es 'clinton's'
@@ -1831,7 +1832,7 @@ Vamos a hacer un pequeño analisis de los tokens que son los mas representativos
 
 - El undecimo token mas representativo es 'puigdemont' que hace referencia a Carles Puigdemont
 
-           - Carles Puigdemont i Casamajón es un político y periodista español, diputado al Parlamento Europeo y presidente de la Generalidad de Cataluña entre 2016 y 2017. Durante su mandato como presidente de la Generalidad se impulsó la celebración ilegal del referéndum de independencia de Cataluña el 1 de octubre de 2017 y se efectuó una pretendida declaración unilateral de independencia del territorio el día 27 del mismo mes. Así, fue cesado en el cargo el 28 de octubre de 2017, al amparo de la Orden PRA/1034/2017, de 27 de octubre, en aplicación del artículo 155 de la Constitución española de 1978.12​ Fue puesto entonces en busca y captura en territorio español acusado de presuntos delitos de rebelión, sedición y malversación de caudales públicos por actos que se le imputan en la organización del referéndum y la declaración unilateral de independencia
+           - Carles Puigdemont i Casamajón es un político y periodista español, diputado al Parlamento Europeo y presidente de la Generalidad de Cataluña entre 2016 y 2017. Durante su mandato como presidente de la Generalidad se impulsó la celebración ilegal del referéndum de independencia de Cataluña el 1 de octubre de 2017 y se efectuó una pretendida declaración unilateral de independencia del territorio el día 27 del mismo mes. Así, fue cesado en el cargo el 28 de octubre de 2017, al amparo de la Orden PRA/1034/2017, de 27 de octubre, en aplicación del artículo 155 de la Constitución española de 1978. Fue puesto entonces en busca y captura en territorio español acusado de presuntos delitos de rebelión, sedición y malversación de caudales públicos por actos que se le imputan en la organización del referéndum y la declaración unilateral de independencia
 
 
 - El duodecimo token mas representativo es 'china's' que hace referencia a China.
@@ -1869,9 +1870,9 @@ El estadístico tf-idf mide cómo de informativo es un término en un documento 
 
 Term Frequency (tf)
 
-$$tf (k, d)= \dfrac{n_k}{longitud( d)}$$
+$$tf (k, d)= \dfrac{n_k}{longitud(d)}$$
  
-donde  $n_k$  es el número de veces que aparece el término  $k$  en el documento  $d$ , y longitudd(d) es el nº de terminos del documento d
+donde  $n_k$  es el número de veces que aparece el término  $k$  en el documento  $d$ , y longitudd(d) es el nº de terminos del documento $d$
 
 
 
@@ -1880,13 +1881,13 @@ Inverse Document Frequency
 
 $$idf (k)=log(\dfrac{n(d)}{n(d,k)})$$
  
-donde  $n(d)$  es el número total de documentos y $n(d,k)$  el número de documentos que contienen el término  $k$ .
+donde  $n(d)$  es el número total de documentos y $n(d,k)$  el número de documentos que contienen el término  $k$ 
 
 
 
 Estadístico tf-idf
 
-$$tf\_idf(k, d)=tf (k, d)∗idf (k)$$
+$$tf\_idf(k, d)=tf(k, d) \cdot idf (k)$$
  
 
 
@@ -1898,7 +1899,6 @@ En la práctica, para evitar problemas con el logaritmo cuando aparecen valores 
 
 $$idf (k)=log(\dfrac{1+n(d)}{1+n(d,k)})+1$$
  
-
 
 
 
