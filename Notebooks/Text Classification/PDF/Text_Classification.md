@@ -1857,49 +1857,158 @@ Vamos a hacer un pequeño analisis de los tokens que son los mas representativos
 # Term frequency – Inverse document frequency (Tf - Idf)
 
 
-Siguiendo a [Joaquin Amat Rodrigo](https://www.linkedin.com/in/joaquin-amat-rodrigo/?originalSubdomain=es) , creador de [Cienciadedatos.net](https://www.cienciadedatos.net/ ) :
-
-Uno de los principales intereses en **text mining**, **natural language processing** e **information retrieval** es cuantificar la temática de un texto, así como la importancia de cada término que lo forma. Una manera sencilla de medir la importancia de un término dentro de un documento es utilizando la frecuencia con la que aparece (tf, term-frequency). Esta aproximación, aunque simple, tiene la limitación de atribuir mucha importancia a aquellas palabras que aparecen muchas veces aunque no aporten información selectiva. Por ejemplo, si la palabra matemáticas aparece 5 veces en un documento y la palabra página aparece 50, la segunda tendrá 10 veces más peso a pesar de que no aporte tanta información sobre la temática del documento. Para solucionar este problema se pueden ponderar los valores tf multiplicándolos por la inversa de la frecuencia con la que el término en cuestión aparece en el resto de documentos (idf). De esta forma, se consigue reducir el valor de aquellos términos que aparecen en muchos documentos y que, por lo tanto, no aportan información selectiva.
+Siguiendo a [Joaquin Amat Rodrigo](https://www.linkedin.com/in/joaquin-amat-rodrigo/?originalSubdomain=es) , creador de [Cienciadedatos.net](https://www.cienciadedatos.net/ )  y la entrada de [Wikipedia](https://es.wikipedia.org/wiki/Tf-idf)
 
 
+Uno de los principales intereses en **text mining**, **natural language processing** e **information retrieval** es cuantificar la temática de un texto, así como la importancia de cada término que lo forma. Una manera sencilla de medir la importancia de un término dentro de un documento es utilizando la frecuencia con la que aparece (tf, term-frequency). Esta aproximación, aunque simple, tiene la limitación de atribuir mucha importancia a aquellas palabras que aparecen muchas veces aunque no aporten información selectiva. Por ejemplo, si la palabra matemáticas aparece 5 veces en un documento y la palabra página aparece 50, la segunda tendrá 10 veces más peso a pesar de que no aporte tanta información sobre la temática del documento. 
+
+Para solucionar este problema  se pueden ponderar los valores tf multiplicándolos por la inversa de la frecuencia con la que el término en cuestión aparece en el resto de documentos (idf). Asi se obtienee el  estadístico **tf-idf**, que se consigue reducir el valor de aquellos términos que aparecen en muchos documentos y que, por lo tanto, no aportan información selectiva.
 
 
-El estadístico tf-idf mide cómo de informativo es un término en un documento teniendo en cuenta la frecuencia con la que ese término aparece en otros documentos.
+El estadístico **tf-idf**  es una medida numérica que expresa cuán relevante es un término para un documento dentro de una colección de documentos. Esta medida se utiliza a menudo como un factor de ponderación en la recuperación de información y la minería de texto. El valor **tf-idf** aumenta proporcionalmente al número de veces que una palabra aparece en el documento, pero es compensada por la frecuencia de la palabra en la colección de documentos, lo que permite manejar el hecho de que algunas palabras son generalmente más comunes que otras.
 
-
-
-Term Frequency (tf)
-
-$$tf (k, d)= \dfrac{n_k}{longitud(d)}$$
- 
-donde  $n_k$  es el número de veces que aparece el término  $k$  en el documento  $d$ , y longitudd(d) es el nº de terminos del documento $d$
+Variaciones del esquema de peso **tf-idf** son empleadas frecuentemente por los motores de búsqueda como herramienta fundamental para medir la relevancia de un documento dada una consulta del usuario, estableciendo así una ordenación o ranking de los mismos. **Tf-idf** también puede utilizarse exitosamente para el filtrado de las denominadas stop-words (palabras que suelen usarse en casi todos los documentos).
 
 
 
-
-Inverse Document Frequency
-
-$$idf (k)=log(\dfrac{n(d)}{n(d,k)})$$
- 
-donde  $n(d)$  es el número total de documentos y $n(d,k)$  el número de documentos que contienen el término  $k$ 
+## Definición formal del estadistico tf-idf
 
 
-
-Estadístico tf-idf
-
-$$tf\_idf(k, d)=tf(k, d) \cdot idf (k)$$
- 
+**Term Frequency (tf)**
 
 
+ - Versión simple:
+
+$$tf (k, d)= \dfrac{n(k,d)}{size(d)}$$
 
 
+> Donde:
 
-
-En la práctica, para evitar problemas con el logaritmo cuando aparecen valores de 0, se emplea una versión corregida del  idf (t) . Esta es la versión implementada en Scikit Learn.
-
-$$idf (k)=log(\dfrac{1+n(d)}{1+n(d,k)})+1$$
+> $n(k, d)$  es el número de veces que aparece el término  $k$  en el documento  $d$ 
+    
+> $size(d)$ es el nº de terminos del documento $d$
+  
  
 
+- Versión normalizada (para evitar una predisposición hacia los documentos largos):
+
+$$tf_{norm} (k, d)= \dfrac{tf(k,d)}{Max\lbrace tf(k,d) \hspace{0.12cm} /\hspace{0.12cm} k \in d  \rbrace}$$
+
+
+
+
+
+
+**Inverse Document Frequency (idf)**
+
+- Versión simple:
+
+$$idf (k)=log\left(\dfrac{n(D)}{n(k, D)}\right)$$
+
+
+> Donde :
+
+> $n(D)= \# D$  es el número total de documentos , donde $D$ es el conjunto de los documentos 
+    
+> $n(k, D)=\# \lbrace d\in D / k \in d \rbrace$  el número de documentos que contienen el término  $k$ 
+
+> $log()$ es la función logaritmo en base $e$
+    
+    
+    
+
+- Versión  `sklearn` si smooth_idf = True
+
+$$idf (k)=log\left(\dfrac{n(D)}{n(k, D)}\right) + 1$$
+
+
+
+- Versión  `sklearn` si smooth_idf = False
+ 
+
+$$idf (k)=log\left(\dfrac{n(D) + 1}{n(k, D) + 1}\right) + 1$$
+    
+
+
+
+**Estadístico tf-idf**
+
+- Versión simple:
+
+$$tfidf(k, d)=tf(k, d) \cdot idf (k)$$
+ 
+
+
+- Versión normalizada : 
+
+$$tfidf_{norm}(k, d) = tf_{norm}(k, d) \cdot idf (k)$$
+
+
+
+- Versión `sklearn`
+
+$$tfidf(k, d) = \dfrac{tfidf(k, d)}{ \sum_{k\in T(D)} tfidf(k, d)^2 }$$
+
+
+> Donde: 
+
+> $T(D)$ es el conjunto de términos del conjunto de documentos $(D)$.
+     
+>  Sea $tfidf(k\in T, d) = ( tfidf(k, d) )_{k\in T}$ el vector que contiene como componentes los valores de tf-idf para los terminos $k\in T$ en el documento $d$ , entonces:
+     
+> $|| tfidf(k\in T, d) ||_2 = \sqrt{ \sum_{k\in T(D)} tfidf(k, d)^2 }$, es decir, es la norma euclidea del vector $tfidf(k\in T, d)$
+     
+> Notese que si $k\notin d$ , entonces  $tfidf(k, d) = 0$, por tanto , $\sum_{k\in T} tfidf(k, d)^2 = \sum_{k\in T(d)} tfidf(k, d)^2$ , donde $T(d)$ es el conjunto de los terminos del documento $d \in D$ 
+
+
+
+## Cálculo de tf-idf en `Python`
+ 
+### Cálculo de tf
+
+
+```python
+# nº de veces que aparece cada termino (token) en cada noticia (n_k)
+
+df_tf = pd.DataFrame( Fake_News_Tokens_not_StopWords.groupby(['id_text','token'])['token'].count().reset_index(name='n_k') )
+
+# nº de terminos (tokens) en cada noticia (longitud(d))
+
+df_tf['longitud(d)'] = df_tf.groupby('id_text')['n_k'].transform(sum)
+
+# Calculo de term-frequency (tf)
+
+df_tf['tf'] = df_tf['n_k'] / df_tf['longitud(d)']
+
+
+# Calculo de term-frequency normalizado (tf_norm)
+
+df_tf['max_tf'] = df_tf.groupby('id_text')['tf'].transform(max)
+
+df_tf['tf_norm'] = df_tf['tf'] / df_tf['max_tf']
+
+```
+
+
+Veamos como queda el data-frame creado: 
+
+```python
+df_tf
+```
+```
+         id_text         token  n_k  longitud(d)        tf    max_tf   tf_norm
+0              0        accept    1          251  0.003984  0.059761  0.066667
+1              0          alan    1          251  0.003984  0.059761  0.066667
+2              0  alansandoval    1          251  0.003984  0.059761  0.066667
+3              0         allow    1          251  0.003984  0.059761  0.066667
+4              0          also    1          251  0.003984  0.059761  0.066667
+...          ...           ...  ...          ...       ...       ...       ...
+7155407    44897         union    1          132  0.007576  0.030303  0.250000
+7155408    44897        volume    1          132  0.007576  0.030303  0.250000
+7155409    44897         wants    1          132  0.007576  0.030303  0.250000
+7155410    44897         worth    2          132  0.015152  0.030303  0.500000
+7155411    44897         years    1          132  0.007576  0.030303  0.250000
+```
 
 
 
@@ -1908,6 +2017,20 @@ $$idf (k)=log(\dfrac{1+n(d)}{1+n(d,k)})+1$$
 
 
 
+# Bibliografía
 
 
+https://www.cienciadedatos.net/documentos/py25-text-mining-python.html
+
+
+https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html
+
+https://www.analyticsvidhya.com/blog/2021/11/how-sklearns-tfidfvectorizer-calculates-tf-idf-values/
+
+
+https://github.com/scikit-learn/scikit-learn/blob/f3f51f9b6/sklearn/feature_extraction/text.py#L1717
+
+https://es.wikipedia.org/wiki/Tf-idf
+
+web sklearn, numpy , pandas , wikipedia
 
