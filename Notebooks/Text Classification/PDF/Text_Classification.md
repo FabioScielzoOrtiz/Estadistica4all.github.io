@@ -1754,7 +1754,7 @@ Vamos a hacer un pequeño analisis de los tokens que son los mas representativos
 
 - El octavo token mas representativo de las fakes news es 'spore' que significa 'espora' en español.
 
-- El noveno token mas representatico de las fake news es 'rascals' que podria hacer alusion a la pelicula 'The Little Rascals' en la cual participo como parte del elenco de actores el ex-presidente de Estados Unidos (actualmente, pero presidente en las fechas de las noticias analizadas)   Donald Trump.
+- El noveno token mas representatico de las fake news es 'rascals' que podria hacer alusion a la pelicula 'The Little Rascals' en la cual participo como parte del elenco de actores el ex-presidente de Estados Unidos Donald Trump.
 
 - El decimo token mas representativo es 'evangelist' que significa 'evangelistas' en español.
 
@@ -1819,33 +1819,46 @@ Vamos a hacer un pequeño analisis de los tokens que son los mas representativos
 
     - Rakhine es un estado de Birmania. 
 
-- El octavo token mas representativo de las fakes news es 'spore' que significa 'espora' en español.
+- El octavo token mas representativo de las fakes news es 'administration's' que significa 'gobierno' en español.
 
-- El noveno token mas representatico de las fake news es 'rascals' que podria hacer alusion a la pelicula 'The Little Rascals' en la cual participo como parte del elenco de actores el ex-presidente de Estados Unidos (actualmente, pero presidente en las fechas de las noticias analizadas)   Donald Trump.
+- El noveno token mas representatico de las fake news es 'rohingya'
 
-- El decimo token mas representativo es 'evangelist' que significa 'evangelistas' en español.
+     - Los rohingya  son un grupo étnico musulmán de Birmania (Myanmar) que desde 2017 fue objeto, según la ONU, de una limpieza étnica por parte de las autoridades birmanas que obligó a la mayoría de sus integrantes a refugiarse en la vecina Bangladés.  
+     
+- El decimo token mas representativo es 'zuma' que podria hacer referencia a Jacob Zuma
 
-- El undecimo token mas representativo es 'masochist' que significa 'masoquista' en español.
+      - Jacob Gedleyihlekisa Zuma  es un político sudafricano que ejerció como el cuarto Presidente de la República de Sudáfrica. Fue también presidente del Congreso Nacional Africano (ANC), partido político en el poder en la República de Sudáfrica, elegido por la Conferencia Nacional el 18 de diciembre de 2007, puesto que mantuvo hasta diciembre de 2017. Zuma fue vicepresidente de la República de 1999 a 2005. El 14 de febrero de 2018 renunció a su cargo como presidente.
 
+- El undecimo token mas representativo es 'puigdemont' que hace referencia a Carles Puigdemont
 
-- El duodecimo token mas representativo es 'boiler' que significa 'caldera' en español.
-
- - El decimotercero token mas representativo es 'bundy' que significa 'paquete' en español.
-
-- El decimocuarto token mas representativo es 'screengrab' que significa 'captura de pantalla' en español.
-
-- El decimoquinto token mas representativo es 'whined' que significa 'quejarse' en español.
+           - Carles Puigdemont i Casamajón es un político y periodista español, diputado al Parlamento Europeo y presidente de la Generalidad de Cataluña entre 2016 y 2017. Durante su mandato como presidente de la Generalidad se impulsó la celebración ilegal del referéndum de independencia de Cataluña el 1 de octubre de 2017 y se efectuó una pretendida declaración unilateral de independencia del territorio el día 27 del mismo mes. Así, fue cesado en el cargo el 28 de octubre de 2017, al amparo de la Orden PRA/1034/2017, de 27 de octubre, en aplicación del artículo 155 de la Constitución española de 1978.12​ Fue puesto entonces en busca y captura en territorio español acusado de presuntos delitos de rebelión, sedición y malversación de caudales públicos por actos que se le imputan en la organización del referéndum y la declaración unilateral de independencia
 
 
+- El duodecimo token mas representativo es 'china's' que hace referencia a China.
+
+ - El decimotercero token mas representativo es 'russia's' que hace referencia a Rusia.
+
+- El decimocuarto token mas representativo es 'county's' que significa 'país' en español.
+
+- El decimoquinto token mas representativo es 'myanmar'
+
+       - Birmania o Myanmar  denominada oficialmente República de la Unión de Myanmar, es un Estado soberano del Sudeste Asiático. 
 
 
-La interpretacion de estos términos no es una tarea en la que necesariamente el cientifico de datos que los ha obtenido pueda aportar un gran valor. Desde mi punto de vista, es mas adecuado que la interpretacion de estas palabras se haga por parte de expertos en el contexto en el que se encuentran las noticias analizadas, a saber, en el contexto politico de estados unidos entre los años 2015 y 2018.
+
+
+>La interpretacion de estos términos no es una tarea en la que necesariamente el cientifico de datos que los ha obtenido pueda aportar un gran valor. Desde mi punto de vista, es mas adecuado que la interpretacion de estas palabras se haga por parte de expertos en el contexto en el que se encuentran las noticias analizadas, a saber, en el contexto politico, economico y social que rodeaba a Estados Unidos entre los años 2015 y 2018.
+
+
+
 
 
 # Term frequency – Inverse document frequency (Tf - Idf)
 
 
-Uno de los principales intereses en text mining, natural language processing e information retrieval es cuantificar la temática de un texto, así como la importancia de cada término que lo forma. Una manera sencilla de medir la importancia de un término dentro de un documento es utilizando la frecuencia con la que aparece (tf, term-frequency). Esta aproximación, aunque simple, tiene la limitación de atribuir mucha importancia a aquellas palabras que aparecen muchas veces aunque no aporten información selectiva. Por ejemplo, si la palabra matemáticas aparece 5 veces en un documento y la palabra página aparece 50, la segunda tendrá 10 veces más peso a pesar de que no aporte tanta información sobre la temática del documento. Para solucionar este problema se pueden ponderar los valores tf multiplicándolos por la inversa de la frecuencia con la que el término en cuestión aparece en el resto de documentos(idf). De esta forma, se consigue reducir el valor de aquellos términos que aparecen en muchos documentos y que, por lo tanto, no aportan información selectiva.
+Siguiendo a [Joaquin Amat Rodrigo](https://www.linkedin.com/in/joaquin-amat-rodrigo/?originalSubdomain=es) , creador de [Cienciadedatos.net](https://www.cienciadedatos.net/ ) :
+
+Uno de los principales intereses en **text mining**, **natural language processing** e **information retrieval** es cuantificar la temática de un texto, así como la importancia de cada término que lo forma. Una manera sencilla de medir la importancia de un término dentro de un documento es utilizando la frecuencia con la que aparece (tf, term-frequency). Esta aproximación, aunque simple, tiene la limitación de atribuir mucha importancia a aquellas palabras que aparecen muchas veces aunque no aporten información selectiva. Por ejemplo, si la palabra matemáticas aparece 5 veces en un documento y la palabra página aparece 50, la segunda tendrá 10 veces más peso a pesar de que no aporte tanta información sobre la temática del documento. Para solucionar este problema se pueden ponderar los valores tf multiplicándolos por la inversa de la frecuencia con la que el término en cuestión aparece en el resto de documentos (idf). De esta forma, se consigue reducir el valor de aquellos términos que aparecen en muchos documentos y que, por lo tanto, no aportan información selectiva.
 
 
 
@@ -1854,6 +1867,37 @@ El estadístico tf-idf mide cómo de informativo es un término en un documento 
 
 
 
+Term Frequency (tf)
+
+$$tf (k, d)= \dfrac{n_k}{longitud( d)}$$
+ 
+donde  $n_k$  es el número de veces que aparece el término  $k$  en el documento  $d$ , y longitudd(d) es el nº de terminos del documento d
+
+
+
+
+Inverse Document Frequency
+
+$$idf (k)=log(\dfrac{n(d)}{n(d,k)})$$
+ 
+donde  $n(d)$  es el número total de documentos y $n(d,k)$  el número de documentos que contienen el término  $k$ .
+
+
+
+Estadístico tf-idf
+
+$$tf\_idf(k, d)=tf (k, d)∗idf (k)$$
+ 
+
+
+
+
+
+
+En la práctica, para evitar problemas con el logaritmo cuando aparecen valores de 0, se emplea una versión corregida del  idf (t) . Esta es la versión implementada en Scikit Learn.
+
+$$idf (k)=log(\dfrac{1+n(d)}{1+n(d,k)})+1$$
+ 
 
 
 
