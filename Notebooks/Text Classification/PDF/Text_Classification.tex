@@ -2765,6 +2765,16 @@ imprimimos los 50 primeros:
 \end{Highlighting}
 \end{Shaded}
 
+\begin{verbatim}
+['aa' 'aaa' 'aaaaaaaand' 'aaaaackkk' 'aaaaapkfhk' 'aaaahhhh' 'aaaand'
+ 'aaaarrgh' 'aaab' 'aaarf' 'aab' 'aaba' 'aabfsv' 'aabge' 'aabo'
+ 'aaccording' 'aachen' 'aacnr' 'aadhaar' 'aadhar' 'aadl' 'aaf' 'aafn'
+ 'aag' 'aahd' 'aahwuhvvnh' 'aai' 'aaj' 'aaja' 'aal' 'aalberg' 'aalberts'
+ 'aaldef' 'aaliyah' 'aamer' 'aamin' 'aammir' 'aamom' 'aamrrd' 'aan'
+ 'aaofj' 'aapa' 'aapi' 'aapl' 'aapxim' 'aar' 'aardal' 'aardvark'
+ 'aardvarks' 'aargh'] 
+\end{verbatim}
+
 \texttt{sklearn} no permite imprimir la matriz tf-idf obtenida debido a
 sus dimension excesiva, pero si podemos acceder a sus elementos del
 siguiente modo:
@@ -2780,7 +2790,12 @@ Por ejemplo, podemos acceder al tf-idf del token asociado a la columna
 
 \begin{verbatim}
  0.034889784479772486
+ 
 \end{verbatim}
+
+La salida anterior nos indicaa que el valor del estadistico tf-idf para
+el token asociado a la columna 645 en el documento (noticia) asociada a
+la fila 0 (la fila 0 en Python es la fila 1) es 0.0349
 
 Vamos a crear un data-frame para identificar cada columna con su token
 asociado:
@@ -2792,6 +2807,308 @@ asociado:
 \NormalTok{df\_index\_token}
 \end{Highlighting}
 \end{Shaded}
+
+\begin{verbatim}
+         index       token
+
+0            0          aa
+1            1         aaa
+2            2  aaaaaaaand
+3            3   aaaaackkk
+4            4  aaaaapkfhk
+
+...        ...         ...
+
+125561  125561        ””it
+125562  125562      ””when
+125563  125563          if
+125564  125564    $emoji1$
+125565  125565    $emoji2$
+\end{verbatim}
+
+Utilizando este da-frame vamos a comparar algunos valores de la matriz
+tf-idf obtenida con \texttt{sklearn}con los valores que calculamos
+nosotros en las secciones anteriores y que se encuentran registrados en
+el data-frame \texttt{df\_tf\_Idf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_tf\_Idf}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+
+         id_text         token  n_k  longitud(d)        tf    max_tf  
+
+0              0        accept    1          251  0.003984  0.059761   
+304262         0       pollitt    1          251  0.003984  0.059761   
+304263         0         power    1          251  0.003984  0.059761   
+309320         0     president    3          251  0.011952  0.059761   
+332891         0  presidential    1          251  0.003984  0.059761   
+...          ...           ...  ...          ...       ...       ...   
+5516302    44897          amid    1          132  0.007576  0.030303   
+5350014    44897        string    1          132  0.007576  0.030303   
+2043348    44897         state    2          132  0.015152  0.030303   
+1423490    44897     delivered    1          132  0.007576  0.030303   
+7155411    44897        suhkoi    1          132  0.007576  0.030303   
+
+          tf_norm  n_d_k    n_d        Idf    tf_Idf  tf_Idf_norm  
+0        0.066667   1395  44898   4.471499  0.017815     0.298100   
+304262   0.066667      1  44898  11.712149  0.046662     0.780810   
+304263   0.066667   5057  44898   3.183620  0.012684     0.212241   
+309320   0.200000  23571  44898   1.644376  0.019654     0.328875   
+332891   0.066667   8823  44898   2.627031  0.010466     0.175135   
+...           ...    ...    ...        ...       ...          ...   
+5516302  0.250000   1316  44898   4.529796  0.034317     1.132449   
+5350014  0.250000    404  44898   5.710734  0.043263     1.427683   
+2043348  0.500000  14226  44898   2.149322  0.032565     1.074661   
+1423490  0.250000    882  44898   4.929956  0.037348     1.232489   
+7155411  0.250000      1  44898  11.712149  0.088728     2.928037   
+
+         euclidean_norm  tf_Idf_sklearn  
+0              0.510600        0.034890  
+304262         0.510600        0.091386  
+304263         0.510600        0.024841  
+309320         0.510600        0.038492  
+332891         0.510600        0.020498  
+...                 ...             ...  
+5516302        0.585168        0.058644  
+5350014        0.585168        0.073933  
+2043348        0.585168        0.055651  
+1423490        0.585168        0.063825  
+7155411        0.585168        0.151629 
+\end{verbatim}
+
+Vamos a comparar concretamente los tf-idf obtenidos ``manualmente'' y
+con \texttt{sklearn} para los tokens `accept' , `pollit' , `string',
+`never', e `investigation' :
+
+Primero tenemos que identificar la columna asociada al token `accept'
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_index\_token.loc[df\_index\_token.token }\OperatorTok{==} \StringTok{\textquotesingle{}accept\textquotesingle{}}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ index   token
+\end{verbatim}
+
+645 645 accept
+
+Ahora vemos cual es el valor del estadistico tf-idf calculado por
+\texttt{sklearn} para el token `accept' en el documento asociado a la
+fila 0.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tfidf\_matrix[}\DecValTok{0}\NormalTok{, }\DecValTok{645}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+0.034889784479772486
+
+Ahora comprobamos el valor del estadistico tf-idf calculado
+``manualmente'' por nosotros para el token `accept' y la noticia con
+identificador 0 (notese que la noticia con identificador \(i\) es la que
+esta asociada a la fila \(i\) de la matriz creada por \texttt{sklearn} ,
+para \(i =0,1,2,...\))
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_tf\_Idf.loc[ ( df\_tf\_Idf.id\_text }\OperatorTok{==} \DecValTok{0}\NormalTok{ ) }\OperatorTok{\&}\NormalTok{  ( df\_tf\_Idf.token }\OperatorTok{==} \StringTok{\textquotesingle{}accept\textquotesingle{}}\NormalTok{ ) , ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+   id_text   token  n_k  longitud(d)        tf    max_tf   tf_norm  n_d_k  
+0        0  accept    1          251  0.003984  0.059761  0.066667   1395   
+
+     n_d       Idf    tf_Idf  tf_Idf_norm  euclidean_norm  tf_Idf_sklearn  
+0  44898  4.471499  0.017815       0.2981          0.5106         0.03489 
+\end{verbatim}
+
+Podemos ver que de todos los estadisticos tf-idf calculados (el simple,
+el normalizado y la versión de sklearn) el único que coincide con el
+obtenido al usar sklearn es justanmente \texttt{tf\_Idf\_sklearn} , como
+cabria esperar.
+
+En este punto hay que hacer una mención especial a la entrada de
+\href{https://www.analyticsvidhya.com/blog/2021/11/how-sklearns-tfidfvectorizer-calculates-tf-idf-values/}{analyticsvidhya}
+, la cual me permitio resolver una disparidad de resultados que obtuve
+inicialmente, al no ser consciente de que \texttt{sklearn} normalizaba
+el tf-idf (la version simple) dividiendolo entre la norma euclidea, tal
+y como se ha explicado anteriormente con más detalle.
+
+Ahora repetimos el mismo proceso para el token `pollitt'
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_index\_token.loc[df\_index\_token.token }\OperatorTok{==} \StringTok{\textquotesingle{}pollitt\textquotesingle{}}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+       index    token
+79741  79741  pollitt
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tfidf\_matrix[}\DecValTok{0}\NormalTok{, }\DecValTok{79741}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+   0.09138643507615184
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_tf\_Idf.loc[ ( df\_tf\_Idf.id\_text }\OperatorTok{==} \DecValTok{0}\NormalTok{ ) }\OperatorTok{\&}\NormalTok{  ( df\_tf\_Idf.token }\OperatorTok{==} \StringTok{\textquotesingle{}pollitt\textquotesingle{}}\NormalTok{ ) , ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+        id_text    token  n_k  longitud(d)        tf    max_tf   tf_norm  \
+304262        0  pollitt    1          251  0.003984  0.059761  0.066667   
+
+        n_d_k    n_d        Idf    tf_Idf  tf_Idf_norm  euclidean_norm  \
+304262      1  44898  11.712149  0.046662      0.78081          0.5106   
+
+        tf_Idf_sklearn  
+304262        0.091386  
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_index\_token.loc[df\_index\_token.token }\OperatorTok{==} \StringTok{\textquotesingle{}string\textquotesingle{}}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+   index   token
+\end{verbatim}
+
+99546 99546 string
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tfidf\_matrix[}\DecValTok{44897}\NormalTok{, }\DecValTok{99546}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+0.07393279140214064
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_tf\_Idf.loc[ ( df\_tf\_Idf.id\_text }\OperatorTok{==} \DecValTok{44897}\NormalTok{ ) }\OperatorTok{\&}\NormalTok{  ( df\_tf\_Idf.token }\OperatorTok{==} \StringTok{\textquotesingle{}string\textquotesingle{}}\NormalTok{ ) , ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     id_text   token  n_k  longitud(d)        tf    max_tf  tf_norm  \
+\end{verbatim}
+
+5350014 44897 string 1 132 0.007576 0.030303 0.25
+
+\begin{verbatim}
+     n_d_k    n_d       Idf    tf_Idf  tf_Idf_norm  euclidean_norm  \
+\end{verbatim}
+
+5350014 404 44898 5.710734 0.043263 1.427683 0.585168
+
+\begin{verbatim}
+     tf_Idf_sklearn  
+\end{verbatim}
+
+5350014 0.073933
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_index\_token.loc[df\_index\_token.token }\OperatorTok{==} \StringTok{\textquotesingle{}never\textquotesingle{}}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+   index  token
+\end{verbatim}
+
+70560 70560 never
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tfidf\_matrix[}\DecValTok{3}\NormalTok{, }\DecValTok{70560}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+0.022176846230040667
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_tf\_Idf.loc[ ( df\_tf\_Idf.id\_text }\OperatorTok{==} \DecValTok{3}\NormalTok{ ) }\OperatorTok{\&}\NormalTok{  ( df\_tf\_Idf.token }\OperatorTok{==} \StringTok{\textquotesingle{}never\textquotesingle{}}\NormalTok{ ) , ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+    id_text  token  n_k  longitud(d)        tf    max_tf   tf_norm  n_d_k  \
+\end{verbatim}
+
+990208 3 never 1 249 0.004016 0.044177 0.090909 6077
+
+\begin{verbatim}
+      n_d       Idf    tf_Idf  tf_Idf_norm  euclidean_norm  tf_Idf_sklearn  
+\end{verbatim}
+
+990208 44898 2.999882 0.012048 0.272717 0.543257 0.022177
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_index\_token.loc[df\_index\_token.token }\OperatorTok{==} \StringTok{\textquotesingle{}investigation\textquotesingle{}}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+   index          token
+\end{verbatim}
+
+50314 50314 investigation
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tfidf\_matrix[}\DecValTok{1522}\NormalTok{, }\DecValTok{50314}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+0.2598673157066844
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df\_tf\_Idf.loc[ ( df\_tf\_Idf.id\_text }\OperatorTok{==} \DecValTok{1522}\NormalTok{ ) }\OperatorTok{\&}\NormalTok{  ( df\_tf\_Idf.token }\OperatorTok{==} \StringTok{\textquotesingle{}investigation\textquotesingle{}}\NormalTok{ ) , ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+    id_text          token  n_k  longitud(d)        tf    max_tf  \
+\end{verbatim}
+
+635701 1522 investigation 7 210 0.033333 0.052381
+
+\begin{verbatim}
+     tf_norm  n_d_k    n_d       Idf    tf_Idf  tf_Idf_norm  \
+\end{verbatim}
+
+635701 0.636364 3753 44898 3.481838 0.116061 2.215715
+
+\begin{verbatim}
+    euclidean_norm  tf_Idf_sklearn  
+\end{verbatim}
+
+635701 0.446617 0.259867
+
+\newpage
 
 \hypertarget{bibliografuxeda}{%
 \section{Bibliografía}\label{bibliografuxeda}}

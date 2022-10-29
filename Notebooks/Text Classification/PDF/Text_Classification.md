@@ -2250,6 +2250,8 @@ tfidf_matrix[0, 645]
 ```
 
      0.034889784479772486
+     
+La salida anterior nos indicaa que el valor del estadistico tf-idf para el token asociado a la columna 645 en el documento (noticia) asociada a la fila 0 (la fila 0 en Python es la fila 1) es 0.0349
 
 
 Vamos a crear un data-frame para identificar cada columna con su token asociado:
@@ -2261,17 +2263,17 @@ df_index_token
 ```
 
 
-
-
-
 ```
          index       token
+
 0            0          aa
 1            1         aaa
 2            2  aaaaaaaand
 3            3   aaaaackkk
 4            4  aaaaapkfhk
+
 ...        ...         ...
+
 125561  125561        ””it
 125562  125562      ””when
 125563  125563          if
@@ -2290,6 +2292,7 @@ df_tf_Idf
 ```
 
          id_text         token  n_k  longitud(d)        tf    max_tf  
+
 0              0        accept    1          251  0.003984  0.059761   
 304262         0       pollitt    1          251  0.003984  0.059761   
 304263         0         power    1          251  0.003984  0.059761   
@@ -2331,8 +2334,10 @@ df_tf_Idf
 ```
 
 
-Vamos a comparar concretamente los tf-idf obtenidos "manualmente" y con `sklearn` para los tokens 'accept' , 'pollit' , 'string'  , 'suhkoi' , 'black', 'never', 'dinner' e 'investigation' :
+Vamos a comparar concretamente los tf-idf obtenidos "manualmente" y con `sklearn` para los tokens 'accept' , 'pollit' , 'string', 'never', e 'investigation' :
 
+
+Primero tenemos que identificar la columna asociada al token 'accept' 
 
 ```python
 df_index_token.loc[df_index_token.token == 'accept', ]
@@ -2341,10 +2346,15 @@ df_index_token.loc[df_index_token.token == 'accept', ]
 645    645  accept
 
 
+Ahora vemos cual es el valor del estadistico tf-idf calculado por `sklearn` para el token 'accept' en el documento asociado a la fila 0.
+
 ```python
 tfidf_matrix[0, 645]
 ```
 0.034889784479772486
+
+
+Ahora comprobamos  el valor del estadistico tf-idf calculado "manualmente" por nosotros para el token 'accept' y la noticia con identificador 0 (notese que la noticia con identificador $i$ es la que esta asociada a la fila $i$ de la matriz creada por `sklearn` , para $i =0,1,2,...$)
 
 ```python
 df_tf_Idf.loc[ ( df_tf_Idf.id_text == 0 ) &  ( df_tf_Idf.token == 'accept' ) , ]
@@ -2357,6 +2367,16 @@ df_tf_Idf.loc[ ( df_tf_Idf.id_text == 0 ) &  ( df_tf_Idf.token == 'accept' ) , ]
 0  44898  4.471499  0.017815       0.2981          0.5106         0.03489 
 ```
 
+Podemos ver que de todos los estadisticos tf-idf calculados (el simple, el normalizado y la versión de sklearn) el único que coincide con el obtenido al usar sklearn es justanmente `tf_Idf_sklearn` , como cabria esperar.
+
+En este punto hay que hacer una mención especial a la entrada de [analyticsvidhya](https://www.analyticsvidhya.com/blog/2021/11/how-sklearns-tfidfvectorizer-calculates-tf-idf-values/) , la cual me permitio resolver una disparidad de resultados que obtuve inicialmente, al no ser consciente de que `sklearn` normalizaba el tf-idf (la version simple) dividiendolo entre la norma euclidea, tal y como se ha explicado anteriormente con más detalle.
+
+
+
+
+
+Ahora repetimos el mismo proceso para el token 'pollitt'
+
 ```python
 df_index_token.loc[df_index_token.token == 'pollitt', ]
 ```
@@ -2366,12 +2386,26 @@ df_index_token.loc[df_index_token.token == 'pollitt', ]
 ```
 
 ```python
-
+tfidf_matrix[0, 79741]
 ```
+           
+       0.09138643507615184
 
 ```python
+df_tf_Idf.loc[ ( df_tf_Idf.id_text == 0 ) &  ( df_tf_Idf.token == 'pollitt' ) , ]
+```
+```
+        id_text    token  n_k  longitud(d)        tf    max_tf   tf_norm  \
+304262        0  pollitt    1          251  0.003984  0.059761  0.066667   
+
+        n_d_k    n_d        Idf    tf_Idf  tf_Idf_norm  euclidean_norm  \
+304262      1  44898  11.712149  0.046662      0.78081          0.5106   
+
+        tf_Idf_sklearn  
+304262        0.091386  
 
 ```
+
 
 ```python
 df_index_token.loc[df_index_token.token == 'string', ]
@@ -2380,46 +2414,27 @@ df_index_token.loc[df_index_token.token == 'string', ]
 99546  99546  string
 
 ```python
-
+tfidf_matrix[44897, 99546]
 ```
-
+0.07393279140214064
 
 ```python
-
+df_tf_Idf.loc[ ( df_tf_Idf.id_text == 44897 ) &  ( df_tf_Idf.token == 'string' ) , ]
 ```
 
-```python
-df_index_token.loc[df_index_token.token == 'suhkoi', ]
-```
+         id_text   token  n_k  longitud(d)        tf    max_tf  tf_norm  \
+5350014    44897  string    1          132  0.007576  0.030303     0.25   
 
-         index   token
-100181  100181  suhkoi
+         n_d_k    n_d       Idf    tf_Idf  tf_Idf_norm  euclidean_norm  \
+5350014    404  44898  5.710734  0.043263     1.427683        0.585168   
 
+         tf_Idf_sklearn  
+5350014        0.073933 
 
+ 
 
-```python
-
-```
-
-```python
-
-```
-
-```python
-df_index_token.loc[df_index_token.token == 'black', ]
-```
-
-       index  token
-10627  10627  black
-
-
-```python
-
-```
-
-```python
-
-```
+ 
+ 
 
 ```python
 df_index_token.loc[df_index_token.token == 'never', ]
@@ -2430,15 +2445,64 @@ df_index_token.loc[df_index_token.token == 'never', ]
 
 
 ```python
-
+tfidf_matrix[3, 70560]
 ```
+0.022176846230040667
 
 ```python
-
+df_tf_Idf.loc[ ( df_tf_Idf.id_text == 3 ) &  ( df_tf_Idf.token == 'never' ) , ]
 ```
 
+        id_text  token  n_k  longitud(d)        tf    max_tf   tf_norm  n_d_k  \
+990208        3  never    1          249  0.004016  0.044177  0.090909   6077   
+
+          n_d       Idf    tf_Idf  tf_Idf_norm  euclidean_norm  tf_Idf_sklearn  
+990208  44898  2.999882  0.012048     0.272717        0.543257        0.022177  
 
 
+
+```python
+df_index_token.loc[df_index_token.token == 'investigation', ]
+```
+
+       index          token
+50314  50314  investigation
+
+
+```python
+tfidf_matrix[1522, 50314]
+```
+
+0.2598673157066844
+
+```python
+df_tf_Idf.loc[ ( df_tf_Idf.id_text == 1522 ) &  ( df_tf_Idf.token == 'investigation' ) , ]
+```
+        id_text          token  n_k  longitud(d)        tf    max_tf  \
+635701     1522  investigation    7          210  0.033333  0.052381   
+
+         tf_norm  n_d_k    n_d       Idf    tf_Idf  tf_Idf_norm  \
+635701  0.636364   3753  44898  3.481838  0.116061     2.215715   
+
+        euclidean_norm  tf_Idf_sklearn  
+635701        0.446617        0.259867  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
 
 # Bibliografía
 
