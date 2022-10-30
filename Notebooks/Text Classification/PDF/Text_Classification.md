@@ -2572,7 +2572,13 @@ La solución estandar a este problema pasa por estimar $\widehat{P}(X_j=x_{ij} |
 
 ## Gaussian Naive Bayes
 
-Es un naive Bayes classifier en el que se considera el siguiente supuesto:
+Este algoritmo naive Bayes es apropiado para el caso en el que tenemos predictores cuantitativos continuos.
+
+En nuestro caso al trabajar con la matriz tf-idf  como matriz de predictores, se pueden considerar nuestros predictores como cuantitativos continuos, por lo que es un caso en el que es adecuado usar Gaussian naive Bayes. 
+
+Gaussian Naive Bayes es un naive Bayes classifier en el que se toma el siguiente supuesto:
+
+Par cada predictor $X_j$ , con $j=1,...,p$
 
 $\widehat{P}(X_j=x_{ij} | Y=y) = \dfrac{1}{\sqrt{2\pi \sigma^2(x_{ij}| y)}} \cdot exp \lbrace - \dfrac{(x_{ij} - \mu(x_{ij}|y))^2}{2 \sigma^2(x_{ij}| y)}  \rbrace$
 
@@ -2586,11 +2592,23 @@ $\sigma^2(x_{ij}| y)  = Var( x_{rj} /  r=1,..,n  ; y_r = y )$ , es decir, es la 
 
 
 
+
+
+
 ## Multinomial Naive Bayes
 
 
 
+Este naive Bayes es adecuado cuando se tienen predictores cuantitativos discretos de conteo, es decir, predictores definidos como el nº de veces que ocurre un evento.
 
+Si estamos en el caso de clasificación de textos y trabajamos con una matriz de conteo de apareciones de las palabras (tokens) en los documentos, por lo que es un caso en el que es adecuado usar Multinomial naive Bayes. 
+
+
+
+## Bernoulli Naive Bayes
+
+
+## Categorical Naive Bayes
 
 
 
@@ -2598,8 +2616,117 @@ $\sigma^2(x_{ij}| y)  = Var( x_{rj} /  r=1,..,n  ; y_r = y )$ , es decir, es la 
 ## Gaussian Naive Bayes aplicado con `Python`
 
 
+Vamos a importar los las funciones `GaussianNB` y `train_test_split`. La primera para implementar el modelo de naive Bayes Gaussiano, y el segundo para separar el data-set en parte de entrenamiento y parte de test.
+
+```python
+
+from sklearn.naive_bayes import GaussianNB
+
+from sklearn.model_selection import train_test_split
+```
+
+Separamos el vector de documentos `X_data`  y el vector de la respuesta `Y_data` en dos partes, una para entrenar el modelo (train) y otra para testearlo (test), para ello usamos la función  `train_test_split` :
+
+```python
+X_train, X_test, Y_train, Y_test = train_test_split(
+    X_data,
+    Y_data,
+    test_size = 0.3,
+    random_state = 123    
+)
+```
 
 
+Inicializamos de nuevo la función TfidfVectorizer que se sirve para generar la matriz tf-idf, usando los mismos argumentos que antes tokenizer  = limpiar_tokenizar, min_df = 5, stop_words = stop_words, smooth_idf=False , a excepcion de   min_df  que antes pusimos 0 pero ahora 5, para que al construir la matriz solo se consideren los tokens que aparecen en mas de 5 documentos. 
+
+```python
+tfidf_vectorizador = TfidfVectorizer(tokenizer  = limpiar_tokenizar, min_df = 5, stop_words = stop_words, smooth_idf=False)
+
+```
+
+Aplicamos el metodo `fit` a `tfidf_vectorizador` con los documentos de entrenamiento. Esto es importante porque es lo que deja fijado los tokens que se van a incluir como columnas de la matriz tf-idf.
+
+
+```python
+
+tfidf_vectorizador.fit(X_train)
+```
+
+Aplicando el método `transform`a  `tfidf_vectorizador` con los documentos de entrenamiento. Con ello generamos la matriz tf-idf para los documentos de train , que llamaremos `tfidf_matrix_train`. Es decir, se calcula el estadistico tf-idf para cada token obtenido con `tfidf_vectorizador.fit(X_train)` y cada documento del vector de entrenamiento `X_train`.
+
+```python
+
+tfidf_matrix_train = tfidf_vectorizador.transform(X_train)
+```
+
+
+Podemos ver las dimensiones de la matriz tf-idf de train:
+
+```python
+tfidf_matrix_train.shape
+
+```
+
+    (31428, 34571)
+
+
+
+
+Cambiamos el type en `Python`del vector `Y_train` que antes ha sido creado, para que sea type `ìnt` , puesto que para entrenar el modelo de Gaussian naive Bayes será necesario:
+
+```python
+Y_train = Y_train.astype('int')
+
+```
+
+Entrenamos el modelo Gaussian naive Bayes en `Python` usando la función `GaussianNB` de `sklearn` con el método `fit`. Para ello usamos como argumentos la matriz tf-idf de entrenamiento (en formato array , por ello usamos el comando `toarray()`) y la respuesta   para los documentos de entrenamiento:
+
+```python
+gnb_fit = GaussianNB().fit(tfidf_matrix_train.toarray(), Y_train)
+```
+
+
+Ahora generamos la matriz tf-idf para los documentos de test, es decir, vamos  a gener una matriz cuyas columnas sean los tokens generados con los documentos de entrenamiento , es decir, los generados con la instruccion `tfidf_vectorizador.fit(X_train)` , y como filas los documentos de test.
+```python
+tfidf_matrix_test = tfidf_vectorizador.transform(X_test)
+```
+
+Podemos ver las dimensiones de la matriz tf-idf de test
+
+```python
+tfidf_matrix_test.shape
+```
+(13470, 34571)
+
+Como vemos tiene las mismas columnas que la matriz tf-idf de train (34571), puesto que las columnas estan asociada a los tokens obtenidos a partir de los documentos de train, asi que es coeherente que tenga el mismo numero de columnas que `tfidf_matrix_train`.
+
+Por otro lado el numero de filas difiere con el de la matriz tf-idf de train, y esto es coherente porque las filas de la matriz tf-idf estan asociadas a los documentos, y el numero de documentos de test (13470) es diferente del de train (31428) .
+
+
+
+Predecimos la variable respuesta para los documentos de test aplicando a `gnb_fit` el método `predict` con la matriz tf-idf de test como argumento: 
+
+```python
+Y_pred = gnb_fit.predict(tfidf_matrix_test.toarray())
+
+Y_pred
+```
+array([0, 1, 0, ..., 1, 0, 0])
+
+Como vemos las predicciones de la respuesta son un vector de ceros y unos. Si la componente $i$-esima del vector es $j$ significa que el documentos $i$-esimo del vector de test pertenece a la clase $j$ , que en este caso significa que el modelo predice que la notica $i$-esima es una fake new, si $j=1$, y una no fake new, si $j=0$.
+
+
+
+Ahora vamos a calcular el error de clasificación de test, es decir, la proporcion de documentos (noticias) de test que han sido clasificadas erroneamente por parte del modelo implementado:
+
+```python
+Y_test = Y_test.astype('int')
+
+TEC_test = (Y_test != Y_pred).sum()/len(Y_test)
+
+TEC_test
+```
+0.0593170007423905
 
 
 
