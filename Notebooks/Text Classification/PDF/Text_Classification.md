@@ -2572,9 +2572,39 @@ La solución estandar a este problema pasa por estimar $\widehat{P}(X_j=x_{ij} |
 
 ## Gaussian Naive Bayes
 
+Es un naive Bayes classifier en el que se considera el siguiente supuesto:
+
+$\widehat{P}(X_j=x_{ij} | Y=y) = \dfrac{1}{\sqrt{2\pi \sigma^2(x_{ij}| y)}} \cdot exp \lbrace - \dfrac{(x_{ij} - \mu(x_{ij}|y))^2}{2 \sigma^2(x_{ij}| y)}  \rbrace$
+
+
+Donde:
+
+
+$\mu(x_{ij}| y)  = Mean( x_{rj} /  r=1,..,n  ; y_r = y )$ , es decir, es la media de los valores de $X_j$  asociados a la clase $y$ de la variable respuesta $Y$
+
+$\sigma^2(x_{ij}| y)  = Var( x_{rj} /  r=1,..,n  ; y_r = y )$ , es decir, es la varianza de los valores de $X_j$  asociados a la clase y de la variable respuesta Y
+
 
 
 ## Multinomial Naive Bayes
+
+
+
+
+
+
+
+
+## Gaussian Naive Bayes aplicado con `Python`
+
+
+
+
+
+
+
+
+
 
 
 \newpage
