@@ -2527,7 +2527,7 @@ $$P(Y=y_i | X_1 = x_1 ,..., X_p=x_p) = \dfrac{P(Y=y_i)\cdot\prod_{j=1}^{p} P(X_j
 
 El algoritmo de naive Bayes predice la respuesta $Y$ para un vector de observaciones de los predictores $x_i = (x_i1 , x_i2, ..., x_ip)^t$ como la solucion del siguiente problema de optimización:
 
-$$\underset{Max}{y} P(Y=y | X_1 = x_1 ,..., X_p=x_p) = \underset{Max}{y} \dfrac{P(Y=y_i)\cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y_i)}{P(X_1=x_{i1} ,..., X_p=x_{ip})} =   \underset{Max}{y}  P(Y=y) \cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y) $$
+$$\underset{Max}{y} P(Y=y | X_1 = x_1 ,..., X_p=x_p) = \underset{Max}{y} \dfrac{P(Y=y_i)\cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y_i)}{P(X_1=x_{i1} ,..., X_p=x_{ip})} =   \underset{Max}{y}  P(Y=y) \cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y)$$
 
 Notese que $P(X_1=x_{i1} ,..., X_p=x_{ip})$  no depende del valor de $y$ por lo que puede sacarse del problema de maximización.
 
@@ -2560,7 +2560,7 @@ Podria seguirse la solución del problema anterior, a saber:
  $$\widehat{P}(X_j=x_{ij} | Y=y) = \dfrac{ \# \lbrace r=1,...,n \  y_r = y  \text{y} x_{rj} = x_{ij} \rbrace }{ \# \lbrace  r=1,...,n \  y_r = y  \rbrace}$$
  
  
-Problema: en la practica en cuanto haya algun predictor X_j tal que el valor observado x_{ij} no este en el set de observaciones de entrenamiento con Y=y se tendrá $\widehat{P}(X_j=x_{ij} | Y=y) = 0$ , lo que conducirá a $P(Y=y) \cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y) = 0$ , y esto llevará a no clasificar la observacion $x_i = (x_i1 , x_i2, ..., x_ip)^t$ en la clase $y$ , independientemente de los valores observados para el resto de predictores. Por lo que es razonable pensar que esta aproximacion no conduciria a buenas predicciones de la respuesta.
+**Problema:** en la practica en cuanto haya algun predictor $X_j$ tal que el valor observado $x_{ij}$ no este en el set de observaciones de entrenamiento con $Y=y$ se tendrá $\widehat{P}(X_j=x_{ij} | Y=y) = 0$ , lo que conducirá a $P(Y=y) \cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y) = 0$ , y esto llevará a no clasificar la observacion $x_i = (x_i1 , x_i2, ..., x_ip)^t$ en la clase $y$ , independientemente de los valores observados para el resto de predictores. Por lo que es razonable pensar que esta aproximacion no conduciria a buenas predicciones de la respuesta.
 
 Ademas si nos enfocamos en un problema de clasificación de texto, en el que se usa la matriz tf-idf como matriz de predictores, esta aproximacion queda en clara evidencia, ya que para cualquier categoria  $y$ habria algunas palabras (tokens) que tienen para cada documento  un valor del estadistico tf-idf diferente al valor correspondiente de la observacion  $x_i = (x_i1 , x_i2, ..., x_ip)^t$, es decir, para cada $y$ habria algun predictor $X_j$ tal que $\widehat{P}(X_j=x_{ij} | Y=y) = 0$ , por lo que la observacion  $x_i = (x_i1 , x_i2, ..., x_ip)^t$ seria clasificada indistintamente en cualquier categoria de la respuesta, lo cual no es razonable en absoluto.
 
@@ -2578,19 +2578,27 @@ En nuestro caso al trabajar con la matriz tf-idf  como matriz de predictores, se
 
 Gaussian Naive Bayes es un naive Bayes classifier en el que se toma el siguiente supuesto:
 
-Par cada predictor $X_j$ , con $j=1,...,p$
+Par cada predictor $X_j$ continuo , con $j=1,...,p$
 
 $\widehat{P}(X_j=x_{ij} | Y=y) = \dfrac{1}{\sqrt{2\pi \sigma^2(x_{ij}| y)}} \cdot exp \lbrace - \dfrac{(x_{ij} - \mu(x_{ij}|y))^2}{2 \sigma^2(x_{ij}| y)}  \rbrace$
 
 
 Donde:
 
+$x_{ij} \in  \mathbb{R}$
 
 $\mu(x_{ij}| y)  = Mean( x_{rj} /  r=1,..,n  ; y_r = y )$ , es decir, es la media de los valores de $X_j$  asociados a la clase $y$ de la variable respuesta $Y$
 
 $\sigma^2(x_{ij}| y)  = Var( x_{rj} /  r=1,..,n  ; y_r = y )$ , es decir, es la varianza de los valores de $X_j$  asociados a la clase y de la variable respuesta Y
 
 
+ **Observación:**
+ 
+Esta aproximación  permite solventar el problema de que  en la practica en cuanto haya algun predictor $X_j$ tal que el valor observado $x_{ij}$ no este en el set de observaciones de entrenamiento con $Y=y$ se tendrá $\widehat{P}(X_j=x_{ij} | Y=y) = 0$ , lo que conducirá a $P(Y=y) \cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y) = 0$ , y esto llevará a no clasificar la observacion $x_i = (x_i1 , x_i2, ..., x_ip)^t$ en la clase $y$ , independientemente de los valores observados para el resto de predictores. Ya que $\dfrac{1}{\sqrt{2\pi \sigma^2(x_{ij}| y)}} \cdot exp \lbrace - \dfrac{(x_{ij} - \mu(x_{ij}|y))^2}{2 \sigma^2(x_{ij}| y)} \neq 0$ inclusio si el valor observado $x_{ij}$ no esta en el set de observaciones de entrenamiento con $Y=y$ 
+
+
+
+Para ver como funciona este algoritmo con un ejemplo de juguete es recomendable ver la siguiente entrada de [Wikipedia](https://es.wikipedia.org/wiki/Clasificador_bayesiano_ingenuo#Entrenamiento)
 
 
 
@@ -2603,12 +2611,35 @@ Este naive Bayes es adecuado cuando se tienen predictores cuantitativos discreto
 
 Si estamos en el caso de clasificación de textos y trabajamos con una matriz de conteo de apareciones de las palabras (tokens) en los documentos, por lo que es un caso en el que es adecuado usar Multinomial naive Bayes. 
 
+Multinomial Naive Bayes es un naive Bayes classifier en el que se toma el siguiente supuesto:
+
+Para cada predictor $X_j$ de conteo , con $j=1,...,p$
+
+$\widehat{P}(X_j=x_{ij} | Y=y) = \dfrac{ \# \lbrace r=1,...,n \  y_r = y  \text{y} x_{rj} = x_{ij} \rbrace + \alpha}{ \# \lbrace  r=1,...,n \  y_r = y  \rbrace + \alpha\cdot n} $
+
+Donde: $x_{ij}=0,1,2,3,...$
+
+**Observación:**
+
+Esta aproximacion es muy similar ala propuesta inicialmente, que mencionamos que tenia problemas, especialmente para predictores cuantitativos . Pero tiene algunas diferencias. Por un lado que en este caso solo se aplicaria a variables de conteo. Y especialmente la incorporacion de un termino $\alpha > 0$ en el numerador  que va a permitir solventar el problema de que  en la practica en cuanto haya algun predictor $X_j$ tal que el valor observado $x_{ij}$ no este en el set de observaciones de entrenamiento con $Y=y$ se tendrá $\widehat{P}(X_j=x_{ij} | Y=y) = 0$ , lo que conducirá a $P(Y=y) \cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y) = 0$ , y esto llevará a no clasificar la observacion $x_i = (x_i1 , x_i2, ..., x_ip)^t$ en la clase $y$ , independientemente de los valores observados para el resto de predictores.
+
+Si $\alpha = 1$  es llamado suavizado de Laplace, mientras que si $\alpha \neq 1$ es llamado suavizado de Lidstone.
 
 
-## Bernoulli Naive Bayes
 
 
 ## Categorical Naive Bayes
+
+Este naive Bayes es adecuado cuando se tienen predictores categoricos.
+
+Multinomial Naive Bayes es un naive Bayes classifier en el que se toma el siguiente supuesto:
+
+Para cada predictor $X_j$ categorico $\lbrace 0 , 1,..., c_j-1 \rbrace$ , con $j=1,...,p$
+
+$$\widehat{P}(X_j=x_{ij} | Y=y) =  \dfrac{ \# \lbrace r=1,...,n \  y_r = y  \text{y} x_{rj} = x_{ij} \rbrace + \alpha}{ \# \lbrace  r=1,...,n \  y_r = y  \rbrace + \alpha\cdot n}$$
+
+
+Donde: $x_{ij} \in 0,1,..., c_j-1$
 
 
 
@@ -2625,7 +2656,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import train_test_split
 ```
 
-Separamos el vector de documentos `X_data`  y el vector de la respuesta `Y_data` en dos partes, una para entrenar el modelo (train) y otra para testearlo (test), para ello usamos la función  `train_test_split` :
+Aplicaremos una estrategia de validación simple para validar la capacidad predictiva del modelo que implementaremos, para ello separamos el vector de documentos (noticias) `X_data`  y el vector de la respuesta `Y_data` en dos partes, una para entrenar el modelo (train) y otra para testearlo (test), para ello usamos la función  `train_test_split` :
 
 ```python
 X_train, X_test, Y_train, Y_test = train_test_split(
@@ -2728,7 +2759,7 @@ TEC_test
 ```
 0.0593170007423905
 
-
+Se obtiene un error de clasificación por validación simple del 5.90% , o lo que es lo mismo una tasa de acierto del 95.10% 
 
 
 
