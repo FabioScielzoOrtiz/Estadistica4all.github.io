@@ -1965,6 +1965,7 @@ $$tfidf(k, d) = \dfrac{tfidf(k, d)}{ \sum_{k\in T(D)} tfidf(k, d)^2 }$$
 
 
 
+
 ## Cálculo de tf-idf en `Python`
  
 ### Cálculo de tf
@@ -2040,29 +2041,29 @@ df_Idf['Idf'] = np.log( (df_Idf['n_D'] ) / (df_Idf['n_d_k']) ) + 1
 ```
 
 
+
+
 Vemos como queda el data-frame creado:
 
 ```python
 df_Idf
 ```
+
 ```
-             token  n_D_k    n_D        Idf
-             
+             token  n_d_k    n_d        Idf
 0               aa     28  44898   8.379944
 1              aaa     11  44898   9.314253
 2       aaaaaaaand      1  44898  11.712149
 3        aaaaackkk      1  44898  11.712149
 4       aaaaapkfhk      1  44898  11.712149
-
 ...            ...    ...    ...        ...
-
 125561        ””it      1  44898  11.712149
 125562      ””when      1  44898  11.712149
 125563          if      1  44898  11.712149
-125564    ️$emoji1$      1  44898  11.712149
+125564    $emoji1$      1  44898  11.712149
 125565    $emoji2$      1  44898  11.712149
-
 ```
+
 
 ### Cálculo de tf-idf
 
@@ -2136,7 +2137,7 @@ df_tf_Idf
 
 Para poder aplicar algoritmos de clasificación a un texto, es necesario crear una representación numérica del mismo. Para ello se utiliza una matriz que tiene como filas los documentos y como columnas los tokens. Existen diferentes criterios para definir los elementos internos de esta matriz. Sea $(i,j)$ el elemento de la fila $i y columna j distinguimos varias aproximaciones. Una es que (i,j) sea la frecuencia del token j en el documento i , es decir, tf(j,i) , otra aproximacion es que (i, j) sea 0 si el token j no aparece en el documento i y 1 en el caso de que si aparece. Otra aprozimacion es que (i,j) sea tfidf(j,i).
 
-El criterio seguido en esta seccion del trabajo es que (i,j) = tfidf(j,i) , ya que es el criterio seguido por la libreria `sklearn`, la cual será empleada para calcular la matriz tf-idf. Además es uno de los criterios mas habituales para definir dicha matriz.  
+El criterio seguido en esta seccion del trabajo es que $(i,j) = tfidf(j,i)$ , ya que es el criterio seguido por la libreria `sklearn`, la cual será empleada para calcular la matriz tf-idf. Además es uno de los criterios mas habituales para definir dicha matriz.  
 
 
 Se ha intentado construir esta matriz a traves de bucles, pero dado que es una matriz con 44898 filas (documentos) y 125565 columnas (tokens) , la sola operacion de crear la primera fila no ha podido ser ejecutada por el computador por sobrepasar la memoria necesaria para ello. Por tanto deben usarse métodos de programación mas eficientes, o usar opciones eficientes ya implementadas por desarrolladores profesionales, como el equipo de `sklearn`. Esta segunda opción es la que seguiresmos, es decir, usaremos dicha funciones de dicha libreria para crear la matriz tf-idf.
@@ -2282,7 +2283,7 @@ df_index_token
 ```
 
 
-Utilizando este da-frame vamos a comparar algunos valores de la matriz tf-idf obtenida con `sklearn`con los valores que calculamos nosotros en las secciones anteriores y que se encuentran registrados en el data-frame `df_tf_Idf`
+Utilizando este da-taframe vamos a comparar algunos valores de la matriz tf-idf obtenida con `sklearn`con los valores que calculamos nosotros en las secciones anteriores y que se encuentran registrados en el data-frame `df_tf_Idf`
 
 ```python
 df_tf_Idf
@@ -2489,23 +2490,100 @@ df_tf_Idf.loc[ ( df_tf_Idf.id_text == 1522 ) &  ( df_tf_Idf.token == 'investigat
 
 
 
+\newpage
+
+# Métodos Naive Bayes
+
+Los métodos de naive Bayes son un conjunto de algoritmos de aprendizaje supervisado basados en aplicar el teorema de Bayes con el supuesto "naive" de independencia condicional entre cada par de predictores dada una clase de la variable respuesta (que debe ser categorica).
+
+Sean $Y,X_1,...,X_p$ la respuesta categorica y los predictores,  y sean $x_i = (x_i1 , x_i2, ..., x_ip)^t$ y $y_i$  la $i$-esima observación  de los predictores y de la respuesta, respectivamente.
+
+Si consideramos $Y,X_1,...,X_p$ como variables aleatorias, por el teorema de Bayes tenemos que :
+
+
+$$P(Y=y_i | X_1 = x_{i1} ,..., X_p=x_{ip}) = \dfrac{P(Y=y_i)\cdot P(X_1=x_{i1} ,..., X_p=x_{ip} | Y=y_i)}{P(X_1=x_{i1} ,..., X_p=x_{ip})}$$
+
+
+Usando el supuesto naive de independencia entre cada par de predictores
+
+$$X_r \perp X_j , \forall r\neq j = 1,...,p$$ 
+
+tenemos que:
 
 
 
+$$P(X_1=x_{i1} ,..., X_p=x_{ip} | Y=y_i) = \prod_{j=1}^{p} P(X_j=x_{ij} | Y=y_i)$$
+
+
+Por tanto, podemos reformular el teorema de Bayes como:
+
+$$P(Y=y_i | X_1 = x_1 ,..., X_p=x_p) = \dfrac{P(Y=y_i)\cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y_i)}{P(X_1=x_{i1} ,..., X_p=x_{ip})}$$
+
+
+ 
+
+ $$P(Y=y_i | X_1 = x_1 ,..., X_p=x_p) \propto \P(Y=y_i)\cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y_i)$$
+
+
+El algoritmo de naive Bayes predice la respuesta $Y$ para un vector de observaciones de los predictores $x_i = (x_i1 , x_i2, ..., x_ip)^t$ como la solucion del siguiente problema de optimización:
+
+$$\underset{Max}{y} P(Y=y | X_1 = x_1 ,..., X_p=x_p) = \underset{Max}{y} \dfrac{P(Y=y_i)\cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y_i)}{P(X_1=x_{i1} ,..., X_p=x_{ip})} =   \underset{Max}{y}  P(Y=y) \cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y) $$
+
+Notese que $P(X_1=x_{i1} ,..., X_p=x_{ip})$  no depende del valor de $y$ por lo que puede sacarse del problema de maximización.
+
+Es decir, la prediccion de $Y$ para el vector de observaciones  de los predictores $x_i = (x_i1 , x_i2, ..., x_ip)^t$ es 
+
+
+$$\hat{y_i} = arg \underset{Max}{y} P(Y=y | X_1 = x_1 ,..., X_p=x_p) = arg \underset{Max}{y} P(Y=y) \cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y)$$
+
+
+Es decir, la observación $i$-esima $x_i = (x_i1 , x_i2, ..., x_ip)^t$ se clasifica en la clase/categoria/grupo de maxima probabilidad para esa observación.
+
+
+**Problemas**
+
+Dados y y x_{ij} 
+
+- ¿Cómo estimar P(Y=y) ?
+
+$$\widehat{P}(Y=y) = \dfrac{\# \lbrace r=1,...,n / y_r = y  \rbrace}{n}$$ 
+
+Es decir, P(Y=y) se estima como la proporcion de observaciones (del conjunto de entrenamiento) que pertenecen a la clase/categoria/grupo $y$ , es decir, se estima como la proporción de observaciones para las que la respuesta toma la categoria $y$
+
+
+- ¿ Cómo estimar  P(X_j=x_{ij} | Y=y) ?
+
+Podria seguirse la solución del problema anterior, a saber:
 
 
 
+ $$\widehat{P}(X_j=x_{ij} | Y=y) = \dfrac{ \# \lbrace r=1,...,n \  y_r = y  \text{y} x_{rj} = x_{ij} \rbrace }{ \# \lbrace  r=1,...,n \  y_r = y  \rbrace}$$
+ 
+ 
+Problema: en la practica en cuanto haya algun predictor X_j tal que el valor observado x_{ij} no este en el set de observaciones de entrenamiento con Y=y se tendrá $\widehat{P}(X_j=x_{ij} | Y=y) = 0$ , lo que conducirá a $P(Y=y) \cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y) = 0$ , y esto llevará a no clasificar la observacion $x_i = (x_i1 , x_i2, ..., x_ip)^t$ en la clase $y$ , independientemente de los valores observados para el resto de predictores. Por lo que es razonable pensar que esta aproximacion no conduciria a buenas predicciones de la respuesta.
+
+Ademas si nos enfocamos en un problema de clasificación de texto, en el que se usa la matriz tf-idf como matriz de predictores, esta aproximacion queda en clara evidencia, ya que para cualquier categoria  $y$ habria algunas palabras (tokens) que tienen para cada documento  un valor del estadistico tf-idf diferente al valor correspondiente de la observacion  $x_i = (x_i1 , x_i2, ..., x_ip)^t$, es decir, para cada $y$ habria algun predictor $X_j$ tal que $\widehat{P}(X_j=x_{ij} | Y=y) = 0$ , por lo que la observacion  $x_i = (x_i1 , x_i2, ..., x_ip)^t$ seria clasificada indistintamente en cualquier categoria de la respuesta, lo cual no es razonable en absoluto.
+
+Si en lugar de una matriz tf-idf se usase un matriz con el conteo de ocurrencia de cada palabra en los textos la situacion seria similar, puesto que para cada categoria $y$ de la respuesta habria algunas palabras que aparecen 0 veces en los textos de dicha categoria (es decir, habria algunos predictores $X_j$ tales que $\widehat{P}(X_j=x_{ij} | Y=y) = 0$  ), y esto llevaria a la misma conclusion que antes. 
+
+La solución estandar a este problema pasa por estimar $\widehat{P}(X_j=x_{ij} | Y=y)$ usando la funcion de probabilidad/densidad de una distribución conocida. En este trabajo distinguiremos dos casos (los  estandar), uno en el que se usa la distribucion normal Gaussiana (Gaussian Naive Bayes) y otro en el que se usa la distribución multinomial (multinomial naive Bayes).
 
 
 
+## Gaussian Naive Bayes
 
 
+
+## Multinomial Naive Bayes
 
 
 \newpage
 
 # Bibliografía
 
+https://scikit-learn.org/stable/modules/naive_bayes.html
+
+https://en.wikipedia.org/wiki/Naive_Bayes_classifier 
 
 https://www.cienciadedatos.net/documentos/py25-text-mining-python.html
 
