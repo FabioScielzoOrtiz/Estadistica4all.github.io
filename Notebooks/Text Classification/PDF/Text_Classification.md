@@ -26,19 +26,19 @@ urlcolor: blue
 
 # Introducción
 
-En este trabajo se va a realizar un análisis y clasificación de textos. Para ellos se utilizaran dos lenguajes de programación, `Python` y `R`. El trabajo puede dividirse en dos partes bien diferenciadas, una primera parte en la que se trabaja con `Python` y una segunda en la que se usa `R`.
+En este trabajo se va a realizar un análisis y clasificación de textos. Para ello se utilizara el lenguaje de programación, `Python`.
 
-En la primera parte, en la que trabajamos con `Python`, se llevará acabo una descripción y preprocesado del data-set con el que trabajaremos, posteriormente se llevara acabo un análisis de texto, y para finalizar se realizaran tareas de clasificación aplicando algoritmos de clasificación supervisada, especialmente el algoritmo de clasificación ingenua bayesiana.
-
-En la parte en la que trabajamos con `R` se seguirán los pasos del ejemplo ilustrado en clase.
+Se llevará acabo una descripción y preprocesado del data-set con el que trabajaremos, posteriormente se llevara acabo un análisis de texto, y para finalizar se realizaran tareas de clasificación aplicando algoritmos de clasificación supervisada, concretamente un algoritmo de clasificación ingenua bayesiana.
 
 
 
 
 
-# Carga de los datos (`Python`)
+# Carga de los datos 
 
-El data-set con el que vamos a trabajar contiene como observaciones noticias fechadas entre el 31 de marzo de 2015 y el 18 de febrero de 2018, y como variables la fecha, el título y el texto de la noticia, y si es una noticia falsa (fake new) o es verdadera (no fake new). La variable respuesta será `Fake` . Las variables predictoras que se usaran en el apartado de aplicación de algoritmos de clasificación   no aparecen en el data-set original, pero serán creadas usando la información de la variable `texto`.
+El data-set con el que vamos a trabajar contiene como observaciones noticias sobre politica estadounidense fechadas entre el 31 de marzo de 2015 y el 18 de febrero de 2018, y como variables la fecha, el título y el texto de la noticia, y si es una noticia falsa (fake new) o es verdadera (no fake new). 
+
+La variable respuesta será `Fake` . Las variables predictoras que se usarán en el apartado de clasificación de textos no aparecen en el data-set original, pero serán creadas usando la información de la variable `texto`.
 
 El data set ha sido obtenido de la pagina web [Kaggle](https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset)
 
@@ -73,6 +73,8 @@ Ahora concatenamos (por filas) los dos data-sets anteriores, para generar el dat
 ```python
 Fake_News_Data = pd.concat([df_Fake, df_True])
 ```
+
+\newpage
 
 Seleccionamos las columnas (variables) de nuestro interés:
 
@@ -112,7 +114,7 @@ En este caso dejaremos los types como están, salvo el de la variable `Fake` que
 Fake_News_Data['Fake'] = Fake_News_Data['Fake'].astype('object')
 ```
 
-Calculamos el numero de valores faltantes (NA) en cada una de las variables:
+Calculamos el número de valores faltantes (NA) en cada una de las variables:
 
 ```python
 Fake_News_Data.isnull().sum()
@@ -124,6 +126,9 @@ Fake_News_Data.isnull().sum()
     text     0
     date     0
     
+    
+\newpage
+    
 
 Vamos a imprimir el data set para hacernos una mejor idea de su contenido:
 
@@ -131,7 +136,7 @@ Vamos a imprimir el data set para hacernos una mejor idea de su contenido:
 Fake_News_Data 
 ```
 ```
-      Fake                                              title  
+      Fake                     title  
       
 0        1   Donald Trump Sends Out Embarrassing New Year’...   
 1        1   Drunk Bragging Trump Staffer Started Russian ...   
@@ -145,7 +150,7 @@ Fake_News_Data
 44896    0  Vatican upbeat on possibility of Pope Francis ...   
 44897    0  Indonesia to buy $1.14 billion worth of Russia...   
 
-                                                    text               date 
+                           text                                date 
                                                     
 0      Donald Trump just couldn t wish all Americans ...  December 31, 2017  
 1      House Intelligence Committee Chairman Devin Nu...  December 31, 2017  
@@ -160,6 +165,9 @@ Fake_News_Data
 44897  JAKARTA (Reuters) - Indonesia will buy 11 Sukh...   August 22, 2017  
 ```
 
+
+\newpage
+
 # Descripción estadistica de los datos (`Python`)
 
 Hacemos una breve descripción estadistica de las variables del data-set:
@@ -170,15 +178,17 @@ Fake_News_Data.describe(include='all')
 
 ```
 
-              Fake                title       
+              Fake                title  
+              
 count         44898               44898        
 unique        2                   38729        
-top           1                   Factbox: Trump fills top jobs for his administ...          
+top           1                   Factbox: Trump fills top jobs for his administ...     
 freq          23481               14         
 
 
 
               date                  text 
+              
 count         44898                 44898
 unique        2397                  38646
 top           December 20, 2017     (no se muestra por tamaño excesivo)
@@ -186,7 +196,9 @@ freq          182                   627
 
 ```
 
-Esta tabla nos da alguna informacion relevante, como que en el data-set hay mas fake news que no fake news. Concretamente hay 44898 noticias, de las cuales 23481 son fakes y 44898-23481 = 21417 son no fakes. 
+\vspace{0.3cm}
+
+Esta tabla nos da alguna información relevante, como que en el data-set hay mas fake news que no fake news. Concretamente hay 44898 noticias, de las cuales 23481 son fakes y 44898-23481 = 21417 son no fakes. 
 
 
 
@@ -197,13 +209,12 @@ Vamos ahora a realizar un análisis descriptivo del data-set algo más profundo.
 
 Importamos algunas librerias necesarias para realizar este análisis en `Python`
 
-Concretamente la libreria `numpy` da soporte para crear vectores y matrices grandes multidimensionales, junto con una gran colección de funciones matemáticas de alto nivel para operar con ellas. En general es una de las librerias de `Python` más empleadas junto con `pandas`
+Concretamente la libreria `numpy` da soporte para crear vectores y matrices   multidimensionales, junto con una gran colección de funciones matemáticas de alto nivel para operar con ellas. En general es una de las librerias de `Python` más empleadas junto con `pandas`.
 
-Tambien importamos las librerias `seaborn` y `matplotlib`que son muy empleadas para visualización de datos (creación de gráficos).
+También importamos las librerias `seaborn` y `matplotlib`que son muy empleadas para visualización de datos (creación de gráficos).
 
 ```python
 import numpy as np
-
 import seaborn as sns
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -211,6 +222,7 @@ import matplotlib.pyplot as plt
 sns.set(rc={'figure.figsize':(8,8)})
 ```
 
+\newpage
 
 Vamos a calcular un gráfico de barras para la variable `Fake`:
 
@@ -240,9 +252,7 @@ for i in range(0, len(Fake_News_Data)):
 
 ```python
 import matplotlib.pyplot as plt
-
 fig, ax = plt.subplots()
-
 
 p = sns.barplot(x='Fake', y='proportion_Fakes', data=Fake_News_Data, palette="Spectral") 
 p.set_yticks( np.arange(0, 0.85, 0.1)  )
@@ -258,6 +268,7 @@ fig.savefig('p.png', format='png', dpi=1200)
 ![Gráfico de barras de la variable `Fake` ](p.png)
     
 
+\newpage
 
 Las proporciones exactas de fake y no fake news son:
 
@@ -277,6 +288,7 @@ El número exacto de fake y no fake news es:
 
     [21417.0, 23481.0]
 
+\vspace{0.3cm}
 
 Eliminamos la columna `proportion_Fakes` del data-set, que ha sido creada solamente de manera auxiliar para poder generar el gráfico de barras anterior:
 
@@ -284,6 +296,7 @@ Eliminamos la columna `proportion_Fakes` del data-set, que ha sido creada solame
 Fake_News_Data = Fake_News_Data.loc[ : , Fake_News_Data.columns != 'proportion_Fakes']
 ```
 
+\newpage
 
 ## Número de palabras por noticia
 
@@ -332,8 +345,11 @@ Fake_News_Data
 44895  MINSK (Reuters) - In the shadow of disused Sov...   August 22, 2017    
 44896  MOSCOW (Reuters) - Vatican Secretary of State ...   August 22, 2017    
 44897  JAKARTA (Reuters) - Indonesia will buy 11 Sukh...   August 22, 2017    
+```
 
+\newpage
 
+```
        word_count
        
 0             495  
@@ -352,6 +368,7 @@ Fake_News_Data
 
 ```
 
+\vspace{0.3cm}
 
 ## Numero medio de palabras por noticia en función de si son fake o no
 
@@ -371,15 +388,15 @@ Fake_News_Data.groupby('Fake')['word_count'].mean()
 
 
 
-
+\newpage
 
 
 
 # Preprocesado de texto
 
-En este apartado se vana a hacer una serie de operaciones orientadas al preprocesado de texto, para poder posteriormente realizar analasis mas profundos, y para poder implementar algoritmos de clasificación sobre texto.
+En este apartado se van a realizar una serie de operaciones orientadas al preprocesado de texto, para poder posteriormente realizar  un análasis más profundo, y para poder implementar algoritmos de clasificación sobre texto.
 
-Este tipo de preprocesado es básico y fundamental en areas de la ciencia de datos que trabajan con texto, como son la mineria de texto (text minning), el procesamiento del lenguaje natural (PLN) y la recuperación de información (information retrival).
+Este tipo de preprocesado es básico y fundamental en áreas de la ciencia de datos que trabajan con texto, como son la minería de texto (text minning), el procesamiento del lenguaje natural (PLN) y la recuperación de información (information retrival).
 
 
 Una de las operaciones centrales del preproceso de textos es la `tokenización`.
@@ -388,28 +405,143 @@ Una de las operaciones centrales del preproceso de textos es la `tokenización`.
 
 ## Tokenizacion
 
-
+La operación de tokenizacion consisiste en dado un texto extraer de él sus tokens, que en un sentido amplio serían sus palabras.
 
 Existen algunas librerias de `Python` que tienen funciones para realizar operaciones de tokenizacion, como por ejemplo las librerias `sklearn`, `nltk` o `spaCy`
 
 En este caso no usaremos ninguna función de alguna de esas librerias, sino que crearemos nuestra propia función para realizar la tokenización.
 
-Esta función esta totalmente inspirada en la función creada por el cientifico de datos [Joaquín Amat Rodrigo](), el cual es el creador del excelente blog sobre ciencia de datos  [Cienciadedatos.net](https://www.cienciadedatos.net/). En este blog Joaquin tiene un articulo sobre analisis de texto en `Python` en el cual se encuentra la función que ahora vamos a presentar. Ademas muchas otras partes de este trabajo estan basadas en dicho articulo, es por ello que s ele hace una especial mención tanto aqui como en el apartado de bibliografia. 
+Esta función esta totalmente inspirada en la función creada por el cientifico de datos [Joaquín Amat Rodrigo](https://www.linkedin.com/in/joaquin-amat-rodrigo/?originalSubdomain=es), el cual es el creador del excelente blog sobre ciencia de datos  [Cienciadedatos.net](https://www.cienciadedatos.net/). En este blog Joaquín tiene un articulo sobre análisis de texto en `Python` en el cual se encuentra la función que ahora vamos a presentar. Además, muchas otras partes de este trabajo están basadas en dicho articulo, es por ello que se le hace una especial mención tanto aqui como en el apartado de bibliografia. 
 
-La función `limpiar_tokenizar` toma como input texto y devuelve como output un vector de tokens asociado a ese texto, es decir, un vector con las cadenas caracteres del texto, pero no con cualquier tipo, sino que la función no considera signos de puntuación , palabras que empiezan por "http", números, espacios en blancos múltiples, tokens con longitud menor que 2.
-
-Un token aqui es considerado como una cadena de caracteres, es decir, una concatenacion de símbolos (sin considerar el espacio en blanco como un símbolo). 
+La función `limpiar_tokenizar` toma como input **texto** y devuelve como output un vector con los **tokens** asociados a ese texto. 
 
 
-Veamos un ejemplo de lo que consideramos tokens:
+
+A continuacion vamos a introducir unos conceptos para definir qué es un token.
+
+
+
+\vspace{0.3cm}
+
+### Cadenas de caracteres
+
+
+Una cadena de caracteres es la concatencación (sin espacios en blanco) de un conjunto de simbolos.
+
+Formalmente, sea $\sqcup$ la relación de concatenación (sin espacios en blanco). Esta relacion toma como argumento un conjunto ordenado de caracteres y devuelve la cadena resultante de la concatenacion sin espacios de los caracteres de dicho conjunto:
+
+
+Toda cadena de caracteres $c$ puede expresarse como $c = \sqcup  (S)$ , donde $S$ un conjunto ordenado apropiado de caracteres .
+
+\vspace{0.2cm}
+
+
+**Ejemplo:**
+
+Dado la cadena de caracteres $c=\text{'Hola?'}$
+
+$c$ puede expresarse como $c= \sqcup (S) = \sqcup \left( \lbrace \text{'H' , 'o' , 'l' , 'a' , '?'}  \rbrace \right) =$'Hola?'
+
+
+\newpage 
+
+
+###  Texto
+
+Un texto $d$ puede considerarse como una concatenacion de cadena de caracteres por medio de espacios en blanco.
+
+Formalemtne , sea $\sqcup_\diamond$ la relacion de concatenacion por medio de espacios en blanco. Esta relacion toma como argumento un conjunto ordenado de cadenas de caracteres y devuelve el texto resultante de la concatenacion por medio de espacios en blanco de dichas cadenas de caracteres:
+
+
+Todo texto $d$  puede expresarse como $d= \sqcup_{\diamond}( C)$ , donde $C$ es un conjunto ordenado apropiado de cadenas de caracteres.
+
+
+\vspace{0.2cm}
+
+**Ejemplo:**
+
+Sea $d=$"Buenos días, como estás? Mi correo es alumno@gmail.com"
+
+$d$ puede expresarse como 
+
+\begin{gather*}
+d = \sqcup_{\diamond} \left( \lbrace \text{'Buenos' , 'días,' , 'cómo' , 'estás?' , 'Mi' , 'correo' , 'es' , 'alumno@gmail.com'} \rbrace \right) = \\[0.2cm]
+= \text{"Buenos días, cómo estás? Mi correo es alumno@gmail.com"}
+\end{gather*}
+
+
+
+
+
+\vspace{0.3cm}
+
+### Tokens en sentido simple
+
+Dado un texto cualquiera $d$
+
+Un token en sentido simple es una cadena de caracteres de $d$
+
+Otra manera de definir token en sentido simple usando los elementos antes definidos es la siguiente:
+
+
+Como antes hemos visto podemos expresar todo texto como    $d= \sqcup (C)$ , donde $C$ es un conjunto ordenado apropiada de cadenas de caracteres. 
+
+Por tanto, dado un texto $d= \sqcup (C)$ , los tokens en sentido simples de $d$ son los elementos de  $C$
+
+Es decir, toda cadena $c\in C$ es un token en sentido simple del texto $d=\sqcup (C)$
+
+\newpage
+
+### Tokens en sentido estricto
+
+Dado un texto cualquiera $d$
+
+Un token en sentido estricto de $d$  es una cadena de caracteres de $d$ con ciertas propiedades especiales.
+
+\vspace{0.1cm}
+
+**¿Qué propiedades?**
+
+Dado el texto $d= \sqcup (C)$ , 
+
+
+- Todo token simple $c\in C$ que **no** contenga signos de puntuacion, ni numeros, ni comience por "http" y tenga un tamaño mayor que 2 será un token en sentido estricto
+
+- Dado un token simple $c\in C$ , si contiene signos de puntuación y/o números y/o letras mayusculas, las cadenas de caracteres resultantes de la sustitución  de estos signos de puntuacion y/o números por espacios en blanco  y/o las mayusculas por minusculas, son tokens en sentido estricto, siempre que tengan un tamaño mayor que 2 y no comiencen por "http".
+
+ 
+
+
+Notese que esta es una simple propuesta de definción de token en sentido estricto, por lo que podria ser modificada a conveniencia del análisis.
+
+\vspace{0.3cm}
+
+**Ejemplo final:**
+
+Veamos un ejemplo final de lo que consideramos token en sentido simple y estricto:
+
 
 Dado el siguiente texto:
 
-" Esto es 1 ejemplo de l'limpieza de6 TEXTO  https://t.co/rnHPgyhx4Z @cienciadedatos #textmining "
+"Esto es 1 ejemplo de l'limpieza de6 TEXTO  https://t.co/rnHPgyhx4Z @Fabio2023Scielzo #textmining "
 
-Los tokens (en sentido estricto, no en el sentido restrictivo que considera la función `limpiar_tokenizar` ) asociados a dicho texto  son:
+- Los tokens en sentido simple asociados a dicho texto  son:
 
-[ Esto , es , 1 , ejemplo , de , l'limpieza , de6 , TEXTO , https://t.co/rnHPgyhx4Z , @cienciadedatos , #textmining ]
+[ Esto , es , 1 , ejemplo , de , l'limpieza , de6 , TEXTO , https://t.co/rnHPgyhx4Z , @Fabio2023Scielzo , #textmining,  ]
+
+
+
+- Los tokens en sentido estricto asociados a ese texto son:
+
+[Esto , es, ejemplo, de , limpieza , de , texto , fabio, scielzo , textmining]
+
+
+
+\newpage
+
+### Función para tokenizar en `Python`
+
+Definimos la función `limpiar_tokenizar` basandonos en  el blog [Cienciadedatos.net](https://www.cienciadedatos.net/)
 
 ```python
 def limpiar_tokenizar(texto):
@@ -437,14 +569,18 @@ def limpiar_tokenizar(texto):
     
     # Eliminacion de signos de puntuación:
     
-    ## Si una cadena de caractrer contiene un signo de puntuacion estos serán eliminados y sustituidos por un   espacio en blanco. Si  por ejemplo tenemos las cadenas  '@FabioScielzo' y 'Fabio@Scielzo' ,
-    ## la funcion las transforma en  'FabioScielzo' en el primer caso  y en el par de cadenas 'Fabio' , 'Scielzo' en el segundo. Y si tenemos
-    ## una cadena de signos d puntuacion   como '@#!' la elimina directamente.
+    ## Si una cadena de caractrer contiene un signo de puntuacion estos serán eliminados y sustituidos por un   espacio en blanco. Si  por ejemplo tenemos las cadenas  '@FabioScielzo' y 'Fabio@Scielzo' , la funcion las transforma en  'FabioScielzo' en el primer caso  y en el par de cadenas 'Fabio' , 'Scielzo' en el segundo. Y si tenemos una cadena de signos d puntuacion   como '@#!' la elimina directamente.
     
     regex = '[\\!\\"\\#\\$\\%\\&\\\'\\(\\)\\*\\+\\,\\-\\.\\/\\:\\;\\<\\=\\>\\?\\@\\[\\\\\\]\\^_\\`\\{\\|\\}\\~]'
     
-    nuevo_texto = re.sub(regex , ' ', nuevo_texto)
+    #  regex = '[\\!\\"\\#\\$\\%\\&\\\'\\(\\)\\*\\+\\,\\-\\.\\/\\:\\;\\<\\=
+    #             \\>\\?\\@\\[\\\\\\]\\^_\\`\\{\\|\\}\\~]'
     
+    nuevo_texto = re.sub(regex , ' ', nuevo_texto)
+```
+\newpage 
+
+```python
     
     # Eliminacion de numeros:
     
@@ -463,45 +599,46 @@ def limpiar_tokenizar(texto):
     
     # Una vez que a un texto se le han aplicado las operaciones anteriores ya solo quede considerar las cadenas de caracteres de ese texto como tokens, ya que son cadenas con buenas propiedades, a saber, sin signos de puntuacion, sin numeros, sin links de web. Ademas la eliminacion de espacios en blanco multiples es fundamental para que la siguiente operacion funcione bien, ya que en el texto final resultante todas las cadenas estan separadas entre si por un solo espacio, y la siguiente operacion utiliza esa propiedad para identificar a las cadenas, que ya serán considerados tokens en sentido estricto.
     
-    # Obtención de tokens:
+  # Obtención de tokens:
     
-    nuevo_texto = nuevo_texto.split(sep = ' ')
+    ## Toda cadena de caracter  del texto obtenido tras la aplicacion de las anteriores operaciones será considerado un token (si es de tamaño mayor o igual que 2)
+    
+     nuevo_texto = nuevo_texto.split(sep = ' ')
     
     
-    # Eliminacion de tokens con una longitud menor que  2:
+    ## Eliminacion de tokens con una longitud menor que  2:
     
-    ## Una ultima operacion es solo considerar los tokens obteenidos tras las operaciones anteriores que tengan un tamaño (nº de caracteres) igual o superior a 2 , es decir, dejar fuera tokens con solo un caracter.
+      nuevo_texto = [token for token in nuevo_texto if len(token) >=  2]
     
-    nuevo_texto = [token for token in nuevo_texto if len(token) >=  2]
+    
     
     return(nuevo_texto)
 ```
 
 
-
+\vspace{0.3cm}
 
  Probamos el funcionamiento de la función `limpiar_tokenizar` con el mismo texto que fue usado antes como ejemplo ilustrativo.
 
 ```python
 
-test = "Esto es 1 ejemplo de l'limpieza de6 TEXTO  https://t.co/rnHPgyhx4Z @cienciadedatos #textmining"
+test = "Esto es 1 ejemplo de l'limpieza de6 TEXTO  https://t.co/rnHPgyhx4Z @Fabio2023Scielzo #textmining"
 
 print(limpiar_tokenizar(texto=test))
 ```
 
-    ['esto', 'es', 'ejemplo', 'de', 'limpieza', 'de', 'texto', 'cienciadedatos', 'textmining']
+    ['esto', 'es', 'ejemplo', 'de', 'limpieza', 'de', 'texto',
     
+    'fabio', 'scielzo, 'textmining']
+    
+\vspace{0.3cm}
 
 Ahora probamos la función `limpiar_tokenizar` con la primera noticia del data-set `Fake_News_Data`:
 
 ```python
 Fake_News_Data['text'][0]
 ```
-
-
-
-
-    'Donald Trump just couldn t wish all Americans a Happy New Year and leave it at that. Instead, he had to give a shout out to his enemies, haters and  the very dishonest fake news media.  The former reality show star had just one job to do and he couldn t do it. As our Country rapidly grows stronger and smarter, I want to wish all of my friends, supporters, enemies, haters, and even the very dishonest Fake News Media, a Happy and Healthy New Year,  President Angry Pants tweeted.  2018 will be a great year for America! As our Country rapidly grows stronger and smarter, I want to wish all of my friends, supporters, enemies, haters, and even the very dishonest Fake News Media, a Happy and Healthy New Year. 2018 will be a great year for America!  Donald J. Trump (@realDonaldTrump) December 31, 2017Trump s tweet went down about as welll as you d expect.What kind of president sends a New Year s greeting like this despicable, petty, infantile gibberish? Only Trump! His lack of decency won t even allow him to rise above the gutter long enough to wish the American citizens a happy new year!  Bishop Talbert Swan (@TalbertSwan) December 31, 2017no one likes you  Calvin (@calvinstowell) December 31, 2017Your impeachment would make 2018 a great year for America, but I ll also accept regaining control of Congress.  Miranda Yaver (@mirandayaver) December 31, 2017Do you hear yourself talk? When you have to include that many people that hate you you have to wonder? Why do the they all hate me?  Alan Sandoval (@AlanSandoval13) December 31, 2017Who uses the word Haters in a New Years wish??  Marlene (@marlene399) December 31, 2017You can t just say happy new year?  Koren pollitt (@Korencarpenter) December 31, 2017Here s Trump s New Year s Eve tweet from 2016.Happy New Year to all, including to my many enemies and those who have fought me and lost so badly they just don t know what to do. Love!  Donald J. Trump (@realDonaldTrump) December 31, 2016This is nothing new for Trump. He s been doing this for years.Trump has directed messages to his  enemies  and  haters  for New Year s, Easter, Thanksgiving, and the anniversary of 9/11. pic.twitter.com/4FPAe2KypA  Daniel Dale (@ddale8) December 31, 2017Trump s holiday tweets are clearly not presidential.How long did he work at Hallmark before becoming President?  Steven Goodine (@SGoodine) December 31, 2017He s always been like this . . . the only difference is that in the last few years, his filter has been breaking down.  Roy Schulze (@thbthttt) December 31, 2017Who, apart from a teenager uses the term haters?  Wendy (@WendyWhistles) December 31, 2017he s a fucking 5 year old  Who Knows (@rainyday80) December 31, 2017So, to all the people who voted for this a hole thinking he would change once he got into power, you were wrong! 70-year-old men don t change and now he s a year older.Photo by Andrew Burton/Getty Images.'
+Donald Trump just couldn t wish all Americans a Happy New Year and leave it at that. Instead, he had to give a shout out to his enemies, haters and  the very dishonest fake news media.  The former reality show star had just one job to do and he couldn t do it. As our Country rapidly grows stronger and smarter, I want to wish all of my friends, supporters, enemies, haters, and even the very dishonest Fake News Media, a Happy and Healthy New Year,  President Angry Pants tweeted.  2018 will be a great year for America! As our Country rapidly grows stronger and smarter, I want to wish all of my friends, supporters, enemies, haters, and even the very dishonest Fake News Media, a Happy and Healthy New Year. 2018 will be a great year for America!  Donald J. Trump (@realDonaldTrump) December 31, 2017Trump s tweet went down about as welll as you d expect.What kind of president sends a New Year s greeting like this despicable, petty, infantile gibberish? Only Trump! His lack of decency won t even allow him to rise above the gutter long enough to wish the American citizens a happy new year!  Bishop Talbert Swan (@TalbertSwan) December 31, 2017no one likes you  Calvin (@calvinstowell) December 31, 2017Your impeachment would make 2018 a great year for America, but I ll also accept regaining control of Congress.  Miranda Yaver (@mirandayaver) December 31, 2017Do you hear yourself talk? When you have to include that many people that hate you you have to wonder? Why do the they all hate me?  Alan Sandoval (@AlanSandoval13) December 31, 2017Who uses the word Haters in a New Years wish??  Marlene (@marlene399) December 31, 2017You can t just say happy new year?  Koren pollitt (@Korencarpenter) December 31, 2017Here s Trump s New Year s Eve tweet from 2016.Happy New Year to all, including to my many enemies and those who have fought me and lost so badly they just don t know what to do. Love!  Donald J. Trump (@realDonaldTrump) December 31, 2016This is nothing new for Trump. He s been doing this for years.Trump has directed messages to his  enemies  and  haters  for New Year s, Easter, Thanksgiving, and the anniversary of 9/11. pic.twitter.com/4FPAe2KypA  Daniel Dale (@ddale8) December 31, 2017Trump s holiday tweets are clearly not presidential.How long did he work at Hallmark before becoming President?  Steven Goodine (@SGoodine) December 31, 2017He s always been like this . . . the only difference is that in the last few years, his filter has been breaking down.  Roy Schulze (@thbthttt) December 31, 2017Who, apart from a teenager uses the term haters?  Wendy (@WendyWhistles) December 31, 2017he s a fucking 5 year old  Who Knows (@rainyday80) December 31, 2017So, to all the people who voted for this a hole thinking he would change once he got into power, you were wrong! 70-year-old men don t change and now he s a year older.Photo by Andrew Burton/Getty Images.
 
 
 
@@ -510,9 +647,12 @@ Fake_News_Data['text'][0]
 print(limpiar_tokenizar(texto=Fake_News_Data['text'][0]))
 ```
 
-    ['donald', 'trump', 'just', 'couldn', 'wish', 'all', 'americans', 'happy', 'new', 'year', 'and', 'leave', 'it', 'at', 'that', 'instead', 'he', 'had', 'to', 'give', 'shout', 'out', 'to', 'his', 'enemies', 'haters', 'and', 'the', 'very', 'dishonest', 'fake', 'news', 'media', 'the', 'former', 'reality', 'show', 'star', 'had', 'just', 'one', 'job', 'to', 'do', 'and', 'he', 'couldn', 'do', 'it', 'as', 'our', 'country', 'rapidly', 'grows', 'stronger', 'and', 'smarter', 'want', 'to', 'wish', 'all', 'of', 'my', 'friends', 'supporters', 'enemies', 'haters', 'and', 'even', 'the', 'very', 'dishonest', 'fake', 'news', 'media', 'happy', 'and', 'healthy', 'new', 'year', 'president', 'angry', 'pants', 'tweeted', 'will', 'be', 'great', 'year', 'for', 'america', 'as', 'our', 'country', 'rapidly', 'grows', 'stronger', 'and', 'smarter', 'want', 'to', 'wish', 'all', 'of', 'my', 'friends', 'supporters', 'enemies', 'haters', 'and', 'even', 'the', 'very', 'dishonest', 'fake', 'news', 'media', 'happy', 'and', 'healthy', 'new', 'year', 'will', 'be', 'great', 'year', 'for', 'america', 'donald', 'trump', 'realdonaldtrump', 'december', 'trump', 'tweet', 'went', 'down', 'about', 'as', 'welll', 'as', 'you', 'expect', 'what', 'kind', 'of', 'president', 'sends', 'new', 'year', 'greeting', 'like', 'this', 'despicable', 'petty', 'infantile', 'gibberish', 'only', 'trump', 'his', 'lack', 'of', 'decency', 'won', 'even', 'allow', 'him', 'to', 'rise', 'above', 'the', 'gutter', 'long', 'enough', 'to', 'wish', 'the', 'american', 'citizens', 'happy', 'new', 'year', 'bishop', 'talbert', 'swan', 'talbertswan', 'december', 'no', 'one', 'likes', 'you', 'calvin', 'calvinstowell', 'december', 'your', 'impeachment', 'would', 'make', 'great', 'year', 'for', 'america', 'but', 'll', 'also', 'accept', 'regaining', 'control', 'of', 'congress', 'miranda', 'yaver', 'mirandayaver', 'december', 'do', 'you', 'hear', 'yourself', 'talk', 'when', 'you', 'have', 'to', 'include', 'that', 'many', 'people', 'that', 'hate', 'you', 'you', 'have', 'to', 'wonder', 'why', 'do', 'the', 'they', 'all', 'hate', 'me', 'alan', 'sandoval', 'alansandoval', 'december', 'who', 'uses', 'the', 'word', 'haters', 'in', 'new', 'years', 'wish', 'marlene', 'marlene', 'december', 'you', 'can', 'just', 'say', 'happy', 'new', 'year', 'koren', 'pollitt', 'korencarpenter', 'december', 'here', 'trump', 'new', 'year', 'eve', 'tweet', 'from', 'happy', 'new', 'year', 'to', 'all', 'including', 'to', 'my', 'many', 'enemies', 'and', 'those', 'who', 'have', 'fought', 'me', 'and', 'lost', 'so', 'badly', 'they', 'just', 'don', 'know', 'what', 'to', 'do', 'love', 'donald', 'trump', 'realdonaldtrump', 'december', 'this', 'is', 'nothing', 'new', 'for', 'trump', 'he', 'been', 'doing', 'this', 'for', 'years', 'trump', 'has', 'directed', 'messages', 'to', 'his', 'enemies', 'and', 'haters', 'for', 'new', 'year', 'easter', 'thanksgiving', 'and', 'the', 'anniversary', 'of', 'pic', 'twitter', 'com', 'fpae', 'kypa', 'daniel', 'dale', 'ddale', 'december', 'trump', 'holiday', 'tweets', 'are', 'clearly', 'not', 'presidential', 'how', 'long', 'did', 'he', 'work', 'at', 'hallmark', 'before', 'becoming', 'president', 'steven', 'goodine', 'sgoodine', 'december', 'he', 'always', 'been', 'like', 'this', 'the', 'only', 'difference', 'is', 'that', 'in', 'the', 'last', 'few', 'years', 'his', 'filter', 'has', 'been', 'breaking', 'down', 'roy', 'schulze', 'thbthttt', 'december', 'who', 'apart', 'from', 'teenager', 'uses', 'the', 'term', 'haters', 'wendy', 'wendywhistles', 'december', 'he', 'fucking', 'year', 'old', 'who', 'knows', 'rainyday', 'december', 'so', 'to', 'all', 'the', 'people', 'who', 'voted', 'for', 'this', 'hole', 'thinking', 'he', 'would', 'change', 'once', 'he', 'got', 'into', 'power', 'you', 'were', 'wrong', 'year', 'old', 'men', 'don', 'change', 'and', 'now', 'he', 'year', 'older', 'photo', 'by', 'andrew', 'burton', 'getty', 'images']
-    
 
+['donald', 'trump', 'just', 'couldn', 'wish', 'all', 'americans', 'happy', 'new', 'year',
+'and', 'leave', 'it', 'at', 'that', 'instead', 'he', 'had', 'to', 'give', 'shout', 'out',
+'to', 'his', 'enemies', 'haters', 'and', 'the', 'very', 'dishonest', 'fake', 'news', 'media', 'the', 'former', 'reality', 'show', 'star', 'had', 'just', 'one', 'job', 'to', 'do', 'and', 'he', 'couldn', 'do', 'it', 'as', 'our', 'country', 'rapidly', 'grows', 'stronger', 'and', 'smarter', 'want', 'to', 'wish', 'all', 'of', 'my', 'friends', 'supporters', 'enemies', 'haters', 'and', 'even', 'the', 'very', 'dishonest', 'fake', 'news', 'media', 'happy', 'and', 'healthy', 'new', 'year', 'president', 'angry', 'pants', 'tweeted', 'will', 'be', 'great', 'year', 'for', 'america', 'as', 'our', 'country', 'rapidly', 'grows', 'stronger', 'and', 'smarter', 'want', 'to', 'wish', 'all', 'of', 'my', 'friends', 'supporters', 'enemies', 'haters', 'and', 'even', 'the', 'very', 'dishonest', 'fake', 'news', 'media', 'happy', 'and', 'healthy', 'new', 'year', 'will', 'be', 'great', 'year', 'for', 'america', 'donald', 'trump', 'realdonaldtrump', 'december', 'trump', 'tweet', 'went', 'down', 'about', 'as', 'welll', 'as', 'you', 'expect', 'what', 'kind', 'of', 'president', 'sends', 'new', 'year', 'greeting', 'like', 'this', 'despicable', 'petty', 'infantile', 'gibberish', 'only', 'trump', 'his', 'lack', 'of', 'decency', 'won', 'even', 'allow', 'him', 'to', 'rise', 'above', 'the', 'gutter', 'long', 'enough', 'to', 'wish', 'the', 'american', 'citizens', 'happy', 'new', 'year', 'bishop', 'talbert', 'swan', 'talbertswan', 'december', 'no', 'one', 'likes', 'you', 'calvin', 'calvinstowell', 'december', 'your', 'impeachment', 'would', 'make', 'great', 'year', 'for', 'america', 'but', 'll', 'also', 'accept', 'regaining', 'control', 'of', 'congress', 'miranda', 'yaver', 'mirandayaver', 'december', 'do', 'you', 'hear', 'yourself', 'talk', 'when', 'you', 'have', 'to', 'include', 'that', 'many', 'people', 'that', 'hate', 'you', 'you', 'have', 'to', 'wonder', 'why', 'do', 'the', 'they', 'all', 'hate', 'me', 'alan', 'sandoval', 'alansandoval', 'december', 'who', 'uses', 'the', 'word', 'haters', 'in', 'new', 'years', 'wish', 'marlene', 'marlene', 'december', 'you', 'can', 'just', 'say', 'happy', 'new', 'year', 'koren', 'pollitt', 'korencarpenter', 'december', 'here', 'trump', 'new', 'year', 'eve', 'tweet', 'from', 'happy', 'new', 'year', 'to', 'all', 'including', 'to', 'my', 'many', 'enemies', 'and', 'those', 'who', 'have', 'fought', 'me', 'and', 'lost', 'so', 'badly', 'they', 'just', 'don', 'know', 'what', 'to', 'do', 'love', 'donald', 'trump', 'realdonaldtrump', 'december', 'this', 'is', 'nothing', 'new', 'for', 'trump', 'he', 'been', 'doing', 'this', 'for', 'years', 'trump', 'has', 'directed', 'messages', 'to', 'his', 'enemies', 'and', 'haters', 'for', 'new', 'year', 'easter', 'thanksgiving', 'and', 'the', 'anniversary', 'of', 'pic', 'twitter', 'com', 'fpae', 'kypa', 'daniel', 'dale', 'ddale', 'december', 'trump', 'holiday', 'tweets', 'are', 'clearly', 'not', 'presidential', 'how', 'long', 'did', 'he', 'work', 'at', 'hallmark', 'before', 'becoming', 'president', 'steven', 'goodine', 'sgoodine', 'december', 'he', 'always', 'been', 'like', 'this', 'the', 'only', 'difference', 'is', 'that', 'in', 'the', 'last', 'few', 'years', 'his', 'filter', 'has', 'been', 'breaking', 'down', 'roy', 'schulze', 'thbthttt', 'december', 'who', 'apart', 'from', 'teenager', 'uses', 'the', 'term', 'haters', 'wendy', 'wendywhistles', 'december', 'he', 'fucking', 'year', 'old', 'who', 'knows', 'rainyday', 'december', 'so', 'to', 'all', 'the', 'people', 'who', 'voted', 'for', 'this', 'hole', 'thinking', 'he', 'would', 'change', 'once', 'he', 'got', 'into', 'power', 'you', 'were', 'wrong', 'year', 'old', 'men', 'don', 'change', 'and', 'now', 'he', 'year', 'older', 'photo', 'by', 'andrew', 'burton', 'getty', 'images']
+
+\newpage
 
 
 Ahora aplicamos la función `limpiar_tokenizar` a cada una de las noticias del data-set `Fake_News_Data`
@@ -587,6 +727,7 @@ Fake_News_Data
 ```
 
 
+\vspace{0.3cm}
 
 Creamos un nuevo data-frame solo con las columnas (variables) `id_text` , `text_tokenizado` y `Fake`, en ell que la columna `text_tokenizado` esta expandida, es decir, al ser una columna cuyos elementos son vectores, lo que se hace con la operacion `explode` es expandir cada uno de esos vectores en un nuevo data-frame, es decir, para cada uno de esos vectores se crean tantas filas en el nuevo data-frame como elementos hay en el vector, y en cada una de esas filas la columna `text_tokenizado` contendra un elemento del vector expandido. Visualmente es mas facil de entenderlo como se verá a continuación:
 
@@ -627,7 +768,7 @@ Fake_News_Tokens
 # Descripción estadística de los datos tras la `tokenización`
 
 
-## Numero de tokens del conjunto de noticias en funcion de si son fake o no
+## Número de tokens del conjunto de noticias en función de si son fake o no
 
 ```python
 # nº de palabras (tokens) en el conjunto de textos clasificados como fake y en los no fake
@@ -635,16 +776,13 @@ Fake_News_Tokens
 Fake_News_Tokens.groupby(by='Fake')['token'].count()
 ```
 
-
-
-
     Fake
     0    7891501
     1    9611544
     Name: token, dtype: int64
 
 
-## Numero de tokens *únicos* del conjunto de noticias en funcion de si son fake o no
+## Número de tokens *únicos* del conjunto de noticias en función de si son fake o no
 
 
 ```python
@@ -663,7 +801,7 @@ Fake_News_Tokens.groupby(by='Fake')['token'].nunique()
 
 
 
-## Numero de tokens en cada una de las noticias individualmente
+## Número de tokens en cada una de las noticias individualmente
 
 ```python
 # nº de palabras (tokens) en cada texto individual clasificados como fake y en los no fake
@@ -760,7 +898,7 @@ Fake_News_Data.loc[Fake_News_Data.id_text == 10923]
 ```
 
 
-Nos quedamos por tanto solo con las noticias que tienen algun token :
+Nos quedamos por tanto solo con las noticias que tienen algún token :
 
 ```python
 df2 = df1.loc[df1['nº_tokens'] != 0, :]
@@ -788,7 +926,7 @@ id_text   Fake
 ```
 
  
-Calculamos el numero medio de tokens para las noticas que tienen uno o mas tokens en funcion se si son fake o no:
+Calculamos el número medio de tokens para las noticas que tienen uno o mas tokens en función se si son fake o no:
 
 ```python
 df2.groupby("Fake")["nº_tokens"].agg(['mean'])
@@ -801,7 +939,7 @@ Fake
 1     422.169983
 ```
  
-Se puede interpretar como la longitud media de las noticas fake y de las no fake
+Se puede interpretar como la longitud media de las noticas fake y de las no fake.
 
 \vspace{0.5cm}
 
@@ -821,7 +959,7 @@ Fake   Mean word_count
 1        423.197905
 ```
 
-Y esto es debido a que el  código `Fake_News_Data['text'].str.split()` hace una operacion  similar a la realizada por nuestra funcion `limpiar_tokenizar` pero **no exactamente igual**, y esto lleva a que con la primera opcion se obtiene un conjunto de tokens diferente al obtenido con la funcion `limpiar_tokenizar`, en los distintos documentos, y esto lleva a que la longitud de los documentos sea diferente si se consideran los tokens obtenidos con  `Fake_News_Data['text'].str.split()`    a si se usan los obtenidos con `limpiar_tokenizar`, llo que lleva a diferencias en las longitudes medias obtenidas.
+Y esto es debido a que el  código `Fake_News_Data['text'].str.split()` hace una operación  similar a la realizada por nuestra función `limpiar_tokenizar` pero **no exactamente igual**, y esto lleva a que con la primera opcion se obtiene un conjunto de tokens diferente al obtenido con la función `limpiar_tokenizar`, en los distintos documentos, y esto lleva a que la longitud de los documentos sea diferente si se consideran los tokens obtenidos con  `Fake_News_Data['text'].str.split()`    a si se usan los obtenidos con `limpiar_tokenizar`, lo que lleva a diferencias en las longitudes medias obtenidas.
 
 
 
@@ -880,13 +1018,13 @@ pd.DataFrame({'fake_new': [0,1] , 'tokens_mean':[m0 , m1]})
  
  
 
-## Número de veces que aparece cada token en el conjunto de las noticias en funcion de si es fake o no
+## Número de veces que aparece cada token en el conjunto de las noticias en función de si es fake o no
 
 
 ```python
 df = pd.DataFrame(  (Fake_News_Tokens.groupby(by = ["Fake", "token"] )["token"].count().unstack(fill_value=0).stack().reset_index(name='frecuencia_token')))
 
-# .unstack(fill_value=0).stack() para que tambien aparezcan los tokens con count = 0 , si no solo aprecerian los que tienen count > 0.
+# .unstack(fill_value=0).stack() para que también aparezcan los tokens con count = 0 , si no solo aprecerian los que tienen count > 0.
 
 df
 ```
@@ -910,12 +1048,13 @@ df
 
 ```
 
-La salida anterior nos da para cada token el numero de veces que aparece en el conjunto de las fake news por un lado (Fake = 1), y por otro lado en el conjunto de las no fake (Fake=0)
+La salida anterior nos da para cada token el número de veces que aparece en el conjunto de las fake news por un lado (Fake = 1), y por otro lado en el conjunto de las no fake (Fake=0)
 
 Veamos algunos ejemplos para tokens concretos:
 
 
-En la siguiente salida vemos el nº de veces que aparece el token 'yes' en eñ conjunto de las fake news (1775), asi como en el conjunto de las no fake news (336).
+En la siguiente salida vemos el nº de veces que aparece el token 'yes' en el conjunto de las fake news (1775), así como en el conjunto de las no fake news (336).
+
 ```python
 df.loc[df['token']=='yes' , ] # El token 'yes' aprece 1775 veces en el conjunto de las fake news y 336 en el de las no fake news
 ```
@@ -928,7 +1067,7 @@ df.loc[df['token']=='yes' , ] # El token 'yes' aprece 1775 veces en el conjunto 
 ```
 
 
-En la siguiente salida vemos el nº de veces que aparece el token 'true' en eñ conjunto de las fake news (2595), asi como en el conjunto de las no fake news (412).
+En la siguiente salida vemos el nº de veces que aparece el token 'true' en el conjunto de las fake news (2595), asi como en el conjunto de las no fake news (412).
 
 ```python
 df.loc[df['token']=='true' , ] # El token 'true' aparece 2595 veces en el conjunto de las fake news y 412 en el de las no fake news
@@ -1072,11 +1211,12 @@ df_no_fake_sort.head(15)
 Se puede observar que en ambas tablas la mayoria de los 15 tokens mas frecuentees se corresponden con artículos, preposiciones, pronombres, etc. En general, palabras que no aportan información relevante sobre el texto. A estas palabras se les conoce como **stopwords**. Para cada idioma existen distintos listados de stopwords, además, dependiendo del contexto, puede ser necesario adaptar el listado. Con frecuencia, a medida que se realiza un análisis se encuentran palabras que deben incluirse en el listado de stopwords.
 
 
+\newpage 
 
 ## Stop words
 
 
-Vamos a obtener un listado de **stopwords** en ingles, ya que nuestros textos (noticias) están en ingles. Si estuvieran en varios idiosmas habra que formar un listado de stopwords para todos esos idomas.
+Vamos a obtener un listado de **stopwords** en inglés, ya que nuestros textos (noticias) están en este idioma. Si estuvieran en varios idiomas habría que formar un listado de stopwords para todos esos idomas.
 
 Para ontener el listado de stopwords usaremos la libreria `nltk` (Natural Language Toolki) , una de las librerias mas importantes en `Python` en el área de procesamiento de lenguaje natural.
 
@@ -1093,7 +1233,7 @@ from nltk.corpus import stopwords
 ```
     
     
-Obtenemos el listado de stopwords que provee `nltk` para el idioma inglés, y ademas le añadimos una lista extra de palabras que también vamos a considerar stopwords:
+Obtenemos el listado de stopwords que provee `nltk` para el idioma inglés, y además le añadimos una lista extra de palabras que también vamos a considerar stopwords:
 
 ```python
 # Obtencion de listado de stopwords del ingles
@@ -1108,20 +1248,19 @@ stop_words = stopwords.words('english') + ["pic" , "getty", "quot", "acr", "file
    'would', 'like', 'us', 'even', 'could', 'two', 'many', 'angerer', 'reilly']
 ```
 
+\newpage 
 
 Imprimimos la lista de stopwords que se van a considerar en este trabajo:
 
 ```python
 print(stop_words)
 ```
-```
-    ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll", "you'd", 'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', 'she', "she's", 'her', 'hers', 'herself', 'it', "it's", 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this', 'that', "that'll", 'these', 'those', 'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing', 'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'of', 'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 'further', 'then', 'once', 'here', 'there', 'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', "don't", 'should', "should've", 'now', 'd', 'll', 'm', 'o', 're', 've', 'y', 'ain', 'aren', "aren't", 'couldn', "couldn't", 'didn', "didn't", 'doesn', "doesn't", 'hadn', "hadn't", 'hasn', "hasn't", 'haven', "haven't", 'isn', "isn't", 'ma', 'mightn', "mightn't", 'mustn', "mustn't", 'needn', "needn't", 'shan', "shan't", 'shouldn', "shouldn't", 'wasn', "wasn't", 'weren', "weren't", 'won', "won't", 'wouldn', "wouldn't", 'pic', 'getty', 'quot', 'acr', 'filessupport', 'flickr', 'fjs', 'js', 'somodevilla', 'var', 'henningsen', 'ck', 'cdata', 'subscribing', 'mcnamee', 'amp', 'wfb', 'screenshot', 'hesher', 'nyp', 'cking', 'helton', 'raedle', 'donnell', 'getelementbyid', 'src', 'behar', 'createelement', 'getelementsbytagname', 'parentnode', 'wnd', 'insertbefore', 'jssdk', 'nowicki', 'xfbml', 'camerota', 'sdk', '“i', '“the', '“we', 'it’s', 'don’t', '“this', '“it', '“a', '“if', '“it’s', 'we’re', 'that’s', '“he', '“there', 'i’m', 'he’s', '“we’re', 'doesn’t', 'can’t', '“i’m', '“in', 'suu', '“they', 'you’re', '“but', 'didn’t', '“you', 'they’re', '“no', '“as', '“very', 'there’s', '“what', '“and', 'won’t', '“to', '“that', '“one', 'we’ve', '“when', '“our', '“not', '’”', '“that’s', '“these', '“there’s', '“he’s', 'we’ll', 'one', 'would', 'like', 'us', 'even', 'could', 'two', 'many', 'angerer', 'reilly']
+['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll", "you'd", 'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', 'she', "she's", 'her', 'hers', 'herself', 'it', "it's", 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this', 'that', "that'll", 'these', 'those', 'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing', 'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'of', 'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 'further', 'then', 'once', 'here', 'there', 'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', "don't", 'should', "should've", 'now', 'd', 'll', 'm', 'o', 're', 've', 'y', 'ain', 'aren', "aren't", 'couldn', "couldn't", 'didn', "didn't", 'doesn', "doesn't", 'hadn', "hadn't", 'hasn', "hasn't", 'haven', "haven't", 'isn', "isn't", 'ma', 'mightn', "mightn't", 'mustn', "mustn't", 'needn', "needn't", 'shan', "shan't", 'shouldn', "shouldn't", 'wasn', "wasn't", 'weren', "weren't", 'won', "won't", 'wouldn', "wouldn't", 'pic', 'getty', 'quot', 'acr', 'filessupport', 'flickr', 'fjs', 'js', 'somodevilla', 'var', 'henningsen', 'ck', 'cdata', 'subscribing', 'mcnamee', 'amp', 'wfb', 'screenshot', 'hesher', 'nyp', 'cking', 'helton', 'raedle', 'donnell', 'getelementbyid', 'src', 'behar', 'createelement', 'getelementsbytagname', 'parentnode', 'wnd', 'insertbefore', 'jssdk', 'nowicki', 'xfbml', 'camerota', 'sdk', '“i', '“the', '“we', 'it’s', 'don’t', '“this', '“it', '“a', '“if', '“it’s', 'we’re', 'that’s', '“he', '“there', 'i’m', 'he’s', '“we’re', 'doesn’t', 'can’t', '“i’m', '“in', 'suu', '“they', 'you’re', '“but', 'didn’t', '“you', 'they’re', '“no', '“as', '“very', 'there’s', '“what', '“and', 'won’t', '“to', '“that', '“one', 'we’ve', '“when', '“our', '“not', '’”', '“that’s', '“these', '“there’s', '“he’s', 'we’ll', 'one', 'would', 'like', 'us', 'even', 'could', 'two', 'many', 'angerer', 'reilly']
     
-```
 
+\newpage
 
-
-De los data-frames `df_fake_sort` y `df_no_fake_sort` eliminamos aquellos tokens que estan en la lista de stopwords:
+De los data-frames `df_fake_sort` y `df_no_fake_sort` eliminamos aquellos tokens que están en la lista de stopwords:
 
 ```python
 df_fake_sort_not_StopWords = df_fake_sort[ ~ df_fake_sort['token'].isin(stop_words) ] # ranking de tokens para las fake news sin stop words
@@ -1185,10 +1324,11 @@ df_no_fake_sort_not_StopWords.head(15)
 
 ```
 
+\newpage
 
-## Ranking de tokens mas frecuentes en el conjunto de las noticas en funcion de si son fake y no fake tras eliminar stopwords
+## Ranking de tokens más frecuentes en el conjunto de las noticas en función de si son fake y no fake tras eliminar stopwords
 
-Una vez eliminadas las stopwords vamos a crear unos graficos de barras para representar el ranking de los 15 tokens mas frecuentes en el conjunto de las fake news por un lado, y por otro las no fake news:
+Una vez eliminadas las stopwords vamos a crear unos gráficos de barras para representar el ranking de los 15 tokens mas frecuentes en el conjunto de las fake news por un lado, y por otro las no fake news:
 
 
 ```python
@@ -1201,7 +1341,7 @@ fig.savefig('p1.png', format='png', dpi=1200)
 
 
     
-![Ranking 15 Tokens in Fake News](p1.png)
+![Ranking 15 tokens mas frecuentes en Fake News](p1.png)
     
 
 
@@ -1216,9 +1356,11 @@ fig.savefig('p2.png', format='png', dpi=1200)
 
 
     
-![Ranking 15 Tokens in Not Fake News](p2.png)
+![Ranking 15 tokens mas frecuentes en las no Fake News](p2.png)
     
 
+
+\newpage
 
 
 ## Odds Ratio
@@ -1233,7 +1375,7 @@ Sea  $\hspace{0.2cm}p_k1 = \cfrac{n_{k1} + 1}{N_1 + 1}\hspace{0.2cm}$ y $\hspace
  
 $$OR(Fake|NoFake , k) = \dfrac{ p_{k1} }{ p_{k0} }$$
  
-
+\vspace{0.25cm}
 
 Donde:
 
@@ -1244,6 +1386,7 @@ $n_{k0}$ el numero de veces  que aparece el termino $k$ en las **no fake news**.
 $N_1$ es el número de tokens, contando repeticiones, que aparecen en las **fake news**. 
 
 $N_0$ es el número de tokens, contando repeticiones, que aparecen en las **no fake news** 
+\vspace{0.25cm}
 
 
 Por tanto:
@@ -1253,17 +1396,23 @@ $p_{k1} \approx$ proporcion de apariciones del token $k$ en las **fake news**
 
 $p_{k0} \approx$ proporcion de apariciones del token $k$ en las **no fake news**
 
-Si $OddsRatio(k) = \dfrac{ p_k1 }{  p_k0  } = h$ , entonces:
 
-Si $h>1$  $\Rightarrow$ el token $k$ es $h$ veces mas frecuente en las **fake news** que en las **no fake news**, ya que $p_{k1} = h \cdot p_{k0}$
+\vspace{0.25cm}
 
-Si $h \in (0 , 1)$ $\Rightarrow$ el token $k$ es $1/h$ veces mas frecuente en las **no fake news** que en las **fake news**, ya que $p_{k0} = (1/h) \cdot p_{k1}$ , donde $(1/h)>1$
+**Interpretación del Odds Ratio:**
 
-Si $h= 1$ $\Rightarrow$ el token $k$ es igual de frecuente en las **fake news** que en las **no fake news**, ya que $p_{k1} =  p_{k0}$ 
+Si $OR(Fake|NoFake , k) = \dfrac{ p_k1 }{  p_k0  } = h$ , entonces:
+
+- Si $h>1$  $\Rightarrow$ el token $k$ es $h$ veces mas frecuente en las **fake news** que en las **no fake news**, ya que $p_{k1} = h \cdot p_{k0}$
+
+- Si $h \in (0 , 1)$ $\Rightarrow$ el token $k$ es $1/h$ veces mas frecuente en las **no fake news** que en las **fake news**, ya que $p_{k0} = (1/h) \cdot p_{k1}$ , donde $(1/h)>1$
+
+- Si $h= 1$ $\Rightarrow$ el token $k$ es igual de frecuente en las **fake news** que en las **no fake news**, ya que $p_{k1} =  p_{k0}$ 
 
 
+\newpage
 
-A continuacion definimos funciones para calcular $n_{k1}$ y $n_{k0}$ en `Python` 
+A continuación definimos funciones para calcular $n_{k1}$ y $n_{k0}$ en `Python` 
 
 ```python
 def n_k1(token) : 
@@ -1374,7 +1523,7 @@ N1
 
  
 
-Como ejemplo vamos a calcular el Odds Ratio fake - no fake para el toke 'trump' : 
+Como ejemplo vamos a calcular el Odds Ratio fake - no fake para el token 'trump' : 
 
 
 ```python
@@ -1641,7 +1790,7 @@ df1.sort_values(by=["Odds_ratio_NotFake_Fake"], ascending=False).reset_index(dro
 
 ```
 
-Notese que en ambos data sets las columnas Odds_ratio_Fake_NotFake  y Odds_ratio_NotFake_Fake son las mismas, por tanto podemos construir un nuevo data set solo con esas columnas y otra para los tokens, a partir de cualquiera de esos dos data-sets.
+Notese que en ambos data-sets las columnas `Odds_ratio_Fake_NotFake`  y `Odds_ratio_NotFake_Fake` son las mismas, por tanto podemos construir un nuevo data set solo con esas columnas y otra para los tokens, a partir de cualquiera de esos dos data-sets.
 
 ```python
 Odds_ratio_df = df1.loc[: , ['token', 'Odds_ratio_Fake_NotFake' , 'Odds_ratio_NotFake_Fake']]  
@@ -1731,7 +1880,7 @@ fig.savefig('p3.png', format='png', dpi=1200)
 ![Ranking de los 15 tokens mas representativos de las Fake News](p3.png)
 
 
-Vamos a hacer un pequeño analisis de los tokens que son los mas representativos para las fake news, es decir, aquellos tokens con mayor odds ratio fake - no fake, esto es, aquellos que son mucho mas frecuentes en las fake news que en las no fake news.
+Vamos a hacer un pequeño análisis de los tokens que son los mas representativos para las fake news, es decir, aquellos tokens con mayor odds ratio fake - no fake, esto es, aquellos que son mucho más frecuentes en las fake news que en las no fake news.
 
 - El token mas representativa de las fake news analizadas es 'finicum'
 
@@ -1740,37 +1889,37 @@ Vamos a hacer un pequeño analisis de los tokens que son los mas representativos
 
 
 
-- El segundo token mas representativo de las fakes news es 'wikipedia'
+- El segundo token más representativo de las fakes news es 'wikipedia'
 
      - La Fundación Wikimedia (en inglés: Wikimedia Foundation, Inc.) es una organización sin ánimo de lucro. Es la organización matriz de Wikipedia
      
      
-- El tercer token mas representativo de las fakes news es 'uninterruptible' que significa 'ininterrumpible' en español.
+- El tercer token más representativo de las fakes news es 'uninterruptible' que significa 'ininterrumpible' en español.
 
-- El cuarto token mas representativo de las fakes news es 'philosophers' que significa 'filosofos' en español.
+- El cuarto token más representativo de las fakes news es 'philosophers' que significa 'filosofos' en español.
 
-- El quinto token mas representativo de las fakes news es 'lovable' que significa 'amable' en español.
+- El quinto token más representativo de las fakes news es 'lovable' que significa 'amable' en español.
 
-- El sexto token mas representativo de las fakes news es 'savants' que significa 'sabios' en español.
+- El sexto token más representativo de las fakes news es 'savants' que significa 'sabios' en español.
 
-- El septimo token mas representativo de las fakes news es 'moralist' que significa 'moralistas' en español.
+- El septimo token más representativo de las fakes news es 'moralist' que significa 'moralistas' en español.
 
-- El octavo token mas representativo de las fakes news es 'spore' que significa 'espora' en español.
+- El octavo token más representativo de las fakes news es 'spore' que significa 'espora' en español.
 
-- El noveno token mas representatico de las fake news es 'rascals' que podria hacer alusion a la pelicula 'The Little Rascals' en la cual participo como parte del elenco de actores el ex-presidente de Estados Unidos Donald Trump.
+- El noveno token más representatico de las fake news es 'rascals' que podria hacer alusion a la pelicula 'The Little Rascals' en la cual participo como parte del elenco de actores el ex-presidente de Estados Unidos Donald Trump.
 
-- El decimo token mas representativo es 'evangelist' que significa 'evangelistas' en español.
+- El decimo token más representativo es 'evangelist' que significa 'evangelistas' en español.
 
-- El undecimo token mas representativo es 'masochist' que significa 'masoquista' en español.
+- El undecimo token más representativo es 'masochist' que significa 'masoquista' en español.
 
 
-- El duodecimo token mas representativo es 'boiler' que significa 'caldera' en español.
+- El duodecimo token más representativo es 'boiler' que significa 'caldera' en español.
 
- - El decimotercero token mas representativo es 'bundy' que significa 'paquete' en español.
+ - El decimotercero token más representativo es 'bundy' que significa 'paquete' en español.
 
-- El decimocuarto token mas representativo es 'screengrab' que significa 'captura de pantalla' en español.
+- El decimocuarto token más representativo es 'screengrab' que significa 'captura de pantalla' en español.
 
-- El decimoquinto token mas representativo es 'whined' que significa 'quejarse' en español.
+- El decimoquinto token más representativo es 'whined' que significa 'quejarse' en español.
 
 
 ```python
@@ -1783,20 +1932,20 @@ fig.savefig('p4.png', format='png', dpi=1200)
 ```
 
 
-![Ranking de los 15 tokens mas representativos de las No Fake News](p4.png)
+![Ranking de los 15 tokens más representativos de las No Fake News](p4.png)
 
 
 
-Vamos a hacer un pequeño analisis de los tokens que son los mas representativos para las fake news, es decir, aquellos tokens con mayor odds ratio fake - no fake, esto es, aquellos que son mucho mas frecuentes en las fake news que en las no fake news.
+Vamos a hacer un pequeño análisis de los tokens que son los más representativos para las fake news, es decir, aquellos tokens con mayor odds ratio fake - no fake, esto es, aquellos que son mucho más frecuentes en las fake news que en las no fake news.
 
-- El token mas representativa de las fake news analizadas es 'trump's'
+- El token más representativa de las fake news analizadas es 'trump's'
 
     - Este token hace referencia a Donald John Trump es un empresario, director ejecutivo, inversor en bienes inmuebles, personalidad televisiva y político estadounidense que ejerció como el 45.º presidente de los Estados Unidos de América desde el 20 de enero de 2017 hasta el 20 de enero de 2021
 
 
 
 
-- El segundo token mas representativo de las fakes news es 'obama's'
+- El segundo token más representativo de las fakes news es 'obama's'
 
     - Este token hace referencia a Barack Hussein Obama  es un político estadounidense que ejerció como el 44.º presidente de los Estados Unidos de América desde el 20 de enero de 2009 hasta el 20 de enero de 2017
 
@@ -1804,54 +1953,54 @@ Vamos a hacer un pequeño analisis de los tokens que son los mas representativos
  
      
      
-- El tercer token mas representativo de las fakes news es 'clinton's'
+- El tercer token más representativo de las fakes news es 'clinton's'
 
     - William Jefferson Clinton  es un político y abogado estadounidense que ejerció como el 42.º presidente de los Estados Unidos de América de 1993 a 2001
 
 
 
 
-- El cuarto token mas representativo de las fakes news es 'party's'  que hace referencia a 'partidos politicos' en español.
+- El cuarto token más representativo de las fakes news es 'party's'  que hace referencia a 'partidos politicos' en español.
 
     
 
-- El quinto token mas representativo de las fakes news es 'state's' que significa 'estados' en español.
+- El quinto token más representativo de las fakes news es 'state's' que significa 'estados' en español.
 
-- El sexto token mas representativo de las fakes news es 'president's' que significa 'presidentes' en español.
+- El sexto token más representativo de las fakes news es 'president's' que significa 'presidentes' en español.
 
-- El septimo token mas representativo de las fakes news es 'rakhine'
+- El septimo token más representativo de las fakes news es 'rakhine'
 
     - Rakhine es un estado de Birmania. 
 
-- El octavo token mas representativo de las fakes news es 'administration's' que significa 'gobierno' en español.
+- El octavo token más representativo de las fakes news es 'administration's' que significa 'gobierno' en español.
 
-- El noveno token mas representatico de las fake news es 'rohingya'
+- El noveno token más representatico de las fake news es 'rohingya'
 
      - Los rohingya  son un grupo étnico musulmán de Birmania (Myanmar) que desde 2017 fue objeto, según la ONU, de una limpieza étnica por parte de las autoridades birmanas que obligó a la mayoría de sus integrantes a refugiarse en la vecina Bangladés.  
-     
-- El decimo token mas representativo es 'zuma' que podria hacer referencia a Jacob Zuma
+    
+- El decimo token más representativo es 'zuma' que podria hacer referencia a Jacob Zuma
 
       - Jacob Gedleyihlekisa Zuma  es un político sudafricano que ejerció como el cuarto Presidente de la República de Sudáfrica. Fue también presidente del Congreso Nacional Africano (ANC), partido político en el poder en la República de Sudáfrica, elegido por la Conferencia Nacional el 18 de diciembre de 2007, puesto que mantuvo hasta diciembre de 2017. Zuma fue vicepresidente de la República de 1999 a 2005. El 14 de febrero de 2018 renunció a su cargo como presidente.
 
-- El undecimo token mas representativo es 'puigdemont' que hace referencia a Carles Puigdemont
+- El undecimo token más representativo es 'puigdemont' que hace referencia a Carles Puigdemont
 
            - Carles Puigdemont i Casamajón es un político y periodista español, diputado al Parlamento Europeo y presidente de la Generalidad de Cataluña entre 2016 y 2017. Durante su mandato como presidente de la Generalidad se impulsó la celebración ilegal del referéndum de independencia de Cataluña el 1 de octubre de 2017 y se efectuó una pretendida declaración unilateral de independencia del territorio el día 27 del mismo mes. Así, fue cesado en el cargo el 28 de octubre de 2017, al amparo de la Orden PRA/1034/2017, de 27 de octubre, en aplicación del artículo 155 de la Constitución española de 1978. Fue puesto entonces en busca y captura en territorio español acusado de presuntos delitos de rebelión, sedición y malversación de caudales públicos por actos que se le imputan en la organización del referéndum y la declaración unilateral de independencia
 
 
-- El duodecimo token mas representativo es 'china's' que hace referencia a China.
+- El duodecimo token más representativo es 'china's' que hace referencia a China.
 
- - El decimotercero token mas representativo es 'russia's' que hace referencia a Rusia.
+ - El decimotercero token más representativo es 'russia's' que hace referencia a Rusia.
 
-- El decimocuarto token mas representativo es 'county's' que significa 'país' en español.
+- El decimocuarto token más representativo es 'county's' que significa 'país' en español.
 
-- El decimoquinto token mas representativo es 'myanmar'
+- El decimoquinto token más representativo es 'myanmar'
 
        - Birmania o Myanmar  denominada oficialmente República de la Unión de Myanmar, es un Estado soberano del Sudeste Asiático. 
 
 
 
 
->La interpretacion de estos términos no es una tarea en la que necesariamente el cientifico de datos que los ha obtenido pueda aportar un gran valor. Desde mi punto de vista, es mas adecuado que la interpretacion de estas palabras se haga por parte de expertos en el contexto en el que se encuentran las noticias analizadas, a saber, en el contexto politico, economico y social que rodeaba a Estados Unidos entre los años 2015 y 2018.
+>La interpretacion de estos términos no es una tarea en la que necesariamente el cientifico de datos que los ha obtenido pueda aportar un gran valor. Desde mi punto de vista, es más adecuado que la interpretacion de estas palabras se haga por parte de expertos en el contexto en el que se encuentran las noticias analizadas, a saber, en el contexto politico, economico y social que rodeaba a Estados Unidos entre los años 2015 y 2018.
 
 
 
@@ -2135,7 +2284,7 @@ df_tf_Idf
 
 ## Matriz Tf-Idf
 
-Para poder aplicar algoritmos de clasificación a un texto, es necesario crear una representación numérica del mismo. Para ello se utiliza una matriz que tiene como filas los documentos y como columnas los tokens. Existen diferentes criterios para definir los elementos internos de esta matriz. Sea $(i,j)$ el elemento de la fila $i y columna j distinguimos varias aproximaciones. Una es que (i,j) sea la frecuencia del token j en el documento i , es decir, tf(j,i) , otra aproximacion es que (i, j) sea 0 si el token j no aparece en el documento i y 1 en el caso de que si aparece. Otra aprozimacion es que (i,j) sea tfidf(j,i).
+Para poder aplicar algoritmos de clasificación a un texto, es necesario crear una representación numérica del mismo. Para ello se utiliza una matriz que tiene como filas los documentos y como columnas los tokens. Existen diferentes criterios para definir los elementos internos de esta matriz. Sea $(i,j)$ el elemento de la fila $i$ y columna $j$ distinguimos varias aproximaciones. Una es que $(i,j)$ sea la frecuencia del token $j$ en el documento $i$ , es decir, $tf(j,i)$ , otra aproximación es que $(i, j)$ sea 0 si el token $j$ no aparece en el documento $i$ y 1 en el caso de que si aparezca. Otra aprozimacion es que $(i,j)$ sea $tfidf(j,i)$.
 
 El criterio seguido en esta seccion del trabajo es que $(i,j) = tfidf(j,i)$ , ya que es el criterio seguido por la libreria `sklearn`, la cual será empleada para calcular la matriz tf-idf. Además es uno de los criterios mas habituales para definir dicha matriz.  
 
@@ -2192,11 +2341,11 @@ Y_data
 ```
 
 
-Importamos la funcion `TfidfVectorizer` de `sklearn` la cual nos permitirá generar la matriz tf-idf. 
+Importamos la función `TfidfVectorizer` de `sklearn` la cual nos permitirá generar la matriz tf-idf. 
 
 Es recomendable ver la documentación de `sklearn` para esta función [documentación](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html)
 
-En este caso usaremos como funcion de tokenizacion la anteriormente creada `limpiar_tokenizar` , podria usarse la que usa por defecto `sklearn`, además la lista de stopwords que también se ha usado anteriormente. Ademas usamos los argumentos min_df = 0 , lo cual significa que se van a considerar todos los tokens generados por la funcion tokenizer, si min_df=h  la función solo consideraria los tokens que aparecen en mas de h documentos. Por ultimo usaremos el argumento smooth_idf=False , el cual ya fue mencionado en la seccion *definición formal del estadistico tf-idf*.
+En este caso usaremos como función de tokenizacion la anteriormente creada `limpiar_tokenizar` , podria usarse la que usa por defecto `sklearn`, además la lista de stopwords que también se ha usado anteriormente. Ademas usamos los argumentos min_df = 0 , lo cual significa que se van a considerar todos los tokens generados por la funcion tokenizer, si min_df=h  la función solo consideraria los tokens que aparecen en mas de h documentos. Por ultimo usaremos el argumento smooth_idf=False , el cual ya fue mencionado en la seccion *definición formal del estadistico tf-idf*.
 
 ```python
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -2396,10 +2545,10 @@ tfidf_matrix[0, 79741]
 df_tf_Idf.loc[ ( df_tf_Idf.id_text == 0 ) &  ( df_tf_Idf.token == 'pollitt' ) , ]
 ```
 ```
-        id_text    token  n_k  longitud(d)        tf    max_tf   tf_norm  \
+        id_text    token  n_k  longitud(d)        tf    max_tf   tf_norm  
 304262        0  pollitt    1          251  0.003984  0.059761  0.066667   
 
-        n_d_k    n_d        Idf    tf_Idf  tf_Idf_norm  euclidean_norm  \
+        n_d_k    n_d        Idf    tf_Idf  tf_Idf_norm  euclidean_norm
 304262      1  44898  11.712149  0.046662      0.78081          0.5106   
 
         tf_Idf_sklearn  
@@ -2423,10 +2572,10 @@ tfidf_matrix[44897, 99546]
 df_tf_Idf.loc[ ( df_tf_Idf.id_text == 44897 ) &  ( df_tf_Idf.token == 'string' ) , ]
 ```
 
-         id_text   token  n_k  longitud(d)        tf    max_tf  tf_norm  \
+         id_text   token  n_k  longitud(d)        tf    max_tf  tf_norm  
 5350014    44897  string    1          132  0.007576  0.030303     0.25   
 
-         n_d_k    n_d       Idf    tf_Idf  tf_Idf_norm  euclidean_norm  \
+         n_d_k    n_d       Idf    tf_Idf  tf_Idf_norm  euclidean_norm  
 5350014    404  44898  5.710734  0.043263     1.427683        0.585168   
 
          tf_Idf_sklearn  
@@ -2454,7 +2603,7 @@ tfidf_matrix[3, 70560]
 df_tf_Idf.loc[ ( df_tf_Idf.id_text == 3 ) &  ( df_tf_Idf.token == 'never' ) , ]
 ```
 
-        id_text  token  n_k  longitud(d)        tf    max_tf   tf_norm  n_d_k  \
+        id_text  token  n_k  longitud(d)        tf    max_tf   tf_norm  n_d_k  
 990208        3  never    1          249  0.004016  0.044177  0.090909   6077   
 
           n_d       Idf    tf_Idf  tf_Idf_norm  euclidean_norm  tf_Idf_sklearn  
@@ -2479,10 +2628,10 @@ tfidf_matrix[1522, 50314]
 ```python
 df_tf_Idf.loc[ ( df_tf_Idf.id_text == 1522 ) &  ( df_tf_Idf.token == 'investigation' ) , ]
 ```
-        id_text          token  n_k  longitud(d)        tf    max_tf  \
+        id_text          token  n_k  longitud(d)        tf    max_tf  
 635701     1522  investigation    7          210  0.033333  0.052381   
 
-         tf_norm  n_d_k    n_d       Idf    tf_Idf  tf_Idf_norm  \
+         tf_norm  n_d_k    n_d       Idf    tf_Idf  tf_Idf_norm  
 635701  0.636364   3753  44898  3.481838  0.116061     2.215715   
 
         euclidean_norm  tf_Idf_sklearn  
@@ -2496,79 +2645,90 @@ df_tf_Idf.loc[ ( df_tf_Idf.id_text == 1522 ) &  ( df_tf_Idf.token == 'investigat
 
 Los métodos de naive Bayes son un conjunto de algoritmos de aprendizaje supervisado basados en aplicar el teorema de Bayes con el supuesto "naive" de independencia condicional entre cada par de predictores dada una clase de la variable respuesta (que debe ser categorica).
 
-Sean $Y,X_1,...,X_p$ la respuesta categorica y los predictores,  y sean $x_i = (x_i1 , x_i2, ..., x_ip)^t$ y $y_i$  la $i$-esima observación  de los predictores y de la respuesta, respectivamente.
+Sean $Y,X_1,...,X_p$ la respuesta categorica y los predictores,  y sean $x_i = (x_{i1} , x_{i2}, ..., x_{ip})^t$ y $y_i$  la $i$-esima observación  de los predictores y de la respuesta, respectivamente.
 
 Si consideramos $Y,X_1,...,X_p$ como variables aleatorias, por el teorema de Bayes tenemos que :
 
 
-$$P(Y=y_i | X_1 = x_{i1} ,..., X_p=x_{ip}) = \dfrac{P(Y=y_i)\cdot P(X_1=x_{i1} ,..., X_p=x_{ip} | Y=y_i)}{P(X_1=x_{i1} ,..., X_p=x_{ip})}$$
+$$P(Y=y_i \hspace{0.2cm}|\hspace{0.2cm} X_1 = x_{i1} ,..., X_p=x_{ip}) = \dfrac{P(Y=y_i)\cdot P(X_1=x_{i1} ,..., X_p=x_{ip} \hspace{0.2cm}|\hspace{0.2cm} Y=y_i)}{P(X_1=x_{i1} ,..., X_p=x_{ip})}$$
 
 
 Usando el supuesto naive de independencia entre cada par de predictores
 
-$$X_r \perp X_j , \forall r\neq j = 1,...,p$$ 
+$$X_r \perp X_j \hspace{0.2cm} , \forall r\neq j = 1,...,p$$ 
 
 tenemos que:
 
 
 
-$$P(X_1=x_{i1} ,..., X_p=x_{ip} | Y=y_i) = \prod_{j=1}^{p} P(X_j=x_{ij} | Y=y_i)$$
+$$P(X_1=x_{i1} ,..., X_p=x_{ip} \hspace{0.2cm}|\hspace{0.2cm} Y=y_i) = \prod_{j=1}^{p} P(X_j=x_{ij} \hspace{0.2cm}|\hspace{0.2cm} Y=y_i)$$
 
 
 Por tanto, podemos reformular el teorema de Bayes como:
 
-$$P(Y=y_i | X_1 = x_1 ,..., X_p=x_p) = \dfrac{P(Y=y_i)\cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y_i)}{P(X_1=x_{i1} ,..., X_p=x_{ip})}$$
+$$P(Y=y_i \hspace{0.2cm}|\hspace{0.2cm} X_1 = x_1 ,..., X_p=x_p) = \dfrac{P(Y=y_i)\cdot\prod_{j=1}^{p} P(X_j=x_{ij} \hspace{0.2cm}|\hspace{0.2cm} Y=y_i)}{P(X_1=x_{i1} ,..., X_p=x_{ip})}$$
 
 
  
 
- $$P(Y=y_i | X_1 = x_1 ,..., X_p=x_p) \propto \P(Y=y_i)\cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y_i)$$
+ $$P(Y=y_i \hspace{0.2cm}|\hspace{0.2cm} X_1 = x_1 ,..., X_p=x_p) \propto P(Y=y_i)\cdot\prod_{j=1}^{p} P(X_j=x_{ij}\hspace{0.2cm} |\hspace{0.2cm} Y=y_i)$$
 
 
 El algoritmo de naive Bayes predice la respuesta $Y$ para un vector de observaciones de los predictores $x_i = (x_i1 , x_i2, ..., x_ip)^t$ como la solucion del siguiente problema de optimización:
 
-$$\underset{Max}{y} P(Y=y | X_1 = x_1 ,..., X_p=x_p) = \underset{Max}{y} \dfrac{P(Y=y_i)\cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y_i)}{P(X_1=x_{i1} ,..., X_p=x_{ip})} =   \underset{Max}{y}  P(Y=y) \cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y)$$
+\begin{gather*}
+\underset{y}{Max}\hspace{0.2cm} P(Y=y \hspace{0.2cm}|\hspace{0.2cm} X_1 = x_1 ,..., X_p=x_p) \hspace{0.2cm} =\hspace{0.2cm} \underset{y}{Max} \hspace{0.2cm} \dfrac{P(Y=y_i)\cdot\prod_{j=1}^{p} P(X_j=x_{ij}\hspace{0.2cm} |\hspace{0.2cm} Y=y_i)}{P(X_1=x_{i1} ,..., X_p=x_{ip})} \\[0.2cm] =  \underset{Max}{y} \hspace{0.2cm} P(Y=y) \cdot\prod_{j=1}^{p} P(X_j=x_{ij} \hspace{0.2cm}|\hspace{0.2cm} Y=y)
+\end{gather*}
+
+\vspace{0.2cm}
 
 Notese que $P(X_1=x_{i1} ,..., X_p=x_{ip})$  no depende del valor de $y$ por lo que puede sacarse del problema de maximización.
 
-Es decir, la prediccion de $Y$ para el vector de observaciones  de los predictores $x_i = (x_i1 , x_i2, ..., x_ip)^t$ es 
+\vspace{0.2cm}
+
+La prediccion de $Y$ para el vector de observaciones  de los predictores $x_i = (x_{i1} , x_{i2}, ..., x_{ip})^t$ es 
 
 
-$$\hat{y_i} = arg \underset{Max}{y} P(Y=y | X_1 = x_1 ,..., X_p=x_p) = arg \underset{Max}{y} P(Y=y) \cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y)$$
+$$\hat{y_i} \hspace{0.1cm}=\hspace{0.1cm} arg\hspace{0.1cm} \underset{y}{Max}\hspace{0.2cm} P(Y=y \hspace{0.2cm}|\hspace{0.2cm} X_1 = x_1 ,..., X_p=x_p)\hspace{0.2cm} =\hspace{0.2cm} arg \hspace{0.1cm} \underset{y}{Max} \hspace{0.2cm} P(Y=y) \cdot\prod_{j=1}^{p} P(X_j=x_{ij}\hspace{0.2cm} |\hspace{0.2cm} Y=y)$$
 
 
-Es decir, la observación $i$-esima $x_i = (x_i1 , x_i2, ..., x_ip)^t$ se clasifica en la clase/categoria/grupo de maxima probabilidad para esa observación.
+Es decir, la observación $i$-esima $x_i = (x_{i1} , x_{i2}, ..., x_{ip})^t$ se clasifica en la clase/categoria/grupo de maxima probabilidad para esa observación.
 
+\newpage
 
-**Problemas**
+**Preguntas**
 
-Dados y y x_{ij} 
+\vspace{0.3cm}
 
-- ¿Cómo estimar P(Y=y) ?
+Dados $y$ y $x_{ij}$
 
-$$\widehat{P}(Y=y) = \dfrac{\# \lbrace r=1,...,n / y_r = y  \rbrace}{n}$$ 
+- ¿Cómo estimar $P(Y=y)$ ?
+
+$$\widehat{P}(Y=y) = \dfrac{\# \lbrace r=1,...,n \hspace{0.2cm} /  \hspace{0.2cm} y_r = y  \rbrace}{n}$$ 
 
 Es decir, P(Y=y) se estima como la proporcion de observaciones (del conjunto de entrenamiento) que pertenecen a la clase/categoria/grupo $y$ , es decir, se estima como la proporción de observaciones para las que la respuesta toma la categoria $y$
 
+\vspace{0.3cm}
 
-- ¿ Cómo estimar  P(X_j=x_{ij} | Y=y) ?
+- ¿ Cómo estimar  $P(X_j=x_{ij} \hspace{0.2cm}|\hspace{0.2cm} Y=y)$ ?
 
 Podria seguirse la solución del problema anterior, a saber:
 
 
 
- $$\widehat{P}(X_j=x_{ij} | Y=y) = \dfrac{ \# \lbrace r=1,...,n \  y_r = y  \text{y} x_{rj} = x_{ij} \rbrace }{ \# \lbrace  r=1,...,n \  y_r = y  \rbrace}$$
+ $$\widehat{P}(X_j=x_{ij} | Y=y) = \dfrac{ \# \lbrace r=1,...,n \hspace{0.2cm} / \hspace{0.2cm}  y_r = y  \hspace{0.2cm};\hspace{0.2cm} x_{rj} = x_{ij} \rbrace }{ \# \lbrace  r=1,...,n \hspace{0.2cm} / \hspace{0.2cm}  y_r = y  \rbrace}$$
  
+ \vspace{0.3cm}
  
-**Problema:** en la practica en cuanto haya algun predictor $X_j$ tal que el valor observado $x_{ij}$ no este en el set de observaciones de entrenamiento con $Y=y$ se tendrá $\widehat{P}(X_j=x_{ij} | Y=y) = 0$ , lo que conducirá a $P(Y=y) \cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y) = 0$ , y esto llevará a no clasificar la observacion $x_i = (x_i1 , x_i2, ..., x_ip)^t$ en la clase $y$ , independientemente de los valores observados para el resto de predictores. Por lo que es razonable pensar que esta aproximacion no conduciria a buenas predicciones de la respuesta.
+**Problema:** en la practica en cuanto haya algun predictor $X_j$ tal que el valor observado $x_{ij}$ no este en el set de observaciones de entrenamiento con $Y=y$ se tendrá $\widehat{P}(X_j=x_{ij} \hspace{0.2cm}|\hspace{0.2cm} Y=y) = 0$ , lo que conducirá a $P(Y=y) \cdot\prod_{j=1}^{p} P(X_j=x_{ij} \hspace{0.2cm}|\hspace{0.2cm} Y=y) = 0$ , y esto llevará a no clasificar la observacion $x_i = (x_{i1} , x_{i2}, ..., x_{ip})^t$ en la clase $y$ , independientemente de los valores observados para el resto de predictores. Por lo que es razonable pensar que esta aproximacion no conduciria a buenas predicciones de la respuesta.
 
-Ademas si nos enfocamos en un problema de clasificación de texto, en el que se usa la matriz tf-idf como matriz de predictores, esta aproximacion queda en clara evidencia, ya que para cualquier categoria  $y$ habria algunas palabras (tokens) que tienen para cada documento  un valor del estadistico tf-idf diferente al valor correspondiente de la observacion  $x_i = (x_i1 , x_i2, ..., x_ip)^t$, es decir, para cada $y$ habria algun predictor $X_j$ tal que $\widehat{P}(X_j=x_{ij} | Y=y) = 0$ , por lo que la observacion  $x_i = (x_i1 , x_i2, ..., x_ip)^t$ seria clasificada indistintamente en cualquier categoria de la respuesta, lo cual no es razonable en absoluto.
+Ademas si nos enfocamos en un problema de clasificación de texto, en el que se usa la matriz tf-idf como matriz de predictores, esta aproximacion queda en clara evidencia, ya que para cualquier categoria  $y$ habria algunas palabras (tokens) que tienen para cada documento  un valor del estadistico tf-idf diferente al valor correspondiente de la observacion  $x_i = (x_i1 , x_i2, ..., x_ip)^t$, es decir, para cada $y$ habria algun predictor $X_j$ tal que $\widehat{P}(X_j=x_{ij} \hspace{0.2cm}|\hspace{0.2cm} Y=y) = 0$ , por lo que la observacion  $x_i = (x_i1 , x_i2, ..., x_ip)^t$ seria clasificada indistintamente en cualquier categoria de la respuesta, lo cual no es razonable en absoluto.
 
-Si en lugar de una matriz tf-idf se usase un matriz con el conteo de ocurrencia de cada palabra en los textos la situacion seria similar, puesto que para cada categoria $y$ de la respuesta habria algunas palabras que aparecen 0 veces en los textos de dicha categoria (es decir, habria algunos predictores $X_j$ tales que $\widehat{P}(X_j=x_{ij} | Y=y) = 0$  ), y esto llevaria a la misma conclusion que antes. 
+Si en lugar de una matriz tf-idf se usase un matriz con el conteo de ocurrencia de cada palabra en los textos la situacion seria similar, puesto que para cada categoria $y$ de la respuesta habria algunas palabras que aparecen 0 veces en los textos de dicha categoria (es decir, habria algunos predictores $X_j$ tales que $\widehat{P}(X_j=x_{ij}\hspace{0.2cm} |\hspace{0.2cm} Y=y) = 0$  ), y esto llevaria a la misma conclusion que antes. 
 
-La solución estandar a este problema pasa por estimar $\widehat{P}(X_j=x_{ij} | Y=y)$ usando la funcion de probabilidad/densidad de una distribución conocida. En este trabajo distinguiremos dos casos (los  estandar), uno en el que se usa la distribucion normal Gaussiana (Gaussian Naive Bayes) y otro en el que se usa la distribución multinomial (multinomial naive Bayes).
+La solución estandar a este problema pasa por estimar $\widehat{P}(X_j=x_{ij}\hspace{0.2cm} |\hspace{0.2cm} Y=y)$ usando la funcion de probabilidad/densidad de una distribución conocida. En este trabajo distinguiremos dos casos (los  estandar), uno en el que se usa la distribucion normal Gaussiana (Gaussian Naive Bayes) y otro en el que se usa la distribución multinomial (multinomial naive Bayes).
 
-
+\newpage
 
 ## Gaussian Naive Bayes
 
@@ -2580,28 +2740,30 @@ Gaussian Naive Bayes es un naive Bayes classifier en el que se toma el siguiente
 
 Par cada predictor $X_j$ continuo , con $j=1,...,p$
 
-$\widehat{P}(X_j=x_{ij} | Y=y) = \dfrac{1}{\sqrt{2\pi \sigma^2(x_{ij}| y)}} \cdot exp \lbrace - \dfrac{(x_{ij} - \mu(x_{ij}|y))^2}{2 \sigma^2(x_{ij}| y)}  \rbrace$
+$$\widehat{P}(X_j=x_{ij} | Y=y) = \dfrac{1}{\sqrt{2\pi \sigma^2(x_{ij}| y)}} \cdot exp \left( - \dfrac{(x_{ij} - \mu(x_{ij}|y))^2}{2 \sigma^2(x_{ij}| y)}  \right)$$
 
 
 Donde:
 
 $x_{ij} \in  \mathbb{R}$
 
-$\mu(x_{ij}| y)  = Mean( x_{rj} /  r=1,..,n  ; y_r = y )$ , es decir, es la media de los valores de $X_j$  asociados a la clase $y$ de la variable respuesta $Y$
+$\mu(x_{ij}| y)  = Mean( x_{rj} \hspace{0.2cm} /\hspace{0.2cm}  r=1,..,n  \hspace{0.2cm}; \hspace{0.2cm} y_r = y )$ , es decir, es la media de los valores de $X_j$  asociados a la clase $y$ de la variable respuesta $Y$
 
-$\sigma^2(x_{ij}| y)  = Var( x_{rj} /  r=1,..,n  ; y_r = y )$ , es decir, es la varianza de los valores de $X_j$  asociados a la clase y de la variable respuesta Y
+$\sigma^2(x_{ij}| y)  = Var( x_{rj} \hspace{0.2cm}/ \hspace{0.2cm} r=1,..,n \hspace{0.2cm} ;\hspace{0.2cm} y_r = y )$ , es decir, es la varianza de los valores de $X_j$  asociados a la clase y de la variable respuesta Y
 
+
+\vspace{0.3cm}
 
  **Observación:**
  
-Esta aproximación  permite solventar el problema de que  en la practica en cuanto haya algun predictor $X_j$ tal que el valor observado $x_{ij}$ no este en el set de observaciones de entrenamiento con $Y=y$ se tendrá $\widehat{P}(X_j=x_{ij} | Y=y) = 0$ , lo que conducirá a $P(Y=y) \cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y) = 0$ , y esto llevará a no clasificar la observacion $x_i = (x_i1 , x_i2, ..., x_ip)^t$ en la clase $y$ , independientemente de los valores observados para el resto de predictores. Ya que $\dfrac{1}{\sqrt{2\pi \sigma^2(x_{ij}| y)}} \cdot exp \lbrace - \dfrac{(x_{ij} - \mu(x_{ij}|y))^2}{2 \sigma^2(x_{ij}| y)} \neq 0$ inclusio si el valor observado $x_{ij}$ no esta en el set de observaciones de entrenamiento con $Y=y$ 
+Esta aproximación  permite solventar el problema de que  en la practica en cuanto haya algun predictor $X_j$ tal que el valor observado $x_{ij}$ no este en el set de observaciones de entrenamiento con $Y=y$ se tendrá $\widehat{P}(X_j=x_{ij} | Y=y) = 0$ , lo que conducirá a $P(Y=y) \cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y) = 0$ , y esto llevará a no clasificar la observacion $x_i = (x_{i1} , x_{i2}, ..., x_{ip})^t$ en la clase $y$ , independientemente de los valores observados para el resto de predictores. Ya que $\dfrac{1}{\sqrt{2\pi \sigma^2(x_{ij}| y)}} \cdot exp\left( - \dfrac{(x_{ij} - \mu(x_{ij}|y))^2}{2 \sigma^2(x_{ij}| y)} \right) \neq 0$ inclusio si el valor observado $x_{ij}$ no esta en el set de observaciones de entrenamiento con $Y=y$ 
 
 
 
 Para ver como funciona este algoritmo con un ejemplo de juguete es recomendable ver la siguiente entrada de [Wikipedia](https://es.wikipedia.org/wiki/Clasificador_bayesiano_ingenuo#Entrenamiento)
 
 
-
+\newpage
 
 ## Multinomial Naive Bayes
 
@@ -2615,13 +2777,16 @@ Multinomial Naive Bayes es un naive Bayes classifier en el que se toma el siguie
 
 Para cada predictor $X_j$ de conteo , con $j=1,...,p$
 
-$\widehat{P}(X_j=x_{ij} | Y=y) = \dfrac{ \# \lbrace r=1,...,n \  y_r = y  \text{y} x_{rj} = x_{ij} \rbrace + \alpha}{ \# \lbrace  r=1,...,n \  y_r = y  \rbrace + \alpha\cdot n} $
+$$\widehat{P}(X_j=x_{ij} \hspace{0.2cm}|\hspace{0.2cm} Y=y) = \dfrac{ \# \lbrace r=1,...,n \hspace{0.2cm} \ \hspace{0.2cm}  y_r = y  \hspace{0.2cm} ; \hspace{0.2cm} x_{rj} = x_{ij} \rbrace \hspace{0.2cm} + \alpha}{ \# \lbrace  r=1,...,n \  y_r = y  \rbrace \hspace{0.2cm}+ \alpha\cdot n}$$
 
 Donde: $x_{ij}=0,1,2,3,...$
 
+
+\vspace{0.25cm}
+
 **Observación:**
 
-Esta aproximacion es muy similar ala propuesta inicialmente, que mencionamos que tenia problemas, especialmente para predictores cuantitativos . Pero tiene algunas diferencias. Por un lado que en este caso solo se aplicaria a variables de conteo. Y especialmente la incorporacion de un termino $\alpha > 0$ en el numerador  que va a permitir solventar el problema de que  en la practica en cuanto haya algun predictor $X_j$ tal que el valor observado $x_{ij}$ no este en el set de observaciones de entrenamiento con $Y=y$ se tendrá $\widehat{P}(X_j=x_{ij} | Y=y) = 0$ , lo que conducirá a $P(Y=y) \cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y) = 0$ , y esto llevará a no clasificar la observacion $x_i = (x_i1 , x_i2, ..., x_ip)^t$ en la clase $y$ , independientemente de los valores observados para el resto de predictores.
+Esta aproximación es muy similar ala propuesta inicialmente, que mencionamos que tenía problemas, especialmente para predictores cuantitativos . Pero tiene algunas diferencias. Por un lado que en este caso solo se aplicaria a variables de conteo. Y especialmente la incorporación de un termino $\alpha > 0$ en el numerador  que va a permitir solventar el problema de que  en la practica en cuanto haya algun predictor $X_j$ tal que el valor observado $x_{ij}$ no este en el set de observaciones de entrenamiento con $Y=y$ se tendrá $\widehat{P}(X_j=x_{ij} | Y=y) = 0$ , lo que conducirá a $P(Y=y) \cdot\prod_{j=1}^{p} P(X_j=x_{ij} | Y=y) = 0$ , y esto llevará a no clasificar la observacion $x_i = (x_{i1} , x_{i2}, ..., x_{ip})^t$ en la clase $y$ , independientemente de los valores observados para el resto de predictores.
 
 Si $\alpha = 1$  es llamado suavizado de Laplace, mientras que si $\alpha \neq 1$ es llamado suavizado de Lidstone.
 
@@ -2636,12 +2801,13 @@ Multinomial Naive Bayes es un naive Bayes classifier en el que se toma el siguie
 
 Para cada predictor $X_j$ categorico $\lbrace 0 , 1,..., c_j-1 \rbrace$ , con $j=1,...,p$
 
-$$\widehat{P}(X_j=x_{ij} | Y=y) =  \dfrac{ \# \lbrace r=1,...,n \  y_r = y  \text{y} x_{rj} = x_{ij} \rbrace + \alpha}{ \# \lbrace  r=1,...,n \  y_r = y  \rbrace + \alpha\cdot n}$$
+$$\widehat{P}(X_j=x_{ij} \hspace{0.2cm}|\hspace{0.2cm} Y=y) =  \dfrac{ \# \lbrace r=1,...,n  \hspace{0.2cm} \ \hspace{0.2cm}  y_r = y  \hspace{0.2cm};\hspace{0.2cm} x_{rj} = x_{ij} \rbrace \hspace{0.2cm}+ \alpha}{ \# \lbrace  r=1,...,n \hspace{0.2cm}\ \hspace{0.2cm}  y_r = y  \rbrace \hspace{0.2cm}+ \alpha\cdot n}$$
 
 
 Donde: $x_{ij} \in 0,1,..., c_j-1$
 
 
+\newpage
 
 
 ## Gaussian Naive Bayes aplicado con `Python`
@@ -2683,7 +2849,10 @@ Aplicamos el metodo `fit` a `tfidf_vectorizador` con los documentos de entrenami
 tfidf_vectorizador.fit(X_train)
 ```
 
-Aplicando el método `transform`a  `tfidf_vectorizador` con los documentos de entrenamiento. Con ello generamos la matriz tf-idf para los documentos de train , que llamaremos `tfidf_matrix_train`. Es decir, se calcula el estadistico tf-idf para cada token obtenido con `tfidf_vectorizador.fit(X_train)` y cada documento del vector de entrenamiento `X_train`.
+
+\newpage
+
+Aplicando el método `transform` a  `tfidf_vectorizador` con los documentos de entrenamiento. Con ello generamos la matriz tf-idf para los documentos de train , que llamaremos `tfidf_matrix_train`. Es decir, se calcula el estadistico tf-idf para cada token obtenido con `tfidf_vectorizador.fit(X_train)` y cada documento del vector de entrenamiento `X_train`.
 
 ```python
 
@@ -2727,7 +2896,8 @@ Podemos ver las dimensiones de la matriz tf-idf de test
 ```python
 tfidf_matrix_test.shape
 ```
-(13470, 34571)
+      
+      (13470, 34571)
 
 Como vemos tiene las mismas columnas que la matriz tf-idf de train (34571), puesto que las columnas estan asociada a los tokens obtenidos a partir de los documentos de train, asi que es coeherente que tenga el mismo numero de columnas que `tfidf_matrix_train`.
 
@@ -2742,7 +2912,8 @@ Y_pred = gnb_fit.predict(tfidf_matrix_test.toarray())
 
 Y_pred
 ```
-array([0, 1, 0, ..., 1, 0, 0])
+       
+       array([0, 1, 0, ..., 1, 0, 0])
 
 Como vemos las predicciones de la respuesta son un vector de ceros y unos. Si la componente $i$-esima del vector es $j$ significa que el documentos $i$-esimo del vector de test pertenece a la clase $j$ , que en este caso significa que el modelo predice que la notica $i$-esima es una fake new, si $j=1$, y una no fake new, si $j=0$.
 
@@ -2761,7 +2932,11 @@ TEC_test
 
 Se obtiene un error de clasificación por validación simple del 5.90% , o lo que es lo mismo una tasa de acierto del 95.10% 
 
+\vspace{0.3cm}
 
+**Observación:**
+
+La clasificación de textos detallada en este trabajo es util cuando los documentos con los que se entrena el modelo (documentos de train) y los documentos que son clasificados usando el modelo entrenado (documentos de test) son de la misma temática. En nuestro caso concreto, la clasificacion de nuevas noticias no será satisfactoria si las nuevas noticias a clasificar (noticias test) son de una tematica diferente de la temática de las noticias con las que se entrenó el modelo. Por ejemplo, si el modelo se ha entrenado con noticias de tematica politica estadounidense enmarcadas entre 2015 y 2018, es razonable pensar que el modelo no funcionará bien para clasificar noticias de una tematica diferente, como por ejemplo noticias sobre futbol español enmarcadas entre 2020 y 2022. En cambio si podria funcionar bien para clasificar noticias de la misma tematica que las de entrenamiento, como es el caso qui presentado, en el que se ha obtenido un gran porcentaje de acierto en la clasificación. 
 
 
 
@@ -2769,21 +2944,23 @@ Se obtiene un error de clasificación por validación simple del 5.90% , o lo qu
 
 # Bibliografía
 
-https://scikit-learn.org/stable/modules/naive_bayes.html
-
-https://en.wikipedia.org/wiki/Naive_Bayes_classifier 
-
-https://www.cienciadedatos.net/documentos/py25-text-mining-python.html
+Amat Rodrigo, J. (2021). Text mining con Python. *Cienciadedatos*.  https://www.cienciadedatos.net/documentos/py25-text-mining-python.html
 
 
-https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html
-
-https://www.analyticsvidhya.com/blog/2021/11/how-sklearns-tfidfvectorizer-calculates-tf-idf-values/
+Naive Bayes. *sklearn*. https://scikit-learn.org/stable/modules/naive_bayes.html
 
 
+Naive Bayes classifier. *Wikipedia*. https://en.wikipedia.org/wiki/Naive_Bayes_classifier 
+
+TfidfVectorizer. *sklearn*. https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html
+
+
+
+How sklearns tfidfvectorizer calculates tf-idf values (2021). *Analyticsvidhya*. https://www.analyticsvidhya.com/blog/2021/11/how-sklearns-tfidfvectorizer-calculates-tf-idf-values/
+
+*sklearn GitHub repository*
 https://github.com/scikit-learn/scikit-learn/blob/f3f51f9b6/sklearn/feature_extraction/text.py#L1717
 
-https://es.wikipedia.org/wiki/Tf-idf
+Tf-idf. *Wikipedia*. https://es.wikipedia.org/wiki/Tf-idf
 
-web sklearn, numpy , pandas , wikipedia
-
+ 
