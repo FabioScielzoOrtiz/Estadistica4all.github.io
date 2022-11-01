@@ -168,7 +168,7 @@ Fake_News_Data
 
 \newpage
 
-# Descripción estadistica de los datos (`Python`)
+# Descripción estadistica de los datos 
 
 Hacemos una breve descripción estadistica de las variables del data-set:
 
@@ -237,7 +237,6 @@ prop_Fake_no = len( Fake_News_Data.loc[ Fake_News_Data['Fake']== 0 , :] ) / len(
 ```python
 Fake_News_Data['proportion_Fakes'] = 0
 
-
 for i in range(0, len(Fake_News_Data)):
 
     if Fake_News_Data['Fake'][i] == 1 :
@@ -251,15 +250,12 @@ for i in range(0, len(Fake_News_Data)):
 
 
 ```python
-import matplotlib.pyplot as plt
 fig, ax = plt.subplots()
 
 p = sns.barplot(x='Fake', y='proportion_Fakes', data=Fake_News_Data, palette="Spectral") 
 p.set_yticks( np.arange(0, 0.85, 0.1)  )
 p.set_xticklabels(['No', 'Yes'])
 p.axes.set(xlabel='Fakes', ylabel='proportion')
-
-fig.savefig('p.png', format='png', dpi=1200)
 ```
 
 
@@ -782,6 +778,8 @@ Fake_News_Tokens.groupby(by='Fake')['token'].count()
     Name: token, dtype: int64
 
 
+\vspace{0.3cm}
+
 ## Número de tokens *únicos* del conjunto de noticias en función de si son fake o no
 
 
@@ -800,6 +798,7 @@ Fake_News_Tokens.groupby(by='Fake')['token'].nunique()
     Name: token, dtype: int64
 
 
+\newpage 
 
 ## Número de tokens en cada una de las noticias individualmente
 
@@ -832,6 +831,7 @@ id_text   Fake
 44897       0           197
 
 ```
+\vspace{0.3cm}
 
 
 Hay noticias que no tienen tokens :
@@ -859,6 +859,7 @@ id_text  Fake
 32451     0           0
 
 ```
+\newpage
 
 Algunos ejemplos de estas noticias son los siguientes:
 
@@ -896,6 +897,7 @@ Fake_News_Data.loc[Fake_News_Data.id_text == 10923]
 10923           May 10, 2017        0              []           10923
 
 ```
+\vspace{0.3cm}
 
 
 Nos quedamos por tanto solo con las noticias que tienen algún token :
@@ -925,7 +927,8 @@ id_text   Fake
 
 ```
 
- 
+ \vspace{0.3cm}
+
 Calculamos el número medio de tokens para las noticas que tienen uno o mas tokens en función se si son fake o no:
 
 ```python
@@ -1015,7 +1018,7 @@ pd.DataFrame({'fake_new': [0,1] , 'tokens_mean':[m0 , m1]})
  
  
  
- 
+\newpage
  
 
 ## Número de veces que aparece cada token en el conjunto de las noticias en función de si es fake o no
@@ -1078,7 +1081,7 @@ df.loc[df['token']=='true' , ] # El token 'true' aparece 2595 veces en el conjun
 232413     1  true              2595
 ```
 
-
+\newpage
 
 
 En la siguiente salida podemos ver el nº de veces que aparece cada token en el conjunto de las no fake news.
@@ -1109,7 +1112,6 @@ df.loc[df['Fake']==0 , ]
 ```
  
  
-
 Y en la siguiente salida podemos ver el nº de veces que aparece cada token en el conjunto de las fake news.
 
 
@@ -1250,13 +1252,17 @@ stop_words = stopwords.words('english') + ["pic" , "getty", "quot", "acr", "file
 
 \newpage 
 
+
+
 Imprimimos la lista de stopwords que se van a considerar en este trabajo:
 
 ```python
 print(stop_words)
 ```
-['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll", "you'd", 'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', 'she', "she's", 'her', 'hers', 'herself', 'it', "it's", 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this', 'that', "that'll", 'these', 'those', 'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing', 'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'of', 'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 'further', 'then', 'once', 'here', 'there', 'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', "don't", 'should', "should've", 'now', 'd', 'll', 'm', 'o', 're', 've', 'y', 'ain', 'aren', "aren't", 'couldn', "couldn't", 'didn', "didn't", 'doesn', "doesn't", 'hadn', "hadn't", 'hasn', "hasn't", 'haven', "haven't", 'isn', "isn't", 'ma', 'mightn', "mightn't", 'mustn', "mustn't", 'needn', "needn't", 'shan', "shan't", 'shouldn', "shouldn't", 'wasn', "wasn't", 'weren', "weren't", 'won', "won't", 'wouldn', "wouldn't", 'pic', 'getty', 'quot', 'acr', 'filessupport', 'flickr', 'fjs', 'js', 'somodevilla', 'var', 'henningsen', 'ck', 'cdata', 'subscribing', 'mcnamee', 'amp', 'wfb', 'screenshot', 'hesher', 'nyp', 'cking', 'helton', 'raedle', 'donnell', 'getelementbyid', 'src', 'behar', 'createelement', 'getelementsbytagname', 'parentnode', 'wnd', 'insertbefore', 'jssdk', 'nowicki', 'xfbml', 'camerota', 'sdk', '“i', '“the', '“we', 'it’s', 'don’t', '“this', '“it', '“a', '“if', '“it’s', 'we’re', 'that’s', '“he', '“there', 'i’m', 'he’s', '“we’re', 'doesn’t', 'can’t', '“i’m', '“in', 'suu', '“they', 'you’re', '“but', 'didn’t', '“you', 'they’re', '“no', '“as', '“very', 'there’s', '“what', '“and', 'won’t', '“to', '“that', '“one', 'we’ve', '“when', '“our', '“not', '’”', '“that’s', '“these', '“there’s', '“he’s', 'we’ll', 'one', 'would', 'like', 'us', 'even', 'could', 'two', 'many', 'angerer', 'reilly']
     
+```python 
+    ['i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', "you're", "you've", "you'll", "you'd", 'your', 'yours', 'yourself', 'yourselves', 'he', 'him', 'his', 'himself', 'she', "she's", 'her', 'hers', 'herself', 'it', "it's", 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves', 'what', 'which', 'who', 'whom', 'this', 'that', "that'll", 'these', 'those', 'am', 'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'having', 'do', 'does', 'did', 'doing', 'a', 'an', 'the', 'and', 'but', 'if', 'or', 'because', 'as', 'until', 'while', 'of', 'at', 'by', 'for', 'with', 'about', 'against', 'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below', 'to', 'from', 'up', 'down', 'in', 'out', 'on', 'off', 'over', 'under', 'again', 'further', 'then', 'once', 'here', 'there', 'when', 'where', 'why', 'how', 'all', 'any', 'both', 'each', 'few', 'more', 'most', 'other', 'some', 'such', 'no', 'nor', 'not', 'only', 'own', 'same', 'so', 'than', 'too', 'very', 's', 't', 'can', 'will', 'just', 'don', "don't", 'should', "should've", 'now', 'd', 'll', 'm', 'o', 're', 've', 'y', 'ain', 'aren', "aren't", 'couldn', "couldn't", 'didn', "didn't", 'doesn', "doesn't", 'hadn', "hadn't", 'hasn', "hasn't", 'haven', "haven't", 'isn', "isn't", 'ma', 'mightn', "mightn't", 'mustn', "mustn't", 'needn', "needn't", 'shan', "shan't", 'shouldn', "shouldn't", 'wasn', "wasn't", 'weren', "weren't", 'won', "won't", 'wouldn', "wouldn't", 'pic', 'getty', 'quot', 'acr', 'filessupport', 'flickr', 'fjs', 'js', 'somodevilla', 'var', 'henningsen', 'ck', 'cdata', 'subscribing', 'mcnamee', 'amp', 'wfb', 'screenshot', 'hesher', 'nyp', 'cking', 'helton', 'raedle', 'donnell', 'getelementbyid', 'src', 'behar', 'createelement', 'getelementsbytagname', 'parentnode', 'wnd', 'insertbefore', 'jssdk', 'nowicki', 'xfbml', 'camerota', 'sdk', '“i', '“the', '“we', 'it’s', 'don’t', '“this', '“it', '“a', '“if', '“it’s', 'we’re', 'that’s', '“he', '“there', 'i’m', 'he’s', '“we’re', 'doesn’t', 'can’t', '“i’m', '“in', 'suu', '“they', 'you’re', '“but', 'didn’t', '“you', 'they’re', '“no', '“as', '“very', 'there’s', '“what', '“and', 'won’t', '“to', '“that', '“one', 'we’ve', '“when', '“our', '“not', '’”', '“that’s', '“these', '“there’s', '“he’s', 'we’ll', 'one', 'would', 'like', 'us', 'even', 'could', 'two', 'many', 'angerer', 'reilly']
+```   
 
 \newpage
 
@@ -1324,7 +1330,9 @@ df_no_fake_sort_not_StopWords.head(15)
 
 ```
 
-\newpage
+\vspace{0.4cm}
+
+
 
 ## Ranking de tokens más frecuentes en el conjunto de las noticas en función de si son fake y no fake tras eliminar stopwords
 
@@ -1344,7 +1352,7 @@ fig.savefig('p1.png', format='png', dpi=1200)
 ![Ranking 15 tokens mas frecuentes en Fake News](p1.png)
     
 
-
+\newpage
 
 ```python
 fig, ax = plt.subplots()
@@ -1370,36 +1378,44 @@ A continuación, se estudia qué palabras se utilizan de forma más diferenciada
 
 Una forma de hacer este análisis es mediante el odds ratio de las frecuencias.
 
-Sea  $\hspace{0.2cm}p_k1 = \cfrac{n_{k1} + 1}{N_1 + 1}\hspace{0.2cm}$ y $\hspace{0.2cm}p_k0 = \cfrac{n_{k0} + 1}{N_0 +1}$
+    
+\vspace{0.25cm}
 
  
 $$OR(Fake|NoFake , k) = \dfrac{ p_{k1} }{ p_{k0} }$$
  
-\vspace{0.25cm}
+\vspace{0.35cm}
 
 Donde:
 
-$n_{k1}$  el número de veces que aparece el token $k$ en las **fake news**.
+- $\hspace{0.2cm}p_{k1} = \cfrac{n_{k1} + 1}{N_1 + 1}\hspace{0.2cm}$
 
-$n_{k0}$ el numero de veces  que aparece el termino $k$ en las **no fake news**.
+- $\hspace{0.2cm}p_{k0} = \cfrac{n_{k0} + 1}{N_0 +1}$
 
-$N_1$ es el número de tokens, contando repeticiones, que aparecen en las **fake news**. 
+- $n_{k1}$  el número de veces que aparece el token $k$ en las **fake news**.
 
-$N_0$ es el número de tokens, contando repeticiones, que aparecen en las **no fake news** 
-\vspace{0.25cm}
+- $n_{k0}$ el numero de veces  que aparece el termino $k$ en las **no fake news**.
+
+- $N_1$ es el número de tokens, contando repeticiones, que aparecen en las **fake news**. 
+
+- $N_0$ es el número de tokens, contando repeticiones, que aparecen en las **no fake news** 
+
+\vspace{0.35cm}
 
 
 Por tanto:
 
-$p_{k1} \approx$ proporcion de apariciones del token $k$ en las **fake news**
+- $p_{k1} \approx$ proporcion de apariciones del token $k$ en las **fake news**
 
 
-$p_{k0} \approx$ proporcion de apariciones del token $k$ en las **no fake news**
+- $p_{k0} \approx$ proporcion de apariciones del token $k$ en las **no fake news**
 
 
-\vspace{0.25cm}
+\vspace{0.35cm}
 
 **Interpretación del Odds Ratio:**
+
+\vspace{0.25cm}
 
 Si $OR(Fake|NoFake , k) = \dfrac{ p_k1 }{  p_k0  } = h$ , entonces:
 
@@ -1459,7 +1475,7 @@ Estas salidas nos indican que el nº de veces que aparece el token 'trump' en el
 
 
 
-
+\newpage
 
 
 $N_0$ y $N_1$ coinciden con el nº de tokens, contando repeticiones y sin considerar las stopwords, que aparecen el las no fake  y  fake news, respectivamente:
@@ -1511,6 +1527,10 @@ N1 = Fake_News_Tokens_not_StopWords.groupby(by='Fake')['token'].count()[1]
 N0
 ```
 
+
+
+
+
     4782198
 
 
@@ -1521,7 +1541,7 @@ N1
     5396339
 
 
- 
+ \newpage
 
 Como ejemplo vamos a calcular el Odds Ratio fake - no fake para el token 'trump' : 
 
@@ -1568,7 +1588,9 @@ Por tanto el token 'trump' es 1.66 veces mas frecuente en las fake news que en l
 
 
 
+\newpage
 
+Ahora vamos a calcular el odds ratio (tanto fake - no fake como no fake - fake) para cada token:
 
 
 ```python
@@ -1635,8 +1657,9 @@ df1['Odds_ratio_Fake_NotFake'] = Odds_ratio
 df0['Odds_ratio_NotFake_Fake'] = 1 / df0["Odds_ratio_Fake_NotFake"] 
 df1['Odds_ratio_NotFake_Fake'] = 1 / df1["Odds_ratio_Fake_NotFake"]  
 ```
+\newpage 
 
-
+Vemos como son los nuevos data-frames creados que contienen los odds ratio para cada token (`df0` para los tokens de las no fake news y `df1` para los de las fakes news):
 ```python
 df0
 ```
@@ -1677,7 +1700,7 @@ df1
 ```
 
 ```
-         index  Fake       token  frecuencia_token  Odds_ratio_Fake_NotFake  \
+         index  Fake       token  frecuencia_token  Odds_ratio_Fake_NotFake  
 0       125805     1          aa                24                 0.963253   
 1       125806     1         aaa                 9                 1.107741   
 2       125807     1  aaaaaaaand                 1                 1.772386   
@@ -1705,10 +1728,9 @@ df1
 
 ```
 
+\vspace{0.3cm}
 
-
-
-
+Vemos ahora los 5 tokens mas importantes en cada conjunto de noticias, en función del odds ratio tanto fake-no fake como no fake-fake:
 
  
 ```python
@@ -1789,6 +1811,7 @@ df1.sort_values(by=["Odds_ratio_NotFake_Fake"], ascending=False).reset_index(dro
 4              1140.834946 
 
 ```
+\newpage
 
 Notese que en ambos data-sets las columnas `Odds_ratio_Fake_NotFake`  y `Odds_ratio_NotFake_Fake` son las mismas, por tanto podemos construir un nuevo data set solo con esas columnas y otra para los tokens, a partir de cualquiera de esos dos data-sets.
 
@@ -1816,7 +1839,7 @@ Odds_ratio_df
 
 
 
-
+\vspace{0.4cm}
 
 
 ```python
@@ -1842,6 +1865,8 @@ Odds_ratio_df.sort_values(by=["Odds_ratio_Fake_NotFake"], ascending=False).head(
 
 ```
 
+\newpage
+
 
 ```python
 Odds_ratio_df.sort_values(by=["Odds_ratio_NotFake_Fake"], ascending=False).head(15)
@@ -1865,7 +1890,9 @@ Odds_ratio_df.sort_values(by=["Odds_ratio_NotFake_Fake"], ascending=False).head(
 69047            myanmar                 0.001579               633.496280
 ```
 
+\newpage
 
+## Ranking de los 15 tokens mas representativos de las Fake News
 
 ```python
 fig, ax = plt.subplots()
@@ -1921,6 +1948,10 @@ Vamos a hacer un pequeño análisis de los tokens que son los mas representativo
 
 - El decimoquinto token más representativo es 'whined' que significa 'quejarse' en español.
 
+
+\newpage
+
+## Ranking de los 15 tokens mas representativos de las no Fake News
 
 ```python
 fig, ax = plt.subplots()
@@ -1980,11 +2011,11 @@ Vamos a hacer un pequeño análisis de los tokens que son los más representativ
     
 - El decimo token más representativo es 'zuma' que podria hacer referencia a Jacob Zuma
 
-      - Jacob Gedleyihlekisa Zuma  es un político sudafricano que ejerció como el cuarto Presidente de la República de Sudáfrica. Fue también presidente del Congreso Nacional Africano (ANC), partido político en el poder en la República de Sudáfrica, elegido por la Conferencia Nacional el 18 de diciembre de 2007, puesto que mantuvo hasta diciembre de 2017. Zuma fue vicepresidente de la República de 1999 a 2005. El 14 de febrero de 2018 renunció a su cargo como presidente.
+    - Jacob Gedleyihlekisa Zuma  es un político sudafricano que ejerció como el cuarto Presidente de la República de Sudáfrica. Fue también presidente del Congreso Nacional Africano (ANC), partido político en el poder en la República de Sudáfrica, elegido por la Conferencia Nacional el 18 de diciembre de 2007, puesto que mantuvo hasta diciembre de 2017. Zuma fue vicepresidente de la República de 1999 a 2005. El 14 de febrero de 2018 renunció a su cargo como presidente.
 
 - El undecimo token más representativo es 'puigdemont' que hace referencia a Carles Puigdemont
 
-           - Carles Puigdemont i Casamajón es un político y periodista español, diputado al Parlamento Europeo y presidente de la Generalidad de Cataluña entre 2016 y 2017. Durante su mandato como presidente de la Generalidad se impulsó la celebración ilegal del referéndum de independencia de Cataluña el 1 de octubre de 2017 y se efectuó una pretendida declaración unilateral de independencia del territorio el día 27 del mismo mes. Así, fue cesado en el cargo el 28 de octubre de 2017, al amparo de la Orden PRA/1034/2017, de 27 de octubre, en aplicación del artículo 155 de la Constitución española de 1978. Fue puesto entonces en busca y captura en territorio español acusado de presuntos delitos de rebelión, sedición y malversación de caudales públicos por actos que se le imputan en la organización del referéndum y la declaración unilateral de independencia
+    - Carles Puigdemont i Casamajón es un político y periodista español, diputado al Parlamento Europeo y presidente de la Generalidad de Cataluña entre 2016 y 2017. Durante su mandato como presidente de la Generalidad se impulsó la celebración ilegal del referéndum de independencia de Cataluña el 1 de octubre de 2017 y se efectuó una pretendida declaración unilateral de independencia del territorio el día 27 del mismo mes. Así, fue cesado en el cargo el 28 de octubre de 2017, al amparo de la Orden PRA/1034/2017, de 27 de octubre, en aplicación del artículo 155 de la Constitución española de 1978. Fue puesto entonces en busca y captura en territorio español acusado de presuntos delitos de rebelión, sedición y malversación de caudales públicos por actos que se le imputan en la organización del referéndum y la declaración unilateral de independencia
 
 
 - El duodecimo token más representativo es 'china's' que hace referencia a China.
@@ -1995,16 +2026,17 @@ Vamos a hacer un pequeño análisis de los tokens que son los más representativ
 
 - El decimoquinto token más representativo es 'myanmar'
 
-       - Birmania o Myanmar  denominada oficialmente República de la Unión de Myanmar, es un Estado soberano del Sudeste Asiático. 
+    - Birmania o Myanmar  denominada oficialmente República de la Unión de Myanmar, es un Estado soberano del Sudeste Asiático. 
 
 
 
 
->La interpretacion de estos términos no es una tarea en la que necesariamente el cientifico de datos que los ha obtenido pueda aportar un gran valor. Desde mi punto de vista, es más adecuado que la interpretacion de estas palabras se haga por parte de expertos en el contexto en el que se encuentran las noticias analizadas, a saber, en el contexto politico, economico y social que rodeaba a Estados Unidos entre los años 2015 y 2018.
+
+La interpretación de estos términos no es una tarea en la que necesariamente el cientifico de datos que los ha obtenido pueda aportar un gran valor. Desde mi punto de vista, es más adecuado que la interpretación de estas palabras se haga por parte de expertos en el contexto en el que se encuentran las noticias analizadas, a saber, en el contexto politico, economico y social que rodeaba a Estados Unidos entre los años 2015 y 2018.
 
 
 
-
+\newpage
 
 # Term frequency – Inverse document frequency (Tf - Idf)
 
@@ -2021,12 +2053,15 @@ El estadístico **tf-idf**  es una medida numérica que expresa cuán relevante 
 
 Variaciones del esquema de peso **tf-idf** son empleadas frecuentemente por los motores de búsqueda como herramienta fundamental para medir la relevancia de un documento dada una consulta del usuario, estableciendo así una ordenación o ranking de los mismos. **Tf-idf** también puede utilizarse exitosamente para el filtrado de las denominadas stop-words (palabras que suelen usarse en casi todos los documentos).
 
-
+\newpage
 
 ## Definición formal del estadistico tf-idf
 
+\vspace{1.5cm}
 
 **Term Frequency (tf)**
+
+El term frequency (tf) de un token (término) $k$ en un documento $d$ se define como:
 
 
  - Versión simple:
@@ -2048,10 +2083,12 @@ $$tf_{norm} (k, d)= \dfrac{tf(k,d)}{Max\lbrace tf(k,d) \hspace{0.12cm} /\hspace{
 
 
 
-
+\vspace{1.5cm}
 
 
 **Inverse Document Frequency (idf)**
+
+El inverse document frequency del token $k$ se define como:
 
 - Versión simple:
 
@@ -2066,7 +2103,7 @@ $$idf (k)=log\left(\dfrac{n(D)}{n(k, D)}\right)$$
 
 > $log()$ es la función logaritmo en base $e$
     
-    
+\newpage
     
 
 - Versión  `sklearn` si smooth_idf = True
@@ -2081,9 +2118,11 @@ $$idf (k)=log\left(\dfrac{n(D)}{n(k, D)}\right) + 1$$
 $$idf (k)=log\left(\dfrac{n(D) + 1}{n(k, D) + 1}\right) + 1$$
     
 
-
+\vspace{0.5cm}
 
 **Estadístico tf-idf**
+
+El estadistico tf-idf para el token (término) $k$ en el documento $d$ se define como:
 
 - Versión simple:
 
@@ -2099,21 +2138,22 @@ $$tfidf_{norm}(k, d) = tf_{norm}(k, d) \cdot idf (k)$$
 
 - Versión `sklearn`
 
-$$tfidf(k, d) = \dfrac{tfidf(k, d)}{ \sum_{k\in T(D)} tfidf(k, d)^2 }$$
+$$tfidf(k, d) = \dfrac{tfidf(k, d)}{ \sqrt{ \sum_{k\in T(D)} tfidf(k, d)^2\hspace{0.2cm}} }$$
 
 
 > Donde: 
 
 > $T(D)$ es el conjunto de términos del conjunto de documentos $(D)$.
      
->  Sea $tfidf(k\in T, d) = ( tfidf(k, d) )_{k\in T}$ el vector que contiene como componentes los valores de tf-idf para los terminos $k\in T$ en el documento $d$ , entonces:
+>  Sea $tfidf(\hspace{0.1cm}k\in T\hspace{0.1cm},\hspace{0.1cm} d\hspace{0.1cm}) = \left( \hspace{0.2cm} tfidf(k, d) \hspace{0.2cm}\right)_{k\in T}\hspace{0.2cm}$ el vector que contiene como componentes los valores de tf-idf para los terminos $k\in T$ en el documento $d$ , entonces:
      
-> $|| tfidf(k\in T, d) ||_2 = \sqrt{ \sum_{k\in T(D)} tfidf(k, d)^2 }$, es decir, es la norma euclidea del vector $tfidf(k\in T, d)$
+> $|| \hspace{0.2cm}tfidf(k\in T, d)\hspace{0.2cm} ||_2 = \sqrt{ \sum_{k\in T(D)} tfidf(k, d)^2\hspace{0.2cm} }$, es decir, es la norma euclidea del vector $tfidf(k\in T, d)$
      
-> Notese que si $k\notin d$ , entonces  $tfidf(k, d) = 0$, por tanto , $\sum_{k\in T} tfidf(k, d)^2 = \sum_{k\in T(d)} tfidf(k, d)^2$ , donde $T(d)$ es el conjunto de los terminos del documento $d \in D$ 
+> Notese que si $k\notin d$ , entonces  $\hspace{0.2cm}tfidf(k, d) = 0\hspace{0.2cm}$, por tanto , $\hspace{0.2cm}\sum_{k\in T} tfidf(k, d)^2 = \sum_{k\in T(d)} tfidf(k, d)^2\hspace{0.1cm}$ , donde $T(d)$ es el conjunto de los terminos del documento $d \in D$ 
 
 
 
+\newpage 
 
 ## Cálculo de tf-idf en `Python`
  
@@ -2123,7 +2163,8 @@ $$tfidf(k, d) = \dfrac{tfidf(k, d)}{ \sum_{k\in T(D)} tfidf(k, d)^2 }$$
 ```python
 # nº de veces que aparece cada termino (token) en cada noticia (n_k)
 
-df_tf = pd.DataFrame( Fake_News_Tokens_not_StopWords.groupby(['id_text','token'])['token'].count().reset_index(name='n_k') )
+df_tf = pd.DataFrame( Fake_News_Tokens_not_StopWords.groupby(['id_text','token'])
+['token'].count().reset_index(name='n_k') )
 
 # nº de terminos (tokens) en cada noticia (size(d))
 
@@ -2165,7 +2206,7 @@ df_tf
 
 
 
-
+\newpage
 
 
 ### Cálculo de idf
@@ -2173,7 +2214,8 @@ df_tf
 ```python
 # Calculo del nº de documentos en los que aparece cada termino (token) (n(D,k))
 
-df_Idf = pd.DataFrame( Fake_News_Tokens_not_StopWords.groupby(['token'])['id_text'].nunique().reset_index(name='n_D_k') )
+df_Idf = pd.DataFrame( Fake_News_Tokens_not_StopWords.groupby(['token'])
+['id_text'].nunique().reset_index(name='n_D_k') )
 
 # Ojo, si se usa count en lugar de nunique no se estaria contando el nº de documentos
 # en los que aparece cada termino, si no el nº de veces en total (contando repeticiones) que
@@ -2213,6 +2255,7 @@ df_Idf
 125565    $emoji2$      1  44898  11.712149
 ```
 
+\newpage
 
 ### Cálculo de tf-idf
 
@@ -2238,6 +2281,8 @@ df_tf_Idf['euclidean_norm'] = df_tf_Idf.groupby('id_text')['tf_Idf'].transform( 
 df_tf_Idf['tf_Idf_sklearn'] = df_tf_Idf['tf_Idf'] / df_tf_Idf['euclidean_norm']
 
 ```
+
+\newpage
 
 Vemos con es el nuevo data-frame creado:
 
@@ -2280,11 +2325,11 @@ df_tf_Idf
 7155411  0.250000      1  44898  11.712149  0.088728     2.928037  
 ```
 
-
+\newpage
 
 ## Matriz Tf-Idf
 
-Para poder aplicar algoritmos de clasificación a un texto, es necesario crear una representación numérica del mismo. Para ello se utiliza una matriz que tiene como filas los documentos y como columnas los tokens. Existen diferentes criterios para definir los elementos internos de esta matriz. Sea $(i,j)$ el elemento de la fila $i$ y columna $j$ distinguimos varias aproximaciones. Una es que $(i,j)$ sea la frecuencia del token $j$ en el documento $i$ , es decir, $tf(j,i)$ , otra aproximación es que $(i, j)$ sea 0 si el token $j$ no aparece en el documento $i$ y 1 en el caso de que si aparezca. Otra aprozimacion es que $(i,j)$ sea $tfidf(j,i)$.
+Para poder aplicar algoritmos de clasificación a un texto, es necesario crear una representación numérica del mismo. Para ello se utiliza una matriz que tiene como filas los documentos y como columnas los tokens. Existen diferentes criterios para definir los elementos internos de esta matriz. Sea $(i,j)$ el elemento de la fila $i$ y columna $j$ distinguimos varias aproximaciones. Una es que $(i,j)$ sea la frecuencia del token $j$ en el documento $i$ , es decir, $tf(j,i)$ , otra aproximación es que $(i, j)$ sea 0 si el token $j$ no aparece en el documento $i$ y 1 en el caso de que si aparezca. Otra aproximación es que $(i,j)$ sea $tfidf(j,i)$.
 
 El criterio seguido en esta seccion del trabajo es que $(i,j) = tfidf(j,i)$ , ya que es el criterio seguido por la libreria `sklearn`, la cual será empleada para calcular la matriz tf-idf. Además es uno de los criterios mas habituales para definir dicha matriz.  
 
@@ -2295,6 +2340,7 @@ Se ha intentado construir esta matriz a traves de bucles, pero dado que es una m
 
 Para crear la matriz tf-idf con `sklearn` necesitamos construir por un un vector con los documentos (en este caso noticias). Además también vamos a crear otro con la variable respuesta (en este caso la variable  binaria `Fake` que indica si las noticias son o no fakes), que será necesario para la parte de clasificación de texto.
 
+\vspace{0.3cm}
 
 ```python
 X_data = Fake_News_Data.loc[ : , 'text']
@@ -2318,6 +2364,7 @@ X_data
 44897    JAKARTA (Reuters) - Indonesia will buy 11 Sukh...
 ```
 
+\newpage 
 
 ```python
 Y_data = Fake_News_Data.loc[ : , 'Fake']
@@ -2339,7 +2386,7 @@ Y_data
 44896    0
 44897    0
 ```
-
+\vspace{0.3cm}
 
 Importamos la función `TfidfVectorizer` de `sklearn` la cual nos permitirá generar la matriz tf-idf. 
 
@@ -2353,19 +2400,21 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 tfidf_vectorizador = TfidfVectorizer(tokenizer  = limpiar_tokenizar, min_df = 0, stop_words = stop_words, smooth_idf=False)
 
 ```
+\vspace{0.3cm}
 
 Ahora necesitamos usar el método `fit` con el vector de documentos `X_data`
 
 ```python
 tfidf_vectorizador.fit(X_data)
 ```
+\vspace{0.3cm}
 
 Creamos la matriz tf-idf con el metodo `transform`
 
 ```python
 tfidf_matrix = tfidf_vectorizador.transform(X_data)
 ```
-
+\vspace{0.3cm}
 
 Comprobamos el tamaño de la matriz
 
@@ -2375,6 +2424,8 @@ tfidf_matrix.shape
 ```
 (44898, 125566)
 ```
+
+\vspace{0.3cm}
 
 Podemos obtener los nombres de las columnas de la matriz, a saber, los tokens, con el metodo `get_feature_names_out`  , en este caso imprimimos los 50 primeros:
 
@@ -2390,6 +2441,8 @@ print(tfidf_vectorizador.get_feature_names_out()[0:50])
  'aaofj' 'aapa' 'aapi' 'aapl' 'aapxim' 'aar' 'aardal' 'aardvark'
  'aardvarks' 'aargh'] 
  ```
+ 
+ \vspace{0.3cm}
 
 `sklearn` no permite imprimir la matriz tf-idf obtenida debido a sus dimension excesiva, pero si podemos acceder a sus elementos del siguiente modo:
 
@@ -2403,6 +2456,7 @@ tfidf_matrix[0, 645]
      
 La salida anterior nos indicaa que el valor del estadistico tf-idf para el token asociado a la columna 645 en el documento (noticia) asociada a la fila 0 (la fila 0 en Python es la fila 1) es 0.0349
 
+\newpage
 
 Vamos a crear un data-frame para identificar cada columna con su token asociado:
 
@@ -2433,6 +2487,9 @@ df_index_token
 
 
 Utilizando este da-taframe vamos a comparar algunos valores de la matriz tf-idf obtenida con `sklearn`con los valores que calculamos nosotros en las secciones anteriores y que se encuentran registrados en el data-frame `df_tf_Idf`
+
+
+\newpage
 
 ```python
 df_tf_Idf
@@ -2483,6 +2540,7 @@ df_tf_Idf
 
 ```
 
+\newpage 
 
 Vamos a comparar concretamente los tf-idf obtenidos "manualmente" y con `sklearn` para los tokens 'accept' , 'pollit' , 'string', 'never', e 'investigation' :
 
@@ -2492,16 +2550,19 @@ Primero tenemos que identificar la columna asociada al token 'accept'
 ```python
 df_index_token.loc[df_index_token.token == 'accept', ]
 ```
-     index   token
-645    645  accept
 
+```
+      index   token
+645    645    accept
+```
 
 Ahora vemos cual es el valor del estadistico tf-idf calculado por `sklearn` para el token 'accept' en el documento asociado a la fila 0.
 
 ```python
 tfidf_matrix[0, 645]
 ```
-0.034889784479772486
+          
+          0.034889784479772486
 
 
 Ahora comprobamos  el valor del estadistico tf-idf calculado "manualmente" por nosotros para el token 'accept' y la noticia con identificador 0 (notese que la noticia con identificador $i$ es la que esta asociada a la fila $i$ de la matriz creada por `sklearn` , para $i =0,1,2,...$)
@@ -2519,7 +2580,7 @@ df_tf_Idf.loc[ ( df_tf_Idf.id_text == 0 ) &  ( df_tf_Idf.token == 'accept' ) , ]
 
 Podemos ver que de todos los estadisticos tf-idf calculados (el simple, el normalizado y la versión de sklearn) el único que coincide con el obtenido al usar sklearn es justanmente `tf_Idf_sklearn` , como cabria esperar.
 
-En este punto hay que hacer una mención especial a la entrada de [analyticsvidhya](https://www.analyticsvidhya.com/blog/2021/11/how-sklearns-tfidfvectorizer-calculates-tf-idf-values/) , la cual me permitio resolver una disparidad de resultados que obtuve inicialmente, al no ser consciente de que `sklearn` normalizaba el tf-idf (la version simple) dividiendolo entre la norma euclidea, tal y como se ha explicado anteriormente con más detalle.
+En este punto hay que hacer una mención especial a la entrada de [analyticsvidhya](https://www.analyticsvidhya.com/blog/2021/11/how-sklearns-tfidfvectorizer-calculates-tf-idf-values/) , la cual me permitió resolver una disparidad de resultados que obtuve inicialmente, al no ser consciente de que `sklearn` normalizaba el tf-idf (la version simple) dividiendolo entre la norma euclidea, tal y como se ha explicado anteriormente con más detalle.
 
 
 
@@ -2560,16 +2621,23 @@ df_tf_Idf.loc[ ( df_tf_Idf.id_text == 0 ) &  ( df_tf_Idf.token == 'pollitt' ) , 
 ```python
 df_index_token.loc[df_index_token.token == 'string', ]
 ```
+
+```
        index   token
 99546  99546  string
+```
+
 
 ```python
 tfidf_matrix[44897, 99546]
 ```
-0.07393279140214064
+
+     0.07393279140214064
 
 ```python
 df_tf_Idf.loc[ ( df_tf_Idf.id_text == 44897 ) &  ( df_tf_Idf.token == 'string' ) , ]
+```
+
 ```
 
          id_text   token  n_k  longitud(d)        tf    max_tf  tf_norm  
@@ -2581,7 +2649,7 @@ df_tf_Idf.loc[ ( df_tf_Idf.id_text == 44897 ) &  ( df_tf_Idf.token == 'string' )
          tf_Idf_sklearn  
 5350014        0.073933 
 
- 
+ ```
 
  
  
@@ -2589,44 +2657,47 @@ df_tf_Idf.loc[ ( df_tf_Idf.id_text == 44897 ) &  ( df_tf_Idf.token == 'string' )
 ```python
 df_index_token.loc[df_index_token.token == 'never', ]
 ```
-
+```
        index  token
 70560  70560  never
-
+```
 
 ```python
 tfidf_matrix[3, 70560]
 ```
-0.022176846230040667
+          
+          0.022176846230040667
 
 ```python
 df_tf_Idf.loc[ ( df_tf_Idf.id_text == 3 ) &  ( df_tf_Idf.token == 'never' ) , ]
 ```
-
+```
         id_text  token  n_k  longitud(d)        tf    max_tf   tf_norm  n_d_k  
 990208        3  never    1          249  0.004016  0.044177  0.090909   6077   
 
           n_d       Idf    tf_Idf  tf_Idf_norm  euclidean_norm  tf_Idf_sklearn  
 990208  44898  2.999882  0.012048     0.272717        0.543257        0.022177  
-
+```
 
 
 ```python
 df_index_token.loc[df_index_token.token == 'investigation', ]
 ```
-
+```
        index          token
 50314  50314  investigation
-
+```
 
 ```python
 tfidf_matrix[1522, 50314]
 ```
 
-0.2598673157066844
+             0.2598673157066844
 
 ```python
 df_tf_Idf.loc[ ( df_tf_Idf.id_text == 1522 ) &  ( df_tf_Idf.token == 'investigation' ) , ]
+```
+
 ```
         id_text          token  n_k  longitud(d)        tf    max_tf  
 635701     1522  investigation    7          210  0.033333  0.052381   
@@ -2637,7 +2708,7 @@ df_tf_Idf.loc[ ( df_tf_Idf.id_text == 1522 ) &  ( df_tf_Idf.token == 'investigat
         euclidean_norm  tf_Idf_sklearn  
 635701        0.446617        0.259867  
 
-
+```
 
 \newpage
 
@@ -2928,7 +2999,8 @@ TEC_test = (Y_test != Y_pred).sum()/len(Y_test)
 
 TEC_test
 ```
-0.0593170007423905
+     
+     0.0593170007423905
 
 Se obtiene un error de clasificación por validación simple del 5.90% , o lo que es lo mismo una tasa de acierto del 95.10% 
 
@@ -2962,5 +3034,3 @@ How sklearns tfidfvectorizer calculates tf-idf values (2021). *Analyticsvidhya*.
 https://github.com/scikit-learn/scikit-learn/blob/f3f51f9b6/sklearn/feature_extraction/text.py#L1717
 
 Tf-idf. *Wikipedia*. https://es.wikipedia.org/wiki/Tf-idf
-
- 
