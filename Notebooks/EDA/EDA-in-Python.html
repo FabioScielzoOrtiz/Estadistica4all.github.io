@@ -1417,6 +1417,71 @@ src: url(data:font/ttf;base64,AAEAAAARAQAABAAQR0RFRgs+Cz8AAjwQAAAAQEdQT1MXWeoAAA
 </script>
     
     
+        <style type="text/css">code{white-space: pre;}</style>
+    <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } 
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.at { color: #c4a000; } 
+code span.bn { color: #0000cf; } 
+code span.cf { color: #204a87; font-weight: bold; } 
+code span.ch { color: #4e9a06; } 
+code span.cn { color: #000000; } 
+code span.co { color: #8f5902; font-style: italic; } 
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.dt { color: #204a87; } 
+code span.dv { color: #0000cf; } 
+code span.er { color: #a40000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #0000cf; } 
+code span.fu { color: #000000; } 
+code span.im { } 
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.kw { color: #204a87; font-weight: bold; } 
+code span.op { color: #ce5c00; font-weight: bold; } 
+code span.ot { color: #8f5902; } 
+code span.pp { color: #8f5902; font-style: italic; } 
+code span.sc { color: #000000; } 
+code span.ss { color: #4e9a06; } 
+code span.st { color: #4e9a06; } 
+code span.va { color: #000000; } 
+code span.vs { color: #4e9a06; } 
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } 
+</style>
     
         <style type="text/css">#content{ max-width:1920px; }#main .nav-pills > li.active > a,#main .nav-pills > li.active > a:hover,#main .nav-pills > li.active > a:focus {background-color: #a5ea50;}#main .nav-pills > li > a:hover {background-color: #ffffff;}h1,h2,h3,h4,h5,h6,legend{color: #b10d0d;}#nav-top span.glyphicon {color: #cc1313;}#table-of-contents header{color:#ffffff;background-color: #b51d1d;}#table-of-contents h2{background-color:#ffffff;}a:hover{color:#ffffff}a:visited{color:#ffffff}#sidebar {color: #ffffff;background: #752020;}#sidebar h2 {color: #fafafa;background-color: #a70303;}#sidebar a {color: #ffffff;}#sidebar a:hover {background-color: #9d9595;color: #FFFFFF;}</style>
     
@@ -1510,7 +1575,7 @@ margin-left: 0 !important;
     <h2><a href="#content">EDA con Python</a></h2>
     <div id="toc">
       <ul>
-      <li><a href="#exploratory-data-analysis-eda" id="toc-exploratory-data-analysis-eda"><span class="toc-section-number">1</span> Exploratory Data Analysis (EDA)</a></li>
+      <li><a href="#exploratory-data-analysis-eda" id="toc-exploratory-data-analysis-eda"><span class="toc-section-number">1</span> Exploratory Data Analysis (EDA) <a class="anchor" id="1"></a></a></li>
       <li><a href="#esctructura-del-data-set" id="toc-esctructura-del-data-set"><span class="toc-section-number">2</span> Esctructura del data-set</a>
       <ul>
       <li><a href="#tamaño" id="toc-tamaño"><span class="toc-section-number">2.1</span> Tamaño</a></li>
@@ -1521,7 +1586,7 @@ margin-left: 0 !important;
       <li><a href="#descripción-estadistica-básica" id="toc-descripción-estadistica-básica"><span class="toc-section-number">3</span> Descripción Estadistica Básica</a>
       <ul>
       <li><a href="#estadisticos-básicos-para-las-variables-cuantitativas" id="toc-estadisticos-básicos-para-las-variables-cuantitativas"><span class="toc-section-number">3.1</span> Estadisticos básicos para las variables cuantitativas</a></li>
-      <li><a href="#estadisticos-básicos-para-las-variables-categoricas" id="toc-estadisticos-básicos-para-las-variables-categoricas"><span class="toc-section-number">3.2</span> Estadisticos básicos para las variables categoricas</a></li>
+      <li><a href="#estadisticos-básicos-para-las-variables-categóricas" id="toc-estadisticos-básicos-para-las-variables-categóricas"><span class="toc-section-number">3.2</span> Estadisticos básicos para las variables categóricas</a></li>
       <li><a href="#gráficos-conjuntos-para-las-variables-cuantitativas" id="toc-gráficos-conjuntos-para-las-variables-cuantitativas"><span class="toc-section-number">3.3</span> Gráficos conjuntos para las variables cuantitativas</a></li>
       <li><a href="#gráficos-conjuntos-para-las-variables-categoricas" id="toc-gráficos-conjuntos-para-las-variables-categoricas"><span class="toc-section-number">3.4</span> Gráficos conjuntos para las variables categoricas</a></li>
       </ul></li>
@@ -1570,30 +1635,883 @@ margin-right: auto;
 <p>Scielzo Ortiz, F. (2022). Regresión Lineal Penalizada en Python. <em>Estadistica4all</em>. <a href="https://fabioscielzoortiz.github.io/Estadistica4all.github.io/Articulos/Linear%20Regression%20in%20Python%20and%20R.html">Linear Regression with Python and R</a></p>
 <p><br></p>
 <div id="exploratory-data-analysis-eda" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Exploratory Data Analysis (EDA)</h1>
+<h1><span class="header-section-number">1</span> Exploratory Data Analysis (EDA) <a class="anchor" id="1"></a></h1>
+<p>Exploratory data analysis (análisis de datos exploratorio) hace referencia analisis estadistico, principalmente descriptivo, de un conjunto de datos.</p>
+<p>A continuación se va a proponer una metodologia (unos pasos a seguir) para desarrollar un EDA.</p>
+<p>A continuación cargamos el data-set al que vamos a aplicar un EDA</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Netflix_Data <span class="op">=</span> pd.read_csv(<span class="st">&#39;titles.csv&#39;</span>)</span></code></pre></div>
+<p>Hacemos un <code>head()</code> del data-set para ver que pinta tiene:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data.head()</span></code></pre></div>
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+id
+</th>
+<th>
+title
+</th>
+<th>
+type
+</th>
+<th>
+description
+</th>
+<th>
+release_year
+</th>
+<th>
+age_certification
+</th>
+<th>
+runtime
+</th>
+<th>
+genres
+</th>
+<th>
+production_countries
+</th>
+<th>
+seasons
+</th>
+<th>
+imdb_id
+</th>
+<th>
+imdb_score
+</th>
+<th>
+imdb_votes
+</th>
+<th>
+tmdb_popularity
+</th>
+<th>
+tmdb_score
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+ts300399
+</td>
+<td>
+Five Came Back: The Reference Films
+</td>
+<td>
+SHOW
+</td>
+<td>
+This collection includes 12 World War II-era p…
+</td>
+<td>
+1945
+</td>
+<td>
+TV-MA
+</td>
+<td>
+51
+</td>
+<td>
+[‘documentation’]
+</td>
+<td>
+[‘US’]
+</td>
+<td>
+1.0
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+0.600
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+tm84618
+</td>
+<td>
+Taxi Driver
+</td>
+<td>
+MOVIE
+</td>
+<td>
+A mentally unstable Vietnam War veteran works …
+</td>
+<td>
+1976
+</td>
+<td>
+R
+</td>
+<td>
+114
+</td>
+<td>
+[‘drama’, ‘crime’]
+</td>
+<td>
+[‘US’]
+</td>
+<td>
+NaN
+</td>
+<td>
+tt0075314
+</td>
+<td>
+8.2
+</td>
+<td>
+808582.0
+</td>
+<td>
+40.965
+</td>
+<td>
+8.179
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+tm154986
+</td>
+<td>
+Deliverance
+</td>
+<td>
+MOVIE
+</td>
+<td>
+Intent on seeing the Cahulawassee River before…
+</td>
+<td>
+1972
+</td>
+<td>
+R
+</td>
+<td>
+109
+</td>
+<td>
+[‘drama’, ‘action’, ‘thriller’, ‘european’]
+</td>
+<td>
+[‘US’]
+</td>
+<td>
+NaN
+</td>
+<td>
+tt0068473
+</td>
+<td>
+7.7
+</td>
+<td>
+107673.0
+</td>
+<td>
+10.010
+</td>
+<td>
+7.300
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+tm127384
+</td>
+<td>
+Monty Python and the Holy Grail
+</td>
+<td>
+MOVIE
+</td>
+<td>
+King Arthur, accompanied by his squire, recrui…
+</td>
+<td>
+1975
+</td>
+<td>
+PG
+</td>
+<td>
+91
+</td>
+<td>
+[‘fantasy’, ‘action’, ‘comedy’]
+</td>
+<td>
+[‘GB’]
+</td>
+<td>
+NaN
+</td>
+<td>
+tt0071853
+</td>
+<td>
+8.2
+</td>
+<td>
+534486.0
+</td>
+<td>
+15.461
+</td>
+<td>
+7.811
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+tm120801
+</td>
+<td>
+The Dirty Dozen
+</td>
+<td>
+MOVIE
+</td>
+<td>
+12 American military prisoners in World War II…
+</td>
+<td>
+1967
+</td>
+<td>
+NaN
+</td>
+<td>
+150
+</td>
+<td>
+[‘war’, ‘action’]
+</td>
+<td>
+[‘GB’, ‘US’]
+</td>
+<td>
+NaN
+</td>
+<td>
+tt0061578
+</td>
+<td>
+7.7
+</td>
+<td>
+72662.0
+</td>
+<td>
+20.398
+</td>
+<td>
+7.600
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
 </div>
 <div id="esctructura-del-data-set" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Esctructura del data-set</h1>
 <div id="tamaño" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Tamaño</h2>
+<p>Lo primero es determinar el tamaño del data-set al que se le aplica el EDA. El tamaño de un data-set se puede concebir como su nº de filas y columnas.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data.shape</span></code></pre></div>
+<pre><code>(5850, 15)</code></pre>
+<p>El data set tiene 5850 filas (observaciones) y 15 columnas (variables).</p>
 </div>
 <div id="descripción-conceptual-de-las-variables" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Descripción conceptual de las variables</h2>
+<p>Esta data-set contieene información sobre 15 variables para 5850 títulos de Netflix.</p>
+<p>La siguiente tabla contiene una breve descripción de las variables del data-set:</p>
+<table>
+<colgroup>
+<col width="36%" />
+<col width="31%" />
+<col width="31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Variable</th>
+<th align="center">Descripción</th>
+<th align="center">Tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">id</td>
+<td align="center">The title ID on JustWatch</td>
+<td align="center">Identificador</td>
+</tr>
+<tr class="even">
+<td align="center">title</td>
+<td align="center">The name of the title</td>
+<td align="center">Texto</td>
+</tr>
+<tr class="odd">
+<td align="center">type</td>
+<td align="center">TV show or movie. (serie = show o pelicula = movie)</td>
+<td align="center">Categórica</td>
+</tr>
+<tr class="even">
+<td align="center">description</td>
+<td align="center">A brief description</td>
+<td align="center">Texto</td>
+</tr>
+<tr class="odd">
+<td align="center">release_year</td>
+<td align="center">Año de lanzamiento</td>
+<td align="center">Cuantitativa</td>
+</tr>
+<tr class="even">
+<td align="center">age_certification</td>
+<td align="center">La calificación de edad</td>
+<td align="center">Categórica</td>
+</tr>
+<tr class="odd">
+<td align="center">runtime</td>
+<td align="center">el nº de episiodios (show), el tiempo de durancion en minutos (movie)</td>
+<td align="center">Cuantitativa</td>
+</tr>
+<tr class="even">
+<td align="center">genres</td>
+<td align="center">A list of genres</td>
+<td align="center">Categórica</td>
+</tr>
+<tr class="odd">
+<td align="center">production_countries</td>
+<td align="center">A list of countries that produced the title</td>
+<td align="center">Categórica</td>
+</tr>
+<tr class="even">
+<td align="center">seasons</td>
+<td align="center">Number of seasons if it’s a SHOW</td>
+<td align="center">Cuantitativa</td>
+</tr>
+<tr class="odd">
+<td align="center">imdb_id</td>
+<td align="center">The title ID on IMDB</td>
+<td align="center">Identificador</td>
+</tr>
+<tr class="even">
+<td align="center">imdb_score</td>
+<td align="center">Puntuación en IMDB</td>
+<td align="center">Cuantitativa</td>
+</tr>
+<tr class="odd">
+<td align="center">imdb_votes</td>
+<td align="center">nº de votos en IMDB</td>
+<td align="center">Cuantitativa</td>
+</tr>
+<tr class="even">
+<td align="center">tmdb_popularity</td>
+<td align="center">Popularity on TMDB</td>
+<td align="center">Cuantitativa</td>
+</tr>
+<tr class="odd">
+<td align="center">tmdb_score</td>
+<td align="center">Puntuación en TMDB</td>
+<td align="center">Cuantitativa</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
 </div>
 <div id="tipo-de-variables" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Tipo de variables</h2>
+<p>Ahora vamos a ver de que tipo son cada una de las 15 variables en <code>Python</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data.info()</span></code></pre></div>
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 5850 entries, 0 to 5849
+Data columns (total 15 columns):
+ #   Column                Non-Null Count  Dtype  
+---  ------                --------------  -----  
+ 0   id                    5850 non-null   object 
+ 1   title                 5849 non-null   object 
+ 2   type                  5850 non-null   object 
+ 3   description           5832 non-null   object 
+ 4   release_year          5850 non-null   int64  
+ 5   age_certification     3231 non-null   object 
+ 6   runtime               5850 non-null   int64  
+ 7   genres                5850 non-null   object 
+ 8   production_countries  5850 non-null   object 
+ 9   seasons               2106 non-null   float64
+ 10  imdb_id               5447 non-null   object 
+ 11  imdb_score            5368 non-null   float64
+ 12  imdb_votes            5352 non-null   float64
+ 13  tmdb_popularity       5759 non-null   float64
+ 14  tmdb_score            5539 non-null   float64
+dtypes: float64(5), int64(2), object(8)
+memory usage: 685.7+ KB</code></pre>
+<p>El Dtype <code>object</code> es el típico de variables categoricas, identificadores o texto.</p>
+<p>El Dtype <code>float64</code> y <code>int64</code> es típico de variables cuantitativas (continuas y discretas, respectivamente).</p>
+<p><br></p>
 </div>
 <div id="valores-faltantes-na" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Valores faltantes (NA)</h2>
+<p>Ahora vamos a calcular la proporcion de valores faltantes sobre el total de datos, para cada una de las variables:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Prop_NA <span class="op">=</span> Netflix_Data.isnull().<span class="bu">sum</span>() <span class="op">/</span> <span class="bu">len</span>(Netflix_Data)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>Prop_NA</span></code></pre></div>
+<pre><code>id                      0.000000
+title                   0.000171
+type                    0.000000
+description             0.003077
+release_year            0.000000
+age_certification       0.447692
+runtime                 0.000000
+genres                  0.000000
+production_countries    0.000000
+seasons                 0.640000
+imdb_id                 0.068889
+imdb_score              0.082393
+imdb_votes              0.085128
+tmdb_popularity         0.015556
+tmdb_score              0.053162
+dtype: float64</code></pre>
+<p><br></p>
+<p>Podemos ver que hay variables como <code>age_certification</code> con una alta proporción de valores faltantes (44.77%).</p>
+<p><code>season</code>sería la variable con mayor proporción de valores faltantes, pero esto se debe a que solo esta definida para las series (<code>type=SHOW</code>)</p>
+<p><br></p>
 </div>
 </div>
 <div id="descripción-estadistica-básica" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Descripción Estadistica Básica</h1>
+<p>A continuación vamos a realizar una descripción estadistica básica de las variables, a traves de dicersos estadisticos básicos.</p>
 <div id="estadisticos-básicos-para-las-variables-cuantitativas" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Estadisticos básicos para las variables cuantitativas</h2>
+<p>Para las variables cuantitativas:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data.describe()</span></code></pre></div>
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+release_year
+</th>
+<th>
+runtime
+</th>
+<th>
+seasons
+</th>
+<th>
+imdb_score
+</th>
+<th>
+imdb_votes
+</th>
+<th>
+tmdb_popularity
+</th>
+<th>
+tmdb_score
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+count
+</th>
+<td>
+5850.000000
+</td>
+<td>
+5850.000000
+</td>
+<td>
+2106.000000
+</td>
+<td>
+5368.000000
+</td>
+<td>
+5.352000e+03
+</td>
+<td>
+5759.000000
+</td>
+<td>
+5539.000000
+</td>
+</tr>
+<tr>
+<th>
+mean
+</th>
+<td>
+2016.417094
+</td>
+<td>
+76.888889
+</td>
+<td>
+2.162868
+</td>
+<td>
+6.510861
+</td>
+<td>
+2.343938e+04
+</td>
+<td>
+22.637925
+</td>
+<td>
+6.829175
+</td>
+</tr>
+<tr>
+<th>
+std
+</th>
+<td>
+6.937726
+</td>
+<td>
+39.002509
+</td>
+<td>
+2.689041
+</td>
+<td>
+1.163826
+</td>
+<td>
+9.582047e+04
+</td>
+<td>
+81.680263
+</td>
+<td>
+1.170391
+</td>
+</tr>
+<tr>
+<th>
+min
+</th>
+<td>
+1945.000000
+</td>
+<td>
+0.000000
+</td>
+<td>
+1.000000
+</td>
+<td>
+1.500000
+</td>
+<td>
+5.000000e+00
+</td>
+<td>
+0.009442
+</td>
+<td>
+0.500000
+</td>
+</tr>
+<tr>
+<th>
+25%
+</th>
+<td>
+2016.000000
+</td>
+<td>
+44.000000
+</td>
+<td>
+1.000000
+</td>
+<td>
+5.800000
+</td>
+<td>
+5.167500e+02
+</td>
+<td>
+2.728500
+</td>
+<td>
+6.100000
+</td>
+</tr>
+<tr>
+<th>
+50%
+</th>
+<td>
+2018.000000
+</td>
+<td>
+83.000000
+</td>
+<td>
+1.000000
+</td>
+<td>
+6.600000
+</td>
+<td>
+2.233500e+03
+</td>
+<td>
+6.821000
+</td>
+<td>
+6.900000
+</td>
+</tr>
+<tr>
+<th>
+75%
+</th>
+<td>
+2020.000000
+</td>
+<td>
+104.000000
+</td>
+<td>
+2.000000
+</td>
+<td>
+7.300000
+</td>
+<td>
+9.494000e+03
+</td>
+<td>
+16.590000
+</td>
+<td>
+7.537500
+</td>
+</tr>
+<tr>
+<th>
+max
+</th>
+<td>
+2022.000000
+</td>
+<td>
+240.000000
+</td>
+<td>
+42.000000
+</td>
+<td>
+9.600000
+</td>
+<td>
+2.294231e+06
+</td>
+<td>
+2274.044000
+</td>
+<td>
+10.000000
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="estadisticos-básicos-para-las-variables-categoricas" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Estadisticos básicos para las variables categoricas</h2>
+<p><br></p>
+</div>
+<div id="estadisticos-básicos-para-las-variables-categóricas" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Estadisticos básicos para las variables categóricas</h2>
+<p>Para las variables categóricas (no cuantitativas, en general) :</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data.loc[: , [<span class="st">&#39;title&#39;</span>, <span class="st">&#39;description&#39;</span>, <span class="st">&#39;age_certification&#39;</span>, <span class="st">&#39;genres&#39;</span>, <span class="st">&#39;production_countries&#39;</span> ]].describe()</span></code></pre></div>
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+title
+</th>
+<th>
+description
+</th>
+<th>
+age_certification
+</th>
+<th>
+genres
+</th>
+<th>
+production_countries
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+count
+</th>
+<td>
+5849
+</td>
+<td>
+5832
+</td>
+<td>
+3231
+</td>
+<td>
+5850
+</td>
+<td>
+5850
+</td>
+</tr>
+<tr>
+<th>
+unique
+</th>
+<td>
+5798
+</td>
+<td>
+5829
+</td>
+<td>
+11
+</td>
+<td>
+1726
+</td>
+<td>
+452
+</td>
+</tr>
+<tr>
+<th>
+top
+</th>
+<td>
+The Gift
+</td>
+<td>
+Five families struggle with the ups and downs …
+</td>
+<td>
+TV-MA
+</td>
+<td>
+[‘comedy’]
+</td>
+<td>
+[‘US’]
+</td>
+</tr>
+<tr>
+<th>
+freq
+</th>
+<td>
+3
+</td>
+<td>
+2
+</td>
+<td>
+883
+</td>
+<td>
+484
+</td>
+<td>
+1959
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
 </div>
 <div id="gráficos-conjuntos-para-las-variables-cuantitativas" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Gráficos conjuntos para las variables cuantitativas</h2>
