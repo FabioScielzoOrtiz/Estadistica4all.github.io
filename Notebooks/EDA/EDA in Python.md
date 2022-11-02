@@ -246,7 +246,7 @@ La siguiente tabla contiene una breve descripción de las variables del data-set
 |:------------------------:|:---------------------:|:---------------------:|
 | id   |The title ID on JustWatch | Identificador  |
 | title | The name of the title | Texto |
-| type    |TV show or movie. (serie = show o pelicula = movie)  | Categórica |
+| type    |TV show or movie  | Categórica |
 |  description |A brief description | Texto |
 |  release_year   | Año de lanzamiento | Cuantitativa |
 | age_certification  |  La calificación de edad   | Categórica |
@@ -343,7 +343,7 @@ Podemos ver que hay variables como `age_certification` con una alta proporción 
 
 `season`sería la variable con mayor proporción de valores faltantes, pero esto se debe a que solo esta definida para las series (`type=SHOW`)
 
-
+En este artículo no se hará un tratamiento de los valores faltantes, el cual será expuesto en un futuro articulo sobre pre-procesamiento de datos.
 <br>
 
 # Descripción Estadistica Básica 
@@ -776,21 +776,6 @@ En esta seccion además de ampliar la descripción estadistica de los datos, se 
 
 
 ## Estadisticos para las variables cuantitativas
-
-```
-   age_certification  count      prop
-7              TV-MA    883  0.150940
-4                  R    556  0.095043
-5              TV-14    474  0.081026
-3              PG-13    451  0.077094
-2                 PG    233  0.039829
-8              TV-PG    188  0.032137
-0                  G    124  0.021197
-10             TV-Y7    120  0.020513
-9               TV-Y    107  0.018291
-6               TV-G     79  0.013504
-1              NC-17     16  0.002735
-```
 
 
 
