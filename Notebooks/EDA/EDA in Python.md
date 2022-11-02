@@ -569,6 +569,7 @@ import matplotlib.pyplot as plt
 
 ### Histograma conjunto de las variables cuantitativas
 
+Vamos a generar un grafico con un histograma para cada una de las variables cuantitativas:
 
 ```python
 fig, axs = plt.subplots(3, 3, figsize=(11, 11))
@@ -604,13 +605,22 @@ fig.savefig('p1.png', format='png', dpi=1200)
 plt.show()
 ```
 
+<br>
 
+<center>
+
+![Histograma conjunto de las variables cuantitativas](p1.png){width="80%"}
+
+</center>
+
+<br>
     
-![png](output_17_0.png)
     
 
 
 ### Box-Plot conjunto de las variables cuantitativas
+
+Vamos a generar un grafico con un box-plot para cada una de las variables cuantitativas:
 
 ```python
 fig, axs = plt.subplots(3, 3, figsize=(11, 11))
@@ -651,12 +661,20 @@ plt.show()
 ```
 
 
-    
-![png](output_18_0.png)
+<br>
+
+<center>
+
+![Box-Plot conjunto de las variables cuantitativas](p2.png){width="80%"}
+
+</center>
+
+<br>
     
 
 ### Empirical-Cumulative-Distribution-Function-Plot conjunto de las variables cuantitativas
 
+Vamos a generar un grafico con un ECDF-plot para cada una de las variables cuantitativas:
 
 ```python
 fig, axs = plt.subplots(3, 3, figsize=(11, 11))
@@ -700,7 +718,15 @@ plt.show()
 
 
     
-![png](output_19_0.png)
+<br>
+
+<center>
+
+![ECDF-Plot conjunto de las variables cuantitativas](p3.png){width="80%"}
+
+</center>
+
+<br>
     
 
 
@@ -713,8 +739,71 @@ plt.show()
 ## Gráficos conjuntos  para las variables categoricas
 
 
+### Bar-plot conjunto de las variables categóricas
+
+Vamos a generar un grafico con un  bar-plot para cada una de las variables categóricas, excepto para aquellas cuyo nº de categorias es excesivo, y por tanto no es práctico el gráfico:
+
+```python
+fig, axs = plt.subplots(1, 2, figsize=(13, 6))
+
+p1 = sns.countplot(x='type', data=Netflix_Data, ax=axs[0]) 
+p1.set_xticklabels(['Movie', 'Show'])
+p1.axes.set(xlabel='type', ylabel='count')
+
+p2 = sns.countplot(x='age_certification', data=Netflix_Data, ax=axs[1]) 
+
+plt.show()
+```
+
+<br>
+
+<center>
+
+![Bar-Plot conjunto de variables categoricas](p4.png){width="75%"}
+
+</center>
+
+<br>
+
+# Análisis Estadístico
+
+En la sección anterior se hizo una descripción estadistica básica de las variables del data-set con el que estamos trabajando, pero no se ha hecho ningun analisis de los resultados obtenidos. 
+
+En esta seccion además de ampliar la descripción estadistica de los datos, se llevará a cabo un analisis de los resultados obtenidos.
 
 
-# Descripción Estadistica Avanzada
+<br>
+
+
+## Estadisticos para las variables cuantitativas
+
+```
+   age_certification  count      prop
+7              TV-MA    883  0.150940
+4                  R    556  0.095043
+5              TV-14    474  0.081026
+3              PG-13    451  0.077094
+2                 PG    233  0.039829
+8              TV-PG    188  0.032137
+0                  G    124  0.021197
+10             TV-Y7    120  0.020513
+9               TV-Y    107  0.018291
+6               TV-G     79  0.013504
+1              NC-17     16  0.002735
+```
+
+
+
+
+
+
+## Estadisticos para las variables categoricas
+
+
+## Tablas de frecuencias
+
+## Gráficos individuales para las variables cuantitativas
+
+## Gráficos individuales para las variables categoricas
 
 
