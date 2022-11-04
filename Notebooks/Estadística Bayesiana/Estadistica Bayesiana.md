@@ -1066,6 +1066,21 @@ $$\dfrac{X}{X+Y} \sim Beta(a,b)$$
 ### Distribucion Weibull
 
 
+$$X\sim Weibull(\alpha , \lambda) \Leftrightarrow f_X(x)= \lambda\cdot \alpha (\lambda \cdot x)^{\alpha - 1} \cdot e^{-(\lambda \cdot x)^\alpha} \cdot 1_{\lbrace x > 0  \rbrace}$$
+
+Donde: $\alpha , \lambda >0$
+
+
+#### Propiedades
+
+1) $E[X]= \dfrac{1}{\lambda} \Gamma(1 + \dfrac{1}{\alpha})$
+
+2) $Var(X)= \dfrac{1}{\lambda^2} \left( \Gamma(1 + \dfrac{2}{\alpha}) - \Gamma(1+ \dfrac{1}{\alpha}) \right)$
+
+2) $$F_X(x) = (1 - e^{-(\lambda \cdot x)^\alpha}) \cdot 1_{\lbrace x>0 \rbrace}$$
+
+
+
 ### Distribucion Chi-cuadrado
 
 

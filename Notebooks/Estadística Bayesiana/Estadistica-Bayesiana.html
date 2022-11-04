@@ -2283,6 +2283,16 @@ tales que la probabilidad del exito es p y la del fracoso 1-p.</li>
 </div>
 <div id="distribucion-weibull" class="section level3" number="1.31.8">
 <h3><span class="header-section-number">1.31.8</span> Distribucion Weibull</h3>
+<p><span class="math display">\[X\sim Weibull(\alpha , \lambda) \Leftrightarrow f_X(x)= \lambda\cdot \alpha (\lambda \cdot x)^{\alpha - 1} \cdot e^{-(\lambda \cdot x)^\alpha} \cdot 1_{\lbrace x &gt; 0  \rbrace}\]</span></p>
+<p>Donde: <span class="math inline">\(\alpha , \lambda &gt;0\)</span></p>
+<div id="propiedades-23" class="section level4" number="1.31.8.1">
+<h4><span class="header-section-number">1.31.8.1</span> Propiedades</h4>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(E[X]= \dfrac{1}{\lambda} \Gamma(1 + \dfrac{1}{\alpha})\)</span></p></li>
+<li><p><span class="math inline">\(Var(X)= \dfrac{1}{\lambda^2} \left( \Gamma(1 + \dfrac{2}{\alpha}) - \Gamma(1+ \dfrac{1}{\alpha}) \right)\)</span></p></li>
+<li><p><span class="math display">\[F_X(x) = (1 - e^{-(\lambda \cdot x)^\alpha}) \cdot 1_{\lbrace x&gt;0 \rbrace}\]</span></p></li>
+</ol>
+</div>
 </div>
 <div id="distribucion-chi-cuadrado" class="section level3" number="1.31.9">
 <h3><span class="header-section-number">1.31.9</span> Distribucion Chi-cuadrado</h3>
