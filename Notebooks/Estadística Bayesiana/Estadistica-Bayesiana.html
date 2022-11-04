@@ -2187,7 +2187,8 @@ tales que la probabilidad del exito es p y la del fracoso 1-p.</li>
 </div>
 <div id="funcion-gamma" class="section level3" number="1.31.3">
 <h3><span class="header-section-number">1.31.3</span> Funcion Gamma</h3>
-<p><span class="math inline">\(\Gamma es la función Gamma \Leftrightarrow \Gamma(\alpha) = \int_{0}^{\infty} x^{\alpha - 1} \cdot e^{-x} \cdot dx\)</span></p>
+<p><span class="math inline">\(\Gamma\)</span> es la función Gamma <span class="math inline">\(\Leftrightarrow \Gamma(\alpha) = \int_{0}^{\infty} x^{\alpha - 1} \cdot e^{-x} \cdot dx\)</span></p>
+<p>Donde: <span class="math inline">\(\alpha &gt;0\)</span></p>
 <div id="propiedades-18" class="section level4" number="1.31.3.1">
 <h4><span class="header-section-number">1.31.3.1</span> Propiedades</h4>
 <ol style="list-style-type: decimal">
@@ -2201,15 +2202,84 @@ tales que la probabilidad del exito es p y la del fracoso 1-p.</li>
 </div>
 <div id="distribucion-gamma" class="section level3" number="1.31.4">
 <h3><span class="header-section-number">1.31.4</span> Distribucion Gamma</h3>
+<p><span class="math display">\[X\sim Gamma(\alpha , \lambda ) \Leftrightarrow f_X(x) = \dfrac{\lambda^\alpha}{\Gamma(\alpha )} \cdot x^{\alpha -1} \cdot e^{-\lambda \cdot x} \cdot 1_{\lbrace x&gt;0  \rbrace}\]</span></p>
+<p>Donde: <span class="math inline">\(\alpha, \lambda &gt; 0\)</span></p>
+<div id="propiedades-19" class="section level4" number="1.31.4.1">
+<h4><span class="header-section-number">1.31.4.1</span> Propiedades</h4>
+<ol style="list-style-type: decimal">
+<li>Si <span class="math inline">\(\alpha \in \mathbb{N}\)</span> , entonces:</li>
+</ol>
+<p><span class="math display">\[f_X(x) = \dfrac{\lambda^\alpha}{(\alpha -1)!} \cdot x^{\alpha -1} \cdot e^{-\lambda \cdot x} \cdot 1_{\lbrace x&gt;0  \rbrace}\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Si <span class="math inline">\(\alpha = 1\)</span> , entonces:</li>
+</ol>
+<p><span class="math display">\[f_X(x)= \lambda \cdot e^{-\lambda \cdot x} \cdot 1_{\lbrace x&gt;0  \rbrace}\]</span></p>
+<p>Por tanto:</p>
+<p><span class="math display">\[Gamma(\alpha = 1 , \lambda) = Exponencial(\lambda)\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li><p><span class="math inline">\(E[X]= \dfrac{\alpha}{\lambda}\)</span></p></li>
+<li><p><span class="math inline">\(Var(X)=\dfrac{\alpha}{\lambda^2}\)</span></p></li>
+<li><p><span class="math display">\[F_X(x) = \]</span></p></li>
+<li><p>Si <span class="math inline">\(X_1,...,Xn \sim Exponencial(\lambda)\)</span> y son independientes, entonces:</p></li>
+</ol>
+<p><span class="math display">\[X_1+...+X_n \sim Gamma(n , \lambda)\]</span></p>
+<ol start="7" style="list-style-type: decimal">
+<li>Si <span class="math inline">\(X\sim Gamma(\alpha , \lambda)\)</span> y <span class="math inline">\(c&gt;0\)</span> , entonces:</li>
+</ol>
+<p><span class="math display">\[c\cdot X \sim Gamma(\alpha , \lambda / c)\]</span></p>
+<ol start="8" style="list-style-type: decimal">
+<li>Si <span class="math inline">\(X_1 , ..., X_n\)</span> son independientes y <span class="math inline">\(X_i\sim Gamma(\alpha_i , \lambda)\)</span>, entonces:</li>
+</ol>
+<p><span class="math display">\[X_1 +...+ X_n \sim Gamma(\alpha_1 +...+ \alpha_n , \lambda)\]</span></p>
+</div>
 </div>
 <div id="distribucion-normal" class="section level3" number="1.31.5">
 <h3><span class="header-section-number">1.31.5</span> Distribucion Normal</h3>
+<p><span class="math display">\[X \sim N(\mu, \sigma^2) \Leftrightarrow f_X(x) = \dfrac{}{} \cdot exp \left( \dfrac{-1}{2} \cdot \dfrac{(x- \mu)^2}{\sigma^2}  \right)\]</span></p>
+<p>Donde: <span class="math inline">\(\mu \in \mathbb{R}\)</span> y <span class="math inline">\(\sigma^2 &gt; 0\)</span></p>
+<div id="propiedades-20" class="section level4" number="1.31.5.1">
+<h4><span class="header-section-number">1.31.5.1</span> Propiedades</h4>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(E[X]=\mu\)</span></p></li>
+<li><p><span class="math inline">\(Var(X)=\sigma^2\)</span></p></li>
+<li><p><span class="math inline">\(X\cdot a \sim N(\mu \cdot a , a^2 \cdot \sigma^2)\)</span></p></li>
+<li><p><span class="math inline">\(X\cdot b + a \sim N( b\cdot \mu + a , b^2 \cdot \sigma^2)\)</span></p></li>
+<li><p>Si <span class="math inline">\(X_i \sim N(\mu_i , \sigma_i^2)\)</span> , para <span class="math inline">\(i =1,...,n\)</span> , entonces:</p></li>
+</ol>
+<p><span class="math display">\[X_1 + ...+ X_n \sim N(\mu_1 +...+ \mu_n , \sigma_1^2 + ...+ \sigma_n^2)\]</span></p>
+<ol start="6" style="list-style-type: decimal">
+<li>Si <span class="math inline">\(X_i \sim N(\mu_i , \sigma_i^2)\)</span> , para <span class="math inline">\(i =1,...,n\)</span> , entonces:</li>
+</ol>
+<p><span class="math display">\[a_1\cdot X_1 + ...+ a_n \cdot X_n \sim N(a_1 \cdot \mu_1 +...+ a_n \cdot \mu_n , a_1^2 \cdot \sigma_1^2 + ...+ a_n^2 \cdot \sigma_n^2)\]</span></p>
+</div>
 </div>
 <div id="funcion-beta" class="section level3" number="1.31.6">
 <h3><span class="header-section-number">1.31.6</span> Funcion Beta</h3>
+<p><span class="math display">\[B(a,b)= \int_0^1 x^{a-1} \cdot (1-x)^{b-1} \cdot dx\]</span></p>
+<p>Donde: <span class="math inline">\(a, b &gt;0\)</span></p>
+<div id="propiedades-21" class="section level4" number="1.31.6.1">
+<h4><span class="header-section-number">1.31.6.1</span> Propiedades</h4>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(B(a,b) = B(b,a)\)</span></p></li>
+<li><p><span class="math inline">\(B(a,1) = 1/a\)</span></p></li>
+<li><p><span class="math inline">\(B(a+1, b)= \dfrac{a}{a+b} \cdot B(a,b)\)</span></p></li>
+<li><p><span class="math inline">\(B(a,b) = \dfrac{\Gamma(a) \cdot \Gamma(b)}{\Gamma(a+b)}\)</span></p></li>
+</ol>
+</div>
 </div>
 <div id="distribucion-beta" class="section level3" number="1.31.7">
 <h3><span class="header-section-number">1.31.7</span> Distribucion Beta</h3>
+<p><span class="math display">\[X\sim Beta(a,b) \Leftrightarrow f_X(x)= \dfrac{1}{B(a,b)} \cdot x^{a-1} \cdot (1-x)^{b-1} \cdot 1_{\lbrace x \in (0,1)  \rbrace}\]</span></p>
+<p>Donde: <span class="math inline">\(a, b &gt;0\)</span></p>
+<div id="propiedades-22" class="section level4" number="1.31.7.1">
+<h4><span class="header-section-number">1.31.7.1</span> Propiedades</h4>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(E[X]=\dfrac{a}{a+b}\)</span></p></li>
+<li><p><span class="math inline">\(Var(X) = \dfrac{a\cdot b}{(a + b +1)(a+b)^2}\)</span></p></li>
+<li><p>Si <span class="math inline">\(X\sim Gamma(a, \lambda)\)</span> y <span class="math inline">\(Y\sim Gamma(b,\lambda)\)</span> , entonces:</p></li>
+</ol>
+<p><span class="math display">\[\dfrac{X}{X+Y} \sim Beta(a,b)\]</span></p>
+</div>
 </div>
 <div id="distribucion-weibull" class="section level3" number="1.31.8">
 <h3><span class="header-section-number">1.31.8</span> Distribucion Weibull</h3>

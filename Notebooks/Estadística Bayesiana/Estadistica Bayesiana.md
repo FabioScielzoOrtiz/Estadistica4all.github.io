@@ -980,15 +980,87 @@ $$Gamma(\alpha = 1 , \lambda) = Exponencial(\lambda)$$
 
 5) $$F_X(x) = $$
 
-6) Si X_1,...,Xn \sim Exponencial(\lambda) y son independientes, entonces:
+6) Si $X_1,...,Xn \sim Exponencial(\lambda)$ y son independientes, entonces:
+
+$$X_1+...+X_n \sim Gamma(n , \lambda)$$
+
+7) Si $X\sim Gamma(\alpha , \lambda)$ y $c>0$ , entonces:
+
+$$c\cdot X \sim Gamma(\alpha , \lambda / c)$$
+
+8) Si $X_1 , ..., X_n$ son independientes y $X_i\sim Gamma(\alpha_i , \lambda)$, entonces:
+
+$$X_1 +...+ X_n \sim Gamma(\alpha_1 +...+ \alpha_n , \lambda)$$
+
+
+
+
 
 ### Distribucion Normal
 
 
+$$X \sim N(\mu, \sigma^2) \Leftrightarrow f_X(x) = \dfrac{}{} \cdot exp \left( \dfrac{-1}{2} \cdot \dfrac{(x- \mu)^2}{\sigma^2}  \right)$$
+
+
+Donde: $\mu \in \mathbb{R}$ y $\sigma^2 > 0$
+
+#### Propiedades
+
+1) $E[X]=\mu$
+
+2) $Var(X)=\sigma^2$
+
+3) $X\cdot a \sim N(\mu \cdot a , a^2 \cdot \sigma^2)$
+
+4) $X\cdot b + a \sim N( b\cdot \mu + a , b^2 \cdot \sigma^2)$
+
+5) Si $X_i \sim N(\mu_i , \sigma_i^2)$ , para $i =1,...,n$ , entonces:
+
+$$X_1 + ...+ X_n \sim N(\mu_1 +...+ \mu_n , \sigma_1^2 + ...+ \sigma_n^2)$$
+
+6) Si $X_i \sim N(\mu_i , \sigma_i^2)$ , para $i =1,...,n$ , entonces:
+
+$$a_1\cdot X_1 + ...+ a_n \cdot X_n \sim N(a_1 \cdot \mu_1 +...+ a_n \cdot \mu_n , a_1^2 \cdot \sigma_1^2 + ...+ a_n^2 \cdot \sigma_n^2)$$
+
+
+
+
 ### Funcion Beta
+
+$$B(a,b)= \int_0^1 x^{a-1} \cdot (1-x)^{b-1} \cdot dx$$
+
+Donde: $a, b >0$
+
+
+#### Propiedades
+
+1) $B(a,b) = B(b,a)$
+
+2) $B(a,1) = 1/a$
+
+3) $B(a+1, b)= \dfrac{a}{a+b} \cdot B(a,b)$
+
+4) $B(a,b) = \dfrac{\Gamma(a) \cdot \Gamma(b)}{\Gamma(a+b)}$
 
 
 ### Distribucion Beta
+
+$$X\sim Beta(a,b) \Leftrightarrow f_X(x)= \dfrac{1}{B(a,b)} \cdot x^{a-1} \cdot (1-x)^{b-1} \cdot 1_{\lbrace x \in (0,1)  \rbrace}$$
+
+
+Donde: $a, b >0$
+
+
+#### Propiedades
+
+1) $E[X]=\dfrac{a}{a+b}$
+
+2) $Var(X) = \dfrac{a\cdot b}{(a + b +1)(a+b)^2}$
+
+3) Si $X\sim Gamma(a, \lambda)$ y $Y\sim Gamma(b,\lambda)$ , entonces:
+
+$$\dfrac{X}{X+Y} \sim Beta(a,b)$$
+
 
 
 ### Distribucion Weibull
