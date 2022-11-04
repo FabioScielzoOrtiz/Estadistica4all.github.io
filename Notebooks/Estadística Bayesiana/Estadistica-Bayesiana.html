@@ -1537,6 +1537,18 @@ margin-left: 0 !important;
       <li><a href="#variables-aleatorias-discretas-y-continuas" id="toc-variables-aleatorias-discretas-y-continuas"><span class="toc-section-number">1.23</span> Variables aleatorias discretas y continuas</a></li>
       <li><a href="#función-de-probabilidad" id="toc-función-de-probabilidad"><span class="toc-section-number">1.24</span> Función de probabilidad</a></li>
       <li><a href="#función-de-densidad" id="toc-función-de-densidad"><span class="toc-section-number">1.25</span> Función de densidad</a></li>
+      <li><a href="#función-de-distribución" id="toc-función-de-distribución"><span class="toc-section-number">1.26</span> Función de distribución</a></li>
+      <li><a href="#distribución-de-probabilidad-de-una-variable-aleatoria" id="toc-distribución-de-probabilidad-de-una-variable-aleatoria"><span class="toc-section-number">1.27</span> Distribución de probabilidad de una variable aleatoria</a></li>
+      <li><a href="#esperanza-de-una-variable-aleatoria" id="toc-esperanza-de-una-variable-aleatoria"><span class="toc-section-number">1.28</span> Esperanza de una variable aleatoria</a></li>
+      <li><a href="#varianza-de-una-variable-aleatoria" id="toc-varianza-de-una-variable-aleatoria"><span class="toc-section-number">1.29</span> Varianza de una variable aleatoria</a></li>
+      <li><a href="#distribuciones-de-probabilidad-discretas" id="toc-distribuciones-de-probabilidad-discretas"><span class="toc-section-number">1.30</span> Distribuciones de probabilidad discretas</a></li>
+      <li><a href="#distribuciones-de-probabilidad-continuas" id="toc-distribuciones-de-probabilidad-continuas"><span class="toc-section-number">1.31</span> Distribuciones de probabilidad continuas</a></li>
+      <li><a href="#vectores-aleatorios" id="toc-vectores-aleatorios"><span class="toc-section-number">1.32</span> Vectores aleatorios</a></li>
+      <li><a href="#probabilidad-conjunta-de-variables-aleatorias" id="toc-probabilidad-conjunta-de-variables-aleatorias"><span class="toc-section-number">1.33</span> Probabilidad conjunta de variables aleatorias</a></li>
+      <li><a href="#probabilidad-condicionada-de-variables-aleatorias" id="toc-probabilidad-condicionada-de-variables-aleatorias"><span class="toc-section-number">1.34</span> Probabilidad condicionada de variables aleatorias</a></li>
+      <li><a href="#independencia-de-variables-aleatorias" id="toc-independencia-de-variables-aleatorias"><span class="toc-section-number">1.35</span> Independencia de variables aleatorias</a></li>
+      <li><a href="#teorema-de-bayes-para-variables-aleatorias" id="toc-teorema-de-bayes-para-variables-aleatorias"><span class="toc-section-number">1.36</span> Teorema de Bayes para variables aleatorias</a></li>
+      <li><a href="#section" id="toc-section"><span class="toc-section-number">1.37</span> </a></li>
       </ul></li>
       <li><a href="#bibliografia" id="toc-bibliografia"><span class="toc-section-number">2</span> Bibliografia</a></li>
       </ul>
@@ -1965,6 +1977,270 @@ margin-right: auto;
 <li><p>Toda funcion no negativa, integrable y cuya integral entre <span class="math inline">\(-\infty\)</span> y <span class="math inline">\(\infty\)</span> sea 1 es una función de densidad.</p></li>
 </ol>
 </div>
+</div>
+<div id="función-de-distribución" class="section level2" number="1.26">
+<h2><span class="header-section-number">1.26</span> Función de distribución</h2>
+<p><span class="math inline">\(F_X\)</span> es la función de distribucion de la v.a. <span class="math inline">\(X \Leftrightarrow\)</span> <span class="math inline">\(F_X(x)= P(X \geq x)\)</span></p>
+<div id="propiedades-7" class="section level3" number="1.26.1">
+<h3><span class="header-section-number">1.26.1</span> Propiedades</h3>
+<ol style="list-style-type: decimal">
+<li>Si <span class="math inline">\(X\)</span> es una v.a. <strong>continua</strong></li>
+</ol>
+<p><span class="math display">\[F_X(x)= P(X \geq x) = \int_{-\infty}^{x} f_X(z)\cdot dz\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Si <span class="math inline">\(X\)</span> es una v.a. <strong>discreta</strong> :</li>
+</ol>
+<p><span class="math display">\[F_X(x) = P(X \geq x) = \sum_{z \geq x} P(X=z)\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li><p><span class="math inline">\(\undersert{x\rightarrow \infty}{lim} F_X(x) = 1\)</span></p></li>
+<li><p><span class="math inline">\(\underset{x\rightarrow -\infty}{lim} F_X(x) = 0\)</span></p></li>
+<li><p><span class="math inline">\(F_X\)</span> es una función creciente</p></li>
+</ol>
+</div>
+</div>
+<div id="distribución-de-probabilidad-de-una-variable-aleatoria" class="section level2" number="1.27">
+<h2><span class="header-section-number">1.27</span> Distribución de probabilidad de una variable aleatoria</h2>
+<p>La distribucion de probabilidad de una v.a. hace referencia a su funcion de densidad o probabolidad, o a su funcion de distribución.</p>
+</div>
+<div id="esperanza-de-una-variable-aleatoria" class="section level2" number="1.28">
+<h2><span class="header-section-number">1.28</span> Esperanza de una variable aleatoria</h2>
+<p>Si <span class="math inline">\(X\)</span> es una v.a. <strong>discreta</strong> :</p>
+<p><span class="math display">\[E[X]= \sum_{x\in \mathbb{R}} x \cdot P(X=x)\]</span></p>
+<p>Si <span class="math inline">\(X\)</span> es una v.a. <strong>continua</strong> :</p>
+<p><span class="math display">\[E[X] = \int_{-\infty}^{\infty} x \cdot f_X(x) \cdot dx\]</span></p>
+<div id="propiedades-8" class="section level3" number="1.28.1">
+<h3><span class="header-section-number">1.28.1</span> Propiedades</h3>
+<ol style="list-style-type: decimal">
+<li><p>E[a]=a</p></li>
+<li><p>E[bX] = b E[X]</p></li>
+<li><p>E[a + bX] = a + b E[X]</p></li>
+<li><p>Formulas de transferencia:</p></li>
+</ol>
+<p>Si <span class="math inline">\(X\)</span> es <strong>discreta</strong> :</p>
+<p><span class="math display">\[E[g(X)] = \sum_{x\in \mathbb{R}} x \cdot P(g(X)=x) = \sum_{x\in \mathbb{R}} g(x) \cdot P(X=x)\]</span></p>
+<p>Si <span class="math inline">\(X\)</span> es <strong>continua</strong></p>
+<p><span class="math display">\[E[g(X)] = \int_{-\infty}^{\infty} x \cdot f_{g(X)}(x) \cdot dx =  \int_{-\infty}^{\infty} g(x) \cdot f_X(x) \cdot dx\]</span></p>
+<p>Donde: <span class="math inline">\(g(X)\)</span> es una transformación de <span class="math inline">\(X\)</span></p>
+</div>
+</div>
+<div id="varianza-de-una-variable-aleatoria" class="section level2" number="1.29">
+<h2><span class="header-section-number">1.29</span> Varianza de una variable aleatoria</h2>
+<p><span class="math display">\[Var(X) = E\left[ (X - E[X])^2 \right]\]</span></p>
+<div id="propiedades-9" class="section level3" number="1.29.1">
+<h3><span class="header-section-number">1.29.1</span> Propiedades</h3>
+<ol style="list-style-type: decimal">
+<li><p>Var(X) </p></li>
+<li><p>Var(a) = 0</p></li>
+<li><p>Var(bX) = b^2 Var(X)</p></li>
+<li><p>Var(a + bX) = b^2 Var(X)</p></li>
+</ol>
+</div>
+</div>
+<div id="distribuciones-de-probabilidad-discretas" class="section level2" number="1.30">
+<h2><span class="header-section-number">1.30</span> Distribuciones de probabilidad discretas</h2>
+<div id="distribución-uniforme-discreta" class="section level3" number="1.30.1">
+<h3><span class="header-section-number">1.30.1</span> Distribución Uniforme discreta</h3>
+<p><span class="math display">\[X \sim Unif(x_1,....,x_n) \Leftrightarrow P(X=x) = \dfrac{1}{n}\cdot 1_{\lbrace x\in \lbrace x_1,...,x_n \rbrace \rbrace}\]</span></p>
+<div id="propiedades-10" class="section level4" number="1.30.1.1">
+<h4><span class="header-section-number">1.30.1.1</span> Propiedades</h4>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(E[X] = \dfrac{1}{n} \sum_{i=1}{n} x_i = media(x_1,...,x_n)\)</span></p></li>
+<li><p><span class="math inline">\(Var(X) = \dfrac{1}{n} \sum_{i=1}{n} (x_i - E[X])^2 = varianza(x_1,...,x_n)\)</span></p></li>
+<li><p>Sea <span class="math inline">\((x_{(1)},...,x_{(n)})\)</span> el vector <span class="math inline">\((x_1,...,x_n)\)</span> ordenado de menor a mayor:</p></li>
+</ol>
+<p><span class="math display">\[F_X(x) = \left\lbrace\begin{array}{c} 1 , si x&gt;x_{(n)} \\ 0 , si x &lt; x_{(1)} \\ \dfrac{i}{n} , si x=x_{(i)} \end{array}\right.\]</span></p>
+</div>
+</div>
+<div id="distribución-de-bernoulli" class="section level3" number="1.30.2">
+<h3><span class="header-section-number">1.30.2</span> Distribución de Bernoulli</h3>
+<p><span class="math display">\[X \sim Bernoulli(p) \Leftrightarrow P(X=x) =p^x (1-p)^x \cdot 1_{\lbrace x=0,1 \rbrace \rbrace}\]</span></p>
+<p><strong>Observaciones:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Las v.a. Bernoulli(p) se usan para modelar experimentos aleatorios con dos únicos resultados contrarios (exito-fracaso)
+tales que la probabilidad del exito es p y la del fracoso 1-p.</li>
+</ol>
+<p>A este tipo de experimentos aleatorios se les llama experimentos tipo Bernoulli.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Si <span class="math inline">\(X \sim Bernoulli(p)\)</span> , entonces:</li>
+</ol>
+<p><span class="math inline">\(X\)</span> puede interpretarse como el nº de exitos obtenidos tras realizar una vez un experimento tipo Bernoulli (notese que este nº solo puede ser 0 o 1), con probabilidad de exito <span class="math inline">\(p\)</span></p>
+<div id="propiedades-11" class="section level4" number="1.30.2.1">
+<h4><span class="header-section-number">1.30.2.1</span> Propiedades</h4>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(P(X=1)=p\)</span></p></li>
+<li><p><span class="math inline">\(P(X=0)=1-p\)</span></p></li>
+<li><p><span class="math inline">\(E[X]=p\)</span></p></li>
+<li><p><span class="math inline">\(Var(X)= p\cdot (1-p)\)</span></p></li>
+<li><p><span class="math display">\[F_X(x) = \left\lbrace\begin{array}{c} 1 , si x\geq 1 \\ 0 , si x &lt; 0 \\ 1-p , si x\in [0 , 1) \end{array}\right.\]</span></p></li>
+</ol>
+</div>
+</div>
+<div id="distribución-binomial" class="section level3" number="1.30.3">
+<h3><span class="header-section-number">1.30.3</span> Distribución Binomial</h3>
+<p><span class="math display">\[X \sim Binomial(n,p) \Leftrightarrow P(X=x) =\binom{n}{x} \cdot p^x (1-p)^x \cdot 1_{\lbrace x= 0,1,...,n \rbrace \rbrace}\]</span></p>
+<p><strong>Observación:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Si <span class="math inline">\(X \sim Binomial(p)\)</span> , entonces:</li>
+</ol>
+<p><span class="math inline">\(X\)</span> puede interpretarse como el nº de exitos obtenidos tras realizar <span class="math inline">\(n\)</span> veces un experimento tipo Bernoulli (notese que este nº solo puede ser 0,1,…,n), con probabilidad de exito <span class="math inline">\(p\)</span></p>
+<div id="propiedades-12" class="section level4" number="1.30.3.1">
+<h4><span class="header-section-number">1.30.3.1</span> Propiedades</h4>
+<ol style="list-style-type: decimal">
+<li>Si <span class="math inline">\(X_1,...,X_n\)</span> son v.a. independientes tales que <span class="math inline">\(X_i \sim Bernoulli(p)\)</span> , <span class="math inline">\(i =1,...,n\)</span> , entonces:</li>
+</ol>
+<p><span class="math display">\[X_1 + ... + X_n \sim Binomial (n, p)\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li><p><span class="math inline">\(E[X]=n\cdot p\)</span></p></li>
+<li><p><span class="math inline">\(Var(X) = n \cdot p \cdot (1-p)\)</span></p></li>
+<li><p>Para <span class="math inline">\(x\geq n\)</span></p></li>
+</ol>
+<p><span class="math display">\[F_X(x) = \sum_{z\in \lbrace 0,1,...,x\rbrace} \binom{n}{z} \cdot p^z \cdot (1-p)^{n-z}\]</span></p>
+</div>
+</div>
+<div id="distribucion-geométrica-de-fracasos" class="section level3" number="1.30.4">
+<h3><span class="header-section-number">1.30.4</span> Distribucion Geométrica (de fracasos)</h3>
+<p><span class="math display">\[X \sim GeoFrac(p) \Leftrightarrow P(X=x) = (1-p)^x\cdot p \cdot 1_{\lbrace x=0,1,2,...  \rbrace}\]</span></p>
+<p><strong>Observacioón:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Si <span class="math inline">\(X \sim GeoFrac(p)\)</span> , entonces:</li>
+</ol>
+<p><span class="math inline">\(X\)</span> puede interpretarse como el nº de fracasos obtenidos hasta el primer exito tras realizar multiples veces un experimento tipo Bernoulli (notese que este nº solo puede ser 0,1,2,…), con probabilidad de exito <span class="math inline">\(p\)</span></p>
+<div id="propiedades-13" class="section level4" number="1.30.4.1">
+<h4><span class="header-section-number">1.30.4.1</span> Propiedades</h4>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(E[X] = \dfrac{1-p}\)</span></p></li>
+<li><p><span class="math inline">\(Var(X) = \dfrac{1-p}{p^2}\)</span></p></li>
+</ol>
+</div>
+</div>
+<div id="distribucion-geométrica-de-intentos" class="section level3" number="1.30.5">
+<h3><span class="header-section-number">1.30.5</span> Distribucion Geométrica (de intentos)</h3>
+<p><span class="math display">\[X \sim GeoInt(p) \Leftrightarrow P(X=x) = (1-p)^{x-1}\cdot p \cdot 1_{\lbrace x=0,1,2,...  \rbrace}\]</span></p>
+<p><strong>Observación:</strong></p>
+<p><span class="math inline">\(X\)</span> se puede interpretar como el nº de intentos hasta la obtencion del primer exito tras realizar múltiples veces un experimento tipo Bernoulli (notese que este nº solo puede ser 0,1,2,…), con probabilidad de exito <span class="math inline">\(p\)</span></p>
+<div id="propiedades-14" class="section level4" number="1.30.5.1">
+<h4><span class="header-section-number">1.30.5.1</span> Propiedades</h4>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(E[X]= \dfrac{1}{p}\)</span></p></li>
+<li><p><span class="math inline">\(Var(X)= \dfrac{1-p}{p^2}\)</span></p></li>
+</ol>
+</div>
+</div>
+<div id="distribución-de-poisson" class="section level3" number="1.30.6">
+<h3><span class="header-section-number">1.30.6</span> Distribución de Poisson</h3>
+<p><span class="math display">\[X\sim Poisson(\lambda) \Leftrightarrow P(X=x) = e^{-\lambda} \cdot \dfrac{\lambda^x}{x!} \cdot 1_{\lbrace x=0,1,2,... \rbrace}\]</span></p>
+<p>Donde: <span class="math inline">\(\lambda &gt; 0\)</span></p>
+<div id="propiedad" class="section level4" number="1.30.6.1">
+<h4><span class="header-section-number">1.30.6.1</span> Propiedad</h4>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(E[X] = \lambda\)</span></p></li>
+<li><p><span class="math inline">\(Var[X] = \lambda\)</span></p></li>
+<li><p>Si <span class="math inline">\(X_i \sim Poisson(\lambda_i)\)</span> y son independientes , para <span class="math inline">\(i =1,...,n\)</span> , entonces:</p></li>
+</ol>
+<p><span class="math display">\[X_1 + ... + X_n \sim Poisson(\lambda_1 + ... + \lambda_n)\]</span></p>
+</div>
+</div>
+<div id="distribución-hipergeommetrica" class="section level3" number="1.30.7">
+<h3><span class="header-section-number">1.30.7</span> Distribución Hipergeommetrica</h3>
+<p><span class="math display">\[X \sim HiperGeo(N, k, n) \Leftrightarrow P(X=x) = \dfrac{\binom{k}{n} \cdot \binom{N-k}{n-x}}{\binom{N}{n}} \cdot 1_{\lbrace x=0,1,..,n \rbrace}\]</span></p>
+<p><strong>Observación:</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>Las v.a. hipergeometrica se usan para modelar experimentos aleatorios que consisten en extrar sin reemplazamiento una muestra de <span class="math inline">\(n\)</span> elementos de un conjunto con <span class="math inline">\(N\)</span> elementos, <span class="math inline">\(k\)</span> de una clase llamada clase-k y <span class="math inline">\(N-k\)</span> de otra clase.</p></li>
+<li><p>Si <span class="math inline">\(X \sim HiperGeo(N, k, n)\)</span> , entonces:</p></li>
+</ol>
+<p><span class="math inline">\(X\)</span> puede interpretarse como el nº de elementos de la clase-k extraidos del conjunto tras haber extraido una muestra de <span class="math inline">\(n\)</span> elementos.</p>
+<div id="propiedades-15" class="section level4" number="1.30.7.1">
+<h4><span class="header-section-number">1.30.7.1</span> Propiedades</h4>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(E[X] = n \dfrac{k}{N}\)</span></p></li>
+<li><p><span class="math inline">\(Var(X) = n\cdot \dfrac{k}{N} \cdot \dfrac{N-k}{N} \cdot \dfrac{N-n}{N-1}\)</span></p></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="distribuciones-de-probabilidad-continuas" class="section level2" number="1.31">
+<h2><span class="header-section-number">1.31</span> Distribuciones de probabilidad continuas</h2>
+<div id="distribución-uniforme-continua" class="section level3" number="1.31.1">
+<h3><span class="header-section-number">1.31.1</span> Distribución Uniforme Continua</h3>
+<p><span class="math display">\[X \sim U(a,b) \Leftrightarrow f_X(x) = \dfrac{1}{b-a} \cdot 1_{\lbrace x\in (a,b)  \rbrace}\]</span></p>
+<div id="propiedades-16" class="section level4" number="1.31.1.1">
+<h4><span class="header-section-number">1.31.1.1</span> Propiedades</h4>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(E[X] = \dfrac{1}{2} \cdot (a + b)\)</span></p></li>
+<li><p><span class="math inline">\(Var(X) = \dfrac{1}{12} \cdot (b-a)^2\)</span></p></li>
+<li><p><span class="math display">\[F_X(x) = P(X \geq x) = \int_{-\infty}^{x} f_X(z) \cdot dz = \left\lbrace\begin{array}{c} 1 , si x\geq b \\ 0 , si x \leq a \\ \dfrac{x-a}{b-a} , si x\in (a,b) \end{array}\right.\]</span></p></li>
+</ol>
+</div>
+</div>
+<div id="distribución-exponencial" class="section level3" number="1.31.2">
+<h3><span class="header-section-number">1.31.2</span> Distribución Exponencial</h3>
+<p><span class="math display">\[X \sim Exponencial(\lambda) \Leftrightarrow  f_X(x) = \lambda \cdot e^{-\lambda \cdot x} \cdot 1_{\lbrace x&gt;0 \rbrace}\]</span></p>
+<p>Donde: <span class="math inline">\(\lambda &gt; 0\)</span></p>
+<div id="propiedades-17" class="section level4" number="1.31.2.1">
+<h4><span class="header-section-number">1.31.2.1</span> Propiedades</h4>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(E[X] = \dfrac{1}{\lambda}\)</span></p></li>
+<li><p><span class="math inline">\(Var(X)= \dfrac{1}{\lambda^2}\)</span></p></li>
+<li><p><span class="math display">\[F_X(x)=  P(X \geq x) = \int_{-\infty}^{x} f_X(z) \cdot dz =\left\lbrace\begin{array}{c} 0 , si x \leq 0 \\ 1- e^{-\lambda \cdot x} , si x&gt;0 \end{array}\right.\]</span></p></li>
+</ol>
+</div>
+</div>
+<div id="funcion-gamma" class="section level3" number="1.31.3">
+<h3><span class="header-section-number">1.31.3</span> Funcion Gamma</h3>
+<p><span class="math inline">\(\Gamma es la función Gamma \Leftrightarrow \Gamma(\alpha) = \int_{0}^{\infty} x^{\alpha - 1} \cdot e^{-x} \cdot dx\)</span></p>
+<div id="propiedades-18" class="section level4" number="1.31.3.1">
+<h4><span class="header-section-number">1.31.3.1</span> Propiedades</h4>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\Gamma(1) = \Gamma(2) = 1\)</span></p></li>
+<li><p><span class="math inline">\(\Gamma(\alpha + 1) = \alpha \cdot \Gamma(\alpha)\)</span></p></li>
+<li><p><span class="math inline">\(\Gamma(\alpha + 1) = \alpha !\)</span> , si <span class="math inline">\(\alpha \in \mathbb{N}\)</span></p></li>
+<li><p><span class="math inline">\(\Gamma(\alpha) = (\alpha -1)!\)</span> , si <span class="math inline">\(\alpha \in \mathbb{N}\)</span></p></li>
+<li><p><span class="math inline">\(\Gamma(1/2) = \sqrt{\pi}\)</span></p></li>
+</ol>
+</div>
+</div>
+<div id="distribucion-gamma" class="section level3" number="1.31.4">
+<h3><span class="header-section-number">1.31.4</span> Distribucion Gamma</h3>
+</div>
+<div id="distribucion-normal" class="section level3" number="1.31.5">
+<h3><span class="header-section-number">1.31.5</span> Distribucion Normal</h3>
+</div>
+<div id="funcion-beta" class="section level3" number="1.31.6">
+<h3><span class="header-section-number">1.31.6</span> Funcion Beta</h3>
+</div>
+<div id="distribucion-beta" class="section level3" number="1.31.7">
+<h3><span class="header-section-number">1.31.7</span> Distribucion Beta</h3>
+</div>
+<div id="distribucion-weibull" class="section level3" number="1.31.8">
+<h3><span class="header-section-number">1.31.8</span> Distribucion Weibull</h3>
+</div>
+<div id="distribucion-chi-cuadrado" class="section level3" number="1.31.9">
+<h3><span class="header-section-number">1.31.9</span> Distribucion Chi-cuadrado</h3>
+</div>
+<div id="distribucion-t-student" class="section level3" number="1.31.10">
+<h3><span class="header-section-number">1.31.10</span> Distribucion t-student</h3>
+</div>
+<div id="distribucion-f-fisher" class="section level3" number="1.31.11">
+<h3><span class="header-section-number">1.31.11</span> Distribucion F-Fisher</h3>
+</div>
+</div>
+<div id="vectores-aleatorios" class="section level2" number="1.32">
+<h2><span class="header-section-number">1.32</span> Vectores aleatorios</h2>
+</div>
+<div id="probabilidad-conjunta-de-variables-aleatorias" class="section level2" number="1.33">
+<h2><span class="header-section-number">1.33</span> Probabilidad conjunta de variables aleatorias</h2>
+</div>
+<div id="probabilidad-condicionada-de-variables-aleatorias" class="section level2" number="1.34">
+<h2><span class="header-section-number">1.34</span> Probabilidad condicionada de variables aleatorias</h2>
+</div>
+<div id="independencia-de-variables-aleatorias" class="section level2" number="1.35">
+<h2><span class="header-section-number">1.35</span> Independencia de variables aleatorias</h2>
+</div>
+<div id="teorema-de-bayes-para-variables-aleatorias" class="section level2" number="1.36">
+<h2><span class="header-section-number">1.36</span> Teorema de Bayes para variables aleatorias</h2>
+</div>
+<div id="section" class="section level2" number="1.37">
+<h2><span class="header-section-number">1.37</span> </h2>
 </div>
 </div>
 <div id="bibliografia" class="section level1" number="2">

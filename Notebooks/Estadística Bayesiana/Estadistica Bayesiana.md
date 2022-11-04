@@ -707,14 +707,323 @@ $$Var(X) = E\left[ (X - E[X])^2 \right]$$
  
 ### Propiedades 
  
+1) Var(X) \geq 0
+
+2) Var(a) = 0
+
+3) Var(b\cdot X) = b^2 \cdot Var(X)
+
+4) Var(a + b\cdot X) = b^2 \cdot Var(X)
+
+
+
+
+
+## Distribuciones de probabilidad discretas
+
+
+### Distribución Uniforme discreta
+
+
+$$X \sim Unif(x_1,....,x_n) \Leftrightarrow P(X=x) = \dfrac{1}{n}\cdot 1_{\lbrace x\in \lbrace x_1,...,x_n \rbrace \rbrace}$$
+
+
+#### Propiedades 
+
+
+1) $E[X] = \dfrac{1}{n} \sum_{i=1}{n} x_i = media(x_1,...,x_n)$
+ 
+2) $Var(X) = \dfrac{1}{n} \sum_{i=1}{n} (x_i - E[X])^2 = varianza(x_1,...,x_n)$
+ 
+3) Sea $(x_{(1)},...,x_{(n)})$ el vector $(x_1,...,x_n)$ ordenado de menor a mayor:
+
+$$F_X(x) = \left\lbrace\begin{array}{c} 1 , si x>x_{(n)} \\ 0 , si x < x_{(1)} \\ \dfrac{i}{n} , si x=x_{(i)} \end{array}\right.$$
  
  
+
+### Distribución de Bernoulli
+
+$$X \sim Bernoulli(p) \Leftrightarrow P(X=x) =p^x (1-p)^x \cdot 1_{\lbrace x=0,1 \rbrace \rbrace}$$
+
+
+**Observaciones:**
+
+1) Las v.a. Bernoulli(p) se usan para modelar experimentos aleatorios con dos únicos resultados contrarios (exito-fracaso)
+ tales que la probabilidad del exito es p y la del fracoso 1-p.
  
+ A este tipo de experimentos aleatorios se les llama experimentos tipo Bernoulli.
  
- 
- 
- 
- 
+2) Si $X \sim Bernoulli(p)$ , entonces:
+
+$X$ puede interpretarse como el nº de exitos obtenidos tras realizar una vez un experimento tipo Bernoulli (notese que este nº solo puede ser 0 o 1),  con probabilidad de exito $p$
+
+
+
+
+#### Propiedades
+
+1) $P(X=1)=p$
+
+2) $P(X=0)=1-p$
+
+3) $E[X]=p$
+
+4) $Var(X)= p\cdot (1-p)$
+
+5) $$F_X(x) = \left\lbrace\begin{array}{c} 1 , si x\geq 1 \\ 0 , si x < 0 \\ 1-p , si x\in [0 , 1) \end{array}\right.$$
+
+
+
+
+
+### Distribución Binomial
+
+
+$$X \sim Binomial(n,p) \Leftrightarrow P(X=x) =\binom{n}{x} \cdot p^x (1-p)^x \cdot 1_{\lbrace x= 0,1,...,n \rbrace \rbrace}$$
+
+
+**Observación:**
+
+
+1) Si $X \sim Binomial(p)$ , entonces:
+
+$X$ puede interpretarse como el nº de exitos obtenidos tras realizar $n$ veces un experimento tipo Bernoulli (notese que este nº solo puede ser 0,1,...,n),  con probabilidad de exito $p$
+
+
+#### Propiedades 
+
+1) Si $X_1,...,X_n$ son v.a. independientes tales que $X_i \sim Bernoulli(p)$ , $i =1,...,n$ , entonces:
+
+$$X_1 + ... + X_n \sim Binomial (n, p)$$
+
+
+
+2) $E[X]=n\cdot p$
+
+
+3) $Var(X) = n \cdot p \cdot (1-p)$
+
+
+4) Para $x\geq n$ 
+
+$$F_X(x) = \sum_{z\in \lbrace 0,1,...,x\rbrace} \binom{n}{z} \cdot p^z \cdot (1-p)^{n-z}$$
+
+
+
+
+### Distribucion Geométrica (de fracasos)
+
+
+$$X \sim GeoFrac(p) \Leftrightarrow P(X=x) = (1-p)^x\cdot p \cdot 1_{\lbrace x=0,1,2,...  \rbrace}$$
+
+**Observacioón:**
+
+1) Si $X \sim GeoFrac(p)$ , entonces:
+
+$X$ puede interpretarse como el nº de  fracasos obtenidos hasta el primer exito tras realizar multiples veces un experimento tipo Bernoulli (notese que este nº solo puede ser 0,1,2,...), con probabilidad de exito $p$
+
+
+#### Propiedades
+
+1) $E[X] = \dfrac{1-p}$
+
+2) $Var(X) = \dfrac{1-p}{p^2}$
+
+
+### Distribucion Geométrica (de intentos)
+
+
+$$X \sim GeoInt(p) \Leftrightarrow P(X=x) = (1-p)^{x-1}\cdot p \cdot 1_{\lbrace x=0,1,2,...  \rbrace}$$
+
+
+**Observación:**
+
+$X$ se puede interpretar como el nº de intentos hasta la obtencion del primer exito tras realizar múltiples veces un experimento tipo Bernoulli (notese que este nº solo puede ser 0,1,2,...), con probabilidad de exito $p$
+
+
+
+#### Propiedades
+
+1) $E[X]= \dfrac{1}{p}$
+
+2) $Var(X)= \dfrac{1-p}{p^2}$
+
+
+
+
+### Distribución de Poisson
+
+
+$$X\sim Poisson(\lambda) \Leftrightarrow P(X=x) = e^{-\lambda} \cdot \dfrac{\lambda^x}{x!} \cdot 1_{\lbrace x=0,1,2,... \rbrace}$$
+
+
+Donde:  $\lambda > 0$
+
+#### Propiedad
+
+1) $E[X] = \lambda$
+
+2) $Var[X] = \lambda$
+
+3) Si $X_i \sim Poisson(\lambda_i)$  y son independientes , para $i =1,...,n$ , entonces:
+
+$$X_1 + ... + X_n \sim Poisson(\lambda_1 + ... + \lambda_n)$$
+
+
+### Distribución Hipergeommetrica
+
+
+$$X \sim HiperGeo(N, k, n) \Leftrightarrow P(X=x) = \dfrac{\binom{k}{n} \cdot \binom{N-k}{n-x}}{\binom{N}{n}} \cdot 1_{\lbrace x=0,1,..,n \rbrace}$$
+
+**Observación:**
+
+1) Las v.a. hipergeometrica se usan para modelar experimentos aleatorios que consisten en extrar sin reemplazamiento una muestra de $n$ elementos de un conjunto con $N$ elementos, $k$ de una clase llamada clase-k y $N-k$ de otra clase.
+
+2) Si  $X \sim HiperGeo(N, k, n)$ , entonces:
+
+$X$ puede interpretarse como el nº de elementos de la clase-k extraidos del conjunto tras haber extraido una muestra de $n$ elementos.
+
+
+#### Propiedades
+
+1) $E[X] = n \dfrac{k}{N}$
+
+2) $Var(X) = n\cdot \dfrac{k}{N} \cdot \dfrac{N-k}{N} \cdot \dfrac{N-n}{N-1}$
+
+
+
+
+## Distribuciones de probabilidad continuas
+
+
+
+### Distribución Uniforme Continua
+
+$$X \sim U(a,b) \Leftrightarrow f_X(x) = \dfrac{1}{b-a} \cdot 1_{\lbrace x\in (a,b)  \rbrace}$$
+
+
+
+#### Propiedades
+
+1) $E[X] = \dfrac{1}{2} \cdot (a + b)$
+
+2) $Var(X) = \dfrac{1}{12} \cdot (b-a)^2$
+
+3) $$F_X(x) = P(X \geq x) = \int_{-\infty}^{x} f_X(z) \cdot dz = \left\lbrace\begin{array}{c} 1 , si x\geq b \\ 0 , si x \leq a \\ \dfrac{x-a}{b-a} , si x\in (a,b) \end{array}\right.$$
+
+
+
+
+### Distribución Exponencial
+
+
+$$X \sim Exponencial(\lambda) \Leftrightarrow  f_X(x) = \lambda \cdot e^{-\lambda \cdot x} \cdot 1_{\lbrace x>0 \rbrace}$$
+
+Donde: $\lambda > 0$
+
+#### Propiedades
+
+1) $E[X] = \dfrac{1}{\lambda}$
+
+2) $Var(X)= \dfrac{1}{\lambda^2}$
+
+3) $$F_X(x)=  P(X \geq x) = \int_{-\infty}^{x} f_X(z) \cdot dz =\left\lbrace\begin{array}{c} 0 , si x \leq 0 \\ 1- e^{-\lambda \cdot x} , si x>0 \end{array}\right.$$
+
+
+### Funcion Gamma
+
+$\Gamma$ es la función Gamma $\Leftrightarrow \Gamma(\alpha) = \int_{0}^{\infty} x^{\alpha - 1} \cdot e^{-x} \cdot dx$
+
+Donde: $\alpha >0$
+
+#### Propiedades
+
+1) $\Gamma(1) = \Gamma(2) = 1$
+
+2) $\Gamma(\alpha + 1) = \alpha \cdot \Gamma(\alpha)$
+
+3) $\Gamma(\alpha + 1) = \alpha !$ , si $\alpha \in \mathbb{N}$
+
+4) $\Gamma(\alpha) = (\alpha -1)!$ , si $\alpha \in \mathbb{N}$
+
+5) $\Gamma(1/2) = \sqrt{\pi}$
+
+
+
+### Distribucion Gamma
+
+$$X\sim Gamma(\alpha , \lambda ) \Leftrightarrow f_X(x) = \dfrac{\lambda^\alpha}{\Gamma(\alpha )} \cdot x^{\alpha -1} \cdot e^{-\lambda \cdot x} \cdot 1_{\lbrace x>0  \rbrace}$$
+
+Donde: $\alpha, \lambda > 0$
+
+
+#### Propiedades
+
+1) Si $\alpha \in \mathbb{N}$ , entonces:
+
+
+$$f_X(x) = \dfrac{\lambda^\alpha}{(\alpha -1)!} \cdot x^{\alpha -1} \cdot e^{-\lambda \cdot x} \cdot 1_{\lbrace x>0  \rbrace}$$
+
+2) Si $\alpha = 1$ , entonces:
+
+$$f_X(x)= \lambda \cdot e^{-\lambda \cdot x} \cdot 1_{\lbrace x>0  \rbrace}$$
+
+Por tanto:
+
+$$Gamma(\alpha = 1 , \lambda) = Exponencial(\lambda)$$
+
+
+
+3) $E[X]= \dfrac{\alpha}{\lambda}$
+
+4) $Var(X)=\dfrac{\alpha}{\lambda^2}$
+
+5) $$F_X(x) = $$
+
+6) Si X_1,...,Xn \sim Exponencial(\lambda) y son independientes, entonces:
+
+### Distribucion Normal
+
+
+### Funcion Beta
+
+
+### Distribucion Beta
+
+
+### Distribucion Weibull
+
+
+### Distribucion Chi-cuadrado
+
+
+### Distribucion t-student
+
+
+### Distribucion F-Fisher
+
+
+## Vectores aleatorios
+
+
+## Probabilidad conjunta de variables aleatorias
+
+
+## Probabilidad condicionada de variables aleatorias
+
+## Independencia de variables aleatorias
+
+## Teorema de Bayes para variables aleatorias
+
+## 
+
+
+
+
+
+
+
+
 
 # Bibliografia
 
