@@ -674,13 +674,25 @@ $$E[X] = \int_{-\infty}^{\infty} x \cdot f_X(x) \cdot dx$$
 
 ### Propiedades
 
-1) E[a]=a
+1) $E[a]=a$
 
-2) E[b\cdot X] = b \cdot E[X]
+2) $E[b\cdot X] = b \cdot E[X]$
 
-3) E[a + b\cdot X] = a + b \cdot E[X]
+3) $E[a + b\cdot X] = a + b \cdot E[X]$
 
-4) Formulas de transferencia:
+4) $E[X_1 + X_2 + ...+ X_n]= E[X_1]+E[X_2] + ... + E[X_n]$
+
+5) $E[g_1(X_1) + ... + g_n(X_n)]=E[g_1(X_1)]+...+E[g_n(X_n)]$
+
+6) Si $X_1,...,X_n$ son independientes, entonces:
+
+$E[X_1 \cdot X_2 \cdot ...\cdot X_n]= E[X_1]\cdot E[X_2] \cdot ... \cdot E[X_n]$
+
+7) Si $X_1,...,X_n$ son independientes, entonces:
+
+$E[g_1(X_1) \cdot ... \cdot g_n(X_n)]=E[g_1(X_1)]\cdot ...\cdot E[g_n(X_n)]$
+
+8) Formulas de transferencia:
 
 Si $X$ es **discreta** :
 
@@ -707,13 +719,47 @@ $$Var(X) = E\left[ (X - E[X])^2 \right]$$
  
 ### Propiedades 
  
-1) Var(X) \geq 0
+1) $Var(X) \geq 0$
 
-2) Var(a) = 0
+2) $Var(a) = 0$
 
-3) Var(b\cdot X) = b^2 \cdot Var(X)
+3) $Var(b\cdot X) = b^2 \cdot Var(X)$
 
-4) Var(a + b\cdot X) = b^2 \cdot Var(X)
+4) $Var(a + b\cdot X) = b^2 \cdot Var(X)$
+
+5) $Var(X)=E[X^2] - E[X]^2$
+
+6) $Var(g_1(X)+g_2(Y)) = Var(g_1(X)) + Var(g_2(Y)) + 2\cdot Cov(g_1(X),g_2(Y))$
+
+7) $Var(a\cdot X + b\cdot Y) = a^2 \cdot Var(X) + b^2 \cdot Var(Y) + 2\cdot Cov(X,Y)$
+
+8) Si $X$ e $Y$ son independientes, entonces:
+
+$Var(a\cdot X , b\cdot Y) = a^2\cdot Var(X) + b^2 \cdot Var(Y)$ 
+
+
+
+## Covarianza 
+
+$$Cov(X,Y) = E[ (X- E[X])\cdot (Y-E[Y])]$$
+
+### Propiedades 
+
+1) $Cov(X,Y) = E[X\cdot Y] - E[X]\cdot E[Y]$
+
+2) Si $X$ e $Y$ son independientes $\Rightarrow$ $Cov(X,Y)=0$
+
+3) Si $Cov(X,Y) \neq 0$ $\Rightarrow$ $X$ e $Y$ son independientes
+
+4) Si $Cov(X,Y)=0$ $\Rightarrow$ 
+
+
+
+
+
+
+
+
 
 
 
@@ -1083,32 +1129,921 @@ Donde: $\alpha , \lambda >0$
 
 ### Distribucion Chi-cuadrado
 
+$$X \sim \chi_n ^2 \Leftrightarrow f_X(x) = \dfrac{1}{\Gamma(n/2)} \cdot \dfrac{1}{2}^{n/2} \cdot x ^{n/2 -1} \cdot e^{-x/2}$$
+
+
+#### Propiedades
+
+1) $E[\chi_n ^2]= n$
+
+2) $Var(\chi_n ^2)= 2n$
+
+3) $\chi_n ^2 + \chi_m ^2 = \chi_{n+m} ^2$
+
+4) $\chi_n ^2 - \chi_m ^2 = \chi_{n-m} ^2$
+
+5) $\chi_n ^2 = Gamma( \alpha= n/2 , \lambda=1/2)$
+
+6) Si $X_1 ,..., X_n \sim N(0,1)$ y son independientes , entonces:
+
+$$X_1^2 + ... + X_n^2 \sim \chi_n^2$$
+
 
 ### Distribucion t-student
+
+$$X\sim t_n \Leftrightarrow f_X(x) = \dfrac{\Gamma(\dfrac{n+1}{2})}{\sqrt{n\cdot \pi} \cdot \Gamma(n/2)} \cdot (1 + \dfrac{x^2}{n})^{-1/2 \cdot (n+1)} \cdot 1_{\lbrace x\in \mathbb{R} \rbrace}$$
+
+#### Propiedades 
+
+1) $E[X] = 0$
+
+2) $Var[X] = \dfrac{n}{n-2}$ , si $n>2$
+
+3) Si $Z \sim N(0,1)$ y $X\sim \chi_n^2$ y son independientes , entonces:
+
+$$\dfrac{Z}{\sqrt{X/n}} \sim t_n$$
+
+
+
 
 
 ### Distribucion F-Fisher
 
-
-## Vectores aleatorios
-
-
-## Probabilidad conjunta de variables aleatorias
+$$X\sim F(a,b) \Leftrightarrow f_X(x) = \dfrac{\Gamma(\dfrac{a+b}{2})}{\Gamma(a/2)\cdot \Gamma(b/2)} \cdot (a/b)^{a/2} \cdot x^{a/2-1} \cdot (1 + (a/b)\cdot x)^{-(a+b)/2} \cdot 1_{\lbrace x>0  \rbrace}$$
 
 
-## Probabilidad condicionada de variables aleatorias
+#### Propiedades
 
-## Independencia de variables aleatorias
+1) $E[X] = \dfrac{b}{b-2}$
 
-## Teorema de Bayes para variables aleatorias
+2) $Var(X) = \dfrac{2b^2 \cdot (a + b - 2)}{a \cdot (b-2)^2 \cdot (b-4)}$ , si $b>4$
 
-## 
+3) Si $X \sim \chi^2_a$ y $Y \sim \chi^2_b$ , entonces:
+
+$$\dfrac{X/a}{Y/b} \sim F(a,b)$$
 
 
 
 
 
+## Probabilidad conjunta de variables aleatorias discretas
 
+
+
+$$P(X=x , Y=y) = P(X= x \cap Y=y)$$
+
+### Propiedades
+
+
+1) $\sum_{x\in \mathbb{R}}\sum_{y\in \mathbb{R}} P(X=x , Y=y) = 1$
+
+2) Si $x\notin Im(X)$ o $y \notin Im(Y)$ , entonces:
+
+$$P(X=x , Y=y) = 0$$
+
+3) $P(X\in A , Y\in B) = \sum_{x\in A} \sum_{y\in B} P(X=x , Y=y)$
+
+4) $P(X\in A , Y=y) = \sum_{x\in A} P(X=x , Y=y)$
+
+5) $P(X=x) = \sum_{y\in \mathbb{R}} P(X=x , Y=y)$
+
+6) $P(Y=y) = \sum_{x\in \mathbb{R}} P(X=x , Y=y)$
+
+
+
+
+## Densidad conjunta de variables aleatorias continuas
+
+$$f_{X,Y}$$ es la funcion de densidad conjunta de las v.a. $X$ y $Y$ $\Leftrightarrow$
+
+
+1) $f_{X,Y} : \mathbb{R}^2 \rightarrow (0 , \infty)$
+
+2) $$P( X \in A , Y \in B) = \int_{x\in A} \int_{y\in B} f_{X,Y}(x,y) \cdot dy \cdot dx$$
+
+
+3) $$\int_{x\in \mathbb{R}} \int_{y\in \mathbb{R}}   f_{X,Y}(x,y) \cdot dy \cdot dx = 1$$
+
+
+### Propiedades
+
+1) $P(X\in A , Y=y) = \int_{x\in A} f_{X,Y}(x , y)\cdot dx$
+
+2) $P(X=x , Y\in B) = \int_{y\in B} f_{X,Y}(x , y) \cdot dy$
+
+3) $f_X(x) = \int_{y\in \mathbb{R}} f_{X,Y}(x , y) \cdot dy$
+
+4) $f_Y(y) = \int_{x\in \mathbb{R}} f_{X,Y}(x , y) \cdot dx$
+
+
+## Probabilidad condicionada de variables aleatorias discretas
+
+$$P(X=x | Y=y) = \dfrac{P(X=x , Y=y)}{P(Y=y)}$$
+
+### Propiedades
+
+1) $P(X\in A | Y=y) = \sum_{x\in A} P(X=x | Y=y)$
+
+
+## Densidad condicionada de variables aleatorias continuas
+
+$$f_{X|Y}(x,y) = \dfrac{f_{X,Y}(x,y)}{f_Y(y)}$$
+
+### Propiedades
+
+1) Si $Y$ es una v.a. continua , entonces:
+
+$P(Y=y) = 0$ , para todo $y\in \mathbb{R}$
+
+Por lo que $P(X\in A | Y=y)$ no está definido, ya que:
+
+$P(X\in A | Y=y) = \dfrac{P(X=x , Y=y)}{P(Y=y)} = \dfrac{P(X=x , Y=y)}{ 0}$
+
+
+2) Teniendo en consideración el problema anterior, se esquiva del siguiente modo:
+
+Sea $\delta \rightarrow 0^+$
+
+$$P(X\in A | Y \in [y , y+ \delta]) = \dfrac{P(X\in A , Y\in [y , y+ \delta])}{P(Y\in [y , y+ \delta])}$$
+
+
+Donde ahora $P(Y\in [y , y+ \delta]) > 0$ 
+
+
+3) 
+
+$$P(X\in A | Y \in [y , y+ \delta]) = \int_{x\in A} \int_{y \in [y , y+ \delta]} f_{X|Y}(x,y) = \int_{x\in A} \int_{y \in [y , y+ \delta]} \dfrac{f_{X,Y}(x,y)}{f_Y(y)} \approx \int_{x\in A}   f_{X|Y}(x,y) = \int_{x\in A}   \dfrac{f_{X,Y}(x,y)}{f_Y(y)} = \dfrac{1}{f_Y(y)} \cdot \int_{x\in A}   f_{X,Y}(x,y)$$
+
+
+En resumen:
+
+
+$$P(X\in A | Y \in [y , y+ \delta]) \approx \int_{x\in A}   f_{X|Y}(x,y)$$
+
+
+
+## Independencia de variables aleatorias discretas
+
+$X$ e $Y$ son v.a. independientes  $(X \perp Y)$ $\Leftrightarrow$ $P(X=x , Y=y) = P(X=x)\cdot P(Y=y) , \for x,y \in \mathbb{R}$
+
+
+### Teorema de Factorización para v.a. discretas
+
+
+Sean $X$ e $Y$ v.a. discretas, 
+
+Si $\exist g,h: \mathbb{R} \rightarrow \mathbb{R}$  , tal que:
+
+$P(X=x, Y=y) = g(x)\cdot h(y) , \forall x,y \in \mathbb{R}$
+
+entonces:
+
+$X$ e $Y$ son independientes  $(X \perp Y)$
+
+
+
+
+
+
+
+
+## Independencia de variables aleatorias continuas
+
+
+$X$ e $Y$ son v.a. independientes  $(X \perp Y)$ $\Leftrightarrow$ $P(X=x , Y=y) = P(X=x)\cdot P(Y=y) , \for x,y \in \mathbb{R}$  $\Leftrightarrow$
+
+$P(X\in A , Y\in B) = P(X\in A)\cdot P(Y\in B) , \for A,B \subset \mathbb{R}$
+
+
+$\Leftrightarrow$
+
+$\for A,B \subset \mathbb{R} , \int_{x\in A} \int_{y \in B} f_{X,Y}(x,y) \cdot dy \cdot dx = \int_{x\in A}  f_{X}(x)  \cdot dx \int_{y \in B} f_{Y}(y) \cdot dy$
+
+
+
+### Teorema de Factorización para v.a. continuas  
+
+Sean $X$ e $Y$ v.a. continuas,  
+
+$X$ e $Y$ son v.a. independientes $(X \perp Y)$ $\Leftrightarrow$  $f_{X,Y}(x,y) = f_X(x) \cdot f_Y(y) , \forall x,y \in \mathbb{R}$
+
+
+#### Colorario
+
+Si $\exist g,h: \mathbb{R} \rightarrow \mathbb{R}$  , tal que:
+
+$f_{X,Y}(x,y) = g(x)\cdot h(y) , \forall x,y \in \mathbb{R}$
+
+entonces:
+
+$X$ e $Y$ son independientes
+
+
+
+
+## Independencia (dos a dos) de múltiples v.a. 
+
+
+
+$X_1,...,X_n$ son independientes (dos a dos) $Leftrightarrow$ $X_i \perp X_j , \forall i\neq j = 1,...,n$
+
+
+
+
+## Teorema de Bayes para variables aleatorias 
+
+- Si $X$ e $Y$ son discretas:
+
+
+$$P(X=x | Y=y) = \dfrac{P(Y=y | X=x) \cdot P(X=x)}{P(Y=y)}$$
+
+
+- Si $X$ e $Y$ son continuas:
+
+$$f_{X|Y}(x,y) =  = \dfrac{f{Y|X}(x, y) \cdot f_X(x)}{f_Y(y)}$$
+
+
+## Formula de transferencia para funciones de varias v.a.
+
+Sea $g: \mathbb{R}^2 \rightarrow \mathbb{R}$
+
+- Si $X$ e $Y$ son discretas:
+
+
+$$E[g(X,Y)] = \sum_{x\in \mathbb{R}} \sum_{y\in \mathbb{R}} g(x,y) \cdot P(X=x , Y=y)$$
+
+
+- Si $X$ e $Y$ son continuas:
+
+$$E[g(X,Y)] = \int_{x\in \mathbb{R}} \int_{y\in \mathbb{R}} g(x,y) \cdot f_{X,Y}(x , y) \dcor dy \cdot dx$$
+
+
+
+## Esperanza Condicionada
+
+Si $X$ es v.a. discreta :
+
+$$E[X | Y=y] = \sum_{x\in \mathbb{R}} x \cdot P(X=x | Y=y)$$
+
+Si $Y$ es v.a. continua :
+
+$$E[ X | Y=y] = \int_{x\in \mathbb{R}} x \cdot P(X=x | Y=y) \cdot dx$$
+
+
+## Esperanza total 
+
+Si $Y$ es una v.a. discreta:
+
+$$E[X] = \sum_{y\in \mathbb{R} } E[X / Y=y] \cdot P(Y=y)$$
+
+
+Si $Y$ es v.a. continua :
+
+$$E[X] = \int_{y\in \mathbb{R} } E[X / Y=y] \cdot f_Y(y) \cdot dy$$
+
+
+
+
+
+# Terorema de la probabilidad total con variables aleatorias
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+-------
+
+<br>
+
+# Inferencia Frecuentista
+
+
+## Estimación Puntual
+
+Dada una variable de interés $X$ , el objetivo de la estimación puntual es estimar un parametro $\theta$ de la distribución de $X$ como por ejemplo la media, varianza o mediana, usando para ello una muestra de observaciones de $X$.
+
+
+Se va a asumir de ahora en adelante que $X$ es una v.a. tal que $X\sim D(\theta)$
+
+
+
+## Variables aleatorias i.i.d.
+
+$X_1,...,X_n$ son variables aleatorias independientes (dos a dos) e identicamente distribuidas  (i.i.d.) $\Leftrightarrow$
+
+1) $X_1,...,X_n$ son independientes (dos a dos)
+
+2) $X_1,...,X_n$ tienen la misma distribucion de probabilidad, es decir, $X_i \sim D(\theta), \forall i=1,...,n$ 
+
+Donde $D(\cdot)$ es una distribucion de probabilidad con parametros no especificados.
+
+
+
+
+Seguiremos la siguiente notación:
+
+
+$(X_1,...,X_n) \underset{i.i.d.}{\sim} D(\cdot) \Leftrightarrow$
+
+1) $X_1,...,X_n$ son independientes (dos a dos)
+
+2) $X_i \sim D(\cdot), \forall i=1,...,n$ 
+
+
+
+
+
+## Muestra Aleatoria Simple
+
+Sea $X$ una v.a. tal que $X \sim D(\cdot)$ 
+
+
+$(X_1,...,X_n)$ es una muestra aleatoria simple (m.a.s.) de tamaño $n$ de $X$ $\Leftrightarrow$ $(X_1,...,X_n) \underset{i.i.d.}{\sim} D(\cdot)$
+
+**Observación:**
+
+Una m.a.s. de una v.a. es un vector de v.a.'s
+
+
+## Muestra de Observaciones
+
+
+Sea $X$ una v.a. tal que $X \sim D(\cdot)$ 
+
+
+$(x_1,...,x_n)$ es una muestra de $n$ observaciones de $X$ $\Leftrightarrow$ $x_i \in Im(X) , forall i=1,...,n$ $\Leftrightarrow$ $x_i$ es una realizacion de la v.a. $X$  , $forall i=1,...,n$
+
+
+**Observación:**
+
+1) Una muestra de observaciones de una v.a. es un vector de números, no son v.a.'s.
+
+2) Si $(x_1,...,x_n)$ es una muestra de $n$ observaciones de $X\sim D(\cdot)$ , entonces $x_i$ es una observacion que ha sido generada por la distribución de probabilidad $D(\cdot)$, es decir, $x_i$ puede verse como un numero aleatorio generado en base a la distribución de probabilidad $D(\cdot)$
+
+3) Si $(x_1,...,x_n)$ es una muestra de $n$ observaciones de $X\sim D(\cdot)$ , entonces:
+
+
+$P(X= x_i)$ es la probabilidad de  observar $x_i$ al extraer una muestra de observaciones de $X$
+
+
+4) Si $(X_1,...,X_n)$ es una muestra aleatoria simple (m.a.s.) de tamaño $n$ de $X\sim D(\cdot)$ , entonces:
+
+$P(X_1 = x_1 , ..., X_n=x_n)$ es la probabilidad de obtener como valores $(x_1,...,x_n)$ al extraer una muestra de observaciones de $X$
+
+
+
+
+
+## Estadístico
+
+Sea $X$ una v.a. tal que $X \sim D(\theta)$ ,
+
+Sea $(X_1,...,X_n)$ una m.a.s. de $X$
+
+Un estadistico es una funcion $T$ de una m.a.s. que no depende del parametro $\theta$
+
+
+Por tanto:
+
+$T(X_1,...,X_n)$ es un estadistico
+
+
+**Observación:**
+
+1) $T(X_1,...,X_n)$ es una v.a. al ser una función de v.a.'s
+
+2) Dada una muestra de observaciones $(x_1 ,..., x_n)$ de  la v.a. $X \sim D(\theta)$ 
+
+$T(x_1,...,x_n)$ es una observación de la v.a. $T(X_1,...,X_n)$
+
+
+3) Dadas $B$ muestras de observaciones $(x_1^1 , ..., x_n^1) ,...,(x_1^B,...,x_n^B)$ de la v.a. $X \sim D(\theta)$ 
+
+$T(x_1^1 , ..., x_n^1) ,..., T(x_1^B,...,x_n^B)$ es una muestra de observaciones de la v.a. $T(X_1,...,X_n)$
+
+
+### Ejemplos de estadisticos
+
+
+Sea $X$ una v.a. tal que $X \sim D(\theta)$ , y sea $(X_1,...,X_n)$ una m.a.s. de $X$
+
+
+**Media muestral**
+
+$$T(X_1,...,X_n) = \overline{X} = \dfrac{1}{n} \sum_{i=1}^n X_i$$
+
+
+**Varianza muestral**
+
+$$T(X_1,...,X_n) = S^2 = \dfrac{1}{n} \sum_{i=1}^n (X_i - \overline{X})^2$$
+
+
+**Cuasi-Varianza muestral**
+
+$$T(X_1,...,X_n) = S^2 = \dfrac{1}{n-1} \sum_{i=1}^n (X_i - \overline{X})^2$$
+
+
+
+
+
+
+
+## Estimador Puntual
+
+Dada una v.a. $X\sim D(\theta)$ y una m.a.s. $(X_1,...,X_n)$ de $X$, 
+
+Un estimador puntual para el parametro $\theta$ es un estadistico $\widehat{\theta}(X_1,...,X_n)$ que se propone para estimar $\theta$
+
+## Estimación Puntual
+
+Dada una v.a. $X\sim D(\theta)$ , una m.a.s. $(X_1,...,X_n)$ de $X$ y un estadistico $\widehat{\theta}(X_1,...,X_n)$
+
+Si  $(x_1,...,x_n)$ es una muestra de observaciones  de $X$ , entonces:
+
+$\widehat{\theta}(x_1,...,x_n)$ es una estimación puntual del parametro $\theta$
+
+
+
+**Observaciones:**
+
+Un estimador puntual es una v.a. y una estimación puntual un número.
+
+
+
+## Métodos de estimación puntual: método de los momentos
+
+### Momentos de una v.a.
+
+Momento de orden $k$ de la v.a. $X$  es $E[X^k]$
+
+
+### Momento muestral
+
+Momento de orden $k$ de la m.a.s. $(X_1,...,X_n)$ de la v.a. $X$ es $\dfrac{1}{n} \cdot \sum_{i=1}^n X_i^k$
+
+
+
+### Método de los Momentos 
+
+Dada una v.a. $X\sim D(\theta_1,...,\theta_h)$ y una m.a.s. $(X_1,...,X_n)$ de $X$, 
+
+Se quieren estimar los parametros $\theta_1,...,\theta_h$ 
+
+El método de los momentos consiste en resolver en $\theta_1,...,\theta_h$ el siguiente sistema de ecuaciones:
+
+
+$E[X] = \dfrac{1}{n} \cdot \sum_{i=1}^n X_i$
+
+$E[X^2] = \dfrac{1}{n} \cdot \sum_{i=1}^n X_i^2$
+
+$...$
+
+$E[X^h] = \dfrac{1}{n} \cdot \sum_{i=1}^n X_i^h$
+
+
+
+Si solución del sistema en $(\theta_1,...,\theta_h)$ es el vector de estadisticos $(T_1(X_1,...,X_n),...,T_h(X_1,...,X_n)$ , entonces se toma:
+
+$(\widehat{\theta}_1,...,\widehat{\theta}_h) = (T_1(X_1,...,X_n),...,T_h(X_1,...,X_n)$
+
+
+
+
+**Observación:**
+
+Los momentos $E[X], E[X^2],..., E[X^h]$ depende generalmente de los parametros a estimar $\widehat{\theta}_1,...,\widehat{\theta}_h$
+
+
+
+#### Ejemplo: v.a. Normal
+
+Sea $X \sim N(\mu , \sigma^2)$ ,
+
+Calcularemos estimadores de los parametros $(\mu , \sigma^2)$ usando el métodos de los momentos.
+
+
+$E[X]= \mu$
+
+$E[X^2]= \mu^2 + \sigma^2$
+
+
+Siguiendo el método de los momentos debemos resolver en \mu y \sigma^2 els siguiente sistema de ecuaciones:
+
+$\mu = \dfrac{1}{n} \cdot \sum_{i=1}^n X_i$
+
+$\mu^2 + \sigma^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n X_i^k$
+
+
+
+
+#### Justificación al método de los momentos
+
+
+#### Observaciones al método de los momentos
+
+
+
+
+
+
+## Métodos de estimación puntual: Método de Máxima Verosimilitud
+
+### Función de Verosimilitud
+
+Dada una v.a. $X\sim D(\theta)$ y una m.a.s. $(X_1,...,X_n)$ de $X$ y una muestra de observaciones $(x_1,...,x_n)$    de $X$
+
+
+
+La función de verosimilitud de la m.a.s. $(X_1,..., X_n)$ es una función tal que:
+
+1) $\mathcal{L}_{X_1,..., X_n} : \mathbb{R}^n \rightarrow \mathbb{R}$
+
+
+2) La función de verosimilitud de la m.a.s. $(X_1,..., X_n)$ evaluada en la muestra de observaciones $(x_1,...,x_n)$ se define como :
+
+$$\mathcal{L}_{X_1,..., X_n}(x_1,...,x_n) = f_{X_1,...,X_n}(x_1,...,x_n, \theta)$$
+
+Donde: $f_{X_1,...,X_n}$ es la funcion de densidad o de probabilidad conjunta para las v.a.'s $X_1,...,X_n$
+
+
+**Observación:**
+
+
+1) Como  la m.a.s. $(X_1,..., X_n)$ son v.a.'s independientes  ,entonces :
+
+$$\mathcal{L}_{X_1,..., X_n}(x_1,...,x_n, \theta) = f_{X_1,...,X_n}(x_1,...,x_n, \theta)= f_{X_1}(x_1 , \theta)\cdot ... \cdot f_{X_n}(x_n, \theta)$$
+
+
+
+2) Como  la m.a.s. $(X_1,..., X_n)$ son v.a.'s identicamente disstribuidas a $X$ , es decir, siguen la misma distribución que $X$, se tiene que $f_{X_i}=f_{X}=f_{D(\theta)} , \forall i=1,...,n$ , por lo tanto :
+
+$$\mathcal{L}_{X_1,..., X_n}(x_1,...,x_n , \theta) = f_{X_1,...,X_n}(x_1,...,x_n | \theta)= f_{X_1}(x_1 , \theta)\cdot ... \cdot f_{X_n}(x_n | \theta) = f_{X}(x_1 | \theta)\cdot ... \cdot f_{X}(x_n | \theta)$$
+
+
+
+# Método de Máxima Verosimilitud
+
+
+Dada una v.a. $X\sim D(\theta)$ y una m.a.s. $(X_1,...,X_n)$ de $X$ y una muestra de observaciones $(x_1,...,x_n)$    de $X$
+
+$$\widehat{\theta}_{MV} = arg \underset{\theta}{Max} \mathcal{L}_{X_1,..., X_n}(x_1,...,x_n, \theta)$$
+
+
+
+**Observaciones:**
+
+La idea del método de estimación por máxima verosimilitud es, dada una muestra de observaciones (unos datos) de una variable de interes, estimar el parametro desconocido como aquel valor del parametro que maximiza la probabilidad / densidad de obtener la muestra de observacciones que se ha extraido, es decir, que hace más verosimil los datos disponibles. Siempre bajo el supuesto de que conocemos la distribucion de probabilidad de la variable de interes, y por tanto se puede calcular la probabilidad de extraer aleatoriamente cierta muestra de observaciones de esa variable.
+
+### Ejemplos
+
+
+
+
+## Propiedades de los estimadores
+
+
+
+
+## Estimación por Intervalos de Confianza
+
+
+
+
+## Contrastes de Hipotesis
+
+
+
+
+
+
+
+## Distribución de la media aritmética:
+
+Si $X_1,...,X_n \underset{i.i.d.}{\sim} N(\mu , \sigma^2)$ , enonces:
+
+$$\overline{X} = \dfrac{1}{n} \cdot \sum_{i=1}^n X_i  \sim N(\mu , \dfrac{\sigma^2}{n})$$
+
+
+## Teorema de Fisher
+
+Sea $S^2 = \dfrac{1}{n-1}  \cdot \sum_{i=1}^n (X_i - \overline{X})^2$
+
+Si $X_1,...,X_n \underset{i.i.d.}{\sim} N(\mu , \sigma^2)$ , enonces:
+
+
+$$\dfrac{(n-1)}{\sigma^2} \cdot S^2 \sim \chi^2_{n-1}$$
+
+
+## Teorema de Student
+
+
+Si $Z\sim N(0,1)$ y $U\sim \chi_n^2$ y son independientes, entonces:
+
+
+$$\dfrac{Z}{\sqrt{\dfrac{U}{n}}} \sim t_n$$
+
+
+
+## Teorema de Gosset
+
+Si $X_1,...,X_n \underset{i.i.d.}{\sim} N(\mu , \sigma^2)$ , enonces:
+
+
+$$\dfrac{\overline{X} - \mu}{\sqrt{S / n}} \sim t_{n-1}$$
+
+
+
+
+## Media muestral estimador insesgado de la media poblacional
+
+
+
+<br>
+
+------
+
+<br>
+
+
+
+# Inferencia Bayesiana
+
+
+## Funcion de Versosimilitud
+
+Dada una v.a. $X \sim D(\Theta)$ y una m.a.s. $(X_1,...,X_n)$ de $X$ y una muestra de observaciones $(x_1,...,x_n)$    de $X$
+
+
+- En la inferencia **frecuentista**
+
+
+Como $\Theta$ es un parametro constante y no una v.a.  se tiene que:
+
+ 
+La funcion de verosimilitud de la m.a.s. $(X_1,...,X_n)$ de la v.a $X \sim D(\Theta )$ para la muestra de observaciones $(x_1,...,x_n)$ es:
+
+\begin{gather*}
+\mathcal{L}_{X_1,..., X_n}(\Theta | x_1,...,x_n )=f_{X_1,...,X_n | \Theta}(x_1,...,x_n, \theta)  = f_{X_1}(x_1 , \Theta) \cdot ... \cdot f_{X_n}(x_n, \Theta) =f_{X}(x_1 , \Theta) \cdot ... \cdot f_{X}(x_n, \Theta) = \prod_{i=1}^n f_{X}(x_i , \Theta)
+\end{gather*}
+ 
+<br>
+ 
+**Observaciones:**
+ 
+1) Como $\Theta$ es una constante se tiene que:
+
+$$f_{X_1,...,X_n | \Theta}(x_1,...,x_n , \Theta) = \dfrac{f_{X_1,...,X_n, \Theta}(x_1,...,x_n, \Theta) }{f_{\Theta}(\Theta)} =  \dfrac{f_{X_1,...,X_n}(x_1,...,x_n, \Theta) }{1} = f_{X_1,...,X_n}(x_1,...,x_n, \Theta)$$
+
+Ya que $f_{\Theta}(\Theta) = 1$ y $f_{X_1,...,X_n,\Theta}(x_1,...,x_n,\Theta) = f_{X_1,...,X_n}(x_1,...,x_n,\Theta)$ , donde $f_{X_1,...,X_n}(x_1,...,x_n,\Theta)$ sigue dependiendo de $\Theta$ porque la distribucion de las $X_i$ depende de $\Theta$ , pero lo relevante es que la distribucion conjunta de $X_1,...,X_n, \Theta$ coincide con la de conjunta de $X_1,...,X_n$ al ser $\Theta$ un parametro constante.
+ 
+<br>
+
+----
+
+<br>
+ 
+- En la estadistica **Bayesiana**, al ser $\Theta$ una v.a. se tiene que  la funcion de verosimilitud de la m.a.s. $(X_1,...,X_n)$ de la v.a $X\sim D(\Theta )$ para la muestra de observaciones $(x_1,...,x_n)$ es:
+
+
+ $\mathcal{L}_{X_1,..., X_n}(\Theta | x_1,...,x_n )= f_{X_1,...,X_n | \Theta}(x_1,...,x_n, \theta) = \dfrac{f_{X_1,...,X_n, \Theta}(x_1,...,x_n, \theta) }{f_{\Theta}(\theta)} \neq f_{X_1,...,X_n}(x_1,...,x_n)$
+
+<br>
+
+**Observaciones:**
+
+1) Como $\Theta$ es ahora una v.a. y no una constante entonces $\Theta$ tendra su propia distribucion por lo que $f_{\Theta}(\theta) \neq 1$ , y además $f_{X_1,...,X_n, \Theta} \neq f_{X_1,...,X_n}$ 
+
+
+
+2) $\mathcal{L}_{X_1,..., X_n}(\Theta | x_1,...,x_n)$ difere de la estadistica frecuentista a la Bayesiana.
+
+
+
+
+ 
+
+3) $f_{X_1,...,X_n | \Theta}(x_1,...,x_n, \theta)$ es llamada función de verosimilitud
+
+
+4) $f_{X_1,...,X_n}(x_1,...,x_n)$ es llamada función de verosimilitud marginal
+
+5) $f_{X_1,...,X_n}$  en la inferencia Bayesiana no depende de $\Theta$ , ya que al ser una v.a. se tiene que:
+
+
+$$f_{X_1,...,X_n}(x_1,...,x_n) = \int_{\theta \in \mathbb{R}} f_{X_1,...,X_n | \Theta}(x_1,...,x_n, \theta) \cdot f_{\Theta}(\theta) \cdot d\theta$$
+
+
+6) $f_{X_1,...,X_n}$ en la inferencia frecuentista si depende de $\Theta$ , al no cumplirse la igualdad anterior por no ser $\Theta$ una v.a., y depender la distribucion de $X_i$ de $\Theta$
+
+
+
+<br>
+
+
+## Teorema de Bayes en la inferencia bayesiana
+
+Dada una v.a. $X\sim D(\Theta)$ y una m.a.s. $(X_1,...,X_n)$ de $X$ y una muestra de observaciones $(x_1,...,x_n)$    de $X$
+
+
+En la estadistica Bayesiana se considera que $\Theta$ es una v.a. , en la frecuentista un parametro constante.
+
+
+El terorema de Bayes aplicado a $\Theta | X_1,...,X_n$ es:
+
+$$f_{\Theta | X_1,...,X_n}( \theta , x_1,...,x_n) = \dfrac{f_{\Theta}( \theta ) \cdot f_{X_1,...,X_n | \Theta }(x_1,...,x_n, \theta)}{f_{X_1,...,X_n}(x_1,...,x_n)}$$
+
+<br>
+
+Donde, en la estadistica Bayesiana:
+
+- $f_{\Theta | X_1,...,X_n}( \theta | x_1,...,x_n) = f_{\Theta | Data }(\theta, data)$ se denomina **distribución a posteriori** de $\Theta$
+
+- $f_{\Theta}( \theta )$ se denomina **distribucion a priori** de $\Theta$
+
+- $f_{X_1,...,X_n | \Theta}(x_1,...,x_n, \theta)$ es la funcion de verosimilitud
+
+- $f_{X_1,...,X_n}(x_1,...,x_n)$ es la funcion de verosimilitud marginal
+
+
+
+**Observación**
+
+- Usando el teorema de la probabilidad total,  como en la inferencia Bayesiana $\Theta$ es una v.a., tenemos que:
+
+
+$$f_{X_1,...,X_n}(x_1,...,x_n) = \int_{\theta \in \mathbb{R}} f_{X_1,...,X_n | \Theta}(x_1,...,x_n, \theta) \cdot f_{\Theta}(\theta) \cdot d\theta$$
+
+Por lo que en la inferencia Bayesiana,   $$f_{X_1,...,X_n}(x_1,...,x_n)$$ no depende de $\Theta$ , cosa que si ocurre en la inferencia frecuentista, al no poderse aplicar lo anterior por no ser $\Theta$ una v.a.
+
+Además , dados los datos $(x_1,...,x_n)$ se tiene que $f_{X_1,...,X_n}(x_1,...,x_n)$ es una constante.
+
+Usando este hecho y la relacion de proporcionalidad $\propto$ , en la estadistica Bayesiana se tiene que:
+
+<br>
+
+$$f_{\Theta | X_1,...,X_n}( \theta , x_1,...,x_n) = \dfrac{f_{\Theta}( \theta ) \cdot f_{X_1,...,X_n}(x_1,...,x_n | \Theta = \theta)}{f_{X_1,...,X_n}(x_1,...,x_n)} \hspace{0.15cm} \propto \hspace{0.15cm} f_{\Theta}( \theta ) \cdot f_{X_1,...,X_n | \Theta }(x_1,...,x_n , \theta)$$
+
+<br>
+
+$$\text{a posteriori} = \text{a priori x verosimilitud}$$
+
+
+
+<br>
+
+## Distribucion a posteriori para distribucion binomial, geometrica y binomial negativa
+
+
+
+Dada una v.a. $X| \Theta \sim D(\Theta)$ y una m.a.s. $(X_1| \Theta,...,X_n| \Theta)$ de $X| \Theta$ y una muestra de observaciones $(x_1,...,x_n)$    de $X| \Theta$
+
+<br>
+
+- Si $D(\Theta)=Binomial(k, p=\Theta)$ , entonces: 
+
+$$f_{X_i | \Theta}(x_i , \theta)  = \binom{k}{x_i} \cdot \theta\hspace{0.15cm}^{x_i} \cdot (1-\theta )\hspace{0.15cm}^{n- x_i}$$
+
+
+Por tanto:
+
+$$\mathcal{L}_{X_1,..., X_n}(\Theta | x_1,...,x_n) =f_{X_1,...,X_n | \Theta}(x_1,...,x_n, \theta) = \prod_{i=1}^n f_{X_i | \Theta}(x_i , \theta)  = \\ = \prod_{i=1}^n \left( \binom{k}{x_i} \cdot \theta\hspace{0.15cm}^{x_i} \cdot (1 - \theta )\hspace{0.15cm}^{k- x_i} \right) = \prod_{i=1}^n \binom{k}{x_i} \cdot \theta\hspace{0.15cm}^{\sum_{i=1}^n x_i} \cdot (1 - \theta )\hspace{0.15cm}^{n\cdot  k- \sum_{i=1}^n x_i}$$
+
+<br>
+
+Si usamos como distribucion a priori de $\Theta$ una $Beta(\alpha, \beta)$ :
+
+<br>
+
+$$f_{\Theta}(\theta)= \dfrac{1}{B(\alpha, \beta)} \cdot \theta\hspace{0.15cm}^{\alpha - 1} \cdot (1- \theta)\hspace{0.15cm}^{\beta -1}$$
+
+Entonces, la distribucion a posteriori es:
+
+\begin{gather*}
+f_{\Theta | X_1,...,X_n}( \theta , x_1,...,x_n) \hspace{0.15cm} \propto\hspace{0.15cm} f_{\Theta}(\theta) \cdot f_{X_1,...,X_n | \Theta}(x_1,...,x_n, \theta) = \\[0.35cm] = \dfrac{1}{B(\alpha, \beta)} \cdot \theta\hspace{0.15cm}^{\alpha - 1} \cdot (1- \theta)\hspace{0.15cm}^{\beta -1} \cdot \prod_{i=1}^n \binom{k}{x_i}   \cdot \theta\hspace{0.15cm}^{\sum_{i=1}^n x_i} \cdot (1 - \theta )\hspace{0.15cm}^{n\cdot  k- \sum_{i=1}^n x_i} = \\[0.35cm] = \dfrac{1}{B(\alpha, \beta)} \cdot \theta\hspace{0.15cm}^{(\alpha+ \sum_{i=1}^n x_i ) - 1  } \cdot (1- \theta)\hspace{0.15cm}^{(\beta+ n\cdot  k- \sum_{i=1}^n x_i) -1 } \cdot \prod_{i=1}^n \binom{k}{x_i}  \propto \\[0.35cm] \propto
+\dfrac{1}{B(\alpha, \beta)} \cdot \theta\hspace{0.15cm}^{(\alpha+ \sum_{i=1}^n x_i ) - 1  } \cdot (1- \theta)\hspace{0.15cm}^{(\beta+ n\cdot  k- \sum_{i=1}^n x_i) -1 } = \\[0.35cm] = Beta\left(\alpha+ \sum_{i=1}^n x_i \hspace{0.15cm},\hspace{0.15cm} \beta+ n\cdot  k- \sum_{i=1}^n x_i \right)
+\end{gather*}
+
+
+
+Por tanto, la distribucion a posteriori es:
+
+$$\Theta | X_1=x_1,...,X_n=x_n \hspace{0.15cm} \sim \hspace{0.15cm} Beta\left(\alpha+ \sum_{i=1}^n x_i \hspace{0.15cm},\hspace{0.15cm} \beta+ n\cdot  k- \sum_{i=1}^n x_i \right)$$
+
+
+<br>
+
+
+- Si $D(\Theta)=BinomNeg(r, p=\Theta)$ , entonces: 
+
+$$f_{X_i | \Theta}(x_i , \theta)  = \binom{r- x_i -1}{x_i} \cdot \theta\hspace{0.15cm}^{r} \cdot (1-\theta )\hspace{0.15cm}^{ x_i}$$
+
+
+BinomNeg(r, p) se puede interpretar como el nº de fracasos obtenidos hasta la obtencion de r exitos tras realizar suficientes experimentos Bernouilli(p).
+
+Por tanto:
+
+$$\mathcal{L}_{X_1,..., X_n}(\Theta | x_1,...,x_n) =f_{X_1,...,X_n | \Theta}(x_1,...,x_n, \theta) = \prod_{i=1}^n f_{X_i | \Theta}(x_i , \theta)  = \\ = \prod_{i=1}^n \left( \binom{r- x_i -1}{x_i} \cdot \theta\hspace{0.15cm}^{r} \cdot (1-\theta )\hspace{0.15cm}^{ x_i} \right) = \prod_{i=1}^n \binom{r- x_i -1}{x_i} \cdot \theta\hspace{0.15cm}^{n\cdot r} \cdot (1 - \theta )\hspace{0.15cm}^{\sum_{i=1}^n x_i}$$
+
+<br>
+
+Si usamos como distribucion a priori de $\Theta$ una $Beta(\alpha, \beta)$ :
+
+<br>
+
+$$f_{\Theta}(\theta)= \dfrac{1}{B(\alpha, \beta)} \cdot \theta\hspace{0.15cm}^{\alpha - 1} \cdot (1- \theta)\hspace{0.15cm}^{\beta -1}$$
+
+Entonces, la distribucion a posteriori es:
+
+\begin{gather*}
+f_{\Theta | X_1,...,X_n}( \theta , x_1,...,x_n) \hspace{0.15cm} \propto\hspace{0.15cm} f_{\Theta}(\theta) \cdot f_{X_1,...,X_n | \Theta}(x_1,...,x_n, \theta) = \\[0.35cm] = \dfrac{1}{B(\alpha, \beta)} \cdot \theta\hspace{0.15cm}^{\alpha - 1} \cdot (1- \theta)\hspace{0.15cm}^{\beta -1} \cdot \prod_{i=1}^n \binom{r- x_i -1}{x_i} \cdot \theta\hspace{0.15cm}^{n\cdot r} \cdot (1 - \theta )\hspace{0.15cm}^{\sum_{i=1}^n x_i} \propto \\[0.35cm] \propto \hspace{0.15cm}   \dfrac{1}{B(\alpha, \beta)} \cdot \theta\hspace{0.15cm}^{(\alpha + n\cdot r) -cm} \cdot (1- \theta)\hspace{0.15cm}^{(\beta + \sum_{i=1}^n x_i) -1}
+\end{gather*}
+
+
+
+Por tanto, la distribucion a posteriori es:
+
+$$\Theta | X_1=x_1,...,X_n=x_n \hspace{0.15cm} \sim \hspace{0.15cm} Beta\left(\alpha+ n\cdot r \hspace{0.15cm},\hspace{0.15cm} \beta + \sum_{i=1}^n x_i \right)$$
+
+
+
+
+
+
+
+<br>
+
+
+- Si $D(\Theta)=GeomFrac(p=\Theta)$ , entonces: 
+
+$$f_{X_i | \Theta}(x_i , \theta)  = \theta \cdot (1-\theta )\hspace{0.15cm}^{ x_i}$$
+
+
+Por tanto:
+
+$$\mathcal{L}_{X_1,..., X_n}(\Theta | x_1,...,x_n) =f_{X_1,...,X_n | \Theta}(x_1,...,x_n, \theta) = \prod_{i=1}^n f_{X_i | \Theta}(x_i , \theta)  = \\ = \prod_{i=1}^n \theta \cdot (1 - \theta )\hspace{0.15cm}^{x_i}=  \theta\hspace{0.15cm}^{n} \cdot (1 - \theta )\hspace{0.15cm}^{ \sum_{i=1}^n x_i}$$
+
+<br>
+
+Si usamos como distribucion a priori de $\Theta$ una $Beta(\alpha, \beta)$ :
+
+<br>
+
+$$f_{\Theta}(\theta)= \dfrac{1}{B(\alpha, \beta)} \cdot \theta\hspace{0.15cm}^{\alpha - 1} \cdot (1- \theta)\hspace{0.15cm}^{\beta -1}$$
+
+Entonces, la distribucion a posteriori es:
+
+\begin{gather*}
+f_{\Theta | X_1,...,X_n}( \theta , x_1,...,x_n) \hspace{0.15cm} \propto\hspace{0.15cm} f_{\Theta}(\theta) \cdot f_{X_1,...,X_n | \Theta}(x_1,...,x_n, \theta) = \\[0.35cm] = \dfrac{1}{B(\alpha, \beta)} \cdot \theta\hspace{0.15cm}^{\alpha - 1} \cdot (1- \theta)\hspace{0.15cm}^{\beta -1} \cdot  \theta\hspace{0.15cm}^{n} \cdot (1 - \theta )\hspace{0.15cm}^{ \sum_{i=1}^n x_i} = \\[0.35cm] = \dfrac{1}{B(\alpha, \beta)} \cdot \theta\hspace{0.15cm}^{(\alpha+ n) - 1  } \cdot (1- \theta)\hspace{0.15cm}^{(\beta+\sum_{i=1}^n x_i) -1 }   =  \\[0.35cm]  = Beta\left(\alpha+ n \hspace{0.15cm},\hspace{0.15cm} \beta+ \sum_{i=1}^n x_i \right)
+\end{gather*}
+
+
+
+Por tanto, la distribucion a posteriori es:
+
+$$\Theta | X_1=x_1,...,X_n=x_n \hspace{0.15cm} \sim \hspace{0.15cm} Beta\left(\alpha+ n \hspace{0.15cm},\hspace{0.15cm} \beta+ \sum_{i=1}^n x_i \right)$$
+
+
+
+<br>
+
+- Si $D(\Theta)=GeomInt(p=\Theta)$ , entonces: 
+
+$$f_{X_i | \Theta}(x_i , \theta)  = \theta \cdot (1-\theta )\hspace{0.15cm}^{ x_i -1}$$
+
+
+Por tanto:
+
+$$\mathcal{L}_{X_1,..., X_n}(\Theta | x_1,...,x_n) =f_{X_1,...,X_n | \Theta}(x_1,...,x_n, \theta) = \prod_{i=1}^n f_{X_i | \Theta}(x_i , \theta)  = \\ = \prod_{i=1}^n \theta \cdot (1 - \theta )\hspace{0.15cm}^{x_i -1}=  \theta\hspace{0.15cm}^{n} \cdot (1 - \theta )\hspace{0.15cm}^{ \sum_{i=1}^n (x_i-1)}$$
+
+<br>
+
+Si usamos como distribucion a priori de $\Theta$ una $Beta(\alpha, \beta)$ :
+
+
+La distribucion a posteriori es:
+
+$$\Theta | X_1=x_1,...,X_n=x_n \hspace{0.15cm} \sim \hspace{0.15cm} Beta\left(\alpha+ n \hspace{0.15cm},\hspace{0.15cm} \beta+ \sum_{i=1}^n (x_i -1) \right)$$
+
+<br>
+
+
+
+
+
+
+<br>
+
+------
+
+<br>
 
 
 
