@@ -1978,6 +1978,7 @@ $$\Theta | X_1=x_1,...,X_n=x_n \hspace{0.15cm} \sim \hspace{0.15cm} Beta\left(\a
 
 
 
+
 <br>
 
 
