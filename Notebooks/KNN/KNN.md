@@ -89,16 +89,21 @@ $$D=[X_1,...,X_p,Y]=\begin{pmatrix}
 El modelo KNN para clasificacion supervisada se basa en el siguiente algoritmo:
 
 
-$1. \hspace{0.15cm}$ Se define una medida de distancia  entre observaciones de variables estadisticas $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\delta (\cdot , \cdot)$
+$1. \hspace{0.15cm}$ Se define una medida de distancia  entre pares de observaciones de variables estadisticas $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\delta (\cdot , \cdot)$
+
+<br>
 
  
-$2. \hspace{0.15cm}$ Dada una nueva observación $x_{new}$ de los predictores $(\mathcal{X}_1 ,...,\mathcal{X}_p)$ , se calculan las distancias entre el par de observaciones $(x_{new} , x_i)$ , para $i=1,...,n$
+$2. \hspace{0.15cm}$ Dada una nueva observación $x_{new}$ de los predictores $(\mathcal{X}_1 ,...,\mathcal{X}_p)$ , es decir, una observación que no está en la muestra de train, se calculan las distancias entre el par de observaciones $(x_{new} , x_i)$ , para $i=1,...,n$
  
+ <br>
+
 
 $3. \hspace{0.15cm}$ Se seleccionan las $k$ observaciones del vector $(x_1,...,x_n)$ que son más cercanas a la nueva observación $x_{new}$
 
 El conjunto de estas $k$ observaciones se denota por $KNN(x_{new})$
 
+<br>
 
 $4. \hspace{0.15cm}$ Se calcula la frecuencia relativa de cada categoría de la respuesta sobre el conjunto $KNN(x_{new})$
 
@@ -108,49 +113,27 @@ Es decir:
 
   $$\hspace{0.1 cm} f^{KNN(x_{new})}_{r} \hspace{0.15cm}=\hspace{0.15cm} \dfrac{ \# \hspace{0.1cm}\lbrace\hspace{0.1cm} i \hspace{0.1cm}/\hspace{0.1cm} x_i \in KNN(x_{new}) \hspace{0.3cm}\text{y}\hspace{0.3cm}  y_i = r \hspace{0.1cm}\rbrace  }{\# \hspace{0.1cm} KNN(x_{new}) = k}$$
 
-Compute the proportion of these observation (neighbors) that belongs to each group $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$  
- 
- $\hspace{0.65cm} \Rightarrow \hspace{0.15cm}$ The proportion of $KNN$ that belongs to the group $\hspace{0.15cm} \Omega_r$ $\hspace{0.1cm}(Y=c_r)\hspace{0.1cm}$ will be denote by $\hspace{0.1 cm} f^{knn}_{r}  $
+
+<br>
+
+$5. \hspace{0.15cm}$ Para la nueva observación de los predictores $\hspace{0.1cm} x_{new} \hspace{0.1cm}$ se predice la respuesta como la categoria mas frecuente en el conjunto $KNN(x_{new})$
 
 
+Es decir:
 
-   $$ \hspace{0.1 cm} f^{KNN(x_{new})}_{r} \hspace{0.15cm}=\hspace{0.15cm} \dfrac{ \# \hspace{0.1cm}\lbrace\hspace{0.1cm} i \in KNN(x_{new}) \hspace{0.1cm}/\hspace{0.1cm} i \in \Omega_r \hspace{0.1cm}\rbrace  }{\# \hspace{0.1cm} KNN(x_{new}) = k} \hspace{0.15cm}=\hspace{0.15cm}  \dfrac{ \# \hspace{0.1cm}\lbrace\hspace{0.1cm} i \in KNN \hspace{0.1cm}/\hspace{0.1cm} y_i = r \hspace{0.1cm}\rbrace  }{ k}$$
-   
-
-
-$5. \hspace{0.15cm}$ Classify $\hspace{0.1cm} x_{new} \hspace{0.1cm}$ in that group/class $($ defined by $Y)$ more frequent in KNN :
-
-
-
- $\hspace{0.25cm} \hspace{0.2cm}$ $\text{If}   \hspace{0.15cm} \underbrace{ f^{knn}_{s} \geqslant f^{knn}_{r} \hspace{0.15cm},\hspace{0.15cm} \forall r = 1,...,g  }_{\Omega_s \hspace{0.1cm}\text{is the most frequent group in}\hspace{0.1cm} KNN } $    $\hspace{0.1cm} \hspace{0.15cm}  \Rightarrow \hspace{0.15cm} x_{new} \hspace{0.1cm}$ is classify in $\hspace{0.1cm} \Omega_s$ $ \hspace{0.25cm}  \Rightarrow \hspace{0.15cm} \widehat{y}_{new} = s \hspace{0.1cm}$
-
-
-
-$\hspace{0.2 cm}$ In other words:
-
-$\hspace{0.6 cm} \text{If} \hspace{0.4 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 cm} \underset{\hspace{0.7 cm} r}{arg \hspace{0.1 cm} Max} \hspace{0.05 cm} \left(\hspace{0.1 cm} f^{KNN(x_{new})}_{r} \hspace{0.1 cm}\right) \hspace{0.2 cm} \hspace{0.15cm}  \Rightarrow \hspace{0.25cm} \widehat{y}_{new} = r^* \hspace{0.1cm}$
+$$\hspace{0.6 cm} \text{Si} \hspace{0.4 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 cm} \underset{\hspace{0.7 cm} r}{arg \hspace{0.1 cm} Max} \hspace{0.05 cm} \left(\hspace{0.1 cm} f^{KNN(x_{new})}_{r} \hspace{0.1 cm}\right) \hspace{0.2 cm} \hspace{0.15cm}  \Rightarrow \hspace{0.25cm} \widehat{y}_{new} = r^* \hspace{0.1cm}$$
 
 
 
 
 
------
 
-Why KNN is a supervised classification method and not an unsupervised ?
-
-
-
-Because in this problem we have a vector of observations of the response variable $Y$
-
-The fact that we haven't $\hspace{0.1 cm} y_{new} \hspace{0.1 cm}$ doesn't transform it in a unsupervised problem
+<br>
 
 
 
----
 
-
-
-### Toy example <a class="anchor" id="2"></a>
+## Ejemplo de juguete <a class="anchor" id="2"></a>
 
 
 
@@ -203,11 +186,11 @@ $\hspace{0.85cm}$ Note that $\hspace{0.1cm} y_1 = 1 \hspace{0.1cm}$ and $ \hspac
 
 
 
----
+
+<br>
 
 
-
-### KNN for supervised classification in `Python` with `sklearn`<a class="anchor" id="3"></a>
+## Modelo KNN de clasificación supervisada aplicado en `Python` con `sklearn`  <a class="anchor" id="3"></a>
 
 
 ```python
@@ -223,13 +206,13 @@ import numpy as np
 
 
 
-Loading data:
-
+Cargamos los datos con los que vamos a trabajar:
 
 ```python
 Gender_classification = pd.read_csv('gender_classification.csv')
 ```
 
+Es un conjunto de datos donde la respuesta es el sexo y los predictores variables biometricas. Este data set es apto para la aplicación de modelos de clasificación supervisada.  
 
 ```python
 Gender_classification.head()
@@ -327,10 +310,10 @@ Gender_classification.head()
 </div>
 
 
+<br>
 
 
-
-Recoding gender to the standard encode $\lbrace 0,1,2,... \rbrace $
+Recodificamos la respuesta para obtener la codificación estandar:
 
 
 ```python
@@ -344,6 +327,11 @@ ord_enc = OrdinalEncoder()
 Gender_classification['gender'] = ord_enc.fit_transform(Gender_classification[['gender']])
 ```
 
+La recodificación aplicada es la siguiente:
+
+Female = 0 , Male = 1
+
+
 
 ```python
 Gender_classification.head()
@@ -442,6 +430,7 @@ Gender_classification.head()
 
 
 
+Vemos el type que tienen las variables en `Python`:
 
 ```python
 Gender_classification.dtypes
@@ -463,9 +452,9 @@ Gender_classification.dtypes
 
 
 
+<br>
 
-
-To later do simple validation we are going to divide the dataset into a train part and a test part:
+Para aplicar el método de validación simple aleatoria, se divide aleatoriamente el data-set en dos partes, una de train y otra de test:
 
 
 ```python
@@ -495,16 +484,16 @@ Data_Train = pd.concat([Y_train , X_train], axis=1)
 
 
 ```python
-# Como ejemplo de x_new (nueva observacion de los predictores) cogemos la sexta (5 en python) observacion de X_test
+# Como ejemplo de x_new cogemos la sexta (5 en Python) observación de X_test
 
 x_new = X_test.iloc[ 5 , :]
 ```
 
 
 
----
+<br>
 
-
+Importamos la libreria `sklearn` y el modulo `NearestNeighbors`
 
 
 ```python
@@ -513,45 +502,46 @@ import sklearn
 from sklearn.neighbors import NearestNeighbors
 ```
 
+Podemos ver cuales son los parametros de la función `KNeighborsClassifier` 
 
 ```python
-## sklearn.neighbors.KNeighborsClassifier(n_neighbors=5, *, weights='uniform', algorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=None) 
+sklearn.neighbors.KNeighborsClassifier(n_neighbors=5, *, weights='uniform', algorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=None) 
 ```
+Se recomienda ver primero la documentación de sklearn:
 
-It's advisable  to see the sklearn documentation first: https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html
+https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html
 
 
-
+Fijamos los parametros que usaremos en la función `KNeighborsClassifier`
 
 ```python
 knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform', p=2, metric='minkowski')
 ```
 
+<br>
 
-
+Entrenamos el modelo KNN definido en `knn_classification` con la muestra de train de los predictores y la respuesta:
 
 ```python
 knn_classification.fit(X_train, Y_train)
 ```
 
+<br>
 
-
-
-    KNeighborsClassifier(n_neighbors=10)
-
-
-
+Predecimos la respuesta para una nueva observación $x_new$ de los predictores (la observación seis de la muestra de test de los predictores):
 
 ```python
-print( knn_classification.predict( [x_new] ) )
+knn_classification.predict( [x_new] ) 
 ```
 
     [1.]
     
+<br>
 
+Obtenemos la frecuencia relativa de las categorias (0, 1) de la respuesta en el conjunto $KNN(x_new)$
 
 ```python
-print( knn_classification.predict_proba([x_new]) )
+knn_classification.predict_proba([x_new]) 
 ```
 
     [[0. 1.]]
@@ -559,10 +549,12 @@ print( knn_classification.predict_proba([x_new]) )
 
 
 
----
+<br>
 
-### Simple validation with own validation function and `sklearn` KNN classification function<a class="anchor" id="3.1"></a>
+### Método de validación simple con función propia <a class="anchor" id="3.1"></a>
 
+
+Creamos una función que entrena el modelo con una muestra de train de los predictores y la respuesta, pasada como argumento, y calcula la métrica de validación TEC con una muestra de test de los predictores que también es pasada como argumento:
 
 
 ```python
@@ -616,9 +608,11 @@ def Simple_Validation_Classification(Data_Test, X_train, Y_train, Y_test) :
 
  
     return(y_predictions_vector , TEC)
+    
 ```
 
-Simple validation with sklearn function for KNN classification with metric=Minkowski and q=2
+
+Aplicamos la funcion creada para calcular la metrica TEC con la muestra de test, con el modelo KNN con distancia Minkowski y q=2:
 
 
 ```python
@@ -631,19 +625,16 @@ TEC
 ```
 
 
-
-
     0.03700000000000003
 
 
 
+<br>
+
+### Método de validación simple con función de `sklearn`  <a class="anchor" id="3.2"></a>
 
 
----
-
-### Simple validation with `sklearn` validation function  <a class="anchor" id="3.2"></a>
-
-
+Entrenamos el modelo con las muestra de train:
 
 ```python
 knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform', p=2, metric='minkowski')
@@ -652,12 +643,9 @@ knn_classification.fit(X_train, Y_train)
 ```
 
 
+<br>
 
-
-    KNeighborsClassifier(n_neighbors=10)
-
-
-
+Calculamos TEC con la muestra de test:
 
 ```python
 TEC_sklearn = 1 - knn_classification.score(X_test, Y_test)
@@ -666,19 +654,13 @@ TEC_sklearn
 ```
 
 
-
-
     0.03700000000000003
 
 
+<br>
 
 
-
----
-
-
-
-Testing `KNeighborsClassifier` with **other distances** :
+Vemos ahora como funciona la función `KNeighborsClassifier` con otras medidas de distancias :
 
 
 ```python
@@ -689,12 +671,13 @@ knn = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform'
 ```python
 knn.fit(X_train, Y_train)
 
-print( knn.predict( [x_new] ) )
+knn.predict( [x_new] ) 
  
-print( knn.predict_proba([x_new]) )
+knn.predict_proba([x_new])
 ```
 
     [1.]
+    
     [[0. 1.]]
     
 
@@ -709,12 +692,13 @@ knn = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform'
 ```python
 knn.fit(X_train, Y_train)
 
-print( knn.predict( [x_new] ) ) 
+knn.predict( [x_new] )  
 
-print( knn.predict_proba([x_new]) )
+knn.predict_proba([x_new]) 
 ```
 
     [1.]
+    
     [[0. 1.]]
     
 
@@ -729,12 +713,13 @@ knn = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform'
 ```python
 knn.fit(X_train, Y_train)
 
-print( knn.predict( [x_new] ) ) 
+knn.predict( [x_new] )  
 
-print( knn.predict_proba([x_new]) )
+knn.predict_proba([x_new]) 
 ```
 
     [1.]
+    
     [[0. 1.]]
     
 
@@ -749,22 +734,23 @@ knn = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform'
 ```python
 knn.fit(X_train, Y_train)
 
-print( knn.predict( [x_new] ) ) 
+knn.predict( [x_new] ) 
 
-print( knn.predict_proba([x_new]) )
+knn.predict_proba( [x_new] )
 ```
 
     [1.]
+    
     [[0. 1.]]
     
 
 
 
-----
+<br>
 
 
 
-### KNN for classification in `Python` with own algorithm <a class="anchor" id="4"></a>
+## Modelo KNN de clasificación supervisada con algoritmo de creación propia en `Python` <a class="anchor" id="4"></a>
 
 We are going to develop our own algorithm so as not to depend on sklearn
 
@@ -1388,7 +1374,7 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 ```
 
 
-
+<br>
 
 
 Testing our `KNN_classification` function in a binary classification problem:
@@ -4302,14 +4288,7 @@ ECM
 
 
 
-
-----
-
-
-
-### Selecting an optimal $k$ with cross-validation <a class="anchor" id="8"></a>
-
-
+<br>
 
 
 
@@ -4323,5 +4302,4 @@ https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsCl
 
 apuntes aurea
 
-apuntes nogales
 
