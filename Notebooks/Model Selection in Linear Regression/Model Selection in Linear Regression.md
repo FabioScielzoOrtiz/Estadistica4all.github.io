@@ -47,26 +47,12 @@ css: custom.css
 
 
 
-<br>
-
-More articles in my blog:   $\hspace{0.1cm}$   [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)
-
-&nbsp;
-
-How to reference this article ? 
-
-Scielzo Ortiz, F. (2022). Model Selection in Linear Regression. *Estadistica4all*.  [Model Selection in Linear Regression](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/Articulos/Model-Selection-in-Linear-Regression-new.html)
 
 
-<br>
 
-Before reading this article, it's recommended to read the following article:
+> More articles in my blog:   $\hspace{0.1cm}$   [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)
 
-[Linear Regression](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/Articulos/Linear-Regression-in-Python-and-R-new.html)
-
-
-<br>
-
+ 
 
 # Data-set <a class="anchor" id="1"></a>
 
@@ -342,7 +328,7 @@ data_R[1:7, ]
 
 Suppose we are in the best case and the true relationship between response and predictors is approximately linear:
 
-- If $\hspace{0.15cm}n\hspace{0.15cm}$ is notably larger than $\hspace{0.15cm}p\hspace{0.15cm}$ $\hspace{0.15cm}(n >> p)\ hspace{0.15cm}$ $\Rightarrow\hspace{0.15cm}$ the predictions obtained with the linear regression model will have little variance (in addition to little bias, due to the starting hypothesis), so the model will work well with the test sample, that is, it will have a good test error (comparatively low test error). $\\[0.5cm]$
+- If $\hspace{0.15cm}n\hspace{0.15cm}$ is notably larger than $\hspace{0.15cm}p\hspace{0.15cm}$ $\hspace{0.15cm}(n >> p) \hspace{0.15cm}$ $\Rightarrow\hspace{0.15cm}$ the predictions obtained with the linear regression model will have little variance (in addition to little bias, due to the starting hypothesis), so the model will work well with the test sample, that is, it will have a good test error (comparatively low test error). $\\[0.5cm]$
 
 
 - If $\hspace{0.15cm}n \approx p\hspace{0.15cm}$ $\Rightarrow\hspace{0.15cm}$ the predictions obtained with the linear regression model will have a lot of variance (although they have little bias), for that the model will perform poorly on the test sample, i.e. will have a bad test error (comparatively high test error). $\\[0.5cm]$

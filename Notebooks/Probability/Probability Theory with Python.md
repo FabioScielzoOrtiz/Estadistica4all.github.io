@@ -155,7 +155,34 @@ Si $w \in A\cup B \Rigtharrow$  ocurre $A$ o $B$
 
 ## Intersección de sucesos
 
-$$A\cap B = \lbrace w \in \\Omega(\varepsilon) / w \in A \hspace{0.2cm} y\hspace{0.2cm} w \in B    \rbrace$$
+> $$A\cap B = \lbrace w \in \Omega(\varepsilon) / w \in A \hspace{0.2cm} y\hspace{0.2cm} w \in B    \rbrace$$
+
+<div id="hello" class="greeting message" style="color: red;">
+  Hello <strong>world</strong>!
+</div>
+
+ 
+
+<div class="warning" style='background-color:#E9D8FD; color: #69337A; border-left: solid #805AD5 7px; border-radius: 5px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$$A\cap B = \lbrace w \in \Omega(\varepsilon) / w \in A \hspace{0.2cm} y\hspace{0.2cm} w \in B    \rbrace$$
+
+</p>
+ 
+</p></span>
+</div>
+
+|  $$A\cap B = \lbrace w \in \Omega(\varepsilon) / w \in A \hspace{0.2cm} y\hspace{0.2cm} w \in B    \rbrace$$  |
+|-----------------------------------------|
+
+\[
+ \boxed{A\cap B = \lbrace w \in \Omega(\varepsilon) / w \in A \hspace{0.2cm} y\hspace{0.2cm} w \in B    \rbrace}
+ \]
+
+`$$A\cap B = \lbrace w \in \Omega(\varepsilon) / w \in A \hspace{0.2cm} y\hspace{0.2cm} w \in B    \rbrace$$`
 
 <br>
 
