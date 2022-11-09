@@ -45,19 +45,11 @@ css: custom.css
             
 </style>
 
-<br>
+ 
 
 More articles in my blog:   $\hspace{0.1cm}$   [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)
 
-&nbsp;
-
-How to reference this article ? 
-
-Scielzo Ortiz, F. (2022). Linear Regression with Python and R. *Estadistica4all*.  [Linear Regression with Python and R](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/Articulos/Linear%20Regression%20in%20Python%20and%20R.html )
-
-
-
-<br>
+ 
 
 
 #  Data-set description <a class="anchor" id="1"></a>
