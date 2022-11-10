@@ -63,11 +63,11 @@ css: custom.css
 
 Un modelo de clasificación supervisada  es un modelo estadistico que permite predecir una respuesta **categorica** usando para ello informacion sobre una serie de predictores y de la propia respuesta.
 
-- Tenemos $p$ predictores $(\mathcal{X}_1 ,...,\mathcal{X}_p)$ y una respuesta **categorica** $\mathcal{Y}$
+- Tenemos $p$ predictores $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ y una respuesta **categorica** $\hspace{0.1cm}\mathcal{Y} \\$
 
-- La variable respuesta **categorica**  tiene $g$ categorias , ya que $Rango(\mathcal{Y})=\lbrace 0,1,...,g-1 \rbrace$
+- La variable respuesta **categorica**  tiene $\hspace{0.1cm}g\hspace{0.1cm}$ categorias , ya que $\hspace{0.1cm}Rango(\mathcal{Y})=\lbrace 0,1,...,g-1 \rbrace \\$
 
-- Tenemos una muestra de tamaño $n$ de los $p$ predictores $X_1,...,X_p$ y de la respuesta  $Y$
+- Tenemos una muestra de tamaño $\hspace{0.1cm}n\hspace{0.1cm}$ de los $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}$ y de la respuesta  $\hspace{0.1cm}Y \\$
 
 $$D=[X_1,...,X_p,Y]=\begin{pmatrix}
     x_{11}&x_{12}&...&x_{1p}& y_1\\
@@ -84,39 +84,38 @@ $$D=[X_1,...,X_p,Y]=\begin{pmatrix}
 
 
 
-
+<br>
 
 El modelo KNN para clasificacion supervisada se basa en el siguiente algoritmo:
 
 
-$1. \hspace{0.15cm}$ Se define una medida de distancia  entre pares de observaciones de variables estadisticas $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\delta (\cdot , \cdot)$
-
-<br>
+$1. \hspace{0.15cm}$ Se define una medida de distancia  entre pares de observaciones de variables estadisticas $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\delta (\cdot , \cdot) \\$
 
  
-$2. \hspace{0.15cm}$ Dada una nueva observación $x_{new}$ de los predictores $(\mathcal{X}_1 ,...,\mathcal{X}_p)$ , es decir, una observación que no está en la muestra de train, se calculan las distancias entre el par de observaciones $(x_{new} , x_i)$ , para $i=1,...,n$
+
  
- <br>
+$2. \hspace{0.15cm}$ Dada una nueva observación $\hspace{0.1cm}x_{new}\hspace{0.1cm}$ de los predictores $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ , es decir, una observación que no está en la muestra de train, se calculan las distancias entre el par de observaciones $\hspace{0.1cm}(x_{new} , x_i)$ , para $\hspace{0.1cm}i=1,...,n \\$
+ 
+ 
 
 
-$3. \hspace{0.15cm}$ Se seleccionan las $k$ observaciones del vector $(x_1,...,x_n)$ que son más cercanas a la nueva observación $x_{new}$
+$3. \hspace{0.15cm}$ Se seleccionan las $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones del vector $\hspace{0.1cm}(x_1,...,x_n)\hspace{0.1cm}$ que son más cercanas a la nueva observación $\hspace{0.1cm}x_{new}$
 
-El conjunto de estas $k$ observaciones se denota por $KNN(x_{new})$
+El conjunto de estas $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones se denota por $\hspace{0.1cm}KNN(x_{new}) \\$
 
-<br>
 
-$4. \hspace{0.15cm}$ Se calcula la frecuencia relativa de cada categoría de la respuesta sobre el conjunto $KNN(x_{new})$
 
-Sea $f^{KNN(x_{new})}_r$ la frecuencia relativa (proporción) de observaciones de $KNN(x_{new})$ tales que $\mathcal{Y}=r$
+$4. \hspace{0.15cm}$ Se calcula la frecuencia relativa de cada categoría de la respuesta sobre el conjunto $\hspace{0.1cm}KNN(x_{new})$
+
+Sea $\hspace{0.1cm}f^{KNN(x_{new})}_r\hspace{0.1cm}$ la frecuencia relativa (proporción) de observaciones de $\hspace{0.1cm}KNN(x_{new})\hspace{0.1cm}$ tales que $\hspace{0.1cm}\mathcal{Y}=r$
 
 Es decir:
 
-  $$\hspace{0.1 cm} f^{KNN(x_{new})}_{r} \hspace{0.15cm}=\hspace{0.15cm} \dfrac{ \# \hspace{0.1cm}\lbrace\hspace{0.1cm} i \hspace{0.1cm}/\hspace{0.1cm} x_i \in KNN(x_{new}) \hspace{0.3cm}\text{y}\hspace{0.3cm}  y_i = r \hspace{0.1cm}\rbrace  }{\# \hspace{0.1cm} KNN(x_{new}) = k}$$
+  $$\hspace{0.1 cm} f^{KNN(x_{new})}_{r} \hspace{0.15cm}=\hspace{0.15cm} \dfrac{ \# \hspace{0.1cm}\lbrace\hspace{0.1cm} i \hspace{0.1cm}/\hspace{0.1cm} x_i \in KNN(x_{new}) \hspace{0.3cm}\text{y}\hspace{0.3cm}  y_i = r \hspace{0.1cm}\rbrace  }{\# \hspace{0.1cm} KNN(x_{new}) = k} \\$$
 
 
-<br>
 
-$5. \hspace{0.15cm}$ Para la nueva observación de los predictores $\hspace{0.1cm} x_{new} \hspace{0.1cm}$ se predice la respuesta como la categoria mas frecuente en el conjunto $KNN(x_{new})$
+$5. \hspace{0.15cm}$ Para la nueva observación de los predictores $\hspace{0.1cm} x_{new} \hspace{0.1cm}$ se predice la respuesta como la categoria mas frecuente en el conjunto $\hspace{0.1cm}KNN(x_{new})$
 
 
 Es decir:
@@ -137,51 +136,48 @@ $$\hspace{0.6 cm} \text{Si} \hspace{0.4 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 
 
 
 
-- Sample: $n=3$
+- Tamaño muestral: $n=3 \\$
 
 
 
-- Predictors: $\hspace{0.15cm} X1 = (10 , 2 , 4)$ , $\hspace{0.15cm} X2 = (20 , 25, 40)$
+- Predictores: $\hspace{0.15cm} X1 = (10 , 2 , 4)$ , $\hspace{0.15cm} X2 = (20 , 25, 40) \\$
+
+
+- Observaciones: $\hspace{0.15cm} x_1 =(10,20)$ , $\hspace{0.15cm} x_2=(2,25)$ , $\hspace{0.15cm} x_3=(4,40) \\$
 
 
 
-- Observations: $\hspace{0.15cm} x_1 =(10,20)$ , $\hspace{0.15cm} x_2=(2,25)$ , $\hspace{0.15cm} x_3=(4,40)$
+- Respuesta  $\hspace{0.1cm}2$ categories $(0,1)$: $\hspace{0.18cm} Y =( 1 , 1 , 0 ) \\$
 
 
 
-- Response  $\hspace{0.1cm}(2$ categories $(0,1)$, then $2$ groups $\hspace{0.1cm}\Omega_0 , \Omega_1)$ : $\hspace{0.18cm} Y =( 1 , 1 , 0 )$
+
+- Distancia $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$  $\delta_{Euclidean} \\$
+
+ 
+
+- Nueva observación:  $\hspace{0.15cm} x_{new}=(6, 20) \\$
 
 
 
-- Distance $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$  $ \delta_{Euclidean}$
-
-
-
-- New observation:  $\hspace{0.15cm} x_{new}=(6, 20)$
-
-
-
-- Computing the distances:
+- Calculamos las distancias:
 
 $\hspace{0.85cm} \delta(x_{new}, x_1)_{Euclidean} = (10-6)^2 + (20-20)^2 = 16$
 
 $\hspace{0.85cm} \delta(x_{new}, x_2)_{Euclidean} = (2-6)^2 + (25-20)^2 = 16 + 25 = 41$
 
-$\hspace{0.85cm} \delta(x_{new}, x_3)_{Euclidean} = (4-6)^2 + (40-20)^2 = 4 + 400 = 404$
+$\hspace{0.85cm} \delta(x_{new}, x_3)_{Euclidean} = (4-6)^2 + (40-20)^2 = 4 + 400 = 404 \\$
 
+ 
+- Seleccionamos $\hspace{0.05cm} k=2 \hspace{0.05cm}$ vecinos más cercanos $\hspace{0.05cm}x_{new}$ $\hspace{0.2cm}\Rightarrow\hspace{0.215cm}$ $KNN \hspace{0.01cm}=\hspace{0.01cm} \lbrace\hspace{0.1cm} x_1 , x_2 \hspace{0.1cm}\rbrace \\$
 
+ 
+- Calculamos las proporciones $f^{KNN(x_{new})}$ : 
 
-- Selecting $\hspace{0.05cm} k=2 \hspace{0.05cm}$ nearest neighbor to $\hspace{0.05cm}x_{new}$ $\hspace{0.2cm}\Rightarrow\hspace{0.215cm}$ $ KNN \hspace{0.01cm}=\hspace{0.01cm} \lbrace\hspace{0.1cm} x_1 , x_2 \hspace{0.1cm}\rbrace \hspace{0.01cm}=\hspace{0.01cm} \lbrace \hspace{0.1cm} individual 1 , individual 2  \hspace{0.1cm}\rbrace $
+$\hspace{0.85cm}$ Notese que $\hspace{0.1cm} y_1 = 1 \hspace{0.2cm}$ y $\hspace{0.2cm} y_2 = 1\hspace{0.2cm} \Rightarrow \hspace{0.2cm} f^{knn}_0 =  0/2 = 0\hspace{0.2cm}$ y $\hspace{0.2cm} f^{knn}_1 =  2/2 = 1 \\$
 
-
-
-- Computing the proportions $f^{knn}$ : 
-
-$\hspace{0.85cm}$ Note that $\hspace{0.1cm} y_1 = 1 \hspace{0.1cm}$ and $ \hspace{0.1cm} y_2 = 1\hspace{0.2cm} \Rightarrow \hspace{0.2cm} f^{knn}_0 =  0/2 = 0\hspace{0.1cm} $ and $\hspace{0.1cm} f^{knn}_1 =  2/2 = 1$
-
-
-
-- So, the algorithm classify $\hspace{0.1 cm}x_{new} \hspace{0.1 cm}$ in the group $\hspace{0.1 cm}\Omega_1 \hspace{0.1 cm}$ , so the algorithm predict that $\hspace{0.15cm} \hat{y}_{new} = 1$
+ 
+- Así que, el algoritmo predice que el valor de la respuesta asociado a la nueva observación es  $\hspace{0.15cm} \hat{y}_{new} = 1$
 
 
 
@@ -2505,11 +2501,11 @@ TEC_sklearn
 
 Un modelo de regresión es un modelo estadistico que permite predecir una respuesta **cuantitativa** usando para ello información sobre una serie de predictores y de la propia respuesta.
 
-- Tenemos $p$ predictores $(\mathcal{X}_1 ,...,\mathcal{X}_p)$ y una respuesta **cuantitativa** $\mathcal{Y}$
+- Tenemos $\hspace{0.1cm} p\hspace{0.1cm}$ predictores $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ y una respuesta **cuantitativa** $\hspace{0.1cm}\mathcal{Y} \\$
 
-- La variable respuesta **cuantitativa**  tiene $g$ categorias , ya que $Rango(\mathcal{Y})=\lbrace 0,1,...,g-1 \rbrace$
+- La variable respuesta **cuantitativa**  tiene $g$ categorias , ya que $\hspace{0.1cm}Rango(\mathcal{Y})=\lbrace 0,1,...,g-1 \rbrace \\$
 
-- Tenemos una muestra de tamaño $n$ de los $p$ predictores $X_1,...,X_p$ y de la respuesta  $Y$
+- Tenemos una muestra de tamaño $n$ de los $p$ predictores $\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}$ y de la respuesta  $\hspace{0.1cm}Y \\$
 
 $$D=[X_1,...,X_p,Y]=\begin{pmatrix}
     x_{11}&x_{12}&...&x_{1p}& y_1\\
@@ -2525,47 +2521,46 @@ $$D=[X_1,...,X_p,Y]=\begin{pmatrix}
 
 
 
-
+<br>
 
 
 El modelo KNN para regresión se basa en el siguiente algoritmo:
 
 
-$1. \hspace{0.15cm}$ Se define una medida de distancia  entre pares de observaciones de variables estadisticas $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\delta (\cdot , \cdot)$
+$1. \hspace{0.15cm}$ Se define una medida de distancia  entre pares de observaciones de variables estadisticas $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\delta (\cdot , \cdot) \\$
 
-<br>
 
  
-$2. \hspace{0.15cm}$ Dada una nueva observación $x_{new}$ de los predictores $(\mathcal{X}_1 ,...,\mathcal{X}_p)$ , es decir, una observación que no está en la muestra de train, se calculan las distancias entre el par de observaciones $(x_{new} , x_i)$ , para $i=1,...,n$
+$2. \hspace{0.15cm}$ Dada una nueva observación $x_{new}$ de los predictores $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)$ , es decir, una observación que no está en la muestra de train, se calculan las distancias entre el par de observaciones $\hspace{0.1cm}(x_{new} , x_i)$ , para $\hspace{0.1cm}i=1,...,n \\$
  
- <br>
-
-
-$3. \hspace{0.15cm}$ Se seleccionan las $k$ observaciones del vector $(x_1,...,x_n)$ que son más cercanas a la nueva observación $x_{new}$
-
-El conjunto de estas $k$ observaciones se denota por $KNN(x_{new})$
-
-<br>
-
-$4. \hspace{0.15cm}$ Se predice la respuesta para la nueva observacion $x_{new}$ como la media de la respuesta en el conjunto $KNN(x_{new})$
 
 
 
+$3. \hspace{0.15cm}$ Se seleccionan las $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones del vector $\hspace{0.1cm}(x_1,...,x_n)\hspace{0.1cm}$ que son más cercanas a la nueva observación $\hspace{0.1cm}x_{new} $
 
-$$\widehat{y}_{new}  \hspace{0.14cm} = \hspace{0.14cm} \dfrac{1}{ k }\cdot \sum_{  i  \in \mathcal{I} \left[  \hspace{0.08cm} KNN(x_{new}) \hspace{0.08cm} \right]}  y_i$$
+El conjunto de estas $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones se denota por $\hspace{0.1cm}KNN(x_{new}) \\$
+
+
+
+$4. \hspace{0.15cm}$ Se predice la respuesta para la nueva observacion $\hspace{0.1cm}x_{new}\hspace{0.1cm}$ como la media de la respuesta en el conjunto $\hspace{0.1cm}KNN(x_{new})$
+
+
+
+
+$$\widehat{y}_{new}  \hspace{0.14cm} = \hspace{0.14cm} \dfrac{1}{ k }\cdot \sum_{  i \hspace{0.05cm} \in\hspace{0.05cm} \mathcal{I} \left[  \hspace{0.08cm} KNN(x_{new}) \hspace{0.08cm} \right]}  y_i$$
 
 
 
 Donde: 
 
-$\mathcal{I} \left[  \hspace{0.08cm} KNN(x_{new}) \hspace{0.08cm} \right] = \lbrace i = 1,...,n \hspace{0.15cm}  / \hspace{0.15cm}  x_i \in KNN(x_{new}) \rbrace$
+$\hspace{0.1cm}\mathcal{I} \left[  \hspace{0.08cm} KNN(x_{new}) \hspace{0.08cm} \right] = \lbrace i = 1,...,n \hspace{0.15cm}  / \hspace{0.15cm}  x_i \in KNN(x_{new}) \rbrace \\$
 
 
 Otra forma de expresarlo:
 
-Si  $Y_{KNN(x_{new})}$ es la muestra de la respuesta para los $k$ individuos asociados al conjunto $KNN(x_{new})$ , es decir:
+Si  $\hspace{0.1cm}Y_{KNN(x_{new})}\hspace{0.1cm}$ es la muestra de la respuesta para los $\hspace{0.1cm}k\hspace{0.1cm}$ individuos asociados al conjunto $\hspace{0.1cm}KNN(x_{new})\hspace{0.1cm}$ , es decir: 
 
-$$\hspace{0.25cm}   Y_{KNN(x_{new})} = (\hspace{0.25cm} y_i \hspace{0.25cm} / \hspace{0.25cm}  i=1,...,n \hspace{0.25cm}  \text{y} \hspace{0.25cm} x_i \in KNN(x_{new})\hspace{0.25cm} )^t$$
+$$Y_{KNN(x_{new})} = (\hspace{0.15cm} y_i \hspace{0.25cm} / \hspace{0.25cm}  i=1,...,n \hspace{0.25cm}  \text{y} \hspace{0.25cm} x_i \in KNN(x_{new})\hspace{0.15cm} )^t$$
 
 Entonces:
 
@@ -3126,7 +3121,7 @@ x_new = X_test.iloc[ 8 , :]
 
 <br>
 
-Impoortamo la clase necesaria para aplicar KNN para regresión con `sklearn`
+Importamos la clase necesaria para aplicar KNN para regresión con `sklearn`
 
 
 
@@ -4062,7 +4057,7 @@ distances
 
 
 
-Proabando otras medidas de distancias:
+Probando otras medidas de distancias:
 
 
 ```python
@@ -4271,11 +4266,11 @@ distances
 
 
 
-----
+<br>
 
 
 
-## Simple validation with own validation function and own KNN regression function  <a class="anchor" id="7.1"></a>
+## Validación Simple con función propia <a class="anchor" id="7.1"></a>
 
 
 ```python
@@ -4336,8 +4331,6 @@ ECM
 ```
 
 
-
-
     1705111679187.3896
 
 
@@ -4347,14 +4340,13 @@ ECM
 
 
 
----
-
-
-
 # Bibliography
 
+Scikit-learn Developers. KNeighborsClassifier. Scikit-learn. 
 https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html
 
-apuntes aurea
+Scikit-learn Developers. KNeighborsRegressor. Scikit-learn. 
+https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html
 
+Grané Chavez, Aurea. (2022). *Análisis Discriminante* [Presentación de PowerPoint]. Aula Global UC3M.
 

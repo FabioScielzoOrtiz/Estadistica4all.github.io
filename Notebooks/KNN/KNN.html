@@ -1593,9 +1593,9 @@ margin-left: 0 !important;
       <li><a href="#validación-simple-con-función-propia-2" id="toc-validación-simple-con-función-propia-2"><span class="toc-section-number">6.1</span> Validación simple con función propia <a class="anchor" id="6.1"></a></a></li>
       <li><a href="#validación-simple-con-sklearn-1" id="toc-validación-simple-con-sklearn-1"><span class="toc-section-number">6.2</span> Validación simple con <code>sklearn</code> <a class="anchor" id="6.2"></a></a></li>
       </ul></li>
-      <li><a href="#modelo-knn-de-regression-con-algoritm-de-creación-propia-en-python" id="toc-modelo-knn-de-regression-con-algoritm-de-creación-propia-en-python"><span class="toc-section-number">7</span> Modelo KNN de regression con algoritm de creación propia en <code>Python</code> <a class="anchor" id="7"></a></a>
+      <li><a href="#modelo-knn-de-regression-con-algoritmo-de-creación-propia-en-python" id="toc-modelo-knn-de-regression-con-algoritmo-de-creación-propia-en-python"><span class="toc-section-number">7</span> Modelo KNN de regression con algoritmo de creación propia en <code>Python</code> <a class="anchor" id="7"></a></a>
       <ul>
-      <li><a href="#simple-validation-with-own-validation-function-and-own-knn-regression-function" id="toc-simple-validation-with-own-validation-function-and-own-knn-regression-function"><span class="toc-section-number">7.1</span> Simple validation with own validation function and own KNN regression function <a class="anchor" id="7.1"></a></a></li>
+      <li><a href="#validación-simple-con-función-propia-3" id="toc-validación-simple-con-función-propia-3"><span class="toc-section-number">7.1</span> Validación Simple con función propia <a class="anchor" id="7.1"></a></a></li>
       </ul></li>
       <li><a href="#bibliography" id="toc-bibliography"><span class="toc-section-number">8</span> Bibliography</a></li>
       </ul>
@@ -1642,9 +1642,9 @@ margin-right: auto;
 <h1><span class="header-section-number">1</span> KNN como modelo de clasificación supervisada <a class="anchor" id="1"></a></h1>
 <p>Un modelo de clasificación supervisada es un modelo estadistico que permite predecir una respuesta <strong>categorica</strong> usando para ello informacion sobre una serie de predictores y de la propia respuesta.</p>
 <ul>
-<li><p>Tenemos <span class="math inline">\(p\)</span> predictores <span class="math inline">\((\mathcal{X}_1 ,...,\mathcal{X}_p)\)</span> y una respuesta <strong>categorica</strong> <span class="math inline">\(\mathcal{Y}\)</span></p></li>
-<li><p>La variable respuesta <strong>categorica</strong> tiene <span class="math inline">\(g\)</span> categorias , ya que <span class="math inline">\(Rango(\mathcal{Y})=\lbrace 0,1,...,g-1 \rbrace\)</span></p></li>
-<li><p>Tenemos una muestra de tamaño <span class="math inline">\(n\)</span> de los <span class="math inline">\(p\)</span> predictores <span class="math inline">\(X_1,...,X_p\)</span> y de la respuesta <span class="math inline">\(Y\)</span></p></li>
+<li><p>Tenemos <span class="math inline">\(p\)</span> predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> y una respuesta <strong>categorica</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{Y} \\\)</span></p></li>
+<li><p>La variable respuesta <strong>categorica</strong> tiene <span class="math inline">\(\hspace{0.1cm}g\hspace{0.1cm}\)</span> categorias , ya que <span class="math inline">\(\hspace{0.1cm}Rango(\mathcal{Y})=\lbrace 0,1,...,g-1 \rbrace \\\)</span></p></li>
+<li><p>Tenemos una muestra de tamaño <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}\)</span> y de la respuesta <span class="math inline">\(\hspace{0.1cm}Y \\\)</span></p></li>
 </ul>
 <p><span class="math display">\[D=[X_1,...,X_p,Y]=\begin{pmatrix}
     x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp; y_1\\
@@ -1657,20 +1657,17 @@ margin-right: auto;
      ...&amp;... \\
      x_{n} &amp; y_n
     \end{pmatrix}\]</span></p>
+<p><br></p>
 <p>El modelo KNN para clasificacion supervisada se basa en el siguiente algoritmo:</p>
-<p><span class="math inline">\(1. \hspace{0.15cm}\)</span> Se define una medida de distancia entre pares de observaciones de variables estadisticas <span class="math inline">\(\hspace{0.15cm} \Rightarrow \hspace{0.15cm}\)</span> <span class="math inline">\(\delta (\cdot , \cdot)\)</span></p>
-<p><br></p>
-<p><span class="math inline">\(2. \hspace{0.15cm}\)</span> Dada una nueva observación <span class="math inline">\(x_{new}\)</span> de los predictores <span class="math inline">\((\mathcal{X}_1 ,...,\mathcal{X}_p)\)</span> , es decir, una observación que no está en la muestra de train, se calculan las distancias entre el par de observaciones <span class="math inline">\((x_{new} , x_i)\)</span> , para <span class="math inline">\(i=1,...,n\)</span></p>
-<p><br></p>
-<p><span class="math inline">\(3. \hspace{0.15cm}\)</span> Se seleccionan las <span class="math inline">\(k\)</span> observaciones del vector <span class="math inline">\((x_1,...,x_n)\)</span> que son más cercanas a la nueva observación <span class="math inline">\(x_{new}\)</span></p>
-<p>El conjunto de estas <span class="math inline">\(k\)</span> observaciones se denota por <span class="math inline">\(KNN(x_{new})\)</span></p>
-<p><br></p>
-<p><span class="math inline">\(4. \hspace{0.15cm}\)</span> Se calcula la frecuencia relativa de cada categoría de la respuesta sobre el conjunto <span class="math inline">\(KNN(x_{new})\)</span></p>
-<p>Sea <span class="math inline">\(f^{KNN(x_{new})}_r\)</span> la frecuencia relativa (proporción) de observaciones de <span class="math inline">\(KNN(x_{new})\)</span> tales que <span class="math inline">\(\mathcal{Y}=r\)</span></p>
+<p><span class="math inline">\(1. \hspace{0.15cm}\)</span> Se define una medida de distancia entre pares de observaciones de variables estadisticas <span class="math inline">\(\hspace{0.15cm} \Rightarrow \hspace{0.15cm}\)</span> <span class="math inline">\(\delta (\cdot , \cdot) \\\)</span></p>
+<p><span class="math inline">\(2. \hspace{0.15cm}\)</span> Dada una nueva observación <span class="math inline">\(\hspace{0.1cm}x_{new}\hspace{0.1cm}\)</span> de los predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> , es decir, una observación que no está en la muestra de train, se calculan las distancias entre el par de observaciones <span class="math inline">\(\hspace{0.1cm}(x_{new} , x_i)\)</span> , para <span class="math inline">\(\hspace{0.1cm}i=1,...,n \\\)</span></p>
+<p><span class="math inline">\(3. \hspace{0.15cm}\)</span> Se seleccionan las <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> observaciones del vector <span class="math inline">\(\hspace{0.1cm}(x_1,...,x_n)\hspace{0.1cm}\)</span> que son más cercanas a la nueva observación <span class="math inline">\(\hspace{0.1cm}x_{new}\)</span></p>
+<p>El conjunto de estas <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> observaciones se denota por <span class="math inline">\(\hspace{0.1cm}KNN(x_{new}) \\\)</span></p>
+<p><span class="math inline">\(4. \hspace{0.15cm}\)</span> Se calcula la frecuencia relativa de cada categoría de la respuesta sobre el conjunto <span class="math inline">\(\hspace{0.1cm}KNN(x_{new})\)</span></p>
+<p>Sea <span class="math inline">\(\hspace{0.1cm}f^{KNN(x_{new})}_r\hspace{0.1cm}\)</span> la frecuencia relativa (proporción) de observaciones de <span class="math inline">\(\hspace{0.1cm}KNN(x_{new})\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}=r\)</span></p>
 <p>Es decir:</p>
-<p><span class="math display">\[\hspace{0.1 cm} f^{KNN(x_{new})}_{r} \hspace{0.15cm}=\hspace{0.15cm} \dfrac{ \# \hspace{0.1cm}\lbrace\hspace{0.1cm} i \hspace{0.1cm}/\hspace{0.1cm} x_i \in KNN(x_{new}) \hspace{0.3cm}\text{y}\hspace{0.3cm}  y_i = r \hspace{0.1cm}\rbrace  }{\# \hspace{0.1cm} KNN(x_{new}) = k}\]</span></p>
-<p><br></p>
-<p><span class="math inline">\(5. \hspace{0.15cm}\)</span> Para la nueva observación de los predictores <span class="math inline">\(\hspace{0.1cm} x_{new} \hspace{0.1cm}\)</span> se predice la respuesta como la categoria mas frecuente en el conjunto <span class="math inline">\(KNN(x_{new})\)</span></p>
+<p><span class="math display">\[\hspace{0.1 cm} f^{KNN(x_{new})}_{r} \hspace{0.15cm}=\hspace{0.15cm} \dfrac{ \# \hspace{0.1cm}\lbrace\hspace{0.1cm} i \hspace{0.1cm}/\hspace{0.1cm} x_i \in KNN(x_{new}) \hspace{0.3cm}\text{y}\hspace{0.3cm}  y_i = r \hspace{0.1cm}\rbrace  }{\# \hspace{0.1cm} KNN(x_{new}) = k} \\\]</span></p>
+<p><span class="math inline">\(5. \hspace{0.15cm}\)</span> Para la nueva observación de los predictores <span class="math inline">\(\hspace{0.1cm} x_{new} \hspace{0.1cm}\)</span> se predice la respuesta como la categoria mas frecuente en el conjunto <span class="math inline">\(\hspace{0.1cm}KNN(x_{new})\)</span></p>
 <p>Es decir:</p>
 <p><span class="math display">\[\hspace{0.6 cm} \text{Si} \hspace{0.4 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 cm} \underset{\hspace{0.7 cm} r}{arg \hspace{0.1 cm} Max} \hspace{0.05 cm} \left(\hspace{0.1 cm} f^{KNN(x_{new})}_{r} \hspace{0.1 cm}\right) \hspace{0.2 cm} \hspace{0.15cm}  \Rightarrow \hspace{0.25cm} \widehat{y}_{new} = r^* \hspace{0.1cm}\]</span></p>
 <p><br></p>
@@ -1678,24 +1675,24 @@ margin-right: auto;
 <div id="ejemplo-de-juguete" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Ejemplo de juguete <a class="anchor" id="2"></a></h1>
 <ul>
-<li><p>Sample: <span class="math inline">\(n=3\)</span></p></li>
-<li><p>Predictors: <span class="math inline">\(\hspace{0.15cm} X1 = (10 , 2 , 4)\)</span> , <span class="math inline">\(\hspace{0.15cm} X2 = (20 , 25, 40)\)</span></p></li>
-<li><p>Observations: <span class="math inline">\(\hspace{0.15cm} x_1 =(10,20)\)</span> , <span class="math inline">\(\hspace{0.15cm} x_2=(2,25)\)</span> , <span class="math inline">\(\hspace{0.15cm} x_3=(4,40)\)</span></p></li>
-<li><p>Response <span class="math inline">\(\hspace{0.1cm}(2\)</span> categories <span class="math inline">\((0,1)\)</span>, then <span class="math inline">\(2\)</span> groups <span class="math inline">\(\hspace{0.1cm}\Omega_0 , \Omega_1)\)</span> : <span class="math inline">\(\hspace{0.18cm} Y =( 1 , 1 , 0 )\)</span></p></li>
-<li><p>Distance <span class="math inline">\(\hspace{0.15cm} \Rightarrow \hspace{0.15cm}\)</span> $ _{Euclidean}$</p></li>
-<li><p>New observation: <span class="math inline">\(\hspace{0.15cm} x_{new}=(6, 20)\)</span></p></li>
-<li><p>Computing the distances:</p></li>
+<li><p>Tamaño muestral: <span class="math inline">\(n=3 \\\)</span></p></li>
+<li><p>Predictores: <span class="math inline">\(\hspace{0.15cm} X1 = (10 , 2 , 4)\)</span> , <span class="math inline">\(\hspace{0.15cm} X2 = (20 , 25, 40) \\\)</span></p></li>
+<li><p>Observaciones: <span class="math inline">\(\hspace{0.15cm} x_1 =(10,20)\)</span> , <span class="math inline">\(\hspace{0.15cm} x_2=(2,25)\)</span> , <span class="math inline">\(\hspace{0.15cm} x_3=(4,40) \\\)</span></p></li>
+<li><p>Respuesta <span class="math inline">\(\hspace{0.1cm}2\)</span> categories <span class="math inline">\((0,1)\)</span>: <span class="math inline">\(\hspace{0.18cm} Y =( 1 , 1 , 0 ) \\\)</span></p></li>
+<li><p>Distancia <span class="math inline">\(\hspace{0.15cm} \Rightarrow \hspace{0.15cm}\)</span> <span class="math inline">\(\delta_{Euclidean} \\\)</span></p></li>
+<li><p>Nueva observación: <span class="math inline">\(\hspace{0.15cm} x_{new}=(6, 20) \\\)</span></p></li>
+<li><p>Calculamos las distancias:</p></li>
 </ul>
 <p><span class="math inline">\(\hspace{0.85cm} \delta(x_{new}, x_1)_{Euclidean} = (10-6)^2 + (20-20)^2 = 16\)</span></p>
 <p><span class="math inline">\(\hspace{0.85cm} \delta(x_{new}, x_2)_{Euclidean} = (2-6)^2 + (25-20)^2 = 16 + 25 = 41\)</span></p>
-<p><span class="math inline">\(\hspace{0.85cm} \delta(x_{new}, x_3)_{Euclidean} = (4-6)^2 + (40-20)^2 = 4 + 400 = 404\)</span></p>
+<p><span class="math inline">\(\hspace{0.85cm} \delta(x_{new}, x_3)_{Euclidean} = (4-6)^2 + (40-20)^2 = 4 + 400 = 404 \\\)</span></p>
 <ul>
-<li><p>Selecting <span class="math inline">\(\hspace{0.05cm} k=2 \hspace{0.05cm}\)</span> nearest neighbor to <span class="math inline">\(\hspace{0.05cm}x_{new}\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.215cm}\)</span> $ KNN = x_1 , x_2 = individual 1 , individual 2 $</p></li>
-<li><p>Computing the proportions <span class="math inline">\(f^{knn}\)</span> :</p></li>
+<li><p>Seleccionamos <span class="math inline">\(\hspace{0.05cm} k=2 \hspace{0.05cm}\)</span> vecinos más cercanos <span class="math inline">\(\hspace{0.05cm}x_{new}\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.215cm}\)</span> <span class="math inline">\(KNN \hspace{0.01cm}=\hspace{0.01cm} \lbrace\hspace{0.1cm} x_1 , x_2 \hspace{0.1cm}\rbrace \\\)</span></p></li>
+<li><p>Calculamos las proporciones <span class="math inline">\(f^{KNN(x_{new})}\)</span> :</p></li>
 </ul>
-<p><span class="math inline">\(\hspace{0.85cm}\)</span> Note that <span class="math inline">\(\hspace{0.1cm} y_1 = 1 \hspace{0.1cm}\)</span> and $ y_2 = 1 f^{knn}_0 = 0/2 = 0 $ and <span class="math inline">\(\hspace{0.1cm} f^{knn}_1 = 2/2 = 1\)</span></p>
+<p><span class="math inline">\(\hspace{0.85cm}\)</span> Notese que <span class="math inline">\(\hspace{0.1cm} y_1 = 1 \hspace{0.2cm}\)</span> y <span class="math inline">\(\hspace{0.2cm} y_2 = 1\hspace{0.2cm} \Rightarrow \hspace{0.2cm} f^{knn}_0 = 0/2 = 0\hspace{0.2cm}\)</span> y <span class="math inline">\(\hspace{0.2cm} f^{knn}_1 = 2/2 = 1 \\\)</span></p>
 <ul>
-<li>So, the algorithm classify <span class="math inline">\(\hspace{0.1 cm}x_{new} \hspace{0.1 cm}\)</span> in the group <span class="math inline">\(\hspace{0.1 cm}\Omega_1 \hspace{0.1 cm}\)</span> , so the algorithm predict that <span class="math inline">\(\hspace{0.15cm} \hat{y}_{new} = 1\)</span></li>
+<li>Así que, el algoritmo predice que el valor de la respuesta asociado a la nueva observación es <span class="math inline">\(\hspace{0.15cm} \hat{y}_{new} = 1\)</span></li>
 </ul>
 <p><br></p>
 </div>
@@ -3961,9 +3958,9 @@ groups
 <h1><span class="header-section-number">5</span> KNN como modelo de regresión <a class="anchor" id="5"></a></h1>
 <p>Un modelo de regresión es un modelo estadistico que permite predecir una respuesta <strong>cuantitativa</strong> usando para ello información sobre una serie de predictores y de la propia respuesta.</p>
 <ul>
-<li><p>Tenemos <span class="math inline">\(p\)</span> predictores <span class="math inline">\((\mathcal{X}_1 ,...,\mathcal{X}_p)\)</span> y una respuesta <strong>cuantitativa</strong> <span class="math inline">\(\mathcal{Y}\)</span></p></li>
-<li><p>La variable respuesta <strong>cuantitativa</strong> tiene <span class="math inline">\(g\)</span> categorias , ya que <span class="math inline">\(Rango(\mathcal{Y})=\lbrace 0,1,...,g-1 \rbrace\)</span></p></li>
-<li><p>Tenemos una muestra de tamaño <span class="math inline">\(n\)</span> de los <span class="math inline">\(p\)</span> predictores <span class="math inline">\(X_1,...,X_p\)</span> y de la respuesta <span class="math inline">\(Y\)</span></p></li>
+<li><p>Tenemos <span class="math inline">\(\hspace{0.1cm} p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> y una respuesta <strong>cuantitativa</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{Y} \\\)</span></p></li>
+<li><p>La variable respuesta <strong>cuantitativa</strong> tiene <span class="math inline">\(g\)</span> categorias , ya que <span class="math inline">\(\hspace{0.1cm}Rango(\mathcal{Y})=\lbrace 0,1,...,g-1 \rbrace \\\)</span></p></li>
+<li><p>Tenemos una muestra de tamaño <span class="math inline">\(n\)</span> de los <span class="math inline">\(p\)</span> predictores <span class="math inline">\(\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}\)</span> y de la respuesta <span class="math inline">\(\hspace{0.1cm}Y \\\)</span></p></li>
 </ul>
 <p><span class="math display">\[D=[X_1,...,X_p,Y]=\begin{pmatrix}
     x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp; y_1\\
@@ -3976,21 +3973,19 @@ groups
      ...&amp;... \\
      x_{n} &amp; y_n
     \end{pmatrix}\]</span></p>
+<p><br></p>
 <p>El modelo KNN para regresión se basa en el siguiente algoritmo:</p>
-<p><span class="math inline">\(1. \hspace{0.15cm}\)</span> Se define una medida de distancia entre pares de observaciones de variables estadisticas <span class="math inline">\(\hspace{0.15cm} \Rightarrow \hspace{0.15cm}\)</span> <span class="math inline">\(\delta (\cdot , \cdot)\)</span></p>
-<p><br></p>
-<p><span class="math inline">\(2. \hspace{0.15cm}\)</span> Dada una nueva observación <span class="math inline">\(x_{new}\)</span> de los predictores <span class="math inline">\((\mathcal{X}_1 ,...,\mathcal{X}_p)\)</span> , es decir, una observación que no está en la muestra de train, se calculan las distancias entre el par de observaciones <span class="math inline">\((x_{new} , x_i)\)</span> , para <span class="math inline">\(i=1,...,n\)</span></p>
-<p><br></p>
-<p><span class="math inline">\(3. \hspace{0.15cm}\)</span> Se seleccionan las <span class="math inline">\(k\)</span> observaciones del vector <span class="math inline">\((x_1,...,x_n)\)</span> que son más cercanas a la nueva observación <span class="math inline">\(x_{new}\)</span></p>
-<p>El conjunto de estas <span class="math inline">\(k\)</span> observaciones se denota por <span class="math inline">\(KNN(x_{new})\)</span></p>
-<p><br></p>
-<p><span class="math inline">\(4. \hspace{0.15cm}\)</span> Se predice la respuesta para la nueva observacion <span class="math inline">\(x_{new}\)</span> como la media de la respuesta en el conjunto <span class="math inline">\(KNN(x_{new})\)</span></p>
-<p><span class="math display">\[\widehat{y}_{new}  \hspace{0.14cm} = \hspace{0.14cm} \dfrac{1}{ k }\cdot \sum_{  i  \in \mathcal{I} \left[  \hspace{0.08cm} KNN(x_{new}) \hspace{0.08cm} \right]}  y_i\]</span></p>
+<p><span class="math inline">\(1. \hspace{0.15cm}\)</span> Se define una medida de distancia entre pares de observaciones de variables estadisticas <span class="math inline">\(\hspace{0.15cm} \Rightarrow \hspace{0.15cm}\)</span> <span class="math inline">\(\delta (\cdot , \cdot) \\\)</span></p>
+<p><span class="math inline">\(2. \hspace{0.15cm}\)</span> Dada una nueva observación <span class="math inline">\(x_{new}\)</span> de los predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\)</span> , es decir, una observación que no está en la muestra de train, se calculan las distancias entre el par de observaciones <span class="math inline">\(\hspace{0.1cm}(x_{new} , x_i)\)</span> , para <span class="math inline">\(\hspace{0.1cm}i=1,...,n \\\)</span></p>
+<p><span class="math inline">\(3. \hspace{0.15cm}\)</span> Se seleccionan las <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> observaciones del vector <span class="math inline">\(\hspace{0.1cm}(x_1,...,x_n)\hspace{0.1cm}\)</span> que son más cercanas a la nueva observación $x_{new} $</p>
+<p>El conjunto de estas <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> observaciones se denota por <span class="math inline">\(\hspace{0.1cm}KNN(x_{new}) \\\)</span></p>
+<p><span class="math inline">\(4. \hspace{0.15cm}\)</span> Se predice la respuesta para la nueva observacion <span class="math inline">\(\hspace{0.1cm}x_{new}\hspace{0.1cm}\)</span> como la media de la respuesta en el conjunto <span class="math inline">\(\hspace{0.1cm}KNN(x_{new})\)</span></p>
+<p><span class="math display">\[\widehat{y}_{new}  \hspace{0.14cm} = \hspace{0.14cm} \dfrac{1}{ k }\cdot \sum_{  i \hspace{0.05cm} \in\hspace{0.05cm} \mathcal{I} \left[  \hspace{0.08cm} KNN(x_{new}) \hspace{0.08cm} \right]}  y_i\]</span></p>
 <p>Donde:</p>
-<p><span class="math inline">\(\mathcal{I} \left[ \hspace{0.08cm} KNN(x_{new}) \hspace{0.08cm} \right] = \lbrace i = 1,...,n \hspace{0.15cm} / \hspace{0.15cm} x_i \in KNN(x_{new}) \rbrace\)</span></p>
+<p><span class="math inline">\(\hspace{0.1cm}\mathcal{I} \left[ \hspace{0.08cm} KNN(x_{new}) \hspace{0.08cm} \right] = \lbrace i = 1,...,n \hspace{0.15cm} / \hspace{0.15cm} x_i \in KNN(x_{new}) \rbrace \\\)</span></p>
 <p>Otra forma de expresarlo:</p>
-<p>Si <span class="math inline">\(Y_{KNN(x_{new})}\)</span> es la muestra de la respuesta para los <span class="math inline">\(k\)</span> individuos asociados al conjunto <span class="math inline">\(KNN(x_{new})\)</span> , es decir:</p>
-<p><span class="math display">\[\hspace{0.25cm}   Y_{KNN(x_{new})} = (\hspace{0.25cm} y_i \hspace{0.25cm} / \hspace{0.25cm}  i=1,...,n \hspace{0.25cm}  \text{y} \hspace{0.25cm} x_i \in KNN(x_{new})\hspace{0.25cm} )^t\]</span></p>
+<p>Si <span class="math inline">\(\hspace{0.1cm}Y_{KNN(x_{new})}\hspace{0.1cm}\)</span> es la muestra de la respuesta para los <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> individuos asociados al conjunto <span class="math inline">\(\hspace{0.1cm}KNN(x_{new})\hspace{0.1cm}\)</span> , es decir:</p>
+<p><span class="math display">\[Y_{KNN(x_{new})} = (\hspace{0.15cm} y_i \hspace{0.25cm} / \hspace{0.25cm}  i=1,...,n \hspace{0.25cm}  \text{y} \hspace{0.25cm} x_i \in KNN(x_{new})\hspace{0.15cm} )^t\]</span></p>
 <p>Entonces:</p>
 <p><span class="math display">\[\widehat{y}_{new} =  \overline{\hspace{0.15cm} Y}_{KNN(x_{new})}\]</span></p>
 <p><br></p>
@@ -5291,7 +5286,7 @@ size_in_m_2
 <span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>x_new <span class="op">=</span> X_test.iloc[ <span class="dv">8</span> , :]</span></code></pre></div>
 <p><br></p>
-<p>Impoortamo la clase necesaria para aplicar KNN para regresión con <code>sklearn</code></p>
+<p>Importamos la clase necesaria para aplicar KNN para regresión con <code>sklearn</code></p>
 <div class="sourceCode" id="cb114"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sklearn</span>
 <span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb114-3"><a href="#cb114-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> NearestNeighbors</span></code></pre></div>
@@ -5394,8 +5389,8 @@ size_in_m_2
 <p><br></p>
 </div>
 </div>
-<div id="modelo-knn-de-regression-con-algoritm-de-creación-propia-en-python" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Modelo KNN de regression con algoritm de creación propia en <code>Python</code> <a class="anchor" id="7"></a></h1>
+<div id="modelo-knn-de-regression-con-algoritmo-de-creación-propia-en-python" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Modelo KNN de regression con algoritmo de creación propia en <code>Python</code> <a class="anchor" id="7"></a></h1>
 <div class="sourceCode" id="cb136"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> KNN_regression( X , Y , x_new, k, distance <span class="op">=</span> <span class="st">&quot;Minkowski&quot;</span> , q <span class="op">=</span> <span class="dv">0</span>, p1<span class="op">=</span><span class="dv">0</span>, p2<span class="op">=</span><span class="dv">0</span>, p3<span class="op">=</span><span class="dv">0</span> ):</span>
 <span id="cb136-2"><a href="#cb136-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb136-3"><a href="#cb136-3" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -5997,7 +5992,8 @@ size_in_m_2
 <span id="cb136-599"><a href="#cb136-599" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb136-600"><a href="#cb136-600" aria-hidden="true" tabindex="-1"></a>                                     </span>
 <span id="cb136-601"><a href="#cb136-601" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y_predict , distances </span></code></pre></div>
-<p>Testing our <code>KNN_regression</code> function:</p>
+<p><br></p>
+<p>Probando nuestra función <code>KNN_regression</code> :</p>
 <div class="sourceCode" id="cb137"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a>y_predict , distances  <span class="op">=</span> KNN_regression( X_train, Y_train , x_new, k<span class="op">=</span><span class="dv">10</span>, distance <span class="op">=</span> <span class="st">&quot;Minkowski&quot;</span> , q <span class="op">=</span> <span class="dv">2</span> )</span></code></pre></div>
 <div class="sourceCode" id="cb138"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a>y_predict</span></code></pre></div>
 <pre><code>2026203.4</code></pre>
@@ -6155,6 +6151,7 @@ distances
 1524 rows × 2 columns
 </p>
 </div>
+<p>Probando otras medidas de distancias:</p>
 <div class="sourceCode" id="cb141"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a>y_predict , distances  <span class="op">=</span> KNN_regression( X_train , Y_train , x_new, k<span class="op">=</span><span class="dv">10</span>, distance <span class="op">=</span> <span class="st">&quot;Minkowski&quot;</span> , q <span class="op">=</span> <span class="dv">5</span> )</span></code></pre></div>
 <div class="sourceCode" id="cb142"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a>y_predict</span></code></pre></div>
 <pre><code>2026203.4</code></pre>
@@ -6337,9 +6334,9 @@ distances
 1524 rows × 2 columns
 </p>
 </div>
-<hr />
-<div id="simple-validation-with-own-validation-function-and-own-knn-regression-function" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> Simple validation with own validation function and own KNN regression function <a class="anchor" id="7.1"></a></h2>
+<p><br></p>
+<div id="validación-simple-con-función-propia-3" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Validación Simple con función propia <a class="anchor" id="7.1"></a></h2>
 <div class="sourceCode" id="cb158"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Simple_Validation_Regression(Data_Test, X_train, Y_train, Y_test) :</span>
 <span id="cb158-2"><a href="#cb158-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb158-3"><a href="#cb158-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">##########################</span></span>
@@ -6388,13 +6385,15 @@ distances
 <div class="sourceCode" id="cb160"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a>ECM</span></code></pre></div>
 <pre><code>1705111679187.3896</code></pre>
 <p><br></p>
-<hr />
 </div>
 </div>
 <div id="bibliography" class="section level1" number="8">
 <h1><span class="header-section-number">8</span> Bibliography</h1>
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html" class="uri">https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html</a></p>
-<p>apuntes aurea</p>
+<p>Scikit-learn Developers. KNeighborsClassifier. Scikit-learn.
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html" class="uri">https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html</a></p>
+<p>Scikit-learn Developers. KNeighborsRegressor. Scikit-learn.
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html" class="uri">https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html</a></p>
+<p>Grané Chavez, Aurea. (2022). <em>Análisis Discriminante</em> [Presentación de PowerPoint]. Aula Global UC3M.</p>
 </div>
 </div>
 
