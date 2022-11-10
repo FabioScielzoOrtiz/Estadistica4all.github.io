@@ -61,7 +61,7 @@ css: custom.css
 # KNN como modelo de clasificación supervisada <a class="anchor" id="1"></a>  
 
 
-Un modelo de clasificación supervisada  es un modelo estadistico que permite predecir una respuesta categorica usando para ello informacion sobre una serie de predictores y de la propia respuesta.
+Un modelo de clasificación supervisada  es un modelo estadistico que permite predecir una respuesta **categorica** usando para ello informacion sobre una serie de predictores y de la propia respuesta.
 
 - Tenemos $p$ predictores $(\mathcal{X}_1 ,...,\mathcal{X}_p)$ y una respuesta **categorica** $\mathcal{Y}$
 
@@ -133,7 +133,7 @@ $$\hspace{0.6 cm} \text{Si} \hspace{0.4 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 
 
 
 
-## Ejemplo de juguete <a class="anchor" id="2"></a>
+# Ejemplo de juguete <a class="anchor" id="2"></a>
 
 
 
@@ -190,7 +190,7 @@ $\hspace{0.85cm}$ Note that $\hspace{0.1cm} y_1 = 1 \hspace{0.1cm}$ and $ \hspac
 <br>
 
 
-## Modelo KNN de clasificación supervisada aplicado en `Python` con `sklearn`  <a class="anchor" id="3"></a>
+# Modelo KNN de clasificación supervisada aplicado en `Python` con `sklearn`  <a class="anchor" id="3"></a>
 
 
 ```python
@@ -512,7 +512,7 @@ Se recomienda ver primero la documentación de sklearn:
 https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html
 
 
-Fijamos los parametros que usaremos en la función `KNeighborsClassifier`
+Fijamos los parametros que usaremos en la función `KNeighborsClassifier`, entre otros, usaremos K=10 , y la distancia Minkowski con p=2 (equivalente a la Euclidea):
 
 ```python
 knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform', p=2, metric='minkowski')
@@ -551,7 +551,7 @@ knn_classification.predict_proba([x_new])
 
 <br>
 
-### Método de validación simple con función propia <a class="anchor" id="3.1"></a>
+## Validación simple con función propia <a class="anchor" id="3.1"></a>
 
 
 Creamos una función que entrena el modelo con una muestra de train de los predictores y la respuesta, pasada como argumento, y calcula la métrica de validación TEC con una muestra de test de los predictores que también es pasada como argumento:
@@ -631,7 +631,7 @@ TEC
 
 <br>
 
-### Método de validación simple con función de `sklearn`  <a class="anchor" id="3.2"></a>
+## Validación simple con `sklearn`  <a class="anchor" id="3.2"></a>
 
 
 Entrenamos el modelo con las muestra de train:
@@ -663,6 +663,7 @@ TEC_sklearn
 Vemos ahora como funciona la función `KNeighborsClassifier` con otras medidas de distancias :
 
 
+Usando la distancia cityblock:
 ```python
 knn = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform',  metric='cityblock')
 ```
@@ -683,6 +684,7 @@ knn.predict_proba([x_new])
 
 
 
+Usando la distancia coseno:
 
 ```python
 knn = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform', metric='cosine')
@@ -703,7 +705,7 @@ knn.predict_proba([x_new])
     
 
 
-
+Usando la distancia nan_euclidea
 
 ```python
 knn = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform', metric='nan_euclidean')
@@ -724,7 +726,7 @@ knn.predict_proba([x_new])
     
 
 
-
+Usando la distanchia manhattan:
 
 ```python
 knn = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform', metric='manhattan')
@@ -750,9 +752,9 @@ knn.predict_proba( [x_new] )
 
 
 
-## Modelo KNN de clasificación supervisada con algoritmo de creación propia en `Python` <a class="anchor" id="4"></a>
+# Modelo KNN de clasificación supervisada con algoritmo de creación propia en `Python` <a class="anchor" id="4"></a>
 
-We are going to develop our own algorithm so as not to depend on sklearn
+Vamos a crear una función que replique al algoritmo KNN anterirmente descrito. Este ejercicio es una forma de entender mejor como funciona realmente el algoritmo, y de practicar nuestra programación.
 
 
 ```python
@@ -1376,8 +1378,11 @@ def KNN_classification( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, 
 
 <br>
 
+## Aplicación a clasificación binaria
 
-Testing our `KNN_classification` function in a binary classification problem:
+Probamos nuestra función  `KNN_classification` en un problema de clasificación binaria.
+
+En este caso se va a usar la distancia Euclidea y un $K=10$
 
 
 ```python
@@ -1385,17 +1390,17 @@ prediction_group, proportions_groups_knn  = KNN_classification( X_train , Y_trai
 ```
 
 
+El grupo/clase/categoria que el modelo predice para la nueva observacion de los predictores $x_{new}$ es la 1 (Male):
+
 ```python
 prediction_group
 ```
 
 
-
-
     1.0
 
 
-
+Podemos ver también la proporcion de cada clase en el conjunto $KNN(x_{new})$
 
 ```python
 proportions_groups_knn
@@ -1439,8 +1444,7 @@ proportions_groups_knn
 
 
 
-
-Using another distance function  :
+Probamos a usar otras medidas de distancias:
 
 
 ```python
@@ -1503,6 +1507,7 @@ proportions_groups_knn
 
 
 
+Usando la distancia Minkowski con q=1 :
 
 ```python
 prediction_group, proportions_groups_knn  =  KNN_classification( X_train , Y_train , x_new, 10 , distance = "Minkowski" , q = 1 )
@@ -1562,7 +1567,7 @@ proportions_groups_knn
 
 
 
-
+Usando la distancia Canberra:
 
 
 ```python
@@ -1624,7 +1629,7 @@ proportions_groups_knn
 
 
 
-
+Usando la distancia de Pearson:
 
 ```python
 prediction_group, proportions_groups_knn  =  KNN_classification( X_train , Y_train , x_new, 10 , distance = "Pearson")
@@ -1685,7 +1690,7 @@ proportions_groups_knn
 
 
 
-
+Usando la distancia de Mahalanobis
 
 ```python
 prediction_group, proportions_groups_knn  =  KNN_classification( X_train , Y_train , x_new, 10 , distance = "Mahalanobis")
@@ -1746,24 +1751,27 @@ proportions_groups_knn
 
 
 
-
+Usando la distancia de Gower:
 
 ```python
-# KNN_classification( X , Y , x_new, 10 , distance = "Gower"  )
+# KNN_classification( X_train , Y_train , x_new, 10 , distance = "Gower"  )
 ```
 
-In this case, the Gower distance cannot be implemented because $X$ is not a mixed data matrix (it only has quantitative and binary, the multiclasses are missing).
-Neither can the Sokal and Jaccard distances be used because $X$ is not a binary data matrix, nor can the matches coefficient be used because $X$ is not a multiclass categorical data matrix.
+En este caso la distancia de Gower no puede ser implementada porque $X_{train}$  no es una matriz de datos mixtos (solo tiene variables  cuantitativas y binarias, no hay variables multiclase). 
+
+Tampoco podrian usarse las distancias de Sokal y Jaccard, ya que $X_{train}$ no es una matriz de datos binarios.
+
+Tampoco podria usarse la distancia de coencidencias (Matches), porque $X_{train}$ no es una matriz de datos multiclase.
 
 
 
----
+<br> 
+
+Como en este caso $X_{train}$ es una matriz de datos binaria-cuantitativa (binary-quantitative), la medida de distancia mas adecuada es la distancia de Gower binaria-cuantitativa (Gower-BQ).
 
 
 
-Since in this case $X$ is a matrix of **Binary-Quantitative data**, the most suitable distance allowed by our `KNN_regression` function is the **Gower-BQ distance**.
-
-To use our Gower distance we must re-order the columns of $X_{train}$ appropriately. The first $p1$ will be the quantitative variables, and the next $p2$ the binary ones.
+Para usar nuestra distancia de Gower-BQ tenemos que re-ordenar las columnas de $X_{train}$ de manera apropiada. Las primeras $p_1$ tiene que ser variables cuantitativas, las siguientes $p_2$ variables binarias.
 
 
 ```python
@@ -1775,14 +1783,14 @@ X_train_2 = X_train.loc[: , ['forehead_width_cm', 'forehead_height_cm',   # Quan
 ```
 
 
-
+Como la distancia de Gower tiene un coste computacional alto, vamos a trabajar con el subconjunto de las primeras 2000 filas de $X_{train}$ re-ordenada.
 
 ```python
 X_train_subset = X_train_2.iloc[0:2000 , ]
 Y_train_subset = X_train_2.iloc[0:2000 , ]
 ```
 
-
+Aplicamos nuestra funcion `KNN_classification` con K=10 y la distancia Gower-BQ:
 ```python
 prediction_group, proportions_groups_knn  = KNN_classification( X_train_subset, Y_train_subset , x_new, 10 ,  "Gower-BQ" , 2, 5 )
 ```
@@ -1902,16 +1910,16 @@ proportions_groups_knn
 
 
 
-
-Note: with 3000 observations it takes 2 minutes, but with 4001 (all) it takes 8.45 minutes.
-
-
-
-----
+Observación: con 3000 observaciones la funcion tarda en ejecutarse 2 minutos, pero con todo el data-set (4000) tara casi 9 minutos.
 
 
 
-### Simple validation with own validation function and own KNN classification function <a class="anchor" id="4.1"></a>
+
+<br>
+
+
+
+### Validación simple con función propia  <a class="anchor" id="4.1"></a>
 
 
 ```python
@@ -1963,7 +1971,9 @@ def Simple_Validation_Classification(Data_Test, X_train, Y_train, Y_test) :
     return(y_predictions_vector , TEC)
 ```
 
-Simple validation with our function of KNN classification with metric=Minkowski and q=2
+<br>
+
+Calculamos la métrica de validación TEC por validacion simple con la función anterior, para un KNN con K=10 y distancia Euclidea (Minkowski con q=2):
 
 
 ```python
@@ -1984,11 +1994,11 @@ TEC
 
 
 
-----
+<br>
 
+## Aplicación a clasificación multi-clase
 
-
-Testing our `KNN_classification` function in a multi-class classification problem:
+Probamos nuestra función `KNN_classification` en un problema de clasificación multiclase:
 
 
 ```python
@@ -2231,7 +2241,7 @@ proportions_groups_knn
 
 
 
-We tried with another distance :
+Probamos con otras medidas de distancia:
 
 
 ```python
@@ -2369,30 +2379,32 @@ proportions_groups_knn
 
 
 
+<br> 
 
 
-
-Comparing with `Sklearn` function:
+Vamos a utilizar ahora en este mismo problema la funcion de `sklearn`:
 
 
 ```python
 knn = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform',  metric='euclidean')
 ```
 
+Obtenemos la prediccion de la respuesta para la nueva observación y tambien las proporciones de las categorias de la respuesta para los K-vecinos mas cercanos de la nueva observación:
 
 ```python
 knn.fit(X_train , Y_train)
 
-print( knn.predict( [x_new] ) )
+knn.predict( [x_new] ) 
 
-print( knn.predict_proba([x_new]) )
+knn.predict_proba([x_new]) 
 ```
 
     [5]
+    
     [[0.  0.2 0.7 0.1 0.  0. ]]
     
 
-Each proportion correspond to the following categories of the response variables:
+Cada proporcion corresponde con las siguientes categorias de la resspuesta:
 
 
 ```python
@@ -2423,13 +2435,16 @@ print( knn.predict_proba([x_new]) )
 ```
 
     [5]
+    
     [[0.  0.1 0.8 0.1 0.  0. ]]
     
 
 
 
+<br>
 
-**Simple validation with KNN classification (metric=Minkowski , q=2) using our validation function**
+
+**Validación simple con función propia:**
 
 
 ```python
@@ -2450,7 +2465,7 @@ TEC
 
 
 
-**Simple validation with KNN classification (metric=Minkowski , q=2) using sklearn validation function**
+**Validación simple con `sklearn`**
 
 
 ```python
@@ -2482,65 +2497,94 @@ TEC_sklearn
 
 
 
-----
+<br>
 
 
 
-### KNN for regression <a class="anchor" id="5"></a>
+# KNN como modelo de regresión  <a class="anchor" id="5"></a>
 
+Un modelo de regresión es un modelo estadistico que permite predecir una respuesta **cuantitativa** usando para ello información sobre una serie de predictores y de la propia respuesta.
 
+- Tenemos $p$ predictores $(\mathcal{X}_1 ,...,\mathcal{X}_p)$ y una respuesta **cuantitativa** $\mathcal{Y}$
 
-- We have $\hspace{0.1cm} p \hspace{0.1cm}$ variables $\hspace{0.1cm} X=(X_1,...,X_p) \hspace{0.1cm}$ measurements on a $n$ size sample.
+- La variable respuesta **cuantitativa**  tiene $g$ categorias , ya que $Rango(\mathcal{Y})=\lbrace 0,1,...,g-1 \rbrace$
 
-- We also have a **quantitative** response variable $\hspace{0.1cm} Y $ 
+- Tenemos una muestra de tamaño $n$ de los $p$ predictores $X_1,...,X_p$ y de la respuesta  $Y$
 
-
-The regression problem consists in, for a new observation $\hspace{0.1cm} x_{new} = (x_{new,1},x_{new,2},...,x_{new,p}) \hspace{0.1cm}$ of the variables $X_1,...,X_p  \hspace{0.1cm}$, predict it's $\hspace{0.1cm} Y \hspace{0.05cm}$ value $\hspace{0.1cm} (y_{new})\hspace{0.1cm}$  using the information of $\hspace{0.1cm} X_1,...,X_p \hspace{0.1cm}$ and $ \hspace{0.1cm} Y$
-
-So , the problem is to get $\hspace{0.1cm} \hat{y}_{new} \hspace{0.1cm}$  using the information available of $\hspace{0.1cm} X_1,...,X_p \hspace{0.1cm}$ , $Y$ and  $\hspace{0.1cm} x_{new} = (x_{new,1},x_{new,2},...,x_{new,p})$
-
-
-
----
-
-
-
-The KNN (K-nearest neighbors) algorithm for regression have the following steps:
-
-
-
- $1. \hspace{0.15cm}$ Define a distance measure between the observation of the original sample respect to the variables $X_1,...,X_p$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\delta$
-
-
-
- $2. \hspace{0.15cm}$ Compute the distances between $x_{new}$ and the initial observations $\hspace{0.1cm} \lbrace x_1,...,x_n \rbrace$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\lbrace \hspace{0.1 cm}  \delta(x_{new}, x_i) \hspace{0.1 cm} / \hspace{0.1 cm}  i=1,...,n \hspace{0.1 cm}  \rbrace$
-
-  
- $3. \hspace{0.15cm}$ Select the  $k$ nearest observation to $x_{new}$ based on $\hspace{0.05cm} \delta \hspace{0.12cm}$ $(k$ nearest neighbors of $x_{new})$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$   The set of these observation will be denote by $KNN$ 
+$$D=[X_1,...,X_p,Y]=\begin{pmatrix}
+    x_{11}&x_{12}&...&x_{1p}& y_1\\
+    x_{21}&x_{22}&...&x_{2p} & y_2\\
+    ... &...& ...& .... & ...\\
+    x_{n1}&x_{n2}&...&x_{np}& y_n
+    \end{pmatrix} = \begin{pmatrix}
+    x_{1}& y_1\\
+    x_{2}& y_2 \\
+     ...&... \\
+     x_{n} & y_n
+    \end{pmatrix}$$
 
 
 
 
-$5. \hspace{0.15cm}$ The method predict $\hspace{0.1cm} y_{new} \hspace{0.1cm}$  as follows:
+
+
+El modelo KNN para regresión se basa en el siguiente algoritmo:
+
+
+$1. \hspace{0.15cm}$ Se define una medida de distancia  entre pares de observaciones de variables estadisticas $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\delta (\cdot , \cdot)$
+
+<br>
+
+ 
+$2. \hspace{0.15cm}$ Dada una nueva observación $x_{new}$ de los predictores $(\mathcal{X}_1 ,...,\mathcal{X}_p)$ , es decir, una observación que no está en la muestra de train, se calculan las distancias entre el par de observaciones $(x_{new} , x_i)$ , para $i=1,...,n$
+ 
+ <br>
+
+
+$3. \hspace{0.15cm}$ Se seleccionan las $k$ observaciones del vector $(x_1,...,x_n)$ que son más cercanas a la nueva observación $x_{new}$
+
+El conjunto de estas $k$ observaciones se denota por $KNN(x_{new})$
+
+<br>
+
+$4. \hspace{0.15cm}$ Se predice la respuesta para la nueva observacion $x_{new}$ como la media de la respuesta en el conjunto $KNN(x_{new})$
 
 
 
-$$
-   
- \widehat{y}_{new} =  \dfrac{1}{KNN }\cdot \sum_{i \in KNN}  y_i
-  
-$$
+
+$$\widehat{y}_{new}  \hspace{0.14cm} = \hspace{0.14cm} \dfrac{1}{ k }\cdot \sum_{  i  \in \mathcal{I} \left[  \hspace{0.08cm} KNN(x_{new}) \hspace{0.08cm} \right]}  y_i$$
 
 
 
-----
+Donde: 
+
+$\mathcal{I} \left[  \hspace{0.08cm} KNN(x_{new}) \hspace{0.08cm} \right] = \lbrace i = 1,...,n \hspace{0.15cm}  / \hspace{0.15cm}  x_i \in KNN(x_{new}) \rbrace$
+
+
+Otra forma de expresarlo:
+
+Si  $Y_{KNN(x_{new})}$ es la muestra de la respuesta para los $k$ individuos asociados al conjunto $KNN(x_{new})$ , es decir:
+
+$$\hspace{0.25cm}   Y_{KNN(x_{new})} = (\hspace{0.25cm} y_i \hspace{0.25cm} / \hspace{0.25cm}  i=1,...,n \hspace{0.25cm}  \text{y} \hspace{0.25cm} x_i \in KNN(x_{new})\hspace{0.25cm} )^t$$
+
+Entonces:
+
+
+$$\widehat{y}_{new} =  \overline{\hspace{0.15cm} Y}_{KNN(x_{new})}$$
+ 
 
 
 
-### KNN for  regression  in `Python` with `sklearn`<a class="anchor" id="6"></a>
 
-Loading data:
+<br>
 
+
+
+# KNN for  regression  in `Python` with `sklearn`<a class="anchor" id="6"></a>
+
+
+Cargamos los datos con los que vamos a trabajar en esta sección. 
+Son datos sobre casas de Dubai, la respuesta será el precio, los predictores caracteristicas de las casas.
 
 ```python
 House_Price_Regression = pd.read_csv('House_Price_Regression.csv')
@@ -2723,6 +2767,7 @@ House_Price_Regression.head()
 
 
 
+Hacemos la division aleatoria del data-set original en parte de train y de test, para aplicar validación simple aleatoria:
 
 ```python
 House_Price_Regression_Train = House_Price_Regression.sample(frac=0.8, replace=False, weights=None, random_state=222, axis=None, ignore_index=False)
@@ -3072,14 +3117,16 @@ Data_Train = pd.concat([Y_train , X_train], axis=1)
 
 
 ```python
-# Como ejemplo de x_new (nueva observacion de los predictores) cogemos la sexta (5 en python) observacion de X_test
+# Como ejemplo de x_new cogemos la sexta (5 en python) observacion de X_test
 
 x_new = X_test.iloc[ 8 , :]
 ```
 
 
 
------
+<br>
+
+Impoortamo la clase necesaria para aplicar KNN para regresión con `sklearn`
 
 
 
@@ -3095,27 +3142,34 @@ from sklearn.neighbors import NearestNeighbors
 ## sklearn.neighbors.KNeighborsRegressor(n_neighbors=5, weights='uniform', algorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=None)
 ```
 
-More informetion about the function params  in: https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html
+Para informarse sobre la definición de los parametros se recomienda leer la documentación oficial:
+
+https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html
 
 
-
+Definimos un KNN para regresión con K=10 y la distancia Minkowski con p=2 (es decir, la Euclidea):
 
 ```python
 knn = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10,  weights='uniform', p=2, metric='minkowski')
 ```
 
+Entrenamos el modelo con muestras de train de los predictores y respuesta:
 
 ```python
 knn.fit(X_train , Y_train)
+```
 
-print( knn.predict( [x_new] ) )
+
+Predecimos la respuesta para la nueva observación:
+```python
+knn.predict( [x_new] ) 
 ```
 
     [2026203.4]
     
 
 
-
+Probamos ahora con otras medidas de distancias:
 
 ```python
 knn = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10,  weights='uniform', p=5, metric='minkowski')
@@ -3171,8 +3225,10 @@ print( knn.predict( [x_new] ) )
 
 
 
-### Simple validation with own validation function and `sklearn` KNN regression function <a class="anchor" id="6.1"></a>
+## Validación simple con función propia <a class="anchor" id="6.1"></a>
 
+
+La siguiente función  considera un KNN para regresión con K=10 y distancia Euclidea , lo entrena con muestras de train  $X_{train}, Y_{train})$ pasadas como parametros, y calcula la metrica de validación ECM (error cuadratico medio) con una muetra de test de los predictores $X_{test}$, que tambén es pasada como parametro:
 
 ```python
 def Simple_Validation_Regression(Data_Test, X_train, Y_train, Y_test) :
@@ -3228,6 +3284,8 @@ def Simple_Validation_Regression(Data_Test, X_train, Y_train, Y_test) :
 ```
 
 
+Aplicamos la función anterior a nuestras muestras de train y test:
+
 ```python
 y_predictions_vector , ECM = Simple_Validation_Regression(Data_Test, X_train, Y_train, Y_test)
 ```
@@ -3244,13 +3302,13 @@ ECM
 
 
 
----
+<br>
 
 
 
-### Simple validation with `sklearn` validation function <a class="anchor" id="6.2"></a>
+## Validación simple con `sklearn` <a class="anchor" id="6.2"></a>
 
-In this case `Sklearn` use $R^2$ as validation metric instead of ECM
+En este caso `sklearn` no calcula el $ECM$ , sino el $R^2$ , que en el fondo es una función del $ECM$ 
 
 
 ```python
@@ -3260,9 +3318,6 @@ knn_regression.fit(X_train , Y_train)
 ```
 
 
-
-
-    KNeighborsRegressor(n_neighbors=10)
 
 
 
@@ -3282,11 +3337,11 @@ R2_sklearn
 
 
 
----
+<br>
 
 
 
-### KNN for regression in `Python` with own algorithm <a class="anchor" id="7"></a>
+# Modelo KNN de regression  con algoritmo de creación propia en `Python` <a class="anchor" id="7"></a>
 
 
 ```python
@@ -3893,9 +3948,9 @@ def KNN_regression( X , Y , x_new, k, distance = "Minkowski" , q = 0, p1=0, p2=0
     return y_predict , distances 
 ```
 
+<br>
 
-
-Testing our `KNN_regression` function:
+Probando nuestra función `KNN_regression` :
 
 
 ```python
@@ -4007,7 +4062,7 @@ distances
 
 
 
-
+Proabando otras medidas de distancias:
 
 
 ```python
@@ -4220,7 +4275,7 @@ distances
 
 
 
-### Simple validation with own validation function and own KNN regression function  <a class="anchor" id="7.1"></a>
+## Simple validation with own validation function and own KNN regression function  <a class="anchor" id="7.1"></a>
 
 
 ```python
@@ -4296,7 +4351,7 @@ ECM
 
 
 
-## Bibliography
+# Bibliography
 
 https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html
 
