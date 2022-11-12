@@ -340,7 +340,7 @@ No debe confundirse con  $\hspace{0.1cm} D^2=D\cdot D$
 
 Dada una muestra de $n$  elementos/individuos $\hspace{0.1cm}\Omega = \lbrace e_1,e_2,...,e_n \rbrace$ 
 
-Dada una serie de variables estadisticas cuantitativas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
+Dada una serie de variables estadisticas **cuantitativas** $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
 
 Para cada variable cuantitativa $\mathcal{X}_j$ tenemos una muestra de $n$ observaciones $X_j$  basada en la muestra de $n$ individuos $\hspace{0.1cm}\Omega$
 
@@ -2075,15 +2075,14 @@ $\phi_{ir} = \phi(a_i , a_r) \hspace{0.45cm}  \forall i, j =1,...,n$
 ## Pasar de similaridad a distancia  <a class="anchor" id="50"></a>
 
  
+Las siguientes transformaciones nos permiten pasar de una similaridad a una distancia:
 
-The following transformations allow to go from a measure of similarity to a distance:
-
-1) $\hspace{0.15cm} \delta_{ij}=1-s_{ij} $
+1) $\hspace{0.25cm} \phi_{ir}=1- \phi_{ir} \\$
 
 
-2) $\hspace{0.15cm} \delta_{ij}=\sqrt{1-s_{ij}} $
+2) $\hspace{0.25cm} \phi_{ir}=\sqrt{1-\phi_{ir}} \\$
 
-3) Gower transformation: $\hspace{0.15cm} \delta^2_{ij} = s_{ii} + s_{jj} - 2\cdot s_{ij}$
+3) Gower transformation: $\hspace{0.25cm} \phi^2_{ir} = \phi_{ii} + \phi_{jj} - 2\cdot \phi_{ij}$
 
 
 
@@ -2094,24 +2093,60 @@ The following transformations allow to go from a measure of similarity to a dist
 
 # Similaridades con variables categoricas binarias <a class="anchor" id="51"></a>
 
-Let $X_1,...,X_p$ be binary categorical variables, $\hspace{0.1cm} Range(X_j) = \lbrace 0,1 \rbrace$
+Dada una muestra de $n$  elementos/individuos $\hspace{0.1cm}\Omega = \lbrace e_1,e_2,...,e_n \rbrace$ 
+
+Dada una serie de variables estadisticas **categóricas binarias** $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
+
+Para cada variable cuantitativa $\mathcal{X}_j$ tenemos una muestra de $n$ observaciones $X_j$  basada en la muestra de $n$ individuos $\hspace{0.1cm}\Omega$
+
+ 
+Es decir, tenemos lo siguiente:
+
+- $\hspace{0.1cm}X_j=(x_{j1},...,x_{jn})^t$ , para $j=1,...,p \\$
+
+- $\hspace{0.1cm}x_{ji}\hspace{0.1cm}$ es la observación de la variable $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ para el individuo $\hspace{0.1cm}e_i\hspace{0.1cm}$ de la muestra $\hspace{0.1cm}\Omega$ , para $\hspace{0.1cm}j=1,...,p\hspace{0.1cm}$ y $\hspace{0.1cm}i=1,...,n \\$
+
+Por tanto
+
+- $\hspace{0.1cm}X_j=(x_{j1},...,x_{jn})^t\hspace{0.1cm}$ es el vector con las observaciones de l avariable para los individuos de la meustra $\Omega$  , para $j=1,...,p \\$
+
+- $\hspace{0.1cm}x_i = (x_{1i} , x_{2i} ,..., x_{pi})^t\hspace{0.1cm}$ es el vector con las observaciones de las variables  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ para el individuo $\hspace{0.1cm}e_i\hspace{0.1cm}$ de $\hspace{0.1cm}\Omega$ , para $\hspace{0.1cm}i=1,...,n$
 
 
-The main coefficients of similarity between two individuals/elements with respect to binary variables are usually calculated from the following parameters:
 
- - $a_{ij}\hspace{0.1cm}=\hspace{0.1cm}$ nº of binary variables with response $1$ in both elements $i$ and $j$
+<br>
 
- - $b_{ij}\hspace{0.1cm}=\hspace{0.1cm}$ nº of binary variables with response $0$ in element $i$ and response $1$ in $j$
 
- - $c_{ij}\hspace{0.1cm}=\hspace{0.1cm}$ nº of binary variables with response $1$ in element $i$ and response $0$ in $j$
 
- - $d_{ij}\hspace{0.1cm}=\hspace{0.1cm}$ nº of binary variables with response $0$ in both elements $i$ and $j$
+Los principales coeficientes de similaridad involucran algunos de los siguientes parametros:
+
+ - $\hspace{0.2cm} a_{ir}\hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
+ 
+  
+ $$\hspace{0.2cm} a_{ir} \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=x_{rj}=1  \hspace{0.1cm}  \rbrace \\$$
+
+ - $\hspace{0.2cm} b_{ir}\hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias  $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=1 \\$ 
+
+
+ $$\hspace{0.2cm} b_{ir} \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=0 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=1  \hspace{0.1cm}  \rbrace \\$$
+
+
+ - $\hspace{0.2cm} c_{ir}\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =1\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+
+
+ $$\hspace{0.2cm} c_{ir} \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=1 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=0  \hspace{0.1cm}  \rbrace \\$$
+
+
+
+ - $\hspace{0.2cm} d_{ij}\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+ 
+ $$\hspace{0.2cm} d_{ir} \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=0 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=0  \hspace{0.1cm}  \rbrace \\$$
+ 
  
 
+ **Observación:**
 
- **Observation:**
-
-$a_{ij} + b_{ij} + c_{ij} +d_{ij} =p$
+$\hspace{0.2cm} a_{ij} + b_{ij} + c_{ij} +d_{ij} =p$
 
 
 
@@ -2121,21 +2156,24 @@ $a_{ij} + b_{ij} + c_{ij} +d_{ij} =p$
 
 
 
-### Arrays with parameters a, b, c and d <a class="anchor" id="52"></a>
-
-Given a data matrix $\hspace{0.03cm}X=(X_1,...,X_p)\hspace{0.03cm}$ of size $\hspace{0.03cm}n\hspace{0.03cm}x\hspace{0.03cm}p\hspace{0.03cm}$ of **binary categorical variables**, then:
-
-- $ a = X\cdot X^t $
-
-- $ b=(\overrightarrow{1}_{nxp} - X)\cdot X\hspace{0.03cm}^t $
-
-- $ c=b\hspace{0.03cm}^t $
-
-- $ d=(\overrightarrow{1}_{nxp} - X)\cdot(\overrightarrow{1}_{nxp} - X)\hspace{0.03cm}^t $
+## Matrices con los parametros a, b, c y d <a class="anchor" id="52"></a>
 
 
 
- Where: $\hspace{0.2cm} p \hspace{0.05cm} = \hspace{0.05cm} $ nº of columns of $X$ , and  $\hspace{0.05cm} n \hspace{0.05cm} = \hspace{0.05cm} $ nº of rows of $X$ 
+
+Dada una matriz de datos $\hspace{0.03cm}X=(X_1,...,X_p)\hspace{0.03cm}$  de las variables  **categoricas binarias**, then:
+
+- $a = X\cdot X^t$
+
+- $b=(\overrightarrow{1}_{nxp} - X)\cdot X\hspace{0.03cm}^t$
+
+- $c=b\hspace{0.03cm}^t$
+
+- $d=(\overrightarrow{1}_{nxp} - X)\cdot(\overrightarrow{1}_{nxp} - X)\hspace{0.03cm}^t$
+
+
+
+ Where: $\hspace{0.2cm} p \hspace{0.05cm} = \hspace{0.05cm}$ nº of columns of $X$ , and  $\hspace{0.05cm} n \hspace{0.05cm} = \hspace{0.05cm}$ nº of rows of $X$ 
  
 They are the matrices that contain the parameters $\hspace{0.05cm}a_{ij}\hspace{0.05cm}$ , $\hspace{0.05cm}b_{ij}\hspace{0.1cm}$, $\hspace{ 0.05cm}c_{ij}\hspace{0.1cm}$ and $\hspace{0.1cm}d_{ij}\hspace{0.05cm}$ , respectively.
 
@@ -2147,7 +2185,7 @@ They are the matrices that contain the parameters $\hspace{0.05cm}a_{ij}\hspace{
 
 
 
-#### Computing the arrays with parameters a, b, c and d  in `R`   <a class="anchor" id="53"></a>
+### Computing the arrays with parameters a, b, c and d  in `R`   <a class="anchor" id="53"></a>
 
 
 ```r
