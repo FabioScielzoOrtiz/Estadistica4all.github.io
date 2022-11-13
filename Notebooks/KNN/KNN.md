@@ -4334,6 +4334,15 @@ ECM
     1705111679187.3896
 
 
+<br>
+
+# Selección del hiper-parámetro k
+
+
+
+En este artículo no mostraremos cómo seleccionar el hiper-parámetro $k$ del modelo KNN, esta cuestión será tratada en otro articulo más genérico sobre ajuste de hiper-parámetros.
+
+
 
 
 <br>
