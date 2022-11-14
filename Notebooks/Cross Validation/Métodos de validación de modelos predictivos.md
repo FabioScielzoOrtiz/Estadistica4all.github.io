@@ -66,7 +66,7 @@ Los métodos de validación de modelos predictivos tiene tres elementos:
 
 1) Una muestra de **train** y otra de **test**
 2) Una **métrica de evaluación**
-3) Un **método** para **evaluar el modelo** usando los elementos 1) y 2)
+3) Un **algoritmo** para **evaluar el modelo** usando los elementos 1) y 2)
 
 
 A continuacion vamos a hacer un tour por dichos elementos.
@@ -74,7 +74,7 @@ A continuacion vamos a hacer un tour por dichos elementos.
 
 <br>
 
-# Muestras de train y test
+# Muestras de train y test <a class="anchor" id="1"></a>
 
 
 Tenemos una muestra  de $\hspace{0.1cm}N\hspace{0.1cm}$ observaciones de $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ y  de la respuesta $\hspace{0.1cm}\mathcal{Y}\\$ 
@@ -495,17 +495,74 @@ $$Kappa_{\hspace{0.05cm} train}(M) = \dfrac{TAC_{\hspace{0.05cm} train} - 1/k}{1
 
 $$Kappa_{\hspace{0.05cm} test}(M) = \dfrac{TAC_{\hspace{0.05cm} test} - 1/k}{1 - 1/k}$$
 
+<br>
+
+#### Modelo de clasificación aleatoria uniforme
+
+Dada una respuesta $\mathcal{Y}$ con $k\geq 2$ categorias  y  de una serie de predictotres $\mathcal{X}_1 , ..., \mathcal{X}_p$
+
+Dada una muestra de $n$ observaciones de $Y$ del predictor  
+y una muestra $X_j$ del predictor $\mathcal{X}_j \\$
+
+
+Un modelo de clasificación aleatorio basado en la distribución discreta $U{0,1,..., k-1}$ es un modelo tal que:
+
+$$\widehat{y}_i \sim U{0,1,..., k-1}$$
+
+Por lo que:
+
+$$P(\widehat{y}_i = h) = 1/k = p$$ 
+
+Para todo $h=0,1,...,k-1$
+
+
+Por tanto, $para cada i=1,...,n$ tenemos que:
+
+$$P(I(\hat{y}_i = y_i) = 1) = P(\hat{y}_i = y_i) = 1/k = p$$
+
+$$P(I(\hat{y}_i = y_i) = 0) = P(\hat{y}_i \neq y_i) = 1- 1/k  = 1 - p$$
+
+Por lo que $I(\hat{y}_i = y_i)$  es una variable binaria, con probabilidad de exito $p$ y de fracaso $1-p$, es decir:
+
+$$I(\hat{y}_i = y_i)  \sim Bernoulli(p=1/k)$$
+
+
+Por lo tanto:
+
+$$\sum_{i=1}^n I(\hat{y}_i = y_i) \sim Binomial(n\cdot p )$$
+
+Asi que, la tasa de acierto  esperada del modelo de clasificación aleatoria uniforme es:
+
+
+$$E[TAC] = E\left[ \dfrac{1}{n} \sum_{i=1}^n I(\hat{y}_i = y_i) \right]= E\left[  \dfrac{1}{n} \cdot Binomial(n\cdot p )  \right] = \dfrac{1}{n} \cdot E\left[ Binomial(n\cdot p )   \right]  = \dfrac{1}{n} \cdot (n\cdot p) = p = 1/k$$
+
+<br>
 
 
 <br>
 
 
-### Matriz de confusión
+# Algoritmos de validación
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
 
 <br>
 
@@ -531,6 +588,7 @@ Entrenamos el modelo $M$ con cada una de las $B$ muestras bootstrap , asi obtene
 Notese que el modelo $M_r$ ha sido entrenado con la muestra train de observaciones $(X,Y)_r$
 
 Con cada uno de los $B$ modelos entrenados  $M_1,..,.M_B$ obtener la prediccion de test de la respuesta, es decir $\widehat{Y}^{test}$ , usando una misma muestra fija de test de los predictores $(X_1^{test},...,X_p^{test})$, asi se obtienen $B$ vectores de predcciones de la respuesta $(\widehat{Y}^{test}_1 ,...,\widehat{Y}^{test}_B)$  y con ellos se obtienen $B$ predicciones de la respuesta para la $i$-esima observacion de test de los predictores $x_i^{test} = (x_{i1}^{test} ,..., x_{ip}^{test})^t$  , esto es, se obtiene $\hat{y}_{i}^{boot}=( \hat{y}_{i1}^{test} , ...,\hat{y}_{iB}^{test})$ ,  para $i=1,...,h$
+
 
 Notese que:
 

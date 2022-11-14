@@ -1510,7 +1510,7 @@ margin-left: 0 !important;
     <h2><a href="#content">Métodos de validación de modelos predictivos</a></h2>
     <div id="toc">
       <ul>
-      <li><a href="#muestras-de-train-y-test" id="toc-muestras-de-train-y-test"><span class="toc-section-number">1</span> Muestras de train y test</a>
+      <li><a href="#muestras-de-train-y-test" id="toc-muestras-de-train-y-test"><span class="toc-section-number">1</span> Muestras de train y test <a class="anchor" id="1"></a></a>
       <ul>
       <li><a href="#train-set" id="toc-train-set"><span class="toc-section-number">1.1</span> Train-set</a></li>
       <li><a href="#test-set" id="toc-test-set"><span class="toc-section-number">1.2</span> Test-set</a></li>
@@ -1520,8 +1520,9 @@ margin-left: 0 !important;
       <li><a href="#modelos-predictivos-con-variable-respuesta-cuantitativa-modelos-de-regresión" id="toc-modelos-predictivos-con-variable-respuesta-cuantitativa-modelos-de-regresión"><span class="toc-section-number">2.1</span> Modelos predictivos con variable respuesta cuantitativa: <strong>Modelos de Regresión</strong></a></li>
       <li><a href="#modelos-predictivos-con-variable-respuesta-categorica-modelos-de-clasificación-supervisada" id="toc-modelos-predictivos-con-variable-respuesta-categorica-modelos-de-clasificación-supervisada"><span class="toc-section-number">2.2</span> Modelos predictivos con variable respuesta categorica: Modelos de Clasificación Supervisada</a></li>
       </ul></li>
-      <li><a href="#anexo" id="toc-anexo"><span class="toc-section-number">3</span> Anexo</a></li>
-      <li><a href="#bibliografía" id="toc-bibliografía"><span class="toc-section-number">4</span> Bibliografía</a></li>
+      <li><a href="#algoritmos-de-validación" id="toc-algoritmos-de-validación"><span class="toc-section-number">3</span> Algoritmos de validación</a></li>
+      <li><a href="#anexo" id="toc-anexo"><span class="toc-section-number">4</span> Anexo</a></li>
+      <li><a href="#bibliografía" id="toc-bibliografía"><span class="toc-section-number">5</span> Bibliografía</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1570,12 +1571,12 @@ margin-right: auto;
 <ol style="list-style-type: decimal">
 <li>Una muestra de <strong>train</strong> y otra de <strong>test</strong></li>
 <li>Una <strong>métrica de evaluación</strong></li>
-<li>Un <strong>método</strong> para <strong>evaluar el modelo</strong> usando los elementos 1) y 2)</li>
+<li>Un <strong>algoritmo</strong> para <strong>evaluar el modelo</strong> usando los elementos 1) y 2)</li>
 </ol>
 <p>A continuacion vamos a hacer un tour por dichos elementos.</p>
 <p><br></p>
 <div id="muestras-de-train-y-test" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Muestras de train y test</h1>
+<h1><span class="header-section-number">1</span> Muestras de train y test <a class="anchor" id="1"></a></h1>
 <p>Tenemos una muestra de <span class="math inline">\(\hspace{0.1cm}N\hspace{0.1cm}\)</span> observaciones de <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> y de la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\\\)</span></p>
 <p><span class="math display">\[D=[X_1,...,X_p,Y]=\begin{pmatrix}
     x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp; y_1\\
@@ -1800,21 +1801,44 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div id="kappa" class="section level3" number="2.2.3">
 <h3><span class="header-section-number">2.2.3</span> Kappa</h3>
 <p>Suponemos que una variable respuesta tiene <span class="math inline">\(\hspace{0.05cm}k \geq 2\hspace{0.05cm}\)</span> categorias</p>
-<p>Si usamos un modelo de clasificación basado en la distribución de probabilidad uniforme discreta, este predice cada categoria de la respuesta con igual probabilidad <span class="math inline">\(\hspace{0.05cm}1/k\hspace{0.05cm}\)</span>, por lo que la tasa de acierto del modelo esperada es <span class="math inline">\(\hspace{0.05cm}1/k\)</span>, es decir, si el modelo se aplica muchas veces, la <span class="math inline">\(\hspace{0.05cm} TAC\hspace{0.05cm}\)</span> <strong>media</strong> será de <span class="math inline">\(1/k\)</span></p>
+<p>Si usamos un modelo de clasificación basado en la distribución de probabilidad uniforme discreta, este predice cada categoria de la respuesta con igual probabilidad <span class="math inline">\(\hspace{0.05cm}1/k\hspace{0.05cm}\)</span>, por lo que la tasa de acierto del modelo esperada es <span class="math inline">\(\hspace{0.05cm}1/k\)</span>, es decir, si el modelo se aplica muchas veces, la <span class="math inline">\(\hspace{0.08cm} TAC\hspace{0.08cm}\)</span> <strong>media</strong> será de <span class="math inline">\(1/k\)</span></p>
 <p><strong>Kappa de train:</strong></p>
 <p><span class="math display">\[Kappa_{\hspace{0.05cm} train}(M) = \dfrac{TAC_{\hspace{0.05cm} train} - 1/k}{1 - 1/k}\]</span></p>
 <p><strong>Kappa de test:</strong></p>
 <p><span class="math display">\[Kappa_{\hspace{0.05cm} test}(M) = \dfrac{TAC_{\hspace{0.05cm} test} - 1/k}{1 - 1/k}\]</span></p>
 <p><br></p>
-</div>
-<div id="matriz-de-confusión" class="section level3" number="2.2.4">
-<h3><span class="header-section-number">2.2.4</span> Matriz de confusión</h3>
+<div id="modelo-de-clasificación-aleatoria-uniforme" class="section level4" number="2.2.3.1">
+<h4><span class="header-section-number">2.2.3.1</span> Modelo de clasificación aleatoria uniforme</h4>
+<p>Dada una respuesta <span class="math inline">\(\mathcal{Y}\)</span> con <span class="math inline">\(k\geq 2\)</span> categorias y de una serie de predictotres <span class="math inline">\(\mathcal{X}_1 , ..., \mathcal{X}_p\)</span></p>
+<p>Dada una muestra de <span class="math inline">\(n\)</span> observaciones de <span class="math inline">\(Y\)</span> del predictor<br />
+y una muestra <span class="math inline">\(X_j\)</span> del predictor <span class="math inline">\(\mathcal{X}_j \\\)</span></p>
+<p>Un modelo de clasificación aleatorio basado en la distribución discreta <span class="math inline">\(U{0,1,..., k-1}\)</span> es un modelo tal que:</p>
+<p><span class="math display">\[\widehat{y}_i \sim U{0,1,..., k-1}\]</span></p>
+<p>Por lo que:</p>
+<p><span class="math display">\[P(\widehat{y}_i = h) = 1/k = p\]</span></p>
+<p>Para todo <span class="math inline">\(h=0,1,...,k-1\)</span></p>
+<p>Por tanto, <span class="math inline">\(para cada i=1,...,n\)</span> tenemos que:</p>
+<p><span class="math display">\[P(I(\hat{y}_i = y_i) = 1) = P(\hat{y}_i = y_i) = 1/k = p\]</span></p>
+<p><span class="math display">\[P(I(\hat{y}_i = y_i) = 0) = P(\hat{y}_i \neq y_i) = 1- 1/k  = 1 - p\]</span></p>
+<p>Por lo que <span class="math inline">\(I(\hat{y}_i = y_i)\)</span> es una variable binaria, con probabilidad de exito <span class="math inline">\(p\)</span> y de fracaso <span class="math inline">\(1-p\)</span>, es decir:</p>
+<p><span class="math display">\[I(\hat{y}_i = y_i)  \sim Bernoulli(p=1/k)\]</span></p>
+<p>Por lo tanto:</p>
+<p><span class="math display">\[\sum_{i=1}^n I(\hat{y}_i = y_i) \sim Binomial(n\cdot p )\]</span></p>
+<p>Asi que, la tasa de acierto esperada del modelo de clasificación aleatoria uniforme es:</p>
+<p><span class="math display">\[E[TAC] = E\left[ \dfrac{1}{n} \sum_{i=1}^n I(\hat{y}_i = y_i) \right]= E\left[  \dfrac{1}{n} \cdot Binomial(n\cdot p )  \right] = \dfrac{1}{n} \cdot E\left[ Binomial(n\cdot p )   \right]  = \dfrac{1}{n} \cdot (n\cdot p) = p = 1/k\]</span></p>
+<p><br></p>
 <p><br></p>
 </div>
 </div>
 </div>
-<div id="anexo" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Anexo</h1>
+</div>
+<div id="algoritmos-de-validación" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Algoritmos de validación</h1>
+<p><br></p>
+<p><br></p>
+</div>
+<div id="anexo" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Anexo</h1>
 <p><strong>Propuesta basada en remuestreo para estimar la varianza de las predicciones de un modelo:</strong></p>
 <p>Consideraremos que una estimacion de la varianza de las predicciones de un modelo de regresion (variable respuesta cuantitativa) <span class="math inline">\(M\)</span> es:</p>
 <p><span class="math display">\[\dfrac{1}{h} \sum_{i=1}^{h} \widehat{Var}(\hat{y}_i)\]</span></p>
@@ -1858,8 +1882,8 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <p><span class="math display">\[ \dfrac{1}{h} \sum_{i=1}^{h} \widehat{Sesgo}(\hat{y}_i) \]</span></p>
 <p><br></p>
 </div>
-<div id="bibliografía" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Bibliografía</h1>
+<div id="bibliografía" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Bibliografía</h1>
 </div>
 </div>
 

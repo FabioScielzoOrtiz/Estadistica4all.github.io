@@ -587,6 +587,9 @@ Surgue como combinación de la regresion polinomica y la regresion con funcioens
 La idea es usar la filosofia de la regresicon con funciones escalon pero en lugar de usar una funcion costante en cada intervalo, usar una función polinomica.
 
 
+
+PONER GRAFICO PARA ILUSTRAR LA IDEA
+
 <br>
 
 
@@ -690,6 +693,7 @@ Geometricamente, esto significa que la siguiente situación es posible:
 
 
 
+PONER GRAFICO PARA ILUSTRAR LA IDEA
 
 
 
@@ -769,7 +773,8 @@ gam_1 = GAM(s(0, n_splines=4, spline_order=3 , penalties='none' )).fit(X_train, 
 
 # n_splines = k + spline_order = nº de betas (sin contar beta0)
 # k + 1 = nº intervalos = n_splines - spline_order + 1 = 4 - 3 + 1 = 2 (en este caso)
-# Los intervalos que supongo que se usan son:  [Q0, Q25),[Q25, Q50),[Q50, Q75),[Q75,Q100)
+# Los intervalos que supongo que se usan son:  [Q0, Q50),[Q50, Q100)
+# k = n_splines - spline_order = numero de nudos/nodos del spline
 ```
 
 
@@ -928,6 +933,7 @@ gam_2 = GAM(s(0, n_splines=6, spline_order=3 , penalties='none')).fit(X_train, Y
 # n_splines = k + spline_order = nº de betas (sin contar beta0)
 # k + 1 = nº intervalos = n_splines - spline_order + 1 = 6 - 3 + 1 = 4 (en este caso)
 # Los intervalos que supongo que se usan son:  [Q0, Q25),[Q25, Q50),[Q50, Q75),[Q75,Q100)
+# k = n_splines - spline_order = numero de nudos/nodos del spline
 ```
 
 
