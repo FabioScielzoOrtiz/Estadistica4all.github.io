@@ -534,7 +534,7 @@ $$\sum_{i=1}^n I(\hat{y}_i = y_i) \sim Binomial(n\cdot p )$$
 Asi que, la tasa de acierto  esperada del modelo de clasificación aleatoria uniforme es:
 
 
-$$E[TAC] = E\left[ \dfrac{1}{n} \sum_{i=1}^n I(\hat{y}_i = y_i) \right]= E\left[  \dfrac{1}{n} \cdot Binomial(n\cdot p )  \right] = \dfrac{1}{n} \cdot E\left[ Binomial(n\cdot p )   \right]  = \dfrac{1}{n} \cdot (n\cdot p) = p = 1/k$$
+$$E\left[TAC\right] = E\left[ \dfrac{1}{n} \sum_{i=1}^n I(\hat{y}_i = y_i) \right]= E\left[  \dfrac{1}{n} \cdot Binomial(n\cdot p )  \right] = \dfrac{1}{n} \cdot E\left[ Binomial(n\cdot p )   \right]  = \dfrac{1}{n} \cdot (n\cdot p) = p = 1/k$$
 
 <br>
 
@@ -542,22 +542,223 @@ $$E[TAC] = E\left[ \dfrac{1}{n} \sum_{i=1}^n I(\hat{y}_i = y_i) \right]= E\left[
 <br>
 
 
-# Algoritmos de validación
+
+# Algoritmos de validación de modelos predictivos
+
+
+
+Los algoritmos de validación permiten evaluar la bondad predictiva de modelos predictivos. Se suelen basar en:
+
+
+1) División del data-set en parte de train y parte de test.
+
+2) Entrenamiento del modelo con la parte de train.
+
+3) Cálculo de una métrica de evaluación con la parte de test.
+
+<br>
+
+Tenemos un modelo predictivo $\hspace{0.1cm}M\hspace{0.1cm}$ y una muestra  de $\hspace{0.1cm}N\hspace{0.1cm}$ observaciones de $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ y  de la respuesta $\hspace{0.1cm}\mathcal{Y}\\$ 
+
+ $$D=[X_1,...,X_p,Y]=\begin{pmatrix}
+    x_{11}&x_{12}&...&x_{1p}& y_1\\
+    x_{21}&x_{22}&...&x_{2p} & y_2\\
+    &...&\\
+    x_{N1}&x_{N2}&...&x_{Np}& y_N
+    \end{pmatrix}$$ 
+
+
+<br>
+
+## Validación simple no aleatoria
+
+El algoritmo de validación simple no aleatoria tiene los siguientes pasos: $\\[0.3cm]$
+
+$1)\hspace{0.1cm}$ Se divide $D$ en parte de train y parte de test del siguiente modo:
+
+Las primeras $\hspace{0.2cm}\lfloor k  \cdot N \rfloor\hspace{0.2cm}$ observaciones (filas) definen el conjunto de train $\hspace{0.2cm} \Rightarrow \hspace{0.2cm}$ $D_{train}= \begin{pmatrix}
+    x_{11}&x_{12}&...&x_{1p}& y_1\\
+    x_{21}&x_{22}&...&x_{2p} & y_2\\
+    &...&\\
+    x_{\lfloor k  \cdot N \rfloor1}&x_{\lfloor k  \cdot N \rfloor2}&...&x_{\lfloor k  \cdot N \rfloor p}& y_{\lfloor k  \cdot N \rfloor}
+    \end{pmatrix}$
+
+<br>
+
+Las siguientes $\hspace{0.2cm} N - \lfloor k  \cdot N \rfloor\hspace{0.2cm}$ observaciones definen (filas) el conjunto de test  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ $D_{test}= \begin{pmatrix}
+    x_{(\lfloor k  \cdot N \rfloor + 1) \hspace{0.05cm} 1 } & x_{(\lfloor k  \cdot N \rfloor + 1) \hspace{0.05cm} 2}&...&x_{(\lfloor k  \cdot N \rfloor + 1) \hspace{0.05cm} p}& y_{\lfloor k  \cdot N \rfloor + 1} \\
+    x_{(\lfloor k  \cdot N \rfloor + 2) \hspace{0.05cm} 1 } & x_{(\lfloor k  \cdot N \rfloor + 2) \hspace{0.05cm} 2}&...&x_{(\lfloor k  \cdot N \rfloor + 2) \hspace{0.05cm} p}& y_{\lfloor k  \cdot N \rfloor + 2}\\
+    &...&\\
+    x_{N \hspace{0.05cm} 1 } & x_{N 2}&...&x_{N p}& y_{N}
+    \end{pmatrix} \\[0.4cm]$
+
+Donde: 
+
+$k\in (0,1)$ 
+
+$\lfloor \cdot \rfloor$ es la funcion suelo, que dado un número como argumento te  devuelve el mayor entero menor que dicho número $\\[0.3cm]$
+
+
+$2)\hspace{0.1cm}$ Se entrena el modelo $\hspace{0.1cm} M\hspace{0.1cm}$ con $\hspace{0.1cm} D_{train}\hspace{0.1cm}$ $\hspace{0.1cm}\Rightarrow\hspace{0.2cm}$ $\widehat{M}$
+
+$3)\hspace{0.1cm}$ Se calcula una metrica de evaluacion sobre el modelo entrenado  con $\hspace{0.1cm} D_{test}\hspace{0.1cm}$ $\Rightarrow$ Si por ejemplo se calcula el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , se obtendria el $\hspace{0.1cm}ECM_{test}$
+
+
+
+$4)\hspace{0.1cm}$ La métrica de evaluacion final del modelo es la obtenida en el paso 3) 
+
+Si la métrica empleada en 3) fue el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces:
+
+$$ECM_{test}^*(M) = ECM_{test}(\widehat{M})$$
+
+
+<br>
+
+<br>
+
+## Validación simple aleatoria
+
+
+El algoritmo de validación simple   aleatoria tiene los siguientes pasos: $\\[0.3cm]$
+
+$1)\hspace{0.1cm}$ Se divide $D$ en parte de train y parte de test del siguiente modo:
+
+
+Se genera una muestra aleatoria sin reemplazamiento de tamaño $\hspace{0.1cm} \lfloor k  \cdot N \rfloor\hspace{0.1cm}$  del vector $\hspace{0.1cm}(1,2,...,N)\hspace{0.2cm}$ $\Rightarrow\hspace{0.2cm}$ $m=(m_1 ,m_2,...,m_{\lfloor k  \cdot N \rfloor})$
+
+Las observaciones (filas) $\hspace{0.1cm}m_1,m_2 ,...,m_{\lfloor k  \cdot N \rfloor}\hspace{0.1cm}$ de $\hspace{0.1cm}D\hspace{0.1cm}$  definen la muestra de train $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ $D_{train}= D[m , :] = \begin{pmatrix}
+    x_{m_11}&x_{m_12}&...&x_{m_1p}& y_{m_1}\\
+    x_{m_21}&x_{m_22}&...&x_{m_2p} & y_{m_2}\\
+    &...&\\
+    x_{m_{\lfloor k  \cdot N \rfloor} 1}&x_{m_{\lfloor k  \cdot N \rfloor}  2}&...&x_{m_{\lfloor k  \cdot N \rfloor} p}& y_{m_{\lfloor k  \cdot N \rfloor}}
+    \end{pmatrix}$
+
+<br>
+
+
+Las observaciones (filas) de $\hspace{0.1cm}D\hspace{0.1cm}$ complementarias a  $\hspace{0.1cm}m\hspace{0.1cm}$ , es decir, las filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que no estan en $\hspace{0.1cm}D_{train}\hspace{0.1cm}$, es decir, las filas de $\hspace{0.1cm}m^c\hspace{0.1cm}$,
+ definen la muestra de train $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ $D_{train} = D[m^c , :] \\[0.4cm]$
+
+
+
+Donde: 
+
+$k\in (0,1)$ 
+
+$\lfloor \cdot \rfloor\hspace{0.1cm}$ es la funcion suelo, que dado un número como argumento te  devuelve el mayor entero menor que dicho número
+
+Las filas de $\hspace{0.1cm}D\hspace{0.1cm}$ complentarias a   $\hspace{0.1cm}m=(m_1 ,m_2,...,m_{\lfloor k  \cdot N \rfloor})\hspace{0.1cm}$ se definen como $\hspace{0.1cm}m^c=(\hspace{0.1cm} i =1,...,N \hspace{0.1cm}/\hspace{0.1cm} i\neq m_j \hspace{0.1cm},\hspace{0.1cm} \forall j=1,...,\lfloor k  \cdot N \rfloor \hspace{0.1cm})$
+
+
+$2)\hspace{0.1cm}$ Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con $\hspace{0.1cm}D_{train}\hspace{0.1cm}$ $\hspace{0.1cm}\Rightarrow\hspace{0.2cm}$  $\widehat{M}\\$
+
+$3)\hspace{0.1cm}$ Se calcula una metrica de evaluacion sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}\hspace{0.1cm}$ usando $\hspace{0.1cm}D_{test}$ 
+
+   Si por ejemplo se calcula el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , se obtendria el $\hspace{0.1cm}ECM_{test}(\widehat{M})\\$
+
+$4)\hspace{0.1cm}$ La métrica de evaluacion final del modelo es la obtenida en el paso 3) 
+
+Si la métrica empleada en 3) fue el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces:
+
+$$ECM_{test}^*(M) = ECM_{test}(\widehat{M})$$
 
 
 
 
+<br>
+
+## Validación simple aleatoria repetida
+
+El algoritmo de validacion simple aleatoria tiene los siguientes pasos: $\\[0.3cm]$
+
+
+$1)\hspace{0.1cm}$ Se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ particiones de $\hspace{0.1cm}D\hspace{0.1cm}$ en parte de train y parte de test del siguiente modo:
+   
+
+$1.1)\hspace{0.1cm}$ Se generan $\hspace{0.1cm}B\hspace{0.1cm}$  muestras aleatoria sin reemplazamiento de tamaño $\hspace{0.1cm}\lfloor k  \cdot N \rfloor\hspace{0.1cm}$  del vector $\hspace{0.1cm}(1,2,...,N)\hspace{0.1cm}$ :
+
+$$m_1 , m_2 , ..., m_B$$
+
+Donde: 
+
+$m_r=(m_{r1} ,...,m_{r\lfloor k  \cdot N \rfloor})\hspace{0.15cm} \hspace{0.4cm} \forall r=1,...,B$
+
+$k\in (0,1)$ 
+
+$\lfloor \cdot \rfloor\hspace{0.1cm}$ es la funcion suelo, que dado un nº como argumento te  devuelve el mayor entero menor que dicho número. $\\[0.35cm]$
+
+
+
+$1.2)\hspace{0.1cm}$ Se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ muestras de **train** del data-set original $\hspace{0.1cm}D\hspace{0.1cm}$ (por filas) :
+
+$$D_{train, 1}= D[m_1 , :] \hspace{0.1cm},\hspace{0.1cm} D_{train, 2}= D[m_2 , :] \hspace{0.1cm}, ... ,\hspace{0.1cm} D_{train, B}= D[m_B , :]\\$$
+
+Donde: 
+
+$D[m_r , :]\hspace{0.1cm}$ es la submatriz que resulta de quedarse solo con las filas de $\hspace{0.1cm}D\hspace{0.1cm}$ definidas por el vector numerico $\hspace{0.1cm}m_r \\$
 
 
 
 
+$1.3)\hspace{0.1cm}$ Se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ muestras de **test** del data-set original $\hspace{0.1cm}D$:
+
+
+$$D_{test, 1}= D[m_1^c , :] \hspace{0.1cm},\hspace{0.1cm} D_{test, 2}= D[m_2^c , :] \hspace{0.1cm}, ... ,\hspace{0.1cm} D_{test, B}= D[m_B^c , :] \\$$
+
+
+Donde: 
+
+$m_r^c=(\hspace{0.1cm} i =1,...,N \hspace{0.1cm} / \hspace{0.1cm} i\neq m_{rj} , \forall j=1,...,\lfloor k  \cdot N \rfloor\hspace{0.1cm} )\hspace{0.1cm}\hspace{0.1cm}$ es el complementario de $\hspace{0.1cm}m_r \\$
+
+ 
+
+
+Por tanto se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ particiones de train y test de $\hspace{0.1cm}D \\$
+
+
+
+$2)\hspace{0.1cm}$ Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con $\hspace{0.1cm} D_{train,1} , D_{train,2} , ..., D_{train,B}\hspace{0.1cm}$  $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ $\hspace{0.1cm}\widehat{M}_1 ,..., \widehat{M}_B \\$
+
+$3)\hspace{0.1cm}$ Se calcula una misma métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}M_r\hspace{0.1cm}$ usando la muestra de **test** $\hspace{0.1cm}D_{test,r}\hspace{0.1cm}$ , para $\hspace{0.1cm}r=1,...,B$ 
+
+Supongamos que la métrica de evaluación usada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ valores de esta métrica :
+
+$$ECM_{test }(\widehat{M}_1) ,  ECM_{test }(\widehat{M}_2) , ... , ECM_{test}(\widehat{M}_B)\\$$
+
+Donde: 
+
+$ECM_{test , r}\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre $\hspace{0.1cm}M_r\hspace{0.1cm}$ usando $\hspace{0.1cm}D_{test,r}\hspace{0.1cm}$ 
+
+$$ECM_{test }(\widehat{M}_r) = \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm})^2$$
+
+para $\hspace{0.1cm}r=1,...,B$
+
+$4)\hspace{0.1cm}$ Se calcula la métrica final de evaluacion del modelo como el promedio de las $B$ metricas calculadas en 3). Si la metrica usada en 3) es el ECM, entonces:
+
+$$ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{B} \cdot \sum_{r=1}^B ECM_{test}(\widehat{M}_r)$$
+
+
+<br>
+
+
+<br>
+
+
+## Leave-one-out
 
 
 
 
+<br>
+
+## K-folds
 
 
 
+
+<br>
+
+## Repeted K-folds
 
 
 
@@ -568,7 +769,7 @@ $$E[TAC] = E\left[ \dfrac{1}{n} \sum_{i=1}^n I(\hat{y}_i = y_i) \right]= E\left[
 
 # Anexo
 
-**Propuesta basada en remuestreo para estimar la varianza de las predicciones de un modelo:**
+## Propuesta basada en remuestreo para estimar la varianza de las predicciones de un modelo
 
 Consideraremos que una estimacion de la varianza de las predicciones de un modelo de regresion (variable respuesta cuantitativa) $M$ es:
 
@@ -611,7 +812,12 @@ Promediamos y obtenimos asi una estimacion de la varianza de las predcciones del
 
 $$ \dfrac{1}{h} \sum_{i=1}^{h} \widehat{Var}(\hat{y}_i) $$  
 
-**Propuesta basada en remuestreo para estimar el sesgo de las predicciones de un modelo:**
+
+<br>
+
+<br>
+
+## Propuesta basada en remuestreo para estimar el sesgo de las predicciones de un modelo
 
 Consideraremos que una estimacion del sesgo de las predicciones de un modelo de regresion (variable respuesta cuantitativa) $M$ es:
 

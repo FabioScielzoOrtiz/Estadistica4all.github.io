@@ -1520,8 +1520,20 @@ margin-left: 0 !important;
       <li><a href="#modelos-predictivos-con-variable-respuesta-cuantitativa-modelos-de-regresión" id="toc-modelos-predictivos-con-variable-respuesta-cuantitativa-modelos-de-regresión"><span class="toc-section-number">2.1</span> Modelos predictivos con variable respuesta cuantitativa: <strong>Modelos de Regresión</strong></a></li>
       <li><a href="#modelos-predictivos-con-variable-respuesta-categorica-modelos-de-clasificación-supervisada" id="toc-modelos-predictivos-con-variable-respuesta-categorica-modelos-de-clasificación-supervisada"><span class="toc-section-number">2.2</span> Modelos predictivos con variable respuesta categorica: Modelos de Clasificación Supervisada</a></li>
       </ul></li>
-      <li><a href="#algoritmos-de-validación" id="toc-algoritmos-de-validación"><span class="toc-section-number">3</span> Algoritmos de validación</a></li>
-      <li><a href="#anexo" id="toc-anexo"><span class="toc-section-number">4</span> Anexo</a></li>
+      <li><a href="#algoritmos-de-validación-de-modelos-predictivos" id="toc-algoritmos-de-validación-de-modelos-predictivos"><span class="toc-section-number">3</span> Algoritmos de validación de modelos predictivos</a>
+      <ul>
+      <li><a href="#validación-simple-no-aleatoria" id="toc-validación-simple-no-aleatoria"><span class="toc-section-number">3.1</span> Validación simple no aleatoria</a></li>
+      <li><a href="#validación-simple-aleatoria" id="toc-validación-simple-aleatoria"><span class="toc-section-number">3.2</span> Validación simple aleatoria</a></li>
+      <li><a href="#validación-simple-aleatoria-repetida" id="toc-validación-simple-aleatoria-repetida"><span class="toc-section-number">3.3</span> Validación simple aleatoria repetida</a></li>
+      <li><a href="#leave-one-out" id="toc-leave-one-out"><span class="toc-section-number">3.4</span> Leave-one-out</a></li>
+      <li><a href="#k-folds" id="toc-k-folds"><span class="toc-section-number">3.5</span> K-folds</a></li>
+      <li><a href="#repeted-k-folds" id="toc-repeted-k-folds"><span class="toc-section-number">3.6</span> Repeted K-folds</a></li>
+      </ul></li>
+      <li><a href="#anexo" id="toc-anexo"><span class="toc-section-number">4</span> Anexo</a>
+      <ul>
+      <li><a href="#propuesta-basada-en-remuestreo-para-estimar-la-varianza-de-las-predicciones-de-un-modelo" id="toc-propuesta-basada-en-remuestreo-para-estimar-la-varianza-de-las-predicciones-de-un-modelo"><span class="toc-section-number">4.1</span> Propuesta basada en remuestreo para estimar la varianza de las predicciones de un modelo</a></li>
+      <li><a href="#propuesta-basada-en-remuestreo-para-estimar-el-sesgo-de-las-predicciones-de-un-modelo" id="toc-propuesta-basada-en-remuestreo-para-estimar-el-sesgo-de-las-predicciones-de-un-modelo"><span class="toc-section-number">4.2</span> Propuesta basada en remuestreo para estimar el sesgo de las predicciones de un modelo</a></li>
+      </ul></li>
       <li><a href="#bibliografía" id="toc-bibliografía"><span class="toc-section-number">5</span> Bibliografía</a></li>
       </ul>
     </div>
@@ -1825,21 +1837,118 @@ y una muestra <span class="math inline">\(X_j\)</span> del predictor <span class
 <p>Por lo tanto:</p>
 <p><span class="math display">\[\sum_{i=1}^n I(\hat{y}_i = y_i) \sim Binomial(n\cdot p )\]</span></p>
 <p>Asi que, la tasa de acierto esperada del modelo de clasificación aleatoria uniforme es:</p>
-<p><span class="math display">\[E[TAC] = E\left[ \dfrac{1}{n} \sum_{i=1}^n I(\hat{y}_i = y_i) \right]= E\left[  \dfrac{1}{n} \cdot Binomial(n\cdot p )  \right] = \dfrac{1}{n} \cdot E\left[ Binomial(n\cdot p )   \right]  = \dfrac{1}{n} \cdot (n\cdot p) = p = 1/k\]</span></p>
+<p><span class="math display">\[E\left[TAC\right] = E\left[ \dfrac{1}{n} \sum_{i=1}^n I(\hat{y}_i = y_i) \right]= E\left[  \dfrac{1}{n} \cdot Binomial(n\cdot p )  \right] = \dfrac{1}{n} \cdot E\left[ Binomial(n\cdot p )   \right]  = \dfrac{1}{n} \cdot (n\cdot p) = p = 1/k\]</span></p>
 <p><br></p>
 <p><br></p>
 </div>
 </div>
 </div>
 </div>
-<div id="algoritmos-de-validación" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Algoritmos de validación</h1>
+<div id="algoritmos-de-validación-de-modelos-predictivos" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Algoritmos de validación de modelos predictivos</h1>
+<p>Los algoritmos de validación permiten evaluar la bondad predictiva de modelos predictivos. Se suelen basar en:</p>
+<ol style="list-style-type: decimal">
+<li><p>División del data-set en parte de train y parte de test.</p></li>
+<li><p>Entrenamiento del modelo con la parte de train.</p></li>
+<li><p>Cálculo de una métrica de evaluación con la parte de test.</p></li>
+</ol>
+<p><br></p>
+<p>Tenemos un modelo predictivo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> y una muestra de <span class="math inline">\(\hspace{0.1cm}N\hspace{0.1cm}\)</span> observaciones de <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> y de la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\\\)</span></p>
+<p><span class="math display">\[D=[X_1,...,X_p,Y]=\begin{pmatrix}
+    x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp; y_1\\
+    x_{21}&amp;x_{22}&amp;...&amp;x_{2p} &amp; y_2\\
+    &amp;...&amp;\\
+    x_{N1}&amp;x_{N2}&amp;...&amp;x_{Np}&amp; y_N
+    \end{pmatrix}\]</span></p>
+<p><br></p>
+<div id="validación-simple-no-aleatoria" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Validación simple no aleatoria</h2>
+<p>El algoritmo de validación simple no aleatoria tiene los siguientes pasos: <span class="math inline">\(\\[0.3cm]\)</span></p>
+<p><span class="math inline">\(1)\hspace{0.1cm}\)</span> Se divide <span class="math inline">\(D\)</span> en parte de train y parte de test del siguiente modo:</p>
+<p>Las primeras <span class="math inline">\(\hspace{0.2cm}\lfloor k \cdot N \rfloor\hspace{0.2cm}\)</span> observaciones (filas) definen el conjunto de train <span class="math inline">\(\hspace{0.2cm} \Rightarrow \hspace{0.2cm}\)</span> <span class="math inline">\(D_{train}= \begin{pmatrix}  x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp; y_1\\  x_{21}&amp;x_{22}&amp;...&amp;x_{2p} &amp; y_2\\  &amp;...&amp;\\  x_{\lfloor k \cdot N \rfloor1}&amp;x_{\lfloor k \cdot N \rfloor2}&amp;...&amp;x_{\lfloor k \cdot N \rfloor p}&amp; y_{\lfloor k \cdot N \rfloor}  \end{pmatrix}\)</span></p>
+<p><br></p>
+<p>Las siguientes <span class="math inline">\(\hspace{0.2cm} N - \lfloor k \cdot N \rfloor\hspace{0.2cm}\)</span> observaciones definen (filas) el conjunto de test <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <span class="math inline">\(D_{test}= \begin{pmatrix}  x_{(\lfloor k \cdot N \rfloor + 1) \hspace{0.05cm} 1 } &amp; x_{(\lfloor k \cdot N \rfloor + 1) \hspace{0.05cm} 2}&amp;...&amp;x_{(\lfloor k \cdot N \rfloor + 1) \hspace{0.05cm} p}&amp; y_{\lfloor k \cdot N \rfloor + 1} \\  x_{(\lfloor k \cdot N \rfloor + 2) \hspace{0.05cm} 1 } &amp; x_{(\lfloor k \cdot N \rfloor + 2) \hspace{0.05cm} 2}&amp;...&amp;x_{(\lfloor k \cdot N \rfloor + 2) \hspace{0.05cm} p}&amp; y_{\lfloor k \cdot N \rfloor + 2}\\  &amp;...&amp;\\  x_{N \hspace{0.05cm} 1 } &amp; x_{N 2}&amp;...&amp;x_{N p}&amp; y_{N}  \end{pmatrix} \\[0.4cm]\)</span></p>
+<p>Donde:</p>
+<p><span class="math inline">\(k\in (0,1)\)</span></p>
+<p><span class="math inline">\(\lfloor \cdot \rfloor\)</span> es la funcion suelo, que dado un número como argumento te devuelve el mayor entero menor que dicho número <span class="math inline">\(\\[0.3cm]\)</span></p>
+<p><span class="math inline">\(2)\hspace{0.1cm}\)</span> Se entrena el modelo <span class="math inline">\(\hspace{0.1cm} M\hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm} D_{train}\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.1cm}\Rightarrow\hspace{0.2cm}\)</span> <span class="math inline">\(\widehat{M}\)</span></p>
+<p><span class="math inline">\(3)\hspace{0.1cm}\)</span> Se calcula una metrica de evaluacion sobre el modelo entrenado con <span class="math inline">\(\hspace{0.1cm} D_{test}\hspace{0.1cm}\)</span> <span class="math inline">\(\Rightarrow\)</span> Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , se obtendria el <span class="math inline">\(\hspace{0.1cm}ECM_{test}\)</span></p>
+<p><span class="math inline">\(4)\hspace{0.1cm}\)</span> La métrica de evaluacion final del modelo es la obtenida en el paso 3)</p>
+<p>Si la métrica empleada en 3) fue el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , entonces:</p>
+<p><span class="math display">\[ECM_{test}^*(M) = ECM_{test}(\widehat{M})\]</span></p>
 <p><br></p>
 <p><br></p>
+</div>
+<div id="validación-simple-aleatoria" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Validación simple aleatoria</h2>
+<p>El algoritmo de validación simple aleatoria tiene los siguientes pasos: <span class="math inline">\(\\[0.3cm]\)</span></p>
+<p><span class="math inline">\(1)\hspace{0.1cm}\)</span> Se divide <span class="math inline">\(D\)</span> en parte de train y parte de test del siguiente modo:</p>
+<p>Se genera una muestra aleatoria sin reemplazamiento de tamaño <span class="math inline">\(\hspace{0.1cm} \lfloor k \cdot N \rfloor\hspace{0.1cm}\)</span> del vector <span class="math inline">\(\hspace{0.1cm}(1,2,...,N)\hspace{0.2cm}\)</span> <span class="math inline">\(\Rightarrow\hspace{0.2cm}\)</span> <span class="math inline">\(m=(m_1 ,m_2,...,m_{\lfloor k \cdot N \rfloor})\)</span></p>
+<p>Las observaciones (filas) <span class="math inline">\(\hspace{0.1cm}m_1,m_2 ,...,m_{\lfloor k \cdot N \rfloor}\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> definen la muestra de train <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <span class="math inline">\(D_{train}= D[m , :] = \begin{pmatrix}  x_{m_11}&amp;x_{m_12}&amp;...&amp;x_{m_1p}&amp; y_{m_1}\\  x_{m_21}&amp;x_{m_22}&amp;...&amp;x_{m_2p} &amp; y_{m_2}\\  &amp;...&amp;\\  x_{m_{\lfloor k \cdot N \rfloor} 1}&amp;x_{m_{\lfloor k \cdot N \rfloor} 2}&amp;...&amp;x_{m_{\lfloor k \cdot N \rfloor} p}&amp; y_{m_{\lfloor k \cdot N \rfloor}}  \end{pmatrix}\)</span></p>
+<p><br></p>
+<p>Las observaciones (filas) de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> complementarias a <span class="math inline">\(\hspace{0.1cm}m\hspace{0.1cm}\)</span> , es decir, las filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> que no estan en <span class="math inline">\(\hspace{0.1cm}D_{train}\hspace{0.1cm}\)</span>, es decir, las filas de <span class="math inline">\(\hspace{0.1cm}m^c\hspace{0.1cm}\)</span>,
+definen la muestra de train <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <span class="math inline">\(D_{train} = D[m^c , :] \\[0.4cm]\)</span></p>
+<p>Donde:</p>
+<p><span class="math inline">\(k\in (0,1)\)</span></p>
+<p><span class="math inline">\(\lfloor \cdot \rfloor\hspace{0.1cm}\)</span> es la funcion suelo, que dado un número como argumento te devuelve el mayor entero menor que dicho número</p>
+<p>Las filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> complentarias a <span class="math inline">\(\hspace{0.1cm}m=(m_1 ,m_2,...,m_{\lfloor k \cdot N \rfloor})\hspace{0.1cm}\)</span> se definen como <span class="math inline">\(\hspace{0.1cm}m^c=(\hspace{0.1cm} i =1,...,N \hspace{0.1cm}/\hspace{0.1cm} i\neq m_j \hspace{0.1cm},\hspace{0.1cm} \forall j=1,...,\lfloor k \cdot N \rfloor \hspace{0.1cm})\)</span></p>
+<p><span class="math inline">\(2)\hspace{0.1cm}\)</span> Se entrena el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm}D_{train}\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.1cm}\Rightarrow\hspace{0.2cm}\)</span> <span class="math inline">\(\widehat{M}\\\)</span></p>
+<p><span class="math inline">\(3)\hspace{0.1cm}\)</span> Se calcula una metrica de evaluacion sobre el modelo entrenado <span class="math inline">\(\hspace{0.1cm}\widehat{M}\hspace{0.1cm}\)</span> usando <span class="math inline">\(\hspace{0.1cm}D_{test}\)</span></p>
+<p>Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , se obtendria el <span class="math inline">\(\hspace{0.1cm}ECM_{test}(\widehat{M})\\\)</span></p>
+<p><span class="math inline">\(4)\hspace{0.1cm}\)</span> La métrica de evaluacion final del modelo es la obtenida en el paso 3)</p>
+<p>Si la métrica empleada en 3) fue el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , entonces:</p>
+<p><span class="math display">\[ECM_{test}^*(M) = ECM_{test}(\widehat{M})\]</span></p>
+<p><br></p>
+</div>
+<div id="validación-simple-aleatoria-repetida" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Validación simple aleatoria repetida</h2>
+<p>El algoritmo de validacion simple aleatoria tiene los siguientes pasos: <span class="math inline">\(\\[0.3cm]\)</span></p>
+<p><span class="math inline">\(1)\hspace{0.1cm}\)</span> Se obtienen <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> particiones de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> en parte de train y parte de test del siguiente modo:</p>
+<p><span class="math inline">\(1.1)\hspace{0.1cm}\)</span> Se generan <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras aleatoria sin reemplazamiento de tamaño <span class="math inline">\(\hspace{0.1cm}\lfloor k \cdot N \rfloor\hspace{0.1cm}\)</span> del vector <span class="math inline">\(\hspace{0.1cm}(1,2,...,N)\hspace{0.1cm}\)</span> :</p>
+<p><span class="math display">\[m_1 , m_2 , ..., m_B\]</span></p>
+<p>Donde:</p>
+<p><span class="math inline">\(m_r=(m_{r1} ,...,m_{r\lfloor k \cdot N \rfloor})\hspace{0.15cm} \hspace{0.4cm} \forall r=1,...,B\)</span></p>
+<p><span class="math inline">\(k\in (0,1)\)</span></p>
+<p><span class="math inline">\(\lfloor \cdot \rfloor\hspace{0.1cm}\)</span> es la funcion suelo, que dado un nº como argumento te devuelve el mayor entero menor que dicho número. <span class="math inline">\(\\[0.35cm]\)</span></p>
+<p><span class="math inline">\(1.2)\hspace{0.1cm}\)</span> Se obtienen <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras de <strong>train</strong> del data-set original <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> (por filas) :</p>
+<p><span class="math display">\[D_{train, 1}= D[m_1 , :] \hspace{0.1cm},\hspace{0.1cm} D_{train, 2}= D[m_2 , :] \hspace{0.1cm}, ... ,\hspace{0.1cm} D_{train, B}= D[m_B , :]\\\]</span></p>
+<p>Donde:</p>
+<p><span class="math inline">\(D[m_r , :]\hspace{0.1cm}\)</span> es la submatriz que resulta de quedarse solo con las filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> definidas por el vector numerico <span class="math inline">\(\hspace{0.1cm}m_r \\\)</span></p>
+<p><span class="math inline">\(1.3)\hspace{0.1cm}\)</span> Se obtienen <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras de <strong>test</strong> del data-set original <span class="math inline">\(\hspace{0.1cm}D\)</span>:</p>
+<p><span class="math display">\[D_{test, 1}= D[m_1^c , :] \hspace{0.1cm},\hspace{0.1cm} D_{test, 2}= D[m_2^c , :] \hspace{0.1cm}, ... ,\hspace{0.1cm} D_{test, B}= D[m_B^c , :] \\\]</span></p>
+<p>Donde:</p>
+<p><span class="math inline">\(m_r^c=(\hspace{0.1cm} i =1,...,N \hspace{0.1cm} / \hspace{0.1cm} i\neq m_{rj} , \forall j=1,...,\lfloor k \cdot N \rfloor\hspace{0.1cm} )\hspace{0.1cm}\hspace{0.1cm}\)</span> es el complementario de <span class="math inline">\(\hspace{0.1cm}m_r \\\)</span></p>
+<p>Por tanto se obtienen <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> particiones de train y test de <span class="math inline">\(\hspace{0.1cm}D \\\)</span></p>
+<p><span class="math inline">\(2)\hspace{0.1cm}\)</span> Se entrena el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm} D_{train,1} , D_{train,2} , ..., D_{train,B}\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.1cm}\Rightarrow\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.1cm}\widehat{M}_1 ,..., \widehat{M}_B \\\)</span></p>
+<p><span class="math inline">\(3)\hspace{0.1cm}\)</span> Se calcula una misma métrica de evaluación sobre el modelo entrenado <span class="math inline">\(\hspace{0.1cm}M_r\hspace{0.1cm}\)</span> usando la muestra de <strong>test</strong> <span class="math inline">\(\hspace{0.1cm}D_{test,r}\hspace{0.1cm}\)</span> , para <span class="math inline">\(\hspace{0.1cm}r=1,...,B\)</span></p>
+<p>Supongamos que la métrica de evaluación usada es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , entonces se obtienen <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> valores de esta métrica :</p>
+<p><span class="math display">\[ECM_{test }(\widehat{M}_1) ,  ECM_{test }(\widehat{M}_2) , ... , ECM_{test}(\widehat{M}_B)\\\]</span></p>
+<p>Donde:</p>
+<p><span class="math inline">\(ECM_{test , r}\hspace{0.1cm}\)</span> es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> calculado sobre <span class="math inline">\(\hspace{0.1cm}M_r\hspace{0.1cm}\)</span> usando <span class="math inline">\(\hspace{0.1cm}D_{test,r}\hspace{0.1cm}\)</span></p>
+<p><span class="math display">\[ECM_{test }(\widehat{M}_r) = \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm})^2\]</span></p>
+<p><span class="math inline">\(4)\hspace{0.1cm}\)</span> Se calcula la métrica final de evaluacion del modelo como el promedio de las <span class="math inline">\(B\)</span> metricas calculadas en 3). Si la metrica usada en 3) es el ECM, entonces:</p>
+<p><span class="math display">\[ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{B} \cdot \sum_{r=1}^B ECM_{test}(\widehat{M}_r)\]</span></p>
+<p><br></p>
+<p><br></p>
+</div>
+<div id="leave-one-out" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Leave-one-out</h2>
+<p><br></p>
+</div>
+<div id="k-folds" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> K-folds</h2>
+<p><br></p>
+</div>
+<div id="repeted-k-folds" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Repeted K-folds</h2>
+<p><br></p>
+<p><br></p>
+</div>
 </div>
 <div id="anexo" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Anexo</h1>
-<p><strong>Propuesta basada en remuestreo para estimar la varianza de las predicciones de un modelo:</strong></p>
+<div id="propuesta-basada-en-remuestreo-para-estimar-la-varianza-de-las-predicciones-de-un-modelo" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Propuesta basada en remuestreo para estimar la varianza de las predicciones de un modelo</h2>
 <p>Consideraremos que una estimacion de la varianza de las predicciones de un modelo de regresion (variable respuesta cuantitativa) <span class="math inline">\(M\)</span> es:</p>
 <p><span class="math display">\[\dfrac{1}{h} \sum_{i=1}^{h} \widehat{Var}(\hat{y}_i)\]</span></p>
 <p>Cálculo de <span class="math inline">\(\widehat{Var}(\hat{y}_i)\)</span> por remuestreo (en algunos modelos no habra expresiones cerradas para este estimacion, por eso veo interesante un procedimiento general que no dependa del modelo usado):</p>
@@ -1859,7 +1968,11 @@ y una muestra <span class="math inline">\(X_j\)</span> del predictor <span class
 <p>Asi obtenderemos: <span class="math inline">\(\hspace{0.2cm} \widehat{Var}(\hat{y}_1),\widehat{Var}(\hat{y}_2),..., \widehat{Var}(\hat{y}_h)\)</span></p>
 <p>Promediamos y obtenimos asi una estimacion de la varianza de las predcciones del modelo:</p>
 <p><span class="math display">\[ \dfrac{1}{h} \sum_{i=1}^{h} \widehat{Var}(\hat{y}_i) \]</span></p>
-<p><strong>Propuesta basada en remuestreo para estimar el sesgo de las predicciones de un modelo:</strong></p>
+<p><br></p>
+<p><br></p>
+</div>
+<div id="propuesta-basada-en-remuestreo-para-estimar-el-sesgo-de-las-predicciones-de-un-modelo" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Propuesta basada en remuestreo para estimar el sesgo de las predicciones de un modelo</h2>
 <p>Consideraremos que una estimacion del sesgo de las predicciones de un modelo de regresion (variable respuesta cuantitativa) <span class="math inline">\(M\)</span> es:</p>
 <p><span class="math display">\[\dfrac{1}{h} \sum_{i=1}^{h} \widehat{Sesgo}(\hat{y}_i)\]</span></p>
 <p>Cálculo de <span class="math inline">\(\widehat{Sesgo}(\hat{y}_i)\)</span> por remuestreo (en algunos modelos no habra expresiones cerradas para este estimacion, por eso veo interesante un procedimiento general que no dependa del modelo usado):</p>
@@ -1881,6 +1994,7 @@ y una muestra <span class="math inline">\(X_j\)</span> del predictor <span class
 <p>Promediamos y obtenimos asi una estimacion de la varianza de las predcciones del modelo:</p>
 <p><span class="math display">\[ \dfrac{1}{h} \sum_{i=1}^{h} \widehat{Sesgo}(\hat{y}_i) \]</span></p>
 <p><br></p>
+</div>
 </div>
 <div id="bibliografía" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Bibliografía</h1>
