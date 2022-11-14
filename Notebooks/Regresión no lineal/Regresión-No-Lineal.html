@@ -1516,7 +1516,12 @@ margin-left: 0 !important;
       <li><a href="#problemas" id="toc-problemas"><span class="toc-section-number">1.2</span> Problemas</a></li>
       </ul></li>
       <li><a href="#regresión-con-funciones-escalón" id="toc-regresión-con-funciones-escalón"><span class="toc-section-number">2</span> Regresión con funciones escalón <a class="anchor" id="52"></a></a></li>
-      <li><a href="#bibliografía" id="toc-bibliografía"><span class="toc-section-number">3</span> Bibliografía</a></li>
+      <li><a href="#regresión-con-polinomios-a-trozos" id="toc-regresión-con-polinomios-a-trozos"><span class="toc-section-number">3</span> Regresión con Polinomios a trozos</a></li>
+      <li><a href="#regresión-con-splines" id="toc-regresión-con-splines"><span class="toc-section-number">4</span> Regresión con Splines</a></li>
+      <li><a href="#regresión-con-splines-suavizados" id="toc-regresión-con-splines-suavizados"><span class="toc-section-number">5</span> Regresión con Splines suavizados</a></li>
+      <li><a href="#regresión-local" id="toc-regresión-local"><span class="toc-section-number">6</span> Regresión Local</a></li>
+      <li><a href="#modelos-aditivos-generalizados-gam" id="toc-modelos-aditivos-generalizados-gam"><span class="toc-section-number">7</span> Modelos Aditivos Generalizados (GAM)</a></li>
+      <li><a href="#bibliografía" id="toc-bibliografía"><span class="toc-section-number">8</span> Bibliografía</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1549,6 +1554,7 @@ margin-left: 0 !important;
 <p>Matricialmente:</p>
 <p><span class="math display">\[Y = \beta_0 + \beta_1 \cdot X_1 + \varepsilon\]</span></p>
 <p>Donde <span class="math inline">\(\hspace{0.1cm}\varepsilon=( \varepsilon_1,..., \varepsilon_n)^t \\\)</span></p>
+<p>Y ahora <span class="math inline">\(\beta_0\)</span> es un vector con <span class="math inline">\(n\)</span> repeticiones de <span class="math inline">\(\beta_0 \\\)</span></p>
 <p>En el que el término de error cumple las siguientes hipotesis:</p>
 <p><span class="math inline">\(\varepsilon_i \sim N(0,\sigma^2)\)</span></p>
 <p><span class="math inline">\(cov(\varepsilon_i , \varepsilon_{i+1}) = 0\)</span></p>
@@ -1561,11 +1567,9 @@ margin-left: 0 !important;
 <p><span class="math display">\[y_i = \beta_0 + \beta_1 \cdot x_{i1} + \beta_2 \cdot x_{i1}^2  +...+ \beta_d \cdot x_{i1}^d + \varepsilon_i\]</span></p>
 <p>para <span class="math inline">\(\hspace{0.1cm} i=1,...,n \\\)</span></p>
 <p>Matricialmente:</p>
-<p><span class="math display">\[Y = x_i^t \cdot \beta + \varepsilon\]</span></p>
-<p>Donde <span class="math inline">\(\hspace{0.1cm}x_i=(1, x_{i1})^t\hspace{0.1cm}\)</span> , <span class="math inline">\(\hspace{0.1cm}\beta=(\beta_0 , \beta_1)^t\hspace{0.1cm}\)</span> , <span class="math inline">\(\hspace{0.1cm}\varepsilon=( \varepsilon_1,..., \varepsilon_n)^t \\\)</span></p>
-<p>Matricialmente:</p>
 <p><span class="math display">\[Y = \beta_0 + \beta_1 \cdot X_1 +  \beta_2 \cdot X_1^2 +...+ \beta_d \cdot X_1^d + \varepsilon\]</span></p>
 <p>Donde <span class="math inline">\(\hspace{0.1cm} X_1^k = (x_{11}^k , x_{21}^k,...,x_{n1}^k)^t\hspace{0.1cm}\)</span> , <span class="math inline">\(\hspace{0.1cm}\varepsilon=( \varepsilon_1,..., \varepsilon_n)^t \\\)</span></p>
+<p>Y ahora <span class="math inline">\(\beta_0\)</span> es un vector con <span class="math inline">\(n\)</span> repeticiones de <span class="math inline">\(\beta_0 \\\)</span></p>
 <p>En el que el término de error cumple las siguientes hipotesis:</p>
 <p><span class="math inline">\(\varepsilon_i \sim N(0,\sigma^2)\)</span></p>
 <p><span class="math inline">\(cov(\varepsilon_i , \varepsilon_{i+1}) = 0\)</span></p>
@@ -1596,30 +1600,136 @@ margin-left: 0 !important;
 <p><span class="math display">\[Y=(y_1,...,y_n)^t\]</span></p>
 <p>Tenemos una muestra de <span class="math inline">\(n\)</span> observaciones del predictor <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\)</span> :</p>
 <p><span class="math display">\[X_1=(x_{11},...,x_{n1})^t \\[1.5cm]\]</span></p>
-<p>Tenemos una serie de <span class="math inline">\(k\)</span> intervalos <span class="math inline">\(\hspace{0.1cm} [L_1 , L_2),[L_2 , L_3),...,[L_{k-1} , L_k)[L_k , L_k+1]\hspace{0.1cm}\)</span> tales que: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p>Tenemos una serie de <span class="math inline">\(\hspace{0.1cm} k+1\hspace{0.1cm}\)</span> intervalos <span class="math inline">\(\hspace{0.1cm} L = \lbrace \hspace{0.1cm} [L_0 , L_1),[L_1 , L_2),...,[L_{k-1} , L_k)[L_k , L_{k+1}) \rbrace \hspace{0.1cm} \hspace{0.1cm}\)</span> tales que: <span class="math inline">\(\\[0.4cm]\)</span></p>
 <ul>
-<li><p>Son disjuntos dos a dos, es decir, no comparten elementos dos a dos. <span class="math inline">\(\\[0.3cm]\)</span></p></li>
+<li><p>Son disjuntos dos a dos, es decir, no comparten elementos dos a dos. <span class="math display">\[[L_h , L_{h+1})\cap [L_{r} , L_{r+1}) = \emptyset  \hspace{0.45cm} \forall h\neq r =0,1,...,k \\[0.5cm]\]</span></p></li>
 <li><p>Toda observación de la muestra <span class="math inline">\(X_1\)</span> pertenece a alguno de los intervalos:</p></li>
 </ul>
-<p><span class="math display">\[x_{i1} \in [L_1 , L_2)\cup ... \cup [L_{k-1} , L_k)\cup [L_k , L_k+1] \hspace{0.5cm} \forall i =1,..,n \\\]</span></p>
-<p>Se definen las siguientes variables binarias (<em>dummies</em>):</p>
-<p><span class="math display">\[I_1(X_{1})\hspace{0.15cm} = \hspace{0.15cm} \left(\hspace{0.2cm} \Upsilon (\hspace{0.15cm} x_{i1} \in [L_1 , L_{2}) \hspace{0.15cm} ) \hspace{0.2cm} / \hspace{0.2cm} i=1,...,n    \hspace{0.2cm} \right)^t\]</span></p>
-<p><span class="math display">\[I_2(X_{1})\hspace{0.15cm} = \hspace{0.15cm} \left(\hspace{0.2cm} \Upsilon (\hspace{0.15cm}  x_{i1} \in [L_2 , L_{3}) \hspace{0.15cm} ) \hspace{0.2cm} / \hspace{0.2cm} i=1,...,n    \hspace{0.2cm} \right)^t\]</span></p>
-<p><span class="math display">\[\dots\]</span></p>
-<p><span class="math display">\[I_{k-1}(X_{1})\hspace{0.15cm} = \hspace{0.15cm} \left(\hspace{0.2cm} \Upsilon (\hspace{0.15cm}  x_{i1} \in [L_{k-1} , L_{k})\hspace{0.15cm}  ) \hspace{0.2cm} / \hspace{0.2cm} i=1,...,n    \hspace{0.2cm} \right)^t\]</span></p>
-<p><span class="math display">\[I_{k}(X_{1})\hspace{0.15cm} = \hspace{0.15cm} \left(\hspace{0.2cm} \Upsilon (\hspace{0.15cm}  x_{i1} \in [L_{k} , L_{k+1}) \hspace{0.15cm} ) \hspace{0.2cm} / \hspace{0.2cm} i=1,...,n    \hspace{0.2cm} \right)^t \\\]</span></p>
-<p>Donde: <span class="math inline">\(\hspace{0.2cm} \Upsilon (\cdot)\)</span> es la función indicatriz o indicadora.</p>
+<p><span class="math display">\[x_{i1} \in [L_0 , L_1)\cup ... \cup [L_{k-1} , L_k)\cup [L_k , L_{k+1}) \hspace{0.5cm} \forall i =1,..,n \\\]</span></p>
+<p>Se definen las siguientes variables binarias (<strong>dummies</strong>):</p>
+<p><span class="math display">\[I_h(X_{1})\hspace{0.15cm} = \hspace{0.15cm} \left(\hspace{0.2cm} \Upsilon (\hspace{0.15cm} x_{i1} \in [L_h , L_{h+1}) \hspace{0.15cm} ) \hspace{0.2cm} / \hspace{0.2cm} i=1,...,n    \hspace{0.2cm} \right)^t \hspace{0.45cm} \forall \hspace{0.1cm} h=0,1,...,k \\\]</span></p>
+<p>Donde: <span class="math inline">\(\hspace{0.2cm} \Upsilon (\cdot) \hspace{0.15cm}\)</span> es la función indicatriz o indicadora.</p>
 <p><br></p>
 <p>El modelo de regresión con funciones escalón tiene la siguiente forma:</p>
 <p><span class="math display">\[y_i = \beta_0 \hspace{0.1cm}+\hspace{0.1cm} \beta_1 \cdot \Upsilon (\hspace{0.15cm} x_{i1} \in [L_1 , L_{2}) \hspace{0.15cm} ) \hspace{0.1cm}+\hspace{0.1cm} \beta_2 \cdot \Upsilon (\hspace{0.15cm} x_{i1} \in [L_2 , L_{3}) \hspace{0.15cm} ) \hspace{0.1cm} + ... +\hspace{0.1cm} \beta_k \cdot \Upsilon (\hspace{0.15cm} x_{i1} \in [L_k , L_{k+1}) \hspace{0.15cm} ) \hspace{0.1cm}+ \hspace{0.1cm}\varepsilon_i\]</span></p>
-<p>para <span class="math inline">\(i=1,..,n \\\)</span></p>
+<p>para <span class="math inline">\(\hspace{0.1cm}i=1,..,n \\\)</span></p>
 <p>Matricialmente:</p>
-<p><span class="math display">\[Y= \beta_0 \hspace{0.1cm}+\hspace{0.1cm} \beta_1 \cdot I_1(X_1) \hspace{0.1cm}+\hspace{0.1cm} \beta_2 \cdot I_2(X_1) \hspace{0.1cm}+ ... +\hspace{0.1cm} \beta_k \cdot I_k(X_1) \hspace{0.1cm}+\hspace{0.1cm} \varepsilon\]</span></p>
+<p><span class="math display">\[Y= \beta_0 \hspace{0.1cm}+\hspace{0.1cm} \beta_1 \cdot I_1(X_1) \hspace{0.1cm}+\hspace{0.1cm} \beta_2 \cdot I_2(X_1) \hspace{0.1cm}+ ... +\hspace{0.1cm} \beta_k \cdot I_k(X_1) \hspace{0.1cm}+\hspace{0.1cm} \varepsilon \\\]</span></p>
+<p>Donde ahora <span class="math inline">\(\hspace{0.1cm}\beta_0\hspace{0.1cm}\)</span> es un vector con <span class="math inline">\(n\)</span> repeticiones de <span class="math inline">\(\hspace{0.1cm}\beta_0 \\\)</span></p>
+<p><strong>Observaciones</strong></p>
+<ul>
+<li><p>No se incluye <span class="math inline">\(\hspace{0.1cm}I_0(X_1)\hspace{0.1cm}\)</span> en el modelo porque si no habría problemas de multicolinealidad perfecta. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Una cuestión en la regresion con fucniones escalón es la de cómo determinar los intervalos. Para ello se suelen usar los cuantiles del predictor. Si se quieren <span class="math inline">\(k\)</span> intervalos se usan los cuantiles que van de <span class="math inline">\(100/k\)</span> en <span class="math inline">\(100/k\)</span> para definir los extremos de los intervalos.</p>
+<ul>
+<li>Por ejemplo si queremos <span class="math inline">\(\hspace{0.12cm}k=5\hspace{0.12cm}\)</span> , entonces se usan los cuantiles que van de <span class="math inline">\(\hspace{0.12cm}100/5=20\hspace{0.12cm}\)</span> en <span class="math inline">\(\hspace{0.12cm}20\hspace{0.12cm}\)</span> , es decir, los cuantiles <span class="math inline">\(\hspace{0.12cm}Q_0, Q_{20},Q_{40},Q_{60},Q_{80}, Q_{100}\hspace{0.12cm}\)</span> para definir los extremos de los intervalos. Así los intervalos serían los siguientes:</li>
+</ul>
+<p><span class="math display">\[[Q_0 , Q_{20}) , [Q_{20} , Q_{40}) , [Q_{40}, Q_{60}) , [Q_{60} , Q_{80}) , [Q_{80}, Q_{100} + c)\]</span></p></li>
+</ul>
+<p><span class="math inline">\(\hspace{1.8cm}\)</span> Donde: <span class="math inline">\(\hspace{0.15cm} c&gt;0\)</span> , <span class="math inline">\(\hspace{0.15cm}Q_0 = Min(X_1)\)</span>, <span class="math inline">\(\hspace{0.15cm}Q_{100}=Max(X_1)\)</span></p>
+<ul>
+<li><p>Notese que se añade <span class="math inline">\(\hspace{0.12cm}c&gt;0\hspace{0.12cm}\)</span> para cumplir la condición de que toda observacion de <span class="math inline">\(\hspace{0.12cm}X_1\hspace{0.12cm}\)</span> pertenezca a alguno de os intervalos. Si no se añadiese, entonces la observacion <span class="math inline">\(\hspace{0.12cm}Max(X_1)\hspace{0.12cm}\)</span> no estaria en ninguno de los intervalos, al ser el último abierto en su extremo superior. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>El número de intervalos no debe ser excesivo, puesto cuanto mayor sea menos observaciones caen en cada intervalo, y menos precisas son las estimaciones. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Es un modelo muy fácil de interpretar:</p>
+<ul>
+<li><span class="math inline">\(\beta_0 \hspace{0.15cm}\)</span> es la media de <span class="math inline">\(\hspace{0.15cm}X_1\hspace{0.15cm}\)</span> en el intervalo <span class="math inline">\([L_0 , L_1)\)</span> . Mientras que <span class="math inline">\(\hspace{0.15cm}\beta_j\hspace{0.15cm}\)</span> es la media de <span class="math inline">\(\hspace{0.15cm}X_1\hspace{0.15cm}\)</span> en el intervalo <span class="math inline">\(\hspace{0.15cm}[L_0 , L_1)\hspace{0.15cm}\)</span> y algo mas (o algo menos). <span class="math inline">\(\\[0.5cm]\)</span></li>
+</ul></li>
+<li><p>El modelo de regresión con funciones escalón con el predictor cuantitativo** <span class="math inline">\(\hspace{0.1cm}X_1\hspace{0.1cm}\)</span> y los intervalos <span class="math inline">\(\hspace{0.1cm} L = \lbrace \hspace{0.1cm} [L_0 , L_1),[L_1 , L_2),...,[L_{k-1} , L_k)[L_k , L_k+1] \hspace{0.1cm}\rbrace\hspace{0.1cm}\)</span> es equivalente al modelo de regresión lineal con el predictor <strong>cuantitativo</strong> <span class="math inline">\(\hspace{0.1cm}X_1\hspace{0.1cm}\)</span> categoricazdo en base a los intervalos de <span class="math inline">\(\hspace{0.1cm}L \\[0.6cm]\)</span></p></li>
+</ul>
+<p>Veamos este último punto con más detalle:</p>
+<p>Sea <span class="math inline">\(\hspace{0.1cm}X_1\hspace{0.1cm}\)</span> una muestra de tamaño <span class="math inline">\(n\)</span> de una variable cuantitativa <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\)</span></p>
+<p>La versión categorizada de <span class="math inline">\(\hspace{0.1cm}X_1\hspace{0.1cm}\)</span> se puede definir como: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[X_1^{cat} \hspace{0.1cm}=\hspace{0.1cm} (\hspace{0.1cm} x^{cat}_{i1} \hspace{0.1cm}/\hspace{0.1cm} i=1,..,n \hspace{0.1cm}\hspace{0.1cm}) \\\]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[
+x^{cat}_{i1}\hspace{0.1cm} =\hspace{0.1cm} \left\lbrace\begin{array}{l} 0, \hspace{0.1cm}\text{ Si} \hspace{0.2cm} x_{ik} \in [L_{0},L_{1}) \\ 1, \hspace{0.2cm}\text{ Si} \hspace{0.2cm} x_{ik} \in [L_{1},L_{2})
+\\ ...
+\\ k, \hspace{0.2cm}\text{ Si } \hspace{0.2cm} x_{ik} \in [L_{k},L_{k+1})  \end{array}\right.
+\]</span></p>
+<p><br></p>
+<p>El modelo de regresión lineal con el predictor <span class="math inline">\(X_1^{cat}\)</span> es de la forma: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[Y = \beta_0 + \beta_1 \cdot I(X_1^{cat} = 1) + \beta_2 \cdot I(X_1^{cat} = 2) + ... + \beta_k \cdot I(X_1^{cat}=k) + \varepsilon \\\]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[I(X_1^{cat} = h)  \hspace{0.15cm} = \hspace{0.15cm} \left(\hspace{0.2cm} \Upsilon (\hspace{0.15cm} x_{i1}^{cat} = h\hspace{0.15cm} ) \hspace{0.2cm} / \hspace{0.2cm} i=1,...,n    \hspace{0.2cm} \right)^t  \hspace{0.15cm} = \hspace{0.15cm} \left(\hspace{0.2cm} \Upsilon (\hspace{0.15cm} x_{i1} \in [L_h , L_{h+1} ) \hspace{0.15cm} ) \hspace{0.2cm} / \hspace{0.2cm} i=1,...,n    \hspace{0.2cm} \right)^t \hspace{0.15cm} = \hspace{0.15cm} I_h(X_{1}) \hspace{0.45cm} \forall \hspace{0.1cm} h=0,1,...,k \\\]</span></p>
+<p>Por tanto, queda demostrado que son el mismo modelo.</p>
+<p><br></p>
+</div>
+<div id="regresión-con-polinomios-a-trozos" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Regresión con Polinomios a trozos</h1>
+<p>Surgue como combinación de la regresion polinomica y la regresion con funcioens escalon.</p>
+<p>La idea es usar la filosofia de la regresicon con funciones escalon pero en lugar de usar una funcion costante en cada intervalo, usar una función polinomica.</p>
+<p><br></p>
+<p>Tenemos una variable respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> y un predictor <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\)</span></p>
+<p>Tenemos una muestra de <span class="math inline">\(n\)</span> observaciones de la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\)</span> :</p>
+<p><span class="math display">\[Y=(y_1,...,y_n)^t\]</span></p>
+<p>Tenemos una muestra de <span class="math inline">\(n\)</span> observaciones del predictor <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\)</span> :</p>
+<p><span class="math display">\[X_1=(x_{11},...,x_{n1})^t \\[1.5cm]\]</span></p>
+<p>Tenemos una serie de <span class="math inline">\(\hspace{0.1cm} k+1\hspace{0.1cm}\)</span> intervalos <span class="math inline">\(\hspace{0.1cm} L = \lbrace \hspace{0.1cm} [L_0 , L_1),[L_1 , L_2),...,[L_{k-1} , L_k)[L_k , L_{k+1}) \rbrace \hspace{0.1cm} \hspace{0.1cm}\)</span> tales que: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<ul>
+<li><p>Son disjuntos dos a dos, es decir, no comparten elementos dos a dos. <span class="math display">\[[L_h , L_{h+1})\cap [L_{r} , L_{r+1}) = \emptyset  \hspace{0.45cm} \forall h\neq r =0,1,...,k \\[0.5cm]\]</span></p></li>
+<li><p>Toda observación de la muestra <span class="math inline">\(X_1\)</span> pertenece a alguno de los intervalos:</p></li>
+</ul>
+<p><span class="math display">\[x_{i1} \in [L_0 , L_1)\cup ... \cup [L_{k-1} , L_k)\cup [L_k , L_{k+1}) \hspace{0.5cm} \forall i =1,..,n \\\]</span></p>
+<p>La idea es, en cada intervalo ajustar una regresión polinómica, con ciertas restricciones.</p>
+<p>Supongamos que se ajusta un polinomio de grado <span class="math inline">\(d_h\)</span> en el intervalo <span class="math inline">\([L_h , L_{h+1})\)</span> , para <span class="math inline">\(h=0,1,...,k\)</span>, el modelo de regresión sería de la forma: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[y_i \hspace{0.1cm} =\hspace{0.1cm} \left[ \beta_{00} + \beta_{10}\cdot x_{i1} + \beta_{20}\cdot x_{i1}^2 + ... + \beta_{d_0 0}\cdot x_{i1}^{d_0} \right] \cdot \Upsilon(x_{i1} \in [L_0 ,L_1) ) \hspace{0.15cm}+\hspace{0.15cm} \left[ \beta_{01} + \beta_{11}\cdot x_{i1} + \beta_{21}\cdot x_{i1}^2 + ... + \beta_{d_1 1}\cdot x_{i1}^{d_1} \right] \cdot \Upsilon(x_{i1} \in [L_1 ,L_2) ) \\[0.7cm]             +\hspace{0.15cm} ... \hspace{0.15cm}+\hspace{0.15cm}  \left[ \beta_{0k} + \beta_{1k}\cdot x_{i1} + \beta_{2k}\cdot x_{i1}^2 + ... + \beta_{d_k k}\cdot x_{i1}^{d_k} \right] \cdot \Upsilon(x_{i1} \in [L_k ,L_{k+1}) ) \hspace{0.12cm}+\hspace{0.12cm} \varepsilon \\[0.7cm]
+=\hspace{0.12cm} \sum_{h=0}^k \hspace{0.12cm} \left[ \beta_{0h} + \beta_{1h}\cdot x_{i1} + \beta_{2h}\cdot x_{i1}^2 + ... + \beta_{d_h h}\cdot x_{i1}^{d_h}  \right] \cdot \Upsilon(x_{i1} \in [L_h ,L_{h+1}) ) \hspace{0.12cm}+\hspace{0.12cm} \varepsilon \\[0.5cm]\]</span></p>
+<p>Donde: <span class="math inline">\(\hspace{0.15cm}\Upsilon(\cdot) \hspace{0.1cm}\)</span> es una función indicadoro o indicatriz. <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p>Matricialmente: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[
+Y  \hspace{0.1cm} =\hspace{0.1cm} \left\lbrace\begin{array}{l} \beta_{00} + \beta_{10}\cdot X_1 + \beta_{20}\cdot X_1^2 + ... + \beta_{d_0 0}\cdot X_1^{d_0} + \varepsilon , \hspace{0.1cm}\text{ Si} \hspace{0.2cm} X_1 \in [L_0 , L1) \\ \beta_{01} + \beta_{11}\cdot X_1 + \beta_{21}\cdot X_1^2 + ... + \beta_{d_1 1}\cdot X_1^{d_1} + \varepsilon, \hspace{0.2cm}\text{ Si} \hspace{0.2cm} X_1 \in [L_{1},L_{2})
+\\ ...
+\\ \beta_{0k} + \beta_{1k}\cdot X_1 + \beta_{2k}\cdot X_1^2 + ... + \beta_{d_k k}\cdot X_1^{d_k} + \varepsilon, \hspace{0.2cm}\text{ Si } \hspace{0.2cm} X_1 \in [L_{k},L_{k+1})  \end{array}\right.
+\]</span></p>
+<p><br></p>
+<p>La estimación de los coeficientes se sigue realizando por el método de mínimos cuadrados ordinarios: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p>Sea <span class="math inline">\(\hspace{0.15cm} \beta_h^* = ( \beta_{0h} , \beta_{1h} ,..., \beta_{d_h h} )^t \\[0.4cm]\)</span></p>
+<p>Para cada <span class="math inline">\(\hspace{0.1cm} h=0,1,...,k\hspace{0.1cm}\)</span> el vector de coeficientes <span class="math inline">\(\hspace{0.1cm} \beta_h^*\hspace{0.1cm}\)</span> se estima como sigue: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\widehat{\beta}_h^* \hspace{0.15cm}=\hspace{0.15cm} arg\hspace{0.1cm} Min \hspace{0.1cm} \left\{ \hspace{0.1cm} \sum_{i / x_{i1} \in [L_h , L_{h+1})} \left(y_i - (\beta_{0h} + \beta_{1h}\cdot x_{i1} + \beta_{2h}\cdot x_{i1}^2 + ... + \beta_{d_h h}\cdot x_{i1}^{d_h}) \right)^2   \hspace{0.1cm}  \right\} \\\]</span></p>
+<p>Que es equivalente a lo siguiente:</p>
+<p>Sea <span class="math inline">\(\hspace{0.15cm} \beta = ( \beta_{00} , \beta_{10} ,..., \beta_{d_0 0} , \beta_{01} , \beta_{11} ,..., \beta_{d_1 1}, ... , \beta_{0k} , \beta_{1k} ,..., \beta_{d_k k} )^t = (\beta_0^* , \beta_1^* ,..., \beta_k^*)^t \\[0.4cm]\)</span></p>
+<p><span class="math display">\[\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} arg\hspace{0.1cm} Min \hspace{0.1cm} \left\{ \hspace{0.1cm} \sum_{i=1}^n \left(y_i - \sum_{h=0}^k \hspace{0.12cm} \left[ \beta_{0h} + \beta_{1h}\cdot x_{i1} + \beta_{2h}\cdot x_{i1}^2 + ... + \beta_{d_h h}\cdot x_{i1}^{d_h}  \right] \cdot \Upsilon \left(x_{i1} \in [L_h ,L_{h+1}) \right) \hspace{0.1cm}\right)^2   \hspace{0.1cm}  \right\} \\\]</span></p>
+<p>Puede demostrarse que:</p>
+<p><span class="math display">\[\widehat{\beta} = (\widehat{\beta}_0^* , \widehat{\beta}_1^* ,..., \widehat{\beta}_k^*)^t\]</span></p>
+<p><br></p>
+</div>
+<div id="regresión-con-splines" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Regresión con Splines</h1>
+<p>Nace de un refinamiento del modelo de regresión con polinomios a trozos.</p>
+<p>Antes de explicar el modelo en sí vamos a hacer notar algunas peculariedades del modelo anterior:</p>
+<p>El polinomio ajustado en el intervalo <span class="math inline">\(\hspace{0.1cm} [L_h , L_{h+1}) \hspace{0.1cm}\)</span> ,a saber, <span class="math inline">\(\hspace{0.1cm} \hat{p}_h(x) = \widehat{\beta}_{0h} + \widehat{\beta}_{1h}\cdot x + \widehat{\beta}_{2h}\cdot x^2 + ... + \widehat{\beta}_{d_h h}\cdot x^{d_h} \hspace{0.1cm}\)</span> no tiene porque coincidir en su extremo derecho con el extremo izquierdo del polinomio ajustado en el intervalo siguiente <span class="math inline">\(\hspace{0.1cm} [L_{h+1} , L_{h+2}) \hspace{0.1cm}\)</span> , a saber, <span class="math inline">\(\hspace{0.1cm} \hat{p}_{h+1}(x) = \widehat{\beta}_{0 (h+1)} + \widehat{\beta}_{1(h+1)}\cdot x + \widehat{\beta}_{2(h+1)}\cdot x^2 + ... + \widehat{\beta}_{d_{h+1} (h+1)}\cdot x^{d_{h+1}} \hspace{0.1cm}\)</span></p>
+<p>En otras palabras, podria ser que <span class="math inline">\(\hspace{0.1cm}p_h(L_{h+1}) \neq p_{h+1}(L_{h+1})\)</span></p>
+<p>Geometricamente, esto significa que la siguiente situación es posible:</p>
+<p>El modelo de regresión con Splines es un modelo de regresion con polinomios a trozos sobre los que se imponen restricciones que garantizan que lo anterior no pueda pasar, y además el comportamiento de los polinomios cerca del extremo <span class="math inline">\(L_{h+1]\)</span> es suave.</p>
+<p>Las restricciones que garantizan esto son:</p>
+<p>Si <span class="math inline">\(\hat{f}(x) = \sum_{h=0}^n \hat{p}_h(x)\cdot \Upsilon(x \in [L_h , L_{h+1}) )\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\hat{f}\)</span> es continua en <span class="math inline">\([L_0 , L_{k+1})\)</span></p></li>
+<li><p><span class="math inline">\(\hat{f}^{&#39;}\)</span> y <span class="math inline">\(\hat{f}^{&#39;&#39;}\)</span> son continuas al menos en los extremos de los intervalos <span class="math inline">\(\lbrace L_h / h=1,...,k-1 \rbrace \\\)</span></p></li>
+</ul>
+<p>El modelo de regresión con Splines de grado <span class="math inline">\(d=3\)</span> tiene la siguiente forma:</p>
+<p><span class="math display">\[y_i = \beta_0 + \beta_1 \cdot x_{i1} + \beta_2 \cdot x_{i1}^2 +  \beta_3 \cdot x_{i1}^3   + \beta_{3+1} \cdot \phi (x_{i1} \geq L_1) + \beta_{3+2} \cdot \phi (x_{i1} \geq L_2) + ... + \beta_{3+k} \cdot \phi (x_{i1} \geq L_k) + \varepsilon \hspace{0.12cm} = \\ =\hspace{0.12cm}   \beta_0 + \beta_1 \cdot x_{i1} + \beta_2 \cdot x_{i1}^2 +  \beta_3 \cdot x_{i1}^3   +   \sum_{h=1}^k \beta_{3+h} \cdot \phi (x_{i1} \geq L_h) \hspace{0.12cm} +\hspace{0.12cm}  \varepsilon \]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[
+\phi (x_{i1} \geq L_h) = \left\lbrace\begin{array}{l} 0 , \hspace{0.1cm}\text{ Si} \hspace{0.2cm} x_{i1} &lt; L_h \\ (x_{i1} -  L_1)^3 , \hspace{0.2cm} \text{ Si} \hspace{0.2cm} x_{i1} \geq L_h  \end{array}\right.
+\]</span></p>
+<p>La estimación del modelo se puede hacer por minimos cuadrados ordinarios:</p>
+<p><span class="math display">\[\widehat{\beta} = arg Min ( y_i - ( \beta_0 + \beta_1 \cdot x_{i1} + \beta_2 \cdot x_{i1}^2 +  \beta_3 \cdot x_{i1}^3   +   \sum_{h=1}^k \beta_{3+h} \cdot \phi (x_{i1} \geq L_h) ) )^2\]</span></p>
+<p><br></p>
+<p>DUDA: PUEDE HABER SPLINES QUE TENGAN DIFERENTE GRADO d EN CADA INTERVALO ??</p>
+</div>
+<div id="regresión-con-splines-suavizados" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Regresión con Splines suavizados</h1>
+</div>
+<div id="regresión-local" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Regresión Local</h1>
+</div>
+<div id="modelos-aditivos-generalizados-gam" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Modelos Aditivos Generalizados (GAM)</h1>
 <p><br></p>
 <p><br></p>
 </div>
-<div id="bibliografía" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Bibliografía</h1>
+<div id="bibliografía" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Bibliografía</h1>
 <p><a href="https://www.iartificial.net/regresion-polinomica-en-python-con-scikit-learn/" class="uri">https://www.iartificial.net/regresion-polinomica-en-python-con-scikit-learn/</a></p>
 </div>
 </div>
