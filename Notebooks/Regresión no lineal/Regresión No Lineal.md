@@ -388,11 +388,13 @@ Si $\hat{f}(x) = \sum_{h=0}^n \hat{p}_h(x)\cdot \Upsilon(x \in [L_h , L_{h+1}) )
 
 - $\hat{f}$  es continua en $[L_0 , L_{k+1})$
 
-- $\hat{f}^{'}$ y $\hat{f}^{''}$ son continuas al menos en los extremos de los intervalos $\lbrace L_h / h=1,...,k-1 \rbrace \\$
+- $\hat{f}^{'}$ y $\hat{f}^{''}$ son continuas al menos en los extremos de los intervalos $\lbrace L_h / h=1,...,k \rbrace \\$
 
 
+<br>
 
-El modelo de regresión con Splines de grado $d=3$ tiene la siguiente forma:
+
+El modelo de regresión con Splines de grado $\hspace{0.1cm} d=3\hspace{0.1cm}$ y  $\hspace{0.1cm} k+1\hspace{0.1cm}$ intervalos $\hspace{0.1cm}[L_0 , L_1),[L_1,L_2),...,[L_k, L_{k+1})\hspace{0.1cm}$ tiene la siguiente forma: $\\[0.5cm]$
 
 
 $$y_i = \beta_0 + \beta_1 \cdot x_{i1} + \beta_2 \cdot x_{i1}^2 +  \beta_3 \cdot x_{i1}^3   + \beta_{3+1} \cdot \phi (x_{i1} \geq L_1) + \beta_{3+2} \cdot \phi (x_{i1} \geq L_2) + ... + \beta_{3+k} \cdot \phi (x_{i1} \geq L_k) + \varepsilon \hspace{0.12cm} = \\ =\hspace{0.12cm}   \beta_0 + \beta_1 \cdot x_{i1} + \beta_2 \cdot x_{i1}^2 +  \beta_3 \cdot x_{i1}^3   +   \sum_{h=1}^k \beta_{3+h} \cdot \phi (x_{i1} \geq L_h) \hspace{0.12cm} +\hspace{0.12cm}  \varepsilon $$ 
@@ -404,7 +406,9 @@ $$
 \phi (x_{i1} \geq L_h) = \left\lbrace\begin{array}{l} 0 , \hspace{0.1cm}\text{ Si} \hspace{0.2cm} x_{i1} < L_h \\ (x_{i1} -  L_1)^3 , \hspace{0.2cm} \text{ Si} \hspace{0.2cm} x_{i1} \geq L_h  \end{array}\right.
 $$
 
+para $\hspace{0.1cm} h=1,...,k$
 
+<br>
 
 
 La estimación del modelo se puede hacer por minimos cuadrados ordinarios:
@@ -414,11 +418,25 @@ La estimación del modelo se puede hacer por minimos cuadrados ordinarios:
 $$\widehat{\beta} = arg Min ( y_i - ( \beta_0 + \beta_1 \cdot x_{i1} + \beta_2 \cdot x_{i1}^2 +  \beta_3 \cdot x_{i1}^3   +   \sum_{h=1}^k \beta_{3+h} \cdot \phi (x_{i1} \geq L_h) ) )^2$$
 
 
+
+**Observaciones**
+
+- El nº de intervalos que contempla el modelo es $k+1 \\$
+
+- El grado de los polinomios splines que se ajustan en cada intervalo es $3 \\$
+
+- Posteriormente usaremos la libreria `PyGAM`que construye splines a traves de la funcion `s(n_spline_order , n_splines, ...)`, en la cual `n_spline_order` es el grado del spline (en el caso canonico es 3) , y `n_splines` es el nº de coeficientes betas sin contar el intercept , en nuestra exposicion seria `n_splines` = k + 3 = k + `n_spline_order`  . Por lo que hay que notar que el nº de intervalos del modelo es k+1 = `n_splines` - `n_spline_order` + 1 . Esto será relevante cuando usemos `PyGAM` para crear modelos con splines controlando el grado y el nº de intervalos.
+
+
 <br>
 
 
-DUDA: PUEDE HABER SPLINES QUE TENGAN DIFERENTE GRADO d EN CADA INTERVALO ??
+DUDA: PUEDE HABER SPLINES QUE TENGAN DIFERENTE GRADO $d$ EN CADA INTERVALO ??
 
+
+
+
+<br>
 
 
 # Regresión con Splines suavizados
