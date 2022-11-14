@@ -1,7 +1,7 @@
 ---
 title: 'Modelos de Regresión No Lineal'
 author: 'Fabio Scielzo Ortiz'
-date: '15/11/22'
+date: '14/11/22'
 output: 
    rmdformats::readthedown:
       use_bookdown: true
