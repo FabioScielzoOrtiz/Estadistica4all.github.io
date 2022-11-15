@@ -2575,7 +2575,7 @@ $$\widehat{y}_{new} =  \overline{\hspace{0.15cm} Y}_{KNN(x_{new})}$$
 
 
 
-# KNN for  regression  in `Python` with `sklearn`<a class="anchor" id="6"></a>
+# Modleo KNN de  regresión aplicado en `Python` con  `sklearn`<a class="anchor" id="6"></a>
 
 
 Cargamos los datos con los que vamos a trabajar en esta sección. 
@@ -4347,6 +4347,11 @@ En este artículo no mostraremos cómo seleccionar el hiper-parámetro $k$ del m
 
 <br>
 
+------
+
+<br>
+
+
 
 
 # Bibliography
@@ -4359,3 +4364,7 @@ https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRe
 
 Grané Chavez, Aurea. (2022). *Análisis Discriminante* [Presentación de PowerPoint]. Aula Global UC3M.
 
+
+<br>
+
+<br>
