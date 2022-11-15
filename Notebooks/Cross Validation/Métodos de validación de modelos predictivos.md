@@ -624,9 +624,9 @@ El algoritmo de validación simple   aleatoria tiene los siguientes pasos: $\\[0
 $1)\hspace{0.1cm}$ Se divide $D$ en parte de train y parte de test del siguiente modo:
 
 
-Se genera una muestra aleatoria sin reemplazamiento de tamaño $\hspace{0.1cm} \lfloor k  \cdot N \rfloor\hspace{0.1cm}$  del vector $\hspace{0.1cm}(1,2,...,N)\hspace{0.2cm}$ $\Rightarrow\hspace{0.2cm}$ $m=(m_1 ,m_2,...,m_{\lfloor k  \cdot N \rfloor})$
+1.1) Se genera una muestra aleatoria sin reemplazamiento de tamaño $\hspace{0.1cm} \lfloor k  \cdot N \rfloor\hspace{0.1cm}$  del vector $\hspace{0.1cm}(1,2,...,N)\hspace{0.2cm}$ $\Rightarrow\hspace{0.2cm}$ $m=(m_1 ,m_2,...,m_{\lfloor k  \cdot N \rfloor})$
 
-Las observaciones (filas) $\hspace{0.1cm}m_1,m_2 ,...,m_{\lfloor k  \cdot N \rfloor}\hspace{0.1cm}$ de $\hspace{0.1cm}D\hspace{0.1cm}$  definen la muestra de train $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ $D_{train}= D[m , :] = \begin{pmatrix}
+1.2) Las observaciones (filas) $\hspace{0.1cm}m=(m_1,m_2 ,...,m_{\lfloor k  \cdot N \rfloor})\hspace{0.1cm}$ de $\hspace{0.1cm}D\hspace{0.1cm}$  definen la muestra de train $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ $D_{train}= D[m , :] = \begin{pmatrix}
     x_{m_11}&x_{m_12}&...&x_{m_1p}& y_{m_1}\\
     x_{m_21}&x_{m_22}&...&x_{m_2p} & y_{m_2}\\
     &...&\\
@@ -636,14 +636,14 @@ Las observaciones (filas) $\hspace{0.1cm}m_1,m_2 ,...,m_{\lfloor k  \cdot N \rfl
 <br>
 
 
-Las observaciones (filas) de $\hspace{0.1cm}D\hspace{0.1cm}$ complementarias a  $\hspace{0.1cm}m\hspace{0.1cm}$ , es decir, las filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que no estan en $\hspace{0.1cm}D_{train}\hspace{0.1cm}$, es decir, las filas de $\hspace{0.1cm}m^c\hspace{0.1cm}$,
+1.3) Las observaciones (filas) de $\hspace{0.1cm}D\hspace{0.1cm}$ complementarias a  $\hspace{0.1cm}m\hspace{0.1cm}$ , es decir, las filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que no estan en $\hspace{0.1cm}D_{train}\hspace{0.1cm}$, es decir, las filas de $\hspace{0.1cm}m^c\hspace{0.1cm}$,
  definen la muestra de train $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ $D_{train} = D[m^c , :] \\[0.4cm]$
 
 
 
 Donde: 
 
-$k\in (0,1)$ 
+$k\in (0,1)$ es la proporcion de observaciones del data-set inicial que configuran la muestra de train.
 
 $\lfloor \cdot \rfloor\hspace{0.1cm}$ es la funcion suelo, que dado un número como argumento te  devuelve el mayor entero menor que dicho número
 
@@ -679,17 +679,10 @@ $1.1)\hspace{0.1cm}$ Se generan $\hspace{0.1cm}B\hspace{0.1cm}$  muestras aleato
 
 $$m_1 , m_2 , ..., m_B$$
 
-Donde: 
-
-$m_r=(m_{r1} ,...,m_{r\lfloor k  \cdot N \rfloor})\hspace{0.15cm} \hspace{0.4cm} \forall r=1,...,B$
-
-$k\in (0,1)$ 
-
-$\lfloor \cdot \rfloor\hspace{0.1cm}$ es la funcion suelo, que dado un nº como argumento te  devuelve el mayor entero menor que dicho número. $\\[0.35cm]$
+ 
 
 
-
-$1.2)\hspace{0.1cm}$ Se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ muestras de **train** del data-set original $\hspace{0.1cm}D\hspace{0.1cm}$ (por filas) :
+$1.2)\hspace{0.1cm}$ Se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ muestras de **train** del data-set original $\hspace{0.1cm}D\hspace{0.1cm}$ :
 
 $$D_{train, 1}= D[m_1 , :] \hspace{0.1cm},\hspace{0.1cm} D_{train, 2}= D[m_2 , :] \hspace{0.1cm}, ... ,\hspace{0.1cm} D_{train, B}= D[m_B , :]\\$$
 
@@ -700,7 +693,7 @@ $D[m_r , :]\hspace{0.1cm}$ es la submatriz que resulta de quedarse solo con las 
 
 
 
-$1.3)\hspace{0.1cm}$ Se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ muestras de **test** del data-set original $\hspace{0.1cm}D$:
+$1.3)\hspace{0.1cm}$ Se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ muestras de **test** del data-set original $\hspace{0.1cm}D$:
 
 
 $$D_{test, 1}= D[m_1^c , :] \hspace{0.1cm},\hspace{0.1cm} D_{test, 2}= D[m_2^c , :] \hspace{0.1cm}, ... ,\hspace{0.1cm} D_{test, B}= D[m_B^c , :] \\$$
@@ -708,18 +701,25 @@ $$D_{test, 1}= D[m_1^c , :] \hspace{0.1cm},\hspace{0.1cm} D_{test, 2}= D[m_2^c ,
 
 Donde: 
 
+$m_r=(m_{r1} ,...,m_{r\lfloor k  \cdot N \rfloor})\hspace{0.15cm} \hspace{0.4cm} \forall r=1,...,B$
+
+$k\in (0,1)$ es la proporcion de observaciones del data-set inicial que configuran cada una de las $B$ muestras de train.
+
+$\lfloor \cdot \rfloor\hspace{0.1cm}$ es la funcion suelo, que dado un nº como argumento te  devuelve el mayor entero menor que dicho número. $\\[0.35cm]$
+
+
 $m_r^c=(\hspace{0.1cm} i =1,...,N \hspace{0.1cm} / \hspace{0.1cm} i\neq m_{rj} , \forall j=1,...,\lfloor k  \cdot N \rfloor\hspace{0.1cm} )\hspace{0.1cm}\hspace{0.1cm}$ es el complementario de $\hspace{0.1cm}m_r \\$
 
  
 
 
-Por tanto se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ particiones de train y test de $\hspace{0.1cm}D \\$
+Por tanto se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ particiones de **train** y **test** de $\hspace{0.1cm}D \\$
 
 
 
 $2)\hspace{0.1cm}$ Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con $\hspace{0.1cm} D_{train,1} , D_{train,2} , ..., D_{train,B}\hspace{0.1cm}$  $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ $\hspace{0.1cm}\widehat{M}_1 ,..., \widehat{M}_B \\$
 
-$3)\hspace{0.1cm}$ Se calcula una misma métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}M_r\hspace{0.1cm}$ usando la muestra de **test** $\hspace{0.1cm}D_{test,r}\hspace{0.1cm}$ , para $\hspace{0.1cm}r=1,...,B$ 
+$3)\hspace{0.1cm}$ Se calcula una misma métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ usando la muestra de **test** $\hspace{0.1cm}D_{test,r}\hspace{0.1cm}$ , para $\hspace{0.1cm}r=1,...,B$ 
 
 Supongamos que la métrica de evaluación usada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ valores de esta métrica :
 
@@ -727,7 +727,7 @@ $$ECM_{test }(\widehat{M}_1) ,  ECM_{test }(\widehat{M}_2) , ... , ECM_{test}(\w
 
 Donde: 
 
-$ECM_{test , r}\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre $\hspace{0.1cm}M_r\hspace{0.1cm}$ usando $\hspace{0.1cm}D_{test,r}\hspace{0.1cm}$ 
+$ECM_{test , r}\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ usando $\hspace{0.1cm}D_{test,r}\hspace{0.1cm}$ 
 
 $$ECM_{test }(\widehat{M}_r) = \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm})^2$$
 
@@ -740,18 +740,138 @@ $$ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{B} \cdot \sum_{r=1}^B ECM_{tes
 
 <br>
 
+**Ventajas**
 
 <br>
 
 
 ## Leave-one-out
 
+El algoritmo de validación leave-one-out tiene los siguientes pasos: $\\[0.3cm]$
+
+
+1) Se obtienen $B$ particiones de $D$ en parte de train y parte de test del siguiente modo:
+
+1.2) Se obtienen las siguientes $B$ muestras de **test** del data-set original $D$ 
+
+$$D_{test,1}=D[1, :] , D_{test,2}=D[2, :],..., D_{test,B}=D[B, :]$$
+
+Donde:
+
+$D_{test,1}=D[i, :]$ es la submatriz que resulta de considerar solo la fila i de D , es decir, es la observación $i$-esima del data-set inicial $D$
+
+ $$D_{test,1}=D[i, :] = (x_{i1} , ..., x_{ip} , y_i)=(x_i y_i)$$
 
 
 
+1.3) Se obtienen las siguientes $B$ muestras de **test** del data-set original $D$
+
+$$D_{test,1}=D[-1, :] , D_{test,2}=D[-2, :],..., D_{test,B}=D[-B, :]$$
+
+
+Donde:
+
+$D_{train,1}=D[-i, :]$ es la submatriz que resulta de eliminar la fila i de D, es decir:
+
+
+$$D_{train,1}=D[-i, :]= \begin{pmatrix}
+    x_{11}&x_{12}&...&x_{1p}& y_1\\
+    ...&...&...&...&...\\
+    x_{(i-1)1}&x_{(i-1)2}&...&x_{(i-1)p} & y_(i-1)\\
+    x_{(i+1)1}&x_{(i+1)2}&...&x_{(i+1)p} & y_(i+1)\\
+    &...&\\
+    x_{N1}&x_{N2}&...&x_{Np}& y_N
+    \end{pmatrix}=\begin{pmatrix}
+    x_{1}& y_1\\
+    ...&...&...&...&...\\
+    x_{(i-1)}&y_(i-1)\\
+    x_{(i+1)}& y_(i+1)\\
+    &...&\\
+    x_{N}& y_N
+    \end{pmatrix}$$  
+    
+    
+    
+$2)\hspace{0.1cm}$ Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con $\hspace{0.1cm} D_{train,1} , D_{train,2} , ..., D_{train,B}\hspace{0.1cm}$  $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ $\hspace{0.1cm}\widehat{M}_1 ,..., \widehat{M}_B \\$
+
+$3)\hspace{0.1cm}$ Se calcula una misma métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ usando la muestra de **test** $\hspace{0.1cm}D_{test,r}\hspace{0.1cm}$ , para $\hspace{0.1cm}r=1,...,B$ 
+
+Supongamos que la métrica de evaluación usada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ valores de esta métrica :
+
+$$ECM_{test }(\widehat{M}_1) ,  ECM_{test }(\widehat{M}_2) , ... , ECM_{test}(\widehat{M}_B)\\$$
+
+Donde: 
+
+$ECM_{test , r}\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ usando $\hspace{0.1cm}D_{test,r}\hspace{0.1cm}$ 
+
+$$ECM_{test }(\widehat{M}_r) = \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm})^2$$
+
+para $\hspace{0.1cm}r=1,...,B$
+
+$4)\hspace{0.1cm}$ Se calcula la métrica final de evaluacion del modelo como el promedio de las $B$ metricas calculadas en 3). Si la metrica usada en 3) es el ECM, entonces:
+
+$$ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{B} \cdot \sum_{r=1}^B ECM_{test}(\widehat{M}_r)$$
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 <br>
 
 ## K-folds
+
+El algoritmo de validación k-folds tiene los siguientes pasos:
+
+1) Se divide aleatoriamente el data-set inicial $\hspace{0.1cm}D\hspace{0.1cm}$  en $\hspace{0.1cm}k\hspace{0.1cm}$ partes de manera que  cada parte tenga aproximadamente el mismo número de partes (sean lo mas balanceadas posibles).
+
+Existen diferentes métodos para hacer esta división. La problematica de la división es cómo hacer que las partes resultantes estén lo más balanceadas posibles respecto al numero de elementos que contienen.
+
+Hemos desarrollado un método basado en cuantiles que permite obtener este balanceo, el cual ha sido implementado en `Python`con buenos resultados en este aspecto, como se podrá ver posteriormente en la parte de implementación en `Python`.
+
+
+Vamos a explicar la mecánica del método ideado:
+
+
+Sacamos una muestra aleatoria sin remplazamiento $m=(m_1,...,m_N)$ de tamaño $N$ del vector  $(1,...,N)$
+
+El siguiente paso es dividir la muestra $m$ en $k$ partes lo mas balanceadas posibles. No queremos que una clase tenga muchos elementos, y otras pocos, ni cosas por el estilo. Queremos que la repartición  de los elementos de $m$ en las $k$ partes sea lo mas igualitaria posible.
+
+
+La idea es que si, por ejemplo $k=10$, cada una de las 10 partes en las que dividimos m tenga un 10% de los elementos totales de $m$
+
+Si k=4  se busca que cada una de las 4 partes en las que dividimos m tenga el 25% de los elementos de $m$
+
+En general, se busca que cada una de las $k$ partes en las que dividimos m tengan $1/k$% de elementos de $m$
+
+
+Una forma de hacer esto es construyendi una matriz ( 1:N , m) y calculano los cuantiles de orden= np.arange(0 , 1 + 1/K , 1/K) = \phi([0,1] , 1/k) del vector 1:N
+
+donde \phi es la funcion que dado un intervalo, como [0,1], te devuelve un vector con numeros entre 0 y 1 (incluidos) que pegan saltos de 1/k en 1/k
+
+por ejemplo si k=10 , 1/k = 0.1 y  \phi es (0 , 0.1, 0.2, ..., 0.8, 0.9, 1)
+
+por ejemplo si k=4 , 1/k = 0.25 y  \phi es (0 , 0.25, 0.5,  0.75, 1)
+
+
+
+Usamos los cuantiles de orden \phi([0,1] , 1/k) del vector 1:N como limites de separación de las partes en las que dividiremos m
+
+asi la  parte 1 de m será m[limite0:(limite1-1)]
+
+la  parte 2 de m será m[limite1:(limite2-1)]
+
+En general 
+
+la  parte j de m será m[limitej:(limitej-1)]
+
+
+ Ahora D_{test, j} = D[parte j de m , :] y D_{train, j} = D[complementario de la parte j de m , :]
 
 
 
