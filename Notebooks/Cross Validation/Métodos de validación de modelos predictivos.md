@@ -828,53 +828,152 @@ $$ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{B} \cdot \sum_{r=1}^B ECM_{tes
 
 El algoritmo de validación k-folds tiene los siguientes pasos:
 
-1) Se divide aleatoriamente el data-set inicial $\hspace{0.1cm}D\hspace{0.1cm}$  en $\hspace{0.1cm}k\hspace{0.1cm}$ partes de manera que  cada parte tenga aproximadamente el mismo número de partes (sean lo mas balanceadas posibles).
+$1)\hspace{0.1cm}$ Se divide aleatoriamente el data-set inicial $\hspace{0.1cm}D\hspace{0.1cm}$  en $\hspace{0.1cm}k\hspace{0.1cm}$ partes de manera que  cada parte tenga aproximadamente el mismo número de partes (sean lo mas balanceadas posibles).
 
 Existen diferentes métodos para hacer esta división. La problematica de la división es cómo hacer que las partes resultantes estén lo más balanceadas posibles respecto al numero de elementos que contienen.
 
-Hemos desarrollado un método basado en cuantiles que permite obtener este balanceo, el cual ha sido implementado en `Python`con buenos resultados en este aspecto, como se podrá ver posteriormente en la parte de implementación en `Python`.
+Hemos desarrollado un método basado en cuantiles que permite obtener este balanceo, el cual ha sido implementado en `Python`con buenos resultados en este aspecto, como se podrá ver posteriormente en la parte de implementación.
 
 
 Vamos a explicar la mecánica del método ideado:
 
 
-Sacamos una muestra aleatoria sin remplazamiento $m=(m_1,...,m_N)$ de tamaño $N$ del vector  $(1,...,N)$
+Obtenemos una muestra aleatoria sin remplazamiento $\hspace{0.1cm}m=(m_1,...,m_N)\hspace{0.1cm}$ de tamaño $N$ del vector  $\hspace{0.1cm}(1,...,N)$
 
-El siguiente paso es dividir la muestra $m$ en $k$ partes lo mas balanceadas posibles. No queremos que una clase tenga muchos elementos, y otras pocos, ni cosas por el estilo. Queremos que la repartición  de los elementos de $m$ en las $k$ partes sea lo mas igualitaria posible.
-
-
-La idea es que si, por ejemplo $k=10$, cada una de las 10 partes en las que dividimos m tenga un 10% de los elementos totales de $m$
-
-Si k=4  se busca que cada una de las 4 partes en las que dividimos m tenga el 25% de los elementos de $m$
-
-En general, se busca que cada una de las $k$ partes en las que dividimos m tengan $1/k$% de elementos de $m$
+El siguiente paso es dividir la muestra $\hspace{0.1cm}m\hspace{0.1cm}$ en $\hspace{0.1cm}k\hspace{0.1cm}$ partes lo mas balanceadas posibles. No queremos que unas clases tenga muchos elementos, y otras pocos. Queremos que la repartición  de los elementos de $\hspace{0.1cm}m\hspace{0.1cm}$ en las $\hspace{0.1cm}k\hspace{0.1cm}$ partes sea lo mas igualitaria posible.
 
 
-Una forma de hacer esto es construyendi una matriz ( 1:N , m) y calculano los cuantiles de orden= np.arange(0 , 1 + 1/K , 1/K) = \phi([0,1] , 1/k) del vector 1:N
+La idea es que si, por ejemplo $\hspace{0.1cm}k=10\hspace{0.1cm}$, cada una de las 10 partes en las que dividimos $\hspace{0.1cm}m\hspace{0.1cm}$ tenga un 10% de los elementos totales de $m$
 
-donde \phi es la funcion que dado un intervalo, como [0,1], te devuelve un vector con numeros entre 0 y 1 (incluidos) que pegan saltos de 1/k en 1/k
+Si $k=4$  se busca que cada una de las 4 partes en las que dividimos $\hspace{0.1cm}m\hspace{0.1cm}$ tenga el 25% de los elementos de $\hspace{0.1cm}m$
 
-por ejemplo si k=10 , 1/k = 0.1 y  \phi es (0 , 0.1, 0.2, ..., 0.8, 0.9, 1)
-
-por ejemplo si k=4 , 1/k = 0.25 y  \phi es (0 , 0.25, 0.5,  0.75, 1)
+En general, se busca que cada una de las $k$ partes en las que dividimos $\hspace{0.1cm}m\hspace{0.1cm}$ tengan $\hspace{0.1cm}1/k \%\hspace{0.1cm}$ de elementos de $m$, es decir, $N/k$ elementos de $m$ , puesto que m tiene N elementos.
 
 
 
-Usamos los cuantiles de orden \phi([0,1] , 1/k) del vector 1:N como limites de separación de las partes en las que dividiremos m
 
-asi la  parte 1 de m será m[limite0:(limite1-1)]
+Una forma de hacer esto es   usando los cuantiles $Q_0 , Q_{1/k}, Q_{2/k},...,Q_{(k-1)/k}, Q_1$  del vector $\hspace{0.1cm}(1,...,N)\hspace{0.1cm}$
+como los limites que definen las partes en las que dividiremos $m=(m_1,...,m_N)$
 
-la  parte 2 de m será m[limite1:(limite2-1)]
+Dichos cuantiles permiten separar $m$ enn $k$ partes de un tamaño aproximadamente igual.
 
-En general 
+Si $k=10$, entonces esos cuantiles serian $Q_0, Q_{0.1}, Q_{0.2}, ..., Q_{0.8}, Q{0.9}, Q_1$
 
-la  parte j de m será m[limitej:(limitej-1)]
+Si $k=4$ , los cuantiles serian $Q_0, Q_{0.25}, Q_{0.5},  Q_{0.75}, Q_1$
 
-
- Ahora D_{test, j} = D[parte j de m , :] y D_{train, j} = D[complementario de la parte j de m , :]
-
+Notese que: $Q_0 = Min(1,...,N) = 1$ y $Q_1=Max(1,...,N)=N$
 
 
+
+
+Definimos las $k$ particiones de $m$ usando los cuantiles $Q_0=1, Q_{1/k}, Q_{2/k},...,Q_{(k-1)/k}, Q_1=N$ como sigue:
+
+$$p_{1,m} = m[1:(\lfloor Q_{1/k} \rfloor -1)]=(m_1,...,m_{\lfloor  Q_{1/k} \rfloor - 1} )$$
+
+$$p_{2,m} = m[\lfloor Q_{1/k} \rfloor:(\lfloor Q_{2/k} \rfloor-1)]=(m_{\lfloor  Q_{1/k} \rfloor},...,m_{\lfloor  Q_{2/k} \rfloor - 1})$$
+
+...
+
+$$p_{k,m} = m[\lfloor Q_{(k-1)/k} \rfloor : N]=(m_{\lfloor  Q_{(k-1)/k} \rfloor},...,m_{N}$$
+
+
+
+Se puede demostrar que $p_{1,m},...,p_{k,m}$ tienen un nº de elementos aproximadamente igual , por lo que son particiones aproximadamente igualitarias (balanceadas), que era lo que buscabamos.
+
+La siguiente matriz ilustra por que este método funciona:
+
+$$\begin{pmatrix}
+    1 & m_1\\
+    2 & m_2\\
+    ... & ... \\
+    \lfloor  Q_{1/k} \rfloor - 1  & m_{\lfloor  Q_{1/k} \rfloor - 1} \\
+    ----- & ----- \\
+    \lfloor  Q_{1/k} \rfloor  & m_{\lfloor  Q_{1/k} \rfloor} \\
+    ... & ... \\
+    \lfloor  Q_{2/k} \rfloor - 1  & m_{\lfloor  Q_{2/k} \rfloor - 1} \\
+    ----- & -----\\
+    \lfloor  Q_{2/k} \rfloor  & m_{\lfloor  Q_{2/k} \rfloor} \\
+    ... & ... \\
+     \lfloor  Q_{3/k} \rfloor - 1  & m_{\lfloor  Q_{3/k} \rfloor - 1} \\
+    ----- & -----\\
+    ... & ... \\
+    ... & ... \\
+    ----- & -----\\
+    \lfloor  Q_{(k-1)/k} \rfloor  & m_{\lfloor  Q_{(k-1)/k} \rfloor} \\
+    ... & ... \\
+    N & m_N 
+    \end{pmatrix} = \begin{pmatrix}
+    ... & ...\\
+    ... & ...\\
+    \text{Parte 1} \hspace{0.15cm}(p_{1,m})  & N/k \hspace{0.15cm} \text{elementos} \\
+    ... & ...\\
+    ----- & -----\\
+    ... & ...\\ 
+ \text{Parte 2}\hspace{0.15cm}(p_{2,m}) & N/k \hspace{0.15cm} \text{elementos}  \\
+    ... & ...\\
+    ----- & -----\\
+   ... & ...\\
+       \text{Parte 3}\hspace{0.15cm}(p_{3,m}) & N/k \hspace{0.15cm} \text{elementos} \\
+    ... & ...\\
+    ----- & -----\\
+    ... & ...\\
+    ... & ...\\
+    ----- & -----\\
+    ... & ...\\
+    \text{Parte k}\hspace{0.15cm}(p_{k,m}) & N/k \hspace{0.15cm} \text{elementos} \\
+    ... & ...\\
+    \end{pmatrix} \\$$
+    
+ 
+2) Se obtiene la siguientes $k$ muestras de test:
+
+
+$D_{test, 1} = D[p(1,m) , :] = D[m[1:(\lfloor Q_{1/k} \rfloor -1)] ,:]$
+
+$D_{test, 2} = D[p(2,m) , :] = D[m[1:(\lfloor Q_{1/k} \rfloor -1)] ,:]$
+
+...
+ 
+
+$D_{test, k} = D[p(k,m) , :] = D[m[\lfloor Q_{(k-1)/k} \rfloor : N] ,:]$
+
+
+
+3) Se obtiene la siguientes $k$ muestras de train:
+
+
+$D_{train, 1} = D[-p(1,m) , :] = D[-m[1:(\lfloor Q_{1/k} \rfloor -1)] ,:]$
+
+$D_{train, 2} = D[-p(2,m) , :] = D[-m[1:(\lfloor Q_{1/k} \rfloor -1)] ,:]$
+
+...
+ 
+
+$D_{train, k} = D[-p(k,m) , :] = D[-m[\lfloor Q_{(k-1)/k} \rfloor : N] ,:]$
+
+
+
+
+$4)\hspace{0.1cm}$ Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con $\hspace{0.1cm} D_{train,1} , D_{train,2} , ..., D_{train,k}\hspace{0.1cm}$  $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ $\hspace{0.1cm}\widehat{M}_1 ,..., \widehat{M}_k \\$
+
+$3)\hspace{0.1cm}$ Se calcula una misma métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ usando la muestra de **test** $\hspace{0.1cm}D_{test,r}\hspace{0.1cm}$ , para $\hspace{0.1cm}r=1,...,k$ 
+
+Supongamos que la métrica de evaluación usada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces se obtienen $\hspace{0.1cm}k\hspace{0.1cm}$ valores de esta métrica :
+
+$$ECM_{test }(\widehat{M}_1) ,  ECM_{test }(\widehat{M}_2) , ... , ECM_{test}(\widehat{M}_k)\\$$
+
+Donde: 
+
+$ECM_{test , r}\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ usando $\hspace{0.1cm}D_{test,r}\hspace{0.1cm}$ 
+
+$$ECM_{test }(\widehat{M}_r) = \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm})^2$$
+
+para $\hspace{0.1cm}r=1,...,k$
+
+$4)\hspace{0.1cm}$ Se calcula la métrica final de evaluacion del modelo como el promedio de las $k$ metricas calculadas en 3). Si la metrica usada en 3) es el ECM, entonces:
+
+$$ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{k} \cdot \sum_{r=1}^k ECM_{test}(\widehat{M}_r)$$
+    
 
 <br>
 

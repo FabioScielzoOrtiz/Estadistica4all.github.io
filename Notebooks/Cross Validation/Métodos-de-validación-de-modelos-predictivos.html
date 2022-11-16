@@ -1949,14 +1949,14 @@ definen la muestra de train <span class="math inline">\(\hspace{0.2cm}\Rightarro
 <p><span class="math inline">\(D_{train,1}=D[-i, :]\)</span> es la submatriz que resulta de eliminar la fila i de D, es decir:</p>
 <p><span class="math display">\[D_{train,1}=D[-i, :]= \begin{pmatrix}
     x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp; y_1\\
-    &amp;...&amp;...&amp;...&amp;...&amp;\\
+    ...&amp;...&amp;...&amp;...&amp;...\\
     x_{(i-1)1}&amp;x_{(i-1)2}&amp;...&amp;x_{(i-1)p} &amp; y_(i-1)\\
     x_{(i+1)1}&amp;x_{(i+1)2}&amp;...&amp;x_{(i+1)p} &amp; y_(i+1)\\
     &amp;...&amp;\\
     x_{N1}&amp;x_{N2}&amp;...&amp;x_{Np}&amp; y_N
     \end{pmatrix}=\begin{pmatrix}
     x_{1}&amp; y_1\\
-    &amp;...&amp;\\
+    ...&amp;...&amp;...&amp;...&amp;...\\
     x_{(i-1)}&amp;y_(i-1)\\
     x_{(i+1)}&amp; y_(i+1)\\
     &amp;...&amp;\\
@@ -1976,6 +1976,94 @@ definen la muestra de train <span class="math inline">\(\hspace{0.2cm}\Rightarro
 </div>
 <div id="k-folds" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> K-folds</h2>
+<p>El algoritmo de validación k-folds tiene los siguientes pasos:</p>
+<p><span class="math inline">\(1)\hspace{0.1cm}\)</span> Se divide aleatoriamente el data-set inicial <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> en <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> partes de manera que cada parte tenga aproximadamente el mismo número de partes (sean lo mas balanceadas posibles).</p>
+<p>Existen diferentes métodos para hacer esta división. La problematica de la división es cómo hacer que las partes resultantes estén lo más balanceadas posibles respecto al numero de elementos que contienen.</p>
+<p>Hemos desarrollado un método basado en cuantiles que permite obtener este balanceo, el cual ha sido implementado en <code>Python</code>con buenos resultados en este aspecto, como se podrá ver posteriormente en la parte de implementación.</p>
+<p>Vamos a explicar la mecánica del método ideado:</p>
+<p>Obtenemos una muestra aleatoria sin remplazamiento <span class="math inline">\(\hspace{0.1cm}m=(m_1,...,m_N)\hspace{0.1cm}\)</span> de tamaño <span class="math inline">\(N\)</span> del vector <span class="math inline">\(\hspace{0.1cm}(1,...,N)\)</span></p>
+<p>El siguiente paso es dividir la muestra <span class="math inline">\(\hspace{0.1cm}m\hspace{0.1cm}\)</span> en <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> partes lo mas balanceadas posibles. No queremos que unas clases tenga muchos elementos, y otras pocos. Queremos que la repartición de los elementos de <span class="math inline">\(\hspace{0.1cm}m\hspace{0.1cm}\)</span> en las <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> partes sea lo mas igualitaria posible.</p>
+<p>La idea es que si, por ejemplo <span class="math inline">\(\hspace{0.1cm}k=10\hspace{0.1cm}\)</span>, cada una de las 10 partes en las que dividimos <span class="math inline">\(\hspace{0.1cm}m\hspace{0.1cm}\)</span> tenga un 10% de los elementos totales de <span class="math inline">\(m\)</span></p>
+<p>Si <span class="math inline">\(k=4\)</span> se busca que cada una de las 4 partes en las que dividimos <span class="math inline">\(\hspace{0.1cm}m\hspace{0.1cm}\)</span> tenga el 25% de los elementos de <span class="math inline">\(\hspace{0.1cm}m\)</span></p>
+<p>En general, se busca que cada una de las <span class="math inline">\(k\)</span> partes en las que dividimos <span class="math inline">\(\hspace{0.1cm}m\hspace{0.1cm}\)</span> tengan <span class="math inline">\(\hspace{0.1cm}1/k \%\hspace{0.1cm}\)</span> de elementos de <span class="math inline">\(m\)</span>, es decir, <span class="math inline">\(N/k\)</span> elementos de <span class="math inline">\(m\)</span> , puesto que m tiene N elementos.</p>
+<p>Una forma de hacer esto es usando los cuantiles <span class="math inline">\(Q_0 , Q_{1/k}, Q_{2/k},...,Q_{(k-1)/k}, Q_1\)</span> del vector <span class="math inline">\(\hspace{0.1cm}(1,...,N)\hspace{0.1cm}\)</span>
+como los limites que definen las partes en las que dividiremos <span class="math inline">\(m=(m_1,...,m_N)\)</span></p>
+<p>Dichos cuantiles permiten separar <span class="math inline">\(m\)</span> enn <span class="math inline">\(k\)</span> partes de un tamaño aproximadamente igual.</p>
+<p>Si <span class="math inline">\(k=10\)</span>, entonces esos cuantiles serian <span class="math inline">\(Q_0, Q_{0.1}, Q_{0.2}, ..., Q_{0.8}, Q{0.9}, Q_1\)</span></p>
+<p>Si <span class="math inline">\(k=4\)</span> , los cuantiles serian <span class="math inline">\(Q_0, Q_{0.25}, Q_{0.5}, Q_{0.75}, Q_1\)</span></p>
+<p>Notese que: <span class="math inline">\(Q_0 = Min(1,...,N) = 1\)</span> y <span class="math inline">\(Q_1=Max(1,...,N)=N\)</span></p>
+<p>Definimos las <span class="math inline">\(k\)</span> particiones de <span class="math inline">\(m\)</span> usando los cuantiles <span class="math inline">\(Q_0=1, Q_{1/k}, Q_{2/k},...,Q_{(k-1)/k}, Q_1=N\)</span> como sigue:</p>
+<p><span class="math display">\[p_{1,m} = m[1:(\lfloor Q_{1/k} \rfloor -1)]=(m_1,...,m_{\lfloor  Q_{1/k} \rfloor - 1} )\]</span></p>
+<p><span class="math display">\[p_{2,m} = m[\lfloor Q_{1/k} \rfloor:(\lfloor Q_{2/k} \rfloor-1)]=(m_{\lfloor  Q_{1/k} \rfloor},...,m_{\lfloor  Q_{2/k} \rfloor - 1})\]</span></p>
+<p>…</p>
+<p><span class="math display">\[p_{k,m} = m[\lfloor Q_{(k-1)/k} \rfloor : N]=(m_{\lfloor  Q_{(k-1)/k} \rfloor},...,m_{N}\]</span></p>
+<p>Se puede demostrar que <span class="math inline">\(p_{1,m},...,p_{k,m}\)</span> tienen un nº de elementos aproximadamente igual , por lo que son particiones aproximadamente igualitarias (balanceadas), que era lo que buscabamos.</p>
+<p>La siguiente matriz ilustra por que este método funciona:</p>
+<p><span class="math display">\[\begin{pmatrix}
+    1 &amp; m_1\\
+    2 &amp; m_2\\
+    ... &amp; ... \\
+    \lfloor  Q_{1/k} \rfloor - 1  &amp; m_{\lfloor  Q_{1/k} \rfloor - 1} \\
+    ----- &amp; ----- \\
+    \lfloor  Q_{1/k} \rfloor  &amp; m_{\lfloor  Q_{1/k} \rfloor} \\
+    ... &amp; ... \\
+    \lfloor  Q_{2/k} \rfloor - 1  &amp; m_{\lfloor  Q_{2/k} \rfloor - 1} \\
+    ----- &amp; -----\\
+    \lfloor  Q_{2/k} \rfloor  &amp; m_{\lfloor  Q_{2/k} \rfloor} \\
+    ... &amp; ... \\
+     \lfloor  Q_{3/k} \rfloor - 1  &amp; m_{\lfloor  Q_{3/k} \rfloor - 1} \\
+    ----- &amp; -----\\
+    ... &amp; ... \\
+    ... &amp; ... \\
+    ----- &amp; -----\\
+    \lfloor  Q_{(k-1)/k} \rfloor  &amp; m_{\lfloor  Q_{(k-1)/k} \rfloor} \\
+    ... &amp; ... \\
+    N &amp; m_N
+    \end{pmatrix} = \begin{pmatrix}
+    ... &amp; ...\\
+    ... &amp; ...\\
+    \text{Parte 1} \hspace{0.15cm}(p_{1,m})  &amp; N/k \hspace{0.15cm} \text{elementos} \\
+    ... &amp; ...\\
+    ----- &amp; -----\\
+    ... &amp; ...\\
+\text{Parte 2}\hspace{0.15cm}(p_{2,m}) &amp; N/k \hspace{0.15cm} \text{elementos}  \\
+    ... &amp; ...\\
+    ----- &amp; -----\\
+   ... &amp; ...\\
+       \text{Parte 3}\hspace{0.15cm}(p_{3,m}) &amp; N/k \hspace{0.15cm} \text{elementos} \\
+    ... &amp; ...\\
+    ----- &amp; -----\\
+    ... &amp; ...\\
+    ... &amp; ...\\
+    ----- &amp; -----\\
+    ... &amp; ...\\
+    \text{Parte k}\hspace{0.15cm}(p_{k,m}) &amp; N/k \hspace{0.15cm} \text{elementos} \\
+    ... &amp; ...\\
+    \end{pmatrix} \\\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Se obtiene la siguientes <span class="math inline">\(k\)</span> muestras de test:</li>
+</ol>
+<p><span class="math inline">\(D_{test, 1} = D[p(1,m) , :] = D[m[1:(\lfloor Q_{1/k} \rfloor -1)] ,:]\)</span></p>
+<p><span class="math inline">\(D_{test, 2} = D[p(2,m) , :] = D[m[1:(\lfloor Q_{1/k} \rfloor -1)] ,:]\)</span></p>
+<p>…</p>
+<p><span class="math inline">\(D_{test, k} = D[p(k,m) , :] = D[m[\lfloor Q_{(k-1)/k} \rfloor : N] ,:]\)</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Se obtiene la siguientes <span class="math inline">\(k\)</span> muestras de train:</li>
+</ol>
+<p><span class="math inline">\(D_{train, 1} = D[-p(1,m) , :] = D[-m[1:(\lfloor Q_{1/k} \rfloor -1)] ,:]\)</span></p>
+<p><span class="math inline">\(D_{train, 2} = D[-p(2,m) , :] = D[-m[1:(\lfloor Q_{1/k} \rfloor -1)] ,:]\)</span></p>
+<p>…</p>
+<p><span class="math inline">\(D_{train, k} = D[-p(k,m) , :] = D[-m[\lfloor Q_{(k-1)/k} \rfloor : N] ,:]\)</span></p>
+<p><span class="math inline">\(4)\hspace{0.1cm}\)</span> Se entrena el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm} D_{train,1} , D_{train,2} , ..., D_{train,k}\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.1cm}\Rightarrow\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.1cm}\widehat{M}_1 ,..., \widehat{M}_k \\\)</span></p>
+<p><span class="math inline">\(3)\hspace{0.1cm}\)</span> Se calcula una misma métrica de evaluación sobre el modelo entrenado <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}\)</span> usando la muestra de <strong>test</strong> <span class="math inline">\(\hspace{0.1cm}D_{test,r}\hspace{0.1cm}\)</span> , para <span class="math inline">\(\hspace{0.1cm}r=1,...,k\)</span></p>
+<p>Supongamos que la métrica de evaluación usada es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , entonces se obtienen <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> valores de esta métrica :</p>
+<p><span class="math display">\[ECM_{test }(\widehat{M}_1) ,  ECM_{test }(\widehat{M}_2) , ... , ECM_{test}(\widehat{M}_k)\\\]</span></p>
+<p>Donde:</p>
+<p><span class="math inline">\(ECM_{test , r}\hspace{0.1cm}\)</span> es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> calculado sobre <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}\)</span> usando <span class="math inline">\(\hspace{0.1cm}D_{test,r}\hspace{0.1cm}\)</span></p>
+<p><span class="math display">\[ECM_{test }(\widehat{M}_r) = \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm})^2\]</span></p>
+<p>para <span class="math inline">\(\hspace{0.1cm}r=1,...,k\)</span></p>
+<p><span class="math inline">\(4)\hspace{0.1cm}\)</span> Se calcula la métrica final de evaluacion del modelo como el promedio de las <span class="math inline">\(k\)</span> metricas calculadas en 3). Si la metrica usada en 3) es el ECM, entonces:</p>
+<p><span class="math display">\[ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{k} \cdot \sum_{r=1}^k ECM_{test}(\widehat{M}_r)\]</span></p>
 <p><br></p>
 </div>
 <div id="repeted-k-folds" class="section level2" number="3.6">
