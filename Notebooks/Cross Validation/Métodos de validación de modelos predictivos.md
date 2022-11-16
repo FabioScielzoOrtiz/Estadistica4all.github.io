@@ -586,10 +586,7 @@ Este algoritmo de validacion consiste en dividir el data-set inicial en una part
 
 El $k\%$ de las primeras filas del data-set serán la parte de train, y el resto la parte de test.
 
-El modelo es enetrenado con la muestra train y testado con la muestra test a través de una métrica de evaluación como las vistas en la sección anterior.
-
-La métrica de evaluación final de este método es dicha métrica. Esta metrica final es la que será usada para medir el poder predictivo del modelo y compararlo con otros modelos.
-<br>
+El modelo es enetrenado con la muestra train y testado calculando una métrica de evaluación con la muestra test. Este valor de la métrica de evaluación es el que será usado para medir el poder predictivo del modelo y compararlo con otros modelos. 
 
 
 **Decripción formal del algoritmo:**
@@ -683,10 +680,8 @@ Este algoritmo de validacion consiste en dividir el data-set inicial en una part
 
 Se obtiene una muestra aleatoria sin remplazo de un $k\%$ de las filas del data-set inicial, las cuales serán la parte de train, y el resto la parte de test.
 
-El modelo es enetrenado con la muestra train y testado con la muestra test a través de una métrica de evaluación como las vistas en la sección anterior.
-
-La métrica de evaluación final de este método es dicha métrica. Esta metrica final es la que será usada para medir el poder predictivo del modelo y compararlo con otros modelos.
-
+El modelo es entrenado con la muestra train y testado calculando un métrica de evaluación con la muestra de test. Este valor de la métrica de evaluación es el que será usado para medir el poder predictivo del modelo y compararlo con otros modelos. la muestra test a través de una métrica de evaluación.
+ 
 <br>
 
 
@@ -801,10 +796,8 @@ El modelo es enetrenado con la muestra train y testado con la muestra test a tra
 
 Este proceso se repite un número $B$ de veces, asi se obtienen $B$ valores de la métrica de evaluación.
 
-La métrica de evaluación final en este método es la media de los $B$ valores obtenidos de la métrica de evaluación.
-
-Esta metrica final es la que será usada para medir el poder predictivo del modelo y compararlo con otros modelos.
-
+La métrica de evaluacion calculada usando este método de validación es la media de dichos $B$ valores obtenidos para la métrica de evaluación escogida. Este valor medio final es la que será usado para medir el poder predictivo del modelo y compararlo con otros modelos.
+ 
 <br>
 
 
@@ -1043,9 +1036,7 @@ Es decir, tras dividir el data-set inicial en $k$ partes la parte 1 se usa como 
 
 Tras este proceso se habrán obtenido $k$ valores de dicha métrica de evaluacion.
 
-La métrica de evaluacion final con este método es la media de dichos $k$ valores obtenidos para la métrica de evaluación escogida.
- 
-Esta metrica final es la que será usada para medir el poder predictivo del modelo y compararlo con otros modelos.
+La métrica de evaluacion calculada usando este método de validación es la media de dichos $k$ valores obtenidos para la métrica de evaluación escogida. Este valor medio final es la que será usado para medir el poder predictivo del modelo y compararlo con otros modelos.
 
 <br>
 
