@@ -5439,6 +5439,16 @@ $\\[0.5cm]$
 <br>
 
 
+**Diferencias entre la similaridad de Gower-Mahalanobis y la de Gower**
+
+La diferencia radica en que en la similaridad de Gower-Mahalanobis la similaridad que se aplica a las variables cuantitativas es la transformación a similaridad de la distancia de Mahalanobis normalizada, mientras que en el caso de la similaridad de Gower era la transformacion a similaridad de la distancia Manhattan normalizada.
+
+
+
+
+<br>
+
+
 
 ## Distancia de Gower-Mahalanobis    <a class="anchor" id="87"></a>
 
