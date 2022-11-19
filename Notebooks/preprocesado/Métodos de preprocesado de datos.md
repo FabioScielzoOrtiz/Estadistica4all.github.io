@@ -67,7 +67,7 @@ En este articulo nos vamos a centrar en algunas de estas tareas, pero la lista a
 
 Escalar una variable es aplicarle una transformación con el objetivo de conseguir que la variable transformada tenga ciertas propiedades que no tenia la variable original (la variable sin transformar).
 
-En este artículo nos centraremos en tres tipos de escalado: escalado estandar, normalización (0,1) y normalización (a,b). En cualquier caso, hay mas procedimientos que aquí no será explorados, por lo que para ver una lista más amplia se recomienda, por ejemplo, ver la documentación sobre este tema de la libreria   [sklearn](https://scikit-learn.org/stable/modules/preprocessing.html)
+En este artículo nos centraremos en tres tipos de escalado: escalado estandar, normalización (0,1) y normalización (a,b). En cualquier caso, hay mas procedimientos que aquí no será explorados, por lo que para ver una lista más amplia se recomienda, por ejemplo, ver la documentación sobre este tema de la libreria   [`sklearn`](https://scikit-learn.org/stable/modules/preprocessing.html)
 
 
 <br>
@@ -76,7 +76,7 @@ En este artículo nos centraremos en tres tipos de escalado: escalado estandar, 
 
 
  
-Dada la variable estadística $\hspace{0.1cm} X_j=(x_{1j},...,x_{nj})^t$
+Dada la muestra de una  variable estadística $\hspace{0.1cm} X_j=(x_{1j},...,x_{nj})^t$
 
 La versión escalada estandar de $\hspace{0.1cm} X_j\hspace{0.1cm}$ es la siguiente variable: $\\[1cm]$
 
@@ -112,7 +112,7 @@ $\hspace{0.1cm}\sigma(X_j) \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{n} \cdot \su
 
 ## Normalización (0,1)
 
-Dada la variable estadística $\hspace{0.1cm} X_j=(x_{1j},...,x_{nj})^t$
+Dada la muestra de una  variable estadística $\hspace{0.1cm} X_j=(x_{1j},...,x_{nj})^t$
 
 La versión normalizada $\hspace{0.1cm}(0,1)\hspace{0.1cm}$ de $\hspace{0.1cm}X_j\hspace{0.1cm}$ es la siguiente variable: $\\[1cm]$
 
@@ -140,7 +140,7 @@ $$X_j^{norm(0,1)} = \dfrac{X_j - Min(X_j)}{Max(X_j) - Min(X_j)} \\$$
 ## Normalización (a,b)
 
 
-Dada la variable estadística $\hspace{0.1cm}X_j=(x_{1j},...,x_{nj})^t$
+Dada la muestra de una variable estadística $\hspace{0.1cm}X_j=(x_{1j},...,x_{nj})^t$
 
 La versión normalizada $\hspace{0.1cm}(a,b)\hspace{0.1cm}$ de $\hspace{0.1cm}X_j\hspace{0.1cm}$ es la siguiente variable:
 
@@ -170,16 +170,121 @@ $$X_j^{norm(a,b)} = X_j^{norm(0,1)} \cdot (b - a) + a \\$$
 
 
 
-
+<br>
 
 # Recodificación estandar de variables categoricas
 
+Dada la muestra de una variable estadística categórica $\hspace{0.1cm}X_j=(x_{1j},...,x_{nj})^t\hspace{0.1cm}$ con $\hspace{0.1cm}k\hspace{0.1cm}$ categorias tal que su recorrido (campo de variación) es $\hspace{0.1cm}\Gamma( X_j) = \lbrace g_1, g_2 , ..., g_k \rbrace$ ;
 
+
+La recodficación a formato estándar de  $\hspace{0.1cm}X_j\hspace{0.1cm}$ consiste en obtener una nueva variable $\hspace{0.1cm}X_j^{recod}\hspace{0.1cm}$ definida como :
+
+$$x_{ij}^{recod} =  \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} ,  \text{ si} \hspace{0.2cm} x_{ij} = g_1 \\ 
+1 \hspace{0.3cm} , \hspace{0.15cm} \text{si} \hspace{0.2cm} x_{ij} = g_2 \\
+... \\ 
+k-1  \hspace{0.3cm}  ,\text{ si} \hspace{0.2cm} x_{ij} = g_1 \end{array}\right.
+$$
+
+
+**Observación :**
+
+$\hspace{0.1cm}\Gamma( X_j^{recod}) = \lbrace 0,1,..., k-1 \rbrace$ 
+
+
+
+
+
+<br>
 
 
 # Categorización de variables cuantitativas
 
+Dada una muestra de una variable estadistica cuantitativa $\hspace{0.1cm}X_j=(x_{1j},...,x_{nj})^t\hspace{0.1cm}$ ;
 
+
+La categorización de $X_j$ consisiste en obtener una nueva variable $X_j^{cat}$ definida como:
+
+
+$$x_{ij}^{cat} =  \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} ,  \text{ si} \hspace{0.2cm} x_{ij} \in [L_0 , L_1) \\ 
+1 \hspace{0.3cm} , \hspace{0.15cm} \text{si} \hspace{0.2cm} x_{ij} \in [L_1 , L_2)  \\
+... \\ 
+k-1  \hspace{0.3cm}  ,\text{ si} \hspace{0.2cm} x_{ij} \in [L_{k-1} , L_k) \end{array}\right.
+$$
+
+
+
+donde:
+
+$[L_0 , L_1), [L_1 , L_2), \dots , [L_{k-1} , L_k)$ son denominados intervalos de categorizacioón de $X_j$ , y son una serie de intervalos con las siguientes propiedades:
+
+- Son disjuntos dos a dos, es decir, no comparten elementos.
+
+- Cada observacion de la muestra $X_j$ pertenece a un intervalo.
+
+- Tienen la misma amplitud.
+
+
+Como consecuencia:
+
+- Cada elemento de $X_j$ pertenece a un único intervalo.
+
+
+The categorized version of a quantitative variable $X_k$ is another
+variable $X_k^{cat}$ that is categorical, and that takes values ​​depending on
+the observations of $X_k$.
+
+
+The idea is the following:
+
+Given a quantitative variable $X_k$ ,
+
+You have to define the **categorization intervals** of $X_k$, which are a series of intervals
+$[L_{1},L_{2}), [L_{2}, L_{3}),..., [L_{\lambda},L_{\lambda+1})$ , such that:
+
+- They are disjoint two by two (they don't share elements).
+
+- Each observation/value of $X_k$ belongs to some interval.
+
+- They have the same amplitude (same size).
+
+
+Once the categorization intervals of $X_k$ have been defined, the following rule is applied to define $X_k^{cat}$
+
+$$
+x^{cat}_{ik} = \left\lbrace\begin{array}{l} 0, \text{ if $x_{ik} \in [L_{1},L_{2})$} \\ 1, \text{ if $x_{ik} \in [L_{2},L_{3}) $}
+\\ ...
+\\ \lambda, \text{ if $x_{ik} \in [L_{\lambda},L_{\lambda+1}) $} \end{array}\right.
+$$
+
+
+Definitely:
+
+$$
+x_{ik} \in [L_{r}, L_{r+1}] \ \Leftrightarrow \ x_{ik}^{cat} = r-1
+$$
+
+for  $\hspace{0.1cm} r=1,...,\lambda > 0$
+
+
+
+Where:
+
+$[L_{r}, L_{r+1}]$ is the $r$-th interval of the categorization intervals of $X_k$
+
+
+There are different rules to define the categorization intervals
+of a quantitative variable. In this paper we will see the rules of the
+median, mean, quartiles and Scott.
+
+
+
+**Observaciones :**
+
+$X^{cat}_j\hspace{0.1cm}$ es la versión categorica de la variable cuantitativa $\hspace{0.1cm}X_j$
+
+
+
+<br>
 
 # Dummificación de variables categoricas
 
