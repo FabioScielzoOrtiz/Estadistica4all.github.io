@@ -274,6 +274,7 @@ Libreria orientada a la aplicación de algoritmos de clustering.
   
 - Este es el punto fuerte de Python desde el punto de vista empresarial. Quiza el factor que mejor explica el por que del auge de Python en detrimento de R, en el ambito de la ciencia de datos.
 ---
+# ¿Por qué dar el salto de R a Python?
 
 - Ahora podemos entender mejor por que, pese a que Python arrasa a R en el mundo empresarial, en la academia R sigue reinando, aunque es posble que cada vez lo haga con menor fuerza.
 
@@ -303,7 +304,7 @@ Además, tenemos buenas noticias:
 ---
 # La transición de R a Python
 
-**¿ Por donde empezar con Python ?**
+**Parte I : ¿ Por donde empezar con Python ?**
 
 - Existen varias formas de usar Python en nuestro ordenador, lo mas común es usando un IDE (Integrated Development Environment).
 
@@ -318,7 +319,7 @@ Además, tenemos buenas noticias:
 ---
 # La transición de R a Python
 
-**¿ Por donde empezar con Python ?**
+**Parte I : ¿ Por donde empezar con Python ?**
 
    -  Visual Studio Code (el presente y futuro de los IDE's).
         - Soporta multitud de lenguajes como Python, C, C++ , Java, R, HTML, CSS, Julia, Markdown, Go, Docker. Esta presentación esta hecha usando markdown en VS code !
@@ -328,13 +329,17 @@ Además, tenemos buenas noticias:
 ---
 # La transición de R a Python
 
-**¿ Por donde empezar ?**
+**Parte II : ¿ Por donde empezar con Python ?**
 
 Tres librarias de Python que nos podrian ser utiles en un comienzo:
 
 - dfply
 - plotnine
 - rpy2
+
+Y también hay una libreria de R que podria ser de ayuda:
+
+- reticulate
 
 
 ---
@@ -347,8 +352,15 @@ Tres librarias de Python que nos podrian ser utiles en un comienzo:
 ## Plotnine
 
 - Libreria para visualización de datos que utiliza la gramática de ggplot (una de las librerias de R más usadas para visualización de datos). Básicamente es la version de ggplot en Python.
+---
+
+# La transición de R a Python
+
+## rpy2
 
 
+
+## reticulate
 
 ---
 # La transición de R a Python
