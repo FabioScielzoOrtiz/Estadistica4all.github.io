@@ -132,7 +132,7 @@ $$\hspace{0.6 cm} \text{Si} \hspace{0.4 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 
 
 
 
-# Ejemplo de juguete <a class="anchor" id="2"></a>
+## Ejemplo de juguete <a class="anchor" id="2"></a>
 
 
 

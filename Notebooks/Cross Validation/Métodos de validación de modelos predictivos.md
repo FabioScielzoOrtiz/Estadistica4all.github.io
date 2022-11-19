@@ -1,7 +1,7 @@
 ---
 title: 'Métodos de validación de modelos predictivos'
 author: 'Fabio Scielzo Ortiz'
-date: '13/11/22'
+date: '25/11/22'
 output: 
    rmdformats::readthedown:
       use_bookdown: true
