@@ -98,17 +98,34 @@ Es la libreria fundamental de Python para matematicas  computacionales. Provee m
 
 
 ---
+
+# `Python` en la ciencia de datos 
+
 ## Matplotlib
 
-Es la libreria más conocida para la visualización de datos en Python.
+- Es la libreria más conocida para la visualización de datos en Python.
 
 ## Seaborn
 
-Es otra libreria muy popular para visualización de datos. Se complementa bien con Matplotlib.
+- Es otra libreria muy popular para visualización de datos. Se complementa bien con Matplotlib.
 
 ## Plotly
 
-Es una de las librerias más usadas para la visualizacion interactiva de datos (visualización en movimiento).
+- Es una de las librerias más usadas para la visualizacion interactiva de datos (visualización en movimiento).
+
+
+
+---
+# `Python` en la ciencia de datos 
+
+
+## Sklearn
+
+- La libreria de referencia para la aplicación de modelos de machine learning en Python. Cubre una gran cantidad de algoritmos.
+Como curiosidad, uno de sus principales creadores es  madrileño, Fabian Pedregosa.
+## Statmodels
+
+- Libreria orientada a la implementación de modelos de tradición  estadistica. Cubre algunos modelos que no son cubiertos por Sklearn.
 
 
 
@@ -188,7 +205,7 @@ Libreria orientada a la aplicación de algoritmos de clustering.
 
 ## Shiny
 
-- Libreria mítica de R que permite la creación de aplicaciones interacctivas orientadas a la ciencia de datos. Desde hace unos mese también está en Python.
+- Libreria, hasta hace poco exclusiva de R, que permite la creación de aplicaciones interactivas orientadas a la ciencia de datos. Desde hace unos meses también está en Python.
 
 ## FastAPI
 
@@ -237,7 +254,8 @@ Libreria orientada a la aplicación de algoritmos de clustering.
    - ¿En cuantas ofertas exigen conocimientos de R? $\hspace{0.2cm} \Rightarrow\hspace{0.2cm}$ en pocas probablemente.
    - ¿ EN cuantas ofertas exigen conocimientos de Python? $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ en muchas probablemente.
 
-- Esto ya es un buen motivo para aprender Python, no ?
+- Si sabes Python es más facil encontrar trabajo.
+    - Esto ya es un buen motivo para aprender Python.
 
  ---
 
@@ -250,7 +268,13 @@ Libreria orientada a la aplicación de algoritmos de clustering.
 
    -  Python es un lenguaje de proposito general, no solo es util para hacer cosas de estadistica. 
 
-  - Aunque no os lo creais muchas personas consideran que Python es un lenguaje mas sencillo de aprender que R. De hecho uno de los motivos por los que es mas usado en las empresas es que los ingenieros se manejan mucho mejor con Python que con R, principalmente por el punto anterior.
+---
+ # ¿Por qué dar el salto de R a Python?
+
+  - **Más motivos para aprender Python**
+
+
+     - Aunque no os lo creais muchas personas consideran que Python es un lenguaje mas sencillo de aprender que R. De hecho uno de los motivos por los que es mas usado en las empresas es que los ingenieros se manejan mucho mejor con Python que con R.
 
 ---
 
@@ -280,7 +304,7 @@ Libreria orientada a la aplicación de algoritmos de clustering.
 
 - En la academia pocas veces es relevante la parte de puesta en producción de un modelo, por lo que una de las mayores virtudes de Python sobre R se disipa.
 
-- Quiza ahora también pueda entenderse algo mejor por qué no hemos visto NADA de Python en este grado, hasta el día de hoy. 
+- Quiza ahora también pueda entenderse algo mejor por qué no hemos visto **nada** de Python en este grado, hasta el día de hoy. 
 
 ---
 # La transición de R a Python
@@ -349,7 +373,7 @@ Y también hay una libreria de R que podria ser de ayuda:
 ## dfply
 
 - Libreria para manejo de data-frames que utiliza inspirada en la sintaxis de dplyr, una de las librerias de R más usadas para el manejo de data-frames
-## Plotnine
+## plotnine
 
 - Libreria para visualización de datos que utiliza la gramática de ggplot (una de las librerias de R más usadas para visualización de datos). Básicamente es la version de ggplot en Python.
 ---
@@ -358,47 +382,134 @@ Y también hay una libreria de R que podria ser de ayuda:
 
 ## rpy2
 
+- Esta libreria de Python permite usar R dentro de Python.
 
+<br>
 
 ## reticulate
 
----
-# La transición de R a Python
-
-¿ Por donde seguir ?
-
-Recomendamos que, tras una etapa inicial usando dfply y plotnine, pasemos a sus versiones canonicas en Python, Pandas y Seaborn + Matplotlib.
-
-Despues recomendamos tener una primera aproximacion a Numpy, ver cosas básicas. 
-
-Luego estaria bien empezar a soltarnos con Sklearn y Statmodels.
+- Esta libreria de R permite usar Python dentro de R.
 
 ---
 # La transición de R a Python
 
-¿ Cual es el secreto para aprender Python ?
+**¿ Por donde seguir ?**
+
+- Recomendamos que, tras una etapa inicial usando dfply y plotnine, pasemos a sus versiones canonicas en Python, es decir, a **Pandas** y **Seaborn** + **Matplotlib**.
+
+- Despues recomendamos tener una primera aproximacion a **Numpy**, ver cosas básicas. 
+
+- Luego estaria bien empezar a soltarnos con **Sklearn** y **Statmodels**.
+
+---
+# La transición de R a Python
+
+**¿ Cuál es el secreto para aprender Python  ?**
 
 Nuestra respuesta personal a esta pregunta es:
 
 - Haz proyectos de ciencia de datos que te motiven.
 
-- Apoyate en libros, documentos y webs útiles
+    - Si te interesan temas especificos, como los deportes, el cine o los videojuegos, usa herramientas  que la ciencia de datos te da para analizar estos temas, a través de Python.
+
+     - Si te interesa cierto algoritmo o procedimiento, aplicalo a un caso real a través de Python. 
+---
+
+# La transición de R a Python
+
+
+- Puedes crear un blog con estos proyectos, o subirlos a Linkedin. Es una manera de hacer crecer tu marca personal mientras aprendes.
+
+    - Para ello lo típico fuera de la ciencia de datos es usar webs como Wordpress o Wix.
+
+    - Pero dentro de la ciencia de datos se estila mucho crear blogs (o páginas webs en general) a través de **github pages**.
+
+    - Si os poneis con ello, recomendamos **github pages**.
+
+
+   
+---
+# La transición de R a Python
+
+
+
+- Apoyate en libros, documentos y webs útiles.
+
+   - Ejemplos de webs de interés :
+  
+       - [**Cienciadedatos.net**](https://www.cienciadedatos.net/)
+           - Creada por Joaquin Amat Rodrigo.
+           - Articulos sobre estadística y machine learning aplicado tanto en Python como en R.
+           - Recomendable como introducción práctica a la estadística y machine learning.
+---
+# La transición de R a Python
+
+- Apoyate en libros, documentos y webs útiles.
+
+   - Ejemplos de webs de interés : 
+ 
+       - [**Documentación oficial de Sklearn**](https://scikit-learn.org/stable/)
+           - Tiene tanto explicaciones teoricas como aplicaciones prácticas.
+           - Va al grano.
+  
 
 ---
 # La transición de R a Python
 
 - Algunos ejemplos de webs de interés :
   
-   - Cienciadedatos.net
-        - Creada por Joaquin Amat Rodrigo
-        - a
-        - b
-   - Web de la liberia Sklearn
-        - a
-        - b
+   - [**Blog de Ander Fernandez Jauregui**](https://anderfernandez.com/)
+        -  Filosofia similar a Cienciadedatos.net
+        -  Prestá más atencion a la programación de algoritmos y a la puesta en producción de modelos. aprte de puesta en producción de modelos.
+        -  Recomendable para introducirse en ML Ops y mejorar tú programación.
+ 
 ---
 # La transición de R a Python
 
-- Ejemplos de libros de interés:   
+- Ejemplos de libros de interés: 
+
+     - [**An Introduction to Statistical Learning**](https://www.statlearning.com/) 
+
+          - Fue liberado por sus autores en la red.
+            - *G. James*, *D. Witten*, *T. Hastie*, *R. Tibshirani*
+
+          - Introduccion de *nivel intermedio* al machine learning.
+          - Bueno para entender a nivel teorico los principales algoritmos de machine learning.
+          - Ejemplos prácticos en R \Rightarrow Es un buen ejercicio replicarlos en Python.
 
 ---
+
+# La transición de R a Python
+
+- Ejemplos de libros de interés: 
+
+     - [**The Elementos of Statistical Learning**](https://hastie.su.domains/Papers/ESLII.pdf) 
+
+          - Fue liberado por sus autores en la red: 
+            - *J.H. Friedman*, *R. Tibshirani* y *T. Hastie*
+
+
+          - Introduccion de *nivel intermedio-alto* al machine learning.
+          - Bueno para entender a nivel teorico los principales algoritmos de machine learning. Pero algo más duro.
+  
+
+
+---
+# La transición de R a Python
+
+
+- Ejemplos de libros de interés: 
+
+     - [**Probabilistic machine learning: An introduction**](https://www.statlearning.com/) 
+
+          - Fue liberado por sus autores en la red:
+             - *Kevin Murphy*
+
+          - Introduccion de *nivel avanzado* al machine learning.
+          - Bueno para entender a nivel teorico los principales algoritmos de machine learning. Pero bastante duro.
+
+---
+
+
+## Gracias por la atención
+
