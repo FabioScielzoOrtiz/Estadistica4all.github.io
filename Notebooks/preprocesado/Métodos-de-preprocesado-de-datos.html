@@ -1518,8 +1518,15 @@ margin-left: 0 !important;
       </ul></li>
       <li><a href="#imputación-de-valores-faltantes" id="toc-imputación-de-valores-faltantes"><span class="toc-section-number">2</span> Imputación de valores faltantes</a></li>
       <li><a href="#recodificación-estandar-de-variables-categoricas" id="toc-recodificación-estandar-de-variables-categoricas"><span class="toc-section-number">3</span> Recodificación estandar de variables categoricas</a></li>
-      <li><a href="#categorización-de-variables-cuantitativas" id="toc-categorización-de-variables-cuantitativas"><span class="toc-section-number">4</span> Categorización de variables cuantitativas</a></li>
+      <li><a href="#categorización-de-variables-cuantitativas" id="toc-categorización-de-variables-cuantitativas"><span class="toc-section-number">4</span> Categorización de variables cuantitativas</a>
+      <ul>
+      <li><a href="#regla-de-la-media" id="toc-regla-de-la-media"><span class="toc-section-number">4.1</span> Regla de la media</a></li>
+      <li><a href="#regla-de-la-mediana" id="toc-regla-de-la-mediana"><span class="toc-section-number">4.2</span> Regla de la mediana</a></li>
+      <li><a href="#regla-de-los-cuartiles" id="toc-regla-de-los-cuartiles"><span class="toc-section-number">4.3</span> Regla de los cuartiles</a></li>
+      <li><a href="#regla-de-scott" id="toc-regla-de-scott"><span class="toc-section-number">4.4</span> Regla de Scott</a></li>
+      </ul></li>
       <li><a href="#dummificación-de-variables-categoricas" id="toc-dummificación-de-variables-categoricas"><span class="toc-section-number">5</span> Dummificación de variables categoricas</a></li>
+      <li><a href="#bibliografia" id="toc-bibliografia"><span class="toc-section-number">6</span> Bibliografia</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1644,58 +1651,64 @@ k-1  \hspace{0.3cm}  ,\text{ si} \hspace{0.2cm} x_{ij} = g_1 \end{array}\right.
 </div>
 <div id="categorización-de-variables-cuantitativas" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Categorización de variables cuantitativas</h1>
-<p>Dada una muestra de una variable estadistica cuantitativa <span class="math inline">\(\hspace{0.1cm}X_j=(x_{1j},...,x_{nj})^t\hspace{0.1cm}\)</span> ;</p>
-<p>La categorización de <span class="math inline">\(X_j\)</span> consisiste en obtener una nueva variable <span class="math inline">\(X_j^{cat}\)</span> definida como:</p>
+<p>Dada una muestra de una variable estadistica cuantitativa <span class="math inline">\(\hspace{0.1cm} X_j=(x_{1j},...,x_{nj})^t\hspace{0.1cm}\)</span> ;</p>
+<p>La categorización de <span class="math inline">\(\hspace{0.1cm}X_j\hspace{0.1cm}\)</span> consisiste en obtener una nueva variable <span class="math inline">\(\hspace{0.1cm}X_j^{cat}\hspace{0.1cm}\)</span> definida como:</p>
 <p><span class="math display">\[x_{ij}^{cat} =  \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} ,  \text{ si} \hspace{0.2cm} x_{ij} \in [L_0 , L_1) \\
 1 \hspace{0.3cm} , \hspace{0.15cm} \text{si} \hspace{0.2cm} x_{ij} \in [L_1 , L_2)  \\
 ... \\
-k-1  \hspace{0.3cm}  ,\text{ si} \hspace{0.2cm} x_{ij} \in [L_{k-1} , L_k) \end{array}\right.
+k-1  \hspace{0.3cm}  ,\text{ si} \hspace{0.2cm} x_{ij} \in [L_{k-1} , L_k) \end{array}\right. \\[1cm]
 \]</span></p>
+<p>Otra forma de expresarlo:</p>
+<p><span class="math display">\[x_{ij}^{cat} = r  \Leftrightarrow x_{ij} \in [L_r , L_{r+1}) \\\]</span></p>
 <p>donde:</p>
-<p><span class="math inline">\([L_0 , L_1), [L_1 , L_2), \dots , [L_{k-1} , L_k)\)</span> son denominados intervalos de categorizacioón de <span class="math inline">\(X_j\)</span> , y son una serie de intervalos con las siguientes propiedades:</p>
+<p><span class="math inline">\([L_0 , L_1), [L_1 , L_2), \dots , [L_{k-1} , L_k)\hspace{0.1cm}\)</span> son denominados intervalos de categorizacioón de <span class="math inline">\(\hspace{0.1cm}X_j\hspace{0.1cm}\)</span> , y son una serie de intervalos con las siguientes propiedades:</p>
 <ul>
 <li><p>Son disjuntos dos a dos, es decir, no comparten elementos.</p></li>
-<li><p>Cada observacion de la muestra <span class="math inline">\(X_j\)</span> pertenece a un intervalo.</p></li>
+<li><p>Cada observación de la muestra <span class="math inline">\(\hspace{0.1cm}X_j\hspace{0.1cm}\)</span> pertenece a un intervalo.</p></li>
 <li><p>Tienen la misma amplitud.</p></li>
 </ul>
 <p>Como consecuencia:</p>
 <ul>
-<li>Cada elemento de <span class="math inline">\(X_j\)</span> pertenece a un único intervalo.</li>
+<li>Cada elemento de <span class="math inline">\(\hspace{0.1cm}X_j\hspace{0.1cm}\)</span> pertenece a un único intervalo. <span class="math inline">\(\\[1cm]\)</span></li>
 </ul>
-<p>The categorized version of a quantitative variable <span class="math inline">\(X_k\)</span> is another
-variable <span class="math inline">\(X_k^{cat}\)</span> that is categorical, and that takes values ​​depending on
-the observations of <span class="math inline">\(X_k\)</span>.</p>
-<p>The idea is the following:</p>
-<p>Given a quantitative variable <span class="math inline">\(X_k\)</span> ,</p>
-<p>You have to define the <strong>categorization intervals</strong> of <span class="math inline">\(X_k\)</span>, which are a series of intervals
-<span class="math inline">\([L_{1},L_{2}), [L_{2}, L_{3}),..., [L_{\lambda},L_{\lambda+1})\)</span> , such that:</p>
-<ul>
-<li><p>They are disjoint two by two (they don’t share elements).</p></li>
-<li><p>Each observation/value of <span class="math inline">\(X_k\)</span> belongs to some interval.</p></li>
-<li><p>They have the same amplitude (same size).</p></li>
-</ul>
-<p>Once the categorization intervals of <span class="math inline">\(X_k\)</span> have been defined, the following rule is applied to define <span class="math inline">\(X_k^{cat}\)</span></p>
-<p><span class="math display">\[
-x^{cat}_{ik} = \left\lbrace\begin{array}{l} 0, \text{ if $x_{ik} \in [L_{1},L_{2})$} \\ 1, \text{ if $x_{ik} \in [L_{2},L_{3}) $}
-\\ ...
-\\ \lambda, \text{ if $x_{ik} \in [L_{\lambda},L_{\lambda+1}) $} \end{array}\right.
-\]</span></p>
-<p>Definitely:</p>
-<p><span class="math display">\[
-x_{ik} \in [L_{r}, L_{r+1}] \ \Leftrightarrow \ x_{ik}^{cat} = r-1
-\]</span></p>
-<p>for <span class="math inline">\(\hspace{0.1cm} r=1,...,\lambda &gt; 0\)</span></p>
-<p>Where:</p>
-<p><span class="math inline">\([L_{r}, L_{r+1}]\)</span> is the <span class="math inline">\(r\)</span>-th interval of the categorization intervals of <span class="math inline">\(X_k\)</span></p>
-<p>There are different rules to define the categorization intervals
-of a quantitative variable. In this paper we will see the rules of the
-median, mean, quartiles and Scott.</p>
 <p><strong>Observaciones :</strong></p>
-<p><span class="math inline">\(X^{cat}_j\hspace{0.1cm}\)</span> es la versión categorica de la variable cuantitativa <span class="math inline">\(\hspace{0.1cm}X_j\)</span></p>
+<p><span class="math inline">\(X^{cat}_j\hspace{0.1cm}\)</span> es una versión categorizada de la variable <span class="math inline">\(\hspace{0.1cm}X_j\)</span> <span class="math inline">\(\\[1cm]\)</span></p>
+<p><strong>¿Cómo definir los intervalos de categorización?</strong></p>
+<p>Existen diferentes procedimientos para definir los intervalos de categorización, los más habituales son reglas basadas en los cuantiles de la variable considerada.</p>
+<p>A continuación vamos a exponer algunos procedimientos básados en cuantiles y otro alternativo, la regla de Scott.</p>
 <p><br></p>
+<div id="regla-de-la-media" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Regla de la media</h2>
+<p>Siguiendo la regla de la media, los intervalos de categorizacion de una variable cuantitativa <span class="math inline">\(\hspace{0.1cm} X_j\hspace{0.1cm}\)</span> serían los siguientes:<span class="math inline">\(\\[0.8cm]\)</span></p>
+<p><span class="math display">\[
+\left[\hspace{0.1cm} Min(X_j) \hspace{0.1cm} ,\hspace{0.1cm} \overline{X}_j \hspace{0.1cm}\right] \hspace{0.1cm},\hspace{0.1cm} \left(\hspace{0.1cm} \overline{X}_j \hspace{0.1cm},\hspace{0.1cm} Max(X_j) \hspace{0.1cm}\right]
+\]</span></p>
+<p><br></p>
+<p>Con la regla de la media, la versión categorica <span class="math inline">\(\hspace{0.1cm}X_j^{cat}\hspace{0.1cm}\)</span> de la variable cuantitativa <span class="math inline">\(\hspace{0.1cm}X_j\hspace{0.1cm}\)</span> se define como: <span class="math inline">\(\\[0.8cm]\)</span></p>
+<p><span class="math display">\[x_{ij}^{cat} =  \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} ,  \text{ si} \hspace{0.2cm} x_{ij} \in \left[\hspace{0.1cm}Min(X_j)\hspace{0.1cm},\hspace{0.1cm} \overline{X}_j\hspace{0.1cm}\right)  \\
+1  \hspace{0.3cm}  ,\text{ si} \hspace{0.2cm} x_{ij} \in \left[\hspace{0.1cm}\overline{X}_j \hspace{0.1cm},\hspace{0.1cm} Max(X_j)\hspace{0.1cm}\right) \end{array}\right. \\[1cm]
+\]</span></p>
+<p><br></p>
+</div>
+<div id="regla-de-la-mediana" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Regla de la mediana</h2>
+<p><br></p>
+</div>
+<div id="regla-de-los-cuartiles" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Regla de los cuartiles</h2>
+<p><br></p>
+</div>
+<div id="regla-de-scott" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Regla de Scott</h2>
+<p><br></p>
+</div>
 </div>
 <div id="dummificación-de-variables-categoricas" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Dummificación de variables categoricas</h1>
+</div>
+<div id="bibliografia" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Bibliografia</h1>
+<p>Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011</p>
 </div>
 </div>
 

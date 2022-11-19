@@ -199,88 +199,104 @@ $\hspace{0.1cm}\Gamma( X_j^{recod}) = \lbrace 0,1,..., k-1 \rbrace$
 
 # Categorización de variables cuantitativas
 
-Dada una muestra de una variable estadistica cuantitativa $\hspace{0.1cm}X_j=(x_{1j},...,x_{nj})^t\hspace{0.1cm}$ ;
+Dada una muestra de una variable estadistica cuantitativa $\hspace{0.1cm} X_j=(x_{1j},...,x_{nj})^t\hspace{0.1cm}$ ;
 
 
-La categorización de $X_j$ consisiste en obtener una nueva variable $X_j^{cat}$ definida como:
+La categorización de $\hspace{0.1cm}X_j\hspace{0.1cm}$ consisiste en obtener una nueva variable $\hspace{0.1cm}X_j^{cat}\hspace{0.1cm}$ definida como:
 
 
 $$x_{ij}^{cat} =  \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} ,  \text{ si} \hspace{0.2cm} x_{ij} \in [L_0 , L_1) \\ 
 1 \hspace{0.3cm} , \hspace{0.15cm} \text{si} \hspace{0.2cm} x_{ij} \in [L_1 , L_2)  \\
 ... \\ 
-k-1  \hspace{0.3cm}  ,\text{ si} \hspace{0.2cm} x_{ij} \in [L_{k-1} , L_k) \end{array}\right.
+k-1  \hspace{0.3cm}  ,\text{ si} \hspace{0.2cm} x_{ij} \in [L_{k-1} , L_k) \end{array}\right. \\[1cm]
 $$
 
+Otra forma de expresarlo:
+
+$$x_{ij}^{cat} = r  \Leftrightarrow x_{ij} \in [L_r , L_{r+1}) \\$$
 
 
 donde:
 
-$[L_0 , L_1), [L_1 , L_2), \dots , [L_{k-1} , L_k)$ son denominados intervalos de categorizacioón de $X_j$ , y son una serie de intervalos con las siguientes propiedades:
+$[L_0 , L_1), [L_1 , L_2), \dots , [L_{k-1} , L_k)\hspace{0.1cm}$ son denominados intervalos de categorizacioón de $\hspace{0.1cm}X_j\hspace{0.1cm}$ , y son una serie de intervalos con las siguientes propiedades:
 
 - Son disjuntos dos a dos, es decir, no comparten elementos.
 
-- Cada observacion de la muestra $X_j$ pertenece a un intervalo.
+- Cada observación de la muestra $\hspace{0.1cm}X_j\hspace{0.1cm}$ pertenece a un intervalo.
 
 - Tienen la misma amplitud.
 
 
 Como consecuencia:
 
-- Cada elemento de $X_j$ pertenece a un único intervalo.
+- Cada elemento de $\hspace{0.1cm}X_j\hspace{0.1cm}$ pertenece a un único intervalo. $\\[1cm]$
 
 
-The categorized version of a quantitative variable $X_k$ is another
-variable $X_k^{cat}$ that is categorical, and that takes values ​​depending on
-the observations of $X_k$.
-
-
-The idea is the following:
-
-Given a quantitative variable $X_k$ ,
-
-You have to define the **categorization intervals** of $X_k$, which are a series of intervals
-$[L_{1},L_{2}), [L_{2}, L_{3}),..., [L_{\lambda},L_{\lambda+1})$ , such that:
-
-- They are disjoint two by two (they don't share elements).
-
-- Each observation/value of $X_k$ belongs to some interval.
-
-- They have the same amplitude (same size).
-
-
-Once the categorization intervals of $X_k$ have been defined, the following rule is applied to define $X_k^{cat}$
-
-$$
-x^{cat}_{ik} = \left\lbrace\begin{array}{l} 0, \text{ if $x_{ik} \in [L_{1},L_{2})$} \\ 1, \text{ if $x_{ik} \in [L_{2},L_{3}) $}
-\\ ...
-\\ \lambda, \text{ if $x_{ik} \in [L_{\lambda},L_{\lambda+1}) $} \end{array}\right.
-$$
-
-
-Definitely:
-
-$$
-x_{ik} \in [L_{r}, L_{r+1}] \ \Leftrightarrow \ x_{ik}^{cat} = r-1
-$$
-
-for  $\hspace{0.1cm} r=1,...,\lambda > 0$
-
-
-
-Where:
-
-$[L_{r}, L_{r+1}]$ is the $r$-th interval of the categorization intervals of $X_k$
-
-
-There are different rules to define the categorization intervals
-of a quantitative variable. In this paper we will see the rules of the
-median, mean, quartiles and Scott.
-
-
+ 
 
 **Observaciones :**
 
-$X^{cat}_j\hspace{0.1cm}$ es la versión categorica de la variable cuantitativa $\hspace{0.1cm}X_j$
+$X^{cat}_j\hspace{0.1cm}$ es una versión categorizada de la variable $\hspace{0.1cm}X_j$ $\\[1cm]$
+
+
+
+**¿Cómo definir los intervalos de categorización?**
+
+
+Existen diferentes procedimientos para definir los intervalos de categorización, los más habituales son reglas basadas en los cuantiles de la variable considerada. 
+
+A continuación vamos a exponer algunos procedimientos básados en cuantiles y otro alternativo, la regla de Scott.
+
+
+<br>
+
+
+## Regla de la media
+
+Siguiendo la regla de la media, los intervalos de categorizacion de una variable cuantitativa $\hspace{0.1cm} X_j\hspace{0.1cm}$ serían los siguientes:$\\[0.8cm]$
+
+
+
+$$
+\left[\hspace{0.1cm} Min(X_j) \hspace{0.1cm} ,\hspace{0.1cm} \overline{X}_j \hspace{0.1cm}\right] \hspace{0.1cm},\hspace{0.1cm} \left(\hspace{0.1cm} \overline{X}_j \hspace{0.1cm},\hspace{0.1cm} Max(X_j) \hspace{0.1cm}\right]
+$$
+
+
+
+
+<br>
+
+Con la regla de la media, la versión categorica $\hspace{0.1cm}X_j^{cat}\hspace{0.1cm}$ de la variable cuantitativa $\hspace{0.1cm}X_j\hspace{0.1cm}$ se define como: $\\[0.8cm]$
+
+$$x_{ij}^{cat} =  \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} ,  \text{ si} \hspace{0.2cm} x_{ij} \in \left[\hspace{0.1cm}Min(X_j)\hspace{0.1cm},\hspace{0.1cm} \overline{X}_j\hspace{0.1cm}\right)  \\ 
+1  \hspace{0.3cm}  ,\text{ si} \hspace{0.2cm} x_{ij} \in \left[\hspace{0.1cm}\overline{X}_j \hspace{0.1cm},\hspace{0.1cm} Max(X_j)\hspace{0.1cm}\right) \end{array}\right. \\[1cm]
+$$
+
+
+<br>
+
+
+## Regla de la mediana
+
+
+
+
+<br>
+
+
+## Regla de los cuartiles
+
+
+
+
+
+
+<br>
+
+
+## Regla de Scott
+
+
 
 
 
@@ -290,3 +306,10 @@ $X^{cat}_j\hspace{0.1cm}$ es la versión categorica de la variable cuantitativa 
 
 
 
+
+
+
+
+# Bibliografia
+
+Scikit-learn: Machine Learning in Python, Pedregosa et al., JMLR 12, pp. 2825-2830, 2011
