@@ -1,5 +1,5 @@
 ---
-title: 'k-medias clustering'
+title: 'Clustering'
 author: 'Fabio Scielzo Ortiz'
 date: '13/11/22'
 output: 
@@ -209,6 +209,10 @@ Se puede demostrar que este algoritmo hace disminuir con cada nueva configuraciÃ
 Â¿Por que?  --> por como se definen los centroides, son medias, y la media solo deberia aplicarse a variables cuantitativas.
 
 
+<br>
+
+
+# K-medoids
 
 
 
