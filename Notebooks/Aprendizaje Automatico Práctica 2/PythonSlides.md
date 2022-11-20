@@ -1,11 +1,11 @@
 ---
 marp: true
-author: Fabio Scielzo Ortiz y Marcos Álvarez 
+author: "Fabio Scielzo Ortiz y Marcos Álvarez"
 theme: beamer
-size: 4:3
-header:  Python en la Ciencia de Datos 
-footer: Madrid - UC3M
-paginate: true
+size: '4:3'
+header: Python en la Ciencia de Datos
+footer: "Madrid - UC3M"
+paginate: yes
 ---
 
  
@@ -25,10 +25,6 @@ paginate: true
 <br/>
 
 ![bg 35%](uc3m.jpg)
-
-
-
-
 
 **Fabio Scielzo Ortiz**
 **Marcos Álvarez Martín** 
