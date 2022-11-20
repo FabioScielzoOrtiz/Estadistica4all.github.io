@@ -1596,7 +1596,7 @@ margin-right: auto;
 <p>Es decir, es la muestra de observaciones de <span class="math inline">\(\mathcal{X}_r\)</span> que pertenecen al cluster <span class="math inline">\(\hspace{0.1cm}C_j\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p>
 <p><span class="math inline">\(4)\hspace{0.1cm}\)</span> Aplicado a la observación <span class="math inline">\(\hspace{0.1cm}x_1\)</span></p>
 <p>Se asigna x_1 al cluster que le queda mas cercano, usando para ello una medida de distancia <span class="math inline">\(\hspace{0.1cm}\delta\)</span></p>
-<p>Se calculan las distancia entre la observacion x_i y los centroides de cada cluster:</p>
+<p>Se calculan las distancia entre la observacion <span class="math inline">\(\hspace{0.1cm} x_i\hspace{0.1cm}\)</span> y los centroides de cada cluster:</p>
 <p><span class="math display">\[\delta(x_1, \overline{x}_{C_1}), \delta(x_1, \overline{x}_{C_2}),...,\delta(x_1, \overline{x}_{C_k})\]</span></p>
 <p>Se asigna <span class="math inline">\(\hspace{0.1cm}x_1\hspace{0.1cm}\)</span> al cluster que minimiza estas distancias. Es decir, al cluster del que está mas cerca.</p>
 <p>Por tanto, el algoritmo asigna <span class="math inline">\(\hspace{0.1cm}x_1\hspace{0.1cm}\)</span> al cluster <span class="math inline">\(\hspace{0.1cm}C_{j^*}\hspace{0.1cm}\)</span> tal que:</p>
@@ -1617,7 +1617,7 @@ margin-right: auto;
 <p>Se recalculan los centroides de los clusters para la nueva configuracion de clusters.</p>
 <p>Se aplica 4) y 5) de nuevo a la observacion <span class="math inline">\(\hspace{0.1cm}x_1\hspace{0.1cm}\)</span></p>
 <p><span class="math inline">\(\\[0.8cm]\)</span></p>
-<p><span class="math inline">\(6)\hspace{0.1cm}\)</span> Cuando el paso 4) y 5) se hayan aplicado a todas las observaciones <span class="math inline">\(\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}\)</span>, se detiene el algoritmo, obteniendose la configuración definitiva de clusters,, y con ello las predicciones de la respuesta (para las obse <span class="math inline">\(\hspace{0.1cm} x_i \in C_j\hspace{0.1cm}\)</span> se predice la respuesta como <span class="math inline">\(\hspace{0.1cm}\hat{y}_i = g_j\hspace{0.1cm}\)</span> .
+<p><span class="math inline">\(6)\hspace{0.1cm}\)</span> Cuando el paso 4) y 5) se hayan aplicado a todas las observaciones <span class="math inline">\(\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}\)</span>, se detiene el algoritmo, obteniendose la configuración definitiva de clusters, y con ello las predicciones de la respuesta (para las obse <span class="math inline">\(\hspace{0.1cm} x_i \in C_j\hspace{0.1cm}\)</span> se predice la respuesta como <span class="math inline">\(\hspace{0.1cm}\hat{y}_i = g_j\hspace{0.1cm}\)</span> .
 Una tarea posterior es la interpretar la categoria <span class="math inline">\(\hspace{0.1cm}g_j\hspace{0.1cm}\)</span> , puesto que desconocemos a que hace referencia al no tener esa info sobre la respuesta</p>
 <p><br></p>
 <p>Se puede demostrar que este algoritmo hace disminuir con cada nueva configuración de clusters la suma de varizas intra-cluster, definida como sigue:</p>

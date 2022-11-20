@@ -144,7 +144,7 @@ $4)\hspace{0.1cm}$  Aplicado a la observación $\hspace{0.1cm}x_1$
 
 Se asigna x_1 al cluster que le queda mas cercano, usando para ello una medida de distancia $\hspace{0.1cm}\delta$
 
-Se calculan las distancia entre la observacion x_i y los centroides de cada cluster:
+Se calculan las distancia entre la observacion $\hspace{0.1cm} x_i\hspace{0.1cm}$ y los centroides de cada cluster:
 
 $$\delta(x_1, \overline{x}_{C_1}), \delta(x_1, \overline{x}_{C_2}),...,\delta(x_1, \overline{x}_{C_k})$$
 
@@ -183,7 +183,7 @@ Se aplica 4) y 5) de nuevo a la observacion $\hspace{0.1cm}x_1\hspace{0.1cm}$
 
 $\\[0.8cm]$
 
-$6)\hspace{0.1cm}$  Cuando el paso 4) y 5) se hayan aplicado a todas las observaciones $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$, se detiene el algoritmo, obteniendose la configuración definitiva de clusters,, y con ello las predicciones de la respuesta (para las obse $\hspace{0.1cm} x_i \in C_j\hspace{0.1cm}$ se predice la respuesta como $\hspace{0.1cm}\hat{y}_i = g_j\hspace{0.1cm}$ .
+$6)\hspace{0.1cm}$  Cuando el paso 4) y 5) se hayan aplicado a todas las observaciones $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$, se detiene el algoritmo, obteniendose la configuración definitiva de clusters, y con ello las predicciones de la respuesta (para las obse $\hspace{0.1cm} x_i \in C_j\hspace{0.1cm}$ se predice la respuesta como $\hspace{0.1cm}\hat{y}_i = g_j\hspace{0.1cm}$ .
 Una tarea posterior es la interpretar la categoria $\hspace{0.1cm}g_j\hspace{0.1cm}$ , puesto que desconocemos a que hace referencia al no tener esa info sobre la respuesta
 
 
