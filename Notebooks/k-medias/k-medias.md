@@ -189,23 +189,17 @@ Para las observaciones $\hspace{0.1cm} x_i \in C_j\hspace{0.1cm}$ se predice la 
 
 Una tarea posterior es la interpretar la categoria $\hspace{0.1cm}g_j\hspace{0.1cm}$ , puesto que desconocemos a que hace referencia al no tener esa info sobre la respuesta
 
-
-<br>
-
+ 
+---
 
 Se puede demostrar que este algoritmo hace disminuir con cada nueva configuración de clusters la suma de varizas intra-cluster definida en báse a la distancia Euclidea:
 
 Es decir, para cada nueva configuración de clusters se reduce la siguiente cantidad: $\\[0.5cm]$
 
 
-$$\sum_{j=1}^{k} \hspace{0.2cm} \sum_{i \in I_j } \hspace{0.2cm} \delta(x_i , \overline{x}_{C_j})_{Euclidea}$$
-
-
+$$\sum_{j=1}^{k} \hspace{0.2cm} \sum_{i \hspace{0.1cm}/\hspace{0.1cm} x_{i} \in C_j} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_j})_{Euclidea}$$
 
 Notese que: $\hspace{0.2cm} i \in I_j \hspace{0.2cm} \Leftrightarrow \hspace{0.2cm} x_{i} \in C_j$
- 
-
-
 
 <br>
 
@@ -222,6 +216,19 @@ Notese que: $\hspace{0.2cm} i \in I_j \hspace{0.2cm} \Leftrightarrow \hspace{0.2
 
 <br>
 
+## k-medias en `Python` con algoritmo de creación propia  <a class="anchor" id="2"></a>
+
+
+
+
+
+## k-medias en `Python` con `PyClustering`
+
+
+
+<br>
+
+<br>
 
 # k-medoids
 
@@ -310,15 +317,14 @@ $5)\hspace{0.1cm}$  Aplicado a la observación $\hspace{0.1cm} x_1$
  
 - Si en la configuracion aleatoria inicial de los clusterings $\hspace{0.1cm}x_1 \notin C_{j\hspace{0.08cm}^*}\hspace{0.1cm}$ $\Rightarrow \hspace{0.2cm}$ Se modifica la configuración de los cluesterings del siguiente modo:
 
- $\hspace{2cm} \centerdot C_{j\hspace{0.08cm}^*}\hspace{0.1cm}$ ahora contiene a $x_1$
+    -  $C_{j\hspace{0.08cm}^*}\hspace{0.1cm}$ ahora contiene a $x_1$
 
- $\hspace{2cm}$ El cluster que contenía a $\hspace{0.1cm}x_1\hspace{0.1cm}$ ahora ya no lo contiene
+    - El cluster que contenía a $\hspace{0.1cm}x_1\hspace{0.1cm}$ ahora ya no lo contiene
 
-Se recalculan los centroides de los clusters para la nueva configuracion de clusters.
+       - Después se recalculan los centroides de los clusters para la nueva configuracion de clusters.
 
-Se aplica 4) y 5) de nuevo a la observacion $\hspace{0.1cm}x_1\hspace{0.1cm}$
+       - Posteriormente se aplica 4) y 5) de nuevo a la observacion $\hspace{0.1cm}x_1\hspace{0.1cm} \\$
 
-$\\[0.8cm]$
 
 $6)\hspace{0.1cm}$  Cuando el paso 4) y 5) se hayan aplicado a todas las observaciones $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$, se detiene el algoritmo, obteniendose la configuración definitiva de clusters, y con ello las predicciones de la respuesta.
 
@@ -327,38 +333,34 @@ Para las observaciones $\hspace{0.1cm} x_i \in C_j\hspace{0.1cm}$ se predice la 
 Una tarea posterior es la interpretar la categoria $\hspace{0.1cm}g_j\hspace{0.1cm}$ , puesto que desconocemos a que hace referencia al no tener esa info sobre la respuesta
 
 
-<br>
-
-
-Se puede demostrar que este algoritmo hace disminuir con cada nueva configuración de clusters la suma de varizas intra-cluster definida en báse a la distancia Euclidea:
-
-Es decir, para cada nueva configuración de clusters se reduce la siguiente cantidad: $\\[0.5cm]$
-
-
-$$\sum_{j=1}^{k} \hspace{0.2cm} \sum_{i \hspace{0.1cm}/\hspace{0.1cm} x_{i} \in C_j} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_j})_{Euclidea}$$
-
-
-
 
  
 
-
-
 <br>
 
 
 
 
-**Observación: los predictores en k-medias deben ser cuantitativos**
+**Observación: los predictores en k-medoids pueden ser tanto cuantitativos como caategoricos**
 
 
-¿Por qué?  $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ Por como se definen los centroides, son medias de variables, y la media solo deberia aplicarse a variables cuantitativas.
+¿Por qué?  $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ Por como se definen los medoids, si se usa una medida de distancia adecuada para conjuntos de predictores de tipo mixto, el k-medoids puede aplicarse a ese tipo de variables y la media solo deberia aplicarse a predictores que sean tanto cuantitativos como categoricos.
 
 
 <br>
 
 <br>
 
+
+## k-medoids en `Python` con algoritmo de creación propia
+
+
+
+
+
+<br>
+
+## k-medoids en `Python` con  `kmedoids`
 
 
 
