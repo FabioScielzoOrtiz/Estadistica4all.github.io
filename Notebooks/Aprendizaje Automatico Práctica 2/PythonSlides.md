@@ -383,7 +383,7 @@ Y también hay una libreria de R que podria ser de ayuda:
 
 ## dfply
 
-- Libreria para manejo de data-frames que utiliza inspirada en la sintaxis de dplyr, una de las librerias de R más usadas para el manejo de data-frames
+- Libreria para manejo de data-frames inspirada en la sintaxis de dplyr, una de las librerias de R más usadas para el manejo de data-frames
 ## plotnine
 
 - Libreria para visualización de datos que utiliza la gramática de ggplot (una de las librerias de R más usadas para visualización de datos). Básicamente es la version de ggplot en Python.
@@ -503,7 +503,7 @@ Nuestra respuesta personal a esta pregunta es:
 
           - Introducción de *nivel intermedio* al machine learning.
           - Bueno para entender a nivel teorico los principales algoritmos de machine learning.
-          - Ejemplos prácticos en R \Rightarrow Es un buen ejercicio replicarlos en Python.
+          - Ejemplos prácticos en R $\Rightarrow$ Es un buen ejercicio replicarlos en Python.
 
 ---
 
