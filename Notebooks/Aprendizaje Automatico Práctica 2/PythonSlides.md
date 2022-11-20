@@ -36,7 +36,7 @@ paginate: yes
 - [Una advertencia](#3)
 - [`Python` en la ciencia de datos ](#4)
 - [¿ Por qué dar el salto de `R` a `Python` ?](#18)
-- [La transición de `R` a `Python`](#25)
+- [La transición de `R` a `Python`](#27)
 
 ---
 
