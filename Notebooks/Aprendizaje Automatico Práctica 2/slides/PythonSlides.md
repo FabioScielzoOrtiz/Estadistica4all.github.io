@@ -25,7 +25,7 @@ file: images
 
 <br/>
 
-![bg 35%](file://images/uc3m.jpg)
+![bg 35%](images/uc3m.jpg)
 
 **Fabio Scielzo Ortiz**
 **Marcos Álvarez Martín** 
@@ -543,4 +543,4 @@ Nuestra respuesta personal a esta pregunta es:
 
 ## Gracias por la atención !
 
-![bg 65% right](Python.svg.png)
+![bg 65% right](images/Python.svg.png)
