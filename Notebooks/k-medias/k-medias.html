@@ -1418,7 +1418,7 @@ src: url(data:font/ttf;base64,AAEAAAARAQAABAAQR0RFRgs+Cz8AAjwQAAAAQEdQT1MXWeoAAA
     
     
     
-        <link rel="stylesheet" href="custom.css" type="text/css" />
+        <style type="text/css">#content{ max-width:1920px; }#main .nav-pills > li.active > a,#main .nav-pills > li.active > a:hover,#main .nav-pills > li.active > a:focus {background-color: #a5ea50;}#main .nav-pills > li > a:hover {background-color: #ffffff;}h1,h2,h3,h4,h5,h6,legend{color: #b81313;}#nav-top span.glyphicon {color: #cc1313;}#table-of-contents header{color:#ffffff;background-color: #b51d1d;}#table-of-contents h2{background-color:#ffffff;}a:hover{color:#ffffff}a:visited{color:#ffffff}#sidebar {color: #ffffff;background: #752020;}#sidebar h2 {color: #fafafa;background-color: #a70303;}#sidebar a {color: #ffffff;}#sidebar a:hover {background-color: #9d9595;color: #FFFFFF;}</style>
     
     <!-- tabsets -->
     <script>
@@ -1512,7 +1512,7 @@ margin-left: 0 !important;
       <ul>
       <li><a href="#problema-de-clasificación-no-supervisada" id="toc-problema-de-clasificación-no-supervisada"><span class="toc-section-number">1</span> Problema de clasificación no supervisada</a></li>
       <li><a href="#k-medias" id="toc-k-medias"><span class="toc-section-number">2</span> k-medias</a></li>
-      <li><a href="#k-medoids" id="toc-k-medoids"><span class="toc-section-number">3</span> K-medoids</a></li>
+      <li><a href="#k-medoids" id="toc-k-medoids"><span class="toc-section-number">3</span> k-medoids</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1579,64 +1579,56 @@ margin-right: auto;
 <h1><span class="header-section-number">2</span> k-medias</h1>
 <p>Es un modelo o algoritmo de clasificación no supervisada, en el sentido de que permite resolver problemas de clasificación no supervisada.</p>
 <p>A continuacion vamos a explicar su mécanica, partiendo de los elementos descritos en la sección anterior.</p>
+<p><br></p>
 <p><strong>Descripción no formal del algoritmo</strong></p>
+<p><br></p>
 <p><strong>Descripción formal del algoritmo</strong></p>
-<ol style="list-style-type: decimal">
-<li><p>Se considerar <span class="math inline">\(k\)</span> categorias <span class="math inline">\(g_1,...,g_k\)</span></p></li>
-<li><p>Se asignan aleatoriamente las observaciones disponibles <span class="math inline">\(x_1,...,x_n\)</span> de los predictores a dichas categorias, formandose clusters (o grupos) de observaciones <span class="math inline">\(C_1,...,C_k\)</span> , cada cluster esta asociado a una categoria.</p></li>
-</ol>
-<p><span class="math display">\[C_j = ( x_i / i \in I_j \subset \lbrace 1,...,n \rbrace )\]</span></p>
-<p>Donde <span class="math inline">\(I_j\)</span> es el conjunto de indices de las observaciones de los predictores que pertenecen al cluster <span class="math inline">\(C_j\)</span></p>
-<p>Notese que <span class="math inline">\(I_j\)</span> es definido aleatoriamente en esta primera etapa.</p>
-<ol start="3" style="list-style-type: decimal">
-<li>Se calculan los centroides de los clusters formados en el paso anterior.</li>
-</ol>
-<p>El centroide de un cluster <span class="math inline">\(C_j\)</span> es la media de las observaciones del cluster. Si las observaciones son <span class="math inline">\(p\)</span>-dimensionales (como en este caso) se usa el vector de medias como centroide del cluster.</p>
-<p>El centroide del cluster <span class="math inline">\(C_j\)</span> es <span class="math inline">\(\overline{x}_{C_j} = (\overline{X}_{1, C_j} ,...,\overline{X}_{p, C_j})\)</span></p>
+<p><span class="math inline">\(1)\hspace{0.1cm}\)</span> Se considera que la variable respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> tiene <span class="math inline">\(\hspace{0.1cm} k\hspace{0.1cm}\)</span> categorias <span class="math inline">\(\hspace{0.1cm}g_1,...,g_k\)</span> <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math inline">\(2)\hspace{0.1cm}\)</span> Se asignan aleatoriamente las observaciones disponibles <span class="math inline">\(\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}\)</span> de los predictores a dichas categorias, formandose clusters (o grupos) de observaciones <span class="math inline">\(\hspace{0.1cm} C_1,...,C_k\hspace{0.1cm}\)</span> , de un tamaño similar : <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[C_j = ( x_i \hspace{0.1cm}/\hspace{0.1cm} i \in I_j \subset \lbrace 1,...,n \rbrace ) \\\]</span></p>
+<p>Donde <span class="math inline">\(\hspace{0.1cm}I_j\hspace{0.1cm}\)</span> es el conjunto de indices de las observaciones de los predictores que pertenecen al cluster <span class="math inline">\(\hspace{0.1cm}C_j\)</span></p>
+<p>Notese que <span class="math inline">\(\hspace{0.1cm}I_j\hspace{0.1cm}\)</span> es definido aleatoriamente en esta primera etapa. <span class="math inline">\(\\[0.8cm]\)</span></p>
+<p><span class="math inline">\(3)\hspace{0.1cm}\)</span> Se calculan los <strong>centroides</strong> de los clusters formados en el paso anterior.</p>
+<p>El <strong>centroide</strong> de un cluster <span class="math inline">\(\hspace{0.1cm} C_j\hspace{0.1cm}\)</span> es definido en el algoritmo k-medias como la media de las observaciones del cluster. Si las observaciones son <span class="math inline">\(\hspace{0.1cm}p\)</span>-dimensionales (como en este caso) el centroide será un vector de medias como centroide del cluster.</p>
+<p>El centroide del cluster <span class="math inline">\(\hspace{0.1cm}C_j\hspace{0.1cm}\)</span> es <span class="math inline">\(\hspace{0.1cm}\overline{x}_{C_j} = (\overline{X}_{1, C_j} ,...,\overline{X}_{p, C_j})\)</span></p>
 <p>Donde:</p>
-<p><span class="math display">\[X_{r , C_j } = (x_{ir} / i=1,...,n y x_{ir} \in C_j)\]</span></p>
-<p>Es decir, es la muestra de observaciones de <span class="math inline">\(\mathcal{X}_r\)</span> que pertenecen al cluster <span class="math inline">\(C_j\)</span></p>
-<ol start="4" style="list-style-type: decimal">
-<li>Aplicado a la observación <span class="math inline">\(x_1\)</span></li>
-</ol>
-<p>Se asigna x_1 al cluster que le queda mas cercano, usando para ello una medida de distancia <span class="math inline">\(\delta\)</span></p>
+<p><span class="math display">\[X_{r , C_j } = (\hspace{0.1cm} x_{ir} \hspace{0.1cm}/\hspace{0.1cm} i=1,...,n \hspace{0.25cm}\text{y}\hspace{0.25cm} x_{ir} \in C_j\hspace{0.1cm})\]</span></p>
+<p>Es decir, es la muestra de observaciones de <span class="math inline">\(\mathcal{X}_r\)</span> que pertenecen al cluster <span class="math inline">\(\hspace{0.1cm}C_j\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p>
+<p><span class="math inline">\(4)\hspace{0.1cm}\)</span> Aplicado a la observación <span class="math inline">\(\hspace{0.1cm}x_1\)</span></p>
+<p>Se asigna x_1 al cluster que le queda mas cercano, usando para ello una medida de distancia <span class="math inline">\(\hspace{0.1cm}\delta\)</span></p>
 <p>Se calculan las distancia entre la observacion x_i y los centroides de cada cluster:</p>
 <p><span class="math display">\[\delta(x_1, \overline{x}_{C_1}), \delta(x_1, \overline{x}_{C_2}),...,\delta(x_1, \overline{x}_{C_k})\]</span></p>
-<p>Se asigna <span class="math inline">\(x_1\)</span> al cluster que minimiza estas distancias. Es decir, al cluster del que está mas cerca.</p>
-<p>Por tanto, el algoritmo asigna <span class="math inline">\(x_1\)</span> al cluster <span class="math inline">\(C_{j^*}\)</span> tal que:</p>
-<p><span class="math display">\[j^{*} = arg \underset{j}{Min} \delta(x_1 , \overline{x}_{C_j})\]</span></p>
-<ol start="5" style="list-style-type: decimal">
-<li>Aplicado a la observación <span class="math inline">\(x_1\)</span></li>
-</ol>
+<p>Se asigna <span class="math inline">\(\hspace{0.1cm}x_1\hspace{0.1cm}\)</span> al cluster que minimiza estas distancias. Es decir, al cluster del que está mas cerca.</p>
+<p>Por tanto, el algoritmo asigna <span class="math inline">\(\hspace{0.1cm}x_1\hspace{0.1cm}\)</span> al cluster <span class="math inline">\(\hspace{0.1cm}C_{j^*}\hspace{0.1cm}\)</span> tal que:</p>
+<p><span class="math display">\[j\hspace{0.1cm}^{*} \hspace{0.1cm}=\hspace{0.1cm} arg \hspace{0.15cm} \underset{j}{Min} \hspace{0.15cm} \delta(x_1 , \overline{x}_{C_j}) \\\]</span></p>
+<p><span class="math inline">\(5)\hspace{0.1cm}\)</span> Aplicado a la observación <span class="math inline">\(\hspace{0.1cm} x_1\)</span></p>
 <ul>
-<li>Si en la configuración aleatoria inicial de los clusterings <span class="math inline">\(x_1 \in C_{j^*}\)</span> , entonces :</li>
+<li>Si en la configuración aleatoria inicial de los clusterings <span class="math inline">\(\hspace{0.1cm} x_1 \in C_{j\hspace{0.1cm}^*}\hspace{0.1cm}\)</span> , entonces :</li>
 </ul>
 <p>Aplicar 4) y 5) para la siguiente observación <span class="math inline">\((x_2)\)</span></p>
 <ul>
-<li>Si en la configuracion aleatoria inicial de los clusterings <span class="math inline">\(x_1 \notin C_{j^*}\)</span> , entonces:</li>
+<li>Si en la configuracion aleatoria inicial de los clusterings <span class="math inline">\(\hspace{0.1cm}x_1 \notin C_{j\hspace{0.1cm}^*}\hspace{0.1cm}\)</span> , entonces:</li>
 </ul>
 <p>Se modifica la configuración de los cluesterings del siguiente modo:</p>
 <ul>
-<li><ul>
-<li><span class="math inline">\(C_{j^*}\)</span> ahora contiene a <span class="math inline">\(x_1\)</span></li>
-</ul></li>
-<li><ul>
-<li>El cluster que contenia a <span class="math inline">\(x_1\)</span> ahora ya no lo contiene</li>
-</ul></li>
+<li><p><span class="math inline">\(\hspace{0.35cm} C_{j\hspace{0.1cm}^*}\hspace{0.1cm}\)</span> ahora contiene a <span class="math inline">\(x_1\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.35cm}\)</span> El cluster que contenia a <span class="math inline">\(\hspace{0.1cm}x_1\hspace{0.1cm}\)</span> ahora ya no lo contiene</p></li>
 </ul>
 <p>Se recalculan los centroides de los clusters para la nueva configuracion de clusters.</p>
-<p>Se aplica 4) y 5) de nuevo a la observacion <span class="math inline">\(x_1\)</span></p>
-<ol start="6" style="list-style-type: decimal">
-<li>Cuando el paso 4) y 5) se hayan aplicado a todas las observaciones <span class="math inline">\(x_1,...,x_n\)</span>, se detiene el algoritmo, obteniendose la configuración definitiva de clusters,, y con ello las predicciones de la respuesta (para las obse x_i C_j se predice la respuesta como _i = g_j Una tarea posterior es la interpretar la categoria g_j , puesto que desconocemos a que hace referencia al no tener esa info sobre la respuesta</li>
-</ol>
+<p>Se aplica 4) y 5) de nuevo a la observacion <span class="math inline">\(\hspace{0.1cm}x_1\hspace{0.1cm}\)</span></p>
+<p><span class="math inline">\(\\[0.8cm]\)</span></p>
+<p><span class="math inline">\(6)\hspace{0.1cm}\)</span> Cuando el paso 4) y 5) se hayan aplicado a todas las observaciones <span class="math inline">\(\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}\)</span>, se detiene el algoritmo, obteniendose la configuración definitiva de clusters,, y con ello las predicciones de la respuesta (para las obse <span class="math inline">\(\hspace{0.1cm} x_i \in C_j\hspace{0.1cm}\)</span> se predice la respuesta como <span class="math inline">\(\hspace{0.1cm}\hat{y}_i = g_j\hspace{0.1cm}\)</span> Una tarea posterior es la interpretar la categoria <span class="math inline">\(\hspace{0.1cm}g_j\hspace{0.1cm}\)</span> , puesto que desconocemos a que hace referencia al no tener esa info sobre la respuesta</p>
 <p><br></p>
 <p>Se puede demostrar que este algoritmo hace disminuir con cada nueva configuración de clusters la suma de varizas intra-cluster, definida como sigue:</p>
-<p><strong>Observacion: los predictores en k-medias deben ser cuantitativos</strong></p>
+<p><span class="math display">\[formula\]</span></p>
+<p><br></p>
+<p><strong>Observación: los predictores en k-medias deben ser cuantitativos</strong></p>
 <p>¿Por que? –&gt; por como se definen los centroides, son medias, y la media solo deberia aplicarse a variables cuantitativas.</p>
+<p><br></p>
 <p><br></p>
 </div>
 <div id="k-medoids" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> K-medoids</h1>
+<h1><span class="header-section-number">3</span> k-medoids</h1>
 </div>
 </div>
 

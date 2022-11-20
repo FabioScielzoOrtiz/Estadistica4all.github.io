@@ -6,6 +6,7 @@ size: '4:3'
 header: Python en la Ciencia de Datos
 footer: "Madrid - UC3M"
 paginate: yes
+file: images
 ---
 
  
@@ -24,7 +25,7 @@ paginate: yes
 
 <br/>
 
-![bg 35%](uc3m.jpg)
+![bg 35%](file://images/uc3m.jpg)
 
 **Fabio Scielzo Ortiz**
 **Marcos Álvarez Martín** 
