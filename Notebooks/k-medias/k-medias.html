@@ -1890,6 +1890,8 @@ dtype: float64</p>
 <p>Dado un modelo predictivo de aprendizaje no supervisado, nos interesa poder medir la capacidad predictiva del modelo. Pero no podemos usar los típicos métodos de validación aplicados a modelos de aprendizaje supervisado, como son los métodos de validación cruzada, debido a que en aprendizaje supervisado se tienen datos para la variable respuesta, y esos datos son una pieza importante de los métodos de cross validation. En cambio en aprendizaje no supervisado no se disponen de datos de la respuesta, por lo que no pueden emplearse métodos de validacion cruzada como la validacion simple, el leave one out o el k-fold.</p>
 <div id="método-de-la-silueta-silhouette-plot" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Método de la silueta (Silhouette plot)</h2>
+<div id="silueta" class="section level3" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Silueta</h3>
 <p>Supongamos que tras aplicar un modelo de clasificación no supervisada como k-medias o k-medoids tenemos que <span class="math inline">\(x_i \in C_h \\\)</span></p>
 <p><span class="math display">\[\mathcal{S}(x_i) \hspace{0.12cm}=\hspace{0.12cm} \dfrac{\overline{\delta}(i,r^*) - \overline{\delta}(i,h)}{Max \left\lbrace \hspace{0.12cm}\overline{\delta}(i,r^*) \hspace{0.12cm},\hspace{0.12cm} \overline{\delta}(i,h)\hspace{0.12cm} \right\rbrace}\\\]</span></p>
 <p>Donde:</p>
@@ -1905,6 +1907,12 @@ dtype: float64</p>
 <li><span class="math inline">\(\hspace{0.12cm}\overline{\delta}(x_i, C_r^*) \hspace{0.12cm}=\hspace{0.12cm} Min\hspace{0.12cm} \left\lbrace \hspace{0.12cm} \overline{\delta}(x_i, C_r) \hspace{0.12cm} / \hspace{0.12cm} r\neq j = 1,...,k \hspace{0.12cm} \right\rbrace\)</span></li>
 </ul>
 <p><br></p>
+</div>
+<div id="método" class="section level3" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Método</h3>
+<p>Se calcula la media de las siluetas sobre el cojunto de las observaciones:</p>
+<p><span class="math display">\[\overline{\mathcal{S}} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{S}(x_i)\]</span></p>
+</div>
 </div>
 </div>
 </div>

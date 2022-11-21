@@ -576,18 +576,25 @@ Una tarea posterior es la interpretar la categoria $\hspace{0.1cm}g_j\hspace{0.1
 
 <br>
 
-# Métodos de validación de modelos de aprendizaje no supervisado
+# Ajuste del hiper-parametro k 
 
 
-Dado un modelo predictivo de aprendizaje no supervisado, nos interesa poder medir la capacidad predictiva del modelo. Pero no podemos usar los típicos métodos de validación aplicados a modelos de aprendizaje supervisado, como son los métodos de validación cruzada, debido a que en aprendizaje supervisado se tienen datos para la variable respuesta, y esos datos son una pieza importante de los métodos de cross validation. En cambio en aprendizaje no supervisado no se disponen de datos de la respuesta, por lo que no pueden emplearse métodos de validacion cruzada como la validacion simple, el leave one out o el k-fold.
+Considerando un modelo de clustering como k-medias y k-means, nos interesa un método que nos permita determinar cual es el mejor valor de $k$ bajo cierto criterio.
+
+Uno de los métodos más utilizados para este proposito es el método de la silueta.
 
 
 
 ## Método de la silueta (Silhouette  plot)
 
 
+### Definición de silueta
 
-Supongamos que tras aplicar un modelo de clasificación no supervisada como k-medias o k-medoids tenemos que $x_i \in C_h \\$
+Dado un modelo de clustering $M$ , como por ejemplo k-medias o k-medoids.
+
+Supongamos que tras entrenar $M$ tenemos que $x_i \in C_h \\$
+
+La silueta de $x_i$ en el modelo de clustering $M$ es:
 
 $$\mathcal{S}(x_i) \hspace{0.12cm}=\hspace{0.12cm} \dfrac{\overline{\delta}(i,r^*) - \overline{\delta}(i,h)}{Max \left\lbrace \hspace{0.12cm}\overline{\delta}(i,r^*) \hspace{0.12cm},\hspace{0.12cm} \overline{\delta}(i,h)\hspace{0.12cm} \right\rbrace}\\$$
 
@@ -597,7 +604,7 @@ Donde:
 
 $$\overline{\delta}(x_i, C_h) \hspace{0.12cm}=\hspace{0.12cm} \dfrac{1}{\# C_h - 1} \cdot \sum_{r \in I_h} \hspace{0.1cm} \delta(x_i , x_r) \\$$
 
-$$r^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.12cm} \underset{r\neq j=1,..,k} {Min} \hspace{0.12cm} \overline{\delta}(i,r)\\$$  
+$$r^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.12cm} \underset{r\neq j=1,..,k} {Min} \hspace{0.12cm} \overline{\delta}(x_i, C_r)\\$$  
 
 
 
@@ -615,15 +622,37 @@ es la **media** de las distancias entre la observacion $x_i$ y el resto de obser
 - $\hspace{0.12cm}\overline{\delta}(x_i, C_r^*) \hspace{0.12cm}=\hspace{0.12cm}  Min\hspace{0.12cm} \left\lbrace \hspace{0.12cm}  \overline{\delta}(x_i, C_r) \hspace{0.12cm} / \hspace{0.12cm} r\neq j = 1,...,k  \hspace{0.12cm} \right\rbrace$
 
 
+- $\mathcal{S}(x_i) \in [0,1]$
+
+- Cuanto mas cerca este \mathcal{S}(x_i) de 1 , mejor clasificado esta x_i
+
+- Cuanto mas lejos
+
+<br>
+
+### Ajuste del hiper-parámetro k
+
+Dado un modelo de clustering $M$ , como por ejemplo k-medias o k-medoids.
+
+
+Se entren $M$ un número $B$ de veces con las mismas observaciones de los predictores, pero en cada ocasión se utiliza un valor del hiper-parametro $k$ distinto.
+
+ 
+
+
+Se calcula la media de las siluetas sobre el cojunto de las observaciones: $\\[0.5cm]$
+
+
+$$\overline{\mathcal{S}}  \hspace{0.12cm} =  \hspace{0.12cm}  \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{S}(x_i)$$ 
+
+
+
+
+
+
 
 
 
 
 <br>
-
-
-
-
-
-
 
