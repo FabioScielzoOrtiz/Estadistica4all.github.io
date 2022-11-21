@@ -86,7 +86,10 @@ $$D=[X_1,...,X_p]=\begin{pmatrix}
     \end{pmatrix}$$
 
 
+<br>
 
+
+<br>
 
 
 # k-medias
@@ -119,7 +122,7 @@ $1)\hspace{0.1cm}$ Se considera que la variable respuesta $\hspace{0.1cm}\mathca
 
 $2)\hspace{0.1cm}$  Se asignan aleatoriamente las observaciones disponibles $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$ de los predictores a dichas categorias, formandose clusters (o grupos) de observaciones $\hspace{0.1cm} C_1,...,C_k\hspace{0.1cm}$ , de un tamaño similar : $\\[0.4cm]$
 
-$$C_j = ( x_i^t = (x_{i1}, x_{i2},...,x_{ip}) \hspace{0.1cm}/\hspace{0.1cm} i \in I_j \subset \lbrace 1,...,n \rbrace )^t \\$$
+$$C_j = \left( \hspace{0.12cm} x_i^t = (x_{i1},...,x_{ip}) \hspace{0.13cm}/\hspace{0.13cm} i \in I_j \subset \lbrace 1,...,n \rbrace \hspace{0.12cm} \right)^t \\$$
 
 Donde $\hspace{0.1cm}I_j\hspace{0.1cm}$ es el conjunto de indices de las observaciones de los predictores que pertenecen al cluster $\hspace{0.1cm}C_j$. $\hspace{0.08cm}$ Por lo que puede verse como el conjunto de los individuos de la muestra asociados al cluster $\hspace{0.1cm} C_j$
 
@@ -190,52 +193,50 @@ Para las observaciones $\hspace{0.1cm} x_i \in C_j\hspace{0.1cm}$ se predice la 
 Una tarea posterior es la interpretar la categoria $\hspace{0.1cm}g_j\hspace{0.1cm}$ , puesto que desconocemos a que hace referencia al no tener esa info sobre la respuesta
 
  
----
+<br>
 
-Se puede demostrar que este algoritmo hace disminuir con cada nueva configuración de clusters la suma de varizas intra-cluster definida en báse a la distancia Euclidea:
+ 
 
-Es decir, para cada nueva configuración de clusters se reduce la siguiente cantidad: $\\[0.5cm]$
-
-
-$$\sum_{j=1}^{k} \hspace{0.2cm} \sum_{i \hspace{0.1cm}/\hspace{0.1cm} x_{i} \in C_j} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_j})_{Euclidea}$$
-
-Notese que: $\hspace{0.2cm} i \in I_j \hspace{0.2cm} \Leftrightarrow \hspace{0.2cm} x_{i} \in C_j$
+----
 
 <br>
 
 
+***Observaciones:***
 
+ 
 
-**Observación: los predictores en k-medias deben ser cuantitativos**
+**Los predictores en k-medias deben ser cuantitativos**
 
 
 ¿Por qué?  $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ Por como se definen los centroides, son medias de variables, y la media solo deberia aplicarse a variables cuantitativas.
 
-
 <br>
 
-**Observación: ¿cQué medidas de distancias pueden usarse en k-medias ?**
 
-En k-medias hay que calcular la distancia entre las observaciones de  predictores x_i y los centroides, que son un vector numerico, pero no un vector de observaciones de variables estadisticas.
+**¿Qué medidas de distancias pueden usarse en k-medias ?**
+
+En k-medias hay que calcular la distancia entre las observaciones de  predictores $x_i$ y los centroides, que son un vector numerico, pero no un vector de observaciones de variables estadisticas.
 
 Hay distancias que no se pueden aplicar en esta contexto, como por ejemplo: 
 
-- La distancias de Pearson y Mahalanobis, puesto que solo esta definida para pares de vectores de observaciones de variables estadisticas,  luego no puede aplicarse a ellos las distancias de Pearson y Mahalanobis.
+- La distancias de Pearson y Mahalanobis, puesto que solo esta definida para pares de vectores de observaciones de variables estadisticas,  luego no puede aplicarse a ellos las distancias de Pearson y Mahalanobis.$\\[0.5cm]$
 
-- Las distancias de Sokal y Jaccard, por ser distancias definidas para vectores numericos binarios (de ceros y unos), y al ser k-medias solo aplicable a variables cuantitativas, los vectores de observaciones no sera binarios ni tampoco los centroides, luego no puede aplicarse a ellos las distancias de Sokal y Jaccard.
+- Las distancias de Sokal y Jaccard, por ser distancias definidas para vectores numericos binarios (de ceros y unos), y al ser k-medias solo aplicable a variables cuantitativas, los vectores de observaciones no sera binarios ni tampoco los centroides, luego no puede aplicarse a ellos las distancias de Sokal y Jaccard. $\\[0.5cm]$
 
-- La distancia de coincidencias, por ser definida para vectores numericos multi-clase , y al ser k-medias solo aplicable a variables cuantitativas, los vectores de observaciones no serán multi-clase y los centroides tampoco, luego no puede aplicarse a ellos la distancia de coincidencias.
+- La distancia de coincidencias, por ser definida para vectores numericos multi-clase , y al ser k-medias solo aplicable a variables cuantitativas, los vectores de observaciones no serán multi-clase y los centroides tampoco, luego no puede aplicarse a ellos la distancia de coincidencias. $\\[0.5cm]$
 
-- La distancia de Gower y Gower-Mahalanobis, al ser distancias definida sobre pares de vectores de tipo mixto (componentes cuantitativas, pero tambien binarias y multi-clase), y como el k-medias solo esta definido para variables cuantitativas, los vectores de observaciones no serán de tipo mixto, y los centroides tampoco, luego no puede aplicarse a ellos la distancia de Gower, ni la de Gower-Mahalanobis, la cual además involucra a la distancia de Mahalanobis que no se puede aplicar con k-medias por lo ya comentado.
+- La distancia de Gower y Gower-Mahalanobis, al ser distancias definida sobre pares de vectores de tipo mixto (componentes cuantitativas, pero tambien binarias y multi-clase), y como el k-medias solo esta definido para variables cuantitativas, los vectores de observaciones no serán de tipo mixto, y los centroides tampoco, luego no puede aplicarse a ellos la distancia de Gower, ni la de Gower-Mahalanobis, la cual además involucra a la distancia de Mahalanobis que no se puede aplicar con k-medias por lo ya comentado.  $\\[0.5cm]$
 
 
-Ejemplos de distancias que si pueden aplicarse con k-medias:
 
-- Distancia Euclidea.
+Ejemplos de distancias que si pueden aplicarse con k-medias, ya que estan definidas para pares de vectores numericos (no necesariamente observaciones de variables estadisticas, son los siguientes:
 
-- Distancia Minkowski.
+- Distancia Euclidea.  $\\[0.4cm]$
 
-- Distancia Canberra.
+- Distancia Minkowski.  $\\[0.4cm]$
+ 
+- Distancia Canberra.  $\\[0.4cm]$
 
 - Distancia coseno.
 
@@ -248,6 +249,33 @@ Ejemplos de distancias que si pueden aplicarse con k-medias:
 
 
 <br>
+
+## Varianzas intra-cluster
+
+
+La varianza intra-cluster de un cluster cualquiera $C_j$ , definida en base a la distancia Euclidea, es: $\\[0.4cm]$
+
+$$\sum_{i \in I_j} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_j})_{Euclidea}\\ $$
+
+
+
+
+
+
+Se puede demostrar que este algoritmo hace disminuir con cada nueva configuración de clusters la suma de varizas intra-clustera:
+
+Es decir, para cada nueva configuración de clusters se reduce la siguiente cantidad: $\\[0.5cm]$
+
+
+$$\sum_{j=1}^{k} \hspace{0.2cm} \sum_{i \in I_j} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_j})_{Euclidea} \\$$
+
+Donde: 
+
+- $\hspace{0.2cm} i \in I_j \hspace{0.2cm} \Leftrightarrow \hspace{0.2cm} x_{i} \in C_j \\$
+
+- $\hspace{0.2cm} \overline{x}_{C_j}$ es el centroide del cluster $C_j$
+
+
 
 <br>
 
@@ -437,7 +465,7 @@ $1)\hspace{0.1cm}$ Se considera que la variable respuesta $\hspace{0.1cm}\mathca
 
 $2)\hspace{0.1cm}$  Se asignan aleatoriamente las observaciones disponibles $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$ de los predictores a dichas categorias, formandose clusters (o grupos) de observaciones $\hspace{0.1cm} C_1,...,C_k\hspace{0.1cm}$ , de un tamaño similar : $\\[0.4cm]$
 
-$$C_j = ( x_{i}^{t} \hspace{0.1cm}/\hspace{0.1cm} i \in I_j \subset \lbrace 1,...,n \rbrace )^t \\$$
+$$C_j = \left( \hspace{0.12cm} x_i^t = (x_{i1},...,x_{ip}) \hspace{0.13cm}/\hspace{0.13cm} i \in I_j \subset \lbrace 1,...,n \rbrace \hspace{0.12cm} \right)^t \\$$
 
 Donde $\hspace{0.1cm}I_j\hspace{0.1cm}$ es el conjunto de indices de las observaciones de los predictores que pertenecen al cluster $\hspace{0.1cm}C_j$. $\hspace{0.08cm}$ Por lo que puede verse como el conjunto de los individuos de la muestra asociados al cluster $\hspace{0.1cm} C_j$
 
@@ -537,6 +565,63 @@ Una tarea posterior es la interpretar la categoria $\hspace{0.1cm}g_j\hspace{0.1
 <br>
 
 ## k-medoids en `Python` con  `kmedoids`
+
+
+
+
+
+
+<br>
+
+
+<br>
+
+# Métodos de validación de modelos de aprendizaje no supervisado
+
+
+Dado un modelo predictivo de aprendizaje no supervisado, nos interesa poder medir la capacidad predictiva del modelo. Pero no podemos usar los típicos métodos de validación aplicados a modelos de aprendizaje supervisado, como son los métodos de validación cruzada, debido a que en aprendizaje supervisado se tienen datos para la variable respuesta, y esos datos son una pieza importante de los métodos de cross validation. En cambio en aprendizaje no supervisado no se disponen de datos de la respuesta, por lo que no pueden emplearse métodos de validacion cruzada como la validacion simple, el leave one out o el k-fold.
+
+
+
+## Método de la silueta (Silhouette  plot)
+
+
+
+Supongamos que tras aplicar un modelo de clasificación no supervisada como k-medias o k-medoids tenemos que $x_i \in C_h \\$
+
+$$\mathcal{S}(x_i) \hspace{0.12cm}=\hspace{0.12cm} \dfrac{\overline{\delta}(i,r^*) - \overline{\delta}(i,h)}{Max \left\lbrace \hspace{0.12cm}\overline{\delta}(i,r^*) \hspace{0.12cm},\hspace{0.12cm} \overline{\delta}(i,h)\hspace{0.12cm} \right\rbrace}\\$$
+
+
+Donde:
+
+
+$$\overline{\delta}(x_i, C_h) \hspace{0.12cm}=\hspace{0.12cm} \dfrac{1}{\# C_h - 1} \cdot \sum_{r \in I_h} \hspace{0.1cm} \delta(x_i , x_r) \\$$
+
+$$r^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.12cm} \underset{r\neq j=1,..,k} {Min} \hspace{0.12cm} \overline{\delta}(i,r)\\$$  
+
+
+
+
+**Observaciones:**
+
+
+- En general
+
+$$\overline{\delta}(x_i,C_j) \hspace{0.12cm} =\hspace{0.12cm} \dfrac{1}{\# C_j - 1} \cdot \sum_{r \in I_j} \hspace{0.1cm} \delta(x_i , x_r)$$
+
+es la **media** de las distancias entre la observacion $x_i$ y el resto de observaciones del cluster $C_j$ , para todo $i=1,..,n$ y $j=1,..,k \\$
+
+
+- $\hspace{0.12cm}\overline{\delta}(x_i, C_r^*) \hspace{0.12cm}=\hspace{0.12cm}  Min\hspace{0.12cm} \left\lbrace \hspace{0.12cm}  \overline{\delta}(x_i, C_r) \hspace{0.12cm} / \hspace{0.12cm} r\neq j = 1,...,k  \hspace{0.12cm} \right\rbrace$
+
+
+
+
+
+
+<br>
+
+
 
 
 
