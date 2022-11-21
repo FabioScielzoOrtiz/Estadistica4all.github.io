@@ -1539,7 +1539,7 @@ margin-left: 0 !important;
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
                   <p class="author"><span class="glyphicon glyphicon-user"></span> Fabio Scielzo Ortiz</p>
-                        <p class="date"><span class="glyphicon glyphicon-calendar"></span> 13/11/22</p>
+                        <p class="date"><span class="glyphicon glyphicon-calendar"></span> 25/11/22</p>
           </div>
    </div>
      
@@ -1575,17 +1575,32 @@ margin-right: auto;
 <blockquote>
 <p>More articles in my blog: <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://fabioscielzoortiz.github.io/Estadistica4all.github.io/">Estadistica4all</a></p>
 </blockquote>
-<p>En este articulo vamos a considerar que <span class="math inline">\(M\)</span> representa un <strong>modelo estadistico predictivo supervisado</strong>, como por ejemplo el modelo de regresión lineal, regresión logistica, regresión no lineal, regresión lineal penalizada, arboles de regresión y clasificación, KNN , SVM, redes neuronales …</p>
-<p>Notese que en este articulo no se considerar modelos estadisticos predictivos no supervisados como son los modelos de clustering como K-medias, K-medoids, modelos jerarquicos, modelos basados en densidades …</p>
-<p>Nos interesa tener un método a través del cual pueda evaluarse la bondad predictiva del modelo <span class="math inline">\(M\)</span>.</p>
+<p>Los métodos de evaluación (o de validación) son una familia muy importante de métodos dentro del aprendizaje estadístico o machine learning que permiten evaluar la capacidad predictiva de un modelo dado.</p>
+<p>Distinguiremos dos tipos de métodos de evaluacion de modelos:</p>
+<ul>
+<li><p>Métodos de evaluacion de modelos de aprendizaje supervisado <span class="math inline">\(\Righarrow\)</span> son algoritmos que permiten evaluar modelos de aprendizaje supervisado usando <strong>muestras de test y train de los predictores y la respuesta</strong>, y una <strong>métrica de evaluación</strong>.</p></li>
+<li><p>Métodos de evaluación de modelos de aprendizaje no supervisado <span class="math inline">\(\Righarrow\)</span> son algoritmos que permiten evaluar modelos de aprendizaje no supervisado usando una <strong>muestra de train de los predictores</strong> y una <strong>métrica de evaluación</strong>.</p></li>
+</ul>
+<p><br></p>
+<p>Los métodos de evaluación son usados cómo soporto para dos propositos, principalmente:</p>
+<ul>
+<li><p>Como soporte de <strong>métodos de selección de modelos</strong>.</p></li>
+<li><p>Como soporte de <strong>métodos de ajuste de hiper-parametros</strong> de modelos.</p></li>
+</ul>
+<p>En otros artículos estudiaremos métodos para selección de modelos y de ajuste de hiper-parámetros basados en métodos de validación de modelos.</p>
+<p><br></p>
+<p>En este articulo vamos a estudiar los <strong>modelos de evaluación de modelos de aprendizaje supervisado</strong>. Los de aprendizaje no supervisado serán estudiados en otro artículo a parte.</p>
+<p>Por lo que consideraremos que <span class="math inline">\(M\)</span> representa un <strong>modelo estadistico predictivo supervisado</strong>, como por ejemplo el modelo de regresión lineal, regresión logistica, regresión no lineal, regresión lineal penalizada, arboles de regresión y clasificación, KNN , SVM, redes neuronales …</p>
+<p>Notese que en este articulo no se consideran modelos estadísticos predictivos no supervisados como son los modelos de clustering como K-medias, K-medoids, modelos jerarquicos, modelos basados en densidades …</p>
+<p>Nos interesa tener un método a través del cual pueda evaluarse la capacidad predictiva del modelo <span class="math inline">\(M\)</span>.</p>
 <p>Una aproximación naive es evaluar el poder predictivo del modelo a través de las predicciones que el modelo hace de la respuesta usando las propias observaciones con las que el modelo ha sido entrenado (construido). Pero esta aproximación tiende a infra-estimar el error de predicción real del modelo. Es por ello que el modelo se evalúa en la práctica usando predicciones que el modelo hace para observaciones con las que el modelo no ha sido entrenado(observaciones que no ha “visto”).</p>
-<p>Los métodos de validación de modelos predictivos tiene tres elementos:</p>
+<p>Los métodos de evaluación o validación de modelos predictivos <strong>supervisados</strong> tiene tres elementos:</p>
 <ol style="list-style-type: decimal">
-<li>Una muestra de <strong>train</strong> y otra de <strong>test</strong></li>
-<li>Una <strong>métrica de evaluación</strong></li>
-<li>Un <strong>algoritmo</strong> para <strong>evaluar el modelo</strong> usando los elementos 1) y 2)</li>
+<li>Una muestra de <strong>train</strong> y otra de <strong>test</strong> de los predictores y la respuesta.</li>
+<li>Una <strong>métrica de evaluación</strong>.</li>
+<li>Un <strong>algoritmo</strong> para <strong>evaluar el modelo</strong> que usa los elementos 1) y 2).</li>
 </ol>
-<p>A continuacion vamos a hacer un tour por dichos elementos.</p>
+<p>Este artículo es básicamente un tour (teorico-práctico) sobre estos elementos.</p>
 <p><br></p>
 <div id="muestras-de-train-y-test" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Muestras de train y test <a class="anchor" id="1"></a></h1>
@@ -1870,6 +1885,9 @@ y una muestra <span class="math inline">\(X_j\)</span> del predictor <span class
 <div id="validación-simple-no-aleatoria" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Validación simple no aleatoria</h2>
 <p><strong>Decripción no formal del algoritmo:</strong></p>
+<p>Este algoritmo de validacion consiste en dividir el data-set inicial en una parte de train y otra de test de manera no aleatoria.</p>
+<p>El <span class="math inline">\(k\%\)</span> de las primeras filas del data-set serán la parte de train, y el resto la parte de test.</p>
+<p>El modelo es enetrenado con la muestra train y testado calculando una métrica de evaluación con la muestra test. Este valor de la métrica de evaluación es el que será usado para medir el poder predictivo del modelo y compararlo con otros modelos.</p>
 <p><strong>Decripción formal del algoritmo:</strong></p>
 <p>El algoritmo de validación simple no aleatoria tiene los siguientes pasos: <span class="math inline">\(\\[0.3cm]\)</span></p>
 <p><span class="math inline">\(1)\hspace{0.1cm}\)</span> Se divide <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> en parte de train y parte de test del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</span></p>
@@ -1919,6 +1937,12 @@ y una muestra <span class="math inline">\(X_j\)</span> del predictor <span class
 </div>
 <div id="validación-simple-aleatoria" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Validación simple aleatoria</h2>
+<p><strong>Decripción no formal del algoritmo:</strong></p>
+<p>Este algoritmo de validacion consiste en dividir el data-set inicial en una parte de train y otra de test de manera aleatoria.</p>
+<p>Se obtiene una muestra aleatoria sin remplazo de un <span class="math inline">\(k\%\)</span> de las filas del data-set inicial, las cuales serán la parte de train, y el resto la parte de test.</p>
+<p>El modelo es entrenado con la muestra train y testado calculando un métrica de evaluación con la muestra de test. Este valor de la métrica de evaluación es el que será usado para medir el poder predictivo del modelo y compararlo con otros modelos. la muestra test a través de una métrica de evaluación.</p>
+<p><br></p>
+<p><strong>Decripción formal del algoritmo:</strong></p>
 <p>El algoritmo de validación simple aleatoria tiene los siguientes pasos: <span class="math inline">\(\\[0.3cm]\)</span></p>
 <p><span class="math inline">\(1)\hspace{0.1cm}\)</span> Se divide <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> en parte de train y parte de test del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p>Sea <span class="math inline">\(\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}\)</span> la proporción de filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> que formarán parte de la muestra de <strong>train</strong> (es un hiper-parametro del algoritmo): <span class="math inline">\(\\[0.4cm]\)</span></p>
@@ -1970,6 +1994,14 @@ definen la muestra de test: <span class="math inline">\(\\[0.4cm]\)</span></p>
 </div>
 <div id="validación-simple-aleatoria-repetida" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Validación simple aleatoria repetida</h2>
+<p><strong>Decripción no formal del algoritmo:</strong></p>
+<p>Este algoritmo de validacion consiste en dividir el data-set inicial en una parte de train y otra de test de manera aleatoria.</p>
+<p>Se obtiene una muestra aleatoria sin remplazo de un <span class="math inline">\(k\%\)</span> de las filas del data-set inicial, las cuales serán la parte de train, y el resto la parte de test.</p>
+<p>El modelo es enetrenado con la muestra train y testado con la muestra test a través de una métrica de evaluación como las vistas en la sección anterior.</p>
+<p>Este proceso se repite un número <span class="math inline">\(B\)</span> de veces, asi se obtienen <span class="math inline">\(B\)</span> valores de la métrica de evaluación.</p>
+<p>La métrica de evaluacion calculada usando este método de validación es la media de dichos <span class="math inline">\(B\)</span> valores obtenidos para la métrica de evaluación escogida. Este valor medio final es la que será usado para medir el poder predictivo del modelo y compararlo con otros modelos.</p>
+<p><br></p>
+<p><strong>Decripción formal del algoritmo:</strong></p>
 <p>El algoritmo de validación simple aleatoria tiene los siguientes pasos: <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p><span class="math inline">\(1)\hspace{0.1cm}\)</span> Se obtienen <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> particiones de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> en parte de train y parte de test del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p>Sea <span class="math inline">\(\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}\)</span> la proporción de filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> que formarán parte de la muestra de <strong>train</strong> (es un hiper-parametro del algoritmo): <span class="math inline">\(\\[0.4cm]\)</span></p>
@@ -2075,6 +2107,15 @@ definen la muestra de test: <span class="math inline">\(\\[0.4cm]\)</span></p>
 </div>
 <div id="k-fold" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> k-fold</h2>
+<p><strong>Decripción no formal del algoritmo:</strong></p>
+<p>Este algoritmo de validacion consiste en dividir el data-set inicial en <span class="math inline">\(k\)</span> partes, y usar de manera secuencial cada una de esas partes como muestra test, y las union de las partes restantes como muestra train.</p>
+<p>Por tanto con este método se usan <span class="math inline">\(k\)</span> muestras de test y de train.</p>
+<p>El modelo es entrenado secuencialmente con cada una de las <span class="math inline">\(k\)</span> muestras de train disitntas, y se testea con la correspondiente muestra de test (que es el complementario de la de train), usando una métrica de evaluacion.</p>
+<p>Es decir, tras dividir el data-set inicial en <span class="math inline">\(k\)</span> partes la parte 1 se usa como test y el resto como train, se calcula la metrica de evaluacion. Luego la parte 2 se usa como test y el resto como train, y se calcula la metrica de evaluacion. Asi sucesivamente hasta haber usado las <span class="math inline">\(k\)</span> partes como muestras de test.</p>
+<p>Tras este proceso se habrán obtenido <span class="math inline">\(k\)</span> valores de dicha métrica de evaluacion.</p>
+<p>La métrica de evaluacion calculada usando este método de validación es la media de dichos <span class="math inline">\(k\)</span> valores obtenidos para la métrica de evaluación escogida. Este valor medio final es la que será usado para medir el poder predictivo del modelo y compararlo con otros modelos.</p>
+<p><br></p>
+<p><strong>Decripción formal del algoritmo:</strong></p>
 <p>El algoritmo de validación k-folds tiene los siguientes pasos:</p>
 <p><span class="math inline">\(1)\hspace{0.1cm}\)</span> Se divide aleatoriamente el data-set inicial <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> en <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> partes de manera que cada parte tenga aproximadamente el mismo número de observaciones (sean lo mas balanceadas posibles).</p>
 <p>Existen diferentes métodos para hacer esta división. La problematica de la división es cómo hacer que las partes resultantes estén lo más balanceadas posibles respecto al numero de observaciones que contienen.</p>

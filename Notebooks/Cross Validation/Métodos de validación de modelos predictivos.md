@@ -50,26 +50,48 @@ css: custom.css
 
 > More articles in my blog:   $\hspace{0.1cm}$   [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)
 
+Los métodos de evaluación (o de validación) son una familia muy importante de métodos dentro del aprendizaje estadístico o machine learning que permiten evaluar la capacidad predictiva de un modelo dado.
+
+Distinguiremos dos tipos de métodos de evaluacion de modelos:
+
+- Métodos de evaluacion de modelos de aprendizaje supervisado $\Righarrow$ son algoritmos que permiten evaluar modelos de aprendizaje supervisado usando **muestras de test y train de los predictores y la respuesta**, y una **métrica de evaluación**.
+
+- Métodos de evaluación de modelos de aprendizaje no supervisado $\Righarrow$ son algoritmos que permiten evaluar modelos de aprendizaje no supervisado usando una **muestra de train de los predictores** y una **métrica de evaluación**.
+
+<br>
+
+Los métodos de evaluación son usados cómo soporto para dos propositos, principalmente:
+
+- Como soporte de **métodos de selección de modelos**.
+
+- Como soporte de **métodos de ajuste de hiper-parametros** de modelos.
 
 
-En este articulo vamos a considerar que $M$ representa un **modelo estadistico predictivo supervisado**, como por ejemplo el modelo de regresión lineal, regresión logistica, regresión no lineal, regresión lineal penalizada, arboles de regresión y clasificación, KNN , SVM, redes neuronales ...
+En otros artículos estudiaremos métodos para selección de modelos y de ajuste de hiper-parámetros basados en métodos de validación de modelos.
 
-Notese que en este articulo no se considerar modelos estadísticos predictivos no supervisados como son los modelos de clustering como K-medias, K-medoids, modelos jerarquicos, modelos basados en densidades ...
+
+<br>
+
+En este articulo vamos a estudiar los **modelos de evaluación de modelos de aprendizaje supervisado**. Los de aprendizaje no supervisado serán estudiados en otro artículo a parte.
+
+Por lo que consideraremos que $M$ representa un **modelo estadistico predictivo supervisado**, como por ejemplo el modelo de regresión lineal, regresión logistica, regresión no lineal, regresión lineal penalizada, arboles de regresión y clasificación, KNN , SVM, redes neuronales ...
+
+Notese que en este articulo no se consideran modelos estadísticos predictivos no supervisados como son los modelos de clustering como K-medias, K-medoids, modelos jerarquicos, modelos basados en densidades ...
  
-Nos interesa tener un método a través del cual pueda evaluarse la bondad predictiva del modelo $M$.
+Nos interesa tener un método a través del cual pueda evaluarse la capacidad predictiva del modelo $M$.
 
 Una aproximación naive es evaluar el poder predictivo del modelo a través de las predicciones que el modelo hace de la respuesta usando las propias observaciones con las que el modelo ha sido entrenado (construido). Pero esta aproximación tiende a infra-estimar el error de predicción real del modelo. Es por ello que el modelo se evalúa en la práctica usando predicciones que el modelo hace para  observaciones con las que el modelo no ha sido entrenado(observaciones que no ha "visto").
 
 
 
-Los métodos de validación de modelos predictivos tiene tres elementos:
+Los métodos de evaluación o validación de modelos predictivos **supervisados** tiene tres elementos:
 
-1) Una muestra de **train** y otra de **test**
-2) Una **métrica de evaluación**
-3) Un **algoritmo** para **evaluar el modelo** usando los elementos 1) y 2)
+1) Una muestra de **train** y otra de **test** de los predictores y la respuesta.
+2) Una **métrica de evaluación**.
+3) Un **algoritmo** para **evaluar el modelo** que usa los elementos 1) y 2).
 
 
-A continuacion vamos a hacer un tour por dichos elementos.
+Este artículo es básicamente un tour (teorico-práctico) sobre estos elementos.
 
 
 <br>

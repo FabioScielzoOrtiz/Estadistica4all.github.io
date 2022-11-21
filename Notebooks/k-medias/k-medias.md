@@ -576,27 +576,24 @@ Una tarea posterior es la interpretar la categoria $\hspace{0.1cm}g_j\hspace{0.1
 
 <br>
 
-# Ajuste del hiper-parametro k 
+# Método de evaluación de modelos de clasificación no supervisada
 
 
-Considerando un modelo de clustering como k-medias y k-means, nos interesa un método que nos permita determinar cual es el mejor valor de $k$ bajo cierto criterio.
+Un método de evaluación de modelos de clasificación no supervisada es un método que permite evaluar un modelo de clustering usando una muestra de train de los predictores y una métrica de evaluación.
 
-Uno de los métodos más utilizados para este proposito es el método de la silueta.
-
-
-
-## Método de la silueta (Silhouette  plot)
+En este articulo nos centraremos en una métrica de evaluación denominada silhouette (silueta)
 
 
-### Definición de silueta
+
+## Definición de la métrica Silhouette
 
 Dado un modelo de clustering $M$ , como por ejemplo k-medias o k-medoids.
 
-Supongamos que tras entrenar $M$ tenemos que $x_i \in C_h \\$
+Supongamos que tras entrenar $M$ con las observaciones disponibles para los predictores tenemos que $x_i \in C_h \\$
 
 La silueta de $x_i$ en el modelo de clustering $M$ es:
 
-$$\mathcal{S}(x_i) \hspace{0.12cm}=\hspace{0.12cm} \dfrac{\overline{\delta}(i,r^*) - \overline{\delta}(i,h)}{Max \left\lbrace \hspace{0.12cm}\overline{\delta}(i,r^*) \hspace{0.12cm},\hspace{0.12cm} \overline{\delta}(i,h)\hspace{0.12cm} \right\rbrace}\\$$
+$$\mathcal{S}(x_i, M) \hspace{0.12cm}=\hspace{0.12cm} \dfrac{\overline{\delta}(i,r^*) - \overline{\delta}(i,h)}{Max \left\lbrace \hspace{0.12cm}\overline{\delta}(i,r^*) \hspace{0.12cm},\hspace{0.12cm} \overline{\delta}(i,h)\hspace{0.12cm} \right\rbrace}\\$$
 
 
 Donde:
@@ -621,26 +618,64 @@ es la **media** de las distancias entre la observacion $x_i$ y el resto de obser
 
 - $\hspace{0.12cm}\overline{\delta}(x_i, C_r^*) \hspace{0.12cm}=\hspace{0.12cm}  Min\hspace{0.12cm} \left\lbrace \hspace{0.12cm}  \overline{\delta}(x_i, C_r) \hspace{0.12cm} / \hspace{0.12cm} r\neq j = 1,...,k  \hspace{0.12cm} \right\rbrace$
 
+<br>
+
+**Interpretación de Silhouette:**
 
 - $\mathcal{S}(x_i) \in [0,1]$
 
-- Cuanto mas cerca este \mathcal{S}(x_i) de 1 , mejor clasificado esta x_i
+- Cuanto mas cerca este $\mathcal{S}(x_i, M)$ de 1 , mejor clasificado esta $x_i$. Esto es debido a que
 
 - Cuanto mas lejos
 
+
+
+
+
+
+**Métrica Silhouette**
+
+Se define la métrica Silhouette para un modelo de clustering $M$  como la media de las siluetas de las observaciones de los predictores:
+
+
+$$\overline{\mathcal{S}} (M) \hspace{0.12cm} =  \hspace{0.12cm}  \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{S}(x_i, M)$$ 
+
+
+
 <br>
 
-### Ajuste del hiper-parámetro k
+## Método de evaluación basado en Silhouette
 
-Dado un modelo de clustering $M$ , como por ejemplo k-medias o k-medoids.
+Como estamos considerando modelos de aprendizaje supervisado en los que por definición no se tienen datos de la respuesta, aqui la idea de considerar muestras de train y test no tiene utilidad, puesto que el fundamento de esa idea es comparar las predicciones que el modelo hace para la respuesta con la muestra de test de la respuesta, pero en este caso no se tiene ninguna muestra (ni de train ni de test) de la respuesta. Es esto lo que caracteriza a los modelos no supervisados.
+
+Por ello el método de evaluación basado en Silhouette consiste simplemente en usar la muestra disponible de los predictores como muestra de train, es decir, usarla para entrenar el modelo de clustering considerado, y con el modelo entrenado calcular la métrica Silhouette, antes definida.
+
+Notese que la metrica Silhouette depende del modelo entrenado, al depender de los clusters finales que se obtienen tras entrenarlo. Por lo que para modelos de clustering que generen distintas configuraciones finales de clusters se obtendran valores distintos de la métrica Silhouette.
 
 
-Se entren $M$ un número $B$ de veces con las mismas observaciones de los predictores, pero en cada ocasión se utiliza un valor del hiper-parametro $k$ distinto.
-
- 
 
 
-Se calcula la media de las siluetas sobre el cojunto de las observaciones: $\\[0.5cm]$
+# Ajuste del hiper-parámetro k 
+
+A continuación vamos a exponer un método para seleccionar el hiper-parametro k de un modelo de clustering como k-medias o k-medoids.
+
+
+Dado un modelo de clustering $M$ , como podría ser el k-medias o k-medoids.
+
+
+1) Se entrena $M$ un número $B$ de veces con las mismas observaciones de los predictores, pero en cada ocasión se utiliza un valor del hiper-parametro $k$ distinto.
+
+Por tanto, se obtienen los siguientes $B$ modelos entrenados: $\widehat{M}(k=k_1)  \hspace{0.12cm}, \hspace{0.12cm} \widehat{M}(k=k_2) \hspace{0.12cm}, ..., \hspace{0.12cm} \widehat{M}(k=k_B)$
+
+Donde $\widehat{M}(k=k_j)$ es el modelo de clustering $M$, con hiper-parametro $k=k_1$, ya entrenado.
+
+
+2) Se calcula la metrica Silhouette $\overline{\mathcal{S}}$ para cada uno de esos $B$ modelos:
+
+$$\overline{\mathcal{S}}(\widehat{M}(k=k_1)), \overline{\mathcal{S}}(\widehat{M}(k=k_2)) , ..., \overline{\mathcal{S}}(\widehat{M}(k=k_B))$$ 
+
+
+3) Se calcula la media de las siluetas de las observaciones disponibles de los predictores: $\\[0.5cm]$
 
 
 $$\overline{\mathcal{S}}  \hspace{0.12cm} =  \hspace{0.12cm}  \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{S}(x_i)$$ 
@@ -648,9 +683,15 @@ $$\overline{\mathcal{S}}  \hspace{0.12cm} =  \hspace{0.12cm}  \dfrac{1}{n} \cdot
 
 
 
+<br>
 
 
+# Selección de modelos de clasificación no supervisada
 
+
+Vamos a exponer un método de selección de modelos de clustering basado en la métrica Silhouette
+
+Dados $B$ modelos de clustering $M_1,M_2,...,M_B$ se selcciona aquel que tenga mayor Silhouette
 
 
 
