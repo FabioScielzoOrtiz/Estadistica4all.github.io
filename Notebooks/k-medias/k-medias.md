@@ -624,9 +624,9 @@ es la **media** de las distancias entre la observacion $x_i$ y el resto de obser
 
 - $\mathcal{S}(x_i) \in [0,1]$
 
-- Cuanto mas cerca este $\mathcal{S}(x_i, M)$ de 1 , mejor clasificado esta $x_i$. Esto es debido a que
+- Cuanto más cerca este $\mathcal{S}(x_i, M)$ de $1$ , mejor clasificado esta $x_i$. Esto es debido a que
 
-- Cuanto mas lejos
+- Cuanto más lejos
 
 
 
