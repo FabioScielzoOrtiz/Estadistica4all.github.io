@@ -1417,6 +1417,71 @@ src: url(data:font/ttf;base64,AAEAAAARAQAABAAQR0RFRgs+Cz8AAjwQAAAAQEdQT1MXWeoAAA
 </script>
     
     
+        <style type="text/css">code{white-space: pre;}</style>
+    <style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } 
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.at { color: #c4a000; } 
+code span.bn { color: #0000cf; } 
+code span.cf { color: #204a87; font-weight: bold; } 
+code span.ch { color: #4e9a06; } 
+code span.cn { color: #000000; } 
+code span.co { color: #8f5902; font-style: italic; } 
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.dt { color: #204a87; } 
+code span.dv { color: #0000cf; } 
+code span.er { color: #a40000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #0000cf; } 
+code span.fu { color: #000000; } 
+code span.im { } 
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.kw { color: #204a87; font-weight: bold; } 
+code span.op { color: #ce5c00; font-weight: bold; } 
+code span.ot { color: #8f5902; } 
+code span.pp { color: #8f5902; font-style: italic; } 
+code span.sc { color: #000000; } 
+code span.ss { color: #4e9a06; } 
+code span.st { color: #4e9a06; } 
+code span.va { color: #000000; } 
+code span.vs { color: #4e9a06; } 
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } 
+</style>
     
         <style type="text/css">#content{ max-width:1920px; }#main .nav-pills > li.active > a,#main .nav-pills > li.active > a:hover,#main .nav-pills > li.active > a:focus {background-color: #a5ea50;}#main .nav-pills > li > a:hover {background-color: #ffffff;}h1,h2,h3,h4,h5,h6,legend{color: #b81313;}#nav-top span.glyphicon {color: #cc1313;}#table-of-contents header{color:#ffffff;background-color: #b51d1d;}#table-of-contents h2{background-color:#ffffff;}a:hover{color:#ffffff}a:visited{color:#ffffff}#sidebar {color: #ffffff;background: #752020;}#sidebar h2 {color: #fafafa;background-color: #a70303;}#sidebar a {color: #ffffff;}#sidebar a:hover {background-color: #9d9595;color: #FFFFFF;}</style>
     
@@ -1635,9 +1700,107 @@ margin-right: auto;
 <p><strong>Observación: los predictores en k-medias deben ser cuantitativos</strong></p>
 <p>¿Por qué? <span class="math inline">\(\hspace{0.15cm}\Rightarrow\hspace{0.15cm}\)</span> Por como se definen los centroides, son medias de variables, y la media solo deberia aplicarse a variables cuantitativas.</p>
 <p><br></p>
+<p><strong>Observación: ¿cQué medidas de distancias pueden usarse en k-medias ?</strong></p>
+<p>En k-medias hay que calcular la distancia entre las observaciones de predictores x_i y los centroides, que son un vector numerico, pero no un vector de observaciones de variables estadisticas.</p>
+<p>Hay distancias que no se pueden aplicar en esta contexto, como por ejemplo:</p>
+<ul>
+<li><p>La distancias de Pearson y Mahalanobis, puesto que solo esta definida para pares de vectores de observaciones de variables estadisticas, luego no puede aplicarse a ellos las distancias de Pearson y Mahalanobis.</p></li>
+<li><p>Las distancias de Sokal y Jaccard, por ser distancias definidas para vectores numericos binarios (de ceros y unos), y al ser k-medias solo aplicable a variables cuantitativas, los vectores de observaciones no sera binarios ni tampoco los centroides, luego no puede aplicarse a ellos las distancias de Sokal y Jaccard.</p></li>
+<li><p>La distancia de coincidencias, por ser definida para vectores numericos multi-clase , y al ser k-medias solo aplicable a variables cuantitativas, los vectores de observaciones no serán multi-clase y los centroides tampoco, luego no puede aplicarse a ellos la distancia de coincidencias.</p></li>
+<li><p>La distancia de Gower y Gower-Mahalanobis, al ser distancias definida sobre pares de vectores de tipo mixto (componentes cuantitativas, pero tambien binarias y multi-clase), y como el k-medias solo esta definido para variables cuantitativas, los vectores de observaciones no serán de tipo mixto, y los centroides tampoco, luego no puede aplicarse a ellos la distancia de Gower, ni la de Gower-Mahalanobis, la cual además involucra a la distancia de Mahalanobis que no se puede aplicar con k-medias por lo ya comentado.</p></li>
+</ul>
+<p>Ejemplos de distancias que si pueden aplicarse con k-medias:</p>
+<ul>
+<li><p>Distancia Euclidea.</p></li>
+<li><p>Distancia Minkowski.</p></li>
+<li><p>Distancia Canberra.</p></li>
+<li><p>Distancia coseno.</p></li>
+</ul>
+<p><br></p>
 <p><br></p>
 <div id="k-medias-en-python-con-algoritmo-de-creación-propia" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> k-medias en <code>Python</code> con algoritmo de creación propia <a class="anchor" id="2"></a></h2>
+<p>Cargamos los datos con los que vamos a trabajar:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Data <span class="op">=</span> pd.read_csv(<span class="st">&#39;House_Price_Regression.csv&#39;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Data <span class="op">=</span> Data.loc[:, [<span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;longitude&#39;</span>, <span class="st">&#39;price&#39;</span>, <span class="st">&#39;size_in_m_2&#39;</span>]]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Data.head()</span></code></pre></div>
+<pre><code>    latitude  longitude    price  size_in_m_2
+0  25.113208  55.138932  2700000   100.242337
+1  25.106809  55.151201  2850000   146.972546
+2  25.063302  55.137728  1150000   181.253753
+3  25.227295  55.341761  2850000   187.664060
+4  25.114275  55.139764  1729200    47.101821</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lista_clusters <span class="op">=</span> k_means(k<span class="op">=</span><span class="dv">4</span> , Data<span class="op">=</span>Data, random_seed<span class="op">=</span><span class="dv">123</span>) <span class="co"># Tarda solo 18.8 segundos </span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">0</span>]</span></code></pre></div>
+<pre><code>   latitude  longitude       price  size_in_m_2</code></pre>
+<p>1004 25.087251 55.145574 2990000.0 162.208638
+43 25.091487 55.172015 1150000.0 105.259099
+1214 25.078367 55.140410 1650000.0 166.575079
+351 25.111108 55.137591 1699000.0 124.304214
+182 25.064767 55.138814 875000.0 123.282281
+… … … … …
+1871 25.099380 55.141275 1352888.0 69.212735
+1877 25.072573 55.131009 1499000.0 175.029252
+1879 25.203553 55.345554 890000.0 70.606280
+1883 25.072569 55.126527 1970000.0 81.940446
+1885 25.103972 55.149621 31440000.0 607.771426</p>
+<p>[517 rows x 4 columns]</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>   latitude  longitude      price  size_in_m_2</code></pre>
+<p>1041 25.026191 55.156948 350000.0 35.117334
+1282 25.198796 55.271342 2500000.0 168.804751
+1476 25.081955 55.138863 690000.0 66.332742
+1251 25.077150 55.135515 1550000.0 127.648722
+1091 25.206412 55.275199 3950000.0 243.498763
+… … … … …
+1868 25.207533 55.277978 2300000.0 170.569908
+1889 25.106668 55.149275 1400000.0 108.975219
+1890 25.072954 55.128089 3800000.0 167.875721
+1897 25.153080 55.254242 360000.0 55.741800
+1901 25.166145 55.276684 1230000.0 70.606280</p>
+<p>[378 rows x 4 columns]</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>   latitude  longitude      price  size_in_m_2</code></pre>
+<p>539 25.068729 55.139815 820000.0 59.457920
+730 25.093469 55.173061 1220000.0 119.008743
+1472 25.064191 55.216245 380000.0 63.081137
+849 25.180869 55.271015 700000.0 66.239839
+631 25.048095 55.206373 600205.0 74.786915
+… … … … …
+1573 25.078870 55.148529 1400000.0 157.006070
+1857 25.078148 55.148277 400888.0 37.439909
+1861 25.090987 55.385389 590000.0 101.635882
+1864 25.081241 55.137946 2400000.0 171.127326
+1865 25.209806 55.278974 795000.0 71.442407</p>
+<p>[499 rows x 4 columns]</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>   latitude  longitude      price  size_in_m_2</code></pre>
+<p>393 25.104115 55.148470 3150000.0 152.825435
+397 24.999981 55.293818 930888.0 86.399790
+404 25.233787 55.294217 1642777.0 92.717194
+407 25.233787 55.294217 1550000.0 91.973970
+415 25.076944 55.134135 2950000.0 139.633209
+… … … … …
+1891 25.226946 55.343628 7000000.0 377.929404
+1893 25.073590 55.126352 2000000.0 79.617871
+1894 25.191107 55.269910 980888.0 101.078464
+1898 25.104330 55.148769 2700000.0 99.963628
+1899 25.037477 55.221942 550000.0 78.688841</p>
+<p>[511 rows x 4 columns]</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">0</span>].mean()</span></code></pre></div>
+<p>latitude 2.511612e+01
+longitude 5.521077e+01
+price 2.051995e+06
+size_in_m_2 1.297637e+02
+dtype: float64</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">1</span>].mean()</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">2</span>].mean()</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">3</span>].mean()</span></code></pre></div>
 </div>
 <div id="k-medias-en-python-con-pyclustering" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> k-medias en <code>Python</code> con <code>PyClustering</code></h2>
