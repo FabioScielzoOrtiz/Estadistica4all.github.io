@@ -119,7 +119,7 @@ $1)\hspace{0.1cm}$ Se considera que la variable respuesta $\hspace{0.1cm}\mathca
 
 $2)\hspace{0.1cm}$  Se asignan aleatoriamente las observaciones disponibles $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$ de los predictores a dichas categorias, formandose clusters (o grupos) de observaciones $\hspace{0.1cm} C_1,...,C_k\hspace{0.1cm}$ , de un tamaño similar : $\\[0.4cm]$
 
-$$C_j = ( x_i^t \hspace{0.1cm}/\hspace{0.1cm} i \in I_j \subset \lbrace 1,...,n \rbrace )^t \\$$
+$$C_j = ( x_i^t = (x_{i1}, x_{i2},...,x_{ip}) \hspace{0.1cm}/\hspace{0.1cm} i \in I_j \subset \lbrace 1,...,n \rbrace )^t \\$$
 
 Donde $\hspace{0.1cm}I_j\hspace{0.1cm}$ es el conjunto de indices de las observaciones de los predictores que pertenecen al cluster $\hspace{0.1cm}C_j$. $\hspace{0.08cm}$ Por lo que puede verse como el conjunto de los individuos de la muestra asociados al cluster $\hspace{0.1cm} C_j$
 
