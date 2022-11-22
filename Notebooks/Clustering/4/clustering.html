@@ -2085,7 +2085,10 @@ margin-right: auto;
 <span id="cb4-321"><a href="#cb4-321" aria-hidden="true" tabindex="-1"></a><span class="co"># Clusters finales --&gt; lista_clusters</span></span>
 <span id="cb4-322"><a href="#cb4-322" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-323"><a href="#cb4-323" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(lista_clusters)</span></code></pre></div>
+<p><br></p>
+<p>Probamos el algoritmo con la distancia Euclidea y el <span class="math inline">\(k\)</span> máximo que admite, es decir, <span class="math inline">\(k=4\)</span></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lista_clusters <span class="op">=</span> k_means(k<span class="op">=</span><span class="dv">4</span> , Data<span class="op">=</span>Data, random_seed<span class="op">=</span><span class="dv">123</span>, Distance<span class="op">=</span><span class="st">&#39;Euclidea&#39;</span>) <span class="co"># Tarda solo 18.8 segundos </span></span></code></pre></div>
+<p><br></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">0</span>]</span></code></pre></div>
 <pre><code>       latitude  longitude       price  size_in_m_2
 1004  25.087251  55.145574   2990000.0   162.208638
@@ -2101,6 +2104,7 @@ margin-right: auto;
 1885  25.103972  55.149621  31440000.0   607.771426
 
 [517 rows x 4 columns]</code></pre>
+<p><br></p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">1</span>]</span></code></pre></div>
 <pre><code>       latitude  longitude      price  size_in_m_2
 1041  25.026191  55.156948   350000.0    35.117334
@@ -2116,6 +2120,7 @@ margin-right: auto;
 1901  25.166145  55.276684  1230000.0    70.606280
 
 [378 rows x 4 columns]</code></pre>
+<p><br></p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>       latitude  longitude      price  size_in_m_2
 539   25.068729  55.139815   820000.0    59.457920
@@ -2131,6 +2136,7 @@ margin-right: auto;
 1865  25.209806  55.278974   795000.0    71.442407
 
 [499 rows x 4 columns]</code></pre>
+<p><br></p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>       latitude  longitude      price  size_in_m_2
 393   25.104115  55.148470  3150000.0   152.825435
@@ -2146,6 +2152,7 @@ margin-right: auto;
 1899  25.037477  55.221942   550000.0    78.688841
 
 [511 rows x 4 columns]</code></pre>
+<p><br></p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">0</span>].mean()</span></code></pre></div>
 <pre><code>latitude       2.511612e+01
 longitude      5.521077e+01
@@ -2646,6 +2653,7 @@ Uno mismo puede comprobar que la ejecución de este codigo lleva demasiado tiemp
  Int64Index([67], dtype=&#39;int64&#39;),
  Int64Index([1775], dtype=&#39;int64&#39;),
  Int64Index([198], dtype=&#39;int64&#39;)]</code></pre>
+<p><br></p>
 <p>Por tanto, el medoid del cluster <span class="math inline">\(C_1\)</span> es la observacion de <span class="math inline">\(x_{1002}\)</span>, el del cluster <span class="math inline">\(C_2\)</span> es la observacion <span class="math inline">\(x_{67}\)</span>, el del <span class="math inline">\(C_3\)</span> es <span class="math inline">\(x_{1775}\)</span> y el del <span class="math inline">\(C_4\)</span> es <span class="math inline">\(x_{198}\)</span></p>
 <p><br></p>
 <p>El código anterior, con el que se caluclan los medoids de la configuracion inicial de clusters tardón en ejecutarse 7.38 minutos.</p>

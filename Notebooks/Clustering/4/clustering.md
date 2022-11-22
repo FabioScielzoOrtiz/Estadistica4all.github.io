@@ -15,6 +15,7 @@ css: custom.css
 ---
 
 
+
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -642,11 +643,15 @@ def k_means(k , Data, random_seed, Distance, q=1):  # Por ahora el k máximo ace
     return(lista_clusters)
 ```
 
+<br>
 
+Probamos el algoritmo con la distancia Euclidea y el $k$ máximo que admite, es decir, $k=4$
 
 ```python
 lista_clusters = k_means(k=4 , Data=Data, random_seed=123, Distance='Euclidea') # Tarda solo 18.8 segundos 
 ```
+
+<br>
 
 
 ```python
@@ -671,7 +676,7 @@ lista_clusters[0]
 
 
 
-
+<br>
 
 ```python
 lista_clusters[1]
@@ -693,6 +698,7 @@ lista_clusters[1]
 [378 rows x 4 columns]
 ```
 
+<br>
 
 ```python
 lista_clusters[2]
@@ -714,6 +720,8 @@ lista_clusters[2]
 [499 rows x 4 columns]
 ```
 
+<br>
+
 ```python
 lista_clusters[3]
 ```
@@ -734,6 +742,7 @@ lista_clusters[3]
 [511 rows x 4 columns]
 ```
 
+<br>
 
 ```python
 lista_clusters[0].mean()
@@ -1463,6 +1472,7 @@ medoids
  Int64Index([1775], dtype='int64'),
  Int64Index([198], dtype='int64')]
 ```
+<br>
 
 Por tanto, el medoid del cluster $C_1$ es la observacion de  $x_{1002}$, el del cluster $C_2$ es la observacion $x_{67}$, el del $C_3$ es $x_{1775}$ y el del $C_4$ es $x_{198}$
 
@@ -1486,8 +1496,9 @@ Como se dijo antes, hay que notar que en el algoritmo completo el calculo de los
 
 
 
-<br>
 
+
+<br>
 
 <br>
 
