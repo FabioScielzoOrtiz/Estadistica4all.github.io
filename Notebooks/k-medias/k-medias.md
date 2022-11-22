@@ -903,6 +903,8 @@ lista_clusters[3]
 
 <br>
 
+Probamos el algoritmo con otra distancia:
+
 ```python
 lista_clusters = k_means(k=4 , Data=Data, random_seed=123, Distance='Canberra')
 ```
