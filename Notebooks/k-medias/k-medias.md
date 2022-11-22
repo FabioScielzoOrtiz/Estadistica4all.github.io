@@ -230,7 +230,7 @@ Hay distancias que no se pueden aplicar en esta contexto, como por ejemplo:
 
 
 
-Ejemplos de distancias que si pueden aplicarse con k-medias, ya que estan definidas para pares de vectores numericos (no necesariamente observaciones de variables estadisticas, son los siguientes:
+Ejemplos de distancias que si pueden aplicarse con k-medias, ya que estan definidas para pares de vectores numéricos (no necesariamente observaciones de variables estadisticas, son los siguientes:
 
 - Distancia Euclidea.  $\\[0.4cm]$
 
@@ -279,6 +279,14 @@ Donde:
 
 <br>
 
+## Interpretación de los clusters en k-medias
+
+
+
+
+
+<br>
+
 ## k-medias en `Python` con algoritmo de creación propia  <a class="anchor" id="2"></a>
 
 
@@ -309,22 +317,342 @@ Data.head()
 
 
 ```python
+def k_means(k , Data, random_seed, Distance, q=1):  # Por ahora el k máximo aceptado es k=4
+
+#########################################################################################
+
+# Librerias necesarias
+
+    from sklearn.utils import resample
+
+    import numpy as np
+
+    import pandas as pd
+
+    import math
+
+#########################################################################################
+
+    # Definición de las distancias:
 
 
+    ## Distancia Euclidea:
 
+    def Dist_Euclidea(x_i, x_r):
+
+        Dist_Euclidea = ( ( x_i - x_r )**2 ).sum()
+
+        Dist_Euclidea = np.sqrt(Dist_Euclidea)
+
+        return Dist_Euclidea
+
+
+    ## Distancia Minkowski:
+
+    def Dist_Minkowski(x_i, x_r, q):
+
+        Dist_Minkowski = ( ( ( abs( x_i - x_r) )**q ).sum() )**(1/q)
+
+        return Dist_Minkowski
+
+
+    ## Distancia Canberra:
+
+    def Dist_Canberra(x_i, x_r):
+
+        numerator =  abs( x_i - x_r )
+
+        denominator =  ( abs(x_i) + abs(x_r) )
+       
+        numerator=np.array([numerator], dtype=float)
+
+        denominator=np.array([denominator], dtype=float)
+
+        # The following code is to eliminate zero division problems
+
+        Dist_Canberra = ( np.divide( numerator , denominator , out=np.zeros_like(numerator), where=denominator!=0) ).sum() 
+
+        return Dist_Canberra
+
+   
+
+#########################################################################################
+
+
+    #Configuracion inicial aleatoria de los clusters:
+
+    n=len(Data)
+
+
+    elementos_clusterizados = []
+
+    m = resample(range(0, n), n_samples=math.floor(n/k) , replace=False, random_state=random_seed)
+
+    Cluster_0 = Data.loc[m,:]
+
+    elementos_clusterizados.append(m)
+
+
+##############################
+
+
+    if k >= 2:
+
+
+        # Si los elementos que quedan por clusterizar menos el tamaño de los clusters es menor que el propio tamaño de los clusters,
+        #  se meten todos los elementos que quedan por clusterizar en un mimsmo cluster que será ademas el ultimo.
+
+        if len(np.delete(range(0,n), elementos_clusterizados)) - n/k  < n/k : 
+
+            Cluster_1 = Data.loc[np.delete(range(0,n), elementos_clusterizados),:]
+
+            elementos_clusterizados.append(m)
+
+        else:
+
+            m = resample(np.delete(range(0,n), elementos_clusterizados), n_samples=math.floor(n/k) , replace=False, random_state=random_seed)
+
+            Cluster_1 = Data.loc[m,:]
+
+            elementos_clusterizados.append(m)
+
+    elif k < 2 :
+
+        pass
+
+###############################
+
+    if k >= 3:
+
+# Si los elementos que quedan por clusterizar menos el tamaño de los clusters es menor que el propio tamaño de los clusters,
+#  se meten todos los elementos que quedan por clusterizar en un mimsmo cluster que será ademas el ultimo.
+
+
+        if len(np.delete(range(0,n), elementos_clusterizados)) - n/k  < n/k : 
+
+            Cluster_2 = Data.loc[np.delete(range(0,n), elementos_clusterizados),:]
+
+            elementos_clusterizados.append(m)
+
+        else:
+
+            m = resample(np.delete(range(0,n), elementos_clusterizados), n_samples=math.floor(n/k) , replace=False, random_state=random_seed)
+
+            Cluster_2 = Data.loc[m,:]
+
+            elementos_clusterizados.append(m)
+
+    elif k < 3 :
+
+        pass
+
+###############################
+
+    if k >= 4:
+
+# Si los elementos que quedan por clusterizar menos el tamaño de los clusters es menor que el propio tamaño de los clusters,
+#  se meten todos los elementos que quedan por clusterizar en un mimsmo cluster que será ademas el ultimo.
+
+
+        if len(np.delete(range(0,n), elementos_clusterizados)) - n/k  < n/k : 
+
+            Cluster_3 = Data.loc[np.delete(range(0,n), elementos_clusterizados),:]
+
+            elementos_clusterizados.append(m)
+
+        else:
+
+            m = resample(np.delete(range(0,n), elementos_clusterizados), n_samples=math.floor(n/k) , replace=False, random_state=random_seed)
+
+            Cluster_3 = Data.loc[m ,:]
+
+            elementos_clusterizados.append(m)
+
+    elif k < 4 :
+
+          pass
+
+
+#########################################################################################
+
+
+    lista_clusters = [None] * 4
+
+    lista_clusters[0] = Cluster_0
+    lista_clusters[1] = Cluster_1
+    lista_clusters[2] = Cluster_2
+    lista_clusters[3] = Cluster_3
+
+   # Calculo de centroides iniciales
+
+    centroide_0 = lista_clusters[0].mean()
+    centroide_1 = lista_clusters[1].mean()
+    centroide_2 = lista_clusters[2].mean()
+    centroide_3 = lista_clusters[3].mean()
+
+   # Calculo de distancias para la observacion x_1
+
+    x_1 = Data.iloc[0,:]
+
+    if Distance == 'Euclidea' :
+
+        distancia_0 = Dist_Euclidea(x_1 , centroide_0) 
+        distancia_1 = Dist_Euclidea(x_1 , centroide_1) 
+        distancia_2 = Dist_Euclidea(x_1 , centroide_2) 
+        distancia_3 = Dist_Euclidea(x_1 , centroide_3)
+
+    if Distance == 'Minkowski' :
+
+        distancia_0 = Dist_Minkowski(x_1 , centroide_0, q)
+        distancia_1 = Dist_Minkowski(x_1 , centroide_1, q) 
+        distancia_2 = Dist_Minkowski(x_1 , centroide_2, q) 
+        distancia_3 = Dist_Minkowski(x_1 , centroide_3, q)        
+
+    if Distance == 'Canberra' :
+
+        distancia_0 = Dist_Canberra(x_1 , centroide_0)
+        distancia_1 = Dist_Canberra(x_1 , centroide_1) 
+        distancia_2 = Dist_Canberra(x_1 , centroide_2) 
+        distancia_3 = Dist_Canberra(x_1 , centroide_3)      
+
+    # Calculo de cluster optimo para x_1
+
+    df_distancias = pd.DataFrame({'Distancias' : [distancia_0, distancia_1 , distancia_2 , distancia_3], 'Cluster': [0,1,2,3]})
+
+    df_distancias_sort = df_distancias.sort_values(by='Distancias', ascending=False)
+
+    j_star = df_distancias_sort.iloc[0]['Cluster']
+
+    j_star = int(j_star)
+
+
+#########################################################################################
+
+    i = 1
+
+    while i <= n-2 :
+
+        for j in range(0, k) :
+
+
+           # Si x_i no esta en el cluster j --> pasamos a analizar otro cluster j
+
+            if sum(lista_clusters[j].index == i-1) ==  0 :
+
+                    pass
+
+
+        # Si x_i esta en el cluster j y es el cluster optimo de x_i --> pasamos a x_i+1
+
+            if ( sum(lista_clusters[j].index == i-1) != 0 )  & ( j_star == j ) :
+
+            # Actualizamos i a i+1
+
+                i = i + 1
+
+
+            # calculamos las distancias entre x_i+1 y los centroides
+
+                x_i = Data.iloc[ i ,:] # x_{i+1}
+
+                if Distance == 'Euclidea' :
+
+                    distancia_0 = Dist_Euclidea(x_i , centroide_0) 
+                    distancia_1 = Dist_Euclidea(x_i , centroide_1) 
+                    distancia_2 = Dist_Euclidea(x_i , centroide_2) 
+                    distancia_3 = Dist_Euclidea(x_i , centroide_3)
+
+                if Distance == 'Minkowski' :
+
+                    distancia_0 = Dist_Minkowski(x_i , centroide_0, q)
+                    distancia_1 = Dist_Minkowski(x_1 , centroide_1, q) 
+                    distancia_2 = Dist_Minkowski(x_1 , centroide_2, q) 
+                    distancia_3 = Dist_Minkowski(x_1 , centroide_3, q)        
+
+                if Distance == 'Canberra' :
+
+                    distancia_0 = Dist_Canberra(x_i , centroide_0)
+                    distancia_1 = Dist_Canberra(x_i , centroide_1) 
+                    distancia_2 = Dist_Canberra(x_i , centroide_2) 
+                    distancia_3 = Dist_Canberra(x_i , centroide_3)     
+
+
+               # Calculo de cluster optimo para x_1
+
+                df_distancias = pd.DataFrame({'Distancias' : [distancia_0 , distancia_1 , distancia_2, distancia_3], 'Cluster': [0,1,2,3]})
+
+                df_distancias_sort = df_distancias.sort_values(by='Distancias', ascending=False)
+
+                j_star = df_distancias_sort.iloc[0]['Cluster']
+
+                j_star = int(j_star)
+
+
+        # Si x_i esta en el cluster j pero ese no es el cluster optimo de x_i 
+
+            if ( sum(lista_clusters[j].index == i-1) != 0 )  & ( j_star != j ) : 
+
+               ## Actualizamos los clusters:
+
+               # Añadimos x_i al cluster j_star :
+
+                lista_clusters[j_star] = pd.concat( [ lista_clusters[j_star] , lista_clusters[j].loc[i-1,:].to_frame().T ]  )  
+
+            
+               # Eliminamos x_1 del cluster j :
+
+                lista_clusters[j] = lista_clusters[j].drop(i-1)   
+
+
+              # Recalculo de centroides para la nueva configuracion de clusters
+
+                centroide_0 = lista_clusters[0].mean()
+                centroide_1 = lista_clusters[1].mean()
+                centroide_2 = lista_clusters[2].mean()
+                centroide_3 = lista_clusters[3].mean()
+
+              # Recalculo de distancias de x_i respecto los centroides:
+
+                x_i = Data.iloc[ i ,:] # x_i
+
+                if Distance == 'Euclidea' :
+
+                    distancia_0 = Dist_Euclidea(x_i , centroide_0) 
+                    distancia_1 = Dist_Euclidea(x_i , centroide_1) 
+                    distancia_2 = Dist_Euclidea(x_i , centroide_2) 
+                    distancia_3 = Dist_Euclidea(x_i , centroide_3)
+
+                if Distance == 'Minkowski' :
+
+                    distancia_0 = Dist_Minkowski(x_i , centroide_0, q)
+                    distancia_1 = Dist_Minkowski(x_i , centroide_1, q) 
+                    distancia_2 = Dist_Minkowski(x_i , centroide_2, q) 
+                    distancia_3 = Dist_Minkowski(x_i , centroide_3, q)        
+
+                if Distance == 'Canberra' :
+
+                    distancia_0 = Dist_Canberra(x_i , centroide_0)
+                    distancia_1 = Dist_Canberra(x_i , centroide_1) 
+                    distancia_2 = Dist_Canberra(x_i , centroide_2) 
+                    distancia_3 = Dist_Canberra(x_i , centroide_3)    
+
+
+# Clusters finales --> lista_clusters
+
+    return(lista_clusters)
 ```
 
 
 
 ```python
-lista_clusters = k_means(k=4 , Data=Data, random_seed=123) # Tarda solo 18.8 segundos 
+lista_clusters = k_means(k=4 , Data=Data, random_seed=123, Distance='Euclidea') # Tarda solo 18.8 segundos 
 ```
 
 
 ```python
 lista_clusters[0]
 ```
-
+```
        latitude  longitude       price  size_in_m_2
 1004  25.087251  55.145574   2990000.0   162.208638
 43    25.091487  55.172015   1150000.0   105.259099
@@ -339,6 +667,7 @@ lista_clusters[0]
 1885  25.103972  55.149621  31440000.0   607.771426
 
 [517 rows x 4 columns]
+```
 
 
 
@@ -346,6 +675,7 @@ lista_clusters[0]
 
 ```python
 lista_clusters[1]
+```
 ```
        latitude  longitude      price  size_in_m_2
 1041  25.026191  55.156948   350000.0    35.117334
@@ -361,12 +691,13 @@ lista_clusters[1]
 1901  25.166145  55.276684  1230000.0    70.606280
 
 [378 rows x 4 columns]
+```
 
 
 ```python
 lista_clusters[2]
 ```
-
+```
        latitude  longitude      price  size_in_m_2
 539   25.068729  55.139815   820000.0    59.457920
 730   25.093469  55.173061  1220000.0   119.008743
@@ -381,11 +712,12 @@ lista_clusters[2]
 1865  25.209806  55.278974   795000.0    71.442407
 
 [499 rows x 4 columns]
+```
 
 ```python
 lista_clusters[3]
 ```
-
+```
        latitude  longitude      price  size_in_m_2
 393   25.104115  55.148470  3150000.0   152.825435
 397   24.999981  55.293818   930888.0    86.399790
@@ -400,33 +732,284 @@ lista_clusters[3]
 1899  25.037477  55.221942   550000.0    78.688841
 
 [511 rows x 4 columns]
+```
 
 
 ```python
 lista_clusters[0].mean()
 ```
+```
 latitude       2.511612e+01
 longitude      5.521077e+01
 price          2.051995e+06
 size_in_m_2    1.297637e+02
+
 dtype: float64
+```
 
 ```python
 lista_clusters[1].mean()
 ```
+```
+latitude       2.511925e+01
+longitude      5.521314e+01
+price          1.967974e+06
+size_in_m_2    1.280963e+02
 
+dtype: float64
+```
 
 ```python
 lista_clusters[2].mean()
 ```
+```
+latitude       2.511636e+01
+longitude      5.521152e+01
+price          2.114565e+06
+size_in_m_2    1.346380e+02
 
+dtype: float64
+```
 
 ```python
 lista_clusters[3].mean()
 ```
+```
+latitude       2.511513e+01
+longitude      5.521413e+01
+price          2.179182e+06
+size_in_m_2    1.332627e+02
 
+dtype: float64
+```
+
+
+<br>
+
+Probamos el algoritmo usando otras medidas de distancia:
+
+```python
+lista_clusters = k_means(k=4 , Data=Data, random_seed=123, Distance='Minkowski', q=1)
+```
+
+```python
+lista_clusters[0]
+```
+
+```
+       latitude  longitude       price  size_in_m_2
+382   25.196489  55.272126  15800000.0   488.019459
+732   25.107984  55.244923   1700000.0   138.704179
+1004  25.087251  55.145574   2990000.0   162.208638
+1362  25.048660  55.209550    759000.0    83.148185
+939   25.079900  55.131931   3615000.0   140.748045
+...         ...        ...         ...          ...
+1898  25.104330  55.148769   2700000.0    99.963628
+1900  25.176892  55.310712   1500000.0   100.985561
+1901  25.166145  55.276684   1230000.0    70.606280
+1902  25.206500  55.345056   2900000.0   179.302790
+1903  25.073858  55.229844    675000.0    68.748220
+
+[1232 rows x 4 columns]
+```
+
+
+```python
+lista_clusters[1]
+```
+
+```
+       latitude  longitude      price  size_in_m_2
+1041  25.026191  55.156948   350000.0    35.117334
+1810  25.094635  55.171817  1600000.0   166.946691
+1466  25.183133  55.256580  1698000.0   140.469336
+1476  25.081955  55.138863   690000.0    66.332742
+1746  25.086376  55.147360  1300000.0    76.366266
+...         ...        ...        ...          ...
+1888  25.071504  55.128579  1300000.0   171.220229
+1892  24.865992  55.137958  1175000.0   301.656041
+1894  25.191107  55.269910   980888.0   101.078464
+1897  25.153080  55.254242   360000.0    55.741800
+1899  25.037477  55.221942   550000.0    78.688841
+
+[473 rows x 4 columns]
+```
+
+```python
+lista_clusters[2]
+```
+```
+      latitude  longitude      price  size_in_m_2
+291  25.193703  55.271223  2700000.0   120.773900
+323  25.137198  55.189006  2008000.0   125.233244
+8    25.106668  55.149275  2100000.0   203.085958
+102  25.195461  55.269463  1900000.0   133.594514
+107  25.081622  55.141977  1845000.0   125.047438
+..         ...        ...        ...          ...
+437  25.066791  55.203684   424340.0    35.767655
+439  25.115747  55.142615  3175000.0   211.911743
+440  25.086726  55.145205  1500000.0   141.677075
+444  25.181311  55.262507   900000.0    96.247508
+453  25.070010  55.245729   778000.0    67.819190
+
+[161 rows x 4 columns]
+```
+
+```python
+lista_clusters[3]
+```
+```
+      latitude  longitude       price  size_in_m_2
+477  25.176670  55.272389    490000.0    52.304389
+481  25.065886  55.138246   1700000.0   185.062776
+484  25.082397  55.140660   1150000.0   129.692588
+495  25.083330  55.144753   1575000.0   106.838450
+502  25.090200  55.175145    750000.0    70.420474
+507  25.193310  55.280919   2350000.0   172.613774
+518  25.202977  55.280662   1430000.0    67.168869
+527  25.184873  55.292277   1976504.0   108.231995
+536  25.086886  55.173227   1999999.0   154.218980
+551  25.189195  55.274878   1500000.0   121.981639
+466  25.171461  55.275800   1246305.0    72.464340
+469  25.109367  55.247980   1400000.0   126.162274
+480  25.005442  55.293914   1400000.0   134.709350
+494  25.195236  55.268641   3600000.0   239.968449
+497  25.109367  55.247980    900000.0    92.903000
+504  25.145181  55.288017   1400000.0   142.513202
+505  25.240419  55.252770   1780000.0   111.483600
+506  25.111902  55.138103   1754888.0   105.073293
+519  25.088728  55.173310   1550000.0   131.736454
+522  25.106668  55.149275   1150000.0   109.997152
+524  25.109367  55.247980   1290000.0   126.533886
+525  25.191680  55.280175   1700000.0    86.771402
+526  25.089833  55.150625   2349000.0   276.758037
+529  25.186573  55.282071    610000.0    44.314731
+535  25.116492  55.141387   3450000.0   209.960780
+539  25.068729  55.139815    820000.0    59.457920
+542  25.091259  55.168657    950000.0    80.175289
+544  25.215192  55.235827   7600000.0   194.445979
+545  25.207533  55.277978   1500000.0    89.930104
+550  25.221028  55.361808   3250000.0   378.208113
+552  25.132519  55.151574   1950000.0    96.619120
+553  25.072954  55.128089   2300000.0   158.306712
+559  25.082004  55.142441   1400000.0   120.959706
+563  25.089719  55.170481    850000.0    68.097899
+565  24.948068  55.069311    550000.0    90.115910
+569  25.077009  55.146035    699999.0    86.306887
+571  25.092430  55.172975    900000.0   101.542979
+574  25.049301  55.198896    350000.0    40.598611
+576  25.103550  55.168509  34314000.0   889.639128
+```
+
+<br>
+
+```python
+lista_clusters = k_means(k=4 , Data=Data, random_seed=123, Distance='Canberra')
+```
+
+
+```python
+lista_clusters[0]
+```
+
+```
+       latitude  longitude       price  size_in_m_2
+1004  25.087251  55.145574   2990000.0   162.208638
+43    25.091487  55.172015   1150000.0   105.259099
+1214  25.078367  55.140410   1650000.0   166.575079
+182   25.064767  55.138814    875000.0   123.282281
+1846  25.195236  55.268641   3200000.0   158.771227
+...         ...        ...         ...          ...
+1883  25.072569  55.126527   1970000.0    81.940446
+1885  25.103972  55.149621  31440000.0   607.771426
+1889  25.106668  55.149275   1400000.0   108.975219
+1890  25.072954  55.128089   3800000.0   167.875721
+1895  25.081243  55.145120   1350000.0   146.600934
+
+[484 rows x 4 columns]
+```
+
+```python
+lista_clusters[1]
+```
+
+```
+       latitude  longitude      price  size_in_m_2
+1041  25.026191  55.156948   350000.0    35.117334
+1700  25.004936  55.296535  1088888.0   126.812595
+1810  25.094635  55.171817  1600000.0   166.946691
+1746  25.086376  55.147360  1300000.0    76.366266
+1589  25.186038  55.291750  1349888.0    98.012665
+...         ...        ...        ...          ...
+1898  25.104330  55.148769  2700000.0    99.963628
+1899  25.037477  55.221942   550000.0    78.688841
+1900  25.176892  55.310712  1500000.0   100.985561
+1902  25.206500  55.345056  2900000.0   179.302790
+1903  25.073858  55.229844   675000.0    68.748220
+
+[549 rows x 4 columns]
+```
+
+
+
+```python
+lista_clusters[2]
+```
+```
+       latitude  longitude      price  size_in_m_2
+539   25.068729  55.139815   820000.0    59.457920
+1070  25.233787  55.294217  1359000.0    91.973970
+730   25.093469  55.173061  1220000.0   119.008743
+786   25.086376  55.147360  2587000.0   112.505533
+1472  25.064191  55.216245   380000.0    63.081137
+...         ...        ...        ...          ...
+1827  25.050227  55.213350   699505.0    78.038520
+1828  25.137409  55.188957  2121000.0   128.020334
+1831  25.073151  55.136982   950000.0    78.131423
+1849  25.071246  55.140806   499000.0    62.430816
+1897  25.153080  55.254242   360000.0    55.741800
+
+[579 rows x 4 columns]
+```
+
+```python
+lista_clusters[3]
+```
+```
+       latitude  longitude      price  size_in_m_2
+337   25.273623  55.283576  1500888.0   192.309210
+348   25.192522  55.266317   799900.0    91.881067
+393   25.104115  55.148470  3150000.0   152.825435
+397   24.999981  55.293818   930888.0    86.399790
+415   25.076944  55.134135  2950000.0   139.633209
+...         ...        ...        ...          ...
+1852  25.069265  55.128568   700000.0    54.905673
+1856  25.071436  55.136065  1500000.0   224.082036
+1858  25.078148  55.148277   760888.0    83.984312
+1861  25.090987  55.385389   590000.0   101.635882
+1901  25.166145  55.276684  1230000.0    70.606280
+
+[293 rows x 4 columns]
+```
+
+
+
+
+
+<br>
+
+<br>
 
 ## k-medias en `Python` con `sklearn`
+
+
+
+
+
+
+
+
+
 
 
 
@@ -542,13 +1125,72 @@ Una tarea posterior es la interpretar la categoria $\hspace{0.1cm}g_j\hspace{0.1
 
 <br>
 
-
+---
 
 
 **Observación: los predictores en k-medoids pueden ser tanto cuantitativos como caategoricos**
 
 
 ¿Por qué?  $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ Por como se definen los medoids, si se usa una medida de distancia adecuada para conjuntos de predictores de tipo mixto, el k-medoids puede aplicarse a ese tipo de variables y la media solo deberia aplicarse a predictores que sean tanto cuantitativos como categoricos.
+
+
+<br>
+
+**¿Qué medidas de distancias pueden usarse en k-medoids ?**
+
+En k-medoids hay que calcular la distancia entre las observaciones de  predictores $x_i$ y el resto de observaciones de cierto cluster, que son un vector observaciones de variables estadisticas. Por tanto toda medida de distancia definida para vectores de observaciones de variables estadisticas (o para vectores numericos en general) podrá usarse en k-medoids.
+
+Esto es una gran ventaja respecto de k-medias, ya que las distancias que no podian usarse en k-medias si podrán usarse en k-medoids.
+
+Hay distancias que no se pueden aplicar en esta contexto, como por ejemplo: 
+
+- La distancias de Pearson y Mahalanobis, puesto que solo esta definida para pares de vectores de observaciones de variables estadisticas,  luego no puede aplicarse a ellos las distancias de Pearson y Mahalanobis.$\\[0.5cm]$
+
+- Las distancias de Sokal y Jaccard, por ser distancias definidas para vectores numericos binarios (de ceros y unos), y al ser k-medias solo aplicable a variables cuantitativas, los vectores de observaciones no sera binarios ni tampoco los centroides, luego no puede aplicarse a ellos las distancias de Sokal y Jaccard. $\\[0.5cm]$
+
+- La distancia de coincidencias, por ser definida para vectores numericos multi-clase , y al ser k-medias solo aplicable a variables cuantitativas, los vectores de observaciones no serán multi-clase y los centroides tampoco, luego no puede aplicarse a ellos la distancia de coincidencias. $\\[0.5cm]$
+
+- La distancia de Gower y Gower-Mahalanobis, al ser distancias definida sobre pares de vectores de tipo mixto (componentes cuantitativas, pero tambien binarias y multi-clase), y como el k-medias solo esta definido para variables cuantitativas, los vectores de observaciones no serán de tipo mixto, y los centroides tampoco, luego no puede aplicarse a ellos la distancia de Gower, ni la de Gower-Mahalanobis, la cual además involucra a la distancia de Mahalanobis que no se puede aplicar con k-medias por lo ya comentado.  $\\[0.5cm]$
+
+
+
+Ejemplos de distancias que   pueden aplicarse con k-medoids son:
+
+- Distancia Euclidea.  $\\[0.4cm]$
+
+- Distancia Minkowski.  $\\[0.4cm]$
+ 
+- Distancia de Canberra.  $\\[0.4cm]$
+
+- Distancia Coseno. $\\[0.4cm]$
+
+- Distancia de Mahalanobis. $\\[0.4cm]$
+
+
+- Distancia de Pearson. $\\[0.4cm]$
+
+
+- Distancia de Sokal. $\\[0.4cm]$
+
+
+- Distancia de Jaccard. $\\[0.4cm]$
+
+
+- Distancia por coincidencias. $\\[0.4cm]$
+
+
+- Distancia de Gower. $\\[0.4cm]$
+
+- Distancia de Gower-Mahalanobis. 
+
+
+<br>
+
+## Interpretación de los clusters en k-medoids
+
+
+
+
 
 
 <br>
@@ -686,9 +1328,9 @@ Notese que la metrica Silhouette depende del modelo entrenado, al depender de lo
 
 <br>
 
-# Ajuste del hiper-parámetro k 
+# Ajuste del hiper-parámetro k mediante Silhouette
 
-A continuación vamos a exponer un método para seleccionar el hiper-parametro k de un modelo de clustering como k-medias o k-medoids.
+A continuación vamos a exponer un método para seleccionar el hiper-parametro k de un modelo de clustering como k-medias o k-medoids basado en la metrica Silhouette.
 
 
 Dado un modelo de clustering $M$ , como podría ser el k-medias o k-medoids.
@@ -720,7 +1362,7 @@ $$\text{Si} \hspace{0.4cm} \overline{\mathcal{S}}\left(\widehat{M}(k=k_j)\right)
 <br>
 
 
-# Selección de modelos de clasificación no supervisada
+# Selección de modelos de clasificación no supervisada mediante Silhouette
 
 
 Vamos a exponer un método de selección de modelos de clustering basado en la métrica Silhouette.
@@ -738,6 +1380,7 @@ $$j\hspace{0.08cm}^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.2cm} \underse
 
 <br>
 
+<br>
 
 # Clustering y PCA
 
@@ -748,7 +1391,9 @@ $$j\hspace{0.08cm}^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.2cm} \underse
 
 
 
-<br
+<br>
+
+<br>
 
 
 # Clustering y MDS
@@ -762,6 +1407,7 @@ $$j\hspace{0.08cm}^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.2cm} \underse
 
 
 
+<br>
 
 <br>
 

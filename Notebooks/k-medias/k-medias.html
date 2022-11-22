@@ -1579,13 +1579,15 @@ margin-left: 0 !important;
       <li><a href="#k-medias" id="toc-k-medias"><span class="toc-section-number">2</span> k-medias</a>
       <ul>
       <li><a href="#varianzas-intra-cluster" id="toc-varianzas-intra-cluster"><span class="toc-section-number">2.1</span> Varianzas intra-cluster</a></li>
-      <li><a href="#k-medias-en-python-con-algoritmo-de-creación-propia" id="toc-k-medias-en-python-con-algoritmo-de-creación-propia"><span class="toc-section-number">2.2</span> k-medias en <code>Python</code> con algoritmo de creación propia <a class="anchor" id="2"></a></a></li>
-      <li><a href="#k-medias-en-python-con-sklearn" id="toc-k-medias-en-python-con-sklearn"><span class="toc-section-number">2.3</span> k-medias en <code>Python</code> con <code>sklearn</code></a></li>
+      <li><a href="#interpretación-de-los-clusters-en-k-medias" id="toc-interpretación-de-los-clusters-en-k-medias"><span class="toc-section-number">2.2</span> Interpretación de los clusters en k-medias</a></li>
+      <li><a href="#k-medias-en-python-con-algoritmo-de-creación-propia" id="toc-k-medias-en-python-con-algoritmo-de-creación-propia"><span class="toc-section-number">2.3</span> k-medias en <code>Python</code> con algoritmo de creación propia <a class="anchor" id="2"></a></a></li>
+      <li><a href="#k-medias-en-python-con-sklearn" id="toc-k-medias-en-python-con-sklearn"><span class="toc-section-number">2.4</span> k-medias en <code>Python</code> con <code>sklearn</code></a></li>
       </ul></li>
       <li><a href="#k-medoids" id="toc-k-medoids"><span class="toc-section-number">3</span> k-medoids</a>
       <ul>
-      <li><a href="#k-medoids-en-python-con-algoritmo-de-creación-propia" id="toc-k-medoids-en-python-con-algoritmo-de-creación-propia"><span class="toc-section-number">3.1</span> k-medoids en <code>Python</code> con algoritmo de creación propia</a></li>
-      <li><a href="#k-medoids-en-python-con-kmedoids" id="toc-k-medoids-en-python-con-kmedoids"><span class="toc-section-number">3.2</span> k-medoids en <code>Python</code> con <code>kmedoids</code></a></li>
+      <li><a href="#interpretación-de-los-clusters-en-k-medoids" id="toc-interpretación-de-los-clusters-en-k-medoids"><span class="toc-section-number">3.1</span> Interpretación de los clusters en k-medoids</a></li>
+      <li><a href="#k-medoids-en-python-con-algoritmo-de-creación-propia" id="toc-k-medoids-en-python-con-algoritmo-de-creación-propia"><span class="toc-section-number">3.2</span> k-medoids en <code>Python</code> con algoritmo de creación propia</a></li>
+      <li><a href="#k-medoids-en-python-con-kmedoids" id="toc-k-medoids-en-python-con-kmedoids"><span class="toc-section-number">3.3</span> k-medoids en <code>Python</code> con <code>kmedoids</code></a></li>
       </ul></li>
       <li><a href="#método-de-evaluación-de-modelos-de-clasificación-no-supervisada" id="toc-método-de-evaluación-de-modelos-de-clasificación-no-supervisada"><span class="toc-section-number">4</span> Método de evaluación de modelos de clasificación no supervisada</a>
       <ul>
@@ -1719,7 +1721,7 @@ margin-right: auto;
 <li><p>La distancia de coincidencias, por ser definida para vectores numericos multi-clase , y al ser k-medias solo aplicable a variables cuantitativas, los vectores de observaciones no serán multi-clase y los centroides tampoco, luego no puede aplicarse a ellos la distancia de coincidencias. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 <li><p>La distancia de Gower y Gower-Mahalanobis, al ser distancias definida sobre pares de vectores de tipo mixto (componentes cuantitativas, pero tambien binarias y multi-clase), y como el k-medias solo esta definido para variables cuantitativas, los vectores de observaciones no serán de tipo mixto, y los centroides tampoco, luego no puede aplicarse a ellos la distancia de Gower, ni la de Gower-Mahalanobis, la cual además involucra a la distancia de Mahalanobis que no se puede aplicar con k-medias por lo ya comentado. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 </ul>
-<p>Ejemplos de distancias que si pueden aplicarse con k-medias, ya que estan definidas para pares de vectores numericos (no necesariamente observaciones de variables estadisticas, son los siguientes:</p>
+<p>Ejemplos de distancias que si pueden aplicarse con k-medias, ya que estan definidas para pares de vectores numéricos (no necesariamente observaciones de variables estadisticas, son los siguientes:</p>
 <ul>
 <li><p>Distancia Euclidea. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
 <li><p>Distancia Minkowski. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
@@ -1741,8 +1743,12 @@ margin-right: auto;
 </ul>
 <p><br></p>
 </div>
-<div id="k-medias-en-python-con-algoritmo-de-creación-propia" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> k-medias en <code>Python</code> con algoritmo de creación propia <a class="anchor" id="2"></a></h2>
+<div id="interpretación-de-los-clusters-en-k-medias" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Interpretación de los clusters en k-medias</h2>
+<p><br></p>
+</div>
+<div id="k-medias-en-python-con-algoritmo-de-creación-propia" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> k-medias en <code>Python</code> con algoritmo de creación propia <a class="anchor" id="2"></a></h2>
 <p>Cargamos los datos con los que vamos a trabajar:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Data <span class="op">=</span> pd.read_csv(<span class="st">&#39;House_Price_Regression.csv&#39;</span>)</span>
@@ -1756,77 +1762,574 @@ margin-right: auto;
 2  25.063302  55.137728  1150000   181.253753
 3  25.227295  55.341761  2850000   187.664060
 4  25.114275  55.139764  1729200    47.101821</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lista_clusters <span class="op">=</span> k_means(k<span class="op">=</span><span class="dv">4</span> , Data<span class="op">=</span>Data, random_seed<span class="op">=</span><span class="dv">123</span>) <span class="co"># Tarda solo 18.8 segundos </span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> k_means(k , Data, random_seed, Distance, q<span class="op">=</span><span class="dv">1</span>):  <span class="co"># Por ahora el k máximo aceptado es k=4</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#########################################################################################</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Librerias necesarias</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> sklearn.utils <span class="im">import</span> resample</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> math</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">#########################################################################################</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Definición de las distancias:</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">## Distancia Euclidea:</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> Dist_Euclidea(x_i, x_r):</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        Dist_Euclidea <span class="op">=</span> ( ( x_i <span class="op">-</span> x_r )<span class="op">**</span><span class="dv">2</span> ).<span class="bu">sum</span>()</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        Dist_Euclidea <span class="op">=</span> np.sqrt(Dist_Euclidea)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Dist_Euclidea</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="co">## Distancia Minkowski:</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> Dist_Minkowski(x_i, x_r, q):</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>        Dist_Minkowski <span class="op">=</span> ( ( ( <span class="bu">abs</span>( x_i <span class="op">-</span> x_r) )<span class="op">**</span>q ).<span class="bu">sum</span>() )<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span>q)</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Dist_Minkowski</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    <span class="co">## Distancia Canberra:</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> Dist_Canberra(x_i, x_r):</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>        numerator <span class="op">=</span>  <span class="bu">abs</span>( x_i <span class="op">-</span> x_r )</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>        denominator <span class="op">=</span>  ( <span class="bu">abs</span>(x_i) <span class="op">+</span> <span class="bu">abs</span>(x_r) )</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>        numerator<span class="op">=</span>np.array([numerator], dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>        denominator<span class="op">=</span>np.array([denominator], dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>        <span class="co"># The following code is to eliminate zero division problems</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>        Dist_Canberra <span class="op">=</span> ( np.divide( numerator , denominator , out<span class="op">=</span>np.zeros_like(numerator), where<span class="op">=</span>denominator<span class="op">!=</span><span class="dv">0</span>) ).<span class="bu">sum</span>() </span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Dist_Canberra</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="co">#########################################################################################</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Configuracion inicial aleatoria de los clusters:</span></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>    n<span class="op">=</span><span class="bu">len</span>(Data)</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>    elementos_clusterizados <span class="op">=</span> []</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>    m <span class="op">=</span> resample(<span class="bu">range</span>(<span class="dv">0</span>, n), n_samples<span class="op">=</span>math.floor(n<span class="op">/</span>k) , replace<span class="op">=</span><span class="va">False</span>, random_state<span class="op">=</span>random_seed)</span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>    Cluster_0 <span class="op">=</span> Data.loc[m,:]</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>    elementos_clusterizados.append(m)</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a><span class="co">##############################</span></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> k <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Si los elementos que quedan por clusterizar menos el tamaño de los clusters es menor que el propio tamaño de los clusters,</span></span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>        <span class="co">#  se meten todos los elementos que quedan por clusterizar en un mimsmo cluster que será ademas el ultimo.</span></span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(np.delete(<span class="bu">range</span>(<span class="dv">0</span>,n), elementos_clusterizados)) <span class="op">-</span> n<span class="op">/</span>k  <span class="op">&lt;</span> n<span class="op">/</span>k : </span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>            Cluster_1 <span class="op">=</span> Data.loc[np.delete(<span class="bu">range</span>(<span class="dv">0</span>,n), elementos_clusterizados),:]</span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>            elementos_clusterizados.append(m)</span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>            m <span class="op">=</span> resample(np.delete(<span class="bu">range</span>(<span class="dv">0</span>,n), elementos_clusterizados), n_samples<span class="op">=</span>math.floor(n<span class="op">/</span>k) , replace<span class="op">=</span><span class="va">False</span>, random_state<span class="op">=</span>random_seed)</span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>            Cluster_1 <span class="op">=</span> Data.loc[m,:]</span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>            elementos_clusterizados.append(m)</span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> k <span class="op">&lt;</span> <span class="dv">2</span> :</span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a><span class="co">###############################</span></span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> k <span class="op">&gt;=</span> <span class="dv">3</span>:</span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a><span class="co"># Si los elementos que quedan por clusterizar menos el tamaño de los clusters es menor que el propio tamaño de los clusters,</span></span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a><span class="co">#  se meten todos los elementos que quedan por clusterizar en un mimsmo cluster que será ademas el ultimo.</span></span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(np.delete(<span class="bu">range</span>(<span class="dv">0</span>,n), elementos_clusterizados)) <span class="op">-</span> n<span class="op">/</span>k  <span class="op">&lt;</span> n<span class="op">/</span>k : </span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a>            Cluster_2 <span class="op">=</span> Data.loc[np.delete(<span class="bu">range</span>(<span class="dv">0</span>,n), elementos_clusterizados),:]</span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a>            elementos_clusterizados.append(m)</span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a>            m <span class="op">=</span> resample(np.delete(<span class="bu">range</span>(<span class="dv">0</span>,n), elementos_clusterizados), n_samples<span class="op">=</span>math.floor(n<span class="op">/</span>k) , replace<span class="op">=</span><span class="va">False</span>, random_state<span class="op">=</span>random_seed)</span>
+<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a>            Cluster_2 <span class="op">=</span> Data.loc[m,:]</span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a>            elementos_clusterizados.append(m)</span>
+<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> k <span class="op">&lt;</span> <span class="dv">3</span> :</span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a><span class="co">###############################</span></span>
+<span id="cb4-131"><a href="#cb4-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-132"><a href="#cb4-132" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> k <span class="op">&gt;=</span> <span class="dv">4</span>:</span>
+<span id="cb4-133"><a href="#cb4-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-134"><a href="#cb4-134" aria-hidden="true" tabindex="-1"></a><span class="co"># Si los elementos que quedan por clusterizar menos el tamaño de los clusters es menor que el propio tamaño de los clusters,</span></span>
+<span id="cb4-135"><a href="#cb4-135" aria-hidden="true" tabindex="-1"></a><span class="co">#  se meten todos los elementos que quedan por clusterizar en un mimsmo cluster que será ademas el ultimo.</span></span>
+<span id="cb4-136"><a href="#cb4-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-137"><a href="#cb4-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-138"><a href="#cb4-138" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(np.delete(<span class="bu">range</span>(<span class="dv">0</span>,n), elementos_clusterizados)) <span class="op">-</span> n<span class="op">/</span>k  <span class="op">&lt;</span> n<span class="op">/</span>k : </span>
+<span id="cb4-139"><a href="#cb4-139" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-140"><a href="#cb4-140" aria-hidden="true" tabindex="-1"></a>            Cluster_3 <span class="op">=</span> Data.loc[np.delete(<span class="bu">range</span>(<span class="dv">0</span>,n), elementos_clusterizados),:]</span>
+<span id="cb4-141"><a href="#cb4-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-142"><a href="#cb4-142" aria-hidden="true" tabindex="-1"></a>            elementos_clusterizados.append(m)</span>
+<span id="cb4-143"><a href="#cb4-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-144"><a href="#cb4-144" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb4-145"><a href="#cb4-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-146"><a href="#cb4-146" aria-hidden="true" tabindex="-1"></a>            m <span class="op">=</span> resample(np.delete(<span class="bu">range</span>(<span class="dv">0</span>,n), elementos_clusterizados), n_samples<span class="op">=</span>math.floor(n<span class="op">/</span>k) , replace<span class="op">=</span><span class="va">False</span>, random_state<span class="op">=</span>random_seed)</span>
+<span id="cb4-147"><a href="#cb4-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-148"><a href="#cb4-148" aria-hidden="true" tabindex="-1"></a>            Cluster_3 <span class="op">=</span> Data.loc[m ,:]</span>
+<span id="cb4-149"><a href="#cb4-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-150"><a href="#cb4-150" aria-hidden="true" tabindex="-1"></a>            elementos_clusterizados.append(m)</span>
+<span id="cb4-151"><a href="#cb4-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-152"><a href="#cb4-152" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> k <span class="op">&lt;</span> <span class="dv">4</span> :</span>
+<span id="cb4-153"><a href="#cb4-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-154"><a href="#cb4-154" aria-hidden="true" tabindex="-1"></a>          <span class="cf">pass</span></span>
+<span id="cb4-155"><a href="#cb4-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-156"><a href="#cb4-156" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-157"><a href="#cb4-157" aria-hidden="true" tabindex="-1"></a><span class="co">#########################################################################################</span></span>
+<span id="cb4-158"><a href="#cb4-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-159"><a href="#cb4-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-160"><a href="#cb4-160" aria-hidden="true" tabindex="-1"></a>    lista_clusters <span class="op">=</span> [<span class="va">None</span>] <span class="op">*</span> <span class="dv">4</span></span>
+<span id="cb4-161"><a href="#cb4-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-162"><a href="#cb4-162" aria-hidden="true" tabindex="-1"></a>    lista_clusters[<span class="dv">0</span>] <span class="op">=</span> Cluster_0</span>
+<span id="cb4-163"><a href="#cb4-163" aria-hidden="true" tabindex="-1"></a>    lista_clusters[<span class="dv">1</span>] <span class="op">=</span> Cluster_1</span>
+<span id="cb4-164"><a href="#cb4-164" aria-hidden="true" tabindex="-1"></a>    lista_clusters[<span class="dv">2</span>] <span class="op">=</span> Cluster_2</span>
+<span id="cb4-165"><a href="#cb4-165" aria-hidden="true" tabindex="-1"></a>    lista_clusters[<span class="dv">3</span>] <span class="op">=</span> Cluster_3</span>
+<span id="cb4-166"><a href="#cb4-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-167"><a href="#cb4-167" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Calculo de centroides iniciales</span></span>
+<span id="cb4-168"><a href="#cb4-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-169"><a href="#cb4-169" aria-hidden="true" tabindex="-1"></a>    centroide_0 <span class="op">=</span> lista_clusters[<span class="dv">0</span>].mean()</span>
+<span id="cb4-170"><a href="#cb4-170" aria-hidden="true" tabindex="-1"></a>    centroide_1 <span class="op">=</span> lista_clusters[<span class="dv">1</span>].mean()</span>
+<span id="cb4-171"><a href="#cb4-171" aria-hidden="true" tabindex="-1"></a>    centroide_2 <span class="op">=</span> lista_clusters[<span class="dv">2</span>].mean()</span>
+<span id="cb4-172"><a href="#cb4-172" aria-hidden="true" tabindex="-1"></a>    centroide_3 <span class="op">=</span> lista_clusters[<span class="dv">3</span>].mean()</span>
+<span id="cb4-173"><a href="#cb4-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-174"><a href="#cb4-174" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Calculo de distancias para la observacion x_1</span></span>
+<span id="cb4-175"><a href="#cb4-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-176"><a href="#cb4-176" aria-hidden="true" tabindex="-1"></a>    x_1 <span class="op">=</span> Data.iloc[<span class="dv">0</span>,:]</span>
+<span id="cb4-177"><a href="#cb4-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-178"><a href="#cb4-178" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> Distance <span class="op">==</span> <span class="st">&#39;Euclidea&#39;</span> :</span>
+<span id="cb4-179"><a href="#cb4-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-180"><a href="#cb4-180" aria-hidden="true" tabindex="-1"></a>        distancia_0 <span class="op">=</span> Dist_Euclidea(x_1 , centroide_0) </span>
+<span id="cb4-181"><a href="#cb4-181" aria-hidden="true" tabindex="-1"></a>        distancia_1 <span class="op">=</span> Dist_Euclidea(x_1 , centroide_1) </span>
+<span id="cb4-182"><a href="#cb4-182" aria-hidden="true" tabindex="-1"></a>        distancia_2 <span class="op">=</span> Dist_Euclidea(x_1 , centroide_2) </span>
+<span id="cb4-183"><a href="#cb4-183" aria-hidden="true" tabindex="-1"></a>        distancia_3 <span class="op">=</span> Dist_Euclidea(x_1 , centroide_3)</span>
+<span id="cb4-184"><a href="#cb4-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-185"><a href="#cb4-185" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> Distance <span class="op">==</span> <span class="st">&#39;Minkowski&#39;</span> :</span>
+<span id="cb4-186"><a href="#cb4-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-187"><a href="#cb4-187" aria-hidden="true" tabindex="-1"></a>        distancia_0 <span class="op">=</span> Dist_Minkowski(x_1 , centroide_0, q)</span>
+<span id="cb4-188"><a href="#cb4-188" aria-hidden="true" tabindex="-1"></a>        distancia_1 <span class="op">=</span> Dist_Minkowski(x_1 , centroide_1, q) </span>
+<span id="cb4-189"><a href="#cb4-189" aria-hidden="true" tabindex="-1"></a>        distancia_2 <span class="op">=</span> Dist_Minkowski(x_1 , centroide_2, q) </span>
+<span id="cb4-190"><a href="#cb4-190" aria-hidden="true" tabindex="-1"></a>        distancia_3 <span class="op">=</span> Dist_Minkowski(x_1 , centroide_3, q)        </span>
+<span id="cb4-191"><a href="#cb4-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-192"><a href="#cb4-192" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> Distance <span class="op">==</span> <span class="st">&#39;Canberra&#39;</span> :</span>
+<span id="cb4-193"><a href="#cb4-193" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-194"><a href="#cb4-194" aria-hidden="true" tabindex="-1"></a>        distancia_0 <span class="op">=</span> Dist_Canberra(x_1 , centroide_0)</span>
+<span id="cb4-195"><a href="#cb4-195" aria-hidden="true" tabindex="-1"></a>        distancia_1 <span class="op">=</span> Dist_Canberra(x_1 , centroide_1) </span>
+<span id="cb4-196"><a href="#cb4-196" aria-hidden="true" tabindex="-1"></a>        distancia_2 <span class="op">=</span> Dist_Canberra(x_1 , centroide_2) </span>
+<span id="cb4-197"><a href="#cb4-197" aria-hidden="true" tabindex="-1"></a>        distancia_3 <span class="op">=</span> Dist_Canberra(x_1 , centroide_3)      </span>
+<span id="cb4-198"><a href="#cb4-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-199"><a href="#cb4-199" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculo de cluster optimo para x_1</span></span>
+<span id="cb4-200"><a href="#cb4-200" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-201"><a href="#cb4-201" aria-hidden="true" tabindex="-1"></a>    df_distancias <span class="op">=</span> pd.DataFrame({<span class="st">&#39;Distancias&#39;</span> : [distancia_0, distancia_1 , distancia_2 , distancia_3], <span class="st">&#39;Cluster&#39;</span>: [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]})</span>
+<span id="cb4-202"><a href="#cb4-202" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-203"><a href="#cb4-203" aria-hidden="true" tabindex="-1"></a>    df_distancias_sort <span class="op">=</span> df_distancias.sort_values(by<span class="op">=</span><span class="st">&#39;Distancias&#39;</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-204"><a href="#cb4-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-205"><a href="#cb4-205" aria-hidden="true" tabindex="-1"></a>    j_star <span class="op">=</span> df_distancias_sort.iloc[<span class="dv">0</span>][<span class="st">&#39;Cluster&#39;</span>]</span>
+<span id="cb4-206"><a href="#cb4-206" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-207"><a href="#cb4-207" aria-hidden="true" tabindex="-1"></a>    j_star <span class="op">=</span> <span class="bu">int</span>(j_star)</span>
+<span id="cb4-208"><a href="#cb4-208" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-209"><a href="#cb4-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-210"><a href="#cb4-210" aria-hidden="true" tabindex="-1"></a><span class="co">#########################################################################################</span></span>
+<span id="cb4-211"><a href="#cb4-211" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-212"><a href="#cb4-212" aria-hidden="true" tabindex="-1"></a>    i <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb4-213"><a href="#cb4-213" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-214"><a href="#cb4-214" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> i <span class="op">&lt;=</span> n<span class="op">-</span><span class="dv">2</span> :</span>
+<span id="cb4-215"><a href="#cb4-215" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-216"><a href="#cb4-216" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, k) :</span>
+<span id="cb4-217"><a href="#cb4-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-218"><a href="#cb4-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-219"><a href="#cb4-219" aria-hidden="true" tabindex="-1"></a>           <span class="co"># Si x_i no esta en el cluster j --&gt; pasamos a analizar otro cluster j</span></span>
+<span id="cb4-220"><a href="#cb4-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-221"><a href="#cb4-221" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">sum</span>(lista_clusters[j].index <span class="op">==</span> i<span class="op">-</span><span class="dv">1</span>) <span class="op">==</span>  <span class="dv">0</span> :</span>
+<span id="cb4-222"><a href="#cb4-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-223"><a href="#cb4-223" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">pass</span></span>
+<span id="cb4-224"><a href="#cb4-224" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-225"><a href="#cb4-225" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-226"><a href="#cb4-226" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Si x_i esta en el cluster j y es el cluster optimo de x_i --&gt; pasamos a x_i+1</span></span>
+<span id="cb4-227"><a href="#cb4-227" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-228"><a href="#cb4-228" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> ( <span class="bu">sum</span>(lista_clusters[j].index <span class="op">==</span> i<span class="op">-</span><span class="dv">1</span>) <span class="op">!=</span> <span class="dv">0</span> )  <span class="op">&amp;</span> ( j_star <span class="op">==</span> j ) :</span>
+<span id="cb4-229"><a href="#cb4-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-230"><a href="#cb4-230" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Actualizamos i a i+1</span></span>
+<span id="cb4-231"><a href="#cb4-231" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-232"><a href="#cb4-232" aria-hidden="true" tabindex="-1"></a>                i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb4-233"><a href="#cb4-233" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-234"><a href="#cb4-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-235"><a href="#cb4-235" aria-hidden="true" tabindex="-1"></a>            <span class="co"># calculamos las distancias entre x_i+1 y los centroides</span></span>
+<span id="cb4-236"><a href="#cb4-236" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-237"><a href="#cb4-237" aria-hidden="true" tabindex="-1"></a>                x_i <span class="op">=</span> Data.iloc[ i ,:] <span class="co"># x_{i+1}</span></span>
+<span id="cb4-238"><a href="#cb4-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-239"><a href="#cb4-239" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> Distance <span class="op">==</span> <span class="st">&#39;Euclidea&#39;</span> :</span>
+<span id="cb4-240"><a href="#cb4-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-241"><a href="#cb4-241" aria-hidden="true" tabindex="-1"></a>                    distancia_0 <span class="op">=</span> Dist_Euclidea(x_i , centroide_0) </span>
+<span id="cb4-242"><a href="#cb4-242" aria-hidden="true" tabindex="-1"></a>                    distancia_1 <span class="op">=</span> Dist_Euclidea(x_i , centroide_1) </span>
+<span id="cb4-243"><a href="#cb4-243" aria-hidden="true" tabindex="-1"></a>                    distancia_2 <span class="op">=</span> Dist_Euclidea(x_i , centroide_2) </span>
+<span id="cb4-244"><a href="#cb4-244" aria-hidden="true" tabindex="-1"></a>                    distancia_3 <span class="op">=</span> Dist_Euclidea(x_i , centroide_3)</span>
+<span id="cb4-245"><a href="#cb4-245" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-246"><a href="#cb4-246" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> Distance <span class="op">==</span> <span class="st">&#39;Minkowski&#39;</span> :</span>
+<span id="cb4-247"><a href="#cb4-247" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-248"><a href="#cb4-248" aria-hidden="true" tabindex="-1"></a>                    distancia_0 <span class="op">=</span> Dist_Minkowski(x_i , centroide_0, q)</span>
+<span id="cb4-249"><a href="#cb4-249" aria-hidden="true" tabindex="-1"></a>                    distancia_1 <span class="op">=</span> Dist_Minkowski(x_1 , centroide_1, q) </span>
+<span id="cb4-250"><a href="#cb4-250" aria-hidden="true" tabindex="-1"></a>                    distancia_2 <span class="op">=</span> Dist_Minkowski(x_1 , centroide_2, q) </span>
+<span id="cb4-251"><a href="#cb4-251" aria-hidden="true" tabindex="-1"></a>                    distancia_3 <span class="op">=</span> Dist_Minkowski(x_1 , centroide_3, q)        </span>
+<span id="cb4-252"><a href="#cb4-252" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-253"><a href="#cb4-253" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> Distance <span class="op">==</span> <span class="st">&#39;Canberra&#39;</span> :</span>
+<span id="cb4-254"><a href="#cb4-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-255"><a href="#cb4-255" aria-hidden="true" tabindex="-1"></a>                    distancia_0 <span class="op">=</span> Dist_Canberra(x_i , centroide_0)</span>
+<span id="cb4-256"><a href="#cb4-256" aria-hidden="true" tabindex="-1"></a>                    distancia_1 <span class="op">=</span> Dist_Canberra(x_i , centroide_1) </span>
+<span id="cb4-257"><a href="#cb4-257" aria-hidden="true" tabindex="-1"></a>                    distancia_2 <span class="op">=</span> Dist_Canberra(x_i , centroide_2) </span>
+<span id="cb4-258"><a href="#cb4-258" aria-hidden="true" tabindex="-1"></a>                    distancia_3 <span class="op">=</span> Dist_Canberra(x_i , centroide_3)     </span>
+<span id="cb4-259"><a href="#cb4-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-260"><a href="#cb4-260" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-261"><a href="#cb4-261" aria-hidden="true" tabindex="-1"></a>               <span class="co"># Calculo de cluster optimo para x_1</span></span>
+<span id="cb4-262"><a href="#cb4-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-263"><a href="#cb4-263" aria-hidden="true" tabindex="-1"></a>                df_distancias <span class="op">=</span> pd.DataFrame({<span class="st">&#39;Distancias&#39;</span> : [distancia_0 , distancia_1 , distancia_2, distancia_3], <span class="st">&#39;Cluster&#39;</span>: [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]})</span>
+<span id="cb4-264"><a href="#cb4-264" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-265"><a href="#cb4-265" aria-hidden="true" tabindex="-1"></a>                df_distancias_sort <span class="op">=</span> df_distancias.sort_values(by<span class="op">=</span><span class="st">&#39;Distancias&#39;</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-266"><a href="#cb4-266" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-267"><a href="#cb4-267" aria-hidden="true" tabindex="-1"></a>                j_star <span class="op">=</span> df_distancias_sort.iloc[<span class="dv">0</span>][<span class="st">&#39;Cluster&#39;</span>]</span>
+<span id="cb4-268"><a href="#cb4-268" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-269"><a href="#cb4-269" aria-hidden="true" tabindex="-1"></a>                j_star <span class="op">=</span> <span class="bu">int</span>(j_star)</span>
+<span id="cb4-270"><a href="#cb4-270" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-271"><a href="#cb4-271" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-272"><a href="#cb4-272" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Si x_i esta en el cluster j pero ese no es el cluster optimo de x_i </span></span>
+<span id="cb4-273"><a href="#cb4-273" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-274"><a href="#cb4-274" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> ( <span class="bu">sum</span>(lista_clusters[j].index <span class="op">==</span> i<span class="op">-</span><span class="dv">1</span>) <span class="op">!=</span> <span class="dv">0</span> )  <span class="op">&amp;</span> ( j_star <span class="op">!=</span> j ) : </span>
+<span id="cb4-275"><a href="#cb4-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-276"><a href="#cb4-276" aria-hidden="true" tabindex="-1"></a>               <span class="co">## Actualizamos los clusters:</span></span>
+<span id="cb4-277"><a href="#cb4-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-278"><a href="#cb4-278" aria-hidden="true" tabindex="-1"></a>               <span class="co"># Añadimos x_i al cluster j_star :</span></span>
+<span id="cb4-279"><a href="#cb4-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-280"><a href="#cb4-280" aria-hidden="true" tabindex="-1"></a>                lista_clusters[j_star] <span class="op">=</span> pd.concat( [ lista_clusters[j_star] , lista_clusters[j].loc[i<span class="op">-</span><span class="dv">1</span>,:].to_frame().T ]  )  </span>
+<span id="cb4-281"><a href="#cb4-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-282"><a href="#cb4-282" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb4-283"><a href="#cb4-283" aria-hidden="true" tabindex="-1"></a>               <span class="co"># Eliminamos x_1 del cluster j :</span></span>
+<span id="cb4-284"><a href="#cb4-284" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-285"><a href="#cb4-285" aria-hidden="true" tabindex="-1"></a>                lista_clusters[j] <span class="op">=</span> lista_clusters[j].drop(i<span class="op">-</span><span class="dv">1</span>)   </span>
+<span id="cb4-286"><a href="#cb4-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-287"><a href="#cb4-287" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-288"><a href="#cb4-288" aria-hidden="true" tabindex="-1"></a>              <span class="co"># Recalculo de centroides para la nueva configuracion de clusters</span></span>
+<span id="cb4-289"><a href="#cb4-289" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-290"><a href="#cb4-290" aria-hidden="true" tabindex="-1"></a>                centroide_0 <span class="op">=</span> lista_clusters[<span class="dv">0</span>].mean()</span>
+<span id="cb4-291"><a href="#cb4-291" aria-hidden="true" tabindex="-1"></a>                centroide_1 <span class="op">=</span> lista_clusters[<span class="dv">1</span>].mean()</span>
+<span id="cb4-292"><a href="#cb4-292" aria-hidden="true" tabindex="-1"></a>                centroide_2 <span class="op">=</span> lista_clusters[<span class="dv">2</span>].mean()</span>
+<span id="cb4-293"><a href="#cb4-293" aria-hidden="true" tabindex="-1"></a>                centroide_3 <span class="op">=</span> lista_clusters[<span class="dv">3</span>].mean()</span>
+<span id="cb4-294"><a href="#cb4-294" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-295"><a href="#cb4-295" aria-hidden="true" tabindex="-1"></a>              <span class="co"># Recalculo de distancias de x_i respecto los centroides:</span></span>
+<span id="cb4-296"><a href="#cb4-296" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-297"><a href="#cb4-297" aria-hidden="true" tabindex="-1"></a>                x_i <span class="op">=</span> Data.iloc[ i ,:] <span class="co"># x_i</span></span>
+<span id="cb4-298"><a href="#cb4-298" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-299"><a href="#cb4-299" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> Distance <span class="op">==</span> <span class="st">&#39;Euclidea&#39;</span> :</span>
+<span id="cb4-300"><a href="#cb4-300" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-301"><a href="#cb4-301" aria-hidden="true" tabindex="-1"></a>                    distancia_0 <span class="op">=</span> Dist_Euclidea(x_i , centroide_0) </span>
+<span id="cb4-302"><a href="#cb4-302" aria-hidden="true" tabindex="-1"></a>                    distancia_1 <span class="op">=</span> Dist_Euclidea(x_i , centroide_1) </span>
+<span id="cb4-303"><a href="#cb4-303" aria-hidden="true" tabindex="-1"></a>                    distancia_2 <span class="op">=</span> Dist_Euclidea(x_i , centroide_2) </span>
+<span id="cb4-304"><a href="#cb4-304" aria-hidden="true" tabindex="-1"></a>                    distancia_3 <span class="op">=</span> Dist_Euclidea(x_i , centroide_3)</span>
+<span id="cb4-305"><a href="#cb4-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-306"><a href="#cb4-306" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> Distance <span class="op">==</span> <span class="st">&#39;Minkowski&#39;</span> :</span>
+<span id="cb4-307"><a href="#cb4-307" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-308"><a href="#cb4-308" aria-hidden="true" tabindex="-1"></a>                    distancia_0 <span class="op">=</span> Dist_Minkowski(x_i , centroide_0, q)</span>
+<span id="cb4-309"><a href="#cb4-309" aria-hidden="true" tabindex="-1"></a>                    distancia_1 <span class="op">=</span> Dist_Minkowski(x_i , centroide_1, q) </span>
+<span id="cb4-310"><a href="#cb4-310" aria-hidden="true" tabindex="-1"></a>                    distancia_2 <span class="op">=</span> Dist_Minkowski(x_i , centroide_2, q) </span>
+<span id="cb4-311"><a href="#cb4-311" aria-hidden="true" tabindex="-1"></a>                    distancia_3 <span class="op">=</span> Dist_Minkowski(x_i , centroide_3, q)        </span>
+<span id="cb4-312"><a href="#cb4-312" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-313"><a href="#cb4-313" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> Distance <span class="op">==</span> <span class="st">&#39;Canberra&#39;</span> :</span>
+<span id="cb4-314"><a href="#cb4-314" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-315"><a href="#cb4-315" aria-hidden="true" tabindex="-1"></a>                    distancia_0 <span class="op">=</span> Dist_Canberra(x_i , centroide_0)</span>
+<span id="cb4-316"><a href="#cb4-316" aria-hidden="true" tabindex="-1"></a>                    distancia_1 <span class="op">=</span> Dist_Canberra(x_i , centroide_1) </span>
+<span id="cb4-317"><a href="#cb4-317" aria-hidden="true" tabindex="-1"></a>                    distancia_2 <span class="op">=</span> Dist_Canberra(x_i , centroide_2) </span>
+<span id="cb4-318"><a href="#cb4-318" aria-hidden="true" tabindex="-1"></a>                    distancia_3 <span class="op">=</span> Dist_Canberra(x_i , centroide_3)    </span>
+<span id="cb4-319"><a href="#cb4-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-320"><a href="#cb4-320" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-321"><a href="#cb4-321" aria-hidden="true" tabindex="-1"></a><span class="co"># Clusters finales --&gt; lista_clusters</span></span>
+<span id="cb4-322"><a href="#cb4-322" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-323"><a href="#cb4-323" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(lista_clusters)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>lista_clusters <span class="op">=</span> k_means(k<span class="op">=</span><span class="dv">4</span> , Data<span class="op">=</span>Data, random_seed<span class="op">=</span><span class="dv">123</span>, Distance<span class="op">=</span><span class="st">&#39;Euclidea&#39;</span>) <span class="co"># Tarda solo 18.8 segundos </span></span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">0</span>]</span></code></pre></div>
-<pre><code>   latitude  longitude       price  size_in_m_2</code></pre>
-<p>1004 25.087251 55.145574 2990000.0 162.208638
-43 25.091487 55.172015 1150000.0 105.259099
-1214 25.078367 55.140410 1650000.0 166.575079
-351 25.111108 55.137591 1699000.0 124.304214
-182 25.064767 55.138814 875000.0 123.282281
-… … … … …
-1871 25.099380 55.141275 1352888.0 69.212735
-1877 25.072573 55.131009 1499000.0 175.029252
-1879 25.203553 55.345554 890000.0 70.606280
-1883 25.072569 55.126527 1970000.0 81.940446
-1885 25.103972 55.149621 31440000.0 607.771426</p>
-<p>[517 rows x 4 columns]</p>
+<pre><code>       latitude  longitude       price  size_in_m_2
+1004  25.087251  55.145574   2990000.0   162.208638
+43    25.091487  55.172015   1150000.0   105.259099
+1214  25.078367  55.140410   1650000.0   166.575079
+351   25.111108  55.137591   1699000.0   124.304214
+182   25.064767  55.138814    875000.0   123.282281
+...         ...        ...         ...          ...
+1871  25.099380  55.141275   1352888.0    69.212735
+1877  25.072573  55.131009   1499000.0   175.029252
+1879  25.203553  55.345554    890000.0    70.606280
+1883  25.072569  55.126527   1970000.0    81.940446
+1885  25.103972  55.149621  31440000.0   607.771426
+
+[517 rows x 4 columns]</code></pre>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">1</span>]</span></code></pre></div>
-<pre><code>   latitude  longitude      price  size_in_m_2</code></pre>
-<p>1041 25.026191 55.156948 350000.0 35.117334
-1282 25.198796 55.271342 2500000.0 168.804751
-1476 25.081955 55.138863 690000.0 66.332742
-1251 25.077150 55.135515 1550000.0 127.648722
-1091 25.206412 55.275199 3950000.0 243.498763
-… … … … …
-1868 25.207533 55.277978 2300000.0 170.569908
-1889 25.106668 55.149275 1400000.0 108.975219
-1890 25.072954 55.128089 3800000.0 167.875721
-1897 25.153080 55.254242 360000.0 55.741800
-1901 25.166145 55.276684 1230000.0 70.606280</p>
-<p>[378 rows x 4 columns]</p>
+<pre><code>       latitude  longitude      price  size_in_m_2
+1041  25.026191  55.156948   350000.0    35.117334
+1282  25.198796  55.271342  2500000.0   168.804751
+1476  25.081955  55.138863   690000.0    66.332742
+1251  25.077150  55.135515  1550000.0   127.648722
+1091  25.206412  55.275199  3950000.0   243.498763
+...         ...        ...        ...          ...
+1868  25.207533  55.277978  2300000.0   170.569908
+1889  25.106668  55.149275  1400000.0   108.975219
+1890  25.072954  55.128089  3800000.0   167.875721
+1897  25.153080  55.254242   360000.0    55.741800
+1901  25.166145  55.276684  1230000.0    70.606280
+
+[378 rows x 4 columns]</code></pre>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">2</span>]</span></code></pre></div>
-<pre><code>   latitude  longitude      price  size_in_m_2</code></pre>
-<p>539 25.068729 55.139815 820000.0 59.457920
-730 25.093469 55.173061 1220000.0 119.008743
-1472 25.064191 55.216245 380000.0 63.081137
-849 25.180869 55.271015 700000.0 66.239839
-631 25.048095 55.206373 600205.0 74.786915
-… … … … …
-1573 25.078870 55.148529 1400000.0 157.006070
-1857 25.078148 55.148277 400888.0 37.439909
-1861 25.090987 55.385389 590000.0 101.635882
-1864 25.081241 55.137946 2400000.0 171.127326
-1865 25.209806 55.278974 795000.0 71.442407</p>
-<p>[499 rows x 4 columns]</p>
+<pre><code>       latitude  longitude      price  size_in_m_2
+539   25.068729  55.139815   820000.0    59.457920
+730   25.093469  55.173061  1220000.0   119.008743
+1472  25.064191  55.216245   380000.0    63.081137
+849   25.180869  55.271015   700000.0    66.239839
+631   25.048095  55.206373   600205.0    74.786915
+...         ...        ...        ...          ...
+1573  25.078870  55.148529  1400000.0   157.006070
+1857  25.078148  55.148277   400888.0    37.439909
+1861  25.090987  55.385389   590000.0   101.635882
+1864  25.081241  55.137946  2400000.0   171.127326
+1865  25.209806  55.278974   795000.0    71.442407
+
+[499 rows x 4 columns]</code></pre>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">3</span>]</span></code></pre></div>
-<pre><code>   latitude  longitude      price  size_in_m_2</code></pre>
-<p>393 25.104115 55.148470 3150000.0 152.825435
-397 24.999981 55.293818 930888.0 86.399790
-404 25.233787 55.294217 1642777.0 92.717194
-407 25.233787 55.294217 1550000.0 91.973970
-415 25.076944 55.134135 2950000.0 139.633209
-… … … … …
-1891 25.226946 55.343628 7000000.0 377.929404
-1893 25.073590 55.126352 2000000.0 79.617871
-1894 25.191107 55.269910 980888.0 101.078464
-1898 25.104330 55.148769 2700000.0 99.963628
-1899 25.037477 55.221942 550000.0 78.688841</p>
-<p>[511 rows x 4 columns]</p>
+<pre><code>       latitude  longitude      price  size_in_m_2
+393   25.104115  55.148470  3150000.0   152.825435
+397   24.999981  55.293818   930888.0    86.399790
+404   25.233787  55.294217  1642777.0    92.717194
+407   25.233787  55.294217  1550000.0    91.973970
+415   25.076944  55.134135  2950000.0   139.633209
+...         ...        ...        ...          ...
+1891  25.226946  55.343628  7000000.0   377.929404
+1893  25.073590  55.126352  2000000.0    79.617871
+1894  25.191107  55.269910   980888.0   101.078464
+1898  25.104330  55.148769  2700000.0    99.963628
+1899  25.037477  55.221942   550000.0    78.688841
+
+[511 rows x 4 columns]</code></pre>
 <div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">0</span>].mean()</span></code></pre></div>
-<p>latitude 2.511612e+01
-longitude 5.521077e+01
-price 2.051995e+06
-size_in_m_2 1.297637e+02
-dtype: float64</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">1</span>].mean()</span></code></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">2</span>].mean()</span></code></pre></div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">3</span>].mean()</span></code></pre></div>
+<pre><code>latitude       2.511612e+01
+longitude      5.521077e+01
+price          2.051995e+06
+size_in_m_2    1.297637e+02
+
+dtype: float64</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">1</span>].mean()</span></code></pre></div>
+<pre><code>latitude       2.511925e+01
+longitude      5.521314e+01
+price          1.967974e+06
+size_in_m_2    1.280963e+02
+
+dtype: float64</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">2</span>].mean()</span></code></pre></div>
+<pre><code>latitude       2.511636e+01
+longitude      5.521152e+01
+price          2.114565e+06
+size_in_m_2    1.346380e+02
+
+dtype: float64</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">3</span>].mean()</span></code></pre></div>
+<pre><code>latitude       2.511513e+01
+longitude      5.521413e+01
+price          2.179182e+06
+size_in_m_2    1.332627e+02
+
+dtype: float64</code></pre>
+<p><br></p>
+<p>Probamos el algoritmo usando otras medidas de distancia:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>lista_clusters <span class="op">=</span> k_means(k<span class="op">=</span><span class="dv">4</span> , Data<span class="op">=</span>Data, random_seed<span class="op">=</span><span class="dv">123</span>, Distance<span class="op">=</span><span class="st">&#39;Minkowski&#39;</span>, q<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">0</span>]</span></code></pre></div>
+<pre><code>       latitude  longitude       price  size_in_m_2
+382   25.196489  55.272126  15800000.0   488.019459
+732   25.107984  55.244923   1700000.0   138.704179
+1004  25.087251  55.145574   2990000.0   162.208638
+1362  25.048660  55.209550    759000.0    83.148185
+939   25.079900  55.131931   3615000.0   140.748045
+...         ...        ...         ...          ...
+1898  25.104330  55.148769   2700000.0    99.963628
+1900  25.176892  55.310712   1500000.0   100.985561
+1901  25.166145  55.276684   1230000.0    70.606280
+1902  25.206500  55.345056   2900000.0   179.302790
+1903  25.073858  55.229844    675000.0    68.748220
+
+[1232 rows x 4 columns]</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>       latitude  longitude      price  size_in_m_2
+1041  25.026191  55.156948   350000.0    35.117334
+1810  25.094635  55.171817  1600000.0   166.946691
+1466  25.183133  55.256580  1698000.0   140.469336
+1476  25.081955  55.138863   690000.0    66.332742
+1746  25.086376  55.147360  1300000.0    76.366266
+...         ...        ...        ...          ...
+1888  25.071504  55.128579  1300000.0   171.220229
+1892  24.865992  55.137958  1175000.0   301.656041
+1894  25.191107  55.269910   980888.0   101.078464
+1897  25.153080  55.254242   360000.0    55.741800
+1899  25.037477  55.221942   550000.0    78.688841
+
+[473 rows x 4 columns]</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>      latitude  longitude      price  size_in_m_2
+291  25.193703  55.271223  2700000.0   120.773900
+323  25.137198  55.189006  2008000.0   125.233244
+8    25.106668  55.149275  2100000.0   203.085958
+102  25.195461  55.269463  1900000.0   133.594514
+107  25.081622  55.141977  1845000.0   125.047438
+..         ...        ...        ...          ...
+437  25.066791  55.203684   424340.0    35.767655
+439  25.115747  55.142615  3175000.0   211.911743
+440  25.086726  55.145205  1500000.0   141.677075
+444  25.181311  55.262507   900000.0    96.247508
+453  25.070010  55.245729   778000.0    67.819190
+
+[161 rows x 4 columns]</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>      latitude  longitude       price  size_in_m_2
+477  25.176670  55.272389    490000.0    52.304389
+481  25.065886  55.138246   1700000.0   185.062776
+484  25.082397  55.140660   1150000.0   129.692588
+495  25.083330  55.144753   1575000.0   106.838450
+502  25.090200  55.175145    750000.0    70.420474
+507  25.193310  55.280919   2350000.0   172.613774
+518  25.202977  55.280662   1430000.0    67.168869
+527  25.184873  55.292277   1976504.0   108.231995
+536  25.086886  55.173227   1999999.0   154.218980
+551  25.189195  55.274878   1500000.0   121.981639
+466  25.171461  55.275800   1246305.0    72.464340
+469  25.109367  55.247980   1400000.0   126.162274
+480  25.005442  55.293914   1400000.0   134.709350
+494  25.195236  55.268641   3600000.0   239.968449
+497  25.109367  55.247980    900000.0    92.903000
+504  25.145181  55.288017   1400000.0   142.513202
+505  25.240419  55.252770   1780000.0   111.483600
+506  25.111902  55.138103   1754888.0   105.073293
+519  25.088728  55.173310   1550000.0   131.736454
+522  25.106668  55.149275   1150000.0   109.997152
+524  25.109367  55.247980   1290000.0   126.533886
+525  25.191680  55.280175   1700000.0    86.771402
+526  25.089833  55.150625   2349000.0   276.758037
+529  25.186573  55.282071    610000.0    44.314731
+535  25.116492  55.141387   3450000.0   209.960780
+539  25.068729  55.139815    820000.0    59.457920
+542  25.091259  55.168657    950000.0    80.175289
+544  25.215192  55.235827   7600000.0   194.445979
+545  25.207533  55.277978   1500000.0    89.930104
+550  25.221028  55.361808   3250000.0   378.208113
+552  25.132519  55.151574   1950000.0    96.619120
+553  25.072954  55.128089   2300000.0   158.306712
+559  25.082004  55.142441   1400000.0   120.959706
+563  25.089719  55.170481    850000.0    68.097899
+565  24.948068  55.069311    550000.0    90.115910
+569  25.077009  55.146035    699999.0    86.306887
+571  25.092430  55.172975    900000.0   101.542979
+574  25.049301  55.198896    350000.0    40.598611
+576  25.103550  55.168509  34314000.0   889.639128</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>lista_clusters <span class="op">=</span> k_means(k<span class="op">=</span><span class="dv">4</span> , Data<span class="op">=</span>Data, random_seed<span class="op">=</span><span class="dv">123</span>, Distance<span class="op">=</span><span class="st">&#39;Canberra&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">0</span>]</span></code></pre></div>
+<pre><code>       latitude  longitude       price  size_in_m_2
+1004  25.087251  55.145574   2990000.0   162.208638
+43    25.091487  55.172015   1150000.0   105.259099
+1214  25.078367  55.140410   1650000.0   166.575079
+182   25.064767  55.138814    875000.0   123.282281
+1846  25.195236  55.268641   3200000.0   158.771227
+...         ...        ...         ...          ...
+1883  25.072569  55.126527   1970000.0    81.940446
+1885  25.103972  55.149621  31440000.0   607.771426
+1889  25.106668  55.149275   1400000.0   108.975219
+1890  25.072954  55.128089   3800000.0   167.875721
+1895  25.081243  55.145120   1350000.0   146.600934
+
+[484 rows x 4 columns]</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>       latitude  longitude      price  size_in_m_2
+1041  25.026191  55.156948   350000.0    35.117334
+1700  25.004936  55.296535  1088888.0   126.812595
+1810  25.094635  55.171817  1600000.0   166.946691
+1746  25.086376  55.147360  1300000.0    76.366266
+1589  25.186038  55.291750  1349888.0    98.012665
+...         ...        ...        ...          ...
+1898  25.104330  55.148769  2700000.0    99.963628
+1899  25.037477  55.221942   550000.0    78.688841
+1900  25.176892  55.310712  1500000.0   100.985561
+1902  25.206500  55.345056  2900000.0   179.302790
+1903  25.073858  55.229844   675000.0    68.748220
+
+[549 rows x 4 columns]</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>       latitude  longitude      price  size_in_m_2
+539   25.068729  55.139815   820000.0    59.457920
+1070  25.233787  55.294217  1359000.0    91.973970
+730   25.093469  55.173061  1220000.0   119.008743
+786   25.086376  55.147360  2587000.0   112.505533
+1472  25.064191  55.216245   380000.0    63.081137
+...         ...        ...        ...          ...
+1827  25.050227  55.213350   699505.0    78.038520
+1828  25.137409  55.188957  2121000.0   128.020334
+1831  25.073151  55.136982   950000.0    78.131423
+1849  25.071246  55.140806   499000.0    62.430816
+1897  25.153080  55.254242   360000.0    55.741800
+
+[579 rows x 4 columns]</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>       latitude  longitude      price  size_in_m_2
+337   25.273623  55.283576  1500888.0   192.309210
+348   25.192522  55.266317   799900.0    91.881067
+393   25.104115  55.148470  3150000.0   152.825435
+397   24.999981  55.293818   930888.0    86.399790
+415   25.076944  55.134135  2950000.0   139.633209
+...         ...        ...        ...          ...
+1852  25.069265  55.128568   700000.0    54.905673
+1856  25.071436  55.136065  1500000.0   224.082036
+1858  25.078148  55.148277   760888.0    83.984312
+1861  25.090987  55.385389   590000.0   101.635882
+1901  25.166145  55.276684  1230000.0    70.606280
+
+[293 rows x 4 columns]</code></pre>
+<p><br></p>
+<p><br></p>
 </div>
-<div id="k-medias-en-python-con-sklearn" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> k-medias en <code>Python</code> con <code>sklearn</code></h2>
+<div id="k-medias-en-python-con-sklearn" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> k-medias en <code>Python</code> con <code>sklearn</code></h2>
 <p><br></p>
 <p><br></p>
 </div>
@@ -1876,16 +2379,46 @@ dtype: float64</p>
 <p>Para las observaciones <span class="math inline">\(\hspace{0.1cm} x_i \in C_j\hspace{0.1cm}\)</span> se predice la respuesta como <span class="math inline">\(\hspace{0.1cm}\hat{y}_i = g_j\hspace{0.1cm}\)</span></p>
 <p>Una tarea posterior es la interpretar la categoria <span class="math inline">\(\hspace{0.1cm}g_j\hspace{0.1cm}\)</span> , puesto que desconocemos a que hace referencia al no tener esa info sobre la respuesta</p>
 <p><br></p>
+<hr />
 <p><strong>Observación: los predictores en k-medoids pueden ser tanto cuantitativos como caategoricos</strong></p>
 <p>¿Por qué? <span class="math inline">\(\hspace{0.15cm}\Rightarrow\hspace{0.15cm}\)</span> Por como se definen los medoids, si se usa una medida de distancia adecuada para conjuntos de predictores de tipo mixto, el k-medoids puede aplicarse a ese tipo de variables y la media solo deberia aplicarse a predictores que sean tanto cuantitativos como categoricos.</p>
 <p><br></p>
+<p><strong>¿Qué medidas de distancias pueden usarse en k-medoids ?</strong></p>
+<p>En k-medoids hay que calcular la distancia entre las observaciones de predictores <span class="math inline">\(x_i\)</span> y el resto de observaciones de cierto cluster, que son un vector observaciones de variables estadisticas. Por tanto toda medida de distancia definida para vectores de observaciones de variables estadisticas (o para vectores numericos en general) podrá usarse en k-medoids.</p>
+<p>Esto es una gran ventaja respecto de k-medias, ya que las distancias que no podian usarse en k-medias si podrán usarse en k-medoids.</p>
+<p>Hay distancias que no se pueden aplicar en esta contexto, como por ejemplo:</p>
+<ul>
+<li><p>La distancias de Pearson y Mahalanobis, puesto que solo esta definida para pares de vectores de observaciones de variables estadisticas, luego no puede aplicarse a ellos las distancias de Pearson y Mahalanobis.<span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Las distancias de Sokal y Jaccard, por ser distancias definidas para vectores numericos binarios (de ceros y unos), y al ser k-medias solo aplicable a variables cuantitativas, los vectores de observaciones no sera binarios ni tampoco los centroides, luego no puede aplicarse a ellos las distancias de Sokal y Jaccard. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>La distancia de coincidencias, por ser definida para vectores numericos multi-clase , y al ser k-medias solo aplicable a variables cuantitativas, los vectores de observaciones no serán multi-clase y los centroides tampoco, luego no puede aplicarse a ellos la distancia de coincidencias. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>La distancia de Gower y Gower-Mahalanobis, al ser distancias definida sobre pares de vectores de tipo mixto (componentes cuantitativas, pero tambien binarias y multi-clase), y como el k-medias solo esta definido para variables cuantitativas, los vectores de observaciones no serán de tipo mixto, y los centroides tampoco, luego no puede aplicarse a ellos la distancia de Gower, ni la de Gower-Mahalanobis, la cual además involucra a la distancia de Mahalanobis que no se puede aplicar con k-medias por lo ya comentado. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+</ul>
+<p>Ejemplos de distancias que pueden aplicarse con k-medoids son:</p>
+<ul>
+<li><p>Distancia Euclidea. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p>Distancia Minkowski. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p>Distancia de Canberra. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p>Distancia Coseno. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p>Distancia de Mahalanobis. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p>Distancia de Pearson. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p>Distancia de Sokal. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p>Distancia de Jaccard. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p>Distancia por coincidencias. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p>Distancia de Gower. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p>Distancia de Gower-Mahalanobis.</p></li>
+</ul>
 <p><br></p>
-<div id="k-medoids-en-python-con-algoritmo-de-creación-propia" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> k-medoids en <code>Python</code> con algoritmo de creación propia</h2>
+<div id="interpretación-de-los-clusters-en-k-medoids" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Interpretación de los clusters en k-medoids</h2>
+<p><br></p>
 <p><br></p>
 </div>
-<div id="k-medoids-en-python-con-kmedoids" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> k-medoids en <code>Python</code> con <code>kmedoids</code></h2>
+<div id="k-medoids-en-python-con-algoritmo-de-creación-propia" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> k-medoids en <code>Python</code> con algoritmo de creación propia</h2>
+<p><br></p>
+</div>
+<div id="k-medoids-en-python-con-kmedoids" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> k-medoids en <code>Python</code> con <code>kmedoids</code></h2>
 <p><br></p>
 <p><br></p>
 </div>
