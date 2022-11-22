@@ -1580,7 +1580,7 @@ margin-left: 0 !important;
       <ul>
       <li><a href="#varianzas-intra-cluster" id="toc-varianzas-intra-cluster"><span class="toc-section-number">2.1</span> Varianzas intra-cluster</a></li>
       <li><a href="#k-medias-en-python-con-algoritmo-de-creación-propia" id="toc-k-medias-en-python-con-algoritmo-de-creación-propia"><span class="toc-section-number">2.2</span> k-medias en <code>Python</code> con algoritmo de creación propia <a class="anchor" id="2"></a></a></li>
-      <li><a href="#k-medias-en-python-con-pyclustering" id="toc-k-medias-en-python-con-pyclustering"><span class="toc-section-number">2.3</span> k-medias en <code>Python</code> con <code>PyClustering</code></a></li>
+      <li><a href="#k-medias-en-python-con-sklearn" id="toc-k-medias-en-python-con-sklearn"><span class="toc-section-number">2.3</span> k-medias en <code>Python</code> con <code>sklearn</code></a></li>
       </ul></li>
       <li><a href="#k-medoids" id="toc-k-medoids"><span class="toc-section-number">3</span> k-medoids</a>
       <ul>
@@ -1823,8 +1823,8 @@ dtype: float64</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">2</span>].mean()</span></code></pre></div>
 <div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">3</span>].mean()</span></code></pre></div>
 </div>
-<div id="k-medias-en-python-con-pyclustering" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> k-medias en <code>Python</code> con <code>PyClustering</code></h2>
+<div id="k-medias-en-python-con-sklearn" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> k-medias en <code>Python</code> con <code>sklearn</code></h2>
 <p><br></p>
 <p><br></p>
 </div>
@@ -1913,10 +1913,22 @@ dtype: float64</p>
 <p><br></p>
 <p><strong>Interpretación de Silhouette:</strong></p>
 <ul>
-<li><p><span class="math inline">\(\mathcal{S}(x_i) \in [0,1]\)</span></p></li>
-<li><p>Cuanto más cerca este <span class="math inline">\(\mathcal{S}(x_i, M)\)</span> de <span class="math inline">\(1\)</span> , mejor clasificado esta <span class="math inline">\(x_i\)</span>. Esto es debido a que</p></li>
-<li><p>Cuanto más lejos</p></li>
+<li><p><span class="math inline">\(\mathcal{S}(x_i) \in [-1,1] \\\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i) \in [-1,0]\hspace{0.12cm}\)</span>, se considera que <span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> ha sido clasificado <strong>incorrectamente</strong>, y cuanto más cerca este <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}\)</span> de <span class="math inline">\(\hspace{0.12cm}-1\hspace{0.12cm}\)</span> , <strong>peor</strong> clasificado estará <span class="math inline">\(\hspace{0.12cm}x_i \\\)</span></p></li>
+<li><p>Por lo anterior, si <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i) \in [-1,0]\hspace{0.12cm}\)</span>, se considera que <span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> ha sido clasificado <strong>incorrectamente</strong>, y cuanto más cerca este <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}\)</span> de <span class="math inline">\(\hspace{0.12cm}-1\hspace{0.12cm}\)</span> , <strong>peor</strong> clasificado estará <span class="math inline">\(\hspace{0.12cm}x_i \\\)</span></p></li>
 </ul>
+<p><br></p>
+<p><strong>Justificaciones:</strong></p>
+<ul>
+<li><p>Si <span class="math inline">\(\hspace{0.12cm}\overline{\delta}(x_i , C_h) &lt; \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}\)</span>, entonces, la distancia media entre <span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> y el resto de observaciones del cluster <span class="math inline">\(\hspace{0.12cm}C_h\hspace{0.12cm}\)</span> es menor que la distancia media entre x_i y las observaciones del cluster más cernano em media, sin tener en cuenta <span class="math inline">\(\hspace{0.12cm}C_h\hspace{0.12cm}\)</span>, es decir, <span class="math inline">\(\hspace{0.12cm}C_{r^*}\hspace{0.12cm}\)</span>. Lo cual puede interpretarse como que x_i ha sido <strong>bien</strong> clasificado. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.12cm}\overline{\delta}(x_i , C_h) &lt; \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}\)</span>, entonces <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i) \in [0,1]\hspace{0.12cm}\)</span>. Y cuanto más se cumpla <span class="math inline">\(\hspace{0.12cm}\overline{\delta}(x_i , C_h) &lt; \overline{\delta}(x_i , C_r^*)\)</span> mas cerca estará <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}\)</span> de <span class="math inline">\(\hspace{0.12cm}1\hspace{0.12cm}\)</span>. En el caso extremo de que <span class="math inline">\(\hspace{0.12cm}\overline{\delta}(x_i , C_h) = &lt; &lt; \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}\)</span> , se tendrá que <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i) =1\)</span></p></li>
+<li><p>Por lo anterior, si <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i) \in [0,1]\hspace{0.12cm}\)</span>, se considera que <span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> ha sido clasificado correctamente, y cuanto más cerca este <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}\)</span> de <span class="math inline">\(\hspace{0.12cm}1\hspace{0.12cm}\)</span> , <strong>mejor</strong> clasificado estará <span class="math inline">\(\hspace{0.12cm}x_i \\\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.12cm}\overline{\delta}(x_i , C_h) &gt; \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}\)</span>, entonces, la distancia media entre <span class="math inline">\(x_i\)</span> y el resto de observaciones del cluster <span class="math inline">\(\hspace{0.12cm}C_h\hspace{0.12cm}\)</span> es mayor que la distancia media entre <span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> y las observaciones del cluster más cernano em media, sin tener en cuenta <span class="math inline">\(\hspace{0.12cm}C_h\hspace{0.12cm}\)</span>, es decir, <span class="math inline">\(\hspace{0.12cm}C_{r^*}\hspace{0.12cm}\)</span>. Lo cual puede interpretarse como que x_i ha sido <strong>mal</strong> clasificado.</p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.12cm}\overline{\delta}(x_i , C_h) &gt; \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}\)</span>, entonces <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i) \in [-1,0]\hspace{0.12cm}\)</span>. Y cuanto más se cumpla <span class="math inline">\(\hspace{0.12cm}\overline{\delta}(x_i , C_h) &lt; \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}\)</span> mas cerca estará <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}\)</span> de <span class="math inline">\(\hspace{0.12cm}-1\hspace{0.12cm}\)</span>. En el caso extremo de que <span class="math inline">\(\hspace{0.12cm}\overline{\delta}(x_i , C_h) &gt; \overline{\delta}(x_i , C_r^*)=0\hspace{0.12cm}\)</span> , se tendrá que <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i) =-1\)</span></p></li>
+<li><p>Por lo anterior, cuanto más cerca este <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}\)</span> de <span class="math inline">\(\hspace{0.12cm}-1\hspace{0.12cm}\)</span> , peor clasificado estará <span class="math inline">\(\hspace{0.12cm}x_i \\\)</span></p></li>
+<li><p>Por lo anterior, si <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i) \in [-1,0]\hspace{0.12cm}\)</span>, se considera que <span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> ha sido clasificado <strong>incorrectamente</strong>, y cuanto más cerca este <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}\)</span> de <span class="math inline">\(\hspace{0.12cm}-1\hspace{0.12cm}\)</span> , <strong>peor</strong> clasificado estará <span class="math inline">\(\hspace{0.12cm}x_i \\\)</span></p></li>
+</ul>
+<p><br></p>
 <p><strong>Métrica Silhouette</strong></p>
 <p>Se define la métrica Silhouette para un modelo de clustering <span class="math inline">\(M\)</span> como la media de las siluetas de las observaciones de los predictores:</p>
 <p><span class="math display">\[\overline{\mathcal{S}} (M) \hspace{0.12cm} =  \hspace{0.12cm}  \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{S}(x_i, M)\]</span></p>
