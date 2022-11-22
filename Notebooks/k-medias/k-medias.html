@@ -1587,10 +1587,13 @@ margin-left: 0 !important;
       <li><a href="#k-medoids-en-python-con-algoritmo-de-creación-propia" id="toc-k-medoids-en-python-con-algoritmo-de-creación-propia"><span class="toc-section-number">3.1</span> k-medoids en <code>Python</code> con algoritmo de creación propia</a></li>
       <li><a href="#k-medoids-en-python-con-kmedoids" id="toc-k-medoids-en-python-con-kmedoids"><span class="toc-section-number">3.2</span> k-medoids en <code>Python</code> con <code>kmedoids</code></a></li>
       </ul></li>
-      <li><a href="#métodos-de-validación-de-modelos-de-aprendizaje-no-supervisado" id="toc-métodos-de-validación-de-modelos-de-aprendizaje-no-supervisado"><span class="toc-section-number">4</span> Métodos de validación de modelos de aprendizaje no supervisado</a>
+      <li><a href="#método-de-evaluación-de-modelos-de-clasificación-no-supervisada" id="toc-método-de-evaluación-de-modelos-de-clasificación-no-supervisada"><span class="toc-section-number">4</span> Método de evaluación de modelos de clasificación no supervisada</a>
       <ul>
-      <li><a href="#método-de-la-silueta-silhouette-plot" id="toc-método-de-la-silueta-silhouette-plot"><span class="toc-section-number">4.1</span> Método de la silueta (Silhouette plot)</a></li>
+      <li><a href="#definición-de-la-métrica-silhouette" id="toc-definición-de-la-métrica-silhouette"><span class="toc-section-number">4.1</span> Definición de la métrica Silhouette</a></li>
+      <li><a href="#método-de-evaluación-basado-en-silhouette" id="toc-método-de-evaluación-basado-en-silhouette"><span class="toc-section-number">4.2</span> Método de evaluación basado en Silhouette</a></li>
       </ul></li>
+      <li><a href="#ajuste-del-hiper-parámetro-k" id="toc-ajuste-del-hiper-parámetro-k"><span class="toc-section-number">5</span> Ajuste del hiper-parámetro k</a></li>
+      <li><a href="#selección-de-modelos-de-clasificación-no-supervisada" id="toc-selección-de-modelos-de-clasificación-no-supervisada"><span class="toc-section-number">6</span> Selección de modelos de clasificación no supervisada</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1885,18 +1888,19 @@ dtype: float64</p>
 <p><br></p>
 </div>
 </div>
-<div id="métodos-de-validación-de-modelos-de-aprendizaje-no-supervisado" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Métodos de validación de modelos de aprendizaje no supervisado</h1>
-<p>Dado un modelo predictivo de aprendizaje no supervisado, nos interesa poder medir la capacidad predictiva del modelo. Pero no podemos usar los típicos métodos de validación aplicados a modelos de aprendizaje supervisado, como son los métodos de validación cruzada, debido a que en aprendizaje supervisado se tienen datos para la variable respuesta, y esos datos son una pieza importante de los métodos de cross validation. En cambio en aprendizaje no supervisado no se disponen de datos de la respuesta, por lo que no pueden emplearse métodos de validacion cruzada como la validacion simple, el leave one out o el k-fold.</p>
-<div id="método-de-la-silueta-silhouette-plot" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Método de la silueta (Silhouette plot)</h2>
-<div id="silueta" class="section level3" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> Silueta</h3>
-<p>Supongamos que tras aplicar un modelo de clasificación no supervisada como k-medias o k-medoids tenemos que <span class="math inline">\(x_i \in C_h \\\)</span></p>
-<p><span class="math display">\[\mathcal{S}(x_i) \hspace{0.12cm}=\hspace{0.12cm} \dfrac{\overline{\delta}(i,r^*) - \overline{\delta}(i,h)}{Max \left\lbrace \hspace{0.12cm}\overline{\delta}(i,r^*) \hspace{0.12cm},\hspace{0.12cm} \overline{\delta}(i,h)\hspace{0.12cm} \right\rbrace}\\\]</span></p>
+<div id="método-de-evaluación-de-modelos-de-clasificación-no-supervisada" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Método de evaluación de modelos de clasificación no supervisada</h1>
+<p>Un método de evaluación de modelos de clasificación no supervisada es un método que permite evaluar un modelo de clustering usando una muestra de train de los predictores y una métrica de evaluación.</p>
+<p>En este articulo nos centraremos en una métrica de evaluación denominada silhouette (silueta)</p>
+<div id="definición-de-la-métrica-silhouette" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Definición de la métrica Silhouette</h2>
+<p>Dado un modelo de clustering <span class="math inline">\(M\)</span> , como por ejemplo k-medias o k-medoids.</p>
+<p>Supongamos que tras entrenar <span class="math inline">\(M\)</span> con las observaciones disponibles para los predictores tenemos que <span class="math inline">\(x_i \in C_h \\\)</span></p>
+<p>La silueta de <span class="math inline">\(x_i\)</span> en el modelo de clustering <span class="math inline">\(M\)</span> es:</p>
+<p><span class="math display">\[\mathcal{S}(x_i, M) \hspace{0.12cm}=\hspace{0.12cm} \dfrac{\overline{\delta}(i,r^*) - \overline{\delta}(i,h)}{Max \left\lbrace \hspace{0.12cm}\overline{\delta}(i,r^*) \hspace{0.12cm},\hspace{0.12cm} \overline{\delta}(i,h)\hspace{0.12cm} \right\rbrace}\\\]</span></p>
 <p>Donde:</p>
 <p><span class="math display">\[\overline{\delta}(x_i, C_h) \hspace{0.12cm}=\hspace{0.12cm} \dfrac{1}{\# C_h - 1} \cdot \sum_{r \in I_h} \hspace{0.1cm} \delta(x_i , x_r) \\\]</span></p>
-<p><span class="math display">\[r^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.12cm} \underset{r\neq j=1,..,k} {Min} \hspace{0.12cm} \overline{\delta}(i,r)\\\]</span></p>
+<p><span class="math display">\[r^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.12cm} \underset{r\neq j=1,..,k} {Min} \hspace{0.12cm} \overline{\delta}(x_i, C_r)\\\]</span></p>
 <p><strong>Observaciones:</strong></p>
 <ul>
 <li>En general</li>
@@ -1907,13 +1911,48 @@ dtype: float64</p>
 <li><span class="math inline">\(\hspace{0.12cm}\overline{\delta}(x_i, C_r^*) \hspace{0.12cm}=\hspace{0.12cm} Min\hspace{0.12cm} \left\lbrace \hspace{0.12cm} \overline{\delta}(x_i, C_r) \hspace{0.12cm} / \hspace{0.12cm} r\neq j = 1,...,k \hspace{0.12cm} \right\rbrace\)</span></li>
 </ul>
 <p><br></p>
+<p><strong>Interpretación de Silhouette:</strong></p>
+<ul>
+<li><p><span class="math inline">\(\mathcal{S}(x_i) \in [0,1]\)</span></p></li>
+<li><p>Cuanto más cerca este <span class="math inline">\(\mathcal{S}(x_i, M)\)</span> de <span class="math inline">\(1\)</span> , mejor clasificado esta <span class="math inline">\(x_i\)</span>. Esto es debido a que</p></li>
+<li><p>Cuanto más lejos</p></li>
+</ul>
+<p><strong>Métrica Silhouette</strong></p>
+<p>Se define la métrica Silhouette para un modelo de clustering <span class="math inline">\(M\)</span> como la media de las siluetas de las observaciones de los predictores:</p>
+<p><span class="math display">\[\overline{\mathcal{S}} (M) \hspace{0.12cm} =  \hspace{0.12cm}  \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{S}(x_i, M)\]</span></p>
+<p><br></p>
 </div>
-<div id="método" class="section level3" number="4.1.2">
-<h3><span class="header-section-number">4.1.2</span> Método</h3>
-<p>Se calcula la media de las siluetas sobre el cojunto de las observaciones:</p>
-<p><span class="math display">\[\overline{\mathcal{S}} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{S}(x_i)\]</span></p>
+<div id="método-de-evaluación-basado-en-silhouette" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Método de evaluación basado en Silhouette</h2>
+<p>Como estamos considerando modelos de aprendizaje supervisado en los que por definición no se tienen datos de la respuesta, aqui la idea de considerar muestras de train y test no tiene utilidad, puesto que el fundamento de esa idea es comparar las predicciones que el modelo hace para la respuesta con la muestra de test de la respuesta, pero en este caso no se tiene ninguna muestra (ni de train ni de test) de la respuesta. Es esto lo que caracteriza a los modelos no supervisados.</p>
+<p>Por ello el método de evaluación basado en Silhouette consiste simplemente en usar la muestra disponible de los predictores como muestra de train, es decir, usarla para entrenar el modelo de clustering considerado, y con el modelo entrenado calcular la métrica Silhouette, antes definida.</p>
+<p>Notese que la metrica Silhouette depende del modelo entrenado, al depender de los clusters finales que se obtienen tras entrenarlo. Por lo que para modelos de clustering que generen distintas configuraciones finales de clusters se obtendran valores distintos de la métrica Silhouette.</p>
 </div>
 </div>
+<div id="ajuste-del-hiper-parámetro-k" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Ajuste del hiper-parámetro k</h1>
+<p>A continuación vamos a exponer un método para seleccionar el hiper-parametro k de un modelo de clustering como k-medias o k-medoids.</p>
+<p>Dado un modelo de clustering <span class="math inline">\(M\)</span> , como podría ser el k-medias o k-medoids.</p>
+<ol style="list-style-type: decimal">
+<li>Se entrena <span class="math inline">\(M\)</span> un número <span class="math inline">\(B\)</span> de veces con las mismas observaciones de los predictores, pero en cada ocasión se utiliza un valor del hiper-parametro <span class="math inline">\(k\)</span> distinto.</li>
+</ol>
+<p>Por tanto, se obtienen los siguientes <span class="math inline">\(B\)</span> modelos entrenados: <span class="math inline">\(\widehat{M}(k=k_1) \hspace{0.12cm}, \hspace{0.12cm} \widehat{M}(k=k_2) \hspace{0.12cm}, ..., \hspace{0.12cm} \widehat{M}(k=k_B)\)</span></p>
+<p>Donde <span class="math inline">\(\widehat{M}(k=k_j)\)</span> es el modelo de clustering <span class="math inline">\(M\)</span>, con hiper-parametro <span class="math inline">\(k=k_1\)</span>, ya entrenado.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Se calcula la metrica Silhouette <span class="math inline">\(\overline{\mathcal{S}}\)</span> para cada uno de esos <span class="math inline">\(B\)</span> modelos:</li>
+</ol>
+<p><span class="math display">\[\overline{\mathcal{S}}(\widehat{M}(k=k_1)), \overline{\mathcal{S}}(\widehat{M}(k=k_2)) , ..., \overline{\mathcal{S}}(\widehat{M}(k=k_B))\]</span></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Se calcula la media de las siluetas de las observaciones disponibles de los predictores: <span class="math inline">\(\\[0.5cm]\)</span></li>
+</ol>
+<p><span class="math display">\[\overline{\mathcal{S}}  \hspace{0.12cm} =  \hspace{0.12cm}  \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{S}(x_i)\]</span></p>
+<p><br></p>
+</div>
+<div id="selección-de-modelos-de-clasificación-no-supervisada" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Selección de modelos de clasificación no supervisada</h1>
+<p>Vamos a exponer un método de selección de modelos de clustering basado en la métrica Silhouette</p>
+<p>Dados <span class="math inline">\(B\)</span> modelos de clustering <span class="math inline">\(M_1,M_2,...,M_B\)</span> se selcciona aquel que tenga mayor Silhouette</p>
+<p><br></p>
 </div>
 </div>
 
