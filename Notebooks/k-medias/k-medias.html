@@ -1587,15 +1587,15 @@ margin-left: 0 !important;
       <ul>
       <li><a href="#interpretación-de-los-clusters-en-k-medoids" id="toc-interpretación-de-los-clusters-en-k-medoids"><span class="toc-section-number">3.1</span> Interpretación de los clusters en k-medoids</a></li>
       <li><a href="#k-medoids-en-python-con-algoritmo-de-creación-propia" id="toc-k-medoids-en-python-con-algoritmo-de-creación-propia"><span class="toc-section-number">3.2</span> k-medoids en <code>Python</code> con algoritmo de creación propia</a></li>
-      <li><a href="#k-medoids-en-python-con-kmedoids" id="toc-k-medoids-en-python-con-kmedoids"><span class="toc-section-number">3.3</span> k-medoids en <code>Python</code> con <code>kmedoids</code></a></li>
+      <li><a href="#k-medoids-en-python-con-la-libreria-kmedoids" id="toc-k-medoids-en-python-con-la-libreria-kmedoids"><span class="toc-section-number">3.3</span> k-medoids en <code>Python</code> con la libreria <code>kmedoids</code></a></li>
       </ul></li>
       <li><a href="#método-de-evaluación-de-modelos-de-clasificación-no-supervisada" id="toc-método-de-evaluación-de-modelos-de-clasificación-no-supervisada"><span class="toc-section-number">4</span> Método de evaluación de modelos de clasificación no supervisada</a>
       <ul>
       <li><a href="#definición-de-la-métrica-silhouette" id="toc-definición-de-la-métrica-silhouette"><span class="toc-section-number">4.1</span> Definición de la métrica Silhouette</a></li>
       <li><a href="#método-de-evaluación-basado-en-silhouette" id="toc-método-de-evaluación-basado-en-silhouette"><span class="toc-section-number">4.2</span> Método de evaluación basado en Silhouette</a></li>
       </ul></li>
-      <li><a href="#ajuste-del-hiper-parámetro-k" id="toc-ajuste-del-hiper-parámetro-k"><span class="toc-section-number">5</span> Ajuste del hiper-parámetro k</a></li>
-      <li><a href="#selección-de-modelos-de-clasificación-no-supervisada" id="toc-selección-de-modelos-de-clasificación-no-supervisada"><span class="toc-section-number">6</span> Selección de modelos de clasificación no supervisada</a></li>
+      <li><a href="#ajuste-del-hiper-parámetro-k-mediante-silhouette" id="toc-ajuste-del-hiper-parámetro-k-mediante-silhouette"><span class="toc-section-number">5</span> Ajuste del hiper-parámetro k mediante Silhouette</a></li>
+      <li><a href="#selección-de-modelos-de-clasificación-no-supervisada-mediante-silhouette" id="toc-selección-de-modelos-de-clasificación-no-supervisada-mediante-silhouette"><span class="toc-section-number">6</span> Selección de modelos de clasificación no supervisada mediante Silhouette</a></li>
       <li><a href="#clustering-y-pca" id="toc-clustering-y-pca"><span class="toc-section-number">7</span> Clustering y PCA</a></li>
       <li><a href="#clustering-y-mds" id="toc-clustering-y-mds"><span class="toc-section-number">8</span> Clustering y MDS</a></li>
       </ul>
@@ -2264,6 +2264,7 @@ dtype: float64</code></pre>
 574  25.049301  55.198896    350000.0    40.598611
 576  25.103550  55.168509  34314000.0   889.639128</code></pre>
 <p><br></p>
+<p>Probamos el algoritmo con otra distancia:</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>lista_clusters <span class="op">=</span> k_means(k<span class="op">=</span><span class="dv">4</span> , Data<span class="op">=</span>Data, random_seed<span class="op">=</span><span class="dv">123</span>, Distance<span class="op">=</span><span class="st">&#39;Canberra&#39;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">0</span>]</span></code></pre></div>
 <pre><code>       latitude  longitude       price  size_in_m_2
@@ -2350,11 +2351,13 @@ dtype: float64</code></pre>
 <p>También hay que notar que <span class="math inline">\(\hspace{0.1cm}C_j\hspace{0.1cm}\)</span> es un vector cuyas componentes son vectores fila, luego es una matriz. Como además estos vectores fila son observaciones de variables estadisticas, puede verse como una matriz de datos. <span class="math inline">\(\\[0.8cm]\)</span></p>
 <p><span class="math inline">\(3)\hspace{0.1cm}\)</span> Se calculan los <strong>medoids</strong> de los clusters formados en el paso anterior (lo que en k-medias eran los centroides).</p>
 <p>Sea <span class="math inline">\(\hspace{0.1cm}\delta\hspace{0.1cm}\)</span> una medida de distancia;</p>
-<p>El <strong>medoid</strong> de un cluster <span class="math inline">\(\hspace{0.1cm} C_j\hspace{0.1cm}\)</span> es <span class="math inline">\(\hspace{0.12cm}\overline{x}_{C_j} = x_{i\hspace{0.07cm}^*}\hspace{0.1cm}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p>El <strong>medoid</strong> de un cluster <span class="math inline">\(\hspace{0.1cm} C_j\hspace{0.1cm}\)</span> es <span class="math inline">\(\hspace{0.12cm}\overline{x}_{C_j} = x_{i\hspace{0.05cm}^*}\hspace{0.1cm}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p>Donde:</p>
 <p><span class="math display">\[i\hspace{0.08cm}^* \hspace{0.1cm}=\hspace{0.1cm}  arg \hspace{0.15cm} \underset{i \in I_j}{Min} \hspace{0.15cm} \sum_{r \in I_j} \hspace{0.1cm} \delta(x_i , x_r) \\\]</span></p>
 <p>Y es importante recordar que:</p>
 <p><span class="math display">\[i \in I_j \hspace{0.2cm} \Leftrightarrow \hspace{0.2cm} x_{i} \in C_j \\\]</span></p>
+<p><strong>Observación:</strong></p>
+<p>Ell medoid de un cluster es una observacion del propio cluster, concretamente la que minimiza la suma de las distancias entre esa observacion y cada una de las restantes observaciones del cluster. <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math inline">\(4)\hspace{0.1cm}\)</span> Aplicado a la observación <span class="math inline">\(\hspace{0.1cm}x_1\)</span></p>
 <p>Se asigna <span class="math inline">\(\hspace{0.1cm}x_1 \hspace{0.1cm}\)</span> al cluster que le queda mas cercano teniendo en cuenta su medoid.</p>
 <p>Se calculan las distancia entre la observacion <span class="math inline">\(\hspace{0.1cm} x_1\hspace{0.1cm}\)</span> y los <strong>medoids</strong> de cada cluster:</p>
@@ -2415,10 +2418,242 @@ dtype: float64</code></pre>
 </div>
 <div id="k-medoids-en-python-con-algoritmo-de-creación-propia" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> k-medoids en <code>Python</code> con algoritmo de creación propia</h2>
+<p>La idea es usar el programa usado en k-medias para programar el k-medoids, pero modificando aquello que les hace diferente, que no es más que la definición de los centroides-medoids. Por tanto el ejercicio a priori es simple, puesto que sustituyendo el calculo de centroides por el calculo de medoids en dicho programa, ya tendriamos programa que ejecuta el algoritmo k-medoids.</p>
+<p>El problema es que el calculo de los medoids es computacionalmente muchisimo más costoso que el cálculo de los centroides. Y esta es una tarea que se puede llegar a repetir cientos de veces en el algoritmo, luego se requiere que su coste computacional sea bajo para que el algoritmo sea lo suficiente eficiente como para poder usarlo en la práctica.</p>
+<p>El problema está en que, tal y como lo hemos programado, el calculo de los medoids de una configuarción de clusters dada tarda en torno a 7 minutos. Y como se ha dicho esta tarea es realizada por el algoritmo en multiples ocasiones (con la configuaracion inicial de clusters y cada vez que una observacion es asignada a un cluster que no es su óptimo, en el sentido de k-medoids). Por tanto, repetir esta tarea que tarda unos 7 minutos un número elevado de veces convierte a nuestro algoritmo en no-ejecutable en la practica.</p>
+<p>La solución seria construir un programa alternativo que fuera mucho más eficiente. Por suerte esto existe, y esta en la libreria <code>kmedoids</code>, desarrollada por Erich Schubert y Lars Lenssen. En la siguiente sección exploraremos esta libreria.</p>
+<p>A continuación vamos a mostrar como se calcularian los medoids para la configuracion inical de clusters, basandonos enteramente en el progrma que usamos para k-medias.
+Uno mismo puede comprobar que la ejecución de este codigo lleva demasiado tiempo, y la parte que lo relentiza es la del calculo de los medoids.</p>
+<p><br></p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Configuracion inicial aleatoria de los clusters:</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>n<span class="op">=</span><span class="bu">len</span>(Data)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>k<span class="op">=</span><span class="dv">4</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>elementos_clusterizados <span class="op">=</span> []</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> resample(<span class="bu">range</span>(<span class="dv">0</span>, n), n_samples<span class="op">=</span>math.floor(n<span class="op">/</span>k) , replace<span class="op">=</span><span class="va">False</span>, random_state<span class="op">=</span><span class="dv">123</span>)</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>Cluster_0 <span class="op">=</span> Data.loc[m,:]</span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>elementos_clusterizados.append(m)</span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a><span class="co">###################################################################################</span></span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> k <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Si los elementos que quedan por clusterizar menos el tamaño de los clusters es menor que el propio tamaño de los clusters,</span></span>
+<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a><span class="co">#  se meten todos los elementos que quedan por clusterizar en un mimsmo cluster que será ademas el ultimo.</span></span>
+<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-25"><a href="#cb40-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(np.delete(<span class="bu">range</span>(<span class="dv">0</span>,n), elementos_clusterizados)) <span class="op">-</span> n<span class="op">/</span>k  <span class="op">&lt;</span> n<span class="op">/</span>k : </span>
+<span id="cb40-26"><a href="#cb40-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-27"><a href="#cb40-27" aria-hidden="true" tabindex="-1"></a>        Cluster_1 <span class="op">=</span> Data.loc[np.delete(<span class="bu">range</span>(<span class="dv">0</span>,n), elementos_clusterizados),:]</span>
+<span id="cb40-28"><a href="#cb40-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-29"><a href="#cb40-29" aria-hidden="true" tabindex="-1"></a>        elementos_clusterizados.append(m)</span>
+<span id="cb40-30"><a href="#cb40-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-31"><a href="#cb40-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb40-32"><a href="#cb40-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-33"><a href="#cb40-33" aria-hidden="true" tabindex="-1"></a>        m <span class="op">=</span> resample(np.delete(<span class="bu">range</span>(<span class="dv">0</span>,n), elementos_clusterizados), n_samples<span class="op">=</span>math.floor(n<span class="op">/</span>k) , replace<span class="op">=</span><span class="va">False</span>, random_state<span class="op">=</span><span class="dv">123</span>)</span>
+<span id="cb40-34"><a href="#cb40-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-35"><a href="#cb40-35" aria-hidden="true" tabindex="-1"></a>        Cluster_1 <span class="op">=</span> Data.loc[m,:]</span>
+<span id="cb40-36"><a href="#cb40-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-37"><a href="#cb40-37" aria-hidden="true" tabindex="-1"></a>        elementos_clusterizados.append(m)</span>
+<span id="cb40-38"><a href="#cb40-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-39"><a href="#cb40-39" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> k <span class="op">&lt;</span> <span class="dv">2</span> :</span>
+<span id="cb40-40"><a href="#cb40-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-41"><a href="#cb40-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb40-42"><a href="#cb40-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-43"><a href="#cb40-43" aria-hidden="true" tabindex="-1"></a><span class="co">###################################################################################</span></span>
+<span id="cb40-44"><a href="#cb40-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-45"><a href="#cb40-45" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> k <span class="op">&gt;=</span> <span class="dv">3</span>:</span>
+<span id="cb40-46"><a href="#cb40-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-47"><a href="#cb40-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Si los elementos que quedan por clusterizar menos el tamaño de los clusters es menor que el propio tamaño de los clusters,</span></span>
+<span id="cb40-48"><a href="#cb40-48" aria-hidden="true" tabindex="-1"></a><span class="co">#  se meten todos los elementos que quedan por clusterizar en un mimsmo cluster que será ademas el ultimo.</span></span>
+<span id="cb40-49"><a href="#cb40-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-50"><a href="#cb40-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-51"><a href="#cb40-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(np.delete(<span class="bu">range</span>(<span class="dv">0</span>,n), elementos_clusterizados)) <span class="op">-</span> n<span class="op">/</span>k  <span class="op">&lt;</span> n<span class="op">/</span>k : </span>
+<span id="cb40-52"><a href="#cb40-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-53"><a href="#cb40-53" aria-hidden="true" tabindex="-1"></a>        Cluster_2 <span class="op">=</span> Data.loc[np.delete(<span class="bu">range</span>(<span class="dv">0</span>,n), elementos_clusterizados),:]</span>
+<span id="cb40-54"><a href="#cb40-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-55"><a href="#cb40-55" aria-hidden="true" tabindex="-1"></a>        elementos_clusterizados.append(m)</span>
+<span id="cb40-56"><a href="#cb40-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-57"><a href="#cb40-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb40-58"><a href="#cb40-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-59"><a href="#cb40-59" aria-hidden="true" tabindex="-1"></a>        m <span class="op">=</span> resample(np.delete(<span class="bu">range</span>(<span class="dv">0</span>,n), elementos_clusterizados), n_samples<span class="op">=</span>math.floor(n<span class="op">/</span>k) , replace<span class="op">=</span><span class="va">False</span>, random_state<span class="op">=</span><span class="dv">123</span>)</span>
+<span id="cb40-60"><a href="#cb40-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-61"><a href="#cb40-61" aria-hidden="true" tabindex="-1"></a>        Cluster_2 <span class="op">=</span> Data.loc[m,:]</span>
+<span id="cb40-62"><a href="#cb40-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-63"><a href="#cb40-63" aria-hidden="true" tabindex="-1"></a>        elementos_clusterizados.append(m)</span>
+<span id="cb40-64"><a href="#cb40-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-65"><a href="#cb40-65" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> k <span class="op">&lt;</span> <span class="dv">3</span> :</span>
+<span id="cb40-66"><a href="#cb40-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-67"><a href="#cb40-67" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb40-68"><a href="#cb40-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-69"><a href="#cb40-69" aria-hidden="true" tabindex="-1"></a><span class="co">###################################################################################</span></span>
+<span id="cb40-70"><a href="#cb40-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-71"><a href="#cb40-71" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> k <span class="op">&gt;=</span> <span class="dv">4</span>:</span>
+<span id="cb40-72"><a href="#cb40-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-73"><a href="#cb40-73" aria-hidden="true" tabindex="-1"></a><span class="co"># Si los elementos que quedan por clusterizar menos el tamaño de los clusters es menor que el propio tamaño de los clusters,</span></span>
+<span id="cb40-74"><a href="#cb40-74" aria-hidden="true" tabindex="-1"></a><span class="co">#  se meten todos los elementos que quedan por clusterizar en un mimsmo cluster que será ademas el ultimo.</span></span>
+<span id="cb40-75"><a href="#cb40-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-76"><a href="#cb40-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-77"><a href="#cb40-77" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(np.delete(<span class="bu">range</span>(<span class="dv">0</span>,n), elementos_clusterizados)) <span class="op">-</span> n<span class="op">/</span>k  <span class="op">&lt;</span> n<span class="op">/</span>k : </span>
+<span id="cb40-78"><a href="#cb40-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-79"><a href="#cb40-79" aria-hidden="true" tabindex="-1"></a>        Cluster_3 <span class="op">=</span> Data.loc[np.delete(<span class="bu">range</span>(<span class="dv">0</span>,n), elementos_clusterizados),:]</span>
+<span id="cb40-80"><a href="#cb40-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-81"><a href="#cb40-81" aria-hidden="true" tabindex="-1"></a>        elementos_clusterizados.append(m)</span>
+<span id="cb40-82"><a href="#cb40-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-83"><a href="#cb40-83" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb40-84"><a href="#cb40-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-85"><a href="#cb40-85" aria-hidden="true" tabindex="-1"></a>        m <span class="op">=</span> resample(np.delete(<span class="bu">range</span>(<span class="dv">0</span>,n), elementos_clusterizados), n_samples<span class="op">=</span>math.floor(n<span class="op">/</span>k) , replace<span class="op">=</span><span class="va">False</span>, random_state<span class="op">=</span><span class="dv">123</span>)</span>
+<span id="cb40-86"><a href="#cb40-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-87"><a href="#cb40-87" aria-hidden="true" tabindex="-1"></a>        Cluster_3 <span class="op">=</span> Data.loc[m ,:]</span>
+<span id="cb40-88"><a href="#cb40-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-89"><a href="#cb40-89" aria-hidden="true" tabindex="-1"></a>        elementos_clusterizados.append(m)</span>
+<span id="cb40-90"><a href="#cb40-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-91"><a href="#cb40-91" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> k <span class="op">&lt;</span> <span class="dv">4</span> :</span>
+<span id="cb40-92"><a href="#cb40-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-93"><a href="#cb40-93" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>lista_clusters <span class="op">=</span> [<span class="va">None</span>] <span class="op">*</span> <span class="dv">4</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">0</span>] <span class="op">=</span> Cluster_0</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">1</span>] <span class="op">=</span> Cluster_1</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">2</span>] <span class="op">=</span> Cluster_2</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>lista_clusters[<span class="dv">3</span>] <span class="op">=</span> Cluster_3</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se calcula la matriz de distancias para las observaciones del cluster 0 :</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>distancias_clusters_0 <span class="op">=</span>  np.empty((<span class="bu">len</span>(lista_clusters[<span class="dv">0</span>]), <span class="bu">len</span>(lista_clusters[<span class="dv">0</span>])))</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>distancias_clusters_0[:] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(lista_clusters[<span class="dv">0</span>])) :</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> r <span class="kw">in</span>  <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(lista_clusters[<span class="dv">0</span>])) :</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>            distancias_clusters_0[i,r] <span class="op">=</span> <span class="bu">sum</span>( (lista_clusters[<span class="dv">0</span>].iloc[i , :] <span class="op">-</span> lista_clusters[<span class="dv">0</span>].iloc[r , :])<span class="op">**</span><span class="dv">2</span> )</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculamos la suma de las distancia entre x_i y cada una de las restantes observaciones del cluster 0 , para cada observacion x_i del cluster 0.</span></span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>suma_distancias_cluster_0 <span class="op">=</span> []</span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, distancias_clusters_0.shape[<span class="dv">0</span>]):</span>
+<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a>    suma_distancias_cluster_0.append( distancias_clusters_0[i,:].<span class="bu">sum</span>() )</span>
+<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-24"><a href="#cb42-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculamos el medoid del cluster 0 :</span></span>
+<span id="cb42-25"><a href="#cb42-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-26"><a href="#cb42-26" aria-hidden="true" tabindex="-1"></a>medoids <span class="op">=</span>[]</span>
+<span id="cb42-27"><a href="#cb42-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-28"><a href="#cb42-28" aria-hidden="true" tabindex="-1"></a><span class="co"># np.where(suma_distancias_cluster_0 == min( suma_distancias_cluster_0 ) )[0] </span></span>
+<span id="cb42-29"><a href="#cb42-29" aria-hidden="true" tabindex="-1"></a><span class="co"># es la fila de la matriz de distancias del cluster 0 asociada a la observacion x_i  que minimiza la suma de distancias entre x_i y cada una de las restantes observaciones del cluster 0 </span></span>
+<span id="cb42-30"><a href="#cb42-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-31"><a href="#cb42-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-32"><a href="#cb42-32" aria-hidden="true" tabindex="-1"></a><span class="co"># lista_clusters[0].iloc[ np.where(suma_distancias_cluster_0 == min( suma_distancias_cluster_0 ) )[0] , :].index </span></span>
+<span id="cb42-33"><a href="#cb42-33" aria-hidden="true" tabindex="-1"></a><span class="co"># es el vérdadero índice de la observacion x_i que minimiza la suma de distancias entre x_i y el resto de observaciones del cluster 0</span></span>
+<span id="cb42-34"><a href="#cb42-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-35"><a href="#cb42-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Este es el valor que nos interesa, nos da el indice de la observacion que es el medoid del ccluster 0  </span></span>
+<span id="cb42-36"><a href="#cb42-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-37"><a href="#cb42-37" aria-hidden="true" tabindex="-1"></a>medoids.append( lista_clusters[<span class="dv">0</span>].iloc[ np.where(suma_distancias_cluster_0 <span class="op">==</span> <span class="bu">min</span>( suma_distancias_cluster_0 ) )[<span class="dv">0</span>] , :].index )</span>
+<span id="cb42-38"><a href="#cb42-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-39"><a href="#cb42-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-40"><a href="#cb42-40" aria-hidden="true" tabindex="-1"></a><span class="co">##########################################################################################</span></span>
+<span id="cb42-41"><a href="#cb42-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-42"><a href="#cb42-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Repetimos el proceso anterior con los clusters restantes (en este caso hay k=4 clusters).</span></span>
+<span id="cb42-43"><a href="#cb42-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-44"><a href="#cb42-44" aria-hidden="true" tabindex="-1"></a>distancias_clusters_1 <span class="op">=</span>  np.empty((<span class="bu">len</span>(lista_clusters[<span class="dv">1</span>]), <span class="bu">len</span>(lista_clusters[<span class="dv">1</span>])))</span>
+<span id="cb42-45"><a href="#cb42-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-46"><a href="#cb42-46" aria-hidden="true" tabindex="-1"></a>distancias_clusters_1[:] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb42-47"><a href="#cb42-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-48"><a href="#cb42-48" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(lista_clusters[<span class="dv">1</span>])) :</span>
+<span id="cb42-49"><a href="#cb42-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-50"><a href="#cb42-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> r <span class="kw">in</span>  <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(lista_clusters[<span class="dv">1</span>])) :</span>
+<span id="cb42-51"><a href="#cb42-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-52"><a href="#cb42-52" aria-hidden="true" tabindex="-1"></a>            distancias_clusters_1[i,r] <span class="op">=</span> <span class="bu">sum</span>( (lista_clusters[<span class="dv">1</span>].iloc[i , :] <span class="op">-</span> lista_clusters[<span class="dv">1</span>].iloc[r , :])<span class="op">**</span><span class="dv">2</span> )</span>
+<span id="cb42-53"><a href="#cb42-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-54"><a href="#cb42-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-55"><a href="#cb42-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-56"><a href="#cb42-56" aria-hidden="true" tabindex="-1"></a><span class="co"># Para el cluster 1 : calculamos la suma de la distancia entre x_i y el resto de observaciones, para cada i=1,..,n </span></span>
+<span id="cb42-57"><a href="#cb42-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-58"><a href="#cb42-58" aria-hidden="true" tabindex="-1"></a>suma_distancias_cluster_1 <span class="op">=</span> []</span>
+<span id="cb42-59"><a href="#cb42-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-60"><a href="#cb42-60" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, distancias_clusters_1.shape[<span class="dv">0</span>]):</span>
+<span id="cb42-61"><a href="#cb42-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-62"><a href="#cb42-62" aria-hidden="true" tabindex="-1"></a>    suma_distancias_cluster_1.append( distancias_clusters_1[i,:].<span class="bu">sum</span>() )</span>
+<span id="cb42-63"><a href="#cb42-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-64"><a href="#cb42-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-65"><a href="#cb42-65" aria-hidden="true" tabindex="-1"></a>medoids.append( lista_clusters[<span class="dv">1</span>].iloc[ np.where(suma_distancias_cluster_1 <span class="op">==</span> <span class="bu">min</span>( suma_distancias_cluster_1 ) )[<span class="dv">0</span>] , :].index )</span>
+<span id="cb42-66"><a href="#cb42-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-67"><a href="#cb42-67" aria-hidden="true" tabindex="-1"></a><span class="co">##########################################################################################</span></span>
+<span id="cb42-68"><a href="#cb42-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-69"><a href="#cb42-69" aria-hidden="true" tabindex="-1"></a>distancias_clusters_2 <span class="op">=</span>  np.empty((<span class="bu">len</span>(lista_clusters[<span class="dv">2</span>]), <span class="bu">len</span>(lista_clusters[<span class="dv">2</span>])))</span>
+<span id="cb42-70"><a href="#cb42-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-71"><a href="#cb42-71" aria-hidden="true" tabindex="-1"></a>distancias_clusters_2[:] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb42-72"><a href="#cb42-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-73"><a href="#cb42-73" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(lista_clusters[<span class="dv">2</span>])) :</span>
+<span id="cb42-74"><a href="#cb42-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-75"><a href="#cb42-75" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> r <span class="kw">in</span>  <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(lista_clusters[<span class="dv">2</span>])) :</span>
+<span id="cb42-76"><a href="#cb42-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-77"><a href="#cb42-77" aria-hidden="true" tabindex="-1"></a>            distancias_clusters_2[i,r] <span class="op">=</span> <span class="bu">sum</span>( (lista_clusters[<span class="dv">2</span>].iloc[i , :] <span class="op">-</span> lista_clusters[<span class="dv">2</span>].iloc[r , :])<span class="op">**</span><span class="dv">2</span> )</span>
+<span id="cb42-78"><a href="#cb42-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-79"><a href="#cb42-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-80"><a href="#cb42-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-81"><a href="#cb42-81" aria-hidden="true" tabindex="-1"></a><span class="co"># Para el cluster 2 : calculamos la suma de la distancia entre x_i y el resto de observaciones, para cada i=1,..,n </span></span>
+<span id="cb42-82"><a href="#cb42-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-83"><a href="#cb42-83" aria-hidden="true" tabindex="-1"></a>suma_distancias_cluster_2 <span class="op">=</span> []</span>
+<span id="cb42-84"><a href="#cb42-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-85"><a href="#cb42-85" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, distancias_clusters_2.shape[<span class="dv">0</span>]):</span>
+<span id="cb42-86"><a href="#cb42-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-87"><a href="#cb42-87" aria-hidden="true" tabindex="-1"></a>    suma_distancias_cluster_2.append( distancias_clusters_2[i,:].<span class="bu">sum</span>() )</span>
+<span id="cb42-88"><a href="#cb42-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-89"><a href="#cb42-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-90"><a href="#cb42-90" aria-hidden="true" tabindex="-1"></a>medoids.append( lista_clusters[<span class="dv">2</span>].iloc[ np.where(suma_distancias_cluster_2 <span class="op">==</span> <span class="bu">min</span>( suma_distancias_cluster_2 ) )[<span class="dv">0</span>] , :].index )</span>
+<span id="cb42-91"><a href="#cb42-91" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-92"><a href="#cb42-92" aria-hidden="true" tabindex="-1"></a><span class="co">##########################################################################################</span></span>
+<span id="cb42-93"><a href="#cb42-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-94"><a href="#cb42-94" aria-hidden="true" tabindex="-1"></a>distancias_clusters_3 <span class="op">=</span>  np.empty((<span class="bu">len</span>(lista_clusters[<span class="dv">3</span>]), <span class="bu">len</span>(lista_clusters[<span class="dv">3</span>])))</span>
+<span id="cb42-95"><a href="#cb42-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-96"><a href="#cb42-96" aria-hidden="true" tabindex="-1"></a>distancias_clusters_3[:] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb42-97"><a href="#cb42-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-98"><a href="#cb42-98" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(lista_clusters[<span class="dv">3</span>])) :</span>
+<span id="cb42-99"><a href="#cb42-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-100"><a href="#cb42-100" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> r <span class="kw">in</span>  <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(lista_clusters[<span class="dv">3</span>])) :</span>
+<span id="cb42-101"><a href="#cb42-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-102"><a href="#cb42-102" aria-hidden="true" tabindex="-1"></a>            distancias_clusters_3[i,r] <span class="op">=</span> <span class="bu">sum</span>( (lista_clusters[<span class="dv">3</span>].iloc[i , :] <span class="op">-</span> lista_clusters[<span class="dv">3</span>].iloc[r , :])<span class="op">**</span><span class="dv">2</span> )</span>
+<span id="cb42-103"><a href="#cb42-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-104"><a href="#cb42-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-105"><a href="#cb42-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-106"><a href="#cb42-106" aria-hidden="true" tabindex="-1"></a><span class="co"># Para el cluster 3 : calculamos la suma de la distancia entre x_i y el resto de observaciones, para cada i=1,..,n </span></span>
+<span id="cb42-107"><a href="#cb42-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-108"><a href="#cb42-108" aria-hidden="true" tabindex="-1"></a>suma_distancias_cluster_3 <span class="op">=</span> []</span>
+<span id="cb42-109"><a href="#cb42-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-110"><a href="#cb42-110" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, distancias_clusters_3.shape[<span class="dv">0</span>]):</span>
+<span id="cb42-111"><a href="#cb42-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-112"><a href="#cb42-112" aria-hidden="true" tabindex="-1"></a>    suma_distancias_cluster_3.append( distancias_clusters_3[i,:].<span class="bu">sum</span>() )</span>
+<span id="cb42-113"><a href="#cb42-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-114"><a href="#cb42-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-115"><a href="#cb42-115" aria-hidden="true" tabindex="-1"></a>medoids.append( lista_clusters[<span class="dv">3</span>].iloc[ np.where(suma_distancias_cluster_3 <span class="op">==</span> <span class="bu">min</span>( suma_distancias_cluster_3 ) )[<span class="dv">0</span>] , :].index )</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ha tardado 7.38 mins en calcular los medoids, tarda demasiado. </span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>medoids </span></code></pre></div>
+<pre><code>[Int64Index([1002], dtype=&#39;int64&#39;),
+ Int64Index([67], dtype=&#39;int64&#39;),
+ Int64Index([1775], dtype=&#39;int64&#39;),
+ Int64Index([198], dtype=&#39;int64&#39;)]</code></pre>
+<p>Por tanto, el medoid del cluster <span class="math inline">\(C_1\)</span> es la observacion de <span class="math inline">\(x_{1002}\)</span>, el del cluster <span class="math inline">\(C_2\)</span> es la observacion <span class="math inline">\(x_{67}\)</span>, el del <span class="math inline">\(C_3\)</span> es <span class="math inline">\(x_{1775}\)</span> y el del <span class="math inline">\(C_4\)</span> es <span class="math inline">\(x_{198}\)</span></p>
+<p><br></p>
+<p>El código anterior, con el que se caluclan los medoids de la configuracion inicial de clusters tardón en ejecutarse 7.38 minutos.</p>
+<p>Como se dijo antes, hay que notar que en el algoritmo completo el calculo de los medoids (al igual que el de los centroides) se tiene que hacer muchas veces, no solo una, por lo que tardar 7 minutos en calcularlos cada vez hace que no podamos usar este programa para implementar k-medoids.</p>
 <p><br></p>
 </div>
-<div id="k-medoids-en-python-con-kmedoids" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> k-medoids en <code>Python</code> con <code>kmedoids</code></h2>
+<div id="k-medoids-en-python-con-la-libreria-kmedoids" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> k-medoids en <code>Python</code> con la libreria <code>kmedoids</code></h2>
 <p><br></p>
 <p><br></p>
 </div>
@@ -2485,9 +2720,9 @@ dtype: float64</code></pre>
 <p><br></p>
 </div>
 </div>
-<div id="ajuste-del-hiper-parámetro-k" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Ajuste del hiper-parámetro k</h1>
-<p>A continuación vamos a exponer un método para seleccionar el hiper-parametro k de un modelo de clustering como k-medias o k-medoids.</p>
+<div id="ajuste-del-hiper-parámetro-k-mediante-silhouette" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Ajuste del hiper-parámetro k mediante Silhouette</h1>
+<p>A continuación vamos a exponer un método para seleccionar el hiper-parametro k de un modelo de clustering como k-medias o k-medoids basado en la metrica Silhouette.</p>
 <p>Dado un modelo de clustering <span class="math inline">\(M\)</span> , como podría ser el k-medias o k-medoids.</p>
 <ol style="list-style-type: decimal">
 <li>Se entrena <span class="math inline">\(M\)</span> un número <span class="math inline">\(B\)</span> de veces con las mismas observaciones de los predictores, pero en cada ocasión se utiliza un valor del hiper-parametro <span class="math inline">\(k\)</span> distinto.</li>
@@ -2506,8 +2741,8 @@ dtype: float64</code></pre>
 <p><span class="math display">\[\text{Si} \hspace{0.4cm} \overline{\mathcal{S}}\left(\widehat{M}(k=k_j)\right) &gt; \overline{\mathcal{S}}\left(\widehat{M}(k=k_r)\right) \hspace{0.2cm} , \forall r\neq j =1,...,B \hspace{0.12cm}\Rightarrow\hspace{0.12cm} k^* = k_j\]</span></p>
 <p><br></p>
 </div>
-<div id="selección-de-modelos-de-clasificación-no-supervisada" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Selección de modelos de clasificación no supervisada</h1>
+<div id="selección-de-modelos-de-clasificación-no-supervisada-mediante-silhouette" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Selección de modelos de clasificación no supervisada mediante Silhouette</h1>
 <p>Vamos a exponer un método de selección de modelos de clustering basado en la métrica Silhouette.</p>
 <p>Dados <span class="math inline">\(\hspace{0.12cm}B\hspace{0.12cm}\)</span> modelos de clustering <span class="math inline">\(M_1\hspace{0.12cm},\hspace{0.12cm}M_2\hspace{0.12cm},...,\hspace{0.12cm}M_B\)</span>, se selcciona aquel que tenga mayor Silhouette.</p>
 <p>Es decir, bajo este método de selección de modelos:</p>
@@ -2515,13 +2750,16 @@ dtype: float64</code></pre>
 <p>Donde:</p>
 <p><span class="math display">\[j\hspace{0.08cm}^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.2cm} \underset{j \in \lbrace 1,...,B\rbrace}{Max} \hspace{0.2cm} \overline{\mathcal{S}}\left(\widehat{M}_j \right) \]</span></p>
 <p><br></p>
+<p><br></p>
 </div>
 <div id="clustering-y-pca" class="section level1" number="7">
 <h1><span class="header-section-number">7</span> Clustering y PCA</h1>
-<p>&lt;br</p>
+<p><br></p>
+<p><br></p>
 </div>
 <div id="clustering-y-mds" class="section level1" number="8">
 <h1><span class="header-section-number">8</span> Clustering y MDS</h1>
+<p><br></p>
 <p><br></p>
 </div>
 </div>

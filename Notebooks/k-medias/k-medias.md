@@ -1064,7 +1064,7 @@ $3)\hspace{0.1cm}$  Se calculan los **medoids** de los clusters formados en el p
 
 Sea $\hspace{0.1cm}\delta\hspace{0.1cm}$ una medida de distancia;
 
-El **medoid** de un cluster $\hspace{0.1cm} C_j\hspace{0.1cm}$  es $\hspace{0.12cm}\overline{x}_{C_j} = x_{i\hspace{0.07cm}^*}\hspace{0.1cm}$   $\\[0.5cm]$
+El **medoid** de un cluster $\hspace{0.1cm} C_j\hspace{0.1cm}$  es $\hspace{0.12cm}\overline{x}_{C_j} = x_{i\hspace{0.05cm}^*}\hspace{0.1cm}$   $\\[0.5cm]$
 
 
 Donde:
@@ -1074,6 +1074,12 @@ $$i\hspace{0.08cm}^* \hspace{0.1cm}=\hspace{0.1cm}  arg \hspace{0.15cm} \underse
 Y es importante recordar que:
 
 $$i \in I_j \hspace{0.2cm} \Leftrightarrow \hspace{0.2cm} x_{i} \in C_j \\$$
+
+
+**Observación:**
+
+Ell medoid de un cluster  es una observacion del propio cluster, concretamente la que minimiza la suma de las distancias entre esa observacion y cada una de las restantes observaciones del cluster. $\\[0.6cm]$
+
 
 
 
@@ -1203,12 +1209,277 @@ Ejemplos de distancias que   pueden aplicarse con k-medoids son:
 ## k-medoids en `Python` con algoritmo de creación propia
 
 
+La idea es usar el programa usado en k-medias para programar el k-medoids, pero modificando aquello que les hace diferente, que no es más que la definición de los centroides-medoids. Por tanto el ejercicio a priori es simple, puesto que sustituyendo el calculo de centroides por el calculo de medoids en dicho programa, ya tendriamos programa que ejecuta el algoritmo k-medoids.
+
+El problema es que el calculo de los medoids es computacionalmente muchisimo más costoso que el cálculo de los centroides. Y esta es una tarea que se puede llegar a repetir cientos de veces en el algoritmo, luego se requiere que su coste computacional sea bajo para que el algoritmo sea lo suficiente eficiente como para poder usarlo en la práctica.
+
+El problema está en que, tal y como lo hemos programado, el calculo de los medoids de una configuarción de clusters dada tarda en torno a 7 minutos. Y como se ha dicho esta tarea es realizada por el algoritmo en multiples ocasiones (con la configuaracion inicial de clusters y cada vez que una observacion es asignada a un cluster que no es su óptimo, en el sentido de k-medoids). Por tanto, repetir esta tarea que tarda unos 7 minutos un número elevado de veces convierte a nuestro algoritmo en no-ejecutable en la practica.
+
+
+
+La solución seria construir un programa alternativo que fuera mucho más eficiente. Por suerte esto existe, y esta en la libreria `kmedoids`, desarrollada por Erich Schubert y Lars Lenssen. En la siguiente sección exploraremos esta libreria.
+
+A continuación vamos a mostrar como se calcularian los medoids para la configuracion inical de clusters, basandonos enteramente en el progrma que usamos para k-medias. 
+Uno mismo puede comprobar que la ejecución de este codigo lleva demasiado tiempo, y la parte que lo relentiza es la del calculo de los medoids. 
+
+
+
+ 
+
+<br>
+
+```python
+#Configuracion inicial aleatoria de los clusters:
+
+n=len(Data)
+
+k=4
+
+elementos_clusterizados = []
+
+m = resample(range(0, n), n_samples=math.floor(n/k) , replace=False, random_state=123)
+
+Cluster_0 = Data.loc[m,:]
+
+elementos_clusterizados.append(m)
+
+
+###################################################################################
+
+
+if k >= 2:
+
+# Si los elementos que quedan por clusterizar menos el tamaño de los clusters es menor que el propio tamaño de los clusters,
+#  se meten todos los elementos que quedan por clusterizar en un mimsmo cluster que será ademas el ultimo.
+
+
+    if len(np.delete(range(0,n), elementos_clusterizados)) - n/k  < n/k : 
+
+        Cluster_1 = Data.loc[np.delete(range(0,n), elementos_clusterizados),:]
+
+        elementos_clusterizados.append(m)
+
+    else:
+
+        m = resample(np.delete(range(0,n), elementos_clusterizados), n_samples=math.floor(n/k) , replace=False, random_state=123)
+
+        Cluster_1 = Data.loc[m,:]
+
+        elementos_clusterizados.append(m)
+
+elif k < 2 :
+
+    pass
+
+###################################################################################
+
+if k >= 3:
+
+# Si los elementos que quedan por clusterizar menos el tamaño de los clusters es menor que el propio tamaño de los clusters,
+#  se meten todos los elementos que quedan por clusterizar en un mimsmo cluster que será ademas el ultimo.
+
+
+    if len(np.delete(range(0,n), elementos_clusterizados)) - n/k  < n/k : 
+
+        Cluster_2 = Data.loc[np.delete(range(0,n), elementos_clusterizados),:]
+
+        elementos_clusterizados.append(m)
+
+    else:
+
+        m = resample(np.delete(range(0,n), elementos_clusterizados), n_samples=math.floor(n/k) , replace=False, random_state=123)
+
+        Cluster_2 = Data.loc[m,:]
+
+        elementos_clusterizados.append(m)
+
+elif k < 3 :
+
+    pass
+
+###################################################################################
+
+if k >= 4:
+
+# Si los elementos que quedan por clusterizar menos el tamaño de los clusters es menor que el propio tamaño de los clusters,
+#  se meten todos los elementos que quedan por clusterizar en un mimsmo cluster que será ademas el ultimo.
+
+
+    if len(np.delete(range(0,n), elementos_clusterizados)) - n/k  < n/k : 
+
+        Cluster_3 = Data.loc[np.delete(range(0,n), elementos_clusterizados),:]
+
+        elementos_clusterizados.append(m)
+
+    else:
+
+        m = resample(np.delete(range(0,n), elementos_clusterizados), n_samples=math.floor(n/k) , replace=False, random_state=123)
+
+        Cluster_3 = Data.loc[m ,:]
+
+        elementos_clusterizados.append(m)
+
+elif k < 4 :
+
+    pass
+```
+
+```python
+lista_clusters = [None] * 4
+
+lista_clusters[0] = Cluster_0
+lista_clusters[1] = Cluster_1
+lista_clusters[2] = Cluster_2
+lista_clusters[3] = Cluster_3
+```
+
+```python
+# Se calcula la matriz de distancias para las observaciones del cluster 0 :
+
+distancias_clusters_0 =  np.empty((len(lista_clusters[0]), len(lista_clusters[0])))
+
+distancias_clusters_0[:] = 0
+
+for i in range(0, len(lista_clusters[0])) :
+
+    for r in  range(0, len(lista_clusters[0])) :
+
+            distancias_clusters_0[i,r] = sum( (lista_clusters[0].iloc[i , :] - lista_clusters[0].iloc[r , :])**2 )
+
+
+
+# Calculamos la suma de las distancia entre x_i y cada una de las restantes observaciones del cluster 0 , para cada observacion x_i del cluster 0.
+
+suma_distancias_cluster_0 = []
+
+for i in range(0, distancias_clusters_0.shape[0]):
+
+    suma_distancias_cluster_0.append( distancias_clusters_0[i,:].sum() )
+
+
+# Calculamos el medoid del cluster 0 :
+
+medoids =[]
+
+# np.where(suma_distancias_cluster_0 == min( suma_distancias_cluster_0 ) )[0] 
+# es la fila de la matriz de distancias del cluster 0 asociada a la observacion x_i  que minimiza la suma de distancias entre x_i y cada una de las restantes observaciones del cluster 0 
+
+
+# lista_clusters[0].iloc[ np.where(suma_distancias_cluster_0 == min( suma_distancias_cluster_0 ) )[0] , :].index 
+# es el vérdadero índice de la observacion x_i que minimiza la suma de distancias entre x_i y el resto de observaciones del cluster 0
+
+# Este es el valor que nos interesa, nos da el indice de la observacion que es el medoid del ccluster 0  
+
+medoids.append( lista_clusters[0].iloc[ np.where(suma_distancias_cluster_0 == min( suma_distancias_cluster_0 ) )[0] , :].index )
+
+
+##########################################################################################
+
+# Repetimos el proceso anterior con los clusters restantes (en este caso hay k=4 clusters).
+
+distancias_clusters_1 =  np.empty((len(lista_clusters[1]), len(lista_clusters[1])))
+
+distancias_clusters_1[:] = 0
+
+for i in range(0, len(lista_clusters[1])) :
+
+    for r in  range(0, len(lista_clusters[1])) :
+
+            distancias_clusters_1[i,r] = sum( (lista_clusters[1].iloc[i , :] - lista_clusters[1].iloc[r , :])**2 )
+
+
+
+# Para el cluster 1 : calculamos la suma de la distancia entre x_i y el resto de observaciones, para cada i=1,..,n 
+
+suma_distancias_cluster_1 = []
+
+for i in range(0, distancias_clusters_1.shape[0]):
+
+    suma_distancias_cluster_1.append( distancias_clusters_1[i,:].sum() )
+
+
+medoids.append( lista_clusters[1].iloc[ np.where(suma_distancias_cluster_1 == min( suma_distancias_cluster_1 ) )[0] , :].index )
+
+##########################################################################################
+
+distancias_clusters_2 =  np.empty((len(lista_clusters[2]), len(lista_clusters[2])))
+
+distancias_clusters_2[:] = 0
+
+for i in range(0, len(lista_clusters[2])) :
+
+    for r in  range(0, len(lista_clusters[2])) :
+
+            distancias_clusters_2[i,r] = sum( (lista_clusters[2].iloc[i , :] - lista_clusters[2].iloc[r , :])**2 )
+
+
+
+# Para el cluster 2 : calculamos la suma de la distancia entre x_i y el resto de observaciones, para cada i=1,..,n 
+
+suma_distancias_cluster_2 = []
+
+for i in range(0, distancias_clusters_2.shape[0]):
+
+    suma_distancias_cluster_2.append( distancias_clusters_2[i,:].sum() )
+
+
+medoids.append( lista_clusters[2].iloc[ np.where(suma_distancias_cluster_2 == min( suma_distancias_cluster_2 ) )[0] , :].index )
+
+##########################################################################################
+
+distancias_clusters_3 =  np.empty((len(lista_clusters[3]), len(lista_clusters[3])))
+
+distancias_clusters_3[:] = 0
+
+for i in range(0, len(lista_clusters[3])) :
+
+    for r in  range(0, len(lista_clusters[3])) :
+
+            distancias_clusters_3[i,r] = sum( (lista_clusters[3].iloc[i , :] - lista_clusters[3].iloc[r , :])**2 )
+
+
+
+# Para el cluster 3 : calculamos la suma de la distancia entre x_i y el resto de observaciones, para cada i=1,..,n 
+
+suma_distancias_cluster_3 = []
+
+for i in range(0, distancias_clusters_3.shape[0]):
+
+    suma_distancias_cluster_3.append( distancias_clusters_3[i,:].sum() )
+
+
+medoids.append( lista_clusters[3].iloc[ np.where(suma_distancias_cluster_3 == min( suma_distancias_cluster_3 ) )[0] , :].index )
+```
+
+```python
+# Ha tardado 7.38 mins en calcular los medoids, tarda demasiado. 
+
+medoids 
+```
+
+```
+[Int64Index([1002], dtype='int64'),
+ Int64Index([67], dtype='int64'),
+ Int64Index([1775], dtype='int64'),
+ Int64Index([198], dtype='int64')]
+```
+
+Por tanto, el medoid del cluster $C_1$ es la observacion de  $x_{1002}$, el del cluster $C_2$ es la observacion $x_{67}$, el del $C_3$ es $x_{1775}$ y el del $C_4$ es $x_{198}$
+
+<br>
+
+El código anterior, con el que se caluclan los medoids de la configuracion inicial de clusters tardón en ejecutarse 7.38 minutos.
+
+
+
+
+Como se dijo antes, hay que notar que en el algoritmo completo el calculo de los medoids (al igual que el de los centroides) se tiene que hacer muchas veces, no solo una, por lo que tardar 7 minutos en calcularlos cada vez hace que no podamos usar este programa para implementar k-medoids.
 
 
 
 <br>
 
-## k-medoids en `Python` con  `kmedoids`
+## k-medoids en `Python` con la libreria `kmedoids`
 
 
 
