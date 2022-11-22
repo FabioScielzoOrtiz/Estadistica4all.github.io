@@ -1594,6 +1594,8 @@ margin-left: 0 !important;
       </ul></li>
       <li><a href="#ajuste-del-hiper-parámetro-k" id="toc-ajuste-del-hiper-parámetro-k"><span class="toc-section-number">5</span> Ajuste del hiper-parámetro k</a></li>
       <li><a href="#selección-de-modelos-de-clasificación-no-supervisada" id="toc-selección-de-modelos-de-clasificación-no-supervisada"><span class="toc-section-number">6</span> Selección de modelos de clasificación no supervisada</a></li>
+      <li><a href="#clustering-y-pca" id="toc-clustering-y-pca"><span class="toc-section-number">7</span> Clustering y PCA</a></li>
+      <li><a href="#clustering-y-mds" id="toc-clustering-y-mds"><span class="toc-section-number">8</span> Clustering y MDS</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1927,7 +1929,7 @@ dtype: float64</p>
 <li><p>En el caso extremo de que <span class="math inline">\(\hspace{0.12cm}\overline{\delta}(x_i , C_h) = 0 &lt; \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}\)</span> , se tendrá que <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i) =1 \\\)</span></p></li>
 </ul></li>
 <li><p>Por lo anterior, si <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i) \in [0,1]\hspace{0.12cm}\)</span>, se considera que <span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> ha sido clasificado correctamente, y cuanto más cerca este <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}\)</span> de <span class="math inline">\(\hspace{0.12cm}1\hspace{0.12cm}\)</span> , <strong>mejor</strong> clasificado estará <span class="math inline">\(\hspace{0.12cm}x_i \\[1cm]\)</span></p></li>
-<li><p>Si <span class="math inline">\(\hspace{0.12cm}\overline{\delta}(x_i , C_h) &gt; \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}\)</span>, entonces, la distancia media entre <span class="math inline">\(x_i\)</span> y el resto de observaciones del cluster <span class="math inline">\(\hspace{0.12cm}C_h\hspace{0.12cm}\)</span> es mayor que la distancia media entre <span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> y las observaciones del cluster más cernano em media, sin tener en cuenta <span class="math inline">\(\hspace{0.12cm}C_h\hspace{0.12cm}\)</span>, es decir, <span class="math inline">\(\hspace{0.12cm}C_{r^*}\hspace{0.12cm}\)</span>. Lo cual puede interpretarse como que x_i ha sido <strong>mal</strong> clasificado. <span class="math inline">\(\\[0.6cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.12cm}\overline{\delta}(x_i , C_h) &gt; \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}\)</span>, entonces, la distancia media entre <span class="math inline">\(x_i\)</span> y el resto de observaciones del cluster <span class="math inline">\(\hspace{0.12cm}C_h\hspace{0.12cm}\)</span> es mayor que la distancia media entre <span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> y las observaciones del cluster más cernano em media, sin tener en cuenta <span class="math inline">\(\hspace{0.12cm}C_h\hspace{0.12cm}\)</span>, es decir, <span class="math inline">\(\hspace{0.12cm}C_{r^*}\hspace{0.12cm}\)</span>. Lo cual puede interpretarse como que <span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> ha sido <strong>mal</strong> clasificado. <span class="math inline">\(\\[0.6cm]\)</span></p></li>
 <li><p>Si <span class="math inline">\(\hspace{0.12cm}\overline{\delta}(x_i , C_h) &gt; \overline{\delta}(x_i , C_r^*)\hspace{0.22cm} \Rightarrow \hspace{0.22cm}\mathcal{S}(x_i) \in [-1,0] \\\)</span></p>
 <ul>
 <li><p>Cuanto más se cumpla <span class="math inline">\(\hspace{0.12cm}\overline{\delta}(x_i , C_h) &lt; \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}\)</span> mas cerca estará <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}\)</span> de <span class="math inline">\(\hspace{0.12cm}-1 \\\)</span></p></li>
@@ -1947,6 +1949,7 @@ dtype: float64</p>
 <p>Como estamos considerando modelos de aprendizaje supervisado en los que por definición no se tienen datos de la respuesta, aqui la idea de considerar muestras de train y test no tiene utilidad, puesto que el fundamento de esa idea es comparar las predicciones que el modelo hace para la respuesta con la muestra de test de la respuesta, pero en este caso no se tiene ninguna muestra (ni de train ni de test) de la respuesta. Es esto lo que caracteriza a los modelos no supervisados.</p>
 <p>Por ello el método de evaluación basado en Silhouette consiste simplemente en usar la muestra disponible de los predictores como muestra de train, es decir, usarla para entrenar el modelo de clustering considerado, y con el modelo entrenado calcular la métrica Silhouette, antes definida.</p>
 <p>Notese que la metrica Silhouette depende del modelo entrenado, al depender de los clusters finales que se obtienen tras entrenarlo. Por lo que para modelos de clustering que generen distintas configuraciones finales de clusters se obtendran valores distintos de la métrica Silhouette.</p>
+<p><br></p>
 </div>
 </div>
 <div id="ajuste-del-hiper-parámetro-k" class="section level1" number="5">
@@ -1959,19 +1962,33 @@ dtype: float64</p>
 <p>Por tanto, se obtienen los siguientes <span class="math inline">\(B\)</span> modelos entrenados: <span class="math inline">\(\widehat{M}(k=k_1) \hspace{0.12cm}, \hspace{0.12cm} \widehat{M}(k=k_2) \hspace{0.12cm}, ..., \hspace{0.12cm} \widehat{M}(k=k_B)\)</span></p>
 <p>Donde <span class="math inline">\(\widehat{M}(k=k_j)\)</span> es el modelo de clustering <span class="math inline">\(M\)</span>, con hiper-parametro <span class="math inline">\(k=k_1\)</span>, ya entrenado.</p>
 <ol start="2" style="list-style-type: decimal">
-<li>Se calcula la metrica Silhouette <span class="math inline">\(\overline{\mathcal{S}}\)</span> para cada uno de esos <span class="math inline">\(B\)</span> modelos:</li>
+<li>Se calcula la métrica Silhouette <span class="math inline">\(\overline{\mathcal{S}}\)</span> para cada uno de esos <span class="math inline">\(B\)</span> modelos:</li>
 </ol>
-<p><span class="math display">\[\overline{\mathcal{S}}(\widehat{M}(k=k_1)), \overline{\mathcal{S}}(\widehat{M}(k=k_2)) , ..., \overline{\mathcal{S}}(\widehat{M}(k=k_B))\]</span></p>
+<p><span class="math display">\[\overline{\mathcal{S}}\left(\widehat{M}(k=k_1)\right)  \hspace{0.12cm}, \hspace{0.12cm} \overline{\mathcal{S}}\left(\widehat{M}(k=k_2)\right)  \hspace{0.12cm}, ..., \hspace{0.12cm} \overline{\mathcal{S}}\left(\widehat{M}(k=k_B)\right) \\\]</span></p>
 <ol start="3" style="list-style-type: decimal">
-<li>Se calcula la media de las siluetas de las observaciones disponibles de los predictores: <span class="math inline">\(\\[0.5cm]\)</span></li>
+<li>El valor óptimo del hiper-parametro <span class="math inline">\(k^*\)</span> es aque que maximixa la métrica Silhouette (de Silhouette media)</li>
 </ol>
-<p><span class="math display">\[\overline{\mathcal{S}}  \hspace{0.12cm} =  \hspace{0.12cm}  \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{S}(x_i)\]</span></p>
+<p><span class="math display">\[k^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.2cm}\underset{k\in \lbrace k_1,...,k_B\rbrace}{Max} \hspace{0.2cm}\overline{\mathcal{S}}\left(\widehat{M}(k)\right)\]</span></p>
+<p>Es decir:</p>
+<p><span class="math display">\[\text{Si} \hspace{0.4cm} \overline{\mathcal{S}}\left(\widehat{M}(k=k_j)\right) &gt; \overline{\mathcal{S}}\left(\widehat{M}(k=k_r)\right) \hspace{0.2cm} , \forall r\neq j =1,...,B \hspace{0.12cm}\Rightarrow\hspace{0.12cm} k^* = k_j\]</span></p>
 <p><br></p>
 </div>
 <div id="selección-de-modelos-de-clasificación-no-supervisada" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Selección de modelos de clasificación no supervisada</h1>
-<p>Vamos a exponer un método de selección de modelos de clustering basado en la métrica Silhouette</p>
-<p>Dados <span class="math inline">\(B\)</span> modelos de clustering <span class="math inline">\(M_1,M_2,...,M_B\)</span> se selcciona aquel que tenga mayor Silhouette</p>
+<p>Vamos a exponer un método de selección de modelos de clustering basado en la métrica Silhouette.</p>
+<p>Dados <span class="math inline">\(\hspace{0.12cm}B\hspace{0.12cm}\)</span> modelos de clustering <span class="math inline">\(M_1\hspace{0.12cm},\hspace{0.12cm}M_2\hspace{0.12cm},...,\hspace{0.12cm}M_B\)</span>, se selcciona aquel que tenga mayor Silhouette.</p>
+<p>Es decir, bajo este método de selección de modelos:</p>
+<p>Dados <span class="math inline">\(\hspace{0.12cm}B\hspace{0.12cm}\)</span> modelos de clustering <span class="math inline">\(M_1\hspace{0.12cm},\hspace{0.12cm}M_2\hspace{0.12cm},...,\hspace{0.12cm}M_B\)</span>, el modelo seleccionado es <span class="math inline">\(\hspace{0.12cm}M_{j\hspace{0.08cm}^*}\)</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[j\hspace{0.08cm}^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.2cm} \underset{j \in \lbrace 1,...,B\rbrace}{Max} \hspace{0.2cm} \overline{\mathcal{S}}\left(\widehat{M}_j \right) \]</span></p>
+<p><br></p>
+</div>
+<div id="clustering-y-pca" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Clustering y PCA</h1>
+<p>&lt;br</p>
+</div>
+<div id="clustering-y-mds" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Clustering y MDS</h1>
 <p><br></p>
 </div>
 </div>

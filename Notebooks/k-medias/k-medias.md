@@ -684,7 +684,7 @@ Por ello el método de evaluación basado en Silhouette consiste simplemente en 
 Notese que la metrica Silhouette depende del modelo entrenado, al depender de los clusters finales que se obtienen tras entrenarlo. Por lo que para modelos de clustering que generen distintas configuraciones finales de clusters se obtendran valores distintos de la métrica Silhouette.
 
 
-
+<br>
 
 # Ajuste del hiper-parámetro k 
 
@@ -701,16 +701,19 @@ Por tanto, se obtienen los siguientes $B$ modelos entrenados: $\widehat{M}(k=k_1
 Donde $\widehat{M}(k=k_j)$ es el modelo de clustering $M$, con hiper-parametro $k=k_1$, ya entrenado.
 
 
-2) Se calcula la metrica Silhouette $\overline{\mathcal{S}}$ para cada uno de esos $B$ modelos:
+2) Se calcula la métrica Silhouette $\overline{\mathcal{S}}$ para cada uno de esos $B$ modelos:
 
-$$\overline{\mathcal{S}}(\widehat{M}(k=k_1)), \overline{\mathcal{S}}(\widehat{M}(k=k_2)) , ..., \overline{\mathcal{S}}(\widehat{M}(k=k_B))$$ 
-
-
-3) Se calcula la media de las siluetas de las observaciones disponibles de los predictores: $\\[0.5cm]$
+$$\overline{\mathcal{S}}\left(\widehat{M}(k=k_1)\right)  \hspace{0.12cm}, \hspace{0.12cm} \overline{\mathcal{S}}\left(\widehat{M}(k=k_2)\right)  \hspace{0.12cm}, ..., \hspace{0.12cm} \overline{\mathcal{S}}\left(\widehat{M}(k=k_B)\right) \\$$ 
 
 
-$$\overline{\mathcal{S}}  \hspace{0.12cm} =  \hspace{0.12cm}  \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{S}(x_i)$$ 
+3) El valor óptimo del hiper-parametro $k^*$ es aque que maximixa la métrica Silhouette (de Silhouette media)
 
+
+$$k^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.2cm}\underset{k\in \lbrace k_1,...,k_B\rbrace}{Max} \hspace{0.2cm}\overline{\mathcal{S}}\left(\widehat{M}(k)\right)$$
+
+Es decir: 
+
+$$\text{Si} \hspace{0.4cm} \overline{\mathcal{S}}\left(\widehat{M}(k=k_j)\right) > \overline{\mathcal{S}}\left(\widehat{M}(k=k_r)\right) \hspace{0.2cm} , \forall r\neq j =1,...,B \hspace{0.12cm}\Rightarrow\hspace{0.12cm} k^* = k_j$$
 
 
 
@@ -720,9 +723,43 @@ $$\overline{\mathcal{S}}  \hspace{0.12cm} =  \hspace{0.12cm}  \dfrac{1}{n} \cdot
 # Selección de modelos de clasificación no supervisada
 
 
-Vamos a exponer un método de selección de modelos de clustering basado en la métrica Silhouette
+Vamos a exponer un método de selección de modelos de clustering basado en la métrica Silhouette.
 
-Dados $B$ modelos de clustering $M_1,M_2,...,M_B$ se selcciona aquel que tenga mayor Silhouette
+Dados $\hspace{0.12cm}B\hspace{0.12cm}$ modelos de clustering $M_1\hspace{0.12cm},\hspace{0.12cm}M_2\hspace{0.12cm},...,\hspace{0.12cm}M_B$,  se selcciona aquel que tenga mayor Silhouette.
+
+Es decir, bajo este método de selección de modelos:
+
+Dados $\hspace{0.12cm}B\hspace{0.12cm}$ modelos de clustering $M_1\hspace{0.12cm},\hspace{0.12cm}M_2\hspace{0.12cm},...,\hspace{0.12cm}M_B$, el modelo seleccionado es $\hspace{0.12cm}M_{j\hspace{0.08cm}^*}$
+
+Donde:
+
+$$j\hspace{0.08cm}^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.2cm} \underset{j \in \lbrace 1,...,B\rbrace}{Max} \hspace{0.2cm} \overline{\mathcal{S}}\left(\widehat{M}_j \right) $$
+
+
+<br>
+
+
+# Clustering y PCA
+
+
+
+
+
+
+
+
+<br
+
+
+# Clustering y MDS
+
+
+
+
+
+
+
+
 
 
 
