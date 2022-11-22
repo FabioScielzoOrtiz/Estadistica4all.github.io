@@ -1041,44 +1041,125 @@ Se recomienda explorar el significado de cada uno de ellos en la documentación 
 <br>
 
 ```python
-
+kmeans = KMeans(n_clusters=4, random_state=123).fit(Data.values)
 ```
 
 ```python
+kmeans.labels_
+```
 
+array([2, 2, 0, ..., 2, 0, 0])
+
+
+```python
+kmeans.cluster_centers_
+```
+
+array([[2.51092305e+01, 5.52118746e+01, 1.27295902e+06, 1.07661108e+02],
+       [2.51522213e+01, 5.52146856e+01, 1.57861780e+07, 4.06382170e+02],
+       [2.51475986e+01, 5.52146808e+01, 3.83976411e+06, 2.04617388e+02],
+       [2.51364225e+01, 5.51935103e+01, 3.22573333e+07, 7.25309205e+02]])
+
+```python
+kmeans.inertia_ # suma de varianzas intra-cluster, para la configuracion final de clusters
 ```
 
 ```python
-
+silhouette_score(Data.values, cluster_labels)
 ```
 
 ```python
+kmeans.predict([[2.5, 5.5, 32000000, 725], [2.5, 5.5, 16000000, 725]])
+```
+array([3, 1])
 
+
+```python
+import numpy as np
 ```
 
 ```python
+distances = []
 
+k = 4
+
+for j in range(0, k):
+
+    distances.append( np.sqrt( ((kmeans.cluster_centers_[j] - [2.5, 5.5, 32000000, 725] )**2 ).sum() ) )
 ```
 
 ```python
+distances
+```
 
+[30727040.986832548, 16213821.976906829, 28160235.89410166, 257333.3391272728]
+
+
+```python
+np.where(distances == min( distances ) ) 
+```
+(array([3], dtype=int64),)
+
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+sns.set_theme()
+
+sns.set(rc={'figure.figsize':(12, 8)})
 ```
 
 ```python
+fig = plt.figure()
 
+p=sns.lineplot(x=range(2,21), y=sum_variance_intra_cluster, color='red')
+
+plt.ylabel("Sum-variance-intra-cluster")
+plt.xlabel("k")
+
+p.set_xticks( range(2,21) )
+
+fig.savefig('p1.png', format='png', dpi=1200)
+
+plt.show()
 ```
+
+![ ](p1.png){width="75%"}
+
 
 ```python
+silhouette_avg = []
 
+for j in range(2,21):
+
+    kmeans = KMeans(n_clusters = j , random_state=123).fit(Data.values)
+
+    cluster_labels = kmeans.labels_
+
+    silhouette_avg.append( silhouette_score(Data.values, cluster_labels) )
 ```
+
 
 ```python
+fig = plt.figure()
 
+p=sns.lineplot(x=range(2,21), y=silhouette_avg , color='red')
+
+plt.ylabel("mean silhouette")
+plt.xlabel("k")
+
+p.set_xticks( range(2,21) )
+
+fig.savefig('p2.png', format='png', dpi=1200)
+
+plt.show()
 ```
+![ ](p2.png){width="75%"}
 
-```python
 
-```
+
+
 
 
 
