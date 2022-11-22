@@ -1201,6 +1201,8 @@ $2)\hspace{0.1cm}$  Se asignan aleatoriamente las observaciones disponibles $\hs
 
 $$C_j = \left( \hspace{0.12cm} x_i^t = (x_{i1},...,x_{ip}) \hspace{0.13cm}/\hspace{0.13cm} i \in I_j \subset \lbrace 1,...,n \rbrace \hspace{0.12cm} \right)^t \\$$
 
+para $j=1,...,k$
+
 Donde $\hspace{0.1cm}I_j\hspace{0.1cm}$ es el conjunto de indices de las observaciones de los predictores que pertenecen al cluster $\hspace{0.1cm}C_j$. $\hspace{0.08cm}$ Por lo que puede verse como el conjunto de los individuos de la muestra asociados al cluster $\hspace{0.1cm} C_j$
 
 Notese que $\hspace{0.1cm}I_j\hspace{0.1cm}$ es definido aleatoriamente en esta primera etapa.  
@@ -1632,6 +1634,123 @@ Como se dijo antes, hay que notar que en el algoritmo completo el calculo de los
 ## k-medoids en `Python` con la libreria `kmedoids`
 
 
+
+<br>
+
+<br>
+
+# k-medoids-Park-Jun
+
+El siguiente algoritmo es un algoritmo de clustering similar al algoritmo de k-medoids expuesto en la sección anterior.
+
+Este algoritmo fue propuesto por Hae-Sang Park y Chi-Hyuck Jun.
+
+<br>
+
+**Descripción formal del algoritmo**
+
+
+$1)\hspace{0.1cm}$ Se considera que la variable respuesta $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ tiene $\hspace{0.1cm} k\hspace{0.1cm}$ categorias $\hspace{0.1cm}g_1,...,g_k$ $\\[0.6cm]$
+
+$2)\hspace{0.1cm}$  Dada una medida de distancia $\hspace{0.1cm}\delta$ , se calcula la siguiente cantidad:
+
+$$v_i = \sum_{r=1}^n \delta(x_i, x_r)$$ 
+
+para $i=1,...,n \\$
+
+
+$3) \hspace{0.1cm}$ Se ordenan de mayor a menor las cantidades anteriores.
+
+upongamos que el orden es el siguiente: $v_{r_1}\geq v_{r_2}\geq ...\geq v_{r_n}$
+
+Por tanto las  $k$ primeras son $v_{r_1}\geq v_{r_2}\geq ... \geq v_{r_k}$
+
+Las observaciones asociadas a las $k$ primeras son los medoids iniciales
+
+Es decir, los medoids son x_
+
+
+
+$2)\hspace{0.1cm}$  Se asignan aleatoriamente las observaciones disponibles $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$ de los predictores a dichas categorias, formandose clusters (o grupos) de observaciones $\hspace{0.1cm} C_1,...,C_k\hspace{0.1cm}$ , de un tamaño similar : $\\[0.4cm]$
+
+$$C_j = \left( \hspace{0.12cm} x_i^t = (x_{i1},...,x_{ip}) \hspace{0.13cm}/\hspace{0.13cm} i \in I_j \subset \lbrace 1,...,n \rbrace \hspace{0.12cm} \right)^t \\$$
+
+para $j=1,...,k$
+
+Donde $\hspace{0.1cm}I_j\hspace{0.1cm}$ es el conjunto de indices de las observaciones de los predictores que pertenecen al cluster $\hspace{0.1cm}C_j$. $\hspace{0.08cm}$ Por lo que puede verse como el conjunto de los individuos de la muestra asociados al cluster $\hspace{0.1cm} C_j$
+
+Notese que $\hspace{0.1cm}I_j\hspace{0.1cm}$ es definido aleatoriamente en esta primera etapa.  
+
+También hay que notar que $\hspace{0.1cm}C_j\hspace{0.1cm}$ es un vector cuyas componentes son vectores fila, luego es una matriz. Como además estos vectores fila son observaciones de variables estadisticas, puede verse como una matriz de datos. $\\[0.8cm]$
+
+
+$3)\hspace{0.1cm}$  Se calculan los **medoids** de los clusters formados en el paso anterior (lo que en k-medias eran los centroides).
+
+
+Sea $\hspace{0.1cm}\delta\hspace{0.1cm}$ una medida de distancia;
+
+El **medoid** de un cluster $\hspace{0.1cm} C_j\hspace{0.1cm}$  es $\hspace{0.12cm}\overline{x}_{C_j} = x_{i\hspace{0.05cm}^*}\hspace{0.1cm}$   $\\[0.5cm]$
+
+
+Donde:
+
+$$i\hspace{0.08cm}^* \hspace{0.1cm}=\hspace{0.1cm}  arg \hspace{0.15cm} \underset{i \in I_j}{Min} \hspace{0.15cm} \sum_{r \in I_j} \hspace{0.1cm} \delta(x_i , x_r) \\$$
+
+Y es importante recordar que:
+
+$$i \in I_j \hspace{0.2cm} \Leftrightarrow \hspace{0.2cm} x_{i} \in C_j \\$$
+
+
+**Observación:**
+
+Ell medoid de un cluster  es una observacion del propio cluster, concretamente la que minimiza la suma de las distancias entre esa observacion y cada una de las restantes observaciones del cluster. $\\[0.6cm]$
+
+
+
+
+$4)\hspace{0.1cm}$  Aplicado a la observación $\hspace{0.1cm}x_1$
+
+Se asigna $\hspace{0.1cm}x_1 \hspace{0.1cm}$ al cluster que le queda mas cercano teniendo en cuenta su medoid.
+
+Se calculan las distancia entre la observacion $\hspace{0.1cm} x_1\hspace{0.1cm}$ y los **medoids** de cada cluster:
+
+$$\delta(x_1, \overline{x}_{C_1}) \hspace{0.1cm},\hspace{0.1cm} \delta(x_1, \overline{x}_{C_2}) \hspace{0.1cm},...,\hspace{0.1cm} \delta(x_1, \overline{x}_{C_k})$$
+
+Se asigna $\hspace{0.1cm}x_1\hspace{0.1cm}$ al cluster que minimiza estas distancias. Es decir, al cluster del que está mas cerca.
+
+
+
+Por tanto, el algoritmo asigna $\hspace{0.1cm}x_1\hspace{0.1cm}$ al cluster $\hspace{0.1cm}C_{j\hspace{0.07cm}^*}\hspace{0.1cm}$ tal que: $\\[0.5cm]$
+
+$$j\hspace{0.1cm}^{*} \hspace{0.1cm}=\hspace{0.1cm} arg \hspace{0.15cm} \underset{j=1,...,k}{Min} \hspace{0.15cm} \delta(x_1 , \overline{x}_{C_j}) \\$$
+
+ 
+
+
+
+$5)\hspace{0.1cm}$  Aplicado a la observación $\hspace{0.1cm} x_1$
+
+
+
+- Si en la configuración aleatoria inicial de los clusterings $\hspace{0.1cm} x_1 \in C_{j\hspace{0.08cm}^*}\hspace{0.1cm}$  $\Rightarrow \hspace{0.2cm}$ Aplicar 4) y 5) para la siguiente observación $(x_2) \\$
+
+ 
+- Si en la configuracion aleatoria inicial de los clusterings $\hspace{0.1cm}x_1 \notin C_{j\hspace{0.08cm}^*}\hspace{0.1cm}$ $\Rightarrow \hspace{0.2cm}$ Se modifica la configuración de los cluesterings del siguiente modo:
+
+    -  $C_{j\hspace{0.08cm}^*}\hspace{0.1cm}$ ahora contiene a $x_1$
+
+    - El cluster que contenía a $\hspace{0.1cm}x_1\hspace{0.1cm}$ ahora ya no lo contiene
+
+       - Después se recalculan los centroides de los clusters para la nueva configuracion de clusters.
+
+       - Posteriormente se aplica 4) y 5) de nuevo a la observacion $\hspace{0.1cm}x_1\hspace{0.1cm} \\$
+
+
+$6)\hspace{0.1cm}$  Cuando el paso 4) y 5) se hayan aplicado a todas las observaciones $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$, se detiene el algoritmo, obteniendose la configuración definitiva de clusters, y con ello las predicciones de la respuesta.
+
+Para las observaciones $\hspace{0.1cm} x_i \in C_j\hspace{0.1cm}$ se predice la respuesta como $\hspace{0.1cm}\hat{y}_i = g_j\hspace{0.1cm}$
+
+Una tarea posterior es la interpretar la categoria $\hspace{0.1cm}g_j\hspace{0.1cm}$ , puesto que desconocemos a que hace referencia al no tener esa info sobre la respuesta
 
 
 
