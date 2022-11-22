@@ -620,11 +620,11 @@ es la **media** de las distancias entre la observacion $x_i$ y el resto de obser
 
 <br>
 
-**Interpretación de Silhouette:**
+**Interpretación de Silhouette:** $\\[0.6cm]$
 
 - $\mathcal{S}(x_i) \in [-1,1] \\$
 
-- Si $\hspace{0.12cm}\mathcal{S}(x_i) \in [-1,0]\hspace{0.12cm}$, se considera que $\hspace{0.12cm}x_i\hspace{0.12cm}$ ha sido clasificado **incorrectamente**, y cuanto más cerca este $\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}$ de $\hspace{0.12cm}-1\hspace{0.12cm}$ , **peor** clasificado estará $\hspace{0.12cm}x_i \\$
+- Si $\hspace{0.12cm}\mathcal{S}(x_i) \in [0,1]\hspace{0.12cm}$, se considera que $\hspace{0.12cm}x_i\hspace{0.12cm}$ ha sido clasificado **correctamente**, y cuanto más cerca este $\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}$ de $\hspace{0.12cm}1\hspace{0.12cm}$ , **mejor** clasificado estará $\hspace{0.12cm}x_i \\$
 
 
 - Por lo anterior, si $\hspace{0.12cm}\mathcal{S}(x_i) \in [-1,0]\hspace{0.12cm}$, se considera que $\hspace{0.12cm}x_i\hspace{0.12cm}$ ha sido clasificado **incorrectamente**, y cuanto más cerca este $\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}$ de $\hspace{0.12cm}-1\hspace{0.12cm}$ , **peor** clasificado estará $\hspace{0.12cm}x_i \\$
@@ -632,26 +632,32 @@ es la **media** de las distancias entre la observacion $x_i$ y el resto de obser
 
 <br>
 
-**Justificaciones:**
+**Justificaciones:** $\\[0.6cm]$
 
-- Si $\hspace{0.12cm}\overline{\delta}(x_i , C_h) < \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}$, entonces,   la distancia media entre $\hspace{0.12cm}x_i\hspace{0.12cm}$ y el resto de observaciones del cluster $\hspace{0.12cm}C_h\hspace{0.12cm}$ es menor que la distancia media entre x_i y las observaciones del cluster más cernano em media, sin tener en cuenta $\hspace{0.12cm}C_h\hspace{0.12cm}$, es decir, $\hspace{0.12cm}C_{r^*}\hspace{0.12cm}$. Lo cual puede interpretarse como que x_i ha sido **bien** clasificado. $\\[0.4cm]$
+- Si $\hspace{0.12cm}\overline{\delta}(x_i , C_h) < \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}$, entonces,   la distancia media entre $\hspace{0.12cm}x_i\hspace{0.12cm}$ y el resto de observaciones del cluster $\hspace{0.12cm}C_h\hspace{0.12cm}$ es menor que la distancia media entre x_i y las observaciones del cluster más cernano em media, sin tener en cuenta $\hspace{0.12cm}C_h\hspace{0.12cm}$, es decir, $\hspace{0.12cm}C_{r^*}\hspace{0.12cm}$. Lo cual puede interpretarse como que x_i ha sido **bien** clasificado. $\\[0.6cm]$
 
-- Si $\hspace{0.12cm}\overline{\delta}(x_i , C_h) < \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}$, entonces $\hspace{0.12cm}\mathcal{S}(x_i) \in [0,1]\hspace{0.12cm}$. Y cuanto más se cumpla $\hspace{0.12cm}\overline{\delta}(x_i , C_h) < \overline{\delta}(x_i , C_r^*)$ mas cerca estará $\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}$ de $\hspace{0.12cm}1\hspace{0.12cm}$. En el caso extremo de que $\hspace{0.12cm}\overline{\delta}(x_i , C_h) = < < \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}$ , se tendrá que $\hspace{0.12cm}\mathcal{S}(x_i) =1$ 
+- Si $\hspace{0.12cm}\overline{\delta}(x_i , C_h) < \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}$, entonces $\hspace{0.12cm}\mathcal{S}(x_i) \in [0,1] \\$
 
-- Por lo anterior, si $\hspace{0.12cm}\mathcal{S}(x_i) \in [0,1]\hspace{0.12cm}$, se considera que $\hspace{0.12cm}x_i\hspace{0.12cm}$ ha sido clasificado correctamente, y cuanto más cerca este $\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}$ de $\hspace{0.12cm}1\hspace{0.12cm}$ , **mejor** clasificado estará $\hspace{0.12cm}x_i \\$
+    - Y cuanto más se cumpla $\hspace{0.12cm}\overline{\delta}(x_i , C_h) < \overline{\delta}(x_i , C_r^*)$ mas cerca estará $\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}$ de $\hspace{0.12cm}1 \\$
+       
+    - En el caso extremo de que $\hspace{0.12cm}\overline{\delta}(x_i , C_h) = 0 < \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}$ , se tendrá que $\hspace{0.12cm}\mathcal{S}(x_i) =1 \\$ 
+
+- Por lo anterior, si $\hspace{0.12cm}\mathcal{S}(x_i) \in [0,1]\hspace{0.12cm}$, se considera que $\hspace{0.12cm}x_i\hspace{0.12cm}$ ha sido clasificado correctamente, y cuanto más cerca este $\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}$ de $\hspace{0.12cm}1\hspace{0.12cm}$ , **mejor** clasificado estará $\hspace{0.12cm}x_i \\[1cm]$
 
 
 
 
-- Si $\hspace{0.12cm}\overline{\delta}(x_i , C_h) > \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}$, entonces,   la distancia media entre $x_i$ y el resto de observaciones del cluster $\hspace{0.12cm}C_h\hspace{0.12cm}$ es mayor que la distancia media entre $\hspace{0.12cm}x_i\hspace{0.12cm}$ y las observaciones del cluster más cernano em media, sin tener en cuenta $\hspace{0.12cm}C_h\hspace{0.12cm}$, es decir, $\hspace{0.12cm}C_{r^*}\hspace{0.12cm}$. Lo cual puede interpretarse como que x_i ha sido **mal** clasificado.
+- Si $\hspace{0.12cm}\overline{\delta}(x_i , C_h) > \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}$, entonces,   la distancia media entre $x_i$ y el resto de observaciones del cluster $\hspace{0.12cm}C_h\hspace{0.12cm}$ es mayor que la distancia media entre $\hspace{0.12cm}x_i\hspace{0.12cm}$ y las observaciones del cluster más cernano em media, sin tener en cuenta $\hspace{0.12cm}C_h\hspace{0.12cm}$, es decir, $\hspace{0.12cm}C_{r^*}\hspace{0.12cm}$. Lo cual puede interpretarse como que $\hspace{0.12cm}x_i\hspace{0.12cm}$ ha sido **mal** clasificado. $\\[0.6cm]$
 
-- Si $\hspace{0.12cm}\overline{\delta}(x_i , C_h) > \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}$, entonces $\hspace{0.12cm}\mathcal{S}(x_i) \in [-1,0]\hspace{0.12cm}$. Y cuanto más se cumpla $\hspace{0.12cm}\overline{\delta}(x_i , C_h) < \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}$ mas cerca estará $\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}$ de $\hspace{0.12cm}-1\hspace{0.12cm}$. En el caso extremo de que $\hspace{0.12cm}\overline{\delta}(x_i , C_h) > \overline{\delta}(x_i , C_r^*)=0\hspace{0.12cm}$ , se tendrá que $\hspace{0.12cm}\mathcal{S}(x_i) =-1$
+- Si $\hspace{0.12cm}\overline{\delta}(x_i , C_h) > \overline{\delta}(x_i , C_r^*)\hspace{0.22cm} \Rightarrow \hspace{0.22cm}\mathcal{S}(x_i) \in [-1,0] \\$
+
+    - Cuanto más se cumpla $\hspace{0.12cm}\overline{\delta}(x_i , C_h) < \overline{\delta}(x_i , C_r^*)\hspace{0.12cm}$ mas cerca estará $\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}$ de $\hspace{0.12cm}-1 \\$ 
+    
+    - En el caso extremo de que $\hspace{0.12cm}\overline{\delta}(x_i , C_h) > \overline{\delta}(x_i , C_r^*)=0\hspace{0.12cm}$ , se tendrá que $\hspace{0.12cm}\mathcal{S}(x_i) =-1 \\$
 
 - Por lo anterior, cuanto más cerca este $\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}$ de $\hspace{0.12cm}-1\hspace{0.12cm}$ , peor clasificado estará $\hspace{0.12cm}x_i \\$
 
-- Por lo anterior, si $\hspace{0.12cm}\mathcal{S}(x_i) \in [-1,0]\hspace{0.12cm}$, se considera que $\hspace{0.12cm}x_i\hspace{0.12cm}$ ha sido clasificado **incorrectamente**, y cuanto más cerca este $\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}$ de $\hspace{0.12cm}-1\hspace{0.12cm}$ , **peor** clasificado estará $\hspace{0.12cm}x_i \\$
-
-
+- Por lo anterior, si $\hspace{0.12cm}\mathcal{S}(x_i) \in [-1,0]\hspace{0.12cm}$, se considera que $\hspace{0.12cm}x_i\hspace{0.12cm}$ ha sido clasificado **incorrectamente**, y cuanto más cerca este $\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}$ de $\hspace{0.12cm}-1\hspace{0.12cm}$ , **peor** clasificado estará $\hspace{0.12cm}x_i$
 
 
 
