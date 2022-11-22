@@ -1589,15 +1589,16 @@ margin-left: 0 !important;
       <li><a href="#k-medoids-en-python-con-algoritmo-de-creación-propia" id="toc-k-medoids-en-python-con-algoritmo-de-creación-propia"><span class="toc-section-number">3.2</span> k-medoids en <code>Python</code> con algoritmo de creación propia</a></li>
       <li><a href="#k-medoids-en-python-con-la-libreria-kmedoids" id="toc-k-medoids-en-python-con-la-libreria-kmedoids"><span class="toc-section-number">3.3</span> k-medoids en <code>Python</code> con la libreria <code>kmedoids</code></a></li>
       </ul></li>
-      <li><a href="#método-de-evaluación-de-modelos-de-clasificación-no-supervisada" id="toc-método-de-evaluación-de-modelos-de-clasificación-no-supervisada"><span class="toc-section-number">4</span> Método de evaluación de modelos de clasificación no supervisada</a>
+      <li><a href="#k-medoids-park-jun" id="toc-k-medoids-park-jun"><span class="toc-section-number">4</span> k-medoids-Park-Jun</a></li>
+      <li><a href="#método-de-evaluación-de-modelos-de-clasificación-no-supervisada" id="toc-método-de-evaluación-de-modelos-de-clasificación-no-supervisada"><span class="toc-section-number">5</span> Método de evaluación de modelos de clasificación no supervisada</a>
       <ul>
-      <li><a href="#definición-de-la-métrica-silhouette" id="toc-definición-de-la-métrica-silhouette"><span class="toc-section-number">4.1</span> Definición de la métrica Silhouette</a></li>
-      <li><a href="#método-de-evaluación-basado-en-silhouette" id="toc-método-de-evaluación-basado-en-silhouette"><span class="toc-section-number">4.2</span> Método de evaluación basado en Silhouette</a></li>
+      <li><a href="#definición-de-la-métrica-silhouette" id="toc-definición-de-la-métrica-silhouette"><span class="toc-section-number">5.1</span> Definición de la métrica Silhouette</a></li>
+      <li><a href="#método-de-evaluación-basado-en-silhouette" id="toc-método-de-evaluación-basado-en-silhouette"><span class="toc-section-number">5.2</span> Método de evaluación basado en Silhouette</a></li>
       </ul></li>
-      <li><a href="#ajuste-del-hiper-parámetro-k-mediante-silhouette" id="toc-ajuste-del-hiper-parámetro-k-mediante-silhouette"><span class="toc-section-number">5</span> Ajuste del hiper-parámetro k mediante Silhouette</a></li>
-      <li><a href="#selección-de-modelos-de-clasificación-no-supervisada-mediante-silhouette" id="toc-selección-de-modelos-de-clasificación-no-supervisada-mediante-silhouette"><span class="toc-section-number">6</span> Selección de modelos de clasificación no supervisada mediante Silhouette</a></li>
-      <li><a href="#clustering-y-pca" id="toc-clustering-y-pca"><span class="toc-section-number">7</span> Clustering y PCA</a></li>
-      <li><a href="#clustering-y-mds" id="toc-clustering-y-mds"><span class="toc-section-number">8</span> Clustering y MDS</a></li>
+      <li><a href="#ajuste-del-hiper-parámetro-k-mediante-silhouette" id="toc-ajuste-del-hiper-parámetro-k-mediante-silhouette"><span class="toc-section-number">6</span> Ajuste del hiper-parámetro k mediante Silhouette</a></li>
+      <li><a href="#selección-de-modelos-de-clasificación-no-supervisada-mediante-silhouette" id="toc-selección-de-modelos-de-clasificación-no-supervisada-mediante-silhouette"><span class="toc-section-number">7</span> Selección de modelos de clasificación no supervisada mediante Silhouette</a></li>
+      <li><a href="#clustering-y-pca" id="toc-clustering-y-pca"><span class="toc-section-number">8</span> Clustering y PCA</a></li>
+      <li><a href="#clustering-y-mds" id="toc-clustering-y-mds"><span class="toc-section-number">9</span> Clustering y MDS</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -2432,6 +2433,7 @@ dtype: float64</code></pre>
 <p><span class="math inline">\(1)\hspace{0.1cm}\)</span> Se considera que la variable respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> tiene <span class="math inline">\(\hspace{0.1cm} k\hspace{0.1cm}\)</span> categorias <span class="math inline">\(\hspace{0.1cm}g_1,...,g_k\)</span> <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math inline">\(2)\hspace{0.1cm}\)</span> Se asignan aleatoriamente las observaciones disponibles <span class="math inline">\(\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}\)</span> de los predictores a dichas categorias, formandose clusters (o grupos) de observaciones <span class="math inline">\(\hspace{0.1cm} C_1,...,C_k\hspace{0.1cm}\)</span> , de un tamaño similar : <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p><span class="math display">\[C_j = \left( \hspace{0.12cm} x_i^t = (x_{i1},...,x_{ip}) \hspace{0.13cm}/\hspace{0.13cm} i \in I_j \subset \lbrace 1,...,n \rbrace \hspace{0.12cm} \right)^t \\\]</span></p>
+<p>para <span class="math inline">\(j=1,...,k\)</span></p>
 <p>Donde <span class="math inline">\(\hspace{0.1cm}I_j\hspace{0.1cm}\)</span> es el conjunto de indices de las observaciones de los predictores que pertenecen al cluster <span class="math inline">\(\hspace{0.1cm}C_j\)</span>. <span class="math inline">\(\hspace{0.08cm}\)</span> Por lo que puede verse como el conjunto de los individuos de la muestra asociados al cluster <span class="math inline">\(\hspace{0.1cm} C_j\)</span></p>
 <p>Notese que <span class="math inline">\(\hspace{0.1cm}I_j\hspace{0.1cm}\)</span> es definido aleatoriamente en esta primera etapa.</p>
 <p>También hay que notar que <span class="math inline">\(\hspace{0.1cm}C_j\hspace{0.1cm}\)</span> es un vector cuyas componentes son vectores fila, luego es una matriz. Como además estos vectores fila son observaciones de variables estadisticas, puede verse como una matriz de datos. <span class="math inline">\(\\[0.8cm]\)</span></p>
@@ -2745,12 +2747,72 @@ Uno mismo puede comprobar que la ejecución de este codigo lleva demasiado tiemp
 <p><br></p>
 </div>
 </div>
-<div id="método-de-evaluación-de-modelos-de-clasificación-no-supervisada" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Método de evaluación de modelos de clasificación no supervisada</h1>
+<div id="k-medoids-park-jun" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> k-medoids-Park-Jun</h1>
+<p>El siguiente algoritmo es un algoritmo de clustering similar al algoritmo de k-medoids expuesto en la sección anterior.</p>
+<p>Este algoritmo fue propuesto por Hae-Sang Park y Chi-Hyuck Jun.</p>
+<p><br></p>
+<p><strong>Descripción formal del algoritmo</strong></p>
+<p><span class="math inline">\(1)\hspace{0.1cm}\)</span> Se considera que la variable respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> tiene <span class="math inline">\(\hspace{0.1cm} k\hspace{0.1cm}\)</span> categorias <span class="math inline">\(\hspace{0.1cm}g_1,...,g_k\)</span> <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math inline">\(2)\hspace{0.1cm}\)</span> Dada una medida de distancia <span class="math inline">\(\hspace{0.1cm}\delta\)</span> , se calcula la siguiente cantidad: <span class="math inline">\(\\[0.3cm]\)</span></p>
+<p><span class="math display">\[v_i \hspace{0.12cm}=\hspace{0.12cm} \sum_{r=1}^n \hspace{0.12cm} \dfrac{\delta(x_i, x_r)}{\sum_{h=1}^n \delta(x_i, x_h)}\]</span></p>
+<p>para <span class="math inline">\(\hspace{0.12cm} i=1,...,n \\\)</span></p>
+<p><span class="math inline">\(3) \hspace{0.1cm}\)</span> Se ordenan de mayor a menor las cantidades anteriores.</p>
+<p>Supongamos que el orden es el siguiente: <span class="math inline">\(\hspace{0.1cm} v_{m_1}\geq v_{m_2}\geq ...\geq v_{m_n}\)</span></p>
+<p>Por tanto, las <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> primeras son <span class="math inline">\(\hspace{0.1cm}v_{m_1}\geq v_{m_2}\geq ... \geq v_{m_k}\)</span></p>
+<p>Las observaciones asociadas a las <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> primeras son los <strong>medoids iniciales</strong>.</p>
+<p>Es decir, los <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> <strong>medoids iniciales</strong> son <span class="math inline">\(\hspace{0.1cm}x_{m_1},...,x_{m_k}\\\)</span></p>
+<p><span class="math inline">\(4) \hspace{0.1cm}\)</span> Consideramos <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> clusters <span class="math inline">\(\hspace{0.1cm}C_1,...,C_k\hspace{0.1cm}\)</span> , tales que el medoid del cluster <span class="math inline">\(\hspace{0.1cm}C_j\hspace{0.12cm}\)</span> es <span class="math inline">\(\hspace{0.12cm}\overline{x}_{C_j} = x_{m_j}\)</span></p>
+<p>Se asigna cada observación <span class="math inline">\(\hspace{0.1cm}x_i\hspace{0.1cm}\)</span> al cluster que le queda más cercano teniendo en cuenta su medoid.</p>
+<p>Formalmente, para cada <span class="math inline">\(\hspace{0.1cm}i=1,...,n\)</span></p>
+<p><span class="math inline">\(x_i\hspace{0.1cm}\)</span> es asignada al cluster <span class="math inline">\(\hspace{0.1cm}C_{j\hspace{0.06cm}^*\hspace{0.1cm}}\)</span> tal que: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[j\hspace{0.06cm}^* \hspace{0.1cm}=\hspace{0.1cm} arg\hspace{0.1cm} \underset{j\in \lbrace 1,...,k  \rbrace}{Min} \hspace{0.1cm} \delta(x_i , \overline{x}_{C_j})\\\]</span></p>
+<p>Por tanto, se obtiene una configuración inicial de los clusters <span class="math inline">\(\hspace{0.1cm}C_1,...,C_k\hspace{0.1cm}\)</span> tales que: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math display">\[C_j = \left( \hspace{0.12cm} x_i^t = (x_{i1},...,x_{ip}) \hspace{0.13cm}/\hspace{0.13cm} i \in I_j \subset \lbrace 1,...,n \rbrace \hspace{0.12cm} \right)^t \\\]</span></p>
+<p>para <span class="math inline">\(\hspace{0.1cm} j=1,...,k\)</span></p>
+<p>Donde <span class="math inline">\(\hspace{0.1cm}I_j\hspace{0.1cm}\)</span> es el conjunto de indices de las observaciones de los predictores que pertenecen al cluster <span class="math inline">\(\hspace{0.1cm}C_j\)</span>. <span class="math inline">\(\hspace{0.08cm}\)</span> Por lo que puede verse como el conjunto de los individuos de la muestra asociados al cluster <span class="math inline">\(\hspace{0.1cm} C_j\)</span></p>
+<p><span class="math display">\[i \in I_j \hspace{0.2cm} \Leftrightarrow \hspace{0.2cm} x_{i} \in C_j \\\]</span></p>
+<p>Notese que en el algoritmo k-medoids expuesto anteriormente, <span class="math inline">\(\hspace{0.1cm}I_j\hspace{0.1cm}\)</span> era definido aleatoriamente en la primera etapa, pero aqui no se define así, sino del siguiente modo: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[I_j \hspace{0.1cm}=\hspace{0.1cm} \lbrace \hspace{0.1cm} i \hspace{0.12cm} / \hspace{0.12cm}  j \hspace{0.1cm}=\hspace{0.1cm} arg\hspace{0.1cm} \underset{h\in \lbrace 1,...,k  \rbrace}{Min}\hspace{0.1cm} \delta(x_i , \overline{x}_{C_h}) \hspace{0.1cm}\rbrace\]</span></p>
+<p>También hay que notar que <span class="math inline">\(\hspace{0.1cm}C_j\hspace{0.1cm}\)</span> es un vector cuyas componentes son vectores fila, luego es una matriz. Como además estos vectores fila son observaciones de variables estadisticas, puede verse como una matriz de datos. <span class="math inline">\(\\[0.8cm]\)</span></p>
+<p><span class="math inline">\(5) \hspace{0.1cm}\)</span> Se recalculan los medoids de los clusters del siguiente modo:</p>
+<p>El <strong>medoid</strong> de un cluster <span class="math inline">\(\hspace{0.1cm} C_j\hspace{0.1cm}\)</span> es <span class="math inline">\(\hspace{0.12cm}\overline{x}_{C_j} = x_{i\hspace{0.05cm}^*}\hspace{0.1cm}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[i\hspace{0.08cm}^* \hspace{0.1cm}=\hspace{0.1cm}  arg \hspace{0.15cm} \underset{i \in I_j}{Min} \hspace{0.15cm} \sum_{r \in I_j} \hspace{0.1cm} \delta(x_i , x_r) \\\]</span></p>
+<p><strong>Observación:</strong></p>
+<p>En este paso y a partir de aqui se considera al medoid de un cluster como la observacion del propio cluster que minimiza la suma de las distancias entre esa observacion y cada una de las restantes observaciones del cluster. <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math inline">\(6)\hspace{0.1cm}\)</span> Aplicado a la observación <span class="math inline">\(\hspace{0.1cm}x_1\)</span></p>
+<p>Se asigna <span class="math inline">\(\hspace{0.1cm}x_1 \hspace{0.1cm}\)</span> al cluster que le queda mas cercano teniendo en cuenta su medoid.</p>
+<p>Se calculan las distancia entre la observacion <span class="math inline">\(\hspace{0.1cm} x_1\hspace{0.1cm}\)</span> y los <strong>medoids</strong> de cada cluster:</p>
+<p><span class="math display">\[\delta(x_1, \overline{x}_{C_1}) \hspace{0.1cm},\hspace{0.1cm} \delta(x_1, \overline{x}_{C_2}) \hspace{0.1cm},...,\hspace{0.1cm} \delta(x_1, \overline{x}_{C_k})\]</span></p>
+<p>Se asigna <span class="math inline">\(\hspace{0.1cm}x_1\hspace{0.1cm}\)</span> al cluster que minimiza estas distancias. Es decir, al cluster del que está mas cerca.</p>
+<p>Por tanto, el algoritmo asigna <span class="math inline">\(\hspace{0.1cm}x_1\hspace{0.1cm}\)</span> al cluster <span class="math inline">\(\hspace{0.1cm}C_{j\hspace{0.07cm}^*}\hspace{0.1cm}\)</span> tal que: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[j\hspace{0.1cm}^{*} \hspace{0.1cm}=\hspace{0.1cm} arg \hspace{0.15cm} \underset{j=1,...,k}{Min} \hspace{0.15cm} \delta(x_1 , \overline{x}_{C_j}) \\\]</span></p>
+<p><span class="math inline">\(7)\hspace{0.1cm}\)</span> Aplicado a la observación <span class="math inline">\(\hspace{0.1cm} x_1\)</span></p>
+<ul>
+<li><p>Si en la configuración aleatoria inicial de los clusterings <span class="math inline">\(\hspace{0.1cm} x_1 \in C_{j\hspace{0.08cm}^*}\hspace{0.1cm}\)</span> <span class="math inline">\(\Rightarrow \hspace{0.2cm}\)</span> Aplicar 4) y 5) para la siguiente observación <span class="math inline">\((x_2) \\\)</span></p></li>
+<li><p>Si en la configuracion aleatoria inicial de los clusterings <span class="math inline">\(\hspace{0.1cm}x_1 \notin C_{j\hspace{0.08cm}^*}\hspace{0.1cm}\)</span> <span class="math inline">\(\Rightarrow \hspace{0.2cm}\)</span> Se modifica la configuración de los cluesterings del siguiente modo:</p>
+<ul>
+<li><p><span class="math inline">\(C_{j\hspace{0.08cm}^*}\hspace{0.1cm}\)</span> ahora contiene a <span class="math inline">\(x_1\)</span></p></li>
+<li><p>El cluster que contenía a <span class="math inline">\(\hspace{0.1cm}x_1\hspace{0.1cm}\)</span> ahora ya no lo contiene</p>
+<ul>
+<li><p>Después se recalculan los centroides de los clusters para la nueva configuracion de clusters.</p></li>
+<li><p>Posteriormente se aplica 4) y 5) de nuevo a la observacion <span class="math inline">\(\hspace{0.1cm}x_1\hspace{0.1cm} \\\)</span></p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(8)\hspace{0.1cm}\)</span> Cuando el paso 6) y 7) se hayan aplicado a todas las observaciones <span class="math inline">\(\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}\)</span>, se detiene el algoritmo, obteniendose la configuración definitiva de clusters, y con ello las predicciones de la respuesta.</p>
+<p>Para las observaciones <span class="math inline">\(\hspace{0.1cm} x_i \in C_j\hspace{0.1cm}\)</span> se predice la respuesta como <span class="math inline">\(\hspace{0.1cm}\hat{y}_i = g_j\hspace{0.1cm}\)</span></p>
+<p>Una tarea posterior es la interpretar la categoria <span class="math inline">\(\hspace{0.1cm}g_j\hspace{0.1cm}\)</span> , puesto que desconocemos a que hace referencia al no tener esa info sobre la respuesta</p>
+<p><br></p>
+<p><br></p>
+</div>
+<div id="método-de-evaluación-de-modelos-de-clasificación-no-supervisada" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Método de evaluación de modelos de clasificación no supervisada</h1>
 <p>Un método de evaluación de modelos de clasificación no supervisada es un método que permite evaluar un modelo de clustering usando una muestra de train de los predictores y una métrica de evaluación.</p>
 <p>En este articulo nos centraremos en una métrica de evaluación denominada silhouette (silueta)</p>
-<div id="definición-de-la-métrica-silhouette" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> Definición de la métrica Silhouette</h2>
+<div id="definición-de-la-métrica-silhouette" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Definición de la métrica Silhouette</h2>
 <p>Dado un modelo de clustering <span class="math inline">\(M\)</span> , como por ejemplo k-medias o k-medoids.</p>
 <p>Supongamos que tras entrenar <span class="math inline">\(M\)</span> con las observaciones disponibles para los predictores tenemos que <span class="math inline">\(x_i \in C_h \\\)</span></p>
 <p>La silueta de <span class="math inline">\(x_i\)</span> en el modelo de clustering <span class="math inline">\(M\)</span> es:</p>
@@ -2799,16 +2861,16 @@ Uno mismo puede comprobar que la ejecución de este codigo lleva demasiado tiemp
 <p><span class="math display">\[\overline{\mathcal{S}} (M) \hspace{0.12cm} =  \hspace{0.12cm}  \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{S}(x_i, M)\]</span></p>
 <p><br></p>
 </div>
-<div id="método-de-evaluación-basado-en-silhouette" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Método de evaluación basado en Silhouette</h2>
+<div id="método-de-evaluación-basado-en-silhouette" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Método de evaluación basado en Silhouette</h2>
 <p>Como estamos considerando modelos de aprendizaje supervisado en los que por definición no se tienen datos de la respuesta, aqui la idea de considerar muestras de train y test no tiene utilidad, puesto que el fundamento de esa idea es comparar las predicciones que el modelo hace para la respuesta con la muestra de test de la respuesta, pero en este caso no se tiene ninguna muestra (ni de train ni de test) de la respuesta. Es esto lo que caracteriza a los modelos no supervisados.</p>
 <p>Por ello el método de evaluación basado en Silhouette consiste simplemente en usar la muestra disponible de los predictores como muestra de train, es decir, usarla para entrenar el modelo de clustering considerado, y con el modelo entrenado calcular la métrica Silhouette, antes definida.</p>
 <p>Notese que la metrica Silhouette depende del modelo entrenado, al depender de los clusters finales que se obtienen tras entrenarlo. Por lo que para modelos de clustering que generen distintas configuraciones finales de clusters se obtendran valores distintos de la métrica Silhouette.</p>
 <p><br></p>
 </div>
 </div>
-<div id="ajuste-del-hiper-parámetro-k-mediante-silhouette" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Ajuste del hiper-parámetro k mediante Silhouette</h1>
+<div id="ajuste-del-hiper-parámetro-k-mediante-silhouette" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Ajuste del hiper-parámetro k mediante Silhouette</h1>
 <p>A continuación vamos a exponer un método para seleccionar el hiper-parametro k de un modelo de clustering como k-medias o k-medoids basado en la metrica Silhouette.</p>
 <p>Dado un modelo de clustering <span class="math inline">\(M\)</span> , como podría ser el k-medias o k-medoids.</p>
 <ol style="list-style-type: decimal">
@@ -2828,8 +2890,8 @@ Uno mismo puede comprobar que la ejecución de este codigo lleva demasiado tiemp
 <p><span class="math display">\[\text{Si} \hspace{0.4cm} \overline{\mathcal{S}}\left(\widehat{M}(k=k_j)\right) &gt; \overline{\mathcal{S}}\left(\widehat{M}(k=k_r)\right) \hspace{0.2cm} , \forall r\neq j =1,...,B \hspace{0.12cm}\Rightarrow\hspace{0.12cm} k^* = k_j\]</span></p>
 <p><br></p>
 </div>
-<div id="selección-de-modelos-de-clasificación-no-supervisada-mediante-silhouette" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Selección de modelos de clasificación no supervisada mediante Silhouette</h1>
+<div id="selección-de-modelos-de-clasificación-no-supervisada-mediante-silhouette" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Selección de modelos de clasificación no supervisada mediante Silhouette</h1>
 <p>Vamos a exponer un método de selección de modelos de clustering basado en la métrica Silhouette.</p>
 <p>Dados <span class="math inline">\(\hspace{0.12cm}B\hspace{0.12cm}\)</span> modelos de clustering <span class="math inline">\(M_1\hspace{0.12cm},\hspace{0.12cm}M_2\hspace{0.12cm},...,\hspace{0.12cm}M_B\)</span>, se selcciona aquel que tenga mayor Silhouette.</p>
 <p>Es decir, bajo este método de selección de modelos:</p>
@@ -2839,13 +2901,13 @@ Uno mismo puede comprobar que la ejecución de este codigo lleva demasiado tiemp
 <p><br></p>
 <p><br></p>
 </div>
-<div id="clustering-y-pca" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Clustering y PCA</h1>
+<div id="clustering-y-pca" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Clustering y PCA</h1>
 <p><br></p>
 <p><br></p>
 </div>
-<div id="clustering-y-mds" class="section level1" number="8">
-<h1><span class="header-section-number">8</span> Clustering y MDS</h1>
+<div id="clustering-y-mds" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Clustering y MDS</h1>
 <p><br></p>
 <p><br></p>
 </div>

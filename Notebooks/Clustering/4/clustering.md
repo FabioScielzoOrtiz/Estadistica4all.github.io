@@ -1652,42 +1652,56 @@ Este algoritmo fue propuesto por Hae-Sang Park y Chi-Hyuck Jun.
 
 $1)\hspace{0.1cm}$ Se considera que la variable respuesta $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ tiene $\hspace{0.1cm} k\hspace{0.1cm}$ categorias $\hspace{0.1cm}g_1,...,g_k$ $\\[0.6cm]$
 
-$2)\hspace{0.1cm}$  Dada una medida de distancia $\hspace{0.1cm}\delta$ , se calcula la siguiente cantidad:
+$2)\hspace{0.1cm}$  Dada una medida de distancia $\hspace{0.1cm}\delta$ , se calcula la siguiente cantidad: $\\[0.3cm]$
 
-$$v_i = \sum_{r=1}^n \delta(x_i, x_r)$$ 
+$$v_i \hspace{0.12cm}=\hspace{0.12cm} \sum_{r=1}^n \hspace{0.12cm} \dfrac{\delta(x_i, x_r)}{\sum_{h=1}^n \delta(x_i, x_h)}$$ 
 
-para $i=1,...,n \\$
+para $\hspace{0.12cm} i=1,...,n \\$
 
 
 $3) \hspace{0.1cm}$ Se ordenan de mayor a menor las cantidades anteriores.
 
-upongamos que el orden es el siguiente: $v_{r_1}\geq v_{r_2}\geq ...\geq v_{r_n}$
+Supongamos que el orden es el siguiente: $\hspace{0.1cm} v_{m_1}\geq v_{m_2}\geq ...\geq v_{m_n}$
 
-Por tanto las  $k$ primeras son $v_{r_1}\geq v_{r_2}\geq ... \geq v_{r_k}$
+Por tanto, las  $\hspace{0.1cm}k\hspace{0.1cm}$ primeras son $\hspace{0.1cm}v_{m_1}\geq v_{m_2}\geq ... \geq v_{m_k}$
 
-Las observaciones asociadas a las $k$ primeras son los medoids iniciales
+Las observaciones asociadas a las $\hspace{0.1cm}k\hspace{0.1cm}$ primeras son los **medoids iniciales**.
 
-Es decir, los medoids son x_
+Es decir, los  $\hspace{0.1cm}k\hspace{0.1cm}$ **medoids iniciales** son $\hspace{0.1cm}x_{m_1},...,x_{m_k}\\$ 
 
 
+$4) \hspace{0.1cm}$ Consideramos $\hspace{0.1cm}k\hspace{0.1cm}$ clusters $\hspace{0.1cm}C_1,...,C_k\hspace{0.1cm}$ , tales que el medoid del cluster $\hspace{0.1cm}C_j\hspace{0.12cm}$ es $\hspace{0.12cm}\overline{x}_{C_j} = x_{m_j}$
 
-$2)\hspace{0.1cm}$  Se asignan aleatoriamente las observaciones disponibles $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$ de los predictores a dichas categorias, formandose clusters (o grupos) de observaciones $\hspace{0.1cm} C_1,...,C_k\hspace{0.1cm}$ , de un tamaño similar : $\\[0.4cm]$
+Se asigna cada observación $\hspace{0.1cm}x_i\hspace{0.1cm}$ al cluster que le queda más cercano teniendo en cuenta su medoid.
+
+
+Formalmente, para cada $\hspace{0.1cm}i=1,...,n$
+
+$x_i\hspace{0.1cm}$ es asignada al cluster $\hspace{0.1cm}C_{j\hspace{0.06cm}^*\hspace{0.1cm}}$ tal que: $\\[0.5cm]$
+
+$$j\hspace{0.06cm}^* \hspace{0.1cm}=\hspace{0.1cm} arg\hspace{0.1cm} \underset{j\in \lbrace 1,...,k  \rbrace}{Min} \hspace{0.1cm} \delta(x_i , \overline{x}_{C_j})\\$$
+
+Por tanto, se obtiene una configuración inicial de los clusters $\hspace{0.1cm}C_1,...,C_k\hspace{0.1cm}$ tales que: $\\[0.6cm]$
 
 $$C_j = \left( \hspace{0.12cm} x_i^t = (x_{i1},...,x_{ip}) \hspace{0.13cm}/\hspace{0.13cm} i \in I_j \subset \lbrace 1,...,n \rbrace \hspace{0.12cm} \right)^t \\$$
 
-para $j=1,...,k$
+para $\hspace{0.1cm} j=1,...,k$
 
 Donde $\hspace{0.1cm}I_j\hspace{0.1cm}$ es el conjunto de indices de las observaciones de los predictores que pertenecen al cluster $\hspace{0.1cm}C_j$. $\hspace{0.08cm}$ Por lo que puede verse como el conjunto de los individuos de la muestra asociados al cluster $\hspace{0.1cm} C_j$
 
-Notese que $\hspace{0.1cm}I_j\hspace{0.1cm}$ es definido aleatoriamente en esta primera etapa.  
+$$i \in I_j \hspace{0.2cm} \Leftrightarrow \hspace{0.2cm} x_{i} \in C_j \\$$
+
+Notese que en el algoritmo k-medoids expuesto anteriormente, $\hspace{0.1cm}I_j\hspace{0.1cm}$ era definido aleatoriamente en la primera etapa, pero aqui no se define así, sino del siguiente modo: $\\[0.5cm]$
+
+$$I_j \hspace{0.1cm}=\hspace{0.1cm} \lbrace \hspace{0.1cm} i \hspace{0.12cm} / \hspace{0.12cm}  j \hspace{0.1cm}=\hspace{0.1cm} arg\hspace{0.1cm} \underset{h\in \lbrace 1,...,k  \rbrace}{Min}\hspace{0.1cm} \delta(x_i , \overline{x}_{C_h}) \hspace{0.1cm}\rbrace$$
 
 También hay que notar que $\hspace{0.1cm}C_j\hspace{0.1cm}$ es un vector cuyas componentes son vectores fila, luego es una matriz. Como además estos vectores fila son observaciones de variables estadisticas, puede verse como una matriz de datos. $\\[0.8cm]$
 
 
-$3)\hspace{0.1cm}$  Se calculan los **medoids** de los clusters formados en el paso anterior (lo que en k-medias eran los centroides).
+
+$5) \hspace{0.1cm}$ Se recalculan los medoids de los clusters del siguiente modo:
 
 
-Sea $\hspace{0.1cm}\delta\hspace{0.1cm}$ una medida de distancia;
 
 El **medoid** de un cluster $\hspace{0.1cm} C_j\hspace{0.1cm}$  es $\hspace{0.12cm}\overline{x}_{C_j} = x_{i\hspace{0.05cm}^*}\hspace{0.1cm}$   $\\[0.5cm]$
 
@@ -1696,19 +1710,14 @@ Donde:
 
 $$i\hspace{0.08cm}^* \hspace{0.1cm}=\hspace{0.1cm}  arg \hspace{0.15cm} \underset{i \in I_j}{Min} \hspace{0.15cm} \sum_{r \in I_j} \hspace{0.1cm} \delta(x_i , x_r) \\$$
 
-Y es importante recordar que:
-
-$$i \in I_j \hspace{0.2cm} \Leftrightarrow \hspace{0.2cm} x_{i} \in C_j \\$$
-
 
 **Observación:**
+ 
+En este paso y a partir de aqui se considera al medoid de un cluster como la observacion del propio cluster que minimiza la suma de las distancias entre esa observacion y cada una de las restantes observaciones del cluster. $\\[0.6cm]$
 
-Ell medoid de un cluster  es una observacion del propio cluster, concretamente la que minimiza la suma de las distancias entre esa observacion y cada una de las restantes observaciones del cluster. $\\[0.6cm]$
+ 
 
-
-
-
-$4)\hspace{0.1cm}$  Aplicado a la observación $\hspace{0.1cm}x_1$
+$6)\hspace{0.1cm}$  Aplicado a la observación $\hspace{0.1cm}x_1$
 
 Se asigna $\hspace{0.1cm}x_1 \hspace{0.1cm}$ al cluster que le queda mas cercano teniendo en cuenta su medoid.
 
@@ -1728,7 +1737,7 @@ $$j\hspace{0.1cm}^{*} \hspace{0.1cm}=\hspace{0.1cm} arg \hspace{0.15cm} \underse
 
 
 
-$5)\hspace{0.1cm}$  Aplicado a la observación $\hspace{0.1cm} x_1$
+$7)\hspace{0.1cm}$  Aplicado a la observación $\hspace{0.1cm} x_1$
 
 
 
@@ -1746,7 +1755,7 @@ $5)\hspace{0.1cm}$  Aplicado a la observación $\hspace{0.1cm} x_1$
        - Posteriormente se aplica 4) y 5) de nuevo a la observacion $\hspace{0.1cm}x_1\hspace{0.1cm} \\$
 
 
-$6)\hspace{0.1cm}$  Cuando el paso 4) y 5) se hayan aplicado a todas las observaciones $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$, se detiene el algoritmo, obteniendose la configuración definitiva de clusters, y con ello las predicciones de la respuesta.
+$8)\hspace{0.1cm}$  Cuando el paso 6) y 7) se hayan aplicado a todas las observaciones $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$, se detiene el algoritmo, obteniendose la configuración definitiva de clusters, y con ello las predicciones de la respuesta.
 
 Para las observaciones $\hspace{0.1cm} x_i \in C_j\hspace{0.1cm}$ se predice la respuesta como $\hspace{0.1cm}\hat{y}_i = g_j\hspace{0.1cm}$
 
