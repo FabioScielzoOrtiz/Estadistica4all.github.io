@@ -29,3 +29,4 @@ def plot_iris():
 
 # El siguiente codigo debe correrse en el terminal para que se lance la API:
 #  uvicorn Notebooks.FastAPI.main:app --reload
+# http://127.0.0.1:8000/plot-iris

@@ -653,6 +653,7 @@ lista_clusters = k_means(k=4 , Data=Data, random_seed=123, Distance='Euclidea') 
 
 <br>
 
+Podemos acceder a los clusters generados por el algoritmo. Los cluster son un data frame con ciertas observaciones de los predictores, aquellas que pertenecen al cluster en sí.
 
 ```python
 lista_clusters[0]
@@ -744,6 +745,8 @@ lista_clusters[3]
 
 <br>
 
+También podemos calcular los centroides de cada cluster de la siguiente manera:
+
 ```python
 lista_clusters[0].mean()
 ```
@@ -795,7 +798,7 @@ dtype: float64
 
 <br>
 
-Probamos el algoritmo usando otras medidas de distancia:
+Probamos el algoritmo usando otras medidas de distancia, en este caso la de Minkowski, pero mantenemos $k=4$:
 
 ```python
 lista_clusters = k_means(k=4 , Data=Data, random_seed=123, Distance='Minkowski', q=1)
@@ -912,12 +915,13 @@ lista_clusters[3]
 
 <br>
 
-Probamos el algoritmo con otra distancia:
+Probamos el algoritmo ahora con la distancia de Canberra:
 
 ```python
 lista_clusters = k_means(k=4 , Data=Data, random_seed=123, Distance='Canberra')
 ```
 
+<br>
 
 ```python
 lista_clusters[0]
@@ -940,6 +944,8 @@ lista_clusters[0]
 [484 rows x 4 columns]
 ```
 
+<br>
+
 ```python
 lista_clusters[1]
 ```
@@ -961,7 +967,7 @@ lista_clusters[1]
 [549 rows x 4 columns]
 ```
 
-
+<br>
 
 ```python
 lista_clusters[2]
@@ -983,9 +989,12 @@ lista_clusters[2]
 [579 rows x 4 columns]
 ```
 
+<br>
+
 ```python
 lista_clusters[3]
 ```
+
 ```
        latitude  longitude      price  size_in_m_2
 337   25.273623  55.283576  1500888.0   192.309210
@@ -1013,13 +1022,63 @@ lista_clusters[3]
 
 ## k-medias en `Python` con `sklearn`
 
+Importamos los modulos de la libreria `sklearn`que utilizaremos:
 
+```python
+from sklearn.cluster import KMeans
 
+from sklearn.metrics import silhouette_score
+```
 
+La función KMeans tiene los siguientes parametros disponibles:
 
+```python
+sklearn.cluster.KMeans(n_clusters=8, *, init='k-means++', n_init=10, max_iter=300, tol=0.0001, verbose=0, random_state=None, copy_x=True, algorithm='lloyd')
+```
 
+Se recomienda explorar el significado de cada uno de ellos en la documentación oficial de [`sklearn`](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans)
 
+<br>
 
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
 
 
 
