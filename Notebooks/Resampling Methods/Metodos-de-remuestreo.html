@@ -1744,24 +1744,28 @@ margin-left: 0 !important;
 <p>Una <strong>muestra bootstrap</strong> de <span class="math inline">\(\hspace{0.1cm}X\hspace{0.1cm}\)</span> se define como una <strong>muestra aleatoria con reemplazamiento</strong> de tamaño <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}X\)</span></p>
 <p>Tenemos <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras bootstrap de <span class="math inline">\(\hspace{0.1cm}X\hspace{0.1cm}\)</span> : <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[X_{(1)},X_{(2)},...,X_{(B)} \\\]</span></p>
-<p>Se define la replica Bootstap <span class="math inline">\(\hspace{0.1cm}b\)</span>-esima del estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}\)</span> como: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p>Se define la replica bootstap <span class="math inline">\(\hspace{0.1cm}b\)</span>-esima del estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}\)</span> como: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)})\]</span></p>
 <p><br></p>
 <p><br></p>
 <div id="estimación-bootstrap-del-sesgo-de-un-estimador" class="section level2" number="9.1">
 <h2><span class="header-section-number">9.1</span> Estimación bootstrap del sesgo de un estimador</h2>
-<p>La <strong>estimación Jacknife</strong> del <strong>sesgo</strong> del estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}\)</span> se define como: <span class="math inline">\(\\[0.5cm]\)</span></p>
-<p><span class="math display">\[\widehat{Sesgo}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}  \dfrac{1}{B} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \widehat{\theta} \right) \hspace{0.12cm}=\hspace{0.12cm}  \dfrac{1}{B} \cdot \sum_{b=1}^{B}  \widehat{\theta}_{(b)}  \hspace{0.1cm} -\hspace{0.1cm} \widehat{\theta}\]</span></p>
+<p>La <strong>estimación bootstrap</strong> del <strong>sesgo</strong> del estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}\)</span> se define como: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\widehat{Sesgo}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}  \dfrac{1}{B} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \widehat{\theta}(X) \right) \hspace{0.12cm}=\hspace{0.12cm}  \dfrac{1}{B} \cdot \sum_{b=1}^{B}  \widehat{\theta}_{(b)}  \hspace{0.1cm} -\hspace{0.1cm} \widehat{\theta}(X)\]</span></p>
 <p>Donde:</p>
-<p><span class="math display">\[\widehat{\theta} \hspace{0.12cm} =\hspace{0.12cm}  \widehat{\theta}(X) \hspace{0.12cm} =\hspace{0.12cm}  \widehat{\theta}(x_1,...,x_n)\]</span></p>
+<p><span class="math display">\[\widehat{\theta}(X) \hspace{0.12cm} =\hspace{0.12cm}  \widehat{\theta}(x_1,...,x_n)\\\]</span></p>
+<p><strong>Observación:</strong></p>
+<p>La estimación bootstrap del sesgo del estimador <span class="math inline">\(\hspace{0.12cm}\widehat{\theta}\hspace{0.12cm}\)</span> es la media del vector de replicas bootstrap <span class="math inline">\(\hspace{0.12cm}(\widehat{\theta}_{(1)},\widehat{\theta}_{(2)},...,\widehat{\theta}_{(B)})\)</span> menos la estimación <span class="math inline">\(\widehat{\theta}(X)\)</span></p>
 <p><br></p>
 </div>
 <div id="estimación-bootstrap-de-la-varianza-de-un-estimador" class="section level2" number="9.2">
 <h2><span class="header-section-number">9.2</span> Estimación bootstrap de la varianza de un estimador</h2>
 <p>La <strong>estimación Bootstrap</strong> de la <strong>varianza</strong> del estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}\)</span> se define como: <span class="math inline">\(\\[0.5cm]\)</span></p>
-<p><span class="math display">\[\widehat{Var}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}   \dfrac{1}{B-1} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \dfrac{1}{B} \cdot \sum_{b=1}^{B} \widehat{\theta}_{(b)} \right) \\\]</span></p>
-<p>El <strong>estimación Bootstrap</strong> de la <strong>desviación típica</strong> del estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}\)</span> se define como: <span class="math inline">\(\\[0.5cm]\)</span></p>
-<p><span class="math display">\[\widehat{s.e.}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}   \sqrt{ \widehat{Var}(\widehat{\theta})_{Boot}   }\]</span></p>
+<p><span class="math display">\[\widehat{Var}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}   \dfrac{1}{B-1} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  \hspace{0.1cm}-\hspace{0.1cm} \dfrac{1}{B} \cdot \sum_{b=1}^{B} \widehat{\theta}_{(b)} \right)^2 \\[0.8cm]\]</span></p>
+<p>La <strong>estimación bootstrap</strong> de la <strong>desviación típica</strong> del estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}\)</span> se define como: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\widehat{s.e.}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}   \sqrt{ \widehat{Var}(\widehat{\theta})_{Boot}   }\\\]</span></p>
+<p><strong>Observación:</strong></p>
+<p>La estimación bootstrap de la varianza del estimador <span class="math inline">\(\hspace{0.12cm}\widehat{\theta}\hspace{0.12cm}\)</span> es la varianza del vector de replicas bootstrap <span class="math inline">\(\hspace{0.12cm}(\widehat{\theta}_{(1)},\widehat{\theta}_{(2)},...,\widehat{\theta}_{(B)})\)</span></p>
 <p><br></p>
 </div>
 <div id="estimación-bootstrap-del-error-cuadratico-medio-de-un-estimador" class="section level2" number="9.3">
