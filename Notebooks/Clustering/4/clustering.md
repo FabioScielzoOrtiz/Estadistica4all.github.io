@@ -1706,14 +1706,14 @@ $5) \hspace{0.1cm}$ Se recalculan los medoids de los clusters del siguiente modo
 El **medoid** de un cluster $\hspace{0.1cm} C_j\hspace{0.1cm}$  es $\hspace{0.12cm}\overline{x}_{C_j} = x_{i\hspace{0.05cm}^*}\hspace{0.1cm}$   $\\[0.5cm]$
 
 
-Donde:
+donde:
 
 $$i\hspace{0.08cm}^* \hspace{0.1cm}=\hspace{0.1cm}  arg \hspace{0.15cm} \underset{i \in I_j}{Min} \hspace{0.15cm} \sum_{r \in I_j} \hspace{0.1cm} \delta(x_i , x_r) \\$$
 
 
 **Observación:**
  
-En este paso y a partir de aqui se considera al medoid de un cluster como la observacion del propio cluster que minimiza la suma de las distancias entre esa observacion y cada una de las restantes observaciones del cluster. $\\[0.6cm]$
+En este paso y en los siguientes se considera al medoid de un cluster como la observacion del propio cluster que minimiza la suma de las distancias entre esa observacion y cada una de las restantes observaciones del cluster. $\\[0.6cm]$
 
  
 
@@ -1760,6 +1760,12 @@ $8)\hspace{0.1cm}$  Cuando el paso 6) y 7) se hayan aplicado a todas las observa
 Para las observaciones $\hspace{0.1cm} x_i \in C_j\hspace{0.1cm}$ se predice la respuesta como $\hspace{0.1cm}\hat{y}_i = g_j\hspace{0.1cm}$
 
 Una tarea posterior es la interpretar la categoria $\hspace{0.1cm}g_j\hspace{0.1cm}$ , puesto que desconocemos a que hace referencia al no tener esa info sobre la respuesta
+
+
+
+
+
+
 
 
 
