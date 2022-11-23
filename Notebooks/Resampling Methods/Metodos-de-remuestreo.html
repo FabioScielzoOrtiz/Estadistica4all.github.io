@@ -1510,21 +1510,39 @@ margin-left: 0 !important;
     <h2><a href="#content">Métodos de Remuestreo</a></h2>
     <div id="toc">
       <ul>
-      <li><a href="#inferencia-clásica" id="toc-inferencia-clásica"><span class="toc-section-number">1</span> Inferencia clásica <a class="anchor" id="1"></a></a>
+      <li><a href="#variables-aleatorias-i.i.d." id="toc-variables-aleatorias-i.i.d."><span class="toc-section-number">1</span> Variables aleatorias i.i.d.</a></li>
+      <li><a href="#muestra-aleatoria-simple" id="toc-muestra-aleatoria-simple"><span class="toc-section-number">2</span> Muestra Aleatoria Simple</a></li>
+      <li><a href="#muestra-de-observaciones" id="toc-muestra-de-observaciones"><span class="toc-section-number">3</span> Muestra de Observaciones</a></li>
+      <li><a href="#estadístico" id="toc-estadístico"><span class="toc-section-number">4</span> Estadístico</a>
       <ul>
-      <li><a href="#variables-aleatorias-i.i.d." id="toc-variables-aleatorias-i.i.d."><span class="toc-section-number">1.1</span> Variables aleatorias i.i.d.</a></li>
-      <li><a href="#muestra-aleatoria-simple" id="toc-muestra-aleatoria-simple"><span class="toc-section-number">1.2</span> Muestra Aleatoria Simple</a></li>
-      <li><a href="#muestra-de-observaciones" id="toc-muestra-de-observaciones"><span class="toc-section-number">1.3</span> Muestra de Observaciones</a></li>
-      <li><a href="#estadístico" id="toc-estadístico"><span class="toc-section-number">1.4</span> Estadístico</a></li>
-      <li><a href="#estimador-puntual" id="toc-estimador-puntual"><span class="toc-section-number">1.5</span> Estimador Puntual</a></li>
-      <li><a href="#estimación-puntual" id="toc-estimación-puntual"><span class="toc-section-number">1.6</span> Estimación Puntual</a></li>
-      <li><a href="#propiedades-básicas-de-los-estimadores" id="toc-propiedades-básicas-de-los-estimadores"><span class="toc-section-number">1.7</span> Propiedades básicas de los estimadores</a></li>
+      <li><a href="#ejemplos-de-estadisticos" id="toc-ejemplos-de-estadisticos"><span class="toc-section-number">4.1</span> Ejemplos de estadisticos</a></li>
       </ul></li>
-      <li><a href="#métodos-de-remuestreo" id="toc-métodos-de-remuestreo"><span class="toc-section-number">2</span> Métodos de Remuestreo</a>
+      <li><a href="#estimador-puntual" id="toc-estimador-puntual"><span class="toc-section-number">5</span> Estimador Puntual</a></li>
+      <li><a href="#estimación-puntual" id="toc-estimación-puntual"><span class="toc-section-number">6</span> Estimación Puntual</a></li>
+      <li><a href="#propiedades-básicas-de-los-estimadores" id="toc-propiedades-básicas-de-los-estimadores"><span class="toc-section-number">7</span> Propiedades básicas de los estimadores</a>
       <ul>
-      <li><a href="#estimacion-del-sesgo-y-varianza-por-jacknife" id="toc-estimacion-del-sesgo-y-varianza-por-jacknife"><span class="toc-section-number">2.1</span> Estimacion del sesgo y varianza por Jacknife</a></li>
-      <li><a href="#estimación-del-sesgo-varianza-y-error-cuadratico-medio-de-un-estimador-por-bootstrap" id="toc-estimación-del-sesgo-varianza-y-error-cuadratico-medio-de-un-estimador-por-bootstrap"><span class="toc-section-number">2.2</span> Estimación del sesgo , varianza y error cuadratico medio de un estimador por Bootstrap</a></li>
+      <li><a href="#sesgo" id="toc-sesgo"><span class="toc-section-number">7.1</span> Sesgo</a></li>
+      <li><a href="#varianza" id="toc-varianza"><span class="toc-section-number">7.2</span> Varianza</a></li>
+      <li><a href="#error-cuadratico-medio" id="toc-error-cuadratico-medio"><span class="toc-section-number">7.3</span> Error Cuadratico Medio</a></li>
       </ul></li>
+      <li><a href="#estimacion-del-sesgo-y-varianza-por-jacknife" id="toc-estimacion-del-sesgo-y-varianza-por-jacknife"><span class="toc-section-number">8</span> Estimacion del sesgo y varianza por Jacknife</a>
+      <ul>
+      <li><a href="#estimación-jacknife-del-sesgo" id="toc-estimación-jacknife-del-sesgo"><span class="toc-section-number">8.1</span> Estimación Jacknife del sesgo</a></li>
+      <li><a href="#estimación-jacknife-de-la-varianza" id="toc-estimación-jacknife-de-la-varianza"><span class="toc-section-number">8.2</span> Estimación Jacknife de la varianza</a></li>
+      <li><a href="#estimación-jacknife-de-un-parametro-con-corrección-de-sesgo" id="toc-estimación-jacknife-de-un-parametro-con-corrección-de-sesgo"><span class="toc-section-number">8.3</span> Estimación Jacknife de un parametro con corrección de sesgo</a></li>
+      </ul></li>
+      <li><a href="#estimación-del-sesgo-varianza-y-error-cuadratico-medio-de-un-estimador-por-bootstrap" id="toc-estimación-del-sesgo-varianza-y-error-cuadratico-medio-de-un-estimador-por-bootstrap"><span class="toc-section-number">9</span> Estimación del sesgo , varianza y error cuadratico medio de un estimador por Bootstrap</a>
+      <ul>
+      <li><a href="#estimación-bootstrap-del-sesgo-de-un-estimador" id="toc-estimación-bootstrap-del-sesgo-de-un-estimador"><span class="toc-section-number">9.1</span> Estimación bootstrap del sesgo de un estimador</a></li>
+      <li><a href="#estimación-bootstrap-de-la-varianza-de-un-estimador" id="toc-estimación-bootstrap-de-la-varianza-de-un-estimador"><span class="toc-section-number">9.2</span> Estimación bootstrap de la varianza de un estimador</a></li>
+      <li><a href="#estimación-bootstrap-del-error-cuadratico-medio-de-un-estimador" id="toc-estimación-bootstrap-del-error-cuadratico-medio-de-un-estimador"><span class="toc-section-number">9.3</span> Estimación bootstrap del error cuadratico medio de un estimador</a></li>
+      <li><a href="#estimador-bootstrap-de-un-parametro-con-corrección-de-sesgo" id="toc-estimador-bootstrap-de-un-parametro-con-corrección-de-sesgo"><span class="toc-section-number">9.4</span> Estimador Bootstrap de un parametro con corrección de sesgo</a></li>
+      </ul></li>
+      <li><a href="#contrastes-de-hipotesis-basados-en-permutaciones" id="toc-contrastes-de-hipotesis-basados-en-permutaciones"><span class="toc-section-number">10</span> Contrastes de hipotesis basados en permutaciones <a class="anchor" id="1"></a></a></li>
+      <li><a href="#bootstrap-en-regresión-lineal" id="toc-bootstrap-en-regresión-lineal"><span class="toc-section-number">11</span> Bootstrap en Regresión Lineal</a></li>
+      <li><a href="#bootstrap-en-series-temporales" id="toc-bootstrap-en-series-temporales"><span class="toc-section-number">12</span> Bootstrap en Series temporales</a></li>
+      <li><a href="#intervalos-de-confianza-basados-en-bootstrap" id="toc-intervalos-de-confianza-basados-en-bootstrap"><span class="toc-section-number">13</span> Intervalos de confianza basados en bootstrap</a></li>
+      <li><a href="#contrastes-de-hipotesis-basados-en-bootstrap" id="toc-contrastes-de-hipotesis-basados-en-bootstrap"><span class="toc-section-number">14</span> Contrastes de hipotesis basados en bootstrap</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1539,70 +1557,66 @@ margin-left: 0 !important;
    
 <!-- Don't indent these lines or it will mess pre blocks indentation --> 
 <div id="main">
-<div id="inferencia-clásica" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Inferencia clásica <a class="anchor" id="1"></a></h1>
-<div id="variables-aleatorias-i.i.d." class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Variables aleatorias i.i.d.</h2>
-<p><span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}\)</span> son variables aleatorias mutuamente independientes e identicamente distribuidas (i.i.d.) <span class="math inline">\(\hspace{0.3cm}\Leftrightarrow\)</span></p>
-<ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(\hspace{0.08cm} \mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}\)</span> son mutuamente independientes independientes , es decir, <span class="math inline">\(\hspace{0.08cm} P(\mathcal{X}_1=x_1,...,\mathcal{X}_n=x_n)= \prod_{i=1}^n P(\mathcal{X}_i=x_i)\)</span>. Llo que implica que también son independientes dos a dos , es decir, <span class="math inline">\(\hspace{0.08cm} \mathcal{X}_i \perp \mathcal{X}_j \hspace{0.08cm} \forall i\neq j \\\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.08cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}\)</span> tienen la misma distribución de probabilidad, es decir, <span class="math inline">\(\hspace{0.08cm}\mathcal{X}_i \sim F(\dot), \forall i=1,...,n\)</span></p></li>
-</ol>
-<p>Donde <span class="math inline">\(\hspace{0.08cm}F(\cdot)\hspace{0.08cm}\)</span> es una distribucion de probabilidad con parametros no especificados.</p>
+<p>Este artículo está&lt; dividido en dos partes. Una primera en la que se hace una revisión de técnicas de inferencia estadística clásicas, y un segunda parte en la que se introducen técnicas de inferencia estadística basadas en remuestreo.</p>
 <p><br></p>
-<p>Seguiremos la siguiente notación:</p>
-<p><span class="math inline">\((\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \hspace{0.3cm} \Leftrightarrow\)</span></p>
-<ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(\hspace{0.08cm}\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.08cm}\)</span> son mutuamente independientes <span class="math inline">\(\\[0.6cm]\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.08cm}\mathcal{X}_i \sim F(\cdot), \hspace{0.08cm} \forall i=1,...,n\)</span></p></li>
-</ol>
+<div id="variables-aleatorias-i.i.d." class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Variables aleatorias i.i.d.</h1>
+<p><span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> son variables aleatorias mutuamente independientes e identicamente distribuidas (i.i.d.) <span class="math inline">\(\hspace{0.3cm}\Leftrightarrow\)</span></p>
+<p><span class="math inline">\(1)\hspace{0.12cm}\)</span> <span class="math inline">\(\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}\)</span> son mutuamente independientes independientes , es decir:</p>
+<p><span class="math display">\[\hspace{0.08cm} P(\mathcal{X}_1=x_1,...,\mathcal{X}_n=x_n)= \prod_{i=1}^n P(\mathcal{X}_i=x_i)\]</span></p>
+<p>Lo que implica que también son independientes dos a dos , es decir, <span class="math inline">\(\hspace{0.12cm} \mathcal{X}_i \perp \mathcal{X}_j \hspace{0.12cm} , \hspace{0.12cm} \forall i\neq j \\\)</span></p>
+<p><span class="math inline">\(2)\hspace{0.12cm}\)</span> <span class="math inline">\(\hspace{0.12cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.12cm}\)</span> tienen la misma distribución de probabilidad, es decir, <span class="math inline">\(\hspace{0.12cm}\mathcal{X}_i \sim F( \cdot ) \hspace{0.15cm}, \hspace{0.1cm} \forall i=1,...,n\)</span></p>
+<p>Donde <span class="math inline">\(\hspace{0.08cm}F( \cdot )\hspace{0.08cm}\)</span> es una distribucion de probabilidad con parametros no especificados.</p>
+<p><br></p>
+<p>Usaremos la siguiente notación:</p>
+<p><span class="math display">\[(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \hspace{0.3cm} \Leftrightarrow
+\left\lbrace\begin{array}{l}   \hspace{0.12cm}\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.2cm} \text{son mutuamente independientes} \\[0.1cm]
+\hspace{0.12cm}\mathcal{X}_i \sim F(\cdot) \hspace{0.12cm} , \hspace{0.12cm} \forall i=1,...,n    \end{array}\right. \\[1cm]\]</span></p>
+<p><br></p>
 </div>
-<div id="muestra-aleatoria-simple" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Muestra Aleatoria Simple</h2>
-<p>Sea <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}\)</span> una v.a. tal que <span class="math inline">\(\hspace{0.08cm}\mathcal{X} \sim D(\cdot)\)</span></p>
-<p><span class="math inline">\((\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.08cm}\)</span> es una muestra aleatoria simple (m.a.s.) de tamaño <span class="math inline">\(\hspace{0.08cm}n\hspace{0.08cm}\)</span> de <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\)</span> <span class="math inline">\(\hspace{0.08cm}\Leftrightarrow\hspace{0.08cm}\)</span> <span class="math inline">\((X_1,...,X_n) \underset{i.i.d.}{\sim} D(\cdot) \\\)</span></p>
+<div id="muestra-aleatoria-simple" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Muestra Aleatoria Simple</h1>
+<p>Sea <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> una v.a. tal que <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \sim D(\cdot)\)</span></p>
+<p><span class="math inline">\((\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> es una muestra aleatoria simple (m.a.s.) de tamaño <span class="math inline">\(\hspace{0.08cm}n\hspace{0.08cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span> <span class="math inline">\(\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}\)</span> <span class="math inline">\((X_1,...,X_n) \underset{i.i.d.}{\sim} D(\cdot) \\\)</span></p>
 <p><strong>Observación:</strong></p>
 <p>Una m.a.s. de una v.a. es un vector de v.a.’s</p>
+<p><br></p>
 </div>
-<div id="muestra-de-observaciones" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Muestra de Observaciones</h2>
-<p>Sea <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}\)</span> una v.a. tal que <span class="math inline">\(\hspace{0.08cm}\mathcal{X} \sim D(\cdot)\)</span></p>
-<p><span class="math inline">\(X=(x_1,...,x_n)\hspace{0.08cm}\)</span> es una muestra de <span class="math inline">\(\hspace{0.08cm}n\hspace{0.08cm}\)</span> observaciones de <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\)</span> <span class="math inline">\(\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}\)</span> <span class="math inline">\(x_i \in Im(\mathcal{X}) \hspace{0.08cm} , \forall i=1,...,n\)</span> <span class="math inline">\(\hspace{0.18cm}\Leftrightarrow\hspace{0.18cm}\)</span> <span class="math inline">\(x_i\)</span> es una realizacion de la v.a. <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\)</span> , <span class="math inline">\(\hspace{0.08cm}\forall i=1,...,n \\\)</span></p>
+<div id="muestra-de-observaciones" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Muestra de Observaciones</h1>
+<p>Sea <span class="math inline">\(\hspace{0.12cm}\mathcal{X}\hspace{0.12cm}\)</span> una v.a. tal que <span class="math inline">\(\hspace{0.12cm}\mathcal{X} \sim D(\cdot)\)</span></p>
+<p><span class="math inline">\(X=(x_1,...,x_n)\hspace{0.12cm}\)</span> es una muestra de <span class="math inline">\(\hspace{0.08cm}n\hspace{0.08cm}\)</span> observaciones de <span class="math inline">\(\hspace{0.12cm}\mathcal{X}\)</span> <span class="math inline">\(\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}\)</span> <span class="math inline">\(x_i \in Im(\mathcal{X}) \hspace{0.12cm} ,\hspace{0.12cm} \forall i=1,...,n\)</span> <span class="math inline">\(\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}\)</span> <span class="math inline">\(x_i\)</span> es una realización de la v.a. <span class="math inline">\(\hspace{0.12cm}\mathcal{X}\)</span> , <span class="math inline">\(\hspace{0.12cm}\forall i=1,...,n \\\)</span></p>
 <p><strong>Observación:</strong></p>
-<ol style="list-style-type: decimal">
-<li><p>Una muestra de observaciones de una v.a. es un vector de números, no son v.a.’s. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
-<li><p>Si <span class="math inline">\(\hspace{0.08cm} X=(x_1,...,x_n)\hspace{0.08cm}\)</span> es una muestra de <span class="math inline">\(\hspace{0.08cm}n\hspace{0.08cm}\)</span> observaciones de <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\sim D(\cdot)\)</span> , entonces <span class="math inline">\(\hspace{0.08cm}x_i\hspace{0.08cm}\)</span> es una observacion que ha sido generada por la distribución de probabilidad <span class="math inline">\(\hspace{0.08cm}D(\cdot)\hspace{0.08cm}\)</span>, es decir, <span class="math inline">\(\hspace{0.08cm}x_i\hspace{0.08cm}\)</span> puede verse como un numero aleatorio generado en base a la distribución de probabilidad <span class="math inline">\(\hspace{0.08cm}D(\cdot)\)</span> <span class="math inline">\(\\[0.4cm]\)</span></p></li>
-<li><p>Si <span class="math inline">\(\hspace{0.08cm}X=(x_1,...,x_n)\hspace{0.08cm}\)</span> es una muestra de <span class="math inline">\(\hspace{0.08cm}n\hspace{0.08cm}\)</span> observaciones de <span class="math inline">\(\mathcal{X}\sim D(\cdot)\)</span> , entonces:</p></li>
-</ol>
+<p><span class="math inline">\(1)\hspace{0.2cm}\)</span> Una muestra de observaciones de una v.a. es un vector de números, no son v.a.’s. <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math inline">\(2)\hspace{0.2cm}\)</span> Si <span class="math inline">\(\hspace{0.08cm} X=(x_1,...,x_n)\hspace{0.08cm}\)</span> es una muestra de <span class="math inline">\(\hspace{0.08cm}n\hspace{0.08cm}\)</span> observaciones de <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\sim D(\cdot)\)</span> , entonces <span class="math inline">\(\hspace{0.08cm}x_i\hspace{0.08cm}\)</span> es una observacion que ha sido generada por la distribución de probabilidad <span class="math inline">\(\hspace{0.08cm}D(\cdot)\hspace{0.08cm}\)</span>, es decir, <span class="math inline">\(\hspace{0.08cm}x_i\hspace{0.08cm}\)</span> puede verse como un numero aleatorio generado en base a la distribución de probabilidad <span class="math inline">\(\hspace{0.08cm}D(\cdot)\)</span> <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math inline">\(3)\hspace{0.2cm}\)</span> Si <span class="math inline">\(\hspace{0.08cm}X=(x_1,...,x_n)\hspace{0.08cm}\)</span> es una muestra de <span class="math inline">\(\hspace{0.08cm}n\hspace{0.08cm}\)</span> observaciones de <span class="math inline">\(\mathcal{X}\sim D(\cdot)\)</span> , entonces:</p>
 <p><span class="math inline">\(P(\mathcal{X}= x_i)\)</span> es la probabilidad de observar <span class="math inline">\(x_i\)</span> al extraer una muestra de observaciones de <span class="math inline">\(\mathcal{X}\)</span> <span class="math inline">\(\\[0.4cm]\)</span></p>
-<ol start="4" style="list-style-type: decimal">
-<li>Si <span class="math inline">\(\hspace{0.08cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.08cm}\)</span> es una muestra aleatoria simple (m.a.s.) de tamaño <span class="math inline">\(\hspace{0.08cm}n\hspace{0.08cm}\)</span> de <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\sim D(\cdot)\hspace{0.08cm}\)</span> , entonces:</li>
-</ol>
+<p><span class="math inline">\(4)\hspace{0.2cm}\)</span> Si <span class="math inline">\(\hspace{0.08cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.08cm}\)</span> es una muestra aleatoria simple (m.a.s.) de tamaño <span class="math inline">\(\hspace{0.08cm}n\hspace{0.08cm}\)</span> de <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\sim D(\cdot)\hspace{0.08cm}\)</span> , entonces:</p>
 <p><span class="math inline">\(P(\mathcal{X}_1 = x_1 , ..., \mathcal{X}_n=x_n)\hspace{0.08cm}\)</span> es la probabilidad de obtener como valores <span class="math inline">\(\hspace{0.08cm}(x_1,...,x_n)\hspace{0.08cm}\)</span> al extraer una muestra de observaciones de <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\)</span></p>
 <p><br></p>
 </div>
-<div id="estadístico" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Estadístico</h2>
+<div id="estadístico" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Estadístico</h1>
 <p>Sea <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> una v.a. tal que <span class="math inline">\(\hspace{0.1cm} \mathcal{X} \sim D(\theta)\)</span> ,</p>
 <p>Sea <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> una m.a.s. de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span></p>
-<p>Un estadistico es una funcion <span class="math inline">\(\hspace{0.1cm}T\hspace{0.1cm}\)</span> de una m.a.s. que no depende del parametro <span class="math inline">\(\hspace{0.1cm}\theta\)</span></p>
+<p>Un estadístico es una función <span class="math inline">\(\hspace{0.1cm}T\hspace{0.1cm}\)</span> de una m.a.s. que no depende del parametro <span class="math inline">\(\hspace{0.1cm}\theta\)</span></p>
 <p>Por tanto:</p>
 <p><span class="math inline">\(T(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> es un estadistico</p>
 <p><br></p>
 <p><strong>Observación:</strong></p>
 <ol style="list-style-type: decimal">
-<li><p><span class="math inline">\(\hspace{0.1cm}T(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> es una v.a. al ser una función de v.a.’s</p></li>
+<li><p><span class="math inline">\(\hspace{0.12cm}T(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> es una v.a. al ser una función de v.a.’s <span class="math inline">\(\\[0.8cm]\)</span></p></li>
 <li><p>Dada una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}(x_1 ,..., x_n)\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \sim D(\theta)\)</span></p></li>
 </ol>
-<p><span class="math inline">\(T(x_1,...,x_n)\hspace{0.1cm}\)</span> es una observación de la v.a. <span class="math inline">\(\hspace{0.1cm}T(\mathcal{X}_1,...,\mathcal{X}_n)\)</span></p>
+<p><span class="math inline">\(\hspace{0.6cm} T(x_1,...,x_n)\hspace{0.1cm}\)</span> es una observación de la v.a. <span class="math inline">\(\hspace{0.1cm}T(\mathcal{X}_1,...,\mathcal{X}_n) \\\)</span></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Dadas <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras de observaciones <span class="math inline">\(\hspace{0.1cm}(x_1^1 , ..., x_n^1) ,...,(x_1^B,...,x_n^B)\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \sim D(\theta)\)</span></li>
 </ol>
-<p><span class="math inline">\(T(x_1^1 , ..., x_n^1) ,..., T(x_1^B,...,x_n^B)\hspace{0.1cm}\)</span> es una muestra de observaciones de la v.a. <span class="math inline">\(\hspace{0.1cm}T(\mathcal{X}_1,...,\mathcal{X}_n)\)</span></p>
+<p><span class="math inline">\(\hspace{0.6cm} T(x_1^1 , ..., x_n^1) ,..., T(x_1^B,...,x_n^B)\hspace{0.1cm}\)</span> es una muestra de observaciones de la v.a. <span class="math inline">\(\hspace{0.1cm}T(\mathcal{X}_1,...,\mathcal{X}_n)\)</span></p>
 <p><br></p>
-<div id="ejemplos-de-estadisticos" class="section level3" number="1.4.1">
-<h3><span class="header-section-number">1.4.1</span> Ejemplos de estadisticos</h3>
-<p>Sea <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> una v.a. tal que <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \sim D(\theta)\hspace{0.1cm}\)</span> , y sea <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> una m.a.s. de <span class="math inline">\(\mathcal{X}\)</span></p>
+<div id="ejemplos-de-estadisticos" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Ejemplos de estadisticos</h2>
+<p>Sea <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> una v.a. tal que <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \sim D(\theta)\hspace{0.1cm}\)</span> , y sea <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> una m.a.s. de <span class="math inline">\(\hspace{0.1cm} \mathcal{X} \\\)</span></p>
 <p><strong>Media muestral</strong></p>
 <p><span class="math display">\[T(\mathcal{X}_1,...,\mathcal{X}_n) = \overline{\mathcal{X}} = \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \\\]</span></p>
 <p><strong>Varianza muestral</strong></p>
@@ -1612,66 +1626,67 @@ margin-left: 0 !important;
 <p><br></p>
 </div>
 </div>
-<div id="estimador-puntual" class="section level2" number="1.5">
-<h2><span class="header-section-number">1.5</span> Estimador Puntual</h2>
+<div id="estimador-puntual" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Estimador Puntual</h1>
 <p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}X\)</span>,</p>
-<p>Un estimador puntual para el parametro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> es un estadistico <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> que se propone para estimar <span class="math inline">\(\theta\)</span></p>
+<p>Un estimador puntual para el parametro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> es un estadistico <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> que se propone para estimar <span class="math inline">\(\hspace{0.1cm}\theta\)</span></p>
 <p><br></p>
 </div>
-<div id="estimación-puntual" class="section level2" number="1.6">
-<h2><span class="header-section-number">1.6</span> Estimación Puntual</h2>
+<div id="estimación-puntual" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Estimación Puntual</h1>
 <p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}\)</span> , una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y un estadistico <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\)</span></p>
 <p>Si <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> es una muestra de observaciones de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces:</p>
 <p><span class="math inline">\(\widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}\)</span> es una estimación puntual del parametro <span class="math inline">\(\hspace{0.1cm}\theta \\\)</span></p>
 <p><strong>Observaciones:</strong></p>
 <p>Un estimador puntual es una v.a. y una estimación puntual un número.</p>
+<p><br></p>
 </div>
-<div id="propiedades-básicas-de-los-estimadores" class="section level2" number="1.7">
-<h2><span class="header-section-number">1.7</span> Propiedades básicas de los estimadores</h2>
+<div id="propiedades-básicas-de-los-estimadores" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Propiedades básicas de los estimadores</h1>
 <p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}\)</span> , una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y un estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\)</span></p>
-<div id="sesgo" class="section level3" number="1.7.1">
-<h3><span class="header-section-number">1.7.1</span> Sesgo</h3>
+<p><br></p>
+<div id="sesgo" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Sesgo</h2>
 <p>El sesgo del estimador <span class="math inline">\(\widehat{\theta}\)</span> se define como:</p>
 <p><span class="math display">\[Sesgo(\widehat{\theta}) = E \left[ \hspace{0.05cm} \widehat{\theta} \hspace{0.05cm} \right]- \theta\]</span></p>
+<p><br></p>
 </div>
-<div id="varianza" class="section level3" number="1.7.2">
-<h3><span class="header-section-number">1.7.2</span> Varianza</h3>
+<div id="varianza" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Varianza</h2>
 <p>La varianza del estimador <span class="math inline">\(\widehat{\theta}\)</span> se define como:</p>
 <p><span class="math display">\[Var(\widehat{\theta}) = E \left[ \hspace{0.05cm} \left( \widehat{\theta} - E [ \hspace{0.05cm} \widehat{\theta} \hspace{0.05cm}  ] \right)^2 \hspace{0.05cm} \right]\]</span></p>
 <p>El error estandar (desviación típica) del estimador <span class="math inline">\(\widehat{\theta}\)</span> se define como:</p>
 <p><span class="math display">\[s.e.(\widehat{\theta}) = \sqrt{Var(\widehat{\theta})}\]</span></p>
+<p><br></p>
 </div>
-<div id="error-cuadratico-medio" class="section level3" number="1.7.3">
-<h3><span class="header-section-number">1.7.3</span> Error Cuadratico Medio</h3>
+<div id="error-cuadratico-medio" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Error Cuadratico Medio</h2>
 <p>El error cuadratico medio del estimador <span class="math inline">\(\widehat{\theta}\)</span> se define como:</p>
 <p><span class="math display">\[ECM(\widehat{\theta}) = E[ (\widehat{\theta} - \theta)^2] = E[Sesgo(\widehat{\theta})^2]\]</span></p>
 <p><br></p>
 </div>
 </div>
-</div>
-<div id="métodos-de-remuestreo" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Métodos de Remuestreo</h1>
-<div id="estimacion-del-sesgo-y-varianza-por-jacknife" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Estimacion del sesgo y varianza por Jacknife</h2>
+<div id="estimacion-del-sesgo-y-varianza-por-jacknife" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Estimacion del sesgo y varianza por Jacknife</h1>
 <p>Tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}\)</span> , una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y un estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> del parametro <span class="math inline">\(\hspace{0.1cm}\theta\)</span></p>
-<p>Pero además tenemos una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.08cm}\)</span> de la variable de interés <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\)</span> , por lo que tenemos la estimación <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}\)</span> del parámetro <span class="math inline">\(\hspace{0.08cm} \theta\)</span></p>
+<p>Además tenemos una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de la variable de interés <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , por lo que tenemos la estimación <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}\)</span> del parámetro <span class="math inline">\(\hspace{0.1cm} \theta \\\)</span></p>
 <p>Se define <span class="math inline">\(\hspace{0.1cm}X_{(r)}\hspace{0.1cm}\)</span> como la muestra que contiene todos los valores de <span class="math inline">\(\hspace{0.1cm}X\hspace{0.1cm}\)</span> excepto <span class="math inline">\(\hspace{0.1cm}x_{r}\)</span></p>
 <p>Es decir:</p>
 <p><span class="math display">\[X_{(r)} = (\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.05cm},..,\hspace{0.05cm} x_{r-1}\hspace{0.05cm},\hspace{0.05cm}x_{r+1}\hspace{0.05cm} ,..,\hspace{0.05cm} x_{n}\hspace{0.05cm})\]</span></p>
-<p>para <span class="math inline">\(\hspace{0.2cm} r=1,...,n\)</span></p>
-<p>Se define la replica <span class="math inline">\(r\)</span>-esima del estimador <span class="math inline">\(\widehat{\theta}\)</span> como:</p>
+<p>para <span class="math inline">\(\hspace{0.2cm} r=1,...,n \\\)</span></p>
+<p>Se define la replica <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima del estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}\)</span> como: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[\widehat{\theta}_{(r)} = \widehat{\theta}(X_{(r)})= \widehat{\theta}(\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.05cm},..,\hspace{0.05cm} x_{r-1}\hspace{0.05cm},\hspace{0.05cm}x_{r+1}\hspace{0.05cm} ,..,\hspace{0.05cm} x_{n}\hspace{0.05cm})\]</span></p>
 <p><br></p>
-<div id="estimación-jacknife-del-sesgo" class="section level3" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Estimación Jacknife del sesgo</h3>
-<p>El <strong>estimador Jacknife</strong> del <strong>sesgo</strong> del estimador <span class="math inline">\(\widehat{\theta}\)</span> se define como:</p>
-<p><span class="math display">\[\widehat{Sesgo}(\widehat{\theta})_{Jack} =  (n-1) \cdot \left(   \dfrac{1}{n} \cdot \sum_{r=1}^{n} \widehat{\theta}_{(r)} - \widehat{\theta} \right)\]</span></p>
+<div id="estimación-jacknife-del-sesgo" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Estimación Jacknife del sesgo</h2>
+<p>El <strong>estimador Jacknife</strong> del <strong>sesgo</strong> del estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}\)</span> se define como: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\widehat{Sesgo}(\widehat{\theta})_{Jack} \hspace{0.1cm}=\hspace{0.1cm}  (n-1) \cdot \left(   \dfrac{1}{n} \cdot \sum_{r=1}^{n} \widehat{\theta}_{(r)} \hspace{0.1cm} -\hspace{0.1cm} \widehat{\theta} \right)\]</span></p>
 <p>Donde:</p>
-<p><span class="math display">\[\widehat{\theta} = \widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)\]</span></p>
+<p><span class="math display">\[\widehat{\theta} \hspace{0.1cm}=\hspace{0.1cm} \widehat{\theta}(X) \hspace{0.1cm}=\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n)\]</span></p>
 <p><br></p>
 </div>
-<div id="estimación-jacknife-de-la-varianza" class="section level3" number="2.1.2">
-<h3><span class="header-section-number">2.1.2</span> Estimación Jacknife de la varianza</h3>
+<div id="estimación-jacknife-de-la-varianza" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Estimación Jacknife de la varianza</h2>
 <p>La <strong>estimación Jacknife</strong> de la <strong>varianza</strong> del estimador <span class="math inline">\(\widehat{\theta}\)</span> se define como:</p>
 <p><span class="math display">\[\widehat{ Var}(\widehat{\theta})_{Jack} =  \dfrac{n-1}{n} \cdot \sum_{r=1}^{n} \left( \widehat{\theta}_{(r)} - \dfrac{1}{n} \sum_{r=1}^{n} \widehat{\theta}_{(r)}  \right)^2\]</span></p>
 <p><br></p>
@@ -1685,8 +1700,8 @@ margin-left: 0 !important;
 <p>Ejemplo de estimador no suave es el estimador plug-in de la mediana poblacional, es decir la mediana muestral</p>
 <p><br></p>
 </div>
-<div id="estimación-jacknife-de-un-parametro-con-corrección-de-sesgo" class="section level3" number="2.1.3">
-<h3><span class="header-section-number">2.1.3</span> Estimación Jacknife de un parametro con corrección de sesgo</h3>
+<div id="estimación-jacknife-de-un-parametro-con-corrección-de-sesgo" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Estimación Jacknife de un parametro con corrección de sesgo</h2>
 <p><span class="math display">\[
 \widehat{\theta}_{Jack} \hspace{0.2cm}=\hspace{0.2cm} \widehat{\theta} \hspace{0.1cm}-\hspace{0.1cm} \widehat{Sesgo}(\widehat{\theta})_{Jack} \ \hspace{0.2cm}=\hspace{0.2cm} \widehat{\theta} -  (n-1) \cdot \left(    \dfrac{1}{n} \cdot \sum_{r=1}^{n} \widehat{\theta}_{(r)}
 - \widehat{\theta} \right) \hspace{0.2cm}=\hspace{0.2cm}   n\cdot \widehat{\theta} - (n-1)\cdot  \dfrac{1}{n} \cdot \sum_{r=1}^{n} \widehat{\theta}_{(r)} \\
@@ -1694,10 +1709,11 @@ margin-left: 0 !important;
 <p>Donde:</p>
 <p><span class="math display">\[\widehat{\theta} = \widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)\]</span></p>
 <p><br></p>
+<p><br></p>
 </div>
 </div>
-<div id="estimación-del-sesgo-varianza-y-error-cuadratico-medio-de-un-estimador-por-bootstrap" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Estimación del sesgo , varianza y error cuadratico medio de un estimador por Bootstrap</h2>
+<div id="estimación-del-sesgo-varianza-y-error-cuadratico-medio-de-un-estimador-por-bootstrap" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Estimación del sesgo , varianza y error cuadratico medio de un estimador por Bootstrap</h1>
 <p>Tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}\)</span> , una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y un estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> del parametro <span class="math inline">\(\hspace{0.1cm}\theta\)</span></p>
 <p>Pero además tenemos una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.08cm}\)</span> de la variable de interés <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\)</span> , por lo que tenemos la estimación <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}\)</span> del parametro <span class="math inline">\(\hspace{0.1cm}\theta\)</span></p>
 <p>Una muestra Bootstrap de <span class="math inline">\(\hspace{0.1cm}X\hspace{0.1cm}\)</span> se define como una <strong>muestra aleatoria con reemplazamiento</strong> de <span class="math inline">\(\hspace{0.1cm}X\)</span></p>
@@ -1706,30 +1722,50 @@ margin-left: 0 !important;
 <p>Se define la replica Bootstap <span class="math inline">\(b\)</span>-esima del estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}\)</span> como:</p>
 <p><span class="math display">\[\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)})\]</span></p>
 <p><br></p>
-<div id="estimación-bootstrap-del-sesgo-de-un-estimador" class="section level3" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> Estimación Bootstrap del sesgo de un estimador</h3>
+<p><br></p>
+<div id="estimación-bootstrap-del-sesgo-de-un-estimador" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> Estimación bootstrap del sesgo de un estimador</h2>
 <p><span class="math display">\[\widehat{Sesgo}(\widehat{\theta})_{Boot} =  \dfrac{1}{B} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \widehat{\theta} \right) = \dfrac{1}{B} \cdot \sum_{b=1}^{B}  \widehat{\theta}_{(b)}  - \widehat{\theta}\]</span></p>
 <p>Donde:</p>
 <p><span class="math display">\[\widehat{\theta} = \widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)\]</span></p>
 <p><br></p>
 </div>
-<div id="estimación-bootstrap-de-la-varianza-de-un-estimador" class="section level3" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> Estimación Bootstrap de la varianza de un estimador</h3>
+<div id="estimación-bootstrap-de-la-varianza-de-un-estimador" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Estimación bootstrap de la varianza de un estimador</h2>
 <p><span class="math display">\[\widehat{Var}(\widehat{\theta})_{Boot} =  \dfrac{1}{B-1} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \dfrac{1}{B} \cdot \sum_{b=1}^{B} \widehat{\theta}_{(b)} \right) \\\]</span></p>
 <p><span class="math display">\[\widehat{s.e.}(\widehat{\theta})_{Boot} =  \sqrt{ \dfrac{1}{B-1} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \dfrac{1}{B} \cdot \sum_{b=1}^{B} \widehat{\theta}_{(b)} \right) }\]</span></p>
 <p><br></p>
 </div>
-<div id="estimación-bootstrap-del-error-cuadratico-medio-de-un-estimador" class="section level3" number="2.2.3">
-<h3><span class="header-section-number">2.2.3</span> Estimación Bootstrap del error cuadratico medio de un estimador</h3>
+<div id="estimación-bootstrap-del-error-cuadratico-medio-de-un-estimador" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> Estimación bootstrap del error cuadratico medio de un estimador</h2>
 <p><span class="math display">\[\widehat{Sesgo}(\widehat{\theta})_{Boot} =  \dfrac{1}{B} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \widehat{\theta} \right)^2 = \dfrac{1}{B} \cdot \sum_{b=1}^{B}  \left( \widehat{\theta}_{(b)}^2  + \widehat{\theta}^2 + 2\cdot \widehat{\theta}_{(b)} \cdot \widehat{\theta} \right)\]</span></p>
 <p>Donde:</p>
 <p><span class="math display">\[\widehat{\theta} = \widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)\]</span></p>
 <p><br></p>
 </div>
-<div id="estimador-bootstrap-de-un-parametro-con-corrección-de-sesgo" class="section level3" number="2.2.4">
-<h3><span class="header-section-number">2.2.4</span> Estimador Bootstrap de un parametro con corrección de sesgo</h3>
+<div id="estimador-bootstrap-de-un-parametro-con-corrección-de-sesgo" class="section level2" number="9.4">
+<h2><span class="header-section-number">9.4</span> Estimador Bootstrap de un parametro con corrección de sesgo</h2>
+<p><br></p>
 </div>
 </div>
+<div id="contrastes-de-hipotesis-basados-en-permutaciones" class="section level1" number="10">
+<h1><span class="header-section-number">10</span> Contrastes de hipotesis basados en permutaciones <a class="anchor" id="1"></a></h1>
+<p><br></p>
+</div>
+<div id="bootstrap-en-regresión-lineal" class="section level1" number="11">
+<h1><span class="header-section-number">11</span> Bootstrap en Regresión Lineal</h1>
+<p><br></p>
+</div>
+<div id="bootstrap-en-series-temporales" class="section level1" number="12">
+<h1><span class="header-section-number">12</span> Bootstrap en Series temporales</h1>
+<p><br></p>
+</div>
+<div id="intervalos-de-confianza-basados-en-bootstrap" class="section level1" number="13">
+<h1><span class="header-section-number">13</span> Intervalos de confianza basados en bootstrap</h1>
+<p><br></p>
+</div>
+<div id="contrastes-de-hipotesis-basados-en-bootstrap" class="section level1" number="14">
+<h1><span class="header-section-number">14</span> Contrastes de hipotesis basados en bootstrap</h1>
 </div>
 </div>
 
