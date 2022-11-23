@@ -312,6 +312,23 @@ Donde:
 $$\widehat{\theta} \hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(X)\hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n)$$
 
 
+<br
+
+<br>
+
+## Estimación Jacknife del sesgo en `Python`
+
+
+## Estimación Jacknife de la desviación típica en `Python`
+
+
+## Estimación Jacknife del error cuadratico medio en `Python`
+
+
+## Estimación Jacknife con sesgo correguido en `Python`
+
+
+
 
 <br>
 
@@ -368,12 +385,12 @@ $$\widehat{\theta} \hspace{0.12cm} =\hspace{0.12cm}  \widehat{\theta}(X) \hspace
 
 La **estimación Bootstrap** de la **varianza** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como: $\\[0.5cm]$
 
-$$\widehat{Var}(\widehat{\theta})_{Boot} =  \dfrac{1}{B-1} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \dfrac{1}{B} \cdot \sum_{b=1}^{B} \widehat{\theta}_{(b)} \right) \\$$
+$$\widehat{Var}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}   \dfrac{1}{B-1} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \dfrac{1}{B} \cdot \sum_{b=1}^{B} \widehat{\theta}_{(b)} \right) \\$$
 
 
 El **estimación Bootstrap** de la **desviación típica** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como: $\\[0.5cm]$
 
-$$\widehat{s.e.}(\widehat{\theta})_{Boot} =  \sqrt{ \dfrac{1}{B-1} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \dfrac{1}{B} \cdot \sum_{b=1}^{B} \widehat{\theta}_{(b)} \right) }$$
+$$\widehat{s.e.}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}   \sqrt{ \widehat{Var}(\widehat{\theta})_{Boot}   }$$
 
 
 <br>
@@ -383,13 +400,13 @@ $$\widehat{s.e.}(\widehat{\theta})_{Boot} =  \sqrt{ \dfrac{1}{B-1} \cdot \sum_{b
 
 El **estimación Bootstrap** del **error cuadrático medio** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como: $\\[0.5cm]$
 
-$$\widehat{ECM}(\widehat{\theta})_{Boot} =  \dfrac{1}{B} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \widehat{\theta} \right)^2 = \dfrac{1}{B} \cdot \sum_{b=1}^{B}  \left( \widehat{\theta}_{(b)}^2  + \widehat{\theta}^2 + 2\cdot \widehat{\theta}_{(b)} \cdot \widehat{\theta} \right)$$
+$$\widehat{ECM}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}   \dfrac{1}{B} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \widehat{\theta} \right)^2 \hspace{0.12cm} =\hspace{0.12cm}  \dfrac{1}{B} \cdot \sum_{b=1}^{B}  \left( \widehat{\theta}_{(b)}^2  + \widehat{\theta}^2 + 2\cdot \widehat{\theta}_{(b)} \cdot \widehat{\theta} \right)$$
 
 
 Donde:
 
 
-$$\widehat{\theta} = \widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)$$
+$$\widehat{\theta} \hspace{0.12cm} =\hspace{0.12cm}  \widehat{\theta}(X) \hspace{0.12cm} =\hspace{0.12cm}  \widehat{\theta}(x_1,...,x_n)$$
 
 
 <br>
@@ -408,7 +425,20 @@ Donde:
 $$\widehat{\theta} \hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(X)\hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n)$$
 
 
+<br>
 
+<br>
+
+## Estimación bootstrap del sesgo en `Python`
+
+
+## Estimación bootstrap de la desviación típica en `Python`
+
+
+## Estimación bootstrap del error cuadratico medio en `Python`
+
+
+## Estimación bootstrap con sesgo correguido en `Python`
 
 
 <br>

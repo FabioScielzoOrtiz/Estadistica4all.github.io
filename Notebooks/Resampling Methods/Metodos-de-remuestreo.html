@@ -1530,6 +1530,10 @@ margin-left: 0 !important;
       <li><a href="#estimación-jacknife-del-sesgo" id="toc-estimación-jacknife-del-sesgo"><span class="toc-section-number">8.1</span> Estimación Jacknife del sesgo</a></li>
       <li><a href="#estimación-jacknife-de-la-varianza" id="toc-estimación-jacknife-de-la-varianza"><span class="toc-section-number">8.2</span> Estimación Jacknife de la varianza</a></li>
       <li><a href="#estimación-jacknife-de-un-parametro-con-corrección-de-sesgo" id="toc-estimación-jacknife-de-un-parametro-con-corrección-de-sesgo"><span class="toc-section-number">8.3</span> Estimación Jacknife de un parametro con corrección de sesgo</a></li>
+      <li><a href="#estimación-jacknife-del-sesgo-en-python" id="toc-estimación-jacknife-del-sesgo-en-python"><span class="toc-section-number">8.4</span> Estimación Jacknife del sesgo en <code>Python</code></a></li>
+      <li><a href="#estimación-jacknife-de-la-desviación-típica-en-python" id="toc-estimación-jacknife-de-la-desviación-típica-en-python"><span class="toc-section-number">8.5</span> Estimación Jacknife de la desviación típica en <code>Python</code></a></li>
+      <li><a href="#estimación-jacknife-del-error-cuadratico-medio-en-python" id="toc-estimación-jacknife-del-error-cuadratico-medio-en-python"><span class="toc-section-number">8.6</span> Estimación Jacknife del error cuadratico medio en <code>Python</code></a></li>
+      <li><a href="#estimación-jacknife-con-sesgo-correguido-en-python" id="toc-estimación-jacknife-con-sesgo-correguido-en-python"><span class="toc-section-number">8.7</span> Estimación Jacknife con sesgo correguido en <code>Python</code></a></li>
       </ul></li>
       <li><a href="#estimación-del-sesgo-varianza-y-error-cuadratico-medio-de-un-estimador-por-bootstrap" id="toc-estimación-del-sesgo-varianza-y-error-cuadratico-medio-de-un-estimador-por-bootstrap"><span class="toc-section-number">9</span> Estimación del sesgo , varianza y error cuadratico medio de un estimador por Bootstrap</a>
       <ul>
@@ -1537,6 +1541,10 @@ margin-left: 0 !important;
       <li><a href="#estimación-bootstrap-de-la-varianza-de-un-estimador" id="toc-estimación-bootstrap-de-la-varianza-de-un-estimador"><span class="toc-section-number">9.2</span> Estimación bootstrap de la varianza de un estimador</a></li>
       <li><a href="#estimación-bootstrap-del-error-cuadratico-medio-de-un-estimador" id="toc-estimación-bootstrap-del-error-cuadratico-medio-de-un-estimador"><span class="toc-section-number">9.3</span> Estimación bootstrap del error cuadratico medio de un estimador</a></li>
       <li><a href="#estimación-bootstrap-de-un-parametro-con-corrección-de-sesgo" id="toc-estimación-bootstrap-de-un-parametro-con-corrección-de-sesgo"><span class="toc-section-number">9.4</span> Estimación bootstrap de un parametro con corrección de sesgo</a></li>
+      <li><a href="#estimación-bootstrap-del-sesgo-en-python" id="toc-estimación-bootstrap-del-sesgo-en-python"><span class="toc-section-number">9.5</span> Estimación bootstrap del sesgo en <code>Python</code></a></li>
+      <li><a href="#estimación-bootstrap-de-la-desviación-típica-en-python" id="toc-estimación-bootstrap-de-la-desviación-típica-en-python"><span class="toc-section-number">9.6</span> Estimación bootstrap de la desviación típica en <code>Python</code></a></li>
+      <li><a href="#estimación-bootstrap-del-error-cuadratico-medio-en-python" id="toc-estimación-bootstrap-del-error-cuadratico-medio-en-python"><span class="toc-section-number">9.7</span> Estimación bootstrap del error cuadratico medio en <code>Python</code></a></li>
+      <li><a href="#estimación-bootstrap-con-sesgo-correguido-en-python" id="toc-estimación-bootstrap-con-sesgo-correguido-en-python"><span class="toc-section-number">9.8</span> Estimación bootstrap con sesgo correguido en <code>Python</code></a></li>
       </ul></li>
       <li><a href="#contrastes-de-hipotesis-basados-en-permutaciones" id="toc-contrastes-de-hipotesis-basados-en-permutaciones"><span class="toc-section-number">10</span> Contrastes de hipotesis basados en permutaciones <a class="anchor" id="1"></a></a></li>
       <li><a href="#bootstrap-en-regresión-lineal" id="toc-bootstrap-en-regresión-lineal"><span class="toc-section-number">11</span> Bootstrap en Regresión Lineal</a></li>
@@ -1711,6 +1719,20 @@ margin-left: 0 !important;
 \]</span></p>
 <p>Donde:</p>
 <p><span class="math display">\[\widehat{\theta} \hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(X)\hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n)\]</span></p>
+<p>&lt;br</p>
+<p><br></p>
+</div>
+<div id="estimación-jacknife-del-sesgo-en-python" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Estimación Jacknife del sesgo en <code>Python</code></h2>
+</div>
+<div id="estimación-jacknife-de-la-desviación-típica-en-python" class="section level2" number="8.5">
+<h2><span class="header-section-number">8.5</span> Estimación Jacknife de la desviación típica en <code>Python</code></h2>
+</div>
+<div id="estimación-jacknife-del-error-cuadratico-medio-en-python" class="section level2" number="8.6">
+<h2><span class="header-section-number">8.6</span> Estimación Jacknife del error cuadratico medio en <code>Python</code></h2>
+</div>
+<div id="estimación-jacknife-con-sesgo-correguido-en-python" class="section level2" number="8.7">
+<h2><span class="header-section-number">8.7</span> Estimación Jacknife con sesgo correguido en <code>Python</code></h2>
 <p><br></p>
 <p><br></p>
 </div>
@@ -1737,17 +1759,17 @@ margin-left: 0 !important;
 <div id="estimación-bootstrap-de-la-varianza-de-un-estimador" class="section level2" number="9.2">
 <h2><span class="header-section-number">9.2</span> Estimación bootstrap de la varianza de un estimador</h2>
 <p>La <strong>estimación Bootstrap</strong> de la <strong>varianza</strong> del estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}\)</span> se define como: <span class="math inline">\(\\[0.5cm]\)</span></p>
-<p><span class="math display">\[\widehat{Var}(\widehat{\theta})_{Boot} =  \dfrac{1}{B-1} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \dfrac{1}{B} \cdot \sum_{b=1}^{B} \widehat{\theta}_{(b)} \right) \\\]</span></p>
+<p><span class="math display">\[\widehat{Var}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}   \dfrac{1}{B-1} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \dfrac{1}{B} \cdot \sum_{b=1}^{B} \widehat{\theta}_{(b)} \right) \\\]</span></p>
 <p>El <strong>estimación Bootstrap</strong> de la <strong>desviación típica</strong> del estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}\)</span> se define como: <span class="math inline">\(\\[0.5cm]\)</span></p>
-<p><span class="math display">\[\widehat{s.e.}(\widehat{\theta})_{Boot} =  \sqrt{ \dfrac{1}{B-1} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \dfrac{1}{B} \cdot \sum_{b=1}^{B} \widehat{\theta}_{(b)} \right) }\]</span></p>
+<p><span class="math display">\[\widehat{s.e.}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}   \sqrt{ \widehat{Var}(\widehat{\theta})_{Boot}   }\]</span></p>
 <p><br></p>
 </div>
 <div id="estimación-bootstrap-del-error-cuadratico-medio-de-un-estimador" class="section level2" number="9.3">
 <h2><span class="header-section-number">9.3</span> Estimación bootstrap del error cuadratico medio de un estimador</h2>
 <p>El <strong>estimación Bootstrap</strong> del <strong>error cuadrático medio</strong> del estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}\)</span> se define como: <span class="math inline">\(\\[0.5cm]\)</span></p>
-<p><span class="math display">\[\widehat{ECM}(\widehat{\theta})_{Boot} =  \dfrac{1}{B} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \widehat{\theta} \right)^2 = \dfrac{1}{B} \cdot \sum_{b=1}^{B}  \left( \widehat{\theta}_{(b)}^2  + \widehat{\theta}^2 + 2\cdot \widehat{\theta}_{(b)} \cdot \widehat{\theta} \right)\]</span></p>
+<p><span class="math display">\[\widehat{ECM}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}   \dfrac{1}{B} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \widehat{\theta} \right)^2 \hspace{0.12cm} =\hspace{0.12cm}  \dfrac{1}{B} \cdot \sum_{b=1}^{B}  \left( \widehat{\theta}_{(b)}^2  + \widehat{\theta}^2 + 2\cdot \widehat{\theta}_{(b)} \cdot \widehat{\theta} \right)\]</span></p>
 <p>Donde:</p>
-<p><span class="math display">\[\widehat{\theta} = \widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)\]</span></p>
+<p><span class="math display">\[\widehat{\theta} \hspace{0.12cm} =\hspace{0.12cm}  \widehat{\theta}(X) \hspace{0.12cm} =\hspace{0.12cm}  \widehat{\theta}(x_1,...,x_n)\]</span></p>
 <p><br></p>
 </div>
 <div id="estimación-bootstrap-de-un-parametro-con-corrección-de-sesgo" class="section level2" number="9.4">
@@ -1759,6 +1781,20 @@ margin-left: 0 !important;
 \]</span></p>
 <p>Donde:</p>
 <p><span class="math display">\[\widehat{\theta} \hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(X)\hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n)\]</span></p>
+<p><br></p>
+<p><br></p>
+</div>
+<div id="estimación-bootstrap-del-sesgo-en-python" class="section level2" number="9.5">
+<h2><span class="header-section-number">9.5</span> Estimación bootstrap del sesgo en <code>Python</code></h2>
+</div>
+<div id="estimación-bootstrap-de-la-desviación-típica-en-python" class="section level2" number="9.6">
+<h2><span class="header-section-number">9.6</span> Estimación bootstrap de la desviación típica en <code>Python</code></h2>
+</div>
+<div id="estimación-bootstrap-del-error-cuadratico-medio-en-python" class="section level2" number="9.7">
+<h2><span class="header-section-number">9.7</span> Estimación bootstrap del error cuadratico medio en <code>Python</code></h2>
+</div>
+<div id="estimación-bootstrap-con-sesgo-correguido-en-python" class="section level2" number="9.8">
+<h2><span class="header-section-number">9.8</span> Estimación bootstrap con sesgo correguido en <code>Python</code></h2>
 <p><br></p>
 </div>
 </div>
