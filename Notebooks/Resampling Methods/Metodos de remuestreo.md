@@ -245,7 +245,7 @@ $$\widehat{\theta}_{(r)} = \widehat{\theta}(X_{(r)})= \widehat{\theta}(\hspace{0
 ## Estimación Jacknife del sesgo
 
 
-El **estimador Jacknife** del **sesgo** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como: $\\[0.5cm]$
+El **estimación Jacknife** del **sesgo** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como: $\\[0.5cm]$
 
 $$\widehat{Sesgo}(\widehat{\theta})_{Jack} \hspace{0.1cm}=\hspace{0.1cm}  (n-1) \cdot \left(   \dfrac{1}{n} \cdot \sum_{r=1}^{n} \widehat{\theta}_{(r)} \hspace{0.1cm} -\hspace{0.1cm} \widehat{\theta} \right)$$
 
@@ -260,7 +260,7 @@ $$\widehat{\theta} \hspace{0.1cm}=\hspace{0.1cm} \widehat{\theta}(X) \hspace{0.1
 
 ## Estimación Jacknife de la varianza
 
-La **estimación Jacknife** de la **varianza** del estimador $\widehat{\theta}$ se define como: $\\[0.5cm]$
+La **estimación Jacknife** de la **varianza** del estimador $\widehat{\theta}$ se define como: $\\[0.6cm]$
 
 
 $$\widehat{ Var}(\widehat{\theta})_{Jack} \hspace{0.1cm}= \hspace{0.1cm} \dfrac{n-1}{n} \cdot \sum_{r=1}^{n} \left( \widehat{\theta}_{(r)} \hspace{0.1cm}-\hspace{0.1cm} \dfrac{1}{n} \sum_{r=1}^{n} \widehat{\theta}_{(r)}  \right)^2$$
@@ -269,9 +269,9 @@ $$\widehat{ Var}(\widehat{\theta})_{Jack} \hspace{0.1cm}= \hspace{0.1cm} \dfrac{
 
 <br>
 
-El **estimador Jacknife** del **error estandar** del estimador $\widehat{\theta}$ se define como: $\\[0.5cm]$
+La **estimación Jacknife** del **error estandar** del estimador $\widehat{\theta}$ se define como: $\\[0.6cm]$
 
-$$\widehat{ s.e.}(\widehat{\theta})_{Jack} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ \dfrac{n-1}{n} \cdot \sum_{r=1}^{n} \left( \widehat{\theta}_{(r)} \hspace{0.1cm}-\hspace{0.1cm} \dfrac{1}{n} \sum_{r=1}^{n} \widehat{\theta}_{(r)}  \right)^2}$$
+$$\widehat{ s.e.}(\widehat{\theta})_{Jack} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ \widehat{ Var}(\widehat{\theta})_{Jack} \hspace{0.1cm}}$$
 
 <br>
 
@@ -294,6 +294,14 @@ Ejemplo de estimador no suave es el estimador plug-in de la mediana poblacional,
 ## Estimación Jacknife de un parametro con corrección de sesgo
 
 
+Tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ , una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y un estimador $\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ del parametro $\hspace{0.1cm}\theta$
+
+
+Además tenemos una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$   de la variable de interés $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , por lo que tenemos la estimación  $\hspace{0.1cm}\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ del parámetro $\hspace{0.1cm} \theta \\[1cm]$
+
+
+La **estimación Jacknife con sesgo corregido** del parametro $\hspace{0.1cm} \theta\hspace{0.1cm}$ se define como: $\\[0.5cm]$
+
 $$
 \widehat{\theta}_{Jack} \hspace{0.2cm}=\hspace{0.2cm} \widehat{\theta} \hspace{0.1cm}-\hspace{0.1cm} \widehat{Sesgo}(\widehat{\theta})_{Jack} \ \hspace{0.2cm}=\hspace{0.2cm} \widehat{\theta} -  (n-1) \cdot \left(    \dfrac{1}{n} \cdot \sum_{r=1}^{n} \widehat{\theta}_{(r)}
  - \widehat{\theta} \right) \hspace{0.2cm}=\hspace{0.2cm}   n\cdot \widehat{\theta} - (n-1)\cdot  \dfrac{1}{n} \cdot \sum_{r=1}^{n} \widehat{\theta}_{(r)} \\
@@ -301,7 +309,7 @@ $$
 
 Donde:
 
-$$\widehat{\theta} = \widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)$$
+$$\widehat{\theta} \hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(X)\hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n)$$
 
 
 
@@ -316,18 +324,18 @@ $$\widehat{\theta} = \widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)$$
 Tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ , una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y un estimador $\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ del parametro $\hspace{0.1cm}\theta$
 
 
-Pero además tenemos una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.08cm}$   de la variable de interés $\hspace{0.08cm}\mathcal{X}$ , por lo que tenemos la estimación $\hspace{0.1cm}\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ del parametro $\hspace{0.1cm}\theta$ 
+Además tenemos una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$   de la variable de interés $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , por lo que tenemos la estimación $\hspace{0.1cm}\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ del parametro $\hspace{0.1cm}\theta\\$ 
 
 
-Una muestra Bootstrap  de $\hspace{0.1cm}X\hspace{0.1cm}$ se define como una **muestra aleatoria con reemplazamiento** de $\hspace{0.1cm}X$
+Una **muestra bootstrap**  de $\hspace{0.1cm}X\hspace{0.1cm}$ se define como una **muestra aleatoria con reemplazamiento** de tamaño $\hspace{0.1cm}n\hspace{0.1cm}$ de $\hspace{0.1cm}X$ 
 
 
-Tenemos $B$ muestras Bootstrap de $\hspace{0.1cm}X\hspace{0.1cm}$ :
+Tenemos $\hspace{0.1cm}B\hspace{0.1cm}$ muestras bootstrap de $\hspace{0.1cm}X\hspace{0.1cm}$ : $\\[0.5cm]$
 
-$$X_{(1)},X_{(2)},...,X_{(B)}$$
+$$X_{(1)},X_{(2)},...,X_{(B)} \\$$
 
 
-Se define la replica Bootstap $b$-esima del estimador $\hspace{0.1cm}\widehat{\theta}$ como:
+Se define la replica Bootstap $\hspace{0.1cm}b$-esima del estimador $\hspace{0.1cm}\widehat{\theta}$ como: $\\[0.5cm]$
 
 
 $$\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)})$$
@@ -341,16 +349,16 @@ $$\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)})$$
 
 ## Estimación bootstrap del sesgo de un estimador
 
+La **estimación Jacknife** del **sesgo** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como: $\\[0.5cm]$
 
 
-
-$$\widehat{Sesgo}(\widehat{\theta})_{Boot} =  \dfrac{1}{B} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \widehat{\theta} \right) = \dfrac{1}{B} \cdot \sum_{b=1}^{B}  \widehat{\theta}_{(b)}  - \widehat{\theta}$$
+$$\widehat{Sesgo}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}  \dfrac{1}{B} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \widehat{\theta} \right) \hspace{0.12cm}=\hspace{0.12cm}  \dfrac{1}{B} \cdot \sum_{b=1}^{B}  \widehat{\theta}_{(b)}  \hspace{0.1cm} -\hspace{0.1cm} \widehat{\theta}$$
 
 
 Donde:
 
 
-$$\widehat{\theta} = \widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)$$
+$$\widehat{\theta} \hspace{0.12cm} =\hspace{0.12cm}  \widehat{\theta}(X) \hspace{0.12cm} =\hspace{0.12cm}  \widehat{\theta}(x_1,...,x_n)$$
 
 
 <br>
@@ -358,10 +366,12 @@ $$\widehat{\theta} = \widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)$$
 
 ## Estimación bootstrap de la varianza de un estimador
 
+La **estimación Bootstrap** de la **varianza** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como: $\\[0.5cm]$
 
 $$\widehat{Var}(\widehat{\theta})_{Boot} =  \dfrac{1}{B-1} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \dfrac{1}{B} \cdot \sum_{b=1}^{B} \widehat{\theta}_{(b)} \right) \\$$
 
 
+El **estimación Bootstrap** de la **desviación típica** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como: $\\[0.5cm]$
 
 $$\widehat{s.e.}(\widehat{\theta})_{Boot} =  \sqrt{ \dfrac{1}{B-1} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \dfrac{1}{B} \cdot \sum_{b=1}^{B} \widehat{\theta}_{(b)} \right) }$$
 
@@ -371,7 +381,9 @@ $$\widehat{s.e.}(\widehat{\theta})_{Boot} =  \sqrt{ \dfrac{1}{B-1} \cdot \sum_{b
 
 ## Estimación bootstrap del error cuadratico medio de un estimador
 
-$$\widehat{Sesgo}(\widehat{\theta})_{Boot} =  \dfrac{1}{B} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \widehat{\theta} \right)^2 = \dfrac{1}{B} \cdot \sum_{b=1}^{B}  \left( \widehat{\theta}_{(b)}^2  + \widehat{\theta}^2 + 2\cdot \widehat{\theta}_{(b)} \cdot \widehat{\theta} \right)$$
+El **estimación Bootstrap** del **error cuadrático medio** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como: $\\[0.5cm]$
+
+$$\widehat{ECM}(\widehat{\theta})_{Boot} =  \dfrac{1}{B} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \widehat{\theta} \right)^2 = \dfrac{1}{B} \cdot \sum_{b=1}^{B}  \left( \widehat{\theta}_{(b)}^2  + \widehat{\theta}^2 + 2\cdot \widehat{\theta}_{(b)} \cdot \widehat{\theta} \right)$$
 
 
 Donde:
@@ -382,7 +394,18 @@ $$\widehat{\theta} = \widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)$$
 
 <br>
 
-## Estimador Bootstrap  de un parametro con corrección de sesgo
+## Estimación bootstrap  de un parametro con corrección de sesgo
+
+La **estimación Bootstrap con sesgo corregido** del parametro $\hspace{0.1cm} \theta\hspace{0.1cm}$ se define como: $\\[0.5cm]$
+
+$$
+\widehat{\theta}_{Boot} \hspace{0.2cm}=\hspace{0.2cm} \widehat{\theta} \hspace{0.1cm}-\hspace{0.1cm} \widehat{Sesgo}(\widehat{\theta})_{Boot} \ \hspace{0.2cm}=\hspace{0.2cm} \widehat{\theta} -  (n-1) \cdot \left(    \dfrac{1}{n} \cdot \sum_{r=1}^{n} \widehat{\theta}_{(r)}
+ - \widehat{\theta} \right) \hspace{0.2cm}=\hspace{0.2cm}   n\cdot \widehat{\theta} - (n-1)\cdot  \dfrac{1}{n} \cdot \sum_{r=1}^{n} \widehat{\theta}_{(r)} \\
+$$
+
+Donde:
+
+$$\widehat{\theta} \hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(X)\hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n)$$
 
 
 
