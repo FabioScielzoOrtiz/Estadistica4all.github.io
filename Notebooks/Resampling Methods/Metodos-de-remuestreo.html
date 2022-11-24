@@ -1546,11 +1546,17 @@ margin-left: 0 !important;
       <li><a href="#estimación-bootstrap-del-error-cuadratico-medio-en-python" id="toc-estimación-bootstrap-del-error-cuadratico-medio-en-python"><span class="toc-section-number">9.7</span> Estimación bootstrap del error cuadratico medio en <code>Python</code></a></li>
       <li><a href="#estimación-bootstrap-con-sesgo-correguido-en-python" id="toc-estimación-bootstrap-con-sesgo-correguido-en-python"><span class="toc-section-number">9.8</span> Estimación bootstrap con sesgo correguido en <code>Python</code></a></li>
       </ul></li>
-      <li><a href="#contrastes-de-hipotesis-basados-en-permutaciones" id="toc-contrastes-de-hipotesis-basados-en-permutaciones"><span class="toc-section-number">10</span> Contrastes de hipotesis basados en permutaciones <a class="anchor" id="1"></a></a></li>
-      <li><a href="#bootstrap-en-regresión-lineal" id="toc-bootstrap-en-regresión-lineal"><span class="toc-section-number">11</span> Bootstrap en Regresión Lineal</a></li>
-      <li><a href="#bootstrap-en-series-temporales" id="toc-bootstrap-en-series-temporales"><span class="toc-section-number">12</span> Bootstrap en Series temporales</a></li>
-      <li><a href="#intervalos-de-confianza-basados-en-bootstrap" id="toc-intervalos-de-confianza-basados-en-bootstrap"><span class="toc-section-number">13</span> Intervalos de confianza basados en bootstrap</a></li>
-      <li><a href="#contrastes-de-hipotesis-basados-en-bootstrap" id="toc-contrastes-de-hipotesis-basados-en-bootstrap"><span class="toc-section-number">14</span> Contrastes de hipotesis basados en bootstrap</a></li>
+      <li><a href="#la-función-de-distribución" id="toc-la-función-de-distribución"><span class="toc-section-number">10</span> La función de distribución</a></li>
+      <li><a href="#la-función-de-distribución-empírica" id="toc-la-función-de-distribución-empírica"><span class="toc-section-number">11</span> La función de distribución empírica</a>
+      <ul>
+      <li><a href="#porpiedades-de-la-función-de-distribución-empírica-como-estimador" id="toc-porpiedades-de-la-función-de-distribución-empírica-como-estimador"><span class="toc-section-number">11.1</span> Porpiedades de la función de distribución empírica como estimador</a></li>
+      <li><a href="#propiedades-de-la-función-de-distribución-emprica-como-estimación" id="toc-propiedades-de-la-función-de-distribución-emprica-como-estimación"><span class="toc-section-number">11.2</span> Propiedades de la función de distribución emprica como estimación</a></li>
+      </ul></li>
+      <li><a href="#bootstrap-en-regresión-lineal" id="toc-bootstrap-en-regresión-lineal"><span class="toc-section-number">12</span> Bootstrap en Regresión Lineal</a></li>
+      <li><a href="#bootstrap-en-series-temporales" id="toc-bootstrap-en-series-temporales"><span class="toc-section-number">13</span> Bootstrap en Series temporales</a></li>
+      <li><a href="#intervalos-de-confianza-basados-en-bootstrap" id="toc-intervalos-de-confianza-basados-en-bootstrap"><span class="toc-section-number">14</span> Intervalos de confianza basados en bootstrap</a></li>
+      <li><a href="#contrastes-de-hipotesis-basados-en-permutaciones" id="toc-contrastes-de-hipotesis-basados-en-permutaciones"><span class="toc-section-number">15</span> Contrastes de hipotesis basados en permutaciones <a class="anchor" id="1"></a></a></li>
+      <li><a href="#contrastes-de-hipotesis-basados-en-bootstrap" id="toc-contrastes-de-hipotesis-basados-en-bootstrap"><span class="toc-section-number">16</span> Contrastes de hipotesis basados en bootstrap</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1765,26 +1771,25 @@ margin-left: 0 !important;
 <p>La <strong>estimación bootstrap</strong> de la <strong>desviación típica</strong> del estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}\)</span> se define como: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[\widehat{s.e.}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}   \sqrt{ \widehat{Var}(\widehat{\theta})_{Boot}   }\\\]</span></p>
 <p><strong>Observación:</strong></p>
-<p>La estimación bootstrap de la varianza del estimador <span class="math inline">\(\hspace{0.12cm}\widehat{\theta}\hspace{0.12cm}\)</span> es la varianza del vector de replicas bootstrap <span class="math inline">\(\hspace{0.12cm}(\widehat{\theta}_{(1)},\widehat{\theta}_{(2)},...,\widehat{\theta}_{(B)})\)</span></p>
+<p>La estimación bootstrap de la varianza del estimador <span class="math inline">\(\hspace{0.12cm}\widehat{\theta}\hspace{0.12cm}\)</span> es la cuasi-varianza del vector de replicas bootstrap <span class="math inline">\(\hspace{0.12cm}(\widehat{\theta}_{(1)},\widehat{\theta}_{(2)},...,\widehat{\theta}_{(B)})\)</span></p>
 <p><br></p>
 </div>
 <div id="estimación-bootstrap-del-error-cuadratico-medio-de-un-estimador" class="section level2" number="9.3">
 <h2><span class="header-section-number">9.3</span> Estimación bootstrap del error cuadratico medio de un estimador</h2>
 <p>El <strong>estimación Bootstrap</strong> del <strong>error cuadrático medio</strong> del estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}\)</span> se define como: <span class="math inline">\(\\[0.5cm]\)</span></p>
-<p><span class="math display">\[\widehat{ECM}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}   \dfrac{1}{B} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \widehat{\theta} \right)^2 \hspace{0.12cm} =\hspace{0.12cm}  \dfrac{1}{B} \cdot \sum_{b=1}^{B}  \left( \widehat{\theta}_{(b)}^2  + \widehat{\theta}^2 + 2\cdot \widehat{\theta}_{(b)} \cdot \widehat{\theta} \right)\]</span></p>
+<p><span class="math display">\[\widehat{ECM}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}   \dfrac{1}{B} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \widehat{\theta}(X) \right)^2\\\]</span></p>
 <p>Donde:</p>
-<p><span class="math display">\[\widehat{\theta} \hspace{0.12cm} =\hspace{0.12cm}  \widehat{\theta}(X) \hspace{0.12cm} =\hspace{0.12cm}  \widehat{\theta}(x_1,...,x_n)\]</span></p>
+<p><span class="math display">\[\widehat{\theta}(X) \hspace{0.12cm} =\hspace{0.12cm}  \widehat{\theta}(x_1,...,x_n)\]</span></p>
 <p><br></p>
 </div>
 <div id="estimación-bootstrap-de-un-parametro-con-corrección-de-sesgo" class="section level2" number="9.4">
 <h2><span class="header-section-number">9.4</span> Estimación bootstrap de un parametro con corrección de sesgo</h2>
 <p>La <strong>estimación Bootstrap con sesgo corregido</strong> del parametro <span class="math inline">\(\hspace{0.1cm} \theta\hspace{0.1cm}\)</span> se define como: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[
-\widehat{\theta}_{Boot} \hspace{0.2cm}=\hspace{0.2cm} \widehat{\theta} \hspace{0.1cm}-\hspace{0.1cm} \widehat{Sesgo}(\widehat{\theta})_{Boot} \ \hspace{0.2cm}=\hspace{0.2cm} \widehat{\theta} -  (n-1) \cdot \left(    \dfrac{1}{n} \cdot \sum_{r=1}^{n} \widehat{\theta}_{(r)}
-- \widehat{\theta} \right) \hspace{0.2cm}=\hspace{0.2cm}   n\cdot \widehat{\theta} - (n-1)\cdot  \dfrac{1}{n} \cdot \sum_{r=1}^{n} \widehat{\theta}_{(r)} \\
+\widehat{\theta}_{Boot} \hspace{0.2cm}=\hspace{0.2cm} \widehat{\theta}(X) \hspace{0.1cm}-\hspace{0.1cm} \widehat{Sesgo}(\widehat{\theta})_{Boot} \ \hspace{0.2cm}=\hspace{0.2cm}  \widehat{\theta}(X) \hspace{0.1cm} -\hspace{0.1cm}\hspace{0.1cm} \dfrac{1}{B} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \widehat{\theta}(X) \right) \\
 \]</span></p>
 <p>Donde:</p>
-<p><span class="math display">\[\widehat{\theta} \hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(X)\hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n)\]</span></p>
+<p><span class="math display">\[\widehat{\theta}(X)\hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n)\]</span></p>
 <p><br></p>
 <p><br></p>
 </div>
@@ -1802,24 +1807,79 @@ margin-left: 0 !important;
 <p><br></p>
 </div>
 </div>
-<div id="contrastes-de-hipotesis-basados-en-permutaciones" class="section level1" number="10">
-<h1><span class="header-section-number">10</span> Contrastes de hipotesis basados en permutaciones <a class="anchor" id="1"></a></h1>
+<div id="la-función-de-distribución" class="section level1" number="10">
+<h1><span class="header-section-number">10</span> La función de distribución</h1>
+<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span></p>
+<p>La <strong>función de distribución</strong> de la v.a. <span class="math inline">\(\mathcal{X}\)</span> es : <span class="math inline">\(\\[0.7cm]\)</span></p>
+<p><span class="math display">\[F_{X}(z) = P(X \leq z)  \hspace{0.2cm}, \hspace{0.2cm}\forall z \in \mathbb{R} \\\]</span></p>
+<p><strong>Observación:</strong></p>
+<p>La función de distribución de la v.a. <span class="math inline">\(\mathcal{X}\)</span> coincide con las funciones de distribución de las v.a’s <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_n \\\)</span> , porque tienen la misma distribución de probabilidad.</p>
+<p><span class="math display">\[F_{X}(z) = F_{X_i}(z) \hspace{0.2cm}, \hspace{0.2cm}\forall z \in \mathbb{R} \hspace{0.2cm},\hspace{0.2cm} \forall i \in \lbrace 1,...,n \rbrace\]</span></p>
 <p><br></p>
 </div>
-<div id="bootstrap-en-regresión-lineal" class="section level1" number="11">
-<h1><span class="header-section-number">11</span> Bootstrap en Regresión Lineal</h1>
+<div id="la-función-de-distribución-empírica" class="section level1" number="11">
+<h1><span class="header-section-number">11</span> La función de distribución empírica</h1>
+<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span></p>
+<p>La función de distribución empírica es un estimador de la función de distribucion de <span class="math inline">\(\mathcal{X}\)</span> que se define como:</p>
+<p><span class="math display">\[\widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(X_i \geq z) \]</span></p>
+<p>donde:</p>
+<p><span class="math display">\[I(X_i \geq z) =  \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm} X_i \geq z \\[0.1cm]
+\hspace{0.12cm} 0 \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm} X_i &gt; z \\[0.1cm]
+\end{array}\right.\]</span></p>
+<p>para <span class="math inline">\(\hspace{0.1cm} z\in \mathbb{R}\)</span></p>
+<p><br></p>
+<div id="porpiedades-de-la-función-de-distribución-empírica-como-estimador" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> Porpiedades de la función de distribución empírica como estimador</h2>
+<p><br></p>
+<p><span class="math display">\[\hspace{0.2cm} I(X_i \geq z) \hspace{0.2cm}\sim\hspace{0.2cm} Bernoulli\left( p \right) \hspace{0.2cm} ,\hspace{0.2cm}  \text{con}\hspace{0.2cm} \hspace{0.2cm} p=F_X(z)=P(X&lt;z)\\[0.8cm]\]</span></p>
+<p><span class="math display">\[\hspace{0.2cm}  \sum_{i=1}^n  I(X_i \geq z) \hspace{0.2cm}\sim\hspace{0.2cm} Binomial(n , p  ) \hspace{0.2cm} ,\hspace{0.2cm}  \text{con}\hspace{0.2cm} \hspace{0.2cm} p=F_X(z)=P(X&lt;z) \\[0.8cm]\]</span></p>
+<p><span class="math display">\[\hspace{0.2cm} \widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm}   \dfrac{1}{n} \sum_{i=1}^n  I(X_i \geq z) \hspace{0.2cm}\sim\hspace{0.2cm}  \dfrac{1}{n} \cdot Binomial(n , p  ) \hspace{0.2cm} ,\hspace{0.2cm}  \text{con}\hspace{0.2cm} \hspace{0.2cm} p\hspace{0.1cm}=\hspace{0.1cm}F_X(z)\hspace{0.1cm}=\hspace{0.1cm}P(X&lt;z) \\[0.8cm]\]</span></p>
+<p><span class="math display">\[E\left[ \widehat{F}_n(z)  \right] \hspace{0.1cm}=\hspace{0.1cm} p \hspace{0.1cm}=\hspace{0.1cm} F_X(z)=P(X&lt;z)\]</span></p>
+<p><br></p>
+<p><br></p>
+<p>Si además tenemos una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de la variable de interés <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span></p>
+<p>Tenemos la siguiente estimación de la función de distribución de <span class="math inline">\(\mathcal{X}\)</span> a través de la funcion de distribución emprica:</p>
+<p><span class="math display">\[\widehat{F}_n(z) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(x_i \geq z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{\# \lbrace i=1,..,n / x_i \geq z \rbrace}{n}\]</span></p>
+<p>para <span class="math inline">\(\hspace{0.1cm} z\in \mathbb{R}\)</span></p>
+</div>
+<div id="propiedades-de-la-función-de-distribución-emprica-como-estimación" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Propiedades de la función de distribución emprica como estimación</h2>
+<p>Si se ordena la muestra <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de menor a mayor <span class="math inline">\(x_{(1)}\hspace{0.1cm}&lt;\hspace{0.1cm}x_{(2)}\hspace{0.1cm}&lt;...&lt;\hspace{0.1cm}x_{(n)}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math display">\[\hspace{0.2cm} \widehat{F}_n(z) = \left\lbrace\begin{array}{l}   \hspace{0.12cm} 0 \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm} z &lt; x_{(1)} \\[0.1cm]
+\hspace{0.12cm} 1/n   \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm} z = x_{(1)}  \\[0.1cm]
+\hspace{0.12cm} 1/n   \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm}  x_{(1)} \leq z &lt; x_{(2)} \\[0.1cm]
+\hspace{0.12cm} 2/n   \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm}  z = x_{(2)} \\[0.1cm]
+\hspace{0.12cm} 2/n   \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm}  x_{(2)} \leq z &lt; x_{(3)} \\[0.1cm]
+\dots \\[0.15cm]
+\hspace{0.12cm} (n-1)/n   \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm}   z = x_{(n-1)} \\[0.1cm]
+\hspace{0.12cm} (n-1)/n   \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm}   x_{(n-1)} \leq z &lt; x_{(n)} \\[0.1cm]
+\hspace{0.12cm} 1   \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm}   z \geq x_{(n)}
+\end{array}\right.\]</span></p>
+<p><br></p>
 <p><br></p>
 </div>
-<div id="bootstrap-en-series-temporales" class="section level1" number="12">
-<h1><span class="header-section-number">12</span> Bootstrap en Series temporales</h1>
+</div>
+<div id="bootstrap-en-regresión-lineal" class="section level1" number="12">
+<h1><span class="header-section-number">12</span> Bootstrap en Regresión Lineal</h1>
+<p><br></p>
 <p><br></p>
 </div>
-<div id="intervalos-de-confianza-basados-en-bootstrap" class="section level1" number="13">
-<h1><span class="header-section-number">13</span> Intervalos de confianza basados en bootstrap</h1>
+<div id="bootstrap-en-series-temporales" class="section level1" number="13">
+<h1><span class="header-section-number">13</span> Bootstrap en Series temporales</h1>
+<p><br></p>
 <p><br></p>
 </div>
-<div id="contrastes-de-hipotesis-basados-en-bootstrap" class="section level1" number="14">
-<h1><span class="header-section-number">14</span> Contrastes de hipotesis basados en bootstrap</h1>
+<div id="intervalos-de-confianza-basados-en-bootstrap" class="section level1" number="14">
+<h1><span class="header-section-number">14</span> Intervalos de confianza basados en bootstrap</h1>
+<p><br></p>
+<p><br></p>
+</div>
+<div id="contrastes-de-hipotesis-basados-en-permutaciones" class="section level1" number="15">
+<h1><span class="header-section-number">15</span> Contrastes de hipotesis basados en permutaciones <a class="anchor" id="1"></a></h1>
+<p><br></p>
+</div>
+<div id="contrastes-de-hipotesis-basados-en-bootstrap" class="section level1" number="16">
+<h1><span class="header-section-number">16</span> Contrastes de hipotesis basados en bootstrap</h1>
 </div>
 </div>
 
