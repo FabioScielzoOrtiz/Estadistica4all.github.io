@@ -538,7 +538,7 @@ para $\hspace{0.1cm} z\in \mathbb{R} \\$
 
 - $\hspace{0.2cm} \widehat{F}_n(z) \hspace{0.1cm}=\hspace{0.1cm} Q(X , z) \\$
 
-$\hspace{1cm}$ Donde: $\hspace{0.2cm} Q(X , z)\hspace{0.2cm}$  es el cuantil de orden $\hspace{0.2cm}z\hspace{0.2cm}$ de $\hspace{0.2cm}X=(x_1,...,x_n) \\$
+$\hspace{1cm}$ Donde: $\hspace{0.2cm} Q(X , z)\hspace{0.1cm}$  es el cuantil de orden $\hspace{0.1cm}z\hspace{0.1cm}$ de $\hspace{0.1cm}X=(x_1,...,x_n) \\$
 
 
 
@@ -556,6 +556,15 @@ $$\hspace{0.2cm} \widehat{F}_n(z) = \left\lbrace\begin{array}{l}   \hspace{0.12c
 \hspace{0.12cm} (n-1)/n   \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm}   x_{(n-1)} \leq z < x_{(n)} \\[0.1cm] 
 \hspace{0.12cm} 1   \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm}   z \geq x_{(n)}
 \end{array}\right.$$
+
+
+<br>
+
+
+
+
+
+
 
 
 <br>
