@@ -1834,17 +1834,26 @@ margin-left: 0 !important;
 <p><span class="math display">\[\hspace{0.2cm} I(X_i \geq z) \hspace{0.2cm}\sim\hspace{0.2cm} Bernoulli\left( p \right) \hspace{0.2cm} ,\hspace{0.2cm}  \text{con}\hspace{0.2cm} \hspace{0.2cm} p=F_X(z)=P(X&lt;z)\\[0.8cm]\]</span></p>
 <p><span class="math display">\[\hspace{0.2cm}  \sum_{i=1}^n  I(X_i \geq z) \hspace{0.2cm}\sim\hspace{0.2cm} Binomial(n , p  ) \hspace{0.2cm} ,\hspace{0.2cm}  \text{con}\hspace{0.2cm} \hspace{0.2cm} p=F_X(z)=P(X&lt;z) \\[0.8cm]\]</span></p>
 <p><span class="math display">\[\hspace{0.2cm} \widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm}   \dfrac{1}{n} \sum_{i=1}^n  I(X_i \geq z) \hspace{0.2cm}\sim\hspace{0.2cm}  \dfrac{1}{n} \cdot Binomial(n , p  ) \hspace{0.2cm} ,\hspace{0.2cm}  \text{con}\hspace{0.2cm} \hspace{0.2cm} p\hspace{0.1cm}=\hspace{0.1cm}F_X(z)\hspace{0.1cm}=\hspace{0.1cm}P(X&lt;z) \\[0.8cm]\]</span></p>
-<p><span class="math display">\[E\left[ \widehat{F}_n(z)  \right] \hspace{0.1cm}=\hspace{0.1cm} p \hspace{0.1cm}=\hspace{0.1cm} F_X(z)=P(X&lt;z)\]</span></p>
+<p><span class="math display">\[E\left[ \widehat{F}_n(z)  \right] \hspace{0.1cm}=\hspace{0.1cm}  E \left[ \dfrac{1}{n} \cdot Binomial(n , p  ) \right] \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot n \cdot  p  \hspace{0.1cm}=\hspace{0.1cm} p \hspace{0.1cm}=\hspace{0.1cm} F_X(z)=P(X&lt;z) \\[0.8cm]\]</span></p>
+<p><span class="math display">\[Var\left[ \widehat{F}_n(z)  \right] \hspace{0.1cm}=\hspace{0.1cm} Var \left[ \dfrac{1}{n} \cdot Binomial(n , p  ) \right]\hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n^2} \cdot n \cdot  p \cdot (1-p) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot  F_X(z)\cdot (1- F_X(z))  \hspace{0.1cm}=\hspace{0.1cm} F_X(z)=P(X&lt;z) \\[0.8cm]\]</span></p>
 <p><br></p>
 <p><br></p>
 <p>Si además tenemos una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de la variable de interés <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span></p>
-<p>Tenemos la siguiente estimación de la función de distribución de <span class="math inline">\(\mathcal{X}\)</span> a través de la funcion de distribución emprica:</p>
-<p><span class="math display">\[\widehat{F}_n(z) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(x_i \geq z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{\# \lbrace i=1,..,n / x_i \geq z \rbrace}{n}\]</span></p>
-<p>para <span class="math inline">\(\hspace{0.1cm} z\in \mathbb{R}\)</span></p>
+<p>Tenemos la siguiente <strong>estimación</strong> de la función de distribución de <span class="math inline">\(\mathcal{X}\)</span> a través de la funcion de distribución emprica:</p>
+<p><span class="math display">\[\widehat{F}_n(z) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(x_i \geq z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{\# \lbrace \hspace{0.1cm}  i=1,..,n\hspace{0.1cm}  / \hspace{0.1cm}  x_i \geq z\hspace{0.1cm}  \rbrace}{n}\\\]</span></p>
+<p>para <span class="math inline">\(\hspace{0.1cm} z\in \mathbb{R} \\\)</span></p>
+<p><br></p>
 </div>
 <div id="propiedades-de-la-función-de-distribución-emprica-como-estimación" class="section level2" number="11.2">
 <h2><span class="header-section-number">11.2</span> Propiedades de la función de distribución emprica como estimación</h2>
-<p>Si se ordena la muestra <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de menor a mayor <span class="math inline">\(x_{(1)}\hspace{0.1cm}&lt;\hspace{0.1cm}x_{(2)}\hspace{0.1cm}&lt;...&lt;\hspace{0.1cm}x_{(n)}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><br></p>
+<ul>
+<li><span class="math inline">\(\hspace{0.2cm} \widehat{F}_n(z) \hspace{0.1cm}=\hspace{0.1cm} Q(X , z) \\\)</span></li>
+</ul>
+<p><span class="math inline">\(\hspace{1cm}\)</span> Donde: <span class="math inline">\(\hspace{0.2cm} Q(X , z)\hspace{0.2cm}\)</span> es el cuantil de orden <span class="math inline">\(\hspace{0.2cm}z\hspace{0.2cm}\)</span> de <span class="math inline">\(\hspace{0.2cm}X=(x_1,...,x_n) \\\)</span></p>
+<ul>
+<li>Si se ordena la muestra <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de menor a mayor <span class="math inline">\(x_{(1)}\hspace{0.1cm}&lt;\hspace{0.1cm}x_{(2)}\hspace{0.1cm}&lt;...&lt;\hspace{0.1cm}x_{(n)}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.6cm]\)</span></li>
+</ul>
 <p><span class="math display">\[\hspace{0.2cm} \widehat{F}_n(z) = \left\lbrace\begin{array}{l}   \hspace{0.12cm} 0 \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm} z &lt; x_{(1)} \\[0.1cm]
 \hspace{0.12cm} 1/n   \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm} z = x_{(1)}  \\[0.1cm]
 \hspace{0.12cm} 1/n   \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm}  x_{(1)} \leq z &lt; x_{(2)} \\[0.1cm]
