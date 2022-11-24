@@ -589,13 +589,13 @@ $$\widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(
 
 En conclusión:
 
-$$\widehat{F}_n(z) \hspace{0.25cm}\underset{p}{\rightarrow} \hspace{0.25cm} F_X(z)$$
+$$\widehat{F}_n(z) \hspace{0.25cm}\underset{p}{\rightarrow} \hspace{0.25cm} F_X(z)\\$$
 
 
 Usando la definición de convergencia en probabilidad, se tiene que:
 
 
-$$\underset{n\rightarrow \infty}{lim} \hspace{0.1cm} P( | \widehat{F}_n(z) - F_X(z) | \leq \epsilon ) \hspace{0.1cm}=\hspace{0.1cm} 1$$
+$$\underset{n\rightarrow \infty}{lim} \hspace{0.1cm} P( | \widehat{F}_n(z) - F_X(z) | \leq \varepsilon ) \hspace{0.1cm}=\hspace{0.1cm} 1 \hspace{0.25cm},\hspace{0.25cm} \forall \varepsilon$$
 
 
 
