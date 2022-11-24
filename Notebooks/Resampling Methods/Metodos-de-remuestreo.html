@@ -1551,6 +1551,7 @@ margin-left: 0 !important;
       <ul>
       <li><a href="#porpiedades-de-la-función-de-distribución-empírica-como-estimador" id="toc-porpiedades-de-la-función-de-distribución-empírica-como-estimador"><span class="toc-section-number">11.1</span> Porpiedades de la función de distribución empírica como estimador</a></li>
       <li><a href="#propiedades-de-la-función-de-distribución-emprica-como-estimación" id="toc-propiedades-de-la-función-de-distribución-emprica-como-estimación"><span class="toc-section-number">11.2</span> Propiedades de la función de distribución emprica como estimación</a></li>
+      <li><a href="#ley-debil-de-los-grandes-números" id="toc-ley-debil-de-los-grandes-números"><span class="toc-section-number">11.3</span> Ley debil de los grandes números</a></li>
       </ul></li>
       <li><a href="#bootstrap-en-regresión-lineal" id="toc-bootstrap-en-regresión-lineal"><span class="toc-section-number">12</span> Bootstrap en Regresión Lineal</a></li>
       <li><a href="#bootstrap-en-series-temporales" id="toc-bootstrap-en-series-temporales"><span class="toc-section-number">13</span> Bootstrap en Series temporales</a></li>
@@ -1821,7 +1822,7 @@ margin-left: 0 !important;
 <h1><span class="header-section-number">11</span> La función de distribución empírica</h1>
 <p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span></p>
 <p>La función de distribución empírica es un estimador de la función de distribucion de <span class="math inline">\(\mathcal{X}\)</span> que se define como:</p>
-<p><span class="math display">\[\widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(X_i \geq z) \]</span></p>
+<p><span class="math display">\[\widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(\mathcal{X}_i \geq z) \]</span></p>
 <p>donde:</p>
 <p><span class="math display">\[I(X_i \geq z) =  \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm} X_i \geq z \\[0.1cm]
 \hspace{0.12cm} 0 \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm} X_i &gt; z \\[0.1cm]
@@ -1850,7 +1851,7 @@ margin-left: 0 !important;
 <ul>
 <li><span class="math inline">\(\hspace{0.2cm} \widehat{F}_n(z) \hspace{0.1cm}=\hspace{0.1cm} Q(X , z) \\\)</span></li>
 </ul>
-<p><span class="math inline">\(\hspace{1cm}\)</span> Donde: <span class="math inline">\(\hspace{0.2cm} Q(X , z)\hspace{0.2cm}\)</span> es el cuantil de orden <span class="math inline">\(\hspace{0.2cm}z\hspace{0.2cm}\)</span> de <span class="math inline">\(\hspace{0.2cm}X=(x_1,...,x_n) \\\)</span></p>
+<p><span class="math inline">\(\hspace{1.5cm}\)</span> Donde: <span class="math inline">\(\hspace{0.2cm} Q(X , z)\hspace{0.1cm}\)</span> es el cuantil de orden <span class="math inline">\(\hspace{0.1cm}z\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n) \\\)</span></p>
 <ul>
 <li>Si se ordena la muestra <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de menor a mayor <span class="math inline">\(x_{(1)}\hspace{0.1cm}&lt;\hspace{0.1cm}x_{(2)}\hspace{0.1cm}&lt;...&lt;\hspace{0.1cm}x_{(n)}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.6cm]\)</span></li>
 </ul>
@@ -1864,6 +1865,25 @@ margin-left: 0 !important;
 \hspace{0.12cm} (n-1)/n   \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm}   x_{(n-1)} \leq z &lt; x_{(n)} \\[0.1cm]
 \hspace{0.12cm} 1   \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm}   z \geq x_{(n)}
 \end{array}\right.\]</span></p>
+<p><br></p>
+</div>
+<div id="ley-debil-de-los-grandes-números" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> Ley debil de los grandes números</h2>
+<p>La ley debil de los grandes números afirma que:</p>
+<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}\)</span> tal que <span class="math inline">\(\hspace{0.1cm}E[\mathcal{X}]=\mu\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\\\)</span></p>
+<p>Se cumple que:</p>
+<p><span class="math display">\[\dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \hspace{0.25cm}\underset{p}{\rightarrow}\hspace{0.25cm} E[X]=\mu\]</span></p>
+<p><strong>Observación:</strong></p>
+<p><span class="math display">\[E[X]=E[X_i] \hspace{0.25cm},\hspace{0.25 cm} \forall i \in \lbrace 1,...,n \rbrace\]</span></p>
+<p><br></p>
+<p>Podemos aplicar la ley de los grandes números a la distribución empirica:</p>
+<p>Como <span class="math inline">\(\hspace{0.15cm}I(\mathcal{X}_i \geq z) \sim Bernouilli(p)\hspace{0.15cm}\)</span> , con <span class="math inline">\(\hspace{0.15cm}E\left[I(\mathcal{X}_i \geq z)\right]\hspace{0.1cm} =\hspace{0.1cm} p\hspace{0.1cm}=\hspace{0.1cm}F_X(z)\hspace{0.1cm}=\hspace{0.1cm}P(X \leq z)\\\)</span></p>
+<p>Aplicando la ley debil de los grandes números tenemos lo siguiente:</p>
+<p><span class="math display">\[\widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(\mathcal{X}_i \geq z) \hspace{0.25cm}\underset{p}{\rightarrow} \hspace{0.25cm} p=F_X(z) \\\]</span></p>
+<p>En conclusión:</p>
+<p><span class="math display">\[\widehat{F}_n(z) \hspace{0.25cm}\underset{p}{\rightarrow} \hspace{0.25cm} F_X(z)\]</span></p>
+<p>Usando la definición de convergencia en probabilidad, se tiene que:</p>
+<p><span class="math display">\[\underset{n\rightarrow \infty}{lim} \hspace{0.1cm} P( | \widehat{F}_n(z) - F_X(z) | \leq \epsilon ) \hspace{0.1cm}=\hspace{0.1cm} 1\]</span></p>
 <p><br></p>
 <p><br></p>
 </div>

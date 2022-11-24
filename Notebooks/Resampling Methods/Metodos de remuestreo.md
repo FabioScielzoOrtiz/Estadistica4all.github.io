@@ -483,7 +483,7 @@ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ y una m.a.
 La función de distribución empírica es un estimador de la función de distribucion de $\mathcal{X}$ que se define como:
 
 
-$$\widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(X_i \geq z) $$
+$$\widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(\mathcal{X}_i \geq z) $$
 
 donde:
 
@@ -538,7 +538,7 @@ para $\hspace{0.1cm} z\in \mathbb{R} \\$
 
 - $\hspace{0.2cm} \widehat{F}_n(z) \hspace{0.1cm}=\hspace{0.1cm} Q(X , z) \\$
 
-$\hspace{1cm}$ Donde: $\hspace{0.2cm} Q(X , z)\hspace{0.1cm}$  es el cuantil de orden $\hspace{0.1cm}z\hspace{0.1cm}$ de $\hspace{0.1cm}X=(x_1,...,x_n) \\$
+$\hspace{1.5cm}$ Donde: $\hspace{0.2cm} Q(X , z)\hspace{0.1cm}$  es el cuantil de orden $\hspace{0.1cm}z\hspace{0.1cm}$ de $\hspace{0.1cm}X=(x_1,...,x_n) \\$
 
 
 
@@ -560,10 +560,42 @@ $$\hspace{0.2cm} \widehat{F}_n(z) = \left\lbrace\begin{array}{l}   \hspace{0.12c
 
 <br>
 
+## Ley debil de los grandes números
+
+La ley debil de los grandes números afirma que:
+
+Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ tal que $\hspace{0.1cm}E[\mathcal{X}]=\mu\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\\$
+
+Se cumple que:
+
+$$\dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \hspace{0.25cm}\underset{p}{\rightarrow}\hspace{0.25cm} E[X]=\mu$$
 
 
+**Observación:**
+
+$$E[X]=E[X_i] \hspace{0.25cm},\hspace{0.25 cm} \forall i \in \lbrace 1,...,n \rbrace$$
+
+<br>
+
+Podemos aplicar la ley de los grandes números a la distribución empirica:
 
 
+Como $\hspace{0.15cm}I(\mathcal{X}_i \geq z) \sim Bernouilli(p)\hspace{0.15cm}$ , con $\hspace{0.15cm}E\left[I(\mathcal{X}_i \geq z)\right]\hspace{0.1cm} =\hspace{0.1cm} p\hspace{0.1cm}=\hspace{0.1cm}F_X(z)\hspace{0.1cm}=\hspace{0.1cm}P(X \leq z)\\$
+
+Aplicando la ley debil de los grandes números tenemos lo siguiente:
+
+
+$$\widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(\mathcal{X}_i \geq z) \hspace{0.25cm}\underset{p}{\rightarrow} \hspace{0.25cm} p=F_X(z) \\$$
+
+En conclusión:
+
+$$\widehat{F}_n(z) \hspace{0.25cm}\underset{p}{\rightarrow} \hspace{0.25cm} F_X(z)$$
+
+
+Usando la definición de convergencia en probabilidad, se tiene que:
+
+
+$$\underset{n\rightarrow \infty}{lim} \hspace{0.1cm} P( | \widehat{F}_n(z) - F_X(z) | \leq \epsilon ) \hspace{0.1cm}=\hspace{0.1cm} 1$$
 
 
 
