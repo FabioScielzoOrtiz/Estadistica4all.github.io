@@ -50,23 +50,27 @@ css: custom.css
 >More articles in my blog:   $\hspace{0.1cm}$   [Estadistica4all.com](http://estadistica4all.com/)
 
 
+<br>
 
-Vamos a hacer una demostracion de como usar R dentro de Python. Para ello usaremos el paquete `rpy2` de Python.
+Vamos a hacer una demostracion de como usar R dentro de Python. Para ello usaremos el paquete `rpy2` de `Python`.
 
 ```python
 import warnings
 warnings.filterwarnings('ignore')
 ```
 
+<br>
 
 
-Instalamos el paquete *rpy2* en Python:
+Instalamos el paquete *rpy2* en `Python`:
 
 ```python
 pip install rpy2
 ```
 
-Tambien sera recomendable que instalemos los paquetes *Pandas* y *Numpy* en Python:
+
+
+También será recomendable que instalemos los paquetes *Pandas* y *Numpy* en Python:
 ```python
 pip install pandas
 
@@ -81,22 +85,26 @@ import numpy as np
 import rpy2
 ```
 
-Ahora necesitamos ejecutar el siguiente codigo para conectar R a Python:
+Ahora necesitamos ejecutar el siguiente codigo para conectar `R` a `Python`:
 
-**Importante** el siguiente codigo me ha dado problemas hasta ahora, pero he conseguido solventarlos usando dentro del IDE Visual Studio Code el kernel *R-Mini~1 (Python 3.9.12)*. Recomiendo para seguir este tutorial usar estos elementos (Visual Studio Code y dicho kernel).
+**Importante:** el siguiente código nos ha dado problemas, pero hemos conseguido solventarlos usando dentro del IDE `Visual Studio Code` el kernel *R-Mini~1 (Python 3.9.12)*. 
+
+Para seguir este tutorial, recomendamos usar estos elementos: Visual Studio Code y dicho kernel
 ```python
 %load_ext rpy2.ipython
 ```
 
-Tambien hay que correr el siguiente codigo para importar los objetos de R:
+También hay que correr el siguiente código para importar los objetos de `R`:
 
 ```python
 import rpy2.robjects as robjects
 ```
 
-Ahora ya podemos usar R dentro de Python teniendo en cuenta lo siguiente:
+<br>
 
-Para usar R dentro de Python, pero sin utilizar objetos creados con Python escribimos *%%R* al inicio del bloque de codigo en el que usaremos R.
+Ahora ya podemos usar `R` dentro de `Python` teniendo en cuenta lo siguiente:
+
+Para usar `R` dentro de `Python`, pero sin utilizar objetos creados con `Python` escribimos **%%R** al inicio del bloque de código en el que usaremos `R`.
 
 ```python
 %%R
@@ -111,7 +119,7 @@ b<-6:10
 a
 ```
 
-[1] 1 2 3 4 5
+    [1] 1 2 3 4 5
 
 
 
@@ -119,8 +127,13 @@ a
 %%R
 b
 ```
-[1]  6  7  8  9 10
 
+    [1]  6  7  8  9 10
+
+
+<br>
+
+Hacemos otras pruebas:
 
 ```python
 %%R
@@ -143,7 +156,7 @@ tibble(columna1=a , columna2=b)
 5        5       10
 
 
-
+<br>
 
 Podemos usar objetos creados en Python dentro de un bloque de codigo de R escribiendo al inicio del bloque *%%R -i objeto_python*
 
@@ -193,10 +206,10 @@ df2
 9   9  -8
 
 
+<br>
 
 
-
-Ahora usamos R para graficar en un grafico de puntos de ggplot las variables del primer data-frame de python:
+Ahora usamos `R` para graficar en un gráfico de puntos de ggplot las variables del primer data-frame de python:
 
 
 
