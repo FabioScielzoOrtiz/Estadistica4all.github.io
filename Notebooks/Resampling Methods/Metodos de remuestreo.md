@@ -662,20 +662,33 @@ Donde:
 $$\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} \widehat{\varepsilon}_j^* = \widehat{\varepsilon}_i$$
 
 
-Las respuestas bootstrap son:
+Las respuestas bootstrap se generan como:
 
 $$y_i^* = x_i \cdot \widehat{\beta} + \varepsilon_i^*  \hspace{0.25cm} , \hspace{0.25cm} \forall j \in  \lbrace 1,...,n \rbrace$$
 
 
 
-La estimación bootstrap de $\beta$ es:
+La estimación bootstrap de $\hspace{0.1cm} \beta\hspace{0.1cm} $ es:
 
 
-$$\widehat{\beta}^* = (X^t \cdot X)^{-1} \cdot X^t \cdot y^*$$
+$$\widehat{\beta}^* = (X^t \cdot X)^{-1} \cdot X^t \cdot y^* \\$$
 
 Donde:
 
-$$y^* = (y_1^* ,..., y_n^*)^t$$
+$$y^* = (y_1^* ,..., y_n^*)^t \\$$
+
+
+La estimación de la varianza de los coeficientes bootstrap es:
+
+
+$$Var(\widehat{\beta}_j^*) = \widehat{\sigma}^2_* \cdot q_{jj} \\$$
+
+Donde:
+
+$$q_{jj} = diag\left( (X^t\cdot X)^{-1} \right) [j+1]$$
+
+$$\widehat{\sigma}^2_* = Var(\varepsilon_i^*) = \dfrac{1}{n-p-1} \sum_{i=1}^n \varepsilon_i^*$$
+
 
 
 
