@@ -671,23 +671,23 @@ $$y_i^* = x_i \cdot \widehat{\beta} + \varepsilon_i^*  \hspace{0.25cm} , \hspace
 La estimación bootstrap de $\hspace{0.1cm} \beta\hspace{0.1cm} $ es:
 
 
-$$\widehat{\beta}^* = (X^t \cdot X)^{-1} \cdot X^t \cdot y^* \\$$
+$$\widehat{\beta}\hspace{0.05cm}^* = (X^t \cdot X)^{-1} \cdot X^t \cdot y^* \\$$
 
 Donde:
 
-$$y^* = (y_1^* ,..., y_n^*)^t \\$$
+$$y\hspace{0.05cm}^* = (y_1^* ,..., y_n^*)^t \\$$
 
 
 La estimación de la varianza de los coeficientes bootstrap es:
 
 
-$$Var(\widehat{\beta}_j^*) = \widehat{\sigma}^2_* \cdot q_{jj} \\$$
+$$Var(\widehat{\beta}_j^*) \hspace{0.1cm}=\hspace{0.1cm} \widehat{\sigma}^2_* \cdot q_{jj} \\$$
 
 Donde:
 
-$$q_{jj} = diag\left( (X^t\cdot X)^{-1} \right) [j+1]$$
+$$q_{jj} \hspace{0.1cm}=\hspace{0.1cm} diag (X^t\cdot X)^{-1} [j+1]$$
 
-$$\widehat{\sigma}^2_* = Var(\varepsilon_i^*) = \dfrac{1}{n-p-1} \sum_{i=1}^n \varepsilon_i^*$$
+$$\widehat{\sigma}^2_* \hspace{0.1cm}=\hspace{0.1cm} Var(\varepsilon_i^*) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n-p-1} \cdot \sum_{i=1}^n \varepsilon_i^*$$
 
 
 
