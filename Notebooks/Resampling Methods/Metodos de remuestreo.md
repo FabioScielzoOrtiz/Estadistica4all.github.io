@@ -707,10 +707,19 @@ $$z^* = \lbrace  (x_1^* , y_1^*) ,..., (x_n^* , y_n^*)      \rbrace$$
 
 Donde:
 
+<div class="warning" style='background-color:#F9BA88; color: #F67B61; border-left: solid #F67B61 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
 $$\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} x_j^* = x_i$$
 
 $$\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} y_j^* = y_i$$
+</p>
+ 
+</p></span>
+</div>
+
 
 
 El modelo de regresión lineal en este caso es:

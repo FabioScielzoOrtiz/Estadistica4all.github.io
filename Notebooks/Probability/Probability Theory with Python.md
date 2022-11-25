@@ -175,6 +175,55 @@ $$A\cap B = \lbrace w \in \Omega(\varepsilon) / w \in A \hspace{0.2cm} y\hspace{
 </p></span>
 </div>
 
+
+<div class="warning" style='background-color:#F8A391; color: #F67B61; border-left: solid #F67B61 7px; border-radius: 5px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$$A\cap B = \lbrace w \in \Omega(\varepsilon) / w \in A \hspace{0.2cm} y\hspace{0.2cm} w \in B    \rbrace$$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+</p></span>
+</div>
+
+
+<div class="warning" style='background-color:#F9BA88; color: #F67B61; border-left: solid #F67B61 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$$A\cap B = \lbrace w \in \Omega(\varepsilon) / w \in A \hspace{0.2cm} y\hspace{0.2cm} w \in B    \rbrace$$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+
+<div class="warning" style='background-color:#8AF2F4; color: #F67B61; border-left: solid #8AA2F4 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$$A\cap B = \lbrace w \in \Omega(\varepsilon) / w \in A \hspace{0.2cm} y\hspace{0.2cm} w \in B    \rbrace$$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+
 |  $$A\cap B = \lbrace w \in \Omega(\varepsilon) / w \in A \hspace{0.2cm} y\hspace{0.2cm} w \in B    \rbrace$$  |
 |-----------------------------------------|
 
