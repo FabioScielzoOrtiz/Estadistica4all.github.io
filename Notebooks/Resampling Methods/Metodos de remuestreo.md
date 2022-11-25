@@ -723,7 +723,7 @@ $$y_i^* = \widehat{\beta}\cdot x_i^*  \hspace{0.25cm} , \hspace{0.25cm}\forall i
 
 Donde la estimación de minimos cuadrados ordinarios del vector de coeficientes es:
 
-$$\widehat{\beta} = (X^* \cdot {X^*}^{t})^{-1} \cdot {X^*}^{t} \cdot Y*$$
+$$\widehat{\beta} = (X^* \cdot {X^*}^{t})^{-1} \cdot {X^*}^{t} \cdot Y^*$$
 
 
 
@@ -742,7 +742,15 @@ $$Y^* = (y_1^* , ..., y_n^*)^t$$
 # Bootstrap en Series temporales
 
 
+- Bootstrap basado en pares
 
+
+
+
+- Bootstrap basado en residuos
+
+
+- Bootstrap basado en cloques
 
 
 
