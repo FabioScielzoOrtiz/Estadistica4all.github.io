@@ -624,7 +624,9 @@ $$sup \left\lbrace \hspace{0.1cm}\left|\hspace{0.1cm} \widehat{F}_n(z)  - F_X(z)
 
 <br>
 
-# Bootstrap en Regresión Lineal
+# Bootstrap en Regresión Lineal 
+
+## Botstrap en Regresión Lineal basado en residuos
 
 Tenemos un modelo de regresión lineal:
 
@@ -689,6 +691,28 @@ $$q_{jj} \hspace{0.1cm}=\hspace{0.1cm} diag (X^t\cdot X)^{-1} [j+1]$$
 
 $$\widehat{\sigma}^2_* \hspace{0.1cm}=\hspace{0.1cm} Var(\varepsilon_i^*) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n-p-1} \cdot \sum_{i=1}^n \varepsilon_i^*$$
 
+
+
+
+
+<br>
+
+
+## Botstrap en Regresión Lineal basado en pares
+
+
+Este método consiste en remuestrar con reemplazamiento los pares $z_i = (x_i , y_i)$
+
+En este caso la muestra bootstrap es la siguiente:
+
+$$z^* = \lbrace  (x_1^* , y_1^*) ,..., (x_n^* , y_n^*)      \rbrace$$
+
+Donde:
+
+
+$$\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} x_j^* = x_i$$
+
+$$\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} y_j^* = y_i$$
 
 
 

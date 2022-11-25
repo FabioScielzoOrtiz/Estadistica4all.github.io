@@ -1554,7 +1554,11 @@ margin-left: 0 !important;
       <li><a href="#ley-debil-de-los-grandes-números" id="toc-ley-debil-de-los-grandes-números"><span class="toc-section-number">11.3</span> Ley debil de los grandes números</a></li>
       <li><a href="#teorema-de-glivenko-cantelli" id="toc-teorema-de-glivenko-cantelli"><span class="toc-section-number">11.4</span> Teorema de Glivenko-Cantelli</a></li>
       </ul></li>
-      <li><a href="#bootstrap-en-regresión-lineal" id="toc-bootstrap-en-regresión-lineal"><span class="toc-section-number">12</span> Bootstrap en Regresión Lineal</a></li>
+      <li><a href="#bootstrap-en-regresión-lineal" id="toc-bootstrap-en-regresión-lineal"><span class="toc-section-number">12</span> Bootstrap en Regresión Lineal</a>
+      <ul>
+      <li><a href="#botstrap-en-regresión-lineal-basado-en-residuos" id="toc-botstrap-en-regresión-lineal-basado-en-residuos"><span class="toc-section-number">12.1</span> Botstrap en Regresión Lineal basado en residuos</a></li>
+      <li><a href="#botstrap-en-regresión-lineal-basado-en-pares" id="toc-botstrap-en-regresión-lineal-basado-en-pares"><span class="toc-section-number">12.2</span> Botstrap en Regresión Lineal basado en pares</a></li>
+      </ul></li>
       <li><a href="#bootstrap-en-series-temporales" id="toc-bootstrap-en-series-temporales"><span class="toc-section-number">13</span> Bootstrap en Series temporales</a></li>
       <li><a href="#intervalos-de-confianza-basados-en-bootstrap" id="toc-intervalos-de-confianza-basados-en-bootstrap"><span class="toc-section-number">14</span> Intervalos de confianza basados en bootstrap</a></li>
       <li><a href="#contrastes-de-hipotesis-basados-en-permutaciones" id="toc-contrastes-de-hipotesis-basados-en-permutaciones"><span class="toc-section-number">15</span> Contrastes de hipotesis basados en permutaciones <a class="anchor" id="1"></a></a></li>
@@ -1903,6 +1907,8 @@ margin-left: 0 !important;
 </div>
 <div id="bootstrap-en-regresión-lineal" class="section level1" number="12">
 <h1><span class="header-section-number">12</span> Bootstrap en Regresión Lineal</h1>
+<div id="botstrap-en-regresión-lineal-basado-en-residuos" class="section level2" number="12.1">
+<h2><span class="header-section-number">12.1</span> Botstrap en Regresión Lineal basado en residuos</h2>
 <p>Tenemos un modelo de regresión lineal:</p>
 <p><span class="math display">\[y_i = \beta\cdot x_i + \varepsilon_i \forall i \in \lbrace 1,...,n \rbrace\\\]</span></p>
 <p>El modelo de regresión lineal estimado por mínimos cuadrados ordinarios es:</p>
@@ -1930,7 +1936,18 @@ margin-left: 0 !important;
 <p><span class="math display">\[q_{jj} \hspace{0.1cm}=\hspace{0.1cm} diag (X^t\cdot X)^{-1} [j+1]\]</span></p>
 <p><span class="math display">\[\widehat{\sigma}^2_* \hspace{0.1cm}=\hspace{0.1cm} Var(\varepsilon_i^*) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n-p-1} \cdot \sum_{i=1}^n \varepsilon_i^*\]</span></p>
 <p><br></p>
+</div>
+<div id="botstrap-en-regresión-lineal-basado-en-pares" class="section level2" number="12.2">
+<h2><span class="header-section-number">12.2</span> Botstrap en Regresión Lineal basado en pares</h2>
+<p>Este método consiste en remuestrar con reemplazamiento los pares <span class="math inline">\(z_i = (x_i , y_i)\)</span></p>
+<p>En este caso la muestra bootstrap es la siguiente:</p>
+<p><span class="math display">\[z^* = \lbrace  (x_1^* , y_1^*) ,..., (x_n^* , y_n^*)      \rbrace\]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} x_j^* = x_i\]</span></p>
+<p><span class="math display">\[\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} y_j^* = y_i\]</span></p>
 <p><br></p>
+<p><br></p>
+</div>
 </div>
 <div id="bootstrap-en-series-temporales" class="section level1" number="13">
 <h1><span class="header-section-number">13</span> Bootstrap en Series temporales</h1>
