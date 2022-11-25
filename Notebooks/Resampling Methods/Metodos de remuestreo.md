@@ -715,16 +715,23 @@ $$\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exi
 
 El modelo de regresión lineal en este caso es:
 
-$$y_i^* = \beta\cdot x_i^* + \varepsilon_i \forall i \in \lbrace 1,...,n \rbrace\\$$
+$$y_i^* = \beta\cdot x_i^* + \varepsilon_i \hspace{0.25cm} , \hspace{0.25cm}\forall i \in \lbrace 1,...,n \rbrace\\$$
 
 El modelo de regresión lineal estimado por mínimos cuadrados ordinarios es:
 
-$$y_i^* = \widehat{\beta}\cdot x_i^*  \forall i \in \lbrace 1,...,n \rbrace\\$$
+$$y_i^* = \widehat{\beta}\cdot x_i^*  \hspace{0.25cm} , \hspace{0.25cm}\forall i \in \lbrace 1,...,n \rbrace\\$$
 
-Donde:
+Donde la estimación de minimos cuadrados ordinarios del vector de coeficientes es:
 
-$$\widehat{\beta} = (X^* \cdot {X^*}^{t})^{-1} \cdot {X^*}^{t} \cdot y$$
+$$\widehat{\beta} = (X^* \cdot {X^*}^{t})^{-1} \cdot {X^*}^{t} \cdot Y*$$
 
+
+
+En este caso:
+
+$$X^* = (x_{1}^* , x_{2}^* , ..., x_{n}^* )^t$$
+ 
+$$Y^* = (y_1^* , ..., y_n^*)^t$$
 
 
 

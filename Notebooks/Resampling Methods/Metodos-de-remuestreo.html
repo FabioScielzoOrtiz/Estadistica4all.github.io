@@ -1945,11 +1945,14 @@ margin-left: 0 !important;
 <p><span class="math display">\[\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} x_j^* = x_i\]</span></p>
 <p><span class="math display">\[\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} y_j^* = y_i\]</span></p>
 <p>El modelo de regresión lineal en este caso es:</p>
-<p><span class="math display">\[y_i^* = \beta\cdot x_i^* + \varepsilon_i \forall i \in \lbrace 1,...,n \rbrace\\\]</span></p>
+<p><span class="math display">\[y_i^* = \beta\cdot x_i^* + \varepsilon_i \hspace{0.25cm} , \hspace{0.25cm}\forall i \in \lbrace 1,...,n \rbrace\\\]</span></p>
 <p>El modelo de regresión lineal estimado por mínimos cuadrados ordinarios es:</p>
-<p><span class="math display">\[y_i^* = \widehat{\beta}\cdot x_i^*  \forall i \in \lbrace 1,...,n \rbrace\\\]</span></p>
-<p>Donde:</p>
-<p><span class="math display">\[\widehat{\beta} = (X^* \cdot {X^*}^{t})^{-1} \cdot {X^*}^{t} \cdot y\]</span></p>
+<p><span class="math display">\[y_i^* = \widehat{\beta}\cdot x_i^*  \hspace{0.25cm} , \hspace{0.25cm}\forall i \in \lbrace 1,...,n \rbrace\\\]</span></p>
+<p>Donde la estimación de minimos cuadrados ordinarios del vector de coeficientes es:</p>
+<p><span class="math display">\[\widehat{\beta} = (X^* \cdot {X^*}^{t})^{-1} \cdot {X^*}^{t} \cdot Y*\]</span></p>
+<p>En este caso:</p>
+<p><span class="math display">\[X^* = (x_{1}^* , x_{2}^* , ..., x_{n}^* )^t\]</span></p>
+<p><span class="math display">\[Y^* = (y_1^* , ..., y_n^*)^t\]</span></p>
 <p><br></p>
 <p><br></p>
 </div>
