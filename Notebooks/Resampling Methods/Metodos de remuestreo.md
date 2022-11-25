@@ -626,7 +626,16 @@ $$sup \left\lbrace \hspace{0.1cm}\left|\hspace{0.1cm} \widehat{F}_n(z)  - F_X(z)
 
 # Bootstrap en Regresión Lineal
 
+Recordemos que en el modelo de regresión lineal los residuos estimados del modelo son:
 
+
+$$\widehat{\varepsilon} = (\widehat{\varepsilon}_1,...,\widehat{\varepsilon}_n)$$
+
+Donde:
+
+$$\widehat{\varepsilon}_i = y_i - \widehat{\beta}\cdot x_i  \forall i \in \lbrace 1,...,n \rbrace$$
+
+Se toma una muestra aleatoria con reemplazamiento de los residuos estimados del modelo:
 
 
 
