@@ -1903,6 +1903,27 @@ margin-left: 0 !important;
 </div>
 <div id="bootstrap-en-regresión-lineal" class="section level1" number="12">
 <h1><span class="header-section-number">12</span> Bootstrap en Regresión Lineal</h1>
+<p>Tenemos un modelo de regresión lineal:</p>
+<p><span class="math display">\[y_i = \beta\cdot x_i + \varepsilon_i \forall i \in \lbrace 1,...,n \rbrace\\\]</span></p>
+<p>El modelo de regresión lineal estimado por mínimos cuadrados ordinarios es:</p>
+<p>Tenemos un modelo de regresión lineal:</p>
+<p><span class="math display">\[y_i = \widehat{\beta}\cdot x_i  \forall i \in \lbrace 1,...,n \rbrace\\\]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[\widehat{\beta} = (X \cdot X^t)^{-1} \cdot X^t \cdot y\]</span></p>
+<p>Recordemos que en el modelo de regresión lineal los residuos estimados del modelo son:</p>
+<p><span class="math display">\[\widehat{\varepsilon} = (\widehat{\varepsilon}_1,...,\widehat{\varepsilon}_n)^t\\\]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[\widehat{\varepsilon}_i = y_i - \widehat{\beta}\cdot x_i  \forall i \in \lbrace 1,...,n \rbrace\\\]</span></p>
+<p>Se toma una muestra aleatoria con reemplazamiento de los residuos estimados del modelo: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\widehat{\varepsilon}^* = (\widehat{\varepsilon}_1^*,...,\widehat{\varepsilon}_n^*)^t\\\]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} \widehat{\varepsilon}_j^* = \widehat{\varepsilon}_i\]</span></p>
+<p>Las respuestas bootstrap son:</p>
+<p><span class="math display">\[y_i^* = x_i \cdot \widehat{\beta} + \varepsilon_i^*  \hspace{0.25cm} , \hspace{0.25cm} \forall j \in  \lbrace 1,...,n \rbrace\]</span></p>
+<p>La estimación bootstrap de <span class="math inline">\(\beta\)</span> es:</p>
+<p><span class="math display">\[\widehat{\beta}^* = (X^t \cdot X)^{-1} \cdot X^t \cdot y^*\]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[y^* = (y_1^* ,..., y_n^*)^t\]</span></p>
 <p><br></p>
 <p><br></p>
 </div>

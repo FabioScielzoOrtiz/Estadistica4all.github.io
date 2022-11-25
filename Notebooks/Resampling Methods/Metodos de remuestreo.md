@@ -626,16 +626,56 @@ $$sup \left\lbrace \hspace{0.1cm}\left|\hspace{0.1cm} \widehat{F}_n(z)  - F_X(z)
 
 # Bootstrap en Regresión Lineal
 
-Recordemos que en el modelo de regresión lineal los residuos estimados del modelo son:
+Tenemos un modelo de regresión lineal:
 
+$$y_i = \beta\cdot x_i + \varepsilon_i \forall i \in \lbrace 1,...,n \rbrace\\$$
 
-$$\widehat{\varepsilon} = (\widehat{\varepsilon}_1,...,\widehat{\varepsilon}_n)$$
+El modelo de regresión lineal estimado por mínimos cuadrados ordinarios es:
+
+Tenemos un modelo de regresión lineal:
+
+$$y_i = \widehat{\beta}\cdot x_i  \forall i \in \lbrace 1,...,n \rbrace\\$$
 
 Donde:
 
-$$\widehat{\varepsilon}_i = y_i - \widehat{\beta}\cdot x_i  \forall i \in \lbrace 1,...,n \rbrace$$
+$$\widehat{\beta} = (X \cdot X^t)^{-1} \cdot X^t \cdot y$$
 
-Se toma una muestra aleatoria con reemplazamiento de los residuos estimados del modelo:
+
+Recordemos que en el modelo de regresión lineal los residuos estimados del modelo son:
+
+
+$$\widehat{\varepsilon} = (\widehat{\varepsilon}_1,...,\widehat{\varepsilon}_n)^t\\$$
+
+Donde:
+
+$$\widehat{\varepsilon}_i = y_i - \widehat{\beta}\cdot x_i  \forall i \in \lbrace 1,...,n \rbrace\\$$
+
+Se toma una muestra aleatoria con reemplazamiento de los residuos estimados del modelo: $\\[0.5cm]$
+
+
+$$\widehat{\varepsilon}^* = (\widehat{\varepsilon}_1^*,...,\widehat{\varepsilon}_n^*)^t\\$$
+
+
+Donde:
+
+
+$$\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} \widehat{\varepsilon}_j^* = \widehat{\varepsilon}_i$$
+
+
+Las respuestas bootstrap son:
+
+$$y_i^* = x_i \cdot \widehat{\beta} + \varepsilon_i^*  \hspace{0.25cm} , \hspace{0.25cm} \forall j \in  \lbrace 1,...,n \rbrace$$
+
+
+
+La estimación bootstrap de $\beta$ es:
+
+
+$$\widehat{\beta}^* = (X^t \cdot X)^{-1} \cdot X^t \cdot y^*$$
+
+Donde:
+
+$$y^* = (y_1^* ,..., y_n^*)^t$$
 
 
 
