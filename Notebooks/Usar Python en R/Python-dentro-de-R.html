@@ -1577,7 +1577,7 @@ use_condaenv(&quot;C:/Users/Usuario/anaconda3/python.exe&quot;)</code></pre>
 
 a = &quot;Hola &quot; + &quot;Mundo&quot;
 print(a)</code></pre>
-<p>Hola Mundo</p>
+<pre><code>Hola Mundo</code></pre>
 <p>Si ejecutamos un codigo de Python en un chunk de R, es decir, en un chunk que empieza por ```{r} , obtenemos un error.</p>
 <pre class="{r}"><code># --- R ---
 
@@ -1589,7 +1589,7 @@ print(a)</code></pre>
 <pre class="{r}"><code># --- R ---
 
 py$a</code></pre>
-<p>[1] “Hola Mundo”</p>
+<pre><code>[1] &quot;Hola Mundo&quot;</code></pre>
 <p>Podemos equivalentemente acceder a los objetos creados en R desde un chunk de Python con instruccion r.</p>
 <pre class="{r}"><code># --- R ---
 
@@ -1597,7 +1597,7 @@ b=&quot;ey chavales&quot;</code></pre>
 <pre class="{python}"><code># --- PYTHON ---
 
 r.b</code></pre>
-<p>‘ey chavales’</p>
+<pre><code>&#39;ey chavales&#39;</code></pre>
 <p>Podemos cargar librerias de Python usando un chunk de R del siguiente modo</p>
 <pre class="{r}"><code># --- R ---
 
@@ -1652,10 +1652,10 @@ runs = [855, 875, 787, 730, 762, 718, 867, 721, 735, 615, 708, 644, 654, 735, 66
 datos = pd.DataFrame({&#39;equipos&#39;: equipos, &#39;bateos&#39;: bateos, &#39;runs&#39;: runs})
 
 datos.head(3)</code></pre>
-<p>equipos bateos runs
-0 Texas 5659 855
-1 Boston 5710 875
-2 Detroit 5563 787</p>
+<pre><code>   equipos  bateos  runs
+0    Texas    5659   855
+1   Boston    5710   875
+2  Detroit    5563   787</code></pre>
 <pre class="{r}"><code># --- R ---
 
 library(ggplot2)
@@ -1681,7 +1681,7 @@ X.values.reshape(-1,1),  y.values.reshape(-1,1), train_size   = 0.8,  random_sta
 # ==============================================================================
 modelo =  LinearRegression()
 modelo.fit(X = X_train.reshape(-1, 1), y = y_train)</code></pre>
-<p>LinearRegression()</p>
+<pre><code>LinearRegression()</code></pre>
 <pre class="{python}"><code># --- PYTHON ---
 
 # Información del modelo
@@ -1689,15 +1689,15 @@ modelo.fit(X = X_train.reshape(-1, 1), y = y_train)</code></pre>
 print(&quot;Intercept:&quot;, modelo.intercept_)
 print(&quot;Coeficiente:&quot;, list(zip(X.columns, modelo.coef_.flatten(), )))
 print(&quot;Coeficiente de determinación R^2:&quot;, modelo.score(X, y))</code></pre>
-<p>Intercept: [-2367.7028413]
-Coeficiente: [(‘bateos’, 0.5528713534479736)]
-Coeficiente de determinación R^2: 0.3586119899498744</p>
+<pre><code>Intercept: [-2367.7028413]
+Coeficiente: [(&#39;bateos&#39;, 0.5528713534479736)]
+Coeficiente de determinación R^2: 0.3586119899498744</code></pre>
 <pre class="{python}"><code># --- PYTHON ---
 
 corr_test = pearsonr(x = datos[&#39;bateos&#39;], y =  datos[&#39;runs&#39;])
 
 print(&quot;Coeficiente de correlación de Pearson: &quot;, corr_test[0])</code></pre>
-<p>Coeficiente de correlación de Pearson: 0.6106270467206687</p>
+<pre><code>Coeficiente de correlación de Pearson:  0.6106270467206687</code></pre>
 </div>
 
    

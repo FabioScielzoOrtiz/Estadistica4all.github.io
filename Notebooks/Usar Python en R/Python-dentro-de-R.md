@@ -77,7 +77,8 @@ Ahora ya se puede ejecutar codigo de Python, pero solo en chunks de python.
 a = "Hola " + "Mundo"
 print(a)
 ```
-Hola Mundo
+
+    Hola Mundo
 
 
 
@@ -98,7 +99,8 @@ Podemos acceder a los objetos creados con Python desde un chunk de R con la inst
 
 py$a
 ```
-[1] "Hola Mundo"
+
+    [1] "Hola Mundo"
 
 
 Podemos equivalentemente acceder a los objetos creados en R desde un chunk de Python con instruccion r.
@@ -114,9 +116,9 @@ b="ey chavales"
 r.b
 ```
 
-'ey chavales'
+    'ey chavales'
 
-
+ 
 Podemos cargar librerias de Python usando un chunk de R del siguiente modo
 ```{r}
 # --- R ---
@@ -182,12 +184,12 @@ datos = pd.DataFrame({'equipos': equipos, 'bateos': bateos, 'runs': runs})
 
 datos.head(3)
 ```
-
+```
    equipos  bateos  runs
 0    Texas    5659   855
 1   Boston    5710   875
 2  Detroit    5563   787
-
+```
 
  
  
@@ -231,7 +233,8 @@ X.values.reshape(-1,1),  y.values.reshape(-1,1), train_size   = 0.8,  random_sta
 modelo =  LinearRegression()
 modelo.fit(X = X_train.reshape(-1, 1), y = y_train)
 ```
-LinearRegression()
+    
+    LinearRegression()
 
 
 ```{python}
@@ -244,9 +247,9 @@ print("Coeficiente:", list(zip(X.columns, modelo.coef_.flatten(), )))
 print("Coeficiente de determinación R^2:", modelo.score(X, y))
 ```
 
-Intercept: [-2367.7028413]
-Coeficiente: [('bateos', 0.5528713534479736)]
-Coeficiente de determinación R^2: 0.3586119899498744
+    Intercept: [-2367.7028413]
+    Coeficiente: [('bateos', 0.5528713534479736)]
+    Coeficiente de determinación R^2: 0.3586119899498744
 
 
 ```{python}
@@ -256,7 +259,8 @@ corr_test = pearsonr(x = datos['bateos'], y =  datos['runs'])
 
 print("Coeficiente de correlación de Pearson: ", corr_test[0])
 ```
-Coeficiente de correlación de Pearson:  0.6106270467206687
+
+    Coeficiente de correlación de Pearson:  0.6106270467206687
 
 
 
