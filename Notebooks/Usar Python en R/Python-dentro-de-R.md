@@ -67,14 +67,22 @@ Despues tenemos que fijar el directorio donde tengamos Python. En mi caso uso el
 use_condaenv("C:/Users/Usuario/anaconda3/python.exe")
 ```
 
-Ahora ya se puede ejecutar codigo de Python, pero solo en chunks de python, es decir, en chunks que empiezan con ```{python}
+Ahora ya se puede ejecutar codigo de Python, pero solo en chunks de python.
+
+
+
 ```{python}
 # --- PYTHON ---
 
 a = "Hola " + "Mundo"
 print(a)
 ```
+Hola Mundo
+
+
+
 Si ejecutamos un codigo de Python en un chunk de R, es decir, en un chunk que empieza por ```{r} , obtenemos un error.
+
 ```{r}
 # --- R ---
 
@@ -90,6 +98,8 @@ Podemos acceder a los objetos creados con Python desde un chunk de R con la inst
 
 py$a
 ```
+[1] "Hola Mundo"
+
 
 Podemos equivalentemente acceder a los objetos creados en R desde un chunk de Python con instruccion r.
 ```{r}
@@ -104,6 +114,9 @@ b="ey chavales"
 r.b
 ```
 
+'ey chavales'
+
+
 Podemos cargar librerias de Python usando un chunk de R del siguiente modo
 ```{r}
 # --- R ---
@@ -115,7 +128,7 @@ Podemos cargar librerias de Python usando un chunk de R del siguiente modo
 # py_install("scipy")
 ```
 
-\
+<br>
 
 Vamos a hacer un ejemplo de una analisis estadistico mezclando el uso de Python y R. Esta es la principal utilidad de reticulete, nos permite hacer analisis con R y Python simultaneamente
 ```{python}
@@ -169,11 +182,17 @@ datos = pd.DataFrame({'equipos': equipos, 'bateos': bateos, 'runs': runs})
 
 datos.head(3)
 ```
-```{r}
-# --- R ---
 
-py$datos[1:7, ]
-```
+   equipos  bateos  runs
+0    Texas    5659   855
+1   Boston    5710   875
+2  Detroit    5563   787
+
+
+ 
+ 
+ 
+
 
 ```{r}
 # --- R ---
@@ -182,8 +201,19 @@ library(ggplot2)
 
 ggplot(data = py$datos, aes( x=bateos, y=runs) )+
   geom_point()
-
 ```
+
+<br>
+
+<center>
+
+![](pic.jpg){width="45%"}
+
+</center>
+
+<br>
+
+
 
 ```{python}
 # --- PYTHON ---
@@ -201,6 +231,8 @@ X.values.reshape(-1,1),  y.values.reshape(-1,1), train_size   = 0.8,  random_sta
 modelo =  LinearRegression()
 modelo.fit(X = X_train.reshape(-1, 1), y = y_train)
 ```
+LinearRegression()
+
 
 ```{python}
 # --- PYTHON ---
@@ -212,6 +244,10 @@ print("Coeficiente:", list(zip(X.columns, modelo.coef_.flatten(), )))
 print("Coeficiente de determinación R^2:", modelo.score(X, y))
 ```
 
+Intercept: [-2367.7028413]
+Coeficiente: [('bateos', 0.5528713534479736)]
+Coeficiente de determinación R^2: 0.3586119899498744
+
 
 ```{python}
 # --- PYTHON ---
@@ -220,6 +256,7 @@ corr_test = pearsonr(x = datos['bateos'], y =  datos['runs'])
 
 print("Coeficiente de correlación de Pearson: ", corr_test[0])
 ```
+Coeficiente de correlación de Pearson:  0.6106270467206687
 
 
 
