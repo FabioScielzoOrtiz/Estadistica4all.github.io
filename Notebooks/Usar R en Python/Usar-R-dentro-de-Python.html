@@ -1574,10 +1574,7 @@ margin-left: 0 !important;
    <div id="sidebar">
     <h2><a href="#content">Usar R dentro de Python</a></h2>
     <div id="toc">
-      <ul>
-      <li><a href="#a-tibble-5-x-2" id="toc-a-tibble-5-x-2"><span class="toc-section-number">1</span> A tibble: 5 x 2</a></li>
-      <li><a href="#bibliografía" id="toc-bibliografía"><span class="toc-section-number">2</span> Bibliografía</a></li>
-      </ul>
+      
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
                   <p class="author"><span class="glyphicon glyphicon-user"></span> Fabio Scielzo Ortiz</p>
@@ -1658,97 +1655,94 @@ margin-right: auto;
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>library(tidyverse)</span></code></pre></div>
 <div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>R</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>tibble(columna1<span class="op">=</span>a , columna2<span class="op">=</span>b)</span></code></pre></div>
-<div id="a-tibble-5-x-2" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> A tibble: 5 x 2</h1>
-<p>columna1 columna2
-<int> <int>
-1 1 6
-2 2 7
-3 3 8
-4 4 9
-5 5 10</p>
+<pre><code># A tibble: 5 x 2
+  columna1 columna2
+     &lt;int&gt;    &lt;int&gt;
+1        1        6
+2        2        7
+3        3        8
+4        4        9
+5        5       10</code></pre>
 <p><br></p>
-<p>Podemos usar objetos creados en Python dentro de un bloque de codigo de R escribiendo al inicio del bloque <em>%%R -i objeto_python</em></p>
+<p>Podemos usar objetos creados en <code>Python</code> dentro de un bloque de codigo de <code>R</code> escribiendo al inicio del bloque <strong>%%R -i objeto_python</strong></p>
 <p>Vamos a ver un ejemplo de aplicacion de esto.
 Creamos un par de data-frames en Python:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;cups_of_coffee&#39;</span>: [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>],</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;productivity&#39;</span>: [<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>df1</span></code></pre></div>
-<p>cups_of_coffee productivity
-0 0 2
-1 1 5
-2 2 6
-3 3 8
-4 4 9
-5 5 8
-6 6 0
-7 7 1
-8 8 0
-9 9 -1</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;X1&#39;</span>: [<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">23</span>, <span class="dv">34</span>, <span class="dv">54</span>, <span class="dv">25</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>],</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;X2&#39;</span>: [<span class="dv">2</span>, <span class="dv">25</span>, <span class="dv">26</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">30</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">8</span>]</span>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;cups_of_coffee&#39;</span>: [<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>],</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;productivity&#39;</span>: [<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>]</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>df2</span></code></pre></div>
-<p>X1 X2
-0 0 2
-1 3 25
-2 23 26
-3 34 8
-4 54 9
-5 25 8
-6 6 30
-7 7 1
-8 8 0
-9 9 -8</p>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>df1</span></code></pre></div>
+<pre><code>   cups_of_coffee  productivity
+0               0             2
+1               1             5
+2               2             6
+3               3             8
+4               4             9
+5               5             8
+6               6             0
+7               7             1
+8               8             0
+9               9            -1</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;X1&#39;</span>: [<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">23</span>, <span class="dv">34</span>, <span class="dv">54</span>, <span class="dv">25</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>],</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;X2&#39;</span>: [<span class="dv">2</span>, <span class="dv">25</span>, <span class="dv">26</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">8</span>, <span class="dv">30</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="op">-</span><span class="dv">8</span>]</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>df2</span></code></pre></div>
+<pre><code>   X1  X2
+0   0   2
+1   3  25
+2  23  26
+3  34   8
+4  54   9
+5  25   8
+6   6  30
+7   7   1
+8   8   0
+9   9  -8</code></pre>
 <p><br></p>
 <p>Ahora usamos <code>R</code> para graficar en un gráfico de puntos de ggplot las variables del primer data-frame de python:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>R <span class="op">-</span>i df1 </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>library(ggplot2)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>ggplot(data<span class="op">=</span>df1 , aes(x<span class="op">=</span>cups_of_coffee , y<span class="op">=</span>productivity))<span class="op">+</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>geom_point(color<span class="op">=</span><span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>R <span class="op">-</span>i df1 </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>library(ggplot2)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>ggplot(data<span class="op">=</span>df1 , aes(x<span class="op">=</span>cups_of_coffee , y<span class="op">=</span>productivity))<span class="op">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>geom_point(color<span class="op">=</span><span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
 <p><br></p>
 <center>
 <p><img src="data:image/png;base64,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" style="width:45.0%" /></p>
 </center>
 <p><br></p>
 <p>Si queremos usar dos o mas objetos de Python en un bloque de codigo en R escribimos al inicio del bloque <em>%%R -i objeto_python_1 -i objeto_python_2</em> etc</p>
-<p>Como ejemplo aplicamos la funcion de R <em>cbind</em> a los dos data-frames creados en python:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>R <span class="op">-</span>i df1 <span class="op">-</span>i df2 </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>cbind(df1 , df2)</span></code></pre></div>
-<p>cups_of_coffee productivity X1 X2
-0 0 2 0 2
-1 1 5 3 25
-2 2 6 23 26
-3 3 8 34 8
-4 4 9 54 9
-5 5 8 25 8
-6 6 0 6 30
-7 7 1 7 1
-8 8 0 8 0
-9 9 -1 9 -8</p>
-<p>Podemos hacer cualquier cosa que R nos permita, como crear un modelo de regresion lineal con R usando un data-frame creado en Python</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>R <span class="op">-</span>i df2</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>lm(X2 <span class="op">~</span> X1 , data<span class="op">=</span>df2)</span></code></pre></div>
-<p>Call:
-lm(formula = X2 ~ X1, data = df2)</p>
-<p>Coefficients:
-(Intercept) X1<br />
-9.84672 0.01499</p>
+<p>Como ejemplo aplicamos la funcion de <code>R</code> <em>cbind</em> a los dos data-frames creados en <code>Python</code>:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>R <span class="op">-</span>i df1 <span class="op">-</span>i df2 </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>cbind(df1 , df2)</span></code></pre></div>
+<pre><code>  cups_of_coffee productivity X1 X2
+0              0            2  0  2
+1              1            5  3 25
+2              2            6 23 26
+3              3            8 34  8
+4              4            9 54  9
+5              5            8 25  8
+6              6            0  6 30
+7              7            1  7  1
+8              8            0  8  0
+9              9           -1  9 -8</code></pre>
+<p>Podemos hacer cualquier cosa que <code>R</code> nos permita, como crear un modelo de regresion lineal con <code>R</code> usando un data-frame creado en <code>Python</code></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>R <span class="op">-</span>i df2</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>lm(X2 <span class="op">~</span> X1 , data<span class="op">=</span>df2)</span></code></pre></div>
+<pre><code>Call:
+lm(formula = X2 ~ X1, data = df2)
+
+Coefficients:
+(Intercept)           X1  
+    9.84672      0.01499 </code></pre>
 <p><br></p>
-</div>
-<div id="bibliografía" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Bibliografía</h1>
+<p><strong>Bibliografía</strong></p>
 <p>Rpy2 Developers. R in Python. <em>Rpy2</em>. <a href="https://rpy2.github.io/" class="uri">https://rpy2.github.io/</a></p>
-</div>
 </div>
 
    

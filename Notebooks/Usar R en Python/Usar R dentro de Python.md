@@ -146,6 +146,7 @@ library(tidyverse)
 %%R
 tibble(columna1=a , columna2=b)
 ```
+```
 # A tibble: 5 x 2
   columna1 columna2
      <int>    <int>
@@ -154,11 +155,11 @@ tibble(columna1=a , columna2=b)
 3        3        8
 4        4        9
 5        5       10
-
+```
 
 <br>
 
-Podemos usar objetos creados en Python dentro de un bloque de codigo de R escribiendo al inicio del bloque *%%R -i objeto_python*
+Podemos usar objetos creados en `Python` dentro de un bloque de codigo de `R` escribiendo al inicio del bloque **%%R -i objeto_python**
 
 Vamos a ver un ejemplo de aplicacion de esto.
 Creamos un par de data-frames en Python:
@@ -171,6 +172,7 @@ df1 = pd.DataFrame({
 
 df1
 ```
+```
    cups_of_coffee  productivity
 0               0             2
 1               1             5
@@ -182,6 +184,7 @@ df1
 7               7             1
 8               8             0
 9               9            -1
+```
 
 
 ```python
@@ -192,7 +195,7 @@ df2 = pd.DataFrame({
 
 df2
 ```
-
+```
    X1  X2
 0   0   2
 1   3  25
@@ -204,7 +207,7 @@ df2
 7   7   1
 8   8   0
 9   9  -8
-
+```
 
 <br>
 
@@ -237,13 +240,14 @@ geom_point(color="blue")
 Si queremos usar dos o mas objetos de Python en un bloque de codigo en R escribimos al inicio del bloque *%%R -i objeto_python_1 -i objeto_python_2* etc 
 
 
-Como ejemplo aplicamos la funcion de R *cbind* a los dos data-frames creados en python:
+Como ejemplo aplicamos la funcion de `R` *cbind* a los dos data-frames creados en `Python`:
 
 
 ```python
 %%R -i df1 -i df2 
 
 cbind(df1 , df2)
+```
 ```
   cups_of_coffee productivity X1 X2
 0              0            2  0  2
@@ -256,29 +260,29 @@ cbind(df1 , df2)
 7              7            1  7  1
 8              8            0  8  0
 9              9           -1  9 -8
+```
 
 
-
-Podemos hacer cualquier cosa que R nos permita, como crear un modelo de regresion lineal con R usando un data-frame creado en Python
+Podemos hacer cualquier cosa que `R` nos permita, como crear un modelo de regresion lineal con `R` usando un data-frame creado en `Python`
 ```python
 %%R -i df2
 
 lm(X2 ~ X1 , data=df2)
 ```
-
+```
 Call:
 lm(formula = X2 ~ X1, data = df2)
 
 Coefficients:
 (Intercept)           X1  
     9.84672      0.01499 
-
+```
 
 
 
 <br>
 
-# Bibliografía
+**Bibliografía**
 
 
 Rpy2 Developers. R in Python. *Rpy2*.  https://rpy2.github.io/
