@@ -699,18 +699,20 @@ $$\widehat{\sigma}^2_* \hspace{0.1cm}=\hspace{0.1cm} Var(\varepsilon_i^*) \hspac
 ## Botstrap en Regresión Lineal basado en pares
 
 
-Este método consiste en remuestrar con reemplazamiento los pares $z_i = (x_i , y_i)$
+Este método consiste en remuestrar con reemplazamiento los pares $z_i = (x_i , y_i)\\$
 
-En este caso la muestra bootstrap es la siguiente:
 
-$$z^* = \lbrace  (x_1^* , y_1^*) ,..., (x_n^* , y_n^*)      \rbrace$$
-
-Donde:
-
-<div class="warning" style='background-color:#FED3D2; color: #F67B61; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<div class="warning" style='background-color:#FFE8E8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
 <p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ En este caso la muestra bootstrap es la siguiente:
+
+$$z^* = \lbrace  (x_1^* , y_1^*) ,..., (x_n^* , y_n^*)      \rbrace$$
+
+$\hspace{0.25cm}$ Donde:
+
 
 $$\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} x_j^* = x_i$$
 
