@@ -47,7 +47,7 @@ css: custom.css
 
  
 
-More articles in my blog:   $\hspace{0.1cm}$   [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)
+>More articles in my blog:   $\hspace{0.1cm}$   [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)
 
 <br>
 
@@ -70,7 +70,7 @@ data_Python
 ```
 
 ```
-      ca  datosECVmas16.prov   nomprov  gen  edad  nac  neduc  sitlab  \
+      ca  datosECVmas16.prov   nomprov  gen  edad  nac  neduc  sitlab  
 0      2                  22    Huesca    1     3    1      3       1   
 1      2                  22    Huesca    2     2    1      2       1   
 2      2                  22    Huesca    1     1    1      2       1   
@@ -124,7 +124,7 @@ ggplot( data_Python )
 
 <center>
 
-![](p1.png){width="45%"}
+![](p1.png){width="50%"}
 
 </center>
 
@@ -145,7 +145,7 @@ ggplot( data_Python )
 
 <center>
 
-![](p2.png){width="45%"}
+![](p2.png){width="50%"}
 
 </center>
 
