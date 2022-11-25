@@ -634,8 +634,6 @@ $$y_i = \beta\cdot x_i + \varepsilon_i \forall i \in \lbrace 1,...,n \rbrace\\$$
 
 El modelo de regresión lineal estimado por mínimos cuadrados ordinarios es:
 
-Tenemos un modelo de regresión lineal:
-
 $$y_i = \widehat{\beta}\cdot x_i  \forall i \in \lbrace 1,...,n \rbrace\\$$
 
 Donde:
@@ -713,6 +711,20 @@ Donde:
 $$\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} x_j^* = x_i$$
 
 $$\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} y_j^* = y_i$$
+
+
+El modelo de regresión lineal en este caso es:
+
+$$y_i^* = \beta\cdot x_i^* + \varepsilon_i \forall i \in \lbrace 1,...,n \rbrace\\$$
+
+El modelo de regresión lineal estimado por mínimos cuadrados ordinarios es:
+
+$$y_i^* = \widehat{\beta}\cdot x_i^*  \forall i \in \lbrace 1,...,n \rbrace\\$$
+
+Donde:
+
+$$\widehat{\beta} = (X^* \cdot {X^*}^{t})^{-1} \cdot {X^*}^{t} \cdot y$$
+
 
 
 
