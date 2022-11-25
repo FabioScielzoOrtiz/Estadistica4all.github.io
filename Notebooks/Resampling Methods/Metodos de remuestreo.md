@@ -707,7 +707,7 @@ $$z^* = \lbrace  (x_1^* , y_1^*) ,..., (x_n^* , y_n^*)      \rbrace$$
 
 Donde:
 
-<div class="warning" style='background-color:#F9BA88; color: #F67B61; border-left: solid #F67B61 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<div class="warning" style='background-color:#FED3D2; color: #F67B61; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
 <p style='margin-left:1em;'>
