@@ -47,6 +47,6 @@ css: custom.css
 
  
 
-More articles in my blog:   $\hspace{0.1cm}$   [Estadistica4all.com](http://estadistica4all.com/)
+>More articles in my blog:   $\hspace{0.1cm}$   [Estadistica4all.com](http://estadistica4all.com/)
 
  
