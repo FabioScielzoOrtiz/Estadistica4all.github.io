@@ -1178,7 +1178,7 @@ $\hspace{0.25cm}$ La estimación de $\hspace{0.1cm} \beta \hspace{0.1cm}$  en el
 $\hspace{0.25cm}$ Formalmente:
 
 
-$$\widehat{\beta}\hspace{0.15cm} =\hspace{0.15cm} arg \hspace{0.15cm} \hspace{0.15cm} \underset{\beta}{Min} \hspace{0.15cm}  RSS(\beta) \hspace{0.15cm}  =  \hspace{0.15cm}  arg \hspace{0.15cm} \underset{\beta}{Min} \hspace{0.2cm}  \sum_{i=1}^{n} \hspace{0.1cm}(y_i - x_i^t \cdot \beta)\hspace{0.02cm}^2  \hspace{0.2cm} = \hspace{0.15cm}  arg \hspace{0.15cm}  \underset{\beta_0,\beta_1,..,\beta_p}{Min} \hspace{0.2cm}  \sum_{i=1}^{n} \hspace{0.1cm}(y_i - \beta_0 - \beta_1 \cdot x_{i1} - \dots - \beta_p \cdot x_{ip})\hspace{0.02cm}^2$$
+$$\hspace{0.15cm} \widehat{\beta}\hspace{0.15cm} =\hspace{0.15cm} arg \hspace{0.15cm} \hspace{0.15cm} \underset{\beta}{Min} \hspace{0.15cm}  RSS(\beta) \hspace{0.15cm}  =  \hspace{0.15cm}  arg \hspace{0.15cm} \underset{\beta}{Min} \hspace{0.2cm}  \sum_{i=1}^{n} \hspace{0.1cm}(y_i - x_i^t \cdot \beta)\hspace{0.02cm}^2  \hspace{0.2cm} = \hspace{0.15cm}  arg \hspace{0.15cm}  \underset{\beta_0,\beta_1,..,\beta_p}{Min} \hspace{0.2cm}  \sum_{i=1}^{n} \hspace{0.1cm}(y_i - \beta_0 - \beta_1 \cdot x_{i1} - \dots - \beta_p \cdot x_{ip})\hspace{0.02cm}^2$$
 
 
 <br>
@@ -1186,9 +1186,13 @@ $$\widehat{\beta}\hspace{0.15cm} =\hspace{0.15cm} arg \hspace{0.15cm} \hspace{0.
 
 $\hspace{0.25cm}$ Existe una solución exacta del problema, que es la siguiente:
 
-\begin{gather*}
-\widehat{\beta}=(X^t \cdot X)^{-1} \cdot X^t \cdot Y
-\end{gather*}
+$$
+\widehat{\beta}\hspace{0.1cm}=\hspace{0.1cm}(X^t \cdot X)^{-1} \cdot X^t \cdot Y
+$$
+
+$\hspace{0.25cm}$ Donde:
+
+$$\widehat{\beta}\hspace{0.1cm}=\hspace{0.1cm}(\widehat{\beta}_0\hspace{0.1cm},\hspace{0.1cm} \widehat{\beta}_1 \hspace{0.1cm},...,\hspace{0.1cm}\widehat{\beta}_p)$$
 
  
 </p>
@@ -1202,7 +1206,7 @@ $\hspace{0.25cm}$ Existe una solución exacta del problema, que es la siguiente:
 
 **Interpretación :**
 
-$\hspace{0.2cm} \widehat{y} = x^t \cdot \widehat{\beta} \hspace{0.2cm}$ con $\hspace{0.2cm} x\in \mathbb{R}^p \hspace{0.2cm}$ es el hiperplano de dimensión $\hspace{0.1cm}p+1\hspace{0.1cm}$ que **minimiza** la **distancia Euclidea** entre los puntos $\hspace{0.1cm}\lbrace \hspace{0.1cm}(y_i , x_i)\hspace{0.1cm} / \hspace{0.1cm}i\in \lbrace 1,...,n \rbrace \hspace{0.1cm} \rbrace\hspace{0.1cm}$ y los puntos del hiperplano cuya segunda coordenada es $\hspace{0.1cm}x_i\hspace{0.1cm}$ para $\hspace{0.1cm}i\in \lbrace 1,...,n\rbrace\hspace{0.1cm}$ , es decir, los puntos $\hspace{0.1cm}\left\lbrace \hspace{0.1cm}(y_i , x_i)\hspace{0.1cm} / \hspace{0.1cm}  \hat{y}_i = x_i^t \cdot \widehat{\beta}  \hspace{0.2cm} , \hspace{0.2cm} i\in \lbrace 1,...,n \rbrace  \hspace{0.1cm} \right\rbrace\hspace{0.1cm}$ 
+$\hspace{0.2cm} \widehat{y} = x^t \cdot \widehat{\beta} \hspace{0.2cm}$ con $\hspace{0.2cm} x\in \mathbb{R}^p \hspace{0.2cm}$ es el hiperplano de dimensión $\hspace{0.1cm}p+1\hspace{0.1cm}$ que **minimiza** la **distancia Euclidea** entre los puntos $\hspace{0.1cm}\lbrace \hspace{0.1cm}(y_i , x_i)\hspace{0.15cm} / \hspace{0.15cm}i\in \lbrace 1,...,n \rbrace \hspace{0.1cm} \rbrace\hspace{0.1cm}$ y los puntos del hiperplano cuya segunda coordenada es $\hspace{0.1cm}x_i\hspace{0.1cm}$ para $\hspace{0.1cm}i\in \lbrace 1,...,n\rbrace\hspace{0.1cm}$ , es decir, los puntos $\hspace{0.1cm}\left\lbrace \hspace{0.1cm}(y_i , x_i)\hspace{0.15cm} / \hspace{0.15cm}  \hat{y}_i = x_i^t \cdot \widehat{\beta}  \hspace{0.2cm} , \hspace{0.2cm} i\in \lbrace 1,...,n \rbrace  \hspace{0.1cm} \right\rbrace\hspace{0.1cm}$ 
 
 
 
@@ -1236,7 +1240,7 @@ En este artículo no se va a mostrar los detalles matemáticos sobre cómo se de
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-$\hspace{0.25cm}$ The model errors  $\varepsilon$  are estimated as:
+$\hspace{0.25cm}$ Los errores del modelo $\varepsilon$ son estimados como sigue:
 
 <br>
 
@@ -1244,7 +1248,7 @@ $$
 \widehat{\varepsilon}_i \hspace{0.1 cm} = \hspace{0.1 cm} y_i - \widehat{y}_i \hspace{0.1 cm} = \hspace{0.1 cm} y_i - x_i^t \cdot \widehat{\beta}  
 $$
 
-$\hspace{0.25cm}$ for $\hspace{0.1cm}$ $i=1,...,n$
+$\hspace{0.25cm}$ para $\hspace{0.1cm}$ $i=1,...,n$
 
 </p>
  
@@ -1254,10 +1258,9 @@ $\hspace{0.25cm}$ for $\hspace{0.1cm}$ $i=1,...,n$
 <br>
 
 
-**Observation:**
+**Observación:**
 
-$\hat{\varepsilon}_i$  is the error done by the model when it
-predicts  $y_i$  as  $\widehat{y}_i=x_i^t \cdot \widehat{\beta}$
+$\hat{\varepsilon}_i\hspace{0.1cm}$ es el error que comete el modelo cuando predice    $y_i$  como  $\widehat{y}_i=x_i^t \cdot \widehat{\beta}$
 
 
 
@@ -1279,7 +1282,7 @@ $\hspace{0.25cm}$ El tamaño de los errores cometidos por el modelo suele cuanti
 
 
 
-$$RSS \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} \hat{\varepsilon}_i\hspace{0.02cm}^2 \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} (y_i - \widehat{y}_i)\hspace{0.02cm}^2 \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} (y_i - x_i^t \cdot \widehat{\beta})\hspace{0.02cm}^2 $$
+$$RSS(\beta) \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} \varepsilon_i\hspace{0.02cm}^2 \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} (y_i - x_i^t \cdot \beta)\hspace{0.02cm}^2 $$
 
 </p>
  
@@ -1291,7 +1294,9 @@ $$RSS \hspace{0.1 cm} = \hspace{0.1 cm} \sum_{i=1}^{n} \hat{\varepsilon}_i\hspac
 
 **Observation:**
 
-This quantity plays a central role in regression methods. As it was seen is the objective function in the OLS problem.
+Esta expresión juega un rol central en los modelos de regresión. 
+
+Notese que $RSS(\beta)$ es la función objetivo del problema de mínimos cuadrados.
 
 
  
@@ -1303,21 +1308,19 @@ This quantity plays a central role in regression methods. As it was seen is the 
 
 
 
-# Regression Hyperplane <a class="anchor" id="14"></a>
+#  Hiperplano de regresión <a class="anchor" id="14"></a>
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-$\hspace{0.25cm}$ The regression hyperplane is the matrix expression of the predictions
-that the model does of the response variable values: 
+$\hspace{0.25cm}$ El hiperplano de regresión se define como: 
 
-<br>
 
-$$ \widehat{Y} = X \cdot \widehat{\beta}$$
 
-<br>
+$$\widehat{\hspace{0.1cm} Y} \hspace{0.1cm}=\hspace{0.1cm} X \cdot \widehat{\beta}$$
 
-$\hspace{0.25cm}$ Where:    $\hspace{0.2cm} \widehat{Y}=(\widehat{y}_1,\widehat{y}_2,...,\widehat{y}_n)^t$
+
+$\hspace{0.25cm}$ Donde:    $\hspace{0.2cm} \widehat{\hspace{0.1cm} Y}\hspace{0.1cm}=\hspace{0.1cm}(\widehat{y}_1,\widehat{y}_2,...,\widehat{y}_n)^t$
 
 
 </p>
@@ -1332,7 +1335,7 @@ $\hspace{0.25cm}$ Where:    $\hspace{0.2cm} \widehat{Y}=(\widehat{y}_1,\widehat
 
 
 
-# Hat-Matrix <a class="anchor" id="15"></a>
+## Hat-Matrix <a class="anchor" id="15"></a>
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1341,16 +1344,15 @@ $\hspace{0.25cm}$ Where:    $\hspace{0.2cm} \widehat{Y}=(\widehat{y}_1,\widehat
 $\hspace{0.25cm}$ El hiperplano de regresión puede expresarse alternativamente como sigue:
 
 \begin{gather*}
-\widehat{Y} = X \cdot \widehat{\beta} = X \cdot (X^t \cdot X)^{-1} \cdot X^t \cdot Y = H \cdot Y  
+\widehat{\hspace{0.1cm}Y} = X \cdot \widehat{\beta} = X \cdot (X^t \cdot X)^{-1} \cdot X^t \cdot Y = H \cdot Y  
 \end{gather*}
 
-<br>
+ 
+$\hspace{0.25cm}$ Donde:  
 
-$\hspace{0.25cm}$ Where:  
+$$H= X \cdot (X^t \cdot X)^{-1} \cdot X^t$$
 
- $$H= X \cdot (X^t \cdot X)^{-1} \cdot X^t$$
-
-$\hspace{0.25cm}$ is called **Hat-Matrix**
+$\hspace{0.25cm}$ es llamada **Hat-Matrix**
 
 </p>
  
@@ -1372,11 +1374,11 @@ $\hspace{0.25cm}$ is called **Hat-Matrix**
 
 
 
-# Estimation of Linear Regression Model in `Python`   
+# Estimación del modelo de regresión lineal en `Python`   
 
 <br>
 
-### Estimation of Linear Regression Model in `Python` with `statsmodels` <a class="anchor" id="17"></a>
+## Usando la libreria `statsmodels` <a class="anchor" id="17"></a>
 
 
 
@@ -1384,7 +1386,7 @@ We can implement a linear regression model in Python with the package `statsmode
 
 <br>
 
-***First way:*** $\hspace{0.1cm}$ `statsmodels.formula.api`
+***Primera forma:*** $\hspace{0.1cm}$ usando `statsmodels.formula.api`
 
 
 ```python
@@ -1446,13 +1448,17 @@ print(model_Py_smf.summary())
 <br>
 
 
-***Second way:***  $\hspace{0.1cm}$  `statsmodels.api`
+***Segunda forma:***  $\hspace{0.1cm}$ usando  `statsmodels.api`
 
-One of the most important differences is that `statsmodels.api` does not fit the intercept, while `statsmodels.formula.api` does.
+Una de las diferencias más importantes entre la primera y la segunda forma de usar `statmodels` para estimar un modelo de regresión lineal es que `statsmodels.api` no estima el intercepto $(\beta_0)$ , mientras que `statsmodels.formula.api` si.
 
-Another important difference is that `statsmodels.api` doesn't deal well with categorical predictors, while `statsmodels.formula.api` does.
+Otra importante diferencia es que `statsmodels.api` no entiende si un predictor es categorico, mientras que`statsmodels.formula.api` si.
 
-To fit the intercept and properly treat categorical predictors with `statsmodels.api` we need to add the intercept and the dummy (binary) variables associated with the categorical predictors to the data matrix $X$ as new predictors, and this can be done using the function `varcharProcessing `.
+Para estimar el intercepto e incluir predictores categoricos usando `statsmodels.api` necesitamos añadir tanto el intercepto como un vector de unos, como las variables dummies asociadas a los predictores categoricos, a la  matriz de predictores $X$ como nuevas columnas (y dejar de considerar las columnas asociadas a los predictores categoricos), y esto puede hacerse facilmente usando la función `varcharProcessing` , la cual expondremos a continuación.
+
+**Observación :**
+
+Las variables dummies asociadas a los predictores categoricos son las variables que se obtienen al *dummificar* una variable categorica. Este procedimiento será visto con más detalle en otro artículo.
 
 
 ```python
@@ -1482,7 +1488,7 @@ def varcharProcessing(X, varchar_process = "dummy_dropfirst"):
 
 <br>
 
-Let's see how `varcharProcessing ` works:
+Vamos a ver como funciona `varcharProcessing` :
 
 
 ```python
@@ -1672,23 +1678,35 @@ varcharProcessing(X, varchar_process = "dummy_dropfirst").head()
 <br>
 
 
+Importamos ahora `statsmodels.api`
+
 ```python
 import statsmodels.api as sm
 ```
 
+Creamos la matriz $X$ y el vector $Y$
 
 ```python
 X = data_Python[['size_in_m_2', 'longitude', 'latitude', 'no_of_bedrooms', 'no_of_bathrooms', 'quality']]
 
-X = varcharProcessing(X, varchar_process = "dummy_dropfirst")
+Y = data_Python['price']
+```
 
-y = data_Python['price']
+Ahora aplicamos la funcion `varcharProcessing` sobre $X$ para hacer las transformaciones necesarias para poder estimar el intercepto e incluir predictores categoricos en la regresión, como antes se mencionó.
+
+```python
+X = varcharProcessing(X, varchar_process = "dummy_dropfirst")
 ```
 
 
+Ajustamos el modelo:
+
 ```python
 model_Py_sm = sm.OLS(y , X).fit()
+```
 
+Imprimimos una tabla resumen sobre el modelo ajustado:
+```python
 print(model_Py_sm.summary())
 ```
 
@@ -1731,12 +1749,10 @@ print(model_Py_sm.summary())
 
 <br>
 
-The previous output gives us the estimation of the model coefficients
-(betas), both outputs give similar results (but we will consider the python output):
+Esta salida nos da, entre otras cosas, la estimación de los coeficientes (betas) del modelo:
 
-<br>
 
-- $\widehat{\beta}_0 =  -6.207e+07 \\$
+- $\hspace{0.1cm} \widehat{\beta}_0 \hspace{0.1cm} =\hspace{0.1cm} -6.207\cdot 10^7 \\$
 
 
 - $\widehat{\beta}_{size\_in\_m\_2} =3.566e+04 \\$
@@ -1761,8 +1777,7 @@ The previous output gives us the estimation of the model coefficients
 
 <br>
 
-So, the estimated model is:
-
+Así que el modelo estimado es el siguiente:
 
 \begin{gather*}
 \widehat{price}_i =  -6.207e+07 +  3.566e+04 \cdot size\_in\_m\_2_i -8.367e+05 \cdot no\_of\_bedrooms_i -5.712e+04 \cdot no\_of\_bathrooms_i +\\ 1.4e+05 \cdot quality1_i + 3.406e+05\cdot quality2_i + 2.788e+05  \cdot quality3_i  +6.115e+06\cdot  latitude_i -1.677e+06   \cdot longitude_i 
@@ -1787,7 +1802,7 @@ Later it will be seen how this affects model coefficients interpretation.
 
 
 
-### Estimation of Linear Regression Model in `Python` with `scikit-learn` <a class="anchor" id="18"></a>
+## Usando la libreria  `scikit-learn` <a class="anchor" id="18"></a>
 
 
 
@@ -1975,6 +1990,7 @@ Note that the order of the array values follows the order of $X$ columns.
 <br>
 
 
+<br>
 
 ## Precision of beta coefficients estimation <a class="anchor" id="19"></a>
 
