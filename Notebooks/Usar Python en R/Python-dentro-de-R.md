@@ -1,5 +1,5 @@
 ---
-title: 'Usar R dentro de Python'
+title: 'Usar Python dentro de R'
 author: 'Fabio Scielzo Ortiz'
 date: '16/10/22'
 output: 
