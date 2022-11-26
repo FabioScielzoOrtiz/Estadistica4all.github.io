@@ -3574,7 +3574,7 @@ x_{n}
 <p><br></p>
 <div id="usando-la-libreria-statsmodels" class="section level2" number="9.1">
 <h2><span class="header-section-number">9.1</span> Usando la libreria <code>statsmodels</code> <a class="anchor" id="17"></a></h2>
-<p>We can implement a linear regression model in Python with the package <code>statsmodels</code> following two ways.</p>
+<p>Podemos implementar un modelo de regresión lineal en Python con la libreria <code>statsmodels</code> siguiendo dos caminos.</p>
 <p><br></p>
 <p><strong><em>Primera forma:</em></strong> <span class="math inline">\(\hspace{0.1cm}\)</span> usando <code>statsmodels.formula.api</code></p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install statmodels</span></span></code></pre></div>
@@ -3623,7 +3623,7 @@ strong multicollinearity or other numerical problems.</code></pre>
 <p><strong><em>Segunda forma:</em></strong> <span class="math inline">\(\hspace{0.1cm}\)</span> usando <code>statsmodels.api</code></p>
 <p>Una de las diferencias más importantes entre la primera y la segunda forma de usar <code>statmodels</code> para estimar un modelo de regresión lineal es que <code>statsmodels.api</code> no estima el intercepto <span class="math inline">\((\beta_0)\)</span> , mientras que <code>statsmodels.formula.api</code> si.</p>
 <p>Otra importante diferencia es que <code>statsmodels.api</code> no entiende si un predictor es categorico, mientras que<code>statsmodels.formula.api</code> si.</p>
-<p>Para estimar el intercepto e incluir predictores categoricos usando <code>statsmodels.api</code> necesitamos añadir tanto el intercepto como un vector de unos, como las variables dummies asociadas a los predictores categoricos, a la matriz de predictores <span class="math inline">\(X\)</span> como nuevas columnas (y dejar de considerar las columnas asociadas a los predictores categoricos), y esto puede hacerse facilmente usando la función <code>varcharProcessing</code> , la cual expondremos a continuación.</p>
+<p>Para estimar el intercepto e incluir predictores categoricos usando <code>statsmodels.api</code> necesitamos añadir tanto el intercepto como un vector de unos, como las variables dummies asociadas a los predictores categoricos, a la matriz de predictores <span class="math inline">\(X\)</span> como nuevas columnas (y dejar de considerar las columnas asociadas a los predictores categoricos), y esto puede hacerse facilmente usando la función <code>varcharProcessing</code> , la cual expondremos a continuación. <span class="math inline">\(\\[0.3cm]\)</span></p>
 <p><strong>Observación :</strong></p>
 <p>Las variables dummies asociadas a los predictores categoricos son las variables que se obtienen al <em>dummificar</em> una variable categorica. Este procedimiento será visto con más detalle en otro artículo.</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> varcharProcessing(X, varchar_process <span class="op">=</span> <span class="st">&quot;dummy_dropfirst&quot;</span>):</span>
@@ -4022,7 +4022,7 @@ quality_3
 <p><br></p>
 <p>Importamos ahora <code>statsmodels.api</code></p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span></code></pre></div>
-<p>Creamos la matriz <span class="math inline">\(X\)</span> y el vector <span class="math inline">\(Y\)</span></p>
+<p>Creamos la matriz <span class="math inline">\(\hspace{0.1cm} X\hspace{0.1cm}\)</span> y el vector <span class="math inline">\(\hspace{0.1cm}Y\)</span></p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> data_Python[[<span class="st">&#39;size_in_m_2&#39;</span>, <span class="st">&#39;longitude&#39;</span>, <span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;no_of_bedrooms&#39;</span>, <span class="st">&#39;no_of_bathrooms&#39;</span>, <span class="st">&#39;quality&#39;</span>]]</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> data_Python[<span class="st">&#39;price&#39;</span>]</span></code></pre></div>
@@ -4070,19 +4070,19 @@ strong multicollinearity or other numerical problems.</code></pre>
 <p>Esta salida nos da, entre otras cosas, la estimación de los coeficientes (betas) del modelo:</p>
 <ul>
 <li><p><span class="math inline">\(\hspace{0.1cm} \widehat{\beta}_0 \hspace{0.1cm} =\hspace{0.1cm} -6.207\cdot 10^7 \\\)</span></p></li>
-<li><p><span class="math inline">\(\widehat{\beta}_{size\_in\_m\_2} =3.566e+04 \\\)</span></p></li>
-<li><p><span class="math inline">\(\widehat{\beta}_{longitude}= -1.677e+06 \\\)</span></p></li>
-<li><p><span class="math inline">\(\widehat{\beta}_{latitude}=6.115e+06 \\\)</span></p></li>
-<li><p><span class="math inline">\(\widehat{\beta}_{no\_of\_bedrooms} = -8.367e+05 \\\)</span></p></li>
-<li><p><span class="math inline">\(\widehat{\beta}_{no\_of\_bathrooms} = -5.712e+04 \\\)</span></p></li>
-<li><p><span class="math inline">\(\widehat{\beta}_{quality1} =1.4e+05 \\\)</span></p></li>
-<li><p><span class="math inline">\(\widehat{\beta}_{quality2} = 3.406e+05 \\\)</span></p></li>
-<li><p><span class="math inline">\(\widehat{\beta}_{quality3} = 2.788e+05 \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_{size\_in\_m\_2} \hspace{0.1cm} =\hspace{0.1cm} 3.566\cdot 10^4 \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_{longitude}= -1.677\cdot 10^6 \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_{latitude}=6.115\cdot 10^6 \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_{no\_of\_bedrooms} \hspace{0.1cm}=\hspace{0.1cm} -8.367\cdot 10^5 \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_{no\_of\_bathrooms} \hspace{0.1cm}=\hspace{0.1cm} -5.712\cdot 10^4 \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_{quality1} \hspace{0.1cm}=\hspace{0.1cm} 1.4\cdot 10^5 \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_{quality2} \hspace{0.1cm}=\hspace{0.1cm} 3.406\cdot 10^5 \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_{quality3} \hspace{0.1cm}=\hspace{0.1cm} 2.788\cdot 10^5 \\\)</span></p></li>
 </ul>
 <p><br></p>
 <p>Así que el modelo estimado es el siguiente:</p>
 <p><span class="math display">\[\begin{gather*}
-\widehat{price}_i =  -6.207e+07 +  3.566e+04 \cdot size\_in\_m\_2_i -8.367e+05 \cdot no\_of\_bedrooms_i -5.712e+04 \cdot no\_of\_bathrooms_i +\\ 1.4e+05 \cdot quality1_i + 3.406e+05\cdot quality2_i + 2.788e+05  \cdot quality3_i  +6.115e+06\cdot  latitude_i -1.677e+06   \cdot longitude_i
+\widehat{price}_i =  -6.207\cdot 10^7 +  3.566\cdot 10^4 \cdot size\_in\_m\_2_i -8.367\cdot 10^5 \cdot no\_of\_bedrooms_i -5.712\cdot 10^4 \cdot no\_of\_bathrooms_i +\\ 1.4\cdot 10^5 \cdot quality1_i + 3.406\cdot 10^5\cdot quality2_i + 2.788\cdot 10^5  \cdot quality3_i  +6.115\cdot 10^6\cdot  latitude_i -1.677\cdot 10^6   \cdot longitude_i
 \end{gather*}\]</span></p>
 <p><br></p>
 <p><strong>Observation:</strong></p>

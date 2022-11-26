@@ -1381,8 +1381,7 @@ $\hspace{0.25cm}$ es llamada **Hat-Matrix**
 ## Usando la libreria `statsmodels` <a class="anchor" id="17"></a>
 
 
-
-We can implement a linear regression model in Python with the package `statsmodels` following two ways.
+Podemos implementar un modelo de regresión lineal en Python con la libreria `statsmodels` siguiendo dos caminos.
 
 <br>
 
@@ -1454,7 +1453,8 @@ Una de las diferencias más importantes entre la primera y la segunda forma de u
 
 Otra importante diferencia es que `statsmodels.api` no entiende si un predictor es categorico, mientras que`statsmodels.formula.api` si.
 
-Para estimar el intercepto e incluir predictores categoricos usando `statsmodels.api` necesitamos añadir tanto el intercepto como un vector de unos, como las variables dummies asociadas a los predictores categoricos, a la  matriz de predictores $X$ como nuevas columnas (y dejar de considerar las columnas asociadas a los predictores categoricos), y esto puede hacerse facilmente usando la función `varcharProcessing` , la cual expondremos a continuación.
+Para estimar el intercepto e incluir predictores categoricos usando `statsmodels.api` necesitamos añadir tanto el intercepto como un vector de unos, como las variables dummies asociadas a los predictores categoricos, a la  matriz de predictores $X$ como nuevas columnas (y dejar de considerar las columnas asociadas a los predictores categoricos), y esto puede hacerse facilmente usando la función `varcharProcessing` , la cual expondremos a continuación. $\\[0.3cm]$
+
 
 **Observación :**
 
@@ -1684,7 +1684,7 @@ Importamos ahora `statsmodels.api`
 import statsmodels.api as sm
 ```
 
-Creamos la matriz $X$ y el vector $Y$
+Creamos la matriz $\hspace{0.1cm} X\hspace{0.1cm}$ y el vector $\hspace{0.1cm}Y$
 
 ```python
 X = data_Python[['size_in_m_2', 'longitude', 'latitude', 'no_of_bedrooms', 'no_of_bathrooms', 'quality']]
@@ -1755,21 +1755,21 @@ Esta salida nos da, entre otras cosas, la estimación de los coeficientes (betas
 - $\hspace{0.1cm} \widehat{\beta}_0 \hspace{0.1cm} =\hspace{0.1cm} -6.207\cdot 10^7 \\$
 
 
-- $\widehat{\beta}_{size\_in\_m\_2} =3.566e+04 \\$
+- $\hspace{0.1cm}\widehat{\beta}_{size\_in\_m\_2} \hspace{0.1cm} =\hspace{0.1cm} 3.566\cdot 10^4 \\$
 
-- $\widehat{\beta}_{longitude}= -1.677e+06 \\$
+- $\hspace{0.1cm}\widehat{\beta}_{longitude}= -1.677\cdot 10^6 \\$
 
-- $\widehat{\beta}_{latitude}=6.115e+06 \\$
+- $\hspace{0.1cm}\widehat{\beta}_{latitude}=6.115\cdot 10^6 \\$
 
-- $\widehat{\beta}_{no\_of\_bedrooms} = -8.367e+05 \\$
+- $\hspace{0.1cm}\widehat{\beta}_{no\_of\_bedrooms} \hspace{0.1cm}=\hspace{0.1cm} -8.367\cdot 10^5 \\$
 
-- $\widehat{\beta}_{no\_of\_bathrooms} = -5.712e+04 \\$
+- $\hspace{0.1cm}\widehat{\beta}_{no\_of\_bathrooms} \hspace{0.1cm}=\hspace{0.1cm} -5.712\cdot 10^4 \\$
 
-- $\widehat{\beta}_{quality1} =1.4e+05 \\$
+- $\hspace{0.1cm}\widehat{\beta}_{quality1} \hspace{0.1cm}=\hspace{0.1cm} 1.4\cdot 10^5 \\$
 
-- $\widehat{\beta}_{quality2} = 3.406e+05 \\$
+- $\hspace{0.1cm}\widehat{\beta}_{quality2} \hspace{0.1cm}=\hspace{0.1cm} 3.406\cdot 10^5 \\$
 
-- $\widehat{\beta}_{quality3} = 2.788e+05 \\$
+- $\hspace{0.1cm}\widehat{\beta}_{quality3} \hspace{0.1cm}=\hspace{0.1cm} 2.788\cdot 10^5 \\$
 
 
  
@@ -1780,7 +1780,7 @@ Esta salida nos da, entre otras cosas, la estimación de los coeficientes (betas
 Así que el modelo estimado es el siguiente:
 
 \begin{gather*}
-\widehat{price}_i =  -6.207e+07 +  3.566e+04 \cdot size\_in\_m\_2_i -8.367e+05 \cdot no\_of\_bedrooms_i -5.712e+04 \cdot no\_of\_bathrooms_i +\\ 1.4e+05 \cdot quality1_i + 3.406e+05\cdot quality2_i + 2.788e+05  \cdot quality3_i  +6.115e+06\cdot  latitude_i -1.677e+06   \cdot longitude_i 
+\widehat{price}_i =  -6.207\cdot 10^7 +  3.566\cdot 10^4 \cdot size\_in\_m\_2_i -8.367\cdot 10^5 \cdot no\_of\_bedrooms_i -5.712\cdot 10^4 \cdot no\_of\_bathrooms_i +\\ 1.4\cdot 10^5 \cdot quality1_i + 3.406\cdot 10^5\cdot quality2_i + 2.788\cdot 10^5  \cdot quality3_i  +6.115\cdot 10^6\cdot  latitude_i -1.677\cdot 10^6   \cdot longitude_i 
 \end{gather*}
 
 <br>
