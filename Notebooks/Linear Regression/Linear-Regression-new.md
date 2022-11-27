@@ -1365,10 +1365,6 @@ $\hspace{0.25cm}$ es llamada **Hat-Matrix**
 
 
 
- 
-
-
-
 
 <br>
 
@@ -1378,7 +1374,7 @@ $\hspace{0.25cm}$ es llamada **Hat-Matrix**
 
 <br>
 
-## Usando la libreria `statsmodels` <a class="anchor" id="17"></a>
+## Usando `statsmodels` <a class="anchor" id="17"></a>
 
 
 Podemos implementar un modelo de regresión lineal en Python con la libreria `statsmodels` siguiendo dos caminos.
@@ -1775,9 +1771,7 @@ Esta salida nos da, entre otras cosas, la estimación de los coeficientes (betas
  
 
 
-<br>
-
-Así que el modelo estimado es el siguiente:
+El modelo estimado es el siguiente:
 
 \begin{gather*}
 \widehat{price}_i =  -6.207\cdot 10^7 +  3.566\cdot 10^4 \cdot size\_in\_m\_2_i -8.367\cdot 10^5 \cdot no\_of\_bedrooms_i -5.712\cdot 10^4 \cdot no\_of\_bathrooms_i +\\ 1.4\cdot 10^5 \cdot quality1_i + 3.406\cdot 10^5\cdot quality2_i + 2.788\cdot 10^5  \cdot quality3_i  +6.115\cdot 10^6\cdot  latitude_i -1.677\cdot 10^6   \cdot longitude_i 
@@ -1785,16 +1779,13 @@ Así que el modelo estimado es el siguiente:
 
 <br>
 
-**Observation:**
+**Observación:**
 
-The  categorical variable, *quality*, that has 4 categories (Low (0), Medium (1),
-High (2), Ultra (3)), enter in the model with 3 variables (quality1 ,
-quality2, quality3 ). The category that is out of the model is Low (0) because is the firs category (also called reference category). 
+La variable categorica **quality** que tiene 4 categoriass (Low (0), Medium (1),
+High (2), Ultra (3)), entra en el modelo con 3 variables dummies (quality1 ,
+quality2, quality3 ), que se corresponden con las obtenidas al dummificacar la variable **quality**, si se toma como categoria estandar Low (0).
 
-This isn´t a particularity of this variable, but rather it´s a property of the categorical variables in the linear regression model.
-
-Later it will be seen how this affects model coefficients interpretation.  
-
+Esto no es algo particular de esta variable, si no que es una caracteristica del modelo de regresión lineal. Posteriormente se verá con más detalle.
 
 
 
@@ -1802,15 +1793,15 @@ Later it will be seen how this affects model coefficients interpretation.
 
 
 
-## Usando la libreria  `scikit-learn` <a class="anchor" id="18"></a>
+## Usando  `scikit-learn` <a class="anchor" id="18"></a>
 
 
-
+Instalamos la libreria:
 ```python
 # pip install sklearn
 ```
 
-
+Importamos la libreria y los módulos que vamos a utilizar:
 ```python
 import sklearn
 
@@ -1821,18 +1812,14 @@ from sklearn.model_selection import train_test_split
 
 <br>
 
-We can use a training data-set to train the model in Python with the  `scikit-learn` module. 
-
-This concepts will be seen with much more detail in a specific article about cross validation techniques.
-
-
-
+Cargamos la matriz $X$ y el vector $Y$
 
 ```python
 X = data_Python[['size_in_m_2', 'longitude', 'latitude', 'no_of_bedrooms', 'no_of_bathrooms', 'quality']]
 y = data_Python['price']
 ```
 
+Transformamos la matriz $\hspace{0.1cm}X\hspace{0.1cm}$ para poder estimar el intercepto e incluir variables categoricas, al igual que tuvimos que hacer al usar `statsmodels.api`.
 
 ```python
 X = varcharProcessing(X, varchar_process = "dummy_dropfirst")
@@ -1944,17 +1931,7 @@ X.head()
 
 <br>
 
-We can fit a linear regression model with `sk-learn` :
-
-
-```python
-from sklearn.linear_model import LinearRegression
-```
-
-<br>
-
-We can fit the model with the full data-set:
-
+Ajustamos el modelo:
 
 ```python
 Model_Py_sklearn = LinearRegression().fit(X, y)
@@ -1962,8 +1939,7 @@ Model_Py_sklearn = LinearRegression().fit(X, y)
 
 <br>
 
-We can compute the coefficients of the model:
-
+Podemos obtener las estimaciones de los coeficientes del siguiente modo:
 
 ```python
 Model_Py_sklearn.intercept_
@@ -1983,7 +1959,9 @@ Model_Py_sklearn.coef_
              140018.66529665,   340613.10347113,   278761.44732511])
 
 
-Note that the order of the array values follows the order of $X$ columns.
+
+Notese que la $\hspace{0.1cm} j$-esima componente de este array es $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ , para $\hspace{0.1cm}j=1,...,p$
+Note that the order of the array values follows the order of $\hspace{0.1cm}X\hspace{0.1cm}$ columns.
 
 
 
@@ -1992,27 +1970,27 @@ Note that the order of the array values follows the order of $X$ columns.
 
 <br>
 
-## Precision of beta coefficients estimation <a class="anchor" id="19"></a>
+# Precisión de las estimaciones de los coeficientes <a class="anchor" id="19"></a>
 
 
 
-The precision of the estimations of model beta coefficients  is given by the
- variance of the beta coefficient estimators, that is, by $\hspace{0.02cm}$  $Var(\widehat{\beta}_j)$
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+$\hspace{0.25cm}$La precisión de las estimaciones de los coeficientes del modelo es cuantificada con la varianza de los estimadores de los coeficientes, es decir,  $\hspace{0.1cm}$  $Var(\widehat{\beta}_j)$
 
-<br>
+$\hspace{0.25cm}$Se cumple que:
 
-It´s true that $\hspace{0.1cm}$ 
-$\widehat{\beta}_j \sim N \left( \beta_j \hspace{0.1cm},\hspace{0.1cm} \sqrt{ \sigma^2 \cdot q_{jj} } \right)$ $\hspace{0.1cm}$ then we have:
-
-<br>
-
- $$Var(\widehat{\beta}_j)\hspace{0.1cm}= \hspace{0.1cm}\sigma^2 \cdot q_{jj}$$
-
-<br>
+$$\widehat{\beta}_j \sim N \left( \beta_j \hspace{0.1cm},\hspace{0.1cm}  \sigma^2 \cdot q_{jj}   \right)$$
 
 
+$\hspace{0.25cm}$Por tanto, se tiene que:
 
-Therefore, the estimation of the variance of $\hspace{0.05cm}$  $\widehat{\beta}_j$  $\hspace{0.05cm}$  is : 
+$$Var(\widehat{\beta}_j)\hspace{0.1cm}= \hspace{0.1cm}\sigma^2 \cdot q_{jj}$$
+
+
+
+$\hspace{0.25cm}$ Por lo que la estimacion de la varianza de  $\hspace{0.05cm}$  $\widehat{\beta}_j$  $\hspace{0.05cm}$  es : 
 
 <br>
 
@@ -2021,55 +1999,29 @@ Therefore, the estimation of the variance of $\hspace{0.05cm}$  $\widehat{\beta}
 
 
 
+$\hspace{0.25cm}$ Donde:
+
+
+
+$\hspace{0.35cm} \widehat{\sigma}\hspace{0.02cm}^2 \hspace{0.1cm}$  es la estimacion de la varianza de los residuos  , i.e, $\hspace{0.1cm}$ $\widehat{\sigma}\hspace{0.02cm}^2 = \widehat{Var}(\varepsilon_i)$
+
+
+$\hspace{0.35cm}q_{jj} \hspace{0.1cm}=\hspace{0.1cm} diag(X^t \cdot X)^{-1}[j+1]$  $\hspace{0.2cm} ,$  $\hspace{0.2cm}\forall j=0,1,...,p$
+
+
+ </p>
+ 
+</p></span>
+</div>
+
+
 <br>
 
-Where:
+ ***¿ Por qué la varianza de los estimadores de los coeficientes es importante ?***
 
+La varianza de los estimadores de los coeficientes indica cuanto varian las estimaciones generadas a partir de ellos de una muestra a otra. Cuando la varianza es alta, las estimaciones de los coeficientes varian mucho de una muestra a otra, luego son estimaciones muy imprecisas. Por el contrario cuando la varianza es baja, las estimaciones de los coeficientes varian poco de una muestra a otra, luego las estimaciones son precisas.
 
-
-$\widehat{\sigma}\hspace{0.02cm}^2 \hspace{0.1cm}$  is the estimation of the  error variance  , i.e, $\hspace{0.1cm}$ $\widehat{\sigma}\hspace{0.02cm}^2 = \widehat{Var}(\varepsilon_i)$
-
-
-$q_{jj}$ $\hspace{0.05cm}$  is the element  $\hspace{0.1cm}j+1\hspace{0.1cm}$  of the principal diagonal of the matrix $\hspace{0.1cm}$ $(X^t \cdot X)^{-1}$  $\hspace{0.1cm}$ , $\forall j=0,1,...,p$
-
-
-
-<br>
-
- ***¿ Why are the variance of the coefficient estimators important ?***
-
-
-The standard deviation of beta coefficient estimators indicates how much
-the estimations of the coefficients deviate/vary, in mean, when the model is re-trained using many different samples of the predictors and response variable.
-
-
-
-Suppose many samples of the predictors and response are obtained, and with each of them a linear
-regression model is trained. Then, we get many estimations of the model beta
-coefficients, one with each sample.
-
-Then  $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_j)}\hspace{0.1cm}$  indicates how much
-$\hspace{0.1cm}\widehat{\beta_j}\hspace{0.1cm}$ varies, in mean, from one sample to another.
-
-
-
-If the standard deviation is **high**, this indicates that will be obtained
-big differences when $\hspace{0.1cm}\beta_j\hspace{0.1cm}$ is estimate with $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$
-depending on the sample that is used for estimate it, that means
-estimator $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ is **imprecise**, because it will be much
-dispersion of the values of $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ respect to the mean.
-
-On the contrary, if the standard deviation is **low**, this indicates that
-will be obtained small differences when $\hspace{0.1cm}\beta_j\hspace{0.1cm}$ is estimate with
-$\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ depending on the sample that is used for estimate it,
-that means estimator $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ is **precise**, because it will be little
-dispersion of the values of $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ respect to the mean.
-
-
-
-$\widehat{Var}(\widehat{\beta}_j)\hspace{0.05cm}$ allow us to create a confidence interval for $\hspace{0.05cm}\widehat{\beta}_j \hspace{0.05cm}$ too
-
-
+ 
 
 &nbsp;
 
@@ -2078,7 +2030,7 @@ $\widehat{Var}(\widehat{\beta}_j)\hspace{0.05cm}$ allow us to create a confidenc
  
 
 
-### Estimation of beta estimators standard deviation  in `Python` <a class="anchor" id="21"></a>
+## Estimación de la varianza de los estimadores de los coeficientes en `Python` <a class="anchor" id="21"></a>
 
 
 
@@ -2123,48 +2075,31 @@ print(model_Py_sm.summary())
     
 
 
+Esta salida nos da entre otras cosas la desviación típica (`std err`) de los estimadores de los coeficientes:
 
-This output give us a lot of information about the model, some of this
-information has been seen (estimates coefficients), an other information
-will be seen later.
-
-Now we will focus in the part of the output where are the estimation of   coefficients estimators standard error (`std err` in Python , `Std.Error` in R).
 
 <br>
 
-- $\sqrt{\widehat{Var}(\widehat{\beta_0})}=2.995e+07 \\$
+- $\hspace{0.1cm} \sqrt{\widehat{Var}(\widehat{\beta_0})}=2.995\cdot 10^7 \\$
 
-- $\sqrt{\widehat{Var}(\widehat{\beta}_{quality1})}=8.358e+04 \\$ 
+- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{quality1})}=8.358\cdot 10^4 \\$ 
 
-- $\sqrt{\widehat{Var}(\widehat{\beta}_{quality2})}=1.551e+05 \\$
+- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{quality2})}=1.551\cdot 10^5 \\$
 
-- $\sqrt{\widehat{Var}(\widehat{\beta}_{quality3})}= 1.976e+05 \\$
+- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{quality3})}= 1.976\cdot 10^5 \\$
 
-- $\sqrt{\widehat{Var}(\widehat{\beta}_{size\_in\_m\_2})}= 7.238e+02 \\$
+- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{size\_in\_m\_2})}= 7.238\cdot 10^2 \\$
 
-- $\sqrt{\widehat{Var}(\widehat{\beta}_{no\_of\_bedrooms})}=8.282e+04 \\$
+- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{no\_of\_bedrooms})}=8.282\cdot 10^4 \\$
 
-- $\sqrt{\widehat{Var}(\widehat{\beta}_{no\_of\_bathrooms})}=6.829e+04 \\$
+- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{no\_of\_bathrooms})}=6.829\cdot 10^4 \\$
 
-- $\sqrt{\widehat{Var}(\widehat{\beta}_{latitude})}=7.809e+05 \\$
+- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{latitude})}=7.809\cdot 10^5 \\$
 
-- $\sqrt{\widehat{Var}(\widehat{\beta}_{longitude})}=6.908e+05 \\$
+- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{longitude})}=6.908\cdot 10^5 \\$
  
   
   
-   
-  
-<br>
-
-The estimations of the estimators standard of the beta coefficients estimators  are, in
-general, so high. This implies if we train the model with another
-samples, we will get estimations of beta coefficients quite different than
-the one obtained with our initial sample.
-
-And this is a big problem, because from one sample to another are
-obtained very different linear regression models, so that, very
-different results with each sample.
-
 
 
 
@@ -2174,14 +2109,14 @@ different results with each sample.
 
  
 
-## Model Predictions in `Python`
-
-<br>
-
-### Model Predictions in `Python` with `Statsmodels` <a class="anchor" id="23"></a>
+# Predicciones del modelo de regresión lineal en `Python`
 
 
-**Option one: `smf`**
+
+## Usando   `Statsmodels` <a class="anchor" id="23"></a>
+
+
+**Opción uno: usar `smf`**
 
 
 ```python
@@ -2189,9 +2124,10 @@ model_Py_smf = smf.ols(formula = 'price ~ size_in_m_2 + no_of_bedrooms + no_of_b
                  data =data_Python).fit()
 ```
 
+<br>
 
 
-**Using train data:**
+**Usando los datos con los que se entrenó el modelo:**
 
 
 ```python
@@ -2215,7 +2151,7 @@ model_Py_smf = smf.ols(formula = 'price ~ size_in_m_2 + no_of_bedrooms + no_of_b
 <br>
 
 
-**Using new data:**
+**Usando nuevos datos:**
 
 
 ```python
@@ -2330,7 +2266,7 @@ new_data.head()
 <br>
 
 
-**Option two: `sm`**
+**Opción dos: usar `sm`**
 
 
 ```python
@@ -2338,8 +2274,9 @@ model_Py_sm = sm.OLS(y , X).fit()
 ```
 
  
+ <br>
 
-**Using train data:**
+**Usando los datos con los que se entrenó el modelo:**
 
 
 ```python
@@ -2360,7 +2297,9 @@ model_Py_sm = sm.OLS(y , X).fit()
     Length: 1905, dtype: float64
     
 
-**Using new data:** 
+<br>
+
+**Usando nuevos datos:** 
 
 
 ```python
@@ -2493,12 +2432,12 @@ new_data.head()
     6    3.425161e+06
     dtype: float64
 
-&nbsp;
+<br>
 
 
 
 
-### Model Predictions in Python with `sklearn` <a class="anchor" id="24"></a>
+## Usando `scikit-learn` <a class="anchor" id="24"></a>
 
 
 
@@ -2506,10 +2445,10 @@ new_data.head()
  Model_Py_sklearn = LinearRegression().fit(X, y)
 ```
 
+<br>
 
 
-
-**Using the training data:**
+**Usando los datos con los que se entrenó el modelo:**
 
 
 
@@ -2522,7 +2461,7 @@ Model_Py_sklearn.predict(X)
 
 
 
-**Using new data:**
+**Usando nuevos datos:**
 
 
 
@@ -2649,12 +2588,16 @@ Model_Py_sklearn.predict(new_data)
            3974347.67547783, 1263752.19635488, 2671187.75954236,
            3425161.44111995])
 
+
+
+
 <br>
 
 
+ 
 
  
-## Estimation of model errors (residuals) in `Python` <a class="anchor" id="26"></a>
+# Estimación de los residuos en `Python` <a class="anchor" id="26"></a>
 
 
 
@@ -2797,26 +2740,27 @@ df_predictions_Python.head()
 
 
 
-## Estimation of the error variance (residual  variance) <a class="anchor" id="27"></a>
+# Estimación de la varianza de los residuos <a class="anchor" id="27"></a>
 
 
 
 
-The estimator of the error variance $\hspace{0.1cm} Var(\varepsilon_i)=\sigma^2 \hspace{0.1cm}$ is
-called **residual variance**, and is defined as:
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-<br>
+
+$\hspace{0.25 cm}$ El estimador de la varianza del error $\hspace{0.1cm} Var(\varepsilon_i)=\sigma^2 \hspace{0.1cm}$ se denomina **varianza residual** , y se define como:
+
 
 $$
- \widehat{Var}(\varepsilon_i) \hspace{0.1cm} =\hspace{0.1cm} \widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S_R^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n-p-1} \cdot \sum_{i=1}^{n} \hat{\varepsilon}_i\hspace{0.02cm}^2 \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{1}{n-p-1} \cdot (Y^t \cdot Y - \hat{\beta}^t \cdot X^t \cdot Y)
+ \widehat{Var}(\varepsilon_i) \hspace{0.15cm} =\hspace{0.15cm} \widehat{\sigma}^2  \hspace{0.15cm}=\hspace{0.15cm} \dfrac{1}{n-p-1} \cdot \sum_{i=1}^{n} \hat{\varepsilon}_i\hspace{0.02cm}^2 \hspace{0.15cm}=\hspace{0.15cm}  \dfrac{1}{n-p-1} \cdot (Y^t \cdot Y - \hat{\beta}^t \cdot X^t \cdot Y) \\
 $$
 
 
-<br>
+ 
 
-The following is fulfilled:
+$\hspace{0.25 cm}$ Además se cumple lo siguiente:
 
-<br>
 
 - $\hspace{0.3cm} \dfrac{n-p-1}{\sigma^2} \cdot \widehat{\sigma}^2 \hspace{0.1cm} \sim \hspace{0.1cm} \chi_{n-p-1}^2 \\[0.3cm]$
 
@@ -2826,43 +2770,21 @@ The following is fulfilled:
 - $\hspace{0.3cm} Var(\widehat{\sigma}^2)=\dfrac{2 \cdot \sigma^4}{n-p-1}$
 
 
-
-
-&nbsp;
-
-
-
-
-
-### Estimation of the error variance in `R` <a class="anchor" id="28"></a>
-
-
-
-```r
-%%R
-
-n<- length(estimated_errors)
-p<-6
-
-( estimated_variance_error <- sum(estimated_errors^2)/(n-p-1) )
-```
-     
-     [1] 2.572224e+12
-
-```r
-%%R
-
-( estimated_standard_deviation_error <- sqrt(estimated_variance_error) )
-```
-
-    [1] 1603816
-
-&nbsp;
+</p>
+ 
+</p></span>
+</div>
 
 
 
 
-### Estimation of the error variance in `Python` <a class="anchor" id="29"></a>
+<br>
+
+
+
+ 
+
+## Estimación de la varianza de los residuos en `Python` <a class="anchor" id="29"></a>
 
 
 
@@ -2881,6 +2803,8 @@ estimated_variance_error
 
     2572224474734.977
 
+
+
 ```python
 import math
 
@@ -2892,104 +2816,37 @@ estimated_standard_deviation_error
 
 
 
-&nbsp;
+<br>
+
+
+# Interpretación de los coeficientes del modelo de regresión lineal <a class="anchor" id="33"></a>
 
 
 
+## Intercept <a class="anchor" id="34"></a>
 
-# Model Train Validation <a class="anchor" id="30"></a>
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-We can compute some metric in order to measure how much distant are the
-predictions and observations of the response variable.
+$\hspace{0.25cm}$ Tenemos el siguiente modelo de regresión lineal estimado: 
 
-Two of the most common metrics are the mean absolute deviation (MAD) and the mean square error (MSE):
+$$\widehat{y}_i \hspace{0.15cm}=\hspace{0.15cm} x_i^t \cdot \widehat{\beta}  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} + ...+ \widehat{\beta}_p\cdot x_{ip}$$
+
 
 <br>
 
-$$
-MAD \hspace{0.1cm} = \hspace{0.1cm}   \dfrac{1}{n} \sum_{i=1}^{n} \mid \hat{\varepsilon}_i \mid \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^{n} \hspace{0.1cm} \mid y_i - \hat{y}_i \mid \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^{n} \hspace{0.1cm}\mid   y_i - x_i \cdot \widehat{\beta}  \mid 
-$$
+- $\hspace{0.1cm}\widehat{\beta}_0 \hspace{0.1cm}=\hspace{0.1cm} \widehat{y}_i \hspace{0.1cm}|\hspace{0.1cm} x_{i1} = 0 \hspace{0.1cm} , ..,\hspace{0.1cm} x_{ip}=0 \hspace{0.2cm} ,\hspace{0.2cm} \forall i \in \lbrace 1,...,n \rbrace \\$ 
 
-<br>
-
-$$
-MSE \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^{n} \hat{\varepsilon}_i^2 \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^{n} \hspace{0.1cm}(\hspace{0.1cm} y_i - \hat{y}_i \hspace{0.1cm})^2 = \dfrac{1}{n} \sum_{i=1}^{n} \hspace{0.1cm}(\hspace{0.1cm} y_i - x_i \cdot \widehat{\beta} \hspace{0.1cm})^2
-$$ 
-
-<br>
-
-When these metrics are computing using the data for $y_i$ and $x_i$ that were used to train the model it is called  *model train validation*.
+- $\hspace{0.1cm}\widehat{\beta}_0\hspace{0.1cm}$ es la predicción de la respuesta que el modelo hace para  observaciones de los predictores $\hspace{0.05cm} x_i\hspace{0.05cm}$ tales que  $\hspace{0.1cm} x_{i1} = 0 \hspace{0.05cm} \hspace{0.05cm} , ..,\hspace{0.05cm}  \hspace{0.05cm} x_{ip}=0$
 
 
 
-&nbsp;
 
-
-
+</p>
  
-
-## Model Train Validation in `Python`  <a class="anchor" id="32"></a>
-
-
-```python
-MAD_Py = ( (y - model_Py_sm.predict(X)).abs() ).mean()
-MAD_Py
-```
-
-    938065.2280944855
-    
-
-```python
-MSE_Py = ( (y - model_Py_sm.predict(X))**2 ).mean()
-MSE_Py
-```
-
-    2562772731258.2646
-
-
-
-In mean, the predictions that the model made of the response variable
-deviates from the observations, in absolute value, in 938065 units.
-
-This is an estimation of model error, but training error, because we
-have used the predictions of the response variables made by the model
-using the observations with which it has been trained.
-
-There is a more interesting model error, called test error, that is
-computed with predictors observations which haven´t been used to train
-the model.
-
-In this article, we will not go deeper into that, but this concepts will
-be more developed in another article about validation techniques.
-
-
-
-
-
-
-&nbsp;
-
-
-
-
-# Model Coefficients Interpretation <a class="anchor" id="33"></a>
-
-
-<br>
-
-## Null Coefficient <a class="anchor" id="34"></a>
-
-
-We have the following estimated linear regression model: 
-
-  $$\widehat{y}_i= \widehat{\beta}_0 + \widehat{\beta}_0\cdot x_{i1} + ...+ \widehat{\beta}_p\cdot x_{ip}$$
-
-
-<br>
-
-- $\widehat{\beta}_0$ $\hspace{0.05cm}$ is the model estimated value for the response variable, i.e $\hspace{0.05cm}$  $\widehat{y}_i$ $\hspace{0.05cm}$
-, when $\hspace{0.05cm}$ $x_{ij}=0$ $\hspace{0.05cm}$ , $\forall j=1,2,...,p$
+</p></span>
+</div>
 
 
 
@@ -2998,75 +2855,85 @@ We have the following estimated linear regression model:
 
 
 
-##  Quantitative Predictor Coefficient <a class="anchor" id="35"></a>
+##  Coeficientes de predictores cuantitativos <a class="anchor" id="35"></a>
 
 
 
-Let $\hspace{0.05cm} X_k \hspace{0.05cm}$ a **quantitative** variable and $\hspace{0.05cm}$ $h>0$
 
-We have the following estimated linear regression model  
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ Sea  $\hspace{0.1cm} X_k \hspace{0.1cm}$ una variable cuantitativa, y sea $\hspace{0.05cm}$ $h>0$
+
+
+$\hspace{0.25cm}$ Tenemos el siguiente modelo de regresión lineal estimado:
+
+
+$$\widehat{y}_i \hspace{0.15cm}=\hspace{0.15cm}  x_i^t \cdot \widehat{\beta}  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} + .. + \widehat{\beta}_k\cdot x_{ik} + ..+ \widehat{\beta}_p\cdot x_{ip}$$
 
 <br>
 
-$$\widehat{y}_i= \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} + .. + \widehat{\beta}_k\cdot x_{ik} + ..+ \widehat{\beta}_p\cdot x_{ip}$$
 
-<br>
+-   $\hspace{0.15cm}$ Si $\hspace{0.15cm} \widehat{\beta}_k > 0 \hspace{0.15cm}$  , entonces:
 
-
--   If $\hspace{0.1cm} \widehat{\beta}_k > 0 \hspace{0.1cm}$  , then
-
-    -   If  $\hspace{0.1cm} x_{ik} \hspace{0.1cm}$  **increases** in $\hspace{0.1cm}h\hspace{0.15cm}$ $x_k$-units $\hspace{0.05cm}$  $\Rightarrow$  $\hspace{0.05cm}$ $\widehat{y}_i\hspace{0.1cm}$
-        **increases** in $\hspace{0.05cm}$ $\widehat{\beta}_k \cdot h$  $\hspace{0.15cm}$ $y$-units.
+    -   Si  $\hspace{0.1cm} x_{ik} \hspace{0.1cm}$  **aumenta** en $\hspace{0.1cm}h\hspace{0.15cm}$ $x_k$-units $\hspace{0.05cm}$  $\Rightarrow$  $\hspace{0.05cm}$ $\widehat{y}_i\hspace{0.1cm}$
+        **aumenta** en $\hspace{0.05cm}$ $\widehat{\beta}_k \cdot h$  $\hspace{0.15cm}$ $y$-units.
         
-        And the opposite if it decreases.
+        Y lo contrario si disminuye.
         
 
 <br>
 
--   If  $\hspace{0.1cm} \widehat{\beta}_k < 0 \hspace{0.1cm}$  , then
+-   Si  $\hspace{0.15cm} \widehat{\beta}_k < 0 \hspace{0.15cm}$  , entonces:
 
-    -  If $\hspace{0.1cm}x_{ik}\hspace{0.1cm}$ **increases** in $\hspace{0.1cm}h\hspace{0.15cm}$ $x_k$-units $\hspace{0.05cm}$ $\Rightarrow$ $\hspace{0.05cm}$  $\widehat{y}_i$
-        **decreases** in $\hspace{0.05cm}$ $\widehat{\beta}_k \cdot h$ $\hspace{0.15cm}$ $y$-units. 
+    -  Si $\hspace{0.1cm}x_{ik}\hspace{0.1cm}$ **aumenta** in $\hspace{0.1cm}h\hspace{0.15cm}$ $x_k$-units $\hspace{0.05cm}$ $\Rightarrow$ $\hspace{0.05cm}$  $\widehat{y}_i$
+        **disminuye** en $\hspace{0.05cm}$ $\widehat{\beta}_k \cdot h$ $\hspace{0.15cm}$ $y$-units. 
 
-        And the opposite if it decreases.
-
-<br>
-
-
--   If  $\hspace{0.1cm} \widehat{\beta}_k = 0 \hspace{0.1cm}$  , then
-
-    -   $\widehat{y}_i$ $\hspace{0.05cm}$ doesn't depend on $\hspace{0.05cm}$  $x_{ik}$
-
+        Y lo contrario si disminuye.
 
 <br>
 
-**Observation:**
+
+-   Si  $\hspace{0.1cm} \widehat{\beta}_k = 0 \hspace{0.1cm}$  , entonces:
+
+    -   $\widehat{y}_i$ $\hspace{0.05cm}$ no depende de $\hspace{0.05cm}$  $x_{ik}$
 
 
-The above affirmations are based in the following:
+
+</p>
+ 
+</p></span>
+</div>
+
+
+<br>
+
+**Observación:**
+
+Las anteriores afirmaciones se basan en lo siguiente:
 
 - $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=c+h ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik}=c ) \hspace{0.15cm}=\hspace{0.15cm}  \widehat{\beta}_k\cdot h$
 
 
 <br>
 
-### Interpretation of coefficients and units of measurement
+## Interpretación de los coeficientes y unidades de medida
 
-In the previous section $\hspace{0.15cm} y$-units refers to the unit of measure of the response variable $Y$, and $\hspace{0.15cm} x_k$-units refers to the unit of measure of the predictor $X_k$
+En la sección anterior $\hspace{0.15cm} y$-units hace referencia a la unidad de medida de la variable respuesta $Y$, y $\hspace{0.15cm} x_k$-units hace referencia a la unidad de medida del predictor $X_k$
 
 
-Let's show why
- $\hspace{0.15cm}\widehat{\beta}_k\cdot h\hspace{0.15cm}$ is measured in $\hspace{0.15cm} y$-units . Which is a fundamental property for the interpretation of the beta coefficients in the linear regression model.
+Vamos a demostrar que
+ $\hspace{0.15cm}\widehat{\beta}_k\cdot h\hspace{0.15cm}$ es medida en $\hspace{0.15cm} y$-units . La cual es una propiedad fundamental para la interpretación de los coeficientes del modelo de regresión lineal.
 
 <br>
 
-Suppose we have the following estimated model:
+Supongamos que tenemos el siguiente modelo de regresión lineal estimado:
 
 $$\widehat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} + .. + \widehat{\beta}_k\cdot x_{ik} + .. + \widehat{\beta}_p\cdot x_{ip}$$
 
 <br>
 
-Now consider the following:
+Ahroa consideremos lo siguiente:
 
 $\hspace{0.5cm}\widehat{y}_i \hspace{0.15cm}$ is measured in $\hspace{0.15cm}y$-units
 
@@ -3074,24 +2941,24 @@ $\hspace{0.5cm}x_{ik} \hspace{0.15cm}$ is measured in $\hspace{0.15cm}x_k$-units
 
 <br>
 
-Then you have to:
+Entonces tenemos la siguiente **propiedad fundamental**:
 
-$\hspace{0.5cm}\widehat{\beta}_k \hspace{0.15cm}$ is measured in $\hspace{0.15cm}\dfrac{y\text{-units}}{x_k\text{-units} }\hspace{0.25cm}$ (fundamental property)
-
-<br>
-
-Therefore you will have to:
-
-$\hspace{0.5cm}\widehat{\beta}_k \cdot x_{ik}\hspace{0.15cm}$ is measured in $\hspace{0.15cm}\dfrac{y\text{-units}}{x_k \text{-units}} \cdot x_k\text{-units} \hspace{0.15cm}= \hspace{0.15cm} y\text{-units}$
+$\hspace{0.5cm}\widehat{\beta}_k \hspace{0.15cm}$ es medida en $\hspace{0.15cm}\dfrac{y\text{-units}}{x_k\text{-units} }\hspace{0.25cm}$ 
 
 <br>
 
-Which implies that if $h$ is measured in $\hspace{0.15cm}x_k$-units then:
+Por tanto se cumple que:
 
-$\hspace{0.5cm}\widehat{\beta}_k \cdot h\hspace{0.15cm}$ is measured in $\hspace{0.15cm} and\text{-units}$
+$\hspace{0.5cm}\widehat{\beta}_k \cdot x_{ik}\hspace{0.15cm}$ es medida en $\hspace{0.25cm}\dfrac{y\text{-units}}{x_k \text{-units}} \cdot x_k\text{-units} \hspace{0.15cm}= \hspace{0.15cm} y\text{-units}$
 
-And this is what allows us to interpret 
-$\hspace{0.15cm}(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=c+h ) - (\hat{y} _i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=c ) \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_k\cdot h\hspace{0.15cm}$   as the number of $\hspace{0.15cm}y$-units by which the estimated response increases or decreases $\hspace{0.15cm}\hat{y}_i\hspace{0.15cm}$ when the value of the predictor $\hspace{0.15cm}x_k\hspace{0.15cm}$ increases by $h$ $\hspace{0.15cm}x_k$-units.
+<br>
+
+Lo cual implica que si $\hspace{0.15cm} h\hspace{0.15cm}$ es medida en $\hspace{0.15cm}x_k$-units entonces:
+
+$\hspace{0.5cm}\widehat{\beta}_k \cdot h\hspace{0.15cm}$ es medida en $\hspace{0.15cm} and\text{-units}$
+
+Y esto es lo que permite interpretar
+$\hspace{0.15cm}(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=c+h ) - (\hat{y} _i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=c ) \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_k\cdot h\hspace{0.15cm}$  como el número de $\hspace{0.15cm}y$-units en las que la respuesta estimada varia cuando el predictor varia en $\hspace{0.15cm}h\hspace{0.15cm}$ $x_k$-units.
 
 
 
@@ -3101,62 +2968,62 @@ $\hspace{0.15cm}(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=c+h ) - (\ha
 
 
 
-## Categorical Predictor Coefficient <a class="anchor" id="36"></a>
+## Coeficientes de predictores categóricos <a class="anchor" id="36"></a>
 
 
 
 
-### Categorical Predictors with 2 categories
+### Predictores categóricos con dos categorias
 
 
 
-Let $\hspace{0.1cm} X_k \hspace{0.1cm}$ a categorical variable with 2 categories 
+Sea $\hspace{0.1cm} X_k \hspace{0.1cm}$ una variable categorica con dos categorias 
 $\hspace{0.1cm} \lbrace 0 , 1 \rbrace$,
 
-If the reference category is  $\hspace{0.1cm} 0 \hspace{0.1cm}$  , then  $\hspace{0.1cm} X_k \hspace{0.1cm}$ enter in the model as the binary  variable $\hspace{0.1cm} X_{k1} \hspace{0.1cm}$ defined as:
+Si la categoria de referencia es  $\hspace{0.1cm} 0 \hspace{0.1cm}$  , entonces  $\hspace{0.1cm} X_k \hspace{0.1cm}$ entra en el modelo con la variable dummy siguiente:
+
+$$\hspace{0.1cm} D(X_{k}=1) \hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} I(x_{ik}=1) \hspace{0.15cm} /\hspace{0.15cm} i\in  \lbrace 1,..,n\rbrace \hspace{0.1cm} \right) \hspace{0.1cm} \\$$ 
+
+Donde:
 
 $$
-x_{i k1}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i k}=1 
+I(x_{ik}=1) = \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2cm} , \hspace{0.2cm}\text{si} \hspace{0.2cm} x_{ik}=1   \\[0.1cm] 
+\hspace{0.12cm} 0 \hspace{0.2cm} , \hspace{0.2cm} \text{si} \hspace{0.2cm} x_{ik}=0    \end{array}\right.
 $$
 
+para $i \in \lbrace 1,...,n \rbrace$
+
+ 
 <br>
+ 
+ 
 
-In addition, we define the variable $X_{k0}$ as:
+Tenemos el siguiente modelo de regresión lineal estimado:
 
-$$
-x_{i k0}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i k}=0 
-$$
-
-<br>
-
-----
-
-We have the following estimated linear regression model:
-
-$$\hat{y}_i= \widehat{\beta_0} + \widehat{\beta_0}\cdot x_{i1} + .. + \widehat{\beta}_{k1} \cdot x_{ik1} + ..+ \widehat{\beta_p}\cdot x_{ip}$$
+$$\hat{y}_i= \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} + .. + \widehat{\beta}_{k1} \cdot I(x_{ik}=1) + ..+ \widehat{\beta_p}\cdot x_{ip}$$
 
 <br>
 
--   If $\widehat{\beta}_{k1} > 0$ , then
+-   Si $\widehat{\beta}_{k1} > 0$ , entonces:
 
 
 
-    -   $\widehat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\widehat{\beta}_{k1}$ $\hspace{0.05cm}$ units **greater** if  $\hspace{0.05cm}$ $x_{ik}=1$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 0$
-
-<br>
-
--   If $\widehat{\beta}_{k1} < 0$ , then
-
-    -   $\hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\widehat{\beta}_{k1}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$  $x_{ik}= 1$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}=0$
+    -   $\widehat{y}_i$ $\hspace{0.05cm}$ es $\hspace{0.05cm}$ $\widehat{\beta}_{k1}$ $\hspace{0.05cm}$ unidades **mayor** si  $\hspace{0.05cm}$ $x_{ik}=1$ $\hspace{0.05cm}$ que si $\hspace{0.05cm}$ $x_{ik}= 0$
 
 <br>
 
-**Observation:**
+-   Si $\widehat{\beta}_{k1} < 0$ , entonces:
+
+    -   $\hat{y}_i$ $\hspace{0.05cm}$ es $\hspace{0.05cm}$ $\widehat{\beta}_{k1}$ $\hspace{0.05cm}$ unidades **menos** si $\hspace{0.05cm}$  $x_{ik}= 1$ $\hspace{0.05cm}$ que si $\hspace{0.05cm}$ $x_{ik}=0$
+
+<br>
+
+**Observación:**
 
 
-The above affirmations are based in the following:
+Las anteriores afirmaciones estan basadas en lo siguiente:
 
-- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik1}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik1}=0 ) =  \widehat{\beta}_{k1}$
+- $(\hat{y}_i \hspace{0.1cm} | \hspace{0.1cm} x_{ik1}=1 ) - (\hat{y}_i  \hspace{0.1cm} | \hspace{0.1cm}  x_{ik1}=0 ) \hspace{0.1cm}=\hspace{0.1cm}  \widehat{\beta}_{k1}$
 
 
 
@@ -3164,85 +3031,87 @@ The above affirmations are based in the following:
 &nbsp;
 
 
-### Categorical Predictors with 3 categories:
+### Predictores categóricos con tres categorias:
 
 
 
-Let $\hspace{0.1cm} X_k \hspace{0.1cm}$ a categorical variable with 3 categories
+Sea $\hspace{0.1cm} X_k \hspace{0.1cm}$ una variable categórica con tres categorias 
 $\hspace{0.1cm} \lbrace 0 , 1, 2 \rbrace$,
 
-If the reference category is $\hspace{0.1cm}0\hspace{0.1cm}$, then $\hspace{0.1cm}X_k\hspace{0.1cm}$ enter in the model with
-two binary $\hspace{0.1cm}\lbrace 0,1\rbrace\hspace{0.1cm}$ variables $\hspace{0.1cm}X_{k1}\hspace{0.1cm}$ and $\hspace{0.1cm}X_{k2}\hspace{0.1cm}$ defined as:
+Si la categoria de referencia es $\hspace{0.1cm}0\hspace{0.1cm}$, entonces $\hspace{0.1cm}X_k\hspace{0.1cm}$ entra en el modelo con las dos variables binarias siguientes:
 
-\begin{gather*}
-x_{i k1}=1   \Leftrightarrow   x_{i k}=1 \\
-x_{i k2}=1  \Leftrightarrow     x_{i k}=2 
-\end{gather*}
+$$\hspace{0.1cm}D(X_{k}=1)\hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} I(x_{ik}=1) \hspace{0.15cm} /\hspace{0.15cm} i\in  \lbrace 1,..,n\rbrace \hspace{0.1cm} \right) \hspace{0.1cm}$$
 
-<br>
+$$\hspace{0.1cm}D(X_{k}=2)\hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} I(x_{ik}=2) \hspace{0.15cm} /\hspace{0.15cm} i\in  \lbrace 1,..,n\rbrace \hspace{0.1cm} \right) \\$$
 
-In addition, we define the variable $X_{k0}$ as:
+Donde:
 
 $$
-x_{i k0}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i k}=0 
+\hspace{-2.15cm} I(x_{ik}=1) = \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2cm} , \hspace{0.2cm}\text{si} \hspace{0.2cm} x_{ik}=1   \\[0.1cm] 
+\hspace{0.12cm} 0 \hspace{0.2cm} , \hspace{0.2cm} \text{si} \hspace{0.2cm} x_{ik}=0    \end{array}\right.
 $$
 
-<br>
+$$
+I(x_{ik}=2) = \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2cm} , \hspace{0.2cm}\text{si} \hspace{0.2cm} x_{ik}=2   \\[0.1cm] 
+\hspace{0.12cm} 0 \hspace{0.2cm} , \hspace{0.2cm} \text{si} \hspace{0.2cm} x_{ik}=0\hspace{0.2cm} \vee \hspace{0.2cm} x_{ik}=1    \end{array}\right.
+$$
 
-----
+para $i \in \lbrace 1,...,n \rbrace$
 
-We have the following estimated linear regression model:
-
-$$\widehat{y}_i= \widehat{\beta}_0 + \widehat{\beta}_0\cdot x_{i1} + .. + \widehat{\beta}_{k1} \cdot x_{ik1} + \widehat{\beta}_{k2} \cdot x_{ik2} + ..+ \widehat{\beta}_p\cdot x_{ip}$$
-
-<br>
-
--   If  $\hspace{0.1cm}\widehat{\beta}_{k1} > 0\hspace{0.1cm}$  , then
-
-    -  $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\widehat{\beta}_{k1}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$ $x_{ik}= 1$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ik}= 0$
+ 
 
 <br>
 
--   If  $\hspace{0.1cm}\widehat{\beta}_{k1} < 0\hspace{0.1cm}$  , then
 
-    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\widehat{\beta}_{k1}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$  $x_{ik}= 1$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 0$
+Tenemos el siguiente modelo de regresión lineal estimado:
 
-<br>
 
--   If $\hspace{0.1cm}\widehat{\beta}_{k2} > 0\hspace{0.1cm}$ , then
-
-    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\widehat{\beta}_{k2}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$  $x_{ik}= 1$  $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 0$
+$$\widehat{y}_i= \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} + .. + \widehat{\beta}_{k1} \cdot I(x_{ik}=1) + \widehat{\beta}_{k2} \cdot I(x_{ik}=2) + ..+ \widehat{\beta}_p\cdot x_{ip}$$
 
 <br>
 
--   If $\hspace{0.1cm}\widehat{\beta}_{k2} < 0\hspace{0.1cm}$  , then 
+-   Si  $\hspace{0.1cm}\widehat{\beta}_{k1} > 0\hspace{0.1cm}$  , entonces:
 
-    -  $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\widehat{\beta}_{k2}$ $\hspace{0.05cm}$ units **less** if  $\hspace{0.05cm}$ $x_{ik}= 1$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 0$
-
-<br>
-
--   If  $\hspace{0.1cm}\widehat{\beta}_{k2} - \widehat{\beta}_{k1} > 0\hspace{0.1cm}$ , then
-
-    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.05cm}$ $\widehat{\beta}_{k2} - \widehat{\beta}_{k1}$  $\hspace{0.05cm}$ units  **greater** if $\hspace{0.05cm}$ $x_{ik}= 2$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 1$
+    -  $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$  es $\hspace{0.05cm}$ $\widehat{\beta}_{k1}$ $\hspace{0.05cm}$ unidades **mayor** si $\hspace{0.05cm}$ $x_{ik}= 1$ $\hspace{0.05cm}$  que si  $\hspace{0.05cm}$ $x_{ik}= 0$
 
 <br>
 
--   If  $\hspace{0.1cm}\hat{\beta}_{k2} - \widehat{\beta}_{k1} < 0\hspace{0.1cm}$  , then
+-   Si  $\hspace{0.1cm}\widehat{\beta}_{k1} < 0\hspace{0.1cm}$  , entonces:
 
-    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ is $\hspace{0.1cm}$ $\widehat{\beta}_{k2} - \widehat{\beta}_{k1}$ $\hspace{0.1cm}$ units
-        **less** if $\hspace{0.05cm}$ $x_{ik}= 2$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 1$
-
-<br>
-
-Note that the above is easily extrapolated to the case in which we have a
-categorical predictor with $r$ categories, for $r>3$.
+    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ es $\hspace{0.05cm}$ $\widehat{\beta}_{k1}$ $\hspace{0.05cm}$ unidad **menor** si $\hspace{0.05cm}$  $x_{ik}= 1$ $\hspace{0.05cm}$ than if $\hspace{0.05cm}$ $x_{ik}= 0$
 
 <br>
 
-**Observation:**
+-   Si $\hspace{0.1cm}\widehat{\beta}_{k2} > 0\hspace{0.1cm}$ , entonces:
+
+    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$  es $\hspace{0.05cm}$ $\widehat{\beta}_{k2}$ $\hspace{0.05cm}$ unidades **mayor** si $\hspace{0.05cm}$  $x_{ik}= 1$  $\hspace{0.05cm}$ que si $\hspace{0.05cm}$ $x_{ik}= 0$
+
+<br>
+
+-   Si $\hspace{0.1cm}\widehat{\beta}_{k2} < 0\hspace{0.1cm}$  , entonces: 
+
+    -  $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ es $\hspace{0.05cm}$ $\widehat{\beta}_{k2}$ $\hspace{0.05cm}$ unidades **menor** si  $\hspace{0.05cm}$ $x_{ik}= 1$ $\hspace{0.05cm}$ que si $\hspace{0.05cm}$ $x_{ik}= 0$
+
+<br>
+
+-   Si  $\hspace{0.1cm}\widehat{\beta}_{k2} - \widehat{\beta}_{k1} > 0\hspace{0.1cm}$ , entonces:
+
+    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ es $\hspace{0.05cm}$ $\widehat{\beta}_{k2} - \widehat{\beta}_{k1}$  $\hspace{0.05cm}$ unidades   **mayor** si $\hspace{0.05cm}$ $x_{ik}= 2$ $\hspace{0.05cm}$ que si $\hspace{0.05cm}$ $x_{ik}= 1$
+
+<br>
+
+-   Si  $\hspace{0.1cm}\hat{\beta}_{k2} - \widehat{\beta}_{k1} < 0\hspace{0.1cm}$  , entonces:
+
+    -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ es $\hspace{0.1cm}$ $\widehat{\beta}_{k2} - \widehat{\beta}_{k1}$ $\hspace{0.1cm}$ unidades
+        **menor** si $\hspace{0.05cm}$ $x_{ik}= 2$ $\hspace{0.05cm}$ que si $\hspace{0.05cm}$ $x_{ik}= 1$
+
+<br>
 
 
-The above affirmations are based in the following:
+
+**Observación:**
+
+Las anterires afirmaciones se fundamentan en las siguientes:
 
 - $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik1}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik0}=1 ) =  \widehat{\beta}_{k1}$
 
@@ -3250,9 +3119,10 @@ The above affirmations are based in the following:
   
 - $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik2}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik1}=1 ) =  \widehat{\beta}_{k2} - \widehat{\beta}_{k1}$
 
+<br>
 
+Lo anterior es facilmente extrapolable al caso de un predictor categorico con $r$ categorias, para $r>3$
 
-Note that this can easily be extrapolated to the case of  an $r$-ary categorical variable  with $r > 3$
 
 
 
@@ -3262,71 +3132,65 @@ Note that this can easily be extrapolated to the case of  an $r$-ary categorical
 
 
 
-## Example of coefficient interpretation <a class="anchor" id="37"></a>
+## Ejemplo de interpretación de los coeficientes <a class="anchor" id="37"></a>
 
-We had obtained the following estimated model:
-
+Hemos obtenido el siguiente modelo estimado:
 
 \begin{gather*}
-\widehat{price}_i =  -6.207e+07 +  3.566e+04 \cdot size\_in\_m\_2_i -8.367e+05 \cdot no\_of\_bedrooms_i -5.712e+04 \cdot no\_of\_bathrooms_i + \\ 1.4e+05 \cdot quality1_i + 3.406e+05\cdot quality2_i + 2.788e+05  \cdot quality3_i  +6.115e+06\cdot  latitude_i -1.677e+06   \cdot longitude_i 
+\widehat{price}_i =  -6.207\cdot 10^7 +  3.566\cdot 10^4 \cdot size\_in\_m\_2_i -8.367\cdot 10^5 \cdot no\_of\_bedrooms_i -5.712\cdot 10^4 \cdot no\_of\_bathrooms_i +\\ 1.4\cdot 10^5 \cdot quality1_i + 3.406\cdot 10^5\cdot quality2_i + 2.788\cdot 10^5  \cdot quality3_i  +6.115\cdot 10^6\cdot  latitude_i -1.677\cdot 10^6   \cdot longitude_i 
 \end{gather*}
 
 
 
-The interpretation of the estimated model coefficients is the following:
+
+La interpretación de los coeficientes del modelo estimado es la siguiente:
 
 <br>
 
--   $\widehat{\beta}_0 = -6.207e+07 \hspace{0.1cm}$   is the estimated  $\hspace{0.1cm}price\hspace{0.1cm}$  by the model for the  houses with $\hspace{0.1cm}size\_in\_m\_2_i =0\hspace{0.1cm}$  ,  $\hspace{0.1cm}no\_of\_bedrooms_i =0\hspace{0.1cm}$  ,  $\hspace{0.1cm}no\_of\_bathrooms_i =0\hspace{0.1cm}$  ,   $qualityLow_i=0$ ,   $\hspace{0.1cm}qualityMedium_i=0\hspace{0.1cm}$  ,  $\hspace{0.1cm}qualityUltra_i=0\hspace{0.1cm}$  ,  $\hspace{0.1cm}latitude_i=longitude_i=0$
+-   $\widehat{\beta}_0 = -6.207\cdot 10^7 \hspace{0.1cm}$   es el **precio** que el modelo predice para casa con los siguientes valores de los predictores $\hspace{0.1cm}size\_in\_m\_2_i =0\hspace{0.1cm}$  ,  $\hspace{0.1cm}no\_of\_bedrooms_i =0\hspace{0.1cm}$  ,  $\hspace{0.1cm}no\_of\_bathrooms_i =0\hspace{0.1cm}$  ,   $qualityLow_i=0$ ,   $\hspace{0.1cm}qualityMedium_i=0\hspace{0.1cm}$  ,  $\hspace{0.1cm}qualityUltra_i=0\hspace{0.1cm}$  ,  $\hspace{0.1cm}latitude_i=longitude_i=0$
 
 <br>
 
--   $\widehat{\beta}_{size\_in\_m\_2} =3.566e+04\hspace{0.15cm}$   $\Rightarrow\hspace{0.15cm}$   if
-    $\hspace{0.1cm}size\_in\_m\_2_i\hspace{0.1cm}$ increases in $\hspace{0.1cm}h\hspace{0.1cm}$ units, the estimated housing
-    $\hspace{0.1cm}price\hspace{0.1cm}$ **increases** in  $\hspace{0.1cm}h\cdot 3.566e+04\hspace{0.15cm}$  units.
+-   $\widehat{\beta}_{size\_in\_m\_2} =3.566\cdot 10^4 \hspace{0.15cm}$   $\Rightarrow\hspace{0.15cm}$   Si
+    $\hspace{0.1cm}size\_in\_m\_2_i\hspace{0.1cm}$ aumenta en $\hspace{0.1cm}h\hspace{0.1cm}$ unidades, el precio predicho de la vivienda  **aumenta** en  $\hspace{0.1cm}h\cdot 3.566\cdot 10^4\hspace{0.15cm}$  unidades.
 
 <br>
 
--   $\widehat{\beta}_{no\_of\_bedrooms} = -8.367e+05$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$   if
-    $\hspace{0.15cm}no\_of\_bedrooms_i\hspace{0.15cm}$ increases in  $\hspace{0.15cm}h\hspace{0.15cm}$  units, the estimated housing
-    $\hspace{0.15cm}price\hspace{0.15cm}$ **decreases** in  $\hspace{0.15cm}-h\cdot 8.367e+05\hspace{0.15cm}$  units.
+-   $\widehat{\beta}_{no\_of\_bedrooms} = -8.367\cdot 10^5$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$   Si
+    $\hspace{0.15cm}no\_of\_bedrooms_i\hspace{0.15cm}$ aumenta en  $\hspace{0.15cm}h\hspace{0.15cm}$  unidaes, el precio predicho de la vivienda **disminuye** en  $\hspace{0.15cm}-h\cdot 8.367\cdot 10^5\hspace{0.15cm}$  unidades.
 
 <br>
 
--   $\widehat{\beta}_{no\_of\_bathrooms} = -5.712e+04$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$   if
-    $\hspace{0.15cm}no\_of\_bathrooms_i\hspace{0.15cm}$ increases in  $h$  units, the estimated housing
-    $price$ **decreases** in  $\hspace{0.15cm}-h\cdot 5.712e+04\hspace{0.15cm}$  units.
+-   $\widehat{\beta}_{no\_of\_bathrooms} = -5.712\cdot 10^4$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$   Si
+    $\hspace{0.15cm}no\_of\_bathrooms_i\hspace{0.15cm}$ aumenta en  $h$  unidades, el predio predicho para la vivendia **decrece** en  $\hspace{0.15cm}-h\cdot 5.712\cdot 10^4\hspace{0.15cm}$  unidades.
 
 <br>
 
--   $\widehat{\beta}_{quality1} = 1.4e+05$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$    the estimated
-    $price$ of houses with medium quality  $(quality1_i=1)$  is  $1.4e+05$   units **greater** than the estimated price of houses with low quality
-    $\hspace{0.15cm}(quality0_i=1)\hspace{0.15cm}$ , because low quality is the reference category  of $\hspace{0.15cm}quality\hspace{0.15cm}$ 
+-   $\widehat{\beta}_{quality1} = 1.4\cdot 10^5$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$    el precio predicho de las viviendas con calidad media  $(quality1_i=1)$  es  $1.4\cdot 10^5$   unidades **mayor** que el precio predicho para viviendas de baja calidad
+    $\hspace{0.15cm}(quality0_i=1)\hspace{0.15cm}$ , porque  low quality es la categoria de referencia del predictor $\hspace{0.15cm}quality\hspace{0.15cm}$ 
 
 <br>
 
--   $\widehat{\beta}_{quality2} = 3.406e+05$  $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$    the
-    estimated $price$ of houses with medium quality 
-    $\hspace{0.15cm}(quality2_i=1)\hspace{0.15cm}$  is  $\hspace{0.15cm}3.406e+05\hspace{0.15cm}$ units **greater** than the estimated
-    price of houses with high quality  $\hspace{0.15cm}(quality0_i=1)$  
+-   $\widehat{\beta}_{quality2} = 3.406\cdot 10^5$  $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$    el predio predicho de las viviendas de calidad media  
+    $\hspace{0.15cm}(quality2_i=1)\hspace{0.15cm}$  es  $\hspace{0.15cm}3.406\cdot 10^5\hspace{0.15cm}$ unidades **mayor** que el predio predicho para viviendas con calidad baja  $\hspace{0.15cm}(quality0_i=1)$  
 
 <br>
 
--   $\widehat{\beta}_{quality3} = 2.788e+05$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$     the estimated
-    $\hspace{0.15cm}price\hspace{0.15cm}$ of houses with ultra quality  $\hspace{0.15cm}(quality1_i=1)\hspace{0.15cm}$   is
-  $\hspace{0.15cm}2.788e+05\hspace{0.15cm}$  units **greater** than the estimated price of houses with low quality  $\hspace{0.15cm}(quality0_i=1)$ 
+-   $\widehat{\beta}_{quality3} = 2.788\cdot 10^5$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$     el precio predicho  para viviendas de calidad ultra   $\hspace{0.15cm}(quality3_i=1)\hspace{0.15cm}$   es
+  $\hspace{0.15cm}2.788\cdot 10^5\hspace{0.15cm}$  unidades **mayor** que el precio predicho para las viviendas de baja calidad  $\hspace{0.15cm}(quality0_i=1)$ 
 
 <br>
 
--    $\widehat{\beta}_{quality2} - \widehat{\beta}_{quality1} = 3.406e+05  - 1.4e+05    =2.006e+05$     $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$   the estimated price of houses  with high    quality  $\hspace{0.15cm}(quality2_i=1)\hspace{0.15cm}$   is  $\hspace{0.15cm}2.006e+05\hspace{0.15cm}$ units **greater**   than the estimated price of houses with medium quality  $\hspace{0.15cm}(quality1_i=1)$ 
+-    $\widehat{\beta}_{quality2} - \widehat{\beta}_{quality1} = 3.406\cdot 10^5  - 1.4\cdot 10^5    =2.006\cdot 10^5$     $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$   el precio predicho para viviendas de alta calidad  $\hspace{0.15cm}(quality2_i=1)\hspace{0.15cm}$   es  $\hspace{0.15cm}2.006\cdot 10^5\hspace{0.15cm}$ unidades  **mayor** que el precio predicho para viviendas de calidad media  $\hspace{0.15cm}(quality1_i=1)$ 
 
 <br>
 
--  $\widehat{\beta}_{quality3} - \widehat{\beta}_{quality2} = 2.788e+05   - 3.406e+05 =-61800$     $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$  the estimated price of houses  with ultra quality  $\hspace{0.15cm}(quality3_i=1)\hspace{0.15cm}$   is  $\hspace{0.15cm}61800\hspace{0.15cm}$ units **less**   than the estimated price of houses with high quality  $\hspace{0.15cm}(quality2_i=1)$ 
+-  $\widehat{\beta}_{quality3} - \widehat{\beta}_{quality2} = 2.788\cdot 10^5   - 3.406\cdot 10^5 =-61800$     $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$  el precio predicho para viviendas de calidad ultra   $\hspace{0.15cm}(quality3_i=1)\hspace{0.15cm}$   es  $\hspace{0.15cm}61800\hspace{0.15cm}$ unidades **menor**   que el precio predicho para viviendas de calidad alta  $\hspace{0.15cm}(quality2_i=1)$ 
 
 <br>
 
-Note that in all these cases it's assumed that the rest of the model variables don't vary (have the same values) from one scenario to another.
+Notese que en todos los casos se asume que el resto de las variables del modelo no varían de un escenario a otro.
+
 
 
 
@@ -3334,11 +3198,11 @@ Note that in all these cases it's assumed that the rest of the model variables d
 
 <br>
 
-## Interaction  Coefficient <a class="anchor" id="38"></a>
+## Coeficiente de la interacción  <a class="anchor" id="38"></a>
 
 
 
-### Interaction  between binary and quantitative variables
+### Interacción entre predictores binarios y cuantitativos
 
 Let $X_k$ a **quantitative** variable, and $X_r$ a **binary** $\lbrace 0, 1\rbrace$ categorical variable.
 
@@ -3395,7 +3259,7 @@ $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir1}=1 ) - (\widehat{y}_i  \hsp
 <br>
 
 
-### Interaction  between ternary and quantitative variables
+### Interacción entre predictores ternarios y cuantitativos
 
 Let $X_k$ a quantitative variable, and $X_r$ a **ternary** $\lbrace 0, 1, 2 \rbrace$ categorical variable.
 
@@ -3468,7 +3332,7 @@ Note these magnitudes depend on $x_{ik}$ value, because we have set an interacti
 
 
 
-**Observation:**
+**Observación:**
 
 The above affirmations are based in the following:
 
@@ -3490,7 +3354,7 @@ Note that this can easily be extrapolated to the case of interaction between an 
 
 
 
-## Example of interaction coefficient interpretation <a class="anchor" id="39"></a>
+## Ejemplo de interpretación de coeficientes de interacción <a class="anchor" id="39"></a>
 
 
 
@@ -3607,7 +3471,7 @@ Note that in all these cases it is assumed that the rest of the model variables 
 
 
 
-# Inference <a class="anchor" id="40"></a>
+# Inferencia <a class="anchor" id="40"></a>
 
 
 

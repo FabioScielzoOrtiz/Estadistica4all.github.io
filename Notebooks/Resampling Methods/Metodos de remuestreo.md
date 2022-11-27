@@ -724,6 +724,7 @@ $$\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exi
 
 
 
+
 El modelo de regresión lineal en este caso es:
 
 $$y_i^* = \beta\cdot x_i^* + \varepsilon_i \hspace{0.25cm} , \hspace{0.25cm}\forall i \in \lbrace 1,...,n \rbrace\\$$
