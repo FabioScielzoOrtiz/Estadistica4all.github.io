@@ -2777,10 +2777,10 @@ Uno mismo puede comprobar que la ejecución de este codigo lleva demasiado tiemp
 <p>También hay que notar que <span class="math inline">\(\hspace{0.1cm}C_j\hspace{0.1cm}\)</span> es un vector cuyas componentes son vectores fila, luego es una matriz. Como además estos vectores fila son observaciones de variables estadisticas, puede verse como una matriz de datos. <span class="math inline">\(\\[0.8cm]\)</span></p>
 <p><span class="math inline">\(5) \hspace{0.1cm}\)</span> Se recalculan los medoids de los clusters del siguiente modo:</p>
 <p>El <strong>medoid</strong> de un cluster <span class="math inline">\(\hspace{0.1cm} C_j\hspace{0.1cm}\)</span> es <span class="math inline">\(\hspace{0.12cm}\overline{x}_{C_j} = x_{i\hspace{0.05cm}^*}\hspace{0.1cm}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p>
-<p>Donde:</p>
+<p>donde:</p>
 <p><span class="math display">\[i\hspace{0.08cm}^* \hspace{0.1cm}=\hspace{0.1cm}  arg \hspace{0.15cm} \underset{i \in I_j}{Min} \hspace{0.15cm} \sum_{r \in I_j} \hspace{0.1cm} \delta(x_i , x_r) \\\]</span></p>
 <p><strong>Observación:</strong></p>
-<p>En este paso y a partir de aqui se considera al medoid de un cluster como la observacion del propio cluster que minimiza la suma de las distancias entre esa observacion y cada una de las restantes observaciones del cluster. <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p>En este paso y en los siguientes se considera al medoid de un cluster como la observacion del propio cluster que minimiza la suma de las distancias entre esa observacion y cada una de las restantes observaciones del cluster. <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math inline">\(6)\hspace{0.1cm}\)</span> Aplicado a la observación <span class="math inline">\(\hspace{0.1cm}x_1\)</span></p>
 <p>Se asigna <span class="math inline">\(\hspace{0.1cm}x_1 \hspace{0.1cm}\)</span> al cluster que le queda mas cercano teniendo en cuenta su medoid.</p>
 <p>Se calculan las distancia entre la observacion <span class="math inline">\(\hspace{0.1cm} x_1\hspace{0.1cm}\)</span> y los <strong>medoids</strong> de cada cluster:</p>
