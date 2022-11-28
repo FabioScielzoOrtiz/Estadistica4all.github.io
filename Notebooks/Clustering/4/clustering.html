@@ -1642,7 +1642,7 @@ margin-right: auto;
 <p><br></p>
 <div id="problema-de-clasificación-no-supervisada" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Problema de clasificación no supervisada</h1>
-<p>Un proble de clasificación supervisada es un problema estadistico que consiste en predecir una variable respuesta <strong>categorica</strong> usando para ello informacion exclusivamente de unas variables predictoras, puesto que no se tienen datos sobre la respuesta (esta es la diferencia entre la clasificación no supervisada y la supervisada).</p>
+<p>Un problema de clasificación supervisada es un problema estadistico que consiste en predecir una variable respuesta <strong>categorica</strong> usando para ello informacion exclusivamente de unas variables predictoras, puesto que no se tienen datos sobre la respuesta (esta es la diferencia entre la clasificación no supervisada y la supervisada).</p>
 <p>A los prblemas de clasificación no supervisada tambien se les conoce como problemas de clustering.<span class="math inline">\(\\[1cm]\)</span></p>
 <ul>
 <li><p>Tenemos <span class="math inline">\(p\)</span> predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> y una variable respuesta <strong>categorica</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{Y} \\\)</span> que es desconocida.</p></li>
@@ -1671,6 +1671,8 @@ margin-right: auto;
 <p><strong>Descripción no formal del algoritmo</strong></p>
 <p><br></p>
 <p><strong>Descripción formal del algoritmo</strong></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
 <p><span class="math inline">\(1)\hspace{0.1cm}\)</span> Se considera que la variable respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> tiene <span class="math inline">\(\hspace{0.1cm} k\hspace{0.1cm}\)</span> categorias <span class="math inline">\(\hspace{0.1cm}g_1,...,g_k\)</span> <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math inline">\(2)\hspace{0.1cm}\)</span> Se asignan aleatoriamente las observaciones disponibles <span class="math inline">\(\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}\)</span> de los predictores a dichas categorias, formandose clusters (o grupos) de observaciones <span class="math inline">\(\hspace{0.1cm} C_1,...,C_k\hspace{0.1cm}\)</span> , de un tamaño similar : <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p><span class="math display">\[C_j = \left( \hspace{0.12cm} x_i^t = (x_{i1},...,x_{ip}) \hspace{0.13cm}/\hspace{0.13cm} i \in I_j \subset \lbrace 1,...,n \rbrace \hspace{0.12cm} \right)^t \\\]</span></p>
@@ -1706,6 +1708,10 @@ margin-right: auto;
 <p><span class="math inline">\(6)\hspace{0.1cm}\)</span> Cuando el paso 4) y 5) se hayan aplicado a todas las observaciones <span class="math inline">\(\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}\)</span>, se detiene el algoritmo, obteniendose la configuración definitiva de clusters, y con ello las predicciones de la respuesta.</p>
 <p>Para las observaciones <span class="math inline">\(\hspace{0.1cm} x_i \in C_j\hspace{0.1cm}\)</span> se predice la respuesta como <span class="math inline">\(\hspace{0.1cm}\hat{y}_i = g_j\hspace{0.1cm}\)</span></p>
 <p>Una tarea posterior es la interpretar la categoria <span class="math inline">\(\hspace{0.1cm}g_j\hspace{0.1cm}\)</span> , puesto que desconocemos a que hace referencia al no tener esa info sobre la respuesta</p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 <hr />
 <p><br></p>
@@ -1732,6 +1738,8 @@ margin-right: auto;
 <p><br></p>
 <div id="varianzas-intra-cluster" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Varianzas intra-cluster</h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
 <p>La varianza intra-cluster de un cluster cualquiera <span class="math inline">\(C_j\)</span> , definida en base a la distancia Euclidea, es: <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p><span class="math display">\[\sum_{i \in I_j} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_j})_{Euclidea}\\ \]</span></p>
 <p>Se puede demostrar que este algoritmo hace disminuir con cada nueva configuración de clusters la suma de varizas intra-clustera:</p>
@@ -1742,6 +1750,10 @@ margin-right: auto;
 <li><p><span class="math inline">\(\hspace{0.2cm} i \in I_j \hspace{0.2cm} \Leftrightarrow \hspace{0.2cm} x_{i} \in C_j \\\)</span></p></li>
 <li><p><span class="math inline">\(\hspace{0.2cm} \overline{x}_{C_j}\)</span> es el centroide del cluster <span class="math inline">\(C_j\)</span></p></li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="interpretación-de-los-clusters-en-k-medias" class="section level2" number="2.2">
@@ -2430,6 +2442,8 @@ dtype: float64</code></pre>
 <p><strong>Descripción no formal del algoritmo</strong></p>
 <p><br></p>
 <p><strong>Descripción formal del algoritmo</strong></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
 <p><span class="math inline">\(1)\hspace{0.1cm}\)</span> Se considera que la variable respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> tiene <span class="math inline">\(\hspace{0.1cm} k\hspace{0.1cm}\)</span> categorias <span class="math inline">\(\hspace{0.1cm}g_1,...,g_k\)</span> <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math inline">\(2)\hspace{0.1cm}\)</span> Se asignan aleatoriamente las observaciones disponibles <span class="math inline">\(\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}\)</span> de los predictores a dichas categorias, formandose clusters (o grupos) de observaciones <span class="math inline">\(\hspace{0.1cm} C_1,...,C_k\hspace{0.1cm}\)</span> , de un tamaño similar : <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p><span class="math display">\[C_j = \left( \hspace{0.12cm} x_i^t = (x_{i1},...,x_{ip}) \hspace{0.13cm}/\hspace{0.13cm} i \in I_j \subset \lbrace 1,...,n \rbrace \hspace{0.12cm} \right)^t \\\]</span></p>
@@ -2469,6 +2483,10 @@ dtype: float64</code></pre>
 <p><span class="math inline">\(6)\hspace{0.1cm}\)</span> Cuando el paso 4) y 5) se hayan aplicado a todas las observaciones <span class="math inline">\(\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}\)</span>, se detiene el algoritmo, obteniendose la configuración definitiva de clusters, y con ello las predicciones de la respuesta.</p>
 <p>Para las observaciones <span class="math inline">\(\hspace{0.1cm} x_i \in C_j\hspace{0.1cm}\)</span> se predice la respuesta como <span class="math inline">\(\hspace{0.1cm}\hat{y}_i = g_j\hspace{0.1cm}\)</span></p>
 <p>Una tarea posterior es la interpretar la categoria <span class="math inline">\(\hspace{0.1cm}g_j\hspace{0.1cm}\)</span> , puesto que desconocemos a que hace referencia al no tener esa info sobre la respuesta</p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 <hr />
 <p><strong>Observación: los predictores en k-medoids pueden ser tanto cuantitativos como caategoricos</strong></p>
@@ -2753,6 +2771,8 @@ Uno mismo puede comprobar que la ejecución de este codigo lleva demasiado tiemp
 <p>Este algoritmo fue propuesto por Hae-Sang Park y Chi-Hyuck Jun.</p>
 <p><br></p>
 <p><strong>Descripción formal del algoritmo</strong></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
 <p><span class="math inline">\(1)\hspace{0.1cm}\)</span> Se considera que la variable respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> tiene <span class="math inline">\(\hspace{0.1cm} k\hspace{0.1cm}\)</span> categorias <span class="math inline">\(\hspace{0.1cm}g_1,...,g_k\)</span> <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math inline">\(2)\hspace{0.1cm}\)</span> Dada una medida de distancia <span class="math inline">\(\hspace{0.1cm}\delta\)</span> , se calcula la siguiente cantidad: <span class="math inline">\(\\[0.3cm]\)</span></p>
 <p><span class="math display">\[v_i \hspace{0.12cm}=\hspace{0.12cm} \sum_{r=1}^n \hspace{0.12cm} \dfrac{\delta(x_i, x_r)}{\sum_{h=1}^n \delta(x_i, x_h)}\]</span></p>
@@ -2803,6 +2823,10 @@ Uno mismo puede comprobar que la ejecución de este codigo lleva demasiado tiemp
 </ul>
 <p><span class="math inline">\(8)\hspace{0.1cm}\)</span> Cuando el paso 6) y 7) se hayan aplicado a todas las observaciones <span class="math inline">\(\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}\)</span>, se detiene el algoritmo, obteniendose la configuración definitiva de clusters, y con ello las predicciones de la respuesta.</p>
 <p>Para las observaciones <span class="math inline">\(\hspace{0.1cm} x_i \in C_j\hspace{0.1cm}\)</span> se predice la respuesta como <span class="math inline">\(\hspace{0.1cm}\hat{y}_i = g_j\hspace{0.1cm}\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p>Una tarea posterior es la interpretar la categoria <span class="math inline">\(\hspace{0.1cm}g_j\hspace{0.1cm}\)</span> , puesto que desconocemos a que hace referencia al no tener esa info sobre la respuesta</p>
 <p><br></p>
 <p><br></p>
@@ -2813,6 +2837,8 @@ Uno mismo puede comprobar que la ejecución de este codigo lleva demasiado tiemp
 <p>En este articulo nos centraremos en una métrica de evaluación denominada silhouette (silueta)</p>
 <div id="definición-de-la-métrica-silhouette" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Definición de la métrica Silhouette</h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
 <p>Dado un modelo de clustering <span class="math inline">\(M\)</span> , como por ejemplo k-medias o k-medoids.</p>
 <p>Supongamos que tras entrenar <span class="math inline">\(M\)</span> con las observaciones disponibles para los predictores tenemos que <span class="math inline">\(x_i \in C_h \\\)</span></p>
 <p>La silueta de <span class="math inline">\(x_i\)</span> en el modelo de clustering <span class="math inline">\(M\)</span> es:</p>
@@ -2820,6 +2846,10 @@ Uno mismo puede comprobar que la ejecución de este codigo lleva demasiado tiemp
 <p>Donde:</p>
 <p><span class="math display">\[\overline{\delta}(x_i, C_h) \hspace{0.12cm}=\hspace{0.12cm} \dfrac{1}{\# C_h - 1} \cdot \sum_{r \in I_h} \hspace{0.1cm} \delta(x_i , x_r) \\\]</span></p>
 <p><span class="math display">\[r^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.12cm} \underset{r\neq j=1,..,k} {Min} \hspace{0.12cm} \overline{\delta}(x_i, C_r)\\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><strong>Observaciones:</strong></p>
 <ul>
 <li>En general</li>
@@ -2831,11 +2861,17 @@ Uno mismo puede comprobar que la ejecución de este codigo lleva demasiado tiemp
 </ul>
 <p><br></p>
 <p><strong>Interpretación de Silhouette:</strong> <span class="math inline">\(\\[0.6cm]\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
 <ul>
 <li><p><span class="math inline">\(\mathcal{S}(x_i) \in [-1,1] \\\)</span></p></li>
 <li><p>Si <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i) \in [0,1]\hspace{0.12cm}\)</span>, se considera que <span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> ha sido clasificado <strong>correctamente</strong>, y cuanto más cerca este <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}\)</span> de <span class="math inline">\(\hspace{0.12cm}1\hspace{0.12cm}\)</span> , <strong>mejor</strong> clasificado estará <span class="math inline">\(\hspace{0.12cm}x_i \\\)</span></p></li>
 <li><p>Por lo anterior, si <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i) \in [-1,0]\hspace{0.12cm}\)</span>, se considera que <span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> ha sido clasificado <strong>incorrectamente</strong>, y cuanto más cerca este <span class="math inline">\(\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}\)</span> de <span class="math inline">\(\hspace{0.12cm}-1\hspace{0.12cm}\)</span> , <strong>peor</strong> clasificado estará <span class="math inline">\(\hspace{0.12cm}x_i \\\)</span></p></li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 <p><strong>Justificaciones:</strong> <span class="math inline">\(\\[0.6cm]\)</span></p>
 <ul>
@@ -2857,8 +2893,14 @@ Uno mismo puede comprobar que la ejecución de este codigo lleva demasiado tiemp
 </ul>
 <p><br></p>
 <p><strong>Métrica Silhouette</strong></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
 <p>Se define la métrica Silhouette para un modelo de clustering <span class="math inline">\(M\)</span> como la media de las siluetas de las observaciones de los predictores:</p>
 <p><span class="math display">\[\overline{\mathcal{S}} (M) \hspace{0.12cm} =  \hspace{0.12cm}  \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{S}(x_i, M)\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="método-de-evaluación-basado-en-silhouette" class="section level2" number="5.2">
@@ -2872,6 +2914,8 @@ Uno mismo puede comprobar que la ejecución de este codigo lleva demasiado tiemp
 <div id="ajuste-del-hiper-parámetro-k-mediante-silhouette" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Ajuste del hiper-parámetro k mediante Silhouette</h1>
 <p>A continuación vamos a exponer un método para seleccionar el hiper-parametro k de un modelo de clustering como k-medias o k-medoids basado en la metrica Silhouette.</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
 <p>Dado un modelo de clustering <span class="math inline">\(M\)</span> , como podría ser el k-medias o k-medoids.</p>
 <ol style="list-style-type: decimal">
 <li>Se entrena <span class="math inline">\(M\)</span> un número <span class="math inline">\(B\)</span> de veces con las mismas observaciones de los predictores, pero en cada ocasión se utiliza un valor del hiper-parametro <span class="math inline">\(k\)</span> distinto.</li>
@@ -2888,16 +2932,26 @@ Uno mismo puede comprobar que la ejecución de este codigo lleva demasiado tiemp
 <p><span class="math display">\[k^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.2cm}\underset{k\in \lbrace k_1,...,k_B\rbrace}{Max} \hspace{0.2cm}\overline{\mathcal{S}}\left(\widehat{M}(k)\right)\]</span></p>
 <p>Es decir:</p>
 <p><span class="math display">\[\text{Si} \hspace{0.4cm} \overline{\mathcal{S}}\left(\widehat{M}(k=k_j)\right) &gt; \overline{\mathcal{S}}\left(\widehat{M}(k=k_r)\right) \hspace{0.2cm} , \forall r\neq j =1,...,B \hspace{0.12cm}\Rightarrow\hspace{0.12cm} k^* = k_j\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="selección-de-modelos-de-clasificación-no-supervisada-mediante-silhouette" class="section level1" number="7">
 <h1><span class="header-section-number">7</span> Selección de modelos de clasificación no supervisada mediante Silhouette</h1>
 <p>Vamos a exponer un método de selección de modelos de clustering basado en la métrica Silhouette.</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
 <p>Dados <span class="math inline">\(\hspace{0.12cm}B\hspace{0.12cm}\)</span> modelos de clustering <span class="math inline">\(M_1\hspace{0.12cm},\hspace{0.12cm}M_2\hspace{0.12cm},...,\hspace{0.12cm}M_B\)</span>, se selcciona aquel que tenga mayor Silhouette.</p>
 <p>Es decir, bajo este método de selección de modelos:</p>
 <p>Dados <span class="math inline">\(\hspace{0.12cm}B\hspace{0.12cm}\)</span> modelos de clustering <span class="math inline">\(M_1\hspace{0.12cm},\hspace{0.12cm}M_2\hspace{0.12cm},...,\hspace{0.12cm}M_B\)</span>, el modelo seleccionado es <span class="math inline">\(\hspace{0.12cm}M_{j\hspace{0.08cm}^*}\)</span></p>
 <p>Donde:</p>
 <p><span class="math display">\[j\hspace{0.08cm}^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.2cm} \underset{j \in \lbrace 1,...,B\rbrace}{Max} \hspace{0.2cm} \overline{\mathcal{S}}\left(\widehat{M}_j \right) \]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 <p><br></p>
 </div>

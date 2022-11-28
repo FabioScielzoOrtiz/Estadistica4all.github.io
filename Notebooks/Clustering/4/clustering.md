@@ -61,7 +61,7 @@ css: custom.css
 # Problema de clasificación no supervisada
 
 
-Un proble de clasificación supervisada  es un problema estadistico que consiste en predecir una variable respuesta **categorica** usando para ello informacion exclusivamente de unas variables predictoras, puesto que no se tienen datos sobre la respuesta (esta es la diferencia entre la clasificación no supervisada y la supervisada). 
+Un problema de clasificación supervisada  es un problema estadistico que consiste en predecir una variable respuesta **categorica** usando para ello informacion exclusivamente de unas variables predictoras, puesto que no se tienen datos sobre la respuesta (esta es la diferencia entre la clasificación no supervisada y la supervisada). 
 
 A los prblemas de clasificación no supervisada tambien se les conoce como problemas de clustering.$\\[1cm]$
 
@@ -116,6 +116,9 @@ A continuación vamos a explicar su mécanica, partiendo de los elementos descri
 
 
 **Descripción formal del algoritmo**
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
 
 $1)\hspace{0.1cm}$ Se considera que la variable respuesta $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ tiene $\hspace{0.1cm} k\hspace{0.1cm}$ categorias $\hspace{0.1cm}g_1,...,g_k$ $\\[0.6cm]$
@@ -193,6 +196,14 @@ Para las observaciones $\hspace{0.1cm} x_i \in C_j\hspace{0.1cm}$ se predice la 
 
 Una tarea posterior es la interpretar la categoria $\hspace{0.1cm}g_j\hspace{0.1cm}$ , puesto que desconocemos a que hace referencia al no tener esa info sobre la respuesta
 
+
+</p>
+ 
+</p></span>
+</div>
+
+ 
+
  
 <br>
 
@@ -254,12 +265,12 @@ Ejemplos de distancias que si pueden aplicarse con k-medias, ya que estan defini
 ## Varianzas intra-cluster
 
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
 La varianza intra-cluster de un cluster cualquiera $C_j$ , definida en base a la distancia Euclidea, es: $\\[0.4cm]$
 
 $$\sum_{i \in I_j} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_j})_{Euclidea}\\ $$
-
-
-
 
 
 
@@ -277,12 +288,15 @@ Donde:
 - $\hspace{0.2cm} \overline{x}_{C_j}$ es el centroide del cluster $C_j$
 
 
+</p>
+ 
+</p></span>
+</div>
+
 
 <br>
 
 ## Interpretación de los clusters en k-medias
-
-
 
 
 
@@ -1193,6 +1207,8 @@ A continuacion vamos a explicar su mécanica, partiendo de los elementos descrit
 
 **Descripción formal del algoritmo**
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
 $1)\hspace{0.1cm}$ Se considera que la variable respuesta $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ tiene $\hspace{0.1cm} k\hspace{0.1cm}$ categorias $\hspace{0.1cm}g_1,...,g_k$ $\\[0.6cm]$
 
@@ -1280,7 +1296,14 @@ Una tarea posterior es la interpretar la categoria $\hspace{0.1cm}g_j\hspace{0.1
 
 
 
+</p>
  
+</p></span>
+</div>
+
+
+ 
+
 
 <br>
 
@@ -1649,6 +1672,8 @@ Este algoritmo fue propuesto por Hae-Sang Park y Chi-Hyuck Jun.
 
 **Descripción formal del algoritmo**
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
 $1)\hspace{0.1cm}$ Se considera que la variable respuesta $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ tiene $\hspace{0.1cm} k\hspace{0.1cm}$ categorias $\hspace{0.1cm}g_1,...,g_k$ $\\[0.6cm]$
 
@@ -1759,10 +1784,18 @@ $8)\hspace{0.1cm}$  Cuando el paso 6) y 7) se hayan aplicado a todas las observa
 
 Para las observaciones $\hspace{0.1cm} x_i \in C_j\hspace{0.1cm}$ se predice la respuesta como $\hspace{0.1cm}\hat{y}_i = g_j\hspace{0.1cm}$
 
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+
+
 Una tarea posterior es la interpretar la categoria $\hspace{0.1cm}g_j\hspace{0.1cm}$ , puesto que desconocemos a que hace referencia al no tener esa info sobre la respuesta
-
-
-
 
 
 
@@ -1787,6 +1820,11 @@ En este articulo nos centraremos en una métrica de evaluación denominada silho
 
 ## Definición de la métrica Silhouette
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+
+
 Dado un modelo de clustering $M$ , como por ejemplo k-medias o k-medoids.
 
 Supongamos que tras entrenar $M$ con las observaciones disponibles para los predictores tenemos que $x_i \in C_h \\$
@@ -1802,6 +1840,15 @@ Donde:
 $$\overline{\delta}(x_i, C_h) \hspace{0.12cm}=\hspace{0.12cm} \dfrac{1}{\# C_h - 1} \cdot \sum_{r \in I_h} \hspace{0.1cm} \delta(x_i , x_r) \\$$
 
 $$r^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.12cm} \underset{r\neq j=1,..,k} {Min} \hspace{0.12cm} \overline{\delta}(x_i, C_r)\\$$  
+
+
+
+
+</p>
+ 
+</p></span>
+</div>
+
 
 
 
@@ -1822,12 +1869,21 @@ es la **media** de las distancias entre la observacion $x_i$ y el resto de obser
 
 **Interpretación de Silhouette:** $\\[0.6cm]$
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
 - $\mathcal{S}(x_i) \in [-1,1] \\$
 
 - Si $\hspace{0.12cm}\mathcal{S}(x_i) \in [0,1]\hspace{0.12cm}$, se considera que $\hspace{0.12cm}x_i\hspace{0.12cm}$ ha sido clasificado **correctamente**, y cuanto más cerca este $\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}$ de $\hspace{0.12cm}1\hspace{0.12cm}$ , **mejor** clasificado estará $\hspace{0.12cm}x_i \\$
 
 
 - Por lo anterior, si $\hspace{0.12cm}\mathcal{S}(x_i) \in [-1,0]\hspace{0.12cm}$, se considera que $\hspace{0.12cm}x_i\hspace{0.12cm}$ ha sido clasificado **incorrectamente**, y cuanto más cerca este $\hspace{0.12cm}\mathcal{S}(x_i)\hspace{0.12cm}$ de $\hspace{0.12cm}-1\hspace{0.12cm}$ , **peor** clasificado estará $\hspace{0.12cm}x_i \\$
+
+</p>
+ 
+</p></span>
+</div>
+
 
 
 <br>
@@ -1866,10 +1922,20 @@ es la **media** de las distancias entre la observacion $x_i$ y el resto de obser
 
 **Métrica Silhouette**
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
 Se define la métrica Silhouette para un modelo de clustering $M$  como la media de las siluetas de las observaciones de los predictores:
 
 
 $$\overline{\mathcal{S}} (M) \hspace{0.12cm} =  \hspace{0.12cm}  \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{S}(x_i, M)$$ 
+
+
+</p>
+ 
+</p></span>
+</div>
+
 
 
 
@@ -1890,6 +1956,9 @@ Notese que la metrica Silhouette depende del modelo entrenado, al depender de lo
 
 A continuación vamos a exponer un método para seleccionar el hiper-parametro k de un modelo de clustering como k-medias o k-medoids basado en la metrica Silhouette.
 
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
 Dado un modelo de clustering $M$ , como podría ser el k-medias o k-medoids.
 
@@ -1916,6 +1985,13 @@ Es decir:
 $$\text{Si} \hspace{0.4cm} \overline{\mathcal{S}}\left(\widehat{M}(k=k_j)\right) > \overline{\mathcal{S}}\left(\widehat{M}(k=k_r)\right) \hspace{0.2cm} , \forall r\neq j =1,...,B \hspace{0.12cm}\Rightarrow\hspace{0.12cm} k^* = k_j$$
 
 
+</p>
+ 
+</p></span>
+</div>
+
+
+
 
 <br>
 
@@ -1924,6 +2000,11 @@ $$\text{Si} \hspace{0.4cm} \overline{\mathcal{S}}\left(\widehat{M}(k=k_j)\right)
 
 
 Vamos a exponer un método de selección de modelos de clustering basado en la métrica Silhouette.
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
 Dados $\hspace{0.12cm}B\hspace{0.12cm}$ modelos de clustering $M_1\hspace{0.12cm},\hspace{0.12cm}M_2\hspace{0.12cm},...,\hspace{0.12cm}M_B$,  se selcciona aquel que tenga mayor Silhouette.
 
@@ -1934,6 +2015,14 @@ Dados $\hspace{0.12cm}B\hspace{0.12cm}$ modelos de clustering $M_1\hspace{0.12cm
 Donde:
 
 $$j\hspace{0.08cm}^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.2cm} \underset{j \in \lbrace 1,...,B\rbrace}{Max} \hspace{0.2cm} \overline{\mathcal{S}}\left(\widehat{M}_j \right) $$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
 
 
 <br>
