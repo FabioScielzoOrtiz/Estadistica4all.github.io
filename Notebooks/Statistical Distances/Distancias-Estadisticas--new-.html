@@ -3175,7 +3175,7 @@ array([[      0.      ,  150047.748877, 1550086.062526, ...,
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de Canberra se puede definir de forma más general no sujeta a un contexto estadístico.</p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Dados dos vectores <span class="math inline">\(\hspace{0.07cm}v=(v_1,...,v_n)^t\hspace{0.07cm}\)</span> y <span class="math inline">\(\hspace{0.07cm}w=(w_1,...,w_n)^t\)</span> de <span class="math inline">\(\hspace{0.07cm}\mathbb{R}^2\)</span></p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia Canberra entre esos dos vectores es:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia Canberra entre esos dos vectores es: <span class="math inline">\(\\[0.7cm]\)</span></p>
 <p><span class="math display">\[
 \delta (v,w)_{Canberra}  \hspace{0.07cm}=\hspace{0.07cm}  sum \left( \dfrac{ \mid v-w \mid }{\mid v \mid + \mid w \mid} \right)  \hspace{0.07cm}=\hspace{0.07cm}  \sum_{i=1}^{n} \dfrac{ \mid v_i - w_i \mid }{\mid v_i \mid + \mid w_i \mid} \\
 \]</span></p>
@@ -3281,10 +3281,7 @@ array([[      0.      ,  150047.748877, 1550086.062526, ...,
 <p>Dada una serie de muestras <span class="math inline">\(X_1,...,X_p\)</span> de las variables estadisticas <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_p\)</span></p>
 <p>La distancia de Karl Pearson entre el par de observaciones <span class="math inline">\((x_i,x_r)\)</span> de las variables estadisticas <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_p\)</span> se define como: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[
-\delta(i,r)_{KP} \hspace{0.05cm} =\hspace{0.05cm} \delta(x_i,x_r)_{KP} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ \sum_{k=1}^{p} \hspace{0.08cm} \dfrac{1}{s\hspace{0.03cm}^2_k} \cdot ( x_{ik} - x_{rk} )\hspace{0.03cm}^2 } \hspace{0.1cm} =\hspace{0.1cm} \sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S_0^{-1} \cdot (x_i - x_r )}  \hspace{0.1cm} = \hspace{0.1cm} \sqrt{  sum \left( \hspace{0.07cm} \left(  \dfrac{ x_i - x_r  }{ \overrightarrow{s}   }\right)^2 \hspace{0.07cm} \right)} \\[0.8cm]
-\]</span></p>
-<p><span class="math display">\[
-\delta^2(i,r)_{KP} \hspace{0.05cm}=\hspace{0.05cm}  \delta(x_i,x_r)_{KP}  \hspace{0.1cm}=\hspace{0.1cm} \sum_{k=1}^{p}  \hspace{0.08cm} \dfrac{1}{s\hspace{0.03cm}^2_k} \cdot  ( x_{ik} - x_{rk} )\hspace{0.03cm}^2 \hspace{0.1cm} = \hspace{0.1cm} (x_i - x_r)\hspace{0.03cm}^t \cdot S_0^{-1} \cdot (x_i - x_r)   \hspace{0.1cm} = \hspace{0.1cm} sum \left( \hspace{0.07cm} \left(  \dfrac{ x_i - x_r  }{ \overrightarrow{s}   }\right)^2 \hspace{0.07cm} \right) \\[0.6cm]
+\delta(i,r)_{Pearson} \hspace{0.05cm} =\hspace{0.05cm} \delta(x_i,x_r)_{KP} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ \sum_{k=1}^{p} \hspace{0.08cm} \dfrac{1}{s\hspace{0.03cm}^2_k} \cdot ( x_{ik} - x_{rk} )\hspace{0.03cm}^2 } \hspace{0.1cm} =\hspace{0.1cm} \sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S_0^{-1} \cdot (x_i - x_r )}  \hspace{0.1cm} = \hspace{0.1cm} \sqrt{  sum \left( \hspace{0.07cm} \left(  \dfrac{ x_i - x_r  }{ \overrightarrow{s}   }\right)^2 \hspace{0.07cm} \right)} \\[0.8cm]
 \]</span></p>
 </p>
 </p>
@@ -3311,6 +3308,74 @@ array([[      0.      ,  150047.748877, 1550086.062526, ...,
 </div>
 <div id="distancia-de-pearson-en-python" class="section level2" number="3.8">
 <h2><span class="header-section-number">3.8</span> Distancia de Pearson en <code>Python</code> <a class="anchor" id="38"></a></h2>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Pearson(x_i, x_r, Data) :</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Si Data  es un pd.DataFrame --&gt; hay que convertilos antes a numpy con Data.to_numpy()</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    Dist_Pearson <span class="op">=</span> ( ( x_i <span class="op">-</span> x_r )<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> np.var(Data , axis<span class="op">=</span><span class="dv">0</span>, ddof<span class="op">=</span><span class="dv">1</span>) ).<span class="bu">sum</span>()</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># np.var(Data , axis=0, ddof=1)  calcula la cuasi-varianza (ddof=1) por columnas (axis=0)</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>    Dist_Pearson <span class="op">=</span> np.sqrt(Dist_Pearson)</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Dist_Pearson</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>Dist_Pearson(x_i<span class="op">=</span>Data_quant_numpy[<span class="dv">2</span>,:], x_r<span class="op">=</span>Data_quant_numpy[<span class="dv">5</span>,:], Data<span class="op">=</span>Data_quant_numpy)</span></code></pre></div>
+<p>3.8239347754243425</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Pearson(Data):</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Paso previo necesario si Data es pd.DataFrame  --&gt;  Data = Data.to_numpy()</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
+<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Pearson(Data[i,:] , Data[r,:], Data<span class="op">=</span>Data)   </span>
+<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>M_Pearson <span class="op">=</span> Matrix_Dist_Pearson(Data<span class="op">=</span>Data_quant_numpy)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>M_Pearson</span></code></pre></div>
+<pre><code>array([[0.        , 1.21345279, 3.77819153, ..., 4.95085256, 1.66393723,
+        0.94314867],
+       [0.        , 0.        , 3.17880538, ..., 4.43821303, 2.03523139,
+        1.60958264],
+       [0.        , 0.        , 0.        , ..., 3.82999056, 4.01162596,
+        3.76955491],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 4.69603617,
+        5.13174853],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.09780835],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>M_Pearson <span class="op">=</span> M_Pearson <span class="op">+</span> M_Pearson.T</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>M_Pearson</span></code></pre></div>
+<pre><code>array([[0.        , 1.21345279, 3.77819153, ..., 4.95085256, 1.66393723,
+        0.94314867],
+       [1.21345279, 0.        , 3.17880538, ..., 4.43821303, 2.03523139,
+        1.60958264],
+       [3.77819153, 3.17880538, 0.        , ..., 3.82999056, 4.01162596,
+        3.76955491],
+       ...,
+       [4.95085256, 4.43821303, 3.82999056, ..., 0.        , 4.69603617,
+        5.13174853],
+       [1.66393723, 2.03523139, 4.01162596, ..., 4.69603617, 0.        ,
+        1.09780835],
+       [0.94314867, 1.60958264, 3.76955491, ..., 5.13174853, 1.09780835,
+        0.        ]])</code></pre>
 </div>
 </div>
 </div>

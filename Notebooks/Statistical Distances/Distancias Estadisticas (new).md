@@ -1360,7 +1360,7 @@ $\hspace{0.25cm}$ Dados dos vectores $\hspace{0.07cm}v=(v_1,...,v_n)^t\hspace{0.
 
 
 
-$\hspace{0.25cm}$ La distancia Canberra entre esos dos vectores es:
+$\hspace{0.25cm}$ La distancia Canberra entre esos dos vectores es: $\\[0.7cm]$
 
 $$
 \delta (v,w)_{Canberra}  \hspace{0.07cm}=\hspace{0.07cm}  sum \left( \dfrac{ \mid v-w \mid }{\mid v \mid + \mid w \mid} \right)  \hspace{0.07cm}=\hspace{0.07cm}  \sum_{i=1}^{n} \dfrac{ \mid v_i - w_i \mid }{\mid v_i \mid + \mid w_i \mid} \\
@@ -1512,12 +1512,9 @@ Dada una serie de muestras $X_1,...,X_p$ de las variables estadisticas  $\mathca
 La distancia de Karl Pearson entre el par de observaciones $(x_i,x_r)$ de las variables estadisticas $\mathcal{X}_1,...,\mathcal{X}_p$ se define como: $\\[0.5cm]$
 
 $$
-\delta(i,r)_{KP} \hspace{0.05cm} =\hspace{0.05cm} \delta(x_i,x_r)_{KP} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ \sum_{k=1}^{p} \hspace{0.08cm} \dfrac{1}{s\hspace{0.03cm}^2_k} \cdot ( x_{ik} - x_{rk} )\hspace{0.03cm}^2 } \hspace{0.1cm} =\hspace{0.1cm} \sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S_0^{-1} \cdot (x_i - x_r )}  \hspace{0.1cm} = \hspace{0.1cm} \sqrt{  sum \left( \hspace{0.07cm} \left(  \dfrac{ x_i - x_r  }{ \overrightarrow{s}   }\right)^2 \hspace{0.07cm} \right)} \\[0.8cm]
+\delta(i,r)_{Pearson} \hspace{0.05cm} =\hspace{0.05cm} \delta(x_i,x_r)_{KP} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ \sum_{k=1}^{p} \hspace{0.08cm} \dfrac{1}{s\hspace{0.03cm}^2_k} \cdot ( x_{ik} - x_{rk} )\hspace{0.03cm}^2 } \hspace{0.1cm} =\hspace{0.1cm} \sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S_0^{-1} \cdot (x_i - x_r )}  \hspace{0.1cm} = \hspace{0.1cm} \sqrt{  sum \left( \hspace{0.07cm} \left(  \dfrac{ x_i - x_r  }{ \overrightarrow{s}   }\right)^2 \hspace{0.07cm} \right)} \\[0.8cm]
 $$
   
-$$
-\delta^2(i,r)_{KP} \hspace{0.05cm}=\hspace{0.05cm}  \delta(x_i,x_r)_{KP}  \hspace{0.1cm}=\hspace{0.1cm} \sum_{k=1}^{p}  \hspace{0.08cm} \dfrac{1}{s\hspace{0.03cm}^2_k} \cdot  ( x_{ik} - x_{rk} )\hspace{0.03cm}^2 \hspace{0.1cm} = \hspace{0.1cm} (x_i - x_r)\hspace{0.03cm}^t \cdot S_0^{-1} \cdot (x_i - x_r)   \hspace{0.1cm} = \hspace{0.1cm} sum \left( \hspace{0.07cm} \left(  \dfrac{ x_i - x_r  }{ \overrightarrow{s}   }\right)^2 \hspace{0.07cm} \right) \\[0.6cm]
-$$
 
 </p>
  
@@ -1575,6 +1572,155 @@ Es decir, si la variable $\hspace{0.08cm}\mathcal{X}_k\hspace{0.08cm}$ tiene muc
 
 
 ## Distancia de Pearson en `Python` <a class="anchor" id="38"></a>
+
+
+
+```python
+def Dist_Pearson(x_i, x_r, Data) :
+
+    # Si Data  es un pd.DataFrame --> hay que convertilos antes a numpy con Data.to_numpy()
+
+    Dist_Pearson = ( ( x_i - x_r )**2 / np.var(Data , axis=0, ddof=1) ).sum()
+
+    # np.var(Data , axis=0, ddof=1)  calcula la cuasi-varianza (ddof=1) por columnas (axis=0)
+
+    Dist_Pearson = np.sqrt(Dist_Pearson)
+
+    return Dist_Pearson
+```
+
+```python
+Dist_Pearson(x_i=Data_quant_numpy[2,:], x_r=Data_quant_numpy[5,:], Data=Data_quant_numpy)
+```
+3.8239347754243425
+
+```python
+def Matrix_Dist_Pearson(Data):
+
+    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+    
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+             if i >= r :
+               
+                 M[i,r] = 0
+
+             else :
+
+                 M[i,r] = Dist_Pearson(Data[i,:] , Data[r,:], Data=Data)   
+
+                      
+    return M 
+```
+
+```python
+M_Pearson = Matrix_Dist_Pearson(Data=Data_quant_numpy)
+
+M_Pearson
+```
+
+```
+array([[0.        , 1.21345279, 3.77819153, ..., 4.95085256, 1.66393723,
+        0.94314867],
+       [0.        , 0.        , 3.17880538, ..., 4.43821303, 2.03523139,
+        1.60958264],
+       [0.        , 0.        , 0.        , ..., 3.82999056, 4.01162596,
+        3.76955491],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 4.69603617,
+        5.13174853],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.09780835],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])
+```
+
+```python
+M_Pearson = M_Pearson + M_Pearson.T
+
+M_Pearson
+```
+
+```
+array([[0.        , 1.21345279, 3.77819153, ..., 4.95085256, 1.66393723,
+        0.94314867],
+       [1.21345279, 0.        , 3.17880538, ..., 4.43821303, 2.03523139,
+        1.60958264],
+       [3.77819153, 3.17880538, 0.        , ..., 3.82999056, 4.01162596,
+        3.76955491],
+       ...,
+       [4.95085256, 4.43821303, 3.82999056, ..., 0.        , 4.69603617,
+        5.13174853],
+       [1.66393723, 2.03523139, 4.01162596, ..., 4.69603617, 0.        ,
+        1.09780835],
+       [0.94314867, 1.60958264, 3.76955491, ..., 5.13174853, 1.09780835,
+        0.        ]])
+```
+
+<br>
+
+
+
+
+
+## Distancia de Mahalanobis  <a class="anchor" id="42"></a>
+
+
+Dada una matriz de datos $X=(X_1,...,X_p)$ de las variables estadisticas  $\mathcal{X}_1,...,\mathcal{X}_p$
+
+
+La distancia de Mahalanobis entre el par de observaciones $(x_i,x_r)$ de las variables estadisticas $\mathcal{X}_1,...,\mathcal{X}_p$ se define como: $\\[0.5cm]$
+
+ 
+$$
+\delta^2(i,j)_{Maha} \hspace{0.08cm}= \hspace{0.08cm} (x_i - x_j)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - x_j ) \\[0.6cm]
+$$
+
+ $$
+ \delta(i,j)_{Maha} \hspace{0.08cm}= \hspace{0.08cm}\sqrt{(x_i - x_j)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - x_j ) }   \\[0.6cm]
+$$
+
+
+Donde:
+
+$S \hspace{0.08cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.08cm}X=(X_1,...,X_p)$
+
+
+<br>
+
+
+**Ventajas**
+
+La distancia de Mahalanobis es adecuada como distancia estadística por las siguientes razones: 
+
+1) Es invariante ante cambios de escala (cambios en las unidades de medida) de las variables.
+
+2) Tiene en cuenta la correlación entre las variables. No aumenta al incrementar el número de variables observadas. Solo aumenta cuando estas nuevas variables no estan correladas con las anteriores. Asi que solo cuando las nuevas variables no son redundantes con respecto a la infromacion provista por las anteriores, la distancia de Mahalanobis aumentará.
+
+<br>
+
+***Observaciones***
+
+1) The Euclidean distance is equal to the Mahalanobis distance when $\hspace{0.1cm} S=I$
+
+2) The Karl Pearson distance is equal to the Mahalanobis distance when $\hspace{0.1cm} S=\text{diag}(s_1^2 ,..., s_p^2)$
+
+
+
+<br>
+
+
+
+
+#### Mahalanobis Distance in `R` <a class="anchor" id="43"></a>
+
 
 
 
