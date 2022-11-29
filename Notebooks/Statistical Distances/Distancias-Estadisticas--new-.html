@@ -1592,6 +1592,8 @@ margin-left: 0 !important;
       <li><a href="#distancia-de-minkowski-en-python" id="toc-distancia-de-minkowski-en-python"><span class="toc-section-number">3.4</span> Distancia de Minkowski en <code>Python</code></a></li>
       <li><a href="#distancia-de-canberra" id="toc-distancia-de-canberra"><span class="toc-section-number">3.5</span> Distancia de Canberra <a class="anchor" id="32"></a></a></li>
       <li><a href="#distancia-de-canberra-en-python" id="toc-distancia-de-canberra-en-python"><span class="toc-section-number">3.6</span> Distancia de Canberra en <code>Python</code> <a class="anchor" id="33"></a></a></li>
+      <li><a href="#distancia-de-karl-pearson" id="toc-distancia-de-karl-pearson"><span class="toc-section-number">3.7</span> Distancia de Karl Pearson <a class="anchor" id="37"></a></a></li>
+      <li><a href="#distancia-de-pearson-en-python" id="toc-distancia-de-pearson-en-python"><span class="toc-section-number">3.8</span> Distancia de Pearson en <code>Python</code> <a class="anchor" id="38"></a></a></li>
       </ul></li>
       </ul>
     </div>
@@ -3269,6 +3271,46 @@ array([[      0.      ,  150047.748877, 1550086.062526, ...,
         0.09956138],
        [0.70959891, 1.24077176, 1.55106392, ..., 1.93106183, 0.09956138,
         0.        ]])</code></pre>
+<p><br></p>
+</div>
+<div id="distancia-de-karl-pearson" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Distancia de Karl Pearson <a class="anchor" id="37"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p>Dada una serie de muestras <span class="math inline">\(X_1,...,X_p\)</span> de las variables estadisticas <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_p\)</span></p>
+<p>La distancia de Karl Pearson entre el par de observaciones <span class="math inline">\((x_i,x_r)\)</span> de las variables estadisticas <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_p\)</span> se define como: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[
+\delta(i,r)_{KP} \hspace{0.05cm} =\hspace{0.05cm} \delta(x_i,x_r)_{KP} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ \sum_{k=1}^{p} \hspace{0.08cm} \dfrac{1}{s\hspace{0.03cm}^2_k} \cdot ( x_{ik} - x_{rk} )\hspace{0.03cm}^2 } \hspace{0.1cm} =\hspace{0.1cm} \sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S_0^{-1} \cdot (x_i - x_r )}  \hspace{0.1cm} = \hspace{0.1cm} \sqrt{  sum \left( \hspace{0.07cm} \left(  \dfrac{ x_i - x_r  }{ \overrightarrow{s}   }\right)^2 \hspace{0.07cm} \right)} \\[0.8cm]
+\]</span></p>
+<p><span class="math display">\[
+\delta^2(i,r)_{KP} \hspace{0.05cm}=\hspace{0.05cm}  \delta(x_i,x_r)_{KP}  \hspace{0.1cm}=\hspace{0.1cm} \sum_{k=1}^{p}  \hspace{0.08cm} \dfrac{1}{s\hspace{0.03cm}^2_k} \cdot  ( x_{ik} - x_{rk} )\hspace{0.03cm}^2 \hspace{0.1cm} = \hspace{0.1cm} (x_i - x_r)\hspace{0.03cm}^t \cdot S_0^{-1} \cdot (x_i - x_r)   \hspace{0.1cm} = \hspace{0.1cm} sum \left( \hspace{0.07cm} \left(  \dfrac{ x_i - x_r  }{ \overrightarrow{s}   }\right)^2 \hspace{0.07cm} \right) \\[0.6cm]
+\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p>Donde:</p>
+<p><span class="math inline">\(S_0 = \text{diag}(s_1 ^2 ,..., s_p ^2)\)</span></p>
+<p><span class="math inline">\(s_k ^2\hspace{0.08cm}\)</span> es la varianza de la muestra <span class="math inline">\(\hspace{0.08cm}X_k\hspace{0.08cm}\)</span> , es decir, <span class="math inline">\(\hspace{0.08cm} s_k ^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n ( x_{ik} - \overline{X}_k )^2\)</span></p>
+<p><span class="math inline">\(\overrightarrow{s} = ( s_1 ,..., s_p )\)</span></p>
+<p><br></p>
+<p><strong>Observación:</strong></p>
+<p>Con la distancia de Karl Pearson, el peso que se le da a la diferencia entre las observaciones de una variable para un par de individuos decrece cuanto mayor es la varianza de la variable, y aumenta cuanto menor es la varianza.</p>
+<p>Es decir, si la variable <span class="math inline">\(\hspace{0.08cm}\mathcal{X}_k\hspace{0.08cm}\)</span> tiene mucha varianza muestral, es decir, mucha <span class="math inline">\(\hspace{0.08cm}s_k ^2\hspace{0.08cm}\)</span> , entonces <span class="math inline">\(\hspace{0.08cm}(x_{ik} - x_{rk})\hspace{0.08cm}\)</span> tiene muy poco peso en la distancia de Pearson. Cuanto menor sea la varianza, mas peso tendrá, y a la inversa.</p>
+<p><br></p>
+<p><strong>Desventajas</strong></p>
+<ol style="list-style-type: decimal">
+<li>Asume que las variables estan incorreladas y tienen varianza uno.</li>
+</ol>
+<p><strong>Ventajas</strong></p>
+<ol style="list-style-type: decimal">
+<li>La distancia de Pearson es invariante ante cambios de escala (cambios en las unidades de medida).</li>
+</ol>
+<p><br></p>
+</div>
+<div id="distancia-de-pearson-en-python" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> Distancia de Pearson en <code>Python</code> <a class="anchor" id="38"></a></h2>
 </div>
 </div>
 </div>
