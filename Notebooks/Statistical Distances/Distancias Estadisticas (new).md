@@ -15,6 +15,35 @@ css: custom.css
 ---
  
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+    
+ 
+    table {
+     display: block;
+     overflow-x: auto;
+     border-collapse: collapse;
+     border-spacing: 0;
+     border: 0px solid;
+     color: var(--jp-ui-font-color1);
+     font-size: 14px;
+     margin-left: auto;
+     margin-right: auto;
+     
+            }
+            
+</style>
 
 
 > More articles in my blog:   $\hspace{0.1cm}$   [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)
@@ -22,6 +51,576 @@ css: custom.css
 <br>
 
 El concepto de distancia entre observaciones de variables estadisticas tiene un papel relevante en muchas tecnicas y modelos estadistico tales como KNN, PCA, MDS, Clustering , Regresión  y Clasificacion (supervisada). Es por ello de especial relevancia para todo cientifico de datos saber que son las distancias estadisticas, que tipos hay y como implementarlas.
+
+
+
+<br>
+
+# Data-set de trabajo
+
+```python
+import pandas as pd
+import numpy as np
+```
+
+
+```python
+Data = pd.read_csv('House_Price_Regression.csv')
+
+Data['type'] = np.random.uniform(low=0, high=3, size=len(Data)).round()
+
+Data['rating'] = np.random.uniform(low=0, high=5, size=len(Data)).round()
+
+Data.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>neighborhood_recode</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>price</th>
+      <th>no_of_bedrooms</th>
+      <th>no_of_bathrooms</th>
+      <th>quality_recode</th>
+      <th>maid_room_recode</th>
+      <th>unfurnished_recode</th>
+      <th>balcony_recode</th>
+      <th>...</th>
+      <th>private_jacuzzi_recode</th>
+      <th>private_pool_recode</th>
+      <th>security_recode</th>
+      <th>shared_gym_recode</th>
+      <th>shared_pool_recode</th>
+      <th>shared_spa_recode</th>
+      <th>view_of_water_recode</th>
+      <th>size_in_m_2</th>
+      <th>type</th>
+      <th>rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>46.0</td>
+      <td>25.113208</td>
+      <td>55.138932</td>
+      <td>2700000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>100.242337</td>
+      <td>0.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>46.0</td>
+      <td>25.106809</td>
+      <td>55.151201</td>
+      <td>2850000</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>146.972546</td>
+      <td>2.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>36.0</td>
+      <td>25.063302</td>
+      <td>55.137728</td>
+      <td>1150000</td>
+      <td>3</td>
+      <td>5</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>181.253753</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>11.0</td>
+      <td>25.227295</td>
+      <td>55.341761</td>
+      <td>2850000</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>187.664060</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>46.0</td>
+      <td>25.114275</td>
+      <td>55.139764</td>
+      <td>1729200</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>47.101821</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 31 columns</p>
+</div>
+
+
+
+
+```python
+Data_quant = Data.loc[: , ['latitude', 'longitude', 'price', 'size_in_m_2', 'no_of_bedrooms', 'no_of_bathrooms']]
+```
+
+
+```python
+Data_quant.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>price</th>
+      <th>size_in_m_2</th>
+      <th>no_of_bedrooms</th>
+      <th>no_of_bathrooms</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>25.113208</td>
+      <td>55.138932</td>
+      <td>2700000</td>
+      <td>100.242337</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>25.106809</td>
+      <td>55.151201</td>
+      <td>2850000</td>
+      <td>146.972546</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>25.063302</td>
+      <td>55.137728</td>
+      <td>1150000</td>
+      <td>181.253753</td>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>25.227295</td>
+      <td>55.341761</td>
+      <td>2850000</td>
+      <td>187.664060</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>25.114275</td>
+      <td>55.139764</td>
+      <td>1729200</td>
+      <td>47.101821</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+Data_binary = Data.loc[: , ['private_garden_recode', 'private_gym_recode', 'private_jacuzzi_recode', 'balcony_recode']]
+
+Data_binary.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>private_garden_recode</th>
+      <th>private_gym_recode</th>
+      <th>private_jacuzzi_recode</th>
+      <th>balcony_recode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+Data_multiclass = Data.loc[: , ['quality_recode', 'rating', 'type']]
+
+Data_multiclass.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>quality_recode</th>
+      <th>rating</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+Data_mixed = Data.loc[: , ['latitude', 'longitude', 'price', 'size_in_m_2', 'no_of_bedrooms', 'no_of_bathrooms','private_garden_recode', 'private_gym_recode', 'private_jacuzzi_recode', 'balcony_recode','quality_recode', 'rating', 'type']]
+
+Data_mixed.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>price</th>
+      <th>size_in_m_2</th>
+      <th>no_of_bedrooms</th>
+      <th>no_of_bathrooms</th>
+      <th>private_garden_recode</th>
+      <th>private_gym_recode</th>
+      <th>private_jacuzzi_recode</th>
+      <th>balcony_recode</th>
+      <th>quality_recode</th>
+      <th>rating</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>25.113208</td>
+      <td>55.138932</td>
+      <td>2700000</td>
+      <td>100.242337</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>25.106809</td>
+      <td>55.151201</td>
+      <td>2850000</td>
+      <td>146.972546</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>25.063302</td>
+      <td>55.137728</td>
+      <td>1150000</td>
+      <td>181.253753</td>
+      <td>3</td>
+      <td>5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>25.227295</td>
+      <td>55.341761</td>
+      <td>2850000</td>
+      <td>187.664060</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>25.114275</td>
+      <td>55.139764</td>
+      <td>1729200</td>
+      <td>47.101821</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<br>
+
+```python
+Data_quant_numpy = Data_quant.to_numpy()
+Data_binary_numpy = Data_binary.to_numpy()
+Data_multiclass_numpy = Data_multiclass.to_numpy()
+Data_mixed_numpy = Data_mixed.to_numpy()
+```
 
 
 
@@ -364,22 +963,537 @@ $$
 
 
 
-### Distancia Euclidea en `Python` <a class="anchor" id="14"></a>
+## Distancia Euclidea en `Python` <a class="anchor" id="14"></a>
+
+
+
+```python
+def Dist_Euclidea(x_i, x_r):
+
+        Dist_Euclidea = ( ( x_i - x_r )**2 ).sum()
+
+        Dist_Euclidea = np.sqrt(Dist_Euclidea)
+
+        return Dist_Euclidea
+```
+
+
+```python
+Dist_Euclidea(Data_quant.iloc[2,:] , Data_quant.iloc[5,:])
+```
+
+
+
+
+    1969900.0019225744
+
+
+
+
+```python
+def Matrix_Dist_Euclidea(Data):
+
+    # Paso previo necesario si Data es pd.DataFrame  --> Data = Data.to_numpy()
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+    
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+             if i >= r :
+               
+                 M[i,r] = 0
+
+             else :
+
+                 M[i,r] = Dist_Euclidea(Data[i,:] , Data[r,:])  # Seria bueno paralelizar esta parte
+
+                      
+    return M 
+```
+
+
+```python
+M_Euclidean = Matrix_Dist_Euclidea(Data=Data_quant_numpy)
+```
+
+
+```python
+M_Euclidean
+```
+
+
+
+
+    array([[      0.        ,  150000.00728238, 1550000.00212124, ...,
+             200000.01565902, 2025000.00024491, 1939113.00017324],
+           [      0.        ,       0.        , 1700000.00034859, ...,
+              50000.01055292, 2175000.00140691, 2089113.00126347],
+           [      0.        ,       0.        ,       0.        , ...,
+            1750000.00000111,  475000.01333737,  389113.0147095 ],
+           ...,
+           [      0.        ,       0.        ,       0.        , ...,
+                  0.        , 2225000.00274952, 2139113.00257909],
+           [      0.        ,       0.        ,       0.        , ...,
+                  0.        ,       0.        ,   85887.00018092],
+           [      0.        ,       0.        ,       0.        , ...,
+                  0.        ,       0.        ,       0.        ]])
+
+
+
+
+```python
+M_Euclidean = M_Euclidean + M_Euclidean.T
+
+M_Euclidean
+```
+
+
+
+
+    array([[      0.        ,  150000.00728238, 1550000.00212124, ...,
+             200000.01565902, 2025000.00024491, 1939113.00017324],
+           [ 150000.00728238,       0.        , 1700000.00034859, ...,
+              50000.01055292, 2175000.00140691, 2089113.00126347],
+           [1550000.00212124, 1700000.00034859,       0.        , ...,
+            1750000.00000111,  475000.01333737,  389113.0147095 ],
+           ...,
+           [ 200000.01565902,   50000.01055292, 1750000.00000111, ...,
+                  0.        , 2225000.00274952, 2139113.00257909],
+           [2025000.00024491, 2175000.00140691,  475000.01333737, ...,
+            2225000.00274952,       0.        ,   85887.00018092],
+           [1939113.00017324, 2089113.00126347,  389113.0147095 , ...,
+            2139113.00257909,   85887.00018092,       0.        ]])
+
+
+
+<br>
+
+<br>
+
+##  Distancia de Minkowski <a class="anchor" id="18"></a>
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ La distancia de Minkowski de parametro $\hspace{0.1cm} q=1,2,3,... \hspace{0.1cm}$ entre el par de observaciones (x_i , x_r) de las variables estadisticas $\hspace{0.1cm} \mathcal{X}_1,. ..,\mathcal{X}_k\hspace{0.1cm}$  se define como: $\\[0.5cm]$
+
+
+$$
+\hspace{0.25cm} \delta_q(i,r)_{Minkow} = \delta_q(x_i,x_r)_{Minkow} \hspace{0.1cm} = \hspace{0.1cm}  \left( \sum_{k=1}^{p}  \mid x_{ik} - x_{jk} \mid  ^q  \right)^{(1/q)} \hspace{0.1cm} = \hspace{0.1cm} \text{sum} \left( \hspace{0.1cm} \mid x_i - x_j \mid  ^q \hspace{0.1cm}\right)^{(1/q)}    
+$$
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+
+
+
+**Distancia Minkowski entre vectores**
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ La distancia de Minkowski puede definirse de un modo mas general no sujeto al contexto estadistico.
+
+$\hspace{0.25cm}$ Dados dos vectores $\hspace{0.1cm} v=(v_1,...,v_n)^t\hspace{0.1cm}$ y $\hspace{0.1cm} w=(w_1,...,w_n)^t\hspace{0.1cm}$ de $\hspace{0.1cm}\mathbb{R}^2 \\$
+
+
+
+$\hspace{0.25cm}$ La distancia de Minkowski entre  esos vectores se define como:
+
+$$
+\hspace{0.25cm} \delta_q(v,w)_{Minkowski} \hspace{0.07cm}=\hspace{0.07cm}  sum \left( \hspace{0.1cm} \mid v - w \mid  ^q \hspace{0.1cm}\right)^{(1/q)}  \hspace{0.07cm}=\hspace{0.07cm}  \left( \sum_{i=1}^{n}  \mid v_{i } - w_{i} \mid  ^q  \right)^{(1/q)} $$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+- Asi que $\hspace{0.1cm} \delta_q(x_i,x_r)_{Minkowski}\hspace{0.1cm}$ es la distancia de Minkowski entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}$ y $\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p$
+
+
+<br>
+
+
+**Desventajas de la distancia de Minkowski**
+
+
+1) Asume que las variables son incorreladas y tienen varianza uno.
+
+2) No es invariante ante cambios de escala (cambios en las unidades de medida) de las variables.
+
+3) Es dificilmente euclideanizable.
+
+
+
+
+<br>
+
+
+
+### Casos particulares de la distancia de Minkowski <a class="anchor" id="20"></a>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$  **Distancia Euclidea** 
+
+
+\begin{gather*}
+ \delta_2(i,j)_{Minkowski }=\delta (i,j)_{Euclidea }   \hspace{1cm} (q=2) \\
+ \end{gather*}
+ 
+
+
+<br>
+
+$\hspace{0.25cm}$  **Distancia Manhattan**
+
+
+
+\begin{gather*}
+ \delta_1(i,j)_{Minkowski } \hspace{0.1cm}=\hspace{0.1cm} \sum_{k=1}^{p}  \mid x_{ik} - x_{jk}  \mid  \hspace{0.1cm}=\hspace{0.1cm}  sum \left( \hspace{0.1cm} \mid x_i - x_j \mid \hspace{0.1cm} \right) \hspace{1cm} (q=1) \\
+ \end{gather*}
+
+
+
+<br>
+
+$\hspace{0.25cm}$  **Distancia Dominante** <a class="anchor" id="23"></a>
+
+
+
+\begin{gather*}
+ \delta_{\infty}(i,j)_{Minkowski } \hspace{0.1cm}=\hspace{0.1cm} max \lbrace  \hspace{0.1cm} \mid x_{i1} - x_{j1} \mid \hspace{0.1cm},...,\hspace{0.1cm} \mid x_{ip} - x_{jp} \mid \hspace{0.1cm}  \rbrace \hspace{0.1cm}=\hspace{0.1cm} max \left( \mid x_i - x_j \mid \right) \hspace{1cm} (q\rightarrow \infty) 
+ \end{gather*}
+
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+<br>
 
 
 
 
 
 
+## Distancia de Minkowski en `Python`
+
+```python
+def Dist_Minkowski(x_i, x_r, q):
+
+    Dist_Minkowski = ( ( ( abs( x_i - x_r) )**q ).sum() )**(1/q)
+
+    return Dist_Minkowski
+```
+
+
+```python
+Dist_Minkowski(Data_quant.iloc[2,:], Data_quant.iloc[5,:], q=1)
+```
+
+    1969992.0102169998
+
+```python
+Dist_Minkowski(Data_quant.iloc[2,:], Data_quant.iloc[5,:], q=2)
+```
+
+    1969900.0019225744
+
+```python
+Dist_Minkowski(Data_quant.iloc[2,:], Data_quant.iloc[5,:], q=3)
+```
+
+    1969900.000000055
+
+
+```python
+Dist_Minkowski(Data_quant.iloc[2,:], Data_quant.iloc[5,:], q=10)
+```
+
+    1969900.0000000016
+
+
+```python
+def Matrix_Dist_Minkowski(Data, q):
+
+    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+    
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+             if i >= r :
+               
+                 M[i,r] = 0
+
+             else :
+
+                 M[i,r] = Dist_Minkowski(Data[i,:] , Data[r,:], q)   
+
+                      
+    return M 
+```
+
+
+```python
+M_Minkowski = Matrix_Dist_Minkowski(Data=Data_quant_numpy , q=1)
+
+M_Minkowski
+```
+
+```
+array([[      0.      ,  150047.748877, 1550086.062526, ...,
+         200084.359869, 2025031.624379, 1939138.969796],
+       [      0.      ,       0.      , 1700038.338187, ...,
+          50036.62379 , 2175079.33592 , 2089186.681337],
+       [      0.      ,       0.      ,       0.      , ...,
+        1750002.301489,  475117.608205,  389224.964166],
+       ...,
+       [      0.      ,       0.      ,       0.      , ...,
+              0.      , 2225115.802424, 2139223.298103],
+       [      0.      ,       0.      ,       0.      , ...,
+              0.      ,       0.      ,   85892.654583],
+       [      0.      ,       0.      ,       0.      , ...,
+              0.      ,       0.      ,       0.      ]])
+```              
+
+
+```python
+M_Minkowski = M_Minkowski + M_Minkowski.T
+
+M_Minkowski
+```
+
+```
+
+array([[      0.      ,  150047.748877, 1550086.062526, ...,
+         200084.359869, 2025031.624379, 1939138.969796],
+       [ 150047.748877,       0.      , 1700038.338187, ...,
+          50036.62379 , 2175079.33592 , 2089186.681337],
+       [1550086.062526, 1700038.338187,       0.      , ...,
+        1750002.301489,  475117.608205,  389224.964166],
+       ...,
+       [ 200084.359869,   50036.62379 , 1750002.301489, ...,
+              0.      , 2225115.802424, 2139223.298103],
+       [2025031.624379, 2175079.33592 ,  475117.608205, ...,
+        2225115.802424,       0.      ,   85892.654583],
+       [1939138.969796, 2089186.681337,  389224.964166, ...,
+        2139223.298103,   85892.654583,       0.      ]])
+```
+
+
+ 
+ 
+<br>
+
+
+
+## Distancia de Canberra  <a class="anchor" id="32"></a>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+
+$\hspace{0.25cm}$ La distancia de Canberra entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm} \mathcal{X}_1,. ..,\mathcal{X}_k\hspace{0.1cm}$  se define como: $\\[0.5cm]$
+
+
+
+\begin{gather*}
+\delta(i,r)_{Canberra} = \delta(x_i,x_r)_{Canberra}\hspace{0.1cm}= \hspace{0.1cm} \sum_{k=1}^{p} \dfrac{\mid x_{ik} - x_{jk} \mid}{\mid x_{ik} \mid + \mid x_{jk} \mid}  \hspace{0.1cm}= \hspace{0.1cm} sum \left( \dfrac{\mid x_i - x_r \mid }{ \mid x_i \mid + \mid x_r \mid} \right)
+ \end{gather*}
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+<br>
+
+
+
+**Distancia Canberra entre vectores**
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+
+$\hspace{0.25cm}$ La distancia de Canberra se puede definir de forma más general no sujeta a un contexto estadístico.
+
+$\hspace{0.25cm}$ Dados dos vectores $\hspace{0.07cm}v=(v_1,...,v_n)^t\hspace{0.07cm}$ y $\hspace{0.07cm}w=(w_1,...,w_n)^t$ de $\hspace{0.07cm}\mathbb{R}^2$
+
+
+
+$\hspace{0.25cm}$ La distancia Canberra entre esos dos vectores es:
+
+$$
+\delta (v,w)_{Canberra}  \hspace{0.07cm}=\hspace{0.07cm}  sum \left( \dfrac{ \mid v-w \mid }{\mid v \mid + \mid w \mid} \right)  \hspace{0.07cm}=\hspace{0.07cm}  \sum_{i=1}^{n} \dfrac{ \mid v_i - w_i \mid }{\mid v_i \mid + \mid w_i \mid} \\
+$$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+- Asi que $\hspace{0.1cm} \delta_q(x_i,x_r)_{Minkowski}\hspace{0.1cm}$ es la distancia de Minkowski entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}$ y $\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p$
+
+
+
+<br>
+
+**Desventajas de la distancia de Canberra**
+
+1) Asumen que las variables son incorreladas y tienen varianza uno.
+
+
+
+**Ventajas de la distancia de Canberra**
+
+1) Es invariante ante cambios de escala (cambios en las unidades de medida) de las variables.
+
+
+
+<br>
+
+
+
+## Distancia de Canberra en `Python` <a class="anchor" id="33"></a>
+
+```python
+def Dist_Canberra(x_i, x_r):
+
+    numerator =  abs( x_i - x_r )
+
+    denominator =  ( abs(x_i) + abs(x_r) )
+       
+    numerator=np.array([numerator], dtype=float)
+
+    denominator=np.array([denominator], dtype=float)
+
+    # The following code is to eliminate zero division problems
+
+    Dist_Canberra = ( np.divide( numerator , denominator , out=np.zeros_like(numerator), where=denominator!=0) ).sum() 
+
+    return Dist_Canberra
+```
+
+
+```python
+Dist_Canberra(Data.iloc[2,:] , Data.iloc[5,:])
+```
+
+    9.161812529108834
+
+
+```python
+def Matrix_Dist_Canberra(Data):
+
+    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+    
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+             if i >= r :
+               
+                 M[i,r] = 0
+
+             else :
+
+                 M[i,r] = Dist_Canberra(Data[i,:] , Data[r,:])   
+
+                      
+    return M 
+```
 
 
 
 
+```python
+M_Canberra = Matrix_Dist_Canberra(Data=Data_quant_numpy)
+
+M_Canberra
+```
+```
+array([[0.        , 0.5496257 , 1.61996314, ..., 1.25082356, 0.78797391,
+        0.70959891],
+       [0.        , 0.        , 1.15900459, ..., 0.74009173, 1.31434216,
+        1.24077176],
+       [0.        , 0.        , 0.        , ..., 0.44223489, 1.63990915,
+        1.55106392],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 2.00032192,
+        1.93106183],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.09956138],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])
+```
+
+```python
+M_Canberra = M_Canberra + M_Canberra.T
+
+M_Canberra
+```
 
 
-
-
-
+```
+array([[0.        , 0.5496257 , 1.61996314, ..., 1.25082356, 0.78797391,
+        0.70959891],
+       [0.5496257 , 0.        , 1.15900459, ..., 0.74009173, 1.31434216,
+        1.24077176],
+       [1.61996314, 1.15900459, 0.        , ..., 0.44223489, 1.63990915,
+        1.55106392],
+       ...,
+       [1.25082356, 0.74009173, 0.44223489, ..., 0.        , 2.00032192,
+        1.93106183],
+       [0.78797391, 1.31434216, 1.63990915, ..., 2.00032192, 0.        ,
+        0.09956138],
+       [0.70959891, 1.24077176, 1.55106392, ..., 1.93106183, 0.09956138,
+        0.        ]])
+```
 
 
 
