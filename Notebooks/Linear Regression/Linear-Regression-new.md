@@ -1062,8 +1062,6 @@ $\hspace{0.25cm}$ Los supuestos básicos del modelo son los siguientes:
 
 
 
-
-
 &nbsp;
 
 
