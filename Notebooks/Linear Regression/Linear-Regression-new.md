@@ -1258,6 +1258,9 @@ $\hspace{0.25cm}$ para $\hspace{0.1cm}$ $i=1,...,n$
 <br>
 
 
+
+
+
 **Observación:**
 
 $\hat{\varepsilon}_i\hspace{0.1cm}$ es el error que comete el modelo cuando predice    $y_i$  como  $\widehat{y}_i=x_i^t \cdot \widehat{\beta}$
