@@ -1524,6 +1524,7 @@ $$
 
 
 
+
 Donde:
  
  $S_0 = \text{diag}(s_1 ^2 ,..., s_p ^2)$
@@ -1673,24 +1674,31 @@ array([[0.        , 1.21345279, 3.77819153, ..., 4.95085256, 1.66393723,
 ## Distancia de Mahalanobis  <a class="anchor" id="42"></a>
 
 
-Dada una matriz de datos $X=(X_1,...,X_p)$ de las variables estadisticas  $\mathcal{X}_1,...,\mathcal{X}_p$
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25}$ Dada una matriz de datos $\hspace{0.1cm} X=(X_1,...,X_p)\hspace{0.1cm}$ de las variables estadisticas  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
 
 
-La distancia de Mahalanobis entre el par de observaciones $(x_i,x_r)$ de las variables estadisticas $\mathcal{X}_1,...,\mathcal{X}_p$ se define como: $\\[0.5cm]$
+$\hspace{0.25}$ La distancia de Mahalanobis entre el par de observaciones $\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$ se define como: $\\[0.5cm]$
 
  
 $$
-\delta^2(i,j)_{Maha} \hspace{0.08cm}= \hspace{0.08cm} (x_i - x_j)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - x_j ) \\[0.6cm]
-$$
-
- $$
- \delta(i,j)_{Maha} \hspace{0.08cm}= \hspace{0.08cm}\sqrt{(x_i - x_j)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - x_j ) }   \\[0.6cm]
+ \delta(x_i,x_r)_{Maha} \hspace{0.08cm}= \hspace{0.08cm}\sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - x_r ) }   \\[0.6cm]
 $$
 
 
-Donde:
+$\hspace{0.25}$Donde:
 
-$S \hspace{0.08cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.08cm}X=(X_1,...,X_p)$
+$\hspace{0.15} S \hspace{0.08cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.08cm}X=(X_1,...,X_p)$
+
+</p>
+ 
+</p></span>
+</div>
+
 
 
 <br>
@@ -1708,9 +1716,9 @@ La distancia de Mahalanobis es adecuada como distancia estadística por las sigu
 
 ***Observaciones***
 
-1) The Euclidean distance is equal to the Mahalanobis distance when $\hspace{0.1cm} S=I$
+1) La distancia Euclidea es igual a la de Mahalanobis cuando $\hspace{0.1cm} S=I \\$
 
-2) The Karl Pearson distance is equal to the Mahalanobis distance when $\hspace{0.1cm} S=\text{diag}(s_1^2 ,..., s_p^2)$
+2) La distancia de Pearson es igual a la de Mahalanobis cuando $\hspace{0.1cm} S=\text{diag}(s_1^2 ,..., s_p^2)$
 
 
 
@@ -1719,16 +1727,480 @@ La distancia de Mahalanobis es adecuada como distancia estadística por las sigu
 
 
 
-#### Mahalanobis Distance in `R` <a class="anchor" id="43"></a>
+## Distancia de Mahalanobis en `Python` <a class="anchor" id="43"></a>
+
+
+
+```python
+def Dist_Mahalanobis_1(x_i, x_r, Data):
+
+    # All the columns of Data must be type = 'float' or 'int' (specially not 'object'), in other case we will find 
+    # dimensional problems when Python compute   x @ S_inv @ x.T
+
+    x = (x_i - x_r)
+
+    x = np.array([x]) # necessary step to transpose a 1D array
+
+    S_inv = np.linalg.inv( np.cov(Data , rowvar=False) ) # inverse of covariance matrix
+
+    Dist_Maha = np.sqrt( x @ S_inv @ x.T )  # x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )
+
+    Dist_Maha = float(Dist_Maha)
+
+    return Dist_Maha
+```
+
+
+```python
+Dist_Mahalanobis_1(Data_quant_numpy[2,:] , Data_quant_numpy[5,:] , Data=Data_quant_numpy )
+```
+
+    3.931396144771864
+
+
+
+```python
+def Dist_Mahalanobis_2(x_i, x_r, S_inv):  # Más eficiente que la anterior
+
+    # All the columns of Data must be type = 'float' or 'int' (specially not 'object'), in other case we will find 
+    # dimensional problems when Python compute   x @ S_inv @ x.T
+
+    x = (x_i - x_r)
+
+    x = np.array([x]) # necessary step to transpose a 1D array
+
+    Dist_Maha = np.sqrt( x @ S_inv @ x.T )  # x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )
+
+    Dist_Maha = float(Dist_Maha)
+
+    return Dist_Maha
+```
+
+
+```python
+Dist_Mahalanobis_2(x_i = Data_quant_numpy[2,:] , x_r = Data_quant_numpy[5,:] , S_inv = np.linalg.inv( np.cov(Data_quant_numpy , rowvar=False) ) )
+```
+
+    3.931396144771864
+
+
+```python
+def Dist_Mahalanobis_3(x, S_inv):  # Más eficiente que la anterior
+
+    # All the columns of Data must be type = 'float' or 'int' (specially not 'object'), in other case we will find 
+    # dimensional problems when Python compute   x @ S_inv @ x.T
+
+    # x = (x_i - x_r)
+
+    # x = np.array([x]) # necessary step to transpose a 1D array
+
+    Dist_Maha = np.sqrt( x @ S_inv @ x.T )  # x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )
+
+    Dist_Maha = float(Dist_Maha)
+
+    return Dist_Maha
+```
+
+
+
+```python
+Dist_Mahalanobis_3(x = np.array([Data_quant_numpy[2,:] - Data_quant_numpy[5,:]]) , S_inv=np.linalg.inv( np.cov(Data_quant_numpy , rowvar=False) ))
+```
+    
+    3.931396144771864
+
+
+```python
+def Matrix_Dist_Mahalanobis_1(Data):
+
+    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+   
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+             if i >= r :
+               
+                 M[i,r] = 0
+
+             else :
+
+                 M[i,r] = Dist_Mahalanobis_1(x_i = Data[i,:] , x_r = Data[r,:] , Data=Data )
+
+                      
+    return M 
+```
+
+
+
+```python
+Matrix_Dist_Mahalanobis_1(Data=Data_quant_numpy[0:1000 , 0:1000]) # 2.25 mins
+```
+
+```
+array([[0.        , 2.16321817, 3.81131086, ..., 2.74083537, 3.84799958,
+        1.06041471],
+       [0.        , 0.        , 4.29953104, ..., 2.76698155, 2.78100414,
+        2.20791581],
+       [0.        , 0.        , 0.        , ..., 2.63546884, 4.34269664,
+        3.32469143],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 2.18534065,
+        1.8408748 ],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        3.09496075],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])
+```
+
+
+
+```python
+Matrix_Dist_Mahalanobis_1(Data=Data_quant_numpy) # 8.52 mins
+```
+```
+array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
+        1.10588047],
+       [0.        , 0.        , 4.35615967, ..., 4.93340427, 2.74011739,
+        2.12938584],
+       [0.        , 0.        , 0.        , ..., 3.17779509, 3.49432487,
+        3.23723317],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 3.58695453,
+        4.11275247],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.46894947],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])
+```
+
+
+```python
+def Matrix_Dist_Mahalanobis_2(Data):
+
+    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+    S_inv = np.linalg.inv( np.cov(Data , rowvar=False) )
+
+   
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+             if i >= r :
+               
+                 M[i,r] = 0
+
+             else :
+
+                 M[i,r] = Dist_Mahalanobis_2(x_i = Data[i,:] , x_r = Data[r,:] , S_inv = S_inv  )
+
+                      
+    return M 
+```
+
+
+
+```python
+Matrix_Dist_Mahalanobis_2(Data=Data_quant_numpy[0:1000 , 0:1000]) # 6.8 seg
+```
+```
+array([[0.        , 2.16321817, 3.81131086, ..., 2.74083537, 3.84799958,
+        1.06041471],
+       [0.        , 0.        , 4.29953104, ..., 2.76698155, 2.78100414,
+        2.20791581],
+       [0.        , 0.        , 0.        , ..., 2.63546884, 4.34269664,
+        3.32469143],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 2.18534065,
+        1.8408748 ],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        3.09496075],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])
+```
+
+```python
+Matrix_Dist_Mahalanobis_2(Data=Data_quant_numpy) # 22.5 seg
+```
+
+```
+array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
+        1.10588047],
+       [0.        , 0.        , 4.35615967, ..., 4.93340427, 2.74011739,
+        2.12938584],
+       [0.        , 0.        , 0.        , ..., 3.17779509, 3.49432487,
+        3.23723317],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 3.58695453,
+        4.11275247],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.46894947],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])
+```
+
+```python
+def Matrix_Dist_Mahalanobis_3(Data):
+
+    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+    S_inv=np.linalg.inv( np.cov(Data , rowvar=False) )
+
+   
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+             if i >= r :
+               
+                 M[i,r] = 0
+
+             else :
+
+                 M[i,r] = Dist_Mahalanobis_3(x = np.array([Data[i,:] - Data[r,:]]) , S_inv=S_inv ) 
+
+                      
+    return M 
+```
+
+```python
+Matrix_Dist_Mahalanobis_3(Data=Data_quant_numpy[0:1000 , 0:1000]) # 4.8 seg
+```
+
+```
+array([[0.        , 2.16321817, 3.81131086, ..., 2.74083537, 3.84799958,
+        1.06041471],
+       [0.        , 0.        , 4.29953104, ..., 2.76698155, 2.78100414,
+        2.20791581],
+       [0.        , 0.        , 0.        , ..., 2.63546884, 4.34269664,
+        3.32469143],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 2.18534065,
+        1.8408748 ],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        3.09496075],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])
+```
+
+```python
+Matrix_Dist_Mahalanobis_3(Data=Data_quant_numpy) # 19.7 seg
+```
+
+
+```
+array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
+        1.10588047],
+       [0.        , 0.        , 4.35615967, ..., 4.93340427, 2.74011739,
+        2.12938584],
+       [0.        , 0.        , 0.        , ..., 3.17779509, 3.49432487,
+        3.23723317],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 3.58695453,
+        4.11275247],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.46894947],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])
+```
+
+<br>
+
+
+<br>
+
+# Similaridades
+
+## Similaridad <a class="anchor" id="48"></a>
+
+Es un concepto que expresa la proximidad o similaridad entre un par de elementos cualesquiera.
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+ $\hspace{0.25cm}$ Dado un conjunto cualquiera $\hspace{0.1cm}A$
+
+
+
+$\hspace{0.25cm}$ Se denomina similaridad a toda función $\hspace{0.1cm} \phi : A \text{x} A \rightarrow \mathbb{R}\hspace{0.1cm}$   such that:
+
+$\hspace{0.35cm} 1)$ $\hspace{0.2cm} \phi(i , r) \in [0,1] \hspace{0.45cm}  \forall i,r \in A \\$
+
+$\hspace{0.35cm} 2)$ $\hspace{0.2cm} \phi(i, i) = 1  \hspace{0.45cm}  \forall i,r \in A \\$
+
+$\hspace{0.35cm} 3)$  $\hspace{0.2cm} \phi(i , r) = \phi(r, i)  \hspace{0.45cm}  \forall i,r \in A$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+ 
+
+<br>
+
+
+## Matriz de Similaridades  <a class="anchor" id="49"></a>
+
+Dada una similaridad $s$ definida sobre el conjunto $A=\lbrace a_1 ,..., a_n \rbrace$
+
+Se define la matriz de similaridades $\phi$ sobre $A$ como:
+Definimos la matriz de similaridades 
+
+$$
+\mathcal{S}= \begin{pmatrix}
+\phi_{11} &\phi_{12}&...&\phi_{1n}\\
+\phi_{21} & \phi_{22}&...&\phi_{2n}\\
+...&...&...&...\\
+\phi_{n1}& \phi_{n2}&...& \phi_{nn}\\
+\end{pmatrix} \\
+$$
+
+
+
+Donde:
+
+$\phi_{ir} = \phi(a_i , a_r) \hspace{0.45cm}  \forall i, j =1,...,n$
 
 
 
 
+## Pasar de similaridad a distancia  <a class="anchor" id="50"></a>
+
+ 
+Las siguientes transformaciones nos permiten pasar de una similaridad a una distancia:
+
+1) $\hspace{0.25cm} \phi_{ir}=1- \phi_{ir} \\$
+
+
+2) $\hspace{0.25cm} \phi_{ir}=\sqrt{1-\phi_{ir}} \\$
+
+3) Gower transformation: $\hspace{0.25cm} \phi^2_{ir} = \phi_{ii} + \phi_{jj} - 2\cdot \phi_{ij}$
+
+
+
+<br>
 
 
 
 
+# Similaridades con variables categoricas binarias <a class="anchor" id="51"></a>
 
+Dada una muestra de $n$  elementos/individuos $\hspace{0.1cm}\Omega = \lbrace e_1,e_2,...,e_n \rbrace$ 
+
+Dada una serie de variables estadisticas **categóricas binarias** $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
+
+Para cada variable binaria $\mathcal{X}_j$ tenemos una muestra de $n$ observaciones $X_j$  basada en la muestra de $n$ individuos $\hspace{0.1cm}\Omega$
+
+ 
+Es decir, tenemos lo siguiente:
+
+- $\hspace{0.1cm}X_j=(x_{j1},...,x_{jn})^t$ , para $j=1,...,p \\$
+
+- $\hspace{0.1cm}x_{ji}\hspace{0.1cm}$ es la observación de la variable $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ para el individuo $\hspace{0.1cm}e_i\hspace{0.1cm}$ de la muestra $\hspace{0.1cm}\Omega$ , para $\hspace{0.1cm}j=1,...,p\hspace{0.1cm}$ y $\hspace{0.1cm}i=1,...,n \\$
+
+
+
+Por tanto:
+
+- $\hspace{0.1cm}X_j=(x_{j1},...,x_{jn})^t\hspace{0.1cm}$ es el vector con las observaciones de la variable para los individuos de la muestra $\Omega$  , para $j=1,...,p \\$
+
+- $\hspace{0.1cm}x_i = (x_{1i} , x_{2i} ,..., x_{pi})^t\hspace{0.1cm}$ es el vector con las observaciones de las variables  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ para el individuo $\hspace{0.1cm}e_i\hspace{0.1cm}$ de $\hspace{0.1cm}\Omega$ , para $\hspace{0.1cm}i=1,...,n$
+
+
+
+<br>
+
+
+Los principales coeficientes de similaridad involucran algunos de los siguientes parametros:
+
+ - $\hspace{0.2cm} a_{ir}\hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
+ 
+  
+ $$\hspace{0.2cm} a_{ir} \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=x_{rj}=1  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
+
+ - $\hspace{0.2cm} b_{ir}\hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias  $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=1 \\$ 
+
+
+ $$\hspace{0.2cm} b_{ir} \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=0 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=1  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
+
+
+ - $\hspace{0.2cm} c_{ir}\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =1\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+
+
+ $$\hspace{0.2cm} c_{ir} \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=1 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=0  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
+
+
+
+ - $\hspace{0.2cm} d_{ij}\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+ 
+ $$\hspace{0.2cm} d_{ir} \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=0 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=0  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
+ 
+ 
+
+ **Observación:**
+
+$\hspace{0.2cm} a_{ij} + b_{ij} + c_{ij} +d_{ij} =p$
+
+
+
+
+<br>
+
+
+
+
+## Matrices con los parametros a, b, c y d <a class="anchor" id="52"></a>
+
+
+
+
+Dada una matriz de datos $\hspace{0.05cm}X=(X_1,...,X_p)\hspace{0.05cm}$  de  variables  **categoricas binarias**
+
+Dadas las matrices $\hspace{0.1cm} a=(a_{ir})_{i,r=1:n}\hspace{0.1cm}$ ,  $\hspace{0.1cm}b=(b_{ir})_{i,r=1:n}\hspace{0.1cm}$,  $\hspace{0.1cm}c=(c_{ir})_{i,r=1:n}\hspace{0.1cm}$ y  $\hspace{0.1cm}d=(d_{ir})_{i,r=1:n}$ 
+
+Estas matrices pueden expresarse del siguiente modo: $\\[0.4cm]$
+
+
+- $a = X\cdot X^t \\$
+
+- $b=(\overrightarrow{1}_{nxp} - X)\cdot X\hspace{0.03cm}^t\\$
+
+- $c=b\hspace{0.03cm}^t \\$
+
+- $d=(\overrightarrow{1}_{nxp} - X)\cdot(\overrightarrow{1}_{nxp} - X)\hspace{0.03cm}^t \\$
+
+
+
+  
+
+
+
+
+<br>
+
+
+
+
+### Calculo las matrices a, b , c y d en `R`   <a class="anchor" id="53"></a>
 
 
 

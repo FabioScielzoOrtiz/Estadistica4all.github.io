@@ -1594,6 +1594,18 @@ margin-left: 0 !important;
       <li><a href="#distancia-de-canberra-en-python" id="toc-distancia-de-canberra-en-python"><span class="toc-section-number">3.6</span> Distancia de Canberra en <code>Python</code> <a class="anchor" id="33"></a></a></li>
       <li><a href="#distancia-de-karl-pearson" id="toc-distancia-de-karl-pearson"><span class="toc-section-number">3.7</span> Distancia de Karl Pearson <a class="anchor" id="37"></a></a></li>
       <li><a href="#distancia-de-pearson-en-python" id="toc-distancia-de-pearson-en-python"><span class="toc-section-number">3.8</span> Distancia de Pearson en <code>Python</code> <a class="anchor" id="38"></a></a></li>
+      <li><a href="#distancia-de-mahalanobis" id="toc-distancia-de-mahalanobis"><span class="toc-section-number">3.9</span> Distancia de Mahalanobis <a class="anchor" id="42"></a></a></li>
+      <li><a href="#distancia-de-mahalanobis-en-python" id="toc-distancia-de-mahalanobis-en-python"><span class="toc-section-number">3.10</span> Distancia de Mahalanobis en <code>Python</code> <a class="anchor" id="43"></a></a></li>
+      </ul></li>
+      <li><a href="#similaridades" id="toc-similaridades"><span class="toc-section-number">4</span> Similaridades</a>
+      <ul>
+      <li><a href="#similaridad" id="toc-similaridad"><span class="toc-section-number">4.1</span> Similaridad <a class="anchor" id="48"></a></a></li>
+      <li><a href="#matriz-de-similaridades" id="toc-matriz-de-similaridades"><span class="toc-section-number">4.2</span> Matriz de Similaridades <a class="anchor" id="49"></a></a></li>
+      <li><a href="#pasar-de-similaridad-a-distancia" id="toc-pasar-de-similaridad-a-distancia"><span class="toc-section-number">4.3</span> Pasar de similaridad a distancia <a class="anchor" id="50"></a></a></li>
+      </ul></li>
+      <li><a href="#similaridades-con-variables-categoricas-binarias" id="toc-similaridades-con-variables-categoricas-binarias"><span class="toc-section-number">5</span> Similaridades con variables categoricas binarias <a class="anchor" id="51"></a></a>
+      <ul>
+      <li><a href="#matrices-con-los-parametros-a-b-c-y-d" id="toc-matrices-con-los-parametros-a-b-c-y-d"><span class="toc-section-number">5.1</span> Matrices con los parametros a, b, c y d <a class="anchor" id="52"></a></a></li>
       </ul></li>
       </ul>
     </div>
@@ -3376,6 +3388,349 @@ array([[      0.      ,  150047.748877, 1550086.062526, ...,
         1.09780835],
        [0.94314867, 1.60958264, 3.76955491, ..., 5.13174853, 1.09780835,
         0.        ]])</code></pre>
+<p><br></p>
+</div>
+<div id="distancia-de-mahalanobis" class="section level2" number="3.9">
+<h2><span class="header-section-number">3.9</span> Distancia de Mahalanobis <a class="anchor" id="42"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25}\)</span> Dada una matriz de datos <span class="math inline">\(\hspace{0.1cm} X=(X_1,...,X_p)\hspace{0.1cm}\)</span> de las variables estadisticas <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\)</span></p>
+<p><span class="math inline">\(\hspace{0.25}\)</span> La distancia de Mahalanobis entre el par de observaciones <span class="math inline">\(\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}\)</span> de las variables estadisticas <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\)</span> se define como: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[
+\delta(x_i,x_r)_{Maha} \hspace{0.08cm}= \hspace{0.08cm}\sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - x_r ) }   \\[0.6cm]
+\]</span></p>
+<p><span class="math inline">\(\hspace{0.25}\)</span>Donde:</p>
+<p><span class="math inline">\(\hspace{0.15} S \hspace{0.08cm}\)</span> es la matriz de covarianzas de la matriz de datos <span class="math inline">\(\hspace{0.08cm}X=(X_1,...,X_p)\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<p><strong>Ventajas</strong></p>
+<p>La distancia de Mahalanobis es adecuada como distancia estadística por las siguientes razones:</p>
+<ol style="list-style-type: decimal">
+<li><p>Es invariante ante cambios de escala (cambios en las unidades de medida) de las variables.</p></li>
+<li><p>Tiene en cuenta la correlación entre las variables. No aumenta al incrementar el número de variables observadas. Solo aumenta cuando estas nuevas variables no estan correladas con las anteriores. Asi que solo cuando las nuevas variables no son redundantes con respecto a la infromacion provista por las anteriores, la distancia de Mahalanobis aumentará.</p></li>
+</ol>
+<p><br></p>
+<p><strong><em>Observaciones</em></strong></p>
+<ol style="list-style-type: decimal">
+<li><p>La distancia Euclidea es igual a la de Mahalanobis cuando <span class="math inline">\(\hspace{0.1cm} S=I \\\)</span></p></li>
+<li><p>La distancia de Pearson es igual a la de Mahalanobis cuando <span class="math inline">\(\hspace{0.1cm} S=\text{diag}(s_1^2 ,..., s_p^2)\)</span></p></li>
+</ol>
+<p><br></p>
+</div>
+<div id="distancia-de-mahalanobis-en-python" class="section level2" number="3.10">
+<h2><span class="header-section-number">3.10</span> Distancia de Mahalanobis en <code>Python</code> <a class="anchor" id="43"></a></h2>
+<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Mahalanobis_1(x_i, x_r, Data):</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># All the columns of Data must be type = &#39;float&#39; or &#39;int&#39; (specially not &#39;object&#39;), in other case we will find </span></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dimensional problems when Python compute   x @ S_inv @ x.T</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> (x_i <span class="op">-</span> x_r)</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.array([x]) <span class="co"># necessary step to transpose a 1D array</span></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>    S_inv <span class="op">=</span> np.linalg.inv( np.cov(Data , rowvar<span class="op">=</span><span class="va">False</span>) ) <span class="co"># inverse of covariance matrix</span></span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> np.sqrt( x <span class="op">@</span> S_inv <span class="op">@</span> x.T )  <span class="co"># x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )</span></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> <span class="bu">float</span>(Dist_Maha)</span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Dist_Maha</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>Dist_Mahalanobis_1(Data_quant_numpy[<span class="dv">2</span>,:] , Data_quant_numpy[<span class="dv">5</span>,:] , Data<span class="op">=</span>Data_quant_numpy )</span></code></pre></div>
+<pre><code>3.931396144771864</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Mahalanobis_2(x_i, x_r, S_inv):  <span class="co"># Más eficiente que la anterior</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># All the columns of Data must be type = &#39;float&#39; or &#39;int&#39; (specially not &#39;object&#39;), in other case we will find </span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dimensional problems when Python compute   x @ S_inv @ x.T</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> (x_i <span class="op">-</span> x_r)</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.array([x]) <span class="co"># necessary step to transpose a 1D array</span></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> np.sqrt( x <span class="op">@</span> S_inv <span class="op">@</span> x.T )  <span class="co"># x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )</span></span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> <span class="bu">float</span>(Dist_Maha)</span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Dist_Maha</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>Dist_Mahalanobis_2(x_i <span class="op">=</span> Data_quant_numpy[<span class="dv">2</span>,:] , x_r <span class="op">=</span> Data_quant_numpy[<span class="dv">5</span>,:] , S_inv <span class="op">=</span> np.linalg.inv( np.cov(Data_quant_numpy , rowvar<span class="op">=</span><span class="va">False</span>) ) )</span></code></pre></div>
+<pre><code>3.931396144771864</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Mahalanobis_3(x, S_inv):  <span class="co"># Más eficiente que la anterior</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># All the columns of Data must be type = &#39;float&#39; or &#39;int&#39; (specially not &#39;object&#39;), in other case we will find </span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dimensional problems when Python compute   x @ S_inv @ x.T</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># x = (x_i - x_r)</span></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># x = np.array([x]) # necessary step to transpose a 1D array</span></span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> np.sqrt( x <span class="op">@</span> S_inv <span class="op">@</span> x.T )  <span class="co"># x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )</span></span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> <span class="bu">float</span>(Dist_Maha)</span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Dist_Maha</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>Dist_Mahalanobis_3(x <span class="op">=</span> np.array([Data_quant_numpy[<span class="dv">2</span>,:] <span class="op">-</span> Data_quant_numpy[<span class="dv">5</span>,:]]) , S_inv<span class="op">=</span>np.linalg.inv( np.cov(Data_quant_numpy , rowvar<span class="op">=</span><span class="va">False</span>) ))</span></code></pre></div>
+<pre><code>3.931396144771864</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Mahalanobis_1(Data):</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Paso previo necesario si Data es pd.DataFrame  --&gt;  Data = Data.to_numpy()</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb56-17"><a href="#cb56-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-18"><a href="#cb56-18" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
+<span id="cb56-19"><a href="#cb56-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-20"><a href="#cb56-20" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Mahalanobis_1(x_i <span class="op">=</span> Data[i,:] , x_r <span class="op">=</span> Data[r,:] , Data<span class="op">=</span>Data )</span>
+<span id="cb56-21"><a href="#cb56-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-22"><a href="#cb56-22" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb56-23"><a href="#cb56-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>Matrix_Dist_Mahalanobis_1(Data<span class="op">=</span>Data_quant_numpy[<span class="dv">0</span>:<span class="dv">1000</span> , <span class="dv">0</span>:<span class="dv">1000</span>]) <span class="co"># 2.25 mins</span></span></code></pre></div>
+<pre><code>array([[0.        , 2.16321817, 3.81131086, ..., 2.74083537, 3.84799958,
+        1.06041471],
+       [0.        , 0.        , 4.29953104, ..., 2.76698155, 2.78100414,
+        2.20791581],
+       [0.        , 0.        , 0.        , ..., 2.63546884, 4.34269664,
+        3.32469143],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 2.18534065,
+        1.8408748 ],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        3.09496075],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>Matrix_Dist_Mahalanobis_1(Data<span class="op">=</span>Data_quant_numpy) <span class="co"># 8.52 mins</span></span></code></pre></div>
+<pre><code>array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
+        1.10588047],
+       [0.        , 0.        , 4.35615967, ..., 4.93340427, 2.74011739,
+        2.12938584],
+       [0.        , 0.        , 0.        , ..., 3.17779509, 3.49432487,
+        3.23723317],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 3.58695453,
+        4.11275247],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.46894947],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Mahalanobis_2(Data):</span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Paso previo necesario si Data es pd.DataFrame  --&gt;  Data = Data.to_numpy()</span></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a>    S_inv <span class="op">=</span> np.linalg.inv( np.cov(Data , rowvar<span class="op">=</span><span class="va">False</span>) )</span>
+<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-11"><a href="#cb61-11" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb61-12"><a href="#cb61-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb61-13"><a href="#cb61-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-14"><a href="#cb61-14" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb61-15"><a href="#cb61-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-16"><a href="#cb61-16" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
+<span id="cb61-17"><a href="#cb61-17" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb61-18"><a href="#cb61-18" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb61-19"><a href="#cb61-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-20"><a href="#cb61-20" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
+<span id="cb61-21"><a href="#cb61-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-22"><a href="#cb61-22" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Mahalanobis_2(x_i <span class="op">=</span> Data[i,:] , x_r <span class="op">=</span> Data[r,:] , S_inv <span class="op">=</span> S_inv  )</span>
+<span id="cb61-23"><a href="#cb61-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-24"><a href="#cb61-24" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb61-25"><a href="#cb61-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>Matrix_Dist_Mahalanobis_2(Data<span class="op">=</span>Data_quant_numpy[<span class="dv">0</span>:<span class="dv">1000</span> , <span class="dv">0</span>:<span class="dv">1000</span>]) <span class="co"># 6.8 seg</span></span></code></pre></div>
+<pre><code>array([[0.        , 2.16321817, 3.81131086, ..., 2.74083537, 3.84799958,
+        1.06041471],
+       [0.        , 0.        , 4.29953104, ..., 2.76698155, 2.78100414,
+        2.20791581],
+       [0.        , 0.        , 0.        , ..., 2.63546884, 4.34269664,
+        3.32469143],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 2.18534065,
+        1.8408748 ],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        3.09496075],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>Matrix_Dist_Mahalanobis_2(Data<span class="op">=</span>Data_quant_numpy) <span class="co"># 22.5 seg</span></span></code></pre></div>
+<pre><code>array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
+        1.10588047],
+       [0.        , 0.        , 4.35615967, ..., 4.93340427, 2.74011739,
+        2.12938584],
+       [0.        , 0.        , 0.        , ..., 3.17779509, 3.49432487,
+        3.23723317],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 3.58695453,
+        4.11275247],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.46894947],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Mahalanobis_3(Data):</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Paso previo necesario si Data es pd.DataFrame  --&gt;  Data = Data.to_numpy()</span></span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a>    S_inv<span class="op">=</span>np.linalg.inv( np.cov(Data , rowvar<span class="op">=</span><span class="va">False</span>) )</span>
+<span id="cb66-10"><a href="#cb66-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-11"><a href="#cb66-11" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb66-12"><a href="#cb66-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb66-13"><a href="#cb66-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-14"><a href="#cb66-14" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb66-15"><a href="#cb66-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-16"><a href="#cb66-16" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
+<span id="cb66-17"><a href="#cb66-17" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb66-18"><a href="#cb66-18" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb66-19"><a href="#cb66-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-20"><a href="#cb66-20" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
+<span id="cb66-21"><a href="#cb66-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-22"><a href="#cb66-22" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Mahalanobis_3(x <span class="op">=</span> np.array([Data[i,:] <span class="op">-</span> Data[r,:]]) , S_inv<span class="op">=</span>S_inv ) </span>
+<span id="cb66-23"><a href="#cb66-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-24"><a href="#cb66-24" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb66-25"><a href="#cb66-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>Matrix_Dist_Mahalanobis_3(Data<span class="op">=</span>Data_quant_numpy[<span class="dv">0</span>:<span class="dv">1000</span> , <span class="dv">0</span>:<span class="dv">1000</span>]) <span class="co"># 4.8 seg</span></span></code></pre></div>
+<pre><code>array([[0.        , 2.16321817, 3.81131086, ..., 2.74083537, 3.84799958,
+        1.06041471],
+       [0.        , 0.        , 4.29953104, ..., 2.76698155, 2.78100414,
+        2.20791581],
+       [0.        , 0.        , 0.        , ..., 2.63546884, 4.34269664,
+        3.32469143],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 2.18534065,
+        1.8408748 ],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        3.09496075],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])</code></pre>
+<div class="sourceCode" id="cb69"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>Matrix_Dist_Mahalanobis_3(Data<span class="op">=</span>Data_quant_numpy) <span class="co"># 19.7 seg</span></span></code></pre></div>
+<pre><code>array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
+        1.10588047],
+       [0.        , 0.        , 4.35615967, ..., 4.93340427, 2.74011739,
+        2.12938584],
+       [0.        , 0.        , 0.        , ..., 3.17779509, 3.49432487,
+        3.23723317],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 3.58695453,
+        4.11275247],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.46894947],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])</code></pre>
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+<div id="similaridades" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Similaridades</h1>
+<div id="similaridad" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Similaridad <a class="anchor" id="48"></a></h2>
+<p>Es un concepto que expresa la proximidad o similaridad entre un par de elementos cualesquiera.</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dado un conjunto cualquiera <span class="math inline">\(\hspace{0.1cm}A\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Se denomina similaridad a toda función <span class="math inline">\(\hspace{0.1cm} \phi : A \text{x} A \rightarrow \mathbb{R}\hspace{0.1cm}\)</span> such that:</p>
+<p><span class="math inline">\(\hspace{0.35cm} 1)\)</span> <span class="math inline">\(\hspace{0.2cm} \phi(i , r) \in [0,1] \hspace{0.45cm} \forall i,r \in A \\\)</span></p>
+<p><span class="math inline">\(\hspace{0.35cm} 2)\)</span> <span class="math inline">\(\hspace{0.2cm} \phi(i, i) = 1 \hspace{0.45cm} \forall i,r \in A \\\)</span></p>
+<p><span class="math inline">\(\hspace{0.35cm} 3)\)</span> <span class="math inline">\(\hspace{0.2cm} \phi(i , r) = \phi(r, i) \hspace{0.45cm} \forall i,r \in A\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+</div>
+<div id="matriz-de-similaridades" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Matriz de Similaridades <a class="anchor" id="49"></a></h2>
+<p>Dada una similaridad <span class="math inline">\(s\)</span> definida sobre el conjunto <span class="math inline">\(A=\lbrace a_1 ,..., a_n \rbrace\)</span></p>
+<p>Se define la matriz de similaridades <span class="math inline">\(\phi\)</span> sobre <span class="math inline">\(A\)</span> como:
+Definimos la matriz de similaridades</p>
+<p><span class="math display">\[
+\mathcal{S}= \begin{pmatrix}
+\phi_{11} &amp;\phi_{12}&amp;...&amp;\phi_{1n}\\
+\phi_{21} &amp; \phi_{22}&amp;...&amp;\phi_{2n}\\
+...&amp;...&amp;...&amp;...\\
+\phi_{n1}&amp; \phi_{n2}&amp;...&amp; \phi_{nn}\\
+\end{pmatrix} \\
+\]</span></p>
+<p>Donde:</p>
+<p><span class="math inline">\(\phi_{ir} = \phi(a_i , a_r) \hspace{0.45cm} \forall i, j =1,...,n\)</span></p>
+</div>
+<div id="pasar-de-similaridad-a-distancia" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Pasar de similaridad a distancia <a class="anchor" id="50"></a></h2>
+<p>Las siguientes transformaciones nos permiten pasar de una similaridad a una distancia:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\hspace{0.25cm} \phi_{ir}=1- \phi_{ir} \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.25cm} \phi_{ir}=\sqrt{1-\phi_{ir}} \\\)</span></p></li>
+<li><p>Gower transformation: <span class="math inline">\(\hspace{0.25cm} \phi^2_{ir} = \phi_{ii} + \phi_{jj} - 2\cdot \phi_{ij}\)</span></p></li>
+</ol>
+<p><br></p>
+</div>
+</div>
+<div id="similaridades-con-variables-categoricas-binarias" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Similaridades con variables categoricas binarias <a class="anchor" id="51"></a></h1>
+<p>Dada una muestra de <span class="math inline">\(n\)</span> elementos/individuos <span class="math inline">\(\hspace{0.1cm}\Omega = \lbrace e_1,e_2,...,e_n \rbrace\)</span></p>
+<p>Dada una serie de variables estadisticas <strong>categóricas binarias</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\)</span></p>
+<p>Para cada variable binaria <span class="math inline">\(\mathcal{X}_j\)</span> tenemos una muestra de <span class="math inline">\(n\)</span> observaciones <span class="math inline">\(X_j\)</span> basada en la muestra de <span class="math inline">\(n\)</span> individuos <span class="math inline">\(\hspace{0.1cm}\Omega\)</span></p>
+<p>Es decir, tenemos lo siguiente:</p>
+<ul>
+<li><p><span class="math inline">\(\hspace{0.1cm}X_j=(x_{j1},...,x_{jn})^t\)</span> , para <span class="math inline">\(j=1,...,p \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm}x_{ji}\hspace{0.1cm}\)</span> es la observación de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}\)</span> para el individuo <span class="math inline">\(\hspace{0.1cm}e_i\hspace{0.1cm}\)</span> de la muestra <span class="math inline">\(\hspace{0.1cm}\Omega\)</span> , para <span class="math inline">\(\hspace{0.1cm}j=1,...,p\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}i=1,...,n \\\)</span></p></li>
+</ul>
+<p>Por tanto:</p>
+<ul>
+<li><p><span class="math inline">\(\hspace{0.1cm}X_j=(x_{j1},...,x_{jn})^t\hspace{0.1cm}\)</span> es el vector con las observaciones de la variable para los individuos de la muestra <span class="math inline">\(\Omega\)</span> , para <span class="math inline">\(j=1,...,p \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm}x_i = (x_{1i} , x_{2i} ,..., x_{pi})^t\hspace{0.1cm}\)</span> es el vector con las observaciones de las variables <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}\)</span> para el individuo <span class="math inline">\(\hspace{0.1cm}e_i\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\Omega\)</span> , para <span class="math inline">\(\hspace{0.1cm}i=1,...,n\)</span></p></li>
+</ul>
+<p><br></p>
+<p>Los principales coeficientes de similaridad involucran algunos de los siguientes parametros:</p>
+<ul>
+<li><span class="math inline">\(\hspace{0.2cm} a_{ir}\hspace{0.1cm}=\hspace{0.1cm}\)</span> nº de variables binarias <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm} x_{ij} = x_{rj}=1 \\\)</span></li>
+</ul>
+<p><span class="math display">\[\hspace{0.2cm} a_{ir} \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=x_{rj}=1  \hspace{0.1cm}  \rbrace \\[0.5cm]\]</span></p>
+<ul>
+<li><span class="math inline">\(\hspace{0.2cm} b_{ir}\hspace{0.1cm}=\hspace{0.1cm}\)</span> nº de variables binarias <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm}x_{ij} =0\hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm}x_{rj}=1 \\\)</span></li>
+</ul>
+<p><span class="math display">\[\hspace{0.2cm} b_{ir} \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=0 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=1  \hspace{0.1cm}  \rbrace \\[0.5cm]\]</span></p>
+<ul>
+<li><span class="math inline">\(\hspace{0.2cm} c_{ir}\hspace{0.1cm}=\hspace{0.1cm}\)</span> nº de variables binarias <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm}x_{ij} =1\hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm}x_{rj}=0 \\\)</span></li>
+</ul>
+<p><span class="math display">\[\hspace{0.2cm} c_{ir} \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=1 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=0  \hspace{0.1cm}  \rbrace \\[0.5cm]\]</span></p>
+<ul>
+<li><span class="math inline">\(\hspace{0.2cm} d_{ij}\hspace{0.1cm}=\hspace{0.1cm}\)</span> nº de variables binarias <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm}x_{rj}=0 \\\)</span></li>
+</ul>
+<p><span class="math display">\[\hspace{0.2cm} d_{ir} \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=0 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=0  \hspace{0.1cm}  \rbrace \\[0.5cm]\]</span></p>
+<p><strong>Observación:</strong></p>
+<p><span class="math inline">\(\hspace{0.2cm} a_{ij} + b_{ij} + c_{ij} +d_{ij} =p\)</span></p>
+<p><br></p>
+<div id="matrices-con-los-parametros-a-b-c-y-d" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Matrices con los parametros a, b, c y d <a class="anchor" id="52"></a></h2>
+<p>Dada una matriz de datos <span class="math inline">\(\hspace{0.05cm}X=(X_1,...,X_p)\hspace{0.05cm}\)</span> de variables <strong>categoricas binarias</strong></p>
+<p>Dadas las matrices <span class="math inline">\(\hspace{0.1cm} a=(a_{ir})_{i,r=1:n}\hspace{0.1cm}\)</span> , <span class="math inline">\(\hspace{0.1cm}b=(b_{ir})_{i,r=1:n}\hspace{0.1cm}\)</span>, <span class="math inline">\(\hspace{0.1cm}c=(c_{ir})_{i,r=1:n}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}d=(d_{ir})_{i,r=1:n}\)</span></p>
+<p>Estas matrices pueden expresarse del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<ul>
+<li><p><span class="math inline">\(a = X\cdot X^t \\\)</span></p></li>
+<li><p><span class="math inline">\(b=(\overrightarrow{1}_{nxp} - X)\cdot X\hspace{0.03cm}^t\\\)</span></p></li>
+<li><p><span class="math inline">\(c=b\hspace{0.03cm}^t \\\)</span></p></li>
+<li><p><span class="math inline">\(d=(\overrightarrow{1}_{nxp} - X)\cdot(\overrightarrow{1}_{nxp} - X)\hspace{0.03cm}^t \\\)</span></p></li>
+</ul>
+<p><br></p>
+<div id="calculo-las-matrices-a-b-c-y-d-en-r" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Calculo las matrices a, b , c y d en <code>R</code> <a class="anchor" id="53"></a></h3>
+</div>
 </div>
 </div>
 </div>
