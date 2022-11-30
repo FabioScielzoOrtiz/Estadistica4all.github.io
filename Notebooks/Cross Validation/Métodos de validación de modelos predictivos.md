@@ -50,7 +50,7 @@ css: custom.css
 
 > More articles in my blog:   $\hspace{0.1cm}$   [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)
 
-Los métodos de evaluación (o de validación) son una familia muy importante de métodos dentro del aprendizaje estadístico o machine learning que permiten evaluar la capacidad predictiva de un modelo dado.
+Los métodos de validación son una familia muy importante de métodos dentro del aprendizaje estadístico o machine learning que permiten evaluar la capacidad predictiva de un modelo predictivo.
 
 Distinguiremos dos tipos de métodos de evaluacion de modelos:
 
