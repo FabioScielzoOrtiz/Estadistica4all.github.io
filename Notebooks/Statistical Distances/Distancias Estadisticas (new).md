@@ -2035,17 +2035,40 @@ Es un concepto que expresa la proximidad o similaridad entre un par de elementos
  
 <p style='margin-left:1em;'>
 
- $\hspace{0.25cm}$ Dado un conjunto cualquiera $\hspace{0.1cm}A$
+$\hspace{0.25cm}$ Dado un conjunto cualquiera $\hspace{0.1cm}A$
 
 
 
-$\hspace{0.25cm}$ Se denomina similaridad a toda función $\hspace{0.1cm} \phi : A \text{x} A \rightarrow \mathbb{R}\hspace{0.1cm}$   such that:
+$\hspace{0.25cm}$ Se denomina similaridad a toda función $\hspace{0.1cm} \phi : A \text{x} A \rightarrow \mathbb{R}\hspace{0.1cm}$   tal que:
 
 $\hspace{0.35cm} 1)$ $\hspace{0.2cm} \phi(i , r) \in [0,1] \hspace{0.45cm}  \forall i,r \in A \\$
 
 $\hspace{0.35cm} 2)$ $\hspace{0.2cm} \phi(i, i) = 1  \hspace{0.45cm}  \forall i,r \in A \\$
 
 $\hspace{0.35cm} 3)$  $\hspace{0.2cm} \phi(i , r) = \phi(r, i)  \hspace{0.45cm}  \forall i,r \in A$
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+## Pasar de similaridad a distancia  <a class="anchor" id="50"></a>
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ Las siguientes transformaciones nos permiten pasar de una similaridad a una distancia:
+
+$\hspace{0.35cm} 1)$  $\hspace{0.25cm} \delta(i,r)=1- \phi(i,r) \\$
+
+
+$\hspace{0.35cm} 2)$  $\hspace{0.25cm} \delta(i,r)=\sqrt{1-\phi(i,r)} \\$
+
+$\hspace{0.35cm} 3)$ $\hspace{0.25cm} \delta(i,r) \hspace{0.07cm}=\hspace{0.07cm} \sqrt{ \phi(i,i) + \phi(r,r) - 2\cdot \phi(i,r) }  \hspace{0.07cm}=\hspace{0.07cm} \sqrt{2 - 2\cdot \phi(i,r)}$
 
 </p>
  
@@ -2060,10 +2083,15 @@ $\hspace{0.35cm} 3)$  $\hspace{0.2cm} \phi(i , r) = \phi(r, i)  \hspace{0.45cm} 
 
 ## Matriz de Similaridades  <a class="anchor" id="49"></a>
 
-Dada una similaridad $s$ definida sobre el conjunto $A=\lbrace a_1 ,..., a_n \rbrace$
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
-Se define la matriz de similaridades $\phi$ sobre $A$ como:
-Definimos la matriz de similaridades 
+$\hspace{0.25cm}$ Dada una similaridad $s$ definida sobre el conjunto $A=\lbrace a_1 ,..., a_n \rbrace$
+
+$\hspace{0.25cm}$ Se define la matriz de similaridades $\phi$ sobre $A$ como:
+ 
 
 $$
 \mathcal{S}= \begin{pmatrix}
@@ -2076,25 +2104,15 @@ $$
 
 
 
-Donde:
+$\hspace{0.25cm}$ Donde:
 
-$\phi_{ir} = \phi(a_i , a_r) \hspace{0.45cm}  \forall i, j =1,...,n$
-
-
+$\hspace{0.35cm} \phi_{ir} = \phi(a_i , a_r) \hspace{0.45cm}  \forall i, j \in \lbrace 1,...,n\rbrace$
 
 
-## Pasar de similaridad a distancia  <a class="anchor" id="50"></a>
-
+</p>
  
-Las siguientes transformaciones nos permiten pasar de una similaridad a una distancia:
-
-1) $\hspace{0.25cm} \phi_{ir}=1- \phi_{ir} \\$
-
-
-2) $\hspace{0.25cm} \phi_{ir}=\sqrt{1-\phi_{ir}} \\$
-
-3) Gower transformation: $\hspace{0.25cm} \phi^2_{ir} = \phi_{ii} + \phi_{jj} - 2\cdot \phi_{ij}$
-
+</p></span>
+</div>
 
 
 <br>
@@ -2102,11 +2120,16 @@ Las siguientes transformaciones nos permiten pasar de una similaridad a una dist
 
 
 
+
+
 # Similaridades con variables categoricas binarias <a class="anchor" id="51"></a>
 
-Dada una muestra de $n$  elementos/individuos $\hspace{0.1cm}\Omega = \lbrace e_1,e_2,...,e_n \rbrace$ 
 
-Dada una serie de variables estadisticas **categóricas binarias** $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
+El escenario es el siguiente:
+
+Tenemos una muestra de $n$  elementos/individuos $\hspace{0.1cm}\Omega = \lbrace e_1,e_2,...,e_n \rbrace$ 
+
+Tenemos una serie de variables estadisticas **categóricas binarias** $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
 
 Para cada variable binaria $\mathcal{X}_j$ tenemos una muestra de $n$ observaciones $X_j$  basada en la muestra de $n$ individuos $\hspace{0.1cm}\Omega$
 
@@ -2129,39 +2152,46 @@ Por tanto:
 
 <br>
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
-Los principales coeficientes de similaridad involucran algunos de los siguientes parametros:
+$\hspace{0.25cm}$ Los principales coeficientes de similaridad involucran algunos de los siguientes parametros:
 
- - $\hspace{0.2cm} a_{ir}\hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
+ - $\hspace{0.2cm} a(x_i, x_r) \hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
  
   
- $$\hspace{0.2cm} a_{ir} \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=x_{rj}=1  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
+ $$\hspace{0.2cm} a(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=x_{rj}=1  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
 
- - $\hspace{0.2cm} b_{ir}\hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias  $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=1 \\$ 
-
-
- $$\hspace{0.2cm} b_{ir} \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=0 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=1  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
+ - $\hspace{0.2cm} b(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias  $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=1 \\$ 
 
 
- - $\hspace{0.2cm} c_{ir}\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =1\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+ $$\hspace{0.2cm} b(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=0 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=1  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
 
 
- $$\hspace{0.2cm} c_{ir} \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=1 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=0  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
+ - $\hspace{0.2cm} c(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =1\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+
+
+ $$\hspace{0.2cm} c(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=1 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=0  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
 
 
 
- - $\hspace{0.2cm} d_{ij}\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+ - $\hspace{0.2cm} d(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
  
- $$\hspace{0.2cm} d_{ir} \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=0 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=0  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
+ $$\hspace{0.2cm} d(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=0 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=0  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
  
  
 
- **Observación:**
+$\hspace{0.25cm}$ **Observación:**
 
-$\hspace{0.2cm} a_{ij} + b_{ij} + c_{ij} +d_{ij} =p$
+$$a(x_i, x_r) + b(x_i, x_r) + c(x_i, x_r) +d(x_i, x_r) =p$$
 
 
-
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
@@ -2175,24 +2205,32 @@ $\hspace{0.2cm} a_{ij} + b_{ij} + c_{ij} +d_{ij} =p$
 
 Dada una matriz de datos $\hspace{0.05cm}X=(X_1,...,X_p)\hspace{0.05cm}$  de  variables  **categoricas binarias**
 
-Dadas las matrices $\hspace{0.1cm} a=(a_{ir})_{i,r=1:n}\hspace{0.1cm}$ ,  $\hspace{0.1cm}b=(b_{ir})_{i,r=1:n}\hspace{0.1cm}$,  $\hspace{0.1cm}c=(c_{ir})_{i,r=1:n}\hspace{0.1cm}$ y  $\hspace{0.1cm}d=(d_{ir})_{i,r=1:n}$ 
+Dadas las matrices $\hspace{0.1cm} a=(a(x_i, x_r))_{i,r=1:n}\hspace{0.1cm}$ ,  $\hspace{0.1cm}b=(b(x_i, x_r))_{i,r=1:n}\hspace{0.1cm}$,  $\hspace{0.1cm}c=(c(x_i, x_r))_{i,r=1:n}\hspace{0.15cm}$ y  $\hspace{0.15cm}d=(d(x_i, x_r))_{i,r=1:n} \\$ 
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
 Estas matrices pueden expresarse del siguiente modo: $\\[0.4cm]$
 
 
-- $a = X\cdot X^t \\$
+- $a \hspace{0.05cm}=\hspace{0.05cm} X\cdot X^t \\$
 
-- $b=(\overrightarrow{1}_{nxp} - X)\cdot X\hspace{0.03cm}^t\\$
+- $b\hspace{0.05cm}=\hspace{0.05cm}(\overrightarrow{1}_{nxp} - X)\cdot X\hspace{0.03cm}^t\\$
 
-- $c=b\hspace{0.03cm}^t \\$
+- $c\hspace{0.05cm}=\hspace{0.05cm}b\hspace{0.03cm}^t \\$
 
-- $d=(\overrightarrow{1}_{nxp} - X)\cdot(\overrightarrow{1}_{nxp} - X)\hspace{0.03cm}^t \\$
+- $d\hspace{0.05cm}=\hspace{0.05cm}(\overrightarrow{1}_{nxp} - X)\cdot(\overrightarrow{1}_{nxp} - X)\hspace{0.03cm}^t \\$
 
+</p>
+ 
+</p></span>
+</div>
 
 
   
-
-
 
 
 <br>
@@ -2200,12 +2238,272 @@ Estas matrices pueden expresarse del siguiente modo: $\\[0.4cm]$
 
 
 
-### Calculo las matrices a, b , c y d en `R`   <a class="anchor" id="53"></a>
+## Cálculo de las matrices a, b , c y d en `Python`   <a class="anchor" id="53"></a>
+
+
+```python
+X = Data_binary_numpy
+
+a = X @ X.T
+
+n = X.shape[0]
+
+p = X.shape[1]
+
+ones_matrix = np.ones((n, p)) 
+
+b = (ones_matrix - X) @ X.T
+
+c = b.T
+
+d = (ones_matrix - X) @ (ones_matrix - X).T
+```
+
+
+```python
+a
+```
+```
+array([[1., 1., 1., ..., 1., 1., 1.],
+       [1., 1., 1., ..., 1., 1., 1.],
+       [1., 1., 2., ..., 1., 1., 1.],
+       ...,
+       [1., 1., 1., ..., 1., 1., 1.],
+       [1., 1., 1., ..., 1., 2., 1.],
+       [1., 1., 1., ..., 1., 1., 1.]])
+```
+
+```python
+Data_binary_numpy[[30,1903], :]
+```
+
+```
+array([[0., 1., 0., 1.],
+       [1., 0., 0., 1.]])
+```
+
+
+```python
+a[30 , 1903]
+```
+
+    1.0
+
+```python
+Data_binary_numpy[[40,1903], :]
+```
+
+```
+array([[0., 0., 0., 1.],
+       [1., 0., 0., 1.]])
+```
+
+
+```python
+a[40 , 1903]
+```
+
+    1.0
+
+```python
+b
+```
+
+```
+array([[0., 0., 1., ..., 0., 1., 0.],
+       [0., 0., 1., ..., 0., 1., 0.],
+       [0., 0., 0., ..., 0., 1., 0.],
+       ...,
+       [0., 0., 1., ..., 0., 1., 0.],
+       [0., 0., 1., ..., 0., 0., 0.],
+       [0., 0., 1., ..., 0., 1., 0.]])
+```
+
+```python
+Data_binary_numpy[[30,1903], :]
+```
+```
+array([[0., 1., 0., 1.],
+       [1., 0., 0., 1.]])
+```
+
+```python
+b[30 , 1903]
+```
+
+    1.0
+
+
+```python
+Data_binary_numpy[[40,1903], :]
+```
+
+```
+array([[0., 0., 0., 1.],
+       [1., 0., 0., 1.]])
+```
+
+```python
+b[40,1903]
+```
+
+    1.0
+    
+    
+```python
+c
+```
+
+```
+array([[0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       [1., 1., 0., ..., 1., 1., 1.],
+       ...,
+       [0., 0., 0., ..., 0., 0., 0.],
+       [1., 1., 1., ..., 1., 0., 1.],
+       [0., 0., 0., ..., 0., 0., 0.]])
+```
+
+```python
+Data_binary_numpy[[30,1903], :]
+```
+```
+array([[0., 1., 0., 1.],
+       [1., 0., 0., 1.]])
+```
+
+```python
+c[30, 1903]
+```
+
+    1.0
+    
+    
+```python
+Data_binary_numpy[[40,1903], :] 
+```
+```
+array([[0., 0., 0., 1.],
+       [1., 0., 0., 1.]])
+```
+    
+```python
+c[40, 1903]
+```
+
+    0.0
+    
+    
+```python
+d
+```    
+    
+```
+array([[3., 3., 2., ..., 3., 2., 3.],
+       [3., 3., 2., ..., 3., 2., 3.],
+       [2., 2., 2., ..., 2., 1., 2.],
+       ...,
+       [3., 3., 2., ..., 3., 2., 3.],
+       [2., 2., 1., ..., 2., 2., 2.],
+       [3., 3., 2., ..., 3., 2., 3.]])
+```
+
+```python
+Data_binary_numpy[[30,1903], :]
+```
+```
+array([[0., 1., 0., 1.],
+       [1., 0., 0., 1.]])
+```
+
+
+
+```python
+Data_binary_numpy[[40,1903], :]
+```
+```
+array([[0., 0., 0., 1.],
+       [1., 0., 0., 1.]])
+```
+
+```python
+d[40,1903]
+```
+
+    2.0
+
+
+ 
+
+<br>
+
+
+## Similaridad de Sokal <a class="anchor" id="55"></a>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+
+$\hspace{0.25cm}$ El coeficiente de similaridad de Sokal (o simplemente la similaridad de Sokal) entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables binarias $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ se define como: $\\[0.4cm]$
+
+
+
+\begin{gather*}
+\phi (x_i,x_r)_{Sokal}  =\dfrac{a(x_i,x_r) + d(x_i,x_r) }{ a(x_i,x_r) + b(x_i,x_r) + c(x_i,x_r) + d(x_i,x_r) } = \dfrac{a(x_i,x_r) + d(x_i,x_r) }{p} 
+\end{gather*}
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+
+
+<br>
+
+
+## Distancia de Sokal   <a class="anchor" id="56"></a>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+
+$\hspace{0.25cm}$ Podemos obtener la distancia de Sokal entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables binarias $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ como sigue:  $\\[0.4cm]$
+
+
+
+\begin{gather*}
+\delta(x_i,x_r)_{Sokal} \hspace{0.05cm}=\hspace{0.05cm} \sqrt{\phi(x_i,x_i)_{Sokal} + \phi(x_r,x_r)_{Sokal} - 2\cdot \phi(x_i,x_r)_{Sokal} } \hspace{0.05cm}=\hspace{0.05cm} \sqrt{ 2 - 2\cdot \phi(x_i,x_r)_{Sokal} }
+\end{gather*}
+
+</p>
+ 
+</p></span>
+</div>
 
 
 
 
 
 
+
+
+<br>
+
+
+##  Similaridad de Sokal en `Python` <a class="anchor" id="57"></a>
+
+
+
+
+##  Distancia de Sokal en `Python` <a class="anchor" id="57"></a>
 
 
