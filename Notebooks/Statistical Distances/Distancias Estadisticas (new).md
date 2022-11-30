@@ -2068,7 +2068,7 @@ $\hspace{0.35cm} 1)$  $\hspace{0.25cm} \delta(i,r)=1- \phi(i,r) \\$
 
 $\hspace{0.35cm} 2)$  $\hspace{0.25cm} \delta(i,r)=\sqrt{1-\phi(i,r)} \\$
 
-$\hspace{0.35cm} 3)$ $\hspace{0.25cm} \delta(i,r) \hspace{0.07cm}=\hspace{0.07cm} \sqrt{ \phi(i,i) + \phi(r,r) - 2\cdot \phi(i,r) }  \hspace{0.07cm}=\hspace{0.07cm} \sqrt{2 - 2\cdot \phi(i,r)}$
+$\hspace{0.35cm} 3)$ $\hspace{0.25cm} \delta(i,r) \hspace{0.07cm}=\hspace{0.07cm} \sqrt{ \phi(i,i) + \phi(r,r) - 2\cdot \phi(i,r) }$
 
 </p>
  
@@ -2481,7 +2481,7 @@ $\hspace{0.25cm}$ Podemos obtener la distancia de Sokal entre el par de observac
 
 
 \begin{gather*}
-\delta(x_i,x_r)_{Sokal} \hspace{0.05cm}=\hspace{0.05cm} \sqrt{\phi(x_i,x_i)_{Sokal} + \phi(x_r,x_r)_{Sokal} - 2\cdot \phi(x_i,x_r)_{Sokal} } \hspace{0.05cm}=\hspace{0.05cm} \sqrt{ 2 - 2\cdot \phi(x_i,x_r)_{Sokal} }
+\delta(x_i,x_r)_{Sokal} \hspace{0.05cm}=\hspace{0.05cm} \sqrt{\phi(x_i,x_i)_{Sokal} + \phi(x_r,x_r)_{Sokal} - 2\cdot \phi(x_i,x_r)_{Sokal} }
 \end{gather*}
 
 </p>
@@ -2504,6 +2504,26 @@ $\hspace{0.25cm}$ Podemos obtener la distancia de Sokal entre el par de observac
 
 
 
+
+
+
+
+
+
 ##  Distancia de Sokal en `Python` <a class="anchor" id="57"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
