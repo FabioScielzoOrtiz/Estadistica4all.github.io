@@ -3261,6 +3261,424 @@ La distancia por coincidencias entre el par de observaciones $\hspace{0.1cm}(x_i
 
 
 
+```python
+def alpha(x_i, x_r, Data):
+
+    # Es necesario que Data sea un numpy array
+
+    X = Data
+
+    alpha = np.repeat(0, X.shape[1])
+
+    ifelse  =  lambda k :  1  if x_i[k] == x_r[k]   else  0   # Es más eficiente que un bucle condicional.
+
+    for k in range(0, X.shape[1]-1) :
+
+        alpha[k] = ifelse(k)
+
+    alpha = alpha.sum()
+
+    return(alpha)   
+```
+
+```python
+Data_multiclass_numpy[2,:] 
+```
+
+    array([2., 4., 1.])
+
+```python
+Data_multiclass_numpy[5,:] 
+```
+     
+    array([2., 1., 2.])
+
+
+```python
+alpha(x_i=Data_multiclass_numpy[2,:] , x_r=Data_multiclass_numpy[5,:], Data=Data_multiclass_numpy)
+```
+
+    1
+
+
+```python
+Data_multiclass_numpy[15,:] 
+```
+
+    array([2., 4., 0.])
+
+
+
+```python
+Data_multiclass_numpy[14,:]
+```
+
+    array([2., 4., 2.])
+
+
+
+```python
+alpha(x_i=Data_multiclass_numpy[14,:] , x_r=Data_multiclass_numpy[15,:], Data=Data_multiclass_numpy)
+```
+
+    2
+
+
+```python
+def matches_similarity(x_i, x_r, Data):
+
+    # Es necesario que Data sea un numpy array
+
+    X = Data
+
+    p = X.shape[1]
+
+    matches_similarity = alpha(x_i, x_r, X) / p
+
+    return(matches_similarity)
+```
+
+```python
+matches_similarity(x_i=Data_multiclass_numpy[2,:] , x_r=Data_multiclass_numpy[5,:], Data=Data_multiclass_numpy)
+```
+
+    0.3333333333333333
+
+
+```python
+matches_similarity(x_i=Data_multiclass_numpy[14,:] , x_r=Data_multiclass_numpy[15,:], Data=Data_multiclass_numpy)
+```
+
+    0.6666666666666666
+
+
+```python
+def Matrix_Sim_Matches(Data):
+
+    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+   
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+            if i > r :
+               
+                 M[i,r] = 0
+            
+            elif i == r :
+               
+                 M[i,r] = 1
+            
+            else :
+
+                 M[i,r] = matches_similarity(x_i=Data[i,:], x_r=Data[r,:], Data=Data)
+                      
+    return M 
+```
+
+
+
+```python
+M_matches = Matrix_Sim_Matches(Data=Data_multiclass_numpy)
+
+M_matches 
+```
+```
+array([[1.        , 0.33333333, 0.33333333, ..., 0.33333333, 0.33333333,
+        0.        ],
+       [0.        , 1.        , 0.66666667, ..., 0.33333333, 0.33333333,
+        0.33333333],
+       [0.        , 0.        , 1.        , ..., 0.33333333, 0.33333333,
+        0.33333333],
+       ...,
+       [0.        , 0.        , 0.        , ..., 1.        , 0.33333333,
+        0.        ],
+       [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
+        0.        ],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.        ]])
+```
+
+
+
+```python
+M_matches = M_matches + M_matches.T - np.diag(np.repeat(1 , len(M_matches)), k=0)
+
+M_matches
+```
+```
+array([[1.        , 0.33333333, 0.33333333, ..., 0.33333333, 0.33333333,
+        0.        ],
+       [0.33333333, 1.        , 0.66666667, ..., 0.33333333, 0.33333333,
+        0.33333333],
+       [0.33333333, 0.66666667, 1.        , ..., 0.33333333, 0.33333333,
+        0.33333333],
+       ...,
+       [0.33333333, 0.33333333, 0.33333333, ..., 1.        , 0.33333333,
+        0.        ],
+       [0.33333333, 0.33333333, 0.33333333, ..., 0.33333333, 1.        ,
+        0.        ],
+       [0.        , 0.33333333, 0.33333333, ..., 0.        , 0.        ,
+        1.        ]])
+```
+
+
+```python
+def Dist_Matches(x_i, x_r, Data):
+
+    Dist_Matches = np.sqrt(matches_similarity(x_i, x_i, Data) +  matches_similarity(x_r, x_r, Data) - 2*matches_similarity(x_i, x_r, Data) )
+
+    return( Dist_Matches )
+```
+
+
+```python
+matches_similarity(x_i=Data_multiclass_numpy[2,:] , x_r=Data_multiclass_numpy[5,:], Data=Data_multiclass_numpy)
+```
+
+    0.3333333333333333
+    
+    
+```python
+def Matrix_Dist_Matches(Data):
+
+    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+   
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+             if i >= r :
+               
+                M[i,r] = 0
+
+             else :
+
+                M[i,r] = Dist_Matches(x_i=Data[i,:], x_r=Data[r,:], Data=Data)
+                      
+    return M 
+```
+
+```python
+M_Dist_Matches = Matrix_Dist_Matches(Data=Data_multiclass_numpy)
+
+M_Dist_Matches
+```
+```
+array([[0.        , 0.81649658, 0.81649658, ..., 0.81649658, 0.81649658,
+        1.15470054],
+       [0.        , 0.        , 0.        , ..., 0.81649658, 0.81649658,
+        0.81649658],
+       [0.        , 0.        , 0.        , ..., 0.81649658, 0.81649658,
+        0.81649658],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 0.81649658,
+        1.15470054],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.15470054],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])
+```
+
+
+
+```python
+M_Dist_Matches = M_Dist_Matches + M_Dist_Matches.T
+
+M_Dist_Matches
+```
+```
+array([[0.        , 0.81649658, 0.81649658, ..., 0.81649658, 0.81649658,
+        1.15470054],
+       [0.81649658, 0.        , 0.        , ..., 0.81649658, 0.81649658,
+        0.81649658],
+       [0.81649658, 0.        , 0.        , ..., 0.81649658, 0.81649658,
+        0.81649658],
+       ...,
+       [0.81649658, 0.81649658, 0.81649658, ..., 0.        , 0.81649658,
+        1.15470054],
+       [0.81649658, 0.81649658, 0.81649658, ..., 0.81649658, 0.        ,
+        1.15470054],
+       [1.15470054, 0.81649658, 0.81649658, ..., 1.15470054, 1.15470054,
+        0.        ]])
+```
+
+
+
+
+<br>
+
+<br>
+
+
+
+
+# Conjuntos de variables estadisticas de tipo mixto  <a class="anchor" id="76"></a>
+
+
+Un conjunto de variables estadisticas $\hspace{0.1cm} (\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ es de tipo mixto si hay al menos un par de variables de tipo (cuantitativo, binario, multiclase) distinto. 
+
+
+Distnguimos cuatro cuatro tipos de conjuntos de variables mixtos:
+
+- Conunto de variables de tipo cuantitativo-binario-multiclase: en el conjunto hay alguna variable cuantitativa, alguna binaria y tambien alguna multiclase. $\\[0.5cm]$
+
+- Conjunto de variables de tipo cuantitativo-binario: en el conjunto hay alguna variable cuantitativa, y también alguna binaria, pero no hay multiclase. $\\[0.5cm]$
+
+- Conjunto de variables de tipo cuantitativo-multiclase:  en el conjunto hay alguna variable cuantitativa, y también alguna multiclase, pero no hay binarias. $\\[0.5cm]$
+
+- Conjunto de variables de tipo binario-multiclase:  en el conjunto hay alguna variable binaria, y también alguna multiclase, pero no hay cuantitativas.
+
+
+<br>
+
+
+
+
+
+# Distancias con conjuntos de variables de tipo cuantitativo-binario-multiclase 
+
+
+
+Tenemos un conjunto de variables estadisticas $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ tales que:
+
+
+- $X_1,...,X_{p_1} \hspace{0.1cm}$ son **cuantitativas**. $\\[0.5cm]$
+
+- $X_{p_1 + 1},...,X_{p_1 + p_2} \hspace{0.1cm}$ son **binarias**.$\\[0.5cm]$
+
+- $X_{p_1 + p_2 + 1},...,X_{p_1 + p_2 + p_3} \hspace{0.1cm}$ son **multiclase** (no binarias).$\\[0.5cm]$
+
+Donde: $\hspace{0.2cm} p=p_1 + p_2 + p_3 \\$
+
+
+
+**Observación:**
+
+$\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ forman un conjunto de variables de tipo cuantitativo-binario-multiclase
+
+
+
+
+<br>
+
+## Similaridad de Gower  <a class="anchor" id="86"></a>
+
+
+La similaridad de Gower entre el par de observaciones $\hspace{0.1cm} (x_i , X_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ (que forman un conjunto de variables de tipo cuantitativo-binario-multiclase )  se define como : $\\[0.7cm]$
+
+
+
+\begin{gather*}
+\phi(i,r)_{Gower}=\dfrac{\sum_{j=1}^{p_1} \left(1- \dfrac{\mid x_{ij} - x_{rj} \mid}{G_j} \right) + a_{ir} + \alpha_{ir} }{p_1 + (p_2 - d_{ir}) + p_3} \\
+\end{gather*}
+
+
+
+Donde:
+
+- $p_1 \hspace{0.05cm}$ es el número de variables cuantitativas. $\\[0.5cm]$
+
+- $p_2 \hspace{0.05cm}$ es el número de variables categoricas binarias.
+$\\[0.5cm]$
+
+- $p_3 \hspace{0.05cm}$ es el número de variables categoricas múltiples (no binarias).$\\[0.5cm]$
+
+- $p_1+p_2+p_3=p \\$
+
+- $G_j \hspace{0.1cm}=\hspace{0.1cm} Max(X_j) - Min(X_j) \\$ es el rango de $X_j$
+
+
+ - $\hspace{0.2cm} a_{ir}\hspace{0.1cm}$ es el número de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
+
+
+ - $\hspace{0.2cm} d_{ij}\hspace{0.1cm}$ es el número  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+ 
+
+- $\alpha_{ir} =$ número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} = x_{rj}\\$
+
+ 
+<br>
+
+
+
+## Distancia de Gower    <a class="anchor" id="87"></a>
+
+
+La distancia de Gower entre el par de observaciones $\hspace{0.1cm}(x_i , X_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ (que forman un conjunto de variables de tipo cuantitativo-binario-multiclase )  entre el par de observaciones (x_i , X_r) de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ (que forman un conjunto de variables de tipo cuantitativo-binario-multiclase )   es obtenida como:
+
+
+$$
+\delta(i,j)_{Gower} = \sqrt{1 - \phi(i,j)_{Gower}}
+$$
+
+
+
+<br>
+
+**Propiedades:**  
+
+- La similaridad de Gower es la suma de diferentes similaridades apropiadas para cada tipo de variable (cuantitativas, binarias y multiclase).
+
+- Si consideramos un conjunto de variables cuantitativas, la similaridad de Gower es la transformación a similaridad de la distancia Manhattan (Minkowski con $q=2$)
+normalizada por el rango, para que tome valores en $[0,1]$ :
+ 
+$$
+\dfrac{1}{p} \sum_{k=1}^{p} \left(1- \dfrac{\mid x_{ik} - x_{jk} \mid}{G_k} \right)
+$$
+
+- Si consideramos un conjunto de variables binarias, la similaridad de Gower coincide con la de Jaccard.
+
+-  Si consideramos un conjunto de variables multiclase (no binarias), la similaridad de Gower coincide con la similaridad por coincidencias.
+
+
+
+
+<br>
+
+
+
+Siguiendo esta idea pueden crearse otras similaridades para conjuntos de variables de tipo mixto. Algunas recomendaciones para ello son las siguientes:
+
+- Si queremos que la similaridad resultante tenga la propiedad Euclidea, todos las similaridades que se han combinado deben tenerla.
+
+- Para variables cuantitativas, se debe usar una distancia normalizada, para que así esté contenida en $[0,1]$ y pueda convertirse en similaridad usando la transformacion $1 - \delta$
+
+- Para variables categoricas es preferible usar similaridades contenidas en $[0,1]$ para evitar tener que normalizarlas.
+
+
+
+<br>
+
+
+
+## Similaridad de Gower en `Python`   <a class="anchor" id="88"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
