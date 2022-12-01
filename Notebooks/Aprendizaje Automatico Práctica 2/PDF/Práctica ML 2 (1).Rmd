@@ -1362,6 +1362,12 @@ row_spec(2,bold=T,color="purple",background = "white")
 
 El modelo que mejores resultados nos proporciona es SVM radial sin ajuste de hiperparámetros.
 
+
+
+
+
+
+
 # 3.4) Método Ensembles
 
 ## Modelo Random Forest Sin Ajuste Hiper-Parámetros
@@ -1635,6 +1641,12 @@ datos<-createDummyFeatures(datos,target = "salida")
 
 Como vemos el error que obtenemos es mayor que 1 lo que indica que el modelo ajustado es peor que un modelo trivial/básico.
 
+
+
+
+
+
+
 ## Modelo Gradient Boosting Con Ajuste Hiper-Parámetros
 
 En este modelo ajustaremos "nround"(indica el número de iteraciones que se realizaran antes de detener el ajuste) y "eta"(tasa aprendizaje del modelo).
@@ -1758,6 +1770,14 @@ row_spec(2,bold=T,color="deepskyblue",background = "white")
 
 Como se observa en la tabla, el error baja ≈ 5 veces el error del modelo xgboost sin ajuste de hiper-parámetros.
 
+
+
+
+
+
+
+
+
 # Conclusiones de todos los modelos:
 
 Comparamos todos los modelos y en base a ello escogeremos el modelo que presente los resultados más óptimos.
@@ -1825,6 +1845,11 @@ En esta tabla observamos los modelos ordenados en función del rendimiento que n
 
 · Como era de esperar, ya que en la gráfica inicial vimos que la serie mostraba un patrón no lineal los modelos no lineales han dado mejores resultados.
 
+
+
+
+
+
 # 4) Modelo Final
 
 Escogemos el modelo Ranger(Random Forest) ya que es el modelo con el que menor error hemos conseguido para crear el modelo final.
@@ -1832,7 +1857,7 @@ Escogemos el modelo Ranger(Random Forest) ya que es el modelo con el que menor e
 ## a) Estimación del error del modelo final con los datos de test(los 3 últimos años)
 
 ```{r}
-datos<-readRDS("C:/MARCOS/CUARTO CURSO PRIMER CUATRIMESTRE/APRENDIZAJE AUTOMÁTICO/disp_2.rds")
+datos<-readRDS("C:/Users/Usuario/Documents/fabio/Fabio/Estadistica4all.github.io/Notebooks/Aprendizaje Automatico Práctica 2/PDF/disp_2.rds")
 
 # A continuación, convertimos los "characters" a factores
 
@@ -1918,11 +1943,12 @@ Por tanto el valor del RAE para el modelo final haciendo regresión con el learn
 Vamos a construir el modelo final con el método de random forest.
 ```{r}
 # Leemos los datos con los que entrenamos
-datos<-readRDS("C:/MARCOS/CUARTO CURSO PRIMER CUATRIMESTRE/APRENDIZAJE AUTOMÁTICO/disp_2.rds")
+datos<-readRDS("C:/Users/Usuario/Documents/fabio/Fabio/Estadistica4all.github.io/Notebooks/Aprendizaje Automatico Práctica 2/PDF/disp_2.rds")
 
 # Leemos los datos para el test
 
-test<-readRDS("C:/MARCOS/CUARTO CURSO PRIMER CUATRIMESTRE/APRENDIZAJE AUTOMÁTICO/compet_2.rds")
+test<-readRDS("C:/Users/Usuario/Documents/fabio/Fabio/Estadistica4all.github.io/Notebooks/Aprendizaje Automatico Práctica 2/PDF/compet_2.rds")
+
 
 # A continuación, convertimos los "characters" a factores
 
@@ -2027,7 +2053,7 @@ En cada paso, el presupuesto/"budget" aumenta en una cantidad "eta" y solo los m
 En este caso, asignaremos el "budget" al número de árboles del modelo.
 
 ```{r}
-datos<-readRDS("C:/MARCOS/CUARTO CURSO PRIMER CUATRIMESTRE/APRENDIZAJE AUTOMÁTICO/disp_2.rds")
+datos<-readRDS("C:/Users/Usuario/Documents/fabio/Fabio/Estadistica4all.github.io/Notebooks/Aprendizaje Automatico Práctica 2/PDF/disp_2.rds")
 
 # A continuación, convertimos los "characters" a factores
 
