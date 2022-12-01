@@ -1499,7 +1499,7 @@ array([[0.        , 0.5496257 , 1.61996314, ..., 1.25082356, 0.78797391,
 
 
 
-## Distancia de Karl Pearson  <a class="anchor" id="37"></a>
+## Distancia de Pearson  <a class="anchor" id="37"></a>
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1998,7 +1998,9 @@ array([[0.        , 2.16321817, 3.81131086, ..., 2.74083537, 3.84799958,
 ```
 
 ```python
-Matrix_Dist_Mahalanobis_3(Data=Data_quant_numpy) # 19.7 seg
+M_Mahalanobis = Matrix_Dist_Mahalanobis_3(Data=Data_quant_numpy) # 19.7 seg
+
+M_Mahalanobis
 ```
 
 
@@ -2017,6 +2019,31 @@ array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
        [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
         0.        ]])
 ```
+
+
+
+```python
+M_Mahalanobis = M_Mahalanobis + M_Mahalanobis.T
+
+M_Mahalanobis
+```
+
+```
+array([[0.        , 4.2257811 , 7.5950926 , ..., 9.03119731, 4.63376888,
+        2.21176094],
+       [4.2257811 , 0.        , 8.71231935, ..., 9.86680854, 5.48023478,
+        4.25877168],
+       [7.5950926 , 8.71231935, 0.        , ..., 6.35559018, 6.98864973,
+        6.47446634],
+       ...,
+       [9.03119731, 9.86680854, 6.35559018, ..., 0.        , 7.17390906,
+        8.22550494],
+       [4.63376888, 5.48023478, 6.98864973, ..., 7.17390906, 0.        ,
+        2.93789894],
+       [2.21176094, 4.25877168, 6.47446634, ..., 8.22550494, 2.93789894,
+        0.        ]])
+```
+
 
 <br>
 
@@ -2242,23 +2269,30 @@ Estas matrices pueden expresarse del siguiente modo: $\\[0.4cm]$
 
 
 ```python
-X = Data_binary_numpy
+def a_b_c_d_Matrix(Data):
 
-a = X @ X.T
+    X = Data
 
-n = X.shape[0]
+    a = X @ X.T
 
-p = X.shape[1]
+    n = X.shape[0]
 
-ones_matrix = np.ones((n, p)) 
+    p = X.shape[1]
 
-b = (ones_matrix - X) @ X.T
+    ones_matrix = np.ones((n, p)) 
 
-c = b.T
+    b = (ones_matrix - X) @ X.T
 
-d = (ones_matrix - X) @ (ones_matrix - X).T
+    c = b.T
+
+    d = (ones_matrix - X) @ (ones_matrix - X).T
+
+    return a , b , c , d , p
 ```
 
+```python
+a, b, c, d, p = a_b_c_d_Matrix(Data_binary_numpy)
+```
 
 ```python
 a
@@ -2492,20 +2526,180 @@ $\hspace{0.25cm}$ Podemos obtener la distancia de Sokal entre el par de observac
 
 
 
-
-
-
-
 <br>
 
 
 ##  Similaridad de Sokal en `Python` <a class="anchor" id="57"></a>
 
 
+```python
+def Sokal_Similarity_1(i , r, Data):
+
+    a, b, c, d, p = a_b_c_d_Matrix(Data)
+
+    if a[i,r] + d[i,r] == 0 :
+
+        Sokal_Similarity = 0
+
+        
+    else :
+
+        Sokal_Similarity = (a[i,r] + d[i,r]) / p
+        
+
+    return Sokal_Similarity
+```
 
 
+```python
+Sokal_Similarity_1(i=2 , r=5, Data=Data_binary_numpy)
+```
+
+    0.5
+
+```python
+def Sokal_Similarity_2(i , r, a , d, p):
 
 
+    if a[i,r] + d[i,r] == 0 :
+
+        Sokal_Similarity = 0
+
+        
+    else :
+
+        Sokal_Similarity = (a[i,r] + d[i,r]) / p
+        
+
+    return Sokal_Similarity
+```
+
+```python
+a, b, c, d, p = a_b_c_d_Matrix(Data_binary_numpy)
+
+Sokal_Similarity_2(i=2, r=5, a=a, d=d, p=p)
+```
+
+    0.5
+
+```python
+def Matrix_Dist_Sokal_1(Data):
+
+    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+   
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+            if i > r :
+               
+                 M[i,r] = 0
+            
+            elif i == r :
+               
+                 M[i,r] = 1
+
+            else :
+
+                 M[i,r] = Sokal_Similarity_1(i, r, Data)
+                      
+    return M 
+```
+
+
+```python
+Matrix_Sim_Sokal_1(Data=Data_binary_numpy[0:300 , 0:300]) # 1.29 mins
+```
+```
+array([[1.  , 1.  , 0.75, ..., 0.75, 0.75, 1.  ],
+       [0.  , 1.  , 0.75, ..., 0.75, 0.75, 1.  ],
+       [0.  , 0.  , 1.  , ..., 0.5 , 0.5 , 0.75],
+       ...,
+       [0.  , 0.  , 0.  , ..., 1.  , 1.  , 0.75],
+       [0.  , 0.  , 0.  , ..., 0.  , 1.  , 0.75],
+       [0.  , 0.  , 0.  , ..., 0.  , 0.  , 1.  ]])
+```
+
+```python
+def Matrix_Dist_Sokal_2(Data):
+
+    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+    a, b, c, d, p = a_b_c_d_Matrix(Data)
+
+   
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+            if i > r :
+               
+                 M[i,r] = 0
+            
+            elif i == r :
+               
+                 M[i,r] = 1
+
+            else :
+
+                 M[i,r] = Sokal_Similarity_2(i=2, r=5, a=a, d=d, p=p)
+                      
+    return M 
+```
+
+
+```python
+Matrix_Dist_Sokal_2(Data=Data_binary_numpy[0:500 , 0:500]) # 0.2 seg
+```
+```
+array([[1.  , 1.  , 0.75, ..., 1.  , 1.  , 0.75],
+       [0.  , 1.  , 0.75, ..., 1.  , 1.  , 0.75],
+       [0.  , 0.  , 1.  , ..., 0.75, 0.75, 0.5 ],
+       ...,
+       [0.  , 0.  , 0.  , ..., 1.  , 1.  , 0.75],
+       [0.  , 0.  , 0.  , ..., 0.  , 1.  , 0.75],
+       [0.  , 0.  , 0.  , ..., 0.  , 0.  , 1.  ]])
+```
+
+```python
+M_Sim_Sokal = Matrix_Dist_Sokal_2(Data=Data_binary_numpy) # 3.4 seg
+
+M_Sim_Sokal
+```
+```
+array([[1.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ],
+       [0.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ],
+       [0.  , 0.  , 1.  , ..., 0.75, 0.5 , 0.75],
+       ...,
+       [0.  , 0.  , 0.  , ..., 1.  , 0.75, 1.  ],
+       [0.  , 0.  , 0.  , ..., 0.  , 1.  , 0.75],
+       [0.  , 0.  , 0.  , ..., 0.  , 0.  , 1.  ]])
+```
+
+```python
+M_Sim_Sokal = M_Sim_Sokal + M_Sim_Sokal.T - np.diag(np.repeat(1 , len(M_Sim_Sokal)), k=0)
+
+M_Sim_Sokal
+```
+```
+array([[1.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ],
+       [1.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ],
+       [0.75, 0.75, 1.  , ..., 0.75, 0.5 , 0.75],
+       ...,
+       [1.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ],
+       [0.75, 0.75, 0.5 , ..., 0.75, 1.  , 0.75],
+       [1.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ]])
+```
+ 
 
 
 
@@ -2513,8 +2707,557 @@ $\hspace{0.25cm}$ Podemos obtener la distancia de Sokal entre el par de observac
 ##  Distancia de Sokal en `Python` <a class="anchor" id="57"></a>
 
 
+```python
+def Dist_Sokal(i, r, a, d, p):
+
+    dist_Sokal = np.sqrt( Sokal_Similarity_2(i , i, a , d, p) + Sokal_Similarity_2(r , r, a , d, p) - 2*Sokal_Similarity_2(i , r, a , d, p) )
+
+    return dist_Sokal
+```
 
 
+```python
+a, b, c, d, p = a_b_c_d_Matrix(Data_binary_numpy)
+
+Dist_Sokal(i=2, r=5, a=a, d=d, p=p)
+```
+
+
+```python
+def Matrix_Dist_Sokal(Data):
+
+    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+    a, b, c, d, p = a_b_c_d_Matrix(Data)
+
+   
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+             if i >= r :
+               
+                 M[i,r] = 0
+
+             else :
+
+                 M[i,r] = Dist_Sokal(i=i, r=r, a=a, d=d, p=p)
+                      
+    return M 
+```
+
+```python
+M_Dist_Sokal = Matrix_Dist_Sokal(Data=Data_binary_numpy)
+
+M_Dist_Sokal
+```
+```
+array([[0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
+        0.        ],
+       [0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
+        0.        ],
+       [0.        , 0.        , 0.        , ..., 0.70710678, 1.        ,
+        0.70710678],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 0.70710678,
+        0.        ],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.70710678],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])
+```
+
+
+
+```python
+M_Dist_Sokal = M_Dist_Sokal + M_Dist_Sokal.T
+
+M_Dist_Sokal
+```
+```
+array([[0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
+        0.        ],
+       [0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
+        0.        ],
+       [0.70710678, 0.70710678, 0.        , ..., 0.70710678, 1.        ,
+        0.70710678],
+       ...,
+       [0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
+        0.        ],
+       [0.70710678, 0.70710678, 1.        , ..., 0.70710678, 0.        ,
+        0.70710678],
+       [0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
+        0.        ]])
+```
+
+ 
+
+<br>
+
+
+## Similaridad de Jaccard  <a class="anchor" id="65"></a>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ El coeficiente de similaridad de Jaccard (o simplemente la similaridad de Sokal) entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables binarias $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ se define como: $\\[0.4cm]$
+
+
+\begin{gather*}
+\phi(i,r)_{Jaccard}  = \dfrac{a_{ir} }{a_{ir} + b_{ir}+ c_{ir}} 
+\end{gather*}
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
+<br>
+
+
+## Distancia de Jaccard    <a class="anchor" id="66"></a>
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+
+$\hspace{0.25cm}$ Podemos obtener la distancia de Jaccard entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables binarias $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ como sigue:  $\\[0.4cm]$
+
+\begin{gather*}
+\delta(i,r)_{Jaccard} = \sqrt{\phi(i,i)_{Jaccard} + \phi(r,r)_{Jaccard} - 2\cdot \phi(i,r)_{Jaccard} }
+\end{gather*}
+
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+
+
+## Similaridad de Jaccard en `Python` <a class="anchor" id="67"></a>
+
+
+
+```python
+def Jaccard_Similarity_1(i, r, Data):
+
+    a, b, c, d, p = a_b_c_d_Matrix(Data)
+
+    if a[i,r] == 0 :
+
+        Jaccard_Similarity = 0
+
+    else :
+
+        Jaccard_Similarity = a[i,r] / (a[i,r] + b[i,r] + c[i,r])
+
+
+    return Jaccard_Similarity
+```
+
+
+```python
+Jaccard_Similarity_1(i=2, r=5, Data=Data_binary_numpy)
+```
+
+    0
+
+```python
+def Jaccard_Similarity_2(i , r, a , b, c):
+
+
+    if a[i,r] == 0 :
+
+        Jaccard_Similarity = 0
+
+        
+    else :
+
+        Jaccard_Similarity = a[i,r] / (a[i,r] + b[i,r] + c[i,r])
+        
+
+    return Jaccard_Similarity
+```
+
+
+
+
+```python
+a, b, c, d, p = a_b_c_d_Matrix(Data=Data_binary_numpy)
+
+Jaccard_Similarity_2(i=2, r=5, a=a , b=b, c=c)
+```
+
+    0
+
+```python
+def Matrix_Sim_Jaccard_1(Data):
+
+    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+   
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+            if i > r :
+               
+                 M[i,r] = 0
+            
+            elif i == r :
+               
+                 M[i,r] = 1
+            
+            else :
+
+                 M[i,r] = Jaccard_Similarity_1(i, r, Data)
+                      
+    return M 
+```
+
+```python
+Matrix_Sim_Jaccard_1(Data=Data_binary_numpy[0:300,0:300])  # 1.52 min
+```
+
+```
+array([[1. , 1. , 0.5, ..., 0. , 0. , 1. ],
+       [0. , 1. , 0.5, ..., 0. , 0. , 1. ],
+       [0. , 0. , 1. , ..., 0. , 0. , 0.5],
+       ...,
+       [0. , 0. , 0. , ..., 1. , 0. , 0. ],
+       [0. , 0. , 0. , ..., 0. , 1. , 0. ],
+       [0. , 0. , 0. , ..., 0. , 0. , 1. ]])
+```
+
+
+```python
+def Matrix_Sim_Jaccard_2(Data):
+
+    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+    a, b, c, d, p = a_b_c_d_Matrix(Data=Data_binary_numpy)
+
+   
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+            if i > r :
+               
+                 M[i,r] = 0
+            
+            elif i == r :
+               
+                 M[i,r] = 1
+            
+            else :
+
+                 M[i,r] = Jaccard_Similarity_2(i , r , a , b , c)
+                      
+    return M 
+```
+
+
+```python
+Matrix_Sim_Jaccard_2(Data=Data_binary_numpy[0:300,0:300]) # 0.1 seg
+```
+```
+array([[1. , 1. , 0.5, ..., 0. , 0. , 1. ],
+       [0. , 1. , 0.5, ..., 0. , 0. , 1. ],
+       [0. , 0. , 1. , ..., 0. , 0. , 0.5],
+       ...,
+       [0. , 0. , 0. , ..., 1. , 0. , 0. ],
+       [0. , 0. , 0. , ..., 0. , 1. , 0. ],
+       [0. , 0. , 0. , ..., 0. , 0. , 1. ]])
+```
+
+```python
+M_Jaccard = Matrix_Sim_Jaccard_2(Data=Data_binary_numpy)
+
+M_Jaccard 
+```
+```
+array([[1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+        1.        ],
+       [0.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+        1.        ],
+       [0.        , 0.        , 1.        , ..., 0.5       , 0.33333333,
+        0.5       ],
+       ...,
+       [0.        , 0.        , 0.        , ..., 1.        , 0.5       ,
+        1.        ],
+       [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
+        0.5       ],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.        ]])
+```
+
+
+
+
+```python
+M_Jaccard = M_Jaccard + M_Jaccard.T - np.diag(np.repeat(1 , len(M_Jaccard)), k=0)
+
+M_Jaccard 
+```
+
+```
+array([[1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+        1.        ],
+       [1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+        1.        ],
+       [0.5       , 0.5       , 1.        , ..., 0.5       , 0.33333333,
+        0.5       ],
+       ...,
+       [1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+        1.        ],
+       [0.5       , 0.5       , 0.33333333, ..., 0.5       , 1.        ,
+        0.5       ],
+       [1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+        1.        ]])
+```
+
+
+```python
+def Dist_Jaccard(i , r, a , b, c):
+
+    Dist_Jaccard = np.sqrt( Jaccard_Similarity_2(i , i, a , b, c) + Jaccard_Similarity_2(r , r, a , b, c) - 2*Jaccard_Similarity_2(i , r, a , b, c) )
+
+    return Dist_Jaccard  
+```
+
+
+```python
+a, b, c, d, p = a_b_c_d_Matrix(Data_binary_numpy)
+
+Dist_Jaccard(i=2 , r=5, a=a , b=b, c=c)
+```
+
+    0.0
+
+```python
+def Matrix_Dist_Jaccard(Data):
+
+    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+    a, b, c, d, p = a_b_c_d_Matrix(Data)
+
+   
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+             if i >= r :
+               
+                 M[i,r] = 0
+
+             else :
+
+                 M[i,r] = Dist_Jaccard(i=i, r=r, a=a, b=b, c=c)
+                      
+    return M 
+```
+
+```python
+M_Dist_Jaccard = Matrix_Dist_Jaccard(Data=Data_binary_numpy)
+
+M_Dist_Jaccard
+```
+```
+array([[0.        , 0.        , 1.        , ..., 0.        , 1.        ,
+        0.        ],
+       [0.        , 0.        , 1.        , ..., 0.        , 1.        ,
+        0.        ],
+       [0.        , 0.        , 0.        , ..., 1.        , 1.15470054,
+        1.        ],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
+        0.        ],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.        ],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])
+```
+
+
+```python
+M_Dist_Jaccard = M_Dist_Jaccard + M_Dist_Jaccard.T 
+
+M_Dist_Jaccard
+```
+
+```
+array([[0.        , 0.        , 1.        , ..., 0.        , 1.        ,
+        0.        ],
+       [0.        , 0.        , 1.        , ..., 0.        , 1.        ,
+        0.        ],
+       [1.        , 1.        , 0.        , ..., 1.        , 1.15470054,
+        1.        ],
+       ...,
+       [0.        , 0.        , 1.        , ..., 0.        , 1.        ,
+        0.        ],
+       [1.        , 1.        , 1.15470054, ..., 1.        , 0.        ,
+        1.        ],
+       [0.        , 0.        , 1.        , ..., 0.        , 1.        ,
+        0.        ]])
+```
+
+
+
+
+<br>
+
+<br>
+
+
+
+# Similaridades con variables categoricas multiclase   <a class="anchor" id="76"></a>
+
+El escenario de trabajo es el siguiente:
+
+Tenemos una muestra de $n$  elementos/individuos $\hspace{0.1cm}\Omega = \lbrace e_1,e_2,...,e_n \rbrace$ 
+
+Tenemos una serie de variables estadisticas **categóricas multiclase** con no necesariamente igual número de categorias $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
+
+Para cada variable categórica multiclase $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tenemos una muestra de $n$ observaciones $\hspace{0.1cm}X_j\hspace{0.1cm}$  basada en la muestra de $n$ individuos $\hspace{0.1cm}\Omega$
+
+ 
+Es decir, tenemos lo siguiente:
+
+- $\hspace{0.1cm}X_j=(x_{j1},...,x_{jn})^t$ , para $j=1,...,p \\$
+
+- $\hspace{0.1cm}x_{ji}\hspace{0.1cm}$ es la observación de la variable $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ para el individuo $\hspace{0.1cm}e_i\hspace{0.1cm}$ de la muestra $\hspace{0.1cm}\Omega$ , para $\hspace{0.1cm}j=1,...,p\hspace{0.1cm}$ y $\hspace{0.1cm}i=1,...,n \\$
+
+
+
+Por tanto:
+
+- $\hspace{0.1cm}X_j=(x_{j1},...,x_{jn})^t\hspace{0.1cm}$ es el vector con las observaciones de la variable para los individuos de la muestra $\hspace{0.1cm}\Omega$  , para $\hspace{0.1cm}j=1,...,p \\$
+
+- $\hspace{0.1cm}x_i = (x_{1i} , x_{2i} ,..., x_{pi})^t\hspace{0.1cm}$ es el vector con las observaciones de las variables  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ para el individuo $\hspace{0.1cm}e_i\hspace{0.1cm}$ de $\hspace{0.1cm}\Omega$ , para $\hspace{0.1cm}i=1,...,n$
+
+
+
+
+<br>
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+
+$\hspace{0.25cm}$ Los parametros que habitualmente se usan para construir las similaridades con variables multiclase son:
+
+
+$\hspace{0.35cm}$ $\alpha_{ir} \hspace{0.05cm} =\hspace{0.05cm}$ número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} \hspace{0.05cm}=\hspace{0.05cm} x_{rj}\\$
+
+$$\alpha_{ir} \hspace{0.07cm}=\hspace{0.07cm} \# \lbrace\hspace{0.1cm} j\in \lbrace 1,...,p\rbrace \hspace{0.15cm}/\hspace{0.15cm} x_{ij} = x_{rj}  \hspace{0.1cm}\rbrace\\$$
+
+$\hspace{0.35cm}$ $p-\alpha_{ir} \hspace{0.05cm}=\hspace{0.05cm}$  número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} \neq x_{rj} \\$ 
+
+$$p - \alpha_{ir} \hspace{0.07cm}=\hspace{0.07cm} \# \lbrace\hspace{0.1cm} j\in \lbrace 1,...,p\rbrace \hspace{0.15cm}/\hspace{0.15cm} x_{ij} \neq x_{rj}  \hspace{0.1cm}\rbrace\\$$
+
+
+
+
+$\hspace{0.25cm}$ **Observación:**
+
+$$\alpha_{ij}\hspace{0.05cm}=\hspace{0.05cm}a_{ij}+b_{ij}$$
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+<br>
+
+## Similaridad por coincidencias  <a class="anchor" id="77"></a>
+
+La medida de similaridad mas común con variables categoricas multiclase es la similaridad por coincidencias
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$La similaridad por coincidencias entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables categoricas multiclase $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ se define como: $\\[0.4cm]$
+
+
+ 
+\begin{gather*}
+\phi(x_i,x_r)_{Coin}\hspace{0.05cm}=\hspace{0.05cm} \dfrac{\alpha_{ir}}{p}
+\end{gather*}
+
+</p>
+ 
+</p></span>
+</div>
+
+
+**Observación:**
+
+Cuando las variables son binarias, el la similaridad por coincidencias es igual a la similaridad de Sokal, ya que $\hspace{0.1cm} \alpha_{ij}=a_{ij}+b_{ij}$
+
+
+
+<br>
+
+## Distancia por coincidencias   <a class="anchor" id="78"></a>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+La distancia por coincidencias entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables categoricas multiclase $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ se obtiene como: $\\[0.4cm]$
+
+\begin{gather*}
+\delta(x_i,x_r)_{Coin} = \sqrt{\phi(x_i,x_i)_{Coin} + \phi(x_r,x_r)_{Coin} - 2\cdot \phi(x_i,x_r)_{Coin} }
+\end{gather*}
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+<br>
+
+
+
+## Similaridad por coincidencias en `Python`   <a class="anchor" id="79"></a>
 
 
 
