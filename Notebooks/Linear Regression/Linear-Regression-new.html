@@ -5345,11 +5345,11 @@ estimated_errors
 <h1><span class="header-section-number">14</span> Interpretación de los coeficientes del modelo de regresión lineal <a class="anchor" id="33"></a></h1>
 <div id="intercept" class="section level2" number="14.1">
 <h2><span class="header-section-number">14.1</span> Intercept <a class="anchor" id="34"></a></h2>
-<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
-<p><span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Tenemos el siguiente modelo de regresión lineal estimado:</p>
 <p><span class="math display">\[\widehat{y}_i \hspace{0.15cm}=\hspace{0.15cm} x_i^t \cdot \widehat{\beta}  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} + ...+ \widehat{\beta}_p\cdot x_{ip}\]</span></p>
 <p><br></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
 <ul>
 <li><p><span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_0 \hspace{0.1cm}=\hspace{0.1cm} \widehat{y}_i \hspace{0.1cm}|\hspace{0.1cm} x_{i1} = 0 \hspace{0.1cm} , ..,\hspace{0.1cm} x_{ip}=0 \hspace{0.2cm} ,\hspace{0.2cm} \forall i \in \lbrace 1,...,n \rbrace \\\)</span></p></li>
 <li><p><span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_0\hspace{0.1cm}\)</span> es la predicción de la respuesta que el modelo hace para observaciones de los predictores <span class="math inline">\(\hspace{0.05cm} x_i\hspace{0.05cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm} x_{i1} = 0 \hspace{0.05cm} \hspace{0.05cm} , ..,\hspace{0.05cm} \hspace{0.05cm} x_{ip}=0\)</span></p></li>
@@ -5362,12 +5362,12 @@ estimated_errors
 </div>
 <div id="coeficientes-de-predictores-cuantitativos" class="section level2" number="14.2">
 <h2><span class="header-section-number">14.2</span> Coeficientes de predictores cuantitativos <a class="anchor" id="35"></a></h2>
-<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
-<p><span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Sea <span class="math inline">\(\hspace{0.1cm} X_k \hspace{0.1cm}\)</span> una variable cuantitativa, y sea <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(h&gt;0\)</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Tenemos el siguiente modelo de regresión lineal estimado:</p>
 <p><span class="math display">\[\widehat{y}_i \hspace{0.15cm}=\hspace{0.15cm}  x_i^t \cdot \widehat{\beta}  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} + .. + \widehat{\beta}_k\cdot x_{ik} + ..+ \widehat{\beta}_p\cdot x_{ip}\]</span></p>
 <p><br></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
 <ul>
 <li><p><span class="math inline">\(\hspace{0.15cm}\)</span> Si <span class="math inline">\(\hspace{0.15cm} \widehat{\beta}_k &gt; 0 \hspace{0.15cm}\)</span> , entonces:</p>
 <ul>
@@ -5447,6 +5447,8 @@ I(x_{ik}=1) = \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2cm} , 
 <p>Tenemos el siguiente modelo de regresión lineal estimado:</p>
 <p><span class="math display">\[\hat{y}_i= \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} + .. + \widehat{\beta}_{k1} \cdot I(x_{ik}=1) + ..+ \widehat{\beta_p}\cdot x_{ip}\]</span></p>
 <p><br></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
 <ul>
 <li><p>Si <span class="math inline">\(\widehat{\beta}_{k1} &gt; 0\)</span> , entonces:</p>
 <ul>
@@ -5460,6 +5462,10 @@ I(x_{ik}=1) = \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2cm} , 
 <li><span class="math inline">\(\hat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> es <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\widehat{\beta}_{k1}\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> unidades <strong>menos</strong> si <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 1\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> que si <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}=0\)</span></li>
 </ul></li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 <p><strong>Observación:</strong></p>
 <p>Las anteriores afirmaciones estan basadas en lo siguiente:</p>
@@ -5489,6 +5495,8 @@ I(x_{ik}=2) = \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2cm} , 
 <p>Tenemos el siguiente modelo de regresión lineal estimado:</p>
 <p><span class="math display">\[\widehat{y}_i= \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} + .. + \widehat{\beta}_{k1} \cdot I(x_{ik}=1) + \widehat{\beta}_{k2} \cdot I(x_{ik}=2) + ..+ \widehat{\beta}_p\cdot x_{ip}\]</span></p>
 <p><br></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
 <ul>
 <li><p>Si <span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_{k1} &gt; 0\hspace{0.1cm}\)</span> , entonces:</p>
 <ul>
@@ -5531,6 +5539,10 @@ I(x_{ik}=2) = \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2cm} , 
 <strong>menor</strong> si <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 2\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> que si <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ik}= 1\)</span></li>
 </ul></li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 <p><strong>Observación:</strong></p>
 <p>Las anterires afirmaciones se fundamentan en las siguientes:</p>
@@ -5601,31 +5613,30 @@ I(x_{ik}=2) = \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2cm} , 
 <h2><span class="header-section-number">14.6</span> Coeficiente de la interacción <a class="anchor" id="38"></a></h2>
 <div id="interacción-entre-predictores-binarios-y-cuantitativos" class="section level3" number="14.6.1">
 <h3><span class="header-section-number">14.6.1</span> Interacción entre predictores binarios y cuantitativos</h3>
-<p>Let <span class="math inline">\(X_k\)</span> a <strong>quantitative</strong> variable, and <span class="math inline">\(X_r\)</span> a <strong>binary</strong> <span class="math inline">\(\lbrace 0, 1\rbrace\)</span> categorical variable.</p>
-<p>If the reference category is <span class="math inline">\(0\)</span> , then <span class="math inline">\(X_r\)</span> enter in the model as the binary <span class="math inline">\(\lbrace 0, 1\rbrace\)</span> variable <span class="math inline">\(X_{r1}\)</span> defined as:</p>
+<p>Sea <span class="math inline">\(\hspace{0.1cm} X_r\hspace{0.1cm}\)</span> una variable <strong>cuantitativa</strong>, y <span class="math inline">\(\hspace{0.1cm}X_k\hspace{0.1cm}\)</span> una variable categorica <strong>binaria</strong>.</p>
+<p>Si la categoria de referencia es <span class="math inline">\(\hspace{0.1cm}0\hspace{0.1cm}\)</span> , entonces <span class="math inline">\(\hspace{0.1cm}X_k\hspace{0.1cm}\)</span> entra en el modelo con la siguiente variable dummy:</p>
+<p><span class="math display">\[\hspace{0.1cm} D(X_{k}=1) \hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} I(x_{ir}=1) \hspace{0.15cm} /\hspace{0.15cm} i\in  \lbrace 1,..,n\rbrace \hspace{0.1cm} \right) \hspace{0.1cm} \\\]</span></p>
+<p>Donde:</p>
 <p><span class="math display">\[
-x_{i r1}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i r}=1
+I(x_{ik}=1) = \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2cm} , \hspace{0.2cm}\text{si} \hspace{0.2cm} x_{ik}=1   \\[0.1cm]
+\hspace{0.12cm} 0 \hspace{0.2cm} , \hspace{0.2cm} \text{si} \hspace{0.2cm} x_{ik}=0    \end{array}\right.
 \]</span></p>
+<p>para <span class="math inline">\(i \in \lbrace 1,...,n \rbrace\)</span></p>
 <p><br></p>
-<p>In addition, we define the variable <span class="math inline">\(X_{r0}\)</span> as:</p>
-<p><span class="math display">\[
-x_{i r0}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i r}=0
-\]</span></p>
-<p><br></p>
-<p>We have the following estimated linear regression model:</p>
-<p><span class="math display">\[\widehat{y}_i= \widehat{\beta_0} + \widehat{\beta}_0\cdot x_{i1} + ... + \widehat{\beta}_p\cdot x_{ip} + \widehat{\beta}_{r1}\cdot x_{ir1} + \widehat{\beta}_{k}\cdot x_{ik} + \widehat{\beta}_{r1k}\cdot x_{ir1}\cdot x_{ik}  \]</span></p>
+<p>Tenemos el siguiente modelo de regresión lineal estimado:</p>
+<p><span class="math display">\[\widehat{y}_i \hspace{0.08cm}=\hspace{0.08cm} \widehat{\beta_0} \hspace{0.08cm}+\hspace{0.08cm} \widehat{\beta}_1\cdot x_{i1} \hspace{0.08cm}+ ...+\hspace{0.08cm} \widehat{\beta}_{r}\cdot x_{ir}  \hspace{0.08cm}+... +\hspace{0.08cm} \widehat{\beta}_p\cdot x_{ip} \hspace{0.08cm}+\hspace{0.08cm} \widehat{\beta}_{k1}\cdot I(x_{ik}=1) \hspace{0.08cm}+\hspace{0.08cm} \widehat{\beta}_{k1,r}\cdot I(x_{ik}=1)\cdot x_{ir}\]</span></p>
 <p><br></p>
 <ul>
-<li><p>If <span class="math inline">\(\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm} &gt; \hspace{0.05cm} 0\)</span> , then</p>
+<li><p>Si <span class="math inline">\(\hspace{0.1cm} \widehat{\beta}_{k1} + \widehat{\beta}_{k1,r}\cdot x_{ik} \hspace{0.05cm} &gt; \hspace{0.05cm} 0\hspace{0.1cm}\)</span> , entonces:</p>
 <ul>
-<li><span class="math inline">\(\widehat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm}\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> units <strong>greater</strong> if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ir}= 1\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> than if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ir}= 0\)</span></li>
+<li><span class="math inline">\(\widehat{y}_i\hspace{0.08cm}\)</span> es <span class="math inline">\(\hspace{0.08cm} \widehat{\beta}_{k1} + \widehat{\beta}_{k1,r}\cdot x_{ir} \hspace{0.1cm}\)</span> unidades <strong>mayores</strong> si <span class="math inline">\(\hspace{0.08cm}x_{ik}= 1\hspace{0.08cm}\)</span> que si <span class="math inline">\(\hspace{0.08cm}x_{ik}= 0\)</span></li>
 </ul></li>
 </ul>
 <p><br></p>
 <ul>
-<li><p>If <span class="math inline">\(\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm} &lt; \hspace{0.05cm} 0\)</span> , then</p>
+<li><p>Si <span class="math inline">\(\hspace{0.1cm} \widehat{\beta}_{k1} + \widehat{\beta}_{k1,r}\cdot x_{ir} \hspace{0.05cm} &lt; \hspace{0.05cm} 0\)</span> , then</p>
 <ul>
-<li><span class="math inline">\(\widehat{y}_i\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> is <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm}\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> units <strong>less</strong> if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ir}= 1\)</span> <span class="math inline">\(\hspace{0.05cm}\)</span> than if <span class="math inline">\(\hspace{0.05cm}\)</span> <span class="math inline">\(x_{ir}= 0\)</span></li>
+<li><span class="math inline">\(\widehat{y}_i \hspace{0.08cm}\)</span> es <span class="math inline">\(\hspace{0.08cm} \widehat{\beta}_{k1} + \widehat{\beta}_{k1,r}\cdot x_{ir} \hspace{0.08cm}\)</span> unidades <strong>menores</strong> si <span class="math inline">\(\hspace{0.08cm}x_{ik}= 1\hspace{0.08cm}\)</span> que si <span class="math inline">\(\hspace{0.08cm}x_{ik}= 0\)</span></li>
 </ul></li>
 </ul>
 <p><br></p>

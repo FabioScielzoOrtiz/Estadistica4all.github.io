@@ -2827,8 +2827,6 @@ estimated_standard_deviation_error
 ## Intercept <a class="anchor" id="34"></a>
 
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
 
 $\hspace{0.25cm}$ Tenemos el siguiente modelo de regresión lineal estimado: 
 
@@ -2836,6 +2834,10 @@ $$\widehat{y}_i \hspace{0.15cm}=\hspace{0.15cm} x_i^t \cdot \widehat{\beta}  \hs
 
 
 <br>
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
 
 - $\hspace{0.1cm}\widehat{\beta}_0 \hspace{0.1cm}=\hspace{0.1cm} \widehat{y}_i \hspace{0.1cm}|\hspace{0.1cm} x_{i1} = 0 \hspace{0.1cm} , ..,\hspace{0.1cm} x_{ip}=0 \hspace{0.2cm} ,\hspace{0.2cm} \forall i \in \lbrace 1,...,n \rbrace \\$ 
 
@@ -2861,9 +2863,6 @@ $$\widehat{y}_i \hspace{0.15cm}=\hspace{0.15cm} x_i^t \cdot \widehat{\beta}  \hs
 
 
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
-
 $\hspace{0.25cm}$ Sea  $\hspace{0.1cm} X_k \hspace{0.1cm}$ una variable cuantitativa, y sea $\hspace{0.05cm}$ $h>0$
 
 
@@ -2874,6 +2873,8 @@ $$\widehat{y}_i \hspace{0.15cm}=\hspace{0.15cm}  x_i^t \cdot \widehat{\beta}  \h
 
 <br>
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
 -   $\hspace{0.15cm}$ Si $\hspace{0.15cm} \widehat{\beta}_k > 0 \hspace{0.15cm}$  , entonces:
 
@@ -3005,6 +3006,12 @@ $$\hat{y}_i= \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} + .. + \widehat{\
 
 <br>
 
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+
+
 -   Si $\widehat{\beta}_{k1} > 0$ , entonces:
 
 
@@ -3016,6 +3023,13 @@ $$\hat{y}_i= \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} + .. + \widehat{\
 -   Si $\widehat{\beta}_{k1} < 0$ , entonces:
 
     -   $\hat{y}_i$ $\hspace{0.05cm}$ es $\hspace{0.05cm}$ $\widehat{\beta}_{k1}$ $\hspace{0.05cm}$ unidades **menos** si $\hspace{0.05cm}$  $x_{ik}= 1$ $\hspace{0.05cm}$ que si $\hspace{0.05cm}$ $x_{ik}=0$
+
+
+
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
@@ -3071,6 +3085,10 @@ $$\widehat{y}_i= \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} + .. + \wideh
 
 <br>
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+
 -   Si  $\hspace{0.1cm}\widehat{\beta}_{k1} > 0\hspace{0.1cm}$  , entonces:
 
     -  $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$  es $\hspace{0.05cm}$ $\widehat{\beta}_{k1}$ $\hspace{0.05cm}$ unidades **mayor** si $\hspace{0.05cm}$ $x_{ik}= 1$ $\hspace{0.05cm}$  que si  $\hspace{0.05cm}$ $x_{ik}= 0$
@@ -3105,6 +3123,12 @@ $$\widehat{y}_i= \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} + .. + \wideh
 
     -   $\hspace{0.1cm} \hat{y}_i$ $\hspace{0.05cm}$ es $\hspace{0.1cm}$ $\widehat{\beta}_{k2} - \widehat{\beta}_{k1}$ $\hspace{0.1cm}$ unidades
         **menor** si $\hspace{0.05cm}$ $x_{ik}= 2$ $\hspace{0.05cm}$ que si $\hspace{0.05cm}$ $x_{ik}= 1$
+
+
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
@@ -3205,52 +3229,55 @@ Notese que en todos los casos se asume que el resto de las variables del modelo 
 
 ### Interacción entre predictores binarios y cuantitativos
 
-Let $X_k$ a **quantitative** variable, and $X_r$ a **binary** $\lbrace 0, 1\rbrace$ categorical variable.
+Sea $\hspace{0.1cm} X_r\hspace{0.1cm}$ una variable **cuantitativa**, y $\hspace{0.1cm}X_k\hspace{0.1cm}$ una variable categorica **binaria**.
 
-If the reference category is  $0$  , then  $X_r$ enter in the model as the binary $\lbrace 0, 1\rbrace$ variable $X_{r1}$ defined as:
+Si la categoria de referencia es  $\hspace{0.1cm}0\hspace{0.1cm}$  , entonces  $\hspace{0.1cm}X_k\hspace{0.1cm}$ entra en el modelo con la siguiente variable dummy:
+
+ 
+$$\hspace{0.1cm} D(X_{k}=1) \hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} I(x_{ir}=1) \hspace{0.15cm} /\hspace{0.15cm} i\in  \lbrace 1,..,n\rbrace \hspace{0.1cm} \right) \hspace{0.1cm} \\$$ 
+
+Donde:
 
 $$
-x_{i r1}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i r}=1
+I(x_{ik}=1) = \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2cm} , \hspace{0.2cm}\text{si} \hspace{0.2cm} x_{ik}=1   \\[0.1cm] 
+\hspace{0.12cm} 0 \hspace{0.2cm} , \hspace{0.2cm} \text{si} \hspace{0.2cm} x_{ik}=0    \end{array}\right.
 $$
+
+para $i \in \lbrace 1,...,n \rbrace$
+
+ 
+
 
 <br>
 
-In addition, we define the variable $X_{r0}$ as:
+Tenemos el siguiente modelo de regresión lineal estimado:
 
-$$
-x_{i r0}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i r}=0 
-$$
-
-<br>
-
-We have the following estimated linear regression model:
-
-
-$$\widehat{y}_i= \widehat{\beta_0} + \widehat{\beta}_0\cdot x_{i1} + ... + \widehat{\beta}_p\cdot x_{ip} + \widehat{\beta}_{r1}\cdot x_{ir1} + \widehat{\beta}_{k}\cdot x_{ik} + \widehat{\beta}_{r1k}\cdot x_{ir1}\cdot x_{ik}  $$
+$$\widehat{y}_i \hspace{0.08cm}=\hspace{0.08cm} \widehat{\beta_0} \hspace{0.08cm}+\hspace{0.08cm} \widehat{\beta}_1\cdot x_{i1} \hspace{0.08cm}+ ...+\hspace{0.08cm} \widehat{\beta}_{r}\cdot x_{ir}  \hspace{0.08cm}+... +\hspace{0.08cm} \widehat{\beta}_p\cdot x_{ip} \hspace{0.08cm}+\hspace{0.08cm} \widehat{\beta}_{k1}\cdot I(x_{ik}=1) \hspace{0.08cm}+\hspace{0.08cm} \widehat{\beta}_{k1,r}\cdot I(x_{ik}=1)\cdot x_{ir}$$
 
 
 <br> 
 
 
--   If  $\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm} > \hspace{0.05cm} 0$  , then
+-   Si  $\hspace{0.1cm} \widehat{\beta}_{k1} + \widehat{\beta}_{k1,r}\cdot x_{ik} \hspace{0.05cm} > \hspace{0.05cm} 0\hspace{0.1cm}$  , entonces:
 
-    -  $\widehat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$ $x_{ir}= 1$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 0$
+    -  $\widehat{y}_i\hspace{0.08cm}$   es $\hspace{0.08cm} \widehat{\beta}_{k1} + \widehat{\beta}_{k1,r}\cdot x_{ir} \hspace{0.1cm}$   unidades **mayores** si   $\hspace{0.08cm}x_{ik}= 1\hspace{0.08cm}$    que si    $\hspace{0.08cm}x_{ik}= 0$
 
 <br>
 
--   If  $\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm} < \hspace{0.05cm} 0$  , then
+-   Si  $\hspace{0.1cm} \widehat{\beta}_{k1} + \widehat{\beta}_{k1,r}\cdot x_{ir} \hspace{0.05cm} < \hspace{0.05cm} 0$  , then
 
-    -  $\widehat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$ $x_{ir}= 1$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 0$
+    -  $\widehat{y}_i \hspace{0.08cm}$  es  $\hspace{0.08cm} \widehat{\beta}_{k1} + \widehat{\beta}_{k1,r}\cdot x_{ir} \hspace{0.08cm}$  unidades **menores** si $\hspace{0.08cm}x_{ik}= 1\hspace{0.08cm}$ que si $\hspace{0.08cm}x_{ik}= 0$
     
 <br>
 
-Note these magnitudes depend on $x_{ik}$ value, because we have set an interaction between $X_k$ and $X_r$ in the model.
+Notese que estas magnitudes dependen del valor $\hspace{0.08cm}x_{ir}\hspace{0.08cm}$,
+porque hemos establecido una interacción entre $\hspace{0.08cm}X_k\hspace{0.08cm}$ y $\hspace{0.08cm}X_r\hspace{0.08cm}$ en el modelo.
 
 <br> 
 
-**Observation:**
+**Observación:**
 
-The above affirmations are based in the following:
+Las anteriores afirmaciones se basan en lo siguiente:
 
 $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir1}=1 ) - (\widehat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ir0}=1 ) =  \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ik}$
 
