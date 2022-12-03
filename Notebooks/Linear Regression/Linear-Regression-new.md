@@ -3130,6 +3130,8 @@ $$\widehat{y}_i= \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} + .. + \wideh
 </p></span>
 </div>
 
+
+
 <br>
 
 
@@ -3258,15 +3260,29 @@ $$\widehat{y}_i \hspace{0.08cm}=\hspace{0.08cm} \widehat{\beta_0} \hspace{0.08cm
 <br> 
 
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+
+
+
 -   Si  $\hspace{0.1cm} \widehat{\beta}_{k1} + \widehat{\beta}_{k1,r}\cdot x_{ik} \hspace{0.05cm} > \hspace{0.05cm} 0\hspace{0.1cm}$  , entonces:
 
     -  $\widehat{y}_i\hspace{0.08cm}$   es $\hspace{0.08cm} \widehat{\beta}_{k1} + \widehat{\beta}_{k1,r}\cdot x_{ir} \hspace{0.1cm}$   unidades **mayores** si   $\hspace{0.08cm}x_{ik}= 1\hspace{0.08cm}$    que si    $\hspace{0.08cm}x_{ik}= 0$
 
 <br>
 
--   Si  $\hspace{0.1cm} \widehat{\beta}_{k1} + \widehat{\beta}_{k1,r}\cdot x_{ir} \hspace{0.05cm} < \hspace{0.05cm} 0$  , then
+-   Si  $\hspace{0.1cm} \widehat{\beta}_{k1} + \widehat{\beta}_{k1,r}\cdot x_{ir} \hspace{0.05cm} < \hspace{0.05cm} 0$  , entonces
 
     -  $\widehat{y}_i \hspace{0.08cm}$  es  $\hspace{0.08cm} \widehat{\beta}_{k1} + \widehat{\beta}_{k1,r}\cdot x_{ir} \hspace{0.08cm}$  unidades **menores** si $\hspace{0.08cm}x_{ik}= 1\hspace{0.08cm}$ que si $\hspace{0.08cm}x_{ik}= 0$
+    
+</p>
+ 
+</p></span>
+</div>
+
+
+
     
 <br>
 
@@ -3274,6 +3290,7 @@ Notese que estas magnitudes dependen del valor $\hspace{0.08cm}x_{ir}\hspace{0.0
 porque hemos establecido una interacción entre $\hspace{0.08cm}X_k\hspace{0.08cm}$ y $\hspace{0.08cm}X_r\hspace{0.08cm}$ en el modelo.
 
 <br> 
+
 
 **Observación:**
 
@@ -3289,33 +3306,42 @@ $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir1}=1 ) - (\widehat{y}_i  \hsp
 
 ### Interacción entre predictores ternarios y cuantitativos
 
-Let $X_k$ a quantitative variable, and $X_r$ a **ternary** $\lbrace 0, 1, 2 \rbrace$ categorical variable.
+Sea $\hspace{0.1cm} X_r\hspace{0.1cm}$ una variable cuantitativa, y $\hspace{0.1cm}X_k\hspace{0.1cm}$ una  variable categórica **ternaria** con categorías $\lbrace 0, 1 , 2 \rbrace$.
 
 <br>
 
-If the reference category is  $0$  , then  $X_r$ enter in the model with
-two binary $\lbrace 0,1\rbrace$ variables $X_{r1}$ y $X_{r2}$ defined as:
+Si la categoria de referencia es $\hspace{0.1cm}0\hspace{0.1cm}$, entonces $\hspace{0.1cm}X_k\hspace{0.1cm}$ entra en el modelo con las dos variables binarias siguientes:
 
-\begin{gather*}
-x_{i r1}=1   \Leftrightarrow   x_{i r}=1 \\
-x_{i r2}=1  \Leftrightarrow     x_{i r}=2 
-\end{gather*}
+$$\hspace{0.1cm}D(X_{k}=1)\hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} I(x_{ik}=1) \hspace{0.15cm} /\hspace{0.15cm} i\in  \lbrace 1,..,n\rbrace \hspace{0.1cm} \right) \hspace{0.1cm}$$
 
-<br>
+$$\hspace{0.1cm}D(X_{k}=2)\hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} I(x_{ik}=2) \hspace{0.15cm} /\hspace{0.15cm} i\in  \lbrace 1,..,n\rbrace \hspace{0.1cm} \right) \\$$
 
-In addition, we define the variable $X_{r0}$ as:
+Donde:
 
 $$
-x_{i r0}=1  \hspace{0.05cm} \Leftrightarrow \hspace{0.05cm}  x_{i r}=0 
+\hspace{-2.15cm} I(x_{ik}=1) = \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2cm} , \hspace{0.2cm}\text{si} \hspace{0.2cm} x_{ik}=1   \\[0.1cm] 
+\hspace{0.12cm} 0 \hspace{0.2cm} , \hspace{0.2cm} \text{si} \hspace{0.2cm} x_{ik}=0    \end{array}\right.
 $$
+
+$$
+I(x_{ik}=2) = \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2cm} , \hspace{0.2cm}\text{si} \hspace{0.2cm} x_{ik}=2   \\[0.1cm] 
+\hspace{0.12cm} 0 \hspace{0.2cm} , \hspace{0.2cm} \text{si} \hspace{0.2cm} x_{ik}=0\hspace{0.2cm} \vee \hspace{0.2cm} x_{ik}=1    \end{array}\right.
+$$
+
+para $i \in \lbrace 1,...,n \rbrace$
+ 
 
 <br>
  
-We have the following estimated linear regression model  
+Tenemos el siguiente modelo de regresión lineal estimado:
 
 $$\widehat{y}_i= \widehat{\beta_0} + \widehat{\beta_0}\cdot x_{i1} + ... + \widehat{\beta_p}\cdot x_{ip}  + \widehat{\beta}_{k}\cdot x_{ik} + \widehat{\beta}_{r1}\cdot x_{ir1} + \widehat{\beta}_{r2}\cdot x_{ir2} + \widehat{\beta}_{r1k}\cdot x_{ir1}\cdot x_{ik} + \widehat{\beta}_{r2 k}\cdot x_{ir2}\cdot x_{ik} $$
 
 <br>
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
 
 -   If  $\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm} > \hspace{0.05cm} 0$  , then
 
@@ -3351,6 +3377,14 @@ $$\widehat{y}_i= \widehat{\beta_0} + \widehat{\beta_0}\cdot x_{i1} + ... + \wide
 -   If  $\hspace{0.05cm} (\widehat{\beta}_{r2} - \widehat{\beta}_{r1} ) + (\widehat{\beta}_{r2k} - \widehat{\beta}_{r1k})\cdot x_{ki} \hspace{0.05cm} < \hspace{0.05cm} 0$  , then
 
     -  $\widehat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} (\widehat{\beta}_{r2} - \widehat{\beta}_{r1} ) + (\widehat{\beta}_{r2k} - \widehat{\beta}_{r1k})\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$ $x_{ir}= 2$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 1$
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
 
 <br>
 
