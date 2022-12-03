@@ -1746,43 +1746,66 @@ print(model_Py_sm.summary())
 
 <br>
 
+Consideremos la siguiente representación formal de las variables: 
+
+$\hspace{0.1cm} P=\left(\hspace{0.1cm} p_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable price.
+
+$\hspace{0.1cm} Q=\left(\hspace{0.1cm} q_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable quality.
+
+$\hspace{0.1cm} S=\left(\hspace{0.1cm} s_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable size.
+
+$\hspace{0.1cm} BD=\left(\hspace{0.1cm} bd_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable bedrooms.
+
+$\hspace{0.1cm} BT=\left(\hspace{0.1cm} bt_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable bathrooms.
+
+$\hspace{0.1cm} LA=\left(\hspace{0.1cm} la_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable latitude.
+
+$\hspace{0.1cm} LO=\left(\hspace{0.1cm} lo_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable longitude.
+
+<br>
+
 Esta salida nos da, entre otras cosas, la estimación de los coeficientes (betas) del modelo:
 
 
 - $\hspace{0.1cm} \widehat{\beta}_0 \hspace{0.1cm} =\hspace{0.1cm} -6.207\cdot 10^7 \\$
 
 
-- $\hspace{0.1cm}\widehat{\beta}_{size\_in\_m\_2} \hspace{0.1cm} =\hspace{0.1cm} 3.566\cdot 10^4 \\$
+- $\hspace{0.1cm}\widehat{\beta}_{s} \hspace{0.1cm} =\hspace{0.1cm} 3.566\cdot 10^4 \\$
 
-- $\hspace{0.1cm}\widehat{\beta}_{longitude}= -1.677\cdot 10^6 \\$
+- $\hspace{0.1cm}\widehat{\beta}_{lo}= -1.677\cdot 10^6 \\$
 
-- $\hspace{0.1cm}\widehat{\beta}_{latitude}=6.115\cdot 10^6 \\$
+- $\hspace{0.1cm}\widehat{\beta}_{la}=6.115\cdot 10^6 \\$
 
-- $\hspace{0.1cm}\widehat{\beta}_{no\_of\_bedrooms} \hspace{0.1cm}=\hspace{0.1cm} -8.367\cdot 10^5 \\$
+- $\hspace{0.1cm}\widehat{\beta}_{bd} \hspace{0.1cm}=\hspace{0.1cm} -8.367\cdot 10^5 \\$
 
-- $\hspace{0.1cm}\widehat{\beta}_{no\_of\_bathrooms} \hspace{0.1cm}=\hspace{0.1cm} -5.712\cdot 10^4 \\$
+- $\hspace{0.1cm}\widehat{\beta}_{bt} \hspace{0.1cm}=\hspace{0.1cm} -5.712\cdot 10^4 \\$
 
-- $\hspace{0.1cm}\widehat{\beta}_{quality1} \hspace{0.1cm}=\hspace{0.1cm} 1.4\cdot 10^5 \\$
+- $\hspace{0.1cm}\widehat{\beta}_{q1} \hspace{0.1cm}=\hspace{0.1cm} 1.4\cdot 10^5 \\$
 
-- $\hspace{0.1cm}\widehat{\beta}_{quality2} \hspace{0.1cm}=\hspace{0.1cm} 3.406\cdot 10^5 \\$
+- $\hspace{0.1cm}\widehat{\beta}_{q2} \hspace{0.1cm}=\hspace{0.1cm} 3.406\cdot 10^5 \\$
 
-- $\hspace{0.1cm}\widehat{\beta}_{quality3} \hspace{0.1cm}=\hspace{0.1cm} 2.788\cdot 10^5 \\$
+- $\hspace{0.1cm}\widehat{\beta}_{q3} \hspace{0.1cm}=\hspace{0.1cm} 2.788\cdot 10^5 \\$
 
 
  
+<br>
 
 
 El modelo estimado es el siguiente:
 
-\begin{gather*}
-\widehat{price}_i =  -6.207\cdot 10^7 +  3.566\cdot 10^4 \cdot size\_in\_m\_2_i -8.367\cdot 10^5 \cdot no\_of\_bedrooms_i -5.712\cdot 10^4 \cdot no\_of\_bathrooms_i +\\ 1.4\cdot 10^5 \cdot quality1_i + 3.406\cdot 10^5\cdot quality2_i + 2.788\cdot 10^5  \cdot quality3_i  +6.115\cdot 10^6\cdot  latitude_i -1.677\cdot 10^6   \cdot longitude_i 
-\end{gather*}
+$$\widehat{p}_i \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_{0} \hspace{0.1cm}+\hspace{0.1cm} \widehat{\beta}_{q1} \cdot I(q_i = 1) \hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{q2} \cdot I(q_i = 2) \hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{q3} \cdot I(q_i = 3)\hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{s} \cdot s_i \hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{bd}\cdot bd_i\hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{bt}\cdot bt_i \hspace{0.1cm}+\hspace{0.1cm} \widehat{\beta}_{la}\cdot la_i\hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{lo}\cdot lo_i\hspace{0.1cm} \\$$
+
+
+Sustituyendo los valores obtenidos para las estimaciones de los coeficientes obtenemos lo siguiente:
+
+$$\hat{p}_i \hspace{0.15cm}=\hspace{0.15cm} -6.207\cdot 10^7 \hspace{0.1cm}+\hspace{0.1cm} 1.4\cdot 10^5 \cdot I(q_i = 1)\hspace{0.1cm}+\hspace{0.1cm}  3.406\cdot 10^5 \cdot I(q_i = 2) \hspace{0.1cm}+\hspace{0.1cm} 2.788\cdot 10^5  \cdot I(q_i = 3) \hspace{0.1cm}+\hspace{0.1cm} 3.566\cdot 10^4  \cdot s_i \\[0.5cm] \hspace{0.1cm}-\hspace{0.1cm} 8.367\cdot 10^5 \cdot bd_i \hspace{0.1cm}-\hspace{0.1cm} 5.712\cdot 10^4 \cdot\cdot bt_i \hspace{0.1cm}+\hspace{0.1cm}6.115\cdot 10^6 \cdot la_i \hspace{0.1cm}-\hspace{0.1cm} 1.677\cdot 10^6 \cdot lo_i   \\$$
+
 
 <br>
 
 **Observación:**
 
-La variable categorica **quality** que tiene 4 categoriass (Low (0), Medium (1),
+La variable categorica **quality** que tiene 4 categorias (Low (0), Medium (1),
 High (2), Ultra (3)), entra en el modelo con 3 variables dummies (quality1 ,
 quality2, quality3 ), que se corresponden con las obtenidas al dummificacar la variable **quality**, si se toma como categoria estandar Low (0).
 
@@ -3140,13 +3163,12 @@ $$\widehat{y}_i= \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} + .. + \wideh
 
 Las anterires afirmaciones se fundamentan en las siguientes:
 
-- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik1}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik0}=1 ) =  \widehat{\beta}_{k1}$
+- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik}=0 ) =  \widehat{\beta}_{k1}$
 
-- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik2}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik0}=1 ) =  \widehat{\beta}_{k2}$
+- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=2 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik}=0 ) =  \widehat{\beta}_{k2}$
   
-- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik2}=1 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik1}=1 ) =  \widehat{\beta}_{k2} - \widehat{\beta}_{k1}$
+- $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=2 ) - (\hat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik}=1 ) =  \widehat{\beta}_{k2} - \widehat{\beta}_{k1} \\$
 
-<br>
 
 Lo anterior es facilmente extrapolable al caso de un predictor categorico con $r$ categorias, para $r>3$
 
@@ -3161,58 +3183,81 @@ Lo anterior es facilmente extrapolable al caso de un predictor categorico con $r
 
 ## Ejemplo de interpretación de los coeficientes <a class="anchor" id="37"></a>
 
-Hemos obtenido el siguiente modelo estimado:
+ 
 
-\begin{gather*}
-\widehat{price}_i =  -6.207\cdot 10^7 +  3.566\cdot 10^4 \cdot size\_in\_m\_2_i -8.367\cdot 10^5 \cdot no\_of\_bedrooms_i -5.712\cdot 10^4 \cdot no\_of\_bathrooms_i +\\ 1.4\cdot 10^5 \cdot quality1_i + 3.406\cdot 10^5\cdot quality2_i + 2.788\cdot 10^5  \cdot quality3_i  +6.115\cdot 10^6\cdot  latitude_i -1.677\cdot 10^6   \cdot longitude_i 
-\end{gather*}
+Consideremos la siguiente representación formal de las variables: 
 
+$\hspace{0.1cm} P=\left(\hspace{0.1cm} p_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable price.
 
+$\hspace{0.1cm} Q=\left(\hspace{0.1cm} q_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable quality.
 
+$\hspace{0.1cm} S=\left(\hspace{0.1cm} s_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable size.
 
-La interpretación de los coeficientes del modelo estimado es la siguiente:
+$\hspace{0.1cm} BD=\left(\hspace{0.1cm} bd_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable bedrooms.
 
-<br>
+$\hspace{0.1cm} BT=\left(\hspace{0.1cm} bt_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable bathrooms.
 
--   $\widehat{\beta}_0 = -6.207\cdot 10^7 \hspace{0.1cm}$   es el **precio** que el modelo predice para casa con los siguientes valores de los predictores $\hspace{0.1cm}size\_in\_m\_2_i =0\hspace{0.1cm}$  ,  $\hspace{0.1cm}no\_of\_bedrooms_i =0\hspace{0.1cm}$  ,  $\hspace{0.1cm}no\_of\_bathrooms_i =0\hspace{0.1cm}$  ,   $qualityLow_i=0$ ,   $\hspace{0.1cm}qualityMedium_i=0\hspace{0.1cm}$  ,  $\hspace{0.1cm}qualityUltra_i=0\hspace{0.1cm}$  ,  $\hspace{0.1cm}latitude_i=longitude_i=0$
+$\hspace{0.1cm} LA=\left(\hspace{0.1cm} la_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable latitude.
 
-<br>
-
--   $\widehat{\beta}_{size\_in\_m\_2} =3.566\cdot 10^4 \hspace{0.15cm}$   $\Rightarrow\hspace{0.15cm}$   Si
-    $\hspace{0.1cm}size\_in\_m\_2_i\hspace{0.1cm}$ aumenta en $\hspace{0.1cm}h\hspace{0.1cm}$ unidades, el precio predicho de la vivienda  **aumenta** en  $\hspace{0.1cm}h\cdot 3.566\cdot 10^4\hspace{0.15cm}$  unidades.
+$\hspace{0.1cm} LO=\left(\hspace{0.1cm} lo_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable longitude.
 
 <br>
 
--   $\widehat{\beta}_{no\_of\_bedrooms} = -8.367\cdot 10^5$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$   Si
-    $\hspace{0.15cm}no\_of\_bedrooms_i\hspace{0.15cm}$ aumenta en  $\hspace{0.15cm}h\hspace{0.15cm}$  unidaes, el precio predicho de la vivienda **disminuye** en  $\hspace{0.15cm}-h\cdot 8.367\cdot 10^5\hspace{0.15cm}$  unidades.
+
+El modelo estimado es el siguiente:
+
+$$\widehat{p}_i \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_{0} \hspace{0.1cm}+\hspace{0.1cm} \widehat{\beta}_{q1} \cdot I(q_i = 1) \hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{q2} \cdot I(q_i = 2) \hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{q3} \cdot I(q_i = 3)\hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{s} \cdot s_i \hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{bd}\cdot bd_i\hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{bt}\cdot bt_i \hspace{0.1cm}+\hspace{0.1cm} \widehat{\beta}_{la}\cdot la_i\hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{lo}\cdot lo_i\hspace{0.1cm} \\$$
+
+
+Sustituyendo los valores obtenidos para las estimaciones de los coeficientes obtenemos lo siguiente:
+
+$$\hat{p}_i \hspace{0.15cm}=\hspace{0.15cm} -6.207\cdot 10^7 \hspace{0.1cm}+\hspace{0.1cm} 1.4\cdot 10^5 \cdot I(q_i = 1)\hspace{0.1cm}+\hspace{0.1cm}  3.406\cdot 10^5 \cdot I(q_i = 2) \hspace{0.1cm}+\hspace{0.1cm} 2.788\cdot 10^5  \cdot I(q_i = 3) \hspace{0.1cm}+\hspace{0.1cm} 3.566\cdot 10^4  \cdot s_i \\[0.5cm] \hspace{0.1cm}-\hspace{0.1cm} 8.367\cdot 10^5 \cdot bd_i \hspace{0.1cm}-\hspace{0.1cm} 5.712\cdot 10^4 \cdot\cdot bt_i \hspace{0.1cm}+\hspace{0.1cm}6.115\cdot 10^6 \cdot la_i \hspace{0.1cm}-\hspace{0.1cm} 1.677\cdot 10^6 \cdot lo_i   \\$$
+
+
+
+
+
+
+La interpretación de los coeficientes del modelo estimado es la siguiente: $\\[0.5cm]$
+
+
+
+-   $\widehat{\beta}_0 = -6.207\cdot 10^7 \hspace{0.1cm}$   es el **precio** que el modelo predice para casa con los siguientes valores de los predictores $\hspace{0.1cm}s_i \hspace{0.1cm} =\hspace{0.1cm} bt_i \hspace{0.1cm}=\hspace{0.1cm} I(q_i=1)  \hspace{0.1cm}=\hspace{0.1cm}  I(q_i=2)  \hspace{0.1cm}=\hspace{0.1cm}I(q_i=3)\hspace{0.1cm} = \hspace{0.1cm} la_i \hspace{0.1cm}=\hspace{0.1cm} lo_i = 0$
 
 <br>
 
--   $\widehat{\beta}_{no\_of\_bathrooms} = -5.712\cdot 10^4$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$   Si
-    $\hspace{0.15cm}no\_of\_bathrooms_i\hspace{0.15cm}$ aumenta en  $h$  unidades, el predio predicho para la vivendia **decrece** en  $\hspace{0.15cm}-h\cdot 5.712\cdot 10^4\hspace{0.15cm}$  unidades.
+-   $\widehat{\beta}_{s} =3.566\cdot 10^4 \hspace{0.15cm}$   $\Rightarrow\hspace{0.15cm}$   Si el tamaño de la vivienda en metros cuadrados aumenta en $\hspace{0.1cm}h\hspace{0.1cm}$ unidades, el precio predicho por el modelo para la vivienda  **aumenta** en  $\hspace{0.1cm}h\cdot 3.566\cdot 10^4\hspace{0.15cm}$  unidades.
 
 <br>
 
--   $\widehat{\beta}_{quality1} = 1.4\cdot 10^5$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$    el precio predicho de las viviendas con calidad media  $(quality1_i=1)$  es  $1.4\cdot 10^5$   unidades **mayor** que el precio predicho para viviendas de baja calidad
-    $\hspace{0.15cm}(quality0_i=1)\hspace{0.15cm}$ , porque  low quality es la categoria de referencia del predictor $\hspace{0.15cm}quality\hspace{0.15cm}$ 
+-   $\widehat{\beta}_{bd} = -8.367\cdot 10^5$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$   Si el número de habitaciones de la vivienda aumenta en  $\hspace{0.15cm}h\hspace{0.15cm}$  unidades, el precio predicho por el modelo para la vivienda **disminuye** en  $\hspace{0.15cm}-h\cdot 8.367\cdot 10^5\hspace{0.15cm}$  unidades.
 
 <br>
 
--   $\widehat{\beta}_{quality2} = 3.406\cdot 10^5$  $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$    el predio predicho de las viviendas de calidad media  
-    $\hspace{0.15cm}(quality2_i=1)\hspace{0.15cm}$  es  $\hspace{0.15cm}3.406\cdot 10^5\hspace{0.15cm}$ unidades **mayor** que el predio predicho para viviendas con calidad baja  $\hspace{0.15cm}(quality0_i=1)$  
+-   $\widehat{\beta}_{bt} = -5.712\cdot 10^4$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$   Si el número de baños de la vivienda aumenta en  $h$  unidades, el precio predicho por el modelo para la vivendia **decrece** en  $\hspace{0.15cm}-h\cdot 5.712\cdot 10^4\hspace{0.15cm}$  unidades.
 
 <br>
 
--   $\widehat{\beta}_{quality3} = 2.788\cdot 10^5$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$     el precio predicho  para viviendas de calidad ultra   $\hspace{0.15cm}(quality3_i=1)\hspace{0.15cm}$   es
-  $\hspace{0.15cm}2.788\cdot 10^5\hspace{0.15cm}$  unidades **mayor** que el precio predicho para las viviendas de baja calidad  $\hspace{0.15cm}(quality0_i=1)$ 
+-   $\widehat{\beta}_{q1} = 1.4\cdot 10^5$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$    el precio predicho por el modelo para las viviendas con calidad media  $(q_i=1)$  es  $1.4\cdot 10^5$   unidades **mayor** que el precio predicho para viviendas de baja calidad
+    $\hspace{0.15cm}(q_i=0)\hspace{0.15cm}$ 
 
 <br>
 
--    $\widehat{\beta}_{quality2} - \widehat{\beta}_{quality1} = 3.406\cdot 10^5  - 1.4\cdot 10^5    =2.006\cdot 10^5$     $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$   el precio predicho para viviendas de alta calidad  $\hspace{0.15cm}(quality2_i=1)\hspace{0.15cm}$   es  $\hspace{0.15cm}2.006\cdot 10^5\hspace{0.15cm}$ unidades  **mayor** que el precio predicho para viviendas de calidad media  $\hspace{0.15cm}(quality1_i=1)$ 
+-   $\widehat{\beta}_{q2} = 3.406\cdot 10^5$  $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$    el predio predicho por el modelo para las viviendas de calidad media  
+    $\hspace{0.15cm}(q_i=2)\hspace{0.15cm}$  es  $\hspace{0.15cm}3.406\cdot 10^5\hspace{0.15cm}$ unidades **mayor** que el precio predicho para viviendas con calidad baja  $\hspace{0.15cm}(q_i=0)$  
 
 <br>
 
--  $\widehat{\beta}_{quality3} - \widehat{\beta}_{quality2} = 2.788\cdot 10^5   - 3.406\cdot 10^5 =-61800$     $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$  el precio predicho para viviendas de calidad ultra   $\hspace{0.15cm}(quality3_i=1)\hspace{0.15cm}$   es  $\hspace{0.15cm}61800\hspace{0.15cm}$ unidades **menor**   que el precio predicho para viviendas de calidad alta  $\hspace{0.15cm}(quality2_i=1)$ 
+-   $\widehat{\beta}_{q3} = 2.788\cdot 10^5$   $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$     el precio predicho por el modelo para viviendas de calidad ultra   $\hspace{0.15cm}(q_i=3)\hspace{0.15cm}$   es
+  $\hspace{0.15cm}2.788\cdot 10^5\hspace{0.15cm}$  unidades **mayor** que el precio predicho para las viviendas de baja calidad  $\hspace{0.15cm}(q_i=0)$ 
+
+<br>
+
+-    $\widehat{\beta}_{q2} - \widehat{\beta}_{q1} = 3.406\cdot 10^5  - 1.4\cdot 10^5    =2.006\cdot 10^5$     $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$   el precio predicho por el modelo para viviendas de alta calidad  $\hspace{0.15cm}(q_i=2)\hspace{0.15cm}$   es  $\hspace{0.15cm}2.006\cdot 10^5\hspace{0.15cm}$ unidades  **mayor** que el precio predicho para viviendas de calidad media  $\hspace{0.15cm}(q_i=1)$ 
+
+<br>
+
+-  $\widehat{\beta}_{q3} - \widehat{\beta}_{q2} = 2.788\cdot 10^5   - 3.406\cdot 10^5 =-61800$     $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$  el precio predicho por el modelo para viviendas de calidad ultra   $\hspace{0.15cm}(q_i=3)\hspace{0.15cm}$   es  $\hspace{0.15cm}61800\hspace{0.15cm}$ unidades **menor**   que el precio predicho para viviendas de calidad alta  $\hspace{0.15cm}(q_i=2)$ 
 
 <br>
 
@@ -3296,7 +3341,7 @@ porque hemos establecido una interacción entre $\hspace{0.08cm}X_k\hspace{0.08c
 
 Las anteriores afirmaciones se basan en lo siguiente:
 
-$(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir1}=1 ) - (\widehat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ir0}=1 ) =  \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ik}$
+$(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=1 ) - (\widehat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik}=0 ) =  \widehat{\beta}_{k1} + \widehat{\beta}_{k1,r}\cdot x_{ir}$
 
 
 
@@ -3335,7 +3380,7 @@ para $i \in \lbrace 1,...,n \rbrace$
  
 Tenemos el siguiente modelo de regresión lineal estimado:
 
-$$\widehat{y}_i= \widehat{\beta_0} + \widehat{\beta_0}\cdot x_{i1} + ... + \widehat{\beta_p}\cdot x_{ip}  + \widehat{\beta}_{k}\cdot x_{ik} + \widehat{\beta}_{r1}\cdot x_{ir1} + \widehat{\beta}_{r2}\cdot x_{ir2} + \widehat{\beta}_{r1k}\cdot x_{ir1}\cdot x_{ik} + \widehat{\beta}_{r2 k}\cdot x_{ir2}\cdot x_{ik} $$
+$$\widehat{y}_i= \widehat{\beta_0} + \widehat{\beta_0}\cdot x_{i1} + ...+ \widehat{\beta}_{r}\cdot x_{ir}+... + \widehat{\beta_p}\cdot x_{ip}   + \widehat{\beta}_{k1}\cdot I(x_{ik}=1) + \widehat{\beta}_{k2}\cdot I(x_{ik}=2) + \widehat{\beta}_{k1,r}\cdot I(x_{ik}=1)\cdot x_{ir} + \widehat{\beta}_{k2, r}\cdot I(x_{ik}=2)\cdot x_{ir}$$
 
 <br>
 
@@ -3343,40 +3388,40 @@ $$\widehat{y}_i= \widehat{\beta_0} + \widehat{\beta_0}\cdot x_{i1} + ... + \wide
 <span>
 
 
--   If  $\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm} > \hspace{0.05cm} 0$  , then
+-   Si  $\hspace{0.08cm} \widehat{\beta}_{k1} + \widehat{\beta}_{k1,r}\cdot x_{ki} \hspace{0.05cm} > \hspace{0.05cm} 0\hspace{0.08cm}$  , entonces :
 
-    -  $\widehat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$ $x_{ir}= 1$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 0$
-
-<br>
-
--   If  $\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm} < \hspace{0.05cm} 0$  , then
-
-    -  $\widehat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$ $x_{ir}= 1$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 0$
+    -  $\widehat{y}_i$ $\hspace{0.08cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \widehat{\beta}_{k1} + \widehat{\beta}_{k1,r}\cdot x_{ri} \hspace{0.05cm}$ $\hspace{0.05cm}$ unidades **mayor** si $\hspace{0.05cm}$ $x_{ik}= 1$ $\hspace{0.05cm}$  que si  $\hspace{0.05cm}$ $x_{ik}= 0$
 
 <br>
 
--   If  $\hspace{0.05cm} \widehat{\beta}_{r2} + \widehat{\beta}_{r2k}\cdot x_{ki} \hspace{0.05cm} > \hspace{0.05cm} 0$  , then
+-   Si  $\hspace{0.08cm} \widehat{\beta}_{k1} + \widehat{\beta}_{k1,r}\cdot x_{ri} \hspace{0.05cm} < \hspace{0.05cm} 0\hspace{0.08cm}$  , entonces
 
-    -  $\widehat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \widehat{\beta}_{r2} + \widehat{\beta}_{r2k}\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$ $x_{ir}= 2$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 0$
-
-<br>
-
--   If  $\hspace{0.05cm} \widehat{\beta}_{r2} + \widehat{\beta}_{r2k}\cdot x_{ki} \hspace{0.05cm} < \hspace{0.05cm} 0$  , then
-
-    -  $\widehat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} \widehat{\beta}_{r2} + \widehat{\beta}_{r2k}\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$ $x_{ir}= 2$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 0$
+    -  $\widehat{y}_i$ $\hspace{0.08cm}$  es $\hspace{0.05cm}$ $\hspace{0.05cm} \widehat{\beta}_{k1} + \widehat{\beta}_{k1,r}\cdot x_{ri} \hspace{0.05cm}$ $\hspace{0.05cm}$ unidades **menor** si $\hspace{0.05cm}$ $x_{ik}= 1$ $\hspace{0.05cm}$  que si  $\hspace{0.05cm}$ $x_{ik}= 0$
 
 <br>
 
+-   Si  $\hspace{0.05cm} \widehat{\beta}_{k2} + \widehat{\beta}_{k2,r}\cdot x_{ri} \hspace{0.05cm} > \hspace{0.05cm} 0\hspace{0.08cm}$  , entonces
 
--   If  $\hspace{0.05cm} (\widehat{\beta}_{r2} - \widehat{\beta}_{r1} ) + (\widehat{\beta}_{r2k} - \widehat{\beta}_{r1k})\cdot x_{ki} \hspace{0.05cm} > \hspace{0.05cm} 0$  , then
-
-    -  $\widehat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} (\widehat{\beta}_{r2} - \widehat{\beta}_{r1} ) + (\widehat{\beta}_{r2k} - \widehat{\beta}_{r1k})\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$ $x_{ir}= 2$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 1$
+    -  $\widehat{y}_i$ $\hspace{0.08cm}$  es $\hspace{0.05cm}$ $\hspace{0.05cm} \widehat{\beta}_{k2} + \widehat{\beta}_{k2,r}\cdot x_{ri} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **greater** if $\hspace{0.05cm}$ $x_{ik}= 2$ $\hspace{0.05cm}$  que si  $\hspace{0.05cm}$ $x_{ik}= 0$
 
 <br>
 
--   If  $\hspace{0.05cm} (\widehat{\beta}_{r2} - \widehat{\beta}_{r1} ) + (\widehat{\beta}_{r2k} - \widehat{\beta}_{r1k})\cdot x_{ki} \hspace{0.05cm} < \hspace{0.05cm} 0$  , then
+-   Si  $\hspace{0.05cm} \widehat{\beta}_{k2} + \widehat{\beta}_{k2,r}\cdot x_{ri} \hspace{0.05cm} < \hspace{0.05cm} 0\hspace{0.05cm}$  , entonces :
 
-    -  $\widehat{y}_i$ $\hspace{0.05cm}$  is $\hspace{0.05cm}$ $\hspace{0.05cm} (\widehat{\beta}_{r2} - \widehat{\beta}_{r1} ) + (\widehat{\beta}_{r2k} - \widehat{\beta}_{r1k})\cdot x_{ki} \hspace{0.05cm}$ $\hspace{0.05cm}$ units **less** if $\hspace{0.05cm}$ $x_{ir}= 2$ $\hspace{0.05cm}$  than if  $\hspace{0.05cm}$ $x_{ir}= 1$
+    -  $\widehat{y}_i$ $\hspace{0.08cm}$  es $\hspace{0.05cm}$ $\hspace{0.05cm} \widehat{\beta}_{k2} + \widehat{\beta}_{k2,r}\cdot x_{ri} \hspace{0.05cm}$ $\hspace{0.05cm}$ unidades **menor** si $\hspace{0.05cm}$ $x_{ik}= 2$ $\hspace{0.05cm}$  que si  $\hspace{0.05cm}$ $x_{ik}= 0$
+
+<br>
+
+
+-   Si  $\hspace{0.05cm} (\widehat{\beta}_{k2} - \widehat{\beta}_{k1} ) + (\widehat{\beta}_{k2, r} - \widehat{\beta}_{k1,r})\cdot x_{ri} \hspace{0.05cm} > \hspace{0.05cm} 0\hspace{0.05cm}$  , entonces
+
+    -  $\widehat{y}_i$ $\hspace{0.05cm}$  es $\hspace{0.05cm}$ $\hspace{0.05cm} (\widehat{\beta}_{k2} - \widehat{\beta}_{k1} ) + (\widehat{\beta}_{k2,r} - \widehat{\beta}_{k1,r})\cdot x_{ri} \hspace{0.05cm}$ $\hspace{0.05cm}$ unidades **mayor** si $\hspace{0.05cm}$ $x_{ik}= 2$ $\hspace{0.05cm}$  que si  $\hspace{0.05cm}$ $x_{ik}= 1$
+
+<br>
+
+-   Si  $\hspace{0.05cm} (\widehat{\beta}_{k2} - \widehat{\beta}_{k1} ) + (\widehat{\beta}_{k2,r} - \widehat{\beta}_{k1,r})\cdot x_{ri} \hspace{0.05cm} < \hspace{0.05cm} 0\hspace{0.05cm}$  , entonces
+
+    -  $\widehat{y}_i$ $\hspace{0.08cm}$  es $\hspace{0.05cm}$ $\hspace{0.05cm} (\widehat{\beta}_{k2} - \widehat{\beta}_{k1} ) + (\widehat{\beta}_{k2,r} - \widehat{\beta}_{k1,r})\cdot x_{ri} \hspace{0.05cm}$ $\hspace{0.05cm}$ unidades **menor** si $\hspace{0.05cm}$ $x_{ik}= 2$ $\hspace{0.05cm}$  que si  $\hspace{0.05cm}$ $x_{ik}= 1$
 
 
 </p>
@@ -3388,7 +3433,7 @@ $$\widehat{y}_i= \widehat{\beta_0} + \widehat{\beta_0}\cdot x_{i1} + ... + \wide
 
 <br>
 
-Note these magnitudes depend on $x_{ik}$ value, because we have set an interaction between $X_k$ and $X_r$ in the model.
+Notese que estas cantidades dependen del valor de $x_{ir}$, porque hemos establecido una interaccion entre la variable cuantitativa $X_r$ y la ternaria $X_k \\$
 
 
 
@@ -3396,19 +3441,19 @@ Note these magnitudes depend on $x_{ik}$ value, because we have set an interacti
 
 **Observación:**
 
-The above affirmations are based in the following:
+Las anteriores afirmaciones están basadas en lo siguiente:
 
-- $(\widehat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir1}=1 ) - (\widehat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ir0}=1 ) =  \widehat{\beta}_{r1} + \widehat{\beta}_{r1k}\cdot x_{ik}$
+- $(\widehat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=1 ) - (\widehat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik}=0 ) =  \widehat{\beta}_{k1} + \widehat{\beta}_{k1,r}\cdot x_{ir}\\$
 
-- $(\widehat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir2}=1 ) - (\widehat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ir0}=1 ) =  \widehat{\beta}_{r2} + \widehat{\beta}_{r2k}\cdot x_{ik}$
+- $(\widehat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=2 ) - (\widehat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik}=0 ) =  \widehat{\beta}_{k2} + \widehat{\beta}_{k2, r}\cdot x_{ir}\\$
 
-- $(\widehat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ir2}=1 ) - (\widehat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ir1}=1 ) =  (\widehat{\beta}_{r2} - \widehat{\beta}_{r1} ) + (\widehat{\beta}_{r2k} - \widehat{\beta}_{r1k})\cdot x_{ki}$
-
-
+- $(\widehat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=2 ) - (\widehat{y}_i  \hspace{0.05cm} | \hspace{0.05cm}  x_{ik}=1 ) =  (\widehat{\beta}_{k2} - \widehat{\beta}_{k1} ) + (\widehat{\beta}_{k2,r} - \widehat{\beta}_{k1,r})\cdot x_{ri}\\$
 
 
 
-Note that this can easily be extrapolated to the case of interaction between an $r$-ary categorical variable and a quantitative variable, for $r>3$.
+
+
+Notese que lo anterior puede ser facilmente extrapolado al caso de un predictor con $g>3$ categorías. 
 
 
 
@@ -3473,60 +3518,89 @@ print(model_Python_2.summary())
 
 <br>
 
-We have got the following:
+Consideremos la siguiente representación formal de las variables: 
 
-<br>
+$\hspace{0.1cm} P=\left(\hspace{0.1cm} p_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable price 
 
- - $\left( \widehat{price}_i | quality1_i=1 \right) - \left(\widehat{price}_i | quality0_i=1 \right) = \hat{\beta}_{quality1} + \hat{\beta}_{quality1:size\_in\_m\_2} \cdot size\_in\_m\_2_i = -2.353\cdot 10^5 + 2908.2719  \cdot size\_in\_m\_2_i$  
+$\hspace{0.1cm} Q=\left(\hspace{0.1cm} q_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable quality
 
-This magnitude depends on the value of $\hspace{0.1cm} size\_in\_m\_2_i$
+$\hspace{0.1cm} S=\left(\hspace{0.1cm} s_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable size 
 
-<br>
+$\hspace{0.1cm} BD=\left(\hspace{0.1cm} bd_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable bedrooms
 
-For example if $size\_in\_m\_2_i = 100$ , then:
+$\hspace{0.1cm} BT=\left(\hspace{0.1cm} bt_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable bathrooms
 
-$\left( \widehat{price}_i | quality1_i=1 \right) - \left(\widehat{price}_i | quality0_i=1 \right) = 55527.19$
+$\hspace{0.1cm} LA=\left(\hspace{0.1cm} la_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable latitude
 
-So the estimated price of a 100 $m^2$ house is 55527.19 units greater if $\hspace{0.1cm} quality1_i=1 \hspace{0.1cm}$ (it has medium quality) than $quality0_i=1$ (it has low quality)
-
-
-
-<br>
-
-
-- $\left( \widehat{price}_i | quality2_i=1 \right) - \left(\widehat{price}_i | quality0_i=1 \right) = \hat{\beta}_{quality2} + \hat{\beta}_{quality2:size\_in\_m\_2} \cdot size\_in\_m\_2_i  = -1.373\cdot 10^6 + 1.208\cdot 10^4  \cdot size\_in\_m\_2_i$  
-
-This magnitude depends on the value of $\hspace{0.1cm} size\_in\_m\_2_i$
-
-<br>
-
-For example if $\hspace{0.1cm}size\_in\_m\_2_i = 100\hspace{0.1cm}$ , then:
-
-$\left( \widehat{price}_i | quality2_i=1 \right) - \left(\widehat{price}_i | quality0_i=1 \right) = 55527.19$
-
-So the estimated price of a 100 $\hspace{0.1cm}m^2\hspace{0.1cm}$ house is 165000 units less if $\hspace{0.1cm}quality2_i=1\hspace{0.1cm}$ (it has high quality) than $\hspace{0.1cm}quality0_i=1\hspace{0.1cm}$ (it has low quality)
-
+$\hspace{0.1cm} LO=\left(\hspace{0.1cm} lo_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable longitude
 
 <br>
 
 
+El modelo estimado es el siguiente:
 
-- $\left( \widehat{price}_i | quality3_i=1 \right) - \left(\widehat{price}_i | quality1_i=1 \right) = \left(\hat{\beta}_{quality3} - \hat{\beta}_{quality1}\right) + \left( \hat{\beta}_{quality3:size\_in\_m\_2} - \hat{\beta}_{quality1:size\_in\_m\_2}\right)  \cdot size\_in\_m\_2_i = \\ \\ = (1.318e+06 - (-2.353e+05 )) + (-1.145e+04 + 2908.2719 )\cdot size\_in\_m\_2_i$  
+$$\widehat{p}_i \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_{0} \hspace{0.1cm}+\hspace{0.1cm} \widehat{\beta}_{q1} \cdot I(q_i = 1) \hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{q2} \cdot I(q_i = 2) \hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{q3} \cdot I(q_i = 3)\hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{s} \cdot s_i \hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{bd}\cdot bd_i\hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{bt}\cdot bt_i \hspace{0.1cm}+\hspace{0.1cm} \widehat{\beta}_{la}\cdot la_i\hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{lo}\cdot lo_i\hspace{0.1cm}+\\[0.5cm] \hspace{0.1cm}\widehat{\beta}_{q1, s}\cdot I(q_i = 1)\cdot s_i\hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{q2, s}\cdot I(q_i = 2)\cdot s_i  \hspace{0.1cm}+\hspace{0.1cm}\widehat{\beta}_{q3, s}\cdot I(q_i = 3)\cdot s_i \\$$
 
-This magnitude depends on the value of $\hspace{0.1cm}size\_in\_m\_2_i$
+
+Sustituyendo los valores obtenidos para las estimaciones de los coeficientes obtenemos lo siguiente:
+
+$$\hat{p}_i \hspace{0.15cm}=\hspace{0.15cm} -5.446\cdot 10^7 \hspace{0.1cm}-\hspace{0.1cm} 2.353\cdot 10^5 \cdot I(q_i = 1) - 1.373\cdot 10^6 \cdot I(q_i = 2) \hspace{0.1cm}+\hspace{0.1cm}  1.318\cdot 10^6 \cdot I(q_i = 3) \hspace{0.1cm}+\hspace{0.1cm} 3.163\cdot 10^4 \cdot s_i \\[0.5cm] \hspace{0.1cm}-\hspace{0.1cm} 7.859\cdot 10^5 \cdot bd_i \hspace{0.1cm}-\hspace{0.1cm} 4.202\cdot 10^4 \cdot bt_i \hspace{0.1cm}+\hspace{0.1cm} 6.219\cdot 10^6 \cdot la_i \hspace{0.1cm}-\hspace{0.1cm} 1.855\cdot 10^6 \cdot lo_i  \hspace{0.1cm}+ \\[0.5cm] \hspace{0.1cm} 2.908\cdot 10 ^3\cdot I(q_i = 1)\cdot s_i \hspace{0.1cm}+\hspace{0.1cm} 1.208\cdot 10 ^4\cdot I(q_i = 2)\cdot s_i \hspace{0.1cm}-\hspace{0.1cm} 1.145\cdot 10^4 \cdot I(q_i = 3)\cdot s_i \\$$
+
+
+Del modelo estimado se obtiene lo siguiente:
+
+
+$\widehat{p}_i\hspace{0.1cm} | \hspace{0.1cm} (q_i=1)   \hspace{0.15cm} - \hspace{0.15cm} \widehat{p}_i \hspace{0.1cm}|\hspace{0.1cm} (q_i=0 ) \hspace{0.2cm} = \hspace{0.2cm} \hat{\beta}_{q1} + \hat{\beta}_{q1,s} \cdot si \hspace{0.2cm}=\hspace{0.2cm} -2.353\cdot 10^5 + 2.908 \cdot 10^3  \cdot s_i \\$  
+
+
+
+Notese que esta cantidad depende del valor de $\hspace{0.1cm}s_i \\$
+
+
+- Por ejemplo si $\hspace{0.1cm} s_i = 100\hspace{0.1cm}$ , entonces:
+
+    - $\widehat{p}_i\hspace{0.1cm} | \hspace{0.1cm} (q_i=1)   \hspace{0.15cm} - \hspace{0.15cm} \widehat{p}_i \hspace{0.1cm}|\hspace{0.1cm} (q_i=0 ) \hspace{0.2cm} = \hspace{0.2cm} 55527.19 \\$
+
+    - El precio estimado por el modelo para una vivienda de 100 metros cuadrados es  55527.19 unidades mayor si es de calidad media $(q_i=1)$ que si es de calidad baja $(q_i=0)$ 
+
+
+
+<br>
+
+Del modelo estimado también se desprende lo siguiente:
+
+$\widehat{p}_i\hspace{0.1cm} | \hspace{0.1cm} (q_i=2)   \hspace{0.15cm} - \hspace{0.15cm} \widehat{p}_i \hspace{0.1cm}|\hspace{0.1cm} (q_i=0 ) \hspace{0.2cm}   =  \hat{\beta}_{q2} + \hat{\beta}_{q2,s} \cdot s_i = -1.373\cdot 10^6 + 1.208\cdot 10^4  \cdot s_i$  
+
+Esta cantidad depende del valor de  $\hspace{0.1cm} s_i \\$
+
+
+- Por ejemplo si $\hspace{0.1cm}s_i = 100\hspace{0.1cm}$ , entonces :
+
+    - $\widehat{p}_i\hspace{0.1cm} | \hspace{0.1cm} (q_i=2)   \hspace{0.15cm} - \hspace{0.15cm} \widehat{p}_i \hspace{0.1cm}|\hspace{0.1cm} (q_i=0 ) \hspace{0.2cm}    = 55527.19 \\$
+
+    - El precio estimado por el modelo para viviendas de 100 metros cuadrados es 165000 unidades menor si la vivienda es de alta calidad $(q_i=2)$ que si es de calidad baja $(q_i = 0)$
+
+
+<br>
+
+
+Del modelo estimado también se deduce lo siguiente:
+
+- $\widehat{p}_i\hspace{0.1cm} | \hspace{0.1cm} (q_i=3)   \hspace{0.15cm} - \hspace{0.15cm} \widehat{p}_i \hspace{0.1cm}|\hspace{0.1cm} (q_i=1 ) \hspace{0.2cm}  =\hspace{0.2cm} \left(\hat{\beta}_{q3} - \hat{\beta}_{q1}\right) + \left( \hat{\beta}_{q3,s} - \hat{\beta}_{q1,s}\right)  \cdot s_i = \\ \\ = (1.318e+06 - (-2.353e+05 )) + (-1.145e+04 + 2908.2719 )\cdot s_i$  
+
+Esta cantidad depende del valor de $\hspace{0.1cm}s_i$
 
 <br> 
 
-For example if $\hspace{0.1cm}size\_in\_m\_2_i = 100\hspace{0.1cm}$ , then:
+Por ejemplo si $\hspace{0.1cm}s_i = 100\hspace{0.1cm}$ , entonces:
 
-$\left( \widehat{price}_i | quality3_i=1 \right) - \left(\widehat{price}_i | quality1_i=1 \right) = 699127.19$
+$\widehat{p}_i\hspace{0.1cm} | \hspace{0.1cm} (q_i=3)   \hspace{0.15cm} - \hspace{0.15cm} \widehat{p}_i \hspace{0.1cm}|\hspace{0.1cm} (q_i=1 ) \hspace{0.2cm} =\hspace{0.2cm} 699127.19$
 
-So the estimated price of a 100 $\hspace{0.1cm}m^2\hspace{0.1cm}$ house is 699127.19 units greater if $\hspace{0.1cm}quality3_i=1\hspace{0.1cm}$ (it has ultra quality) than $\hspace{0.1cm}quality1_i=1\hspace{0.1cm}$ (it has medium quality)
+El precio estimado por el modelo para viviendas de 100 metros cuadrados es 699127.19 unidades mayor si la vivienda es de calidad ultra $(q_3 =1)$ que si es de calidad media $(q_1=1)$ 
 
 
-
-Note that in all these cases it is assumed that the rest of the model variables don´t vary (have the same values) from one scenario to another.
-
+Notese que en todos estos casos se asume que el resto de variables del modelo no varian (tienen los mismos valores) de un escenario a otro.
+ 
 
 
 <br>
@@ -3538,23 +3612,31 @@ Note that in all these cases it is assumed that the rest of the model variables 
 
 
 
-## Confidence Interval for beta coefficients  <a class="anchor" id="41"></a>
+## Intervalo de confianza para los coeficientes beta  <a class="anchor" id="41"></a>
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-We have the following confidence interval for $\hspace{0.1cm}\beta_j$
+$\hspace{0.25cm}$ Tenemos el siguiente intervalo de confianza de nivel $\hspace{0.1cm}1-\alpha\hspace{0.1cm}$ para $\hspace{0.15cm}\beta_j$
 
 <br>
 
 \begin{gather*}
-CI\left(\beta_j  \right)= \left[ \hspace{0.05cm} \widehat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{\widehat{Var}(\widehat{\beta}_j)} \hspace{0.05cm} \right] = \left[\hspace{0.05cm}  \widehat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{\widehat{\sigma}^2 \cdot q_{jj}} \hspace{0.05cm} \right]
+\hspace{0.25cm} IC\left( \beta_j  \right)_{1-\alpha} \hspace{0.08cm}=\hspace{0.08cm} \left[ \hspace{0.05cm} \widehat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{\widehat{Var}(\widehat{\beta}_j)} \hspace{0.05cm} \right] = \left[\hspace{0.05cm}  \widehat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{\widehat{\sigma}^2 \cdot q_{jj}} \hspace{0.05cm} \right]
 \end{gather*}
  
 <br>
 
-Where:
+$\hspace{0.25cm}$ Donde:
 
-- $q_{jj} \hspace{0.1cm}$ is the element $\hspace{0.1cm} j+1 \hspace{0.1cm}$ of the principal diagonal of the matrix
-$\hspace{0.1cm} (X^t \cdot X)^{-1} \hspace{0.1cm}$ for $\hspace{0.1cm} j=0,1,...,p$
+ $\hspace{0.25cm}q_{jj} \hspace{0.1cm}$ es el elemento $\hspace{0.1cm} j+1 \hspace{0.1cm}$ de la diagonal principal de la matriz
+$\hspace{0.1cm} (X^t \cdot X)^{-1} \hspace{0.1cm}$ para $\hspace{0.1cm} j=0,1,...,p$
+
+</p>
+ 
+</p></span>
+</div>
+
 
  
 
@@ -3563,7 +3645,7 @@ $\hspace{0.1cm} (X^t \cdot X)^{-1} \hspace{0.1cm}$ for $\hspace{0.1cm} j=0,1,...
 
 **Observation:**
 
-The smaller $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_j)}\hspace{0.13cm}$  is, the smaller the confidence interval of $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ will be.
+Cuanto menor sea $\hspace{0.15cm}\sqrt{\widehat{Var}(\widehat{\beta}_j)}\hspace{0.15cm}$ , mayor es el intervalo de confianza de $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$
 
 
 
@@ -3573,27 +3655,31 @@ The smaller $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_j)}\hspace{0.13cm
 
 
 
-## Confidence Interval for error variance 
+## Intervalo de confianza para la varianza de los residuos 
 
 
-We have the following confidence interval for $\hspace{0.1cm}\sigma^2$
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ Tenemos el siguiente intervalo de confianza de nivel $\hspace{0.1cm}1-\alpha\hspace{0.1cm}$ para $\hspace{0.1cm}\sigma^2$
 
 <br>
  
 \begin{gather*}
-CI\left(\sigma^2  \right)= \left[ 0 \hspace{0.15cm} , \hspace{0.15cm}  \dfrac{n-p-1}{\chi_{1-\alpha/2}^{n-p-1}}\cdot \widehat{\sigma}^2  \right]
+IC\left(\sigma^2  \right)_{1-\alpha}   \hspace{0.08cm}= \hspace{0.08cm}  \left[\hspace{0.1cm} 0 \hspace{0.2cm} , \hspace{0.2cm}  \dfrac{n-p-1}{\chi_{\alpha}^{n-p-1}}\cdot \widehat{\sigma}^2  \hspace{0.1cm}\right]
 \end{gather*}
  
 
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
 
 
-
-
-
-### Confidence Interval for  $\beta_j$  in `Python` <a class="anchor" id="44"></a>
+## Intervalo de confianza para coeficientes beta en `Python` <a class="anchor" id="44"></a>
 
 
 
@@ -3681,18 +3767,18 @@ beta_intervals
 <br>
 
 
-Then, for example, we have:
+Entonces, por ejemplo, tenemos los siguientes intervalos de confianza:
 
  
 \begin{gather*}
-CI(\beta_0)=\left[-1.208060e+08 \ , \ -3.336873e+06 \right] \\[0.35cm]
-CI(\beta_{size\_in\_m\_2})=\left[ 3.424446e+04   \ , \ 3.708364e+04 \right] 
+IC(\beta_0)_{0.95}=\left[-1.208060\cdot 10^8 \ , \ -3.336873\cdot 10^6 \right] \\[0.35cm]
+IC(\beta_{s})_{0.95}=\left[ 3.424446\cdot 10^4   \ , \ 3.708364\cdot 10^4 \right]
 \end{gather*}
 
  
 
 
-We also have this information in the output obtained with `print(model_Python_1.summary())`
+Tenemos también esta información en la salida obtenida con el comando `print(model_Python_1.summary())`
 
 
 
@@ -3703,10 +3789,8 @@ We also have this information in the output obtained with `print(model_Python_1.
 
 
 
-### Confidence Interval for  $\sigma^2$  in `Python` <a class="anchor" id="46"></a>
+##  Intervalo de Confianza para la varianza de los residuos en `Python` <a class="anchor" id="46"></a>
 
-
-In this case we will use the interval expression before defined:
 
 
 ```python
@@ -3717,13 +3801,7 @@ import scipy
 ```python
 n=len(data_Python)
 p=6
-scipy.stats.chi2.ppf(0.95, n-p)
-```
 
-    2001.4931303978055
-
-
-```python
 b = ( n-p-1 / scipy.stats.chi2.ppf(0.95, n-p-1))*estimated_variance_error
 
 interval_sigma2 = [0,b]
@@ -3739,192 +3817,251 @@ interval_sigma2
 
 
 
-## Hypothesis Test for beta coefficients <a class="anchor" id="47"></a>
+## Contraste de hipótesis para coeficientes beta <a class="anchor" id="47"></a>
+
+ 
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ Podemos llevar a cabo los siguientes tres contrastes:
+
+$\hspace{1cm} H_0: \beta_j = \beta_j^*$   $\hspace{1cm}H_0: \beta_j = \beta_j^*$  $\hspace{1cm}H_0: \beta_j = \beta_j^*$ 
+
+$\hspace{01cm} H_1: \beta_j \neq \beta_j^*$  $\hspace{1cm}H_1: \beta_j > \beta_j^*$  $\hspace{1cm}H_1: \beta_j < \beta_j^*$ 
+
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
+&nbsp;
+
+
+
+
+### Estadístico del contraste:
 
  
 
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-We can carry out the following three test:
 
-|                               |                            |                            |
-|:------------------------:|:---------------------:|:---------------------:|
-|  $H_0: \beta_j = \beta_j^*$   | $H_0: \beta_j = \beta_j^*$ | $H_0: \beta_j = \beta_j^*$ |
-| $H_1: \beta_j \neq \beta_j^*$ | $H_1: \beta_j > \beta_j^*$ | $H_1: \beta_j < \beta_j^*$ |
+$\hspace{0.25cm}$ El estadístico del contraste para cualquiera de los anteriores test es:
 
   
+$$
+t_{exp | H_0}\hspace{0.1cm}=\hspace{0.1cm}\dfrac{\widehat{\beta}_j - \beta_j^*}{\sqrt{\widehat{Var}(\beta_j)}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\widehat{\beta}_j - \beta_j^*}{\sqrt{\widehat{\sigma}^2 \cdot q_{jj}}} \hspace{0.1cm} \sim\hspace{0.1cm} t_{n-p-1} 
+$$
 
-&nbsp;
 
-
-
-
-### Test Statistic:
-
+</p>
  
+</p></span>
+</div>
 
-The test statistic for any of the previous test is:
 
-<br>
+
+**Observación:**
+
+En el caso del contraste $\hspace{0.1cm}H_0: \beta_j = \beta_j^* \hspace{0.1cm}$   $\text{vs}$  $\hspace{0.1cm} H_1: \beta_j \neq \beta_j^* \\$
+
+Cuanto mayor sea la diferencia  $| \widehat{\beta}_j - \beta_j^* |$, más evidencia hay  a favor de $H_1 :  \beta_j \neq \beta_j^*$, y mayor será el estadístico $| t_{exp | H_0} |$ en valor absoluto.
+
+Teniendo esto en cuenta, es razonable rechazar $H_0$ en favor de $H_1 :  \beta_j \neq \beta_j^*$ cuando el estadistico en valor absoluto sea suficientemente grande, pues esto indicará que la diferencia  entre $\widehat{\beta}_j$ y $\beta_j^*$, en valor absoluto, es grande, y entonces hay suficiente evidencia en contra de $H_0$ y en favor de $H_1$.
+
+
+
+En el resto de casos se pueden aplicar razonamientos similares pero teniendo en cuenta la variacion existente en la hipotesis nula. 
+
+En el segundo caso cuando mas positiva sea la diferencia $\widehat{\beta}_j - \beta_j^*$ mas evidencia a favor de $H_1 : \widehat{\beta}_j > \beta_j^*$. En el tercer caso, cuanto mas negativa sea la diferencia $\widehat{\beta}_j - \beta_j^*$ mas evidencia a favor de $H_1 : \widehat{\beta}_j < \beta_j^*$
  
-\begin{gather*}
-t_{exp | H_0}=\dfrac{\widehat{\beta}_j - \beta_j^*}{\sqrt{S_R \cdot q_{jj}}} \sim t_{n-p}
-\end{gather*}
- 
-
-
-
-&nbsp;
-
- 
-
-### Decision Rule
-
- 
-
-For a fixed signification level $\hspace{0.1cm}\alpha$
-
 <br>
 
--   Case   $H_0: \beta_j = \beta_j^* \hspace{0.1cm}$  vs  $\hspace{0.1cm} H_1: \beta_j \neq \beta_j^*$
-
-
-
-
-*Based in the test statistic:*      
-
- 
-\begin{gather*}
-Reject \ H_0 \hspace{0.1cm} \Leftrightarrow \hspace{0.1cm} t_{exp|H_0} > t_{\alpha/2}^{n-p} \hspace{0.2cm} or \hspace{0.2cm} t_{exp|H_0} < t_{1-\alpha/2}^{n-p}
-\end{gather*}
- 
- 
-*Based in p-value:*
-
-\begin{gather*}
-pvalue=2\cdot P( t_{n-p} \hspace{0.2cm} \geqslant \hspace{0.2cm} \mid t_{exp|H_0} \mid ) \\ \\
-Reject \ H_0  \ \Leftrightarrow \ pvalue < \alpha
-\end{gather*}
- 
  
 
-
-<br>
-
-
--   Case   $H_0: \beta_j = \beta_j^*$ \hspace{0.2cm} vs \hspace{0.2cm} $H_1: \beta_j > \beta_j^*$
-
-
-
-*Based in the test statistic:* 
-
+### Regla de decisión
 
  
-\begin{gather*}
-Reject \ H_0 \ \Leftrightarrow \ t_{exp|H_0} > t_{\alpha/2}^{n-p}
-\end{gather*}
- 
 
-*Based in p-value:* 
+Para un nivel de significación fijado $\hspace{0.1cm}\alpha \\$
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+-   Caso $\hspace{0.1cm}H_0: \beta_j = \beta_j^* \hspace{0.1cm}$   $\text{vs}$  $\hspace{0.1cm} H_1: \beta_j \neq \beta_j^* \\$
+
+
+
+
+    - *Basado en el estadístico del contraste*      
 
  
-\begin{gather*}
-pvalue= P( t_{n-p} \hspace{0.2cm} \geqslant\hspace{0.2cm} t_{exp|H_0} ) \\ \\
-Reject \ H_0  \ \Leftrightarrow \ pvalue < \alpha
-\end{gather*}
+       - $\text{Rechazar} \ H_0 \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} > \hspace{0.1cm} t_{\alpha/2}^{n-p-1} \hspace{0.25cm} \vee \hspace{0.25cm} t_{exp|H_0} < t_{1-\alpha/2}^{n-p-1}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} > \hspace{0.1cm} t_{\alpha/2}^{n-p-1} \hspace{0.25cm} \vee \hspace{0.25cm} t_{exp|H_0} < - t_{\alpha/2}^{n-p-1}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} | t_{exp|H_0} | \hspace{0.1cm} > \hspace{0.1cm} t_{\alpha/2}^{n-p-1}  \\$
  
+ 
+    - *Basado en el p-valor*
+
+       -  $\text{p-valor} \hspace{0.15cm}=\hspace{0.15cm} 2\cdot P\left( t_{n-p} \hspace{0.2cm} \geqslant \hspace{0.2cm} \mid t_{exp|H_0} \mid \right)\\$
+       
+       
+       - $\text{Rechazar} \ H_0  \hspace{0.2cm} \Leftrightarrow \hspace{0.2cm} \text{p-valor} \hspace{0.1cm}<\hspace{0.1cm} \alpha$
+ 
+ 
+</p>
+ 
+</p></span>
+</div>
+
 
 <br>
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
--   Case   $H_0: \beta_j = \beta_j^*$  vs  $H_1: \beta_j < \beta_j^*$
+-   Caso   $H_0: \beta_j = \beta_j^*$ $\hspace{0.2cm} \text{vs} \hspace{0.2cm}$ $H_1: \beta_j > \beta_j^* \\$
 
 
 
-*Based in the test statistic:*
-
- 
-\begin{gather*}
-Reject \ H_0 \ \Leftrightarrow \ t_{exp|H_0} < t_{1-\alpha/2}^{n-p}
-\end{gather*}
- 
- 
-*Based in p-value:*
+    - *Basado en el estadístico del contraste* 
 
  
-\begin{gather*}
-pvalue= P( t_{n-p} \hspace{0.2cm} \leqslant \hspace{0.2cm} t_{exp|H_0} ) \\ \\
-Reject \ H_0  \ \Leftrightarrow \ pvalue < \alpha
-\end{gather*}
+        - $\text{Rechazar} \ H_0 \ \Leftrightarrow \ t_{exp|H_0} > t_{\alpha}^{n-p} \\$
  
 
+    - *Basado en el p-valor* 
+
+ 
+         - $\text{p-valor}\hspace{0.15cm}=\hspace{0.15cm} P( t_{n-p} \hspace{0.2cm} \geqslant\hspace{0.2cm} t_{exp|H_0} ) \\$
+         
+         - $\text{Rechazar} \ H_0  \ \Leftrightarrow \ \text{p-valor} < \alpha$
  
 
+</p>
+ 
+</p></span>
+</div>
 
 
 
 <br>
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+-   Caso   $H_0: \beta_j = \beta_j^*$ $\hspace{0.2cm} \text{vs} \hspace{0.2cm}$  $H_1: \beta_j < \beta_j^* \\$
 
 
 
-## Test of Significance for beta coefficients <a class="anchor" id="48"></a>
+    - *Based in the test statistic:*
 
+ 
+        - $\text{Rechazar} \ H_0 \ \Leftrightarrow \ t_{exp|H_0} < t_{1-\alpha}^{n-p} \\$
+ 
+ 
+ 
+ 
+    - *Based in p-value:*
+
+ 
+        - $\text{p-valor} \hspace{0.15cm}=\hspace{0.15cm} P( t_{n-p} \hspace{0.2cm} \leqslant \hspace{0.2cm} t_{exp|H_0} )\\$
+    
+        -  $\text{Rechazar} \ H_0  \ \Leftrightarrow \ \text{p-valor} < \alpha$
+
+ 
+</p>
+ 
+</p></span>
+</div>
  
 
 
 
-The test of significance for the coefficient $\beta_j$ is the following
-test:
 
 <br>
+
+
+
+
+## Contraste de significación para los coeficientes beta <a class="anchor" id="48"></a>
+
+ 
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+El contraste de significación para el coeficiente $\beta_j$ es el siguiente: $\\[0.5cm]$
 
 \begin{gather*}
 H_0: \beta_j=0 \\
 H_1: \beta_j \neq 0
 \end{gather*}
  
+ </p>
  
+</p></span>
+</div>
+
+
 <br>
 
+### Estadístico del contraste:
 
-The test statistic is the previously exposed, taking into account that
-now $\beta_j^*=0$
 
-<br>
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+El estadístico del contraste es el expuesto previamente, teniendo en cuenta que ahora $\hspace{0.15cm} \beta_j^*=0$ $\\[0.5cm]$
+
+ 
 
 \begin{gather*}
 t_{exp | H_0}=\dfrac{\hat{\beta}_j - 0}{\sqrt{S_R \cdot q_{jj}}} = \dfrac{\hat{\beta}_j}{\sqrt{\widehat{Var}(\widehat{\beta}_j) }} \sim t_{n-p}
 \end{gather*}
  
+</p>
+ 
+</p></span>
+</div>
 
 <br>
  
 
-The decision rules are the same too:
+### Regla de decisión
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+La regla de decisión son las mismas que las expuestas en el contraste anterior.
+
+En concreto la regla de decisión basada en el p-valor es : $\\[0.5cm]$
 
  
 \begin{gather*}
-Reject \ H_0  \ \Leftrightarrow \ pvalue < \alpha
+\text{Rechazar} \ H_0  \ \Leftrightarrow \ \text{p-valor} < \alpha
 \end{gather*}
  
+</p>
+ 
+</p></span>
+</div>
+
+
+
+<br>
 
 
 
 
-&nbsp;
+## Contraste de significación en `Python` <a class="anchor" id="50"></a>
 
-
-
-
-
-
-
-
-### Test of Significance  in `Python` <a class="anchor" id="50"></a>
-
-
-The value of $\hspace{0.1cm} t_{exp|H_0} \hspace{0.1cm}$ and also the p-value of the test of significance for $\beta_j$ could be found in the output obtained with `print(model_Python_1.summary())`
+El valor del estadístico del contraste $\hspace{0.1cm} t_{exp|H_0} \hspace{0.1cm}$ y también el p-valor del contraste de significación para  $\hspace{0.1cm}\beta_j\hspace{0.1cm}$ pueden ser encontrados en la salida obtenida con el comando `print(model_Python_1.summary())`
 
 
 ```python
@@ -3968,149 +4105,183 @@ print(model_Py_sm.summary())
     strong multicollinearity or other numerical problems.
     
 
-<br>
-
-The p-values we have got are the following:
 
 <br>
 
-\begin{gather*}
-H_0: \beta_{quality1}=0 \\
-H_1: \beta_{quality1} \neq 0 \\ \\
-pvalue = 0.094   
-\end{gather*}
+Consideremos la siguiente representación formal de las variables: 
 
+$\hspace{0.1cm} P=\left(\hspace{0.1cm} p_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable price 
 
-- For $\hspace{0.05cm} \alpha = 0.05 < 0.094$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Not \hspace{0.08cm} Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{quality1}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $quality1 \hspace{0.1cm}$ isn´t a significance variable
+$\hspace{0.1cm} Q=\left(\hspace{0.1cm} q_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable quality
 
+$\hspace{0.1cm} S=\left(\hspace{0.1cm} s_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable size 
 
+$\hspace{0.1cm} BD=\left(\hspace{0.1cm} bd_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable bedrooms
+
+$\hspace{0.1cm} BT=\left(\hspace{0.1cm} bt_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable bathrooms
+
+$\hspace{0.1cm} LA=\left(\hspace{0.1cm} la_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable latitude
+
+$\hspace{0.1cm} LO=\left(\hspace{0.1cm} lo_i \hspace{0.1cm} /\hspace{0.1cm}  i\in \lbrace 1,...,n \rbrace\hspace{0.1cm} \right)\hspace{0.15cm}$  es la variable longitude
 
 <br>
 
-\begin{gather*}
+
+Los p-valores obtenidos para cada uno de los contrastes son los siguientes:
+
+<br>
+
+$$
+H_0: \beta_{q1}=0 \\
+H_1: \beta_{q1} \neq 0 \\
+$$
+
+- $\text{p-valor} = 0.094 \\$  
+
+- Para $\hspace{0.1cm} \alpha = 0.05 < 0.094$ $\hspace{0.2cm} \Rightarrow \hspace{0.2cm}$ $\text{No Rechazar}  \hspace{0.25cm} H_0 : \hspace{0.05cm} \beta_{q1}=0 \hspace{0.2cm} \Rightarrow \hspace{0.2cm}$ $D( Q=1 ) \hspace{0.15cm}$ no es una variable significativa.
+
+---
+
+<br>
+
+$$
 H_0: \beta_{quality2}=0 \\
-H_1: \beta_{quality2} \neq 0 \\ \\
-pvalue = 0.028    
-\end{gather*}
+H_1: \beta_{quality2} \neq 0 \\
+$$
 
 
+- $\text{p-valor} = 0.028$
 
 
-- For $\hspace{0.05cm} \alpha = 0.05 > 0.028$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{quality2}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm} Accept  \hspace{0.08cm} H_1 : \hspace{0.05cm} \beta_{quality2}\neq 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$  $quality2 \hspace{0.1cm}$ is a significance variable
+- Para $\hspace{0.05cm} \alpha = 0.05 > 0.028$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $\text{Rechazar}  \hspace{0.25cm} H_0 : \hspace{0.05cm} \beta_{q2}=0 \hspace{0.2cm} \Rightarrow \hspace{0.2cm}$ $\Rightarrow \hspace{0.2cm} \text{Aceptar}  \hspace{0.25cm} H_1 : \hspace{0.05cm} \beta_{q2}\neq 0$ $\hspace{0.15cm} \Rightarrow \hspace{0.1cm}$  $D(Q=2) \hspace{0.15cm}$ es una variable significativa.
 
+---
 
 <br>
 
-\begin{gather*}
+$$
 H_0: \beta_{quality3}=0 \\
-H_1: \beta_{quality3} \neq 0 \\ \\
-pvalue = 0.159 
-\end{gather*}
+H_1: \beta_{quality3} \neq 0 \\
+$$
 
 
+- $\text{p-valor} = 0.159\\$
 
-- For $\hspace{0.05cm} \alpha = 0.05 < 0.159$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Not Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{quality3}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $quality3 \hspace{0.1cm}$ isn´t a significance variable
+- Para  $\hspace{0.05cm} \alpha = 0.05 < 0.159$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $\text{No Rechazar}  \hspace{0.15cm} H_0 : \hspace{0.05cm} \beta_{q3}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $D(Q=3) \hspace{0.15cm}$ no es una variable significativa.
+
+---
 
 <br>
 
 
-\begin{gather*}
+$$
 H_0: \beta_{size\_in\_m\_2}=0 \\
-H_1: \beta_{size\_in\_m\_2} \neq 0 \\ \\
-pvalue \simeq 0
-\end{gather*}
+H_1: \beta_{size\_in\_m\_2} \neq 0 \\
+$$
+
+- $p-valor \simeq 0\\$
 
 
+- Para $\hspace{0.05cm} \alpha = 0.05 < 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $\text{Rechazar}  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{s}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $S  \hspace{0.15cm}$ es una variable significativa
 
-
-- For $\hspace{0.05cm} \alpha = 0.05 < 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{size\_in\_m\_2}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $size\_in\_m\_2  \hspace{0.1cm}$ is a significance variable
-
+---
 
 <br>
 
 
 \begin{gather*}
-H_0: \beta_{no\_of\_bedrooms}=0 \\
-H_1: \beta_{no\_of\_bedrooms} \neq 0 \\ \\
-pvalue \simeq 0
+H_0: \beta_{bd}=0 \\
+H_1: \beta_{bd} \neq 0 \\ 
 \end{gather*}
 
 
+- $p-valor \simeq 0\\$
 
+- Para $\hspace{0.05cm} \alpha = 0.05 < 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $\text{Rechazar}  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{bd}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $BD  \hspace{0.15cm}$ es una variable significativa.
 
-- For $\hspace{0.05cm} \alpha = 0.05 < 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{no\_of\_bedrooms}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $no\_of\_bedrooms  \hspace{0.1cm}$ is a significance variable
+---
 
 <br>
 
 \begin{gather*}
-H_0: \beta_{no\_of\_bathrooms}=0 \\
-H_1: \beta_{no\_of\_bathrooms} \neq 0 \\ \\
-pvalue =  0.403
+H_0: \beta_{bt}=0 \\
+H_1: \beta_{bt} \neq 0 \\ 
 \end{gather*}
 
 
+- $\text{p-valor} =  0.403 \\$
 
+- Para $\hspace{0.05cm} \alpha = 0.05 < 0.403$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $\text{No Rechazar}  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{bt}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $BT  \hspace{0.15cm}$ no es una variable significativas.
 
-- For $\hspace{0.05cm} \alpha = 0.05 < 0.403$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Not Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{no\_of\_bathrooms}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $no\_of\_bathrooms  \hspace{0.1cm}$ isn´t a significance variable
+---
 
 <br>
 
 \begin{gather*}
-H_0: \beta_{latitude}=0 \\
-H_1: \beta_{latitude} \neq 0 \\ \\
-pvalue \simeq 0
+H_0: \beta_{la}=0 \\
+H_1: \beta_{la} \neq 0 \\ 
 \end{gather*}
 
 
+- $\text{p-valor} \simeq 0\\$
 
 
-- For $\hspace{0.05cm} \alpha = 0.05 > 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{latitude}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $latitude  \hspace{0.1cm}$ is a significance variable
+- Para $\hspace{0.05cm} \alpha = 0.05 > 0$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $\text{Rechazar}  \hspace{0.15cm} H_0 : \hspace{0.05cm} \beta_{la}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $LA \hspace{0.1cm}$ es una variable significativa.
+
+---
 
 <br>
 
 \begin{gather*}
-H_0: \beta_{longitude}=0 \\
-H_1: \beta_{longitude} \neq 0 \\ \\
-pvalue = 0.015
+H_0: \beta_{lo}=0 \\
+H_1: \beta_{lo} \neq 0 \\
 \end{gather*}
 
-- For $\hspace{0.05cm} \alpha = 0.05 > 0.015$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $Reject  \hspace{0.08cm} H_0 : \hspace{0.05cm} \beta_{longitude}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $longitude  \hspace{0.1cm}$ is a significance variable
+
+- $\text{p-valor} = 0.015$
+
+- Para $\hspace{0.05cm} \alpha = 0.05 > 0.015$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $\text{Rechazar}  \hspace{0.15cm} H_0 : \hspace{0.05cm} \beta_{lo}=0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ $LO  \hspace{0.15cm}$ es una variable significativa.
 
 
-
-&nbsp;
-
-
-
-
-
-## ANOVA Test  <a class="anchor" id="51"></a>
-
-
-
-The ANOVA test is also called **test of model global significance** :
 
 <br>
- 
+
+
+
+
+## Contraste ANOVA  <a class="anchor" id="51"></a>
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+El contraste ANOVA, también llamado **test de significación global del modelo**, es el siguiente: $\\[0.5cm]$
+
+
 \begin{gather*}
-\hspace{-0.7 cm} H_0: \hspace{0.15cm} \beta_1=\dots =\beta_p=0 \\
+\hspace{-1 cm} H_0: \hspace{0.15cm} \beta_1=\dots =\beta_p=0 \\
 H_1: \hspace{0.15cm} \exists \ j=1,...,p , \hspace{0.2cm} \beta_j \neq 0
 \end{gather*}
  
+</p>
  
+</p></span>
+</div>
 
-
-&nbsp;
-
-
-### Statistic test
 
  
-
-For define the test statistic , firt we have to define some elements:
-
-
 <br>
+
+
+### Estadístico del contraste 
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span> 
+
+$\hspace{0.25cm}$ Para definir el estadistico del contraste primero tenemos que definir algunos elementos: $\\[0.7cm]$
+
+
 
 -   Total Sum Squares $(TSS)$
 
@@ -4139,14 +4310,25 @@ RegSS =  \sum_{i=1}^n ( \hat{y}_i - \overline{y} \hspace{0.03cm} )\hspace{0.02cm
 
 <br>
 
-It can be proved that:
+$\hspace{0.25cm}$ Puede demostrarse que se cumple lo siguiente:
 
  
 \begin{gather*}
 TSS\hspace{0.1cm}=\hspace{0.1cm}RSS\hspace{0.1cm}+\hspace{0.1cm}RegSS
 \end{gather*}
+
+
+</p>
  
+</p></span>
+</div>
+
+
 <br>
+
+
+**Observaciones:**
+
 
 -   $TSS \hspace{0.1cm}$ is the total variance of the response variable $Y \\$
 
@@ -4166,15 +4348,13 @@ TSS\hspace{0.1cm}=\hspace{0.1cm}RSS\hspace{0.1cm}+\hspace{0.1cm}RegSS
 
 <br>
 
-The image gives us relevant information:
+Esta imagen nos da información muy relevante:
 
+- El caso A es suficiente para probar que la siguiente proposición es falsa:
 
+$$(y_i - \overline{y})^2 \hspace{0.1cm}= \hspace{0.1cm} (y_i - \widehat{y}_i)^2 + (\widehat{y}_i - \overline{ y})^2 \hspace{0.2cm} , \forall i=1,..,n \\$$
 
-Case A of the image is enough to prove that the following statement is false:
-
-$$(y_i - \overline{y})^2 \hspace{0.1cm}= \hspace{0.1cm} (y_i - \widehat{y}_i)^2 + (\widehat{y}_i - \overline{ y})^2 \hspace{0.2cm} , \forall i=1,..,n$$
-
-Although it is true that:
+- Aunque si que se cumple lo siguiente, como hemos comentado ante:
 
 $$\sum_{i=1}^{n} (y_i - \overline{y})^2 \hspace{0.1cm}= \hspace{0.1cm} \sum_{i=1}^{n} (y_i - \widehat{y}_i)^2 + \sum_{i=1}^{n} (\widehat{y}_i - \overline{y})^2$$
 
@@ -4183,34 +4363,32 @@ $$\sum_{i=1}^{n} (y_i - \overline{y})^2 \hspace{0.1cm}= \hspace{0.1cm} \sum_{i=1
 
 <br>
 
-Now we can define the test statistic as:
+Ahora podemos definir el estadístico del contraste como: $\\[0.5cm]$
 
-<br>
  
 \begin{gather*}
-F_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{(TSS-RSS)/p}{RSS/(n-p-1)} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{(RegSS)/p}{RSS/(n-p-1) } \sim F_{\hspace{0.05cm}p,\hspace{0.05cm} n-p-1}
+F_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{(TSS-RSS)/p}{RSS/(n-p-1)} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{(RegSS)/p}{RSS/(n-p-1) }\hspace{0.1cm} \sim\hspace{0.1cm} F_{\hspace{0.05cm}p,\hspace{0.05cm} n-p-1}
 \end{gather*}
  
- <br>
-
-Where:  $\hspace{0.1cm} p \hspace{0.1cm}$ is the number of predictor variables $X_1,...,X_p$ of the
-model
+ 
+Donde:  $\hspace{0.1cm} p \hspace{0.1cm}$ es el numero de predicores del modelo.
 
 <br>
 
-**Observation:**
+**Observación:**
 
-If $\hspace{0.1cm}RegSS\hspace{0.1cm}$ is large compared to $\hspace{0.1cm}RSS\hspace{0.1cm}$ then the variance of $\hspace{0.1cm}Y\hspace{0.1cm}$ explained by the model using $\hspace{0.1cm}X\hspace{0.1cm}$ will be large compared to the unexplained variance and $\hspace{0.1cm}F_{exp|H_0}\hspace{0.1cm}$ will be large
+Si $\hspace{0.1cm}RegSS\hspace{0.1cm}$ es grande comparado con $\hspace{0.1cm}RSS\hspace{0.1cm}$ entonces la varianza de la respuesta $\hspace{0.1cm}Y\hspace{0.1cm}$ explicada por el modelo usando los predictores $\hspace{0.1cm}X\hspace{0.1cm}$ será grande comparada con la varianza no explicada y el estadistico del contraste $\hspace{0.1cm}F_{exp|H_0}\hspace{0.1cm}$ será grande.
 
-So large values of $\hspace{0.1cm}F_{exp|H_0}\hspace{0.1cm}$ indicate large values of $\hspace{0.1cm}RegSS\hspace{0.1cm}$ compared to $\hspace{0.1cm}RSS\hspace{0.1cm}$ , which is an indication that the model explains $\hspace{0.1cm}Y\hspace{0.1cm}$ well, so it would be reasonable to reject $\hspace{0.1cm}H_0\hspace{0.1cm}$ in favor of $\hspace{0.1cm}H_1\hspace{0.1cm}$, that is, reject that all the predictors are jointly insignificant in explaining the response, and accept that some of them are significant.
+Así que un valor grande del estadístico $\hspace{0.1cm}F_{exp|H_0}\hspace{0.1cm}$ indican un valor grande de $\hspace{0.1cm}RegSS\hspace{0.1cm}$ comparado con $\hspace{0.1cm}RSS\hspace{0.1cm}$ , lo cual es un indicador de que el modelo explica la respuesta bien, así que será razonable rechazar  $\hspace{0.1cm}H_0\hspace{0.1cm}$ en favor de $\hspace{0.1cm}H_1\hspace{0.1cm}$, esto es, rechazar que todos los predictores en conjunto no son significativos para explicar la respuesta, y aceptar que algunos de los predictores son significativos.
 
-The decision rule that we will see next is based on this reasoning. The larger $\hspace{0.1cm}F_{exp|H_0}\hspace{0.1cm}$ is, the easier it is to reject $\hspace{0.1cm}H_0\hspace{0.1cm}$ in favor of $\hspace{0.1cm}H_1\hspace{0.1cm}$
-
-
-$H_0\hspace{0.1cm}$ is rejected when $\hspace{0.1cm}F_{exp|H_0}\hspace{0.1cm}$ is large enough, that is, when $\hspace{0.1cm}RegSS\hspace{0.1cm}$ is large enough compared to $\hspace{0.1cm}RSS$
+La regla de decisión que veremos a continuación esta basada en este razonamiento. Cuanto mayor sea el estadístico  $\hspace{0.1cm}F_{exp|H_0}\hspace{0.1cm}$ , mas facil será rechazar $\hspace{0.1cm}H_0\hspace{0.1cm}$ en favor de $\hspace{0.1cm}H_1\hspace{0.1cm}$
 
 
-&nbsp;
+$H_0\hspace{0.1cm}$ es rechazado cuando  $\hspace{0.1cm}F_{exp|H_0}\hspace{0.1cm}$ es suficientemente grande, esto es, cuando $\hspace{0.1cm}RegSS\hspace{0.1cm}$ es suficiente grande comparado con $\hspace{0.1cm}RSS$
+
+
+<br>
+
 
 
 ### Decision Rule
