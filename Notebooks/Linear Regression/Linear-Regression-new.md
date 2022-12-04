@@ -6026,42 +6026,52 @@ Para cualquier nivel de significación se puede rechazar la hipotesis nula de no
 
 ### Incumplimiento del supuesto de correlación nula de los residuos  <a class="anchor" id="72"></a>
 
-We are going to check the null error correlation assumption through  the **Durban-Watson test**.
+Vamos a comprobar la hipotesis de correlación nula de los residuos a través del test de **Durban-Watson**.
 
 
 &nbsp;
 
-**Hypothesis:**
-
-$$H_0: \hspace{0.1cm} corr\left(\hat{\varepsilon}_{(1)},\hat{\varepsilon}_{(2)}\right) = 0 $$ 
-
-$$H_1: \hspace{0.1cm} corr\left(\hat{\varepsilon}_{(1)},\hat{\varepsilon}_{(2)}\right) \neq 0$$
+Las hipótesis del test de **Durban-Watson** son las siguientes:$\\[0.5cm]$
 
 
-Where:
+$$H_0: \hspace{0.1cm} corr\left(\varepsilon_{i}\hspace{0.05cm},\hspace{0.05cm} \varepsilon_{i+1}\right) = 0 \hspace{0.25cm} ,\hspace{0.25cm} \forall \hspace{0.25cm}i =1,...,n-1 $$ 
 
-$$\hat{\varepsilon}_{(1)} = (\hat{\varepsilon}_1 , \hat{\varepsilon}_2 ,..., \hat{\varepsilon}_{n-1})$$
-
-$$\hat{\varepsilon}_{(2)} = (\hat{\varepsilon}_2  ,...,\hat{\varepsilon}_{n-1}, \hat{\varepsilon}_{n})$$
+$$H_1: \hspace{0.1cm}  corr\left(\varepsilon_{i}\hspace{0.05cm},\hspace{0.05cm} \varepsilon_{i+1}\right) \neq 0 \hspace{0.25cm} ,\hspace{0.25cm} \exists \hspace{0.25cm}i =1,...,n-1 \\$$
 
 
 
-**Test Statistic :**
+**Estadístico del contraste :**
 
 \begin{gather*}
-DW = \dfrac{\sum_{i=2}^n (\hat{\varepsilon}_i - \hat{\varepsilon}_{i-1})^2 }{\sum_{i=2}^n \hat{\varepsilon}_{i}^2 } = \dfrac{sum\left( \hspace{0.1cm}( \hat{\varepsilon}_{(2)} - \hat{\varepsilon}_{(1)})^2 \hspace{0.1cm} \right)}{sum\left( \hspace{0.1cm} (\hat{\varepsilon}_{(2)})^2 \hspace{0.1cm} \right)}
+DW \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\sum_{i=1}^{n-1} (\hat{\varepsilon}_i - \hat{\varepsilon}_{i+1})^2 }{\sum_{i=1}^{n} \hat{\varepsilon}_{i}^2 }
 \end{gather*}
 
 
+ 
+
 <br>
 
-The test statistic is approximately equal to $\hspace{0.1cm} 2\cdot (1-r) \hspace{0.1cm}$ where $r$ is the sample autocorrelation of the residuals. Thus, the test statistic will always be between $0$ and $4$ with the following interpretation:
 
-A test statistic of $2$ indicates **no serial correlation**.
+**Interpretación:**
 
-The closer the test statistics is to $0$, the more evidence of **positive serial correlation**.
+Se cumple lo siguiente:
 
-The closer the test statistics is to $4$, the more evidence of **negative serial correlation**.
+$$DW \hspace{0.1cm}\simeq \hspace{0.1cm} 2\cdot (1- r_{12})$$
+
+Donde:
+
+$r_{12}\hspace{0.1cm}$  es la correlación lineal entre $\hspace{0.1cm}\hat{\varepsilon}_{(1)} = (\hat{\varepsilon}_1 , \hat{\varepsilon}_2 ,..., \hat{\varepsilon}_{n-1})\hspace{0.15cm}$ y $\hspace{0.15cm}\hat{\varepsilon}_{(2)} = (\hat{\varepsilon}_2  ,...,\hat{\varepsilon}_{n-1}, \hat{\varepsilon}_{n})$
+
+
+- El estadístico del contraste está entre $0$ y $4$ , puesto que $r_{12}$ esta entre $-1$ y $1$.
+
+- Un estadístico  $DW=2$ indica evidencia de que los residuos no están autocorrelados, es decir, evidencia a favor de $H_0$
+
+- Un estadístico $DW$ cercano a $0$ indica evidencia de que los residuos están autocorrelados positivamente, es decir, evidencia favor de $H_1$
+
+- Un estadístico $DW$ cercano a $4$ indica evidencia de que los residuos están autocorrelados negativamente, es decir, evidencia favor de $H_1$
+
+
 
 
 
@@ -6072,7 +6082,7 @@ The closer the test statistics is to $4$, the more evidence of **negative serial
 
 
 
-### Durban-Watson test in `Python`
+### Contraste de Durban-Watson en `Python`
 
 
 ```python
@@ -6104,15 +6114,16 @@ statsmodels.stats.stattools.durbin_watson(df_predictions_Python['estimated_error
 
     1.7158064595327671
 
+<br>
 
-Another alternative in Python that gives us the p-value:
+Otra alternativa para hacer el test de Durban-Watson en `Python` que nos da el p-valor: 
 
 
 ```python
 # pip install dwtest
 ```
 
-More information about this Python package here https://github.com/JackywithaWhiteDog/dwtest
+Más información sobre este paquete en el siguiente enlace https://github.com/JackywithaWhiteDog/dwtest
 
 
 ```python
@@ -6132,46 +6143,47 @@ statistic, pvalue
     (1.720186802122348, 5.373510268400102e-10)
 
 
-For any $\alpha$ we reject the null  error correlation hypothesis.
+Para cualquier nivel de significación $\alpha$ rechazamos la hipotesis nula de que los residuos no están autocorrelados.
 
 
 
 &nbsp;
 
 
-## Checking Linear Assumption <a class="anchor" id="73"></a>
+## Supuesto de relación lineal entre respuesta y predictores <a class="anchor" id="73"></a>
 
-The linear regression model assumes that there is a **linear** relationship between the response and the predictors.
+El modelo de regresión lineal asume que hay una relación lineal entre la respuesta y los predictores.
 
-If the actual relationship is not linear, then all the conclusions we draw from the linear model are questionable.
+Si la relación real entre predictores y respuestas no es lineal, entonces todas las conclusiones que obtengamos del modelo serán cuestionables.
+
 
 <br>
 
-**How to identify non-linearity?**
+
+**¿ Cómo identificar no linealidad en la relación entre respuesta y predictores ?**
 
 
+- Hacer un gráfico de dispersión de $\hspace{0.2cm} \widehat{\varepsilon}\hspace{0.2cm} \text{vs} \hspace{0.2cm}\widehat{Y}$
 
-- Make a plot of the estimated errors (residuals) against the predictions of the response (all with the train data) $\hspace{0.2cm}\Rightarrow\hspace{0.2cm} \widehat{\varepsilon}\hspace{0.2cm} vs \hspace{0.2cm}\widehat{Y}$
+    - Es el mismo gráfico de dispersión que el usado para diagnosticar si la varianza de los residuos es constante. 
 
-    - It is the same plot as the one used to diagnose heteroscedasticity of the residuals (non-constant variance of the residuals). 
-
-    - If a non-linear relationship is observed in the graph, it indicates non-linearity between the predictors and the response.
+    - Si se observa una relación no lineal en el gráfico, esto indica una relación no lineal entre la respuesta y los predictores. response.
     
    
    <br>
 
-- Non-linearity  can also be detectedby plotting the response versus predictors (one-to-one) $\hspace{0.2cm}\Rightarrow\hspace{0.2cm} Y \hspace{0.2cm} vs \hspace{0.2cm} X_j$
+- La no linealidad en la relación entre respuesta y predictores también puede ser detecctada graficando  $\hspace{0.2cm}Y \hspace{0.2cm} vs \hspace{0.2cm} X_j$ , para cada $\hspace{0.1cm} j=1,...,p$
 
 
 <br>
 
-**Solutions:**
+**Soluciones:**
 
-A logarithmic transformation of the response variable could help. But the best option is to use a nonlinear (or nonparametric) regression method.
+Una transformación logaritmica de la variable respuesta puede ser útil. Pero la mejor opción es usar un modelo de regresión alternativo que funcione bien con relaciones no lineales. 
 
 <br>
 
-**Identification non-linearity with scatter plots: response vs predictors (one-to-one)**
+**Identificación de no linealidad con scatter plots de la respuesta vs predictores (uno a uno)**
 
 
 ```python
@@ -6313,33 +6325,32 @@ ggplot(aes(x = 'quality' , y = 'price') , data_Python)
 
 ##  Datos atípicos: outliers <a class="anchor" id="74"></a>
 
-An outlier is a point that clearly deviates from the relationship between the response and the predictors.
+Un dato atípico, también denominado outlier, es una observación que se desvia claramente de la relación entre la respuesta y los predictores.
 
-Outliers can greatly affect the estimates of model parameters.
+Los outliers pueden afectar mucho a la estimación del modelo.
 
-How to identify outliers?
 
-A simple option is with the standardized  residuals, given by:
+**¿ Cómo identificar outliers ?**
 
-<br>
+Una opción simple es usar los residuos estandarizados, definidos como:
 
 $$ \tilde{\varepsilon_i} = \dfrac{\hat{\varepsilon}_i}{\sqrt{\widehat{Var}(\hat{\varepsilon}_i)}} = \dfrac{\hat{\varepsilon}_i}{ \sqrt{ \widehat{\sigma}^2 \cdot (1-h_{ii})} }  $$
 
 <br>
 
 
-Where:
+Donde:
 
 $\hspace{0.1cm} h_{ii} \hspace{0.1cm}$ is the $i$-th element of the principal diagonal of $\hspace{0.1cm} H=X \cdot (X^t \cdot X)^{-1} \cdot X^t \hspace{0.1cm}$
 
 
 <br>
 
-Note that:
+Notese que:
 
 $$\widehat{Var}(\hat{\varepsilon}_i) \neq \widehat{Var}(\varepsilon_i)  $$
 
-Because  $\varepsilon_i$ is a random variable such that $\hspace{0.1cm}\varepsilon_i \sim N (0\hspace{
+Porque  $\varepsilon_i$ es una variable aleatoria tal que $\hspace{0.1cm}\varepsilon_i \sim N (0\hspace{
 0.1cm},\hspace{0.1cm} \sigma^2) \hspace{0.1cm}$ (by initial hypothesis of the model)
 
 And $\hspace{0.1cm} \hat{\varepsilon}_i = y_i - \hat{y}_i \hspace{0.1cm}$ is another random variable such that  $\hspace{0.1cm} \hat{\varepsilon}_i \sim N(0\hspace{0.1cm},\hspace{0.1cm}\sigma^2 \cdot (1-h_{ii})) \hspace{0.1cm}$  (can be proof) 
@@ -6357,7 +6368,7 @@ If they are the result of an error in data collection, they can be deleted. If n
 
 <br>
 
-### Outliers Identification in `Python`
+### Identificación de Outliers en `Python`
 
 ```python
 H = np.dot(X @ np.linalg.inv( X.T @ X ) , X.T) 
