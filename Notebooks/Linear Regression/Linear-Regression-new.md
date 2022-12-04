@@ -4963,34 +4963,33 @@ $$ \widehat{R^2} = 0.697$$
 
 ## Multicolinealidad <a class="anchor" id="61"></a>
 
-Multicollinearity problem happens when some of the predictors are lineary dependients.
+El porblema de multicolinealidad ocurre cuando algunos de los predictotres son linealmente dependientes.
 
-**Why multicollinearity is a problem ?**
+**¿ Por que la multicolinealidad es un problema ?**
 
-1. In the worst case it makes the estimation of the model impossible.
+- En el peor de los casos la existencia de multicolinealidad hace imposible la estimación del modelo.
 
-2. At best, it makes the beta estimators have a lot of variance, which makes model predictions and inference very imprecise. And it also makes the predictors that are relevant turn out to be non-significant following the significance test.
+- En el mejor de los casos la existencia de multicolinealidad hace que los estimadores de los coeficientes betas tengan mucha varianza y por tanto sean muy imprecisos y además se acepten como no significativos predictores que realmente son significativos, puesto que el estadistico del contraste de significacion se ve afectado por la varianza de los estimador. Si esta es muy alta el estadistico será bajo, y esto facilita no rechazar la hipotesis nula de que el predictor no es significativo.
  
 <br>
 
 
-### Types of multicollinearity  <a class="anchor" id="62"></a>
+### Tipos de multicolinealidad  <a class="anchor" id="62"></a>
 
 <br>
 
-#### Perfect Multicollinearity
+#### Multicolinealidad perfecta
 
-At least one of the predictors is a linear combination of the rest, so $\hspace{0.1cm}Rg(X) < p+1 \hspace{0.1cm}$ (not full range)
+Al menos uno de los predictores es una combinación lineal del reso, asi que $\hspace{0.1cm}Rg(X) < p+1 \hspace{0.1cm}$ , es decir, la matriz $X$ no es de rango completo.
 
-By the null rank theorem, $\hspace{0.1cm}R(X^t \cdot X) < p+1\hspace{0.1cm}$ , therefore $\hspace{0.1cm}X^t \cdot X\hspace{0.1cm}$ hasn't full range, so there is no $\hspace{0.1cm}(X^t \cdot X)^{-1}\hspace{0.1cm}$ , so it cannot be estimate $\hspace{0.1cm}\beta\hspace{0.1cm}$ with the ordinary least squares method .
+Por el teorema del rango-nulidad se tiene que $\hspace{0.1cm}R(X^t \cdot X) < p+1\hspace{0.1cm}$. Por tanto,  $\hspace{0.1cm}X^t \cdot X\hspace{0.1cm}$ no tiene rango completo, así que no existe la inversa $\hspace{0.1cm}(X^t \cdot X)^{-1}\hspace{0.1cm}$ , por lo que no se puede estimar $\hspace{0.1cm}\beta\hspace{0.1cm}$ con el método de mínimos cuadrados ordinarios.
 
 <br>
 
-#### High Multicollinearity
+#### Multicolinealidad alta
 
-There are predictors with high linear correlation between them. 
-
-In this case is still possible estimate $\hspace{0.1cm}\beta\hspace{0.1cm}$ because the multicolinearity isn´t perfect, but the variance of the $\hspace{0.1cm}\beta_j\hspace{0.1cm}$ estimators, $\hspace{0.1cm}Var(\widehat{\beta}_j)\hspace{0.1cm}$, will be too high, therefore the model will be very imprecise, so the results will not be good.
+Hay pares de predictores con una alta correlacion lineal entre ellos. 
+En este caso aún es posible estimar los $\hspace{0.1cm}\beta_j\hspace{0.1cm}$, pero la varianza de los estimadores $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ será muy grande, por tanto las estimaciones serán muy imprecisas y saldran como no significativos predictores que si lo son. 
 
 
 
@@ -5001,23 +5000,24 @@ In this case is still possible estimate $\hspace{0.1cm}\beta\hspace{0.1cm}$ beca
 
 
 
-### Identification of multicollinearity 
+### Identificación de la multicolinealidad 
 
-Identification of multicollinearity is carry out by several ways:
+La identificación de la multicolinealidad puede llevarse a cabo de diferentes maneras:
+
+- Si el modelo de regresión lineal solo tieene predictores **cuantitativos**:
+
+    - $\hspace{0.1cm}$ Con la matriz de correlaciones lineales de los predictores $\hspace{0.05cm} R\\$
+
+    - $\hspace{0.1cm}$ Con el factor de incremento de la varianza $\hspace{0.1cm} VIF\hspace{0.1cm}$ $\\[0.5cm]$
+
+    - $\hspace{0.1cm}$ Con el número de condicionamiento de $\hspace{0.05cm} R \\$
 
 
 
-If the linear regression model has only **quantitative** predictors:
 
-1. $\hspace{0.2cm}$ With the correlation matrix of the predictors $\hspace{0.05cm} R$
-2. $\hspace{0.2cm}$ With  $\hspace{0.1cm}VIF\hspace{0.1cm}$ (variance increase factor )
-3. $\hspace{0.2cm}$ With  condition number of $\hspace{0.05cm} R$
+- Si el modelo de regresión lineal tiene predictores **cuantitativos** y **categoricos**:
 
-
-
-If the linear model has **quantitative** and **categorical** predictors:
-
-1. $\hspace{0.2cm}$  With $\hspace{0.1cm}GVIF\hspace{0.1cm}$ (generalize variance increase factor) 
+    -  $\hspace{0.1cm}$  Con el factor de incremento de la varianza generalizado $\hspace{0.1cm}GVIF\hspace{0.1cm}$ 
 
 
 
@@ -5026,9 +5026,9 @@ If the linear model has **quantitative** and **categorical** predictors:
 
 
 
-#### Identification of multicollinearity with  $R$ <a class="anchor" id="64"></a>
+### Identificación de multicolinealidad con la matriz de correlaciones lineales <a class="anchor" id="64"></a>
 
-The Pearson correlation matrix of a given data matrix $X=[X_1 ,..., X_p]$  is defined as:
+La matriz de correlaciones lineales (de Pearson) de una matriz de datos $\hspace{0.1cm}X=[X_1 ,..., X_p]\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$   se define como sigue:
 
 <br>
 
@@ -5038,25 +5038,25 @@ R= \begin{pmatrix}
     r_{21} & r_{22}&...&r_{2p}\\
     &...&\\
     r_{p1}& r_{p2}&...&r_{pp}
-\end{pmatrix} = [r_{ij} ]\hspace{0.05cm}_{i,j=1,..,p}
+\end{pmatrix} = [r_{ih} ]\hspace{0.05cm}_{i,h=1,..,p}
 $$ 
 
 <br>
 
-Where: $\hspace{0.2cm} r_{i j} \hspace{0.1cm}$ is the Pearson linear correlation between $X_i$ and $X_j$
+Donde: $\hspace{0.2cm} r_{i h} \hspace{0.1cm}$ es el coeficiente de correlación lineal de Pearson entre las muestras $\hspace{0.1cm}X_i\hspace{0.1cm}$ y $\hspace{0.1cm}X_h\hspace{0.1cm}$ de las variables $\hspace{0.1cm}\mathcal{X}_i\hspace{0.1cm}$  y $\hspace{0.1cm}\mathcal{X}_h\hspace{0.1cm}$ , respectivamente.
 
 <br>
 
-**Criteria :  Identification of multicollinearity with  $R$**
+**Criterio :  Indentificación de multicolinealidad con $R$**
 
-If we have the following estimated linear regression model $\hspace{0.2cm} Y=X\cdot \widehat{\beta}   \hspace{0.2cm}$  where $\hspace{0.2cm}X=(1, X_1, ..., X_p)\hspace{0.2cm}$ are all **quantitative** predictors.
+Tenemos un modelo de regresión lineal estimado $\hspace{0.2cm} Y=X\cdot \widehat{\beta}   \hspace{0.2cm}$  con predictores exclusivamente **cuantitativos**. 
 
-We compute the Pearson linear correlation matrix of the predictors $\hspace{0.2cm} [ X_1 ,..., X_p] \hspace{0.2cm} \Rightarrow \hspace{0.2cm} R = [r_{ij} ]\hspace{0.05cm}_{i,j=1,..,p}$
+Calculamos la matriz de correlaciones lineales para la matriz de datos $\hspace{0.1cm}[X_1,...,X_n]\hspace{0.1cm}$ de los predictores $\hspace{0.2cm} \Rightarrow \hspace{0.2cm} R = [r_{ih} ]\hspace{0.05cm}_{i,h=1,..,p}$
 
 <br>
 
 
-- If there is any **high** $\hspace{0.2cm} r_{ij}\hspace{0.2cm} (\hspace{0.1cm} > 0.75 \hspace{0.1cm})$  $\hspace{0.2cm} \Rightarrow\hspace{0.2cm}$ possible multicollinearity problem
+- Si hay algún $\hspace{0.2cm} r_{ih}\hspace{0.2cm} \hspace{0.1cm} > 0.75 \hspace{0.1cm}$  $\hspace{0.2cm} \Rightarrow\hspace{0.2cm}$ probablemente hay problemas de multicolinealidad.
 
 
 
@@ -5068,7 +5068,7 @@ We compute the Pearson linear correlation matrix of the predictors $\hspace{0.2c
 
 
 
-##### Identification of multicollinearity with $R$ in `Python`
+### Identificación de la multicolinealidad con la matriz de correlaciones en `Python`
 
 
 ```python
@@ -5177,9 +5177,11 @@ sb.heatmap(corr, cmap="Blues", annot=True)
 
 
 
-We can see there are several pairs of predictor with high correlation, such as  **(no\_of\_bathrooms ,  no\_of\_bedrooms )** , **(size\_in\_m\_2 , no\_of\_bedrooms)**  , **(size\_in\_m\_2 , no\_of\_bathrooms)** 
+Podemos ver que hay varios pares de predictores con alta correlación lineal en la muestra de datos con la que estamos trabajando. 
 
-So following this criteria the linear regression model  **price ~ size\_in\_m\_2  + longitude + latitude + no\_of\_bedrooms + no\_of\_bathrooms**  could has multicollinearity problems.
+Por ejemplo: **(no\_of\_bathrooms ,  no\_of\_bedrooms )** , **(size\_in\_m\_2 , no\_of\_bedrooms)**  , **(size\_in\_m\_2 , no\_of\_bathrooms)** 
+
+Asi que siguiendo estre criterio el modelo de regresión lineal  **price ~ size\_in\_m\_2  + longitude + latitude + no\_of\_bedrooms + no\_of\_bathrooms**  posiblemente tenga problemas de multicolinealidad.  
 
 
 
@@ -5188,7 +5190,7 @@ So following this criteria the linear regression model  **price ~ size\_in\_m\_2
 
 
 
-### Identification of multicollinearity with $VIF$ <a class="anchor" id="64"></a>
+### Identificacion de la multicolinealidad con VIF <a class="anchor" id="64"></a>
 
 If we have the following estimated linear regression model $\hspace{0.2cm} Y=X\cdot \widehat{\beta}   \hspace{0.2cm}$  where $\hspace{0.2cm}X=(1, X_1, ..., X_p)\hspace{0.2cm}$ are all **quantitative** predictors.
 
@@ -5246,7 +5248,7 @@ So, $\hspace{0.07cm} R^2_{X_i} \hspace{0.07cm}$  is the proportion of variabilit
 
 
 
-#### Identification of multicollinearity with $VIF$ in `Python`
+### Identification of multicollinearity with VIF in `Python`
 
 
 ```python
