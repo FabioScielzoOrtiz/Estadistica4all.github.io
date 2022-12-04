@@ -5153,9 +5153,6 @@ R
 </div>
 
 
-```python
-# pip install seaborn
-```
 
 
 ```python
@@ -5177,7 +5174,7 @@ sb.heatmap(corr, cmap="Blues", annot=True)
 
 
 
-Podemos ver que hay varios pares de predictores con alta correlación lineal en la muestra de datos con la que estamos trabajando. 
+Podemos ver que hay varios pares de predictores que tienen alta correlación lineal para la muestra de datos con la que estamos trabajando. 
 
 Por ejemplo: **(no\_of\_bathrooms ,  no\_of\_bedrooms )** , **(size\_in\_m\_2 , no\_of\_bedrooms)**  , **(size\_in\_m\_2 , no\_of\_bathrooms)** 
 
@@ -5192,14 +5189,14 @@ Asi que siguiendo estre criterio el modelo de regresión lineal  **price ~ size\
 
 ### Identificacion de la multicolinealidad con VIF <a class="anchor" id="64"></a>
 
-If we have the following estimated linear regression model $\hspace{0.2cm} Y=X\cdot \widehat{\beta}   \hspace{0.2cm}$  where $\hspace{0.2cm}X=(1, X_1, ..., X_p)\hspace{0.2cm}$ are all **quantitative** predictors.
+Tenemos un modelo de regresión lineal estimado  $\hspace{0.2cm} Y=X\cdot \widehat{\beta}   \hspace{0.2cm}$  con predictores exclusivamente **cuantitativos** 
 
-We compute the **inverse** of the Pearson correlation matrix of the predictors $\hspace{0.1cm} [ X_1 ,..., X_p] \hspace{0.2cm} \Rightarrow \hspace{0.2cm} R\hspace{0.07cm}^{-1}$ 
-
-
+Calculamos la inversa de la matriz de correlaciones lineales de la matriz de datos de los predictores  $\hspace{0.1cm} [ X_1 ,..., X_p] \hspace{0.2cm} \Rightarrow \hspace{0.2cm} R\hspace{0.07cm}^{-1}$ 
 
 
-The variance increase factor $\hspace{0.1cm}\left(VIF\right)\hspace{0.1cm}$ of the quantitative predictor $\hspace{0.1cm}X_j\hspace{0.1cm}$ is:
+
+
+El factor de incremento de la varianzaThe variance increase factor $\hspace{0.1cm}\left(VIF\right)\hspace{0.1cm}$ de la muestra $\hspace{0.1cm}X_j\hspace{0.1cm}$ del predictor cuantitativo $\mathcal{X}_j$ es:
 
 <br>
 
@@ -5207,19 +5204,18 @@ $$VIF(X_j) \hspace{0.05cm}=\hspace{0.05cm} Diag(R\hspace{0.07cm}^{-1})[\hspace{0
 
 <br>
 
-And also it´s fullfield that:
-
+Además se cumple lo siguiente:
 <br>
 
 $$ VIF(X_j) = \dfrac{1}{1- R^2_{X_j}} $$
 
 <br>
 
-Where:
+Donde:
 
-$R^2_{X_j}\hspace{0.1cm}$ is the determination coefficient  $\hspace{0.1cm} (R^2)\hspace{0.1cm}$  of the linear regression model $\hspace{0.1cm} X_i = \beta_0 + \beta_1 \cdot  X_1 +...+ \beta_{j-1}\cdot X_{j-1} + \beta_{i+1}\cdot X_{i+1} + ... + \beta_p \cdot X_p + \varepsilon$
+$R^2_{X_i}\hspace{0.1cm}$ es el coeficiente de determinacion de siguiente modelo de regresión lineal $\hspace{0.1cm} X_i = \beta_0 + \beta_1 \cdot  X_1 +...+ \beta_{i-1}\cdot X_{i-1} + \beta_{i+1}\cdot X_{i+1} + ... + \beta_p \cdot X_p + \varepsilon$
 
-So, $\hspace{0.07cm} R^2_{X_i} \hspace{0.07cm}$  is the proportion of variability of the predictor $\hspace{0.07cm}X_j\hspace{0.07cm}$ explained by the rest $\hspace{0.07cm}X_1,..,X_{j-1},X_{j+1},..,X_p$
+Asi que $\hspace{0.07cm} R^2_{X_i} \hspace{0.07cm}$  es la proporción de variabilidad del predictor $\hspace{0.07cm}\mathcal{X}_i\hspace{0.07cm}$ explicada por el resto de predictores $\hspace{0.07cm}\mathcal{X}_1,..,\mathcal{X}_{i-1},\mathcal{X}_{i+1},..,\mathcal{X}_p$, considerando las muestras que tenemos de los predictores.
 
 
 
