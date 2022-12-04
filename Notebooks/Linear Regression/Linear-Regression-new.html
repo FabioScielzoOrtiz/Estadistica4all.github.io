@@ -1646,9 +1646,9 @@ margin-left: 0 !important;
       <li><a href="#problemas-del-modelo" id="toc-problemas-del-modelo"><span class="toc-section-number">17</span> Problemas del modelo <a class="anchor" id="60"></a></a>
       <ul>
       <li><a href="#multicolinealidad" id="toc-multicolinealidad"><span class="toc-section-number">17.1</span> Multicolinealidad <a class="anchor" id="61"></a></a></li>
-      <li><a href="#checking-error-assumptions" id="toc-checking-error-assumptions"><span class="toc-section-number">17.2</span> Checking Error Assumptions <a class="anchor" id="68"></a></a></li>
+      <li><a href="#incumplimiento-de-los-supuestos-de-los-residuos" id="toc-incumplimiento-de-los-supuestos-de-los-residuos"><span class="toc-section-number">17.2</span> Incumplimiento de los supuestos de los residuos <a class="anchor" id="68"></a></a></li>
       <li><a href="#checking-linear-assumption" id="toc-checking-linear-assumption"><span class="toc-section-number">17.3</span> Checking Linear Assumption <a class="anchor" id="73"></a></a></li>
-      <li><a href="#finding-outliers" id="toc-finding-outliers"><span class="toc-section-number">17.4</span> Finding Outliers <a class="anchor" id="74"></a></a></li>
+      <li><a href="#datos-atípicos-outliers" id="toc-datos-atípicos-outliers"><span class="toc-section-number">17.4</span> Datos atípicos: outliers <a class="anchor" id="74"></a></a></li>
       </ul></li>
       <li><a href="#bibliography" id="toc-bibliography"><span class="toc-section-number">18</span> Bibliography</a></li>
       </ul>
@@ -7119,16 +7119,16 @@ no_of_bathrooms
 <p><span class="math inline">\(R^2_{X_i}\hspace{0.1cm}\)</span> es el coeficiente de determinacion de siguiente modelo de regresión lineal <span class="math inline">\(\hspace{0.1cm} X_i = \beta_0 + \beta_1 \cdot X_1 +...+ \beta_{i-1}\cdot X_{i-1} + \beta_{i+1}\cdot X_{i+1} + ... + \beta_p \cdot X_p + \varepsilon\)</span></p>
 <p>Asi que <span class="math inline">\(\hspace{0.07cm} R^2_{X_i} \hspace{0.07cm}\)</span> es la proporción de variabilidad del predictor <span class="math inline">\(\hspace{0.07cm}\mathcal{X}_i\hspace{0.07cm}\)</span> explicada por el resto de predictores <span class="math inline">\(\hspace{0.07cm}\mathcal{X}_1,..,\mathcal{X}_{i-1},\mathcal{X}_{i+1},..,\mathcal{X}_p\)</span>, considerando las muestras que tenemos de los predictores.</p>
 <p><br></p>
-<p><strong>Criteria: Identification of multicollinearity with <span class="math inline">\(VIF\)</span></strong></p>
+<p><strong>Criterio: Identificación de multicolinearidad con <span class="math inline">\(VIF\)</span></strong></p>
 <ul>
-<li><p>If <span class="math inline">\(\hspace{0.2cm}VIF(X_j) &gt; 10\)</span> <span class="math inline">\(\hspace{0.25cm}\left( R^2_{X_j} &gt; 0.90 \right)\)</span> <span class="math inline">\(\hspace{0.25cm}\Rightarrow\hspace{0.25cm}\)</span> <strong>High</strong> multicollinearity <span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p>If <span class="math inline">\(\hspace{0.2cm}VIF(X_j) \in [4, 10]\)</span> <span class="math inline">\(\hspace{0.25cm}\left(R^2_{X_j} \in [0.75 , 0.90]\right)\)</span> <span class="math inline">\(\hspace{0.25cm}\Rightarrow\hspace{0.25cm}\)</span> <strong>Medium</strong> multicollinearity <span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p>If <span class="math inline">\(\hspace{0.2cm}VIF(X_j) &lt; 4\)</span> <span class="math inline">\(\hspace{0.15cm}\left(R^2_{X_j} &lt; 0.75 \right)\)</span> <span class="math inline">\(\hspace{0.25cm}\Rightarrow\hspace{0.25cm}\)</span> <strong>Low</strong> multicollinearity</p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.2cm}VIF(X_j) &gt; 10\)</span> <span class="math inline">\(\hspace{0.25cm}\left( R^2_{X_j} &gt; 0.90 \right)\)</span> <span class="math inline">\(\hspace{0.25cm}\Rightarrow\hspace{0.25cm}\)</span> Multicolinealidad <strong>alta</strong> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.2cm}VIF(X_j) \in [4, 10]\)</span> <span class="math inline">\(\hspace{0.25cm}\left(R^2_{X_j} \in [0.75 , 0.90]\right)\)</span> <span class="math inline">\(\hspace{0.25cm}\Rightarrow\hspace{0.25cm}\)</span> Multicolinealidad <strong>media</strong> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.2cm}VIF(X_j) &lt; 4\)</span> <span class="math inline">\(\hspace{0.15cm}\left(R^2_{X_j} &lt; 0.75 \right)\)</span> <span class="math inline">\(\hspace{0.25cm}\Rightarrow\hspace{0.25cm}\)</span> Multicolinealidad <strong>baja</strong></p></li>
 </ul>
 <p> </p>
 </div>
-<div id="identification-of-multicollinearity-with-vif-in-python" class="section level3" number="17.1.6">
-<h3><span class="header-section-number">17.1.6</span> Identification of multicollinearity with VIF in <code>Python</code></h3>
+<div id="identificación-de-multicolinearidad-con-vif-en-python" class="section level3" number="17.1.6">
+<h3><span class="header-section-number">17.1.6</span> Identificación de multicolinearidad con VIF en <code>Python</code></h3>
 <div class="sourceCode" id="cb94"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> data_Python.loc[: , [<span class="st">&#39;size_in_m_2&#39;</span>, <span class="st">&#39;longitude&#39;</span>, <span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;no_of_bedrooms&#39;</span>, <span class="st">&#39;no_of_bathrooms&#39;</span>]]</span>
 <span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> X.corr()</span></code></pre></div>
@@ -7210,27 +7210,27 @@ no_of_bathrooms
 </tbody>
 </table>
 </div>
-<p>There is a quantitative predictor with <span class="math inline">\(\hspace{0.1cm} VIF &gt; 4 \hspace{0.1cm}\)</span> , but none with <span class="math inline">\(\hspace{0.1cm} VIF &gt; 10 \hspace{0.1cm}\)</span> , so following this criteria the linear regression model <span class="math inline">\(\hspace{0.1cm}\)</span> <strong>price ~ size_in_m_2 + longitude + latitude + no_of_bedrooms + no_of_bathrooms</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> has <strong>medium</strong> multicollinearity .</p>
+<p>Hay un predictor cuantitativo con <span class="math inline">\(\hspace{0.1cm} VIF &gt; 4 \hspace{0.1cm}\)</span> , pero ninguno con <span class="math inline">\(\hspace{0.1cm} VIF &gt; 10 \hspace{0.1cm}\)</span> , asi que siguiendo este criterio el modelo de regresión lineal <span class="math inline">\(\hspace{0.1cm}\)</span> <strong>price ~ size_in_m_2 + longitude + latitude + no_of_bedrooms + no_of_bathrooms</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> tiene multicolinearidad <strong>media</strong>.</p>
 <p> </p>
 </div>
-<div id="identification-of-multicollinearity-with-condition-number-of-hspace0.05cm-r" class="section level3" number="17.1.7">
-<h3><span class="header-section-number">17.1.7</span> Identification of multicollinearity with Condition Number of <span class="math inline">\(\hspace{0.05cm} R\)</span> <a class="anchor" id="66"></a></h3>
-<p>If we have the following estimated linear regression model <span class="math inline">\(\hspace{0.2cm} Y=X\cdot \widehat{\beta} \hspace{0.2cm}\)</span> where <span class="math inline">\(\hspace{0.2cm}X=(1, X_1, ..., X_p)\hspace{0.2cm}\)</span> are all <strong>quantitative</strong> predictors.</p>
-<p>We compute the Pearson linear correlation matrix of the predictors <span class="math inline">\(\hspace{0.2cm} [ X_1 ,..., X_p] \hspace{0.2cm} \Rightarrow \hspace{0.2cm} R = [r_{ij} ]\hspace{0.05cm}_{i,j=1,..,p}\)</span></p>
+<div id="identificación-de-multicolinearidad-con-el-número-de-condicionamiento-de-hspace0.05cm-r" class="section level3" number="17.1.7">
+<h3><span class="header-section-number">17.1.7</span> Identificación de multicolinearidad con el número de condicionamiento de <span class="math inline">\(\hspace{0.05cm} R\)</span> <a class="anchor" id="66"></a></h3>
+<p>Si tenemos el modelo de regresión lineal estimado <span class="math inline">\(\hspace{0.2cm} Y=X\cdot \widehat{\beta} \hspace{0.2cm}\)</span> con predictores exclusivamente <strong>cuantitativos</strong>.</p>
+<p>Calculamos la matriz de correlaciones lineales para la matriz de datos de los predictores <span class="math inline">\(\hspace{0.2cm} [ X_1 ,..., X_p] \hspace{0.2cm} \Rightarrow \hspace{0.2cm} R = [r_{ih} ]\hspace{0.05cm}_{i,h=1,..,p}\)</span></p>
 <p><br></p>
-<p>The <strong>condition number</strong> of <span class="math inline">\(R\)</span> is defined as:</p>
-<p><br></p>
+<p>El número de condicionamiento de la matriz <span class="math inline">\(R\)</span> se define como:</p>
 <p><span class="math display">\[cond(R) = \sqrt{\dfrac{max\lbrace eigenvalues(R)\rbrace}{min\lbrace eigenvalues(R)\rbrace}} \]</span></p>
 <p><br></p>
-<p><strong>Criteria : Identification of multicollinearity with Condition Number of <span class="math inline">\(\hspace{0.05cm} R\)</span></strong></p>
+<p><strong>Criteria : Identificación de multicolinearidad con número de condicionamiento de <span class="math inline">\(\hspace{0.05cm} R\)</span></strong></p>
 <ul>
-<li><p>If <span class="math inline">\(\hspace{0.1cm} cond(R) &gt; 30\)</span> <span class="math inline">\(\hspace{0.1cm} \Rightarrow\hspace{0.1cm}\)</span> <strong>High</strong> multicollinearity <span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p>If <span class="math inline">\(\hspace{0.1cm}cond(R) \in (10 , 30)\)</span> <span class="math inline">\(\hspace{0.1cm} \Rightarrow\hspace{0.1cm}\)</span> <strong>Medium</strong> multicollinearity <span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p>If <span class="math inline">\(\hspace{0.1cm}cond(R) &lt; 10\)</span> <span class="math inline">\(\hspace{0.1cm} \Rightarrow\hspace{0.1cm}\)</span> <strong>Low</strong> multicollinearity <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.1cm} cond(R) &gt; 30\)</span> <span class="math inline">\(\hspace{0.1cm} \Rightarrow\hspace{0.1cm}\)</span> Multicolinearidad <strong>alta</strong> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.1cm}cond(R) \in (10 , 30)\)</span> <span class="math inline">\(\hspace{0.1cm} \Rightarrow\hspace{0.1cm}\)</span> Multicolinearidad <strong>media</strong> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.1cm}cond(R) &lt; 10\)</span> <span class="math inline">\(\hspace{0.1cm} \Rightarrow\hspace{0.1cm}\)</span> Multicolinearidad <strong>baja</strong> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 </ul>
 <p> </p>
-<div id="identification-of-multicollinearity-with-condition-number-of-hspace0.05cm-r-in-python" class="section level4" number="17.1.7.1">
-<h4><span class="header-section-number">17.1.7.1</span> Identification of multicollinearity with condition number of <span class="math inline">\(\hspace{0.05cm} R\)</span> in <code>Python</code></h4>
+</div>
+<div id="identificación-de-multicolineariedad-con-número-de-condicionamiento-de-hspace0.05cm-rhspace0.05cm-en-python" class="section level3" number="17.1.8">
+<h3><span class="header-section-number">17.1.8</span> Identificación de multicolineariedad con número de condicionamiento de <span class="math inline">\(\hspace{0.05cm} R\hspace{0.05cm}\)</span> en <code>Python</code></h3>
 <div class="sourceCode" id="cb98"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> data_Python.loc[: , [<span class="st">&#39;size_in_m_2&#39;</span>, <span class="st">&#39;longitude&#39;</span>, <span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;no_of_bedrooms&#39;</span>, <span class="st">&#39;no_of_bathrooms&#39;</span>]]</span>
 <span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a>R <span class="op">=</span> X.corr()</span></code></pre></div>
@@ -7240,103 +7240,109 @@ no_of_bathrooms
 <div class="sourceCode" id="cb100"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>cond_R <span class="op">=</span> math.sqrt(<span class="bu">max</span>(eigenvalues)<span class="op">/</span><span class="bu">min</span>(eigenvalues))</span>
 <span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>cond_R</span></code></pre></div>
 <pre><code>4.325045221905223</code></pre>
-<p>We have get <span class="math inline">\(\hspace{0.1cm} cond(R) = 4.33 &lt; 10 \hspace{0.1cm}\)</span> , so following this criterion, the linear regression model <span class="math inline">\(\hspace{0.1cm}\)</span> <strong>price ~ size_in_m_2 + longitude + latitude + no_of_bedrooms + no_of_bathrooms</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> has <strong>low</strong> multicollinearity</p>
+<p>Hemos obtenido que <span class="math inline">\(\hspace{0.1cm} cond(R) = 4.33 &lt; 10 \hspace{0.1cm}\)</span> , así que siguiendo este criterio el modelo de regresión lineal <span class="math inline">\(\hspace{0.1cm}\)</span> <strong>price ~ size_in_m_2 + longitude + latitude + no_of_bedrooms + no_of_bathrooms</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> tiene multicolinearidad <strong>baja</strong>.</p>
 <p> </p>
 </div>
+<div id="identificación-de-multicolinearidad-con-gvif" class="section level3" number="17.1.9">
+<h3><span class="header-section-number">17.1.9</span> Identificación de multicolinearidad con GVIF <a class="anchor" id="67"></a></h3>
+<p><span class="math inline">\(VIF\hspace{0.2cm}\)</span> es una buena medida de multicolinearidad solo cuando todos los predictores que se consideran en el modelo son <strong>cuantitativos</strong>.</p>
+<p><span class="math inline">\(GVIF\hspace{0.2cm}\)</span> es la medida propuesta por Fox y Monette (1992) para lidiar con modelos de regresión lineal que tienen algún predictor <strong>categórico</strong>.</p>
+<p>Supongamos que tenemos un modelo de regresión lineal estimado <span class="math inline">\(\hspace{0.2cm} Y=X\cdot \widehat{\beta} \hspace{0.2cm}\)</span> con algún predictor <strong>cuantitativo</strong> y también alguno <strong>categórico</strong>.</p>
+<p> </p>
+<ul>
+<li><p>Si <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}\)</span> es un predictor <strong>cuantitativo</strong>:</p>
+<ul>
+<li><p>Tenemos que considerar las siguientes matrices:</p>
+<ul>
+<li><p><span class="math inline">\(\hspace{0.2cm}\mathbb{X}_1 = [\hspace{0.1cm} X_j \hspace{0.1cm}]\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.2cm}\mathbb{X}_2 = [\hspace{0.1cm} X_1 , .. , X_{j-1}, X_{j+1},.., X_p \hspace{0.1cm}]\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.2cm}\mathbb{X}_3 = [\hspace{0.1cm} X_1,..,X_j,.., X_p \hspace{0.1cm}] \\\)</span></p></li>
+</ul></li>
+<li><p>And the following Pearson correlation matrix:</p>
+<ul>
+<li><p><span class="math inline">\(\hspace{0.2cm}R_1\)</span> es la matriz de correlaciones lineales para la matriz de datos <span class="math inline">\(\hspace{0.2cm}\mathbb{X}_1 \\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.2cm}R_2\)</span> es la matriz de correlaciones lineales para la matriz de datos <span class="math inline">\(\hspace{0.2cm}\mathbb{X}_2\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.2cm}R_3\)</span> es la matriz de correlaciones lineales para la matriz de datos <span class="math inline">\(\hspace{0.2cm}\mathbb{X}_3\)</span></p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><br></p>
+<p>El <span class="math inline">\(\hspace{0.1cm} GVIF \hspace{0.1cm}\)</span> del predictor cuantitativo <span class="math inline">\(\hspace{0.1cm} \mathcal{X}_j \hspace{0.1cm}\)</span> se define como:</p>
+<p><br></p>
+<p><span class="math display">\[GVIF(X_j) = det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)} \]</span></p>
+<p> </p>
+<p>Si <span class="math inline">\(\mathcal{X}_j\)</span> es un predictor <strong>categorico</strong> con <span class="math inline">\(r\)</span> categorias, <span class="math inline">\(\hspace{0.2cm} Range(\mathcal{X}_j) = \lbrace 0,1,..., r-1 \rbrace \hspace{0.2cm}\)</span> , que entra en el modelo de regresión lineal con las variables dummy <span class="math inline">\(\hspace{0.2cm} D(X_{j}=1),D(X_{j}=2),...,D(X_{j}=r-1)\)</span></p>
+<p>Tenemos que considerar las siguientes matrices:</p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{X}_1 = [\hspace{0.1cm} X_{j1},X_{j2},..,X_{j(r-1)} \hspace{0.1cm}]\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(\mathbb{X}_2 = [\hspace{0.1cm} X_1 , .. , X_{j-1}, X_{j+1},.., X_p \hspace{0.1cm}]\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(\mathbb{X}_3 = [\hspace{0.1cm} X_1,..,X_{j-1},X_{j1},X_{j2},..,X_{j(r-1)}, X_{j+1},.., X_p \hspace{0.1cm}]\)</span></p></li>
+</ul>
+<p>Y las siguientes matrices de correlaciones lineales:</p>
+<ul>
+<li><p><span class="math inline">\(R_1\)</span> es la matriz de correlaciones lineales para la matriz de datos <span class="math inline">\(\mathbb{X}_1\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(R_2\)</span> es la matriz de correlaciones lineales para la matriz de datos <span class="math inline">\(\mathbb{X}_2\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(R_3\)</span> es la matriz de correlaciones lineales para la matriz de datos <span class="math inline">\(\mathbb{X}_3\)</span></p></li>
+</ul>
+<p><br></p>
+<p>Entonces, <span class="math inline">\(\hspace{0.05cm} GVIF \hspace{0.05cm}\)</span> of <span class="math inline">\(\hspace{0.05cm} X_j \hspace{0.05cm}\)</span> se define como:</p>
+<p><span class="math display">\[GVIF(X_j) = det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)}\]</span></p>
+<p> </p>
+<p><strong>Criterio: Identificación de multicolinealidad con <span class="math inline">\(GVIF\)</span></strong></p>
+<p>En este criterio la cantidad clave es <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/2 df}\)</span></p>
+<p>Donde: <span class="math inline">\(\hspace{0.2cm}df\hspace{0.2cm}\)</span> es el número de coeficientes que entran en el modelo de regresión lineal cuando <span class="math inline">\(\hspace{0.2cm} \mathcal{X}_j\hspace{0.2cm}\)</span> es añadido como predictor.</p>
+<p><br></p>
+<ul>
+<li><p>Si <span class="math inline">\(\hspace{0.2cm}\mathcal{X}_j\hspace{0.2cm}\)</span> es un predictor <strong>cuantitativo</strong> <span class="math inline">\(\hspace{0.1cm} \Rightarrow\hspace{0.1cm} df=1\)</span> :</p>
+<ul>
+<li><p>Si <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/2} \hspace{0.1cm} &gt; \hspace{0.1cm} \sqrt{10} = 3.16\)</span> <span class="math inline">\(\hspace{0.3cm}\Rightarrow\hspace{0.3cm}\)</span> Multicolinealidad <strong>alta</strong> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/2} \in [\sqrt{4}, \sqrt{10}]= [2 \hspace{0.1cm},\hspace{0.1cm} 3.16]\)</span> <span class="math inline">\(\hspace{0.3cm} \Rightarrow\hspace{0.3cm}\)</span> Multicolinealidad <strong>media</strong> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/2} \hspace{0.1cm}&lt; \hspace{0.1cm} \sqrt{4} = 2\)</span> <span class="math inline">\(\hspace{0.3cm}\Rightarrow\hspace{0.3cm}\)</span> Multicolinealidad <strong>baja</strong></p></li>
+</ul></li>
+</ul>
+<p><br></p>
+<ul>
+<li><p>Si <span class="math inline">\(\hspace{0.2cm}X_j\hspace{0.2cm}\)</span> es un predictor <strong>categórico</strong> con <span class="math inline">\(2\)</span> categorias <span class="math inline">\(\hspace{0.2cm} \Rightarrow \hspace{0.2cm} df=2-1=1\)</span></p>
+<ul>
+<li><p>Si <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/2} \hspace{0.1cm}&gt;\hspace{0.1cm} 10^{1/2} = 3.16\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> Multicolinealidad <strong>alta</strong> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p>If <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/2} \in [4^{1/2}, 10^{1/2}] = [2 \hspace{0.1cm} , \hspace{0.1cm} 3.16]\)</span> <span class="math inline">\(\hspace{0.2cm} \Rightarrow\hspace{0.2cm}\)</span> Multicolinealidad <strong>media</strong> multicollinearity <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p>If <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/2} \hspace{0.1cm}&lt;\hspace{0.1cm} 4^{1/2} = 2\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> Multicolinealidad <strong>baja</strong></p></li>
+</ul></li>
+</ul>
+<p><br></p>
+<ul>
+<li><p>Si <span class="math inline">\(\mathcal{X}_j\)</span> es un predictor <strong>categorico</strong> con <span class="math inline">\(3\)</span> categorias <span class="math inline">\(\hspace{0.2cm} \Rightarrow\hspace{0.2cm} df=3-1=2\)</span> :</p>
+<ul>
+<li><p>Si <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/4} \hspace{0.1cm}&gt;\hspace{0.1cm} 10^{1/4} = 1.78\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> Multicolinealidad <strong>alta</strong> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.2 cm} GVIF(X_j)^{1/4} \in [4^{1/4}, 10^{1/4}] = [1.41 \hspace{0.1cm} , \hspace{0.1cm} 1.78]\)</span> <span class="math inline">\(\hspace{0.2cm} \Rightarrow\hspace{0.2cm}\)</span> Multicolinealidad <strong>media</strong> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/4} \hspace{0.1cm}&lt;\hspace{0.1cm} 4^{1/4} = 1.41\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> Multicolinealidad <strong>baja</strong></p></li>
+</ul></li>
+</ul>
+<p><br></p>
+<ul>
+<li><p>Si <span class="math inline">\(\hspace{0.2cm}\mathcal{X}_j\hspace{0.2cm}\)</span> es un predictor a <strong>categorico</strong> conh <span class="math inline">\(4\)</span> categorias <span class="math inline">\(\hspace{0.2cm} \Rightarrow\hspace{0.2cm} df=4-1=3\)</span></p>
+<ul>
+<li><p>Si <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/6} \hspace{0.1cm}&gt;\hspace{0.1cm} 10^{1/6} = 1.47\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <strong>High</strong> multicollinearity <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/6} \in [4^{1/6}, 10^{1/6}] = [1.26 \hspace{0.1cm} , \hspace{0.1cm} 1.47]\)</span> <span class="math inline">\(\hspace{0.2cm} \Rightarrow\hspace{0.2cm}\)</span> <strong>Medium</strong> multicollinearity <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/6}\hspace{0.1cm} &lt;\hspace{0.1cm} 4^{1/6} = 1.26\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <strong>Low</strong> multicollinearity</p></li>
+</ul></li>
+</ul>
+<p><br></p>
+<ul>
+<li><p>Si <span class="math inline">\(\hspace{0.2cm}X_j\hspace{0.2cm}\)</span> es un predictor categorico con <span class="math inline">\(r\)</span> categorias <span class="math inline">\(\hspace{0.2cm} \Rightarrow\hspace{0.2cm} df=r-1\)</span> :</p>
+<ul>
+<li><p>Si <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/(2(r-1))} \hspace{0.1cm}&gt;\hspace{0.1cm} 10^{1/(2(r-1))}\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> Multicolinealidad <strong>alta</strong> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/(2(r-1))} \in [4^{1/(2(r-1))}, 10^{1/(2(r-1))}]\)</span> <span class="math inline">\(\hspace{0.2cm} \Rightarrow\hspace{0.2cm}\)</span> Multicolinealidad <strong>media</strong> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/(2(r-1))} \hspace{0.1cm}&lt;\hspace{0.1cm} 4^{1/(2(r-1))}\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> Multicolinealidad <strong>baja</strong></p></li>
+</ul></li>
+</ul>
+<p> </p>
 </div>
-<div id="identification-of-multicollinearity-with-gvif" class="section level3" number="17.1.8">
-<h3><span class="header-section-number">17.1.8</span> Identification of multicollinearity with <span class="math inline">\(GVIF\)</span> <a class="anchor" id="67"></a></h3>
-<p><span class="math inline">\(VIF\hspace{0.2cm}\)</span> is only a good multicollinearity measure when <strong>all</strong> the <strong>predictors</strong> of the model are <strong>quantitative</strong>.</p>
-<p><span class="math inline">\(GVIF\hspace{0.2cm}\)</span> is the measure proposed by Fox and Monette (1992) to deal with linear regression models that have <strong>categorical predictors</strong>.</p>
-<p>Suppose we have the following estimated linear regression model <span class="math inline">\(\hspace{0.2cm} Y=X\cdot \widehat{\beta} \hspace{0.2cm}\)</span> where <span class="math inline">\(\hspace{0.2cm}X=(1, X_1, ..., X_p)\hspace{0.2cm}\)</span> are some <strong>quantitative</strong> and others <strong>categorical</strong> predictors.</p>
-<p> </p>
-<p>If <span class="math inline">\(X_j\)</span> is a <strong>quantitative</strong> predictor</p>
-<p>We have to consider the following matrix:</p>
+<div id="identificación-de-multicolinealidad-con-gvif-en-python" class="section level3" number="17.1.10">
+<h3><span class="header-section-number">17.1.10</span> Identificación de multicolinealidad con GVIF en <code>Python</code></h3>
 <ul>
-<li><p><span class="math inline">\(\hspace{0.2cm}\mathcal{X}_1 = [\hspace{0.1cm} X_j \hspace{0.1cm}]\\[0.45cm]\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.2cm}\mathcal{X}_2 = [\hspace{0.1cm} X_1 , .. , X_{j-1}, X_{j+1},.., X_p \hspace{0.1cm}]\\[0.45cm]\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.2cm}\mathcal{X}_3 = [\hspace{0.1cm} X_1,..,X_j,.., X_p \hspace{0.1cm}]\)</span></p></li>
+<li><span class="math inline">\(GVIF\)</span> para el predictor <strong>categorico</strong> <strong>quality</strong></li>
 </ul>
-<p>And the following Pearson correlation matrix:</p>
-<ul>
-<li><p><span class="math inline">\(\hspace{0.2cm}R_1\)</span> is the Pearson correlation matrix of <span class="math inline">\(\hspace{0.2cm}\mathcal{X}_1 \\[0.45cm]\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.2cm}R_2\)</span> is the Pearson correlation matrix of <span class="math inline">\(\hspace{0.2cm}\mathcal{X}_2\\[0.45cm]\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.2cm}R_3\)</span> is the Pearson correlation matrix of <span class="math inline">\(\hspace{0.2cm}\mathcal{X}_3\)</span></p></li>
-</ul>
-<p><br></p>
-<p>Then, <span class="math inline">\(\hspace{0.1cm} GVIF \hspace{0.1cm}\)</span> of <span class="math inline">\(\hspace{0.1cm} X_j \hspace{0.1cm}\)</span> is defined as:</p>
-<p><br></p>
-<p><span class="math display">\[ GVIF(X_j) = det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)} \]</span></p>
-<p> </p>
-<p>If <span class="math inline">\(X_j\)</span> is a <strong>categorical</strong> predictor with <span class="math inline">\(r\)</span> categories, <span class="math inline">\(\hspace{0.2cm} Range(X_j) = \lbrace 0,1,..., r-1 \rbrace \hspace{0.2cm}\)</span> , that enter in the model with the dummy variables <span class="math inline">\(\hspace{0.2cm} X_{j1},X_{j2},...,X_{j(r-1)}\)</span></p>
-<p>We have to consider the following matrix:</p>
-<ul>
-<li><p><span class="math inline">\(\mathcal{X}_1 = [\hspace{0.1cm} X_{j1},X_{j2},..,X_{j(r-1)} \hspace{0.1cm}]\\[0.45cm]\)</span></p></li>
-<li><p><span class="math inline">\(\mathcal{X}_2 = [\hspace{0.1cm} X_1 , .. , X_{j-1}, X_{j+1},.., X_p \hspace{0.1cm}]\\[0.45cm]\)</span></p></li>
-<li><p><span class="math inline">\(\mathcal{X}_3 = [\hspace{0.1cm} X_1,..,X_{j-1},X_{j1},X_{j2},..,X_{j(r-1)}, X_{j+1},.., X_p \hspace{0.1cm}]\)</span></p></li>
-</ul>
-<p>And the following Pearson correlation matrix:</p>
-<ul>
-<li><p><span class="math inline">\(R_1\)</span> is the Pearson correlation matrix of <span class="math inline">\(\mathcal{X}_1\\[0.45cm]\)</span></p></li>
-<li><p><span class="math inline">\(R_2\)</span> is the Pearson correlation matrix of <span class="math inline">\(\mathcal{X}_2\\[0.45cm]\)</span></p></li>
-<li><p><span class="math inline">\(R_3\)</span> is the Pearson correlation matrix of <span class="math inline">\(\mathcal{X}_3\)</span></p></li>
-</ul>
-<p><br></p>
-<p>Then, <span class="math inline">\(\hspace{0.05cm} GVIF \hspace{0.05cm}\)</span> of <span class="math inline">\(\hspace{0.05cm} X_j \hspace{0.05cm}\)</span> is defined as:</p>
-<p><span class="math display">\[ GVIF(X_j) = det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)} \]</span></p>
-<p> </p>
-<p><strong>Criteria: Identification of multicollinearity with <span class="math inline">\(GVIF\)</span></strong></p>
-<p>In this criteria the key quantity is <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/2 df}\)</span></p>
-<p>Where: <span class="math inline">\(\hspace{0.2cm}df\hspace{0.2cm}\)</span> is the number of parameters that enter in the linear regression model when <span class="math inline">\(\hspace{0.2cm} X_j\hspace{0.2cm}\)</span> is added as predictor</p>
-<p><br></p>
-<ul>
-<li><p>If <span class="math inline">\(\hspace{0.2cm}X_j\hspace{0.2cm}\)</span> is a <strong>quantitative</strong> predictor <span class="math inline">\(\hspace{0.2cm} ( \Rightarrow df=1)\)</span> :</p>
-<ul>
-<li><p>If <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/2} &gt; \sqrt{10} = 3.16\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <strong>High</strong> multicollinearity <span class="math inline">\(\\[0.45cm]\)</span></p></li>
-<li><p>If <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/2} \in [\sqrt{4}, \sqrt{10}]= [2 \hspace{0.1cm},\hspace{0.1cm} 3.16]\)</span> <span class="math inline">\(\hspace{0.2cm} \Rightarrow\hspace{0.2cm}\)</span> <strong>Medium</strong> multicollinearity <span class="math inline">\(\\[0.45cm]\)</span></p></li>
-<li><p>If <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/2} &lt; \sqrt{4} = 2\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <strong>Low</strong> multicollinearity</p></li>
-</ul></li>
-</ul>
-<p><br></p>
-<ul>
-<li><p>If <span class="math inline">\(\hspace{0.2cm}X_j\)</span> is a <strong>categorical</strong> predictor with <span class="math inline">\(2\)</span> categories <span class="math inline">\(\hspace{0.2cm} ( \Rightarrow df=2-1=1)\)</span></p>
-<ul>
-<li><p>If <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/2} &gt; 10^{1/2} = 3.16\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <strong>High</strong> multicollinearity <span class="math inline">\(\\[0.45cm]\)</span></p></li>
-<li><p>If <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/2} \in [4^{1/2}, 10^{1/2}] = [2 \hspace{0.1cm} , \hspace{0.1cm} 3.16]\)</span> <span class="math inline">\(\hspace{0.2cm} \Rightarrow\hspace{0.2cm}\)</span> <strong>Medium</strong> multicollinearity <span class="math inline">\(\\[0.45cm]\)</span></p></li>
-<li><p>If <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/2} &lt; 4^{1/2} = 2\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <strong>Low</strong> multicollinearity</p></li>
-</ul></li>
-</ul>
-<p><br></p>
-<ul>
-<li><p>If <span class="math inline">\(X_j\)</span> is a <strong>categorical</strong> predictor with <span class="math inline">\(3\)</span> categories <span class="math inline">\(\hspace{0.2cm} ( \Rightarrow df=3-1=2 )\)</span> :</p>
-<ul>
-<li><p>If <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/4} &gt; 10^{1/4} = 1.78\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <strong>High</strong> multicollinearity <span class="math inline">\(\\[0.45cm]\)</span></p></li>
-<li><p>If <span class="math inline">\(\hspace{0.2 cm} GVIF(X_j)^{1/4} \in [4^{1/4}, 10^{1/4}] = [1.41 \hspace{0.1cm} , \hspace{0.1cm} 1.78]\)</span> <span class="math inline">\(\hspace{0.2cm} \Rightarrow\hspace{0.2cm}\)</span> <strong>Medium</strong> multicollinearity <span class="math inline">\(\\[0.45cm]\)</span></p></li>
-<li><p>If <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/4} &lt; 4^{1/4} = 1.41\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <strong>Low</strong> multicollinearity</p></li>
-</ul></li>
-</ul>
-<p><br></p>
-<ul>
-<li><p>If <span class="math inline">\(\hspace{0.2cm}X_j\hspace{0.2cm}\)</span> is a <strong>categorical</strong> predictor with <span class="math inline">\(4\)</span> categories <span class="math inline">\((\hspace{0.2cm} \Rightarrow df=4-1=3 )\)</span></p>
-<ul>
-<li><p>If <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/6} &gt; 10^{1/6} = 1.47\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <strong>High</strong> multicollinearity <span class="math inline">\(\\[0.45cm]\)</span></p></li>
-<li><p>If <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/6} \in [4^{1/6}, 10^{1/6}] = [1.26 \hspace{0.1cm} , \hspace{0.1cm} 1.47]\)</span> <span class="math inline">\(\hspace{0.2cm} \Rightarrow\hspace{0.2cm}\)</span> <strong>Medium</strong> multicollinearity <span class="math inline">\(\\[0.45cm]\)</span></p></li>
-<li><p>If <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/6} &lt; 4^{1/6} = 1.26\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <strong>Low</strong> multicollinearity</p></li>
-</ul></li>
-</ul>
-<p><br></p>
-<ul>
-<li><p>If <span class="math inline">\(\hspace{0.2cm}X_j\hspace{0.2cm}\)</span> is a <strong>categorical</strong> predictor with <span class="math inline">\(r\)</span> categories <span class="math inline">\((\hspace{0.2cm} \Rightarrow df=r-1 )\)</span> :</p>
-<ul>
-<li><p>If <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/(2(r-1))} &gt; 10^{1/(2(r-1))}\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <strong>High</strong> multicollinearity <span class="math inline">\(\\[0.45cm]\)</span></p></li>
-<li><p>If <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/(2(r-1))} \in [4^{1/(2(r-1))}, 10^{1/(2(r-1))}]\)</span> <span class="math inline">\(\hspace{0.2cm} \Rightarrow\hspace{0.2cm}\)</span> <strong>Medium</strong> multicollinearity <span class="math inline">\(\\[0.45cm]\)</span></p></li>
-<li><p>If <span class="math inline">\(\hspace{0.2cm} GVIF(X_j)^{1/(2(r-1))} &lt; 4^{1/(2(r-1))}\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <strong>Low</strong> multicollinearity</p></li>
-</ul></li>
-</ul>
-<p> </p>
-<div id="identification-of-multicollinearity-with-gvif-in-python" class="section level4" number="17.1.8.1">
-<h4><span class="header-section-number">17.1.8.1</span> Identification of multicollinearity with <span class="math inline">\(GVIF\)</span> in <code>Python</code></h4>
-<p><span class="math inline">\(GVIF\)</span> for the <strong>categorical</strong> predictor <span class="math inline">\(quality\)</span></p>
 <div class="sourceCode" id="cb102"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> data_Python.loc[: , [<span class="st">&#39;size_in_m_2&#39;</span>, <span class="st">&#39;longitude&#39;</span>, <span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;no_of_bedrooms&#39;</span>, <span class="st">&#39;no_of_bathrooms&#39;</span>, <span class="st">&#39;quality&#39;</span>]]</span></code></pre></div>
 <div class="sourceCode" id="cb103"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>X1 <span class="op">=</span> varcharProcessing(X).loc[:, [<span class="st">&#39;quality_1&#39;</span>, <span class="st">&#39;quality_2&#39;</span>, <span class="st">&#39;quality_3&#39;</span>]]</span>
 <span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a>X2 <span class="op">=</span> X.drop({<span class="st">&#39;quality&#39;</span>}, axis<span class="op">=</span><span class="dv">1</span>)</span>
@@ -7347,7 +7353,9 @@ no_of_bathrooms
 <span id="cb103-7"><a href="#cb103-7" aria-hidden="true" tabindex="-1"></a>df_quality <span class="op">=</span> X1.shape[<span class="dv">1</span>]</span>
 <span id="cb103-8"><a href="#cb103-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb103-9"><a href="#cb103-9" aria-hidden="true" tabindex="-1"></a>GVIF_quality_scaled <span class="op">=</span> GVIF_quality<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>df_quality))</span></code></pre></div>
-<p><span class="math inline">\(GVIF\)</span> for the rest of <strong>quantitative</strong> predictors</p>
+<ul>
+<li><span class="math inline">\(GVIF\)</span> para el resto de predictores <strong>cuantitativos</strong></li>
+</ul>
 <div class="sourceCode" id="cb104"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> data_Python.loc[: , [<span class="st">&#39;size_in_m_2&#39;</span>, <span class="st">&#39;longitude&#39;</span>, <span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;no_of_bedrooms&#39;</span>, <span class="st">&#39;no_of_bathrooms&#39;</span>, <span class="st">&#39;quality&#39;</span>]]</span></code></pre></div>
 <div class="sourceCode" id="cb105"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>X1 <span class="op">=</span> X[[<span class="st">&#39;size_in_m_2&#39;</span>]]  </span>
 <span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a>X2 <span class="op">=</span> X.drop([<span class="st">&#39;size_in_m_2&#39;</span>], axis<span class="op">=</span><span class="dv">1</span>) </span>
@@ -7544,23 +7552,25 @@ quality
 </table>
 </div>
 <p><br></p>
-<p>In this case all the quantitative predictors have <span class="math inline">\(\hspace{0.1cm} GVIF^{1/2df} &lt; 3.16 \hspace{0.1cm}\)</span>, but <span class="math inline">\(\hspace{0.1cm} GVIF^{1/2df} \hspace{0.1cm}\)</span> of <span class="math inline">\(\hspace{0.1cm}\)</span> <strong>no_of_bathrooms</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> is <span class="math inline">\(\hspace{0.1cm} 2.14 &gt; 2\)</span> $ $ <strong>medium</strong> multicollinearity</p>
-<p>On the other hand the 4-ary categorical predictor <strong>quality</strong> has <span class="math inline">\(\hspace{0.1cm} GVIF^{1/2df}\hspace{0.1cm} = 1.01 &lt; 1.26\)</span> $ $ <strong>low</strong> multicollinearity</p>
-<p>So using the GVIF method, we can conclude that there is a <strong>medium</strong> multicollinearity between the predictors of the model <span class="math inline">\(\hspace{0.1cm}\)</span> <strong>price ~ size_in_m_2 + longitude + latitude + no_of_bedrooms + no_of_bathrooms</strong> <span class="math inline">\(\hspace{0.1cm}\)</span></p>
+<p>En este caso todos los predictores cuantitativos tienen un <span class="math inline">\(\hspace{0.1cm} GVIF^{1/2df} &lt; 3.16 \hspace{0.1cm}\)</span>, pero el <span class="math inline">\(\hspace{0.1cm} GVIF^{1/2df} \hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\)</span> <strong>no_of_bathrooms</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> es <span class="math inline">\(\hspace{0.1cm} 2.14 &gt; 2\)</span> $ $ Multicolinealidad <strong>media</strong></p>
+<p>Por otro lado el predictor <strong>quality</strong> tiene <span class="math inline">\(\hspace{0.1cm} GVIF^{1/2df}\hspace{0.1cm} = 1.01 &lt; 1.26\)</span> <span class="math inline">\(\hspace{0.1cm} \Rightarrow \hspace{0.1cm}\)</span> Multicolinealidad <strong>baja</strong></p>
+<p>Asi que usando el criterio del GVIF, se puede concluir que hay multicolinealidad media en el modelo <span class="math inline">\(\hspace{0.1cm}\)</span> <strong>price ~ size_in_m_2 + longitude + latitude + no_of_bedrooms + no_of_bathrooms</strong> <span class="math inline">\(\hspace{0.1cm}\)</span></p>
 <p> </p>
 </div>
 </div>
-</div>
-<div id="checking-error-assumptions" class="section level2" number="17.2">
-<h2><span class="header-section-number">17.2</span> Checking Error Assumptions <a class="anchor" id="68"></a></h2>
+<div id="incumplimiento-de-los-supuestos-de-los-residuos" class="section level2" number="17.2">
+<h2><span class="header-section-number">17.2</span> Incumplimiento de los supuestos de los residuos <a class="anchor" id="68"></a></h2>
+<p>Recordemos los supuestos que el modelo de regresión lineal impone sobre los residuos:</p>
 <ul>
 <li><p><span class="math inline">\(\hspace{0.2cm} \varepsilon_i \sim N(0,\sigma) \hspace{0.5cm} \forall \hspace{0.1cm} i=1,...,n \\[0.35cm]\)</span></p></li>
 <li><p><span class="math inline">\(\hspace{0.2cm} corr(\varepsilon_i , \varepsilon_j)=0 \hspace{0.5cm} \forall \hspace{0.1cm} i\neq j =1,...,n\)</span></p></li>
 </ul>
 <p><br></p>
-<div id="checking-error-constant-variance" class="section level3" number="17.2.1">
-<h3><span class="header-section-number">17.2.1</span> Checking Error Constant Variance <a class="anchor" id="69"></a></h3>
-<p>It is not possible to check the assumption of constant variance just by examining
+<div id="incumplimiento-del-supuesto-de-varianza-constante-de-los-residuos" class="section level3" number="17.2.1">
+<h3><span class="header-section-number">17.2.1</span> Incumplimiento del supuesto de varianza constante de los residuos <a class="anchor" id="69"></a></h3>
+<p>No es posible comprobar el suspuesto de varianza constante de los residuos examinando unicamente los residuos, porque algunos serán altos y otros serán bajos, pero esto no prueba nada.</p>
+<p>Se necesita comprobar si la varianza de los residuos esta relacionada con alguna otra cantidad, de modo que para ciertos valores de esa cantidad sea mas grande que para otros, y por tanto pueda confirmarse que no es constante.
+It is not possible to check the assumption of constant variance just by examining
 the residuals alone, some will be large and some will be small, but this proves nothing. We need to check whether the variance in the residuals is related to some
 other quantity.</p>
 <p><br></p>
@@ -7578,8 +7588,9 @@ other quantity.</p>
 <li>If we can see a non-linear shape at the points <span class="math inline">\(\Rightarrow\)</span> evidence of non-linearity between the response variable and the predictors</li>
 </ul>
 <p> </p>
-<div id="checking-error-constant-variance-in-python" class="section level4" number="17.2.1.1">
-<h4><span class="header-section-number">17.2.1.1</span> Checking Error Constant Variance in <code>Python</code></h4>
+</div>
+<div id="checking-error-constant-variance-in-python" class="section level3" number="17.2.2">
+<h3><span class="header-section-number">17.2.2</span> Checking Error Constant Variance in <code>Python</code></h3>
 <div class="sourceCode" id="cb111"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> ggplot, aes, geom_line, geom_point, geom_smooth, geom_histogram, geom_bar, geom_boxplot, scale_y_continuous, scale_x_continuous, scale_x_discrete, scale_y_discrete, labs, after_stat,  geom_vline, scale_color_manual, theme_gray, theme_xkcd, scale_color_identity, geom_hline, facet_wrap, scale_fill_discrete, scale_fill_manual,  scale_fill_hue, guides, guide_legend, geom_hline, stat_function </span></code></pre></div>
 <div class="sourceCode" id="cb112"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>ggplot()</span>
@@ -7593,16 +7604,16 @@ other quantity.</p>
 <p>Since we can see a cone shape at the points, we cannot accept the constant error variance assumption <span class="math inline">\(Var(\varepsilon)=\sigma^2\)</span>.</p>
 <p> </p>
 </div>
-</div>
-<div id="checking-null-error-mean" class="section level3" number="17.2.2">
-<h3><span class="header-section-number">17.2.2</span> Checking Null Error Mean <a class="anchor" id="70"></a></h3>
+<div id="incumplimiento-del-supuesto-de-media-constante-de-los-residuos" class="section level3" number="17.2.3">
+<h3><span class="header-section-number">17.2.3</span> Incumplimiento del supuesto de media constante de los residuos <a class="anchor" id="70"></a></h3>
 <p>We are going to use the typical t-test to verify this assumption.</p>
 <p>First we compute the estimated errors mean to get first idea:</p>
 <div class="sourceCode" id="cb113"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>df_predictions_Python[<span class="st">&#39;estimated_errors&#39;</span>].mean()</span></code></pre></div>
 <pre><code>-1.5501118707531706e-07</code></pre>
 <p> </p>
-<div id="checking-null-error-mean-in-python" class="section level4" number="17.2.2.1">
-<h4><span class="header-section-number">17.2.2.1</span> Checking Null Error Mean in <code>Python</code></h4>
+</div>
+<div id="checking-null-error-mean-in-python" class="section level3" number="17.2.4">
+<h3><span class="header-section-number">17.2.4</span> Checking Null Error Mean in <code>Python</code></h3>
 <div class="sourceCode" id="cb115"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install --upgrade pingouin</span></span></code></pre></div>
 <div class="sourceCode" id="cb116"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pingouin <span class="im">as</span> pg</span>
 <span id="cb116-2"><a href="#cb116-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -7686,13 +7697,13 @@ two-sided
 <p>For any significance level we can accept that the errors mean is zero (0)</p>
 <p> </p>
 </div>
-</div>
-<div id="checking-error-normality" class="section level3" number="17.2.3">
-<h3><span class="header-section-number">17.2.3</span> Checking Error Normality <a class="anchor" id="71"></a></h3>
+<div id="incumplimiento-del-supuesto-de-distribución-normal-de-los-residuos" class="section level3" number="17.2.5">
+<h3><span class="header-section-number">17.2.5</span> Incumplimiento del supuesto de distribución normal de los residuos <a class="anchor" id="71"></a></h3>
 <p>First we are going to check the error normality assumption using the <strong>histogram method</strong></p>
 <p> </p>
-<div id="checking-error-normality-in-python-with-histogram-method" class="section level4" number="17.2.3.1">
-<h4><span class="header-section-number">17.2.3.1</span> Checking Error Normality in <code>Python</code> with histogram method</h4>
+</div>
+<div id="checking-error-normality-in-python-with-histogram-method" class="section level3" number="17.2.6">
+<h3><span class="header-section-number">17.2.6</span> Checking Error Normality in <code>Python</code> with histogram method</h3>
 <div class="sourceCode" id="cb117"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
 <span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a>(</span>
 <span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a>ggplot(data <span class="op">=</span> df_predictions_Python ,</span>
@@ -7707,17 +7718,16 @@ two-sided
 <p>Now we are going to check the error normality assumption using the Shapiro statistical test.</p>
 <p> </p>
 </div>
-<div id="checking-error-normality-in-python-with-shapiro-test" class="section level4" number="17.2.3.2">
-<h4><span class="header-section-number">17.2.3.2</span> Checking Error Normality in <code>Python</code> with Shapiro test</h4>
+<div id="checking-error-normality-in-python-with-shapiro-test" class="section level3" number="17.2.7">
+<h3><span class="header-section-number">17.2.7</span> Checking Error Normality in <code>Python</code> with Shapiro test</h3>
 <div class="sourceCode" id="cb118"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>shapiro_test <span class="op">=</span> stats.shapiro(df_predictions_Python[<span class="st">&#39;estimated_errors&#39;</span>])</span>
 <span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a>shapiro_test</span></code></pre></div>
 <pre><code>ShapiroResult(statistic=0.7914911508560181, pvalue=4.203895392974451e-44)</code></pre>
 <p>For any significance level we have to reject the errors normality hypothesis.</p>
 <p> </p>
 </div>
-</div>
-<div id="checking-null-error-correlation" class="section level3" number="17.2.4">
-<h3><span class="header-section-number">17.2.4</span> Checking Null Error Correlation <a class="anchor" id="72"></a></h3>
+<div id="incumplimiento-del-supuesto-de-correlación-nula-de-los-residuos" class="section level3" number="17.2.8">
+<h3><span class="header-section-number">17.2.8</span> Incumplimiento del supuesto de correlación nula de los residuos <a class="anchor" id="72"></a></h3>
 <p>We are going to check the null error correlation assumption through the <strong>Durban-Watson test</strong>.</p>
 <p> </p>
 <p><strong>Hypothesis:</strong></p>
@@ -7736,8 +7746,9 @@ DW = \dfrac{\sum_{i=2}^n (\hat{\varepsilon}_i - \hat{\varepsilon}_{i-1})^2 }{\su
 <p>The closer the test statistics is to <span class="math inline">\(0\)</span>, the more evidence of <strong>positive serial correlation</strong>.</p>
 <p>The closer the test statistics is to <span class="math inline">\(4\)</span>, the more evidence of <strong>negative serial correlation</strong>.</p>
 <p> </p>
-<div id="durban-watson-test-in-python" class="section level4" number="17.2.4.1">
-<h4><span class="header-section-number">17.2.4.1</span> Durban-Watson test in <code>Python</code></h4>
+</div>
+<div id="durban-watson-test-in-python" class="section level3" number="17.2.9">
+<h3><span class="header-section-number">17.2.9</span> Durban-Watson test in <code>Python</code></h3>
 <div class="sourceCode" id="cb120"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a>train_errors_1 <span class="op">=</span> pd.DataFrame({ <span class="st">&#39;train_errors_1&#39;</span>: df_predictions_Python.iloc[<span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(df_predictions_Python)) , <span class="dv">2</span> ] } )</span>
 <span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a>train_errors_2 <span class="op">=</span> pd.DataFrame({ <span class="st">&#39;train_errors_1&#39;</span>: df_predictions_Python.iloc[<span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(df_predictions_Python)<span class="op">-</span><span class="dv">1</span>) , <span class="dv">2</span> ] } )  </span>
 <span id="cb120-3"><a href="#cb120-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -7765,7 +7776,6 @@ DW = \dfrac{\sum_{i=2}^n (\hat{\varepsilon}_i - \hat{\varepsilon}_{i-1})^2 }{\su
 <pre><code>(1.720186802122348, 5.373510268400102e-10)</code></pre>
 <p>For any <span class="math inline">\(\alpha\)</span> we reject the null error correlation hypothesis.</p>
 <p> </p>
-</div>
 </div>
 </div>
 <div id="checking-linear-assumption" class="section level2" number="17.3">
@@ -7869,8 +7879,8 @@ DW = \dfrac{\sum_{i=2}^n (\hat{\varepsilon}_i - \hat{\varepsilon}_{i-1})^2 }{\su
 <p> </p>
 <p><br></p>
 </div>
-<div id="finding-outliers" class="section level2" number="17.4">
-<h2><span class="header-section-number">17.4</span> Finding Outliers <a class="anchor" id="74"></a></h2>
+<div id="datos-atípicos-outliers" class="section level2" number="17.4">
+<h2><span class="header-section-number">17.4</span> Datos atípicos: outliers <a class="anchor" id="74"></a></h2>
 <p>An outlier is a point that clearly deviates from the relationship between the response and the predictors.</p>
 <p>Outliers can greatly affect the estimates of model parameters.</p>
 <p>How to identify outliers?</p>

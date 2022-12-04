@@ -5222,16 +5222,16 @@ Asi que $\hspace{0.07cm} R^2_{X_i} \hspace{0.07cm}$  es la proporción de variab
 <br>
 
 
-**Criteria: Identification of multicollinearity with $VIF$** 
+**Criterio: Identificación de multicolinearidad con $VIF$** 
 
 
 
-- If $\hspace{0.2cm}VIF(X_j) > 10$ $\hspace{0.25cm}\left( R^2_{X_j} > 0.90 \right)$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ **High** multicollinearity $\\[0.5cm]$
+- Si $\hspace{0.2cm}VIF(X_j) > 10$ $\hspace{0.25cm}\left( R^2_{X_j} > 0.90 \right)$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ Multicolinealidad **alta**  $\\[0.5cm]$
 
-- If $\hspace{0.2cm}VIF(X_j)  \in [4, 10]$  $\hspace{0.25cm}\left(R^2_{X_j} \in [0.75 , 0.90]\right)$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ **Medium** multicollinearity $\\[0.5cm]$
+- Si $\hspace{0.2cm}VIF(X_j)  \in [4, 10]$  $\hspace{0.25cm}\left(R^2_{X_j} \in [0.75 , 0.90]\right)$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ Multicolinealidad **media** $\\[0.5cm]$
 
 
-- If  $\hspace{0.2cm}VIF(X_j) < 4$ $\hspace{0.15cm}\left(R^2_{X_j} < 0.75 \right)$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ **Low** multicollinearity
+- Si  $\hspace{0.2cm}VIF(X_j) < 4$ $\hspace{0.15cm}\left(R^2_{X_j} < 0.75 \right)$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ Multicolinealidad **baja**
 
 
 
@@ -5244,7 +5244,7 @@ Asi que $\hspace{0.07cm} R^2_{X_i} \hspace{0.07cm}$  es la proporción de variab
 
 
 
-### Identification of multicollinearity with VIF in `Python`
+### Identificación de multicolinearidad con VIF en `Python`
 
 
 ```python
@@ -5322,7 +5322,7 @@ VIF_Python
 </table>
 </div>
 
-There is a quantitative predictor with $\hspace{0.1cm} VIF > 4 \hspace{0.1cm}$ , but none with $\hspace{0.1cm} VIF > 10 \hspace{0.1cm}$ , so following this criteria the linear regression model $\hspace{0.1cm}$  **price ~ size\_in\_m\_2  + longitude + latitude + no\_of\_bedrooms + no\_of\_bathrooms** $\hspace{0.1cm}$ has **medium** multicollinearity .
+Hay un predictor cuantitativo con $\hspace{0.1cm} VIF > 4 \hspace{0.1cm}$ , pero ninguno con $\hspace{0.1cm} VIF > 10 \hspace{0.1cm}$ , asi que siguiendo este criterio el modelo de regresión lineal $\hspace{0.1cm}$  **price ~ size\_in\_m\_2  + longitude + latitude + no\_of\_bedrooms + no\_of\_bathrooms** $\hspace{0.1cm}$ tiene multicolinearidad **media**.
 
 
 
@@ -5331,31 +5331,29 @@ There is a quantitative predictor with $\hspace{0.1cm} VIF > 4 \hspace{0.1cm}$ ,
 
 
 
-### Identification of multicollinearity with Condition Number of $\hspace{0.05cm} R$ <a class="anchor" id="66"></a>
+### Identificación de multicolinearidad con el número de condicionamiento de $\hspace{0.05cm} R$ <a class="anchor" id="66"></a>
 
-If we have the following estimated linear regression model $\hspace{0.2cm} Y=X\cdot \widehat{\beta}   \hspace{0.2cm}$  where $\hspace{0.2cm}X=(1, X_1, ..., X_p)\hspace{0.2cm}$ are all **quantitative** predictors.
+Si tenemos el  modelo de regresión lineal estimado $\hspace{0.2cm} Y=X\cdot \widehat{\beta}   \hspace{0.2cm}$  con predictores exclusivamente **cuantitativos**. 
 
-We compute the Pearson linear correlation matrix of the predictors $\hspace{0.2cm} [ X_1 ,..., X_p] \hspace{0.2cm} \Rightarrow \hspace{0.2cm} R = [r_{ij} ]\hspace{0.05cm}_{i,j=1,..,p}$
-
-<br>
-
-The **condition number** of $R$ is defined as:
+Calculamos la matriz de correlaciones lineales para la matriz de datos de los predictores $\hspace{0.2cm} [ X_1 ,..., X_p] \hspace{0.2cm} \Rightarrow \hspace{0.2cm} R = [r_{ih} ]\hspace{0.05cm}_{i,h=1,..,p}$
 
 <br>
+
+El número de condicionamiento de la matriz $R$ se define como:
 
 $$cond(R) = \sqrt{\dfrac{max\lbrace eigenvalues(R)\rbrace}{min\lbrace eigenvalues(R)\rbrace}} $$
 
 <br>
 
-**Criteria :  Identification of multicollinearity with Condition Number of $\hspace{0.05cm} R$**
+**Criteria :  Identificación de multicolinearidad con número de condicionamiento de $\hspace{0.05cm} R$**
 
 
 
-- If $\hspace{0.1cm} cond(R) > 30$ $\hspace{0.1cm} \Rightarrow\hspace{0.1cm}$ **High** multicollinearity $\\[0.5cm]$
+- Si $\hspace{0.1cm} cond(R) > 30$ $\hspace{0.1cm} \Rightarrow\hspace{0.1cm}$ Multicolinearidad **alta**  $\\[0.5cm]$
 
-- If $\hspace{0.1cm}cond(R) \in (10 , 30)$ $\hspace{0.1cm} \Rightarrow\hspace{0.1cm}$ **Medium** multicollinearity $\\[0.5cm]$
+- Si $\hspace{0.1cm}cond(R) \in (10 , 30)$ $\hspace{0.1cm} \Rightarrow\hspace{0.1cm}$ Multicolinearidad **media**  $\\[0.5cm]$
 
-- If $\hspace{0.1cm}cond(R) < 10$ $\hspace{0.1cm} \Rightarrow\hspace{0.1cm}$ **Low** multicollinearity $\\[0.5cm]$
+- Si $\hspace{0.1cm}cond(R) < 10$ $\hspace{0.1cm} \Rightarrow\hspace{0.1cm}$ Multicolinearidad **baja** $\\[0.5cm]$
 
 
 
@@ -5365,7 +5363,7 @@ $$cond(R) = \sqrt{\dfrac{max\lbrace eigenvalues(R)\rbrace}{min\lbrace eigenvalue
 
 
 
-#### Identification of multicollinearity  with condition number of $\hspace{0.05cm} R$ in `Python`
+### Identificación de multicolineariedad con número de condicionamiento de $\hspace{0.05cm} R\hspace{0.05cm}$ en `Python`
 
 
 ```python
@@ -5390,27 +5388,9 @@ cond_R
     4.325045221905223
     
 
-We have get $\hspace{0.1cm} cond(R) = 4.33 < 10  \hspace{0.1cm}$ , so following this criterion, the linear regression model $\hspace{0.1cm}$ **price ~ size\_in\_m\_2  + longitude + latitude + no\_of\_bedrooms + no\_of\_bathrooms** $\hspace{0.1cm}$ has **low** multicollinearity
+Hemos obtenido que $\hspace{0.1cm} cond(R) = 4.33 < 10  \hspace{0.1cm}$ , así que siguiendo este criterio el modelo de regresión lineal $\hspace{0.1cm}$ **price ~ size\_in\_m\_2  + longitude + latitude + no\_of\_bedrooms + no\_of\_bathrooms** $\hspace{0.1cm}$ tiene multicolinearidad  **baja**.
 
 
-
-&nbsp;
-
-
-
-
-### Identification of multicollinearity with $GVIF$ <a class="anchor" id="67"></a>
-
-$VIF\hspace{0.2cm}$ is only a good multicollinearity measure when **all** the **predictors** of the model are **quantitative**.
-
-
-
-$GVIF\hspace{0.2cm}$ is the measure proposed by Fox and Monette (1992) to deal with linear regression models that have **categorical predictors**.
-
-
-
-
-Suppose we have the following estimated linear regression model $\hspace{0.2cm} Y=X\cdot \widehat{\beta}   \hspace{0.2cm}$  where $\hspace{0.2cm}X=(1, X_1, ..., X_p)\hspace{0.2cm}$ are some **quantitative** and others **categorical** predictors.
 
 
 
@@ -5419,27 +5399,43 @@ Suppose we have the following estimated linear regression model $\hspace{0.2cm} 
 
 
 
- If $X_j$ is a **quantitative** predictor
+### Identificación de multicolinearidad con GVIF <a class="anchor" id="67"></a>
+
+$VIF\hspace{0.2cm}$ es una buena medida de multicolinearidad solo cuando todos los predictores que se consideran en el modelo son **cuantitativos**.
 
 
-We have to consider the following matrix:
+$GVIF\hspace{0.2cm}$ es la medida propuesta por Fox y Monette (1992) para lidiar con modelos de regresión lineal que tienen algún predictor **categórico**.
 
-- $\hspace{0.2cm}\mathcal{X}_1 = [\hspace{0.1cm} X_j \hspace{0.1cm}]\\[0.45cm]$
+Supongamos que tenemos un modelo de regresión lineal estimado $\hspace{0.2cm} Y=X\cdot \widehat{\beta}  \hspace{0.2cm}$  con algún predictor **cuantitativo** y también alguno **categórico**.
 
-- $\hspace{0.2cm}\mathcal{X}_2 = [\hspace{0.1cm} X_1 , .. , X_{j-1}, X_{j+1},.., X_p \hspace{0.1cm}]\\[0.45cm]$
 
-- $\hspace{0.2cm}\mathcal{X}_3 = [\hspace{0.1cm} X_1,..,X_j,.., X_p \hspace{0.1cm}]$
+
+&nbsp;
+
+
+
+
+- Si $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ es un predictor **cuantitativo**:
+
+
+    - Tenemos que considerar las siguientes matrices:
+
+         - $\hspace{0.2cm}\mathbb{X}_1 = [\hspace{0.1cm} X_j \hspace{0.1cm}]\\[0.45cm]$
+
+         - $\hspace{0.2cm}\mathbb{X}_2 = [\hspace{0.1cm} X_1 , .. , X_{j-1}, X_{j+1},.., X_p \hspace{0.1cm}]\\[0.45cm]$
+
+         - $\hspace{0.2cm}\mathbb{X}_3 = [\hspace{0.1cm} X_1,..,X_j,.., X_p \hspace{0.1cm}] \\$
 
 
 
  
-And the following Pearson correlation matrix:
+     - And the following Pearson correlation matrix:
 
-- $\hspace{0.2cm}R_1$ is the Pearson correlation matrix of $\hspace{0.2cm}\mathcal{X}_1 \\[0.45cm]$
+          - $\hspace{0.2cm}R_1$ es la matriz de correlaciones lineales para la matriz de datos $\hspace{0.2cm}\mathbb{X}_1 \\[0.45cm]$
 
-- $\hspace{0.2cm}R_2$ is the Pearson correlation matrix of $\hspace{0.2cm}\mathcal{X}_2\\[0.45cm]$
+          - $\hspace{0.2cm}R_2$ es la matriz de correlaciones lineales para la matriz de datos $\hspace{0.2cm}\mathbb{X}_2\\[0.45cm]$
 
-- $\hspace{0.2cm}R_3$ is the Pearson correlation matrix of $\hspace{0.2cm}\mathcal{X}_3$
+          - $\hspace{0.2cm}R_3$ es la matriz de correlaciones lineales para la matriz de datos $\hspace{0.2cm}\mathbb{X}_3$
 
  
 
@@ -5447,11 +5443,11 @@ And the following Pearson correlation matrix:
 
 
 
-Then,  $\hspace{0.1cm} GVIF \hspace{0.1cm}$ of $\hspace{0.1cm} X_j \hspace{0.1cm}$ is defined as:
+El  $\hspace{0.1cm} GVIF \hspace{0.1cm}$ del predictor cuantitativo  $\hspace{0.1cm} \mathcal{X}_j \hspace{0.1cm}$ se define como:
 
 <br>
 
-$$ GVIF(X_j) = det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)} $$ 
+$$GVIF(X_j) = det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)} $$ 
 
  
 
@@ -5462,42 +5458,42 @@ $$ GVIF(X_j) = det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)} $$
 
 
 
-If $X_j$ is a **categorical** predictor with $r$ categories, $\hspace{0.2cm} Range(X_j) = \lbrace 0,1,..., r-1 \rbrace \hspace{0.2cm}$ , that enter in the model with the dummy variables $\hspace{0.2cm} X_{j1},X_{j2},...,X_{j(r-1)}$
+Si $\mathcal{X}_j$ es un predictor **categorico** con $r$ categorias, $\hspace{0.2cm} Range(\mathcal{X}_j) = \lbrace 0,1,..., r-1 \rbrace \hspace{0.2cm}$ , que entra en el modelo de regresión lineal con las variables dummy $\hspace{0.2cm} D(X_{j}=1),D(X_{j}=2),...,D(X_{j}=r-1)$
+
+
+
+Tenemos que considerar las siguientes matrices:
+
+- $\mathbb{X}_1 = [\hspace{0.1cm} X_{j1},X_{j2},..,X_{j(r-1)} \hspace{0.1cm}]\\[0.45cm]$
+
+- $\mathbb{X}_2 = [\hspace{0.1cm} X_1 , .. , X_{j-1}, X_{j+1},.., X_p \hspace{0.1cm}]\\[0.45cm]$
+
+- $\mathbb{X}_3 = [\hspace{0.1cm} X_1,..,X_{j-1},X_{j1},X_{j2},..,X_{j(r-1)}, X_{j+1},.., X_p \hspace{0.1cm}]$
 
 
 
 
-We have to consider the following matrix:
 
-- $\mathcal{X}_1 = [\hspace{0.1cm} X_{j1},X_{j2},..,X_{j(r-1)} \hspace{0.1cm}]\\[0.45cm]$
+Y las siguientes matrices de correlaciones lineales:
 
-- $\mathcal{X}_2 = [\hspace{0.1cm} X_1 , .. , X_{j-1}, X_{j+1},.., X_p \hspace{0.1cm}]\\[0.45cm]$
+- $R_1$ es la matriz de correlaciones lineales para la matriz de datos $\mathbb{X}_1\\[0.45cm]$ 
 
-- $\mathcal{X}_3 = [\hspace{0.1cm} X_1,..,X_{j-1},X_{j1},X_{j2},..,X_{j(r-1)}, X_{j+1},.., X_p \hspace{0.1cm}]$
+- $R_2$ es la matriz de correlaciones lineales para la matriz de datos $\mathbb{X}_2\\[0.45cm]$
 
-
-
-
-
-And the following Pearson correlation matrix:
-
-- $R_1$ is the Pearson correlation matrix of $\mathcal{X}_1\\[0.45cm]$ 
-
-- $R_2$ is the Pearson correlation matrix of $\mathcal{X}_2\\[0.45cm]$
-
-- $R_3$ is the Pearson correlation matrix of $\mathcal{X}_3$
+- $R_3$ es la matriz de correlaciones lineales para la matriz de datos $\mathbb{X}_3$
 
 
 <br>
 
 
-Then, $\hspace{0.05cm} GVIF \hspace{0.05cm}$ of $\hspace{0.05cm} X_j \hspace{0.05cm}$ is defined as:
+Entonces, $\hspace{0.05cm} GVIF \hspace{0.05cm}$ of $\hspace{0.05cm} X_j \hspace{0.05cm}$ se define como:
 
 
 
-$$ GVIF(X_j) = det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)} $$ 
+$$GVIF(X_j) = det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)}$$ 
 
- 
+
+
 
 
 
@@ -5506,82 +5502,81 @@ $$ GVIF(X_j) = det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)} $$
 
 
 
-**Criteria: Identification of multicollinearity with $GVIF$**
+**Criterio: Identificación de multicolinealidad con $GVIF$**
 
+En este criterio la cantidad clave es $\hspace{0.2cm} GVIF(X_j)^{1/2 df}$
 
-In this criteria the key quantity is $\hspace{0.2cm} GVIF(X_j)^{1/2 df}$
-
-Where: $\hspace{0.2cm}df\hspace{0.2cm}$ is the number of parameters that enter in the linear regression model when $\hspace{0.2cm} X_j\hspace{0.2cm}$ is added as predictor
-
-
-<br>
-
-- If $\hspace{0.2cm}X_j\hspace{0.2cm}$ is a **quantitative** predictor $\hspace{0.2cm} ( \Rightarrow df=1)$  :
-
-
-
-    - If $\hspace{0.2cm} GVIF(X_j)^{1/2} > \sqrt{10} = 3.16$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **High** multicollinearity $\\[0.45cm]$
-
-    - If $\hspace{0.2cm} GVIF(X_j)^{1/2}  \in [\sqrt{4}, \sqrt{10}]= [2 \hspace{0.1cm},\hspace{0.1cm} 3.16]$    $\hspace{0.2cm}  \Rightarrow\hspace{0.2cm}$ **Medium** multicollinearity $\\[0.45cm]$
-
-
-    - If  $\hspace{0.2cm} GVIF(X_j)^{1/2} < \sqrt{4} = 2$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **Low** multicollinearity
-
+Donde: $\hspace{0.2cm}df\hspace{0.2cm}$ es el número de coeficientes que entran en el modelo de regresión lineal cuando  $\hspace{0.2cm} \mathcal{X}_j\hspace{0.2cm}$ es añadido como predictor.
 
 
 <br>
 
-- If $\hspace{0.2cm}X_j$ is a **categorical** predictor with $2$ categories $\hspace{0.2cm} ( \Rightarrow df=2-1=1)$ 
+- Si $\hspace{0.2cm}\mathcal{X}_j\hspace{0.2cm}$ es un predictor **cuantitativo**  $\hspace{0.1cm} \Rightarrow\hspace{0.1cm} df=1$  :
 
 
 
-    - If $\hspace{0.2cm} GVIF(X_j)^{1/2} > 10^{1/2} = 3.16$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **High** multicollinearity  $\\[0.45cm]$
+    - Si $\hspace{0.2cm} GVIF(X_j)^{1/2} \hspace{0.1cm} > \hspace{0.1cm} \sqrt{10} = 3.16$  $\hspace{0.3cm}\Rightarrow\hspace{0.3cm}$ Multicolinealidad **alta**  $\\[0.45cm]$
 
-    - If $\hspace{0.2cm} GVIF(X_j)^{1/2}  \in [4^{1/2}, 10^{1/2}] = [2 \hspace{0.1cm} , \hspace{0.1cm}  3.16]$    $\hspace{0.2cm}  \Rightarrow\hspace{0.2cm}$ **Medium** multicollinearity  $\\[0.45cm]$
-
-
-    - If  $\hspace{0.2cm} GVIF(X_j)^{1/2} < 4^{1/2} = 2$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **Low** multicollinearity
-
-<br>
-
-- If $X_j$ is a **categorical** predictor with $3$ categories $\hspace{0.2cm} ( \Rightarrow df=3-1=2 )$ :
+    - Si $\hspace{0.2cm} GVIF(X_j)^{1/2}  \in [\sqrt{4}, \sqrt{10}]= [2 \hspace{0.1cm},\hspace{0.1cm} 3.16]$    $\hspace{0.3cm}  \Rightarrow\hspace{0.3cm}$ Multicolinealidad **media**   $\\[0.45cm]$
 
 
-
-    - If $\hspace{0.2cm} GVIF(X_j)^{1/4} > 10^{1/4} = 1.78$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **High** multicollinearity $\\[0.45cm]$
-
-    - If $\hspace{0.2 cm} GVIF(X_j)^{1/4}  \in [4^{1/4}, 10^{1/4}] = [1.41 \hspace{0.1cm} , \hspace{0.1cm}  1.78]$    $\hspace{0.2cm}  \Rightarrow\hspace{0.2cm}$ **Medium** multicollinearity $\\[0.45cm]$
-
-
-    - If  $\hspace{0.2cm} GVIF(X_j)^{1/4} < 4^{1/4} = 1.41$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **Low** multicollinearity
-
-<br>
-
-- If $\hspace{0.2cm}X_j\hspace{0.2cm}$ is a **categorical** predictor with $4$ categories $(\hspace{0.2cm} \Rightarrow df=4-1=3 )$ 
-
-
-
-    - If $\hspace{0.2cm} GVIF(X_j)^{1/6} > 10^{1/6} = 1.47$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **High** multicollinearity $\\[0.45cm]$
-
-    - If $\hspace{0.2cm} GVIF(X_j)^{1/6}  \in [4^{1/6}, 10^{1/6}] = [1.26 \hspace{0.1cm} , \hspace{0.1cm}  1.47]$    $\hspace{0.2cm}  \Rightarrow\hspace{0.2cm}$ **Medium** multicollinearity $\\[0.45cm]$
-
-
-    - If  $\hspace{0.2cm} GVIF(X_j)^{1/6} < 4^{1/6} = 1.26$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **Low** multicollinearity
+    - Si  $\hspace{0.2cm} GVIF(X_j)^{1/2}  \hspace{0.1cm}< \hspace{0.1cm} \sqrt{4} = 2$  $\hspace{0.3cm}\Rightarrow\hspace{0.3cm}$ Multicolinealidad **baja** 
 
 
 
 <br>
 
-- If $\hspace{0.2cm}X_j\hspace{0.2cm}$ is a **categorical** predictor with $r$ categories $(\hspace{0.2cm} \Rightarrow df=r-1 )$ :
+- Si $\hspace{0.2cm}X_j\hspace{0.2cm}$ es un predictor **categórico** con $2$ categorias $\hspace{0.2cm} \Rightarrow \hspace{0.2cm} df=2-1=1$ 
 
 
 
-    - If $\hspace{0.2cm} GVIF(X_j)^{1/(2(r-1))} > 10^{1/(2(r-1))}$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **High** multicollinearity $\\[0.45cm]$
+    - Si $\hspace{0.2cm} GVIF(X_j)^{1/2} \hspace{0.1cm}>\hspace{0.1cm} 10^{1/2} = 3.16$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ Multicolinealidad **alta**    $\\[0.45cm]$
 
-    - If $\hspace{0.2cm} GVIF(X_j)^{1/(2(r-1))}  \in [4^{1/(2(r-1))}, 10^{1/(2(r-1))}]$    $\hspace{0.2cm}  \Rightarrow\hspace{0.2cm}$ **Medium** multicollinearity $\\[0.45cm]$
+    - If $\hspace{0.2cm} GVIF(X_j)^{1/2}  \in [4^{1/2}, 10^{1/2}] = [2 \hspace{0.1cm} , \hspace{0.1cm}  3.16]$    $\hspace{0.2cm}  \Rightarrow\hspace{0.2cm}$ Multicolinealidad **media** multicollinearity  $\\[0.45cm]$
 
 
-    - If  $\hspace{0.2cm} GVIF(X_j)^{1/(2(r-1))} < 4^{1/(2(r-1))}$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **Low** multicollinearity
+    - If  $\hspace{0.2cm} GVIF(X_j)^{1/2} \hspace{0.1cm}<\hspace{0.1cm} 4^{1/2} = 2$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ Multicolinealidad **baja**  
+
+<br>
+
+- Si $\mathcal{X}_j$ es un predictor **categorico** con $3$ categorias $\hspace{0.2cm} \Rightarrow\hspace{0.2cm} df=3-1=2$ :
+
+
+
+    - Si $\hspace{0.2cm} GVIF(X_j)^{1/4} \hspace{0.1cm}>\hspace{0.1cm} 10^{1/4} = 1.78$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ Multicolinealidad **alta**  $\\[0.45cm]$
+
+    - Si $\hspace{0.2 cm} GVIF(X_j)^{1/4}  \in [4^{1/4}, 10^{1/4}] = [1.41 \hspace{0.1cm} , \hspace{0.1cm}  1.78]$    $\hspace{0.2cm}  \Rightarrow\hspace{0.2cm}$ Multicolinealidad **media** $\\[0.45cm]$
+
+
+    - Si  $\hspace{0.2cm} GVIF(X_j)^{1/4} \hspace{0.1cm}<\hspace{0.1cm} 4^{1/4} = 1.41$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ Multicolinealidad **baja**
+
+<br>
+
+- Si $\hspace{0.2cm}\mathcal{X}_j\hspace{0.2cm}$ es un predictor a **categorico** conh $4$ categorias $\hspace{0.2cm} \Rightarrow\hspace{0.2cm} df=4-1=3$ 
+
+
+
+    - Si $\hspace{0.2cm} GVIF(X_j)^{1/6} \hspace{0.1cm}>\hspace{0.1cm} 10^{1/6} = 1.47$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **High** multicollinearity $\\[0.45cm]$
+
+    - Si $\hspace{0.2cm} GVIF(X_j)^{1/6}  \in [4^{1/6}, 10^{1/6}] = [1.26 \hspace{0.1cm} , \hspace{0.1cm}  1.47]$    $\hspace{0.2cm}  \Rightarrow\hspace{0.2cm}$ **Medium** multicollinearity $\\[0.45cm]$
+
+
+    - Si  $\hspace{0.2cm} GVIF(X_j)^{1/6}\hspace{0.1cm} <\hspace{0.1cm} 4^{1/6} = 1.26$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **Low** multicollinearity
+
+
+
+<br>
+
+- Si $\hspace{0.2cm}X_j\hspace{0.2cm}$ es un predictor categorico con  $r$ categorias $\hspace{0.2cm} \Rightarrow\hspace{0.2cm} df=r-1$ :
+
+
+
+    - Si $\hspace{0.2cm} GVIF(X_j)^{1/(2(r-1))} \hspace{0.1cm}>\hspace{0.1cm} 10^{1/(2(r-1))}$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ Multicolinealidad **alta**  $\\[0.45cm]$
+
+    - Si $\hspace{0.2cm} GVIF(X_j)^{1/(2(r-1))}  \in [4^{1/(2(r-1))}, 10^{1/(2(r-1))}]$    $\hspace{0.2cm}  \Rightarrow\hspace{0.2cm}$ Multicolinealidad **media** $\\[0.45cm]$
+
+
+    - Si  $\hspace{0.2cm} GVIF(X_j)^{1/(2(r-1))} \hspace{0.1cm}<\hspace{0.1cm} 4^{1/(2(r-1))}$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ Multicolinealidad **baja**
 
 
 
@@ -5594,11 +5589,11 @@ Where: $\hspace{0.2cm}df\hspace{0.2cm}$ is the number of parameters that enter i
 
 
 
-#### Identification of multicollinearity with $GVIF$ in `Python`
+### Identificación de multicolinealidad con GVIF en `Python`
 
 
 
-$GVIF$ for the **categorical** predictor $quality$
+- $GVIF$ para el predictor **categorico** **quality**
 
 
 ```python
@@ -5620,7 +5615,7 @@ GVIF_quality_scaled = GVIF_quality**(1/(2*df_quality))
 
 
 
-$GVIF$ for the rest of **quantitative** predictors
+- $GVIF$ para el resto de predictores **cuantitativos**
 
 
 ```python
@@ -5786,12 +5781,11 @@ GVIF_Python_df
 
 <br>
 
+En este caso todos los predictores cuantitativos tienen un $\hspace{0.1cm} GVIF^{1/2df} < 3.16 \hspace{0.1cm}$, pero el $\hspace{0.1cm} GVIF^{1/2df} \hspace{0.1cm}$ de $\hspace{0.1cm}$ **no\_of\_bathrooms** $\hspace{0.1cm}$ es $\hspace{0.1cm} 2.14 > 2$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm} $  Multicolinealidad **media** 
 
-In this case all the quantitative predictors have $\hspace{0.1cm} GVIF^{1/2df} < 3.16 \hspace{0.1cm}$, but $\hspace{0.1cm} GVIF^{1/2df} \hspace{0.1cm}$ of $\hspace{0.1cm}$ **no\_of\_bathrooms** $\hspace{0.1cm}$ is $\hspace{0.1cm} 2.14 > 2$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm} $  **medium** multicollinearity
+Por otro lado el predictor **quality** tiene $\hspace{0.1cm} GVIF^{1/2df}\hspace{0.1cm} = 1.01 < 1.26$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$  Multicolinealidad **baja** 
 
-On the other hand the 4-ary categorical predictor **quality** has $\hspace{0.1cm} GVIF^{1/2df}\hspace{0.1cm} = 1.01 < 1.26$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm} $  **low** multicollinearity
-
-So using the GVIF method, we can conclude that there is a **medium** multicollinearity between the predictors of the model  $\hspace{0.1cm}$ **price ~ size\_in\_m\_2  + longitude + latitude + no\_of\_bedrooms + no\_of\_bathrooms** $\hspace{0.1cm}$
+Asi que usando el criterio del GVIF, se puede concluir que hay multicolinealidad media en el modelo  $\hspace{0.1cm}$ **price ~ size\_in\_m\_2  + longitude + latitude + no\_of\_bedrooms + no\_of\_bathrooms** $\hspace{0.1cm}$
 
 
 
@@ -5800,7 +5794,10 @@ So using the GVIF method, we can conclude that there is a **medium** multicollin
 
 
 
-## Checking Error Assumptions <a class="anchor" id="68"></a>
+## Incumplimiento de los supuestos de los residuos <a class="anchor" id="68"></a>
+
+
+Recordemos los supuestos que el modelo de regresión lineal impone sobre los residuos:
 
 - $\hspace{0.2cm} \varepsilon_i \sim N(0,\sigma) \hspace{0.5cm} \forall \hspace{0.1cm} i=1,...,n \\[0.35cm]$
   
@@ -5809,8 +5806,11 @@ So using the GVIF method, we can conclude that there is a **medium** multicollin
 
 <br>
 
-### Checking Error Constant Variance <a class="anchor" id="69"></a>
+### Incumplimiento del supuesto de varianza constante de los residuos <a class="anchor" id="69"></a>
 
+No es posible comprobar el suspuesto de varianza constante de los residuos examinando unicamente los residuos, porque algunos serán altos y otros serán bajos, pero esto no prueba nada.
+
+Se necesita comprobar si la varianza de los residuos esta relacionada con alguna otra cantidad, de modo que para ciertos valores de esa cantidad sea mas grande que para otros, y por tanto pueda confirmarse que no es constante.
 It is not possible to check the assumption of constant variance just by examining
 the residuals alone, some will be large and some will be small, but this proves nothing. We need to check whether the variance in the residuals is related to some
 other quantity.
@@ -5843,7 +5843,7 @@ This plot can also provide evidence of nonlinearity between the response variabl
 
 
 
-#### Checking Error Constant Variance in `Python`
+### Checking Error Constant Variance in `Python`
 
 
 ```python
@@ -5877,7 +5877,7 @@ Since we can see a cone shape at the points, we cannot accept the constant error
 
 
 
-### Checking Null Error Mean <a class="anchor" id="70"></a>
+### Incumplimiento del supuesto de media constante de los residuos <a class="anchor" id="70"></a>
 
 We are going to use the typical t-test to verify this assumption.
 
@@ -5896,7 +5896,7 @@ df_predictions_Python['estimated_errors'].mean()
 
 
 
-#### Checking Null Error Mean in `Python`
+### Checking Null Error Mean in `Python`
 
 
 ```python
@@ -5965,13 +5965,13 @@ For any significance level we can accept that the errors mean is zero (0)
 
 
 
-### Checking Error Normality <a class="anchor" id="71"></a>
+### Incumplimiento del supuesto de distribución normal de los residuos  <a class="anchor" id="71"></a>
 
 First we are going to check the error normality assumption using the **histogram method**
 
 &nbsp;
 
-#### Checking Error Normality in `Python` with histogram method
+### Checking Error Normality in `Python` with histogram method
 
 
 ```python
@@ -6004,7 +6004,7 @@ Now we are going to check the error normality assumption using the Shapiro stati
 
 
 
-#### Checking Error Normality in `Python`  with Shapiro test
+### Checking Error Normality in `Python`  with Shapiro test
 
 
 ```python
@@ -6024,7 +6024,7 @@ For any significance level we have to reject the errors normality hypothesis.
 
 
 
-### Checking Null Error Correlation <a class="anchor" id="72"></a>
+### Incumplimiento del supuesto de correlación nula de los residuos  <a class="anchor" id="72"></a>
 
 We are going to check the null error correlation assumption through  the **Durban-Watson test**.
 
@@ -6072,7 +6072,7 @@ The closer the test statistics is to $4$, the more evidence of **negative serial
 
 
 
-#### Durban-Watson test in `Python`
+### Durban-Watson test in `Python`
 
 
 ```python
@@ -6311,7 +6311,7 @@ ggplot(aes(x = 'quality' , y = 'price') , data_Python)
 
 <br>
 
-## Finding Outliers <a class="anchor" id="74"></a>
+##  Datos atípicos: outliers <a class="anchor" id="74"></a>
 
 An outlier is a point that clearly deviates from the relationship between the response and the predictors.
 
