@@ -1631,16 +1631,21 @@ margin-left: 0 !important;
       <li><a href="#contraste-de-significación-para-los-coeficientes-beta" id="toc-contraste-de-significación-para-los-coeficientes-beta"><span class="toc-section-number">15.6</span> Contraste de significación para los coeficientes beta <a class="anchor" id="48"></a></a></li>
       <li><a href="#contraste-de-significación-en-python" id="toc-contraste-de-significación-en-python"><span class="toc-section-number">15.7</span> Contraste de significación en <code>Python</code> <a class="anchor" id="50"></a></a></li>
       <li><a href="#contraste-anova" id="toc-contraste-anova"><span class="toc-section-number">15.8</span> Contraste ANOVA <a class="anchor" id="51"></a></a></li>
-      <li><a href="#prediction-interval-for-response-variable" id="toc-prediction-interval-for-response-variable"><span class="toc-section-number">15.9</span> Prediction Interval for response variable <a class="anchor" id="53.1"></a></a></li>
+      <li><a href="#contraste-anova-en-python" id="toc-contraste-anova-en-python"><span class="toc-section-number">15.9</span> Contraste ANOVA en <code>Python</code> <a class="anchor" id="53"></a></a></li>
+      <li><a href="#intervalo-de-confianza-para-la-media-de-la-predicción-de-la-respuesta" id="toc-intervalo-de-confianza-para-la-media-de-la-predicción-de-la-respuesta"><span class="toc-section-number">15.10</span> Intervalo de confianza para la media de la predicción de la respuesta <a class="anchor" id="53.1"></a></a></li>
+      <li><a href="#intervalo-de-probabilidad-para-la-respuesta" id="toc-intervalo-de-probabilidad-para-la-respuesta"><span class="toc-section-number">15.11</span> Intervalo de probabilidad para la respuesta <a class="anchor" id="53.1"></a></a></li>
+      <li><a href="#intervalo-de-probabilidad-para-la-respuesta-en-python" id="toc-intervalo-de-probabilidad-para-la-respuesta-en-python"><span class="toc-section-number">15.12</span> Intervalo de probabilidad para la respuesta en <code>Python</code> <a class="anchor" id="53.2"></a></a></li>
       </ul></li>
-      <li><a href="#goodness-of-fit-hspace0.1cm-determination-coefficient" id="toc-goodness-of-fit-hspace0.1cm-determination-coefficient"><span class="toc-section-number">16</span> Goodness of Fit: <span class="math inline">\(\hspace{0.1cm}\)</span> Determination Coefficient <a class="anchor" id="54"></a></a>
+      <li><a href="#bondad-de-ajuste-hspace0.1cm-coeficiente-de-determinación" id="toc-bondad-de-ajuste-hspace0.1cm-coeficiente-de-determinación"><span class="toc-section-number">16</span> Bondad de ajuste: <span class="math inline">\(\hspace{0.1cm}\)</span> Coeficiente de determinación <a class="anchor" id="54"></a></a>
       <ul>
-      <li><a href="#determination-coefficient" id="toc-determination-coefficient"><span class="toc-section-number">16.1</span> Determination Coefficient</a></li>
-      <li><a href="#adjusted-determination-coefficient" id="toc-adjusted-determination-coefficient"><span class="toc-section-number">16.2</span> Adjusted Determination Coefficient</a></li>
+      <li><a href="#coeficiente-de-determinación" id="toc-coeficiente-de-determinación"><span class="toc-section-number">16.1</span> Coeficiente de determinación</a></li>
+      <li><a href="#calcular-el-coeficiente-de-determinación-en-python" id="toc-calcular-el-coeficiente-de-determinación-en-python"><span class="toc-section-number">16.2</span> Calcular el coeficiente de determinación en <code>Python</code> <a class="anchor" id="56"></a></a></li>
+      <li><a href="#coeficiente-de-determinación-ajustado" id="toc-coeficiente-de-determinación-ajustado"><span class="toc-section-number">16.3</span> Coeficiente de determinación ajustado</a></li>
+      <li><a href="#calcular-el-coeficiente-de-determinación-ajustado-en-python" id="toc-calcular-el-coeficiente-de-determinación-ajustado-en-python"><span class="toc-section-number">16.4</span> Calcular el coeficiente de determinación ajustado en <code>Python</code> <a class="anchor" id="59"></a></a></li>
       </ul></li>
-      <li><a href="#model-problems" id="toc-model-problems"><span class="toc-section-number">17</span> Model Problems <a class="anchor" id="60"></a></a>
+      <li><a href="#problemas-del-modelo" id="toc-problemas-del-modelo"><span class="toc-section-number">17</span> Problemas del modelo <a class="anchor" id="60"></a></a>
       <ul>
-      <li><a href="#multicollinearity" id="toc-multicollinearity"><span class="toc-section-number">17.1</span> Multicollinearity <a class="anchor" id="61"></a></a></li>
+      <li><a href="#multicolinealidad" id="toc-multicolinealidad"><span class="toc-section-number">17.1</span> Multicolinealidad <a class="anchor" id="61"></a></a></li>
       <li><a href="#checking-error-assumptions" id="toc-checking-error-assumptions"><span class="toc-section-number">17.2</span> Checking Error Assumptions <a class="anchor" id="68"></a></a></li>
       <li><a href="#checking-linear-assumption" id="toc-checking-linear-assumption"><span class="toc-section-number">17.3</span> Checking Linear Assumption <a class="anchor" id="73"></a></a></li>
       <li><a href="#finding-outliers" id="toc-finding-outliers"><span class="toc-section-number">17.4</span> Finding Outliers <a class="anchor" id="74"></a></a></li>
@@ -6144,7 +6149,7 @@ t_{exp | H_0}\hspace{0.1cm}=\hspace{0.1cm}\dfrac{\widehat{\beta}_j - \beta_j^*}{
 <h2><span class="header-section-number">15.6</span> Contraste de significación para los coeficientes beta <a class="anchor" id="48"></a></h2>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
-<p>El contraste de significación para el coeficiente <span class="math inline">\(\beta_j\)</span> es el siguiente: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> El contraste de significación para el coeficiente <span class="math inline">\(\beta_j\)</span> es el siguiente: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[\begin{gather*}
 H_0: \beta_j=0 \\
 H_1: \beta_j \neq 0
@@ -6158,9 +6163,9 @@ H_1: \beta_j \neq 0
 <h3><span class="header-section-number">15.6.1</span> Estadístico del contraste:</h3>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
-<p>El estadístico del contraste es el expuesto previamente, teniendo en cuenta que ahora <span class="math inline">\(\hspace{0.15cm} \beta_j^*=0\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> El estadístico del contraste es el expuesto previamente, teniendo en cuenta que ahora <span class="math inline">\(\hspace{0.15cm} \beta_j^*=0\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[\begin{gather*}
-t_{exp | H_0}=\dfrac{\hat{\beta}_j - 0}{\sqrt{S_R \cdot q_{jj}}} = \dfrac{\hat{\beta}_j}{\sqrt{\widehat{Var}(\widehat{\beta}_j) }} \sim t_{n-p}
+t_{exp | H_0}=\dfrac{\hat{\beta}_j - 0}{\sqrt{S_R \cdot q_{jj}}} = \dfrac{\hat{\beta}_j}{\sqrt{\widehat{Var}(\widehat{\beta}_j) }} \sim t_{n-p-1}
 \end{gather*}\]</span></p>
 </p>
 </p>
@@ -6172,8 +6177,8 @@ t_{exp | H_0}=\dfrac{\hat{\beta}_j - 0}{\sqrt{S_R \cdot q_{jj}}} = \dfrac{\hat{\
 <h3><span class="header-section-number">15.6.2</span> Regla de decisión</h3>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
-<p>La regla de decisión son las mismas que las expuestas en el contraste anterior.</p>
-<p>En concreto la regla de decisión basada en el p-valor es : <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La regla de decisión son las mismas que las expuestas en el contraste anterior.</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> En concreto la regla de decisión basada en el p-valor es : <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[\begin{gather*}
 \text{Rechazar} \ H_0  \ \Leftrightarrow \ \text{p-valor} &lt; \alpha
 \end{gather*}\]</span></p>
@@ -6318,7 +6323,7 @@ H_1: \beta_{lo} \neq 0 \\
 <h2><span class="header-section-number">15.8</span> Contraste ANOVA <a class="anchor" id="51"></a></h2>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
-<p>El contraste ANOVA, también llamado <strong>test de significación global del modelo</strong>, es el siguiente: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> El contraste ANOVA, también llamado <strong>test de significación global del modelo</strong>, es el siguiente: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[\begin{gather*}
 \hspace{-1 cm} H_0: \hspace{0.15cm} \beta_1=\dots =\beta_p=0 \\
 H_1: \hspace{0.15cm} \exists \ j=1,...,p , \hspace{0.2cm} \beta_j \neq 0
@@ -6400,25 +6405,32 @@ F_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{(TSS-RSS)/p}{RSS/(n-p-1)} \hspa
 <p><span class="math inline">\(H_0\hspace{0.1cm}\)</span> es rechazado cuando <span class="math inline">\(\hspace{0.1cm}F_{exp|H_0}\hspace{0.1cm}\)</span> es suficientemente grande, esto es, cuando <span class="math inline">\(\hspace{0.1cm}RegSS\hspace{0.1cm}\)</span> es suficiente grande comparado con <span class="math inline">\(\hspace{0.1cm}RSS\)</span></p>
 <p><br></p>
 </div>
-<div id="decision-rule" class="section level3" number="15.8.2">
-<h3><span class="header-section-number">15.8.2</span> Decision Rule</h3>
+<div id="regla-de-decisión-2" class="section level3" number="15.8.2">
+<h3><span class="header-section-number">15.8.2</span> Regla de decisión</h3>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
 <ul>
-<li>Based on statistic test:</li>
+<li><em>Basada en el estadístico del contraste</em></li>
 </ul>
 <p><span class="math display">\[\begin{gather*}
-Reject \ H_0 \ \Leftrightarrow \ F_{exp|H_0} &gt; F_{\alpha}^{\hspace{0.1cm}p,\hspace{0.05cm} n-p-1}
+\text{Rechazar} \ H_0 \ \Leftrightarrow \ F_{exp|H_0} &gt; F_{\alpha}^{\hspace{0.1cm}p,\hspace{0.05cm} n-p-1}
 \end{gather*}\]</span></p>
 <ul>
-<li>Based on p-value:</li>
+<li><em>Basada en el p-valor</em></li>
 </ul>
 <p><span class="math display">\[\begin{gather*}
-Reject \ H_0  \ \Leftrightarrow \ pvalue &lt; \alpha
+\text{Rechazar} \ H_0  \ \Leftrightarrow \ \text{p-valor} &lt; \alpha
 \end{gather*}\]</span></p>
-<p> </p>
+</p>
+</p>
+<p></span></p>
 </div>
-<div id="anova-test-in-python" class="section level3" number="15.8.3">
-<h3><span class="header-section-number">15.8.3</span> ANOVA test in <code>Python</code> <a class="anchor" id="53"></a></h3>
-<p>The value of <span class="math inline">\(\hspace{0.1cm} F_{exp|H_0}\)</span> and also the p-value of the ANOVA test could be found in the output obtained with <code>print(model_Python_1.summary())</code></p>
+<p><br></p>
+</div>
+</div>
+<div id="contraste-anova-en-python" class="section level2" number="15.9">
+<h2><span class="header-section-number">15.9</span> Contraste ANOVA en <code>Python</code> <a class="anchor" id="53"></a></h2>
+<p>El valor del estadístico del contraste <span class="math inline">\(\hspace{0.1cm} F_{exp|H_0}\)</span> y también el p-valor del contraste pueden ser encontrados en la salida obtenida con el comando <code>print(model_Python_1.summary())</code></p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model_Py_sm.summary())</span></code></pre></div>
 <pre><code>                            OLS Regression Results                            
 ==============================================================================
@@ -6455,27 +6467,69 @@ Notes:
 [2] The condition number is large, 1.34e+05. This might indicate that there are
 strong multicollinearity or other numerical problems.</code></pre>
 <p><br></p>
-<p>We have got the following:</p>
-<p><br></p>
-<p><span class="math display">\[F_{exp|H_0} = 547.4 \hspace{0.5cm} \text{(F-statistic)}\]</span></p>
-<p><span class="math display">\[pvalue \simeq 0 \hspace{0.5cm} \text{(Prob (F-statistic))}\]</span></p>
-<p><br></p>
-<p>So for any <span class="math inline">\(\hspace{0.1cm} \alpha &gt; 0 \hspace{0.1cm}\)</span> we can reject <span class="math inline">\(\hspace{0.1cm} H_0: \hspace{0.05cm} \beta_1=\dots =\beta_p=0 \hspace{0.15cm}\)</span>, so we can affirm the model is globally significant</p>
+<p>Tenemos lo siguiente: <span class="math inline">\(\\[0.5cm]\)</span>
+<br></p>
+<ul>
+<li><p><span class="math inline">\(F_{exp|H_0} = 547.4 \\\)</span></p></li>
+<li><p><span class="math inline">\(\text{p-valor} \simeq 0 \\\)</span></p></li>
+</ul>
+<p>Así que para cualquier <span class="math inline">\(\hspace{0.1cm} \alpha &gt; 0 \hspace{0.1cm}\)</span> podemos rechazar <span class="math inline">\(\hspace{0.15cm} H_0: \hspace{0.05cm} \beta_1=\dots =\beta_p=0 \hspace{0.15cm}\)</span>, en favor de <span class="math inline">\(\hspace{0.15cm} H_1 : \exists \ j=1,...,p , \hspace{0.2cm} \beta_j \neq 0\hspace{0.15cm}\)</span> , así que podemos aceptar que el modelo es globalmente significativo.</p>
 <p> </p>
 </div>
+<div id="intervalo-de-confianza-para-la-media-de-la-predicción-de-la-respuesta" class="section level2" number="15.10">
+<h2><span class="header-section-number">15.10</span> Intervalo de confianza para la media de la predicción de la respuesta <a class="anchor" id="53.1"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Se cumple lo siguiente: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\hat{y}_i \hspace{0.1cm}=\hspace{0.1cm} x_i^t \cdot \widehat{\beta} \hspace{0.15cm} \sim \hspace{0.15cm} N \left( \hspace{0.1cm} x_i^t \cdot \beta \hspace{0.25cm},\hspace{0.25cm} \sigma^2 \cdot v_{hh} \hspace{0.1cm} \right) \\[0.7cm]\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
+<p><span class="math display">\[v_{hh}=x_i^t \cdot (X^t \cdot X)^{-1} \cdot x_i \\\]</span></p>
+<p><span class="math display">\[E[\hat{y}_i ] = x_i^t \cdot \beta\\\]</span></p>
+<p><span class="math display">\[Var(\hat{y}_i) = \sigma^2 \cdot v_{hh}\\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Por tanto:</p>
+<p><span class="math display">\[\dfrac{\hat{y}_i - E[\hat{y}_i ]}{\sqrt{\widehat{Var}(\hat{y}_i) }} \hspace{0.1cm} =\hspace{0.1cm}  \dfrac{\hat{y}_i -  x_i^t \cdot \beta }{\sqrt{\hat{\sigma}^2 \cdot v_{hh}}} \hspace{0.1cm} \sim \hspace{0.1cm} t_{n-p-1}\]</span></p>
+<p><br></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Podemos usar la anterior expresion como cantidad pivotal para construir el siguiente intervalo de confianza para un nivel <span class="math inline">\(1-\alpha \\\)</span></p>
+<p><span class="math display">\[\hspace{0.45cm} IP\left( \hspace{0.05cm} E[\hat{y}_i ] \hspace{0.05cm} \right)_{1-\alpha}\hspace{0.1cm} =\hspace{0.1cm}IP\left( \hspace{0.05cm} x_i^t \cdot \beta \hspace{0.05cm} \right)_{1-\alpha}\hspace{0.1cm} =\hspace{0.1cm} \left[\hspace{0.15cm} \hat{y}_i  \hspace{0.15cm}\pm\hspace{0.15cm} t_{\alpha/2}^{n-p-1} \cdot \sqrt{ \widehat{\sigma}^2 \cdot v_{hh} } \hspace{0.15cm} \right]\]</span></p>
+</p>
+</p>
+<p></span></p>
 </div>
-<div id="prediction-interval-for-response-variable" class="section level2" number="15.9">
-<h2><span class="header-section-number">15.9</span> Prediction Interval for response variable <a class="anchor" id="53.1"></a></h2>
-<p>We have that</p>
 <p><br></p>
-<p><span class="math display">\[\hat{y}_i \hspace{0.1cm}=\hspace{0.1cm} x_i^t \cdot \widehat{\beta} \hspace{0.1cm} \sim \hspace{0.1cm} N \left( \hspace{0.1cm} E[\hspace{0.1cm} \hat{y}_i \hspace{0.1cm}] \hspace{0.25cm},\hspace{0.25cm} \sigma^2 \cdot (1 + x_i^t \cdot (X^t \cdot X)^{-1} \cdot x_i ) \hspace{0.1cm} \right)\]</span></p>
+</div>
+<div id="intervalo-de-probabilidad-para-la-respuesta" class="section level2" number="15.11">
+<h2><span class="header-section-number">15.11</span> Intervalo de probabilidad para la respuesta <a class="anchor" id="53.1"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Se cumple lo siguiente: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[y_i  \hspace{0.15cm} \sim \hspace{0.15cm} N \left( \hspace{0.1cm} x_i^t \cdot \beta \hspace{0.25cm},\hspace{0.25cm} \sigma^2  \hspace{0.1cm} \right) \\[0.7cm]\]</span></p>
+<p><span class="math display">\[\hat{y}_i \hspace{0.1cm}=\hspace{0.1cm} x_i^t \cdot \widehat{\beta} \hspace{0.15cm} \sim \hspace{0.15cm} N \left( \hspace{0.1cm} x_i^t \cdot \beta \hspace{0.25cm},\hspace{0.25cm} \sigma^2 \cdot v_{hh} \hspace{0.1cm} \right) \\[0.7cm]\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
+<p><span class="math display">\[v_{hh}=x_i^t \cdot (X^t \cdot X)^{-1} \cdot x_i \\\]</span></p>
+<p><span class="math display">\[E[y_i ] = E[\hat{y}_i ] = x_i^t \cdot \beta\\\]</span></p>
+<p><span class="math display">\[Var(y_i) = \sigma^2 \\\]</span></p>
+<p><span class="math display">\[Var(\hat{y}_i) = \sigma^2 \cdot v_{hh}\\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Por tanto, se tiene lo siguiente:</p>
+<p><span class="math display">\[y_i - \hat{y}_i \sim N(0 , \sigma^2 \cdot (1 + v_{hh}))\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
+<p><span class="math display">\[E[y_i - \hat{y}_i] = 0\]</span></p>
+<p><span class="math display">\[Var(y_i - \hat{y}_i) = \sigma^2 \cdot (1 + v_{hh})\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Así que, se tiene la siguiente cantidad pivotal:</p>
+<p><span class="math display">\[\dfrac{ ( y_i - \hat{y}_i ) - E[y_i - \hat{y}_i]}{\sqrt{\widehat{Var}(y_i - \hat{y}_i ) }} \hspace{0.1cm} =\hspace{0.1cm}  \dfrac{y_i - \hat{y}_i }{\sqrt{\hat{\sigma}^2 \cdot (1 +  v_{hh} ) }} \hspace{0.1cm} \sim \hspace{0.1cm} t_{n-p-1}\]</span></p>
 <p><br></p>
-<p>Using that we can get the following probability interval for <span class="math inline">\(y_i\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Podemos usar la anterior expresión como cantidad pivotal para construir el siguiente intervalo de confianza para un nivel <span class="math inline">\(1-\alpha \\\)</span></p>
+<p><span class="math display">\[\hspace{0.25cm} IP\left( \hspace{0.05cm} y_i \hspace{0.05cm} \right)_{1-\alpha}\hspace{0.1cm} =\hspace{0.1cm} \left[\hspace{0.15cm} \hat{y}_i  \hspace{0.15cm}\pm\hspace{0.15cm} t_{\alpha/2}^{n-p-1} \cdot \sqrt{ \widehat{\sigma}^2 \cdot (1 + v_{hh} ) } \hspace{0.15cm} \right] \]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
-<p><span class="math display">\[ PI(y_i)_{1-\alpha}\hspace{0.1cm} =\hspace{0.1cm} \left[\hspace{0.15cm} \hat{y}_i  \hspace{0.15cm}\pm\hspace{0.15cm} t_{\alpha/2}^{n-p-1} \cdot \sqrt{ \widehat{\sigma}^2 \cdot \left( 1 + x_i^t \cdot (X^t \cdot X)^{-1} \cdot x_i \right) } \hspace{0.15cm} \right] \]</span></p>
+<p><strong>Observación:</strong></p>
+<p>En el intervalo anterior <span class="math inline">\(y_i\)</span> es considerada una variable aleatroria y no un parámetro, por tanto no se puede hablar de intervalo de confianza para <span class="math inline">\(y_i\)</span>, por eso se habla de intervalo de probabilidad, porque al ser <span class="math inline">\(y_i\)</span> una v.a. si se puede hablar de que la probabilidad de que <span class="math inline">\(y_i\)</span> caiga en el intervalo es <span class="math inline">\(1-\alpha\)</span></p>
 <p><br></p>
-<div id="prediction-interval-for-hspace0.1cm-y_i-in-python" class="section level3" number="15.9.1">
-<h3><span class="header-section-number">15.9.1</span> Prediction Interval for <span class="math inline">\(\hspace{0.1cm} y_i\)</span> in <code>Python</code> <a class="anchor" id="53.2"></a></h3>
+</div>
+<div id="intervalo-de-probabilidad-para-la-respuesta-en-python" class="section level2" number="15.12">
+<h2><span class="header-section-number">15.12</span> Intervalo de probabilidad para la respuesta en <code>Python</code> <a class="anchor" id="53.2"></a></h2>
 <div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> data_Python[[<span class="st">&#39;price&#39;</span>]]</span>
 <span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> data_Python[[<span class="st">&#39;size_in_m_2&#39;</span>, <span class="st">&#39;longitude&#39;</span>, <span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;no_of_bedrooms&#39;</span>, <span class="st">&#39;no_of_bathrooms&#39;</span>, <span class="st">&#39;quality&#39;</span>]]</span>
@@ -6738,54 +6792,69 @@ Prob_Interval_upper
 <p> </p>
 </div>
 </div>
-</div>
-<div id="goodness-of-fit-hspace0.1cm-determination-coefficient" class="section level1" number="16">
-<h1><span class="header-section-number">16</span> Goodness of Fit: <span class="math inline">\(\hspace{0.1cm}\)</span> Determination Coefficient <a class="anchor" id="54"></a></h1>
-<div id="determination-coefficient" class="section level2" number="16.1">
-<h2><span class="header-section-number">16.1</span> Determination Coefficient</h2>
-<p>The determination coefficient, also called R-square, is defined as:</p>
+<div id="bondad-de-ajuste-hspace0.1cm-coeficiente-de-determinación" class="section level1" number="16">
+<h1><span class="header-section-number">16</span> Bondad de ajuste: <span class="math inline">\(\hspace{0.1cm}\)</span> Coeficiente de determinación <a class="anchor" id="54"></a></h1>
+<div id="coeficiente-de-determinación" class="section level2" number="16.1">
+<h2><span class="header-section-number">16.1</span> Coeficiente de determinación</h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> El coeficiente de determinación, denotado por <span class="math inline">\(R^2\)</span> , es definido como: <span class="math inline">\(\\[0.7cm]\)</span></p>
 <p><span class="math display">\[\begin{gather*}
 R^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{RegSS}{TSS} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{TSS-RSS}{TSS} \hspace{0.1cm}=\hspace{0.1cm} 1 - \dfrac{RSS}{TSS}
 \end{gather*}\]</span></p>
-<p><br></p>
-<p><strong>Properties</strong></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<br>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Propiedades:</strong></p>
 <ul>
-<li><p><span class="math inline">\(R^2\)</span> is the proportion of total variance of the response
-variable <span class="math inline">\(Y\)</span> that is explained by the model using <span class="math inline">\(X \\\)</span></p></li>
+<li><p><span class="math inline">\(R^2\)</span> es la proporción de varianza total de la respuesta que es explicada por el modelo a través de los predictores <span class="math inline">\(\\[0.6cm]\)</span></p></li>
 <li><p><span class="math inline">\(R^2 \in \left[ 0 , 1 \right]\)</span></p></li>
 </ul>
-<p>For this reason <span class="math inline">\(\hspace{0.1cm}R^2\hspace{0.1cm}\)</span> is used as a measure of how well the model fits the
-response variable .</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Por esta razón <span class="math inline">\(\hspace{0.1cm}R^2\hspace{0.1cm}\)</span> es usado como una medida de como de bien el modelo se ajusta a la variable respuesta.</p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
-<p><strong>Interpretation</strong></p>
-<p>The interpretation of <span class="math inline">\(\hspace{0.1cm}R^2\hspace{0.1cm}\)</span> is the following:</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Interpretación:</strong></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span>La interpretación de <span class="math inline">\(\hspace{0.1cm}R^2\hspace{0.1cm}\)</span> es la siguiente:</p>
 <ul>
-<li><p>If <span class="math inline">\(\hspace{0.1cm}R^2\hspace{0.1cm}\)</span> is close to <span class="math inline">\(1\)</span>, indicates good fit of model to the response
-variable data <span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p>If <span class="math inline">\(\hspace{0.1cm}R^2\hspace{0.1cm}\)</span> is clode to <span class="math inline">\(0\)</span>, indicates bad fit of model to the response
-variable data</p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.1cm}R^2\hspace{0.1cm}\)</span> está cerca de <span class="math inline">\(1\)</span>, esto indica que el modelo se ajusta bien a los datos de la respuesta. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.1cm}R^2\hspace{0.1cm}\)</span> está cerca de <span class="math inline">\(0\)</span>, esto indica que el modelo se ajusta mal a los datos de la respuesta.</p></li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p> </p>
-<div id="computing-r2-in-python" class="section level3" number="16.1.1">
-<h3><span class="header-section-number">16.1.1</span> Computing <span class="math inline">\(R^2\)</span> in <code>Python</code> <a class="anchor" id="56"></a></h3>
-<p>The value of <span class="math inline">\(\hspace{0.1cm} R^2\)</span> could be found in the output obtained with <code>print(model_Py_smf.summary())</code></p>
+</div>
+<div id="calcular-el-coeficiente-de-determinación-en-python" class="section level2" number="16.2">
+<h2><span class="header-section-number">16.2</span> Calcular el coeficiente de determinación en <code>Python</code> <a class="anchor" id="56"></a></h2>
+<p>El valor de <span class="math inline">\(\hspace{0.1cm} R^2\)</span> puede ser encontrado en la salida obtenida con el comando <code>print(model_Py_smf.summary())</code></p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>model_Py_smf.rsquared</span></code></pre></div>
 <pre><code>0.6978674339747218</code></pre>
-<p>We can compute <span class="math inline">\(R^2\)</span> with <code>sk-learn</code> as follows:</p>
+<p>También podemos calcular <span class="math inline">\(R^2\)</span> con <code>sk-learn</code> como sigue:</p>
 <div class="sourceCode" id="cb87"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>Model_Py_sklearn.score(X, y)</span></code></pre></div>
 <pre><code>0.6978674339747218</code></pre>
-<p>We have got the following:</p>
+<p>Se obtiene lo siguiente:</p>
 <p><span class="math display">\[ R^2 = 0.698\]</span></p>
-<p> </p>
+<p><br></p>
 </div>
-</div>
-<div id="adjusted-determination-coefficient" class="section level2" number="16.2">
-<h2><span class="header-section-number">16.2</span> Adjusted Determination Coefficient</h2>
-<p><span class="math inline">\(R^2\)</span> has several problems.</p>
-<p><span class="math inline">\(1.\)</span> <span class="math inline">\(\hspace{0.2cm} R^2\)</span> always increase when increase the number of predictors,
-although they are not significative.</p>
-<p><span class="math inline">\(2.\hspace{0.2cm}\)</span> It´s possible estimate two models with the same prediction power but
-with different <span class="math inline">\(\hspace{0.1cm}R^2\)</span></p>
+<div id="coeficiente-de-determinación-ajustado" class="section level2" number="16.3">
+<h2><span class="header-section-number">16.3</span> Coeficiente de determinación ajustado</h2>
+<p>El <span class="math inline">\(R^2\)</span> tiene algunos problemas.</p>
+<ul>
+<li><p><span class="math inline">\(\hspace{0.1cm} R^2\)</span> always increase when increase the number of predictors,
+although they are not significative.</p></li>
+<li><p>It´s possible estimate two models with the same prediction power but
+with different <span class="math inline">\(\hspace{0.1cm}R^2\)</span></p></li>
+</ul>
 <p><br></p>
 <p>For avoid the disadvantages of <span class="math inline">\(\hspace{0.1cm}R^2\hspace{0.1cm}\)</span> was created the adjusted <span class="math inline">\(\hspace{0.1cm}R^2\hspace{0.1cm}\)</span> ,
 denoted as <span class="math inline">\(\widehat{R^2}\)</span>, and defined as:</p>
@@ -6796,22 +6865,22 @@ denoted as <span class="math inline">\(\widehat{R^2}\)</span>, and defined as:</
 <p><br></p>
 <p>This metric doesn’t grow when including irrelevant predictors, because if <span class="math inline">\(\hspace{0.1cm} RSS\hspace{0.1cm}\)</span> is small because of <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> is large, then <span class="math inline">\(\hspace{0.1cm}1/(n-p-1)\hspace{0.1cm}\)</span> will be large compensating the <span class="math inline">\(\hspace{0.1cm}RSS\hspace{0.1cm}\)</span> value</p>
 <p> </p>
-<div id="computing-widehatr2-in-python" class="section level3" number="16.2.1">
-<h3><span class="header-section-number">16.2.1</span> Computing <span class="math inline">\(\widehat{R}^2\)</span> in <code>Python</code> <a class="anchor" id="59"></a></h3>
-<p>The value of <span class="math inline">\(\hspace{0.1cm} \widehat{R^2}\)</span> could be found in the output obtained with <code>print(model_Py_smf.summary())</code></p>
+</div>
+<div id="calcular-el-coeficiente-de-determinación-ajustado-en-python" class="section level2" number="16.4">
+<h2><span class="header-section-number">16.4</span> Calcular el coeficiente de determinación ajustado en <code>Python</code> <a class="anchor" id="59"></a></h2>
+<p>El valor de <span class="math inline">\(\hspace{0.1cm} \widehat{R^2}\)</span> puede ser encontrado en la salida obtenida al ejecutar la sentencia <code>print(model_Py_smf.summary())</code></p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>model_Py_smf.rsquared_adj</span></code></pre></div>
 <pre><code>0.6965926130210287</code></pre>
-<p>We have got the following:</p>
+<p>Hemos obtenido lo siguiente:</p>
 <p><span class="math display">\[ \widehat{R^2} = 0.697\]</span></p>
 <p> </p>
 <p><br></p>
 </div>
 </div>
-</div>
-<div id="model-problems" class="section level1" number="17">
-<h1><span class="header-section-number">17</span> Model Problems <a class="anchor" id="60"></a></h1>
-<div id="multicollinearity" class="section level2" number="17.1">
-<h2><span class="header-section-number">17.1</span> Multicollinearity <a class="anchor" id="61"></a></h2>
+<div id="problemas-del-modelo" class="section level1" number="17">
+<h1><span class="header-section-number">17</span> Problemas del modelo <a class="anchor" id="60"></a></h1>
+<div id="multicolinealidad" class="section level2" number="17.1">
+<h2><span class="header-section-number">17.1</span> Multicolinealidad <a class="anchor" id="61"></a></h2>
 <p>Multicollinearity problem happens when some of the predictors are lineary dependients.</p>
 <p><strong>Why multicollinearity is a problem ?</strong></p>
 <ol style="list-style-type: decimal">

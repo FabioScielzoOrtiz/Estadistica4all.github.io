@@ -3920,6 +3920,11 @@ Para un nivel de significación fijado $\hspace{0.1cm}\alpha \\$
 </div>
 
 
+
+
+
+
+
 <br>
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -3996,7 +4001,7 @@ Para un nivel de significación fijado $\hspace{0.1cm}\alpha \\$
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-El contraste de significación para el coeficiente $\beta_j$ es el siguiente: $\\[0.5cm]$
+$\hspace{0.25cm}$ El contraste de significación para el coeficiente $\beta_j$ es el siguiente: $\\[0.5cm]$
 
 \begin{gather*}
 H_0: \beta_j=0 \\
@@ -4017,12 +4022,12 @@ H_1: \beta_j \neq 0
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-El estadístico del contraste es el expuesto previamente, teniendo en cuenta que ahora $\hspace{0.15cm} \beta_j^*=0$ $\\[0.5cm]$
+$\hspace{0.25cm}$ El estadístico del contraste es el expuesto previamente, teniendo en cuenta que ahora $\hspace{0.15cm} \beta_j^*=0$ $\\[0.5cm]$
 
  
 
 \begin{gather*}
-t_{exp | H_0}=\dfrac{\hat{\beta}_j - 0}{\sqrt{S_R \cdot q_{jj}}} = \dfrac{\hat{\beta}_j}{\sqrt{\widehat{Var}(\widehat{\beta}_j) }} \sim t_{n-p}
+t_{exp | H_0}=\dfrac{\hat{\beta}_j - 0}{\sqrt{S_R \cdot q_{jj}}} = \dfrac{\hat{\beta}_j}{\sqrt{\widehat{Var}(\widehat{\beta}_j) }} \sim t_{n-p-1}
 \end{gather*}
  
 </p>
@@ -4038,9 +4043,9 @@ t_{exp | H_0}=\dfrac{\hat{\beta}_j - 0}{\sqrt{S_R \cdot q_{jj}}} = \dfrac{\hat{\
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-La regla de decisión son las mismas que las expuestas en el contraste anterior.
+$\hspace{0.25cm}$ La regla de decisión son las mismas que las expuestas en el contraste anterior.
 
-En concreto la regla de decisión basada en el p-valor es : $\\[0.5cm]$
+$\hspace{0.25cm}$ En concreto la regla de decisión basada en el p-valor es : $\\[0.5cm]$
 
  
 \begin{gather*}
@@ -4256,7 +4261,7 @@ H_1: \beta_{lo} \neq 0 \\
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-El contraste ANOVA, también llamado **test de significación global del modelo**, es el siguiente: $\\[0.5cm]$
+$\hspace{0.25cm}$ El contraste ANOVA, también llamado **test de significación global del modelo**, es el siguiente: $\\[0.5cm]$
 
 
 \begin{gather*}
@@ -4278,6 +4283,7 @@ H_1: \hspace{0.15cm} \exists \ j=1,...,p , \hspace{0.2cm} \beta_j \neq 0
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span> 
+
 
 $\hspace{0.25cm}$ Para definir el estadistico del contraste primero tenemos que definir algunos elementos: $\\[0.7cm]$
 
@@ -4391,34 +4397,42 @@ $H_0\hspace{0.1cm}$ es rechazado cuando  $\hspace{0.1cm}F_{exp|H_0}\hspace{0.1cm
 
 
 
-### Decision Rule
+### Regla de decisión 
 
- 
 
--   Based on statistic test:
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span> 
 
- 
-\begin{gather*}
-Reject \ H_0 \ \Leftrightarrow \ F_{exp|H_0} > F_{\alpha}^{\hspace{0.1cm}p,\hspace{0.05cm} n-p-1}
-\end{gather*}
- 
--   Based on p-value:
+-   *Basada en el estadístico del contraste*
 
  
 \begin{gather*}
-Reject \ H_0  \ \Leftrightarrow \ pvalue < \alpha
+\text{Rechazar} \ H_0 \ \Leftrightarrow \ F_{exp|H_0} > F_{\alpha}^{\hspace{0.1cm}p,\hspace{0.05cm} n-p-1}
+\end{gather*}
+ 
+-   *Basada en el p-valor*
+
+ 
+\begin{gather*}
+\text{Rechazar} \ H_0  \ \Leftrightarrow \ \text{p-valor} < \alpha
 \end{gather*}
  
 
+</p>
+ 
+</p></span>
+</div>
 
 
 
-&nbsp;
 
 
-### ANOVA test in `Python`  <a class="anchor" id="53"></a>
+<br>
 
-The value of $\hspace{0.1cm} F_{exp|H_0}$ and also the p-value of the ANOVA test could be found in the output obtained with `print(model_Python_1.summary())`
+
+## Contraste ANOVA en `Python`  <a class="anchor" id="53"></a>
+
+El valor del estadístico del contraste $\hspace{0.1cm} F_{exp|H_0}$ y también el p-valor del contraste pueden ser encontrados en la salida obtenida con el comando `print(model_Python_1.summary())`
 
 
 ```python
@@ -4463,18 +4477,15 @@ print(model_Py_sm.summary())
 
 <br>
 
-We have got the following:
-
+Tenemos lo siguiente: $\\[0.5cm]$
 <br>
 
-$$F_{exp|H_0} = 547.4 \hspace{0.5cm} \text{(F-statistic)}$$ 
+- $F_{exp|H_0} = 547.4 \\$ 
 
-$$pvalue \simeq 0 \hspace{0.5cm} \text{(Prob (F-statistic))}$$
+- $\text{p-valor} \simeq 0 \\$
 
 
-<br> 
-
-So for any $\hspace{0.1cm} \alpha > 0 \hspace{0.1cm}$ we can reject $\hspace{0.1cm}  H_0:   \hspace{0.05cm} \beta_1=\dots =\beta_p=0  \hspace{0.15cm}$, so we can affirm the model is globally significant 
+Así que para cualquier $\hspace{0.1cm} \alpha > 0 \hspace{0.1cm}$ podemos rechazar $\hspace{0.15cm}  H_0:   \hspace{0.05cm} \beta_1=\dots =\beta_p=0  \hspace{0.15cm}$, en favor de $\hspace{0.15cm} H_1 :  \exists \ j=1,...,p , \hspace{0.2cm} \beta_j \neq 0\hspace{0.15cm}$  , así que podemos aceptar que el modelo es globalmente significativo. 
 
 
 
@@ -4483,22 +4494,101 @@ So for any $\hspace{0.1cm} \alpha > 0 \hspace{0.1cm}$ we can reject $\hspace{0.1
 
 
 
-## Prediction Interval for response variable <a class="anchor" id="53.1"></a>
+## Intervalo de confianza para la media de la predicción de la respuesta <a class="anchor" id="53.1"></a>
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span> 
+
+$\hspace{0.25cm}$ Se cumple lo siguiente: $\\[0.5cm]$
+
+ $$\hat{y}_i \hspace{0.1cm}=\hspace{0.1cm} x_i^t \cdot \widehat{\beta} \hspace{0.15cm} \sim \hspace{0.15cm} N \left( \hspace{0.1cm} x_i^t \cdot \beta \hspace{0.25cm},\hspace{0.25cm} \sigma^2 \cdot v_{hh} \hspace{0.1cm} \right) \\[0.7cm]$$
+ 
+$\hspace{0.25cm}$ Donde:  
+
+ $$v_{hh}=x_i^t \cdot (X^t \cdot X)^{-1} \cdot x_i \\$$
+
+ $$E[\hat{y}_i ] = x_i^t \cdot \beta\\$$
+
+ $$Var(\hat{y}_i) = \sigma^2 \cdot v_{hh}\\$$
 
 
-We have that
+$\hspace{0.25cm}$ Por tanto:
+
+$$\dfrac{\hat{y}_i - E[\hat{y}_i ]}{\sqrt{\widehat{Var}(\hat{y}_i) }} \hspace{0.1cm} =\hspace{0.1cm}  \dfrac{\hat{y}_i -  x_i^t \cdot \beta }{\sqrt{\hat{\sigma}^2 \cdot v_{hh}}} \hspace{0.1cm} \sim \hspace{0.1cm} t_{n-p-1}$$
 
 <br>
 
- $$\hat{y}_i \hspace{0.1cm}=\hspace{0.1cm} x_i^t \cdot \widehat{\beta} \hspace{0.1cm} \sim \hspace{0.1cm} N \left( \hspace{0.1cm} E[\hspace{0.1cm} \hat{y}_i \hspace{0.1cm}] \hspace{0.25cm},\hspace{0.25cm} \sigma^2 \cdot (1 + x_i^t \cdot (X^t \cdot X)^{-1} \cdot x_i ) \hspace{0.1cm} \right)$$
+$\hspace{0.25cm}$ Podemos usar la anterior expresion como cantidad pivotal para construir el siguiente intervalo de confianza para un nivel $1-\alpha \\$
+
+ 
+
+$$\hspace{0.45cm} IP\left( \hspace{0.05cm} E[\hat{y}_i ] \hspace{0.05cm} \right)_{1-\alpha}\hspace{0.1cm} =\hspace{0.1cm}IP\left( \hspace{0.05cm} x_i^t \cdot \beta \hspace{0.05cm} \right)_{1-\alpha}\hspace{0.1cm} =\hspace{0.1cm} \left[\hspace{0.15cm} \hat{y}_i  \hspace{0.15cm}\pm\hspace{0.15cm} t_{\alpha/2}^{n-p-1} \cdot \sqrt{ \widehat{\sigma}^2 \cdot v_{hh} } \hspace{0.15cm} \right]$$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
 
 <br>
 
-Using that we  can get the following probability interval for $y_i$
+
+## Intervalo de probabilidad para la respuesta <a class="anchor" id="53.1"></a>
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ Se cumple lo siguiente: $\\[0.5cm]$
+
+ $$y_i  \hspace{0.15cm} \sim \hspace{0.15cm} N \left( \hspace{0.1cm} x_i^t \cdot \beta \hspace{0.25cm},\hspace{0.25cm} \sigma^2  \hspace{0.1cm} \right) \\[0.7cm]$$
+
+ $$\hat{y}_i \hspace{0.1cm}=\hspace{0.1cm} x_i^t \cdot \widehat{\beta} \hspace{0.15cm} \sim \hspace{0.15cm} N \left( \hspace{0.1cm} x_i^t \cdot \beta \hspace{0.25cm},\hspace{0.25cm} \sigma^2 \cdot v_{hh} \hspace{0.1cm} \right) \\[0.7cm]$$
+ 
+$\hspace{0.25cm}$ Donde:  
+
+ $$v_{hh}=x_i^t \cdot (X^t \cdot X)^{-1} \cdot x_i \\$$
+
+ $$E[y_i ] = E[\hat{y}_i ] = x_i^t \cdot \beta\\$$
+
+ $$Var(y_i) = \sigma^2 \\$$
+
+ $$Var(\hat{y}_i) = \sigma^2 \cdot v_{hh}\\$$
+
+
+$\hspace{0.25cm}$ Por tanto, se tiene lo siguiente:
+
+
+$$y_i - \hat{y}_i \sim N(0 , \sigma^2 \cdot (1 + v_{hh}))$$
+
+
+$\hspace{0.25cm}$ Donde:
+
+
+ $$E[y_i - \hat{y}_i] = 0$$
+
+ $$Var(y_i - \hat{y}_i) = \sigma^2 \cdot (1 + v_{hh})$$
+
+
+$\hspace{0.25cm}$ Así que, se tiene la siguiente cantidad pivotal:
+
+
+$$\dfrac{ ( y_i - \hat{y}_i ) - E[y_i - \hat{y}_i]}{\sqrt{\widehat{Var}(y_i - \hat{y}_i ) }} \hspace{0.1cm} =\hspace{0.1cm}  \dfrac{y_i - \hat{y}_i }{\sqrt{\hat{\sigma}^2 \cdot (1 +  v_{hh} ) }} \hspace{0.1cm} \sim \hspace{0.1cm} t_{n-p-1}$$
 
 <br>
 
-$$ PI(y_i)_{1-\alpha}\hspace{0.1cm} =\hspace{0.1cm} \left[\hspace{0.15cm} \hat{y}_i  \hspace{0.15cm}\pm\hspace{0.15cm} t_{\alpha/2}^{n-p-1} \cdot \sqrt{ \widehat{\sigma}^2 \cdot \left( 1 + x_i^t \cdot (X^t \cdot X)^{-1} \cdot x_i \right) } \hspace{0.15cm} \right] $$
+$\hspace{0.25cm}$ Podemos usar la anterior expresión como cantidad pivotal para construir el siguiente intervalo de confianza para un nivel $1-\alpha \\$
+
+
+
+$$\hspace{0.25cm} IP\left( \hspace{0.05cm} y_i \hspace{0.05cm} \right)_{1-\alpha}\hspace{0.1cm} =\hspace{0.1cm} \left[\hspace{0.15cm} \hat{y}_i  \hspace{0.15cm}\pm\hspace{0.15cm} t_{\alpha/2}^{n-p-1} \cdot \sqrt{ \widehat{\sigma}^2 \cdot (1 + v_{hh} ) } \hspace{0.15cm} \right] $$
+
+
+</p>
+ 
+</p></span>
+</div>
 
 
 
@@ -4506,7 +4596,24 @@ $$ PI(y_i)_{1-\alpha}\hspace{0.1cm} =\hspace{0.1cm} \left[\hspace{0.15cm} \hat{y
 
 
 
-### Prediction Interval for $\hspace{0.1cm} y_i$ in `Python` <a class="anchor" id="53.2"></a>
+**Observación:**
+
+En el intervalo anterior $y_i$ es considerada una variable aleatroria y no un parámetro, por tanto no se puede hablar de intervalo de confianza para $y_i$, por eso se habla de intervalo de probabilidad, porque al ser $y_i$ una v.a. si se puede hablar de que la probabilidad de que $y_i$ caiga en el intervalo es $1-\alpha$
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+## Intervalo de probabilidad para la respuesta en `Python` <a class="anchor" id="53.2"></a>
 
 
 ```python
@@ -4675,50 +4782,69 @@ for i in range(0, len(data_Python)-1):
 
 
 
-# Goodness of Fit: $\hspace{0.1cm}$ Determination Coefficient  <a class="anchor" id="54"></a>
+# Bondad de ajuste: $\hspace{0.1cm}$ Coeficiente de determinación  <a class="anchor" id="54"></a>
 
  
-## Determination Coefficient  
+## Coeficiente de determinación
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
+$\hspace{0.25cm}$ El coeficiente de determinación, denotado por $R^2$ , es definido como: $\\[0.7cm]$
 
-
-The determination coefficient, also called R-square, is defined as:
-
- 
 \begin{gather*}
 R^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{RegSS}{TSS} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{TSS-RSS}{TSS} \hspace{0.1cm}=\hspace{0.1cm} 1 - \dfrac{RSS}{TSS}
 \end{gather*}
+
+</p>
+ 
+</p></span>
+</div>
+
  
 
+
 <br>
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-**Properties**
+$\hspace{0.25cm}$ **Propiedades:**
 
--   $R^2$ is the proportion of total variance of the response
-    variable $Y$ that is explained by the model using $X \\$
+-   $R^2$ es la proporción de varianza total de la respuesta que es explicada por el modelo a través de los predictores $\\[0.6cm]$
 
 -   $R^2 \in \left[ 0 , 1 \right]$
 
-For this reason $\hspace{0.1cm}R^2\hspace{0.1cm}$ is used as a measure of how well the model fits the
-response variable .
+$\hspace{0.25cm}$ Por esta razón $\hspace{0.1cm}R^2\hspace{0.1cm}$ es usado como una medida de como de bien el modelo se ajusta a la variable respuesta.
 
  
+</p>
+ 
+</p></span>
+</div>
+
+
 
 <br>
 
-**Interpretation**
 
-The interpretation of $\hspace{0.1cm}R^2\hspace{0.1cm}$ is the following:
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
--   If $\hspace{0.1cm}R^2\hspace{0.1cm}$ is close to $1$, indicates good fit of model to the response
-variable data  $\\[0.5cm]$
+$\hspace{0.25cm}$ **Interpretación:**
+
+$\hspace{0.25cm}$La interpretación de $\hspace{0.1cm}R^2\hspace{0.1cm}$ es la siguiente:
+
+-   Si $\hspace{0.1cm}R^2\hspace{0.1cm}$ está cerca de $1$, esto indica que el modelo se ajusta bien a los datos de la respuesta.  $\\[0.5cm]$
 
 
+-   Si $\hspace{0.1cm}R^2\hspace{0.1cm}$ está cerca de $0$, esto indica que el modelo se ajusta mal a los datos de la respuesta.
+
+</p>
+ 
+</p></span>
+</div>
 
 
--   If $\hspace{0.1cm}R^2\hspace{0.1cm}$ is clode to $0$, indicates bad fit of model to the response
-    variable data
 
 
 
@@ -4731,10 +4857,10 @@ variable data  $\\[0.5cm]$
 
 
 
-### Computing $R^2$ in `Python` <a class="anchor" id="56"></a>
+## Calcular el coeficiente de determinación en `Python` <a class="anchor" id="56"></a>
 
 
-The value of $\hspace{0.1cm} R^2$  could be found in the output obtained with `print(model_Py_smf.summary())`
+El valor de $\hspace{0.1cm} R^2$  puede ser encontrado en la salida obtenida con el comando `print(model_Py_smf.summary())`
 
 
 ```python
@@ -4744,7 +4870,7 @@ model_Py_smf.rsquared
     0.6978674339747218
 
 
-We can compute $R^2$ with `sk-learn` as follows:
+También podemos calcular $R^2$ con `sk-learn` como sigue:
 
 
 ```python
@@ -4755,26 +4881,26 @@ Model_Py_sklearn.score(X, y)
 
 
 
-We have got the following:
+Se obtiene lo siguiente:
 
 $$ R^2 = 0.698$$
 
 
 
-&nbsp;
+<br>
 
 
 
+## Coeficiente de determinación ajustado  
 
-## Adjusted Determination Coefficient  
 
 
-$R^2$ has several problems.
+El $R^2$ tiene algunos problemas.
 
-$1.$  $\hspace{0.2cm} R^2$ always increase when increase the number of predictors,
+-  $\hspace{0.1cm} R^2$ always increase when increase the number of predictors,
     although they are not significative.
 
-$2.\hspace{0.2cm}$  It´s possible estimate two models with the same prediction power but
+-  It´s possible estimate two models with the same prediction power but
     with different $\hspace{0.1cm}R^2$
 
 
@@ -4805,10 +4931,10 @@ This metric doesn't grow when including irrelevant predictors, because if $\hspa
 
 
 
-### Computing $\widehat{R}^2$ in `Python` <a class="anchor" id="59"></a>
+## Calcular el coeficiente de determinación ajustado en `Python` <a class="anchor" id="59"></a>
 
 
-The value of $\hspace{0.1cm} \widehat{R^2}$  could be found in the output obtained with `print(model_Py_smf.summary())`
+El valor de $\hspace{0.1cm} \widehat{R^2}$  puede ser encontrado en la salida obtenida al ejecutar la sentencia `print(model_Py_smf.summary())`
 
 
 ```python
@@ -4819,7 +4945,7 @@ model_Py_smf.rsquared_adj
 
 
 
-We have got the following:
+Hemos obtenido lo siguiente:
 
 $$ \widehat{R^2} = 0.697$$
 
@@ -4831,11 +4957,11 @@ $$ \widehat{R^2} = 0.697$$
 
 
 
-# Model Problems <a class="anchor" id="60"></a>
+# Problemas del modelo <a class="anchor" id="60"></a>
 
 
 
-## Multicollinearity <a class="anchor" id="61"></a>
+## Multicolinealidad <a class="anchor" id="61"></a>
 
 Multicollinearity problem happens when some of the predictors are lineary dependients.
 
