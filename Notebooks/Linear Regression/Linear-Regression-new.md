@@ -5810,28 +5810,30 @@ Recordemos los supuestos que el modelo de regresión lineal impone sobre los res
 
 No es posible comprobar el suspuesto de varianza constante de los residuos examinando unicamente los residuos, porque algunos serán altos y otros serán bajos, pero esto no prueba nada.
 
-Se necesita comprobar si la varianza de los residuos esta relacionada con alguna otra cantidad, de modo que para ciertos valores de esa cantidad sea mas grande que para otros, y por tanto pueda confirmarse que no es constante.
-It is not possible to check the assumption of constant variance just by examining
-the residuals alone, some will be large and some will be small, but this proves nothing. We need to check whether the variance in the residuals is related to some
-other quantity.
+Se necesita comprobar si la varianza de los residuos está relacionada con alguna otra cantidad, de modo que para ciertos valores de esa cantidad sea mas grande que para otros, y por tanto pueda confirmarse que no es constante.
+
 
 <br>
 
-- The most useful diagnostic is a plot of $\hat{\varepsilon}$ vs $\hat{Y}$
+- El diagnostico mas útil es el gráfico de dispersión para $\hat{\varepsilon}$ vs $\hat{Y}$
 
 
 
-- Interpretation of the graph $\hat{\varepsilon}$ vs $\hat{y}$:
+- Interpretación del gráfico de dispersión de $\hat{\varepsilon}$ vs $\hat{y}$:
 
-    - If the dispersion of the points is uniform random $\Rightarrow$ There is no problem (evidence of constant variance of the error).
+    - Si la dispersión entre los puntos es aleatoria uniforme $\Rightarrow$ Evidencia de varianza de los residuos constante.
 
-    - If we can see a cone shape at the points $\Rightarrow$ Problem (evidence of error not constant variance)
+    
+    - Si la dispersión entre los puntos tiene una forma no aleatoria uniforme (normalmente una forma cónica) $\Rightarrow$ Evidencia de varianza de los residuos no constante.
+
+
 
 <br>
 
-This plot can also provide evidence of nonlinearity between the response variable and the predictors:
+Además este tipo de gráfico puede también proporcionar evidencia de no linealidad en la relacion entre la respuesta y los predictores.
 
-- If we can see a non-linear shape at the points $\Rightarrow$ evidence of non-linearity between the response variable and the predictors
+
+- Si se puede ver una forma no lineal en los puntos  $\Rightarrow$ Evidencia de relación no lineal entrw la variable respuesta y los predictores.
 
 
 
@@ -5843,7 +5845,7 @@ This plot can also provide evidence of nonlinearity between the response variabl
 
 
 
-### Checking Error Constant Variance in `Python`
+### Comprobando del supuesto de varianza constante de los residuos en `Python`
 
 
 ```python
@@ -5868,7 +5870,7 @@ ggplot()
 
 </center>
 
-Since we can see a cone shape at the points, we cannot accept the constant error variance assumption $Var(\varepsilon)=\sigma^2$.
+Como podemos ver una forma cónica en los puntos, y por tanto no aleatoria uniforme, no podemos aceptar que la varianza de los residuos sea constate.
 
 
 
@@ -5877,11 +5879,11 @@ Since we can see a cone shape at the points, we cannot accept the constant error
 
 
 
-### Incumplimiento del supuesto de media constante de los residuos <a class="anchor" id="70"></a>
+### Incumplimiento del supuesto de media de los residuos nula <a class="anchor" id="70"></a>
 
-We are going to use the typical t-test to verify this assumption.
+Vamos a usar el típico  t-test para contrastastar el supuesto de que la media de los residuos es nula.
 
-First we compute the  estimated errors mean to get first idea:
+Primero calculamos la media de los residuos estimados para hacernos una idea de cual será el resultado del contraste:
 
 
 ```python
@@ -5896,12 +5898,10 @@ df_predictions_Python['estimated_errors'].mean()
 
 
 
-### Checking Null Error Mean in `Python`
+###  Comprobando el supuesto de media de los residuos nula en `Python`
 
 
-```python
-# pip install --upgrade pingouin
-```
+
 
 
 ```python
@@ -5956,7 +5956,7 @@ pg.ttest(x= df_predictions_Python['estimated_errors'] , y=0)
 </div>
 
 
-For any significance level we can accept that the errors mean is zero (0)
+Para cualquier nivel de significación puede aceptarse la hipotesis de que la media de los residuos es nula (cero).
 
 
 
@@ -5967,11 +5967,11 @@ For any significance level we can accept that the errors mean is zero (0)
 
 ### Incumplimiento del supuesto de distribución normal de los residuos  <a class="anchor" id="71"></a>
 
-First we are going to check the error normality assumption using the **histogram method**
+Primero vamos a comprobar el supuesto de normalidad de los residuos usando el método del histograma, que consiste en comparar el histograma de la muestra de la variable (en este caso el histograma de los residuos estimados) con el histograma de una v.a. normal con media y varianza igual a la de la muestra.
 
 &nbsp;
 
-### Checking Error Normality in `Python` with histogram method
+### Comprobando el supuesto de distribución normal de los residuos en `Python` con el método del histograma
 
 
 ```python
@@ -5997,15 +5997,15 @@ ggplot(data = df_predictions_Python ,
 
 
 
-Now we are going to check the error normality assumption using the Shapiro statistical test.
-
-&nbsp;
 
 
+ 
 
 
-### Checking Error Normality in `Python`  with Shapiro test
 
+### Comprobando el supuesto de distribución normal de los residuos en `Python` con el contraste de Shapiro
+
+Ahora vamos a comprobar el supuesto de normalidad de los residuos a través del contraste de Shapiro.
 
 ```python
 shapiro_test = stats.shapiro(df_predictions_Python['estimated_errors'])
@@ -6015,7 +6015,7 @@ shapiro_test
     ShapiroResult(statistic=0.7914911508560181, pvalue=4.203895392974451e-44)
 
 
-For any significance level we have to reject the errors normality hypothesis.
+Para cualquier nivel de significación se puede rechazar la hipotesis nula de normalidad de los residuos.
 
 
 
