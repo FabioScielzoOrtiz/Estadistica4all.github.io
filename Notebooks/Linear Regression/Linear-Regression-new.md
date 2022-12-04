@@ -6341,7 +6341,7 @@ $$ \tilde{\varepsilon_i} = \dfrac{\hat{\varepsilon}_i}{\sqrt{\widehat{Var}(\hat{
 
 Donde:
 
-$\hspace{0.1cm} h_{ii} \hspace{0.1cm}$ is the $i$-th element of the principal diagonal of $\hspace{0.1cm} H=X \cdot (X^t \cdot X)^{-1} \cdot X^t \hspace{0.1cm}$
+$\hspace{0.1cm} h_{ii} \hspace{0.1cm}$ es el $i$-esimo elemento de la diagonal principal de $\hspace{0.1cm} H=X \cdot (X^t \cdot X)^{-1} \cdot X^t \hspace{0.1cm}$
 
 
 <br>
@@ -6351,24 +6351,29 @@ Notese que:
 $$\widehat{Var}(\hat{\varepsilon}_i) \neq \widehat{Var}(\varepsilon_i)  $$
 
 Porque  $\varepsilon_i$ es una variable aleatoria tal que $\hspace{0.1cm}\varepsilon_i \sim N (0\hspace{
-0.1cm},\hspace{0.1cm} \sigma^2) \hspace{0.1cm}$ (by initial hypothesis of the model)
+0.1cm},\hspace{0.1cm} \sigma^2) \hspace{0.1cm}$ (por hipotesis inicial del modelo)
 
-And $\hspace{0.1cm} \hat{\varepsilon}_i = y_i - \hat{y}_i \hspace{0.1cm}$ is another random variable such that  $\hspace{0.1cm} \hat{\varepsilon}_i \sim N(0\hspace{0.1cm},\hspace{0.1cm}\sigma^2 \cdot (1-h_{ii})) \hspace{0.1cm}$  (can be proof) 
-
-<br>
-
-**Criteria: Outliers Identification **
-
-**Observations** whose **studentized residuals** are **greater than 3** (in absolute value) will be considered outliers.
-
-What to do with outliers:
-
-If they are the result of an error in data collection, they can be deleted. If not, it shouldn't, since it is part of the reality reflected by the sample, and is therefore relevant information.
-
+Y $\hspace{0.1cm} \hat{\varepsilon}_i = y_i - \hat{y}_i \hspace{0.1cm}$ es otra variable aleatoria tal que  $\hspace{0.1cm} \hat{\varepsilon}_i \sim N(0\hspace{0.1cm},\hspace{0.1cm}\sigma^2 \cdot (1-h_{ii})) \hspace{0.1cm}$  
 
 <br>
 
-### Identificación de Outliers en `Python`
+**Criterio: Identificación de outliers**
+
+Las observaciones cuyo **residuo studentizado** son **mayores que 3** (en valor absoluto) serán consideradas observaciones atípicas (outliers).
+
+<br>
+
+**¿ Qué hacer con los outliers ?**
+
+Si son el resultado de un error en la recolección de los datos, pueden ser eliminados.
+
+Pero si el caso no es el anterior, no deberían eliminarse puesto que forman parte de la realidad reflejada por la muestra, y es por tanto información relevante.
+
+
+
+<br>
+
+### Identificación de outliers en `Python`
 
 ```python
 H = np.dot(X @ np.linalg.inv( X.T @ X ) , X.T) 

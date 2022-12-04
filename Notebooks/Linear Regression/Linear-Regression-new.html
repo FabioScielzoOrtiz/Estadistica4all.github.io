@@ -7888,20 +7888,22 @@ DW \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\sum_{i=1}^{n-1} (\hat{\varepsilon}_i - 
 <p><span class="math display">\[ \tilde{\varepsilon_i} = \dfrac{\hat{\varepsilon}_i}{\sqrt{\widehat{Var}(\hat{\varepsilon}_i)}} = \dfrac{\hat{\varepsilon}_i}{ \sqrt{ \widehat{\sigma}^2 \cdot (1-h_{ii})} }  \]</span></p>
 <p><br></p>
 <p>Donde:</p>
-<p><span class="math inline">\(\hspace{0.1cm} h_{ii} \hspace{0.1cm}\)</span> is the <span class="math inline">\(i\)</span>-th element of the principal diagonal of <span class="math inline">\(\hspace{0.1cm} H=X \cdot (X^t \cdot X)^{-1} \cdot X^t \hspace{0.1cm}\)</span></p>
+<p><span class="math inline">\(\hspace{0.1cm} h_{ii} \hspace{0.1cm}\)</span> es el <span class="math inline">\(i\)</span>-esimo elemento de la diagonal principal de <span class="math inline">\(\hspace{0.1cm} H=X \cdot (X^t \cdot X)^{-1} \cdot X^t \hspace{0.1cm}\)</span></p>
 <p><br></p>
 <p>Notese que:</p>
 <p><span class="math display">\[\widehat{Var}(\hat{\varepsilon}_i) \neq \widehat{Var}(\varepsilon_i)  \]</span></p>
-<p>Porque <span class="math inline">\(\varepsilon_i\)</span> es una variable aleatoria tal que <span class="math inline">\(\hspace{0.1cm}\varepsilon_i \sim N (0\hspace{ 0.1cm},\hspace{0.1cm} \sigma^2) \hspace{0.1cm}\)</span> (by initial hypothesis of the model)</p>
-<p>And <span class="math inline">\(\hspace{0.1cm} \hat{\varepsilon}_i = y_i - \hat{y}_i \hspace{0.1cm}\)</span> is another random variable such that <span class="math inline">\(\hspace{0.1cm} \hat{\varepsilon}_i \sim N(0\hspace{0.1cm},\hspace{0.1cm}\sigma^2 \cdot (1-h_{ii})) \hspace{0.1cm}\)</span> (can be proof)</p>
+<p>Porque <span class="math inline">\(\varepsilon_i\)</span> es una variable aleatoria tal que <span class="math inline">\(\hspace{0.1cm}\varepsilon_i \sim N (0\hspace{ 0.1cm},\hspace{0.1cm} \sigma^2) \hspace{0.1cm}\)</span> (por hipotesis inicial del modelo)</p>
+<p>Y <span class="math inline">\(\hspace{0.1cm} \hat{\varepsilon}_i = y_i - \hat{y}_i \hspace{0.1cm}\)</span> es otra variable aleatoria tal que <span class="math inline">\(\hspace{0.1cm} \hat{\varepsilon}_i \sim N(0\hspace{0.1cm},\hspace{0.1cm}\sigma^2 \cdot (1-h_{ii})) \hspace{0.1cm}\)</span></p>
 <p><br></p>
-<p><strong>Criteria: Outliers Identification </strong></p>
-<p><strong>Observations</strong> whose <strong>studentized residuals</strong> are <strong>greater than 3</strong> (in absolute value) will be considered outliers.</p>
-<p>What to do with outliers:</p>
-<p>If they are the result of an error in data collection, they can be deleted. If not, it shouldn’t, since it is part of the reality reflected by the sample, and is therefore relevant information.</p>
+<p><strong>Criterio: Identificación de outliers</strong></p>
+<p>Las observaciones cuyo <strong>residuo studentizado</strong> son <strong>mayores que 3</strong> (en valor absoluto) serán consideradas observaciones atípicas (outliers).</p>
+<p><br></p>
+<p><strong>¿ Qué hacer con los outliers ?</strong></p>
+<p>Si son el resultado de un error en la recolección de los datos, pueden ser eliminados.</p>
+<p>Pero si el caso no es el anterior, no deberían eliminarse puesto que forman parte de la realidad reflejada por la muestra, y es por tanto información relevante.</p>
 <p><br></p>
 <div id="identificación-de-outliers-en-python" class="section level3" number="17.4.1">
-<h3><span class="header-section-number">17.4.1</span> Identificación de Outliers en <code>Python</code></h3>
+<h3><span class="header-section-number">17.4.1</span> Identificación de outliers en <code>Python</code></h3>
 <div class="sourceCode" id="cb134"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> np.dot(X <span class="op">@</span> np.linalg.inv( X.T <span class="op">@</span> X ) , X.T) </span>
 <span id="cb134-2"><a href="#cb134-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb134-3"><a href="#cb134-3" aria-hidden="true" tabindex="-1"></a>standardized_estimated_errors <span class="op">=</span> estimated_errors <span class="op">/</span> np.sqrt(estimated_variance_error<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>np.diag(H)) )</span></code></pre></div>
