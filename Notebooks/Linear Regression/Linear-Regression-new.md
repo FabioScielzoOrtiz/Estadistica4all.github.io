@@ -5194,46 +5194,64 @@ Tenemos un modelo de regresión lineal estimado  $\hspace{0.2cm} Y=X\cdot \wideh
 Calculamos la inversa de la matriz de correlaciones lineales de la matriz de datos de los predictores  $\hspace{0.1cm} [ X_1 ,..., X_p] \hspace{0.2cm} \Rightarrow \hspace{0.2cm} R\hspace{0.07cm}^{-1}$ 
 
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-
-El factor de incremento de la varianzaThe variance increase factor $\hspace{0.1cm}\left(VIF\right)\hspace{0.1cm}$ de la muestra $\hspace{0.1cm}X_j\hspace{0.1cm}$ del predictor cuantitativo $\mathcal{X}_j$ es:
-
-<br>
-
-$$VIF(X_j) \hspace{0.05cm}=\hspace{0.05cm} Diag(R\hspace{0.07cm}^{-1})[\hspace{0.1cm} j \hspace{0.1cm}] \hspace{0.05cm}=\hspace{0.05cm} j \text{ element of} \hspace{0.1cm} Diag(R\hspace{0.07cm}^{-1})$$
+$\hspace{0.25cm}$ El factor de incremento de la varianzaThe variance increase factor $\hspace{0.1cm}\left(VIF\right)\hspace{0.1cm}$ de la muestra $\hspace{0.1cm}X_j\hspace{0.1cm}$ del predictor **cuantitativo** $\mathcal{X}_j$ es:
 
 <br>
 
-Además se cumple lo siguiente:
-<br>
+$$VIF(X_j) \hspace{0.05cm}=\hspace{0.05cm} Diag\left(R\hspace{0.07cm}^{-1}\right)[\hspace{0.1cm} j \hspace{0.1cm}]$$
 
-$$ VIF(X_j) = \dfrac{1}{1- R^2_{X_j}} $$
-
-<br>
-
-Donde:
-
-$R^2_{X_i}\hspace{0.1cm}$ es el coeficiente de determinacion de siguiente modelo de regresión lineal $\hspace{0.1cm} X_i = \beta_0 + \beta_1 \cdot  X_1 +...+ \beta_{i-1}\cdot X_{i-1} + \beta_{i+1}\cdot X_{i+1} + ... + \beta_p \cdot X_p + \varepsilon$
-
-Asi que $\hspace{0.07cm} R^2_{X_i} \hspace{0.07cm}$  es la proporción de variabilidad del predictor $\hspace{0.07cm}\mathcal{X}_i\hspace{0.07cm}$ explicada por el resto de predictores $\hspace{0.07cm}\mathcal{X}_1,..,\mathcal{X}_{i-1},\mathcal{X}_{i+1},..,\mathcal{X}_p$, considerando las muestras que tenemos de los predictores.
-
-
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
 
-**Criterio: Identificación de multicolinearidad con $VIF$** 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ El VIF puede expresarse de forma equivalente del siguiente modo:
+
+<br>
+
+$$ VIF(X_j) = \dfrac{1}{1- R^2_{X_j}}$$
+
+$\hspace{0.25cm}$ Donde:
+
+- $R^2_{X_j}\hspace{0.1cm}$ es el coeficiente de determinacion de siguiente modelo de regresión lineal $\hspace{0.1cm} X_j = \beta_0 + \beta_1 \cdot  X_1 +...+ \beta_{j-1}\cdot X_{j-1} + \beta_{i+1}\cdot X_{i+1} + ... + \beta_p \cdot X_p + \varepsilon$
+
+- Así que $\hspace{0.07cm} R^2_{X_i} \hspace{0.07cm}$  es la proporción de la variabilidad de  $\hspace{0.07cm}{X}_j\hspace{0.07cm}$ explicada por   $\hspace{0.07cm}{X}_1,..,{X}_{j-1},{X}_{j+1},..,{X}_p$, considerando las muestras que tenemos de los predictores.
+
+</p>
+ 
+</p></span>
+</div>
+
+
+<br>
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ **Criterio: Identificación de multicolinearidad con $VIF$** 
 
 
 
-- Si $\hspace{0.2cm}VIF(X_j) > 10$ $\hspace{0.25cm}\left( R^2_{X_j} > 0.90 \right)$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ Multicolinealidad **alta**  $\\[0.5cm]$
+- Si $\hspace{0.2cm}VIF(X_j) \hspace{0.1cm}>\hspace{0.1cm} 10$ $\hspace{0.25cm}\left( R^2_{X_j} > 0.90 \right)$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ Multicolinealidad **alta**  $\\[0.7cm]$
 
-- Si $\hspace{0.2cm}VIF(X_j)  \in [4, 10]$  $\hspace{0.25cm}\left(R^2_{X_j} \in [0.75 , 0.90]\right)$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ Multicolinealidad **media** $\\[0.5cm]$
-
-
-- Si  $\hspace{0.2cm}VIF(X_j) < 4$ $\hspace{0.15cm}\left(R^2_{X_j} < 0.75 \right)$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ Multicolinealidad **baja**
+- Si $\hspace{0.2cm}VIF(X_j)  \in [4, 10]$  $\hspace{0.25cm}\left(R^2_{X_j} \in [0.75 , 0.90]\right)$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ Multicolinealidad **media** $\\[0.7cm]$
 
 
+- Si  $\hspace{0.2cm}VIF(X_j) \hspace{0.1cm}<\hspace{0.1cm} 4$ $\hspace{0.15cm}\left(R^2_{X_j} < 0.75 \right)$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ Multicolinealidad **baja**
+
+</p>
+ 
+</p></span>
+</div>
 
 
 &nbsp;
@@ -5331,7 +5349,7 @@ Hay un predictor cuantitativo con $\hspace{0.1cm} VIF > 4 \hspace{0.1cm}$ , pero
 
 
 
-### Identificación de multicolinearidad con el número de condicionamiento de $\hspace{0.05cm} R$ <a class="anchor" id="66"></a>
+### Identificación de multicolinearidad con el número de condicionamiento de la matriz de correlaciones lineales <a class="anchor" id="66"></a>
 
 Si tenemos el  modelo de regresión lineal estimado $\hspace{0.2cm} Y=X\cdot \widehat{\beta}   \hspace{0.2cm}$  con predictores exclusivamente **cuantitativos**. 
 
@@ -5339,13 +5357,29 @@ Calculamos la matriz de correlaciones lineales para la matriz de datos de los pr
 
 <br>
 
-El número de condicionamiento de la matriz $R$ se define como:
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+
+$\hspace{0.25cm}$ El número de condicionamiento de la matriz $\hspace{0.1cm} R \hspace{0.1cm}$ se define como:
 
 $$cond(R) = \sqrt{\dfrac{max\lbrace eigenvalues(R)\rbrace}{min\lbrace eigenvalues(R)\rbrace}} $$
 
+
+</p>
+ 
+</p></span>
+</div>
+
+
 <br>
 
-**Criteria :  Identificación de multicolinearidad con número de condicionamiento de $\hspace{0.05cm} R$**
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+
+$\hspace{0.25cm}$ **Criterio :  Identificación de multicolinearidad con número de condicionamiento de $\hspace{0.05cm} R$**
 
 
 
@@ -5355,7 +5389,10 @@ $$cond(R) = \sqrt{\dfrac{max\lbrace eigenvalues(R)\rbrace}{min\lbrace eigenvalue
 
 - Si $\hspace{0.1cm}cond(R) < 10$ $\hspace{0.1cm} \Rightarrow\hspace{0.1cm}$ Multicolinearidad **baja** $\\[0.5cm]$
 
-
+</p>
+ 
+</p></span>
+</div>
 
 &nbsp;
 
@@ -5413,7 +5450,8 @@ Supongamos que tenemos un modelo de regresión lineal estimado $\hspace{0.2cm} Y
 &nbsp;
 
 
-
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
 - Si $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ es un predictor **cuantitativo**:
 
@@ -5429,13 +5467,13 @@ Supongamos que tenemos un modelo de regresión lineal estimado $\hspace{0.2cm} Y
 
 
  
-     - And the following Pearson correlation matrix:
+     - Y las siguientes matrices de correlaciones lineales:
 
-          - $\hspace{0.2cm}R_1$ es la matriz de correlaciones lineales para la matriz de datos $\hspace{0.2cm}\mathbb{X}_1 \\[0.45cm]$
+          - $\hspace{0.2cm}R_1\hspace{0.1cm}$ es la matriz de correlaciones lineales para la matriz de datos $\hspace{0.2cm}\mathbb{X}_1 \\[0.45cm]$
 
-          - $\hspace{0.2cm}R_2$ es la matriz de correlaciones lineales para la matriz de datos $\hspace{0.2cm}\mathbb{X}_2\\[0.45cm]$
+          - $\hspace{0.2cm}R_2\hspace{0.1cm}$ es la matriz de correlaciones lineales para la matriz de datos $\hspace{0.2cm}\mathbb{X}_2\\[0.45cm]$
 
-          - $\hspace{0.2cm}R_3$ es la matriz de correlaciones lineales para la matriz de datos $\hspace{0.2cm}\mathbb{X}_3$
+          - $\hspace{0.2cm}R_3\hspace{0.1cm}$ es la matriz de correlaciones lineales para la matriz de datos $\hspace{0.2cm}\mathbb{X}_3$
 
  
 
@@ -5443,70 +5481,79 @@ Supongamos que tenemos un modelo de regresión lineal estimado $\hspace{0.2cm} Y
 
 
 
-El  $\hspace{0.1cm} GVIF \hspace{0.1cm}$ del predictor cuantitativo  $\hspace{0.1cm} \mathcal{X}_j \hspace{0.1cm}$ se define como:
+$\hspace{0.35cm}$ El  $\hspace{0.1cm} GVIF \hspace{0.1cm}$ del predictor **cuantitativo**  $\hspace{0.1cm} \mathcal{X}_j \hspace{0.1cm}$ se define como:
 
-<br>
 
-$$GVIF(X_j) = det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)} $$ 
+$$GVIF(X_j) \hspace{0.1cm}=\hspace{0.1cm} det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)} $$ 
 
  
-
+</p>
+ 
+</p></span>
+</div>
 
 
 &nbsp;
 
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-
-Si $\mathcal{X}_j$ es un predictor **categorico** con $r$ categorias, $\hspace{0.2cm} Range(\mathcal{X}_j) = \lbrace 0,1,..., r-1 \rbrace \hspace{0.2cm}$ , que entra en el modelo de regresión lineal con las variables dummy $\hspace{0.2cm} D(X_{j}=1),D(X_{j}=2),...,D(X_{j}=r-1)$
-
-
-
-Tenemos que considerar las siguientes matrices:
-
-- $\mathbb{X}_1 = [\hspace{0.1cm} X_{j1},X_{j2},..,X_{j(r-1)} \hspace{0.1cm}]\\[0.45cm]$
-
-- $\mathbb{X}_2 = [\hspace{0.1cm} X_1 , .. , X_{j-1}, X_{j+1},.., X_p \hspace{0.1cm}]\\[0.45cm]$
-
-- $\mathbb{X}_3 = [\hspace{0.1cm} X_1,..,X_{j-1},X_{j1},X_{j2},..,X_{j(r-1)}, X_{j+1},.., X_p \hspace{0.1cm}]$
+- Si $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ es un predictor **categorico** con $r$ categorias, $\hspace{0.2cm} Rango(\mathcal{X}_j) = \lbrace 0,1,..., r-1 \rbrace \hspace{0.2cm}$ , que entra en el modelo de regresión lineal con las variables dummy $\hspace{0.2cm} D(X_{j}=1)\hspace{0.1cm},\hspace{0.1cm}D(X_{j}=2)\hspace{0.1cm},...,\hspace{0.1cm}D(X_{j}=r-1) \\$
 
 
 
+    - Tenemos que considerar las siguientes matrices:
+
+         - $\mathbb{X}_1 = [\hspace{0.1cm} X_{j1},X_{j2},..,X_{j(r-1)} \hspace{0.1cm}]\\[0.45cm]$
+
+         - $\mathbb{X}_2 = [\hspace{0.1cm} X_1 , .. , X_{j-1}, X_{j+1},.., X_p \hspace{0.1cm}]\\[0.45cm]$
+
+         - $\mathbb{X}_3 = [\hspace{0.1cm} X_1,..,X_{j-1},X_{j1},X_{j2},..,X_{j(r-1)}, X_{j+1},.., X_p \hspace{0.1cm}] \\$
 
 
-Y las siguientes matrices de correlaciones lineales:
 
-- $R_1$ es la matriz de correlaciones lineales para la matriz de datos $\mathbb{X}_1\\[0.45cm]$ 
 
-- $R_2$ es la matriz de correlaciones lineales para la matriz de datos $\mathbb{X}_2\\[0.45cm]$
 
-- $R_3$ es la matriz de correlaciones lineales para la matriz de datos $\mathbb{X}_3$
+    - Tenemos las siguientes matrices de correlaciones lineales:
+
+       - $R_1$ es la matriz de correlaciones lineales para la matriz de datos $\mathbb{X}_1\\[0.45cm]$ 
+
+       - $R_2$ es la matriz de correlaciones lineales para la matriz de datos $\mathbb{X}_2\\[0.45cm]$
+
+       - $R_3$ es la matriz de correlaciones lineales para la matriz de datos $\mathbb{X}_3$
 
 
 <br>
 
 
-Entonces, $\hspace{0.05cm} GVIF \hspace{0.05cm}$ of $\hspace{0.05cm} X_j \hspace{0.05cm}$ se define como:
+$\hspace{0.35cm}$ El  $\hspace{0.1cm} GVIF \hspace{0.1cm}$ del predictor **categorico**  $\hspace{0.1cm} \mathcal{X}_j \hspace{0.1cm}$ se define como:
 
 
 
 $$GVIF(X_j) = det(R_1) \cdot \dfrac{det(R_2)}{det(R_3)}$$ 
 
-
+</p>
+ 
+</p></span>
+</div>
 
 
 
 
 &nbsp;
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
 
 
-**Criterio: Identificación de multicolinealidad con $GVIF$**
 
-En este criterio la cantidad clave es $\hspace{0.2cm} GVIF(X_j)^{1/2 df}$
+$\hspace{0.25cm}$ **Criterio: Identificación de multicolinealidad con $\hspace{0.1cm} GVIF$**
 
-Donde: $\hspace{0.2cm}df\hspace{0.2cm}$ es el número de coeficientes que entran en el modelo de regresión lineal cuando  $\hspace{0.2cm} \mathcal{X}_j\hspace{0.2cm}$ es añadido como predictor.
+$\hspace{0.25cm}$ En este criterio la cantidad clave es $\hspace{0.2cm} GVIF(X_j)^{1/2 df}$
+
+$\hspace{0.25cm}$ Donde: $\hspace{0.2cm}df\hspace{0.2cm}$ es el número de coeficientes que entran en el modelo de regresión lineal cuando  $\hspace{0.2cm} \mathcal{X}_j\hspace{0.2cm}$ es añadido como predictor.
 
 
 <br>
@@ -5526,7 +5573,7 @@ Donde: $\hspace{0.2cm}df\hspace{0.2cm}$ es el número de coeficientes que entran
 
 <br>
 
-- Si $\hspace{0.2cm}X_j\hspace{0.2cm}$ es un predictor **categórico** con $2$ categorias $\hspace{0.2cm} \Rightarrow \hspace{0.2cm} df=2-1=1$ 
+- Si $\hspace{0.2cm}\mathcal{X}_j\hspace{0.2cm}$ es un predictor **categórico** con $2$ categorias $\hspace{0.2cm} \Rightarrow \hspace{0.2cm} df=2-1=1$ 
 
 
 
@@ -5539,7 +5586,7 @@ Donde: $\hspace{0.2cm}df\hspace{0.2cm}$ es el número de coeficientes que entran
 
 <br>
 
-- Si $\mathcal{X}_j$ es un predictor **categorico** con $3$ categorias $\hspace{0.2cm} \Rightarrow\hspace{0.2cm} df=3-1=2$ :
+- Si $\hspace{0.2cm}\mathcal{X}_j\hspace{0.2cm}$ es un predictor **categorico** con $3$ categorias $\hspace{0.2cm} \Rightarrow\hspace{0.2cm} df=3-1=2$ 
 
 
 
@@ -5552,7 +5599,7 @@ Donde: $\hspace{0.2cm}df\hspace{0.2cm}$ es el número de coeficientes que entran
 
 <br>
 
-- Si $\hspace{0.2cm}\mathcal{X}_j\hspace{0.2cm}$ es un predictor a **categorico** conh $4$ categorias $\hspace{0.2cm} \Rightarrow\hspace{0.2cm} df=4-1=3$ 
+- Si $\hspace{0.2cm}\mathcal{X}_j\hspace{0.2cm}$ es un predictor a **categorico** con $4$ categorias $\hspace{0.2cm} \Rightarrow\hspace{0.2cm} df=4-1=3$ 
 
 
 
@@ -5567,7 +5614,7 @@ Donde: $\hspace{0.2cm}df\hspace{0.2cm}$ es el número de coeficientes que entran
 
 <br>
 
-- Si $\hspace{0.2cm}X_j\hspace{0.2cm}$ es un predictor categorico con  $r$ categorias $\hspace{0.2cm} \Rightarrow\hspace{0.2cm} df=r-1$ :
+- Si $\hspace{0.2cm}\mathcal{X}_j\hspace{0.2cm}$ es un predictor categorico con  $r$ categorias $\hspace{0.2cm} \Rightarrow\hspace{0.2cm} df=r-1$
 
 
 
@@ -5578,7 +5625,10 @@ Donde: $\hspace{0.2cm}df\hspace{0.2cm}$ es el número de coeficientes que entran
 
     - Si  $\hspace{0.2cm} GVIF(X_j)^{1/(2(r-1))} \hspace{0.1cm}<\hspace{0.1cm} 4^{1/(2(r-1))}$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ Multicolinealidad **baja**
 
-
+</p>
+ 
+</p></span>
+</div>
 
 &nbsp;
 
@@ -5593,7 +5643,7 @@ Donde: $\hspace{0.2cm}df\hspace{0.2cm}$ es el número de coeficientes que entran
 
 
 
-- $GVIF$ para el predictor **categorico** **quality**
+- $GVIF$ para el predictor **categorico** quality
 
 
 ```python
@@ -5613,7 +5663,7 @@ df_quality = X1.shape[1]
 GVIF_quality_scaled = GVIF_quality**(1/(2*df_quality))
 ```
 
-
+<br>
 
 - $GVIF$ para el resto de predictores **cuantitativos**
 
@@ -5781,11 +5831,11 @@ GVIF_Python_df
 
 <br>
 
-En este caso todos los predictores cuantitativos tienen un $\hspace{0.1cm} GVIF^{1/2df} < 3.16 \hspace{0.1cm}$, pero el $\hspace{0.1cm} GVIF^{1/2df} \hspace{0.1cm}$ de $\hspace{0.1cm}$ **no\_of\_bathrooms** $\hspace{0.1cm}$ es $\hspace{0.1cm} 2.14 > 2$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm} $  Multicolinealidad **media** 
+En este caso todos los predictores cuantitativos tienen un $\hspace{0.15cm} GVIF^{1/2df} < 3.16 \hspace{0.1cm}$, pero el $\hspace{0.1cm} GVIF^{1/2df} \hspace{0.1cm}$ de $\hspace{0.1cm}$ **no\_of\_bathrooms** $\hspace{0.1cm}$ es $\hspace{0.1cm} 2.14 > 2$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$  Multicolinealidad **media** 
 
-Por otro lado el predictor **quality** tiene $\hspace{0.1cm} GVIF^{1/2df}\hspace{0.1cm} = 1.01 < 1.26$ $\hspace{0.1cm} \Rightarrow \hspace{0.1cm}$  Multicolinealidad **baja** 
+Por otro lado el predictor **quality** tiene $\hspace{0.15cm} GVIF^{1/2df}\hspace{0.1cm} = 1.01 < 1.26$ $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$  Multicolinealidad **baja** 
 
-Asi que usando el criterio del GVIF, se puede concluir que hay multicolinealidad media en el modelo  $\hspace{0.1cm}$ **price ~ size\_in\_m\_2  + longitude + latitude + no\_of\_bedrooms + no\_of\_bathrooms** $\hspace{0.1cm}$
+Así que usando el criterio del GVIF, se puede concluir que hay multicolinealidad media en el modelo  $\hspace{0.1cm}$ **price ~ size\_in\_m\_2  + longitude + latitude + no\_of\_bedrooms + no\_of\_bathrooms** $\hspace{0.1cm}$
 
 
 
@@ -5799,9 +5849,9 @@ Asi que usando el criterio del GVIF, se puede concluir que hay multicolinealidad
 
 Recordemos los supuestos que el modelo de regresión lineal impone sobre los residuos:
 
-- $\hspace{0.2cm} \varepsilon_i \sim N(0,\sigma) \hspace{0.5cm} \forall \hspace{0.1cm} i=1,...,n \\[0.35cm]$
+- $\hspace{0.2cm} \varepsilon_i \sim N(0,\sigma^2) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i=1,...,n \\[0.35cm]$
   
-- $\hspace{0.2cm} corr(\varepsilon_i , \varepsilon_j)=0 \hspace{0.5cm} \forall \hspace{0.1cm} i\neq j =1,...,n$
+- $\hspace{0.2cm} corr(\varepsilon_i , \varepsilon_j)=0 \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i\neq j =1,...,n$
 
 
 <br>
@@ -5813,18 +5863,17 @@ No es posible comprobar el suspuesto de varianza constante de los residuos exami
 Se necesita comprobar si la varianza de los residuos está relacionada con alguna otra cantidad, de modo que para ciertos valores de esa cantidad sea mas grande que para otros, y por tanto pueda confirmarse que no es constante.
 
 
-<br>
 
-- El diagnostico mas útil es el gráfico de dispersión para $\hat{\varepsilon}$ vs $\hat{Y}$
-
+- El diagnostico mas útil es el gráfico de dispersión para $\hat{\varepsilon}$ vs $\hat{Y} \\$
 
 
-- Interpretación del gráfico de dispersión de $\hat{\varepsilon}$ vs $\hat{y}$:
 
-    - Si la dispersión entre los puntos es aleatoria uniforme $\Rightarrow$ Evidencia de varianza de los residuos constante.
+**Interpretación del gráfico de dispersión de $\hat{\varepsilon}$ vs $\hat{Y}$**
+
+  - Si la dispersión entre los puntos es aleatoria uniforme $\Rightarrow$ Evidencia de varianza de los residuos constante.
 
     
-    - Si la dispersión entre los puntos tiene una forma no aleatoria uniforme (normalmente una forma cónica) $\Rightarrow$ Evidencia de varianza de los residuos no constante.
+  - Si la dispersión entre los puntos tiene una forma no aleatoria uniforme (normalmente una forma cónica) $\Rightarrow$ Evidencia de varianza de los residuos no constante.
 
 
 
@@ -5881,7 +5930,7 @@ Como podemos ver una forma cónica en los puntos, y por tanto no aleatoria unifo
 
 ### Incumplimiento del supuesto de media de los residuos nula <a class="anchor" id="70"></a>
 
-Vamos a usar el típico  t-test para contrastastar el supuesto de que la media de los residuos es nula.
+Vamos a usar el contraste t-test para contrastastar el supuesto de que la media de los residuos es nula.
 
 Primero calculamos la media de los residuos estimados para hacernos una idea de cual será el resultado del contraste:
 
@@ -5966,8 +6015,10 @@ Para cualquier nivel de significación puede aceptarse la hipotesis de que la me
 
 
 ### Incumplimiento del supuesto de distribución normal de los residuos  <a class="anchor" id="71"></a>
-
+ 
 Primero vamos a comprobar el supuesto de normalidad de los residuos usando el método del histograma, que consiste en comparar el histograma de la muestra de la variable (en este caso el histograma de los residuos estimados) con el histograma de una v.a. normal con media y varianza igual a la de la muestra.
+
+Posteriormente aplicaremos el contraste de Shapiro para normalidad.
 
 &nbsp;
 
@@ -6031,7 +6082,10 @@ Vamos a comprobar la hipotesis de correlación nula de los residuos a través de
 
 &nbsp;
 
-Las hipótesis del test de **Durban-Watson** son las siguientes:$\\[0.5cm]$
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$  Las hipótesis del test de **Durban-Watson** son las siguientes:$\\[0.5cm]$
 
 
 $$H_0: \hspace{0.1cm} corr\left(\varepsilon_{i}\hspace{0.05cm},\hspace{0.05cm} \varepsilon_{i+1}\right) = 0 \hspace{0.25cm} ,\hspace{0.25cm} \forall \hspace{0.25cm}i =1,...,n-1 $$ 
@@ -6040,38 +6094,47 @@ $$H_1: \hspace{0.1cm}  corr\left(\varepsilon_{i}\hspace{0.05cm},\hspace{0.05cm} 
 
 
 
-**Estadístico del contraste :**
+$\hspace{0.25cm}$  **Estadístico del contraste :**
 
 \begin{gather*}
 DW \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\sum_{i=1}^{n-1} (\hat{\varepsilon}_i - \hat{\varepsilon}_{i+1})^2 }{\sum_{i=1}^{n} \hat{\varepsilon}_{i}^2 }
 \end{gather*}
 
-
+</p>
  
+</p></span>
+</div>
+ 
+
 
 <br>
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-**Interpretación:**
+$\hspace{0.25cm}$ **Interpretación:**
 
-Se cumple lo siguiente:
+$\hspace{0.25cm}$  Se cumple lo siguiente:
 
 $$DW \hspace{0.1cm}\simeq \hspace{0.1cm} 2\cdot (1- r_{12})$$
 
-Donde:
+$\hspace{0.25cm}$  Donde:
 
-$r_{12}\hspace{0.1cm}$  es la correlación lineal entre $\hspace{0.1cm}\hat{\varepsilon}_{(1)} = (\hat{\varepsilon}_1 , \hat{\varepsilon}_2 ,..., \hat{\varepsilon}_{n-1})\hspace{0.15cm}$ y $\hspace{0.15cm}\hat{\varepsilon}_{(2)} = (\hat{\varepsilon}_2  ,...,\hat{\varepsilon}_{n-1}, \hat{\varepsilon}_{n})$
+$\hspace{0.25cm}$ $r_{12}\hspace{0.1cm}$  es la correlación lineal entre $\hspace{0.1cm}\hat{\varepsilon}_{(1)} = (\hat{\varepsilon}_1 , \hat{\varepsilon}_2 ,..., \hat{\varepsilon}_{n-1})\hspace{0.15cm}$ y $\hspace{0.15cm}\hat{\varepsilon}_{(2)} = (\hat{\varepsilon}_2  ,...,\hat{\varepsilon}_{n-1}, \hat{\varepsilon}_{n})\\$
 
 
-- El estadístico del contraste está entre $0$ y $4$ , puesto que $r_{12}$ esta entre $-1$ y $1$.
+- El estadístico del contraste está entre $0$ y $4$ , puesto que $r_{12}$ esta entre $-1$ y $1\\$.
 
-- Un estadístico  $DW=2$ indica evidencia de que los residuos no están autocorrelados, es decir, evidencia a favor de $H_0$
+- Un estadístico  $DW=2$ indica evidencia de que los residuos no están autocorrelados, es decir, evidencia a favor de $H_0\\$
 
-- Un estadístico $DW$ cercano a $0$ indica evidencia de que los residuos están autocorrelados positivamente, es decir, evidencia favor de $H_1$
+- Un estadístico $DW$ cercano a $0$ indica evidencia de que los residuos están autocorrelados positivamente, es decir, evidencia favor de $H_1\\$
 
 - Un estadístico $DW$ cercano a $4$ indica evidencia de que los residuos están autocorrelados negativamente, es decir, evidencia favor de $H_1$
 
-
+</p>
+ 
+</p></span>
+</div>
 
 
 
@@ -6159,20 +6222,27 @@ Si la relación real entre predictores y respuestas no es lineal, entonces todas
 
 <br>
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-**¿ Cómo identificar no linealidad en la relación entre respuesta y predictores ?**
+$\hspace{0.25cm}$ **¿ Cómo identificar no linealidad en la relación entre respuesta y predictores ?**
 
 
 - Hacer un gráfico de dispersión de $\hspace{0.2cm} \widehat{\varepsilon}\hspace{0.2cm} \text{vs} \hspace{0.2cm}\widehat{Y}$
 
     - Es el mismo gráfico de dispersión que el usado para diagnosticar si la varianza de los residuos es constante. 
 
-    - Si se observa una relación no lineal en el gráfico, esto indica una relación no lineal entre la respuesta y los predictores. response.
+    - Si se observa una relación no lineal en el gráfico, esto indica una relación no lineal entre la respuesta y los predictores. response. $\\[0.5cm]$
     
    
-   <br>
+ 
+- La no linealidad en la relación entre respuesta y predictores también puede ser detecctada graficando  $\hspace{0.2cm}Y \hspace{0.2cm} \text{vs} \hspace{0.2cm} X_j$ , para cada $\hspace{0.1cm} j\in \lbrace 1,...,p\rbrace$
 
-- La no linealidad en la relación entre respuesta y predictores también puede ser detecctada graficando  $\hspace{0.2cm}Y \hspace{0.2cm} vs \hspace{0.2cm} X_j$ , para cada $\hspace{0.1cm} j=1,...,p$
+
+</p>
+ 
+</p></span>
+</div>
 
 
 <br>
@@ -6330,36 +6400,63 @@ Un dato atípico, también denominado outlier, es una observación que se desvia
 Los outliers pueden afectar mucho a la estimación del modelo.
 
 
-**¿ Cómo identificar outliers ?**
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
-Una opción simple es usar los residuos estandarizados, definidos como:
+$\hspace{0.25cm}$ **¿ Cómo identificar outliers ?**
 
-$$ \tilde{\varepsilon_i} = \dfrac{\hat{\varepsilon}_i}{\sqrt{\widehat{Var}(\hat{\varepsilon}_i)}} = \dfrac{\hat{\varepsilon}_i}{ \sqrt{ \widehat{\sigma}^2 \cdot (1-h_{ii})} }  $$
+$\hspace{0.25cm}$ Una opción simple es usar los residuos estandarizados, definidos como:
+
+$$\widetilde{\varepsilon_i} = \dfrac{\hat{\varepsilon}_i}{\sqrt{\widehat{Var}(\hat{\varepsilon}_i)}} = \dfrac{\hat{y}_i - y_i}{ \sqrt{ \widehat{\sigma}^2 \cdot (1-h_{ii})} }  $$
+
+<br>
+ 
+
+$\hspace{0.25cm}$ Donde:
+
+$\hspace{0.35cm} h_{ii} \hspace{0.1cm}$ es el $i$-esimo elemento de la diagonal principal de $\hspace{0.1cm} H=X \cdot (X^t \cdot X)^{-1} \cdot X^t \hspace{0.1cm}$
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
 
 <br>
 
+**Observación:**
 
-Donde:
+$$\widehat{Var}(\hat{ \varepsilon }_i)\hspace{0.1cm} \neq\hspace{0.1cm} \widehat{Var}(\varepsilon_i)  $$
 
-$\hspace{0.1cm} h_{ii} \hspace{0.1cm}$ es el $i$-esimo elemento de la diagonal principal de $\hspace{0.1cm} H=X \cdot (X^t \cdot X)^{-1} \cdot X^t \hspace{0.1cm}$
+Porque  $\hspace{0.1cm}\varepsilon_i\hspace{0.1cm}$ es una variable aleatoria tal que $\hspace{0.1cm}\varepsilon_i \sim N \left(0\hspace{
+0.1cm},\hspace{0.1cm} \sigma^2\right) \hspace{0.1cm}$, por hipotesis inicial del modelo.
 
-
-<br>
-
-Notese que:
-
-$$\widehat{Var}(\hat{\varepsilon}_i) \neq \widehat{Var}(\varepsilon_i)  $$
-
-Porque  $\varepsilon_i$ es una variable aleatoria tal que $\hspace{0.1cm}\varepsilon_i \sim N (0\hspace{
-0.1cm},\hspace{0.1cm} \sigma^2) \hspace{0.1cm}$ (por hipotesis inicial del modelo)
-
-Y $\hspace{0.1cm} \hat{\varepsilon}_i = y_i - \hat{y}_i \hspace{0.1cm}$ es otra variable aleatoria tal que  $\hspace{0.1cm} \hat{\varepsilon}_i \sim N(0\hspace{0.1cm},\hspace{0.1cm}\sigma^2 \cdot (1-h_{ii})) \hspace{0.1cm}$  
+Sin embargo $\hspace{0.15cm} \hat{\varepsilon}_i = y_i - \hat{y}_i \hspace{0.15cm}$ es otra variable aleatoria tal que  $\hspace{0.1cm} \hat{\varepsilon}_i \sim N\left(0\hspace{0.1cm},\hspace{0.1cm}\sigma^2 \cdot (1-h_{ii})\right) \hspace{0.1cm}$  
 
 <br>
 
-**Criterio: Identificación de outliers**
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
-Las observaciones cuyo **residuo studentizado** son **mayores que 3** (en valor absoluto) serán consideradas observaciones atípicas (outliers).
+$\hspace{0.25cm}$ **Criterio: Identificación de outliers**
+
+$\hspace{0.25cm}$ Las observaciones cuyo **residuo estandarizado** sea **mayor que 3** (en valor absoluto) serán consideradas observaciones atípicas (outliers).
+
+$\hspace{0.25cm}$ Es decir:
+
+$\hspace{0.35cm}$ Si $\hspace{0.1cm}| \widetilde{\varepsilon_i} | > 3 \hspace{0.2cm}\Rightarrow\hspace{0.2cm} (y_i,x_i)\hspace{0.1cm}$ es una observación atípica (outlier)
+
+
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
