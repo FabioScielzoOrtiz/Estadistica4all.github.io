@@ -47,7 +47,7 @@ css: custom.css
 
  
 
->More articles in my blog:   $\hspace{0.1cm}$   [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)
+>Más articulos en     [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)
 
  
  
@@ -960,7 +960,7 @@ $\hspace{0.25 cm}$ Tenemos los siguientes elementos básicos:
     - Una matriz con un vector de unos y las muestras de los predictores:
     
     \begin{gather*}
-    X=(1, X_1, X_2,...,X_p) \hspace{0.1cm}=\hspace{0.1cm} 
+    X=[1, X_1, X_2,...,X_p] \hspace{0.1cm}=\hspace{0.1cm} 
     \begin{pmatrix}
     1 & x_{11}&x_{12}&...&x_{1p}\\
     1 & x_{21}&x_{22}&...&x_{2p}\\
@@ -1128,7 +1128,7 @@ $\hspace{0.25cm}$  Donde:
 
 
 
-# Predicción de la variable respuesta  <a class="anchor" id="10"></a>
+## Predicción de la variable respuesta  <a class="anchor" id="10"></a>
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1138,7 +1138,7 @@ $\hspace{0.25cm}$ El modelo de regresión lineal predice la variable respuesta d
 
 
 $$
-\widehat{y}_i \hspace{0.15cm}=\hspace{0.15cm} x_i^t \cdot \widehat{\beta}  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 + \sum_{j=1}^{p} \widehat{\beta}_j \cdot x_{ij} \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 + \widehat{\beta}_1 \cdot x_{i1} + \widehat{\beta}_2 \cdot x_{i2} + ... + \widehat{\beta}_p \cdot x_{ip}  \\
+\hspace{0.55cm} \widehat{y}_i \hspace{0.15cm}=\hspace{0.15cm} x_i^t \cdot \widehat{\beta}  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 + \sum_{j=1}^{p} \widehat{\beta}_j \cdot x_{ij} \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 + \widehat{\beta}_1 \cdot x_{i1} + \widehat{\beta}_2 \cdot x_{i2} + ... + \widehat{\beta}_p \cdot x_{ip}  \\
 $$
 
 
@@ -1163,7 +1163,7 @@ $\hspace{0.25cm}$ Donde:
 
 
 
-# Estimación de los coeficientes del modelo <a class="anchor" id="12"></a>
+## Estimación de los coeficientes del modelo <a class="anchor" id="12"></a>
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1232,7 +1232,7 @@ En este artículo no se va a mostrar los detalles matemáticos sobre cómo se de
 
 
 
-# Estimación de los residuos del modelo <a class="anchor" id="13"></a>
+## Estimación de los residuos del modelo <a class="anchor" id="13"></a>
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1273,7 +1273,7 @@ $\hat{\varepsilon}_i\hspace{0.1cm}$ es el error que comete el modelo cuando pred
 
 
 
-# Suma de cuadrados de los residuos (RSS) <a class="anchor" id="13.1"></a>
+## Suma de cuadrados de los residuos (RSS) <a class="anchor" id="13.1"></a>
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1309,7 +1309,7 @@ Notese que $RSS(\beta)$ es la función objetivo del problema de mínimos cuadrad
 
 
 
-#  Hiperplano de regresión <a class="anchor" id="14"></a>
+##  Hiperplano de regresión <a class="anchor" id="14"></a>
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
@@ -1336,7 +1336,7 @@ $\hspace{0.25cm}$ Donde:    $\hspace{0.2cm} \widehat{\hspace{0.1cm} Y}\hspace{0
 
 
 
-## Hat-Matrix <a class="anchor" id="15"></a>
+### Hat-Matrix <a class="anchor" id="15"></a>
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1365,13 +1365,103 @@ $\hspace{0.25cm}$ es llamada **Hat-Matrix**
 
 
 
+## Precisión de las estimaciones de los coeficientes <a class="anchor" id="19"></a>
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+$\hspace{0.25cm}$La precisión de las estimaciones de los coeficientes del modelo es cuantificada con la varianza de los estimadores de los coeficientes, es decir,  $\hspace{0.1cm}$  $Var(\widehat{\beta}_j)$
+
+$\hspace{0.25cm}$Se cumple que:
+
+$$\widehat{\beta}_j \sim N \left( \beta_j \hspace{0.1cm},\hspace{0.1cm}  \sigma^2 \cdot q_{jj}   \right)$$
+
+
+$\hspace{0.25cm}$Por tanto, se tiene que:
+
+$$Var(\widehat{\beta}_j)\hspace{0.1cm}= \hspace{0.1cm}\sigma^2 \cdot q_{jj}$$
+
+
+
+$\hspace{0.25cm}$ Por lo que la estimacion de la varianza de  $\hspace{0.05cm}$  $\widehat{\beta}_j$  $\hspace{0.05cm}$  es : 
+
+<br>
+
+   $$\widehat{Var}(\widehat{\beta}_j) \hspace{0.1cm} = \hspace{0.1cm} \widehat{\sigma}\hspace{0.02cm}^2 \cdot q_{jj}$$
+ 
+
+
+
+$\hspace{0.25cm}$ Donde:
+
+
+
+$\hspace{0.35cm} \widehat{\sigma}\hspace{0.02cm}^2 \hspace{0.1cm}$  es la estimacion de la varianza de los residuos  , i.e, $\hspace{0.1cm}$ $\widehat{\sigma}\hspace{0.02cm}^2 = \widehat{Var}(\varepsilon_i)$
+
+
+$\hspace{0.35cm}q_{jj} \hspace{0.1cm}=\hspace{0.1cm} diag(X^t \cdot X)^{-1}[j+1]$  $\hspace{0.2cm} ,$  $\hspace{0.2cm}\forall j=0,1,...,p$
+
+
+ </p>
+ 
+</p></span>
+</div>
+
+
+<br>
+
+ ***¿ Por qué la varianza de los estimadores de los coeficientes es importante ?***
+
+La varianza de los estimadores de los coeficientes indica cuanto varian las estimaciones generadas a partir de ellos de una muestra a otra. Cuando la varianza es alta, las estimaciones de los coeficientes varian mucho de una muestra a otra, luego son estimaciones muy imprecisas. Por el contrario cuando la varianza es baja, las estimaciones de los coeficientes varian poco de una muestra a otra, luego las estimaciones son precisas.
+
+ 
+
+ <br>
+
+
+## Estimación de la varianza de los residuos <a class="anchor" id="27"></a>
+
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+
+$\hspace{0.25 cm}$ El estimador de la varianza del error $\hspace{0.1cm} Var(\varepsilon_i)=\sigma^2 \hspace{0.1cm}$ se denomina **varianza residual** , y se define como:
+
+
+$$
+ \widehat{Var}(\varepsilon_i) \hspace{0.15cm} =\hspace{0.15cm} \widehat{\sigma}^2  \hspace{0.15cm}=\hspace{0.15cm} \dfrac{1}{n-p-1} \cdot \sum_{i=1}^{n} \hat{\varepsilon}_i\hspace{0.02cm}^2 \hspace{0.15cm}=\hspace{0.15cm}  \dfrac{1}{n-p-1} \cdot (Y^t \cdot Y - \hat{\beta}^t \cdot X^t \cdot Y) \\
+$$
+
+
+ 
+
+$\hspace{0.25 cm}$ Además se cumple lo siguiente:
+
+
+- $\hspace{0.3cm} \dfrac{n-p-1}{\sigma^2} \cdot \widehat{\sigma}^2 \hspace{0.1cm} \sim \hspace{0.1cm} \chi_{n-p-1}^2 \\[0.3cm]$
+
+- $\hspace{0.3cm} E[\widehat{\sigma}^2]=\sigma^2 \\[0.3cm]$
+
+
+- $\hspace{0.3cm} Var(\widehat{\sigma}^2)=\dfrac{2 \cdot \sigma^4}{n-p-1}$
+
+
+</p>
+ 
+</p></span>
+</div>
+
 
 
 <br>
 
 
-
-# Estimación del modelo de regresión lineal en `Python`   
+# Modelo de regresión lineal en `Python`   
 
 <br>
 
@@ -1992,62 +2082,6 @@ Note that the order of the array values follows the order of $\hspace{0.1cm}X\hs
 <br>
 
 
-<br>
-
-# Precisión de las estimaciones de los coeficientes <a class="anchor" id="19"></a>
-
-
-
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
- 
-$\hspace{0.25cm}$La precisión de las estimaciones de los coeficientes del modelo es cuantificada con la varianza de los estimadores de los coeficientes, es decir,  $\hspace{0.1cm}$  $Var(\widehat{\beta}_j)$
-
-$\hspace{0.25cm}$Se cumple que:
-
-$$\widehat{\beta}_j \sim N \left( \beta_j \hspace{0.1cm},\hspace{0.1cm}  \sigma^2 \cdot q_{jj}   \right)$$
-
-
-$\hspace{0.25cm}$Por tanto, se tiene que:
-
-$$Var(\widehat{\beta}_j)\hspace{0.1cm}= \hspace{0.1cm}\sigma^2 \cdot q_{jj}$$
-
-
-
-$\hspace{0.25cm}$ Por lo que la estimacion de la varianza de  $\hspace{0.05cm}$  $\widehat{\beta}_j$  $\hspace{0.05cm}$  es : 
-
-<br>
-
-   $$\widehat{Var}(\widehat{\beta}_j) \hspace{0.1cm} = \hspace{0.1cm} \widehat{\sigma}\hspace{0.02cm}^2 \cdot q_{jj}$$
- 
-
-
-
-$\hspace{0.25cm}$ Donde:
-
-
-
-$\hspace{0.35cm} \widehat{\sigma}\hspace{0.02cm}^2 \hspace{0.1cm}$  es la estimacion de la varianza de los residuos  , i.e, $\hspace{0.1cm}$ $\widehat{\sigma}\hspace{0.02cm}^2 = \widehat{Var}(\varepsilon_i)$
-
-
-$\hspace{0.35cm}q_{jj} \hspace{0.1cm}=\hspace{0.1cm} diag(X^t \cdot X)^{-1}[j+1]$  $\hspace{0.2cm} ,$  $\hspace{0.2cm}\forall j=0,1,...,p$
-
-
- </p>
- 
-</p></span>
-</div>
-
-
-<br>
-
- ***¿ Por qué la varianza de los estimadores de los coeficientes es importante ?***
-
-La varianza de los estimadores de los coeficientes indica cuanto varian las estimaciones generadas a partir de ellos de una muestra a otra. Cuando la varianza es alta, las estimaciones de los coeficientes varian mucho de una muestra a otra, luego son estimaciones muy imprecisas. Por el contrario cuando la varianza es baja, las estimaciones de los coeficientes varian poco de una muestra a otra, luego las estimaciones son precisas.
-
- 
-
-&nbsp;
 
 
 
@@ -2104,28 +2138,25 @@ Esta salida nos da entre otras cosas la desviación típica (`std err`) de los e
 
 <br>
 
-- $\hspace{0.1cm} \sqrt{\widehat{Var}(\widehat{\beta_0})}=2.995\cdot 10^7 \\$
+- $\hspace{0.1cm} \sqrt{\widehat{Var}(\widehat{\beta}_0)}=2.995\cdot 10^7 \\$
 
-- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{quality1})}=8.358\cdot 10^4 \\$ 
+- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{q1})}=8.358\cdot 10^4 \\$ 
 
-- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{quality2})}=1.551\cdot 10^5 \\$
+- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{q2})}=1.551\cdot 10^5 \\$
 
-- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{quality3})}= 1.976\cdot 10^5 \\$
+- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{q3})}= 1.976\cdot 10^5 \\$
 
-- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{size\_in\_m\_2})}= 7.238\cdot 10^2 \\$
+- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{s})}= 7.238\cdot 10^2 \\$
 
-- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{no\_of\_bedrooms})}=8.282\cdot 10^4 \\$
+- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{bd})}=8.282\cdot 10^4 \\$
 
-- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{no\_of\_bathrooms})}=6.829\cdot 10^4 \\$
+- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{bt})}=6.829\cdot 10^4 \\$
 
-- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{latitude})}=7.809\cdot 10^5 \\$
+- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{la})}=7.809\cdot 10^5 \\$
 
-- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{longitude})}=6.908\cdot 10^5 \\$
+- $\hspace{0.1cm}\sqrt{\widehat{Var}(\widehat{\beta}_{lo})}=6.908\cdot 10^5 \\$
  
   
-  
-
-
 
 
 <br>
@@ -2133,11 +2164,11 @@ Esta salida nos da entre otras cosas la desviación típica (`std err`) de los e
 
  
 
-# Predicciones del modelo de regresión lineal en `Python`
+## Predicciones del modelo de regresión lineal en `Python`
 
 
 
-## Usando   `Statsmodels` <a class="anchor" id="23"></a>
+### Usando   `Statsmodels` <a class="anchor" id="23"></a>
 
 
 **Opción uno: usar `smf`**
@@ -2461,7 +2492,7 @@ new_data.head()
 
 
 
-## Usando `scikit-learn` <a class="anchor" id="24"></a>
+### Usando `scikit-learn` <a class="anchor" id="24"></a>
 
 
 
@@ -2621,7 +2652,7 @@ Model_Py_sklearn.predict(new_data)
  
 
  
-# Estimación de los residuos en `Python` <a class="anchor" id="26"></a>
+## Estimación de los residuos en `Python` <a class="anchor" id="26"></a>
 
 
 
@@ -2760,44 +2791,6 @@ df_predictions_Python.head()
 
 
 
-<br>
-
-
-
-# Estimación de la varianza de los residuos <a class="anchor" id="27"></a>
-
-
-
-
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
-
-
-$\hspace{0.25 cm}$ El estimador de la varianza del error $\hspace{0.1cm} Var(\varepsilon_i)=\sigma^2 \hspace{0.1cm}$ se denomina **varianza residual** , y se define como:
-
-
-$$
- \widehat{Var}(\varepsilon_i) \hspace{0.15cm} =\hspace{0.15cm} \widehat{\sigma}^2  \hspace{0.15cm}=\hspace{0.15cm} \dfrac{1}{n-p-1} \cdot \sum_{i=1}^{n} \hat{\varepsilon}_i\hspace{0.02cm}^2 \hspace{0.15cm}=\hspace{0.15cm}  \dfrac{1}{n-p-1} \cdot (Y^t \cdot Y - \hat{\beta}^t \cdot X^t \cdot Y) \\
-$$
-
-
- 
-
-$\hspace{0.25 cm}$ Además se cumple lo siguiente:
-
-
-- $\hspace{0.3cm} \dfrac{n-p-1}{\sigma^2} \cdot \widehat{\sigma}^2 \hspace{0.1cm} \sim \hspace{0.1cm} \chi_{n-p-1}^2 \\[0.3cm]$
-
-- $\hspace{0.3cm} E[\widehat{\sigma}^2]=\sigma^2 \\[0.3cm]$
-
-
-- $\hspace{0.3cm} Var(\widehat{\sigma}^2)=\dfrac{2 \cdot \sigma^4}{n-p-1}$
-
-
-</p>
- 
-</p></span>
-</div>
 
 
 
@@ -2841,6 +2834,9 @@ estimated_standard_deviation_error
 
 
 <br>
+
+<br>
+
 
 
 # Interpretación de los coeficientes del modelo de regresión lineal <a class="anchor" id="33"></a>
@@ -2886,7 +2882,7 @@ $$\widehat{y}_i \hspace{0.15cm}=\hspace{0.15cm} x_i^t \cdot \widehat{\beta}  \hs
 
 
 
-$\hspace{0.25cm}$ Sea  $\hspace{0.1cm} X_k \hspace{0.1cm}$ una variable cuantitativa, y sea $\hspace{0.05cm}$ $h>0$
+$\hspace{0.25cm}$ Sea  $\hspace{0.1cm} \mathcal{X}_k \hspace{0.1cm}$ una variable cuantitativa, y sea $\hspace{0.05cm}$ $h>0$
 
 
 $\hspace{0.25cm}$ Tenemos el siguiente modelo de regresión lineal estimado:
@@ -2944,7 +2940,7 @@ Las anteriores afirmaciones se basan en lo siguiente:
 
 ## Interpretación de los coeficientes y unidades de medida
 
-En la sección anterior $\hspace{0.15cm} y$-units hace referencia a la unidad de medida de la variable respuesta $Y$, y $\hspace{0.15cm} x_k$-units hace referencia a la unidad de medida del predictor $X_k$
+En la sección anterior $\hspace{0.15cm} y$-units hace referencia a la unidad de medida de la variable respuesta $\mathcal{Y}$, y $\hspace{0.15cm} x_k$-units hace referencia a la unidad de medida del predictor $\mathcal{X}_k$
 
 
 Vamos a demostrar que
@@ -3002,10 +2998,10 @@ $\hspace{0.15cm}(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=c+h ) - (\ha
 
 
 
-Sea $\hspace{0.1cm} X_k \hspace{0.1cm}$ una variable categorica con dos categorias 
+Sea $\hspace{0.1cm} \mathcal{X}_k \hspace{0.1cm}$ una variable categorica con dos categorias 
 $\hspace{0.1cm} \lbrace 0 , 1 \rbrace$,
 
-Si la categoria de referencia es  $\hspace{0.1cm} 0 \hspace{0.1cm}$  , entonces  $\hspace{0.1cm} X_k \hspace{0.1cm}$ entra en el modelo con la variable dummy siguiente:
+Si la categoria de referencia es  $\hspace{0.1cm} 0 \hspace{0.1cm}$  , entonces  $\hspace{0.1cm} \mathcal{X}_k \hspace{0.1cm}$ entra en el modelo con la variable dummy siguiente:
 
 $$\hspace{0.1cm} D(X_{k}=1) \hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} I(x_{ik}=1) \hspace{0.15cm} /\hspace{0.15cm} i\in  \lbrace 1,..,n\rbrace \hspace{0.1cm} \right) \hspace{0.1cm} \\$$ 
 
@@ -3073,10 +3069,10 @@ Las anteriores afirmaciones estan basadas en lo siguiente:
 
 
 
-Sea $\hspace{0.1cm} X_k \hspace{0.1cm}$ una variable categórica con tres categorias 
+Sea $\hspace{0.1cm} \mathcal{X}_k \hspace{0.1cm}$ una variable categórica con tres categorias 
 $\hspace{0.1cm} \lbrace 0 , 1, 2 \rbrace$,
 
-Si la categoria de referencia es $\hspace{0.1cm}0\hspace{0.1cm}$, entonces $\hspace{0.1cm}X_k\hspace{0.1cm}$ entra en el modelo con las dos variables binarias siguientes:
+Si la categoria de referencia es $\hspace{0.1cm}0\hspace{0.1cm}$, entonces $\hspace{0.1cm}\mathcal{X}_k\hspace{0.1cm}$ entra en el modelo con las dos variables binarias siguientes:
 
 $$\hspace{0.1cm}D(X_{k}=1)\hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} I(x_{ik}=1) \hspace{0.15cm} /\hspace{0.15cm} i\in  \lbrace 1,..,n\rbrace \hspace{0.1cm} \right) \hspace{0.1cm}$$
 
@@ -3276,7 +3272,7 @@ Notese que en todos los casos se asume que el resto de las variables del modelo 
 
 ### Interacción entre predictores binarios y cuantitativos
 
-Sea $\hspace{0.1cm} X_r\hspace{0.1cm}$ una variable **cuantitativa**, y $\hspace{0.1cm}X_k\hspace{0.1cm}$ una variable categorica **binaria**.
+Sea $\hspace{0.1cm} \mathcal{X}_r\hspace{0.1cm}$ una variable **cuantitativa**, y $\hspace{0.1cm}\mathcal{X}_k\hspace{0.1cm}$ una variable categorica **binaria**.
 
 Si la categoria de referencia es  $\hspace{0.1cm}0\hspace{0.1cm}$  , entonces  $\hspace{0.1cm}X_k\hspace{0.1cm}$ entra en el modelo con la siguiente variable dummy:
 
@@ -3351,7 +3347,7 @@ $(\hat{y}_i \hspace{0.05cm} | \hspace{0.05cm} x_{ik}=1 ) - (\widehat{y}_i  \hspa
 
 ### Interacción entre predictores ternarios y cuantitativos
 
-Sea $\hspace{0.1cm} X_r\hspace{0.1cm}$ una variable cuantitativa, y $\hspace{0.1cm}X_k\hspace{0.1cm}$ una  variable categórica **ternaria** con categorías $\lbrace 0, 1 , 2 \rbrace$.
+Sea $\hspace{0.1cm} \mathcal{X}_r\hspace{0.1cm}$ una variable cuantitativa, y $\hspace{0.1cm}\mathcal{X}_k\hspace{0.1cm}$ una  variable categórica **ternaria** con categorías $\lbrace 0, 1 , 2 \rbrace$.
 
 <br>
 
@@ -4346,6 +4342,8 @@ TSS\hspace{0.1cm}=\hspace{0.1cm}RSS\hspace{0.1cm}+\hspace{0.1cm}RegSS
 
 <br>
 
+---
+
 <center>
 
 ![](TSS.jpg){width="60%"}
@@ -4369,7 +4367,11 @@ $$\sum_{i=1}^{n} (y_i - \overline{y})^2 \hspace{0.1cm}= \hspace{0.1cm} \sum_{i=1
 
 <br>
 
-Ahora podemos definir el estadístico del contraste como: $\\[0.5cm]$
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span> 
+
+
+$\hspace{0.25cm}$ Ahora podemos definir el estadístico del contraste como: $\\[0.5cm]$
 
  
 \begin{gather*}
@@ -4377,7 +4379,15 @@ F_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{(TSS-RSS)/p}{RSS/(n-p-1)} \hspa
 \end{gather*}
  
  
-Donde:  $\hspace{0.1cm} p \hspace{0.1cm}$ es el numero de predicores del modelo.
+$\hspace{0.25cm}$ Donde:  $\hspace{0.1cm} p \hspace{0.1cm}$ es el numero de predicores del modelo.
+
+
+
+</p>
+ 
+</p></span>
+</div>
+
 
 <br>
 
@@ -4475,7 +4485,7 @@ print(model_Py_sm.summary())
     strong multicollinearity or other numerical problems.
     
 
-<br>
+
 
 Tenemos lo siguiente: $\\[0.5cm]$
 <br>
@@ -4512,11 +4522,22 @@ $\hspace{0.25cm}$ Donde:
  $$Var(\hat{y}_i) = \sigma^2 \cdot v_{hh}\\$$
 
 
-$\hspace{0.25cm}$ Por tanto:
 
-$$\dfrac{\hat{y}_i - E[\hat{y}_i ]}{\sqrt{\widehat{Var}(\hat{y}_i) }} \hspace{0.1cm} =\hspace{0.1cm}  \dfrac{\hat{y}_i -  x_i^t \cdot \beta }{\sqrt{\hat{\sigma}^2 \cdot v_{hh}}} \hspace{0.1cm} \sim \hspace{0.1cm} t_{n-p-1}$$
+</p>
+ 
+</p></span>
+</div>
 
-<br>
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span> 
+
+
+$\hspace{0.25cm}$  Podemos usar la anterior expresión como cantidad pivotal para construir el siguiente intervalo de confianza para un nivel:
+
+$$\dfrac{\hat{y}_i - E[\hat{y}_i ]}{\sqrt{\widehat{Var}(\hat{y}_i) }} \hspace{0.1cm} =\hspace{0.1cm}  \dfrac{\hat{y}_i -  x_i^t \cdot \beta }{\sqrt{\hat{\sigma}^2 \cdot v_{hh}}} \hspace{0.1cm} \sim \hspace{0.1cm} t_{n-p-1} \\$$
 
 $\hspace{0.25cm}$ Podemos usar la anterior expresion como cantidad pivotal para construir el siguiente intervalo de confianza para un nivel $1-\alpha \\$
 
@@ -4542,20 +4563,29 @@ $$\hspace{0.45cm} IP\left( \hspace{0.05cm} E[\hat{y}_i ] \hspace{0.05cm} \right)
 
 $\hspace{0.25cm}$ Se cumple lo siguiente: $\\[0.5cm]$
 
- $$y_i  \hspace{0.15cm} \sim \hspace{0.15cm} N \left( \hspace{0.1cm} x_i^t \cdot \beta \hspace{0.25cm},\hspace{0.25cm} \sigma^2  \hspace{0.1cm} \right) \\[0.7cm]$$
+ $$y_i  \hspace{0.15cm} \sim \hspace{0.15cm} N \left( \hspace{0.1cm} x_i^t \cdot \beta \hspace{0.25cm},\hspace{0.25cm} \sigma^2  \hspace{0.1cm} \right) \\[0.5cm]$$
 
- $$\hat{y}_i \hspace{0.1cm}=\hspace{0.1cm} x_i^t \cdot \widehat{\beta} \hspace{0.15cm} \sim \hspace{0.15cm} N \left( \hspace{0.1cm} x_i^t \cdot \beta \hspace{0.25cm},\hspace{0.25cm} \sigma^2 \cdot v_{hh} \hspace{0.1cm} \right) \\[0.7cm]$$
+ $$\hat{y}_i \hspace{0.1cm}=\hspace{0.1cm} x_i^t \cdot \widehat{\beta} \hspace{0.15cm} \sim \hspace{0.15cm} N \left( \hspace{0.1cm} x_i^t \cdot \beta \hspace{0.25cm},\hspace{0.25cm} \sigma^2 \cdot v_{hh} \hspace{0.1cm} \right) \\[0.5cm]$$
  
 $\hspace{0.25cm}$ Donde:  
 
- $$v_{hh}=x_i^t \cdot (X^t \cdot X)^{-1} \cdot x_i \\$$
+- $\hspace{0.1cm} v_{hh}=x_i^t \cdot (X^t \cdot X)^{-1} \cdot x_i \\$
 
- $$E[y_i ] = E[\hat{y}_i ] = x_i^t \cdot \beta\\$$
+- $\hspace{0.1cm}E[y_i ] = E[\hat{y}_i ] = x_i^t \cdot \beta\\$
 
- $$Var(y_i) = \sigma^2 \\$$
+- $\hspace{0.1cm}Var(y_i) = \sigma^2 \\$
 
- $$Var(\hat{y}_i) = \sigma^2 \cdot v_{hh}\\$$
+- $\hspace{0.1cm}Var(\hat{y}_i) = \sigma^2 \cdot v_{hh}\\$
 
+</p>
+ 
+</p></span>
+</div>
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
 $\hspace{0.25cm}$ Por tanto, se tiene lo siguiente:
 
@@ -4566,23 +4596,34 @@ $$y_i - \hat{y}_i \sim N(0 , \sigma^2 \cdot (1 + v_{hh}))$$
 $\hspace{0.25cm}$ Donde:
 
 
- $$E[y_i - \hat{y}_i] = 0$$
+- $\hspace{0.1cm}E[y_i - \hat{y}_i] = 0\\$
 
- $$Var(y_i - \hat{y}_i) = \sigma^2 \cdot (1 + v_{hh})$$
+- $\hspace{0.1cm}Var(y_i - \hat{y}_i) = \sigma^2 \cdot (1 + v_{hh})$
+
+</p>
+ 
+</p></span>
+</div>
 
 
-$\hspace{0.25cm}$ Así que, se tiene la siguiente cantidad pivotal:
 
 
-$$\dfrac{ ( y_i - \hat{y}_i ) - E[y_i - \hat{y}_i]}{\sqrt{\widehat{Var}(y_i - \hat{y}_i ) }} \hspace{0.1cm} =\hspace{0.1cm}  \dfrac{y_i - \hat{y}_i }{\sqrt{\hat{\sigma}^2 \cdot (1 +  v_{hh} ) }} \hspace{0.1cm} \sim \hspace{0.1cm} t_{n-p-1}$$
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-<br>
+
+
+$\hspace{0.25cm}$ Así que, se tiene la siguiente cantidad pivotal:$\\[0.5cm]$
+
+
+$$\dfrac{ ( y_i - \hat{y}_i ) - E[y_i - \hat{y}_i]}{\sqrt{\widehat{Var}(y_i - \hat{y}_i ) }} \hspace{0.1cm} =\hspace{0.1cm}  \dfrac{y_i - \hat{y}_i }{\sqrt{\hat{\sigma}^2 \cdot (1 +  v_{hh} ) }} \hspace{0.1cm} \sim \hspace{0.1cm} t_{n-p-1}\\$$
+
 
 $\hspace{0.25cm}$ Podemos usar la anterior expresión como cantidad pivotal para construir el siguiente intervalo de confianza para un nivel $1-\alpha \\$
 
 
 
-$$\hspace{0.25cm} IP\left( \hspace{0.05cm} y_i \hspace{0.05cm} \right)_{1-\alpha}\hspace{0.1cm} =\hspace{0.1cm} \left[\hspace{0.15cm} \hat{y}_i  \hspace{0.15cm}\pm\hspace{0.15cm} t_{\alpha/2}^{n-p-1} \cdot \sqrt{ \widehat{\sigma}^2 \cdot (1 + v_{hh} ) } \hspace{0.15cm} \right] $$
+$$\hspace{0.25cm} IP\left( \hspace{0.05cm} y_i \hspace{0.05cm} \right)_{1-\alpha}\hspace{0.1cm} =\hspace{0.1cm} \left[\hspace{0.15cm} \hat{y}_i  \hspace{0.15cm}\pm\hspace{0.15cm} t_{\alpha/2}^{n-p-1} \cdot \sqrt{ \widehat{\sigma}^2 \cdot (1 + v_{hh} ) } \hspace{0.15cm} \right] \\$$
 
 
 </p>
@@ -5047,17 +5088,23 @@ Donde: $\hspace{0.2cm} r_{i h} \hspace{0.1cm}$ es el coeficiente de correlación
 
 <br>
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
 **Criterio :  Indentificación de multicolinealidad con $R$**
 
 Tenemos un modelo de regresión lineal estimado $\hspace{0.2cm} Y=X\cdot \widehat{\beta}   \hspace{0.2cm}$  con predictores exclusivamente **cuantitativos**. 
 
-Calculamos la matriz de correlaciones lineales para la matriz de datos $\hspace{0.1cm}[X_1,...,X_n]\hspace{0.1cm}$ de los predictores $\hspace{0.2cm} \Rightarrow \hspace{0.2cm} R = [r_{ih} ]\hspace{0.05cm}_{i,h=1,..,p}$
-
-<br>
+Calculamos la matriz de correlaciones lineales para la matriz de datos $\hspace{0.1cm}[X_1,...,X_n]\hspace{0.1cm}$ de los predictores $\hspace{0.2cm} \Rightarrow \hspace{0.2cm} R = [r_{ih} ]\hspace{0.05cm}_{i,h=1,..,p} \\$
 
 
 - Si hay algún $\hspace{0.2cm} r_{ih}\hspace{0.2cm} \hspace{0.1cm} > 0.75 \hspace{0.1cm}$  $\hspace{0.2cm} \Rightarrow\hspace{0.2cm}$ probablemente hay problemas de multicolinealidad.
 
+
+</p>
+ 
+</p></span>
+</div>
 
 
 &nbsp;
