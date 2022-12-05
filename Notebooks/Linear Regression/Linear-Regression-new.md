@@ -3900,7 +3900,7 @@ Para un nivel de significación fijado $\hspace{0.1cm}\alpha \\$
     - *Basado en el estadístico del contraste*      
 
  
-       - $\text{Rechazar} \ H_0 \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} > \hspace{0.1cm} t_{\alpha/2}^{n-p-1} \hspace{0.25cm} \vee \hspace{0.25cm} t_{exp|H_0} < t_{1-\alpha/2}^{n-p-1}  \hspace{0.25cm} \Leftrightarrow \\
+       - $\text{Rechazar} \ H_0 \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} > \hspace{0.1cm} t_{\alpha/2}^{n-p-1} \hspace{0.25cm} \vee \hspace{0.25cm} t_{exp|H_0} < t_{1-\alpha/2}^{n-p-1}  \hspace{0.25cm} 
       \Leftrightarrow  \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} > \hspace{0.1cm} t_{\alpha/2}^{n-p-1} \hspace{0.25cm} \vee \hspace{0.25cm} t_{exp|H_0} < - t_{\alpha/2}^{n-p-1}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} | t_{exp|H_0} | \hspace{0.1cm} > \hspace{0.1cm} t_{\alpha/2}^{n-p-1}  \\$
  
  
