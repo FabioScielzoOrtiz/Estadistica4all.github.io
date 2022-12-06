@@ -48,9 +48,11 @@ css: custom.css
 
 > More articles in my blog:   $\hspace{0.1cm}$   [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)
 
+**Se recomienda abrir el artículo en un ordenador o en una tablet.**
+
 <br>
 
-El concepto de distancia entre observaciones de variables estadisticas tiene un papel relevante en muchas tecnicas y modelos estadistico tales como KNN, PCA, MDS, Clustering , Regresión  y Clasificacion (supervisada). Es por ello de especial relevancia para todo cientifico de datos saber que son las distancias estadisticas, que tipos hay y como implementarlas.
+El concepto de distancia entre observaciones de variables estadísticas tiene un papel relevante en muchas técnicas y modelos estadístico tales como KNN, PCA, MDS, Clustering , Regresión  y Clasificación (supervisada). Es por ello de especial relevancia para todo científico de datos saber que son las distancias estadísticas, que tipos hay y como implementarlas.
 
 
 
@@ -855,18 +857,14 @@ $\hspace{0.25cm}$ La distancia Euclidea entre el par de observaciones $\hspace{0
 
 
 $$
-\hspace{0.35cm} \delta(i,r)_{Euclidea} = \delta(x_i,x_r)_{Euclidea} =\sqrt{\sum_{k=1}^{p} (x_{ik} - x_{rk})\hspace{0.05cm}^2 \hspace{0.1cm} }  \hspace{0.1cm}=\hspace{0.1cm} \sqrt{(x_i - x_r)\hspace{0.05cm}^t\cdot (x_i - x_r)\hspace{0.1cm}} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ \text{sum} \left( \hspace{0.05cm} (x_i - x_r)^2  \hspace{0.05cm} \right) \hspace{0.1cm} } \\[0.6cm]
-$$
-
-
-$$
-\hspace{0.35cm} \delta^2(i,r)_{Euclidea} = \delta^2(x_i,x_r)_{Euclidea} \hspace{0.1cm}=\hspace{0.1cm} \sum_{k=1}^{p} (x_{ik} - x_{jk})\hspace{0.05cm}^2 \hspace{0.1cm}=\hspace{0.1cm} (x_i - x_j)\hspace{0.05cm}^t\cdot (x_i - x_j) \hspace{0.1cm}=\hspace{0.1cm} \text{sum} \left( \hspace{0.05cm} (x_i - x_j)^2 \hspace{0.05cm} \right) \\
+\hspace{0.35cm} \delta(x_i,x_r)_{E} =\sqrt{\sum_{k=1}^{p} (x_{ik} - x_{rk})\hspace{0.05cm}^2 \hspace{0.1cm} }  \hspace{0.1cm}=\hspace{0.1cm} \sqrt{(x_i - x_r)\hspace{0.05cm}^t\cdot (x_i - x_r)\hspace{0.1cm}}   \\[0.6cm]
 $$
 
 
 
 
-$\hspace{0.25cm}$ para $\hspace{0.15cm} i,r = 1,...,n$
+
+$\hspace{0.25cm}$ para $\hspace{0.15cm} i,r \in \lbrace 1,...,n\rbrace$
 
 
 </p>
@@ -880,9 +878,9 @@ $\hspace{0.25cm}$ para $\hspace{0.15cm} i,r = 1,...,n$
 **Observaciones:**
 
 
-$\delta(i,r)_{Euclidea}$ puede interpretarse como la distancia Euclidea entre el par de individuos $(e_i , e_r)$ respecto de las variables estadisticas  $\mathcal{X}_1,...,\mathcal{X}_p$  
+$\delta(x_i,x_r)_{E}\hspace{0.1cm}$ puede interpretarse como la distancia Euclidea entre el par de individuos $\hspace{0.1cm}(e_i , e_r)\hspace{0.1cm}$ respecto de las variables estadisticas  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$  
 
-Nos da una medida de distancia entre individuos basada en datos de esos individuos sobre variables estadisticas.  
+Nos da una medida de distancia entre individuos basada en datos de esos individuos sobre variables estadísticas.  
 
 
 
@@ -890,21 +888,23 @@ Nos da una medida de distancia entre individuos basada en datos de esos individu
 <br>
 
 
-**Distancia Euclidea entre vectores**
+
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
 <p style='margin-left:1em;'>
 
+$\hspace{0.25cm}$ **Distancia Euclidea entre vectores**
+
 $\hspace{0.25cm}$ La distancia Euclidea no se circusncribe solamente al campo de la estadística, una definicion mas general que contiene a la anteriormente dada es la siguiente:
 
-$\hspace{0.25cm}$ Dados dos vectores  $v=(v_1,...,v_n)^t$ y $w=(w_1,...,w_n)^t$ de $\mathbb{R}^n$
+$\hspace{0.25cm}$ Dados dos vectores  $\hspace{0.1cm}v=(v_1,...,v_p)^t\hspace{0.15cm}$ y $\hspace{0.15cm}w=(w_1,...,w_p)^t\hspace{0.1cm}$ de $\hspace{0.1cm}\mathbb{R}^p$
 
 $\hspace{0.25cm}$ La distancia Euclidea entre esos vectores es:
 
 $$
-\hspace{0.25cm} \delta^2(v,w)_{Euclidean} \hspace{0.07cm}=\hspace{0.07cm}  sum( (v-w)^2)  \hspace{0.07cm}=\hspace{0.07cm}  \sum_{i=1}^{n} (v_{i} - w_{i})\hspace{0.05cm}^2   
+\hspace{0.25cm} \delta(v,w)_{E} \hspace{0.07cm}=\hspace{0.07cm} \sqrt{ \sum_{i=1}^{p} (v_{i} - w_{i})\hspace{0.12cm} }   
 $$
 
 </p>
@@ -912,7 +912,7 @@ $$
 </p></span>
 </div>
 
-- Así que $\hspace{0.1cm} \delta(x_i,x_r)_{Euclidea}\hspace{0.1cm}$ es la distancia Euclidea entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}$ y $\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p$
+- Así que $\hspace{0.1cm} \delta(x_i,x_r)_{E}\hspace{0.1cm}$ es la distancia Euclidea entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}$ y $\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p$
 
 
 
@@ -946,7 +946,7 @@ Ahora las observaciones de los elementos $i$ y $r$ son $a\cdot x_i + b$ y $a\cdo
 Por lo que la distancia Euclidea entre el par de observaciones de los elementos $i$ y $r$ es:
 
 $$
-\delta^2(i, r) = \delta^2(a\cdot x_i + b, a\cdot x_r + b)_{Euclidea} = a^2 \cdot (x_i - x_r)^t\cdot (x_i - x_r)
+\delta^2(i, r) = \delta^2(a\cdot x_i + b, a\cdot x_r + b)_{E} = a^2 \cdot (x_i - x_r)^t\cdot (x_i - x_r)
 $$
 
 <br>
@@ -1082,11 +1082,11 @@ M_Euclidean
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ La distancia de Minkowski de parametro $\hspace{0.1cm} q=1,2,3,... \hspace{0.1cm}$ entre el par de observaciones (x_i , x_r) de las variables estadisticas $\hspace{0.1cm} \mathcal{X}_1,. ..,\mathcal{X}_k\hspace{0.1cm}$  se define como: $\\[0.5cm]$
+$\hspace{0.25cm}$ La distancia de Minkowski de parametro $\hspace{0.1cm} q\in \lbrace 1,2,3,...\rbrace \hspace{0.1cm}$ entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm} \mathcal{X}_1,. ..,\mathcal{X}_k\hspace{0.1cm}$  se define como: $\\[0.5cm]$
 
 
 $$
-\hspace{0.25cm} \delta_q(i,r)_{Minkow} = \delta_q(x_i,x_r)_{Minkow} \hspace{0.1cm} = \hspace{0.1cm}  \left( \sum_{k=1}^{p}  \mid x_{ik} - x_{jk} \mid  ^q  \right)^{(1/q)} \hspace{0.1cm} = \hspace{0.1cm} \text{sum} \left( \hspace{0.1cm} \mid x_i - x_j \mid  ^q \hspace{0.1cm}\right)^{(1/q)}    
+\hspace{0.25cm} \delta_q(x_i,x_r)_{M} \hspace{0.1cm} = \hspace{0.1cm}  \left( \sum_{k=1}^{p}  \mid x_{ik} - x_{rk} \mid  ^q  \right)^{(1/q)}   
 $$
 
 </p>
@@ -1099,7 +1099,6 @@ $$
 
 
 
-**Distancia Minkowski entre vectores**
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1107,16 +1106,19 @@ $$
  
 <p style='margin-left:1em;'>
 
+$\hspace{0.25cm}$ **Distancia Minkowski entre vectores**
+
+
 $\hspace{0.25cm}$ La distancia de Minkowski puede definirse de un modo mas general no sujeto al contexto estadistico.
 
-$\hspace{0.25cm}$ Dados dos vectores $\hspace{0.1cm} v=(v_1,...,v_n)^t\hspace{0.1cm}$ y $\hspace{0.1cm} w=(w_1,...,w_n)^t\hspace{0.1cm}$ de $\hspace{0.1cm}\mathbb{R}^2 \\$
+$\hspace{0.25cm}$ Dados dos vectores $\hspace{0.1cm} v=(v_1,...,v_p)^t\hspace{0.1cm}$ y $\hspace{0.1cm} w=(w_1,...,w_p)^t\hspace{0.1cm}$ de $\hspace{0.1cm}\mathbb{R}^p \\$
 
 
 
 $\hspace{0.25cm}$ La distancia de Minkowski entre  esos vectores se define como:
 
 $$
-\hspace{0.25cm} \delta_q(v,w)_{Minkowski} \hspace{0.07cm}=\hspace{0.07cm}  sum \left( \hspace{0.1cm} \mid v - w \mid  ^q \hspace{0.1cm}\right)^{(1/q)}  \hspace{0.07cm}=\hspace{0.07cm}  \left( \sum_{i=1}^{n}  \mid v_{i } - w_{i} \mid  ^q  \right)^{(1/q)} $$
+\hspace{0.25cm} \delta_q(v,w)_{M} \hspace{0.07cm}=\hspace{0.07cm}   \left( \sum_{i=1}^{p}  \mid v_{i } - w_{i} \mid  ^q  \right)^{(1/q)} $$
 
 </p>
  
@@ -1124,7 +1126,7 @@ $$
 </div>
 
 
-- Asi que $\hspace{0.1cm} \delta_q(x_i,x_r)_{Minkowski}\hspace{0.1cm}$ es la distancia de Minkowski entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}$ y $\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p$
+- Asi que $\hspace{0.1cm} \delta_q(x_i,x_r)_{M}\hspace{0.1cm}$ es la distancia de Minkowski entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}$ y $\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p$
 
 
 <br>
@@ -1154,36 +1156,35 @@ $$
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$  **Distancia Euclidea** 
+$\hspace{0.25cm}$  **Distancia Euclidea** $\\[0.5cm]$
 
 
 \begin{gather*}
- \delta_2(i,j)_{Minkowski }=\delta (i,j)_{Euclidea }   \hspace{1cm} (q=2) \\
+ \delta_2(x_i,x_r)_{M}=\delta (x_i,x_r)_{E}   \hspace{1cm} (q=2) \\
  \end{gather*}
  
 
 
 <br>
 
-$\hspace{0.25cm}$  **Distancia Manhattan**
+$\hspace{0.25cm}$  **Distancia Manhattan** $\\[0.5cm]$
 
 
 
 \begin{gather*}
- \delta_1(i,j)_{Minkowski } \hspace{0.1cm}=\hspace{0.1cm} \sum_{k=1}^{p}  \mid x_{ik} - x_{jk}  \mid  \hspace{0.1cm}=\hspace{0.1cm}  sum \left( \hspace{0.1cm} \mid x_i - x_j \mid \hspace{0.1cm} \right) \hspace{1cm} (q=1) \\
+ \delta_1(x_i,x_r)_{M} \hspace{0.1cm}=\hspace{0.1cm} \sum_{k=1}^{p}  \mid x_{ik} - x_{rk}  \mid \hspace{1cm} (q=1) \\
  \end{gather*}
 
 
 
 <br>
 
-$\hspace{0.25cm}$  **Distancia Dominante** <a class="anchor" id="23"></a>
+$\hspace{0.25cm}$  **Distancia Dominante** $\\[0.5cm]$
 
 
 
 \begin{gather*}
- \delta_{\infty}(i,j)_{Minkowski } \hspace{0.1cm}=\hspace{0.1cm} max \lbrace  \hspace{0.1cm} \mid x_{i1} - x_{j1} \mid \hspace{0.1cm},...,\hspace{0.1cm} \mid x_{ip} - x_{jp} \mid \hspace{0.1cm}  \rbrace \hspace{0.1cm}=\hspace{0.1cm} max \left( \mid x_i - x_j \mid \right) \hspace{1cm} (q\rightarrow \infty) 
- \end{gather*}
+ \delta_{\infty}(x_i,x_r)_{M} \hspace{0.1cm}=\hspace{0.1cm} max \lbrace  \hspace{0.1cm} \mid x_{i1} - x_{r1} \mid \hspace{0.1cm},...,\hspace{0.1cm} \mid x_{ip} - x_{rp} \mid \hspace{0.1cm}  \rbrace  \end{gather*}
 
 
 </p>
@@ -1331,7 +1332,7 @@ $\hspace{0.25cm}$ La distancia de Canberra entre el par de observaciones $\hspac
 
 
 \begin{gather*}
-\delta(i,r)_{Canberra} = \delta(x_i,x_r)_{Canberra}\hspace{0.1cm}= \hspace{0.1cm} \sum_{k=1}^{p} \dfrac{\mid x_{ik} - x_{jk} \mid}{\mid x_{ik} \mid + \mid x_{jk} \mid}  \hspace{0.1cm}= \hspace{0.1cm} sum \left( \dfrac{\mid x_i - x_r \mid }{ \mid x_i \mid + \mid x_r \mid} \right)
+\delta(x_i,x_r)_{C} \hspace{0.1cm}= \hspace{0.1cm} \sum_{k=1}^{p} \dfrac{\mid x_{ik} - x_{jk} \mid}{\mid x_{ik} \mid + \mid x_{jk} \mid}  
  \end{gather*}
 
 </p>
@@ -1345,7 +1346,6 @@ $\hspace{0.25cm}$ La distancia de Canberra entre el par de observaciones $\hspac
 
 
 
-**Distancia Canberra entre vectores**
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1353,17 +1353,19 @@ $\hspace{0.25cm}$ La distancia de Canberra entre el par de observaciones $\hspac
  
 <p style='margin-left:1em;'>
 
+$\hspace{0.25cm}$ **Distancia Canberra entre vectores**
+
 
 $\hspace{0.25cm}$ La distancia de Canberra se puede definir de forma más general no sujeta a un contexto estadístico.
 
-$\hspace{0.25cm}$ Dados dos vectores $\hspace{0.07cm}v=(v_1,...,v_n)^t\hspace{0.07cm}$ y $\hspace{0.07cm}w=(w_1,...,w_n)^t$ de $\hspace{0.07cm}\mathbb{R}^2$
+$\hspace{0.25cm}$ Dados dos vectores $\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.07cm}$ y $\hspace{0.07cm}w=(w_1,...,w_p)^t$ de $\hspace{0.07cm}\mathbb{R}^p$
 
 
 
 $\hspace{0.25cm}$ La distancia Canberra entre esos dos vectores es: $\\[0.7cm]$
 
 $$
-\delta (v,w)_{Canberra}  \hspace{0.07cm}=\hspace{0.07cm}  sum \left( \dfrac{ \mid v-w \mid }{\mid v \mid + \mid w \mid} \right)  \hspace{0.07cm}=\hspace{0.07cm}  \sum_{i=1}^{n} \dfrac{ \mid v_i - w_i \mid }{\mid v_i \mid + \mid w_i \mid} \\
+\delta (v,w)_{C}  \hspace{0.07cm}=\hspace{0.07cm}    \sum_{i=1}^{r} \dfrac{ \mid v_i - w_i \mid }{\mid v_i \mid + \mid w_i \mid} \\
 $$
 
 </p>
@@ -1372,7 +1374,7 @@ $$
 </div>
 
 
-- Asi que $\hspace{0.1cm} \delta_q(x_i,x_r)_{Minkowski}\hspace{0.1cm}$ es la distancia de Minkowski entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}$ y $\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p$
+- Asi que $\hspace{0.1cm} \delta_q(x_i,x_r)_{C}\hspace{0.1cm}$ es la distancia de Canberra entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}$ y $\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p$
 
 
 
@@ -1380,13 +1382,12 @@ $$
 
 **Desventajas de la distancia de Canberra**
 
-1) Asumen que las variables son incorreladas y tienen varianza uno.
+Asume que las variables son incorreladas y tienen varianza uno.
 
 
 
 **Ventajas de la distancia de Canberra**
-
-1) Es invariante ante cambios de escala (cambios en las unidades de medida) de las variables.
+Es invariante ante cambios de escala (cambios en las unidades de medida) de las variables.
 
 
 
@@ -1420,6 +1421,9 @@ Dist_Canberra(Data.iloc[2,:] , Data.iloc[5,:])
 ```
 
     9.161812529108834
+
+
+<br>
 
 
 ```python
@@ -1472,6 +1476,8 @@ array([[0.        , 0.5496257 , 1.61996314, ..., 1.25082356, 0.78797391,
         0.        ]])
 ```
 
+<br>
+
 ```python
 M_Canberra = M_Canberra + M_Canberra.T
 
@@ -1507,12 +1513,12 @@ array([[0.        , 0.5496257 , 1.61996314, ..., 1.25082356, 0.78797391,
  
 <p style='margin-left:1em;'>
 
-Dada una serie de muestras $X_1,...,X_p$ de las variables estadisticas  $\mathcal{X}_1,...,\mathcal{X}_p$
+$\hspace{0.25cm}$ Dada una serie de muestras $\hspace{0.1cm} X_1,...,X_p\hspace{0.1cm}$ de las variables estadisticas  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
 
-La distancia de Karl Pearson entre el par de observaciones $(x_i,x_r)$ de las variables estadisticas $\mathcal{X}_1,...,\mathcal{X}_p$ se define como: $\\[0.5cm]$
+$\hspace{0.25cm}$ La distancia de Karl Pearson entre el par de observaciones $\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ se define como: $\\[0.5cm]$
 
 $$
-\delta(i,r)_{Pearson} \hspace{0.05cm} =\hspace{0.05cm} \delta(x_i,x_r)_{KP} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ \sum_{k=1}^{p} \hspace{0.08cm} \dfrac{1}{s\hspace{0.03cm}^2_k} \cdot ( x_{ik} - x_{rk} )\hspace{0.03cm}^2 } \hspace{0.1cm} =\hspace{0.1cm} \sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S_0^{-1} \cdot (x_i - x_r )}  \hspace{0.1cm} = \hspace{0.1cm} \sqrt{  sum \left( \hspace{0.07cm} \left(  \dfrac{ x_i - x_r  }{ \overrightarrow{s}   }\right)^2 \hspace{0.07cm} \right)} \\[0.8cm]
+\hspace{0.25cm} \delta(x_i,x_r)_{KP} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ \sum_{k=1}^{p} \hspace{0.08cm} \dfrac{1}{s\hspace{0.03cm}^2_k} \cdot ( x_{ik} - x_{rk} )\hspace{0.03cm}^2 } \hspace{0.1cm} =\hspace{0.1cm} \sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S_0^{-1} \cdot (x_i - x_r )}  \hspace{0.1cm} = \hspace{0.1cm} \sqrt{  sum \left( \hspace{0.07cm} \left(  \dfrac{ x_i - x_r  }{ \overrightarrow{s}   }\right)^2 \hspace{0.07cm} \right)} \\[0.8cm]
 $$
   
 
@@ -1527,11 +1533,11 @@ $$
 
 Donde:
  
- $S_0 = \text{diag}(s_1 ^2 ,..., s_p ^2)$
+- $S_0 \hspace{0.05cm} =\hspace{0.05cm} \text{diag}(s_1 ^2 ,..., s_p ^2) \\$
  
- $s_k ^2\hspace{0.08cm}$ es la varianza de la muestra $\hspace{0.08cm}X_k\hspace{0.08cm}$ , es decir, $\hspace{0.08cm} s_k ^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n ( x_{ik} - \overline{X}_k )^2$
+- $s_k ^2\hspace{0.1cm}$ es la varianza de la muestra $\hspace{0.1cm}X_k\hspace{0.1cm}$ , es decir, $\hspace{0.1cm} s_k ^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n ( x_{ik} - \overline{X}_k )^2 \\$
 
- $\overrightarrow{s} = ( s_1 ,..., s_p )$
+- $\overrightarrow{s} = ( s_1 ,..., s_p )$
 
 
 
@@ -1555,14 +1561,14 @@ Es decir, si la variable $\hspace{0.08cm}\mathcal{X}_k\hspace{0.08cm}$ tiene muc
 
 **Desventajas**
  
-1) Asume que las variables estan incorreladas y tienen varianza uno.
+Asume que las variables estan incorreladas y tienen varianza uno.
 
 
 
 
 **Ventajas**
 
-1) La distancia de Pearson es invariante ante cambios de escala (cambios en las unidades de medida).
+La distancia de Pearson es invariante ante cambios de escala (cambios en las unidades de medida).
 
 
 
@@ -1592,8 +1598,12 @@ def Dist_Pearson(x_i, x_r, Data) :
 
 ```python
 Dist_Pearson(x_i=Data_quant_numpy[2,:], x_r=Data_quant_numpy[5,:], Data=Data_quant_numpy)
+
 ```
-3.8239347754243425
+        
+    3.8239347754243425
+
+<br>
 
 ```python
 def Matrix_Dist_Pearson(Data):
@@ -1643,6 +1653,9 @@ array([[0.        , 1.21345279, 3.77819153, ..., 4.95085256, 1.66393723,
         0.        ]])
 ```
 
+<br>
+
+
 ```python
 M_Pearson = M_Pearson + M_Pearson.T
 
@@ -1679,25 +1692,97 @@ array([[0.        , 1.21345279, 3.77819153, ..., 4.95085256, 1.66393723,
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25}$ Dada una matriz de datos $\hspace{0.1cm} X=(X_1,...,X_p)\hspace{0.1cm}$ de las variables estadisticas  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
+$\hspace{0.25cm}$ Dada una matriz de datos $\hspace{0.1cm} X=[X_1,...,X_p]\hspace{0.1cm}$ de las variables estadisticas  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
 
 
-$\hspace{0.25}$ La distancia de Mahalanobis entre el par de observaciones $\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$ se define como: $\\[0.5cm]$
+$\hspace{0.25cm}$ La distancia de Mahalanobis entre el par de observaciones $\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$ se define como: $\\[0.8cm]$
 
  
 $$
- \delta(x_i,x_r)_{Maha} \hspace{0.08cm}= \hspace{0.08cm}\sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - x_r ) }   \\[0.6cm]
+\delta(x_i,x_r)_{Maha} \hspace{0.08cm}= \hspace{0.08cm} \sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S_{X}^{-1} \cdot (x_i - x_r ) }   \\[0.6cm]
 $$
 
 
-$\hspace{0.25}$Donde:
+$\hspace{0.25cm}$Donde:
 
-$\hspace{0.15} S \hspace{0.08cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.08cm}X=(X_1,...,X_p)$
+$\hspace{0.35cm} S_{X} \hspace{0.08cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.08cm}X=[X_1,...,X_p]$
 
 </p>
  
 </p></span>
 </div>
+
+<br>
+
+**Distancia de Mahalanobis entre vectores**
+
+La distancia de Mahalanobis no está definida entre pares de vectores numéricos cualesquiera.
+
+En este artículo se va a considerar que la distancia de Mahalanobis solo está definida para pares de vectores numericos tales que uno de ellos es un vector de observaciones o un vector de medias de variables estadisticas. Esta ampliación de la distancia de Mahalanobis permite su uso en algoritmos como KNN, k-medias o el algoritmo de clasificacion lineal y cuadratico Gaussiano.
+
+<br>
+
+**Distancia de Mahalanobis entre vector numérico y vector de medias**
+
+Dada una matriz de datos $\hspace{0.1cm} X=[X_1,...,X_p]\hspace{0.1cm}$ de las variables estadisticas  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
+
+$\hspace{0.25cm}$ Dado un vector $\hspace{0.1cm}v=(v_1,...,v_p)^t\hspace{0.1cm}$  de $\hspace{0.1cm}\mathbb{R}^p$
+
+$\hspace{0.25cm}$ Y dado el vector de medias $\overline{x} = (\overline{X}_1 ,..., \overline{X}_p)$ 
+
+$\hspace{0.25cm}$ La distancia Mahalanobis entre el vector $v$ y el vector de medias $\hspace{0.1cm}\overline{x}\hspace{0.1cm}$ se define como: $\\[0.7cm]$
+
+
+$$
+\delta (v, \overline{x})_{Maha}  \hspace{0.07cm}=\hspace{0.07cm}   \sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S_{X}^{-1} \cdot (x_i - x_r ) } \\
+$$
+
+Donde:
+
+$\hspace{0.25cm} S_X\hspace{0.1cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.1cm}X=[X_1,...,X_p]$
+
+
+<br>
+
+
+
+**Distancia de Mahalanobis entre vector numérico y observación**
+
+Dada una matriz de datos $\hspace{0.1cm} X=[X_1,...,X_p]\hspace{0.1cm}$ de las variables estadisticas  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
+
+$\hspace{0.25cm}$ Dado un vector $\hspace{0.1cm}v=(v_1,...,v_p)^t\hspace{0.1cm}$  de $\hspace{0.1cm}\mathbb{R}^p$
+
+$\hspace{0.25cm}$ Y dada la observación $\hspace{0.1cm}x_i\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$ tal que $x_i = X[i,:]$  
+
+$\hspace{0.25cm}$ La distancia Mahalanobis entre el vector $\hspace{0.1cm}v\hspace{0.1cm}$ y la observación $\hspace{0.1cm} x_i\hspace{0.1cm}$ se define como: $\\[0.7cm]$
+
+
+**Opción 1**
+
+$$
+\delta (v, x_i)_{Maha}  \hspace{0.07cm}=\hspace{0.07cm}   \sqrt{(v - x_i)\hspace{0.03cm}^t \cdot S_{X}^{-1} \cdot (v - x_i ) } \\
+$$
+
+Donde:
+
+$\hspace{0.25cm} S_X\hspace{0.1cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.1cm}X=[X_1,...,X_p]\\$
+
+
+**Opción 2**
+
+
+$$
+\delta (v, x_i)_{Maha}  \hspace{0.07cm}=\hspace{0.07cm}   \sqrt{(v - x_i)\hspace{0.03cm}^t \cdot S_{\widetilde{X}}^{-1} \cdot (v - x_i ) } \\
+$$
+
+Donde:
+
+$\hspace{0.25cm} S_{\widetilde{X}}\hspace{0.1cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.1cm}\widetilde{X}= \begin{pmatrix}
+X \\
+v 
+\end{pmatrix}\hspace{0.1cm}$ , es decir, la matriz de datos $X$ añadiendole como ultima fila el vector $v$
+
+
 
 
 
@@ -1708,17 +1793,17 @@ $\hspace{0.15} S \hspace{0.08cm}$ es la matriz de covarianzas de la matriz de da
 
 La distancia de Mahalanobis es adecuada como distancia estadística por las siguientes razones: 
 
-1) Es invariante ante cambios de escala (cambios en las unidades de medida) de las variables.
+- Es invariante ante cambios de escala (cambios en las unidades de medida) de las variables.
 
-2) Tiene en cuenta la correlación entre las variables. No aumenta al incrementar el número de variables observadas. Solo aumenta cuando estas nuevas variables no estan correladas con las anteriores. Asi que solo cuando las nuevas variables no son redundantes con respecto a la infromacion provista por las anteriores, la distancia de Mahalanobis aumentará.
+- Tiene en cuenta la correlación entre las variables. No aumenta al incrementar el número de variables observadas. Solo aumenta cuando estas nuevas variables no estan correladas con las anteriores. Asi que solo cuando las nuevas variables no son redundantes con respecto a la infromacion provista por las anteriores, la distancia de Mahalanobis aumentará.
 
 <br>
 
-***Observaciones***
+**Observaciones**
 
-1) La distancia Euclidea es igual a la de Mahalanobis cuando $\hspace{0.1cm} S=I \\$
+- La distancia Euclidea es igual a la de Mahalanobis cuando $\hspace{0.1cm} S=I \\$
 
-2) La distancia de Pearson es igual a la de Mahalanobis cuando $\hspace{0.1cm} S=\text{diag}(s_1^2 ,..., s_p^2)$
+- La distancia de Pearson es igual a la de Mahalanobis cuando $\hspace{0.1cm} S=\text{diag}(s_1^2 ,..., s_p^2)$
 
 
 
