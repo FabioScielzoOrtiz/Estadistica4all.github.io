@@ -322,6 +322,36 @@ SELECT*FROM Ventas ORDER BY Precio DESC
 
 -- count
 
+SELECT COUNT(*) FROM Clientes ;
+
+SELECT COUNT(Nombre) FROM Clientes ;
+
+-------------------------------------------------------------------------
+
+SELECT Min(Precio) FROM Ventas ;
+
+SELECT Max(Precio) FROM Ventas ;
+
+SELECT Sum(Precio) FROM Ventas ;
+
+SELECT Avg(Precio) FROM Ventas ;
+
+
+-------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------------------
 
 
 

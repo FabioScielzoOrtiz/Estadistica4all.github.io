@@ -855,17 +855,80 @@ SELECT * FROM dbo.Clientes WHERE Nombre like '%F__' ; -- empieza por 'F' seguida
 
 
 
+# Count
+
+
+```SQL
+SELECT COUNT(*) FROM Clientes ;
+```
+
+|(No column name)|
+|---|
+|5|
+
+
+```SQL
+SELECT COUNT(Nombre) FROM Clientes ;
+```
+
+|(No column name)|
+|---|
+|5|
+
+
+<br>
+
+# Min, Max, Sum, Avg
+
+```SQL
+SELECT Min(Precio) FROM Ventas ;
+```
+|(No column name)|
+|---|
+|475|
 
 
 
 ```SQL
-
+SELECT Max(Precio) FROM Ventas ;
 ```
+|(No column name)|
+|---|
+|1500|
 
 
 ```SQL
-
+SELECT Sum(Precio) FROM Ventas ;
 ```
+|(No column name)|
+|---|
+|2674,5|
+
+
+
+```SQL
+SELECT Avg(Precio) FROM Ventas ;
+```
+|(No column name)|
+|---|
+|891,5|
+
+
+<br>
+
+# Group by
+
+
+
+
+<br>
+
+# Having
+
+
+
+
+
 
 
 
