@@ -1872,6 +1872,12 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \t
 <div id="método-pivotal" class="section level2" number="9.2">
 <h2><span class="header-section-number">9.2</span> Método pivotal</h2>
 <p>El método pivotal es un método para la construcción de intervalos de confianza.</p>
+<p>Es un método general para encontrar <span class="math inline">\(L_1(\mathcal{X}_1,...,\mathcal{X}_n)\)</span> y <span class="math inline">\(L_2(\mathcal{X}_1,...,\mathcal{X}_n)\)</span> tales que <span class="math inline">\(P(L_1(\mathcal{X}_1,...,\mathcal{X}_n) &lt; \theta &lt; L_2(\mathcal{X}_1,...,\mathcal{X}_n))=1-\alpha\)</span></p>
+<p>El método consiste en encontrar una función <span class="math inline">\(\Upsilon\)</span> de la m.a.s. <span class="math inline">\((\mathcal{X}_1,...,\mathcal{X}_n))\)</span> y del parámetro <span class="math inline">\(\theta\)</span> con distribucion de probabilidad conocida y no dependiente de <span class="math inline">\(\theta\)</span></p>
+<p><span class="math inline">\(\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n), \theta)\)</span> tiene que ser una v.a. con distribución conocida y que no depende de <span class="math inline">\(\theta\)</span> de tal manera que pueden determinarse un par de números <span class="math inline">\(a, b\in \mathbb{R}\)</span> tales que</p>
+<p><span class="math display">\[P(a \leq \Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \theta) \leq b) =1-\alpha\]</span></p>
+<p>Se tiene que transformar la última expresion para aislar el parametro <span class="math inline">\(\theta\)</span> de forma que se llegue a la siguiente expresión:</p>
+<p><span class="math display">\[P(g_1( a, \mathcal{X}_1,...,\mathcal{X}_n) )  \leq  \theta \leq g_2(b, \mathcal{X}_1,...,\mathcal{X}_n) ) = 1-\alpha\]</span></p>
 <p><br></p>
 </div>
 </div>

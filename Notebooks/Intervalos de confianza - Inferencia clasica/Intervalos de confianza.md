@@ -591,6 +591,18 @@ Dado un intervalo de confianza $\hspace{0.1cm}[ L_1(\mathcal{X}_1,...,\mathcal{X
 
 El método pivotal es un método para la construcción de intervalos de confianza.
 
+Es un método general para encontrar $L_1(\mathcal{X}_1,...,\mathcal{X}_n)$ y $L_2(\mathcal{X}_1,...,\mathcal{X}_n)$ tales que $P(L_1(\mathcal{X}_1,...,\mathcal{X}_n) < \theta  < L_2(\mathcal{X}_1,...,\mathcal{X}_n))=1-\alpha$
+
+
+El método consiste en encontrar una función $\Upsilon$ de la m.a.s. $(\mathcal{X}_1,...,\mathcal{X}_n))$ y del parámetro $\theta$ con distribucion de probabilidad conocida y no dependiente de $\theta$
+
+$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n), \theta)$ tiene que ser una v.a. con distribución conocida y que no depende de $\theta$ de tal manera que pueden determinarse un par de números $a, b\in \mathbb{R}$ tales que
+
+$$P(a \leq \Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \theta) \leq b) =1-\alpha$$
+
+Se tiene que transformar la última expresion para aislar el parametro $\theta$ de forma que se llegue a la siguiente expresión:
+
+$$P(g_1( a, \mathcal{X}_1,...,\mathcal{X}_n) )  \leq  \theta \leq g_2(b, \mathcal{X}_1,...,\mathcal{X}_n) ) = 1-\alpha$$
 
 
 
