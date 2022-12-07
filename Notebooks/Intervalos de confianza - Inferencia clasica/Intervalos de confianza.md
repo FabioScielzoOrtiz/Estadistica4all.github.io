@@ -581,7 +581,7 @@ Dado un intervalo de confianza $\hspace{0.1cm}[ L_1(\mathcal{X}_1,...,\mathcal{X
 
     - Se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ realizaciones del intervalo de confianza (intervalos concretos) $\hspace{0.1cm}[L_1(x_1^1,...,x_n^1),L_2(x_1^1,...,x_n^1)]\hspace{0.1cm},...,\hspace{0.1cm} [L_1(x_1^B,...,x_n^B),L_2(x_1^B,...,x_n^B)]\hspace{0.1cm}\\$ 
 
-    - La proporción de los intervalos que  que contienen a $\hspace{0.1cm}\theta\hspace{0.1cm}$ es aproximadamente $\hspace{0.1cm}1-\alpha$ 
+    - La proporción de los intervalos que  que contienen a $\hspace{0.1cm}\theta\hspace{0.1cm}$ es aproximadamente $\hspace{0.1cm} 1-\alpha$ 
 
 
 <br>
@@ -591,24 +591,66 @@ Dado un intervalo de confianza $\hspace{0.1cm}[ L_1(\mathcal{X}_1,...,\mathcal{X
 
 El método pivotal es un método para la construcción de intervalos de confianza.
 
-Es un método general para encontrar $L_1(\mathcal{X}_1,...,\mathcal{X}_n)$ y $L_2(\mathcal{X}_1,...,\mathcal{X}_n)$ tales que $P(L_1(\mathcal{X}_1,...,\mathcal{X}_n) < \theta  < L_2(\mathcal{X}_1,...,\mathcal{X}_n))=1-\alpha$
+Es un método general para encontrar $\hspace{0.1cm}L_1(\mathcal{X}_1,...,\mathcal{X}_n)$ y $L_2(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ tales que: 
+
+$$\hspace{0.1cm}P(L_1(\mathcal{X}_1,...,\mathcal{X}_n) < \theta  < L_2(\mathcal{X}_1,...,\mathcal{X}_n))=1-\alpha$$
 
 
-El método consiste en encontrar una función $\Upsilon$ de la m.a.s. $(\mathcal{X}_1,...,\mathcal{X}_n))$ y del parámetro $\theta$ con distribucion de probabilidad conocida y no dependiente de $\theta$
+El método consiste en encontrar una función $\hspace{0.1cm}\Upsilon\hspace{0.1cm}$ de la m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n))\hspace{0.1cm}$ y del parámetro $\theta$ con distribucion de probabilidad conocida y no dependiente de $\hspace{0.1cm}\theta\hspace{0.1cm}$ , llamada cantidad pivotal:
 
-$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n), \theta)$ tiene que ser una v.a. con distribución conocida y que no depende de $\theta$ de tal manera que pueden determinarse un par de números $a, b\in \mathbb{R}$ tales que
+$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n), \theta)\hspace{0.1cm}$ tiene que ser una v.a. con distribución conocida y que no depende de $\hspace{0.1cm}\theta\hspace{0.1cm}$ de tal manera que pueden determinarse un par de números $\hspace{0.1cm}a, b\in \mathbb{R}\hspace{0.1cm}$ tales que
 
 $$P(a \leq \Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \theta) \leq b) =1-\alpha$$
 
-Se tiene que transformar la última expresion para aislar el parametro $\theta$ de forma que se llegue a la siguiente expresión:
+Se tiene que transformar la última expresion para aislar el parametro $\hspace{0.1cm}\theta\hspace{0.1cm}$ de forma que se llegue a la siguiente expresión:
 
 $$P(g_1( a, \mathcal{X}_1,...,\mathcal{X}_n) )  \leq  \theta \leq g_2(b, \mathcal{X}_1,...,\mathcal{X}_n) ) = 1-\alpha$$
 
 
+Donde: $\hspace{0.1cm}g_1\hspace{0.1cm}$ y $\hspace{0.1cm}g_2\hspace{0.1cm}$ son funciones dependientes de $\hspace{0.1cm}a,\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ y $\hspace{0.1cm}b, \mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ , respectivamente.
 
 <br>
  
  
+## Intervalo de confianza para la proporción 
+ 
+Una variable categorica binaria  $\mathcal{X}$ puede modelarse como una variable aleatoria Bernoulli(p), donde $p=P(\mathcal{X} = 1)$ y $1-p = P(\mathcal{X}=0)$
+
+
+Queremos obtener un intervalo de confianza para $p$, que puede interpretarse como la proporción de individuos de la poblacion para los que $\mathcal{X}=1$ 
+
+
+Para ello vamos a apoyarnos en el teorema de distribucion de la media muestral y en el teorema central del limite (TCL) y en el método pivotal.
+
+<br>
+
+### Teorema de distribución de la media muestral
+
+
+
+
+### Teorema central del límite
+
+El TCL dice lo siguiente:
+
+Si tenemos una v.a. $\mathcal{X}$ y una m.a.s $\mathcal{X}_1,...,\mathcal{X}_n de \mathcal{X}$ , entonces:
+
+$$\dfrac{\overline{\mathcal{X}_n} - E[\overline{\mathcal{X}_n}]}{\sqrt{Var(\overline{\mathcal{X}_n})}} = \dfrac{\overline{\mathcal{X}_n} - E[\mathcal{X}]}{\sqrt{Var(\mathcal{X})/n}} \underset{d}{\rightarrow} N(0,1)$$
+
+Usando la definicion de convergencia en distribución tenemos lo siguiente:
+
+
+Si $W_n = \dfrac{\overline{\mathcal{X}_n} - E[\mathcal{X}]}{\sqrt{Var(\mathcal{X})/n}}$
+
+$$\underset{n \rightarrow \infty}{lim} F_{W_n}  = F_{N(0,1)}(x) , \forall x\in \mathbb{R}$$
+
+
+ 
+## Intervalo de confianza para la media
+
+
+
+## Intervalo de confianza para la varianza
  
  
  

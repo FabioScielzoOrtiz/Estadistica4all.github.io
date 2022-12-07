@@ -1534,6 +1534,9 @@ margin-left: 0 !important;
       <ul>
       <li><a href="#interpretación-frecuentista-de-los-intervalos-de-confianza" id="toc-interpretación-frecuentista-de-los-intervalos-de-confianza"><span class="toc-section-number">9.1</span> Interpretación frecuentista de los intervalos de confianza</a></li>
       <li><a href="#método-pivotal" id="toc-método-pivotal"><span class="toc-section-number">9.2</span> Método pivotal</a></li>
+      <li><a href="#intervalo-de-confianza-para-la-proporción" id="toc-intervalo-de-confianza-para-la-proporción"><span class="toc-section-number">9.3</span> Intervalo de confianza para la proporción</a></li>
+      <li><a href="#intervalo-de-confianza-para-la-media" id="toc-intervalo-de-confianza-para-la-media"><span class="toc-section-number">9.4</span> Intervalo de confianza para la media</a></li>
+      <li><a href="#intervalo-de-confianza-para-la-varianza" id="toc-intervalo-de-confianza-para-la-varianza"><span class="toc-section-number">9.5</span> Intervalo de confianza para la varianza</a></li>
       </ul></li>
       </ul>
     </div>
@@ -1864,7 +1867,7 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \t
 <li><p>Si se toma un número <strong>grande</strong> <span class="math inline">\(\hspace{0.1cm}B \hspace{0.1cm}\)</span> de muestras de observaciones <span class="math inline">\(\hspace{0.1cm}X^1=(x^1_1,...,x^1_n)\hspace{0.1cm},...,\hspace{0.1cm}X^B=(x^B_1,...,x^B_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm} \\\)</span></p>
 <ul>
 <li><p>Se obtienen <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> realizaciones del intervalo de confianza (intervalos concretos) <span class="math inline">\(\hspace{0.1cm}[L_1(x_1^1,...,x_n^1),L_2(x_1^1,...,x_n^1)]\hspace{0.1cm},...,\hspace{0.1cm} [L_1(x_1^B,...,x_n^B),L_2(x_1^B,...,x_n^B)]\hspace{0.1cm}\\\)</span></p></li>
-<li><p>La proporción de los intervalos que que contienen a <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> es aproximadamente <span class="math inline">\(\hspace{0.1cm}1-\alpha\)</span></p></li>
+<li><p>La proporción de los intervalos que que contienen a <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> es aproximadamente <span class="math inline">\(\hspace{0.1cm} 1-\alpha\)</span></p></li>
 </ul></li>
 </ul>
 <p><br></p>
@@ -1872,13 +1875,40 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \t
 <div id="método-pivotal" class="section level2" number="9.2">
 <h2><span class="header-section-number">9.2</span> Método pivotal</h2>
 <p>El método pivotal es un método para la construcción de intervalos de confianza.</p>
-<p>Es un método general para encontrar <span class="math inline">\(L_1(\mathcal{X}_1,...,\mathcal{X}_n)\)</span> y <span class="math inline">\(L_2(\mathcal{X}_1,...,\mathcal{X}_n)\)</span> tales que <span class="math inline">\(P(L_1(\mathcal{X}_1,...,\mathcal{X}_n) &lt; \theta &lt; L_2(\mathcal{X}_1,...,\mathcal{X}_n))=1-\alpha\)</span></p>
-<p>El método consiste en encontrar una función <span class="math inline">\(\Upsilon\)</span> de la m.a.s. <span class="math inline">\((\mathcal{X}_1,...,\mathcal{X}_n))\)</span> y del parámetro <span class="math inline">\(\theta\)</span> con distribucion de probabilidad conocida y no dependiente de <span class="math inline">\(\theta\)</span></p>
-<p><span class="math inline">\(\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n), \theta)\)</span> tiene que ser una v.a. con distribución conocida y que no depende de <span class="math inline">\(\theta\)</span> de tal manera que pueden determinarse un par de números <span class="math inline">\(a, b\in \mathbb{R}\)</span> tales que</p>
+<p>Es un método general para encontrar <span class="math inline">\(\hspace{0.1cm}L_1(\mathcal{X}_1,...,\mathcal{X}_n)\)</span> y <span class="math inline">\(L_2(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> tales que:</p>
+<p><span class="math display">\[\hspace{0.1cm}P(L_1(\mathcal{X}_1,...,\mathcal{X}_n) &lt; \theta  &lt; L_2(\mathcal{X}_1,...,\mathcal{X}_n))=1-\alpha\]</span></p>
+<p>El método consiste en encontrar una función <span class="math inline">\(\hspace{0.1cm}\Upsilon\hspace{0.1cm}\)</span> de la m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n))\hspace{0.1cm}\)</span> y del parámetro <span class="math inline">\(\theta\)</span> con distribucion de probabilidad conocida y no dependiente de <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> , llamada cantidad pivotal:</p>
+<p><span class="math inline">\(\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n), \theta)\hspace{0.1cm}\)</span> tiene que ser una v.a. con distribución conocida y que no depende de <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> de tal manera que pueden determinarse un par de números <span class="math inline">\(\hspace{0.1cm}a, b\in \mathbb{R}\hspace{0.1cm}\)</span> tales que</p>
 <p><span class="math display">\[P(a \leq \Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \theta) \leq b) =1-\alpha\]</span></p>
-<p>Se tiene que transformar la última expresion para aislar el parametro <span class="math inline">\(\theta\)</span> de forma que se llegue a la siguiente expresión:</p>
+<p>Se tiene que transformar la última expresion para aislar el parametro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> de forma que se llegue a la siguiente expresión:</p>
 <p><span class="math display">\[P(g_1( a, \mathcal{X}_1,...,\mathcal{X}_n) )  \leq  \theta \leq g_2(b, \mathcal{X}_1,...,\mathcal{X}_n) ) = 1-\alpha\]</span></p>
+<p>Donde: <span class="math inline">\(\hspace{0.1cm}g_1\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}g_2\hspace{0.1cm}\)</span> son funciones dependientes de <span class="math inline">\(\hspace{0.1cm}a,\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}b, \mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> , respectivamente.</p>
 <p><br></p>
+</div>
+<div id="intervalo-de-confianza-para-la-proporción" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> Intervalo de confianza para la proporción</h2>
+<p>Una variable categorica binaria <span class="math inline">\(\mathcal{X}\)</span> puede modelarse como una variable aleatoria Bernoulli(p), donde <span class="math inline">\(p=P(\mathcal{X} = 1)\)</span> y <span class="math inline">\(1-p = P(\mathcal{X}=0)\)</span></p>
+<p>Queremos obtener un intervalo de confianza para <span class="math inline">\(p\)</span>, que puede interpretarse como la proporción de individuos de la poblacion para los que <span class="math inline">\(\mathcal{X}=1\)</span></p>
+<p>Para ello vamos a apoyarnos en el teorema de distribucion de la media muestral y en el teorema central del limite (TCL) y en el método pivotal.</p>
+<p><br></p>
+<div id="teorema-de-distribución-de-la-media-muestral" class="section level3" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> Teorema de distribución de la media muestral</h3>
+</div>
+<div id="teorema-central-del-límite" class="section level3" number="9.3.2">
+<h3><span class="header-section-number">9.3.2</span> Teorema central del límite</h3>
+<p>El TCL dice lo siguiente:</p>
+<p>Si tenemos una v.a. <span class="math inline">\(\mathcal{X}\)</span> y una m.a.s <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_n de \mathcal{X}\)</span> , entonces:</p>
+<p><span class="math display">\[\dfrac{\overline{\mathcal{X}_n} - E[\overline{\mathcal{X}_n}]}{\sqrt{Var(\overline{\mathcal{X}_n})}} = \dfrac{\overline{\mathcal{X}_n} - E[\mathcal{X}]}{\sqrt{Var(\mathcal{X})/n}} \underset{d}{\rightarrow} N(0,1)\]</span></p>
+<p>Usando la definicion de convergencia en distribución tenemos lo siguiente:</p>
+<p>Si <span class="math inline">\(W_n = \dfrac{\overline{\mathcal{X}_n} - E[\mathcal{X}]}{\sqrt{Var(\mathcal{X})/n}}\)</span></p>
+<p><span class="math display">\[\underset{n \rightarrow \infty}{lim} F_{W_n}  = F_{N(0,1)}(x) , \forall x\in \mathbb{R}\]</span></p>
+</div>
+</div>
+<div id="intervalo-de-confianza-para-la-media" class="section level2" number="9.4">
+<h2><span class="header-section-number">9.4</span> Intervalo de confianza para la media</h2>
+</div>
+<div id="intervalo-de-confianza-para-la-varianza" class="section level2" number="9.5">
+<h2><span class="header-section-number">9.5</span> Intervalo de confianza para la varianza</h2>
 </div>
 </div>
 </div>
