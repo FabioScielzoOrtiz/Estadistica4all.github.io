@@ -1720,14 +1720,14 @@ E[\mathcal{X}^h] = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^h
 <p><span class="math display">\[\mu^2 + \sigma^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^k \\\]</span></p>
 <p>La solución del sistema en <span class="math inline">\(\hspace{0.1cm}\mu\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> , respectivamente, es:</p>
 <p><span class="math display">\[\overline{\mathcal{X}_n} = \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i\]</span></p>
-<p><span class="math display">\[S_n = \dfrac{1}{n} \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n})^2 \\\]</span></p>
-<p>Notese que <span class="math inline">\(\hspace{0.1cm}\overline{\mathcal{X}_n}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}S_n\hspace{0.1cm}\)</span> son la media y la varianza muestral de la m.a.s. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> , respectivamente. <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math display">\[S_n^2 = \dfrac{1}{n} \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n})^2 \\\]</span></p>
+<p>Notese que <span class="math inline">\(\hspace{0.1cm}\overline{\mathcal{X}_n}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}S_n^2\hspace{0.1cm}\)</span> son la media y la varianza muestral de la m.a.s. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> , respectivamente. <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p>Por tanto, dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \sim N(\mu , \sigma^2)\hspace{0.1cm}\)</span>, los <strong>estimadores</strong> por el método de los momentos de los parametros <span class="math inline">\(\hspace{0.1cm}\mu\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> son:</p>
 <p><span class="math display">\[\widehat{\mu} \hspace{0.1cm}=\hspace{0.1cm} \overline{\mathcal{X}_n} = \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i\]</span></p>
-<p><span class="math display">\[\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S_n = \dfrac{1}{n} \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n})^2\\\]</span></p>
+<p><span class="math display">\[\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S_n^2 = \dfrac{1}{n} \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n})^2\\\]</span></p>
 <p>Por lo que dada una muestra <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span>, las <strong>estimaciones</strong> de <span class="math inline">\(\hspace{0.1cm}\mu\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> por el método de los momentos son:</p>
 <p><span class="math display">\[\widehat{\mu} \hspace{0.1cm}=\hspace{0.1cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i\]</span></p>
-<p><span class="math display">\[\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S(X) = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2\]</span></p>
+<p><span class="math display">\[\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S^2(X) = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2\]</span></p>
 <p><br></p>
 </div>
 </div>
@@ -1778,31 +1778,25 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \t
 <p><br></p>
 <div id="ejemplo-v.a.-con-distribución-normal-1" class="section level3" number="7.0.1">
 <h3><span class="header-section-number">7.0.1</span> Ejemplo: v.a. con distribución normal</h3>
-<p>Tenemos la siguiente v.a. <span class="math inline">\(\hspace{0.15cm} X \sim N(\mu , \sigma^2)\)</span>.</p>
+<p>Tenemos la siguiente v.a. <span class="math inline">\(\hspace{0.15cm} \mathcal{X} \sim N(\mu , \sigma^2)\)</span>.</p>
 <p>El problema consiste en estimar los parametros de la distribución <span class="math inline">\(\hspace{0.1cm}\mu\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> a partir de una muestra de observaciones de la v.a.</p>
 <p>Estimaremos los parametros <span class="math inline">\(\hspace{0.1cm}(\mu , \sigma^2)\hspace{0.1cm}\)</span> usando el <strong>método de máxima verosimilitud</strong>.</p>
-<p>La función de verosimilitud de la m.a.s <span class="math inline">\((\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} N(\mu , \sigma^2)\)</span> es:</p>
+<p>La función de verosimilitud de una m.a.s <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\)</span> de <span class="math inline">\(\mathcal{X}\sim N(\mu , \sigma^2)\)</span> es:</p>
 <p><span class="math display">\[
 \mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \mu , \sigma^2) \hspace{0.1cm}=\hspace{0.1cm} f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n | \mu , \sigma^2) \hspace{0.1cm}=\hspace{0.1cm}  \prod_{i=1}^n f_{\mathcal{X}}(x_i \hspace{0.1cm}|\hspace{0.1cm} \mu , \sigma^2)
 \hspace{0.1cm}=\hspace{0.1cm} \\
 =\hspace{0.1cm}  \prod_{i=1}^n  \dfrac{1}{\sqrt{2\cdot \pi \cdot \sigma^2}} \cdot exp \left\lbrace  -\dfrac{1}{2} \cdot \dfrac{(x_i - \mu)^2}{\sigma^2} \right\rbrace
-\hspace{0.1cm}=\hspace{0.1cm} \left( \dfrac{1}{\sqrt{2\cdot \pi \cdot \sigma^2}}\right)^2 \cdot exp \left\lbrace -\dfrac{1}{2} \cdot \sum_{i=1}^n \dfrac{(x_i - \mu)^2}{\sigma^2} \right\rbrace
+\hspace{0.1cm}=\hspace{0.1cm} \left( \dfrac{1}{\sqrt{2\cdot \pi \cdot \sigma^2}}\right)^2 \cdot exp \left\lbrace -\dfrac{1}{2} \cdot \sum_{i=1}^n \dfrac{(x_i - \mu)^2}{\sigma^2} \right\rbrace \\[1cm]
 \]</span></p>
-<p>Por tanto, los estimadores máximo-verosimiles de los parametros <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma^2\)</span> son:</p>
-<p><span class="math inline">\(\hat{\mu} \hspace{0.1cm},\hspace{0.1cm} \hat{\sigma}^2 \hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\mu , \sigma^2}{Max} \hspace{0.15cm} \left( \dfrac{1}{\sqrt{2\cdot \pi \cdot \sigma^2}}\right)^2 \cdot exp \left\lbrace -\dfrac{1}{2} \cdot \sum_{i=1}^n \dfrac{(x_i - \mu)^2}{\sigma^2} \right\rbrace\)</span></p>
-<p>Siguiendo el método de los momentos debemos resolver en <span class="math inline">\(\hspace{0.1cm}\mu\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> el siguiente sistema de ecuaciones:</p>
-<p><span class="math display">\[\mu = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i\]</span></p>
-<p><span class="math display">\[\mu^2 + \sigma^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^k \\\]</span></p>
-<p>La solución del sistema en <span class="math inline">\(\hspace{0.1cm}\mu\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> , respectivamente, es:</p>
-<p><span class="math display">\[\overline{\mathcal{X}_n} = \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i\]</span></p>
-<p><span class="math display">\[S_n = \dfrac{1}{n} \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n})^2 \\\]</span></p>
-<p>Notese que <span class="math inline">\(\hspace{0.1cm}\overline{\mathcal{X}_n}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}S_n\hspace{0.1cm}\)</span> son la media y la varianza muestral de la m.a.s. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> , respectivamente. <span class="math inline">\(\\[0.6cm]\)</span></p>
-<p>Por tanto, dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \sim N(\mu , \sigma^2)\hspace{0.1cm}\)</span>, los <strong>estimadores</strong> por el método de los momentos de los parametros <span class="math inline">\(\hspace{0.1cm}\mu\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> son:</p>
-<p><span class="math display">\[\widehat{\mu} \hspace{0.1cm}=\hspace{0.1cm} \overline{\mathcal{X}_n} = \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i\]</span></p>
-<p><span class="math display">\[\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S_n = \dfrac{1}{n} \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n})^2\\\]</span></p>
-<p>Por lo que dada una muestra <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span>, las <strong>estimaciones</strong> de <span class="math inline">\(\hspace{0.1cm}\mu\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> por el método de los momentos son:</p>
-<p><span class="math display">\[\widehat{\mu} \hspace{0.1cm}=\hspace{0.1cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i\]</span></p>
-<p><span class="math display">\[\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S(X) = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2\]</span></p>
+<p>Para todo <span class="math inline">\((x_1,...,x_n)\in \mathbb{R}^n\)</span></p>
+<p>Por tanto, dada una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}\)</span>,las <strong><em>estimaciones</em></strong> <strong>máximo-verosímiles</strong> de los parametros <span class="math inline">\(\hspace{0.1cm}\mu\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> son:</p>
+<p><span class="math display">\[\left(\widehat{\mu} \hspace{0.1cm},\hspace{0.1cm} \widehat{\sigma}^2 \right) \hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\left(\mu , \sigma^2 \right)}{Max} \hspace{0.15cm}  \left( \dfrac{1}{\sqrt{2\cdot \pi \cdot \sigma^2}}\right)^2 \cdot exp \left\lbrace -\dfrac{1}{2} \cdot \sum_{i=1}^n \dfrac{(x_i - \mu)^2}{\sigma^2} \right\rbrace\]</span></p>
+<p>Resolviendo el problema de optimización se obtienen las siguientes expresiones:</p>
+<p><span class="math display">\[\widehat{\mu} = \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i\]</span></p>
+<p><span class="math display">\[\widehat{\sigma}^2 = S^2(X) = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2 \\\]</span></p>
+<p>Por lo que, dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \sim N(\mu , \sigma^2)\hspace{0.1cm}\)</span>, los <strong><em>estimadores</em></strong> <strong>maximo-verosimiles</strong> de los parametros <span class="math inline">\(\hspace{0.1cm}\mu\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> son:</p>
+<p><span class="math display">\[\widehat{\mu} = \overline{\mathcal{X}_n} = \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i\]</span></p>
+<p><span class="math display">\[\widehat{\sigma}^2 = S^2_n = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{\mathcal{X}_n})^2 \\\]</span></p>
 <p><br></p>
 </div>
 </div>
