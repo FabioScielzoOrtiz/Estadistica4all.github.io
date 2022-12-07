@@ -1528,12 +1528,13 @@ margin-left: 0 !important;
       <li><a href="#métodos-de-estimacion-puntual" id="toc-métodos-de-estimacion-puntual"><span class="toc-section-number">8</span> Métodos de estimacion puntual</a>
       <ul>
       <li><a href="#método-de-los-momentos" id="toc-método-de-los-momentos"><span class="toc-section-number">8.1</span> Método de los momentos</a></li>
-      <li><a href="#justificación-al-método-de-los-momentos" id="toc-justificación-al-método-de-los-momentos"><span class="toc-section-number">8.2</span> Justificación al método de los momentos</a></li>
-      <li><a href="#observaciones-al-método-de-los-momentos" id="toc-observaciones-al-método-de-los-momentos"><span class="toc-section-number">8.3</span> Observaciones al método de los momentos</a></li>
-      <li><a href="#métodos-de-estimación-puntual-método-de-máxima-verosimilitud" id="toc-métodos-de-estimación-puntual-método-de-máxima-verosimilitud"><span class="toc-section-number">8.4</span> Métodos de estimación puntual: Método de Máxima Verosimilitud</a></li>
+      <li><a href="#método-de-máxima-verosimilitud" id="toc-método-de-máxima-verosimilitud"><span class="toc-section-number">8.2</span> Método de Máxima Verosimilitud</a></li>
       </ul></li>
-      <li><a href="#método-de-máxima-verosimilitud" id="toc-método-de-máxima-verosimilitud"><span class="toc-section-number">9</span> Método de Máxima Verosimilitud</a></li>
-      <li><a href="#estimación-por-intervalos-de-confianza" id="toc-estimación-por-intervalos-de-confianza"><span class="toc-section-number">10</span> Estimación por intervalos de confianza <a class="anchor" id="1"></a></a></li>
+      <li><a href="#estimación-por-intervalos-de-confianza" id="toc-estimación-por-intervalos-de-confianza"><span class="toc-section-number">9</span> Estimación por intervalos de confianza <a class="anchor" id="1"></a></a>
+      <ul>
+      <li><a href="#interpretación-frecuentista-de-los-intervalos-de-confianza" id="toc-interpretación-frecuentista-de-los-intervalos-de-confianza"><span class="toc-section-number">9.1</span> Interpretación frecuentista de los intervalos de confianza</a></li>
+      <li><a href="#método-pivotal" id="toc-método-pivotal"><span class="toc-section-number">9.2</span> Método pivotal</a></li>
+      </ul></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1616,15 +1617,12 @@ margin-right: auto;
 </div>
 <div id="estadístico" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Estadístico</h1>
-<p>Sea <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> una v.a. tal que <span class="math inline">\(\hspace{0.1cm} \mathcal{X} \sim F(\theta)\)</span> ,</p>
-<p>Sea <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> una m.a.s. de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span></p>
-<p>Un estadístico es una función <span class="math inline">\(\hspace{0.1cm}T\hspace{0.1cm}\)</span> de una m.a.s. que no depende del parametro <span class="math inline">\(\hspace{0.1cm}\theta\)</span></p>
+<p><span class="math inline">\(T\hspace{0.1cm}\)</span> es un estadístico de una m.a.s <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim F(\theta)\)</span> <span class="math inline">\(\hspace{0.25cm}\Leftrightarrow\hspace{0.25cm}\)</span> <span class="math inline">\(T\hspace{0.1cm}\)</span> es una función de la m.a.s que no depende del parámetro <span class="math inline">\(\hspace{0.1cm}\theta\)</span></p>
 <p>Por tanto:</p>
 <ul>
-<li><span class="math inline">\(T(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> es un estadistico</li>
+<li><span class="math inline">\(T(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> es un estadístico. <span class="math inline">\(\\[0.7cm]\)</span></li>
 </ul>
-<p><br></p>
-<p><strong>Observación:</strong></p>
+<p><strong>Observaciones:</strong></p>
 <ul>
 <li><p><span class="math inline">\(\hspace{0.12cm}T(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> es una v.a. al ser una función de v.a.’s <span class="math inline">\(\\[0.8cm]\)</span></p></li>
 <li><p>Dada una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}(x_1 ,..., x_n)\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \sim D(\theta)\)</span></p></li>
@@ -1766,20 +1764,20 @@ E[\mathcal{X}^h] = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^h
 <p><span class="math display">\[\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S^2(X) = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2\]</span></p>
 <p><br></p>
 </div>
-</div>
-<div id="justificación-al-método-de-los-momentos" class="section level2" number="8.2">
-<h2><span class="header-section-number">8.2</span> Justificación al método de los momentos</h2>
+<div id="justificación-al-método-de-los-momentos" class="section level3" number="8.1.5">
+<h3><span class="header-section-number">8.1.5</span> Justificación al método de los momentos</h3>
 <p><br></p>
 </div>
-<div id="observaciones-al-método-de-los-momentos" class="section level2" number="8.3">
-<h2><span class="header-section-number">8.3</span> Observaciones al método de los momentos</h2>
+<div id="observaciones-al-método-de-los-momentos" class="section level3" number="8.1.6">
+<h3><span class="header-section-number">8.1.6</span> Observaciones al método de los momentos</h3>
 <p><br></p>
 </div>
-<div id="métodos-de-estimación-puntual-método-de-máxima-verosimilitud" class="section level2" number="8.4">
-<h2><span class="header-section-number">8.4</span> Métodos de estimación puntual: Método de Máxima Verosimilitud</h2>
-<div id="función-de-verosimilitud" class="section level3" number="8.4.1">
-<h3><span class="header-section-number">8.4.1</span> Función de Verosimilitud</h3>
-<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span></p>
+</div>
+<div id="método-de-máxima-verosimilitud" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Método de Máxima Verosimilitud</h2>
+<div id="función-de-verosimilitud" class="section level3" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Función de Verosimilitud</h3>
+<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\\\)</span></p>
 <p>La función de verosimilitud de la m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,..., \mathcal{X}_n)\hspace{0.1cm}\)</span> es una función tal que: <span class="math inline">\(\\[0.7cm]\)</span></p>
 <p><span class="math display">\[\mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n) \hspace{0.1cm}=\hspace{0.1cm} f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n\hspace{0.1cm}|\hspace{0.1cm} \theta) \hspace{0.25cm} , \hspace{0.25cm} \forall\hspace{0.1cm} (x_1,...,x_n)\in \mathbb{R}^n \\\]</span></p>
 <p>Donde:</p>
@@ -1798,10 +1796,8 @@ E[\mathcal{X}^h] = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^h
 </ul>
 <p><br></p>
 </div>
-</div>
-</div>
-<div id="método-de-máxima-verosimilitud" class="section level1" number="9">
-<h1><span class="header-section-number">9</span> Método de Máxima Verosimilitud</h1>
+<div id="método-de-máxima-verosimilitud-1" class="section level3" number="8.2.2">
+<h3><span class="header-section-number">8.2.2</span> Método de Máxima Verosimilitud</h3>
 <p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim F(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \\\)</span></p>
 <p>La estimación del parámetro <span class="math inline">\(\hspace{0.1cm} \theta\hspace{0.1cm}\)</span> por el método de máxima verosimilitud se denomina estimación máximo-verosímil, y se define como sigue:</p>
 <p><span class="math display">\[\widehat{\theta}_{MV} \hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\theta}{Max} \hspace{0.15cm} \mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm} | \hspace{0.1cm} \theta)
@@ -1812,8 +1808,9 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \t
 <p>La idea del método de estimación por máxima verosimilitud es, dada una muestra de observaciones (unos datos) de una variable de interes que tiene cierta función de densidad o de probabilidad dependiente de un parametro desconocido, estimar el parametro desconocido con aquel valor del parametro que maximiza la funcion de probabilidad o densidad conjunta de la muestra, es decir, que maximiza la probabilidad de obtener la muestra de observaciones que se ha extraido, es decir, que hace más verosimil los datos disponibles.</p>
 <p>Siempre bajo el supuesto de que conocemos la distribucion de probabilidad de la variable de interes, y por tanto se puede calcular la probabilidad de extraer aleatoriamente cierta muestra de observaciones de esa variable.</p>
 <p><br></p>
-<div id="ejemplo-v.a.-con-distribución-normal-1" class="section level3" number="9.0.1">
-<h3><span class="header-section-number">9.0.1</span> Ejemplo: v.a. con distribución normal</h3>
+</div>
+<div id="ejemplo-v.a.-con-distribución-normal-1" class="section level3" number="8.2.3">
+<h3><span class="header-section-number">8.2.3</span> Ejemplo: v.a. con distribución normal</h3>
 <p>Tenemos la siguiente v.a. <span class="math inline">\(\hspace{0.15cm} \mathcal{X} \sim N(\mu , \sigma^2)\)</span>.</p>
 <p>El problema consiste en estimar los parametros de la distribución <span class="math inline">\(\hspace{0.1cm}\mu\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> a partir de una muestra de observaciones de la v.a.</p>
 <p>Estimaremos los parametros <span class="math inline">\(\hspace{0.1cm}(\mu , \sigma^2)\hspace{0.1cm}\)</span> usando el <strong>método de máxima verosimilitud</strong>.</p>
@@ -1835,16 +1832,48 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \t
 <p><span class="math display">\[\widehat{\sigma}^2 = S^2_n = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{\mathcal{X}_n})^2 \\\]</span></p>
 <p><br></p>
 </div>
-<div id="principio-de-invarianza" class="section level3" number="9.0.2">
-<h3><span class="header-section-number">9.0.2</span> Principio de invarianza</h3>
-<p>Dada una funcion <span class="math inline">\(g\)</span> del parametro <span class="math inline">\(\theta\)</span> <span class="math inline">\(\Rightarrow g(\theta)\)</span></p>
-<p>Si <span class="math inline">\(\widehat{\theta}_{MV}\)</span> es el estimador máximo-verosímil del parametro <span class="math inline">\(\theta\)</span> , entonces:</p>
-<p><span class="math inline">\(g(\widehat{\theta}_{MV})\)</span> es el estimador máximo-verosimil de <span class="math inline">\(g(\theta)\)</span></p>
+<div id="principio-de-invarianza" class="section level3" number="8.2.4">
+<h3><span class="header-section-number">8.2.4</span> Principio de invarianza</h3>
+<p>Dada una funcion <span class="math inline">\(\hspace{0.1cm} T\hspace{0.1cm}\)</span> del parametro <span class="math inline">\(\hspace{0.1cm}\theta\)</span> <span class="math inline">\(\hspace{0.1cm}\Rightarrow \hspace{0.1cm}T(\theta)\)</span></p>
+<p>Si <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}_{MV}\hspace{0.1cm}\)</span> es el estimador máximo-verosímil del parametro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> , entonces:</p>
+<ul>
+<li><span class="math inline">\(\hspace{0.1cm} T(\widehat{\theta}_{MV})\hspace{0.1cm}\)</span> es el estimador máximo-verosimil de <span class="math inline">\(\hspace{0.1cm}T(\theta)\)</span></li>
+</ul>
 <p><br></p>
 </div>
 </div>
-<div id="estimación-por-intervalos-de-confianza" class="section level1" number="10">
-<h1><span class="header-section-number">10</span> Estimación por intervalos de confianza <a class="anchor" id="1"></a></h1>
+</div>
+<div id="estimación-por-intervalos-de-confianza" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Estimación por intervalos de confianza <a class="anchor" id="1"></a></h1>
+<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y dada una constante <span class="math inline">\(\hspace{0.1cm}\alpha \in (0,1) \\\)</span></p>
+<p>Un intervalo de confianza <span class="math inline">\(\hspace{0.1cm}1-\alpha\hspace{0.1cm}\)</span> para el parámetro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> es un intervalo <span class="math inline">\(\hspace{0.1cm}[ L_1(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.1cm},\hspace{0.1cm} L_2(\mathcal{X}_1,...,\mathcal{X}_n) ]\)</span> tal que: <span class="math inline">\(\\[0.7cm]\)</span></p>
+<p><span class="math display">\[P(L_1 \leq \theta  \leq L_2) = 1- \alpha\]</span></p>
+<p><strong>Observaciones:</strong></p>
+<ul>
+<li><p><span class="math inline">\(L_1\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}L_2\hspace{0.1cm}\)</span> son estadisticos de la m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , y por tanto son variables aleatorias. <span class="math inline">\(\\[0.6cm]\)</span></p></li>
+<li><p>Para cada muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> se tiene un intervalo de confianza concreto <span class="math inline">\(\hspace{0.1cm}(L_1(x_1,...,x_n) , L_2(x_1,...,x_n))\)</span> <span class="math inline">\(\\[0.6cm]\)</span></p></li>
+<li><p>No es correcto decir que la probabilidad de que el parametro pertenezca al intervalo de confianza es <span class="math inline">\(1-\alpha\)</span> , ya que el parametro no es una v.a. , y solo puede hablarse de probabilidad con v.a’s (adoptando la perspectiva frecuentista). <span class="math inline">\(\\[0.6cm]\)</span></p></li>
+<li><p>Si es correcto decir que la probabilidad de que el intervalo de confianza contenga al parametro es <span class="math inline">\(1-\alpha\)</span> , puesto que el intervalo de confianza si es una v.a. al ser sus extremos v.a’s.</p></li>
+</ul>
+<p><br></p>
+<div id="interpretación-frecuentista-de-los-intervalos-de-confianza" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> Interpretación frecuentista de los intervalos de confianza</h2>
+<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span></p>
+<p>Dado un intervalo de confianza <span class="math inline">\(\hspace{0.1cm}[ L_1(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.1cm},\hspace{0.1cm} L_2(\mathcal{X}_1,...,\mathcal{X}_n) ]\hspace{0.1cm}\)</span> para el parámetro <span class="math inline">\(\hspace{0.1cm}\theta\\\)</span></p>
+<ul>
+<li><p>Si se toma un número <strong>grande</strong> <span class="math inline">\(\hspace{0.1cm}B \hspace{0.1cm}\)</span> de muestras de observaciones <span class="math inline">\(\hspace{0.1cm}X^1=(x^1_1,...,x^1_n)\hspace{0.1cm},...,\hspace{0.1cm}X^B=(x^B_1,...,x^B_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm} \\\)</span></p>
+<ul>
+<li><p>Se obtienen <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> realizaciones del intervalo de confianza (intervalos concretos) <span class="math inline">\(\hspace{0.1cm}[L_1(x_1^1,...,x_n^1),L_2(x_1^1,...,x_n^1)]\hspace{0.1cm},...,\hspace{0.1cm} [L_1(x_1^B,...,x_n^B),L_2(x_1^B,...,x_n^B)]\hspace{0.1cm}\\\)</span></p></li>
+<li><p>La proporción de los intervalos que que contienen a <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> es aproximadamente <span class="math inline">\(\hspace{0.1cm}1-\alpha\)</span></p></li>
+</ul></li>
+</ul>
+<p><br></p>
+</div>
+<div id="método-pivotal" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Método pivotal</h2>
+<p>El método pivotal es un método para la construcción de intervalos de confianza.</p>
+<p><br></p>
+</div>
 </div>
 </div>
 

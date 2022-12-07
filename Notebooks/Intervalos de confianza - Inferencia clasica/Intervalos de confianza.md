@@ -132,20 +132,16 @@ $P(\mathcal{X}_1 = x_1 , ..., \mathcal{X}_n=x_n)\hspace{0.08cm}$ es la probabili
 
 # Estadístico
 
-Sea $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ una v.a. tal que $\hspace{0.1cm} \mathcal{X} \sim F(\theta)$ ,
 
-Sea $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ una m.a.s. de $\hspace{0.1cm}\mathcal{X}$
 
-Un estadístico es una función $\hspace{0.1cm}T\hspace{0.1cm}$ de una m.a.s. que no depende del parametro $\hspace{0.1cm}\theta$
+$T\hspace{0.1cm}$ es un estadístico de una m.a.s $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\sim F(\theta)$ $\hspace{0.25cm}\Leftrightarrow\hspace{0.25cm}$ $T\hspace{0.1cm}$ es una función de la m.a.s que no depende  del parámetro $\hspace{0.1cm}\theta$
 
 
 Por tanto:
 
-- $T(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ es un estadistico
+- $T(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ es un estadístico. $\\[0.7cm]$
 
-<br>
-
-**Observación:**
+**Observaciones:**
 
 - $\hspace{0.12cm}T(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ es una v.a. al ser una función de v.a.'s $\\[0.8cm]$
 
@@ -394,7 +390,7 @@ $$\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S^2(X) = \dfrac{1}{n} \sum_{i
 
 <br>
 
-## Justificación al método de los momentos
+### Justificación al método de los momentos
 
 
 
@@ -404,7 +400,7 @@ $$\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S^2(X) = \dfrac{1}{n} \sum_{i
 <br>
 
 
-## Observaciones al método de los momentos
+### Observaciones al método de los momentos
 
 
 
@@ -413,11 +409,11 @@ $$\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S^2(X) = \dfrac{1}{n} \sum_{i
 <br>
 
 
-## Métodos de estimación puntual: Método de Máxima Verosimilitud
+## Método de Máxima Verosimilitud
 
 ### Función de Verosimilitud
 
-Dada una v.a. $\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$  de $\hspace{0.1cm}\mathcal{X}$
+Dada una v.a. $\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$  de $\hspace{0.1cm}\mathcal{X}\\$
 
 
 La función de verosimilitud de la m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,..., \mathcal{X}_n)\hspace{0.1cm}$ es una función  tal que: $\\[0.7cm]$
@@ -455,7 +451,7 @@ $f_{\mathcal{X}_1,...,\mathcal{X}_n}\hspace{0.1cm}$ es la función de densidad o
 
 <br>
 
-# Método de Máxima Verosimilitud
+### Método de Máxima Verosimilitud
 
 
 Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim F(\theta)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$    de $\hspace{0.1cm}\mathcal{X} \\$
@@ -535,11 +531,11 @@ $$\widehat{\sigma}^2 = S^2_n = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{\mathc
  
 ### Principio de invarianza
 
-Dada una funcion $g$ del parametro $\theta$ $\Rightarrow g(\theta)$
+Dada una funcion $\hspace{0.1cm} T\hspace{0.1cm}$ del parametro $\hspace{0.1cm}\theta$ $\hspace{0.1cm}\Rightarrow \hspace{0.1cm}T(\theta)$
 
-Si $\widehat{\theta}_{MV}$ es el estimador máximo-verosímil del parametro $\theta$ , entonces:
+Si $\hspace{0.1cm}\widehat{\theta}_{MV}\hspace{0.1cm}$ es el estimador máximo-verosímil del parametro $\hspace{0.1cm}\theta\hspace{0.1cm}$ , entonces:
 
-$g(\widehat{\theta}_{MV})$ es el estimador máximo-verosimil de $g(\theta)$
+- $\hspace{0.1cm} T(\widehat{\theta}_{MV})\hspace{0.1cm}$ es el estimador máximo-verosimil de $\hspace{0.1cm}T(\theta)$
  
  
  <br>
@@ -548,25 +544,57 @@ $g(\widehat{\theta}_{MV})$ es el estimador máximo-verosimil de $g(\theta)$
 # Estimación por intervalos de confianza <a class="anchor" id="1"></a>
 
  
+Dada una v.a. $\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$  y dada una constante $\hspace{0.1cm}\alpha \in (0,1) \\$
+ 
+ Un intervalo de confianza $\hspace{0.1cm}1-\alpha\hspace{0.1cm}$ para el parámetro $\hspace{0.1cm}\theta\hspace{0.1cm}$ es un intervalo $\hspace{0.1cm}[ L_1(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.1cm},\hspace{0.1cm} L_2(\mathcal{X}_1,...,\mathcal{X}_n) ]$ tal que: $\\[0.7cm]$
+ 
+ $$P(L_1 \leq \theta  \leq L_2) = 1- \alpha$$
+
+ 
+
+**Observaciones:**
+ 
+- $L_1\hspace{0.1cm}$ y $\hspace{0.1cm}L_2\hspace{0.1cm}$ son estadisticos de  la m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , y por tanto son variables aleatorias. $\\[0.6cm]$
  
  
  
+- Para cada muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ se tiene un intervalo de confianza concreto $\hspace{0.1cm}(L_1(x_1,...,x_n) , L_2(x_1,...,x_n))$ $\\[0.6cm]$
  
  
  
+- No es correcto decir que la probabilidad de que el parametro pertenezca al intervalo de confianza es $1-\alpha$ , ya que el parametro no es una v.a. , y solo puede hablarse de probabilidad con v.a's (adoptando la perspectiva frecuentista).  $\\[0.6cm]$
+
+- Si es correcto decir que la probabilidad de que el intervalo de confianza contenga al parametro es $1-\alpha$ , puesto que el intervalo de confianza si es una v.a. al ser sus extremos v.a's.
  
+<br> 
  
+## Interpretación frecuentista de los intervalos de confianza
+
  
+Dada una v.a. $\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$
+
+Dado un intervalo de confianza $\hspace{0.1cm}[ L_1(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.1cm},\hspace{0.1cm} L_2(\mathcal{X}_1,...,\mathcal{X}_n) ]\hspace{0.1cm}$ para el parámetro $\hspace{0.1cm}\theta\\$
+
+
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
+- Si se toma un número **grande** $\hspace{0.1cm}B \hspace{0.1cm}$ de muestras de observaciones $\hspace{0.1cm}X^1=(x^1_1,...,x^1_n)\hspace{0.1cm},...,\hspace{0.1cm}X^B=(x^B_1,...,x^B_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm} \\$
+
+    - Se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ realizaciones del intervalo de confianza (intervalos concretos) $\hspace{0.1cm}[L_1(x_1^1,...,x_n^1),L_2(x_1^1,...,x_n^1)]\hspace{0.1cm},...,\hspace{0.1cm} [L_1(x_1^B,...,x_n^B),L_2(x_1^B,...,x_n^B)]\hspace{0.1cm}\\$ 
+
+    - La proporción de los intervalos que  que contienen a $\hspace{0.1cm}\theta\hspace{0.1cm}$ es aproximadamente $\hspace{0.1cm}1-\alpha$ 
+
+
+<br>
+
+
+## Método pivotal
+
+El método pivotal es un método para la construcción de intervalos de confianza.
+
+
+
+
+<br>
  
  
  
