@@ -1518,15 +1518,22 @@ margin-left: 0 !important;
       <li><a href="#ejemplos-de-estadisticos" id="toc-ejemplos-de-estadisticos"><span class="toc-section-number">4.1</span> Ejemplos de estadisticos</a></li>
       </ul></li>
       <li><a href="#estimador-puntual" id="toc-estimador-puntual"><span class="toc-section-number">5</span> Estimador Puntual</a></li>
-      <li><a href="#estimación-puntual" id="toc-estimación-puntual"><span class="toc-section-number">6</span> Estimación Puntual</a>
+      <li><a href="#estimación-puntual" id="toc-estimación-puntual"><span class="toc-section-number">6</span> Estimación Puntual</a></li>
+      <li><a href="#propiedades-básicas-de-los-estimadores" id="toc-propiedades-básicas-de-los-estimadores"><span class="toc-section-number">7</span> Propiedades básicas de los estimadores</a>
       <ul>
-      <li><a href="#método-de-los-momentos" id="toc-método-de-los-momentos"><span class="toc-section-number">6.1</span> Método de los momentos</a></li>
-      <li><a href="#justificación-al-método-de-los-momentos" id="toc-justificación-al-método-de-los-momentos"><span class="toc-section-number">6.2</span> Justificación al método de los momentos</a></li>
-      <li><a href="#observaciones-al-método-de-los-momentos" id="toc-observaciones-al-método-de-los-momentos"><span class="toc-section-number">6.3</span> Observaciones al método de los momentos</a></li>
-      <li><a href="#métodos-de-estimación-puntual-método-de-máxima-verosimilitud" id="toc-métodos-de-estimación-puntual-método-de-máxima-verosimilitud"><span class="toc-section-number">6.4</span> Métodos de estimación puntual: Método de Máxima Verosimilitud</a></li>
+      <li><a href="#sesgo" id="toc-sesgo"><span class="toc-section-number">7.1</span> Sesgo</a></li>
+      <li><a href="#varianza" id="toc-varianza"><span class="toc-section-number">7.2</span> Varianza</a></li>
+      <li><a href="#error-cuadratico-medio" id="toc-error-cuadratico-medio"><span class="toc-section-number">7.3</span> Error Cuadratico Medio</a></li>
       </ul></li>
-      <li><a href="#método-de-máxima-verosimilitud" id="toc-método-de-máxima-verosimilitud"><span class="toc-section-number">7</span> Método de Máxima Verosimilitud</a></li>
-      <li><a href="#estimación-por-intervalos-de-confianza" id="toc-estimación-por-intervalos-de-confianza"><span class="toc-section-number">8</span> Estimación por intervalos de confianza <a class="anchor" id="1"></a></a></li>
+      <li><a href="#métodos-de-estimacion-puntual" id="toc-métodos-de-estimacion-puntual"><span class="toc-section-number">8</span> Métodos de estimacion puntual</a>
+      <ul>
+      <li><a href="#método-de-los-momentos" id="toc-método-de-los-momentos"><span class="toc-section-number">8.1</span> Método de los momentos</a></li>
+      <li><a href="#justificación-al-método-de-los-momentos" id="toc-justificación-al-método-de-los-momentos"><span class="toc-section-number">8.2</span> Justificación al método de los momentos</a></li>
+      <li><a href="#observaciones-al-método-de-los-momentos" id="toc-observaciones-al-método-de-los-momentos"><span class="toc-section-number">8.3</span> Observaciones al método de los momentos</a></li>
+      <li><a href="#métodos-de-estimación-puntual-método-de-máxima-verosimilitud" id="toc-métodos-de-estimación-puntual-método-de-máxima-verosimilitud"><span class="toc-section-number">8.4</span> Métodos de estimación puntual: Método de Máxima Verosimilitud</a></li>
+      </ul></li>
+      <li><a href="#método-de-máxima-verosimilitud" id="toc-método-de-máxima-verosimilitud"><span class="toc-section-number">9</span> Método de Máxima Verosimilitud</a></li>
+      <li><a href="#estimación-por-intervalos-de-confianza" id="toc-estimación-por-intervalos-de-confianza"><span class="toc-section-number">10</span> Estimación por intervalos de confianza <a class="anchor" id="1"></a></a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1664,22 +1671,51 @@ margin-right: auto;
 <p><strong>Observaciones:</strong></p>
 <p>Un estimador puntual es una v.a. y una estimación puntual un número.</p>
 <p><br></p>
+</div>
+<div id="propiedades-básicas-de-los-estimadores" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Propiedades básicas de los estimadores</h1>
+<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}\)</span> , una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y un estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\)</span></p>
 <p><br></p>
-<div id="método-de-los-momentos" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Método de los momentos</h2>
+<div id="sesgo" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Sesgo</h2>
+<p>El sesgo del estimador <span class="math inline">\(\widehat{\theta}\)</span> se define como:</p>
+<p><span class="math display">\[Sesgo(\widehat{\theta}) = E \left[ \hspace{0.05cm} \widehat{\theta} \hspace{0.05cm} \right]- \theta\]</span></p>
 <p><br></p>
-<div id="momentos-de-una-v.a." class="section level3" number="6.1.1">
-<h3><span class="header-section-number">6.1.1</span> Momentos de una v.a.</h3>
+</div>
+<div id="varianza" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Varianza</h2>
+<p>La varianza del estimador <span class="math inline">\(\widehat{\theta}\)</span> se define como:</p>
+<p><span class="math display">\[Var(\widehat{\theta}) = E \left[ \hspace{0.05cm} \left( \widehat{\theta} - E [ \hspace{0.05cm} \widehat{\theta} \hspace{0.05cm}  ] \right)^2 \hspace{0.05cm} \right]\]</span></p>
+<p>El error estandar (desviación típica) del estimador <span class="math inline">\(\widehat{\theta}\)</span> se define como:</p>
+<p><span class="math display">\[s.e.(\widehat{\theta}) = \sqrt{Var(\widehat{\theta})}\]</span></p>
+<p><br></p>
+</div>
+<div id="error-cuadratico-medio" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Error Cuadratico Medio</h2>
+<p>El error cuadratico medio del estimador <span class="math inline">\(\widehat{\theta}\)</span> se define como:</p>
+<p><span class="math display">\[ECM(\widehat{\theta}) = E[ (\widehat{\theta} - \theta)^2] = E[Sesgo(\widehat{\theta})^2]\]</span></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+<div id="métodos-de-estimacion-puntual" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Métodos de estimacion puntual</h1>
+<div id="método-de-los-momentos" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Método de los momentos</h2>
+<p><br></p>
+<div id="momentos-de-una-v.a." class="section level3" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Momentos de una v.a.</h3>
 <p>Momento de orden <span class="math inline">\(\hspace{0.1cm} k\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> es <span class="math inline">\(\hspace{0.1cm}E[\mathcal{X}^k]\)</span></p>
 <p><br></p>
 </div>
-<div id="momentos-muestrales" class="section level3" number="6.1.2">
-<h3><span class="header-section-number">6.1.2</span> Momentos muestrales</h3>
+<div id="momentos-muestrales" class="section level3" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Momentos muestrales</h3>
 <p>Momento de orden <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> de la m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> es <span class="math inline">\(\hspace{0.1cm}\dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^k\)</span></p>
 <p><br></p>
 </div>
-<div id="el-método-de-los-momentos" class="section level3" number="6.1.3">
-<h3><span class="header-section-number">6.1.3</span> El método de los momentos</h3>
+<div id="el-método-de-los-momentos" class="section level3" number="8.1.3">
+<h3><span class="header-section-number">8.1.3</span> El método de los momentos</h3>
 <p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim F(\theta_1,...,\theta_h)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}X\)</span>,</p>
 <p>Se quieren estimar los parametros <span class="math inline">\(\hspace{0.1cm}\theta_1,...,\theta_h\)</span></p>
 <p>El método de los momentos consiste en resolver para <span class="math inline">\(\hspace{0.1cm}\theta_1,...,\theta_h\hspace{0.1cm}\)</span> el siguiente sistema de ecuaciones: <span class="math inline">\(\\[0.7cm]\)</span></p>
@@ -1708,8 +1744,8 @@ E[\mathcal{X}^h] = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^h
 <p>Los momentos <span class="math inline">\(\hspace{0.1cm}E[X]\hspace{0.05cm},\hspace{0.05cm} E[X^2]\hspace{0.05cm},...,\hspace{0.05cm} E[X^h]\hspace{0.1cm}\)</span> dependen generalmente de los parametros a estimar <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}_1\hspace{0.05cm},...,\hspace{0.05cm}\widehat{\theta}_h\)</span></p>
 <p><br></p>
 </div>
-<div id="ejemplo-v.a.-con-distribución-normal" class="section level3" number="6.1.4">
-<h3><span class="header-section-number">6.1.4</span> Ejemplo: v.a. con distribución normal</h3>
+<div id="ejemplo-v.a.-con-distribución-normal" class="section level3" number="8.1.4">
+<h3><span class="header-section-number">8.1.4</span> Ejemplo: v.a. con distribución normal</h3>
 <p>Tenemos la siguiente v.a. <span class="math inline">\(\hspace{0.15cm} X \sim N(\mu , \sigma^2)\)</span>.</p>
 <p>El problema consiste en estimar los parametros de la distribución <span class="math inline">\(\hspace{0.1cm}\mu\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> a partir de una muestra de observaciones de la v.a.</p>
 <p>Estimaremos los parametros <span class="math inline">\(\hspace{0.1cm}(\mu , \sigma^2)\hspace{0.1cm}\)</span> usando el <strong>métodos de los momentos</strong>.</p>
@@ -1731,18 +1767,18 @@ E[\mathcal{X}^h] = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^h
 <p><br></p>
 </div>
 </div>
-<div id="justificación-al-método-de-los-momentos" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Justificación al método de los momentos</h2>
+<div id="justificación-al-método-de-los-momentos" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Justificación al método de los momentos</h2>
 <p><br></p>
 </div>
-<div id="observaciones-al-método-de-los-momentos" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Observaciones al método de los momentos</h2>
+<div id="observaciones-al-método-de-los-momentos" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Observaciones al método de los momentos</h2>
 <p><br></p>
 </div>
-<div id="métodos-de-estimación-puntual-método-de-máxima-verosimilitud" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Métodos de estimación puntual: Método de Máxima Verosimilitud</h2>
-<div id="función-de-verosimilitud" class="section level3" number="6.4.1">
-<h3><span class="header-section-number">6.4.1</span> Función de Verosimilitud</h3>
+<div id="métodos-de-estimación-puntual-método-de-máxima-verosimilitud" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Métodos de estimación puntual: Método de Máxima Verosimilitud</h2>
+<div id="función-de-verosimilitud" class="section level3" number="8.4.1">
+<h3><span class="header-section-number">8.4.1</span> Función de Verosimilitud</h3>
 <p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span></p>
 <p>La función de verosimilitud de la m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,..., \mathcal{X}_n)\hspace{0.1cm}\)</span> es una función tal que: <span class="math inline">\(\\[0.7cm]\)</span></p>
 <p><span class="math display">\[\mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n) \hspace{0.1cm}=\hspace{0.1cm} f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n\hspace{0.1cm}|\hspace{0.1cm} \theta) \hspace{0.25cm} , \hspace{0.25cm} \forall\hspace{0.1cm} (x_1,...,x_n)\in \mathbb{R}^n \\\]</span></p>
@@ -1764,8 +1800,8 @@ E[\mathcal{X}^h] = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^h
 </div>
 </div>
 </div>
-<div id="método-de-máxima-verosimilitud" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Método de Máxima Verosimilitud</h1>
+<div id="método-de-máxima-verosimilitud" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Método de Máxima Verosimilitud</h1>
 <p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim F(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \\\)</span></p>
 <p>La estimación del parámetro <span class="math inline">\(\hspace{0.1cm} \theta\hspace{0.1cm}\)</span> por el método de máxima verosimilitud se denomina estimación máximo-verosímil, y se define como sigue:</p>
 <p><span class="math display">\[\widehat{\theta}_{MV} \hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\theta}{Max} \hspace{0.15cm} \mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm} | \hspace{0.1cm} \theta)
@@ -1776,8 +1812,8 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \t
 <p>La idea del método de estimación por máxima verosimilitud es, dada una muestra de observaciones (unos datos) de una variable de interes que tiene cierta función de densidad o de probabilidad dependiente de un parametro desconocido, estimar el parametro desconocido con aquel valor del parametro que maximiza la funcion de probabilidad o densidad conjunta de la muestra, es decir, que maximiza la probabilidad de obtener la muestra de observaciones que se ha extraido, es decir, que hace más verosimil los datos disponibles.</p>
 <p>Siempre bajo el supuesto de que conocemos la distribucion de probabilidad de la variable de interes, y por tanto se puede calcular la probabilidad de extraer aleatoriamente cierta muestra de observaciones de esa variable.</p>
 <p><br></p>
-<div id="ejemplo-v.a.-con-distribución-normal-1" class="section level3" number="7.0.1">
-<h3><span class="header-section-number">7.0.1</span> Ejemplo: v.a. con distribución normal</h3>
+<div id="ejemplo-v.a.-con-distribución-normal-1" class="section level3" number="9.0.1">
+<h3><span class="header-section-number">9.0.1</span> Ejemplo: v.a. con distribución normal</h3>
 <p>Tenemos la siguiente v.a. <span class="math inline">\(\hspace{0.15cm} \mathcal{X} \sim N(\mu , \sigma^2)\)</span>.</p>
 <p>El problema consiste en estimar los parametros de la distribución <span class="math inline">\(\hspace{0.1cm}\mu\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> a partir de una muestra de observaciones de la v.a.</p>
 <p>Estimaremos los parametros <span class="math inline">\(\hspace{0.1cm}(\mu , \sigma^2)\hspace{0.1cm}\)</span> usando el <strong>método de máxima verosimilitud</strong>.</p>
@@ -1799,9 +1835,16 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \t
 <p><span class="math display">\[\widehat{\sigma}^2 = S^2_n = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{\mathcal{X}_n})^2 \\\]</span></p>
 <p><br></p>
 </div>
+<div id="principio-de-invarianza" class="section level3" number="9.0.2">
+<h3><span class="header-section-number">9.0.2</span> Principio de invarianza</h3>
+<p>Dada una funcion <span class="math inline">\(g\)</span> del parametro <span class="math inline">\(\theta\)</span> <span class="math inline">\(\Rightarrow g(\theta)\)</span></p>
+<p>Si <span class="math inline">\(\widehat{\theta}_{MV}\)</span> es el estimador máximo-verosímil del parametro <span class="math inline">\(\theta\)</span> , entonces:</p>
+<p><span class="math inline">\(g(\widehat{\theta}_{MV})\)</span> es el estimador máximo-verosimil de <span class="math inline">\(g(\theta)\)</span></p>
+<p><br></p>
 </div>
-<div id="estimación-por-intervalos-de-confianza" class="section level1" number="8">
-<h1><span class="header-section-number">8</span> Estimación por intervalos de confianza <a class="anchor" id="1"></a></h1>
+</div>
+<div id="estimación-por-intervalos-de-confianza" class="section level1" number="10">
+<h1><span class="header-section-number">10</span> Estimación por intervalos de confianza <a class="anchor" id="1"></a></h1>
 </div>
 </div>
 

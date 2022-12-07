@@ -214,10 +214,55 @@ Un estimador puntual es una v.a. y una estimación puntual un número.
 
 <br>
 
+# Propiedades básicas de los estimadores
+
+Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ , una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y un estimador $\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)$
+
+
+<br>
+
+## Sesgo
+
+
+El sesgo del estimador $\widehat{\theta}$ se define como:
+
+$$Sesgo(\widehat{\theta}) = E \left[ \hspace{0.05cm} \widehat{\theta} \hspace{0.05cm} \right]- \theta$$
+
+<br>
+
+## Varianza 
+
+La varianza del estimador $\widehat{\theta}$ se define como:
+
+$$Var(\widehat{\theta}) = E \left[ \hspace{0.05cm} \left( \widehat{\theta} - E [ \hspace{0.05cm} \widehat{\theta} \hspace{0.05cm}  ] \right)^2 \hspace{0.05cm} \right]$$
+
+
+El error estandar (desviación típica) del estimador $\widehat{\theta}$ se define como:
+
+$$s.e.(\widehat{\theta}) = \sqrt{Var(\widehat{\theta})}$$
+
+<br>
+
+## Error Cuadratico Medio
+
+El error cuadratico medio del estimador $\widehat{\theta}$ se define como:
+
+$$ECM(\widehat{\theta}) = E[ (\widehat{\theta} - \theta)^2] = E[Sesgo(\widehat{\theta})^2]$$
+
+
 <br>
 
 
 
+
+<br>
+
+<br>
+
+
+
+
+# Métodos de estimacion puntual
 
 ## Método de los momentos
 
@@ -486,8 +531,15 @@ $$\widehat{\sigma}^2 = S^2_n = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{\mathc
 
 
  
-
+<br>
  
+### Principio de invarianza
+
+Dada una funcion $g$ del parametro $\theta$ $\Rightarrow g(\theta)$
+
+Si $\widehat{\theta}_{MV}$ es el estimador máximo-verosímil del parametro $\theta$ , entonces:
+
+$g(\widehat{\theta}_{MV})$ es el estimador máximo-verosimil de $g(\theta)$
  
  
  <br>
