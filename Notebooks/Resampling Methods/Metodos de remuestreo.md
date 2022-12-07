@@ -15,15 +15,12 @@ css: custom.css
 ---
 
 
-Este artículo está< dividido en dos partes. Una primera en la que se hace una revisión de técnicas de inferencia estadística clásicas, y un segunda parte en la que se introducen técnicas de inferencia estadística basadas en remuestreo.
-
-<br>
 
 # Variables aleatorias i.i.d.
 
 $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ son variables aleatorias mutuamente independientes e identicamente distribuidas  (i.i.d.) $\hspace{0.3cm}\Leftrightarrow$
 
-$1)\hspace{0.12cm}$ $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son mutuamente independientes independientes , es decir:
+$1)\hspace{0.12cm}$ $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son mutuamente independientes  , es decir:
 
 $$\hspace{0.08cm} P(\mathcal{X}_1=x_1,...,\mathcal{X}_n=x_n)= \prod_{i=1}^n P(\mathcal{X}_i=x_i)$$
 
