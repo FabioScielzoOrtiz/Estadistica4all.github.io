@@ -1536,8 +1536,9 @@ margin-left: 0 !important;
       <li><a href="#método-pivotal" id="toc-método-pivotal"><span class="toc-section-number">9.2</span> Método pivotal</a></li>
       <li><a href="#intervalo-de-confianza-para-la-proporción" id="toc-intervalo-de-confianza-para-la-proporción"><span class="toc-section-number">9.3</span> Intervalo de confianza para la proporción</a></li>
       <li><a href="#intervalo-de-confianza-para-la-proporción-en-python" id="toc-intervalo-de-confianza-para-la-proporción-en-python"><span class="toc-section-number">9.4</span> Intervalo de confianza para la proporción en <code>Python</code></a></li>
-      <li><a href="#intervalo-de-confianza-para-la-media" id="toc-intervalo-de-confianza-para-la-media"><span class="toc-section-number">9.5</span> Intervalo de confianza para la media</a></li>
-      <li><a href="#intervalo-de-confianza-para-la-varianza" id="toc-intervalo-de-confianza-para-la-varianza"><span class="toc-section-number">9.6</span> Intervalo de confianza para la varianza</a></li>
+      <li><a href="#intervalo-de-confianza-para-la-media-con-varianza-conocida" id="toc-intervalo-de-confianza-para-la-media-con-varianza-conocida"><span class="toc-section-number">9.5</span> Intervalo de confianza para la media con varianza conocida</a></li>
+      <li><a href="#intervalo-de-confianza-para-la-media-con-varianza-desconocida" id="toc-intervalo-de-confianza-para-la-media-con-varianza-desconocida"><span class="toc-section-number">9.6</span> Intervalo de confianza para la media con varianza desconocida</a></li>
+      <li><a href="#intervalo-de-confianza-para-la-varianza" id="toc-intervalo-de-confianza-para-la-varianza"><span class="toc-section-number">9.7</span> Intervalo de confianza para la varianza</a></li>
       </ul></li>
       </ul>
     </div>
@@ -1890,10 +1891,10 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \t
 <h2><span class="header-section-number">9.3</span> Intervalo de confianza para la proporción</h2>
 <p>Una variable categorica binaria <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> puede modelarse como una variable aleatoria Bernoulli(p), donde <span class="math inline">\(\hspace{0.1cm}p=P(\mathcal{X} = 1)\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}1-p = P(\mathcal{X}=0)\)</span></p>
 <p>Queremos obtener un intervalo de confianza para <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span>, que puede interpretarse como la proporción de individuos de la poblacion para los que <span class="math inline">\(\hspace{0.1cm}\mathcal{X}=1\)</span></p>
-<p>Para ello vamos a apoyarnos en el teorema de distribucion de la media muestral y en el teorema central del limite (TCL) y en el método pivotal.</p>
+<p>Para ello vamos a apoyarnos en el teorema de esperanza-varianza de la media muestral y en el teorema central del limite (TCL) y en el método pivotal.</p>
 <p><br></p>
-<div id="teorema-de-distribución-de-la-media-muestral" class="section level3" number="9.3.1">
-<h3><span class="header-section-number">9.3.1</span> Teorema de distribución de la media muestral</h3>
+<div id="teorema-de-esperanza-varianza-de-la-media-muestral" class="section level3" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> Teorema de esperanza-varianza de la media muestral</h3>
 <p>Si tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[E\left[\overline{\mathcal{X}_n}\right] \hspace{0.1cm}=\hspace{0.1cm} E[\mathcal{X}]\\\]</span></p>
 <p><span class="math display">\[Var\left(\overline{\mathcal{X}_n}\right) \hspace{0.1cm}=\hspace{0.1cm} Var(\mathcal{X})/n \\\]</span></p>
@@ -1960,11 +1961,64 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \t
 <h2><span class="header-section-number">9.4</span> Intervalo de confianza para la proporción en <code>Python</code></h2>
 <p><br></p>
 </div>
-<div id="intervalo-de-confianza-para-la-media" class="section level2" number="9.5">
-<h2><span class="header-section-number">9.5</span> Intervalo de confianza para la media</h2>
+<div id="intervalo-de-confianza-para-la-media-con-varianza-conocida" class="section level2" number="9.5">
+<h2><span class="header-section-number">9.5</span> Intervalo de confianza para la media con varianza conocida</h2>
+<p>Una variable cuantitativa <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> puede modelarse como una variable aleatoria <span class="math inline">\(N(\mu , \sigma^2)\)</span>, donde <span class="math inline">\(\hspace{0.1cm}\mu=E[\mathcal{X}]\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma^2 = Var(\mathcal{X})\)</span>, que pueden interpretarse respectivamente como la media y varianza poblacional de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span></p>
+<p>Queremos obtener un intervalo de confianza para <span class="math inline">\(\hspace{0.1cm} \mu \hspace{0.1cm}\)</span>, bajo el supuesto de que <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> es conocido.</p>
+<p>Para ello vamos a apoyarnos en el teorema de distribucion de la media muestral y en el método pivotal.</p>
+<p><br></p>
+<div id="teorema-de-distribución-de-la-media-muestral" class="section level3" number="9.5.1">
+<h3><span class="header-section-number">9.5.1</span> Teorema de distribución de la media muestral</h3>
+<p>Si tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim N(\mu , \sigma^2)\hspace{0.1cm}\)</span> y una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\overline{ \mathcal{X}_n } \sim N(\mu , \sigma^2/n)\]</span></p>
+<p>Por tanto:</p>
+<p><span class="math display">\[\dfrac{\hspace{0.2cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.2cm}}{ \sqrt{\sigma^2 / n}  } \hspace{0.1cm}\sim\hspace{0.1cm} N(0,1)\]</span></p>
+<p><br></p>
 </div>
-<div id="intervalo-de-confianza-para-la-varianza" class="section level2" number="9.6">
-<h2><span class="header-section-number">9.6</span> Intervalo de confianza para la varianza</h2>
+<div id="intervalo-de-confianza-para-la-media-con-varianza-conocida-1" class="section level3" number="9.5.2">
+<h3><span class="header-section-number">9.5.2</span> Intervalo de confianza para la media con varianza conocida</h3>
+<p>La anterior cantidad:</p>
+<p><span class="math display">\[\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \mu) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.1cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.1cm}}{ \sqrt{\sigma^2 / n}  }\]</span></p>
+<p>es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso <span class="math inline">\(\hspace{0.1cm} \theta = \mu\hspace{0.1cm}\)</span>, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una <span class="math inline">\(\hspace{0.1cm}N(0,1)\)</span>.</p>
+<p>Siguiendo el método pivotal hay que encontrar los valores <span class="math inline">\(\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}\)</span> tales que:</p>
+<p><span class="math display">\[P\left( \hspace{0.1cm}a \hspace{0.1cm}&lt; \hspace{0.1cm} \dfrac{\hspace{0.1cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.1cm}}{ \sqrt{\sigma^2 / n}  }  \hspace{0.1cm}&lt;\hspace{0.1cm} b \hspace{0.1cm}\right) = 1-\alpha \\\]</span></p>
+<p>Siguiendo los anteriores resultados:</p>
+<p><span class="math display">\[P\left( \hspace{0.1cm} a \hspace{0.1cm}&lt;\hspace{0.1cm} \dfrac{\hspace{0.1cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.1cm}}{ \sqrt{\sigma^2 / n}  } \hspace{0.1cm} &lt;\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} P\left( a &lt; N(0,1)  &lt; b \right) \\\]</span></p>
+<p>Teniendo en cuenta las propiedades de la distribución normal: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math display">\[P\left( z_{1-\alpha/2} &lt; N(0,1)  &lt; z_{\alpha/2} \right) = P\left( -z_{\alpha/2} &lt; N(0,1)  &lt; z_{\alpha/2} \right) = 1-\alpha \\\]</span></p>
+<p>Donde:</p>
+<p><span class="math inline">\(z_{\alpha/2}\hspace{0.1cm}\)</span> es el valor tal que <span class="math inline">\(\hspace{0.1cm}P(N(0,1)&gt;z_{\alpha/2}) = \alpha/2 \\\)</span></p>
+<p>Por tanto:</p>
+<p><span class="math display">\[P\left( \hspace{0.1cm} -z_{\alpha/2} \hspace{0.1cm}&lt;\hspace{0.1cm} \hspace{0.1cm} \dfrac{\hspace{0.1cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.1cm}}{ \sqrt{\sigma^2 / n}  }  \hspace{0.1cm} &lt;\hspace{0.1cm} z_{\alpha/2}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[1cm]\]</span></p>
+<p>Siguiendo el método pivotal ahora tenemos que aislar el parametro <span class="math inline">\(\theta=\mu\)</span>. Operando un poco se llega a lo siguiente: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math display">\[P\left( \hspace{0.1cm} \overline{\mathcal{X}_n} -z_{\alpha/2} \cdot \sqrt{\sigma^2 / n}\hspace{0.1cm}&lt;\hspace{0.1cm}  \mu \hspace{0.1cm} &lt;\hspace{0.1cm} \overline{\mathcal{X}_n} + z_{\alpha/2}\cdot \sqrt{\sigma^2 / n}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[0.7cm]\]</span></p>
+<p>Por tanto, tenemos el siguiente intervalo de confianza a un nivel <span class="math inline">\(\hspace{0.1cm} 1-\alpha\hspace{0.1cm}\)</span> para el parametro <span class="math inline">\(\hspace{0.1cm} \mu \hspace{0.1cm}\\\)</span></p>
+<p><span class="math display">\[IC(\mu)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{X}_n} \hspace{0.1cm}\pm\hspace{0.1cm} z_{\alpha/2} \cdot \sqrt{\sigma^2 / n} \hspace{0.1cm} \right] \\[0.9cm]\]</span></p>
+<p>Dada una muestra <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , tenemos la siguiente realización del intervalo de confianza: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math display">\[IC(p)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X} \hspace{0.1cm}\pm\hspace{0.1cm} z_{\alpha/2} \cdot \sqrt{\sigma^2 / n} \hspace{0.1cm} \right]\]</span></p>
+<p>Donde:</p>
+<p><span class="math inline">\(\hspace{0.45cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i\)</span></p>
+<p>El problema es que en la práctica <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> no es conocido, por ello se utiliza el intervalo de confianza de la siguiente sección.</p>
+<p><br></p>
+</div>
+</div>
+<div id="intervalo-de-confianza-para-la-media-con-varianza-desconocida" class="section level2" number="9.6">
+<h2><span class="header-section-number">9.6</span> Intervalo de confianza para la media con varianza desconocida</h2>
+<p>Una variable cuantitativa <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> puede modelarse como una variable aleatoria <span class="math inline">\(N(\mu , \sigma^2)\)</span>, donde <span class="math inline">\(\hspace{0.1cm}\mu=E[\mathcal{X}]\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma^2 = Var(\mathcal{X})\)</span>, que pueden interpretarse respectivamente como la media y varianza poblacional de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span></p>
+<p>Queremos obtener un intervalo de confianza para <span class="math inline">\(\hspace{0.1cm} \mu \hspace{0.1cm}\)</span>, teniendo en cuenta que <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> es desconocido.</p>
+<p>Para ello vamos a apoyarnos en el teorema de Gosset y en el método pivotal.</p>
+<p><br></p>
+<div id="teorema-de-gosset" class="section level3" number="9.6.1">
+<h3><span class="header-section-number">9.6.1</span> Teorema de Gosset</h3>
+<p><br></p>
+</div>
+<div id="intervalo-de-confianza-para-la-media-con-varianza-desconocida-1" class="section level3" number="9.6.2">
+<h3><span class="header-section-number">9.6.2</span> Intervalo de confianza para la media con varianza desconocida</h3>
+<p><br></p>
+</div>
+</div>
+<div id="intervalo-de-confianza-para-la-varianza" class="section level2" number="9.7">
+<h2><span class="header-section-number">9.7</span> Intervalo de confianza para la varianza</h2>
 </div>
 </div>
 </div>

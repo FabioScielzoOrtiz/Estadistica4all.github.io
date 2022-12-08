@@ -620,11 +620,11 @@ Una variable categorica binaria  $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ puede
 Queremos obtener un intervalo de confianza para $\hspace{0.1cm}p\hspace{0.1cm}$, que puede interpretarse como la proporción de individuos de la poblacion para los que $\hspace{0.1cm}\mathcal{X}=1$ 
 
 
-Para ello vamos a apoyarnos en el teorema de distribucion de la media muestral y en el teorema central del limite (TCL) y en el método pivotal.
+Para ello vamos a apoyarnos en el teorema de esperanza-varianza de la media muestral y en el teorema central del limite (TCL) y en el método pivotal.
 
 <br>
 
-### Teorema de distribución de la media muestral
+### Teorema de esperanza-varianza de la media muestral
 
 Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
 
@@ -783,11 +783,166 @@ $\hspace{0.45cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i$
 
 <br>
  
-## Intervalo de confianza para la media
+## Intervalo de confianza para la media con varianza conocida
+
+Una variable cuantitativa  $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ puede modelarse como una variable aleatoria $N(\mu , \sigma^2)$, donde $\hspace{0.1cm}\mu=E[\mathcal{X}]\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma^2 = Var(\mathcal{X})$, que pueden interpretarse respectivamente como la media y varianza poblacional de la variable $\hspace{0.1cm}\mathcal{X}$
+
+Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \mu \hspace{0.1cm}$, bajo el supuesto de que $\hspace{0.1cm}\sigma^2\hspace{0.1cm}$ es conocido.
 
 
+
+Para ello vamos a apoyarnos en el teorema de distribucion de la media muestral  y en el método pivotal.
+
+
+<br>
+
+### Teorema de distribución de la media muestral
+
+Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu , \sigma^2)\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
+
+
+$$\overline{ \mathcal{X}_n } \sim N(\mu , \sigma^2/n)$$
+
+Por tanto:
+
+
+$$\dfrac{\hspace{0.2cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.2cm}}{ \sqrt{\sigma^2 / n}  } \hspace{0.1cm}\sim\hspace{0.1cm} N(0,1)$$
+
+
+
+
+<br>
+
+### Intervalo de confianza para la media con varianza conocida
+
+
+La anterior cantidad:
+
+$$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \mu) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.1cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.1cm}}{ \sqrt{\sigma^2 / n}  }$$
+
+
+es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso $\hspace{0.1cm} \theta = \mu\hspace{0.1cm}$, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una $\hspace{0.1cm}N(0,1)$.
+
+
+Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}$ tales que:
+
+
+
+
+$$P\left( \hspace{0.1cm}a \hspace{0.1cm}< \hspace{0.1cm} \dfrac{\hspace{0.1cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.1cm}}{ \sqrt{\sigma^2 / n}  }  \hspace{0.1cm}<\hspace{0.1cm} b \hspace{0.1cm}\right) = 1-\alpha \\$$
+
+
+ 
+Siguiendo los anteriores resultados:
+
+
+$$P\left( \hspace{0.1cm} a \hspace{0.1cm}<\hspace{0.1cm} \dfrac{\hspace{0.1cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.1cm}}{ \sqrt{\sigma^2 / n}  } \hspace{0.1cm} <\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} P\left( a < N(0,1)  < b \right) \\$$
+
+
+
+Teniendo en cuenta las propiedades de la distribución normal: $\\[0.6cm]$
+
+$$P\left( z_{1-\alpha/2} < N(0,1)  < z_{\alpha/2} \right) = P\left( -z_{\alpha/2} < N(0,1)  < z_{\alpha/2} \right) = 1-\alpha \\$$
+ 
+ 
+Donde:
+
+
+$z_{\alpha/2}\hspace{0.1cm}$ es el valor tal que $\hspace{0.1cm}P(N(0,1)>z_{\alpha/2}) = \alpha/2 \\$ 
+
+
+
+Por tanto:
+
+
+$$P\left( \hspace{0.1cm} -z_{\alpha/2} \hspace{0.1cm}<\hspace{0.1cm} \hspace{0.1cm} \dfrac{\hspace{0.1cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.1cm}}{ \sqrt{\sigma^2 / n}  }  \hspace{0.1cm} <\hspace{0.1cm} z_{\alpha/2}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[1cm]$$
+
+
+
+
+
+Siguiendo el método pivotal ahora tenemos que aislar el parametro $\theta=\mu$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
+
+
+$$P\left( \hspace{0.1cm} \overline{\mathcal{X}_n} -z_{\alpha/2} \cdot \sqrt{\sigma^2 / n}\hspace{0.1cm}<\hspace{0.1cm}  \mu \hspace{0.1cm} <\hspace{0.1cm} \overline{\mathcal{X}_n} + z_{\alpha/2}\cdot \sqrt{\sigma^2 / n}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
+
+
+
+ 
+
+Por tanto, tenemos el siguiente intervalo de confianza a un nivel  $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} \mu \hspace{0.1cm}\\$
+
+$$IC(\mu)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{X}_n} \hspace{0.1cm}\pm\hspace{0.1cm} z_{\alpha/2} \cdot \sqrt{\sigma^2 / n} \hspace{0.1cm} \right] \\[0.9cm]$$
+
+
+Dada una muestra $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
+
+
+$$IC(p)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X} \hspace{0.1cm}\pm\hspace{0.1cm} z_{\alpha/2} \cdot \sqrt{\sigma^2 / n} \hspace{0.1cm} \right]$$
+
+
+Donde:
+
+$\hspace{0.45cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i$
+
+
+El problema es que en la práctica $\hspace{0.1cm}\sigma^2\hspace{0.1cm}$ no es conocido, por ello se utiliza el intervalo de confianza de la siguiente sección.
+
+
+
+<br>
+
+## Intervalo de confianza para la media con varianza desconocida
+
+
+Una variable cuantitativa  $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ puede modelarse como una variable aleatoria $N(\mu , \sigma^2)$, donde $\hspace{0.1cm}\mu=E[\mathcal{X}]\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma^2 = Var(\mathcal{X})$, que pueden interpretarse respectivamente como la media y varianza poblacional de la variable $\hspace{0.1cm}\mathcal{X}$
+
+Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \mu \hspace{0.1cm}$, teniendo en cuenta que $\hspace{0.1cm}\sigma^2\hspace{0.1cm}$ es desconocido.
+
+
+
+Para ello vamos a apoyarnos en el teorema de Gosset  y en el método pivotal.
+
+
+
+<br>
+
+### Teorema de Gosset
+
+
+
+
+
+<br>
+
+
+### Intervalo de confianza para la media con varianza desconocida
+
+
+
+
+
+
+
+
+<br>
 
 ## Intervalo de confianza para la varianza
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  
