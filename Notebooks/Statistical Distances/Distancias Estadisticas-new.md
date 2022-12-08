@@ -1846,7 +1846,6 @@ def Matrix_Dist_Mahalanobis_1(Data):
     return M 
 ```
 
-<br>
 
 ```python
 Matrix_Dist_Mahalanobis_1(Data=Data_quant_numpy[0:1000 , 0:1000]) # 2.25 mins
@@ -1918,7 +1917,6 @@ def Matrix_Dist_Mahalanobis_2(Data):
     return M 
 ```
 
-<br>
 
 ```python
 Matrix_Dist_Mahalanobis_2(Data=Data_quant_numpy[0:1000 , 0:1000]) # 6.8 seg
@@ -1992,7 +1990,6 @@ def Matrix_Dist_Mahalanobis_3(Data):
     return M 
 ```
 
-<br>
 
 ```python
 Matrix_Dist_Mahalanobis_3(Data=Data_quant_numpy[0:1000 , 0:1000]) # 4.8 seg
@@ -2088,11 +2085,11 @@ $\hspace{0.25cm}$ Dado un conjunto cualquiera $\hspace{0.1cm}A$
 
 $\hspace{0.25cm}$ Se denomina similaridad a toda función $\hspace{0.1cm} \phi : A \text{x} A \rightarrow \mathbb{R}\hspace{0.1cm}$   tal que:
 
-$\hspace{0.35cm} 1)$ $\hspace{0.2cm} \phi(i , r) \in [0,1] \hspace{0.45cm}  \forall i,r \in A \\$
+$\hspace{0.35cm} 1)$ $\hspace{0.2cm} \phi(i , r) \in [0,1] \hspace{0.25cm} , \hspace{0.25cm}  \forall i,r \in A \\$
 
-$\hspace{0.35cm} 2)$ $\hspace{0.2cm} \phi(i, i) = 1  \hspace{0.45cm}  \forall i,r \in A \\$
+$\hspace{0.35cm} 2)$ $\hspace{0.2cm} \phi(i, i) = 1  \hspace{0.25cm} , \hspace{0.25cm}  \forall i,r \in A \\$
 
-$\hspace{0.35cm} 3)$  $\hspace{0.2cm} \phi(i , r) = \phi(r, i)  \hspace{0.45cm}  \forall i,r \in A$
+$\hspace{0.35cm} 3)$  $\hspace{0.2cm} \phi(i , r) = \phi(r, i)  \hspace{0.25cm} , \hspace{0.25cm} \forall i,r \in A$
 
 </p>
  
@@ -2135,9 +2132,9 @@ $\hspace{0.35cm} 3)$ $\hspace{0.25cm} \delta(i,r) \hspace{0.07cm}=\hspace{0.07cm
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ Dada una similaridad $s$ definida sobre el conjunto $A=\lbrace a_1 ,..., a_n \rbrace$
+$\hspace{0.25cm}$ Dada una similaridad $\hspace{0.1cm}\phi\hspace{0.1cm}$ definida sobre el conjunto $\hspace{0.1cm}A=\lbrace a_1 ,..., a_n \rbrace$
 
-$\hspace{0.25cm}$ Se define la matriz de similaridades $\phi$ sobre $A$ como:
+$\hspace{0.25cm}$ Se define la matriz de similaridades $\hspace{0.1cm}\phi\hspace{0.1cm}$ sobre $\hspace{0.1cm} A\hspace{0.1cm}$ como: $\\[0.6cm]$
  
 
 $$
@@ -2153,7 +2150,7 @@ $$
 
 $\hspace{0.25cm}$ Donde:
 
-$\hspace{0.35cm} \phi_{ir} = \phi(a_i , a_r) \hspace{0.45cm}  \forall i, j \in \lbrace 1,...,n\rbrace$
+$\hspace{0.35cm} \phi_{ir} = \phi(a_i , a_r) \hspace{0.25cm} , \hspace{0.25cm}  \forall i, j \in \lbrace 1,...,n\rbrace$
 
 
 </p>
@@ -2206,27 +2203,27 @@ Por tanto:
 
 $\hspace{0.25cm}$ Los principales coeficientes de similaridad involucran algunos de los siguientes parametros:
 
- - $\hspace{0.2cm} a(x_i, x_r) \hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
+ - $\hspace{0.1cm} a(x_i, x_r) \hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
  
   
- $$\hspace{0.2cm} a(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=x_{rj}=1  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
+ $$\hspace{0.2cm} a(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j\in \lbrace 1,..,p\rbrace \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=x_{rj}=1  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
 
- - $\hspace{0.2cm} b(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias  $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=1 \\$ 
-
-
- $$\hspace{0.2cm} b(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=0 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=1  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
+ - $\hspace{0.1cm} b(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias  $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=1 \\$ 
 
 
- - $\hspace{0.2cm} c(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =1\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+ $$\hspace{0.2cm} b(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j\in \lbrace 1,..,p\rbrace \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=0 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=1  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
 
 
- $$\hspace{0.2cm} c(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=1 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=0  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
+ - $\hspace{0.1cm} c(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =1\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+
+
+ $$\hspace{0.2cm} c(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j\in \lbrace 1,..,p\rbrace \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=1 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=0  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
 
 
 
- - $\hspace{0.2cm} d(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+ - $\hspace{0.1cm} d(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
  
- $$\hspace{0.2cm} d(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j= 1,..,p \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=0 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=0  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
+ $$\hspace{0.2cm} d(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm} j \in \lbrace 1,..,p\rbrace \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=0 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=0  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
  
  
 
@@ -2250,9 +2247,6 @@ $$a(x_i, x_r) + b(x_i, x_r) + c(x_i, x_r) +d(x_i, x_r) =p$$
 
 
 
-Dada una matriz de datos $\hspace{0.05cm}X=(X_1,...,X_p)\hspace{0.05cm}$  de  variables  **categoricas binarias**
-
-Dadas las matrices $\hspace{0.1cm} a=(a(x_i, x_r))_{i,r=1:n}\hspace{0.1cm}$ ,  $\hspace{0.1cm}b=(b(x_i, x_r))_{i,r=1:n}\hspace{0.1cm}$,  $\hspace{0.1cm}c=(c(x_i, x_r))_{i,r=1:n}\hspace{0.15cm}$ y  $\hspace{0.15cm}d=(d(x_i, x_r))_{i,r=1:n} \\$ 
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -2260,16 +2254,20 @@ Dadas las matrices $\hspace{0.1cm} a=(a(x_i, x_r))_{i,r=1:n}\hspace{0.1cm}$ ,  $
  
 <p style='margin-left:1em;'>
 
-Estas matrices pueden expresarse del siguiente modo: $\\[0.4cm]$
+
+Dada una matriz de datos $\hspace{0.1cm}X=[X_1,...,X_p]\hspace{0.1cm}$  de  variables  **categoricas binarias**.
+
+Las matrices $\hspace{0.1cm}a \hspace{0.1cm},\hspace{0.1cm} b\hspace{0.1cm},\hspace{0.1cm} c\hspace{0.1cm}$ y $\hspace{0.1cm}d\hspace{0.1cm}$ tales que $\hspace{0.1cm} a[i,r]=a(x_i, x_r)  \hspace{0.1cm}$ ,  $\hspace{0.1cm}b[i,r]=b(x_i, x_r)  \hspace{0.1cm}$,  $\hspace{0.1cm} c[i,r]=c(x_i, x_r)\hspace{0.15cm}$ y  $\hspace{0.15cm}d[i,r]=d(x_i, x_r)\hspace{0.15cm}$ , para $\hspace{0.1cm}i \hspace{0.1cm}, \hspace{0.1cm} r \hspace{0.1cm}\in\hspace{0.1cm} \lbrace 1,...,n\rbrace \hspace{0.2cm}$
+pueden expresarse del siguiente modo: $\\[0.4cm]$
 
 
-- $a \hspace{0.05cm}=\hspace{0.05cm} X\cdot X^t \\$
+ $$a \hspace{0.05cm}=\hspace{0.05cm} X\cdot X^t \\$$
 
-- $b\hspace{0.05cm}=\hspace{0.05cm}(\overrightarrow{1}_{nxp} - X)\cdot X\hspace{0.03cm}^t\\$
+ $$b\hspace{0.05cm}=\hspace{0.05cm}(1_{nxp} - X)\cdot X\hspace{0.03cm}^t\\$$
 
-- $c\hspace{0.05cm}=\hspace{0.05cm}b\hspace{0.03cm}^t \\$
+ $$c\hspace{0.05cm}=\hspace{0.05cm}b\hspace{0.03cm}^t \\$$
 
-- $d\hspace{0.05cm}=\hspace{0.05cm}(\overrightarrow{1}_{nxp} - X)\cdot(\overrightarrow{1}_{nxp} - X)\hspace{0.03cm}^t \\$
+ $$d\hspace{0.05cm}=\hspace{0.05cm}(1_{nxp} - X)\cdot(1_{nxp} - X)\hspace{0.03cm}^t \\$$
 
 </p>
  
@@ -2327,6 +2325,8 @@ array([[1., 1., 1., ..., 1., 1., 1.],
        [1., 1., 1., ..., 1., 1., 1.]])
 ```
 
+<br>
+
 ```python
 Data_binary_numpy[[30,1903], :]
 ```
@@ -2342,6 +2342,8 @@ a[30 , 1903]
 ```
 
     1.0
+
+<br>
 
 ```python
 Data_binary_numpy[[40,1903], :]
@@ -2359,6 +2361,11 @@ a[40 , 1903]
 
     1.0
 
+
+
+<br>
+
+
 ```python
 b
 ```
@@ -2372,6 +2379,8 @@ array([[0., 0., 1., ..., 0., 1., 0.],
        [0., 0., 1., ..., 0., 0., 0.],
        [0., 0., 1., ..., 0., 1., 0.]])
 ```
+
+<br>
 
 ```python
 Data_binary_numpy[[30,1903], :]
@@ -2387,6 +2396,7 @@ b[30 , 1903]
 
     1.0
 
+<br>
 
 ```python
 Data_binary_numpy[[40,1903], :]
@@ -2403,7 +2413,8 @@ b[40,1903]
 
     1.0
     
-    
+<br>
+
 ```python
 c
 ```
@@ -2417,6 +2428,8 @@ array([[0., 0., 0., ..., 0., 0., 0.],
        [1., 1., 1., ..., 1., 0., 1.],
        [0., 0., 0., ..., 0., 0., 0.]])
 ```
+
+<br>
 
 ```python
 Data_binary_numpy[[30,1903], :]
@@ -2432,7 +2445,8 @@ c[30, 1903]
 
     1.0
     
-    
+<br>
+   
 ```python
 Data_binary_numpy[[40,1903], :] 
 ```
@@ -2447,7 +2461,8 @@ c[40, 1903]
 
     0.0
     
-    
+<br>
+
 ```python
 d
 ```    
@@ -2462,15 +2477,7 @@ array([[3., 3., 2., ..., 3., 2., 3.],
        [3., 3., 2., ..., 3., 2., 3.]])
 ```
 
-```python
-Data_binary_numpy[[30,1903], :]
-```
-```
-array([[0., 1., 0., 1.],
-       [1., 0., 0., 1.]])
-```
-
-
+<br>
 
 ```python
 Data_binary_numpy[[40,1903], :]
