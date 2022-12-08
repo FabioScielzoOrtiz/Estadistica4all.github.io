@@ -1234,6 +1234,8 @@ Dist_Minkowski(Data_quant.iloc[2,:], Data_quant.iloc[5,:], q=10)
     1969900.0000000016
 
 
+<br>
+
 ```python
 def Matrix_Dist_Minkowski(Data, q):
 
@@ -1343,7 +1345,7 @@ $\hspace{0.25cm}$ La distancia de Canberra entre el par de observaciones $\hspac
 
 
 
-**Distancia Canberra entre vectores**
+
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1351,6 +1353,7 @@ $\hspace{0.25cm}$ La distancia de Canberra entre el par de observaciones $\hspac
  
 <p style='margin-left:1em;'>
 
+$\hspace{0.25cm}$ **Distancia Canberra entre vectores**
 
 $\hspace{0.25cm}$ La distancia de Canberra se puede definir de forma más general no sujeta a un contexto estadístico.
 
@@ -1378,13 +1381,13 @@ $$
 
 **Desventajas de la distancia de Canberra**
 
-1) Asumen que las variables son incorreladas y tienen varianza uno.
+- Asumen que las variables son incorreladas y tienen varianza uno.
 
 
 
 **Ventajas de la distancia de Canberra**
 
-1) Es invariante ante cambios de escala (cambios en las unidades de medida) de las variables.
+- Es invariante ante cambios de escala (cambios en las unidades de medida) de las variables.
 
 
 
@@ -1417,8 +1420,10 @@ def Dist_Canberra(x_i, x_r):
 Dist_Canberra(Data.iloc[2,:] , Data.iloc[5,:])
 ```
 
-    9.161812529108834
+    9.3284791957755
 
+
+<br>
 
 ```python
 def Matrix_Dist_Canberra(Data):
@@ -1507,12 +1512,12 @@ array([[0.        , 0.5496257 , 1.61996314, ..., 1.25082356, 0.78797391,
  
 <p style='margin-left:1em;'>
 
-Dada una serie de muestras $X_1,...,X_p$ de las variables estadisticas  $\mathcal{X}_1,...,\mathcal{X}_p$
+$\hspace{0.25cm}$ Dada una serie de muestras $\hspace{0.1cm} X_1,...,X_p\hspace{0.1cm}$ de las variables estadisticas  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
 
-La distancia de Karl Pearson entre el par de observaciones $(x_i,x_r)$ de las variables estadisticas $\mathcal{X}_1,...,\mathcal{X}_p$ se define como: $\\[0.5cm]$
+$\hspace{0.25cm}$ La distancia de Karl Pearson entre el par de observaciones $\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ se define como: $\\[0.5cm]$
 
 $$
-\delta(x_i,x_r)_{P} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ \sum_{k=1}^{p} \hspace{0.08cm} \dfrac{1}{s\hspace{0.03cm}^2_k} \cdot ( x_{ik} - x_{rk} )\hspace{0.03cm}^2 } \hspace{0.1cm} =\hspace{0.1cm} \sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S_0^{-1} \cdot (x_i - x_r )}  \hspace{0.1cm} = \hspace{0.1cm} \sqrt{  sum \left( \hspace{0.07cm} \left(  \dfrac{ x_i - x_r  }{ \overrightarrow{s}   }\right)^2 \hspace{0.07cm} \right)} \\[0.8cm]
+\hspace{0.45cm} \delta(x_i,x_r)_{P} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ \sum_{k=1}^{p} \hspace{0.08cm} \dfrac{1}{s\hspace{0.03cm}^2_k} \cdot ( x_{ik} - x_{rk} )\hspace{0.03cm}^2 } \hspace{0.1cm} =\hspace{0.1cm} \sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S_0^{-1} \cdot (x_i - x_r )}  \hspace{0.1cm} = \hspace{0.1cm} \sqrt{  sum \left( \hspace{0.07cm} \left(  \dfrac{ x_i - x_r  }{ \overrightarrow{s}   }\right)^2 \hspace{0.07cm} \right)} \\[0.8cm]
 $$
   
 
@@ -1527,9 +1532,9 @@ $$
 
 Donde:
  
-- $S_0 = \text{diag}(s_1 ^2 ,..., s_p ^2)$
+- $S_0 = \text{diag}(s_1 ^2 ,..., s_p ^2)\\$
  
-- $s_k ^2\hspace{0.08cm}$ es la varianza de la muestra $\hspace{0.08cm}X_k\hspace{0.08cm}$ , es decir, $\hspace{0.08cm} s_k ^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n ( x_{ik} - \overline{X}_k )^2$
+- $s_k ^2\hspace{0.08cm}$ es la varianza de la muestra $\hspace{0.08cm}X_k\hspace{0.08cm}$ , es decir, $\hspace{0.08cm} s_k ^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n ( x_{ik} - \overline{X}_k )^2\\$
 
 - $\overrightarrow{s} = ( s_1 ,..., s_p )$
 
@@ -1555,14 +1560,14 @@ Es decir, si la variable $\hspace{0.08cm}\mathcal{X}_k\hspace{0.08cm}$ tiene muc
 
 **Desventajas**
  
-1) Asume que las variables estan incorreladas y tienen varianza uno.
+- Asume que las variables estan incorreladas y tienen varianza uno.
 
 
 
 
 **Ventajas**
 
-1) La distancia de Pearson es invariante ante cambios de escala (cambios en las unidades de medida).
+- La distancia de Pearson es invariante ante cambios de escala (cambios en las unidades de medida).
 
 
 
@@ -2046,18 +2051,18 @@ M_Mahalanobis
 ```
 
 ```
-array([[0.        , 4.2257811 , 7.5950926 , ..., 9.03119731, 4.63376888,
-        2.21176094],
-       [4.2257811 , 0.        , 8.71231935, ..., 9.86680854, 5.48023478,
-        4.25877168],
-       [7.5950926 , 8.71231935, 0.        , ..., 6.35559018, 6.98864973,
-        6.47446634],
+array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
+        1.10588047],
+       [2.11289055, 0.        , 4.35615967, ..., 4.93340427, 2.74011739,
+        2.12938584],
+       [3.7975463 , 4.35615967, 0.        , ..., 3.17779509, 3.49432487,
+        3.23723317],
        ...,
-       [9.03119731, 9.86680854, 6.35559018, ..., 0.        , 7.17390906,
-        8.22550494],
-       [4.63376888, 5.48023478, 6.98864973, ..., 7.17390906, 0.        ,
-        2.93789894],
-       [2.21176094, 4.25877168, 6.47446634, ..., 8.22550494, 2.93789894,
+       [4.51559865, 4.93340427, 3.17779509, ..., 0.        , 3.58695453,
+        4.11275247],
+       [2.31688444, 2.74011739, 3.49432487, ..., 3.58695453, 0.        ,
+        1.46894947],
+       [1.10588047, 2.12938584, 3.23723317, ..., 4.11275247, 1.46894947,
         0.        ]])
 ```
 
@@ -2255,19 +2260,19 @@ $$a(x_i, x_r) + b(x_i, x_r) + c(x_i, x_r) +d(x_i, x_r) =p$$
 <p style='margin-left:1em;'>
 
 
-Dada una matriz de datos $\hspace{0.1cm}X=[X_1,...,X_p]\hspace{0.1cm}$  de  variables  **categoricas binarias**.
+$\hspace{0.25cm}$ Dada una matriz de datos $\hspace{0.1cm}X=[X_1,...,X_p]\hspace{0.1cm}$  de  variables  **categoricas binarias**.
 
-Las matrices $\hspace{0.1cm}a \hspace{0.1cm},\hspace{0.1cm} b\hspace{0.1cm},\hspace{0.1cm} c\hspace{0.1cm}$ y $\hspace{0.1cm}d\hspace{0.1cm}$ tales que $\hspace{0.1cm} a[i,r]=a(x_i, x_r)  \hspace{0.1cm}$ ,  $\hspace{0.1cm}b[i,r]=b(x_i, x_r)  \hspace{0.1cm}$,  $\hspace{0.1cm} c[i,r]=c(x_i, x_r)\hspace{0.15cm}$ y  $\hspace{0.15cm}d[i,r]=d(x_i, x_r)\hspace{0.15cm}$ , para $\hspace{0.1cm}i \hspace{0.1cm}, \hspace{0.1cm} r \hspace{0.1cm}\in\hspace{0.1cm} \lbrace 1,...,n\rbrace \hspace{0.2cm}$
+$\hspace{0.25cm}$ Las matrices $\hspace{0.1cm}a \hspace{0.1cm},\hspace{0.1cm} b\hspace{0.1cm},\hspace{0.1cm} c\hspace{0.1cm}$ y $\hspace{0.1cm}d\hspace{0.1cm}$ tales que $\hspace{0.1cm} a[i,r]=a(x_i, x_r)  \hspace{0.1cm}$ ,  $\hspace{0.1cm}b[i,r]=b(x_i, x_r)  \hspace{0.1cm}$,  $\hspace{0.1cm} c[i,r]=c(x_i, x_r)\hspace{0.15cm}$ y  $\hspace{0.15cm}d[i,r]=d(x_i, x_r)\hspace{0.15cm}$ , para $\hspace{0.1cm}i \hspace{0.1cm}, \hspace{0.1cm} r \hspace{0.1cm}\in\hspace{0.1cm} \lbrace 1,...,n\rbrace \hspace{0.2cm}$
 pueden expresarse del siguiente modo: $\\[0.4cm]$
 
 
- $$a \hspace{0.05cm}=\hspace{0.05cm} X\cdot X^t \\$$
+- $\hspace{0.2cm}$$a \hspace{0.05cm}=\hspace{0.05cm} X\cdot X^t \\$
 
- $$b\hspace{0.05cm}=\hspace{0.05cm}(1_{nxp} - X)\cdot X\hspace{0.03cm}^t\\$$
+- $\hspace{0.2cm}$$b\hspace{0.05cm}=\hspace{0.05cm}(1_{nxp} - X)\cdot X\hspace{0.03cm}^t\\$
 
- $$c\hspace{0.05cm}=\hspace{0.05cm}b\hspace{0.03cm}^t \\$$
+- $\hspace{0.2cm}$$c\hspace{0.05cm}=\hspace{0.05cm}b\hspace{0.03cm}^t \\$
 
- $$d\hspace{0.05cm}=\hspace{0.05cm}(1_{nxp} - X)\cdot(1_{nxp} - X)\hspace{0.03cm}^t \\$$
+- $\hspace{0.2cm}$$d\hspace{0.05cm}=\hspace{0.05cm}(1_{nxp} - X)\cdot(1_{nxp} - X)\hspace{0.03cm}^t \\$
 
 </p>
  
@@ -2311,6 +2316,8 @@ def a_b_c_d_Matrix(Data):
 ```python
 a, b, c, d, p = a_b_c_d_Matrix(Data_binary_numpy)
 ```
+
+<br>
 
 ```python
 a
@@ -2579,10 +2586,10 @@ def Sokal_Similarity_1(i , r, Data):
 
 
 ```python
-Sokal_Similarity_1(i=2 , r=5, Data=Data_binary_numpy)
+Sokal_Similarity_1(i=1 , r=2, Data=Data_binary_numpy)
 ```
 
-    0.5
+    0.75
     
     
 <br>
@@ -2607,10 +2614,10 @@ def Sokal_Similarity_2(i , r, a , d, p):
 ```python
 a, b, c, d, p = a_b_c_d_Matrix(Data_binary_numpy)
 
-Sokal_Similarity_2(i=2, r=5, a=a, d=d, p=p)
+Sokal_Similarity_2(i=1, r=2, a=a, d=d, p=p)
 ```
 
-    0.5
+    0.75
     
 <br>
 
@@ -2760,10 +2767,10 @@ def Dist_Sokal(i, r, a, d, p):
 ```python
 a, b, c, d, p = a_b_c_d_Matrix(Data_binary_numpy)
 
-Dist_Sokal(i=2, r=5, a=a, d=d, p=p)
+Dist_Sokal(i=1, r=2, a=a, d=d, p=p)
 ```
 
-    1.0
+    0.7071067811865476
     
 <br>
 
@@ -2879,9 +2886,9 @@ $\hspace{0.25cm}$ El coeficiente de similaridad de Jaccard (o simplemente la sim
 
 $\hspace{0.25cm}$ Podemos obtener la distancia de Jaccard entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables binarias $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ como sigue:  $\\[0.4cm]$
 
-\begin{gather*}
-\delta(x_i,x_r)_{Jaccard} = \sqrt{\phi(x_i,x_i)_{Jaccard} + \phi(x_r,x_r)_{Jaccard} - 2\cdot \phi(x_i,x_r)_{Jaccard} }
-\end{gather*}
+$$
+\hspace{0.35cm} \delta(x_i,x_r)_{Jaccard} = \sqrt{\phi(x_i,x_i)_{Jaccard} + \phi(x_r,x_r)_{Jaccard} - 2\cdot \phi(x_i,x_r)_{Jaccard} }
+$$
 
 
 </p>
@@ -3111,7 +3118,7 @@ a, b, c, d, p = a_b_c_d_Matrix(Data_binary_numpy)
 Dist_Jaccard(i=2 , r=5, a=a , b=b, c=c)
 ```
 
-    0.0
+    1
 
 
 <br>
@@ -3325,37 +3332,24 @@ La distancia por coincidencias entre el par de observaciones $\hspace{0.1cm}(x_i
 
 
 ```python
-def alpha(x_i, x_r, Data):
+def alpha(x_i, x_r):
 
-    # Es necesario que Data sea un numpy array
+    alpha = sum(x_i == x_r)
 
-    X = Data
-
-    alpha = np.repeat(0, X.shape[1])
-
-    ifelse  =  lambda k :  1  if x_i[k] == x_r[k]   else  0   # Es más eficiente que un bucle condicional.
-
-    for k in range(0, X.shape[1]-1) :
-
-        alpha[k] = ifelse(k)
-
-    alpha = alpha.sum()
-
-    return(alpha)   
+    return(alpha)    
 ```
 
 ```python
 Data_multiclass_numpy[2,:] 
 ```
 
-    array([2., 4., 1.])
+    array([2., 1., 3.])
 
 ```python
 Data_multiclass_numpy[5,:] 
 ```
      
-    array([2., 1., 2.])
-
+    array([2., 3., 3.])
 
 ```python
 alpha(x_i=Data_multiclass_numpy[2,:] , x_r=Data_multiclass_numpy[5,:], Data=Data_multiclass_numpy)
