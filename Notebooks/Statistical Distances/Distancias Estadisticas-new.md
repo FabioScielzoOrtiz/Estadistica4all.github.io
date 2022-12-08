@@ -2512,9 +2512,9 @@ $\hspace{0.25cm}$ El coeficiente de similaridad de Sokal (o simplemente la simil
 
 
 
-\begin{gather*}
-\phi (x_i,x_r)_{Sokal}  =\dfrac{a(x_i,x_r) + d(x_i,x_r) }{ a(x_i,x_r) + b(x_i,x_r) + c(x_i,x_r) + d(x_i,x_r) } = \dfrac{a(x_i,x_r) + d(x_i,x_r) }{p} 
-\end{gather*}
+$$
+\hspace{0.35cm} \phi (x_i,x_r)_{Sokal}  =\dfrac{a(x_i,x_r) + d(x_i,x_r) }{ a(x_i,x_r) + b(x_i,x_r) + c(x_i,x_r) + d(x_i,x_r) } = \dfrac{a(x_i,x_r) + d(x_i,x_r) }{p} 
+$$
 
 </p>
  
@@ -2583,6 +2583,9 @@ Sokal_Similarity_1(i=2 , r=5, Data=Data_binary_numpy)
 ```
 
     0.5
+    
+    
+<br>
 
 ```python
 def Sokal_Similarity_2(i , r, a , d, p):
@@ -2608,6 +2611,9 @@ Sokal_Similarity_2(i=2, r=5, a=a, d=d, p=p)
 ```
 
     0.5
+    
+<br>
+
 
 ```python
 def Matrix_Dist_Sokal_1(Data):
@@ -2651,6 +2657,9 @@ array([[1.  , 1.  , 0.75, ..., 0.75, 0.75, 1.  ],
        [0.  , 0.  , 0.  , ..., 0.  , 1.  , 0.75],
        [0.  , 0.  , 0.  , ..., 0.  , 0.  , 1.  ]])
 ```
+
+<br>
+
 
 ```python
 def Matrix_Dist_Sokal_2(Data):
@@ -2697,6 +2706,9 @@ array([[1.  , 1.  , 0.75, ..., 1.  , 1.  , 0.75],
        [0.  , 0.  , 0.  , ..., 0.  , 0.  , 1.  ]])
 ```
 
+<br>
+
+
 ```python
 M_Sim_Sokal = Matrix_Dist_Sokal_2(Data=Data_binary_numpy) # 3.4 seg
 
@@ -2711,6 +2723,8 @@ array([[1.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ],
        [0.  , 0.  , 0.  , ..., 0.  , 1.  , 0.75],
        [0.  , 0.  , 0.  , ..., 0.  , 0.  , 1.  ]])
 ```
+
+<br>
 
 ```python
 M_Sim_Sokal = M_Sim_Sokal + M_Sim_Sokal.T - np.diag(np.repeat(1 , len(M_Sim_Sokal)), k=0)
@@ -2728,7 +2742,7 @@ array([[1.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ],
 ```
  
 
-
+<br>
 
 
 ##  Distancia de Sokal en `Python` <a class="anchor" id="57"></a>
@@ -2749,6 +2763,9 @@ a, b, c, d, p = a_b_c_d_Matrix(Data_binary_numpy)
 Dist_Sokal(i=2, r=5, a=a, d=d, p=p)
 ```
 
+    1.0
+    
+<br>
 
 ```python
 def Matrix_Dist_Sokal(Data):
@@ -2798,6 +2815,7 @@ array([[0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
         0.        ]])
 ```
 
+<br>
 
 
 ```python
@@ -2838,7 +2856,7 @@ $\hspace{0.25cm}$ El coeficiente de similaridad de Jaccard (o simplemente la sim
 
 
 \begin{gather*}
-\phi(i,r)_{Jaccard}  = \dfrac{a_{ir} }{a_{ir} + b_{ir}+ c_{ir}} 
+\phi(x_i,x_r)_{Jaccard}  = \dfrac{a_{ir} }{a_{ir} + b_{ir}+ c_{ir}} 
 \end{gather*}
 
 
@@ -2862,7 +2880,7 @@ $\hspace{0.25cm}$ El coeficiente de similaridad de Jaccard (o simplemente la sim
 $\hspace{0.25cm}$ Podemos obtener la distancia de Jaccard entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables binarias $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ como sigue:  $\\[0.4cm]$
 
 \begin{gather*}
-\delta(i,r)_{Jaccard} = \sqrt{\phi(i,i)_{Jaccard} + \phi(r,r)_{Jaccard} - 2\cdot \phi(i,r)_{Jaccard} }
+\delta(x_i,x_r)_{Jaccard} = \sqrt{\phi(x_i,x_i)_{Jaccard} + \phi(x_r,x_r)_{Jaccard} - 2\cdot \phi(x_i,x_r)_{Jaccard} }
 \end{gather*}
 
 
@@ -2902,6 +2920,8 @@ Jaccard_Similarity_1(i=2, r=5, Data=Data_binary_numpy)
 ```
 
     0
+    
+<br>
 
 ```python
 def Jaccard_Similarity_2(i , r, a , b, c):
@@ -2930,6 +2950,9 @@ Jaccard_Similarity_2(i=2, r=5, a=a , b=b, c=c)
 ```
 
     0
+    
+    
+<br>
 
 ```python
 def Matrix_Sim_Jaccard_1(Data):
@@ -2974,6 +2997,8 @@ array([[1. , 1. , 0.5, ..., 0. , 0. , 1. ],
        [0. , 0. , 0. , ..., 0. , 0. , 1. ]])
 ```
 
+
+<br>
 
 ```python
 def Matrix_Sim_Jaccard_2(Data):
@@ -3020,6 +3045,9 @@ array([[1. , 1. , 0.5, ..., 0. , 0. , 1. ],
        [0. , 0. , 0. , ..., 0. , 0. , 1. ]])
 ```
 
+
+<br>
+
 ```python
 M_Jaccard = Matrix_Sim_Jaccard_2(Data=Data_binary_numpy)
 
@@ -3042,7 +3070,7 @@ array([[1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
 ```
 
 
-
+<br>
 
 ```python
 M_Jaccard = M_Jaccard + M_Jaccard.T - np.diag(np.repeat(1 , len(M_Jaccard)), k=0)
@@ -3066,6 +3094,7 @@ array([[1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
         1.        ]])
 ```
 
+<br>
 
 ```python
 def Dist_Jaccard(i , r, a , b, c):
@@ -3083,6 +3112,9 @@ Dist_Jaccard(i=2 , r=5, a=a , b=b, c=c)
 ```
 
     0.0
+
+
+<br>
 
 ```python
 def Matrix_Dist_Jaccard(Data):
@@ -3131,6 +3163,8 @@ array([[0.        , 0.        , 1.        , ..., 0.        , 1.        ,
        [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
         0.        ]])
 ```
+
+<br>
 
 
 ```python
@@ -3203,11 +3237,11 @@ Por tanto:
 $\hspace{0.25cm}$ Los parametros que habitualmente se usan para construir las similaridades con variables multiclase son:
 
 
-$\hspace{0.35cm}$ $\alpha_{ir} \hspace{0.05cm} =\hspace{0.05cm}$ número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} \hspace{0.05cm}=\hspace{0.05cm} x_{rj}\\$
+$\hspace{0.45cm}$ $\alpha_{ir} \hspace{0.05cm} =\hspace{0.05cm}$ número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} \hspace{0.05cm}=\hspace{0.05cm} x_{rj}\\$
 
 $$\alpha_{ir} \hspace{0.07cm}=\hspace{0.07cm} \# \lbrace\hspace{0.1cm} j\in \lbrace 1,...,p\rbrace \hspace{0.15cm}/\hspace{0.15cm} x_{ij} = x_{rj}  \hspace{0.1cm}\rbrace\\$$
 
-$\hspace{0.35cm}$ $p-\alpha_{ir} \hspace{0.05cm}=\hspace{0.05cm}$  número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} \neq x_{rj} \\$ 
+$\hspace{0.45cm}$ $p-\alpha_{ir} \hspace{0.05cm}=\hspace{0.05cm}$  número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} \neq x_{rj} \\$ 
 
 $$p - \alpha_{ir} \hspace{0.07cm}=\hspace{0.07cm} \# \lbrace\hspace{0.1cm} j\in \lbrace 1,...,p\rbrace \hspace{0.15cm}/\hspace{0.15cm} x_{ij} \neq x_{rj}  \hspace{0.1cm}\rbrace\\$$
 
@@ -3328,6 +3362,8 @@ alpha(x_i=Data_multiclass_numpy[2,:] , x_r=Data_multiclass_numpy[5,:], Data=Data
     1
 
 
+<br>
+
 ```python
 Data_multiclass_numpy[15,:] 
 ```
@@ -3351,6 +3387,8 @@ alpha(x_i=Data_multiclass_numpy[14,:] , x_r=Data_multiclass_numpy[15,:], Data=Da
     2
 
 
+<br>
+
 ```python
 def matches_similarity(x_i, x_r, Data):
 
@@ -3371,6 +3409,7 @@ matches_similarity(x_i=Data_multiclass_numpy[2,:] , x_r=Data_multiclass_numpy[5,
 
     0.3333333333333333
 
+<br>
 
 ```python
 matches_similarity(x_i=Data_multiclass_numpy[14,:] , x_r=Data_multiclass_numpy[15,:], Data=Data_multiclass_numpy)
@@ -3378,6 +3417,7 @@ matches_similarity(x_i=Data_multiclass_numpy[14,:] , x_r=Data_multiclass_numpy[1
 
     0.6666666666666666
 
+<br>
 
 ```python
 def Matrix_Sim_Matches(Data):
@@ -3408,7 +3448,7 @@ def Matrix_Sim_Matches(Data):
     return M 
 ```
 
-
+<br>
 
 ```python
 M_matches = Matrix_Sim_Matches(Data=Data_multiclass_numpy)
@@ -3431,7 +3471,7 @@ array([[1.        , 0.33333333, 0.33333333, ..., 0.33333333, 0.33333333,
         1.        ]])
 ```
 
-
+<br>
 
 ```python
 M_matches = M_matches + M_matches.T - np.diag(np.repeat(1 , len(M_matches)), k=0)
@@ -3454,6 +3494,7 @@ array([[1.        , 0.33333333, 0.33333333, ..., 0.33333333, 0.33333333,
         1.        ]])
 ```
 
+<br>
 
 ```python
 def Dist_Matches(x_i, x_r, Data):
@@ -3464,13 +3505,15 @@ def Dist_Matches(x_i, x_r, Data):
 ```
 
 
+
 ```python
 matches_similarity(x_i=Data_multiclass_numpy[2,:] , x_r=Data_multiclass_numpy[5,:], Data=Data_multiclass_numpy)
 ```
 
     0.3333333333333333
     
-    
+<br>
+
 ```python
 def Matrix_Dist_Matches(Data):
 
@@ -3516,7 +3559,7 @@ array([[0.        , 0.81649658, 0.81649658, ..., 0.81649658, 0.81649658,
         0.        ]])
 ```
 
-
+<br>
 
 ```python
 M_Dist_Matches = M_Dist_Matches + M_Dist_Matches.T
