@@ -614,10 +614,10 @@ Donde: $\hspace{0.1cm}g_1\hspace{0.1cm}$ y $\hspace{0.1cm}g_2\hspace{0.1cm}$ son
  
 ## Intervalo de confianza para la proporción 
  
-Una variable categorica binaria  $\mathcal{X}$ puede modelarse como una variable aleatoria Bernoulli(p), donde $p=P(\mathcal{X} = 1)$ y $1-p = P(\mathcal{X}=0)$
+Una variable categorica binaria  $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ puede modelarse como una variable aleatoria Bernoulli(p), donde $\hspace{0.1cm}p=P(\mathcal{X} = 1)\hspace{0.1cm}$ y $\hspace{0.1cm}1-p = P(\mathcal{X}=0)$
 
 
-Queremos obtener un intervalo de confianza para $p$, que puede interpretarse como la proporción de individuos de la poblacion para los que $\mathcal{X}=1$ 
+Queremos obtener un intervalo de confianza para $\hspace{0.1cm}p\hspace{0.1cm}$, que puede interpretarse como la proporción de individuos de la poblacion para los que $\hspace{0.1cm}\mathcal{X}=1$ 
 
 
 Para ello vamos a apoyarnos en el teorema de distribucion de la media muestral y en el teorema central del limite (TCL) y en el método pivotal.
@@ -626,25 +626,162 @@ Para ello vamos a apoyarnos en el teorema de distribucion de la media muestral y
 
 ### Teorema de distribución de la media muestral
 
+Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
 
+$$E\left[\overline{\mathcal{X}_n}\right] \hspace{0.1cm}=\hspace{0.1cm} E[\mathcal{X}]\\$$
 
+$$Var\left(\overline{\mathcal{X}_n}\right) \hspace{0.1cm}=\hspace{0.1cm} Var(\mathcal{X})/n \\$$
+
+Donde:
+
+$\hspace{0.25cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i$
+
+<br>
 
 ### Teorema central del límite
 
 El TCL dice lo siguiente:
 
-Si tenemos una v.a. $\mathcal{X}$ y una m.a.s $\mathcal{X}_1,...,\mathcal{X}_n de \mathcal{X}$ , entonces:
+Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
 
-$$\dfrac{\overline{\mathcal{X}_n} - E[\overline{\mathcal{X}_n}]}{\sqrt{Var(\overline{\mathcal{X}_n})}} = \dfrac{\overline{\mathcal{X}_n} - E[\mathcal{X}]}{\sqrt{Var(\mathcal{X})/n}} \underset{d}{\rightarrow} N(0,1)$$
+$$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} = \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.1cm}\underset{d}{\rightarrow}\hspace{0.1cm} N(0,1)\\$$
 
-Usando la definicion de convergencia en distribución tenemos lo siguiente:
-
-
-Si $W_n = \dfrac{\overline{\mathcal{X}_n} - E[\mathcal{X}]}{\sqrt{Var(\mathcal{X})/n}}$
-
-$$\underset{n \rightarrow \infty}{lim} F_{W_n}  = F_{N(0,1)}(x) , \forall x\in \mathbb{R}$$
+Usando la definicion de convergencia en distribución tenemos lo siguiente: $\\[0.5cm]$
 
 
+
+$$\underset{n \rightarrow \infty}{lim} \hspace{0.1cm} F_{W_n}(x) \hspace{0.1cm} =\hspace{0.1cm} F_{N(0,1)}(x) \hspace{0.25cm} , \hspace{0.25cm} \forall x\in \mathbb{R}$$
+
+Donde:
+
+ $$W_n = \dfrac{\overline{\mathcal{X}_n} - E[\mathcal{X}]}{\sqrt{Var(\mathcal{X})/n}}$$
+ 
+<br> 
+ 
+### Teorema de Moivre-Laplace
+
+Este teorema es un caso particular del TCL para v.a`s Binomiales.
+
+
+Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim Binomial(k,p)\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
+
+ 
+ 
+ 
+$$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.1cm}= \hspace{0.1cm}
+\dfrac{\overline{\mathcal{X}_n} - k\cdot p}{\sqrt{k\cdot p\cdot(1-p)/n}}\hspace{0.15cm}\underset{d}{\rightarrow}\hspace{0.15cm} N(0,1)\\$$
+ 
+ 
+ 
+Donde:
+
+
+$\hspace{0.25cm} E[Binomial(k,p)] \hspace{0.1cm}=\hspace{0.1cm} k\cdot p$
+
+$\hspace{0.25cm} Var(Binomial(k,p)) \hspace{0.1cm}=\hspace{0.1cm} k\cdot p \cdot (1-p)$
+ 
+ 
+<br>
+ 
+Para el caso concreto de una $\hspace{0.1cm}Bernouilli(p)=Binomial(k=1,p)\hspace{0.1cm}$ se tiene lo siguiente:
+ 
+ 
+ 
+$$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.1cm}= \hspace{0.1cm}
+\dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}} \hspace{0.15cm}\underset{d}{\rightarrow}\hspace{0.15cm} N(0,1)\\$$ 
+ 
+ 
+
+
+
+
+<br>
+
+### Intervalo de confianza para la proporción
+
+La anterior cantidad:
+
+$$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, p) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}}$$
+
+
+es una cantidad pivotal , puesto que contienen al parámetro de interés, en este caso $\hspace{0.1cm}\theta = p\hspace{0.1cm}$ , y su distribución de probabilidad es conocida y no depende de dicho parámetro , es una $\hspace{0.1cm}N(0,1)\hspace{0.1cm}$, aproximadamente.
+ 
+ 
+ 
+Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm}a,b \in \mathbb{R}\hspace{0.1cm}$ tales que: $\\[0.6cm]$
+
+$$P\left( \hspace{0.1cm}a \hspace{0.1cm}< \hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}}  \hspace{0.1cm}<\hspace{0.1cm} b \hspace{0.1cm}\right) = 1-\alpha \\$$
+
+
+ 
+Siguiendo los anteriores resultados:
+
+
+$$P\left( \hspace{0.1cm} a \hspace{0.1cm}<\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}} \hspace{0.1cm} <\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} P\left( a < N(0,1)  < b \right) \\$$
+
+
+
+Teniendo en cuenta las propiedades de la distribución normal: $\\[0.6cm]$
+
+$$P\left( z_{1-\alpha/2} < N(0,1)  < z_{\alpha/2} \right) = P\left( -z_{\alpha/2} < N(0,1)  < z_{\alpha/2} \right) = 1-\alpha \\$$
+ 
+ 
+Donde:
+
+
+$z_{\alpha/2}\hspace{0.1cm}$ es el valor tal que $\hspace{0.1cm}P(N(0,1)>z_{\alpha/2}) = \alpha/2 \\$ 
+
+
+
+Por tanto:
+
+
+$$P\left( \hspace{0.1cm} -z_{\alpha/2} \hspace{0.1cm}<\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}} \hspace{0.1cm} <\hspace{0.1cm} z_{\alpha/2}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
+
+
+
+
+
+Siguiendo el método pivotal ahora tenemos que aislar el parametro $\theta=p$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
+
+
+$$P\left( \hspace{0.1cm} \overline{\mathcal{X}_n} -z_{\alpha/2} \cdot \sqrt{p(1-p)/n}\hspace{0.1cm}<\hspace{0.1cm}  p \hspace{0.1cm} <\hspace{0.1cm} \overline{\mathcal{X}_n} + z_{\alpha/2}\cdot \sqrt{p(1-p)/n}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
+
+
+
+Pero la anterior expresión tienen un problema, dependen ambos lados de la desigualdad de $p$ , que es el parámetro desconocido. Una solución a esto es la siguiente.
+
+Como $\overline{\mathcal{X}_n}$ es un estimador de $p$ que es insesgado, consistente y de minima varianza, es un muy buen estimador de $p$ , por tanto podemos estimar $p$ con $\overline{\mathcal{X}_n}$ en la anterior expresion. Asi llegamos a la siguiente expresión: $\\[0.7cm]$
+
+
+
+$$P\left( \hspace{0.1cm} \overline{\mathcal{X}_n} -z_{\alpha/2} \cdot \sqrt{\overline{\mathcal{X}_n}(1-\overline{\mathcal{X}_n})/n}\hspace{0.1cm}<\hspace{0.1cm}  p \hspace{0.1cm} <\hspace{0.1cm} \overline{\mathcal{X}_n} + z_{\alpha/2}\cdot \sqrt{\overline{\mathcal{X}_n}(1-\overline{\mathcal{X}_n})/n}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
+
+
+Por tanto, tenemos el siguiente intervalo de confianza a un nivel aproximado $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} p \hspace{0.1cm}\\$
+
+$$IC(p)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{X}_n} \hspace{0.1cm}\pm\hspace{0.1cm} z_{\alpha/2} \cdot \sqrt{\overline{\mathcal{X}_n}(1-\overline{\mathcal{X}_n})/n} \hspace{0.1cm} \right] \\[0.9cm]$$
+
+
+Dada una muestra $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
+
+
+$$IC(p)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X} \hspace{0.1cm}\pm\hspace{0.1cm} z_{\alpha/2} \cdot \sqrt{\overline{X}\cdot (1-\overline{X})/n} \hspace{0.1cm} \right]$$
+
+
+Donde:
+
+$\hspace{0.45cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i$
+
+
+<br>
+
+## Intervalo de confianza para la proporción en `Python`
+
+
+
+
+<br>
  
 ## Intervalo de confianza para la media
 
