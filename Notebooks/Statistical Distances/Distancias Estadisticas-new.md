@@ -1359,7 +1359,7 @@ $\hspace{0.25cm}$ **Distancia Canberra entre vectores**
 
 $\hspace{0.25cm}$ La distancia de Canberra se puede definir de forma más general no sujeta a un contexto estadístico.
 
-$\hspace{0.25cm}$ Dados dos vectores $\hspace{0.07cm}v=(v_1,...,v_n)^t\hspace{0.07cm}$ y $\hspace{0.07cm}w=(w_1,...,w_n)^t$ de $\hspace{0.07cm}\mathbb{R}^2$
+$\hspace{0.25cm}$ Dados dos vectores $\hspace{0.07cm}v=(v_1,...,v_n)^t\hspace{0.07cm}$ y $\hspace{0.07cm}w=(w_1,...,w_n)^t$ de $\hspace{0.07cm}\mathbb{R}^n$
 
 
 
@@ -1697,7 +1697,7 @@ $\hspace{0.25cm}$ La distancia de Mahalanobis entre el par de observaciones $\hs
 
  
 $$
- \delta(x_i,x_r)_{Maha} \hspace{0.08cm}= \hspace{0.08cm}\sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - x_r ) }   \\[0.6cm]
+ \delta(x_i,x_r)_{Maha} \hspace{0.08cm}= \hspace{0.08cm} \sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - x_r ) }   \\[0.6cm]
 $$
 
 
@@ -1735,6 +1735,48 @@ La distancia de Mahalanobis es adecuada como distancia estadística por las sigu
 
 <br>
 
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ **Distancia Mahalanobis entre vectores**
+
+$\hspace{0.25cm}$ La distancia de Mahalanobis puede definirse de forma más general.
+
+Dada una matriz de datos $X=(X_1,...,X_p)$ de las variables estadisticas $\mathcal{X}_1,...,\mathcal{X}_n$
+
+$\hspace{0.25cm}$ Dada una observación $x_i$ de esas variables estadisticas tal que $x_i = X[i,:]$  y dado un vector  $\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.07cm}$ de $\hspace{0.07cm}\mathbb{R}^p$ , que no está incluido en la matriz de datos.
+
+
+
+
+$\hspace{0.25cm}$ La distancia Mahalanobis entre esos dos vectores es: $\\[0.7cm]$
+
+$$
+\delta (x_i, v)_{C}  \hspace{0.07cm}=\hspace{0.07cm}  \sqrt{(x_i - v)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - v) } \\
+$$
+
+
+Donde se van a considerar dos alternativas para definir $S$ :
+
+- $S$ es la matriz de covarianzas de la matriz de datos $X=(X_1,...,X_p)$
+
+- $S$ es la matriz de covarianzas de la matriz de datos 
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+
+
+
+<br>
 
 
 

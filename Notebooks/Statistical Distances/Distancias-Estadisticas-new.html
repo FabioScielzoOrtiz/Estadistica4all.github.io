@@ -3208,7 +3208,7 @@ array([[      0.      ,  150047.748877, 1550086.062526, ...,
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Distancia Canberra entre vectores</strong></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de Canberra se puede definir de forma más general no sujeta a un contexto estadístico.</p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dados dos vectores <span class="math inline">\(\hspace{0.07cm}v=(v_1,...,v_n)^t\hspace{0.07cm}\)</span> y <span class="math inline">\(\hspace{0.07cm}w=(w_1,...,w_n)^t\)</span> de <span class="math inline">\(\hspace{0.07cm}\mathbb{R}^2\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dados dos vectores <span class="math inline">\(\hspace{0.07cm}v=(v_1,...,v_n)^t\hspace{0.07cm}\)</span> y <span class="math inline">\(\hspace{0.07cm}w=(w_1,...,w_n)^t\)</span> de <span class="math inline">\(\hspace{0.07cm}\mathbb{R}^n\)</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia Canberra entre esos dos vectores es: <span class="math inline">\(\\[0.7cm]\)</span></p>
 <p><span class="math display">\[
 \delta (v,w)_{C}  \hspace{0.07cm}=\hspace{0.07cm}   \sum_{i=1}^{n} \dfrac{ \mid v_i - w_i \mid }{\mid v_i \mid + \mid w_i \mid} \\
@@ -3425,7 +3425,7 @@ array([[      0.      ,  150047.748877, 1550086.062526, ...,
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una matriz de datos <span class="math inline">\(\hspace{0.1cm} X=(X_1,...,X_p)\hspace{0.1cm}\)</span> de las variables estadisticas <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\)</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de Mahalanobis entre el par de observaciones <span class="math inline">\(\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}\)</span> de las variables estadisticas <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\)</span> se define como: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[
-\delta(x_i,x_r)_{Maha} \hspace{0.08cm}= \hspace{0.08cm}\sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - x_r ) }   \\[0.6cm]
+\delta(x_i,x_r)_{Maha} \hspace{0.08cm}= \hspace{0.08cm} \sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - x_r ) }   \\[0.6cm]
 \]</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <p><span class="math inline">\(\hspace{0.35cm} S \hspace{0.08cm}\)</span> es la matriz de covarianzas de la matriz de datos <span class="math inline">\(\hspace{0.08cm}X=(X_1,...,X_p)\)</span></p>
@@ -3446,6 +3446,27 @@ array([[      0.      ,  150047.748877, 1550086.062526, ...,
 <li><p>La distancia Euclidea es igual a la de Mahalanobis cuando <span class="math inline">\(\hspace{0.1cm} S=I \\\)</span></p></li>
 <li><p>La distancia de Pearson es igual a la de Mahalanobis cuando <span class="math inline">\(\hspace{0.1cm} S=\text{diag}(s_1^2 ,..., s_p^2)\)</span></p></li>
 </ul>
+<p><br></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Distancia Mahalanobis entre vectores</strong></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de Mahalanobis puede definirse de forma más general.</p>
+<p>Dada una matriz de datos <span class="math inline">\(X=(X_1,...,X_p)\)</span> de las variables estadisticas <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_n\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una observación <span class="math inline">\(x_i\)</span> de esas variables estadisticas tal que <span class="math inline">\(x_i = X[i,:]\)</span> y dado un vector <span class="math inline">\(\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.07cm}\)</span> de <span class="math inline">\(\hspace{0.07cm}\mathbb{R}^p\)</span> , que no está incluido en la matriz de datos.</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia Mahalanobis entre esos dos vectores es: <span class="math inline">\(\\[0.7cm]\)</span></p>
+<p><span class="math display">\[
+\delta (x_i, v)_{C}  \hspace{0.07cm}=\hspace{0.07cm}  \sqrt{(x_i - v)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - v) } \\
+\]</span></p>
+<p>Donde se van a considerar dos alternativas para definir <span class="math inline">\(S\)</span> :</p>
+<ul>
+<li><p><span class="math inline">\(S\)</span> es la matriz de covarianzas de la matriz de datos <span class="math inline">\(X=(X_1,...,X_p)\)</span></p></li>
+<li><p><span class="math inline">\(S\)</span> es la matriz de covarianzas de la matriz de datos</p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="distancia-de-mahalanobis-en-python" class="section level2" number="3.10">
