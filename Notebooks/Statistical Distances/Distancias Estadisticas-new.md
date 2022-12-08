@@ -1095,7 +1095,6 @@ $$
 
 
 
-**Distancia Minkowski entre vectores**
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1103,9 +1102,12 @@ $$
  
 <p style='margin-left:1em;'>
 
+$\hspace{0.25cm}$ **Distancia Minkowski entre vectores**
+
+
 $\hspace{0.25cm}$ La distancia de Minkowski puede definirse de un modo mas general no sujeto al contexto estadistico.
 
-$\hspace{0.25cm}$ Dados dos vectores $\hspace{0.1cm} v=(v_1,...,v_n)^t\hspace{0.1cm}$ y $\hspace{0.1cm} w=(w_1,...,w_n)^t\hspace{0.1cm}$ de $\hspace{0.1cm}\mathbb{R}^2 \\$
+$\hspace{0.25cm}$ Dados dos vectores $\hspace{0.1cm} v=(v_1,...,v_n)^t\hspace{0.1cm}$ y $\hspace{0.1cm} w=(w_1,...,w_n)^t\hspace{0.1cm}$ de $\hspace{0.1cm}\mathbb{R}^n \\$
 
 
 
@@ -3352,32 +3354,7 @@ Data_multiclass_numpy[5,:]
     array([2., 3., 3.])
 
 ```python
-alpha(x_i=Data_multiclass_numpy[2,:] , x_r=Data_multiclass_numpy[5,:], Data=Data_multiclass_numpy)
-```
-
-    1
-
-
-<br>
-
-```python
-Data_multiclass_numpy[15,:] 
-```
-
-    array([2., 4., 0.])
-
-
-
-```python
-Data_multiclass_numpy[14,:]
-```
-
-    array([2., 4., 2.])
-
-
-
-```python
-alpha(x_i=Data_multiclass_numpy[14,:] , x_r=Data_multiclass_numpy[15,:], Data=Data_multiclass_numpy)
+alpha(x_i=Data_multiclass_numpy[2,:] , x_r=Data_multiclass_numpy[5,:])
 ```
 
     2
@@ -3386,15 +3363,37 @@ alpha(x_i=Data_multiclass_numpy[14,:] , x_r=Data_multiclass_numpy[15,:], Data=Da
 <br>
 
 ```python
+Data_multiclass_numpy[15,:] 
+```
+
+    array([2., 3., 2.])
+
+
+
+
+```python
+Data_multiclass_numpy[14,:]
+```
+
+    array([2., 4., 3.])
+
+
+
+```python
+alpha(x_i=Data_multiclass_numpy[14,:] , x_r=Data_multiclass_numpy[15,:])
+```
+
+    1
+
+
+<br>
+
+```python
 def matches_similarity(x_i, x_r, Data):
 
-    # Es necesario que Data sea un numpy array
+    p = Data.shape[1]
 
-    X = Data
-
-    p = X.shape[1]
-
-    matches_similarity = alpha(x_i, x_r, X) / p
+    matches_similarity = alpha(x_i, x_r) / p
 
     return(matches_similarity)
 ```
@@ -3403,7 +3402,7 @@ def matches_similarity(x_i, x_r, Data):
 matches_similarity(x_i=Data_multiclass_numpy[2,:] , x_r=Data_multiclass_numpy[5,:], Data=Data_multiclass_numpy)
 ```
 
-    0.3333333333333333
+    0.6666666666666666
 
 <br>
 
@@ -3411,7 +3410,8 @@ matches_similarity(x_i=Data_multiclass_numpy[2,:] , x_r=Data_multiclass_numpy[5,
 matches_similarity(x_i=Data_multiclass_numpy[14,:] , x_r=Data_multiclass_numpy[15,:], Data=Data_multiclass_numpy)
 ```
 
-    0.6666666666666666
+    0.3333333333333333
+
 
 <br>
 
@@ -3452,17 +3452,17 @@ M_matches = Matrix_Sim_Matches(Data=Data_multiclass_numpy)
 M_matches 
 ```
 ```
-array([[1.        , 0.33333333, 0.33333333, ..., 0.33333333, 0.33333333,
+array([[1.        , 0.66666667, 0.33333333, ..., 0.33333333, 0.33333333,
         0.        ],
        [0.        , 1.        , 0.66666667, ..., 0.33333333, 0.33333333,
         0.33333333],
        [0.        , 0.        , 1.        , ..., 0.33333333, 0.33333333,
         0.33333333],
        ...,
-       [0.        , 0.        , 0.        , ..., 1.        , 0.33333333,
-        0.        ],
+       [0.        , 0.        , 0.        , ..., 1.        , 0.66666667,
+        0.33333333],
        [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
-        0.        ],
+        0.33333333],
        [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
         1.        ]])
 ```
@@ -3475,18 +3475,18 @@ M_matches = M_matches + M_matches.T - np.diag(np.repeat(1 , len(M_matches)), k=0
 M_matches
 ```
 ```
-array([[1.        , 0.33333333, 0.33333333, ..., 0.33333333, 0.33333333,
+array([[1.        , 0.66666667, 0.33333333, ..., 0.33333333, 0.33333333,
         0.        ],
-       [0.33333333, 1.        , 0.66666667, ..., 0.33333333, 0.33333333,
+       [0.66666667, 1.        , 0.66666667, ..., 0.33333333, 0.33333333,
         0.33333333],
        [0.33333333, 0.66666667, 1.        , ..., 0.33333333, 0.33333333,
         0.33333333],
        ...,
-       [0.33333333, 0.33333333, 0.33333333, ..., 1.        , 0.33333333,
-        0.        ],
-       [0.33333333, 0.33333333, 0.33333333, ..., 0.33333333, 1.        ,
-        0.        ],
-       [0.        , 0.33333333, 0.33333333, ..., 0.        , 0.        ,
+       [0.33333333, 0.33333333, 0.33333333, ..., 1.        , 0.66666667,
+        0.33333333],
+       [0.33333333, 0.33333333, 0.33333333, ..., 0.66666667, 1.        ,
+        0.33333333],
+       [0.        , 0.33333333, 0.33333333, ..., 0.33333333, 0.33333333,
         1.        ]])
 ```
 
@@ -3506,7 +3506,7 @@ def Dist_Matches(x_i, x_r, Data):
 matches_similarity(x_i=Data_multiclass_numpy[2,:] , x_r=Data_multiclass_numpy[5,:], Data=Data_multiclass_numpy)
 ```
 
-    0.3333333333333333
+    0.6666666666666666
     
 <br>
 
@@ -3540,12 +3540,12 @@ M_Dist_Matches = Matrix_Dist_Matches(Data=Data_multiclass_numpy)
 M_Dist_Matches
 ```
 ```
-array([[0.        , 0.81649658, 0.81649658, ..., 0.81649658, 0.81649658,
+array([[0.        , 0.81649658, 1.15470054, ..., 1.15470054, 1.15470054,
+        1.41421356],
+       [0.        , 0.        , 0.81649658, ..., 1.15470054, 1.15470054,
         1.15470054],
-       [0.        , 0.        , 0.        , ..., 0.81649658, 0.81649658,
-        0.81649658],
-       [0.        , 0.        , 0.        , ..., 0.81649658, 0.81649658,
-        0.81649658],
+       [0.        , 0.        , 0.        , ..., 1.15470054, 1.15470054,
+        1.15470054],
        ...,
        [0.        , 0.        , 0.        , ..., 0.        , 0.81649658,
         1.15470054],
@@ -3563,18 +3563,18 @@ M_Dist_Matches = M_Dist_Matches + M_Dist_Matches.T
 M_Dist_Matches
 ```
 ```
-array([[0.        , 0.81649658, 0.81649658, ..., 0.81649658, 0.81649658,
+array([[0.        , 0.81649658, 1.15470054, ..., 1.15470054, 1.15470054,
+        1.41421356],
+       [0.81649658, 0.        , 0.81649658, ..., 1.15470054, 1.15470054,
         1.15470054],
-       [0.81649658, 0.        , 0.        , ..., 0.81649658, 0.81649658,
-        0.81649658],
-       [0.81649658, 0.        , 0.        , ..., 0.81649658, 0.81649658,
-        0.81649658],
+       [1.15470054, 0.81649658, 0.        , ..., 1.15470054, 1.15470054,
+        1.15470054],
        ...,
-       [0.81649658, 0.81649658, 0.81649658, ..., 0.        , 0.81649658,
+       [1.15470054, 1.15470054, 1.15470054, ..., 0.        , 0.81649658,
         1.15470054],
-       [0.81649658, 0.81649658, 0.81649658, ..., 0.81649658, 0.        ,
+       [1.15470054, 1.15470054, 1.15470054, ..., 0.81649658, 0.        ,
         1.15470054],
-       [1.15470054, 0.81649658, 0.81649658, ..., 1.15470054, 1.15470054,
+       [1.41421356, 1.15470054, 1.15470054, ..., 1.15470054, 1.15470054,
         0.        ]])
 ```
 
@@ -3742,17 +3742,148 @@ Siguiendo esta idea pueden crearse otras similaridades para conjuntos de variabl
 ## Similaridad de Gower en `Python`   <a class="anchor" id="88"></a>
 
 
+```python
+def Matrix_Gower_Similarity(Data, p1, p2, p3 ):
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+############################################################
+    
+    G_vector = np.repeat(0.5, p1)
+
+    for k in range(0, p1):
+
+        G_vector[k] = Data[:,k].max() - Data[:,k].min()
+
+############################################################
+   
+    ones = np.repeat(1, p1)
+
+    Quant_Data = Data[: , 0:p1]
+
+    Binary_Data = Data[: , (p1):(p1+p2)]
+
+    Multiple_Data = Data[: , (p1+p2):(p1+p2+p3) ]
+
+############################################################
+
+    a, b, c, d, p = a_b_c_d_Matrix(Binary_Data)
+
+############################################################
+
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+            if i > r :
+               
+                 M[i,r] = 0
+            
+            elif i == r :
+               
+                 M[i,r] = 1
+            
+            else :
+
+                # Calculo de la distancia de Gower entre las observaciones x_i y x_r
+
+                numerator_part_1 = ( ones - ( abs(Quant_Data[i,:] - Quant_Data[r,:]) / G_vector ) ).sum() 
+
+                numerator_part_2 = a[i,r] + alpha(Multiple_Data[i,:], Multiple_Data[r,:])
+
+                numerator = numerator_part_1 + numerator_part_2
+ 
+                denominator = p1 + (p2 - d[i,r]) + p3
+
+                M[i,r] = numerator / denominator
+                      
+   
+    return M  
+```
+
+```python
+M_Gower = Matrix_Gower_Similarity(Data=Data_mixed_numpy, p1=6, p2=4, p3=3)
+
+M_Gower
+```
+
+```python
+array([[1.        , 0.86928447, 0.61234779, ..., 0.61200705, 0.68768535,
+        0.67882015],
+       [0.        , 1.        , 0.72440439, ..., 0.63958297, 0.66860788,
+        0.75783494],
+       [0.        , 0.        , 1.        , ..., 0.63993289, 0.54854692,
+        0.61639629],
+       ...,
+       [0.        , 0.        , 0.        , ..., 1.        , 0.65208854,
+        0.5993045 ],
+       [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
+        0.70693976],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.        ]])
+```
+
+
+```python
+M_Gower = M_Gower  + M_Gower.T - np.diag(np.repeat(1 , len(M_Gower)), k=0)
+
+M_Gower
+```
+
+```
+array([[1.        , 0.86928447, 0.61234779, ..., 0.61200705, 0.68768535,
+        0.67882015],
+       [0.86928447, 1.        , 0.72440439, ..., 0.63958297, 0.66860788,
+        0.75783494],
+       [0.61234779, 0.72440439, 1.        , ..., 0.63993289, 0.54854692,
+        0.61639629],
+       ...,
+       [0.61200705, 0.63958297, 0.63993289, ..., 1.        , 0.65208854,
+        0.5993045 ],
+       [0.68768535, 0.66860788, 0.54854692, ..., 0.65208854, 1.        ,
+        0.70693976],
+       [0.67882015, 0.75783494, 0.61639629, ..., 0.5993045 , 0.70693976,
+        1.        ]])
+```
 
 
 
+```python
+def Matrix_Gower_Distance(Data, p1, p2, p3 ):
+
+    M = Matrix_Gower_Similarity(Data, p1, p2, p3)
+
+    M = M + M.T - np.diag(np.repeat(1 , len(M)), k=0)
+
+    M = np.sqrt( 1 - M )
+
+    return M
+```
 
 
+```python
+M_Gower_Dist = Matrix_Gower_Distance(Data=Data_mixed_numpy, p1=6, p2=4, p3=3)
 
+M_Gower_Dist
+```
 
-
-
-
-
+```
+array([[0.        , 0.36154603, 0.62261723, ..., 0.6228908 , 0.55885118,
+        0.56672731],
+       [0.36154603, 0.        , 0.52497201, ..., 0.60034742, 0.57566667,
+        0.4921027 ],
+       [0.62261723, 0.52497201, 0.        , ..., 0.60005592, 0.67190258,
+        0.6193575 ],
+       ...,
+       [0.6228908 , 0.60034742, 0.60005592, ..., 0.        , 0.5898402 ,
+        0.63300514],
+       [0.55885118, 0.57566667, 0.67190258, ..., 0.5898402 , 0.        ,
+        0.54135038],
+       [0.56672731, 0.4921027 , 0.6193575 , ..., 0.63300514, 0.54135038,
+        0.        ]])
+```
 
 
 

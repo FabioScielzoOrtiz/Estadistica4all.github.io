@@ -3062,12 +3062,12 @@ D(\delta , A)^{(2)}=
 <p></span></p>
 </div>
 <p><br></p>
-<p><strong>Distancia Minkowski entre vectores</strong></p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Distancia Minkowski entre vectores</strong></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de Minkowski puede definirse de un modo mas general no sujeto al contexto estadistico.</p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dados dos vectores <span class="math inline">\(\hspace{0.1cm} v=(v_1,...,v_n)^t\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm} w=(w_1,...,w_n)^t\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathbb{R}^2 \\\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dados dos vectores <span class="math inline">\(\hspace{0.1cm} v=(v_1,...,v_n)^t\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm} w=(w_1,...,w_n)^t\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathbb{R}^n \\\)</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de Minkowski entre esos vectores se define como:</p>
 <p><span class="math display">\[
 \hspace{0.25cm} \delta_q(v,w)_{Mink}   \hspace{0.07cm}=\hspace{0.07cm}  \left( \sum_{i=1}^{n}  \mid v_{i } - w_{i} \mid  ^q  \right)^{(1/q)}
@@ -4468,32 +4468,28 @@ pueden expresarse del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</s
 <pre><code>array([2., 1., 3.])</code></pre>
 <div class="sourceCode" id="cb163"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb163-1"><a href="#cb163-1" aria-hidden="true" tabindex="-1"></a>Data_multiclass_numpy[<span class="dv">5</span>,:] </span></code></pre></div>
 <pre><code>array([2., 3., 3.])</code></pre>
-<div class="sourceCode" id="cb165"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb165-1"><a href="#cb165-1" aria-hidden="true" tabindex="-1"></a>alpha(x_i<span class="op">=</span>Data_multiclass_numpy[<span class="dv">2</span>,:] , x_r<span class="op">=</span>Data_multiclass_numpy[<span class="dv">5</span>,:], Data<span class="op">=</span>Data_multiclass_numpy)</span></code></pre></div>
-<pre><code>1</code></pre>
+<div class="sourceCode" id="cb165"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb165-1"><a href="#cb165-1" aria-hidden="true" tabindex="-1"></a>alpha(x_i<span class="op">=</span>Data_multiclass_numpy[<span class="dv">2</span>,:] , x_r<span class="op">=</span>Data_multiclass_numpy[<span class="dv">5</span>,:])</span></code></pre></div>
+<pre><code>2</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb167"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb167-1"><a href="#cb167-1" aria-hidden="true" tabindex="-1"></a>Data_multiclass_numpy[<span class="dv">15</span>,:] </span></code></pre></div>
-<pre><code>array([2., 4., 0.])</code></pre>
+<pre><code>array([2., 3., 2.])</code></pre>
 <div class="sourceCode" id="cb169"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a>Data_multiclass_numpy[<span class="dv">14</span>,:]</span></code></pre></div>
-<pre><code>array([2., 4., 2.])</code></pre>
-<div class="sourceCode" id="cb171"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a>alpha(x_i<span class="op">=</span>Data_multiclass_numpy[<span class="dv">14</span>,:] , x_r<span class="op">=</span>Data_multiclass_numpy[<span class="dv">15</span>,:], Data<span class="op">=</span>Data_multiclass_numpy)</span></code></pre></div>
-<pre><code>2</code></pre>
+<pre><code>array([2., 4., 3.])</code></pre>
+<div class="sourceCode" id="cb171"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a>alpha(x_i<span class="op">=</span>Data_multiclass_numpy[<span class="dv">14</span>,:] , x_r<span class="op">=</span>Data_multiclass_numpy[<span class="dv">15</span>,:])</span></code></pre></div>
+<pre><code>1</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb173"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb173-1"><a href="#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> matches_similarity(x_i, x_r, Data):</span>
 <span id="cb173-2"><a href="#cb173-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-3"><a href="#cb173-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Es necesario que Data sea un numpy array</span></span>
+<span id="cb173-3"><a href="#cb173-3" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> Data.shape[<span class="dv">1</span>]</span>
 <span id="cb173-4"><a href="#cb173-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-5"><a href="#cb173-5" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> Data</span>
+<span id="cb173-5"><a href="#cb173-5" aria-hidden="true" tabindex="-1"></a>    matches_similarity <span class="op">=</span> alpha(x_i, x_r) <span class="op">/</span> p</span>
 <span id="cb173-6"><a href="#cb173-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-7"><a href="#cb173-7" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> X.shape[<span class="dv">1</span>]</span>
-<span id="cb173-8"><a href="#cb173-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-9"><a href="#cb173-9" aria-hidden="true" tabindex="-1"></a>    matches_similarity <span class="op">=</span> alpha(x_i, x_r, X) <span class="op">/</span> p</span>
-<span id="cb173-10"><a href="#cb173-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb173-11"><a href="#cb173-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(matches_similarity)</span></code></pre></div>
+<span id="cb173-7"><a href="#cb173-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(matches_similarity)</span></code></pre></div>
 <div class="sourceCode" id="cb174"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb174-1"><a href="#cb174-1" aria-hidden="true" tabindex="-1"></a>matches_similarity(x_i<span class="op">=</span>Data_multiclass_numpy[<span class="dv">2</span>,:] , x_r<span class="op">=</span>Data_multiclass_numpy[<span class="dv">5</span>,:], Data<span class="op">=</span>Data_multiclass_numpy)</span></code></pre></div>
-<pre><code>0.3333333333333333</code></pre>
+<pre><code>0.6666666666666666</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb176"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb176-1"><a href="#cb176-1" aria-hidden="true" tabindex="-1"></a>matches_similarity(x_i<span class="op">=</span>Data_multiclass_numpy[<span class="dv">14</span>,:] , x_r<span class="op">=</span>Data_multiclass_numpy[<span class="dv">15</span>,:], Data<span class="op">=</span>Data_multiclass_numpy)</span></code></pre></div>
-<pre><code>0.6666666666666666</code></pre>
+<pre><code>0.3333333333333333</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb178"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb178-1"><a href="#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Sim_Matches(Data):</span>
 <span id="cb178-2"><a href="#cb178-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -4525,35 +4521,35 @@ pueden expresarse del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</s
 <div class="sourceCode" id="cb179"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb179-1"><a href="#cb179-1" aria-hidden="true" tabindex="-1"></a>M_matches <span class="op">=</span> Matrix_Sim_Matches(Data<span class="op">=</span>Data_multiclass_numpy)</span>
 <span id="cb179-2"><a href="#cb179-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb179-3"><a href="#cb179-3" aria-hidden="true" tabindex="-1"></a>M_matches </span></code></pre></div>
-<pre><code>array([[1.        , 0.33333333, 0.33333333, ..., 0.33333333, 0.33333333,
+<pre><code>array([[1.        , 0.66666667, 0.33333333, ..., 0.33333333, 0.33333333,
         0.        ],
        [0.        , 1.        , 0.66666667, ..., 0.33333333, 0.33333333,
         0.33333333],
        [0.        , 0.        , 1.        , ..., 0.33333333, 0.33333333,
         0.33333333],
        ...,
-       [0.        , 0.        , 0.        , ..., 1.        , 0.33333333,
-        0.        ],
+       [0.        , 0.        , 0.        , ..., 1.        , 0.66666667,
+        0.33333333],
        [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
-        0.        ],
+        0.33333333],
        [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
         1.        ]])</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb181"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb181-1"><a href="#cb181-1" aria-hidden="true" tabindex="-1"></a>M_matches <span class="op">=</span> M_matches <span class="op">+</span> M_matches.T <span class="op">-</span> np.diag(np.repeat(<span class="dv">1</span> , <span class="bu">len</span>(M_matches)), k<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb181-2"><a href="#cb181-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb181-3"><a href="#cb181-3" aria-hidden="true" tabindex="-1"></a>M_matches</span></code></pre></div>
-<pre><code>array([[1.        , 0.33333333, 0.33333333, ..., 0.33333333, 0.33333333,
+<pre><code>array([[1.        , 0.66666667, 0.33333333, ..., 0.33333333, 0.33333333,
         0.        ],
-       [0.33333333, 1.        , 0.66666667, ..., 0.33333333, 0.33333333,
+       [0.66666667, 1.        , 0.66666667, ..., 0.33333333, 0.33333333,
         0.33333333],
        [0.33333333, 0.66666667, 1.        , ..., 0.33333333, 0.33333333,
         0.33333333],
        ...,
-       [0.33333333, 0.33333333, 0.33333333, ..., 1.        , 0.33333333,
-        0.        ],
-       [0.33333333, 0.33333333, 0.33333333, ..., 0.33333333, 1.        ,
-        0.        ],
-       [0.        , 0.33333333, 0.33333333, ..., 0.        , 0.        ,
+       [0.33333333, 0.33333333, 0.33333333, ..., 1.        , 0.66666667,
+        0.33333333],
+       [0.33333333, 0.33333333, 0.33333333, ..., 0.66666667, 1.        ,
+        0.33333333],
+       [0.        , 0.33333333, 0.33333333, ..., 0.33333333, 0.33333333,
         1.        ]])</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb183"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb183-1"><a href="#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Matches(x_i, x_r, Data):</span>
@@ -4562,7 +4558,7 @@ pueden expresarse del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</s
 <span id="cb183-4"><a href="#cb183-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb183-5"><a href="#cb183-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>( Dist_Matches )</span></code></pre></div>
 <div class="sourceCode" id="cb184"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a>matches_similarity(x_i<span class="op">=</span>Data_multiclass_numpy[<span class="dv">2</span>,:] , x_r<span class="op">=</span>Data_multiclass_numpy[<span class="dv">5</span>,:], Data<span class="op">=</span>Data_multiclass_numpy)</span></code></pre></div>
-<pre><code>0.3333333333333333</code></pre>
+<pre><code>0.6666666666666666</code></pre>
 <p><br></p>
 <div class="sourceCode" id="cb186"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb186-1"><a href="#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Matches(Data):</span>
 <span id="cb186-2"><a href="#cb186-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -4588,12 +4584,12 @@ pueden expresarse del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</s
 <div class="sourceCode" id="cb187"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb187-1"><a href="#cb187-1" aria-hidden="true" tabindex="-1"></a>M_Dist_Matches <span class="op">=</span> Matrix_Dist_Matches(Data<span class="op">=</span>Data_multiclass_numpy)</span>
 <span id="cb187-2"><a href="#cb187-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb187-3"><a href="#cb187-3" aria-hidden="true" tabindex="-1"></a>M_Dist_Matches</span></code></pre></div>
-<pre><code>array([[0.        , 0.81649658, 0.81649658, ..., 0.81649658, 0.81649658,
+<pre><code>array([[0.        , 0.81649658, 1.15470054, ..., 1.15470054, 1.15470054,
+        1.41421356],
+       [0.        , 0.        , 0.81649658, ..., 1.15470054, 1.15470054,
         1.15470054],
-       [0.        , 0.        , 0.        , ..., 0.81649658, 0.81649658,
-        0.81649658],
-       [0.        , 0.        , 0.        , ..., 0.81649658, 0.81649658,
-        0.81649658],
+       [0.        , 0.        , 0.        , ..., 1.15470054, 1.15470054,
+        1.15470054],
        ...,
        [0.        , 0.        , 0.        , ..., 0.        , 0.81649658,
         1.15470054],
@@ -4605,18 +4601,18 @@ pueden expresarse del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</s
 <div class="sourceCode" id="cb189"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb189-1"><a href="#cb189-1" aria-hidden="true" tabindex="-1"></a>M_Dist_Matches <span class="op">=</span> M_Dist_Matches <span class="op">+</span> M_Dist_Matches.T</span>
 <span id="cb189-2"><a href="#cb189-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb189-3"><a href="#cb189-3" aria-hidden="true" tabindex="-1"></a>M_Dist_Matches</span></code></pre></div>
-<pre><code>array([[0.        , 0.81649658, 0.81649658, ..., 0.81649658, 0.81649658,
+<pre><code>array([[0.        , 0.81649658, 1.15470054, ..., 1.15470054, 1.15470054,
+        1.41421356],
+       [0.81649658, 0.        , 0.81649658, ..., 1.15470054, 1.15470054,
         1.15470054],
-       [0.81649658, 0.        , 0.        , ..., 0.81649658, 0.81649658,
-        0.81649658],
-       [0.81649658, 0.        , 0.        , ..., 0.81649658, 0.81649658,
-        0.81649658],
+       [1.15470054, 0.81649658, 0.        , ..., 1.15470054, 1.15470054,
+        1.15470054],
        ...,
-       [0.81649658, 0.81649658, 0.81649658, ..., 0.        , 0.81649658,
+       [1.15470054, 1.15470054, 1.15470054, ..., 0.        , 0.81649658,
         1.15470054],
-       [0.81649658, 0.81649658, 0.81649658, ..., 0.81649658, 0.        ,
+       [1.15470054, 1.15470054, 1.15470054, ..., 0.81649658, 0.        ,
         1.15470054],
-       [1.15470054, 0.81649658, 0.81649658, ..., 1.15470054, 1.15470054,
+       [1.41421356, 1.15470054, 1.15470054, ..., 1.15470054, 1.15470054,
         0.        ]])</code></pre>
 <p><br></p>
 <p><br></p>
@@ -4704,6 +4700,121 @@ normalizada por el rango, para que tome valores en <span class="math inline">\([
 </div>
 <div id="similaridad-de-gower-en-python" class="section level2" number="8.3">
 <h2><span class="header-section-number">8.3</span> Similaridad de Gower en <code>Python</code> <a class="anchor" id="88"></a></h2>
+<div class="sourceCode" id="cb191"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb191-1"><a href="#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Gower_Similarity(Data, p1, p2, p3 ):</span>
+<span id="cb191-2"><a href="#cb191-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-3"><a href="#cb191-3" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb191-4"><a href="#cb191-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-5"><a href="#cb191-5" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb191-6"><a href="#cb191-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-7"><a href="#cb191-7" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
+<span id="cb191-8"><a href="#cb191-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb191-9"><a href="#cb191-9" aria-hidden="true" tabindex="-1"></a>    G_vector <span class="op">=</span> np.repeat(<span class="fl">0.5</span>, p1)</span>
+<span id="cb191-10"><a href="#cb191-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-11"><a href="#cb191-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, p1):</span>
+<span id="cb191-12"><a href="#cb191-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-13"><a href="#cb191-13" aria-hidden="true" tabindex="-1"></a>        G_vector[k] <span class="op">=</span> Data[:,k].<span class="bu">max</span>() <span class="op">-</span> Data[:,k].<span class="bu">min</span>()</span>
+<span id="cb191-14"><a href="#cb191-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-15"><a href="#cb191-15" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
+<span id="cb191-16"><a href="#cb191-16" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb191-17"><a href="#cb191-17" aria-hidden="true" tabindex="-1"></a>    ones <span class="op">=</span> np.repeat(<span class="dv">1</span>, p1)</span>
+<span id="cb191-18"><a href="#cb191-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-19"><a href="#cb191-19" aria-hidden="true" tabindex="-1"></a>    Quant_Data <span class="op">=</span> Data[: , <span class="dv">0</span>:p1]</span>
+<span id="cb191-20"><a href="#cb191-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-21"><a href="#cb191-21" aria-hidden="true" tabindex="-1"></a>    Binary_Data <span class="op">=</span> Data[: , (p1):(p1<span class="op">+</span>p2)]</span>
+<span id="cb191-22"><a href="#cb191-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-23"><a href="#cb191-23" aria-hidden="true" tabindex="-1"></a>    Multiple_Data <span class="op">=</span> Data[: , (p1<span class="op">+</span>p2):(p1<span class="op">+</span>p2<span class="op">+</span>p3) ]</span>
+<span id="cb191-24"><a href="#cb191-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-25"><a href="#cb191-25" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
+<span id="cb191-26"><a href="#cb191-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-27"><a href="#cb191-27" aria-hidden="true" tabindex="-1"></a>    a, b, c, d, p <span class="op">=</span> a_b_c_d_Matrix(Binary_Data)</span>
+<span id="cb191-28"><a href="#cb191-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-29"><a href="#cb191-29" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
+<span id="cb191-30"><a href="#cb191-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-31"><a href="#cb191-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb191-32"><a href="#cb191-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-33"><a href="#cb191-33" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb191-34"><a href="#cb191-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-35"><a href="#cb191-35" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> i <span class="op">&gt;</span> r :</span>
+<span id="cb191-36"><a href="#cb191-36" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb191-37"><a href="#cb191-37" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb191-38"><a href="#cb191-38" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb191-39"><a href="#cb191-39" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> i <span class="op">==</span> r :</span>
+<span id="cb191-40"><a href="#cb191-40" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb191-41"><a href="#cb191-41" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb191-42"><a href="#cb191-42" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb191-43"><a href="#cb191-43" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span> :</span>
+<span id="cb191-44"><a href="#cb191-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-45"><a href="#cb191-45" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Calculo de la distancia de Gower entre las observaciones x_i y x_r</span></span>
+<span id="cb191-46"><a href="#cb191-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-47"><a href="#cb191-47" aria-hidden="true" tabindex="-1"></a>                numerator_part_1 <span class="op">=</span> ( ones <span class="op">-</span> ( <span class="bu">abs</span>(Quant_Data[i,:] <span class="op">-</span> Quant_Data[r,:]) <span class="op">/</span> G_vector ) ).<span class="bu">sum</span>() </span>
+<span id="cb191-48"><a href="#cb191-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-49"><a href="#cb191-49" aria-hidden="true" tabindex="-1"></a>                numerator_part_2 <span class="op">=</span> a[i,r] <span class="op">+</span> alpha(Multiple_Data[i,:], Multiple_Data[r,:])</span>
+<span id="cb191-50"><a href="#cb191-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-51"><a href="#cb191-51" aria-hidden="true" tabindex="-1"></a>                numerator <span class="op">=</span> numerator_part_1 <span class="op">+</span> numerator_part_2</span>
+<span id="cb191-52"><a href="#cb191-52" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb191-53"><a href="#cb191-53" aria-hidden="true" tabindex="-1"></a>                denominator <span class="op">=</span> p1 <span class="op">+</span> (p2 <span class="op">-</span> d[i,r]) <span class="op">+</span> p3</span>
+<span id="cb191-54"><a href="#cb191-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-55"><a href="#cb191-55" aria-hidden="true" tabindex="-1"></a>                M[i,r] <span class="op">=</span> numerator <span class="op">/</span> denominator</span>
+<span id="cb191-56"><a href="#cb191-56" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb191-57"><a href="#cb191-57" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb191-58"><a href="#cb191-58" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M  </span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb192-1"><a href="#cb192-1" aria-hidden="true" tabindex="-1"></a>M_Gower <span class="op">=</span> Matrix_Gower_Similarity(Data<span class="op">=</span>Data_mixed_numpy, p1<span class="op">=</span><span class="dv">6</span>, p2<span class="op">=</span><span class="dv">4</span>, p3<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb192-2"><a href="#cb192-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb192-3"><a href="#cb192-3" aria-hidden="true" tabindex="-1"></a>M_Gower</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb193-1"><a href="#cb193-1" aria-hidden="true" tabindex="-1"></a>array([[<span class="fl">1.</span>        , <span class="fl">0.86928447</span>, <span class="fl">0.61234779</span>, ..., <span class="fl">0.61200705</span>, <span class="fl">0.68768535</span>,</span>
+<span id="cb193-2"><a href="#cb193-2" aria-hidden="true" tabindex="-1"></a>        <span class="fl">0.67882015</span>],</span>
+<span id="cb193-3"><a href="#cb193-3" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.</span>        , <span class="fl">1.</span>        , <span class="fl">0.72440439</span>, ..., <span class="fl">0.63958297</span>, <span class="fl">0.66860788</span>,</span>
+<span id="cb193-4"><a href="#cb193-4" aria-hidden="true" tabindex="-1"></a>        <span class="fl">0.75783494</span>],</span>
+<span id="cb193-5"><a href="#cb193-5" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.</span>        , <span class="fl">0.</span>        , <span class="fl">1.</span>        , ..., <span class="fl">0.63993289</span>, <span class="fl">0.54854692</span>,</span>
+<span id="cb193-6"><a href="#cb193-6" aria-hidden="true" tabindex="-1"></a>        <span class="fl">0.61639629</span>],</span>
+<span id="cb193-7"><a href="#cb193-7" aria-hidden="true" tabindex="-1"></a>       ...,</span>
+<span id="cb193-8"><a href="#cb193-8" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.</span>        , <span class="fl">0.</span>        , <span class="fl">0.</span>        , ..., <span class="fl">1.</span>        , <span class="fl">0.65208854</span>,</span>
+<span id="cb193-9"><a href="#cb193-9" aria-hidden="true" tabindex="-1"></a>        <span class="fl">0.5993045</span> ],</span>
+<span id="cb193-10"><a href="#cb193-10" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.</span>        , <span class="fl">0.</span>        , <span class="fl">0.</span>        , ..., <span class="fl">0.</span>        , <span class="fl">1.</span>        ,</span>
+<span id="cb193-11"><a href="#cb193-11" aria-hidden="true" tabindex="-1"></a>        <span class="fl">0.70693976</span>],</span>
+<span id="cb193-12"><a href="#cb193-12" aria-hidden="true" tabindex="-1"></a>       [<span class="fl">0.</span>        , <span class="fl">0.</span>        , <span class="fl">0.</span>        , ..., <span class="fl">0.</span>        , <span class="fl">0.</span>        ,</span>
+<span id="cb193-13"><a href="#cb193-13" aria-hidden="true" tabindex="-1"></a>        <span class="fl">1.</span>        ]])</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb194-1"><a href="#cb194-1" aria-hidden="true" tabindex="-1"></a>M_Gower <span class="op">=</span> M_Gower  <span class="op">+</span> M_Gower.T <span class="op">-</span> np.diag(np.repeat(<span class="dv">1</span> , <span class="bu">len</span>(M_Gower)), k<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb194-2"><a href="#cb194-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb194-3"><a href="#cb194-3" aria-hidden="true" tabindex="-1"></a>M_Gower</span></code></pre></div>
+<pre><code>array([[1.        , 0.86928447, 0.61234779, ..., 0.61200705, 0.68768535,
+        0.67882015],
+       [0.86928447, 1.        , 0.72440439, ..., 0.63958297, 0.66860788,
+        0.75783494],
+       [0.61234779, 0.72440439, 1.        , ..., 0.63993289, 0.54854692,
+        0.61639629],
+       ...,
+       [0.61200705, 0.63958297, 0.63993289, ..., 1.        , 0.65208854,
+        0.5993045 ],
+       [0.68768535, 0.66860788, 0.54854692, ..., 0.65208854, 1.        ,
+        0.70693976],
+       [0.67882015, 0.75783494, 0.61639629, ..., 0.5993045 , 0.70693976,
+        1.        ]])</code></pre>
+<div class="sourceCode" id="cb196"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb196-1"><a href="#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Gower_Distance(Data, p1, p2, p3 ):</span>
+<span id="cb196-2"><a href="#cb196-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-3"><a href="#cb196-3" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> Matrix_Gower_Similarity(Data, p1, p2, p3)</span>
+<span id="cb196-4"><a href="#cb196-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-5"><a href="#cb196-5" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> M <span class="op">+</span> M.T <span class="op">-</span> np.diag(np.repeat(<span class="dv">1</span> , <span class="bu">len</span>(M)), k<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb196-6"><a href="#cb196-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-7"><a href="#cb196-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> np.sqrt( <span class="dv">1</span> <span class="op">-</span> M )</span>
+<span id="cb196-8"><a href="#cb196-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-9"><a href="#cb196-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb197-1"><a href="#cb197-1" aria-hidden="true" tabindex="-1"></a>M_Gower_Dist <span class="op">=</span> Matrix_Gower_Distance(Data<span class="op">=</span>Data_mixed_numpy, p1<span class="op">=</span><span class="dv">6</span>, p2<span class="op">=</span><span class="dv">4</span>, p3<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb197-2"><a href="#cb197-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb197-3"><a href="#cb197-3" aria-hidden="true" tabindex="-1"></a>M_Gower_Dist</span></code></pre></div>
+<pre><code>array([[0.        , 0.36154603, 0.62261723, ..., 0.6228908 , 0.55885118,
+        0.56672731],
+       [0.36154603, 0.        , 0.52497201, ..., 0.60034742, 0.57566667,
+        0.4921027 ],
+       [0.62261723, 0.52497201, 0.        , ..., 0.60005592, 0.67190258,
+        0.6193575 ],
+       ...,
+       [0.6228908 , 0.60034742, 0.60005592, ..., 0.        , 0.5898402 ,
+        0.63300514],
+       [0.55885118, 0.57566667, 0.67190258, ..., 0.5898402 , 0.        ,
+        0.54135038],
+       [0.56672731, 0.4921027 , 0.6193575 , ..., 0.63300514, 0.54135038,
+        0.        ]])</code></pre>
 </div>
 </div>
 </div>
