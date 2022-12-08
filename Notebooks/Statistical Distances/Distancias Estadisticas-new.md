@@ -3314,6 +3314,8 @@ La distancia por coincidencias entre el par de observaciones $\hspace{0.1cm}(x_i
 
 
 
+
+
 <br>
 
 
@@ -3622,11 +3624,11 @@ Distnguimos cuatro cuatro tipos de conjuntos de variables mixtos:
 Tenemos un conjunto de variables estadisticas $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ tales que:
 
 
-- $X_1,...,X_{p_1} \hspace{0.1cm}$ son **cuantitativas**. $\\[0.5cm]$
+- $\mathcal{X}_1,...,\mathcal{X}_{p_1} \hspace{0.15cm}$ son **cuantitativas**. $\\[0.5cm]$
 
-- $X_{p_1 + 1},...,X_{p_1 + p_2} \hspace{0.1cm}$ son **binarias**.$\\[0.5cm]$
+- $\mathcal{X}_{p_1 + 1},...,\mathcal{X}_{p_1 + p_2} \hspace{0.15cm}$ son **binarias**.$\\[0.5cm]$
 
-- $X_{p_1 + p_2 + 1},...,X_{p_1 + p_2 + p_3} \hspace{0.1cm}$ son **multiclase** (no binarias).$\\[0.5cm]$
+- $\mathcal{X}_{p_1 + p_2 + 1},...,\mathcal{X}_{p_1 + p_2 + p_3} \hspace{0.15cm}$ son **multiclase** (no binarias).$\\[0.5cm]$
 
 Donde: $\hspace{0.2cm} p=p_1 + p_2 + p_3 \\$
 
@@ -3643,8 +3645,20 @@ $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ forman un conjun
 
 ## Similaridad de Gower  <a class="anchor" id="86"></a>
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
-La similaridad de Gower entre el par de observaciones $\hspace{0.1cm} (x_i , X_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ (que forman un conjunto de variables de tipo cuantitativo-binario-multiclase )  se define como : $\\[0.7cm]$
+
+
+
+</p>
+ 
+</p></span>
+</div>
+
+La similaridad de Gower entre el par de observaciones $\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ , que forman un conjunto de variables de tipo cuantitativo-binario-multiclase ,  se define como : $\\[0.7cm]$
 
 
 
