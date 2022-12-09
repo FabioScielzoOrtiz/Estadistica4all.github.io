@@ -3921,6 +3921,17 @@ Siguiendo esta idea pueden crearse otras similaridades para conjuntos de variabl
 ```python
 def Matrix_Gower_Similarity(Data, p1, p2, p3 ):
 
+
+    # Data tiene que ser un numpy array tal que:
+    # las primeras p1 tiene que ser variables cuantitativas, 
+    # las siguientes p2 binarias y las restantes p3 multicales
+
+    # Si Data no contiene variables cuantitativas --> p1=0
+    # Si Data no contiene variables binarias --> p2=0
+    # Si Data no contiene variables multiclase --> p3=0
+    
+############################################################    
+
     n = len(Data)
 
     M =  np.empty((n , n))
@@ -4064,6 +4075,162 @@ array([[0.        , 0.48032856, 0.62261723, ..., 0.6228908 , 0.55885118,
         0.61965259],
        [0.47029762, 0.58494877, 0.6888489 , ..., 0.70759841, 0.61965259,
         0.        ]])
+```
+
+
+<br>
+
+Vamos a probar ahora la función con conjuntos de datos que no son cuantitativos-binarios-multiclase, si no una combinación de estos.
+
+
+```python
+Matrix_Gower_Similarity(Data=Data_quant_numpy, p1=6, p2=0, p3=0)
+```
+
+```
+array([[1.        , 0.94880745, 0.78930428, ..., 0.68667841, 0.92742315,
+        0.96470026],
+       [0.        , 1.        , 0.82807471, ..., 0.73263828, 0.89244779,
+        0.92972489],
+       [0.        , 0.        , 1.        , ..., 0.83987697, 0.76376051,
+        0.79672652],
+       ...,
+       [0.        , 0.        , 0.        , ..., 1.        , 0.69549566,
+        0.6655075 ],
+       [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
+        0.96272289],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.        ]])
+```
+
+<br>
+
+```python
+Matrix_Gower_Similarity(Data=Data_binary_numpy, p1=0, p2=4, p3=0)
+
+# Coincide con la matriz de similaridades de Jaccard que se ha obtenido anteriormente.
+```
+```
+array([[1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+        1.        ],
+       [0.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+        1.        ],
+       [0.        , 0.        , 1.        , ..., 0.5       , 0.33333333,
+        0.5       ],
+       ...,
+       [0.        , 0.        , 0.        , ..., 1.        , 0.5       ,
+        1.        ],
+       [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
+        0.5       ],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.        ]])
+```
+
+
+<br>
+
+
+```python
+Matrix_Gower_Similarity(Data=Data_multiclass_numpy, p1=0, p2=0, p3=3)
+
+# Coincide con la matriz de similaridades por coincidencias que se ha obtenido anteriormente.
+```
+
+
+```
+array([[1.        , 0.33333333, 0.33333333, ..., 0.33333333, 0.33333333,
+        0.33333333],
+       [0.        , 1.        , 0.66666667, ..., 1.        , 0.66666667,
+        0.        ],
+       [0.        , 0.        , 1.        , ..., 0.66666667, 0.66666667,
+        0.        ],
+       ...,
+       [0.        , 0.        , 0.        , ..., 1.        , 0.66666667,
+        0.        ],
+       [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
+        0.        ],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.        ]])
+```
+
+
+<br>
+
+```python
+Data_binary_multiclass = pd.concat([Data_binary,Data_multiclass], axis=1)
+
+Data_binary_multiclass_numpy = Data_binary_multiclass.to_numpy()
+```
+
+
+```python
+Matrix_Gower_Similarity(Data=Data_binary_multiclass_numpy , p1=0, p2=4, p3=3)
+```
+```
+array([[1.  , 0.5 , 0.4 , ..., 0.5 , 0.4 , 0.5 ],
+       [0.  , 1.  , 0.6 , ..., 1.  , 0.6 , 0.25],
+       [0.  , 0.  , 1.  , ..., 0.6 , 0.5 , 0.2 ],
+       ...,
+       [0.  , 0.  , 0.  , ..., 1.  , 0.6 , 0.25],
+       [0.  , 0.  , 0.  , ..., 0.  , 1.  , 0.2 ],
+       [0.  , 0.  , 0.  , ..., 0.  , 0.  , 1.  ]])
+```
+
+<br>
+
+```python
+Data_quant_multiclass = pd.concat([Data_quant,Data_multiclass], axis=1)
+
+Data_quant_multiclass_numpy = Data_quant_multiclass.to_numpy()
+```
+
+
+```python
+Matrix_Gower_Similarity(Data=Data_quant_multiclass_numpy , p1=6, p2=0, p3=3)
+```
+```
+array([[1.        , 0.74364941, 0.63731397, ..., 0.56889672, 0.72939321,
+        0.75424461],
+       [0.        , 1.        , 0.77427203, ..., 0.82175886, 0.81718741,
+        0.6198166 ],
+       [0.        , 0.        , 1.        , ..., 0.7821402 , 0.73139589,
+        0.53115102],
+       ...,
+       [0.        , 0.        , 0.        , ..., 1.        , 0.68588599,
+        0.44367166],
+       [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
+        0.64181526],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.        ]])
+```
+
+<br>
+
+```python
+Data_quant_binary = pd.concat([Data_quant,Data_binary], axis=1)
+
+Data_quant_binary_numpy = Data_quant_binary.to_numpy()
+```
+
+```python
+Matrix_Gower_Similarity(Data=Data_quant_binary_numpy , p1=6, p2=4, p3=0)
+```
+
+
+```
+array([[1.        , 0.95612067, 0.71697821, ..., 0.73143864, 0.82056736,
+        0.96974308],
+       [0.        , 1.        , 0.74605603, ..., 0.77083282, 0.79433584,
+        0.9397642 ],
+       [0.        , 0.        , 1.        , ..., 0.75490772, 0.62028478,
+        0.72254489],
+       ...,
+       [0.        , 0.        , 0.        , ..., 1.        , 0.64662174,
+        0.71329214],
+       [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
+        0.84704217],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.        ]])
 ```
 
 
@@ -4314,3 +4481,14 @@ array([[0.        , 0.51983399, 0.622474  , ..., 0.591682  , 0.58543507,
 
 
 <br>
+
+
+
+# Bibliografía
+
+Grané, A. (2022). *Distancias Estadisticas* [Presentación de PowerPoint]. Aula Global UC3M.
+
+Grané, A., Manzi, G. and Salini, S. (2021) *Smart visualization of mixed data*. Stats 4(2), 472-485; https://doi.org/10.3390/stats4020029 (S.I. Robust Statistics in Action).
+
+
+
