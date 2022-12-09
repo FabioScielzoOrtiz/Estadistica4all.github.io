@@ -3864,7 +3864,7 @@ $\\[0.5cm]$
  
 <p style='margin-left:1em;'>
 
-La distancia de Gower entre el par de observaciones $\hspace{0.1cm}(x_i , X_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ (que forman un conjunto de variables de tipo cuantitativo-binario-multiclase )  entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ (que forman un conjunto de variables de tipo cuantitativo-binario-multiclase )   es obtenida como: $\\[0.6cm]$
+$\hspace{0.25cm}$ La distancia de Gower entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ (que forman un conjunto de variables de tipo cuantitativo-binario-multiclase )   es obtenida como: $\\[0.6cm]$
 
 
 $$
@@ -4251,7 +4251,7 @@ array([[1.        , 0.95612067, 0.71697821, ..., 0.73143864, 0.82056736,
 <p style='margin-left:1em;'>
 
 
-Dada la matriz de datos $\hspace{0.1cm}X=[X_1,...,X_n]\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$
+$\hspace{0.25cm}$ Dada la matriz de datos $\hspace{0.1cm}X=[X_1,...,X_n]\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$
 
 
 $\hspace{0.25cm}$ La similaridad de Gower-Mahalanobis entre el par de observaciones $\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ , que forman un conjunto de variables de tipo cuantitativo-binario-multiclase ,  se define como : $\\[0.7cm]$
@@ -4304,6 +4304,22 @@ $\\[0.5cm]$
 
 ## Distancia de Gower-Mahalanobis
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ La distancia de Gower-Mahalanobis   entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ (que forman un conjunto de variables de tipo cuantitativo-binario-multiclase )   es obtenida como: $\\[0.6cm]$
+
+
+$$
+\delta(x_i,x_r)_{GM} = \sqrt{1 - \phi(x_i,x_r)_{GM}}
+$$
+
+</p>
+ 
+</p></span>
+</div>
 
 
 
@@ -4316,6 +4332,17 @@ $\\[0.5cm]$
 
 ```python
 def Matrix_Gower_Maha_Similarity(Data, p1, p2, p3):
+
+
+    # Data tiene que ser un numpy array tal que:
+    # las primeras p1 tiene que ser variables cuantitativas, 
+    # las siguientes p2 binarias y las restantes p3 multicales
+
+    # Si Data no contiene variables cuantitativas --> p1=0
+    # Si Data no contiene variables binarias --> p2=0
+    # Si Data no contiene variables multiclase --> p3=0
+    
+############################################################
 
     n = len(Data)
 
