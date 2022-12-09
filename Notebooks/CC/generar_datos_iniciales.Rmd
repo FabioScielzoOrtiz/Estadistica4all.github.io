@@ -1,0 +1,48 @@
+---
+title: "Untitled"
+author: "Fabio Scielzo Ortiz"
+date: "2022-12-09"
+output: html_document
+---
+
+
+```{r}
+library(feather)
+library(mlr3verse)
+datos<-readRDS("disp_2.rds")
+```
+
+```{r}
+# Columnas character a factor
+
+for(i in 1:ncol(datos)){
+  if(is.character(datos[,i]))
+  {datos[,i] <- as.factor(datos[,i])
+  }
+ }
+
+# Codificamos los ordinales directamente como enteros
+
+for(i in 1:ncol(datos)){
+  if(is.ordered(datos[,i]))
+  {datos[,i] <- as.integer(datos[,i])
+  }
+ }
+# Quedar?n algunas variables categ?ricas (fct) para python
+
+mitarea <- as_task_regr(datos, target="salida")
+print(mitarea)
+
+# Eliminamos los NAs
+
+preproc <- po("imputemean") %>>% po("imputemode")
+mitarea_imputada <- preproc$train(mitarea)[[1]]
+
+# Ya no hay NAs
+print(which(mitarea_imputada$missings()>0))
+
+# Guardamos en feather format, que se puede cargar en Python como un pandas dataframe
+write_feather(as.data.frame(mitarea_imputada$data()), "disp_2.feather")
+
+```
+
