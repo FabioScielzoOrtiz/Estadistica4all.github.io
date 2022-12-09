@@ -2610,7 +2610,6 @@ $$
 
 
 
-
 </p>
  
 </p></span>
@@ -2963,6 +2962,44 @@ $\hspace{0.25cm}$ El coeficiente de similaridad de Jaccard (o simplemente la sim
  
 </p></span>
 </div>
+
+
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ **Similaridad de Jaccard entre vectores**
+
+$\hspace{0.25cm}$ La distancia de Jaccard puede definirse de forma más general, sin estar sujeta a un contexto estadístico. 
+
+$\hspace{0.25cm}$ Dada una matriz de datos $\hspace{0.1cm}X=(X_1,...,X_p)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n$
+
+$\hspace{0.25cm}$ Dados dos vectores **binarios**  $\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.07cm} ,\hspace{0.07cm} w=(w_1,...,w_p)^t \hspace{0.07cm}\in \hspace{0.07cm} \mathbb{R}^p\hspace{0.07cm} \\$
+
+
+
+
+$\hspace{0.25cm}$ La similaridad entre $\hspace{0.1cm}v\hspace{0.1cm}$ y $\hspace{0.1cm}w\hspace{0.1cm}$ es: $\\[0.5cm]$
+
+$$
+\phi (v,w)_{Jaccard}  \hspace{0.07cm}=\hspace{0.07cm}  \dfrac{ a(v,w) + d(v,w) }{p} \\
+$$
+
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+
+
 
 
 <br>
@@ -3336,20 +3373,20 @@ Por tanto:
 $\hspace{0.25cm}$ Los parametros que habitualmente se usan para construir las similaridades con variables multiclase son:
 
 
-$\hspace{0.45cm}$ $\alpha_{ir} \hspace{0.05cm} =\hspace{0.05cm}$ número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} \hspace{0.05cm}=\hspace{0.05cm} x_{rj}\\$
+$\hspace{0.45cm}$ $\alpha(x_i, x_r) \hspace{0.05cm} =\hspace{0.05cm}$ número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} \hspace{0.05cm}=\hspace{0.05cm} x_{rj}\\$
 
-$$\alpha_{ir} \hspace{0.07cm}=\hspace{0.07cm} \# \lbrace\hspace{0.1cm} j\in \lbrace 1,...,p\rbrace \hspace{0.15cm}/\hspace{0.15cm} x_{ij} = x_{rj}  \hspace{0.1cm}\rbrace\\$$
+$$\alpha(x_i, x_r) \hspace{0.07cm}=\hspace{0.07cm} \# \lbrace\hspace{0.1cm} j\in \lbrace 1,...,p\rbrace \hspace{0.15cm}/\hspace{0.15cm} x_{ij} = x_{rj}  \hspace{0.1cm}\rbrace\\$$
 
-$\hspace{0.45cm}$ $p-\alpha_{ir} \hspace{0.05cm}=\hspace{0.05cm}$  número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} \neq x_{rj} \\$ 
+$\hspace{0.45cm}$ $p-\alpha(x_i, x_r) \hspace{0.05cm}=\hspace{0.05cm}$  número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} \neq x_{rj} \\$ 
 
-$$p - \alpha_{ir} \hspace{0.07cm}=\hspace{0.07cm} \# \lbrace\hspace{0.1cm} j\in \lbrace 1,...,p\rbrace \hspace{0.15cm}/\hspace{0.15cm} x_{ij} \neq x_{rj}  \hspace{0.1cm}\rbrace\\$$
+$$p - \alpha(x_i, x_r) \hspace{0.07cm}=\hspace{0.07cm} \# \lbrace\hspace{0.1cm} j\in \lbrace 1,...,p\rbrace \hspace{0.15cm}/\hspace{0.15cm} x_{ij} \neq x_{rj}  \hspace{0.1cm}\rbrace\\$$
 
 
 
 
 $\hspace{0.25cm}$ **Observación:**
 
-$$\alpha_{ij}\hspace{0.05cm}=\hspace{0.05cm}a_{ij}+b_{ij}$$
+$$\alpha(x_i, x_r) \hspace{0.05cm}=\hspace{0.05cm} a(x_i, x_r) + b(x_i, x_r)$$
 
 
 </p>
@@ -3375,7 +3412,7 @@ $\hspace{0.25cm}$La similaridad por coincidencias entre el par de observaciones 
 
  
 \begin{gather*}
-\phi(x_i,x_r)_{Coin}\hspace{0.05cm}=\hspace{0.05cm} \dfrac{\alpha_{ir}}{p}
+\phi(x_i,x_r)_{Coin}\hspace{0.05cm}=\hspace{0.05cm} \dfrac{\alpha(x_i, x_r)}{p}
 \end{gather*}
 
 </p>
@@ -3386,7 +3423,44 @@ $\hspace{0.25cm}$La similaridad por coincidencias entre el par de observaciones 
 
 **Observación:**
 
-Cuando las variables son binarias, el la similaridad por coincidencias es igual a la similaridad de Sokal, ya que $\hspace{0.1cm} \alpha_{ij}=a_{ij}+b_{ij}$
+Cuando las variables son binarias, el la similaridad por coincidencias es igual a la similaridad de Sokal, ya que $\hspace{0.1cm} \alpha(x_i, x_r)=a(x_i, x_r)+b(x_i, x_r)$
+
+
+
+<br>
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ **Similaridad de Coincidencias entre vectores**
+
+$\hspace{0.25cm}$ La distancia de Coincidencias puede definirse de forma más general, sin estar sujeta a un contexto estadístico. 
+
+$\hspace{0.25cm}$ Dada una matriz de datos $\hspace{0.1cm}X=(X_1,...,X_p)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n$
+
+$\hspace{0.25cm}$ Dados dos vectores **multiclase**  $\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.07cm} ,\hspace{0.07cm} w=(w_1,...,w_p)^t \hspace{0.07cm}\in \hspace{0.07cm} \mathbb{R}^p\hspace{0.07cm} \\$
+
+
+
+
+$\hspace{0.25cm}$ La similaridad entre $\hspace{0.1cm}v\hspace{0.1cm}$ y $\hspace{0.1cm}w\hspace{0.1cm}$ es: $\\[0.5cm]$
+
+$$
+\phi (v,w)_{Coin}  \hspace{0.07cm}=\hspace{0.07cm}  \dfrac{ \alpha(v,w) }{p} \\
+$$
+
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
 
 
 
@@ -3400,10 +3474,10 @@ Cuando las variables son binarias, el la similaridad por coincidencias es igual 
  
 <p style='margin-left:1em;'>
 
-La distancia por coincidencias entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables categoricas multiclase $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ se obtiene como: $\\[0.4cm]$
+$\hspace{0.25cm}$ La distancia por coincidencias entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables categoricas multiclase $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ se obtiene como: $\\[0.4cm]$
 
 \begin{gather*}
-\delta(x_i,x_r)_{Coin} = \sqrt{\phi(x_i,x_i)_{Coin} + \phi(x_r,x_r)_{Coin} - 2\cdot \phi(x_i,x_r)_{Coin} }
+\hspace{0.35cm} \delta(x_i,x_r)_{Coin} = \sqrt{\phi(x_i,x_i)_{Coin} + \phi(x_r,x_r)_{Coin} - 2\cdot \phi(x_i,x_r)_{Coin} }
 \end{gather*}
 
 </p>
@@ -3735,46 +3809,47 @@ $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ forman un conjun
 <p style='margin-left:1em;'>
 
 
+$\hspace{0.25cm}$ La similaridad de Gower entre el par de observaciones $\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ , que forman un conjunto de variables de tipo cuantitativo-binario-multiclase ,  se define como : $\\[0.7cm]$
 
 
+
+\begin{gather*}
+\hspace{0.45cm} \phi(x_i,x_r)_{Gower} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{\sum_{j=1}^{p_1} \left(1- \dfrac{\mid x_{ij} - x_{rj} \mid}{G_j} \right) + a(x_i , x_r) + \alpha(x_i , x_r) }{p_1 + (p_2 - d(x_i , x_r)) + p_3} \\[0.7cm]
+\end{gather*}
+
+
+
+$\hspace{0.25cm}$ Donde:
+
+- $p_1 \hspace{0.05cm}$ es el número de variables cuantitativas. $\\[0.5cm]$
+
+- $p_2 \hspace{0.05cm}$ es el número de variables categóricas binarias.
+$\\[0.5cm]$
+
+- $p_3 \hspace{0.05cm}$ es el número de variables categóricas múltiples (no binarias).$\\[0.5cm]$
+
+- $p_1+p_2+p_3=p \\$
+
+- $G_j \hspace{0.1cm}=\hspace{0.1cm} Max(X_j) - Min(X_j) \\$
+
+
+ - $\hspace{0.2cm} a(x_i, x_r)\hspace{0.1cm}$ es el número de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
+
+
+ - $\hspace{0.2cm} d(x_i, x_r)\hspace{0.1cm}$ es el número  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+ 
+
+- $\alpha(x_i, x_r) =$ número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} = x_{rj}\\$
+
+ 
+ 
+ 
 </p>
  
 </p></span>
 </div>
 
-La similaridad de Gower entre el par de observaciones $\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ , que forman un conjunto de variables de tipo cuantitativo-binario-multiclase ,  se define como : $\\[0.7cm]$
 
-
-
-\begin{gather*}
-\phi(i,r)_{Gower}=\dfrac{\sum_{j=1}^{p_1} \left(1- \dfrac{\mid x_{ij} - x_{rj} \mid}{G_j} \right) + a_{ir} + \alpha_{ir} }{p_1 + (p_2 - d_{ir}) + p_3} \\
-\end{gather*}
-
-
-
-Donde:
-
-- $p_1 \hspace{0.05cm}$ es el número de variables cuantitativas. $\\[0.5cm]$
-
-- $p_2 \hspace{0.05cm}$ es el número de variables categoricas binarias.
-$\\[0.5cm]$
-
-- $p_3 \hspace{0.05cm}$ es el número de variables categoricas múltiples (no binarias).$\\[0.5cm]$
-
-- $p_1+p_2+p_3=p \\$
-
-- $G_j \hspace{0.1cm}=\hspace{0.1cm} Max(X_j) - Min(X_j) \\$ es el rango de $X_j$
-
-
- - $\hspace{0.2cm} a_{ir}\hspace{0.1cm}$ es el número de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
-
-
- - $\hspace{0.2cm} d_{ij}\hspace{0.1cm}$ es el número  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
- 
-
-- $\alpha_{ir} =$ número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} = x_{rj}\\$
-
- 
 <br>
 
 
@@ -3782,29 +3857,38 @@ $\\[0.5cm]$
 ## Distancia de Gower    <a class="anchor" id="87"></a>
 
 
-La distancia de Gower entre el par de observaciones $\hspace{0.1cm}(x_i , X_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ (que forman un conjunto de variables de tipo cuantitativo-binario-multiclase )  entre el par de observaciones (x_i , X_r) de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ (que forman un conjunto de variables de tipo cuantitativo-binario-multiclase )   es obtenida como:
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+La distancia de Gower entre el par de observaciones $\hspace{0.1cm}(x_i , X_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ (que forman un conjunto de variables de tipo cuantitativo-binario-multiclase )  entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ (que forman un conjunto de variables de tipo cuantitativo-binario-multiclase )   es obtenida como: $\\[0.6cm]$
 
 
 $$
-\delta(i,j)_{Gower} = \sqrt{1 - \phi(i,j)_{Gower}}
+\delta(x_i,x_r)_{Gower} = \sqrt{1 - \phi(x_i,x_r)_{Gower}}
 $$
 
+</p>
+ 
+</p></span>
+</div>
 
 
 <br>
 
 **Propiedades:**  
 
-- La similaridad de Gower es la suma de diferentes similaridades apropiadas para cada tipo de variable (cuantitativas, binarias y multiclase).
+- La similaridad de Gower es la suma de diferentes similaridades apropiadas para cada tipo de variable (cuantitativas, binarias y multiclase).  $\\[0.4cm]$
 
-- Si consideramos un conjunto de variables cuantitativas, la similaridad de Gower es la transformación a similaridad de la distancia Manhattan (Minkowski con $q=2$)
-normalizada por el rango, para que tome valores en $[0,1]$ :
+- Si consideramos un conjunto de variables cuantitativas, la similaridad de Gower es la transformación a similaridad de la distancia Manhattan  
+normalizada por el rango, para que tome valores en $\hspace{0.1cm} [0,1]\hspace{0.1cm}$ :
  
 $$
-\dfrac{1}{p} \sum_{k=1}^{p} \left(1- \dfrac{\mid x_{ik} - x_{jk} \mid}{G_k} \right)
+\dfrac{1}{p} \sum_{k=1}^{p} \left(1- \dfrac{\mid x_{ik} - x_{jk} \mid}{G_k} \right) \\
 $$
 
-- Si consideramos un conjunto de variables binarias, la similaridad de Gower coincide con la de Jaccard.
+- Si consideramos un conjunto de variables binarias, la similaridad de Gower coincide con la de Jaccard. $\\[0.4cm]$
 
 -  Si consideramos un conjunto de variables multiclase (no binarias), la similaridad de Gower coincide con la similaridad por coincidencias.
 
@@ -3817,11 +3901,11 @@ $$
 
 Siguiendo esta idea pueden crearse otras similaridades para conjuntos de variables de tipo mixto. Algunas recomendaciones para ello son las siguientes:
 
-- Si queremos que la similaridad resultante tenga la propiedad Euclidea, todos las similaridades que se han combinado deben tenerla.
+- Si queremos que la similaridad resultante tenga la propiedad Euclidea, todos las similaridades que se han combinado deben tenerla. $\\[0.4cm]$
 
-- Para variables cuantitativas, se debe usar una distancia normalizada, para que así esté contenida en $[0,1]$ y pueda convertirse en similaridad usando la transformacion $1 - \delta$
+- Para variables cuantitativas, se debe usar una distancia normalizada, para que así esté contenida en $\hspace{0.1cm}[0,1]\hspace{0.1cm}$ y pueda convertirse en similaridad usando la transformacion $\hspace{0.1cm}1 - \delta$ $\\[0.4cm]$
 
-- Para variables categoricas es preferible usar similaridades contenidas en $[0,1]$ para evitar tener que normalizarlas.
+- Para variables categoricas es preferible usar similaridades contenidas en $\hspace{0.1cm}[0,1]\hspace{0.1cm}$ para evitar tener que normalizarlas.
 
 
 
@@ -3899,7 +3983,7 @@ M_Gower = Matrix_Gower_Similarity(Data=Data_mixed_numpy, p1=6, p2=4, p3=3)
 M_Gower
 ```
 
-```python
+```
 array([[1.        , 0.86928447, 0.61234779, ..., 0.61200705, 0.68768535,
         0.67882015],
        [0.        , 1.        , 0.72440439, ..., 0.63958297, 0.66860788,
@@ -3915,6 +3999,7 @@ array([[1.        , 0.86928447, 0.61234779, ..., 0.61200705, 0.68768535,
         1.        ]])
 ```
 
+<br>
 
 ```python
 M_Gower = M_Gower  + M_Gower.T - np.diag(np.repeat(1 , len(M_Gower)), k=0)
@@ -3938,6 +4023,10 @@ array([[1.        , 0.86928447, 0.61234779, ..., 0.61200705, 0.68768535,
         1.        ]])
 ```
 
+<br>
+
+
+## Distancia de Gower en `Python`   <a class="anchor" id="88"></a>
 
 
 ```python
@@ -3976,6 +4065,92 @@ array([[0.        , 0.36154603, 0.62261723, ..., 0.6228908 , 0.55885118,
 ```
 
 
+<br>
+
+<br>
+
+
+
+## Similaridad de Gower-Mahalanobis
+
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+
+Dada la matriz de datos $\hspace{0.1cm}X=[X_1,...,X_n]\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$
+
+
+$\hspace{0.25cm}$ La similaridad de Gower-Mahalanobis entre el par de observaciones $\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ , que forman un conjunto de variables de tipo cuantitativo-binario-multiclase ,  se define como : $\\[0.7cm]$
+
+
+
+$$
+\hspace{0.45cm} \phi(x_i,x_r)_{GM} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{\sum_{j=1}^{p_1} \left(1- \dfrac{ \delta(x_i , x_r)_{Maha} }{Max(D_{Maha})} \right) + a(x_i , x_r) + \alpha(x_i , x_r) }{p_1 + p_2 - d(x_i , x_r) + p_3} \\[0.7cm]
+$$
+
+
+
+$\hspace{0.25cm}$ Donde:
+
+- $p_1 \hspace{0.05cm}$ es el número de variables cuantitativas. $\\[0.5cm]$
+
+- $p_2 \hspace{0.05cm}$ es el número de variables categóricas binarias.
+$\\[0.5cm]$
+
+- $p_3 \hspace{0.05cm}$ es el número de variables categóricas múltiples (no binarias).$\\[0.5cm]$
+
+- $p_1+p_2+p_3=p \\$
+
+- $\delta(x_i , x_r)_{Maha} = (x_i - x_r)^t \cdot S^{-1} \cdot (x_i - x_r)\hspace{0.25cm}$ es la distancia de Mahalanobis entre el par de observaciones $\hspace{0.15cm}x_i = X[i,:]\hspace{0.15cm}$  y $\hspace{0.15cm}x_r = X[r,:] \\$
+
+- $S\hspace{0.1cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.1cm}X=[X_1,...,X_n] \\$
+
+- $D_{Maha} \hspace{0.1cm}$ es la matriz de distancias de Mahalanobis entre los individuios de la matriz de datos $\hspace{0.1cm}X=[X_1,...,X_n] \\$
+
+
+ - $\hspace{0.2cm} a(x_i, x_r)\hspace{0.1cm}$ es el número de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
+
+
+ - $\hspace{0.2cm} d(x_i, x_r)\hspace{0.1cm}$ es el número  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+ 
+
+- $\alpha(x_i, x_r) =$ número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} = x_{rj}\\$
+
+ 
+ 
+ 
+</p>
+ 
+</p></span>
+</div>
+
+
+<br>
+
+
+## Distancia de Gower-Mahalanobis
+
+
+
+
+
+<br>
+
+
+## Similaridad de Gower-Mahalanobis en `Python`
+
+
+
+
+
+<br>
+
+## Distancia de Gower-Mahalanobis en `Python`
 
 
 
@@ -3984,6 +4159,5 @@ array([[0.        , 0.36154603, 0.62261723, ..., 0.6228908 , 0.55885118,
 
 
 
-
-
+<br>
 
