@@ -3450,23 +3450,32 @@ array([[      0.      ,  150047.748877, 1550086.062526, ...,
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Distancia Mahalanobis entre vectores</strong></p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de Mahalanobis puede definirse de forma más general.</p>
-<p>Dada una matriz de datos <span class="math inline">\(X=(X_1,...,X_p)\)</span> de las variables estadisticas <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_n\)</span></p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una observación <span class="math inline">\(x_i\)</span> de esas variables estadisticas tal que <span class="math inline">\(x_i = X[i,:]\)</span> y dado un vector <span class="math inline">\(\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.07cm}\)</span> de <span class="math inline">\(\hspace{0.07cm}\mathbb{R}^p\)</span> , que no está incluido en la matriz de datos.</p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia Mahalanobis entre esos dos vectores es: <span class="math inline">\(\\[0.7cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Distancia Mahalanobis entre vectores <span class="math inline">\(\hspace{0.1cm}x_i\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}v\hspace{0.1cm}\)</span></strong></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de Mahalanobis puede definirse de forma más general, para abordar el caso en el que uno de los vectores del par considerado no pertenecen a la matriz de datos a partir de la que se calcula la matriz de covarianzas <span class="math inline">\(\hspace{0.1cm}S\)</span>.</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una matriz de datos <span class="math inline">\(\hspace{0.1cm}X=(X_1,...,X_p)\hspace{0.1cm}\)</span> de las variables estadisticas <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una observación <span class="math inline">\(\hspace{0.1cm}x_i\hspace{0.1cm}\)</span> de esas variables estadisticas tal que <span class="math inline">\(\hspace{0.1cm}x_i = X[i,:]\hspace{0.1cm}\)</span> y dado un vector <span class="math inline">\(\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.07cm} \in \hspace{0.07cm}\mathbb{R}^p\hspace{0.07cm}\)</span> , que no está incluido en la matriz de datos.</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia Mahalanobis entre <span class="math inline">\(\hspace{0.1cm}x_i\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}v\hspace{0.1cm}\)</span> es: <span class="math inline">\(\\[0.7cm]\)</span></p>
 <p><span class="math display">\[
-\delta (x_i, v)_{C}  \hspace{0.07cm}=\hspace{0.07cm}  \sqrt{(x_i - v)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - v) } \\
+\delta (x_i, v)_{Maha}  \hspace{0.07cm}=\hspace{0.07cm}  \sqrt{(x_i - v)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - v) } \\
 \]</span></p>
-<p>Donde se van a considerar dos alternativas para definir <span class="math inline">\(S\)</span> :</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Vamos a considerar dos alternativas para definir <span class="math inline">\(\hspace{0.1cm} S\)</span></p>
 <ul>
-<li><p><span class="math inline">\(S\)</span> es la matriz de covarianzas de la matriz de datos <span class="math inline">\(X=(X_1,...,X_p)\)</span></p></li>
-<li><p><span class="math inline">\(S\)</span> es la matriz de covarianzas de la matriz de datos</p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm} S\hspace{0.1cm}\)</span> es la matriz de covarianzas de la matriz de datos <span class="math inline">\(\hspace{0.1cm} X=(X_1,...,X_p) \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm} S\hspace{0.1cm}\)</span> es la matriz de covarianzas de la matriz de datos <span class="math inline">\(\hspace{0.1cm} \begin{pmatrix}  X\\  v  \end{pmatrix}\)</span></p></li>
 </ul>
 </p>
 </p>
 <p></span></p>
 </div>
+<p><br></p>
+<p><strong>Observaciones:</strong></p>
+<p>Esta ampliación de la distancia de Mahalanobis a vectores que no necesariamente forman parte de la matriz de datos permite ampliar su capacidad de aplicación. Vamos a dar varios ejemplos en donde la distancia de Gower definida estrictamente entre pares de observaciones de una matriz de datos no podria aplicarse, y que en cambio su versión ampliada si permite hacerlo.</p>
+<ul>
+<li><p>En el algoritmo KNN se requiere de una distancia que pueda aplicarse a un vector de observaciones de las variables que no pertenece a la matriz de datos de entrenamiento. Ese vector juega el papel de <span class="math inline">\(\hspace{0.1cm}v\hspace{0.1cm}\)</span> en la definción anterior.</p></li>
+<li><p>En el algoritmo k-medias se requiere de una distancia que pueda aplicarse sobre el vector de medias <span class="math inline">\(\hspace{0.1cm}\overline{x}\hspace{0.1cm}\)</span> de la matriz de datos de entrenamiento. Tomando <span class="math inline">\(\hspace{0.1cm}v=overline{x}\hspace{0.1cm}\)</span> se podria aplicar también en este caso la distancia de Mahalanobis.</p></li>
+</ul>
+<p>Además esto no solo amplia la aplicabilidad de la distancia de Mahalanobis, sino también aquellas relacionadas con ella, como la distancia de Gower-Mahalanobis, que veremos mas adelante.</p>
+<p>Por último señalar que las alternativas para definir <span class="math inline">\(\hspace{0.1cm}S\hspace{0.1cm}\)</span> son las que consideramos más razonables. En el caso de que <span class="math inline">\(\hspace{0.1cm}v\hspace{0.1cm}\)</span> fuese un vector de observaciones de las variables estadisticas, consideramos que los mas razonable es seguir la segunda definición. Pero en el caso de que <span class="math inline">\(\hspace{0.1cm}v\hspace{0.1cm}\)</span> fuese el vector de medias de las variables, lo más razonable sería seguir la primera definición.</p>
 <p><br></p>
 </div>
 <div id="distancia-de-mahalanobis-en-python" class="section level2" number="3.10">
@@ -3941,6 +3950,21 @@ pueden expresarse del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</s
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> El coeficiente de similaridad de Sokal (o simplemente la similaridad de Sokal) entre el par de observaciones <span class="math inline">\(\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}\)</span> de las variables binarias <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}\)</span> se define como: <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p><span class="math display">\[
 \hspace{0.35cm} \phi (x_i,x_r)_{Sokal}  =\dfrac{a(x_i,x_r) + d(x_i,x_r) }{ a(x_i,x_r) + b(x_i,x_r) + c(x_i,x_r) + d(x_i,x_r) } = \dfrac{a(x_i,x_r) + d(x_i,x_r) }{p}
+\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Similaridad de Sokal entre vectores</strong></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de Sokal puede definirse de forma más general, sin estar sujeta a un contexto estadístico.</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una matriz de datos <span class="math inline">\(\hspace{0.1cm}X=(X_1,...,X_p)\hspace{0.1cm}\)</span> de las variables estadisticas <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dados dos vectores <strong>binarios</strong> <span class="math inline">\(\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.07cm} ,\hspace{0.07cm} w=(w_1,...,w_p)^t \hspace{0.07cm}\in \hspace{0.07cm} \mathbb{R}^p\hspace{0.07cm}\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La similaridad entre <span class="math inline">\(\hspace{0.1cm}v\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}w\hspace{0.1cm}\)</span> es: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math display">\[
+\phi (v,w)_{Sokal}  \hspace{0.07cm}=\hspace{0.07cm}  \dfrac{ a(v,w) + d(v,w) }{p} \\
 \]</span></p>
 </p>
 </p>

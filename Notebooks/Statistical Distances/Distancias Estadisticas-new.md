@@ -1741,41 +1741,57 @@ La distancia de Mahalanobis es adecuada como distancia estadística por las sigu
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ **Distancia Mahalanobis entre vectores**
+$\hspace{0.25cm}$ **Distancia Mahalanobis entre vectores $\hspace{0.1cm}x_i\hspace{0.1cm}$ y $\hspace{0.1cm}v\hspace{0.1cm}$**
 
-$\hspace{0.25cm}$ La distancia de Mahalanobis puede definirse de forma más general.
+$\hspace{0.25cm}$ La distancia de Mahalanobis puede definirse de forma más general, para abordar el caso en el que uno de los vectores del par considerado no pertenecen a la matriz de datos a partir de la que se calcula la matriz de covarianzas $\hspace{0.1cm}S$.
 
-Dada una matriz de datos $X=(X_1,...,X_p)$ de las variables estadisticas $\mathcal{X}_1,...,\mathcal{X}_n$
+$\hspace{0.25cm}$ Dada una matriz de datos $\hspace{0.1cm}X=(X_1,...,X_p)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n$
 
-$\hspace{0.25cm}$ Dada una observación $x_i$ de esas variables estadisticas tal que $x_i = X[i,:]$  y dado un vector  $\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.07cm}$ de $\hspace{0.07cm}\mathbb{R}^p$ , que no está incluido en la matriz de datos.
-
-
+$\hspace{0.25cm}$ Dada una observación $\hspace{0.1cm}x_i\hspace{0.1cm}$ de esas variables estadisticas tal que $\hspace{0.1cm}x_i = X[i,:]\hspace{0.1cm}$  y dado un vector  $\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.07cm} \in \hspace{0.07cm}\mathbb{R}^p\hspace{0.07cm}$ , que no está incluido en la matriz de datos.
 
 
-$\hspace{0.25cm}$ La distancia Mahalanobis entre esos dos vectores es: $\\[0.7cm]$
+
+
+$\hspace{0.25cm}$ La distancia Mahalanobis entre $\hspace{0.1cm}x_i\hspace{0.1cm}$ y $\hspace{0.1cm}v\hspace{0.1cm}$ es: $\\[0.7cm]$
 
 $$
-\delta (x_i, v)_{C}  \hspace{0.07cm}=\hspace{0.07cm}  \sqrt{(x_i - v)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - v) } \\
+\delta (x_i, v)_{Maha}  \hspace{0.07cm}=\hspace{0.07cm}  \sqrt{(x_i - v)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - v) } \\
 $$
 
 
-Donde se van a considerar dos alternativas para definir $S$ :
+$\hspace{0.25cm}$ Vamos a considerar dos alternativas para definir $\hspace{0.1cm} S$ 
 
-- $S$ es la matriz de covarianzas de la matriz de datos $X=(X_1,...,X_p)$
+- $\hspace{0.1cm} S\hspace{0.1cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.1cm} X=(X_1,...,X_p) \\$
 
-- $S$ es la matriz de covarianzas de la matriz de datos 
-
-
+- $\hspace{0.1cm} S\hspace{0.1cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.1cm} \begin{pmatrix}
+    X\\
+    v
+    \end{pmatrix}$
+    
+  
 </p>
  
 </p></span>
 </div>
 
 
+<br>
 
 
+**Observaciones:**
 
 
+Esta ampliación de la distancia de Mahalanobis a vectores que no necesariamente forman parte de la matriz de datos permite ampliar su capacidad de aplicación. Vamos a dar varios ejemplos en donde la distancia de Gower definida estrictamente entre pares de observaciones de una matriz de datos no podria aplicarse, y que en cambio su versión ampliada si permite hacerlo.
+
+- En el algoritmo KNN se requiere de una distancia que pueda aplicarse a un vector de observaciones de las variables que no pertenece a la matriz de datos de entrenamiento. Ese vector juega el papel de $\hspace{0.1cm}v\hspace{0.1cm}$ en la definción anterior. 
+
+- En el algoritmo k-medias se requiere de una distancia que pueda aplicarse sobre el vector de medias $\hspace{0.1cm}\overline{x}\hspace{0.1cm}$ de la matriz de datos de entrenamiento. Tomando $\hspace{0.1cm}v=overline{x}\hspace{0.1cm}$ se podria aplicar también en este caso la distancia de Mahalanobis.
+
+Además esto no solo amplia la aplicabilidad de la distancia de Mahalanobis, sino también aquellas relacionadas con ella, como la distancia de Gower-Mahalanobis, que veremos mas adelante.
+
+
+Por último señalar que las alternativas para definir $\hspace{0.1cm}S\hspace{0.1cm}$ son las que consideramos más razonables. En el caso de que $\hspace{0.1cm}v\hspace{0.1cm}$ fuese un vector de observaciones de las variables estadisticas, consideramos que los mas razonable es seguir la segunda definición. Pero en el caso de que $\hspace{0.1cm}v\hspace{0.1cm}$ fuese el vector de medias de las variables, lo más razonable sería seguir la primera definición.
+ 
 <br>
 
 
@@ -2295,9 +2311,6 @@ $$a(x_i, x_r) + b(x_i, x_r) + c(x_i, x_r) +d(x_i, x_r) =p$$
 
 
 
-
-
-
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
@@ -2571,6 +2584,41 @@ $$
  
 </p></span>
 </div>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ **Similaridad de Sokal entre vectores**
+
+$\hspace{0.25cm}$ La distancia de Sokal puede definirse de forma más general, sin estar sujeta a un contexto estadístico. 
+
+$\hspace{0.25cm}$ Dada una matriz de datos $\hspace{0.1cm}X=(X_1,...,X_p)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n$
+
+$\hspace{0.25cm}$ Dados dos vectores **binarios**  $\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.07cm} ,\hspace{0.07cm} w=(w_1,...,w_p)^t \hspace{0.07cm}\in \hspace{0.07cm} \mathbb{R}^p\hspace{0.07cm}$
+
+
+
+
+$\hspace{0.25cm}$ La similaridad entre $\hspace{0.1cm}v\hspace{0.1cm}$ y $\hspace{0.1cm}w\hspace{0.1cm}$ es: $\\[0.6cm]$
+
+$$
+\phi (v,w)_{Sokal}  \hspace{0.07cm}=\hspace{0.07cm}  \dfrac{ a(v,w) + d(v,w) }{p} \\
+$$
+
+
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+
 
 
 
