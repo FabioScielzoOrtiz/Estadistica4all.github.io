@@ -929,8 +929,7 @@ Algunas preguntas relacionadas con hacer inferencia son las siguientes:
 
 $\hspace{0.25 cm}$ Tenemos los siguientes elementos básicos:
 
-<br>
-
+ 
 -   ***Variable Respuesta :***  
 
     - Una variable  **cuantitativa** denominada variable respuesta $\hspace{0.2cm}\Rightarrow \hspace{0.2cm} \mathcal{Y} \\$
@@ -1019,8 +1018,7 @@ $\hspace{0.25 cm}$ Tenemos los siguientes elementos básicos:
 
 $\hspace{0.25cm}$ Los supuestos básicos del modelo son los siguientes:
 
-<br>
-
+ 
 - $\hspace{0.15cm} y_i \hspace{0.1cm} =  \hspace{0.1cm} x_i^t \cdot \beta  +  \varepsilon_i \hspace{0.15cm} =  \hspace{0.15cm}   \beta_0 + \sum_{j=1}^{p} \left( \beta_j \cdot x_{ij} \right) + \varepsilon_i \hspace{0.15cm} =  \hspace{0.15cm}  \beta_0 + \beta_1 \cdot x_{i1} + \beta_2 \cdot x_{i2} + \dots + \beta_p \cdot x_{ip} + \varepsilon_i$
  
 
