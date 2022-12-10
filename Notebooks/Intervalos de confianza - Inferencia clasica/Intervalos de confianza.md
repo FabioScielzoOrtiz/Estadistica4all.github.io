@@ -1779,7 +1779,13 @@ $S(D)^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n (d_i - \overline{D})^2$
  
 ## Intervalo de confianza para el cociente de varianzas
 
- 
+
+
+
+### Teorema de Fisher
+
+
+
  
  
  
@@ -1788,6 +1794,10 @@ $S(D)^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n (d_i - \overline{D})^2$
 <br>
  
 ## Intervalo de confianza para la diferencia de proporciones
+ 
+ 
+
+### Teorema Moivre-Laplace
  
 
 
