@@ -1157,7 +1157,10 @@ $\hspace{0.45cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i$
 $\hspace{0.45cm} S(X)^2 = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2$
 
 
+<br>
 
+
+## Intervalo de confianza para la media con varianza desconocida en `Python`
 
 
 

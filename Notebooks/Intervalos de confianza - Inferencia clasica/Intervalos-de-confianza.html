@@ -1538,10 +1538,11 @@ margin-left: 0 !important;
       <li><a href="#intervalo-de-confianza-para-la-proporción-en-python" id="toc-intervalo-de-confianza-para-la-proporción-en-python"><span class="toc-section-number">9.4</span> Intervalo de confianza para la proporción en <code>Python</code></a></li>
       <li><a href="#intervalo-de-confianza-para-la-media-con-varianza-conocida" id="toc-intervalo-de-confianza-para-la-media-con-varianza-conocida"><span class="toc-section-number">9.5</span> Intervalo de confianza para la media con varianza conocida</a></li>
       <li><a href="#intervalo-de-confianza-para-la-media-con-varianza-desconocida" id="toc-intervalo-de-confianza-para-la-media-con-varianza-desconocida"><span class="toc-section-number">9.6</span> Intervalo de confianza para la media con varianza desconocida</a></li>
-      <li><a href="#intervalo-de-confianza-para-la-varianza" id="toc-intervalo-de-confianza-para-la-varianza"><span class="toc-section-number">9.7</span> Intervalo de confianza para la varianza</a></li>
-      <li><a href="#intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-no-pareadas" id="toc-intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-no-pareadas"><span class="toc-section-number">9.8</span> Intervalo de confianza para la diferencia de medias con muestras independientes (no pareadas)</a></li>
-      <li><a href="#intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-dependientes-pareadas" id="toc-intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-dependientes-pareadas"><span class="toc-section-number">9.9</span> Intervalo de confianza para la diferencia de medias con muestras dependientes (pareadas)</a></li>
-      <li><a href="#intervalo-de-confianza-para-el-cociente-de-varianzas" id="toc-intervalo-de-confianza-para-el-cociente-de-varianzas"><span class="toc-section-number">9.10</span> Intervalo de confianza para el cociente de varianzas</a></li>
+      <li><a href="#intervalo-de-confianza-para-la-media-con-varianza-desconocida-en-python" id="toc-intervalo-de-confianza-para-la-media-con-varianza-desconocida-en-python"><span class="toc-section-number">9.7</span> Intervalo de confianza para la media con varianza desconocida en <code>Python</code></a></li>
+      <li><a href="#intervalo-de-confianza-para-la-varianza" id="toc-intervalo-de-confianza-para-la-varianza"><span class="toc-section-number">9.8</span> Intervalo de confianza para la varianza</a></li>
+      <li><a href="#intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-no-pareadas" id="toc-intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-no-pareadas"><span class="toc-section-number">9.9</span> Intervalo de confianza para la diferencia de medias con muestras independientes (no pareadas)</a></li>
+      <li><a href="#intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-dependientes-pareadas" id="toc-intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-dependientes-pareadas"><span class="toc-section-number">9.10</span> Intervalo de confianza para la diferencia de medias con muestras dependientes (pareadas)</a></li>
+      <li><a href="#intervalo-de-confianza-para-el-cociente-de-varianzas" id="toc-intervalo-de-confianza-para-el-cociente-de-varianzas"><span class="toc-section-number">9.11</span> Intervalo de confianza para el cociente de varianzas</a></li>
       </ul></li>
       </ul>
     </div>
@@ -2138,21 +2139,24 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.1cm
 <p>Donde:</p>
 <p><span class="math inline">\(\hspace{0.45cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i\)</span></p>
 <p><span class="math inline">\(\hspace{0.45cm} S(X)^2 = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2\)</span></p>
-<p>El problema es que en la práctica <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> no es conocido, por ello se utiliza el intervalo de confianza de la siguiente sección.</p>
 <p><br></p>
 </div>
 </div>
-<div id="intervalo-de-confianza-para-la-varianza" class="section level2" number="9.7">
-<h2><span class="header-section-number">9.7</span> Intervalo de confianza para la varianza</h2>
+<div id="intervalo-de-confianza-para-la-media-con-varianza-desconocida-en-python" class="section level2" number="9.7">
+<h2><span class="header-section-number">9.7</span> Intervalo de confianza para la media con varianza desconocida en <code>Python</code></h2>
+<p><br></p>
 </div>
-<div id="intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-no-pareadas" class="section level2" number="9.8">
-<h2><span class="header-section-number">9.8</span> Intervalo de confianza para la diferencia de medias con muestras independientes (no pareadas)</h2>
+<div id="intervalo-de-confianza-para-la-varianza" class="section level2" number="9.8">
+<h2><span class="header-section-number">9.8</span> Intervalo de confianza para la varianza</h2>
 </div>
-<div id="intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-dependientes-pareadas" class="section level2" number="9.9">
-<h2><span class="header-section-number">9.9</span> Intervalo de confianza para la diferencia de medias con muestras dependientes (pareadas)</h2>
+<div id="intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-no-pareadas" class="section level2" number="9.9">
+<h2><span class="header-section-number">9.9</span> Intervalo de confianza para la diferencia de medias con muestras independientes (no pareadas)</h2>
 </div>
-<div id="intervalo-de-confianza-para-el-cociente-de-varianzas" class="section level2" number="9.10">
-<h2><span class="header-section-number">9.10</span> Intervalo de confianza para el cociente de varianzas</h2>
+<div id="intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-dependientes-pareadas" class="section level2" number="9.10">
+<h2><span class="header-section-number">9.10</span> Intervalo de confianza para la diferencia de medias con muestras dependientes (pareadas)</h2>
+</div>
+<div id="intervalo-de-confianza-para-el-cociente-de-varianzas" class="section level2" number="9.11">
+<h2><span class="header-section-number">9.11</span> Intervalo de confianza para el cociente de varianzas</h2>
 </div>
 </div>
 </div>
