@@ -866,6 +866,69 @@ $\hspace{0.45cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i$
 
 
 
+Cargamos los datos con los que vamos a trabajar:
+
+```python
+import numpy as np
+import pandas as pd
+```
+
+```python
+Data = pd.read_csv('House_Price_Regression.csv')
+```
+
+```python
+Data.head()
+```
+
+```python
+
+```
+
+
+```python
+
+```
+
+
+```python
+
+```
+
+```python
+
+```
+
+
+```python
+
+```
+
+
+```python
+
+```
+
+
+```python
+
+```
+
+
+```python
+
+```
+
+
+```python
+
+```
+
+
+
+
+
+
 
 
 
@@ -1161,6 +1224,52 @@ $\hspace{0.45cm} S(X)^2 = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2$
 
 
 ## Intervalo de confianza para la media con varianza desconocida en `Python`
+
+
+```python
+
+```
+
+
+```python
+
+```
+
+
+```python
+
+```
+
+```python
+
+```
+
+
+```python
+
+```
+
+
+```python
+
+```
+
+
+```python
+
+```
+
+
+```python
+
+```
+
+
+```python
+
+```
+
+
 
 
 
