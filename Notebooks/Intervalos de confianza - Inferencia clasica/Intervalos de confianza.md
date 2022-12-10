@@ -1484,9 +1484,9 @@ INDICAR QUE PARA n GRANDE NO FUNCIONA BIEN. DE HECHO SI n --> infinito LOS EXTRE
 
 
 
-Un par de variables cuantitativas  $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ , $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ pueden modelarse como un par de variables aleatorias $\hspace{0.1cm} N(\mu_1 , \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}N(\mu_2 , \sigma_2^2)\hspace{0.1cm}$, donde $\hspace{0.1cm}\mu_1=E[\mathcal{X}_1]\hspace{0.1cm}$ , $\hspace{0.1cm}\mu_2=E[\mathcal{X}_2]\hspace{0.1cm}$, $\hspace{0.1cm}\sigma_1^2=E[\mathcal{X}_1]\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2 = Var(\mathcal{X}_2)$, que pueden interpretarse respectivamente como la media y varianza poblacional de las variables $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2$
+Un par de variables cuantitativas  $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ , $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ pueden modelarse como un par de variables aleatorias **independientes** $\hspace{0.1cm} N(\mu_1 , \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}N(\mu_2 , \sigma_2^2)\hspace{0.1cm}$, donde $\hspace{0.1cm}\mu_1=E[\mathcal{X}_1]\hspace{0.1cm}$ , $\hspace{0.1cm}\mu_2=E[\mathcal{X}_2]\hspace{0.1cm}$, $\hspace{0.1cm}\sigma_1^2=E[\mathcal{X}_1]\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2 = Var(\mathcal{X}_2)$, que pueden interpretarse respectivamente como la media y varianza poblacional de las variables $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2$
 
-Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \mu_1 - \mu_2 \hspace{0.1cm}$, teniendo en cuenta que $\hspace{0.1cm}\sigma_1^2\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2\hspace{0.1cm}$ son desconocidas pero iguales $\hspace{0.1cm}\sigma^2 = \sigma_1^2=\sigma_2^2$.
+Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \mu_1 - \mu_2 \hspace{0.1cm}$, teniendo en cuenta que $\hspace{0.1cm}\sigma_1^2\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2\hspace{0.1cm}$ son desconocidas pero iguales $\hspace{0.1cm}\sigma^2 = \sigma_1^2=\sigma_2^2$ y las v.a's $\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1,\sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2 , \sigma_2^2)\hspace{0.1cm}$ son **independientes**.
 
 
 
@@ -1593,9 +1593,9 @@ $\overline{X}_1 = \dfrac{1}{n} \cdot \sum_{i=1}^n x_{i1}$
 
 $\overline{X}_2 = \dfrac{1}{n} \cdot \sum_{i=1}^n x_{i2}$
 
-$S(X_1)^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n x_{i1}$
+$S(X_1)^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n (x_{i1}- \overline{X}_1)^2$
 
-$S(X_2)^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n x_{i2}$
+$S(X_2)^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n (x_{i2} - \overline{X}_2)^2$
 
 $\hspace{0.45cm} S(X)_p^2 = \dfrac{(n_1-1)\cdot S(X_1)^2 + (n_2-1)\cdot S(X_2)^2}{n_1 + n_2 -2}$
 
@@ -1631,10 +1631,149 @@ $$v=\dfrac{(S(X_1)^2 / n_1 + S(X_2)^2/n_2 )^2}{\dfrac{(S(X_1)^2 / n_1)^2}{n_1-1}
 <br>
 
 
+
+
 ## Intervalo de confianza para la diferencia de medias con muestras dependientes (pareadas)
 
  
  
+
+
+Un par de variables cuantitativas  $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ , $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ pueden modelarse como un par de variables aleatorias **no necesariamente independientes** $\hspace{0.1cm} N(\mu_1 , \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}N(\mu_2 , \sigma_2^2)\hspace{0.1cm}$, donde $\hspace{0.1cm}\mu_1=E[\mathcal{X}_1]\hspace{0.1cm}$ , $\hspace{0.1cm}\mu_2=E[\mathcal{X}_2]\hspace{0.1cm}$, $\hspace{0.1cm}\sigma_1^2=E[\mathcal{X}_1]\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2 = Var(\mathcal{X}_2)$, que pueden interpretarse respectivamente como la media y varianza poblacional de las variables $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2$
+
+Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \mu_1 - \mu_2 \hspace{0.1cm}$, teniendo en cuenta que $\hspace{0.1cm}\sigma_1^2\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2\hspace{0.1cm}$ son desconocidas y las v.a. $\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1 , \sigma_1^2) \hspace{0.1cm}$  y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2\hspace{0.1cm}$ **no son independientes**.
+
+
+
+Para ello vamos a apoyarnos en el teorema de Gosset   y en el método pivotal.
+
+
+
+<br>
+
+### Teorema de Gosset
+
+Tenemos dos v.a's $\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1 , \sigma_1^2) \hspace{0.1cm}$  y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2\hspace{0.1cm}$ .
+
+Tenemos una m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}$ de $\mathcal{X}_{1}$
+y otra m.a.s. $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n2}$ de $\mathcal{X}_{2}$
+
+Sea $D_i = \mathcal{X}_{i1} -\mathcal{X}_{i2}$ , entonces $D_i \sim N(\mu_D , \sigma_D^2)$
+
+Donde:
+
+$E[D_i] = E[\mathcal{X}_{i1} -\mathcal{X}_{i2}] = E[ N(\mu_1, \sigma_1^2) - N(\mu_2, \sigma_2^2)] =  E[ N(\mu_1, \sigma_1^2)] - E[ N(\mu_2, \sigma_2^2)] = \mu_1 - \mu_2 = \mu_D$
+
+$Var(D_i) = Var[\mathcal{X}_{i1} -\mathcal{X}_{i2}] = Var[ N(\mu_1, \sigma_1^2) - N(\mu_2, \sigma_2^2)] =  Var[ N(\mu_1, \sigma_1^2)] - Var[ N(\mu_2, \sigma_2^2)] - 2\cdot Cov(N(\mu_1, \sigma_1^2) , N(\mu_2, \sigma_2^2))= \sigma_1^2 - \sigma_2^2 - 2\cdot \sigma_{12} = \sigma_D^2$
+
+
+$D_1,...,D_n$ es una m.a.s de $D\sim N(\mu_D , \sigma_D^2)$, por lo que puede aplicarse le el teorema de Gosset, obteniendose que:
+
+$$\dfrac{\overline{D} - \mu_D}{\sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}} \sim t_{n-1}$$
+
+
+Donde:
+
+$\overline{D} = \dfrac{1}{n} \sum_{i=1}^n D_i$
+
+$S_D^2 = \dfrac{1}{n} \sum_{i=1}^n (D_i - \overline{D})^2$
+
+
+
+
+
+ 
+
+
+<br>
+
+
+### Intervalo de confianza para la diferencia de medias con muestras dependientes pareadas
+
+
+
+La anterior cantidad:
+
+$$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \sigma^2) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{D} - \mu_D}{\sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}} \sim t_{n-1}$$
+
+
+es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso $\hspace{0.1cm} \theta = \mu_1 - \mu_2 \hspace{0.1cm}$, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una $\hspace{0.1cm} t_{n-1}$.
+
+
+Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}$ tales que:
+
+
+
+
+$$P\left( \hspace{0.1cm} a \hspace{0.1cm} < \hspace{0.1cm}   \dfrac{\overline{D} - \mu_D}{\sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}} \hspace{0.1cm} <\hspace{0.1cm} b \hspace{0.1cm}\right) = 1-\alpha \\$$
+
+
+ 
+Siguiendo los anteriores resultados:
+
+
+$$P\left( \hspace{0.1cm} a \hspace{0.1cm}<\hspace{0.1cm}  \dfrac{\overline{D} - \mu_D}{\sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}} \hspace{0.1cm} <\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} P\left( a < t_{n  -1}  < b \right) \\$$
+
+
+
+Teniendo en cuenta las propiedades de la distribución t-student: $\\[0.6cm]$
+
+$$P\left( t^{n-1}_{1-\alpha/2} < t_{n-1}  < t^{n-1}_{\alpha/2} \right) = P\left( -t^{n-1}_{\alpha/2} < t_{n-1}  < t^{n-1}_{\alpha/2} \right) = 1-\alpha \\$$
+ 
+ 
+Donde:
+
+
+$t^{n-1}_{\alpha/2}\hspace{0.1cm}$ es el valor tal que $\hspace{0.1cm}P(t_{n-1}> t^{n-1}_{\alpha/2}) = \alpha/2 \\$ 
+
+
+
+Por tanto:
+
+
+$$P\left( \hspace{0.1cm}  -t^{n-1}_{\alpha/2} \hspace{0.1cm}<\hspace{0.1cm}  
+\dfrac{\overline{D} - \mu_D}{\sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}}
+\hspace{0.1cm} <\hspace{0.1cm} t^{n-1}_{\alpha/2}\hspace{0.1cm} \right) \hspace{0.1cm} = \hspace{0.1cm} 1-\alpha \\[1cm]$$
+
+
+
+
+Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=\mu_1 - \mu_2 \hspace{0.1cm}$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
+
+
+
+$$P\left( \hspace{0.1cm}    
+\overline{D} - t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}
+\hspace{0.1cm}<\hspace{0.1cm}  \mu_1 - \mu_2 \hspace{0.1cm} <\hspace{0.1cm}      
+\overline{D} + t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}
+\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
+
+
+
+ 
+
+Por tanto, tenemos el siguiente intervalo de confianza a un nivel  $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} \mu_1 - \mu_2  \hspace{0.1cm}\\$
+
+$$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \\overline{D} \pm t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}
+     \hspace{0.1cm} \right] \\[0.9cm]$$
+
+
+Dadas dos muestras $\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$  , respectivamente,  tenemos la muestra D=(d_1,...,d_n) , donde $d_i = x_{i1}-x_{i2}$ , y con ello la siguiente realización del intervalo de confianza: $\\[0.6cm]$
+
+
+$$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{D} \pm t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1}\cdot S(D)^2 / n}
+   \hspace{0.1cm} \right] \\[0.9cm]$$
+
+Donde:
+
+$\overline{D} = \dfrac{1}{n} \cdot \sum_{i=1}^n d_{i}$
+
+
+$S(D)^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n (d_i - \overline{D})^2$
+
+
+<br>
+
  
  
  
@@ -1644,4 +1783,18 @@ $$v=\dfrac{(S(X_1)^2 / n_1 + S(X_2)^2/n_2 )^2}{\dfrac{(S(X_1)^2 / n_1)^2}{n_1-1}
  
  
  
+
+
+<br>
  
+## Intervalo de confianza para la diferencia de proporciones
+ 
+
+
+
+
+
+
+
+
+<br>
