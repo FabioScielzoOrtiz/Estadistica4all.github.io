@@ -1539,6 +1539,9 @@ margin-left: 0 !important;
       <li><a href="#intervalo-de-confianza-para-la-media-con-varianza-conocida" id="toc-intervalo-de-confianza-para-la-media-con-varianza-conocida"><span class="toc-section-number">9.5</span> Intervalo de confianza para la media con varianza conocida</a></li>
       <li><a href="#intervalo-de-confianza-para-la-media-con-varianza-desconocida" id="toc-intervalo-de-confianza-para-la-media-con-varianza-desconocida"><span class="toc-section-number">9.6</span> Intervalo de confianza para la media con varianza desconocida</a></li>
       <li><a href="#intervalo-de-confianza-para-la-varianza" id="toc-intervalo-de-confianza-para-la-varianza"><span class="toc-section-number">9.7</span> Intervalo de confianza para la varianza</a></li>
+      <li><a href="#intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-no-pareadas" id="toc-intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-no-pareadas"><span class="toc-section-number">9.8</span> Intervalo de confianza para la diferencia de medias con muestras independientes (no pareadas)</a></li>
+      <li><a href="#intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-dependientes-pareadas" id="toc-intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-dependientes-pareadas"><span class="toc-section-number">9.9</span> Intervalo de confianza para la diferencia de medias con muestras dependientes (pareadas)</a></li>
+      <li><a href="#intervalo-de-confianza-para-el-cociente-de-varianzas" id="toc-intervalo-de-confianza-para-el-cociente-de-varianzas"><span class="toc-section-number">9.10</span> Intervalo de confianza para el cociente de varianzas</a></li>
       </ul></li>
       </ul>
     </div>
@@ -1893,17 +1896,69 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \t
 <p>Queremos obtener un intervalo de confianza para <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span>, que puede interpretarse como la proporción de individuos de la poblacion para los que <span class="math inline">\(\hspace{0.1cm}\mathcal{X}=1\)</span></p>
 <p>Para ello vamos a apoyarnos en el teorema de esperanza-varianza de la media muestral y en el teorema central del limite (TCL) y en el método pivotal.</p>
 <p><br></p>
-<div id="teorema-de-esperanza-varianza-de-la-media-muestral" class="section level3" number="9.3.1">
-<h3><span class="header-section-number">9.3.1</span> Teorema de esperanza-varianza de la media muestral</h3>
+<div id="distribución-bernoulli" class="section level3" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> Distribución Bernoulli</h3>
+<p>Dada una v.a. <span class="math inline">\(\mathcal{X}\)</span>, la distribución bbernoulli se define del siguiente modo: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math display">\[\mathcal{X} \sim Bernoulli(p) \hspace{0.2cm} \Leftrightarrow  \hspace{0.2cm} P(X=x) =p^x (1-p)^x \cdot I(x \in \lbrace 0,1 \rbrace ) \\\]</span></p>
+<p><strong>Observaciones:</strong></p>
+<ul>
+<li>Las v.a. <span class="math inline">\(\hspace{0.1cm} Bernoulli(p)\hspace{0.1cm}\)</span> se usan para modelar experimentos aleatorios con dos únicos resultados dicotomicos (exito-fracaso)
+tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> y la del fracoso <span class="math inline">\(\hspace{0.1cm}1-p\)</span>.</li>
+</ul>
+<p>A este tipo de experimentos aleatorios se les llama experimentos tipo Bernoulli.</p>
+<ul>
+<li><p>Si <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \sim Bernoulli(p)\hspace{0.1cm}\)</span> , entonces:</p>
+<ul>
+<li><span class="math inline">\(\mathcal{X}\hspace{0.1cm}\)</span> puede interpretarse como el nº de exitos obtenidos tras realizar una vez un experimento tipo Bernoulli (notese que este nº solo puede ser 0 o 1), con probabilidad de exito <span class="math inline">\(\hspace{0.1cm}p \\\)</span></li>
+</ul></li>
+</ul>
+<p><strong>Propiedades</strong></p>
+<ul>
+<li><p><span class="math inline">\(P(\mathcal{X}=1)=p \\\)</span></p></li>
+<li><p><span class="math inline">\(P(\mathcal{X}=0)=1-p \\\)</span></p></li>
+<li><p><span class="math inline">\(E[\mathcal{X}]=p \\\)</span></p></li>
+<li><p><span class="math inline">\(Var(\mathcal{X})= p\cdot (1-p) \\\)</span></p></li>
+<li><p><span class="math inline">\(F_\mathcal{X}(x) = \left\lbrace\begin{array}{l} 1 \hspace{0.25cm} , \hspace{0.25cm} \text{si} \hspace{0.25cm} x\geq 1 \\ 0 \hspace{0.25cm} , \hspace{0.25cm} \text{si} \hspace{0.25cm} x &lt; 0 \\ 1-p \hspace{0.25cm} , \hspace{0.25cm} \text{si} \hspace{0.25cm} x\in [0 , 1) \end{array}\right.\)</span></p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="distribución-binomial" class="section level3" number="9.3.2">
+<h3><span class="header-section-number">9.3.2</span> Distribución Binomial</h3>
+<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm} \mathcal{X}\hspace{0.1cm}\)</span>, la distribución binomial se define del siguiente modo:</p>
+<p><span class="math display">\[\mathcal{X} \sim Binomial(n,p) \hspace{0.2cm} \Leftrightarrow  \hspace{0.2cm}  P(X=x) =\binom{n}{x} \cdot p^x (1-p)^x \cdot I(x\in\lbrace 0,1,...,n \rbrace ) \\\]</span></p>
+<p><strong>Observaciones:</strong></p>
+<ul>
+<li><p>Si <span class="math inline">\(\mathcal{X} \sim Binomial(p)\)</span> , entonces:</p>
+<ul>
+<li><span class="math inline">\(\mathcal{X}\)</span> puede interpretarse como el nº de exitos obtenidos tras realizar <span class="math inline">\(n\)</span> veces un experimento tipo Bernoulli con probabilidad de exito <span class="math inline">\(p\)</span>, notese que este número solo puede ser <span class="math inline">\(0,1,...,n \\\)</span></li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><strong>Propiedades</strong></p>
+<ul>
+<li>Si <span class="math inline">\(\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> son v.a. independientes tales que <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_i \sim Bernoulli(p)\)</span> , <span class="math inline">\(i =1,...,n\hspace{0.1cm}\)</span> , entonces:</li>
+</ul>
+<p><span class="math display">\[\mathcal{X}_1 + ... + \mathcal{X}_n \sim Binomial (n, p) \\\]</span></p>
+<ul>
+<li><p><span class="math inline">\(Binomial(n=1, p) = Bernoulli(p) \\\)</span></p></li>
+<li><p><span class="math inline">\(E[\mathcal{X}]=n\cdot p \\\)</span></p></li>
+<li><p><span class="math inline">\(Var(\mathcal{X}) = n \cdot p \cdot (1-p) \\\)</span></p></li>
+<li><p>Para <span class="math inline">\(\hspace{0.1cm}x\geq n\)</span></p></li>
+</ul>
+<p><span class="math display">\[F_\mathcal{X}(x) = \sum_{z\in \lbrace 0,1,...,x\rbrace} \binom{n}{z} \cdot p^z \cdot (1-p)^{n-z}\]</span></p>
+<p><br></p>
+</div>
+<div id="teorema-de-esperanza-varianza-de-la-media-muestral" class="section level3" number="9.3.3">
+<h3><span class="header-section-number">9.3.3</span> Teorema de esperanza-varianza de la media muestral</h3>
 <p>Si tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[E\left[\overline{\mathcal{X}_n}\right] \hspace{0.1cm}=\hspace{0.1cm} E[\mathcal{X}]\\\]</span></p>
 <p><span class="math display">\[Var\left(\overline{\mathcal{X}_n}\right) \hspace{0.1cm}=\hspace{0.1cm} Var(\mathcal{X})/n \\\]</span></p>
 <p>Donde:</p>
-<p><span class="math inline">\(\hspace{0.25cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i\)</span></p>
+<p><span class="math inline">\(\hspace{0.35cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i\)</span></p>
 <p><br></p>
 </div>
-<div id="teorema-central-del-límite" class="section level3" number="9.3.2">
-<h3><span class="header-section-number">9.3.2</span> Teorema central del límite</h3>
+<div id="teorema-central-del-límite" class="section level3" number="9.3.4">
+<h3><span class="header-section-number">9.3.4</span> Teorema central del límite</h3>
 <p>El TCL dice lo siguiente:</p>
 <p>Si tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} = \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.1cm}\underset{d}{\rightarrow}\hspace{0.1cm} N(0,1)\\\]</span></p>
@@ -1913,8 +1968,8 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \t
 <p><span class="math display">\[W_n = \dfrac{\overline{\mathcal{X}_n} - E[\mathcal{X}]}{\sqrt{Var(\mathcal{X})/n}}\]</span></p>
 <p><br></p>
 </div>
-<div id="teorema-de-moivre-laplace" class="section level3" number="9.3.3">
-<h3><span class="header-section-number">9.3.3</span> Teorema de Moivre-Laplace</h3>
+<div id="teorema-de-moivre-laplace" class="section level3" number="9.3.5">
+<h3><span class="header-section-number">9.3.5</span> Teorema de Moivre-Laplace</h3>
 <p>Este teorema es un caso particular del TCL para v.a`s Binomiales.</p>
 <p>Si tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim Binomial(k,p)\hspace{0.1cm}\)</span> y una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.1cm}= \hspace{0.1cm}
@@ -1928,8 +1983,8 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \t
 \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}} \hspace{0.15cm}\underset{d}{\rightarrow}\hspace{0.15cm} N(0,1)\\\]</span></p>
 <p><br></p>
 </div>
-<div id="intervalo-de-confianza-para-la-proporción-1" class="section level3" number="9.3.4">
-<h3><span class="header-section-number">9.3.4</span> Intervalo de confianza para la proporción</h3>
+<div id="intervalo-de-confianza-para-la-proporción-1" class="section level3" number="9.3.6">
+<h3><span class="header-section-number">9.3.6</span> Intervalo de confianza para la proporción</h3>
 <p>La anterior cantidad:</p>
 <p><span class="math display">\[\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, p) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}}\]</span></p>
 <p>es una cantidad pivotal , puesto que contienen al parámetro de interés, en este caso <span class="math inline">\(\hspace{0.1cm}\theta = p\hspace{0.1cm}\)</span> , y su distribución de probabilidad es conocida y no depende de dicho parámetro , es una <span class="math inline">\(\hspace{0.1cm}N(0,1)\hspace{0.1cm}\)</span>, aproximadamente.</p>
@@ -1963,20 +2018,42 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \t
 </div>
 <div id="intervalo-de-confianza-para-la-media-con-varianza-conocida" class="section level2" number="9.5">
 <h2><span class="header-section-number">9.5</span> Intervalo de confianza para la media con varianza conocida</h2>
-<p>Una variable cuantitativa <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> puede modelarse como una variable aleatoria <span class="math inline">\(N(\mu , \sigma^2)\)</span>, donde <span class="math inline">\(\hspace{0.1cm}\mu=E[\mathcal{X}]\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma^2 = Var(\mathcal{X})\)</span>, que pueden interpretarse respectivamente como la media y varianza poblacional de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span></p>
+<p>Una variable cuantitativa <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> puede modelarse como una variable aleatoria <span class="math inline">\(N(\mu , \sigma^2)\)</span>, donde <span class="math inline">\(\hspace{0.1cm}\mu=E[\mathcal{X}]\hspace{0.2cm}\)</span> y <span class="math inline">\(\hspace{0.2cm}\sigma^2 = Var(\mathcal{X})\)</span>, que pueden interpretarse respectivamente como la media y varianza poblacional de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span></p>
 <p>Queremos obtener un intervalo de confianza para <span class="math inline">\(\hspace{0.1cm} \mu \hspace{0.1cm}\)</span>, bajo el supuesto de que <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> es conocido.</p>
 <p>Para ello vamos a apoyarnos en el teorema de distribucion de la media muestral y en el método pivotal.</p>
 <p><br></p>
-<div id="teorema-de-distribución-de-la-media-muestral" class="section level3" number="9.5.1">
-<h3><span class="header-section-number">9.5.1</span> Teorema de distribución de la media muestral</h3>
+<div id="distribución-normal" class="section level3" number="9.5.1">
+<h3><span class="header-section-number">9.5.1</span> Distribución Normal</h3>
+<p><span class="math display">\[\mathcal{X} \sim N(\mu, \sigma^2) \hspace{0.2cm} \Leftrightarrow \hspace{0.2cm} f_\mathcal{X}(x) = \dfrac{1}{\sqrt{ 2\pi \cdot \sigma^2} } \cdot exp \left( \dfrac{-1}{2} \cdot \dfrac{(x- \mu)^2}{\sigma^2}  \right)\]</span></p>
+<p>Donde : <span class="math inline">\(\hspace{0.1cm} \mu \in \mathbb{R} \hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm} \sigma^2 &gt; 0 \\\)</span></p>
+<p><strong>Propiedades</strong></p>
+<ul>
+<li><p><span class="math inline">\(\hspace{0.1cm}E[\mathcal{X}]=\mu \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm}Var(\mathcal{X})=\sigma^2 \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm}\mathcal{X}\cdot a \sim N(\mu \cdot a , a^2 \cdot \sigma^2) \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm}\mathcal{X}\cdot b + a \sim N( b\cdot \mu + a , b^2 \cdot \sigma^2) \\\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_i \sim N(\mu_i , \sigma_i^2)\hspace{0.1cm}\)</span> , para <span class="math inline">\(\hspace{0.1cm}i \in \lbrace 1,...,n\rbrace \hspace{0.1cm}\)</span> , entonces:</p></li>
+</ul>
+<p><span class="math display">\[\mathcal{X}_1 + ...+ \mathcal{X}_n \sim N(\mu_1 +...+ \mu_n , \sigma_1^2 + ...+ \sigma_n^2) \\\]</span></p>
+<ul>
+<li>Si <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_i \sim N(\mu_i , \sigma_i^2)\hspace{0.1cm}\)</span> , para <span class="math inline">\(\hspace{0.1cm}i \in \lbrace 1,...,n\rbrace \hspace{0.1cm}\)</span> , entonces:</li>
+</ul>
+<p><span class="math display">\[\hspace{0.25cm}a_1\cdot \mathcal{X}_1 + ...+ a_n \cdot \mathcal{X}_n \sim N(a_1 \cdot \mu_1 +...+ a_n \cdot \mu_n \hspace{0.1cm},\hspace{0.1cm} a_1^2 \cdot \sigma_1^2 + ...+ a_n^2 \cdot \sigma_n^2) \\\]</span></p>
+<ul>
+<li><span class="math inline">\(\hspace{0.1cm}\dfrac{\hspace{0.1cm} \mathcal{X} - \mu \hspace{0.1cm}}{\sqrt{\sigma^2}} \hspace{0.1cm}\sim\hspace{0.1cm} N(0,1)\)</span></li>
+</ul>
+<p><br></p>
+</div>
+<div id="teorema-de-distribución-de-la-media-muestral" class="section level3" number="9.5.2">
+<h3><span class="header-section-number">9.5.2</span> Teorema de distribución de la media muestral</h3>
 <p>Si tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim N(\mu , \sigma^2)\hspace{0.1cm}\)</span> y una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
-<p><span class="math display">\[\overline{ \mathcal{X}_n } \sim N(\mu , \sigma^2/n)\]</span></p>
+<p><span class="math display">\[\overline{ \mathcal{X}_n } \sim N(\mu \hspace{0.1cm},\hspace{0.1cm} \sigma^2/n)\]</span></p>
 <p>Por tanto:</p>
 <p><span class="math display">\[\dfrac{\hspace{0.2cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.2cm}}{ \sqrt{\sigma^2 / n}  } \hspace{0.1cm}\sim\hspace{0.1cm} N(0,1)\]</span></p>
 <p><br></p>
 </div>
-<div id="intervalo-de-confianza-para-la-media-con-varianza-conocida-1" class="section level3" number="9.5.2">
-<h3><span class="header-section-number">9.5.2</span> Intervalo de confianza para la media con varianza conocida</h3>
+<div id="intervalo-de-confianza-para-la-media-con-varianza-conocida-1" class="section level3" number="9.5.3">
+<h3><span class="header-section-number">9.5.3</span> Intervalo de confianza para la media con varianza conocida</h3>
 <p>La anterior cantidad:</p>
 <p><span class="math display">\[\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \mu) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.1cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.1cm}}{ \sqrt{\sigma^2 / n}  }\]</span></p>
 <p>es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso <span class="math inline">\(\hspace{0.1cm} \theta = \mu\hspace{0.1cm}\)</span>, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una <span class="math inline">\(\hspace{0.1cm}N(0,1)\)</span>.</p>
@@ -2008,17 +2085,30 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \t
 <p>Queremos obtener un intervalo de confianza para <span class="math inline">\(\hspace{0.1cm} \mu \hspace{0.1cm}\)</span>, teniendo en cuenta que <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> es desconocido.</p>
 <p>Para ello vamos a apoyarnos en el teorema de Gosset y en el método pivotal.</p>
 <p><br></p>
-<div id="teorema-de-gosset" class="section level3" number="9.6.1">
-<h3><span class="header-section-number">9.6.1</span> Teorema de Gosset</h3>
+<div id="distribución-t-student" class="section level3" number="9.6.1">
+<h3><span class="header-section-number">9.6.1</span> Distribución t-student</h3>
 <p><br></p>
 </div>
-<div id="intervalo-de-confianza-para-la-media-con-varianza-desconocida-1" class="section level3" number="9.6.2">
-<h3><span class="header-section-number">9.6.2</span> Intervalo de confianza para la media con varianza desconocida</h3>
+<div id="teorema-de-gosset" class="section level3" number="9.6.2">
+<h3><span class="header-section-number">9.6.2</span> Teorema de Gosset</h3>
+<p><br></p>
+</div>
+<div id="intervalo-de-confianza-para-la-media-con-varianza-desconocida-1" class="section level3" number="9.6.3">
+<h3><span class="header-section-number">9.6.3</span> Intervalo de confianza para la media con varianza desconocida</h3>
 <p><br></p>
 </div>
 </div>
 <div id="intervalo-de-confianza-para-la-varianza" class="section level2" number="9.7">
 <h2><span class="header-section-number">9.7</span> Intervalo de confianza para la varianza</h2>
+</div>
+<div id="intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-no-pareadas" class="section level2" number="9.8">
+<h2><span class="header-section-number">9.8</span> Intervalo de confianza para la diferencia de medias con muestras independientes (no pareadas)</h2>
+</div>
+<div id="intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-dependientes-pareadas" class="section level2" number="9.9">
+<h2><span class="header-section-number">9.9</span> Intervalo de confianza para la diferencia de medias con muestras dependientes (pareadas)</h2>
+</div>
+<div id="intervalo-de-confianza-para-el-cociente-de-varianzas" class="section level2" number="9.10">
+<h2><span class="header-section-number">9.10</span> Intervalo de confianza para el cociente de varianzas</h2>
 </div>
 </div>
 </div>

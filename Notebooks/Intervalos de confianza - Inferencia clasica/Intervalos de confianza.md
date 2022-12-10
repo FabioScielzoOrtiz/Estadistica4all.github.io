@@ -10,6 +10,7 @@ output:
       lightbox: true
       gallery: true
       highlight: tango
+      fontsize: 20pt
       
 
 css: custom.css
@@ -624,6 +625,90 @@ Para ello vamos a apoyarnos en el teorema de esperanza-varianza de la media mues
 
 <br>
 
+### Distribución Bernoulli
+
+Dada una v.a. $\mathcal{X}$, la distribución bbernoulli se define del siguiente modo: $\\[0.6cm]$
+
+$$\mathcal{X} \sim Bernoulli(p) \hspace{0.2cm} \Leftrightarrow  \hspace{0.2cm} P(X=x) =p^x (1-p)^x \cdot I(x \in \lbrace 0,1 \rbrace ) \\$$
+
+
+**Observaciones:**
+
+- Las v.a. $\hspace{0.1cm} Bernoulli(p)\hspace{0.1cm}$ se usan para modelar experimentos aleatorios con dos únicos resultados dicotomicos (exito-fracaso)
+ tales que la probabilidad del exito es $\hspace{0.1cm}p\hspace{0.1cm}$ y la del fracoso $\hspace{0.1cm}1-p$.
+ 
+ A este tipo de experimentos aleatorios se les llama experimentos tipo Bernoulli.
+ 
+- Si $\hspace{0.1cm}\mathcal{X} \sim Bernoulli(p)\hspace{0.1cm}$ , entonces:
+
+    - $\mathcal{X}\hspace{0.1cm}$ puede interpretarse como el nº de exitos obtenidos tras realizar una vez un experimento tipo Bernoulli (notese que este nº solo puede ser 0 o 1),  con probabilidad de exito $\hspace{0.1cm}p \\$
+
+
+
+
+**Propiedades**
+
+- $P(\mathcal{X}=1)=p \\$
+
+- $P(\mathcal{X}=0)=1-p \\$
+
+- $E[\mathcal{X}]=p \\$
+
+- $Var(\mathcal{X})= p\cdot (1-p)  \\$
+
+- $F_\mathcal{X}(x) = \left\lbrace\begin{array}{l} 1 \hspace{0.25cm}  , \hspace{0.25cm}  \text{si} \hspace{0.25cm} x\geq 1 \\ 0 \hspace{0.25cm}  , \hspace{0.25cm}  \text{si} \hspace{0.25cm} x < 0 \\ 1-p \hspace{0.25cm}  , \hspace{0.25cm}  \text{si} \hspace{0.25cm} x\in [0 , 1) \end{array}\right.$
+
+
+<br>
+
+
+### Distribución Binomial
+
+Dada una v.a. $\hspace{0.1cm} \mathcal{X}\hspace{0.1cm}$, la distribución binomial se define del siguiente modo:
+
+
+$$\mathcal{X} \sim Binomial(n,p) \hspace{0.2cm} \Leftrightarrow  \hspace{0.2cm}  P(X=x) =\binom{n}{x} \cdot p^x (1-p)^x \cdot I(x\in\lbrace 0,1,...,n \rbrace ) \\$$
+
+
+**Observaciones:**
+
+
+- Si $\mathcal{X} \sim Binomial(p)$ , entonces:
+
+    - $\mathcal{X}$ puede interpretarse como el nº de exitos obtenidos tras realizar $n$ veces un experimento tipo Bernoulli  con probabilidad de exito $p$, notese que este número solo puede ser $0,1,...,n \\$
+
+
+<br>
+
+**Propiedades** 
+
+- Si $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ son v.a. independientes tales que $\hspace{0.1cm}\mathcal{X}_i \sim Bernoulli(p)$ , $i =1,...,n\hspace{0.1cm}$ , entonces:
+
+$$\mathcal{X}_1 + ... + \mathcal{X}_n \sim Binomial (n, p) \\$$
+
+
+- $Binomial(n=1, p) = Bernoulli(p) \\$
+
+
+- $E[\mathcal{X}]=n\cdot p \\$
+
+
+- $Var(\mathcal{X}) = n \cdot p \cdot (1-p) \\$
+
+
+- Para $\hspace{0.1cm}x\geq n$ 
+
+$$F_\mathcal{X}(x) = \sum_{z\in \lbrace 0,1,...,x\rbrace} \binom{n}{z} \cdot p^z \cdot (1-p)^{n-z}$$
+
+
+
+
+
+
+
+<br>
+
+
 ### Teorema de esperanza-varianza de la media muestral
 
 Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
@@ -634,9 +719,11 @@ $$Var\left(\overline{\mathcal{X}_n}\right) \hspace{0.1cm}=\hspace{0.1cm} Var(\ma
 
 Donde:
 
-$\hspace{0.25cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i$
+$\hspace{0.35cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i$
 
 <br>
+
+
 
 ### Teorema central del límite
 
@@ -781,11 +868,14 @@ $\hspace{0.45cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i$
 
 
 
+
+
+
 <br>
  
 ## Intervalo de confianza para la media con varianza conocida
 
-Una variable cuantitativa  $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ puede modelarse como una variable aleatoria $N(\mu , \sigma^2)$, donde $\hspace{0.1cm}\mu=E[\mathcal{X}]\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma^2 = Var(\mathcal{X})$, que pueden interpretarse respectivamente como la media y varianza poblacional de la variable $\hspace{0.1cm}\mathcal{X}$
+Una variable cuantitativa  $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ puede modelarse como una variable aleatoria $N(\mu , \sigma^2)$, donde $\hspace{0.1cm}\mu=E[\mathcal{X}]\hspace{0.2cm}$ y $\hspace{0.2cm}\sigma^2 = Var(\mathcal{X})$, que pueden interpretarse respectivamente como la media y varianza poblacional de la variable $\hspace{0.1cm}\mathcal{X}$
 
 Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \mu \hspace{0.1cm}$, bajo el supuesto de que $\hspace{0.1cm}\sigma^2\hspace{0.1cm}$ es conocido.
 
@@ -796,12 +886,48 @@ Para ello vamos a apoyarnos en el teorema de distribucion de la media muestral  
 
 <br>
 
+
+### Distribución Normal
+
+
+$$\mathcal{X} \sim N(\mu, \sigma^2) \hspace{0.2cm} \Leftrightarrow \hspace{0.2cm} f_\mathcal{X}(x) = \dfrac{1}{\sqrt{ 2\pi \cdot \sigma^2} } \cdot exp \left( \dfrac{-1}{2} \cdot \dfrac{(x- \mu)^2}{\sigma^2}  \right)$$
+
+
+Donde : $\hspace{0.1cm} \mu \in \mathbb{R} \hspace{0.1cm}$ y $\hspace{0.1cm} \sigma^2 > 0 \\$
+
+
+**Propiedades**
+
+- $\hspace{0.1cm}E[\mathcal{X}]=\mu \\$
+
+- $\hspace{0.1cm}Var(\mathcal{X})=\sigma^2 \\$
+
+- $\hspace{0.1cm}\mathcal{X}\cdot a \sim N(\mu \cdot a , a^2 \cdot \sigma^2) \\$
+
+- $\hspace{0.1cm}\mathcal{X}\cdot b + a \sim N( b\cdot \mu + a , b^2 \cdot \sigma^2) \\$
+
+- Si $\hspace{0.1cm}\mathcal{X}_i \sim N(\mu_i , \sigma_i^2)\hspace{0.1cm}$ , para $\hspace{0.1cm}i \in \lbrace 1,...,n\rbrace \hspace{0.1cm}$ , entonces:
+
+$$\mathcal{X}_1 + ...+ \mathcal{X}_n \sim N(\mu_1 +...+ \mu_n , \sigma_1^2 + ...+ \sigma_n^2) \\$$
+
+- Si $\hspace{0.1cm}\mathcal{X}_i \sim N(\mu_i , \sigma_i^2)\hspace{0.1cm}$ , para $\hspace{0.1cm}i \in \lbrace 1,...,n\rbrace \hspace{0.1cm}$ , entonces:
+
+$$\hspace{0.25cm}a_1\cdot \mathcal{X}_1 + ...+ a_n \cdot \mathcal{X}_n \sim N(a_1 \cdot \mu_1 +...+ a_n \cdot \mu_n \hspace{0.1cm},\hspace{0.1cm} a_1^2 \cdot \sigma_1^2 + ...+ a_n^2 \cdot \sigma_n^2) \\$$
+
+- $\hspace{0.1cm}\dfrac{\hspace{0.1cm} \mathcal{X} - \mu \hspace{0.1cm}}{\sqrt{\sigma^2}} \hspace{0.1cm}\sim\hspace{0.1cm} N(0,1)$
+
+
+
+
+
+<br>
+
 ### Teorema de distribución de la media muestral
 
 Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu , \sigma^2)\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
 
 
-$$\overline{ \mathcal{X}_n } \sim N(\mu , \sigma^2/n)$$
+$$\overline{ \mathcal{X}_n } \sim N(\mu \hspace{0.1cm},\hspace{0.1cm} \sigma^2/n)$$
 
 Por tanto:
 
@@ -890,9 +1016,16 @@ El problema es que en la práctica $\hspace{0.1cm}\sigma^2\hspace{0.1cm}$ no es 
 
 
 
+
+
+
+
+
 <br>
 
 ## Intervalo de confianza para la media con varianza desconocida
+
+
 
 
 Una variable cuantitativa  $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ puede modelarse como una variable aleatoria $N(\mu , \sigma^2)$, donde $\hspace{0.1cm}\mu=E[\mathcal{X}]\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma^2 = Var(\mathcal{X})$, que pueden interpretarse respectivamente como la media y varianza poblacional de la variable $\hspace{0.1cm}\mathcal{X}$
@@ -902,6 +1035,14 @@ Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \mu \hspace{0.1c
 
 
 Para ello vamos a apoyarnos en el teorema de Gosset  y en el método pivotal.
+
+
+
+<br>
+
+### Distribución t-student
+
+
 
 
 
@@ -932,16 +1073,19 @@ Para ello vamos a apoyarnos en el teorema de Gosset  y en el método pivotal.
  
 
  
+## Intervalo de confianza para la diferencia de medias con muestras independientes (no pareadas)
+
+ 
+ 
+## Intervalo de confianza para la diferencia de medias con muestras dependientes (pareadas)
+
  
  
  
  
  
- 
- 
- 
- 
- 
+## Intervalo de confianza para el cociente de varianzas
+
  
  
  
