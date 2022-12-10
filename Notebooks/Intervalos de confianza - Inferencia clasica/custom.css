@@ -1,12 +1,12 @@
 body{
     font-family: Helvetica;
-    font-size: 16pt;
+    font-size: 20pt;
   }
   /* Headers */
   h1,h2,h3,h4,h5,h6{
     font-size: 24pt;
   }
-  
+
 #content{         
     max-width:1920px; 
     }

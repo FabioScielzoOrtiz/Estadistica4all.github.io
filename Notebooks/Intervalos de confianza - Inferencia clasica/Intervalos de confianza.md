@@ -10,8 +10,7 @@ output:
       lightbox: true
       gallery: true
       highlight: tango
-      fontsize: 20pt
-      
+
 
 css: custom.css
 ---
