@@ -46,8 +46,21 @@ css: custom.css
 </style>
 
 
+<div class="warning" style='background-color:#10FABA; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
->Más articulos en     [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)
+
+Más articulos en     [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/) 
+
+**Autor:** [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/autores.html)
+
+</p>
+ 
+</p></span>
+</div>
+
 
 ***Se recomienda abrir el artículo en un ordenador o en una tablet.***
  
@@ -57,17 +70,30 @@ css: custom.css
  
 # Variables aleatorias i.i.d.
 
-$\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ son variables aleatorias mutuamente independientes e identicamente distribuidas  (i.i.d.) $\hspace{0.3cm}\Leftrightarrow$
 
-$1)\hspace{0.12cm}$ $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son mutuamente independientes , es decir:
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ son variables aleatorias mutuamente independientes e identicamente distribuidas  (i.i.d.) $\hspace{0.3cm}\Leftrightarrow$
+
+- $\hspace{0.25cm}$ $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son mutuamente independientes , es decir:
 
 $$\hspace{0.08cm} P(\mathcal{X}_1=x_1,...,\mathcal{X}_n=x_n)= \prod_{i=1}^n P(\mathcal{X}_i=x_i)$$
 
-Lo que implica que también son independientes dos a dos , es decir, $\hspace{0.12cm} \mathcal{X}_i \perp \mathcal{X}_j \hspace{0.12cm} , \hspace{0.12cm} \forall i\neq j \\$
+$\hspace{0.25cm}$ Lo que implica que también son independientes dos a dos , es decir, $\hspace{0.12cm} \mathcal{X}_i \perp \mathcal{X}_j \hspace{0.12cm} , \hspace{0.12cm} \forall i\neq j \\$
 
-$2)\hspace{0.12cm}$ $\hspace{0.12cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.12cm}$ tienen la misma distribución de probabilidad, es decir, $\hspace{0.12cm}\mathcal{X}_i \sim F( \cdot ) \hspace{0.15cm}, \hspace{0.1cm} \forall i=1,...,n$ 
+- $\hspace{0.25cm}$ $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.12cm}$ tienen la misma distribución de probabilidad, es decir, $\hspace{0.12cm}\mathcal{X}_i \sim F( \cdot ) \hspace{0.15cm}, \hspace{0.1cm} \forall i=1,...,n$ 
 
-Donde $\hspace{0.08cm}F( \cdot )\hspace{0.08cm}$ es una distribucion de probabilidad con parametros no especificados.
+$\hspace{0.25cm}$ Donde $\hspace{0.08cm}F( \cdot )\hspace{0.08cm}$ es una distribucion de probabilidad con parametros no especificados.
+
+
+</p>
+ 
+</p></span>
+</div>
+
 
 <br>
 
