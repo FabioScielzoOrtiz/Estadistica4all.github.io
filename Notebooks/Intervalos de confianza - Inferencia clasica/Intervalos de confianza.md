@@ -602,10 +602,10 @@ $\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim F(\theta)\hspace{
 
 $\hspace{0.25cm}$ La estimación del parámetro $\hspace{0.1cm} \theta\hspace{0.1cm}$ por el método de máxima verosimilitud se denomina estimación máximo-verosímil, y se define como sigue:
 
-$$\widehat{\theta}_{MV} \hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\theta}{Max} \hspace{0.15cm} \mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm} | \hspace{0.1cm} \theta) 
+$$\widehat{\theta}_{MV} \hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\theta}{Max} \hspace{0.15cm} \mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n , \theta) 
 \hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\theta}{Max} \hspace{0.15cm}
-f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \theta)
-\hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\theta}{Max} \hspace{0.15cm} \prod_{i=1}^n f_{\mathcal{X}}(x_i \hspace{0.1cm}|\hspace{0.1cm} \theta) \\$$
+f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n , \theta)
+\hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\theta}{Max} \hspace{0.15cm} \prod_{i=1}^n f_{\mathcal{X}}(x_i , \theta) \\$$
 
 
 </p>
@@ -616,7 +616,7 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \t
 
 
 
-**Observacion:**
+**Observación:**
 
 La idea del método de estimación por máxima verosimilitud es, dada una muestra de observaciones (unos datos) de una variable de interes que tiene cierta función de densidad o de probabilidad dependiente de un parametro desconocido, estimar el parametro desconocido con aquel valor del parametro que maximiza la funcion de probabilidad o densidad conjunta de la muestra, es decir, que maximiza la probabilidad de obtener la muestra de observaciones que se ha extraido, es decir, que hace más verosimil los datos disponibles.
 
@@ -659,16 +659,16 @@ $$\left(\widehat{\mu} \hspace{0.1cm},\hspace{0.1cm} \widehat{\sigma}^2 \right) \
  
 Resolviendo el problema de optimización se obtienen las siguientes expresiones:
 
-$$\widehat{\mu} = \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i$$
+$$\widehat{\mu} \hspace{0.1cm}=\hspace{0.1cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i$$
 
-$$\widehat{\sigma}^2 = S^2(X) = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2 \\$$
+$$\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S(X)^2 = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2 \\[1cm]$$
 
 
 Por lo que,  dada una v.a. $\hspace{0.1cm}\mathcal{X} \sim N(\mu , \sigma^2)\hspace{0.1cm}$,  los ***estimadores*** **maximo-verosimiles** de los parametros $\hspace{0.1cm}\mu\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma^2\hspace{0.1cm}$ son:
 
-$$\widehat{\mu} = \overline{\mathcal{X}_n} = \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i$$
+$$\widehat{\mu} \hspace{0.1cm}=\hspace{0.1cm} \overline{\mathcal{X}_n} = \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i$$
 
-$$\widehat{\sigma}^2 = S^2_n = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{\mathcal{X}_n})^2 \\$$
+$$\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S^2_n = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{\mathcal{X}_n})^2 \\$$
 
 
 
@@ -681,9 +681,9 @@ $$\widehat{\sigma}^2 = S^2_n = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{\mathc
  
 ### Principio de invarianza
 
-Dada una funcion $\hspace{0.1cm} T\hspace{0.1cm}$ del parametro $\hspace{0.1cm}\theta$ $\hspace{0.1cm}\Rightarrow \hspace{0.1cm}T(\theta)$
+Dada una funcion $\hspace{0.1cm} T\hspace{0.1cm}$ del parametro $\hspace{0.1cm}\theta$ $\hspace{0.15cm}\Rightarrow \hspace{0.15cm}T(\theta)$
 
-Si $\hspace{0.1cm}\widehat{\theta}_{MV}\hspace{0.1cm}$ es el estimador máximo-verosímil del parametro $\hspace{0.1cm}\theta\hspace{0.1cm}$ , entonces:
+Si $\hspace{0.1cm}\widehat{\theta}_{MV}\hspace{0.1cm}$ es el estimador máximo-verosímil del parámetro $\hspace{0.1cm}\theta\hspace{0.1cm}$ , entonces:
 
 - $\hspace{0.1cm} T(\widehat{\theta}_{MV})\hspace{0.1cm}$ es el estimador máximo-verosimil de $\hspace{0.1cm}T(\theta)$
  
@@ -696,9 +696,9 @@ Si $\hspace{0.1cm}\widehat{\theta}_{MV}\hspace{0.1cm}$ es el estimador máximo-v
  
 Dada una v.a. $\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$  y dada una constante $\hspace{0.1cm}\alpha \in (0,1) \\$
  
- Un intervalo de confianza $\hspace{0.1cm}1-\alpha\hspace{0.1cm}$ para el parámetro $\hspace{0.1cm}\theta\hspace{0.1cm}$ es un intervalo $\hspace{0.1cm}[ L_1(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.1cm},\hspace{0.1cm} L_2(\mathcal{X}_1,...,\mathcal{X}_n) ]$ tal que: $\\[0.7cm]$
+ Un intervalo de confianza $\hspace{0.1cm}1-\alpha\hspace{0.1cm}$ para el parámetro $\hspace{0.1cm}\theta\hspace{0.1cm}$ es un intervalo $\hspace{0.1cm}\left[ L_1(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.1cm},\hspace{0.1cm} L_2(\mathcal{X}_1,...,\mathcal{X}_n) \right]$ tal que: $\\[0.7cm]$
  
- $$P(L_1 \leq \theta  \leq L_2) = 1- \alpha$$
+ $$P(L_1 \leq \theta  \leq L_2) = 1- \alpha \\$$
 
  
 
@@ -743,21 +743,22 @@ El método pivotal es un método para la construcción de intervalos de confianz
 
 Es un método general para encontrar $\hspace{0.1cm}L_1(\mathcal{X}_1,...,\mathcal{X}_n)$ y $L_2(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ tales que: 
 
-$$\hspace{0.1cm}P(L_1(\mathcal{X}_1,...,\mathcal{X}_n) < \theta  < L_2(\mathcal{X}_1,...,\mathcal{X}_n))=1-\alpha$$
+$$\hspace{0.1cm}P(L_1(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.1cm}\leq\hspace{0.1cm} \theta  \hspace{0.1cm}\leq\hspace{0.1cm} L_2(\mathcal{X}_1,...,\mathcal{X}_n))\hspace{0.1cm}=\hspace{0.1cm}1-\alpha$$
 
 
-El método consiste en encontrar una función $\hspace{0.1cm}\Upsilon\hspace{0.1cm}$ de la m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n))\hspace{0.1cm}$ y del parámetro $\theta$ con distribucion de probabilidad conocida y no dependiente de $\hspace{0.1cm}\theta\hspace{0.1cm}$ , llamada cantidad pivotal:
+El método consiste en encontrar una función $\hspace{0.1cm}\Upsilon\hspace{0.1cm}$ de la m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ y del parámetro $\theta$ con distribucion de probabilidad conocida y no dependiente de $\hspace{0.1cm}\theta\hspace{0.1cm}$ , llamada cantidad pivotal:
 
-$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n), \theta)\hspace{0.1cm}$ tiene que ser una v.a. con distribución conocida y que no depende de $\hspace{0.1cm}\theta\hspace{0.1cm}$ de tal manera que pueden determinarse un par de números $\hspace{0.1cm}a, b\in \mathbb{R}\hspace{0.1cm}$ tales que
+$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \theta)\hspace{0.1cm}$ tiene que ser una v.a. con **distribución de probabilidad conocida** y que **no depende de** $\hspace{0.1cm}\theta\hspace{0.1cm}$ de tal manera que pueden determinarse un par de números $\hspace{0.1cm}a, b\in \mathbb{R}\hspace{0.1cm}$ tales que
 
-$$P(a \leq \Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \theta) \leq b) =1-\alpha$$
+$$P(a \hspace{0.1cm}\leq\hspace{0.1cm} \Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \theta) \hspace{0.1cm}\leq\hspace{0.1cm} b) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha$$
 
 Se tiene que transformar la última expresion para aislar el parametro $\hspace{0.1cm}\theta\hspace{0.1cm}$ de forma que se llegue a la siguiente expresión:
 
-$$P(g_1( a, \mathcal{X}_1,...,\mathcal{X}_n) )  \leq  \theta \leq g_2(b, \mathcal{X}_1,...,\mathcal{X}_n) ) = 1-\alpha$$
+$$P(g_1( a, \mathcal{X}_1,...,\mathcal{X}_n) )  \hspace{0.1cm}\leq\hspace{0.1cm}  \theta \hspace{0.1cm}\leq\hspace{0.1cm} g_2(b, \mathcal{X}_1,...,\mathcal{X}_n) ) = 1-\alpha$$
 
 
 Donde: $\hspace{0.1cm}g_1\hspace{0.1cm}$ y $\hspace{0.1cm}g_2\hspace{0.1cm}$ son funciones dependientes de $\hspace{0.1cm}a,\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ y $\hspace{0.1cm}b, \mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ , respectivamente.
+
 
 <br>
  

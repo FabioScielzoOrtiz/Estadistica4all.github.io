@@ -1980,15 +1980,15 @@ E[\mathcal{X}^h] \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n 
 <p><span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim F(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \\\)</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> La estimación del parámetro <span class="math inline">\(\hspace{0.1cm} \theta\hspace{0.1cm}\)</span> por el método de máxima verosimilitud se denomina estimación máximo-verosímil, y se define como sigue:</p>
-<p><span class="math display">\[\widehat{\theta}_{MV} \hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\theta}{Max} \hspace{0.15cm} \mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm} | \hspace{0.1cm} \theta)
+<p><span class="math display">\[\widehat{\theta}_{MV} \hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\theta}{Max} \hspace{0.15cm} \mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n , \theta)
 \hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\theta}{Max} \hspace{0.15cm}
-f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \theta)
-\hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\theta}{Max} \hspace{0.15cm} \prod_{i=1}^n f_{\mathcal{X}}(x_i \hspace{0.1cm}|\hspace{0.1cm} \theta) \\\]</span></p>
+f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n , \theta)
+\hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\theta}{Max} \hspace{0.15cm} \prod_{i=1}^n f_{\mathcal{X}}(x_i , \theta) \\\]</span></p>
 </p>
 </p>
 <p></span></p>
 </div>
-<p><strong>Observacion:</strong></p>
+<p><strong>Observación:</strong></p>
 <p>La idea del método de estimación por máxima verosimilitud es, dada una muestra de observaciones (unos datos) de una variable de interes que tiene cierta función de densidad o de probabilidad dependiente de un parametro desconocido, estimar el parametro desconocido con aquel valor del parametro que maximiza la funcion de probabilidad o densidad conjunta de la muestra, es decir, que maximiza la probabilidad de obtener la muestra de observaciones que se ha extraido, es decir, que hace más verosimil los datos disponibles.</p>
 <p>Siempre bajo el supuesto de que conocemos la distribucion de probabilidad de la variable de interes, y por tanto se puede calcular la probabilidad de extraer aleatoriamente cierta muestra de observaciones de esa variable.</p>
 <p><br></p>
@@ -2009,17 +2009,17 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \t
 <p>Por tanto, dada una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}\)</span>,las <strong><em>estimaciones</em></strong> <strong>máximo-verosímiles</strong> de los parametros <span class="math inline">\(\hspace{0.1cm}\mu\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> son:</p>
 <p><span class="math display">\[\left(\widehat{\mu} \hspace{0.1cm},\hspace{0.1cm} \widehat{\sigma}^2 \right) \hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\left(\mu , \sigma^2 \right)}{Max} \hspace{0.15cm}  \left( \dfrac{1}{\sqrt{2\cdot \pi \cdot \sigma^2}}\right)^2 \cdot exp \left\lbrace -\dfrac{1}{2} \cdot \sum_{i=1}^n \dfrac{(x_i - \mu)^2}{\sigma^2} \right\rbrace\]</span></p>
 <p>Resolviendo el problema de optimización se obtienen las siguientes expresiones:</p>
-<p><span class="math display">\[\widehat{\mu} = \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i\]</span></p>
-<p><span class="math display">\[\widehat{\sigma}^2 = S^2(X) = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2 \\\]</span></p>
+<p><span class="math display">\[\widehat{\mu} \hspace{0.1cm}=\hspace{0.1cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i\]</span></p>
+<p><span class="math display">\[\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S(X)^2 = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2 \\[1cm]\]</span></p>
 <p>Por lo que, dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \sim N(\mu , \sigma^2)\hspace{0.1cm}\)</span>, los <strong><em>estimadores</em></strong> <strong>maximo-verosimiles</strong> de los parametros <span class="math inline">\(\hspace{0.1cm}\mu\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> son:</p>
-<p><span class="math display">\[\widehat{\mu} = \overline{\mathcal{X}_n} = \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i\]</span></p>
-<p><span class="math display">\[\widehat{\sigma}^2 = S^2_n = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{\mathcal{X}_n})^2 \\\]</span></p>
+<p><span class="math display">\[\widehat{\mu} \hspace{0.1cm}=\hspace{0.1cm} \overline{\mathcal{X}_n} = \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i\]</span></p>
+<p><span class="math display">\[\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S^2_n = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{\mathcal{X}_n})^2 \\\]</span></p>
 <p><br></p>
 </div>
 <div id="principio-de-invarianza" class="section level3" number="8.2.4">
 <h3><span class="header-section-number">8.2.4</span> Principio de invarianza</h3>
-<p>Dada una funcion <span class="math inline">\(\hspace{0.1cm} T\hspace{0.1cm}\)</span> del parametro <span class="math inline">\(\hspace{0.1cm}\theta\)</span> <span class="math inline">\(\hspace{0.1cm}\Rightarrow \hspace{0.1cm}T(\theta)\)</span></p>
-<p>Si <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}_{MV}\hspace{0.1cm}\)</span> es el estimador máximo-verosímil del parametro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> , entonces:</p>
+<p>Dada una funcion <span class="math inline">\(\hspace{0.1cm} T\hspace{0.1cm}\)</span> del parametro <span class="math inline">\(\hspace{0.1cm}\theta\)</span> <span class="math inline">\(\hspace{0.15cm}\Rightarrow \hspace{0.15cm}T(\theta)\)</span></p>
+<p>Si <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}_{MV}\hspace{0.1cm}\)</span> es el estimador máximo-verosímil del parámetro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> , entonces:</p>
 <ul>
 <li><span class="math inline">\(\hspace{0.1cm} T(\widehat{\theta}_{MV})\hspace{0.1cm}\)</span> es el estimador máximo-verosimil de <span class="math inline">\(\hspace{0.1cm}T(\theta)\)</span></li>
 </ul>
@@ -2030,8 +2030,8 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \t
 <div id="estimación-por-intervalos-de-confianza" class="section level1" number="9">
 <h1><span class="header-section-number">9</span> Estimación por intervalos de confianza <a class="anchor" id="1"></a></h1>
 <p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y dada una constante <span class="math inline">\(\hspace{0.1cm}\alpha \in (0,1) \\\)</span></p>
-<p>Un intervalo de confianza <span class="math inline">\(\hspace{0.1cm}1-\alpha\hspace{0.1cm}\)</span> para el parámetro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> es un intervalo <span class="math inline">\(\hspace{0.1cm}[ L_1(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.1cm},\hspace{0.1cm} L_2(\mathcal{X}_1,...,\mathcal{X}_n) ]\)</span> tal que: <span class="math inline">\(\\[0.7cm]\)</span></p>
-<p><span class="math display">\[P(L_1 \leq \theta  \leq L_2) = 1- \alpha\]</span></p>
+<p>Un intervalo de confianza <span class="math inline">\(\hspace{0.1cm}1-\alpha\hspace{0.1cm}\)</span> para el parámetro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> es un intervalo <span class="math inline">\(\hspace{0.1cm}\left[ L_1(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.1cm},\hspace{0.1cm} L_2(\mathcal{X}_1,...,\mathcal{X}_n) \right]\)</span> tal que: <span class="math inline">\(\\[0.7cm]\)</span></p>
+<p><span class="math display">\[P(L_1 \leq \theta  \leq L_2) = 1- \alpha \\\]</span></p>
 <p><strong>Observaciones:</strong></p>
 <ul>
 <li><p><span class="math inline">\(L_1\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}L_2\hspace{0.1cm}\)</span> son estadisticos de la m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , y por tanto son variables aleatorias. <span class="math inline">\(\\[0.6cm]\)</span></p></li>
@@ -2057,12 +2057,12 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \t
 <h2><span class="header-section-number">9.2</span> Método pivotal</h2>
 <p>El método pivotal es un método para la construcción de intervalos de confianza.</p>
 <p>Es un método general para encontrar <span class="math inline">\(\hspace{0.1cm}L_1(\mathcal{X}_1,...,\mathcal{X}_n)\)</span> y <span class="math inline">\(L_2(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> tales que:</p>
-<p><span class="math display">\[\hspace{0.1cm}P(L_1(\mathcal{X}_1,...,\mathcal{X}_n) &lt; \theta  &lt; L_2(\mathcal{X}_1,...,\mathcal{X}_n))=1-\alpha\]</span></p>
-<p>El método consiste en encontrar una función <span class="math inline">\(\hspace{0.1cm}\Upsilon\hspace{0.1cm}\)</span> de la m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n))\hspace{0.1cm}\)</span> y del parámetro <span class="math inline">\(\theta\)</span> con distribucion de probabilidad conocida y no dependiente de <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> , llamada cantidad pivotal:</p>
-<p><span class="math inline">\(\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n), \theta)\hspace{0.1cm}\)</span> tiene que ser una v.a. con distribución conocida y que no depende de <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> de tal manera que pueden determinarse un par de números <span class="math inline">\(\hspace{0.1cm}a, b\in \mathbb{R}\hspace{0.1cm}\)</span> tales que</p>
-<p><span class="math display">\[P(a \leq \Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \theta) \leq b) =1-\alpha\]</span></p>
+<p><span class="math display">\[\hspace{0.1cm}P(L_1(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.1cm}\leq\hspace{0.1cm} \theta  \hspace{0.1cm}\leq\hspace{0.1cm} L_2(\mathcal{X}_1,...,\mathcal{X}_n))\hspace{0.1cm}=\hspace{0.1cm}1-\alpha\]</span></p>
+<p>El método consiste en encontrar una función <span class="math inline">\(\hspace{0.1cm}\Upsilon\hspace{0.1cm}\)</span> de la m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> y del parámetro <span class="math inline">\(\theta\)</span> con distribucion de probabilidad conocida y no dependiente de <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> , llamada cantidad pivotal:</p>
+<p><span class="math inline">\(\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \theta)\hspace{0.1cm}\)</span> tiene que ser una v.a. con <strong>distribución de probabilidad conocida</strong> y que <strong>no depende de</strong> <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> de tal manera que pueden determinarse un par de números <span class="math inline">\(\hspace{0.1cm}a, b\in \mathbb{R}\hspace{0.1cm}\)</span> tales que</p>
+<p><span class="math display">\[P(a \hspace{0.1cm}\leq\hspace{0.1cm} \Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \theta) \hspace{0.1cm}\leq\hspace{0.1cm} b) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha\]</span></p>
 <p>Se tiene que transformar la última expresion para aislar el parametro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> de forma que se llegue a la siguiente expresión:</p>
-<p><span class="math display">\[P(g_1( a, \mathcal{X}_1,...,\mathcal{X}_n) )  \leq  \theta \leq g_2(b, \mathcal{X}_1,...,\mathcal{X}_n) ) = 1-\alpha\]</span></p>
+<p><span class="math display">\[P(g_1( a, \mathcal{X}_1,...,\mathcal{X}_n) )  \hspace{0.1cm}\leq\hspace{0.1cm}  \theta \hspace{0.1cm}\leq\hspace{0.1cm} g_2(b, \mathcal{X}_1,...,\mathcal{X}_n) ) = 1-\alpha\]</span></p>
 <p>Donde: <span class="math inline">\(\hspace{0.1cm}g_1\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}g_2\hspace{0.1cm}\)</span> son funciones dependientes de <span class="math inline">\(\hspace{0.1cm}a,\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}b, \mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> , respectivamente.</p>
 <p><br></p>
 </div>
