@@ -46,15 +46,15 @@ css: custom.css
 </style>
 
 
-<div class="warning" style='background-color:#10FABA; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<div class="warning" style='background-color:#FEF0D9; color: #000000; border-left: solid #F9BC0D 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
 <p style='margin-left:1em;'>
 
 
-Más articulos en     [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/) 
+$\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)**
 
-**Autor:** [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/autores.html)
+$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/autores.html)
 
 </p>
  
