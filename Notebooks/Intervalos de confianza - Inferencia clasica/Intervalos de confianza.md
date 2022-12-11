@@ -1556,7 +1556,7 @@ Para ello vamos a apoyarnos en el teorema de distribucion de la media muestral  
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-<p style='margin-left:0.3em;'>
+<p style='margin-left:0.1em;'>
 
 $\hspace{0.25cm}$ Dada una v.a.  $\hspace{0.1cm} \mathcal{X}\hspace{0.1cm}$ la distribución Normal sse define del siguiente modo:
 
@@ -1571,7 +1571,10 @@ $\hspace{0.25cm}$ Donde : $\hspace{0.15cm} \mu \in \mathbb{R} \hspace{0.2cm}$ y 
 </div>
 
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
+<p style='margin-left:0.1em;'>
 
 $\hspace{0.25cm}$ **Propiedades**
 
@@ -1593,13 +1596,21 @@ $$\hspace{0.25cm}a_1\cdot \mathcal{X}_1 + ...+ a_n \cdot \mathcal{X}_n \sim N(a_
 
 - $\hspace{0.1cm}\dfrac{\hspace{0.15cm} \mathcal{X} - \mu \hspace{0.15cm}}{\sqrt{\sigma^2}} \hspace{0.1cm}\sim\hspace{0.1cm} N(0,1)$
 
-
+</p>
+ 
+</p></span>
+</div>
 
 
 
 <br>
 
 ### Teorema de distribución de la media muestral
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
 
 $\hspace{0.25cm}$ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu , \sigma^2)\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
 
@@ -1611,13 +1622,21 @@ $\hspace{0.25cm}$ Por tanto:
 
 $$\dfrac{\hspace{0.2cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.2cm}}{ \sqrt{\sigma^2 / n}  } \hspace{0.1cm}\sim\hspace{0.1cm} N(0,1)$$
 
-
+</p>
+ 
+</p></span>
+</div>
 
 
 <br>
 
 ### Intervalo de confianza para la media con varianza conocida
 
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
 
 $\hspace{0.25cm}$ La anterior cantidad:
 
@@ -1651,7 +1670,7 @@ $$P\left( z_{1-\alpha/2} < N(0,1)  < z_{\alpha/2} \right) = P\left( -z_{\alpha/2
 $\hspace{0.25cm}$ Donde:
 
 
-$z_{\alpha/2}\hspace{0.1cm}$ es el valor tal que $\hspace{0.1cm}P(N(0,1)>z_{\alpha/2}) = \alpha/2 \\$ 
+$\hspace{0.35cm}$ $z_{\alpha/2}\hspace{0.1cm}$ es el valor tal que $\hspace{0.1cm}P(N(0,1)>z_{\alpha/2}) = \alpha/2 \\$ 
 
 
 
@@ -1661,16 +1680,39 @@ $\hspace{0.25cm}$ Por tanto:
 $$P\left( \hspace{0.1cm} -z_{\alpha/2} \hspace{0.1cm}<\hspace{0.1cm} \hspace{0.1cm} \dfrac{\hspace{0.1cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.1cm}}{ \sqrt{\sigma^2 / n}  }  \hspace{0.1cm} <\hspace{0.1cm} z_{\alpha/2}\hspace{0.1cm} \right) \hspace{0.1cm} = \hspace{0.1cm} 1-\alpha \\[1cm]$$
 
 
+</p>
+ 
+</p></span>
+</div>
 
 
 
-$\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\theta=\mu$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
+
+
+$\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\theta=\mu$. 
+
+Operando un poco se llega a lo siguiente: $\\[0.6cm]$
 
 
 $$P\left( \hspace{0.1cm} \overline{\mathcal{X}_n} -z_{\alpha/2} \cdot \sqrt{\sigma^2 / n}\hspace{0.1cm}<\hspace{0.1cm}  \mu \hspace{0.1cm} <\hspace{0.1cm} \overline{\mathcal{X}_n} + z_{\alpha/2}\cdot \sqrt{\sigma^2 / n}\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
 
 
+</p>
+ 
+</p></span>
+</div>
 
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
  
 
 $\hspace{0.25cm}$ Por tanto, tenemos el siguiente intervalo de confianza a un nivel  $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} \mu \hspace{0.1cm}\\$
@@ -1688,6 +1730,10 @@ $\hspace{0.25cm}$ Donde:
 
 $\hspace{0.45cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i$
 
+</p>
+ 
+</p></span>
+</div>
 
 
 El problema es que en la práctica $\hspace{0.1cm}\sigma^2\hspace{0.1cm}$ no es conocido, por ello se utiliza el intervalo de confianza de la siguiente sección.
@@ -1697,7 +1743,7 @@ El problema es que en la práctica $\hspace{0.1cm}\sigma^2\hspace{0.1cm}$ no es 
 
 
 
-
+<br>
 
 <br>
 
@@ -1705,6 +1751,7 @@ El problema es que en la práctica $\hspace{0.1cm}\sigma^2\hspace{0.1cm}$ no es 
 
 
 
+ 
 
 Una variable cuantitativa  $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ puede modelarse como una variable aleatoria $N(\mu , \sigma^2)$, donde $\hspace{0.1cm}\mu=E[\mathcal{X}]\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma^2 = Var(\mathcal{X})$, que pueden interpretarse respectivamente como la media y varianza poblacional de la variable $\hspace{0.1cm}\mathcal{X}$
 
@@ -1712,7 +1759,7 @@ Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \mu \hspace{0.1c
 
 
 
-Para ello vamos a apoyarnos en el teorema de Gosset  y en el método pivotal.
+Para ello vamos a apoyarnos en el **teorema de Gosset**  y en el **método pivotal**.
 
 
 
@@ -1720,10 +1767,33 @@ Para ello vamos a apoyarnos en el teorema de Gosset  y en el método pivotal.
 
 ### Distribución t-student
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
+
 $\hspace{0.25cm}$ Dada una v.a.  $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$  la distribución t-student se define del siguiente modo:
 
 $$\mathcal{X} \sim t_n \Leftrightarrow f_X(x) = \dfrac{\Gamma\left(\dfrac{n+1}{2}\right)}{\sqrt{n\cdot \pi \hspace{0.1cm}} \cdot \Gamma(n/2)} \cdot \left(1 + \dfrac{x^2}{n}\right)^{-1/2 \cdot (n+1)} \cdot I( x\in \mathbb{R} ) \\$$
 
+</p>
+ 
+</p></span>
+</div>
+
+
+Donde:
+
+$\Gamma$ es la función gamma.
+
+
+<br>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
 
 
 $\hspace{0.25cm}$ **Propiedades** 
@@ -1736,18 +1806,25 @@ $\hspace{0.25cm}$ **Propiedades**
 
 $$\dfrac{\mathcal{Z}}{\sqrt{\mathcal{X}/n}} \sim t_n$$
 
-
+</p>
+ 
+</p></span>
+</div>
 
 
 <br>
 
 ### Teorema de Gosset
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-$\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}$, y dada una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}$ 
+<p style='margin-left:0.1em;'>
+
+$\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}$, y dada una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X} \\$ 
 
 
-$$\dfrac{\hspace{0.15cm} \overline{\mathcal{X}_n} - \mu \hspace{0.15cm}}{\sqrt{\dfrac{n}{n-1} S_n^2/n \hspace{0.1cm}} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{n-1}$$
+$$\dfrac{\hspace{0.15cm} \overline{\mathcal{X}_n} - \mu \hspace{0.15cm}}{\sqrt{\dfrac{n}{n-1} S_n^2/n \hspace{0.1cm}} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{n-1} \\$$
 
 $\hspace{0.25cm}$ Donde:
 
@@ -1755,14 +1832,20 @@ $\hspace{0.25cm}$ Donde:
 
 - $S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2$
 
-
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
 
 ### Intervalo de confianza para la media con varianza desconocida
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
+<p style='margin-left:0.1em;'>
 
 $\hspace{0.25cm}$ La anterior cantidad:
 
@@ -1772,7 +1855,7 @@ $$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \mu) \hspace{0.1cm}=\hspace{0.1cm} \
 $\hspace{0.25cm}$ es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso $\hspace{0.1cm} \theta = \mu\hspace{0.1cm}$, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una $\hspace{0.1cm} t_{n-1}$.
 
 
-$\hspace{0.25cm}$ Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}$ tales que:
+$\hspace{0.25cm}$ Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}$ tales que: $\\[0.6cm]$
 
 
 
@@ -1781,7 +1864,7 @@ $$P\left( \hspace{0.1cm}a \hspace{0.1cm}< \hspace{0.1cm} \dfrac{\hspace{0.15cm} 
 
 
  
-$\hspace{0.25cm}$ Siguiendo los anteriores resultados:
+$\hspace{0.25cm}$ Siguiendo los anteriores resultados: $\\[0.6cm]$
 
 
 $$P\left( \hspace{0.1cm} a \hspace{0.1cm}<\hspace{0.1cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}_n} - \mu \hspace{0.15cm}}{\sqrt{\dfrac{n}{n-1} S_n^2/n \hspace{0.1cm}} } \hspace{0.1cm} <\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} P\left( a < t_{n-1}  < b \right) \\$$
@@ -1790,32 +1873,54 @@ $$P\left( \hspace{0.1cm} a \hspace{0.1cm}<\hspace{0.1cm} \dfrac{\hspace{0.15cm} 
 
 $\hspace{0.25cm}$ Teniendo en cuenta las propiedades de la distribución t-student: $\\[0.6cm]$
 
-$$P\left( t_{1-\alpha/2} < t_{n-1}  < t_{\alpha/2} \right) = P\left( -t_{\alpha/2} < t_{n-1}  < t_{\alpha/2} \right) = 1-\alpha \\$$
+$$P\left( t_{1-\alpha/2} < t_{n-1}  < t_{\alpha/2} \right) = P\left( -t_{\alpha/2} < t_{n-1}  < t_{\alpha/2} \right) = 1-\alpha \\[0.6cm]$$
  
  
 $\hspace{0.25cm}$ Donde:
 
 
-$t_{\alpha/2}\hspace{0.1cm}$ es el valor tal que $\hspace{0.1cm}P(t_{n-1}>t_{\alpha/2}) = \alpha/2 \\$ 
+$\hspace{0.25cm}$ $t_{\alpha/2}\hspace{0.1cm}$ es el valor tal que $\hspace{0.1cm}P(t_{n-1}>t_{\alpha/2}) = \alpha/2 \\$ 
 
 
 
-$\hspace{0.25cm}$ Por tanto:
+$\hspace{0.25cm}$ Por tanto: $\\[0.6cm]$
 
 
 $$P\left( \hspace{0.1cm} -t^{n-1}_{\alpha/2} \hspace{0.1cm}<\hspace{0.1cm}   \dfrac{\hspace{0.15cm} \overline{\mathcal{X}_n} - \mu \hspace{0.15cm}}{\sqrt{\dfrac{n}{n-1} S_n^2/n \hspace{0.1cm}} }  \hspace{0.1cm} <\hspace{0.1cm} t^{n-1}_{\alpha/2}\hspace{0.1cm} \right) \hspace{0.1cm} = \hspace{0.1cm} 1-\alpha \\[1cm]$$
 
 
+</p>
+ 
+</p></span>
+</div>
 
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-$\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\theta=\mu$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
+<p style='margin-left:0.1em;'>
+ 
+
+$\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\theta=\mu$
+
+Operando un poco se llega a lo siguiente: $\\[0.6cm]$
 
 
 $$P\left( \hspace{0.1cm} \overline{\mathcal{X}_n} -t^{n-1}_{\alpha/2} \cdot \sqrt{\dfrac{n}{n-1} S_n^2/n}\hspace{0.1cm}<\hspace{0.1cm}  \mu \hspace{0.1cm} <\hspace{0.1cm} \overline{\mathcal{X}_n} + t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1} S_n^2/n}\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
 
 
 
+</p>
+ 
+</p></span>
+</div>
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
  
 
 $\hspace{0.25cm}$ Por tanto, tenemos el siguiente intervalo de confianza a un nivel  $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} \mu \hspace{0.1cm}\\$
@@ -1835,6 +1940,10 @@ $\hspace{0.45cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i$
 
 $\hspace{0.45cm} S(X)^2 = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2$
 
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
@@ -1843,47 +1952,58 @@ $\hspace{0.45cm} S(X)^2 = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2$
 
 
 ```python
+def CI_Mean(Variable , alpha=0.05):
 
+    n = len(Variable)
+
+    t_alpha_medios = scipy.stats.t.ppf( 1 - alpha/2 , df=n-1)
+
+    X_mean = Variable.mean()
+
+    X_cuasi_var = Variable.std()**2 
+    
+    # std() esta definida por defecto como la cuasi-desviacion-tipica
+
+    L1 = X_mean - t_alpha_medios * np.sqrt(X_cuasi_var/n)
+
+    L2 = X_mean + t_alpha_medios * np.sqrt(X_cuasi_var/n)
+
+    interval = [L1 , L2]
+
+    return interval , X_mean
 ```
 
 
 ```python
-
+Price = Data.price
 ```
 
 
 ```python
-
-```
-
-```python
-
+intervalo , media = CI_Mean(Variable=Price , alpha=0.05)
 ```
 
 
 ```python
-
+intervalo
 ```
+
+
+
+
+    [1954927.6388481215, 2216732.108133506]
+
+
 
 
 ```python
-
+media
 ```
 
 
-```python
-
-```
 
 
-```python
-
-```
-
-
-```python
-
-```
+    2085829.8734908137
 
 
 
@@ -1898,13 +2018,13 @@ $\hspace{0.45cm} S(X)^2 = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2$
  
 
 
-Una variable cuantitativa  $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ puede modelarse como una variable aleatoria $N(\mu , \sigma^2)$, donde $\hspace{0.1cm}\mu=E[\mathcal{X}]\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma^2 = Var(\mathcal{X})$, que pueden interpretarse respectivamente como la media y varianza poblacional de la variable $\hspace{0.1cm}\mathcal{X}$
+Una variable cuantitativa  $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ puede modelarse como una variable aleatoria $\hspace{0.1cm}N(\mu , \sigma^2)\hspace{0.1cm}$, donde $\hspace{0.1cm}\mu=E[\mathcal{X}]\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma^2 = Var(\mathcal{X})$, que pueden interpretarse respectivamente como la media y varianza poblacional de la variable $\hspace{0.1cm}\mathcal{X}$
 
-Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \sigma^2 \hspace{0.1cm}$, teniendo en cuenta que $\hspace{0.1cm}\sigma^2\hspace{0.1cm}$ es desconocido.
+Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \sigma^2$.
 
 
 
-Para ello vamos a apoyarnos en el teorema de Fisher  y en el método pivotal.
+Para ello vamos a apoyarnos en el **teorema de Fisher**  y en el **método pivotal**.
 
 
 
@@ -1912,12 +2032,27 @@ Para ello vamos a apoyarnos en el teorema de Fisher  y en el método pivotal.
 
 ### Distribución chi-cuadrado
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
+
+$\hspace{0.25cm}$ Dada una v.a.  $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$  la distribución chi-cuadrado se define del siguiente modo:
 
 $$\mathcal{X} \sim \chi^2_n \hspace{0.2cm} \Leftrightarrow \hspace{0.2cm} f_\mathcal{X}(x) = \dfrac{1}{\Gamma(n/2)} \cdot (1/2)^{n/2} \cdot x^{n/2 - 1}\cdot e^{-x/2} \cdot I(x>0)\\$$
 
+</p>
+ 
+</p></span>
+</div>
 
 
-**Propiedades** 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
+
+$\hspace{0.25cm}$ **Propiedades** 
 
 - $\chi^2_n = Gamma(\alpha = n/2 , \lambda = 1/2) \\$
 
@@ -1932,43 +2067,57 @@ $$\mathcal{X} \sim \chi^2_n \hspace{0.2cm} \Leftrightarrow \hspace{0.2cm} f_\mat
 - $\chi^2_n + \chi^2_r = \chi^2_{n+r} \hspace{0.2cm}$ , siempre que sean independientes los sumandos.
 
 
-
+</p>
+ 
+</p></span>
+</div>
 
 
 <br>
 
 ### Teorema de Fisher
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}$, y dada una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}$ 
+<p style='margin-left:0.1em;'>
+
+$\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}$, y dada una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}$ 
 
 
 $$\dfrac{\hspace{0.15cm} n\cdot S^2_n \hspace{0.15cm}}{ \sigma^2 \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} \chi^2_{n-1}$$
 
-Donde:
+
+$\hspace{0.25cm}$ Donde:
 
 - $\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i \\$
 
 - $S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2$
 
-
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
 
 ### Intervalo de confianza para la media con varianza desconocida
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
+<p style='margin-left:0.1em;'>
 
-La anterior cantidad:
+$\hspace{0.25cm}$ La anterior cantidad:
 
 $$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \sigma^2) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.15cm} n\cdot S^2_n \hspace{0.15cm}}{ \sigma^2 \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} \chi^2_{n-1}$$
 
 
-es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso $\hspace{0.1cm} \theta = \sigma^2 \hspace{0.1cm}$, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una $\hspace{0.1cm} \chi^2_{n-1}$.
+$\hspace{0.25cm}$ es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso $\hspace{0.1cm} \theta = \sigma^2 \hspace{0.1cm}$, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una $\hspace{0.1cm} \chi^2_{n-1}$.
 
 
-Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}$ tales que:
+$\hspace{0.25cm}$ Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}$ tales que:
 
 
 
@@ -1977,60 +2126,90 @@ $$P\left( \hspace{0.1cm}a \hspace{0.1cm}< \hspace{0.1cm}  \dfrac{\hspace{0.15cm}
 
 
  
-Siguiendo los anteriores resultados:
+$\hspace{0.25cm}$ Siguiendo los anteriores resultados:
 
 
 $$P\left( \hspace{0.1cm} a \hspace{0.1cm}<\hspace{0.1cm}  \dfrac{\hspace{0.15cm} n\cdot S^2_n \hspace{0.15cm}}{ \sigma^2 \hspace{0.1cm} } \hspace{0.1cm} <\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} P\left( a < \chi^2_{n-1}  < b \right) \\$$
 
 
 
-Teniendo en cuenta las propiedades de la distribución chi-cuadrado: $\\[0.6cm]$
+$\hspace{0.25cm}$Teniendo en cuenta las propiedades de la distribución chi-cuadrado: $\\[0.6cm]$
 
 $$P\left( \chi^{n-1}_{1-\alpha/2} < \chi^2_{n-1}  < \chi^{n-1}_{\alpha/2} \right)  = 1-\alpha \\$$
  
  
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 
 $\chi^{n-1}_{\alpha/2}\hspace{0.1cm}$ es el valor tal que $\hspace{0.1cm}P(\chi^2_{n-1}> \chi^{n-1}_{\alpha/2}) = \alpha/2 \\$ 
 
 
 
-Por tanto:
+$\hspace{0.25cm}$ Por tanto:
 
 
 $$P\left( \hspace{0.1cm}  \chi^{n-1}_{1-\alpha/2} \hspace{0.1cm}<\hspace{0.1cm}  \dfrac{\hspace{0.15cm} n\cdot S^2_n \hspace{0.15cm}}{ \sigma^2 \hspace{0.1cm} }  \hspace{0.1cm} <\hspace{0.1cm} \chi^{n-1}_{\alpha/2}\hspace{0.1cm} \right) \hspace{0.1cm} = \hspace{0.1cm} 1-\alpha \\[1cm]$$
 
+</p>
+ 
+</p></span>
+</div>
 
 
 
-Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=\sigma^2\hspace{0.1cm}$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
+
+$\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=\sigma^2\hspace{0.1cm}$ 
+
+Operando un poco se llega a lo siguiente: $\\[0.6cm]$
 
 
 $$P\left( \hspace{0.1cm}  \dfrac{n \cdot S_n^2}{\chi^{n-1}_{\alpha/2}}   \hspace{0.1cm}<\hspace{0.1cm}  \sigma^2 \hspace{0.1cm} <\hspace{0.1cm}      \dfrac{n \cdot S_n^2}{\chi^{n-1}_{1-\alpha/2}}        \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
 
 
 
+</p>
+ 
+</p></span>
+</div>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
  
 
-Por tanto, tenemos el siguiente intervalo de confianza a un nivel  $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} \sigma^2  \hspace{0.1cm}\\$
+$\hspace{0.25cm}$ Por tanto, tenemos el siguiente intervalo de confianza a un nivel  $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} \sigma^2  \hspace{0.1cm}\\$
 
 $$IC(\sigma^2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \dfrac{n \cdot S_n^2}{\chi^{n-1}_{\alpha/2}} \hspace{0.15cm},\hspace{0.15cm} \dfrac{n \cdot S_n^2}{\chi^{n-1}_{1-\alpha/2}}     \hspace{0.1cm} \right] \\[0.9cm]$$
 
 
-Dada una muestra $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
+$\hspace{0.25cm}$ Dada una muestra $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
 
 
 $$IC(\sigma^2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \dfrac{n \cdot S(X)^2}{\chi^{n-1}_{\alpha/2}} \hspace{0.15cm},\hspace{0.15cm} \dfrac{n \cdot S_n^2}{\chi^{n-1}_{1-\alpha/2}}     \hspace{0.1cm} \right] \\[0.9cm]$$
 
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 
 $\hspace{0.45cm} S(X)^2 = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2$
 
 
+</p>
+ 
+</p></span>
+</div>
 
-INDICAR QUE PARA n GRANDE NO FUNCIONA BIEN. DE HECHO SI n --> infinito LOS EXTREMOS DEL INTERVALO SON INFINITOS
+**Observación:**
+
+Este intervalo de confianza solo es valido para valores suficientemente pequeños de $\hspace{0.1cm}n\hspace{0.1cm}$ , puesto que si $\hspace{0.1cm}n\hspace{0.1cm}$ es suficientemente grande, el intervalo de confianza no contendrá a $\hspace{0.1cm}S(X)^2\hspace{0.1cm}$
+
+
+De hecho, si $\hspace{0.1cm}n \rightarrow \infty\hspace{0.1cm}$ , entonces $\hspace{0.1cm}IC(\sigma^2)_{1-\alpha} = [\infty , \infty]$
 
 
 <br>
@@ -2040,49 +2219,73 @@ INDICAR QUE PARA n GRANDE NO FUNCIONA BIEN. DE HECHO SI n --> infinito LOS EXTRE
 
 
 ```python
+def CI_Variance(Variable , alpha=0.05):
 
+    n = len(Variable)
+
+    chi_alpha_medios = scipy.stats.chi.ppf( 1 - alpha/2 , df=n-1)
+
+    chi_1_alpha_medios = scipy.stats.chi.ppf(alpha/2 , df=n-1)
+
+    X_cuasi_var = Variable.std()**2 
+
+    X_var = ( (n-1)/n )*X_cuasi_var
+    
+    # std() esta definida por defecto como la cuasi-desviacion-tipica
+
+    L1 =  (n*X_var) / chi_alpha_medios
+
+    L2 = (n*X_var) / chi_1_alpha_medios
+
+    interval = [L1 , L2]
+
+    return interval , X_var 
 ```
 
 
 ```python
+Price.std()**2
+```
 
+
+
+
+    8486734015707.785
+
+
+
+
+```python
+intervalo , varianza = CI_Variance(Variable=Price , alpha=0.05)
 ```
 
 
 ```python
-
-```
-
-```python
-
+intervalo
 ```
 
 
-```python
 
-```
+
+    [358920965766270.5, 382466627578853.0]
+
+
 
 
 ```python
-
+varianza
 ```
 
 
-```python
-
-```
 
 
-```python
-
-```
+    8482279037221.85
 
 
-```python
 
-```
+El intervalo no contiene a la varianza. Esto se debe a que $n$ es demasiado grande. 
 
-
+Este  intervalo solo es útil para valores de $n$ suficientemente pequeños.
 
 
 
@@ -2092,18 +2295,20 @@ INDICAR QUE PARA n GRANDE NO FUNCIONA BIEN. DE HECHO SI n --> infinito LOS EXTRE
  
 
  
-## Intervalo de confianza para la diferencia de medias con muestras independientes y varianzas iguales
+## Intervalo de confianza para la diferencia de medias con muestras independientes y varianzas desconocidas pero iguales
 
 
 
 
-Un par de variables cuantitativas  $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ , $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ pueden modelarse como un par de variables aleatorias **independientes** $\hspace{0.1cm} N(\mu_1 , \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}N(\mu_2 , \sigma_2^2)\hspace{0.1cm}$, donde $\hspace{0.1cm}\mu_1=E[\mathcal{X}_1]\hspace{0.1cm}$ , $\hspace{0.1cm}\mu_2=E[\mathcal{X}_2]\hspace{0.1cm}$, $\hspace{0.1cm}\sigma_1^2=E[\mathcal{X}_1]\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2 = Var(\mathcal{X}_2)$, que pueden interpretarse respectivamente como la media y varianza poblacional de las variables $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2$
+Un par de variables cuantitativas  $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ , $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ pueden modelarse como un par de variables aleatorias **independientes** con distribución $\hspace{0.1cm} N(\mu_1 , \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}N(\mu_2 , \sigma_2^2)\hspace{0.1cm}$, respectivamente. 
 
-Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \mu_1 - \mu_2 \hspace{0.1cm}$, teniendo en cuenta que $\hspace{0.1cm}\sigma_1^2\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2\hspace{0.1cm}$ son desconocidas pero iguales $\hspace{0.1cm}\sigma^2 = \sigma_1^2=\sigma_2^2$ y las v.a's $\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1,\sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2 , \sigma_2^2)\hspace{0.1cm}$ son **independientes**.
+Donde $\hspace{0.1cm}\mu_1=E[\mathcal{X}_1]\hspace{0.15cm}$ , $\hspace{0.15cm}\mu_2=E[\mathcal{X}_2]\hspace{0.15cm}$, $\hspace{0.15cm}\sigma_1^2=Var(\mathcal{X}_1)\hspace{0.15cm}$ y $\hspace{0.15cm}\sigma_2^2 = Var(\mathcal{X}_2)\hspace{0.15cm}$, que pueden interpretarse respectivamente como la media y varianza poblacional de las variables $\hspace{0.15cm}\mathcal{X}_1\hspace{0.15cm}$ y $\hspace{0.15cm}\mathcal{X}_2\hspace{0.15cm}$, respectivamente.
+
+Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \mu_1 - \mu_2 \hspace{0.1cm}$, teniendo en cuenta que $\hspace{0.1cm}\sigma_1^2\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2\hspace{0.1cm}$ son desconocidas pero iguales $\hspace{0.15cm}\sigma^2 = \sigma_1^2=\sigma_2^2\hspace{0.15cm}$ y que  las v.a's $\hspace{0.15cm}\mathcal{X}_1 \sim N(\mu_1,\sigma_1^2)\hspace{0.15cm}$ y $\hspace{0.15cm}\mathcal{X}_2\sim N(\mu_2 , \sigma_2^2)\hspace{0.15cm}$ son **independientes**.
 
 
 
-Para ello vamos a apoyarnos en el teorema de Gosset aumentado  y en el método pivotal.
+Para ello vamos a apoyarnos en el **teorema de Gosset aumentado**  y en el **método pivotal**.
 
 
 
@@ -2111,13 +2316,17 @@ Para ello vamos a apoyarnos en el teorema de Gosset aumentado  y en el método p
 
 ### Teorema de Gosset aumentado
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-Dada un par de v.a's **independientes** $\hspace{0.1cm}\mathcal{X}_1\sim N(\mu_1, \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2)\hspace{0.1cm}$, y dada un par de m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n2}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_1$ y  $\hspace{0.1cm}\mathcal{X}_2$, respectivamente.
+<p style='margin-left:0.1em;'>
+
+$\hspace{0.25cm}$ Dada un par de v.a's **independientes** $\hspace{0.1cm}\mathcal{X}_1\sim N(\mu_1, \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2)\hspace{0.1cm}$, y dada un par de m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n2}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_1$ y  $\hspace{0.1cm}\mathcal{X}_2$, respectivamente. $\\[0.6cm]$
 
 
-$$\dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)} \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{n_1  n_2 -2}$$
+$$\dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)} \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{n_1 - n_2 -2} \\$$
 
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 - $\overline{\mathcal{X}_1} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_{i1} \\$
 
@@ -2129,23 +2338,30 @@ Donde:
 
 - $S_2^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_{i2} - \overline{\mathcal{X}_2})^2$
 
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
 
-### Intervalo de confianza para la diferencia de medias con varianzas desconocidas
+### Intervalo de confianza para la diferencia de medias con varianzas desconocidas pero iguales
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
+<p style='margin-left:0.1em;'>
 
-La anterior cantidad:
+$\hspace{0.25cm}$ La anterior cantidad:
 
 $$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \sigma^2) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)} \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{n_1 +  n_2 -2}$$
 
 
-es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso $\hspace{0.1cm} \theta = \mu_1 - \mu_2 \hspace{0.1cm}$, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una $\hspace{0.1cm} t_{n_1 + n_2 -2}$.
+$\hspace{0.25cm}$ es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso $\hspace{0.1cm} \theta = \mu_1 - \mu_2 \hspace{0.1cm}$, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una $\hspace{0.1cm} t_{n_1 + n_2 -2}$.
 
 
-Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}$ tales que:
+$\hspace{0.25cm}$ Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}$ tales que:
 
 
 
@@ -2154,53 +2370,72 @@ $$P\left( \hspace{0.1cm} a \hspace{0.1cm} < \hspace{0.1cm}  \dfrac{\hspace{0.15c
 
 
  
-Siguiendo los anteriores resultados:
+$\hspace{0.25cm}$ Siguiendo los anteriores resultados:
 
 
 $$P\left( \hspace{0.1cm} a \hspace{0.1cm}<\hspace{0.1cm}  \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}} \hspace{0.1cm} <\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} P\left( a < t_{n_1 +n_2 -2}  < b \right) \\$$
 
 
 
-Teniendo en cuenta las propiedades de la distribución chi-cuadrado: $\\[0.6cm]$
+$\hspace{0.25cm}$ Teniendo en cuenta las propiedades de la distribución chi-cuadrado: $\\[0.6cm]$
 
 $$P\left( t^{n_1+n_2-2}_{1-\alpha/2} < t_{n_1+n_2-2}  < t^{n_1+n_2-2}_{\alpha/2} \right)  = 1-\alpha \\$$
  
  
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 
-$t^{n_1+n_2-2}_{\alpha/2}\hspace{0.1cm}$ es el valor tal que $\hspace{0.1cm}P(t_{n_1+n_2-2}> t^{n_1+n_2-2}_{\alpha/2}) = \alpha/2 \\$ 
+$\hspace{0.35cm}$ $t^{n_1+n_2-2}_{\alpha/2}\hspace{0.1cm}$ es el valor tal que $\hspace{0.1cm}P(t_{n_1+n_2-2}> t^{n_1+n_2-2}_{\alpha/2}) = \alpha/2 \\$ 
 
 
 
-Por tanto:
+$\hspace{0.25cm}$ Por tanto:
 
 
 $$P\left( \hspace{0.1cm}  t^{n_1+n_2-2}_{1-\alpha/2} \hspace{0.1cm}<\hspace{0.1cm}  \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}}  \hspace{0.1cm} <\hspace{0.1cm} t^{n_1+n_2-2}_{\alpha/2}\hspace{0.1cm} \right) \hspace{0.1cm} = \hspace{0.1cm} 1-\alpha \\[1cm]$$
 
 
+</p>
+ 
+</p></span>
+</div>
 
 
-Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=\mu_1 - \mu_2 \hspace{0.1cm}$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
+
+$\hspace{0.25cm}$Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=\mu_1 - \mu_2 \hspace{0.1cm}$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
 
 
 $$P\left( \hspace{0.1cm}    \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 -  t^{n_1+n_2-2}_{\alpha/2} \cdot \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}  \hspace{0.1cm}<\hspace{0.1cm}  \mu_1 - \mu_2 \hspace{0.1cm} <\hspace{0.1cm}      \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 +  t^{n_1+n_2-2}_{\alpha/2} \cdot \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}         \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
 
 
-
+</p>
  
+</p></span>
+</div>
+ 
+ 
+ 
+ <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-Por tanto, tenemos el siguiente intervalo de confianza a un nivel  $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} \mu_1 - \mu_2  \hspace{0.1cm}\\$
+<p style='margin-left:0.1em;'>
+
+$\hspace{0.25cm}$ Por tanto, tenemos el siguiente intervalo de confianza a un nivel  $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} \mu_1 - \mu_2  \hspace{0.1cm}\\$
 
 $$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 \pm  t^{n_1+n_2-2}_{\alpha/2} \cdot \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}      \hspace{0.1cm} \right] \\[0.9cm]$$
 
 
-Dadas dos muestras $\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$  , respectivamente,  tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
+$\hspace{0.25cm}$ Dadas dos muestras $\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$  , respectivamente,  tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
 
 
 $$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X}_1 - \overline{X}_2 \pm  t^{n_1+n_2-2}_{\alpha/2} \cdot \sqrt{S(X)_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}    \hspace{0.1cm} \right] \\[0.9cm]$$
 
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 $\overline{X}_1 = \dfrac{1}{n} \cdot \sum_{i=1}^n x_{i1}$
 
@@ -2212,34 +2447,66 @@ $S(X_2)^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n (x_{i2} - \overline{X}_2)^2$
 
 $\hspace{0.45cm} S(X)_p^2 = \dfrac{(n_1-1)\cdot S(X_1)^2 + (n_2-1)\cdot S(X_2)^2}{n_1 + n_2 -2}$
 
+
+</p>
+ 
+</p></span>
+</div>
+
 <br>
 
-## Intervalo de confianza para la diferencia de medias con muestras independientes y varianzas no necesariamente iguales.
-
-
-Si no suponemos que las varianzas $\sigma_1^2$ y $\sigma_2^2$ son iguales, entonces la cantidad pivotal sigue siendo la misma que en el apartado anterior, con distribución t-student pero con otros grados de libertad:
 
 
 
-$$\dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)} \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{v}$$
+## Intervalo de confianza para la diferencia de medias con muestras independientes y varianzas desconocidas pero no necesariamente iguales.
 
 
-$$v=\dfrac{(S_1^2 / n_1 + S_2^2/n_2 )^2}{\dfrac{(S_1^2 / n_1)^2}{n_1-1} + \dfrac{( S_2^2/n_2 )^2}{n_2-1}} $$
-
-Por lo que el intervalo de confianza para $\mu_1-\mu_2$, con varianzas desconocidas pero no necesariamente iguales, a un nivel $1-\alpha$ es:
-
-$$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}      \hspace{0.1cm} \right] \\[0.9cm]$$
+Si no suponemos que las varianzas $\hspace{0.1cm} \sigma_1^2\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2\hspace{0.1cm}$ son iguales, entonces la cantidad pivotal sigue siendo la misma que en el apartado anterior, con distribución t-student pero con otros grados de libertad:
 
 
 
-$$v=\dfrac{(S_1^2 / n_1 + S_2^2/n_2 )^2}{\dfrac{(S_1^2 / n_1)^2}{n_1-1} + \dfrac{( S_2^2/n_2 )^2}{n_2-1}} $$
+$$\dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)} \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{v} \\$$
 
-Dadas dos muestras $\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$  , respectivamente,  tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
+Donde:
 
 
-$$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X}_1 - \overline{X}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{S(X)_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}    \hspace{0.1cm} \right] \\[0.9cm]$$
+$$v=\dfrac{(S_1^2 / n_1 + S_2^2/n_2 )^2}{\dfrac{(S_1^2 / n_1)^2}{n_1-1} + \dfrac{( S_2^2/n_2 )^2}{n_2-1}} \\$$
+
+
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
+
+
+$\hspace{0.25cm}$ Por lo que el intervalo de confianza para $\hspace{0.1cm}\mu_1-\mu_2\hspace{0.1cm}$, con varianzas desconocidas pero no necesariamente iguales, a un nivel $\hspace{0.1cm}1-\alpha\hspace{0.1cm}$ es: $\\[0.6cm]$
+
+$$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}      \hspace{0.1cm} \right] \\$$
+
+
+$\hspace{0.25cm}$ Donde:
+
+$$v=\dfrac{(S_1^2 / n_1 + S_2^2/n_2 )^2}{\dfrac{(S_1^2 / n_1)^2}{n_1-1} + \dfrac{( S_2^2/n_2 )^2}{n_2-1}} \\$$
+
+$\hspace{0.25cm}$ Dadas dos muestras $\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$  , respectivamente,  tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
+
+
+$$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X}_1 - \overline{X}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{S(X)_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}    \hspace{0.1cm} \right] \\$$
+
+Donde:
 
 $$v=\dfrac{(S(X_1)^2 / n_1 + S(X_2)^2/n_2 )^2}{\dfrac{(S(X_1)^2 / n_1)^2}{n_1-1} + \dfrac{( S(X_2)^2/n_2 )^2}{n_2-1}} $$
+
+
+
+
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
@@ -2248,9 +2515,6 @@ $$v=\dfrac{(S(X_1)^2 / n_1 + S(X_2)^2/n_2 )^2}{\dfrac{(S(X_1)^2 / n_1)^2}{n_1-1}
 
 ## Intervalo de confianza para la diferencia de medias con muestras dependientes (pareadas)
 
- 
- 
-
 
 Un par de variables cuantitativas  $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ , $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ pueden modelarse como un par de variables aleatorias **no necesariamente independientes** $\hspace{0.1cm} N(\mu_1 , \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}N(\mu_2 , \sigma_2^2)\hspace{0.1cm}$, donde $\hspace{0.1cm}\mu_1=E[\mathcal{X}_1]\hspace{0.1cm}$ , $\hspace{0.1cm}\mu_2=E[\mathcal{X}_2]\hspace{0.1cm}$, $\hspace{0.1cm}\sigma_1^2=E[\mathcal{X}_1]\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2 = Var(\mathcal{X}_2)$, que pueden interpretarse respectivamente como la media y varianza poblacional de las variables $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2$
 
@@ -2258,7 +2522,7 @@ Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \mu_1 - \mu_2 \h
 
 
 
-Para ello vamos a apoyarnos en el teorema de Gosset   y en el método pivotal.
+Para ello vamos a apoyarnos en el **teorema de Gosset** y en el **método pivotal**.
 
 
 
@@ -2266,36 +2530,31 @@ Para ello vamos a apoyarnos en el teorema de Gosset   y en el método pivotal.
 
 ### Teorema de Gosset
 
-Tenemos dos v.a's $\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1 , \sigma_1^2) \hspace{0.1cm}$  y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2\hspace{0.1cm}$ .
+$\hspace{0.25cm}$ Tenemos dos v.a's $\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1 , \sigma_1^2) \hspace{0.1cm}$  y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2\hspace{0.1cm}$ .
 
-Tenemos una m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}$ de $\mathcal{X}_{1}$
+$\hspace{0.25cm}$ Tenemos una m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}$ de $\mathcal{X}_{1}$
 y otra m.a.s. $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n2}$ de $\mathcal{X}_{2}$
 
-Sea $D_i = \mathcal{X}_{i1} -\mathcal{X}_{i2}$ , entonces $D_i \sim N(\mu_D , \sigma_D^2)$
+$\hspace{0.25cm}$ Sea $D_i = \mathcal{X}_{i1} -\mathcal{X}_{i2}$ , entonces $D_i \sim N(\mu_D , \sigma_D^2)$
 
-Donde:
+$\hspace{0.25cm}$ Donde:
 
-$E[D_i] = E[\mathcal{X}_{i1} -\mathcal{X}_{i2}] = E[ N(\mu_1, \sigma_1^2) - N(\mu_2, \sigma_2^2)] =  E[ N(\mu_1, \sigma_1^2)] - E[ N(\mu_2, \sigma_2^2)] = \mu_1 - \mu_2 = \mu_D$
+$\hspace{0.35cm}$ $E[D_i] = E[\mathcal{X}_{i1} -\mathcal{X}_{i2}] = E[ N(\mu_1, \sigma_1^2) - N(\mu_2, \sigma_2^2)] =  E[ N(\mu_1, \sigma_1^2)] - E[ N(\mu_2, \sigma_2^2)] = \mu_1 - \mu_2 = \mu_D$
 
-$Var(D_i) = Var[\mathcal{X}_{i1} -\mathcal{X}_{i2}] = Var[ N(\mu_1, \sigma_1^2) - N(\mu_2, \sigma_2^2)] =  Var[ N(\mu_1, \sigma_1^2)] - Var[ N(\mu_2, \sigma_2^2)] - 2\cdot Cov(N(\mu_1, \sigma_1^2) , N(\mu_2, \sigma_2^2))= \sigma_1^2 - \sigma_2^2 - 2\cdot \sigma_{12} = \sigma_D^2$
+$\hspace{0.35cm}$ $Var(D_i) = Var[\mathcal{X}_{i1} -\mathcal{X}_{i2}] = Var[ N(\mu_1, \sigma_1^2) - N(\mu_2, \sigma_2^2)] =  Var[ N(\mu_1, \sigma_1^2)] - Var[ N(\mu_2, \sigma_2^2)] - 2\cdot Cov(N(\mu_1, \sigma_1^2) , N(\mu_2, \sigma_2^2))= \sigma_1^2 - \sigma_2^2 - 2\cdot \sigma_{12} = \sigma_D^2$
 
 
-$D_1,...,D_n$ es una m.a.s de $D\sim N(\mu_D , \sigma_D^2)$, por lo que puede aplicarse le el teorema de Gosset, obteniendose que:
+$\hspace{0.25cm}$ $D_1,...,D_n$ es una m.a.s de $D\sim N(\mu_D , \sigma_D^2)$, por lo que puede aplicarse le el teorema de Gosset, obteniendose que:
 
 $$\dfrac{\overline{D} - \mu_D}{\sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}} \sim t_{n-1}$$
 
 
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 $\overline{D} = \dfrac{1}{n} \sum_{i=1}^n D_i$
 
 $S_D^2 = \dfrac{1}{n} \sum_{i=1}^n (D_i - \overline{D})^2$
 
-
-
-
-
- 
 
 
 <br>
@@ -2305,15 +2564,15 @@ $S_D^2 = \dfrac{1}{n} \sum_{i=1}^n (D_i - \overline{D})^2$
 
 
 
-La anterior cantidad:
+$\hspace{0.25cm}$ La anterior cantidad:
 
 $$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \sigma^2) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{D} - \mu_D}{\sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}} \sim t_{n-1}$$
 
 
-es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso $\hspace{0.1cm} \theta = \mu_1 - \mu_2 \hspace{0.1cm}$, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una $\hspace{0.1cm} t_{n-1}$.
+$\hspace{0.25cm}$ es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso $\hspace{0.1cm} \theta = \mu_1 - \mu_2 \hspace{0.1cm}$, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una $\hspace{0.1cm} t_{n-1}$.
 
 
-Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}$ tales que:
+$\hspace{0.25cm}$ Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}$ tales que:
 
 
 
@@ -2322,26 +2581,26 @@ $$P\left( \hspace{0.1cm} a \hspace{0.1cm} < \hspace{0.1cm}   \dfrac{\overline{D}
 
 
  
-Siguiendo los anteriores resultados:
+$\hspace{0.25cm}$ Siguiendo los anteriores resultados:
 
 
 $$P\left( \hspace{0.1cm} a \hspace{0.1cm}<\hspace{0.1cm}  \dfrac{\overline{D} - \mu_D}{\sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}} \hspace{0.1cm} <\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} P\left( a < t_{n  -1}  < b \right) \\$$
 
 
 
-Teniendo en cuenta las propiedades de la distribución t-student: $\\[0.6cm]$
+$\hspace{0.25cm}$ Teniendo en cuenta las propiedades de la distribución t-student: $\\[0.6cm]$
 
 $$P\left( t^{n-1}_{1-\alpha/2} < t_{n-1}  < t^{n-1}_{\alpha/2} \right) = P\left( -t^{n-1}_{\alpha/2} < t_{n-1}  < t^{n-1}_{\alpha/2} \right) = 1-\alpha \\$$
  
  
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 
 $t^{n-1}_{\alpha/2}\hspace{0.1cm}$ es el valor tal que $\hspace{0.1cm}P(t_{n-1}> t^{n-1}_{\alpha/2}) = \alpha/2 \\$ 
 
 
 
-Por tanto:
+$\hspace{0.25cm}$ Por tanto:
 
 
 $$P\left( \hspace{0.1cm}  -t^{n-1}_{\alpha/2} \hspace{0.1cm}<\hspace{0.1cm}  
@@ -2351,7 +2610,7 @@ $$P\left( \hspace{0.1cm}  -t^{n-1}_{\alpha/2} \hspace{0.1cm}<\hspace{0.1cm}
 
 
 
-Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=\mu_1 - \mu_2 \hspace{0.1cm}$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
+$\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=\mu_1 - \mu_2 \hspace{0.1cm}$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
 
 
 
@@ -2365,19 +2624,19 @@ $$P\left( \hspace{0.1cm}
 
  
 
-Por tanto, tenemos el siguiente intervalo de confianza a un nivel  $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} \mu_1 - \mu_2  \hspace{0.1cm}\\$
+$\hspace{0.25cm}$ Por tanto, tenemos el siguiente intervalo de confianza a un nivel  $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} \mu_1 - \mu_2  \hspace{0.1cm}\\$
 
 $$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \\overline{D} \pm t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}
      \hspace{0.1cm} \right] \\[0.9cm]$$
 
 
-Dadas dos muestras $\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$  , respectivamente,  tenemos la muestra D=(d_1,...,d_n) , donde $d_i = x_{i1}-x_{i2}$ , y con ello la siguiente realización del intervalo de confianza: $\\[0.6cm]$
+$\hspace{0.25cm}$ Dadas dos muestras $\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$  , respectivamente,  tenemos la muestra D=(d_1,...,d_n) , donde $d_i = x_{i1}-x_{i2}$ , y con ello la siguiente realización del intervalo de confianza: $\\[0.6cm]$
 
 
 $$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{D} \pm t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1}\cdot S(D)^2 / n}
    \hspace{0.1cm} \right] \\[0.9cm]$$
 
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 $\overline{D} = \dfrac{1}{n} \cdot \sum_{i=1}^n d_{i}$
 
@@ -2387,6 +2646,26 @@ $S(D)^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n (d_i - \overline{D})^2$
 
 <br>
 
+ 
+ 
+
+## Intervalo de confianza para la diferencia de medias con varianzas desconocidas pero  no necesariamente iguales en `Python` 
+
+
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+<br>
  
  
  
@@ -2416,7 +2695,7 @@ Para ello vamos a apoyarnos en el teorema de Fisher  y en el método pivotal.
 
 ### Teorema de Fisher
 
-Dadas un par de v.a's **independientes**  $\hspace{0.1cm}\mathcal{X}_1\sim N(\mu_1, \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2)\hspace{0.1cm}$, y  un par de m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n2}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_1$ y  $\hspace{0.1cm}\mathcal{X}_2$, respectivamente, se cumple lo siguiente:
+$\hspace{0.25cm}$ Dadas un par de v.a's **independientes**  $\hspace{0.1cm}\mathcal{X}_1\sim N(\mu_1, \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2)\hspace{0.1cm}$, y  un par de m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n2}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_1$ y  $\hspace{0.1cm}\mathcal{X}_2$, respectivamente, se cumple lo siguiente:
 
 
 $$\dfrac{S_2^2 / \sigma_2^2}{S_1^2 / \sigma_1^2} \sim F_{n_2-1 , n_1-1}$$
@@ -2425,7 +2704,7 @@ $$\dfrac{S_2^2 / \sigma_2^2}{S_1^2 / \sigma_1^2} \sim F_{n_2-1 , n_1-1}$$
 
 
 
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 
 - $S_1^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_{i1} - \overline{\mathcal{X}_1})^2 \\$
@@ -2442,15 +2721,15 @@ Donde:
 ### Intervalo de confianza para el cociente de varianzas
 
 
-La anterior cantidad:
+$\hspace{0.25cm}$ La anterior cantidad:
 
 $$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \sigma^2) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{S_2^2 / \sigma_2^2}{S_1^2 / \sigma_1^2} \sim F_{n_2-1 , n_1-1}$$
 
 
-es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso $\hspace{0.1cm} \theta = \sigma_1^2 / \sigma_2^2 \hspace{0.1cm}$, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una $\hspace{0.1cm} F_{n_2-1 , n_1-1}$.
+$\hspace{0.25cm}$ es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso $\hspace{0.1cm} \theta = \sigma_1^2 / \sigma_2^2 \hspace{0.1cm}$, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una $\hspace{0.1cm} F_{n_2-1 , n_1-1}$.
 
 
-Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}$ tales que:
+$\hspace{0.25cm}$ Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}$ tales que:
 
 
 
@@ -2459,26 +2738,26 @@ $$P\left( \hspace{0.1cm} a \hspace{0.1cm} < \hspace{0.1cm}  \dfrac{S_2^2 / \sigm
 
 
  
-Siguiendo los anteriores resultados:
+$\hspace{0.25cm}$ Siguiendo los anteriores resultados:
 
 
 $$P\left( \hspace{0.1cm} a \hspace{0.1cm}<\hspace{0.1cm}  \dfrac{S_2^2 / \sigma_2^2}{S_1^2 / \sigma_1^2} \hspace{0.1cm} <\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} P\left( a < F_{n_2-1 , n_1-1}  < b \right) \\$$
 
 
 
-Teniendo en cuenta las propiedades de la distribución chi-cuadrado: $\\[0.6cm]$
+$\hspace{0.25cm}$ Teniendo en cuenta las propiedades de la distribución chi-cuadrado: $\\[0.6cm]$
 
 $$P\left( F^{n_2-1 , n_1-1}_{1-\alpha/2} < F^{n_2-1 , n_1-1}  < F^{n_2-1 , n_1-1}_{\alpha/2} \right)  = 1-\alpha \\$$
  
  
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 
 $F^{n_2-1 , n_1-1}_{\alpha/2} \hspace{0.1cm}$ es el valor tal que $\hspace{0.1cm}P(F_{n_2-1 , n_1-1}> F^{n_2-1 , n_1-1}_{\alpha/2}) = \alpha/2 \\$ 
 
 
 
-Por tanto:
+$\hspace{0.25cm}$ Por tanto:
 
 
 $$P\left( \hspace{0.1cm}  F^{n_2-1 , n_1-1}_{1-\alpha/2} \hspace{0.1cm}<\hspace{0.1cm}  
@@ -2488,7 +2767,7 @@ $$P\left( \hspace{0.1cm}  F^{n_2-1 , n_1-1}_{1-\alpha/2} \hspace{0.1cm}<\hspace{
 
 
 
-Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=\sigma_1^2 / \sigma_2^2 \hspace{0.1cm}$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
+$\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=\sigma_1^2 / \sigma_2^2 \hspace{0.1cm}$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
 
 
 $$P\left( \hspace{0.1cm}     \dfrac{S_1^2}{S_2^2} \cdot   F^{n_2-1 , n_1-1}_{1-\alpha/2} \hspace{0.1cm}<\hspace{0.1cm} \dfrac{\sigma_1^2}{\sigma_2^2} \hspace{0.1cm} <\hspace{0.1cm}       \dfrac{S_1^2}{S_2^2} \cdot   F^{n_2-1 , n_1-1}_{\alpha/2}        \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
@@ -2497,17 +2776,17 @@ $$P\left( \hspace{0.1cm}     \dfrac{S_1^2}{S_2^2} \cdot   F^{n_2-1 , n_1-1}_{1-\
 
  
 
-Por tanto, tenemos el siguiente intervalo de confianza a un nivel  $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} \sigma_1^2/\sigma_2^2 \hspace{0.1cm}\\$
+$\hspace{0.25cm}$ Por tanto, tenemos el siguiente intervalo de confianza a un nivel  $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} \sigma_1^2/\sigma_2^2 \hspace{0.1cm}\\$
 
 $$IC(\dfrac{\sigma_1^2}{\sigma_2^2})_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \dfrac{S_1^2}{S_2^2} \cdot   F^{n_2-1 , n_1-1}_{1-\alpha/2} \hspace{0.1cm} , \hspace{0.1cm}  \dfrac{S_1^2}{S_2^2} \cdot   F^{n_2-1 , n_1-1}_{\alpha/2}     \hspace{0.1cm} \right] \\[0.9cm]$$
 
 
-Dadas dos muestras $\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$  , respectivamente,  tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
+$\hspace{0.25cm}$ Dadas dos muestras $\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$  , respectivamente,  tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
 
 
 $$IC(\dfrac{\sigma_1^2}{\sigma_2^2})_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \dfrac{S(X_1)^2}{S(X_2)^2} \cdot   F^{n_2-1 , n_1-1}_{1-\alpha/2} \hspace{0.1cm} , \hspace{0.1cm}  \dfrac{S(X_1)^2}{S(X_2)^2} \cdot   F^{n_2-1 , n_1-1}_{\alpha/2}     \hspace{0.1cm} \right] \\[0.9cm]$$
 
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 
 
@@ -2523,6 +2802,19 @@ $\overline{X}_2 = \dfrac{1}{n} \cdot \sum_{i=1}^n x_{i2}$
 
 <br>
 
+## Intervalo de confianza para el cociente de varianzas en `Python`
+
+
+
+
+
+
+
+
+
+
+
+<br>
 
   
 ## Intervalo de confianza para la diferencia de proporciones
@@ -2544,24 +2836,24 @@ Para ello vamos a apoyarnos en el teorema de Moivre-Laplace  y en el método piv
 
 ### Teorema Moivre-Laplace
 
-Dadas un par de v.a's **independientes**  $\hspace{0.1cm}\mathcal{X}_1\sim Bernoulli(p_1)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim Bernoulli(p_2)\hspace{0.1cm}$, y  un par de m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n_1 1}\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n_2 2}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_1$ y  $\hspace{0.1cm}\mathcal{X}_2$, respectivamente, se cumple lo siguiente:
+$\hspace{0.25cm}$ Dadas un par de v.a's **independientes**  $\hspace{0.1cm}\mathcal{X}_1\sim Bernoulli(p_1)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim Bernoulli(p_2)\hspace{0.1cm}$, y  un par de m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n_1 1}\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n_2 2}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_1$ y  $\hspace{0.1cm}\mathcal{X}_2$, respectivamente, se cumple lo siguiente:
 
 $$\overline{\mathcal{X}_1} = \dfrac{1}{n_1} \cdot \sum_{i=1}^n \mathcal{X}_{i1} \sim Binomial(n,p_1)$$
 
 $$\overline{\mathcal{X}_2} = \dfrac{1}{n_2} \cdot \sum_{i=1}^n \mathcal{X}_{i2} \sim Binomial(n,p_2)$$
 
-Entonces:
+$\hspace{0.25cm}$ Entonces:
 
 
 $$E[ \overline{\mathcal{X}_1} - \overline{\mathcal{X}_2}  ] = p_1 - p_2$$
 
-Como las v.a. son mutuamente independientes :
+$\hspace{0.25cm}$ Como las v.a. son mutuamente independientes :
 
 $$Cov(\overline{\mathcal{X}_1} , \overline{\mathcal{X}_2}) = 0$$
 
 $$Var(\overline{\mathcal{X}_1} - \overline{\mathcal{X}_2}) = Var(\overline{\mathcal{X}_1}) + Var(\overline{\mathcal{X}_2}) - 2Cov(\overline{\mathcal{X}_1} , \overline{\mathcal{X}_2}) = Var(\overline{\mathcal{X}_1}) + Var(\overline{\mathcal{X}_2}) = \dfrac{p_1(1-p_1)}{n_1} + \dfrac{p_2(1-p_2)}{n_2}$$
 
-Por tanto, aplicando el TCL tenemos lo siguiente:
+$\hspace{0.25cm}$ Por tanto, aplicando el TCL tenemos lo siguiente:
 
 
 $$\dfrac{(\overline{\mathcal{X}_1} - \overline{\mathcal{X}_2}) - (p_1 - p_2)}{\sqrt{\dfrac{p_1(1-p_1)}{n_1} + \dfrac{p_2(1-p_2)}{n_2}}} \uderset{d}{\rightarrow} N(0,1)$$
@@ -2575,15 +2867,15 @@ $$\dfrac{(\overline{\mathcal{X}_1} - \overline{\mathcal{X}_2}) - (p_1 - p_2)}{\s
 ### Intervalo de confianza para la diferencia de proporciones
 
 
-La anterior cantidad:
+$\hspace{0.25cm}$ La anterior cantidad:
 
 $$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, p_1-p_2) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{(\overline{\mathcal{X}_1} - \overline{\mathcal{X}_2}) - (p_1 - p_2)}{\sqrt{\dfrac{p_1(1-p_1)}{n_1} + \dfrac{p_2(1-p_2)}{n_2}}} \uderset{d}{\rightarrow} N(0,1)$$
 
 
-es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso $\hspace{0.1cm} \theta = p_1 - p_2 \hspace{0.1cm}$, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una $\hspace{0.1cm} N(0,1)$.
+$\hspace{0.25cm}$ es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso $\hspace{0.1cm} \theta = p_1 - p_2 \hspace{0.1cm}$, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una $\hspace{0.1cm} N(0,1)$.
 
 
-Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}$ tales que:
+$\hspace{0.25cm}$ Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}$ tales que:
 
 
 
@@ -2592,26 +2884,26 @@ $$P\left( \hspace{0.1cm} a \hspace{0.1cm} < \hspace{0.1cm}  \dfrac{(\overline{\m
 
 
  
-Siguiendo los anteriores resultados:
+$\hspace{0.25cm}$ Siguiendo los anteriores resultados:
 
 
 $$P\left( \hspace{0.1cm} a \hspace{0.1cm}<\hspace{0.1cm}  \dfrac{(\overline{\mathcal{X}_1} - \overline{\mathcal{X}_2}) - (p_1 - p_2)}{\sqrt{\dfrac{p_1(1-p_1)}{n_1} + \dfrac{p_2(1-p_2)}{n_2}}}  \hspace{0.1cm} <\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} P\left( a < F_{n_2-1 , n_1-1}  < b \right) \\$$
 
 
 
-Teniendo en cuenta las propiedades de la distribución normal: $\\[0.6cm]$
+$\hspace{0.25cm}$ Teniendo en cuenta las propiedades de la distribución normal: $\\[0.6cm]$
 
 $$P\left( z_{1-\alpha/2} < N(0,1)  < z_{\alpha/2} \right)  = P\left( -z_{\alpha/2} < N(0,1)  < z_{\alpha/2} \right)  =1-\alpha \\$$
  
  
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 
 $z_{\alpha/2} \hspace{0.1cm}$ es el valor tal que $\hspace{0.1cm}P(N(0,1) > z_{\alpha/2}) = \alpha/2 \\$ 
 
 
 
-Por tanto:
+$\hspace{0.25cm}$ Por tanto:
 
 
 $$P\left( \hspace{0.1cm}  -z_{\alpha/2} \hspace{0.1cm}<\hspace{0.1cm}  
@@ -2621,7 +2913,7 @@ $$P\left( \hspace{0.1cm}  -z_{\alpha/2} \hspace{0.1cm}<\hspace{0.1cm}
 
 
 
-Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=p_1-p_2 \hspace{0.1cm}$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
+$\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=p_1-p_2 \hspace{0.1cm}$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
 
 
 $$P\left( \hspace{0.1cm}  (\overline{\mathcal{X}_1} - \overline{\mathcal{X}_2}) - z_{\alpha/2}\cdot \sqrt{\dfrac{p_1(1-p_1)}{n_1} + \dfrac{p_2(1-p_2)}{n_2}}
@@ -2630,30 +2922,30 @@ $$P\left( \hspace{0.1cm}  (\overline{\mathcal{X}_1} - \overline{\mathcal{X}_2}) 
 \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
 
 
-Como en la práctica se desconocen $p_1$ y $p_2$ , para obtener un intervalo de confianza que pueda ser usado en la práctica debemos estimarlas en ambos lados de la desigualdad. Se estiman como $\overline{\mathcal{X}_1}$ y $\overline{\mathcal{X}_2}$ , respectivamente.
+$\hspace{0.25cm}$ Como en la práctica se desconocen $p_1$ y $p_2$ , para obtener un intervalo de confianza que pueda ser usado en la práctica debemos estimarlas en ambos lados de la desigualdad. Se estiman como $\overline{\mathcal{X}_1}$ y $\overline{\mathcal{X}_2}$ , respectivamente.
  
 
-Por tanto, tenemos el siguiente intervalo de confianza a un nivel  $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} p_1 - p_2 \hspace{0.1cm}\\$
+$\hspace{0.25cm}$ Por tanto, tenemos el siguiente intervalo de confianza a un nivel  $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} p_1 - p_2 \hspace{0.1cm}\\$
 
 $$IC(p_1 - p_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} (\overline{\mathcal{X}_1} - \overline{\mathcal{X}_2}) \pm z_{\alpha/2}\cdot \sqrt{\dfrac{\overline{\mathcal{X}_1}(1-\overline{\mathcal{X}_1})}{n_1} + \dfrac{\overline{\mathcal{X}_2}(1-\overline{\mathcal{X}_2})}{n_2}}     \hspace{0.1cm} \right] \\[0.9cm]$$
 
 
-Dadas dos muestras $\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$  , respectivamente,  tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
+$\hspace{0.25cm}$ Dadas dos muestras $\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$  , respectivamente,  tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
 
 
 $$IC(p_1 - p_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} (\overline{X}_1 - \overline{X}_2) \pm z_{\alpha/2}\cdot \sqrt{\dfrac{\overline{X}_1(1-\overline{X}_1)}{n_1} + \dfrac{\overline{X}_2(1-\overline{X}_2)}{n_2}}     \hspace{0.1cm} \right] \\[0.9cm]$$
 
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 
+$\hspace{0.35cm}$ $\overline{X}_1 = \dfrac{1}{n} \cdot \sum_{i=1}^n x_{i1}$
+
+$\hspace{0.35cm}$ $\overline{X}_2 = \dfrac{1}{n} \cdot \sum_{i=1}^n x_{i2}$
 
 
+<br>
 
-$\overline{X}_1 = \dfrac{1}{n} \cdot \sum_{i=1}^n x_{i1}$
-
-$\overline{X}_2 = \dfrac{1}{n} \cdot \sum_{i=1}^n x_{i2}$
-
-
+## Intervalo de confianza para la diferencia de proporciones en `Python`
 
  
 
