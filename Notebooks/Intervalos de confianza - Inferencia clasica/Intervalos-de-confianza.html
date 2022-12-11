@@ -1665,22 +1665,22 @@ margin-right: auto;
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> son variables aleatorias mutuamente independientes e identicamente distribuidas (i.i.d.) <span class="math inline">\(\hspace{0.3cm}\Leftrightarrow\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> son variables aleatorias mutuamente independientes e identicamente distribuidas <em>(i.i.d.)</em> <span class="math inline">\(\hspace{0.3cm}\Leftrightarrow\)</span></p>
 <ul>
-<li><span class="math inline">\(\hspace{0.25cm}\)</span> <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}\)</span> son mutuamente independientes , es decir:</li>
+<li><span class="math inline">\(\hspace{0.1cm}\)</span> <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}\)</span> son mutuamente independientes , es decir:</li>
 </ul>
-<p><span class="math display">\[\hspace{0.08cm} P(\mathcal{X}_1=x_1,...,\mathcal{X}_n=x_n)= \prod_{i=1}^n P(\mathcal{X}_i=x_i)\]</span></p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Lo que implica que también son independientes dos a dos , es decir, <span class="math inline">\(\hspace{0.12cm} \mathcal{X}_i \perp \mathcal{X}_j \hspace{0.12cm} , \hspace{0.12cm} \forall i\neq j \\\)</span></p>
+<p><span class="math display">\[\hspace{0.08cm} P(\mathcal{X}_1=x_1,...,\mathcal{X}_n=x_n) \hspace{0.1cm}=\hspace{0.1cm} \prod_{i=1}^n P(\mathcal{X}_i=x_i) \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.7cm}\)</span> Lo que implica que también son independientes dos a dos , es decir, <span class="math inline">\(\hspace{0.12cm} \mathcal{X}_i \perp \mathcal{X}_j \hspace{0.12cm} , \hspace{0.12cm} \forall i\neq j \\\)</span></p>
 <ul>
-<li><span class="math inline">\(\hspace{0.25cm}\)</span> <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.12cm}\)</span> tienen la misma distribución de probabilidad, es decir, <span class="math inline">\(\hspace{0.12cm}\mathcal{X}_i \sim F( \cdot ) \hspace{0.15cm}, \hspace{0.1cm} \forall i=1,...,n\)</span></li>
+<li><span class="math inline">\(\hspace{0.1cm}\)</span> <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.12cm}\)</span> tienen la misma distribución de probabilidad, es decir, <span class="math inline">\(\hspace{0.12cm}\mathcal{X}_i \sim F( \cdot ) \hspace{0.15cm}, \hspace{0.1cm} \forall i=1,...,n\)</span></li>
 </ul>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde <span class="math inline">\(\hspace{0.08cm}F( \cdot )\hspace{0.08cm}\)</span> es una distribucion de probabilidad con parametros no especificados.</p>
 </p>
 </p>
 <p></span></p>
 </div>
+<p><span class="math inline">\(\hspace{0.4cm}\)</span> Donde <span class="math inline">\(\hspace{0.08cm}F( \cdot )\hspace{0.08cm}\)</span> es una distribucion de probabilidad con parametros no especificados.</p>
 <p><br></p>
-<p>Usaremos la siguiente notación:</p>
+<p>Usaremos la siguiente notación: <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math display">\[(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \hspace{0.3cm} \Leftrightarrow
 \left\lbrace\begin{array}{l}   \hspace{0.12cm}\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.2cm} \text{son mutuamente independientes} \\[0.1cm]
 \hspace{0.12cm}\mathcal{X}_i \sim F(\cdot) \hspace{0.12cm} , \hspace{0.12cm} \forall i=1,...,n    \end{array}\right. \\[1cm]\]</span></p>
@@ -1688,10 +1688,17 @@ margin-right: auto;
 </div>
 <div id="muestra-aleatoria-simple" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Muestra Aleatoria Simple</h1>
-<p>Sea <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> una v.a. tal que <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \sim F(\cdot)\)</span></p>
-<p><span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.1cm}\)</span> es una muestra aleatoria simple (m.a.s.) de tamaño <span class="math inline">\(\hspace{0.08cm}n\hspace{0.08cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span> <span class="math inline">\(\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}\)</span> <span class="math inline">\((\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \\\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Sea <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> una v.a. tal que <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \sim F(\cdot)\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.1cm}\)</span> es una muestra aleatoria simple (m.a.s.) de tamaño <span class="math inline">\(\hspace{0.08cm}n\hspace{0.08cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span> <span class="math inline">\(\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}\)</span> <span class="math inline">\((\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \\\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><strong>Observación:</strong></p>
-<p>Una m.a.s. de una v.a. es un vector de v.a.’s</p>
+<p>Una m.a.s. de una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> es un vector de v.a.’s independientes y que se distribuyen probabilisticamente igual que la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span></p>
 <p><br></p>
 </div>
 <div id="muestra-de-observaciones" class="section level1" number="3">
