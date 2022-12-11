@@ -684,9 +684,9 @@ $$\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S^2_n = \dfrac{1}{n} \sum_{i=
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-Dada una funcion $\hspace{0.1cm} T\hspace{0.1cm}$ del parametro $\hspace{0.1cm}\theta$ $\hspace{0.15cm}\Rightarrow \hspace{0.15cm}T(\theta)$
+$\hspace{0.25cm}$  Dada una funcion $\hspace{0.1cm} T\hspace{0.1cm}$ del parametro $\hspace{0.1cm}\theta$ $\hspace{0.15cm}\Rightarrow \hspace{0.15cm}T(\theta)$
 
-Si $\hspace{0.1cm}\widehat{\theta}_{MV}\hspace{0.1cm}$ es el estimador máximo-verosímil del parámetro $\hspace{0.1cm}\theta\hspace{0.1cm}$ , entonces:
+$\hspace{0.25cm}$  Si $\hspace{0.1cm}\widehat{\theta}_{MV}\hspace{0.1cm}$ es el estimador máximo-verosímil del parámetro $\hspace{0.1cm}\theta\hspace{0.1cm}$ , entonces:
 
 - $\hspace{0.1cm} T(\widehat{\theta}_{MV})\hspace{0.1cm}$ es el estimador máximo-verosimil de $\hspace{0.1cm}T(\theta)$
 
@@ -703,9 +703,9 @@ Si $\hspace{0.1cm}\widehat{\theta}_{MV}\hspace{0.1cm}$ es el estimador máximo-v
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-Dada una v.a. $\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$  y dada una constante $\hspace{0.1cm}\alpha \in (0,1) \\$
+$\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$  y dada una constante $\hspace{0.1cm}\alpha \in (0,1) \\$
  
- Un intervalo de confianza $\hspace{0.1cm}1-\alpha\hspace{0.1cm}$ para el parámetro $\hspace{0.1cm}\theta\hspace{0.1cm}$ es un intervalo $\hspace{0.1cm}\left[ L_1(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.1cm},\hspace{0.1cm} L_2(\mathcal{X}_1,...,\mathcal{X}_n) \right]$ tal que: $\\[0.7cm]$
+$\hspace{0.25cm}$  Un intervalo de confianza $\hspace{0.1cm}1-\alpha\hspace{0.1cm}$ para el parámetro $\hspace{0.1cm}\theta\hspace{0.1cm}$ es un intervalo $\hspace{0.1cm}\left[ L_1(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.1cm},\hspace{0.1cm} L_2(\mathcal{X}_1,...,\mathcal{X}_n) \right]$ tal que: $\\[0.7cm]$
  
  $$P(L_1 \leq \theta  \leq L_2) = 1- \alpha \\$$
 
@@ -786,21 +786,29 @@ $\hspace{0.25cm}$ Donde: $\hspace{0.1cm}g_1\hspace{0.1cm}$ y $\hspace{0.1cm}g_2\
  
 ## Intervalo de confianza para la proporción 
  
-Una variable categorica binaria  $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ puede modelarse como una variable aleatoria Bernoulli(p), donde $\hspace{0.1cm}p=P(\mathcal{X} = 1)\hspace{0.1cm}$ y $\hspace{0.1cm}1-p = P(\mathcal{X}=0)$
+ Una variable **categorica binaria**  $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ con campo de variación $\hspace{0.1cm}\lbrace 0,1 \rbrace\hspace{0.1cm}$ puede modelarse como una variable aleatoria $\hspace{0.1cm}Bernoulli(p)\hspace{0.1cm}$, donde $\hspace{0.1cm}p=P(\mathcal{X} = 1)\hspace{0.1cm}$ y $\hspace{0.1cm}1-p = P(\mathcal{X}=0)$
 
 
 Queremos obtener un intervalo de confianza para $\hspace{0.1cm}p\hspace{0.1cm}$, que puede interpretarse como la proporción de individuos de la poblacion para los que $\hspace{0.1cm}\mathcal{X}=1$ 
 
 
-Para ello vamos a apoyarnos en el teorema de esperanza-varianza de la media muestral y en el teorema central del limite (TCL) y en el método pivotal.
+Para ello vamos a apoyarnos en el **teorema de esperanza-varianza de la media muestral** y en el **teorema central del limite** (TCL) y en el **método pivotal**.
 
 <br>
 
 ### Distribución Bernoulli
 
-Dada una v.a. $\mathcal{X}$, la distribución bbernoulli se define del siguiente modo: $\\[0.6cm]$
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ Dada una v.a. $\mathcal{X}$, la distribución Bernoulli se define del siguiente modo: $\\[0.6cm]$
 
 $$\mathcal{X} \sim Bernoulli(p) \hspace{0.2cm} \Leftrightarrow  \hspace{0.2cm} P(X=x) =p^x (1-p)^x \cdot I(x \in \lbrace 0,1 \rbrace ) \\$$
+
+</p>
+ 
+</p></span>
+</div>
 
 
 **Observaciones:**
@@ -808,16 +816,17 @@ $$\mathcal{X} \sim Bernoulli(p) \hspace{0.2cm} \Leftrightarrow  \hspace{0.2cm} P
 - Las v.a. $\hspace{0.1cm} Bernoulli(p)\hspace{0.1cm}$ se usan para modelar experimentos aleatorios con dos únicos resultados dicotomicos (exito-fracaso)
  tales que la probabilidad del exito es $\hspace{0.1cm}p\hspace{0.1cm}$ y la del fracoso $\hspace{0.1cm}1-p$.
  
- A este tipo de experimentos aleatorios se les llama experimentos tipo Bernoulli.
+$\hspace{0.5cm}$ A este tipo de experimentos aleatorios se les llama experimentos tipo Bernoulli.
  
 - Si $\hspace{0.1cm}\mathcal{X} \sim Bernoulli(p)\hspace{0.1cm}$ , entonces:
 
     - $\mathcal{X}\hspace{0.1cm}$ puede interpretarse como el nº de exitos obtenidos tras realizar una vez un experimento tipo Bernoulli (notese que este nº solo puede ser 0 o 1),  con probabilidad de exito $\hspace{0.1cm}p \\$
 
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-
-**Propiedades**
+$\hspace{0.25cm}$ **Propiedades**
 
 - $P(\mathcal{X}=1)=p \\$
 
@@ -830,15 +839,31 @@ $$\mathcal{X} \sim Bernoulli(p) \hspace{0.2cm} \Leftrightarrow  \hspace{0.2cm} P
 - $F_\mathcal{X}(x) = \left\lbrace\begin{array}{l} 1 \hspace{0.25cm}  , \hspace{0.25cm}  \text{si} \hspace{0.25cm} x\geq 1 \\ 0 \hspace{0.25cm}  , \hspace{0.25cm}  \text{si} \hspace{0.25cm} x < 0 \\ 1-p \hspace{0.25cm}  , \hspace{0.25cm}  \text{si} \hspace{0.25cm} x\in [0 , 1) \end{array}\right.$
 
 
+</p>
+ 
+</p></span>
+</div>
+
+
 <br>
 
 
 ### Distribución Binomial
 
-Dada una v.a. $\hspace{0.1cm} \mathcal{X}\hspace{0.1cm}$, la distribución binomial se define del siguiente modo:
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm} \mathcal{X}\hspace{0.1cm}$, la distribución binomial se define del siguiente modo:
 
 
 $$\mathcal{X} \sim Binomial(n,p) \hspace{0.2cm} \Leftrightarrow  \hspace{0.2cm}  P(X=x) =\binom{n}{x} \cdot p^x (1-p)^x \cdot I(x\in\lbrace 0,1,...,n \rbrace ) \\$$
+
+
+</p>
+ 
+</p></span>
+</div>
+
 
 
 **Observaciones:**
@@ -851,7 +876,14 @@ $$\mathcal{X} \sim Binomial(n,p) \hspace{0.2cm} \Leftrightarrow  \hspace{0.2cm} 
 
 <br>
 
-**Propiedades** 
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+
+$\hspace{0.25cm}$ **Propiedades** 
 
 - Si $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ son v.a. independientes tales que $\hspace{0.1cm}\mathcal{X}_i \sim Bernoulli(p)$ , $i =1,...,n\hspace{0.1cm}$ , entonces:
 
@@ -871,7 +903,10 @@ $$\mathcal{X}_1 + ... + \mathcal{X}_n \sim Binomial (n, p) \\$$
 
 $$F_\mathcal{X}(x) = \sum_{z\in \lbrace 0,1,...,x\rbrace} \binom{n}{z} \cdot p^z \cdot (1-p)^{n-z}$$
 
-
+</p>
+ 
+</p></span>
+</div>
 
 
 
@@ -882,15 +917,25 @@ $$F_\mathcal{X}(x) = \sum_{z\in \lbrace 0,1,...,x\rbrace} \binom{n}{z} \cdot p^z
 
 ### Teorema de esperanza-varianza de la media muestral
 
-Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
 
 $$E\left[\overline{\mathcal{X}_n}\right] \hspace{0.1cm}=\hspace{0.1cm} E[\mathcal{X}]\\$$
 
 $$Var\left(\overline{\mathcal{X}_n}\right) \hspace{0.1cm}=\hspace{0.1cm} Var(\mathcal{X})/n \\$$
 
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 $\hspace{0.35cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i$
+
+
+</p>
+ 
+</p></span>
+</div>
+
 
 <br>
 
@@ -898,11 +943,26 @@ $\hspace{0.35cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \math
 
 ### Teorema central del límite
 
-El TCL dice lo siguiente:
 
-Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ El TCL dice lo siguiente:
+
+$\hspace{0.25cm}$ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
 
 $$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} = \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.1cm}\underset{d}{\rightarrow}\hspace{0.1cm} N(0,1)\\$$
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+
+
 
 Usando la definicion de convergencia en distribución tenemos lo siguiente: $\\[0.5cm]$
 
@@ -918,10 +978,13 @@ Donde:
  
 ### Teorema de Moivre-Laplace
 
-Este teorema es un caso particular del TCL para v.a`s Binomiales.
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ Este teorema es un caso particular del TCL para v.a`s Binomiales.
 
 
-Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim Binomial(k,p)\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
+$\hspace{0.25cm}$ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim Binomial(k,p)\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
 
  
  
@@ -931,15 +994,21 @@ $$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqr
  
  
  
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 
 $\hspace{0.25cm} E[Binomial(k,p)] \hspace{0.1cm}=\hspace{0.1cm} k\cdot p$
 
 $\hspace{0.25cm} Var(Binomial(k,p)) \hspace{0.1cm}=\hspace{0.1cm} k\cdot p \cdot (1-p)$
  
+</p>
+ 
+</p></span>
+</div>
  
 <br>
+
+
  
 Para el caso concreto de una $\hspace{0.1cm}Bernouilli(p)=Binomial(k=1,p)\hspace{0.1cm}$ se tiene lo siguiente:
  
@@ -948,7 +1017,7 @@ Para el caso concreto de una $\hspace{0.1cm}Bernouilli(p)=Binomial(k=1,p)\hspace
 $$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.1cm}= \hspace{0.1cm}
 \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}} \hspace{0.15cm}\underset{d}{\rightarrow}\hspace{0.15cm} N(0,1)\\$$ 
  
- 
+
 
 
 
@@ -957,41 +1026,44 @@ $$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqr
 
 ### Intervalo de confianza para la proporción
 
-La anterior cantidad:
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ La anterior cantidad:
 
 $$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, p) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}}$$
 
 
-es una cantidad pivotal , puesto que contienen al parámetro de interés, en este caso $\hspace{0.1cm}\theta = p\hspace{0.1cm}$ , y su distribución de probabilidad es conocida y no depende de dicho parámetro , es una $\hspace{0.1cm}N(0,1)\hspace{0.1cm}$, aproximadamente.
+$\hspace{0.25cm}$ es una cantidad pivotal , puesto que contienen al parámetro de interés, en este caso $\hspace{0.1cm}\theta = p\hspace{0.1cm}$ , y su distribución de probabilidad es conocida y no depende de dicho parámetro , es una $\hspace{0.1cm}N(0,1)\hspace{0.1cm}$, aproximadamente.
  
  
  
-Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm}a,b \in \mathbb{R}\hspace{0.1cm}$ tales que: $\\[0.6cm]$
+$\hspace{0.25cm}$ Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm}a,b \in \mathbb{R}\hspace{0.1cm}$ tales que: $\\[0.6cm]$
 
 $$P\left( \hspace{0.1cm}a \hspace{0.1cm}< \hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}}  \hspace{0.1cm}<\hspace{0.1cm} b \hspace{0.1cm}\right) = 1-\alpha \\$$
 
 
  
-Siguiendo los anteriores resultados:
+$\hspace{0.25cm}$ Siguiendo los anteriores resultados:
 
 
 $$P\left( \hspace{0.1cm} a \hspace{0.1cm}<\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}} \hspace{0.1cm} <\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} P\left( a < N(0,1)  < b \right) \\$$
 
 
 
-Teniendo en cuenta las propiedades de la distribución normal: $\\[0.6cm]$
+$\hspace{0.25cm}$ Teniendo en cuenta las propiedades de la distribución normal: $\\[0.6cm]$
 
 $$P\left( z_{1-\alpha/2} < N(0,1)  < z_{\alpha/2} \right) = P\left( -z_{\alpha/2} < N(0,1)  < z_{\alpha/2} \right) = 1-\alpha \\$$
  
  
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 
 $z_{\alpha/2}\hspace{0.1cm}$ es el valor tal que $\hspace{0.1cm}P(N(0,1)>z_{\alpha/2}) = \alpha/2 \\$ 
 
 
 
-Por tanto:
+$\hspace{0.25cm}$ Por tanto:
 
 
 $$P\left( \hspace{0.1cm} -z_{\alpha/2} \hspace{0.1cm}<\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}} \hspace{0.1cm} <\hspace{0.1cm} z_{\alpha/2}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
@@ -1000,39 +1072,42 @@ $$P\left( \hspace{0.1cm} -z_{\alpha/2} \hspace{0.1cm}<\hspace{0.1cm} \dfrac{\ove
 
 
 
-Siguiendo el método pivotal ahora tenemos que aislar el parametro $\theta=p$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
+$\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\theta=p$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
 
 
 $$P\left( \hspace{0.1cm} \overline{\mathcal{X}_n} -z_{\alpha/2} \cdot \sqrt{p(1-p)/n}\hspace{0.1cm}<\hspace{0.1cm}  p \hspace{0.1cm} <\hspace{0.1cm} \overline{\mathcal{X}_n} + z_{\alpha/2}\cdot \sqrt{p(1-p)/n}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
 
 
 
-Pero la anterior expresión tienen un problema, dependen ambos lados de la desigualdad de $p$ , que es el parámetro desconocido. Una solución a esto es la siguiente.
+$\hspace{0.25cm}$ Pero la anterior expresión tienen un problema, dependen ambos lados de la desigualdad de $p$ , que es el parámetro desconocido. Una solución a esto es la siguiente.
 
-Como $\overline{\mathcal{X}_n}$ es un estimador de $p$ que es insesgado, consistente y de minima varianza, es un muy buen estimador de $p$ , por tanto podemos estimar $p$ con $\overline{\mathcal{X}_n}$ en la anterior expresion. Asi llegamos a la siguiente expresión: $\\[0.7cm]$
+$\hspace{0.25cm}$ Como $\overline{\mathcal{X}_n}$ es un estimador de $p$ que es insesgado, consistente y de minima varianza, es un muy buen estimador de $p$ , por tanto podemos estimar $p$ con $\overline{\mathcal{X}_n}$ en la anterior expresion. Asi llegamos a la siguiente expresión: $\\[0.7cm]$
 
 
 
 $$P\left( \hspace{0.1cm} \overline{\mathcal{X}_n} -z_{\alpha/2} \cdot \sqrt{\overline{\mathcal{X}_n}(1-\overline{\mathcal{X}_n})/n}\hspace{0.1cm}<\hspace{0.1cm}  p \hspace{0.1cm} <\hspace{0.1cm} \overline{\mathcal{X}_n} + z_{\alpha/2}\cdot \sqrt{\overline{\mathcal{X}_n}(1-\overline{\mathcal{X}_n})/n}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
 
 
-Por tanto, tenemos el siguiente intervalo de confianza a un nivel aproximado $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} p \hspace{0.1cm}\\$
+$\hspace{0.25cm}$ Por tanto, tenemos el siguiente intervalo de confianza a un nivel aproximado $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} p \hspace{0.1cm}\\$
 
 $$IC(p)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{X}_n} \hspace{0.1cm}\pm\hspace{0.1cm} z_{\alpha/2} \cdot \sqrt{\overline{\mathcal{X}_n}(1-\overline{\mathcal{X}_n})/n} \hspace{0.1cm} \right] \\[0.9cm]$$
 
 
-Dada una muestra $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
+$\hspace{0.25cm}$ Dada una muestra $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
 
 
 $$IC(p)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X} \hspace{0.1cm}\pm\hspace{0.1cm} z_{\alpha/2} \cdot \sqrt{\overline{X}\cdot (1-\overline{X})/n} \hspace{0.1cm} \right]$$
 
 
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 $\hspace{0.45cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i$
 
 
-
+</p>
+ 
+</p></span>
+</div>
 
 
 <br>

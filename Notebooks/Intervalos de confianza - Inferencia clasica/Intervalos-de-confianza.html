@@ -2020,8 +2020,8 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n , \theta)
 <h3><span class="header-section-number">8.2.4</span> Principio de invarianza</h3>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
-<p>Dada una funcion <span class="math inline">\(\hspace{0.1cm} T\hspace{0.1cm}\)</span> del parametro <span class="math inline">\(\hspace{0.1cm}\theta\)</span> <span class="math inline">\(\hspace{0.15cm}\Rightarrow \hspace{0.15cm}T(\theta)\)</span></p>
-<p>Si <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}_{MV}\hspace{0.1cm}\)</span> es el estimador máximo-verosímil del parámetro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> , entonces:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una funcion <span class="math inline">\(\hspace{0.1cm} T\hspace{0.1cm}\)</span> del parametro <span class="math inline">\(\hspace{0.1cm}\theta\)</span> <span class="math inline">\(\hspace{0.15cm}\Rightarrow \hspace{0.15cm}T(\theta)\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Si <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}_{MV}\hspace{0.1cm}\)</span> es el estimador máximo-verosímil del parámetro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> , entonces:</p>
 <ul>
 <li><span class="math inline">\(\hspace{0.1cm} T(\widehat{\theta}_{MV})\hspace{0.1cm}\)</span> es el estimador máximo-verosimil de <span class="math inline">\(\hspace{0.1cm}T(\theta)\)</span></li>
 </ul>
@@ -2037,8 +2037,8 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n , \theta)
 <h1><span class="header-section-number">9</span> Estimación por intervalos de confianza <a class="anchor" id="1"></a></h1>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
-<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y dada una constante <span class="math inline">\(\hspace{0.1cm}\alpha \in (0,1) \\\)</span></p>
-<p>Un intervalo de confianza <span class="math inline">\(\hspace{0.1cm}1-\alpha\hspace{0.1cm}\)</span> para el parámetro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> es un intervalo <span class="math inline">\(\hspace{0.1cm}\left[ L_1(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.1cm},\hspace{0.1cm} L_2(\mathcal{X}_1,...,\mathcal{X}_n) \right]\)</span> tal que: <span class="math inline">\(\\[0.7cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una v.a. <span class="math inline">\(\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y dada una constante <span class="math inline">\(\hspace{0.1cm}\alpha \in (0,1) \\\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Un intervalo de confianza <span class="math inline">\(\hspace{0.1cm}1-\alpha\hspace{0.1cm}\)</span> para el parámetro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> es un intervalo <span class="math inline">\(\hspace{0.1cm}\left[ L_1(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.1cm},\hspace{0.1cm} L_2(\mathcal{X}_1,...,\mathcal{X}_n) \right]\)</span> tal que: <span class="math inline">\(\\[0.7cm]\)</span></p>
 <p><span class="math display">\[P(L_1 \leq \theta  \leq L_2) = 1- \alpha \\\]</span></p>
 </p>
 </p>
@@ -2087,27 +2087,35 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n , \theta)
 </div>
 <div id="intervalo-de-confianza-para-la-proporción" class="section level2" number="9.3">
 <h2><span class="header-section-number">9.3</span> Intervalo de confianza para la proporción</h2>
-<p>Una variable categorica binaria <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> puede modelarse como una variable aleatoria Bernoulli(p), donde <span class="math inline">\(\hspace{0.1cm}p=P(\mathcal{X} = 1)\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}1-p = P(\mathcal{X}=0)\)</span></p>
+<p>Una variable <strong>categorica binaria</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> con campo de variación <span class="math inline">\(\hspace{0.1cm}\lbrace 0,1 \rbrace\hspace{0.1cm}\)</span> puede modelarse como una variable aleatoria <span class="math inline">\(\hspace{0.1cm}Bernoulli(p)\hspace{0.1cm}\)</span>, donde <span class="math inline">\(\hspace{0.1cm}p=P(\mathcal{X} = 1)\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}1-p = P(\mathcal{X}=0)\)</span></p>
 <p>Queremos obtener un intervalo de confianza para <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span>, que puede interpretarse como la proporción de individuos de la poblacion para los que <span class="math inline">\(\hspace{0.1cm}\mathcal{X}=1\)</span></p>
-<p>Para ello vamos a apoyarnos en el teorema de esperanza-varianza de la media muestral y en el teorema central del limite (TCL) y en el método pivotal.</p>
+<p>Para ello vamos a apoyarnos en el <strong>teorema de esperanza-varianza de la media muestral</strong> y en el <strong>teorema central del limite</strong> (TCL) y en el <strong>método pivotal</strong>.</p>
 <p><br></p>
 <div id="distribución-bernoulli" class="section level3" number="9.3.1">
 <h3><span class="header-section-number">9.3.1</span> Distribución Bernoulli</h3>
-<p>Dada una v.a. <span class="math inline">\(\mathcal{X}\)</span>, la distribución bbernoulli se define del siguiente modo: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una v.a. <span class="math inline">\(\mathcal{X}\)</span>, la distribución Bernoulli se define del siguiente modo: <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math display">\[\mathcal{X} \sim Bernoulli(p) \hspace{0.2cm} \Leftrightarrow  \hspace{0.2cm} P(X=x) =p^x (1-p)^x \cdot I(x \in \lbrace 0,1 \rbrace ) \\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><strong>Observaciones:</strong></p>
 <ul>
 <li>Las v.a. <span class="math inline">\(\hspace{0.1cm} Bernoulli(p)\hspace{0.1cm}\)</span> se usan para modelar experimentos aleatorios con dos únicos resultados dicotomicos (exito-fracaso)
 tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> y la del fracoso <span class="math inline">\(\hspace{0.1cm}1-p\)</span>.</li>
 </ul>
-<p>A este tipo de experimentos aleatorios se les llama experimentos tipo Bernoulli.</p>
+<p><span class="math inline">\(\hspace{0.5cm}\)</span> A este tipo de experimentos aleatorios se les llama experimentos tipo Bernoulli.</p>
 <ul>
 <li><p>Si <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \sim Bernoulli(p)\hspace{0.1cm}\)</span> , entonces:</p>
 <ul>
 <li><span class="math inline">\(\mathcal{X}\hspace{0.1cm}\)</span> puede interpretarse como el nº de exitos obtenidos tras realizar una vez un experimento tipo Bernoulli (notese que este nº solo puede ser 0 o 1), con probabilidad de exito <span class="math inline">\(\hspace{0.1cm}p \\\)</span></li>
 </ul></li>
 </ul>
-<p><strong>Propiedades</strong></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Propiedades</strong></p>
 <ul>
 <li><p><span class="math inline">\(P(\mathcal{X}=1)=p \\\)</span></p></li>
 <li><p><span class="math inline">\(P(\mathcal{X}=0)=1-p \\\)</span></p></li>
@@ -2115,12 +2123,22 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.1cm
 <li><p><span class="math inline">\(Var(\mathcal{X})= p\cdot (1-p) \\\)</span></p></li>
 <li><p><span class="math inline">\(F_\mathcal{X}(x) = \left\lbrace\begin{array}{l} 1 \hspace{0.25cm} , \hspace{0.25cm} \text{si} \hspace{0.25cm} x\geq 1 \\ 0 \hspace{0.25cm} , \hspace{0.25cm} \text{si} \hspace{0.25cm} x &lt; 0 \\ 1-p \hspace{0.25cm} , \hspace{0.25cm} \text{si} \hspace{0.25cm} x\in [0 , 1) \end{array}\right.\)</span></p></li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="distribución-binomial" class="section level3" number="9.3.2">
 <h3><span class="header-section-number">9.3.2</span> Distribución Binomial</h3>
-<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm} \mathcal{X}\hspace{0.1cm}\)</span>, la distribución binomial se define del siguiente modo:</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una v.a. <span class="math inline">\(\hspace{0.1cm} \mathcal{X}\hspace{0.1cm}\)</span>, la distribución binomial se define del siguiente modo:</p>
 <p><span class="math display">\[\mathcal{X} \sim Binomial(n,p) \hspace{0.2cm} \Leftrightarrow  \hspace{0.2cm}  P(X=x) =\binom{n}{x} \cdot p^x (1-p)^x \cdot I(x\in\lbrace 0,1,...,n \rbrace ) \\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><strong>Observaciones:</strong></p>
 <ul>
 <li><p>Si <span class="math inline">\(\mathcal{X} \sim Binomial(p)\)</span> , entonces:</p>
@@ -2129,7 +2147,9 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.1cm
 </ul></li>
 </ul>
 <p><br></p>
-<p><strong>Propiedades</strong></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Propiedades</strong></p>
 <ul>
 <li>Si <span class="math inline">\(\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> son v.a. independientes tales que <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_i \sim Bernoulli(p)\)</span> , <span class="math inline">\(i =1,...,n\hspace{0.1cm}\)</span> , entonces:</li>
 </ul>
@@ -2141,22 +2161,38 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.1cm
 <li><p>Para <span class="math inline">\(\hspace{0.1cm}x\geq n\)</span></p></li>
 </ul>
 <p><span class="math display">\[F_\mathcal{X}(x) = \sum_{z\in \lbrace 0,1,...,x\rbrace} \binom{n}{z} \cdot p^z \cdot (1-p)^{n-z}\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="teorema-de-esperanza-varianza-de-la-media-muestral" class="section level3" number="9.3.3">
 <h3><span class="header-section-number">9.3.3</span> Teorema de esperanza-varianza de la media muestral</h3>
-<p>Si tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Si tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[E\left[\overline{\mathcal{X}_n}\right] \hspace{0.1cm}=\hspace{0.1cm} E[\mathcal{X}]\\\]</span></p>
 <p><span class="math display">\[Var\left(\overline{\mathcal{X}_n}\right) \hspace{0.1cm}=\hspace{0.1cm} Var(\mathcal{X})/n \\\]</span></p>
-<p>Donde:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <p><span class="math inline">\(\hspace{0.35cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="teorema-central-del-límite" class="section level3" number="9.3.4">
 <h3><span class="header-section-number">9.3.4</span> Teorema central del límite</h3>
-<p>El TCL dice lo siguiente:</p>
-<p>Si tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> El TCL dice lo siguiente:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Si tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} = \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.1cm}\underset{d}{\rightarrow}\hspace{0.1cm} N(0,1)\\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p>Usando la definicion de convergencia en distribución tenemos lo siguiente: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[\underset{n \rightarrow \infty}{lim} \hspace{0.1cm} F_{W_n}(x) \hspace{0.1cm} =\hspace{0.1cm} F_{N(0,1)}(x) \hspace{0.25cm} , \hspace{0.25cm} \forall x\in \mathbb{R}\]</span></p>
 <p>Donde:</p>
@@ -2165,13 +2201,19 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.1cm
 </div>
 <div id="teorema-de-moivre-laplace" class="section level3" number="9.3.5">
 <h3><span class="header-section-number">9.3.5</span> Teorema de Moivre-Laplace</h3>
-<p>Este teorema es un caso particular del TCL para v.a`s Binomiales.</p>
-<p>Si tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim Binomial(k,p)\hspace{0.1cm}\)</span> y una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Este teorema es un caso particular del TCL para v.a`s Binomiales.</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Si tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim Binomial(k,p)\hspace{0.1cm}\)</span> y una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.1cm}= \hspace{0.1cm}
 \dfrac{\overline{\mathcal{X}_n} - k\cdot p}{\sqrt{k\cdot p\cdot(1-p)/n}}\hspace{0.15cm}\underset{d}{\rightarrow}\hspace{0.15cm} N(0,1)\\\]</span></p>
-<p>Donde:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <p><span class="math inline">\(\hspace{0.25cm} E[Binomial(k,p)] \hspace{0.1cm}=\hspace{0.1cm} k\cdot p\)</span></p>
 <p><span class="math inline">\(\hspace{0.25cm} Var(Binomial(k,p)) \hspace{0.1cm}=\hspace{0.1cm} k\cdot p \cdot (1-p)\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 <p>Para el caso concreto de una <span class="math inline">\(\hspace{0.1cm}Bernouilli(p)=Binomial(k=1,p)\hspace{0.1cm}\)</span> se tiene lo siguiente:</p>
 <p><span class="math display">\[\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.1cm}= \hspace{0.1cm}
@@ -2180,30 +2222,36 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.1cm
 </div>
 <div id="intervalo-de-confianza-para-la-proporción-1" class="section level3" number="9.3.6">
 <h3><span class="header-section-number">9.3.6</span> Intervalo de confianza para la proporción</h3>
-<p>La anterior cantidad:</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La anterior cantidad:</p>
 <p><span class="math display">\[\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, p) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}}\]</span></p>
-<p>es una cantidad pivotal , puesto que contienen al parámetro de interés, en este caso <span class="math inline">\(\hspace{0.1cm}\theta = p\hspace{0.1cm}\)</span> , y su distribución de probabilidad es conocida y no depende de dicho parámetro , es una <span class="math inline">\(\hspace{0.1cm}N(0,1)\hspace{0.1cm}\)</span>, aproximadamente.</p>
-<p>Siguiendo el método pivotal hay que encontrar los valores <span class="math inline">\(\hspace{0.1cm}a,b \in \mathbb{R}\hspace{0.1cm}\)</span> tales que: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> es una cantidad pivotal , puesto que contienen al parámetro de interés, en este caso <span class="math inline">\(\hspace{0.1cm}\theta = p\hspace{0.1cm}\)</span> , y su distribución de probabilidad es conocida y no depende de dicho parámetro , es una <span class="math inline">\(\hspace{0.1cm}N(0,1)\hspace{0.1cm}\)</span>, aproximadamente.</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Siguiendo el método pivotal hay que encontrar los valores <span class="math inline">\(\hspace{0.1cm}a,b \in \mathbb{R}\hspace{0.1cm}\)</span> tales que: <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math display">\[P\left( \hspace{0.1cm}a \hspace{0.1cm}&lt; \hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}}  \hspace{0.1cm}&lt;\hspace{0.1cm} b \hspace{0.1cm}\right) = 1-\alpha \\\]</span></p>
-<p>Siguiendo los anteriores resultados:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Siguiendo los anteriores resultados:</p>
 <p><span class="math display">\[P\left( \hspace{0.1cm} a \hspace{0.1cm}&lt;\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}} \hspace{0.1cm} &lt;\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} P\left( a &lt; N(0,1)  &lt; b \right) \\\]</span></p>
-<p>Teniendo en cuenta las propiedades de la distribución normal: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Teniendo en cuenta las propiedades de la distribución normal: <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math display">\[P\left( z_{1-\alpha/2} &lt; N(0,1)  &lt; z_{\alpha/2} \right) = P\left( -z_{\alpha/2} &lt; N(0,1)  &lt; z_{\alpha/2} \right) = 1-\alpha \\\]</span></p>
-<p>Donde:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <p><span class="math inline">\(z_{\alpha/2}\hspace{0.1cm}\)</span> es el valor tal que <span class="math inline">\(\hspace{0.1cm}P(N(0,1)&gt;z_{\alpha/2}) = \alpha/2 \\\)</span></p>
-<p>Por tanto:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Por tanto:</p>
 <p><span class="math display">\[P\left( \hspace{0.1cm} -z_{\alpha/2} \hspace{0.1cm}&lt;\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}} \hspace{0.1cm} &lt;\hspace{0.1cm} z_{\alpha/2}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[0.7cm]\]</span></p>
-<p>Siguiendo el método pivotal ahora tenemos que aislar el parametro <span class="math inline">\(\theta=p\)</span>. Operando un poco se llega a lo siguiente: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Siguiendo el método pivotal ahora tenemos que aislar el parametro <span class="math inline">\(\theta=p\)</span>. Operando un poco se llega a lo siguiente: <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math display">\[P\left( \hspace{0.1cm} \overline{\mathcal{X}_n} -z_{\alpha/2} \cdot \sqrt{p(1-p)/n}\hspace{0.1cm}&lt;\hspace{0.1cm}  p \hspace{0.1cm} &lt;\hspace{0.1cm} \overline{\mathcal{X}_n} + z_{\alpha/2}\cdot \sqrt{p(1-p)/n}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[0.7cm]\]</span></p>
-<p>Pero la anterior expresión tienen un problema, dependen ambos lados de la desigualdad de <span class="math inline">\(p\)</span> , que es el parámetro desconocido. Una solución a esto es la siguiente.</p>
-<p>Como <span class="math inline">\(\overline{\mathcal{X}_n}\)</span> es un estimador de <span class="math inline">\(p\)</span> que es insesgado, consistente y de minima varianza, es un muy buen estimador de <span class="math inline">\(p\)</span> , por tanto podemos estimar <span class="math inline">\(p\)</span> con <span class="math inline">\(\overline{\mathcal{X}_n}\)</span> en la anterior expresion. Asi llegamos a la siguiente expresión: <span class="math inline">\(\\[0.7cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Pero la anterior expresión tienen un problema, dependen ambos lados de la desigualdad de <span class="math inline">\(p\)</span> , que es el parámetro desconocido. Una solución a esto es la siguiente.</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Como <span class="math inline">\(\overline{\mathcal{X}_n}\)</span> es un estimador de <span class="math inline">\(p\)</span> que es insesgado, consistente y de minima varianza, es un muy buen estimador de <span class="math inline">\(p\)</span> , por tanto podemos estimar <span class="math inline">\(p\)</span> con <span class="math inline">\(\overline{\mathcal{X}_n}\)</span> en la anterior expresion. Asi llegamos a la siguiente expresión: <span class="math inline">\(\\[0.7cm]\)</span></p>
 <p><span class="math display">\[P\left( \hspace{0.1cm} \overline{\mathcal{X}_n} -z_{\alpha/2} \cdot \sqrt{\overline{\mathcal{X}_n}(1-\overline{\mathcal{X}_n})/n}\hspace{0.1cm}&lt;\hspace{0.1cm}  p \hspace{0.1cm} &lt;\hspace{0.1cm} \overline{\mathcal{X}_n} + z_{\alpha/2}\cdot \sqrt{\overline{\mathcal{X}_n}(1-\overline{\mathcal{X}_n})/n}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[0.7cm]\]</span></p>
-<p>Por tanto, tenemos el siguiente intervalo de confianza a un nivel aproximado <span class="math inline">\(\hspace{0.1cm} 1-\alpha\hspace{0.1cm}\)</span> para el parametro <span class="math inline">\(\hspace{0.1cm} p \hspace{0.1cm}\\\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Por tanto, tenemos el siguiente intervalo de confianza a un nivel aproximado <span class="math inline">\(\hspace{0.1cm} 1-\alpha\hspace{0.1cm}\)</span> para el parametro <span class="math inline">\(\hspace{0.1cm} p \hspace{0.1cm}\\\)</span></p>
 <p><span class="math display">\[IC(p)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{X}_n} \hspace{0.1cm}\pm\hspace{0.1cm} z_{\alpha/2} \cdot \sqrt{\overline{\mathcal{X}_n}(1-\overline{\mathcal{X}_n})/n} \hspace{0.1cm} \right] \\[0.9cm]\]</span></p>
-<p>Dada una muestra <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , tenemos la siguiente realización del intervalo de confianza: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una muestra <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , tenemos la siguiente realización del intervalo de confianza: <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math display">\[IC(p)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X} \hspace{0.1cm}\pm\hspace{0.1cm} z_{\alpha/2} \cdot \sqrt{\overline{X}\cdot (1-\overline{X})/n} \hspace{0.1cm} \right]\]</span></p>
-<p>Donde:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <p><span class="math inline">\(\hspace{0.45cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 </div>
