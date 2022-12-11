@@ -1133,67 +1133,384 @@ $\hspace{0.35cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i$
 
 
 Cargamos los datos con los que vamos a trabajar:
-
 ```python
 import numpy as np
 import pandas as pd
+import scipy
 ```
+
 
 ```python
 Data = pd.read_csv('House_Price_Regression.csv')
 ```
 
+
 ```python
 Data.head()
 ```
 
-```python
 
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>neighborhood_recode</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>price</th>
+      <th>no_of_bedrooms</th>
+      <th>no_of_bathrooms</th>
+      <th>quality_recode</th>
+      <th>maid_room_recode</th>
+      <th>unfurnished_recode</th>
+      <th>balcony_recode</th>
+      <th>...</th>
+      <th>private_garden_recode</th>
+      <th>private_gym_recode</th>
+      <th>private_jacuzzi_recode</th>
+      <th>private_pool_recode</th>
+      <th>security_recode</th>
+      <th>shared_gym_recode</th>
+      <th>shared_pool_recode</th>
+      <th>shared_spa_recode</th>
+      <th>view_of_water_recode</th>
+      <th>size_in_m_2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>46.0</td>
+      <td>25.113208</td>
+      <td>55.138932</td>
+      <td>2700000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>100.242337</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>46.0</td>
+      <td>25.106809</td>
+      <td>55.151201</td>
+      <td>2850000</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>146.972546</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>36.0</td>
+      <td>25.063302</td>
+      <td>55.137728</td>
+      <td>1150000</td>
+      <td>3</td>
+      <td>5</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>181.253753</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>11.0</td>
+      <td>25.227295</td>
+      <td>55.341761</td>
+      <td>2850000</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>187.664060</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>46.0</td>
+      <td>25.114275</td>
+      <td>55.139764</td>
+      <td>1729200</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>47.101821</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 29 columns</p>
+</div>
+
+
+
+
+
+<br>
+
+Creamos una función que toma como argumnetos una variable categorica binaria , que debe estar codificada en formato estandar (0,1), y un nivel de significación (alpha) y te devuelve como salida el intervalo de confianza para la proporción de individuos de la población tales que pertenecen a la clase o categoria codificada como 1, y además tambien devuelve la estimación puntual de dicha proporción.
+
+```python
+def CI_Proportion(Variable , alpha=0.05):
+
+    z_alpha_medios = scipy.stats.norm.ppf( 1 - alpha/2 , loc=0, scale=1)
+
+    X_mean = Variable.mean()
+
+    n = len(Variable)
+
+    L1 = X_mean - z_alpha_medios * np.sqrt(X_mean*(1-X_mean)/n)
+
+    L2 = X_mean + z_alpha_medios * np.sqrt(X_mean*(1-X_mean)/n)
+
+    interval = [L1 , L2]
+
+    return interval , X_mean
+```
+
+<br>
+
+
+Vamos calcular el intervalo de confianza para la proporción de viviendas con balcón. Para ello usaremos la variable Balcony, la cual es una variable binaria que toma el valor 1 si la vivienda tiene balcon y 0 en caso contrario.
+
+
+```python
+Balcony = Data.balcony_recode # 1 = true , 0 = false
 ```
 
 
 ```python
-
+intervalo , proporcion = CI_Proportion(Variable=Balcony , alpha=0.05)
 ```
 
 
 ```python
-
-```
-
-```python
-
+intervalo
 ```
 
 
-```python
 
-```
+
+    [0.6995155465832295, 0.7398545321569281]
+
+
 
 
 ```python
+proporcion
+```
 
+
+
+
+    0.7196850393700788
+
+
+
+
+
+
+```python
+Quality_0 = pd.get_dummies(Data.quality_recode , drop_first=False).iloc[:,0] # 1 = quality low , 0 = not low
+Quality_1 = pd.get_dummies(Data.quality_recode , drop_first=False).iloc[:,1] # 1 = quality medium , 0 = not medium
+Quality_2 = pd.get_dummies(Data.quality_recode , drop_first=False).iloc[:,2] # 1 = quality high , 0 = not high
+Quality_3 = pd.get_dummies(Data.quality_recode , drop_first=False).iloc[:,3] # 1 = quality ultra , 0 = not ultra
 ```
 
 
 ```python
-
+intervalo , proporcion = CI_Proportion(Variable=Quality_0 , alpha=0.05)
 ```
 
 
 ```python
+intervalo
+```
 
+
+
+
+    [0.05885789175110899, 0.08182452294705374]
+
+
+
+
+```python
+proporcion
+```
+
+
+
+
+    0.07034120734908136
+
+
+
+
+```python
+intervalo , proporcion = CI_Proportion(Variable=Quality_1 , alpha=0.05)
 ```
 
 
 ```python
-
+intervalo
 ```
 
 
 
 
+    [0.26528121372661256, 0.30584739519727194]
 
+
+
+
+```python
+proporcion
+```
+
+
+
+
+    0.28556430446194225
+
+
+
+
+
+
+```python
+intervalo , proporcion = CI_Proportion(Variable=Quality_2 , alpha=0.05)
+```
+
+
+```python
+intervalo
+```
+
+
+
+
+    [0.5795901905178868, 0.6235594157813258]
+
+
+
+
+```python
+proporcion
+```
+
+
+
+
+    0.6015748031496063
+
+
+
+
+
+
+```python
+intervalo , proporcion = CI_Proportion(Variable=Quality_3 , alpha=0.05)
+```
+
+
+```python
+intervalo
+```
+
+
+
+
+    [0.03345901015224513, 0.051580359926495026]
+
+
+
+
+```python
+proporcion
+```
+
+
+
+
+    0.04251968503937008
 
 
 

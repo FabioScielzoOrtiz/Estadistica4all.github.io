@@ -2273,18 +2273,488 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.1cm
 <h2><span class="header-section-number">9.4</span> Intervalo de confianza para la proporción en <code>Python</code></h2>
 <p>Cargamos los datos con los que vamos a trabajar:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Data <span class="op">=</span> pd.read_csv(<span class="st">&#39;House_Price_Regression.csv&#39;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Data.head()</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+neighborhood_recode
+</th>
+<th>
+latitude
+</th>
+<th>
+longitude
+</th>
+<th>
+price
+</th>
+<th>
+no_of_bedrooms
+</th>
+<th>
+no_of_bathrooms
+</th>
+<th>
+quality_recode
+</th>
+<th>
+maid_room_recode
+</th>
+<th>
+unfurnished_recode
+</th>
+<th>
+balcony_recode
+</th>
+<th>
+…
+</th>
+<th>
+private_garden_recode
+</th>
+<th>
+private_gym_recode
+</th>
+<th>
+private_jacuzzi_recode
+</th>
+<th>
+private_pool_recode
+</th>
+<th>
+security_recode
+</th>
+<th>
+shared_gym_recode
+</th>
+<th>
+shared_pool_recode
+</th>
+<th>
+shared_spa_recode
+</th>
+<th>
+view_of_water_recode
+</th>
+<th>
+size_in_m_2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+46.0
+</td>
+<td>
+25.113208
+</td>
+<td>
+55.138932
+</td>
+<td>
+2700000
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+<td>
+2.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+…
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+100.242337
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+46.0
+</td>
+<td>
+25.106809
+</td>
+<td>
+55.151201
+</td>
+<td>
+2850000
+</td>
+<td>
+2
+</td>
+<td>
+2
+</td>
+<td>
+2.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+…
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+146.972546
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+36.0
+</td>
+<td>
+25.063302
+</td>
+<td>
+55.137728
+</td>
+<td>
+1150000
+</td>
+<td>
+3
+</td>
+<td>
+5
+</td>
+<td>
+2.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+…
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+181.253753
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+11.0
+</td>
+<td>
+25.227295
+</td>
+<td>
+55.341761
+</td>
+<td>
+2850000
+</td>
+<td>
+2
+</td>
+<td>
+3
+</td>
+<td>
+1.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+…
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+187.664060
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+46.0
+</td>
+<td>
+25.114275
+</td>
+<td>
+55.139764
+</td>
+<td>
+1729200
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+2.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+…
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+47.101821
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+5 rows × 29 columns
+</p>
+</div>
+<p><br></p>
+<p>Creamos una función que toma como argumnetos una variable categorica binaria , que debe estar codificada en formato estandar (0,1), y un nivel de significación (alpha) y te devuelve como salida el intervalo de confianza para la proporción de individuos de la población tales que pertenecen a la clase o categoria codificada como 1, y además tambien devuelve la estimación puntual de dicha proporción.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> CI_Proportion(Variable , alpha<span class="op">=</span><span class="fl">0.05</span>):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    z_alpha_medios <span class="op">=</span> scipy.stats.norm.ppf( <span class="dv">1</span> <span class="op">-</span> alpha<span class="op">/</span><span class="dv">2</span> , loc<span class="op">=</span><span class="dv">0</span>, scale<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    X_mean <span class="op">=</span> Variable.mean()</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Variable)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    L1 <span class="op">=</span> X_mean <span class="op">-</span> z_alpha_medios <span class="op">*</span> np.sqrt(X_mean<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>X_mean)<span class="op">/</span>n)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    L2 <span class="op">=</span> X_mean <span class="op">+</span> z_alpha_medios <span class="op">*</span> np.sqrt(X_mean<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>X_mean)<span class="op">/</span>n)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    interval <span class="op">=</span> [L1 , L2]</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> interval , X_mean</span></code></pre></div>
+<p><br></p>
+<p>Vamos calcular el intervalo de confianza para la proporción de viviendas con balcón. Para ello usaremos la variable Balcony, la cual es una variable binaria que toma el valor 1 si la vivienda tiene balcon y 0 en caso contrario.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Balcony <span class="op">=</span> Data.balcony_recode <span class="co"># 1 = true , 0 = false</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>intervalo , proporcion <span class="op">=</span> CI_Proportion(Variable<span class="op">=</span>Balcony , alpha<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
+<pre><code>[0.6995155465832295, 0.7398545321569281]</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>proporcion</span></code></pre></div>
+<pre><code>0.7196850393700788</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Quality_0 <span class="op">=</span> pd.get_dummies(Data.quality_recode , drop_first<span class="op">=</span><span class="va">False</span>).iloc[:,<span class="dv">0</span>] <span class="co"># 1 = quality low , 0 = not low</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>Quality_1 <span class="op">=</span> pd.get_dummies(Data.quality_recode , drop_first<span class="op">=</span><span class="va">False</span>).iloc[:,<span class="dv">1</span>] <span class="co"># 1 = quality medium , 0 = not medium</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>Quality_2 <span class="op">=</span> pd.get_dummies(Data.quality_recode , drop_first<span class="op">=</span><span class="va">False</span>).iloc[:,<span class="dv">2</span>] <span class="co"># 1 = quality high , 0 = not high</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>Quality_3 <span class="op">=</span> pd.get_dummies(Data.quality_recode , drop_first<span class="op">=</span><span class="va">False</span>).iloc[:,<span class="dv">3</span>] <span class="co"># 1 = quality ultra , 0 = not ultra</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>intervalo , proporcion <span class="op">=</span> CI_Proportion(Variable<span class="op">=</span>Quality_0 , alpha<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
+<pre><code>[0.05885789175110899, 0.08182452294705374]</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>proporcion</span></code></pre></div>
+<pre><code>0.07034120734908136</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>intervalo , proporcion <span class="op">=</span> CI_Proportion(Variable<span class="op">=</span>Quality_1 , alpha<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
+<pre><code>[0.26528121372661256, 0.30584739519727194]</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>proporcion</span></code></pre></div>
+<pre><code>0.28556430446194225</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>intervalo , proporcion <span class="op">=</span> CI_Proportion(Variable<span class="op">=</span>Quality_2 , alpha<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
+<pre><code>[0.5795901905178868, 0.6235594157813258]</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>proporcion</span></code></pre></div>
+<pre><code>0.6015748031496063</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>intervalo , proporcion <span class="op">=</span> CI_Proportion(Variable<span class="op">=</span>Quality_3 , alpha<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
+<pre><code>[0.03345901015224513, 0.051580359926495026]</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>proporcion</span></code></pre></div>
+<pre><code>0.04251968503937008</code></pre>
 <p><br></p>
 </div>
 <div id="intervalo-de-confianza-para-la-media-con-varianza-conocida" class="section level2" number="9.5">
@@ -2408,15 +2878,15 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.1cm
 </div>
 <div id="intervalo-de-confianza-para-la-media-con-varianza-desconocida-en-python" class="section level2" number="9.7">
 <h2><span class="header-section-number">9.7</span> Intervalo de confianza para la media con varianza desconocida en <code>Python</code></h2>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 <p><br></p>
 </div>
 <div id="intervalo-de-confianza-para-la-varianza" class="section level2" number="9.8">
@@ -2479,15 +2949,15 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.1cm
 </div>
 <div id="intervalo-de-confianza-para-la-varianza-en-python" class="section level2" number="9.9">
 <h2><span class="header-section-number">9.9</span> Intervalo de confianza para la varianza en <code>Python</code></h2>
-<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
-<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 <p><br></p>
 </div>
 <div id="intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-y-varianzas-iguales" class="section level2" number="9.10">
