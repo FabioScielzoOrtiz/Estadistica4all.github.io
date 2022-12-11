@@ -681,26 +681,40 @@ $$\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S^2_n = \dfrac{1}{n} \sum_{i=
  
 ### Principio de invarianza
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
 Dada una funcion $\hspace{0.1cm} T\hspace{0.1cm}$ del parametro $\hspace{0.1cm}\theta$ $\hspace{0.15cm}\Rightarrow \hspace{0.15cm}T(\theta)$
 
 Si $\hspace{0.1cm}\widehat{\theta}_{MV}\hspace{0.1cm}$ es el estimador máximo-verosímil del parámetro $\hspace{0.1cm}\theta\hspace{0.1cm}$ , entonces:
 
 - $\hspace{0.1cm} T(\widehat{\theta}_{MV})\hspace{0.1cm}$ es el estimador máximo-verosimil de $\hspace{0.1cm}T(\theta)$
+
+</p>
  
+</p></span>
+</div>
  
  <br>
  
 
 # Estimación por intervalos de confianza <a class="anchor" id="1"></a>
 
- 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
 Dada una v.a. $\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$  y dada una constante $\hspace{0.1cm}\alpha \in (0,1) \\$
  
  Un intervalo de confianza $\hspace{0.1cm}1-\alpha\hspace{0.1cm}$ para el parámetro $\hspace{0.1cm}\theta\hspace{0.1cm}$ es un intervalo $\hspace{0.1cm}\left[ L_1(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.1cm},\hspace{0.1cm} L_2(\mathcal{X}_1,...,\mathcal{X}_n) \right]$ tal que: $\\[0.7cm]$
  
  $$P(L_1 \leq \theta  \leq L_2) = 1- \alpha \\$$
 
+ </p>
  
+</p></span>
+</div>
+
+<br>
 
 **Observaciones:**
  
@@ -739,6 +753,9 @@ Dado un intervalo de confianza $\hspace{0.1cm}[ L_1(\mathcal{X}_1,...,\mathcal{X
 
 ## Método pivotal
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
 El método pivotal es un método para la construcción de intervalos de confianza.
 
 Es un método general para encontrar $\hspace{0.1cm}L_1(\mathcal{X}_1,...,\mathcal{X}_n)$ y $L_2(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ tales que: 
@@ -759,6 +776,10 @@ $$P(g_1( a, \mathcal{X}_1,...,\mathcal{X}_n) )  \hspace{0.1cm}\leq\hspace{0.1cm}
 
 Donde: $\hspace{0.1cm}g_1\hspace{0.1cm}$ y $\hspace{0.1cm}g_2\hspace{0.1cm}$ son funciones dependientes de $\hspace{0.1cm}a,\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ y $\hspace{0.1cm}b, \mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ , respectivamente.
 
+</p>
+ 
+</p></span>
+</div>
 
 <br>
  

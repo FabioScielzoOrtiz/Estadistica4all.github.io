@@ -2018,20 +2018,33 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n , \theta)
 </div>
 <div id="principio-de-invarianza" class="section level3" number="8.2.4">
 <h3><span class="header-section-number">8.2.4</span> Principio de invarianza</h3>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
 <p>Dada una funcion <span class="math inline">\(\hspace{0.1cm} T\hspace{0.1cm}\)</span> del parametro <span class="math inline">\(\hspace{0.1cm}\theta\)</span> <span class="math inline">\(\hspace{0.15cm}\Rightarrow \hspace{0.15cm}T(\theta)\)</span></p>
 <p>Si <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}_{MV}\hspace{0.1cm}\)</span> es el estimador máximo-verosímil del parámetro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> , entonces:</p>
 <ul>
 <li><span class="math inline">\(\hspace{0.1cm} T(\widehat{\theta}_{MV})\hspace{0.1cm}\)</span> es el estimador máximo-verosimil de <span class="math inline">\(\hspace{0.1cm}T(\theta)\)</span></li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 </div>
 </div>
 <div id="estimación-por-intervalos-de-confianza" class="section level1" number="9">
 <h1><span class="header-section-number">9</span> Estimación por intervalos de confianza <a class="anchor" id="1"></a></h1>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
 <p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y dada una constante <span class="math inline">\(\hspace{0.1cm}\alpha \in (0,1) \\\)</span></p>
 <p>Un intervalo de confianza <span class="math inline">\(\hspace{0.1cm}1-\alpha\hspace{0.1cm}\)</span> para el parámetro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> es un intervalo <span class="math inline">\(\hspace{0.1cm}\left[ L_1(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.1cm},\hspace{0.1cm} L_2(\mathcal{X}_1,...,\mathcal{X}_n) \right]\)</span> tal que: <span class="math inline">\(\\[0.7cm]\)</span></p>
 <p><span class="math display">\[P(L_1 \leq \theta  \leq L_2) = 1- \alpha \\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
 <p><strong>Observaciones:</strong></p>
 <ul>
 <li><p><span class="math inline">\(L_1\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}L_2\hspace{0.1cm}\)</span> son estadisticos de la m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , y por tanto son variables aleatorias. <span class="math inline">\(\\[0.6cm]\)</span></p></li>
@@ -2055,6 +2068,8 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n , \theta)
 </div>
 <div id="método-pivotal" class="section level2" number="9.2">
 <h2><span class="header-section-number">9.2</span> Método pivotal</h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
 <p>El método pivotal es un método para la construcción de intervalos de confianza.</p>
 <p>Es un método general para encontrar <span class="math inline">\(\hspace{0.1cm}L_1(\mathcal{X}_1,...,\mathcal{X}_n)\)</span> y <span class="math inline">\(L_2(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> tales que:</p>
 <p><span class="math display">\[\hspace{0.1cm}P(L_1(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.1cm}\leq\hspace{0.1cm} \theta  \hspace{0.1cm}\leq\hspace{0.1cm} L_2(\mathcal{X}_1,...,\mathcal{X}_n))\hspace{0.1cm}=\hspace{0.1cm}1-\alpha\]</span></p>
@@ -2064,6 +2079,10 @@ f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n , \theta)
 <p>Se tiene que transformar la última expresion para aislar el parametro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> de forma que se llegue a la siguiente expresión:</p>
 <p><span class="math display">\[P(g_1( a, \mathcal{X}_1,...,\mathcal{X}_n) )  \hspace{0.1cm}\leq\hspace{0.1cm}  \theta \hspace{0.1cm}\leq\hspace{0.1cm} g_2(b, \mathcal{X}_1,...,\mathcal{X}_n) ) = 1-\alpha\]</span></p>
 <p>Donde: <span class="math inline">\(\hspace{0.1cm}g_1\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}g_2\hspace{0.1cm}\)</span> son funciones dependientes de <span class="math inline">\(\hspace{0.1cm}a,\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}b, \mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> , respectivamente.</p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="intervalo-de-confianza-para-la-proporción" class="section level2" number="9.3">
