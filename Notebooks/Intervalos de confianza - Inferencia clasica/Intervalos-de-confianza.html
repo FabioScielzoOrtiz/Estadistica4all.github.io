@@ -1952,7 +1952,7 @@ E[\mathcal{X}^h] \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n 
 <p><span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una v.a. <span class="math inline">\(\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\\\)</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> La función de verosimilitud de la m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,..., \mathcal{X}_n)\hspace{0.1cm}\)</span> es una función tal que: <span class="math inline">\(\\[0.7cm]\)</span></p>
-<p><span class="math display">\[\mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n) \hspace{0.1cm}=\hspace{0.1cm} f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n\hspace{0.1cm}|\hspace{0.1cm} \theta) \hspace{0.25cm} , \hspace{0.25cm} \forall\hspace{0.1cm} (x_1,...,x_n)\in \mathbb{R}^n \\\]</span></p>
+<p><span class="math display">\[\mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n) \hspace{0.15cm}=\hspace{0.15cm} f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n, \theta) \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.1cm} (x_1,...,x_n)\in \mathbb{R}^n \\\]</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <span class="math inline">\(f_{\mathcal{X}_1,...,\mathcal{X}_n}\hspace{0.1cm}\)</span> es la función de densidad o de probabilidad <strong>conjunta</strong> para las v.a.’s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n \\\)</span></p>
 </p>
@@ -1964,11 +1964,11 @@ E[\mathcal{X}^h] \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n 
 <ul>
 <li><p>Como la m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,..., \mathcal{X}_n)\hspace{0.1cm}\)</span> son v.a.’s independientes , entonces :</p>
 <ul>
-<li><span class="math inline">\(\mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n) \hspace{0.1cm}=\hspace{0.1cm} f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n\hspace{0.1cm}|\hspace{0.1cm} \theta) \hspace{0.1cm}=\hspace{0.1cm} \prod_{i=1}^n f_{\mathcal{X}_i}(x_i \hspace{0.1cm}|\hspace{0.1cm} \theta) \\[0.8cm]\)</span></li>
+<li><span class="math inline">\(\mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n) \hspace{0.1cm}=\hspace{0.1cm} f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n, \theta) \hspace{0.1cm}=\hspace{0.1cm} \prod_{i=1}^n f_{\mathcal{X}_i}(x_i , \theta) \\[0.8cm]\)</span></li>
 </ul></li>
 <li><p>Como la m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,..., \mathcal{X}_n)\hspace{0.1cm}\)</span> son v.a.’s identicamente disstribuidas a <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , es decir, siguen la misma distribución que <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span>, se tiene que <span class="math inline">\(\hspace{0.1cm}f_{\mathcal{X}_i}=f_{X}=f_{F(\theta)} , \forall i=1,...,n\hspace{0.1cm}\)</span> , por lo tanto : <span class="math inline">\(\\[0.6cm]\)</span></p>
 <ul>
-<li><p><span class="math inline">\(\mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \theta) \hspace{0.1cm}=\hspace{0.1cm} f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n | \theta) \hspace{0.1cm}=\hspace{0.1cm} \prod_{i=1}^n f_{\mathcal{X}}(x_i \hspace{0.1cm}|\hspace{0.1cm} \theta)\\\)</span></p></li>
+<li><p><span class="math inline">\(\mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n , \theta) \hspace{0.1cm}=\hspace{0.1cm} f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n , \theta) \hspace{0.1cm}=\hspace{0.1cm} \prod_{i=1}^n f_{\mathcal{X}}(x_i, \theta)\\\)</span></p></li>
 <li><p>Puesto que al ser <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> identicamente distribuidas a <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , se cumple que <span class="math inline">\(\hspace{0.1cm}f_{\mathcal{X}_i} \hspace{0.1cm}=\hspace{0.1cm} f_{\mathcal{X}}\hspace{0.1cm}=\hspace{0.1cm}f_{F(\theta)} \hspace{0.2cm},\hspace{0.2cm} \forall i \in \lbrace 1,...,n \rbrace\)</span></p></li>
 </ul></li>
 </ul>
@@ -1976,12 +1976,18 @@ E[\mathcal{X}^h] \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n 
 </div>
 <div id="método-de-máxima-verosimilitud-1" class="section level3" number="8.2.2">
 <h3><span class="header-section-number">8.2.2</span> Método de Máxima Verosimilitud</h3>
-<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim F(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \\\)</span></p>
-<p>La estimación del parámetro <span class="math inline">\(\hspace{0.1cm} \theta\hspace{0.1cm}\)</span> por el método de máxima verosimilitud se denomina estimación máximo-verosímil, y se define como sigue:</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim F(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \\\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La estimación del parámetro <span class="math inline">\(\hspace{0.1cm} \theta\hspace{0.1cm}\)</span> por el método de máxima verosimilitud se denomina estimación máximo-verosímil, y se define como sigue:</p>
 <p><span class="math display">\[\widehat{\theta}_{MV} \hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\theta}{Max} \hspace{0.15cm} \mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm} | \hspace{0.1cm} \theta)
 \hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\theta}{Max} \hspace{0.15cm}
 f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \theta)
 \hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\theta}{Max} \hspace{0.15cm} \prod_{i=1}^n f_{\mathcal{X}}(x_i \hspace{0.1cm}|\hspace{0.1cm} \theta) \\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><strong>Observacion:</strong></p>
 <p>La idea del método de estimación por máxima verosimilitud es, dada una muestra de observaciones (unos datos) de una variable de interes que tiene cierta función de densidad o de probabilidad dependiente de un parametro desconocido, estimar el parametro desconocido con aquel valor del parametro que maximiza la funcion de probabilidad o densidad conjunta de la muestra, es decir, que maximiza la probabilidad de obtener la muestra de observaciones que se ha extraido, es decir, que hace más verosimil los datos disponibles.</p>
 <p>Siempre bajo el supuesto de que conocemos la distribucion de probabilidad de la variable de interes, y por tanto se puede calcular la probabilidad de extraer aleatoriamente cierta muestra de observaciones de esa variable.</p>

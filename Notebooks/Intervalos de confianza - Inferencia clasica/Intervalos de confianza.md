@@ -553,7 +553,7 @@ $\hspace{0.25cm}$ La función de verosimilitud de la m.a.s. $\hspace{0.1cm}(\mat
 
 
 
-$$\mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n) \hspace{0.1cm}=\hspace{0.1cm} f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n\hspace{0.1cm}|\hspace{0.1cm} \theta) \hspace{0.25cm} , \hspace{0.25cm} \forall\hspace{0.1cm} (x_1,...,x_n)\in \mathbb{R}^n \\$$
+$$\mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n) \hspace{0.15cm}=\hspace{0.15cm} f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n, \theta) \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.1cm} (x_1,...,x_n)\in \mathbb{R}^n \\$$
 
 
 $\hspace{0.25cm}$  Donde: 
@@ -575,14 +575,14 @@ $\hspace{0.25cm}$  $f_{\mathcal{X}_1,...,\mathcal{X}_n}\hspace{0.1cm}$ es la fun
 
 - Como  la m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,..., \mathcal{X}_n)\hspace{0.1cm}$ son v.a.'s independientes , entonces : 
 
-    - $\mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n) \hspace{0.1cm}=\hspace{0.1cm} f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n\hspace{0.1cm}|\hspace{0.1cm} \theta) \hspace{0.1cm}=\hspace{0.1cm} \prod_{i=1}^n f_{\mathcal{X}_i}(x_i \hspace{0.1cm}|\hspace{0.1cm} \theta) \\[0.8cm]$
+    - $\mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n) \hspace{0.1cm}=\hspace{0.1cm} f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n, \theta) \hspace{0.1cm}=\hspace{0.1cm} \prod_{i=1}^n f_{\mathcal{X}_i}(x_i , \theta) \\[0.8cm]$
 
 
 
 
 - Como  la m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,..., \mathcal{X}_n)\hspace{0.1cm}$ son v.a.'s identicamente disstribuidas a $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , es decir, siguen la misma distribución que $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$, se tiene que $\hspace{0.1cm}f_{\mathcal{X}_i}=f_{X}=f_{F(\theta)} , \forall i=1,...,n\hspace{0.1cm}$ , por lo tanto : $\\[0.6cm]$
 
-    - $\mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \theta) \hspace{0.1cm}=\hspace{0.1cm} f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n | \theta) \hspace{0.1cm}=\hspace{0.1cm}  \prod_{i=1}^n f_{\mathcal{X}}(x_i \hspace{0.1cm}|\hspace{0.1cm} \theta)\\$
+    - $\mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n , \theta) \hspace{0.1cm}=\hspace{0.1cm} f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n , \theta) \hspace{0.1cm}=\hspace{0.1cm}  \prod_{i=1}^n f_{\mathcal{X}}(x_i, \theta)\\$
     
     
     
@@ -594,16 +594,25 @@ $\hspace{0.25cm}$  $f_{\mathcal{X}_1,...,\mathcal{X}_n}\hspace{0.1cm}$ es la fun
 
 ### Método de Máxima Verosimilitud
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim F(\theta)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$    de $\hspace{0.1cm}\mathcal{X} \\$
+$\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim F(\theta)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$    de $\hspace{0.1cm}\mathcal{X} \\$
 
 
-La estimación del parámetro $\hspace{0.1cm} \theta\hspace{0.1cm}$ por el método de máxima verosimilitud se denomina estimación máximo-verosímil, y se define como sigue:
+$\hspace{0.25cm}$ La estimación del parámetro $\hspace{0.1cm} \theta\hspace{0.1cm}$ por el método de máxima verosimilitud se denomina estimación máximo-verosímil, y se define como sigue:
 
 $$\widehat{\theta}_{MV} \hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\theta}{Max} \hspace{0.15cm} \mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm} | \hspace{0.1cm} \theta) 
 \hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\theta}{Max} \hspace{0.15cm}
 f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n \hspace{0.1cm}|\hspace{0.1cm} \theta)
 \hspace{0.15cm}=\hspace{0.15cm} arg \hspace{0.15cm} \underset{\theta}{Max} \hspace{0.15cm} \prod_{i=1}^n f_{\mathcal{X}}(x_i \hspace{0.1cm}|\hspace{0.1cm} \theta) \\$$
+
+
+</p>
+ 
+</p></span>
+</div>
+
 
 
 
