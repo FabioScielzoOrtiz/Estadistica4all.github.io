@@ -2732,9 +2732,9 @@ size_in_m_2
 <pre><code>[0.6995155465832295, 0.7398545321569281]</code></pre>
 <div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>proporcion</span></code></pre></div>
 <pre><code>0.7196850393700788</code></pre>
-<p><br></p>
+<hr />
 <p>Ahora vamos a calcular el intervalo de confianza para la proporción de viviendas que estan clasificadas como de calidad baja, media, alta y ultra, respectivamente. Para ello vamos a usar la variable <code>quality_recode</code>, que es una variable categorica con cuatro categorias, por lo que no es binaria. Para poder aplicar el intervalo de confianza que hemos expuesto anteriormente se requiere de una variable categorica binaria (dos categorias). Una solución que permite aplicar dicho intervalo a variables categoricas multiclase (con mas de dos categorias) consiste en <em>dummificar</em> la variable multiclase, obteniendo asi variables dummies (binarias) asociadas a cada una de las categorias de la variable multiclase original. Luego se calcular el intervalo de confianza para cada una de estas dummies. A continuación ilustramos este procedimiento.</p>
-<p>Primero dummificamos la variable <code>quality_recode</code>:</p>
+<p>Primero dummificamos la variable <code>quality_recode</code> :</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Quality_0 <span class="op">=</span> pd.get_dummies(Data.quality_recode , drop_first<span class="op">=</span><span class="va">False</span>).iloc[:,<span class="dv">0</span>] <span class="co"># 1 = quality low , 0 = not low</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>Quality_1 <span class="op">=</span> pd.get_dummies(Data.quality_recode , drop_first<span class="op">=</span><span class="va">False</span>).iloc[:,<span class="dv">1</span>] <span class="co"># 1 = quality medium , 0 = not medium</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>Quality_2 <span class="op">=</span> pd.get_dummies(Data.quality_recode , drop_first<span class="op">=</span><span class="va">False</span>).iloc[:,<span class="dv">2</span>] <span class="co"># 1 = quality high , 0 = not high</span></span>
@@ -2746,18 +2746,21 @@ size_in_m_2
 <pre><code>[0.05885789175110899, 0.08182452294705374]</code></pre>
 <div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>proporcion</span></code></pre></div>
 <pre><code>0.07034120734908136</code></pre>
+<p><br></p>
 <p><strong>Intervalo de confianza para la proporción de viviendas de calidad media:</strong></p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>intervalo , proporcion <span class="op">=</span> CI_Proportion(Variable<span class="op">=</span>Quality_1 , alpha<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
 <pre><code>[0.26528121372661256, 0.30584739519727194]</code></pre>
 <div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>proporcion</span></code></pre></div>
 <pre><code>0.28556430446194225</code></pre>
+<p><br></p>
 <p><strong>Intervalo de confianza para la proporción de viviendas de alta calidad:</strong></p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>intervalo , proporcion <span class="op">=</span> CI_Proportion(Variable<span class="op">=</span>Quality_2 , alpha<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
 <pre><code>[0.5795901905178868, 0.6235594157813258]</code></pre>
 <div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>proporcion</span></code></pre></div>
 <pre><code>0.6015748031496063</code></pre>
+<p><br></p>
 <p><strong>Intervalo de confianza para la proporción de viviendas de calidad ultra:</strong></p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>intervalo , proporcion <span class="op">=</span> CI_Proportion(Variable<span class="op">=</span>Quality_3 , alpha<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
@@ -2769,15 +2772,23 @@ size_in_m_2
 </div>
 <div id="intervalo-de-confianza-para-la-media-con-varianza-conocida" class="section level2" number="9.5">
 <h2><span class="header-section-number">9.5</span> Intervalo de confianza para la media con varianza conocida</h2>
-<p>Una variable cuantitativa <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> puede modelarse como una variable aleatoria <span class="math inline">\(N(\mu , \sigma^2)\)</span>, donde <span class="math inline">\(\hspace{0.1cm}\mu=E[\mathcal{X}]\hspace{0.2cm}\)</span> y <span class="math inline">\(\hspace{0.2cm}\sigma^2 = Var(\mathcal{X})\)</span>, que pueden interpretarse respectivamente como la media y varianza poblacional de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span></p>
+<p>Una variable <strong>cuantitativa</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> puede modelarse como una variable aleatoria <span class="math inline">\(N(\mu , \sigma^2)\)</span>, donde <span class="math inline">\(\hspace{0.1cm}\mu=E[\mathcal{X}]\hspace{0.2cm}\)</span> y <span class="math inline">\(\hspace{0.2cm}\sigma^2 = Var(\mathcal{X})\)</span>, que pueden interpretarse respectivamente como la media y varianza poblacional de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span></p>
 <p>Queremos obtener un intervalo de confianza para <span class="math inline">\(\hspace{0.1cm} \mu \hspace{0.1cm}\)</span>, bajo el supuesto de que <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> es conocido.</p>
 <p>Para ello vamos a apoyarnos en el teorema de distribucion de la media muestral y en el método pivotal.</p>
 <p><br></p>
 <div id="distribución-normal" class="section level3" number="9.5.1">
 <h3><span class="header-section-number">9.5.1</span> Distribución Normal</h3>
-<p><span class="math display">\[\mathcal{X} \sim N(\mu, \sigma^2) \hspace{0.2cm} \Leftrightarrow \hspace{0.2cm} f_\mathcal{X}(x) = \dfrac{1}{\sqrt{ 2\pi \cdot \sigma^2} } \cdot exp \left( \dfrac{-1}{2} \cdot \dfrac{(x- \mu)^2}{\sigma^2}  \right) \\\]</span></p>
-<p>Donde : <span class="math inline">\(\hspace{0.1cm} \mu \in \mathbb{R} \hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm} \sigma^2 &gt; 0 \\\)</span></p>
-<p><strong>Propiedades</strong></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:0.3em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una v.a. <span class="math inline">\(\hspace{0.1cm} \mathcal{X}\hspace{0.1cm}\)</span> la distribución Normal sse define del siguiente modo:</p>
+<p><span class="math display">\[\mathcal{X} \sim N(\mu, \sigma^2) \hspace{0.2cm} \Leftrightarrow \hspace{0.2cm} f_\mathcal{X}(x) = \dfrac{1}{\sqrt{ 2\pi \cdot \sigma^2} } \cdot exp \left\lbrace \dfrac{-1}{2} \cdot \dfrac{(x- \mu)^2}{\sigma^2}  \right\rbrace \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde : <span class="math inline">\(\hspace{0.15cm} \mu \in \mathbb{R} \hspace{0.2cm}\)</span> y <span class="math inline">\(\hspace{0.2cm} \sigma^2 &gt; 0 \\\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Propiedades</strong></p>
 <ul>
 <li><p><span class="math inline">\(\hspace{0.1cm}E[\mathcal{X}]=\mu \\\)</span></p></li>
 <li><p><span class="math inline">\(\hspace{0.1cm}Var(\mathcal{X})=\sigma^2 \\\)</span></p></li>
@@ -2797,34 +2808,34 @@ size_in_m_2
 </div>
 <div id="teorema-de-distribución-de-la-media-muestral" class="section level3" number="9.5.2">
 <h3><span class="header-section-number">9.5.2</span> Teorema de distribución de la media muestral</h3>
-<p>Si tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim N(\mu , \sigma^2)\hspace{0.1cm}\)</span> y una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Si tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim N(\mu , \sigma^2)\hspace{0.1cm}\)</span> y una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[\overline{ \mathcal{X}_n } \sim N(\mu \hspace{0.1cm},\hspace{0.1cm} \sigma^2/n)\]</span></p>
-<p>Por tanto:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Por tanto:</p>
 <p><span class="math display">\[\dfrac{\hspace{0.2cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.2cm}}{ \sqrt{\sigma^2 / n}  } \hspace{0.1cm}\sim\hspace{0.1cm} N(0,1)\]</span></p>
 <p><br></p>
 </div>
 <div id="intervalo-de-confianza-para-la-media-con-varianza-conocida-1" class="section level3" number="9.5.3">
 <h3><span class="header-section-number">9.5.3</span> Intervalo de confianza para la media con varianza conocida</h3>
-<p>La anterior cantidad:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La anterior cantidad:</p>
 <p><span class="math display">\[\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \mu) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.1cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.1cm}}{ \sqrt{\sigma^2 / n}  } \hspace{0.1cm} \sim \hspace{0.1cm} N(0,1)\]</span></p>
-<p>es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso <span class="math inline">\(\hspace{0.1cm} \theta = \mu\hspace{0.1cm}\)</span>, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una <span class="math inline">\(\hspace{0.1cm}N(0,1)\)</span>.</p>
-<p>Siguiendo el método pivotal hay que encontrar los valores <span class="math inline">\(\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}\)</span> tales que:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso <span class="math inline">\(\hspace{0.1cm} \theta = \mu\hspace{0.1cm}\)</span>, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una <span class="math inline">\(\hspace{0.1cm}N(0,1)\)</span>.</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Siguiendo el método pivotal hay que encontrar los valores <span class="math inline">\(\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}\)</span> tales que:</p>
 <p><span class="math display">\[P\left( \hspace{0.1cm}a \hspace{0.1cm}&lt; \hspace{0.1cm} \dfrac{\hspace{0.1cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.1cm}}{ \sqrt{\sigma^2 / n}  }  \hspace{0.1cm}&lt;\hspace{0.1cm} b \hspace{0.1cm}\right) = 1-\alpha \\\]</span></p>
-<p>Siguiendo los anteriores resultados:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Siguiendo los anteriores resultados:</p>
 <p><span class="math display">\[P\left( \hspace{0.1cm} a \hspace{0.1cm}&lt;\hspace{0.1cm} \dfrac{\hspace{0.1cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.1cm}}{ \sqrt{\sigma^2 / n}  } \hspace{0.1cm} &lt;\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} P\left( a &lt; N(0,1)  &lt; b \right) \\\]</span></p>
-<p>Teniendo en cuenta las propiedades de la distribución normal: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Teniendo en cuenta las propiedades de la distribución normal: <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math display">\[P\left( z_{1-\alpha/2} &lt; N(0,1)  &lt; z_{\alpha/2} \right) = P\left( -z_{\alpha/2} &lt; N(0,1)  &lt; z_{\alpha/2} \right) = 1-\alpha \\\]</span></p>
-<p>Donde:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <p><span class="math inline">\(z_{\alpha/2}\hspace{0.1cm}\)</span> es el valor tal que <span class="math inline">\(\hspace{0.1cm}P(N(0,1)&gt;z_{\alpha/2}) = \alpha/2 \\\)</span></p>
-<p>Por tanto:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Por tanto:</p>
 <p><span class="math display">\[P\left( \hspace{0.1cm} -z_{\alpha/2} \hspace{0.1cm}&lt;\hspace{0.1cm} \hspace{0.1cm} \dfrac{\hspace{0.1cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.1cm}}{ \sqrt{\sigma^2 / n}  }  \hspace{0.1cm} &lt;\hspace{0.1cm} z_{\alpha/2}\hspace{0.1cm} \right) \hspace{0.1cm} = \hspace{0.1cm} 1-\alpha \\[1cm]\]</span></p>
-<p>Siguiendo el método pivotal ahora tenemos que aislar el parametro <span class="math inline">\(\theta=\mu\)</span>. Operando un poco se llega a lo siguiente: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Siguiendo el método pivotal ahora tenemos que aislar el parametro <span class="math inline">\(\theta=\mu\)</span>. Operando un poco se llega a lo siguiente: <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math display">\[P\left( \hspace{0.1cm} \overline{\mathcal{X}_n} -z_{\alpha/2} \cdot \sqrt{\sigma^2 / n}\hspace{0.1cm}&lt;\hspace{0.1cm}  \mu \hspace{0.1cm} &lt;\hspace{0.1cm} \overline{\mathcal{X}_n} + z_{\alpha/2}\cdot \sqrt{\sigma^2 / n}\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha \\[0.7cm]\]</span></p>
-<p>Por tanto, tenemos el siguiente intervalo de confianza a un nivel <span class="math inline">\(\hspace{0.1cm} 1-\alpha\hspace{0.1cm}\)</span> para el parametro <span class="math inline">\(\hspace{0.1cm} \mu \hspace{0.1cm}\\\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Por tanto, tenemos el siguiente intervalo de confianza a un nivel <span class="math inline">\(\hspace{0.1cm} 1-\alpha\hspace{0.1cm}\)</span> para el parametro <span class="math inline">\(\hspace{0.1cm} \mu \hspace{0.1cm}\\\)</span></p>
 <p><span class="math display">\[IC(\mu)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{X}_n} \hspace{0.1cm}\pm\hspace{0.1cm} z_{\alpha/2} \cdot \sqrt{\sigma^2 / n} \hspace{0.1cm} \right] \\[0.9cm]\]</span></p>
-<p>Dada una muestra <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , tenemos la siguiente realización del intervalo de confianza: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una muestra <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , tenemos la siguiente realización del intervalo de confianza: <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math display">\[IC(\mu)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X} \hspace{0.1cm}\pm\hspace{0.1cm} z_{\alpha/2} \cdot \sqrt{\sigma^2 / n} \hspace{0.1cm} \right]\]</span></p>
-<p>Donde:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <p><span class="math inline">\(\hspace{0.45cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i\)</span></p>
 <p>El problema es que en la práctica <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> no es conocido, por ello se utiliza el intervalo de confianza de la siguiente sección.</p>
 <p><br></p>
@@ -2838,8 +2849,9 @@ size_in_m_2
 <p><br></p>
 <div id="distribución-t-student" class="section level3" number="9.6.1">
 <h3><span class="header-section-number">9.6.1</span> Distribución t-student</h3>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> la distribución t-student se define del siguiente modo:</p>
 <p><span class="math display">\[\mathcal{X} \sim t_n \Leftrightarrow f_X(x) = \dfrac{\Gamma\left(\dfrac{n+1}{2}\right)}{\sqrt{n\cdot \pi \hspace{0.1cm}} \cdot \Gamma(n/2)} \cdot \left(1 + \dfrac{x^2}{n}\right)^{-1/2 \cdot (n+1)} \cdot I( x\in \mathbb{R} ) \\\]</span></p>
-<p><strong>Propiedades</strong></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Propiedades</strong></p>
 <ul>
 <li><p><span class="math inline">\(E[\mathcal{X}] = 0 \\\)</span></p></li>
 <li><p><span class="math inline">\(Var[\mathcal{X}] = \dfrac{n}{n-2}\)</span> , si <span class="math inline">\(\hspace{0.1cm} n&gt;2 \\\)</span></p></li>
@@ -2850,9 +2862,9 @@ size_in_m_2
 </div>
 <div id="teorema-de-gosset" class="section level3" number="9.6.2">
 <h3><span class="header-section-number">9.6.2</span> Teorema de Gosset</h3>
-<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}\)</span>, y dada una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}\)</span>, y dada una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span></p>
 <p><span class="math display">\[\dfrac{\hspace{0.15cm} \overline{\mathcal{X}_n} - \mu \hspace{0.15cm}}{\sqrt{\dfrac{n}{n-1} S_n^2/n \hspace{0.1cm}} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{n-1}\]</span></p>
-<p>Donde:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <ul>
 <li><p><span class="math inline">\(\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i \\\)</span></p></li>
 <li><p><span class="math inline">\(S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2\)</span></p></li>
@@ -2861,26 +2873,26 @@ size_in_m_2
 </div>
 <div id="intervalo-de-confianza-para-la-media-con-varianza-desconocida-1" class="section level3" number="9.6.3">
 <h3><span class="header-section-number">9.6.3</span> Intervalo de confianza para la media con varianza desconocida</h3>
-<p>La anterior cantidad:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La anterior cantidad:</p>
 <p><span class="math display">\[\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \mu) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}_n} - \mu \hspace{0.15cm}}{\sqrt{\dfrac{n}{n-1} S_n^2/n \hspace{0.1cm}} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{n-1}\]</span></p>
-<p>es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso <span class="math inline">\(\hspace{0.1cm} \theta = \mu\hspace{0.1cm}\)</span>, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una <span class="math inline">\(\hspace{0.1cm} t_{n-1}\)</span>.</p>
-<p>Siguiendo el método pivotal hay que encontrar los valores <span class="math inline">\(\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}\)</span> tales que:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso <span class="math inline">\(\hspace{0.1cm} \theta = \mu\hspace{0.1cm}\)</span>, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una <span class="math inline">\(\hspace{0.1cm} t_{n-1}\)</span>.</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Siguiendo el método pivotal hay que encontrar los valores <span class="math inline">\(\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}\)</span> tales que:</p>
 <p><span class="math display">\[P\left( \hspace{0.1cm}a \hspace{0.1cm}&lt; \hspace{0.1cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}_n} - \mu \hspace{0.15cm}}{\sqrt{\dfrac{n}{n-1} S_n^2/n \hspace{0.1cm}} }  \hspace{0.1cm}&lt;\hspace{0.1cm} b \hspace{0.1cm}\right) = 1-\alpha \\\]</span></p>
-<p>Siguiendo los anteriores resultados:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Siguiendo los anteriores resultados:</p>
 <p><span class="math display">\[P\left( \hspace{0.1cm} a \hspace{0.1cm}&lt;\hspace{0.1cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}_n} - \mu \hspace{0.15cm}}{\sqrt{\dfrac{n}{n-1} S_n^2/n \hspace{0.1cm}} } \hspace{0.1cm} &lt;\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} P\left( a &lt; t_{n-1}  &lt; b \right) \\\]</span></p>
-<p>Teniendo en cuenta las propiedades de la distribución t-student: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Teniendo en cuenta las propiedades de la distribución t-student: <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math display">\[P\left( t_{1-\alpha/2} &lt; t_{n-1}  &lt; t_{\alpha/2} \right) = P\left( -t_{\alpha/2} &lt; t_{n-1}  &lt; t_{\alpha/2} \right) = 1-\alpha \\\]</span></p>
-<p>Donde:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <p><span class="math inline">\(t_{\alpha/2}\hspace{0.1cm}\)</span> es el valor tal que <span class="math inline">\(\hspace{0.1cm}P(t_{n-1}&gt;t_{\alpha/2}) = \alpha/2 \\\)</span></p>
-<p>Por tanto:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Por tanto:</p>
 <p><span class="math display">\[P\left( \hspace{0.1cm} -t^{n-1}_{\alpha/2} \hspace{0.1cm}&lt;\hspace{0.1cm}   \dfrac{\hspace{0.15cm} \overline{\mathcal{X}_n} - \mu \hspace{0.15cm}}{\sqrt{\dfrac{n}{n-1} S_n^2/n \hspace{0.1cm}} }  \hspace{0.1cm} &lt;\hspace{0.1cm} t^{n-1}_{\alpha/2}\hspace{0.1cm} \right) \hspace{0.1cm} = \hspace{0.1cm} 1-\alpha \\[1cm]\]</span></p>
-<p>Siguiendo el método pivotal ahora tenemos que aislar el parametro <span class="math inline">\(\theta=\mu\)</span>. Operando un poco se llega a lo siguiente: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Siguiendo el método pivotal ahora tenemos que aislar el parametro <span class="math inline">\(\theta=\mu\)</span>. Operando un poco se llega a lo siguiente: <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math display">\[P\left( \hspace{0.1cm} \overline{\mathcal{X}_n} -t^{n-1}_{\alpha/2} \cdot \sqrt{\dfrac{n}{n-1} S_n^2/n}\hspace{0.1cm}&lt;\hspace{0.1cm}  \mu \hspace{0.1cm} &lt;\hspace{0.1cm} \overline{\mathcal{X}_n} + t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1} S_n^2/n}\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha \\[0.7cm]\]</span></p>
-<p>Por tanto, tenemos el siguiente intervalo de confianza a un nivel <span class="math inline">\(\hspace{0.1cm} 1-\alpha\hspace{0.1cm}\)</span> para el parametro <span class="math inline">\(\hspace{0.1cm} \mu \hspace{0.1cm}\\\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Por tanto, tenemos el siguiente intervalo de confianza a un nivel <span class="math inline">\(\hspace{0.1cm} 1-\alpha\hspace{0.1cm}\)</span> para el parametro <span class="math inline">\(\hspace{0.1cm} \mu \hspace{0.1cm}\\\)</span></p>
 <p><span class="math display">\[IC(\mu)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{X}_n} \hspace{0.1cm}\pm\hspace{0.1cm} t^{n-1}_{\alpha/2} \cdot \sqrt{\dfrac{n}{n-1} S_n^2/n} \hspace{0.1cm} \right] \\[0.9cm]\]</span></p>
-<p>Dada una muestra <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , tenemos la siguiente realización del intervalo de confianza: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una muestra <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , tenemos la siguiente realización del intervalo de confianza: <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math display">\[IC(\mu)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X} \hspace{0.1cm}\pm\hspace{0.1cm} t^{n-1}_{\alpha/2} \cdot \sqrt{\dfrac{n}{n-1} S(X)^2/n} \hspace{0.1cm} \right]\]</span></p>
-<p>Donde:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <p><span class="math inline">\(\hspace{0.45cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i\)</span></p>
 <p><span class="math inline">\(\hspace{0.45cm} S(X)^2 = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2\)</span></p>
 <p><br></p>
