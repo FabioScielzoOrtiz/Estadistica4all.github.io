@@ -992,15 +992,6 @@ $\hspace{0.25cm}$ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim Binomial(k,
 $$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.1cm}= \hspace{0.1cm}
 \dfrac{\overline{\mathcal{X}_n} - k\cdot p}{\sqrt{k\cdot p\cdot(1-p)/n}}\hspace{0.15cm}\underset{d}{\rightarrow}\hspace{0.15cm} N(0,1)\\$$
  
- 
- 
-$\hspace{0.25cm}$ Donde:
-
-
-$\hspace{0.25cm} E[Binomial(k,p)] \hspace{0.1cm}=\hspace{0.1cm} k\cdot p$
-
-$\hspace{0.25cm} Var(Binomial(k,p)) \hspace{0.1cm}=\hspace{0.1cm} k\cdot p \cdot (1-p)$
- 
 </p>
  
 </p></span>
@@ -1010,7 +1001,7 @@ $\hspace{0.25cm} Var(Binomial(k,p)) \hspace{0.1cm}=\hspace{0.1cm} k\cdot p \cdot
 
 
  
-Para el caso concreto de una $\hspace{0.1cm}Bernouilli(p)=Binomial(k=1,p)\hspace{0.1cm}$ se tiene lo siguiente:
+Para el caso concreto de una distribución $\hspace{0.1cm}Bernouilli(p)=Binomial(k=1,p)\hspace{0.1cm}$ se tiene lo siguiente:
  
  
  
@@ -1018,7 +1009,7 @@ $$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqr
 \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}} \hspace{0.15cm}\underset{d}{\rightarrow}\hspace{0.15cm} N(0,1)\\$$ 
  
 
-
+Este último resultado es el que usaremos para construir el intervalo de confianza para la proporción.
 
 
 
@@ -1031,23 +1022,23 @@ $$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqr
 
 $\hspace{0.25cm}$ La anterior cantidad:
 
-$$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, p) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}}$$
+$$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, p) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}}\hspace{0.15cm}\underset{d}{\rightarrow}\hspace{0.15cm} N(0,1)$$
 
 
-$\hspace{0.25cm}$ es una cantidad pivotal , puesto que contienen al parámetro de interés, en este caso $\hspace{0.1cm}\theta = p\hspace{0.1cm}$ , y su distribución de probabilidad es conocida y no depende de dicho parámetro , es una $\hspace{0.1cm}N(0,1)\hspace{0.1cm}$, aproximadamente.
+$\hspace{0.25cm}$ es una cantidad pivotal , puesto que contienen al parámetro de interés, en este caso $\hspace{0.1cm}\theta = p\hspace{0.1cm}$ , y su distribución de probabilidad es conocida y no depende de dicho parámetro , es una $\hspace{0.1cm}N(0,1)\hspace{0.1cm}$, aproximadamente. $\\[1cm]$
  
  
  
 $\hspace{0.25cm}$ Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm}a,b \in \mathbb{R}\hspace{0.1cm}$ tales que: $\\[0.6cm]$
 
-$$P\left( \hspace{0.1cm}a \hspace{0.1cm}< \hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}}  \hspace{0.1cm}<\hspace{0.1cm} b \hspace{0.1cm}\right) = 1-\alpha \\$$
+$$P\left( \hspace{0.1cm}a \hspace{0.1cm}< \hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}}  \hspace{0.1cm}<\hspace{0.1cm} b \hspace{0.1cm}\right) = 1-\alpha \\[1cm]$$
 
 
  
 $\hspace{0.25cm}$ Siguiendo los anteriores resultados:
 
 
-$$P\left( \hspace{0.1cm} a \hspace{0.1cm}<\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}} \hspace{0.1cm} <\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} P\left( a < N(0,1)  < b \right) \\$$
+$$P\left( \hspace{0.1cm} a \hspace{0.1cm}<\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}} \hspace{0.1cm} <\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} P\left( a < N(0,1)  < b \right) \\[1cm]$$
 
 
 
@@ -1059,14 +1050,14 @@ $$P\left( z_{1-\alpha/2} < N(0,1)  < z_{\alpha/2} \right) = P\left( -z_{\alpha/2
 $\hspace{0.25cm}$ Donde:
 
 
-$z_{\alpha/2}\hspace{0.1cm}$ es el valor tal que $\hspace{0.1cm}P(N(0,1)>z_{\alpha/2}) = \alpha/2 \\$ 
+$\hspace{0.35cm}$ $z_{\alpha/2}\hspace{0.1cm}$ es el valor tal que $\hspace{0.1cm}P(N(0,1)>z_{\alpha/2}) = \alpha/2 \\[1cm]$ 
 
 
 
 $\hspace{0.25cm}$ Por tanto:
 
 
-$$P\left( \hspace{0.1cm} -z_{\alpha/2} \hspace{0.1cm}<\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}} \hspace{0.1cm} <\hspace{0.1cm} z_{\alpha/2}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
+$$P\left( \hspace{0.1cm} -z_{\alpha/2} \hspace{0.1cm}<\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}} \hspace{0.1cm} <\hspace{0.1cm} z_{\alpha/2}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[1cm]$$
 
 
 
@@ -1075,7 +1066,7 @@ $$P\left( \hspace{0.1cm} -z_{\alpha/2} \hspace{0.1cm}<\hspace{0.1cm} \dfrac{\ove
 $\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\theta=p$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
 
 
-$$P\left( \hspace{0.1cm} \overline{\mathcal{X}_n} -z_{\alpha/2} \cdot \sqrt{p(1-p)/n}\hspace{0.1cm}<\hspace{0.1cm}  p \hspace{0.1cm} <\hspace{0.1cm} \overline{\mathcal{X}_n} + z_{\alpha/2}\cdot \sqrt{p(1-p)/n}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
+$$P\left( \hspace{0.1cm} \overline{\mathcal{X}_n} -z_{\alpha/2} \cdot \sqrt{p(1-p)/n}\hspace{0.1cm}<\hspace{0.1cm}  p \hspace{0.1cm} <\hspace{0.1cm} \overline{\mathcal{X}_n} + z_{\alpha/2}\cdot \sqrt{p(1-p)/n}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[1cm]$$
 
 
 
@@ -1085,23 +1076,23 @@ $\hspace{0.25cm}$ Como $\overline{\mathcal{X}_n}$ es un estimador de $p$ que es 
 
 
 
-$$P\left( \hspace{0.1cm} \overline{\mathcal{X}_n} -z_{\alpha/2} \cdot \sqrt{\overline{\mathcal{X}_n}(1-\overline{\mathcal{X}_n})/n}\hspace{0.1cm}<\hspace{0.1cm}  p \hspace{0.1cm} <\hspace{0.1cm} \overline{\mathcal{X}_n} + z_{\alpha/2}\cdot \sqrt{\overline{\mathcal{X}_n}(1-\overline{\mathcal{X}_n})/n}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
+$$P\left( \hspace{0.1cm} \overline{\mathcal{X}_n} -z_{\alpha/2} \cdot \sqrt{\overline{\mathcal{X}_n}(1-\overline{\mathcal{X}_n})/n}\hspace{0.1cm}<\hspace{0.1cm}  p \hspace{0.1cm} <\hspace{0.1cm} \overline{\mathcal{X}_n} + z_{\alpha/2}\cdot \sqrt{\overline{\mathcal{X}_n}(1-\overline{\mathcal{X}_n})/n}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[1cm]$$
 
 
 $\hspace{0.25cm}$ Por tanto, tenemos el siguiente intervalo de confianza a un nivel aproximado $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} p \hspace{0.1cm}\\$
 
-$$IC(p)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{X}_n} \hspace{0.1cm}\pm\hspace{0.1cm} z_{\alpha/2} \cdot \sqrt{\overline{\mathcal{X}_n}(1-\overline{\mathcal{X}_n})/n} \hspace{0.1cm} \right] \\[0.9cm]$$
+$$IC(p)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{X}_n} \hspace{0.1cm}\pm\hspace{0.1cm} z_{\alpha/2} \cdot \sqrt{\overline{\mathcal{X}_n}(1-\overline{\mathcal{X}_n})/n} \hspace{0.1cm} \right] \\[1cm]$$
 
 
 $\hspace{0.25cm}$ Dada una muestra $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
 
 
-$$IC(p)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X} \hspace{0.1cm}\pm\hspace{0.1cm} z_{\alpha/2} \cdot \sqrt{\overline{X}\cdot (1-\overline{X})/n} \hspace{0.1cm} \right]$$
+$$IC(p)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X} \hspace{0.1cm}\pm\hspace{0.1cm} z_{\alpha/2} \cdot \sqrt{\overline{X}\cdot (1-\overline{X})/n} \hspace{0.1cm} \right] \\$$
 
 
 $\hspace{0.25cm}$ Donde:
 
-$\hspace{0.45cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i$
+$\hspace{0.35cm} \overline{X} = \dfrac{1}{n} \sum_{i=1}^n x_i$
 
 
 </p>
