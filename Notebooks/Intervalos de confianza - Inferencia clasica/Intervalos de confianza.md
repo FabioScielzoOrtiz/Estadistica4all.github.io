@@ -1356,6 +1356,9 @@ Balcony = Data.balcony_recode # 1 = true , 0 = false
 ```
 
 
+**Intervalo de confianza para la proporción de viviendas que tienen balcón:**
+
+
 ```python
 intervalo , proporcion = CI_Proportion(Variable=Balcony , alpha=0.05)
 ```
@@ -1383,9 +1386,11 @@ proporcion
     0.7196850393700788
 
 
+<br>
 
+Ahora vamos a calcular el intervalo de confianza para la proporción de viviendas que estan clasificadas como de calidad baja, media, alta y ultra, respectivamente. Para ello vamos a usar la variable `quality_recode`, que es una variable categorica con cuatro categorias, por lo que no es binaria. Para poder aplicar el intervalo de confianza que hemos expuesto anteriormente se requiere de una variable categorica binaria (dos categorias). Una solución que permite aplicar dicho intervalo a variables categoricas multiclase (con mas de dos categorias) consiste en *dummificar* la variable multiclase, obteniendo asi variables dummies (binarias) asociadas a cada una de las categorias de la variable multiclase original. Luego se calcular el intervalo de confianza para cada una de estas dummies. A continuación ilustramos este procedimiento.
 
-
+Primero dummificamos la variable `quality_recode`:
 
 ```python
 Quality_0 = pd.get_dummies(Data.quality_recode , drop_first=False).iloc[:,0] # 1 = quality low , 0 = not low
@@ -1394,6 +1399,9 @@ Quality_2 = pd.get_dummies(Data.quality_recode , drop_first=False).iloc[:,2] # 1
 Quality_3 = pd.get_dummies(Data.quality_recode , drop_first=False).iloc[:,3] # 1 = quality ultra , 0 = not ultra
 ```
 
+Ahora podemos aplicar el intervalo de confianza para cada una de las variables dummies (binarias) obtenidas.
+
+**Intervalo de confianza para la proporción de viviendas de baja calidad:**
 
 ```python
 intervalo , proporcion = CI_Proportion(Variable=Quality_0 , alpha=0.05)
@@ -1423,6 +1431,7 @@ proporcion
 
 
 
+**Intervalo de confianza para la proporción de viviendas de  calidad media:**
 
 ```python
 intervalo , proporcion = CI_Proportion(Variable=Quality_1 , alpha=0.05)
@@ -1453,6 +1462,7 @@ proporcion
 
 
 
+**Intervalo de confianza para la proporción de viviendas de alta calidad:**
 
 
 ```python
@@ -1485,6 +1495,7 @@ proporcion
 
 
 
+**Intervalo de confianza para la proporción de viviendas de calidad ultra:**
 
 ```python
 intervalo , proporcion = CI_Proportion(Variable=Quality_3 , alpha=0.05)
@@ -1515,6 +1526,8 @@ proporcion
 
 
 
+
+<br>
 
 <br>
  

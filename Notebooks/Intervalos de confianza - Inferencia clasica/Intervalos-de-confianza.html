@@ -2726,35 +2726,45 @@ size_in_m_2
 <p><br></p>
 <p>Vamos calcular el intervalo de confianza para la proporción de viviendas con balcón. Para ello usaremos la variable Balcony, la cual es una variable binaria que toma el valor 1 si la vivienda tiene balcon y 0 en caso contrario.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Balcony <span class="op">=</span> Data.balcony_recode <span class="co"># 1 = true , 0 = false</span></span></code></pre></div>
+<p><strong>Intervalo de confianza para la proporción de viviendas que tienen balcón:</strong></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>intervalo , proporcion <span class="op">=</span> CI_Proportion(Variable<span class="op">=</span>Balcony , alpha<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
 <pre><code>[0.6995155465832295, 0.7398545321569281]</code></pre>
 <div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>proporcion</span></code></pre></div>
 <pre><code>0.7196850393700788</code></pre>
+<p><br></p>
+<p>Ahora vamos a calcular el intervalo de confianza para la proporción de viviendas que estan clasificadas como de calidad baja, media, alta y ultra, respectivamente. Para ello vamos a usar la variable <code>quality_recode</code>, que es una variable categorica con cuatro categorias, por lo que no es binaria. Para poder aplicar el intervalo de confianza que hemos expuesto anteriormente se requiere de una variable categorica binaria (dos categorias). Una solución que permite aplicar dicho intervalo a variables categoricas multiclase (con mas de dos categorias) consiste en <em>dummificar</em> la variable multiclase, obteniendo asi variables dummies (binarias) asociadas a cada una de las categorias de la variable multiclase original. Luego se calcular el intervalo de confianza para cada una de estas dummies. A continuación ilustramos este procedimiento.</p>
+<p>Primero dummificamos la variable <code>quality_recode</code>:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Quality_0 <span class="op">=</span> pd.get_dummies(Data.quality_recode , drop_first<span class="op">=</span><span class="va">False</span>).iloc[:,<span class="dv">0</span>] <span class="co"># 1 = quality low , 0 = not low</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>Quality_1 <span class="op">=</span> pd.get_dummies(Data.quality_recode , drop_first<span class="op">=</span><span class="va">False</span>).iloc[:,<span class="dv">1</span>] <span class="co"># 1 = quality medium , 0 = not medium</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>Quality_2 <span class="op">=</span> pd.get_dummies(Data.quality_recode , drop_first<span class="op">=</span><span class="va">False</span>).iloc[:,<span class="dv">2</span>] <span class="co"># 1 = quality high , 0 = not high</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>Quality_3 <span class="op">=</span> pd.get_dummies(Data.quality_recode , drop_first<span class="op">=</span><span class="va">False</span>).iloc[:,<span class="dv">3</span>] <span class="co"># 1 = quality ultra , 0 = not ultra</span></span></code></pre></div>
+<p>Ahora podemos aplicar el intervalo de confianza para cada una de las variables dummies (binarias) obtenidas.</p>
+<p><strong>Intervalo de confianza para la proporción de viviendas de baja calidad:</strong></p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>intervalo , proporcion <span class="op">=</span> CI_Proportion(Variable<span class="op">=</span>Quality_0 , alpha<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
 <pre><code>[0.05885789175110899, 0.08182452294705374]</code></pre>
 <div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>proporcion</span></code></pre></div>
 <pre><code>0.07034120734908136</code></pre>
+<p><strong>Intervalo de confianza para la proporción de viviendas de calidad media:</strong></p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>intervalo , proporcion <span class="op">=</span> CI_Proportion(Variable<span class="op">=</span>Quality_1 , alpha<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
 <pre><code>[0.26528121372661256, 0.30584739519727194]</code></pre>
 <div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>proporcion</span></code></pre></div>
 <pre><code>0.28556430446194225</code></pre>
+<p><strong>Intervalo de confianza para la proporción de viviendas de alta calidad:</strong></p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>intervalo , proporcion <span class="op">=</span> CI_Proportion(Variable<span class="op">=</span>Quality_2 , alpha<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
 <pre><code>[0.5795901905178868, 0.6235594157813258]</code></pre>
 <div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>proporcion</span></code></pre></div>
 <pre><code>0.6015748031496063</code></pre>
+<p><strong>Intervalo de confianza para la proporción de viviendas de calidad ultra:</strong></p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>intervalo , proporcion <span class="op">=</span> CI_Proportion(Variable<span class="op">=</span>Quality_3 , alpha<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
 <pre><code>[0.03345901015224513, 0.051580359926495026]</code></pre>
 <div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>proporcion</span></code></pre></div>
 <pre><code>0.04251968503937008</code></pre>
+<p><br></p>
 <p><br></p>
 </div>
 <div id="intervalo-de-confianza-para-la-media-con-varianza-conocida" class="section level2" number="9.5">
