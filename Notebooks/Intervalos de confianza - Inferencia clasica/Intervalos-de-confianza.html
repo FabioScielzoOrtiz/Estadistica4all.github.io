@@ -1740,7 +1740,7 @@ margin-right: auto;
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(T\hspace{0.1cm}\)</span> es un estadístico de una m.a.s <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim F(\theta)\)</span> <span class="math inline">\(\hspace{0.25cm}\Leftrightarrow\hspace{0.25cm}\)</span> <span class="math inline">\(T\hspace{0.1cm}\)</span> es una función de la m.a.s que no depende del parámetro <span class="math inline">\(\hspace{0.1cm}\theta\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <span class="math inline">\(T\hspace{0.1cm}\)</span> es un estadístico de una m.a.s <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim F(\theta)\)</span> <span class="math inline">\(\hspace{0.25cm}\Leftrightarrow\hspace{0.25cm}\)</span> <span class="math inline">\(T\hspace{0.1cm}\)</span> es una función de la m.a.s que no depende del parámetro <span class="math inline">\(\hspace{0.1cm}\theta\)</span></p>
 </p>
 </p>
 <p></span></p>
@@ -1757,9 +1757,9 @@ margin-right: auto;
 </ul>
 <p><span class="math inline">\(\hspace{0.6cm} T(x_1,...,x_n)\hspace{0.1cm}\)</span> es una observación de la v.a. <span class="math inline">\(\hspace{0.1cm}T(\mathcal{X}_1,...,\mathcal{X}_n) \\\)</span></p>
 <ul>
-<li><p>Dadas <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras de observaciones <span class="math inline">\(\hspace{0.1cm}(x_1^1 , ..., x_n^1) ,...,(x_1^B,...,x_n^B)\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \sim D(\theta)\)</span></p>
+<li><p>Dadas <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras de observaciones <span class="math inline">\(\hspace{0.1cm}(x_1^1 , ..., x_n^1)\hspace{0.1cm} ,...,\hspace{0.1cm}(x_1^B,...,x_n^B)\hspace{0.2cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \sim D(\theta)\)</span></p>
 <ul>
-<li><span class="math inline">\(T(x_1^1 , ..., x_n^1) ,..., T(x_1^B,...,x_n^B)\hspace{0.1cm}\)</span> es una muestra de observaciones de la v.a. <span class="math inline">\(\hspace{0.1cm}T(\mathcal{X}_1,...,\mathcal{X}_n)\)</span></li>
+<li><span class="math inline">\(\hspace{0.1cm}T(x_1^1 , ..., x_n^1) \hspace{0.1cm},...,\hspace{0.1cm} T(x_1^B,...,x_n^B)\hspace{0.2cm}\)</span> es una muestra de observaciones de la v.a. <span class="math inline">\(\hspace{0.1cm}T(\mathcal{X}_1,...,\mathcal{X}_n)\)</span></li>
 </ul></li>
 </ul>
 <p><br></p>
@@ -1769,11 +1769,11 @@ margin-right: auto;
 <ul>
 <li><strong>Media muestral</strong></li>
 </ul>
-<p><span class="math display">\[T(\mathcal{X}_1,...,\mathcal{X}_n) = \overline{\mathcal{X}} = \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \\\]</span></p>
+<p><span class="math display">\[T(\mathcal{X}_1,...,\mathcal{X}_n) = \overline{\mathcal{X}} = \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \\[1cm]\]</span></p>
 <ul>
 <li><strong>Varianza muestral</strong></li>
 </ul>
-<p><span class="math display">\[T(\mathcal{X}_1,...,\mathcal{X}_n) = S^2 = \dfrac{1}{n} \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}})^2 \\\]</span></p>
+<p><span class="math display">\[T(\mathcal{X}_1,...,\mathcal{X}_n) = S^2 = \dfrac{1}{n} \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}})^2 \\[1cm]\]</span></p>
 <ul>
 <li><strong>Cuasi-Varianza muestral</strong></li>
 </ul>
@@ -1783,17 +1783,29 @@ margin-right: auto;
 </div>
 <div id="estimador-puntual" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Estimador Puntual</h1>
-<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}X\)</span>,</p>
-<p>Un estimador puntual para el parametro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> es un estadistico <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> que se propone para estimar <span class="math inline">\(\hspace{0.1cm}\theta\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span>,</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Un estimador puntual para el parametro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> es un estadistico <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> que se propone para estimar <span class="math inline">\(\hspace{0.1cm}\theta\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="estimación-puntual" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Estimación Puntual</h1>
-<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}\)</span> , una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y un estadistico <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\)</span></p>
-<p>Si <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> es una muestra de observaciones de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces:</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}\)</span> , una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y un estadistico <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Si <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> es una muestra de observaciones de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces:</p>
 <ul>
-<li><span class="math inline">\(\widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}\)</span> es una estimación puntual del parametro <span class="math inline">\(\hspace{0.1cm}\theta \\\)</span></li>
+<li><span class="math inline">\(\hspace{0.1cm}\)</span><span class="math inline">\(\widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}\)</span> es una estimación puntual del parametro <span class="math inline">\(\hspace{0.1cm}\theta \\\)</span></li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><strong>Observaciones:</strong></p>
 <p>Un estimador puntual es una v.a. y una estimación puntual un número.</p>
 <p><br></p>
@@ -1804,23 +1816,40 @@ margin-right: auto;
 <p><br></p>
 <div id="sesgo" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Sesgo</h2>
-<p>El sesgo del estimador <span class="math inline">\(\widehat{\theta}\)</span> se define como:</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> El sesgo del estimador <span class="math inline">\(\widehat{\theta}\)</span> se define como:</p>
 <p><span class="math display">\[Sesgo(\widehat{\theta}) = E \left[ \hspace{0.05cm} \widehat{\theta} \hspace{0.05cm} \right]- \theta\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="varianza" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Varianza</h2>
-<p>La varianza del estimador <span class="math inline">\(\widehat{\theta}\)</span> se define como:</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La varianza del estimador <span class="math inline">\(\widehat{\theta}\)</span> se define como:</p>
 <p><span class="math display">\[Var(\widehat{\theta}) = E \left[ \hspace{0.05cm} \left( \widehat{\theta} - E [ \hspace{0.05cm} \widehat{\theta} \hspace{0.05cm}  ] \right)^2 \hspace{0.05cm} \right]\]</span></p>
-<p>El error estandar (desviación típica) del estimador <span class="math inline">\(\widehat{\theta}\)</span> se define como:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> El error estandar (desviación típica) del estimador <span class="math inline">\(\widehat{\theta}\)</span> se define como:</p>
 <p><span class="math display">\[s.e.(\widehat{\theta}) = \sqrt{Var(\widehat{\theta})}\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="error-cuadratico-medio" class="section level2" number="7.3">
 <h2><span class="header-section-number">7.3</span> Error Cuadratico Medio</h2>
-<p>El error cuadratico medio del estimador <span class="math inline">\(\widehat{\theta}\)</span> se define como:</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> El error cuadratico medio del estimador <span class="math inline">\(\widehat{\theta}\)</span> se define como:</p>
 <p><span class="math display">\[ECM(\widehat{\theta}) = E[ (\widehat{\theta} - \theta)^2] = E[Sesgo(\widehat{\theta})^2]\]</span></p>
-<p><br></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 <p><br></p>
 </div>
@@ -1829,22 +1858,31 @@ margin-right: auto;
 <h1><span class="header-section-number">8</span> Métodos de estimacion puntual</h1>
 <div id="método-de-los-momentos" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> Método de los momentos</h2>
-<p><br></p>
 <div id="momentos-de-una-v.a." class="section level3" number="8.1.1">
 <h3><span class="header-section-number">8.1.1</span> Momentos de una v.a.</h3>
-<p>Momento de orden <span class="math inline">\(\hspace{0.1cm} k\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> es <span class="math inline">\(\hspace{0.1cm}E[\mathcal{X}^k]\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Momento de orden <span class="math inline">\(\hspace{0.1cm} k\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> es <span class="math inline">\(\hspace{0.1cm}E[\mathcal{X}^k]\)</span></p>
 <p><br></p>
 </div>
 <div id="momentos-muestrales" class="section level3" number="8.1.2">
 <h3><span class="header-section-number">8.1.2</span> Momentos muestrales</h3>
-<p>Momento de orden <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> de la m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> es <span class="math inline">\(\hspace{0.1cm}\dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^k\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Momento de orden <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> de la m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> es <span class="math inline">\(\hspace{0.1cm}\dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^k\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="el-método-de-los-momentos" class="section level3" number="8.1.3">
 <h3><span class="header-section-number">8.1.3</span> El método de los momentos</h3>
-<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim F(\theta_1,...,\theta_h)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}X\)</span>,</p>
-<p>Se quieren estimar los parametros <span class="math inline">\(\hspace{0.1cm}\theta_1,...,\theta_h\)</span></p>
-<p>El método de los momentos consiste en resolver para <span class="math inline">\(\hspace{0.1cm}\theta_1,...,\theta_h\hspace{0.1cm}\)</span> el siguiente sistema de ecuaciones: <span class="math inline">\(\\[0.7cm]\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim F(\theta_1,...,\theta_h)\hspace{0.1cm}\)</span> y una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}X\)</span>,</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Se quieren estimar los parametros <span class="math inline">\(\hspace{0.1cm}\theta_1,...,\theta_h\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> El método de los momentos consiste en resolver para <span class="math inline">\(\hspace{0.1cm}\theta_1,...,\theta_h\hspace{0.1cm}\)</span> el siguiente sistema de ecuaciones: <span class="math inline">\(\\[0.7cm]\)</span></p>
 <p><span class="math display">\[\left\lbrace\begin{array}{l}   
 E[\mathcal{X}] = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i    \\[0.1cm]
 E[\mathcal{X}^2] = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^2    \\[0.1cm]
@@ -1852,7 +1890,7 @@ E[\mathcal{X}^2] = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^2    \\[0.1cm]
 E[\mathcal{X}^h] = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^h
 \end{array}\right.\]</span></p>
 <p><br></p>
-<p>Si solución del sistema para <span class="math inline">\(\hspace{0.1cm}(\theta_1,...,\theta_h)\hspace{0.1cm}\)</span> es <span class="math inline">\(\hspace{0.1cm}\left( \hspace{0.05cm} T_1(\mathcal{X}_1,...,\mathcal{X}_n),...,T_h(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.05cm} \right)\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Si solución del sistema para <span class="math inline">\(\hspace{0.1cm}(\theta_1,...,\theta_h)\hspace{0.1cm}\)</span> es <span class="math inline">\(\hspace{0.1cm}\left( \hspace{0.05cm} T_1(\mathcal{X}_1,...,\mathcal{X}_n),...,T_h(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.05cm} \right)\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.6cm]\)</span></p>
 <ul>
 <li>Los estimadores de los parámetros <span class="math inline">\(\hspace{0.1cm}(\theta_1,...,\theta_h)\hspace{0.1cm}\)</span> por el método de los momentos son:</li>
 </ul>
@@ -1866,6 +1904,10 @@ E[\mathcal{X}^h] = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^h
 <p><span class="math display">\[\widehat{\theta}_1 \hspace{0.1cm}=\hspace{0.1cm} T_1(x_1,...,x_n)\]</span></p>
 <p><span class="math display">\[\dots\]</span></p>
 <p><span class="math display">\[\widehat{\theta}_h \hspace{0.1cm} =\hspace{0.1cm} T_h(x_1,...,x_n) \\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><strong>Observación:</strong></p>
 <p>Los momentos <span class="math inline">\(\hspace{0.1cm}E[X]\hspace{0.05cm},\hspace{0.05cm} E[X^2]\hspace{0.05cm},...,\hspace{0.05cm} E[X^h]\hspace{0.1cm}\)</span> dependen generalmente de los parametros a estimar <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}_1\hspace{0.05cm},...,\hspace{0.05cm}\widehat{\theta}_h\)</span></p>
 <p><br></p>
@@ -1892,12 +1934,8 @@ E[\mathcal{X}^h] = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^h
 <p><span class="math display">\[\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S^2(X) = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2\]</span></p>
 <p><br></p>
 </div>
-<div id="justificación-al-método-de-los-momentos" class="section level3" number="8.1.5">
-<h3><span class="header-section-number">8.1.5</span> Justificación al método de los momentos</h3>
-<p><br></p>
-</div>
-<div id="observaciones-al-método-de-los-momentos" class="section level3" number="8.1.6">
-<h3><span class="header-section-number">8.1.6</span> Observaciones al método de los momentos</h3>
+<div id="justificación-ley-de-los-grandes-números" class="section level3" number="8.1.5">
+<h3><span class="header-section-number">8.1.5</span> Justificación: Ley de los grandes números</h3>
 <p><br></p>
 </div>
 </div>

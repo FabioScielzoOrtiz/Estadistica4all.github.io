@@ -199,7 +199,7 @@ $Im(\mathcal{X})\hspace{0.1cm}$ es la imagen de $\hspace{0.1cm}\mathcal{X}$$\hsp
 <span>
  
 <p style='margin-left:1em;'>
-$T\hspace{0.1cm}$ es un estadístico de una m.a.s $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\sim F(\theta)$ $\hspace{0.25cm}\Leftrightarrow\hspace{0.25cm}$ $T\hspace{0.1cm}$ es una función de la m.a.s que no depende  del parámetro $\hspace{0.1cm}\theta$
+$\hspace{0.25cm}$ $T\hspace{0.1cm}$ es un estadístico de una m.a.s $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\sim F(\theta)$ $\hspace{0.25cm}\Leftrightarrow\hspace{0.25cm}$ $T\hspace{0.1cm}$ es una función de la m.a.s que no depende  del parámetro $\hspace{0.1cm}\theta$
 
 
 
@@ -225,9 +225,9 @@ Por tanto:
 $\hspace{0.6cm} T(x_1,...,x_n)\hspace{0.1cm}$ es una observación de la v.a. $\hspace{0.1cm}T(\mathcal{X}_1,...,\mathcal{X}_n) \\$
 
 
-- Dadas $\hspace{0.1cm}B\hspace{0.1cm}$ muestras de observaciones $\hspace{0.1cm}(x_1^1 , ..., x_n^1) ,...,(x_1^B,...,x_n^B)\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X} \sim D(\theta)$ 
+- Dadas $\hspace{0.1cm}B\hspace{0.1cm}$ muestras de observaciones $\hspace{0.1cm}(x_1^1 , ..., x_n^1)\hspace{0.1cm} ,...,\hspace{0.1cm}(x_1^B,...,x_n^B)\hspace{0.2cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X} \sim D(\theta)$ 
 
-     - $T(x_1^1 , ..., x_n^1) ,..., T(x_1^B,...,x_n^B)\hspace{0.1cm}$ es una muestra de observaciones de la v.a. $\hspace{0.1cm}T(\mathcal{X}_1,...,\mathcal{X}_n)$
+     - $\hspace{0.1cm}T(x_1^1 , ..., x_n^1) \hspace{0.1cm},...,\hspace{0.1cm} T(x_1^B,...,x_n^B)\hspace{0.2cm}$ es una muestra de observaciones de la v.a. $\hspace{0.1cm}T(\mathcal{X}_1,...,\mathcal{X}_n)$
 
 
 <br>
@@ -240,12 +240,12 @@ Sea $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ una v.a. tal que $\hspace{0.1cm}\m
 
 - **Media muestral**
 
-$$T(\mathcal{X}_1,...,\mathcal{X}_n) = \overline{\mathcal{X}} = \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \\$$
+$$T(\mathcal{X}_1,...,\mathcal{X}_n) = \overline{\mathcal{X}} = \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \\[1cm]$$
 
 
 - **Varianza muestral**
 
-$$T(\mathcal{X}_1,...,\mathcal{X}_n) = S^2 = \dfrac{1}{n} \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}})^2 \\$$
+$$T(\mathcal{X}_1,...,\mathcal{X}_n) = S^2 = \dfrac{1}{n} \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}})^2 \\[1cm]$$
 
 
 - **Cuasi-Varianza muestral**
@@ -260,22 +260,36 @@ $$T(\mathcal{X}_1,...,\mathcal{X}_n) = S^2 = \dfrac{1}{n-1} \sum_{i=1}^n (\mathc
 
 # Estimador Puntual
 
-Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}X$, 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-Un estimador puntual para el parametro $\hspace{0.1cm}\theta\hspace{0.1cm}$ es un estadistico $\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ que se propone para estimar $\hspace{0.1cm}\theta$
+$\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}$, 
 
+$\hspace{0.25cm}$ Un estimador puntual para el parametro $\hspace{0.1cm}\theta\hspace{0.1cm}$ es un estadistico $\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ que se propone para estimar $\hspace{0.1cm}\theta$
+
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
 
 # Estimación Puntual
 
-Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ , una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y un estadistico $\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)$
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-Si  $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ es una muestra de observaciones  de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces:
+$\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ , una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y un estadistico $\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)$
 
-- $\widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ es una estimación puntual del parametro $\hspace{0.1cm}\theta \\$
+$\hspace{0.25cm}$ Si  $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ es una muestra de observaciones  de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces:
 
+- $\hspace{0.1cm}$$\widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ es una estimación puntual del parametro $\hspace{0.1cm}\theta \\$
+
+</p>
+ 
+</p></span>
+</div>
 
 
 **Observaciones:**
@@ -294,39 +308,62 @@ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ , una m.a.
 
 ## Sesgo
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-El sesgo del estimador $\widehat{\theta}$ se define como:
+$\hspace{0.25cm}$ El sesgo del estimador $\widehat{\theta}$ se define como:
 
 $$Sesgo(\widehat{\theta}) = E \left[ \hspace{0.05cm} \widehat{\theta} \hspace{0.05cm} \right]- \theta$$
+
+
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
 ## Varianza 
 
-La varianza del estimador $\widehat{\theta}$ se define como:
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ La varianza del estimador $\widehat{\theta}$ se define como:
 
 $$Var(\widehat{\theta}) = E \left[ \hspace{0.05cm} \left( \widehat{\theta} - E [ \hspace{0.05cm} \widehat{\theta} \hspace{0.05cm}  ] \right)^2 \hspace{0.05cm} \right]$$
 
 
-El error estandar (desviación típica) del estimador $\widehat{\theta}$ se define como:
+$\hspace{0.25cm}$ El error estandar (desviación típica) del estimador $\widehat{\theta}$ se define como:
 
 $$s.e.(\widehat{\theta}) = \sqrt{Var(\widehat{\theta})}$$
+
+
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
 ## Error Cuadratico Medio
 
-El error cuadratico medio del estimador $\widehat{\theta}$ se define como:
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ El error cuadratico medio del estimador $\widehat{\theta}$ se define como:
 
 $$ECM(\widehat{\theta}) = E[ (\widehat{\theta} - \theta)^2] = E[Sesgo(\widehat{\theta})^2]$$
 
 
+</p>
+ 
+</p></span>
+</div>
+
 <br>
 
 
-
-
-<br>
 
 <br>
 
@@ -338,12 +375,13 @@ $$ECM(\widehat{\theta}) = E[ (\widehat{\theta} - \theta)^2] = E[Sesgo(\widehat{\
 ## Método de los momentos
 
 
-<br>
-
 
 ### Momentos de una v.a.
 
-Momento de orden $\hspace{0.1cm} k\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$  es $\hspace{0.1cm}E[\mathcal{X}^k]$
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ Momento de orden $\hspace{0.1cm} k\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$  es $\hspace{0.1cm}E[\mathcal{X}^k]$
 
 
 <br>
@@ -351,19 +389,29 @@ Momento de orden $\hspace{0.1cm} k\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mat
 
 ### Momentos muestrales
 
-Momento de orden $\hspace{0.1cm}k\hspace{0.1cm}$ de la m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ es $\hspace{0.1cm}\dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^k$
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
+$\hspace{0.25cm}$  Momento de orden $\hspace{0.1cm}k\hspace{0.1cm}$ de la m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ es $\hspace{0.1cm}\dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^k$
+
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
 
 ### El método de los momentos
 
-Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim F(\theta_1,...,\theta_h)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}X$, 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-Se quieren estimar los parametros $\hspace{0.1cm}\theta_1,...,\theta_h$ 
+$\hspace{0.25cm}$  Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim F(\theta_1,...,\theta_h)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}X$, 
 
-El método de los momentos consiste en resolver para $\hspace{0.1cm}\theta_1,...,\theta_h\hspace{0.1cm}$ el siguiente sistema de ecuaciones: $\\[0.7cm]$
+$\hspace{0.25cm}$  Se quieren estimar los parametros $\hspace{0.1cm}\theta_1,...,\theta_h$ 
+
+$\hspace{0.25cm}$  El método de los momentos consiste en resolver para $\hspace{0.1cm}\theta_1,...,\theta_h\hspace{0.1cm}$ el siguiente sistema de ecuaciones: $\\[0.7cm]$
 
 $$\left\lbrace\begin{array}{l}   
  E[\mathcal{X}] = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i    \\[0.1cm] 
@@ -372,11 +420,12 @@ $$\left\lbrace\begin{array}{l}
 E[\mathcal{X}^h] = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^h
 \end{array}\right.$$
 
+
 <br>
 
 
 
-Si solución del sistema para $\hspace{0.1cm}(\theta_1,...,\theta_h)\hspace{0.1cm}$ es   $\hspace{0.1cm}\left( \hspace{0.05cm} T_1(\mathcal{X}_1,...,\mathcal{X}_n),...,T_h(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.05cm} \right)\hspace{0.1cm}$ , entonces: $\\[0.6cm]$
+$\hspace{0.25cm}$  Si solución del sistema para $\hspace{0.1cm}(\theta_1,...,\theta_h)\hspace{0.1cm}$ es   $\hspace{0.1cm}\left( \hspace{0.05cm} T_1(\mathcal{X}_1,...,\mathcal{X}_n),...,T_h(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.05cm} \right)\hspace{0.1cm}$ , entonces: $\\[0.6cm]$
 
 - Los estimadores de los parámetros $\hspace{0.1cm}(\theta_1,...,\theta_h)\hspace{0.1cm}$ por el método de los momentos son:
 
@@ -401,7 +450,10 @@ $$\dots$$
 $$\widehat{\theta}_h \hspace{0.1cm} =\hspace{0.1cm} T_h(x_1,...,x_n) \\$$
 
 
-
+</p>
+ 
+</p></span>
+</div>
 
 
 **Observación:**
@@ -465,17 +517,13 @@ $$\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S^2(X) = \dfrac{1}{n} \sum_{i
 
 <br>
 
-### Justificación al método de los momentos
+### Justificación: Ley de los grandes números
 
 
 
 
 
 
-<br>
-
-
-### Observaciones al método de los momentos
 
 
 
