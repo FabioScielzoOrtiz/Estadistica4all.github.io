@@ -46,7 +46,7 @@ css: custom.css
 </style>
 
 
-<div class="warning" style='background-color:#FEF0D9; color: #000000; border-left: solid #F9BC0D 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<div class="warning" style='background-color:#FCF2EC; color: #000000; border-left: solid #FE9554 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
 <p style='margin-left:1em;'>
