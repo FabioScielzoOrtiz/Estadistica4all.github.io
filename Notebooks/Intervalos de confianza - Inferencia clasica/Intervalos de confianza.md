@@ -381,8 +381,12 @@ $$ECM(\widehat{\theta}) = E[ (\widehat{\theta} - \theta)^2] = E[Sesgo(\widehat{\
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-$\hspace{0.25cm}$ Momento de orden $\hspace{0.1cm} k\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$  es $\hspace{0.1cm}E[\mathcal{X}^k]$
+$\hspace{0.25cm}$ El momento de orden $\hspace{0.1cm} k\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$  es $\hspace{0.1cm}E[\mathcal{X}^k]$
 
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
@@ -407,17 +411,18 @@ $\hspace{0.25cm}$  Momento de orden $\hspace{0.1cm}k\hspace{0.1cm}$ de la m.a.s.
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-$\hspace{0.25cm}$  Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim F(\theta_1,...,\theta_h)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}X$, 
+
+$\hspace{0.25cm}$  Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim F(\theta_1,...,\theta_h)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}X$.
 
 $\hspace{0.25cm}$  Se quieren estimar los parametros $\hspace{0.1cm}\theta_1,...,\theta_h$ 
 
 $\hspace{0.25cm}$  El método de los momentos consiste en resolver para $\hspace{0.1cm}\theta_1,...,\theta_h\hspace{0.1cm}$ el siguiente sistema de ecuaciones: $\\[0.7cm]$
 
 $$\left\lbrace\begin{array}{l}   
- E[\mathcal{X}] = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i    \\[0.1cm] 
- E[\mathcal{X}^2] = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^2    \\[0.1cm]
-  ...   \\[0.1cm]
-E[\mathcal{X}^h] = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^h
+ E[\mathcal{X}] \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i    \\[0.1cm] 
+ E[\mathcal{X}^2]  \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^2    \\[0.1cm]
+  \hspace{0.25cm} ...   \\[0.1cm]
+E[\mathcal{X}^h] \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^h
 \end{array}\right.$$
 
 
@@ -439,7 +444,7 @@ $$\widehat{\theta}_h \hspace{0.1cm}=\hspace{0.1cm} T_h(\mathcal{X}_1,...,\mathca
 
 <br>
 
-- Por tanto, dada una muestra de observaciones  $\hspace{0.1cm}X=(x_1,...,x_n)$ de $\mathcal{X}\hspace{0.1cm}$ , las estimaciones de los parametros $\hspace{0.1cm}(\theta_1,...,\theta_h)\hspace{0.1cm}$ por el método de los momentos son:
+- Por tanto, dada una muestra de observaciones  $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , las estimaciones de los parametros $\hspace{0.1cm}(\theta_1,...,\theta_h)\hspace{0.1cm}$ por el método de los momentos son:
 
 
 $$\widehat{\theta}_1 \hspace{0.1cm}=\hspace{0.1cm} T_1(x_1,...,x_n)$$
@@ -522,7 +527,7 @@ $$\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S^2(X) = \dfrac{1}{n} \sum_{i
 
 
 
-
+POR HACER
 
 
 
@@ -536,20 +541,33 @@ $$\widehat{\sigma}^2 \hspace{0.1cm}=\hspace{0.1cm} S^2(X) = \dfrac{1}{n} \sum_{i
 
 ### Función de Verosimilitud
 
-Dada una v.a. $\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$  de $\hspace{0.1cm}\mathcal{X}\\$
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
 
-La función de verosimilitud de la m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,..., \mathcal{X}_n)\hspace{0.1cm}$ es una función  tal que: $\\[0.7cm]$
+
+$\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm} \mathcal{X} \sim F(\theta)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$  de $\hspace{0.1cm}\mathcal{X}\\$
+
+
+$\hspace{0.25cm}$ La función de verosimilitud de la m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,..., \mathcal{X}_n)\hspace{0.1cm}$ es una función  tal que: $\\[0.7cm]$
 
 
 
 $$\mathcal{L}_{\mathcal{X}_1,..., \mathcal{X}_n}(x_1,...,x_n) \hspace{0.1cm}=\hspace{0.1cm} f_{\mathcal{X}_1,...,\mathcal{X}_n}(x_1,...,x_n\hspace{0.1cm}|\hspace{0.1cm} \theta) \hspace{0.25cm} , \hspace{0.25cm} \forall\hspace{0.1cm} (x_1,...,x_n)\in \mathbb{R}^n \\$$
 
 
-Donde: 
+$\hspace{0.25cm}$  Donde: 
 
-$f_{\mathcal{X}_1,...,\mathcal{X}_n}\hspace{0.1cm}$ es la función de densidad o de probabilidad **conjunta** para las v.a.'s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n \\$
+$\hspace{0.25cm}$  $f_{\mathcal{X}_1,...,\mathcal{X}_n}\hspace{0.1cm}$ es la función de densidad o de probabilidad **conjunta** para las v.a.'s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n \\$
 
+
+</p>
+ 
+</p></span>
+</div>
+
+
+<br>
 
 
 **Observaciones:**
