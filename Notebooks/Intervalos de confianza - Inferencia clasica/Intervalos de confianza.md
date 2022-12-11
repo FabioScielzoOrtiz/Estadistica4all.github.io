@@ -756,25 +756,25 @@ Dado un intervalo de confianza $\hspace{0.1cm}[ L_1(\mathcal{X}_1,...,\mathcal{X
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-El método pivotal es un método para la construcción de intervalos de confianza.
+$\hspace{0.25cm}$ El método pivotal es un método para la construcción de intervalos de confianza.
 
-Es un método general para encontrar $\hspace{0.1cm}L_1(\mathcal{X}_1,...,\mathcal{X}_n)$ y $L_2(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ tales que: 
+$\hspace{0.25cm}$ Es un método general para encontrar $\hspace{0.1cm}L_1(\mathcal{X}_1,...,\mathcal{X}_n)$ y $L_2(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ tales que: 
 
 $$\hspace{0.1cm}P(L_1(\mathcal{X}_1,...,\mathcal{X}_n) \hspace{0.1cm}\leq\hspace{0.1cm} \theta  \hspace{0.1cm}\leq\hspace{0.1cm} L_2(\mathcal{X}_1,...,\mathcal{X}_n))\hspace{0.1cm}=\hspace{0.1cm}1-\alpha$$
 
 
-El método consiste en encontrar una función $\hspace{0.1cm}\Upsilon\hspace{0.1cm}$ de la m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ y del parámetro $\theta$ con distribucion de probabilidad conocida y no dependiente de $\hspace{0.1cm}\theta\hspace{0.1cm}$ , llamada cantidad pivotal:
+$\hspace{0.25cm}$ El método consiste en encontrar una función $\hspace{0.1cm}\Upsilon\hspace{0.1cm}$ de la m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ y del parámetro $\theta$ con distribucion de probabilidad conocida y no dependiente de $\hspace{0.1cm}\theta\hspace{0.1cm}$ , llamada cantidad pivotal:
 
-$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \theta)\hspace{0.1cm}$ tiene que ser una v.a. con **distribución de probabilidad conocida** y que **no depende de** $\hspace{0.1cm}\theta\hspace{0.1cm}$ de tal manera que pueden determinarse un par de números $\hspace{0.1cm}a, b\in \mathbb{R}\hspace{0.1cm}$ tales que
+$\hspace{0.25cm}$ $\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \theta)\hspace{0.1cm}$ tiene que ser una v.a. con **distribución de probabilidad conocida** y que **no depende de** $\hspace{0.1cm}\theta\hspace{0.1cm}$ de tal manera que pueden determinarse un par de números $\hspace{0.1cm}a, b\in \mathbb{R}\hspace{0.1cm}$ tales que
 
 $$P(a \hspace{0.1cm}\leq\hspace{0.1cm} \Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \theta) \hspace{0.1cm}\leq\hspace{0.1cm} b) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha$$
 
-Se tiene que transformar la última expresion para aislar el parametro $\hspace{0.1cm}\theta\hspace{0.1cm}$ de forma que se llegue a la siguiente expresión:
+$\hspace{0.25cm}$ Se tiene que transformar la última expresion para aislar el parametro $\hspace{0.1cm}\theta\hspace{0.1cm}$ de forma que se llegue a la siguiente expresión:
 
 $$P(g_1( a, \mathcal{X}_1,...,\mathcal{X}_n) )  \hspace{0.1cm}\leq\hspace{0.1cm}  \theta \hspace{0.1cm}\leq\hspace{0.1cm} g_2(b, \mathcal{X}_1,...,\mathcal{X}_n) ) = 1-\alpha$$
 
 
-Donde: $\hspace{0.1cm}g_1\hspace{0.1cm}$ y $\hspace{0.1cm}g_2\hspace{0.1cm}$ son funciones dependientes de $\hspace{0.1cm}a,\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ y $\hspace{0.1cm}b, \mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ , respectivamente.
+$\hspace{0.25cm}$ Donde: $\hspace{0.1cm}g_1\hspace{0.1cm}$ y $\hspace{0.1cm}g_2\hspace{0.1cm}$ son funciones dependientes de $\hspace{0.1cm}a,\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ y $\hspace{0.1cm}b, \mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ , respectivamente.
 
 </p>
  
