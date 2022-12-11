@@ -46,6 +46,8 @@ css: custom.css
 </style>
 
 
+
+
 <div class="warning" style='background-color:#FCF2EC; color: #000000; border-left: solid #FE9554 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
@@ -1020,6 +1022,8 @@ Este último resultado es el que usaremos para construir el intervalo de confian
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
+<p style='margin-left:30em;'>
+
 $\hspace{0.25cm}$ La anterior cantidad:
 
 $$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, p) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}}\hspace{0.15cm}\underset{d}{\rightarrow}\hspace{0.15cm} N(0,1)$$
@@ -1035,7 +1039,7 @@ $$P\left( \hspace{0.1cm}a \hspace{0.1cm}< \hspace{0.1cm} \dfrac{\overline{\mathc
 
 
  
-$\hspace{0.25cm}$ Siguiendo los anteriores resultados:
+$\hspace{0.25cm}$ Siguiendo los anteriores resultados: $\\[0.6cm]$
 
 
 $$P\left( \hspace{0.1cm} a \hspace{0.1cm}<\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}} \hspace{0.1cm} <\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} P\left( a < N(0,1)  < b \right) \\[1cm]$$
@@ -1059,18 +1063,30 @@ $\hspace{0.25cm}$ Por tanto:
 
 $$P\left( \hspace{0.1cm} -z_{\alpha/2} \hspace{0.1cm}<\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - p}{\sqrt{ p\cdot(1-p)/n}} \hspace{0.1cm} <\hspace{0.1cm} z_{\alpha/2}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[1cm]$$
 
+</p>
+ 
+</p></span>
+</div>
 
 
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
-$\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\theta=p$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
+<p style='margin-left:15em;'>
+
+$\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\theta=p$. 
+
+Operando un poco se llega a lo siguiente: $\\[0.6cm]$
 
 
 $$P\left( \hspace{0.1cm} \overline{\mathcal{X}_n} -z_{\alpha/2} \cdot \sqrt{p(1-p)/n}\hspace{0.1cm}<\hspace{0.1cm}  p \hspace{0.1cm} <\hspace{0.1cm} \overline{\mathcal{X}_n} + z_{\alpha/2}\cdot \sqrt{p(1-p)/n}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[1cm]$$
 
 
 
-$\hspace{0.25cm}$ Pero la anterior expresión tienen un problema, dependen ambos lados de la desigualdad de $p$ , que es el parámetro desconocido. Una solución a esto es la siguiente.
+$\hspace{0.25cm}$ Pero la anterior expresión tienen un problema, dependen ambos lados de la desigualdad de $p$ , que es el parámetro desconocido. 
+
+Una solución a esto es la siguiente:
 
 $\hspace{0.25cm}$ Como $\overline{\mathcal{X}_n}$ es un estimador de $p$ que es insesgado, consistente y de minima varianza, es un muy buen estimador de $p$ , por tanto podemos estimar $p$ con $\overline{\mathcal{X}_n}$ en la anterior expresion. Asi llegamos a la siguiente expresión: $\\[0.7cm]$
 
@@ -1078,6 +1094,15 @@ $\hspace{0.25cm}$ Como $\overline{\mathcal{X}_n}$ es un estimador de $p$ que es 
 
 $$P\left( \hspace{0.1cm} \overline{\mathcal{X}_n} -z_{\alpha/2} \cdot \sqrt{\overline{\mathcal{X}_n}(1-\overline{\mathcal{X}_n})/n}\hspace{0.1cm}<\hspace{0.1cm}  p \hspace{0.1cm} <\hspace{0.1cm} \overline{\mathcal{X}_n} + z_{\alpha/2}\cdot \sqrt{\overline{\mathcal{X}_n}(1-\overline{\mathcal{X}_n})/n}\hspace{0.1cm} \right) \hspace{0.1cm}\approx\hspace{0.1cm} 1-\alpha \\[1cm]$$
 
+</p>
+ 
+</p></span>
+</div>
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
 $\hspace{0.25cm}$ Por tanto, tenemos el siguiente intervalo de confianza a un nivel aproximado $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} p \hspace{0.1cm}\\$
 
