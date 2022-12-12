@@ -2333,6 +2333,11 @@ Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \mu_1 - \mu_2 \h
 
 Para ello vamos a apoyarnos en el **teorema de Gosset aumentado**  y en el **método pivotal**.
 
+<br>
+ 
+**Observación:**
+
+En la práctica el par de variables $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ , $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ son una sola variable cuantitativa pero medida sobre dos muestras diferentes.
 
 
 <br>
@@ -2556,6 +2561,10 @@ Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \mu_1 - \mu_2 \h
 Para ello vamos a apoyarnos en el **teorema de Gosset** y en el **método pivotal**.
 
 
+ 
+**Observación:**
+
+En la práctica el par de variables $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ , $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ son una sola variable cuantitativa pero medida sobre una misma muestra, tras alterar alguna de las condiciones que definen a los individuos de la muestra, por ejemplo, tras aplicarles un tratamiento.
 
 <br>
 
@@ -2772,7 +2781,12 @@ Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \dfrac{\sigma_1^
 
 Para ello vamos a apoyarnos en el **segundo teorema de Fisher**  y en el **método pivotal**.
 
+<br>
 
+ 
+**Observación:**
+
+En la práctica el par de variables $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ , $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ son una sola variable cuantitativa pero medida sobre dos muestras diferentes. 
 
 <br>
 
@@ -3002,8 +3016,11 @@ Queremos obtener un intervalo de confianza para $\hspace{0.1cm} p_1 - p_2 \hspac
 
 Para ello vamos a apoyarnos en el **teorema de Moivre-Laplace**  y en el **método pivotal**.
 
+<br>
 
+**Observación:**
 
+En la práctica el par de variables $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ , $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ son dos variables binarias diferentes medidas sobre una misma muestra.
 
 <br>
 
