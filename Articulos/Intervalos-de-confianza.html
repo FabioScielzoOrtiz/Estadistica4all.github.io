@@ -3342,11 +3342,12 @@ size_in_m_2
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:0.1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Tenemos dos v.a’s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1 , \sigma_1^2) \hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2\hspace{0.1cm}\)</span> .</p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Tenemos una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n_11}\)</span> de <span class="math inline">\(\mathcal{X}_{1}\)</span>
-y otra m.a.s. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n_22}\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{2}\hspace{0.1cm}\)</span> , donde <span class="math inline">\(\hspace{0.1cm}n_1=n_2=n \\\)</span></p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Utilizando las propiedades de la distribución Normal se tiene lo siguiente:</p>
-<p><span class="math inline">\(\hspace{0.35cm}\)</span> Si <span class="math inline">\(\hspace{0.1cm} \mathcal{D}_i = \mathcal{X}_{i1} -\mathcal{X}_{i2}\hspace{0.2cm} \Rightarrow\hspace{0.2cm} \mathcal{D}_i \sim N(\mu_\mathcal{D} , \sigma_\mathcal{D}^2)\)</span><span class="math inline">\(\hspace{0.25cm} , \hspace{0.25cm}\)</span> <span class="math inline">\(\forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \\\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Tenemos dos v.a’s <strong>no necesariamente independientes</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1 , \sigma_1^2) \hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2)\hspace{0.1cm}\)</span> .</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Tenemos una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}\)</span> de <span class="math inline">\(\mathcal{X}_{1}\)</span>
+y otra m.a.s. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n2}\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{2}\hspace{0.1cm}\)</span> , donde <span class="math inline">\(\hspace{0.1cm}n_1=n_2=n \\\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Utilizando las propiedades de la distribución Normal se tiene para todo <span class="math inline">\(\hspace{0.2cm}i \in \lbrace 1,...,n \rbrace\)</span> lo siguiente: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.35cm}\)</span> Sea <span class="math inline">\(\hspace{0.2cm} \mathcal{D}_i = \mathcal{X}_{i1} -\mathcal{X}_{i2}\hspace{0.2cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\mathcal{D}_i \sim N(\mu_\mathcal{D} , \sigma_\mathcal{D}^2)\]</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <ul>
 <li><p><span class="math inline">\(E[\mathcal{D}_i] = E[\mathcal{X}_{i1} -\mathcal{X}_{i2}] = E[ N(\mu_1, \sigma_1^2) - N(\mu_2, \sigma_2^2)] = E[ N(\mu_1, \sigma_1^2)] - E[ N(\mu_2, \sigma_2^2)] = \mu_1 - \mu_2 = \mu_D \\\)</span></p></li>
