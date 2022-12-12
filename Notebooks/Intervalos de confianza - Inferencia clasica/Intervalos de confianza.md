@@ -2321,22 +2321,22 @@ Para ello vamos a apoyarnos en el **teorema de Gosset aumentado**  y en el **mé
 
 <p style='margin-left:0.1em;'>
 
-$\hspace{0.25cm}$ Dada un par de v.a's **independientes** $\hspace{0.1cm}\mathcal{X}_1\sim N(\mu_1, \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2)\hspace{0.1cm}$, y dada un par de m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n2}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_1$ y  $\hspace{0.1cm}\mathcal{X}_2$, respectivamente. $\\[0.6cm]$
+$\hspace{0.25cm}$ Dada un par de v.a's **independientes** $\hspace{0.1cm}\mathcal{X}_1\sim N(\mu_1, \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2)\hspace{0.1cm}$, y dada un par de m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n2}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y  $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$, respectivamente. $\\[0.6cm]$
 
 
 $$\dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)} \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{n_1 - n_2 -2} \\$$
 
+
+
+
 $\hspace{0.25cm}$ Donde:
 
-- $\overline{\mathcal{X}_1} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_{i1} \\$
+- $\overline{\mathcal{X}_j} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_{ij} \hspace{0.25cm} , \hspace{0.25cm} j \in \lbrace 1, 2\rbrace \\$
 
-- $\overline{\mathcal{X}_2} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_{i2} \\$
+
+- $S_j^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_{ij} - \overline{\mathcal{X}_j})^2 \hspace{0.25cm} , \hspace{0.25cm} j \in \lbrace 1, 2\rbrace\\$
 
 - $S_p^2 = \dfrac{(n_1-1)\cdot S_1^2 + (n_2-1)\cdot S_2^2}{n_1 + n_2 -2} \\$
-
-- $S_1^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_{i1} - \overline{\mathcal{X}_1})^2 \\$
-
-- $S_2^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_{i2} - \overline{\mathcal{X}_2})^2$
 
 </p>
  
@@ -2358,28 +2358,28 @@ $\hspace{0.25cm}$ La anterior cantidad:
 $$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \sigma^2) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)} \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{n_1 +  n_2 -2}$$
 
 
-$\hspace{0.25cm}$ es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso $\hspace{0.1cm} \theta = \mu_1 - \mu_2 \hspace{0.1cm}$, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una $\hspace{0.1cm} t_{n_1 + n_2 -2}$.
+$\hspace{0.25cm}$ es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso $\hspace{0.1cm} \theta = \mu_1 - \mu_2 \hspace{0.15cm}$, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una $\hspace{0.1cm} t_{n_1 + n_2 -2}$.
 
 
-$\hspace{0.25cm}$ Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}$ tales que:
+$\hspace{0.25cm}$ Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}$ tales que: $\\[0.6cm]$
 
 
 
 
-$$P\left( \hspace{0.1cm} a \hspace{0.1cm} < \hspace{0.1cm}  \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}}<\hspace{0.1cm} b \hspace{0.1cm}\right) = 1-\alpha \\$$
+$$P\left( \hspace{0.1cm} a \hspace{0.1cm} < \hspace{0.1cm}  \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}}<\hspace{0.1cm} b \hspace{0.1cm}\right) = 1-\alpha \\[1cm]$$
 
 
  
-$\hspace{0.25cm}$ Siguiendo los anteriores resultados:
+$\hspace{0.25cm}$ Siguiendo los anteriores resultados: $\\[0.6cm]$
 
 
-$$P\left( \hspace{0.1cm} a \hspace{0.1cm}<\hspace{0.1cm}  \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}} \hspace{0.1cm} <\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} P\left( a < t_{n_1 +n_2 -2}  < b \right) \\$$
+$$P\left( \hspace{0.1cm} a \hspace{0.1cm}<\hspace{0.1cm}  \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}} \hspace{0.1cm} <\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} P\left( a \hspace{0.1cm} <\hspace{0.1cm} t_{n_1 +n_2 -2}  \hspace{0.1cm} <\hspace{0.1cm} b \right) \\$$
 
 
 
-$\hspace{0.25cm}$ Teniendo en cuenta las propiedades de la distribución chi-cuadrado: $\\[0.6cm]$
+$\hspace{0.25cm}$ Teniendo en cuenta las propiedades de la distribución t-student: $\\[0.6cm]$
 
-$$P\left( t^{n_1+n_2-2}_{1-\alpha/2} < t_{n_1+n_2-2}  < t^{n_1+n_2-2}_{\alpha/2} \right)  = 1-\alpha \\$$
+$$P\left( t^{n_1+n_2-2}_{1-\alpha/2} \hspace{0.1cm}<\hspace{0.1cm} t_{n_1+n_2-2}  \hspace{0.1cm}<\hspace{0.1cm} t^{n_1+n_2-2}_{\alpha/2} \right)= P\left( -t^{n_1+n_2-2}_{\alpha/2} \hspace{0.1cm}<\hspace{0.1cm} t_{n_1+n_2-2}  \hspace{0.1cm}<\hspace{0.1cm} t^{n_1+n_2-2}_{\alpha/2} \right)  = 1-\alpha \\$$
  
  
 $\hspace{0.25cm}$ Donde:
@@ -2389,7 +2389,7 @@ $\hspace{0.35cm}$ $t^{n_1+n_2-2}_{\alpha/2}\hspace{0.1cm}$ es el valor tal que $
 
 
 
-$\hspace{0.25cm}$ Por tanto:
+$\hspace{0.25cm}$ Por tanto: $\\[0.6cm]$
 
 
 $$P\left( \hspace{0.1cm}  t^{n_1+n_2-2}_{1-\alpha/2} \hspace{0.1cm}<\hspace{0.1cm}  \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}}  \hspace{0.1cm} <\hspace{0.1cm} t^{n_1+n_2-2}_{\alpha/2}\hspace{0.1cm} \right) \hspace{0.1cm} = \hspace{0.1cm} 1-\alpha \\[1cm]$$
@@ -2407,7 +2407,7 @@ $$P\left( \hspace{0.1cm}  t^{n_1+n_2-2}_{1-\alpha/2} \hspace{0.1cm}<\hspace{0.1c
 
 <p style='margin-left:0.1em;'>
 
-$\hspace{0.25cm}$Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=\mu_1 - \mu_2 \hspace{0.1cm}$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
+$\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=\mu_1 - \mu_2 \hspace{0.1cm}$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
 
 
 $$P\left( \hspace{0.1cm}    \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 -  t^{n_1+n_2-2}_{\alpha/2} \cdot \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}  \hspace{0.1cm}<\hspace{0.1cm}  \mu_1 - \mu_2 \hspace{0.1cm} <\hspace{0.1cm}      \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 +  t^{n_1+n_2-2}_{\alpha/2} \cdot \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}         \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
@@ -2420,7 +2420,7 @@ $$P\left( \hspace{0.1cm}    \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 
  
  
  
- <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
 <p style='margin-left:0.1em;'>
@@ -2437,13 +2437,11 @@ $$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1c
 
 $\hspace{0.25cm}$ Donde:
 
-$\overline{X}_1 = \dfrac{1}{n} \cdot \sum_{i=1}^n x_{i1}$
+- $\overline{X}_j = \dfrac{1}{n} \cdot \sum_{i=1}^n x_{ij} \hspace{0.25cm} , \hspace{0.25cm} j \in \lbrace 1, 2\rbrace$
 
-$\overline{X}_2 = \dfrac{1}{n} \cdot \sum_{i=1}^n x_{i2}$
 
-$S(X_1)^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n (x_{i1}- \overline{X}_1)^2$
+- $S(X_j)^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n (x_{ij}- \overline{X}_j)^2 \hspace{0.25cm} , \hspace{0.25cm} j \in \lbrace 1, 2\rbrace$
 
-$S(X_2)^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n (x_{i2} - \overline{X}_2)^2$
 
 $\hspace{0.45cm} S(X)_p^2 = \dfrac{(n_1-1)\cdot S(X_1)^2 + (n_2-1)\cdot S(X_2)^2}{n_1 + n_2 -2}$
 
@@ -2461,7 +2459,7 @@ $\hspace{0.45cm} S(X)_p^2 = \dfrac{(n_1-1)\cdot S(X_1)^2 + (n_2-1)\cdot S(X_2)^2
 ## Intervalo de confianza para la diferencia de medias con muestras independientes y varianzas desconocidas pero no necesariamente iguales.
 
 
-Si no suponemos que las varianzas $\hspace{0.1cm} \sigma_1^2\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2\hspace{0.1cm}$ son iguales, entonces la cantidad pivotal sigue siendo la misma que en el apartado anterior, con distribución t-student pero con otros grados de libertad:
+Si no suponemos que las varianzas $\hspace{0.1cm} \sigma_1^2\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2\hspace{0.1cm}$ son iguales, entonces la cantidad pivotal sigue siendo la misma que en el apartado anterior, con distribución t-student pero con otros grados de libertad: $\\[0.6cm]$
 
 
 
@@ -2473,7 +2471,7 @@ Donde:
 $$v=\dfrac{(S_1^2 / n_1 + S_2^2/n_2 )^2}{\dfrac{(S_1^2 / n_1)^2}{n_1-1} + \dfrac{( S_2^2/n_2 )^2}{n_2-1}} \\$$
 
 
-
+<br>
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -2484,19 +2482,17 @@ $$v=\dfrac{(S_1^2 / n_1 + S_2^2/n_2 )^2}{\dfrac{(S_1^2 / n_1)^2}{n_1-1} + \dfrac
 
 $\hspace{0.25cm}$ Por lo que el intervalo de confianza para $\hspace{0.1cm}\mu_1-\mu_2\hspace{0.1cm}$, con varianzas desconocidas pero no necesariamente iguales, a un nivel $\hspace{0.1cm}1-\alpha\hspace{0.1cm}$ es: $\\[0.6cm]$
 
-$$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}      \hspace{0.1cm} \right] \\$$
+$$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}      \hspace{0.1cm} \right] \\[1.5cm]$$
 
 
-$\hspace{0.25cm}$ Donde:
 
-$$v=\dfrac{(S_1^2 / n_1 + S_2^2/n_2 )^2}{\dfrac{(S_1^2 / n_1)^2}{n_1-1} + \dfrac{( S_2^2/n_2 )^2}{n_2-1}} \\$$
 
 $\hspace{0.25cm}$ Dadas dos muestras $\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$  , respectivamente,  tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
 
 
 $$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X}_1 - \overline{X}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{S(X)_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}    \hspace{0.1cm} \right] \\$$
 
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 $$v=\dfrac{(S(X_1)^2 / n_1 + S(X_2)^2/n_2 )^2}{\dfrac{(S(X_1)^2 / n_1)^2}{n_1-1} + \dfrac{( S(X_2)^2/n_2 )^2}{n_2-1}} $$
 
@@ -2512,6 +2508,18 @@ $$v=\dfrac{(S(X_1)^2 / n_1 + S(X_2)^2/n_2 )^2}{\dfrac{(S(X_1)^2 / n_1)^2}{n_1-1}
 
 
 
+## Intervalo de confianza para la diferencia de medias con muestras independientes y  varianzas desconocidas pero  no necesariamente iguales en `Python` 
+
+
+
+
+
+
+
+
+
+
+<br>
 
 ## Intervalo de confianza para la diferencia de medias con muestras dependientes (pareadas)
 
@@ -2530,6 +2538,11 @@ Para ello vamos a apoyarnos en el **teorema de Gosset** y en el **método pivota
 
 ### Teorema de Gosset
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
+ 
 $\hspace{0.25cm}$ Tenemos dos v.a's $\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1 , \sigma_1^2) \hspace{0.1cm}$  y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2\hspace{0.1cm}$ .
 
 $\hspace{0.25cm}$ Tenemos una m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}$ de $\mathcal{X}_{1}$
@@ -2555,6 +2568,10 @@ $\overline{D} = \dfrac{1}{n} \sum_{i=1}^n D_i$
 
 $S_D^2 = \dfrac{1}{n} \sum_{i=1}^n (D_i - \overline{D})^2$
 
+</p>
+ 
+</p></span>
+</div>
 
 
 <br>
@@ -2562,6 +2579,10 @@ $S_D^2 = \dfrac{1}{n} \sum_{i=1}^n (D_i - \overline{D})^2$
 
 ### Intervalo de confianza para la diferencia de medias con muestras dependientes pareadas
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
 
 
 $\hspace{0.25cm}$ La anterior cantidad:
@@ -2643,13 +2664,17 @@ $\overline{D} = \dfrac{1}{n} \cdot \sum_{i=1}^n d_{i}$
 
 $S(D)^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n (d_i - \overline{D})^2$
 
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
  
  
 
-## Intervalo de confianza para la diferencia de medias con varianzas desconocidas pero  no necesariamente iguales en `Python` 
+## Intervalo de confianza para la diferencia de medias con muestras dependientes (pareadas) en `Python` 
 
 
  
@@ -2679,7 +2704,7 @@ Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \dfrac{\sigma_1^
 
 
 
-Para ello vamos a apoyarnos en el teorema de Fisher  y en el método pivotal.
+Para ello vamos a apoyarnos en el **teorema de Fisher**  y en el **método pivotal**.
 
 
 
@@ -2687,13 +2712,29 @@ Para ello vamos a apoyarnos en el teorema de Fisher  y en el método pivotal.
 
 ### Distribución de Fisher
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
 
 
+
+
+
+</p>
+ 
+</p></span>
+</div>
 
 
 <br>
 
 ### Teorema de Fisher
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
 
 $\hspace{0.25cm}$ Dadas un par de v.a's **independientes**  $\hspace{0.1cm}\mathcal{X}_1\sim N(\mu_1, \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2)\hspace{0.1cm}$, y  un par de m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n2}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_1$ y  $\hspace{0.1cm}\mathcal{X}_2$, respectivamente, se cumple lo siguiente:
 
@@ -2715,11 +2756,20 @@ $\hspace{0.25cm}$ Donde:
 
 - $\overline{\mathcal{X}_2} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_{i2} \\$
 
+</p>
+ 
+</p></span>
+</div>
+
 <br>
 
 
 ### Intervalo de confianza para el cociente de varianzas
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
 
 $\hspace{0.25cm}$ La anterior cantidad:
 
@@ -2798,7 +2848,10 @@ $\overline{X}_1 = \dfrac{1}{n} \cdot \sum_{i=1}^n x_{i1}$
 
 $\overline{X}_2 = \dfrac{1}{n} \cdot \sum_{i=1}^n x_{i2}$
 
-
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
@@ -2836,6 +2889,11 @@ Para ello vamos a apoyarnos en el teorema de Moivre-Laplace  y en el método piv
 
 ### Teorema Moivre-Laplace
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
+
 $\hspace{0.25cm}$ Dadas un par de v.a's **independientes**  $\hspace{0.1cm}\mathcal{X}_1\sim Bernoulli(p_1)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim Bernoulli(p_2)\hspace{0.1cm}$, y  un par de m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n_1 1}\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n_2 2}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_1$ y  $\hspace{0.1cm}\mathcal{X}_2$, respectivamente, se cumple lo siguiente:
 
 $$\overline{\mathcal{X}_1} = \dfrac{1}{n_1} \cdot \sum_{i=1}^n \mathcal{X}_{i1} \sim Binomial(n,p_1)$$
@@ -2859,12 +2917,20 @@ $\hspace{0.25cm}$ Por tanto, aplicando el TCL tenemos lo siguiente:
 $$\dfrac{(\overline{\mathcal{X}_1} - \overline{\mathcal{X}_2}) - (p_1 - p_2)}{\sqrt{\dfrac{p_1(1-p_1)}{n_1} + \dfrac{p_2(1-p_2)}{n_2}}} \uderset{d}{\rightarrow} N(0,1)$$
 
 
-
+</p>
+ 
+</p></span>
+</div>
  
 <br>
 
 
 ### Intervalo de confianza para la diferencia de proporciones
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
 
 
 $\hspace{0.25cm}$ La anterior cantidad:
@@ -2943,7 +3009,15 @@ $\hspace{0.35cm}$ $\overline{X}_1 = \dfrac{1}{n} \cdot \sum_{i=1}^n x_{i1}$
 $\hspace{0.35cm}$ $\overline{X}_2 = \dfrac{1}{n} \cdot \sum_{i=1}^n x_{i2}$
 
 
+</p>
+ 
+</p></span>
+</div>
+
+
 <br>
+
+
 
 ## Intervalo de confianza para la diferencia de proporciones en `Python`
 
