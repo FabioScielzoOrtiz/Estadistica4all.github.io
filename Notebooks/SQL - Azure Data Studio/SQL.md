@@ -403,6 +403,41 @@ SELECT * FROM dbo.Clientes;
 <br>
 
 
+# Seleccionar columnas de una tabla
+
+```SQL
+SELECT Nombre, Pais, Ciudad FROM dbo.Clientes;
+```
+
+|Nombre|Pais|Ciudad|
+|---|---|---|
+|Orlando                                           |Australia||
+|Keith                                             |India||
+|Donna                                             |Germany|Berlin|
+|Janet                                             |United States|California|
+|Fabio                                             |Espa&#241;a|Madrid|
+
+
+
+
+
+# Asignar un alias a una columna
+
+```SQL
+SELECT Nombre AS Name
+FROM dbo.Clientes;
+```
+
+|Name|
+|---|
+|Orlando                                           |
+|Keith                                             |
+|Donna                                             |
+|Janet                                             |
+|Fabio                                             |
+
+
+
 
 # Filtrar filas de una tabla
 
