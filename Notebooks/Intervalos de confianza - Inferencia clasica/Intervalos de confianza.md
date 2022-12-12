@@ -2267,18 +2267,6 @@ def CI_Variance(Variable , alpha=0.05):
 
 
 ```python
-Price.std()**2
-```
-
-
-
-
-    8486734015707.785
-
-
-
-
-```python
 intervalo , varianza = CI_Variance(Variable=Price , alpha=0.05)
 ```
 
@@ -2542,6 +2530,78 @@ $$v=\dfrac{(S(X_1)^2 / n_1 + S(X_2)^2/n_2 )^2}{\dfrac{(S(X_1)^2 / n_1)^2}{n_1-1}
 
 
 
+```python
+def CI_Mean_Diference(Variable1 , Variable2 , alpha=0.05):
+
+    X1 = Variable1
+    X2 = Variable2
+
+    n1 = len(X1) 
+    n2 = len(X2)   
+
+    X1_mean = X1.mean()
+    X2_mean = X2.mean()
+
+    X1_cuasi_var = X1.std()**2 
+    X2_cuasi_var = X2.std()**2 
+
+    X1_var = ( (n1-1)/n1 )*X1_cuasi_var
+    X2_var = ( (n2-1)/n2 )*X2_cuasi_var
+
+    X_var_p = ((n1-1)*X1_var + (n2-1)*X2_var )/(n1+n2-2)
+
+    v = ( X1_var/n1 + X2_var/n2 )**2 / ( (X1_var/n1)**2 / (n1-1)  + (X2_var/n2)**2 / (n2-1)  )
+
+    t_alpha_medios = scipy.stats.chi.ppf( 1 - alpha/2 , df=v)
+  
+
+    L1 =  (X1_mean - X2_mean) - t_alpha_medios * np.sqrt(X_var_p * (1/n1 + 1/n2))
+
+    L2 =  (X1_mean - X2_mean) + t_alpha_medios * np.sqrt(X_var_p * (1/n1 + 1/n2))
+
+    interval = [L1 , L2]
+
+    return interval , (X1_mean - X2_mean) 
+```
+
+
+```python
+Price_Qualiti_0 = Data.loc[ Data.quality_recode == 0 , 'price']
+
+Price_Qualiti_3 = Data.loc[ Data.quality_recode == 3 , 'price']
+```
+
+
+```python
+intervalo , diferencia_medias = CI_Mean_Diference(Price_Qualiti_0 , Price_Qualiti_3 , alpha=0.05)
+```
+
+
+```python
+intervalo
+```
+
+
+
+
+    [-5255025.492552606, 8793827.719749954]
+
+
+
+
+```python
+diferencia_medias
+```
+
+
+
+
+    1769401.1135986734
+
+
+
+
+
 
 
 
@@ -2750,10 +2810,57 @@ $\hspace{0.25cm}$ Donde:
 ## Intervalo de confianza para la diferencia de medias con muestras dependientes (pareadas) en `Python` 
 
 
+
+
+```python
+def CI_Mean_Diference_Paired(Variable1 , Variable2 , alpha=0.05):
+
+    X1 = Variable1
+    X2 = Variable2
+
+    D = X1-X2
+
+    n = len(D) 
+
+    D_mean = D.mean()
  
+    D_cuasi_var = D.std()**2 
  
+    D_var = ( (n-1)/n )*D_cuasi_var
  
- 
+    t_alpha_medios = scipy.stats.chi.ppf( 1 - alpha/2 , df=n-1)
+
+    L1 = D_mean - t_alpha_medios * np.sqrt((n/(n-1))*D_var/n)
+
+    L2 = D_mean + t_alpha_medios * np.sqrt((n/(n-1))*D_var/n)
+
+    interval = [L1 , L2]
+
+    return interval , D_mean
+```
+
+
+```python
+Nota_Examen_1 = np.array([4,6,6,7.5,6,3,5,6,8,5])
+
+Nota_Examen_2 = np.array([5,7,6,7,8,4,5,6,7,9])
+```
+
+
+```python
+CI_Mean_Diference_Paired(Nota_Examen_1 , Nota_Examen_2 , alpha=0.05)
+```
+
+
+
+
+    ([-2.632283321526545, 1.1322833215265453], -0.75)
+
+
+
+
+
+
  
 
 
@@ -2993,6 +3100,65 @@ $\hspace{0.25cm}$ Donde:
 
 
 
+```python
+def CI_Variance_Quotient(Variable1, Variable2, alpha=0.05):
+
+    X1 = Variable1
+    X2 = Variable2
+
+    n1 = len(X1)
+    n2 = len(X2)
+
+    X1_cuasi_var = X1.std()**2 
+    X2_cuasi_var = X2.std()**2 
+
+    X1_var = ( (n1-1)/n1 )*X1_cuasi_var
+    X2_var = ( (n2-1)/n2 )*X2_cuasi_var
+
+    F_alpha_medios = scipy.stats.f.ppf( 1 - alpha/2 , dfn=n1, dfd=n2 )
+
+    F_1_alpha_medios = scipy.stats.f.ppf( alpha/2 ,  dfn=n1, dfd=n2 )
+
+    L1 =  (X1_var/X2_var)*F_1_alpha_medios
+
+    L2 = (X1_var/X2_var)*F_alpha_medios
+
+    interval = [L1 , L2]
+
+    return interval , (X1_var/X2_var) 
+```
+
+
+```python
+intervalo , cociente_varianzas = CI_Variance_Quotient(Price_Qualiti_0 , Price_Qualiti_3, alpha=0.05)
+```
+
+
+```python
+intervalo
+```
+
+
+
+
+    [103.38012135091866, 226.6148066572665]
+
+
+
+
+```python
+cociente_varianzas
+```
+
+
+
+
+    151.59794710463066
+
+
+
+
+
 
 
 
@@ -3185,7 +3351,59 @@ $\hspace{0.25cm}$ Donde:
 
 ## Intervalo de confianza para la diferencia de proporciones en `Python`
 
- 
+
+ ```python
+def CI_Proportion_Diference(Variable1, Variable2, alpha=0.05):
+
+    X1 = Variable1
+    X2 = Variable2
+
+    X1_mean = X1.mean()
+    X2_mean = X2.mean()
+
+    n1 = len(X1)
+    n2 = len(X2)
+
+    z_alpha_medios = scipy.stats.norm.ppf( 1 - alpha/2, loc=0, scale=1)
+
+
+    L1 =  (X1_mean-X2_mean) - z_alpha_medios*np.sqrt(X1_mean*(1-X1_mean)/n1 + X2_mean*(1-X2_mean)/n2)
+
+    L2 =  (X1_mean-X2_mean) + z_alpha_medios*np.sqrt(X1_mean*(1-X1_mean)/n1 + X2_mean*(1-X2_mean)/n2)
+
+    interval = [L1 , L2]
+
+    return interval , (X1_mean-X2_mean)
+```
+
+
+```python
+intervalo , diferencia_proporciones = CI_Proportion_Diference(Quality_0, Quality_2, alpha=0.05)
+```
+
+
+```python
+intervalo
+```
+
+
+
+
+    [-0.5560366143605591, -0.5064305772404909]
+
+
+
+
+```python
+diferencia_proporciones
+```
+
+
+
+
+    -0.531233595800525
+
+
 
 
 
