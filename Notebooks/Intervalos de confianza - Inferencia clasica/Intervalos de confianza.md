@@ -2655,13 +2655,13 @@ y otra m.a.s. $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n_22}\hspace{0.1c
 
 $\hspace{0.25cm}$ Utilizando las propiedades de la distribución Normal se tiene lo siguiente:
 
-$\hspace{0.35cm}$ Si $\hspace{0.1cm} \mathcal{D}_i = \mathcal{X}_{i1} -\mathcal{X}_{i2}\hspace{0.2cm} \Rightarrow\hspace{0.2cm} \mathcal{D}_i \sim N(\mu_\mathcal{D} , \sigma_\mathcal{D}^2)$$\hspace{0.25cm} , \hspace{0.25cm}$ $\forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace$
+$\hspace{0.35cm}$ Si $\hspace{0.1cm} \mathcal{D}_i = \mathcal{X}_{i1} -\mathcal{X}_{i2}\hspace{0.2cm} \Rightarrow\hspace{0.2cm} \mathcal{D}_i \sim N(\mu_\mathcal{D} , \sigma_\mathcal{D}^2)$$\hspace{0.25cm} , \hspace{0.25cm}$ $\forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \\$
 
 $\hspace{0.25cm}$ Donde:
 
-$$E[\mathcal{D}_i] = E[\mathcal{X}_{i1} -\mathcal{X}_{i2}] = E[ N(\mu_1, \sigma_1^2) - N(\mu_2, \sigma_2^2)] =  E[ N(\mu_1, \sigma_1^2)] - E[ N(\mu_2, \sigma_2^2)] = \mu_1 - \mu_2 = \mu_D$$
+- $E[\mathcal{D}_i] = E[\mathcal{X}_{i1} -\mathcal{X}_{i2}] = E[ N(\mu_1, \sigma_1^2) - N(\mu_2, \sigma_2^2)] =   E[ N(\mu_1, \sigma_1^2)] - E[ N(\mu_2, \sigma_2^2)] = \mu_1 - \mu_2 = \mu_D \\$
 
-$$Var(\mathcal{D}_i) = Var[\mathcal{X}_{i1} -\mathcal{X}_{i2}] = Var[ N(\mu_1, \sigma_1^2) - N(\mu_2, \sigma_2^2)] =  Var[ N(\mu_1, \sigma_1^2)] - Var[ N(\mu_2, \sigma_2^2)] - 2\cdot Cov(N(\mu_1, \sigma_1^2) , N(\mu_2, \sigma_2^2))= \sigma_1^2 - \sigma_2^2 - 2\cdot \sigma_{12} = \sigma_D^2$$
+- $Var(\mathcal{D}_i) = Var[\mathcal{X}_{i1} -\mathcal{X}_{i2}] = Var[ N(\mu_1, \sigma_1^2) - N(\mu_2, \sigma_2^2)]  =  Var[ N(\mu_1, \sigma_1^2)] - Var[ N(\mu_2, \sigma_2^2)] - 2\cdot Cov(N(\mu_1, \sigma_1^2) , N(\mu_2, \sigma_2^2)) = \\ = \sigma_1^2 - \sigma_2^2 - 2\cdot \sigma_{12} = \sigma_D^2$
 
 
 </p>
@@ -2738,7 +2738,7 @@ $$P\left( t^{n-1}_{1-\alpha/2} < t_{n-1}  < t^{n-1}_{\alpha/2} \right) = P\left(
 $\hspace{0.25cm}$ Donde:
 
 
-$t^{n-1}_{\alpha/2}\hspace{0.1cm}$ es el valor tal que $\hspace{0.1cm}P(t_{n-1}> t^{n-1}_{\alpha/2}) = \alpha/2 \\$ 
+$\hspace{0.35cm} t^{n-1}_{\alpha/2}\hspace{0.1cm}$ es el valor tal que $\hspace{0.1cm}P(t_{n-1}> t^{n-1}_{\alpha/2}) = \alpha/2 \\$ 
 
 
 
@@ -2795,7 +2795,7 @@ $$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1c
      \hspace{0.1cm} \right] \\[0.9cm]$$
 
 
-$\hspace{0.25cm}$ Dadas dos muestras $\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$  , respectivamente,  entonces tenemos que $D=(d_1,...,d_n)$, con $d_i = x_{i1}-x_{i2}$, es una muestra de observaciones de la v.a. $\mathcal{D}$ , y con ello tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
+$\hspace{0.25cm}$ Dadas dos muestras $\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$  , respectivamente,  entonces tenemos que $\hspace{0.1cm}D=(d_1,...,d_n)\hspace{0.1cm}$, con $\hspace{0.2cm}d_i = x_{i1}-x_{i2}\hspace{0.1cm}$, es una muestra de observaciones de la v.a. $\hspace{0.1cm}\mathcal{D}\hspace{0.1cm}$ , y con ello tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
 
 
 $$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{D} \pm t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1}\cdot S(D)^2 / n}
@@ -2929,6 +2929,7 @@ Donde:
 $\hspace{0.2cm} \Gamma$ es la función gamma.
 
 
+<br>
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
@@ -2962,7 +2963,9 @@ $\hspace{0.25cm}$ **Propiedades**
 
 <p style='margin-left:0.1em;'>
 
-$\hspace{0.25cm}$ Dadas un par de v.a's **independientes**  $\hspace{0.1cm}\mathcal{X}_1\sim N(\mu_1, \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2)\hspace{0.1cm}$, y  las m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n_11}\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n_22}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_1$ y  $\hspace{0.1cm}\mathcal{X}_2$, respectivamente, se cumple lo siguiente: $\\[0.6cm]$
+$\hspace{0.25cm}$ Dadas un par de v.a's **independientes**  $\hspace{0.1cm}\mathcal{X}_1\sim N(\mu_1, \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2)\hspace{0.2cm}$, y  las m.a.s $\hspace{0.2cm}\mathcal{X}_{11},...,\mathcal{X}_{n_11}\hspace{0.2cm}$ y $\hspace{0.2cm}\mathcal{X}_{12},...,\mathcal{X}_{n_22}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y  $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$, respectivamente.
+
+$\hspace{0.25cm}$ Se cumple lo siguiente: $\\[0.6cm]$
 
 
 $$\dfrac{S_2^2 / \sigma_2^2}{S_1^2 / \sigma_1^2} \sim F_{n_2-1 , n_1-1}$$
@@ -3307,7 +3310,9 @@ $$P\left( \hspace{0.1cm}  -z_{\alpha/2} \hspace{0.1cm}<\hspace{0.1cm}
 <p style='margin-left:0.1em;'>
 
 
-$\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=p_1-p_2 \hspace{0.1cm}$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
+$\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=p_1-p_2 \hspace{0.1cm}$. 
+
+$\hspace{0.25cm}$ Operando un poco se llega a lo siguiente: $\\[0.6cm]$
 
 
 $$P\left( \hspace{0.1cm}  (\overline{\mathcal{X}_1} - \overline{\mathcal{X}_2}) - z_{\alpha/2}\cdot \sqrt{\dfrac{p_1(1-p_1)}{n_1} + \dfrac{p_2(1-p_2)}{n_2}}
