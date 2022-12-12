@@ -2646,16 +2646,18 @@ En la práctica el par de variables $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ 
 
 <p style='margin-left:0.1em;'>
  
-$\hspace{0.25cm}$ Tenemos dos v.a's $\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1 , \sigma_1^2) \hspace{0.1cm}$  y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2\hspace{0.1cm}$ .
+$\hspace{0.25cm}$ Tenemos dos v.a's **no necesariamente independientes** $\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1 , \sigma_1^2) \hspace{0.1cm}$  y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2)\hspace{0.1cm}$ .
 
-$\hspace{0.25cm}$ Tenemos una m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n_11}$ de $\mathcal{X}_{1}$
-y otra m.a.s. $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n_22}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_{2}\hspace{0.1cm}$ , donde $\hspace{0.1cm}n_1=n_2=n \\$
+$\hspace{0.25cm}$ Tenemos una m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}$ de $\mathcal{X}_{1}$
+y otra m.a.s. $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n2}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_{2}\hspace{0.1cm}$ , donde $\hspace{0.1cm}n_1=n_2=n \\$
 
 
 
-$\hspace{0.25cm}$ Utilizando las propiedades de la distribución Normal se tiene lo siguiente:
+$\hspace{0.25cm}$ Utilizando las propiedades de la distribución Normal se tiene  para todo $\hspace{0.2cm}i \in \lbrace 1,...,n \rbrace$ lo siguiente: $\\[0.5cm]$
 
-$\hspace{0.35cm}$ Si $\hspace{0.1cm} \mathcal{D}_i = \mathcal{X}_{i1} -\mathcal{X}_{i2}\hspace{0.2cm} \Rightarrow\hspace{0.2cm} \mathcal{D}_i \sim N(\mu_\mathcal{D} , \sigma_\mathcal{D}^2)$$\hspace{0.25cm} , \hspace{0.25cm}$ $\forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \\$
+$\hspace{0.35cm}$ Sea $\hspace{0.2cm} \mathcal{D}_i = \mathcal{X}_{i1} -\mathcal{X}_{i2}\hspace{0.2cm}$ , entonces: $\\[0.5cm]$
+
+$$\mathcal{D}_i \sim N(\mu_\mathcal{D} , \sigma_\mathcal{D}^2)$$
 
 $\hspace{0.25cm}$ Donde:
 
