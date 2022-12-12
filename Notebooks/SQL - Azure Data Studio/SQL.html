@@ -1600,6 +1600,10 @@ margin-left: 0 !important;
       <li><a href="#concatenar-strings-de-filas-distintas" id="toc-concatenar-strings-de-filas-distintas"><span class="toc-section-number">11</span> Concatenar strings de filas distintas</a></li>
       <li><a href="#ordenar-tabla-por-columnas" id="toc-ordenar-tabla-por-columnas"><span class="toc-section-number">12</span> Ordenar tabla por columnas</a></li>
       <li><a href="#seleccionar-filas-por-strings-con-like-y-not-like" id="toc-seleccionar-filas-por-strings-con-like-y-not-like"><span class="toc-section-number">13</span> Seleccionar filas por strings con Like y Not Like</a></li>
+      <li><a href="#count" id="toc-count"><span class="toc-section-number">14</span> Count</a></li>
+      <li><a href="#min-max-sum-avg" id="toc-min-max-sum-avg"><span class="toc-section-number">15</span> Min, Max, Sum, Avg</a></li>
+      <li><a href="#group-by" id="toc-group-by"><span class="toc-section-number">16</span> Group by</a></li>
+      <li><a href="#having" id="toc-having"><span class="toc-section-number">17</span> Having</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -3192,8 +3196,99 @@ margin-right: auto;
 <tbody>
 </tbody>
 </table>
-<div class="sourceCode" id="cb45"><pre class="sourceCode sql"><code class="sourceCode sql"></code></pre></div>
-<div class="sourceCode" id="cb46"><pre class="sourceCode sql"><code class="sourceCode sql"></code></pre></div>
+</div>
+<div id="count" class="section level1" number="14">
+<h1><span class="header-section-number">14</span> Count</h1>
+<div class="sourceCode" id="cb45"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">FROM</span> Clientes ;</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>(No column name)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb46"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(Nombre) <span class="kw">FROM</span> Clientes ;</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>(No column name)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+<div id="min-max-sum-avg" class="section level1" number="15">
+<h1><span class="header-section-number">15</span> Min, Max, Sum, Avg</h1>
+<div class="sourceCode" id="cb47"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">Min</span>(Precio) <span class="kw">FROM</span> Ventas ;</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>(No column name)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>475</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb48"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">Max</span>(Precio) <span class="kw">FROM</span> Ventas ;</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>(No column name)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1500</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb49"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">Sum</span>(Precio) <span class="kw">FROM</span> Ventas ;</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>(No column name)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2674,5</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb50"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">Avg</span>(Precio) <span class="kw">FROM</span> Ventas ;</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>(No column name)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>891,5</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+<div id="group-by" class="section level1" number="16">
+<h1><span class="header-section-number">16</span> Group by</h1>
+<p><br></p>
+</div>
+<div id="having" class="section level1" number="17">
+<h1><span class="header-section-number">17</span> Having</h1>
 </div>
 </div>
 

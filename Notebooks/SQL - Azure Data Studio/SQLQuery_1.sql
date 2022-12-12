@@ -161,6 +161,16 @@ GO
 
 SELECT * FROM dbo.Clientes;
 
+------------------------------------------------------------------------
+
+SELECT Nombre, Pais, Ciudad
+FROM dbo.Clientes;
+
+------------------------------------------------------------------------
+
+SELECT Nombre AS Name
+FROM dbo.Clientes;
+
 -------------------------------------------------------------------------
 -- Filtrar  filas
 
@@ -338,21 +348,100 @@ SELECT Avg(Precio) FROM Ventas ;
 
 
 -------------------------------------------------------------------------
+-- COALESCE
+-------------------------------------------------------------------------
+IF OBJECT_ID('dbo.Clientes', 'U') IS NOT NULL
+ DROP TABLE dbo.Empleados;
+GO
+-- Create the table in the specified schema
+CREATE TABLE dbo.Empleados
+(
+ EmpleadoId nvarchar(50) NOT NULL PRIMARY KEY, -- primary key column --> impide repeticiones de valores en esta columna
+ Nombre char (50) NOT NULL,
+ Email nvarchar (50) NOT NULL,
+ Telefono  nvarchar (50) NOT NULL,
+ Puesto nvarchar (50) NOT NULL,
+ Salario_1  nvarchar (50) NULL,
+ Salario_2  nvarchar (50) NULL,
+ Salario_3  nvarchar (50) NULL
+);
+GO
+
+INSERT INTO dbo.Empleados
+ ([EmpleadoId],[Nombre], [Email], [Telefono], [Puesto], [Salario_1], [Salario_2], [Salario_3])
+VALUES
+ ( 'E1', N'Juan', N'' , N'916655058', 'Alto', 2500, NULL, NULL),
+ ( 'E2', N'Garazi', N'keith0@adventure-works.com', N'', 'Alto', 2000, NULL, NULL),
+ ( 'E3', N'Pepe', N'donna0@adventure-works.com', N'915555800', 'Bajo', NULL, NULL, 1500),
+ ( 'E4', N'Lucia', N'janet1@adventure-works.com', N'', 'Bajo', NULL, NULL, 1200),
+ ( 'E5', N'Luis', N'fabio@gmail.com', N'915004589', 'Medio', NULL, 1850, NULL)
+GO
+
+-------------------------------------------------------------------------
+
+SELECT EmpleadoId, Nombre, COALESCE( Salario_1, Salario_2, Salario_3 ) AS Salario FROM dbo.Empleados; -- Devuelve el valor no nulo de esas tres columnas para cada fila
+
+-------------------------------------------------------------------------
+
+SELECT EmpleadoId, Nombre,NULLIF(Telefono, 915555800)  FROM dbo.Empleados; -- Convierte los valores de la columna Telefono que coinciden con 915555800  en NULL
+
+-------------------------------------------------------------------------
+-------------------------------------------------------------------------
+INSERT INTO dbo.Ventas
+ ([VentasId], [Producto], [Precio], [Cliente], [Proveedor])
+VALUES
+ ( 'V4', N'Alfombra', N'5000', N'C2' , N'P1'),
+ ( 'V5', N'Killim', N'499.50', N'C3', N'P1'),
+ ( 'V6', N'Killim', N'555', N'C2', N'P3'),
+ ( 'V7', N'Alfombra', N'2500', N'C2' , N'P1'),
+ ( 'V8', N'Killim', N'299.50', N'C3', N'P1'),
+ ( 'V9', N'Killim', N'600', N'C2', N'P3'),
+ ( 'V10', N'Alfombra', N'1200', N'C2' , N'P1'),
+ ( 'V11', N'Killim', N'500', N'C3', N'P1'),
+ ( 'V12', N'Killim', N'650', N'C2', N'P3'),
+ ( 'V13', N'Alfombra', N'3500', N'C2' , N'P1'),
+ ( 'V14', N'Killim', N'1000', N'C3', N'P1'),
+ ( 'V15', N'Killim', N'350', N'C2', N'P3')
+GO
+
+SELECT TOP 3  VentasId, Precio FROM dbo.Ventas ORDER BY Precio DESC;  -- Top 3 ventas con mayor precio
+
+SELECT TOP 5 VentasId , Precio FROM dbo.Ventas ORDER BY Precio ASC; -- Top 5 ventas con menor precio
+
+-------------------------------------------------------------------------
+ 
+ SELECT TOP 50 PERCENT  VentasId, Precio FROM dbo.Ventas ORDER BY Precio DESC; -- 50% de las ventas con mayor precio
+
+-------------------------------------------------------------------------
 
 
+INSERT INTO dbo.Empleados
+ ([EmpleadoId],[Nombre], [Email], [Telefono], [Puesto], [Salario_1], [Salario_2], [Salario_3])
+VALUES
+ ( 'E6', N'Raul', N'Raul@gmail.com' , N'916655058', 'Alto', 2500, NULL, NULL),
+ ( 'E7', N'Raul', N'Raul@gmail.com', N'917586589', 'Alto', 2000, NULL, NULL)
+GO
+
+-------------------------------------------------------------------------
+SELECT  Nombre, Email FROM dbo.Empleados
+
+SELECT DISTINCT Nombre, Email FROM dbo.Empleados  -- Se eliminan duplicados
+
+-------------------------------------------------------------------------
+
+
+https://learn.microsoft.com/es-es/training/modules/sort-filter-queries/6-filter-data
+
+-------------------------------------------------------------------------
 
 
 -------------------------------------------------------------------------
 
 
-
 -------------------------------------------------------------------------
 
 
-
-
 -------------------------------------------------------------------------
-
 
 
 -------------------------------------------------------------------------
