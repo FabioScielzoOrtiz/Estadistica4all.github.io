@@ -355,7 +355,7 @@ $$s.e.(\widehat{\theta}) = \sqrt{Var(\widehat{\theta})}$$
 
 $\hspace{0.25cm}$ El error cuadratico medio del estimador $\widehat{\theta}$ se define como:
 
-$$ECM(\widehat{\theta}) = E[ (\widehat{\theta} - \theta)^2] = E[Sesgo(\widehat{\theta})^2]$$
+$$ECM(\widehat{\theta}) = E\left[\hspace{0.1cm} (\widehat{\theta} - \theta)^2 \hspace{0.1cm} \right] $$
 
 
 </p>
@@ -363,7 +363,16 @@ $$ECM(\widehat{\theta}) = E[ (\widehat{\theta} - \theta)^2] = E[Sesgo(\widehat{\
 </p></span>
 </div>
 
+
+**Propiedades**
+
+- $ECM(\widehat{\theta}) = Var(\hat{\theta} ) + Sesgo(\widehat{\theta})^2$
+
 <br>
+
+
+
+
 
 
 
@@ -398,7 +407,7 @@ $\hspace{0.25cm}$ El momento de orden $\hspace{0.1cm} k\hspace{0.1cm}$ de la v.a
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-$\hspace{0.25cm}$  Momento de orden $\hspace{0.1cm}k\hspace{0.1cm}$ de la m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ es $\hspace{0.1cm}\dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^k$
+$\hspace{0.25cm}$  El momento de orden $\hspace{0.1cm}k\hspace{0.1cm}$ de la m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ es $\hspace{0.2cm} \overline{\mathcal{X}_n^k} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^k$
 
 </p>
  
