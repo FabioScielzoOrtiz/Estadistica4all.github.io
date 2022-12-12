@@ -1,7 +1,7 @@
 ---
 title: 'Intervalos de Confianza'
 author: 'Fabio Scielzo Ortiz'
-date: '26/11/22'
+date: '12/12/22'
 output: 
    rmdformats::readthedown:
       use_bookdown: true
@@ -1973,6 +1973,7 @@ $\hspace{0.25cm}$ Donde:
 
 ## Intervalo de confianza para la media con varianza desconocida en `Python`
 
+Definimos una función que toma como argumentos una variable cuantitativa, y un nivel de significación (alpha), y te devuelve como salida el intervalo de confianza para la media poblacional de la variable, y además también devuelve la estimación puntual de dicha  media poblacional.
 
 ```python
 def CI_Mean(Variable , alpha=0.05):
@@ -1995,7 +1996,9 @@ def CI_Mean(Variable , alpha=0.05):
 
     return interval , X_mean
 ```
+<br>
 
+Aplicamos la función anterior sobre la variable `Price` :
 
 ```python
 Price = Data.price
@@ -2241,6 +2244,8 @@ De hecho, si $\hspace{0.1cm}n \rightarrow \infty\hspace{0.1cm}$ , entonces $\hsp
 ## Intervalo de confianza para la varianza en `Python`
 
 
+Definimos una función que toma como argumentos una variable cuantitativa, y un nivel de significación (alpha), y te devuelve como salida el intervalo de confianza para la varianza poblacional de la variable, y además también devuelve la estimación puntual de dicha  varianza poblacional.
+
 ```python
 def CI_Variance(Variable , alpha=0.05):
 
@@ -2265,7 +2270,9 @@ def CI_Variance(Variable , alpha=0.05):
     return interval , X_var 
 ```
 
+<br>
 
+Aplicamos la función anterior a la variable `Price` , antes definida:
 ```python
 intervalo , varianza = CI_Variance(Variable=Price , alpha=0.05)
 ```
@@ -2528,7 +2535,7 @@ $$v=\dfrac{(S(X_1)^2 / n_1 + S(X_2)^2/n_2 )^2}{\dfrac{(S(X_1)^2 / n_1)^2}{n_1-1}
 
 
 
-
+Definimos una función que toma como argumentos dos variables cuantitativas, que deben ser realmente las mediciones de una misma variable sobre dos muestras diferentes, y un nivel de significación (alpha), y te devuelve como salida el intervalo de confianza para la diferencia de medias poblacionales de las variables, y además también devuelve la estimación puntual de dicha diferencia de medias poblacionales.
 
 ```python
 def CI_Mean_Diference(Variable1 , Variable2 , alpha=0.05):
@@ -2564,6 +2571,9 @@ def CI_Mean_Diference(Variable1 , Variable2 , alpha=0.05):
     return interval , (X1_mean - X2_mean) 
 ```
 
+<br>
+
+Obtenemos dos nuevas variables como las mediciones de la variable `Price` para aquellas viviendas que son de baja y alta calidad, respectivamente:
 
 ```python
 Price_Qualiti_0 = Data.loc[ Data.quality_recode == 0 , 'price']
@@ -2571,6 +2581,7 @@ Price_Qualiti_0 = Data.loc[ Data.quality_recode == 0 , 'price']
 Price_Qualiti_3 = Data.loc[ Data.quality_recode == 3 , 'price']
 ```
 
+Aplicamos la función sobre las variables que acabamos de definir:
 
 ```python
 intervalo , diferencia_medias = CI_Mean_Diference(Price_Qualiti_0 , Price_Qualiti_3 , alpha=0.05)
@@ -2810,7 +2821,7 @@ $\hspace{0.25cm}$ Donde:
 ## Intervalo de confianza para la diferencia de medias con muestras dependientes (pareadas) en `Python` 
 
 
-
+Definimos una función que toma como argumentos dos variables cuantitativas, que deben ser realmente las mediciones de una misma variable sobre una misma muestra o grupo en dos estados diferentes (antes y después de la aplicación de un tratamiento), y un nivel de significación (alpha), y te devuelve como salida el intervalo de confianza para la diferencia de medias poblacionales de las variables, y además también devuelve la estimación puntual de dicha diferencia de medias poblacionales.
 
 ```python
 def CI_Mean_Diference_Paired(Variable1 , Variable2 , alpha=0.05):
@@ -2838,7 +2849,11 @@ def CI_Mean_Diference_Paired(Variable1 , Variable2 , alpha=0.05):
 
     return interval , D_mean
 ```
+<br>
 
+Vamos a describir un escenario típico de muestras pareadas o dependientes.
+
+Supongamos que se tiene un grupo de alumnos, los cuales se enfrentan a un examen de cierta materia antes y después de recibir clases de apoyo sobre dicha materia, y se recogen las notas obtenidas por cada uno de los 10 alumnos tanto antes como después.
 
 ```python
 Nota_Examen_1 = np.array([4,6,6,7.5,6,3,5,6,8,5])
@@ -2846,23 +2861,16 @@ Nota_Examen_1 = np.array([4,6,6,7.5,6,3,5,6,8,5])
 Nota_Examen_2 = np.array([5,7,6,7,8,4,5,6,7,9])
 ```
 
+Aplicamos la funcón antes definida sobre estas variables:
 
 ```python
-CI_Mean_Diference_Paired(Nota_Examen_1 , Nota_Examen_2 , alpha=0.05)
+intervalo , diferencia_medias = CI_Mean_Diference_Paired(Nota_Examen_1 , Nota_Examen_2 , alpha=0.05)
 ```
 
 
+    intervalo = [-2.632283321526545, 1.1322833215265453]
 
-
-    ([-2.632283321526545, 1.1322833215265453], -0.75)
-
-
-
-
-
-
- 
-
+    diferencia_medias = -0.75
 
 
 
@@ -3098,7 +3106,7 @@ $\hspace{0.25cm}$ Donde:
 
 ## Intervalo de confianza para el cociente de varianzas en `Python`
 
-
+Definimos una función que toma como argumentos dos variables cuantitativas, que deben ser realmente las mediciones de una misma variable en dos muestras o grupos diferentes, y un nivel de significación (alpha), y te devuelve como salida el intervalo de confianza para el cociente de las varianzas poblacionales de las variables, y además también devuelve la estimación puntual de dicho cociente de varianzas poblacionales.
 
 ```python
 def CI_Variance_Quotient(Variable1, Variable2, alpha=0.05):
@@ -3128,6 +3136,10 @@ def CI_Variance_Quotient(Variable1, Variable2, alpha=0.05):
     return interval , (X1_var/X2_var) 
 ```
 
+
+
+
+Aplicamos la función a las variables `Price_Qualiti_0` y `Price_Qualiti_3`  definidas anteriormente:
 
 ```python
 intervalo , cociente_varianzas = CI_Variance_Quotient(Price_Qualiti_0 , Price_Qualiti_3, alpha=0.05)
@@ -3352,7 +3364,9 @@ $\hspace{0.25cm}$ Donde:
 ## Intervalo de confianza para la diferencia de proporciones en `Python`
 
 
- ```python
+Definimos una función que toma como argumentos dos variables categóricas binarias , que deben estar codificada en formato estándar (0,1), y un nivel de significación (alpha) y te devuelve como salida el intervalo de confianza para la diferencia entre la proporción de individuos de la población tales que pertenecen a la categoría codificada como 1 en la primera variable y la misma proporción en base a la segunda variable, y además también devuelve la estimación puntual de dicha diferencia de proporciones.
+
+```python
 def CI_Proportion_Diference(Variable1, Variable2, alpha=0.05):
 
     X1 = Variable1
@@ -3376,6 +3390,9 @@ def CI_Proportion_Diference(Variable1, Variable2, alpha=0.05):
     return interval , (X1_mean-X2_mean)
 ```
 
+<br>
+
+Aplicamos la función sobre las variables `Quality_0` y `Quality_2` antes definidas:
 
 ```python
 intervalo , diferencia_proporciones = CI_Proportion_Diference(Quality_0, Quality_2, alpha=0.05)
