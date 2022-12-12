@@ -2546,27 +2546,44 @@ Para ello vamos a apoyarnos en el **teorema de Gosset** y en el **método pivota
 $\hspace{0.25cm}$ Tenemos dos v.a's $\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1 , \sigma_1^2) \hspace{0.1cm}$  y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2\hspace{0.1cm}$ .
 
 $\hspace{0.25cm}$ Tenemos una m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}$ de $\mathcal{X}_{1}$
-y otra m.a.s. $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n2}$ de $\mathcal{X}_{2}$
-
-$\hspace{0.25cm}$ Sea $D_i = \mathcal{X}_{i1} -\mathcal{X}_{i2}$ , entonces $D_i \sim N(\mu_D , \sigma_D^2)$
-
-$\hspace{0.25cm}$ Donde:
-
-$\hspace{0.35cm}$ $E[D_i] = E[\mathcal{X}_{i1} -\mathcal{X}_{i2}] = E[ N(\mu_1, \sigma_1^2) - N(\mu_2, \sigma_2^2)] =  E[ N(\mu_1, \sigma_1^2)] - E[ N(\mu_2, \sigma_2^2)] = \mu_1 - \mu_2 = \mu_D$
-
-$\hspace{0.35cm}$ $Var(D_i) = Var[\mathcal{X}_{i1} -\mathcal{X}_{i2}] = Var[ N(\mu_1, \sigma_1^2) - N(\mu_2, \sigma_2^2)] =  Var[ N(\mu_1, \sigma_1^2)] - Var[ N(\mu_2, \sigma_2^2)] - 2\cdot Cov(N(\mu_1, \sigma_1^2) , N(\mu_2, \sigma_2^2))= \sigma_1^2 - \sigma_2^2 - 2\cdot \sigma_{12} = \sigma_D^2$
+y otra m.a.s. $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n2}$ de $\mathcal{X}_{2} \\$
 
 
-$\hspace{0.25cm}$ $D_1,...,D_n$ es una m.a.s de $D\sim N(\mu_D , \sigma_D^2)$, por lo que puede aplicarse le el teorema de Gosset, obteniendose que:
+Utilizando las propiedades de la distribución Normal se tiene lo siguiente:
 
-$$\dfrac{\overline{D} - \mu_D}{\sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}} \sim t_{n-1}$$
-
+$\hspace{0.25cm}$ Si $\hspace{0.1cm} \mathcal{D}_i = \mathcal{X}_{i1} -\mathcal{X}_{i2}\hspace{0.2cm} \Rightarrow\hspace{0.2cm} \mathcal{D}_i \sim N(\mu_\mathcal{D} , \sigma_\mathcal{D}^2)$
 
 $\hspace{0.25cm}$ Donde:
 
-$\overline{D} = \dfrac{1}{n} \sum_{i=1}^n D_i$
+$$E[\mathcal{D}_i] = E[\mathcal{X}_{i1} -\mathcal{X}_{i2}] = E[ N(\mu_1, \sigma_1^2) - N(\mu_2, \sigma_2^2)] =  E[ N(\mu_1, \sigma_1^2)] - E[ N(\mu_2, \sigma_2^2)] = \mu_1 - \mu_2 = \mu_D$$
 
-$S_D^2 = \dfrac{1}{n} \sum_{i=1}^n (D_i - \overline{D})^2$
+$$Var(\mathcal{D}_i) = Var[\mathcal{X}_{i1} -\mathcal{X}_{i2}] = Var[ N(\mu_1, \sigma_1^2) - N(\mu_2, \sigma_2^2)] =  Var[ N(\mu_1, \sigma_1^2)] - Var[ N(\mu_2, \sigma_2^2)] - 2\cdot Cov(N(\mu_1, \sigma_1^2) , N(\mu_2, \sigma_2^2))= \sigma_1^2 - \sigma_2^2 - 2\cdot \sigma_{12} = \sigma_D^2$$
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
+
+
+$\hspace{0.25cm}$ $\mathcal{D}_1,...,\mathcal{D}_n\hspace{0.1cm}$ es una m.a.s de $\hspace{0.1cm}\mathcal{D}\sim N(\mu_\mathcal{D} , \sigma_\mathcal{D}^2)\hspace{0.1cm}$, por lo que puede aplicarse le el teorema de Gosset, obteniendose que:
+
+$$\dfrac{\overline{\mathcal{D}} - \mu_\mathcal{D}}{\sqrt{\dfrac{n}{n-1}\cdot S_\mathcal{D}^2 / n}} \sim t_{n-1}$$
+
+
+$\hspace{0.25cm}$ Donde:
+
+$\hspace{0.35cm} \overline{\mathcal{D}} = \dfrac{1}{n} \sum_{i=1}^n \mathcal{D}_i$
+
+$\hspace{0.35cm} S_\mathcal{D}^2 = \dfrac{1}{n} \sum_{i=1}^n (\mathcal{D}_i - \overline{\mathcal{D}})^2$
 
 </p>
  
@@ -2587,10 +2604,10 @@ $S_D^2 = \dfrac{1}{n} \sum_{i=1}^n (D_i - \overline{D})^2$
 
 $\hspace{0.25cm}$ La anterior cantidad:
 
-$$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \sigma^2) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{D} - \mu_D}{\sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}} \sim t_{n-1}$$
+$$\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \mu_\mathcal{D}) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{D}} - \mu_\mathcal{D}}{\sqrt{\dfrac{n}{n-1}\cdot S_\mathcal{D}^2 / n}} \sim t_{n-1}$$
 
 
-$\hspace{0.25cm}$ es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso $\hspace{0.1cm} \theta = \mu_1 - \mu_2 \hspace{0.1cm}$, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una $\hspace{0.1cm} t_{n-1}$.
+$\hspace{0.25cm}$ es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso $\hspace{0.1cm} \theta = \mu_\mathcal{D} = \mu_1 - \mu_2  \hspace{0.1cm}$, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una $\hspace{0.1cm} t_{n-1}$.
 
 
 $\hspace{0.25cm}$ Siguiendo el método pivotal hay que encontrar los valores $\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}$ tales que:
@@ -2598,14 +2615,14 @@ $\hspace{0.25cm}$ Siguiendo el método pivotal hay que encontrar los valores $\h
 
 
 
-$$P\left( \hspace{0.1cm} a \hspace{0.1cm} < \hspace{0.1cm}   \dfrac{\overline{D} - \mu_D}{\sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}} \hspace{0.1cm} <\hspace{0.1cm} b \hspace{0.1cm}\right) = 1-\alpha \\$$
+$$P\left( \hspace{0.1cm} a \hspace{0.1cm} < \hspace{0.1cm}   \dfrac{\overline{\mathcal{D}} - \mu_\mathcal{D}}{\sqrt{\dfrac{n}{n-1}\cdot S_\mathcal{D}^2 / n}} \hspace{0.1cm} <\hspace{0.1cm} b \hspace{0.1cm}\right) = 1-\alpha \\$$
 
 
  
 $\hspace{0.25cm}$ Siguiendo los anteriores resultados:
 
 
-$$P\left( \hspace{0.1cm} a \hspace{0.1cm}<\hspace{0.1cm}  \dfrac{\overline{D} - \mu_D}{\sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}} \hspace{0.1cm} <\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} P\left( a < t_{n  -1}  < b \right) \\$$
+$$P\left( \hspace{0.1cm} a \hspace{0.1cm}<\hspace{0.1cm}  \dfrac{\overline{\mathcal{D}} - \mu_\mathcal{D}}{\sqrt{\dfrac{n}{n-1}\cdot S_\mathcal{D}^2 / n}} \hspace{0.1cm} <\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} P\left( a < t_{n  -1}  < b \right) \\$$
 
 
 
@@ -2625,33 +2642,56 @@ $\hspace{0.25cm}$ Por tanto:
 
 
 $$P\left( \hspace{0.1cm}  -t^{n-1}_{\alpha/2} \hspace{0.1cm}<\hspace{0.1cm}  
-\dfrac{\overline{D} - \mu_D}{\sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}}
+\dfrac{\overline{\mathcal{D}} - \mu_\mathcal{D}}{\sqrt{\dfrac{n}{n-1}\cdot S_\mathcal{D}^2 / n}}
 \hspace{0.1cm} <\hspace{0.1cm} t^{n-1}_{\alpha/2}\hspace{0.1cm} \right) \hspace{0.1cm} = \hspace{0.1cm} 1-\alpha \\[1cm]$$
 
 
 
+</p>
+ 
+</p></span>
+</div>
 
-$\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=\mu_1 - \mu_2 \hspace{0.1cm}$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
+
+$\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=\mu_1 - \mu_2 \hspace{0.1cm}$
+
+Operando un poco se llega a lo siguiente: $\\[0.6cm]$
 
 
 
 $$P\left( \hspace{0.1cm}    
-\overline{D} - t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}
+\overline{\mathcal{D}} - t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1}\cdot S_\mathcal{D}^2 / n}
 \hspace{0.1cm}<\hspace{0.1cm}  \mu_1 - \mu_2 \hspace{0.1cm} <\hspace{0.1cm}      
-\overline{D} + t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}
+\overline{\mathcal{D}} + t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1}\cdot S_\mathcal{D}^2 / n}
 \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
 
 
-
+</p>
+ 
+</p></span>
+</div>
  
 
-$\hspace{0.25cm}$ Por tanto, tenemos el siguiente intervalo de confianza a un nivel  $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} \mu_1 - \mu_2  \hspace{0.1cm}\\$
 
-$$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \\overline{D} \pm t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1}\cdot S_D^2 / n}
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
+
+$\hspace{0.25cm}$ Por tanto, tenemos el siguiente intervalo de confianza a un nivel  $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} \mu_\mathcal{D} = \mu_1 - \mu_2  \hspace{0.1cm}\\$
+
+$$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \\overline{\mathcal{D}} \pm t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1}\cdot S_\mathcal{D}^2 / n}
      \hspace{0.1cm} \right] \\[0.9cm]$$
 
 
-$\hspace{0.25cm}$ Dadas dos muestras $\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$  , respectivamente,  tenemos la muestra D=(d_1,...,d_n) , donde $d_i = x_{i1}-x_{i2}$ , y con ello la siguiente realización del intervalo de confianza: $\\[0.6cm]$
+$\hspace{0.25cm}$ Dadas dos muestras $\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$  , respectivamente,  entonces tenemos que $D=(d_1,...,d_n)$, con $d_i = x_{i1}-x_{i2}$, es una muestra de observaciones de la v.a. $\mathcal{D}$ , y con ello tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
 
 
 $$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{D} \pm t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1}\cdot S(D)^2 / n}
@@ -2698,24 +2738,49 @@ $S(D)^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n (d_i - \overline{D})^2$
 
 
 
-Un par de variables cuantitativas  $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ , $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ pueden modelarse como un par de variables aleatorias **independientes** $\hspace{0.1cm} N(\mu_1 , \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}N(\mu_2 , \sigma_2^2)\hspace{0.1cm}$, donde $\hspace{0.1cm}\mu_1=E[\mathcal{X}_1]\hspace{0.1cm}$ , $\hspace{0.1cm}\mu_2=E[\mathcal{X}_2]\hspace{0.1cm}$, $\hspace{0.1cm}\sigma_1^2=E[\mathcal{X}_1]\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2 = Var(\mathcal{X}_2)$, que pueden interpretarse respectivamente como la media y varianza poblacional de las variables $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2$
+Un par de variables cuantitativas  $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ , $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ pueden modelarse como  de variables aleatorias **independientes** con distribuciiones de probabilid<d  $\hspace{0.1cm} N(\mu_1 , \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}N(\mu_2 , \sigma_2^2)\hspace{0.1cm}$, respectivamente.
 
-Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \dfrac{\sigma_1^2}{\sigma_2^2} \hspace{0.1cm}$, teniendo en cuenta que $\hspace{0.1cm}\sigma_1^2\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2\hspace{0.1cm}$ son desconocidas y no necesariamente iguales y las v.a's $\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1,\sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2 , \sigma_2^2)\hspace{0.1cm}$ son **independientes**.
+Donde $\hspace{0.1cm}\mu_1=E[\mathcal{X}_1]\hspace{0.1cm}$ , $\hspace{0.1cm}\mu_2=E[\mathcal{X}_2]\hspace{0.1cm}$, $\hspace{0.1cm}\sigma_1^2=E[\mathcal{X}_1]\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2 = Var(\mathcal{X}_2)\hspace{0.1cm}$  pueden interpretarse respectivamente como la media y varianza poblacional de las variables $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2$
+
+Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \dfrac{\sigma_1^2}{\sigma_2^2} \hspace{0.1cm}$, teniendo en cuenta que $\hspace{0.1cm}\sigma_1^2\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2\hspace{0.1cm}$ son desconocidas y no necesariamente iguales, y además las v.a's $\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1,\sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2 , \sigma_2^2)\hspace{0.1cm}$ son **independientes**.
 
 
 
-Para ello vamos a apoyarnos en el **teorema de Fisher**  y en el **método pivotal**.
+Para ello vamos a apoyarnos en el **segundo teorema de Fisher**  y en el **método pivotal**.
 
 
 
 <br>
 
-### Distribución de Fisher
+### Distribución F de Fisher
+
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-<p style='margin-left:0.1em;'>
+$\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm} \mathcal{X}\hspace{0.1cm}$, la distribución F de Fidher se define del siguiente modo:
+
+
+$$\mathcal{X} \sim F(a,b) \hspace{0.2cm} \Leftrightarrow  \hspace{0.2cm}  f_\mathcal{X}(x) =\dfrac{\Gamma(\dfrac{a+b}{2})}{\Gamma(a/2) \cdot \Gamma(b/2)} \cdot (a/b)^{a/2} \cdot x^{a/2 -1} \cdot (1 + (a/b)\cdot x)^{-(a+b)/2}  \cdot I(x>0 ) \\$$
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+ <br>
+
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+
+$\hspace{0.25cm}$ **Propiedades** 
 
 
 
@@ -2727,9 +2792,12 @@ Para ello vamos a apoyarnos en el **teorema de Fisher**  y en el **método pivot
 </div>
 
 
+
+
+
 <br>
 
-### Teorema de Fisher
+### Segundo Teorema de Fisher
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
@@ -2815,16 +2883,42 @@ $$P\left( \hspace{0.1cm}  F^{n_2-1 , n_1-1}_{1-\alpha/2} \hspace{0.1cm}<\hspace{
 \hspace{0.1cm} <\hspace{0.1cm} F^{n_2-1 , n_1-1}_{\alpha/2}\hspace{0.1cm} \right) \hspace{0.1cm} = \hspace{0.1cm} 1-\alpha \\[1cm]$$
 
 
+</p>
+ 
+</p></span>
+</div>
 
 
-$\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=\sigma_1^2 / \sigma_2^2 \hspace{0.1cm}$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
+
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
+
+$\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=\sigma_1^2 / \sigma_2^2 \hspace{0.1cm}$ 
+
+Operando un poco se llega a lo siguiente: $\\[0.6cm]$
 
 
 $$P\left( \hspace{0.1cm}     \dfrac{S_1^2}{S_2^2} \cdot   F^{n_2-1 , n_1-1}_{1-\alpha/2} \hspace{0.1cm}<\hspace{0.1cm} \dfrac{\sigma_1^2}{\sigma_2^2} \hspace{0.1cm} <\hspace{0.1cm}       \dfrac{S_1^2}{S_2^2} \cdot   F^{n_2-1 , n_1-1}_{\alpha/2}        \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
 
-
+</p>
+ 
+</p></span>
+</div>
 
  
+ 
+ 
+ 
+ 
+ <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
 
 $\hspace{0.25cm}$ Por tanto, tenemos el siguiente intervalo de confianza a un nivel  $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} \sigma_1^2/\sigma_2^2 \hspace{0.1cm}\\$
 
@@ -2978,6 +3072,19 @@ $$P\left( \hspace{0.1cm}  -z_{\alpha/2} \hspace{0.1cm}<\hspace{0.1cm}
 
 
 
+</p>
+ 
+</p></span>
+</div>
+
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
+
 
 $\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=p_1-p_2 \hspace{0.1cm}$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
 
@@ -2990,6 +3097,21 @@ $$P\left( \hspace{0.1cm}  (\overline{\mathcal{X}_1} - \overline{\mathcal{X}_2}) 
 
 $\hspace{0.25cm}$ Como en la práctica se desconocen $p_1$ y $p_2$ , para obtener un intervalo de confianza que pueda ser usado en la práctica debemos estimarlas en ambos lados de la desigualdad. Se estiman como $\overline{\mathcal{X}_1}$ y $\overline{\mathcal{X}_2}$ , respectivamente.
  
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
+
 
 $\hspace{0.25cm}$ Por tanto, tenemos el siguiente intervalo de confianza a un nivel  $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} p_1 - p_2 \hspace{0.1cm}\\$
 
