@@ -3334,7 +3334,7 @@ y otra m.a.s. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{12},...,\ma
 <p><span></p>
 <p style="margin-left:0.1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Por tanto, tenemos el siguiente intervalo de confianza a un nivel <span class="math inline">\(\hspace{0.1cm} 1-\alpha\hspace{0.1cm}\)</span> para el parametro <span class="math inline">\(\hspace{0.1cm} \mu_\mathcal{D} = \mu_1 - \mu_2 \hspace{0.1cm}\\\)</span></p>
-<p><span class="math display">\[IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \\overline{\mathcal{D}} \pm t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1}\cdot S_\mathcal{D}^2 / n}
+<p><span class="math display">\[IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{D}} \pm t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1}\cdot S_\mathcal{D}^2 / n}
      \hspace{0.1cm} \right] \\[0.9cm]\]</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Dadas dos muestras <span class="math inline">\(\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}\)</span> de las v.a’s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}\)</span> , respectivamente, entonces tenemos que <span class="math inline">\(D=(d_1,...,d_n)\)</span>, con <span class="math inline">\(d_i = x_{i1}-x_{i2}\)</span>, es una muestra de observaciones de la v.a. <span class="math inline">\(\mathcal{D}\)</span> , y con ello tenemos la siguiente realización del intervalo de confianza: <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math display">\[IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{D} \pm t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1}\cdot S(D)^2 / n}
@@ -3365,15 +3365,21 @@ y otra m.a.s. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{12},...,\ma
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una v.a. <span class="math inline">\(\hspace{0.1cm} \mathcal{X}\hspace{0.1cm}\)</span>, la distribución F de Fidher se define del siguiente modo:</p>
-<p><span class="math display">\[\mathcal{X} \sim F(a,b) \hspace{0.2cm} \Leftrightarrow  \hspace{0.2cm}  f_\mathcal{X}(x) =\dfrac{\Gamma(\dfrac{a+b}{2})}{\Gamma(a/2) \cdot \Gamma(b/2)} \cdot (a/b)^{a/2} \cdot x^{a/2 -1} \cdot (1 + (a/b)\cdot x)^{-(a+b)/2}  \cdot I(x&gt;0 ) \\\]</span></p>
+<p><span class="math display">\[\mathcal{X} \sim F(a,b) \hspace{0.2cm} \Leftrightarrow  \hspace{0.2cm}  f_\mathcal{X}(x) =\dfrac{\Gamma((a+b)/2)}{\Gamma(a/2) \cdot \Gamma(b/2)} \cdot (a/b)^{a/2} \cdot x^{a/2 -1} \cdot (1 + (a/b)\cdot x)^{-(a+b)/2}  \cdot I(x&gt;0 ) \\\]</span></p>
 </p>
 </p>
 <p></span></p>
 </div>
-<p><br></p>
+<p>Donde:</p>
+<p><span class="math inline">\(\hspace{0.1cm} \Gamma\)</span> es la función gamma.</p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Propiedades</strong></p>
+<ul>
+<li><p><span class="math inline">\(E[\mathcal{X}] = \dfrac{b}{b-2} \\\)</span></p></li>
+<li><p><span class="math inline">\(Var(\mathcal{X}) = \dfrac{2 \cdot b^2 \cdot (a+b-2)}{a\cdot (b-2)\cdot (b-4)} \\\)</span></p></li>
+<li><p><span class="math inline">\(\dfrac{\chi^2_a / a }{\chi^2_b / b} \sim F_{a,b}\)</span></p></li>
+</ul>
 </p>
 </p>
 <p></span></p>
@@ -3385,7 +3391,7 @@ y otra m.a.s. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{12},...,\ma
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:0.1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dadas un par de v.a’s <strong>independientes</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\sim N(\mu_1, \sigma_1^2)\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2)\hspace{0.1cm}\)</span>, y un par de m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n2}\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\)</span>, respectivamente, se cumple lo siguiente:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dadas un par de v.a’s <strong>independientes</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\sim N(\mu_1, \sigma_1^2)\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2)\hspace{0.1cm}\)</span>, y las m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n2}\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\)</span>, respectivamente, se cumple lo siguiente: <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math display">\[\dfrac{S_2^2 / \sigma_2^2}{S_1^2 / \sigma_1^2} \sim F_{n_2-1 , n_1-1}\]</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <ul>

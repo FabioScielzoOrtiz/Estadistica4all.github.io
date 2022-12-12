@@ -2687,7 +2687,7 @@ $$P\left( \hspace{0.1cm}
 
 $\hspace{0.25cm}$ Por tanto, tenemos el siguiente intervalo de confianza a un nivel  $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ para el parametro $\hspace{0.1cm} \mu_\mathcal{D} = \mu_1 - \mu_2  \hspace{0.1cm}\\$
 
-$$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \\overline{\mathcal{D}} \pm t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1}\cdot S_\mathcal{D}^2 / n}
+$$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{D}} \pm t^{n-1}_{\alpha/2}\cdot \sqrt{\dfrac{n}{n-1}\cdot S_\mathcal{D}^2 / n}
      \hspace{0.1cm} \right] \\[0.9cm]$$
 
 
@@ -2761,7 +2761,7 @@ Para ello vamos a apoyarnos en el **segundo teorema de Fisher**  y en el **méto
 $\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm} \mathcal{X}\hspace{0.1cm}$, la distribución F de Fidher se define del siguiente modo:
 
 
-$$\mathcal{X} \sim F(a,b) \hspace{0.2cm} \Leftrightarrow  \hspace{0.2cm}  f_\mathcal{X}(x) =\dfrac{\Gamma(\dfrac{a+b}{2})}{\Gamma(a/2) \cdot \Gamma(b/2)} \cdot (a/b)^{a/2} \cdot x^{a/2 -1} \cdot (1 + (a/b)\cdot x)^{-(a+b)/2}  \cdot I(x>0 ) \\$$
+$$\mathcal{X} \sim F(a,b) \hspace{0.2cm} \Leftrightarrow  \hspace{0.2cm}  f_\mathcal{X}(x) =\dfrac{\Gamma((a+b)/2)}{\Gamma(a/2) \cdot \Gamma(b/2)} \cdot (a/b)^{a/2} \cdot x^{a/2 -1} \cdot (1 + (a/b)\cdot x)^{-(a+b)/2}  \cdot I(x>0 ) \\$$
 
 
 </p>
@@ -2771,8 +2771,9 @@ $$\mathcal{X} \sim F(a,b) \hspace{0.2cm} \Leftrightarrow  \hspace{0.2cm}  f_\mat
 
 
 
- <br>
+Donde: 
 
+$\hspace{0.1cm} \Gamma$ es la función gamma.
 
 
 
@@ -2783,7 +2784,11 @@ $$\mathcal{X} \sim F(a,b) \hspace{0.2cm} \Leftrightarrow  \hspace{0.2cm}  f_\mat
 $\hspace{0.25cm}$ **Propiedades** 
 
 
+- $E[\mathcal{X}] = \dfrac{b}{b-2} \\$
 
+- $Var(\mathcal{X}) = \dfrac{2 \cdot b^2 \cdot (a+b-2)}{a\cdot (b-2)\cdot (b-4)} \\$
+
+- $\dfrac{\chi^2_a / a }{\chi^2_b / b} \sim F_{a,b}$
 
 
 </p>
@@ -2804,7 +2809,7 @@ $\hspace{0.25cm}$ **Propiedades**
 
 <p style='margin-left:0.1em;'>
 
-$\hspace{0.25cm}$ Dadas un par de v.a's **independientes**  $\hspace{0.1cm}\mathcal{X}_1\sim N(\mu_1, \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2)\hspace{0.1cm}$, y  un par de m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n2}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_1$ y  $\hspace{0.1cm}\mathcal{X}_2$, respectivamente, se cumple lo siguiente:
+$\hspace{0.25cm}$ Dadas un par de v.a's **independientes**  $\hspace{0.1cm}\mathcal{X}_1\sim N(\mu_1, \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2)\hspace{0.1cm}$, y  las m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n2}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_1$ y  $\hspace{0.1cm}\mathcal{X}_2$, respectivamente, se cumple lo siguiente: $\\[0.6cm]$
 
 
 $$\dfrac{S_2^2 / \sigma_2^2}{S_1^2 / \sigma_1^2} \sim F_{n_2-1 , n_1-1}$$
