@@ -127,7 +127,7 @@ Por otro lado, vamos a considerar dos versiones del k-medias, que se van a difer
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-   <h3  style="font-family:Helvetica ; color:black;"> $\hspace{0.25cm}$ k-medias: primera versión $\hspace{0.25cm}$ </h3>    
+ $\hspace{0.25cm}$ ***k-medias: versión Park & Jun modificada***    
 
 
 
@@ -135,7 +135,9 @@ Por otro lado, vamos a considerar dos versiones del k-medias, que se van a difer
 - Se considera que la variable respuesta $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ tiene $\hspace{0.1cm} k\hspace{0.1cm}$ categorias $\hspace{0.1cm}g_1,...,g_k$ $\\[0.4cm]$
 
 
-$\hspace{0.25cm}$ **Definición de los clusters iniciales**
+----
+
+$\hspace{0.25cm}$ **1) Definición de los clusters iniciales**
 
 - Se asignan aleatoriamente las observaciones disponibles $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$ de los $p$ predictores a dichas categorias, formandose los **clusters** (o grupos) **iniciales** de observaciones $\hspace{0.1cm} C_1,...,C_k\hspace{0.1cm}$
 
@@ -160,14 +162,13 @@ $\hspace{0.25cm}$ **Definición de los clusters iniciales**
        - $I_r\hspace{0.1cm}$ es el conjunto de indices de las observaciones de los predictores que pertenecen al cluster $\hspace{0.1cm}C_r$. $\hspace{0.08cm}$ Por lo que puede verse como el conjunto de los individuos de la muestra que están asociados al cluster $\hspace{0.1cm} C_r \\$
 
 
-       -  $C_r\hspace{0.1cm}$ es un vector cuyas componentes son vectores fila, luego es una matriz. Como además estos vectores fila son observaciones de variables estadisticas, puede verse como una matriz de datos. $\\[0.8cm]$
+       -  $C_r\hspace{0.1cm}$ es un vector cuyas componentes son vectores fila, luego es una matriz. Como además estos vectores fila son observaciones de variables estadisticas, puede verse como una matriz de datos. 
+
+----
 
 
 
-
-
-
-$\hspace{0.25cm}$ **Cálculo de los centroides de los clusters**
+$\hspace{0.25cm}$ **2) Cálculo de los centroides de los clusters**
 
 
 -  Se calculan los **centroides** de los clusters.
@@ -185,64 +186,93 @@ $\hspace{0.25cm}$ **Cálculo de los centroides de los clusters**
 
 
 
+----
 
 
+$\hspace{0.25cm}$ **3) Cálculo de la suma de varianzas intra-cluster**
 
-$\hspace{0.25cm}$ **Cálculo de la suma de varianzas intra-cluster**
 
-
-Dada una medida de distancia $\hspace{0.1cm}\delta\hspace{0.1cm}$ , la suma de varianzas intra-cluster para la configuración de clusters $\hspace{0.1cm}C_1,...,C_k\hspace{0.1cm}$ se define como sigue:
+- Dada una medida de distancia $\hspace{0.1cm}\delta\hspace{0.1cm}$ , la suma de varianzas intra-cluster para la configuración de clusters $\hspace{0.1cm}C_1,...,C_k\hspace{0.1cm}$ se define como sigue:
 
 
 $$V(C_1,...,C_k) = \sum_{r=1}^{k} \hspace{0.2cm} \sum_{i \in I_r} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_r}) \\$$
 
 
 
-Se calcula $\hspace{0.12cm}V(C_1,...,C_k)\hspace{0.12cm}$, puesto que será la métrica en base a la cual se define el criterio de parada.
+- Se calcula $\hspace{0.12cm}V(C_1,...,C_k)\hspace{0.12cm}$, puesto que será la métrica en base a la cual se define el criterio de parada.
 
 
 
-Es una medida de lo similares que son entre si las observaciones contenidas en un mismo cluster. Cuanto menor sea, mas similares son, y viceversa.
+    - Es una medida de lo similares que son entre si las observaciones contenidas en un mismo cluster. Cuanto menor sea, mas similares son, y viceversa.
 
+----
 
-$\hspace{0.25cm}$ **Re-asignación de las observaciones a los clusters**
-
-
-
-Se calcula $\hspace{0.12cm} \delta(x_i , \overline{x}_{C_r}) \hspace{0.12cm}$
-
-
-Se re-asigna $\hspace{0.12cm}x_i\hspace{0.12cm}$ al cluster que le quede más cerca.
-
-Formalmente, $\hspace{0.12cm}x_i\hspace{0.12cm}$ es re-asignado al cluster $\hspace{0.12cm}r^*$
-
-$$r^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.12cm} Min \hspace{0.12cm} \delta(x_i , \overline{x}_{C_r} )$$
-
-Luego, $\hspace{0.12cm}x_i\hspace{0.12cm}$ es re-asignado al cluster $\hspace{0.12cm}C_{r^*}\hspace{0.12cm}$, que podria ser el cluster al que ya estaba asignada, o no. 
-
-
-Tras  re-asignar todas las observaciones $\hspace{0.12cm}x_1,...,x_n\hspace{0.12cm}$ se obtiene una **nueva** configuracion de clusters $\hspace{0.12cm}C_1^{\dagger },...,C_k^{\dagger }\hspace{0.12cm}$ , que generalmente será diferente de la anterior, aunque no necesariamente
+$\hspace{0.25cm}$ **4) Re-asignación de las observaciones a los clusters**
 
 
 
+- Se calcula $\hspace{0.12cm} \delta(x_i , \overline{x}_{C_r}) \hspace{0.12cm}$
 
 
+- Se re-asigna $\hspace{0.12cm}x_i\hspace{0.12cm}$ al cluster que le quede más cerca.
 
-$\hspace{0.25cm}$ **Criterio de parada**
+- Formalmente, $\hspace{0.12cm}x_i\hspace{0.12cm}$ es re-asignado al cluster $\hspace{0.12cm}r^*$
+
+    $$r^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{r}{Min} \hspace{0.12cm} \delta(x_i , \overline{x}_{C_r} )$$
+
+    - Por tanto, $\hspace{0.12cm}x_i\hspace{0.12cm}$ es re-asignado al cluster $\hspace{0.12cm}C_{r^*}\hspace{0.12cm}$, que podria ser el cluster al que ya estaba asignada, o no. 
 
 
-Se calcula la suma de varianzas intra-cluster para la nueva configuracion de clusters obtenida en el paso anterior:
+- Tras  re-asignar todas las observaciones $\hspace{0.12cm}x_1,...,x_n\hspace{0.12cm}$ se obtiene una **nueva** configuracion de clusters $\hspace{0.12cm}C_1^{1 },...,C_k^{1 }\hspace{0.12cm}$ , que generalmente será diferente de la anterior, aunque no necesariamente.
+
+- El super-indice 1 indica que esta nueva configuración de clusters es la obtenida con la iteración 1 del algoritmo.
+
+- Se calcula la suma de varianzas intra-cluster para la nueva configuracion de clusters obtenida en el paso anterior:
 
 $$V(C_1^{\dagger },...,C_k^{\dagger })$$
 
-
-Se define el siguiente criterio de parada:
-
-Si la suma de varianzas intra-cluster de la **nueva** configuración de clusters es **igual** que la suma de la **anterior** configuración de clusters $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ se para el algoritmo y la nueva configuración de clusters es la definitiva.
+----
 
 
+$\hspace{0.25cm}$ **5) Iterar**
 
-Si **no** es **igual** $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$  el algoritmo continua aplicando el paso anterior sobre la nueva configuración de clusters.
+
+- Se itera el paso **4)** un número $B$ de veces, asi se obtienen $B$ configuraciones de clusters, y con ello $B$ valores de la suma de varianzas intra-cluster.
+
+
+---
+
+$\hspace{0.25cm}$ **6) Selección de la configuracion de clusters definitiva**
+
+
+- Tras los pasos anteriores  se habrán obtenido un total de $B+2$ configuraciones de clusters. $B$ en el paso **5)** , $1$ en el paso **1)** y $1$ en el paso **4)**.
+
+
+
+$$\lbrace \hspace{0.15cm} V(C_1^{h},....,C_k^h) / h \in \lbrace 1,...,B,B+1,B+2\rbrace \hspace{0.15cm} \rbrace$$
+
+
+
+
+- Se selecciona como configuración de clusters **definitiva** aquella que minimiza la suma de varianzas intra-cluster, de entre las $B+2$ obtenidas.
+
+-  Formalmente, se seleccionan la configuración de clusters $C_1^{h^*},...,C_k^{h^*}$
+
+     - Donde:
+     
+       $$h^*  \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{h}{Min} \hspace{0.1 cm} V(C_1^{h},....,C_k^h)$$ 
+    
+   
+    
+---
+
+
+$\hspace{0.25cm}$ **Alternativa al criterio de parada**
+
+
+En lugar de definir un criterio de parada se pude fijar un número de iteraciones.
+
+La idea es iterar un número elevado de veces el paso de **re-asignacion de las observaciones a los clusters**. Aplicando dicho paso en cada iteración a la última configurción de clusters.
 
 
 </p>
@@ -258,7 +288,7 @@ Si **no** es **igual** $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$  el algoritmo c
  <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-$\hspace{0.25cm}$ **k-medias: segunda versión**
+$\hspace{0.25cm}$ **k-medias: versión de Park & Jun original**
 
 - Se considera que la variable respuesta $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ tiene $\hspace{0.1cm} k\hspace{0.1cm}$ categorias $\hspace{0.1cm}g_1,...,g_k$ $\\[0.6cm]$
 
