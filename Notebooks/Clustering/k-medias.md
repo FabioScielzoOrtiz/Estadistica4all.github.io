@@ -176,15 +176,150 @@ $\hspace{0.25cm}$ **2) Cálculo de los centroides de los clusters**
     - El **centroide** de un cluster $\hspace{0.1cm} C_r\hspace{0.1cm}$  es definido en el algoritmo k-medias como la media de las observaciones del cluster. Si las observaciones son $\hspace{0.1cm}p$-dimensionales (como en este caso) el centroide será un vector de medias como centroide del cluster.
 
 
-    - El **centroide** del cluster $\hspace{0.1cm}C_r\hspace{0.1cm}$ es $\hspace{0.2cm}\overline{x}_{C_r} = (\overline{X}_{1, C_r} ,...,\overline{X}_{p, C_r})$
+    - El **centroide** del cluster $\hspace{0.1cm}C_r\hspace{0.1cm}$ se define como $\hspace{0.2cm}\overline{x}_{C_r} = \left( \overline{X \hspace{0.1cm}}_{1, C_r} ,...,\overline{X\hspace{0.1cm}}_{p, C_r} \right)$
 
      - Donde:
 
-    $$X_{r , C_r } = (\hspace{0.1cm} x_{ir} \hspace{0.1cm}/\hspace{0.1cm} i\in I_r \hspace{0.1cm})$$
+    $$X_{j , C_r } = (\hspace{0.1cm} x_{ij} \hspace{0.1cm}/\hspace{0.1cm} i\in I_r \hspace{0.1cm})  \hspace{0.2cm} , \hspace{0.2cm} \forall j\in \lbrace 1,...,p \rbrace$$
 
-    $\hspace{1cm}$  es la muestra de observaciones de $\hspace{0.1cm}\mathcal{X}_r\hspace{0.1cm}$ que aparecen en el cluster $\hspace{0.1cm}C_r$ $\\[0.8cm]$
+    $\hspace{1cm}$  es la muestra de observaciones de la variable $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ que pertenecen al cluster $\hspace{0.1cm}C_r$ $\\[0.8cm]$
+    
+    $\hspace{1cm}$ Por tanto,  $\hspace{0.1cm}\overline{X \hspace{0.1cm}}_{j, C_r}\hspace{0.1cm}$ es la media de la muestra de observaciones de la variable $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ que pertenecen al cluster $\hspace{0.1cm}C_r$
 
 
+
+----
+
+
+$\hspace{0.25cm}$ **3) Cálculo de la suma de varianzas intra-cluster**
+
+
+- Dada una medida de distancia $\hspace{0.1cm}\delta\hspace{0.1cm}$ defindida para cada par $\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}$ de observaciones de los predictores, la suma de varianzas intra-cluster para la configuración de clusters $\hspace{0.1cm}C_1,...,C_k\hspace{0.1cm}$ se define como sigue:
+
+
+$$V(C_1,...,C_k) = \sum_{r=1}^{k} \hspace{0.2cm} \sum_{i \in I_r} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_r}) \\$$
+
+
+
+- Se calcula $\hspace{0.12cm}V(C_1,...,C_k)\hspace{0.12cm}$, puesto que será la métrica en base a la cual se define el criterio de parada.
+
+
+
+    - Es una medida de lo similares que son entre si las observaciones contenidas en un mismo cluster. Cuanto menor sea, mas similares son, y viceversa.
+
+----
+
+$\hspace{0.25cm}$ **4) Re-asignación de las observaciones a los clusters**
+
+
+
+- Se calcula $\hspace{0.12cm} \delta(x_i , \overline{x}_{C_r}) \hspace{0.12cm}$
+
+
+- Se re-asigna $\hspace{0.12cm}x_i\hspace{0.12cm}$ al cluster que le quede más cerca.
+
+- Formalmente, $\hspace{0.12cm}x_i\hspace{0.12cm}$ es re-asignado al cluster $\hspace{0.12cm}r^*$
+
+    $$r^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{r}{Min} \hspace{0.12cm} \delta(x_i , \overline{x}_{C_r} )$$
+
+    - Por tanto, $\hspace{0.12cm}x_i\hspace{0.12cm}$ es re-asignado al cluster $\hspace{0.12cm}C_{r^*}\hspace{0.12cm}$, que podria ser el cluster al que ya estaba asignada, o no. 
+
+
+- Tras  re-asignar todas las observaciones $\hspace{0.12cm}x_1,...,x_n\hspace{0.12cm}$ se obtiene una **nueva** configuracion de clusters $\hspace{0.12cm}C_1^{1 },...,C_k^{1 }\hspace{0.12cm}$ , que generalmente será diferente de la anterior, aunque no necesariamente.
+
+- El super-indice 1 indica que esta nueva configuración de clusters es la obtenida con la iteración 1 del algoritmo.
+
+- Se calcula la suma de varianzas intra-cluster para la nueva configuracion de clusters obtenida en el paso anterior:
+
+$$V(C_1^{\dagger },...,C_k^{\dagger })$$
+
+----
+
+
+$\hspace{0.25cm}$ **5) Iterar paso 4)**
+
+
+- Se itera el paso **4)** un número $b$ de veces, asi se obtienen $b$ configuraciones de clusters, y con ello $b$ valores de la suma de varianzas intra-cluster.
+
+
+---
+
+$\hspace{0.25cm}$ **6) Selección de la configuracion de clusters definitiva**
+
+
+- Tras los pasos anteriores  se habrán obtenido un total de $b+2$ configuraciones de clusters. $b$ en el paso **5)** , $1$ en el paso **1)** y $1$ en el paso **4)**.
+
+
+
+$$\left\lbrace \hspace{0.15cm} V(C_1^{h},....,C_k^h) \hspace{0.12cm} / \hspace{0.12cm} h \in \lbrace 1,...,b+2\rbrace \hspace{0.15cm} \right\rbrace$$
+
+
+
+
+- Se selecciona como configuración de clusters **definitiva** aquella que minimiza la suma de varianzas intra-cluster, de entre las $b+2$ obtenidas.
+
+-  Formalmente, se seleccionan la configuración de clusters $C_1^{h^*},...,C_k^{h^*}$
+
+     - Donde:
+     
+       $$h^*  \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{h}{Min} \hspace{0.15cm} V(C_1^{h},....,C_k^h)$$ 
+    
+   
+    
+ 
+
+</p>
+ 
+</p></span>
+</div>
+
+ 
+
+ 
+<br>
+
+ <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ **k-medoids: versión de Park & Jun original**
+
+ 
+
+- Se considera que la variable respuesta $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ tiene $\hspace{0.1cm} k\hspace{0.1cm}$ categorias $\hspace{0.1cm}g_1,...,g_k$ $\\[0.4cm]$
+
+
+----
+
+$\hspace{0.25cm}$ **1) Definición de los clusters iniciales**
+
+- Dada una medida de distancia $\hspace{0.1cm}\delta\hspace{0.1cm}$ definida para cada par $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$  de observaciones de los predictores.
+
+    - Se calcula $\hspace{0.15cm}\delta(x_i, x_r)  \hspace{0.25cm} , \hspace{0.25cm} \forall\hspace{0.1cm} i,r \in \lbrace 1,...,n \rbrace\\ $  
+    
+- Se define la siguiente cantidad:
+
+$$v_r \hspace{0.15cm} = \hspace{0.15cm} \sum_{i=1}^n \dfrac{d(x_r , x_i)}{\sum_{h=1}^n d(x_h,x_i)} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{d(x_r , x_1)}{\sum_{h=1}^n d(x_h,x_1)}+\dots +\dfrac{d(x_r , x_n)}{\sum_{h=1}^n d(x_h,x_n)}$$ 
+
+$\hspace{0.5cm}$ para $\hspace{0.1cm} r \in \lbrace 1,...,n \rbrace$
+
+
+- Se ordenan de menor a mayor las cantidades $\hspace{0.1cm} v_1,...,v_n \hspace{0.2cm} \Rightarrow  \hspace{0.2cm} v_{(1)} < v_{(2)} < \dots < v_{(n)}$
+
+
+- Los medoids de los clusters iniciales se definen como las observaciones asociadas a las cantidades $\hspace{0.1cm}v_{(1)}, v_{(2)},..., v_{(k)}$
+
+    - El medoid del cluster $\hspace{0.1cm}C_r\hspace{0.1cm}$ es $\hspace{0.1cm}\overline{x}_{C_r} = x_{(r)}\hspace{0.1cm}$ , para $\hspace{0.1cm}r\in \lbrace 1,...,k \rbrace\hspace{0.1cm}$ con $\hspace{0.1cm}r<k$
+    
+    
+
+- Se obtienen los clusters iniciales asignando cada observación $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$ al medoid que le queda más cercano.
+
+
+- Formalmente, $x_i$ es asignado al cluster $C_{r^*}$
+
+    - Donde:
+    
+      $$r^* = arg Min \delta(x_i , \overline{x}_{C_r})$$
 
 ----
 
@@ -234,10 +369,10 @@ $$V(C_1^{\dagger },...,C_k^{\dagger })$$
 ----
 
 
-$\hspace{0.25cm}$ **5) Iterar**
+$\hspace{0.25cm}$ **5) Iterar paso 4)**
 
 
-- Se itera el paso **4)** un número $B$ de veces, asi se obtienen $B$ configuraciones de clusters, y con ello $B$ valores de la suma de varianzas intra-cluster.
+- Se itera el paso **4)** un número $b$ de veces, asi se obtienen $b$ configuraciones de clusters, y con ello $b$ valores de la suma de varianzas intra-cluster.
 
 
 ---
@@ -245,127 +380,25 @@ $\hspace{0.25cm}$ **5) Iterar**
 $\hspace{0.25cm}$ **6) Selección de la configuracion de clusters definitiva**
 
 
-- Tras los pasos anteriores  se habrán obtenido un total de $B+2$ configuraciones de clusters. $B$ en el paso **5)** , $1$ en el paso **1)** y $1$ en el paso **4)**.
+- Tras los pasos anteriores  se habrán obtenido un total de $b+2$ configuraciones de clusters. $b$ en el paso **5)** , $1$ en el paso **1)** y $1$ en el paso **4)**.
 
 
 
-$$\lbrace \hspace{0.15cm} V(C_1^{h},....,C_k^h) / h \in \lbrace 1,...,B,B+1,B+2\rbrace \hspace{0.15cm} \rbrace$$
+$$\left\lbrace \hspace{0.15cm} V(C_1^{h},....,C_k^h) \hspace{0.12cm} / \hspace{0.12cm} h \in \lbrace 1,...,b+2\rbrace \hspace{0.15cm} \right\rbrace$$
 
 
 
 
-- Se selecciona como configuración de clusters **definitiva** aquella que minimiza la suma de varianzas intra-cluster, de entre las $B+2$ obtenidas.
+- Se selecciona como configuración de clusters **definitiva** aquella que minimiza la suma de varianzas intra-cluster, de entre las $b+2$ obtenidas.
 
 -  Formalmente, se seleccionan la configuración de clusters $C_1^{h^*},...,C_k^{h^*}$
 
      - Donde:
      
-       $$h^*  \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{h}{Min} \hspace{0.1 cm} V(C_1^{h},....,C_k^h)$$ 
+       $$h^*  \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{h}{Min} \hspace{0.15cm} V(C_1^{h},....,C_k^h)$$ 
     
    
-    
----
-
-
-$\hspace{0.25cm}$ **Alternativa al criterio de parada**
-
-
-En lugar de definir un criterio de parada se pude fijar un número de iteraciones.
-
-La idea es iterar un número elevado de veces el paso de **re-asignacion de las observaciones a los clusters**. Aplicando dicho paso en cada iteración a la última configurción de clusters.
-
-
-</p>
- 
-</p></span>
-</div>
-
- 
-
- 
-<br>
-
- <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
-
-$\hspace{0.25cm}$ **k-medias: versión de Park & Jun original**
-
-- Se considera que la variable respuesta $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ tiene $\hspace{0.1cm} k\hspace{0.1cm}$ categorias $\hspace{0.1cm}g_1,...,g_k$ $\\[0.6cm]$
-
-
-- Se asignan aleatoriamente las observaciones disponibles $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$ de los predictores a dichas categorias, formandose clusters (o grupos) de observaciones $\hspace{0.1cm} C_1,...,C_k\hspace{0.1cm}$ , de un tamaño similar : $\\[0.4cm]$
-
-$$C_j = \left( \hspace{0.12cm} x_i^t = (x_{i1},...,x_{ip}) \hspace{0.13cm}/\hspace{0.13cm} i \in I_j \subset \lbrace 1,...,n \rbrace \hspace{0.12cm} \right)^t \\$$
-
-Donde $\hspace{0.1cm}I_j\hspace{0.1cm}$ es el conjunto de indices de las observaciones de los predictores que pertenecen al cluster $\hspace{0.1cm}C_j$. $\hspace{0.08cm}$ Por lo que puede verse como el conjunto de los individuos de la muestra asociados al cluster $\hspace{0.1cm} C_j$
-
-Notese que $\hspace{0.1cm}I_j\hspace{0.1cm}$ es definido aleatoriamente en esta primera etapa. 
-
-También hay que notar que $\hspace{0.1cm}C_j\hspace{0.1cm}$ es un vector cuyas componentes son vectores fila, luego es una matriz. Como además estos vectores fila son observaciones de variables estadisticas, puede verse como una matriz de datos. $\\[0.8cm]$
-
-
--  Se calculan los **centroides** de los clusters formados en el paso anterior.
-
-El **centroide** de un cluster $\hspace{0.1cm} C_j\hspace{0.1cm}$  es definido en el algoritmo k-medias como la media de las observaciones del cluster. Si las observaciones son $\hspace{0.1cm}p$-dimensionales (como en este caso) el centroide será un vector de medias como centroide del cluster.
-
-
-El **centroide** del cluster $\hspace{0.1cm}C_j\hspace{0.1cm}$ es $\hspace{0.2cm}\overline{x}_{C_j} = (\overline{X}_{1, C_j} ,...,\overline{X}_{p, C_j})$
-
-Donde:
-
-$$X_{r , C_j } = (\hspace{0.1cm} x_{ir} \hspace{0.1cm}/\hspace{0.1cm} i\in I_j \hspace{0.1cm})$$
-
-Es decir, es la muestra de observaciones de $\hspace{0.1cm}\mathcal{X}_r\hspace{0.1cm}$ que aparecen en el cluster $\hspace{0.1cm}C_j$ $\\[0.8cm]$
-
-
--  Aplicado a la observación $\hspace{0.1cm}x_1$
-
-Se asigna $\hspace{0.1cm}x_1 \hspace{0.1cm}$ al cluster que le queda mas cercano teniendo en cuenta su centroide, usando para ello una medida de distancia $\hspace{0.1cm}\delta$
-
-Se calculan las distancia entre la observacion $\hspace{0.1cm} x_1\hspace{0.1cm}$ y los centroides de cada cluster:
-
-$$\delta(x_1, \overline{x}_{C_1}) \hspace{0.1cm},\hspace{0.1cm} \delta(x_1, \overline{x}_{C_2}) \hspace{0.1cm},...,\hspace{0.1cm} \delta(x_1, \overline{x}_{C_k})$$
-
-Se asigna $\hspace{0.1cm}x_1\hspace{0.1cm}$ al cluster que minimiza estas distancias. Es decir, al cluster del que está mas cerca.
-
-
-
-Por tanto, el algoritmo asigna $\hspace{0.1cm}x_1\hspace{0.1cm}$ al cluster $\hspace{0.1cm}C_{j^*}\hspace{0.1cm}$ tal que: $\\[0.5cm]$
-
-$$j\hspace{0.1cm}^{*} \hspace{0.1cm}=\hspace{0.1cm} arg \hspace{0.15cm} \underset{j}{Min} \hspace{0.15cm} \delta(x_1 , \overline{x}_{C_j}) \\$$
-
- 
-
-
-
-- Aplicado a la observación $\hspace{0.1cm} x_1$
-
-
-
-- Si en la configuración aleatoria inicial de los clusterings $\hspace{0.1cm} x_1 \in C_{j\hspace{0.08cm}^*}\hspace{0.1cm}$ $\Rightarrow \hspace{0.2cm}$  Aplicar 4) y 5) para la siguiente observación $(x_2) \\$
-
- 
-- Si en la configuracion aleatoria inicial de los clusterings $\hspace{0.1cm}x_1 \notin C_{j\hspace{0.08cm}^*}\hspace{0.1cm}$ , entonces:
-
-Se modifica la configuración de los cluesterings del siguiente modo:
-
-- $C_{j\hspace{0.08cm}^*}\hspace{0.1cm}$ ahora contiene a $x_1$
-
--  El cluster que contenia a $\hspace{0.1cm}x_1\hspace{0.1cm}$ ahora ya no lo contiene
-
-Se recalculan los centroides de los clusters para la nueva configuracion de clusters.
-
-Se aplica 4) y 5) de nuevo a la observacion $\hspace{0.1cm}x_1\hspace{0.1cm}$
-
-$\\[0.8cm]$
-
-$6)\hspace{0.1cm}$  Cuando el paso 4) y 5) se hayan aplicado a todas las observaciones $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$, se detiene el algoritmo, obteniendose la configuración definitiva de clusters, y con ello las predicciones de la respuesta.
-
-Para las observaciones $\hspace{0.1cm} x_i \in C_j\hspace{0.1cm}$ se predice la respuesta como $\hspace{0.1cm}\hat{y}_i = g_j\hspace{0.1cm}$
-
-Una tarea posterior es la interpretar la categoria $\hspace{0.1cm}g_j\hspace{0.1cm}$ , puesto que desconocemos a que hace referencia al no tener esa info sobre la respuesta
-
-
+   
 </p>
  
 </p></span>
