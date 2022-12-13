@@ -1,7 +1,7 @@
 ---
 title: 'Distancias Estadísticas'
 author: 'Fabio Scielzo Ortiz'
-date: '17/11/22'
+date: '16/12/22'
 output: 
    rmdformats::readthedown:
       use_bookdown: true
