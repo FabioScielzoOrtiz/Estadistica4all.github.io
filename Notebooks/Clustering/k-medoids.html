@@ -1509,16 +1509,7 @@ margin-left: 0 !important;
    <div id="sidebar">
     <h2><a href="#content">k-medias</a></h2>
     <div id="toc">
-      <ul>
-      <li><a href="#problema-de-clasificación-no-supervisada" id="toc-problema-de-clasificación-no-supervisada"><span class="toc-section-number">1</span> Problema de clasificación no supervisada</a></li>
-      <li><a href="#k-medias" id="toc-k-medias"><span class="toc-section-number">2</span> k-medias</a>
-      <ul>
-      <li><a href="#interpretación-de-los-clusters" id="toc-interpretación-de-los-clusters"><span class="toc-section-number">2.1</span> Interpretación de los clusters</a></li>
-      <li><a href="#validación-de-algoritmos-de-clustering" id="toc-validación-de-algoritmos-de-clustering"><span class="toc-section-number">2.2</span> Validación de algoritmos de clustering</a></li>
-      <li><a href="#ajuste-del-hiper-parametro-k" id="toc-ajuste-del-hiper-parametro-k"><span class="toc-section-number">2.3</span> Ajuste del hiper-parametro k</a></li>
-      <li><a href="#k-medias-en-python-con-algoritmo-de-creación-propia" id="toc-k-medias-en-python-con-algoritmo-de-creación-propia"><span class="toc-section-number">2.4</span> k-medias en <code>Python</code> con algoritmo de creación propia <a class="anchor" id="2"></a></a></li>
-      </ul></li>
-      </ul>
+      
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
                   <p class="author"><span class="glyphicon glyphicon-user"></span> Fabio Scielzo Ortiz</p>
@@ -1566,79 +1557,40 @@ margin-right: auto;
 </div>
 <p><strong><em>Se recomienda abrir el artículo en un ordenador o en una tablet.</em></strong></p>
 <p><br></p>
-<div id="problema-de-clasificación-no-supervisada" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Problema de clasificación no supervisada</h1>
-<p>Un problema de clasificación supervisada es un problema estadistico que consiste en predecir una variable respuesta <strong>categorica</strong> usando para ello informacion exclusivamente de unas variables predictoras, puesto que no se tienen datos sobre la respuesta (esta es la diferencia entre la clasificación no supervisada y la supervisada).</p>
-<p>A los prblemas de clasificación no supervisada tambien se les conoce como problemas de <strong>clustering</strong>.<span class="math inline">\(\\[1cm]\)</span></p>
-<ul>
-<li><p>Tenemos <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> y una variable respuesta <strong>categorica</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> sobre la que <strong>no disponemos ninguna muestra de datos</strong>.</p></li>
-<li><p>Tenemos una muestra de tamaño <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}\)</span> pero no tenemos muestra de la respuesta (elemento diferencial de la clasificación no supervisada), tampoco conocemos su recorrido, es decir, las categorias que la definen.</p></li>
-</ul>
-<p>Por tanto tenemos la siguiente matriz de datos: <span class="math inline">\(\\[0.8cm]\)</span></p>
-<p><span class="math display">\[D=[X_1,...,X_p]=\begin{pmatrix}
-    x_{11}&amp;x_{12}&amp;...&amp;x_{1p} \\
-    x_{21}&amp;x_{22}&amp;...&amp;x_{2p} \\
-    ... &amp;...&amp; ...&amp;...\\
-    x_{n1}&amp;x_{n2}&amp;...&amp;x_{np}
-    \end{pmatrix} = \begin{pmatrix}
-    x_{1} \\
-    x_{2}  \\
-     ...\\
-     x_{n}
-    \end{pmatrix}\]</span></p>
-<p><br></p>
-<p><br></p>
-</div>
-<div id="k-medias" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> k-medias</h1>
-<p>Es un modelo o algoritmo de clasificación no supervisada, en el sentido de que permite resolver problemas de clasificación no supervisada.</p>
-<p>A continuación se va a realizar una descripción formal del algoritmo k-medias. Pero hay que hacer notar que existen multiples versiones del algoritmo k-medias. Nosotros vamos a inspirarnos en el algoritmo de clustering propuesto por Park y Jun en el articulo citado en la bibliografía. Esa propuesta es realmente una versión del algoritmo k-medoids, que nosotros modificaremos para adaptarla a k-medias. El algoritmo k-medoids será estudiado en otro artículo.</p>
-<p><br></p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong><em>k-medias: adaptación de la versión de Park &amp; Jun</em></strong></p>
-<hr />
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>k-medoids: versión de Park &amp; Jun original</strong></p>
 <ul>
 <li>Se considera que la variable respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> tiene <span class="math inline">\(\hspace{0.1cm} k\hspace{0.1cm}\)</span> categorias <span class="math inline">\(\hspace{0.1cm}g_1,...,g_k\)</span> <span class="math inline">\(\\[0.4cm]\)</span></li>
 </ul>
 <hr />
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>1) Definición de los clusters iniciales</strong></p>
 <ul>
-<li><p>Se asignan aleatoriamente las observaciones disponibles <span class="math inline">\(\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}\)</span> de los <span class="math inline">\(p\)</span> predictores a dichas categorias, formandose los <strong>clusters</strong> (o grupos) <strong>iniciales</strong> de observaciones <span class="math inline">\(\hspace{0.1cm} C_1,...,C_k\hspace{0.1cm}\)</span></p>
+<li><p>Dada una medida de distancia <span class="math inline">\(\hspace{0.1cm}\delta\hspace{0.1cm}\)</span> definida para cada par <span class="math inline">\(\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}\)</span> de observaciones de los predictores.</p>
 <ul>
-<li><p>Tienen que ser tales que tengan un tamaño similar, contengan todas las obersaciones del conjunto de datos y no haya observaciones contenidas en dos clusters diferentes. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
-<li><p>Formalmente vamos a definir los clusters del siguiente modo:</p></li>
-</ul>
-<p><span class="math display">\[C_r = \left( \hspace{0.12cm} x_i^t = (x_{i1},...,x_{ip}) \hspace{0.13cm}/\hspace{0.13cm} i \in I_r \subset \lbrace 1,...,n \rbrace \hspace{0.12cm} \right)^t \\\]</span></p>
-<ul>
-<li><p>Cumpliendose lo siguiente: <span class="math inline">\(\\[0.5cm]\)</span></p>
-<ul>
-<li><p><span class="math inline">\(\# I_r \approx \# I_h \hspace{0.25cm} , \hspace{0.25cm} \forall r\neq h \in \lbrace 1,...,n\rbrace \\\)</span></p></li>
-<li><p><span class="math inline">\(\overset{n}{\underset{r=1}{\cup}} I_r = \lbrace 1,...,n\rbrace \\\)</span></p></li>
-<li><p><span class="math inline">\(I_r \cap I_h = \varnothing \hspace{0.25cm} , \hspace{0.25cm} \forall r\neq h \in \lbrace 1,...,n\rbrace \\\)</span></p></li>
-<li><p><span class="math inline">\(I_r\)</span> es definido <strong>aleatoriamente</strong> en esta primera etapa. <span class="math inline">\(\\[0.6cm]\)</span></p></li>
-<li><p><span class="math inline">\(I_r\hspace{0.1cm}\)</span> es el conjunto de indices de las observaciones de los predictores que pertenecen al cluster <span class="math inline">\(\hspace{0.1cm}C_r\)</span>. <span class="math inline">\(\hspace{0.08cm}\)</span> Por lo que puede verse como el conjunto de los individuos de la muestra que están asociados al cluster <span class="math inline">\(\hspace{0.1cm} C_r \\\)</span></p></li>
-<li><p><span class="math inline">\(C_r\hspace{0.1cm}\)</span> es un vector cuyas componentes son vectores fila, luego es una matriz. Como además estos vectores fila son observaciones de variables estadisticas, puede verse como una matriz de datos.</p></li>
+<li>Se calcula $(x_i, x_r) , i,r ,…,n \ $</li>
 </ul></li>
+<li><p>Se define la siguiente cantidad:</p></li>
+</ul>
+<p><span class="math display">\[v_r \hspace{0.15cm} = \hspace{0.15cm} \sum_{i=1}^n \dfrac{d(x_r , x_i)}{\sum_{h=1}^n d(x_h,x_i)} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{d(x_r , x_1)}{\sum_{h=1}^n d(x_h,x_1)}+\dots +\dfrac{d(x_r , x_n)}{\sum_{h=1}^n d(x_h,x_n)}\]</span></p>
+<p><span class="math inline">\(\hspace{0.5cm}\)</span> para <span class="math inline">\(\hspace{0.1cm} r \in \lbrace 1,...,n \rbrace\)</span></p>
+<ul>
+<li><p>Se ordenan de menor a mayor las cantidades <span class="math inline">\(\hspace{0.1cm} v_1,...,v_n \hspace{0.2cm} \Rightarrow \hspace{0.2cm} v_{(1)} &lt; v_{(2)} &lt; \dots &lt; v_{(n)}\)</span></p></li>
+<li><p>Los medoids de los clusters iniciales se definen como las observaciones asociadas a las cantidades <span class="math inline">\(\hspace{0.1cm}v_{(1)}, v_{(2)},..., v_{(k)}\)</span></p>
+<ul>
+<li>El medoid del cluster <span class="math inline">\(\hspace{0.1cm}C_r\hspace{0.1cm}\)</span> es <span class="math inline">\(\hspace{0.1cm}\overline{x}_{C_r} = x_{(r)}\hspace{0.1cm}\)</span> , para <span class="math inline">\(\hspace{0.1cm}r\in \lbrace 1,...,k \rbrace\hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm}r&lt;k\)</span></li>
 </ul></li>
-</ul>
-<hr />
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>2) Cálculo de los centroides de los clusters</strong></p>
+<li><p>Se obtienen los clusters iniciales asignando cada observación <span class="math inline">\(\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}\)</span> al medoid que le queda más cercano.</p></li>
+<li><p>Formalmente, <span class="math inline">\(x_i\)</span> es asignado al cluster <span class="math inline">\(C_{r^*}\)</span></p>
 <ul>
-<li><p>Se calculan los <strong>centroides</strong> de los clusters.</p>
-<ul>
-<li><p>El <strong>centroide</strong> de un cluster <span class="math inline">\(\hspace{0.1cm} C_r\hspace{0.1cm}\)</span> es definido en el algoritmo k-medias como la media de las observaciones del cluster. Si las observaciones son <span class="math inline">\(\hspace{0.1cm}p\)</span>-dimensionales (como en este caso) el centroide será un vector de medias como centroide del cluster.</p></li>
-<li><p>El <strong>centroide</strong> del cluster <span class="math inline">\(\hspace{0.1cm}C_r\hspace{0.1cm}\)</span> se define como <span class="math inline">\(\hspace{0.2cm}\overline{x}_{C_r} = \left( \overline{X \hspace{0.1cm}}_{1, C_r} ,...,\overline{X\hspace{0.1cm}}_{p, C_r} \right)\)</span></p></li>
-<li><p>Donde:</p></li>
-</ul>
-<p><span class="math display">\[X_{j , C_r } = (\hspace{0.1cm} x_{ij} \hspace{0.1cm}/\hspace{0.1cm} i\in I_r \hspace{0.1cm})  \hspace{0.2cm} , \hspace{0.2cm} \forall j\in \lbrace 1,...,p \rbrace\]</span></p>
-<p><span class="math inline">\(\hspace{1cm}\)</span> es la muestra de observaciones de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}\)</span> que pertenecen al cluster <span class="math inline">\(\hspace{0.1cm}C_r\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p>
-<p><span class="math inline">\(\hspace{1cm}\)</span> Por tanto, <span class="math inline">\(\hspace{0.1cm}\overline{X \hspace{0.1cm}}_{j, C_r}\hspace{0.1cm}\)</span> es la media de la muestra de observaciones de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}\)</span> que pertenecen al cluster <span class="math inline">\(\hspace{0.1cm}C_r\)</span></p></li>
+<li><p>Donde:</p>
+<p><span class="math display">\[r^* = arg Min \delta(x_i , \overline{x}_{C_r})\]</span></p></li>
+</ul></li>
 </ul>
 <hr />
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>3) Cálculo de la suma de varianzas intra-cluster</strong></p>
 <ul>
-<li>Dada una medida de distancia <span class="math inline">\(\hspace{0.1cm}\delta\hspace{0.1cm}\)</span> defindida para cada par <span class="math inline">\(\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}\)</span> de observaciones de los predictores, la <strong>suma de varianzas intra-cluster</strong> para la configuración de clusters <span class="math inline">\(\hspace{0.1cm}C_1,...,C_k\hspace{0.1cm}\)</span> se define como sigue:</li>
+<li>Dada una medida de distancia <span class="math inline">\(\hspace{0.1cm}\delta\hspace{0.1cm}\)</span> , la suma de varianzas intra-cluster para la configuración de clusters <span class="math inline">\(\hspace{0.1cm}C_1,...,C_k\hspace{0.1cm}\)</span> se define como sigue:</li>
 </ul>
 <p><span class="math display">\[V(C_1,...,C_k) = \sum_{r=1}^{k} \hspace{0.2cm} \sum_{i \in I_r} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_r}) \\\]</span></p>
 <ul>
@@ -1652,8 +1604,8 @@ margin-right: auto;
 <ul>
 <li><p>Se calcula <span class="math inline">\(\hspace{0.12cm} \delta(x_i , \overline{x}_{C_r}) \hspace{0.12cm}\)</span></p></li>
 <li><p>Se re-asigna <span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> al cluster que le quede más cerca.</p></li>
-<li><p>Formalmente, <span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> es re-asignado al cluster <span class="math inline">\(\hspace{0.12cm}C_{r^*}\)</span></p>
-<p><span class="math display">\[r^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{r}{Min} \hspace{0.16cm} \delta(x_i , \overline{x}_{C_r} )\]</span></p>
+<li><p>Formalmente, <span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> es re-asignado al cluster <span class="math inline">\(\hspace{0.12cm}r^*\)</span></p>
+<p><span class="math display">\[r^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{r}{Min} \hspace{0.12cm} \delta(x_i , \overline{x}_{C_r} )\]</span></p>
 <ul>
 <li>Por tanto, <span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> es re-asignado al cluster <span class="math inline">\(\hspace{0.12cm}C_{r^*}\hspace{0.12cm}\)</span>, que podria ser el cluster al que ya estaba asignada, o no.</li>
 </ul></li>
@@ -1665,20 +1617,20 @@ margin-right: auto;
 <hr />
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>5) Iterar paso 4)</strong></p>
 <ul>
-<li>Se itera el paso <strong>4)</strong> un número <span class="math inline">\(\hspace{0.1cm}b\hspace{0.1cm}\)</span> de veces, asi se obtienen <span class="math inline">\(\hspace{0.1cm}b\hspace{0.1cm}\)</span> configuraciones de clusters, y con ello <span class="math inline">\(\hspace{0.1cm}b\hspace{0.1cm}\)</span> valores de la suma de varianzas intra-cluster.</li>
+<li>Se itera el paso <strong>4)</strong> un número <span class="math inline">\(b\)</span> de veces, asi se obtienen <span class="math inline">\(b\)</span> configuraciones de clusters, y con ello <span class="math inline">\(b\)</span> valores de la suma de varianzas intra-cluster.</li>
 </ul>
 <hr />
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>6) Selección de la configuracion de clusters definitiva</strong></p>
 <ul>
-<li>Tras los pasos anteriores se habrán obtenido un total de <span class="math inline">\(\hspace{0.1cm}b+2\hspace{0.1cm}\)</span> configuraciones de clusters <span class="math inline">\(\hspace{0.1cm}\Rightarrow \hspace{0.1cm} b\hspace{0.1cm}\)</span> en el paso <strong>5)</strong> , <span class="math inline">\(1\)</span> en el paso <strong>1)</strong> y <span class="math inline">\(1\)</span> en el paso <strong>4)</strong>.</li>
+<li>Tras los pasos anteriores se habrán obtenido un total de <span class="math inline">\(b+2\)</span> configuraciones de clusters. <span class="math inline">\(b\)</span> en el paso <strong>5)</strong> , <span class="math inline">\(1\)</span> en el paso <strong>1)</strong> y <span class="math inline">\(1\)</span> en el paso <strong>4)</strong>.</li>
 </ul>
 <p><span class="math display">\[\left\lbrace \hspace{0.15cm} V(C_1^{h},....,C_k^h) \hspace{0.12cm} / \hspace{0.12cm} h \in \lbrace 1,...,b+2\rbrace \hspace{0.15cm} \right\rbrace\]</span></p>
 <ul>
-<li><p>Se selecciona como configuración de clusters <strong>definitiva</strong> aquella que minimiza la suma de varianzas intra-cluster, de entre las <span class="math inline">\(\hspace{0.1cm} b+2 \hspace{0.1cm}\)</span> obtenidas.</p></li>
-<li><p>Formalmente, se seleccionan la configuración de clusters <span class="math inline">\(\hspace{0.1cm} C_1^{h^*},...,C_k^{h^*}\)</span></p>
+<li><p>Se selecciona como configuración de clusters <strong>definitiva</strong> aquella que minimiza la suma de varianzas intra-cluster, de entre las <span class="math inline">\(b+2\)</span> obtenidas.</p></li>
+<li><p>Formalmente, se seleccionan la configuración de clusters <span class="math inline">\(C_1^{h^*},...,C_k^{h^*}\)</span></p>
 <ul>
 <li><p>Donde:</p>
-<p><span class="math display">\[h^*  \hspace{0.15cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{h}{Min} \hspace{0.16cm} V(C_1^{h},....,C_k^h)\]</span></p></li>
+<p><span class="math display">\[h^*  \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{h}{Min} \hspace{0.15cm} V(C_1^{h},....,C_k^h)\]</span></p></li>
 </ul></li>
 </ul>
 </p>
@@ -1686,41 +1638,6 @@ margin-right: auto;
 <p></span></p>
 </div>
 <p><br></p>
-<p><strong><em>Observaciones:</em></strong></p>
-<ul>
-<li><p><strong>Los predictores en k-medias deben ser cuantitativos</strong></p>
-<ul>
-<li>¿Por qué? <span class="math inline">\(\hspace{0.15cm}\Rightarrow\hspace{0.15cm}\)</span> Por como se definen los centroides, son medias de variables, y la media solo deberia aplicarse a variables cuantitativas.</li>
-</ul></li>
-</ul>
-<p><br></p>
-<ul>
-<li><p><strong>¿Qué medidas de distancias pueden usarse en k-medias ?</strong></p>
-<ul>
-<li>Como k-medias solo debe usarse con variables cuantitativas, solo deben usarse distancias adecuadas para variables cuantitativas. Por tanto, ejemplos de distancias que podrían usarse son la Euclidea, Minkowski, Canberra, Pearson y Mahalanobis.</li>
-</ul></li>
-</ul>
-<p><br></p>
-<div id="interpretación-de-los-clusters" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Interpretación de los clusters</h2>
-<p><br></p>
-</div>
-<div id="validación-de-algoritmos-de-clustering" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Validación de algoritmos de clustering</h2>
-<p>Uno de los métodos de validación de algoritmos de clustering más populares es el método silhouette.</p>
-<p>Se tratará este tema en un articulo sobre métodos de validación de modelos de aprendizaje no supervisado (modelos de clustering).</p>
-<p><br></p>
-</div>
-<div id="ajuste-del-hiper-parametro-k" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Ajuste del hiper-parametro k</h2>
-<p>Usando el método silhouette se puede realizar una selección óptima del hiper-parametro <span class="math inline">\(k\)</span></p>
-<p>Se tratará este tema en un artículo sobre ajuste de hiper-parametros de modelos de aprendizaje no supervisado (modelos de clustering).</p>
-<p><br></p>
-</div>
-<div id="k-medias-en-python-con-algoritmo-de-creación-propia" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> k-medias en <code>Python</code> con algoritmo de creación propia <a class="anchor" id="2"></a></h2>
-</div>
-</div>
 </div>
 
    
