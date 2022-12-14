@@ -296,7 +296,7 @@ Donde:
 
 <br>
 
-## Interpretación de los clusters en k-medias
+## Interpretación de los clusters 
 
 
 

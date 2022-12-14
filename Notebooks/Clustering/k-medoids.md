@@ -1,5 +1,5 @@
 ---
-title: 'k-medias'
+title: 'k-medoids'
 author: 'Fabio Scielzo Ortiz'
 date: '16/12/22'
 output: 
@@ -68,6 +68,48 @@ $\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadi
  
  
 
+ 
+# Problema de clasificación no supervisada
+
+
+Un problema de clasificación supervisada  es un problema estadistico que consiste en predecir una variable respuesta **categorica** usando para ello informacion exclusivamente de unas variables predictoras, puesto que no se tienen datos sobre la respuesta (esta es la diferencia entre la clasificación no supervisada y la supervisada). 
+
+A los prblemas de clasificación no supervisada tambien se les conoce como problemas de **clustering**.$\\[1cm]$
+
+
+
+- Tenemos $\hspace{0.1cm}p\hspace{0.1cm}$ predictores  $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ y una variable respuesta **categorica** $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ sobre la que **no disponemos ninguna muestra de datos**.
+
+
+- Tenemos una muestra de tamaño $\hspace{0.1cm}n\hspace{0.1cm}$ de los $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}$  pero no tenemos muestra de la respuesta (elemento diferencial de la clasificación no supervisada), tampoco conocemos su recorrido, es decir, las categorias que la definen.
+
+Por tanto tenemos la siguiente matriz de datos: $\\[0.8cm]$
+
+$$D=[X_1,...,X_p]=\begin{pmatrix}
+    x_{11}&x_{12}&...&x_{1p} \\
+    x_{21}&x_{22}&...&x_{2p} \\
+    ... &...& ...&...\\
+    x_{n1}&x_{n2}&...&x_{np}
+    \end{pmatrix} = \begin{pmatrix}
+    x_{1} \\
+    x_{2}  \\
+     ...\\
+     x_{n} 
+    \end{pmatrix}$$
+
+
+<br>
+
+
+<br>
+
+
+# k-medoids
+
+
+Es un modelo o algoritmo de clasificación no supervisada, en el sentido de que permite resolver problemas de clasificación no supervisada.
+
+ 
 
 
 
@@ -76,7 +118,7 @@ $\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadi
  <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-$\hspace{0.25cm}$ **k-medoids: versión de Park & Jun original**
+$\hspace{0.25cm}$ **k-medoids: versión original Park & Jun**
 
  
 
