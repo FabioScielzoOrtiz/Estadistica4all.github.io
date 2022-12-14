@@ -338,14 +338,18 @@ Se tratará este tema en un artículo sobre ajuste de hiper-parametros de modelo
  
  
  
+<br>
+
+
+
+## k-medias en `Python` con `sklearn`
  
  
  
  
  
  
- 
- 
+ <br>
  
  
  
