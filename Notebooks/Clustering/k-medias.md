@@ -74,7 +74,7 @@ $\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadi
 # Problema de clasificación no supervisada
 
 
-Un problema de clasificación supervisada  es un problema estadistico que consiste en predecir una variable respuesta **categorica** usando para ello informacion exclusivamente de unas variables predictoras, puesto que no se tienen datos sobre la respuesta (esta es la diferencia entre la clasificación no supervisada y la supervisada). 
+Un problema de clasificación no supervisada  es un problema estadistico que consiste en predecir una variable respuesta **categorica** usando para ello informacion exclusivamente de unas variables predictoras, puesto que no se tienen datos sobre la respuesta (esta es la diferencia entre la clasificación no supervisada y la supervisada). 
 
 A los prblemas de clasificación no supervisada tambien se les conoce como problemas de **clustering**.$\\[1cm]$
 
@@ -98,6 +98,9 @@ $$D=[X_1,...,X_p]=\begin{pmatrix}
      ...\\
      x_{n} 
     \end{pmatrix}$$
+    
+
+- El **objetivo** es **predecir** la respuesta $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ para cualquier vector de observaciones de los predictores, usando la información muestral disponible sobre los predictores.
 
 
 <br>
