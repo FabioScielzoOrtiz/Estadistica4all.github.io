@@ -1573,17 +1573,17 @@ margin-right: auto;
 <h2><span class="header-section-number">1.1</span> Definición de la métrica Silhouette</h2>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
-<p>Dado un modelo de clustering <span class="math inline">\(M\)</span> , como por ejemplo k-medias o k-medoids.</p>
-<p>Supongamos que tras entrenar <span class="math inline">\(M\)</span> con las observaciones disponibles para los predictores tenemos que <span class="math inline">\(x_i \in C_h \\\)</span></p>
-<p>La silueta de <span class="math inline">\(x_i \in C_h\)</span> en el modelo de clustering <span class="math inline">\(M\)</span> es:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dado un modelo de clustering <span class="math inline">\(M\)</span> , como por ejemplo k-medias o k-medoids.</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Supongamos que tras entrenar <span class="math inline">\(M\)</span> con las observaciones disponibles para los predictores tenemos que <span class="math inline">\(x_i \in C_h \\\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La silueta de <span class="math inline">\(x_i \in C_h\)</span> en el modelo de clustering <span class="math inline">\(M\)</span> es:</p>
 <p><span class="math display">\[\mathcal{S}(x_i) \hspace{0.12cm}=\hspace{0.12cm} \dfrac{\overline{\delta}(i,r^*) - \overline{\delta}(i,h)}{Max \left\lbrace \hspace{0.12cm}\overline{\delta}(i,r^*) \hspace{0.12cm},\hspace{0.12cm} \overline{\delta}(i,h)\hspace{0.12cm} \right\rbrace}\\\]</span></p>
-<p>Donde:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <p><span class="math display">\[\overline{\delta}(x_i,C_r) \hspace{0.12cm} =\hspace{0.12cm} \dfrac{1}{\# C_r} \cdot \sum_{j \in I(C_r)} \hspace{0.1cm} \delta(x_i , x_j)\]</span></p>
-<p><span class="math display">\[b(i) = \overline{\delta}(x_i, C_h) =  \dfrac{1}{\# C_h } \cdot \sum_{r \in I(C_h)} \hspace{0.1cm} \delta(x_i , x_r)\]</span></p>
-<p><span class="math display">\[a(i) = Min\lbrace  \overline{\delta}(x_i, C_j)  / j \neq \in \lbrace 1,...,k\rbrace\]</span></p>
-<p>Por tanto:</p>
+<p><span class="math display">\[b(i) \hspace{0.12cm}=\hspace{0.12cm} \overline{\delta}(x_i, C_h) \hspace{0.12cm}=\hspace{0.12cm}  \dfrac{1}{\# C_h } \cdot \sum_{r \in I(C_h)} \hspace{0.1cm} \delta(x_i , x_r)\]</span></p>
+<p><span class="math display">\[a(i) \hspace{0.12cm}=\hspace{0.12cm} Min \hspace{0.12cm} \left\lbrace \hspace{0.12cm} \overline{\delta}(x_i, C_j)  \hspace{0.12cm}/\hspace{0.12cm} j \neq h \in \lbrace 1,...,k\rbrace \hspace{0.12cm} \right\rbrace \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Por tanto:</p>
 <p><span class="math display">\[a(i)=\overline{\delta}(x_i, C_r^*)\]</span></p>
-<p>Donde:</p>
+<p><span class="math inline">\(\hspace{0.35cm}\)</span> Donde:</p>
 <p><span class="math display">\[r^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.12cm} \underset{r\neq h\in \lbrace 1,..,k\rbrace} {Min} \hspace{0.12cm} \overline{\delta}(x_i, C_r)\\\]</span></p>
 </p>
 </p>
@@ -1591,12 +1591,9 @@ margin-right: auto;
 </div>
 <p><strong>Observaciones:</strong></p>
 <ul>
-<li>En general</li>
-</ul>
-<p><span class="math display">\[\overline{\delta}(x_i,C_j) \hspace{0.12cm} =\hspace{0.12cm} \dfrac{1}{\# C_j - 1} \cdot \sum_{r \in I_j} \hspace{0.1cm} \delta(x_i , x_r)\]</span></p>
-<p>es la <strong>media</strong> de las distancias entre la observacion <span class="math inline">\(x_i\)</span> y el resto de observaciones del cluster <span class="math inline">\(C_j\)</span> , para todo <span class="math inline">\(i=1,..,n\)</span> y <span class="math inline">\(j=1,..,k \\\)</span></p>
-<ul>
-<li><span class="math inline">\(\hspace{0.12cm}\overline{\delta}(x_i, C_r^*) \hspace{0.12cm}=\hspace{0.12cm} Min\hspace{0.12cm} \left\lbrace \hspace{0.12cm} \overline{\delta}(x_i, C_r) \hspace{0.12cm} / \hspace{0.12cm} r\neq j = 1,...,k \hspace{0.12cm} \right\rbrace\)</span></li>
+<li><p><span class="math inline">\(\overline{\delta}(x_i,C_j)\)</span>
+es la <strong>media</strong> de las distancias entre la observacion <span class="math inline">\(x_i\)</span> y el resto de observaciones del cluster <span class="math inline">\(C_j\)</span> , para todo <span class="math inline">\(i=1,..,n\)</span> y <span class="math inline">\(j=1,..,k \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.12cm}\overline{\delta}(x_i, C_{r^*}) \hspace{0.12cm}=\hspace{0.12cm} Min\hspace{0.12cm} \left\lbrace \hspace{0.12cm} \overline{\delta}(x_i, C_r) \hspace{0.12cm} / \hspace{0.12cm} r\neq j = 1,...,k \hspace{0.12cm} \right\rbrace\)</span></p></li>
 </ul>
 <p><br></p>
 <p><strong>Interpretación de Silhouette:</strong> <span class="math inline">\(\\[0.6cm]\)</span></p>

@@ -88,16 +88,16 @@ En este articulo nos centraremos en una métrica de evaluación denominada silho
 
 
 
-Dado un modelo de clustering $M$ , como por ejemplo k-medias o k-medoids.
+$\hspace{0.25cm}$ Dado un modelo de clustering $M$ , como por ejemplo k-medias o k-medoids.
 
-Supongamos que tras entrenar $M$ con las observaciones disponibles para los predictores tenemos que $x_i \in C_h \\$
+$\hspace{0.25cm}$ Supongamos que tras entrenar $M$ con las observaciones disponibles para los predictores tenemos que $x_i \in C_h \\$
 
-La silueta de $x_i \in C_h$ en el modelo de clustering $M$ es:
+$\hspace{0.25cm}$ La silueta de $x_i \in C_h$ en el modelo de clustering $M$ es:
 
 $$\mathcal{S}(x_i) \hspace{0.12cm}=\hspace{0.12cm} \dfrac{\overline{\delta}(i,r^*) - \overline{\delta}(i,h)}{Max \left\lbrace \hspace{0.12cm}\overline{\delta}(i,r^*) \hspace{0.12cm},\hspace{0.12cm} \overline{\delta}(i,h)\hspace{0.12cm} \right\rbrace}\\$$
 
 
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 
 
@@ -106,19 +106,19 @@ $$\overline{\delta}(x_i,C_r) \hspace{0.12cm} =\hspace{0.12cm} \dfrac{1}{\# C_r} 
 
 
  
-$$b(i) = \overline{\delta}(x_i, C_h) =  \dfrac{1}{\# C_h } \cdot \sum_{r \in I(C_h)} \hspace{0.1cm} \delta(x_i , x_r)$$
+$$b(i) \hspace{0.12cm}=\hspace{0.12cm} \overline{\delta}(x_i, C_h) \hspace{0.12cm}=\hspace{0.12cm}  \dfrac{1}{\# C_h } \cdot \sum_{r \in I(C_h)} \hspace{0.1cm} \delta(x_i , x_r)$$
 
 
-$$a(i) = Min\lbrace  \overline{\delta}(x_i, C_j)  / j \neq \in \lbrace 1,...,k\rbrace$$
+$$a(i) \hspace{0.12cm}=\hspace{0.12cm} Min \hspace{0.12cm} \left\lbrace \hspace{0.12cm} \overline{\delta}(x_i, C_j)  \hspace{0.12cm}/\hspace{0.12cm} j \neq h \in \lbrace 1,...,k\rbrace \hspace{0.12cm} \right\rbrace \\$$
 
 
 
-Por tanto: 
+$\hspace{0.25cm}$ Por tanto: 
 
 $$a(i)=\overline{\delta}(x_i, C_r^*)$$
 
 
-Donde:
+$\hspace{0.35cm}$ Donde:
 
 
 $$r^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.12cm} \underset{r\neq h\in \lbrace 1,..,k\rbrace} {Min} \hspace{0.12cm} \overline{\delta}(x_i, C_r)\\$$  
@@ -138,14 +138,11 @@ $$r^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.12cm} \underset{r\neq h\in \l
 **Observaciones:**
 
 
-- En general
-
-$$\overline{\delta}(x_i,C_j) \hspace{0.12cm} =\hspace{0.12cm} \dfrac{1}{\# C_j - 1} \cdot \sum_{r \in I_j} \hspace{0.1cm} \delta(x_i , x_r)$$
-
+- $\overline{\delta}(x_i,C_j)$
 es la **media** de las distancias entre la observacion $x_i$ y el resto de observaciones del cluster $C_j$ , para todo $i=1,..,n$ y $j=1,..,k \\$
 
 
-- $\hspace{0.12cm}\overline{\delta}(x_i, C_r^*) \hspace{0.12cm}=\hspace{0.12cm}  Min\hspace{0.12cm} \left\lbrace \hspace{0.12cm}  \overline{\delta}(x_i, C_r) \hspace{0.12cm} / \hspace{0.12cm} r\neq j = 1,...,k  \hspace{0.12cm} \right\rbrace$
+- $\hspace{0.12cm}\overline{\delta}(x_i, C_{r^*}) \hspace{0.12cm}=\hspace{0.12cm}  Min\hspace{0.12cm} \left\lbrace \hspace{0.12cm}  \overline{\delta}(x_i, C_r) \hspace{0.12cm} / \hspace{0.12cm} r\neq j = 1,...,k  \hspace{0.12cm} \right\rbrace$
 
 <br>
 
