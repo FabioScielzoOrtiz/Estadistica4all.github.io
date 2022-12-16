@@ -115,6 +115,193 @@ Es un modelo o algoritmo de clasificación no supervisada, en el sentido de que 
 
 <br>
 
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+ $\hspace{0.25cm}$ ***k-medoids: adaptación de la versión de Park & Jun***    
+
+
+----
+
+- Se considera que la variable respuesta $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ tiene $\hspace{0.1cm} k\hspace{0.1cm}$ categorias $\hspace{0.1cm}g_1,...,g_k$ $\\[0.4cm]$
+
+
+----
+
+$\hspace{0.25cm}$ **1) Definición de los clusters iniciales**
+
+- Se asignan aleatoriamente las observaciones disponibles $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$ de los $p$ predictores a dichas categorias, formandose los **clusters** (o grupos) **iniciales** de observaciones $\hspace{0.1cm} C_1,...,C_k\hspace{0.1cm}$
+
+    - Tienen que ser tales que tengan un tamaño similar, contengan todas las obersaciones del conjunto de datos y no haya observaciones contenidas en dos clusters diferentes. $\\[0.4cm]$
+
+    - Formalmente vamos a definir los clusters del siguiente modo:
+
+     $$C_r = \left( \hspace{0.12cm} x_i^t = (x_{i1},...,x_{ip}) \hspace{0.13cm}/\hspace{0.13cm} i \in I(C_r) \subset \lbrace 1,...,n \rbrace \hspace{0.12cm} \right)^t \\$$
+
+    - Cumpliendose lo siguiente: $\\[0.5cm]$
+
+       - $\# I(C_r) \hspace{0.1cm} \approx \hspace{0.1cm} \# I(C_h) \hspace{0.25cm} , \hspace{0.25cm}  \forall r\neq h \in \lbrace 1,...,n\rbrace \\$
+
+       - $\overset{n}{\underset{r=1}{\cup}}  I(C_r) \hspace{0.1cm}=\hspace{0.1cm} \lbrace 1,...,n\rbrace \\$
+
+       - $I(C_r) \cap I(C_h) \hspace{0.1cm}=\hspace{0.1cm} \varnothing \hspace{0.25cm} , \hspace{0.25cm}  \forall r\neq h \in \lbrace 1,...,n\rbrace \\$
+
+       - $I_r$ es definido **aleatoriamente** en esta primera etapa. $\\[0.6cm]$
+
+
+
+       - $I(C_r)\hspace{0.1cm}$ es el conjunto de indices de las observaciones de los predictores que pertenecen al cluster $\hspace{0.1cm}C_r$. $\hspace{0.08cm}$ Por lo que puede verse como el conjunto de los individuos de la muestra que están asociados al cluster $\hspace{0.1cm} C_r \\$
+
+
+       -  $C_r\hspace{0.1cm}$ es un vector cuyas componentes son vectores fila, luego es una matriz. Como además estos vectores fila son observaciones de variables estadisticas, puede verse como una matriz de datos. 
+
+----
+
+
+
+$\hspace{0.25cm}$ **2) Cálculo de los medoids de los clusters iniciales**
+
+
+-  Se calculan los **medoids** de los clusters.
+
+
+- Dada una medida de distancia $\hspace{0.1cm}\delta\hspace{0.1cm}$ defindida para cada par $\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}$ de observaciones de los predictores,  el **medoid** del cluster $\hspace{0.1cm}C_r\hspace{0.1cm}$ se define del siguiete modo:
+
+    $$\overline{x}_{C_r} = x_i^*$$
+
+
+    - Donde:
+
+    $$i^* = arg \underset{i \in I(C_r)}{Min} \sum_{j \in I(C_r)}\delta(x_i , x_j)$$
+    
+    
+    
+   
+----
+
+
+$\hspace{0.25cm}$ **3) Cálculo de la suma de varianzas intra-cluster**
+
+
+- Dada una medida de distancia $\hspace{0.1cm}\delta\hspace{0.1cm}$ defindida para cada par $\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}$ de observaciones de los predictores, la **suma de varianzas intra-cluster** para la configuración de clusters $\hspace{0.1cm}C_1,...,C_k\hspace{0.1cm}$ se define como sigue:
+
+
+$$V(C_1,...,C_k) = \sum_{r=1}^{k} \hspace{0.2cm} \sum_{i \in I_r} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_r}) \\$$
+
+
+
+- Se calcula $\hspace{0.12cm}V(C_1,...,C_k)\hspace{0.12cm}$, puesto que será la métrica en base a la cual se define el criterio de parada.
+
+
+
+    - Es una medida de lo similares que son entre si las observaciones contenidas en un mismo cluster. Cuanto menor sea, mas similares son, y viceversa.
+
+----
+
+$\hspace{0.25cm}$ **4) Re-asignación de las observaciones a los clusters**
+
+
+
+- Se calcula $\hspace{0.12cm} \delta(x_i , \overline{x}_{C_r}) \hspace{0.12cm}$
+
+
+- Se re-asigna $\hspace{0.12cm}x_i\hspace{0.12cm}$ al cluster que le quede más cerca.
+
+- Formalmente, $\hspace{0.12cm}x_i\hspace{0.12cm}$ es re-asignado al cluster $\hspace{0.12cm}C_{r^*}$
+
+    $$r^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{r}{Min} \hspace{0.16cm} \delta(x_i , \overline{x}_{C_r} )$$
+
+    - Por tanto, $\hspace{0.12cm}x_i\hspace{0.12cm}$ es re-asignado al cluster $\hspace{0.12cm}C_{r^*}\hspace{0.12cm}$, que podria ser el cluster al que ya estaba asignada, o no. 
+
+
+- Tras  re-asignar todas las observaciones $\hspace{0.12cm}x_1,...,x_n\hspace{0.12cm}$ se obtiene una **nueva** configuracion de clusters $\hspace{0.12cm}C_1^{1 },...,C_k^{1 }\hspace{0.12cm}$ , que generalmente será diferente de la anterior, aunque no necesariamente.
+
+- El super-indice 1 indica que esta nueva configuración de clusters es la obtenida con la iteración 1 del algoritmo.
+
+
+----
+
+$\hspace{0.45cm}$ **4.1) Calculo de los medoids de los nuevos clusters**
+
+
+
+- Se calculan los medoids de los nuevos clusters :  
+
+     $$\overline{x}_{C_r^1}  = x_i^*$$
+
+
+    - Donde:
+
+     $$i^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.14cm} \underset{i \in I(C_r^1)}{Min} \sum_{j \in I(C_r^1)}\delta(x_i , x_j)$$
+
+para $\hspace{0.1cm} r\in \lbrace 1,..., k \rbrace$
+
+
+----
+
+
+$\hspace{0.45cm}$ **4.2) Cálculo de la varianza intra-cluster de los nuevos clusters**
+
+- Se calcula la suma de varianzas intra-cluster para la nueva configuración de clusters obtenida en el paso anterior:
+
+$$V(C_1^{1 },...,C_k^{1 })$$
+
+----
+
+
+$\hspace{0.25cm}$ **7) Iterar los pasos 4) , 5) y 6)**
+
+
+- Se iteran los pasos **4)** , **5)** y **6)** un número $\hspace{0.1cm}b\hspace{0.1cm}$ de veces, asi se obtienen $\hspace{0.1cm}b\hspace{0.1cm}$ configuraciones de clusters, y con ello $\hspace{0.1cm}b\hspace{0.1cm}$ valores de la suma de varianzas intra-cluster.
+
+
+---
+
+$\hspace{0.25cm}$ **8) Selección de la configuracion de clusters definitiva**
+
+
+- Tras los pasos anteriores  se habrán obtenido un total de $\hspace{0.1cm}b+2\hspace{0.1cm}$ configuraciones de clusters $\hspace{0.1cm}\Rightarrow \hspace{0.1cm} b\hspace{0.1cm}$ en el paso **5)** , $1$ en el paso **1)** y $1$ en el paso **4)**.
+
+
+
+$$\left\lbrace \hspace{0.15cm} V(C_1^{h},....,C_k^h) \hspace{0.12cm} / \hspace{0.12cm} h \in \lbrace 1,...,b+2\rbrace \hspace{0.15cm} \right\rbrace$$
+
+
+
+
+- Se selecciona como configuración de clusters **definitiva** aquella que minimiza la suma de varianzas intra-cluster, de entre las $\hspace{0.1cm} b+2 \hspace{0.1cm}$ obtenidas.
+
+-  Formalmente, se seleccionan la configuración de clusters $\hspace{0.1cm} C_1^{h^*},...,C_k^{h^*}$
+
+     - Donde:
+     
+       $$h^*  \hspace{0.15cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{h}{Min} \hspace{0.16cm} V(C_1^{h},....,C_k^h)$$ 
+    
+
+
+</p>
+ 
+</p></span>
+</div>
+
+ 
+
+
+ <br>
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
  <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
@@ -131,7 +318,7 @@ $\hspace{0.25cm}$ **1) Definición de los clusters iniciales**
 
 - Dada una medida de distancia $\hspace{0.1cm}\delta\hspace{0.1cm}$ definida para cada par $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$  de observaciones de los predictores.
 
-    - Se calcula $\hspace{0.15cm}\delta(x_i, x_r)  \hspace{0.25cm} , \hspace{0.25cm} \forall\hspace{0.1cm} i,r \in \lbrace 1,...,n \rbrace\\ $  
+    - Se calcula $\hspace{0.15cm}\delta(x_i, x_r)  \hspace{0.25cm} , \hspace{0.25cm} \forall\hspace{0.1cm} i,r \in \lbrace 1,...,n \rbrace\\$  
     
 - Se define la siguiente cantidad:
 
@@ -156,7 +343,7 @@ $\hspace{0.5cm}$ para $\hspace{0.1cm} r \in \lbrace 1,...,n \rbrace$
 
     - Donde:
     
-      $$r^* = arg Min \delta(x_i , \overline{x}_{C_r})$$
+$$r^* = arg Min \delta(x_i , \overline{x}_{C_r})$$
 
 ----
 
@@ -188,9 +375,9 @@ $\hspace{0.25cm}$ **4) Re-asignación de las observaciones a los clusters**
 
 - Se re-asigna $\hspace{0.12cm}x_i\hspace{0.12cm}$ al cluster que le quede más cerca.
 
-- Formalmente, $\hspace{0.12cm}x_i\hspace{0.12cm}$ es re-asignado al cluster $\hspace{0.12cm}r^*$
+- Formalmente, $\hspace{0.12cm}x_i\hspace{0.12cm}$ es re-asignado al cluster $\hspace{0.12cm}C_{r^*}$
 
-    $$r^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{r}{Min} \hspace{0.12cm} \delta(x_i , \overline{x}_{C_r} )$$
+    $$r^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{r}{Min} \hspace{0.16cm} \delta(x_i , \overline{x}_{C_r} )$$
 
     - Por tanto, $\hspace{0.12cm}x_i\hspace{0.12cm}$ es re-asignado al cluster $\hspace{0.12cm}C_{r^*}\hspace{0.12cm}$, que podria ser el cluster al que ya estaba asignada, o no. 
 
@@ -199,25 +386,49 @@ $\hspace{0.25cm}$ **4) Re-asignación de las observaciones a los clusters**
 
 - El super-indice 1 indica que esta nueva configuración de clusters es la obtenida con la iteración 1 del algoritmo.
 
-- Se calcula la suma de varianzas intra-cluster para la nueva configuracion de clusters obtenida en el paso anterior:
 
-$$V(C_1^{\dagger },...,C_k^{\dagger })$$
+----
+
+$\hspace{0.45cm}$ **4.1) Calculo de los medoids de los nuevos clusters**
+
+
+
+- Se calculan los medoids de los nuevos clusters :  
+
+    $$\overline{x}_{C_r^1}  = x_i^*$$
+
+
+    - Donde:
+
+    $$i^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.14cm} \underset{i \in I(C_r^1)}{Min} \sum_{j \in I(C_r^1)}\delta(x_i , x_j)$$
+
+    para $\hspace{0.1cm} r\in \lbrace 1,..., k \rbrace$
+
 
 ----
 
 
-$\hspace{0.25cm}$ **5) Iterar paso 4)**
+$\hspace{0.45cm}$ **4.2) Cálculo de la varianza intra-cluster de los nuevos clusters**
+
+- Se calcula la suma de varianzas intra-cluster para la nueva configuración de clusters obtenida en el paso anterior:
+
+$$V(C_1^{1 },...,C_k^{1 })$$
+
+----
 
 
-- Se itera el paso **4)** un número $b$ de veces, asi se obtienen $b$ configuraciones de clusters, y con ello $b$ valores de la suma de varianzas intra-cluster.
+$\hspace{0.25cm}$ **7) Iterar los pasos 4) , 5) y 6)**
+
+
+- Se iteran los pasos **4)** , **5)** y **6)** un número $\hspace{0.1cm}b\hspace{0.1cm}$ de veces, asi se obtienen $\hspace{0.1cm}b\hspace{0.1cm}$ configuraciones de clusters, y con ello $\hspace{0.1cm}b\hspace{0.1cm}$ valores de la suma de varianzas intra-cluster.
 
 
 ---
 
-$\hspace{0.25cm}$ **6) Selección de la configuracion de clusters definitiva**
+$\hspace{0.25cm}$ **8) Selección de la configuracion de clusters definitiva**
 
 
-- Tras los pasos anteriores  se habrán obtenido un total de $b+2$ configuraciones de clusters. $b$ en el paso **5)** , $1$ en el paso **1)** y $1$ en el paso **4)**.
+- Tras los pasos anteriores  se habrán obtenido un total de $\hspace{0.1cm}b+2\hspace{0.1cm}$ configuraciones de clusters $\hspace{0.1cm}\Rightarrow \hspace{0.1cm} b\hspace{0.1cm}$ en el paso **5)** , $1$ en el paso **1)** y $1$ en el paso **4)**.
 
 
 
@@ -226,14 +437,14 @@ $$\left\lbrace \hspace{0.15cm} V(C_1^{h},....,C_k^h) \hspace{0.12cm} / \hspace{0
 
 
 
-- Se selecciona como configuración de clusters **definitiva** aquella que minimiza la suma de varianzas intra-cluster, de entre las $b+2$ obtenidas.
+- Se selecciona como configuración de clusters **definitiva** aquella que minimiza la suma de varianzas intra-cluster, de entre las $\hspace{0.1cm} b+2 \hspace{0.1cm}$ obtenidas.
 
--  Formalmente, se seleccionan la configuración de clusters $C_1^{h^*},...,C_k^{h^*}$
+-  Formalmente, se seleccionan la configuración de clusters $\hspace{0.1cm} C_1^{h^*},...,C_k^{h^*}$
 
      - Donde:
      
-       $$h^*  \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{h}{Min} \hspace{0.15cm} V(C_1^{h},....,C_k^h)$$ 
-    
+       $$h^*  \hspace{0.15cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{h}{Min} \hspace{0.16cm} V(C_1^{h},....,C_k^h)$$ 
+  
    
    
 </p>
