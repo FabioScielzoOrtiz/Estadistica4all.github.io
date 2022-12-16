@@ -2619,7 +2619,7 @@ $\hspace{0.25cm}$ La distancia de Sokal puede definirse de forma más general, s
 
 $\hspace{0.25cm}$ Dada una matriz de datos $\hspace{0.1cm}X=(X_1,...,X_p)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n$
 
-$\hspace{0.25cm}$ Dados dos vectores **binarios**  $\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.07cm} ,\hspace{0.07cm} w=(w_1,...,w_p)^t \hspace{0.07cm}\in \hspace{0.07cm} \mathbb{R}^p\hspace{0.07cm}$
+$\hspace{0.25cm}$ Dados dos vectores **binarios**  $\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.1cm} ,\hspace{0.1cm} w=(w_1,...,w_p)^t \hspace{0.07cm}\in \hspace{0.07cm} \mathbb{R}^p\hspace{0.07cm}$
 
 
 
@@ -2972,11 +2972,11 @@ array([[0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ El coeficiente de similaridad de Jaccard (o simplemente la similaridad de Sokal) entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables binarias $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ se define como: $\\[0.4cm]$
+$\hspace{0.25cm}$ El coeficiente de similaridad de Jaccard (o simplemente la similaridad de Sokal) entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables **binarias** $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ se define como: $\\[0.4cm]$
 
 
 \begin{gather*}
-\phi(x_i,x_r)_{Jaccard}  = \dfrac{a_{ir} }{a_{ir} + b_{ir}+ c_{ir}} 
+\phi(x_i,x_r)_{J}  = \dfrac{a(x_i,x_r)} }{a(x_i,x_r) + b(x_i,x_r) + c(x_i,x_r)} 
 \end{gather*}
 
 
@@ -3831,17 +3831,18 @@ $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ forman un conjun
 <p style='margin-left:1em;'>
 
 
-$\hspace{0.25cm}$ La similaridad de Gower entre el par de observaciones $\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ , que forman un conjunto de variables de tipo cuantitativo-binario-multiclase ,  se define como : $\\[0.7cm]$
+$\hspace{0.25cm}$ La similaridad de Gower entre el par de observaciones $\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ ,  tales que $\hspace{0.1cm}{X}_1,...,\mathcal{X}_{p_1}\hspace{0.1cm}$ son **cuantitativas**, $\hspace{0.1cm}{X}_{p_1 + 1},...,\mathcal{X}_{p_1 + p_2}\hspace{0.1cm}$ son **binarias** y $\hspace{0.1cm}{X}_{p_1 + p_2 + 1},...,\mathcal{X}_{p_1 + p_2 + p_3}\hspace{0.1cm}$ son **multiclase**,  se define como : $\\[1.5cm]$
 
 
 
-\begin{gather*}
-\hspace{0.45cm} \phi(x_i,x_r)_{Gower} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{\sum_{j=1}^{p_1} \left(1- \dfrac{\mid x_{ij} - x_{rj} \mid}{G_j} \right) + a(x_i , x_r) + \alpha(x_i , x_r) }{p_1 + (p_2 - d(x_i , x_r)) + p_3} \\[0.7cm]
-\end{gather*}
+$$
+\hspace{0.45cm} \phi(x_i,x_r)_{Gower} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm}\sum_{j=1}^{p_1} \left(1- \dfrac{\mid x_{ij} - x_{rj} \mid}{G_j} \right) \hspace{0.1cm} +\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p_1 \hspace{0.05cm}+\hspace{0.05cm} p_2 - d(x_i^B , x_r^B) \hspace{0.05cm}+\hspace{0.05cm} p_3}  \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm} p_1 \hspace{0.1cm}-\hspace{0.1cm} \sum_{j=1}^{p_1} \dfrac{\mid x_{ij} - x_{rj} \mid}{G_j}  \hspace{0.1cm}+\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p - d(x_i^B , x_r^B) } \\[1cm]
+$$
 
 
 
 $\hspace{0.25cm}$ Donde:
+
 
 - $p_1 \hspace{0.05cm}$ es el número de variables cuantitativas. $\\[0.5cm]$
 
@@ -3851,6 +3852,12 @@ $\\[0.5cm]$
 - $p_3 \hspace{0.05cm}$ es el número de variables categóricas múltiples (no binarias).$\\[0.5cm]$
 
 - $p_1+p_2+p_3=p \\$
+
+- $x_i^Q\hspace{0.1cm}$ es vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^Q = (x_{i, 1},....,x_{i,p1})\\$
+
+- $x_i^B\hspace{0.1cm}$ es vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^B = (x_{i, p1+1},....,x_{i,p1+p2}) \\$
+
+- $x_i^M$ es vector de observaciones de las variables multiclase, es decir, $\hspace{0.1cm}x_i^M = (x_{i, p1+p_2+1},....,x_{i,p_1+p_2+p_3}) \\$
 
 - $G_j \hspace{0.1cm}=\hspace{0.1cm} Max(X_j) - Min(X_j) \\$
 
@@ -3864,6 +3871,7 @@ $\\[0.5cm]$
 - $\alpha(x_i, x_r) =$ número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} = x_{rj}\\$
 
  
+
  
  
 </p>
@@ -3907,7 +3915,7 @@ $$
 normalizada por el rango, para que tome valores en $\hspace{0.1cm} [0,1]\hspace{0.1cm}$ :
  
 $$
-\dfrac{1}{p} \sum_{k=1}^{p} \left(1- \dfrac{\mid x_{ik} - x_{jk} \mid}{G_k} \right) \\
+\dfrac{1}{p} \sum_{k=1}^{p} \left(1- \dfrac{\mid x_{ik} - x_{jk} \mid}{G_k} \right) =  \\
 $$
 
 - Si consideramos un conjunto de variables binarias, la similaridad de Gower coincide con la de Jaccard. $\\[0.4cm]$
@@ -4273,14 +4281,12 @@ array([[1.        , 0.95612067, 0.71697821, ..., 0.73143864, 0.82056736,
 
 $\hspace{0.25cm}$ Dada la matriz de datos $\hspace{0.1cm}X=[X_1,...,X_n]\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$
 
-
-$\hspace{0.25cm}$ La similaridad de Gower-Mahalanobis entre el par de observaciones $\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ , que forman un conjunto de variables de tipo cuantitativo-binario-multiclase ,  se define como : $\\[0.7cm]$
-
-
-
+$\hspace{0.25cm}$ La similaridad de Gower-Mahalanobis entre el par de observaciones $\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ ,  tales que $\hspace{0.1cm}{X}_1,...,\mathcal{X}_{p_1}\hspace{0.1cm}$ son **cuantitativas**, $\hspace{0.1cm}{X}_{p_1 + 1},...,\mathcal{X}_{p_1 + p_2}\hspace{0.1cm}$ son **binarias** y $\hspace{0.1cm}{X}_{p_1 + p_2 + 1},...,\mathcal{X}_{p_1 + p_2 + p_3}\hspace{0.1cm}$ son **multiclase**,  se define como : $\\[1.5cm]$
+ 
 $$
-\hspace{0.45cm} \phi(x_i,x_r)_{GM} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{\sum_{j=1}^{p_1} \left(1- \dfrac{ \delta(x_i , x_r)_{Maha} }{Max(D_{Maha})} \right) + a(x_i , x_r) + \alpha(x_i , x_r) }{p_1 + p_2 - d(x_i , x_r) + p_3} \\[0.7cm]
+\hspace{0.45cm} \phi(x_i,x_r)_{GM} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm} p_1 \hspace{0.1cm}-\hspace{0.1cm} \dfrac{ \delta(x_i^Q , x_r^Q)_{Maha} }{Max(D_{Maha})} \hspace{0.1cm} +\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p_1 \hspace{0.05cm}+\hspace{0.05cm} p_2 - d(x_i^B , x_r^B) \hspace{0.05cm}+\hspace{0.05cm} p_3}  \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm} p_1 \hspace{0.1cm}-\hspace{0.1cm}  \dfrac{ \delta(x_i , x_r)_{Maha} }{Max(D_{Maha})}  \hspace{0.1cm}+\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p - d(x_i^B , x_r^B) } \\[1cm]
 $$
+ 
 
 
 
@@ -4295,9 +4301,16 @@ $\\[0.5cm]$
 
 - $p_1+p_2+p_3=p \\$
 
-- $\delta(x_i , x_r)_{Maha} = \sqrt{ (x_i - x_r)^t \cdot S^{-1} \cdot (x_i - x_r) }\hspace{0.25cm}$ es la distancia de Mahalanobis entre el par de observaciones $\hspace{0.15cm}x_i = X[i,:]\hspace{0.15cm}$  y $\hspace{0.15cm}x_r = X[r,:] \\$
+- $x_i^Q\hspace{0.1cm}$ es vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^Q = (x_{i, 1},....,x_{i,p1})\\$
 
-- $S\hspace{0.1cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.1cm}X=[X_1,...,X_n] \\$
+- $x_i^B\hspace{0.1cm}$ es vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^B = (x_{i, p1+1},....,x_{i,p1+p2}) \\$
+
+- $x_i^M$ es vector de observaciones de las variables multiclase, es decir, $\hspace{0.1cm}x_i^M = (x_{i, p1+p_2+1},....,x_{i,p_1+p_2+p_3}) \\$
+
+
+- $\delta(x_i^Q , x_r^Q)_{Maha} = \sqrt{ (x_i^Q - x_r^Q)^t \cdot S^{-1} \cdot (x_i^Q - x_r^Q) }\hspace{0.25cm}$ es la distancia de Mahalanobis entre el par de observaciones $\hspace{0.15cm}x_i^Q$ y $x_r^Q$ de las variables cuantitativas.
+
+- $S\hspace{0.1cm}$ es la matriz de covarianzas de la matriz de datos de las variables cuantitativas $\hspace{0.1cm}X^Q=[X_1,...,X_{p_1}] \\$
 
 - $D_{Maha} \hspace{0.1cm}$ es la matriz de distancias de Mahalanobis entre los individuios de la matriz de datos $\hspace{0.1cm}X=[X_1,...,X_n] \\$
 

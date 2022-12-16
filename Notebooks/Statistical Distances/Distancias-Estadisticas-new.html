@@ -1638,7 +1638,7 @@ margin-left: 0 !important;
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
                   <p class="author"><span class="glyphicon glyphicon-user"></span> Fabio Scielzo Ortiz</p>
-                        <p class="date"><span class="glyphicon glyphicon-calendar"></span> 17/11/22</p>
+                        <p class="date"><span class="glyphicon glyphicon-calendar"></span> 16/12/22</p>
           </div>
    </div>
      
@@ -3976,7 +3976,7 @@ pueden expresarse del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</s
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Similaridad de Sokal entre vectores</strong></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de Sokal puede definirse de forma más general, sin estar sujeta a un contexto estadístico.</p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una matriz de datos <span class="math inline">\(\hspace{0.1cm}X=(X_1,...,X_p)\hspace{0.1cm}\)</span> de las variables estadisticas <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\)</span></p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dados dos vectores <strong>binarios</strong> <span class="math inline">\(\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.07cm} ,\hspace{0.07cm} w=(w_1,...,w_p)^t \hspace{0.07cm}\in \hspace{0.07cm} \mathbb{R}^p\hspace{0.07cm}\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dados dos vectores <strong>binarios</strong> <span class="math inline">\(\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.1cm} ,\hspace{0.1cm} w=(w_1,...,w_p)^t \hspace{0.07cm}\in \hspace{0.07cm} \mathbb{R}^p\hspace{0.07cm}\)</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> La similaridad entre <span class="math inline">\(\hspace{0.1cm}v\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}w\hspace{0.1cm}\)</span> es: <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math display">\[
 \phi (v,w)_{Sokal}  \hspace{0.07cm}=\hspace{0.07cm}  \dfrac{ a(v,w) + d(v,w) }{p} \\
@@ -4212,9 +4212,9 @@ pueden expresarse del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</s
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> El coeficiente de similaridad de Jaccard (o simplemente la similaridad de Sokal) entre el par de observaciones <span class="math inline">\(\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}\)</span> de las variables binarias <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}\)</span> se define como: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> El coeficiente de similaridad de Jaccard (o simplemente la similaridad de Sokal) entre el par de observaciones <span class="math inline">\(\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}\)</span> de las variables <strong>binarias</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}\)</span> se define como: <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p><span class="math display">\[\begin{gather*}
-\phi(x_i,x_r)_{Jaccard}  = \dfrac{a_{ir} }{a_{ir} + b_{ir}+ c_{ir}}
+\phi(x_i,x_r)_{J}  = \dfrac{a(x_i,x_r)} }{a(x_i,x_r) + b(x_i,x_r) + c(x_i,x_r)}
 \end{gather*}\]</span></p>
 </p>
 </p>
@@ -4738,10 +4738,10 @@ pueden expresarse del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</s
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> La similaridad de Gower entre el par de observaciones <span class="math inline">\(\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}\)</span> de las variables <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> , que forman un conjunto de variables de tipo cuantitativo-binario-multiclase , se define como : <span class="math inline">\(\\[0.7cm]\)</span></p>
-<p><span class="math display">\[\begin{gather*}
-\hspace{0.45cm} \phi(x_i,x_r)_{Gower} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{\sum_{j=1}^{p_1} \left(1- \dfrac{\mid x_{ij} - x_{rj} \mid}{G_j} \right) + a(x_i , x_r) + \alpha(x_i , x_r) }{p_1 + (p_2 - d(x_i , x_r)) + p_3} \\[0.7cm]
-\end{gather*}\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La similaridad de Gower entre el par de observaciones <span class="math inline">\(\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}\)</span> de las variables <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> , tales que <span class="math inline">\(\hspace{0.1cm}{X}_1,...,\mathcal{X}_{p_1}\hspace{0.1cm}\)</span> son <strong>cuantitativas</strong>, <span class="math inline">\(\hspace{0.1cm}{X}_{p_1 + 1},...,\mathcal{X}_{p_1 + p_2}\hspace{0.1cm}\)</span> son <strong>binarias</strong> y <span class="math inline">\(\hspace{0.1cm}{X}_{p_1 + p_2 + 1},...,\mathcal{X}_{p_1 + p_2 + p_3}\hspace{0.1cm}\)</span> son <strong>multiclase</strong>, se define como : <span class="math inline">\(\\[1.5cm]\)</span></p>
+<p><span class="math display">\[
+\hspace{0.45cm} \phi(x_i,x_r)_{Gower} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm}\sum_{j=1}^{p_1} \left(1- \dfrac{\mid x_{ij} - x_{rj} \mid}{G_j} \right) \hspace{0.1cm} +\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p_1 \hspace{0.05cm}+\hspace{0.05cm} p_2 - d(x_i^B , x_r^B) \hspace{0.05cm}+\hspace{0.05cm} p_3}  \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm} p_1 \hspace{0.1cm}-\hspace{0.1cm} \sum_{j=1}^{p_1} \dfrac{\mid x_{ij} - x_{rj} \mid}{G_j}  \hspace{0.1cm}+\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p - d(x_i^B , x_r^B) } \\[1cm]
+\]</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <ul>
 <li><p><span class="math inline">\(p_1 \hspace{0.05cm}\)</span> es el número de variables cuantitativas. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
@@ -4749,6 +4749,9 @@ pueden expresarse del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</s
 <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 <li><p><span class="math inline">\(p_3 \hspace{0.05cm}\)</span> es el número de variables categóricas múltiples (no binarias).<span class="math inline">\(\\[0.5cm]\)</span></p></li>
 <li><p><span class="math inline">\(p_1+p_2+p_3=p \\\)</span></p></li>
+<li><p><span class="math inline">\(x_i^Q\hspace{0.1cm}\)</span> es vector de observaciones de las variables binarias, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^Q = (x_{i, 1},....,x_{i,p1})\\\)</span></p></li>
+<li><p><span class="math inline">\(x_i^B\hspace{0.1cm}\)</span> es vector de observaciones de las variables binarias, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^B = (x_{i, p1+1},....,x_{i,p1+p2}) \\\)</span></p></li>
+<li><p><span class="math inline">\(x_i^M\)</span> es vector de observaciones de las variables multiclase, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^M = (x_{i, p1+p_2+1},....,x_{i,p_1+p_2+p_3}) \\\)</span></p></li>
 <li><p><span class="math inline">\(G_j \hspace{0.1cm}=\hspace{0.1cm} Max(X_j) - Min(X_j) \\\)</span></p></li>
 <li><p><span class="math inline">\(\hspace{0.2cm} a(x_i, x_r)\hspace{0.1cm}\)</span> es el número de variables binarias <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm} x_{ij} = x_{rj}=1 \\\)</span></p></li>
 <li><p><span class="math inline">\(\hspace{0.2cm} d(x_i, x_r)\hspace{0.1cm}\)</span> es el número de variables binarias <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm}x_{rj}=0 \\\)</span></p></li>
@@ -4781,7 +4784,7 @@ pueden expresarse del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</s
 normalizada por el rango, para que tome valores en <span class="math inline">\(\hspace{0.1cm} [0,1]\hspace{0.1cm}\)</span> :</p></li>
 </ul>
 <p><span class="math display">\[
-\dfrac{1}{p} \sum_{k=1}^{p} \left(1- \dfrac{\mid x_{ik} - x_{jk} \mid}{G_k} \right) \\
+\dfrac{1}{p} \sum_{k=1}^{p} \left(1- \dfrac{\mid x_{ik} - x_{jk} \mid}{G_k} \right) =  \\
 \]</span></p>
 <ul>
 <li><p>Si consideramos un conjunto de variables binarias, la similaridad de Gower coincide con la de Jaccard. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
@@ -5036,9 +5039,9 @@ normalizada por el rango, para que tome valores en <span class="math inline">\(\
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada la matriz de datos <span class="math inline">\(\hspace{0.1cm}X=[X_1,...,X_n]\hspace{0.1cm}\)</span> de las variables estadisticas <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}\)</span></p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> La similaridad de Gower-Mahalanobis entre el par de observaciones <span class="math inline">\(\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}\)</span> de las variables <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> , que forman un conjunto de variables de tipo cuantitativo-binario-multiclase , se define como : <span class="math inline">\(\\[0.7cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La similaridad de Gower-Mahalanobis entre el par de observaciones <span class="math inline">\(\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}\)</span> de las variables <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> , tales que <span class="math inline">\(\hspace{0.1cm}{X}_1,...,\mathcal{X}_{p_1}\hspace{0.1cm}\)</span> son <strong>cuantitativas</strong>, <span class="math inline">\(\hspace{0.1cm}{X}_{p_1 + 1},...,\mathcal{X}_{p_1 + p_2}\hspace{0.1cm}\)</span> son <strong>binarias</strong> y <span class="math inline">\(\hspace{0.1cm}{X}_{p_1 + p_2 + 1},...,\mathcal{X}_{p_1 + p_2 + p_3}\hspace{0.1cm}\)</span> son <strong>multiclase</strong>, se define como : <span class="math inline">\(\\[1.5cm]\)</span></p>
 <p><span class="math display">\[
-\hspace{0.45cm} \phi(x_i,x_r)_{GM} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{\sum_{j=1}^{p_1} \left(1- \dfrac{ \delta(x_i , x_r)_{Maha} }{Max(D_{Maha})} \right) + a(x_i , x_r) + \alpha(x_i , x_r) }{p_1 + p_2 - d(x_i , x_r) + p_3} \\[0.7cm]
+\hspace{0.45cm} \phi(x_i,x_r)_{GM} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm} p_1 \hspace{0.1cm}-\hspace{0.1cm} \dfrac{ \delta(x_i^Q , x_r^Q)_{Maha} }{Max(D_{Maha})} \hspace{0.1cm} +\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p_1 \hspace{0.05cm}+\hspace{0.05cm} p_2 - d(x_i^B , x_r^B) \hspace{0.05cm}+\hspace{0.05cm} p_3}  \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm} p_1 \hspace{0.1cm}-\hspace{0.1cm}  \dfrac{ \delta(x_i , x_r)_{Maha} }{Max(D_{Maha})}  \hspace{0.1cm}+\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p - d(x_i^B , x_r^B) } \\[1cm]
 \]</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <ul>
@@ -5047,8 +5050,11 @@ normalizada por el rango, para que tome valores en <span class="math inline">\(\
 <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 <li><p><span class="math inline">\(p_3 \hspace{0.05cm}\)</span> es el número de variables categóricas múltiples (no binarias).<span class="math inline">\(\\[0.5cm]\)</span></p></li>
 <li><p><span class="math inline">\(p_1+p_2+p_3=p \\\)</span></p></li>
-<li><p><span class="math inline">\(\delta(x_i , x_r)_{Maha} = \sqrt{ (x_i - x_r)^t \cdot S^{-1} \cdot (x_i - x_r) }\hspace{0.25cm}\)</span> es la distancia de Mahalanobis entre el par de observaciones <span class="math inline">\(\hspace{0.15cm}x_i = X[i,:]\hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm}x_r = X[r,:] \\\)</span></p></li>
-<li><p><span class="math inline">\(S\hspace{0.1cm}\)</span> es la matriz de covarianzas de la matriz de datos <span class="math inline">\(\hspace{0.1cm}X=[X_1,...,X_n] \\\)</span></p></li>
+<li><p><span class="math inline">\(x_i^Q\hspace{0.1cm}\)</span> es vector de observaciones de las variables binarias, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^Q = (x_{i, 1},....,x_{i,p1})\\\)</span></p></li>
+<li><p><span class="math inline">\(x_i^B\hspace{0.1cm}\)</span> es vector de observaciones de las variables binarias, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^B = (x_{i, p1+1},....,x_{i,p1+p2}) \\\)</span></p></li>
+<li><p><span class="math inline">\(x_i^M\)</span> es vector de observaciones de las variables multiclase, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^M = (x_{i, p1+p_2+1},....,x_{i,p_1+p_2+p_3}) \\\)</span></p></li>
+<li><p><span class="math inline">\(\delta(x_i^Q , x_r^Q)_{Maha} = \sqrt{ (x_i^Q - x_r^Q)^t \cdot S^{-1} \cdot (x_i^Q - x_r^Q) }\hspace{0.25cm}\)</span> es la distancia de Mahalanobis entre el par de observaciones <span class="math inline">\(\hspace{0.15cm}x_i^Q\)</span> y <span class="math inline">\(x_r^Q\)</span> de las variables cuantitativas.</p></li>
+<li><p><span class="math inline">\(S\hspace{0.1cm}\)</span> es la matriz de covarianzas de la matriz de datos de las variables cuantitativas <span class="math inline">\(\hspace{0.1cm}X^Q=[X_1,...,X_{p_1}] \\\)</span></p></li>
 <li><p><span class="math inline">\(D_{Maha} \hspace{0.1cm}\)</span> es la matriz de distancias de Mahalanobis entre los individuios de la matriz de datos <span class="math inline">\(\hspace{0.1cm}X=[X_1,...,X_n] \\\)</span></p></li>
 <li><p><span class="math inline">\(\hspace{0.2cm} a(x_i, x_r)\hspace{0.1cm}\)</span> es el número de variables binarias <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm} x_{ij} = x_{rj}=1 \\\)</span></p></li>
 <li><p><span class="math inline">\(\hspace{0.2cm} d(x_i, x_r)\hspace{0.1cm}\)</span> es el número de variables binarias <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm}x_{rj}=0 \\\)</span></p></li>
