@@ -1,7 +1,7 @@
 ---
 title: 'K Nearest Neighbors (KNN)'
 author: 'Fabio Scielzo Ortiz'
-date: '13/11/22'
+date: '25/12/22'
 output: 
    rmdformats::readthedown:
       use_bookdown: true
