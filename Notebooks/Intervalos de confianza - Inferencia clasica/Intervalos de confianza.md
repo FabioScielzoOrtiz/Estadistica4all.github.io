@@ -3442,7 +3442,15 @@ diferencia_proporciones
 
 
 
-
+<br>
 
 
 <br>
+
+
+# Bibliografía
+
+Rincón, L (2019). Una introducción a la estadística inferencia. Universidad Nacional Autónoma de México.
+
+ Pintarelli, B. Intervalos de Confianza[Presentación de PowerPoint]. Universidad Nacional de La Plata.
+
