@@ -142,7 +142,6 @@ $$r^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.12cm} \underset{r\neq h\in \l
 es la **media** de las distancias entre la observacion $x_i$ y el resto de observaciones del cluster $C_j$ , para todo $i=1,..,n$ y $j=1,..,k \\$
 
 
-- $\hspace{0.12cm}\overline{\delta}(x_i, C_{r^*}) \hspace{0.12cm}=\hspace{0.12cm}  Min\hspace{0.12cm} \left\lbrace \hspace{0.12cm}  \overline{\delta}(x_i, C_r) \hspace{0.12cm} / \hspace{0.12cm} r\neq j = 1,...,k  \hspace{0.12cm} \right\rbrace$
 
 <br>
 

@@ -151,26 +151,26 @@ $\hspace{0.25cm}$ **1) Definición de los clusters iniciales**
 
     - Cumpliendose lo siguiente: $\\[0.5cm]$
 
-       - $\# I_r \approx \# I_h \hspace{0.25cm} , \hspace{0.25cm}  \forall r\neq h \in \lbrace 1,...,n\rbrace \\$
+       - $\# I(C_r) \hspace{0.1cm} \approx \hspace{0.1cm} \# I(C_h) \hspace{0.25cm} , \hspace{0.25cm}  \forall r\neq h \in \lbrace 1,...,n\rbrace \\$
 
-       - $\overset{n}{\underset{r=1}{\cup}}  I_r = \lbrace 1,...,n\rbrace \\$
+       - $\overset{n}{\underset{r=1}{\cup}}  I(C_r) \hspace{0.1cm}=\hspace{0.1cm} \lbrace 1,...,n\rbrace \\$
 
-       - $I_r \cap I_h = \varnothing \hspace{0.25cm} , \hspace{0.25cm}  \forall r\neq h \in \lbrace 1,...,n\rbrace \\$
+       - $I(C_r) \cap I(C_h) \hspace{0.1cm}=\hspace{0.1cm} \varnothing \hspace{0.25cm} , \hspace{0.25cm}  \forall r\neq h \in \lbrace 1,...,n\rbrace \\$
 
        - $I_r$ es definido **aleatoriamente** en esta primera etapa. $\\[0.6cm]$
 
 
 
-       - $I_r\hspace{0.1cm}$ es el conjunto de indices de las observaciones de los predictores que pertenecen al cluster $\hspace{0.1cm}C_r$. $\hspace{0.08cm}$ Por lo que puede verse como el conjunto de los individuos de la muestra que están asociados al cluster $\hspace{0.1cm} C_r \\$
+       - $I(C_r)\hspace{0.1cm}$ es el conjunto de indices de las observaciones de los predictores que pertenecen al cluster $\hspace{0.1cm}C_r$. $\hspace{0.08cm}$ Por lo que puede verse como el conjunto de los individuos de la muestra que están asociados al cluster $\hspace{0.1cm} C_r \\$
 
 
        -  $C_r\hspace{0.1cm}$ es un vector cuyas componentes son vectores fila, luego es una matriz. Como además estos vectores fila son observaciones de variables estadisticas, puede verse como una matriz de datos. 
-
+       
 ----
 
 
 
-$\hspace{0.25cm}$ **2) Cálculo de los centroides de los clusters**
+$\hspace{0.25cm}$ **2) Cálculo de los centroides de los clusters iniciales**
 
 
 -  Se calculan los **centroides** de los clusters.
@@ -231,22 +231,41 @@ $\hspace{0.25cm}$ **4) Re-asignación de las observaciones a los clusters**
 
 - El super-indice 1 indica que esta nueva configuración de clusters es la obtenida con la iteración 1 del algoritmo.
 
-- Se calcula la suma de varianzas intra-cluster para la nueva configuracion de clusters obtenida en el paso anterior:
 
-$$V(C_1^{\dagger },...,C_k^{\dagger })$$
+----
+
+$\hspace{0.45cm}$ **4.1) Calculo de los centroides de los nuevos clusters**
+
+
+
+- Se calculan los centroides de los nuevos clusters :  
+
+$$\overline{x}_{C_r^1} = \left( \overline{X \hspace{0.1cm}}_{1, C_r^1} ,...,\overline{X\hspace{0.1cm}}_{p, C_r^1} \right)$$
+
+para $\hspace{0.1cm} r\in \lbrace 1,..., k \rbrace$
+
 
 ----
 
 
-$\hspace{0.25cm}$ **5) Iterar paso 4)**
+$\hspace{0.45cm}$ **4.2) Cálculo de la varianza intra-cluster de los nuevos clusters**
+
+- Se calcula la suma de varianzas intra-cluster para la nueva configuración de clusters obtenida en el paso anterior:
+
+$$V(C_1^{1 },...,C_k^{1 })$$
+
+----
 
 
-- Se itera el paso **4)** un número $\hspace{0.1cm}b\hspace{0.1cm}$ de veces, asi se obtienen $\hspace{0.1cm}b\hspace{0.1cm}$ configuraciones de clusters, y con ello $\hspace{0.1cm}b\hspace{0.1cm}$ valores de la suma de varianzas intra-cluster.
+$\hspace{0.25cm}$ **7) Iterar los pasos 4) , 5) y 6)**
+
+
+- Se iteran los pasos **4)** , **5)** y **6)** un número $\hspace{0.1cm}b\hspace{0.1cm}$ de veces, asi se obtienen $\hspace{0.1cm}b\hspace{0.1cm}$ configuraciones de clusters, y con ello $\hspace{0.1cm}b\hspace{0.1cm}$ valores de la suma de varianzas intra-cluster.
 
 
 ---
 
-$\hspace{0.25cm}$ **6) Selección de la configuracion de clusters definitiva**
+$\hspace{0.25cm}$ **8) Selección de la configuracion de clusters definitiva**
 
 
 - Tras los pasos anteriores  se habrán obtenido un total de $\hspace{0.1cm}b+2\hspace{0.1cm}$ configuraciones de clusters $\hspace{0.1cm}\Rightarrow \hspace{0.1cm} b\hspace{0.1cm}$ en el paso **5)** , $1$ en el paso **1)** y $1$ en el paso **4)**.

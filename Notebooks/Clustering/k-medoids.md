@@ -66,7 +66,9 @@ $\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadi
 ***Se recomienda abrir el artículo en un ordenador o en una tablet.***
  
  
- 
+<br>
+
+
 
  
 # Problema de clasificación no supervisada
@@ -235,7 +237,7 @@ $\hspace{0.45cm}$ **4.1) Calculo de los medoids de los nuevos clusters**
 
      $$i^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.14cm} \underset{i \in I(C_r^1)}{Min} \sum_{j \in I(C_r^1)}\delta(x_i , x_j)$$
 
-para $\hspace{0.1cm} r\in \lbrace 1,..., k \rbrace$
+    para $\hspace{0.1cm} r\in \lbrace 1,..., k \rbrace$
 
 
 ----
