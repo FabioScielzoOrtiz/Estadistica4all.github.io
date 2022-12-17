@@ -383,7 +383,7 @@ $\hspace{0.25cm}$ 5. Aplicar la siguiente regla de decisión:
 
 
 
-# Contraste de medias
+# Contraste para la media con población Normal (T-test)
 
 ## Supuestos
 
@@ -511,7 +511,7 @@ Para un nivel de significación $\hspace{0.1cm} \alpha$ : $\\[0.5cm]$
 
 
 
-    Donde: $\hspace{0.1cm}  \hspace{0.1cm} P(t_{n-1} \hspace{0.1cm} >\hspace{0.1cm}  t_{n-1}^{\alpha})\hspace{0.1cm} =\hspace{0.1cm}  \alpha \\$ 
+    Donde: $\hspace{0.1cm}  \hspace{0.1cm} P(t_{n-1} \hspace{0.1cm} >\hspace{0.1cm}  t_{\alpha}^{n-1})\hspace{0.1cm} =\hspace{0.1cm}  \alpha \\$ 
 
  
 ---
@@ -541,6 +541,8 @@ Para un nivel de significación $\hspace{0.1cm} \alpha$ : $\\[0.5cm]$
 
 ### Basada en el p-valor
 
+Dado un nivel de significación $\hspace{0.1cm}\alpha\hspace{0.1cm}$, la regla de decisión basada en el p-valor del contraste es muy sencilla:
+
 
 $$
 \text{Rechazar}  H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  pvalor < \alpha
@@ -552,88 +554,78 @@ $$
 <br>
 
 
-**Observaciones:**
+### Observaciones 
 
 
 
-- Las reglas de decision en los contrastes de hipotesis son conservadoras, en el sentido de que, por ejemplo, en el caso  \  $H_0: \mu = \mu_0$  \ vs \ $H_1: \mu > \mu_0$ \ se rechazará $H_0$ en favor de $H_1$  cuando $\overline{X_{k,g}}$ sea **suficientemente** mayor que $\mu_0$ , no vale que sea simplemente mayor que $\mu_0$.
-Este hecho se extrapola a todos los contrastes de hipotesis, y es importante tenerlo presente.
+- Las reglas de decision en los contrastes de hipotesis son conservadoras, en el sentido de que, por ejemplo, en el caso  $\hspace{0.2cm} H_0: \mu = \mu_0 \hspace{0.25cm}\text{vs} \hspace{0.25cm} H_1: \mu > \mu_0\hspace{0.2cm}$  se rechazará $\hspace{0.1cm}H_0\hspace{0.1cm}$ en favor de $\hspace{0.1cm}H_1\hspace{0.1cm}$  cuando $\hspace{0.1cm}\overline{X}\hspace{0.1cm}$ sea **suficientemente** mayor que $\hspace{0.1cm}\mu_0\hspace{0.1cm}$ , no vale con que sea simplemente mayor que $\hspace{0.1cm} \mu_0$.
+
+    Este hecho se extrapola a todos los contrastes de hipotesis, y es importante tenerlo presente. $\\[1cm]$
 
 
 
--  $P(\text{Error  Tipo  I})=P(\text{Rechazar}  H_0  |  H_0) =  \alpha$ en todos los casos, veamoslo:
+-  $P(\text{Error  Tipo  I})\hspace{0.1cm}=\hspace{0.1cm}P(\text{Rechazar}  H_0  \hspace{0.1cm}|\hspace{0.1cm}  H_0) \hspace{0.1cm}=\hspace{0.1cm}  \alpha\hspace{0.2cm}$ en todos los casos, veamoslo: $\\[0.5cm]$
 
 
 
-    - Caso \  $H_0: \mu = \mu_0$  \ vs \ $H_1: \mu > \mu_0$
+   - Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu > \mu_0 \\$
 
 
 
-\begin{equation*}
-P(RH_0 | H_0)=P( \underset{  \ v.a \ \sim \ t_{n-1}}{\underbrace{t_{exp|H_0}}}  > t_{n-1}^{\alpha})=P(t_{n-1} > t_{n-1}^\alpha)=\alpha
-\end{equation*}
+     $$P(RH_0 | H_0) \hspace{0.1cm} =\hspace{0.1cm} P( \mathcal{T}_{exp|H_0}  > t_{n-1}^{\alpha})\hspace{0.1cm}=\hspace{0.1cm}P(t_{n-1} > t_{n-1}^\alpha)=\alpha \\[1cm]$$
 
 
 
-    - Caso \  $H_0: \mu = \mu_0$  \ vs \ $H_1: \mu < \mu_0$
+    - Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
 
 
  
-
-\begin{equation*}
-P(RH_0 | H_0)=P( \underset{  \ v.a \ \sim \ t_{n-1}}{\underbrace{t_{exp|H_0}}}  < t_{n-1}^{1-\alpha})=P(t_{n-1} < t_{n-1}^{1-\alpha})=\alpha
-\end{equation*}
+     $$P(RH_0 | H_0) \hspace{0.1cm} =\hspace{0.1cm} P( \mathcal{T}_{exp|H_0}  < t_{n-1}^{\alpha})\hspace{0.1cm}=\hspace{0.1cm}P(t_{n-1} < t_{n-1}^\alpha)=\alpha \\[1cm]$$
 
  
 
-    - Caso \  $H_0: \mu = \mu_0$  \ vs \ $H_1: \mu \neq \mu_0$
+    - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
+
+
+     $$P(RH_0 | H_0) \hspace{0.1cm} =\hspace{0.1cm} P( \mathcal{T}_{exp|H_0}  > t_{n-1}^{\alpha/2}  \hspace{0.1cm} \cup \hspace{0.1cm} \mathcal{T}_{exp|H_0}  < t_{n-1}^{1-\alpha/2}  )\hspace{0.1cm}=\hspace{0.1cm}   P( \mathcal{T}_{exp|H_0}  > t_{n-1}^{\alpha/2}  \hspace{0.1cm} \cup \hspace{0.1cm} \mathcal{T}_{exp|H_0}  < - t_{n-1}^{\alpha/2}  ) \\[0.8cm]
+     \hspace{0.1cm}=\hspace{0.1cm}   P( \mathcal{T}_{exp|H_0}  > t_{n-1}^{\alpha/2} ) + P( \mathcal{T}_{exp|H_0}  < - t_{n-1}^{\alpha/2})
+     \hspace{0.1cm}=\hspace{0.1cm}   P( \mathcal{T}_{exp|H_0}  > t_{n-1}^{\alpha/2} ) + P( \mathcal{T}_{exp|H_0}  >  t_{n-1}^{\alpha/2})  = 2\cdot P( \mathcal{T}_{exp|H_0}  > t_{n-1}^{\alpha} )  \hspace{0.1cm}=\hspace{0.1cm} \alpha \\[1cm]$$
+ 
 
 
 
-\begin{equation*}
-P(RH_0 | H_0)=P(\underset{  \ v.a \ \sim \ t_{n-1}}{\underbrace{t_{exp|H_0}}}  > t_{n-1}^{\alpha/2} \ \ ó \ \ \underset{  \ v.a \ \sim \ t_{n-1}}{\underbrace{t_{exp|H_0}}}  < t_{n-1}^{1-\alpha/2}) =P(t_{n-1} > t_{n-1}^{ \alpha/2} \ \ ó \ \ t_{n-1} < t_{n-1}^{1-\alpha/2})= \\ = P(t_{n-1} > t_{n-1}^{ \alpha/2})+P(t_{n-1} < t_{n-1}^{1-\alpha/2})=\alpha/2 + \alpha/2 =\alpha
-\end{equation*}
+
+- La regla de decisión basada en el p-valor se deduce de la regla de decision basada en el estadistico del contraste, veamoslo: $\\[0.7cm]$
 
 
 
+   - Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu > \mu_0 \\$
 
 
-La regla de decisión basada en el p-valor se deduce de la regla de decision basada en el estadistico del contraste, veamoslo:
 
-\
-
-- Caso \  $H_0: \mu = \mu_0$  \ vs \ $H_1: \mu > \mu_0$
-
-\
-
-\begin{equation*}
-pvalor < \alpha \ \Leftrightarrow \ \  P(t_{n-1} > t_{exp|H0}) < \alpha \ \ \Leftrightarrow \ \ t_{exp|H0} > t_{n-1}^{\alpha} \ \ \Leftrightarrow \ \ Rechazar \ H_0
- \end{equation*}
+    $$\text{pvalor} < \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P(\mathcal{T}_{exp|H_0} > t_{exp|H0}) < \alpha  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P(t_{n-1} > t_{exp|H0}) < \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H0} > t_{n-1}^{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \text{Rechazar}\hspace{0.15cm}  H_0 \\[1cm]$$
 
 
-\
+
+  - Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
+
+    $$\text{pvalor} < \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P(\mathcal{T}_{exp|H_0} < t_{exp|H0}) < \alpha  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P(t_{n-1} < t_{exp|H0}) < \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H0} < t_{n-1}^{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \text{Rechazar}\hspace{0.15cm}  H_0 \\[1cm]$$
 
 
-- Caso \  $H_0: \mu = \mu_0$  \ vs \ $H_1: \mu < \mu_0$
 
-\
-
-\begin{equation*}
-pvalor < \alpha \ \Leftrightarrow \ \  P(t_{n-1} < t_{exp|H0}) < \alpha \ \ \Leftrightarrow \ \ t_{exp|H0} < t_{n-1}^{1-\alpha} \ \ \Leftrightarrow \ \ Rechazar \ H_0
- \end{equation*}
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
 
 
-\
 
-- Caso \  $H_0: \mu = \mu_0$  \ vs \ $H_1: \mu \neq \mu_0$
+    $$\text{pvalor} < \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} 2 \cdot  P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | t_{exp|H_0} | \right) < \alpha  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | t_{exp|H_0} | \right) < \alpha/2 \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \\[0.8cm]
+    \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}
+    | t_{exp|H_0} | > t_{\alpha/2}^{n-1}
+    \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  t_{exp|H_0}  > t_{\alpha/2}^{n-1} \hspace{0.2cm}\vee\hspace{0.2cm} t_{exp|H_0}  > -t_{\alpha/2}^{n-1}
+    \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \text{Rechazar}\hspace{0.15cm}  H_0 \\[1cm]$$
 
-\
+<br>
 
-\begin{equation*}
-pvalor < \alpha \ \Leftrightarrow \ \  2\cdot P(t_{n-1} < \mid t_{exp|H0} \mid ) < \alpha  \ \Leftrightarrow \    P(t_{n-1} < \mid t_{exp|H0} \mid )  < \alpha/2 \ \ \Leftrightarrow \ \ \mid  t_{exp|H0}\mid > t_{n-1}^{\alpha/2} \ \ \Leftrightarrow \ \ \\  t_{exp|H0} >  t_{n-1}^{\alpha/2} \ \ ò \ \ t_{exp|H0} <  - t_{n-1}^{\alpha/2} \ \ \Leftrightarrow \ \   t_{exp|H0} >  t_{n-1}^{\alpha/2} \ \ ò \ \ t_{exp|H0} <   t_{n-1}^{1-\alpha/2}    \ \ \Leftrightarrow \ \ Rechazar \ H_0
- \end{equation*}
-
-
+Algunas de los desarrollos mostrados en este contraste no volverá a ser expuestas en el resto de contrastes, para no hacer demasiado pesado el artículo, pero son facilmente extrapolables.
 
 
 
@@ -650,8 +642,375 @@ pvalor < \alpha \ \Leftrightarrow \ \  2\cdot P(t_{n-1} < \mid t_{exp|H0} \mid )
 
 
 
+<br>
+
+<br>
+
+
+
+# Contraste para la media con población no necesariamente Normal (Z-test)
+
+## Supuestos
+
+- Tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ que no tiene por que tener distribución de probabilidad normal, tal que $\hspace{0.1cm}E[\mathcal{X}] = \mu\hspace{0.1cm}$ y $\hspace{0.1cm}Var(\mathcal{X}) = \sigma^2$
+
+- Tenemos una muestra aleatoria simple $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$  de la v.a. $\hspace{0.1cm}\mathcal{X} \\$
+
+
+- El tamaño muestral $\hspace{0.1cm}n\hspace{0.1cm}$ tiene que ser grande, generalmete vale $\hspace{0.1cm}n>30$
+
+
+
+## Contraste
+
+$$
+H_0 : \mu = \mu_0 \\
+H_1 : \mu \neq \mu_0
+$$
+
+<br>
+
+## Estadistico del contraste
+
+El estadistico de este contraste está basado en el teorema central del limite, que fue ilustrado en el artículo de [intervalos de confianza](http://estadistica4all.com/Articulos/Intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-con-varianza-desconocida): $\\[0.5cm]$ 
+
+$$
+\mathcal{Z}_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - \mu}{ \sqrt{\sigma^2 / n}} \underset{p}{\rightarrow} N(0,1) \\
+$$
+
+Por tanto, el estadístico del contraste bajo $\hspace{0.1cm} H_0\hspace{0.1cm}$ es: $\\[0.5cm]$
+
+$$
+\mathcal{Z}_{exp | H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - \mu_0}{ \sqrt{ \sigma^2 / n}} \underset{p}{\rightarrow} N(0,1) \\
+$$
+
+
+Donde:
+
+
+- $\overline{\mathcal{X}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \\$
 
  
+
+
+<br>
+
+
+**Observación:**
+
+Dada una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{X} \\$
+
+
+$$
+z_{exp | H_0} = \dfrac{\overline{X} - \mu_0}{ \sqrt{ \sigma^2 / n}} \\
+$$
+
+
+es una **realización muestral** de la v.a. $\hspace{0.1cm}\mathcal{Z}_{exp | H_0} \\$
+
+
+Pero como en la práctica $\hspace{0.1cm}\sigma^2\hspace{0.1cm}$ es un parametro desconocido se estima insesgadamente como $\hspace{0.1cm}\dfrac{n}{n-1} \cdot S(X)^2$
+
+Por tanto, la realización muestral del estadistico del contraste queda como sigue:
+
+$$
+\mathcal{Z}_{exp | H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}}\\
+$$
+
+
+Donde:
+
+
+- $\overline{X} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n x_i \\$
+
+- $S(X)^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n x_i - \overline{X}$
+
+
+<br>
+
+
+
+## p-valor
+
+
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm}   \text{vs}  \hspace{0.15cm} H_1: \mu > \mu_0 \\$  
+  
+
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}>\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) > \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\[2.5cm]$$ 
+
+
+
+
+
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
+
+
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}<\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) < \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\[2.5cm]$$ 
+
+
+
+-  Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
+  
+  
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | z_{exp|H_0} | \right) + P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}<\hspace{0.1cm} - | z_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm} 
+     P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | z_{exp|H_0} | \right) + P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm} >\hspace{0.1cm}  | z_{exp|H_0} | \right) \\[1cm]
+     \hspace{0.1cm}=\hspace{0.1cm} 
+    2 \cdot  P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | z_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( N(0,1) > \left| \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right| \hspace{0.1cm} \right)$$
+    
+  
+
+
+
+
+
+<br>
+
+## Regla de decisión
+
+
+### Basada en el estadistico del contraste
+
+
+Para un nivel de significación $\hspace{0.1cm} \alpha$ : $\\[0.5cm]$
+
+
+---
+
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm}   \text{vs}  \hspace{0.15cm}H_1: \mu > \mu_0 \\$
+
+
+    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} >\hspace{0.1cm} z_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} >\hspace{0.1cm} z_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} >\hspace{0.1cm} \mu_0 + z_{\alpha} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}$$
+
+
+
+    Donde: $\hspace{0.1cm}  \hspace{0.1cm} P(N(0,1) \hspace{0.1cm} >\hspace{0.1cm}  z_{\alpha})\hspace{0.1cm} =\hspace{0.1cm}  \alpha \\$ 
+
+ 
+---
+ 
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
+
+     $$ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} < \hspace{0.1cm} z_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} < \hspace{0.1cm} z_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} < \hspace{0.1cm} \mu_0 + z_{\alpha} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n} \\$$
+
+ 
+---
+
+
+-  Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
+
+
+
+
+    $$ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} > \hspace{0.1cm} z_{\alpha/2}  \hspace{0.2cm} \vee \hspace{0.2cm}    z_{exp|H_0} \hspace{0.1cm} < \hspace{0.1cm} z_{1-\alpha/2}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} > \hspace{0.1cm} \mu_0 + z_{\alpha/2}  \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n} \hspace{0.2cm} \vee \hspace{0.2cm}  \overline{X} \hspace{0.1cm} < \hspace{0.1cm} \mu_0 - z_{\alpha/2}  \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}\\$$
+
+
+
+    Donde se ha usado la propiedad de simetría de la distribución Normal, por la cual $\hspace{0.2cm}z_{1-\alpha/2}  \hspace{0.1cm}=\hspace{0.1cm} - z_{\alpha/2} $
+
+
+<br>
+
+
+### Basada en el p-valor
+
+Dado un nivel de significación $\hspace{0.1cm}\alpha\hspace{0.1cm}$, la regla de decisión basada en el p-valor del contraste es muy sencilla:
+
+
+$$
+\text{Rechazar}  H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  pvalor < \alpha
+$$
+
+
+<br>
+
+## Contraste en `Python`
+
+
+
+
+
+
+
+<br>
+
+
+<br>
+
+
+
+
+
+# Contraste para la varianza con población Normal (Chi-test)
+
+## Supuestos
+
+- Tenemos una v.a. $\hspace{0.1cm}\mathcal{X} \sim N(\mu , \sigma^2 )\hspace{0.1cm}$
+
+- Tenemos una muestra aleatoria simple $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$  de la v.a. $\hspace{0.1cm}\mathcal{X} \\$
+
+
+
+
+
+## Hipotesis
+
+$$
+H_0 : \sigma^2 = \sigma_0^2  \hspace{1.5cm}  H_0 : \sigma^2 = \sigma_0^2  \hspace{1.5cm}  H_0 : \sigma^2 = \sigma_0^2 \\
+H_1 : \sigma^2 \neq \sigma_0^2   \hspace{1.5cm}  H_1 : \sigma^2 > \sigma_0^2   \hspace{1.5cm} H_1 : \sigma^2 < \sigma_0^2
+$$
+
+
+<br>
+
+
+## Estadistico del contraste
+
+El estadistico de este contraste está basado en el teorema de Fisher, que fue ilustrado en el artículo de [intervalos de confianza](http://estadistica4all.com/Articulos/Intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-con-varianza-desconocida): $\\[0.5cm]$ 
+
+$$
+\chi_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.2cm} n\cdot S_n^2 \hspace{0.2cm}}{ \sqrt{\sigma^2}} \hspace{0.1cm} \sim \hspace{0.1cm}  \chi_{n-1}^2 \\
+$$
+
+Por tanto, el estadístico del contraste bajo $\hspace{0.1cm} H_0\hspace{0.1cm}$ es: $\\[0.5cm]$
+
+$$
+\chi_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.2cm} n\cdot S_n^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \hspace{0.1cm} \sim \hspace{0.1cm}  \chi_{n-1}^2 \\
+$$
+
+
+Donde:
+
+
+- $S_n^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}})^2$
+
+ 
+
+
+<br>
+
+
+**Observación:**
+
+Dada una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{X} \\$
+
+$$
+x_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}}  \\
+$$
+
+
+es una **realización muestral** de la v.a. $\hspace{0.1cm}\chi_{exp | H_0} \\$
+
+
+ 
+ 
+
+
+Donde:
+
+
+ 
+- $S(X)^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2$
+
+
+<br>
+
+
+
+## p-valor
+
+
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu > \mu_0 \\$  
+  
+
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \chi_{exp|H_0} \hspace{0.1cm}>\hspace{0.1cm} x_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( \chi_{n-1}^2 > \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right) \\[2.5cm]$$ 
+
+
+
+
+
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
+
+
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \chi_{exp|H_0} \hspace{0.1cm}<\hspace{0.1cm} x_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( \chi_{n-1}^2 < \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right) \\[2.5cm]$$ 
+
+
+
+-  Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
+  
+  
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \chi_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | x_{exp|H_0} | \right) + P \left(  \chi_{exp|H_0}  \hspace{0.1cm}<\hspace{0.1cm} - | x_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm}  P \left(  \chi_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} \left|  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right| \hspace{0.1cm} \right) + P \left(  \chi_{exp|H_0}  \hspace{0.1cm}<\hspace{0.1cm} - \left|  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right| \hspace{0.1cm} \right)
+  \\$$
+    
+  
+
+
+
+
+
+<br>
+
+## Regla de decisión
+
+
+### Basada en el estadistico del contraste
+
+
+Para un nivel de significación $\hspace{0.1cm} \alpha$ : $\\[0.5cm]$
+
+
+---
+
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm}   \text{vs}  \hspace{0.15cm}H_1: \mu > \mu_0 \\$
+
+
+    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} x_{exp|H_0} \hspace{0.1cm} >\hspace{0.1cm} \chi^2_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \hspace{0.1cm} >\hspace{0.1cm} \chi^2_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  S(X)^2 \hspace{0.1cm} >\hspace{0.1cm} \sqrt{\sigma^2_0} \cdot \chi^2_{\alpha} / n$$
+
+
+
+    Donde: $\hspace{0.1cm}  \hspace{0.1cm} P(\chi^2_{n-1} \hspace{0.1cm} >\hspace{0.1cm}  \chi_{\alpha})\hspace{0.1cm} =\hspace{0.1cm}  \alpha \\$ 
+
+ 
+---
+ 
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
+
+    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} x_{exp|H_0} \hspace{0.1cm} <\hspace{0.1cm} \chi^2_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \hspace{0.1cm} <\hspace{0.1cm} \chi^2_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  S(X)^2 \hspace{0.1cm} <\hspace{0.1cm} \sqrt{\sigma^2_0} \cdot \chi^2_{\alpha} / n$$
+
+ 
+---
+
+
+-  Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
+
+
+$$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} x_{exp|H_0} \hspace{0.1cm} >\hspace{0.1cm} \chi^2_{\alpha/2} \hspace{0.2cm} \vee \hspace{0.2cm} x_{exp|H_0} \hspace{0.1cm} <\hspace{0.1cm} \chi^2_{1-\alpha/2} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \hspace{0.1cm} >\hspace{0.1cm} \chi^2_{\alpha} \hspace{0.2cm} \vee \hspace{0.2cm} x_{exp|H_0} \hspace{0.1cm} <\hspace{0.1cm} \chi^2_{1-\alpha/2}    \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  S(X)^2 \hspace{0.1cm} >\hspace{0.1cm} \sqrt{\sigma^2_0} \cdot \chi^2_{\alpha/2} / n  \hspace{0.2cm} \vee \hspace{0.2cm}     S(X)^2 \hspace{0.1cm} <\hspace{0.1cm} \sqrt{\sigma^2_0} \cdot \chi^2_{1-\alpha/2} / n$$
+
+ 
+
+
+ 
+
+<br>
+
+
+### Basada en el p-valor
+
+Dado un nivel de significación $\hspace{0.1cm}\alpha\hspace{0.1cm}$, la regla de decisión basada en el p-valor del contraste es muy sencilla:
+
+
+$$
+\text{Rechazar}  H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  pvalor < \alpha
+$$
+
+
+<br>
+
+## Contraste en `Python`
+
+
+
+
+ <br>
 
 
 

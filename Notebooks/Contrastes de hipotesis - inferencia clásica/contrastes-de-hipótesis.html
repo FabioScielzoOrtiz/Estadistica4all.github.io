@@ -1521,7 +1521,7 @@ margin-left: 0 !important;
       <li><a href="#metodología-del-contraste" id="toc-metodología-del-contraste"><span class="toc-section-number">1.7</span> Metodología del contraste</a></li>
       <li><a href="#p-valor" id="toc-p-valor"><span class="toc-section-number">1.8</span> p-valor</a></li>
       </ul></li>
-      <li><a href="#contraste-de-medias" id="toc-contraste-de-medias"><span class="toc-section-number">2</span> Contraste de medias</a>
+      <li><a href="#contraste-para-la-media-con-población-normal-t-test" id="toc-contraste-para-la-media-con-población-normal-t-test"><span class="toc-section-number">2</span> Contraste para la media con población Normal (T-test)</a>
       <ul>
       <li><a href="#supuestos" id="toc-supuestos"><span class="toc-section-number">2.1</span> Supuestos</a></li>
       <li><a href="#contraste" id="toc-contraste"><span class="toc-section-number">2.2</span> Contraste</a></li>
@@ -1529,6 +1529,24 @@ margin-left: 0 !important;
       <li><a href="#p-valor-1" id="toc-p-valor-1"><span class="toc-section-number">2.4</span> p-valor</a></li>
       <li><a href="#regla-de-decisión" id="toc-regla-de-decisión"><span class="toc-section-number">2.5</span> Regla de decisión</a></li>
       <li><a href="#contraste-en-python" id="toc-contraste-en-python"><span class="toc-section-number">2.6</span> Contraste en <code>Python</code></a></li>
+      </ul></li>
+      <li><a href="#contraste-para-la-media-con-población-no-necesariamente-normal-z-test" id="toc-contraste-para-la-media-con-población-no-necesariamente-normal-z-test"><span class="toc-section-number">3</span> Contraste para la media con población no necesariamente Normal (Z-test)</a>
+      <ul>
+      <li><a href="#supuestos-1" id="toc-supuestos-1"><span class="toc-section-number">3.1</span> Supuestos</a></li>
+      <li><a href="#contraste-1" id="toc-contraste-1"><span class="toc-section-number">3.2</span> Contraste</a></li>
+      <li><a href="#estadistico-del-contraste-1" id="toc-estadistico-del-contraste-1"><span class="toc-section-number">3.3</span> Estadistico del contraste</a></li>
+      <li><a href="#p-valor-2" id="toc-p-valor-2"><span class="toc-section-number">3.4</span> p-valor</a></li>
+      <li><a href="#regla-de-decisión-1" id="toc-regla-de-decisión-1"><span class="toc-section-number">3.5</span> Regla de decisión</a></li>
+      <li><a href="#contraste-en-python-1" id="toc-contraste-en-python-1"><span class="toc-section-number">3.6</span> Contraste en <code>Python</code></a></li>
+      </ul></li>
+      <li><a href="#contraste-para-la-varianza-con-población-normal-chi-test" id="toc-contraste-para-la-varianza-con-población-normal-chi-test"><span class="toc-section-number">4</span> Contraste para la varianza con población Normal (Chi-test)</a>
+      <ul>
+      <li><a href="#supuestos-2" id="toc-supuestos-2"><span class="toc-section-number">4.1</span> Supuestos</a></li>
+      <li><a href="#hipotesis" id="toc-hipotesis"><span class="toc-section-number">4.2</span> Hipotesis</a></li>
+      <li><a href="#estadistico-del-contraste-2" id="toc-estadistico-del-contraste-2"><span class="toc-section-number">4.3</span> Estadistico del contraste</a></li>
+      <li><a href="#p-valor-3" id="toc-p-valor-3"><span class="toc-section-number">4.4</span> p-valor</a></li>
+      <li><a href="#regla-de-decisión-2" id="toc-regla-de-decisión-2"><span class="toc-section-number">4.5</span> Regla de decisión</a></li>
+      <li><a href="#contraste-en-python-2" id="toc-contraste-en-python-2"><span class="toc-section-number">4.6</span> Contraste en <code>Python</code></a></li>
       </ul></li>
       </ul>
     </div>
@@ -1781,8 +1799,8 @@ tipo II:</p>
 <p><br></p>
 </div>
 </div>
-<div id="contraste-de-medias" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Contraste de medias</h1>
+<div id="contraste-para-la-media-con-población-normal-t-test" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Contraste para la media con población Normal (T-test)</h1>
 <div id="supuestos" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Supuestos</h2>
 <ul>
@@ -1851,7 +1869,7 @@ t_{exp | H_0} = \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 
 <ul>
 <li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm} \text{vs} \hspace{0.15cm}H_1: \mu &gt; \mu_0 \\\)</span></p>
 <p><span class="math display">\[\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} &gt;\hspace{0.1cm} t_{\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} &gt;\hspace{0.1cm} t_{\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} &gt;\hspace{0.1cm} \mu_0 + t_{\alpha}^{n-1} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}\]</span></p>
-<p>Donde: <span class="math inline">\(\hspace{0.1cm} \hspace{0.1cm} P(t_{n-1} \hspace{0.1cm} &gt;\hspace{0.1cm} t_{n-1}^{\alpha})\hspace{0.1cm} =\hspace{0.1cm} \alpha \\\)</span></p></li>
+<p>Donde: <span class="math inline">\(\hspace{0.1cm} \hspace{0.1cm} P(t_{n-1} \hspace{0.1cm} &gt;\hspace{0.1cm} t_{\alpha}^{n-1})\hspace{0.1cm} =\hspace{0.1cm} \alpha \\\)</span></p></li>
 </ul>
 <hr />
 <ul>
@@ -1868,66 +1886,254 @@ t_{exp | H_0} = \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 
 </div>
 <div id="basada-en-el-p-valor" class="section level3" number="2.5.2">
 <h3><span class="header-section-number">2.5.2</span> Basada en el p-valor</h3>
+<p>Dado un nivel de significación <span class="math inline">\(\hspace{0.1cm}\alpha\hspace{0.1cm}\)</span>, la regla de decisión basada en el p-valor del contraste es muy sencilla:</p>
 <p><span class="math display">\[
 \text{Rechazar}  H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  pvalor &lt; \alpha
 \]</span></p>
 <p><br></p>
-<p><strong>Observaciones:</strong></p>
+</div>
+<div id="observaciones" class="section level3" number="2.5.3">
+<h3><span class="header-section-number">2.5.3</span> Observaciones</h3>
 <ul>
-<li><p>Las reglas de decision en los contrastes de hipotesis son conservadoras, en el sentido de que, por ejemplo, en el caso   <span class="math inline">\(H_0: \mu = \mu_0\)</span>  vs  <span class="math inline">\(H_1: \mu &gt; \mu_0\)</span>  se rechazará <span class="math inline">\(H_0\)</span> en favor de <span class="math inline">\(H_1\)</span> cuando <span class="math inline">\(\overline{X_{k,g}}\)</span> sea <strong>suficientemente</strong> mayor que <span class="math inline">\(\mu_0\)</span> , no vale que sea simplemente mayor que <span class="math inline">\(\mu_0\)</span>.
-Este hecho se extrapola a todos los contrastes de hipotesis, y es importante tenerlo presente.</p></li>
-<li><p><span class="math inline">\(P(\text{Error  Tipo  I})=P(\text{Rechazar} H_0 | H_0) = \alpha\)</span> en todos los casos, veamoslo:</p>
+<li><p>Las reglas de decision en los contrastes de hipotesis son conservadoras, en el sentido de que, por ejemplo, en el caso <span class="math inline">\(\hspace{0.2cm} H_0: \mu = \mu_0 \hspace{0.25cm}\text{vs} \hspace{0.25cm} H_1: \mu &gt; \mu_0\hspace{0.2cm}\)</span> se rechazará <span class="math inline">\(\hspace{0.1cm}H_0\hspace{0.1cm}\)</span> en favor de <span class="math inline">\(\hspace{0.1cm}H_1\hspace{0.1cm}\)</span> cuando <span class="math inline">\(\hspace{0.1cm}\overline{X}\hspace{0.1cm}\)</span> sea <strong>suficientemente</strong> mayor que <span class="math inline">\(\hspace{0.1cm}\mu_0\hspace{0.1cm}\)</span> , no vale con que sea simplemente mayor que <span class="math inline">\(\hspace{0.1cm} \mu_0\)</span>.</p>
+<p>Este hecho se extrapola a todos los contrastes de hipotesis, y es importante tenerlo presente. <span class="math inline">\(\\[1cm]\)</span></p></li>
+<li><p><span class="math inline">\(P(\text{Error  Tipo  I})\hspace{0.1cm}=\hspace{0.1cm}P(\text{Rechazar} H_0 \hspace{0.1cm}|\hspace{0.1cm} H_0) \hspace{0.1cm}=\hspace{0.1cm} \alpha\hspace{0.2cm}\)</span> en todos los casos, veamoslo: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <ul>
-<li>Caso   <span class="math inline">\(H_0: \mu = \mu_0\)</span>  vs  <span class="math inline">\(H_1: \mu &gt; \mu_0\)</span></li>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &gt; \mu_0 \\\)</span></p>
+<p><span class="math display">\[P(RH_0 | H_0) \hspace{0.1cm} =\hspace{0.1cm} P( \mathcal{T}_{exp|H_0}  &gt; t_{n-1}^{\alpha})\hspace{0.1cm}=\hspace{0.1cm}P(t_{n-1} &gt; t_{n-1}^\alpha)=\alpha \\[1cm]\]</span></p></li>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &lt; \mu_0 \\\)</span></p></li>
+</ul>
+<p><span class="math display">\[P(RH_0 | H_0) \hspace{0.1cm} =\hspace{0.1cm} P( \mathcal{T}_{exp|H_0}  &lt; t_{n-1}^{\alpha})\hspace{0.1cm}=\hspace{0.1cm}P(t_{n-1} &lt; t_{n-1}^\alpha)=\alpha \\[1cm]\]</span></p>
+<ul>
+<li>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu \neq \mu_0 \\\)</span></li>
+</ul>
+<p><span class="math display">\[P(RH_0 | H_0) \hspace{0.1cm} =\hspace{0.1cm} P( \mathcal{T}_{exp|H_0}  &gt; t_{n-1}^{\alpha/2}  \hspace{0.1cm} \cup \hspace{0.1cm} \mathcal{T}_{exp|H_0}  &lt; t_{n-1}^{1-\alpha/2}  )\hspace{0.1cm}=\hspace{0.1cm}   P( \mathcal{T}_{exp|H_0}  &gt; t_{n-1}^{\alpha/2}  \hspace{0.1cm} \cup \hspace{0.1cm} \mathcal{T}_{exp|H_0}  &lt; - t_{n-1}^{\alpha/2}  ) \\[0.8cm]
+  \hspace{0.1cm}=\hspace{0.1cm}   P( \mathcal{T}_{exp|H_0}  &gt; t_{n-1}^{\alpha/2} ) + P( \mathcal{T}_{exp|H_0}  &lt; - t_{n-1}^{\alpha/2})
+  \hspace{0.1cm}=\hspace{0.1cm}   P( \mathcal{T}_{exp|H_0}  &gt; t_{n-1}^{\alpha/2} ) + P( \mathcal{T}_{exp|H_0}  &gt;  t_{n-1}^{\alpha/2})  = 2\cdot P( \mathcal{T}_{exp|H_0}  &gt; t_{n-1}^{\alpha} )  \hspace{0.1cm}=\hspace{0.1cm} \alpha \\[1cm]\]</span></p></li>
+<li><p>La regla de decisión basada en el p-valor se deduce de la regla de decision basada en el estadistico del contraste, veamoslo: <span class="math inline">\(\\[0.7cm]\)</span></p>
+<ul>
+<li>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &gt; \mu_0 \\\)</span></li>
+</ul>
+<p><span class="math display">\[\text{pvalor} &lt; \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P(\mathcal{T}_{exp|H_0} &gt; t_{exp|H0}) &lt; \alpha  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P(t_{n-1} &gt; t_{exp|H0}) &lt; \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H0} &gt; t_{n-1}^{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \text{Rechazar}\hspace{0.15cm}  H_0 \\[1cm]\]</span></p>
+<ul>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &lt; \mu_0 \\\)</span></p>
+<p><span class="math display">\[\text{pvalor} &lt; \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P(\mathcal{T}_{exp|H_0} &lt; t_{exp|H0}) &lt; \alpha  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P(t_{n-1} &lt; t_{exp|H0}) &lt; \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H0} &lt; t_{n-1}^{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \text{Rechazar}\hspace{0.15cm}  H_0 \\[1cm]\]</span></p></li>
 </ul></li>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu \neq \mu_0 \\\)</span></p>
+<p><span class="math display">\[\text{pvalor} &lt; \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} 2 \cdot  P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}&gt;\hspace{0.1cm} | t_{exp|H_0} | \right) &lt; \alpha  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}&gt;\hspace{0.1cm} | t_{exp|H_0} | \right) &lt; \alpha/2 \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \\[0.8cm]
+  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}
+  | t_{exp|H_0} | &gt; t_{\alpha/2}^{n-1}
+  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  t_{exp|H_0}  &gt; t_{\alpha/2}^{n-1} \hspace{0.2cm}\vee\hspace{0.2cm} t_{exp|H_0}  &gt; -t_{\alpha/2}^{n-1}
+  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \text{Rechazar}\hspace{0.15cm}  H_0 \\[1cm]\]</span></p></li>
 </ul>
-<p><span class="math display">\[\begin{equation*}
-P(RH_0 | H_0)=P( \underset{  \ v.a \ \sim \ t_{n-1}}{\underbrace{t_{exp|H_0}}}  &gt; t_{n-1}^{\alpha})=P(t_{n-1} &gt; t_{n-1}^\alpha)=\alpha
-\end{equation*}\]</span></p>
-<pre><code>- Caso \  $H_0: \mu = \mu_0$  \ vs \ $H_1: \mu &lt; \mu_0$</code></pre>
-<p><span class="math display">\[\begin{equation*}
-P(RH_0 | H_0)=P( \underset{  \ v.a \ \sim \ t_{n-1}}{\underbrace{t_{exp|H_0}}}  &lt; t_{n-1}^{1-\alpha})=P(t_{n-1} &lt; t_{n-1}^{1-\alpha})=\alpha
-\end{equation*}\]</span></p>
-<pre><code>- Caso \  $H_0: \mu = \mu_0$  \ vs \ $H_1: \mu \neq \mu_0$</code></pre>
-<p><span class="math display">\[\begin{equation*}
-P(RH_0 | H_0)=P(\underset{  \ v.a \ \sim \ t_{n-1}}{\underbrace{t_{exp|H_0}}}  &gt; t_{n-1}^{\alpha/2} \ \ ó \ \ \underset{  \ v.a \ \sim \ t_{n-1}}{\underbrace{t_{exp|H_0}}}  &lt; t_{n-1}^{1-\alpha/2}) =P(t_{n-1} &gt; t_{n-1}^{ \alpha/2} \ \ ó \ \ t_{n-1} &lt; t_{n-1}^{1-\alpha/2})= \\ = P(t_{n-1} &gt; t_{n-1}^{ \alpha/2})+P(t_{n-1} &lt; t_{n-1}^{1-\alpha/2})=\alpha/2 + \alpha/2 =\alpha
-\end{equation*}\]</span></p>
-<p>La regla de decisión basada en el p-valor se deduce de la regla de decision basada en el estadistico del contraste, veamoslo:</p>
-<p><br />
-</p>
-<ul>
-<li>Caso   <span class="math inline">\(H_0: \mu = \mu_0\)</span>  vs  <span class="math inline">\(H_1: \mu &gt; \mu_0\)</span></li>
-</ul>
-<p><br />
-</p>
-<p><span class="math display">\[\begin{equation*}
-pvalor &lt; \alpha \ \Leftrightarrow \ \  P(t_{n-1} &gt; t_{exp|H0}) &lt; \alpha \ \ \Leftrightarrow \ \ t_{exp|H0} &gt; t_{n-1}^{\alpha} \ \ \Leftrightarrow \ \ Rechazar \ H_0
-\end{equation*}\]</span></p>
-<p><br />
-</p>
-<ul>
-<li>Caso   <span class="math inline">\(H_0: \mu = \mu_0\)</span>  vs  <span class="math inline">\(H_1: \mu &lt; \mu_0\)</span></li>
-</ul>
-<p><br />
-</p>
-<p><span class="math display">\[\begin{equation*}
-pvalor &lt; \alpha \ \Leftrightarrow \ \  P(t_{n-1} &lt; t_{exp|H0}) &lt; \alpha \ \ \Leftrightarrow \ \ t_{exp|H0} &lt; t_{n-1}^{1-\alpha} \ \ \Leftrightarrow \ \ Rechazar \ H_0
-\end{equation*}\]</span></p>
-<p><br />
-</p>
-<ul>
-<li>Caso   <span class="math inline">\(H_0: \mu = \mu_0\)</span>  vs  <span class="math inline">\(H_1: \mu \neq \mu_0\)</span></li>
-</ul>
-<p><br />
-</p>
-<p><span class="math display">\[\begin{equation*}
-pvalor &lt; \alpha \ \Leftrightarrow \ \  2\cdot P(t_{n-1} &lt; \mid t_{exp|H0} \mid ) &lt; \alpha  \ \Leftrightarrow \    P(t_{n-1} &lt; \mid t_{exp|H0} \mid )  &lt; \alpha/2 \ \ \Leftrightarrow \ \ \mid  t_{exp|H0}\mid &gt; t_{n-1}^{\alpha/2} \ \ \Leftrightarrow \ \ \\  t_{exp|H0} &gt;  t_{n-1}^{\alpha/2} \ \ ò \ \ t_{exp|H0} &lt;  - t_{n-1}^{\alpha/2} \ \ \Leftrightarrow \ \   t_{exp|H0} &gt;  t_{n-1}^{\alpha/2} \ \ ò \ \ t_{exp|H0} &lt;   t_{n-1}^{1-\alpha/2}    \ \ \Leftrightarrow \ \ Rechazar \ H_0
-\end{equation*}\]</span></p>
+<p><br></p>
+<p>Algunas de los desarrollos mostrados en este contraste no volverá a ser expuestas en el resto de contrastes, para no hacer demasiado pesado el artículo, pero son facilmente extrapolables.</p>
 <p><br></p>
 </div>
 </div>
 <div id="contraste-en-python" class="section level2" number="2.6">
 <h2><span class="header-section-number">2.6</span> Contraste en <code>Python</code></h2>
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+<div id="contraste-para-la-media-con-población-no-necesariamente-normal-z-test" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Contraste para la media con población no necesariamente Normal (Z-test)</h1>
+<div id="supuestos-1" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Supuestos</h2>
+<ul>
+<li><p>Tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> que no tiene por que tener distribución de probabilidad normal, tal que <span class="math inline">\(\hspace{0.1cm}E[\mathcal{X}] = \mu\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}Var(\mathcal{X}) = \sigma^2\)</span></p></li>
+<li><p>Tenemos una muestra aleatoria simple <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \\\)</span></p></li>
+<li><p>El tamaño muestral <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> tiene que ser grande, generalmete vale <span class="math inline">\(\hspace{0.1cm}n&gt;30\)</span></p></li>
+</ul>
+</div>
+<div id="contraste-1" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Contraste</h2>
+<p><span class="math display">\[
+H_0 : \mu = \mu_0 \\
+H_1 : \mu \neq \mu_0
+\]</span></p>
+<p><br></p>
+</div>
+<div id="estadistico-del-contraste-1" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Estadistico del contraste</h2>
+<p>El estadistico de este contraste está basado en el teorema central del limite, que fue ilustrado en el artículo de <a href="http://estadistica4all.com/Articulos/Intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-con-varianza-desconocida">intervalos de confianza</a>: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[
+\mathcal{Z}_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - \mu}{ \sqrt{\sigma^2 / n}} \underset{p}{\rightarrow} N(0,1) \\
+\]</span></p>
+<p>Por tanto, el estadístico del contraste bajo <span class="math inline">\(\hspace{0.1cm} H_0\hspace{0.1cm}\)</span> es: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[
+\mathcal{Z}_{exp | H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - \mu_0}{ \sqrt{ \sigma^2 / n}} \underset{p}{\rightarrow} N(0,1) \\
+\]</span></p>
+<p>Donde:</p>
+<ul>
+<li><span class="math inline">\(\overline{\mathcal{X}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \\\)</span></li>
+</ul>
+<p><br></p>
+<p><strong>Observación:</strong></p>
+<p>Dada una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \\\)</span></p>
+<p><span class="math display">\[
+z_{exp | H_0} = \dfrac{\overline{X} - \mu_0}{ \sqrt{ \sigma^2 / n}} \\
+\]</span></p>
+<p>es una <strong>realización muestral</strong> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{Z}_{exp | H_0} \\\)</span></p>
+<p>Pero como en la práctica <span class="math inline">\(\hspace{0.1cm}\sigma^2\hspace{0.1cm}\)</span> es un parametro desconocido se estima insesgadamente como <span class="math inline">\(\hspace{0.1cm}\dfrac{n}{n-1} \cdot S(X)^2\)</span></p>
+<p>Por tanto, la realización muestral del estadistico del contraste queda como sigue:</p>
+<p><span class="math display">\[
+\mathcal{Z}_{exp | H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}}\\
+\]</span></p>
+<p>Donde:</p>
+<ul>
+<li><p><span class="math inline">\(\overline{X} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n x_i \\\)</span></p></li>
+<li><p><span class="math inline">\(S(X)^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n x_i - \overline{X}\)</span></p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="p-valor-2" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> p-valor</h2>
+<ul>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm} \text{vs} \hspace{0.15cm} H_1: \mu &gt; \mu_0 \\\)</span></p>
+<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}&gt;\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) &gt; \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\[2.5cm]\]</span></p></li>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &lt; \mu_0 \\\)</span></p>
+<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}&lt;\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) &lt; \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\[2.5cm]\]</span></p></li>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu \neq \mu_0 \\\)</span></p>
+<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}&gt;\hspace{0.1cm} | z_{exp|H_0} | \right) + P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}&lt;\hspace{0.1cm} - | z_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm}
+  P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}&gt;\hspace{0.1cm} | z_{exp|H_0} | \right) + P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm} &gt;\hspace{0.1cm}  | z_{exp|H_0} | \right) \\[1cm]
+  \hspace{0.1cm}=\hspace{0.1cm}
+2 \cdot  P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}&gt;\hspace{0.1cm} | z_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( N(0,1) &gt; \left| \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right| \hspace{0.1cm} \right)\]</span></p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="regla-de-decisión-1" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Regla de decisión</h2>
+<div id="basada-en-el-estadistico-del-contraste-1" class="section level3" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Basada en el estadistico del contraste</h3>
+<p>Para un nivel de significación <span class="math inline">\(\hspace{0.1cm} \alpha\)</span> : <span class="math inline">\(\\[0.5cm]\)</span></p>
+<hr />
+<ul>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm} \text{vs} \hspace{0.15cm}H_1: \mu &gt; \mu_0 \\\)</span></p>
+<p><span class="math display">\[\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} &gt;\hspace{0.1cm} z_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} &gt;\hspace{0.1cm} z_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} &gt;\hspace{0.1cm} \mu_0 + z_{\alpha} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}\]</span></p>
+<p>Donde: <span class="math inline">\(\hspace{0.1cm} \hspace{0.1cm} P(N(0,1) \hspace{0.1cm} &gt;\hspace{0.1cm} z_{\alpha})\hspace{0.1cm} =\hspace{0.1cm} \alpha \\\)</span></p></li>
+</ul>
+<hr />
+<ul>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &lt; \mu_0 \\\)</span></p>
+<p><span class="math display">\[ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} &lt; \hspace{0.1cm} z_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} &lt; \hspace{0.1cm} z_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} &lt; \hspace{0.1cm} \mu_0 + z_{\alpha} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n} \\\]</span></p></li>
+</ul>
+<hr />
+<ul>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu \neq \mu_0 \\\)</span></p>
+<p><span class="math display">\[ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} &gt; \hspace{0.1cm} z_{\alpha/2}  \hspace{0.2cm} \vee \hspace{0.2cm}    z_{exp|H_0} \hspace{0.1cm} &lt; \hspace{0.1cm} z_{1-\alpha/2}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} &gt; \hspace{0.1cm} \mu_0 + z_{\alpha/2}  \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n} \hspace{0.2cm} \vee \hspace{0.2cm}  \overline{X} \hspace{0.1cm} &lt; \hspace{0.1cm} \mu_0 - z_{\alpha/2}  \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}\\\]</span></p>
+<p>Donde se ha usado la propiedad de simetría de la distribución Normal, por la cual $z_{1-/2} = - z_{/2} $</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="basada-en-el-p-valor-1" class="section level3" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Basada en el p-valor</h3>
+<p>Dado un nivel de significación <span class="math inline">\(\hspace{0.1cm}\alpha\hspace{0.1cm}\)</span>, la regla de decisión basada en el p-valor del contraste es muy sencilla:</p>
+<p><span class="math display">\[
+\text{Rechazar}  H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  pvalor &lt; \alpha
+\]</span></p>
+<p><br></p>
+</div>
+</div>
+<div id="contraste-en-python-1" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Contraste en <code>Python</code></h2>
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+<div id="contraste-para-la-varianza-con-población-normal-chi-test" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Contraste para la varianza con población Normal (Chi-test)</h1>
+<div id="supuestos-2" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Supuestos</h2>
+<ul>
+<li><p>Tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \sim N(\mu , \sigma^2 )\hspace{0.1cm}\)</span></p></li>
+<li><p>Tenemos una muestra aleatoria simple <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \\\)</span></p></li>
+</ul>
+</div>
+<div id="hipotesis" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Hipotesis</h2>
+<p><span class="math display">\[
+H_0 : \sigma^2 = \sigma_0^2  \hspace{1.5cm}  H_0 : \sigma^2 = \sigma_0^2  \hspace{1.5cm}  H_0 : \sigma^2 = \sigma_0^2 \\
+H_1 : \sigma^2 \neq \sigma_0^2   \hspace{1.5cm}  H_1 : \sigma^2 &gt; \sigma_0^2   \hspace{1.5cm} H_1 : \sigma^2 &lt; \sigma_0^2
+\]</span></p>
+<p><br></p>
+</div>
+<div id="estadistico-del-contraste-2" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Estadistico del contraste</h2>
+<p>El estadistico de este contraste está basado en el teorema de Fisher, que fue ilustrado en el artículo de <a href="http://estadistica4all.com/Articulos/Intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-con-varianza-desconocida">intervalos de confianza</a>: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[
+\chi_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.2cm} n\cdot S_n^2 \hspace{0.2cm}}{ \sqrt{\sigma^2}} \hspace{0.1cm} \sim \hspace{0.1cm}  \chi_{n-1}^2 \\
+\]</span></p>
+<p>Por tanto, el estadístico del contraste bajo <span class="math inline">\(\hspace{0.1cm} H_0\hspace{0.1cm}\)</span> es: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[
+\chi_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.2cm} n\cdot S_n^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \hspace{0.1cm} \sim \hspace{0.1cm}  \chi_{n-1}^2 \\
+\]</span></p>
+<p>Donde:</p>
+<ul>
+<li><span class="math inline">\(S_n^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}})^2\)</span></li>
+</ul>
+<p><br></p>
+<p><strong>Observación:</strong></p>
+<p>Dada una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \\\)</span></p>
+<p><span class="math display">\[
+x_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}}  \\
+\]</span></p>
+<p>es una <strong>realización muestral</strong> de la v.a. <span class="math inline">\(\hspace{0.1cm}\chi_{exp | H_0} \\\)</span></p>
+<p>Donde:</p>
+<ul>
+<li><span class="math inline">\(S(X)^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2\)</span></li>
+</ul>
+<p><br></p>
+</div>
+<div id="p-valor-3" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> p-valor</h2>
+<ul>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &gt; \mu_0 \\\)</span></p>
+<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \chi_{exp|H_0} \hspace{0.1cm}&gt;\hspace{0.1cm} x_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( \chi_{n-1}^2 &gt; \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right) \\[2.5cm]\]</span></p></li>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &lt; \mu_0 \\\)</span></p>
+<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \chi_{exp|H_0} \hspace{0.1cm}&lt;\hspace{0.1cm} x_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( \chi_{n-1}^2 &lt; \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right) \\[2.5cm]\]</span></p></li>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu \neq \mu_0 \\\)</span></p>
+<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \chi_{exp|H_0}  \hspace{0.1cm}&gt;\hspace{0.1cm} | x_{exp|H_0} | \right) + P \left(  \chi_{exp|H_0}  \hspace{0.1cm}&lt;\hspace{0.1cm} - | x_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm}  P \left(  \chi_{exp|H_0}  \hspace{0.1cm}&gt;\hspace{0.1cm} \left|  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right| \hspace{0.1cm} \right) + P \left(  \chi_{exp|H_0}  \hspace{0.1cm}&lt;\hspace{0.1cm} - \left|  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right| \hspace{0.1cm} \right)
+  \\\]</span></p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="regla-de-decisión-2" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Regla de decisión</h2>
+<div id="basada-en-el-estadistico-del-contraste-2" class="section level3" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Basada en el estadistico del contraste</h3>
+<p>Para un nivel de significación <span class="math inline">\(\hspace{0.1cm} \alpha\)</span> : <span class="math inline">\(\\[0.5cm]\)</span></p>
+<hr />
+<ul>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm} \text{vs} \hspace{0.15cm}H_1: \mu &gt; \mu_0 \\\)</span></p>
+<p><span class="math display">\[\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} x_{exp|H_0} \hspace{0.1cm} &gt;\hspace{0.1cm} \chi^2_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \hspace{0.1cm} &gt;\hspace{0.1cm} \chi^2_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  S(X)^2 \hspace{0.1cm} &gt;\hspace{0.1cm} \sqrt{\sigma^2_0} \cdot \chi^2_{\alpha} / n\]</span></p>
+<p>Donde: <span class="math inline">\(\hspace{0.1cm} \hspace{0.1cm} P(\chi^2_{n-1} \hspace{0.1cm} &gt;\hspace{0.1cm} \chi_{\alpha})\hspace{0.1cm} =\hspace{0.1cm} \alpha \\\)</span></p></li>
+</ul>
+<hr />
+<ul>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &lt; \mu_0 \\\)</span></p>
+<p><span class="math display">\[\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} x_{exp|H_0} \hspace{0.1cm} &lt;\hspace{0.1cm} \chi^2_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \hspace{0.1cm} &lt;\hspace{0.1cm} \chi^2_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  S(X)^2 \hspace{0.1cm} &lt;\hspace{0.1cm} \sqrt{\sigma^2_0} \cdot \chi^2_{\alpha} / n\]</span></p></li>
+</ul>
+<hr />
+<ul>
+<li>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu \neq \mu_0 \\\)</span></li>
+</ul>
+<p><span class="math display">\[\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} x_{exp|H_0} \hspace{0.1cm} &gt;\hspace{0.1cm} \chi^2_{\alpha/2} \hspace{0.2cm} \vee \hspace{0.2cm} x_{exp|H_0} \hspace{0.1cm} &lt;\hspace{0.1cm} \chi^2_{1-\alpha/2} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \hspace{0.1cm} &gt;\hspace{0.1cm} \chi^2_{\alpha} \hspace{0.2cm} \vee \hspace{0.2cm} x_{exp|H_0} \hspace{0.1cm} &lt;\hspace{0.1cm} \chi^2_{1-\alpha/2}    \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  S(X)^2 \hspace{0.1cm} &gt;\hspace{0.1cm} \sqrt{\sigma^2_0} \cdot \chi^2_{\alpha/2} / n  \hspace{0.2cm} \vee \hspace{0.2cm}     S(X)^2 \hspace{0.1cm} &lt;\hspace{0.1cm} \sqrt{\sigma^2_0} \cdot \chi^2_{1-\alpha/2} / n\]</span></p>
+<p><br></p>
+</div>
+<div id="basada-en-el-p-valor-2" class="section level3" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> Basada en el p-valor</h3>
+<p>Dado un nivel de significación <span class="math inline">\(\hspace{0.1cm}\alpha\hspace{0.1cm}\)</span>, la regla de decisión basada en el p-valor del contraste es muy sencilla:</p>
+<p><span class="math display">\[
+\text{Rechazar}  H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  pvalor &lt; \alpha
+\]</span></p>
+<p><br></p>
+</div>
+</div>
+<div id="contraste-en-python-2" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Contraste en <code>Python</code></h2>
+<p><br></p>
 </div>
 </div>
 </div>
