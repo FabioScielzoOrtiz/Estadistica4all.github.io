@@ -3836,7 +3836,7 @@ $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ forman un conjun
 <p style='margin-left:1em;'>
 
 
-$\hspace{0.25cm}$ La similaridad de Gower entre el par de observaciones $\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ ,  tales que $\hspace{0.1cm}{X}_1,...,\mathcal{X}_{p_1}\hspace{0.1cm}$ son **cuantitativas**, $\hspace{0.1cm}{X}_{p_1 + 1},...,\mathcal{X}_{p_1 + p_2}\hspace{0.1cm}$ son **binarias** y $\hspace{0.1cm}{X}_{p_1 + p_2 + 1},...,\mathcal{X}_{p_1 + p_2 + p_3}\hspace{0.1cm}$ son **multiclase**,  se define como : $\\[1.5cm]$
+$\hspace{0.25cm}$ La similaridad de Gower entre el par de observaciones $\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ ,  tales que las primeras $\hspace{0.1cm}p_1\hspace{0.1cm}$ variables son cuantitativas, las siguientes $\hspace{0.1cm}p_2\hspace{0.1cm}$ son binarias y las siguientes $\hspace{0.1cm}p_3\hspace{0.1cm}$ son multiclase,  se define como : $\\[1.5cm]$
 
 
 
@@ -3867,13 +3867,13 @@ $\\[0.5cm]$
 - $G_j \hspace{0.1cm}=\hspace{0.1cm} Max(X_j) - Min(X_j) \\$
 
 
- - $\hspace{0.2cm} a(x_i, x_r)\hspace{0.1cm}$ es el número de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
+ - $\hspace{0.2cm} a(x_i^B, x_r^B)\hspace{0.1cm}$ es el número de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
 
 
- - $\hspace{0.2cm} d(x_i, x_r)\hspace{0.1cm}$ es el número  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+ - $\hspace{0.2cm} d(x_i^B, x_r^B)\hspace{0.1cm}$ es el número  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
  
 
-- $\alpha(x_i, x_r) =$ número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} = x_{rj}\\$
+- $\alpha(x_i^M, x_r^M) =$ número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} = x_{rj}\\$
 
  
 
@@ -4286,7 +4286,7 @@ array([[1.        , 0.95612067, 0.71697821, ..., 0.73143864, 0.82056736,
 
 $\hspace{0.25cm}$ Dada la matriz de datos $\hspace{0.1cm}X=[X_1,...,X_n]\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$
 
-$\hspace{0.25cm}$ La similaridad de Gower-Mahalanobis entre el par de observaciones $\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ ,  tales que $\hspace{0.1cm}{X}_1,...,\mathcal{X}_{p_1}\hspace{0.1cm}$ son **cuantitativas**, $\hspace{0.1cm}{X}_{p_1 + 1},...,\mathcal{X}_{p_1 + p_2}\hspace{0.1cm}$ son **binarias** y $\hspace{0.1cm}{X}_{p_1 + p_2 + 1},...,\mathcal{X}_{p_1 + p_2 + p_3}\hspace{0.1cm}$ son **multiclase**,  se define como : $\\[1.5cm]$
+$\hspace{0.25cm}$ La similaridad de Gower-Mahalanobis entre el par de observaciones $\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ ,  tales que las primeras $\hspace{0.1cm}p_1\hspace{0.1cm}$ variables son cuantitativas, las siguientes $\hspace{0.1cm}p_2\hspace{0.1cm}$ son binarias y las siguientes $\hspace{0.1cm}p_3\hspace{0.1cm}$ son multiclase,  se define como :  $\\[1.5cm]$
  
 $$
 \hspace{0.45cm} \phi(x_i,x_r)_{GM} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm} p_1 \hspace{0.1cm}-\hspace{0.1cm} \dfrac{ \delta(x_i^Q , x_r^Q)_{Maha} }{Max(D_{Maha})} \hspace{0.1cm} +\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p_1 \hspace{0.05cm}+\hspace{0.05cm} p_2 - d(x_i^B , x_r^B) \hspace{0.05cm}+\hspace{0.05cm} p_3}  \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm} p_1 \hspace{0.1cm}-\hspace{0.1cm}  \dfrac{ \delta(x_i , x_r)_{Maha} }{Max(D_{Maha})}  \hspace{0.1cm}+\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p - d(x_i^B , x_r^B) } \\[1cm]
@@ -4320,13 +4320,13 @@ $\\[0.5cm]$
 - $D_{Maha} \hspace{0.1cm}$ es la matriz de distancias de Mahalanobis entre los individuios de la matriz de datos $\hspace{0.1cm}X=[X_1,...,X_n] \\$
 
 
- - $\hspace{0.2cm} a(x_i, x_r)\hspace{0.1cm}$ es el número de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
+ - $\hspace{0.2cm} a(x_i^B, x_r^B)\hspace{0.1cm}$ es el número de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
 
 
- - $\hspace{0.2cm} d(x_i, x_r)\hspace{0.1cm}$ es el número  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+ - $\hspace{0.2cm} d(x_i^B, x_r^B)\hspace{0.1cm}$ es el número  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
  
 
-- $\alpha(x_i, x_r) =$ número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} = x_{rj}\\$
+- $\alpha(x_i^M, x_r^M) =$ número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} = x_{rj}\\$
 
  
  
