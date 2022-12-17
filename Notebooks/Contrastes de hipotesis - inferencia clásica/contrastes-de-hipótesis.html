@@ -1830,18 +1830,15 @@ t_{exp | H_0} = \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 
 <div id="p-valor-1" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> p-valor</h2>
 <ul>
-<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm} \text{vs} \hspace{0.15cm}H_1: \mu &gt; \mu_0\)</span></p>
-<ul>
-<li><span class="math inline">\(pvalor=P \left( \underset{ \ v.a. \ \sim \ t_{n-1}}{\underbrace{t_{exp|H_0}}} &gt; \underset{ \ observacion}{\underbrace{t_{exp|H_0}}} \right) = P \left( t_{n-1} &gt; \dfrac{\overline{X_{k,g}} - \mu_0}{S(X_{k,g})/\sqrt{n}} \right) \\\)</span></li>
-</ul></li>
-<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &lt; \mu_0\)</span></p>
-<ul>
-<li><span class="math inline">\(pvalor=P \left( \underset{ \ v.a. \ \sim \ t_{n-1}}{\underbrace{t_{exp|H_0}}} &lt; \underset{ \ observacion}{\underbrace{t_{exp|H_0}}} \right) = P \left( t_{n-1} &lt; \dfrac{\overline{X_{k,g}} - \mu_0}{S(X_{k,g})/\sqrt{n}} \right) \\\)</span></li>
-</ul></li>
-<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu \neq \mu_0\)</span></p>
-<ul>
-<li><span class="math inline">\(pvalor=P \left( \mid \underset{\ v.a.\ \sim \ t_{n-1}}{\underbrace{t_{exp|H_0}}} \mid \ &gt; \underset{ \ observacion}{\underbrace{\mid t_{exp|H_0} \mid}} \right) = P \left( \underset{ \ v.a.}{\underbrace{t_{exp|H_0}}} \ &gt; \underset{ \ observacion}{\underbrace{\mid t_{exp|H_0} \mid}} \right) + P \left( \underset{ \ v.a.}{\underbrace{t_{exp|H_0}}} \ &lt; - \underset{ observacion}{\underbrace{\mid t_{exp|H_0} \mid}} \right) \\ \\ \\ \underset{simetria \ t}{\underbrace{=}} P \left( t_{n-1} \ &gt; \underset{ \ observacion}{\underbrace{\mid t_{exp|H_0} \mid}} \right) +P \left( t_{n-1} \ &gt; \underset{ \ observacion}{\underbrace{\mid t_{exp|H_0} \mid}} \right) = 2 \cdot P \left( t_{n-1} &gt; \left| \dfrac{\overline{X_{k,g}} - \mu_0}{S(X_{k,g})/ \sqrt{n} } \right| \right)\)</span></li>
-</ul></li>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm} \text{vs} \hspace{0.15cm} H_1: \mu &gt; \mu_0 \\\)</span></p>
+<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}&gt;\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} &gt; \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\[2cm]\]</span></p></li>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &lt; \mu_0 \\\)</span></p>
+<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}&gt;\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} &gt; \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\[2cm]\]</span></p></li>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu \neq \mu_0 \\\)</span></p>
+<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}&gt;\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}&lt;\hspace{0.1cm} - | t_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm}
+  P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}&gt;\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm} &gt;\hspace{0.1cm}  | t_{exp|H_0} | \right) \\[1cm]
+  \hspace{0.1cm}=\hspace{0.1cm}
+2 \cdot  P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}&gt;\hspace{0.1cm} | t_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( t_{n-1} &gt; | \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} | \right)\]</span></p></li>
 </ul>
 <p><br></p>
 </div>
@@ -1850,28 +1847,23 @@ t_{exp | H_0} = \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 
 <div id="basada-en-el-estadistico-del-contraste" class="section level3" number="2.5.1">
 <h3><span class="header-section-number">2.5.1</span> Basada en el estadistico del contraste</h3>
 <p>Para un nivel de significación <span class="math inline">\(\hspace{0.1cm} \alpha\)</span> : <span class="math inline">\(\\[0.5cm]\)</span></p>
-<ul>
-<li>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm} \text{vs} \hspace{0.15cm}H_1: \mu &gt; \mu_0\)</span></li>
-</ul>
-<p><span class="math display">\[
-\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} &gt;\hspace{0.1cm} t_{\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} &gt;\hspace{0.1cm} t_{\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} &gt;\hspace{0.1cm} \mu_0 + t_{\alpha}^{n-1} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}
-\]</span></p>
-<p>Donde: <span class="math inline">\(\hspace{0.1cm} \hspace{0.1cm} P(t_{n-1} \hspace{0.1cm} &gt;\hspace{0.1cm} t_{n-1}^{\alpha})\hspace{0.1cm} =\hspace{0.1cm} \alpha \\\)</span></p>
 <hr />
 <ul>
-<li>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &lt; \mu_0\)</span></li>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm} \text{vs} \hspace{0.15cm}H_1: \mu &gt; \mu_0 \\\)</span></p>
+<p><span class="math display">\[\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} &gt;\hspace{0.1cm} t_{\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} &gt;\hspace{0.1cm} t_{\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} &gt;\hspace{0.1cm} \mu_0 + t_{\alpha}^{n-1} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}\]</span></p>
+<p>Donde: <span class="math inline">\(\hspace{0.1cm} \hspace{0.1cm} P(t_{n-1} \hspace{0.1cm} &gt;\hspace{0.1cm} t_{n-1}^{\alpha})\hspace{0.1cm} =\hspace{0.1cm} \alpha \\\)</span></p></li>
 </ul>
-<p><span class="math display">\[
-\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} &lt; \hspace{0.1cm} t_{\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} &lt; \hspace{0.1cm} t_{\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} &lt; \hspace{0.1cm} \mu_0 + t_{\alpha}^{n-1} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n} \\
-\]</span></p>
 <hr />
 <ul>
-<li>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu \neq \mu_0\)</span></li>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &lt; \mu_0 \\\)</span></p>
+<p><span class="math display">\[ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} &lt; \hspace{0.1cm} t_{\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} &lt; \hspace{0.1cm} t_{\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} &lt; \hspace{0.1cm} \mu_0 + t_{\alpha}^{n-1} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n} \\\]</span></p></li>
 </ul>
-<p><span class="math display">\[
-\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} &gt; \hspace{0.1cm} t_{\alpha/2}^{n-1}  \hspace{0.2cm} \vee \hspace{0.2cm}    t_{exp|H_0} \hspace{0.1cm} &lt; \hspace{0.1cm} t_{1-\alpha/2}^{n-1}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} &gt; \hspace{0.1cm} \mu_0 + t_{\alpha/2}^{n-1} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n} \hspace{0.2cm} \vee \hspace{0.2cm}  \overline{X} \hspace{0.1cm} &lt; \hspace{0.1cm} \mu_0 - t_{\alpha/2}^{n-1} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}\\
-\]</span></p>
-<p>Donde se ha usado la propiedad de simetría de la distribución t-student, por la cual <span class="math inline">\(\hspace{0.2cm}t_{1-\alpha/2}^{n-1} \hspace{0.1cm}=\hspace{0.1cm} - t_{\alpha/2}^{n-1}\)</span></p>
+<hr />
+<ul>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu \neq \mu_0 \\\)</span></p>
+<p><span class="math display">\[ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} &gt; \hspace{0.1cm} t_{\alpha/2}^{n-1}  \hspace{0.2cm} \vee \hspace{0.2cm}    t_{exp|H_0} \hspace{0.1cm} &lt; \hspace{0.1cm} t_{1-\alpha/2}^{n-1}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} &gt; \hspace{0.1cm} \mu_0 + t_{\alpha/2}^{n-1} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n} \hspace{0.2cm} \vee \hspace{0.2cm}  \overline{X} \hspace{0.1cm} &lt; \hspace{0.1cm} \mu_0 - t_{\alpha/2}^{n-1} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}\\\]</span></p>
+<p>Donde se ha usado la propiedad de simetría de la distribución t-student, por la cual <span class="math inline">\(\hspace{0.2cm}t_{1-\alpha/2}^{n-1} \hspace{0.1cm}=\hspace{0.1cm} - t_{\alpha/2}^{n-1}\)</span></p></li>
+</ul>
 <p><br></p>
 </div>
 <div id="basada-en-el-p-valor" class="section level3" number="2.5.2">
