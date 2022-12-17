@@ -62,7 +62,7 @@ $\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadi
 
 $\hspace{0.3cm}$ **Si utilizas este artículo, cítalo !!**
 
-$\hspace{0.3cm}$ Scielzo, F. (25-12-2022). Introducción a los contrastes de hipótesis. link.
+$\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). Introducción a los contrastes de hipótesis. link.
 
 </p>
  
