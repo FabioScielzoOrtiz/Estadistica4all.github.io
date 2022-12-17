@@ -1,5 +1,5 @@
 ---
-title: 'Intervalos de Confianza'
+title: 'Introducción a los intervalos de confianza'
 author: 'Fabio Scielzo Ortiz'
 date: '12/12/22'
 output: 
@@ -57,6 +57,11 @@ css: custom.css
 $\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)**
 
 $\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/autores.html)
+
+$\hspace{0.3cm}$ **Si utilizas este artículo, cítalo !!**
+
+$\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). Introducción a los intervalos de confianza. http://estadistica4all.com/Articulos/Intervalos-de-confianza.html
+
 
 </p>
  

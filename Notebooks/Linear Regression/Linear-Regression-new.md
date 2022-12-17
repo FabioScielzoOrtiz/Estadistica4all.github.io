@@ -56,6 +56,10 @@ $\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https:
 
 $\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/autores.html)
 
+$\hspace{0.3cm}$ **Si utilizas este artículo, cítalo !!**
+
+$\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). Regresión Lineal. http://estadistica4all.com/Articulos/Linear-Regression-new.html
+
 </p>
  
 </p></span>
