@@ -4289,7 +4289,7 @@ $\hspace{0.25cm}$ Dada la matriz de datos $\hspace{0.1cm}X=[X_1,...,X_n]\hspace{
 $\hspace{0.25cm}$ La similaridad de Gower-Mahalanobis entre el par de observaciones $\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ ,  tales que las primeras $\hspace{0.1cm}p_1\hspace{0.1cm}$ variables son cuantitativas, las siguientes $\hspace{0.1cm}p_2\hspace{0.1cm}$ son binarias y las siguientes $\hspace{0.1cm}p_3\hspace{0.1cm}$ son multiclase,  se define como :  $\\[1.5cm]$
  
 $$
-\hspace{0.45cm} \phi(x_i,x_r)_{GM} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm} p_1 \hspace{0.1cm}-\hspace{0.1cm} \dfrac{ \delta(x_i^Q , x_r^Q)_{Maha} }{Max(D_{Maha})} \hspace{0.1cm} +\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p_1 \hspace{0.05cm}+\hspace{0.05cm} p_2 - d(x_i^B , x_r^B) \hspace{0.05cm}+\hspace{0.05cm} p_3}  \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm} p_1 \hspace{0.1cm}-\hspace{0.1cm}  \dfrac{ \delta(x_i , x_r)_{Maha} }{Max(D_{Maha})}  \hspace{0.1cm}+\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p - d(x_i^B , x_r^B) } \\[1cm]
+\hspace{0.45cm} \phi(x_i,x_r)_{GM} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm} p_1 \hspace{0.1cm}-\hspace{0.1cm} \dfrac{ \delta(x_i^Q , x_r^Q)_{Maha} }{Max(D_{Maha})} \hspace{0.1cm} +\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p_1 \hspace{0.05cm}+\hspace{0.05cm} p_2 - d(x_i^B , x_r^B) \hspace{0.05cm}+\hspace{0.05cm} p_3}  \\[1cm]
 $$
  
 
@@ -4313,7 +4313,7 @@ $\\[0.5cm]$
 - $x_i^M$ es vector de observaciones de las variables multiclase, es decir, $\hspace{0.1cm}x_i^M = (x_{i, p1+p_2+1},....,x_{i,p_1+p_2+p_3}) \\$
 
 
-- $\delta(x_i^Q , x_r^Q)_{Maha} = \sqrt{ (x_i^Q - x_r^Q)^t \cdot S^{-1} \cdot (x_i^Q - x_r^Q) }\hspace{0.25cm}$ es la distancia de Mahalanobis entre el par de observaciones $\hspace{0.15cm}x_i^Q$ y $x_r^Q$ de las variables cuantitativas.
+- $\delta(x_i^Q , x_r^Q)_{Maha} = \sqrt{ (x_i^Q - x_r^Q)^t \cdot S^{-1} \cdot (x_i^Q - x_r^Q) }\hspace{0.25cm}$ es la distancia de Mahalanobis entre el par de observaciones $\hspace{0.15cm}x_i^Q$ y $x_r^Q$
 
 - $S\hspace{0.1cm}$ es la matriz de covarianzas de la matriz de datos de las variables cuantitativas $\hspace{0.1cm}X^Q=[X_1,...,X_{p_1}] \\$
 

@@ -464,7 +464,7 @@ Donde:
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm}   \text{vs}  \hspace{0.15cm} H_1: \mu > \mu_0 \\$  
   
 
-    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}>\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} > \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\[2cm]$$ 
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}>\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} > \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\[2.5cm]$$ 
 
 
 
@@ -473,7 +473,7 @@ Donde:
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
 
 
-    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}>\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} > \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\[2cm]$$ 
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}>\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} > \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\[2.5cm]$$ 
 
 
 
@@ -542,109 +542,15 @@ Para un nivel de significación $\hspace{0.1cm} \alpha$ : $\\[0.5cm]$
 ### Basada en el p-valor
 
 
-
-
-
+$$
+\text{Rechazar}  H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  pvalor < \alpha
+$$
 
 
 
 
 <br>
 
-
-
-## Contraste en `Python`
-
-
-
-
-
-
-
-
-
-
- 
-
-\
-
-### p-valor
-\
-
-- Caso \  $H_0: \mu = \mu_0$  \ vs \ $H_1: \mu > \mu_0$
-  
-  \
-
-    - $pvalor=P \left( \underset{  \ v.a. \ \sim \ t_{n-1}}{\underbrace{t_{exp|H_0}}} > \underset{  \ observacion}{\underbrace{t_{exp|H_0}}} \right) = P \left( t_{n-1} > \dfrac{\overline{X_{k,g}} - \mu_0}{S(X_{k,g})/\sqrt{n}} \right)$ 
-
-\
-
-- Caso \ $H_0: \mu = \mu_0$ \ vs  \ $H_1: \mu <  \mu_0$
-
-  \
-   - $pvalor=P \left( \underset{  \ v.a. \ \sim \ t_{n-1}}{\underbrace{t_{exp|H_0}}} < \underset{  \ observacion}{\underbrace{t_{exp|H_0}}} \right) = P \left( t_{n-1} < \dfrac{\overline{X_{k,g}} -     \mu_0}{S(X_{k,g})/\sqrt{n}} \right)$ 
-
-
-\
-
-- Caso $H_0: \mu = \mu_0$ vs  $H_1: \mu  \neq  \mu_0$
-  
-  \
-     - $pvalor=P \left( \mid \underset{\ v.a.\ \sim \ t_{n-1}}{\underbrace{t_{exp|H_0}}} \mid \ > \underset{  \ observacion}{\underbrace{\mid t_{exp|H_0} \mid}} \right) =  P \left(  \underset{  \ v.a.}{\underbrace{t_{exp|H_0}}}  \ > \underset{  \ observacion}{\underbrace{\mid t_{exp|H_0} \mid}} \right) + P \left(  \underset{  \ v.a.}{\underbrace{t_{exp|H_0}}}  \ <  - \underset{ observacion}{\underbrace{\mid t_{exp|H_0} \mid}} \right) \\ \\ \\ \underset{simetria \ t}{\underbrace{=}}  P \left(  t_{n-1}  \ > \underset{  \ observacion}{\underbrace{\mid t_{exp|H_0} \mid}} \right) +P \left(  t_{n-1}  \ > \underset{  \ observacion}{\underbrace{\mid t_{exp|H_0} \mid}} \right) = 2 \cdot P \left( t_{n-1} > \left|      \dfrac{\overline{X_{k,g}} - \mu_0}{S(X_{k,g})/ \sqrt{n} } \right| \right)$ 
-
-\
-
-\
-
-### Regla de decisión
-
-\
-
-#### Basada en el estadistico del contraste
-
-\
-
-Para un nivel de significación $\alpha$ : 
-
-\
-
-- Caso \  $H_0: \mu = \mu_0$  \ vs \ $H_1: \mu > \mu_0$
-
-\
-
-\begin{equation*}
-Rechazar H_0  \ \Leftrightarrow \  \underset{  \ observacion}{\underbrace{t_{exp|H_0}}}  > t_{n-1}^{\alpha} \ \ \Leftrightarrow \ \ \dfrac{\overline{X_{k,g}} - \mu_0}{S(X_{k,g})/\sqrt{n}} > t_{n-1}^{\alpha} \ \ \Leftrightarrow \ \  \overline{X_{k,g}} > \mu_0 + t_{n-1}^{\alpha} \cdot S(X_{k,g})/\sqrt{n}
-\end{equation*}
-
-\
-
-Donde: \ \ $P(t_{n-1} > t_{n-1}^{\alpha}) = \alpha$
-
-
-\
-\
-
-- Caso \  $H_0: \mu = \mu_0$  \ vs \ $H_1: \mu < \mu_0$
-
-\
-
-\begin{equation*}
-Rechazar H_0 \ \Leftrightarrow \ t_{exp | H_0} < t_{n-1}^{1-\alpha} \ \ \Leftrightarrow \ \ \dfrac{\overline{X_{k,g}} - \mu_0}{S(X_{k,g})/\sqrt{n}} < t_{n-1}^{1-\alpha} \ \ \Leftrightarrow \ \  \overline{X_{k,g}} < \mu_0 + t_{n-1}^{1-\alpha} \cdot S(X_{k,g})/\sqrt{n}
-\end{equation*}
-
-\
-\
-
--  Caso \  $H_0: \mu = \mu_0$  \ vs \ $H_1: \mu \neq \mu_0$
-
-\
-
-\begin{equation*}
-Rechazar H_0 \ \Leftrightarrow \ t_{exp | H_0} >  t_{n-1}^{\alpha/2} \ \ ó \ \ t_{exp | H_0} <  t_{n-1}^{1-\alpha/2} \ \Leftrightarrow \ \ \overline{X_{k,g}} > \mu_0 + t_{n-1}^{\alpha/2} \cdot S(X_{k,g})/\sqrt{n} \ \ ó \ \  \overline{X_{k,g}} < \mu_0 + t_{n-1}^{1-\alpha/2} \cdot S(X_{k,g})/\sqrt{n}
-\end{equation*}
-
-
-\
 
 **Observaciones:**
 
@@ -654,53 +560,43 @@ Rechazar H_0 \ \Leftrightarrow \ t_{exp | H_0} >  t_{n-1}^{\alpha/2} \ \ ó \ \ 
 Este hecho se extrapola a todos los contrastes de hipotesis, y es importante tenerlo presente.
 
 
-\
 
--  $P(Error \ Tipo \ I)=P(Rechazar \ H_0 \ | \ H_0) =  \alpha$ en todos los casos, veamoslo:
+-  $P(\text{Error  Tipo  I})=P(\text{Rechazar}  H_0  |  H_0) =  \alpha$ en todos los casos, veamoslo:
 
-\
 
-   - Caso \  $H_0: \mu = \mu_0$  \ vs \ $H_1: \mu > \mu_0$
 
-\
+    - Caso \  $H_0: \mu = \mu_0$  \ vs \ $H_1: \mu > \mu_0$
+
+
 
 \begin{equation*}
 P(RH_0 | H_0)=P( \underset{  \ v.a \ \sim \ t_{n-1}}{\underbrace{t_{exp|H_0}}}  > t_{n-1}^{\alpha})=P(t_{n-1} > t_{n-1}^\alpha)=\alpha
 \end{equation*}
 
-\
-
-   - Caso \  $H_0: \mu = \mu_0$  \ vs \ $H_1: \mu < \mu_0$
 
 
-\
+    - Caso \  $H_0: \mu = \mu_0$  \ vs \ $H_1: \mu < \mu_0$
+
+
+ 
 
 \begin{equation*}
 P(RH_0 | H_0)=P( \underset{  \ v.a \ \sim \ t_{n-1}}{\underbrace{t_{exp|H_0}}}  < t_{n-1}^{1-\alpha})=P(t_{n-1} < t_{n-1}^{1-\alpha})=\alpha
 \end{equation*}
 
-\
+ 
 
-   - Caso \  $H_0: \mu = \mu_0$  \ vs \ $H_1: \mu \neq \mu_0$
+    - Caso \  $H_0: \mu = \mu_0$  \ vs \ $H_1: \mu \neq \mu_0$
 
-\
+
 
 \begin{equation*}
 P(RH_0 | H_0)=P(\underset{  \ v.a \ \sim \ t_{n-1}}{\underbrace{t_{exp|H_0}}}  > t_{n-1}^{\alpha/2} \ \ ó \ \ \underset{  \ v.a \ \sim \ t_{n-1}}{\underbrace{t_{exp|H_0}}}  < t_{n-1}^{1-\alpha/2}) =P(t_{n-1} > t_{n-1}^{ \alpha/2} \ \ ó \ \ t_{n-1} < t_{n-1}^{1-\alpha/2})= \\ = P(t_{n-1} > t_{n-1}^{ \alpha/2})+P(t_{n-1} < t_{n-1}^{1-\alpha/2})=\alpha/2 + \alpha/2 =\alpha
 \end{equation*}
 
-\
-
-#### Basada en el p-valor
-
-\begin{equation*}
-Rechazar \ H_0 \ \Leftrightarrow \ pvalor < \alpha
-\end{equation*}
 
 
-\
 
-**Observación:**
 
 La regla de decisión basada en el p-valor se deduce de la regla de decision basada en el estadistico del contraste, veamoslo:
 
@@ -738,10 +634,24 @@ pvalor < \alpha \ \Leftrightarrow \ \  2\cdot P(t_{n-1} < \mid t_{exp|H0} \mid )
  \end{equation*}
 
 
-\
 
 
 
+<br>
+
+
+
+## Contraste en `Python`
+
+
+
+
+
+
+
+
+
+ 
 
 
 
