@@ -1608,7 +1608,7 @@ margin-left: 0 !important;
       <li><a href="#intervalo-de-confianza-para-la-varianza" id="toc-intervalo-de-confianza-para-la-varianza"><span class="toc-section-number">9.8</span> Intervalo de confianza para la varianza</a></li>
       <li><a href="#intervalo-de-confianza-para-la-varianza-en-python" id="toc-intervalo-de-confianza-para-la-varianza-en-python"><span class="toc-section-number">9.9</span> Intervalo de confianza para la varianza en <code>Python</code></a></li>
       <li><a href="#intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-y-varianzas-desconocidas-pero-iguales" id="toc-intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-y-varianzas-desconocidas-pero-iguales"><span class="toc-section-number">9.10</span> Intervalo de confianza para la diferencia de medias con muestras independientes y varianzas desconocidas pero iguales</a></li>
-      <li><a href="#intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-y-varianzas-desconocidas-pero-no-necesariamente-iguales." id="toc-intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-y-varianzas-desconocidas-pero-no-necesariamente-iguales."><span class="toc-section-number">9.11</span> Intervalo de confianza para la diferencia de medias con muestras independientes y varianzas desconocidas pero no necesariamente iguales.</a></li>
+      <li><a href="#intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-y-varianzas-desconocidas-pero-no-necesariamente-iguales" id="toc-intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-y-varianzas-desconocidas-pero-no-necesariamente-iguales"><span class="toc-section-number">9.11</span> Intervalo de confianza para la diferencia de medias con muestras independientes y varianzas desconocidas pero no necesariamente iguales</a></li>
       <li><a href="#intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-y-varianzas-desconocidas-pero-no-necesariamente-iguales-en-python" id="toc-intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-y-varianzas-desconocidas-pero-no-necesariamente-iguales-en-python"><span class="toc-section-number">9.12</span> Intervalo de confianza para la diferencia de medias con muestras independientes y varianzas desconocidas pero no necesariamente iguales en <code>Python</code></a></li>
       <li><a href="#intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-dependientes-pareadas" id="toc-intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-dependientes-pareadas"><span class="toc-section-number">9.13</span> Intervalo de confianza para la diferencia de medias con muestras dependientes (pareadas)</a></li>
       <li><a href="#intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-dependientes-pareadas-en-python" id="toc-intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-dependientes-pareadas-en-python"><span class="toc-section-number">9.14</span> Intervalo de confianza para la diferencia de medias con muestras dependientes (pareadas) en <code>Python</code></a></li>
@@ -3192,13 +3192,13 @@ size_in_m_2
 <p>Un par de variables cuantitativas <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> , <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}\)</span> pueden modelarse como un par de variables aleatorias <strong>independientes</strong> con distribución <span class="math inline">\(\hspace{0.1cm} N(\mu_1 , \sigma_1^2)\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}N(\mu_2 , \sigma_2^2)\hspace{0.1cm}\)</span>, respectivamente.</p>
 <p>Donde <span class="math inline">\(\hspace{0.1cm}\mu_1=E[\mathcal{X}_1]\hspace{0.15cm}\)</span> , <span class="math inline">\(\hspace{0.15cm}\mu_2=E[\mathcal{X}_2]\hspace{0.15cm}\)</span>, <span class="math inline">\(\hspace{0.15cm}\sigma_1^2=Var(\mathcal{X}_1)\hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm}\sigma_2^2 = Var(\mathcal{X}_2)\hspace{0.15cm}\)</span>, que pueden interpretarse como la media y varianza poblacional de las variables <span class="math inline">\(\hspace{0.15cm}\mathcal{X}_1\hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm}\mathcal{X}_2\hspace{0.15cm}\)</span>, respectivamente.</p>
 <p>Queremos obtener un intervalo de confianza para <span class="math inline">\(\hspace{0.1cm} \mu_1 - \mu_2 \hspace{0.1cm}\)</span>, teniendo en cuenta que <span class="math inline">\(\hspace{0.1cm}\sigma_1^2\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma_2^2\hspace{0.1cm}\)</span> son desconocidas pero iguales <span class="math inline">\(\hspace{0.15cm}\sigma_1^2=\sigma_2^2\hspace{0.15cm}\)</span>, y además que las v.a’s <span class="math inline">\(\hspace{0.15cm}\mathcal{X}_1 \sim N(\mu_1,\sigma_1^2)\hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm}\mathcal{X}_2\sim N(\mu_2 , \sigma_2^2)\hspace{0.15cm}\)</span> son <strong>independientes</strong>.</p>
-<p>Para ello vamos a apoyarnos en el <strong>teorema de Gosset aumentado</strong> y en el <strong>método pivotal</strong>.</p>
+<p>Para ello vamos a apoyarnos en el <strong>teorema de Gosset aumentado con varianzas iguales</strong> y en el <strong>método pivotal</strong>.</p>
 <p><br></p>
 <p><strong>Observación:</strong></p>
 <p>En la práctica el par de variables <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> , <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}\)</span> son una sola variable cuantitativa pero medida sobre dos muestras diferentes.</p>
 <p><br></p>
-<div id="teorema-de-gosset-aumentado" class="section level3" number="9.10.1">
-<h3><span class="header-section-number">9.10.1</span> Teorema de Gosset aumentado</h3>
+<div id="teorema-de-gosset-aumentado-con-varianzas-iguales" class="section level3" number="9.10.1">
+<h3><span class="header-section-number">9.10.1</span> Teorema de Gosset aumentado con varianzas iguales</h3>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:0.1em;">
@@ -3267,10 +3267,86 @@ size_in_m_2
 <p><br></p>
 </div>
 </div>
-<div id="intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-y-varianzas-desconocidas-pero-no-necesariamente-iguales." class="section level2" number="9.11">
-<h2><span class="header-section-number">9.11</span> Intervalo de confianza para la diferencia de medias con muestras independientes y varianzas desconocidas pero no necesariamente iguales.</h2>
-<p>Si no suponemos que las varianzas <span class="math inline">\(\hspace{0.1cm} \sigma_1^2\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma_2^2\hspace{0.1cm}\)</span> son iguales, entonces la cantidad pivotal sigue siendo la misma que en el apartado anterior, con distribución t-student pero con otros grados de libertad: <span class="math inline">\(\\[0.6cm]\)</span></p>
-<p><span class="math display">\[\dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)} \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{v} \\\]</span></p>
+<div id="intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-y-varianzas-desconocidas-pero-no-necesariamente-iguales" class="section level2" number="9.11">
+<h2><span class="header-section-number">9.11</span> Intervalo de confianza para la diferencia de medias con muestras independientes y varianzas desconocidas pero no necesariamente iguales</h2>
+<p>Un par de variables cuantitativas <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> , <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}\)</span> pueden modelarse como un par de variables aleatorias <strong>independientes</strong> con distribución <span class="math inline">\(\hspace{0.1cm} N(\mu_1 , \sigma_1^2)\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}N(\mu_2 , \sigma_2^2)\hspace{0.1cm}\)</span>, respectivamente.</p>
+<p>Donde <span class="math inline">\(\hspace{0.1cm}\mu_1=E[\mathcal{X}_1]\hspace{0.15cm}\)</span> , <span class="math inline">\(\hspace{0.15cm}\mu_2=E[\mathcal{X}_2]\hspace{0.15cm}\)</span>, <span class="math inline">\(\hspace{0.15cm}\sigma_1^2=Var(\mathcal{X}_1)\hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm}\sigma_2^2 = Var(\mathcal{X}_2)\hspace{0.15cm}\)</span>, que pueden interpretarse como la media y varianza poblacional de las variables <span class="math inline">\(\hspace{0.15cm}\mathcal{X}_1\hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm}\mathcal{X}_2\hspace{0.15cm}\)</span>, respectivamente.</p>
+<p>Queremos obtener un intervalo de confianza para <span class="math inline">\(\hspace{0.1cm} \mu_1 - \mu_2 \hspace{0.1cm}\)</span>, teniendo en cuenta que <span class="math inline">\(\hspace{0.1cm}\sigma_1^2\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma_2^2\hspace{0.1cm}\)</span> son desconocidas y no necesariamente iguales, y además que las v.a’s <span class="math inline">\(\hspace{0.15cm}\mathcal{X}_1 \sim N(\mu_1,\sigma_1^2)\hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm}\mathcal{X}_2\sim N(\mu_2 , \sigma_2^2)\hspace{0.15cm}\)</span> son <strong>independientes</strong>.</p>
+<p>Para ello vamos a apoyarnos en el <strong>teorema de Gosset aumentado con varianzas no necesariamente iguales</strong> y en el <strong>método pivotal</strong>.</p>
+<p><br></p>
+<p><strong>Observación:</strong></p>
+<p>En la práctica el par de variables <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> , <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}\)</span> son una sola variable cuantitativa pero medida sobre dos muestras diferentes.</p>
+<div id="teorema-de-gosset-aumentado-con-varianzas-no-necesariamente-iguales" class="section level3" number="9.11.1">
+<h3><span class="header-section-number">9.11.1</span> Teorema de Gosset aumentado con varianzas no necesariamente iguales</h3>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:0.1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada un par de v.a’s <strong>independientes</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\sim N(\mu_1, \sigma_1^2)\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2)\hspace{0.15cm}\)</span>, y dada un par de m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n_1 1}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n_2 2}\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\hspace{0.15cm}\)</span>, respectivamente. <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math display">\[\dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{\dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2}} \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{v} \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Con grados de libertad definidos como:</p>
+<p><span class="math display">\[v=\dfrac{(S_1^2 / n_1 + S_2^2/n_2 )^2}{\dfrac{(S_1^2 / n_1)^2}{n_1-1} + \dfrac{( S_2^2/n_2 )^2}{n_2-1}} \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
+<ul>
+<li><p><span class="math inline">\(\overline{\mathcal{X}_j} = \dfrac{1}{n_j} \cdot \sum_{i=1}^{n_j} \mathcal{X}_{ij} \hspace{0.25cm} , \hspace{0.25cm} j \in \lbrace 1, 2\rbrace \\\)</span></p></li>
+<li><p><span class="math inline">\(S_j^2 = \dfrac{1}{n_j} \cdot \sum_{i=1}^{n_j} (\mathcal{X}_{ij} - \overline{\mathcal{X}_j})^2 \hspace{0.25cm} , \hspace{0.25cm} j \in \lbrace 1, 2\rbrace\\\)</span></p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+</div>
+<div id="intervalo-de-confianza-para-la-diferencia-de-medias-con-varianzas-desconocidas-y-no-necesariamente-iguales" class="section level3" number="9.11.2">
+<h3><span class="header-section-number">9.11.2</span> Intervalo de confianza para la diferencia de medias con varianzas desconocidas y no necesariamente iguales</h3>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:0.1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La anterior cantidad:</p>
+<p><span class="math display">\[\Upsilon(\mathcal{X}_1,...,\mathcal{X}_n, \sigma^2) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{ \dfrac{S_1^2}{n_1} + \dfrac{s_2^2}{n_2} } \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{v}\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> es una cantidad pivotal, puesto que contienen al parametro de interés, en este caso <span class="math inline">\(\hspace{0.1cm} \theta = \mu_1 - \mu_2 \hspace{0.15cm}\)</span>, y su distribución de probabilidad es conocida y no depende de dicho parámetro, es una <span class="math inline">\(\hspace{0.1cm} t_{v}\)</span>.</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Siguiendo el método pivotal hay que encontrar los valores <span class="math inline">\(\hspace{0.1cm} a,b \in \mathbb{R}\hspace{0.1cm}\)</span> tales que: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math display">\[P\left( \hspace{0.1cm} a \hspace{0.1cm} &lt; \hspace{0.1cm}  \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{ \dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2} }}&lt;\hspace{0.1cm} b \hspace{0.1cm}\right) = 1-\alpha \\[1cm]\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Siguiendo los anteriores resultados: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math display">\[P\left( \hspace{0.1cm} a \hspace{0.1cm}&lt;\hspace{0.1cm}  \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{ \dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2} }} \hspace{0.1cm} &lt;\hspace{0.1cm} b\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} P\left( a \hspace{0.1cm} &lt;\hspace{0.1cm} t_{v}  \hspace{0.1cm} &lt;\hspace{0.1cm} b \right) \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Teniendo en cuenta las propiedades de la distribución t-student: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math display">\[P\left( t^{v}_{1-\alpha/2} \hspace{0.1cm}&lt;\hspace{0.1cm} t_{v}  \hspace{0.1cm}&lt;\hspace{0.1cm} t^{v}_{\alpha/2} \right)= P\left( -t^{v}_{\alpha/2} \hspace{0.1cm}&lt;\hspace{0.1cm} t_{v}  \hspace{0.1cm}&lt;\hspace{0.1cm} t^{v}_{\alpha/2} \right)  = 1-\alpha \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
+<p><span class="math inline">\(\hspace{0.35cm}\)</span> <span class="math inline">\(t^{v}_{\alpha/2}\hspace{0.1cm}\)</span> es el valor tal que <span class="math inline">\(\hspace{0.1cm}P(t_{v}&gt; t^{v}_{\alpha/2}) = \alpha/2 \\\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Por tanto: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math display">\[P\left( \hspace{0.1cm}  t^{v}_{1-\alpha/2} \hspace{0.1cm}&lt;\hspace{0.1cm}  \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{\dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2} }}  \hspace{0.1cm} &lt;\hspace{0.1cm} t^{v}_{\alpha/2}\hspace{0.1cm} \right) \hspace{0.1cm} = \hspace{0.1cm} 1-\alpha \\[1cm]\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:0.1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Siguiendo el método pivotal ahora tenemos que aislar el parametro <span class="math inline">\(\hspace{0.1cm}\theta=\mu_1 - \mu_2 \hspace{0.1cm}\)</span>. Operando un poco se llega a lo siguiente: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math display">\[P\left( \hspace{0.1cm}    \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 -  t^{v}_{\alpha/2} \cdot \sqrt{ \dfrac{1}{n_1} + \dfrac{1}{n_2} }  \hspace{0.1cm}&lt;\hspace{0.1cm}  \mu_1 - \mu_2 \hspace{0.1cm} &lt;\hspace{0.1cm}      \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 +  t^{v}_{\alpha/2} \cdot \sqrt{ \dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2} }         \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha \\[0.7cm]\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:0.1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Por tanto, tenemos el siguiente intervalo de confianza a un nivel <span class="math inline">\(\hspace{0.1cm} 1-\alpha\hspace{0.1cm}\)</span> para el parametro <span class="math inline">\(\hspace{0.1cm} \mu_1 - \mu_2 \hspace{0.1cm}\\\)</span></p>
+<p><span class="math display">\[IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{\dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2} }      \hspace{0.1cm} \right] \\[0.9cm]\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dadas dos muestras <span class="math inline">\(\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}\)</span> de las v.a’s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}\)</span> , respectivamente, tenemos la siguiente realización del intervalo de confianza: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math display">\[IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X}_1 - \overline{X}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{ \dfrac{1}{n_1} + \dfrac{1}{n_2} }    \hspace{0.1cm} \right] \\[0.9cm]\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
+<ul>
+<li><p><span class="math inline">\(\hspace{0.1cm} \overline{X}_j = \dfrac{1}{n} \cdot \sum_{i=1}^n x_{ij} \hspace{0.25cm} , \hspace{0.25cm} j \in \lbrace 1, 2\rbrace \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm} S(X_j)^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n (x_{ij}- \overline{X}_j)^2 \hspace{0.25cm} , \hspace{0.25cm} j \in \lbrace 1, 2\rbrace \\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm} S(X)_p^2 = \dfrac{(n_1-1)\cdot S(X_1)^2 + (n_2-1)\cdot S(X_2)^2}{n_1 + n_2 -2}\)</span></p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<p>Si no suponemos que las varianzas <span class="math inline">\(\hspace{0.1cm} \sigma_1^2 \hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma_2^2\hspace{0.1cm}\)</span> son iguales, entonces la cantidad pivotal es la que en el apartado anterior, con distribución t-student pero con otros grados de libertad: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math display">\[\dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{ \dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2}} \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{v} \\\]</span></p>
 <p>Donde:</p>
 <p><span class="math display">\[v=\dfrac{(S_1^2 / n_1 + S_2^2/n_2 )^2}{\dfrac{(S_1^2 / n_1)^2}{n_1-1} + \dfrac{( S_2^2/n_2 )^2}{n_2-1}} \\\]</span></p>
 <p><br></p>
@@ -3280,7 +3356,7 @@ size_in_m_2
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Por lo que el intervalo de confianza para <span class="math inline">\(\hspace{0.1cm}\mu_1-\mu_2\hspace{0.1cm}\)</span>, con varianzas desconocidas pero no necesariamente iguales, a un nivel <span class="math inline">\(\hspace{0.1cm}1-\alpha\hspace{0.1cm}\)</span> es: <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math display">\[IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}      \hspace{0.1cm} \right] \\[1.5cm]\]</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Dadas dos muestras <span class="math inline">\(\hspace{0.1cm}X_1=(x_{11},...,x_{n_11})\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}X_2=(x_{12},...,x_{n_22})\hspace{0.1cm}\)</span> de las v.a’s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}\)</span> , respectivamente, tenemos la siguiente realización del intervalo de confianza: <span class="math inline">\(\\[0.6cm]\)</span></p>
-<p><span class="math display">\[IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X}_1 - \overline{X}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{S(X)_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}    \hspace{0.1cm} \right] \\\]</span></p>
+<p><span class="math display">\[IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X}_1 - \overline{X}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{S(X)_p^2 \cdot \left(\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_1)^2}{n_2}\right)}    \hspace{0.1cm} \right] \\\]</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <p><span class="math display">\[v=\dfrac{(S(X_1)^2 / n_1 + S(X_2)^2/n_2 )^2}{\dfrac{(S(X_1)^2 / n_1)^2}{n_1-1} + \dfrac{( S(X_2)^2/n_2 )^2}{n_2-1}} \]</span></p>
 </p>
@@ -3288,6 +3364,7 @@ size_in_m_2
 <p></span></p>
 </div>
 <p><br></p>
+</div>
 </div>
 <div id="intervalo-de-confianza-para-la-diferencia-de-medias-con-muestras-independientes-y-varianzas-desconocidas-pero-no-necesariamente-iguales-en-python" class="section level2" number="9.12">
 <h2><span class="header-section-number">9.12</span> Intervalo de confianza para la diferencia de medias con muestras independientes y varianzas desconocidas pero no necesariamente iguales en <code>Python</code></h2>
@@ -3309,20 +3386,19 @@ size_in_m_2
 <span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>    X1_var <span class="op">=</span> ( (n1<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span>n1 )<span class="op">*</span>X1_cuasi_var</span>
 <span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>    X2_var <span class="op">=</span> ( (n2<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span>n2 )<span class="op">*</span>X2_cuasi_var</span>
 <span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>    X_var_p <span class="op">=</span> ((n1<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>X1_var <span class="op">+</span> (n2<span class="op">-</span><span class="dv">1</span>)<span class="op">*</span>X2_var )<span class="op">/</span>(n1<span class="op">+</span>n2<span class="op">-</span><span class="dv">2</span>)</span>
-<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> ( X1_var<span class="op">/</span>n1 <span class="op">+</span> X2_var<span class="op">/</span>n2 )<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> ( (X1_var<span class="op">/</span>n1)<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (n1<span class="op">-</span><span class="dv">1</span>)  <span class="op">+</span> (X2_var<span class="op">/</span>n2)<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (n2<span class="op">-</span><span class="dv">1</span>)  )</span>
-<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a>    t_alpha_medios <span class="op">=</span> scipy.stats.chi.ppf( <span class="dv">1</span> <span class="op">-</span> alpha<span class="op">/</span><span class="dv">2</span> , df<span class="op">=</span>v)</span>
-<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-25"><a href="#cb45-25" aria-hidden="true" tabindex="-1"></a>    L1 <span class="op">=</span>  (X1_mean <span class="op">-</span> X2_mean) <span class="op">-</span> t_alpha_medios <span class="op">*</span> np.sqrt(X_var_p <span class="op">*</span> (<span class="dv">1</span><span class="op">/</span>n1 <span class="op">+</span> <span class="dv">1</span><span class="op">/</span>n2))</span>
-<span id="cb45-26"><a href="#cb45-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-27"><a href="#cb45-27" aria-hidden="true" tabindex="-1"></a>    L2 <span class="op">=</span>  (X1_mean <span class="op">-</span> X2_mean) <span class="op">+</span> t_alpha_medios <span class="op">*</span> np.sqrt(X_var_p <span class="op">*</span> (<span class="dv">1</span><span class="op">/</span>n1 <span class="op">+</span> <span class="dv">1</span><span class="op">/</span>n2))</span>
-<span id="cb45-28"><a href="#cb45-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-29"><a href="#cb45-29" aria-hidden="true" tabindex="-1"></a>    interval <span class="op">=</span> [L1 , L2]</span>
-<span id="cb45-30"><a href="#cb45-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-31"><a href="#cb45-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> interval , (X1_mean <span class="op">-</span> X2_mean) </span></code></pre></div>
+<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> ( X1_var<span class="op">/</span>n1 <span class="op">+</span> X2_var<span class="op">/</span>n2 )<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> ( (X1_var<span class="op">/</span>n1)<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (n1<span class="op">-</span><span class="dv">1</span>)  <span class="op">+</span> (X2_var<span class="op">/</span>n2)<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> (n2<span class="op">-</span><span class="dv">1</span>)  )</span>
+<span id="cb45-20"><a href="#cb45-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-21"><a href="#cb45-21" aria-hidden="true" tabindex="-1"></a>    t_alpha_medios <span class="op">=</span> scipy.stats.chi.ppf( <span class="dv">1</span> <span class="op">-</span> alpha<span class="op">/</span><span class="dv">2</span> , df<span class="op">=</span>v)</span>
+<span id="cb45-22"><a href="#cb45-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb45-23"><a href="#cb45-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-24"><a href="#cb45-24" aria-hidden="true" tabindex="-1"></a>    L1 <span class="op">=</span>  (X1_mean <span class="op">-</span> X2_mean) <span class="op">-</span> t_alpha_medios <span class="op">*</span> np.sqrt(X1_var<span class="op">/</span>n1 <span class="op">+</span> X2_var<span class="op">/</span>n2)</span>
+<span id="cb45-25"><a href="#cb45-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-26"><a href="#cb45-26" aria-hidden="true" tabindex="-1"></a>    L2 <span class="op">=</span>  (X1_mean <span class="op">-</span> X2_mean) <span class="op">+</span> t_alpha_medios <span class="op">*</span> np.sqrt(X1_var<span class="op">/</span>n1 <span class="op">+</span> X2_var<span class="op">/</span>n2)</span>
+<span id="cb45-27"><a href="#cb45-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-28"><a href="#cb45-28" aria-hidden="true" tabindex="-1"></a>    interval <span class="op">=</span> [L1 , L2]</span>
+<span id="cb45-29"><a href="#cb45-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-30"><a href="#cb45-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> interval , (X1_mean <span class="op">-</span> X2_mean) </span></code></pre></div>
 <p><br></p>
 <p>Obtenemos dos nuevas variables como las mediciones de la variable <code>Price</code> para aquellas viviendas que son de baja y alta calidad, respectivamente:</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>Price_Qualiti_0 <span class="op">=</span> Data.loc[ Data.quality_recode <span class="op">==</span> <span class="dv">0</span> , <span class="st">&#39;price&#39;</span>]</span>
@@ -3331,7 +3407,7 @@ size_in_m_2
 <p>Aplicamos la función sobre las variables que acabamos de definir:</p>
 <div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>intervalo , diferencia_medias <span class="op">=</span> CI_Mean_Diference(Price_Qualiti_0 , Price_Qualiti_3 , alpha<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
-<pre><code>[-5255025.492552606, 8793827.719749954]</code></pre>
+<pre><code>[-3705736.666041189, 7244538.893238536]</code></pre>
 <div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>diferencia_medias</span></code></pre></div>
 <pre><code>1769401.1135986734</code></pre>
 <p><br></p>
