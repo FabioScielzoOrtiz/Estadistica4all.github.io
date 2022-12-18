@@ -1515,7 +1515,7 @@ margin-left: 0 !important;
       <li><a href="#stochastic-processes" id="toc-stochastic-processes"><span class="toc-section-number">1.1</span> Stochastic processes</a></li>
       <li><a href="#discrete-stochastic-process" id="toc-discrete-stochastic-process"><span class="toc-section-number">1.2</span> Discrete stochastic process</a></li>
       <li><a href="#continuous-stochastic-process" id="toc-continuous-stochastic-process"><span class="toc-section-number">1.3</span> Continuous stochastic process</a></li>
-      <li><a href="#tipos-de-procesos-estocasticos" id="toc-tipos-de-procesos-estocasticos"><span class="toc-section-number">1.4</span> Tipos de procesos estocasticos</a></li>
+      <li><a href="#types-of-stochastic-processes" id="toc-types-of-stochastic-processes"><span class="toc-section-number">1.4</span> Types of stochastic processes</a></li>
       </ul></li>
       </ul>
     </div>
@@ -1594,50 +1594,51 @@ margin-right: auto;
 <p><span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.1cm}\)</span> is a continuous stochastic process if <span class="math inline">\(\hspace{0.1cm}T\subset [0, \infty)\)</span></p>
 <p><br></p>
 </div>
-<div id="tipos-de-procesos-estocasticos" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Tipos de procesos estocasticos</h2>
-<div id="proceso-de-ensayos-independientes" class="section level3" number="1.4.1">
-<h3><span class="header-section-number">1.4.1</span> Proceso de ensayos independientes</h3>
-<p><span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.1cm}\)</span> es un proceso estocastico de ensayos independientes si las v.a’s que lo definen son independientes.</p>
+<div id="types-of-stochastic-processes" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Types of stochastic processes</h2>
+<div id="independent-process" class="section level3" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Independent process</h3>
+<p><span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.1cm}\)</span> is a independient stochastic process if the random variables that define the process are independient.</p>
 <p><br></p>
 </div>
-<div id="proceso-de-markov" class="section level3" number="1.4.2">
-<h3><span class="header-section-number">1.4.2</span> Proceso de Markov</h3>
-<p>Un proceso estocastico discreto <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.1cm}\)</span> es una proceso de Markov si:</p>
+<div id="markov-process" class="section level3" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> Markov process</h3>
+<p>Un proceso estocastico discreto <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.1cm}\)</span> is a Markov process if:</p>
 <p><span class="math display">\[P(\mathcal{X}_{n+1} = x_{n+1}\hspace{0.1cm} |\hspace{0.1cm} \mathcal{X}_0 = x_0 ,..., \mathcal{X}_n =x_n) = P(\mathcal{X}_{n+1} = x_{n+1}\hspace{0.1cm} |\hspace{0.1cm} \mathcal{X}_n = x_n)\]</span></p>
-<p>Donde: <span class="math inline">\(\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace\)</span></p>
-<p>Esta propiedad es conocida como propiedad de falta de memoria de Markov. Ya que implica que el estado futuro del sistema, <span class="math inline">\(\mathcal{X}_{n+1}\)</span> , solo depende del estado presente <span class="math inline">\(x_n\)</span> y no de los estados pasados <span class="math inline">\(x_0,...,x_{n-1}\)</span></p>
+<p>Where: <span class="math inline">\(\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace\)</span></p>
+<p>This property is known as the memoryless Markov property. Because it implies that the future state of the system, <span class="math inline">\(\mathcal{X}_{n+1}\)</span> , only depends on the present state <span class="math inline">\(x_n\)</span> and does not depend on past states <span class="math inline">\(x_0,...,x_{n- 1}\)</span></p>
 <p><br></p>
 </div>
-<div id="proceso-de-incrementos-independientes" class="section level3" number="1.4.3">
-<h3><span class="header-section-number">1.4.3</span> Proceso de incrementos independientes</h3>
-<p>Un proceso estocastico continuo <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}\)</span> es una proceso de incrementos independientes si:</p>
-<p>Para toda serie de tiempos <span class="math inline">\(t_1,t_2,t_3\geq 0\)</span> tales que <span class="math inline">\(t_1 &lt; t_2 &lt; t_3\)</span></p>
-<p><span class="math inline">\(\mathcal{X}_{t_2} - \mathcal{X}_{t_1} , \mathcal{X}_{t_3} - \mathcal{X}_{t_2}\)</span> son independientes</p>
-<p>Esto quiere decir que los desplazamientos que tiene el proceso en los intervalos de tiempo <span class="math inline">\([t_1 , t_2) , [t_2 , t_3)\)</span> son independientes unos de otros, para todo <span class="math inline">\(0 \leq t_1 &lt; t_2 &lt; t_3\)</span>.</p>
+<div id="process-of-independent-increments" class="section level3" number="1.4.3">
+<h3><span class="header-section-number">1.4.3</span> Process of independent increments</h3>
+<p>A continouos stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}\)</span> is a independent increments process if:</p>
+<p>For all set of times <span class="math inline">\(\hspace{0.1cm}t_1,t_2,t_3\geq 0\hspace{0.1cm}\)</span> such that <span class="math inline">\(\hspace{0.1cm}t_1 &lt; t_2 &lt; t_3\)</span></p>
+<p><span class="math inline">\(\mathcal{X}_{t_2} - \mathcal{X}_{t_1} , \mathcal{X}_{t_3} - \mathcal{X}_{t_2}\hspace{0.1cm}\)</span> are independients.</p>
+<p>This means that the displacements of the process in the time intervals <span class="math inline">\(\hspace{0.1cm}[t_1 , t_2) , [t_2 , t_3)\hspace{0.1cm}\)</span> are independent of each other, for all <span class="math inline">\(\hspace{0.1cm }0 \leq t_1 &lt; t_2 &lt; t_3\)</span>.</p>
 <p><br></p>
 </div>
-<div id="procesos-estrictamente-estacionarios" class="section level3" number="1.4.4">
-<h3><span class="header-section-number">1.4.4</span> Procesos estrictamente estacionarios</h3>
-<p>Un proceso estocastico continuo <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}\)</span> es una proceso estrictamente estacionario si:</p>
-<p>Para todo <span class="math inline">\(t \geq 0\)</span> , la distribucion de probabilidad de <span class="math inline">\(\mathcal{X}_{t}\)</span> coincide con la de <span class="math inline">\(\mathcal{X}_{t+h}\)</span> , para cualquier <span class="math inline">\(h&gt;0\)</span></p>
-<p>Por tanto, para toda serie de tiempos <span class="math inline">\(\hspace{0.1cm}t_1 , t_2,...,t_n\)</span></p>
-<p><span class="math inline">\((\mathcal{X}_{t_1}, \mathcal{X}_{t_2},\dots ,\mathcal{X}_{t_n} )\hspace{0.1cm}\)</span> es identicamente distribuido probabilisticamente que <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_{t_1+h}, \mathcal{X}_{t_2+h},\dots ,\mathcal{X}_{t_n+h} )\)</span></p>
+<div id="strictly-stationary-process" class="section level3" number="1.4.4">
+<h3><span class="header-section-number">1.4.4</span> Strictly stationary process</h3>
+<p>A continouos stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}\)</span> is a strictly stationary process if:</p>
+<p>For all <span class="math inline">\(t \geq 0\)</span> , the probability distribution of <span class="math inline">\(\mathcal{X}_{t}\)</span> is the same as that of <span class="math inline">\(\mathcal{X}_{t+h}\)</span> , for all <span class="math inline">\(h&gt;0\)</span></p>
+<p>Therefore, for all set of times <span class="math inline">\(\hspace{0.1cm}t_1 , t_2,...,t_n\)</span></p>
+<p><span class="math inline">\((\mathcal{X}_{t_1}, \mathcal{X}_{t_2},\dots ,\mathcal{X}_{t_n} )\hspace{0.1cm}\)</span> is identically distributed as <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_{t_1+h}, \mathcal{X}_{t_2+h},\dots ,\mathcal{X}_{t_n+h} )\)</span></p>
 <p><br></p>
 </div>
-<div id="proceso-con-incrementos-estacionarios" class="section level3" number="1.4.5">
-<h3><span class="header-section-number">1.4.5</span> Proceso con incrementos estacionarios</h3>
-<p>Un proceso estocastico continuo <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}\)</span> es una proceso de incrementos estacionarios si:</p>
-<p>Para todo par de tiempos <span class="math inline">\(\hspace{0.1cm}t_1,t_2 &gt; 0\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm}t_1 &lt; t_2\)</span></p>
-<p><span class="math inline">\(\mathcal{X}_{t_2} - \mathcal{X}_{t_1}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{t_2 + h} - \mathcal{X}_{t_1 + h}\hspace{0.1cm}\)</span> son independientes, para cualquier <span class="math inline">\(\hspace{0.1cm}h&gt;0\)</span></p>
+<div id="process-with-stationary-increments" class="section level3" number="1.4.5">
+<h3><span class="header-section-number">1.4.5</span> Process with stationary increments</h3>
+<p>A continouos stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}\)</span> is a process with stationary increments if:</p>
+<p>For all pair of times <span class="math inline">\(\hspace{0.1cm}t_1,t_2 &gt; 0\hspace{0.1cm}\)</span> such that <span class="math inline">\(\hspace{0.1cm}t_1 &lt; t_2\)</span></p>
+<p><span class="math inline">\(\mathcal{X}_{t_2} - \mathcal{X}_{t_1}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{t_2 + h} - \mathcal{X}_{t_1 + h}\hspace{0.1cm}\)</span> are independents, for any <span class="math inline">\(\hspace{0.1cm}h&gt;0\)</span></p>
 <p><br></p>
 </div>
-<div id="proceso-martingalas" class="section level3" number="1.4.6">
-<h3><span class="header-section-number">1.4.6</span> Proceso Martingalas</h3>
-<p>Un proceso estocastico discreto <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.1cm}\)</span> es una proceso de Martingalas si:</p>
+<div id="martingalas-process" class="section level3" number="1.4.6">
+<h3><span class="header-section-number">1.4.6</span> Martingalas process</h3>
+<p>A discrete stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.1cm}\)</span> is a Martingalas process if:</p>
 <p><span class="math display">\[E(\mathcal{X}_{n+1} | X_0 = x_0 ,..., X_n = x_n) = x_n\]</span></p>
-<p>Donde: <span class="math inline">\(\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace\)</span></p>
-<p>Esta propiedad es conocida como propiedad Martingala. Implica que el valor esperado del sistema en el futuro <span class="math inline">\(\hspace{0.1cm}n+1\hspace{0.1cm}\)</span> es el valor del sistema en el presente <span class="math inline">\(\hspace{0.1cm}x_n\)</span>. En promedio el sistema no cambia de lo observado en el ultimo momento.</p>
+<p>Where: <span class="math inline">\(\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace\)</span></p>
+<p>This property is known as Martingala property, and it implies that the expected value of the sistym in the future <span class="math inline">\(\hspace{0.1cm}n+1\hspace{0.1cm}\)</span> is the value of the system in the present <span class="math inline">\(\hspace{0.1cm}x_n\)</span>. In mean the system doesn´t change of the state observed in the last moment.</p>
+<p>This property is known as Martingale property, and it implies that the expected value of the sistym in the future <span class="math inline">\(\hspace{0.1cm}n+1\hspace{0.1cm}\)</span> is the value of the system in the present <span class="math inline">\(\hspace {0.1cm}x_n\)</span>. So, in mean the system doesn´t change of the state observed in the last moment.</p>
 <p><br></p>
 </div>
 <div id="proceso-de-levy" class="section level3" number="1.4.7">

@@ -137,131 +137,152 @@ $X_t\hspace{0.1cm}$ is a random variable ussually used to model the state of a s
 
 <br>
 
-## Tipos de procesos estocasticos
+## Types of stochastic processes
 
-### Proceso de ensayos independientes
+### Independent process
 
 
-$\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.1cm}$ es un proceso estocastico de ensayos independientes si las v.a's que lo definen son independientes.
+$\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.1cm}$ is a independient stochastic process if the random variables that define the process are independient.
 
 
 <br>
 
-### Proceso de Markov
+### Markov process
 
-Un proceso estocastico discreto $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.1cm}$ es una proceso  de Markov si:
+Un proceso estocastico discreto $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.1cm}$ is a Markov process if:
 
 
 
 $$P(\mathcal{X}_{n+1} = x_{n+1}\hspace{0.1cm} |\hspace{0.1cm} \mathcal{X}_0 = x_0 ,..., \mathcal{X}_n =x_n) = P(\mathcal{X}_{n+1} = x_{n+1}\hspace{0.1cm} |\hspace{0.1cm} \mathcal{X}_n = x_n)$$
 
 
-Donde: $\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace$
+Where: $\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace$
 
 
 
-
-Esta propiedad es conocida como propiedad de falta de memoria de Markov. Ya que implica que el estado futuro del sistema, $\mathcal{X}_{n+1}$ , solo depende del estado presente  $x_n$ y no de los estados pasados $x_0,...,x_{n-1}$
-
-<br>
-
-
-### Proceso de incrementos independientes
-
-
-Un proceso estocastico continuo $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}$ es una proceso  de incrementos independientes si:
-
-Para toda serie de tiempos $t_1,t_2,t_3\geq 0$ tales que $t_1 < t_2 < t_3$
-
-
-$\mathcal{X}_{t_2} - \mathcal{X}_{t_1} , \mathcal{X}_{t_3} - \mathcal{X}_{t_2}$ son independientes
-
-
-Esto quiere decir que los desplazamientos que tiene el proceso en los  intervalos de tiempo $[t_1 , t_2) , [t_2 , t_3)$ son independientes unos de otros, para todo $0 \leq t_1 < t_2 < t_3$.
-
+This property is known as the memoryless Markov property. Because it implies that the future state of the system, $\mathcal{X}_{n+1}$ , only depends on the present state $x_n$ and does not depend on past states $x_0,...,x_{n- 1}$
 
 <br>
 
-### Procesos estrictamente estacionarios
 
-Un proceso estocastico continuo $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}$ es una proceso  estrictamente estacionario si:
-
-Para todo $t \geq 0$ , la distribucion de probabilidad de $\mathcal{X}_{t}$ coincide con la de $\mathcal{X}_{t+h}$  , para cualquier $h>0$
+### Process of independent increments
 
 
+A continouos stochastic process  $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}$ is a independent increments process if:
 
-Por tanto, para toda serie de tiempos $\hspace{0.1cm}t_1 , t_2,...,t_n$ 
-
-$(\mathcal{X}_{t_1}, \mathcal{X}_{t_2},\dots ,\mathcal{X}_{t_n} )\hspace{0.1cm}$ es identicamente distribuido probabilisticamente que $\hspace{0.1cm}(\mathcal{X}_{t_1+h}, \mathcal{X}_{t_2+h},\dots ,\mathcal{X}_{t_n+h} )$
-
+For all set of times $\hspace{0.1cm}t_1,t_2,t_3\geq 0\hspace{0.1cm}$ such that $\hspace{0.1cm}t_1 < t_2 < t_3$
 
 
+$\mathcal{X}_{t_2} - \mathcal{X}_{t_1} , \mathcal{X}_{t_3} - \mathcal{X}_{t_2}\hspace{0.1cm}$ are independients.
+
+This means that the displacements of the process in the time intervals $\hspace{0.1cm}[t_1 , t_2) , [t_2 , t_3)\hspace{0.1cm}$ are independent of each other, for all $\hspace{0.1cm }0 \leq t_1 < t_2 < t_3$.
 
 
 
 <br>
 
+### Strictly stationary process
+
+A continouos stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}$ is a strictly stationary process  if:
+
+For all $t \geq 0$ , the probability distribution of $\mathcal{X}_{t}$ is the same as that of $\mathcal{X}_{t+h}$  , for all $h>0$
 
 
-### Proceso con incrementos estacionarios
+
+Therefore, for all set of times $\hspace{0.1cm}t_1 , t_2,...,t_n$ 
+
+$(\mathcal{X}_{t_1}, \mathcal{X}_{t_2},\dots ,\mathcal{X}_{t_n} )\hspace{0.1cm}$ is identically distributed as $\hspace{0.1cm}(\mathcal{X}_{t_1+h}, \mathcal{X}_{t_2+h},\dots ,\mathcal{X}_{t_n+h} )$
 
 
-Un proceso estocastico continuo $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}$ es una proceso  de incrementos estacionarios si:
-
-Para todo par de tiempos  $\hspace{0.1cm}t_1,t_2 > 0\hspace{0.1cm}$ tales que $\hspace{0.1cm}t_1 < t_2$
 
 
-$\mathcal{X}_{t_2} - \mathcal{X}_{t_1}\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_{t_2 + h} - \mathcal{X}_{t_1 + h}\hspace{0.1cm}$ son independientes, para cualquier $\hspace{0.1cm}h>0$
+
 
 <br>
 
-### Proceso Martingalas
 
-Un proceso estocastico discreto $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.1cm}$ es una proceso  de Martingalas si:
+
+### Process with stationary increments
+
+A continouos stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}$ is a process with stationary increments if:
+
+For all pair of times  $\hspace{0.1cm}t_1,t_2 > 0\hspace{0.1cm}$ such that $\hspace{0.1cm}t_1 < t_2$
+
+
+$\mathcal{X}_{t_2} - \mathcal{X}_{t_1}\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_{t_2 + h} - \mathcal{X}_{t_1 + h}\hspace{0.1cm}$ are independents, for any $\hspace{0.1cm}h>0$
+
+<br>
+
+### Martingalas process
+
+A discrete stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.1cm}$ is a Martingalas process if:
 
 
 
 $$E(\mathcal{X}_{n+1} | X_0 = x_0 ,..., X_n = x_n) = x_n$$
 
 
-Donde: $\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace$
+Where: $\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace$
 
 
 
-Esta propiedad es conocida como propiedad Martingala. Implica que el valor esperado del sistema en el futuro $\hspace{0.1cm}n+1\hspace{0.1cm}$ es el valor del sistema en el presente $\hspace{0.1cm}x_n$. En promedio el sistema no cambia de lo observado en el ultimo momento.
+This property is known as Martingala property, and it implies that the expected value of the sistym in the future  $\hspace{0.1cm}n+1\hspace{0.1cm}$ is the value of the system in the present $\hspace{0.1cm}x_n$. In mean the system doesn´t change of the state observed in the last moment.
+
+This property is known as Martingale property, and it implies that the expected value of the sistym in the future $\hspace{0.1cm}n+1\hspace{0.1cm}$ is the value of the system in the present $\hspace {0.1cm}x_n$. So, in mean the system doesn´t change of the state observed in the last moment.
 
 
 <br>
 
-### Proceso de Levy
+### Levy process
 
-Un proceso estocastico continuo $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}$ es una proceso  de Levy si es un proceso de uncrementos independientes y estacionarios.
+A continouos stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}$ is a Levy process if is a  process of independents and stationaries increments. 
 
-Los procesos de Poisson y el movimiento Browniano son ejemplos de proceso de Levy.
+The Poisson and Brownian process are examples of Levy process.
 
 <br>
 
 
-### Procesos Gaussianos
+### Gaussian Procces
 
-Un proceso estocastico continuo $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}$ es una proceso  Gaussiano si:
+A continouos stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}$ is a Gaussian process if:
 
-
-Para toda serie de tiempos $\hspace{0.1cm}t_1,...,t_n \geq 0$
+For all set of times $\hspace{0.1cm}t_1,...,t_n \geq 0$
 
 $$(\mathcal{X}_{t_1}, \mathcal{X}_{t_2},...,\mathcal{X}_{t_n}) \sim NM(\mu , \Sigma)$$
 
 
-Donde:
+Where:
 
-$NM(\mu , \Sigma)\hspace{0.1cm}$ denota al distribución de probabilidad Normal multivariante con vector de medias $\hspace{0.1cm}\mu\hspace{0.1cm}$ y matriz de covarianzas $\hspace{0.1cm}\Sigma$
-
-
+$NM(\mu , \Sigma)\hspace{0.1cm}$ denote the multivariate Normal probability distribution with mean vector $\hspace{0.1cm}\mu\hspace{0.1cm}$ y covariance matrix $\hspace{0.1cm}\Sigma$
 
 
 
 
 
+<br>
+
+
+The  dynamic phenomena that we observe in a time series can grouped into two classes:
+
+- The first are those that take stable values in time around a constant level, without showing a long term increasing or decreasing trend. These processes are called stationary. 
+
+Examples of those are the average yearly  temperatures in a region or the propotion of births corresponding to males.
+
+
+- A second class of processes are the non-stationary processes, which are those that can show trend, seasonality and other evolutionary effects over time.
+
+Examples of those are the yearly income of a country, company sales or energy demand. These are series that evolve over time with more or less stable trends.
+
+
+
+
+
+
+
+
+
+
+<br>
 
 
 
