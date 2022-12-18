@@ -2623,7 +2623,7 @@ $$P\left( \hspace{0.1cm}  t^{v}_{1-\alpha/2} \hspace{0.1cm}<\hspace{0.1cm}  \dfr
 $\hspace{0.25cm}$ Siguiendo el método pivotal ahora tenemos que aislar el parametro $\hspace{0.1cm}\theta=\mu_1 - \mu_2 \hspace{0.1cm}$. Operando un poco se llega a lo siguiente: $\\[0.6cm]$
 
 
-$$P\left( \hspace{0.1cm}    \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 -  t^{v}_{\alpha/2} \cdot \sqrt{ \dfrac{1}{n_1} + \dfrac{1}{n_2} }  \hspace{0.1cm}<\hspace{0.1cm}  \mu_1 - \mu_2 \hspace{0.1cm} <\hspace{0.1cm}      \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 +  t^{v}_{\alpha/2} \cdot \sqrt{ \dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2} }         \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
+$$P\left( \hspace{0.1cm}    \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 -  t^{v}_{\alpha/2} \cdot \sqrt{ \dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2} }  \hspace{0.1cm}<\hspace{0.1cm}  \mu_1 - \mu_2 \hspace{0.1cm} <\hspace{0.1cm}      \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 +  t^{v}_{\alpha/2} \cdot \sqrt{ \dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2} }         \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha \\[0.7cm]$$
 
 
 </p>
@@ -2646,7 +2646,7 @@ $$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1c
 $\hspace{0.25cm}$ Dadas dos muestras $\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$  , respectivamente,  tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
 
 
-$$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X}_1 - \overline{X}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{ \dfrac{1}{n_1} + \dfrac{1}{n_2} }    \hspace{0.1cm} \right] \\[0.9cm]$$
+$$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X}_1 - \overline{X}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{ \dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2} }    \hspace{0.1cm} \right] \\[0.9cm]$$
 
 $\hspace{0.25cm}$ Donde:
 
@@ -2656,8 +2656,7 @@ $\hspace{0.25cm}$ Donde:
 - $\hspace{0.1cm} S(X_j)^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n (x_{ij}- \overline{X}_j)^2 \hspace{0.25cm} , \hspace{0.25cm} j \in \lbrace 1, 2\rbrace \\$
 
 
-- $\hspace{0.1cm} S(X)_p^2 = \dfrac{(n_1-1)\cdot S(X_1)^2 + (n_2-1)\cdot S(X_2)^2}{n_1 + n_2 -2}$
-
+ 
 
 </p>
  
@@ -2666,55 +2665,7 @@ $\hspace{0.25cm}$ Donde:
 
 <br>
 
-
-
-Si no suponemos que las varianzas $\hspace{0.1cm} \sigma_1^2 \hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2\hspace{0.1cm}$ son iguales, entonces la cantidad pivotal es la  que en el apartado anterior, con distribución t-student pero con otros grados de libertad: $\\[0.6cm]$
-
-
-
-$$\dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{ \dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2}} \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{v} \\$$
-
-Donde:
-
-
-$$v=\dfrac{(S_1^2 / n_1 + S_2^2/n_2 )^2}{\dfrac{(S_1^2 / n_1)^2}{n_1-1} + \dfrac{( S_2^2/n_2 )^2}{n_2-1}} \\$$
-
-
-<br>
-
-
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
-
-<p style='margin-left:0.1em;'>
-
-
-$\hspace{0.25cm}$ Por lo que el intervalo de confianza para $\hspace{0.1cm}\mu_1-\mu_2\hspace{0.1cm}$, con varianzas desconocidas pero no necesariamente iguales, a un nivel $\hspace{0.1cm}1-\alpha\hspace{0.1cm}$ es: $\\[0.6cm]$
-
-$$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}      \hspace{0.1cm} \right] \\[1.5cm]$$
-
-
-
-
-$\hspace{0.25cm}$ Dadas dos muestras $\hspace{0.1cm}X_1=(x_{11},...,x_{n_11})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n_22})\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$  , respectivamente,  tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
-
-
-$$IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X}_1 - \overline{X}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{S(X)_p^2 \cdot \left(\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_1)^2}{n_2}\right)}    \hspace{0.1cm} \right] \\$$
-
-$\hspace{0.25cm}$ Donde:
-
-$$v=\dfrac{(S(X_1)^2 / n_1 + S(X_2)^2/n_2 )^2}{\dfrac{(S(X_1)^2 / n_1)^2}{n_1-1} + \dfrac{( S(X_2)^2/n_2 )^2}{n_2-1}} $$
-
-
-
-
-</p>
  
-</p></span>
-</div>
-
-<br>
-
 
 
 ## Intervalo de confianza para la diferencia de medias con muestras independientes y  varianzas desconocidas pero  no necesariamente iguales en `Python` 

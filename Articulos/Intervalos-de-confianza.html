@@ -3322,7 +3322,7 @@ size_in_m_2
 <p><span></p>
 <p style="margin-left:0.1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Siguiendo el método pivotal ahora tenemos que aislar el parametro <span class="math inline">\(\hspace{0.1cm}\theta=\mu_1 - \mu_2 \hspace{0.1cm}\)</span>. Operando un poco se llega a lo siguiente: <span class="math inline">\(\\[0.6cm]\)</span></p>
-<p><span class="math display">\[P\left( \hspace{0.1cm}    \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 -  t^{v}_{\alpha/2} \cdot \sqrt{ \dfrac{1}{n_1} + \dfrac{1}{n_2} }  \hspace{0.1cm}&lt;\hspace{0.1cm}  \mu_1 - \mu_2 \hspace{0.1cm} &lt;\hspace{0.1cm}      \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 +  t^{v}_{\alpha/2} \cdot \sqrt{ \dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2} }         \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha \\[0.7cm]\]</span></p>
+<p><span class="math display">\[P\left( \hspace{0.1cm}    \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 -  t^{v}_{\alpha/2} \cdot \sqrt{ \dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2} }  \hspace{0.1cm}&lt;\hspace{0.1cm}  \mu_1 - \mu_2 \hspace{0.1cm} &lt;\hspace{0.1cm}      \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 +  t^{v}_{\alpha/2} \cdot \sqrt{ \dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2} }         \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1-\alpha \\[0.7cm]\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -3333,32 +3333,12 @@ size_in_m_2
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Por tanto, tenemos el siguiente intervalo de confianza a un nivel <span class="math inline">\(\hspace{0.1cm} 1-\alpha\hspace{0.1cm}\)</span> para el parametro <span class="math inline">\(\hspace{0.1cm} \mu_1 - \mu_2 \hspace{0.1cm}\\\)</span></p>
 <p><span class="math display">\[IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{\dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2} }      \hspace{0.1cm} \right] \\[0.9cm]\]</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Dadas dos muestras <span class="math inline">\(\hspace{0.1cm}X_1=(x_{11},...,x_{n1})\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}X_2=(x_{12},...,x_{n2})\hspace{0.1cm}\)</span> de las v.a’s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}\)</span> , respectivamente, tenemos la siguiente realización del intervalo de confianza: <span class="math inline">\(\\[0.6cm]\)</span></p>
-<p><span class="math display">\[IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X}_1 - \overline{X}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{ \dfrac{1}{n_1} + \dfrac{1}{n_2} }    \hspace{0.1cm} \right] \\[0.9cm]\]</span></p>
+<p><span class="math display">\[IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X}_1 - \overline{X}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{ \dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2} }    \hspace{0.1cm} \right] \\[0.9cm]\]</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <ul>
 <li><p><span class="math inline">\(\hspace{0.1cm} \overline{X}_j = \dfrac{1}{n} \cdot \sum_{i=1}^n x_{ij} \hspace{0.25cm} , \hspace{0.25cm} j \in \lbrace 1, 2\rbrace \\\)</span></p></li>
 <li><p><span class="math inline">\(\hspace{0.1cm} S(X_j)^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n (x_{ij}- \overline{X}_j)^2 \hspace{0.25cm} , \hspace{0.25cm} j \in \lbrace 1, 2\rbrace \\\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.1cm} S(X)_p^2 = \dfrac{(n_1-1)\cdot S(X_1)^2 + (n_2-1)\cdot S(X_2)^2}{n_1 + n_2 -2}\)</span></p></li>
 </ul>
-</p>
-</p>
-<p></span></p>
-</div>
-<p><br></p>
-<p>Si no suponemos que las varianzas <span class="math inline">\(\hspace{0.1cm} \sigma_1^2 \hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma_2^2\hspace{0.1cm}\)</span> son iguales, entonces la cantidad pivotal es la que en el apartado anterior, con distribución t-student pero con otros grados de libertad: <span class="math inline">\(\\[0.6cm]\)</span></p>
-<p><span class="math display">\[\dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{ \sqrt{ \dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2}} \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{v} \\\]</span></p>
-<p>Donde:</p>
-<p><span class="math display">\[v=\dfrac{(S_1^2 / n_1 + S_2^2/n_2 )^2}{\dfrac{(S_1^2 / n_1)^2}{n_1-1} + \dfrac{( S_2^2/n_2 )^2}{n_2-1}} \\\]</span></p>
-<p><br></p>
-<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
-<p><span></p>
-<p style="margin-left:0.1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Por lo que el intervalo de confianza para <span class="math inline">\(\hspace{0.1cm}\mu_1-\mu_2\hspace{0.1cm}\)</span>, con varianzas desconocidas pero no necesariamente iguales, a un nivel <span class="math inline">\(\hspace{0.1cm}1-\alpha\hspace{0.1cm}\)</span> es: <span class="math inline">\(\\[0.6cm]\)</span></p>
-<p><span class="math display">\[IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{S_p^2 \cdot \left(\dfrac{1}{n_1} + \dfrac{1}{n_2}\right)}      \hspace{0.1cm} \right] \\[1.5cm]\]</span></p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dadas dos muestras <span class="math inline">\(\hspace{0.1cm}X_1=(x_{11},...,x_{n_11})\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}X_2=(x_{12},...,x_{n_22})\hspace{0.1cm}\)</span> de las v.a’s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}\)</span> , respectivamente, tenemos la siguiente realización del intervalo de confianza: <span class="math inline">\(\\[0.6cm]\)</span></p>
-<p><span class="math display">\[IC(\mu_1 - \mu_2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \overline{X}_1 - \overline{X}_2 \pm  t^{v}_{\alpha/2} \cdot \sqrt{S(X)_p^2 \cdot \left(\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_1)^2}{n_2}\right)}    \hspace{0.1cm} \right] \\\]</span></p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
-<p><span class="math display">\[v=\dfrac{(S(X_1)^2 / n_1 + S(X_2)^2/n_2 )^2}{\dfrac{(S(X_1)^2 / n_1)^2}{n_1-1} + \dfrac{( S(X_2)^2/n_2 )^2}{n_2-1}} \]</span></p>
 </p>
 </p>
 <p></span></p>
