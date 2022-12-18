@@ -262,6 +262,7 @@ $NM(\mu , \Sigma)\hspace{0.1cm}$ denote the multivariate Normal probability dist
 <br>
 
 
+
 The  dynamic phenomena that we observe in a time series can grouped into two classes:
 
 - The first are those that take stable values in time around a constant level, without showing a long term increasing or decreasing trend. These processes are called stationary. 
@@ -275,7 +276,7 @@ Examples of those are the yearly income of a country, company sales or energy de
 
 
 
-
+In practice, the classification of a series as stationary or not depends on the period of observation, since the series can be stable in a short period and non-stationary in a longer one.
 
 
 
@@ -283,6 +284,96 @@ Examples of those are the yearly income of a country, company sales or energy de
 
 
 <br>
+
+
+
+# Time series
+
+Given a stochastic process $\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}/\hspace{0.1cm} t \in T=\lbrace 1,2,...,k \rbrace \hspace{0.1cm}\right\rbrace \hspace{0.1cm} = \hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_1 ,  \mathcal{X}_2 ,..., \mathcal{X}_k  \hspace{0.1cm}\right\rbrace\hspace{0.1cm}$ 
+
+Given a sample of one observation $X_t=(x_t)$ of each random variable $\mathcal{X}_t$ of the process, for $t \in T=\lbrace 1,2,...,n \rbrace$
+
+
+$x_1,...,x_k$ is a time serie
+ 
+
+**Observations:**
+
+- $x_t \in \mathbb{R}$ is a realization of the random variable $\mathcal{X}_t$
+
+
+- A time serie is a realization of a stochastic process. The time serie is considered a result or trajectory of the stochastic process.
+
+
+
+
+The process is characterized by the join probability distribution of the random variables $\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_1 ,  \mathcal{X}_2 ,..., \mathcal{X}_k  \hspace{0.1cm}\right\rbrace\hspace{0.1cm}$, namely, is characterized by the join density or probability function $f_{\mathcal{X}_1 ,  \mathcal{X}_2 ,..., \mathcal{X}_k}$. 
+
+This distribution is called finite-dimensional distribution of the process. We say that we know the probabilistic structure of the stochastic process when we know that join distribution, which determine the distribution of any subset of the variables and, in particular, the marginal distribution of each variable.
+
+
+
+
+
+# Random walk
+
+A random walk is a stochastic process $\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}/\hspace{0.1cm} t \in T=\lbrace 1,2,...,k \rbrace \hspace{0.1cm}\right\rbrace \hspace{0.1cm}$  defined as:
+
+$\mathcal{X}_t = \mathcal{X}_{t-1} + a_t$  , for $t \in \lbrace 1,...,k \rbrace$
+
+Where:
+
+$\mathcal{X}_0 = 0$
+
+$a_t \sim N(0, \sigma^2)$
+
+
+We say that $\hspace{0.1cm}a_t \sim N(0, \sigma^2)\hspace{0.1cm}$ is a white noise.
+
+
+<br>
+
+# Mean function 
+
+
+Given a stochastic process $\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}/\hspace{0.1cm} t \in T=\lbrace 1,2,...,k \rbrace \hspace{0.1cm}\right\rbrace \hspace{0.1cm}$
+
+The mean function $\mu_t$ of the process is defined as:
+
+$\mu_t = E\left[\mathcal{X}_t\right]$ , for $t \in \lbrace 1,2,...,k \rbrace$
+
+
+**Observaciones:**
+
+- An important particular case, due to its simplicity, arises when all the variables have the same mean and thus the mean function is a constant.
+The realizations of the process show no trend and we say that the process is stable in the mean.
+
+
+- If, on the contrary, the means change over time, the observations at dierent
+moments will reveal that change.
+
+- On many occasions we only have one realization of the stochastic process and
+we have to deduce from that whether the mean function of the process is, or is
+not, constant over time.
+
+
+
+<br>
+
+# Variance function
+
+
+Given a stochastic process $\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}/\hspace{0.1cm} t \in T=\lbrace 1,2,...,k \rbrace \hspace{0.1cm}\right\rbrace \hspace{0.1cm}$
+
+The variance function $\sigma^2_t$ of the process is defined as:
+
+$\sigma^2_t = Var\left[\mathcal{X}_t\right]$ , for $t \in \lbrace 1,2,...,k \rbrace$
+
+
+
+
+
+
 
 
 
