@@ -938,8 +938,7 @@ Donde:
 -  Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
   
   
-    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \chi_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | x_{exp|H_0} | \right) + P \left(  \chi_{exp|H_0}  \hspace{0.1cm}<\hspace{0.1cm} - | x_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm}  P \left(  \chi_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} \left|  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right| \hspace{0.1cm} \right) + P \left(  \chi_{exp|H_0}  \hspace{0.1cm}<\hspace{0.1cm} - \left|  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right| \hspace{0.1cm} \right)
-  \\$$
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \chi_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | x_{exp|H_0} | \right) \hspace{0.1cm}+\hspace{0.1cm} P \left(  \chi_{exp|H_0}  \hspace{0.1cm}<\hspace{0.1cm} - | x_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm}  P \left(  \chi_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} \left|  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right| \hspace{0.1cm} \right)\hspace{0.1cm} +\hspace{0.1cm} P \left(  \chi_{exp|H_0}  \hspace{0.1cm}<\hspace{0.1cm} - \left|  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right| \hspace{0.1cm} \right) \\$$
     
   
 
@@ -1013,6 +1012,205 @@ $$
  <br>
 
 
+ <br>
+
+
+
+
+# Contraste para las medias de dos poblaciones Normales independientes
+
+## Supuestos
+
+- Tenemos dos v.a's **independientes** $\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1 , \sigma_1)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2 \sim N(\mu_2 , \sigma_2)$
+
+- Tenemos dos muestras aleatorias simples $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n_1 1}\hspace{0.1cm}$  y $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n_2 2}\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2 \\$
+
+- Las varianzas $\hspace{0.1cm}\sigma_1\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2\hspace{0.1cm}$ son desconocidas y no necesariamente iguales.
+
+
+
+## Contraste
+
+$$
+H_0 : \mu_ = \mu_2 \hspace{1.5cm}   H_0 : \mu_ = \mu_2   \hspace{1.5cm} H_0 : \mu_ = \mu_2    \\
+H_1 : \mu_1 \neq \mu_2 \hspace{1.5cm}  H_1 : \mu_1 < \mu_2  \hspace{1.5cm}   H_1 : \mu_1 > \mu_2
+$$
+
+<br>
+
+## Estadistico del contraste
+
+El estadistico de este contraste está basado en el teorema de Gosset aumentado con varianzas no necesariamente iguales, que fue ilustrado en el artículo de [intervalos de confianza](http://estadistica4all.com/Articulos/Intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-con-varianza-desconocida): $\\[0.5cm]$ 
+
+$$\mathcal{T}_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{  \dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2}\right)} \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{v} \\$$
+
+Donde:
+
+
+$$v=\dfrac{(S_1^2 / n_1 + S_2^2/n_2 )^2}{\dfrac{(S_1^2 / n_1)^2}{n_1-1} + \dfrac{( S_2^2/n_2 )^2}{n_2-1}} \\$$
+
+
+Por tanto, el estadístico del contraste bajo $\hspace{0.1cm} H_0\hspace{0.1cm}$ es: $\\[0.5cm]$
+
+$$\mathcal{T}_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{1}{n_1} + \dfrac{1}{n_2}} \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{v} \\$$
+
+
+Donde:
+
+
+- $\overline{\mathcal{X}}_j \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_{ij} \hspace{0.25cm} , \hspace{0.25cm}   j \in \lbrace 1,2 \rbrace \\$
+
+- $S_j^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i - \overline{\mathcal{X}} \hspace{0.25cm} , \hspace{0.25cm}   j \in \lbrace 1,2 \rbrace $
+
+
+
+<br>
+
+
+**Observación:**
+
+Dadas dos muestras de observaciones $\hspace{0.1cm}X_1=(x_{11},...,x_{n_1 1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n_2 2})\hspace{0.1cm}$ de las variables $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ , respectivamente.
+
+
+$$
+t_{exp | H_0} \hspace{0.1cm}= \hspace{0.1cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} } \\
+$$
+
+
+es una **realización muestral** de la v.a. $\hspace{0.1cm}\mathcal{T}_{exp | H_0} \\$
+
+
+
+Donde:
+
+
+- $\overline{X}_j \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n x_{ij} \hspace{0.25cm} , \hspace{0.25cm}   j \in \lbrace 1 , 2 \rbrace \\$
+
+- $S(X_j)^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n (x_{ij} - \overline{X}_j )^2 \hspace{0.25cm} , \hspace{0.25cm}   j \in \lbrace 1 , 2 \rbrace$
+
+
+<br>
+
+
+
+## p-valor
+
+
+- Caso  $\hspace{0.15cm}H_0: \mu_1 = \mu_2 \hspace{0.15cm}   \text{vs}  \hspace{0.15cm} H_1: \mu_1 > \mu_2 \\$  
+  
+
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}>\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{v} > \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} }  \right) \\[2.5cm]$$ 
+
+
+
+
+
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
+
+
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}<\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{v} < \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} }  \right) \\[2.5cm]$$ 
+
+
+
+-  Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
+  
+  
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}<\hspace{0.1cm} - | t_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm} 
+     P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm} >\hspace{0.1cm}  | t_{exp|H_0} | \right) \\[1cm]
+     \hspace{0.1cm}=\hspace{0.1cm} 
+    2 \cdot  P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | t_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( t_{n-1} > \left| \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} }  \right| \hspace{0.1cm} \right)$$
+    
+  
+
+
+
+
+
+<br>
+
+## Regla de decisión
+
+
+### Basada en el estadistico del contraste
+
+
+Para un nivel de significación $\hspace{0.1cm} \alpha$ : $\\[0.5cm]$
+
+
+---
+
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm}   \text{vs}  \hspace{0.15cm}H_1: \mu > \mu_0 \\$
+
+
+    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} >\hspace{0.1cm} t_{\alpha}^{v} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} }  \hspace{0.1cm} >\hspace{0.1cm} t_{\alpha}^{v} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.1cm} >\hspace{0.1cm}  t_{\alpha}^{v} \cdot \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}}$$
+
+
+
+    Donde: $\hspace{0.1cm}  \hspace{0.1cm} P(t_{v} \hspace{0.1cm} >\hspace{0.1cm}  t_{\alpha}^{v}) \hspace{0.1cm} =\hspace{0.1cm}  \alpha \\$ 
+
+ 
+---
+ 
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
+
+     $$ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} < \hspace{0.1cm} t_{\alpha}^{v} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} } \hspace{0.1cm} < \hspace{0.1cm} t_{\alpha}^{v} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.1cm} <\hspace{0.1cm}  t_{\alpha}^{v} \cdot \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \\$$
+
+ 
+---
+
+
+-  Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
+
+
+
+
+    $$ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} > \hspace{0.1cm} t_{\alpha/2}^{n-1}  \hspace{0.2cm} \vee \hspace{0.2cm}    t_{exp|H_0} \hspace{0.1cm} < \hspace{0.1cm} t_{1-\alpha/2}^{n-1}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}   \mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.1cm} >\hspace{0.1cm}  t_{\alpha/2}^{v} \cdot \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.2cm} \vee \hspace{0.2cm}  \mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.1cm} <\hspace{0.1cm}  - t_{\alpha/2}^{v} \cdot \sqrt{\dfrac{S(X_1)^2}{v} + \dfrac{S(X_2)^2}{n_2}}\\$$
+
+
+
+    Donde se ha usado la propiedad de simetría de la distribución t-student, por la cual $\hspace{0.2cm}t_{1-\alpha/2}^{v} \hspace{0.1cm}=\hspace{0.1cm} - t_{\alpha/2}^{v}$
+
+
+<br>
+
+
+### Basada en el p-valor
+
+Dado un nivel de significación $\hspace{0.1cm}\alpha\hspace{0.1cm}$, la regla de decisión basada en el p-valor del contraste es muy sencilla:
+
+
+$$
+\text{Rechazar}  H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  pvalor < \alpha
+$$
+
+
+
+
+ 
+
+<br>
+
+
+
+## Contraste en `Python`
+
+
+
+
+
+
+
+<br>
+
+# Contraste para las medias de dos poblaciones Normales dependientes
+
+
+
+
+
+
+
+ <br>
 
 
 
@@ -1024,6 +1222,9 @@ $$
 
 
 
+<br>
+
+# Contraste para las varianzas de dos poblaciones Normales independientes
 
 
 
@@ -1031,17 +1232,7 @@ $$
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+ <br>
 
 
 
