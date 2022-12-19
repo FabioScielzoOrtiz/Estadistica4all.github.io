@@ -1058,7 +1058,7 @@ $$s.e.(\widehat{\theta}(X_{(b)})) = \sqrt{Var(\widehat{\theta}_{(b)})} \\$$
 - Se calcula $\hspace{0.1cm}\widehat{t}_{\alpha}\hspace{0.1cm}$ el cuantil de orden $\hspace{0.1cm}\alpha\hspace{0.1cm}$ de la variable $\hspace{0.1cm}Z=(z_1,...,z_B)$ 
 
 
-$\hspace{0.35cm}$ Por tanto, se tiene que cumplir lo siguiente:
+$\hspace{0.35cm}$ Por tanto, se tiene que cumplir lo siguiente: $\\[0.4cm]$
 
 $$\dfrac{\# \hspace{0.15cm} \left\lbrace b = 1,...,B \hspace{0.15cm} / \hspace{0.15cm} z_b \leq \widehat{t}_{\alpha} \right\rbrace }{B}  \hspace{0.15cm} = \hspace{0.15cm} \alpha$$
 
