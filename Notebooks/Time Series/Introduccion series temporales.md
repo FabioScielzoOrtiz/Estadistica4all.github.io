@@ -1,7 +1,7 @@
 ---
 title: 'Introduction to Time Series'
 author: 'Fabio Scielzo Ortiz'
-date: '30/12/22'
+date: '5/1/23'
 output: 
    rmdformats::readthedown:
       use_bookdown: true
@@ -62,7 +62,7 @@ $\hspace{0.3cm}$ **Author:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estad
 
 $\hspace{0.3cm}$ **If you use this article, please quote it !!**
 
-$\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). Introducción a los intervalos de confianza.  http://estadistica4all.com/Articulos/Intervalos-de-confianza.html
+$\hspace{0.5cm}$ Scielzo Ortiz, F. (2023). Introduction to Time Series.  http://estadistica4all.com/Articulos/Intervalos-de-confianza.html
 
 
 </p>
@@ -340,7 +340,9 @@ Given a stochastic process $\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X
 
 The mean function $\mu_t$ of the process is defined as:
 
-$\mu_t = E\left[\mathcal{X}_t\right]$ , for $t \in \lbrace 1,2,...,k \rbrace$
+$$\mu_t = E\left[\mathcal{X}_t\right]$$
+
+for $t \in \lbrace 1,2,...,k \rbrace \\$
 
 
 **Observaciones:**
@@ -367,15 +369,143 @@ Given a stochastic process $\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X
 
 The variance function $\sigma^2_t$ of the process is defined as:
 
-$\sigma^2_t = Var\left[\mathcal{X}_t\right]$ , for $t \in \lbrace 1,2,...,k \rbrace$
+$$\sigma^2_t = Var\left[\mathcal{X}_t\right]$$
+
+for $t \in \lbrace 1,2,...,k \rbrace \\$
+
+
+We say that the process is stable in the variance if the variability is constant
+over time.
+
+A process can be stable in the mean but not in the variance and vice versa.
+
+
+<br>
+
+# Autocovariance function
+
+
+The structure of linear dependence between random variables is represented by
+the covariance and correlation functions.
+
+Given a stochastic process $\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}/\hspace{0.1cm} t \in T=\lbrace 1,2,...,k \rbrace \hspace{0.1cm}\right\rbrace \hspace{0.1cm}$
+
+The autocavariance function $\gamma_{t , t+h}$ of the process is defined as:
+
+$$\gamma_{t , t+h} = Cov(\mathcal{X}_t , \mathcal{X}_{t+h}) = E\left[ (\mathcal{X}_t - \mu_t)\cdot (\mathcal{X}_{t+h} - \mu_{t+h})   \right]$$
+
+for $\hspace{0.1cm}t \in \lbrace 1,2,...,k \rbrace\hspace{0.1cm}$ and $\hspace{0.1cm}  h\in \lbrace 1,2,... \rbrace \\$
+
+
+
+In particular, we have
+
+
+$$\gamma_{t , t} = \sigma_t^2$$
 
 
 
 
+The autocovariances have dimensions, the squares of the series, thus it is not
+advisable to use them for comparing series measured in dierent units.
+
+
+
+<br>
+
+# Autocorrelation function
+
+
+Given a stochastic process $\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}/\hspace{0.1cm} t \in T=\lbrace 1,2,...,k \rbrace \hspace{0.1cm}\right\rbrace \hspace{0.1cm}$
+
+The autocorrelation function $\rho_{t , t+h}$ of the process is defined as:
+
+$$\rho_{t , t+h} = \dfrac{\gamma_{t , t+h}}{\sqrt{\sigma_t^2 \cdot \sigma_{t+h}^2}}$$
+
+for $\hspace{0.1cm}t \in \lbrace 1,2,...,k \rbrace\hspace{0.1cm}$ and $\hspace{0.1cm} h\in \lbrace 1,2,... \rbrace \\$
+
+
+In particular, we have
+
+
+$$\rho_{t , t} = 1$$
+
+
+<br>
+
+It is interesting to notice the differences between conditional distributions and the marginal distributions.
+
+The marginal distribution of $\mathcal{X}_t$ represents what we know about a variable, without knowing anything about its trajectory until time $t$.
+
+The conditional distribution of $\mathcal{X}_t$ given $\mathcal{X}_{t-1}$,...,$\mathcal{X}_{t-r}$ represents what we
+know about a variable when we know the k previous values of the process.
+
+In time series conditional distributions are of greater interest than marginal
+ones because they define the predictions that we can make about the future
+knowing the past.
+
+
+<br>
+
+# Stationary processes
+
+Given a stochastic process $\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}/\hspace{0.1cm} t \in T=\lbrace 1,2,...,k \rbrace \hspace{0.1cm}\right\rbrace \hspace{0.1cm}$
+
+A stochastic process is **strictly stationary** if:
+
+the probability distribution of $\mathcal{X}_{t}$ is the same as that of $\mathcal{X}_{t+h}$
+
+for all $\hspace{0.1cm}t \in \lbrace 1,2,...,k \rbrace\hspace{0.1cm}$ and $\hspace{0.1cm} h \in \in \lbrace 1,2,... \rbrace$.   
+
+
+
+Therefore, for all set of times $\hspace{0.1cm}t_1 , t_2,...,t_n$ 
+
+$(\mathcal{X}_{t_1}, \mathcal{X}_{t_2},\dots ,\mathcal{X}_{t_n} )\hspace{0.1cm}$ is identically distributed as $\hspace{0.1cm}(\mathcal{X}_{t_1+h}, \mathcal{X}_{t_2+h},\dots ,\mathcal{X}_{t_n+h} )$
+
+
+<br>
+
+Strict stationarity is a very strong condition, since to prove it we must have the joint distributions for any set of variables in the process. A weaker property, but one which is easier to prove, is **weak stationarity**.
+
+
+
+A stochastic process is **strictly stationary** if:
+
+- $\mu_t = \mu = cte , \forall t \in \lbrace 1,2,...,k \rbrace$
+
+- $\sigma_t^2 = \sigma = cte , , \forall t \in \lbrace 1,2,...,k \rbrace$
+
+- $\gamma_{t , t + h} = Cov(\mathcal{X}_t,\mathcal{X}_{t+h}) E[(\mathcal{X}_t - \mu)\cdot (\mathcal{X}_{t+h} - \mu)] = \gamma(h)  , \forall h \in  \lbrace 0 , \pm 1 , \pm 2 ,... \rbrace$
+
+
+
+The first two conditions indicate that the mean and variance are constant.
+
+The third indicates that the covariance between two variables depends only on
+their separation.
+
+In a stationary process the autocovariances and autocorrelations depend only on
+the lag between the variables and, in particular, the relationship between $\mathcal{X}_t$ and $\mathcal{X}_{t+h}$ ,  is always equal to the relationship between $\mathcal{X}_t$ and $\mathcal{X}_{t-h}$ .
+
+
+As a result, in stationary processes:
+
+
+
+$\gamma_{t , t + h} = \gamma_{t + r , t + h + r} = \gamma(h) , \forall r \in  \lbrace 0 , \pm 1 , \pm 2 ,... \rbrace$
+
+
+$$\rho_{t, t+h} = \dfrac{\gamma_{t , t + h}}{\sqrt{\sigma_t^2 \cdot \sigma_{t+h}^2}} = \dfrac{\gamma(h)}{\sqrt{\sigma^2 \cdot \sigma^2}} = \dfrac{\gamma(h)}{\sigma^2} = \dfrac{\gamma(h)}{\gamma(0)} = \rho(h)$$
+
+Where:
+
+$\gamma(0) = \sigma^2$
 
 
 
 
+DIAPOSITIVA 23
 
 
 

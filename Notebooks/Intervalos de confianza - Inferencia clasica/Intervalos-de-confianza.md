@@ -988,7 +988,7 @@ $\hspace{0.25cm}$ Donde:
 
 $\hspace{0.25cm}$ El TCL dice lo siguiente:
 
-$\hspace{0.25cm}$ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
+$\hspace{0.25cm}$ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ con varianza finita y no nula, y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
 
 $$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} = \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.2cm}\underset{d}{\rightarrow}\hspace{0.2cm} N(0,1)\\$$
 
@@ -1166,7 +1166,7 @@ $\hspace{0.25cm}$ Donde:
 
 <br>
 
-## Intervalo de confianza para la proporción en `Python`
+### Intervalo de confianza para la proporción en `Python`
 
 
 
@@ -1985,7 +1985,7 @@ $\hspace{0.25cm}$ Donde:
 <br>
 
 
-## Intervalo de confianza para la media con varianza desconocida en `Python`
+### Intervalo de confianza para la media con varianza desconocida en `Python`
 
 Definimos una función que toma como argumentos una variable cuantitativa, y un nivel de significación (alpha), y te devuelve como salida el intervalo de confianza para la media poblacional de la variable, y además también devuelve la estimación puntual de dicha  media poblacional.
 
@@ -2255,7 +2255,7 @@ De hecho, si $\hspace{0.1cm}n \rightarrow \infty\hspace{0.1cm}$ , entonces $\hsp
 <br>
 
 
-## Intervalo de confianza para la varianza en `Python`
+### Intervalo de confianza para la varianza en `Python`
 
 
 Definimos una función que toma como argumentos una variable cuantitativa, y un nivel de significación (alpha), y te devuelve como salida el intervalo de confianza para la varianza poblacional de la variable, y además también devuelve la estimación puntual de dicha  varianza poblacional.
@@ -2668,7 +2668,7 @@ $\hspace{0.25cm}$ Donde:
  
 
 
-## Intervalo de confianza para la diferencia de medias con muestras independientes y  varianzas desconocidas pero  no necesariamente iguales en `Python` 
+### Intervalo de confianza para la diferencia de medias con muestras independientes y  varianzas desconocidas y  no necesariamente iguales en `Python` 
 
 
 
@@ -2956,7 +2956,7 @@ $\hspace{0.25cm}$ Donde:
  
  
 
-## Intervalo de confianza para la diferencia de medias con muestras dependientes (pareadas) en `Python` 
+### Intervalo de confianza para la diferencia de medias con muestras dependientes (pareadas) en `Python` 
 
 
 Definimos una función que toma como argumentos dos variables cuantitativas, que deben ser realmente las mediciones de una misma variable sobre una misma muestra o grupo en dos estados diferentes (antes y después de la aplicación de un tratamiento), y un nivel de significación (alpha), y te devuelve como salida el intervalo de confianza para la diferencia de medias poblacionales de las variables, y además también devuelve la estimación puntual de dicha diferencia de medias poblacionales.
@@ -3245,7 +3245,7 @@ $\hspace{0.25cm}$ Donde:
 
 <br>
 
-## Intervalo de confianza para el cociente de varianzas en `Python`
+### Intervalo de confianza para el cociente de varianzas en `Python`
 
 Definimos una función que toma como argumentos dos variables cuantitativas, que deben ser realmente las mediciones de una misma variable en dos muestras o grupos diferentes, y un nivel de significación (alpha), y te devuelve como salida el intervalo de confianza para el cociente de las varianzas poblacionales de las variables, y además también devuelve la estimación puntual de dicho cociente de varianzas poblacionales.
 
@@ -3504,7 +3504,7 @@ $\hspace{0.25cm}$ Donde:
 
 
 
-## Intervalo de confianza para la diferencia de proporciones en `Python`
+### Intervalo de confianza para la diferencia de proporciones en `Python`
 
 
 Definimos una función que toma como argumentos dos variables categóricas binarias , que deben estar codificada en formato estándar (0,1), y un nivel de significación (alpha) y te devuelve como salida el intervalo de confianza para la diferencia entre la proporción de individuos de la población tales que pertenecen a la categoría codificada como 1 en la primera variable y la misma proporción en base a la segunda variable, y además también devuelve la estimación puntual de dicha diferencia de proporciones.

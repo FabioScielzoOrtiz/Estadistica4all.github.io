@@ -1517,6 +1517,13 @@ margin-left: 0 !important;
       <li><a href="#continuous-stochastic-process" id="toc-continuous-stochastic-process"><span class="toc-section-number">1.3</span> Continuous stochastic process</a></li>
       <li><a href="#types-of-stochastic-processes" id="toc-types-of-stochastic-processes"><span class="toc-section-number">1.4</span> Types of stochastic processes</a></li>
       </ul></li>
+      <li><a href="#time-series" id="toc-time-series"><span class="toc-section-number">2</span> Time series</a></li>
+      <li><a href="#random-walk" id="toc-random-walk"><span class="toc-section-number">3</span> Random walk</a></li>
+      <li><a href="#mean-function" id="toc-mean-function"><span class="toc-section-number">4</span> Mean function</a></li>
+      <li><a href="#variance-function" id="toc-variance-function"><span class="toc-section-number">5</span> Variance function</a></li>
+      <li><a href="#autocovariance-function" id="toc-autocovariance-function"><span class="toc-section-number">6</span> Autocovariance function</a></li>
+      <li><a href="#autocorrelation-function" id="toc-autocorrelation-function"><span class="toc-section-number">7</span> Autocorrelation function</a></li>
+      <li><a href="#stationary-processes" id="toc-stationary-processes"><span class="toc-section-number">8</span> Stationary processes</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1641,21 +1648,145 @@ margin-right: auto;
 <p>This property is known as Martingale property, and it implies that the expected value of the sistym in the future <span class="math inline">\(\hspace{0.1cm}n+1\hspace{0.1cm}\)</span> is the value of the system in the present <span class="math inline">\(\hspace {0.1cm}x_n\)</span>. So, in mean the system doesn´t change of the state observed in the last moment.</p>
 <p><br></p>
 </div>
-<div id="proceso-de-levy" class="section level3" number="1.4.7">
-<h3><span class="header-section-number">1.4.7</span> Proceso de Levy</h3>
-<p>Un proceso estocastico continuo <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}\)</span> es una proceso de Levy si es un proceso de uncrementos independientes y estacionarios.</p>
-<p>Los procesos de Poisson y el movimiento Browniano son ejemplos de proceso de Levy.</p>
+<div id="levy-process" class="section level3" number="1.4.7">
+<h3><span class="header-section-number">1.4.7</span> Levy process</h3>
+<p>A continouos stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}\)</span> is a Levy process if is a process of independents and stationaries increments.</p>
+<p>The Poisson and Brownian process are examples of Levy process.</p>
 <p><br></p>
 </div>
-<div id="procesos-gaussianos" class="section level3" number="1.4.8">
-<h3><span class="header-section-number">1.4.8</span> Procesos Gaussianos</h3>
-<p>Un proceso estocastico continuo <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}\)</span> es una proceso Gaussiano si:</p>
-<p>Para toda serie de tiempos <span class="math inline">\(\hspace{0.1cm}t_1,...,t_n \geq 0\)</span></p>
+<div id="gaussian-procces" class="section level3" number="1.4.8">
+<h3><span class="header-section-number">1.4.8</span> Gaussian Procces</h3>
+<p>A continouos stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}\)</span> is a Gaussian process if:</p>
+<p>For all set of times <span class="math inline">\(\hspace{0.1cm}t_1,...,t_n \geq 0\)</span></p>
 <p><span class="math display">\[(\mathcal{X}_{t_1}, \mathcal{X}_{t_2},...,\mathcal{X}_{t_n}) \sim NM(\mu , \Sigma)\]</span></p>
-<p>Donde:</p>
-<p><span class="math inline">\(NM(\mu , \Sigma)\hspace{0.1cm}\)</span> denota al distribución de probabilidad Normal multivariante con vector de medias <span class="math inline">\(\hspace{0.1cm}\mu\hspace{0.1cm}\)</span> y matriz de covarianzas <span class="math inline">\(\hspace{0.1cm}\Sigma\)</span></p>
+<p>Where:</p>
+<p><span class="math inline">\(NM(\mu , \Sigma)\hspace{0.1cm}\)</span> denote the multivariate Normal probability distribution with mean vector <span class="math inline">\(\hspace{0.1cm}\mu\hspace{0.1cm}\)</span> y covariance matrix <span class="math inline">\(\hspace{0.1cm}\Sigma\)</span></p>
+<p><br></p>
+<p>The dynamic phenomena that we observe in a time series can grouped into two classes:</p>
+<ul>
+<li>The first are those that take stable values in time around a constant level, without showing a long term increasing or decreasing trend. These processes are called stationary.</li>
+</ul>
+<p>Examples of those are the average yearly temperatures in a region or the propotion of births corresponding to males.</p>
+<ul>
+<li>A second class of processes are the non-stationary processes, which are those that can show trend, seasonality and other evolutionary effects over time.</li>
+</ul>
+<p>Examples of those are the yearly income of a country, company sales or energy demand. These are series that evolve over time with more or less stable trends.</p>
+<p>In practice, the classification of a series as stationary or not depends on the period of observation, since the series can be stable in a short period and non-stationary in a longer one.</p>
+<p><br></p>
 </div>
 </div>
+</div>
+<div id="time-series" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Time series</h1>
+<p>Given a stochastic process <span class="math inline">\(\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}/\hspace{0.1cm} t \in T=\lbrace 1,2,...,k \rbrace \hspace{0.1cm}\right\rbrace \hspace{0.1cm} = \hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_1 , \mathcal{X}_2 ,..., \mathcal{X}_k \hspace{0.1cm}\right\rbrace\hspace{0.1cm}\)</span></p>
+<p>Given a sample of one observation <span class="math inline">\(X_t=(x_t)\)</span> of each random variable <span class="math inline">\(\mathcal{X}_t\)</span> of the process, for <span class="math inline">\(t \in T=\lbrace 1,2,...,n \rbrace\)</span></p>
+<p><span class="math inline">\(x_1,...,x_k\)</span> is a time serie</p>
+<p><strong>Observations:</strong></p>
+<ul>
+<li><p><span class="math inline">\(x_t \in \mathbb{R}\)</span> is a realization of the random variable <span class="math inline">\(\mathcal{X}_t\)</span></p></li>
+<li><p>A time serie is a realization of a stochastic process. The time serie is considered a result or trajectory of the stochastic process.</p></li>
+</ul>
+<p>The process is characterized by the join probability distribution of the random variables <span class="math inline">\(\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_1 , \mathcal{X}_2 ,..., \mathcal{X}_k \hspace{0.1cm}\right\rbrace\hspace{0.1cm}\)</span>, namely, is characterized by the join density or probability function <span class="math inline">\(f_{\mathcal{X}_1 , \mathcal{X}_2 ,..., \mathcal{X}_k}\)</span>.</p>
+<p>This distribution is called finite-dimensional distribution of the process. We say that we know the probabilistic structure of the stochastic process when we know that join distribution, which determine the distribution of any subset of the variables and, in particular, the marginal distribution of each variable.</p>
+</div>
+<div id="random-walk" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Random walk</h1>
+<p>A random walk is a stochastic process <span class="math inline">\(\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}/\hspace{0.1cm} t \in T=\lbrace 1,2,...,k \rbrace \hspace{0.1cm}\right\rbrace \hspace{0.1cm}\)</span> defined as:</p>
+<p><span class="math inline">\(\mathcal{X}_t = \mathcal{X}_{t-1} + a_t\)</span> , for <span class="math inline">\(t \in \lbrace 1,...,k \rbrace\)</span></p>
+<p>Where:</p>
+<p><span class="math inline">\(\mathcal{X}_0 = 0\)</span></p>
+<p><span class="math inline">\(a_t \sim N(0, \sigma^2)\)</span></p>
+<p>We say that <span class="math inline">\(\hspace{0.1cm}a_t \sim N(0, \sigma^2)\hspace{0.1cm}\)</span> is a white noise.</p>
+<p><br></p>
+</div>
+<div id="mean-function" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Mean function</h1>
+<p>Given a stochastic process <span class="math inline">\(\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}/\hspace{0.1cm} t \in T=\lbrace 1,2,...,k \rbrace \hspace{0.1cm}\right\rbrace \hspace{0.1cm}\)</span></p>
+<p>The mean function <span class="math inline">\(\mu_t\)</span> of the process is defined as:</p>
+<p><span class="math display">\[\mu_t = E\left[\mathcal{X}_t\right]\]</span></p>
+<p>for <span class="math inline">\(t \in \lbrace 1,2,...,k \rbrace \\\)</span></p>
+<p><strong>Observaciones:</strong></p>
+<ul>
+<li><p>An important particular case, due to its simplicity, arises when all the variables have the same mean and thus the mean function is a constant.
+The realizations of the process show no trend and we say that the process is stable in the mean.</p></li>
+<li><p>If, on the contrary, the means change over time, the observations at dierent
+moments will reveal that change.</p></li>
+<li><p>On many occasions we only have one realization of the stochastic process and
+we have to deduce from that whether the mean function of the process is, or is
+not, constant over time.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="variance-function" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Variance function</h1>
+<p>Given a stochastic process <span class="math inline">\(\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}/\hspace{0.1cm} t \in T=\lbrace 1,2,...,k \rbrace \hspace{0.1cm}\right\rbrace \hspace{0.1cm}\)</span></p>
+<p>The variance function <span class="math inline">\(\sigma^2_t\)</span> of the process is defined as:</p>
+<p><span class="math display">\[\sigma^2_t = Var\left[\mathcal{X}_t\right]\]</span></p>
+<p>for <span class="math inline">\(t \in \lbrace 1,2,...,k \rbrace \\\)</span></p>
+<p>We say that the process is stable in the variance if the variability is constant
+over time.</p>
+<p>A process can be stable in the mean but not in the variance and vice versa.</p>
+<p><br></p>
+</div>
+<div id="autocovariance-function" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Autocovariance function</h1>
+<p>The structure of linear dependence between random variables is represented by
+the covariance and correlation functions.</p>
+<p>Given a stochastic process <span class="math inline">\(\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}/\hspace{0.1cm} t \in T=\lbrace 1,2,...,k \rbrace \hspace{0.1cm}\right\rbrace \hspace{0.1cm}\)</span></p>
+<p>The autocavariance function <span class="math inline">\(\gamma_{t , t+h}\)</span> of the process is defined as:</p>
+<p><span class="math display">\[\gamma_{t , t+h} = Cov(\mathcal{X}_t , \mathcal{X}_{t+h}) = E\left[ (\mathcal{X}_t - \mu_t)\cdot (\mathcal{X}_{t+h} - \mu_{t+h})   \right]\]</span></p>
+<p>for <span class="math inline">\(\hspace{0.1cm}t \in \lbrace 1,2,...,k \rbrace\hspace{0.1cm}\)</span> and <span class="math inline">\(\hspace{0.1cm} h\in \lbrace 1,2,... \rbrace \\\)</span></p>
+<p>In particular, we have</p>
+<p><span class="math display">\[\gamma_{t , t} = \sigma_t^2\]</span></p>
+<p>The autocovariances have dimensions, the squares of the series, thus it is not
+advisable to use them for comparing series measured in dierent units.</p>
+<p><br></p>
+</div>
+<div id="autocorrelation-function" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Autocorrelation function</h1>
+<p>Given a stochastic process <span class="math inline">\(\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}/\hspace{0.1cm} t \in T=\lbrace 1,2,...,k \rbrace \hspace{0.1cm}\right\rbrace \hspace{0.1cm}\)</span></p>
+<p>The autocorrelation function <span class="math inline">\(\rho_{t , t+h}\)</span> of the process is defined as:</p>
+<p><span class="math display">\[\rho_{t , t+h} = \dfrac{\gamma_{t , t+h}}{\sqrt{\sigma_t^2 \cdot \sigma_{t+h}^2}}\]</span></p>
+<p>for <span class="math inline">\(\hspace{0.1cm}t \in \lbrace 1,2,...,k \rbrace\hspace{0.1cm}\)</span> and <span class="math inline">\(\hspace{0.1cm} h\in \lbrace 1,2,... \rbrace \\\)</span></p>
+<p>In particular, we have</p>
+<p><span class="math display">\[\rho_{t , t} = 1\]</span></p>
+<p><br></p>
+<p>It is interesting to notice the differences between conditional distributions and the marginal distributions.</p>
+<p>The marginal distribution of <span class="math inline">\(\mathcal{X}_t\)</span> represents what we know about a variable, without knowing anything about its trajectory until time <span class="math inline">\(t\)</span>.</p>
+<p>The conditional distribution of <span class="math inline">\(\mathcal{X}_t\)</span> given <span class="math inline">\(\mathcal{X}_{t-1}\)</span>,…,<span class="math inline">\(\mathcal{X}_{t-r}\)</span> represents what we
+know about a variable when we know the k previous values of the process.</p>
+<p>In time series conditional distributions are of greater interest than marginal
+ones because they define the predictions that we can make about the future
+knowing the past.</p>
+<p><br></p>
+</div>
+<div id="stationary-processes" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Stationary processes</h1>
+<p>Given a stochastic process <span class="math inline">\(\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}/\hspace{0.1cm} t \in T=\lbrace 1,2,...,k \rbrace \hspace{0.1cm}\right\rbrace \hspace{0.1cm}\)</span></p>
+<p>A stochastic process is <strong>strictly stationary</strong> if:</p>
+<p>the probability distribution of <span class="math inline">\(\mathcal{X}_{t}\)</span> is the same as that of <span class="math inline">\(\mathcal{X}_{t+h}\)</span></p>
+<p>for all <span class="math inline">\(\hspace{0.1cm}t \in \lbrace 1,2,...,k \rbrace\hspace{0.1cm}\)</span> and <span class="math inline">\(\hspace{0.1cm} h \in \in \lbrace 1,2,... \rbrace\)</span>.</p>
+<p>Therefore, for all set of times <span class="math inline">\(\hspace{0.1cm}t_1 , t_2,...,t_n\)</span></p>
+<p><span class="math inline">\((\mathcal{X}_{t_1}, \mathcal{X}_{t_2},\dots ,\mathcal{X}_{t_n} )\hspace{0.1cm}\)</span> is identically distributed as <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_{t_1+h}, \mathcal{X}_{t_2+h},\dots ,\mathcal{X}_{t_n+h} )\)</span></p>
+<p><br></p>
+<p>Strict stationarity is a very strong condition, since to prove it we must have the joint distributions for any set of variables in the process. A weaker property, but one which is easier to prove, is <strong>weak stationarity</strong>.</p>
+<p>A stochastic process is <strong>strictly stationary</strong> if:</p>
+<ul>
+<li><p><span class="math inline">\(\mu_t = \mu = cte , \forall t \in \lbrace 1,2,...,k \rbrace\)</span></p></li>
+<li><p><span class="math inline">\(\sigma_t^2 = \sigma = cte , , \forall t \in \lbrace 1,2,...,k \rbrace\)</span></p></li>
+<li><p><span class="math inline">\(\gamma_{t , t + h} = Cov(\mathcal{X}_t,\mathcal{X}_{t+h}) E[(\mathcal{X}_t - \mu)\cdot (\mathcal{X}_{t+h} - \mu)] = \gamma(h) , \forall h \in \lbrace 0 , \pm 1 , \pm 2 ,... \rbrace\)</span></p></li>
+</ul>
+<p>The first two conditions indicate that the mean and variance are constant.</p>
+<p>The third indicates that the covariance between two variables depends only on
+their separation.</p>
+<p>In a stationary process the autocovariances and autocorrelations depend only on
+the lag between the variables and, in particular, the relationship between <span class="math inline">\(\mathcal{X}_t\)</span> and <span class="math inline">\(\mathcal{X}_{t+h}\)</span> , is always equal to the relationship between <span class="math inline">\(\mathcal{X}_t\)</span> and <span class="math inline">\(\mathcal{X}_{t-h}\)</span> .</p>
+<p>As a result, in stationary processes:</p>
+<p><span class="math inline">\(\gamma_{t , t + h} = \gamma_{t + r , t + h + r} = \gamma(h) , \forall r \in \lbrace 0 , \pm 1 , \pm 2 ,... \rbrace\)</span></p>
+<p><span class="math display">\[\rho_{t, t+h} = \dfrac{\gamma_{t , t + h}}{\sqrt{\sigma_t^2 \cdot \sigma_{t+h}^2}} = \dfrac{\gamma(h)}{\sqrt{\sigma^2 \cdot \sigma^2}} = \dfrac{\gamma(h)}{\sigma^2} = \dfrac{\gamma(h)}{\gamma(0)} = \rho(h)\]</span></p>
+<p>Where:</p>
+<p><span class="math inline">\(\gamma(0) = \sigma^2\)</span></p>
+<p>DIAPOSITIVA 23</p>
 </div>
 </div>
 
