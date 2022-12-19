@@ -2203,7 +2203,7 @@ $\hspace{0.25cm}$ Donde:
 <br>
 
 
-### Intervalo de confianza para la media con varianza desconocida
+### Intervalo de confianza para la varianza
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
