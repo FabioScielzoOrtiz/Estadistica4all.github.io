@@ -70,12 +70,13 @@ $\hspace{0.4cm}$ Scielzo Ortiz, F. (2022). Los problemas de regresión y clasifi
 </div>
 
 
+---
+
 ***Se recomienda abrir el artículo en un ordenador o en una tablet.***
  
- 
+---
+
 <br>
-
-
 
 Podríamos decir que la ciencia de datos es la ciencia que trata de resolver problemas prácticos usando datos como materia prima, y técnicas estadístico-matemáticas y tecnologías informáticas como herramientas auxiliares.
 
@@ -91,6 +92,8 @@ A continuación vamos a hacer un breve planteamiento teorico de estos problemas.
 
 
 Un problema de **regresión**  es un problema estadístico que consiste en predecir una variable respuesta **cuantitativa** usando para ello **información**  de unas **variables predictoras** y de la propia variable **respuesta**.
+
+Un ejemplo de problema de regresión es la predicción del precio de viviendas de cierta región en base a características de dichas viviendas.
 
  
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -134,6 +137,8 @@ $$D=[X_1,...,X_p,Y]=\begin{pmatrix}
 
 
 Un problema de **clasificación supervisada**  es un problema estadistico que consiste en predecir una variable respuesta **categorica** usando para ello **información**   de unas **variables predictoras** y de la propia variable **respuesta**.
+
+Un ejemplo de clasificación supervisada es la clasificación de una canción en una categoria de entre tres estilos musicales, teniendo en cuenta una serie de caracteristicas de la canción.
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -183,7 +188,10 @@ $$D=[X_1,...,X_p, Y]=\begin{pmatrix}
 
 Un problema de clasificación no supervisada  es un problema estadístico que consiste en predecir una variable respuesta **categorica** usando para ello **informacion** exclusivamente de unas **variables predictoras**, puesto que **no se tienen datos sobre la respuesta** (esta es la diferencia entre la clasificación no supervisada y la supervisada). 
 
-A los problemas de clasificación no supervisada tambien se les conoce como problemas de **clustering**.$\\[1cm]$
+A los problemas de clasificación no supervisada tambien se les conoce como problemas de **clustering**.
+
+
+Un ejemplo de problema de clasificación no supervisada es la agrupacion de clientes de una empresa en distintas categorias en funcion de una serie de variables relacionadas con sus actitudes de compra. $\\[1cm]$
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>

@@ -218,6 +218,7 @@ $\hspace{0.25cm}$ Aquí no se va a entrar en este asunto, pero $\hspace{0.1cm}D\
 
 # KNN para clasificación supervisada con `sklearn`  <a class="anchor" id="3"></a>
 
+Importamos algunos de los paquetes y modulos que vamos a utilizar:
 
 ```python
 import seaborn as sns
@@ -229,9 +230,16 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 ```
 
+Cargamos los datos con los que vamos a trabajar, los cuales han sido descritos a nivel conceptual en el artículo de [regresión lineal](http://estadistica4all.com/Articulos/Linear-Regression-new.html)
+
 ```python
 Data = pd.read_csv('House_Price_Regression.csv')
+```
 
+
+Seleccionamos las variables con las que vamos a trabajar:
+
+```python
 Data_Mixed = Data.loc[:, ['latitude', 'longitude', 'price', 'size_in_m_2', 'balcony_recode', 'private_garden_recode', 'quality_recode']]
 
 Data_Mixed.head()
@@ -322,7 +330,9 @@ Data_Mixed.head()
 
 
 
+Dividimos el data set inicial en dos partes. Una parte jugará el rol de datos de entrenamiento, con ellos se entrenará el modelo. La otra parte jugara el rol de datos nuevos que no han sido usados para entrenar el modelo, y para los que se quiere predecir la variable respuesta. 
 
+En la vida real es conjunto de datos nuevos serían exclusivamente de los predictores, y en base a esa información y el modelo entrenado se predecirian los valores de la respuesta para esos predictores, los cuales serían desconocidos de partida. Pero en este ejemplo no realista disponemos tambien de datos sobre la respuesta en el conjunto de datos nuevos. Esto permitirá medir de algun modo el error que comete el modelo al predecir la respuesta para las nuevas observaciones de los predictores, comparando las predicciones con los valores reales disponibles en la nueva muestra. Este principio es el que está detras de las técnicas de validación cruzada que serán estudiadas con detalle en futuros artículos.
 
 ```python
 Data_Mixed_train = Data_Mixed.sample(frac=0.8, replace=False, weights=None, random_state=123, axis=None, ignore_index=False)
@@ -349,6 +359,7 @@ Y_new = Data_Mixed_new.loc[: , 'quality_recode']
 
 ```
 
+Veamos la pinta que tienen los data-frames que acabamos de crear:
 
 ```python
 X_train.head()
@@ -524,6 +535,7 @@ X_new.head()
 
 ```python
 X = pd.concat([X_train , X_new])
+
 X.head()
 ```
 
@@ -607,8 +619,10 @@ X.head()
 </div>
 
 
+<br>
   
 
+Importamos la libreria `sklearn`y los modulos necesarios para aplicar KNN para clasificación supervisada en `Python`
 
 
 ```python
