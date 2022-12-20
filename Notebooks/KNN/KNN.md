@@ -56,6 +56,9 @@ $\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https:
 
 $\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/autores.html)
 
+$\hspace{0.3cm}$ **Si utilizas este artículo, por favor, cítalo:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/autores.html)
+
+
 </p>
  
 </p></span>
@@ -73,17 +76,20 @@ $\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadi
 # Problema de clasificación supervisada
 
 
-Un problema de clasificación supervisada  es un problema estadistico que consiste en predecir una variable respuesta **categorica** usando para ello información   de unas variables predictoras y de la propia variable respuesta.
+Un problema de **clasificación supervisada**  es un problema estadistico que consiste en predecir una variable respuesta **categorica** usando para ello **información**   de unas **variables predictoras** y de la propia variable **respuesta**.
 
 
-
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
 - Tenemos $\hspace{0.1cm}p\hspace{0.1cm}$ predictores  $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ y una variable respuesta **categorica** $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ sobre los que disponemos una muestra de datos.
 
 
-- Tenemos una muestra de tamaño $\hspace{0.1cm}n\hspace{0.1cm}$ de los $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}$  y de la respuesta.
+- Tenemos una **muestra** de tamaño $\hspace{0.1cm}n\hspace{0.1cm}$ de los $\hspace{0.1cm}p\hspace{0.1cm}$ **predictores** $\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}$  y de la **respuesta**.
 
-Por tanto tenemos la siguiente matriz de datos: $\\[0.8cm]$
+$\hspace{0.25cm}$ Por tanto tenemos la siguiente matriz de datos: $\\[0.8cm]$
 
 $$D=[X_1,...,X_p, Y]=\begin{pmatrix}
     x_{11}&x_{12}&...&x_{1p}&y_1 \\
@@ -95,18 +101,28 @@ $$D=[X_1,...,X_p, Y]=\begin{pmatrix}
     x_{2}  & y_2\\
      ... & ...\\
      x_{n} & y_n
-    \end{pmatrix} \\$$
+    \end{pmatrix} \\[1.5cm]$$
     
 
-- El **objetivo** es **predecir** la respuesta $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ para cualquier vector de observaciones de los predictores, usando la información muestral disponible sobre los predictores y la respuesta, es decir, usando la información contenida en la matriz de datos $\hspace{0.1cm}D\hspace{0.1cm}$.
+
+- La solución estadística al problema de regresión pasa por proponer un modelo o algoritmo que sea capaz usar la información muestral disponible $\hspace{0.1cm}D\hspace{0.1cm}$ de los predictores y la respuesta para predecir los valores de la respuesta para cada vector de observaciones de los predictores que se considere.
+ 
+
+
+</p>
+ 
+</p></span>
+</div>
 
 
 <br>
 
+
+
 # KNN como modelo de clasificación supervisada <a class="anchor" id="1"></a>  
 
 
-Un modelo de clasificación supervisada  es un modelo estadistico que permite predecir una respuesta **categorica** usando para ello informacion sobre una serie de predictores y de la propia respuesta, es decir, es una modelo que permite resolver un problema de clasificación supervisada.
+Un modelo de clasificación supervisada  es un modelo estadístico que permite predecir una variable respuesta **categorica** usando para ello información sobre una serie de predictores y de la propia respuesta, es decir, es una modelo que permite resolver un problema de clasificación supervisada.
 
 Como se ha mencionado antes:
 
@@ -132,6 +148,9 @@ $$D=[X_1,...,X_p,Y]=\begin{pmatrix}
 
 
 <br>
+
+---
+
 
 El algoritmo KNN para clasificación supervisada consiste en lo siguiente:
 

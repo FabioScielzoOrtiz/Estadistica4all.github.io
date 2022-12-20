@@ -1636,6 +1636,7 @@ margin-right: auto;
 <p style="margin-left:10em;">
 <p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Más artículos: <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://fabioscielzoortiz.github.io/Estadistica4all.github.io/">Estadistica4all</a></strong></p>
 <p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Autor:</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="http://estadistica4all.com/autores/autores.html">Fabio Scielzo Ortiz</a></p>
+<p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Si utilizas este artículo, por favor, cítalo:</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="http://estadistica4all.com/autores/autores.html">Fabio Scielzo Ortiz</a></p>
 </p>
 </p>
 <p></span></p>
@@ -1644,12 +1645,15 @@ margin-right: auto;
 <p><br></p>
 <div id="problema-de-clasificación-supervisada" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Problema de clasificación supervisada</h1>
-<p>Un problema de clasificación supervisada es un problema estadistico que consiste en predecir una variable respuesta <strong>categorica</strong> usando para ello información de unas variables predictoras y de la propia variable respuesta.</p>
+<p>Un problema de <strong>clasificación supervisada</strong> es un problema estadistico que consiste en predecir una variable respuesta <strong>categorica</strong> usando para ello <strong>información</strong> de unas <strong>variables predictoras</strong> y de la propia variable <strong>respuesta</strong>.</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
 <ul>
 <li><p>Tenemos <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> y una variable respuesta <strong>categorica</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> sobre los que disponemos una muestra de datos.</p></li>
-<li><p>Tenemos una muestra de tamaño <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}\)</span> y de la respuesta.</p></li>
+<li><p>Tenemos una <strong>muestra</strong> de tamaño <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> <strong>predictores</strong> <span class="math inline">\(\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}\)</span> y de la <strong>respuesta</strong>.</p></li>
 </ul>
-<p>Por tanto tenemos la siguiente matriz de datos: <span class="math inline">\(\\[0.8cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Por tanto tenemos la siguiente matriz de datos: <span class="math inline">\(\\[0.8cm]\)</span></p>
 <p><span class="math display">\[D=[X_1,...,X_p, Y]=\begin{pmatrix}
     x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp;y_1 \\
     x_{21}&amp;x_{22}&amp;...&amp;x_{2p}&amp;y_2 \\
@@ -1660,15 +1664,19 @@ margin-right: auto;
     x_{2}  &amp; y_2\\
      ... &amp; ...\\
      x_{n} &amp; y_n
-    \end{pmatrix} \\\]</span></p>
+    \end{pmatrix} \\[1.5cm]\]</span></p>
 <ul>
-<li>El <strong>objetivo</strong> es <strong>predecir</strong> la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> para cualquier vector de observaciones de los predictores, usando la información muestral disponible sobre los predictores y la respuesta, es decir, usando la información contenida en la matriz de datos <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span>.</li>
+<li>La solución estadística al problema de regresión pasa por proponer un modelo o algoritmo que sea capaz usar la información muestral disponible <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> de los predictores y la respuesta para predecir los valores de la respuesta para cada vector de observaciones de los predictores que se considere.</li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="knn-como-modelo-de-clasificación-supervisada" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> KNN como modelo de clasificación supervisada <a class="anchor" id="1"></a></h1>
-<p>Un modelo de clasificación supervisada es un modelo estadistico que permite predecir una respuesta <strong>categorica</strong> usando para ello informacion sobre una serie de predictores y de la propia respuesta, es decir, es una modelo que permite resolver un problema de clasificación supervisada.</p>
+<p>Un modelo de clasificación supervisada es un modelo estadístico que permite predecir una variable respuesta <strong>categorica</strong> usando para ello información sobre una serie de predictores y de la propia respuesta, es decir, es una modelo que permite resolver un problema de clasificación supervisada.</p>
 <p>Como se ha mencionado antes:</p>
 <ul>
 <li><p>Tenemos <span class="math inline">\(p\)</span> predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> y una respuesta <strong>categorica</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{Y} \\\)</span></p></li>
@@ -1687,6 +1695,7 @@ margin-right: auto;
      x_{n} &amp; y_n
     \end{pmatrix}\]</span></p>
 <p><br></p>
+<hr />
 <p>El algoritmo KNN para clasificación supervisada consiste en lo siguiente:</p>
 <ul>
 <li><p>Se define una medida de distancia entre pares de observaciones de variables estadisticas <span class="math inline">\(\hspace{0.15cm} \Rightarrow \hspace{0.15cm}\)</span> <span class="math inline">\(\delta (\cdot , \cdot) \\\)</span></p></li>

@@ -60,7 +60,7 @@ $\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https:
 $\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/autores.html)
 
 
-$\hspace{0.3cm}$ **Si utilizas este artículo, por favor, cítalo:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/autores.html)
+$\hspace{0.3cm}$ **Si utilizas este artículo, por favor, cítalo:** $\hspace{0.1cm}$   Scielzo Ortiz, F. (2022). Los problemas de regresión y clasificación. http://estadistica4all.com/Articulos/Los-problemas-de-clasificaci%C3%B3n-y-regresi%C3%B3n.html
 
 </p>
  
@@ -250,9 +250,9 @@ $$D=[X_1,...,X_p]=\begin{pmatrix}
     x_{2} & y_2 \\
      ... & ...\\
      x_{n} & y_n
-    \end{pmatrix}\\[1.5cm]$$
+    \end{pmatrix}\\[2cm]$$
     
-$\hspace{1cm}$ Donde: $\hspace{0.1cm}y_i = NA\hspace{0.1cm}$ , para muchos $\hspace{0.1cm}i\in \lbrace 1,...,n\rbrace \\$
+$\hspace{1cm}$ Donde: $\hspace{0.15cm}y_i\hspace{0.1cm}$ es un valor faltante, para muchos $\hspace{0.1cm}i\in \lbrace 1,...,n\rbrace \\$
  
 
 - La solución estadística al problema de clasificación semi-supervisada pasa por proponer un modelo o algoritmo que sea capaz usar la información muestral disponible $\hspace{0.1cm}D\hspace{0.1cm}$ de los predictores y de la respuesta para predecir los valores de la respuesta para cada vector de observaciones de los predictores que se considere.
@@ -272,12 +272,21 @@ Es fácil extrapolar el problema de clasificación no supervisada al caso de reg
 No presentamos teóricamente este problema puesto que no tiene soluciones estandarizadas, como si lo tienen los otros problemas aquí presentados, debido a su mayor complejidad. 
 
 
+<br>
+
+<br>
 
 
 
+# Bibliografía
+
+Galeano, P. (2022). *Introducción al aprendizaje estadístico.* [Presentación de PowerPoint]. Aula Global UC3M.
 
 
 
+<br>
+
+<br>
 
 
 
