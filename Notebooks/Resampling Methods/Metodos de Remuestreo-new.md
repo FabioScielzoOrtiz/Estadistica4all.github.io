@@ -1174,6 +1174,34 @@ Con este intervalo se recomienda usar $B \geq 1000$ .
 
 
 
+## Intervalo de confianza bootstrap para la media de una poblacion
+
+
+
+
+
+
+## Intervalo de confianza bootstrap para la diferencia de medias de dos poblacion
+
+
+
+## Intervalo de confianza bootstrap para la varianza de una poblacion
+
+
+
+
+## Intervalo de confianza bootstrap para la diferencia de varianzas de dos poblacion
+
+
+
+## Intervalo de confianza bootstrap para la mediana de una poblacion
+
+
+
+## Intervalo de confianza bootstrap para la diferencia de medianas de dos poblaciones
+
+
+
 
 
 
@@ -1190,13 +1218,121 @@ Con este intervalo se recomienda usar $B \geq 1000$ .
 # Contrastes de hipotesis basados en bootstrap
 
 
+El contexto en el que nos vamos a mover en esta sección tiene alguna particularidad.
+
+El siguiente procedimiento puede aplicarse, en principio, a cualquier tipo de contraste de hipotesis.
+
+La idea es estimar mediante tecnicas bootstrap el p-valor del contraste.
+
+Para ello debemos disponer del estadistico del contraste bajo $H_0 \hspace{0.4cm} \Rightarrow \hspace{0.4cm} \mathcal{T}_{exp|H_0}(\mathcal{X$ 
+
+
+Como se comenta en el articulo  de contrastes de hipotesis del blog [Estadistica4all](http://estadistica4all.com/) (citado en la bibliografía),  un estadistico de contraste es una variable aleatoria que se puede interpretar como una medida de discrepancia entre $H_0$ y los datos observados, y ademas se conoce su distribución de probabilidad bajo $H_0$. 
+
+Sirve, por tanto, para medir la discrepancia que hay entre los datos obtenidos y la $H_0$, y permite cuantificar la probabilidad de cometer error de tipo I, es decir, rechazar $H_0$ cuando es cierta. Que es el error que se considera más relevante y por ello se le impone una cota superior $\alpha$, denominada nivel de significación.
+
+
+
+
+
+$\mathcal{T}_{exp|H_0}$ es una función de m.a.s de las variables aleatorias de interes (que pueden ser varias), por lo que es un estadistico, y por tanto una v.a.
+
+
+Si se dispone de unas muestra de datos de observaciones de las variable aleatorias de interes se puede obtener una realización muestral del estadistico $\mathcal{T}_{exp|H_0}$, a la cual denotaremos por $T_{exp|H_0}$
+
+Asi que siguiendo la filosofia del articulo citado de [Estadistica4all](http://estadistica4all.com/) , $\mathcal{T}_{exp|H_0}$ es el estadistico de contraste como v.a. y $\mathcal{T}_{exp|H_0}$ es el valor observado del esadistico de contraste a partir de las muestras de observaciones de las variables aleatorias de interes.
+
+
+
+
+## Estimacion bootstrap del p-valor
+
+
+La resolución bootstrap de contrastes de hipotesis consiste en estimar el **p-valor** del contraste del siguiente modo:
+
+
+- Se obtiene $\hspace{0.1cm}B\hspace{0.1cm}$ muestras bootstrap (aleatoria y con reemplazamiento) de $\hspace{0.1cm}X\hspace{0.1cm}$ : $\\[0.5cm]$
+
+$$X_{(1)},X_{(2)},...,X_{(B)} \\$$
+
+
+- Se calcula para $b\in \lbrace 1,...,B \rbrace$ la replica bootstrap $\hspace{0.1cm}b$-esima del **estadistico de contraste**   como: $\\[0.5cm]$
+
+$$T_{exp|H_0}^{(b)} = T_{exp|H_0}(X_{(b)})$$
+
+
+Notese que $\hspace{0.1cm}T_{exp|H_0}^{(b)}\hspace{0.1cm}$ es un valor concreto, no una variable aleatoria. De hecho es la realizacion muestral del estadistico de contraste $\hspace{0.1cm}\mathcal{T}_{exp|H_0}\hspace{0.1cm}$ (que es una v.a.) para la muestra de datos $\hspace{0.1cm}X_{(b)}$.
+
+Asi que se tiene:
+
+$$T_{boot} = ( T_{exp|H_0}^{(1)}, T_{exp|H_0}^{(2)} ,..., T_{exp|H_0}^{(B)} =$$
+
+
+- Se estima el p-valor del contraste con el ASL (achieved significance level), cya definicion depende del tipo de contraste se este cinsiderando, aunque como ejemplo ilustrativo podemos considerar el caso de contraste de cola derecha:
+
+
+$$ASL = \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.2cm} / \hspace{0.2cm} T_{exp|H_0}^{(b)} \hspace{0.1cm} \geq \hspace{0.1cm} T_{exp|H_0}(X)  \hspace{0.1cm} \right\rbrace}{B}$$
+
+Donde:
+
+$T_{exp|H_0}(X)\hspace{0.1cm}$ es la realizacion muestral del estadistico del contrate $\hspace{0.1cm}\mathcal{T}_{exp|H_0}\hspace{0.1cm}$   para la muestra $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de la variable aleatoria de intes $\hspace{0.1cm}\mathcal{X}$.
+
+
+<br>
+
+
+
+Es decir, el ASL es la proporción de replicas bootstrap del estadistico del contraste que son mayores o iguales que el valor del estadistico observado con la muestra original. 
+
+Cuanto mayor es el valor del estadistico de contraste para la muestra original mayor es la evidencia que aporta dicha muestra en contra de la hipoteis nula del contraste. 
+
+El ASL  permite estimar si esta discrepancia observada es fruto del azar derivado del muestreo aleatorio, o por el contrario es una discrepancia significativa que refleja la realidad poblacional.
+
+Con el ASL estamos estimando el p-valor, que es la probabilidad de que bajo H_0 se encuentre evidencia igual o más contraria a H_0 que la ya observada en la muestra original. Si esta porbabilidad es alta, se ha observado un suceso frecuente bajo H_0, lo cual no es indicativo de que H_0 sea falsa. Si por el contrario el p-valor es bajo, entonces se ha observado un suceso atipico (poco frecuente) bajo H_0, lo cual se interpreta como indicios de que H_0 es falsa. 
+
+Siguiendo lo anterior, la regla de decision basada en el p-valor establece que si este es suficentemente bajo podemos rechazar $H_0$
+
+
+Para un nivel de significacion $\alpha$, la regla de decison basada en el p-valor es la siguiente:
+
+$$Rechazar H_0  \Leftrightarrow  p-valor < \alpha$$
+
+Si estimamos el p-valor con el ASL,  tenemos la siguiente regla de dedcision, para un nivel de significacion $\alpha$ :
+
+
+$$Rechazar H_0  \Leftrightarrow  ASL < \alpha$$
+
+
+
+
+
+ 
+
+## Contraste bootstrap para la media de una poblacion
 
 
 
 
 
 
+## Contraste bootstrap para las medias de dos poblacion
 
+
+
+## Contraste bootstrap para la varianza de una poblacion
+
+
+
+
+## Contraste bootstrap para las varianzas de dos poblacion
+
+
+
+## Contraste bootstrap para la mediana de una poblacion
+
+
+
+## Contraste bootstrap para la mediana de dos poblaciones
 
 
 <br>

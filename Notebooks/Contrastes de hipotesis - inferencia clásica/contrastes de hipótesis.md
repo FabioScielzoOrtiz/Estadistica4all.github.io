@@ -434,7 +434,12 @@ Donde:
 
 **Observación:**
 
-Dada una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{X} \\$
+
+
+- $\mathcal{T}_{exp | H_0}$ es una funcion de una m.a.s de la variable aleatoria de interes $\mathcal{X}$, por tanto es también una v.a.
+
+
+- Dada una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{X} \\$
 
 
 $$
