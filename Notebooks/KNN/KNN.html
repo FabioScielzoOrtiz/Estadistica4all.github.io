@@ -1576,24 +1576,16 @@ margin-left: 0 !important;
     <div id="toc">
       <ul>
       <li><a href="#problema-de-clasificación-supervisada" id="toc-problema-de-clasificación-supervisada"><span class="toc-section-number">1</span> Problema de clasificación supervisada</a></li>
-      <li><a href="#knn-como-modelo-de-clasificación-supervisada" id="toc-knn-como-modelo-de-clasificación-supervisada"><span class="toc-section-number">2</span> KNN como modelo de clasificación supervisada <a class="anchor" id="1"></a></a></li>
-      <li><a href="#modelo-knn-de-clasificación-supervisada-aplicado-en-python-con-sklearn" id="toc-modelo-knn-de-clasificación-supervisada-aplicado-en-python-con-sklearn"><span class="toc-section-number">3</span> Modelo KNN de clasificación supervisada aplicado en <code>Python</code> con <code>sklearn</code> <a class="anchor" id="3"></a></a>
+      <li><a href="#knn-como-algoritmo-de-clasificación-supervisada" id="toc-knn-como-algoritmo-de-clasificación-supervisada"><span class="toc-section-number">2</span> KNN como algoritmo de clasificación supervisada <a class="anchor" id="1"></a></a></li>
+      <li><a href="#knn-para-clasificación-supervisada-con-sklearn" id="toc-knn-para-clasificación-supervisada-con-sklearn"><span class="toc-section-number">3</span> KNN para clasificación supervisada con <code>sklearn</code> <a class="anchor" id="3"></a></a></li>
+      <li><a href="#knn-para-clasificación-supervisada-programado-desde-cero-con-python" id="toc-knn-para-clasificación-supervisada-programado-desde-cero-con-python"><span class="toc-section-number">4</span> KNN para clasificación supervisada programado desde “cero” con <code>Python</code> <a class="anchor" id="4"></a></a></li>
+      <li><a href="#knn-como-algoritmo-de-regresión" id="toc-knn-como-algoritmo-de-regresión"><span class="toc-section-number">5</span> KNN como algoritmo de regresión <a class="anchor" id="5"></a></a></li>
+      <li><a href="#knn-para-regresión-con-sklearn" id="toc-knn-para-regresión-con-sklearn"><span class="toc-section-number">6</span> KNN para regresión con <code>sklearn</code> <a class="anchor" id="6"></a></a>
       <ul>
-      <li><a href="#validación-simple-con-sklearn" id="toc-validación-simple-con-sklearn"><span class="toc-section-number">3.1</span> Validación simple con <code>sklearn</code> <a class="anchor" id="3.2"></a></a></li>
+      <li><a href="#validación-simple-con-sklearn" id="toc-validación-simple-con-sklearn"><span class="toc-section-number">6.1</span> Validación simple con <code>sklearn</code> <a class="anchor" id="6.2"></a></a></li>
       </ul></li>
-      <li><a href="#modelo-knn-de-clasificación-supervisada-con-algoritmo-de-creación-propia-en-python" id="toc-modelo-knn-de-clasificación-supervisada-con-algoritmo-de-creación-propia-en-python"><span class="toc-section-number">4</span> Modelo KNN de clasificación supervisada con algoritmo de creación propia en <code>Python</code> <a class="anchor" id="4"></a></a></li>
-      <li><a href="#knn-como-modelo-de-regresión" id="toc-knn-como-modelo-de-regresión"><span class="toc-section-number">5</span> KNN como modelo de regresión <a class="anchor" id="5"></a></a></li>
-      <li><a href="#modleo-knn-de-regresión-aplicado-en-python-con-sklearn" id="toc-modleo-knn-de-regresión-aplicado-en-python-con-sklearn"><span class="toc-section-number">6</span> Modleo KNN de regresión aplicado en <code>Python</code> con <code>sklearn</code><a class="anchor" id="6"></a></a>
-      <ul>
-      <li><a href="#validación-simple-con-sklearn-1" id="toc-validación-simple-con-sklearn-1"><span class="toc-section-number">6.1</span> Validación simple con <code>sklearn</code> <a class="anchor" id="6.2"></a></a></li>
-      </ul></li>
-      <li><a href="#modelo-knn-de-regression-con-algoritmo-de-creación-propia-en-python" id="toc-modelo-knn-de-regression-con-algoritmo-de-creación-propia-en-python"><span class="toc-section-number">7</span> Modelo KNN de regression con algoritmo de creación propia en <code>Python</code> <a class="anchor" id="7"></a></a></li>
-      <li><a href="#selección-del-hiper-parámetro-k" id="toc-selección-del-hiper-parámetro-k"><span class="toc-section-number">8</span> Selección del hiper-parámetro k</a></li>
-      <li><a href="#anexo" id="toc-anexo"><span class="toc-section-number">9</span> Anexo</a>
-      <ul>
-      <li><a href="#ejemplo-de-juguete-de-knn-para-clasificación-supervisada" id="toc-ejemplo-de-juguete-de-knn-para-clasificación-supervisada"><span class="toc-section-number">9.1</span> Ejemplo de juguete de KNN para clasificación supervisada <a class="anchor" id="2"></a></a></li>
-      </ul></li>
-      <li><a href="#bibliography" id="toc-bibliography"><span class="toc-section-number">10</span> Bibliography</a></li>
+      <li><a href="#knn-para-regresión-programado-desde-cero-en-python" id="toc-knn-para-regresión-programado-desde-cero-en-python"><span class="toc-section-number">7</span> KNN para regresión programado desde “cero” en <code>Python</code> <a class="anchor" id="7"></a></a></li>
+      <li><a href="#bibliografía" id="toc-bibliografía"><span class="toc-section-number">8</span> Bibliografía</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1674,9 +1666,9 @@ margin-right: auto;
 </div>
 <p><br></p>
 </div>
-<div id="knn-como-modelo-de-clasificación-supervisada" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> KNN como modelo de clasificación supervisada <a class="anchor" id="1"></a></h1>
-<p>Un modelo de clasificación supervisada es un modelo estadístico que permite predecir una variable respuesta <strong>categorica</strong> usando para ello información sobre una serie de predictores y de la propia respuesta, es decir, es una modelo que permite resolver un problema de clasificación supervisada.</p>
+<div id="knn-como-algoritmo-de-clasificación-supervisada" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> KNN como algoritmo de clasificación supervisada <a class="anchor" id="1"></a></h1>
+<p>Un algoritmo de clasificación supervisada es un algoritmo que permite predecir una variable respuesta <strong>categorica</strong> usando para ello información sobre una serie de predictores y de la propia respuesta, es decir, es una modelo que permite resolver un problema de clasificación supervisada.</p>
 <p>Como se ha mencionado antes:</p>
 <ul>
 <li><p>Tenemos <span class="math inline">\(p\)</span> predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> y una respuesta <strong>categorica</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{Y} \\\)</span></p></li>
@@ -1700,41 +1692,47 @@ margin-right: auto;
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p>El algoritmo <strong>KNN</strong> para <strong>clasificación supervisada</strong> tiene los siguientes pasos:</p>
+<p><span class="math inline">\(\hspace{0.15cm}\)</span> El algoritmo <strong>KNN</strong> para <strong>clasificación supervisada</strong> tiene los siguientes pasos:</p>
 <ul>
-<li><p>Se define una medida de distancia entre pares de observaciones de variables estadisticas <span class="math inline">\(\hspace{0.15cm} \Rightarrow \hspace{0.15cm}\)</span> <span class="math inline">\(\delta (\cdot , \cdot) \\\)</span></p></li>
-<li><p>Dada una nueva observación <span class="math inline">\(\hspace{0.1cm}x_{new}\hspace{0.1cm}\)</span> de los predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> , es decir, una observación que no está en la muestra de datos <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span>, se calculan las distancias entre el par de observaciones <span class="math inline">\(\hspace{0.1cm}(x_{new} , x_i)\)</span> , para <span class="math inline">\(\hspace{0.1cm}i=1,...,n \\\)</span></p></li>
+<li><p>Se define una medida de distancia entre pares de observaciones de variables estadisticas <span class="math inline">\(\hspace{0.15cm} \Rightarrow \hspace{0.15cm}\)</span> <span class="math inline">\(\delta \\\)</span></p></li>
+<li><p>Dada una nueva observación <span class="math inline">\(\hspace{0.1cm}x_{new}\hspace{0.1cm}\)</span> de los predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> , es decir, una observación que no está en la muestra de datos <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span>, se calculan las distancias entre el par de observaciones <span class="math inline">\(\hspace{0.1cm}(x_{new} \hspace{0.05cm} , \hspace{0.05cm} x_i)\)</span> , para <span class="math inline">\(\hspace{0.1cm}i=1,...,n \hspace{0.2cm} \Rightarrow \hspace{0.2cm} \delta(x_{new},x_i)\)</span></p></li>
 </ul>
-<p>Aqui no se va a entrar en este asunto, pero <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> está jugando el papel de muestra de entrenamiento.</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Aquí no se va a entrar en este asunto, pero <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> está jugando el papel de muestra de entrenamiento.</p>
 <ul>
-<li>Se seleccionan las <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> observaciones <span class="math inline">\(\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}\)</span> que son más cercanas a la nueva observación <span class="math inline">\(\hspace{0.1cm}x_{new}\)</span>, segun la medida de distancia <span class="math inline">\(\hspace{0.1cm}\delta\hspace{0.1cm}\)</span></li>
-</ul>
-<p>El conjunto de estas <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> observaciones son los <strong><em>k vecinos más cercanos de <span class="math inline">\(\hspace{0.1cm}x_{new}\hspace{0.1cm}\)</span></em></strong> y se denota por <span class="math inline">\(\hspace{0.1cm}K(x_{new}) \\\)</span></p>
-<ul>
-<li>Se calcula la frecuencia relativa de cada categoría de la respuesta sobre el conjunto <span class="math inline">\(\hspace{0.1cm}K_{x_{new}}\)</span></li>
-</ul>
-<p>Sea <span class="math inline">\(\hspace{0.1cm}P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r\hspace{0.1cm}]\hspace{0.1cm}\)</span> la frecuencia relativa (proporción) de observaciones de <span class="math inline">\(\hspace{0.1cm}K_{x_{new}}\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}=r\)</span></p>
+<li><p>Se seleccionan las <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> observaciones <span class="math inline">\(\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}\)</span> que son más cercanas a la nueva observación <span class="math inline">\(\hspace{0.1cm}x_{new}\hspace{0.1cm}\)</span>, según la medida de distancia <span class="math inline">\(\hspace{0.1cm}\delta\hspace{0.1cm}\)</span></p>
+<p>El conjunto de estas <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> observaciones son los <strong>k vecinos más cercanos de <span class="math inline">\(\hspace{0.1cm}x_{new}\hspace{0.1cm}\)</span></strong> y se denota por <span class="math inline">\(\hspace{0.1cm}K_{x_{new}} \\\)</span></p></li>
+<li><p>Se calcula la frecuencia relativa de cada categoría de la variable respuesta en el conjunto <span class="math inline">\(\hspace{0.1cm}K_{x_{new}}\)</span></p>
+<p>Denotamos por <span class="math inline">\(\hspace{0.15cm}P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r\hspace{0.1cm}]\hspace{0.15cm}\)</span> a la frecuencia relativa (proporción) de observaciones del conjunto <span class="math inline">\(\hspace{0.1cm}K_{x_{new}}\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}=r\)</span></p>
 <p>Es decir:</p>
-<p><span class="math display">\[P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r \hspace{0.1cm}] \hspace{0.15cm}=\hspace{0.15cm} \dfrac{ \# \hspace{0.1cm}\left\lbrace\hspace{0.1cm} i \hspace{0.13cm}/\hspace{0.13cm} x_i \in K_{x_{new}} \hspace{0.3cm}\text{y}\hspace{0.3cm}  y_i = r \hspace{0.1cm} \right\rbrace  }{\# \hspace{0.1cm} K_{x_{new}} } \hspace{0.15cm}=\hspace{0.15cm} \dfrac{ \# \hspace{0.1cm}\left\lbrace\hspace{0.1cm} i \hspace{0.13cm}/\hspace{0.13cm} x_i \in K_{x_{new}} \hspace{0.3cm}\text{y}\hspace{0.3cm}  y_i = r \hspace{0.1cm} \right\rbrace  }{  k } \\\]</span></p>
-<ul>
-<li>Para la nueva observación de los predictores <span class="math inline">\(\hspace{0.1cm} x_{new} \hspace{0.1cm}\)</span> se predice la respuesta como la categoria mas frecuente en el conjunto <span class="math inline">\(\hspace{0.1cm}K_{x_{new}}\)</span></li>
-</ul>
+<p><span class="math display">\[P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r \hspace{0.1cm}] \hspace{0.15cm}=\hspace{0.15cm} \dfrac{ \# \hspace{0.1cm}\left\lbrace\hspace{0.1cm} i \hspace{0.13cm}/\hspace{0.13cm} x_i \in K_{x_{new}} \hspace{0.3cm}\text{y}\hspace{0.3cm}  y_i = r \hspace{0.1cm} \right\rbrace  }{\# \hspace{0.1cm} K_{x_{new}} } \\\]</span></p>
+<p>Notese que <span class="math inline">\(\hspace{0.15cm}\# \hspace{0.1cm} K_{x_{new}} \hspace{0.1cm}=\hspace{0.1cm} k \\\)</span></p></li>
+<li><p>Para la nueva observación de los predictores <span class="math inline">\(\hspace{0.1cm} x_{new} \hspace{0.1cm}\)</span> se predice la variable respuesta como la categoría más frecuente en el conjunto <span class="math inline">\(\hspace{0.1cm}K_{x_{new}}\)</span></p>
 <p>Es decir:</p>
-<p><span class="math display">\[\hspace{0.6 cm} \text{Si} \hspace{0.4 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 cm}  arg \hspace{0.1 cm} \underset{r}{Max} \hspace{0.15cm} P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r \hspace{0.1cm}]  \hspace{0.25cm}  \Rightarrow \hspace{0.25cm} \widehat{y}_{new} = r^* \hspace{0.1cm}\]</span></p>
+<p><span class="math display">\[\hspace{0.6 cm} \text{Si} \hspace{0.5 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 cm}  arg \hspace{0.15 cm} \underset{r}{Max} \hspace{0.2cm} P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r \hspace{0.1cm}]  \hspace{0.5cm}  \Rightarrow \hspace{0.5cm} \widehat{y}_{new} \hspace{0.05 cm}=\hspace{0.05 cm} r^* \hspace{0.1cm}\]</span></p>
+<p>Donde <span class="math inline">\(\hspace{0.12cm}\widehat{y}_{new}\hspace{0.12cm}\)</span> es el valor de la variable respuesta que el modelo predice para la observación <span class="math inline">\(\hspace{0.12cm}x_{new}\hspace{0.12cm}\)</span> de los predictores.</p></li>
+</ul>
 </p>
 </p>
 <p></span></p>
 </div>
 <p><br></p>
+<hr />
+<p><br></p>
 </div>
-<div id="modelo-knn-de-clasificación-supervisada-aplicado-en-python-con-sklearn" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Modelo KNN de clasificación supervisada aplicado en <code>Python</code> con <code>sklearn</code> <a class="anchor" id="3"></a></h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div>
-<p>Cargamos los datos con los que vamos a trabajar:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Gender_classification <span class="op">=</span> pd.read_csv(<span class="st">&#39;gender_classification.csv&#39;</span>)</span></code></pre></div>
-<p>Es un conjunto de datos donde la respuesta es el sexo y los predictores variables biometricas. Este data set es apto para la aplicación de modelos de clasificación supervisada.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Gender_classification.head()</span></code></pre></div>
+<div id="knn-para-clasificación-supervisada-con-sklearn" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> KNN para clasificación supervisada con <code>sklearn</code> <a class="anchor" id="3"></a></h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.utils <span class="im">import</span> resample</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math <span class="im">as</span> math</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib <span class="im">as</span> mpl</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Data <span class="op">=</span> pd.read_csv(<span class="st">&#39;House_Price_Regression.csv&#39;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Data_Mixed <span class="op">=</span> Data.loc[:, [<span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;longitude&#39;</span>, <span class="st">&#39;price&#39;</span>, <span class="st">&#39;size_in_m_2&#39;</span>, <span class="st">&#39;balcony_recode&#39;</span>, <span class="st">&#39;private_garden_recode&#39;</span>, <span class="st">&#39;quality_recode&#39;</span>]]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Data_Mixed.head()</span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -1753,28 +1751,25 @@ text-align: right;
 <th>
 </th>
 <th>
-long_hair
+latitude
 </th>
 <th>
-forehead_width_cm
+longitude
 </th>
 <th>
-forehead_height_cm
+price
 </th>
 <th>
-nose_wide
+size_in_m_2
 </th>
 <th>
-nose_long
+balcony_recode
 </th>
 <th>
-lips_thin
+private_garden_recode
 </th>
 <th>
-distance_nose_to_lip_long
-</th>
-<th>
-gender
+quality_recode
 </th>
 </tr>
 </thead>
@@ -1784,28 +1779,25 @@ gender
 0
 </th>
 <td>
-1
+25.113208
 </td>
 <td>
-11.8
+55.138932
 </td>
 <td>
-6.1
+2700000
 </td>
 <td>
-1
+100.242337
 </td>
 <td>
-0
+1.0
 </td>
 <td>
-1
+0.0
 </td>
 <td>
-1
-</td>
-<td>
-Male
+2.0
 </td>
 </tr>
 <tr>
@@ -1813,28 +1805,25 @@ Male
 1
 </th>
 <td>
-0
+25.106809
 </td>
 <td>
-14.0
+55.151201
 </td>
 <td>
-5.4
+2850000
 </td>
 <td>
-0
+146.972546
 </td>
 <td>
-0
+1.0
 </td>
 <td>
-1
+0.0
 </td>
 <td>
-0
-</td>
-<td>
-Female
+2.0
 </td>
 </tr>
 <tr>
@@ -1842,28 +1831,25 @@ Female
 2
 </th>
 <td>
-0
+25.063302
 </td>
 <td>
-11.8
+55.137728
 </td>
 <td>
-6.3
+1150000
 </td>
 <td>
-1
+181.253753
 </td>
 <td>
-1
+1.0
 </td>
 <td>
-1
+0.0
 </td>
 <td>
-1
-</td>
-<td>
-Male
+2.0
 </td>
 </tr>
 <tr>
@@ -1871,28 +1857,25 @@ Male
 3
 </th>
 <td>
-0
+25.227295
 </td>
 <td>
-14.4
+55.341761
 </td>
 <td>
-6.1
+2850000
 </td>
 <td>
-0
+187.664060
 </td>
 <td>
-1
+1.0
 </td>
 <td>
-1
+0.0
 </td>
 <td>
-1
-</td>
-<td>
-Male
+1.0
 </td>
 </tr>
 <tr>
@@ -1900,42 +1883,48 @@ Male
 4
 </th>
 <td>
-1
+25.114275
 </td>
 <td>
-13.5
+55.139764
 </td>
 <td>
-5.9
+1729200
 </td>
 <td>
-0
+47.101821
 </td>
 <td>
-0
+0.0
 </td>
 <td>
-0
+0.0
 </td>
 <td>
-0
-</td>
-<td>
-Female
+2.0
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<p><br></p>
-<p>Recodificamos la respuesta para obtener la codificación estandar:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OrdinalEncoder</span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Data_Mixed_train <span class="op">=</span> Data_Mixed.sample(frac<span class="op">=</span><span class="fl">0.8</span>, replace<span class="op">=</span><span class="va">False</span>, weights<span class="op">=</span><span class="va">None</span>, random_state<span class="op">=</span><span class="dv">123</span>, axis<span class="op">=</span><span class="va">None</span>, ignore_index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Data_Mixed_new <span class="op">=</span>  Data_Mixed.drop( Data_Mixed_train.index , )</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">## TRAIN DATA (Datos dispobles --&gt; se usan para entrenar el modelo)</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>ord_enc <span class="op">=</span> OrdinalEncoder()</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Gender_classification[<span class="st">&#39;gender&#39;</span>] <span class="op">=</span> ord_enc.fit_transform(Gender_classification[[<span class="st">&#39;gender&#39;</span>]])</span></code></pre></div>
-<p>La recodificación aplicada es la siguiente:</p>
-<p>Female = 0 , Male = 1</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Gender_classification.head()</span></code></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> Data_Mixed_train.loc[: , Data_Mixed_train.columns <span class="op">!=</span> <span class="st">&#39;quality_recode&#39;</span>]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>Y_train <span class="op">=</span> Data_Mixed_train.loc[: , <span class="st">&#39;quality_recode&#39;</span>]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">## NEW DATA (Nuevos datos de los predictores)</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>X_new <span class="op">=</span> Data_Mixed_new.loc[: , Data_Mixed_new.columns <span class="op">!=</span> <span class="st">&#39;quality_recode&#39;</span>]</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># En la práctica real no se tienen datos sobre la respuesta asociado a las nuevas obsrvaciones de los predictores</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Eso es justo lo que se quiere predecir.</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Pero en este ejemplo al usar como &quot;nuevos&quot; datos una parte del data set original, si que tenemos esa información.</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>Y_new <span class="op">=</span> Data_Mixed_new.loc[: , <span class="st">&#39;quality_recode&#39;</span>] </span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>X_train.head()</span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -1954,56 +1943,44 @@ text-align: right;
 <th>
 </th>
 <th>
-long_hair
+latitude
 </th>
 <th>
-forehead_width_cm
+longitude
 </th>
 <th>
-forehead_height_cm
+price
 </th>
 <th>
-nose_wide
+size_in_m_2
 </th>
 <th>
-nose_long
+balcony_recode
 </th>
 <th>
-lips_thin
-</th>
-<th>
-distance_nose_to_lip_long
-</th>
-<th>
-gender
+private_garden_recode
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <th>
-0
+382
 </th>
 <td>
-1
+25.196489
 </td>
 <td>
-11.8
+55.272126
 </td>
 <td>
-6.1
+15800000
 </td>
 <td>
-1
+488.019459
 </td>
 <td>
-0
-</td>
-<td>
-1
-</td>
-<td>
-1
+0.0
 </td>
 <td>
 1.0
@@ -2011,28 +1988,156 @@ gender
 </tr>
 <tr>
 <th>
+732
+</th>
+<td>
+25.107984
+</td>
+<td>
+55.244923
+</td>
+<td>
+1700000
+</td>
+<td>
+138.704179
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<th>
+1888
+</th>
+<td>
+25.071504
+</td>
+<td>
+55.128579
+</td>
+<td>
+1300000
+</td>
+<td>
+171.220229
+</td>
+<td>
+1.0
+</td>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<th>
+679
+</th>
+<td>
+25.054336
+</td>
+<td>
+55.203423
+</td>
+<td>
+999000
+</td>
+<td>
+116.035847
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+1004
+</th>
+<td>
+25.087251
+</td>
+<td>
+55.145574
+</td>
+<td>
+2990000
+</td>
+<td>
+162.208638
+</td>
+<td>
+1.0
+</td>
+<td>
+0.0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>X_new.head()</span></code></pre></div>
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+latitude
+</th>
+<th>
+longitude
+</th>
+<th>
+price
+</th>
+<th>
+size_in_m_2
+</th>
+<th>
+balcony_recode
+</th>
+<th>
+private_garden_recode
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
 1
 </th>
 <td>
-0
+25.106809
 </td>
 <td>
-14.0
+55.151201
 </td>
 <td>
-5.4
+2850000
 </td>
 <td>
-0
+146.972546
 </td>
 <td>
-0
-</td>
-<td>
-1
-</td>
-<td>
-0
+1.0
 </td>
 <td>
 0.0
@@ -2043,28 +2148,22 @@ gender
 2
 </th>
 <td>
-0
+25.063302
 </td>
 <td>
-11.8
+55.137728
 </td>
 <td>
-6.3
+1150000
 </td>
 <td>
-1
-</td>
-<td>
-1
-</td>
-<td>
-1
-</td>
-<td>
-1
+181.253753
 </td>
 <td>
 1.0
+</td>
+<td>
+0.0
 </td>
 </tr>
 <tr>
@@ -2072,54 +2171,65 @@ gender
 3
 </th>
 <td>
-0
+25.227295
 </td>
 <td>
-14.4
+55.341761
 </td>
 <td>
-6.1
+2850000
 </td>
 <td>
-0
-</td>
-<td>
-1
-</td>
-<td>
-1
-</td>
-<td>
-1
+187.664060
 </td>
 <td>
 1.0
 </td>
+<td>
+0.0
+</td>
 </tr>
 <tr>
 <th>
-4
+8
 </th>
 <td>
-1
+25.106668
 </td>
 <td>
-13.5
+55.149275
 </td>
 <td>
-5.9
+2100000
 </td>
 <td>
-0
+203.085958
 </td>
 <td>
-0
+0.0
 </td>
 <td>
-0
+0.0
+</td>
+</tr>
+<tr>
+<th>
+16
+</th>
+<td>
+25.132021
 </td>
 <td>
-0
+55.151405
+</td>
+<td>
+3499000
+</td>
+<td>
+151.710599
+</td>
+<td>
+1.0
 </td>
 <td>
 0.0
@@ -2128,129 +2238,221 @@ gender
 </tbody>
 </table>
 </div>
-<p>Vemos el type que tienen las variables en <code>Python</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Gender_classification.dtypes</span></code></pre></div>
-<pre><code>long_hair                      int64
-forehead_width_cm            float64
-forehead_height_cm           float64
-nose_wide                      int64
-nose_long                      int64
-lips_thin                      int64
-distance_nose_to_lip_long      int64
-gender                       float64
-dtype: object</code></pre>
-<p><br></p>
-<p>Para aplicar el método de validación simple aleatoria, se divide aleatoriamente el data-set en dos partes, una de train y otra de test:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Gender_classification_Train <span class="op">=</span> Gender_classification.sample(frac<span class="op">=</span><span class="fl">0.8</span>, replace<span class="op">=</span><span class="va">False</span>, weights<span class="op">=</span><span class="va">None</span>, random_state<span class="op">=</span><span class="dv">222</span>, axis<span class="op">=</span><span class="va">None</span>, ignore_index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>Gender_classification_Test <span class="op">=</span> Gender_classification.drop( Gender_classification_Train.index , )</span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">## </span><span class="al">TEST</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> Gender_classification_Test.loc[: , Gender_classification_Test.columns <span class="op">!=</span> <span class="st">&#39;gender&#39;</span>]</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>Y_test <span class="op">=</span> Gender_classification_Test.loc[: , <span class="st">&#39;gender&#39;</span>]</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>Data_Test <span class="op">=</span> pd.concat([Y_test , X_test], axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">##################################################################################################</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">## TRAIN</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> Gender_classification_Train.loc[: , Gender_classification_Test.columns <span class="op">!=</span> <span class="st">&#39;gender&#39;</span>]</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>Y_train <span class="op">=</span> Gender_classification_Train.loc[: , <span class="st">&#39;gender&#39;</span>]</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>Data_Train <span class="op">=</span> pd.concat([Y_train , X_train], axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Como ejemplo de x_new cogemos la sexta (5 en Python) observación de X_test</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>x_new <span class="op">=</span> X_test.iloc[ <span class="dv">5</span> , :]</span></code></pre></div>
-<hr />
-<p><br></p>
-<p>Importamos la libreria <code>sklearn</code> y el modulo <code>NearestNeighbors</code></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sklearn</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> NearestNeighbors</span></code></pre></div>
-<p>Podemos ver cuales son los parametros de la función <code>KNeighborsClassifier</code></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">5</span>, <span class="op">*</span>, weights<span class="op">=</span><span class="st">&#39;uniform&#39;</span>, algorithm<span class="op">=</span><span class="st">&#39;auto&#39;</span>, leaf_size<span class="op">=</span><span class="dv">30</span>, p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>, metric_params<span class="op">=</span><span class="va">None</span>, n_jobs<span class="op">=</span><span class="va">None</span>) </span></code></pre></div>
-<p>Se recomienda ver primero la documentación de sklearn:</p>
-<p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html" class="uri">https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html</a></p>
-<p>Fijamos los parametros que usaremos en la función <code>KNeighborsClassifier</code>, entre otros, usaremos K=10 , y la distancia Minkowski con p=2 (equivalente a la Euclidea):</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>knn_classification <span class="op">=</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span> ,  weights<span class="op">=</span><span class="st">&#39;uniform&#39;</span>, p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span></code></pre></div>
-<p><br></p>
-<p>Entrenamos el modelo KNN definido en <code>knn_classification</code> con la muestra de train de los predictores y la respuesta:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>knn_classification.fit(X_train, Y_train)</span></code></pre></div>
-<p><br></p>
-<p>Predecimos la respuesta para una nueva observación <span class="math inline">\(x_new\)</span> de los predictores (la observación seis de la muestra de test de los predictores):</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>knn_classification.predict( [x_new] ) </span></code></pre></div>
-<pre><code>[1.]</code></pre>
-<p><br></p>
-<p>Obtenemos la frecuencia relativa de las categorias (0, 1) de la respuesta en el conjunto <span class="math inline">\(KNN(x_new)\)</span></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>knn_classification.predict_proba([x_new]) </span></code></pre></div>
-<pre><code>[[0. 1.]]</code></pre>
-<p><br></p>
-<div id="validación-simple-con-sklearn" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Validación simple con <code>sklearn</code> <a class="anchor" id="3.2"></a></h2>
-<p>Entrenamos el modelo con las muestra de train:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>knn_classification <span class="op">=</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span> ,  weights<span class="op">=</span><span class="st">&#39;uniform&#39;</span>, p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>knn_classification.fit(X_train, Y_train)</span></code></pre></div>
-<p><br></p>
-<p>Calculamos TEC con la muestra de test:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>TEC_sklearn <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> knn_classification.score(X_test, Y_test)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>TEC_sklearn</span></code></pre></div>
-<pre><code>0.03700000000000003</code></pre>
-<p><br></p>
-<hr />
-<p>Veamos ahora como funciona la función <code>KNeighborsClassifier</code> con otras medidas de distancias :</p>
-<p>Usando la distancia cityblock:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>knn <span class="op">=</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span> ,  weights<span class="op">=</span><span class="st">&#39;uniform&#39;</span>,  metric<span class="op">=</span><span class="st">&#39;cityblock&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>knn.fit(X_train, Y_train)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>knn.predict( [x_new] ) </span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>knn.predict_proba([x_new])</span></code></pre></div>
-<pre><code>[1.]
-
-[[0. 1.]]</code></pre>
-<p>Usando la distancia coseno:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>knn <span class="op">=</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span> ,  weights<span class="op">=</span><span class="st">&#39;uniform&#39;</span>, metric<span class="op">=</span><span class="st">&#39;cosine&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>knn.fit(X_train, Y_train)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>knn.predict( [x_new] )  </span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>knn.predict_proba([x_new]) </span></code></pre></div>
-<pre><code>[1.]
-
-[[0. 1.]]</code></pre>
-<p>Usando la distancia nan_euclidea</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>knn <span class="op">=</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span> ,  weights<span class="op">=</span><span class="st">&#39;uniform&#39;</span>, metric<span class="op">=</span><span class="st">&#39;nan_euclidean&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>knn.fit(X_train, Y_train)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>knn.predict( [x_new] )  </span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>knn.predict_proba([x_new]) </span></code></pre></div>
-<pre><code>[1.]
-
-[[0. 1.]]</code></pre>
-<p>Usando la distanchia manhattan:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>knn <span class="op">=</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span> ,  weights<span class="op">=</span><span class="st">&#39;uniform&#39;</span>, metric<span class="op">=</span><span class="st">&#39;manhattan&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>knn.fit(X_train, Y_train)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>knn.predict( [x_new] ) </span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>knn.predict_proba( [x_new] )</span></code></pre></div>
-<pre><code>[1.]
-
-[[0. 1.]]</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.concat([X_train , X_new])</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>X.head()</span></code></pre></div>
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+latitude
+</th>
+<th>
+longitude
+</th>
+<th>
+price
+</th>
+<th>
+size_in_m_2
+</th>
+<th>
+balcony_recode
+</th>
+<th>
+private_garden_recode
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+382
+</th>
+<td>
+25.196489
+</td>
+<td>
+55.272126
+</td>
+<td>
+15800000
+</td>
+<td>
+488.019459
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+732
+</th>
+<td>
+25.107984
+</td>
+<td>
+55.244923
+</td>
+<td>
+1700000
+</td>
+<td>
+138.704179
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<th>
+1888
+</th>
+<td>
+25.071504
+</td>
+<td>
+55.128579
+</td>
+<td>
+1300000
+</td>
+<td>
+171.220229
+</td>
+<td>
+1.0
+</td>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<th>
+679
+</th>
+<td>
+25.054336
+</td>
+<td>
+55.203423
+</td>
+<td>
+999000
+</td>
+<td>
+116.035847
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+1004
+</th>
+<td>
+25.087251
+</td>
+<td>
+55.145574
+</td>
+<td>
+2990000
+</td>
+<td>
+162.208638
+</td>
+<td>
+1.0
+</td>
+<td>
+0.0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sklearn</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> NearestNeighbors</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sklearn.neighbors.KNeighborsClassifier(n_neighbors=10, *, weights=&#39;uniform&#39;, algorithm=&#39;auto&#39;, leaf_size=30, p=2, metric=&#39;minkowski&#39;, metric_params=None, n_jobs=None) </span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>knn_classification <span class="op">=</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span> ,  p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>knn_classification.fit(X_train, Y_train)</span></code></pre></div>
+<pre><code>KNeighborsClassifier(n_neighbors=10)</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>knn_classification.predict( X_new ) </span></code></pre></div>
+<pre><code>array([2., 2., 2., 1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1., 2.,
+       1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2.,
+       2., 2., 2., 0., 2., 2., 3., 1., 2., 2., 2., 2., 2., 2., 2., 2., 2.,
+       2., 2., 2., 1., 2., 2., 2., 1., 2., 2., 2., 2., 1., 2., 2., 1., 1.,
+       2., 2., 2., 2., 2., 2., 2., 2., 1., 1., 2., 2., 2., 2., 2., 2., 2.,
+       2., 2., 1., 2., 2., 1., 2., 2., 2., 2., 2., 2., 1., 1., 1., 2., 2.,
+       2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1., 2., 2., 2., 2.,
+       1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1., 1., 2., 2.,
+       2., 1., 2., 2., 2., 2., 1., 2., 2., 2., 2., 2., 2., 2., 1., 2., 2.,
+       1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1.,
+       2., 2., 2., 2., 1., 1., 2., 2., 2., 2., 2., 1., 2., 2., 1., 1., 2.,
+       2., 1., 2., 2., 2., 2., 2., 1., 2., 1., 2., 2., 2., 2., 2., 2., 2.,
+       2., 1., 2., 2., 2., 3., 1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2.,
+       3., 1., 2., 2., 2., 2., 2., 3., 2., 2., 3., 2., 2., 2., 2., 1., 2.,
+       1., 1., 2., 2., 1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1.,
+       2., 2., 2., 2., 2., 1., 2., 2., 2., 1., 2., 2., 2., 2., 0., 2., 2.,
+       2., 1., 2., 0., 2., 2., 1., 2., 1., 2., 2., 2., 1., 1., 1., 2., 2.,
+       2., 1., 2., 2., 2., 2., 1., 2., 2., 2., 2., 2., 1., 2., 2., 2., 1.,
+       1., 1., 2., 2., 2., 2., 1., 2., 2., 1., 2., 1., 2., 2., 2., 2., 2.,
+       2., 2., 2., 1., 2., 2., 2., 2., 1., 2., 2., 2., 1., 2., 2., 2., 2.,
+       2., 2., 2., 2., 2., 2., 1., 2., 2., 2., 1., 2., 2., 2., 1., 2., 2.,
+       2., 2., 1., 1., 2., 2., 2., 1., 2., 2., 1., 2., 2., 1., 2., 1., 2.,
+       2., 2., 2., 2., 2., 2., 1.])</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>TA <span class="op">=</span> <span class="bu">sum</span>( knn_classification.predict( X_new )  <span class="op">==</span> Y_new.reset_index().quality_recode ) <span class="op">/</span> <span class="bu">len</span>(Y_new)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>TA</span></code></pre></div>
+<pre><code>0.5249343832020997</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>knn_classification <span class="op">=</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span> , p<span class="op">=</span><span class="dv">1</span>,  metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>knn_classification.fit(X_train, Y_train)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>TA <span class="op">=</span> <span class="bu">sum</span>( knn_classification.predict( X_new )  <span class="op">==</span> Y_new.reset_index().quality_recode ) <span class="op">/</span> <span class="bu">len</span>(Y_new)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>TA</span></code></pre></div>
+<pre><code>0.5275590551181102</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>knn_classification <span class="op">=</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span> ,   metric<span class="op">=</span><span class="st">&#39;cosine&#39;</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>knn_classification.fit(X_train, Y_train)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>TA <span class="op">=</span> <span class="bu">sum</span>( knn_classification.predict( X_new )  <span class="op">==</span> Y_new.reset_index().quality_recode ) <span class="op">/</span> <span class="bu">len</span>(Y_new)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>TA</span></code></pre></div>
+<pre><code>0.5643044619422573</code></pre>
 <p><br></p>
 </div>
-</div>
-<div id="modelo-knn-de-clasificación-supervisada-con-algoritmo-de-creación-propia-en-python" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Modelo KNN de clasificación supervisada con algoritmo de creación propia en <code>Python</code> <a class="anchor" id="4"></a></h1>
-<p>Vamos a crear una función que replique al algoritmo KNN anterirmente descrito. Este ejercicio es una forma de entender mejor como funciona realmente el algoritmo, y de practicar nuestra programación.</p>
+<div id="knn-para-clasificación-supervisada-programado-desde-cero-con-python" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> KNN para clasificación supervisada programado desde “cero” con <code>Python</code> <a class="anchor" id="4"></a></h1>
+<p>Vamos a crear una función que replique al algoritmo KNN anteriormente descrito. Este ejercicio es una forma de entender mejor como funciona realmente el algoritmo, y de practicar nuestra programación.</p>
 <p><br></p>
 </div>
-<div id="knn-como-modelo-de-regresión" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> KNN como modelo de regresión <a class="anchor" id="5"></a></h1>
+<div id="knn-como-algoritmo-de-regresión" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> KNN como algoritmo de regresión <a class="anchor" id="5"></a></h1>
 <p>Un modelo de regresión es un modelo estadistico que permite predecir una respuesta <strong>cuantitativa</strong> usando para ello información sobre una serie de predictores y de la propia respuesta.</p>
 <ul>
 <li><p>Tenemos <span class="math inline">\(\hspace{0.1cm} p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> y una respuesta <strong>cuantitativa</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{Y} \\\)</span></p></li>
@@ -2285,12 +2487,12 @@ dtype: object</code></pre>
 <p><span class="math display">\[\widehat{y}_{new} =  \overline{\hspace{0.15cm} Y}_{KNN(x_{new})}\]</span></p>
 <p><br></p>
 </div>
-<div id="modleo-knn-de-regresión-aplicado-en-python-con-sklearn" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Modleo KNN de regresión aplicado en <code>Python</code> con <code>sklearn</code><a class="anchor" id="6"></a></h1>
+<div id="knn-para-regresión-con-sklearn" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> KNN para regresión con <code>sklearn</code> <a class="anchor" id="6"></a></h1>
 <p>Cargamos los datos con los que vamos a trabajar en esta sección.
 Son datos sobre casas de Dubai, la respuesta será el precio, los predictores caracteristicas de las casas.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>House_Price_Regression <span class="op">=</span> pd.read_csv(<span class="st">&#39;House_Price_Regression.csv&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>House_Price_Regression.head()</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>House_Price_Regression <span class="op">=</span> pd.read_csv(<span class="st">&#39;House_Price_Regression.csv&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>House_Price_Regression.head()</span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2721,10 +2923,10 @@ size_in_m_2
 </p>
 </div>
 <p>Hacemos la division aleatoria del data-set original en parte de train y de test, para aplicar validación simple aleatoria:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>House_Price_Regression_Train <span class="op">=</span> House_Price_Regression.sample(frac<span class="op">=</span><span class="fl">0.8</span>, replace<span class="op">=</span><span class="va">False</span>, weights<span class="op">=</span><span class="va">None</span>, random_state<span class="op">=</span><span class="dv">222</span>, axis<span class="op">=</span><span class="va">None</span>, ignore_index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>House_Price_Regression_Test <span class="op">=</span> House_Price_Regression.drop( House_Price_Regression_Train.index , )</span></code></pre></div>
-<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>House_Price_Regression_Train</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>House_Price_Regression_Train <span class="op">=</span> House_Price_Regression.sample(frac<span class="op">=</span><span class="fl">0.8</span>, replace<span class="op">=</span><span class="va">False</span>, weights<span class="op">=</span><span class="va">None</span>, random_state<span class="op">=</span><span class="dv">222</span>, axis<span class="op">=</span><span class="va">None</span>, ignore_index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>House_Price_Regression_Test <span class="op">=</span> House_Price_Regression.drop( House_Price_Regression_Train.index , )</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>House_Price_Regression_Train</span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -3562,115 +3764,85 @@ size_in_m_2
 1524 rows × 29 columns
 </p>
 </div>
-<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">## </span><span class="al">TEST</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> House_Price_Regression_Test.loc[: , House_Price_Regression_Test.columns <span class="op">!=</span> <span class="st">&#39;price&#39;</span>]</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>Y_test <span class="op">=</span> House_Price_Regression_Test.loc[: , <span class="st">&#39;price&#39;</span>]</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>Data_Test <span class="op">=</span> pd.concat([Y_test , X_test], axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="co">##################################################################################################</span></span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co">## TRAIN</span></span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> House_Price_Regression_Train.loc[: , House_Price_Regression_Train.columns <span class="op">!=</span> <span class="st">&#39;price&#39;</span>]</span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>Y_train <span class="op">=</span> House_Price_Regression_Train.loc[: , <span class="st">&#39;price&#39;</span>]</span>
-<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>Data_Train <span class="op">=</span> pd.concat([Y_train , X_train], axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Como ejemplo de x_new cogemos la sexta (5 en python) observacion de X_test</span></span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>x_new <span class="op">=</span> X_test.iloc[ <span class="dv">8</span> , :]</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">## </span><span class="al">TEST</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>X_test <span class="op">=</span> House_Price_Regression_Test.loc[: , House_Price_Regression_Test.columns <span class="op">!=</span> <span class="st">&#39;price&#39;</span>]</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>Y_test <span class="op">=</span> House_Price_Regression_Test.loc[: , <span class="st">&#39;price&#39;</span>]</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>Data_Test <span class="op">=</span> pd.concat([Y_test , X_test], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="co">##################################################################################################</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="co">## TRAIN</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> House_Price_Regression_Train.loc[: , House_Price_Regression_Train.columns <span class="op">!=</span> <span class="st">&#39;price&#39;</span>]</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>Y_train <span class="op">=</span> House_Price_Regression_Train.loc[: , <span class="st">&#39;price&#39;</span>]</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>Data_Train <span class="op">=</span> pd.concat([Y_train , X_train], axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Como ejemplo de x_new cogemos la sexta (5 en python) observacion de X_test</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>x_new <span class="op">=</span> X_test.iloc[ <span class="dv">8</span> , :]</span></code></pre></div>
 <p><br></p>
 <p>Importamos la clase necesaria para aplicar KNN para regresión con <code>sklearn</code></p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sklearn</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> NearestNeighbors</span></code></pre></div>
-<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">## sklearn.neighbors.KNeighborsRegressor(n_neighbors=5, weights=&#39;uniform&#39;, algorithm=&#39;auto&#39;, leaf_size=30, p=2, metric=&#39;minkowski&#39;, metric_params=None, n_jobs=None)</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sklearn</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> NearestNeighbors</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">## sklearn.neighbors.KNeighborsRegressor(n_neighbors=5, weights=&#39;uniform&#39;, algorithm=&#39;auto&#39;, leaf_size=30, p=2, metric=&#39;minkowski&#39;, metric_params=None, n_jobs=None)</span></span></code></pre></div>
 <p>Para informarse sobre la definición de los parametros se recomienda leer la documentación oficial:</p>
 <p><a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html" class="uri">https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html</a></p>
 <p>Definimos un KNN para regresión con K=10 y la distancia Minkowski con p=2 (es decir, la Euclidea):</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>knn <span class="op">=</span> sklearn.neighbors.KNeighborsRegressor(n_neighbors<span class="op">=</span><span class="dv">10</span>,  weights<span class="op">=</span><span class="st">&#39;uniform&#39;</span>, p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>knn <span class="op">=</span> sklearn.neighbors.KNeighborsRegressor(n_neighbors<span class="op">=</span><span class="dv">10</span>,  weights<span class="op">=</span><span class="st">&#39;uniform&#39;</span>, p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span></code></pre></div>
 <p>Entrenamos el modelo con muestras de train de los predictores y respuesta:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>knn.fit(X_train , Y_train)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>knn.fit(X_train , Y_train)</span></code></pre></div>
 <p>Predecimos la respuesta para la nueva observación:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>knn.predict( [x_new] ) </span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>knn.predict( [x_new] ) </span></code></pre></div>
 <pre><code>[2026203.4]</code></pre>
 <p>Probamos ahora con otras medidas de distancias:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>knn <span class="op">=</span> sklearn.neighbors.KNeighborsRegressor(n_neighbors<span class="op">=</span><span class="dv">10</span>,  weights<span class="op">=</span><span class="st">&#39;uniform&#39;</span>, p<span class="op">=</span><span class="dv">5</span>, metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>knn.fit(X_train , Y_train)</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( knn.predict( [x_new] ) )</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>knn <span class="op">=</span> sklearn.neighbors.KNeighborsRegressor(n_neighbors<span class="op">=</span><span class="dv">10</span>,  weights<span class="op">=</span><span class="st">&#39;uniform&#39;</span>, p<span class="op">=</span><span class="dv">5</span>, metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>knn.fit(X_train , Y_train)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( knn.predict( [x_new] ) )</span></code></pre></div>
 <pre><code>[2026203.4]</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>knn <span class="op">=</span> sklearn.neighbors.KNeighborsRegressor(n_neighbors<span class="op">=</span><span class="dv">10</span>,  weights<span class="op">=</span><span class="st">&#39;uniform&#39;</span>, metric<span class="op">=</span><span class="st">&#39;cityblock&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>knn.fit(X_train , Y_train)</span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( knn.predict( [x_new] ) )</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>knn <span class="op">=</span> sklearn.neighbors.KNeighborsRegressor(n_neighbors<span class="op">=</span><span class="dv">10</span>,  weights<span class="op">=</span><span class="st">&#39;uniform&#39;</span>, metric<span class="op">=</span><span class="st">&#39;cityblock&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>knn.fit(X_train , Y_train)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( knn.predict( [x_new] ) )</span></code></pre></div>
 <pre><code>[1789314.6]</code></pre>
-<div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>knn <span class="op">=</span> sklearn.neighbors.KNeighborsRegressor(n_neighbors<span class="op">=</span><span class="dv">10</span>,  weights<span class="op">=</span><span class="st">&#39;uniform&#39;</span>, metric<span class="op">=</span><span class="st">&#39;cosine&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>knn.fit(X_train , Y_train)</span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( knn.predict( [x_new] ) )</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>knn <span class="op">=</span> sklearn.neighbors.KNeighborsRegressor(n_neighbors<span class="op">=</span><span class="dv">10</span>,  weights<span class="op">=</span><span class="st">&#39;uniform&#39;</span>, metric<span class="op">=</span><span class="st">&#39;cosine&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>knn.fit(X_train , Y_train)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>( knn.predict( [x_new] ) )</span></code></pre></div>
 <pre><code>[1750914.6]</code></pre>
 <hr />
-<div id="validación-simple-con-sklearn-1" class="section level2" number="6.1">
+<div id="validación-simple-con-sklearn" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Validación simple con <code>sklearn</code> <a class="anchor" id="6.2"></a></h2>
 <p>En este caso <code>sklearn</code> no calcula el <span class="math inline">\(ECM\)</span> , sino el <span class="math inline">\(R^2\)</span> , que en el fondo es una función del <span class="math inline">\(ECM\)</span></p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>knn_regression <span class="op">=</span> sklearn.neighbors.KNeighborsRegressor(n_neighbors<span class="op">=</span><span class="dv">10</span>,  weights<span class="op">=</span><span class="st">&#39;uniform&#39;</span>, p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>knn_regression.fit(X_train , Y_train)</span></code></pre></div>
-<div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>R2_sklearn <span class="op">=</span> knn_regression.score(X_test, Y_test)</span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>R2_sklearn</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>knn_regression <span class="op">=</span> sklearn.neighbors.KNeighborsRegressor(n_neighbors<span class="op">=</span><span class="dv">10</span>,  weights<span class="op">=</span><span class="st">&#39;uniform&#39;</span>, p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>knn_regression.fit(X_train , Y_train)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>R2_sklearn <span class="op">=</span> knn_regression.score(X_test, Y_test)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>R2_sklearn</span></code></pre></div>
 <pre><code>0.745616988261137</code></pre>
 <p><br></p>
 </div>
 </div>
-<div id="modelo-knn-de-regression-con-algoritmo-de-creación-propia-en-python" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Modelo KNN de regression con algoritmo de creación propia en <code>Python</code> <a class="anchor" id="7"></a></h1>
+<div id="knn-para-regresión-programado-desde-cero-en-python" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> KNN para regresión programado desde “cero” en <code>Python</code> <a class="anchor" id="7"></a></h1>
 <p><br></p>
-</div>
-<div id="selección-del-hiper-parámetro-k" class="section level1" number="8">
-<h1><span class="header-section-number">8</span> Selección del hiper-parámetro k</h1>
-<p>En este artículo no mostraremos cómo seleccionar el hiper-parámetro <span class="math inline">\(k\)</span> del modelo KNN, esta cuestión será tratada en otro articulo más genérico sobre ajuste de hiper-parámetros.</p>
-<p><br></p>
-<p><br></p>
-</div>
-<div id="anexo" class="section level1" number="9">
-<h1><span class="header-section-number">9</span> Anexo</h1>
-<div id="ejemplo-de-juguete-de-knn-para-clasificación-supervisada" class="section level2" number="9.1">
-<h2><span class="header-section-number">9.1</span> Ejemplo de juguete de KNN para clasificación supervisada <a class="anchor" id="2"></a></h2>
-<ul>
-<li><p>Tamaño muestral: <span class="math inline">\(n=3 \\\)</span></p></li>
-<li><p>Predictores: <span class="math inline">\(\hspace{0.15cm} X1 = (10 , 2 , 4)\)</span> , <span class="math inline">\(\hspace{0.15cm} X2 = (20 , 25, 40) \\\)</span></p></li>
-<li><p>Observaciones: <span class="math inline">\(\hspace{0.15cm} x_1 =(10,20)\)</span> , <span class="math inline">\(\hspace{0.15cm} x_2=(2,25)\)</span> , <span class="math inline">\(\hspace{0.15cm} x_3=(4,40) \\\)</span></p></li>
-<li><p>Respuesta <span class="math inline">\(\hspace{0.1cm}2\)</span> categories <span class="math inline">\((0,1)\)</span>: <span class="math inline">\(\hspace{0.18cm} Y =( 1 , 1 , 0 ) \\\)</span></p></li>
-<li><p>Distancia <span class="math inline">\(\hspace{0.15cm} \Rightarrow \hspace{0.15cm}\)</span> <span class="math inline">\(\delta_{Euclidean} \\\)</span></p></li>
-<li><p>Nueva observación: <span class="math inline">\(\hspace{0.15cm} x_{new}=(6, 20) \\\)</span></p></li>
-<li><p>Calculamos las distancias:</p></li>
-</ul>
-<p><span class="math inline">\(\hspace{0.85cm} \delta(x_{new}, x_1)_{Euclidean} = (10-6)^2 + (20-20)^2 = 16\)</span></p>
-<p><span class="math inline">\(\hspace{0.85cm} \delta(x_{new}, x_2)_{Euclidean} = (2-6)^2 + (25-20)^2 = 16 + 25 = 41\)</span></p>
-<p><span class="math inline">\(\hspace{0.85cm} \delta(x_{new}, x_3)_{Euclidean} = (4-6)^2 + (40-20)^2 = 4 + 400 = 404 \\\)</span></p>
-<ul>
-<li><p>Seleccionamos <span class="math inline">\(\hspace{0.05cm} k=2 \hspace{0.05cm}\)</span> vecinos más cercanos <span class="math inline">\(\hspace{0.05cm}x_{new}\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.215cm}\)</span> <span class="math inline">\(KNN \hspace{0.01cm}=\hspace{0.01cm} \lbrace\hspace{0.1cm} x_1 , x_2 \hspace{0.1cm}\rbrace \\\)</span></p></li>
-<li><p>Calculamos las proporciones <span class="math inline">\(f^{KNN(x_{new})}\)</span> :</p></li>
-</ul>
-<p><span class="math inline">\(\hspace{0.85cm}\)</span> Notese que <span class="math inline">\(\hspace{0.1cm} y_1 = 1 \hspace{0.2cm}\)</span> y <span class="math inline">\(\hspace{0.2cm} y_2 = 1\hspace{0.2cm} \Rightarrow \hspace{0.2cm} f^{knn}_0 = 0/2 = 0\hspace{0.2cm}\)</span> y <span class="math inline">\(\hspace{0.2cm} f^{knn}_1 = 2/2 = 1 \\\)</span></p>
-<ul>
-<li>Así que, el algoritmo predice que el valor de la respuesta asociado a la nueva observación es <span class="math inline">\(\hspace{0.15cm} \hat{y}_{new} = 1\)</span></li>
-</ul>
 <p><br></p>
 <hr />
 <p><br></p>
 </div>
-</div>
-<div id="bibliography" class="section level1" number="10">
-<h1><span class="header-section-number">10</span> Bibliography</h1>
-<p>Scikit-learn Developers. KNeighborsClassifier. Scikit-learn.
-<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html" class="uri">https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html</a></p>
-<p>Scikit-learn Developers. KNeighborsRegressor. Scikit-learn.
-<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html" class="uri">https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html</a></p>
-<p>Grané Chavez, Aurea. (2022). <em>Análisis Discriminante</em> [Presentación de PowerPoint]. Aula Global UC3M.</p>
+<div id="bibliografía" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Bibliografía</h1>
+<ul>
+<li><p>Grané Chavez, Aurea. (2022). <em>Análisis Discriminante</em> [Presentación de PowerPoint]. Aula Global UC3M.</p></li>
+<li><p>Scikit-learn Developers. KNeighborsClassifier. Scikit-learn.
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html" class="uri">https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html</a></p></li>
+<li><p>Scikit-learn Developers. KNeighborsRegressor. Scikit-learn.
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html" class="uri">https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html</a></p></li>
+</ul>
 <p><br></p>
 <p><br></p>
 </div>

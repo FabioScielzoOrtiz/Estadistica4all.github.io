@@ -141,7 +141,7 @@ Un problema de **clasificación supervisada**  es un problema estadistico que co
  
 <p style='margin-left:1em;'>
 
-- Tenemos $\hspace{0.1cm}p\hspace{0.1cm}$ predictores  $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ y una variable respuesta **categorica** $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ sobre los que disponemos una muestra de datos.
+- Tenemos $\hspace{0.1cm}p\hspace{0.1cm}$ predictores  $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ y una variable respuesta **categorica** $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ sobre los que disponemos una muestra de datos. $\\[0.5cm]$
 
 
 - Tenemos una **muestra** de tamaño $\hspace{0.1cm}n\hspace{0.1cm}$ de los $\hspace{0.1cm}p\hspace{0.1cm}$ **predictores** $\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}$  y de la **respuesta**.
@@ -190,7 +190,7 @@ A los problemas de clasificación no supervisada tambien se les conoce como prob
  
 <p style='margin-left:1em;'>
 
-- Tenemos $\hspace{0.1cm}p\hspace{0.1cm}$ predictores  $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ y una variable respuesta **categorica** $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ sobre la que **no disponemos ninguna muestra de datos**.
+- Tenemos $\hspace{0.1cm}p\hspace{0.1cm}$ predictores  $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ y una variable respuesta **categorica** $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ sobre la que **no disponemos ninguna muestra de datos**. $\\[0.5cm]$
 
 
 - Tenemos una **muestra** de tamaño $\hspace{0.1cm}n\hspace{0.1cm}$ de los $\hspace{0.1cm}p\hspace{0.1cm}$ **predictores** $\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}$  pero **no tenemos muestra de la respuesta** (elemento diferencial de la clasificación no supervisada), tampoco conocemos su recorrido, es decir, las categorias que la definen.
@@ -234,7 +234,7 @@ $$D=[X_1,...,X_p]=\begin{pmatrix}
  
 <p style='margin-left:1em;'>
 
-- Tenemos $\hspace{0.1cm}p\hspace{0.1cm}$ predictores  $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ y una variable respuesta **categorica** $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ sobre la que disponemos ninguna muestra de datos con bastantes valores faltantes.
+- Tenemos $\hspace{0.1cm}p\hspace{0.1cm}$ predictores  $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ y una variable respuesta **categorica** $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ sobre la que disponemos ninguna muestra de datos con bastantes valores faltantes. $\\[0.5cm]$
 
 
 - Tenemos una muestra de tamaño $\hspace{0.1cm}n\hspace{0.1cm}$ de los $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ y de la respuesta $\mathcal{\hspace{0.1cm}Y\hspace{0.1cm}}$ , pero la muestra de la respuesta contiene muchos valores faltantes. 
@@ -254,7 +254,7 @@ $$D=[X_1,...,X_p]=\begin{pmatrix}
      x_{n} & y_n
     \end{pmatrix}\\[2cm]$$
     
-$\hspace{1cm}$ Donde: $\hspace{0.15cm}y_i\hspace{0.1cm}$ es un valor faltante, para muchos $\hspace{0.1cm}i\in \lbrace 1,...,n\rbrace \\$
+$\hspace{1cm}$ Donde: $\hspace{0.15cm}y_i\hspace{0.1cm}$ es un valor faltante, para muchos $\hspace{0.1cm}i\in \lbrace 1,...,n\rbrace$$\\[0.5cm]$
  
 
 - La solución estadística al problema de clasificación semi-supervisada pasa por proponer un modelo o algoritmo que sea capaz usar la información muestral disponible $\hspace{0.1cm}D\hspace{0.1cm}$ de los predictores y de la respuesta para predecir los valores de la respuesta para cada vector de observaciones de los predictores que se considere.

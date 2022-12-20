@@ -119,10 +119,10 @@ $$D=[X_1,...,X_p, Y]=\begin{pmatrix}
 
 
 
-# KNN como modelo de clasificación supervisada <a class="anchor" id="1"></a>  
+# KNN como algoritmo de clasificación supervisada <a class="anchor" id="1"></a>  
 
 
-Un modelo de clasificación supervisada  es un modelo estadístico que permite predecir una variable respuesta **categorica** usando para ello información sobre una serie de predictores y de la propia respuesta, es decir, es una modelo que permite resolver un problema de clasificación supervisada.
+Un algoritmo de clasificación supervisada  es un algoritmo que permite predecir una variable respuesta **categorica** usando para ello información sobre una serie de predictores y de la propia respuesta, es decir, es una modelo que permite resolver un problema de clasificación supervisada.
 
 Como se ha mencionado antes:
 
@@ -159,42 +159,48 @@ A continuación vamos a hacer una exposición teorica del algoritmo de KNN para 
 <p style='margin-left:1em;'>
 
 
-El algoritmo **KNN** para **clasificación supervisada** tiene los siguientes pasos:
+$\hspace{0.15cm}$ El algoritmo **KNN** para **clasificación supervisada** tiene los siguientes pasos:
 
 
-- Se define una medida de distancia  entre pares de observaciones de variables estadisticas $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\delta (\cdot , \cdot) \\$
-
- 
+- Se define una medida de distancia  entre pares de observaciones de variables estadisticas $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\delta  \\$
 
  
-- Dada una nueva observación $\hspace{0.1cm}x_{new}\hspace{0.1cm}$ de los predictores $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ , es decir, una observación que no está en la muestra de datos $\hspace{0.1cm}D\hspace{0.1cm}$, se calculan las distancias entre el par de observaciones $\hspace{0.1cm}(x_{new} , x_i)$ , para $\hspace{0.1cm}i=1,...,n \\$
+
  
-Aqui no se va a entrar en este asunto, pero $\hspace{0.1cm}D\hspace{0.1cm}$ está jugando el papel de muestra de entrenamiento.
+- Dada una nueva observación $\hspace{0.1cm}x_{new}\hspace{0.1cm}$ de los predictores $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ , es decir, una observación que no está en la muestra de datos $\hspace{0.1cm}D\hspace{0.1cm}$, se calculan las distancias entre el par de observaciones $\hspace{0.1cm}(x_{new} \hspace{0.05cm} , \hspace{0.05cm} x_i)$ , para $\hspace{0.1cm}i=1,...,n \hspace{0.2cm} \Rightarrow \hspace{0.2cm} \delta(x_{new},x_i)$
+ 
+$\hspace{0.25cm}$ Aquí no se va a entrar en este asunto, pero $\hspace{0.1cm}D\hspace{0.1cm}$ está jugando el papel de muestra de entrenamiento.
  
 
 
-- Se seleccionan las $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones   $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$ que son más cercanas a la nueva observación $\hspace{0.1cm}x_{new}$, segun la medida de distancia $\hspace{0.1cm}\delta\hspace{0.1cm}$
+- Se seleccionan las $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones   $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$ que son más cercanas a la nueva observación $\hspace{0.1cm}x_{new}\hspace{0.1cm}$, según la medida de distancia $\hspace{0.1cm}\delta\hspace{0.1cm}$
 
-El conjunto de estas $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones son los ***k vecinos más cercanos de $\hspace{0.1cm}x_{new}\hspace{0.1cm}$*** y se denota por $\hspace{0.1cm}K(x_{new}) \\$
-
-
-
-- Se calcula la frecuencia relativa de cada categoría de la respuesta sobre el conjunto $\hspace{0.1cm}K_{x_{new}}$
-
-Sea $\hspace{0.1cm}P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r\hspace{0.1cm}]\hspace{0.1cm}$ la frecuencia relativa (proporción) de observaciones de $\hspace{0.1cm}K_{x_{new}}\hspace{0.1cm}$ tales que $\hspace{0.1cm}\mathcal{Y}=r$
-
-Es decir:
-
-  $$P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r \hspace{0.1cm}] \hspace{0.15cm}=\hspace{0.15cm} \dfrac{ \# \hspace{0.1cm}\left\lbrace\hspace{0.1cm} i \hspace{0.13cm}/\hspace{0.13cm} x_i \in K_{x_{new}} \hspace{0.3cm}\text{y}\hspace{0.3cm}  y_i = r \hspace{0.1cm} \right\rbrace  }{\# \hspace{0.1cm} K_{x_{new}} } \hspace{0.15cm}=\hspace{0.15cm} \dfrac{ \# \hspace{0.1cm}\left\lbrace\hspace{0.1cm} i \hspace{0.13cm}/\hspace{0.13cm} x_i \in K_{x_{new}} \hspace{0.3cm}\text{y}\hspace{0.3cm}  y_i = r \hspace{0.1cm} \right\rbrace  }{  k } \\$$
+    El conjunto de estas $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones son los **k vecinos más cercanos de $\hspace{0.1cm}x_{new}\hspace{0.1cm}$** y se denota por $\hspace{0.1cm}K_{x_{new}} \\$
 
 
 
-- Para la nueva observación de los predictores $\hspace{0.1cm} x_{new} \hspace{0.1cm}$ se predice la respuesta como la categoria mas frecuente en el conjunto $\hspace{0.1cm}K_{x_{new}}$
+- Se calcula la frecuencia relativa de cada categoría de la variable respuesta en el conjunto $\hspace{0.1cm}K_{x_{new}}$
+
+    Denotamos por $\hspace{0.15cm}P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r\hspace{0.1cm}]\hspace{0.15cm}$ a la frecuencia relativa (proporción) de observaciones del conjunto $\hspace{0.1cm}K_{x_{new}}\hspace{0.1cm}$ tales que $\hspace{0.1cm}\mathcal{Y}=r$
+
+    Es decir:
+
+  $$P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r \hspace{0.1cm}] \hspace{0.15cm}=\hspace{0.15cm} \dfrac{ \# \hspace{0.1cm}\left\lbrace\hspace{0.1cm} i \hspace{0.13cm}/\hspace{0.13cm} x_i \in K_{x_{new}} \hspace{0.3cm}\text{y}\hspace{0.3cm}  y_i = r \hspace{0.1cm} \right\rbrace  }{\# \hspace{0.1cm} K_{x_{new}} } \\$$
+  
+  
+    Notese que  $\hspace{0.15cm}\# \hspace{0.1cm} K_{x_{new}} \hspace{0.1cm}=\hspace{0.1cm} k \\$
 
 
-Es decir:
 
-$$\hspace{0.6 cm} \text{Si} \hspace{0.4 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 cm}  arg \hspace{0.1 cm} \underset{r}{Max} \hspace{0.15cm} P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r \hspace{0.1cm}]  \hspace{0.25cm}  \Rightarrow \hspace{0.25cm} \widehat{y}_{new} = r^* \hspace{0.1cm}$$
+- Para la nueva observación de los predictores $\hspace{0.1cm} x_{new} \hspace{0.1cm}$ se predice la variable respuesta como la categoría más frecuente en el conjunto $\hspace{0.1cm}K_{x_{new}}$
+
+
+    Es decir:
+
+    $$\hspace{0.6 cm} \text{Si} \hspace{0.5 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 cm}  arg \hspace{0.15 cm} \underset{r}{Max} \hspace{0.2cm} P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r \hspace{0.1cm}]  \hspace{0.5cm}  \Rightarrow \hspace{0.5cm} \widehat{y}_{new} \hspace{0.05 cm}=\hspace{0.05 cm} r^* \hspace{0.1cm}$$
+
+
+    Donde $\hspace{0.12cm}\widehat{y}_{new}\hspace{0.12cm}$ es el valor de la variable respuesta que el modelo predice para la observación $\hspace{0.12cm}x_{new}\hspace{0.12cm}$ de los predictores.
 
 
 </p>
@@ -204,309 +210,405 @@ $$\hspace{0.6 cm} \text{Si} \hspace{0.4 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 
 
 <br>
 
-
-
-# Modelo KNN de clasificación supervisada aplicado en `Python` con `sklearn`  <a class="anchor" id="3"></a>
-
-
- 
-
-
-```python
-import pandas as pd
-import numpy as np
-```
-
-
-
-Cargamos los datos con los que vamos a trabajar:
-
-```python
-Gender_classification = pd.read_csv('gender_classification.csv')
-```
-
-Es un conjunto de datos donde la respuesta es el sexo y los predictores variables biometricas. Este data set es apto para la aplicación de modelos de clasificación supervisada.  
-
-```python
-Gender_classification.head()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>long_hair</th>
-      <th>forehead_width_cm</th>
-      <th>forehead_height_cm</th>
-      <th>nose_wide</th>
-      <th>nose_long</th>
-      <th>lips_thin</th>
-      <th>distance_nose_to_lip_long</th>
-      <th>gender</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>11.8</td>
-      <td>6.1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Male</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0</td>
-      <td>14.0</td>
-      <td>5.4</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>Female</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0</td>
-      <td>11.8</td>
-      <td>6.3</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Male</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0</td>
-      <td>14.4</td>
-      <td>6.1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Male</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1</td>
-      <td>13.5</td>
-      <td>5.9</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>Female</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-<br>
-
-
-Recodificamos la respuesta para obtener la codificación estandar:
-
-
-```python
-from sklearn.preprocessing import OrdinalEncoder
-
-ord_enc = OrdinalEncoder()
-```
-
-
-```python
-Gender_classification['gender'] = ord_enc.fit_transform(Gender_classification[['gender']])
-```
-
-La recodificación aplicada es la siguiente:
-
-Female = 0 , Male = 1
-
-
-
-```python
-Gender_classification.head()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>long_hair</th>
-      <th>forehead_width_cm</th>
-      <th>forehead_height_cm</th>
-      <th>nose_wide</th>
-      <th>nose_long</th>
-      <th>lips_thin</th>
-      <th>distance_nose_to_lip_long</th>
-      <th>gender</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>11.8</td>
-      <td>6.1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0</td>
-      <td>14.0</td>
-      <td>5.4</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0</td>
-      <td>11.8</td>
-      <td>6.3</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0</td>
-      <td>14.4</td>
-      <td>6.1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1</td>
-      <td>13.5</td>
-      <td>5.9</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-Vemos el type que tienen las variables en `Python`:
-
-```python
-Gender_classification.dtypes
-```
-
-
-
-
-    long_hair                      int64
-    forehead_width_cm            float64
-    forehead_height_cm           float64
-    nose_wide                      int64
-    nose_long                      int64
-    lips_thin                      int64
-    distance_nose_to_lip_long      int64
-    gender                       float64
-    dtype: object
-
-
-
-
-<br>
-
-Para aplicar el método de validación simple aleatoria, se divide aleatoriamente el data-set en dos partes, una de train y otra de test:
-
-
-```python
-Gender_classification_Train = Gender_classification.sample(frac=0.8, replace=False, weights=None, random_state=222, axis=None, ignore_index=False)
-
-Gender_classification_Test = Gender_classification.drop( Gender_classification_Train.index , )
-```
-
-
-```python
-## TEST
-
-X_test = Gender_classification_Test.loc[: , Gender_classification_Test.columns != 'gender']
-Y_test = Gender_classification_Test.loc[: , 'gender']
-
-Data_Test = pd.concat([Y_test , X_test], axis=1)
-
-##################################################################################################
-
-## TRAIN
-
-X_train = Gender_classification_Train.loc[: , Gender_classification_Test.columns != 'gender']
-Y_train = Gender_classification_Train.loc[: , 'gender']
-
-Data_Train = pd.concat([Y_train , X_train], axis=1)
-```
-
-
-```python
-# Como ejemplo de x_new cogemos la sexta (5 en Python) observación de X_test
-
-x_new = X_test.iloc[ 5 , :]
-```
-
 ---
 
 <br>
 
-Importamos la libreria `sklearn` y el modulo `NearestNeighbors`
+
+
+# KNN para clasificación supervisada con `sklearn`  <a class="anchor" id="3"></a>
+
+
+```python
+import seaborn as sns
+import pandas as pd
+import numpy as np
+from sklearn.utils import resample
+import math as math
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+```
+
+```python
+Data = pd.read_csv('House_Price_Regression.csv')
+
+Data_Mixed = Data.loc[:, ['latitude', 'longitude', 'price', 'size_in_m_2', 'balcony_recode', 'private_garden_recode', 'quality_recode']]
+
+Data_Mixed.head()
+```
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>price</th>
+      <th>size_in_m_2</th>
+      <th>balcony_recode</th>
+      <th>private_garden_recode</th>
+      <th>quality_recode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>25.113208</td>
+      <td>55.138932</td>
+      <td>2700000</td>
+      <td>100.242337</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>25.106809</td>
+      <td>55.151201</td>
+      <td>2850000</td>
+      <td>146.972546</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>25.063302</td>
+      <td>55.137728</td>
+      <td>1150000</td>
+      <td>181.253753</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>25.227295</td>
+      <td>55.341761</td>
+      <td>2850000</td>
+      <td>187.664060</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>25.114275</td>
+      <td>55.139764</td>
+      <td>1729200</td>
+      <td>47.101821</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+```python
+Data_Mixed_train = Data_Mixed.sample(frac=0.8, replace=False, weights=None, random_state=123, axis=None, ignore_index=False)
+
+Data_Mixed_new =  Data_Mixed.drop( Data_Mixed_train.index , )
+```
+
+
+```python
+## TRAIN DATA (Datos dispobles --> se usan para entrenar el modelo)
+
+X_train = Data_Mixed_train.loc[: , Data_Mixed_train.columns != 'quality_recode']
+Y_train = Data_Mixed_train.loc[: , 'quality_recode']
+
+## NEW DATA (Nuevos datos de los predictores)
+
+X_new = Data_Mixed_new.loc[: , Data_Mixed_new.columns != 'quality_recode']
+
+# En la práctica real no se tienen datos sobre la respuesta asociado a las nuevas obsrvaciones de los predictores
+# Eso es justo lo que se quiere predecir.
+# Pero en este ejemplo al usar como "nuevos" datos una parte del data set original, si que tenemos esa información.
+
+Y_new = Data_Mixed_new.loc[: , 'quality_recode'] 
+
+```
+
+
+```python
+X_train.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>price</th>
+      <th>size_in_m_2</th>
+      <th>balcony_recode</th>
+      <th>private_garden_recode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>382</th>
+      <td>25.196489</td>
+      <td>55.272126</td>
+      <td>15800000</td>
+      <td>488.019459</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>732</th>
+      <td>25.107984</td>
+      <td>55.244923</td>
+      <td>1700000</td>
+      <td>138.704179</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1888</th>
+      <td>25.071504</td>
+      <td>55.128579</td>
+      <td>1300000</td>
+      <td>171.220229</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>679</th>
+      <td>25.054336</td>
+      <td>55.203423</td>
+      <td>999000</td>
+      <td>116.035847</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1004</th>
+      <td>25.087251</td>
+      <td>55.145574</td>
+      <td>2990000</td>
+      <td>162.208638</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+X_new.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>price</th>
+      <th>size_in_m_2</th>
+      <th>balcony_recode</th>
+      <th>private_garden_recode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>25.106809</td>
+      <td>55.151201</td>
+      <td>2850000</td>
+      <td>146.972546</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>25.063302</td>
+      <td>55.137728</td>
+      <td>1150000</td>
+      <td>181.253753</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>25.227295</td>
+      <td>55.341761</td>
+      <td>2850000</td>
+      <td>187.664060</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>25.106668</td>
+      <td>55.149275</td>
+      <td>2100000</td>
+      <td>203.085958</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>25.132021</td>
+      <td>55.151405</td>
+      <td>3499000</td>
+      <td>151.710599</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+X = pd.concat([X_train , X_new])
+X.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>price</th>
+      <th>size_in_m_2</th>
+      <th>balcony_recode</th>
+      <th>private_garden_recode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>382</th>
+      <td>25.196489</td>
+      <td>55.272126</td>
+      <td>15800000</td>
+      <td>488.019459</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>732</th>
+      <td>25.107984</td>
+      <td>55.244923</td>
+      <td>1700000</td>
+      <td>138.704179</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1888</th>
+      <td>25.071504</td>
+      <td>55.128579</td>
+      <td>1300000</td>
+      <td>171.220229</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>679</th>
+      <td>25.054336</td>
+      <td>55.203423</td>
+      <td>999000</td>
+      <td>116.035847</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1004</th>
+      <td>25.087251</td>
+      <td>55.145574</td>
+      <td>2990000</td>
+      <td>162.208638</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+  
+
 
 
 ```python
@@ -515,173 +617,109 @@ import sklearn
 from sklearn.neighbors import NearestNeighbors
 ```
 
-Podemos ver cuales son los parametros de la función `KNeighborsClassifier` 
 
 ```python
-sklearn.neighbors.KNeighborsClassifier(n_neighbors=5, *, weights='uniform', algorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=None) 
+# sklearn.neighbors.KNeighborsClassifier(n_neighbors=10, *, weights='uniform', algorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=None) 
 ```
-Se recomienda ver primero la documentación de sklearn:
 
-https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html
-
-
-Fijamos los parametros que usaremos en la función `KNeighborsClassifier`, entre otros, usaremos K=10 , y la distancia Minkowski con p=2 (equivalente a la Euclidea):
 
 ```python
-knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform', p=2, metric='minkowski')
+knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=2, metric='minkowski')
 ```
 
-<br>
-
-Entrenamos el modelo KNN definido en `knn_classification` con la muestra de train de los predictores y la respuesta:
 
 ```python
 knn_classification.fit(X_train, Y_train)
 ```
 
-<br>
 
-Predecimos la respuesta para una nueva observación $x_new$ de los predictores (la observación seis de la muestra de test de los predictores):
+
+
+    KNeighborsClassifier(n_neighbors=10)
+
+
+
 
 ```python
-knn_classification.predict( [x_new] ) 
+knn_classification.predict( X_new ) 
 ```
 
-    [1.]
-    
-<br>
 
-Obtenemos la frecuencia relativa de las categorias (0, 1) de la respuesta en el conjunto $KNN(x_new)$
+
+
+    array([2., 2., 2., 1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1., 2.,
+           1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2.,
+           2., 2., 2., 0., 2., 2., 3., 1., 2., 2., 2., 2., 2., 2., 2., 2., 2.,
+           2., 2., 2., 1., 2., 2., 2., 1., 2., 2., 2., 2., 1., 2., 2., 1., 1.,
+           2., 2., 2., 2., 2., 2., 2., 2., 1., 1., 2., 2., 2., 2., 2., 2., 2.,
+           2., 2., 1., 2., 2., 1., 2., 2., 2., 2., 2., 2., 1., 1., 1., 2., 2.,
+           2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1., 2., 2., 2., 2.,
+           1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1., 1., 2., 2.,
+           2., 1., 2., 2., 2., 2., 1., 2., 2., 2., 2., 2., 2., 2., 1., 2., 2.,
+           1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1.,
+           2., 2., 2., 2., 1., 1., 2., 2., 2., 2., 2., 1., 2., 2., 1., 1., 2.,
+           2., 1., 2., 2., 2., 2., 2., 1., 2., 1., 2., 2., 2., 2., 2., 2., 2.,
+           2., 1., 2., 2., 2., 3., 1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2.,
+           3., 1., 2., 2., 2., 2., 2., 3., 2., 2., 3., 2., 2., 2., 2., 1., 2.,
+           1., 1., 2., 2., 1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1.,
+           2., 2., 2., 2., 2., 1., 2., 2., 2., 1., 2., 2., 2., 2., 0., 2., 2.,
+           2., 1., 2., 0., 2., 2., 1., 2., 1., 2., 2., 2., 1., 1., 1., 2., 2.,
+           2., 1., 2., 2., 2., 2., 1., 2., 2., 2., 2., 2., 1., 2., 2., 2., 1.,
+           1., 1., 2., 2., 2., 2., 1., 2., 2., 1., 2., 1., 2., 2., 2., 2., 2.,
+           2., 2., 2., 1., 2., 2., 2., 2., 1., 2., 2., 2., 1., 2., 2., 2., 2.,
+           2., 2., 2., 2., 2., 2., 1., 2., 2., 2., 1., 2., 2., 2., 1., 2., 2.,
+           2., 2., 1., 1., 2., 2., 2., 1., 2., 2., 1., 2., 2., 1., 2., 1., 2.,
+           2., 2., 2., 2., 2., 2., 1.])
+
+
+
 
 ```python
-knn_classification.predict_proba([x_new]) 
+TA = sum( knn_classification.predict( X_new )  == Y_new.reset_index().quality_recode ) / len(Y_new)
+TA
 ```
 
-    [[0. 1.]]
-    
 
 
 
-<br>
-
- 
-
-## Validación simple con `sklearn`  <a class="anchor" id="3.2"></a>
+    0.5249343832020997
 
 
-Entrenamos el modelo con las muestra de train:
+
+
+
 
 ```python
-knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform', p=2, metric='minkowski')
+knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 , p=1,  metric='minkowski')
 
 knn_classification.fit(X_train, Y_train)
+
+TA = sum( knn_classification.predict( X_new )  == Y_new.reset_index().quality_recode ) / len(Y_new)
+TA
 ```
 
 
-<br>
-
-Calculamos TEC con la muestra de test:
-
-```python
-TEC_sklearn = 1 - knn_classification.score(X_test, Y_test)
-
-TEC_sklearn
-```
 
 
-    0.03700000000000003
+    0.5275590551181102
 
 
-<br>
-
----
-
-
-Veamos ahora como funciona la función `KNeighborsClassifier` con otras medidas de distancias :
-
-
-Usando la distancia cityblock:
-```python
-knn = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform',  metric='cityblock')
-```
 
 
 ```python
-knn.fit(X_train, Y_train)
+knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,   metric='cosine')
 
-knn.predict( [x_new] ) 
- 
-knn.predict_proba([x_new])
-```
+knn_classification.fit(X_train, Y_train)
 
-    [1.]
-    
-    [[0. 1.]]
-    
-
-
-
-Usando la distancia coseno:
-
-```python
-knn = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform', metric='cosine')
+TA = sum( knn_classification.predict( X_new )  == Y_new.reset_index().quality_recode ) / len(Y_new)
+TA
 ```
 
 
-```python
-knn.fit(X_train, Y_train)
-
-knn.predict( [x_new] )  
-
-knn.predict_proba([x_new]) 
-```
-
-    [1.]
-    
-    [[0. 1.]]
-    
 
 
-Usando la distancia nan_euclidea
+    0.5643044619422573
 
-```python
-knn = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform', metric='nan_euclidean')
-```
-
-
-```python
-knn.fit(X_train, Y_train)
-
-knn.predict( [x_new] )  
-
-knn.predict_proba([x_new]) 
-```
-
-    [1.]
-    
-    [[0. 1.]]
-    
-
-
-Usando la distanchia manhattan:
-
-```python
-knn = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  weights='uniform', metric='manhattan')
-```
-
-
-```python
-knn.fit(X_train, Y_train)
-
-knn.predict( [x_new] ) 
-
-knn.predict_proba( [x_new] )
-```
-
-    [1.]
-    
-    [[0. 1.]]
-    
 
 
 
@@ -689,9 +727,9 @@ knn.predict_proba( [x_new] )
 
 
 
-# Modelo KNN de clasificación supervisada con algoritmo de creación propia en `Python` <a class="anchor" id="4"></a>
+# KNN  para clasificación supervisada programado desde "cero" con `Python` <a class="anchor" id="4"></a>
 
-Vamos a crear una función que replique al algoritmo KNN anterirmente descrito. Este ejercicio es una forma de entender mejor como funciona realmente el algoritmo, y de practicar nuestra programación.
+Vamos a crear una función que replique al algoritmo KNN anteriormente descrito. Este ejercicio es una forma de entender mejor como funciona realmente el algoritmo, y de practicar nuestra programación.
 
 
 
@@ -716,7 +754,7 @@ Vamos a crear una función que replique al algoritmo KNN anterirmente descrito. 
 
 
 
-# KNN como modelo de regresión  <a class="anchor" id="5"></a>
+# KNN como algoritmo de regresión  <a class="anchor" id="5"></a>
 
 Un modelo de regresión es un modelo estadistico que permite predecir una respuesta **cuantitativa** usando para ello información sobre una serie de predictores y de la propia respuesta.
 
@@ -794,7 +832,7 @@ $$\widehat{y}_{new} =  \overline{\hspace{0.15cm} Y}_{KNN(x_{new})}$$
 
 
 
-# Modleo KNN de  regresión aplicado en `Python` con  `sklearn`<a class="anchor" id="6"></a>
+# KNN para regresión con `sklearn` <a class="anchor" id="6"></a>
 
 
 Cargamos los datos con los que vamos a trabajar en esta sección. 
@@ -1473,79 +1511,17 @@ R2_sklearn
 
 
 
-# Modelo KNN de regression  con algoritmo de creación propia en `Python` <a class="anchor" id="7"></a>
+# KNN  para regresión  programado desde "cero" en `Python` <a class="anchor" id="7"></a>
 
 
 
 
 
-
-
-
-<br>
-
-# Selección del hiper-parámetro k
-
-
-
-En este artículo no mostraremos cómo seleccionar el hiper-parámetro $k$ del modelo KNN, esta cuestión será tratada en otro articulo más genérico sobre ajuste de hiper-parámetros.
-
-
-<br>
-
-<br>
-
-
-# Anexo
-
-
-
-## Ejemplo de juguete de KNN para clasificación supervisada <a class="anchor" id="2"></a>
-
-
-
-- Tamaño muestral: $n=3 \\$
-
-
-
-- Predictores: $\hspace{0.15cm} X1 = (10 , 2 , 4)$ , $\hspace{0.15cm} X2 = (20 , 25, 40) \\$
-
-
-- Observaciones: $\hspace{0.15cm} x_1 =(10,20)$ , $\hspace{0.15cm} x_2=(2,25)$ , $\hspace{0.15cm} x_3=(4,40) \\$
-
-
-
-- Respuesta  $\hspace{0.1cm}2$ categories $(0,1)$: $\hspace{0.18cm} Y =( 1 , 1 , 0 ) \\$
 
 
 
 
-- Distancia $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$  $\delta_{Euclidean} \\$
-
- 
-
-- Nueva observación:  $\hspace{0.15cm} x_{new}=(6, 20) \\$
-
-
-
-- Calculamos las distancias:
-
-$\hspace{0.85cm} \delta(x_{new}, x_1)_{Euclidean} = (10-6)^2 + (20-20)^2 = 16$
-
-$\hspace{0.85cm} \delta(x_{new}, x_2)_{Euclidean} = (2-6)^2 + (25-20)^2 = 16 + 25 = 41$
-
-$\hspace{0.85cm} \delta(x_{new}, x_3)_{Euclidean} = (4-6)^2 + (40-20)^2 = 4 + 400 = 404 \\$
-
- 
-- Seleccionamos $\hspace{0.05cm} k=2 \hspace{0.05cm}$ vecinos más cercanos $\hspace{0.05cm}x_{new}$ $\hspace{0.2cm}\Rightarrow\hspace{0.215cm}$ $KNN \hspace{0.01cm}=\hspace{0.01cm} \lbrace\hspace{0.1cm} x_1 , x_2 \hspace{0.1cm}\rbrace \\$
-
- 
-- Calculamos las proporciones $f^{KNN(x_{new})}$ : 
-
-$\hspace{0.85cm}$ Notese que $\hspace{0.1cm} y_1 = 1 \hspace{0.2cm}$ y $\hspace{0.2cm} y_2 = 1\hspace{0.2cm} \Rightarrow \hspace{0.2cm} f^{knn}_0 =  0/2 = 0\hspace{0.2cm}$ y $\hspace{0.2cm} f^{knn}_1 =  2/2 = 1 \\$
-
- 
-- Así que, el algoritmo predice que el valor de la respuesta asociado a la nueva observación es  $\hspace{0.15cm} \hat{y}_{new} = 1$
+<br>
 
 
 
@@ -1559,15 +1535,16 @@ $\hspace{0.85cm}$ Notese que $\hspace{0.1cm} y_1 = 1 \hspace{0.2cm}$ y $\hspace{
 
 
 
-# Bibliography
+# Bibliografía
 
-Scikit-learn Developers. KNeighborsClassifier. Scikit-learn. 
+- Grané Chavez, Aurea. (2022). *Análisis Discriminante* [Presentación de PowerPoint]. Aula Global UC3M.
+
+- Scikit-learn Developers. KNeighborsClassifier. Scikit-learn.
 https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html
 
-Scikit-learn Developers. KNeighborsRegressor. Scikit-learn. 
+- Scikit-learn Developers. KNeighborsRegressor. Scikit-learn. 
 https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html
 
-Grané Chavez, Aurea. (2022). *Análisis Discriminante* [Presentación de PowerPoint]. Aula Global UC3M.
 
 
 <br>
