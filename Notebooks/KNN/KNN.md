@@ -149,10 +149,17 @@ $$D=[X_1,...,X_p,Y]=\begin{pmatrix}
 
 <br>
 
----
+ ---
+
+A continuación vamos a hacer una exposición teorica del algoritmo de KNN para clasificación supervisada.
+ 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
 
-El algoritmo KNN para clasificación supervisada consiste en lo siguiente:
+El algoritmo **KNN** para **clasificación supervisada** tiene los siguientes pasos:
 
 
 - Se define una medida de distancia  entre pares de observaciones de variables estadisticas $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\delta (\cdot , \cdot) \\$
@@ -190,13 +197,13 @@ Es decir:
 $$\hspace{0.6 cm} \text{Si} \hspace{0.4 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 cm}  arg \hspace{0.1 cm} \underset{r}{Max} \hspace{0.15cm} P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r \hspace{0.1cm}]  \hspace{0.25cm}  \Rightarrow \hspace{0.25cm} \widehat{y}_{new} = r^* \hspace{0.1cm}$$
 
 
-
-
-
-
-
+</p>
+ 
+</p></span>
+</div>
 
 <br>
+
 
 
 # Modelo KNN de clasificación supervisada aplicado en `Python` con `sklearn`  <a class="anchor" id="3"></a>
