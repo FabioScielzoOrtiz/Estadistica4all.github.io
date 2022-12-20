@@ -1003,7 +1003,7 @@ Las desviaciones típicas o errores estandar se pueden usar para calcular interv
 
 
 
-## Intervalos t-bootstrap
+## Intervalos cuantil-bootstrap
 
 Primero vamos a fijar una vez mas el contexto en el que no estamos moviendo, puesto que es importante recordarlo:
 
@@ -1026,54 +1026,147 @@ $\hspace{0.25cm}$ Tenemos $\hspace{0.1cm}B\hspace{0.1cm}$ muestras bootstrap de 
 $$X_{(1)},X_{(2)},...,X_{(B)} \\$$
 
 
-$\hspace{0.25cm}$ Se define la replica bootstap $\hspace{0.1cm}b$-esima del estimador $\hspace{0.1cm}\widehat{\theta}$ como: $\\[0.5cm]$
+- Se calcula para $b\in \lbrace 1,...,B \rbrace$ la replica bootstrap $\hspace{0.1cm}b$-esima del estimador $\hspace{0.1cm}\widehat{\theta}$ como: $\\[0.5cm]$
 
 
 $$\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)}) \\$$
 
-<br>
 
-La mecánica de los intervalos t-bootstrap es la siguiente:
+Asi que se tiene:
 
-
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
-
-- Se calcula para cada una de las $\hspace{0.1cm}B\hspace{0.1cm}$ muestras bootstrap la siguiente cantidad:
-
-$$z_b = \dfrac{\widehat{\theta}(b) - \widehat{\theta}(X)}{\sqrt{Var( \widehat{\theta}_{(b)} ) }}$$
-
-$\hspace{0.35cm}$  para $\hspace{0.1cm} b\in \lbrace 1,...,B \rbrace$
-
-  Donde:
-
-$$\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)})$$
-
-$$\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$$
+$$\widehat{\theta}_{(1)} , \widehat{\theta}_{(2)} ,..., \widehat{\theta}_{(B)}$$
 
 
-$$s.e.(\widehat{\theta}(X_{(b)})) = \sqrt{Var(\widehat{\theta}_{(b)})} \\$$
 
 
-- Se calcula $\hspace{0.1cm}\widehat{t}_{\alpha}\hspace{0.1cm}$ el cuantil de orden $\hspace{0.1cm}\alpha\hspace{0.1cm}$ de la variable $\hspace{0.1cm}Z=(z_1,...,z_B)$ 
+ 
+ 
+- Se calcula  el cuantil de orden $\hspace{0.1cm}\alpha\hspace{0.1cm}$ de la variable $\hspace{0.15cm}\widehat{\theta}_{boot} = \left(\widehat{\theta}_{(1)},...,\widehat{\theta}_{(B)} \right)$ $\hspace{0.25cm} \Rightarrow \hspace{0.25cm}  Q(\alpha \hspace{0.05cm} ,  \hspace{0.05cm} \widehat{\theta}_{boot})$
 
 
 $\hspace{0.35cm}$ Por tanto, se tiene que cumplir lo siguiente: $\\[0.4cm]$
 
-$$\dfrac{\# \hspace{0.15cm} \left\lbrace b = 1,...,B \hspace{0.15cm} / \hspace{0.15cm} z_b \leq \widehat{t}_{\alpha} \right\rbrace }{B}  \hspace{0.15cm} = \hspace{0.15cm} \alpha$$
+$$\dfrac{\# \hspace{0.15cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm} Q(\alpha \hspace{0.05cm} , \hspace{0.05cm} \widehat{\theta}_{boot}) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}  \hspace{0.15cm} = \hspace{0.15cm} \alpha$$
+
+
+El intervalo cuantil-bootstrap para el parametro $\hspace{0.1cm}\theta\hspace{0.1cm}$ a un nivel $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ es :
+
+$$\left[ \hspace{0.1cm} Q(\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\theta}_{boot}) \hspace{0.2cm} ;  \hspace{0.2cm} Q(1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\theta}_{boot}) \hspace{0.1cm} \right]$$
+
+<br>
+
+Los intervalos cuantil-bootstrap pueden conducir a estimaciones del intervalo de confianza algo erráticas cuando el estimador del parametro de interés es sesgado.
+
+Se pueden considerar una versión mejorada del intervalo cuantil-bootstrap llamada BCa, abreviatura que procede de sesgo-corregido (bias-corrected) y acelerado (accelerated).
+
+
+<br>
+
+## Intervalo BCa-bootstrap
+
+
+En la determinación de los intervalos BCa-bootstrap juegan un rol central dos cantidades: $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} \hat{z}_0\hspace{0.1cm}$ y $\hspace{0.1cm}\hat{a}$
+
+
+$\hat{z}_0\hspace{0.1cm}$ se introduce para corregir el sesgo del estimador $\hat{\theta}$
+
+$\hat{z}_0\hspace{0.1cm}$ se define como
+
+
+$$\hat{z}_0 \hspace{0.1cm}=\hspace{0.1cm} F^{-1}_{N(0,1)} \left(  \dfrac{\# \hspace{0.15cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm}  \hat{\theta}(X) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}  \right)$$
 
 
 
-</p>
+Aclaremos esto un poco:
+
+
+Si $\hspace{0.1cm}\rho\hspace{0.1cm}$ es la proporción de replicas bootstrap del estimador $\hspace{0.1cm}\hat{\theta}_{(1)},...,\hat{\theta}_{(B)}\hspace{0.1cm}$ que son menores o iguales que la estimacion $\hspace{0.1cm}\hat{\theta}(X)\hspace{0.1cm}$  , entonces:
+
  
-</p></span>
-</div>
+$$\rho \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{ \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm}  \hat{\theta}(X) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}$$
+
+
+Por tanto:
+
+$$\hat{z}_0 \hspace{0.1cm}=\hspace{0.1cm} F^{-1}_{N(0,1)} ( \hspace{0.05cm}\rho\hspace{0.05cm} ) \hspace{0.3cm}\Rightarrow\hspace{0.3cm} F_{N(0,1)}(\hat{z}_0) \hspace{0.1cm}=\hspace{0.1cm} P\left( \hspace{0.1cm}N(0,1) \leq \hat{z}_0\hspace{0.1cm} \right) \hspace{0.1cm} =\hspace{0.1cm} \rho$$
+
+
+En conclusión:
+
+$\hat{z}_0\hspace{0.1cm}$ es el cuantil $\hspace{0.1cm}\rho\hspace{0.1cm}$ de la distribucion $\hspace{0.1cm}N(0,1)\hspace{0.3cm}$ $\Rightarrow\hspace{0.3cm}$ $\hat{z}_0 \hspace{0.1cm} = \hspace{0.1cm} Q\left(\hspace{0.1cm}\rho \hspace{0.1cm},\hspace{0.1cm} N(0,1)\hspace{0.1cm}\right)$
+
+
+<br>
 
 
 
 
 
+La segunda cantidad, $\hspace{0.1cm}\hat{a}\hspace{0.1cm}$, denominada aceleración, corrige el caso en el que el error estandar del estimador del parametro de interés $\hspace{0.1cm}s.e.(\hat{\theta})\hspace{0.1cm}$ no sea constante, y se define en términos de estimaciones Jacknife.
 
+
+Recordemos el contexto Jacknife:
+
+$\hspace{0.25cm}$ Se define $\hspace{0.1cm}X_{(r)}\hspace{0.1cm}$ como la muestra que contiene todos los valores de la muestra $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ del la variable aleatoria de interés $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ excepto el valor $\hspace{0.1cm}x_{r}$
+
+$\hspace{0.25cm}$ Es decir:
+
+
+$$X_{(r)} = (\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.05cm},..,\hspace{0.05cm} x_{r-1}\hspace{0.05cm},\hspace{0.05cm}x_{r+1}\hspace{0.05cm} ,..,\hspace{0.05cm} x_{n}\hspace{0.05cm})$$  
+
+$\hspace{0.35cm}$ para  $\hspace{0.2cm} r=1,...,n \\$
+
+ 
+
+$\hspace{0.25cm}$ Se define la replica $\hspace{0.1cm}r$-esima del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ como: $\\[0.5cm]$
+
+$$\widehat{\theta}_{(r)} = \widehat{\theta}(X_{(r)})= \widehat{\theta}(\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.05cm},..,\hspace{0.05cm} x_{r-1}\hspace{0.05cm},\hspace{0.05cm}x_{r+1}\hspace{0.05cm} ,..,\hspace{0.05cm} x_{n}\hspace{0.05cm})\\$$
+
+
+$$\hat{a} \hspace{0.1cm} = \hspace{0.1cm} \dfrac{ \sum_{r=1}^n \left( \hspace{0.1cm} \hat{\theta}_{(\cdot)} - \hat{\theta}_{(r)}  \right)^3   }{ 6 \cdot \left[ \sum_{r=1}^n \left( \hspace{0.1cm} \hat{\theta}_{(\cdot)} - \hat{\theta}_{(r)}  \right)^2 \right]^{3/2}  }$$
+
+
+Donde:
+
+ $$\hat{\theta}_{(\cdot)} = \frac{1}{n} \cdot \sum_{r=1}^n \hat{\theta}_{(r)} \\$$
+
+
+El intervalo BCa-bootstrap de nivel $\hspace{0.1cm} 1-\alpha\hspace{0.1cm} $ es:
+
+
+$$\left[ \hspace{0.1cm}Q(\alpha_1 \hspace{0.1cm} ,\hspace{0.1cm}  \hat{\theta}_{boot})   \hspace{0.2cm}  ; \hspace{0.2cm}   Q(\alpha_2 \hspace{0.1cm} ,\hspace{0.1cm}  \hat{\theta}_{boot})  \hspace{0.1cm} \right]$$
+
+Donde:
+
+$$\alpha_1 \hspace{0.1cm}=\hspace{0.1cm} F_{N(0,1)}\left( \hat{z}_0 + \dfrac{\hat{z}_0 + z_{1-\alpha/2} }{1 - \hat{a}\cdot(\hat{z}_0 + z_{1-\alpha/2} )} \right)$$
+
+$$\alpha_2 \hspace{0.1cm}=\hspace{0.1cm} F_{N(0,1)}\left( \hat{z}_0 + \dfrac{\hat{z}_0 + z_{\alpha/2} }{1 - \hat{a}\cdot(\hat{z}_0 + z_{\alpha/2} )} \right)$$
+
+
+Siendo $z_{\alpha}$ el valor tal que $P(N(0,1) \leq z_{\alpha}) = \alpha$
+
+
+Por tanto:
+
+$\hat{z}_0 + \dfrac{\hat{z}_0 + z_{1-\alpha/2} }{1 - \hat{a}\cdot(\hat{z}_0 + z_{1-\alpha/2} )}$ es el cuantil de orden $\alpha_1$ de la distribución $N(0,1)$
+
+$\hat{z}_0 + \dfrac{\hat{z}_0 + z_{\alpha/2} }{1 - \hat{a}\cdot(\hat{z}_0 + z_{\alpha/2} )}$ es el cuantil de orden $\alpha_2$ de la distribución $N(0,1)$
+
+
+Si $\hat{z}_0 = \hat{a} = 0$ , entonces:
+
+$$\alpha_1 = F_{N(0,1)}(z_{1-\alpha/2}) = \alpha/2$$
+
+$$\alpha_2 = F_{N(0,1)}(z_{\alpha/2}) =1- \alpha/2$$
+
+
+
+Por lo que en este caso particular el intervalo BCa coincide con el intervalo percentil.
+
+El valor de $\hat{z}_0$ traslada el intervalo a la derecha o a la izquierda, y $\hat{a}$ hace que sea más ancho o más estrecho.
+
+
+Con este intervalo se recomienda usar $B \geq 1000$ .
 <br>
 
 

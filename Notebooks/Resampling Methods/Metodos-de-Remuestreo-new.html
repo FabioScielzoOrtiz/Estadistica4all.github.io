@@ -1557,7 +1557,8 @@ margin-left: 0 !important;
       </ul></li>
       <li><a href="#intervalos-de-confianza-basados-en-bootstrap" id="toc-intervalos-de-confianza-basados-en-bootstrap"><span class="toc-section-number">11</span> Intervalos de confianza basados en bootstrap</a>
       <ul>
-      <li><a href="#intervalos-t-bootstrap" id="toc-intervalos-t-bootstrap"><span class="toc-section-number">11.1</span> Intervalos t-bootstrap</a></li>
+      <li><a href="#intervalos-cuantil-bootstrap" id="toc-intervalos-cuantil-bootstrap"><span class="toc-section-number">11.1</span> Intervalos cuantil-bootstrap</a></li>
+      <li><a href="#intervalo-bca-bootstrap" id="toc-intervalo-bca-bootstrap"><span class="toc-section-number">11.2</span> Intervalo BCa-bootstrap</a></li>
       </ul></li>
       <li><a href="#contrastes-de-hipotesis-basados-en-permutaciones" id="toc-contrastes-de-hipotesis-basados-en-permutaciones"><span class="toc-section-number">12</span> Contrastes de hipotesis basados en permutaciones <a class="anchor" id="1"></a></a></li>
       <li><a href="#contrastes-de-hipotesis-basados-en-bootstrap" id="toc-contrastes-de-hipotesis-basados-en-bootstrap"><span class="toc-section-number">13</span> Contrastes de hipotesis basados en bootstrap</a></li>
@@ -2159,39 +2160,73 @@ margin-right: auto;
 <div id="intervalos-de-confianza-basados-en-bootstrap" class="section level1" number="11">
 <h1><span class="header-section-number">11</span> Intervalos de confianza basados en bootstrap</h1>
 <p>Las desviaciones típicas o errores estandar se pueden usar para calcular intervalos de confianza aproximados para los parametros de interés.</p>
-<div id="intervalos-t-bootstrap" class="section level2" number="11.1">
-<h2><span class="header-section-number">11.1</span> Intervalos t-bootstrap</h2>
+<div id="intervalos-cuantil-bootstrap" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> Intervalos cuantil-bootstrap</h2>
 <p>Primero vamos a fijar una vez mas el contexto en el que no estamos moviendo, puesto que es importante recordarlo:</p>
 <p>Tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}\)</span> , una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y un estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}\)</span> del parametro <span class="math inline">\(\hspace{0.1cm}\theta\)</span></p>
 <p>Además tenemos una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de la variable de interés <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , por lo que tenemos la estimación <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}\)</span> del parametro <span class="math inline">\(\hspace{0.1cm}\theta\\\)</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Una <strong>muestra bootstrap</strong> de <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> se define como una <strong>muestra aleatoria con reemplazamiento</strong> de tamaño <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}X\)</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Tenemos <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras bootstrap de <span class="math inline">\(\hspace{0.1cm}X\hspace{0.1cm}\)</span> : <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[X_{(1)},X_{(2)},...,X_{(B)} \\\]</span></p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Se define la replica bootstap <span class="math inline">\(\hspace{0.1cm}b\)</span>-esima del estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}\)</span> como: <span class="math inline">\(\\[0.5cm]\)</span></p>
-<p><span class="math display">\[\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)}) \\\]</span></p>
-<p><br></p>
-<p>La mecánica de los intervalos t-bootstrap es la siguiente:</p>
-<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
-<p><span></p>
 <ul>
-<li>Se calcula para cada una de las <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras bootstrap la siguiente cantidad:</li>
+<li>Se calcula para <span class="math inline">\(b\in \lbrace 1,...,B \rbrace\)</span> la replica bootstrap <span class="math inline">\(\hspace{0.1cm}b\)</span>-esima del estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}\)</span> como: <span class="math inline">\(\\[0.5cm]\)</span></li>
 </ul>
-<p><span class="math display">\[z_b = \dfrac{\widehat{\theta}(b) - \widehat{\theta}(X)}{\sqrt{Var( \widehat{\theta}_{(b)} ) }}\]</span></p>
-<p><span class="math inline">\(\hspace{0.35cm}\)</span> para <span class="math inline">\(\hspace{0.1cm} b\in \lbrace 1,...,B \rbrace\)</span></p>
-<p>Donde:</p>
-<p><span class="math display">\[\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)})\]</span></p>
-<p><span class="math display">\[\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}\]</span></p>
-<p><span class="math display">\[s.e.(\widehat{\theta}(X_{(b)})) = \sqrt{Var(\widehat{\theta}_{(b)})} \\\]</span></p>
+<p><span class="math display">\[\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)}) \\\]</span></p>
+<p>Asi que se tiene:</p>
+<p><span class="math display">\[\widehat{\theta}_{(1)} , \widehat{\theta}_{(2)} ,..., \widehat{\theta}_{(B)}\]</span></p>
 <ul>
-<li>Se calcula <span class="math inline">\(\hspace{0.1cm}\widehat{t}_{\alpha}\hspace{0.1cm}\)</span> el cuantil de orden <span class="math inline">\(\hspace{0.1cm}\alpha\hspace{0.1cm}\)</span> de la variable <span class="math inline">\(\hspace{0.1cm}Z=(z_1,...,z_B)\)</span></li>
+<li>Se calcula el cuantil de orden <span class="math inline">\(\hspace{0.1cm}\alpha\hspace{0.1cm}\)</span> de la variable <span class="math inline">\(\hspace{0.15cm}\widehat{\theta}_{boot} = \left(\widehat{\theta}_{(1)},...,\widehat{\theta}_{(B)} \right)\)</span> <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} Q(\alpha \hspace{0.05cm} , \hspace{0.05cm} \widehat{\theta}_{boot})\)</span></li>
 </ul>
 <p><span class="math inline">\(\hspace{0.35cm}\)</span> Por tanto, se tiene que cumplir lo siguiente: <span class="math inline">\(\\[0.4cm]\)</span></p>
-<p><span class="math display">\[\dfrac{\# \hspace{0.15cm} \left\lbrace b = 1,...,B \hspace{0.15cm} / \hspace{0.15cm} z_b \leq \widehat{t}_{\alpha} \right\rbrace }{B}  \hspace{0.15cm} = \hspace{0.15cm} \alpha\]</span></p>
-</p>
-</p>
-<p></span></p>
-</div>
+<p><span class="math display">\[\dfrac{\# \hspace{0.15cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm} Q(\alpha \hspace{0.05cm} , \hspace{0.05cm} \widehat{\theta}_{boot}) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}  \hspace{0.15cm} = \hspace{0.15cm} \alpha\]</span></p>
+<p>El intervalo cuantil-bootstrap para el parametro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> a un nivel <span class="math inline">\(\hspace{0.1cm} 1-\alpha\hspace{0.1cm}\)</span> es :</p>
+<p><span class="math display">\[\left[ \hspace{0.1cm} Q(\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\theta}_{boot}) \hspace{0.2cm} ;  \hspace{0.2cm} Q(1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\theta}_{boot}) \hspace{0.1cm} \right]\]</span></p>
 <p><br></p>
+<p>Los intervalos cuantil-bootstrap pueden conducir a estimaciones del intervalo de confianza algo erráticas cuando el estimador del parametro de interés es sesgado.</p>
+<p>Se pueden considerar una versión mejorada del intervalo cuantil-bootstrap llamada BCa, abreviatura que procede de sesgo-corregido (bias-corrected) y acelerado (accelerated).</p>
+<p><br></p>
+</div>
+<div id="intervalo-bca-bootstrap" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Intervalo BCa-bootstrap</h2>
+<p>En la determinación de los intervalos BCa-bootstrap juegan un rol central dos cantidades: <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} \hat{z}_0\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\hat{a}\)</span></p>
+<p><span class="math inline">\(\hat{z}_0\hspace{0.1cm}\)</span> se introduce para corregir el sesgo del estimador <span class="math inline">\(\hat{\theta}\)</span></p>
+<p><span class="math inline">\(\hat{z}_0\hspace{0.1cm}\)</span> se define como</p>
+<p><span class="math display">\[\hat{z}_0 \hspace{0.1cm}=\hspace{0.1cm} F^{-1}_{N(0,1)} \left(  \dfrac{\# \hspace{0.15cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm}  \hat{\theta}(X) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}  \right)\]</span></p>
+<p>Aclaremos esto un poco:</p>
+<p>Si <span class="math inline">\(\hspace{0.1cm}\rho\hspace{0.1cm}\)</span> es la proporción de replicas bootstrap del estimador <span class="math inline">\(\hspace{0.1cm}\hat{\theta}_{(1)},...,\hat{\theta}_{(B)}\hspace{0.1cm}\)</span> que son menores o iguales que la estimacion <span class="math inline">\(\hspace{0.1cm}\hat{\theta}(X)\hspace{0.1cm}\)</span> , entonces:</p>
+<p><span class="math display">\[\rho \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{ \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm}  \hat{\theta}(X) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}\]</span></p>
+<p>Por tanto:</p>
+<p><span class="math display">\[\hat{z}_0 \hspace{0.1cm}=\hspace{0.1cm} F^{-1}_{N(0,1)} ( \hspace{0.05cm}\rho\hspace{0.05cm} ) \hspace{0.3cm}\Rightarrow\hspace{0.3cm} F_{N(0,1)}(\hat{z}_0) \hspace{0.1cm}=\hspace{0.1cm} P\left( \hspace{0.1cm}N(0,1) \leq \hat{z}_0\hspace{0.1cm} \right) \hspace{0.1cm} =\hspace{0.1cm} \rho\]</span></p>
+<p>En conclusión:</p>
+<p><span class="math inline">\(\hat{z}_0\hspace{0.1cm}\)</span> es el cuantil <span class="math inline">\(\hspace{0.1cm}\rho\hspace{0.1cm}\)</span> de la distribucion <span class="math inline">\(\hspace{0.1cm}N(0,1)\hspace{0.3cm}\)</span> <span class="math inline">\(\Rightarrow\hspace{0.3cm}\)</span> <span class="math inline">\(\hat{z}_0 \hspace{0.1cm} = \hspace{0.1cm} Q\left(\hspace{0.1cm}\rho \hspace{0.1cm},\hspace{0.1cm} N(0,1)\hspace{0.1cm}\right)\)</span></p>
+<p><br></p>
+<p>La segunda cantidad, <span class="math inline">\(\hspace{0.1cm}\hat{a}\hspace{0.1cm}\)</span>, denominada aceleración, corrige el caso en el que el error estandar del estimador del parametro de interés <span class="math inline">\(\hspace{0.1cm}s.e.(\hat{\theta})\hspace{0.1cm}\)</span> no sea constante, y se define en términos de estimaciones Jacknife.</p>
+<p>Recordemos el contexto Jacknife:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Se define <span class="math inline">\(\hspace{0.1cm}X_{(r)}\hspace{0.1cm}\)</span> como la muestra que contiene todos los valores de la muestra <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> del la variable aleatoria de interés <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> excepto el valor <span class="math inline">\(\hspace{0.1cm}x_{r}\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Es decir:</p>
+<p><span class="math display">\[X_{(r)} = (\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.05cm},..,\hspace{0.05cm} x_{r-1}\hspace{0.05cm},\hspace{0.05cm}x_{r+1}\hspace{0.05cm} ,..,\hspace{0.05cm} x_{n}\hspace{0.05cm})\]</span></p>
+<p><span class="math inline">\(\hspace{0.35cm}\)</span> para <span class="math inline">\(\hspace{0.2cm} r=1,...,n \\\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Se define la replica <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima del estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}\)</span> como: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\widehat{\theta}_{(r)} = \widehat{\theta}(X_{(r)})= \widehat{\theta}(\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.05cm},..,\hspace{0.05cm} x_{r-1}\hspace{0.05cm},\hspace{0.05cm}x_{r+1}\hspace{0.05cm} ,..,\hspace{0.05cm} x_{n}\hspace{0.05cm})\\\]</span></p>
+<p><span class="math display">\[\hat{a} \hspace{0.1cm} = \hspace{0.1cm} \dfrac{ \sum_{r=1}^n \left( \hspace{0.1cm} \hat{\theta}_{(\cdot)} - \hat{\theta}_{(r)}  \right)^3   }{ 6 \cdot \left[ \sum_{r=1}^n \left( \hspace{0.1cm} \hat{\theta}_{(\cdot)} - \hat{\theta}_{(r)}  \right)^2 \right]^{3/2}  }\]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[\hat{\theta}_{(\cdot)} = \frac{1}{n} \cdot \sum_{r=1}^n \hat{\theta}_{(r)} \\\]</span></p>
+<p>El intervalo BCa-bootstrap de nivel $ 1- $ es:</p>
+<p><span class="math display">\[\left[ \hspace{0.1cm}Q(\alpha_1 \hspace{0.1cm} ,\hspace{0.1cm}  \hat{\theta}_{boot})   \hspace{0.2cm}  ; \hspace{0.2cm}   Q(\alpha_2 \hspace{0.1cm} ,\hspace{0.1cm}  \hat{\theta}_{boot})  \hspace{0.1cm} \right]\]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[\alpha_1 \hspace{0.1cm}=\hspace{0.1cm} F_{N(0,1)}\left( \hat{z}_0 + \dfrac{\hat{z}_0 + z_{1-\alpha/2} }{1 - \hat{a}\cdot(\hat{z}_0 + z_{1-\alpha/2} )} \right)\]</span></p>
+<p><span class="math display">\[\alpha_2 \hspace{0.1cm}=\hspace{0.1cm} F_{N(0,1)}\left( \hat{z}_0 + \dfrac{\hat{z}_0 + z_{\alpha/2} }{1 - \hat{a}\cdot(\hat{z}_0 + z_{\alpha/2} )} \right)\]</span></p>
+<p>Siendo <span class="math inline">\(z_{\alpha}\)</span> el valor tal que <span class="math inline">\(P(N(0,1) \leq z_{\alpha}) = \alpha\)</span></p>
+<p>Por tanto:</p>
+<p><span class="math inline">\(\hat{z}_0 + \dfrac{\hat{z}_0 + z_{1-\alpha/2} }{1 - \hat{a}\cdot(\hat{z}_0 + z_{1-\alpha/2} )}\)</span> es el cuantil de orden <span class="math inline">\(\alpha_1\)</span> de la distribución <span class="math inline">\(N(0,1)\)</span></p>
+<p><span class="math inline">\(\hat{z}_0 + \dfrac{\hat{z}_0 + z_{\alpha/2} }{1 - \hat{a}\cdot(\hat{z}_0 + z_{\alpha/2} )}\)</span> es el cuantil de orden <span class="math inline">\(\alpha_2\)</span> de la distribución <span class="math inline">\(N(0,1)\)</span></p>
+<p>Si <span class="math inline">\(\hat{z}_0 = \hat{a} = 0\)</span> , entonces:</p>
+<p><span class="math display">\[\alpha_1 = F_{N(0,1)}(z_{1-\alpha/2}) = \alpha/2\]</span></p>
+<p><span class="math display">\[\alpha_2 = F_{N(0,1)}(z_{\alpha/2}) =1- \alpha/2\]</span></p>
+<p>Por lo que en este caso particular el intervalo BCa coincide con el intervalo percentil.</p>
+<p>El valor de <span class="math inline">\(\hat{z}_0\)</span> traslada el intervalo a la derecha o a la izquierda, y <span class="math inline">\(\hat{a}\)</span> hace que sea más ancho o más estrecho.</p>
+<p>Con este intervalo se recomienda usar <span class="math inline">\(B \geq 1000\)</span> .
+<br></p>
 <p><br></p>
 <p><br></p>
 </div>
