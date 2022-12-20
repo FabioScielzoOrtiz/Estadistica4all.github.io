@@ -197,7 +197,7 @@ $\hspace{0.25cm}$ Aquí no se va a entrar en este asunto, pero $\hspace{0.1cm}D\
 
     Es decir:
 
-    $$\hspace{0.6 cm} \text{Si} \hspace{0.5 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 cm}  arg \hspace{0.15 cm} \underset{r}{Max} \hspace{0.2cm} P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r \hspace{0.1cm}]  \hspace{0.5cm}  \Rightarrow \hspace{0.5cm} \widehat{y}_{new} \hspace{0.05 cm}=\hspace{0.05 cm} r^* \hspace{0.1cm}$$
+    $$\hspace{0.6 cm} \text{Si} \hspace{0.5 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 cm}  arg \hspace{0.15 cm} \underset{r}{Max} \hspace{0.2cm} P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r \hspace{0.1cm}]  \hspace{0.3cm}  \Rightarrow \hspace{0.3cm} \widehat{y}_{new} \hspace{0.05 cm}=\hspace{0.05 cm} r^* \hspace{0.1cm}$$
 
 
     Donde $\hspace{0.12cm}\widehat{y}_{new}\hspace{0.12cm}$ es el valor de la variable respuesta que el modelo predice para la observación $\hspace{0.12cm}x_{new}\hspace{0.12cm}$ de los predictores.
@@ -720,50 +720,58 @@ knn_classification.predict( X_new )
 
 
 
+Como disponemos de los valores reales de la respuesta para las nuevas obserciones de los predictores, podemos calcular la tasa de acierto en la clasificación como la proporción de clasificaciones correctas :
 
 ```python
 TA = sum( knn_classification.predict( X_new )  == Y_new.reset_index().quality_recode ) / len(Y_new)
+
 TA
 ```
-
-
-
 
     0.5249343832020997
 
 
 
+<br>
 
+Podemos probar el algoritmo con otras funciones de distancia.
+
+Por ejemplo con la distancia de Minkowski con $p=1$ (distancia Manhattan):
 
 
 ```python
 knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 , p=1,  metric='minkowski')
 
 knn_classification.fit(X_train, Y_train)
+```
 
+Calculamos la tasa de  acierto de la clasificación:
+```python
 TA = sum( knn_classification.predict( X_new )  == Y_new.reset_index().quality_recode ) / len(Y_new)
 TA
 ```
 
 
 
-
     0.5275590551181102
 
+<br>
 
 
+Probamos ahora con la distancia coseno:
 
 ```python
 knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,   metric='cosine')
 
 knn_classification.fit(X_train, Y_train)
 
+```
+
+Calculamos la tasa de  acierto de la clasificación:
+```python
 TA = sum( knn_classification.predict( X_new )  == Y_new.reset_index().quality_recode ) / len(Y_new)
 TA
 ```
-
-
-
 
     0.5643044619422573
 
@@ -776,29 +784,733 @@ TA
 
 # KNN  para clasificación supervisada programado desde "cero" con `Python` <a class="anchor" id="4"></a>
 
-Vamos a crear una función que replique al algoritmo KNN anteriormente descrito. Este ejercicio es una forma de entender mejor como funciona realmente el algoritmo, y de practicar nuestra programación.
+Vamos a crear una función que replique el algoritmo KNN para clasificación supervisada que anteriormente fue descrito. Este es un buen ejercicio para entender mejor como funciona realmente el algoritmo, y para practicar nuestra programación.
+
+
+
+Primero definimos algunas de las funciones de distancia que usará nuestro algoritmo:
+
+
+Definimos la distancia Euclidea y la matriz de distancias Euclideas:
+```python
+def Dist_Euclidea(x_i, x_r):
+
+        Dist_Euclidea = ( ( x_i - x_r )**2 ).sum()
+
+        Dist_Euclidea = np.sqrt(Dist_Euclidea)
+
+        return Dist_Euclidea
+```
+
+
+```python
+def Matrix_Dist_Euclidea(Data):
+
+    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+    
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+             if i >= r :
+               
+                 M[i,r] = 0
+
+             else :
+
+                 M[i,r] = Dist_Euclidea(Data[i,:] , Data[r,:])   
+
+                      
+    return M 
+```
+
+<br>
+
+Definimos la distancia Minkowski y la matriz de distancias Minkowski:
+```python
+def Dist_Minkowski(x_i, x_r, q):
+
+    Dist_Minkowski = ( ( ( abs( x_i - x_r) )**q ).sum() )**(1/q)
+
+    return Dist_Minkowski
+```
+
+
+```python
+def Matrix_Dist_Minkowski(Data, q):
+
+    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+    
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+             if i >= r :
+               
+                 M[i,r] = 0
+
+             else :
+
+                 M[i,r] = Dist_Minkowski(Data[i,:] , Data[r,:], q)   
+
+                      
+    return M 
+```
+
+
+<br>
+
+Definimos la distancia Canberra y la matriz de distancias Canberra:
+```python
+def Dist_Canberra(x_i, x_r):
+
+    numerator =  abs( x_i - x_r )
+
+    denominator =  ( abs(x_i) + abs(x_r) )
+       
+    numerator=np.array([numerator], dtype=float)
+
+    denominator=np.array([denominator], dtype=float)
+
+    # The following code is to eliminate zero division problems
+
+    Dist_Canberra = ( np.divide( numerator , denominator , out=np.zeros_like(numerator), where=denominator!=0) ).sum() 
+
+    return Dist_Canberra
+```
+
+
+```python
+def Matrix_Dist_Canberra(Data):
+
+    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+    
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+             if i >= r :
+               
+                 M[i,r] = 0
+
+             else :
+
+                 M[i,r] = Dist_Canberra(Data[i,:] , Data[r,:])   
+
+                      
+    return M 
+```
+
+
+<br>
+
+Definimos la distancia Mahalanobis y la matriz de distancias de Mahalanobis:
+```python
+def Dist_Mahalanobis_2(x_i, x_r, S_inv):  # Más eficiente que la anterior
+
+    # All the columns of Data must be type = 'float' or 'int' (specially not 'object'), in other case we will find 
+    # dimensional problems when Python compute   x @ S_inv @ x.T
+
+    x = (x_i - x_r)
+    
+    # x = np.array([x]) 
+    
+    # En este caso este paso no será necesario por el tipo de estructura Python (una lista) que va a ser un medoid en el
+    # algoritmo que a continuación definiremos. De hecho si este paso no se suprimer salta un error al usar la distancia
+    # de Mahalanobis, puesto que la operacion x @ S_inv @ x.T no está bien definida.
+
+    Dist_Maha = np.sqrt( x @ S_inv @ x.T )  # x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )
+
+    Dist_Maha = float(Dist_Maha)
+
+    return Dist_Maha
+```
+
+
+```python
+def Dist_Mahalanobis_3(x, S_inv):  # Más eficiente que la anterior
+
+    # All the columns of Data must be type = 'float' or 'int' (specially not 'object'), in other case we will find 
+    # dimensional problems when Python compute   x @ S_inv @ x.T
+
+    # x = (x_i - x_r)
+
+    # x = np.array([x]) # necessary step to transpose a 1D array
+
+    Dist_Maha = np.sqrt( x @ S_inv @ x.T )  # x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )
+
+    Dist_Maha = float(Dist_Maha)
+
+    return Dist_Maha
+```
+
+
+```python
+def Matrix_Dist_Mahalanobis_3(Data):
+
+    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+    S_inv=np.linalg.inv( np.cov(Data , rowvar=False) )
+
+   
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+             if i >= r :
+               
+                 M[i,r] = 0
+
+             else :
+
+                 M[i,r] = Dist_Mahalanobis_3(x = np.array([Data[i,:] - Data[r,:]]) , S_inv=S_inv ) 
+
+                      
+    return M 
+```
+
+
+<br>
+
+Definimos la matriz de distancias de Gower:
+
+```python
+def a_b_c_d_Matrix(Data):
+
+    X = Data
+
+    a = X @ X.T
+
+    n = X.shape[0]
+
+    p = X.shape[1]
+
+    ones_matrix = np.ones((n, p)) 
+
+    b = (ones_matrix - X) @ X.T
+
+    c = b.T
+
+    d = (ones_matrix - X) @ (ones_matrix - X).T
+
+    return a , b , c , d , p
+```
+
+
+
+```python
+def alpha(x_i, x_r):
+
+    alpha = sum(x_i == x_r)
+
+    return(alpha)
+```
+
+
+```python
+def Matrix_Gower_Similarity(Data, p1, p2, p3 ):
+
+    # Data tiene que ser un numpy array tal que:
+    # las primeras p1 tiene que ser variables cuantitativas, 
+    # las siguientes p2 binarias y las restantes p3 multicales
+
+    # Si Data no contiene variables cuantitativas --> p1=0
+    # Si Data no contiene variables binarias --> p2=0
+    # Si Data no contiene variables multiclase --> p3=0
+
+    n = len(Data)
+
+    M =  np.empty((n , n))
+
+############################################################
+    
+    G_vector = np.repeat(0.5, p1)
+
+    for k in range(0, p1):
+
+        G_vector[k] = Data[:,k].max() - Data[:,k].min()
+
+############################################################
+   
+    ones = np.repeat(1, p1)
+
+    Quant_Data = Data[: , 0:p1]
+
+    Binary_Data = Data[: , (p1):(p1+p2)]
+
+    Multiple_Data = Data[: , (p1+p2):(p1+p2+p3) ]
+
+############################################################
+
+    a, b, c, d, p = a_b_c_d_Matrix(Binary_Data)
+
+############################################################
+
+    for i in range(0, n):
+
+         for r in range(0, n):
+
+            if i > r :
+               
+                 M[i,r] = 0
+            
+            elif i == r :
+               
+                 M[i,r] = 1
+            
+            else :
+
+                # Calculo de la distancia de Gower entre las observaciones x_i y x_r
+
+                numerator_part_1 = ( ones - ( abs(Quant_Data[i,:] - Quant_Data[r,:]) / G_vector ) ).sum() 
+
+                numerator_part_2 = a[i,r] + alpha(Multiple_Data[i,:], Multiple_Data[r,:])
+
+                numerator = numerator_part_1 + numerator_part_2
+                
+
+                if p1 + (p2 - d[i,r]) + p3 == 0:
+
+                    M[i,r] = 0
+
+                else:
+                    
+                    denominator = p1 + (p2 - d[i,r]) + p3
+
+                    M[i,r] = numerator / denominator
+                      
+   
+    return M  
+```
+
+```python
+def Matrix_Gower_Distance(Data, p1, p2, p3 ):
+
+    M = Matrix_Gower_Similarity(Data, p1, p2, p3)
+
+    M = M + M.T - np.diag(np.repeat(1 , len(M)), k=0)
+
+    M = np.sqrt( 1 - M )
+
+    return M
+```
+
+
+<br>
+
+Definimos la función KNN con la que replicamos el algoritmo KNN para clasificación supervisada que hemos expuesto anteriormente:
+
+```python
+def KNN(Distance_Matrix_New_Data , k, X_train, Y_train ) :
+
+    # k es el hiper-parametro del algoritmo KNN.
+
+    # 'Distance_Matrix_New_Data' debe contenere las distancias entre las nuevas observaciones de los predictores y las de train.
+    # Su fila i-esima debe contener las distancias entre la i-esima nueva observacion de los predictores y las observaciones de train de los predictores.
+    
+    # X_train tiene que ser un data-frame con las observaciones de los predictores con las que se va a entrenar el modelo.
+    
+    # Y_train tiene que ser un numpy array que contenga las observaciones de la respuesta con las que se va a entrenar el modelo.
+
+
+    Y_predict_x_new_i_LIST = []
+
+    for i in range(0, len(Distance_Matrix_New_Data)):
+
+        distancias_x_new_i = pd.DataFrame({'id_x_train': X_train.index  , 'distancias': Distance_Matrix_New_Data[i,:]})
+
+        distancias_x_new_i_sort = distancias_x_new_i.sort_values(by=["distancias"]).reset_index(drop=True)
+
+        knn_x_new_i = distancias_x_new_i_sort.iloc[0:k , :]
+
+        categorias_knn_x_new_i = []
+
+        
+        for j in knn_x_new_i.iloc[:,0]:
+
+            categorias_knn_x_new_i.append(Y_train[j])
+
+    
+        unique, counts = np.unique(categorias_knn_x_new_i , return_counts=True)
+
+        unique_Y , counts_Y = np.unique(Y_train , return_counts=True)
+
+    
+        if len(unique) == len(unique_Y) :
+
+            proporciones_categorias_knn_x_new_i = pd.DataFrame({'prop_categoria': counts/k, 'categoria': unique_Y })
+        
+        elif len(unique) < len(unique_Y) :
+
+            proporciones_categorias_knn_x_new_i = pd.DataFrame({'prop_categoria': counts/k, 'categoria': unique })
+
+
+        Y_predict_x_new_i = proporciones_categorias_knn_x_new_i.sort_values(by=["prop_categoria"], ascending=False).iloc[0,:]['categoria']
+
+
+        Y_predict_x_new_i_LIST.append(Y_predict_x_new_i)
+
+    
+    df_predictions = pd.DataFrame({'id_x_new':range(0, len(Distance_Matrix_New_Data)) , 'Y_predict': Y_predict_x_new_i_LIST})
+
+    return df_predictions
+```
+
+
+
+Probaremos la función con la distancia de Gower. Para ello necesitamos calcular la matriz de distancias de Gower entre las nuevas observaciones y las observaciones de entrenamiento de los predictores.
+
+
+
+```python
+M_Gower = Matrix_Gower_Distance(Data=X.to_numpy(), p1=4, p2=2, p3=0)
+M_Gower
+```
+
+
+    array([[0.        , 0.64817837, 0.76118906, ..., 0.70588672, 0.62389777,
+            0.76544317],
+           [0.64817837, 0.        , 0.5387377 , ..., 0.51390107, 0.61030246,
+            0.53192923],
+           [0.76118906, 0.5387377 , 0.        , ..., 0.38695255, 0.48555238,
+            0.20821652],
+           ...,
+           [0.70588672, 0.51390107, 0.38695255, ..., 0.        , 0.477898  ,
+            0.33432523],
+           [0.62389777, 0.61030246, 0.48555238, ..., 0.477898  , 0.        ,
+            0.45160134],
+           [0.76544317, 0.53192923, 0.20821652, ..., 0.33432523, 0.45160134,
+            0.        ]])
+
+
+
+
+```python
+M_Gower_new_data = M_Gower[ len(X_train):len(X) , 0:len(X_train) ]  
+
+# Nos quedamos con las filas de la 1524 a la 1904 , que son las correspondientes a las nuevas observaciones de los predictores.
+# Nos queamos con las columnas de la 0 a la 1524, que son las correspondientes a las observaciones de train de los predictores.
+
+# 'M_new_data' contiene las distancias (de Gower) entre las nuevas observaciones de los predictores y las de entrenamiento.
+
+# Su fila i-esima contiene las distancias entre la i-esima nueva observacion de los predictores y las observaciones de entrenamiento.
+```
+
+
+```python
+M_Gower_new_data.shape
+```
+
+    (381, 1524)
 
 
 
 
 
+```python
+df_predictions = KNN(Distance_Matrix_New_Data = M_Gower_new_data , k=10, X_train=X_train, Y_train=Y_train)
+```
+
+
+```python
+df_predictions
+```
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id_x_new</th>
+      <th>Y_predict</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>376</th>
+      <td>376</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>377</th>
+      <td>377</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>378</th>
+      <td>378</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>379</th>
+      <td>379</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>380</th>
+      <td>380</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>381 rows × 2 columns</p>
+</div>
+
+<br>
+
+
+
+Podemos calcular la tasa de acierto en la clasificación obtenida con el algoritmo usando nuestra función con la distancia de Gower:
+
+```python
+TA = sum( df_predictions.Y_predict == Y_new.reset_index().quality_recode ) / len(Y_new)
+
+TA
+```
+
+    0.7611548556430446
 
 
 
 
+ 
+
+<br>
+
+
+Probamos ahora el algoritmo con la distancia Euclidea:
+
+
+
+```python
+M_Euclidea = Matrix_Dist_Euclidea(Data=X.to_numpy())
+
+M_Euclidea  = M_Euclidea + M_Euclidea.T
+
+M_Euclidea_new_data = M_Euclidea[ len(X_train):len(X) , 0:len(X_train) ]  
+```
+
+
+```python
+df_predictions = KNN(Distance_Matrix_New_Data = M_Euclidea_new_data , k=10, X_train=X_train, Y_train=Y_train)
+```
+
+
+```python
+df_predictions
+```
 
 
 
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id_x_new</th>
+      <th>Y_predict</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>376</th>
+      <td>376</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>377</th>
+      <td>377</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>378</th>
+      <td>378</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>379</th>
+      <td>379</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>380</th>
+      <td>380</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>381 rows × 2 columns</p>
+</div>
 
 
 
 
+```python
+TA = sum( df_predictions.Y_predict == Y_new.reset_index().quality_recode ) / len(Y_new)
+TA
+```
+
+    0.5958005249343832
+
+
+
+Como se puede comprobar se obtiene la misma tasa de acierto que con el algoritmo aplicado con `sklearn`, usando también la distancia Euclidea.
 
 
 
 <br>
 
+<br>
+
+
+# Problema de regresión
+
+
+Un problema de **regresión**  es un problema estadístico que consiste en predecir una variable respuesta **cuantitativa** usando para ello **información**  de unas **variables predictoras** y de la propia variable **respuesta**.
+
+Un ejemplo de problema de regresión es la predicción del precio de viviendas de cierta región en base a características de dichas viviendas.
+
+ 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+- Tenemos $\hspace{0.1cm} p\hspace{0.1cm}$ predictores $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ y una respuesta **cuantitativa** $\hspace{0.1cm}\mathcal{Y} \\$
+
+
+
+- Tenemos una **muestra** de tamaño $\hspace{0.1cm}n\hspace{0.1cm}$ de los $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}$ y de la respuesta  $\hspace{0.1cm}Y \\$
+
+$$D=[X_1,...,X_p,Y]=\begin{pmatrix}
+    x_{11}&x_{12}&...&x_{1p}& y_1\\
+    x_{21}&x_{22}&...&x_{2p} & y_2\\
+    ... &...& ...& .... & ...\\
+    x_{n1}&x_{n2}&...&x_{np}& y_n
+    \end{pmatrix} = \begin{pmatrix}
+    x_{1}& y_1\\
+    x_{2}& y_2 \\
+     ...&... \\
+     x_{n} & y_n
+    \end{pmatrix} \\[1.5cm]$$
+
+
+
+- La solución estadística al problema de regresión pasa por proponer un modelo o algoritmo que sea capaz de usar la información muestral disponible $\hspace{0.1cm}D\hspace{0.1cm}$ de los predictores y la respuesta para predecir los valores de la respuesta para cada vector de observaciones de los predictores que se considere.
+
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
 
 
 # KNN como algoritmo de regresión  <a class="anchor" id="5"></a>
@@ -827,51 +1539,58 @@ $$D=[X_1,...,X_p,Y]=\begin{pmatrix}
 
 <br>
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
-El modelo KNN para regresión se basa en el siguiente algoritmo:
+El algoritmo KNN para regresión tiene los siguientes pasos:
 
 
-$1. \hspace{0.15cm}$ Se define una medida de distancia  entre pares de observaciones de variables estadisticas $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\delta (\cdot , \cdot) \\$
+- Se define una medida de distancia  entre pares de observaciones de variables estadisticas $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\delta (\cdot , \cdot) \\$
 
 
  
-$2. \hspace{0.15cm}$ Dada una nueva observación $x_{new}$ de los predictores $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)$ , es decir, una observación que no está en la muestra de train, se calculan las distancias entre el par de observaciones $\hspace{0.1cm}(x_{new} , x_i)$ , para $\hspace{0.1cm}i=1,...,n \\$
+- Dada una nueva observación $x_{new}$ de los predictores $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)$ , es decir, una observación que no está en la muestra de train, se calculan las distancias entre el par de observaciones $\hspace{0.1cm}(x_{new} , x_i)$ , para $\hspace{0.1cm}i=1,...,n \\$
  
 
 
 
-$3. \hspace{0.15cm}$ Se seleccionan las $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones del vector $\hspace{0.1cm}(x_1,...,x_n)\hspace{0.1cm}$ que son más cercanas a la nueva observación $\hspace{0.1cm}x_{new} $
+- Se seleccionan las $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones del vector $\hspace{0.1cm}(x_1,...,x_n)\hspace{0.1cm}$ que son más cercanas a la nueva observación $\hspace{0.1cm}x_{new} $
 
-El conjunto de estas $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones se denota por $\hspace{0.1cm}KNN(x_{new}) \\$
-
-
-
-$4. \hspace{0.15cm}$ Se predice la respuesta para la nueva observacion $\hspace{0.1cm}x_{new}\hspace{0.1cm}$ como la media de la respuesta en el conjunto $\hspace{0.1cm}KNN(x_{new})$
+    El conjunto de estas $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones se denota por $\hspace{0.1cm}KNN(x_{new}) \\$
 
 
 
-
-$$\widehat{y}_{new}  \hspace{0.14cm} = \hspace{0.14cm} \dfrac{1}{ k }\cdot \sum_{  i \hspace{0.05cm} \in\hspace{0.05cm} \mathcal{I} \left[  \hspace{0.08cm} KNN(x_{new}) \hspace{0.08cm} \right]}  y_i$$
-
+- Se predice la respuesta para la nueva observacion $\hspace{0.1cm}x_{new}\hspace{0.1cm}$ como la media de la respuesta en el conjunto $\hspace{0.1cm}KNN(x_{new})$
 
 
-Donde: 
-
-$\hspace{0.1cm}\mathcal{I} \left[  \hspace{0.08cm} KNN(x_{new}) \hspace{0.08cm} \right] = \lbrace i = 1,...,n \hspace{0.15cm}  / \hspace{0.15cm}  x_i \in KNN(x_{new}) \rbrace \\$
 
 
-Otra forma de expresarlo:
+    $$\widehat{y}_{new}  \hspace{0.14cm} = \hspace{0.14cm} \dfrac{1}{ k }\cdot \sum_{  i \hspace{0.05cm} \in\hspace{0.05cm} \mathcal{I} \left[  \hspace{0.08cm} KNN(x_{new}) \hspace{0.08cm} \right]}  y_i$$
 
-Si  $\hspace{0.1cm}Y_{KNN(x_{new})}\hspace{0.1cm}$ es la muestra de la respuesta para los $\hspace{0.1cm}k\hspace{0.1cm}$ individuos asociados al conjunto $\hspace{0.1cm}KNN(x_{new})\hspace{0.1cm}$ , es decir: 
 
-$$Y_{KNN(x_{new})} = (\hspace{0.15cm} y_i \hspace{0.25cm} / \hspace{0.25cm}  i=1,...,n \hspace{0.25cm}  \text{y} \hspace{0.25cm} x_i \in KNN(x_{new})\hspace{0.15cm} )^t$$
 
-Entonces:
+    Donde: 
+
+    $\hspace{0.1cm}\mathcal{I} \left[  \hspace{0.08cm} KNN(x_{new}) \hspace{0.08cm} \right] = \lbrace i = 1,...,n \hspace{0.15cm}  / \hspace{0.15cm}  x_i \in KNN(x_{new}) \rbrace \\$
+
+
+    Otra forma de expresarlo:
+
+    Si  $\hspace{0.1cm}Y_{KNN(x_{new})}\hspace{0.1cm}$ es la muestra de la respuesta para los $\hspace{0.1cm}k\hspace{0.1cm}$ individuos asociados al conjunto $\hspace{0.1cm}KNN(x_{new})\hspace{0.1cm}$ , es decir: 
+
+    $$Y_{KNN(x_{new})} = (\hspace{0.15cm} y_i \hspace{0.25cm} / \hspace{0.25cm}  i=1,...,n \hspace{0.25cm}  \text{y} \hspace{0.25cm} x_i \in KNN(x_{new})\hspace{0.15cm} )^t$$
+
+    Entonces:
 
 
 $$\widehat{y}_{new} =  \overline{\hspace{0.15cm} Y}_{KNN(x_{new})}$$
  
-
+</p>
+ 
+</p></span>
+</div>
 
 
 
