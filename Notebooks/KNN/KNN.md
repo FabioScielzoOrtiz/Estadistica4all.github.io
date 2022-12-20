@@ -340,6 +340,7 @@ Data_Mixed_train = Data_Mixed.sample(frac=0.8, replace=False, weights=None, rand
 Data_Mixed_new =  Data_Mixed.drop( Data_Mixed_train.index , )
 ```
 
+En este caso la variable respuesta será la calidad de la vivienda (quality), que es la variable que se va a predecir. Es decir, dada una vivienda vamos a predecir su calidad, esto es, vamos a clasificarla en una de las categorias definidas por la variable quality.
 
 ```python
 ## TRAIN DATA (Datos dispobles --> se usan para entrenar el modelo)
@@ -619,6 +620,32 @@ X.head()
 </div>
 
 
+
+```python
+Y_train.head()
+```
+382     2.0
+732     1.0
+1888    2.0
+679     0.0
+1004    2.0
+Name: quality_recode, dtype: float64
+
+
+
+
+```python
+Y_new.head()
+```
+1     2.0
+2     2.0
+3     1.0
+8     1.0
+16    2.0
+Name: quality_recode, dtype: float64
+
+
+
 <br>
   
 
@@ -631,15 +658,20 @@ import sklearn
 from sklearn.neighbors import NearestNeighbors
 ```
 
-
+En la siguiente caja de codigo podemos ver todos los parametros disponibles para la función `KNeighborsClassifier`, la cual permite implementar el algoritmo KNN para clasificación supervisada.
 ```python
 # sklearn.neighbors.KNeighborsClassifier(n_neighbors=10, *, weights='uniform', algorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=None) 
 ```
 
 
+Fijamos algunos parametros del algoritmo. En concreto usaremos $k=10$ vecinos y la distancia de Minkowski con $p=2$, es decir, la distancia Euclidea.
+
 ```python
 knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=2, metric='minkowski')
 ```
+
+Entrenamos el modelo usando los data-frames X_train y Y_train, que contienen observaciones de los predictores y la respuesta, respectivamente.
+
 
 
 ```python
@@ -653,6 +685,7 @@ knn_classification.fit(X_train, Y_train)
 
 
 
+Usando el método `predict` podemos predecir la respuesta para cada una de las observaciones de los predictores que consideremos. Para ello tenemos que pasarle al método los vectores de observaciones como filas de un array, en este caso esto ya lo tenemos en el data-frame X_new, que contiene las nuevas observaciones de los predictores como filas.
 
 ```python
 knn_classification.predict( X_new ) 
