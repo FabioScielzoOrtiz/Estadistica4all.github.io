@@ -1177,7 +1177,7 @@ Con este intervalo se recomienda usar $B \geq 1000$ .
 ## Intervalo de confianza bootstrap para la media de una poblacion
 
 
-
+Aplicar en python
 
 
 
@@ -1273,6 +1273,11 @@ $$T_{boot} = ( T_{exp|H_0}^{(1)}, T_{exp|H_0}^{(2)} ,..., T_{exp|H_0}^{(B)} =$$
 
 $$ASL = \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.2cm} / \hspace{0.2cm} T_{exp|H_0}^{(b)} \hspace{0.1cm} \geq \hspace{0.1cm} T_{exp|H_0}(X)  \hspace{0.1cm} \right\rbrace}{B}$$
 
+
+para contraste de cola izquierda seria con menor e igual
+
+para contraste de dos colas seria ASL con mayor igual que T_{exp|H_0}(X) en valor absoluto + el ASL con meenor igual que T_{exp|H_0}(X) en valor absoluto
+
 Donde:
 
 $T_{exp|H_0}(X)\hspace{0.1cm}$ es la realizacion muestral del estadistico del contrate $\hspace{0.1cm}\mathcal{T}_{exp|H_0}\hspace{0.1cm}$   para la muestra $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de la variable aleatoria de intes $\hspace{0.1cm}\mathcal{X}$.
@@ -1310,7 +1315,7 @@ $$Rechazar H_0  \Leftrightarrow  ASL < \alpha$$
 
 ## Contraste bootstrap para la media de una poblacion
 
-
+Exponer cada uno de los contrastes estimando el pvalor con el ASL. Aplicarlo luego en Python.
 
 
 
