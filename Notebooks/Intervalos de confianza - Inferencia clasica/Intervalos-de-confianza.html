@@ -3166,7 +3166,7 @@ size_in_m_2
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Por tanto, tenemos el siguiente intervalo de confianza a un nivel <span class="math inline">\(\hspace{0.1cm} 1-\alpha\hspace{0.1cm}\)</span> para el parametro <span class="math inline">\(\hspace{0.1cm} \sigma^2 \hspace{0.1cm}\\\)</span></p>
 <p><span class="math display">\[IC(\sigma^2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \dfrac{n \cdot S_n^2}{\chi^{n-1}_{\alpha/2}} \hspace{0.15cm},\hspace{0.15cm} \dfrac{n \cdot S_n^2}{\chi^{n-1}_{1-\alpha/2}}     \hspace{0.1cm} \right] \\[0.9cm]\]</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una muestra <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , tenemos la siguiente realización del intervalo de confianza: <span class="math inline">\(\\[0.6cm]\)</span></p>
-<p><span class="math display">\[IC(\sigma^2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \dfrac{n \cdot S(X)^2}{\chi^{n-1}_{\alpha/2}} \hspace{0.15cm},\hspace{0.15cm} \dfrac{n \cdot S_n^2}{\chi^{n-1}_{1-\alpha/2}}     \hspace{0.1cm} \right] \\[0.9cm]\]</span></p>
+<p><span class="math display">\[IC(\sigma^2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \dfrac{n \cdot S(X)^2}{\chi^{n-1}_{\alpha/2}} \hspace{0.15cm},\hspace{0.15cm} \dfrac{n \cdot  S(X)^2}{\chi^{n-1}_{1-\alpha/2}}     \hspace{0.1cm} \right] \\[0.9cm]\]</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <ul>
 <li><span class="math inline">\(\hspace{0.1cm} S(X)^2 = \dfrac{1}{n} \sum_{i=1}^n (x_i - \overline{X})^2\)</span></li>
@@ -3175,9 +3175,6 @@ size_in_m_2
 </p>
 <p></span></p>
 </div>
-<p><strong>Observación:</strong></p>
-<p>Este intervalo de confianza solo es valido para valores suficientemente pequeños de <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> , puesto que si <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> es suficientemente grande, el intervalo de confianza no contendrá a <span class="math inline">\(\hspace{0.1cm}S(X)^2\hspace{0.1cm}\)</span></p>
-<p>De hecho, si <span class="math inline">\(\hspace{0.1cm}n \rightarrow \infty\hspace{0.1cm}\)</span> , entonces <span class="math inline">\(\hspace{0.1cm}IC(\sigma^2)_{1-\alpha} = [\infty , \infty]\)</span></p>
 <p><br></p>
 </div>
 <div id="intervalo-de-confianza-para-la-varianza-en-python" class="section level3" number="10.6.4">
@@ -3187,9 +3184,9 @@ size_in_m_2
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Variable)</span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    chi_alpha_medios <span class="op">=</span> scipy.stats.chi.ppf( <span class="dv">1</span> <span class="op">-</span> alpha<span class="op">/</span><span class="dv">2</span> , df<span class="op">=</span>n<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    chi_alpha_medios <span class="op">=</span> scipy.stats.chi2.ppf( <span class="dv">1</span> <span class="op">-</span> alpha<span class="op">/</span><span class="dv">2</span> , df<span class="op">=</span>n<span class="op">-</span><span class="dv">1</span>)</span>
 <span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>    chi_1_alpha_medios <span class="op">=</span> scipy.stats.chi.ppf(alpha<span class="op">/</span><span class="dv">2</span> , df<span class="op">=</span>n<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>    chi_1_alpha_medios <span class="op">=</span> scipy.stats.chi2.ppf(alpha<span class="op">/</span><span class="dv">2</span> , df<span class="op">=</span>n<span class="op">-</span><span class="dv">1</span>)</span>
 <span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    X_cuasi_var <span class="op">=</span> Variable.std()<span class="op">**</span><span class="dv">2</span> </span>
 <span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a></span>
@@ -3208,7 +3205,7 @@ size_in_m_2
 <p>Aplicamos la función anterior a la variable <code>Price</code> , antes definida:</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>intervalo , varianza <span class="op">=</span> CI_Variance(Variable<span class="op">=</span>Price , alpha<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
-<pre><code>[358920965766270.5, 382466627578853.0]</code></pre>
+<pre><code>[7972419086050.057, 9052729794266.29]</code></pre>
 <div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>varianza</span></code></pre></div>
 <pre><code>8482279037221.85</code></pre>
 <p>El intervalo no contiene a la varianza. Esto se debe a que <span class="math inline">\(n\)</span> es demasiado grande.</p>

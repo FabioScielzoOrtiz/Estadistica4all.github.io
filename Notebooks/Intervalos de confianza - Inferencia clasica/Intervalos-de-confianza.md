@@ -2292,7 +2292,7 @@ $$IC(\sigma^2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \d
 $\hspace{0.25cm}$ Dada una muestra $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , tenemos la siguiente realización del intervalo de confianza: $\\[0.6cm]$
 
 
-$$IC(\sigma^2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \dfrac{n \cdot S(X)^2}{\chi^{n-1}_{\alpha/2}} \hspace{0.15cm},\hspace{0.15cm} \dfrac{n \cdot S_n^2}{\chi^{n-1}_{1-\alpha/2}}     \hspace{0.1cm} \right] \\[0.9cm]$$
+$$IC(\sigma^2)_{1-\alpha} \hspace{0.1cm}=\hspace{0.1cm} \left[ \hspace{0.1cm} \dfrac{n \cdot S(X)^2}{\chi^{n-1}_{\alpha/2}} \hspace{0.15cm},\hspace{0.15cm} \dfrac{n \cdot  S(X)^2}{\chi^{n-1}_{1-\alpha/2}}     \hspace{0.1cm} \right] \\[0.9cm]$$
 
 $\hspace{0.25cm}$ Donde:
 
@@ -2305,13 +2305,7 @@ $\hspace{0.25cm}$ Donde:
 </p></span>
 </div>
 
-**Observación:**
-
-Este intervalo de confianza solo es valido para valores suficientemente pequeños de $\hspace{0.1cm}n\hspace{0.1cm}$ , puesto que si $\hspace{0.1cm}n\hspace{0.1cm}$ es suficientemente grande, el intervalo de confianza no contendrá a $\hspace{0.1cm}S(X)^2\hspace{0.1cm}$
-
-
-De hecho, si $\hspace{0.1cm}n \rightarrow \infty\hspace{0.1cm}$ , entonces $\hspace{0.1cm}IC(\sigma^2)_{1-\alpha} = [\infty , \infty]$
-
+ 
 
 <br>
 
@@ -2326,9 +2320,9 @@ def CI_Variance(Variable , alpha=0.05):
 
     n = len(Variable)
 
-    chi_alpha_medios = scipy.stats.chi.ppf( 1 - alpha/2 , df=n-1)
+    chi_alpha_medios = scipy.stats.chi2.ppf( 1 - alpha/2 , df=n-1)
 
-    chi_1_alpha_medios = scipy.stats.chi.ppf(alpha/2 , df=n-1)
+    chi_1_alpha_medios = scipy.stats.chi2.ppf(alpha/2 , df=n-1)
 
     X_cuasi_var = Variable.std()**2 
 
@@ -2360,7 +2354,8 @@ intervalo
 
 
 
-    [358920965766270.5, 382466627578853.0]
+    [7972419086050.057, 9052729794266.29]
+
 
 
 
