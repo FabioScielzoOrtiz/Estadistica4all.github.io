@@ -534,90 +534,7 @@ X_new.head()
 
 
 
-```python
-X = pd.concat([X_train , X_new])
 
-X.head()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>latitude</th>
-      <th>longitude</th>
-      <th>price</th>
-      <th>size_in_m_2</th>
-      <th>balcony_recode</th>
-      <th>private_garden_recode</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>382</th>
-      <td>25.196489</td>
-      <td>55.272126</td>
-      <td>15800000</td>
-      <td>488.019459</td>
-      <td>0.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>732</th>
-      <td>25.107984</td>
-      <td>55.244923</td>
-      <td>1700000</td>
-      <td>138.704179</td>
-      <td>0.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>1888</th>
-      <td>25.071504</td>
-      <td>55.128579</td>
-      <td>1300000</td>
-      <td>171.220229</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>679</th>
-      <td>25.054336</td>
-      <td>55.203423</td>
-      <td>999000</td>
-      <td>116.035847</td>
-      <td>1.0</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>1004</th>
-      <td>25.087251</td>
-      <td>55.145574</td>
-      <td>2990000</td>
-      <td>162.208638</td>
-      <td>1.0</td>
-      <td>0.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
 
 
 
@@ -1117,6 +1034,10 @@ def Matrix_Gower_Distance(Data, p1, p2, p3 ):
 
 <br>
 
+---
+
+<br>
+
 Definimos la función KNN con la que replicamos el algoritmo KNN para clasificación supervisada que hemos expuesto anteriormente:
 
 ```python
@@ -1179,7 +1100,90 @@ def KNN(Distance_Matrix_New_Data , k, X_train, Y_train ) :
 
 Probaremos la función con la distancia de Gower. Para ello necesitamos calcular la matriz de distancias de Gower entre las nuevas observaciones y las observaciones de entrenamiento de los predictores.
 
+```python
+X = pd.concat([X_train , X_new])
 
+X.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>price</th>
+      <th>size_in_m_2</th>
+      <th>balcony_recode</th>
+      <th>private_garden_recode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>382</th>
+      <td>25.196489</td>
+      <td>55.272126</td>
+      <td>15800000</td>
+      <td>488.019459</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>732</th>
+      <td>25.107984</td>
+      <td>55.244923</td>
+      <td>1700000</td>
+      <td>138.704179</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1888</th>
+      <td>25.071504</td>
+      <td>55.128579</td>
+      <td>1300000</td>
+      <td>171.220229</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>679</th>
+      <td>25.054336</td>
+      <td>55.203423</td>
+      <td>999000</td>
+      <td>116.035847</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1004</th>
+      <td>25.087251</td>
+      <td>55.145574</td>
+      <td>2990000</td>
+      <td>162.208638</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 ```python
 M_Gower = Matrix_Gower_Distance(Data=X.to_numpy(), p1=4, p2=2, p3=0)
@@ -1576,16 +1580,16 @@ $\hspace{0.15cm}$ El algoritmo KNN para regresión tiene los siguientes pasos:
     $$\hspace{0.1cm}\Delta = \left\lbrace i = 1,...,n \hspace{0.15cm}  / \hspace{0.15cm}  x_i \in K_{x_{new}} \right\rbrace \\$$
 
 
-    Otra forma de expresarlo es la siguiente:
+    - Otra forma de expresar el punto anterior es la siguiente:
 
-    Si  $\hspace{0.15cm}Y_{K_{x_{new}}}\hspace{0.1cm}$ es la muestra de la respuesta para los $\hspace{0.1cm}k\hspace{0.1cm}$ individuos asociados al conjunto $\hspace{0.1cm}K_{x_{new}}\hspace{0.1cm}$ , es decir: 
+        - Si  $\hspace{0.15cm}Y_{K_{x_{new}}}\hspace{0.1cm}$ es la muestra de la respuesta para los $\hspace{0.1cm}k\hspace{0.1cm}$ individuos asociados al conjunto $\hspace{0.1cm}K_{x_{new}}\hspace{0.1cm}$ , es decir: $\\[0.5cm]$
 
-    $$Y_{K_{x_{new}}} = \left(\hspace{0.15cm} y_i \hspace{0.25cm} / \hspace{0.25cm}  i\in \lbrace 1,...,n \rbrace \hspace{0.3cm}  \text{y} \hspace{0.3cm} x_i \in K_{x_{new}}\hspace{0.15cm} \right)^t\\[0.3cm]$$
+         $$Y_{K_{x_{new}}} = \left(\hspace{0.15cm} y_i \hspace{0.25cm} / \hspace{0.25cm}  i\in \lbrace 1,...,n \rbrace \hspace{0.3cm}  \text{y} \hspace{0.3cm} x_i \in K_{x_{new}}\hspace{0.15cm} \right)^t\\[0.3cm]$$
 
-    entonces:
+       $\hspace{0.8cm}$  entonces:
 
 
-    $$\widehat{y}_{new} =  \overline{\hspace{0.15cm} Y}_{K_{x_{new}}}\\$$
+         $$\widehat{y}_{new} =  \overline{\hspace{0.15cm} Y}_{K_{x_{new}}}\\$$
  
 </p>
  
@@ -1600,26 +1604,294 @@ $\hspace{0.15cm}$ El algoritmo KNN para regresión tiene los siguientes pasos:
 
 # KNN para regresión con `sklearn` <a class="anchor" id="6"></a>
 
+Volvemos a crear los data-frames con los que entrenaremos el modelo y los que usaremos para predecir la respuesta. En este caso la variable respuesta es el precio de las viviendas (price).
+
+```python
+## TRAIN DATA (Datos dispobles --> se usan para entrenar el modelo)
+
+X_train = Data_Mixed_train.loc[: , Data_Mixed_train.columns != 'price']
+Y_train = Data_Mixed_train.loc[: , 'price']
+
+## NEW DATA (Nuevos datos de los predictores)
+
+X_new = Data_Mixed_new.loc[: , Data_Mixed_test.columns != 'price']
+
+# En la práctica real no se tienen datos sobre la respuesta asociado a las nuevas obsrvaciones de los predictores
+# Eso es justo lo que se quiere predecir.
+# Pero en este ejemplo al usar como "nuevos" datos una parte del data set original, si que tenemos esa información.
+
+Y_new = Data_Mixed_new.loc[: , 'price'] 
+
+```
+
+Fijamos algunos parametros de la función `KNeighborsRegressor`
+```python
+knn_regression = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 , p=2,  metric='minkowski')
+```
+
+Entrenamos el algoritmo con las observaciones de los predictores contenidas en X_train y con las observaciones de la respuesta contenidas en Y_train.
+```python
+knn_regression.fit(X_train, Y_train)
+```
+
+
+
+
+    KNeighborsClassifier(n_neighbors=10)
+
+
+
+Predecimos la respuesta para las observaciones de los predictores contenidas en X_new
+
+```python
+knn_regression.predict( X_new ) 
+```
+
+```
+array([ 1963827.5,  3046500. ,  2523990. ,  2477788.8,  2513966.5,
+        1732699.8,  2209200. ,  1629939.2,  2014867.5,  1567750.3,
+         938557.7,  1272000. ,  1739199.8,  5767999. ,  2620300. ,
+        2699000. ,  2184789.9,  1313399.9,  1606889.9,  1606988.7,
+        2143900. ,   456800. ,  2475000. ,   923199.9,  1514399.6,
+        2689500. ,   627404.9,  1807950. ,  2860688.7,   934390.3,
+       11746999.9,  1370299.9,  1412638.6,   624110. ,  3395900. ,
+         463982.8,  1092166.4,  1523899.9,   712312.9,  1008838.9,
+        2053188.6,  1253360.8,   832938. ,  1569545.9,   730918.7,
+        2728490. ,  2270500. ,  2048800. ,  3383900. ,  1847288.7,
+        1162499.9,   994277.6,  3398877.8,  1392877.6,  1598200. ,
+        1731699.8,  1695900. ,  1443087.8,  2424182.7,  3602390. ,
+        2430588.8,  7251000. ,  1356689.2,   635069. ,  1806400. ,
+        1465699.9,  2592000. ,  3567400. ,  2359377.6,  1399400. ,
+        2120779.8,  1227612.6,  2239000. ,  1172078.8,  2170779.8,
+        2262490. ,  5347499. ,  5502999. ,  1626888.8,  2748877.6,
+         556904.8,  1380093.3,  3455000. ,   916588.6,   893834.4,
+         785402.6,  1721288.8,  1900700. ,  4439900. , 15675244. ,
+        1604676.6,  1416399.9,  1004399.9, 13611999.9,   620450. ,
+        2070489.9,  2066000. ,  1664843.7,   653822.8,  1671599.9,
+        5767999. ,  1687399.9,  2356188.8,  3228400. ,  1825599.9,
+        1223644. ,   599630. ,  1781599.7,  2264280. ,  3247066.3,
+        1139777.6,  2990688.7,  1489220.3,  1523966. ,  1009100. ,
+         876888.8,  3582390. ,  1646445.8,   511216.4,  2684899.8,
+       23276900. ,  1723199.8,  1085766.4,  3153566.4,  3153566.4,
+        2870077.6,  1694366. ,  2375490. ,  1457078.6,  3383900. ,
+        1509499.9,  3604800. ,   923788.8,  1739199.8,  1108618.8,
+         759798.4,  1644599.9,   994055.3,  1323967.6,  1600478.4,
+         873700. ,  1579500. ,  4622500. ,   888788.8,  3602499.4,
+        1816988.7,   720980.2,   648950.1,  1992588.8,  1678499.9,
+        1807840.2,  1212560.8,  2330084.6,  2684899.8,   997867.6,
+         975277.6,  1616279.3,  1881200. ,  1170000. ,  1895077.5,
+        1030537.9,  7541000. ,  1363877.6,  2118999.9,  1598899.9,
+        1138660.8,  7949288.7,  1243228. ,   502651.3,  1036966.4,
+        4669900. ,  3317499.3,  1272000. ,  1712995. ,  2412994.9,
+         749812.9,  3067487.8,   927177.5,  4859999. ,   938557.7,
+        2858566.5,  1908288.7,   615977.6,  1816150.4,  2458688.8,
+        2893800. ,  2324295. ,  2182066.4,  1464800. ,   990813.2,
+         662341. ,   936288.8,  2831880. ,  1053266.4,  2433999.9,
+         595600.2,  1203499.9,  1305488.8,  2322600. ,  2069713.2,
+        1455966. ,  1712995. ,   978589.9,   994277.6,   508982.8,
+        4824899.9,  2050988.7,  1094100. ,  1046666.4,  4839999. ,
+         417811.6,  1006100. ,  2114990. ,   923771.8,  1846988.7,
+        1422690. ,  2717377.6,  5767999. ,  2589590. , 16459244. ,
+        1135179.1,   717239.7,   717239.7,   572791.5,  1232336.8,
+        1868516.1,  1242336.8,  2196889.9,   990537.9,  1036966.4,
+        1748738.6,  3455000. ,  2545500. ,  1953493.8,   936288.8,
+        1412638.6,  1305488.8,   945488.4,  2307788.8,   494885. ,
+        1205939. ,   983588.7,  1984766.4,   494885. ,  1545567.5,
+         545205.2,  2044588.7,   896000. ,  1509316.6,  1839238.7,
+        1110888.8,  1751279.3,  2590044.1,  2059244.1,   962783.7,
+       11746999.9,  1163723.8,  1012000. ,  1307138.6,  1497966.3,
+         999400. ,  1434700. ,  1712995. ,   611224.1,  1658084.6,
+         884047.7,  1721542.7,   610902.5,  1002500. ,  3242494.3,
+        1751279.3,  1088657.4,  1868516.1,  1456367.4,  2077777.6,
+         595244.8,   859625. ,   945537.9,  1877838.7,  1536750.3,
+        1938940. ,  1409288.8,  2209428.6,   451400. ,  2532088.7,
+        2255977.5,  1657695. ,  2341290. ,  2209200. ,  1036966.4,
+        2209200. ,   995488.8,   518897. ,  2940173.4,  4451900. ,
+        3604800. ,  1877838.7,  2468990. ,  4621994.9,   669129.9,
+        2240490. ,  2343584.6,   998788.7,  1723066.6,  1305149.6,
+        1277828. ,   991699.9,  2170779.8,   942600. ,  3567400. ,
+        1569935. ,   942861. ,  1192490. ,  2719500. ,  6827988.8,
+        1933590. ,  1305488.8,  1038588.8,  2524683.8,  1278449.6,
+       19871255.2,   651977.6,  5767999. ,  1472677.5,  1296977.6,
+        1088657.4,   893834.4,   624697.1,   635638.5,  1579500. ,
+         608100. ,  2458688.8,  1330832.9,  3094900. ,  1845988.7,
+        1044499.9,  1192055.2,  2020488.7,   783602.6,  2799990. ,
+        1814999.9,  2581178.8,   896000. ,  7977988.8,  2968487.9,
+         887678.9,  2513966.5,  2468990. ,  2604090. ,  3036389.8,
+        1809838.7,  1625762.7,   514805.2,  1758590. ,  1833999.7,
+        1500399.8,  1581399.8,  1792945.1,  7473288.8,  2217783.8,
+        1956490. ,   595689. ,  1089428. ,   669198.4,  2748877.6,
+         449866.4,  3317499.3,  1520567.5,  5132388.8,  2490490. ,
+        2462875. ,  2589590. ,  1479284.2,  1835499.9,  1488677.6,
+        2015688.7,  7541000. , 15675244. ,  1088657.4,  1165544. ,
+        1130149.8])
+```
+ 
+ 
+Como disponemos de los valores de la respuesta para las observaciones de los predictores con las que hemos predicho la respuesta podemos comparar los valores reales con los predichos a través de una métrica de error como el error cuadratico medio (ECM):
+```python
+ECM = sum( (knn_regression.predict( X_new )  - Y_new.reset_index().price )**2 ) / len(Y_new)
+
+ECM
+```
+
+    2405540681171.826
+
+
+ 
+
+Para reducir la dimension de la cantidad anterior y además lograr que se mida en las mismas unidades que la respuesta tomamos la raiz cuadrada:
+
+```python
+np.sqrt(ECM)
+```
+
+    1550980.5547368499
+
+
+
  
  
 
 <br>
+
+
+
+
+
 
 
 
 # KNN  para regresión  programado desde "cero" en `Python` <a class="anchor" id="7"></a>
 
 
+Programamos desde "cero" el algoritmo KNN para regresión:
+
+```python
+def KNN_regresion(Distance_Matrix_New_Data , k , X_train, Y_train) :
+
+    # k es el hiper-parametro del algoritmo KNN.
+
+    # 'Distance_Matrix_New_Data' debe contenere las distancias entre las nuevas observaciones de los predictores y las de train.
+    # Su fila i-esima debe contener las distancias entre la i-esima nueva observacion de los predictores y las observaciones de train de los predictores.
+    
+    # X_train tiene que ser un data-frame con las observaciones de los predictores con las que se va a entrenar el modelo.
+    
+    # Y_train tiene que ser un numpy array que contenga las observaciones de la respuesta con las que se va a entrenar el modelo.
 
 
 
 
+    Y_predict_x_new_i_LIST = []
+
+    for i in range(0, len(Distance_Matrix_New_Data)):
+
+        distancias_x_new_i = pd.DataFrame({'id_x_train': X_train.index  , 'distancias': Distance_Matrix_New_Data[i,:]})
+
+        distancias_x_new_i_sort = distancias_x_new_i.sort_values(by=["distancias"]).reset_index(drop=True)
+
+        knn_x_new_i = distancias_x_new_i_sort.iloc[0:k , :]
+
+        Y_values_knn_x_new_i = []
+
+        
+        for j in knn_x_new_i.iloc[:,0]:
+
+            Y_values_knn_x_new_i.append(Y_train[j])
+
+
+        Y_predict_x_new_i = sum(Y_values_knn_x_new_i)/k    
+
+        Y_predict_x_new_i_LIST.append(Y_predict_x_new_i)
+
+    
+    df_predictions = pd.DataFrame({'id_x_new':range(0, len(Distance_Matrix_New_Data)) , 'Y_predict': Y_predict_x_new_i_LIST})
+
+    return df_predictions
+```
+
+
+Probamos el algoritmo con la distancia de Gower y $k=10$ :
+
+```python
+X = pd.concat([X_train , X_new])
+```
+
+```python
+M_Gower = Matrix_Gower_Distance(Data=X.to_numpy(), p1=3, p2=2, p3=1)
+
+M_Gower_new_data = M_Gower[ len(X_train):len(X) , 0:len(X_train) ]  
+```
+
+
+```python
+df_predictions = KNN_regresion(Distance_Matrix_New_Data=M_Gower_new_data , k=10 , X_train=X_train, Y_train=Y_train) 
+df_predictions
+```
+
+```
+     id_x_new   Y_predict
+0           0   2081499.9
+1           1   1710999.9
+2           2   2639277.7
+3           3   2817500.0
+4           4   2839583.6
+..        ...         ...
+376       376   4778999.9
+377       377  12093477.6
+378       378   1019720.0
+379       379   1260699.9
+380       380   1088923.8
+```
+
+
+Calculamos el error cuadrático medio:
+
+```python
+ECM = sum( (df_predictions.Y_predict - Y_new.reset_index().price)**2 ) / len(Y_new)
+
+ECM
+```
+
+    2694547525120.1924
+
+
+```python
+np.sqrt(ECM)
+```
+
+    1641507.6987696989
 
 
 
 <br>
 
+Probamos ahora el algoritmo con la distancia Euclidea y $k=10$ :
 
+```python
+M_Euclidea = Matrix_Dist_Euclidea(Data=X.to_numpy())
+
+M_Euclidea  = M_Euclidea + M_Euclidea.T
+
+M_Euclidea_new_data = M_Euclidea[ len(X_train):len(X) , 0:len(X_train) ]  
+```
+
+
+```python
+df_predictions = KNN_regresion(Distance_Matrix_New_Data=M_Euclidea_new_data , k=10 , X_train=X_train, Y_train=Y_train) 
+```
+
+Calculamos el error cuadrático medio:
+```python
+ECM = sum( (df_predictions.Y_predict - Y_new.reset_index().price)**2 ) / len(Y_new)
+
+ECM
+```
+
+    2406009496239.313
+
+ 
+Como vemos el ECM obtenido es similar al que obteniamos al implementar el algoritmo con `sklearn` , también con la distancia Euclidea y $k=10$
 
 
 <br>
@@ -1633,10 +1905,10 @@ $\hspace{0.15cm}$ El algoritmo KNN para regresión tiene los siguientes pasos:
 
 # Bibliografía
 
-- Grané Chavez, Aurea. (2022). *Análisis Discriminante* [Presentación de PowerPoint]. Aula Global UC3M.
+- Grané Chavez, Aurea. (2022). *Análisis Discriminante* [Presentación de PowerPoint]. Aula Global UC3M. $\\[0.4cm]$
 
 - Scikit-learn Developers. KNeighborsClassifier. Scikit-learn.
-https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html
+https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html $\\[0.1cm]$
 
 - Scikit-learn Developers. KNeighborsRegressor. Scikit-learn. 
 https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html

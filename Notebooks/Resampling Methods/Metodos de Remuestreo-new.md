@@ -784,18 +784,18 @@ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-La función de distribución empírica basada en una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ se define como:
+$\hspace{0.25cm}$  La función de distribución empírica basada en una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ se define como:
 
 
 $$\widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(\mathcal{X}_i \geq z) $$
 
-donde:
+$\hspace{0.25cm}$  donde:
 
 $$I(X_i \geq z) =  \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm} X_i \geq z \\[0.1cm] 
 \hspace{0.12cm} 0 \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm} X_i > z \\[0.1cm] 
 \end{array}\right.$$
 
-para $\hspace{0.1cm} z\in \mathbb{R}$
+$\hspace{0.35cm}$  para $\hspace{0.1cm} z\in \mathbb{R}$
 
 </p>
  
@@ -876,7 +876,7 @@ $\hspace{0.35cm}$ para $\hspace{0.1cm} z\in \mathbb{R} \\$
 
 - $\hspace{0.2cm} \widehat{F}_n(z) \hspace{0.1cm}=\hspace{0.1cm} Q(X , z)$
 
-$\hspace{1.5cm}$ Donde: $\hspace{0.2cm} Q(X , z)\hspace{0.1cm}$  es el cuantil de orden $\hspace{0.1cm}z\hspace{0.1cm}$ de $\hspace{0.1cm}X=(x_1,...,x_n) \\$
+$\hspace{0.25cm}$ Donde: $\hspace{0.2cm} Q(X , z)\hspace{0.1cm}$  es el cuantil de orden $\hspace{0.1cm}z\hspace{0.1cm}$ de $\hspace{0.1cm}X=(x_1,...,x_n) \\$
 
 
 
@@ -999,7 +999,9 @@ $$sup \left\lbrace \hspace{0.1cm}\left|\hspace{0.1cm} \widehat{F}_n(z)  - F_X(z)
 
 # Intervalos de confianza basados en bootstrap
 
-Las desviaciones típicas o errores estandar se pueden usar para calcular intervalos de confianza aproximados para los parametros de interés.
+Es recomendable leer previamente la entrada sobre intervalos de confianza del blog [Estadistica4all](http://estadistica4all.com/), principalmente para fijar conceptos e ideas.
+
+Las desviaciones típicas o errores estándar se pueden usar para calcular intervalos de confianza aproximados para los parametros de interés.
 
 
 
@@ -1017,11 +1019,11 @@ Además tenemos una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspa
 
 
 
-$\hspace{0.25cm}$ Una **muestra bootstrap**  de $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ se define como una **muestra aleatoria con reemplazamiento** de tamaño $\hspace{0.1cm}n\hspace{0.1cm}$ de $\hspace{0.1cm}X$ 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
 
 
-
-$\hspace{0.25cm}$ Tenemos $\hspace{0.1cm}B\hspace{0.1cm}$ muestras bootstrap de $\hspace{0.1cm}X\hspace{0.1cm}$ : $\\[0.5cm]$
+$\hspace{0.25cm}$ Tenemos $\hspace{0.1cm}B\hspace{0.1cm}$ muestras bootstrap (aleatorias y con reemplazamiento) de $\hspace{0.1cm}X\hspace{0.1cm}$ : $\\[0.5cm]$
 
 $$X_{(1)},X_{(2)},...,X_{(B)} \\$$
 
@@ -1032,28 +1034,34 @@ $$X_{(1)},X_{(2)},...,X_{(B)} \\$$
 $$\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)}) \\$$
 
 
-Asi que se tiene:
+$\hspace{0.25cm}$ Asi que se tiene:
 
-$$\widehat{\theta}_{(1)} , \widehat{\theta}_{(2)} ,..., \widehat{\theta}_{(B)}$$
+$$\widehat{\theta}_{boot} = \left(\widehat{\theta}_{(1)},...,\widehat{\theta}_{(B)} \right)$$
 
 
 
 
  
  
-- Se calcula  el cuantil de orden $\hspace{0.1cm}\alpha\hspace{0.1cm}$ de la variable $\hspace{0.15cm}\widehat{\theta}_{boot} = \left(\widehat{\theta}_{(1)},...,\widehat{\theta}_{(B)} \right)$ $\hspace{0.25cm} \Rightarrow \hspace{0.25cm}  Q(\alpha \hspace{0.05cm} ,  \hspace{0.05cm} \widehat{\theta}_{boot})$
+- Sea $\hspace{0.1cm}Q(\alpha \hspace{0.05cm} ,  \hspace{0.05cm} \widehat{\theta}_{boot})\hspace{0.1cm}$  el cuantil de orden $\hspace{0.1cm}\alpha\hspace{0.1cm}$ de la variable $\hspace{0.15cm}\widehat{\theta}_{boot}$ 
+
+    Por tanto, se cumple lo siguiente: $\\[0.4cm]$
+
+    $$\dfrac{\# \hspace{0.15cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm} Q(\alpha \hspace{0.05cm} , \hspace{0.05cm} \widehat{\theta}_{boot}) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}  \hspace{0.15cm} = \hspace{0.15cm} \alpha \\$$
 
 
-$\hspace{0.35cm}$ Por tanto, se tiene que cumplir lo siguiente: $\\[0.4cm]$
+    - El intervalo cuantil-bootstrap para el parametro $\hspace{0.1cm}\theta\hspace{0.1cm}$ a un nivel $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ es :
 
-$$\dfrac{\# \hspace{0.15cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm} Q(\alpha \hspace{0.05cm} , \hspace{0.05cm} \widehat{\theta}_{boot}) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}  \hspace{0.15cm} = \hspace{0.15cm} \alpha$$
+$$\left[ \hspace{0.1cm} Q(\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\theta}_{boot}) \hspace{0.2cm} ;  \hspace{0.2cm} Q(1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\theta}_{boot}) \hspace{0.1cm} \right] \\$$
 
 
-El intervalo cuantil-bootstrap para el parametro $\hspace{0.1cm}\theta\hspace{0.1cm}$ a un nivel $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ es :
+</p>
+ 
+</p></span>
+</div>
 
-$$\left[ \hspace{0.1cm} Q(\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\theta}_{boot}) \hspace{0.2cm} ;  \hspace{0.2cm} Q(1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\theta}_{boot}) \hspace{0.1cm} \right]$$
 
-<br>
+
 
 Los intervalos cuantil-bootstrap pueden conducir a estimaciones del intervalo de confianza algo erráticas cuando el estimador del parametro de interés es sesgado.
 
@@ -1070,6 +1078,8 @@ En la determinación de los intervalos BCa-bootstrap juegan un rol central dos c
 
 $\hat{z}_0\hspace{0.1cm}$ se introduce para corregir el sesgo del estimador $\hat{\theta}$
 
+ 
+
 $\hat{z}_0\hspace{0.1cm}$ se define como
 
 
@@ -1083,7 +1093,7 @@ Aclaremos esto un poco:
 Si $\hspace{0.1cm}\rho\hspace{0.1cm}$ es la proporción de replicas bootstrap del estimador $\hspace{0.1cm}\hat{\theta}_{(1)},...,\hat{\theta}_{(B)}\hspace{0.1cm}$ que son menores o iguales que la estimacion $\hspace{0.1cm}\hat{\theta}(X)\hspace{0.1cm}$  , entonces:
 
  
-$$\rho \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{ \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm}  \hat{\theta}(X) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}$$
+$$\rho \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{ \# \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm}  \hat{\theta}(X) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}$$
 
 
 Por tanto:
@@ -1093,13 +1103,16 @@ $$\hat{z}_0 \hspace{0.1cm}=\hspace{0.1cm} F^{-1}_{N(0,1)} ( \hspace{0.05cm}\rho\
 
 En conclusión:
 
-$\hat{z}_0\hspace{0.1cm}$ es el cuantil $\hspace{0.1cm}\rho\hspace{0.1cm}$ de la distribucion $\hspace{0.1cm}N(0,1)\hspace{0.3cm}$ $\Rightarrow\hspace{0.3cm}$ $\hat{z}_0 \hspace{0.1cm} = \hspace{0.1cm} Q\left(\hspace{0.1cm}\rho \hspace{0.1cm},\hspace{0.1cm} N(0,1)\hspace{0.1cm}\right)$
+$\hat{z}_0\hspace{0.1cm}$ es el cuantil de orden $\hspace{0.1cm}\rho\hspace{0.1cm}$ de la distribucion $\hspace{0.1cm}N(0,1)\hspace{0.3cm}$ $\Rightarrow\hspace{0.3cm}$ $\hat{z}_0 \hspace{0.1cm} = \hspace{0.1cm} Q\left(\hspace{0.1cm}\rho \hspace{0.1cm},\hspace{0.1cm} N(0,1)\hspace{0.1cm}\right)$
 
+
+ 
 
 <br>
 
+---
 
-
+<br>
 
 
 La segunda cantidad, $\hspace{0.1cm}\hat{a}\hspace{0.1cm}$, denominada aceleración, corrige el caso en el que el error estandar del estimador del parametro de interés $\hspace{0.1cm}s.e.(\hat{\theta})\hspace{0.1cm}$ no sea constante, y se define en términos de estimaciones Jacknife.
@@ -1123,6 +1136,8 @@ $\hspace{0.25cm}$ Se define la replica $\hspace{0.1cm}r$-esima del estimador $\h
 $$\widehat{\theta}_{(r)} = \widehat{\theta}(X_{(r)})= \widehat{\theta}(\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.05cm},..,\hspace{0.05cm} x_{r-1}\hspace{0.05cm},\hspace{0.05cm}x_{r+1}\hspace{0.05cm} ,..,\hspace{0.05cm} x_{n}\hspace{0.05cm})\\$$
 
 
+Teniendo todo esto en cuenta, $\hspace{0.1cm}\hat{a}\hspace{0.1cm}$ se define como sigue:
+
 $$\hat{a} \hspace{0.1cm} = \hspace{0.1cm} \dfrac{ \sum_{r=1}^n \left( \hspace{0.1cm} \hat{\theta}_{(\cdot)} - \hat{\theta}_{(r)}  \right)^3   }{ 6 \cdot \left[ \sum_{r=1}^n \left( \hspace{0.1cm} \hat{\theta}_{(\cdot)} - \hat{\theta}_{(r)}  \right)^2 \right]^{3/2}  }$$
 
 
@@ -1131,33 +1146,57 @@ Donde:
  $$\hat{\theta}_{(\cdot)} = \frac{1}{n} \cdot \sum_{r=1}^n \hat{\theta}_{(r)} \\$$
 
 
-El intervalo BCa-bootstrap de nivel $\hspace{0.1cm} 1-\alpha\hspace{0.1cm} $ es:
 
 
-$$\left[ \hspace{0.1cm}Q(\alpha_1 \hspace{0.1cm} ,\hspace{0.1cm}  \hat{\theta}_{boot})   \hspace{0.2cm}  ; \hspace{0.2cm}   Q(\alpha_2 \hspace{0.1cm} ,\hspace{0.1cm}  \hat{\theta}_{boot})  \hspace{0.1cm} \right]$$
+<br>
 
-Donde:
+---
+
+<br>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ El intervalo BCa-bootstrap de nivel $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ es: $\\[0.5cm]$
+
+
+$$\left[ \hspace{0.1cm}Q(\alpha_1 \hspace{0.1cm} ,\hspace{0.1cm}  \hat{\theta}_{boot})   \hspace{0.2cm}  ; \hspace{0.2cm}   Q(\alpha_2 \hspace{0.1cm} ,\hspace{0.1cm}  \hat{\theta}_{boot})  \hspace{0.1cm} \right] \\$$
+
+$\hspace{0.25cm}$ Donde:
 
 $$\alpha_1 \hspace{0.1cm}=\hspace{0.1cm} F_{N(0,1)}\left( \hat{z}_0 + \dfrac{\hat{z}_0 + z_{1-\alpha/2} }{1 - \hat{a}\cdot(\hat{z}_0 + z_{1-\alpha/2} )} \right)$$
 
-$$\alpha_2 \hspace{0.1cm}=\hspace{0.1cm} F_{N(0,1)}\left( \hat{z}_0 + \dfrac{\hat{z}_0 + z_{\alpha/2} }{1 - \hat{a}\cdot(\hat{z}_0 + z_{\alpha/2} )} \right)$$
+$$\alpha_2 \hspace{0.1cm}=\hspace{0.1cm} F_{N(0,1)}\left( \hat{z}_0 + \dfrac{\hat{z}_0 + z_{\alpha/2} }{1 - \hat{a}\cdot(\hat{z}_0 + z_{\alpha/2} )} \right) \\$$
 
 
-Siendo $z_{\alpha}$ el valor tal que $P(N(0,1) \leq z_{\alpha}) = \alpha$
+$\hspace{0.25cm}$Teniendo en cuenta que:
 
 
-Por tanto:
 
-$\hat{z}_0 + \dfrac{\hat{z}_0 + z_{1-\alpha/2} }{1 - \hat{a}\cdot(\hat{z}_0 + z_{1-\alpha/2} )}$ es el cuantil de orden $\alpha_1$ de la distribución $N(0,1)$
-
-$\hat{z}_0 + \dfrac{\hat{z}_0 + z_{\alpha/2} }{1 - \hat{a}\cdot(\hat{z}_0 + z_{\alpha/2} )}$ es el cuantil de orden $\alpha_2$ de la distribución $N(0,1)$
+- $z_{\alpha}$ el valor tal que $P(N(0,1) \leq z_{\alpha}) = \alpha\\[0.5cm]$
 
 
-Si $\hat{z}_0 = \hat{a} = 0$ , entonces:
 
-$$\alpha_1 = F_{N(0,1)}(z_{1-\alpha/2}) = \alpha/2$$
+- $\hat{a} \hspace{0.1cm} = \hspace{0.1cm} \dfrac{ \sum_{r=1}^n \left( \hspace{0.1cm} \hat{\theta}_{(\cdot)} - \hat{\theta}_{(r)}  \right)^3   }{ 6 \cdot \left[ \sum_{r=1}^n \left( \hspace{0.1cm} \hat{\theta}_{(\cdot)} - \hat{\theta}_{(r)}  \right)^2 \right]^{3/2}  } \\[0.5cm]$
 
-$$\alpha_2 = F_{N(0,1)}(z_{\alpha/2}) =1- \alpha/2$$
+- $\hat{z}_0  \hspace{0.1cm} = \hspace{0.1cm} Q\left(\hspace{0.1cm}\rho \hspace{0.1cm},\hspace{0.1cm} N(0,1)\hspace{0.1cm}\right) \\[0.5cm]$
+
+- $\rho \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{ \# \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm}  \hat{\theta}(X) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B} \\[0.3cm]$
+
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+Si $\hspace{0.1cm}\hat{z}_0 = \hat{a} = 0\hspace{0.1cm}$ , entonces: 
+
+$$\alpha_1 \hspace{0.1cm} = \hspace{0.1cm} F_{N(0,1)}(z_{1-\alpha/2}) \hspace{0.1cm} = \hspace{0.1cm} \alpha/2$$
+
+$$\alpha_2 \hspace{0.1cm} = \hspace{0.1cm} F_{N(0,1)}(z_{\alpha/2}) \hspace{0.1cm}=\hspace{0.1cm} 1- \alpha/2 \\$$
 
 
 
@@ -1166,7 +1205,9 @@ Por lo que en este caso particular el intervalo BCa coincide con el intervalo pe
 El valor de $\hat{z}_0$ traslada el intervalo a la derecha o a la izquierda, y $\hat{a}$ hace que sea más ancho o más estrecho.
 
 
-Con este intervalo se recomienda usar $B \geq 1000$ .
+Con este intervalo se recomienda usar $B \geq 1000$.
+
+
 <br>
 
 
@@ -1210,37 +1251,32 @@ Aplicar en python
 
 <br>
 
-# Contrastes de hipotesis basados en permutaciones <a class="anchor" id="1"></a>  
-
-
-<br>
-
 # Contrastes de hipotesis basados en bootstrap
 
 
 El contexto en el que nos vamos a mover en esta sección tiene alguna particularidad.
 
-El siguiente procedimiento puede aplicarse, en principio, a cualquier tipo de contraste de hipotesis.
+El siguiente procedimiento puede aplicarse, en principio, a cualquier tipo de contraste de hipotesis. Es recomendable leer previamente la entrada sobre contrastes de hipótesis del blog [Estadistica4all](http://estadistica4all.com/), principalmente para fijar conceptos e ideas.
 
-La idea es estimar mediante tecnicas bootstrap el p-valor del contraste.
+La idea es estimar mediante técnicas bootstrap el **p-valor** del contraste.
 
-Para ello debemos disponer del estadistico del contraste bajo $H_0 \hspace{0.4cm} \Rightarrow \hspace{0.4cm} \mathcal{T}_{exp|H_0}(\mathcal{X$ 
-
-
-Como se comenta en el articulo  de contrastes de hipotesis del blog [Estadistica4all](http://estadistica4all.com/) (citado en la bibliografía),  un estadistico de contraste es una variable aleatoria que se puede interpretar como una medida de discrepancia entre $H_0$ y los datos observados, y ademas se conoce su distribución de probabilidad bajo $H_0$. 
-
-Sirve, por tanto, para medir la discrepancia que hay entre los datos obtenidos y la $H_0$, y permite cuantificar la probabilidad de cometer error de tipo I, es decir, rechazar $H_0$ cuando es cierta. Que es el error que se considera más relevante y por ello se le impone una cota superior $\alpha$, denominada nivel de significación.
+Para ello debemos disponer del estadístico del contraste bajo $\hspace{0.1cm}H_0 \hspace{0.25cm} \Rightarrow \hspace{0.25cm} \mathcal{T}_{exp|H_0}$ 
 
 
+Un estadístico de contraste es una variable aleatoria que se puede interpretar como una medida de discrepancia entre $\hspace{0.1cm}H_0\hspace{0.1cm}$ y los datos observados, y además se conoce su distribución de probabilidad bajo $\hspace{0.1cm}H_0$. 
+
+Sirve, por tanto, para medir la discrepancia que hay entre los datos obtenidos y la $\hspace{0.1cm}H_0\hspace{0.1cm}$, y permite cuantificar la probabilidad de cometer error de tipo I, es decir, rechazar $\hspace{0.1cm}H_0\hspace{0.1cm}$ cuando es cierta. El cual es el error que se considera más relevante y por ello se le impone una cota superior $\hspace{0.1cm}\alpha\hspace{0.1cm}$, denominada **nivel de significación**.
 
 
 
-$\mathcal{T}_{exp|H_0}$ es una función de m.a.s de las variables aleatorias de interes (que pueden ser varias), por lo que es un estadistico, y por tanto una v.a.
 
 
-Si se dispone de unas muestra de datos de observaciones de las variable aleatorias de interes se puede obtener una realización muestral del estadistico $\mathcal{T}_{exp|H_0}$, a la cual denotaremos por $T_{exp|H_0}$
+$\mathcal{T}_{exp|H_0}\hspace{0.1cm}$ es una función de m.a.s de las variables aleatorias de interés (que pueden ser varias), por lo que es un estadístico, y por tanto una v.a.
 
-Asi que siguiendo la filosofia del articulo citado de [Estadistica4all](http://estadistica4all.com/) , $\mathcal{T}_{exp|H_0}$ es el estadistico de contraste como v.a. y $\mathcal{T}_{exp|H_0}$ es el valor observado del esadistico de contraste a partir de las muestras de observaciones de las variables aleatorias de interes.
+
+Si se dispone de unas muestras de observaciones de las variable aleatorias de interés, se puede obtener una realización muestral del estadístico $\hspace{0.1cm}\mathcal{T}_{exp|H_0}\hspace{0.1cm}$, a la cual denotaremos por $\hspace{0.1cm}T_{exp|H_0}$.
+
+Así que  $\hspace{0.1cm}\mathcal{T}_{exp|H_0}\hspace{0.1cm}$ es el estadístico de contraste como v.a. y $\hspace{0.1cm}\mathcal{T}_{exp|H_0}\hspace{0.1cm}$ es el valor observado del esadistico de contraste a partir de las muestras de observaciones de las variables aleatorias de interés.
 
 
 
@@ -1248,61 +1284,65 @@ Asi que siguiendo la filosofia del articulo citado de [Estadistica4all](http://e
 ## Estimacion bootstrap del p-valor
 
 
-La resolución bootstrap de contrastes de hipotesis consiste en estimar el **p-valor** del contraste del siguiente modo:
+La resolución bootstrap de contrastes de hipotesis pasa por estimar el **p-valor** del contraste del siguiente modo:
 
 
-- Se obtiene $\hspace{0.1cm}B\hspace{0.1cm}$ muestras bootstrap (aleatoria y con reemplazamiento) de $\hspace{0.1cm}X\hspace{0.1cm}$ : $\\[0.5cm]$
-
-$$X_{(1)},X_{(2)},...,X_{(B)} \\$$
+- Se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ muestras bootstrap (aleatoria y con reemplazamiento) de cada una de las muestras de observaciones disponibles de las v.a's de interés.  
 
 
-- Se calcula para $b\in \lbrace 1,...,B \rbrace$ la replica bootstrap $\hspace{0.1cm}b$-esima del **estadistico de contraste**   como: $\\[0.5cm]$
+- Se calcula para $\hspace{0.1cm} b\in \lbrace 1,...,B \rbrace\hspace{0.1cm}$ la replica bootstrap $\hspace{0.1cm}b$-esima del **estadistico de contraste** $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} T_{exp|H_0}^{(b)} \\$
 
-$$T_{exp|H_0}^{(b)} = T_{exp|H_0}(X_{(b)})$$
+ 
 
-
-Notese que $\hspace{0.1cm}T_{exp|H_0}^{(b)}\hspace{0.1cm}$ es un valor concreto, no una variable aleatoria. De hecho es la realizacion muestral del estadistico de contraste $\hspace{0.1cm}\mathcal{T}_{exp|H_0}\hspace{0.1cm}$ (que es una v.a.) para la muestra de datos $\hspace{0.1cm}X_{(b)}$.
+Notese que $\hspace{0.1cm}T_{exp|H_0}^{(b)}\hspace{0.1cm}$ es un valor concreto, no una variable aleatoria. De hecho es la realización muestral del estadistico de contraste $\hspace{0.1cm}\mathcal{T}_{exp|H_0}\hspace{0.1cm}$ (que es una v.a.) para las muestras de observaciones disponibles de las v.a's de interés.  
 
 Asi que se tiene:
 
-$$T_{boot} = ( T_{exp|H_0}^{(1)}, T_{exp|H_0}^{(2)} ,..., T_{exp|H_0}^{(B)} =$$
+$$T_{boot} = \left( T_{exp|H_0}^{(1)} \hspace{0.05cm},\hspace{0.05cm} T_{exp|H_0}^{(2)} \hspace{0.05cm},\dots ,\hspace{0.05cm} T_{exp|H_0}^{(B)} \right)$$
 
 
-- Se estima el p-valor del contraste con el ASL (achieved significance level), cya definicion depende del tipo de contraste se este cinsiderando, aunque como ejemplo ilustrativo podemos considerar el caso de contraste de cola derecha:
+- Se estima el **p-valor** del contraste con el ASL (achieved significance level), cuya definición depende del tipo de contraste se este considerando.
+
+Si el contraste es de cola derecha:
+
+$$ASL = \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.2cm} / \hspace{0.2cm} T_{exp|H_0}^{(b)} \hspace{0.1cm} \geq \hspace{0.1cm} T_{exp|H_0}  \hspace{0.1cm} \right\rbrace}{B}$$
 
 
-$$ASL = \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.2cm} / \hspace{0.2cm} T_{exp|H_0}^{(b)} \hspace{0.1cm} \geq \hspace{0.1cm} T_{exp|H_0}(X)  \hspace{0.1cm} \right\rbrace}{B}$$
+Si el contraste es cola izquierda:
+
+$$ASL = \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.2cm} / \hspace{0.2cm} T_{exp|H_0}^{(b)} \hspace{0.1cm} \leq \hspace{0.1cm} T_{exp|H_0}  \hspace{0.1cm} \right\rbrace}{B}$$
 
 
-para contraste de cola izquierda seria con menor e igual
 
-para contraste de dos colas seria ASL con mayor igual que T_{exp|H_0}(X) en valor absoluto + el ASL con meenor igual que T_{exp|H_0}(X) en valor absoluto
+Si el contraste es de dos colas:
 
+$$ASL = \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.2cm} / \hspace{0.2cm} T_{exp|H_0}^{(b)} \hspace{0.1cm} \geq \hspace{0.1cm} \left| T_{exp|H_0} \right| \hspace{0.1cm} \right\rbrace}{B} + \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.2cm} / \hspace{0.2cm} T_{exp|H_0}^{(b)} \hspace{0.1cm} \leq \hspace{0.1cm} - \left| T_{exp|H_0} \right| \hspace{0.1cm} \right\rbrace}{B}$$
+
+
+
+
+ 
 Donde:
 
-$T_{exp|H_0}(X)\hspace{0.1cm}$ es la realizacion muestral del estadistico del contrate $\hspace{0.1cm}\mathcal{T}_{exp|H_0}\hspace{0.1cm}$   para la muestra $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de la variable aleatoria de intes $\hspace{0.1cm}\mathcal{X}$.
+$T_{exp|H_0}(X)\hspace{0.1cm}$ es la realización muestral del estadístico del contrate $\hspace{0.1cm}\mathcal{T}_{exp|H_0}\hspace{0.1cm}$   para las muestras disponibles de las v.a's de interés.
 
+ 
 
 <br>
 
 
 
-Es decir, el ASL es la proporción de replicas bootstrap del estadistico del contraste que son mayores o iguales que el valor del estadistico observado con la muestra original. 
 
-Cuanto mayor es el valor del estadistico de contraste para la muestra original mayor es la evidencia que aporta dicha muestra en contra de la hipoteis nula del contraste. 
+Con el **ASL** estamos estimando el **p-valor**, que es la probabilidad de que bajo $H_0$ se encuentre evidencia igual o más contraria a $H_0$  y favorable a $H_1$ que la ya observada en la muestra original. Si esta porbabilidad es **alta**, se ha observado un suceso muy frecuente bajo $H_0$, lo cual no es indicativo de que $H_0$ sea falsa, por tanto no se rechaza $H_0$. Si por el contrario el p-valor es **bajo**, entonces se ha observado un suceso atipico (poco frecuente) bajo $H_0$, lo cual se interpreta como indicios de que $H_0$ es falsa, por tanto se rechaza $H_0$ y se acepta $H_1$. 
 
-El ASL  permite estimar si esta discrepancia observada es fruto del azar derivado del muestreo aleatorio, o por el contrario es una discrepancia significativa que refleja la realidad poblacional.
-
-Con el ASL estamos estimando el p-valor, que es la probabilidad de que bajo H_0 se encuentre evidencia igual o más contraria a H_0 que la ya observada en la muestra original. Si esta porbabilidad es alta, se ha observado un suceso frecuente bajo H_0, lo cual no es indicativo de que H_0 sea falsa. Si por el contrario el p-valor es bajo, entonces se ha observado un suceso atipico (poco frecuente) bajo H_0, lo cual se interpreta como indicios de que H_0 es falsa. 
-
-Siguiendo lo anterior, la regla de decision basada en el p-valor establece que si este es suficentemente bajo podemos rechazar $H_0$
+Siguiendo lo anterior, la regla de decisión basada en el p-valor establece que si el p-valor es suficentemente bajo podemos rechazar $H_0$ en favor de $H_1$
 
 
-Para un nivel de significacion $\alpha$, la regla de decison basada en el p-valor es la siguiente:
+Para un nivel de significación $\alpha$, la regla de decisión basada en el p-valor es la siguiente:
 
-$$Rechazar H_0  \Leftrightarrow  p-valor < \alpha$$
+$$Rechazar H_0  \Leftrightarrow  p-valor < \alpha \\$$
 
-Si estimamos el p-valor con el ASL,  tenemos la siguiente regla de dedcision, para un nivel de significacion $\alpha$ :
+Si estimamos el p-valor con el ASL,  tenemos la siguiente regla de dedcision, para un nivel de significación $\alpha$ :
 
 
 $$Rechazar H_0  \Leftrightarrow  ASL < \alpha$$
@@ -1311,7 +1351,8 @@ $$Rechazar H_0  \Leftrightarrow  ASL < \alpha$$
 
 
 
- 
+<br>
+
 
 ## Contraste bootstrap para la media de una poblacion
 
@@ -1342,8 +1383,14 @@ Exponer cada uno de los contrastes estimando el pvalor con el ASL. Aplicarlo lue
 
 <br>
 
+<br>
+
+# Contrastes de hipotesis basados en permutaciones <a class="anchor" id="1"></a>  
 
 
+<br>
+
+<br>
 
 # Bootstrap en Regresión Lineal 
 
@@ -1423,10 +1470,7 @@ $$\widehat{\sigma}^2_* \hspace{0.1cm}=\hspace{0.1cm} Var(\varepsilon_i^*) \hspac
 Este método consiste en remuestrar con reemplazamiento los pares $z_i = (x_i , y_i)\\$
 
 
-<div class="warning" style='background-color:#FFE8E8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
- 
-<p style='margin-left:1em;'>
+
 
 $\hspace{0.25cm}$ En este caso la muestra bootstrap es la siguiente:
 
@@ -1438,10 +1482,7 @@ $\hspace{0.25cm}$ Donde:
 $$\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} x_j^* = x_i$$
 
 $$\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} y_j^* = y_i$$
-</p>
- 
-</p></span>
-</div>
+
 
 
 

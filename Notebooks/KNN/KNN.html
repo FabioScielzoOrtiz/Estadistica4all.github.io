@@ -2242,9 +2242,416 @@ private_garden_recode
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.concat([X_train , X_new])</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>X.head()</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Y_train.head()</span></code></pre></div>
+<p>382 2.0
+732 1.0
+1888 2.0
+679 0.0
+1004 2.0
+Name: quality_recode, dtype: float64</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Y_new.head()</span></code></pre></div>
+<p>1 2.0
+2 2.0
+3 1.0
+8 1.0
+16 2.0
+Name: quality_recode, dtype: float64</p>
+<p><br></p>
+<p>Importamos la libreria <code>sklearn</code>y los modulos necesarios para aplicar KNN para clasificación supervisada en <code>Python</code></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sklearn</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> NearestNeighbors</span></code></pre></div>
+<p>En la siguiente caja de codigo podemos ver todos los parametros disponibles para la función <code>KNeighborsClassifier</code>, la cual permite implementar el algoritmo KNN para clasificación supervisada.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sklearn.neighbors.KNeighborsClassifier(n_neighbors=10, *, weights=&#39;uniform&#39;, algorithm=&#39;auto&#39;, leaf_size=30, p=2, metric=&#39;minkowski&#39;, metric_params=None, n_jobs=None) </span></span></code></pre></div>
+<p>Fijamos algunos parametros del algoritmo. En concreto usaremos <span class="math inline">\(k=10\)</span> vecinos y la distancia de Minkowski con <span class="math inline">\(p=2\)</span>, es decir, la distancia Euclidea.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>knn_classification <span class="op">=</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span> ,  p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span></code></pre></div>
+<p>Entrenamos el modelo usando los data-frames X_train y Y_train, que contienen observaciones de los predictores y la respuesta, respectivamente.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>knn_classification.fit(X_train, Y_train)</span></code></pre></div>
+<pre><code>KNeighborsClassifier(n_neighbors=10)</code></pre>
+<p>Usando el método <code>predict</code> podemos predecir la respuesta para cada una de las observaciones de los predictores que consideremos. Para ello tenemos que pasarle al método los vectores de observaciones como filas de un array, en este caso esto ya lo tenemos en el data-frame X_new, que contiene las nuevas observaciones de los predictores como filas.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>knn_classification.predict( X_new ) </span></code></pre></div>
+<pre><code>array([2., 2., 2., 1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1., 2.,
+       1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2.,
+       2., 2., 2., 0., 2., 2., 3., 1., 2., 2., 2., 2., 2., 2., 2., 2., 2.,
+       2., 2., 2., 1., 2., 2., 2., 1., 2., 2., 2., 2., 1., 2., 2., 1., 1.,
+       2., 2., 2., 2., 2., 2., 2., 2., 1., 1., 2., 2., 2., 2., 2., 2., 2.,
+       2., 2., 1., 2., 2., 1., 2., 2., 2., 2., 2., 2., 1., 1., 1., 2., 2.,
+       2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1., 2., 2., 2., 2.,
+       1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1., 1., 2., 2.,
+       2., 1., 2., 2., 2., 2., 1., 2., 2., 2., 2., 2., 2., 2., 1., 2., 2.,
+       1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1.,
+       2., 2., 2., 2., 1., 1., 2., 2., 2., 2., 2., 1., 2., 2., 1., 1., 2.,
+       2., 1., 2., 2., 2., 2., 2., 1., 2., 1., 2., 2., 2., 2., 2., 2., 2.,
+       2., 1., 2., 2., 2., 3., 1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2.,
+       3., 1., 2., 2., 2., 2., 2., 3., 2., 2., 3., 2., 2., 2., 2., 1., 2.,
+       1., 1., 2., 2., 1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1.,
+       2., 2., 2., 2., 2., 1., 2., 2., 2., 1., 2., 2., 2., 2., 0., 2., 2.,
+       2., 1., 2., 0., 2., 2., 1., 2., 1., 2., 2., 2., 1., 1., 1., 2., 2.,
+       2., 1., 2., 2., 2., 2., 1., 2., 2., 2., 2., 2., 1., 2., 2., 2., 1.,
+       1., 1., 2., 2., 2., 2., 1., 2., 2., 1., 2., 1., 2., 2., 2., 2., 2.,
+       2., 2., 2., 1., 2., 2., 2., 2., 1., 2., 2., 2., 1., 2., 2., 2., 2.,
+       2., 2., 2., 2., 2., 2., 1., 2., 2., 2., 1., 2., 2., 2., 1., 2., 2.,
+       2., 2., 1., 1., 2., 2., 2., 1., 2., 2., 1., 2., 2., 1., 2., 1., 2.,
+       2., 2., 2., 2., 2., 2., 1.])</code></pre>
+<p>Como disponemos de los valores reales de la respuesta para las nuevas obserciones de los predictores, podemos calcular la tasa de acierto en la clasificación como la proporción de clasificaciones correctas :</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>TA <span class="op">=</span> <span class="bu">sum</span>( knn_classification.predict( X_new )  <span class="op">==</span> Y_new.reset_index().quality_recode ) <span class="op">/</span> <span class="bu">len</span>(Y_new)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>TA</span></code></pre></div>
+<pre><code>0.5249343832020997</code></pre>
+<p><br></p>
+<p>Podemos probar el algoritmo con otras funciones de distancia.</p>
+<p>Por ejemplo con la distancia de Minkowski con <span class="math inline">\(p=1\)</span> (distancia Manhattan):</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>knn_classification <span class="op">=</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span> , p<span class="op">=</span><span class="dv">1</span>,  metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>knn_classification.fit(X_train, Y_train)</span></code></pre></div>
+<p>Calculamos la tasa de acierto de la clasificación:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>TA <span class="op">=</span> <span class="bu">sum</span>( knn_classification.predict( X_new )  <span class="op">==</span> Y_new.reset_index().quality_recode ) <span class="op">/</span> <span class="bu">len</span>(Y_new)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>TA</span></code></pre></div>
+<pre><code>0.5275590551181102</code></pre>
+<p><br></p>
+<p>Probamos ahora con la distancia coseno:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>knn_classification <span class="op">=</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span> ,   metric<span class="op">=</span><span class="st">&#39;cosine&#39;</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>knn_classification.fit(X_train, Y_train)</span></code></pre></div>
+<p>Calculamos la tasa de acierto de la clasificación:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>TA <span class="op">=</span> <span class="bu">sum</span>( knn_classification.predict( X_new )  <span class="op">==</span> Y_new.reset_index().quality_recode ) <span class="op">/</span> <span class="bu">len</span>(Y_new)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>TA</span></code></pre></div>
+<pre><code>0.5643044619422573</code></pre>
+<p><br></p>
+</div>
+<div id="knn-para-clasificación-supervisada-programado-desde-cero-con-python" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> KNN para clasificación supervisada programado desde “cero” con <code>Python</code> <a class="anchor" id="4"></a></h1>
+<p>Vamos a crear una función que replique el algoritmo KNN para clasificación supervisada que anteriormente fue descrito. Este es un buen ejercicio para entender mejor como funciona realmente el algoritmo, y para practicar nuestra programación.</p>
+<p>Primero definimos algunas de las funciones de distancia que usará nuestro algoritmo:</p>
+<p>Definimos la distancia Euclidea y la matriz de distancias Euclideas:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Euclidea(x_i, x_r):</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>        Dist_Euclidea <span class="op">=</span> ( ( x_i <span class="op">-</span> x_r )<span class="op">**</span><span class="dv">2</span> ).<span class="bu">sum</span>()</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>        Dist_Euclidea <span class="op">=</span> np.sqrt(Dist_Euclidea)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Dist_Euclidea</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Euclidea(Data):</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Paso previo necesario si Data es pd.DataFrame  --&gt;  Data = Data.to_numpy()</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Euclidea(Data[i,:] , Data[r,:])   </span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
+<p><br></p>
+<p>Definimos la distancia Minkowski y la matriz de distancias Minkowski:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Minkowski(x_i, x_r, q):</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    Dist_Minkowski <span class="op">=</span> ( ( ( <span class="bu">abs</span>( x_i <span class="op">-</span> x_r) )<span class="op">**</span>q ).<span class="bu">sum</span>() )<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span>q)</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Dist_Minkowski</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Minkowski(Data, q):</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Paso previo necesario si Data es pd.DataFrame  --&gt;  Data = Data.to_numpy()</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Minkowski(Data[i,:] , Data[r,:], q)   </span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
+<p><br></p>
+<p>Definimos la distancia Canberra y la matriz de distancias Canberra:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Canberra(x_i, x_r):</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    numerator <span class="op">=</span>  <span class="bu">abs</span>( x_i <span class="op">-</span> x_r )</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    denominator <span class="op">=</span>  ( <span class="bu">abs</span>(x_i) <span class="op">+</span> <span class="bu">abs</span>(x_r) )</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    numerator<span class="op">=</span>np.array([numerator], dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    denominator<span class="op">=</span>np.array([denominator], dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The following code is to eliminate zero division problems</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>    Dist_Canberra <span class="op">=</span> ( np.divide( numerator , denominator , out<span class="op">=</span>np.zeros_like(numerator), where<span class="op">=</span>denominator<span class="op">!=</span><span class="dv">0</span>) ).<span class="bu">sum</span>() </span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Dist_Canberra</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Canberra(Data):</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Paso previo necesario si Data es pd.DataFrame  --&gt;  Data = Data.to_numpy()</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Canberra(Data[i,:] , Data[r,:])   </span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
+<p><br></p>
+<p>Definimos la distancia Mahalanobis y la matriz de distancias de Mahalanobis:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Mahalanobis_2(x_i, x_r, S_inv):  <span class="co"># Más eficiente que la anterior</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># All the columns of Data must be type = &#39;float&#39; or &#39;int&#39; (specially not &#39;object&#39;), in other case we will find </span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dimensional problems when Python compute   x @ S_inv @ x.T</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> (x_i <span class="op">-</span> x_r)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># x = np.array([x]) </span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># En este caso este paso no será necesario por el tipo de estructura Python (una lista) que va a ser un medoid en el</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># algoritmo que a continuación definiremos. De hecho si este paso no se suprimer salta un error al usar la distancia</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># de Mahalanobis, puesto que la operacion x @ S_inv @ x.T no está bien definida.</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> np.sqrt( x <span class="op">@</span> S_inv <span class="op">@</span> x.T )  <span class="co"># x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> <span class="bu">float</span>(Dist_Maha)</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Dist_Maha</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Mahalanobis_3(x, S_inv):  <span class="co"># Más eficiente que la anterior</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># All the columns of Data must be type = &#39;float&#39; or &#39;int&#39; (specially not &#39;object&#39;), in other case we will find </span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dimensional problems when Python compute   x @ S_inv @ x.T</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># x = (x_i - x_r)</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># x = np.array([x]) # necessary step to transpose a 1D array</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> np.sqrt( x <span class="op">@</span> S_inv <span class="op">@</span> x.T )  <span class="co"># x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )</span></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> <span class="bu">float</span>(Dist_Maha)</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Dist_Maha</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Mahalanobis_3(Data):</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Paso previo necesario si Data es pd.DataFrame  --&gt;  Data = Data.to_numpy()</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    S_inv<span class="op">=</span>np.linalg.inv( np.cov(Data , rowvar<span class="op">=</span><span class="va">False</span>) )</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Mahalanobis_3(x <span class="op">=</span> np.array([Data[i,:] <span class="op">-</span> Data[r,:]]) , S_inv<span class="op">=</span>S_inv ) </span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
+<p><br></p>
+<p>Definimos la matriz de distancias de Gower:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> a_b_c_d_Matrix(Data):</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> Data</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> X <span class="op">@</span> X.T</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> X.shape[<span class="dv">0</span>]</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> X.shape[<span class="dv">1</span>]</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>    ones_matrix <span class="op">=</span> np.ones((n, p)) </span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> (ones_matrix <span class="op">-</span> X) <span class="op">@</span> X.T</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> b.T</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> (ones_matrix <span class="op">-</span> X) <span class="op">@</span> (ones_matrix <span class="op">-</span> X).T</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a , b , c , d , p</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> alpha(x_i, x_r):</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    alpha <span class="op">=</span> <span class="bu">sum</span>(x_i <span class="op">==</span> x_r)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(alpha)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Gower_Similarity(Data, p1, p2, p3 ):</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Data tiene que ser un numpy array tal que:</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># las primeras p1 tiene que ser variables cuantitativas, </span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># las siguientes p2 binarias y las restantes p3 multicales</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Si Data no contiene variables cuantitativas --&gt; p1=0</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Si Data no contiene variables binarias --&gt; p2=0</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Si Data no contiene variables multiclase --&gt; p3=0</span></span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>    G_vector <span class="op">=</span> np.repeat(<span class="fl">0.5</span>, p1)</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, p1):</span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a>        G_vector[k] <span class="op">=</span> Data[:,k].<span class="bu">max</span>() <span class="op">-</span> Data[:,k].<span class="bu">min</span>()</span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>    ones <span class="op">=</span> np.repeat(<span class="dv">1</span>, p1)</span>
+<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a>    Quant_Data <span class="op">=</span> Data[: , <span class="dv">0</span>:p1]</span>
+<span id="cb36-28"><a href="#cb36-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-29"><a href="#cb36-29" aria-hidden="true" tabindex="-1"></a>    Binary_Data <span class="op">=</span> Data[: , (p1):(p1<span class="op">+</span>p2)]</span>
+<span id="cb36-30"><a href="#cb36-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-31"><a href="#cb36-31" aria-hidden="true" tabindex="-1"></a>    Multiple_Data <span class="op">=</span> Data[: , (p1<span class="op">+</span>p2):(p1<span class="op">+</span>p2<span class="op">+</span>p3) ]</span>
+<span id="cb36-32"><a href="#cb36-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-33"><a href="#cb36-33" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
+<span id="cb36-34"><a href="#cb36-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-35"><a href="#cb36-35" aria-hidden="true" tabindex="-1"></a>    a, b, c, d, p <span class="op">=</span> a_b_c_d_Matrix(Binary_Data)</span>
+<span id="cb36-36"><a href="#cb36-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-37"><a href="#cb36-37" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
+<span id="cb36-38"><a href="#cb36-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-39"><a href="#cb36-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb36-40"><a href="#cb36-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-41"><a href="#cb36-41" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb36-42"><a href="#cb36-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-43"><a href="#cb36-43" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> i <span class="op">&gt;</span> r :</span>
+<span id="cb36-44"><a href="#cb36-44" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb36-45"><a href="#cb36-45" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb36-46"><a href="#cb36-46" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb36-47"><a href="#cb36-47" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> i <span class="op">==</span> r :</span>
+<span id="cb36-48"><a href="#cb36-48" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb36-49"><a href="#cb36-49" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb36-50"><a href="#cb36-50" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb36-51"><a href="#cb36-51" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span> :</span>
+<span id="cb36-52"><a href="#cb36-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-53"><a href="#cb36-53" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Calculo de la distancia de Gower entre las observaciones x_i y x_r</span></span>
+<span id="cb36-54"><a href="#cb36-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-55"><a href="#cb36-55" aria-hidden="true" tabindex="-1"></a>                numerator_part_1 <span class="op">=</span> ( ones <span class="op">-</span> ( <span class="bu">abs</span>(Quant_Data[i,:] <span class="op">-</span> Quant_Data[r,:]) <span class="op">/</span> G_vector ) ).<span class="bu">sum</span>() </span>
+<span id="cb36-56"><a href="#cb36-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-57"><a href="#cb36-57" aria-hidden="true" tabindex="-1"></a>                numerator_part_2 <span class="op">=</span> a[i,r] <span class="op">+</span> alpha(Multiple_Data[i,:], Multiple_Data[r,:])</span>
+<span id="cb36-58"><a href="#cb36-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-59"><a href="#cb36-59" aria-hidden="true" tabindex="-1"></a>                numerator <span class="op">=</span> numerator_part_1 <span class="op">+</span> numerator_part_2</span>
+<span id="cb36-60"><a href="#cb36-60" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb36-61"><a href="#cb36-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-62"><a href="#cb36-62" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> p1 <span class="op">+</span> (p2 <span class="op">-</span> d[i,r]) <span class="op">+</span> p3 <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb36-63"><a href="#cb36-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-64"><a href="#cb36-64" aria-hidden="true" tabindex="-1"></a>                    M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb36-65"><a href="#cb36-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-66"><a href="#cb36-66" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
+<span id="cb36-67"><a href="#cb36-67" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb36-68"><a href="#cb36-68" aria-hidden="true" tabindex="-1"></a>                    denominator <span class="op">=</span> p1 <span class="op">+</span> (p2 <span class="op">-</span> d[i,r]) <span class="op">+</span> p3</span>
+<span id="cb36-69"><a href="#cb36-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-70"><a href="#cb36-70" aria-hidden="true" tabindex="-1"></a>                    M[i,r] <span class="op">=</span> numerator <span class="op">/</span> denominator</span>
+<span id="cb36-71"><a href="#cb36-71" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb36-72"><a href="#cb36-72" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb36-73"><a href="#cb36-73" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M  </span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Gower_Distance(Data, p1, p2, p3 ):</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> Matrix_Gower_Similarity(Data, p1, p2, p3)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> M <span class="op">+</span> M.T <span class="op">-</span> np.diag(np.repeat(<span class="dv">1</span> , <span class="bu">len</span>(M)), k<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> np.sqrt( <span class="dv">1</span> <span class="op">-</span> M )</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M</span></code></pre></div>
+<p><br></p>
+<hr />
+<p><br></p>
+<p>Definimos la función KNN con la que replicamos el algoritmo KNN para clasificación supervisada que hemos expuesto anteriormente:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> KNN(Distance_Matrix_New_Data , k, X_train, Y_train ) :</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># k es el hiper-parametro del algoritmo KNN.</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># &#39;Distance_Matrix_New_Data&#39; debe contenere las distancias entre las nuevas observaciones de los predictores y las de train.</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Su fila i-esima debe contener las distancias entre la i-esima nueva observacion de los predictores y las observaciones de train de los predictores.</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># X_train tiene que ser un data-frame con las observaciones de los predictores con las que se va a entrenar el modelo.</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Y_train tiene que ser un numpy array que contenga las observaciones de la respuesta con las que se va a entrenar el modelo.</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>    Y_predict_x_new_i_LIST <span class="op">=</span> []</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(Distance_Matrix_New_Data)):</span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>        distancias_x_new_i <span class="op">=</span> pd.DataFrame({<span class="st">&#39;id_x_train&#39;</span>: X_train.index  , <span class="st">&#39;distancias&#39;</span>: Distance_Matrix_New_Data[i,:]})</span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>        distancias_x_new_i_sort <span class="op">=</span> distancias_x_new_i.sort_values(by<span class="op">=</span>[<span class="st">&quot;distancias&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>        knn_x_new_i <span class="op">=</span> distancias_x_new_i_sort.iloc[<span class="dv">0</span>:k , :]</span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a>        categorias_knn_x_new_i <span class="op">=</span> []</span>
+<span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb38-26"><a href="#cb38-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> knn_x_new_i.iloc[:,<span class="dv">0</span>]:</span>
+<span id="cb38-27"><a href="#cb38-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-28"><a href="#cb38-28" aria-hidden="true" tabindex="-1"></a>            categorias_knn_x_new_i.append(Y_train[j])</span>
+<span id="cb38-29"><a href="#cb38-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-30"><a href="#cb38-30" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb38-31"><a href="#cb38-31" aria-hidden="true" tabindex="-1"></a>        unique, counts <span class="op">=</span> np.unique(categorias_knn_x_new_i , return_counts<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb38-32"><a href="#cb38-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-33"><a href="#cb38-33" aria-hidden="true" tabindex="-1"></a>        unique_Y , counts_Y <span class="op">=</span> np.unique(Y_train , return_counts<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb38-34"><a href="#cb38-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-35"><a href="#cb38-35" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb38-36"><a href="#cb38-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(unique) <span class="op">==</span> <span class="bu">len</span>(unique_Y) :</span>
+<span id="cb38-37"><a href="#cb38-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-38"><a href="#cb38-38" aria-hidden="true" tabindex="-1"></a>            proporciones_categorias_knn_x_new_i <span class="op">=</span> pd.DataFrame({<span class="st">&#39;prop_categoria&#39;</span>: counts<span class="op">/</span>k, <span class="st">&#39;categoria&#39;</span>: unique_Y })</span>
+<span id="cb38-39"><a href="#cb38-39" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb38-40"><a href="#cb38-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="bu">len</span>(unique) <span class="op">&lt;</span> <span class="bu">len</span>(unique_Y) :</span>
+<span id="cb38-41"><a href="#cb38-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-42"><a href="#cb38-42" aria-hidden="true" tabindex="-1"></a>            proporciones_categorias_knn_x_new_i <span class="op">=</span> pd.DataFrame({<span class="st">&#39;prop_categoria&#39;</span>: counts<span class="op">/</span>k, <span class="st">&#39;categoria&#39;</span>: unique })</span>
+<span id="cb38-43"><a href="#cb38-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-44"><a href="#cb38-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-45"><a href="#cb38-45" aria-hidden="true" tabindex="-1"></a>        Y_predict_x_new_i <span class="op">=</span> proporciones_categorias_knn_x_new_i.sort_values(by<span class="op">=</span>[<span class="st">&quot;prop_categoria&quot;</span>], ascending<span class="op">=</span><span class="va">False</span>).iloc[<span class="dv">0</span>,:][<span class="st">&#39;categoria&#39;</span>]</span>
+<span id="cb38-46"><a href="#cb38-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-47"><a href="#cb38-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-48"><a href="#cb38-48" aria-hidden="true" tabindex="-1"></a>        Y_predict_x_new_i_LIST.append(Y_predict_x_new_i)</span>
+<span id="cb38-49"><a href="#cb38-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-50"><a href="#cb38-50" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb38-51"><a href="#cb38-51" aria-hidden="true" tabindex="-1"></a>    df_predictions <span class="op">=</span> pd.DataFrame({<span class="st">&#39;id_x_new&#39;</span>:<span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(Distance_Matrix_New_Data)) , <span class="st">&#39;Y_predict&#39;</span>: Y_predict_x_new_i_LIST})</span>
+<span id="cb38-52"><a href="#cb38-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-53"><a href="#cb38-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df_predictions</span></code></pre></div>
+<p>Probaremos la función con la distancia de Gower. Para ello necesitamos calcular la matriz de distancias de Gower entre las nuevas observaciones y las observaciones de entrenamiento de los predictores.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.concat([X_train , X_new])</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>X.head()</span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -2401,411 +2808,6 @@ private_garden_recode
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Y_train.head()</span></code></pre></div>
-<p>382 2.0
-732 1.0
-1888 2.0
-679 0.0
-1004 2.0
-Name: quality_recode, dtype: float64</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Y_new.head()</span></code></pre></div>
-<p>1 2.0
-2 2.0
-3 1.0
-8 1.0
-16 2.0
-Name: quality_recode, dtype: float64</p>
-<p><br></p>
-<p>Importamos la libreria <code>sklearn</code>y los modulos necesarios para aplicar KNN para clasificación supervisada en <code>Python</code></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sklearn</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> NearestNeighbors</span></code></pre></div>
-<p>En la siguiente caja de codigo podemos ver todos los parametros disponibles para la función <code>KNeighborsClassifier</code>, la cual permite implementar el algoritmo KNN para clasificación supervisada.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sklearn.neighbors.KNeighborsClassifier(n_neighbors=10, *, weights=&#39;uniform&#39;, algorithm=&#39;auto&#39;, leaf_size=30, p=2, metric=&#39;minkowski&#39;, metric_params=None, n_jobs=None) </span></span></code></pre></div>
-<p>Fijamos algunos parametros del algoritmo. En concreto usaremos <span class="math inline">\(k=10\)</span> vecinos y la distancia de Minkowski con <span class="math inline">\(p=2\)</span>, es decir, la distancia Euclidea.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>knn_classification <span class="op">=</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span> ,  p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span></code></pre></div>
-<p>Entrenamos el modelo usando los data-frames X_train y Y_train, que contienen observaciones de los predictores y la respuesta, respectivamente.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>knn_classification.fit(X_train, Y_train)</span></code></pre></div>
-<pre><code>KNeighborsClassifier(n_neighbors=10)</code></pre>
-<p>Usando el método <code>predict</code> podemos predecir la respuesta para cada una de las observaciones de los predictores que consideremos. Para ello tenemos que pasarle al método los vectores de observaciones como filas de un array, en este caso esto ya lo tenemos en el data-frame X_new, que contiene las nuevas observaciones de los predictores como filas.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>knn_classification.predict( X_new ) </span></code></pre></div>
-<pre><code>array([2., 2., 2., 1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1., 2.,
-       1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2.,
-       2., 2., 2., 0., 2., 2., 3., 1., 2., 2., 2., 2., 2., 2., 2., 2., 2.,
-       2., 2., 2., 1., 2., 2., 2., 1., 2., 2., 2., 2., 1., 2., 2., 1., 1.,
-       2., 2., 2., 2., 2., 2., 2., 2., 1., 1., 2., 2., 2., 2., 2., 2., 2.,
-       2., 2., 1., 2., 2., 1., 2., 2., 2., 2., 2., 2., 1., 1., 1., 2., 2.,
-       2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1., 2., 2., 2., 2.,
-       1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1., 1., 2., 2.,
-       2., 1., 2., 2., 2., 2., 1., 2., 2., 2., 2., 2., 2., 2., 1., 2., 2.,
-       1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1.,
-       2., 2., 2., 2., 1., 1., 2., 2., 2., 2., 2., 1., 2., 2., 1., 1., 2.,
-       2., 1., 2., 2., 2., 2., 2., 1., 2., 1., 2., 2., 2., 2., 2., 2., 2.,
-       2., 1., 2., 2., 2., 3., 1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2.,
-       3., 1., 2., 2., 2., 2., 2., 3., 2., 2., 3., 2., 2., 2., 2., 1., 2.,
-       1., 1., 2., 2., 1., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 2., 1.,
-       2., 2., 2., 2., 2., 1., 2., 2., 2., 1., 2., 2., 2., 2., 0., 2., 2.,
-       2., 1., 2., 0., 2., 2., 1., 2., 1., 2., 2., 2., 1., 1., 1., 2., 2.,
-       2., 1., 2., 2., 2., 2., 1., 2., 2., 2., 2., 2., 1., 2., 2., 2., 1.,
-       1., 1., 2., 2., 2., 2., 1., 2., 2., 1., 2., 1., 2., 2., 2., 2., 2.,
-       2., 2., 2., 1., 2., 2., 2., 2., 1., 2., 2., 2., 1., 2., 2., 2., 2.,
-       2., 2., 2., 2., 2., 2., 1., 2., 2., 2., 1., 2., 2., 2., 1., 2., 2.,
-       2., 2., 1., 1., 2., 2., 2., 1., 2., 2., 1., 2., 2., 1., 2., 1., 2.,
-       2., 2., 2., 2., 2., 2., 1.])</code></pre>
-<p>Como disponemos de los valores reales de la respuesta para las nuevas obserciones de los predictores, podemos calcular la tasa de acierto en la clasificación como la proporción de clasificaciones correctas :</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>TA <span class="op">=</span> <span class="bu">sum</span>( knn_classification.predict( X_new )  <span class="op">==</span> Y_new.reset_index().quality_recode ) <span class="op">/</span> <span class="bu">len</span>(Y_new)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>TA</span></code></pre></div>
-<pre><code>0.5249343832020997</code></pre>
-<p><br></p>
-<p>Podemos probar el algoritmo con otras funciones de distancia.</p>
-<p>Por ejemplo con la distancia de Minkowski con <span class="math inline">\(p=1\)</span> (distancia Manhattan):</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>knn_classification <span class="op">=</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span> , p<span class="op">=</span><span class="dv">1</span>,  metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>knn_classification.fit(X_train, Y_train)</span></code></pre></div>
-<p>Calculamos la tasa de acierto de la clasificación:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>TA <span class="op">=</span> <span class="bu">sum</span>( knn_classification.predict( X_new )  <span class="op">==</span> Y_new.reset_index().quality_recode ) <span class="op">/</span> <span class="bu">len</span>(Y_new)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>TA</span></code></pre></div>
-<pre><code>0.5275590551181102</code></pre>
-<p><br></p>
-<p>Probamos ahora con la distancia coseno:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>knn_classification <span class="op">=</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span> ,   metric<span class="op">=</span><span class="st">&#39;cosine&#39;</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>knn_classification.fit(X_train, Y_train)</span></code></pre></div>
-<p>Calculamos la tasa de acierto de la clasificación:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>TA <span class="op">=</span> <span class="bu">sum</span>( knn_classification.predict( X_new )  <span class="op">==</span> Y_new.reset_index().quality_recode ) <span class="op">/</span> <span class="bu">len</span>(Y_new)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>TA</span></code></pre></div>
-<pre><code>0.5643044619422573</code></pre>
-<p><br></p>
-</div>
-<div id="knn-para-clasificación-supervisada-programado-desde-cero-con-python" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> KNN para clasificación supervisada programado desde “cero” con <code>Python</code> <a class="anchor" id="4"></a></h1>
-<p>Vamos a crear una función que replique el algoritmo KNN para clasificación supervisada que anteriormente fue descrito. Este es un buen ejercicio para entender mejor como funciona realmente el algoritmo, y para practicar nuestra programación.</p>
-<p>Primero definimos algunas de las funciones de distancia que usará nuestro algoritmo:</p>
-<p>Definimos la distancia Euclidea y la matriz de distancias Euclideas:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Euclidea(x_i, x_r):</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>        Dist_Euclidea <span class="op">=</span> ( ( x_i <span class="op">-</span> x_r )<span class="op">**</span><span class="dv">2</span> ).<span class="bu">sum</span>()</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>        Dist_Euclidea <span class="op">=</span> np.sqrt(Dist_Euclidea)</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Dist_Euclidea</span></code></pre></div>
-<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Euclidea(Data):</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Paso previo necesario si Data es pd.DataFrame  --&gt;  Data = Data.to_numpy()</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>               </span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Euclidea(Data[i,:] , Data[r,:])   </span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>                      </span>
-<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
-<p><br></p>
-<p>Definimos la distancia Minkowski y la matriz de distancias Minkowski:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Minkowski(x_i, x_r, q):</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    Dist_Minkowski <span class="op">=</span> ( ( ( <span class="bu">abs</span>( x_i <span class="op">-</span> x_r) )<span class="op">**</span>q ).<span class="bu">sum</span>() )<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span>q)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Dist_Minkowski</span></code></pre></div>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Minkowski(Data, q):</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Paso previo necesario si Data es pd.DataFrame  --&gt;  Data = Data.to_numpy()</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>               </span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
-<span id="cb29-19"><a href="#cb29-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-20"><a href="#cb29-20" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Minkowski(Data[i,:] , Data[r,:], q)   </span>
-<span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>                      </span>
-<span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
-<p><br></p>
-<p>Definimos la distancia Canberra y la matriz de distancias Canberra:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Canberra(x_i, x_r):</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    numerator <span class="op">=</span>  <span class="bu">abs</span>( x_i <span class="op">-</span> x_r )</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    denominator <span class="op">=</span>  ( <span class="bu">abs</span>(x_i) <span class="op">+</span> <span class="bu">abs</span>(x_r) )</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>       </span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    numerator<span class="op">=</span>np.array([numerator], dtype<span class="op">=</span><span class="bu">float</span>)</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    denominator<span class="op">=</span>np.array([denominator], dtype<span class="op">=</span><span class="bu">float</span>)</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The following code is to eliminate zero division problems</span></span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    Dist_Canberra <span class="op">=</span> ( np.divide( numerator , denominator , out<span class="op">=</span>np.zeros_like(numerator), where<span class="op">=</span>denominator<span class="op">!=</span><span class="dv">0</span>) ).<span class="bu">sum</span>() </span>
-<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Dist_Canberra</span></code></pre></div>
-<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Canberra(Data):</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Paso previo necesario si Data es pd.DataFrame  --&gt;  Data = Data.to_numpy()</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>               </span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
-<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Canberra(Data[i,:] , Data[r,:])   </span>
-<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>                      </span>
-<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
-<p><br></p>
-<p>Definimos la distancia Mahalanobis y la matriz de distancias de Mahalanobis:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Mahalanobis_2(x_i, x_r, S_inv):  <span class="co"># Más eficiente que la anterior</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># All the columns of Data must be type = &#39;float&#39; or &#39;int&#39; (specially not &#39;object&#39;), in other case we will find </span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dimensional problems when Python compute   x @ S_inv @ x.T</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> (x_i <span class="op">-</span> x_r)</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># x = np.array([x]) </span></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># En este caso este paso no será necesario por el tipo de estructura Python (una lista) que va a ser un medoid en el</span></span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># algoritmo que a continuación definiremos. De hecho si este paso no se suprimer salta un error al usar la distancia</span></span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># de Mahalanobis, puesto que la operacion x @ S_inv @ x.T no está bien definida.</span></span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> np.sqrt( x <span class="op">@</span> S_inv <span class="op">@</span> x.T )  <span class="co"># x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )</span></span>
-<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> <span class="bu">float</span>(Dist_Maha)</span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Dist_Maha</span></code></pre></div>
-<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Mahalanobis_3(x, S_inv):  <span class="co"># Más eficiente que la anterior</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># All the columns of Data must be type = &#39;float&#39; or &#39;int&#39; (specially not &#39;object&#39;), in other case we will find </span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dimensional problems when Python compute   x @ S_inv @ x.T</span></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># x = (x_i - x_r)</span></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># x = np.array([x]) # necessary step to transpose a 1D array</span></span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> np.sqrt( x <span class="op">@</span> S_inv <span class="op">@</span> x.T )  <span class="co"># x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )</span></span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> <span class="bu">float</span>(Dist_Maha)</span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Dist_Maha</span></code></pre></div>
-<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Mahalanobis_3(Data):</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Paso previo necesario si Data es pd.DataFrame  --&gt;  Data = Data.to_numpy()</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    S_inv<span class="op">=</span>np.linalg.inv( np.cov(Data , rowvar<span class="op">=</span><span class="va">False</span>) )</span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
-<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
-<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>               </span>
-<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
-<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Mahalanobis_3(x <span class="op">=</span> np.array([Data[i,:] <span class="op">-</span> Data[r,:]]) , S_inv<span class="op">=</span>S_inv ) </span>
-<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>                      </span>
-<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
-<p><br></p>
-<p>Definimos la matriz de distancias de Gower:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> a_b_c_d_Matrix(Data):</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> Data</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> X <span class="op">@</span> X.T</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> X.shape[<span class="dv">0</span>]</span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> X.shape[<span class="dv">1</span>]</span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>    ones_matrix <span class="op">=</span> np.ones((n, p)) </span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> (ones_matrix <span class="op">-</span> X) <span class="op">@</span> X.T</span>
-<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> b.T</span>
-<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>    d <span class="op">=</span> (ones_matrix <span class="op">-</span> X) <span class="op">@</span> (ones_matrix <span class="op">-</span> X).T</span>
-<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a , b , c , d , p</span></code></pre></div>
-<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> alpha(x_i, x_r):</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    alpha <span class="op">=</span> <span class="bu">sum</span>(x_i <span class="op">==</span> x_r)</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(alpha)</span></code></pre></div>
-<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Gower_Similarity(Data, p1, p2, p3 ):</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Data tiene que ser un numpy array tal que:</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># las primeras p1 tiene que ser variables cuantitativas, </span></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># las siguientes p2 binarias y las restantes p3 multicales</span></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Si Data no contiene variables cuantitativas --&gt; p1=0</span></span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Si Data no contiene variables binarias --&gt; p2=0</span></span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Si Data no contiene variables multiclase --&gt; p3=0</span></span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
-<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
-<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
-<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>    G_vector <span class="op">=</span> np.repeat(<span class="fl">0.5</span>, p1)</span>
-<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, p1):</span>
-<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a>        G_vector[k] <span class="op">=</span> Data[:,k].<span class="bu">max</span>() <span class="op">-</span> Data[:,k].<span class="bu">min</span>()</span>
-<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
-<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>    ones <span class="op">=</span> np.repeat(<span class="dv">1</span>, p1)</span>
-<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-27"><a href="#cb37-27" aria-hidden="true" tabindex="-1"></a>    Quant_Data <span class="op">=</span> Data[: , <span class="dv">0</span>:p1]</span>
-<span id="cb37-28"><a href="#cb37-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-29"><a href="#cb37-29" aria-hidden="true" tabindex="-1"></a>    Binary_Data <span class="op">=</span> Data[: , (p1):(p1<span class="op">+</span>p2)]</span>
-<span id="cb37-30"><a href="#cb37-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-31"><a href="#cb37-31" aria-hidden="true" tabindex="-1"></a>    Multiple_Data <span class="op">=</span> Data[: , (p1<span class="op">+</span>p2):(p1<span class="op">+</span>p2<span class="op">+</span>p3) ]</span>
-<span id="cb37-32"><a href="#cb37-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-33"><a href="#cb37-33" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
-<span id="cb37-34"><a href="#cb37-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-35"><a href="#cb37-35" aria-hidden="true" tabindex="-1"></a>    a, b, c, d, p <span class="op">=</span> a_b_c_d_Matrix(Binary_Data)</span>
-<span id="cb37-36"><a href="#cb37-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-37"><a href="#cb37-37" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
-<span id="cb37-38"><a href="#cb37-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-39"><a href="#cb37-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
-<span id="cb37-40"><a href="#cb37-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-41"><a href="#cb37-41" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
-<span id="cb37-42"><a href="#cb37-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-43"><a href="#cb37-43" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> i <span class="op">&gt;</span> r :</span>
-<span id="cb37-44"><a href="#cb37-44" aria-hidden="true" tabindex="-1"></a>               </span>
-<span id="cb37-45"><a href="#cb37-45" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb37-46"><a href="#cb37-46" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb37-47"><a href="#cb37-47" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> i <span class="op">==</span> r :</span>
-<span id="cb37-48"><a href="#cb37-48" aria-hidden="true" tabindex="-1"></a>               </span>
-<span id="cb37-49"><a href="#cb37-49" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb37-50"><a href="#cb37-50" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb37-51"><a href="#cb37-51" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span> :</span>
-<span id="cb37-52"><a href="#cb37-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-53"><a href="#cb37-53" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Calculo de la distancia de Gower entre las observaciones x_i y x_r</span></span>
-<span id="cb37-54"><a href="#cb37-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-55"><a href="#cb37-55" aria-hidden="true" tabindex="-1"></a>                numerator_part_1 <span class="op">=</span> ( ones <span class="op">-</span> ( <span class="bu">abs</span>(Quant_Data[i,:] <span class="op">-</span> Quant_Data[r,:]) <span class="op">/</span> G_vector ) ).<span class="bu">sum</span>() </span>
-<span id="cb37-56"><a href="#cb37-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-57"><a href="#cb37-57" aria-hidden="true" tabindex="-1"></a>                numerator_part_2 <span class="op">=</span> a[i,r] <span class="op">+</span> alpha(Multiple_Data[i,:], Multiple_Data[r,:])</span>
-<span id="cb37-58"><a href="#cb37-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-59"><a href="#cb37-59" aria-hidden="true" tabindex="-1"></a>                numerator <span class="op">=</span> numerator_part_1 <span class="op">+</span> numerator_part_2</span>
-<span id="cb37-60"><a href="#cb37-60" aria-hidden="true" tabindex="-1"></a>                </span>
-<span id="cb37-61"><a href="#cb37-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-62"><a href="#cb37-62" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> p1 <span class="op">+</span> (p2 <span class="op">-</span> d[i,r]) <span class="op">+</span> p3 <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb37-63"><a href="#cb37-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-64"><a href="#cb37-64" aria-hidden="true" tabindex="-1"></a>                    M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb37-65"><a href="#cb37-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-66"><a href="#cb37-66" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
-<span id="cb37-67"><a href="#cb37-67" aria-hidden="true" tabindex="-1"></a>                    </span>
-<span id="cb37-68"><a href="#cb37-68" aria-hidden="true" tabindex="-1"></a>                    denominator <span class="op">=</span> p1 <span class="op">+</span> (p2 <span class="op">-</span> d[i,r]) <span class="op">+</span> p3</span>
-<span id="cb37-69"><a href="#cb37-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-70"><a href="#cb37-70" aria-hidden="true" tabindex="-1"></a>                    M[i,r] <span class="op">=</span> numerator <span class="op">/</span> denominator</span>
-<span id="cb37-71"><a href="#cb37-71" aria-hidden="true" tabindex="-1"></a>                      </span>
-<span id="cb37-72"><a href="#cb37-72" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb37-73"><a href="#cb37-73" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M  </span></code></pre></div>
-<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Gower_Distance(Data, p1, p2, p3 ):</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> Matrix_Gower_Similarity(Data, p1, p2, p3)</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> M <span class="op">+</span> M.T <span class="op">-</span> np.diag(np.repeat(<span class="dv">1</span> , <span class="bu">len</span>(M)), k<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> np.sqrt( <span class="dv">1</span> <span class="op">-</span> M )</span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M</span></code></pre></div>
-<p><br></p>
-<p>Definimos la función KNN con la que replicamos el algoritmo KNN para clasificación supervisada que hemos expuesto anteriormente:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> KNN(Distance_Matrix_New_Data , k, X_train, Y_train ) :</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># k es el hiper-parametro del algoritmo KNN.</span></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># &#39;Distance_Matrix_New_Data&#39; debe contenere las distancias entre las nuevas observaciones de los predictores y las de train.</span></span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Su fila i-esima debe contener las distancias entre la i-esima nueva observacion de los predictores y las observaciones de train de los predictores.</span></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># X_train tiene que ser un data-frame con las observaciones de los predictores con las que se va a entrenar el modelo.</span></span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Y_train tiene que ser un numpy array que contenga las observaciones de la respuesta con las que se va a entrenar el modelo.</span></span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>    Y_predict_x_new_i_LIST <span class="op">=</span> []</span>
-<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(Distance_Matrix_New_Data)):</span>
-<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>        distancias_x_new_i <span class="op">=</span> pd.DataFrame({<span class="st">&#39;id_x_train&#39;</span>: X_train.index  , <span class="st">&#39;distancias&#39;</span>: Distance_Matrix_New_Data[i,:]})</span>
-<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>        distancias_x_new_i_sort <span class="op">=</span> distancias_x_new_i.sort_values(by<span class="op">=</span>[<span class="st">&quot;distancias&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a>        knn_x_new_i <span class="op">=</span> distancias_x_new_i_sort.iloc[<span class="dv">0</span>:k , :]</span>
-<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a>        categorias_knn_x_new_i <span class="op">=</span> []</span>
-<span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb39-26"><a href="#cb39-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> knn_x_new_i.iloc[:,<span class="dv">0</span>]:</span>
-<span id="cb39-27"><a href="#cb39-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-28"><a href="#cb39-28" aria-hidden="true" tabindex="-1"></a>            categorias_knn_x_new_i.append(Y_train[j])</span>
-<span id="cb39-29"><a href="#cb39-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-30"><a href="#cb39-30" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb39-31"><a href="#cb39-31" aria-hidden="true" tabindex="-1"></a>        unique, counts <span class="op">=</span> np.unique(categorias_knn_x_new_i , return_counts<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb39-32"><a href="#cb39-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-33"><a href="#cb39-33" aria-hidden="true" tabindex="-1"></a>        unique_Y , counts_Y <span class="op">=</span> np.unique(Y_train , return_counts<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb39-34"><a href="#cb39-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-35"><a href="#cb39-35" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb39-36"><a href="#cb39-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(unique) <span class="op">==</span> <span class="bu">len</span>(unique_Y) :</span>
-<span id="cb39-37"><a href="#cb39-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-38"><a href="#cb39-38" aria-hidden="true" tabindex="-1"></a>            proporciones_categorias_knn_x_new_i <span class="op">=</span> pd.DataFrame({<span class="st">&#39;prop_categoria&#39;</span>: counts<span class="op">/</span>k, <span class="st">&#39;categoria&#39;</span>: unique_Y })</span>
-<span id="cb39-39"><a href="#cb39-39" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb39-40"><a href="#cb39-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="bu">len</span>(unique) <span class="op">&lt;</span> <span class="bu">len</span>(unique_Y) :</span>
-<span id="cb39-41"><a href="#cb39-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-42"><a href="#cb39-42" aria-hidden="true" tabindex="-1"></a>            proporciones_categorias_knn_x_new_i <span class="op">=</span> pd.DataFrame({<span class="st">&#39;prop_categoria&#39;</span>: counts<span class="op">/</span>k, <span class="st">&#39;categoria&#39;</span>: unique })</span>
-<span id="cb39-43"><a href="#cb39-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-44"><a href="#cb39-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-45"><a href="#cb39-45" aria-hidden="true" tabindex="-1"></a>        Y_predict_x_new_i <span class="op">=</span> proporciones_categorias_knn_x_new_i.sort_values(by<span class="op">=</span>[<span class="st">&quot;prop_categoria&quot;</span>], ascending<span class="op">=</span><span class="va">False</span>).iloc[<span class="dv">0</span>,:][<span class="st">&#39;categoria&#39;</span>]</span>
-<span id="cb39-46"><a href="#cb39-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-47"><a href="#cb39-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-48"><a href="#cb39-48" aria-hidden="true" tabindex="-1"></a>        Y_predict_x_new_i_LIST.append(Y_predict_x_new_i)</span>
-<span id="cb39-49"><a href="#cb39-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-50"><a href="#cb39-50" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb39-51"><a href="#cb39-51" aria-hidden="true" tabindex="-1"></a>    df_predictions <span class="op">=</span> pd.DataFrame({<span class="st">&#39;id_x_new&#39;</span>:<span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(Distance_Matrix_New_Data)) , <span class="st">&#39;Y_predict&#39;</span>: Y_predict_x_new_i_LIST})</span>
-<span id="cb39-52"><a href="#cb39-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-53"><a href="#cb39-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df_predictions</span></code></pre></div>
-<p>Probaremos la función con la distancia de Gower. Para ello necesitamos calcular la matriz de distancias de Gower entre las nuevas observaciones y las observaciones de entrenamiento de los predictores.</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>M_Gower <span class="op">=</span> Matrix_Gower_Distance(Data<span class="op">=</span>X.to_numpy(), p1<span class="op">=</span><span class="dv">4</span>, p2<span class="op">=</span><span class="dv">2</span>, p3<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>M_Gower</span></code></pre></div>
 <pre><code>array([[0.        , 0.64817837, 0.76118906, ..., 0.70588672, 0.62389777,
@@ -3225,11 +3227,15 @@ Y_predict
 <p><span class="math display">\[\widehat{y}_{new}  \hspace{0.15cm} = \hspace{0.15cm} \dfrac{1}{k} \cdot \sum_{ \hspace{0.05cm} i \hspace{0.05cm} \in \hspace{0.05cm} \Delta }  y_i \]</span></p>
 <p>Donde:</p>
 <p><span class="math display">\[\hspace{0.1cm}\Delta = \left\lbrace i = 1,...,n \hspace{0.15cm}  / \hspace{0.15cm}  x_i \in K_{x_{new}} \right\rbrace \\\]</span></p>
-<p>Otra forma de expresarlo es la siguiente:</p>
-<p>Si <span class="math inline">\(\hspace{0.15cm}Y_{K_{x_{new}}}\hspace{0.1cm}\)</span> es la muestra de la respuesta para los <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> individuos asociados al conjunto <span class="math inline">\(\hspace{0.1cm}K_{x_{new}}\hspace{0.1cm}\)</span> , es decir:</p>
+<ul>
+<li><p>Otra forma de expresar el punto anterior es la siguiente:</p>
+<ul>
+<li>Si <span class="math inline">\(\hspace{0.15cm}Y_{K_{x_{new}}}\hspace{0.1cm}\)</span> es la muestra de la respuesta para los <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> individuos asociados al conjunto <span class="math inline">\(\hspace{0.1cm}K_{x_{new}}\hspace{0.1cm}\)</span> , es decir: <span class="math inline">\(\\[0.5cm]\)</span></li>
+</ul>
 <p><span class="math display">\[Y_{K_{x_{new}}} = \left(\hspace{0.15cm} y_i \hspace{0.25cm} / \hspace{0.25cm}  i\in \lbrace 1,...,n \rbrace \hspace{0.3cm}  \text{y} \hspace{0.3cm} x_i \in K_{x_{new}}\hspace{0.15cm} \right)^t\\[0.3cm]\]</span></p>
-<p>entonces:</p>
+<p><span class="math inline">\(\hspace{0.8cm}\)</span> entonces:</p>
 <p><span class="math display">\[\widehat{y}_{new} =  \overline{\hspace{0.15cm} Y}_{K_{x_{new}}}\\\]</span></p></li>
+</ul></li>
 </ul>
 </p>
 </p>
@@ -3239,11 +3245,198 @@ Y_predict
 </div>
 <div id="knn-para-regresión-con-sklearn" class="section level1" number="7">
 <h1><span class="header-section-number">7</span> KNN para regresión con <code>sklearn</code> <a class="anchor" id="6"></a></h1>
+<p>Volvemos a crear los data-frames con los que entrenaremos el modelo y los que usaremos para predecir la respuesta. En este caso la variable respuesta es el precio de las viviendas (price).</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co">## TRAIN DATA (Datos dispobles --&gt; se usan para entrenar el modelo)</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>X_train <span class="op">=</span> Data_Mixed_train.loc[: , Data_Mixed_train.columns <span class="op">!=</span> <span class="st">&#39;price&#39;</span>]</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>Y_train <span class="op">=</span> Data_Mixed_train.loc[: , <span class="st">&#39;price&#39;</span>]</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a><span class="co">## NEW DATA (Nuevos datos de los predictores)</span></span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>X_new <span class="op">=</span> Data_Mixed_new.loc[: , Data_Mixed_test.columns <span class="op">!=</span> <span class="st">&#39;price&#39;</span>]</span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a><span class="co"># En la práctica real no se tienen datos sobre la respuesta asociado a las nuevas obsrvaciones de los predictores</span></span>
+<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Eso es justo lo que se quiere predecir.</span></span>
+<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Pero en este ejemplo al usar como &quot;nuevos&quot; datos una parte del data set original, si que tenemos esa información.</span></span>
+<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-14"><a href="#cb54-14" aria-hidden="true" tabindex="-1"></a>Y_new <span class="op">=</span> Data_Mixed_new.loc[: , <span class="st">&#39;price&#39;</span>] </span></code></pre></div>
+<p>Fijamos algunos parametros de la función <code>KNeighborsRegressor</code></p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>knn_regression <span class="op">=</span> sklearn.neighbors.KNeighborsRegressor(n_neighbors<span class="op">=</span><span class="dv">10</span> , p<span class="op">=</span><span class="dv">2</span>,  metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span></code></pre></div>
+<p>Entrenamos el algoritmo con las observaciones de los predictores contenidas en X_train y con las observaciones de la respuesta contenidas en Y_train.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>knn_regression.fit(X_train, Y_train)</span></code></pre></div>
+<pre><code>KNeighborsClassifier(n_neighbors=10)</code></pre>
+<p>Predecimos la respuesta para las observaciones de los predictores contenidas en X_new</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>knn_regression.predict( X_new ) </span></code></pre></div>
+<pre><code>array([ 1963827.5,  3046500. ,  2523990. ,  2477788.8,  2513966.5,
+        1732699.8,  2209200. ,  1629939.2,  2014867.5,  1567750.3,
+         938557.7,  1272000. ,  1739199.8,  5767999. ,  2620300. ,
+        2699000. ,  2184789.9,  1313399.9,  1606889.9,  1606988.7,
+        2143900. ,   456800. ,  2475000. ,   923199.9,  1514399.6,
+        2689500. ,   627404.9,  1807950. ,  2860688.7,   934390.3,
+       11746999.9,  1370299.9,  1412638.6,   624110. ,  3395900. ,
+         463982.8,  1092166.4,  1523899.9,   712312.9,  1008838.9,
+        2053188.6,  1253360.8,   832938. ,  1569545.9,   730918.7,
+        2728490. ,  2270500. ,  2048800. ,  3383900. ,  1847288.7,
+        1162499.9,   994277.6,  3398877.8,  1392877.6,  1598200. ,
+        1731699.8,  1695900. ,  1443087.8,  2424182.7,  3602390. ,
+        2430588.8,  7251000. ,  1356689.2,   635069. ,  1806400. ,
+        1465699.9,  2592000. ,  3567400. ,  2359377.6,  1399400. ,
+        2120779.8,  1227612.6,  2239000. ,  1172078.8,  2170779.8,
+        2262490. ,  5347499. ,  5502999. ,  1626888.8,  2748877.6,
+         556904.8,  1380093.3,  3455000. ,   916588.6,   893834.4,
+         785402.6,  1721288.8,  1900700. ,  4439900. , 15675244. ,
+        1604676.6,  1416399.9,  1004399.9, 13611999.9,   620450. ,
+        2070489.9,  2066000. ,  1664843.7,   653822.8,  1671599.9,
+        5767999. ,  1687399.9,  2356188.8,  3228400. ,  1825599.9,
+        1223644. ,   599630. ,  1781599.7,  2264280. ,  3247066.3,
+        1139777.6,  2990688.7,  1489220.3,  1523966. ,  1009100. ,
+         876888.8,  3582390. ,  1646445.8,   511216.4,  2684899.8,
+       23276900. ,  1723199.8,  1085766.4,  3153566.4,  3153566.4,
+        2870077.6,  1694366. ,  2375490. ,  1457078.6,  3383900. ,
+        1509499.9,  3604800. ,   923788.8,  1739199.8,  1108618.8,
+         759798.4,  1644599.9,   994055.3,  1323967.6,  1600478.4,
+         873700. ,  1579500. ,  4622500. ,   888788.8,  3602499.4,
+        1816988.7,   720980.2,   648950.1,  1992588.8,  1678499.9,
+        1807840.2,  1212560.8,  2330084.6,  2684899.8,   997867.6,
+         975277.6,  1616279.3,  1881200. ,  1170000. ,  1895077.5,
+        1030537.9,  7541000. ,  1363877.6,  2118999.9,  1598899.9,
+        1138660.8,  7949288.7,  1243228. ,   502651.3,  1036966.4,
+        4669900. ,  3317499.3,  1272000. ,  1712995. ,  2412994.9,
+         749812.9,  3067487.8,   927177.5,  4859999. ,   938557.7,
+        2858566.5,  1908288.7,   615977.6,  1816150.4,  2458688.8,
+        2893800. ,  2324295. ,  2182066.4,  1464800. ,   990813.2,
+         662341. ,   936288.8,  2831880. ,  1053266.4,  2433999.9,
+         595600.2,  1203499.9,  1305488.8,  2322600. ,  2069713.2,
+        1455966. ,  1712995. ,   978589.9,   994277.6,   508982.8,
+        4824899.9,  2050988.7,  1094100. ,  1046666.4,  4839999. ,
+         417811.6,  1006100. ,  2114990. ,   923771.8,  1846988.7,
+        1422690. ,  2717377.6,  5767999. ,  2589590. , 16459244. ,
+        1135179.1,   717239.7,   717239.7,   572791.5,  1232336.8,
+        1868516.1,  1242336.8,  2196889.9,   990537.9,  1036966.4,
+        1748738.6,  3455000. ,  2545500. ,  1953493.8,   936288.8,
+        1412638.6,  1305488.8,   945488.4,  2307788.8,   494885. ,
+        1205939. ,   983588.7,  1984766.4,   494885. ,  1545567.5,
+         545205.2,  2044588.7,   896000. ,  1509316.6,  1839238.7,
+        1110888.8,  1751279.3,  2590044.1,  2059244.1,   962783.7,
+       11746999.9,  1163723.8,  1012000. ,  1307138.6,  1497966.3,
+         999400. ,  1434700. ,  1712995. ,   611224.1,  1658084.6,
+         884047.7,  1721542.7,   610902.5,  1002500. ,  3242494.3,
+        1751279.3,  1088657.4,  1868516.1,  1456367.4,  2077777.6,
+         595244.8,   859625. ,   945537.9,  1877838.7,  1536750.3,
+        1938940. ,  1409288.8,  2209428.6,   451400. ,  2532088.7,
+        2255977.5,  1657695. ,  2341290. ,  2209200. ,  1036966.4,
+        2209200. ,   995488.8,   518897. ,  2940173.4,  4451900. ,
+        3604800. ,  1877838.7,  2468990. ,  4621994.9,   669129.9,
+        2240490. ,  2343584.6,   998788.7,  1723066.6,  1305149.6,
+        1277828. ,   991699.9,  2170779.8,   942600. ,  3567400. ,
+        1569935. ,   942861. ,  1192490. ,  2719500. ,  6827988.8,
+        1933590. ,  1305488.8,  1038588.8,  2524683.8,  1278449.6,
+       19871255.2,   651977.6,  5767999. ,  1472677.5,  1296977.6,
+        1088657.4,   893834.4,   624697.1,   635638.5,  1579500. ,
+         608100. ,  2458688.8,  1330832.9,  3094900. ,  1845988.7,
+        1044499.9,  1192055.2,  2020488.7,   783602.6,  2799990. ,
+        1814999.9,  2581178.8,   896000. ,  7977988.8,  2968487.9,
+         887678.9,  2513966.5,  2468990. ,  2604090. ,  3036389.8,
+        1809838.7,  1625762.7,   514805.2,  1758590. ,  1833999.7,
+        1500399.8,  1581399.8,  1792945.1,  7473288.8,  2217783.8,
+        1956490. ,   595689. ,  1089428. ,   669198.4,  2748877.6,
+         449866.4,  3317499.3,  1520567.5,  5132388.8,  2490490. ,
+        2462875. ,  2589590. ,  1479284.2,  1835499.9,  1488677.6,
+        2015688.7,  7541000. , 15675244. ,  1088657.4,  1165544. ,
+        1130149.8])</code></pre>
+<p>Como disponemos de los valores de la respuesta para las observaciones de los predictores con las que hemos predicho la respuesta podemos comparar los valores reales con los predichos a través de una métrica de error como el error cuadratico medio (ECM):</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>ECM <span class="op">=</span> <span class="bu">sum</span>( (knn_regression.predict( X_new )  <span class="op">-</span> Y_new.reset_index().price )<span class="op">**</span><span class="dv">2</span> ) <span class="op">/</span> <span class="bu">len</span>(Y_new)</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>ECM</span></code></pre></div>
+<pre><code>2405540681171.826</code></pre>
+<p>Para reducir la dimension de la cantidad anterior y además lograr que se mida en las mismas unidades que la respuesta tomamos la raiz cuadrada:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>np.sqrt(ECM)</span></code></pre></div>
+<pre><code>1550980.5547368499</code></pre>
 <p><br></p>
 </div>
 <div id="knn-para-regresión-programado-desde-cero-en-python" class="section level1" number="8">
 <h1><span class="header-section-number">8</span> KNN para regresión programado desde “cero” en <code>Python</code> <a class="anchor" id="7"></a></h1>
+<p>Programamos desde “cero” el algoritmo KNN para regresión:</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> KNN_regresion(Distance_Matrix_New_Data , k , X_train, Y_train) :</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># k es el hiper-parametro del algoritmo KNN.</span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># &#39;Distance_Matrix_New_Data&#39; debe contenere las distancias entre las nuevas observaciones de los predictores y las de train.</span></span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Su fila i-esima debe contener las distancias entre la i-esima nueva observacion de los predictores y las observaciones de train de los predictores.</span></span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># X_train tiene que ser un data-frame con las observaciones de los predictores con las que se va a entrenar el modelo.</span></span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Y_train tiene que ser un numpy array que contenga las observaciones de la respuesta con las que se va a entrenar el modelo.</span></span>
+<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-12"><a href="#cb64-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-13"><a href="#cb64-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-14"><a href="#cb64-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-15"><a href="#cb64-15" aria-hidden="true" tabindex="-1"></a>    Y_predict_x_new_i_LIST <span class="op">=</span> []</span>
+<span id="cb64-16"><a href="#cb64-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-17"><a href="#cb64-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(Distance_Matrix_New_Data)):</span>
+<span id="cb64-18"><a href="#cb64-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-19"><a href="#cb64-19" aria-hidden="true" tabindex="-1"></a>        distancias_x_new_i <span class="op">=</span> pd.DataFrame({<span class="st">&#39;id_x_train&#39;</span>: X_train.index  , <span class="st">&#39;distancias&#39;</span>: Distance_Matrix_New_Data[i,:]})</span>
+<span id="cb64-20"><a href="#cb64-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-21"><a href="#cb64-21" aria-hidden="true" tabindex="-1"></a>        distancias_x_new_i_sort <span class="op">=</span> distancias_x_new_i.sort_values(by<span class="op">=</span>[<span class="st">&quot;distancias&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb64-22"><a href="#cb64-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-23"><a href="#cb64-23" aria-hidden="true" tabindex="-1"></a>        knn_x_new_i <span class="op">=</span> distancias_x_new_i_sort.iloc[<span class="dv">0</span>:k , :]</span>
+<span id="cb64-24"><a href="#cb64-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-25"><a href="#cb64-25" aria-hidden="true" tabindex="-1"></a>        Y_values_knn_x_new_i <span class="op">=</span> []</span>
+<span id="cb64-26"><a href="#cb64-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-27"><a href="#cb64-27" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb64-28"><a href="#cb64-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> knn_x_new_i.iloc[:,<span class="dv">0</span>]:</span>
+<span id="cb64-29"><a href="#cb64-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-30"><a href="#cb64-30" aria-hidden="true" tabindex="-1"></a>            Y_values_knn_x_new_i.append(Y_train[j])</span>
+<span id="cb64-31"><a href="#cb64-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-32"><a href="#cb64-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-33"><a href="#cb64-33" aria-hidden="true" tabindex="-1"></a>        Y_predict_x_new_i <span class="op">=</span> <span class="bu">sum</span>(Y_values_knn_x_new_i)<span class="op">/</span>k    </span>
+<span id="cb64-34"><a href="#cb64-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-35"><a href="#cb64-35" aria-hidden="true" tabindex="-1"></a>        Y_predict_x_new_i_LIST.append(Y_predict_x_new_i)</span>
+<span id="cb64-36"><a href="#cb64-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-37"><a href="#cb64-37" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb64-38"><a href="#cb64-38" aria-hidden="true" tabindex="-1"></a>    df_predictions <span class="op">=</span> pd.DataFrame({<span class="st">&#39;id_x_new&#39;</span>:<span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(Distance_Matrix_New_Data)) , <span class="st">&#39;Y_predict&#39;</span>: Y_predict_x_new_i_LIST})</span>
+<span id="cb64-39"><a href="#cb64-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-40"><a href="#cb64-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df_predictions</span></code></pre></div>
+<p>Probamos el algoritmo con la distancia de Gower y <span class="math inline">\(k=10\)</span> :</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.concat([X_train , X_new])</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>M_Gower <span class="op">=</span> Matrix_Gower_Distance(Data<span class="op">=</span>X.to_numpy(), p1<span class="op">=</span><span class="dv">3</span>, p2<span class="op">=</span><span class="dv">2</span>, p3<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>M_Gower_new_data <span class="op">=</span> M_Gower[ <span class="bu">len</span>(X_train):<span class="bu">len</span>(X) , <span class="dv">0</span>:<span class="bu">len</span>(X_train) ]  </span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>df_predictions <span class="op">=</span> KNN_regresion(Distance_Matrix_New_Data<span class="op">=</span>M_Gower_new_data , k<span class="op">=</span><span class="dv">10</span> , X_train<span class="op">=</span>X_train, Y_train<span class="op">=</span>Y_train) </span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>df_predictions</span></code></pre></div>
+<pre><code>     id_x_new   Y_predict
+0           0   2081499.9
+1           1   1710999.9
+2           2   2639277.7
+3           3   2817500.0
+4           4   2839583.6
+..        ...         ...
+376       376   4778999.9
+377       377  12093477.6
+378       378   1019720.0
+379       379   1260699.9
+380       380   1088923.8</code></pre>
+<p>Calculamos el error cuadrático medio:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>ECM <span class="op">=</span> <span class="bu">sum</span>( (df_predictions.Y_predict <span class="op">-</span> Y_new.reset_index().price)<span class="op">**</span><span class="dv">2</span> ) <span class="op">/</span> <span class="bu">len</span>(Y_new)</span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>ECM</span></code></pre></div>
+<pre><code>2694547525120.1924</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>np.sqrt(ECM)</span></code></pre></div>
+<pre><code>1641507.6987696989</code></pre>
 <p><br></p>
+<p>Probamos ahora el algoritmo con la distancia Euclidea y <span class="math inline">\(k=10\)</span> :</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>M_Euclidea <span class="op">=</span> Matrix_Dist_Euclidea(Data<span class="op">=</span>X.to_numpy())</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>M_Euclidea  <span class="op">=</span> M_Euclidea <span class="op">+</span> M_Euclidea.T</span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>M_Euclidea_new_data <span class="op">=</span> M_Euclidea[ <span class="bu">len</span>(X_train):<span class="bu">len</span>(X) , <span class="dv">0</span>:<span class="bu">len</span>(X_train) ]  </span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>df_predictions <span class="op">=</span> KNN_regresion(Distance_Matrix_New_Data<span class="op">=</span>M_Euclidea_new_data , k<span class="op">=</span><span class="dv">10</span> , X_train<span class="op">=</span>X_train, Y_train<span class="op">=</span>Y_train) </span></code></pre></div>
+<p>Calculamos el error cuadrático medio:</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>ECM <span class="op">=</span> <span class="bu">sum</span>( (df_predictions.Y_predict <span class="op">-</span> Y_new.reset_index().price)<span class="op">**</span><span class="dv">2</span> ) <span class="op">/</span> <span class="bu">len</span>(Y_new)</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>ECM</span></code></pre></div>
+<pre><code>2406009496239.313</code></pre>
+<p>Como vemos el ECM obtenido es similar al que obteniamos al implementar el algoritmo con <code>sklearn</code> , también con la distancia Euclidea y <span class="math inline">\(k=10\)</span></p>
 <p><br></p>
 <hr />
 <p><br></p>
@@ -3251,9 +3444,9 @@ Y_predict
 <div id="bibliografía" class="section level1" number="9">
 <h1><span class="header-section-number">9</span> Bibliografía</h1>
 <ul>
-<li><p>Grané Chavez, Aurea. (2022). <em>Análisis Discriminante</em> [Presentación de PowerPoint]. Aula Global UC3M.</p></li>
+<li><p>Grané Chavez, Aurea. (2022). <em>Análisis Discriminante</em> [Presentación de PowerPoint]. Aula Global UC3M. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
 <li><p>Scikit-learn Developers. KNeighborsClassifier. Scikit-learn.
-<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html" class="uri">https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html</a></p></li>
+<a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html" class="uri">https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html</a> <span class="math inline">\(\\[0.1cm]\)</span></p></li>
 <li><p>Scikit-learn Developers. KNeighborsRegressor. Scikit-learn.
 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html" class="uri">https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html</a></p></li>
 </ul>
