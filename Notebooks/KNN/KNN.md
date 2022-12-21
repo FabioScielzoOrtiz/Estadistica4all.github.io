@@ -1544,48 +1544,48 @@ $$D=[X_1,...,X_p,Y]=\begin{pmatrix}
  
 <p style='margin-left:1em;'>
 
-El algoritmo KNN para regresión tiene los siguientes pasos:
+$\hspace{0.15cm}$ El algoritmo KNN para regresión tiene los siguientes pasos:
 
 
-- Se define una medida de distancia  entre pares de observaciones de variables estadisticas $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\delta (\cdot , \cdot) \\$
+- Se define una medida de distancia  entre pares de observaciones de variables estadisticas $\hspace{0.15cm} \Rightarrow \hspace{0.15cm}$ $\delta \\$
 
 
  
-- Dada una nueva observación $x_{new}$ de los predictores $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)$ , es decir, una observación que no está en la muestra de train, se calculan las distancias entre el par de observaciones $\hspace{0.1cm}(x_{new} , x_i)$ , para $\hspace{0.1cm}i=1,...,n \\$
+- Dada una nueva observación $x_{new}$ de los predictores $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)$ , es decir, una observación que no está en la muestra de train, se calculan las distancias entre el par de observaciones $\hspace{0.1cm}(x_{new} \hspace{0.1cm},\hspace{0.1cm} x_i)\hspace{0.1cm}$ , para $\hspace{0.1cm}i=1,...,n  \hspace{0.25cm} \Rightarrow \hspace{0.25cm} \delta(x_{new} , x_i) \\$
  
 
 
 
-- Se seleccionan las $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones del vector $\hspace{0.1cm}(x_1,...,x_n)\hspace{0.1cm}$ que son más cercanas a la nueva observación $\hspace{0.1cm}x_{new} $
+- Se seleccionan las $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones  $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$ que son más cercanas a la nueva observación $\hspace{0.1cm}x_{new}\hspace{0.1cm}$ , según la distancia $\hspace{0.1cm}\delta$.
 
-    El conjunto de estas $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones se denota por $\hspace{0.1cm}KNN(x_{new}) \\$
-
-
-
-- Se predice la respuesta para la nueva observacion $\hspace{0.1cm}x_{new}\hspace{0.1cm}$ como la media de la respuesta en el conjunto $\hspace{0.1cm}KNN(x_{new})$
+    El conjunto de estas $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones son los **k vecinos más cercanos de $x_{new}$** y se denota por $\hspace{0.1cm}K_{x_{new}} \\$
 
 
 
+- Se predice la respuesta para la nueva observacion $\hspace{0.1cm}x_{new}\hspace{0.1cm}$ de los predictores como la media de la respuesta en el conjunto $\hspace{0.1cm}K_{x_{new}}$
 
-    $$\widehat{y}_{new}  \hspace{0.14cm} = \hspace{0.14cm} \dfrac{1}{ k }\cdot \sum_{  i \hspace{0.05cm} \in\hspace{0.05cm} \mathcal{I} \left[  \hspace{0.08cm} KNN(x_{new}) \hspace{0.08cm} \right]}  y_i$$
+
+
+
+    $$\widehat{y}_{new}  \hspace{0.15cm} = \hspace{0.15cm} \dfrac{1}{k} \cdot \sum_{ \hspace{0.05cm} i \hspace{0.05cm} \in \hspace{0.05cm} \Delta }  y_i $$
 
 
 
     Donde: 
 
-    $\hspace{0.1cm}\mathcal{I} \left[  \hspace{0.08cm} KNN(x_{new}) \hspace{0.08cm} \right] = \lbrace i = 1,...,n \hspace{0.15cm}  / \hspace{0.15cm}  x_i \in KNN(x_{new}) \rbrace \\$
+    $$\hspace{0.1cm}\Delta = \left\lbrace i = 1,...,n \hspace{0.15cm}  / \hspace{0.15cm}  x_i \in K_{x_{new}} \right\rbrace \\$$
 
 
-    Otra forma de expresarlo:
+    Otra forma de expresarlo es la siguiente:
 
-    Si  $\hspace{0.1cm}Y_{KNN(x_{new})}\hspace{0.1cm}$ es la muestra de la respuesta para los $\hspace{0.1cm}k\hspace{0.1cm}$ individuos asociados al conjunto $\hspace{0.1cm}KNN(x_{new})\hspace{0.1cm}$ , es decir: 
+    Si  $\hspace{0.15cm}Y_{K_{x_{new}}}\hspace{0.1cm}$ es la muestra de la respuesta para los $\hspace{0.1cm}k\hspace{0.1cm}$ individuos asociados al conjunto $\hspace{0.1cm}K_{x_{new}}\hspace{0.1cm}$ , es decir: 
 
-    $$Y_{KNN(x_{new})} = (\hspace{0.15cm} y_i \hspace{0.25cm} / \hspace{0.25cm}  i=1,...,n \hspace{0.25cm}  \text{y} \hspace{0.25cm} x_i \in KNN(x_{new})\hspace{0.15cm} )^t$$
+    $$Y_{K_{x_{new}}} = \left(\hspace{0.15cm} y_i \hspace{0.25cm} / \hspace{0.25cm}  i\in \lbrace 1,...,n \rbrace \hspace{0.3cm}  \text{y} \hspace{0.3cm} x_i \in K_{x_{new}}\hspace{0.15cm} \right)^t\\[0.3cm]$$
 
-    Entonces:
+    entonces:
 
 
-$$\widehat{y}_{new} =  \overline{\hspace{0.15cm} Y}_{KNN(x_{new})}$$
+    $$\widehat{y}_{new} =  \overline{\hspace{0.15cm} Y}_{K_{x_{new}}}\\$$
  
 </p>
  
