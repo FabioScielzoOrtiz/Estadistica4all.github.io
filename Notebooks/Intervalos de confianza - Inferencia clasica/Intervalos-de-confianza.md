@@ -2370,10 +2370,7 @@ varianza
     8482279037221.85
 
 
-
-El intervalo no contiene a la varianza. Esto se debe a que $n$ es demasiado grande. 
-
-Este  intervalo solo es útil para valores de $n$ suficientemente pequeños.
+ 
 
 
 
