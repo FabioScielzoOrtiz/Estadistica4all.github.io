@@ -2357,19 +2357,31 @@ x_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \h
 <h1><span class="header-section-number">5</span> Contraste para las medias de dos poblaciones Normales independientes</h1>
 <div id="supuestos-3" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Supuestos</h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
+<p><span></p>
 <ul>
 <li><p>Tenemos dos v.a’s <strong>independientes</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1 , \sigma_1)\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2 \sim N(\mu_2 , \sigma_2) \\\)</span></p></li>
 <li><p>Tenemos dos muestras aleatorias simples <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n_1 1}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n_2 2}\hspace{0.1cm}\)</span> de las v.a’s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2 \\\)</span></p></li>
 <li><p>Las varianzas <span class="math inline">\(\hspace{0.1cm}\sigma_1\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma_2\hspace{0.1cm}\)</span> son desconocidas y no necesariamente iguales.</p></li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="contraste-2" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Contraste</h2>
-<p><span class="math display">\[
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
+<p><span>
+<span class="math display">\[
 H_0 : \mu_ = \mu_2 \hspace{1.5cm}   H_0 : \mu_ = \mu_2   \hspace{1.5cm} H_0 : \mu_ = \mu_2    \\
 H_1 : \mu_1 \neq \mu_2 \hspace{1.5cm}  H_1 : \mu_1 &lt; \mu_2  \hspace{1.5cm}   H_1 : \mu_1 &gt; \mu_2
 \]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="estadistico-del-contraste-3" class="section level2" number="5.3">
@@ -2377,7 +2389,9 @@ H_1 : \mu_1 \neq \mu_2 \hspace{1.5cm}  H_1 : \mu_1 &lt; \mu_2  \hspace{1.5cm}   
 <p>El estadistico de este contraste está basado en el teorema de Gosset aumentado con varianzas no necesariamente iguales, que fue ilustrado en el artículo de <a href="http://estadistica4all.com/Articulos/Intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-con-varianza-desconocida">intervalos de confianza</a>: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[\mathcal{T}_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{  \dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2} }   \hspace{0.1cm}\sim\hspace{0.1cm} t_{v} \\\]</span></p>
 <p>Donde:</p>
-<p><span class="math display">\[v \hspace{0.1cm}=\hspace{0.1cm} \dfrac{(S_1^2 / n_1 + S_2^2/n_2 )^2}{\dfrac{(S_1^2 / n_1)^2}{n_1-1} + \dfrac{( S_2^2/n_2 )^2}{n_2-1}} \\[1cm]\]</span></p>
+<p><span class="math display">\[v \hspace{0.1cm}=\hspace{0.1cm} \dfrac{(S_1^2 / n_1 + S_2^2/n_2 )^2}{\dfrac{(S_1^2 / n_1)^2}{n_1-1} + \dfrac{( S_2^2/n_2 )^2}{n_2-1}} \\[2cm]\]</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
+<p><span></p>
 <p>Por tanto, el estadístico del contraste bajo <span class="math inline">\(\hspace{0.1cm} H_0\hspace{0.1cm}\)</span> es: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[\mathcal{T}_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{1}{n_1} + \dfrac{1}{n_2}} \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{v} \\\]</span></p>
 <p>Donde:</p>
@@ -2385,6 +2399,10 @@ H_1 : \mu_1 \neq \mu_2 \hspace{1.5cm}  H_1 : \mu_1 &lt; \mu_2  \hspace{1.5cm}   
 <li><p><span class="math inline">\(\overline{\mathcal{X}}_j \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_{ij} \hspace{0.25cm} , \hspace{0.25cm} j \in \lbrace 1,2 \rbrace \\\)</span></p></li>
 <li><p><span class="math inline">\(S_j^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i - \overline{\mathcal{X}} \hspace{0.25cm} , \hspace{0.25cm} j \in \lbrace 1,2 \rbrace\)</span></p></li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 <p><strong>Observación:</strong></p>
 <p>Dadas dos muestras de observaciones <span class="math inline">\(\hspace{0.1cm}X_1=(x_{11},...,x_{n_1 1})\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}X_2=(x_{12},...,x_{n_2 2})\hspace{0.1cm}\)</span> de las variables <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}\)</span> , respectivamente.</p>
@@ -2401,49 +2419,96 @@ t_{exp | H_0} \hspace{0.1cm}= \hspace{0.1cm} \dfrac{\hspace{0.15cm} \overline{\m
 </div>
 <div id="p-valor-4" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> p-valor</h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
+<p><span></p>
 <ul>
 <li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu_1 = \mu_2 \hspace{0.15cm} \text{vs} \hspace{0.15cm} H_1: \mu_1 &gt; \mu_2 \\\)</span></p>
-<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}\geq\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{v} \geq \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} }  \right) \\[2.5cm]\]</span></p></li>
+<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}\geq\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{v} \hspace{0.1cm} \geq \hspace{0.1cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} }  \right) \\[2.5cm]\]</span></p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
+<p><span></p>
+<ul>
 <li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &lt; \mu_0 \\\)</span></p>
-<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}\leq\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{v} \leq \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} }  \right) \\\]</span></p></li>
+<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}\leq\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{v} \hspace{0.1cm}\leq\hspace{0.1cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} }  \right) \\\]</span></p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
+<p><span></p>
+<ul>
 <li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu \neq \mu_0 \\\)</span></p>
 <p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}\leq\hspace{0.1cm} - | t_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm}
   P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm} &gt;\hspace{0.1cm}  | t_{exp|H_0} | \right) \\[1cm]
   \hspace{0.1cm}=\hspace{0.1cm}
-2 \cdot  P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | t_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( t_{n-1} \geq \left| \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} }  \right| \hspace{0.1cm} \right)\]</span></p></li>
+2 \cdot  P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | t_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( t_{n-1} \hspace{0.1cm}\geq\hspace{0.1cm} \left| \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} }  \right| \hspace{0.1cm} \right)\]</span></p></li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="regla-de-decisión-3" class="section level2" number="5.5">
 <h2><span class="header-section-number">5.5</span> Regla de decisión</h2>
 <div id="basada-en-el-estadistico-del-contraste-3" class="section level3" number="5.5.1">
 <h3><span class="header-section-number">5.5.1</span> Basada en el estadistico del contraste</h3>
-<p>Para un nivel de significación <span class="math inline">\(\hspace{0.1cm} \alpha\)</span> : <span class="math inline">\(\\[0.5cm]\)</span></p>
-<hr />
+<p><strong>Para un nivel de significación <span class="math inline">\(\hspace{0.1cm} \alpha\)</span> :</strong> <span class="math inline">\(\\[0.5cm]\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
+<p><span></p>
 <ul>
 <li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm} \text{vs} \hspace{0.15cm}H_1: \mu &gt; \mu_0 \\\)</span></p>
 <p><span class="math display">\[\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} \geq\hspace{0.1cm} t_{\alpha}^{v} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} }  \hspace{0.1cm} \geq\hspace{0.1cm} t_{\alpha}^{v} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.1cm} \geq\hspace{0.1cm}  t_{\alpha}^{v} \cdot \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}}\]</span></p>
 <p>Donde: <span class="math inline">\(\hspace{0.1cm} \hspace{0.1cm} P(t_{v} \hspace{0.1cm} &gt;\hspace{0.1cm} t_{\alpha}^{v}) \hspace{0.1cm} =\hspace{0.1cm} \alpha \\\)</span></p></li>
 </ul>
-<hr />
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
+<p><span></p>
 <ul>
 <li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &lt; \mu_0 \\\)</span></p>
 <p><span class="math display">\[ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} \leq \hspace{0.1cm} t_{1-\alpha}^{v} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} } \hspace{0.1cm} \leq \hspace{0.1cm} t_{1-\alpha}^{v} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.1cm} \leq \hspace{0.1cm}  t_{1-\alpha}^{v} \cdot \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \\\]</span></p></li>
 </ul>
-<hr />
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
+<p><span></p>
 <ul>
 <li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu \neq \mu_0 \\\)</span></p>
 <p><span class="math display">\[\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} \geq \hspace{0.1cm} t_{\alpha/2}^{n-1}  \hspace{0.2cm} \vee \hspace{0.2cm}    t_{exp|H_0} \hspace{0.1cm} \leq \hspace{0.1cm} t_{1-\alpha/2}^{n-1}  \hspace{0.25cm} \hspace{0.25cm} \Leftrightarrow\hspace{0.25cm}  \hspace{0.25cm}   \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.1cm} \geq\hspace{0.1cm}  t_{\alpha/2}^{v} \cdot \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.2cm} \vee \hspace{0.2cm}  \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.1cm} \leq \hspace{0.1cm}  - t_{\alpha/2}^{v} \cdot \sqrt{\dfrac{S(X_1)^2}{v} + \dfrac{S(X_2)^2}{n_2}}\\\]</span></p>
 <p>Donde se ha usado la propiedad de simetría de la distribución t-student, por la cual <span class="math inline">\(\hspace{0.2cm}t_{1-\alpha/2}^{v} \hspace{0.1cm}=\hspace{0.1cm} - t_{\alpha/2}^{v}\)</span></p></li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="basada-en-el-p-valor-3" class="section level3" number="5.5.2">
 <h3><span class="header-section-number">5.5.2</span> Basada en el p-valor</h3>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
+<p><span></p>
 <p>Dado un nivel de significación <span class="math inline">\(\hspace{0.1cm}\alpha\hspace{0.1cm}\)</span>, la regla de decisión basada en el p-valor del contraste es muy sencilla:</p>
 <p><span class="math display">\[
 \text{Rechazar} \hspace{0.1cm}  H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  \text{pvalor} \leq \alpha
 \]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 </div>
