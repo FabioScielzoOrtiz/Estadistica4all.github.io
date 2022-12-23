@@ -1,19 +1,19 @@
 
 -- Eliminar una base de datos:
 
--- Drop the database 'DatabaseName'
+-- Drop the database 'Base_Datos_Fabio'
 -- Connect to the 'master' database to run this snippet
 USE master
 GO
 -- Uncomment the ALTER DATABASE statement below to set the database to SINGLE_USER mode if the drop database command fails because the database is in use.
-ALTER DATABASE DatabaseName SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+ALTER DATABASE Base_Datos_Fabio SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
 -- Drop the database if it exists
 IF EXISTS (
   SELECT [name]
    FROM sys.databases
-   WHERE [name] = N'DatabaseName'
+   WHERE [name] = N'Base_Datos_Fabio'
 )
-DROP DATABASE DatabaseName
+DROP DATABASE Base_Datos_Fabio
 GO
 
 
@@ -111,7 +111,12 @@ VALUES
  ( 'C2', N'Keith', N'India', N'', N'keith0@adventure-works.com', N''),
  ( 'C3', N'Donna', N'Germany', N'Berlin', N'donna0@adventure-works.com', N'915547890'),
  ( 'C4', N'Janet', N'United States', N'California',  N'janet1@adventure-works.com', N''),
- ( 'C5', N'Fabio', N'España', N'Madrid', N'fabio@gmail.com', N'')
+ ( 'C5', N'Fabio', N'España', N'Madrid', N'fabio10@gmail.com', N''),
+ ( 'C6', N'Juan', N'España', N'Sevilla', N'' , N'915869028'),
+ ( 'C7', N'Lucia', N'España', N'', N'LuciaPerez@hotmail.com', N''),
+ ( 'C8', N'Pedro', N'Italia', N'Roma', N'Pedro99@gmail.com', N'910007890'),
+ ( 'C9', N'Sergio', N'United States', N'New York',  N'sergio_as@gmail.com', N''),
+ ( 'C10', N'Grecia', N'Peru', N'Lima', N'Grecia89@gmail.com', N'')
 GO
 
 -------------------------------------------------------------------------
@@ -120,9 +125,21 @@ GO
 INSERT INTO dbo.Ventas
  ([VentasId], [Producto], [Precio], [Cliente], [Proveedor])
 VALUES
- ( 'V1', N'Alfombra', N'1500', N'C2' , N'P1'),
+ ( 'V1', N'Alfombra', N'1500', N'C1' , N'P1'),
  ( 'V2', N'Killim', N'699.50', N'C3', N'P1'),
- ( 'V3', N'Killim', N'475', N'C2', N'P3')
+ ( 'V3', N'Killim', N'475', N'C9', N'P3'),
+  ( 'V4', N'Alfombra', N'5000', N'C4' , N'P1'),
+ ( 'V5', N'Killim', N'499.50', N'C8', N'P1'),
+ ( 'V6', N'Killim', N'555', N'C5', N'P3'),
+ ( 'V7', N'Alfombra', N'2500', N'C2' , N'P1'),
+ ( 'V8', N'Killim', N'299.50', N'C10', N'P1'),
+ ( 'V9', N'Killim', N'600', N'C2', N'P3'),
+ ( 'V10', N'Alfombra', N'1200', N'C7' , N'P1'),
+ ( 'V11', N'Killim', N'500', N'C8', N'P1'),
+ ( 'V12', N'Killim', N'650', N'C9', N'P3'),
+ ( 'V13', N'Alfombra', N'3500', N'C7' , N'P1'),
+ ( 'V14', N'Killim', N'1000', N'C6', N'P1'),
+ ( 'V15', N'Killim', N'350', N'C10', N'P3')
 GO
 
 -------------------------------------------------------------------------
@@ -146,14 +163,16 @@ VALUES
  ( 'P4' , NULL, N'AlfombrasSA@gmail.com', N'91235344')
 GO
 
+-------------------------------------------------------------------------
 
--- El siguiente codigo sale error porque la columna Nombre ha sido definida como Not Null , por tanto
--- no admite valores NULL , para que los admitiesa deberia haberse definido como Null.
+-- Comprobación restriccion Primary Key
 INSERT INTO dbo.Proveedores
  ([ProveedorId], [Nombre], [Email], [Telefono])
 VALUES
  ( 'P3' , 'AlfombrasSA', N'AlfombrasSA@gmail.com', N'91235344')
 GO
+
+
 -------------------------------------------------------------------------
 -------------------------------------------------------------------------
 
@@ -168,7 +187,7 @@ FROM dbo.Clientes;
 
 ------------------------------------------------------------------------
 
-SELECT Nombre AS Name
+SELECT Nombre AS NewName
 FROM dbo.Clientes;
 
 -------------------------------------------------------------------------
@@ -197,6 +216,7 @@ SELECT * FROM dbo.Clientes WHERE Nombre in ( 'Orlando' , 'Fabio') ;
 SELECT * FROM dbo.Clientes WHERE Nombre not in ( 'Orlando' , 'Fabio') ;
 
 
+-----------------------------------------------------
 
 SELECT * FROM dbo.Clientes WHERE Nombre like '%lan%' ;
 
@@ -237,50 +257,43 @@ DROP TABLE Clientes
 
 -- Actualizar una columna para las filas que cumplen una condicion
 
-UPDATE Clientes set Nombre = 'Pedrito' WHERE ClienteId = 'C1'
+UPDATE Clientes set Nombre = 'Messi' WHERE ClienteId = 'C1'
 
-UPDATE Clientes set Nombre = 'Pedrito' , Pais = 'Ecuador' WHERE ClienteId = 'C1'
+UPDATE Clientes set Nombre = 'Messi' , Pais = 'Argentina' WHERE ClienteId = 'C1'
 
 -- Actualizar todos los valores de una columna
 
-UPDATE Clientes set Nombre = 'Pedrito' 
+UPDATE Clientes set Nombre = 'Messi' 
 
 
--------------------------------------------------------------------------
-
--- seleccionar filas con nulos en ciertas columnas
-
-SELECT*FROM Clientes WHERE Nombre is NOT NULL
-
-
--- seleccionar filas con nulos en ciertas columnas
-
-SELECT*FROM Clientes WHERE Nombre is NULL
-
-
+------------------------------------------------------------------------
 -------------------------------------------------------------------------
 
 -- Establecer un valor por defecto en una tabla
 
 
-IF OBJECT_ID('dbo.Tabla_Prueba', 'U') IS NOT NULL
- DROP TABLE dbo.Tabla_Prueba;
+IF OBJECT_ID('dbo.Otra_Tabla_1', 'U') IS NOT NULL
+ DROP TABLE dbo.Otra_Tabla_1;
 GO
 -- Create the table in the specified schema
-CREATE TABLE dbo.Tabla_Prueba
+CREATE TABLE dbo.Otra_Tabla_1
 (
  Id nvarchar (50) NOT NULL PRIMARY KEY, -- primary key column
  Nombre nvarchar (50) NOT NULL,
- Email nvarchar(50) NOT NULL DEFAULT 'desconocido',
- Telefono nvarchar (50) NOT NULL DEFAULT '-------'
+ Email nvarchar(50) NOT NULL DEFAULT 'no tiene',
+ Telefono nvarchar (50) NOT NULL DEFAULT 'desconocido'
 );
 GO
 
 
-INSERT INTO dbo.Tabla_Prueba
+INSERT INTO dbo.Otra_Tabla_1
  ([Id], [Nombre], [Email], [Telefono])
 VALUES
- ( 1 , 'Juan', DEFAULT , DEFAULT)
+ ( 1 , 'Juan', DEFAULT , DEFAULT),
+ ( 2 , 'Rodrigo', DEFAULT , '915568799'),
+ ( 3 , 'Sofia', DEFAULT , DEFAULT),
+ ( 4 , 'Irene', 'Irene99@hotmail.es' , '914478236'),
+ ( 5 , 'Luis', 'LuisMP@gmail.com' , DEFAULT)
 GO
 
 
@@ -288,11 +301,11 @@ GO
 
 -- Columnas calculadas
 
-IF OBJECT_ID('dbo.Ventas', 'U') IS NOT NULL
- DROP TABLE dbo.Ventas;
+IF OBJECT_ID('dbo.Otra_Tabla_Ventas', 'U') IS NOT NULL
+ DROP TABLE dbo.Otra_Tabla_Ventas;
 GO
 -- Create the table in the specified schema
-CREATE TABLE dbo.Ventas
+CREATE TABLE dbo.Otra_Tabla_Ventas
 (
  VentasId nvarchar (50) NOT NULL PRIMARY KEY, -- primary key column
  Producto char (50) NOT NULL,
@@ -303,21 +316,56 @@ CREATE TABLE dbo.Ventas
 );
 GO
 
-INSERT INTO dbo.Ventas
+INSERT INTO dbo.Otra_Tabla_Ventas
  ([VentasId], [Producto], [Precio], [Descuento], [Cliente], [Proveedor])
 VALUES
  ( 'V1', 'Alfombra', 1500, 0.5 ,'C2' , 'P1'),
  ( 'V2', 'Killim', 699.50, 0.25, 'C3', 'P1'),
- ( 'V3', 'Killim', 475, 0.10, 'C2', 'P3')
+ ( 'V3', 'Killim', 475, 0.10, 'C2', 'P3'),
+  ( 'V4', 'Alfombra', 1500, 0.5 ,'C7' , 'P1'),
+ ( 'V5', 'Alfombra', 5000, 0.30, 'C5', 'P1'),
+ ( 'V6', 'Killim', 250, 0.10, 'C9', 'P3')
 GO
 
 
-SELECT VentasId, Producto, Precio, Descuento, 'Precio_Final' = Precio - Precio*Descuento, Cliente, Proveedor FROM Ventas
+SELECT VentasId, Producto, Precio, Descuento, 'Precio_Final' = Precio - Precio*Descuento, Cliente, Proveedor FROM Otra_Tabla_Ventas
 -------------------------------------------------------------------------
 
 -- Concatenar strings de filas diferentes
 
-SELECT 'nueva_columna' = Pais + ' - ' + Ciudad  FROM Clientes
+IF OBJECT_ID('dbo.Clientes', 'U') IS NOT NULL
+ DROP TABLE dbo.Clientes;
+GO
+-- Create the table in the specified schema
+CREATE TABLE dbo.Clientes
+(
+ ClienteId nvarchar(50) NOT NULL PRIMARY KEY, -- primary key column --> impide repeticiones de valores en esta columna
+ Nombre char (50) NOT NULL,
+ Pais nvarchar(50) NOT NULL,
+ Ciudad nvarchar(50) NOT NULL,
+ Email nvarchar (50) NOT NULL,
+ Telefono  nvarchar (50) NOT NULL
+);
+GO
+
+INSERT INTO dbo.Clientes
+ ([ClienteId], [Nombre], [Pais], [Ciudad], [Email], [Telefono])
+VALUES
+ ( 'C1', N'Orlando', N'Australia', N'', N'' , N'917755028'),
+ ( 'C2', N'Keith', N'India', N'', N'keith0@adventure-works.com', N''),
+ ( 'C3', N'Donna', N'Germany', N'Berlin', N'donna0@adventure-works.com', N'915547890'),
+ ( 'C4', N'Janet', N'United States', N'California',  N'janet1@adventure-works.com', N''),
+ ( 'C5', N'Fabio', N'España', N'Madrid', N'fabio10@gmail.com', N''),
+ ( 'C6', N'Juan', N'España', N'Sevilla', N'' , N'915869028'),
+ ( 'C7', N'Lucia', N'España', N'', N'LuciaPerez@hotmail.com', N''),
+ ( 'C8', N'Pedro', N'Italia', N'Roma', N'Pedro99@gmail.com', N'910007890'),
+ ( 'C9', N'Sergio', N'United States', N'New York',  N'sergio_as@gmail.com', N''),
+ ( 'C10', N'Grecia', N'Peru', N'Lima', N'Grecia89@gmail.com', N'')
+GO
+
+----------------------
+
+SELECT Nombre, 'nueva_columna' = Pais + ' - ' + Ciudad   FROM Clientes
 
 
 -------------------------------------------------------------------------
@@ -350,7 +398,7 @@ SELECT Avg(Precio) FROM Ventas ;
 -------------------------------------------------------------------------
 -- COALESCE
 -------------------------------------------------------------------------
-IF OBJECT_ID('dbo.Clientes', 'U') IS NOT NULL
+IF OBJECT_ID('dbo.Empleados', 'U') IS NOT NULL
  DROP TABLE dbo.Empleados;
 GO
 -- Create the table in the specified schema
@@ -377,6 +425,19 @@ VALUES
  ( 'E5', N'Luis', N'fabio@gmail.com', N'915004589', 'Medio', NULL, 1850, NULL)
 GO
 
+------------------------------------------------------------------------
+
+
+-- seleccionar filas con nulos en ciertas columnas
+
+SELECT*FROM Empleados WHERE Salario_3 is NOT NULL
+
+
+-- seleccionar filas con nulos en ciertas columnas
+
+SELECT*FROM Empleados WHERE Salario_3 is NULL
+
+
 -------------------------------------------------------------------------
 
 SELECT EmpleadoId, Nombre, COALESCE( Salario_1, Salario_2, Salario_3 ) AS Salario FROM dbo.Empleados; -- Devuelve el valor no nulo de esas tres columnas para cada fila
@@ -387,22 +448,7 @@ SELECT EmpleadoId, Nombre,NULLIF(Telefono, 915555800)  FROM dbo.Empleados; -- Co
 
 -------------------------------------------------------------------------
 -------------------------------------------------------------------------
-INSERT INTO dbo.Ventas
- ([VentasId], [Producto], [Precio], [Cliente], [Proveedor])
-VALUES
- ( 'V4', N'Alfombra', N'5000', N'C2' , N'P1'),
- ( 'V5', N'Killim', N'499.50', N'C3', N'P1'),
- ( 'V6', N'Killim', N'555', N'C2', N'P3'),
- ( 'V7', N'Alfombra', N'2500', N'C2' , N'P1'),
- ( 'V8', N'Killim', N'299.50', N'C3', N'P1'),
- ( 'V9', N'Killim', N'600', N'C2', N'P3'),
- ( 'V10', N'Alfombra', N'1200', N'C2' , N'P1'),
- ( 'V11', N'Killim', N'500', N'C3', N'P1'),
- ( 'V12', N'Killim', N'650', N'C2', N'P3'),
- ( 'V13', N'Alfombra', N'3500', N'C2' , N'P1'),
- ( 'V14', N'Killim', N'1000', N'C3', N'P1'),
- ( 'V15', N'Killim', N'350', N'C2', N'P3')
-GO
+
 
 SELECT TOP 3  VentasId, Precio FROM dbo.Ventas ORDER BY Precio DESC;  -- Top 3 ventas con mayor precio
 
