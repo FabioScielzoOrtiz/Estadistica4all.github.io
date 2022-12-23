@@ -498,10 +498,10 @@ Donde:
  
 <p style='margin-left:1em;'>
 
-- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm}   \text{vs}  \hspace{0.15cm} H_1: \mu > \mu_0 \\$  
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu > \mu_0 \\$  
   
 
-    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}>\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} > \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\[2.5cm]$$ 
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}>\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} > \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\$$ 
 
 
 </p>
@@ -520,7 +520,7 @@ Donde:
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
 
 
-    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}>\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} > \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\[2.5cm]$$ 
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}<\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} < \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\$$ 
 
 </p>
  
@@ -541,7 +541,7 @@ Donde:
     $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}<\hspace{0.1cm} - | t_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm} 
      P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm} >\hspace{0.1cm}  | t_{exp|H_0} | \right) \\[1cm]
      \hspace{0.1cm}=\hspace{0.1cm} 
-    2 \cdot  P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | t_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( t_{n-1} > | \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} | \right)$$
+    2 \cdot  P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | t_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( t_{n-1} >  \left| \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right| \right)$$
     
   
 </p>
@@ -627,7 +627,7 @@ Donde:
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
 <span>
 
-Dado un nivel de significación $\hspace{0.1cm}\alpha\hspace{0.1cm}$, la regla de decisión basada en el p-valor del contraste es muy sencilla:
+$\hspace{0.25cm}$ Dado un nivel de significación $\hspace{0.1cm}\alpha\hspace{0.1cm}$, la regla de decisión basada en el p-valor del contraste es muy sencilla:
 
 
 $$
@@ -741,21 +741,37 @@ Algunas de los desarrollos mostrados en este contraste no volverá a ser expuest
 
 ## Supuestos
 
-- Tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ que no tiene por que tener distribución de probabilidad normal, tal que $\hspace{0.1cm}E[\mathcal{X}] = \mu\hspace{0.1cm}$ y $\hspace{0.1cm}Var(\mathcal{X}) = \sigma^2$
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+- Tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ que no tiene por que tener distribución de probabilidad normal, tal que $\hspace{0.1cm}E[\mathcal{X}] = \mu\hspace{0.1cm}$ y $\hspace{0.1cm}Var(\mathcal{X}) = \sigma^2 \\$
 
 - Tenemos una muestra aleatoria simple $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$  de la v.a. $\hspace{0.1cm}\mathcal{X} \\$
 
 
 - El tamaño muestral $\hspace{0.1cm}n\hspace{0.1cm}$ tiene que ser grande, generalmete vale $\hspace{0.1cm}n>30$
 
+</p>
+ 
+</p></span>
+</div>
 
+<br>
 
 ## Contraste
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
 
 $$
 H_0 : \mu = \mu_0 \\
 H_1 : \mu \neq \mu_0
 $$
+
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
@@ -764,23 +780,30 @@ $$
 El estadistico de este contraste está basado en el teorema central del limite, que fue ilustrado en el artículo de [intervalos de confianza](http://estadistica4all.com/Articulos/Intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-con-varianza-desconocida): $\\[0.5cm]$ 
 
 $$
-\mathcal{Z}_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - \mu}{ \sqrt{\sigma^2 / n}} \underset{p}{\rightarrow} N(0,1) \\
+\mathcal{Z}_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - \mu}{ \sqrt{\sigma^2 / n}} \underset{p}{\rightarrow} N(0,1) \\[0.5cm]
 $$
 
-Por tanto, el estadístico del contraste bajo $\hspace{0.1cm} H_0\hspace{0.1cm}$ es: $\\[0.5cm]$
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ Por tanto, el estadístico del contraste bajo $\hspace{0.1cm} H_0\hspace{0.1cm}$ es: $\\[0.5cm]$
 
 $$
 \mathcal{Z}_{exp | H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - \mu_0}{ \sqrt{ \sigma^2 / n}} \underset{p}{\rightarrow} N(0,1) \\
 $$
 
 
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 
-- $\overline{\mathcal{X}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \\$
+- $\overline{\mathcal{X}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i$
 
  
-
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
@@ -821,22 +844,39 @@ Donde:
 
 ## p-valor
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
 
-- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm}   \text{vs}  \hspace{0.15cm} H_1: \mu > \mu_0 \\$  
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu > \mu_0 \\$  
   
 
-    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}>\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) > \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\[2.5cm]$$ 
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}>\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) > \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\$$ 
 
+</p>
+ 
+</p></span>
+</div>
 
+<br>
 
-
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
 
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
 
 
-    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}<\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) < \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\[2.5cm]$$ 
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}<\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) < \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\$$ 
 
 
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
 
 -  Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
   
@@ -848,7 +888,10 @@ Donde:
     
   
 
-
+</p>
+ 
+</p></span>
+</div>
 
 
 
@@ -860,10 +903,12 @@ Donde:
 ### Basada en el estadistico del contraste
 
 
-Para un nivel de significación $\hspace{0.1cm} \alpha$ : $\\[0.5cm]$
+**Para un nivel de significación $\hspace{0.1cm} \alpha$ :** $\\[0.5cm]$
 
 
----
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
 
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm}   \text{vs}  \hspace{0.15cm}H_1: \mu > \mu_0 \\$
 
@@ -874,15 +919,35 @@ Para un nivel de significación $\hspace{0.1cm} \alpha$ : $\\[0.5cm]$
 
     Donde: $\hspace{0.1cm}  \hspace{0.1cm} P(N(0,1) \hspace{0.1cm} >\hspace{0.1cm}  z_{\alpha})\hspace{0.1cm} =\hspace{0.1cm}  \alpha \\$ 
 
+</p>
  
----
+</p></span>
+</div>
+
+<br>
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
  
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
 
      $$ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} < \hspace{0.1cm} z_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} < \hspace{0.1cm} z_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} < \hspace{0.1cm} \mu_0 + z_{\alpha} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n} \\$$
 
  
----
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
 
 
 -  Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
@@ -896,6 +961,10 @@ Para un nivel de significación $\hspace{0.1cm} \alpha$ : $\\[0.5cm]$
 
     Donde se ha usado la propiedad de simetría de la distribución Normal, por la cual $\hspace{0.2cm}z_{1-\alpha/2}  \hspace{0.1cm}=\hspace{0.1cm} - z_{\alpha/2} $
 
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 

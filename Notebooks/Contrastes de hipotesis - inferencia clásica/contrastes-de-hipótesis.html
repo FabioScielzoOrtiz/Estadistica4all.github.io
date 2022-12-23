@@ -1887,8 +1887,8 @@ t_{exp | H_0} = \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 
 <p><span></p>
 <p style="margin-left:1em;">
 <ul>
-<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm} \text{vs} \hspace{0.15cm} H_1: \mu &gt; \mu_0 \\\)</span></p>
-<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}&gt;\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} &gt; \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\[2.5cm]\]</span></p></li>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &gt; \mu_0 \\\)</span></p>
+<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}&gt;\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} &gt; \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\\]</span></p></li>
 </ul>
 </p>
 </p>
@@ -1900,7 +1900,7 @@ t_{exp | H_0} = \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 
 <p style="margin-left:1em;">
 <ul>
 <li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &lt; \mu_0 \\\)</span></p>
-<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}&gt;\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} &gt; \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\[2.5cm]\]</span></p></li>
+<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}&lt;\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} &lt; \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\\]</span></p></li>
 </ul>
 </p>
 </p>
@@ -1915,7 +1915,7 @@ t_{exp | H_0} = \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 
 <p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}&gt;\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}&lt;\hspace{0.1cm} - | t_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm}
   P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}&gt;\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm} &gt;\hspace{0.1cm}  | t_{exp|H_0} | \right) \\[1cm]
   \hspace{0.1cm}=\hspace{0.1cm}
-2 \cdot  P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}&gt;\hspace{0.1cm} | t_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( t_{n-1} &gt; | \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} | \right)\]</span></p></li>
+2 \cdot  P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}&gt;\hspace{0.1cm} | t_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( t_{n-1} &gt;  \left| \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right| \right)\]</span></p></li>
 </ul>
 </p>
 </p>
@@ -1968,7 +1968,7 @@ t_{exp | H_0} = \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 
 <h3><span class="header-section-number">2.5.2</span> Basada en el p-valor</h3>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
 <p><span></p>
-<p>Dado un nivel de significación <span class="math inline">\(\hspace{0.1cm}\alpha\hspace{0.1cm}\)</span>, la regla de decisión basada en el p-valor del contraste es muy sencilla:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dado un nivel de significación <span class="math inline">\(\hspace{0.1cm}\alpha\hspace{0.1cm}\)</span>, la regla de decisión basada en el p-valor del contraste es muy sencilla:</p>
 <p><span class="math display">\[
 \text{Rechazar}  H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  pvalor &lt; \alpha
 \]</span></p>
@@ -2027,34 +2027,53 @@ t_{exp | H_0} = \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 
 <h1><span class="header-section-number">3</span> Contraste para la media con población no necesariamente Normal (Z-test)</h1>
 <div id="supuestos-1" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Supuestos</h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
+<p><span></p>
 <ul>
-<li><p>Tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> que no tiene por que tener distribución de probabilidad normal, tal que <span class="math inline">\(\hspace{0.1cm}E[\mathcal{X}] = \mu\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}Var(\mathcal{X}) = \sigma^2\)</span></p></li>
+<li><p>Tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> que no tiene por que tener distribución de probabilidad normal, tal que <span class="math inline">\(\hspace{0.1cm}E[\mathcal{X}] = \mu\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}Var(\mathcal{X}) = \sigma^2 \\\)</span></p></li>
 <li><p>Tenemos una muestra aleatoria simple <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \\\)</span></p></li>
 <li><p>El tamaño muestral <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> tiene que ser grande, generalmete vale <span class="math inline">\(\hspace{0.1cm}n&gt;30\)</span></p></li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
 </div>
 <div id="contraste-1" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Contraste</h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
+<p><span></p>
 <p><span class="math display">\[
 H_0 : \mu = \mu_0 \\
 H_1 : \mu \neq \mu_0
 \]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="estadistico-del-contraste-1" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Estadistico del contraste</h2>
 <p>El estadistico de este contraste está basado en el teorema central del limite, que fue ilustrado en el artículo de <a href="http://estadistica4all.com/Articulos/Intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-con-varianza-desconocida">intervalos de confianza</a>: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[
-\mathcal{Z}_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - \mu}{ \sqrt{\sigma^2 / n}} \underset{p}{\rightarrow} N(0,1) \\
+\mathcal{Z}_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - \mu}{ \sqrt{\sigma^2 / n}} \underset{p}{\rightarrow} N(0,1) \\[0.5cm]
 \]</span></p>
-<p>Por tanto, el estadístico del contraste bajo <span class="math inline">\(\hspace{0.1cm} H_0\hspace{0.1cm}\)</span> es: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Por tanto, el estadístico del contraste bajo <span class="math inline">\(\hspace{0.1cm} H_0\hspace{0.1cm}\)</span> es: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[
 \mathcal{Z}_{exp | H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - \mu_0}{ \sqrt{ \sigma^2 / n}} \underset{p}{\rightarrow} N(0,1) \\
 \]</span></p>
-<p>Donde:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <ul>
-<li><span class="math inline">\(\overline{\mathcal{X}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \\\)</span></li>
+<li><span class="math inline">\(\overline{\mathcal{X}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i\)</span></li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 <p><strong>Observación:</strong></p>
 <p>Dada una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \\\)</span></p>
@@ -2076,41 +2095,82 @@ z_{exp | H_0} = \dfrac{\overline{X} - \mu_0}{ \sqrt{ \sigma^2 / n}} \\
 </div>
 <div id="p-valor-2" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> p-valor</h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
+<p><span></p>
 <ul>
-<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm} \text{vs} \hspace{0.15cm} H_1: \mu &gt; \mu_0 \\\)</span></p>
-<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}&gt;\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) &gt; \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\[2.5cm]\]</span></p></li>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &gt; \mu_0 \\\)</span></p>
+<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}&gt;\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) &gt; \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\\]</span></p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
+<p><span></p>
+<ul>
 <li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &lt; \mu_0 \\\)</span></p>
-<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}&lt;\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) &lt; \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\[2.5cm]\]</span></p></li>
+<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}&lt;\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) &lt; \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\\]</span></p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
+<p><span></p>
+<ul>
 <li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu \neq \mu_0 \\\)</span></p>
 <p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}&gt;\hspace{0.1cm} | z_{exp|H_0} | \right) + P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}&lt;\hspace{0.1cm} - | z_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm}
   P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}&gt;\hspace{0.1cm} | z_{exp|H_0} | \right) + P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm} &gt;\hspace{0.1cm}  | z_{exp|H_0} | \right) \\[1cm]
   \hspace{0.1cm}=\hspace{0.1cm}
 2 \cdot  P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}&gt;\hspace{0.1cm} | z_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( N(0,1) &gt; \left| \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right| \hspace{0.1cm} \right)\]</span></p></li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="regla-de-decisión-1" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> Regla de decisión</h2>
 <div id="basada-en-el-estadistico-del-contraste-1" class="section level3" number="3.5.1">
 <h3><span class="header-section-number">3.5.1</span> Basada en el estadistico del contraste</h3>
-<p>Para un nivel de significación <span class="math inline">\(\hspace{0.1cm} \alpha\)</span> : <span class="math inline">\(\\[0.5cm]\)</span></p>
-<hr />
+<p><strong>Para un nivel de significación <span class="math inline">\(\hspace{0.1cm} \alpha\)</span> :</strong> <span class="math inline">\(\\[0.5cm]\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
+<p><span></p>
 <ul>
 <li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm} \text{vs} \hspace{0.15cm}H_1: \mu &gt; \mu_0 \\\)</span></p>
 <p><span class="math display">\[\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} &gt;\hspace{0.1cm} z_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} &gt;\hspace{0.1cm} z_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} &gt;\hspace{0.1cm} \mu_0 + z_{\alpha} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}\]</span></p>
 <p>Donde: <span class="math inline">\(\hspace{0.1cm} \hspace{0.1cm} P(N(0,1) \hspace{0.1cm} &gt;\hspace{0.1cm} z_{\alpha})\hspace{0.1cm} =\hspace{0.1cm} \alpha \\\)</span></p></li>
 </ul>
-<hr />
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
+<p><span></p>
 <ul>
 <li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &lt; \mu_0 \\\)</span></p>
 <p><span class="math display">\[ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} &lt; \hspace{0.1cm} z_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} &lt; \hspace{0.1cm} z_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} &lt; \hspace{0.1cm} \mu_0 + z_{\alpha} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n} \\\]</span></p></li>
 </ul>
-<hr />
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
+<p><span></p>
 <ul>
 <li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu \neq \mu_0 \\\)</span></p>
 <p><span class="math display">\[ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} &gt; \hspace{0.1cm} z_{\alpha/2}  \hspace{0.2cm} \vee \hspace{0.2cm}    z_{exp|H_0} \hspace{0.1cm} &lt; \hspace{0.1cm} z_{1-\alpha/2}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} &gt; \hspace{0.1cm} \mu_0 + z_{\alpha/2}  \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n} \hspace{0.2cm} \vee \hspace{0.2cm}  \overline{X} \hspace{0.1cm} &lt; \hspace{0.1cm} \mu_0 - z_{\alpha/2}  \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}\\\]</span></p>
 <p>Donde se ha usado la propiedad de simetría de la distribución Normal, por la cual $z_{1-/2} = - z_{/2} $</p></li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="basada-en-el-p-valor-1" class="section level3" number="3.5.2">
