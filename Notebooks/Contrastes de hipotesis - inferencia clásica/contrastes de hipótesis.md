@@ -324,12 +324,12 @@ $\hspace{0.25cm}$ $\text{pvalor} \hspace{0.1cm}=\hspace{0.1cm} P(\hspace{0.1cm}$
 
 - Usando el p-valor como regla de decisión se puede resolver el contraste para cualquier $\hspace{0.1cm}\alpha\hspace{0.1cm}$:  
 
-  - Si \ $\hspace{0.1cm}\text{pvalor} < \alpha\hspace{0.1cm}$ \ $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ \ $\text{Rechazar}$ $H_0$ $\\[0.5cm]$
+  - Si \ $\hspace{0.1cm}\text{pvalor} \leq \alpha\hspace{0.1cm}$ \ $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ \ $\text{Rechazar}$ $H_0$ $\\[0.5cm]$
       
-  - Si \ $\hspace{0.1cm}\text{pvalor} \geq  \alpha\hspace{0.1cm}$  \ $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ \ $\text{No  Rechazar}$ $H_0 \\$
+  - Si \ $\hspace{0.1cm}\text{pvalor} >  \alpha\hspace{0.1cm}$  \ $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ \ $\text{No  Rechazar}$ $H_0 \\$
        
        
-- El p-valor es el  menor nivel de significación  para el que se puede rechazar $\hspace{0.1cm}H_0\hspace{0.1cm}$ en favor de $H_1$ , dada la evidencia aportada por la muestra disponible. $\\[0.5cm]$
+- El p-valor es el  **mínimo** nivel de significación  para el que se puede rechazar $\hspace{0.1cm}H_0\hspace{0.1cm}$ en favor de $H_1$ , dada la evidencia aportada por la muestra disponible. $\\[0.5cm]$
 
 - El p-valor se puede interpretar como una medida de la evidencia a favor de $\hspace{0.1cm}H_1\hspace{0.1cm}$. De modo que cuanto menor es el p-valor mayor es la evidencia a favor de $H_1$ $\\[0.5cm]$
 
@@ -362,9 +362,9 @@ $\hspace{0.25cm}$ 4. Calcular el  $\text{pvalor}$.
 
 $\hspace{0.25cm}$ 5. Aplicar la siguiente regla de decisión:
 
- $\hspace{1cm}$  Si \ $\hspace{0.1cm}\text{pvalor} < \alpha\hspace{0.1cm}$ \ $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ \ $\text{Rechazar}$ $H_0$
+ $\hspace{1cm}$  Si \ $\hspace{0.1cm}\text{pvalor} \leq \alpha\hspace{0.1cm}$ \ $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ \ $\text{Rechazar}$ $H_0$
       
-  $\hspace{1cm}$   Si \ $\hspace{0.1cm}\text{pvalor} \geq  \alpha\hspace{0.1cm}$  \ $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ \ $\text{No  Rechazar}$ $H_0$
+  $\hspace{1cm}$   Si \ $\hspace{0.1cm}\text{pvalor} >  \alpha\hspace{0.1cm}$  \ $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ \ $\text{No  Rechazar}$ $H_0$
 
 
 
@@ -392,7 +392,7 @@ $\hspace{0.25cm}$ 5. Aplicar la siguiente regla de decisión:
  
 <p style='margin-left:1em;'>
 
-- Tenemos una v.a. $\hspace{0.1cm}\mathcal{X} \sim N(\mu , \sigma)$
+- Tenemos una v.a. $\hspace{0.1cm}\mathcal{X} \sim N(\mu , \sigma) \\$
 
 - Tenemos una muestra aleatoria simple $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$  de la v.a. $\hspace{0.1cm}\mathcal{X}$
 
@@ -427,7 +427,7 @@ $$
 El estadistico de este contraste está basado en el teorema de Gosset, que fue ilustrado en el artículo de [intervalos de confianza](http://estadistica4all.com/Articulos/Intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-con-varianza-desconocida): $\\[0.5cm]$ 
 
 $$
-\mathcal{T}_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - \mu}{ \sqrt{\dfrac{n}{n-1} \cdot s_n^2 / n}} \sim t_{n-1} \\[0.5cm]
+\mathcal{T}_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - \mu}{ \sqrt{\dfrac{n}{n-1} \cdot s_n^2 / n}} \sim t_{n-1} \\[1cm]
 $$
 
 
@@ -501,7 +501,7 @@ Donde:
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu > \mu_0 \\$  
   
 
-    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}>\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} > \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\$$ 
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}\geq \hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} \hspace{0.1cm}\geq \hspace{0.1cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\$$ 
 
 
 </p>
@@ -520,7 +520,7 @@ Donde:
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
 
 
-    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}<\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} < \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\$$ 
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}\leq\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} \hspace{0.1cm}\leq\hspace{0.1cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\$$ 
 
 </p>
  
@@ -538,10 +538,10 @@ Donde:
 -  Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
   
   
-    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}<\hspace{0.1cm} - | t_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm} 
-     P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm} >\hspace{0.1cm}  | t_{exp|H_0} | \right) \\[1cm]
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}\leq\hspace{0.1cm} - | t_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm} 
+     P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm} \leq\hspace{0.1cm}  | t_{exp|H_0} | \right) \\[1cm]
      \hspace{0.1cm}=\hspace{0.1cm} 
-    2 \cdot  P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | t_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( t_{n-1} >  \left| \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right| \right)$$
+    2 \cdot  P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | t_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( t_{n-1}  \hspace{0.1cm} \leq\hspace{0.1cm}  \left| \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right| \right)$$
     
   
 </p>
@@ -569,7 +569,7 @@ Donde:
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm}   \text{vs}  \hspace{0.15cm}H_1: \mu > \mu_0 \\$
 
 
-    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} >\hspace{0.1cm} t_{\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} >\hspace{0.1cm} t_{\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} >\hspace{0.1cm} \mu_0 + t_{\alpha}^{n-1} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}$$
+    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} \geq\hspace{0.1cm} t_{\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} \geq\hspace{0.1cm} t_{\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} \geq\hspace{0.1cm} \mu_0 + t_{\alpha}^{n-1} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}$$
 
 
 
@@ -589,7 +589,7 @@ Donde:
  
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
 
-     $$ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} < \hspace{0.1cm} t_{\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} < \hspace{0.1cm} t_{\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} < \hspace{0.1cm} \mu_0 + t_{\alpha}^{n-1} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n} \\$$
+     $$ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} \leq \hspace{0.1cm} t_{1-\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} < \hspace{0.1cm} t_{1-\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} \leq \hspace{0.1cm} \mu_0 + t_{1-\alpha}^{n-1} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n} \\$$
 
  
 </p>
@@ -608,7 +608,7 @@ Donde:
 
 
 
-    $$ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} > \hspace{0.1cm} t_{\alpha/2}^{n-1}  \hspace{0.2cm} \vee \hspace{0.2cm}    t_{exp|H_0} \hspace{0.1cm} < \hspace{0.1cm} t_{1-\alpha/2}^{n-1}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} > \hspace{0.1cm} \mu_0 + t_{\alpha/2}^{n-1} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n} \hspace{0.2cm} \vee \hspace{0.2cm}  \overline{X} \hspace{0.1cm} < \hspace{0.1cm} \mu_0 - t_{\alpha/2}^{n-1} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}\\$$
+    $$ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} \geq \hspace{0.1cm} t_{\alpha/2}^{n-1}  \hspace{0.25cm} \vee \hspace{0.25cm}    t_{exp|H_0} \hspace{0.1cm} \leq \hspace{0.1cm} t_{1-\alpha/2}^{n-1}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} \geq \hspace{0.1cm} \mu_0 + t_{\alpha/2}^{n-1} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n} \hspace{0.2cm} \vee \hspace{0.2cm}  \overline{X} \hspace{0.1cm} \leq \hspace{0.1cm} \mu_0 - t_{1-\alpha/2}^{n-1} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}\\$$
 
 
 
@@ -631,7 +631,7 @@ $\hspace{0.25cm}$ Dado un nivel de significación $\hspace{0.1cm}\alpha\hspace{0
 
 
 $$
-\text{Rechazar}  H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  pvalor < \alpha
+\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  \text{pvalor} \leq \alpha
 $$
 
 </p>
@@ -661,7 +661,7 @@ $$
 
 
 
-     $$P(RH_0 | H_0) \hspace{0.1cm} =\hspace{0.1cm} P( \mathcal{T}_{exp|H_0}  > t_{n-1}^{\alpha})\hspace{0.1cm}=\hspace{0.1cm}P(t_{n-1} > t_{n-1}^\alpha)=\alpha \\[1cm]$$
+     $$P(RH_0 | H_0) \hspace{0.1cm} =\hspace{0.1cm} P( \mathcal{T}_{exp|H_0}  \hspace{0.1cm} \geq \hspace{0.1cm} t^{n-1}_{\alpha})\hspace{0.1cm}=\hspace{0.1cm}P(t_{n-1} \hspace{0.1cm} \geq \hspace{0.1cm} t^{n-1}_\alpha)=\alpha \\[1cm]$$
 
 
 
@@ -669,16 +669,16 @@ $$
 
 
  
-     $$P(RH_0 | H_0) \hspace{0.1cm} =\hspace{0.1cm} P( \mathcal{T}_{exp|H_0}  < t_{n-1}^{\alpha})\hspace{0.1cm}=\hspace{0.1cm}P(t_{n-1} < t_{n-1}^\alpha)=\alpha \\[1cm]$$
+     $$P(RH_0 | H_0) \hspace{0.1cm} =\hspace{0.1cm} P( \mathcal{T}_{exp|H_0}  \hspace{0.1cm} \leq \hspace{0.1cm} t^{n-1}_{1-\alpha})\hspace{0.1cm}=\hspace{0.1cm}P(t_{n-1} \hspace{0.1cm} \leq \hspace{0.1cm} t^{n-1}_{1-\alpha})=\alpha \\[1cm]$$
 
  
 
     - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
 
 
-     $$P(RH_0 | H_0) \hspace{0.1cm} =\hspace{0.1cm} P( \mathcal{T}_{exp|H_0}  > t_{n-1}^{\alpha/2}  \hspace{0.1cm} \cup \hspace{0.1cm} \mathcal{T}_{exp|H_0}  < t_{n-1}^{1-\alpha/2}  )\hspace{0.1cm}=\hspace{0.1cm}   P( \mathcal{T}_{exp|H_0}  > t_{n-1}^{\alpha/2}  \hspace{0.1cm} \cup \hspace{0.1cm} \mathcal{T}_{exp|H_0}  < - t_{n-1}^{\alpha/2}  ) \\[0.8cm]
-     \hspace{0.1cm}=\hspace{0.1cm}   P( \mathcal{T}_{exp|H_0}  > t_{n-1}^{\alpha/2} ) + P( \mathcal{T}_{exp|H_0}  < - t_{n-1}^{\alpha/2})
-     \hspace{0.1cm}=\hspace{0.1cm}   P( \mathcal{T}_{exp|H_0}  > t_{n-1}^{\alpha/2} ) + P( \mathcal{T}_{exp|H_0}  >  t_{n-1}^{\alpha/2})  = 2\cdot P( \mathcal{T}_{exp|H_0}  > t_{n-1}^{\alpha} )  \hspace{0.1cm}=\hspace{0.1cm} \alpha \\[1cm]$$
+     $$P(RH_0 | H_0) \hspace{0.1cm} =\hspace{0.1cm} P( \mathcal{T}_{exp|H_0}  \hspace{0.1cm} \geq \hspace{0.1cm} t^{n-1}_{\alpha/2}  \hspace{0.1cm} \cup \hspace{0.1cm} \mathcal{T}_{exp|H_0}  \hspace{0.1cm} \leq \hspace{0.1cm} t^{n-1}_{1-\alpha/2}  )\hspace{0.1cm}=\hspace{0.1cm}   P( \mathcal{T}_{exp|H_0}  \hspace{0.1cm} \geq \hspace{0.1cm} t^{n-1}_{\alpha/2}  \hspace{0.1cm} \cup \hspace{0.1cm} \mathcal{T}_{exp|H_0}  \hspace{0.1cm} \leq \hspace{0.1cm} - t^{n-1}_{\alpha/2}  ) \\[0.8cm]
+     \hspace{0.1cm}=\hspace{0.1cm}   P( \mathcal{T}_{exp|H_0}  \hspace{0.1cm} \geq \hspace{0.1cm} t^{n-1}_{\alpha/2} ) + P( \mathcal{T}_{exp|H_0}  \hspace{0.1cm} \leq \hspace{0.1cm} - t^{n-1}_{\alpha/2})
+     \hspace{0.1cm}=\hspace{0.1cm}   P( \mathcal{T}_{exp|H_0}  \hspace{0.1cm} \geq \hspace{0.1cm} t_{n-1}^{\alpha/2} ) + P( \mathcal{T}_{exp|H_0}  \hspace{0.1cm} \geq \hspace{0.1cm}  t^{n-1}_{\alpha/2})  = 2\cdot P( \mathcal{T}_{exp|H_0}  \hspace{0.1cm} \geq \hspace{0.1cm} t^{n-1}_{\alpha/2} )  \hspace{0.1cm}=\hspace{0.1cm} \alpha \\[1.5cm]$$
  
 
 
@@ -692,30 +692,33 @@ $$
 
 
 
-    $$\text{pvalor} < \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P(\mathcal{T}_{exp|H_0} > t_{exp|H0}) < \alpha  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P(t_{n-1} > t_{exp|H0}) < \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H0} > t_{n-1}^{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \text{Rechazar}\hspace{0.15cm}  H_0 \\[1cm]$$
+    $$\text{pvalor} \hspace{0.1cm} \leq \hspace{0.1cm} \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P(\mathcal{T}_{exp|H_0} \hspace{0.1cm} \geq \hspace{0.1cm} t_{exp|H0}) \hspace{0.1cm} \leq \hspace{0.1cm} \alpha  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P(t_{n-1} \hspace{0.1cm} \geq \hspace{0.1cm} t_{exp|H0}) \hspace{0.1cm} \leq \hspace{0.1cm} \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H0} \hspace{0.1cm} \geq \hspace{0.1cm} t_{n-1}^{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \text{Rechazar}\hspace{0.15cm}  H_0 \\[1cm]$$
 
 
 
   - Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
 
-    $$\text{pvalor} < \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P(\mathcal{T}_{exp|H_0} < t_{exp|H0}) < \alpha  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P(t_{n-1} < t_{exp|H0}) < \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H0} < t_{n-1}^{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \text{Rechazar}\hspace{0.15cm}  H_0 \\[1cm]$$
+    $$\text{pvalor} \leq \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P(\mathcal{T}_{exp|H_0} \leq t_{exp|H0}) \leq \alpha  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P(t_{n-1} \leq t_{exp|H0}) \leq \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H0} \leq t_{n-1}^{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \text{Rechazar}\hspace{0.15cm}  H_0 \\[1cm]$$
 
 
 
-- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
+  - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
 
 
 
-    $$\text{pvalor} < \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} 2 \cdot  P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | t_{exp|H_0} | \right) < \alpha  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | t_{exp|H_0} | \right) < \alpha/2 \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \\[0.8cm]
+    $$\text{pvalor} < \alpha \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} 2 \cdot  P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm} \geq \hspace{0.1cm} | t_{exp|H_0} | \right) \hspace{0.1cm} \leq \hspace{0.1cm} \alpha  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm} \geq \hspace{0.1cm} | t_{exp|H_0} | \right) \hspace{0.1cm} \leq \hspace{0.1cm} \alpha/2 \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \\[0.8cm]
     \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}
-    | t_{exp|H_0} | > t_{\alpha/2}^{n-1}
-    \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  t_{exp|H_0}  > t_{\alpha/2}^{n-1} \hspace{0.2cm}\vee\hspace{0.2cm} t_{exp|H_0}  > -t_{\alpha/2}^{n-1}
+    | t_{exp|H_0} | \hspace{0.1cm} \geq \hspace{0.1cm} t_{\alpha/2}^{n-1}
+    \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  t_{exp|H_0}  \hspace{0.1cm} \geq \hspace{0.1cm} t_{\alpha/2}^{n-1} \hspace{0.2cm}\vee\hspace{0.2cm} t_{exp|H_0}  \hspace{0.1cm} \geq \hspace{0.1cm} -t_{\alpha/2}^{n-1}
     \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \text{Rechazar}\hspace{0.15cm}  H_0 \\[1cm]$$
 
 <br>
 
-Algunas de los desarrollos mostrados en este contraste no volverá a ser expuestas en el resto de contrastes, para no hacer demasiado pesado el artículo, pero son facilmente extrapolables.
+---
 
+*Algunas de los desarrollos mostrados en este contraste no volverá a ser expuestas en el resto de contrastes, para no hacer demasiado pesado el artículo, pero son facilmente extrapolables.*
+
+---
 
 
 <br>
@@ -850,7 +853,7 @@ Donde:
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu > \mu_0 \\$  
   
 
-    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}>\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) > \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\$$ 
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}\geq\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) \hspace{0.1cm} \geq\hspace{0.1cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\$$ 
 
 </p>
  
@@ -865,7 +868,7 @@ Donde:
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
 
 
-    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}<\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) < \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\$$ 
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}\leq\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) \hspace{0.1cm}\leq\hspace{0.1cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right) \\$$ 
 
 
 </p>
@@ -881,10 +884,10 @@ Donde:
 -  Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
   
   
-    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | z_{exp|H_0} | \right) + P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}<\hspace{0.1cm} - | z_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm} 
-     P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | z_{exp|H_0} | \right) + P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm} >\hspace{0.1cm}  | z_{exp|H_0} | \right) \\[1cm]
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | z_{exp|H_0} | \right) + P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}\leq\hspace{0.1cm} - | z_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm} 
+     P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | z_{exp|H_0} | \right) + P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm} \geq\hspace{0.1cm}  | z_{exp|H_0} | \right) \\[1cm]
      \hspace{0.1cm}=\hspace{0.1cm} 
-    2 \cdot  P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | z_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( N(0,1) > \left| \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right| \hspace{0.1cm} \right)$$
+    2 \cdot  P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | z_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( N(0,1) \hspace{0.1cm}\geq\hspace{0.1cm} \left| \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \right| \hspace{0.1cm} \right)$$
     
   
 
@@ -913,11 +916,11 @@ Donde:
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm}   \text{vs}  \hspace{0.15cm}H_1: \mu > \mu_0 \\$
 
 
-    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} >\hspace{0.1cm} z_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} >\hspace{0.1cm} z_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} >\hspace{0.1cm} \mu_0 + z_{\alpha} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}$$
+    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} \geq\hspace{0.1cm} z_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} \geq\hspace{0.1cm} z_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} \geq\hspace{0.1cm} \mu_0 + z_{\alpha} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}$$
 
 
 
-    Donde: $\hspace{0.1cm}  \hspace{0.1cm} P(N(0,1) \hspace{0.1cm} >\hspace{0.1cm}  z_{\alpha})\hspace{0.1cm} =\hspace{0.1cm}  \alpha \\$ 
+    Donde: $\hspace{0.1cm}  \hspace{0.1cm} P(N(0,1) \hspace{0.1cm} \geq \hspace{0.1cm}  z_{\alpha})\hspace{0.1cm} =\hspace{0.1cm}  \alpha \\$ 
 
 </p>
  
@@ -934,7 +937,7 @@ Donde:
  
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
 
-     $$ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} < \hspace{0.1cm} z_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} < \hspace{0.1cm} z_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} < \hspace{0.1cm} \mu_0 + z_{\alpha} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n} \\$$
+     $$ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} \leq \hspace{0.1cm} z_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}} \hspace{0.1cm} \leq \hspace{0.1cm} z_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} \leq \hspace{0.1cm} \mu_0 + z_{\alpha} \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n} \\$$
 
  
 </p>
@@ -955,11 +958,11 @@ Donde:
 
 
 
-    $$ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} > \hspace{0.1cm} z_{\alpha/2}  \hspace{0.2cm} \vee \hspace{0.2cm}    z_{exp|H_0} \hspace{0.1cm} < \hspace{0.1cm} z_{1-\alpha/2}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} > \hspace{0.1cm} \mu_0 + z_{\alpha/2}  \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n} \hspace{0.2cm} \vee \hspace{0.2cm}  \overline{X} \hspace{0.1cm} < \hspace{0.1cm} \mu_0 - z_{\alpha/2}  \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}\\$$
+    $$ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} \geq \hspace{0.1cm} z_{\alpha/2}  \hspace{0.2cm} \vee \hspace{0.2cm}    z_{exp|H_0} \hspace{0.1cm} \leq \hspace{0.1cm} z_{1-\alpha/2}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} \geq \hspace{0.1cm} \mu_0 + z_{\alpha/2}  \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n} \hspace{0.2cm} \vee \hspace{0.2cm}  \overline{X} \hspace{0.1cm} \leq \hspace{0.1cm} \mu_0 - z_{\alpha/2}  \cdot \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}\\$$
 
 
 
-    Donde se ha usado la propiedad de simetría de la distribución Normal, por la cual $\hspace{0.2cm}z_{1-\alpha/2}  \hspace{0.1cm}=\hspace{0.1cm} - z_{\alpha/2} $
+    Donde se ha usado la propiedad de simetría de la distribución Normal, por la cual $\hspace{0.2cm}z_{1-\alpha/2}  \hspace{0.1cm}=\hspace{0.1cm} - z_{\alpha/2}$
 
 </p>
  
@@ -971,13 +974,20 @@ Donde:
 
 ### Basada en el p-valor
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
 Dado un nivel de significación $\hspace{0.1cm}\alpha\hspace{0.1cm}$, la regla de decisión basada en el p-valor del contraste es muy sencilla:
 
 
 $$
-\text{Rechazar}  H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  pvalor < \alpha
+\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  pvalor \leq \alpha
 $$
 
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
@@ -1002,21 +1012,34 @@ $$
 
 ## Supuestos
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
 - Tenemos una v.a. $\hspace{0.1cm}\mathcal{X} \sim N(\mu , \sigma^2 )\hspace{0.1cm}$
 
 - Tenemos una muestra aleatoria simple $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$  de la v.a. $\hspace{0.1cm}\mathcal{X} \\$
 
 
-
+</p>
+ 
+</p></span>
+</div>
 
 
 ## Hipotesis
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
 
 $$
 H_0 : \sigma^2 = \sigma_0^2  \hspace{1.5cm}  H_0 : \sigma^2 = \sigma_0^2  \hspace{1.5cm}  H_0 : \sigma^2 = \sigma_0^2 \\
 H_1 : \sigma^2 \neq \sigma_0^2   \hspace{1.5cm}  H_1 : \sigma^2 > \sigma_0^2   \hspace{1.5cm} H_1 : \sigma^2 < \sigma_0^2
 $$
 
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
@@ -1028,6 +1051,10 @@ El estadistico de este contraste está basado en el teorema de Fisher, que fue i
 $$
 \chi_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.2cm} n\cdot S_n^2 \hspace{0.2cm}}{ \sqrt{\sigma^2}} \hspace{0.1cm} \sim \hspace{0.1cm}  \chi_{n-1}^2 \\
 $$
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
 
 Por tanto, el estadístico del contraste bajo $\hspace{0.1cm} H_0\hspace{0.1cm}$ es: $\\[0.5cm]$
 
@@ -1042,7 +1069,10 @@ Donde:
 - $S_n^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}})^2$
 
  
-
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
@@ -1059,8 +1089,6 @@ $$
 es una **realización muestral** de la v.a. $\hspace{0.1cm}\chi_{exp | H_0} \\$
 
 
- 
- 
 
 
 Donde:
@@ -1076,30 +1104,50 @@ Donde:
 
 ## p-valor
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
 
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu > \mu_0 \\$  
   
 
-    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \chi_{exp|H_0} \hspace{0.1cm}>\hspace{0.1cm} x_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( \chi_{n-1}^2 > \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right) \\[2.5cm]$$ 
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \chi_{exp|H_0} \hspace{0.1cm} \geq \hspace{0.1cm} x_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( \chi_{n-1}^2 \geq \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right) \\$$ 
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
 
 
-
-
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
 
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
 
 
-    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \chi_{exp|H_0} \hspace{0.1cm}<\hspace{0.1cm} x_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( \chi_{n-1}^2 < \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right) \\[2.5cm]$$ 
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \chi_{exp|H_0} \hspace{0.1cm}\leq \hspace{0.1cm} x_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( \chi_{n-1}^2 \leq \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right) \\$$ 
 
+</p>
+ 
+</p></span>
+</div>
 
+<br>
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
 
 -  Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
   
   
-    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \chi_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | x_{exp|H_0} | \right) \hspace{0.1cm}+\hspace{0.1cm} P \left(  \chi_{exp|H_0}  \hspace{0.1cm}<\hspace{0.1cm} - | x_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm}  P \left(  \chi_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} \left|  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right| \hspace{0.1cm} \right)\hspace{0.1cm} +\hspace{0.1cm} P \left(  \chi_{exp|H_0}  \hspace{0.1cm}<\hspace{0.1cm} - \left|  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right| \hspace{0.1cm} \right) \\$$
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \chi_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | x_{exp|H_0} | \right) \hspace{0.1cm}+\hspace{0.1cm} P \left(  \chi_{exp|H_0}  \hspace{0.1cm}\leq \hspace{0.1cm} - | x_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm}  P \left(  \chi_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} \left|  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right| \hspace{0.1cm} \right)\hspace{0.1cm} +\hspace{0.1cm} P \left(  \chi_{exp|H_0}  \hspace{0.1cm}\leq\hspace{0.1cm} - \left|  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \right| \hspace{0.1cm} \right)$$
     
   
-
+</p>
+ 
+</p></span>
+</div>
 
 
 
@@ -1112,37 +1160,55 @@ Donde:
 ### Basada en el estadistico del contraste
 
 
-Para un nivel de significación $\hspace{0.1cm} \alpha$ : $\\[0.5cm]$
+**Para un nivel de significación $\hspace{0.1cm} \alpha$ :** $\\[0.5cm]$
 
 
----
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
 
-- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm}   \text{vs}  \hspace{0.15cm}H_1: \mu > \mu_0 \\$
-
-
-    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} x_{exp|H_0} \hspace{0.1cm} >\hspace{0.1cm} \chi^2_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \hspace{0.1cm} >\hspace{0.1cm} \chi^2_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  S(X)^2 \hspace{0.1cm} >\hspace{0.1cm} \sqrt{\sigma^2_0} \cdot \chi^2_{\alpha} / n$$
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm}H_1: \mu > \mu_0 \\$
 
 
+    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} x_{exp|H_0} \hspace{0.1cm} \geq\hspace{0.1cm} \chi^2_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \hspace{0.1cm} \geq\hspace{0.1cm} \chi^2_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  S(X)^2 \hspace{0.1cm} \geq\hspace{0.1cm} \sqrt{\sigma^2_0} \cdot \chi^2_{\alpha} / n$$
 
-    Donde: $\hspace{0.1cm}  \hspace{0.1cm} P(\chi^2_{n-1} \hspace{0.1cm} >\hspace{0.1cm}  \chi_{\alpha})\hspace{0.1cm} =\hspace{0.1cm}  \alpha \\$ 
 
+
+    Donde: $\hspace{0.1cm}  \hspace{0.1cm} P(\chi^2_{n-1} \hspace{0.1cm} \geq\hspace{0.1cm}  \chi_{\alpha})\hspace{0.1cm} =\hspace{0.1cm}  \alpha \\$ 
+
+ </p>
  
----
+</p></span>
+</div>
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
  
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
 
-    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} x_{exp|H_0} \hspace{0.1cm} <\hspace{0.1cm} \chi^2_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \hspace{0.1cm} <\hspace{0.1cm} \chi^2_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  S(X)^2 \hspace{0.1cm} <\hspace{0.1cm} \sqrt{\sigma^2_0} \cdot \chi^2_{\alpha} / n$$
+    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} x_{exp|H_0} \hspace{0.1cm} \leq\hspace{0.1cm} \chi^2_{1-\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \hspace{0.1cm} \leq\hspace{0.1cm} \chi^2_{1-\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  S(X)^2 \hspace{0.1cm} \leq\hspace{0.1cm} \sqrt{\sigma^2_0} \cdot \chi^2_{1-\alpha} / n$$
 
+ </p>
  
----
+</p></span>
+</div>
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
 
 
 -  Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
 
 
-$$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} x_{exp|H_0} \hspace{0.1cm} >\hspace{0.1cm} \chi^2_{\alpha/2} \hspace{0.2cm} \vee \hspace{0.2cm} x_{exp|H_0} \hspace{0.1cm} <\hspace{0.1cm} \chi^2_{1-\alpha/2} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \hspace{0.1cm} >\hspace{0.1cm} \chi^2_{\alpha} \hspace{0.2cm} \vee \hspace{0.2cm} x_{exp|H_0} \hspace{0.1cm} <\hspace{0.1cm} \chi^2_{1-\alpha/2}    \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  S(X)^2 \hspace{0.1cm} >\hspace{0.1cm} \sqrt{\sigma^2_0} \cdot \chi^2_{\alpha/2} / n  \hspace{0.2cm} \vee \hspace{0.2cm}     S(X)^2 \hspace{0.1cm} <\hspace{0.1cm} \sqrt{\sigma^2_0} \cdot \chi^2_{1-\alpha/2} / n$$
+$$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} x_{exp|H_0} \hspace{0.1cm} \geq\hspace{0.1cm} \chi^2_{\alpha/2} \hspace{0.2cm} \vee \hspace{0.2cm} x_{exp|H_0} \hspace{0.1cm} \leq\hspace{0.1cm} \chi^2_{1-\alpha/2} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \dfrac{\hspace{0.2cm} n\cdot S(X)^2 \hspace{0.2cm}}{ \sqrt{\sigma^2_0}} \hspace{0.1cm} \geq \hspace{0.1cm} \chi^2_{\alpha} \hspace{0.2cm} \vee \hspace{0.2cm} x_{exp|H_0} \hspace{0.1cm} \leq\hspace{0.1cm} \chi^2_{1-\alpha/2}    \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  S(X)^2 \hspace{0.1cm} \geq\hspace{0.1cm} \sqrt{\sigma^2_0} \cdot \chi^2_{\alpha/2} / n  \hspace{0.2cm} \vee \hspace{0.2cm}     S(X)^2 \hspace{0.1cm} \leq\hspace{0.1cm} \sqrt{\sigma^2_0} \cdot \chi^2_{1-\alpha/2} / n$$
 
+ </p>
  
+</p></span>
+</div>
 
 
  
@@ -1152,12 +1218,20 @@ $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.
 
 ### Basada en el p-valor
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
 Dado un nivel de significación $\hspace{0.1cm}\alpha\hspace{0.1cm}$, la regla de decisión basada en el p-valor del contraste es muy sencilla:
 
 
 $$
-\text{Rechazar}  H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  pvalor < \alpha
+\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  \text{pvalor} \leq \alpha
 $$
+
+</p>
+ 
+</p></span>
+</div>
 
 
 <br>
@@ -1179,13 +1253,13 @@ $$
 
 ## Supuestos
 
-- Tenemos dos v.a's **independientes** $\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1 , \sigma_1)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2 \sim N(\mu_2 , \sigma_2)$
+- Tenemos dos v.a's **independientes** $\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1 , \sigma_1)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2 \sim N(\mu_2 , \sigma_2) \\$
 
 - Tenemos dos muestras aleatorias simples $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n_1 1}\hspace{0.1cm}$  y $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n_2 2}\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2 \\$
 
 - Las varianzas $\hspace{0.1cm}\sigma_1\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2\hspace{0.1cm}$ son desconocidas y no necesariamente iguales.
 
-
+<br>
 
 ## Contraste
 
@@ -1200,12 +1274,12 @@ $$
 
 El estadistico de este contraste está basado en el teorema de Gosset aumentado con varianzas no necesariamente iguales, que fue ilustrado en el artículo de [intervalos de confianza](http://estadistica4all.com/Articulos/Intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-con-varianza-desconocida): $\\[0.5cm]$ 
 
-$$\mathcal{T}_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{  \dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2}\right)} \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{v} \\$$
+$$\mathcal{T}_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2 - (\mu_1 - \mu_2) \hspace{0.15cm}}{  \dfrac{S_1^2}{n_1} + \dfrac{S_2^2}{n_2} }   \hspace{0.1cm}\sim\hspace{0.1cm} t_{v} \\$$
 
 Donde:
 
 
-$$v=\dfrac{(S_1^2 / n_1 + S_2^2/n_2 )^2}{\dfrac{(S_1^2 / n_1)^2}{n_1-1} + \dfrac{( S_2^2/n_2 )^2}{n_2-1}} \\$$
+$$v \hspace{0.1cm}=\hspace{0.1cm} \dfrac{(S_1^2 / n_1 + S_2^2/n_2 )^2}{\dfrac{(S_1^2 / n_1)^2}{n_1-1} + \dfrac{( S_2^2/n_2 )^2}{n_2-1}} \\[1cm]$$
 
 
 Por tanto, el estadístico del contraste bajo $\hspace{0.1cm} H_0\hspace{0.1cm}$ es: $\\[0.5cm]$
@@ -1218,7 +1292,7 @@ Donde:
 
 - $\overline{\mathcal{X}}_j \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_{ij} \hspace{0.25cm} , \hspace{0.25cm}   j \in \lbrace 1,2 \rbrace \\$
 
-- $S_j^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i - \overline{\mathcal{X}} \hspace{0.25cm} , \hspace{0.25cm}   j \in \lbrace 1,2 \rbrace $
+- $S_j^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i - \overline{\mathcal{X}} \hspace{0.25cm} , \hspace{0.25cm}   j \in \lbrace 1,2 \rbrace$
 
 
 
@@ -1257,7 +1331,7 @@ Donde:
 - Caso  $\hspace{0.15cm}H_0: \mu_1 = \mu_2 \hspace{0.15cm}   \text{vs}  \hspace{0.15cm} H_1: \mu_1 > \mu_2 \\$  
   
 
-    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}>\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{v} > \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} }  \right) \\[2.5cm]$$ 
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}\geq\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{v} \geq \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} }  \right) \\[2.5cm]$$ 
 
 
 
@@ -1266,17 +1340,17 @@ Donde:
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
 
 
-    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}<\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{v} < \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} }  \right) \\[2.5cm]$$ 
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}\leq\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{v} \leq \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} }  \right) \\$$ 
 
 
 
 -  Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
   
   
-    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}<\hspace{0.1cm} - | t_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm} 
-     P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm} >\hspace{0.1cm}  | t_{exp|H_0} | \right) \\[1cm]
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}\leq\hspace{0.1cm} - | t_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm} 
+     P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm} >\hspace{0.1cm}  | t_{exp|H_0} | \right) \\[1cm]
      \hspace{0.1cm}=\hspace{0.1cm} 
-    2 \cdot  P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}>\hspace{0.1cm} | t_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( t_{n-1} > \left| \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} }  \right| \hspace{0.1cm} \right)$$
+    2 \cdot  P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | t_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( t_{n-1} \geq \left| \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} }  \right| \hspace{0.1cm} \right)$$
     
   
 
@@ -1300,7 +1374,7 @@ Para un nivel de significación $\hspace{0.1cm} \alpha$ : $\\[0.5cm]$
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm}   \text{vs}  \hspace{0.15cm}H_1: \mu > \mu_0 \\$
 
 
-    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} >\hspace{0.1cm} t_{\alpha}^{v} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} }  \hspace{0.1cm} >\hspace{0.1cm} t_{\alpha}^{v} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.1cm} >\hspace{0.1cm}  t_{\alpha}^{v} \cdot \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}}$$
+    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} \geq\hspace{0.1cm} t_{\alpha}^{v} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} }  \hspace{0.1cm} \geq\hspace{0.1cm} t_{\alpha}^{v} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.1cm} \geq\hspace{0.1cm}  t_{\alpha}^{v} \cdot \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}}$$
 
 
 
@@ -1311,7 +1385,7 @@ Para un nivel de significación $\hspace{0.1cm} \alpha$ : $\\[0.5cm]$
  
 - Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
 
-     $$ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} < \hspace{0.1cm} t_{\alpha}^{v} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} } \hspace{0.1cm} < \hspace{0.1cm} t_{\alpha}^{v} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.1cm} <\hspace{0.1cm}  t_{\alpha}^{v} \cdot \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \\$$
+     $$ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} \leq \hspace{0.1cm} t_{1-\alpha}^{v} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.1cm} } \hspace{0.1cm} \leq \hspace{0.1cm} t_{1-\alpha}^{v} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.1cm} \leq \hspace{0.1cm}  t_{1-\alpha}^{v} \cdot \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \\$$
 
  
 ---
@@ -1322,7 +1396,7 @@ Para un nivel de significación $\hspace{0.1cm} \alpha$ : $\\[0.5cm]$
 
 
 
-    $$ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} > \hspace{0.1cm} t_{\alpha/2}^{n-1}  \hspace{0.2cm} \vee \hspace{0.2cm}    t_{exp|H_0} \hspace{0.1cm} < \hspace{0.1cm} t_{1-\alpha/2}^{n-1}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}   \mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.1cm} >\hspace{0.1cm}  t_{\alpha/2}^{v} \cdot \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.2cm} \vee \hspace{0.2cm}  \mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.1cm} <\hspace{0.1cm}  - t_{\alpha/2}^{v} \cdot \sqrt{\dfrac{S(X_1)^2}{v} + \dfrac{S(X_2)^2}{n_2}}\\$$
+    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} \geq \hspace{0.1cm} t_{\alpha/2}^{n-1}  \hspace{0.2cm} \vee \hspace{0.2cm}    t_{exp|H_0} \hspace{0.1cm} \leq \hspace{0.1cm} t_{1-\alpha/2}^{n-1}  \hspace{0.25cm} \hspace{0.25cm} \Leftrightarrow\hspace{0.25cm}  \hspace{0.25cm}   \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.1cm} \geq\hspace{0.1cm}  t_{\alpha/2}^{v} \cdot \sqrt{\dfrac{S(X_1)^2}{n_1} + \dfrac{S(X_2)^2}{n_2}} \hspace{0.2cm} \vee \hspace{0.2cm}  \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.1cm} \leq \hspace{0.1cm}  - t_{\alpha/2}^{v} \cdot \sqrt{\dfrac{S(X_1)^2}{v} + \dfrac{S(X_2)^2}{n_2}}\\$$
 
 
 
@@ -1338,7 +1412,7 @@ Dado un nivel de significación $\hspace{0.1cm}\alpha\hspace{0.1cm}$, la regla d
 
 
 $$
-\text{Rechazar}  H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  pvalor < \alpha
+\text{Rechazar} \hspace{0.1cm}  H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  \text{pvalor} \leq \alpha
 $$
 
 
