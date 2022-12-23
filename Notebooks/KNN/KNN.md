@@ -541,18 +541,20 @@ X_new.head()
 ```python
 Y_train.head()
 ```
+```
 382     2.0
 732     1.0
 1888    2.0
 679     0.0
 1004    2.0
 Name: quality_recode, dtype: float64
-
+```
 
 
 
 ```python
 Y_new.head()
+```
 ```
 1     2.0
 2     2.0
@@ -560,7 +562,7 @@ Y_new.head()
 8     1.0
 16    2.0
 Name: quality_recode, dtype: float64
-
+```
 
 
 <br>
@@ -705,10 +707,10 @@ Vamos a crear una función que replique el algoritmo KNN para clasificación sup
 
 
 
-Primero definimos algunas de las funciones de distancia que usará nuestro algoritmo:
+**Primero definimos algunas de las funciones de distancia que usará nuestro algoritmo:**
 
 
-Definimos la distancia Euclidea y la matriz de distancias Euclideas:
+- Definimos la distancia Euclidea y la matriz de distancias Euclideas:
 ```python
 def Dist_Euclidea(x_i, x_r):
 
@@ -748,7 +750,7 @@ def Matrix_Dist_Euclidea(Data):
 
 <br>
 
-Definimos la distancia Minkowski y la matriz de distancias Minkowski:
+- Definimos la distancia Minkowski y la matriz de distancias Minkowski:
 ```python
 def Dist_Minkowski(x_i, x_r, q):
 
@@ -787,7 +789,7 @@ def Matrix_Dist_Minkowski(Data, q):
 
 <br>
 
-Definimos la distancia Canberra y la matriz de distancias Canberra:
+- Definimos la distancia Canberra y la matriz de distancias Canberra:
 ```python
 def Dist_Canberra(x_i, x_r):
 
@@ -836,7 +838,7 @@ def Matrix_Dist_Canberra(Data):
 
 <br>
 
-Definimos la distancia Mahalanobis y la matriz de distancias de Mahalanobis:
+- Definimos la distancia Mahalanobis y la matriz de distancias de Mahalanobis:
 ```python
 def Dist_Mahalanobis_2(x_i, x_r, S_inv):  # Más eficiente que la anterior
 
@@ -908,7 +910,7 @@ def Matrix_Dist_Mahalanobis_3(Data):
 
 <br>
 
-Definimos la matriz de distancias de Gower:
+- Definimos la matriz de distancias de Gower:
 
 ```python
 def a_b_c_d_Matrix(Data):
@@ -1038,7 +1040,7 @@ def Matrix_Gower_Distance(Data, p1, p2, p3 ):
 
 <br>
 
-Definimos la función KNN con la que replicamos el algoritmo KNN para clasificación supervisada que hemos expuesto anteriormente:
+**Programamos desde "cero" el algoritmo KNN para clasificación supervisada:**
 
 ```python
 def KNN(Distance_Matrix_New_Data , k, X_train, Y_train ) :
@@ -1765,7 +1767,7 @@ np.sqrt(ECM)
 # KNN  para regresión  programado desde "cero" en `Python` <a class="anchor" id="7"></a>
 
 
-Programamos desde "cero" el algoritmo KNN para regresión:
+**Programamos desde "cero" el algoritmo KNN para regresión:**
 
 ```python
 def KNN_regresion(Distance_Matrix_New_Data , k , X_train, Y_train) :
@@ -1778,8 +1780,6 @@ def KNN_regresion(Distance_Matrix_New_Data , k , X_train, Y_train) :
     # X_train tiene que ser un data-frame con las observaciones de los predictores con las que se va a entrenar el modelo.
     
     # Y_train tiene que ser un numpy array que contenga las observaciones de la respuesta con las que se va a entrenar el modelo.
-
-
 
 
     Y_predict_x_new_i_LIST = []
