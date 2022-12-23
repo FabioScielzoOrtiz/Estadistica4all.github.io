@@ -1,7 +1,7 @@
 ---
-title: 'K Nearest Neighbors (KNN)'
+title: 'El algoritmo KNN'
 author: 'Fabio Scielzo Ortiz'
-date: '25/12/22'
+date: '23/12/22'
 output: 
    rmdformats::readthedown:
       use_bookdown: true
@@ -56,7 +56,9 @@ $\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https:
 
 $\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/autores.html)
 
-$\hspace{0.3cm}$ **Si utilizas este artículo, por favor, cítalo:** $\hspace{0.1cm}$ [Link](http://estadistica4all.com/Articulos/KNN.html)
+$\hspace{0.3cm}$ **Si utilizas este artículo, por favor, cítalo:** 
+
+$\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). El algoritmo KNN. [Link](http://estadistica4all.com/Articulos/KNN.html)
 
 
 </p>
