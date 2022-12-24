@@ -2897,8 +2897,8 @@ P \left(  \mathcal{F}_{exp|H_0}  \hspace{0.1cm}\leq\hspace{0.1cm} \dfrac{S(X_1)^
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math display">\[
-H_0 : p = p_0 \\
-H_1 : p \neq p_0
+H_0 : p = p_0 \hspace{1.5cm} H_0 : p = p_0  \hspace{1.5cm} H_0 : p = p_0\\
+H_1 : p \neq p_0 \hspace{1.5cm} H_0 : p &gt; p_0  \hspace{1.5cm} H_0 : p &lt; p_0
 \]</span></p>
 </p>
 </p>
@@ -3070,8 +3070,8 @@ z_{exp | H_0} = \dfrac{\overline{X} - p_0}{ \sqrt{\overline{X}\cdot (1-\overline
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math display">\[
-H_0 : p_1 = p_2 \hspace{1cm} H_0 : p_1 = p_2  \hspace{1cm} H_0 : p_1 = p_2\\
-H_1 : p_1 \neq p_2 \hspace{1cm} H_0 : p_1 &gt; p_2  \hspace{1cm} H_0 : p_1 &lt; p_2
+H_0 : p_1 = p_2 \hspace{1.5cm} H_0 : p_1 = p_2  \hspace{1.5cm} H_0 : p_1 = p_2\\
+H_1 : p_1 \neq p_2 \hspace{1.5cm} H_0 : p_1 &gt; p_2  \hspace{1.5cm} H_0 : p_1 &lt; p_2
 \]</span></p>
 </p>
 </p>
@@ -3083,18 +3083,16 @@ H_1 : p_1 \neq p_2 \hspace{1cm} H_0 : p_1 &gt; p_2  \hspace{1cm} H_0 : p_1 &lt; 
 <h2><span class="header-section-number">9.3</span> Estadistico del contraste</h2>
 <p>El estadistico de este contraste está basado en el teorema de Moivre-Laplace, que fue ilustrado en el artículo de <a href="http://estadistica4all.com/Articulos/Intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-con-varianza-desconocida">intervalos de confianza</a>: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[
-\mathcal{Z}_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - p}{ \sqrt{\overline{\mathcal{X}}\cdot (1-\overline{\mathcal{X}}) / n}} \underset{d}{\rightarrow} N(0,1) \\[1cm]
+\mathcal{Z}_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{(\overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2) - (p_1 - p_2)}{ \sqrt{  \overline{\mathcal{X}}_1 \cdot (1-\overline{\mathcal{X}}_1) / n_1    \hspace{0.05cm} +  \hspace{0.05cm} \overline{\mathcal{X}}_2 \cdot (1-\overline{\mathcal{X}}_2) / n_2 } } \hspace{0.12cm} \underset{d}{\rightarrow}\hspace{0.12cm} N(0,1) \\[1.5cm]
 \]</span></p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Por tanto, el estadístico del contraste bajo <span class="math inline">\(\hspace{0.1cm} H_0\hspace{0.1cm}\)</span> es: <span class="math inline">\(\\[0.5cm]\)</span></p>
-<p><span class="math display">\[
-\mathcal{Z}_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - p_0}{ \sqrt{\overline{\mathcal{X}}\cdot (1-\overline{\mathcal{X}}) / n} } \underset{d}{\rightarrow} N(0,1)
-\]</span></p>
+<p><span class="math display">\[\mathcal{Z}_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{(\overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2) }{ \hspace{0.1cm} \sqrt{  \overline{\mathcal{X}}_1 \cdot (1-\overline{\mathcal{X}}_1) / n_1   \hspace{0.05cm} +  \hspace{0.05cm} \overline{\mathcal{X}}_2 \cdot (1-\overline{\mathcal{X}}_2) / n_2 }  \hspace{0.1cm}} \hspace{0.12cm} \underset{d}{\rightarrow}\hspace{0.12cm} N(0,1) \\\]</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <ul>
-<li><span class="math inline">\(\overline{\mathcal{X}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \\\)</span></li>
+<li><span class="math inline">\(\overline{\mathcal{X}_j} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_{ij} \hspace{0.25cm} , \hspace{0.25cm} j \in \lbrace 1,2 \rbrace \\\)</span></li>
 </ul>
 </p>
 </p>
@@ -3107,12 +3105,12 @@ H_1 : p_1 \neq p_2 \hspace{1cm} H_0 : p_1 &gt; p_2  \hspace{1cm} H_0 : p_1 &lt; 
 <li><p>Dada una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}\)</span> de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \\\)</span></p></li>
 </ul>
 <p><span class="math display">\[
-z_{exp | H_0} = \dfrac{\overline{X} - p_0}{ \sqrt{\overline{X}\cdot (1-\overline{X}) / n}} \\
+z_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{(\overline{X}_1 - \overline{X}_2) }{ \hspace{0.1cm} \sqrt{  \overline{X}_1 \cdot (1-\overline{X}_1) / n_1   \hspace{0.05cm} +  \hspace{0.05cm} \overline{X}_2 \cdot (1-\overline{X}_2) / n_2 } }
 \]</span></p>
 <p>es una <strong>realización muestral</strong> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{Z}_{exp | H_0} \\\)</span></p>
 <p>Donde:</p>
 <ul>
-<li><span class="math inline">\(\overline{X} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n x_i \\\)</span></li>
+<li><span class="math inline">\(\overline{X}_j \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n x_{ij} \hspace{0.25cm} , \hspace{0.25cm} j \in \lbrace 1,2 \rbrace \\\)</span></li>
 </ul>
 <p><br></p>
 </div>
@@ -3122,8 +3120,8 @@ z_{exp | H_0} = \dfrac{\overline{X} - p_0}{ \sqrt{\overline{X}\cdot (1-\overline
 <p><span></p>
 <p style="margin-left:1em;">
 <ul>
-<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: p = p_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: p &gt; p_0 \\\)</span></p>
-<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}\geq \hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) \hspace{0.1cm}\geq \hspace{0.1cm} \dfrac{\overline{X} - p_0}{ \sqrt{\overline{X}\cdot (1-\overline{X}) / n} } \right) \\\]</span></p></li>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: p_1 = p_2\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: p_1 &gt; p_2 \\\)</span></p>
+<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}\geq \hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) \hspace{0.1cm}\geq \hspace{0.1cm} \dfrac{(\overline{X}_1 - \overline{X}_2) }{ \hspace{0.1cm} \sqrt{  \overline{X}_1 \cdot (1-\overline{X}_1) / n_1   \hspace{0.05cm} +  \hspace{0.05cm} \overline{X}_2 \cdot (1-\overline{X}_2) / n_2 } } \right) \\\]</span></p></li>
 </ul>
 </p>
 </p>
@@ -3135,7 +3133,7 @@ z_{exp | H_0} = \dfrac{\overline{X} - p_0}{ \sqrt{\overline{X}\cdot (1-\overline
 <p style="margin-left:1em;">
 <ul>
 <li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \mu &lt; \mu_0 \\\)</span></p>
-<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}\leq\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) \hspace{0.1cm}\leq\hspace{0.1cm} \dfrac{\overline{X} - p_0}{ \sqrt{\overline{X}\cdot (1-\overline{X}) / n}  } \right) \\\]</span></p></li>
+<p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}\leq\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) \hspace{0.1cm}\leq\hspace{0.1cm} \dfrac{(\overline{X}_1 - \overline{X}_2) }{ \hspace{0.1cm} \sqrt{  \overline{X}_1 \cdot (1-\overline{X}_1) / n_1   \hspace{0.05cm} +  \hspace{0.05cm} \overline{X}_2 \cdot (1-\overline{X}_2) / n_2 } } \right) \\\]</span></p></li>
 </ul>
 </p>
 </p>
@@ -3150,7 +3148,7 @@ z_{exp | H_0} = \dfrac{\overline{X} - p_0}{ \sqrt{\overline{X}\cdot (1-\overline
 <p><span class="math display">\[\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | z_{exp|H_0} | \right) + P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}\leq\hspace{0.1cm} - | z_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm}
   P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | z_{exp|H_0} | \right) + P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm} \leq\hspace{0.1cm}  | z_{exp|H_0} | \right) \\[1cm]
   \hspace{0.1cm}=\hspace{0.1cm}
-2 \cdot  P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | z_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( N(0,1)  \hspace{0.1cm} \leq\hspace{0.1cm}  \left| \dfrac{\overline{X} - p_0}{    \sqrt{\overline{X}\cdot (1-\overline{X}) / n} } \right| \right)\]</span></p></li>
+2 \cdot  P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | z_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( N(0,1)  \hspace{0.1cm} \leq\hspace{0.1cm}  \left| \dfrac{(\overline{X}_1 - \overline{X}_2) }{ \hspace{0.1cm} \sqrt{  \overline{X}_1 \cdot (1-\overline{X}_1) / n_1   \hspace{0.05cm} +  \hspace{0.05cm} \overline{X}_2 \cdot (1-\overline{X}_2) / n_2 } } \right| \right)\]</span></p></li>
 </ul>
 </p>
 </p>
@@ -3166,8 +3164,8 @@ z_{exp | H_0} = \dfrac{\overline{X} - p_0}{ \sqrt{\overline{X}\cdot (1-\overline
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
 <p><span></p>
 <ul>
-<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: p = p_0\hspace{0.15cm} \text{vs} \hspace{0.15cm}H_1: p &gt; p_0 \\\)</span></p>
-<p><span class="math display">\[\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} \geq\hspace{0.1cm} z_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - p_0}{\sqrt{\overline{X}\cdot (1-\overline{X}) / n}} \hspace{0.1cm} \geq\hspace{0.1cm} z_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} \geq\hspace{0.1cm} p_0 + z_{\alpha} \cdot \sqrt{\overline{X}\cdot (1-\overline{X}) / n}\]</span></p>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: p_1 = p_2 \hspace{0.25cm} \text{vs} \hspace{0.25cm}H_1: p_1 &gt; p_2 \\\)</span></p>
+<p><span class="math display">\[\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} \geq\hspace{0.1cm} z_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{(\overline{X}_1 - \overline{X}_2) }{ \hspace{0.1cm} \sqrt{  \overline{X}_1 \cdot (1-\overline{X}_1) / n_1   \hspace{0.05cm} +  \hspace{0.05cm} \overline{X}_2 \cdot (1-\overline{X}_2) / n_2 } } \hspace{0.1cm} \geq\hspace{0.1cm} z_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X}_1 - \overline{X}_2 \hspace{0.1cm} \geq\hspace{0.1cm}   z_{\alpha} \cdot \sqrt{  \overline{X}_1 \cdot (1-\overline{X}_1) / n_1   \hspace{0.05cm} +  \hspace{0.05cm} \overline{X}_2 \cdot (1-\overline{X}_2) / n_2 }\]</span></p>
 <p>Donde: <span class="math inline">\(\hspace{0.1cm} \hspace{0.1cm} P(N(0,1) \hspace{0.1cm} &gt;\hspace{0.1cm} z_{\alpha})\hspace{0.1cm} =\hspace{0.1cm} \alpha\)</span></p></li>
 </ul>
 </p>
@@ -3178,8 +3176,8 @@ z_{exp | H_0} = \dfrac{\overline{X} - p_0}{ \sqrt{\overline{X}\cdot (1-\overline
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;">
 <p><span></p>
 <ul>
-<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: p = p_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: p &lt; p_0 \\\)</span></p>
-<p><span class="math display">\[ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} \leq \hspace{0.1cm} z_{1-\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - p_0}{ \sqrt{\overline{X}\cdot (1-\overline{X}) / n} } \hspace{0.1cm} &lt; \hspace{0.1cm} z_{1-\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} \leq \hspace{0.1cm} p_0 + z_{1-\alpha} \cdot \sqrt{\overline{X}\cdot (1-\overline{X}) / n} \\\]</span></p></li>
+<li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: p_1 = p_2\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: p_1 &lt; p_2 \\\)</span></p>
+<p><span class="math display">\[\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} \leq \hspace{0.1cm} z_{1-\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{(\overline{X}_1 - \overline{X}_2) }{ \hspace{0.1cm} \sqrt{  \overline{X}_1 \cdot (1-\overline{X}_1) / n_1   \hspace{0.05cm} +  \hspace{0.05cm} \overline{X}_2 \cdot (1-\overline{X}_2) / n_2 } } \hspace{0.1cm} &lt; \hspace{0.1cm} z_{1-\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} \leq \hspace{0.1cm}   z_{1-\alpha} \cdot \sqrt{  \overline{X}_1 \cdot (1-\overline{X}_1) / n_1   \hspace{0.05cm} +  \hspace{0.05cm} \overline{X}_2 \cdot (1-\overline{X}_2) / n_2 } \\\]</span></p></li>
 </ul>
 </p>
 </p>
@@ -3190,7 +3188,7 @@ z_{exp | H_0} = \dfrac{\overline{X} - p_0}{ \sqrt{\overline{X}\cdot (1-\overline
 <p><span></p>
 <ul>
 <li><p>Caso <span class="math inline">\(\hspace{0.15cm}H_0: p = p_0\hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: p \neq p_0 \\\)</span></p>
-<p><span class="math display">\[\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} \geq \hspace{0.1cm} z_{\alpha/2}  \hspace{0.25cm} \vee \hspace{0.25cm}    z_{exp|H_0} \hspace{0.1cm} \leq \hspace{0.1cm} z_{1-\alpha/2}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} \geq \hspace{0.1cm} p_0 + z_{\alpha/2} \cdot \sqrt{\overline{X}\cdot (1-\overline{X}) / n} \hspace{0.2cm} \vee \hspace{0.2cm}  \overline{X} \hspace{0.1cm} \leq \hspace{0.1cm} p_0 - z_{1-\alpha/2} \cdot \sqrt{\overline{X}\cdot (1-\overline{X}) / n} \\\]</span></p>
+<p><span class="math display">\[\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} \geq \hspace{0.1cm} z_{\alpha/2}  \hspace{0.25cm} \vee \hspace{0.25cm}    z_{exp|H_0} \hspace{0.1cm} \leq \hspace{0.1cm} z_{1-\alpha/2}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X}_1 -  \overline{X}_2  \hspace{0.1cm} \geq \hspace{0.1cm} z_{\alpha/2} \cdot \sqrt{  \overline{X}_1 \cdot (1-\overline{X}_1) / n_1   \hspace{0.05cm} +  \hspace{0.05cm} \overline{X}_2 \cdot (1-\overline{X}_2) / n_2 } \hspace{0.2cm} \vee \hspace{0.2cm} \overline{X}_1 -  \overline{X}_2  \hspace{0.1cm} \leq \hspace{0.1cm} z_{1-\alpha/2} \cdot \sqrt{  \overline{X}_1 \cdot (1-\overline{X}_1) / n_1   \hspace{0.05cm} +  \hspace{0.05cm} \overline{X}_2 \cdot (1-\overline{X}_2) / n_2 } \\\]</span></p>
 <p>Donde se ha usado la propiedad de simetría de la distribución Normal, por la cual <span class="math inline">\(\hspace{0.2cm}z_{1-\alpha/2} \hspace{0.1cm}=\hspace{0.1cm} - z_{\alpha/2}\)</span></p></li>
 </ul>
 </p>
