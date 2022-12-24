@@ -1256,7 +1256,7 @@ Aplicar en python
 
 El contexto en el que nos vamos a mover en esta sección tiene alguna particularidad.
 
-El siguiente procedimiento puede aplicarse, en principio, a cualquier tipo de contraste de hipotesis. Es recomendable leer previamente la entrada sobre contrastes de hipótesis del blog [Estadistica4all](http://estadistica4all.com/), principalmente para fijar conceptos e ideas.
+El siguiente procedimiento puede aplicarse, en principio, a cualquier tipo de contraste de hipótesis. Es recomendable leer previamente la entrada sobre contrastes de hipótesis del blog [Estadistica4all](http://estadistica4all.com/), principalmente para fijar conceptos e ideas.
 
 La idea es estimar mediante técnicas bootstrap el **p-valor** del contraste.
 
@@ -1281,7 +1281,7 @@ Así que  $\hspace{0.1cm}\mathcal{T}_{exp|H_0}\hspace{0.1cm}$ es el estadístico
 
 
 
-## Estimacion bootstrap del p-valor
+## Estimación bootstrap del p-valor
 
 
 La resolución bootstrap de contrastes de hipotesis pasa por estimar el **p-valor** del contraste del siguiente modo:
@@ -1314,9 +1314,9 @@ $$ASL = \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.
 
 
 
-Si el contraste es de dos colas:
+Si el contraste es de dos colas, en general, aunque no siempre:
 
-$$ASL = \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.2cm} / \hspace{0.2cm} T_{exp|H_0}^{(b)} \hspace{0.1cm} \geq \hspace{0.1cm} \left| T_{exp|H_0} \right| \hspace{0.1cm} \right\rbrace}{B} + \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.2cm} / \hspace{0.2cm} T_{exp|H_0}^{(b)} \hspace{0.1cm} \leq \hspace{0.1cm} - \left| T_{exp|H_0} \right| \hspace{0.1cm} \right\rbrace}{B}$$
+$$ASL = \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.2cm} / \hspace{0.2cm} T_{exp|H_0}^{(b)} \hspace{0.1cm} \geq \hspace{0.1cm} \left| T_{exp|H_0} \right| \hspace{0.1cm} \right\rbrace}{B} \hspace{0.1cm} + \hspace{0.1cm} \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.2cm} / \hspace{0.2cm} T_{exp|H_0}^{(b)} \hspace{0.1cm} \leq \hspace{0.1cm} - \left| T_{exp|H_0} \right| \hspace{0.1cm} \right\rbrace}{B}$$
 
 
 
@@ -1340,12 +1340,12 @@ Siguiendo lo anterior, la regla de decisión basada en el p-valor establece que 
 
 Para un nivel de significación $\alpha$, la regla de decisión basada en el p-valor es la siguiente:
 
-$$Rechazar H_0  \Leftrightarrow  p-valor < \alpha \\$$
+$$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.1cm} \Leftrightarrow  \hspace{0.1cm} \text{pvalor} < \alpha \\$$
 
 Si estimamos el p-valor con el ASL,  tenemos la siguiente regla de dedcision, para un nivel de significación $\alpha$ :
 
 
-$$Rechazar H_0  \Leftrightarrow  ASL < \alpha$$
+$$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.1cm} \Leftrightarrow  \hspace{0.1cm} ASL < \alpha$$
 
 
 
@@ -1356,10 +1356,84 @@ $$Rechazar H_0  \Leftrightarrow  ASL < \alpha$$
 
 ## Contraste bootstrap para la media de una poblacion
 
-Exponer cada uno de los contrastes estimando el pvalor con el ASL. Aplicarlo luego en Python.
+Partimos de los siguientes elementos:
+
+- Tenemos una v.a. $\hspace{0.1cm}\mathcal{X} \\$
+
+- Tenemos una muestra aleatoria simple $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$  de la v.a. $\hspace{0.1cm}\mathcal{X}\\$
+
+- Tenemos una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X} \\$
 
 
 
+### Contraste 
+
+$$
+H_0 : \mu = \mu_0 \hspace{1.5cm}  H_0 : \mu = \mu_0 \hspace{1.5cm} H_0 : \mu = \mu_0 \\
+H_1 : \mu \neq \mu_0 \hspace{1.5cm}  H_1 : \mu > \mu_0  \hspace{1.5cm} H_1 : \mu < \mu_0 \\
+$$
+
+
+### Estadistico del contraste
+
+Estadistico como función de la m.a.s. 
+
+$$\mathcal{T}_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot s_n^2 / n}}$$
+
+Observación: $\hspace{0.1cm}\mathcal{T}_{exp|H_0}\hspace{0.1cm}$ es una v.a.
+
+
+Estadistico como función de la muestra de observaciones 
+
+$$T_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{X} - \mu_0}{ \sqrt{\dfrac{n}{n-1} \cdot S(X)^2 / n}}$$
+
+Observación: $\hspace{0.1cm}T_{exp|H_0}\hspace{0.1cm}$ es una realizacion de la v.a. $\hspace{0.1cm}\mathcal{T}_{exp|H_0}$
+
+
+### Estimación bootstrap del pvalor 
+
+El ASL (achived significance level) es una estimación bootstrap del pvalor de un contraste de hipótesis. 
+
+Nuestra propuesta para su cálculo es la siguiente:
+
+
+- Se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ muestras bootstrap (aleatoria y con reemplazamiento) de la muestra de observaciones $\hspace{0.1cm}X\hspace{0.1cm}$ de la v.a. de interés $\hspace{0.1cm}\mathcal{X} \hspace{0.25cm} \Rightarrow \hspace{0.25cm} X_{(b)}\\$  
+
+
+- Se calcula para $\hspace{0.1cm} b\in \lbrace 1,...,B \rbrace\hspace{0.1cm}$ la replica bootstrap $\hspace{0.1cm}b$-esima del **estadistico de contraste**: $\\[0.5cm]$ 
+
+    $$T_{exp|H_0}^{(b)} = T_{exp|H_0}(X_{(b)}) =  \dfrac{\overline{X}_{(b)} - \mu_0}{\hspace{0.1cm} \sqrt{\dfrac{n}{n-1} \cdot S(X_{(b)})^2 / n} \hspace{0.1cm}}\\[1cm]$$
+
+    - Donde:
+
+        - $\overline{X}_{(b)}\hspace{0.1cm}$ es la media  de $\hspace{0.1cm}X_{(b)} \\$
+
+        - $S(X_{(b)})^2\hspace{0.1cm}$ es la varianza de  $\hspace{0.1cm}X_{(b)} \\[1.5cm]$
+
+
+
+- Caso $H_0 : \mu = \mu_0  \hspace{0.25cm} \text{vs}  \hspace{0.25cm} H_1 : \mu > \mu_0\\$
+
+$$ASL =  \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.2cm} / \hspace{0.2cm} T_{exp|H_0}^{(b)} \hspace{0.1cm} \geq \hspace{0.1cm} T_{exp|H_0}  \hspace{0.1cm} \right\rbrace}{B} \\[1.2cm]$$
+
+
+
+- Caso $H_0 : \mu = \mu_0  \hspace{0.25cm} \text{vs}  \hspace{0.25cm} H_1 : \mu < \mu_0\\$
+
+$$ASL = \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.2cm} / \hspace{0.2cm} T_{exp|H_0}^{(b)} \hspace{0.1cm} \leq \hspace{0.1cm} T_{exp|H_0}  \hspace{0.1cm} \right\rbrace}{B}\\[1.2cm]$$
+
+
+
+- Caso $H_0 : \mu = \mu_0  \hspace{0.25cm} \text{vs}  \hspace{0.25cm} H_1 : \mu \neq \mu_0\\$
+
+$$ASL = \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.2cm} / \hspace{0.2cm} T_{exp|H_0}^{(b)} \hspace{0.1cm} \geq \hspace{0.1cm} \left| T_{exp|H_0} \right| \hspace{0.1cm} \right\rbrace}{B} \hspace{0.15cm} + \hspace{0.15cm} \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.2cm} / \hspace{0.2cm} T_{exp|H_0}^{(b)} \hspace{0.1cm} \leq \hspace{0.1cm} - \left| T_{exp|H_0} \right| \hspace{0.1cm} \right\rbrace}{B}$$
+
+
+
+
+
+
+<br>
 
 ## Contraste bootstrap para las medias de dos poblacion
 

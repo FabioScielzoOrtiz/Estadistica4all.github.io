@@ -411,8 +411,8 @@ $\hspace{0.25cm}$ 5. Aplicar la siguiente regla de decisión:
 <p style='margin-left:1em;'>
 
 $$
-H_0 : \mu = \mu_0 \\
-H_1 : \mu \neq \mu_0
+H_0 : \mu = \mu_0 \hspace{1.5cm}   \mu = \mu_0 \hspace{1.5cm} \mu = \mu_0 \\
+H_1 : \mu \neq \mu_0 \hspace{1.5cm}  H_1 : \mu > \mu_0  \hspace{1.5cm} H_1 : \mu < \mu_0
 $$
 
 </p>
@@ -427,7 +427,7 @@ $$
 El estadistico de este contraste está basado en el teorema de Gosset, que fue ilustrado en el artículo de [intervalos de confianza](http://estadistica4all.com/Articulos/Intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-con-varianza-desconocida): $\\[0.5cm]$ 
 
 $$
-\mathcal{T}_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - \mu}{ \sqrt{\dfrac{n}{n-1} \cdot s_n^2 / n}} \sim t_{n-1} \\[1cm]
+\mathcal{T}_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - \mu}{ \sqrt{\dfrac{n}{n-1} \cdot S_n^2 / n}} \sim t_{n-1} \\[1cm]
 $$
 
 
@@ -767,8 +767,8 @@ $$
 <span>
 
 $$
-H_0 : \mu = \mu_0 \\
-H_1 : \mu \neq \mu_0
+H_0 : \mu = \mu_0 \hspace{1.5cm}   \mu = \mu_0 \hspace{1.5cm} \mu = \mu_0 \\
+H_1 : \mu \neq \mu_0 \hspace{1.5cm}  H_1 : \mu > \mu_0  \hspace{1.5cm} H_1 : \mu < \mu_0
 $$
 
 </p>
