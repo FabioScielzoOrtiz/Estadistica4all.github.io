@@ -1274,7 +1274,7 @@ $$
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
 <span>
 $$
-H_0 : \mu_ = \mu_2 \hspace{1.5cm}   H_0 : \mu_ = \mu_2   \hspace{1.5cm} H_0 : \mu_ = \mu_2    \\
+\hspace{-0.25cm} H_0 : \mu_1 = \mu_2 \hspace{1.5cm}   H_0 : \mu_1 = \mu_2   \hspace{1.5cm} H_0 : \mu_1 = \mu_2    \\
 H_1 : \mu_1 \neq \mu_2 \hspace{1.5cm}  H_1 : \mu_1 < \mu_2  \hspace{1.5cm}   H_1 : \mu_1 > \mu_2
 $$
 
@@ -1300,12 +1300,12 @@ $$v \hspace{0.1cm}=\hspace{0.1cm} \dfrac{(S_1^2 / n_1 + S_2^2/n_2 )^2}{\dfrac{(S
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
 <span>
 
-Por tanto, el estadístico del contraste bajo $\hspace{0.1cm} H_0\hspace{0.1cm}$ es: $\\[0.5cm]$
+$\hspace{0.25cm}$ Por tanto, el estadístico del contraste bajo $\hspace{0.1cm} H_0\hspace{0.1cm}$ es: $\\[0.5cm]$
 
 $$\mathcal{T}_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.15cm} \overline{\mathcal{X}}_1 - \overline{\mathcal{X}}_2  \hspace{0.15cm}}{ \sqrt{\dfrac{1}{n_1} + \dfrac{1}{n_2}} \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{v} \\$$
 
 
-Donde:
+$\hspace{0.25cm}$ Donde:
 
 
 - $\overline{\mathcal{X}}_j \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_{ij} \hspace{0.25cm} , \hspace{0.25cm}   j \in \lbrace 1,2 \rbrace \\$
@@ -1362,7 +1362,7 @@ Donde:
 </p></span>
 </div>
 
-<br>
+ 
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
@@ -1379,7 +1379,7 @@ Donde:
 </p></span>
 </div>
 
-<br>
+ 
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
@@ -1432,7 +1432,7 @@ Donde:
 </p></span>
 </div>
  
-<br>
+ 
 
 
 
@@ -1449,7 +1449,7 @@ Donde:
 </p></span>
 </div>
  
-<br>
+ 
 
 
 
@@ -1485,7 +1485,7 @@ Donde:
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
 <span> 
 
-Dado un nivel de significación $\hspace{0.1cm}\alpha\hspace{0.1cm}$, la regla de decisión basada en el p-valor del contraste es muy sencilla:
+$\hspace{0.25cm}$ Dado un nivel de significación $\hspace{0.1cm}\alpha\hspace{0.1cm}$, la regla de decisión basada en el p-valor del contraste es muy sencilla:
 
 
 $$
@@ -1517,8 +1517,16 @@ $$
 # Contraste para las medias de dos poblaciones Normales dependientes
 
 
+## Supuestos
+
+- Tenemos dos v.a's **no necesariamente independientes** $\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1 , \sigma_1^2) \hspace{0.1cm}$  y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2)\hspace{0.1cm}$ .
+
+- Tenemos una m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_{1}\hspace{0.1cm}$
+y otra m.a.s. $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n2}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_{2}\hspace{0.1cm}$ , donde $\hspace{0.1cm}n_1=n_2=n \\$
 
 
+
+- Definimos $\hspace{0.2cm} \mathcal{D}_i = \mathcal{X}_{i1} -\mathcal{X}_{i2}\hspace{0.2cm}$ , para cada $\hspace{0.15cm} i \in \lbrace 1,...,n\rbrace$
 
 
 
@@ -1527,6 +1535,259 @@ $$
 
 
 
+## Contraste
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+$$
+\hspace{-0.25cm} H_0 : \mu_1 = \mu_2 \hspace{1.5cm}   H_0 : \mu_1 = \mu_2   \hspace{1.5cm} H_0 : \mu_1 = \mu_2    \\
+H_1 : \mu_1 \neq \mu_2 \hspace{1.5cm}  H_1 : \mu_1 < \mu_2  \hspace{1.5cm}   H_1 : \mu_1 > \mu_2
+$$
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+## Estadistico del contraste
+
+El estadistico de este contraste está basado en el teorema de Gosset, que fue ilustrado en el artículo de [intervalos de confianza](http://estadistica4all.com/Articulos/Intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-con-varianza-desconocida): $\\[0.5cm]$ 
+
+$$\mathcal{T}_{exp} \hspace{0.1cm}=\hspace{0.1cm}\dfrac{\overline{\mathcal{D}} - \mu_\mathcal{D}}{\sqrt{\dfrac{n}{n-1}\cdot S_\mathcal{D}^2 / n}}\hspace{0.1cm} \sim\hspace{0.1cm} t_{n-1}$$
+
+$\hspace{0.25cm}$ Donde:
+
+- $\mu_\mathcal{D} = \mu_1 - \mu_2$
+
+- $\overline{\mathcal{D}} = \dfrac{1}{n} \sum_{i=1}^n \mathcal{D}_i \\$
+
+- $S_\mathcal{D}^2 = \dfrac{1}{n} \sum_{i=1}^n (\mathcal{D}_i - \overline{\mathcal{D}})^2$
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ Por tanto, el estadístico del contraste bajo $\hspace{0.1cm} H_0\hspace{0.1cm}$ es: $\\[0.5cm]$
+
+ 
+$$\mathcal{T}_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{D}}   }{\sqrt{\dfrac{n}{n-1}\cdot S_\mathcal{D}^2 / n}} \hspace{0.1cm}\sim\hspace{0.1cm} t_{n-1} \\$$
+
+
+$\hspace{0.25cm}$ Donde:
+
+
+- $\overline{\mathcal{D}} = \dfrac{1}{n} \sum_{i=1}^n \mathcal{D}_i \\$
+
+- $S_\mathcal{D}^2 = \dfrac{1}{n} \sum_{i=1}^n (\mathcal{D}_i - \overline{\mathcal{D}})^2$
+
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+
+**Observación:**
+
+Dadas dos muestras de observaciones $\hspace{0.1cm}X_1=(x_{11},...,x_{n 1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n 2})\hspace{0.1cm}$ de las variables $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ , respectivamente, tenemos la muestra $\hspace{0.1cm}D=(d_1,...,d_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{D}\hspace{0.1cm}$, donde $\hspace{0.1cm}d_i = x_{i1}-x_{i2}$
+
+
+$$
+t_{exp | H_0} \hspace{0.1cm}= \hspace{0.1cm} \dfrac{\overline{D}   }{\sqrt{\dfrac{n}{n-1}\cdot S(D)^2 / n}} \\
+$$
+
+
+es una **realización muestral** de la v.a. $\hspace{0.1cm}\mathcal{T}_{exp | H_0} \\$
+
+
+
+Donde:
+
+
+- $\overline{D} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n d_{i} \\$
+
+- $S(D)^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n (d_{i} - \overline{D} )^2$
+
+
+<br>
+
+
+
+## p-valor
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+- Caso  $\hspace{0.15cm}H_0: \mu_1 = \mu_2 \hspace{0.15cm}   \text{vs}  \hspace{0.15cm} H_1: \mu_1 > \mu_2 \\$  
+  
+
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}\geq\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} \hspace{0.1cm} \geq \hspace{0.1cm} \dfrac{\overline{D}   }{\sqrt{\dfrac{n}{n-1}\cdot S(D)^2 / n}}  \right) \\$$ 
+
+</p>
+ 
+</p></span>
+</div>
+
+ 
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
+
+
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{T}_{exp|H_0} \hspace{0.1cm}\leq\hspace{0.1cm} t_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( t_{n-1} \hspace{0.1cm}\leq\hspace{0.1cm} \dfrac{\overline{D}   }{\sqrt{\dfrac{n}{n-1}\cdot S(D)^2 / n}}  \right) \\$$ 
+
+</p>
+ 
+</p></span>
+</div>
+
+ 
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+-  Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
+  
+  
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}\leq\hspace{0.1cm} - | t_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm} 
+     P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | t_{exp|H_0} | \right) + P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm} >\hspace{0.1cm}  | t_{exp|H_0} | \right) \\[1cm]
+     \hspace{0.1cm}=\hspace{0.1cm} 
+    2 \cdot  P \left(  \mathcal{T}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | t_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( t_{n-1} \hspace{0.1cm}\geq\hspace{0.1cm} \left| \dfrac{\overline{D}   }{\sqrt{\dfrac{n}{n-1}\cdot S(D)^2 / n}}  \right| \hspace{0.1cm} \right)$$
+    
+  
+</p>
+ 
+</p></span>
+</div>
+
+
+
+
+<br>
+
+## Regla de decisión
+
+
+### Basada en el estadistico del contraste
+
+
+**Para un nivel de significación $\hspace{0.1cm} \alpha$ :** $\\[0.5cm]$
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.15cm}   \text{vs}  \hspace{0.15cm}H_1: \mu > \mu_0 \\$
+
+
+    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} \geq\hspace{0.1cm} t_{\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{D}   }{\sqrt{\dfrac{n}{n-1}\cdot S(D)^2 / n}}  \hspace{0.1cm} \geq\hspace{0.1cm} t_{\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}   \overline{D} \hspace{0.1cm} \geq\hspace{0.1cm}  t_{\alpha}^{n-1} \cdot \sqrt{\dfrac{n}{n-1}\cdot S(D)^2 / n}$$
+
+
+
+    Donde: $\hspace{0.1cm}  \hspace{0.1cm} P(t_{v} \hspace{0.1cm} >\hspace{0.1cm}  t_{\alpha}^{v}) \hspace{0.1cm} =\hspace{0.1cm}  \alpha \\$ 
+
+
+
+</p>
+ 
+</p></span>
+</div>
+ 
+ 
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+ 
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
+
+     $$ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} \leq \hspace{0.1cm} t_{1-\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}
+     \dfrac{\overline{D}   }{\sqrt{\dfrac{n}{n-1}\cdot S(D)^2 / n}} 
+     \hspace{0.1cm} } \hspace{0.1cm} \leq \hspace{0.1cm} t_{1-\alpha}^{n-1} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{D} \hspace{0.1cm} \leq \hspace{0.1cm}  t_{1-\alpha}^{n-1} \cdot \sqrt{\dfrac{n}{n-1}\cdot S(D)^2 / n} \\$$
+
+ 
+</p>
+ 
+</p></span>
+</div>
+ 
+ 
+
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+
+-  Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
+
+
+
+
+    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} t_{exp|H_0} \hspace{0.1cm} \geq \hspace{0.1cm} t_{\alpha/2}^{n-1}  \hspace{0.2cm} \vee \hspace{0.2cm}    t_{exp|H_0} \hspace{0.1cm} \leq \hspace{0.1cm} t_{1-\alpha/2}^{n-1}  \hspace{0.25cm} \hspace{0.25cm} \Leftrightarrow\hspace{0.25cm}  \hspace{0.25cm}   \overline{D}  \hspace{0.1cm} \geq\hspace{0.1cm}  t_{\alpha/2}^{n-1} \cdot     \sqrt{\dfrac{n}{n-1}\cdot S(D)^2 / n} 
+    \hspace{0.2cm} \vee \hspace{0.2cm}  \overline{D}  \hspace{0.1cm} \leq \hspace{0.1cm}  - t_{\alpha/2}^{n-1} \cdot \sqrt{\dfrac{n}{n-1}\cdot S(D)^2 / n} \\$$
+
+
+
+    Donde se ha usado la propiedad de simetría de la distribución t-student, por la cual $\hspace{0.2cm}t_{1-\alpha/2}^{v} \hspace{0.1cm}=\hspace{0.1cm} - t_{\alpha/2}^{v}$
+
+
+</p>
+ 
+</p></span>
+</div>
+ 
+<br>
+
+
+
+
+### Basada en el p-valor
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span> 
+
+$\hspace{0.25cm}$ Dado un nivel de significación $\hspace{0.1cm}\alpha\hspace{0.1cm}$, la regla de decisión basada en el p-valor del contraste es muy sencilla:
+
+
+$$
+\text{Rechazar} \hspace{0.1cm}  H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  \text{pvalor} \leq \alpha
+$$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+ 
+
+<br>
+
+
+
+## Contraste en `Python`
+
+
+
+
+
+
+
+<br>
 
 
 
@@ -1539,20 +1800,286 @@ $$
 # Contraste para las varianzas de dos poblaciones Normales independientes
 
 
+## Supuestos
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+- Tenemos dos v.a's **independientes** $\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1 , \sigma_1)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2 \sim N(\mu_2 , \sigma_2) \\$
+
+- Tenemos dos muestras aleatorias simples $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n_1 1}\hspace{0.1cm}$  y $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n_2 2}\hspace{0.1cm}$ de las v.a's $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2$
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+
+
+## Contraste
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+$$
+\hspace{-0.25cm} H_0 : \sigma_1 = \sigma_2 \hspace{1.5cm}   H_0 : \sigma_1 = \sigma_2   \hspace{1.5cm} H_0 : \sigma_1 = \sigma_2     \\
+H_1 : \sigma_1 \neq \sigma_2 \hspace{1.5cm}  H_1 : \sigma_1 < \sigma_2  \hspace{1.5cm}   H_1 : \sigma_1 > \sigma_2
+$$
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+## Estadistico del contraste
+
+El estadistico de este contraste está basado en el segundo teorema de Fisher, que fue ilustrado en el artículo de [intervalos de confianza](http://estadistica4all.com/Articulos/Intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-con-varianza-desconocida): $\\[0.5cm]$ 
+
+$$\mathcal{F}_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.15cm} S_1^2 / \sigma_1^2 \hspace{0.15cm}}{  S_2^2 / \sigma_2^2  }   \hspace{0.1cm}\sim\hspace{0.1cm} F_{n_1 -1 \hspace{0.05cm},\hspace{0.05cm} n_2-1} \\[1cm]$$
 
 
 
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
 
- <br>
+$\hspace{0.25cm}$ Por tanto, el estadístico del contraste bajo $\hspace{0.1cm} H_0\hspace{0.1cm}$ es: $\\[0.5cm]$
+
+$$\mathcal{F}_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.15cm} S_1^2  \hspace{0.15cm}}{  S_2^2 }   \hspace{0.1cm}\sim\hspace{0.1cm} F_{n_1 -1 \hspace{0.05cm},\hspace{0.05cm} n_2-1} \\$$
+
+
+$\hspace{0.25cm}$ Donde:
+
+
+
+- $S_j^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n ( \mathcal{X}_i - \overline{\mathcal{X}} )^2 \hspace{0.25cm} , \hspace{0.25cm}   j \in \lbrace 1,2 \rbrace$
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+
+**Observación:**
+
+Dadas dos muestras de observaciones $\hspace{0.1cm}X_1=(x_{11},...,x_{n_1 1})\hspace{0.1cm}$ y $\hspace{0.1cm}X_2=(x_{12},...,x_{n_2 2})\hspace{0.1cm}$ de las variables $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ , respectivamente, entonces:
+
+
+$$
+F_{exp | H_0} \hspace{0.1cm}= \hspace{0.1cm}\dfrac{\hspace{0.15cm} S(X_1)^2  \hspace{0.15cm}}{  S(X_2)^2 } \\
+$$
+
+
+es una **realización muestral** de la v.a. $\hspace{0.1cm}\mathcal{F}_{exp | H_0} \\$
+
+
+
+Donde:
+
+
+ 
+- $S(X_j)^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n (x_{ij} - \overline{X}_j )^2 \hspace{0.25cm} , \hspace{0.25cm}   j \in \lbrace 1 , 2 \rbrace$
+
+
+<br>
+
+
+
+## p-valor
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+- Caso  $\hspace{0.15cm}H_0: \sigma_1 = \sigma_2 \hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \sigma_1 > \sigma_2 \\$  
+  
+
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{F}_{exp|H_0} \hspace{0.1cm}\geq\hspace{0.1cm} F_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left(  F_{n_1 -1 \hspace{0.05cm},\hspace{0.05cm} n_2-1} \hspace{0.1cm} \geq \hspace{0.1cm}   \dfrac{\hspace{0.15cm} S(X_1)^2  \hspace{0.15cm}}{  S(X_2)^2 }   \right) \\$$ 
+
+</p>
+ 
+</p></span>
+</div>
+
+ 
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+
+- Caso  $\hspace{0.15cm}H_0: \sigma_1 = \sigma_2 \hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \sigma_1 < \sigma_2 \\$
+
+
+ $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{F}_{exp|H_0} \hspace{0.1cm}\leq\hspace{0.1cm} F_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left(  F_{n_1 -1 \hspace{0.05cm},\hspace{0.05cm} n_2-1} \hspace{0.1cm} \leq \hspace{0.1cm}   \dfrac{\hspace{0.15cm} S(X_1)^2  \hspace{0.15cm}}{  S(X_2)^2 }   \right) \\$$ 
+
+</p>
+ 
+</p></span>
+</div>
+
+ 
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+-  Caso $\hspace{0.15cm}H_0: \sigma_1 = \sigma_2 \hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \sigma_1 \neq \sigma_2 \\$
+  
+  
+    - Si $F_{exp|H_0} = \dfrac{S(X_1)^2}{S(X_2)^2} \hspace{0.1cm}\geq\hspace{0.1cm} 1$
+  
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{F}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm}  F_{exp|H_0}  \right)  \hspace{0.1cm}=\hspace{0.1cm} 
+    P \left(  \mathcal{F}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} \dfrac{S(X_1)^2}{S(X_2)^2} \right)\\$$
+    
+
+    - Si $F_{exp|H_0} = \dfrac{S(X_1)^2}{S(X_2)^2} \hspace{0.1cm}<\hspace{0.1cm} 1$
+  
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{F}_{exp|H_0}  \hspace{0.1cm}\leq\hspace{0.1cm}  F_{exp|H_0}  \right)  \hspace{0.1cm}=\hspace{0.1cm} 
+    P \left(  \mathcal{F}_{exp|H_0}  \hspace{0.1cm}\leq\hspace{0.1cm} \dfrac{S(X_1)^2}{S(X_2)^2} \right)$$
+</p>
+ 
+</p></span>
+</div>
+
+
+
+
+<br>
+
+## Regla de decisión
+
+
+### Basada en el estadistico del contraste
+
+
+**Para un nivel de significación $\hspace{0.1cm} \alpha$ :** $\\[0.5cm]$
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+- Caso  $\hspace{0.15cm}H_0: \sigma_1 = \sigma_2 \hspace{0.25cm}   \text{vs}  \hspace{0.25cm}H_1: \sigma_1 > \sigma_2 \\$
+
+
+    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} F_{exp|H_0} \hspace{0.1cm} \geq\hspace{0.1cm} F^{n_1 -1 \hspace{0.05cm},\hspace{0.05cm} n_2-1}_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}       \dfrac{\hspace{0.15cm} S(X_1)^2  \hspace{0.15cm}}{  S(X_2)^2 }                 \hspace{0.1cm} \geq\hspace{0.1cm} F^{n_1 -1 \hspace{0.05cm},\hspace{0.05cm} n_2-1}_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}        S(X_1)^2        \hspace{0.1cm} \geq\hspace{0.1cm}   S(X_2)^2 \cdot  F^{n_1 -1 \hspace{0.05cm},\hspace{0.05cm} n_2-1}_{\alpha}$$
+
+
+
+    Donde: $\hspace{0.1cm}  \hspace{0.1cm} P(F^{n_2 -1 \hspace{0.05cm},\hspace{0.05cm} n_1-1} \hspace{0.1cm} >\hspace{0.1cm}  F^{n_2 -1 \hspace{0.05cm},\hspace{0.05cm} n_1-1}_{\alpha}) \hspace{0.1cm} =\hspace{0.1cm}  \alpha$ 
+
+
+
+</p>
+ 
+</p></span>
+</div>
+ 
+ 
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+ 
+- Caso  $\hspace{0.15cm}H_0: \sigma_1 = \sigma_2 \hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \sigma_1 < \sigma_2 \\$
+
+  $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} F_{exp|H_0} \hspace{0.1cm} \leq\hspace{0.1cm} F^{n_1 -1 \hspace{0.05cm},\hspace{0.05cm} n_2-1}_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}       \dfrac{\hspace{0.15cm} S(X_1)^2  \hspace{0.15cm}}{  S(X_2)^2 }                 \hspace{0.1cm} \geq\hspace{0.1cm} F^{n_1 -1 \hspace{0.05cm},\hspace{0.05cm} n_2-1}_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}        S(X_1)^2        \hspace{0.1cm} \leq\hspace{0.1cm}   S(X_2)^2 \cdot  F^{n_1 -1 \hspace{0.05cm},\hspace{0.05cm} n_2-1}_{\alpha}$$
+
+
+</p>
+ 
+</p></span>
+</div>
  
  
 
 
 
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
 
 
+-  Caso $\hspace{0.15cm}H_0: \sigma_1 = \sigma_2 \hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \sigma_1 \neq \sigma_2 \\$
+
+
+
+
+    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} F_{exp|H_0} \hspace{0.1cm} \geq \hspace{0.1cm}         F^{n_1 -1 \hspace{0.05cm},\hspace{0.05cm} n_2-1}_{\alpha/2}    \hspace{0.2cm} \vee \hspace{0.2cm}    F_{exp|H_0} \hspace{0.1cm} \leq \hspace{0.1cm} F^{n_1 -1 \hspace{0.05cm},\hspace{0.05cm} n_2-1}_{1-\alpha/2}  \hspace{0.25cm} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \hspace{0.25cm}     S(X_1)^2    \hspace{0.1cm} \geq\hspace{0.1cm} S(X_2)^2 \cdot F^{n_1 -1 \hspace{0.05cm},\hspace{0.05cm} n_2-1}_{\alpha/2} \hspace{0.25cm} \vee \hspace{0.25cm}   S(X_1)^2 \hspace{0.1cm} \leq \hspace{0.1cm} S(X_2)^2 \cdot    F^{n_1 -1 \hspace{0.05cm},\hspace{0.05cm} n_2-1}_{1-\alpha/2} \\$$
+
+
+</p>
+ 
+</p></span>
+</div>
+ 
+<br>
+
+
+
+
+### Basada en el p-valor
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span> 
+
+$\hspace{0.25cm}$ Dado un nivel de significación $\hspace{0.1cm}\alpha\hspace{0.1cm}$, la regla de decisión basada en el p-valor del contraste es muy sencilla:
+
+
+$$
+\text{Rechazar} \hspace{0.1cm}  H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  \text{pvalor} \leq \alpha
+$$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+ 
+
+<br>
+
+
+
+## Contraste en `Python`
+
+
+
+
+
+
+
+
+
+
+<br>
+ 
+ 
+# Contraste para la proporción
+
+
+# Contraste para las proporciones 
+
+
+
+# Contraste para la mediana
+
+
+# Contraste para las medianas
+
+
+# Contraste medias multiples poblaciones (ANOVA)
+
+
+# Contraste varianzas multiples poblaciones (test de Barlet)
 
 
 

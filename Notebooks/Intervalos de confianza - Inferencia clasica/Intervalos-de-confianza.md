@@ -2812,7 +2812,7 @@ diferencia_medias
 ## Intervalo de confianza para la diferencia de medias con muestras dependientes (pareadas)
 
 
-Un par de variables cuantitativas  $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ , $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ pueden modelarse como un par de variables aleatorias **no necesariamente independientes** $\hspace{0.1cm} N(\mu_1 , \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}N(\mu_2 , \sigma_2^2)\hspace{0.1cm}$, donde $\hspace{0.1cm}\mu_1=E[\mathcal{X}_1]\hspace{0.1cm}$ , $\hspace{0.1cm}\mu_2=E[\mathcal{X}_2]\hspace{0.1cm}$, $\hspace{0.1cm}\sigma_1^2=E[\mathcal{X}_1]\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2 = Var(\mathcal{X}_2)$, que pueden interpretarse respectivamente como la media y varianza poblacional de las variables $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2$
+Un par de variables cuantitativas  $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ pueden modelarse como un par de variables aleatorias **no necesariamente independientes** $\hspace{0.1cm} N(\mu_1 , \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}N(\mu_2 , \sigma_2^2)\hspace{0.1cm}$, donde $\hspace{0.1cm}\mu_1=E[\mathcal{X}_1]\hspace{0.1cm}$ , $\hspace{0.1cm}\mu_2=E[\mathcal{X}_2]\hspace{0.1cm}$, $\hspace{0.1cm}\sigma_1^2=E[\mathcal{X}_1]\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2 = Var(\mathcal{X}_2)$, que pueden interpretarse respectivamente como la media y varianza poblacional de las variables $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2$
 
 Queremos obtener un intervalo de confianza para $\hspace{0.1cm} \mu_1 - \mu_2 \hspace{0.1cm}$, teniendo en cuenta que $\hspace{0.1cm}\sigma_1^2\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2\hspace{0.1cm}$ son desconocidas y las v.a. $\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1 , \sigma_1^2) \hspace{0.1cm}$  y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2)\hspace{0.1cm}$ **no son independientes**.
 
@@ -2837,7 +2837,7 @@ En la práctica el par de variables $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ 
  
 $\hspace{0.25cm}$ Tenemos dos v.a's **no necesariamente independientes** $\hspace{0.1cm}\mathcal{X}_1 \sim N(\mu_1 , \sigma_1^2) \hspace{0.1cm}$  y $\hspace{0.1cm}\mathcal{X}_2\sim N(\mu_2, \sigma_2^2)\hspace{0.1cm}$ .
 
-$\hspace{0.25cm}$ Tenemos una m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}$ de $\mathcal{X}_{1}$
+$\hspace{0.25cm}$ Tenemos una m.a.s $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n1}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_{1}\hspace{0.1cm}$
 y otra m.a.s. $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n2}\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_{2}\hspace{0.1cm}$ , donde $\hspace{0.1cm}n_1=n_2=n \\$
 
 
@@ -3077,7 +3077,7 @@ intervalo , diferencia_medias = CI_Mean_Diference_Paired(Nota_Examen_1 , Nota_Ex
 
 
 
-Un par de variables cuantitativas  $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ , $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ pueden modelarse como  de variables aleatorias **independientes** con distribuciiones de probabilid<d  $\hspace{0.1cm} N(\mu_1 , \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}N(\mu_2 , \sigma_2^2)\hspace{0.1cm}$, respectivamente.
+Un par de variables cuantitativas  $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ pueden modelarse como    variables aleatorias **independientes** con distribuciones de probabilidad  $\hspace{0.1cm} N(\mu_1 , \sigma_1^2)\hspace{0.1cm}$ y $\hspace{0.1cm}N(\mu_2 , \sigma_2^2)\hspace{0.1cm}$, respectivamente.
 
 Donde $\hspace{0.1cm}\mu_1=E[\mathcal{X}_1]\hspace{0.1cm}$ , $\hspace{0.1cm}\mu_2=E[\mathcal{X}_2]\hspace{0.1cm}$, $\hspace{0.1cm}\sigma_1^2=E[\mathcal{X}_1]\hspace{0.1cm}$ y $\hspace{0.1cm}\sigma_2^2 = Var(\mathcal{X}_2)\hspace{0.1cm}$  pueden interpretarse respectivamente como la media y varianza poblacional de las variables $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2$
 
