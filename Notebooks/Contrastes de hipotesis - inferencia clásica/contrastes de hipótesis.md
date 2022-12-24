@@ -1249,7 +1249,7 @@ $$
 
 
 
-# Contraste para las medias de dos poblaciones Normales independientes
+# Contraste para la media con dos poblaciones Normales independientes
 
 ## Supuestos
 
@@ -1514,7 +1514,7 @@ $$
 
 <br>
 
-# Contraste para las medias de dos poblaciones Normales dependientes
+# Contraste para la media con dos poblaciones Normales dependientes
 
 
 ## Supuestos
@@ -1797,7 +1797,7 @@ $$
 
 <br>
 
-# Contraste para las varianzas de dos poblaciones Normales independientes
+# Contraste para la varianza con dos poblaciones Normales independientes
 
 
 ## Supuestos
@@ -2063,7 +2063,7 @@ $$
 <br>
  
  
-# Contraste para la proporción
+# Contraste para la proporción con una población
 
 
 ## Supuestos
@@ -2619,13 +2619,13 @@ $$
 # Contraste para la mediana
 
 
-# Contraste para las medianas
+# Contraste para la mediana en dos poblaciones
 
 
-# Contraste medias multiples poblaciones (ANOVA)
+# Contraste la media en multiples poblaciones (ANOVA)
 
 
-# Contraste varianzas multiples poblaciones (test de Barlet)
+# Contraste la varianza en multiples poblaciones (test de Barlet)
 
 
 
