@@ -2066,7 +2066,555 @@ $$
 # Contraste para la proporción
 
 
-# Contraste para las proporciones 
+## Supuestos
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+- Tenemos una v.a. $\hspace{0.1cm}\mathcal{X} \sim Bernouilli(p) \\$
+
+- Tenemos una muestra aleatoria simple $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$  de la v.a. $\hspace{0.1cm}\mathcal{X}$
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+## Contraste
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$$
+H_0 : p = p_0 \\
+H_1 : p \neq p_0
+$$
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+## Estadistico del contraste
+
+El estadistico de este contraste está basado en el teorema de Moivre-Laplace, que fue ilustrado en el artículo de [intervalos de confianza](http://estadistica4all.com/Articulos/Intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-con-varianza-desconocida): $\\[0.5cm]$ 
+
+$$
+\mathcal{Z}_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - p}{ \sqrt{\overline{\mathcal{X}}\cdot (1-\overline{\mathcal{X}}) / n}} \underset{d}{\rightarrow} N(0,1) \\[1cm]
+$$
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+
+$\hspace{0.25cm}$ Por tanto, el estadístico del contraste bajo $\hspace{0.1cm} H_0\hspace{0.1cm}$ es: $\\[0.5cm]$
+
+$$
+\mathcal{Z}_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - p_0}{ \sqrt{\overline{\mathcal{X}}\cdot (1-\overline{\mathcal{X}}) / n} } \underset{d}{\rightarrow} N(0,1)
+$$
+
+
+$\hspace{0.25cm}$ Donde:
+
+
+- $\overline{\mathcal{X}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \\$
+
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+
+**Observación:**
+
+
+
+- $\mathcal{Z}_{exp | H_0}$ es una funcion de una m.a.s de la variable aleatoria de interes $\mathcal{X}$, por tanto es también una v.a. $\\[0.4cm]$
+
+
+- Dada una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{X} \\$
+
+
+$$
+z_{exp | H_0} = \dfrac{\overline{X} - p_0}{ \sqrt{\overline{X}\cdot (1-\overline{X}) / n}} \\
+$$
+
+
+es una **realización muestral** de la v.a. $\hspace{0.1cm}\mathcal{Z}_{exp | H_0} \\$
+
+
+
+Donde:
+
+
+- $\overline{X} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n x_i \\$
+
+
+
+<br>
+
+
+
+## p-valor
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+- Caso  $\hspace{0.15cm}H_0: p = p_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: p > p_0 \\$  
+  
+
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}\geq \hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) \hspace{0.1cm}\geq \hspace{0.1cm} \dfrac{\overline{X} - p_0}{ \sqrt{\overline{X}\cdot (1-\overline{X}) / n} } \right) \\$$ 
+
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
+
+
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}\leq\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) \hspace{0.1cm}\leq\hspace{0.1cm} \dfrac{\overline{X} - p_0}{ \sqrt{\overline{X}\cdot (1-\overline{X}) / n}  } \right) \\$$ 
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+-  Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
+  
+  
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | z_{exp|H_0} | \right) + P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}\leq\hspace{0.1cm} - | z_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm} 
+     P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | z_{exp|H_0} | \right) + P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm} \leq\hspace{0.1cm}  | z_{exp|H_0} | \right) \\[1cm]
+     \hspace{0.1cm}=\hspace{0.1cm} 
+    2 \cdot  P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | z_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( N(0,1)  \hspace{0.1cm} \leq\hspace{0.1cm}  \left| \dfrac{\overline{X} - p_0}{    \sqrt{\overline{X}\cdot (1-\overline{X}) / n} } \right| \right)$$
+    
+  
+</p>
+ 
+</p></span>
+</div>
+
+
+
+
+<br>
+
+## Regla de decisión
+
+
+### Basada en el estadistico del contraste
+
+
+**Para un nivel de significación $\hspace{0.1cm} \alpha$** : $\\[0.5cm]$
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+- Caso  $\hspace{0.15cm}H_0: p = p_0\hspace{0.15cm}   \text{vs}  \hspace{0.15cm}H_1: p > p_0 \\$
+
+
+    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} \geq\hspace{0.1cm} z_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - p_0}{\sqrt{\overline{X}\cdot (1-\overline{X}) / n}} \hspace{0.1cm} \geq\hspace{0.1cm} z_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} \geq\hspace{0.1cm} p_0 + z_{\alpha} \cdot \sqrt{\overline{X}\cdot (1-\overline{X}) / n}$$
+
+
+
+    Donde: $\hspace{0.1cm}  \hspace{0.1cm} P(N(0,1) \hspace{0.1cm} >\hspace{0.1cm}  z_{\alpha})\hspace{0.1cm} =\hspace{0.1cm}  \alpha$ 
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+ 
+- Caso  $\hspace{0.15cm}H_0: p = p_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: p < p_0 \\$
+
+     $$ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} \leq \hspace{0.1cm} z_{1-\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - p_0}{ \sqrt{\overline{X}\cdot (1-\overline{X}) / n} } \hspace{0.1cm} < \hspace{0.1cm} z_{1-\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} \leq \hspace{0.1cm} p_0 + z_{1-\alpha} \cdot \sqrt{\overline{X}\cdot (1-\overline{X}) / n} \\$$
+
+ 
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+
+-  Caso $\hspace{0.15cm}H_0: p = p_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: p \neq p_0 \\$
+
+
+
+
+    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} \geq \hspace{0.1cm} z_{\alpha/2}  \hspace{0.25cm} \vee \hspace{0.25cm}    z_{exp|H_0} \hspace{0.1cm} \leq \hspace{0.1cm} z_{1-\alpha/2}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} \geq \hspace{0.1cm} p_0 + z_{\alpha/2} \cdot \sqrt{\overline{X}\cdot (1-\overline{X}) / n} \hspace{0.2cm} \vee \hspace{0.2cm}  \overline{X} \hspace{0.1cm} \leq \hspace{0.1cm} p_0 - z_{1-\alpha/2} \cdot \sqrt{\overline{X}\cdot (1-\overline{X}) / n} \\$$
+
+
+
+    Donde se ha usado la propiedad de simetría de la distribución Normal, por la cual $\hspace{0.2cm}z_{1-\alpha/2} \hspace{0.1cm}=\hspace{0.1cm} - z_{\alpha/2}$
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+
+### Basada en el p-valor
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ Dado un nivel de significación $\hspace{0.1cm}\alpha\hspace{0.1cm}$, la regla de decisión basada en el p-valor del contraste es muy sencilla:
+
+
+$$
+\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  \text{pvalor} \leq \alpha
+$$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+<br>
+
+
+
+<br>
+
+
+
+## Contraste en `Python`
+
+
+
+
+
+<br>
+
+
+
+
+# Contraste para la proporción con dos poblaciones
+
+
+## Supuestos
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+- Tenemos dos v.a's **independientes** $\hspace{0.1cm}\mathcal{X}_1 \sim Bernouilli(p_1)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2 \sim Bernouilli(p_2)\hspace{0.1cm}$
+
+- Tenemos una muestra aleatoria simple $\hspace{0.1cm}\mathcal{X}_{11},...,\mathcal{X}_{n_1 1} \hspace{0.1cm}$  de la v.a. $\hspace{0.1cm}\mathcal{X}_1$ y otra m.a.s. $\hspace{0.1cm}\mathcal{X}_{12},...,\mathcal{X}_{n_2 2} \hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}_1$ 
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+## Contraste
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$$
+H_0 : p_1 = p_2 \hspace{1cm} H_0 : p_1 = p_2  \hspace{1cm} H_0 : p_1 = p_2\\
+H_1 : p_1 \neq p_2 \hspace{1cm} H_0 : p_1 > p_2  \hspace{1cm} H_0 : p_1 < p_2
+$$
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+## Estadistico del contraste
+
+El estadistico de este contraste está basado en el teorema de Moivre-Laplace, que fue ilustrado en el artículo de [intervalos de confianza](http://estadistica4all.com/Articulos/Intervalos-de-confianza.html#intervalo-de-confianza-para-la-media-con-varianza-desconocida): $\\[0.5cm]$ 
+
+$$
+\mathcal{Z}_{exp} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - p}{ \sqrt{\overline{\mathcal{X}}\cdot (1-\overline{\mathcal{X}}) / n}} \underset{d}{\rightarrow} N(0,1) \\[1cm]
+$$
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+
+$\hspace{0.25cm}$ Por tanto, el estadístico del contraste bajo $\hspace{0.1cm} H_0\hspace{0.1cm}$ es: $\\[0.5cm]$
+
+$$
+\mathcal{Z}_{exp|H_0} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}} - p_0}{ \sqrt{\overline{\mathcal{X}}\cdot (1-\overline{\mathcal{X}}) / n} } \underset{d}{\rightarrow} N(0,1)
+$$
+
+
+$\hspace{0.25cm}$ Donde:
+
+
+- $\overline{\mathcal{X}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \\$
+
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+
+**Observación:**
+
+
+
+- $\mathcal{Z}_{exp | H_0}$ es una funcion de una m.a.s de la variable aleatoria de interes $\mathcal{X}$, por tanto es también una v.a. $\\[0.4cm]$
+
+
+- Dada una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{X} \\$
+
+
+$$
+z_{exp | H_0} = \dfrac{\overline{X} - p_0}{ \sqrt{\overline{X}\cdot (1-\overline{X}) / n}} \\
+$$
+
+
+es una **realización muestral** de la v.a. $\hspace{0.1cm}\mathcal{Z}_{exp | H_0} \\$
+
+
+
+Donde:
+
+
+- $\overline{X} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n x_i \\$
+
+
+
+<br>
+
+
+
+## p-valor
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+- Caso  $\hspace{0.15cm}H_0: p = p_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: p > p_0 \\$  
+  
+
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}\geq \hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) \hspace{0.1cm}\geq \hspace{0.1cm} \dfrac{\overline{X} - p_0}{ \sqrt{\overline{X}\cdot (1-\overline{X}) / n} } \right) \\$$ 
+
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+- Caso  $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu < \mu_0 \\$
+
+
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left( \mathcal{Z}_{exp|H_0} \hspace{0.1cm}\leq\hspace{0.1cm} z_{exp|H_0} \right) \hspace{0.1cm}=\hspace{0.1cm} P \left( N(0,1) \hspace{0.1cm}\leq\hspace{0.1cm} \dfrac{\overline{X} - p_0}{ \sqrt{\overline{X}\cdot (1-\overline{X}) / n}  } \right) \\$$ 
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+-  Caso $\hspace{0.15cm}H_0: \mu = \mu_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: \mu \neq \mu_0 \\$
+  
+  
+    $$\text{pvalor} \hspace{0.1cm} =\hspace{0.1cm} P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | z_{exp|H_0} | \right) + P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}\leq\hspace{0.1cm} - | z_{exp|H_0} | \right) \hspace{0.1cm}=\hspace{0.1cm} 
+     P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | z_{exp|H_0} | \right) + P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm} \leq\hspace{0.1cm}  | z_{exp|H_0} | \right) \\[1cm]
+     \hspace{0.1cm}=\hspace{0.1cm} 
+    2 \cdot  P \left(  \mathcal{Z}_{exp|H_0}  \hspace{0.1cm}\geq\hspace{0.1cm} | z_{exp|H_0} | \right)   \hspace{0.1cm}=\hspace{0.1cm} 2 \cdot P \left( N(0,1)  \hspace{0.1cm} \leq\hspace{0.1cm}  \left| \dfrac{\overline{X} - p_0}{    \sqrt{\overline{X}\cdot (1-\overline{X}) / n} } \right| \right)$$
+    
+  
+</p>
+ 
+</p></span>
+</div>
+
+
+
+
+<br>
+
+## Regla de decisión
+
+
+### Basada en el estadistico del contraste
+
+
+**Para un nivel de significación $\hspace{0.1cm} \alpha$** : $\\[0.5cm]$
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+- Caso  $\hspace{0.15cm}H_0: p = p_0\hspace{0.15cm}   \text{vs}  \hspace{0.15cm}H_1: p > p_0 \\$
+
+
+    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} \geq\hspace{0.1cm} z_{\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - p_0}{\sqrt{\overline{X}\cdot (1-\overline{X}) / n}} \hspace{0.1cm} \geq\hspace{0.1cm} z_{\alpha}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} \geq\hspace{0.1cm} p_0 + z_{\alpha} \cdot \sqrt{\overline{X}\cdot (1-\overline{X}) / n}$$
+
+
+
+    Donde: $\hspace{0.1cm}  \hspace{0.1cm} P(N(0,1) \hspace{0.1cm} >\hspace{0.1cm}  z_{\alpha})\hspace{0.1cm} =\hspace{0.1cm}  \alpha$ 
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+ 
+- Caso  $\hspace{0.15cm}H_0: p = p_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: p < p_0 \\$
+
+     $$ \text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} \leq \hspace{0.1cm} z_{1-\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} \dfrac{\overline{X} - p_0}{ \sqrt{\overline{X}\cdot (1-\overline{X}) / n} } \hspace{0.1cm} < \hspace{0.1cm} z_{1-\alpha} \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} \leq \hspace{0.1cm} p_0 + z_{1-\alpha} \cdot \sqrt{\overline{X}\cdot (1-\overline{X}) / n} \\$$
+
+ 
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+
+-  Caso $\hspace{0.15cm}H_0: p = p_0\hspace{0.25cm}   \text{vs}  \hspace{0.25cm} H_1: p \neq p_0 \\$
+
+
+
+
+    $$\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm} z_{exp|H_0} \hspace{0.1cm} \geq \hspace{0.1cm} z_{\alpha/2}  \hspace{0.25cm} \vee \hspace{0.25cm}    z_{exp|H_0} \hspace{0.1cm} \leq \hspace{0.1cm} z_{1-\alpha/2}  \hspace{0.25cm} \Leftrightarrow \hspace{0.25cm}  \overline{X} \hspace{0.1cm} \geq \hspace{0.1cm} p_0 + z_{\alpha/2} \cdot \sqrt{\overline{X}\cdot (1-\overline{X}) / n} \hspace{0.2cm} \vee \hspace{0.2cm}  \overline{X} \hspace{0.1cm} \leq \hspace{0.1cm} p_0 - z_{1-\alpha/2} \cdot \sqrt{\overline{X}\cdot (1-\overline{X}) / n} \\$$
+
+
+
+    Donde se ha usado la propiedad de simetría de la distribución Normal, por la cual $\hspace{0.2cm}z_{1-\alpha/2} \hspace{0.1cm}=\hspace{0.1cm} - z_{\alpha/2}$
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+
+### Basada en el p-valor
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 5px; border-radius: 2px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ Dado un nivel de significación $\hspace{0.1cm}\alpha\hspace{0.1cm}$, la regla de decisión basada en el p-valor del contraste es muy sencilla:
+
+
+$$
+\text{Rechazar} \hspace{0.1cm} H_0  \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}  \text{pvalor} \leq \alpha
+$$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+<br>
+
+
+
+<br>
+
+
+
+## Contraste en `Python`
+
+
+
+
+
+<br>
+
+
+
+
 
 
 
