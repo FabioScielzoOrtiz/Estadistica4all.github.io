@@ -79,9 +79,9 @@ Los métodos de validación son una familia muy importante de métodos dentro de
 
 Distinguiremos dos tipos de métodos de evaluacion de modelos:
 
-- Métodos de validación de modelos de **aprendizaje supervisado** $\Rigtharrow$ son algoritmos que permiten evaluar modelos de aprendizaje supervisado usando **muestras de test y train de los predictores y la respuesta**, y una **métrica de evaluación**.
+- Métodos de validación de modelos de **aprendizaje supervisado** $\Rightarrow$ son algoritmos que permiten evaluar modelos de aprendizaje supervisado usando **muestras de test y train de los predictores y la respuesta**, y una **métrica de evaluación**.
 
-- Métodos de evaluación de modelos de aprendizaje no supervisado $\Rigtharrow$ son algoritmos que permiten evaluar modelos de aprendizaje no supervisado usando una **muestra de train de los predictores** y una **métrica de evaluación**.
+- Métodos de evaluación de modelos de aprendizaje no supervisado $\Rightarrow$ son algoritmos que permiten evaluar modelos de aprendizaje no supervisado usando una **muestra de train de los predictores** y una **métrica de evaluación**.
 
 
 Observación:
