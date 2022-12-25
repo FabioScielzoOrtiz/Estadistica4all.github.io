@@ -403,7 +403,7 @@ A continuación vamos a exponer las métricas de evaluación más habituales par
 
 $\hspace{0.25cm}$ **ECM de train**
 
-$$ECM_{train}(M) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} \left(\hspace{0.08cm} y_i^{\hspace{0.08cm}train} - \hat{y}_i^{\hspace{0.08cm}train} \hspace{0.08cm} \right)^2 \\$$
+$$ECM(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} \left(\hspace{0.08cm} y_i^{\hspace{0.08cm}train} - \hat{y}_i^{\hspace{0.08cm}train} \hspace{0.08cm} \right)^2 \\$$
 
 
 </p>
@@ -417,12 +417,10 @@ $\hspace{0.25cm}$ Donde:
 
 - $\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train}\hspace{0.1cm} )\\$
 
-- $\hspace{0.2cm} n \hspace{0.1cm}=\hspace{0.1cm} \# \hspace{0.1cm} Y^{train}$
+- $\hspace{0.2cm} n \hspace{0.1cm}=\hspace{0.1cm} \# \hspace{0.1cm} Y^{train} \\$
 
 
 
-
-<br>
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -433,7 +431,7 @@ $\hspace{0.25cm}$ Donde:
 
 $\hspace{0.25cm}$ **ECM de test**
 
-$$ECM_{test}(M) = \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} \right)^2$$
+$$ECM(M)_{test} \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} \right)^2$$
 
 </p>
  
@@ -524,9 +522,9 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <p style='margin-left:1em;'>
 
 
-**RECM de train:**
+$\hspace{0.25cm}$ **RECM de train:**
 
-$$RECM_{train}(M) = \sqrt{\dfrac{1}{n} \sum_{i=1}^n \hspace{0.1cm} (y_i^{train} - \hat{y}_i^{train})^2 \hspace{0.2cm}} \\$$
+$$RECM(M)_{train} = \sqrt{\dfrac{1}{n} \sum_{i=1}^n \hspace{0.1cm} \left(y_i^{train} - \hat{y}_i^{train}\right)^2 \hspace{0.2cm}} \\$$
 
 
 </p>
@@ -534,7 +532,7 @@ $$RECM_{train}(M) = \sqrt{\dfrac{1}{n} \sum_{i=1}^n \hspace{0.1cm} (y_i^{train} 
 </p></span>
 </div>
 
-<br>
+
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
@@ -542,10 +540,10 @@ $$RECM_{train}(M) = \sqrt{\dfrac{1}{n} \sum_{i=1}^n \hspace{0.1cm} (y_i^{train} 
 <p style='margin-left:1em;'>
 
 
-**RECM de test:**
+$\hspace{0.25cm}$ **RECM de test:**
 
 
-$$RECM_{test}(M) = \sqrt{ \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_{i} ^{\hspace{0.1cm} test} \hspace{0.1cm})^2 \hspace{0.2cm}} \\[0.2cm]$$
+$$RECM(M)_{test} = \sqrt{ \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_{i} ^{\hspace{0.1cm} test} \hspace{0.1cm} \right)^2 \hspace{0.2cm}} \\[0.2cm]$$
 
 </p>
  
@@ -574,9 +572,9 @@ Cuanto menor sea $RECM$ , mayor bondad predictiva del modelo $M$, y a la inversa
 <p style='margin-left:1em;'>
 
 
-**ECR de train:**
+$\hspace{0.25cm}$ **ECR de train:**
 
-$$ECR_{train}(M) = \dfrac{\hspace{0.5cm} \sum_{i=1}^n \hspace{0.1cm} (y_i^{train}- \hat{y}_i^{train})^2 \hspace{0.5cm}}{\sum_{i=1}^n \left( y_i^{train} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} train} \right)^2 }  \\$$
+$$ECR(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.5cm} \sum_{i=1}^n \hspace{0.1cm} \left( y_i^{train}- \hat{y}_i^{train} \right)^2 \hspace{0.5cm}}{\sum_{i=1}^n \left( y_i^{train} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} train} \right)^2 }  \\$$
 
 </p>
  
@@ -590,9 +588,9 @@ $$ECR_{train}(M) = \dfrac{\hspace{0.5cm} \sum_{i=1}^n \hspace{0.1cm} (y_i^{train
 <p style='margin-left:1em;'>
 
 
-**ECR de test:**
+$\hspace{0.25cm}$ **ECR de test:**
 
-$$ECR_{test}(M) = \dfrac{ \hspace{0.5cm} \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm})^2 \hspace{0.5cm}    }{\sum_{i=1}^h \left(\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} test} \hspace{0.1cm} \right)^2 } \\$$
+$$ECR(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{ \hspace{0.5cm} \sum_{i=1}^h \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm}\right)^2 \hspace{0.5cm}    }{\sum_{i=1}^h \left(\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} test} \hspace{0.1cm} \right)^2 } \\$$
 
 </p>
  
@@ -615,9 +613,9 @@ Cuanto menor sea $ECR$ , mayor bondad predictiva del modelo $M$, y a la inversa.
  
 <p style='margin-left:1em;'>
 
-**Coeficiente de determinación de train:**
+$\hspace{0.25cm}$ **Coeficiente de determinación de train:**
 
-$$R_{train}^2 = 1 - ECR_{train} \\$$
+$$R_{train}^2 \hspace{0.1cm}=\hspace{0.1cm} 1 - ECR_{train} \\$$
 
 </p>
  
@@ -632,9 +630,9 @@ $$R_{train}^2 = 1 - ECR_{train} \\$$
 <p style='margin-left:1em;'>
 
 
-**Coeficiente de determinación de train:**
+$\hspace{0.25cm}$ **Coeficiente de determinación de train:**
 
-$$R_{test}^2 = 1 - ECR_{test} \\$$
+$$R_{test}^2 \hspace{0.1cm}=\hspace{0.1cm} 1 - ECR_{test} \\$$
 
 </p>
  
@@ -657,9 +655,9 @@ Cuanto mayor sea $R^2$ , mayor bondad predictiva del modelo $M$, y a la inversa.
  
 <p style='margin-left:1em;'>
 
-**EAM de train:**
+$\hspace{0.25cm}$ **EAM de train:**
 
-$$EAM_{train}(M) = \dfrac{1}{n} \cdot \sum_{i=1}^n | y_i^{train} - \hat{y}_i^{train} | \\$$
+$$EAM(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} \left|\hspace{0.1cm} y_i^{train} - \hat{y}_i^{train} \hspace{0.1cm}\right| \\$$
 
 </p>
  
@@ -672,10 +670,10 @@ $$EAM_{train}(M) = \dfrac{1}{n} \cdot \sum_{i=1}^n | y_i^{train} - \hat{y}_i^{tr
  
 <p style='margin-left:1em;'>
 
-**EAM de test:**
+$\hspace{0.25cm}$ **EAM de test:**
 
 
-$$EAM_{test}(M) = \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} | \hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} |$$
+$$EAM(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left| \hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} \right|$$
 
 </p>
  
@@ -692,9 +690,9 @@ $$EAM_{test}(M) = \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} | \hspace{0.1cm
  
 <p style='margin-left:1em;'>
 
-**EAR de train:**
+$\hspace{0.25cm}$ **EAR de train:**
 
-$$EAM_{train}(M) = \dfrac{\sum_{i=1}^n |\hspace{0.08cm} y_i^{train} - \hat{y}_i^{\hspace{0.08cm} train} | }{\sum_{i=1}^n | y_i - \overline{y} |}  \\$$
+$$EAR(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\sum_{i=1}^n \hspace{0.1cm} \left|\hspace{0.1cm} y_i^{train} - \hat{y}_i^{\hspace{0.08cm} train} \hspace{0.1cm} \right| }{\sum_{i=1}^n \hspace{0.1cm} \left| \hspace{0.1cm} y_i^{train} - \overline{y}^{train} \hspace{0.1cm} \right| \hspace{0.1cm}}  \\$$
 
 
 </p>
@@ -709,10 +707,10 @@ $$EAM_{train}(M) = \dfrac{\sum_{i=1}^n |\hspace{0.08cm} y_i^{train} - \hat{y}_i^
  
 <p style='margin-left:1em;'>
 
-**EAR de test:**
+$\hspace{0.25cm}$ **EAR de test:**
 
 
-$$EAM_{train}(M) = \dfrac{ \sum_{i=1}^n \hspace{0.1cm} | \hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm} |  }{\sum_{i=1}^n | y_i^{\hspace{0.1cm} test} - \overline{y}^{\hspace{0.1cm} test} |}$$
+$$EAR(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{ \sum_{i=1}^h \hspace{0.1cm} \hspace{0.1cm} \left| \hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm} \right| \hspace{0.1cm}  }{\sum_{i=1}^h \hspace{0.1cm}\left|\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \overline{y}^{\hspace{0.1cm} test} \hspace{0.1cm}\right|\hspace{0.1cm}}$$
 
 </p>
  
@@ -742,9 +740,9 @@ A continuación vamos a exponer las métricas de evaluación más habituales par
 <p style='margin-left:1em;'>
 
 
-**TAC de train:**
+$\hspace{0.25cm}$ **TAC de train:**
 
-$$TAC_{train}(M) = \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.05cm} \mathbf {1} ( \hspace{0.05cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.05cm})$$
+$$TAC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.15cm} \mathbf {I} \left( \hspace{0.1cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.1cm} \right)$$
 
 </p>
  
@@ -758,9 +756,9 @@ $$TAC_{train}(M) = \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.05cm} \mathbf {1}
 <p style='margin-left:1em;'>
 
 
-**TAC de test:**
+$\hspace{0.25cm}$ **TAC de test:**
 
-$$TAC_{train}(M) = \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.05cm} \mathbf {1} ( \hspace{0.05cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.05cm})$$
+$$TAC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.15cm} \mathbf{I} \left( \hspace{0.1cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.1cm}\right)$$
 
 </p>
  
@@ -781,9 +779,9 @@ $$TAC_{train}(M) = \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.05cm} \mathbf {1}
  
 <p style='margin-left:1em;'>
 
-**TEC de train:**
+$\hspace{0.25cm}$ **TEC de train:**
 
-$$TEC_{train}(M) = \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.05cm} \mathbf {1} ( \hspace{0.05cm} \hat{y}_i^{train} \neq y_i^{train} \hspace{0.05cm})$$
+$$TEC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.15cm} \mathbf {I} \left( \hspace{0.05cm} \hat{y}_i^{train} \neq y_i^{train} \hspace{0.05cm} \right)$$
 
 
 </p>
@@ -799,9 +797,9 @@ $$TEC_{train}(M) = \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.05cm} \mathbf {1}
 <p style='margin-left:1em;'>
 
 
-**TEC de test:**
+$\hspace{0.25cm}$ **TEC de test:**
 
-$$TEC_{test}(M) = \dfrac{1}{h} \cdot \sum_{i=1}^{h} \hspace{0.05cm} \mathbf {1} ( \hspace{0.05cm} \hat{y}_i^{\hspace{0.05cm} test} \neq y_i^{\hspace{0.05cm} test} \hspace{0.05cm})$$
+$$TEC(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{h} \cdot \sum_{i=1}^{h} \hspace{0.15cm} \mathbf {I} \left( \hspace{0.1cm} \hat{y}_i^{\hspace{0.05cm} test} \neq y_i^{\hspace{0.05cm} test} \hspace{0.1cm}\right)$$
 
 </p>
  
@@ -823,9 +821,9 @@ Si usamos un modelo de clasificación basado en la distribución de probabilidad
  
 <p style='margin-left:1em;'>
 
-**Kappa de train:**
+$\hspace{0.25cm}$ **Kappa de train:**
 
-$$Kappa_{\hspace{0.05cm} train}(M) = \dfrac{TAC_{\hspace{0.05cm} train} - 1/k}{1 - 1/k}$$
+$$Kappa(M)_{\hspace{0.05cm} train} \hspace{0.1cm} = \hspace{0.1cm} \dfrac{\hspace{0.1cm} TAC_{\hspace{0.05cm} train} \hspace{0.1cm}-\hspace{0.1cm} 1/k \hspace{0.1cm}}{1 \hspace{0.1cm} -\hspace{0.1cm} 1/k}$$
 
 </p>
  
@@ -839,58 +837,64 @@ $$Kappa_{\hspace{0.05cm} train}(M) = \dfrac{TAC_{\hspace{0.05cm} train} - 1/k}{1
 <p style='margin-left:1em;'>
 
 
-**Kappa de test:**
+$\hspace{0.25cm}$ **Kappa de test:**
 
-$$Kappa_{\hspace{0.05cm} test}(M) = \dfrac{TAC_{\hspace{0.05cm} test} - 1/k}{1 - 1/k}$$
+$$Kappa(M)_{\hspace{0.05cm} test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.1cm} TAC_{\hspace{0.05cm} test} \hspace{0.1cm}-\hspace{0.1cm} 1/k \hspace{0.1cm}}{1 \hspace{0.1cm}-\hspace{0.1cm} 1/k}$$
 
 </p>
  
 </p></span>
 </div>
 
+
+
+
 <br>
+
+
 
 ### Modelo de clasificación aleatoria uniforme
 
-Dada una respuesta $\mathcal{Y}$ con $k\geq 2$ categorias  y  de una serie de predictotres $\mathcal{X}_1 , ..., \mathcal{X}_p$
+Dada una respuesta $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ con $\hspace{0.1cm}k\geq 2\hspace{0.1cm}$ categorias  y  de una serie de predictotres $\hspace{0.1cm}\mathcal{X}_1 , ..., \mathcal{X}_p$
 
-Dada una muestra de $n$ observaciones de $Y$ del predictor  
-y una muestra $X_j$ del predictor $\mathcal{X}_j \\$
+Dada una muestra de $\hspace{0.1cm}n\hspace{0.1cm}$ observaciones de $\hspace{0.1cm}Y\hspace{0.1cm}$ del predictor  
+y una muestra $\hspace{0.1cm}X_j\hspace{0.1cm}$ del predictor $\hspace{0.1cm}\mathcal{X}_j \\$
 
 
-Un modelo de clasificación aleatorio basado en la distribución discreta $U{0,1,..., k-1}$ es un modelo tal que:
+Un modelo de clasificación aleatorio basado en la distribución discreta $\hspace{0.1cm}U\lbrace 0,1,..., k-1 \rbrace\hspace{0.1cm}$ es un modelo tal que:
 
-$$\widehat{y}_i \sim U{0,1,..., k-1}$$
+$$\widehat{y}_i \sim U\lbrace 0,1,..., k-1 \rbrace$$
 
 Por lo que:
 
 $$P(\widehat{y}_i = h) = 1/k = p$$ 
 
-Para todo $h=0,1,...,k-1$
+Para todo $\hspace{0.1cm}h=0,1,...,k-1$
 
 
-Por tanto, $para cada i=1,...,n$ tenemos que:
+Por tanto, para cada $\hspace{0.1cm}i=1,...,n\hspace{0.1cm}$ tenemos que:
 
-$$P(I(\hat{y}_i = y_i) = 1) = P(\hat{y}_i = y_i) = 1/k = p$$
+$$P(\mathbf{I}(\hat{y}_i = y_i) = 1) = P(\hat{y}_i = y_i) = 1/k = p$$
 
-$$P(I(\hat{y}_i = y_i) = 0) = P(\hat{y}_i \neq y_i) = 1- 1/k  = 1 - p$$
+$$P(\mathbf{I}(\hat{y}_i = y_i) = 0) = P(\hat{y}_i \neq y_i) = 1- 1/k  = 1 - p$$
 
-Por lo que $I(\hat{y}_i = y_i)$  es una variable binaria, con probabilidad de exito $p$ y de fracaso $1-p$, es decir:
+Por lo que $\hspace{0.1cm}\mathbf{I}(\hat{y}_i = y_i)\hspace{0.1cm}$  es una variable binaria, con probabilidad de exito $\hspace{0.1cm}p\hspace{0.1cm}$ y de fracaso $\hspace{0.1cm}1-p\hspace{0.1cm}$, es decir:
 
-$$I(\hat{y}_i = y_i)  \sim Bernoulli(p=1/k)$$
+$$\mathbf{I}(\hat{y}_i = y_i)  \hspace{0.1cm}\sim\hspace{0.1cm} Bernoulli(p=1/k)$$
 
 
 Por lo tanto:
 
-$$\sum_{i=1}^n I(\hat{y}_i = y_i) \sim Binomial(n\cdot p )$$
+$$\sum_{i=1}^n \mathbf{I}(\hat{y}_i = y_i) \hspace{0.1cm}\sim\hspace{0.1cm} Binomial(n\cdot p )$$
 
 Asi que, la tasa de acierto  esperada del modelo de clasificación aleatoria uniforme es:
 
 
-$$E\left[TAC\right] = E\left[ \dfrac{1}{n} \sum_{i=1}^n I(\hat{y}_i = y_i) \right]= E\left[  \dfrac{1}{n} \cdot Binomial(n\cdot p )  \right] = \dfrac{1}{n} \cdot E\left[ Binomial(n\cdot p )   \right]  = \dfrac{1}{n} \cdot (n\cdot p) = p = 1/k$$
+$$E\left[TAC\right] \hspace{0.1cm}=\hspace{0.1cm} E\left[ \dfrac{1}{n} \sum_{i=1}^n \mathbf{I}(\hat{y}_i = y_i) \right] \hspace{0.1cm}=\hspace{0.1cm} E\left[  \dfrac{1}{n} \cdot Binomial(n\cdot p )  \right] \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot E\left[ Binomial(n\cdot p )   \right]  \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot (n\cdot p) = p = 1/k$$
 
 <br>
 
+---
 
 <br>
 
@@ -900,20 +904,22 @@ $$E\left[TAC\right] = E\left[ \dfrac{1}{n} \sum_{i=1}^n I(\hat{y}_i = y_i) \righ
 
 
 
-Los algoritmos de validación permiten evaluar la bondad predictiva de modelos predictivos. Se suelen basar en:
+Los algoritmos de validación de modelos de aprendizaje supervisado permiten medir la capacidad predictiva de dichos modelos. Estoas algoritmos se suelen basar en:
 
 
-1) División del data-set en parte de train y parte de test.
+1) División del data-set inicial de la respuesta y los predictores en parte de train y parte de test.
 
 2) Entrenamiento del modelo con la parte de train.
 
-3) Cálculo de una métrica de evaluación con la parte de test.
+3) Obtención de predicciones de la respuesta con la parte de test.
 
-<br>
+4) Cálculo de una métrica de evaluación usando las predicciones obtenidas en el paso 4)  y las observaciones de test de la respuesta. $\\[0.5cm]$
 
-Tenemos un modelo predictivo $\hspace{0.1cm}M\hspace{0.1cm}$ y una muestra  de $\hspace{0.1cm}N\hspace{0.1cm}$ observaciones de $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ y  de la respuesta $\hspace{0.1cm}\mathcal{Y}\\$ 
+ 
 
- $$D=[X_1,...,X_p,Y]=\begin{pmatrix}
+Tenemos un modelo de aprendizaje supervisado  $\hspace{0.1cm}M\hspace{0.1cm}$ y una muestra  de $\hspace{0.1cm}N\hspace{0.1cm}$ observaciones de $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ y  de la respuesta $\hspace{0.1cm}\mathcal{Y}\\[0.7cm]$ 
+
+ $$D\hspace{0.1cm}=\hspace{0.1cm}[X_1,...,X_p,Y]\hspace{0.1cm}=\hspace{0.1cm}\begin{pmatrix}
     x_{11}&x_{12}&...&x_{1p}& y_1\\
     x_{21}&x_{22}&...&x_{2p} & y_2\\
     &...&\\
@@ -932,27 +938,28 @@ Tenemos un modelo predictivo $\hspace{0.1cm}M\hspace{0.1cm}$ y una muestra  de $
 
 ## Validación simple no aleatoria
 
-**Decripción no formal del algoritmo:**
+**Descripción no formal del algoritmo:**
 
 
-Este algoritmo de validacion consiste en dividir el data-set inicial en una parte de train y otra de test de manera no aleatoria.
+Este algoritmo de validación consiste en dividir el data-set inicial en una parte de train y otra de test de manera no aleatoria.
 
 El $k\%$ de las primeras filas del data-set serán la parte de train, y el resto la parte de test.
 
-El modelo es enetrenado con la muestra train y testado calculando una métrica de evaluación con la muestra test. Este valor de la métrica de evaluación es el que será usado para medir el poder predictivo del modelo y compararlo con otros modelos. 
+El modelo es entrenado con la muestra train y testado calculando una métrica de evaluación con la muestra test. Este valor de la métrica de evaluación es el que será usado para medir la capacidad predictiva del modelo y compararlo con otros modelos. $\\[1cm]$
+
 
 
 **Decripción formal del algoritmo:**
 
 El algoritmo de validación simple no aleatoria tiene los siguientes pasos: $\\[0.3cm]$
 
-$1)\hspace{0.1cm}$ Se divide $\hspace{0.1cm}D\hspace{0.1cm}$ en parte de train y parte de test del siguiente modo: $\\[0.4cm]$
+- Se divide $\hspace{0.1cm}D\hspace{0.1cm}$ en parte de train y parte de test del siguiente modo: $\\[0.4cm]$
 
-Sea $\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}$ la proporción de filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que formaran parte del muestra de **train** (es un hiper-parametro del algoritmo): $\\[0.4cm]$
+    - Sea $\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}$ la proporción de filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que formaran parte del muestra de **train** (es un hiper-parametro del algoritmo): $\\[0.5cm]$
 
-Las primeras $\hspace{0.2cm}\lfloor k  \cdot N \rfloor\hspace{0.2cm}$ observaciones (filas) definen el conjunto de train:$\\[0.6cm]$
+         - Las primeras $\hspace{0.2cm}\lfloor k  \cdot N \rfloor\hspace{0.2cm}$ observaciones (filas) definen el conjunto de train:$\\[0.6cm]$
 
-$$D_{train}= \begin{pmatrix}
+         $$D_{train}= \begin{pmatrix}
     x_{11}&x_{12}&...&x_{1p}& y_1\\
     x_{21}&x_{22}&...&x_{2p} & y_2\\
     &...&\\
@@ -962,18 +969,17 @@ $$D_{train}= \begin{pmatrix}
     x_{2}^{train} & y_{2}^{train}\\
     ....&...\\
     x_{\# D_{train}}^{train} & y_{\# D_{train}}^{train}\\
-    \end{pmatrix} \\$$
+    \end{pmatrix} \hspace{0.1cm}=\hspace{0.1cm} \left[\hspace{0.1cm} X_1^{train} ,..., X_p^{train} , Y^{train}\hspace{0.1cm}\right]\\$$
     
     
-Donde:
+        Donde:
 
-$\# D_{train}\hspace{0.1cm}$ es el número de **filas** de $\hspace{0.1cm}D_{train}$
+        $\# D_{train}\hspace{0.1cm}$ es el número de **filas** de $\hspace{0.1cm}D_{train} \\[0.8cm]$
 
-<br>
 
-Las siguientes $\hspace{0.2cm} N - \lfloor k  \cdot N \rfloor\hspace{0.2cm}$ observaciones definen (filas) el conjunto de test: $\\[0.6cm]$ 
+       - Las siguientes $\hspace{0.2cm} N - \lfloor k  \cdot N \rfloor\hspace{0.2cm}$ observaciones definen (filas) el conjunto de test: $\\[0.6cm]$ 
 
-$$D_{test}= \begin{pmatrix}
+        $$D_{test}= \begin{pmatrix}
     x_{(\lfloor k  \cdot N \rfloor + 1) \hspace{0.05cm} 1 } & x_{(\lfloor k  \cdot N \rfloor + 1) \hspace{0.05cm} 2}&...&x_{(\lfloor k  \cdot N \rfloor + 1) \hspace{0.05cm} p}& y_{\lfloor k  \cdot N \rfloor + 1} \\
     x_{(\lfloor k  \cdot N \rfloor + 2) \hspace{0.05cm} 1 } & x_{(\lfloor k  \cdot N \rfloor + 2) \hspace{0.05cm} 2}&...&x_{(\lfloor k  \cdot N \rfloor + 2) \hspace{0.05cm} p}& y_{\lfloor k  \cdot N \rfloor + 2}\\
     &...&\\
@@ -983,33 +989,33 @@ $$D_{test}= \begin{pmatrix}
     x_{2}^{test} & y_{2}^{test}\\
     ....&...\\
     x_{\# D_{test}}^{test} & y_{\# D_{test}}^{test}\\
-    \end{pmatrix} \\$$
+    \end{pmatrix} \hspace{0.1cm}=\hspace{0.1cm} \left[\hspace{0.1cm} X_1^{train} ,..., X_p^{train} , Y^{train}\hspace{0.1cm}\right] \\$$
  
     
     
-Donde:
+        Donde:
 
-$\# D_{test}\hspace{0.1cm}$ es el número de **filas** de $\hspace{0.1cm}D_{test}$
+        $\# D_{test}\hspace{0.1cm}$ es el número de **filas** de $\hspace{0.1cm}D_{test}$
 
-$\hspace{0.1cm} \lfloor \cdot \rfloor\hspace{0.1cm}$ es la funcion suelo, que dado un número como argumento te  devuelve el mayor entero menor que dicho número $\\[0.5cm]$
-
-
-$2)\hspace{0.1cm}$ Se entrena el modelo $\hspace{0.1cm} M\hspace{0.1cm}$ con $\hspace{0.1cm} D_{train}\hspace{0.1cm}$ $\hspace{0.1cm}\Rightarrow\hspace{0.2cm}$ $\widehat{M}\\$
-
-$3)\hspace{0.1cm}$ Se calcula una metrica de evaluacion sobre el modelo entrenado  con $\hspace{0.1cm} D_{test}\hspace{0.1cm}$ $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ Si por ejemplo se calcula el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , se obtendria el $\hspace{0.1cm}ECM_{test}\\$
+        $\hspace{0.1cm} \lfloor \cdot \rfloor\hspace{0.1cm}$ es la funcion suelo, que dado un número como argumento te  devuelve el mayor entero menor que dicho número $\\[1cm]$
 
 
+- Se entrena el modelo $\hspace{0.1cm} M\hspace{0.1cm}$ con $\hspace{0.1cm} D_{train}\hspace{0.1cm}$ $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ $\widehat{M}\\$
 
-$4)\hspace{0.1cm}$ La métrica de evaluación final del modelo es la obtenida en el paso 3) 
-
-Si la métrica empleada en 3) fue el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces:
-
-$$ECM_{test}^*(M) \hspace{0.1cm}=\hspace{0.1cm} ECM_{test}(\widehat{M}) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test}} \cdot \sum_{i=1}^{\# D_{test}} \hspace{0.1cm} (y_i^{test} - \hat{y}_i^{test} )^2 \\$$
+- Se calcula una metrica de evaluacion sobre el modelo entrenado $\widehat{M}$ usando la muestra de test $\hspace{0.1cm} D_{test}\hspace{0.1cm}$ $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ Si por ejemplo se calcula el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , se obtendria el $\hspace{0.1cm}ECM_{test}\\$
 
 
-Donde:
 
-$$\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} D_train)$$
+- La métrica de evaluación final del modelo es la obtenida en el paso anterior. 
+
+    Si la métrica empleada en el paso anterior es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces la métrica de evaluación calculada con el algoritmo de validación simple no aleatoria es la siguiente:
+
+    $$ECM(M)_{test}^* \hspace{0.1cm}=\hspace{0.1cm} ECM(\widehat{M})_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test}} \cdot \sum_{i=1}^{\# D_{test}} \hspace{0.1cm} \left( \hspace{0.1cm} y_i^{test} - \hat{y}_i^{test} \hspace{0.1cm}\right)^2 \\$$
+
+
+    Donde:
+
+    $$\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} D_{train}) \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train},Y^{train})\hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm})$$
 
 
 <br>
@@ -1028,13 +1034,13 @@ Toda la validación queda condicionada a solo una muestra de train y otra de tes
 **Decripción no formal del algoritmo:**
 
 
-Este algoritmo de validacion consiste en dividir el data-set inicial en una parte de train y otra de test de manera aleatoria.
+Este algoritmo de validacion consiste en dividir el data-set inicial en una parte de train y otra de test de manera **aleatoria**.
 
 
 Se obtiene una muestra aleatoria sin remplazo de un $k\%$ de las filas del data-set inicial, las cuales serán la parte de train, y el resto la parte de test.
 
-El modelo es entrenado con la muestra train y testado calculando un métrica de evaluación con la muestra de test. Este valor de la métrica de evaluación es el que será usado para medir el poder predictivo del modelo y compararlo con otros modelos. la muestra test a través de una métrica de evaluación.
- 
+El modelo es entrenado con la muestra train y testado calculando un métrica de evaluación con la muestra de test. Este valor de la métrica de evaluación es el que será usado para medir el poder predictivo del modelo y compararlo con otros modelos. 
+
 <br>
 
 
@@ -1043,18 +1049,18 @@ El modelo es entrenado con la muestra train y testado calculando un métrica de 
 
 El algoritmo de validación simple   aleatoria tiene los siguientes pasos: $\\[0.3cm]$
 
-$1)\hspace{0.1cm}$ Se divide $\hspace{0.1cm}D\hspace{0.1cm}$ en parte de train y parte de test del siguiente modo: $\\[0.4cm]$
+- Se divide $\hspace{0.1cm}D\hspace{0.1cm}$ en parte de train y parte de test del siguiente modo: $\\[0.4cm]$
 
-Sea $\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}$ la proporción de filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que formarán parte de la muestra de **train** (es un hiper-parametro del algoritmo): $\\[0.4cm]$
+    Sea $\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}$ la proporción de filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que formarán parte de la muestra de **train** (es un hiper-parametro del algoritmo): $\\[0.4cm]$
 
-$\hspace{0.3cm} 1.1)\hspace{0.1cm}$ Se genera una muestra aleatoria sin reemplazamiento de tamaño $\hspace{0.1cm} \lfloor k  \cdot N \rfloor\hspace{0.1cm}$  del vector $\hspace{0.1cm}(1,2,...,N) \\$
+    - Se genera una muestra aleatoria sin reemplazamiento de tamaño $\hspace{0.1cm} \lfloor k  \cdot N \rfloor\hspace{0.1cm}$  del vector $\hspace{0.1cm}(1,2,...,N) \\$
 
 
-$$m=(m_1 ,m_2,...,m_{\lfloor k  \cdot N \rfloor}) \\$$
+    $$m=(m_1 ,m_2,...,m_{\lfloor k  \cdot N \rfloor}) \\$$
 
-$\hspace{0.3cm} 1.2)\hspace{0.1cm}$ Las observaciones (filas) $\hspace{0.1cm}m=(m_1,m_2 ,...,m_{\lfloor k  \cdot N \rfloor})\hspace{0.1cm}$ de $\hspace{0.1cm}D\hspace{0.1cm}$  definen la muestra de train: $\\[0.4cm]$
+    - Las observaciones (filas) $\hspace{0.1cm}m=(m_1,m_2 ,...,m_{\lfloor k  \cdot N \rfloor})\hspace{0.1cm}$ de $\hspace{0.1cm}D\hspace{0.1cm}$  definen la muestra de train: $\\[0.4cm]$
 
-$$D_{train}= D[m , :] = \begin{pmatrix}
+      $$D_{train}= D[m , :] = \begin{pmatrix}
     x_{m_11}&x_{m_12}&...&x_{m_1p}& y_{m_1}\\
     x_{m_21}&x_{m_22}&...&x_{m_2p} & y_{m_2}\\
     &...&\\
@@ -1067,17 +1073,16 @@ $$D_{train}= D[m , :] = \begin{pmatrix}
     \end{pmatrix} \\$$
     
     
-Donde:
+      Donde:
 
-$\# D_{train}\hspace{0.1cm}$ es el número de **filas** de $\hspace{0.1cm}D_{train}$
-
-<br>
+      $\# D_{train}\hspace{0.1cm}$ es el número de **filas** de $\hspace{0.1cm}D_{train} \\[1cm]$
 
 
-$\hspace{0.3cm} 1.3)\hspace{0.1cm}$ Las observaciones (filas) de $\hspace{0.1cm}D\hspace{0.1cm}$ complementarias a  $\hspace{0.1cm}m\hspace{0.1cm}$ , es decir, las filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que no estan en $\hspace{0.1cm}D_{train}\hspace{0.1cm}$, es decir, las filas de $\hspace{0.1cm}m^c\hspace{0.1cm}$,
+
+    - Las observaciones (filas) de $\hspace{0.1cm}D\hspace{0.1cm}$ complementarias a  $\hspace{0.1cm}m\hspace{0.1cm}$ , es decir, las filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que no estan en $\hspace{0.1cm}D_{train}\hspace{0.1cm}$, es decir, las filas de $\hspace{0.1cm}m^c\hspace{0.1cm}$,
  definen la muestra de test:  $\\[0.4cm]$
  
- $$D_{test} = D[m^c , :] =  \begin{pmatrix}
+      $$D_{test} = D[m^c , :] =  \begin{pmatrix}
     x_{1}^{test} & y_{1}^{test}\\
     x_{2}^{test} & y_{2}^{test}\\
     ....&...\\
@@ -1086,32 +1091,31 @@ $\hspace{0.3cm} 1.3)\hspace{0.1cm}$ Las observaciones (filas) de $\hspace{0.1cm}
 
 
 
-Donde: 
-
-$\# D_{test}\hspace{0.1cm}$ es el número de **filas** de $\hspace{0.1cm}D_{test}$
+      Donde: 
+ 
+      $\# D_{test}\hspace{0.1cm}$ es el número de **filas** de $\hspace{0.1cm}D_{test}$
 
  
-$\lfloor \cdot \rfloor\hspace{0.1cm}$ es la funcion suelo, que dado un número como argumento te  devuelve el mayor entero menor que dicho número
+       $\lfloor \cdot \rfloor\hspace{0.1cm}$ es la funcion suelo, que dado un número como argumento te  devuelve el mayor entero menor que dicho número
 
-$m^c=(\hspace{0.1cm} i =1,...,N \hspace{0.1cm}/\hspace{0.1cm} i\neq m_j \hspace{0.1cm},\hspace{0.1cm} \forall j=1,...,\lfloor k  \cdot N \rfloor \hspace{0.1cm}) \\$
+       $m^c=(\hspace{0.1cm} i =1,...,N \hspace{0.1cm}/\hspace{0.1cm} i\neq m_j \hspace{0.1cm},\hspace{0.1cm} \forall j=1,...,\lfloor k  \cdot N \rfloor \hspace{0.1cm}) \\$
 
 
-$2)\hspace{0.1cm}$ Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con $\hspace{0.1cm}D_{train}\hspace{0.1cm}$ $\hspace{0.1cm}\Rightarrow\hspace{0.2cm}$  $\widehat{M}\\$
+- Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con $\hspace{0.1cm}D_{train}\hspace{0.1cm}$ $\hspace{0.1cm}\Rightarrow\hspace{0.2cm}$  $\widehat{M}\\$
 
-$3)\hspace{0.1cm}$ Se calcula una metrica de evaluacion sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}\hspace{0.1cm}$ usando $\hspace{0.1cm}D_{test}$ 
+- Se calcula una métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}\hspace{0.1cm}$ usando $\hspace{0.1cm}D_{test}$ $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$
+  Si por ejemplo se calcula el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , se obtendria el $\hspace{0.1cm}ECM_{test}(\widehat{M})\\$
 
-$\hspace{0.6cm}$  Si por ejemplo se calcula el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , se obtendria el $\hspace{0.1cm}ECM_{test}(\widehat{M})\\$
+- La métrica de evaluación final del modelo es la obtenida en el paso anterior: 
 
-$4)\hspace{0.1cm}$ La métrica de evaluacion final del modelo es la obtenida en el paso 3) 
+$\hspace{0.6cm}$  Si la métrica empleada en el paso anterior fue el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces:
 
-$\hspace{0.6cm}$  Si la métrica empleada en 3) fue el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces:
-
-$$ECM_{test}^*(M) = ECM_{test}(\widehat{M}) = \dfrac{1}{\# D_{test}} \sum_{i=1}^{\# D_{test}} (y_i^{test} - \hat{y}_i^{test})$$
+$$ECM(M)_{test}^* \hspace{0.1cm}=\hspace{0.1cm} ECM(\widehat{M})_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test}} \cdot \sum_{i=1}^{\# D_{test}} (y_i^{test} - \hat{y}_i^{test})$$
 
 
 Donde:
 
-$$\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} D_{train})\hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm})$$
+$$\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} D_{train})\hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train},Y^{train})\hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm})$$
 
 
 <br>
@@ -1124,7 +1128,7 @@ Ademas la métrica de evaluacion calculada por validación simple aleatoria tien
 
 La varianza de una metrica de evaluación calculada con un algorimo de validación se puede entender como como la varianza de los valores obtenidos de la métrica al ejecutar el algoritmo un número elevado de veces.
 
- Es la segundo aproximación naive a los algoritmos de validación.
+ Es la segunda aproximación naive a los algoritmos de validación.
  
 <br>
 

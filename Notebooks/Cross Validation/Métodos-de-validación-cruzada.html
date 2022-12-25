@@ -1800,7 +1800,7 @@ también son llamados <strong>métodos de validación cruzada</strong>. Aunque r
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>ECM de train</strong></p>
-<p><span class="math display">\[ECM_{train}(M) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} \left(\hspace{0.08cm} y_i^{\hspace{0.08cm}train} - \hat{y}_i^{\hspace{0.08cm}train} \hspace{0.08cm} \right)^2 \\\]</span></p>
+<p><span class="math display">\[ECM(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} \left(\hspace{0.08cm} y_i^{\hspace{0.08cm}train} - \hat{y}_i^{\hspace{0.08cm}train} \hspace{0.08cm} \right)^2 \\\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -1809,14 +1809,13 @@ también son llamados <strong>métodos de validación cruzada</strong>. Aunque r
 <ul>
 <li><p><span class="math inline">\(y_i^{test}\hspace{0.1cm}\)</span> es la observación de test <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la variable respuesta, es decir, <span class="math inline">\(\hspace{0.1cm}y_i^{test} \hspace{0.1cm}=\hspace{0.1cm} Y^{test}[\hspace{0.1cm} i\hspace{0.1cm}]\\\)</span></p></li>
 <li><p><span class="math inline">\(\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train}\hspace{0.1cm} )\\\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.2cm} n \hspace{0.1cm}=\hspace{0.1cm} \# \hspace{0.1cm} Y^{train}\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.2cm} n \hspace{0.1cm}=\hspace{0.1cm} \# \hspace{0.1cm} Y^{train} \\\)</span></p></li>
 </ul>
-<p><br></p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>ECM de test</strong></p>
-<p><span class="math display">\[ECM_{test}(M) = \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} \right)^2\]</span></p>
+<p><span class="math display">\[ECM(M)_{test} \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} \right)^2\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -1858,18 +1857,17 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><strong>RECM de train:</strong></p>
-<p><span class="math display">\[RECM_{train}(M) = \sqrt{\dfrac{1}{n} \sum_{i=1}^n \hspace{0.1cm} (y_i^{train} - \hat{y}_i^{train})^2 \hspace{0.2cm}} \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>RECM de train:</strong></p>
+<p><span class="math display">\[RECM(M)_{train} = \sqrt{\dfrac{1}{n} \sum_{i=1}^n \hspace{0.1cm} \left(y_i^{train} - \hat{y}_i^{train}\right)^2 \hspace{0.2cm}} \\\]</span></p>
 </p>
 </p>
 <p></span></p>
 </div>
-<p><br></p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><strong>RECM de test:</strong></p>
-<p><span class="math display">\[RECM_{test}(M) = \sqrt{ \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_{i} ^{\hspace{0.1cm} test} \hspace{0.1cm})^2 \hspace{0.2cm}} \\[0.2cm]\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>RECM de test:</strong></p>
+<p><span class="math display">\[RECM(M)_{test} = \sqrt{ \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_{i} ^{\hspace{0.1cm} test} \hspace{0.1cm} \right)^2 \hspace{0.2cm}} \\[0.2cm]\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -1885,8 +1883,8 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><strong>ECR de train:</strong></p>
-<p><span class="math display">\[ECR_{train}(M) = \dfrac{\hspace{0.5cm} \sum_{i=1}^n \hspace{0.1cm} (y_i^{train}- \hat{y}_i^{train})^2 \hspace{0.5cm}}{\sum_{i=1}^n \left( y_i^{train} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} train} \right)^2 }  \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>ECR de train:</strong></p>
+<p><span class="math display">\[ECR(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.5cm} \sum_{i=1}^n \hspace{0.1cm} \left( y_i^{train}- \hat{y}_i^{train} \right)^2 \hspace{0.5cm}}{\sum_{i=1}^n \left( y_i^{train} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} train} \right)^2 }  \\\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -1894,8 +1892,8 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><strong>ECR de test:</strong></p>
-<p><span class="math display">\[ECR_{test}(M) = \dfrac{ \hspace{0.5cm} \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm})^2 \hspace{0.5cm}    }{\sum_{i=1}^h \left(\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} test} \hspace{0.1cm} \right)^2 } \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>ECR de test:</strong></p>
+<p><span class="math display">\[ECR(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{ \hspace{0.5cm} \sum_{i=1}^h \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm}\right)^2 \hspace{0.5cm}    }{\sum_{i=1}^h \left(\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} test} \hspace{0.1cm} \right)^2 } \\\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -1909,8 +1907,8 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><strong>Coeficiente de determinación de train:</strong></p>
-<p><span class="math display">\[R_{train}^2 = 1 - ECR_{train} \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Coeficiente de determinación de train:</strong></p>
+<p><span class="math display">\[R_{train}^2 \hspace{0.1cm}=\hspace{0.1cm} 1 - ECR_{train} \\\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -1918,8 +1916,8 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><strong>Coeficiente de determinación de train:</strong></p>
-<p><span class="math display">\[R_{test}^2 = 1 - ECR_{test} \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Coeficiente de determinación de train:</strong></p>
+<p><span class="math display">\[R_{test}^2 \hspace{0.1cm}=\hspace{0.1cm} 1 - ECR_{test} \\\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -1933,8 +1931,8 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><strong>EAM de train:</strong></p>
-<p><span class="math display">\[EAM_{train}(M) = \dfrac{1}{n} \cdot \sum_{i=1}^n | y_i^{train} - \hat{y}_i^{train} | \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>EAM de train:</strong></p>
+<p><span class="math display">\[EAM(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} \left|\hspace{0.1cm} y_i^{train} - \hat{y}_i^{train} \hspace{0.1cm}\right| \\\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -1942,8 +1940,8 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><strong>EAM de test:</strong></p>
-<p><span class="math display">\[EAM_{test}(M) = \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} | \hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} |\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>EAM de test:</strong></p>
+<p><span class="math display">\[EAM(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left| \hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} \right|\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -1955,8 +1953,8 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><strong>EAR de train:</strong></p>
-<p><span class="math display">\[EAM_{train}(M) = \dfrac{\sum_{i=1}^n |\hspace{0.08cm} y_i^{train} - \hat{y}_i^{\hspace{0.08cm} train} | }{\sum_{i=1}^n | y_i - \overline{y} |}  \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>EAR de train:</strong></p>
+<p><span class="math display">\[EAR(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\sum_{i=1}^n \hspace{0.1cm} \left|\hspace{0.1cm} y_i^{train} - \hat{y}_i^{\hspace{0.08cm} train} \hspace{0.1cm} \right| }{\sum_{i=1}^n \hspace{0.1cm} \left| \hspace{0.1cm} y_i^{train} - \overline{y}^{train} \hspace{0.1cm} \right| \hspace{0.1cm}}  \\\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -1964,8 +1962,8 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><strong>EAR de test:</strong></p>
-<p><span class="math display">\[EAM_{train}(M) = \dfrac{ \sum_{i=1}^n \hspace{0.1cm} | \hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm} |  }{\sum_{i=1}^n | y_i^{\hspace{0.1cm} test} - \overline{y}^{\hspace{0.1cm} test} |}\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>EAR de test:</strong></p>
+<p><span class="math display">\[EAR(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{ \sum_{i=1}^h \hspace{0.1cm} \hspace{0.1cm} \left| \hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm} \right| \hspace{0.1cm}  }{\sum_{i=1}^h \hspace{0.1cm}\left|\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \overline{y}^{\hspace{0.1cm} test} \hspace{0.1cm}\right|\hspace{0.1cm}}\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -1980,8 +1978,8 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><strong>TAC de train:</strong></p>
-<p><span class="math display">\[TAC_{train}(M) = \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.05cm} \mathbf {1} ( \hspace{0.05cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.05cm})\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>TAC de train:</strong></p>
+<p><span class="math display">\[TAC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.15cm} \mathbf {I} \left( \hspace{0.1cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.1cm} \right)\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -1989,8 +1987,8 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><strong>TAC de test:</strong></p>
-<p><span class="math display">\[TAC_{train}(M) = \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.05cm} \mathbf {1} ( \hspace{0.05cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.05cm})\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>TAC de test:</strong></p>
+<p><span class="math display">\[TAC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.15cm} \mathbf{I} \left( \hspace{0.1cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.1cm}\right)\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -2002,8 +2000,8 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><strong>TEC de train:</strong></p>
-<p><span class="math display">\[TEC_{train}(M) = \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.05cm} \mathbf {1} ( \hspace{0.05cm} \hat{y}_i^{train} \neq y_i^{train} \hspace{0.05cm})\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>TEC de train:</strong></p>
+<p><span class="math display">\[TEC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.15cm} \mathbf {I} \left( \hspace{0.05cm} \hat{y}_i^{train} \neq y_i^{train} \hspace{0.05cm} \right)\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -2011,8 +2009,8 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><strong>TEC de test:</strong></p>
-<p><span class="math display">\[TEC_{test}(M) = \dfrac{1}{h} \cdot \sum_{i=1}^{h} \hspace{0.05cm} \mathbf {1} ( \hspace{0.05cm} \hat{y}_i^{\hspace{0.05cm} test} \neq y_i^{\hspace{0.05cm} test} \hspace{0.05cm})\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>TEC de test:</strong></p>
+<p><span class="math display">\[TEC(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{h} \cdot \sum_{i=1}^{h} \hspace{0.15cm} \mathbf {I} \left( \hspace{0.1cm} \hat{y}_i^{\hspace{0.05cm} test} \neq y_i^{\hspace{0.05cm} test} \hspace{0.1cm}\right)\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -2026,8 +2024,8 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><strong>Kappa de train:</strong></p>
-<p><span class="math display">\[Kappa_{\hspace{0.05cm} train}(M) = \dfrac{TAC_{\hspace{0.05cm} train} - 1/k}{1 - 1/k}\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Kappa de train:</strong></p>
+<p><span class="math display">\[Kappa(M)_{\hspace{0.05cm} train} \hspace{0.1cm} = \hspace{0.1cm} \dfrac{\hspace{0.1cm} TAC_{\hspace{0.05cm} train} \hspace{0.1cm}-\hspace{0.1cm} 1/k \hspace{0.1cm}}{1 \hspace{0.1cm} -\hspace{0.1cm} 1/k}\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -2035,8 +2033,8 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><strong>Kappa de test:</strong></p>
-<p><span class="math display">\[Kappa_{\hspace{0.05cm} test}(M) = \dfrac{TAC_{\hspace{0.05cm} test} - 1/k}{1 - 1/k}\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Kappa de test:</strong></p>
+<p><span class="math display">\[Kappa(M)_{\hspace{0.05cm} test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.1cm} TAC_{\hspace{0.05cm} test} \hspace{0.1cm}-\hspace{0.1cm} 1/k \hspace{0.1cm}}{1 \hspace{0.1cm}-\hspace{0.1cm} 1/k}\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -2044,39 +2042,40 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <p><br></p>
 <div id="modelo-de-clasificación-aleatoria-uniforme" class="section level3" number="2.9.1">
 <h3><span class="header-section-number">2.9.1</span> Modelo de clasificación aleatoria uniforme</h3>
-<p>Dada una respuesta <span class="math inline">\(\mathcal{Y}\)</span> con <span class="math inline">\(k\geq 2\)</span> categorias y de una serie de predictotres <span class="math inline">\(\mathcal{X}_1 , ..., \mathcal{X}_p\)</span></p>
-<p>Dada una muestra de <span class="math inline">\(n\)</span> observaciones de <span class="math inline">\(Y\)</span> del predictor<br />
-y una muestra <span class="math inline">\(X_j\)</span> del predictor <span class="math inline">\(\mathcal{X}_j \\\)</span></p>
-<p>Un modelo de clasificación aleatorio basado en la distribución discreta <span class="math inline">\(U{0,1,..., k-1}\)</span> es un modelo tal que:</p>
-<p><span class="math display">\[\widehat{y}_i \sim U{0,1,..., k-1}\]</span></p>
+<p>Dada una respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm}k\geq 2\hspace{0.1cm}\)</span> categorias y de una serie de predictotres <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1 , ..., \mathcal{X}_p\)</span></p>
+<p>Dada una muestra de <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> observaciones de <span class="math inline">\(\hspace{0.1cm}Y\hspace{0.1cm}\)</span> del predictor<br />
+y una muestra <span class="math inline">\(\hspace{0.1cm}X_j\hspace{0.1cm}\)</span> del predictor <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j \\\)</span></p>
+<p>Un modelo de clasificación aleatorio basado en la distribución discreta <span class="math inline">\(\hspace{0.1cm}U\lbrace 0,1,..., k-1 \rbrace\hspace{0.1cm}\)</span> es un modelo tal que:</p>
+<p><span class="math display">\[\widehat{y}_i \sim U\lbrace 0,1,..., k-1 \rbrace\]</span></p>
 <p>Por lo que:</p>
 <p><span class="math display">\[P(\widehat{y}_i = h) = 1/k = p\]</span></p>
-<p>Para todo <span class="math inline">\(h=0,1,...,k-1\)</span></p>
-<p>Por tanto, <span class="math inline">\(para cada i=1,...,n\)</span> tenemos que:</p>
-<p><span class="math display">\[P(I(\hat{y}_i = y_i) = 1) = P(\hat{y}_i = y_i) = 1/k = p\]</span></p>
-<p><span class="math display">\[P(I(\hat{y}_i = y_i) = 0) = P(\hat{y}_i \neq y_i) = 1- 1/k  = 1 - p\]</span></p>
-<p>Por lo que <span class="math inline">\(I(\hat{y}_i = y_i)\)</span> es una variable binaria, con probabilidad de exito <span class="math inline">\(p\)</span> y de fracaso <span class="math inline">\(1-p\)</span>, es decir:</p>
-<p><span class="math display">\[I(\hat{y}_i = y_i)  \sim Bernoulli(p=1/k)\]</span></p>
+<p>Para todo <span class="math inline">\(\hspace{0.1cm}h=0,1,...,k-1\)</span></p>
+<p>Por tanto, para cada <span class="math inline">\(\hspace{0.1cm}i=1,...,n\hspace{0.1cm}\)</span> tenemos que:</p>
+<p><span class="math display">\[P(\mathbf{I}(\hat{y}_i = y_i) = 1) = P(\hat{y}_i = y_i) = 1/k = p\]</span></p>
+<p><span class="math display">\[P(\mathbf{I}(\hat{y}_i = y_i) = 0) = P(\hat{y}_i \neq y_i) = 1- 1/k  = 1 - p\]</span></p>
+<p>Por lo que <span class="math inline">\(\hspace{0.1cm}\mathbf{I}(\hat{y}_i = y_i)\hspace{0.1cm}\)</span> es una variable binaria, con probabilidad de exito <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> y de fracaso <span class="math inline">\(\hspace{0.1cm}1-p\hspace{0.1cm}\)</span>, es decir:</p>
+<p><span class="math display">\[\mathbf{I}(\hat{y}_i = y_i)  \hspace{0.1cm}\sim\hspace{0.1cm} Bernoulli(p=1/k)\]</span></p>
 <p>Por lo tanto:</p>
-<p><span class="math display">\[\sum_{i=1}^n I(\hat{y}_i = y_i) \sim Binomial(n\cdot p )\]</span></p>
+<p><span class="math display">\[\sum_{i=1}^n \mathbf{I}(\hat{y}_i = y_i) \hspace{0.1cm}\sim\hspace{0.1cm} Binomial(n\cdot p )\]</span></p>
 <p>Asi que, la tasa de acierto esperada del modelo de clasificación aleatoria uniforme es:</p>
-<p><span class="math display">\[E\left[TAC\right] = E\left[ \dfrac{1}{n} \sum_{i=1}^n I(\hat{y}_i = y_i) \right]= E\left[  \dfrac{1}{n} \cdot Binomial(n\cdot p )  \right] = \dfrac{1}{n} \cdot E\left[ Binomial(n\cdot p )   \right]  = \dfrac{1}{n} \cdot (n\cdot p) = p = 1/k\]</span></p>
+<p><span class="math display">\[E\left[TAC\right] \hspace{0.1cm}=\hspace{0.1cm} E\left[ \dfrac{1}{n} \sum_{i=1}^n \mathbf{I}(\hat{y}_i = y_i) \right] \hspace{0.1cm}=\hspace{0.1cm} E\left[  \dfrac{1}{n} \cdot Binomial(n\cdot p )  \right] \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot E\left[ Binomial(n\cdot p )   \right]  \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot (n\cdot p) = p = 1/k\]</span></p>
 <p><br></p>
+<hr />
 <p><br></p>
 </div>
 </div>
 </div>
 <div id="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Algoritmos de validación de modelos de aprendizaje supervisado</h1>
-<p>Los algoritmos de validación permiten evaluar la bondad predictiva de modelos predictivos. Se suelen basar en:</p>
+<p>Los algoritmos de validación de modelos de aprendizaje supervisado permiten medir la capacidad predictiva de dichos modelos. Estoas algoritmos se suelen basar en:</p>
 <ol style="list-style-type: decimal">
-<li><p>División del data-set en parte de train y parte de test.</p></li>
+<li><p>División del data-set inicial de la respuesta y los predictores en parte de train y parte de test.</p></li>
 <li><p>Entrenamiento del modelo con la parte de train.</p></li>
-<li><p>Cálculo de una métrica de evaluación con la parte de test.</p></li>
+<li><p>Obtención de predicciones de la respuesta con la parte de test.</p></li>
+<li><p>Cálculo de una métrica de evaluación usando las predicciones obtenidas en el paso 4) y las observaciones de test de la respuesta. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 </ol>
-<p><br></p>
-<p>Tenemos un modelo predictivo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> y una muestra de <span class="math inline">\(\hspace{0.1cm}N\hspace{0.1cm}\)</span> observaciones de <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> y de la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\\\)</span></p>
-<p><span class="math display">\[D=[X_1,...,X_p,Y]=\begin{pmatrix}
+<p>Tenemos un modelo de aprendizaje supervisado <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> y una muestra de <span class="math inline">\(\hspace{0.1cm}N\hspace{0.1cm}\)</span> observaciones de <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}\)</span> y de la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\\[0.7cm]\)</span></p>
+<p><span class="math display">\[D\hspace{0.1cm}=\hspace{0.1cm}[X_1,...,X_p,Y]\hspace{0.1cm}=\hspace{0.1cm}\begin{pmatrix}
     x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp; y_1\\
     x_{21}&amp;x_{22}&amp;...&amp;x_{2p} &amp; y_2\\
     &amp;...&amp;\\
@@ -2091,51 +2090,58 @@ y una muestra <span class="math inline">\(X_j\)</span> del predictor <span class
 <p><br></p>
 <div id="validación-simple-no-aleatoria" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Validación simple no aleatoria</h2>
-<p><strong>Decripción no formal del algoritmo:</strong></p>
-<p>Este algoritmo de validacion consiste en dividir el data-set inicial en una parte de train y otra de test de manera no aleatoria.</p>
+<p><strong>Descripción no formal del algoritmo:</strong></p>
+<p>Este algoritmo de validación consiste en dividir el data-set inicial en una parte de train y otra de test de manera no aleatoria.</p>
 <p>El <span class="math inline">\(k\%\)</span> de las primeras filas del data-set serán la parte de train, y el resto la parte de test.</p>
-<p>El modelo es enetrenado con la muestra train y testado calculando una métrica de evaluación con la muestra test. Este valor de la métrica de evaluación es el que será usado para medir el poder predictivo del modelo y compararlo con otros modelos.</p>
+<p>El modelo es entrenado con la muestra train y testado calculando una métrica de evaluación con la muestra test. Este valor de la métrica de evaluación es el que será usado para medir la capacidad predictiva del modelo y compararlo con otros modelos. <span class="math inline">\(\\[1cm]\)</span></p>
 <p><strong>Decripción formal del algoritmo:</strong></p>
 <p>El algoritmo de validación simple no aleatoria tiene los siguientes pasos: <span class="math inline">\(\\[0.3cm]\)</span></p>
-<p><span class="math inline">\(1)\hspace{0.1cm}\)</span> Se divide <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> en parte de train y parte de test del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</span></p>
-<p>Sea <span class="math inline">\(\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}\)</span> la proporción de filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> que formaran parte del muestra de <strong>train</strong> (es un hiper-parametro del algoritmo): <span class="math inline">\(\\[0.4cm]\)</span></p>
-<p>Las primeras <span class="math inline">\(\hspace{0.2cm}\lfloor k \cdot N \rfloor\hspace{0.2cm}\)</span> observaciones (filas) definen el conjunto de train:<span class="math inline">\(\\[0.6cm]\)</span></p>
+<ul>
+<li><p>Se divide <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> en parte de train y parte de test del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<ul>
+<li><p>Sea <span class="math inline">\(\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}\)</span> la proporción de filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> que formaran parte del muestra de <strong>train</strong> (es un hiper-parametro del algoritmo): <span class="math inline">\(\\[0.5cm]\)</span></p>
+<ul>
+<li>Las primeras <span class="math inline">\(\hspace{0.2cm}\lfloor k \cdot N \rfloor\hspace{0.2cm}\)</span> observaciones (filas) definen el conjunto de train:<span class="math inline">\(\\[0.6cm]\)</span></li>
+</ul>
 <p><span class="math display">\[D_{train}= \begin{pmatrix}
-    x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp; y_1\\
-    x_{21}&amp;x_{22}&amp;...&amp;x_{2p} &amp; y_2\\
-    &amp;...&amp;\\
-    x_{\lfloor k  \cdot N \rfloor1}&amp;x_{\lfloor k  \cdot N \rfloor2}&amp;...&amp;x_{\lfloor k  \cdot N \rfloor p}&amp; y_{\lfloor k  \cdot N \rfloor}
-    \end{pmatrix}=\begin{pmatrix}
-    x_{1}^{train} &amp; y_{1}^{train}\\
-    x_{2}^{train} &amp; y_{2}^{train}\\
-    ....&amp;...\\
-    x_{\# D_{train}}^{train} &amp; y_{\# D_{train}}^{train}\\
-    \end{pmatrix} \\\]</span></p>
+  x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp; y_1\\
+  x_{21}&amp;x_{22}&amp;...&amp;x_{2p} &amp; y_2\\
+  &amp;...&amp;\\
+  x_{\lfloor k  \cdot N \rfloor1}&amp;x_{\lfloor k  \cdot N \rfloor2}&amp;...&amp;x_{\lfloor k  \cdot N \rfloor p}&amp; y_{\lfloor k  \cdot N \rfloor}
+  \end{pmatrix}=\begin{pmatrix}
+  x_{1}^{train} &amp; y_{1}^{train}\\
+  x_{2}^{train} &amp; y_{2}^{train}\\
+  ....&amp;...\\
+  x_{\# D_{train}}^{train} &amp; y_{\# D_{train}}^{train}\\
+  \end{pmatrix} \hspace{0.1cm}=\hspace{0.1cm} \left[\hspace{0.1cm} X_1^{train} ,..., X_p^{train} , Y^{train}\hspace{0.1cm}\right]\\\]</span></p>
 <p>Donde:</p>
-<p><span class="math inline">\(\# D_{train}\hspace{0.1cm}\)</span> es el número de <strong>filas</strong> de <span class="math inline">\(\hspace{0.1cm}D_{train}\)</span></p>
-<p><br></p>
-<p>Las siguientes <span class="math inline">\(\hspace{0.2cm} N - \lfloor k \cdot N \rfloor\hspace{0.2cm}\)</span> observaciones definen (filas) el conjunto de test: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math inline">\(\# D_{train}\hspace{0.1cm}\)</span> es el número de <strong>filas</strong> de <span class="math inline">\(\hspace{0.1cm}D_{train} \\[0.8cm]\)</span></p>
+<ul>
+<li>Las siguientes <span class="math inline">\(\hspace{0.2cm} N - \lfloor k \cdot N \rfloor\hspace{0.2cm}\)</span> observaciones definen (filas) el conjunto de test: <span class="math inline">\(\\[0.6cm]\)</span></li>
+</ul>
 <p><span class="math display">\[D_{test}= \begin{pmatrix}
-    x_{(\lfloor k  \cdot N \rfloor + 1) \hspace{0.05cm} 1 } &amp; x_{(\lfloor k  \cdot N \rfloor + 1) \hspace{0.05cm} 2}&amp;...&amp;x_{(\lfloor k  \cdot N \rfloor + 1) \hspace{0.05cm} p}&amp; y_{\lfloor k  \cdot N \rfloor + 1} \\
-    x_{(\lfloor k  \cdot N \rfloor + 2) \hspace{0.05cm} 1 } &amp; x_{(\lfloor k  \cdot N \rfloor + 2) \hspace{0.05cm} 2}&amp;...&amp;x_{(\lfloor k  \cdot N \rfloor + 2) \hspace{0.05cm} p}&amp; y_{\lfloor k  \cdot N \rfloor + 2}\\
-    &amp;...&amp;\\
-    x_{N \hspace{0.05cm} 1 } &amp; x_{N 2}&amp;...&amp;x_{N p}&amp; y_{N}
-    \end{pmatrix}=\begin{pmatrix}
-    x_{1}^{test} &amp; y_{1}^{test}\\
-    x_{2}^{test} &amp; y_{2}^{test}\\
-    ....&amp;...\\
-    x_{\# D_{test}}^{test} &amp; y_{\# D_{test}}^{test}\\
-    \end{pmatrix} \\\]</span></p>
+  x_{(\lfloor k  \cdot N \rfloor + 1) \hspace{0.05cm} 1 } &amp; x_{(\lfloor k  \cdot N \rfloor + 1) \hspace{0.05cm} 2}&amp;...&amp;x_{(\lfloor k  \cdot N \rfloor + 1) \hspace{0.05cm} p}&amp; y_{\lfloor k  \cdot N \rfloor + 1} \\
+  x_{(\lfloor k  \cdot N \rfloor + 2) \hspace{0.05cm} 1 } &amp; x_{(\lfloor k  \cdot N \rfloor + 2) \hspace{0.05cm} 2}&amp;...&amp;x_{(\lfloor k  \cdot N \rfloor + 2) \hspace{0.05cm} p}&amp; y_{\lfloor k  \cdot N \rfloor + 2}\\
+  &amp;...&amp;\\
+  x_{N \hspace{0.05cm} 1 } &amp; x_{N 2}&amp;...&amp;x_{N p}&amp; y_{N}
+  \end{pmatrix}=\begin{pmatrix}
+  x_{1}^{test} &amp; y_{1}^{test}\\
+  x_{2}^{test} &amp; y_{2}^{test}\\
+  ....&amp;...\\
+  x_{\# D_{test}}^{test} &amp; y_{\# D_{test}}^{test}\\
+  \end{pmatrix} \hspace{0.1cm}=\hspace{0.1cm} \left[\hspace{0.1cm} X_1^{train} ,..., X_p^{train} , Y^{train}\hspace{0.1cm}\right] \\\]</span></p>
 <p>Donde:</p>
 <p><span class="math inline">\(\# D_{test}\hspace{0.1cm}\)</span> es el número de <strong>filas</strong> de <span class="math inline">\(\hspace{0.1cm}D_{test}\)</span></p>
-<p><span class="math inline">\(\hspace{0.1cm} \lfloor \cdot \rfloor\hspace{0.1cm}\)</span> es la funcion suelo, que dado un número como argumento te devuelve el mayor entero menor que dicho número <span class="math inline">\(\\[0.5cm]\)</span></p>
-<p><span class="math inline">\(2)\hspace{0.1cm}\)</span> Se entrena el modelo <span class="math inline">\(\hspace{0.1cm} M\hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm} D_{train}\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.1cm}\Rightarrow\hspace{0.2cm}\)</span> <span class="math inline">\(\widehat{M}\\\)</span></p>
-<p><span class="math inline">\(3)\hspace{0.1cm}\)</span> Se calcula una metrica de evaluacion sobre el modelo entrenado con <span class="math inline">\(\hspace{0.1cm} D_{test}\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.1cm}\Rightarrow\hspace{0.1cm}\)</span> Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , se obtendria el <span class="math inline">\(\hspace{0.1cm}ECM_{test}\\\)</span></p>
-<p><span class="math inline">\(4)\hspace{0.1cm}\)</span> La métrica de evaluación final del modelo es la obtenida en el paso 3)</p>
-<p>Si la métrica empleada en 3) fue el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , entonces:</p>
-<p><span class="math display">\[ECM_{test}^*(M) \hspace{0.1cm}=\hspace{0.1cm} ECM_{test}(\widehat{M}) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test}} \cdot \sum_{i=1}^{\# D_{test}} \hspace{0.1cm} (y_i^{test} - \hat{y}_i^{test} )^2 \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.1cm} \lfloor \cdot \rfloor\hspace{0.1cm}\)</span> es la funcion suelo, que dado un número como argumento te devuelve el mayor entero menor que dicho número <span class="math inline">\(\\[1cm]\)</span></p></li>
+</ul></li>
+<li><p>Se entrena el modelo <span class="math inline">\(\hspace{0.1cm} M\hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm} D_{train}\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <span class="math inline">\(\widehat{M}\\\)</span></p></li>
+<li><p>Se calcula una metrica de evaluacion sobre el modelo entrenado <span class="math inline">\(\widehat{M}\)</span> usando la muestra de test <span class="math inline">\(\hspace{0.1cm} D_{test}\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , se obtendria el <span class="math inline">\(\hspace{0.1cm}ECM_{test}\\\)</span></p></li>
+<li><p>La métrica de evaluación final del modelo es la obtenida en el paso anterior.</p>
+<p>Si la métrica empleada en el paso anterior es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , entonces la métrica de evaluación calculada con el algoritmo de validación simple no aleatoria es la siguiente:</p>
+<p><span class="math display">\[ECM(M)_{test}^* \hspace{0.1cm}=\hspace{0.1cm} ECM(\widehat{M})_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test}} \cdot \sum_{i=1}^{\# D_{test}} \hspace{0.1cm} \left( \hspace{0.1cm} y_i^{test} - \hat{y}_i^{test} \hspace{0.1cm}\right)^2 \\\]</span></p>
 <p>Donde:</p>
-<p><span class="math display">\[\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} D_train)\]</span></p>
+<p><span class="math display">\[\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} D_{train}) \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train},Y^{train})\hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm})\]</span></p></li>
+</ul>
 <p><br></p>
 <p><strong>Problemas</strong></p>
 <p>Toda la validación queda condicionada a solo una muestra de train y otra de test. Si alguna de estas muestras tienen defectos, estos se van a trasladar a la validación, que será por tanto defectuosa. Es la primera aproximación naive a los algoritmos de validación.</p>
@@ -2145,57 +2151,62 @@ y una muestra <span class="math inline">\(X_j\)</span> del predictor <span class
 <div id="validación-simple-aleatoria" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Validación simple aleatoria</h2>
 <p><strong>Decripción no formal del algoritmo:</strong></p>
-<p>Este algoritmo de validacion consiste en dividir el data-set inicial en una parte de train y otra de test de manera aleatoria.</p>
+<p>Este algoritmo de validacion consiste en dividir el data-set inicial en una parte de train y otra de test de manera <strong>aleatoria</strong>.</p>
 <p>Se obtiene una muestra aleatoria sin remplazo de un <span class="math inline">\(k\%\)</span> de las filas del data-set inicial, las cuales serán la parte de train, y el resto la parte de test.</p>
-<p>El modelo es entrenado con la muestra train y testado calculando un métrica de evaluación con la muestra de test. Este valor de la métrica de evaluación es el que será usado para medir el poder predictivo del modelo y compararlo con otros modelos. la muestra test a través de una métrica de evaluación.</p>
+<p>El modelo es entrenado con la muestra train y testado calculando un métrica de evaluación con la muestra de test. Este valor de la métrica de evaluación es el que será usado para medir el poder predictivo del modelo y compararlo con otros modelos.</p>
 <p><br></p>
 <p><strong>Decripción formal del algoritmo:</strong></p>
 <p>El algoritmo de validación simple aleatoria tiene los siguientes pasos: <span class="math inline">\(\\[0.3cm]\)</span></p>
-<p><span class="math inline">\(1)\hspace{0.1cm}\)</span> Se divide <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> en parte de train y parte de test del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<ul>
+<li><p>Se divide <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> en parte de train y parte de test del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p>Sea <span class="math inline">\(\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}\)</span> la proporción de filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> que formarán parte de la muestra de <strong>train</strong> (es un hiper-parametro del algoritmo): <span class="math inline">\(\\[0.4cm]\)</span></p>
-<p><span class="math inline">\(\hspace{0.3cm} 1.1)\hspace{0.1cm}\)</span> Se genera una muestra aleatoria sin reemplazamiento de tamaño <span class="math inline">\(\hspace{0.1cm} \lfloor k \cdot N \rfloor\hspace{0.1cm}\)</span> del vector <span class="math inline">\(\hspace{0.1cm}(1,2,...,N) \\\)</span></p>
+<ul>
+<li>Se genera una muestra aleatoria sin reemplazamiento de tamaño <span class="math inline">\(\hspace{0.1cm} \lfloor k \cdot N \rfloor\hspace{0.1cm}\)</span> del vector <span class="math inline">\(\hspace{0.1cm}(1,2,...,N) \\\)</span></li>
+</ul>
 <p><span class="math display">\[m=(m_1 ,m_2,...,m_{\lfloor k  \cdot N \rfloor}) \\\]</span></p>
-<p><span class="math inline">\(\hspace{0.3cm} 1.2)\hspace{0.1cm}\)</span> Las observaciones (filas) <span class="math inline">\(\hspace{0.1cm}m=(m_1,m_2 ,...,m_{\lfloor k \cdot N \rfloor})\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> definen la muestra de train: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<ul>
+<li><p>Las observaciones (filas) <span class="math inline">\(\hspace{0.1cm}m=(m_1,m_2 ,...,m_{\lfloor k \cdot N \rfloor})\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> definen la muestra de train: <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p><span class="math display">\[D_{train}= D[m , :] = \begin{pmatrix}
-    x_{m_11}&amp;x_{m_12}&amp;...&amp;x_{m_1p}&amp; y_{m_1}\\
-    x_{m_21}&amp;x_{m_22}&amp;...&amp;x_{m_2p} &amp; y_{m_2}\\
-    &amp;...&amp;\\
-    x_{m_{\lfloor k  \cdot N \rfloor} 1}&amp;x_{m_{\lfloor k  \cdot N \rfloor}  2}&amp;...&amp;x_{m_{\lfloor k  \cdot N \rfloor} p}&amp; y_{m_{\lfloor k  \cdot N \rfloor}}
-    \end{pmatrix}  =  \begin{pmatrix}
-    x_{1}^{train} &amp; y_{1}^{train}\\
-    x_{2}^{train} &amp; y_{2}^{train}\\
-    ....&amp;...\\
-    x_{\# D_{train}}^{train} &amp; y_{\# D_{train}}^{train}\\
-    \end{pmatrix} \\\]</span></p>
+  x_{m_11}&amp;x_{m_12}&amp;...&amp;x_{m_1p}&amp; y_{m_1}\\
+  x_{m_21}&amp;x_{m_22}&amp;...&amp;x_{m_2p} &amp; y_{m_2}\\
+  &amp;...&amp;\\
+  x_{m_{\lfloor k  \cdot N \rfloor} 1}&amp;x_{m_{\lfloor k  \cdot N \rfloor}  2}&amp;...&amp;x_{m_{\lfloor k  \cdot N \rfloor} p}&amp; y_{m_{\lfloor k  \cdot N \rfloor}}
+  \end{pmatrix}  =  \begin{pmatrix}
+  x_{1}^{train} &amp; y_{1}^{train}\\
+  x_{2}^{train} &amp; y_{2}^{train}\\
+  ....&amp;...\\
+  x_{\# D_{train}}^{train} &amp; y_{\# D_{train}}^{train}\\
+  \end{pmatrix} \\\]</span></p>
 <p>Donde:</p>
-<p><span class="math inline">\(\# D_{train}\hspace{0.1cm}\)</span> es el número de <strong>filas</strong> de <span class="math inline">\(\hspace{0.1cm}D_{train}\)</span></p>
-<p><br></p>
-<p><span class="math inline">\(\hspace{0.3cm} 1.3)\hspace{0.1cm}\)</span> Las observaciones (filas) de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> complementarias a <span class="math inline">\(\hspace{0.1cm}m\hspace{0.1cm}\)</span> , es decir, las filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> que no estan en <span class="math inline">\(\hspace{0.1cm}D_{train}\hspace{0.1cm}\)</span>, es decir, las filas de <span class="math inline">\(\hspace{0.1cm}m^c\hspace{0.1cm}\)</span>,
+<p><span class="math inline">\(\# D_{train}\hspace{0.1cm}\)</span> es el número de <strong>filas</strong> de <span class="math inline">\(\hspace{0.1cm}D_{train} \\[1cm]\)</span></p></li>
+<li><p>Las observaciones (filas) de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> complementarias a <span class="math inline">\(\hspace{0.1cm}m\hspace{0.1cm}\)</span> , es decir, las filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> que no estan en <span class="math inline">\(\hspace{0.1cm}D_{train}\hspace{0.1cm}\)</span>, es decir, las filas de <span class="math inline">\(\hspace{0.1cm}m^c\hspace{0.1cm}\)</span>,
 definen la muestra de test: <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p><span class="math display">\[D_{test} = D[m^c , :] =  \begin{pmatrix}
-    x_{1}^{test} &amp; y_{1}^{test}\\
-    x_{2}^{test} &amp; y_{2}^{test}\\
-    ....&amp;...\\
-    x_{\# D_{test}}^{test} &amp; y_{\# D_{test}}^{test}\\
-    \end{pmatrix} \\\]</span></p>
+  x_{1}^{test} &amp; y_{1}^{test}\\
+  x_{2}^{test} &amp; y_{2}^{test}\\
+  ....&amp;...\\
+  x_{\# D_{test}}^{test} &amp; y_{\# D_{test}}^{test}\\
+  \end{pmatrix} \\\]</span></p>
 <p>Donde:</p>
 <p><span class="math inline">\(\# D_{test}\hspace{0.1cm}\)</span> es el número de <strong>filas</strong> de <span class="math inline">\(\hspace{0.1cm}D_{test}\)</span></p>
 <p><span class="math inline">\(\lfloor \cdot \rfloor\hspace{0.1cm}\)</span> es la funcion suelo, que dado un número como argumento te devuelve el mayor entero menor que dicho número</p>
-<p><span class="math inline">\(m^c=(\hspace{0.1cm} i =1,...,N \hspace{0.1cm}/\hspace{0.1cm} i\neq m_j \hspace{0.1cm},\hspace{0.1cm} \forall j=1,...,\lfloor k \cdot N \rfloor \hspace{0.1cm}) \\\)</span></p>
-<p><span class="math inline">\(2)\hspace{0.1cm}\)</span> Se entrena el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm}D_{train}\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.1cm}\Rightarrow\hspace{0.2cm}\)</span> <span class="math inline">\(\widehat{M}\\\)</span></p>
-<p><span class="math inline">\(3)\hspace{0.1cm}\)</span> Se calcula una metrica de evaluacion sobre el modelo entrenado <span class="math inline">\(\hspace{0.1cm}\widehat{M}\hspace{0.1cm}\)</span> usando <span class="math inline">\(\hspace{0.1cm}D_{test}\)</span></p>
-<p><span class="math inline">\(\hspace{0.6cm}\)</span> Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , se obtendria el <span class="math inline">\(\hspace{0.1cm}ECM_{test}(\widehat{M})\\\)</span></p>
-<p><span class="math inline">\(4)\hspace{0.1cm}\)</span> La métrica de evaluacion final del modelo es la obtenida en el paso 3)</p>
-<p><span class="math inline">\(\hspace{0.6cm}\)</span> Si la métrica empleada en 3) fue el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , entonces:</p>
-<p><span class="math display">\[ECM_{test}^*(M) = ECM_{test}(\widehat{M}) = \dfrac{1}{\# D_{test}} \sum_{i=1}^{\# D_{test}} (y_i^{test} - \hat{y}_i^{test})\]</span></p>
+<p><span class="math inline">\(m^c=(\hspace{0.1cm} i =1,...,N \hspace{0.1cm}/\hspace{0.1cm} i\neq m_j \hspace{0.1cm},\hspace{0.1cm} \forall j=1,...,\lfloor k \cdot N \rfloor \hspace{0.1cm}) \\\)</span></p></li>
+</ul></li>
+<li><p>Se entrena el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm}D_{train}\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.1cm}\Rightarrow\hspace{0.2cm}\)</span> <span class="math inline">\(\widehat{M}\\\)</span></p></li>
+<li><p>Se calcula una métrica de evaluación sobre el modelo entrenado <span class="math inline">\(\hspace{0.1cm}\widehat{M}\hspace{0.1cm}\)</span> usando <span class="math inline">\(\hspace{0.1cm}D_{test}\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span>
+Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , se obtendria el <span class="math inline">\(\hspace{0.1cm}ECM_{test}(\widehat{M})\\\)</span></p></li>
+<li><p>La métrica de evaluación final del modelo es la obtenida en el paso anterior:</p></li>
+</ul>
+<p><span class="math inline">\(\hspace{0.6cm}\)</span> Si la métrica empleada en el paso anterior fue el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , entonces:</p>
+<p><span class="math display">\[ECM(M)_{test}^* \hspace{0.1cm}=\hspace{0.1cm} ECM(\widehat{M})_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test}} \cdot \sum_{i=1}^{\# D_{test}} (y_i^{test} - \hat{y}_i^{test})\]</span></p>
 <p>Donde:</p>
-<p><span class="math display">\[\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} D_{train})\hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm})\]</span></p>
+<p><span class="math display">\[\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} D_{train})\hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train},Y^{train})\hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm})\]</span></p>
 <p><br></p>
 <p><strong>Problemas</strong></p>
 <p>Toda la validación queda condicionada a solo una muestra de train y otra de test. Si alguna de estas muestras tienen defectos, estos se van a trasladar a la validación, que será por tanto defectuosa.</p>
 <p>Ademas la métrica de evaluacion calculada por validación simple aleatoria tiene generalmente una varianza alta, en comparación con otros métodos de validación. Esto será ilustrado en la práctica.</p>
 <p>La varianza de una metrica de evaluación calculada con un algorimo de validación se puede entender como como la varianza de los valores obtenidos de la métrica al ejecutar el algoritmo un número elevado de veces.</p>
-<p>Es la segundo aproximación naive a los algoritmos de validación.</p>
+<p>Es la segunda aproximación naive a los algoritmos de validación.</p>
 <p><br></p>
 <p><br></p>
 </div>
