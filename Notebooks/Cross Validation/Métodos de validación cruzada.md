@@ -84,6 +84,13 @@ Distinguiremos dos tipos de métodos de evaluacion de modelos:
 - Métodos de evaluación de modelos de aprendizaje no supervisado $\Rigtharrow$ son algoritmos que permiten evaluar modelos de aprendizaje no supervisado usando una **muestra de train de los predictores** y una **métrica de evaluación**.
 
 
+Observación:
+
+Los métodos de validación de modelos de **aprendizaje supervisado**
+también son llamados **métodos de validación cruzada**. Aunque realmente son mucho más conocidos por su nombre en ingles: **cross validation**
+
+<br>
+
 ¿Por que no se aplican los mismos métodos de validacion a los modelos de aprendizaje supervisado y no supervisado?
 
 Debido a que tienen unas carateristicas diferentes, en particular, en el parendizaje supervisado se tienen datos de la variable respuesta, mientras que en el no supervisado no se dispone de información alguna.
@@ -136,13 +143,18 @@ Este artículo es básicamente un tour (teórico-práctico) sobre estos elemento
 # Muestras de train y test <a class="anchor" id="1"></a>
 
 
-Tenemos una muestra  de $\hspace{0.1cm}N\hspace{0.1cm}$ observaciones de $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ y  de la respuesta $\hspace{0.1cm}\mathcal{Y}\\$ 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+Tenemos una muestra  de $\hspace{0.1cm}N\hspace{0.1cm}$ observaciones de $\hspace{0.1cm}p\hspace{0.1cm}$ variables predictores $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ y  de una variable respuesta $\hspace{0.1cm}\mathcal{Y}\\$ 
 
 
-$$D=[X_1,...,X_p,Y]=\begin{pmatrix}
+$$D=[\hspace{0.1cm} X_1,...,X_p,Y \hspace{0.1cm}]=\begin{pmatrix}
     x_{11}&x_{12}&...&x_{1p}& y_1\\
     x_{21}&x_{22}&...&x_{2p} & y_2\\
-    &...&\\
+    ...&...&...&...\\
     x_{N1}&x_{N2}&...&x_{Np}& y_N
     \end{pmatrix} = \begin{pmatrix}
     x_{1}& y_1\\
@@ -151,10 +163,15 @@ $$D=[X_1,...,X_p,Y]=\begin{pmatrix}
     x_{N}& y_N
     \end{pmatrix} \\$$
 
+</p>
+ 
+</p></span>
+</div>
+
 
 <br>
 
-Sin entrar aquí en particularidades, para evaluar un modelo predictivo supervisado $\hspace{0.1cm} M\hspace{0.1cm}$ este tiene que ser entrenado con un subconjunto de $n$ filas de $\hspace{0.1cm}D\hspace{0.1cm}$ , llamado muestra de entrenamiento $\hspace{0.1cm}D_{train}\hspace{0.1cm}$, y testado/evaluado con el subconjunto de las $h$ filas restantes de $\hspace{0.1cm}D\hspace{0.1cm}$ llamado  muestra de test $\hspace{0.1cm}D_{test}\hspace{0.1cm}$ , de modo tal que $\hspace{0.1cm}n+h=N$ 
+Sin entrar aquí en particularidades, para evaluar un modelo predictivo supervisado $\hspace{0.1cm} M\hspace{0.1cm}$ este tiene que ser entrenado con un subconjunto de $\hspace{0.1cm}n\hspace{0.1cm}$ filas de $\hspace{0.1cm}D\hspace{0.1cm}$ , llamado **muestra de entrenamiento** $\hspace{0.1cm}D_{train}\hspace{0.1cm}$, y testado/evaluado con el subconjunto de las $\hspace{0.1cm}h\hspace{0.1cm}$ filas restantes de $\hspace{0.1cm}D\hspace{0.1cm}$ llamado  **muestra de test** $\hspace{0.1cm}D_{test}\hspace{0.1cm}$ , de modo tal que $\hspace{0.1cm}n+h=N$ 
 
 Los métodos de validación típicos usan de algún modo $\hspace{0.1cm}D_{train}\hspace{0.1cm}$ y  $\hspace{0.1cm}D_{test}\hspace{0.1cm}$ , junto con una **métrica de evaluación**, es por ello  que vamos a definir estos elementos con mas precisión a continuación.
 
@@ -164,12 +181,18 @@ Los métodos de validación típicos usan de algún modo $\hspace{0.1cm}D_{train
 
 ## Train-set
 
+
  
 Los elementos antes mencionados se definen formalmente como sigue:
 
-- **Muestra train** de $n$ observaciones  del predictor $\hspace{0.1cm}\mathcal{X}_j\\$
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
-$$X_j^{train} = (x_{1j}^{train},...,x_{nj}^{train} )^t \hspace{0.45cm} \forall j=1,...,p \\$$
+- **Muestra train** de $\hspace{0.1cm}n\hspace{0.1cm}$ observaciones  del predictor $\hspace{0.1cm}\mathcal{X}_j\\$
+
+$$X_j^{train} \hspace{0.1cm}=\hspace{0.1cm} (x_{1j}^{train},...,x_{nj}^{train} )^t \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} j\in \lbrace 1,...,p \rbrace \\$$
 
 - **Muestra train** de $\hspace{0.1cm}n\hspace{0.1cm}$ observaciones de la respuesta $\hspace{0.1cm}\mathcal{Y}$
 
@@ -177,7 +200,7 @@ $$Y^{train}= (y_{1}^{train},...,y_n^{train})^t \\$$
 
 - **Train-set**
 
-$$D_{train}(\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y})=[X_1^{train},...,X_p^{train}, Y^{train}] =  \begin{pmatrix}
+$$D_{train}\hspace{0.1cm}=\hspace{0.1cm}[\hspace{0.1cm}X_1^{train},...,X_p^{train}, Y^{train}\hspace{0.1cm}]\hspace{0.1cm} =\hspace{0.1cm}  \begin{pmatrix}
     x_{11}^{train} &x_{12}^{train}&...&x_{1p}^{train}& y_1^{train}\\
     x_{21}^{train}&x_{22}^{train}&...&x_{2p}^{train} & y_2^{train}\\
     &...&\\
@@ -189,40 +212,57 @@ $$D_{train}(\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y})=[X_1^{train},...,X_p^{
     x_{n}^{train}& y_n^{train}
     \end{pmatrix}$$
 
-<br>
-
-**Observaciones:**
-
-- La fila $\hspace{0.08cm} i\hspace{0.08cm}$ de $D_{train}$ , es decir, $\hspace{0.08cm}(x_i^{train},y_i^{train}) = (x_{i1}^{train}, x_{i2}^{train},...,x_{ip}^{train}, y_i^{train})\hspace{0.08cm}$, es la $\hspace{0.08cm}i$-esima observación de *train* de los predictores y la respuesta $\hspace{0.08cm}(\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y}) \\$
-
-- $\hspace{0.08cm} D_{train}\hspace{0.08cm}$ también es llamada simplemente **observaciones de train** de $\hspace{0.08cm}(\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y})$
-
-
-<br>
-
-Como $M$ es un modelo predictivo supervisado es capaz de, una vez es entrenado  con las observaciones de   $\hspace{0.08cm}D_{train}=[X_1^{train},...,X_p^{train}, Y^{train}]\hspace{0.08cm}$ , generar predicciones de la respuesta $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$  , usando tanto las propias **observaciones de train** como   **nuevas observaciones** de los predictores $\hspace{0.08cm}(\mathcal{X}_1,...,\mathcal{X}_p)$ . 
-
-Notese que $M$ nos interesa realmente para predecir la respuesta para **nuevas observaciones** de los predictores, es decir, para predecir la respuesta para individuos/elementos de los que tenemos información sobre los predictores pero no sobre la respuesta.  
-
-
-<br>
-
-Las **predicciones de train** de la respuesta $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ ,  son obtenidas aplicando el modelo predictivo *entrenado* a las observaciones de train de los predictores:
-
-
-$$\widehat{\hspace{0.08cm} Y}^{\hspace{0.08cm} train} = M\left(\hspace{0.08cm} D_{train}(\mathcal{X}_1,...,\mathcal{X}_p) \hspace{0.1cm}|\hspace{0.1cm} D_{train}(\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y}) \hspace{0.08cm} \right) = M\left(\hspace{0.08cm} X_1^{train},...,X_p^{train} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train} \hspace{0.08cm}\right)$$
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
 **Observaciones:**
 
-- Aqui $\hspace{0.08cm}M( z | w)\hspace{0.08cm}$ representa una función de dos argumentos, el argumento posterior a $\hspace{0.08cm}|\hspace{0.08cm}$ , es decir $w$, son los datos de predictores y respuestas con los que se entrena el modelo $\hspace{0.08cm}M\hspace{0.08cm}$ , y el argumento previo a $\hspace{0.08cm}|\hspace{0.08cm}$ , es decir $\hspace{0.08cm}z$, son los datos de los predictores que el modelo $\hspace{0.08cm}M\hspace{0.08cm}$ usa para generar predicciones de la respuesta. Y devuelve un vector con esas predicciones de la respuesta. $\\[1cm]$
+- La fila $\hspace{0.1cm} i\hspace{0.1cm}$ de $\hspace{0.1cm}D_{train}\hspace{0.1cm}$ , es decir, $\hspace{0.1cm}(x_i^{train},y_i^{train}) = (x_{i1}^{train}, x_{i2}^{train},...,x_{ip}^{train}, y_i^{train})\hspace{0.1cm}$, es la $\hspace{0.1cm}i$-esima observación de *train* de los predictores y la respuesta $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y} \\$
+
+- $D_{train}\hspace{0.08cm}$ también es llamada simplemente **observaciones de train** de $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y}$
+
+
+<br>
+
+## Predicciones de train
+
+Como $\hspace{0.1cm}M\hspace{0.1cm}$ es un modelo predictivo supervisado es capaz de, una vez es entrenado  con las observaciones de   $\hspace{0.08cm}D_{train}=[X_1^{train},...,X_p^{train}, Y^{train}]\hspace{0.08cm}$ , generar predicciones de la respuesta $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$, tanto para las **observaciones de train** de los predictores como para  **nuevas observaciones**.
+
+Notese que $\hspace{0.1cm}M\hspace{0.1cm}$ nos interesa realmente para predecir la respuesta para **nuevas observaciones** de los predictores, es decir, para predecir la respuesta para individuos/elementos de los que solo tenemos información de los predictores.  
+
+
+<br>
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+Las **predicciones de train** de la respuesta $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ ,  son obtenidas aplicando el modelo predictivo ya *entrenado* a las observaciones de train de los predictores:
+
+
+$$\widehat{\hspace{0.08cm} Y}^{\hspace{0.08cm} train} \hspace{0.1cm} = \hspace{0.1cm}  M\left(\hspace{0.1cm} X_1^{train},...,X_p^{train} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train} \hspace{0.1cm}\right)$$
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+**Observaciones:**
+
+- Aqui $\hspace{0.08cm}M(\hspace{0.1cm} z \hspace{0.1cm}|\hspace{0.1cm} w\hspace{0.1cm})\hspace{0.08cm}$ representa una función de dos argumentos, el argumento posterior a $\hspace{0.1cm}|\hspace{0.1cm}$ , es decir $\hspace{0.1cm}w\hspace{0.1cm}$, son los datos de predictores y respuestas con los que se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ , y el argumento previo a $\hspace{0.1cm}|\hspace{0.1cm}$ , es decir $\hspace{0.1cm}z\hspace{0.1cm}$, son los datos de los predictores que el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ usa para generar predicciones de la respuesta. Y devuelve un vector con esas predicciones de la respuesta. $\\[1cm]$
 
 
 
-- $\widehat{\hspace{0.08cm} Y}^{\hspace{0.08cm} train}=(\hat{y}_1^{train},..., \hat{y}_n^{train})^t\hspace{0.08cm}$ es un vector con las predicciones de la respuesta hechas por el modelo entrenado $\hspace{0.08cm}M\hspace{0.08cm}$  usando la muestra train de observaciones de los predictores $\hspace{0.08cm}(X_1^{train},...,X_p^{train}) \\$
+- $\widehat{\hspace{0.08cm} Y}^{\hspace{0.08cm} train}=(\hat{y}_1^{train},..., \hat{y}_n^{train})^t\hspace{0.1cm}$ es un vector con las predicciones de la respuesta hechas por el modelo entrenado $\hspace{0.08cm}M\hspace{0.1cm}$  para la muestra train de observaciones de los predictores $\hspace{0.1cm}(X_1^{train},...,X_p^{train}) \\$
 
-- $\widehat{y}_i = M(x_i \hspace{0.1cm}|\hspace{0.1cm} D_{traint}(\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y}) ) = M(x_{i1}^{train},...,x_{ip}^{train} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train})\hspace{0.08cm}$ es la predicción de la variable respuesta generada por el modelo entrenado $M$ usando la observación de train de los predictores $\hspace{0.08cm}x_i^{train}=(x_{i1}^{train},...,x_{ip}^{train})$
+- $\widehat{y}_i \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{train} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train} \hspace{0.1cm}) \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm}x_{i1}^{train},...,x_{ip}^{train} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train}\hspace{0.1cm})\hspace{0.1cm}$ es la predicción de la variable respuesta generada por el modelo entrenado $\hspace{0.1cm}M\hspace{0.1cm}$ para la observación de train de los predictores $\hspace{0.1cm}x_i^{train}\hspace{0.1cm}=\hspace{0.1cm}(x_{i1}^{train},...,x_{ip}^{train})$
 
 
 
@@ -232,19 +272,23 @@ $$\widehat{\hspace{0.08cm} Y}^{\hspace{0.08cm} train} = M\left(\hspace{0.08cm} D
 
 ## Test-set
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
 - **Muestra test** de $\hspace{0.08cm}h\hspace{0.08cm}$ observaciones   del predictor $\hspace{0.08cm}\mathcal{X}_j\\$
 
-$$X_j^{test}=(x^{test}_{1j},...,x^{test}_{hj} )^t  \hspace{0.45cm} \forall j=1,...,p\\$$
+$$X_j^{test}=(x^{test}_{1j},...,x^{test}_{hj} )^t  \hspace{0.25cm} , \hspace{0.25cm} \forall j=1,...,p\\$$
 
--  **Muestra test** de $\hspace{0.08cm}h\hspace{0.08cm}$ observaciones  de la respuesta $\hspace{0.08cm}\mathcal{Y}\\$
+-  **Muestra test** de $\hspace{0.1cm}h\hspace{0.1cm}$ observaciones  de la respuesta $\hspace{0.08cm}\mathcal{Y}\\$
 
-$$Y^{test}=(y^{test}_{1},...,y^{test}_{h} )^t  \hspace{0.45cm} \forall j=1,...,p \\$$
+$$Y^{test}=(y^{test}_{1},...,y^{test}_{h} )^t  \hspace{0.25cm} , \hspace{0.25cm} \forall j=1,...,p \\$$
 
 
 - **Test-set**
 
-$$D_{test}(\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y}) = [X_1^{test},...,X_p^{test}, Y^{test}]= \begin{pmatrix}
+$$D_{test}  \hspace{0.1cm}=\hspace{0.1cm} [\hspace{0.1cm}X_1^{test},...,X_p^{test}, Y^{test}\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
     x^{test}_{11}&x^{test}_{12}&...&x^{test}_{1p} & y^{test}_1\\
     x^{test}_{21}&x^{test}_{22}&...&x^{test}_{2p} & y^{test}_2\\
     &...&\\
@@ -257,53 +301,73 @@ $$D_{test}(\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y}) = [X_1^{test},...,X_p^{
     \end{pmatrix}$$
 
 
+</p>
+ 
+</p></span>
+</div>
+
+
 <br>
 
 **Observaciones:**
 
-- La fila $\hspace{0.08cm}i\hspace{0.08cm}$ de $\hspace{0.08cm}D_{test}(\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y})\hspace{0.08cm}$ , es decir, $\hspace{0.08cm}(x_i^{test},y_i^{test})= (x^{test}_{i1}, x^{test}_{i2},...,x^{test}_{ip}, y_i^{test})\hspace{0.08cm}$, es la $\hspace{0.08cm}i$-esima observación de *test* de los predictores y la respuesta $\hspace{0.08cm}(\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y})\\$
+- La fila $\hspace{0.1cm}i\hspace{0.1cm}$ de $\hspace{0.1cm}D_{test}\hspace{0.1cm}$ , es decir, $\hspace{0.1cm}(x_i^{test},y_i^{test})= (x^{test}_{i1}, x^{test}_{i2},...,x^{test}_{ip}, y_i^{test})\hspace{0.1cm}$, es la $\hspace{0.1cm}i$-esima observación de *test* de los predictores y la respuesta $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y}\\$
 
 
-- $\hspace{0.08cm} D_{test}\hspace{0.08cm}$ también es llamada simplemente **observaciones de test** de $\hspace{0.08cm}(\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y})$
+- $D_{test}\hspace{0.1cm}$ también es llamada simplemente **observaciones de test** de $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y}$
+
+<br>
+
+## Predicciones de test
+
+
+Puesto que $\hspace{0.1cm}M\hspace{0.1cm}$ es un modelo predictivo supervisado es capaz de, una vez es entrenado  con las observaciones de   $\hspace{0.08cm}D_{train}=[X_1^{train},...,X_p^{train}, Y^{train}]\hspace{0.08cm}$ , generar predicciones de la respuesta $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$  ,  tanto para las **observaciones de train** como  para **nuevas observaciones** de los predictores $\hspace{0.08cm}\mathcal{X}_1,...,\mathcal{X}_p$ . 
+
+
+Notese, de nuevo, que $\hspace{0.1cm}M\hspace{0.1cm}$ nos interesa realmente para predecir la respuesta para **nuevas observaciones** de los predictores, es decir, para predecir la respuesta para individuos/elementos de los que tenemos información sobre los predictores pero no sobre la respuesta.  
+
 
 <br>
 
-Como ya se dijo antes:
 
-Puesto que $M$ es un modelo predictivo supervisado es capaz de, una vez es entrenado  con las observaciones de   $\hspace{0.08cm}D_{train}=[X_1^{train},...,X_p^{train}, Y^{train}]\hspace{0.08cm}$ , generar predicciones de la respuesta $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$  , usando tanto las propias **observaciones de train** como   **nuevas observaciones** de los predictores $\hspace{0.08cm}(\mathcal{X}_1,...,\mathcal{X}_p)$ . 
-
-
-Notese que $M$ nos interesa realmente para predecir la respuesta para **nuevas observaciones** de los predictores, es decir, para predecir la respuesta para individuos/elementos de los que tenemos información sobre los predictores pero no sobre la respuesta.  
-
-
-<br>
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
 Las **predicciones de test** de la respuesta $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ ,   son obtenidas aplicando el **modelo** predictivo **entrenado** a las observaciones de **test**:
 
 
 
- $$\widehat{Y}^{test} = M(D_{test}(\mathcal{X}_1,...,\mathcal{X}_p) \hspace{0.1cm}|\hspace{0.1cm} \text{Train-set}(\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y})) = M(X_1^{test},...,X_p^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1,...,X_p, Y)$$
+ $$\widehat{Y}^{test} \hspace{0.1cm} = \hspace{0.1cm} M(\hspace{0.1cm} X_1^{test},...,X_p^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train} \hspace{0.1cm})$$
 
+
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
 **Observaciones:**
 
 
-- Aqui $\hspace{0.08cm}M( z | w)\hspace{0.08cm}$ representa una función de dos argumentos, el argumento posterior a $\hspace{0.08cm}|\hspace{0.08cm}$ , es decir $w$, son los datos de predictores y respuestas con los que se entrena el modelo $\hspace{0.08cm}M\hspace{0.08cm}$ , y el argumento previo a $\hspace{0.08cm}|\hspace{0.08cm}$ , es decir $\hspace{0.08cm}z$, son los datos de los predictores que el modelo $\hspace{0.08cm}M\hspace{0.08cm}$ usa para generar predicciones de la respuesta. Y devuelve un vector con esas predicciones de la respuesta. $\\[1cm]$
+- Aqui $\hspace{0.08cm}M(\hspace{0.1cm} z \hspace{0.1cm}|\hspace{0.1cm} w\hspace{0.1cm})\hspace{0.08cm}$ representa una función de dos argumentos, el argumento posterior a $\hspace{0.1cm}|\hspace{0.1cm}$ , es decir $\hspace{0.1cm}w\hspace{0.1cm}$, son los datos de predictores y respuestas con los que se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ , y el argumento previo a $\hspace{0.1cm}|\hspace{0.1cm}$ , es decir $\hspace{0.1cm}z\hspace{0.1cm}$, son los datos de los predictores que el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ usa para generar predicciones de la respuesta. Y devuelve un vector con esas predicciones de la respuesta. $\\[1cm]$
 
 
-- $\widehat{\hspace{0.08cm}Y}^{\hspace{0.08cm}test}=(\hat{y}_1^{\hspace{0.08cm}test},..., \hat{y}_h^{\hspace{0.08cm}test})^t\hspace{0.08cm}$ es un vector con las predicciones de la respuesta hechas por el modelo entrenado $\hspace{0.08cm}M\hspace{0.08cm}$  usando la muestra test de observaciones de los predictores $\hspace{0.08cm}(X_1^{test},...,X_p^{test})$
 
-- $\hat{y}_i^{test} = M(x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} D_{train}(\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y}) ) = M(x^{test}_{i1},...,x^{test}_{ip} \hspace{0.1cm}|\hspace{0.1cm} X_1,...,X_p, Y)\hspace{0.08cm}$ es la prediccion de la respuesta que el modelo entrenado $\hspace{0.08cm}M\hspace{0.08cm}$ genera usando la observacion de test $\hspace{0.08cm}x_i^{test}=(x^{test}_{i1},...,x^{test}_{ip})$
+- $\widehat{\hspace{0.08cm}Y}^{\hspace{0.08cm}test}=(\hat{y}_1^{\hspace{0.08cm}test},..., \hat{y}_h^{\hspace{0.08cm}test})^t\hspace{0.1cm}$ es un vector con las predicciones de la respuesta hechas por el modelo entrenado $\hspace{0.1cm}M\hspace{0.1cm}$  usando la **muestra test** de observaciones de los predictores $\hspace{0.08cm}X_1^{test},...,X_p^{test}$
+
+- $\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train}\hspace{0.1cm} ) \hspace{0.1cm}=\hspace{0.1cm} M(x^{test}_{i1},...,x^{test}_{ip} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train})\hspace{0.1cm}$ es la predicción de la respuesta que el modelo entrenado $\hspace{0.1cm}M\hspace{0.1cm}$ genera para la observación de test de los predictores $\hspace{0.1cm}x_i^{test}=(x^{test}_{i1},...,x^{test}_{ip})$ .
 
 
 <br>
 
+---
 
->Teniendo todo lo anterior en cuenta, la evaluación de los modelos predictivos se realiza, sin entrar en particularidades, comparando las *predicciones de test* de la respuesta que hace el modelo $\hspace{0.08cm}\widehat{\hspace{0.08cm}Y}^{\hspace{0.08cm}test}\hspace{0.08cm}$ frente a la muestra de *observaciones test* de la respuesta $\hspace{0.08cm}Y^{test}$
+Teniendo todo lo anterior en cuenta, la evaluación de los modelos predictivos se realiza, sin entrar en particularidades, comparando las *predicciones de test* de la respuesta generadas por el modelo $\hspace{0.08cm}\widehat{\hspace{0.08cm}Y}^{\hspace{0.08cm}test}\hspace{0.08cm}$ con la muestra de *observaciones test* de la respuesta $\hspace{0.08cm}Y^{test}$
 
-
+Ya que la muestra test juega el rol de nuevas observaciones. Y el modelo interesa para predecir nuevas observaciones. Por ello se utiliza la muestra test como muestra de prueba para ver el rendimiento del modelo al predecir la respuesta para nuevas observaciones de los predictores.
 
 
 
@@ -314,63 +378,115 @@ Las **predicciones de test** de la respuesta $\hspace{0.08cm}\mathcal{Y}\hspace{
 <br>
 
 
-# Métricas para evaluar modelos estadisticos predictivos
+# Métricas para evaluar modelos de aprendizaje supervisado
 
 
-Dado el modelo predictivo  $M$ , existen varias métricas para evaluar la bondad predictiva del modelo. Y cada una de estas métricas tienen una versión de train (son calculadas usando las predicciones de train) y otra de test (son calculadas usando las predicciones de test).
+Dado el modelo predictivo  $M$ , existen varias métricas para evaluar la capacidad predictiva del modelo. Cada una de estas métricas tienen una versión de train (son calculadas usando las predicciones de train) y otra de test (son calculadas usando las predicciones de test).
 
-<br>
+Además estas métricas son diferentes en función del tipo de modelo de aprendizaje supervisado que consideremos. Vamos a considerar dos tipos, los modelos de regresión y los de clasificación supervisadas.
 
-## Modelos predictivos con variable respuesta cuantitativa: **Modelos de Regresión**
-
-A continuación vamos a exponer las métricas de evaluación más habituales para modelos de regresión:
-
-
-### Error cuadrático medio (ECM)
-
-**ECM de train**
-
-$$ECM_{train}(M) = \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} (\hspace{0.08cm} y_i^{\hspace{0.08cm}train} - \hat{y}_i^{\hspace{0.08cm}train} \hspace{0.08cm})^2 \\$$
-
-
-
-
-**ECM de test**
-
-$$ECM_{test}(M) = \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} )^2$$
+Se recomienda al lector haber leido previamente el articulo sobre [los problemas de regresión y clasificación supervisada y no supervisada.](http://estadistica4all.com/Articulos/Los-problemas-de-clasificaci%C3%B3n-y-regresi%C3%B3n.html)
 
 <br>
 
-Donde: $\hspace{0.15cm} n=\# Y^{test}\hspace{0.2cm}$, $\hspace{0.2cm} h=\# Y^{test} \\$
+ 
+A continuación vamos a exponer las métricas de evaluación más habituales para **modelos de regresión**:
+
+
+## Error cuadrático medio (ECM)
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+
+$\hspace{0.25cm}$ **ECM de train**
+
+$$ECM_{train}(M) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} \left(\hspace{0.08cm} y_i^{\hspace{0.08cm}train} - \hat{y}_i^{\hspace{0.08cm}train} \hspace{0.08cm} \right)^2 \\$$
+
+
+</p>
+ 
+</p></span>
+</div>
+
+$\hspace{0.25cm}$ Donde:
+
+- $y_i^{test}\hspace{0.1cm}$ es la observación de test $\hspace{0.1cm}i$-esima de la variable respuesta, es decir,   $\hspace{0.1cm}y_i^{test} \hspace{0.1cm}=\hspace{0.1cm} Y^{test}[\hspace{0.1cm} i\hspace{0.1cm}]\\$
+
+- $\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train}\hspace{0.1cm} )\\$
+
+- $\hspace{0.2cm} n \hspace{0.1cm}=\hspace{0.1cm} \# \hspace{0.1cm} Y^{train}$
+
+
+
+
+<br>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+
+$\hspace{0.25cm}$ **ECM de test**
+
+$$ECM_{test}(M) = \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} \right)^2$$
+
+</p>
+ 
+</p></span>
+</div>
+
+$\hspace{0.25cm}$ Donde:
+
+- $y_i^{test}\hspace{0.1cm}$ es la observación de test $\hspace{0.1cm}i$-esima de la variable respuesta, es decir,   $\hspace{0.1cm}y_i^{test} \hspace{0.1cm}=\hspace{0.1cm} Y^{test}[\hspace{0.1cm} i \hspace{0.1cm}] \\$
+
+- $\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train} \hspace{0.1cm} )\\$
+
+- $\hspace{0.2cm} h\hspace{0.1cm}=\hspace{0.1cm}\# \hspace{0.1cm} Y^{test}$
+
+
+
+
+<br>
+
+
+
 
 
 
 
 **Observación:**
 
-El $\hspace{0.08cm} ECM\hspace{0.08cm}$ tiene se mide en la unidad de medida que la respuesta al cuadrado. $\\[0.3cm]$
+El $\hspace{0.08cm} ECM\hspace{0.08cm}$ tiene se mide en la unidad de medida que la respuesta **al cuadrado**. $\\[0.7cm]$
+
 
 
 **Interpretación:**
 
-Cuanto menor sea $\hspace{0.08cm}ECM\hspace{0.08cm}$ , mayor bondad predictiva del modelo $\hspace{0.08cm}M\hspace{0.08cm}$, y a la inversa. 
+Cuanto menor sea $\hspace{0.08cm}ECM\hspace{0.08cm}$ , mayor capacidad predictiva del modelo $\hspace{0.08cm}M\hspace{0.08cm}$, y a la inversa. 
 
 <br>
 
 **¿Por qué el ECM es tan usado en la práctica?**
 
-Teoricamente puede demostraste que en un modelo de regresion que el error cuadratico medio de la prediccion puede descomponerse como sigue: $\\[1cm]$
+Teoricamente puede demostraste que en un modelo de regresion   el error cuadratico medio de la prediccion puede descomponerse como sigue: $\\[1cm]$
 
-$$ECM(\widehat{Y}) = E[(Y - \widehat{Y})^2] = Var(\widehat{Y}) + Sesgo(\widehat{Y})^2 + \sigma_{\varepsilon}^2 \\$$
+$$ECM(\widehat{Y}) = E\hspace{0.1cm}[\hspace{0.1cm}(Y - \widehat{Y})^2\hspace{0.1cm}]\hspace{0.1cm} =\hspace{0.1cm} Var(\widehat{Y}) \hspace{0.1cm}+\hspace{0.1cm} Sesgo(\widehat{Y})^2 \hspace{0.1cm}+\hspace{0.1cm} \sigma_{\varepsilon}^2 \\$$
 
 
 
 Donde:
 
 
-$$Var(\widehat{Y})= E[(\widehat{Y} - E[\widehat{Y}])^2] \\$$
+- $Var(\widehat{Y})\hspace{0.1cm} =\hspace{0.1cm} E[\hspace{0.1cm}(\widehat{Y} - E[\widehat{Y}])^2\hspace{0.1cm}]\hspace{0.1cm}$ es la varianza de las predicciones del modelo. $\\[0.5cm]$
 
-$$Sesgo(\widehat{Y})=E[\widehat{Y}] - Y \\$$
+- $Sesgo(\widehat{Y})\hspace{0.1cm}=\hspace{0.1cm}E[\hspace{0.1cm}\widehat{Y}\hspace{0.1cm}] \hspace{0.1cm}-\hspace{0.1cm} Y\hspace{0.1cm}$ es el sesgo de las predicciones del modelo.$\\[0.5cm]$
+
+- $\sigma_{\varepsilon}^2\hspace{0.1cm}$ es la varianza del ruido aleatorio o perturbación del modelo. $\\[0.5cm]$
 
 
 Por tanto, en un modelo de regresion,  el ECM del estimador de la respuesta puede descomponerse como la suma de la varianza y sesgo al cuadrado de dicho estimador de la respuesta, y tambien de la varianza del ruido aleatorio del modelo.
@@ -393,19 +509,48 @@ Un modelo con mucho sesgo en sus predicciones es un modelo cuyas predicciones so
 En cambio un modelo con bajo sesgo genera predicciones que en media son bastante acertadas. Es decir, si se entrena el modelo con múltiples muestras de train y se predice la respuesta usando una muestra fija de test, la media de esas predicciones obtenidas con cada uno de los modelos entrenados es bastante cercana a la respuesta real.
 
 
+
+
 <br>
 
-### Raiz del error cuadrático medio (RECM)
+
+
+
+## Raiz del error cuadrático medio (RECM)
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
 
 **RECM de train:**
 
 $$RECM_{train}(M) = \sqrt{\dfrac{1}{n} \sum_{i=1}^n \hspace{0.1cm} (y_i^{train} - \hat{y}_i^{train})^2 \hspace{0.2cm}} \\$$
 
 
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+
 **RECM de test:**
 
 
 $$RECM_{test}(M) = \sqrt{ \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_{i} ^{\hspace{0.1cm} test} \hspace{0.1cm})^2 \hspace{0.2cm}} \\[0.2cm]$$
+
+</p>
+ 
+</p></span>
+</div>
 
 
 **Observación:**
@@ -421,16 +566,38 @@ Cuanto menor sea $RECM$ , mayor bondad predictiva del modelo $M$, y a la inversa
 
 
 
-### Error cuadratico relativo (ECR)
+## Error cuadratico relativo (ECR)
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
 
 **ECR de train:**
 
 $$ECR_{train}(M) = \dfrac{\hspace{0.5cm} \sum_{i=1}^n \hspace{0.1cm} (y_i^{train}- \hat{y}_i^{train})^2 \hspace{0.5cm}}{\sum_{i=1}^n \left( y_i^{train} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} train} \right)^2 }  \\$$
 
+</p>
+ 
+</p></span>
+</div>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
 
 **ECR de test:**
 
 $$ECR_{test}(M) = \dfrac{ \hspace{0.5cm} \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm})^2 \hspace{0.5cm}    }{\sum_{i=1}^h \left(\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} test} \hspace{0.1cm} \right)^2 } \\$$
+
+</p>
+ 
+</p></span>
+</div>
 
 
 **Interpretación:**
@@ -440,17 +607,39 @@ Cuanto menor sea $ECR$ , mayor bondad predictiva del modelo $M$, y a la inversa.
 <br>
 
 
-### Coeficiente de determinación 
+## Coeficiente de determinación 
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
 **Coeficiente de determinación de train:**
 
 $$R_{train}^2 = 1 - ECR_{train} \\$$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
 
 **Coeficiente de determinación de train:**
 
 $$R_{test}^2 = 1 - ECR_{test} \\$$
 
+</p>
+ 
+</p></span>
+</div>
 
 
 **Interpretación:**
@@ -460,103 +649,208 @@ Cuanto mayor sea $R^2$ , mayor bondad predictiva del modelo $M$, y a la inversa.
 <br>
 
  
-### Error absoluto medio (EAM)
+## Error absoluto medio (EAM)
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
 **EAM de train:**
 
 $$EAM_{train}(M) = \dfrac{1}{n} \cdot \sum_{i=1}^n | y_i^{train} - \hat{y}_i^{train} | \\$$
 
+</p>
+ 
+</p></span>
+</div>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
 **EAM de test:**
 
 
 $$EAM_{test}(M) = \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} | \hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} |$$
 
-
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
-### Error absoluto relativo (EAR)
+## Error absoluto relativo (EAR)
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
 **EAR de train:**
 
 $$EAM_{train}(M) = \dfrac{\sum_{i=1}^n |\hspace{0.08cm} y_i^{train} - \hat{y}_i^{\hspace{0.08cm} train} | }{\sum_{i=1}^n | y_i - \overline{y} |}  \\$$
 
 
+</p>
+ 
+</p></span>
+</div>
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
 **EAR de test:**
 
 
 $$EAM_{train}(M) = \dfrac{ \sum_{i=1}^n \hspace{0.1cm} | \hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm} |  }{\sum_{i=1}^n | y_i^{\hspace{0.1cm} test} - \overline{y}^{\hspace{0.1cm} test} |}$$
 
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
 
 
-
-
-
-
-
+----
 
 
 
 <br>
 
-## Modelos predictivos con variable respuesta categorica: Modelos de Clasificación Supervisada
+
+A continuación vamos a exponer las métricas de evaluación más habituales para **modelos de clasificación supervisada**:
 
 
-A continuación vamos a exponer las métricas de evaluación más habituales para modelos de clasificación supervisada:
+## Tasa de acierto en la clasificación (TAC)
 
 
-### Tasa de acierto en la clasificación (TAC)
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
 
 **TAC de train:**
 
 $$TAC_{train}(M) = \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.05cm} \mathbf {1} ( \hspace{0.05cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.05cm})$$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
 
 **TAC de test:**
 
 $$TAC_{train}(M) = \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.05cm} \mathbf {1} ( \hspace{0.05cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.05cm})$$
 
+</p>
+ 
+</p></span>
+</div>
+
+
 <br>
 
 
  
-### Tasa de error en la clasificación (TEC)
+## Tasa de error en la clasificación (TEC)
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
 **TEC de train:**
 
 $$TEC_{train}(M) = \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.05cm} \mathbf {1} ( \hspace{0.05cm} \hat{y}_i^{train} \neq y_i^{train} \hspace{0.05cm})$$
 
 
+</p>
+ 
+</p></span>
+</div>
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+
 **TEC de test:**
 
 $$TEC_{test}(M) = \dfrac{1}{h} \cdot \sum_{i=1}^{h} \hspace{0.05cm} \mathbf {1} ( \hspace{0.05cm} \hat{y}_i^{\hspace{0.05cm} test} \neq y_i^{\hspace{0.05cm} test} \hspace{0.05cm})$$
 
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
-### Kappa
+## Kappa
 
 Suponemos que una variable respuesta tiene $\hspace{0.05cm}k \geq 2\hspace{0.05cm}$ categorias
 
 Si usamos un modelo de clasificación basado en la distribución de probabilidad uniforme discreta, este predice cada categoria de la respuesta con igual probabilidad $\hspace{0.05cm}1/k\hspace{0.05cm}$, por lo que la tasa de acierto del modelo esperada es $\hspace{0.05cm}1/k$, es decir, si el modelo se aplica muchas veces, la $\hspace{0.08cm} TAC\hspace{0.08cm}$ **media** será de $1/k$
 
 
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
 **Kappa de train:**
 
 $$Kappa_{\hspace{0.05cm} train}(M) = \dfrac{TAC_{\hspace{0.05cm} train} - 1/k}{1 - 1/k}$$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
 
 **Kappa de test:**
 
 $$Kappa_{\hspace{0.05cm} test}(M) = \dfrac{TAC_{\hspace{0.05cm} test} - 1/k}{1 - 1/k}$$
 
+</p>
+ 
+</p></span>
+</div>
+
 <br>
 
-#### Modelo de clasificación aleatoria uniforme
+### Modelo de clasificación aleatoria uniforme
 
 Dada una respuesta $\mathcal{Y}$ con $k\geq 2$ categorias  y  de una serie de predictotres $\mathcal{X}_1 , ..., \mathcal{X}_p$
 
@@ -602,7 +896,7 @@ $$E\left[TAC\right] = E\left[ \dfrac{1}{n} \sum_{i=1}^n I(\hat{y}_i = y_i) \righ
 
 
 
-# Algoritmos de validación de modelos predictivos
+# Algoritmos de validación de  modelos de aprendizaje supervisado
 
 
 
