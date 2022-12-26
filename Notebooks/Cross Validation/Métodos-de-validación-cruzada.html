@@ -2050,11 +2050,11 @@ y una muestra <span class="math inline">\(\hspace{0.1cm}X_j\hspace{0.1cm}\)</spa
 <p>Por lo que:</p>
 <p><span class="math display">\[P(\widehat{y}_i = h) = 1/k = p\]</span></p>
 <p>Para todo <span class="math inline">\(\hspace{0.1cm}h=0,1,...,k-1\)</span></p>
-<p>Por tanto, para cada <span class="math inline">\(\hspace{0.1cm}i=1,...,n\hspace{0.1cm}\)</span> tenemos que:</p>
-<p><span class="math display">\[P(\mathbf{I}(\hat{y}_i = y_i) = 1) = P(\hat{y}_i = y_i) = 1/k = p\]</span></p>
-<p><span class="math display">\[P(\mathbf{I}(\hat{y}_i = y_i) = 0) = P(\hat{y}_i \neq y_i) = 1- 1/k  = 1 - p\]</span></p>
+<p>Por tanto, para cada <span class="math inline">\(\hspace{0.15cm}i=1,...,n\hspace{0.15cm}\)</span> tenemos que: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[P\left( \hspace{0.1cm} \mathbf{I}(\hat{y}_i = y_i) = 1\hspace{0.1cm} \right) = P \left( \hspace{0.1cm} \hat{y}_i = y_i \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1/k \hspace{0.1cm}=\hspace{0.1cm} p \\\]</span></p>
+<p><span class="math display">\[P\left( \hspace{0.1cm} \mathbf{I}(\hat{y}_i = y_i) = 0 \hspace{0.1cm} \right) \hspace{0.1cm} =\hspace{0.1cm} P\left( \hspace{0.1cm} \hat{y}_i \neq y_i \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1- 1/k  \hspace{0.1cm}=\hspace{0.1cm} 1 - p\]</span></p>
 <p>Por lo que <span class="math inline">\(\hspace{0.1cm}\mathbf{I}(\hat{y}_i = y_i)\hspace{0.1cm}\)</span> es una variable binaria, con probabilidad de exito <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> y de fracaso <span class="math inline">\(\hspace{0.1cm}1-p\hspace{0.1cm}\)</span>, es decir:</p>
-<p><span class="math display">\[\mathbf{I}(\hat{y}_i = y_i)  \hspace{0.1cm}\sim\hspace{0.1cm} Bernoulli(p=1/k)\]</span></p>
+<p><span class="math display">\[\mathbf{I}(\hat{y}_i = y_i)  \hspace{0.1cm}\sim\hspace{0.1cm} Bernoulli\left( \hspace{0.1cm} p=1/k \hspace{0.1cm} \right)\]</span></p>
 <p>Por lo tanto:</p>
 <p><span class="math display">\[\sum_{i=1}^n \mathbf{I}(\hat{y}_i = y_i) \hspace{0.1cm}\sim\hspace{0.1cm} Binomial(n\cdot p )\]</span></p>
 <p>Asi que, la tasa de acierto esperada del modelo de clasificación aleatoria uniforme es:</p>
@@ -2096,6 +2096,9 @@ y una muestra <span class="math inline">\(\hspace{0.1cm}X_j\hspace{0.1cm}\)</spa
 <p>El modelo es entrenado con la muestra train y testado calculando una métrica de evaluación con la muestra test. Este valor de la métrica de evaluación es el que será usado para medir la capacidad predictiva del modelo y compararlo con otros modelos. <span class="math inline">\(\\[1cm]\)</span></p>
 <p><strong>Decripción formal del algoritmo:</strong></p>
 <p>El algoritmo de validación simple no aleatoria tiene los siguientes pasos: <span class="math inline">\(\\[0.3cm]\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
 <ul>
 <li><p>Se divide <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> en parte de train y parte de test del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</span></p>
 <ul>
@@ -2142,6 +2145,10 @@ y una muestra <span class="math inline">\(\hspace{0.1cm}X_j\hspace{0.1cm}\)</spa
 <p>Donde:</p>
 <p><span class="math display">\[\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} D_{train}) \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train},Y^{train})\hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm})\]</span></p></li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 <p><strong>Problemas</strong></p>
 <p>Toda la validación queda condicionada a solo una muestra de train y otra de test. Si alguna de estas muestras tienen defectos, estos se van a trasladar a la validación, que será por tanto defectuosa. Es la primera aproximación naive a los algoritmos de validación.</p>
@@ -2157,6 +2164,9 @@ y una muestra <span class="math inline">\(\hspace{0.1cm}X_j\hspace{0.1cm}\)</spa
 <p><br></p>
 <p><strong>Decripción formal del algoritmo:</strong></p>
 <p>El algoritmo de validación simple aleatoria tiene los siguientes pasos: <span class="math inline">\(\\[0.3cm]\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
 <ul>
 <li><p>Se divide <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> en parte de train y parte de test del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p>Sea <span class="math inline">\(\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}\)</span> la proporción de filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> que formarán parte de la muestra de <strong>train</strong> (es un hiper-parametro del algoritmo): <span class="math inline">\(\\[0.4cm]\)</span></p>
@@ -2195,12 +2205,16 @@ definen la muestra de test: <span class="math inline">\(\\[0.4cm]\)</span></p>
 <li><p>Se entrena el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm}D_{train}\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.1cm}\Rightarrow\hspace{0.2cm}\)</span> <span class="math inline">\(\widehat{M}\\\)</span></p></li>
 <li><p>Se calcula una métrica de evaluación sobre el modelo entrenado <span class="math inline">\(\hspace{0.1cm}\widehat{M}\hspace{0.1cm}\)</span> usando <span class="math inline">\(\hspace{0.1cm}D_{test}\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span>
 Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , se obtendria el <span class="math inline">\(\hspace{0.1cm}ECM_{test}(\widehat{M})\\\)</span></p></li>
-<li><p>La métrica de evaluación final del modelo es la obtenida en el paso anterior:</p></li>
-</ul>
-<p><span class="math inline">\(\hspace{0.6cm}\)</span> Si la métrica empleada en el paso anterior fue el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , entonces:</p>
+<li><p>La métrica de evaluación final del modelo es la obtenida en el paso anterior:</p>
+<p>Si la métrica empleada en el paso anterior fue el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , entonces:</p>
 <p><span class="math display">\[ECM(M)_{test}^* \hspace{0.1cm}=\hspace{0.1cm} ECM(\widehat{M})_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test}} \cdot \sum_{i=1}^{\# D_{test}} (y_i^{test} - \hat{y}_i^{test})\]</span></p>
 <p>Donde:</p>
-<p><span class="math display">\[\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} D_{train})\hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train},Y^{train})\hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm})\]</span></p>
+<p><span class="math display">\[\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} D_{train})\hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train},Y^{train})\hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm})\]</span></p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 <p><strong>Problemas</strong></p>
 <p>Toda la validación queda condicionada a solo una muestra de train y otra de test. Si alguna de estas muestras tienen defectos, estos se van a trasladar a la validación, que será por tanto defectuosa.</p>
@@ -2221,53 +2235,69 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 <p><br></p>
 <p><strong>Decripción formal del algoritmo:</strong></p>
 <p>El algoritmo de validación simple aleatoria tiene los siguientes pasos: <span class="math inline">\(\\[0.4cm]\)</span></p>
-<p><span class="math inline">\(1)\hspace{0.1cm}\)</span> Se obtienen <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> particiones de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> en parte de train y parte de test del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<ul>
+<li><p>Se obtienen <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> particiones de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> en parte de train y parte de test del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p>Sea <span class="math inline">\(\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}\)</span> la proporción de filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> que formarán parte de la muestra de <strong>train</strong> (es un hiper-parametro del algoritmo): <span class="math inline">\(\\[0.4cm]\)</span></p>
-<p><span class="math inline">\(\hspace{0.3cm} 1.1)\hspace{0.1cm}\)</span> Se generan <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras aleatoria sin reemplazamiento de tamaño <span class="math inline">\(\hspace{0.1cm}\lfloor k \cdot N \rfloor\hspace{0.1cm}\)</span> del vector <span class="math inline">\(\hspace{0.1cm}(1,2,...,N)\hspace{0.1cm}\)</span> :</p>
+<ul>
+<li>Se generan <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras aleatoria sin reemplazamiento de tamaño <span class="math inline">\(\hspace{0.1cm}\lfloor k \cdot N \rfloor\hspace{0.1cm}\)</span> del vector <span class="math inline">\(\hspace{0.1cm}(1,2,...,N)\hspace{0.1cm}\)</span> :</li>
+</ul>
 <p><span class="math display">\[m_1 , m_2 , ..., m_B \\[0.4cm]\]</span></p>
 <p>Donde:</p>
 <p><span class="math inline">\(m_r=(m_{r1} ,...,m_{r\lfloor k \cdot N \rfloor})\hspace{0.15cm} \hspace{0.4cm} \forall r=1,...,B\)</span></p>
 <p><span class="math inline">\(\lfloor \cdot \rfloor\hspace{0.1cm}\)</span> es la función suelo, que dado un número como argumento devuelve el mayor entero menor que dicho número. <span class="math inline">\(\\[0.5cm]\)</span></p>
-<p><span class="math inline">\(\hspace{0.1cm} 1.2)\hspace{0.1cm}\)</span> Se obtienen las siguientes <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras de <strong>train</strong> del data-set original <span class="math inline">\(\hspace{0.1cm}D \\\)</span></p>
-<p><span class="math display">\[D_{train, 1}= D[m_1 , :] \hspace{0.15cm},\hspace{0.15cm} D_{train, 2}= D[m_2 , :] \hspace{0.15cm}, ... ,\hspace{0.15cm} D_{train, B}= D[m_B , :] \\\]</span></p>
+<ul>
+<li>Se obtienen las siguientes <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras de <strong>train</strong> del data-set original <span class="math inline">\(\hspace{0.1cm}D \\\)</span></li>
+</ul>
+<p><span class="math display">\[D_{train, 1}= D[m_1 , :] \hspace{0.15cm},\hspace{0.15cm} D_{train, 2}= D[m_2 , :] \hspace{0.15cm}, \dots ,\hspace{0.15cm} D_{train, B}= D[m_B , :] \\\]</span></p>
 <p>Donde:</p>
-<p>Para <span class="math inline">\(\hspace{0.1cm}r=1,...,B\)</span></p>
-<p><span class="math display">\[D_{train, r} = D[m_r , :]= \begin{pmatrix}
-    x_{m_{r1},1} &amp; x_{m_{r1},2} &amp; ... &amp; x_{m_{r1},p} &amp; y_{m_{r1}} \\
-    x_{m_{r1},1} &amp; x_{m_{r1},2} &amp; ... &amp; x_{m_{r1},p} &amp; y_{m_{r2}} \\
-    ....&amp;...\\
-    x_{m_{r\lfloor k  \cdot N \rfloor} ,1} &amp; x_{m_{r\lfloor k  \cdot N \rfloor},2} &amp; ... &amp; x_{m_{r\lfloor k  \cdot N \rfloor},p} &amp; y_{m_{r\lfloor k  \cdot N \rfloor}} \end{pmatrix} = \begin{pmatrix}
-    x_{1}^{train, r} &amp; y_{1}^{train, r}\\
-    x_{2}^{train, r} &amp; y_{2}^{train, r}\\
-    ....&amp;...\\
-    x_{\# D_{train, r}}^{train, r} &amp; y_{\# D_{train, r}}^{train, r}
-    \end{pmatrix} \\\]</span></p>
-<p>es la submatriz que resulta de quedarse solo con las filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> definidas por la muestra <span class="math inline">\(\hspace{0.1cm}m_r\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}(1,...,N) \\\)</span></p>
-<p><span class="math inline">\(\hspace{0.1cm} 1.3)\hspace{0.1cm}\)</span> Se obtienen las siguientes <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras de <strong>test</strong> del data-set original <span class="math inline">\(\hspace{0.1cm}D \\\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Para <span class="math inline">\(\hspace{0.1cm}r\in \lbrace 1,...,B\rbrace\)</span></p>
+<p><span class="math display">\[D_{train, r} \hspace{0.1cm}=\hspace{0.1cm} D[m_r , :] \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
+  x_{m_{r1},1} &amp; x_{m_{r1},2} &amp; ... &amp; x_{m_{r1},p} &amp; y_{m_{r1}} \\
+  x_{m_{r1},1} &amp; x_{m_{r1},2} &amp; ... &amp; x_{m_{r1},p} &amp; y_{m_{r2}} \\
+  ....&amp;...\\
+  x_{m_{r\lfloor k  \cdot N \rfloor} ,1} &amp; x_{m_{r\lfloor k  \cdot N \rfloor},2} &amp; ... &amp; x_{m_{r\lfloor k  \cdot N \rfloor},p} &amp; y_{m_{r\lfloor k  \cdot N \rfloor}} \end{pmatrix} = \begin{pmatrix}
+  x_{1}^{train, r} &amp; y_{1}^{train, r}\\
+  x_{2}^{train, r} &amp; y_{2}^{train, r}\\
+  ....&amp;...\\
+  x_{\# D_{train, r}}^{train, r} &amp; y_{\# D_{train, r}}^{train, r}
+  \end{pmatrix} \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> es la submatriz que resulta de quedarse solo con las filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> definidas por la muestra <span class="math inline">\(\hspace{0.1cm}m_r\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}(1,...,N) \\\)</span></p>
+<ul>
+<li>Se obtienen las siguientes <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras de <strong>test</strong> del data-set original <span class="math inline">\(\hspace{0.1cm}D \\\)</span></li>
+</ul>
 <p><span class="math display">\[D_{test, 1}= D[m_1^c , :] \hspace{0.15cm},\hspace{0.15cm} D_{test, 2}= D[m_2^c , :] \hspace{0.15cm}, ... ,\hspace{0.15cm} D_{test, B}= D[m_B^c , :] \\\]</span></p>
 <p>Donde:</p>
-<p>Para <span class="math inline">\(r=1,...,B\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Para <span class="math inline">\(\hspace{0.1cm}r\in \lbrace 1,...,B\rbrace\)</span></p>
 <p><span class="math display">\[D_{test, r} = D[m_r^c , :]=  \begin{pmatrix}
-    x_{1}^{test, r} &amp; y_{1}^{test, r}\\
-    x_{2}^{test, r} &amp; y_{2}^{test, r}\\
-    ....&amp;...\\
-    x_{\# D_{test, r}}^{test, r} &amp; y_{\# D_{test, r}}^{test, r}
-    \end{pmatrix} \\\]</span></p>
-<p>es la submatriz que resulta de quedarse solo con las filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> que no están en <span class="math inline">\(\hspace{0.1cm}D_{train}\hspace{0.1cm}\)</span>, es decir, las filas de <span class="math inline">\(\hspace{0.1cm}m_r^c \\\)</span></p>
-<p><span class="math inline">\(m_r^c=(\hspace{0.1cm} i =1,...,N \hspace{0.1cm} / \hspace{0.1cm} i\neq m_{rj} , \forall j=1,...,\lfloor k \cdot N \rfloor\hspace{0.1cm} )\hspace{0.1cm}\hspace{0.15cm}\)</span> es el complementario de <span class="math inline">\(\hspace{0.15 cm}m_r \\[0.7cm]\)</span></p>
-<p>Por tanto se obtienen <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> particiones de <strong>train</strong> y <strong>test</strong> de <span class="math inline">\(\hspace{0.1cm}D \\\)</span></p>
-<p><span class="math inline">\(2)\hspace{0.1cm}\)</span> Se entrena el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> con cada una de las muestras de train <span class="math inline">\(\hspace{0.1cm} D_{train,1} \hspace{0.1cm},\hspace{0.1cm} D_{train,2}\hspace{0.1cm} , ...,\hspace{0.1cm} D_{train,B}\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.1cm}\Rightarrow\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.1cm}\widehat{M}_1 ,..., \widehat{M}_B \\\)</span></p>
-<p><span class="math inline">\(3)\hspace{0.1cm}\)</span> Se calcula una misma métrica de evaluación sobre el modelo entrenado <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}\)</span> usando la muestra de <strong>test</strong> <span class="math inline">\(\hspace{0.1cm}D_{test,r}\hspace{0.1cm}\)</span> , para cada <span class="math inline">\(\hspace{0.1cm}r=1,...,B\)</span></p>
+  x_{1}^{test, r} &amp; y_{1}^{test, r}\\
+  x_{2}^{test, r} &amp; y_{2}^{test, r}\\
+  ....&amp;...\\
+  x_{\# D_{test, r}}^{test, r} &amp; y_{\# D_{test, r}}^{test, r}
+  \end{pmatrix} \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> es la submatriz que resulta de quedarse solo con las filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> que no están en <span class="math inline">\(\hspace{0.1cm}D_{train}\hspace{0.1cm}\)</span>, es decir, las filas de <span class="math inline">\(\hspace{0.1cm}m_r^c \\\)</span></p>
+<p><span class="math inline">\(m_r^c=(\hspace{0.1cm} i =1,...,N \hspace{0.1cm} / \hspace{0.1cm} i\neq m_{rj} , \forall j=1,...,\lfloor k \cdot N \rfloor\hspace{0.1cm} )\hspace{0.1cm}\hspace{0.15cm}\)</span> es el complementario de <span class="math inline">\(\hspace{0.15 cm}m_r \\[0.5cm]\)</span></p>
+<p>Por tanto se obtienen <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> particiones de <strong>train</strong> y <strong>test</strong> de <span class="math inline">\(\hspace{0.1cm}D \\\)</span></p></li>
+<li><p>Se entrena el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> con cada una de las muestras de train <span class="math inline">\(\hspace{0.1cm} D_{train,1} \hspace{0.1cm},\hspace{0.1cm} D_{train,2}\hspace{0.1cm} , ...,\hspace{0.1cm} D_{train,B}\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <span class="math inline">\(\hspace{0.1cm}\widehat{M}_1 ,..., \widehat{M}_B \\\)</span></p></li>
+<li><p>Se calcula una misma métrica de evaluación sobre el modelo entrenado <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}\)</span> usando la muestra de <strong>test</strong> <span class="math inline">\(\hspace{0.1cm}D_{test,r}\hspace{0.1cm}\)</span> , para cada <span class="math inline">\(\hspace{0.1cm}r\in \lbrace 1,...,B\rbrace\)</span></p>
 <p>Supongamos que la métrica de evaluación usada es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , entonces se obtienen <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> valores de esta métrica :</p>
 <p><span class="math display">\[ECM_{test }(\widehat{M}_1) \hspace{0.1cm},\hspace{0.1cm}  ECM_{test }(\widehat{M}_2)\hspace{0.1cm} , ... ,\hspace{0.1cm} ECM_{test}(\widehat{M}_B)\\\]</span></p>
 <p>Donde:</p>
-<p><span class="math inline">\(ECM_{test , r}\hspace{0.1cm}\)</span> es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> calculado sobre <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}\)</span> usando <span class="math inline">\(\hspace{0.1cm}D_{test,r}\hspace{0.1cm}\)</span></p>
-<p><span class="math display">\[ECM_{test }(\widehat{M}_r) = \dfrac{1}{\# D_{test,r}} \cdot \sum_{i=1}^{\# D_{test,r}} \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm})^2\]</span></p>
-<p><span class="math inline">\(\hspace{0.55cm}\)</span> Donde:</p>
+<p><span class="math inline">\(\hspace{0.25cm} ECM_{test , r}\hspace{0.1cm}\)</span> es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> calculado sobre <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}\)</span> usando <span class="math inline">\(\hspace{0.1cm}D_{test,r}\hspace{0.1cm}\)</span></p>
+<p><span class="math display">\[ECM_{test }(\widehat{M}_r) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test,r}} \cdot \sum_{i=1}^{\# D_{test,r}} \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm})^2\]</span></p>
+<p>Donde:</p>
 <p><span class="math display">\[\hat{y}_i^{test,r} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm}|\hspace{0.1cm} D_{train,r}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r (\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm} ) \\\]</span></p>
-<p>para <span class="math inline">\(\hspace{0.1cm}r=1,...,B \\\)</span></p>
-<p><span class="math inline">\(4) \hspace{0.1cm}\)</span> Se calcula la métrica final de evaluacion del modelo como el promedio de las <span class="math inline">\(B\)</span> metricas calculadas en 3). Si la metrica usada en 3) es el ECM, entonces: <span class="math inline">\(\\[0.4cm]\)</span></p>
-<p><span class="math display">\[ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{B} \cdot \sum_{r=1}^B ECM_{test}(\widehat{M}_r)\]</span></p>
+<p>para <span class="math inline">\(\hspace{0.1cm}r\in \lbrace 1,...,B \rbrace \\\)</span></p></li>
+<li><p>Se calcula la métrica final de evaluación del modelo como el promedio de las <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> métricas calculadas en el apartado anterior.</p>
+<p>Si la métrica usada en el apartado anterior es el ECM, entonces: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{B} \cdot \sum_{r=1}^B ECM_{test}(\widehat{M}_r)\]</span></p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 <p><strong>Ventajas</strong></p>
 <p>Permite reducir la varianza de la métrica de validación. En la validación simple aleatoria no repetida la métrica de validación obtenida usando validacion simple tiene mayor varianza, en el sentido de que si se implementa el algoritmo un número elevado de veces, la varianza de los valores obtenidos de la métrica es mayor si se aplica el mismo procedimiento con validación simple aleatoria repetida. Esto será ilustrado en la práctica.</p>
@@ -2276,44 +2306,55 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 <div id="leave-one-out" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> Leave-one-out</h2>
 <p>El algoritmo de validación leave-one-out tiene los siguientes pasos: <span class="math inline">\(\\[0.3cm]\)</span></p>
-<p><span class="math inline">\(1)\hspace{0.1cm}\)</span> Se obtienen <span class="math inline">\(\hspace{0.1cm} B\hspace{0.1cm}\)</span> particiones de <span class="math inline">\(\hspace{0.1cm} D\hspace{0.1cm}\)</span> en parte de train y parte de test del siguiente modo:</p>
-<p><span class="math inline">\(\hspace{0.3cm} 1.2)\hspace{0.1cm}\)</span> Se obtienen las siguientes <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras <strong>test</strong> del data-set original <span class="math inline">\(\hspace{0.1cm}D \\\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<ul>
+<li><p>Se obtienen <span class="math inline">\(\hspace{0.1cm} B\hspace{0.1cm}\)</span> particiones de <span class="math inline">\(\hspace{0.1cm} D\hspace{0.1cm}\)</span> en parte de train y parte de test del siguiente modo: <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Se obtienen las siguientes <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras <strong>test</strong> del data-set original <span class="math inline">\(\hspace{0.1cm}D \\\)</span></p>
 <p><span class="math display">\[D_{test,1}=D[1, :] \hspace{0.1cm} ,\hspace{0.15cm} D_{test,2}=D[2, :]\hspace{0.15cm},...,\hspace{0.15cm} D_{test,B}=D[B, :] \\\]</span></p>
 <p>Donde:</p>
 <p><span class="math inline">\(D_{test,1}=D[r, :]\hspace{0.1cm}\)</span> es la submatriz que resulta de considerar solo la fila <span class="math inline">\(r\)</span> de <span class="math inline">\(D\)</span> , es decir, es la observación <span class="math inline">\(r\)</span>-esima del data-set inicial <span class="math inline">\(\hspace{0.1cm}D \\\)</span></p>
 <p><span class="math display">\[D_{test,r} \hspace{0.1cm}=\hspace{0.1cm} D[r, :] \hspace{0.1cm}=\hspace{0.1cm} (x_{i1} , ..., x_{rp} , y_r)=(x_r \hspace{0.1cm} ,\hspace{0.1cm}  y_r) \\\]</span></p>
-<p><span class="math inline">\(\hspace{0.3cm} 1.3)\hspace{0.1cm}\)</span> Se obtienen las siguientes <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras <strong>train</strong> del data-set original <span class="math inline">\(\hspace{0.1cm}D \\\)</span></p>
+<ul>
+<li><p>Se obtienen las siguientes <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras <strong>train</strong> del data-set original <span class="math inline">\(\hspace{0.1cm}D \\\)</span></p>
 <p><span class="math display">\[D_{train,1}=D[-1, :] \hspace{0.2cm},\hspace{0.2cm} D_{train,2}=D[-2, :]\hspace{0.2cm},...,\hspace{0.2cm} D_{train,B}=D[-B, :] \\\]</span></p>
 <p>Donde:</p>
+<p>Para <span class="math inline">\(r\in \lbrace 1,...,B\rbrace \\\)</span></p>
 <p><span class="math inline">\(D_{train,r}=D[-r, :]\hspace{0.15cm}\)</span> es la submatriz que resulta de eliminar la fila <span class="math inline">\(i\)</span> de <span class="math inline">\(\hspace{0.1cm} D\hspace{0.1cm}\)</span>, es decir: <span class="math inline">\(\\[0.7cm]\)</span></p>
 <p><span class="math display">\[D_{train,r}=D[-r, :]= \begin{pmatrix}
-    x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp; y_1\\
-    ...&amp;...&amp;...&amp;...&amp;...\\
-    x_{(i-1)1}&amp;x_{(i-1)2}&amp;...&amp;x_{(i-1)p} &amp; y_(i-1)\\
-    x_{(i+1)1}&amp;x_{(i+1)2}&amp;...&amp;x_{(i+1)p} &amp; y_(i+1)\\
-    &amp;...&amp;\\
-    x_{N1}&amp;x_{N2}&amp;...&amp;x_{Np}&amp; y_N
-    \end{pmatrix}=\begin{pmatrix}
-    x_{1}&amp; y_1\\
-    ...&amp;...&amp;...&amp;...&amp;...\\
-    x_{(i-1)}&amp;y_(i-1)\\
-    x_{(i+1)}&amp; y_(i+1)\\
-    &amp;...&amp;\\
-    x_{N}&amp; y_N
-    \end{pmatrix} \\\]</span></p>
-<p>para <span class="math inline">\(r=1,...,B \\\)</span></p>
-<p><span class="math inline">\(2)\hspace{0.1cm}\)</span> Se entrena el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm} D_{train,1} , D_{train,2} , ..., D_{train,B}\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.1cm}\Rightarrow\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.1cm}\widehat{M}_1 ,..., \widehat{M}_B \\\)</span></p>
-<p><span class="math inline">\(3)\hspace{0.1cm}\)</span> Se calcula una misma métrica de evaluación sobre el modelo entrenado <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}\)</span> usando la muestra de <strong>test</strong> <span class="math inline">\(\hspace{0.1cm}D_{test,r}\hspace{0.1cm}\)</span> , para <span class="math inline">\(\hspace{0.1cm}r=1,...,B \\\)</span></p>
+  x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp; y_1\\
+  ...&amp;...&amp;...&amp;...&amp;...\\
+  x_{(i-1)1}&amp;x_{(i-1)2}&amp;...&amp;x_{(i-1)p} &amp; y_(i-1)\\
+  x_{(i+1)1}&amp;x_{(i+1)2}&amp;...&amp;x_{(i+1)p} &amp; y_(i+1)\\
+  &amp;...&amp;\\
+  x_{N1}&amp;x_{N2}&amp;...&amp;x_{Np}&amp; y_N
+  \end{pmatrix}=\begin{pmatrix}
+  x_{1}&amp; y_1\\
+  ...&amp;...&amp;...&amp;...&amp;...\\
+  x_{(i-1)}&amp;y_(i-1)\\
+  x_{(i+1)}&amp; y_(i+1)\\
+  &amp;...&amp;\\
+  x_{N}&amp; y_N
+  \end{pmatrix} \\[1.5cm]\]</span></p></li>
+</ul></li>
+<li><p>Para <span class="math inline">\(\hspace{0.1cm}r\in lbrace 1,...,B \rbrace \hspace{0.1cm}\)</span>, se entrena el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm} D_{train,r}\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.1cm}\Rightarrow\hspace{0.1cm}\)</span> <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r \\\)</span></p></li>
+<li><p>Para <span class="math inline">\(\hspace{0.1cm}r\in lbrace 1,...,B \rbrace \hspace{0.1cm}\)</span>, se calcula una misma métrica de evaluación sobre el modelo entrenado <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}\)</span> usando la muestra de <strong>test</strong> <span class="math inline">\(\hspace{0.1cm}D_{test,r}\hspace{0.1cm}\)</span></p>
 <p>Supongamos que la métrica de evaluación usada es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , entonces se obtienen <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> valores de esta métrica :</p>
 <p><span class="math display">\[ECM_{test }(\widehat{M}_1) \hspace{0.1cm} ,\hspace{0.1cm}   ECM_{test }(\widehat{M}_2) \hspace{0.1cm} , ... ,\hspace{0.1cm}  ECM_{test}(\widehat{M}_B)\\\]</span></p>
 <p>Donde:</p>
 <p><span class="math inline">\(ECM_{test , r}\hspace{0.1cm}\)</span> es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> calculado sobre <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}\)</span> usando <span class="math inline">\(\hspace{0.1cm}D_{test,r} \\\)</span></p>
 <p><span class="math display">\[ECM_{test }(\widehat{M}_r) =  (\hspace{0.1cm} y_r - \hat{y}_r \hspace{0.1cm})^2\]</span></p>
-<p><span class="math inline">\(\hspace{0.55cm}\)</span> Donde:</p>
+<p><span class="math inline">\(\hspace{0.2cm}\)</span> Donde:</p>
 <p><span class="math display">\[\hat{y}_r \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_r \hspace{0.1cm}|\hspace{0.1cm} D_{train,r}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r (\hspace{0.1cm} x_r \hspace{0.1cm} ) \\\]</span></p>
-<p>para <span class="math inline">\(\hspace{0.1cm}r=1,...,B \\\)</span></p>
-<p><span class="math inline">\(4)\hspace{0.1cm}\)</span> Se calcula la métrica final de evaluacion del modelo como el promedio de las <span class="math inline">\(B\)</span> metricas calculadas en 3). Si la metrica usada en 3) es el <span class="math inline">\(ECM\)</span>, entonces:</p>
-<p><span class="math display">\[ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{B} \cdot \sum_{r=1}^B ECM_{test}(\widehat{M}_r)\]</span></p>
+<p><span class="math inline">\(\hspace{0.2cm}\)</span> para <span class="math inline">\(\hspace{0.1cm} r\in \lbrace 1,...,B \rbrace \\\)</span></p></li>
+<li><p>Se calcula la métrica final de evaluacion del modelo como el promedio de las <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> metricas calculadas en 3). Si la metrica usada en 3) es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, entonces:</p>
+<p><span class="math display">\[ECM_{test}^{\hspace{0.08cm}*}( {M}) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{B} \cdot \sum_{r=1}^B ECM_{test}(\widehat{M}_r)\]</span></p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 <p><strong>Ventaja</strong></p>
 <p>Una vez aplicado el algoritmo todas las observaciones han formado parte de conjunto de train (en alguna iteracion), y lo mismo para el conjunto de test.</p>
@@ -2335,6 +2376,9 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 <p><br></p>
 <p><strong>Decripción formal del algoritmo:</strong></p>
 <p>El algoritmo de validación k-folds tiene los siguientes pasos:</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
 <p><span class="math inline">\(1)\hspace{0.1cm}\)</span> Se divide aleatoriamente el data-set inicial <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> en <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> partes de manera que cada parte tenga aproximadamente el mismo número de observaciones (sean lo mas balanceadas posibles).</p>
 <p>Existen diferentes métodos para hacer esta división. La problematica de la división es cómo hacer que las partes resultantes estén lo más balanceadas posibles respecto al numero de observaciones que contienen.</p>
 <p>Hemos desarrollado un método basado en cuantiles que permite obtener este balanceo, el cual ha sido implementado en <code>Python</code> con buenos resultados en este aspecto, como se podrá ver posteriormente en la parte de implementación.</p>
@@ -2439,6 +2483,10 @@ como los limites que definen las partes en las que dividiremos <span class="math
 <p>para <span class="math inline">\(\hspace{0.1cm}r=1,...,k \\\)</span></p>
 <p><span class="math inline">\(4)\hspace{0.1cm}\)</span> Se calcula la métrica final de evaluacion del modelo como el promedio de las <span class="math inline">\(k\)</span> metricas calculadas en 3). Si la metrica usada en 3) es el ECM, entonces:</p>
 <p><span class="math display">\[ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{k} \cdot \sum_{r=1}^k ECM_{test}(\widehat{M}_r)\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 <p><strong>Ventajas</strong></p>
 <p>La metrica de validacion calculada por k-fold tiene menor varianza que con los métodos anteriores, luego es el mas preciso de todos ellos.</p>
@@ -2449,7 +2497,7 @@ como los limites que definen las partes en las que dividiremos <span class="math
 <p>Este algoritmo consiste en repetir el algoritmo k-fold un número <span class="math inline">\(B\)</span> de veces.</p>
 <p>No vamos a hacer aqui una descripción tan detallada del algoritmo como las anteriores, puesto que buena parte es repetir la estructura de k-fold, pero repitiendola <span class="math inline">\(B\)</span> veces.</p>
 <p>Es facil ver que se obtendrian <span class="math inline">\(k\cdot B\)</span> muestras de test y train, por lo que se entrenaria y testaria el modelo <span class="math inline">\(M\)</span> un total de <span class="math inline">\(k\cdot B\)</span> veces.</p>
-<p>Si la metrica usada para evaluar el modelo es el habitual <span class="math inline">\(ECM\)</span> , entocnes se obtienen <span class="math inline">\(k\cdot B\)</span> valores de esta metrica:</p>
+<p>Si la métrica usada para evaluar el modelo es el habitual <span class="math inline">\(ECM\)</span> , entocnes se obtienen <span class="math inline">\(k\cdot B\)</span> valores de esta metrica:</p>
 <p><span class="math display">\[ECM_{test }(\widehat{M}_1^{\hspace{0.1cm}1}) \hspace{0.1cm},  \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}(\widehat{M}_k^{\hspace{0.1cm}1}) ,ECM_{test }(\widehat{M}_1^{\hspace{0.1cm}2}) \hspace{0.1cm}, \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}(\widehat{M}_k^{\hspace{0.1cm}2}),...,ECM_{test }(\widehat{M}_1^{\hspace{0.1cm}B}) \hspace{0.1cm},\ \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}(\widehat{M}_k^{\hspace{0.1cm}B})   \\\]</span></p>
 <p>Donde:</p>
 <p><span class="math inline">\(\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\)</span> es el modelo M entrenado con la muestra <span class="math inline">\(\hspace{0.1cm}D_{train, r}\hspace{0.1cm}\)</span> en la repeticion <span class="math inline">\(\hspace{0.1cm}j\hspace{0.1cm}\)</span> del algoritmo k-fold , para <span class="math inline">\(\hspace{0.1cm}r=1,...,k\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}j=1,...,B\)</span></p>
