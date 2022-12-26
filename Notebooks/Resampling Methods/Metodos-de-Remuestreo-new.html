@@ -1582,7 +1582,8 @@ margin-left: 0 !important;
       <li><a href="#botstrap-en-regresión-lineal-basado-en-residuos" id="toc-botstrap-en-regresión-lineal-basado-en-residuos"><span class="toc-section-number">14.1</span> Botstrap en Regresión Lineal basado en residuos</a></li>
       <li><a href="#botstrap-en-regresión-lineal-basado-en-pares" id="toc-botstrap-en-regresión-lineal-basado-en-pares"><span class="toc-section-number">14.2</span> Botstrap en Regresión Lineal basado en pares</a></li>
       </ul></li>
-      <li><a href="#bootstrap-en-series-temporales" id="toc-bootstrap-en-series-temporales"><span class="toc-section-number">15</span> Bootstrap en series temporales</a></li>
+      <li><a href="#estimación-bootstrap-de-la-varianza-de-las-predicciones-de-un-modelo" id="toc-estimación-bootstrap-de-la-varianza-de-las-predicciones-de-un-modelo"><span class="toc-section-number">15</span> Estimación bootstrap de la varianza de las predicciones de un modelo</a></li>
+      <li><a href="#estimación-bootstrap-del-sesgo-de-las-predicciones-de-un-modelo" id="toc-estimación-bootstrap-del-sesgo-de-las-predicciones-de-un-modelo"><span class="toc-section-number">16</span> Estimación bootstrap del sesgo de las predicciones de un modelo</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -2454,10 +2455,56 @@ H_1 : \mu \neq \mu_0 \hspace{1.5cm}  H_1 : \mu &gt; \mu_0  \hspace{1.5cm} H_1 : 
 <p><span class="math display">\[X^* = (x_{1}^* , x_{2}^* , ..., x_{n}^* )^t\]</span></p>
 <p><span class="math display">\[Y^* = (y_1^* , ..., y_n^*)^t\]</span></p>
 <p><br></p>
+<p><br></p>
 </div>
 </div>
-<div id="bootstrap-en-series-temporales" class="section level1" number="15">
-<h1><span class="header-section-number">15</span> Bootstrap en series temporales</h1>
+<div id="estimación-bootstrap-de-la-varianza-de-las-predicciones-de-un-modelo" class="section level1" number="15">
+<h1><span class="header-section-number">15</span> Estimación bootstrap de la varianza de las predicciones de un modelo</h1>
+<p>Consideraremos que una estimacion de la varianza de las predicciones de un modelo de regresion (variable respuesta cuantitativa) <span class="math inline">\(M\)</span> es:</p>
+<p><span class="math display">\[\dfrac{1}{h} \sum_{i=1}^{h} \widehat{Var}(\hat{y}_i)\]</span></p>
+<p>Cálculo de <span class="math inline">\(\widehat{Var}(\hat{y}_i)\)</span> por remuestreo (en algunos modelos no habra expresiones cerradas para este estimacion, por eso veo interesante un procedimiento general que no dependa del modelo usado):</p>
+<p>Tenemos una muestra inicial de predictores y de la respuesta <span class="math inline">\((X,Y)=(X_1,...,X_p, Y)\)</span> con <span class="math inline">\(n\)</span> filas (observaciones)</p>
+<p>Tomamos <span class="math inline">\(B\)</span> muestras bootstrap (muestras aleatorias con reemplazamiento) de <span class="math inline">\((X,Y)\)</span>:</p>
+<p><span class="math display">\[(X,Y)_1 ,...,(X,Y)_B\]</span></p>
+<p>Entrenamos el modelo <span class="math inline">\(M\)</span> con cada una de las <span class="math inline">\(B\)</span> muestras bootstrap , asi obtenemos <span class="math inline">\(B\)</span> modelos entrenados diferentes <span class="math inline">\(M_1,..,.M_B\)</span></p>
+<p>Notese que el modelo <span class="math inline">\(M_r\)</span> ha sido entrenado con la muestra train de observaciones <span class="math inline">\((X,Y)_r\)</span></p>
+<p>Con cada uno de los <span class="math inline">\(B\)</span> modelos entrenados <span class="math inline">\(M_1,..,.M_B\)</span> obtener la prediccion de test de la respuesta, es decir <span class="math inline">\(\widehat{Y}^{test}\)</span> , usando una misma muestra fija de test de los predictores <span class="math inline">\((X_1^{test},...,X_p^{test})\)</span>, asi se obtienen <span class="math inline">\(B\)</span> vectores de predcciones de la respuesta <span class="math inline">\((\widehat{Y}^{test}_1 ,...,\widehat{Y}^{test}_B)\)</span> y con ellos se obtienen <span class="math inline">\(B\)</span> predicciones de la respuesta para la <span class="math inline">\(i\)</span>-esima observacion de test de los predictores <span class="math inline">\(x_i^{test} = (x_{i1}^{test} ,..., x_{ip}^{test})^t\)</span> , esto es, se obtiene <span class="math inline">\(\hat{y}_{i}^{boot}=( \hat{y}_{i1}^{test} , ...,\hat{y}_{iB}^{test})\)</span> , para <span class="math inline">\(i=1,...,h\)</span></p>
+<p>Notese que:</p>
+<p><span class="math inline">\(\widehat{Y}^{test}_r\)</span> es el vector con las predicciones de la respuesta que el modelo entrenado <span class="math inline">\(M_r\)</span> genera usando la muestra test de observaciones de los predictores <span class="math inline">\((X_1^{test},...,X_p^{test})\)</span> , , para <span class="math inline">\(r=1,...,B\)</span></p>
+<p><span class="math inline">\(\hat{y}_{ir}^{test}\)</span> es la prediccion de la variable respuesta que el modelo entrenado <span class="math inline">\(M_r\)</span> genera usando la observacion test de los predictores <span class="math inline">\(x_i^{test}=(x_{i1}^{test} ,..., x_{ip}^{test})^t\)</span> , para <span class="math inline">\(r=1,...,B\)</span></p>
+<p><span class="math inline">\(\hat{y}_{i}^{boot}=( \hat{y}_{i1}^{test} , ...,\hat{y}_{iB}^{test})\)</span> es la prediccion de la respuesta para la observacion de test <span class="math inline">\(x_i^{test}\)</span> hecha por los distintos modelos <span class="math inline">\(M_1,...,M_B\)</span> entrenados.</p>
+<p>Estimamos <span class="math inline">\({Var}(\hat{y}_i)\)</span> como la varianza de <span class="math inline">\(\hat{y}_{i}^{boot}=( \hat{y}_{i1}^{test} , ...,\hat{y}_{iB}^{test})\)</span></p>
+<p><span class="math display">\[ \widehat{Var}(\hat{y}_i) = \dfrac{1}{B} \sum_{r=1}^{B} \left( {y}_{ir}^{test} - \overline{\hat{y}_{i}^{boot}} \right)^2   \]</span></p>
+<p>Repetimos el proceso con cada <span class="math inline">\(i=1,...,h\)</span>, donde <span class="math inline">\(h\)</span> es el tamaño de la muestra de test.</p>
+<p>Asi obtenderemos: <span class="math inline">\(\hspace{0.2cm} \widehat{Var}(\hat{y}_1),\widehat{Var}(\hat{y}_2),..., \widehat{Var}(\hat{y}_h)\)</span></p>
+<p>Promediamos y obtenimos asi una estimacion de la varianza de las predcciones del modelo:</p>
+<p><span class="math display">\[ \dfrac{1}{h} \sum_{i=1}^{h} \widehat{Var}(\hat{y}_i) \]</span></p>
+<p><br></p>
+<p><br></p>
+</div>
+<div id="estimación-bootstrap-del-sesgo-de-las-predicciones-de-un-modelo" class="section level1" number="16">
+<h1><span class="header-section-number">16</span> Estimación bootstrap del sesgo de las predicciones de un modelo</h1>
+<p>Consideraremos que una estimacion del sesgo de las predicciones de un modelo de regresion (variable respuesta cuantitativa) <span class="math inline">\(M\)</span> es:</p>
+<p><span class="math display">\[\dfrac{1}{h} \sum_{i=1}^{h} \widehat{Sesgo}(\hat{y}_i)\]</span></p>
+<p>Cálculo de <span class="math inline">\(\widehat{Sesgo}(\hat{y}_i)\)</span> por remuestreo (en algunos modelos no habra expresiones cerradas para este estimacion, por eso veo interesante un procedimiento general que no dependa del modelo usado):</p>
+<p>Tenemos una muestra inicial de predictores y de la respuesta <span class="math inline">\((X,Y)=(X_1,...,X_p, Y)\)</span> con <span class="math inline">\(n\)</span> filas (observaciones)</p>
+<p>Tomamos <span class="math inline">\(B\)</span> muestras bootstrap (muestras aleatorias con reemplazamiento) de <span class="math inline">\((X,Y)\)</span>:</p>
+<p><span class="math display">\[(X,Y)_1 ,...,(X,Y)_B\]</span></p>
+<p>Entrenamos el modelo <span class="math inline">\(M\)</span> con cada una de las <span class="math inline">\(B\)</span> muestras bootstrap , asi obtenemos <span class="math inline">\(B\)</span> modelos entrenados diferentes <span class="math inline">\(M_1,..,.M_B\)</span></p>
+<p>Notese que el modelo <span class="math inline">\(M_r\)</span> ha sido entrenado con la muestra train de observaciones <span class="math inline">\((X,Y)_r\)</span></p>
+<p>Con cada uno de los <span class="math inline">\(B\)</span> modelos entrenados <span class="math inline">\(M_1,..,.M_B\)</span> obtener la prediccion de test de la respuesta, es decir <span class="math inline">\(\widehat{Y}^{test}\)</span> , usando una misma muestra fija de test de los predictores <span class="math inline">\((X_1^{test},...,X_p^{test})\)</span>, asi se obtienen <span class="math inline">\(B\)</span> vectores de predcciones de la respuesta <span class="math inline">\((\widehat{Y}^{test}_1 ,...,\widehat{Y}^{test}_B)\)</span> y con ellos se obtienen <span class="math inline">\(B\)</span> predicciones de la respuesta para la <span class="math inline">\(i\)</span>-esima observacion de test de los predictores <span class="math inline">\(x_i^{test} = (x_{i1}^{test} ,..., x_{ip}^{test})^t\)</span> , esto es, se obtiene <span class="math inline">\(\hat{y}_{i}^{boot}=( \hat{y}_{i1}^{test} , ...,\hat{y}_{iB}^{test})\)</span> , para <span class="math inline">\(i=1,...,h\)</span></p>
+<p>Notese que:</p>
+<p><span class="math inline">\(\widehat{Y}^{test}_r\)</span> es el vector con las predicciones de la respuesta que el modelo entrenado <span class="math inline">\(M_r\)</span> genera usando la muestra test de observaciones de los predictores <span class="math inline">\((X_1^{test},...,X_p^{test})\)</span> , , para <span class="math inline">\(r=1,...,B\)</span></p>
+<p><span class="math inline">\(\hat{y}_{ir}^{test}\)</span> es la prediccion de la variable respuesta que el modelo entrenado <span class="math inline">\(M_r\)</span> genera usando la observacion test de los predictores <span class="math inline">\(x_i^{test}=(x_{i1}^{test} ,..., x_{ip}^{test})^t\)</span> , para <span class="math inline">\(r=1,...,B\)</span></p>
+<p><span class="math inline">\(\hat{y}_{i}^{boot}=( \hat{y}_{i1}^{test} , ...,\hat{y}_{iB}^{test})\)</span> es la prediccion de la respuesta para la observacion de test <span class="math inline">\(x_i^{test}\)</span> hecha por los distintos modelos <span class="math inline">\(M_1,...,M_B\)</span> entrenados.</p>
+<p>Notese que sabemos que <span class="math inline">\(y_i^{test}\)</span> es el verdadero valor de la respuesta en la muestra de test para la observacion <span class="math inline">\(x_i^{test}\)</span></p>
+<p>Estimamos <span class="math inline">\({Sesgo}(\hat{y}_i)\)</span> como la diferencia entre la media de <span class="math inline">\(\hat{y}_{i}^{boot}=( \hat{y}_{i1}^{test} , ...,\hat{y}_{iB}^{test})\)</span> y el verdadero valor <span class="math inline">\(y_i^{test}\)</span> de la respuesta en la muestra de test para la observacion de test <span class="math inline">\(x_i^{test}\)</span></p>
+<p><span class="math display">\[\widehat{Sesgo}(\hat{y}_i) = \left( \dfrac{1}{h} \sum_{r=1}^{B}  \hat{y}_{ir}^{test}    \right)- y_i^{test}\]</span></p>
+<p>Repetimos el proceso con cada <span class="math inline">\(i=1,...,h\)</span>, donde <span class="math inline">\(h\)</span> es el tamaño de la muestra de test.</p>
+<p>Asi obtenderemos: <span class="math inline">\(\hspace{0.2cm} \widehat{Sesgo}(\hat{y}_1),\widehat{Sesgo}(\hat{y}_2),..., \widehat{Sesgo}(\hat{y}_h)\)</span></p>
+<p>Promediamos y obtenimos asi una estimacion de la varianza de las predcciones del modelo:</p>
+<p><span class="math display">\[ \dfrac{1}{h} \sum_{i=1}^{h} \widehat{Sesgo}(\hat{y}_i) \]</span></p>
+<p><br></p>
 </div>
 </div>
 
