@@ -1433,17 +1433,17 @@ Algunos autores (vease la referencia 1) consideran que, al emplearse todas las o
 **Decripción no formal del algoritmo:**
 
 
-Este algoritmo de validacion consiste en dividir el data-set inicial en $k$ partes, y usar de manera secuencial cada una de esas partes como muestra test, y las union de las partes restantes como muestra train.
+Este algoritmo de validacion consiste en dividir el data-set inicial en $\hspace{0.1cm} k\hspace{0.1cm}$ partes, y usar de manera secuencial cada una de esas partes como muestra test, y las union de las partes restantes como muestra train.
 
-Por tanto con este método se usan $k$ muestras de test y de train.
+Por tanto con este método se usan $\hspace{0.1cm}k\hspace{0.1cm}$ muestras de test y de train.
 
-El modelo es entrenado secuencialmente con cada una de las $k$ muestras de train disitntas, y se testea con la correspondiente muestra de test (que es el complementario de la de train), usando una métrica de evaluacion.
+El modelo es entrenado secuencialmente con cada una de las $\hspace{0.1cm}k\hspace{0.1cm}$ muestras de train disitntas, y se testea con la correspondiente muestra de test (que es el complementario de la de train), usando una métrica de evaluacion.
 
-Es decir, tras dividir el data-set inicial en $k$ partes la parte 1 se usa como test y el resto como train, se calcula la metrica de evaluacion. Luego la parte 2 se usa como test y el resto como train, y se calcula la metrica de evaluacion. Asi sucesivamente hasta haber usado las $k$ partes como muestras de test.
+Es decir, tras dividir el data-set inicial en $\hspace{0.1cm}k\hspace{0.1cm}$ partes la parte 1 se usa como test y el resto como train, se calcula la metrica de evaluacion. Luego la parte 2 se usa como test y el resto como train, y se calcula la metrica de evaluacion. Asi sucesivamente hasta haber usado las $\hspace{0.1cm}k\hspace{0.1cm}$ partes como muestras de test.
 
-Tras este proceso se habrán obtenido $k$ valores de dicha métrica de evaluacion.
+Tras este proceso se habrán obtenido $\hspace{0.1cm}k\hspace{0.1cm}$ valores de dicha métrica de evaluacion.
 
-La métrica de evaluacion calculada usando este método de validación es la media de dichos $k$ valores obtenidos para la métrica de evaluación escogida. Este valor medio final es la que será usado para medir el poder predictivo del modelo y compararlo con otros modelos.
+La métrica de evaluacion calculada usando este método de validación es la media de dichos $\hspace{0.1cm}k\hspace{0.1cm}$ valores obtenidos para la métrica de evaluación escogida. Este valor medio final es la que será usado para medir el poder predictivo del modelo y compararlo con otros modelos.
 
 <br>
 
@@ -1634,7 +1634,7 @@ $\\[0.3cm]$
 
 - Se calcula la métrica final de evaluación del modelo como el promedio de las $\hspace{0.1cm}k\hspace{0.1cm}$ métricas calculadas en el paso anterior. Si la métrica usada fuera el ECM, entonces:
 
-    $$ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{k} \cdot \sum_{r=1}^k ECM_{test}(\widehat{M}_r)$$
+    $$ECM( {M})_{test}^{\hspace{0.08cm}*} = \dfrac{1}{k} \cdot \sum_{r=1}^k ECM_{test}(\widehat{M}_r)$$
     
 
 </p>
@@ -1714,7 +1714,7 @@ No vamos a hacer aquí una descripción tan detallada del algoritmo como las ant
 
 Si la métrica considerada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$, entonces:
 
-$$ECM_{test}^{\hspace{0.08cm}*}( {M}) \hspace{0.1cm}= \hspace{0.1cm}\dfrac{1}{k\cdot B} \cdot \sum_{j=1}^B \sum_{r=1}^k \hspace{0.1cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)$$
+$$ECM( {M})_{test}^{\hspace{0.08cm}*} \hspace{0.1cm}= \hspace{0.1cm}\dfrac{1}{k\cdot B} \cdot \sum_{j=1}^B \sum_{r=1}^k \hspace{0.1cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)$$
     
 
 </p>
@@ -1734,6 +1734,7 @@ $$ECM_{test}^{\hspace{0.08cm}*}( {M}) \hspace{0.1cm}= \hspace{0.1cm}\dfrac{1}{k\
 La métrica de validación calculada por repeted k-fold tiene menor varianza que con los métodos anteriores, luego es el mas preciso de todos ellos. Este debería ser el método empleado en la práctica, siempre que se pueda, ya que también es el que mas requerimientos computacionales tiene.
 
 
+
 <br>
 
 
@@ -1741,7 +1742,51 @@ La métrica de validación calculada por repeted k-fold tiene menor varianza que
 
 
 
+Dado un conjunto de  modelos de aprendizaje supervisado, nos interesa establecer un criterio para seleccionar uno de ellos como el mejor.
 
+A continuación se expone un criterio basado en las métricas y algoritmos de validación que se han visto anteriormente. $\\[0.5cm]$
+
+
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+
+- Tenemos $\hspace{0.1cm}h\hspace{0.1cm}$ modelos de aprendizaje supervisado $\hspace{0.1cm}M_1\hspace{0.05cm},\hspace{0.05cm}M_2\hspace{0.05cm},...,\hspace{0.05cm}M_h\hspace{0.05cm}$
+
+- Se validan esos modelos usando un mismo algoritmo de validación, con una misma métrica de evaluación. Se obtendrán $\hspace{0.1cm}h\hspace{0.1cm}$ valores de la métrica, una para cada modelo. $\\[0.5cm]$
+
+    Si la métrica fuera el ECM se tendrian por ejemplo los siguientes valores:
+
+    $$ECM(M_1)_{test}^{\hspace{0.05cm} *} \hspace{0.1cm}, ...,\hspace{0.1cm} ECM(M_h)_{test}^{\hspace{0.05cm} *} \\$$
+
+
+- El criterio es seleccionar el modelo que tienen **mejor** valor de la métrica. Si es una métrica de error, el que menor valor tiene. Si es una métrica de acierto, el que mayor valor tiene. $\\[0.8cm]$
+
+
+- Si la métrica es de error, como por ejemplo el $\hspace{0.1cm}ECM\hspace{0.1cm}$, entonces: $\\[0.7cm]$
+
+    - El modelo seleccionado es $\hspace{0.1cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.1cm}$ , donde: $\\[0.5cm]$
+
+    $$j^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} arg \underset{j \in \lbrace 1,...,h\rbrace }{Min} \hspace{0.15cm}  ECM(M_j)_{test}^{\hspace{0.05cm} *} \\[1cm]$$
+
+
+
+- Si la métrica es de acierto, como por ejemplo la $\hspace{0.1cm}TA\hspace{0.1cm}$, entonces: $\\[0.5cm]$
+
+    - El modelo seleccionado es $\hspace{0.1cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.1cm}$ , donde: $\\[0.5cm]$
+
+
+    $$j^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} arg \underset{j \in \lbrace 1,...,h\rbrace }{Max} \hspace{0.15cm}  TA(M_j)_{test}^{\hspace{0.05cm} *}$$
+
+
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
@@ -1756,7 +1801,7 @@ https://www.cienciadedatos.net/documentos/30_cross-validation_oneleaveout_bootst
 
 
 
-
+<br>
 
 
 

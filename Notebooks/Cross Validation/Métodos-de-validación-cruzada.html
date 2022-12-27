@@ -2377,12 +2377,12 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 <div id="k-fold" class="section level2" number="3.5">
 <h2><span class="header-section-number">3.5</span> k-fold</h2>
 <p><strong>Decripción no formal del algoritmo:</strong></p>
-<p>Este algoritmo de validacion consiste en dividir el data-set inicial en <span class="math inline">\(k\)</span> partes, y usar de manera secuencial cada una de esas partes como muestra test, y las union de las partes restantes como muestra train.</p>
-<p>Por tanto con este método se usan <span class="math inline">\(k\)</span> muestras de test y de train.</p>
-<p>El modelo es entrenado secuencialmente con cada una de las <span class="math inline">\(k\)</span> muestras de train disitntas, y se testea con la correspondiente muestra de test (que es el complementario de la de train), usando una métrica de evaluacion.</p>
-<p>Es decir, tras dividir el data-set inicial en <span class="math inline">\(k\)</span> partes la parte 1 se usa como test y el resto como train, se calcula la metrica de evaluacion. Luego la parte 2 se usa como test y el resto como train, y se calcula la metrica de evaluacion. Asi sucesivamente hasta haber usado las <span class="math inline">\(k\)</span> partes como muestras de test.</p>
-<p>Tras este proceso se habrán obtenido <span class="math inline">\(k\)</span> valores de dicha métrica de evaluacion.</p>
-<p>La métrica de evaluacion calculada usando este método de validación es la media de dichos <span class="math inline">\(k\)</span> valores obtenidos para la métrica de evaluación escogida. Este valor medio final es la que será usado para medir el poder predictivo del modelo y compararlo con otros modelos.</p>
+<p>Este algoritmo de validacion consiste en dividir el data-set inicial en <span class="math inline">\(\hspace{0.1cm} k\hspace{0.1cm}\)</span> partes, y usar de manera secuencial cada una de esas partes como muestra test, y las union de las partes restantes como muestra train.</p>
+<p>Por tanto con este método se usan <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> muestras de test y de train.</p>
+<p>El modelo es entrenado secuencialmente con cada una de las <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> muestras de train disitntas, y se testea con la correspondiente muestra de test (que es el complementario de la de train), usando una métrica de evaluacion.</p>
+<p>Es decir, tras dividir el data-set inicial en <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> partes la parte 1 se usa como test y el resto como train, se calcula la metrica de evaluacion. Luego la parte 2 se usa como test y el resto como train, y se calcula la metrica de evaluacion. Asi sucesivamente hasta haber usado las <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> partes como muestras de test.</p>
+<p>Tras este proceso se habrán obtenido <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> valores de dicha métrica de evaluacion.</p>
+<p>La métrica de evaluacion calculada usando este método de validación es la media de dichos <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> valores obtenidos para la métrica de evaluación escogida. Este valor medio final es la que será usado para medir el poder predictivo del modelo y compararlo con otros modelos.</p>
 <p><br></p>
 <p><strong>Decripción formal del algoritmo:</strong></p>
 <p>El algoritmo de validación k-folds tiene los siguientes pasos:</p>
@@ -2506,7 +2506,7 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 <li><p><span class="math inline">\(y_i^{\hspace{0.1cm}test,r}\hspace{0.1cm}\)</span> es la observación <span class="math inline">\(i\)</span>-esima de la muestra de test <span class="math inline">\(r\)</span>-esima de la variable respuesta. <span class="math inline">\(\\[1cm]\)</span></p></li>
 </ul></li>
 <li><p>Se calcula la métrica final de evaluación del modelo como el promedio de las <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> métricas calculadas en el paso anterior. Si la métrica usada fuera el ECM, entonces:</p>
-<p><span class="math display">\[ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{k} \cdot \sum_{r=1}^k ECM_{test}(\widehat{M}_r)\]</span></p></li>
+<p><span class="math display">\[ECM( {M})_{test}^{\hspace{0.08cm}*} = \dfrac{1}{k} \cdot \sum_{r=1}^k ECM_{test}(\widehat{M}_r)\]</span></p></li>
 </ul>
 </p>
 </p>
@@ -2542,22 +2542,49 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 <li><p><span class="math inline">\(x_i^{\hspace{0.1cm}test, r,j}\hspace{0.1cm}\)</span> es la observación <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la muestra de test <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima de los predictores obtenida en la repetición <span class="math inline">\(\hspace{0.1cm}j\)</span>-esima del algoritmo k-folds. <span class="math inline">\(\\[0.7cm]\)</span></p></li>
 <li><p><span class="math inline">\(y_i^{\hspace{0.1cm}test, r,j}\hspace{0.1cm}\)</span> es la observacion <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la muestra de test <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima de la variable respuesta, obtenida en la repetición <span class="math inline">\(\hspace{0.1cm}j\)</span>-esima del algoritmo k-folds. <span class="math inline">\(\\[0.7cm]\)</span></p></li>
 </ul>
-<p>Nótese que debido al componente aleatorio presente en el algoritmo k-folds, cada vez que se repita el algoritmo se obtendram muestras de train y test diferentes. <span class="math inline">\(\\[0.7cm]\)</span></p></li>
-<li><p>Se calcula la métrica final de evaluación del modelo como el promedio de las <span class="math inline">\(\hspace{0.1cm}k\cdot B\hspace{0.1cm}\)</span> métricas calculadas en el paso anterior. Si la métrica considerada es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, entonces:</p></li>
+<p>Nótese que debido al componente aleatorio presente en el algoritmo k-folds, cada vez que se repita el algoritmo se obtendram muestras de train y test diferentes. <span class="math inline">\(\\[1cm]\)</span></p></li>
+<li><p>Se calcula la métrica final de evaluación del modelo como el promedio de las <span class="math inline">\(\hspace{0.1cm}k\cdot B\hspace{0.1cm}\)</span> métricas calculadas en el paso anterior.</p></li>
 </ul>
-<p><span class="math display">\[ECM_{test}^{\hspace{0.08cm}*}( {M}) \hspace{0.1cm}= \hspace{0.1cm}\dfrac{1}{k\cdot B} \cdot \sum_{j=1}^B \sum_{r=1}^k \hspace{0.1cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)\]</span></p>
+<p>Si la métrica considerada es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, entonces:</p>
+<p><span class="math display">\[ECM( {M})_{test}^{\hspace{0.08cm}*} \hspace{0.1cm}= \hspace{0.1cm}\dfrac{1}{k\cdot B} \cdot \sum_{j=1}^B \sum_{r=1}^k \hspace{0.1cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)\]</span></p>
 </p>
 </p>
 <p></span></p>
 </div>
 <p><br></p>
 <p><strong>Ventajas</strong></p>
-<p>La métrica de validacion calculada por repeted k-fold tiene menor varianza que con los métodos anteriores, luego es el mas preciso de todos ellos. Este debería ser el método empleado en la práctica, siempre que se pueda, ya que también es el que mas requerimientos computacionales tiene.</p>
+<p>La métrica de validación calculada por repeted k-fold tiene menor varianza que con los métodos anteriores, luego es el mas preciso de todos ellos. Este debería ser el método empleado en la práctica, siempre que se pueda, ya que también es el que mas requerimientos computacionales tiene.</p>
 <p><br></p>
 </div>
 </div>
 <div id="selección-de-modelos-basada-en-validación-cruzada" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Selección de modelos basada en validación cruzada</h1>
+<p>Dado un conjunto de modelos de aprendizaje supervisado, nos interesa establecer un criterio para seleccionar uno de ellos como el mejor.</p>
+<p>A continuación se expone un criterio basado en las métricas y algoritmos de validación que se han visto anteriormente. <span class="math inline">\(\\[0.5cm]\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<ul>
+<li><p>Tenemos <span class="math inline">\(\hspace{0.1cm}h\hspace{0.1cm}\)</span> modelos de aprendizaje supervisado <span class="math inline">\(\hspace{0.1cm}M_1\hspace{0.05cm},\hspace{0.05cm}M_2\hspace{0.05cm},...,\hspace{0.05cm}M_h\hspace{0.05cm}\)</span></p></li>
+<li><p>Se validan esos modelos usando un mismo algoritmo de validación, con una misma métrica de evaluación. Se obtendrán <span class="math inline">\(\hspace{0.1cm}h\hspace{0.1cm}\)</span> valores de la métrica, una para cada modelo. <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p>Si la métrica fuera el ECM se tendrian por ejemplo los siguientes valores:</p>
+<p><span class="math display">\[ECM(M_1)_{test}^{\hspace{0.05cm} *} \hspace{0.1cm}, ...,\hspace{0.1cm} ECM(M_h)_{test}^{\hspace{0.05cm} *} \\\]</span></p></li>
+<li><p>El criterio es seleccionar el modelo que tienen <strong>mejor</strong> valor de la métrica. Si es una métrica de error, el que menor valor tiene. Si es una métrica de acierto, el que mayor valor tiene. <span class="math inline">\(\\[0.8cm]\)</span></p></li>
+<li><p>Si la métrica es de error, como por ejemplo el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, entonces: <span class="math inline">\(\\[0.7cm]\)</span></p>
+<ul>
+<li>El modelo seleccionado es <span class="math inline">\(\hspace{0.1cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.1cm}\)</span> , donde: <span class="math inline">\(\\[0.5cm]\)</span></li>
+</ul>
+<p><span class="math display">\[j^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} arg \underset{j \in \lbrace 1,...,h\rbrace }{Min} \hspace{0.15cm}  ECM(M_j)_{test}^{\hspace{0.05cm} *} \\[1cm]\]</span></p></li>
+<li><p>Si la métrica es de acierto, como por ejemplo la <span class="math inline">\(\hspace{0.1cm}TA\hspace{0.1cm}\)</span>, entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<ul>
+<li>El modelo seleccionado es <span class="math inline">\(\hspace{0.1cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.1cm}\)</span> , donde: <span class="math inline">\(\\[0.5cm]\)</span></li>
+</ul>
+<p><span class="math display">\[j^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} arg \underset{j \in \lbrace 1,...,h\rbrace }{Max} \hspace{0.15cm}  TA(M_j)_{test}^{\hspace{0.05cm} *}\]</span></p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="bibliografía" class="section level1" number="5">
@@ -2566,6 +2593,7 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 <li>Amat Rodrigo, J. (Noviembre 2020). Validación de modelos predictivos: Cross-validation, OneLeaveOut, Bootstraping. <em>Cienciadedatos</em>.<br />
 <a href="https://www.cienciadedatos.net/documentos/30_cross-validation_oneleaveout_bootstrap" class="uri">https://www.cienciadedatos.net/documentos/30_cross-validation_oneleaveout_bootstrap</a></li>
 </ul>
+<p><br></p>
 </div>
 </div>
 
