@@ -2502,23 +2502,28 @@ como los limites que definen las partes en las que dividiremos <span class="math
 </div>
 <div id="repeted-k-fold" class="section level2" number="3.6">
 <h2><span class="header-section-number">3.6</span> Repeted k-fold</h2>
-<p>Este algoritmo consiste en repetir el algoritmo k-fold un número <span class="math inline">\(B\)</span> de veces.</p>
-<p>No vamos a hacer aqui una descripción tan detallada del algoritmo como las anteriores, puesto que buena parte es repetir la estructura de k-fold, pero repitiendola <span class="math inline">\(B\)</span> veces.</p>
-<p>Es facil ver que se obtendrian <span class="math inline">\(k\cdot B\)</span> muestras de test y train, por lo que se entrenaria y testaria el modelo <span class="math inline">\(M\)</span> un total de <span class="math inline">\(k\cdot B\)</span> veces.</p>
-<p>Si la métrica usada para evaluar el modelo es el habitual <span class="math inline">\(ECM\)</span> , entocnes se obtienen <span class="math inline">\(k\cdot B\)</span> valores de esta metrica:</p>
-<p><span class="math display">\[ECM_{test }(\widehat{M}_1^{\hspace{0.1cm}1}) \hspace{0.1cm},  \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}(\widehat{M}_k^{\hspace{0.1cm}1}) ,ECM_{test }(\widehat{M}_1^{\hspace{0.1cm}2}) \hspace{0.1cm}, \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}(\widehat{M}_k^{\hspace{0.1cm}2}),...,ECM_{test }(\widehat{M}_1^{\hspace{0.1cm}B}) \hspace{0.1cm},\ \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}(\widehat{M}_k^{\hspace{0.1cm}B})   \\\]</span></p>
+<p>Este algoritmo consiste en <strong>repetir</strong> el algoritmo <strong>k-fold</strong> un número <span class="math inline">\(\hspace{0.1cm} B \hspace{0.1cm}\)</span> de veces.</p>
+<p>No vamos a hacer aquí una descripción tan detallada del algoritmo como las anteriores, puesto que buena parte es repetir <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> veces la estructura del k-fold.</p>
+<ul>
+<li><p>Es fácil ver que se obtendrían <span class="math inline">\(\hspace{0.1cm}k\cdot B\hspace{0.1cm}\)</span> muestras de test y train, por lo que se entrenaría y testaría el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> un total de <span class="math inline">\(\hspace{0.1cm}k\cdot B\hspace{0.1cm}\)</span> veces.</p></li>
+<li><p>Si la métrica usada para evaluar el modelo es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , entocnes se obtienen <span class="math inline">\(\hspace{0.1cm}k\cdot B\hspace{0.1cm}\)</span> valores de esta métrica:</p></li>
+</ul>
+<p><span class="math display">\[ECM_{test }(\widehat{M}_1^{\hspace{0.1cm}1}) \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}(\widehat{M}_k^{\hspace{0.1cm}1}) \hspace{0.1cm},...,\hspace{0.1cm}ECM_{test }(\widehat{M}_1^{\hspace{0.1cm}B}) \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}(\widehat{M}_k^{\hspace{0.1cm}B})   \\\]</span></p>
 <p>Donde:</p>
-<p><span class="math inline">\(\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\)</span> es el modelo M entrenado con la muestra <span class="math inline">\(\hspace{0.1cm}D_{train, r}\hspace{0.1cm}\)</span> en la repeticion <span class="math inline">\(\hspace{0.1cm}j\hspace{0.1cm}\)</span> del algoritmo k-fold , para <span class="math inline">\(\hspace{0.1cm}r=1,...,k\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}j=1,...,B\)</span></p>
-<p><span class="math inline">\(ECM_{test }(\widehat{M}_r^{\hspace{0.1cm}j})\hspace{0.1cm}\)</span> es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> calculado sobre el modelo <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\)</span> usando la muestra de train <span class="math inline">\(r\)</span>-esima obtenida en la repeticion <span class="math inline">\(j\)</span>-esima del algoritmo k-fold , es decir, <span class="math inline">\(\hspace{0.1cm}D_{test,r}^{\hspace{0.1cm}j}\hspace{0.1cm} \\\)</span></p>
-<p><span class="math display">\[ECM_{test }(\widehat{M}_r^{\hspace{0.1cm}j}) = \dfrac{1}{\# D_{test, r}} \cdot \sum_{i=1}^{\# D_{test, r}^{\hspace{0.1cm}j}} \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r,j} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r,j} \hspace{0.1cm})^2\]</span></p>
+<p><span class="math inline">\(\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\)</span> es el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> entrenado con la muestra de train <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima obtenida en la repeticion <span class="math inline">\(\hspace{0.1cm}j\)</span>-esima del algoritmo k-fold, es decir, <span class="math inline">\(\hspace{0.1cm}D_{train, r}^{\hspace{0.1cm}j}\hspace{0.1cm}\)</span> , para <span class="math inline">\(\hspace{0.1cm}r\in \lbrace 1,...,k \rbrace\hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm}j\in \lbrace 1,...,B\rbrace\)</span></p>
+<p><span class="math inline">\(ECM_{test }\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right)\hspace{0.1cm}\)</span> es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> calculado sobre el modelo <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\)</span> usando la muestra de test <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima obtenida en la repeticion <span class="math inline">\(\hspace{0.1cm}j\)</span>-esima del algoritmo k-fold , es decir, <span class="math inline">\(\hspace{0.1cm}D_{test,r}^{\hspace{0.1cm}j}\hspace{0.1cm} \\\)</span></p>
+<p><span class="math display">\[ECM_{test }\left( \hspace{0.1cm} \widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right) = \dfrac{1}{\# D_{test, r}^{\hspace{0.1cm}j}} \cdot \sum_{i=1}^{\# D_{test, r}^{\hspace{0.1cm}j}} \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r,j} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r,j} \hspace{0.1cm})^2\]</span></p>
 <p><span class="math inline">\(\hspace{0.55cm}\)</span> Donde:</p>
 <p><span class="math display">\[\hat{y}_i^{test,r,j} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test, r,j} \hspace{0.1cm}|\hspace{0.1cm} D_{train,r}^{\hspace{0.1cm}j}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r (\hspace{0.1cm} x_i^{test, r,j} \hspace{0.1cm} ) \\\]</span></p>
 <p>para <span class="math inline">\(\hspace{0.1cm}r=1,...,k \\\)</span></p>
-<p><span class="math inline">\(4)\hspace{0.1cm}\)</span> Se calcula la métrica final de evaluacion del modelo como el promedio de las <span class="math inline">\(k\cdot B\)</span> metricas calculadas en 3). Si la metrica usada en 3) es el <span class="math inline">\(ECM\)</span>, entonces:</p>
-<p><span class="math display">\[ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{k\cdot B} \cdot \sum_{j=1}^B \sum_{r=1}^k   ECM_{test}(\widehat{M}_r^{\hspace{0.1cm}j})\]</span></p>
+<p>Notese que debido al componente aleatorio presente en el algoritmo k-folds, cada vez que se repita el algoritmo se obtendram muestras de train y test diferentes.</p>
+<ul>
+<li>Se calcula la métrica final de evaluacion del modelo como el promedio de las <span class="math inline">\(\hspace{0.1cm}k\cdot B\hspace{0.1cm}\)</span> metricas calculadas en 3). Si la metrica usada en 3) es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, entonces:</li>
+</ul>
+<p><span class="math display">\[ECM_{test}^{\hspace{0.08cm}*}( {M}) \hspace{0.1cm}= \hspace{0.1cm}\dfrac{1}{k\cdot B} \cdot \sum_{j=1}^B \sum_{r=1}^k   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)\]</span></p>
 <p><br></p>
 <p><strong>Ventajas</strong></p>
-<p>La metrica de validacion calculada por repeted k-fold tiene menor varianza que con los métodos anteriores, luego es el mas preciso de todos ellos. Este deberia ser el método empleado en la práctica, siempre que se pueda, ya que también es el que mas requerimientos computacionales tiene.</p>
+<p>La métrica de validacion calculada por repeted k-fold tiene menor varianza que con los métodos anteriores, luego es el mas preciso de todos ellos. Este debería ser el método empleado en la práctica, siempre que se pueda, ya que también es el que mas requerimientos computacionales tiene.</p>
 <p><br></p>
 </div>
 </div>
@@ -2528,9 +2533,10 @@ como los limites que definen las partes en las que dividiremos <span class="math
 </div>
 <div id="bibliografía" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Bibliografía</h1>
-<ol style="list-style-type: decimal">
-<li>An introduction to statistical learning</li>
-</ol>
+<ul>
+<li>Amat Rodrigo, J. (Noviembre 2020). Validación de modelos predictivos: Cross-validation, OneLeaveOut, Bootstraping. <em>Cienciadedatos</em>.<br />
+<a href="https://www.cienciadedatos.net/documentos/30_cross-validation_oneleaveout_bootstrap" class="uri">https://www.cienciadedatos.net/documentos/30_cross-validation_oneleaveout_bootstrap</a></li>
+</ul>
 </div>
 </div>
 

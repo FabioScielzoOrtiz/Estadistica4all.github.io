@@ -1645,35 +1645,49 @@ La metrica de validacion calculada por k-fold tiene menor varianza que con los m
 
 
 
-Este algoritmo consiste en repetir el algoritmo k-fold un número $B$ de veces.
+Este algoritmo consiste en **repetir** el algoritmo **k-fold** un número $\hspace{0.1cm} B \hspace{0.1cm}$ de veces.
 
-No vamos a hacer aqui una descripción tan detallada del algoritmo como las anteriores, puesto que buena parte es repetir la estructura de k-fold, pero repitiendola $B$ veces.
+No vamos a hacer aquí una descripción tan detallada del algoritmo como las anteriores, puesto que buena parte es repetir $\hspace{0.1cm}B\hspace{0.1cm}$ veces la estructura del k-fold.
 
-Es facil ver que se obtendrian $k\cdot B$ muestras de test y train, por lo que se entrenaria y testaria el modelo $M$ un total de $k\cdot B$ veces.
+- Es fácil ver que se obtendrían $\hspace{0.1cm}k\cdot B\hspace{0.1cm}$ muestras de test y train, por lo que se entrenaría y testaría el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ un total de $\hspace{0.1cm}k\cdot B\hspace{0.1cm}$ veces.
 
-Si la métrica usada para evaluar el modelo es el habitual $ECM$ , entocnes se obtienen $k\cdot B$ valores de esta metrica:
+- Si la métrica usada para evaluar el modelo es el  $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entocnes se obtienen $\hspace{0.1cm}k\cdot B\hspace{0.1cm}$ valores de esta métrica:
 
 
-$$ECM_{test }(\widehat{M}_1^{\hspace{0.1cm}1}) \hspace{0.1cm},  \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}(\widehat{M}_k^{\hspace{0.1cm}1}) ,ECM_{test }(\widehat{M}_1^{\hspace{0.1cm}2}) \hspace{0.1cm}, \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}(\widehat{M}_k^{\hspace{0.1cm}2}),...,ECM_{test }(\widehat{M}_1^{\hspace{0.1cm}B}) \hspace{0.1cm},\ \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}(\widehat{M}_k^{\hspace{0.1cm}B})   \\$$
+$$ECM_{test }(\widehat{M}_1^{\hspace{0.1cm}1}) \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}(\widehat{M}_k^{\hspace{0.1cm}1}) \hspace{0.1cm},...,\hspace{0.1cm}ECM_{test }(\widehat{M}_1^{\hspace{0.1cm}B}) \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}(\widehat{M}_k^{\hspace{0.1cm}B})   \\$$
 
 
 Donde: 
 
-$\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}$ es el modelo M entrenado con la muestra $\hspace{0.1cm}D_{train, r}\hspace{0.1cm}$ en la repeticion $\hspace{0.1cm}j\hspace{0.1cm}$ del algoritmo k-fold , para $\hspace{0.1cm}r=1,...,k\hspace{0.1cm}$ y $\hspace{0.1cm}j=1,...,B$
+$\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}$ es el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ entrenado con la muestra de train $\hspace{0.1cm}r$-esima obtenida en la repeticion $\hspace{0.1cm}j$-esima del algoritmo k-fold, es decir,  $\hspace{0.1cm}D_{train, r}^{\hspace{0.1cm}j}\hspace{0.1cm}$ , para $\hspace{0.1cm}r\in \lbrace 1,...,k \rbrace\hspace{0.15cm}$ y $\hspace{0.15cm}j\in \lbrace 1,...,B\rbrace$
 
-$ECM_{test }(\widehat{M}_r^{\hspace{0.1cm}j})\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre el modelo $\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}$ usando la muestra de train $r$-esima obtenida en la repeticion $j$-esima del algoritmo k-fold , es decir, $\hspace{0.1cm}D_{test,r}^{\hspace{0.1cm}j}\hspace{0.1cm} \\$ 
+$ECM_{test }\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right)\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre el modelo $\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}$ usando la muestra de test $\hspace{0.1cm}r$-esima obtenida en la repeticion $\hspace{0.1cm}j$-esima del algoritmo k-fold , es decir, $\hspace{0.1cm}D_{test,r}^{\hspace{0.1cm}j}\hspace{0.1cm} \\$ 
 
-$$ECM_{test }(\widehat{M}_r^{\hspace{0.1cm}j}) = \dfrac{1}{\# D_{test, r}} \cdot \sum_{i=1}^{\# D_{test, r}^{\hspace{0.1cm}j}} \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r,j} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r,j} \hspace{0.1cm})^2$$
+$$ECM_{test }\left( \hspace{0.1cm} \widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right) = \dfrac{1}{\# D_{test, r}^{\hspace{0.1cm}j}} \cdot \sum_{i=1}^{\# D_{test, r}^{\hspace{0.1cm}j}} \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r,j} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r,j} \hspace{0.1cm})^2$$
 
 $\hspace{0.55cm}$ Donde:
 
 $$\hat{y}_i^{test,r,j} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test, r,j} \hspace{0.1cm}|\hspace{0.1cm} D_{train,r}^{\hspace{0.1cm}j}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r (\hspace{0.1cm} x_i^{test, r,j} \hspace{0.1cm} ) \\$$
 
-para $\hspace{0.1cm}r=1,...,k \\$
 
-$4)\hspace{0.1cm}$ Se calcula la métrica final de evaluacion del modelo como el promedio de las $k\cdot B$ metricas calculadas en 3). Si la metrica usada en 3) es el $ECM$, entonces:
 
-$$ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{k\cdot B} \cdot \sum_{j=1}^B \sum_{r=1}^k   ECM_{test}(\widehat{M}_r^{\hspace{0.1cm}j})$$
+$x_i^{test, r,j}$ es la observación $i$-esima de $D_{test,r}^j$
+
+$(x_i^{test, r,j} , y_i^{test, r,j})$ es la observación (fila) $i$-esima de $D_{test,r}^j$
+
+$x_i^{test, r,j}$ es la observación $i$-esima de la muestra de test r-esima de los predictores obtenida en la repeticion j esima del algoritmo k-folds.
+
+y_i^{test, r,j} es la observacion i-esima de la muestra de test r-esima de la variable respuesta, obtenida en la repeticion j-esima del algoritmo k-folds.
+
+
+para $\hspace{0.1cm}r\in \lbrace 1,...,k \rbrace \\$
+
+
+Nótese que debido al componente aleatorio presente en el algoritmo k-folds, cada vez que se repita el algoritmo se obtendram muestras de train y test diferentes.
+
+- Se calcula la métrica final de evaluación del modelo como el promedio de las $\hspace{0.1cm}k\cdot B\hspace{0.1cm}$ métricas calculadas en el paso anterior. Si la métrica considerada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$, entonces:
+
+$$ECM_{test}^{\hspace{0.08cm}*}( {M}) \hspace{0.1cm}= \hspace{0.1cm}\dfrac{1}{k\cdot B} \cdot \sum_{j=1}^B \sum_{r=1}^k   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)$$
     
 
 
@@ -1687,7 +1701,7 @@ $$ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{k\cdot B} \cdot \sum_{j=1}^B \
 
 **Ventajas**
 
-La metrica de validacion calculada por repeted k-fold tiene menor varianza que con los métodos anteriores, luego es el mas preciso de todos ellos. Este deberia ser el método empleado en la práctica, siempre que se pueda, ya que también es el que mas requerimientos computacionales tiene.
+La métrica de validacion calculada por repeted k-fold tiene menor varianza que con los métodos anteriores, luego es el mas preciso de todos ellos. Este debería ser el método empleado en la práctica, siempre que se pueda, ya que también es el que mas requerimientos computacionales tiene.
 
 
 <br>
@@ -1704,9 +1718,8 @@ La metrica de validacion calculada por repeted k-fold tiene menor varianza que c
 # Bibliografía
 
 
-
-
-1) An introduction to statistical learning
+- Amat Rodrigo, J. (Noviembre 2020). Validación de modelos predictivos: Cross-validation, OneLeaveOut, Bootstraping. *Cienciadedatos*.  
+https://www.cienciadedatos.net/documentos/30_cross-validation_oneleaveout_bootstrap
 
 
 
