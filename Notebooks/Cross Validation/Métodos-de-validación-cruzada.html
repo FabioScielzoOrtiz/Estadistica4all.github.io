@@ -2165,7 +2165,7 @@ y una muestra <span class="math inline">\(\hspace{0.1cm}X_j\hspace{0.1cm}\)</spa
 <p style="margin-left:1em;">
 <ul>
 <li><p>Se divide <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> en parte de train y parte de test del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</span></p>
-<p>Sea <span class="math inline">\(\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}\)</span> la proporción de filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> que formarán parte de la muestra de <strong>train</strong> (es un hiper-parametro del algoritmo): <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Sea <span class="math inline">\(\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}\)</span> la proporción de filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> que formarán parte de la muestra de <strong>train</strong> (es un hiper-parametro del algoritmo): <span class="math inline">\(\\[0.4cm]\)</span></p>
 <ul>
 <li>Se genera una muestra aleatoria sin reemplazamiento de tamaño <span class="math inline">\(\hspace{0.1cm} \lfloor k \cdot N \rfloor\hspace{0.1cm}\)</span> del vector <span class="math inline">\(\hspace{0.1cm}(1,2,...,N) \\\)</span></li>
 </ul>
@@ -2242,7 +2242,7 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 <p style="margin-left:1em;">
 <ul>
 <li><p>Se obtienen <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> particiones de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> en parte de train y parte de test del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</span></p>
-<p>Sea <span class="math inline">\(\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}\)</span> la proporción de filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> que formarán parte de la muestra de <strong>train</strong> (es un hiper-parametro del algoritmo): <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Sea <span class="math inline">\(\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}\)</span> la proporción de filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> que formarán parte de la muestra de <strong>train</strong> (es un hiper-parametro del algoritmo): <span class="math inline">\(\\[0.4cm]\)</span></p>
 <ul>
 <li><p>Se generan <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras aleatoria sin reemplazamiento de tamaño <span class="math inline">\(\hspace{0.1cm}\lfloor k \cdot N \rfloor\hspace{0.1cm}\)</span> del vector <span class="math inline">\(\hspace{0.1cm}(1,2,...,N)\hspace{0.1cm}\)</span> :</p>
 <p><span class="math display">\[m_1 \hspace{0.1cm},\hspace{0.1cm} m_2 \hspace{0.1cm},\hspace{0.1cm} ...\hspace{0.1cm},\hspace{0.1cm} m_B \\[0.4cm]\]</span></p>
@@ -2289,7 +2289,9 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 </ul>
 <p><span class="math display">\[ECM_{test }(\widehat{M}_r) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test,r}} \cdot \sum_{i=1}^{\# D_{test,r}} \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm})^2 \\\]</span></p>
 <p>Teniendo en cuenta que:</p>
-<p><span class="math display">\[\hat{y}_i^{test,r} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm}|\hspace{0.1cm} D_{train,r}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r (\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm} ) \\[1cm]\]</span></p></li>
+<ul>
+<li><span class="math inline">\(\hat{y}_i^{test,r} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm}|\hspace{0.1cm} D_{train,r}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r (\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm} ) \\[1cm]\)</span></li>
+</ul></li>
 <li><p>Se calcula la métrica final de evaluación del modelo como el promedio de las <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> métricas calculadas en el apartado anterior.</p>
 <p>Si la métrica usada en el apartado anterior es el ECM, entonces: <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p><span class="math display">\[ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{B} \cdot \sum_{r=1}^B ECM_{test}(\widehat{M}_r)\]</span></p></li>
@@ -2352,10 +2354,11 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 <p><span class="math display">\[ECM(\widehat{M}_r)_{test } =  (\hspace{0.1cm} y_r - \hat{y}_r \hspace{0.1cm})^2\]</span></p>
 <p><span class="math inline">\(\hspace{0.2cm}\)</span> Teniendo en cuenta que:</p>
 <ul>
-<li><p><span class="math inline">\(\hat{y}_r \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_r \hspace{0.1cm}|\hspace{0.1cm} D_{train,r}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r (\hspace{0.1cm} x_r \hspace{0.1cm} ) \\[1cm]\)</span></p></li>
-<li><p><span class="math inline">\(y_r\hspace{0.1cm}\)</span> es la observacion de la muestra de test <span class="math inline">\(\hspace{0.1cm} r\)</span>-esima de la variable respuesta.</p></li>
+<li><p><span class="math inline">\(\hat{y}_r \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_r \hspace{0.1cm}|\hspace{0.1cm} D_{train,r}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r (\hspace{0.1cm} x_r \hspace{0.1cm} ) \\\)</span></p></li>
+<li><p><span class="math inline">\(y_r\hspace{0.1cm}\)</span> es la observacion de la muestra de test <span class="math inline">\(\hspace{0.1cm} r\)</span>-esima de la variable respuesta. <span class="math inline">\(\\[1cm]\)</span></p></li>
 </ul></li>
-<li><p>Se calcula la métrica final de evaluación del modelo como el promedio de las <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> métricas calculadas en el paso anterior. Si la métrica usada es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, entonces:</p>
+<li><p>Se calcula la métrica final de evaluación del modelo como el promedio de las <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> métricas calculadas en el paso anterior.</p>
+<p>Si la métrica usada es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, entonces:</p>
 <p><span class="math display">\[ECM( M )_{test}^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{B} \cdot \sum_{r=1}^B \hspace{0.1cm} ECM(\widehat{M}_r)_{test}\]</span></p></li>
 </ul>
 </p>
@@ -2518,6 +2521,9 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 <h2><span class="header-section-number">3.6</span> Repeted k-fold</h2>
 <p>Este algoritmo consiste en <strong>repetir</strong> el algoritmo <strong>k-fold</strong> un número <span class="math inline">\(\hspace{0.1cm} B \hspace{0.1cm}\)</span> de veces.</p>
 <p>No vamos a hacer aquí una descripción tan detallada del algoritmo como las anteriores, puesto que buena parte es repetir <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> veces la estructura del k-fold. <span class="math inline">\(\\[0.5cm]\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
 <ul>
 <li><p>Es fácil ver que se obtendrían <span class="math inline">\(\hspace{0.1cm}k\cdot B\hspace{0.1cm}\)</span> muestras de test y train, por lo que se entrenaría y testaría el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> un total de <span class="math inline">\(\hspace{0.1cm}k\cdot B\hspace{0.1cm}\)</span> veces.<span class="math inline">\(\\[0.5cm]\)</span></p></li>
 <li><p>Si la métrica usada para evaluar el modelo es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , entocnes se obtienen <span class="math inline">\(\hspace{0.1cm}k\cdot B\hspace{0.1cm}\)</span> valores de esta métrica:</p>
@@ -2540,6 +2546,10 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 <li><p>Se calcula la métrica final de evaluación del modelo como el promedio de las <span class="math inline">\(\hspace{0.1cm}k\cdot B\hspace{0.1cm}\)</span> métricas calculadas en el paso anterior. Si la métrica considerada es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, entonces:</p></li>
 </ul>
 <p><span class="math display">\[ECM_{test}^{\hspace{0.08cm}*}( {M}) \hspace{0.1cm}= \hspace{0.1cm}\dfrac{1}{k\cdot B} \cdot \sum_{j=1}^B \sum_{r=1}^k \hspace{0.1cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 <p><strong>Ventajas</strong></p>
 <p>La métrica de validacion calculada por repeted k-fold tiene menor varianza que con los métodos anteriores, luego es el mas preciso de todos ellos. Este debería ser el método empleado en la práctica, siempre que se pueda, ya que también es el que mas requerimientos computacionales tiene.</p>
