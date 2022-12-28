@@ -1,5 +1,5 @@
 ---
-title: 'Métodos de validación cruzada'
+title: 'Algoritmos de validación cruzada'
 author: 'Fabio Scielzo Ortiz'
 date: '25/11/22'
 output: 
@@ -75,9 +75,9 @@ $\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). El algoritmo KNN. [Link](http://estad
  
  <br>
  
-Los métodos de validación son una familia muy importante de métodos dentro del aprendizaje estadístico o machine learning que permiten evaluar la capacidad predictiva de un modelo predictivo.
+Los algoritmos de validación son una familia muy importante de algoritmos dentro del aprendizaje estadístico o machine learning que permiten evaluar la capacidad predictiva de un modelo predictivo.
 
-Distinguiremos dos tipos de métodos de evaluacion de modelos:
+Distinguiremos dos tipos de algoritmos de validación de modelos:
 
 - Métodos de validación de modelos de **aprendizaje supervisado** $\Rightarrow$ son algoritmos que permiten evaluar modelos de aprendizaje supervisado usando **muestras de test y train de los predictores y la respuesta**, y una **métrica de evaluación**.
 
