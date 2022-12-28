@@ -869,14 +869,14 @@ Por lo que:
 
 $$P(\widehat{y}_i = h) = 1/k = p$$ 
 
-Para todo $\hspace{0.1cm}h=0,1,...,k-1$
+para todo $\hspace{0.1cm}h=0,1,...,k-1$
 
 
 Por tanto, para cada $\hspace{0.15cm}i=1,...,n\hspace{0.15cm}$ tenemos que: $\\[0.4cm]$
 
-$$P\left( \hspace{0.1cm} \mathbf{I}(\hat{y}_i = y_i) = 1\hspace{0.1cm} \right) = P \left( \hspace{0.1cm} \hat{y}_i = y_i \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1/k \hspace{0.1cm}=\hspace{0.1cm} p \\$$
+$\hspace{0.5cm} P\left( \hspace{0.1cm} \mathbf{I}(\hat{y}_i = y_i) = 1\hspace{0.1cm} \right) = P \left( \hspace{0.1cm} \hat{y}_i = y_i \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1/k \hspace{0.1cm}=\hspace{0.1cm} p$
 
-$$P\left( \hspace{0.1cm} \mathbf{I}(\hat{y}_i = y_i) = 0 \hspace{0.1cm} \right) \hspace{0.1cm} =\hspace{0.1cm} P\left( \hspace{0.1cm} \hat{y}_i \neq y_i \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1- 1/k  \hspace{0.1cm}=\hspace{0.1cm} 1 - p$$
+$\hspace{0.5cm} P\left( \hspace{0.1cm} \mathbf{I}(\hat{y}_i = y_i) = 0 \hspace{0.1cm} \right) \hspace{0.1cm} =\hspace{0.1cm} P\left( \hspace{0.1cm} \hat{y}_i \neq y_i \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1- 1/k  \hspace{0.1cm}=\hspace{0.1cm} 1 - p\\$
 
 Por lo que $\hspace{0.1cm}\mathbf{I}(\hat{y}_i = y_i)\hspace{0.1cm}$  es una variable binaria, con probabilidad de exito $\hspace{0.1cm}p\hspace{0.1cm}$ y de fracaso $\hspace{0.1cm}1-p\hspace{0.1cm}$, es decir:
 
