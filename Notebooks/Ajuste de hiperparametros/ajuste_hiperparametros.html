@@ -1418,7 +1418,7 @@ src: url(data:font/ttf;base64,AAEAAAARAQAABAAQR0RFRgs+Cz8AAjwQAAAAQEdQT1MXWeoAAA
     
     
     
-        <link rel="stylesheet" href="custom.css" type="text/css" />
+        <style type="text/css">#content{ max-width:1920px; }#main .nav-pills > li.active > a,#main .nav-pills > li.active > a:hover,#main .nav-pills > li.active > a:focus {background-color: #ffffff;}#main .nav-pills > li > a:hover {background-color: #ffffff;}h1,h2,h3,h4,h5,h6,legend{color: #b10d0d;}#nav-top span.glyphicon {color: #008B8B;}#table-of-contents header{color:#ffffff;background-color: #b51d1d;}#table-of-contents h2{background-color:#ffffff;}a:hover{color:#ffffff}a:visited{color:#ffffff}#sidebar {color: #682929;background: #652323;}#sidebar h2 {color: #fafafa;background-color: #970f0f;}#sidebar a {color: #ffffff;}#sidebar a:hover {background-color: #767272;color: #FFFFFF;}</style>
     
     <!-- tabsets -->
     <script>
@@ -1568,25 +1568,46 @@ margin-right: auto;
 <p><br></p>
 <div id="grid-search" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Grid search</h1>
-<p>Tenemos un modelo de aprendizaje estadístico <span class="math inline">\(M\)</span>, el cual tiene <span class="math inline">\(r\)</span> hiper-parametros <span class="math inline">\(h_1,...,h_r\)</span>, cuyos campos de variancion son <span class="math inline">\(R(h_1),...,R(h_r)\)</span>, respectivamente.</p>
-<p>Usaremos la notación <span class="math inline">\(M(h) = M(h_1,...,h_r)\)</span> para hacer explicitos los hiper-parametros del modelo. Donde <span class="math inline">\(h=(h_1,...,h_r)\)</span> es el vector de hiper-parametros del modelo.</p>
-<p>Se define el espacion de busqueda <span class="math inline">\(S\)</span> como un subconjunto del conjunto de posibles combinaciones de valores de los hiper-parametros:</p>
-<p><span class="math display">\[S \subset R(h_1)x...xR(h_r)\]</span></p>
+<p>Tenemos un modelo de aprendizaje estadístico <span class="math inline">\(\hspace{0.1cm} M \hspace{0.1cm}\)</span>, el cual tiene <span class="math inline">\(\hspace{0.1cm}r\hspace{0.1cm}\)</span> hiper-parametros <span class="math inline">\(\hspace{0.1cm}h_1,...,h_r\hspace{0.1cm}\)</span>, cuyos campos de variancion son <span class="math inline">\(\hspace{0.1cm}R(h_1),...,R(h_r)\hspace{0.1cm}\)</span>, respectivamente.</p>
+<p>Usaremos la notación <span class="math inline">\(\hspace{0.1cm}M(h) = M(h_1,...,h_r)\hspace{0.1cm}\)</span> para hacer explicitos los hiper-parametros del modelo. Donde <span class="math inline">\(\hspace{0.1cm}h=(h_1,...,h_r)\hspace{0.1cm}\)</span> es el vector de hiper-parametros del modelo.</p>
+<p>Se define el espacion de busqueda <span class="math inline">\(\hspace{0.1cm}S\hspace{0.1cm}\)</span> como un subconjunto del conjunto de posibles combinaciones de valores de los hiper-parametros:</p>
+<p><span class="math display">\[S \hspace{0.1cm} \subseteq \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}...\text{x}\hspace{0.1cm}R(h_r)\]</span></p>
+<p><br></p>
 <p>El algortimo grid search tienen los siguientes pasos:</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
 <ul>
-<li><p>Para cada <span class="math inline">\(s=(s_1,...,s_r) \in S\)</span></p>
+<li><p>Para cada <span class="math inline">\(\hspace{0.1cm}s=(s_1,...,s_r)\hspace{0.1cm} \in \hspace{0.1cm} S\)</span></p>
 <ul>
-<li>Se valida <span class="math inline">\(M(h=s)=M(h_1=s_1,...,h_r=s_r)\)</span> usando algún algoritmo de validación de modelos de aprendizaje estadístico. Con ello se obtiene un valor de una métrica de validacion para la combinacion de hiper-parametros <span class="math inline">\(s=(s_1,...,s_r)\)</span>.</li>
+<li>Se valida <span class="math inline">\(M(h=s)\hspace{0.05cm}=\hspace{0.05cm}M(h_1=s_1,...,h_r=s_r)\hspace{0.15cm}\)</span> usando algún algoritmo de validación de modelos de aprendizaje estadístico. Con ello se obtiene un valor de una métrica de validacion para la combinacion de hiper-parametros <span class="math inline">\(\hspace{0.1cm} s=(s_1,...,s_r)\\\)</span></li>
 </ul></li>
-<li><p>Tras el paso anterior se obtienen <span class="math inline">\(\# S\)</span> valores de la metrica de validacion calculada aplicando cierto algoritmo de validación.+</p>
-<p>Si la métrica usada fuera el <span class="math inline">\(ECM\)</span>, entonces se obtienen:</p>
-<p><span class="math display">\[\lbrace ECM(M(h=s))_{test}^*  / s\in S \rbrace\]</span></p></li>
-<li><p>Se selecciona el vector de hiper-parametros <span class="math inline">\(s=(s_1,...,s_r) \in S\)</span> con el que se obtiene un mejor valor de la métrica de validacion. Si la metrica es de error, se selecciona el <span class="math inline">\(s\)</span> con el que se obtiene menor valor de la metrica. Si la metrica es de acierto, se seleciona el <span class="math inline">\(s\)</span> con el que se obtiene mayor valor de la metrica.</p></li>
+<li><p>Tras el paso anterior se obtienen <span class="math inline">\(\hspace{0.15cm}\#\hspace{0.05cm} S\hspace{0.15cm}\)</span> valores de la metrica de validacion calculada aplicando cierto algoritmo de validación.</p>
+<ul>
+<li>Si, por ejemplo, la métrica usada fuera el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, entonces se obtienen:</li>
 </ul>
-<p>Si la metrica usado fuera el <span class="math inline">\(ECM\)</span>, que es una metrica de error, entonces el vector de hiper-parametros seleccionado seria <span class="math inline">\(s^*\)</span>, donde:</p>
-<p><span class="math display">\[s^* = arg \underset{s \in S}{Min} ECM(M(h=s))_{test}^*\]</span></p>
-<p>Si la metrica usado fuera la <span class="math inline">\(TA\)</span>, que es una métrica de acierto, entonces el vector de hiper-parametros seleccionado seria <span class="math inline">\(s^*\)</span>, donde:</p>
-<p><span class="math display">\[s^* = arg \underset{s \in S}{Max} TA(M(h=s))_{test}^*\]</span></p>
+<p><span class="math display">\[\left\lbrace \hspace{0.1cm} ECM(\hspace{0.05cm}M(h=s)\hspace{0.05cm})_{test}^* \hspace{0.15cm} / \hspace{0.15cm}  s\in S \hspace{0.1cm} \right\rbrace\\\]</span></p></li>
+<li><p>Se selecciona el vector de hiper-parametros <span class="math inline">\(\hspace{0.1cm}s=(s_1,...,s_r) \in S\hspace{0.1cm}\)</span> con el que se obtiene un mejor valor de la métrica de validacion. Si la metrica es de error, se selecciona el <span class="math inline">\(\hspace{0.1cm}s\hspace{0.1cm}\)</span> con el que se obtiene menor valor de la metrica. Si la metrica es de acierto, se seleciona el <span class="math inline">\(\hspace{0.1cm}s\hspace{0.1cm}\)</span> con el que se obtiene mayor valor de la metrica. <span class="math inline">\(\\[0.5cm]\)</span></p>
+<ul>
+<li>Si, por ejemplo, la métrica usado fuera el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, que es una métrica de error, entonces el vector de hiper-parámetros seleccionado seria <span class="math inline">\(\hspace{0.1cm}s^*\hspace{0.1cm}\)</span>, donde:</li>
+</ul>
+<p><span class="math display">\[s^* \hspace{0.2cm}=\hspace{0.2cm} arg\hspace{0.25cm} \underset{s \in S}{Min}\hspace{0.25cm} ECM( \hspace{0.05cm} M(h=s) \hspace{0.05cm} )_{test}^* \\\]</span></p>
+<ul>
+<li>Si, por ejemplo, la métrica usado fuera la <span class="math inline">\(\hspace{0.1cm}TA\hspace{0.1cm}\)</span>, que es una métrica de acierto, entonces el vector de hiper-parámetros seleccionado seria <span class="math inline">\(\hspace{0.1cm}s^*\hspace{0.1cm}\)</span>, donde:</li>
+</ul>
+<p><span class="math display">\[s^* \hspace{0.2cm}=\hspace{0.2cm} arg\hspace{0.25cm} \underset{s \in S}{Max}\hspace{0.25cm} TA\left( \hspace{0.05cm} M(h=s) \hspace{0.05cm}\right)_{test}^*\]</span></p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><strong>¿ Cómo definir <span class="math inline">\(S\)</span> ?</strong></p>
+<p>Lo ideal es que <span class="math inline">\(S \hspace{0.1cm} = \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}...\text{x}\hspace{0.1cm}R(h_r)\)</span>, pero cuando el numero de hiper-parametros es demasiado alto, o estos tienen campos de variacion grandes, esto no es factible en la practica. Por ello se suelen seguir dos vías más eficientes:</p>
+<ul>
+<li>Se toma <span class="math inline">\(S\)</span> como un subconjunto estricto de las posibles combinaciones de hiper-parametros , es decir, <span class="math inline">\(S \hspace{0.1cm} \subset \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}...\text{x}\hspace{0.1cm}R(h_r)\)</span></li>
+</ul>
+<p>La definición de <span class="math inline">\(S\)</span> en este contexto puede ser determinista, el usuario define las combinaciones de hiper-parametros que se van a considetar. O bien aleatoria, es decir, se escogen aleatoriamente las combinaciones de hiper-parametros que definirán a <span class="math inline">\(S\)</span>.</p>
+<p>Si la definición de <span class="math inline">\(S\)</span> es aleatoria, el algoritmo suele denominarse random grid search, o simplemente random search.</p>
 <p><br></p>
 </div>
 <div id="random-grid-search" class="section level1" number="2">
