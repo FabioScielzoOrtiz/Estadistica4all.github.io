@@ -91,9 +91,9 @@ también son llamados **métodos de validación cruzada**. Aunque realmente son 
 
 <br>
 
-¿Por que no se aplican los mismos métodos de validacion a los modelos de aprendizaje supervisado y no supervisado?
+**¿Por qué no se aplican los mismos métodos de validación a los modelos de aprendizaje supervisado y no supervisado?**
 
-Debido a que tienen unas carateristicas diferentes, en particular, en el parendizaje supervisado se tienen datos de la variable respuesta, mientras que en el no supervisado no se dispone de información alguna.
+Debido a que tienen unas características diferentes, en particular, en el aprendizaje supervisado se tienen datos de la variable respuesta, mientras que en el no supervisado no se dispone de información alguna.
 
 Si se quiere ver un planteamiento algo más detallado de los problemas de aprendizaje supervisado y no supervisado se recomienda leer el siguiente articulo de nuestro blog: [link](http://estadistica4all.com/Articulos/Los-problemas-de-clasificaci%C3%B3n-y-regresi%C3%B3n.html)
 <br>
@@ -112,11 +112,11 @@ En otros artículos estudiaremos métodos para selección de modelos y  ajuste d
 
 En este articulo vamos a estudiar los **métodos de validación de modelos de aprendizaje supervisado**. Los métodos de validación de modelos de aprendizaje no supervisado serán estudiados en otro artículo.
 
-Por lo que consideraremos que $M$ representa un **modelo o algoritmo de aprendizaje supervisado**, como por ejemplo el modelo de regresión lineal, regresión logistica, regresión no lineal, regresión lineal penalizada, arboles de regresión y clasificación, KNN , SVM, redes neuronales ...
+Por lo que consideraremos que $\hspace{0.1cm} M \hspace{0.1cm}$ representa un **modelo o algoritmo de aprendizaje supervisado**, como por ejemplo el modelo de regresión lineal, regresión logistica, regresión no lineal, regresión lineal penalizada, arboles de regresión y clasificación, KNN , SVM, redes neuronales ...
 
 Notese que en este articulo no se consideran modelos estadísticos predictivos no supervisados como son los modelos de clustering como K-medias, K-medoids, modelos jerarquicos, modelos basados en densidades ...
  
-Nos interesa tener un método a través del cual pueda evaluarse la capacidad o poder predictivo del modelo de aprendizaje supervisado $M$.
+Nos interesa tener un método a través del cual pueda evaluarse la capacidad o poder predictivo del modelo de aprendizaje supervisado $\hspace{0.1cm}M\hspace{0.1cm}$.
 
 Una aproximación naive es evaluar el poder predictivo del modelo usando dos elementos. Por un lado los datos disponibles de la variable respuesta, y por otro las predicciones que el modelo hace para los datos de los predcitores con los que el modelo ha sido entrenado. 
 
@@ -148,10 +148,10 @@ Este artículo es básicamente un tour (teórico-práctico) sobre estos elemento
  
 <p style='margin-left:1em;'>
 
-Tenemos una muestra  de $\hspace{0.1cm}N\hspace{0.1cm}$ observaciones de $\hspace{0.1cm}p\hspace{0.1cm}$ variables predictores $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ y  de una variable respuesta $\hspace{0.1cm}\mathcal{Y}\\$ 
+- Tenemos una muestra  de $\hspace{0.1cm}N\hspace{0.1cm}$ observaciones de $\hspace{0.1cm}p\hspace{0.1cm}$ variables predictores $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ y  de una variable respuesta $\hspace{0.1cm}\mathcal{Y}\\$ 
 
 
-$$D=[\hspace{0.1cm} X_1,...,X_p,Y \hspace{0.1cm}]=\begin{pmatrix}
+    $$D=[\hspace{0.1cm} X_1,...,X_p,Y \hspace{0.1cm}]=\begin{pmatrix}
     x_{11}&x_{12}&...&x_{1p}& y_1\\
     x_{21}&x_{22}&...&x_{2p} & y_2\\
     ...&...&...&...\\
