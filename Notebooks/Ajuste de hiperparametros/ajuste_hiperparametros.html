@@ -1511,7 +1511,8 @@ margin-left: 0 !important;
     <div id="toc">
       <ul>
       <li><a href="#grid-search" id="toc-grid-search"><span class="toc-section-number">1</span> Grid search</a></li>
-      <li><a href="#random-grid-search" id="toc-random-grid-search"><span class="toc-section-number">2</span> Random grid search</a></li>
+      <li><a href="#grid-search-programado-en-python" id="toc-grid-search-programado-en-python"><span class="toc-section-number">2</span> Grid search programado en <code>Python</code> <a class="anchor" id="1"></a></a></li>
+      <li><a href="#bibliografia" id="toc-bibliografia"><span class="toc-section-number">3</span> Bibliografia</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1565,6 +1566,7 @@ margin-right: auto;
 <p>En un modelos de aprendizaje estadistico un hiper-parametro es un parametro del modelo que no es estimado por el modelo cuando este es entrenado. Es un parametro al que hay que asignarle un valor a priori del entrenamiento del modelo.</p>
 <p>Los algoritmos de ajuste de hiper-parametros son una familia de algoritmos cuyo proposito es seleccionar un valor óptimo para los hiper-parametros de un modelo dado.</p>
 <p>En este artículo nos centraremos en el algoritmo Grid Search (busqueda en rejilla o cuadricula).</p>
+<p>Este algoritmo usa a su vez algoritmos y métricas de validación, por ello es altamente recomendable leer el articulo que tenemos en el blog sobre <a href>algoritmos de validacion de modelos de aprendizaje supervisado</a>. Además también está en camino un articulo sobre algoritmos de validación de modelos de aprendizaje no supervisado,</p>
 <p><br></p>
 <div id="grid-search" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Grid search</h1>
@@ -1580,7 +1582,7 @@ margin-right: auto;
 <ul>
 <li><p>Para cada <span class="math inline">\(\hspace{0.1cm}s=(s_1,...,s_r)\hspace{0.1cm} \in \hspace{0.1cm} S\)</span></p>
 <ul>
-<li>Se valida <span class="math inline">\(M(h=s)\hspace{0.05cm}=\hspace{0.05cm}M(h_1=s_1,...,h_r=s_r)\hspace{0.15cm}\)</span> usando algún algoritmo de validación de modelos de aprendizaje estadístico. Con ello se obtiene un valor de una métrica de validacion para la combinacion de hiper-parametros <span class="math inline">\(\hspace{0.1cm} s=(s_1,...,s_r)\\\)</span></li>
+<li>Se valida <span class="math inline">\(M(h=s)\hspace{0.05cm}=\hspace{0.05cm}M(h_1=s_1,...,h_r=s_r)\hspace{0.15cm}\)</span> usando algún <strong>algoritmo de validación</strong> de modelos de aprendizaje estadístico. Con ello se obtiene un valor de una <strong>métrica de validacion</strong> para la combinacion de hiper-parametros <span class="math inline">\(\hspace{0.1cm} s=(s_1,...,s_r)\\\)</span></li>
 </ul></li>
 <li><p>Tras el paso anterior se obtienen <span class="math inline">\(\hspace{0.15cm}\#\hspace{0.05cm} S\hspace{0.15cm}\)</span> valores de la metrica de validacion calculada aplicando cierto algoritmo de validación.</p>
 <ul>
@@ -1601,17 +1603,28 @@ margin-right: auto;
 </p>
 <p></span></p>
 </div>
-<p><strong>¿ Cómo definir <span class="math inline">\(S\)</span> ?</strong></p>
-<p>Lo ideal es que <span class="math inline">\(S \hspace{0.1cm} = \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}...\text{x}\hspace{0.1cm}R(h_r)\)</span>, pero cuando el numero de hiper-parametros es demasiado alto, o estos tienen campos de variacion grandes, esto no es factible en la practica. Por ello se suelen seguir dos vías más eficientes:</p>
+<p><br></p>
+<p><strong>¿ Cómo definir <span class="math inline">\(\hspace{0.1cm}S\hspace{0.1cm}\)</span> ?</strong></p>
+<p>Lo ideal es que <span class="math inline">\(\hspace{0.1cm}S \hspace{0.1cm} = \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}...\text{x}\hspace{0.1cm}R(h_r)\hspace{0.1cm}\)</span>, pero cuando el numero de hiper-parametros es demasiado alto, o estos tienen campos de variacion grandes, esto no es factible en la practica. Por ello se suelen seguir dos vías más eficientes:</p>
 <ul>
-<li>Se toma <span class="math inline">\(S\)</span> como un subconjunto estricto de las posibles combinaciones de hiper-parametros , es decir, <span class="math inline">\(S \hspace{0.1cm} \subset \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}...\text{x}\hspace{0.1cm}R(h_r)\)</span></li>
+<li>Se toma <span class="math inline">\(\hspace{0.1cm}S\hspace{0.1cm}\)</span> como un subconjunto estricto de las posibles combinaciones de hiper-parametros , es decir, <span class="math inline">\(\hspace{0.1cm}S \hspace{0.1cm} \subset \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}...\text{x}\hspace{0.1cm}R(h_r)\)</span></li>
 </ul>
-<p>La definición de <span class="math inline">\(S\)</span> en este contexto puede ser determinista, el usuario define las combinaciones de hiper-parametros que se van a considetar. O bien aleatoria, es decir, se escogen aleatoriamente las combinaciones de hiper-parametros que definirán a <span class="math inline">\(S\)</span>.</p>
-<p>Si la definición de <span class="math inline">\(S\)</span> es aleatoria, el algoritmo suele denominarse random grid search, o simplemente random search.</p>
+<p>La definición de <span class="math inline">\(\hspace{0.1cm}S\hspace{0.1cm}\)</span> en este contexto puede ser determinista, el usuario define las combinaciones de hiper-parametros que se van a considetar. O bien aleatoria, es decir, se escogen aleatoriamente las combinaciones de hiper-parametros que definirán a <span class="math inline">\(\hspace{0.1cm}S\hspace{0.1cm}\)</span></p>
+<p>Si la definición de <span class="math inline">\(\hspace{0.1cm}S\hspace{0.1cm}\)</span> es aleatoria, el algoritmo suele denominarse random grid search, o simplemente random search.</p>
+<p><br></p>
 <p><br></p>
 </div>
-<div id="random-grid-search" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Random grid search</h1>
+<div id="grid-search-programado-en-python" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Grid search programado en <code>Python</code> <a class="anchor" id="1"></a></h1>
+<p><br></p>
+<p><br></p>
+</div>
+<div id="bibliografia" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Bibliografia</h1>
+<ul>
+<li>Aler Mur, Ricardo. (2022). <em>Metodología: evaluación de modelos.</em> [Presentación de PowerPoint]. Aula Global UC3M.</li>
+</ul>
+<p><br></p>
 </div>
 </div>
 

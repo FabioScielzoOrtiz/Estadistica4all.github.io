@@ -1,7 +1,7 @@
 ---
 title: 'Algoritmos de validación cruzada'
 author: 'Fabio Scielzo Ortiz'
-date: '25/11/22'
+date: '28/12/22'
 output: 
    rmdformats::readthedown:
       use_bookdown: true
@@ -1790,16 +1790,26 @@ A continuación se expone un criterio basado en las métricas y algoritmos de va
 
 <br>
 
+<br>
 
 
-# Bibliografía
+# Algoritmos de validación cruzada programados en `Python`
+
+
+
+
+<br>
+
+<br>
+
+# Bibliografía <a class="anchor" id="1"></a>  
 
 
 - Amat Rodrigo, J. (Noviembre 2020). Validación de modelos predictivos: Cross-validation, OneLeaveOut, Bootstraping. *Cienciadedatos*.  
 https://www.cienciadedatos.net/documentos/30_cross-validation_oneleaveout_bootstrap
 
 
-
+- Aler Mur, Ricardo. (2022). *Metodología: evaluación de modelos.* [Presentación de PowerPoint]. Aula Global UC3M.
 
 <br>
 
