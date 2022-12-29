@@ -1996,31 +1996,20 @@ $$ASL = \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.
 
 <br>
 
-## Contraste bootstrap para las medias de dos poblacion
-
-
-
-## Contraste bootstrap para la varianza de una poblacion
+## Contraste bootstrap en `Python`
 
 
 
 
-## Contraste bootstrap para las varianzas de dos poblacion
 
 
 
-## Contraste bootstrap para la mediana de una poblacion
 
 
 
-## Contraste bootstrap para la mediana de dos poblaciones
 
 
-<br>
 
-<br>
-
-# Contrastes de hipotesis basados en permutaciones <a class="anchor" id="1"></a>  
 
 
 <br>
@@ -2250,6 +2239,7 @@ $$ \dfrac{1}{h} \sum_{i=1}^{h} \widehat{Sesgo}(\hat{y}_i) $$
 
 <br>
 
+## Regresión lineal bootstrap en `Python`
 
 
 
