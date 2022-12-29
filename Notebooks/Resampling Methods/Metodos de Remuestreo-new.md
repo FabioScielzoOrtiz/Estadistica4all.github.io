@@ -2804,7 +2804,7 @@ En este caso se obtienen $\hspace{0.1cm} B\hspace{0.1cm}$ muestras bootstrap (al
 
 Con ello se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ muestras:
 
-$$\left(X , Y \right)_{(1)} ,..., \left(X , Y \right)_{(B)}$$
+$$\left(X , Y \right)_{(1)} \hspace{0.05cm} ,..., \hspace{0.05cm} \left(X , Y \right)_{(B)}$$
  
  
 Para cada $\hspace{0.1cm} b \in \lbrace 1,...,B \rbrace$
