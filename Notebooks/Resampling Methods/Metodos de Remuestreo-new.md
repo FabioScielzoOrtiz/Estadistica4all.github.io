@@ -2701,19 +2701,22 @@ $$ASL = \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.
 # Bootstrap en Regresión Lineal 
 
 
-Para introducirse en el modelo de regresión lineal se recomienda el siguiente [artículo](http://estadistica4all.com/Articulos/Linear-Regression-new.html) del blog [Estadistica4all.com](http://estadistica4all.com/)
+Antes de leer esta sección se recomienda leer el articulo sobre  [el modelo de regresión lineal](http://estadistica4all.com/Articulos/Linear-Regression-new.html) que se encuentra en el blog [Estadistica4all.com](http://estadistica4all.com/). Principalmente porque vamos a usar conceptos y notación que están presentes y desarrollados con mucho más detalle en dicho articulo.
+
+
+
 
 ## Botstrap en Regresión Lineal basado en residuos
 
 Tenemos un modelo de regresión lineal:
 
-$$y_i = \beta\cdot x_i + \varepsilon_i \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\$$
+$$y_i =  x_i^t \cdot \beta + \varepsilon_i \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\$$
 
-donde  $\hspace{0.25cm} x_i \in \mathbb{R}^p \hspace{0.15cm} , \hspace{0.15cm}  \varepsilon_i \in \mathbb{R} \hspace{0.15cm} , \hspace{0.15cm}  y_i \in \mathbb{R} \\$
+donde  $\hspace{0.15cm} x_i \in \mathbb{R}^{p+1} \hspace{0.15cm} , \hspace{0.15cm}  \varepsilon_i \in \mathbb{R} \hspace{0.15cm} , \hspace{0.15cm}  y_i \in \mathbb{R} \\$
 
 El modelo de regresión lineal estimado por mínimos cuadrados ordinarios es:
 
-$$\hat{y}_i = \widehat{\beta}\cdot x_i  \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\$$
+$$\hat{y}_i =  x_i^t  \cdot \widehat{\beta} \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\$$
 
 Donde:
 
@@ -2725,55 +2728,69 @@ Recordemos que en el modelo de regresión lineal los residuos estimados del mode
 
 $$\widehat{\varepsilon} = (\widehat{\varepsilon}_1,...,\widehat{\varepsilon}_n)^t\\$$
 
-Donde:
+donde:
 
-$$\widehat{\varepsilon}_i \hspace{0.1cm}=\hspace{0.1cm} y_i - \widehat{\beta}\cdot x_i \hspace{0.1cm}=\hspace{0.1cm} y_i - \hat{y}_i \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\$$
+$$\widehat{\varepsilon}_i \hspace{0.1cm}=\hspace{0.1cm} y_i - x_i^t  \cdot \widehat{\beta} \hspace{0.1cm}=\hspace{0.1cm} y_i - \hat{y}_i \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\$$
 
-Se toma una muestra aleatoria con reemplazamiento de los residuos estimados del modelo: $\\[0.5cm]$
-
-
-$$\widehat{\varepsilon}^* = (\widehat{\varepsilon}_1^*,...,\widehat{\varepsilon}_n^*)^t\\$$
+Se toman $\hspace{0.1cm}B\hspace{0.1cm}$  muestras *bootstrap* (aleatorias y con reemplazamiento) del vector de residuos estimados $\hspace{0.1cm}\hat{\varepsilon}\hspace{0.1cm}$ del modelo: $\\[0.2cm]$
 
 
-Donde:
-
-
-$$\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} \widehat{\varepsilon}_j^* = \widehat{\varepsilon}_i \\$$
-
-
-Las respuestas *bootstrap* se generan como:
-
-$$y_i^* \hspace{0.1cm}=\hspace{0.1cm} x_i \cdot \widehat{\beta} + \varepsilon_i^*  \hspace{0.25cm} , \hspace{0.25cm} \forall   \hspace{0.1cm} j \in  \lbrace 1,...,n \rbrace \\$$
+$$\widehat{\varepsilon}_{(1)}\hspace{0.05cm},....,\hspace{0.05cm}\widehat{\varepsilon}_{(B)}\\$$
 
 
 
-La estimación *bootstrap* de $\hspace{0.1cm} \beta\hspace{0.1cm}$ es:
+Se generan  $\hspace{0.1cm}B\hspace{0.1cm}$  replicas *bootstrap* de las respuestas del siguiente modo: $\\[0.2cm]$
 
 
-$$\widehat{\beta}\hspace{0.05cm}^* \hspace{0.1cm}=\hspace{0.1cm} (X^t \cdot X)^{-1} \cdot X^t \cdot y^* \\$$
-
-Donde:
-
-$$Y^* = (y_1^* , ..., y_n^*)^t \\$$
 
 
-La estimación de la varianza de los coeficientes *bootstrap* es:
+$$Y_{(b)} \hspace{0.1cm} = \hspace{0.1cm} X \cdot \widehat{\beta} \hspace{0.05cm} + \hspace{0.05cm} \varepsilon_{(b)}
+\hspace{0.25cm} , \hspace{0.25cm} \forall   \hspace{0.15cm} b \in  \lbrace 1,...,B \rbrace \\$$
 
 
-$$\widehat{Var}(\widehat{\beta}_j\hspace{0.05cm}^*) \hspace{0.1cm}=\hspace{0.1cm} \widehat{\sigma}^2_* \cdot q_{jj} \\$$
+Para cada  $\hspace{0.1cm} b \in  \lbrace 1,...,B \rbrace\hspace{0.1cm}$
 
-Donde:
+Se entrenan el modelo de regresion lineal $\hspace{0.1cm} M \hspace{0.1cm}$ con la muestra $\hspace{0.1cm}\left(X, Y_{(b)}\right)\hspace{0.1cm}$ de los predictores y la respuesta $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$  $\widehat{M}_{(b)}$
 
-$$q_{jj} \hspace{0.1cm}=\hspace{0.1cm} diag (X^t\cdot X)^{-1} \hspace{0.05cm} [\hspace{0.05cm} j+1 \hspace{0.05cm}]$$
+Se obtienen así $\hspace{0.1cm} B\hspace{0.1cm}$ modelos de regresión lineal entrenados $\hspace{0.1cm}\widehat{M}_{(1)}\hspace{0.05cm},...,\hspace{0.05cm}\widehat{M}_{(B)}\hspace{0.1cm}$, que son las replicas bootstrap del modelo inicial (el entrenado con los datos iniciales).
 
-$$\widehat{\sigma}^2_* \hspace{0.1cm}=\hspace{0.1cm} Var(\varepsilon_i^*) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n-p-1} \cdot \sum_{i=1}^n \varepsilon_i^* \\[1cm]$$
+Podemos usar estos modelos para obtener intervalos de confianza bootstrap de los coeficientes betas y de otros parámetros como el coeficiente de determinación (R-cuadrado).
 
 
-Esto  permite obtener intervalos de confianza *bootstrap* para los coeficientes betas del modelo: $\\[0.4cm]$
 
-$$
-IC\left( \beta_j  \right)_{1-\alpha}^{boot} \hspace{0.08cm}=\hspace{0.08cm} \left[ \hspace{0.07cm} \widehat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{\widehat{Var}(\widehat{\beta}_j\hspace{0.05cm}^*)} \hspace{0.07cm} \right] = \left[\hspace{0.07cm}  \widehat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{\widehat{\sigma}^2_* \cdot q_{jj}} \hspace{0.07cm} \right]
-$$
+
+<br>
+
+
+
+### Intervalo de confianza bootstrap para los coeficientes betas
+
+
+Para cada modelo $\hspace{0.1cm} M_{(b)} \hspace{0.1cm}$ se tiene la estimación $\hspace{0.1cm} \widehat{\beta}_{(b)} \hspace{0.1cm}$ del vector de coeficientes betas, y con ello se tiene la estimación $\hspace{0.1cm}\widehat{\beta}_{j(b)}\hspace{0.1cm}$ del coeficiente   $\hspace{0.1cm}\beta_j\hspace{0.1cm}$, para cada predictor. 
+
+Así que para cada estimador $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ se tiene   un vector de replicas bootstrap: $\hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} = \hspace{0.1cm} \left( \widehat{\beta}_{j(1)} \hspace{0.05cm} , \hspace{0.05cm} \widehat{\beta}_{j(2)} \hspace{0.05cm},...,\hspace{0.05cm} \widehat{\beta}_{j(B)} \right) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} j \in \lbrace 0,1,...,p\rbrace$
+
+Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el intervalos bootstrap para los coeficientes betas del modelo: $\\[0.4cm]$
+
+
+$$IC(\beta_j)_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{0.1cm} Q \left( \hspace{0.1cm} \alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm}boot} \hspace{0.1cm} \right) \hspace{0.1cm} , \hspace{0.1cm}  Q \left( \hspace{0.1cm} 1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm}boot} \hspace{0.1cm} \right)  \hspace{0.1cm} \right]$$
+
+
+<br>
+
+
+### Intervalo de confianza bootstrap para los coeficientes betas
+
+
+Para cada modelo $\hspace{0.1cm} M_{(b)} \hspace{0.1cm}$ se tiene la estimación $\hspace{0.1cm} R^2_{adj\hspace{0.05cm} (b)} \hspace{0.1cm}$ del coeficiente de determinación ajustado. 
+
+Así que para el estimador $\hspace{0.1cm}R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot}\hspace{0.1cm}$ se tiene   un vector de replicas bootstrap: $\hspace{0.1cm} R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} = \hspace{0.1cm} \left(  R^2_{adj\hspace{0.05cm} (1)} \hspace{0.05cm} , \hspace{0.05cm}  R^2_{adj\hspace{0.05cm} (2)} \hspace{0.05cm},...,\hspace{0.05cm}  R^2_{adj\hspace{0.05cm} (B)} \right) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} j \in \lbrace 0,1,...,p\rbrace$
+
+Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el intervalos bootstrap para los coeficientes betas del modelo: $\\[0.4cm]$
+
+
+$$IC(R^2_{adj})_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{0.1cm} Q \left( \hspace{0.1cm} \alpha/2 \hspace{0.1cm} , \hspace{0.1cm} R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} \right) \hspace{0.1cm} , \hspace{0.1cm}  Q \left( \hspace{0.1cm} 1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} \right)  \hspace{0.1cm} \right]$$
+
 
 
 <br>
@@ -2783,46 +2800,63 @@ $$
 ## Botstrap en Regresión Lineal basado en pares
 
 
-Este método consiste en remuestrar con reemplazamiento los pares $z_i = (x_i , y_i)\\$
+En este caso se obtienen $\hspace{0.1cm} B\hspace{0.1cm}$ muestras bootstrap (aleatorias y con reemplazamiento) de las observaciones de los predictores y la respuesta $\hspace{0.1cm}\left( X , Y \right) = \left( \hspace{0.1cm} (x_i , y_i)  \hspace{0.15cm} / \hspace{0.15cm} i \in \lbrace 1,...,n \rbrace \hspace{0.1cm} \right)$ 
 
+Con ello se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ muestras:
 
-
-
-$\hspace{0.25cm}$ En este caso la muestra bootstrap es la siguiente:
-
-$$z^* = \lbrace  (x_1^* , y_1^*) ,..., (x_n^* , y_n^*)      \rbrace$$
-
-$\hspace{0.25cm}$ Donde:
-
-
-$$\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} x_j^* = x_i$$
-
-$$\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} y_j^* = y_i$$
-
-
-
-
-
-El modelo de regresión lineal en este caso es:
-
-$$y_i^* = \beta\cdot x_i^* + \varepsilon_i \hspace{0.25cm} , \hspace{0.25cm}\forall i \in \lbrace 1,...,n \rbrace\\$$
-
-El modelo de regresión lineal estimado por mínimos cuadrados ordinarios es:
-
-$$y_i^* = \widehat{\beta}\cdot x_i^*  \hspace{0.25cm} , \hspace{0.25cm}\forall i \in \lbrace 1,...,n \rbrace\\$$
-
-Donde la estimación de minimos cuadrados ordinarios del vector de coeficientes es:
-
-$$\widehat{\beta} = (X^* \cdot {X^*}^{t})^{-1} \cdot {X^*}^{t} \cdot Y^*$$
-
-
-
-En este caso:
-
-$$X^* = (x_{1}^* , x_{2}^* , ..., x_{n}^* )^t$$
+$$\left(X , Y \right)_{(1)} ,..., \left(X , Y \right)_{(B)}$$
  
-$$Y^* = (y_1^* , ..., y_n^*)^t$$
+ 
+Para cada $\hspace{0.1cm} b \in \lbrace 1,...,B \rbrace$
 
+Se entrena el modelo de regresión lineal $\hspace{0.1cm}M\hspace{0.1cm}$ con la muestra  $\hspace{0.1cm}\left(X , Y \right)_{(b)}\hspace{0.1cm}$ de los predictores y la respueta $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} \widehat{M}_{(b)}$
+
+
+Se obtienen así $\hspace{0.1cm} B\hspace{0.1cm}$ modelos de regresión lineal entrenados $\hspace{0.1cm}\widehat{M}_{(1)}\hspace{0.05cm},...,\hspace{0.05cm}\widehat{M}_{(B)}\hspace{0.1cm}$, que son las replicas bootstrap del modelo inicial (el entrenado con los datos iniciales).
+
+Podemos usar estos modelos para obtener intervalos de confianza bootstrap de los coeficientes betas y de otros parámetros como el coeficiente de determinación (R-cuadrado).
+
+
+
+
+<br>
+
+
+
+### Intervalo de confianza bootstrap para los coeficientes betas
+
+
+Para cada modelo $\hspace{0.1cm} M_{(b)} \hspace{0.1cm}$ se tiene la estimación $\hspace{0.1cm} \widehat{\beta}_{(b)} \hspace{0.1cm}$ del vector de coeficientes betas, y con ello se tiene la estimación $\hspace{0.1cm}\widehat{\beta}_{j(b)}\hspace{0.1cm}$ del coeficiente   $\hspace{0.1cm}\beta_j\hspace{0.1cm}$, para cada predictor. 
+
+Así que para cada estimador $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ se tiene   un vector de replicas bootstrap: $\hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} = \hspace{0.1cm} \left( \widehat{\beta}_{j(1)} \hspace{0.05cm} , \hspace{0.05cm} \widehat{\beta}_{j(2)} \hspace{0.05cm},...,\hspace{0.05cm} \widehat{\beta}_{j(B)} \right) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} j \in \lbrace 0,1,...,p\rbrace$
+
+Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el intervalos bootstrap para los coeficientes betas del modelo: $\\[0.4cm]$
+
+
+$$IC(\beta_j)_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{0.1cm} Q \left( \hspace{0.1cm} \alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm}boot} \hspace{0.1cm} \right) \hspace{0.1cm} , \hspace{0.1cm}  Q \left( \hspace{0.1cm} 1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm}boot} \hspace{0.1cm} \right)  \hspace{0.1cm} \right]$$
+
+
+<br>
+
+
+### Intervalo de confianza bootstrap para los coeficientes betas
+
+
+Para cada modelo $\hspace{0.1cm} M_{(b)} \hspace{0.1cm}$ se tiene la estimación $\hspace{0.1cm} R^2_{adj\hspace{0.05cm} (b)} \hspace{0.1cm}$ del coeficiente de determinación ajustado. 
+
+Así que para el estimador $\hspace{0.1cm}R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot}\hspace{0.1cm}$ se tiene   un vector de replicas bootstrap: $\hspace{0.1cm} R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} = \hspace{0.1cm} \left(  R^2_{adj\hspace{0.05cm} (1)} \hspace{0.05cm} , \hspace{0.05cm}  R^2_{adj\hspace{0.05cm} (2)} \hspace{0.05cm},...,\hspace{0.05cm}  R^2_{adj\hspace{0.05cm} (B)} \right) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} j \in \lbrace 0,1,...,p\rbrace$
+
+Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el intervalos bootstrap para los coeficientes betas del modelo: $\\[0.4cm]$
+
+
+$$IC(R^2_{adj})_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{0.1cm} Q \left( \hspace{0.1cm} \alpha/2 \hspace{0.1cm} , \hspace{0.1cm} R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} \right) \hspace{0.1cm} , \hspace{0.1cm}  Q \left( \hspace{0.1cm} 1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} \right)  \hspace{0.1cm} \right]$$
+
+
+ 
+ 
+ 
+ 
+ 
 
 
 <br>

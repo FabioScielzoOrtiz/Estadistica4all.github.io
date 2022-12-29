@@ -3057,60 +3057,74 @@ H_1 : \mu \neq \mu_0 \hspace{1.5cm}  H_1 : \mu &gt; \mu_0  \hspace{1.5cm} H_1 : 
 </div>
 <div id="bootstrap-en-regresión-lineal" class="section level1" number="13">
 <h1><span class="header-section-number">13</span> Bootstrap en Regresión Lineal</h1>
-<p>Para introducirse en el modelo de regresión lineal se recomienda el siguiente <a href="http://estadistica4all.com/Articulos/Linear-Regression-new.html">artículo</a> del blog <a href="http://estadistica4all.com/">Estadistica4all.com</a></p>
+<p>Antes de leer esta sección se recomienda leer el articulo sobre <a href="http://estadistica4all.com/Articulos/Linear-Regression-new.html">el modelo de regresión lineal</a> que se encuentra en el blog <a href="http://estadistica4all.com/">Estadistica4all.com</a>. Principalmente porque vamos a usar conceptos y notación que están presentes y desarrollados con mucho más detalle en dicho articulo.</p>
 <div id="botstrap-en-regresión-lineal-basado-en-residuos" class="section level2" number="13.1">
 <h2><span class="header-section-number">13.1</span> Botstrap en Regresión Lineal basado en residuos</h2>
 <p>Tenemos un modelo de regresión lineal:</p>
-<p><span class="math display">\[y_i = \beta\cdot x_i + \varepsilon_i \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\\]</span></p>
-<p>donde <span class="math inline">\(\hspace{0.25cm} x_i \in \mathbb{R}^p \hspace{0.15cm} , \hspace{0.15cm} \varepsilon_i \in \mathbb{R} \hspace{0.15cm} , \hspace{0.15cm} y_i \in \mathbb{R} \\\)</span></p>
+<p><span class="math display">\[y_i =  x_i^t \cdot \beta + \varepsilon_i \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\\]</span></p>
+<p>donde <span class="math inline">\(\hspace{0.15cm} x_i \in \mathbb{R}^{p+1} \hspace{0.15cm} , \hspace{0.15cm} \varepsilon_i \in \mathbb{R} \hspace{0.15cm} , \hspace{0.15cm} y_i \in \mathbb{R} \\\)</span></p>
 <p>El modelo de regresión lineal estimado por mínimos cuadrados ordinarios es:</p>
-<p><span class="math display">\[\hat{y}_i = \widehat{\beta}\cdot x_i  \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\\]</span></p>
+<p><span class="math display">\[\hat{y}_i =  x_i^t  \cdot \widehat{\beta} \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\\]</span></p>
 <p>Donde:</p>
 <p><span class="math display">\[\widehat{\beta} = (X \cdot X^t)^{-1} \cdot X^t \cdot y\\\]</span></p>
 <p>Recordemos que en el modelo de regresión lineal los residuos estimados del modelo son: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[\widehat{\varepsilon} = (\widehat{\varepsilon}_1,...,\widehat{\varepsilon}_n)^t\\\]</span></p>
-<p>Donde:</p>
-<p><span class="math display">\[\widehat{\varepsilon}_i \hspace{0.1cm}=\hspace{0.1cm} y_i - \widehat{\beta}\cdot x_i \hspace{0.1cm}=\hspace{0.1cm} y_i - \hat{y}_i \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\\]</span></p>
-<p>Se toma una muestra aleatoria con reemplazamiento de los residuos estimados del modelo: <span class="math inline">\(\\[0.5cm]\)</span></p>
-<p><span class="math display">\[\widehat{\varepsilon}^* = (\widehat{\varepsilon}_1^*,...,\widehat{\varepsilon}_n^*)^t\\\]</span></p>
-<p>Donde:</p>
-<p><span class="math display">\[\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} \widehat{\varepsilon}_j^* = \widehat{\varepsilon}_i \\\]</span></p>
-<p>Las respuestas <em>bootstrap</em> se generan como:</p>
-<p><span class="math display">\[y_i^* \hspace{0.1cm}=\hspace{0.1cm} x_i \cdot \widehat{\beta} + \varepsilon_i^*  \hspace{0.25cm} , \hspace{0.25cm} \forall   \hspace{0.1cm} j \in  \lbrace 1,...,n \rbrace \\\]</span></p>
-<p>La estimación <em>bootstrap</em> de <span class="math inline">\(\hspace{0.1cm} \beta\hspace{0.1cm}\)</span> es:</p>
-<p><span class="math display">\[\widehat{\beta}\hspace{0.05cm}^* \hspace{0.1cm}=\hspace{0.1cm} (X^t \cdot X)^{-1} \cdot X^t \cdot y^* \\\]</span></p>
-<p>Donde:</p>
-<p><span class="math display">\[Y^* = (y_1^* , ..., y_n^*)^t \\\]</span></p>
-<p>La estimación de la varianza de los coeficientes <em>bootstrap</em> es:</p>
-<p><span class="math display">\[\widehat{Var}(\widehat{\beta}_j\hspace{0.05cm}^*) \hspace{0.1cm}=\hspace{0.1cm} \widehat{\sigma}^2_* \cdot q_{jj} \\\]</span></p>
-<p>Donde:</p>
-<p><span class="math display">\[q_{jj} \hspace{0.1cm}=\hspace{0.1cm} diag (X^t\cdot X)^{-1} \hspace{0.05cm} [\hspace{0.05cm} j+1 \hspace{0.05cm}]\]</span></p>
-<p><span class="math display">\[\widehat{\sigma}^2_* \hspace{0.1cm}=\hspace{0.1cm} Var(\varepsilon_i^*) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n-p-1} \cdot \sum_{i=1}^n \varepsilon_i^* \\[1cm]\]</span></p>
-<p>Esto permite obtener intervalos de confianza <em>bootstrap</em> para los coeficientes betas del modelo: <span class="math inline">\(\\[0.4cm]\)</span></p>
-<p><span class="math display">\[
-IC\left( \beta_j  \right)_{1-\alpha}^{boot} \hspace{0.08cm}=\hspace{0.08cm} \left[ \hspace{0.07cm} \widehat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{\widehat{Var}(\widehat{\beta}_j\hspace{0.05cm}^*)} \hspace{0.07cm} \right] = \left[\hspace{0.07cm}  \widehat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{\widehat{\sigma}^2_* \cdot q_{jj}} \hspace{0.07cm} \right]
-\]</span></p>
+<p>donde:</p>
+<p><span class="math display">\[\widehat{\varepsilon}_i \hspace{0.1cm}=\hspace{0.1cm} y_i - x_i^t  \cdot \widehat{\beta} \hspace{0.1cm}=\hspace{0.1cm} y_i - \hat{y}_i \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\\]</span></p>
+<p>Se toman <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras <em>bootstrap</em> (aleatorias y con reemplazamiento) del vector de residuos estimados <span class="math inline">\(\hspace{0.1cm}\hat{\varepsilon}\hspace{0.1cm}\)</span> del modelo: <span class="math inline">\(\\[0.2cm]\)</span></p>
+<p><span class="math display">\[\widehat{\varepsilon}_{(1)}\hspace{0.05cm},....,\hspace{0.05cm}\widehat{\varepsilon}_{(B)}\\\]</span></p>
+<p>Se generan <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> replicas <em>bootstrap</em> de las respuestas del siguiente modo: <span class="math inline">\(\\[0.2cm]\)</span></p>
+<p><span class="math display">\[Y_{(b)} \hspace{0.1cm} = \hspace{0.1cm} X \cdot \widehat{\beta} \hspace{0.05cm} + \hspace{0.05cm} \varepsilon_{(b)}
+\hspace{0.25cm} , \hspace{0.25cm} \forall   \hspace{0.15cm} b \in  \lbrace 1,...,B \rbrace \\\]</span></p>
+<p>Para cada <span class="math inline">\(\hspace{0.1cm} b \in \lbrace 1,...,B \rbrace\hspace{0.1cm}\)</span></p>
+<p>Se entrenan el modelo de regresion lineal <span class="math inline">\(\hspace{0.1cm} M \hspace{0.1cm}\)</span> con la muestra <span class="math inline">\(\hspace{0.1cm}\left(X, Y_{(b)}\right)\hspace{0.1cm}\)</span> de los predictores y la respuesta <span class="math inline">\(\hspace{0.25cm}\Rightarrow\hspace{0.25cm}\)</span> <span class="math inline">\(\widehat{M}_{(b)}\)</span></p>
+<p>Se obtienen así <span class="math inline">\(\hspace{0.1cm} B\hspace{0.1cm}\)</span> modelos de regresión lineal entrenados <span class="math inline">\(\hspace{0.1cm}\widehat{M}_{(1)}\hspace{0.05cm},...,\hspace{0.05cm}\widehat{M}_{(B)}\hspace{0.1cm}\)</span>, que son las replicas bootstrap del modelo inicial (el entrenado con los datos iniciales).</p>
+<p>Podemos usar estos modelos para obtener intervalos de confianza bootstrap de los coeficientes betas y de otros parámetros como el coeficiente de determinación (R-cuadrado).</p>
+<p><br></p>
+<div id="intervalo-de-confianza-bootstrap-para-los-coeficientes-betas" class="section level3" number="13.1.1">
+<h3><span class="header-section-number">13.1.1</span> Intervalo de confianza bootstrap para los coeficientes betas</h3>
+<p>Para cada modelo <span class="math inline">\(\hspace{0.1cm} M_{(b)} \hspace{0.1cm}\)</span> se tiene la estimación <span class="math inline">\(\hspace{0.1cm} \widehat{\beta}_{(b)} \hspace{0.1cm}\)</span> del vector de coeficientes betas, y con ello se tiene la estimación <span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_{j(b)}\hspace{0.1cm}\)</span> del coeficiente <span class="math inline">\(\hspace{0.1cm}\beta_j\hspace{0.1cm}\)</span>, para cada predictor.</p>
+<p>Así que para cada estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}\)</span> se tiene un vector de replicas bootstrap: <span class="math inline">\(\hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} = \hspace{0.1cm} \left( \widehat{\beta}_{j(1)} \hspace{0.05cm} , \hspace{0.05cm} \widehat{\beta}_{j(2)} \hspace{0.05cm},...,\hspace{0.05cm} \widehat{\beta}_{j(B)} \right) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} j \in \lbrace 0,1,...,p\rbrace\)</span></p>
+<p>Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el intervalos bootstrap para los coeficientes betas del modelo: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[IC(\beta_j)_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{0.1cm} Q \left( \hspace{0.1cm} \alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm}boot} \hspace{0.1cm} \right) \hspace{0.1cm} , \hspace{0.1cm}  Q \left( \hspace{0.1cm} 1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm}boot} \hspace{0.1cm} \right)  \hspace{0.1cm} \right]\]</span></p>
+<p><br></p>
+</div>
+<div id="intervalo-de-confianza-bootstrap-para-los-coeficientes-betas-1" class="section level3" number="13.1.2">
+<h3><span class="header-section-number">13.1.2</span> Intervalo de confianza bootstrap para los coeficientes betas</h3>
+<p>Para cada modelo <span class="math inline">\(\hspace{0.1cm} M_{(b)} \hspace{0.1cm}\)</span> se tiene la estimación <span class="math inline">\(\hspace{0.1cm} R^2_{adj\hspace{0.05cm} (b)} \hspace{0.1cm}\)</span> del coeficiente de determinación ajustado.</p>
+<p>Así que para el estimador <span class="math inline">\(\hspace{0.1cm}R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot}\hspace{0.1cm}\)</span> se tiene un vector de replicas bootstrap: <span class="math inline">\(\hspace{0.1cm} R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} = \hspace{0.1cm} \left( R^2_{adj\hspace{0.05cm} (1)} \hspace{0.05cm} , \hspace{0.05cm} R^2_{adj\hspace{0.05cm} (2)} \hspace{0.05cm},...,\hspace{0.05cm} R^2_{adj\hspace{0.05cm} (B)} \right) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} j \in \lbrace 0,1,...,p\rbrace\)</span></p>
+<p>Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el intervalos bootstrap para los coeficientes betas del modelo: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[IC(R^2_{adj})_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{0.1cm} Q \left( \hspace{0.1cm} \alpha/2 \hspace{0.1cm} , \hspace{0.1cm} R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} \right) \hspace{0.1cm} , \hspace{0.1cm}  Q \left( \hspace{0.1cm} 1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} \right)  \hspace{0.1cm} \right]\]</span></p>
 <p><br></p>
 <p><br></p>
 </div>
+</div>
 <div id="botstrap-en-regresión-lineal-basado-en-pares" class="section level2" number="13.2">
 <h2><span class="header-section-number">13.2</span> Botstrap en Regresión Lineal basado en pares</h2>
-<p>Este método consiste en remuestrar con reemplazamiento los pares <span class="math inline">\(z_i = (x_i , y_i)\\\)</span></p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> En este caso la muestra bootstrap es la siguiente:</p>
-<p><span class="math display">\[z^* = \lbrace  (x_1^* , y_1^*) ,..., (x_n^* , y_n^*)      \rbrace\]</span></p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
-<p><span class="math display">\[\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} x_j^* = x_i\]</span></p>
-<p><span class="math display">\[\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} y_j^* = y_i\]</span></p>
-<p>El modelo de regresión lineal en este caso es:</p>
-<p><span class="math display">\[y_i^* = \beta\cdot x_i^* + \varepsilon_i \hspace{0.25cm} , \hspace{0.25cm}\forall i \in \lbrace 1,...,n \rbrace\\\]</span></p>
-<p>El modelo de regresión lineal estimado por mínimos cuadrados ordinarios es:</p>
-<p><span class="math display">\[y_i^* = \widehat{\beta}\cdot x_i^*  \hspace{0.25cm} , \hspace{0.25cm}\forall i \in \lbrace 1,...,n \rbrace\\\]</span></p>
-<p>Donde la estimación de minimos cuadrados ordinarios del vector de coeficientes es:</p>
-<p><span class="math display">\[\widehat{\beta} = (X^* \cdot {X^*}^{t})^{-1} \cdot {X^*}^{t} \cdot Y^*\]</span></p>
-<p>En este caso:</p>
-<p><span class="math display">\[X^* = (x_{1}^* , x_{2}^* , ..., x_{n}^* )^t\]</span></p>
-<p><span class="math display">\[Y^* = (y_1^* , ..., y_n^*)^t\]</span></p>
+<p>En este caso se obtienen <span class="math inline">\(\hspace{0.1cm} B\hspace{0.1cm}\)</span> muestras bootstrap (aleatorias y con reemplazamiento) de las observaciones de los predictores y la respuesta <span class="math inline">\(\hspace{0.1cm}\left( X , Y \right) = \left( \hspace{0.1cm} (x_i , y_i) \hspace{0.15cm} / \hspace{0.15cm} i \in \lbrace 1,...,n \rbrace \hspace{0.1cm} \right)\)</span></p>
+<p>Con ello se obtienen las siguientes <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> muestras:</p>
+<p><span class="math display">\[\left(X , Y \right)_{(1)} ,..., \left(X , Y \right)_{(B)}\]</span></p>
+<p>Para cada <span class="math inline">\(\hspace{0.1cm} b \in \lbrace 1,...,B \rbrace\)</span></p>
+<p>Se entrena el modelo de regresión lineal <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> con la muestra <span class="math inline">\(\hspace{0.1cm}\left(X , Y \right)_{(b)}\hspace{0.1cm}\)</span> de los predictores y la respueta <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} \widehat{M}_{(b)}\)</span></p>
+<p>Se obtienen así <span class="math inline">\(\hspace{0.1cm} B\hspace{0.1cm}\)</span> modelos de regresión lineal entrenados <span class="math inline">\(\hspace{0.1cm}\widehat{M}_{(1)}\hspace{0.05cm},...,\hspace{0.05cm}\widehat{M}_{(B)}\hspace{0.1cm}\)</span>, que son las replicas bootstrap del modelo inicial (el entrenado con los datos iniciales).</p>
+<p>Podemos usar estos modelos para obtener intervalos de confianza bootstrap de los coeficientes betas y de otros parámetros como el coeficiente de determinación (R-cuadrado).</p>
 <p><br></p>
+<div id="intervalo-de-confianza-bootstrap-para-los-coeficientes-betas-2" class="section level3" number="13.2.1">
+<h3><span class="header-section-number">13.2.1</span> Intervalo de confianza bootstrap para los coeficientes betas</h3>
+<p>Para cada modelo <span class="math inline">\(\hspace{0.1cm} M_{(b)} \hspace{0.1cm}\)</span> se tiene la estimación <span class="math inline">\(\hspace{0.1cm} \widehat{\beta}_{(b)} \hspace{0.1cm}\)</span> del vector de coeficientes betas, y con ello se tiene la estimación <span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_{j(b)}\hspace{0.1cm}\)</span> del coeficiente <span class="math inline">\(\hspace{0.1cm}\beta_j\hspace{0.1cm}\)</span>, para cada predictor.</p>
+<p>Así que para cada estimador <span class="math inline">\(\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}\)</span> se tiene un vector de replicas bootstrap: <span class="math inline">\(\hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} = \hspace{0.1cm} \left( \widehat{\beta}_{j(1)} \hspace{0.05cm} , \hspace{0.05cm} \widehat{\beta}_{j(2)} \hspace{0.05cm},...,\hspace{0.05cm} \widehat{\beta}_{j(B)} \right) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} j \in \lbrace 0,1,...,p\rbrace\)</span></p>
+<p>Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el intervalos bootstrap para los coeficientes betas del modelo: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[IC(\beta_j)_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{0.1cm} Q \left( \hspace{0.1cm} \alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm}boot} \hspace{0.1cm} \right) \hspace{0.1cm} , \hspace{0.1cm}  Q \left( \hspace{0.1cm} 1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm}boot} \hspace{0.1cm} \right)  \hspace{0.1cm} \right]\]</span></p>
+<p><br></p>
+</div>
+<div id="intervalo-de-confianza-bootstrap-para-los-coeficientes-betas-3" class="section level3" number="13.2.2">
+<h3><span class="header-section-number">13.2.2</span> Intervalo de confianza bootstrap para los coeficientes betas</h3>
+<p>Para cada modelo <span class="math inline">\(\hspace{0.1cm} M_{(b)} \hspace{0.1cm}\)</span> se tiene la estimación <span class="math inline">\(\hspace{0.1cm} R^2_{adj\hspace{0.05cm} (b)} \hspace{0.1cm}\)</span> del coeficiente de determinación ajustado.</p>
+<p>Así que para el estimador <span class="math inline">\(\hspace{0.1cm}R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot}\hspace{0.1cm}\)</span> se tiene un vector de replicas bootstrap: <span class="math inline">\(\hspace{0.1cm} R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} = \hspace{0.1cm} \left( R^2_{adj\hspace{0.05cm} (1)} \hspace{0.05cm} , \hspace{0.05cm} R^2_{adj\hspace{0.05cm} (2)} \hspace{0.05cm},...,\hspace{0.05cm} R^2_{adj\hspace{0.05cm} (B)} \right) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} j \in \lbrace 0,1,...,p\rbrace\)</span></p>
+<p>Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el intervalos bootstrap para los coeficientes betas del modelo: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[IC(R^2_{adj})_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{0.1cm} Q \left( \hspace{0.1cm} \alpha/2 \hspace{0.1cm} , \hspace{0.1cm} R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} \right) \hspace{0.1cm} , \hspace{0.1cm}  Q \left( \hspace{0.1cm} 1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} \right)  \hspace{0.1cm} \right]\]</span></p>
+<p><br></p>
+</div>
 </div>
 <div id="regresión-lineal-bootstrap-en-python" class="section level2" number="13.3">
 <h2><span class="header-section-number">13.3</span> Regresión lineal bootstrap en <code>Python</code></h2>
