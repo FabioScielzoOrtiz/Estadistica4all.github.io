@@ -52,6 +52,12 @@ css: custom.css
 > More articles in my blog:   $\hspace{0.1cm}$   [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)
 
 
+
+
+
+
+ CREO QUE DEBERIAMOS USAR ESTE ARTICULO COMO UNA INTRO AL MANEJO DE DATOS EN PYTHON. METER COSAS DE PANDAS Y DEMAS TAMBIEN. EN EL FONDO OPERACIONES DE FILTRADO Y DEMAS SON OPERACIONES DE PREPROCESADO DE DATOS.
+
 <br>
 
 El objetivo del preprocesado de datos es la obtención de un conjunto de datos que sea útil para la extracción de conocimiento.  

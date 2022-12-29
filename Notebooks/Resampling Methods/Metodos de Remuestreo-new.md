@@ -2700,29 +2700,34 @@ $$ASL = \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.
 
 # Bootstrap en Regresión Lineal 
 
+
+Para introducirse en el modelo de regresión lineal se recomienda el siguiente [artículo](http://estadistica4all.com/Articulos/Linear-Regression-new.html) del blog [Estadistica4all.com](http://estadistica4all.com/)
+
 ## Botstrap en Regresión Lineal basado en residuos
 
 Tenemos un modelo de regresión lineal:
 
 $$y_i = \beta\cdot x_i + \varepsilon_i \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\$$
 
+donde  $\hspace{0.25cm} x_i \in \mathbb{R}^p \hspace{0.15cm} , \hspace{0.15cm}  \varepsilon_i \in \mathbb{R} \hspace{0.15cm} , \hspace{0.15cm}  y_i \in \mathbb{R} \\$
+
 El modelo de regresión lineal estimado por mínimos cuadrados ordinarios es:
 
-$$y_i = \widehat{\beta}\cdot x_i  \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\$$
+$$\hat{y}_i = \widehat{\beta}\cdot x_i  \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\$$
 
 Donde:
 
 $$\widehat{\beta} = (X \cdot X^t)^{-1} \cdot X^t \cdot y\\$$
 
 
-Recordemos que en el modelo de regresión lineal los residuos estimados del modelo son:
+Recordemos que en el modelo de regresión lineal los residuos estimados del modelo son: $\\[0.5cm]$
 
 
 $$\widehat{\varepsilon} = (\widehat{\varepsilon}_1,...,\widehat{\varepsilon}_n)^t\\$$
 
 Donde:
 
-$$\widehat{\varepsilon}_i \hspace{0.1cm}=\hspace{0.1cm} y_i - \widehat{\beta}\cdot x_i  \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\$$
+$$\widehat{\varepsilon}_i \hspace{0.1cm}=\hspace{0.1cm} y_i - \widehat{\beta}\cdot x_i \hspace{0.1cm}=\hspace{0.1cm} y_i - \hat{y}_i \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\$$
 
 Se toma una muestra aleatoria con reemplazamiento de los residuos estimados del modelo: $\\[0.5cm]$
 
@@ -2733,42 +2738,47 @@ $$\widehat{\varepsilon}^* = (\widehat{\varepsilon}_1^*,...,\widehat{\varepsilon}
 Donde:
 
 
-$$\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} \widehat{\varepsilon}_j^* = \widehat{\varepsilon}_i$$
+$$\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} \widehat{\varepsilon}_j^* = \widehat{\varepsilon}_i \\$$
 
 
-Las respuestas bootstrap se generan como:
+Las respuestas *bootstrap* se generan como:
 
-$$y_i^* = x_i \cdot \widehat{\beta} + \varepsilon_i^*  \hspace{0.25cm} , \hspace{0.25cm} \forall j \in  \lbrace 1,...,n \rbrace$$
-
-
-
-La estimación bootstrap de $\hspace{0.1cm} \beta\hspace{0.1cm} $ es:
+$$y_i^* \hspace{0.1cm}=\hspace{0.1cm} x_i \cdot \widehat{\beta} + \varepsilon_i^*  \hspace{0.25cm} , \hspace{0.25cm} \forall   \hspace{0.1cm} j \in  \lbrace 1,...,n \rbrace \\$$
 
 
-$$\widehat{\beta}\hspace{0.05cm}^* = (X^t \cdot X)^{-1} \cdot X^t \cdot y^* \\$$
 
-Donde:
-
-$$y\hspace{0.05cm}^* = (y_1^* ,..., y_n^*)^t \\$$
+La estimación *bootstrap* de $\hspace{0.1cm} \beta\hspace{0.1cm}$ es:
 
 
-La estimación de la varianza de los coeficientes bootstrap es:
-
-
-$$Var(\widehat{\beta}_j^*) \hspace{0.1cm}=\hspace{0.1cm} \widehat{\sigma}^2_* \cdot q_{jj} \\$$
+$$\widehat{\beta}\hspace{0.05cm}^* \hspace{0.1cm}=\hspace{0.1cm} (X^t \cdot X)^{-1} \cdot X^t \cdot y^* \\$$
 
 Donde:
 
-$$q_{jj} \hspace{0.1cm}=\hspace{0.1cm} diag (X^t\cdot X)^{-1} [j+1]$$
-
-$$\widehat{\sigma}^2_* \hspace{0.1cm}=\hspace{0.1cm} Var(\varepsilon_i^*) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n-p-1} \cdot \sum_{i=1}^n \varepsilon_i^*$$
+$$Y^* = (y_1^* , ..., y_n^*)^t \\$$
 
 
+La estimación de la varianza de los coeficientes *bootstrap* es:
 
+
+$$\widehat{Var}(\widehat{\beta}_j\hspace{0.05cm}^*) \hspace{0.1cm}=\hspace{0.1cm} \widehat{\sigma}^2_* \cdot q_{jj} \\$$
+
+Donde:
+
+$$q_{jj} \hspace{0.1cm}=\hspace{0.1cm} diag (X^t\cdot X)^{-1} \hspace{0.05cm} [\hspace{0.05cm} j+1 \hspace{0.05cm}]$$
+
+$$\widehat{\sigma}^2_* \hspace{0.1cm}=\hspace{0.1cm} Var(\varepsilon_i^*) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n-p-1} \cdot \sum_{i=1}^n \varepsilon_i^* \\[1cm]$$
+
+
+Esto  permite obtener intervalos de confianza *bootstrap* para los coeficientes betas del modelo: $\\[0.4cm]$
+
+$$
+IC\left( \beta_j  \right)_{1-\alpha}^{boot} \hspace{0.08cm}=\hspace{0.08cm} \left[ \hspace{0.07cm} \widehat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{\widehat{Var}(\widehat{\beta}_j\hspace{0.05cm}^*)} \hspace{0.07cm} \right] = \left[\hspace{0.07cm}  \widehat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{\widehat{\sigma}^2_* \cdot q_{jj}} \hspace{0.07cm} \right]
+$$
 
 
 <br>
 
+<br>
 
 ## Botstrap en Regresión Lineal basado en pares
 

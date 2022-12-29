@@ -1633,7 +1633,7 @@ margin-left: 0 !important;
       <li><a href="#regresión-lineal-bootstrap-en-python" id="toc-regresión-lineal-bootstrap-en-python"><span class="toc-section-number">13.3</span> Regresión lineal bootstrap en <code>Python</code></a></li>
       </ul></li>
       <li><a href="#estimación-bootstrap-de-la-varianza-de-las-predicciones-de-un-modelo-de-aprendizaje-supervisado" id="toc-estimación-bootstrap-de-la-varianza-de-las-predicciones-de-un-modelo-de-aprendizaje-supervisado"><span class="toc-section-number">14</span> Estimación bootstrap de la varianza de las predicciones de un modelo de aprendizaje supervisado</a></li>
-      <li><a href="#estimación-bootstrap-del-sesgo-de-las-predicciones-de-un-modelo" id="toc-estimación-bootstrap-del-sesgo-de-las-predicciones-de-un-modelo"><span class="toc-section-number">15</span> Estimación bootstrap del sesgo de las predicciones de un modelo</a></li>
+      <li><a href="#estimación-bootstrap-del-sesgo-de-las-predicciones-de-un-modelo-de-aprendizaje-supervisado" id="toc-estimación-bootstrap-del-sesgo-de-las-predicciones-de-un-modelo-de-aprendizaje-supervisado"><span class="toc-section-number">15</span> Estimación bootstrap del sesgo de las predicciones de un modelo de aprendizaje supervisado</a></li>
       <li><a href="#bibliografía" id="toc-bibliografía"><span class="toc-section-number">16</span> Bibliografía</a></li>
       </ul>
     </div>
@@ -3057,33 +3057,40 @@ H_1 : \mu \neq \mu_0 \hspace{1.5cm}  H_1 : \mu &gt; \mu_0  \hspace{1.5cm} H_1 : 
 </div>
 <div id="bootstrap-en-regresión-lineal" class="section level1" number="13">
 <h1><span class="header-section-number">13</span> Bootstrap en Regresión Lineal</h1>
+<p>Para introducirse en el modelo de regresión lineal se recomienda el siguiente <a href="http://estadistica4all.com/Articulos/Linear-Regression-new.html">artículo</a> del blog <a href="http://estadistica4all.com/">Estadistica4all.com</a></p>
 <div id="botstrap-en-regresión-lineal-basado-en-residuos" class="section level2" number="13.1">
 <h2><span class="header-section-number">13.1</span> Botstrap en Regresión Lineal basado en residuos</h2>
 <p>Tenemos un modelo de regresión lineal:</p>
-<p><span class="math display">\[y_i = \beta\cdot x_i + \varepsilon_i \forall i \in \lbrace 1,...,n \rbrace\\\]</span></p>
+<p><span class="math display">\[y_i = \beta\cdot x_i + \varepsilon_i \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\\]</span></p>
+<p>donde <span class="math inline">\(\hspace{0.25cm} x_i \in \mathbb{R}^p \hspace{0.15cm} , \hspace{0.15cm} \varepsilon_i \in \mathbb{R} \hspace{0.15cm} , \hspace{0.15cm} y_i \in \mathbb{R} \\\)</span></p>
 <p>El modelo de regresión lineal estimado por mínimos cuadrados ordinarios es:</p>
-<p><span class="math display">\[y_i = \widehat{\beta}\cdot x_i  \forall i \in \lbrace 1,...,n \rbrace\\\]</span></p>
+<p><span class="math display">\[\hat{y}_i = \widehat{\beta}\cdot x_i  \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\\]</span></p>
 <p>Donde:</p>
-<p><span class="math display">\[\widehat{\beta} = (X \cdot X^t)^{-1} \cdot X^t \cdot y\]</span></p>
-<p>Recordemos que en el modelo de regresión lineal los residuos estimados del modelo son:</p>
+<p><span class="math display">\[\widehat{\beta} = (X \cdot X^t)^{-1} \cdot X^t \cdot y\\\]</span></p>
+<p>Recordemos que en el modelo de regresión lineal los residuos estimados del modelo son: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[\widehat{\varepsilon} = (\widehat{\varepsilon}_1,...,\widehat{\varepsilon}_n)^t\\\]</span></p>
 <p>Donde:</p>
-<p><span class="math display">\[\widehat{\varepsilon}_i = y_i - \widehat{\beta}\cdot x_i  \forall i \in \lbrace 1,...,n \rbrace\\\]</span></p>
+<p><span class="math display">\[\widehat{\varepsilon}_i \hspace{0.1cm}=\hspace{0.1cm} y_i - \widehat{\beta}\cdot x_i \hspace{0.1cm}=\hspace{0.1cm} y_i - \hat{y}_i \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\\]</span></p>
 <p>Se toma una muestra aleatoria con reemplazamiento de los residuos estimados del modelo: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[\widehat{\varepsilon}^* = (\widehat{\varepsilon}_1^*,...,\widehat{\varepsilon}_n^*)^t\\\]</span></p>
 <p>Donde:</p>
-<p><span class="math display">\[\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} \widehat{\varepsilon}_j^* = \widehat{\varepsilon}_i\]</span></p>
-<p>Las respuestas bootstrap se generan como:</p>
-<p><span class="math display">\[y_i^* = x_i \cdot \widehat{\beta} + \varepsilon_i^*  \hspace{0.25cm} , \hspace{0.25cm} \forall j \in  \lbrace 1,...,n \rbrace\]</span></p>
-<p>La estimación bootstrap de $ $ es:</p>
-<p><span class="math display">\[\widehat{\beta}\hspace{0.05cm}^* = (X^t \cdot X)^{-1} \cdot X^t \cdot y^* \\\]</span></p>
+<p><span class="math display">\[\forall j \in  \lbrace 1,...,n \rbrace  \hspace{0.25cm} , \hspace{0.25cm} \exists \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \hspace{0.25cm} , \hspace{0.25cm} \widehat{\varepsilon}_j^* = \widehat{\varepsilon}_i \\\]</span></p>
+<p>Las respuestas <em>bootstrap</em> se generan como:</p>
+<p><span class="math display">\[y_i^* \hspace{0.1cm}=\hspace{0.1cm} x_i \cdot \widehat{\beta} + \varepsilon_i^*  \hspace{0.25cm} , \hspace{0.25cm} \forall   \hspace{0.1cm} j \in  \lbrace 1,...,n \rbrace \\\]</span></p>
+<p>La estimación <em>bootstrap</em> de <span class="math inline">\(\hspace{0.1cm} \beta\hspace{0.1cm}\)</span> es:</p>
+<p><span class="math display">\[\widehat{\beta}\hspace{0.05cm}^* \hspace{0.1cm}=\hspace{0.1cm} (X^t \cdot X)^{-1} \cdot X^t \cdot y^* \\\]</span></p>
 <p>Donde:</p>
-<p><span class="math display">\[y\hspace{0.05cm}^* = (y_1^* ,..., y_n^*)^t \\\]</span></p>
-<p>La estimación de la varianza de los coeficientes bootstrap es:</p>
-<p><span class="math display">\[Var(\widehat{\beta}_j^*) \hspace{0.1cm}=\hspace{0.1cm} \widehat{\sigma}^2_* \cdot q_{jj} \\\]</span></p>
+<p><span class="math display">\[Y^* = (y_1^* , ..., y_n^*)^t \\\]</span></p>
+<p>La estimación de la varianza de los coeficientes <em>bootstrap</em> es:</p>
+<p><span class="math display">\[\widehat{Var}(\widehat{\beta}_j\hspace{0.05cm}^*) \hspace{0.1cm}=\hspace{0.1cm} \widehat{\sigma}^2_* \cdot q_{jj} \\\]</span></p>
 <p>Donde:</p>
-<p><span class="math display">\[q_{jj} \hspace{0.1cm}=\hspace{0.1cm} diag (X^t\cdot X)^{-1} [j+1]\]</span></p>
-<p><span class="math display">\[\widehat{\sigma}^2_* \hspace{0.1cm}=\hspace{0.1cm} Var(\varepsilon_i^*) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n-p-1} \cdot \sum_{i=1}^n \varepsilon_i^*\]</span></p>
+<p><span class="math display">\[q_{jj} \hspace{0.1cm}=\hspace{0.1cm} diag (X^t\cdot X)^{-1} \hspace{0.05cm} [\hspace{0.05cm} j+1 \hspace{0.05cm}]\]</span></p>
+<p><span class="math display">\[\widehat{\sigma}^2_* \hspace{0.1cm}=\hspace{0.1cm} Var(\varepsilon_i^*) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n-p-1} \cdot \sum_{i=1}^n \varepsilon_i^* \\[1cm]\]</span></p>
+<p>Esto permite obtener intervalos de confianza <em>bootstrap</em> para los coeficientes betas del modelo: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[
+IC\left( \beta_j  \right)_{1-\alpha}^{boot} \hspace{0.08cm}=\hspace{0.08cm} \left[ \hspace{0.07cm} \widehat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{\widehat{Var}(\widehat{\beta}_j\hspace{0.05cm}^*)} \hspace{0.07cm} \right] = \left[\hspace{0.07cm}  \widehat{\beta}_j \ \hspace{0.1cm} \pm \hspace{0.1cm}  \ t_{\alpha/2}^{n-p-1} \cdot \sqrt{\widehat{\sigma}^2_* \cdot q_{jj}} \hspace{0.07cm} \right]
+\]</span></p>
+<p><br></p>
 <p><br></p>
 </div>
 <div id="botstrap-en-regresión-lineal-basado-en-pares" class="section level2" number="13.2">
@@ -3107,6 +3114,7 @@ H_1 : \mu \neq \mu_0 \hspace{1.5cm}  H_1 : \mu &gt; \mu_0  \hspace{1.5cm} H_1 : 
 </div>
 <div id="regresión-lineal-bootstrap-en-python" class="section level2" number="13.3">
 <h2><span class="header-section-number">13.3</span> Regresión lineal bootstrap en <code>Python</code></h2>
+<p><br></p>
 <p><br></p>
 </div>
 </div>
@@ -3134,8 +3142,8 @@ H_1 : \mu \neq \mu_0 \hspace{1.5cm}  H_1 : \mu &gt; \mu_0  \hspace{1.5cm} H_1 : 
 <p><br></p>
 <p><br></p>
 </div>
-<div id="estimación-bootstrap-del-sesgo-de-las-predicciones-de-un-modelo" class="section level1" number="15">
-<h1><span class="header-section-number">15</span> Estimación bootstrap del sesgo de las predicciones de un modelo</h1>
+<div id="estimación-bootstrap-del-sesgo-de-las-predicciones-de-un-modelo-de-aprendizaje-supervisado" class="section level1" number="15">
+<h1><span class="header-section-number">15</span> Estimación bootstrap del sesgo de las predicciones de un modelo de aprendizaje supervisado</h1>
 <p>Consideraremos que una estimacion del sesgo de las predicciones de un modelo de regresion (variable respuesta cuantitativa) <span class="math inline">\(M\)</span> es:</p>
 <p><span class="math display">\[\dfrac{1}{h} \sum_{i=1}^{h} \widehat{Sesgo}(\hat{y}_i)\]</span></p>
 <p>Cálculo de <span class="math inline">\(\widehat{Sesgo}(\hat{y}_i)\)</span> por remuestreo (en algunos modelos no habra expresiones cerradas para este estimacion, por eso veo interesante un procedimiento general que no dependa del modelo usado):</p>
