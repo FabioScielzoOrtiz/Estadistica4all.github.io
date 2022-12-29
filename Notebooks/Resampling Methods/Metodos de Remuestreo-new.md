@@ -78,7 +78,7 @@ $\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). Introducción a los contrastes de hip
 
 
 
-# Variables aleatorias i.i.d.
+# Variables aleatorias i.i.d. <a class="anchor" id="1"></a>
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -2173,6 +2173,319 @@ estimation
 **Para la proporción**
 
 
+```python
+X_dummy = np.random.uniform(low=0 , high=1, size=50).round()
+```
+
+```python
+interval , estimation = cuantil_boot_interval(Variable1=X_dummy, Variable2='no', alpha=0.05, estimator='proportion' , B=20000, random_seed=123)
+```
+
+```python
+interval
+```
+
+    [0.46, 0.74]
+
+```python
+estimation
+```
+
+    0.6
+
+
+<br>
+
+
+**Para la diferencia de medias**
+
+```python
+np.random.seed(123)
+
+X_1 = np.random.normal(loc=10, scale=15, size=50)
+
+X_2 = np.random.normal(loc=13, scale=15, size=100)
+```
+
+```python
+interval , estimation = cuantil_boot_interval(Variable1=X_1, Variable2=X_2, alpha=0.05, estimator='mean_diff' , B=20000,  q=0.75, random_seed=123)
+```
+
+```python
+interval
+```
+
+    [-9.788335434742939, 1.810648408844556]
+
+
+```python
+estimation
+```
+
+    -4.001757444976697
+
+
+
+```python
+def CI_Mean_Diference(Variable1 , Variable2 , alpha=0.05):
+
+    X1 = Variable1
+    X2 = Variable2
+
+    n1 = len(X1) 
+    n2 = len(X2)   
+
+    X1_mean = X1.mean()
+    X2_mean = X2.mean()
+
+    X1_cuasi_var = X1.std()**2 
+    X2_cuasi_var = X2.std()**2 
+
+    X1_var = ( (n1-1)/n1 )*X1_cuasi_var
+    X2_var = ( (n2-1)/n2 )*X2_cuasi_var
+
+    v = ( X1_var/n1 + X2_var/n2 )**2 / ( (X1_var/n1)**2 / (n1-1)  + (X2_var/n2)**2 / (n2-1)  )
+
+    t_alpha_medios = scipy.stats.chi.ppf( 1 - alpha/2 , df=v)
+  
+  
+    L1 =  (X1_mean - X2_mean) - t_alpha_medios * np.sqrt(X1_var/n1 + X2_var/n2)
+
+    L2 =  (X1_mean - X2_mean) + t_alpha_medios * np.sqrt(X1_var/n1 + X2_var/n2)
+
+    interval = [L1 , L2]
+
+    return interval , (X1_mean - X2_mean)  
+```
+
+```python
+interval , estimation = CI_Mean_Diference(Variable1=X_1 , Variable2=X_2 , alpha=0.05) 
+```
+
+```python
+interval
+```
+
+    [-35.535058586780195, 27.531543696826805]
+
+
+```python
+estimation
+```
+
+    -4.001757444976697
+
+
+<br>
+
+**Para la diferencia de medianas**
+
+
+```python
+interval , estimation = cuantil_boot_interval(Variable1=X_1, Variable2=X_2, alpha=0.05, estimator='median_diff' , B=20000,  q=0.75, random_seed=123)
+```
+
+```python
+interval
+```
+
+    [-13.881285812364158, 3.1918214145850397]
+
+
+
+```python
+estimation
+```
+
+    -6.812252818435496
+
+ 
+
+<br>
+
+
+**Para la diferencia de desviaciones típicas**
+
+```python
+interval , estimation = cuantil_boot_interval(Variable1=X_1, Variable2=X_2, alpha=0.05, estimator='std_diff' , B=20000,  q=0.75, random_seed=123)
+```
+
+```python
+interval
+```
+
+    [-1.440066276291272, 5.750492255040537]
+
+
+```python
+estimation
+```
+
+    2.297921770341434
+
+
+ 
+<br>
+
+**Para la diferencia de cuantiles**
+
+```python
+interval , estimation = cuantil_boot_interval(Variable1=X_1, Variable2=X_2, alpha=0.05, estimator='quantile_diff' , B=20000,  q=0.75, random_seed=123)
+```
+
+```python
+interval
+```
+
+    [-12.249938782339909, 4.819498365231816]
+
+
+```python
+estimation
+```
+
+    -1.2929002407485939
+
+
+ 
+
+<br>
+
+**Para la diferencia de kurtosis**
+
+```python
+interval , estimation = cuantil_boot_interval(Variable1=X_1, Variable2=X_2, alpha=0.05, estimator='kurtosis_diff' , B=20000,  q=0.75, random_seed=123)
+```
+
+```python
+interval
+```
+
+     [-0.504742036075702, 1.1320430654741647]
+
+
+```python
+estimation
+```
+
+    0.2817371126835462
+
+ 
+
+<br>
+
+**Para la diferencia de asimetrías**
+
+```python
+interval , estimation = cuantil_boot_interval(Variable1=X_1, Variable2=X_2, alpha=0.05, estimator='skewness_diff' , B=20000,  q=0.75, random_seed=123)
+```
+
+```python
+interval
+```
+
+    [-0.5445430937619894, 0.6394836839729549]
+
+
+```python
+estimation
+```
+
+    0.019079758603481104
+
+ 
+<br>
+
+**Para la diferencia de proporciones**
+
+```python
+np.random.seed(123)
+
+X_dummy_1 = np.random.uniform(low=0 , high=1, size=40).round()
+
+X_dummy_2 = np.random.uniform(low=0 , high=1, size=300).round()
+```
+
+```python
+interval , estimation = cuantil_boot_interval(Variable1=X_dummy_1, Variable2=X_dummy_2, alpha=0.05, estimator='proportion_diff' , B=20000,  q=0.75, random_seed=123)
+```
+
+```python
+interval
+```
+
+    [-0.22499999999999998, 0.10666666666666663]
+
+
+
+```python
+estimation
+```
+
+    -0.06
+    
+<br>
+
+## Intervalos BCa en `Python`
+
+
+```python
+
+```
+
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
 
 
 
@@ -2391,15 +2704,15 @@ $$ASL = \dfrac{\#\hspace{0.1cm} \left\lbrace \hspace{0.1cm} b=1,...,B \hspace{0.
 
 Tenemos un modelo de regresión lineal:
 
-$$y_i = \beta\cdot x_i + \varepsilon_i \forall i \in \lbrace 1,...,n \rbrace\\$$
+$$y_i = \beta\cdot x_i + \varepsilon_i \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\$$
 
 El modelo de regresión lineal estimado por mínimos cuadrados ordinarios es:
 
-$$y_i = \widehat{\beta}\cdot x_i  \forall i \in \lbrace 1,...,n \rbrace\\$$
+$$y_i = \widehat{\beta}\cdot x_i  \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\$$
 
 Donde:
 
-$$\widehat{\beta} = (X \cdot X^t)^{-1} \cdot X^t \cdot y$$
+$$\widehat{\beta} = (X \cdot X^t)^{-1} \cdot X^t \cdot y\\$$
 
 
 Recordemos que en el modelo de regresión lineal los residuos estimados del modelo son:
@@ -2409,7 +2722,7 @@ $$\widehat{\varepsilon} = (\widehat{\varepsilon}_1,...,\widehat{\varepsilon}_n)^
 
 Donde:
 
-$$\widehat{\varepsilon}_i = y_i - \widehat{\beta}\cdot x_i  \forall i \in \lbrace 1,...,n \rbrace\\$$
+$$\widehat{\varepsilon}_i \hspace{0.1cm}=\hspace{0.1cm} y_i - \widehat{\beta}\cdot x_i  \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\$$
 
 Se toma una muestra aleatoria con reemplazamiento de los residuos estimados del modelo: $\\[0.5cm]$
 
@@ -2506,11 +2819,26 @@ $$Y^* = (y_1^* , ..., y_n^*)^t$$
 
 
 
+## Regresión lineal bootstrap en `Python`
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
 <br>
 
  
 
-# Estimación bootstrap de la varianza de las predicciones de un modelo
+# Estimación bootstrap de la varianza de las predicciones de un modelo de aprendizaje supervisado
 
 Consideraremos que una estimacion de la varianza de las predicciones de un modelo de regresion (variable respuesta cuantitativa) $M$ es:
 
@@ -2559,7 +2887,7 @@ $$ \dfrac{1}{h} \sum_{i=1}^{h} \widehat{Var}(\hat{y}_i) $$
 <br>
 
 
-# Estimación bootstrap del sesgo de las predicciones de un modelo
+# Estimación bootstrap del sesgo de las predicciones de un modelo de aprendizaje supervisado
 
 Consideraremos que una estimacion del sesgo de las predicciones de un modelo de regresion (variable respuesta cuantitativa) $M$ es:
 
@@ -2608,11 +2936,17 @@ $$ \dfrac{1}{h} \sum_{i=1}^{h} \widehat{Sesgo}(\hat{y}_i) $$
 
 <br>
 
-## Regresión lineal bootstrap en `Python`
+----
+
+<br>
+
+# Bibliografía
 
 
 
 
+
+<br>
 
 
 
