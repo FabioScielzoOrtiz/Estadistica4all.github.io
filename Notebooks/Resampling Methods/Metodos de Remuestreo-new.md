@@ -532,19 +532,271 @@ $$\widehat{\theta}_{(r)} = \widehat{\theta}(X_{(r)})= \widehat{\theta}(\hspace{0
 <br>
 
 
-## Estimación Jacknife del sesgo en `Python`
+## Jacknife en `Python`
 
 
-## Estimación Jacknife de la desviación típica en `Python`
+```python
+def Jacknife(Variable , estimator_function, q=0.75):
+
+#######################################################
+
+    def Jacknife_sample(X , r):
+
+            X_sample_r = np.delete(X, r)
+
+            return(X_sample_r)
 
 
-## Estimación Jacknife del error cuadratico medio en `Python`
+    if estimator_function == np.quantile :  estimation = estimator_function(Variable , q=q)
+
+    else :  estimation = estimator_function(Variable)
+
+        
+    replicas_estimador = []
+
+    for r in range(0, len(Variable)):
+
+        if estimator_function == np.quantile :  Jack_estimation = estimator_function( Jacknife_sample(Variable, r) , q=q )
+
+        else :  Jack_estimation = estimator_function( Jacknife_sample(Variable, r) )
+
+        replicas_estimador.append( Jack_estimation )
+
+    
+    n = len(Variable)
+
+    sesgo = (n-1) * ( np.mean( replicas_estimador ) - estimation )
+
+    estimacion_sesgo_corregido = estimation - sesgo
+
+    standard_error = np.sqrt( ((n-1)/n) * sum( (replicas_estimador - np.mean( replicas_estimador ))**2 ) )
 
 
-## Estimación Jacknife con sesgo correguido en `Python`
+#######################################################
+    
+    return(sesgo, estimacion_sesgo_corregido, standard_error)
+```
+
+
+```python
+import numpy as np
+```
+
+```python
+np.random.seed(123)
+
+X = np.random.normal(loc=10, scale=15, size=50)
+```
+
+
+```python
+np.median(X)
+```
+
+8.23916733155832
+
+
+```python
+sesgo, estimacion_sesgo_corregido, standard_error = Jacknife(X , estimator_function=np.median , q=0.75)
+```
+
+```python
+sesgo
+```
+
+    8.704148513061227e-14
+
+
+```python
+estimacion_sesgo_corregido
+```
+
+    8.239167331558233
+
+
+```python
+standard_error
+```
+
+    2.381386940718188
+ 
+<br>
+
+
+```python
+np.mean(X)
+```
+
+
+```python
+sesgo, estimacion_sesgo_corregido, standard_error = Jacknife(X , estimator_function=np.mean)
+```
+
+
+```python
+sesgo
+```
+
+    -8.704148513061227e-14
+
+```python
+estimacion_sesgo_corregido
+```
+
+    10.199071616256864
+
+```python
+standard_error
+```
+      
+    2.5491917443460235
+ 
+ 
+<br> 
+ 
+```python
+np.std(X)
+``` 
+ 
+```python
+sesgo, estimacion_sesgo_corregido, standard_error = Jacknife(X , estimator_function=np.std)
+``` 
+
+```python
+sesgo
+``` 
+
+    -0.26116994703598806
+
+```python
+estimacion_sesgo_corregido
+``` 
+
+    18.105512157458175
+
+```python
+standard_error
+``` 
+
+    1.6795955569730596
 
 
 
+<br>
+
+
+```python
+np.quantile(X , q=0.75)
+``` 
+
+    23.835596841535178
+
+```python
+sesgo, estimacion_sesgo_corregido, standard_error = Jacknife(X , np.quantile, q=0.75)
+``` 
+
+
+```python
+sesgo
+``` 
+
+    -0.14962568429344003
+    
+
+```python
+estimacion_sesgo_corregido
+``` 
+
+    23.98522252582862
+    
+    
+```python
+standard_error
+``` 
+
+    0.9375849844484524
+
+<br>
+
+```python
+import scipy
+
+from scipy.stats import  kurtosis
+``` 
+
+```python
+kurtosis(X)
+``` 
+
+    -0.37420768292897266
+
+
+```python
+sesgo, estimacion_sesgo_corregido, standard_error = Jacknife(X , estimator_function=kurtosis) 
+``` 
+
+
+```python
+sesgo
+``` 
+
+    -0.03624894442748883
+
+```python
+estimacion_sesgo_corregido 
+``` 
+
+    -0.33795873850148384
+
+```python
+standard_error 
+``` 
+
+    0.3609496287814513
+
+```python
+from scipy.stats import  skew
+``` 
+
+
+
+```python
+skew(X) 
+``` 
+    
+    0.025587358812510053
+
+
+
+```python
+sesgo, estimacion_sesgo_corregido, standard_error = Jacknife(X , estimator_function=skew) 
+``` 
+
+
+
+```python
+sesgo 
+``` 
+
+    0.021610720628010085
+
+```python
+estimacion_sesgo_corregido 
+``` 
+
+    0.0039766381844999685
+
+```python
+standard_error 
+``` 
+
+
+    0.27115376266443825
+    
+    
+    
+    
+ 
 
 <br>
 
@@ -731,17 +983,270 @@ $$\widehat{\theta}(X)\hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n
 
 <br>
 
-## Estimación bootstrap del sesgo en `Python`
+## Bootstrap en `Python`
+
+ 
+```python
+def Bootstrap(Variable , B, estimator_function, q=0.75, random_seed=123 ):
+
+#######################################################
+
+    np.random.seed(random_seed)
+
+#######################################################
 
 
-## Estimación bootstrap de la desviación típica en `Python`
+    def Bootstrap_sample(X):
+
+            from sklearn.utils import resample
+
+            sample = resample( X, n_samples=len(X))
+
+            return sample
 
 
-## Estimación bootstrap del error cuadratico medio en `Python`
+    if estimator_function == np.quantile : estimation = estimator_function(Variable , q)
+            
+    else:  estimation = estimator_function(Variable)
 
 
-## Estimación bootstrap con sesgo correguido en `Python`
+    replicas_estimador = []
 
+    for b in range(0, B):
+
+        if estimator_function == np.quantile : estimation_Boot = estimator_function(Bootstrap_sample(Variable) , q=q)
+            
+        else:  estimation_Boot = estimator_function(Bootstrap_sample(Variable))
+
+        replicas_estimador.append( estimation_Boot )
+
+    
+    sesgo = np.mean( replicas_estimador ) - estimation
+
+    estimacion_sesgo_corregido = estimation - sesgo
+
+    standard_error = np.std( replicas_estimador ) 
+
+
+#######################################################
+
+    return sesgo , estimacion_sesgo_corregido , standard_error, replicas_estimador
+```
+ 
+```python
+np.median(X)
+```
+
+    8.23916733155832
+
+```python
+sesgo , estimacion_sesgo_corregido , standard_error, replicas_estimador = Bootstrap(X , B=20000, estimator_function=np.median)
+```
+
+```python
+sesgo
+```
+
+    0.4499295142913571
+
+```python
+estimacion_sesgo_corregido
+```
+
+    7.789237817266963
+
+```python
+standard_error
+```
+
+
+    3.7580290713770914
+
+
+
+<br>
+
+
+```python
+np.mean(X)
+```
+
+```python
+sesgo , estimacion_sesgo_corregido , standard_error, replicas_estimador = Bootstrap(X , B=20000, estimator_function=np.mean)
+```
+
+
+
+```python
+sesgo
+```
+
+    0.02044617187141995
+
+```python
+estimacion_sesgo_corregido
+```
+
+    10.178625444385357
+
+```python
+standard_error
+```
+
+    2.5121071650105433
+
+
+<br>
+
+
+```python
+np.std(X)
+```
+
+
+    17.844342210422187
+
+```python
+sesgo , estimacion_sesgo_corregido , standard_error, replicas_estimador = Bootstrap(X , B=20000, estimator_function=np.std)
+```
+
+```python
+replicas_estimador[0:10]
+```
+
+```
+[17.290069166352062,
+ 17.734700491052042,
+ 18.091905056508867,
+ 19.296946848609828,
+ 16.371718686759674,
+ 17.889036386608268,
+ 16.84496188781967,
+ 18.60024334635148,
+ 20.188328416078278,
+ 19.38523325913237]
+```
+
+```python
+sesgo
+```
+
+    -0.24900263565758252
+
+
+```python
+estimacion_sesgo_corregido
+```
+
+    18.09334484607977
+
+```python
+standard_error
+```
+
+    1.6154115156505968
+
+
+
+<br>
+
+
+
+```python
+np.quantile(X, q=0.75)
+```
+
+    23.835596841535178
+
+```python
+sesgo , estimacion_sesgo_corregido , standard_error, replicas_estimador = Bootstrap(X , B=20000, estimator_function=np.quantile, q=0.75)
+```
+
+```python
+sesgo
+```
+
+    -1.006032620023607
+
+```python
+estimacion_sesgo_corregido
+```
+
+    24.841629461558785
+
+```python
+standard_error
+```
+
+    3.4665427821179793
+    
+<br>
+
+
+
+```python
+skew(X)
+```
+
+    0.025587358812510053
+
+```python
+sesgo , estimacion_sesgo_corregido , standard_error, replicas_estimador = Bootstrap(X , B=20000, estimator_function=skew)
+```
+
+
+
+```python
+sesgo
+```
+
+    0.019212954042191917
+
+```python
+estimacion_sesgo_corregido
+```
+    
+    0.006374404770318136
+
+```python
+standard_error
+```
+
+    0.253427740069774
+
+
+<br>
+
+```python
+kurtosis(X)
+```
+
+    -0.37420768292897266
+
+```python
+sesgo , estimacion_sesgo_corregido , standard_error, replicas_estimador = Bootstrap(X , B=20000, estimator_function=kurtosis)
+```
+
+
+
+```python
+sesgo
+```
+
+    -0.022470288214714473
+
+
+```python
+estimacion_sesgo_corregido
+```
+
+    -0.3517373947142582
+
+```python
+standard_error
+```
+
+    0.35103721258189574
 
 <br>
 
@@ -984,8 +1489,7 @@ $$sup \left\lbrace \hspace{0.1cm}\left|\hspace{0.1cm} \widehat{F}_n(z)  - F_X(z)
 
 
 
-## ***Falta hilar esto con la justificacion del bootstrap***
-
+ 
 
 
 <br>
@@ -1215,33 +1719,90 @@ Con este intervalo se recomienda usar $B \geq 1000$.
 
 
 
-## Intervalo de confianza bootstrap para la media de una poblacion
+## Intervalo de confianza cuantil-bootstrap en `Python`
 
 
-Aplicar en python
+```python
+
+```
 
 
+```python
 
-## Intervalo de confianza bootstrap para la diferencia de medias de dos poblacion
+```
 
+```python
 
+```
 
-## Intervalo de confianza bootstrap para la varianza de una poblacion
+```python
 
+```
 
+```python
 
-
-## Intervalo de confianza bootstrap para la diferencia de varianzas de dos poblacion
-
-
-
-## Intervalo de confianza bootstrap para la mediana de una poblacion
-
-
-
-## Intervalo de confianza bootstrap para la diferencia de medianas de dos poblaciones
+```
 
 
+```python
+
+```
+
+
+```python
+
+```
+
+
+```python
+
+```
+
+
+```python
+
+```
+
+
+```python
+
+```
+
+```python
+
+```
+
+
+```python
+
+```
+
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+```python
+
+```
+
+
+```python
+
+```
+
+
+```python
+
+```
 
 
 
