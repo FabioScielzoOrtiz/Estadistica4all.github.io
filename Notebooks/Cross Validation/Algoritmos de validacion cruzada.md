@@ -59,7 +59,7 @@ $\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadi
 
 $\hspace{0.3cm}$ **Si utilizas este artículo, por favor, cítalo:** 
 
-$\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). Algoritmos de validación cruzada. http://estadistica4all.com/Articulos/KNN.html
+$\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). Algoritmos de validación cruzada. http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html
 
 
 </p>
