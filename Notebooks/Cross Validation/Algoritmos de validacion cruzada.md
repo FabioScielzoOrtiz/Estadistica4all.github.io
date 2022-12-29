@@ -943,7 +943,7 @@ Tenemos un modelo de aprendizaje supervisado  $\hspace{0.1cm}M\hspace{0.1cm}$ y 
 
 Este algoritmo de validación consiste en dividir el data-set inicial en una parte de train y otra de test de manera no aleatoria.
 
-El $k\%$ de las primeras filas del data-set serán la parte de train, y el resto la parte de test.
+El $\hspace{0.1cm} k\% \hspace{0.1cm}$ de las primeras filas del data-set serán la parte de train, y el resto la parte de test.
 
 El modelo es entrenado con la muestra train y testado calculando una métrica de evaluación con la muestra test. Este valor de la métrica de evaluación es el que será usado para medir la capacidad predictiva del modelo y compararlo con otros modelos. $\\[1cm]$
 
@@ -1007,9 +1007,9 @@ El algoritmo de validación simple no aleatoria tiene los siguientes pasos: $\\[
         $\hspace{0.1cm} \lfloor \cdot \rfloor\hspace{0.1cm}$ es la funcion suelo, que dado un número como argumento te  devuelve el mayor entero menor que dicho número $\\[1cm]$
 
 
-- Se entrena el modelo $\hspace{0.1cm} M\hspace{0.1cm}$ con $\hspace{0.1cm} D_{train}\hspace{0.1cm}$ $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ $\widehat{M}\\$
+- Se entrena el modelo $\hspace{0.1cm} M\hspace{0.1cm}$ con la **muestra de train** $\hspace{0.1cm} D_{train}\hspace{0.1cm}$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ $\widehat{M}\\$
 
-- Se calcula una metrica de evaluacion sobre el modelo entrenado $\widehat{M}$ usando la muestra de test $\hspace{0.1cm} D_{test}\hspace{0.1cm}$ $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ Si por ejemplo se calcula el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , se obtendria el $\hspace{0.1cm}ECM_{test}\\$
+- Se calcula una métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}\hspace{0.1cm}$ usando la **muestra de test** $\hspace{0.1cm} D_{test}\hspace{0.1cm}$ $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ Si por ejemplo se calcula el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , se obtendria el $\hspace{0.1cm}ECM_{test}\\$
 
 
 
@@ -1050,7 +1050,7 @@ Toda la validación queda condicionada a solo una muestra de train y otra de tes
 Este algoritmo de validacion consiste en dividir el data-set inicial en una parte de train y otra de test de manera **aleatoria**.
 
 
-Se obtiene una muestra aleatoria sin remplazo de un $hspace{0.1cm}k\%hspace{0.1cm}$ de las filas del data-set inicial, las cuales serán la parte de train, y el resto la parte de test.
+Se obtiene una muestra aleatoria sin remplazo de un $\hspace{0.1cm} k\% \hspace{0.1cm}$ de las filas del data-set inicial, las cuales serán la parte de train, y el resto la parte de test.
 
 El modelo es entrenado con la muestra train y testado calculando un métrica de evaluación con la muestra de test. Este valor de la métrica de evaluación es el que será usado para medir el poder predictivo del modelo y compararlo con otros modelos. 
 
@@ -1121,9 +1121,9 @@ El algoritmo de validación simple   aleatoria tiene los siguientes pasos: $\\[0
        - $m^c \hspace{0.1cm}= \hspace{0.1cm}\left(\hspace{0.1cm} i =1,...,N \hspace{0.1cm}/\hspace{0.1cm} i\neq m_j \hspace{0.1cm},\hspace{0.1cm} \forall j=1,...,\lfloor k  \cdot N \rfloor \hspace{0.1cm} \right) \\[1cm]$
 
 
-- Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con $\hspace{0.1cm}D_{train}\hspace{0.1cm}$ $\hspace{0.1cm}\Rightarrow\hspace{0.2cm}$  $\widehat{M}\\$
+- Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con la **muestra de train** $\hspace{0.1cm}D_{train}\hspace{0.1cm}$ $\hspace{0.1cm}\Rightarrow\hspace{0.2cm}$  $\widehat{M}\\$
 
-- Se calcula una métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}\hspace{0.1cm}$ usando $\hspace{0.1cm}D_{test}$ $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$
+- Se calcula una métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}\hspace{0.1cm}$ con la **muestra de test** $\hspace{0.1cm}D_{test}$ $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$
   Si por ejemplo se calcula el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , se obtendria el $\hspace{0.1cm}ECM_{test}(\widehat{M})\\$
 
 - La métrica de evaluación final del modelo es la obtenida en el paso anterior: 
@@ -1173,13 +1173,13 @@ La varianza de una metrica de evaluación calculada con un algorimo de validaci�
 Este algoritmo de validacion consiste en dividir el data-set inicial en una parte de train y otra de test de manera aleatoria.
 
 
-Se obtiene una muestra aleatoria sin remplazo de un $k\%$ de las filas del data-set inicial, las cuales serán la parte de train, y el resto la parte de test.
+Se obtiene una muestra aleatoria sin remplazo de un $\hspace{0.1cm}k\%\hspace{0.1cm}$ de las filas del data-set inicial, las cuales serán la parte de train, y el resto la parte de test.
 
 El modelo es enetrenado con la muestra train y testado con la muestra test a través de una métrica de evaluación como las vistas en la sección anterior.
 
-Este proceso se repite un número $B$ de veces, asi se obtienen $B$ valores de la métrica de evaluación.
+Este proceso se repite un número $\hspace{0.1cm}B\hspace{0.1cm}$ de veces, asi se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ valores de la métrica de evaluación.
 
-La métrica de evaluacion calculada usando este método de validación es la media de dichos $B$ valores obtenidos para la métrica de evaluación escogida. Este valor medio final es la que será usado para medir el poder predictivo del modelo y compararlo con otros modelos.
+La métrica de evaluacion calculada usando este método de validación es la media de dichos $\hspace{0.1cm}B\hspace{0.1cm}$ valores obtenidos para la métrica de evaluación escogida. Este valor medio final es la que será usado para medir el poder predictivo del modelo y compararlo con otros modelos.
  
 <br>
 
@@ -1196,11 +1196,11 @@ El algoritmo de validación simple aleatoria tiene los siguientes pasos: $\\[0.4
 <p style='margin-left:1em;'>
 
 
-- Se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ particiones de $\hspace{0.1cm}D\hspace{0.1cm}$ en parte de train y parte de test del siguiente modo: $\\[0.4cm]$
+- Se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ particiones de la muestra de observaciones $\hspace{0.1cm}D\hspace{0.1cm}$ en parte de train y parte de test del siguiente modo: $\\[0.4cm]$
    
    
    
-    $\hspace{0.25cm}$   Sea $\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}$ la proporción de filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que formarán parte de la muestra de **train** (es un hiper-parametro del algoritmo): $\\[0.4cm]$
+    $\hspace{0.25cm}$   Sea $\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}$ la proporción de filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que formarán parte de la muestra de **train** : $\\[0.4cm]$
 
 
     - Se generan $\hspace{0.1cm}B\hspace{0.1cm}$  muestras aleatoria sin reemplazamiento de tamaño $\hspace{0.1cm}\lfloor k  \cdot N \rfloor\hspace{0.1cm}$  del vector $\hspace{0.1cm}(1,2,...,N)\hspace{0.1cm}$ :
@@ -1213,11 +1213,11 @@ El algoritmo de validación simple aleatoria tiene los siguientes pasos: $\\[0.4
       $\hspace{0.25cm}m_r=(m_{r1} ,...,m_{r\lfloor k  \cdot N \rfloor})\hspace{0.15cm} \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} r\in\lbrace 1,...,B\rbrace$
 
 
-      $\hspace{0.25cm}\lfloor \cdot \rfloor\hspace{0.1cm}$ es la función suelo, que dado un número como argumento devuelve el mayor entero menor que dicho número. $\\[0.8cm]$
+      $\hspace{0.25cm}\lfloor \cdot \rfloor\hspace{0.1cm}$ es la función suelo, que dado un número como argumento devuelve el mayor entero menor que dicho número. $\\[1cm]$
 
-    - Se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ muestras de **train** del data-set original $\hspace{0.1cm}D \\$ 
+    - Se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ **muestras de train** del data-set original $\hspace{0.1cm}D \\$ 
 
-      $$D_{train, 1}= D[m_1 , :] \hspace{0.15cm},\hspace{0.15cm} D_{train, 2}= D[m_2 , :] \hspace{0.15cm}, \dots ,\hspace{0.15cm} D_{train, B}= D[m_B , :] \\$$
+      $$D_{train, 1}= D[\hspace{0.1cm}m_1\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.15cm},\hspace{0.15cm} D_{train, 2}= D[\hspace{0.1cm}m_2\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.15cm}, \dots ,\hspace{0.15cm} D_{train, B}= D[\hspace{0.1cm}m_B\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \\$$
 
       Donde: 
 
@@ -1238,10 +1238,10 @@ El algoritmo de validación simple aleatoria tiene los siguientes pasos: $\\[0.4
 
 
 
-    - Se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ muestras de **test** del data-set original $\hspace{0.1cm}D \\$
+    - Se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ **muestras de test** del data-set original $\hspace{0.1cm}D \\$
 
 
-      $$D_{test, 1}= D[m_1^c , :] \hspace{0.15cm},\hspace{0.15cm} D_{test, 2}= D[m_2^c , :] \hspace{0.15cm}, ... ,\hspace{0.15cm} D_{test, B}= D[m_B^c , :] \\$$
+      $$D_{test, 1}= D[\hspace{0.1cm}m_1^c\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.15cm},\hspace{0.15cm} D_{test, 2}= D[\hspace{0.1cm}m_2^c\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.15cm}, ... ,\hspace{0.15cm} D_{test, B}= D[\hspace{0.1cm}m_B^c\hspace{0.1cm} , \hspace{0.1cm}:\hspace{0.1cm}] \\$$
 
 
       Donde:
@@ -1257,7 +1257,7 @@ El algoritmo de validación simple aleatoria tiene los siguientes pasos: $\\[0.4
     
       $\hspace{0.4cm}$ es la submatriz que resulta de quedarse solo con las filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que no están en $\hspace{0.1cm}D_{train}\hspace{0.1cm}$, es decir, las filas de $\hspace{0.1cm}m_r^c \\$
     
-      Formalmente:  $\hspace{0.2cm} m_r^c \hspace{0.1cm}=\hspace{0.1cm}\left(\hspace{0.1cm} i =1,...,N \hspace{0.1cm} / \hspace{0.1cm} i\neq m_{rj} \hspace{0.1cm} , \hspace{0.1cm} \forall \hspace{0.1cm} j\in \lbrace 1,...,\lfloor k  \cdot N \rfloor \rbrace \hspace{0.1cm} \right) \hspace{0.15cm}$ es el complementario de $\hspace{0.15 cm}m_r \\[0.5cm]$
+      Formalmente:  $\hspace{0.2cm} m_r^c \hspace{0.1cm}=\hspace{0.1cm}\left(\hspace{0.1cm} i \in \lbrace 1,...,N \rbrace \hspace{0.15cm} / \hspace{0.15cm} i\hspace{0.1cm}\neq\hspace{0.1cm} m_{rj} \hspace{0.15cm} , \hspace{0.15cm} \forall \hspace{0.1cm} j\in \lbrace 1,...,\lfloor k  \cdot N \rfloor \rbrace \hspace{0.1cm} \right) \hspace{0.15cm}$ es el complementario de $\hspace{0.1  cm}m_r \\[0.5cm]$
 
  
       Por tanto se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ particiones de **train** y **test** de $\hspace{0.1cm}D \\[0.8cm]$
@@ -1265,9 +1265,9 @@ El algoritmo de validación simple aleatoria tiene los siguientes pasos: $\\[0.4
 
 - Para cada $\hspace{0.1cm}r\in \lbrace 1,...,B\rbrace \\$ 
 
-- Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con cada una de las muestras de train $\hspace{0.1cm} D_{train,r} \hspace{0.1cm}$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ $\hspace{0.1cm}\widehat{M}_r \\$
+- Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con cada una de las **muestras de train** $\hspace{0.1cm} D_{train,r} \hspace{0.1cm}$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ $\hspace{0.1cm}\widehat{M}_r \\$
 
-- Se calcula una misma métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ usando la muestra de **test** $\hspace{0.1cm}D_{test,r} \\$ 
+- Se calcula una misma métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ con la **muestra de test** $\hspace{0.1cm}D_{test,r} \\$ 
 
     Supongamos que la métrica de evaluación usada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ valores de esta métrica :
 
@@ -1326,7 +1326,7 @@ El algoritmo de validación leave-one-out tiene los siguientes pasos: $\\[0.3cm]
 
 - Se obtienen $\hspace{0.1cm} B\hspace{0.1cm}$ particiones de $\hspace{0.1cm} D\hspace{0.1cm}$ en parte de train y parte de test del siguiente modo: $\\[0.5cm]$
 
-- Se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ muestras  **test** del data-set original $\hspace{0.1cm}D \\$ 
+- Se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ **muestras  test** del data-set original $\hspace{0.1cm}D \\$ 
 
     $$D_{test,1}=D[1, :] \hspace{0.1cm} ,\hspace{0.15cm} D_{test,2}=D[2, :]\hspace{0.15cm},...,\hspace{0.15cm} D_{test,B}=D[B, :] \\$$
 
@@ -1338,7 +1338,7 @@ El algoritmo de validación leave-one-out tiene los siguientes pasos: $\\[0.3cm]
 
 
 
-- Se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ muestras  **train** del data-set original $\hspace{0.1cm}D \\$
+- Se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ **muestras  train** del data-set original $\hspace{0.1cm}D \\$
 
     $$D_{train,1}=D[\hspace{0.1cm}-1 \hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.2cm},\hspace{0.2cm} D_{train,2}=D[\hspace{0.1cm}-2\hspace{0.1cm}, \hspace{0.1cm}:\hspace{0.1cm}]\hspace{0.2cm},...,\hspace{0.2cm} D_{train,B}=D[\hspace{0.1cm}-B\hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}] \\$$
 
@@ -1371,9 +1371,9 @@ El algoritmo de validación leave-one-out tiene los siguientes pasos: $\\[0.3cm]
     
 - Para $\hspace{0.1cm}r\in \lbrace 1,...,B \rbrace \hspace{0.1cm} \\$
 
-- Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con $\hspace{0.1cm} D_{train,r}\hspace{0.1cm}$  $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ $\hspace{0.1cm}\widehat{M}_r \\$
+- Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con la **muestra de train** $\hspace{0.1cm} D_{train,r}\hspace{0.1cm}$  $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ $\hspace{0.1cm}\widehat{M}_r \\$
 
-- Se calcula una misma métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ usando la muestra de **test** $\hspace{0.1cm}D_{test,r}\hspace{0.1cm}$ 
+- Se calcula una misma métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ con la **muestra de test** $\hspace{0.1cm}D_{test,r}\hspace{0.1cm}$ 
 
     Supongamos que la métrica de evaluación usada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ valores de esta métrica :
   
@@ -1608,9 +1608,9 @@ $\\[0.3cm]$
 - Para $\hspace{0.1cm}r \in \lbrace 1,...,k \rbrace\hspace{0.1cm} \\$ 
 
 
-- Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con $\hspace{0.1cm} D_{train,r}$  $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ $\hspace{0.1cm}\widehat{M}_r \\$
+- Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con la **muestra de train** $\hspace{0.1cm} D_{train,r}$  $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ $\hspace{0.1cm}\widehat{M}_r \\$
 
-- Se calcula una misma métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ usando la muestra de **test** $\hspace{0.1cm}D_{test,r}\hspace{0.1cm}$
+- Se calcula una misma métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ con la **muestra de test** $\hspace{0.1cm}D_{test,r}\hspace{0.1cm}$
 
     Supongamos que la métrica de evaluación usada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces se obtienen $\hspace{0.1cm}k\hspace{0.1cm}$ valores de esta métrica :
 
@@ -1675,7 +1675,7 @@ No vamos a hacer aquí una descripción tan detallada del algoritmo como las ant
 - Si la métrica usada para evaluar el modelo es el  $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entocnes se obtienen $\hspace{0.1cm}k\cdot B\hspace{0.1cm}$ valores de esta métrica:
 
 
-    $$ECM_{test }\left(\hspace{0.1cm}\widehat{M}_1^{\hspace{0.1cm}1}\hspace{0.1cm}\right) \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}\left(\hspace{0.1cm}\widehat{M}_k^{\hspace{0.1cm}1}\hspace{0.1cm}\right) \hspace{0.1cm},...,\hspace{0.1cm}ECM_{test }\left(\hspace{0.1cm}\widehat{M}_1^{\hspace{0.1cm}B}\hspace{0.1cm}\right) \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}\left(\hspace{0.1cm}\widehat{M}_k^{\hspace{0.1cm}B} \hspace{0.1cm} \hspace{0.1cm}\right)   \\$$
+    $$ECM_{test }\left(\hspace{0.1cm}\widehat{M}_1^{\hspace{0.1cm}1}\hspace{0.1cm}\right) \hspace{0.05cm}, ... ,\hspace{0.05cm} ECM_{test}\left(\hspace{0.1cm}\widehat{M}_k^{\hspace{0.1cm}1}\hspace{0.1cm}\right) \hspace{0.05cm},...,\hspace{0.05cm}ECM_{test }\left(\hspace{0.1cm}\widehat{M}_1^{\hspace{0.1cm}B}\hspace{0.1cm}\right) \hspace{0.05cm}, ... ,\hspace{0.05cm} ECM_{test}\left(\hspace{0.1cm}\widehat{M}_k^{\hspace{0.1cm}B} \hspace{0.1cm} \hspace{0.1cm}\right)   \\$$
 
 
     Donde: 
@@ -1683,9 +1683,9 @@ No vamos a hacer aquí una descripción tan detallada del algoritmo como las ant
     Para $\hspace{0.1cm}r\in \lbrace 1,...,k \rbrace\hspace{0.15cm}$ y $\hspace{0.15cm} j\in \lbrace 1,...,B \rbrace\\$
 
 
-    - $\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}$ es el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ entrenado con la muestra de train $\hspace{0.1cm}r$-esima obtenida en la repeticion $\hspace{0.1cm}j$-esima del algoritmo k-fold, es decir,  $\hspace{0.1cm}D_{train, r}^{\hspace{0.1cm}j}\hspace{0.1cm} \\[0.7cm]$  
+    - $\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}$ es el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ entrenado con la **muestra de train** $\hspace{0.1cm}r$-esima del algoritmo k-fold, obtenida en la repeticion $\hspace{0.1cm}j$-esima del algoritmo, es decir,  $\hspace{0.1cm}D_{train, r}^{\hspace{0.1cm}j}\hspace{0.1cm} \\[0.7cm]$  
 
-    - $ECM_{test }\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right)\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre el modelo $\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}$ usando la muestra de test $\hspace{0.1cm}r$-esima obtenida en la repeticion $\hspace{0.1cm}j$-esima del algoritmo k-fold , es decir, $\hspace{0.1cm}D_{test,r}^{\hspace{0.1cm}j}\hspace{0.1cm}  \\[0.5cm]$ 
+    - $ECM_{test }\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right)\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre el modelo $\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}$ con la **muestra de test** $\hspace{0.1cm}r$-esima del algoritmo k-fold, obtenida en la repeticion $\hspace{0.1cm}j$-esima del algoritmo, es decir, $\hspace{0.1cm}D_{test,r}^{\hspace{0.1cm}j}\hspace{0.1cm}  \\[0.5cm]$ 
 
     $$ECM_{test }\left( \hspace{0.1cm} \widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right) = \dfrac{1}{\# D_{test, r}^{\hspace{0.1cm}j}} \cdot \sum_{i=1}^{\# D_{test, r}^{\hspace{0.1cm}j}} \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r,j} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r,j} \hspace{0.1cm} \right)^2  \\[1cm]$$
 
@@ -1694,7 +1694,7 @@ No vamos a hacer aquí una descripción tan detallada del algoritmo como las ant
     Considerando lo siguiente : $\\[0.5cm]$
     
  
-    - $\hat{y}_i^{\hspace{0.1cm}test,r,j} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{\hspace{0.1cm}test, r,j} \hspace{0.1cm}|\hspace{0.1cm} D_{train,r}^{\hspace{0.1cm}j}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r^{\hspace{0.1cm}j} (\hspace{0.1cm} x_i^{test, r,j} \hspace{0.1cm} ) \\[0.7cm]$
+    - $\hat{y}_i^{\hspace{0.1cm}test,r,j} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{\hspace{0.1cm}test, r,j} \hspace{0.12cm}|\hspace{0.12cm} D_{train,r}^{\hspace{0.1cm}j}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r^{\hspace{0.1cm}j} (\hspace{0.1cm} x_i^{test, r,j} \hspace{0.1cm} ) \\[0.7cm]$
 
  
 
@@ -1712,9 +1712,9 @@ No vamos a hacer aquí una descripción tan detallada del algoritmo como las ant
 
 - Se calcula la métrica final de evaluación del modelo como el promedio de las $\hspace{0.1cm}k\cdot B\hspace{0.1cm}$ métricas calculadas en el paso anterior. 
 
-Si la métrica considerada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$, entonces:
+    Si la métrica considerada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$, entonces:
 
-$$ECM( {M})_{test}^{\hspace{0.08cm}*} \hspace{0.1cm}= \hspace{0.1cm}\dfrac{1}{k\cdot B} \cdot \sum_{j=1}^B \sum_{r=1}^k \hspace{0.1cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)$$
+    $$ECM( {M})_{test}^{\hspace{0.08cm}*} \hspace{0.1cm}= \hspace{0.1cm}\dfrac{1}{k\cdot B} \cdot \sum_{j=1}^B \hspace{0.1cm} \sum_{r=1}^k \hspace{0.15cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)$$
     
 
 </p>
@@ -1755,9 +1755,9 @@ A continuación se expone un criterio basado en las métricas y algoritmos de va
 <p style='margin-left:1em;'>
 
 
-- Tenemos $\hspace{0.1cm}h\hspace{0.1cm}$ modelos de aprendizaje supervisado $\hspace{0.1cm}M_1\hspace{0.05cm},\hspace{0.05cm}M_2\hspace{0.05cm},...,\hspace{0.05cm}M_h\hspace{0.05cm}$
+- Tenemos $\hspace{0.1cm}h\hspace{0.1cm}$ modelos de aprendizaje supervisado $\hspace{0.1cm}M_1\hspace{0.05cm},\hspace{0.05cm}M_2\hspace{0.05cm},...,\hspace{0.05cm}M_h\hspace{0.05cm}  \\$
 
-- Se validan esos modelos usando un mismo algoritmo de validación, con una misma métrica de evaluación. Se obtendrán $\hspace{0.1cm}h\hspace{0.1cm}$ valores de la métrica, una para cada modelo. $\\[0.5cm]$
+- Se validan esos modelos usando un mismo algoritmo de validación, con una misma métrica de evaluación. Se obtendrán $\hspace{0.1cm}h\hspace{0.1cm}$ valores de la métrica, una para cada modelo. $\\[0.3cm]$
 
     Si la métrica fuera el ECM se tendrian por ejemplo los siguientes valores:
 
@@ -1911,6 +1911,8 @@ A continuación se van a programar los algoritmos de validación cruzada que se 
 
 Además se probarán los algoritmos con el modelo KNN tanto en su versión para regresión como para clasificación.
 
+
+<br>
 
 ## Validación simple no aleatoria
 
@@ -2170,9 +2172,11 @@ Aplicamos el algoritmo de validación simple aleatoria repetida sobre el modelo 
 
 ```python
 ECM_test = repeated_random_simple_validation(D=Data, k=0.75, B=1000, response='price', random_seed=123, metric='ECM', model=knn_regression)
+
+# Time: 14.4seg
 ```
 
-Time: 14.4seg
+
 
 
 ```python
@@ -2198,9 +2202,11 @@ Aplicamos el algoritmo de validación simple aleatoria repetida sobre el modelo 
 
 ```python
 TA_test = repeated_random_simple_validation(D=Data, k=0.75, B=1000, response='quality_recode', random_seed=123, metric='TA', model=knn_classification)
+
+# Time: 43 seg
 ```
 
-Time: 43 seg
+
 
 
 ```python
@@ -2288,9 +2294,11 @@ Aplicamos el algoritmo de validación leave one out  sobre el modelo KNN para re
 
 ```python
 ECM_test = leave_one_out_validation(D=Data, response='price', metric='ECM', model=knn_regression)
+
+# Time: 24 seg
 ```
 
-Time: 24seg
+
 
 
 ```python
@@ -2317,6 +2325,10 @@ Aplicamos el algoritmo de validación leave one out  sobre el modelo KNN para cl
 ```python
 TA_test = leave_one_out_validation(D=Data, response='quality_recode', metric='TA', model=knn_classification)
 
+# Time: 26seg
+```
+
+```python
 TA_test
 ```
 
@@ -2327,7 +2339,7 @@ TA_test
 
 
 
-Time: 26seg
+
 
 
 
@@ -2423,9 +2435,11 @@ Aplicamos el algoritmo de validación cruzada K-fold  sobre el modelo KNN para r
 
 ```python
 ECM_K_Folds = K_Fold_CV(D=Data, response='price', K=10, random_seed=123, metric='ECM', model='knn_regression')
+
+# Time: 0.3seg
 ```
 
-Time: 0.3seg
+
 
 
 ```python
@@ -2452,6 +2466,10 @@ Aplicamos el algoritmo de validación cruzada K-fold  sobre el modelo KNN para c
 ```python
 TA_K_Folds = K_Fold_CV(D=Data, response='quality_recode', K=10, random_seed=123, metric='TA', model='knn_classification')
 
+# Time: 0.5 seg
+```
+
+```python
 TA_K_Folds
 ```
 
@@ -2462,7 +2480,7 @@ TA_K_Folds
 
 
 
-Time: 0.5 seg
+
 
 
 <br>
@@ -2573,9 +2591,11 @@ Aplicamos el algoritmo de validación cruzada K-fold repetida sobre el modelo KN
 
 ```python
 ECM_repeated_K_Folds = repeated_K_Fold_CV(D=Data, response='price', K=10, B=100, random_seed=123, metric='ECM', model='knn_regression')
+
+# Time: 19seg
 ```
 
-Time: 19seg
+
 
 
 ```python
@@ -2599,9 +2619,11 @@ Aplicamos el algoritmo de validación cruzada K-fold repetida sobre el modelo KN
 
 ```python
 TA_repeated_K_Folds = repeated_K_Fold_CV(D=Data, response='quality_recode', K=10, B=100, random_seed=123, metric='TA', model='knn_classification')
+
+# Time: 30seg
 ```
 
-Time:30seg
+
 
 
 ```python
@@ -2623,6 +2645,8 @@ TA_repeated_K_Folds
 
 
 <br>
+
+----
 
 <br>
 
