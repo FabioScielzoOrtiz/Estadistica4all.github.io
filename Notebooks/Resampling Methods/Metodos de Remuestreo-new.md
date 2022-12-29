@@ -2595,7 +2595,12 @@ $$
 
 
 
+La regla de decisión  para resolver estos contrastes basada en los intervalos cuantil-bootstrap es la siguiente:
 
+
+Caso $H_0: \theta = \theta_0 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta \neq \theta_0$
+
+$$\text{Rechazar} \hspace{0.12cm} H_0   
 
 
 
