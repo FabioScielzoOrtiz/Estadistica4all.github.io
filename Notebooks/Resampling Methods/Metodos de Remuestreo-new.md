@@ -1723,86 +1723,455 @@ Con este intervalo se recomienda usar $B \geq 1000$.
 
 
 ```python
+def cuantil_boot_interval(Variable1, Variable2, alpha, estimator , B,  q=0.75, random_seed=123):
 
+    from itertools import chain 
+
+######################################################################
+
+    np.random.seed(random_seed)
+
+######################################################################
+
+    def Bootstrap_sample(Variable):
+
+        from sklearn.utils import resample
+
+        sample = resample( Variable, n_samples=len(Variable))
+
+        return sample
+
+######################################################################
+
+    replicas_estimador = []
+
+
+    if estimator == 'mean':
+
+        for b in range(0, B):
+
+            replicas_estimador.append( np.mean( Bootstrap_sample(Variable1) ) )
+
+        estimation = np.mean(Variable1)
+
+######################################################################
+#     
+    if estimator == 'median':
+
+        for b in range(0, B):
+
+            replicas_estimador.append( np.median( Bootstrap_sample(Variable1) ) )
+
+        estimation = np.median(Variable1)
+
+######################################################################
+
+    if estimator == 'std':
+
+        for b in range(0, B):
+
+            replicas_estimador.append( np.std( Bootstrap_sample(Variable1) ) )
+
+        estimation = np.std(Variable1)
+
+######################################################################
+
+    if estimator == 'skewness':
+
+        from scipy.stats import skew
+
+        for b in range(0, B):
+
+            replicas_estimador.append( skew( Bootstrap_sample(Variable1) ) )
+
+        estimation = skew(Variable1)
+
+######################################################################
+
+    if estimator == 'kurtosis':
+
+        from scipy.stats import kurtosis
+
+        for b in range(0, B):
+
+            replicas_estimador.append( kurtosis( Bootstrap_sample(Variable1) ) )
+
+        estimation = kurtosis(Variable1)
+
+######################################################################
+
+    if estimator == 'quantile':
+
+        for b in range(0, B):
+
+            replicas_estimador.append( np.quantile( Bootstrap_sample(Variable1) , q=q ) )
+
+        estimation = np.quantile(Variable1 , q=q)
+
+######################################################################
+
+    if estimator == 'proportion': # Variable1 debe ser una variable categorica **binaria**.
+
+        for b in range(0, B):
+
+            replicas_estimador.append( np.mean( Bootstrap_sample(Variable1) ) )
+
+        estimation = np.mean(Variable1)
+
+
+
+######################################################################
+
+######################################################################
+
+    replicas_estimador_1 , replicas_estimador_2 = [] , []
+
+    
+    if estimator == 'mean_diff':
+
+        for b in range(0, B):
+
+            replicas_estimador_1.append( np.mean( Bootstrap_sample(Variable1) ) )
+
+            replicas_estimador_2.append( np.mean( Bootstrap_sample(Variable2) ) )
+        
+        replicas_estimador_diff = np.array(replicas_estimador_1) - np.array(replicas_estimador_2)
+
+        estimation = np.mean(Variable1) - np.mean(Variable2)      
+
+######################################################################
+
+    if estimator == 'median_diff':
+
+        for b in range(0, B):
+
+            replicas_estimador_1.append( np.median( Bootstrap_sample(Variable1) ) )
+
+            replicas_estimador_2.append( np.median( Bootstrap_sample(Variable2) ) )
+        
+        replicas_estimador_diff = np.array(replicas_estimador_1) - np.array(replicas_estimador_2)
+
+        estimation = np.median(Variable1) - np.median(Variable2)      
+
+######################################################################
+
+    if estimator == 'std_diff':
+
+        for b in range(0, B):
+
+            replicas_estimador_1.append( np.std( Bootstrap_sample(Variable1) ) )
+
+            replicas_estimador_2.append( np.std( Bootstrap_sample(Variable2) ) )
+        
+        replicas_estimador_diff = np.array(replicas_estimador_1) - np.array(replicas_estimador_2)
+
+        estimation = np.std(Variable1) - np.std(Variable2)      
+
+######################################################################
+
+    if estimator == 'quantile_diff':
+
+        for b in range(0, B):
+
+            replicas_estimador_1.append( np.quantile( Bootstrap_sample(Variable1), q=q) )
+
+            replicas_estimador_2.append( np.quantile( Bootstrap_sample(Variable2), q=q ) )
+        
+        replicas_estimador_diff = np.array(replicas_estimador_1) - np.array(replicas_estimador_2)
+
+        estimation = np.quantile(Variable1, q=q) - np.quantile(Variable2, q=q)      
+
+######################################################################
+
+    if estimator == 'skewness_diff':
+
+        from scipy.stats import skew
+
+        for b in range(0, B):
+
+            replicas_estimador_1.append( skew( Bootstrap_sample(Variable1) ) )
+
+            replicas_estimador_2.append( skew( Bootstrap_sample(Variable2) ) )
+        
+        replicas_estimador_diff = np.array(replicas_estimador_1) - np.array(replicas_estimador_2)
+
+        estimation = skew(Variable1) - skew(Variable2)      
+
+######################################################################
+
+    if estimator == 'kurtosis_diff':
+
+        from scipy.stats import kurtosis
+
+        for b in range(0, B):
+
+            replicas_estimador_1.append( kurtosis( Bootstrap_sample(Variable1) ) )
+
+            replicas_estimador_2.append( kurtosis( Bootstrap_sample(Variable2) ) )
+        
+        replicas_estimador_diff = np.array(replicas_estimador_1) - np.array(replicas_estimador_2)
+
+        estimation = kurtosis(Variable1) - kurtosis(Variable2)   
+
+######################################################################
+
+    if estimator == 'proportion_diff': # Variable1 y Variable2 deben ser variables categoricas **binarias**.
+
+        for b in range(0, B): 
+
+            replicas_estimador_1.append( np.mean( Bootstrap_sample(Variable1) ) )
+
+            replicas_estimador_2.append( np.mean( Bootstrap_sample(Variable2) ) )
+        
+        replicas_estimador_diff = np.array(replicas_estimador_1) - np.array(replicas_estimador_2)
+
+        estimation = np.mean(Variable1) - np.mean(Variable2)       
+
+######################################################################
+######################################################################
+
+    if estimator in ['mean','median','std','quantile','kurtosis','skewness','proportion']:
+
+        L1_1 = np.quantile( replicas_estimador  , q=alpha/2)
+
+        L2_1 = np.quantile( replicas_estimador  , q=1-alpha/2)
+
+        interval = [L1_1 , L2_1]
+
+######################################################################
+
+    if estimator in ['mean_diff','median_diff','std_diff','quantile_diff','kurtosis_diff','skewness_diff', 'proportion_diff']:
+   
+        L1_2 = np.quantile( replicas_estimador_diff  , q=alpha/2)
+
+        L2_2 = np.quantile( replicas_estimador_diff  , q=1-alpha/2)
+
+        interval = [L1_2 , L2_2]
+
+######################################################################
+######################################################################
+
+    return interval , estimation
+```
+
+<br>
+
+**Para la media**
+
+```python
+interval , estimation = cuantil_boot_interval(Variable1=X, Variable2='no', alpha=0.05, estimator='mean' , B=20000, random_seed=123)
+```
+
+```python
+interval
+```
+
+    [5.274553626813773, 15.146375204290525]
+
+```python
+estimation
+```
+
+    10.199071616256777
+
+```python
+def CI_Mean(Variable , alpha=0.05):
+
+    n = len(Variable)
+
+    t_alpha_medios = scipy.stats.t.ppf( 1 - alpha/2 , df=n-1)
+
+    X_mean = Variable.mean()
+
+    X_cuasi_var = Variable.std()**2 
+    
+    # std() esta definida por defecto como la cuasi-desviacion-tipica
+
+    L1 = X_mean - t_alpha_medios * np.sqrt(X_cuasi_var/n)
+
+    L2 = X_mean + t_alpha_medios * np.sqrt(X_cuasi_var/n)
+
+    interval = [L1 , L2]
+
+    return interval , X_mean
 ```
 
 
 ```python
-
-```
-
-```python
-
-```
-
-```python
-
-```
-
-```python
-
+interval , X_mean = CI_Mean(X , alpha=0.05)
 ```
 
 
 ```python
+interval
+```
 
+    [5.127765678327374, 15.27037755418618]
+
+
+
+<br>
+
+**Para la desviación típica**
+
+
+```python
+interval , estimation = cuantil_boot_interval(Variable1=X, Variable2='no', alpha=0.05, estimator='std' , B=20000, random_seed=123)
 ```
 
 
 ```python
+interval
+```
 
+    [14.427214668666169, 20.756590926218593]
+
+
+```python
+estimation
+```
+
+    17.844342210422187
+
+
+```python
+def CI_Variance(Variable , alpha=0.05):
+
+    n = len(Variable)
+
+    chi_alpha_medios = scipy.stats.chi2.ppf( 1 - alpha/2 , df=n-1)
+
+    chi_1_alpha_medios = scipy.stats.chi2.ppf(alpha/2 , df=n-1)
+
+    X_cuasi_var = Variable.std()**2 
+
+    X_var = ( (n-1)/n )*X_cuasi_var
+    
+    # std() esta definida por defecto como la cuasi-desviacion-tipica
+
+    L1 =  (n*X_var) / chi_alpha_medios
+
+    L2 = (n*X_var) / chi_1_alpha_medios
+
+    interval = [L1 , L2]
+
+    return interval , X_var 
 ```
 
 
 ```python
-
+interval , X_var = CI_Variance(Variable=X , alpha=0.05)
 ```
 
 
 ```python
-
+np.sqrt(interval)
 ```
 
+    array([14.90598594, 22.23643012])
+
+ 
+ 
+ 
+<br>
+
+**Para la mediana**
 
 ```python
-
-```
-
-```python
-
-```
-
-
-```python
-
-```
-
-
-```python
-
+interval , estimation = cuantil_boot_interval(Variable1=X, Variable2='no', alpha=0.05, estimator='median' , B=20000, random_seed=123)
 ```
 
 ```python
-
+interval
 ```
 
-```python
+    [2.4028635430970975, 15.99323919612726]
 
-```
-
-```python
-
-```
 
 
 ```python
-
+estimation
 ```
+
+    8.23916733155832
+
+
+<br>
+
+
+**Para la asimetría**
 
 
 ```python
-
+interval , estimation = cuantil_boot_interval(Variable1=X, Variable2='no', alpha=0.05, estimator='skewness' , B=20000, random_seed=123)
 ```
+
+```python
+interval
+```
+
+    [-0.43998686459545305, 0.5624134382838676]
+
+
+```python
+estimation
+```
+
+    0.025587358812510053
+
+
+
+<br>
+
+**Para la curtosis**
+
+```python
+interval , estimation = cuantil_boot_interval(Variable1=X, Variable2='no', alpha=0.05, estimator='kurtosis' , B=20000, random_seed=123)
+```
+
+```python
+interval 
+```
+      
+    [-0.9952663071794702, 0.38601833503542765]
+
+
+
+```python
+estimation
+```
+ 
+    -0.37420768292897266
+
+
+
+<br>
+
+**Para los cuantiles**
+
+```python
+interval , estimation = cuantil_boot_interval(Variable1=X, Variable2='no', alpha=0.05, estimator='quantile' , B=20000, random_seed=123, q=0.75)
+```
+
+```python
+interval
+```
+
+    [15.078835764997024, 28.98904388058301]
+
+ 
+```python
+estimation
+``` 
+ 
+    23.835596841535178
+ 
+
+
+<br>
+
+**Para la proporción**
+
 
 
 
