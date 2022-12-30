@@ -680,7 +680,7 @@ TA
 
 
 
-# KNN  para clasificación supervisada programado desde "cero" con `Python` <a class="anchor" id="4"></a>
+# KNN  para clasificación supervisada programado en `Python` <a class="anchor" id="4"></a>
 
 Vamos a crear una función que replique el algoritmo KNN para clasificación supervisada que anteriormente fue descrito. Este es un buen ejercicio para entender mejor como funciona realmente el algoritmo, y para practicar nuestra programación.
 
@@ -1726,7 +1726,7 @@ np.sqrt(ECM)
 
 
 
-# KNN  para regresión  programado desde "cero" en `Python` <a class="anchor" id="7"></a>
+# KNN  para regresión  programado en `Python` <a class="anchor" id="7"></a>
 
 
 **Programamos desde "cero" el algoritmo KNN para regresión:**

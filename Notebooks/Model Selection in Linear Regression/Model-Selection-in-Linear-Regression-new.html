@@ -1517,8 +1517,13 @@ margin-left: 0 !important;
       </ul></li>
       <li><a href="#f-test" id="toc-f-test"><span class="toc-section-number">3</span> F-test <a class="anchor" id="4"></a></a>
       <ul>
-      <li><a href="#statistic-test" id="toc-statistic-test"><span class="toc-section-number">3.1</span> Statistic Test</a></li>
+      <li><a href="#estadístico-de-contraste" id="toc-estadístico-de-contraste"><span class="toc-section-number">3.1</span> Estadístico de contraste</a></li>
+      <li><a href="#regla-de-decisión" id="toc-regla-de-decisión"><span class="toc-section-number">3.2</span> Regla de decisión</a></li>
+      <li><a href="#anova-como-f-test" id="toc-anova-como-f-test"><span class="toc-section-number">3.3</span> ANOVA como F-test</a></li>
+      <li><a href="#contraste-de-significación-individual-como-f-test" id="toc-contraste-de-significación-individual-como-f-test"><span class="toc-section-number">3.4</span> Contraste de significación individual como F-test</a></li>
+      <li><a href="#f-test-en-python" id="toc-f-test-en-python"><span class="toc-section-number">3.5</span> F-test en <code>Python</code></a></li>
       </ul></li>
+      <li><a href="#algoritmo-best-subset-selection" id="toc-algoritmo-best-subset-selection"><span class="toc-section-number">4</span> Algoritmo best-subset-selection</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1582,7 +1587,7 @@ margin-right: auto;
 de los predictores y la respuesta. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 </ul>
 <p>La predicción de la variable respuesta para un vector cualquiera de observaciones de los predictores <span class="math inline">\(\hspace{0.1cm}x_{*} \in \mathbb{R}^{p}\hspace{0.1cm}\)</span>, según el algoritmo de regresión lineal, es la siguiente:</p>
-<p><span class="math display">\[\hat{y}_*  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x_{*r}\]</span></p>
+<p><span class="math display">\[\hat{y}_*  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x_{*r} \hspace{0.3cm} , \hspace{0.25cm} \forall \hspace{0.1cm} x_* \in \mathbb{R}^p\]</span></p>
 <p>donde los parametros <span class="math inline">\(\hspace{0.12cm}\widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p\hspace{0.12cm}\)</span> se obtienen resolviendo el problema de mínimos cuadrados ordinarios:</p>
 <p><span class="math display">\[\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p \right)  \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_p}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  y_i - \left( \hspace{0.12cm} \beta_0 + \sum_{r=1}^p \hspace{0.1 cm} \beta_r \cdot x_{ir} \hspace{0.12cm} \right) \right)^2\]</span></p>
 <p><br></p>
@@ -1593,10 +1598,12 @@ de los predictores y la respuesta. <span class="math inline">\(\\[0.5cm]\)</span
 <p><br></p>
 <p><strong>Observaciones:</strong></p>
 <ul>
-<li><p>La muestra <span class="math inline">\(\hspace{0.12cm}D=[\hspace{0.12cm}X_1,...,X_p,Y\hspace{0.12cm}]\hspace{0.12cm}\)</span> esta jugando el papel de muestra de entrenamiento.</p></li>
-<li><p>Es de especial interés el caso en el que <span class="math inline">\(\hspace{0.12cm}x_*\hspace{0.12cm}\)</span> es una nueva observación de los predictores para la que se desconoce el valor de la respuesta, es decir, <span class="math inline">\(\hspace{0.12cm}x_* = x_{new}\)</span>.</p>
-<p>El algoritmo también permite predecir la respuesta para las observaciones de los predictores con las que el modelo ha sido entrenado, es decir <span class="math inline">\(x_{*} = x_i \hspace{0.15cm},\hspace{0.15cm} i =1,...,n \\\)</span></p></li>
-<li><p>Se denomina regresión <strong>lineal</strong> por que la ecuación con la que se predice la respuesta es una ecuación lineal en los betas.</p></li>
+<li><p>La muestra <span class="math inline">\(\hspace{0.12cm}D=[\hspace{0.12cm}X_1,...,X_p,Y\hspace{0.12cm}]\hspace{0.12cm}\)</span> esta jugando el papel de muestra de entrenamiento. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p>Es de especial interés el caso en el que <span class="math inline">\(\hspace{0.12cm}x_*\hspace{0.12cm}\)</span> es una nueva observación de los predictores para la que se desconoce el valor de la respuesta, es decir, <span class="math inline">\(\hspace{0.12cm}x_* = x_{new}\)</span>.</p></li>
+<li><p>El algoritmo también permite predecir la respuesta para las observaciones de los predictores con las que el modelo ha sido entrenado, es decir:</p>
+<p><span class="math display">\[\hat{y}_i  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x_{ir} \hspace{0.3cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i =1,...,n \\\]</span></p></li>
+<li><p>Se denomina regresión <strong>lineal</strong> por que la ecuación con la que se predice la respuesta es una ecuación lineal en los betas. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p><span class="math inline">\(\widehat{\beta}_0 + \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x\hspace{0.12cm}\)</span> , con <span class="math inline">\(\hspace{0.12cm}x\in \mathbb{R}^p\hspace{0.12cm}\)</span>, es el hiper-plano <span class="math inline">\(\hspace{0.12cm}p\)</span>-dimensional que mejor se ajusta a los datos disponibles de la respusta y los predictores <span class="math inline">\(\hspace{0.12cm}\lbrace (y_i,x_i) \hspace{0.12cm} / \hspace{0.12cm} i=1,...,n \rbrace\hspace{0.12cm}\)</span>, dado que es el hiper-plano óptimo en el sentido de minimos cuadrados ordinarios.</p></li>
 </ul>
 <p><br></p>
 </div>
@@ -1643,80 +1650,157 @@ entonces <span class="math inline">\(\hspace{0.12cm}X^t \cdot X\hspace{0.12cm}\)
 <p>En regresión lineal dos contrastes de hipotesis muy relevantes son el contraste de significación individual y el contraste de significación global (ANOVA). Si se quiere ver una introducción a estos contrastes se recomienda el articulo sobre el <a href="http://estadistica4all.com/Articulos/Linear-Regression-new.html">modelo de regresión lineal</a> de <a href="http://estadistica4all.com/">Estadistica4all</a>.</p>
 <p>Los contrastes de significación individual y global (ANOVA) son casos particulares del contraste F-test, el cual permite comarar modelos de regresión lineal, y con ello seleccionar predictores. Lo expondremos a continuación.</p>
 <ul>
-<li><p>Tenemos un</p></li>
-<li><p>We have a linear regression model with <span class="math inline">\(\hspace{0.1cm} k \hspace{0.1cm}\)</span> coefficients (betas) <span class="math inline">\(\hspace{0.1cm} \Rightarrow \hspace{0.1cm} \Omega_k\)</span></p>
+<li><p>Tenemos un modelo de regresión lineal estimado con <span class="math inline">\(\hspace{0.1cm} p \hspace{0.1cm}\)</span> predictores, y por tanto <span class="math inline">\(\hspace{0.1cm} p+1 \hspace{0.1cm}\)</span> coeficientes beta
+<span class="math inline">\(\hspace{0.2cm} \Rightarrow \hspace{0.2cm} \Omega_{p+1}\)</span></p>
 <ul>
-<li><span class="math inline">\(\Omega_k \ : \  \ y_i = \beta_0 + \beta_1\cdot x_{i1} +...+ \beta_{k-1}\cdot x_{i(k-1)} + \varepsilon_i \\[0.5cm]\)</span></li>
+<li><span class="math inline">\(\Omega_{p+1} \ : \  \ \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} \hspace{0.1cm} +...+ \hspace{0.1cm} \beta_{p}\cdot x_{ip} \\[0.5cm]\)</span></li>
 </ul></li>
-<li><p>We have another linear regression model with only
-<span class="math inline">\(\hspace{0.1cm} q&lt;k \hspace{0.1cm}\)</span> coefficients (betas) of <span class="math inline">\(\Omega_p\)</span> <span class="math inline">\(\hspace{0.1cm} \Rightarrow \hspace{0.1cm} \omega_q\)</span></p>
+<li><p>Tenemos otro modelo de regresión lineal estimado con solo
+<span class="math inline">\(\hspace{0.1cm} q&lt;p \hspace{0.1cm}\)</span> de los <span class="math inline">\(\hspace{0.1cm} p \hspace{0.1cm}\)</span> predictores del modelo <span class="math inline">\(\hspace{0.1cm}\Omega_{p+1}\)</span> <span class="math inline">\(\hspace{0.1cm} \Rightarrow \hspace{0.1cm} \omega_{q+1}\)</span></p>
 <ul>
-<li><span class="math inline">\(\omega_q \ : \  \ y_i = \beta_0 + \beta_1\cdot x_{i1} +...+ \beta_{q-1}\cdot x_{i(q-1)} + \varepsilon_i \\[0.2cm]\)</span></li>
+<li><span class="math inline">\(\omega_{q+1} \ : \  \ \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} +...+ \widehat{\beta}_{q}\cdot x_{iq} \\[0.4cm]\)</span></li>
 </ul></li>
-<li><p><span class="math inline">\(\omega_q\)</span> is a sub-model of <span class="math inline">\(\Omega_k\)</span> , we can denote this as
-<span class="math inline">\(\hspace{0.1cm} \omega_q \subset \Omega_k\)</span></p></li>
+<li><p><span class="math inline">\(\omega_q \hspace{0.1cm}\)</span> es un sub-modelo del modelo <span class="math inline">\(\hspace{0.1cm}\Omega_{p+1}\hspace{0.1cm}\)</span> , podemos denotar esto como <span class="math inline">\(\hspace{0.1cm} \omega_{q+1} \subset \Omega_{p+1}\)</span></p></li>
 </ul>
 <p><br></p>
-<p>The hypothesis test we want to carry out is the following:</p>
-<p><br></p>
-<p><span class="math display">\[\begin{gather*}
-H_0: \hspace{0.15cm} \omega_q  \\
-H_1: \hspace{0.15cm} \Omega_k
-\end{gather*}\]</span></p>
-<p>Where :</p>
+<p>Queremos tener un procedimiento basado en la metodología de los contrastes de hipotesis estadisticos que nos permite seleccionar un modelo de entre <span class="math inline">\(\hspace{0.1cm}\Omega_{p+1}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\omega_{q+1}\)</span></p>
+<p>Las hipotesis a contrastar serían las siguientes:</p>
+<p><span class="math display">\[
+H_0: \hspace{0.15cm} \omega_{q+1}  \\
+H_1: \hspace{0.15cm} \Omega_{p+1}
+\]</span></p>
+<p>Donde :</p>
 <ul>
-<li><p><span class="math inline">\(\hspace{0.2cm} \omega_q \subset \Omega_p \\[0.2cm]\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.2cm}\)</span> Reject <span class="math inline">\(H_0\)</span> means <span class="math inline">\(\hspace{0.1cm} \Omega_k\hspace{0.1cm}\)</span> is a “better” model than <span class="math inline">\(\hspace{0.1cm} \omega_q \\[0.2cm]\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.2cm}\)</span> Not Reject <span class="math inline">\(H_0\)</span> means <span class="math inline">\(\hspace{0.1cm} \Omega_k \hspace{0.1cm}\)</span> isn’t a “better” model than <span class="math inline">\(\hspace{0.1cm} \omega_q\)</span></p></li>
+<li><p>Rechazar <span class="math inline">\(H_0\)</span> equivale a seleccionar el modelo <span class="math inline">\(\hspace{0.1cm} \Omega_{p+1}\hspace{0.1cm}\)</span> sobre el modelo <span class="math inline">\(\hspace{0.1cm} \omega_{q+1} \\[0.2cm]\)</span></p></li>
+<li><p>No recchazar <span class="math inline">\(H_0\)</span> equivale a seleccionar el modelo <span class="math inline">\(\hspace{0.1cm} \omega_{q+1} \hspace{0.1cm}\)</span> sobre el modelo <span class="math inline">\(\hspace{0.1cm} \Omega_{p+1}\)</span></p></li>
+<li><p>Como ya se ha mencionado <span class="math inline">\(\hspace{0.2cm} \omega_q \subset \Omega_p\)</span></p></li>
 </ul>
 <p><br></p>
-<p>Now we have to determinate a rule to reject <span class="math inline">\(\hspace{0.1cm}H_0\hspace{0.1cm}\)</span> in favor of <span class="math inline">\(\hspace{0.1cm}H_1\hspace{0.1cm}\)</span> or not</p>
-<p>A first approach is the following:</p>
-<p>Let :</p>
+<p>Ahora tenemos que determinar una regla de decisión en base a la cual decidir si se rechaza o no la hipotesis nula <span class="math inline">\((H_0)\)</span></p>
+<p>Una primera aproximación es la siguiente:</p>
+<p>Consideremos las sumas de cuadrados de los residuos de cada modelo:</p>
 <p><span class="math display">\[
-RSS_{\Omega_k} =  \sum_{i=1}^n ( \hat{\varepsilon}_{\Omega_k \hspace{0.05cm},\hspace{0.05cm} i} )^2 =  \sum_{i=1}^n \left( y_i - \hat{y}_{\hspace{0.01cm} \Omega_k \hspace{0.05cm},\hspace{0.02cm} i}\right)^2   \\[0.2cm]
+RSS_{\Omega_{p+1}} \hspace{0.1cm} = \hspace{0.1cm}  \sum_{i=1}^n \left( y_i - \hat{y}_{\hspace{0.01cm} \Omega_{p+1} \hspace{0.05cm},\hspace{0.02cm} i} \right)^2   
 \]</span></p>
 <p><span class="math display">\[
-RSS_{\omega_q} =  \sum_{i=1}^n ( \hat{\varepsilon}_{\omega_q \hspace{0.05cm},\hspace{0.05cm} i} )^2 =  \sum_{i=1}^n \left( y_i - \hat{y}_{\omega_q \hspace{0.05cm},\hspace{0.02cm} i}\right)^2
+RSS_{\omega_{q+1}} =     \sum_{i=1}^n \left( y_i - \hat{y}_{\omega_{q+1} \hspace{0.05cm},\hspace{0.02cm} i}\right)^2
 \]</span></p>
 <p><br></p>
 <ul>
-<li><p>If <span class="math inline">\(\hspace{0.15cm} RSS_{\omega_q} - RSS_{\Omega_k} \hspace{0.15cm}\)</span> is <strong>small</strong>, then the (train)
-predictions of the <strong>smaller model</strong> <span class="math inline">\((\omega_q)\)</span> are almost as good as the <strong>larger
-model</strong> <span class="math inline">\((\Omega_k)\)</span>, so we would prefer the smaller model on the grounds of simplicity. <span class="math inline">\(\\[0.8cm]\)</span></p></li>
-<li><p>If <span class="math inline">\(\hspace{0.1cm} RSS_{\omega_q} - RSS_{\Omega_k} \hspace{0.1cm}\)</span> is <strong>large</strong>, then the (train)
-predictions of the <strong>smaller model</strong> <span class="math inline">\((\omega_q)\)</span> are much worse than the <strong>larger
-model</strong> <span class="math inline">\((\Omega_k)\)</span>, so we would prefer the larger model.<span class="math inline">\(\\[0.35cm]\)</span></p></li>
+<li><p>Si la diferencia <span class="math inline">\(\hspace{0.15cm} RSS_{\omega_{q+1}} - RSS_{\Omega_{p+1}} \hspace{0.15cm}\)</span> es <strong>pequeña</strong>, entonces las predicciones de entrenamiento del modelo <em>pequeño</em> <span class="math inline">\(\omega_q\)</span> son casi tan buenas como las del modelo <em>grande</em> <span class="math inline">\(\Omega_k\)</span>, así que se selecciona el modelo <em>pequeño</em> siguiendo el principio de parsimonia. <span class="math inline">\(\\[0.8cm]\)</span></p></li>
+<li><p>Si la diferencia <span class="math inline">\(\hspace{0.15cm} RSS_{\omega_{q+1}} - RSS_{\Omega_{p+1}} \hspace{0.15cm}\)</span> es <strong>grande</strong>, entonces las predicciones de entrenamiento del modelo <em>pequeño</em> <span class="math inline">\(\omega_q\)</span> son notablemente peores que las del modelo <em>grande</em> <span class="math inline">\(\Omega_k\)</span>, así que se selecciona el modelo <em>grande</em>. <span class="math inline">\(\\[0.8cm]\)</span></p></li>
 </ul>
-<p><br></p>
-<p>That suggest that something like</p>
+<p>Lo anterior suguiere que un buen estadístico de contraste sería una expresión como:</p>
 <p><span class="math display">\[
-\dfrac{RSS_{\omega_q} - RSS_{\Omega_k}}{RSS_{\Omega_k}}
+\dfrac{RSS_{\omega_{q+1}} - RSS_{\Omega_{p+1}}}{RSS_{\Omega_{p+1}}}
 \]</span></p>
-<p>would be a potentially good test statistic, where the denominator is used for scaling purposes.</p>
+<p>donde el denominador se está usando con el propósito de obtener una medida adimensional.</p>
 <p><br></p>
-<div id="statistic-test" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Statistic Test</h2>
-<p>Finally we can get an statistic test based on the previous
-expression, called <strong>F-statistic</strong>:</p>
+<div id="estadístico-de-contraste" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Estadístico de contraste</h2>
+<p>Podemos obtener un estadistico de contraste basado en la expresión antrerior:</p>
 <p><br></p>
 <p><span class="math display">\[
-F=\dfrac{(RSS_{\omega_q} - RSS_{\Omega_k})/(k-q)}{RSS_{\Omega_k}/(n-k)} \sim F_{\hspace{0.05cm} k-q \hspace{0.05cm},\hspace{0.05cm} n-k}
+F \hspace{0.1cm}  =  \hspace{0.1cm} \dfrac{(RSS_{\omega_{q+1}} - RSS_{\Omega_{p+1}})/(p-q)}{RSS_{\Omega_{p+1}}/(n-p-1)} \hspace{0.1cm} \sim \hspace{0.1cm} F_{\hspace{0.05cm} p-q \hspace{0.05cm},\hspace{0.05cm} n-p-1}
 \]</span></p>
 <p><br></p>
-<p>If <span class="math inline">\(\hspace{0.15cm} df_{\Omega_k} = n-k \hspace{0.15cm}\)</span> and <span class="math inline">\(\hspace{0.15cm} df_{\omega_q} = n-q \hspace{0.15cm}\)</span> , then :</p>
-<p><br></p>
-<p><span class="math display">\[
-F=\dfrac{(RSS_{\omega_q} - RSS_{\Omega_k})/(df_{\omega_q} - df_{\Omega_k})}{RSS_{\Omega_k}/df_{\Omega_k}} \sim F_{\hspace{0.05cm} (df_{\omega_q} - df_{\Omega_k}) \hspace{0.05cm},\hspace{0.05cm} df_{\Omega_k}}
-\]</span></p>
-<p><br></p>
-<p>Where:</p>
-<p><span class="math inline">\(k\hspace{0.15cm}\)</span> is the number of coefficients (betas) of the model <span class="math inline">\(\hspace{0.15cm}\Omega_k\)</span></p>
-<p><span class="math inline">\(q\hspace{0.15cm}\)</span> is the number of coefficients (betas) of the model <span class="math inline">\(\hspace{0.15cm}\omega_q\)</span></p>
-<p>The beauty of this approach is you only need to know the general form.
-In any particular case, you just need to figure out which model
-represent the null and alternative hypothesis, fit them and compute the test statistic.</p>
 </div>
+<div id="regla-de-decisión" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Regla de decisión</h2>
+<p>El p-valor del contraste es: <span class="math inline">\(\\[0.3cm]\)</span></p>
+<p><span class="math display">\[\text{p-valor} \hspace{0.1cm}=\hspace{0.1cm} P\left( \hspace{0.1cm} F_{\hspace{0.05cm} p-q \hspace{0.05cm},\hspace{0.05cm} n-p-1} \hspace{0.1cm}\geq\hspace{0.1cm} F \hspace{0.1cm}\right) \\\]</span></p>
+<p>La regla de decisión habitual, basada en el p-valor, es la siguiente: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[\text{Rechazar}\hspace{0.1cm} H_0  \hspace{0.25cm}\Leftrightarrow \hspace{0.25cm} \alpha \hspace{0.1cm}&gt;\hspace{0.1cm} \text{p-valor}\]</span></p>
+<p><br></p>
+</div>
+<div id="anova-como-f-test" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> ANOVA como F-test</h2>
+<p>Para entender mejor esta sección se recomienda leer previamente el artículo sobre el <a href="http://estadistica4all.com/Articulos/Linear-Regression-new.html">modelo de regresión lineal</a> que se encuentra también en <a href="http://estadistica4all.com/">Estadistica4all</a></p>
+<p><br></p>
+<p>Recordemos las hipotesis del contraste ANOVA para regresión lineal: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[
+\hspace{-1.25cm} H_0: \hspace{0.15cm} \beta_1=\dots=\beta_p=0 \\[0.3cm]
+H_1: \hspace{0.25cm} \beta_j \neq 0  \hspace{0.25cm} , \hspace{0.25cm}    \exists \ j=1,...,p
+\]</span></p>
+<p><br></p>
+<p>Consideraremos los siguientes modelos de regresión lineal: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\Omega_{p+1} \ : \  \ \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} \hspace{0.1cm} +...+ \hspace{0.1cm} \beta_{p}\cdot x_{ip} \\[0.5cm]\)</span></p></li>
+<li><p><span class="math inline">\(\omega_{q+1} \ : \ \ \hat{y}_i = \widehat{\beta}_0 \hspace{0.15cm}\)</span> <span class="math inline">\(\hspace{0.45cm} \text{(Null Model)} \hspace{0.2cm} \Rightarrow \hspace{0.2cm} q=0\)</span></p></li>
+</ul>
+<p><br></p>
+<p>Entonces las hipotesis del contraste ANOVA se pueden expresar como: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math inline">\(\hspace{6.5cm} H_0: \hspace{0.15cm} \hat{y}_i = \widehat{\beta}_0 \ \hspace{0.3cm} ( \omega_{q+1} ) \\[0.3cm] \hspace{6.5cm} H_1: \hspace{0.15cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} \hspace{0.1cm} +...+ \hspace{0.1cm} \beta_{p}\cdot x_{ip} \ \hspace{0.3cm} ( \Omega_{p+1} )\)</span></p>
+<p><br></p>
+<p>Además teniendo en cuenta los modelos antes definidos se tiene lo siguiente:</p>
+<ul>
+<li><p><span class="math inline">\(RSS_{\Omega_{p+1}} = \sum_{i=1}^n ( y_i - \widehat{y}_{\hspace{0.01cm} \Omega_{p+1} \hspace{0.02cm},\hspace{0.02cm} i})^2 = \sum_{i=1}^n \left( y_i - ( \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} +...+ \widehat{\beta}_{p}\cdot x_{ip} ) \right)^2 \\[0.5cm]\)</span></p></li>
+<li><p><span class="math inline">\(RSS_{\omega_{q+1}} = \sum_{i=1}^n ( y_i - \widehat{y}_{\hspace{0.01cm} \omega_{q+1} \hspace{0.02cm},\hspace{0.02cm} i})^2 = \sum_{i=1}^n ( y_i - \widehat{\beta}_0 )^2 \\[0.5cm]\)</span></p></li>
+<li><p>En el modelo nulo se cumple que <span class="math inline">\(\hspace{0.1cm} \widehat{\beta}_0=\overline{y} \hspace{0.1cm}\)</span>, por tanto, tenemos: <span class="math inline">\(\\[0.35cm]\)</span></p>
+<ul>
+<li><span class="math inline">\(RSS_{\omega_{q+1}}=\sum_{i=1}^n ( y_i - \overline{y} )^2 = TSS\)</span></li>
+</ul></li>
+</ul>
+<p><br></p>
+<p>El estadístico del contraste F-test para estos modelos es el siguiente: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[
+F \hspace{0.1cm}= \hspace{0.1cm} \dfrac{(RSS_{\omega_{q+1}} - RSS_{\Omega_{p+1}})/(p-q)}{RSS_{\Omega_{p+1}}/(n-p-1)} \hspace{0.1cm}=\hspace{0.1cm}
+\dfrac{(TSS - RSS)/p}{RSS/(n-p-1)}  \hspace{0.1cm}\sim\hspace{0.1cm} F_{p \hspace{0.05cm},\hspace{0.05cm} n-p-1} \\
+\]</span></p>
+<p>donde:</p>
+<ul>
+<li><p><span class="math inline">\(TSS= RSS_{\omega_{q+1}}\)</span></p></li>
+<li><p><span class="math inline">\(RSS= RSS_{\Omega_{p+1}}\)</span></p></li>
+</ul>
+<p>Y este es el estadístico de contraste del contraste ANOVA.</p>
+<p><br></p>
+</div>
+<div id="contraste-de-significación-individual-como-f-test" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Contraste de significación individual como F-test</h2>
+<p>Para entender mejor esta sección se recomienda leer previamente el artículo sobre el <a href="http://estadistica4all.com/Articulos/Linear-Regression-new.html">modelo de regresión lineal</a> que se encuentra también en <a href="http://estadistica4all.com/">Estadistica4all</a></p>
+<p>Recordemos que las hipotesis del contraste de significación individual para <span class="math inline">\(\hspace{0.1cm} \beta_j\hspace{0.1cm}\)</span> son: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[
+H_0: \beta_j=0 \\[0.5cm]
+H_1: \beta_j \neq 0
+\]</span></p>
+<p><br></p>
+<p>Consideremos los siguientes modelos de regresión lineal:</p>
+<ul>
+<li><p><span class="math inline">\(\omega_{q+1} : \  \ \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} +..+ \widehat{\beta}_{j-1} \cdot x_{i,j-1}+\widehat{\beta}_{j+1} \cdot x_{i,j+1}+..+ \widehat{\beta}_{p}\cdot x_{ip} \hspace{0.25cm} \Rightarrow \hspace{0.25cm} q=p-1 \\[0.5cm]\)</span></p></li>
+<li><p><span class="math inline">\(\Omega_{p+1} : \ \ \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} +..+\widehat{\beta}_j \cdot x_{ij}+..+ \widehat{\beta}_{p}\cdot x_{ip}\)</span></p></li>
+</ul>
+<p><br></p>
+<p>Entonces, el contraste de significación de <span class="math inline">\(\hspace{0.1cm}\beta_j\hspace{0.1cm}\)</span> es equivalente al siguiente contraste:</p>
+<p><span class="math display">\[
+H_0: \hspace{0.2cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} +\dots+ \widehat{\beta}_{j-1} \cdot x_{i,j-1}+\widehat{\beta}_{j+1} \cdot x_{i,j+1}+\dots+ \widehat{\beta}_{p}\cdot x_{ip}  \ \hspace{0.4cm} (\omega_{q+1}) \\[0.4cm]
+\hspace{-4.2cm} H_1: \hspace{0.2cm}  \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} +..+\widehat{\beta}_j \cdot x_{ij}+\dots+ \widehat{\beta}_{p}\cdot x_{ip}  \ \hspace{0.4cm} ( \Omega_{p+1} )
+\]</span></p>
+<p><br></p>
+<p>donde:</p>
+<ul>
+<li><p><span class="math inline">\(RSS_{\Omega_{p+1}} \hspace{0.1cm} =\hspace{0.1cm} \sum_{i=1}^n ( y_i - \widehat{y}_{\hspace{0.01cm} \Omega_{p+1} \hspace{0.02cm},\hspace{0.02cm} i})^2 \hspace{0.1cm} = \hspace{0.1cm} \sum_{i=1}^n\left( y_i - ( \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} +\dots + \widehat{\beta}_{j} \cdot x_{i,j}+\dots + \widehat{\beta}_{p}\cdot x_{ip} ) \right)^2 \\[0.5cm]\)</span></p></li>
+<li><p><span class="math inline">\(RSS_{\omega_{q+1}} = \sum_{i=1}^n ( y_i - \widehat{y}_{\hspace{0.01cm} \omega_{q+1} \hspace{0.02cm},\hspace{0.02cm} i})^2 \hspace{0.1cm} =\hspace{0.1cm} \sum_{i=1}^n \left( y_i - ( \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} +\dots + \widehat{\beta}_{j-1} \cdot x_{i,j-1} + \widehat{\beta}_{j+1} \cdot x_{i,j+1}+\dots + \widehat{\beta}_{p}\cdot x_{ip} ) \right)^2\)</span></p></li>
+</ul>
+<p><br></p>
+<p>El estadístico de contras del F-test es:</p>
+<p><span class="math display">\[
+F\hspace{0.1cm} =\hspace{0.1cm} \dfrac{(RSS_{\omega_{q+1}} - RSS_{\Omega_{p+1}})/(p-q)}{RSS_{\Omega_k}/(n-p-1)} =\dfrac{(RSS_{\omega_{q+1}} - RSS_{\Omega_{p+1}})/1}{RSS_{\Omega_{p+1}}/(n-p-1)}  \hspace{0.1cm} \sim\hspace{0.1cm} F_{1, n-p-1} \\[0.5cm]
+\]</span></p>
+<p>The results of the test using the F-test is approximately equal to the result obtained with the other alternative (t-test).</p>
+<p><br></p>
+<p><strong>Important</strong>: <span class="math inline">\(\hspace{0.1cm}\)</span> this is the way to test the significance of categorical variables (compare the model without the categorical variable vs the model with it), and also to test the significance of two or more variables at the same time.</p>
+<p><br></p>
+</div>
+<div id="f-test-en-python" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> F-test en <code>Python</code></h2>
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+<div id="algoritmo-best-subset-selection" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Algoritmo best-subset-selection</h1>
+<p><br></p>
+<p><br></p>
 </div>
 </div>
 
