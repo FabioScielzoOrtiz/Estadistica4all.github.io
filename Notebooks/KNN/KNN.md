@@ -86,14 +86,14 @@ Un problema de **clasificación supervisada**  es un problema estadistico que co
  
 <p style='margin-left:1em;'>
 
-- Tenemos $\hspace{0.1cm}p\hspace{0.1cm}$ predictores  $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ y una variable respuesta **categorica** $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ sobre los que disponemos una muestra de datos.
+- Tenemos $\hspace{0.1cm}p\hspace{0.1cm}$ predictores  $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ y una variable respuesta **categorica** $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ sobre los que disponemos una muestra de datos. $\\[0.5cm]$
 
 
-- Tenemos una **muestra** de tamaño $\hspace{0.1cm}n\hspace{0.1cm}$ de los $\hspace{0.1cm}p\hspace{0.1cm}$ **predictores** $\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}$  y de la **respuesta**.
+- Tenemos una **muestra** de tamaño $\hspace{0.1cm}n\hspace{0.1cm}$ de los $\hspace{0.1cm}p\hspace{0.1cm}$ **predictores** $\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}$  y de la **respuesta**. $\\[0.3cm]$
 
-$\hspace{0.25cm}$ Por tanto tenemos la siguiente matriz de datos: $\\[0.8cm]$
+    Por tanto tenemos la siguiente matriz de datos: $\\[0.8cm]$
 
-$$D=[X_1,...,X_p, Y]=\begin{pmatrix}
+    $$D=[X_1,...,X_p, Y]=\begin{pmatrix}
     x_{11}&x_{12}&...&x_{1p}&y_1 \\
     x_{21}&x_{22}&...&x_{2p}&y_2 \\
     ... &...& ...&...&...\\
