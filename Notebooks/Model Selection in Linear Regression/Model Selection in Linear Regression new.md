@@ -88,19 +88,21 @@ Se recomienda la lectura de algunos artículos de [Estadistica4all](http://estad
 
 
 
-En esta seccion vamos a presentar el modelo de regresión lineal desde un enfoque algoritmico, como algoritmo de regresión.
+En esta seccion vamos a presentar el modelo de regresión lineal desde un enfoque algorítmico, como algoritmo de regresión.
 
-Se consideran $\hspace{0.1cm} p\hspace{0.1cm}$ variables estadisticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ y una variable respuesta $\hspace{0.1cm}\mathcal{Y}$
-
-
-Se tiene una muestra $\hspace{0.1cm}X_r = (x_{1r},...,x_{nr})^t\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{X}_r\hspace{0.1cm}$ , para cada $\hspace{0.1cm}r \in \lbrace 1,...,p \rbrace$
+- Se consideran $\hspace{0.1cm} p\hspace{0.1cm}$ variables estadísticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ y una variable respuesta $\hspace{0.1cm}\mathcal{Y}$ $\\[0.5cm]$
 
 
-Se tiene una muestra $\hspace{0.1cm}Y = (y_1,...,y_n)^t\hspace{0.1cm}$ de la variable $\mathcal{Y}$
 
 
-En conclusión, se tiene una muestra $\hspace{0.12cm}D=[\hspace{0.12cm}X_1,...,X_p,Y \hspace{0.12cm}]\hspace{0.12cm}$
-de los predictores y la respuesta.
+- Se tiene una muestra de observaciones $\hspace{0.1cm}X_r = (x_{1r},...,x_{nr})^t\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{X}_r\hspace{0.1cm}$ , para cada $\hspace{0.1cm}r \in \lbrace 1,...,p \rbrace$ $\\[0.5cm]$
+
+
+- Se tiene una muestra de observaciones $\hspace{0.1cm}Y = (y_1,...,y_n)^t\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{Y}$ $\\[0.5cm]$
+
+
+- En conclusión, se tiene una muestra de observaciones $\hspace{0.12cm}D=[\hspace{0.12cm}X_1,...,X_p,Y \hspace{0.12cm}]\hspace{0.12cm}$
+de los predictores y la respuesta. $\\[0.5cm]$
 
 La predicción de la variable respuesta para un vector cualquiera de observaciones   de los predictores $\hspace{0.1cm}x_{*} \in \mathbb{R}^{p}\hspace{0.1cm}$, según el algoritmo de regresión lineal, es la siguiente:
 
@@ -108,7 +110,7 @@ La predicción de la variable respuesta para un vector cualquiera de observacion
 
 $$\hat{y}_*  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x_{*r}$$
 
-donde los parametros $\hspace{0.12cm}\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p\hspace{0.12cm}$ se obtienen resolviendo el problema de minimos cuadrados ordinarios:
+donde los parametros $\hspace{0.12cm}\widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p\hspace{0.12cm}$ se obtienen resolviendo el problema de mínimos cuadrados ordinarios:
 
 $$\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p \right)  \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_p}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  y_i - \left( \hspace{0.12cm} \beta_0 + \sum_{r=1}^p \hspace{0.1 cm} \beta_r \cdot x_{ir} \hspace{0.12cm} \right) \right)^2$$
 
@@ -213,14 +215,15 @@ Posteriormente veremos algoritmos iterativos de seleccion de predictores en regr
 
 # F-test <a class="anchor" id="4"></a>
 
-En regresión lineal dos contrastes de hipotesis muy relevantes son el contraste de significación individual y el contraste de significación global (ANOVA). Si se quiere ver una introducción a estos contrastes se recomienda el articulo sobre [el modelo de regresión lineañ](http://estadistica4all.com/Articulos/Linear-Regression-new.html ) de [Estadistica4all](http://estadistica4all.com/)
+En regresión lineal dos contrastes de hipotesis muy relevantes son el contraste de significación individual y el contraste de significación global (ANOVA). Si se quiere ver una introducción a estos contrastes se recomienda el articulo sobre el [modelo de regresión lineal](http://estadistica4all.com/Articulos/Linear-Regression-new.html ) de [Estadistica4all](http://estadistica4all.com/).
 
 
 
-The ANOVA and significance test are a particular case of a more general test that is useful to compere linear regression models, but always under the assumptions of the model.
+Los contrastes de significación individual y global (ANOVA) son casos particulares del contraste F-test, el cual permite comarar modelos de regresión lineal, y con ello seleccionar predictores. Lo expondremos a continuación.
 
 
 
+- Tenemos un 
 
 -   We have a linear regression model with $\hspace{0.1cm} k \hspace{0.1cm}$ coefficients (betas)  $\hspace{0.1cm} \Rightarrow \hspace{0.1cm} \Omega_k$
 

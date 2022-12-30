@@ -1575,8 +1575,8 @@ margin-left: 0 !important;
     <h2><a href="#content">El algoritmo KNN</a></h2>
     <div id="toc">
       <ul>
-      <li><a href="#problema-de-clasificación-supervisada" id="toc-problema-de-clasificación-supervisada"><span class="toc-section-number">1</span> Problema de clasificación supervisada</a></li>
-      <li><a href="#knn-como-algoritmo-de-clasificación-supervisada" id="toc-knn-como-algoritmo-de-clasificación-supervisada"><span class="toc-section-number">2</span> KNN como algoritmo de clasificación supervisada <a class="anchor" id="1"></a></a></li>
+      <li><a href="#problema-de-clasificación-supervisada" id="toc-problema-de-clasificación-supervisada"><span class="toc-section-number">1</span> Problema de clasificación supervisada <a class="anchor" id="1"></a></a></li>
+      <li><a href="#knn-como-algoritmo-de-clasificación-supervisada" id="toc-knn-como-algoritmo-de-clasificación-supervisada"><span class="toc-section-number">2</span> KNN como algoritmo de clasificación supervisada</a></li>
       <li><a href="#knn-para-clasificación-supervisada-con-sklearn" id="toc-knn-para-clasificación-supervisada-con-sklearn"><span class="toc-section-number">3</span> KNN para clasificación supervisada con <code>sklearn</code> <a class="anchor" id="3"></a></a></li>
       <li><a href="#knn-para-clasificación-supervisada-programado-desde-cero-con-python" id="toc-knn-para-clasificación-supervisada-programado-desde-cero-con-python"><span class="toc-section-number">4</span> KNN para clasificación supervisada programado desde “cero” con <code>Python</code> <a class="anchor" id="4"></a></a></li>
       <li><a href="#problema-de-regresión" id="toc-problema-de-regresión"><span class="toc-section-number">5</span> Problema de regresión</a></li>
@@ -1635,44 +1635,22 @@ margin-right: auto;
 <p><strong><em>Se recomienda abrir el artículo en un ordenador o en una tablet.</em></strong></p>
 <p><br></p>
 <div id="problema-de-clasificación-supervisada" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Problema de clasificación supervisada</h1>
+<h1><span class="header-section-number">1</span> Problema de clasificación supervisada <a class="anchor" id="1"></a></h1>
 <p>Un problema de <strong>clasificación supervisada</strong> es un problema estadistico que consiste en predecir una variable respuesta <strong>categorica</strong> usando para ello <strong>información</strong> de unas <strong>variables predictoras</strong> y de la propia variable <strong>respuesta</strong>.</p>
-<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
-<p><span></p>
-<p style="margin-left:1em;">
-<ul>
-<li><p>Tenemos <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> y una variable respuesta <strong>categorica</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> sobre los que disponemos una muestra de datos. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p>Tenemos una <strong>muestra</strong> de tamaño <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> <strong>predictores</strong> <span class="math inline">\(\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}\)</span> y de la <strong>respuesta</strong>. <span class="math inline">\(\\[0.3cm]\)</span></p>
-<p>Por tanto tenemos la siguiente matriz de datos: <span class="math inline">\(\\[0.8cm]\)</span></p>
-<p><span class="math display">\[D=[X_1,...,X_p, Y]=\begin{pmatrix}
-  x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp;y_1 \\
-  x_{21}&amp;x_{22}&amp;...&amp;x_{2p}&amp;y_2 \\
-  ... &amp;...&amp; ...&amp;...&amp;...\\
-  x_{n1}&amp;x_{n2}&amp;...&amp;x_{np}&amp;y_n
-  \end{pmatrix} = \begin{pmatrix}
-  x_{1} &amp; y_1\\
-  x_{2}  &amp; y_2\\
-   ... &amp; ...\\
-   x_{n} &amp; y_n
-  \end{pmatrix} \\[1.5cm]\]</span></p></li>
-<li><p>La solución estadística al problema de regresión pasa por proponer un modelo o algoritmo que sea capaz usar la información muestral disponible <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> de los predictores y la respuesta para predecir los valores de la respuesta para cada vector de observaciones de los predictores que se considere.</p></li>
-</ul>
-</p>
-</p>
-<p></span></p>
-</div>
+<p>La solución estadística al problema de regresión pasa por proponer un modelo o algoritmo que sea capaz usar la información muestral disponible de los predictores y la respuesta para predecir los valores de la respuesta para cada vector de observaciones de los predictores que se considere.</p>
 <p><br></p>
 </div>
 <div id="knn-como-algoritmo-de-clasificación-supervisada" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> KNN como algoritmo de clasificación supervisada <a class="anchor" id="1"></a></h1>
+<h1><span class="header-section-number">2</span> KNN como algoritmo de clasificación supervisada</h1>
 <p>Un algoritmo de clasificación supervisada es un algoritmo que permite predecir una variable respuesta <strong>categorica</strong> usando para ello información sobre una serie de predictores y de la propia respuesta, es decir, es una modelo que permite resolver un problema de clasificación supervisada.</p>
-<p>Como se ha mencionado antes:</p>
 <ul>
-<li><p>Tenemos <span class="math inline">\(p\)</span> predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> y una respuesta <strong>categorica</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{Y} \\\)</span></p></li>
+<li><p>Se consideran <span class="math inline">\(\hspace{0.1cm} p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}\)</span> y una variable respuesta <strong>categórica</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 <li><p>La variable respuesta <strong>categorica</strong> tiene <span class="math inline">\(\hspace{0.1cm}g\hspace{0.1cm}\)</span> categorias , ya que <span class="math inline">\(\hspace{0.1cm}R(\mathcal{Y})=\lbrace 0,1,...,g-1 \rbrace \\\)</span></p></li>
-<li><p>Tenemos una muestra de tamaño <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}\)</span> y de la respuesta <span class="math inline">\(\hspace{0.1cm}Y \\\)</span></p></li>
+<li><p>Se tiene una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X_r = (x_{1r},...,x_{nr})^t\hspace{0.1cm}\)</span> de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_r\hspace{0.1cm}\)</span> , para cada <span class="math inline">\(\hspace{0.1cm}r \in \lbrace 1,...,p \rbrace\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Se tiene una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}Y = (y_1,...,y_n)^t\hspace{0.1cm}\)</span> de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>En conclusión, se tiene una muestra de observaciones de los predictores y la respuesta.</p></li>
 </ul>
-<p><span class="math display">\[D=[X_1,...,X_p,Y]=\begin{pmatrix}
+<p><span class="math display">\[D=[\hspace{0.12cm}X_1,...,X_p,Y \hspace{0.12cm}]\hspace{0.12cm}=\begin{pmatrix}
     x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp; y_1\\
     x_{21}&amp;x_{22}&amp;...&amp;x_{2p} &amp; y_2\\
     ... &amp;...&amp; ...&amp; .... &amp; ...\\
@@ -3176,42 +3154,19 @@ Y_predict
 <h1><span class="header-section-number">5</span> Problema de regresión</h1>
 <p>Un problema de <strong>regresión</strong> es un problema estadístico que consiste en predecir una variable respuesta <strong>cuantitativa</strong> usando para ello <strong>información</strong> de unas <strong>variables predictoras</strong> y de la propia variable <strong>respuesta</strong>.</p>
 <p>Un ejemplo de problema de regresión es la predicción del precio de viviendas de cierta región en base a características de dichas viviendas.</p>
-<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
-<p><span></p>
-<p style="margin-left:1em;">
-<ul>
-<li><p>Tenemos <span class="math inline">\(\hspace{0.1cm} p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> y una respuesta <strong>cuantitativa</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{Y} \\\)</span></p></li>
-<li><p>Tenemos una <strong>muestra</strong> de tamaño <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}\)</span> y de la respuesta <span class="math inline">\(\hspace{0.1cm}Y \\\)</span></p></li>
-</ul>
-<p><span class="math display">\[D=[X_1,...,X_p,Y]=\begin{pmatrix}
-    x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp; y_1\\
-    x_{21}&amp;x_{22}&amp;...&amp;x_{2p} &amp; y_2\\
-    ... &amp;...&amp; ...&amp; .... &amp; ...\\
-    x_{n1}&amp;x_{n2}&amp;...&amp;x_{np}&amp; y_n
-    \end{pmatrix} = \begin{pmatrix}
-    x_{1}&amp; y_1\\
-    x_{2}&amp; y_2 \\
-     ...&amp;... \\
-     x_{n} &amp; y_n
-    \end{pmatrix} \\[1.5cm]\]</span></p>
-<ul>
-<li>La solución estadística al problema de regresión pasa por proponer un modelo o algoritmo que sea capaz de usar la información muestral disponible <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> de los predictores y la respuesta para predecir los valores de la respuesta para cada vector de observaciones de los predictores que se considere.</li>
-</ul>
-</p>
-</p>
-<p></span></p>
-</div>
+<p>La solución estadística al problema de regresión pasa por proponer un modelo o algoritmo que sea capaz de usar la información muestral disponible de los predictores y la respuesta para predecir los valores de la respuesta para cada vector de observaciones de los predictores que se considere.</p>
 <p><br></p>
 </div>
 <div id="knn-como-algoritmo-de-regresión" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> KNN como algoritmo de regresión <a class="anchor" id="5"></a></h1>
-<p>Un modelo de regresión es un modelo estadistico que permite predecir una respuesta <strong>cuantitativa</strong> usando para ello información sobre una serie de predictores y de la propia respuesta.</p>
+<p>Un modelo de regresión es un modelo estadístico que permite predecir una respuesta <strong>cuantitativa</strong> usando para ello información sobre una serie de predictores y de la propia respuesta.</p>
 <ul>
-<li><p>Tenemos <span class="math inline">\(\hspace{0.1cm} p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> y una respuesta <strong>cuantitativa</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{Y} \\\)</span></p></li>
-<li><p>La variable respuesta <strong>cuantitativa</strong> tiene <span class="math inline">\(g\)</span> categorias , ya que <span class="math inline">\(\hspace{0.1cm}Rango(\mathcal{Y})=\lbrace 0,1,...,g-1 \rbrace \\\)</span></p></li>
-<li><p>Tenemos una muestra de tamaño <span class="math inline">\(n\)</span> de los <span class="math inline">\(p\)</span> predictores <span class="math inline">\(\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}\)</span> y de la respuesta <span class="math inline">\(\hspace{0.1cm}Y \\\)</span></p></li>
+<li><p>Se consideran <span class="math inline">\(\hspace{0.1cm} p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}\)</span> y una variable respuesta <strong>cuantitativa</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Se tiene una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X_r = (x_{1r},...,x_{nr})^t\hspace{0.1cm}\)</span> de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_r\hspace{0.1cm}\)</span> , para cada <span class="math inline">\(\hspace{0.1cm}r \in \lbrace 1,...,p \rbrace\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Se tiene una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}Y = (y_1,...,y_n)^t\hspace{0.1cm}\)</span> de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>En conclusión, se tiene una muestra de observaciones de los predictores y la respuesta.</p></li>
 </ul>
-<p><span class="math display">\[D=[X_1,...,X_p,Y]=\begin{pmatrix}
+<p><span class="math display">\[D=[\hspace{0.12cm}X_1,...,X_p,Y \hspace{0.12cm}]\hspace{0.12cm}=\begin{pmatrix}
     x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp; y_1\\
     x_{21}&amp;x_{22}&amp;...&amp;x_{2p} &amp; y_2\\
     ... &amp;...&amp; ...&amp; .... &amp; ...\\

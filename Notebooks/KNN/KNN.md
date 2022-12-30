@@ -75,66 +75,44 @@ $\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). El algoritmo KNN. http://estadistica4
  <br>
  
  
-# Problema de clasificación supervisada
+# Problema de clasificación supervisada <a class="anchor" id="1"></a>  
+
 
 
 Un problema de **clasificación supervisada**  es un problema estadistico que consiste en predecir una variable respuesta **categorica** usando para ello **información**   de unas **variables predictoras** y de la propia variable **respuesta**.
 
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
- 
-<p style='margin-left:1em;'>
-
-- Tenemos $\hspace{0.1cm}p\hspace{0.1cm}$ predictores  $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ y una variable respuesta **categorica** $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ sobre los que disponemos una muestra de datos. $\\[0.5cm]$
-
-
-- Tenemos una **muestra** de tamaño $\hspace{0.1cm}n\hspace{0.1cm}$ de los $\hspace{0.1cm}p\hspace{0.1cm}$ **predictores** $\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}$  y de la **respuesta**. $\\[0.3cm]$
-
-    Por tanto tenemos la siguiente matriz de datos: $\\[0.8cm]$
-
-    $$D=[X_1,...,X_p, Y]=\begin{pmatrix}
-    x_{11}&x_{12}&...&x_{1p}&y_1 \\
-    x_{21}&x_{22}&...&x_{2p}&y_2 \\
-    ... &...& ...&...&...\\
-    x_{n1}&x_{n2}&...&x_{np}&y_n
-    \end{pmatrix} = \begin{pmatrix}
-    x_{1} & y_1\\
-    x_{2}  & y_2\\
-     ... & ...\\
-     x_{n} & y_n
-    \end{pmatrix} \\[1.5cm]$$
-    
-
-
-- La solución estadística al problema de regresión pasa por proponer un modelo o algoritmo que sea capaz usar la información muestral disponible $\hspace{0.1cm}D\hspace{0.1cm}$ de los predictores y la respuesta para predecir los valores de la respuesta para cada vector de observaciones de los predictores que se considere.
+La solución estadística al problema de regresión pasa por proponer un modelo o algoritmo que sea capaz usar la información muestral disponible de los predictores y la respuesta para predecir los valores de la respuesta para cada vector de observaciones de los predictores que se considere.
  
 
 
-</p>
- 
-</p></span>
-</div>
+
 
 
 <br>
 
 
 
-# KNN como algoritmo de clasificación supervisada <a class="anchor" id="1"></a>  
-
+# KNN como algoritmo de clasificación supervisada 
 
 Un algoritmo de clasificación supervisada  es un algoritmo que permite predecir una variable respuesta **categorica** usando para ello información sobre una serie de predictores y de la propia respuesta, es decir, es una modelo que permite resolver un problema de clasificación supervisada.
 
-Como se ha mencionado antes:
 
-- Tenemos $p$ predictores $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ y una respuesta **categorica** $\hspace{0.1cm}\mathcal{Y} \\$
+
+- Se consideran $\hspace{0.1cm} p\hspace{0.1cm}$ predictores $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ y una variable respuesta **categórica** $\hspace{0.1cm}\mathcal{Y}$ $\\[0.5cm]$
+
 
 - La variable respuesta **categorica**  tiene $\hspace{0.1cm}g\hspace{0.1cm}$ categorias , ya que $\hspace{0.1cm}R(\mathcal{Y})=\lbrace 0,1,...,g-1 \rbrace \\$
 
-- Tenemos una muestra de tamaño $\hspace{0.1cm}n\hspace{0.1cm}$ de los $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}$ y de la respuesta  $\hspace{0.1cm}Y \\$
+- Se tiene una muestra de observaciones $\hspace{0.1cm}X_r = (x_{1r},...,x_{nr})^t\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{X}_r\hspace{0.1cm}$ , para cada $\hspace{0.1cm}r \in \lbrace 1,...,p \rbrace$ $\\[0.5cm]$
 
-$$D=[X_1,...,X_p,Y]=\begin{pmatrix}
+
+- Se tiene una muestra de observaciones $\hspace{0.1cm}Y = (y_1,...,y_n)^t\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{Y}$ $\\[0.5cm]$
+
+
+- En conclusión, se tiene una muestra de observaciones de los predictores y la respuesta. 
+
+$$D=[\hspace{0.12cm}X_1,...,X_p,Y \hspace{0.12cm}]\hspace{0.12cm}=\begin{pmatrix}
     x_{11}&x_{12}&...&x_{1p}& y_1\\
     x_{21}&x_{22}&...&x_{2p} & y_2\\
     ... &...& ...& .... & ...\\
@@ -145,10 +123,9 @@ $$D=[X_1,...,X_p,Y]=\begin{pmatrix}
      ...&... \\
      x_{n} & y_n
     \end{pmatrix}$$
+  
 
-
-
-
+ 
 <br>
 
  ---
@@ -1484,54 +1461,33 @@ Un problema de **regresión**  es un problema estadístico que consiste en prede
 
 Un ejemplo de problema de regresión es la predicción del precio de viviendas de cierta región en base a características de dichas viviendas.
 
- 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
- 
-<p style='margin-left:1em;'>
 
-- Tenemos $\hspace{0.1cm} p\hspace{0.1cm}$ predictores $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ y una respuesta **cuantitativa** $\hspace{0.1cm}\mathcal{Y} \\$
+La solución estadística al problema de regresión pasa por proponer un modelo o algoritmo que sea capaz de usar la información muestral disponible de los predictores y la respuesta para predecir los valores de la respuesta para cada vector de observaciones de los predictores que se considere.
 
 
-
-- Tenemos una **muestra** de tamaño $\hspace{0.1cm}n\hspace{0.1cm}$ de los $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}$ y de la respuesta  $\hspace{0.1cm}Y \\$
-
-$$D=[X_1,...,X_p,Y]=\begin{pmatrix}
-    x_{11}&x_{12}&...&x_{1p}& y_1\\
-    x_{21}&x_{22}&...&x_{2p} & y_2\\
-    ... &...& ...& .... & ...\\
-    x_{n1}&x_{n2}&...&x_{np}& y_n
-    \end{pmatrix} = \begin{pmatrix}
-    x_{1}& y_1\\
-    x_{2}& y_2 \\
-     ...&... \\
-     x_{n} & y_n
-    \end{pmatrix} \\[1.5cm]$$
-
-
-
-- La solución estadística al problema de regresión pasa por proponer un modelo o algoritmo que sea capaz de usar la información muestral disponible $\hspace{0.1cm}D\hspace{0.1cm}$ de los predictores y la respuesta para predecir los valores de la respuesta para cada vector de observaciones de los predictores que se considere.
-
-
-</p>
- 
-</p></span>
-</div>
 
 <br>
 
 
 # KNN como algoritmo de regresión  <a class="anchor" id="5"></a>
 
-Un modelo de regresión es un modelo estadistico que permite predecir una respuesta **cuantitativa** usando para ello información sobre una serie de predictores y de la propia respuesta.
+Un modelo de regresión es un modelo estadístico que permite predecir una respuesta **cuantitativa** usando para ello información sobre una serie de predictores y de la propia respuesta.
 
-- Tenemos $\hspace{0.1cm} p\hspace{0.1cm}$ predictores $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ y una respuesta **cuantitativa** $\hspace{0.1cm}\mathcal{Y} \\$
 
-- La variable respuesta **cuantitativa**  tiene $g$ categorias , ya que $\hspace{0.1cm}Rango(\mathcal{Y})=\lbrace 0,1,...,g-1 \rbrace \\$
+- Se consideran $\hspace{0.1cm} p\hspace{0.1cm}$ predictores $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ y una variable respuesta **cuantitativa** $\hspace{0.1cm}\mathcal{Y}$ $\\[0.5cm]$
 
-- Tenemos una muestra de tamaño $n$ de los $p$ predictores $\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}$ y de la respuesta  $\hspace{0.1cm}Y \\$
 
-$$D=[X_1,...,X_p,Y]=\begin{pmatrix}
+
+
+- Se tiene una muestra de observaciones $\hspace{0.1cm}X_r = (x_{1r},...,x_{nr})^t\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{X}_r\hspace{0.1cm}$ , para cada $\hspace{0.1cm}r \in \lbrace 1,...,p \rbrace$ $\\[0.5cm]$
+
+
+- Se tiene una muestra de observaciones $\hspace{0.1cm}Y = (y_1,...,y_n)^t\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{Y}$ $\\[0.5cm]$
+
+
+- En conclusión, se tiene una muestra de observaciones de los predictores y la respuesta. 
+
+$$D=[\hspace{0.12cm}X_1,...,X_p,Y \hspace{0.12cm}]\hspace{0.12cm}=\begin{pmatrix}
     x_{11}&x_{12}&...&x_{1p}& y_1\\
     x_{21}&x_{22}&...&x_{2p} & y_2\\
     ... &...& ...& .... & ...\\
@@ -1542,6 +1498,10 @@ $$D=[X_1,...,X_p,Y]=\begin{pmatrix}
      ...&... \\
      x_{n} & y_n
     \end{pmatrix}$$
+  
+
+
+ 
 
 
 
