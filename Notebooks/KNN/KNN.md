@@ -130,7 +130,7 @@ Como se ha mencionado antes:
 
 - Tenemos $p$ predictores $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ y una respuesta **categorica** $\hspace{0.1cm}\mathcal{Y} \\$
 
-- La variable respuesta **categorica**  tiene $\hspace{0.1cm}g\hspace{0.1cm}$ categorias , ya que $\hspace{0.1cm}Rango(\mathcal{Y})=\lbrace 0,1,...,g-1 \rbrace \\$
+- La variable respuesta **categorica**  tiene $\hspace{0.1cm}g\hspace{0.1cm}$ categorias , ya que $\hspace{0.1cm}R(\mathcal{Y})=\lbrace 0,1,...,g-1 \rbrace \\$
 
 - Tenemos una muestra de tamaño $\hspace{0.1cm}n\hspace{0.1cm}$ de los $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}$ y de la respuesta  $\hspace{0.1cm}Y \\$
 
@@ -199,7 +199,7 @@ $\hspace{0.25cm}$ Aquí no se va a entrar en este asunto, pero $\hspace{0.1cm}D\
 
     Es decir:
 
-    $$\hspace{0.6 cm} \text{Si} \hspace{0.5 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 cm}  arg \hspace{0.15 cm} \underset{r}{Max} \hspace{0.2cm} P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r \hspace{0.1cm}]  \hspace{0.3cm}  \Rightarrow \hspace{0.3cm} \widehat{y}_{new} \hspace{0.05 cm}=\hspace{0.05 cm} r^* \hspace{0.1cm}$$
+    $$\hspace{0.6 cm} \text{Si} \hspace{0.5 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 cm}  arg \hspace{0.15 cm} \underset{r\in R(\mathcal{Y})}{Max} \hspace{0.2cm} P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r \hspace{0.1cm}]  \hspace{0.3cm}  \Rightarrow \hspace{0.3cm} \widehat{y}_{new} \hspace{0.05 cm}=\hspace{0.05 cm} r^* \hspace{0.1cm}$$
 
 
     Donde $\hspace{0.12cm}\widehat{y}_{new}\hspace{0.12cm}$ es el valor de la variable respuesta que el modelo predice para la observación $\hspace{0.12cm}x_{new}\hspace{0.12cm}$ de los predictores.
@@ -1588,7 +1588,7 @@ $\hspace{0.15cm}$ El algoritmo KNN para regresión tiene los siguientes pasos:
 
         - Si  $\hspace{0.15cm}Y_{K_{x_{new}}}\hspace{0.1cm}$ es la muestra de la respuesta para los $\hspace{0.1cm}k\hspace{0.1cm}$ individuos asociados al conjunto $\hspace{0.1cm}K_{x_{new}}\hspace{0.1cm}$ , es decir: $\\[0.5cm]$
 
-         $$Y_{K_{x_{new}}} = \left(\hspace{0.15cm} y_i \hspace{0.25cm} / \hspace{0.25cm}  i\in \lbrace 1,...,n \rbrace \hspace{0.3cm}  \text{y} \hspace{0.3cm} x_i \in K_{x_{new}}\hspace{0.15cm} \right)^t\\[0.3cm]$$
+         $$Y_{K_{x_{new}}} = \left(\hspace{0.1cm} y_i \hspace{0.25cm} / \hspace{0.25cm}  i\in \lbrace 1,...,n \rbrace \hspace{0.3cm}  \text{y} \hspace{0.3cm} x_i \in K_{x_{new}}\hspace{0.1cm} \right)\\[0.3cm]$$
 
        $\hspace{0.8cm}$  entonces:
 

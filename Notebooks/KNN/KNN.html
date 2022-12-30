@@ -1669,7 +1669,7 @@ margin-right: auto;
 <p>Como se ha mencionado antes:</p>
 <ul>
 <li><p>Tenemos <span class="math inline">\(p\)</span> predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> y una respuesta <strong>categorica</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{Y} \\\)</span></p></li>
-<li><p>La variable respuesta <strong>categorica</strong> tiene <span class="math inline">\(\hspace{0.1cm}g\hspace{0.1cm}\)</span> categorias , ya que <span class="math inline">\(\hspace{0.1cm}Rango(\mathcal{Y})=\lbrace 0,1,...,g-1 \rbrace \\\)</span></p></li>
+<li><p>La variable respuesta <strong>categorica</strong> tiene <span class="math inline">\(\hspace{0.1cm}g\hspace{0.1cm}\)</span> categorias , ya que <span class="math inline">\(\hspace{0.1cm}R(\mathcal{Y})=\lbrace 0,1,...,g-1 \rbrace \\\)</span></p></li>
 <li><p>Tenemos una muestra de tamaño <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}\)</span> y de la respuesta <span class="math inline">\(\hspace{0.1cm}Y \\\)</span></p></li>
 </ul>
 <p><span class="math display">\[D=[X_1,...,X_p,Y]=\begin{pmatrix}
@@ -1705,7 +1705,7 @@ margin-right: auto;
 <p>Notese que <span class="math inline">\(\hspace{0.15cm}\# \hspace{0.1cm} K_{x_{new}} \hspace{0.1cm}=\hspace{0.1cm} k \\\)</span></p></li>
 <li><p>Para la nueva observación de los predictores <span class="math inline">\(\hspace{0.1cm} x_{new} \hspace{0.1cm}\)</span> se predice la variable respuesta como la categoría más frecuente en el conjunto <span class="math inline">\(\hspace{0.1cm}K_{x_{new}}\)</span></p>
 <p>Es decir:</p>
-<p><span class="math display">\[\hspace{0.6 cm} \text{Si} \hspace{0.5 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 cm}  arg \hspace{0.15 cm} \underset{r}{Max} \hspace{0.2cm} P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r \hspace{0.1cm}]  \hspace{0.3cm}  \Rightarrow \hspace{0.3cm} \widehat{y}_{new} \hspace{0.05 cm}=\hspace{0.05 cm} r^* \hspace{0.1cm}\]</span></p>
+<p><span class="math display">\[\hspace{0.6 cm} \text{Si} \hspace{0.5 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 cm}  arg \hspace{0.15 cm} \underset{r\in R(\mathcal{Y})}{Max} \hspace{0.2cm} P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r \hspace{0.1cm}]  \hspace{0.3cm}  \Rightarrow \hspace{0.3cm} \widehat{y}_{new} \hspace{0.05 cm}=\hspace{0.05 cm} r^* \hspace{0.1cm}\]</span></p>
 <p>Donde <span class="math inline">\(\hspace{0.12cm}\widehat{y}_{new}\hspace{0.12cm}\)</span> es el valor de la variable respuesta que el modelo predice para la observación <span class="math inline">\(\hspace{0.12cm}x_{new}\hspace{0.12cm}\)</span> de los predictores.</p></li>
 </ul>
 </p>
@@ -3241,7 +3241,7 @@ Y_predict
 <ul>
 <li>Si <span class="math inline">\(\hspace{0.15cm}Y_{K_{x_{new}}}\hspace{0.1cm}\)</span> es la muestra de la respuesta para los <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> individuos asociados al conjunto <span class="math inline">\(\hspace{0.1cm}K_{x_{new}}\hspace{0.1cm}\)</span> , es decir: <span class="math inline">\(\\[0.5cm]\)</span></li>
 </ul>
-<p><span class="math display">\[Y_{K_{x_{new}}} = \left(\hspace{0.15cm} y_i \hspace{0.25cm} / \hspace{0.25cm}  i\in \lbrace 1,...,n \rbrace \hspace{0.3cm}  \text{y} \hspace{0.3cm} x_i \in K_{x_{new}}\hspace{0.15cm} \right)^t\\[0.3cm]\]</span></p>
+<p><span class="math display">\[Y_{K_{x_{new}}} = \left(\hspace{0.1cm} y_i \hspace{0.25cm} / \hspace{0.25cm}  i\in \lbrace 1,...,n \rbrace \hspace{0.3cm}  \text{y} \hspace{0.3cm} x_i \in K_{x_{new}}\hspace{0.1cm} \right)\\[0.3cm]\]</span></p>
 <p><span class="math inline">\(\hspace{0.8cm}\)</span> entonces:</p>
 <p><span class="math display">\[\widehat{y}_{new} =  \overline{\hspace{0.15cm} Y}_{K_{x_{new}}}\\\]</span></p></li>
 </ul></li>

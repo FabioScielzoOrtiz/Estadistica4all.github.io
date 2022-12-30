@@ -1509,7 +1509,17 @@ margin-left: 0 !important;
    <div id="sidebar">
     <h2><a href="#content">Model Selection in Linear Regression</a></h2>
     <div id="toc">
-      
+      <ul>
+      <li><a href="#el-algoritmo-de-regresión-lineal" id="toc-el-algoritmo-de-regresión-lineal"><span class="toc-section-number">1</span> El algoritmo de regresión lineal <a class="anchor" id="5"></a></a></li>
+      <li><a href="#la-maldición-de-la-dimensionalidad" id="toc-la-maldición-de-la-dimensionalidad"><span class="toc-section-number">2</span> La maldición de la dimensionalidad <a class="anchor" id="5"></a></a>
+      <ul>
+      <li><a href="#demonstración-de-la-maldición-de-la-dimensionalidad" id="toc-demonstración-de-la-maldición-de-la-dimensionalidad"><span class="toc-section-number">2.1</span> Demonstración de la maldición de la dimensionalidad <a class="anchor" id="5"></a></a></li>
+      </ul></li>
+      <li><a href="#f-test" id="toc-f-test"><span class="toc-section-number">3</span> F-test <a class="anchor" id="4"></a></a>
+      <ul>
+      <li><a href="#statistic-test" id="toc-statistic-test"><span class="toc-section-number">3.1</span> Statistic Test</a></li>
+      </ul></li>
+      </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
                   <p class="author"><span class="glyphicon glyphicon-user"></span> Fabio Scielzo Ortiz</p>
@@ -1559,6 +1569,152 @@ margin-right: auto;
 </div>
 <p><strong><em>Se recomienda abrir el artículo en un ordenador o en una tablet.</em></strong></p>
 <p><br></p>
+<p>Se recomienda la lectura de algunos artículos de <a href="http://estadistica4all.com/">Estadistica4all</a> como paso previo a la lectura de este articulo. En concreto el artículo sobre el <a href="http://estadistica4all.com/Articulos/Linear-Regression-new.html">modelo de regresión lineal</a>.</p>
+<p><br></p>
+<div id="el-algoritmo-de-regresión-lineal" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> El algoritmo de regresión lineal <a class="anchor" id="5"></a></h1>
+<p>En esta seccion vamos a presentar el modelo de regresión lineal desde un enfoque algoritmico, como algoritmo de regresión.</p>
+<p>Se consideran <span class="math inline">\(\hspace{0.1cm} p\hspace{0.1cm}\)</span> variables estadisticas <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}\)</span> y una variable respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\)</span></p>
+<p>Se tiene una muestra <span class="math inline">\(\hspace{0.1cm}X_r = (x_{1r},...,x_{nr})^t\hspace{0.1cm}\)</span> de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_r\hspace{0.1cm}\)</span> , para cada <span class="math inline">\(\hspace{0.1cm}r \in \lbrace 1,...,p \rbrace\)</span></p>
+<p>Se tiene una muestra <span class="math inline">\(\hspace{0.1cm}Y = (y_1,...,y_n)^t\hspace{0.1cm}\)</span> de la variable <span class="math inline">\(\mathcal{Y}\)</span></p>
+<p>En conclusión, se tiene una muestra <span class="math inline">\(\hspace{0.12cm}D=[\hspace{0.12cm}X_1,...,X_p,Y \hspace{0.12cm}]\hspace{0.12cm}\)</span>
+de los predictores y la respuesta.</p>
+<p>La predicción de la variable respuesta para un vector cualquiera de observaciones de los predictores <span class="math inline">\(\hspace{0.1cm}x_{*} \in \mathbb{R}^{p}\hspace{0.1cm}\)</span>, según el algoritmo de regresión lineal, es la siguiente:</p>
+<p><span class="math display">\[\hat{y}_*  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x_{*r}\]</span></p>
+<p>donde los parametros <span class="math inline">\(\hspace{0.12cm}\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p\hspace{0.12cm}\)</span> se obtienen resolviendo el problema de minimos cuadrados ordinarios:</p>
+<p><span class="math display">\[\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p \right)  \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_p}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  y_i - \left( \hspace{0.12cm} \beta_0 + \sum_{r=1}^p \hspace{0.1 cm} \beta_r \cdot x_{ir} \hspace{0.12cm} \right) \right)^2\]</span></p>
+<p><br></p>
+<p>Existe una solución cerrada para este problema de optimización, y se puede demostrar que es la siguiente:</p>
+<p><span class="math display">\[\widehat{\beta}\hspace{0.1cm}=\hspace{0.1cm}(X^t \cdot X)^{-1} \cdot X^t \cdot Y\]</span></p>
+<p>donde:</p>
+<p><span class="math display">\[\hspace{0.1cm} X \hspace{0.1cm}=\hspace{0.1cm} [\hspace{0.05cm}\mathbb{1} , X_1,...,X_p \hspace{0.05cm}]\]</span></p>
+<p><br></p>
+<p><strong>Observaciones:</strong></p>
+<ul>
+<li><p>La muestra <span class="math inline">\(\hspace{0.12cm}D=[\hspace{0.12cm}X_1,...,X_p,Y\hspace{0.12cm}]\hspace{0.12cm}\)</span> esta jugando el papel de muestra de entrenamiento.</p></li>
+<li><p>Es de especial interés el caso en el que <span class="math inline">\(\hspace{0.12cm}x_*\hspace{0.12cm}\)</span> es una nueva observación de los predictores para la que se desconoce el valor de la respuesta, es decir, <span class="math inline">\(\hspace{0.12cm}x_* = x_{new}\)</span>.</p>
+<p>El algoritmo también permite predecir la respuesta para las observaciones de los predictores con las que el modelo ha sido entrenado, es decir <span class="math inline">\(x_{*} = x_i \hspace{0.15cm},\hspace{0.15cm} i =1,...,n \\\)</span></p></li>
+<li><p>Se denomina regresión <strong>lineal</strong> por que la ecuación con la que se predice la respuesta es una ecuación lineal en los betas.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="la-maldición-de-la-dimensionalidad" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> La maldición de la dimensionalidad <a class="anchor" id="5"></a></h1>
+<ul>
+<li>Si la verdadera relación entre la variable respuesta y los predictores es aproximadamente lineal, las predicciones obtenidas con el algoritmo de regresión lineal tendrán un sesgo pequeño. Pero si la relación no es lineal el sesgo será grande. <span class="math inline">\(\\[0.4cm]\)</span></li>
+</ul>
+<p>Supongamos que estamos en el mejor de los casos y la verdadera relacion entre la respuesta y los predictores es aproximadamente lineal, luego las predicciones tienen poco sesgo:</p>
+<ul>
+<li><p>Si el tamaño <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> de la muestra de entrenamiento (en nuestra exposición anterior <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> juega ese rol) es notablemente mayor que el número de predictores <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span>, es decir, <span class="math inline">\(\hspace{0.1cm}n&gt;&gt;p\hspace{0.1cm}\)</span>, entonces la predicciones obtenidas con el algoritmo de regresión lineal tendrán poca varianza, por tanto el modelo tendrá un buen desempeño prediciendo observaciones fuera de la muestra de train, al tener sus predicciones poco sesgo y varianza. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.1cm}n \approx p\hspace{0.1cm}\)</span>, entonces la predicciones obtenidas con el algoritmo de regresión lineal tendrán mucha varianza, por tanto el modelo tendrá un mal desempeño prediciendo observaciones fuera de la muestra de train, al tener sus predicciones mucha varianza, a pesar de que tengan poco sesgo. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.1cm}n &lt; p\hspace{0.1cm}\)</span>, entonces el algoritmo de regresión lineal no puede entrenarse, puesto que no puede resolverse el problema de minimos cuadrados ordinarios. Este hecho es conocido como la maldición de la dimensionalidad en regresión lineal. <span class="math inline">\(\\[0.7cm]\)</span></p></li>
+</ul>
+<blockquote>
+<p>Necesitamos metodos que nos permitan obtener modelos de regresión lineal competitivos con un numero de parametros bajo, para evitar así la maldicion de la dimensionalidad.</p>
+</blockquote>
+<p>A continuación vamos a ver algoritmos que nos permiten, dado un modelo de regresión con <span class="math inline">\(\hspace{0.1 cm}p\hspace{0.1 cm}\)</span> predictores, y por tanto <span class="math inline">\(\hspace{0.1 cm}p+1 \hspace{0.1cm}\)</span> parámetros betas, seleccionar aquellos predictores que son más relevantes, y eliminar aquellos que aportan menos información útil para predecir la respuesta. Esto permite reducir en numero de parámetros de una forma eficiente, reduciendo asi el problema de la dimensionalidad, pero sin perder excesivo poder predictivo, e incluso ganándolo en algunos casos.</p>
+<p><br></p>
+<div id="demonstración-de-la-maldición-de-la-dimensionalidad" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Demonstración de la maldición de la dimensionalidad <a class="anchor" id="5"></a></h2>
+<ul>
+<li><p>Supongamos que <span class="math inline">\(\hspace{0.12cm} p &gt; n\hspace{0.12cm}\)</span>. Entonces es obvio que <span class="math inline">\(\hspace{0.12cm} p +1 &gt;n\hspace{0.12cm}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Sabemos que <span class="math inline">\(\hspace{0.1 cm}X=[\hspace{0.1 cm}1,X_1,...,X_p\hspace{0.1 cm}]\hspace{0.12cm}\)</span> es de un tamaño <span class="math inline">\(\hspace{0.12cm}n\text{x}(p+1)\hspace{0.12cm}\)</span>, así que
+<span class="math inline">\(\hspace{0.12cm}X^t \cdot X\hspace{0.12cm}\)</span> tiene un tamaño <span class="math inline">\(\hspace{0.12cm}(p+1)\text{x}(p+1)\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Como <span class="math inline">\(\hspace{0.12cm}p + 1 \hspace{0.12cm}&gt;\hspace{0.12cm} n\hspace{0.12cm}\)</span> , entonces <span class="math inline">\(\hspace{0.05cm}Max\hspace{0.12cm}Rg(X) = n \\[0.5cm]\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Supongamos que <span class="math inline">\(\hspace{0.12cm}Rg(X) = r \hspace{0.12cm}\leq\hspace{0.12cm} n \hspace{0.12cm}\)</span>. Entonces por el teorema de rango-nulidad se cumple que <span class="math inline">\(\hspace{0.12cm}Rg(X^t \cdot X)= r\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Como <span class="math inline">\(\hspace{0.12cm}X^t \cdot X\hspace{0.12cm}\)</span> es de tamaño <span class="math inline">\(\hspace{0.12cm}(p+1)\text{x}(p+1)\hspace{0.12cm}\hspace{0.12 cm}\)</span>,
+entonces <span class="math inline">\(\hspace{0.12cm}Max\hspace{0.12cm}Rg(X^t \cdot X) = p+1\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Y como <span class="math inline">\(\hspace{0.12cm}Rg(X^t \cdot X)=r \hspace{0.12cm}\leq\hspace{0.12cm} n \hspace{0.12cm}&lt;\hspace{0.12cm} p+1\hspace{0.12cm}\)</span>,
+entonces <span class="math inline">\(\hspace{0.12cm}X^t \cdot X\hspace{0.12cm}\)</span> <strong>no tiene rango máximo</strong> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Por tanto, la inversa de <span class="math inline">\(\hspace{0.12cm}X^t \cdot X\hspace{0.12cm}\)</span> no existe, es decir, no existe <span class="math inline">\(\hspace{0.12cm}(X^t \cdot X )^{ -1}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Por tanto, no existe <span class="math inline">\(\hspace{0.12cm}\widehat{\beta} = (X^t \cdot X)^{-1} \cdot X^t \cdot Y\hspace{0.12cm}\)</span>.</p></li>
+</ul>
+<p><br></p>
+<hr />
+<p><br></p>
+<p>A continuación vamos a ver una técnica estadística clásica para la selección de predictores en regresión lineal, que en el fondo es un contraste de hipotesis.</p>
+<p>Posteriormente veremos algoritmos iterativos de seleccion de predictores en regresion lineal, que son más modernos y tienen un enfoque más ligado al machine learning.</p>
+</div>
+</div>
+<div id="f-test" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> F-test <a class="anchor" id="4"></a></h1>
+<p>En regresión lineal dos contrastes de hipotesis muy relevantes son el contraste de significación individual y el contraste de significación global (ANOVA). Si se quiere ver una introducción a estos contrastes se recomienda el articulo sobre <a href="http://estadistica4all.com/Articulos/Linear-Regression-new.html">el modelo de regresión lineañ</a> de <a href="http://estadistica4all.com/">Estadistica4all</a></p>
+<p>The ANOVA and significance test are a particular case of a more general test that is useful to compere linear regression models, but always under the assumptions of the model.</p>
+<ul>
+<li><p>We have a linear regression model with <span class="math inline">\(\hspace{0.1cm} k \hspace{0.1cm}\)</span> coefficients (betas) <span class="math inline">\(\hspace{0.1cm} \Rightarrow \hspace{0.1cm} \Omega_k\)</span></p>
+<ul>
+<li><span class="math inline">\(\Omega_k \ : \  \ y_i = \beta_0 + \beta_1\cdot x_{i1} +...+ \beta_{k-1}\cdot x_{i(k-1)} + \varepsilon_i \\[0.5cm]\)</span></li>
+</ul></li>
+<li><p>We have another linear regression model with only
+<span class="math inline">\(\hspace{0.1cm} q&lt;k \hspace{0.1cm}\)</span> coefficients (betas) of <span class="math inline">\(\Omega_p\)</span> <span class="math inline">\(\hspace{0.1cm} \Rightarrow \hspace{0.1cm} \omega_q\)</span></p>
+<ul>
+<li><span class="math inline">\(\omega_q \ : \  \ y_i = \beta_0 + \beta_1\cdot x_{i1} +...+ \beta_{q-1}\cdot x_{i(q-1)} + \varepsilon_i \\[0.2cm]\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(\omega_q\)</span> is a sub-model of <span class="math inline">\(\Omega_k\)</span> , we can denote this as
+<span class="math inline">\(\hspace{0.1cm} \omega_q \subset \Omega_k\)</span></p></li>
+</ul>
+<p><br></p>
+<p>The hypothesis test we want to carry out is the following:</p>
+<p><br></p>
+<p><span class="math display">\[\begin{gather*}
+H_0: \hspace{0.15cm} \omega_q  \\
+H_1: \hspace{0.15cm} \Omega_k
+\end{gather*}\]</span></p>
+<p>Where :</p>
+<ul>
+<li><p><span class="math inline">\(\hspace{0.2cm} \omega_q \subset \Omega_p \\[0.2cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.2cm}\)</span> Reject <span class="math inline">\(H_0\)</span> means <span class="math inline">\(\hspace{0.1cm} \Omega_k\hspace{0.1cm}\)</span> is a “better” model than <span class="math inline">\(\hspace{0.1cm} \omega_q \\[0.2cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.2cm}\)</span> Not Reject <span class="math inline">\(H_0\)</span> means <span class="math inline">\(\hspace{0.1cm} \Omega_k \hspace{0.1cm}\)</span> isn’t a “better” model than <span class="math inline">\(\hspace{0.1cm} \omega_q\)</span></p></li>
+</ul>
+<p><br></p>
+<p>Now we have to determinate a rule to reject <span class="math inline">\(\hspace{0.1cm}H_0\hspace{0.1cm}\)</span> in favor of <span class="math inline">\(\hspace{0.1cm}H_1\hspace{0.1cm}\)</span> or not</p>
+<p>A first approach is the following:</p>
+<p>Let :</p>
+<p><span class="math display">\[
+RSS_{\Omega_k} =  \sum_{i=1}^n ( \hat{\varepsilon}_{\Omega_k \hspace{0.05cm},\hspace{0.05cm} i} )^2 =  \sum_{i=1}^n \left( y_i - \hat{y}_{\hspace{0.01cm} \Omega_k \hspace{0.05cm},\hspace{0.02cm} i}\right)^2   \\[0.2cm]
+\]</span></p>
+<p><span class="math display">\[
+RSS_{\omega_q} =  \sum_{i=1}^n ( \hat{\varepsilon}_{\omega_q \hspace{0.05cm},\hspace{0.05cm} i} )^2 =  \sum_{i=1}^n \left( y_i - \hat{y}_{\omega_q \hspace{0.05cm},\hspace{0.02cm} i}\right)^2
+\]</span></p>
+<p><br></p>
+<ul>
+<li><p>If <span class="math inline">\(\hspace{0.15cm} RSS_{\omega_q} - RSS_{\Omega_k} \hspace{0.15cm}\)</span> is <strong>small</strong>, then the (train)
+predictions of the <strong>smaller model</strong> <span class="math inline">\((\omega_q)\)</span> are almost as good as the <strong>larger
+model</strong> <span class="math inline">\((\Omega_k)\)</span>, so we would prefer the smaller model on the grounds of simplicity. <span class="math inline">\(\\[0.8cm]\)</span></p></li>
+<li><p>If <span class="math inline">\(\hspace{0.1cm} RSS_{\omega_q} - RSS_{\Omega_k} \hspace{0.1cm}\)</span> is <strong>large</strong>, then the (train)
+predictions of the <strong>smaller model</strong> <span class="math inline">\((\omega_q)\)</span> are much worse than the <strong>larger
+model</strong> <span class="math inline">\((\Omega_k)\)</span>, so we would prefer the larger model.<span class="math inline">\(\\[0.35cm]\)</span></p></li>
+</ul>
+<p><br></p>
+<p>That suggest that something like</p>
+<p><span class="math display">\[
+\dfrac{RSS_{\omega_q} - RSS_{\Omega_k}}{RSS_{\Omega_k}}
+\]</span></p>
+<p>would be a potentially good test statistic, where the denominator is used for scaling purposes.</p>
+<p><br></p>
+<div id="statistic-test" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Statistic Test</h2>
+<p>Finally we can get an statistic test based on the previous
+expression, called <strong>F-statistic</strong>:</p>
+<p><br></p>
+<p><span class="math display">\[
+F=\dfrac{(RSS_{\omega_q} - RSS_{\Omega_k})/(k-q)}{RSS_{\Omega_k}/(n-k)} \sim F_{\hspace{0.05cm} k-q \hspace{0.05cm},\hspace{0.05cm} n-k}
+\]</span></p>
+<p><br></p>
+<p>If <span class="math inline">\(\hspace{0.15cm} df_{\Omega_k} = n-k \hspace{0.15cm}\)</span> and <span class="math inline">\(\hspace{0.15cm} df_{\omega_q} = n-q \hspace{0.15cm}\)</span> , then :</p>
+<p><br></p>
+<p><span class="math display">\[
+F=\dfrac{(RSS_{\omega_q} - RSS_{\Omega_k})/(df_{\omega_q} - df_{\Omega_k})}{RSS_{\Omega_k}/df_{\Omega_k}} \sim F_{\hspace{0.05cm} (df_{\omega_q} - df_{\Omega_k}) \hspace{0.05cm},\hspace{0.05cm} df_{\Omega_k}}
+\]</span></p>
+<p><br></p>
+<p>Where:</p>
+<p><span class="math inline">\(k\hspace{0.15cm}\)</span> is the number of coefficients (betas) of the model <span class="math inline">\(\hspace{0.15cm}\Omega_k\)</span></p>
+<p><span class="math inline">\(q\hspace{0.15cm}\)</span> is the number of coefficients (betas) of the model <span class="math inline">\(\hspace{0.15cm}\omega_q\)</span></p>
+<p>The beauty of this approach is you only need to know the general form.
+In any particular case, you just need to figure out which model
+represent the null and alternative hypothesis, fit them and compute the test statistic.</p>
+</div>
+</div>
 </div>
 
    
