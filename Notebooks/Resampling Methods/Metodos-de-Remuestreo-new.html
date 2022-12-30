@@ -1624,6 +1624,8 @@ margin-left: 0 !important;
       <li><a href="#contrastes-de-hipotesis-basados-en-bootstrap" id="toc-contrastes-de-hipotesis-basados-en-bootstrap"><span class="toc-section-number">12</span> Contrastes de hipotesis basados en bootstrap</a>
       <ul>
       <li><a href="#contraste-de-hipótesis-sobre-una-población" id="toc-contraste-de-hipótesis-sobre-una-población"><span class="toc-section-number">12.1</span> Contraste de hipótesis sobre una población</a></li>
+      <li><a href="#contraste-de-hipótesis-sobre-dos-poblaciones" id="toc-contraste-de-hipótesis-sobre-dos-poblaciones"><span class="toc-section-number">12.2</span> Contraste de hipótesis sobre dos poblaciones</a></li>
+      <li><a href="#contrastes-bootstrap-en-python" id="toc-contrastes-bootstrap-en-python"><span class="toc-section-number">12.3</span> Contrastes bootstrap en <code>Python</code></a></li>
       </ul></li>
       <li><a href="#bootstrap-en-regresión-lineal" id="toc-bootstrap-en-regresión-lineal"><span class="toc-section-number">13</span> Bootstrap en Regresión Lineal</a>
       <ul>
@@ -2445,9 +2447,9 @@ margin-right: auto;
 <p><span class="math display">\[\dfrac{\# \hspace{0.15cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm} Q(\alpha \hspace{0.05cm} , \hspace{0.05cm} \widehat{\theta}_{boot}) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}  \hspace{0.15cm} = \hspace{0.15cm} \alpha \\\]</span></p>
 <ul>
 <li>El intervalo cuantil-bootstrap para el parametro <span class="math inline">\(\hspace{0.1cm}\theta\hspace{0.1cm}\)</span> a un nivel <span class="math inline">\(\hspace{0.1cm} 1-\alpha \hspace{0.1cm}\)</span> es : <span class="math inline">\(\\[0.4cm]\)</span></li>
-</ul></li>
 </ul>
-<p><span class="math display">\[IC(\theta )_{1-\alpha}^{boot} \hspace{0.1cm} = \hspace{0.1cm} \left[ \hspace{0.1cm} Q(\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\theta}_{boot}) \hspace{0.2cm} ;  \hspace{0.2cm} Q(1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\theta}_{boot}) \hspace{0.1cm} \right] \\[1cm]\]</span></p>
+<p><span class="math display">\[IC(\theta )_{1-\alpha}^{boot} \hspace{0.1cm} = \hspace{0.1cm} \left[ \hspace{0.1cm} Q(\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\theta}_{boot}) \hspace{0.2cm} ;  \hspace{0.2cm} Q(1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\theta}_{boot}) \hspace{0.1cm} \right] \\[1cm]\]</span></p></li>
+</ul>
 </p>
 </p>
 <p></span></p>
@@ -3003,6 +3005,39 @@ margin-right: auto;
 H_0: \theta = \theta_0  \hspace{1.5cm} H_0: \theta = \theta_0  \hspace{1.5cm}  H_0: \theta = \theta_0 \\[0.3cm]
 H_1: \theta \neq \theta_0 \hspace{1.5cm}  H_1: \theta &lt; \theta_0  \hspace{1.5cm}   H_1: \theta &gt; \theta_0
 \]</span></p>
+<p>La regla de decisión para resolver estos contrastes basada en los intervalos cuantil-bootstrap es la siguiente:</p>
+<p>Para un nivel de significación <span class="math inline">\(\hspace{0.12cm}\alpha\)</span>.</p>
+<p>Partimos del intervalo cuantil-bootstrap del parametro <span class="math inline">\(\theta\)</span> para un nivel de confianza <span class="math inline">\(\hspace{0.12cm}1 -\alpha\)</span> <span class="math inline">\(\hspace{0.25cm}\Rightarrow\hspace{0.25cm}\)</span> <span class="math inline">\(IC(\theta )_{1-\alpha}^{boot} = [ L1 , L2]\)</span></p>
+<p>Caso <span class="math inline">\(H_0: \theta = \theta_0 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta \neq \theta_0\)</span></p>
+<p><span class="math display">\[\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} \theta_0 \notin IC(\theta )_{1-\alpha}^{boot}\]</span></p>
+<p>Caso <span class="math inline">\(H_0: \theta = \theta_0 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta &lt; \theta_0\)</span></p>
+<p><span class="math display">\[\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} IC(\theta )_{1-\alpha}^{boot} \hspace{0.1 cm}&lt;&lt;\hspace{0.1 cm} \theta_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm}  L2 \hspace{0.1 cm}&lt;\hspace{0.1 cm} \theta_0\]</span></p>
+<p>Caso <span class="math inline">\(H_0: \theta = \theta_0 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta &gt; \theta_0\)</span></p>
+<p><span class="math display">\[\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} IC(\theta )_{1-\alpha}^{boot} \hspace{0.1 cm}&gt;&gt;\hspace{0.1 cm} \theta_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm}  L1 \hspace{0.1 cm} &gt; \hspace{0.1 cm} \theta_0\]</span></p>
+<p><br></p>
+</div>
+<div id="contraste-de-hipótesis-sobre-dos-poblaciones" class="section level2" number="12.2">
+<h2><span class="header-section-number">12.2</span> Contraste de hipótesis sobre dos poblaciones</h2>
+<p>Tenemos dos v.a’s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\sim D_1(\theta_1)\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\sim D_2(\theta_2)\hspace{0.1cm}\)</span> , una m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_{11},...,\mathcal{X}_{n_1 1})\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> , otra m.a.s. <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_{12},...,\mathcal{X}_{n_2 2})\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}\)</span> y un par de estimadores <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}_1(\mathcal{X}_{11},...,\mathcal{X}_{n_1 1})\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}_2(\mathcal{X}_{12},...,\mathcal{X}_{n_2 2})\hspace{0.1cm}\)</span> de los parámetros <span class="math inline">\(\hspace{0.1cm}\theta_1\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\theta_2\hspace{0.1cm}\)</span>, respectivamente.</p>
+<p>Además tenemos una muestras de observaciones <span class="math inline">\(\hspace{0.1cm}X_1=(x_{11},...,x_{n_1 1})\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> y otra <span class="math inline">\(\hspace{0.1cm}X_1=(x_{11},...,x_{n_1 1})\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}\)</span>, por lo que tenemos las estimaciones <span class="math inline">\(\hspace{0.1cm}\widehat{\theta}_1(X_1)=\widehat{\theta}_1(x_{1 1},...,x_{n_1 1})\hspace{0.1cm}\)</span> de los parámetros <span class="math inline">\(\hspace{0.1cm}\theta_1\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\theta_2\hspace{0.1cm}\)</span> , respectivamente.</p>
+<p>Se quieren resolver los siguientes contrastes: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[
+H_0: \theta_1 = \theta_2  \hspace{1.5cm} H_0: \theta_1 = \theta_2  \hspace{1.5cm}  H_0: \theta_1 = \theta_2 \\[0.3cm]
+H_1: \theta_1 \neq \theta_2 \hspace{1.5cm}  H_1: \theta_1 &lt; \theta_2  \hspace{1.5cm}   H_1: \theta_1 &gt; \theta_2
+\]</span></p>
+<p>La regla de decisión para resolver estos contrastes basada en los intervalos cuantil-bootstrap es la siguiente:</p>
+<p>Para un nivel de significación <span class="math inline">\(\hspace{0.12cm}\alpha\)</span>.</p>
+<p>Partimos del intervalo cuantil-bootstrap de la diferencia de parámetros <span class="math inline">\(\theta_1 - \theta_2\)</span> para un nivel de confianza <span class="math inline">\(\hspace{0.12cm}1 -\alpha\)</span> <span class="math inline">\(\hspace{0.25cm}\Rightarrow\hspace{0.25cm}\)</span> <span class="math inline">\(IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} = [ L1 , L2]\)</span></p>
+<p>Caso <span class="math inline">\(H_0: \theta_1 = \theta_2 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta_1 \neq \theta_2\)</span></p>
+<p><span class="math display">\[\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} 0 \notin IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot}\]</span></p>
+<p>Caso <span class="math inline">\(H_0: \theta_1 = \theta_2 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta_1 &lt; \theta_2\)</span></p>
+<p><span class="math display">\[\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} \hspace{0.1 cm}&lt;&lt;\hspace{0.1 cm} 0 \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm}  L2 \hspace{0.1 cm}&lt;\hspace{0.1 cm} 0\]</span></p>
+<p>Caso <span class="math inline">\(H_0: \theta_1 = \theta_2 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta_1 &gt; \theta_2\)</span></p>
+<p><span class="math display">\[\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} \hspace{0.1 cm}&gt;&gt;\hspace{0.1 cm} 0 \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm}  L1 \hspace{0.1 cm} &gt; \hspace{0.1 cm} 0\]</span></p>
+<p><br></p>
+</div>
+<div id="contrastes-bootstrap-en-python" class="section level2" number="12.3">
+<h2><span class="header-section-number">12.3</span> Contrastes bootstrap en <code>Python</code></h2>
 <p><br></p>
 <p><br></p>
 </div>

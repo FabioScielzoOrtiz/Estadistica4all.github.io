@@ -1556,7 +1556,7 @@ $$\widehat{\theta}_{boot} = \left(\widehat{\theta}_{(1)},...,\widehat{\theta}_{(
 
     - El intervalo cuantil-bootstrap para el parametro $\hspace{0.1cm}\theta\hspace{0.1cm}$ a un nivel $\hspace{0.1cm} 1-\alpha \hspace{0.1cm}$ es : $\\[0.4cm]$
 
-$$IC(\theta )_{1-\alpha}^{boot} \hspace{0.1cm} = \hspace{0.1cm} \left[ \hspace{0.1cm} Q(\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\theta}_{boot}) \hspace{0.2cm} ;  \hspace{0.2cm} Q(1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\theta}_{boot}) \hspace{0.1cm} \right] \\[1cm]$$
+    $$IC(\theta )_{1-\alpha}^{boot} \hspace{0.1cm} = \hspace{0.1cm} \left[ \hspace{0.1cm} Q(\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\theta}_{boot}) \hspace{0.2cm} ;  \hspace{0.2cm} Q(1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\theta}_{boot}) \hspace{0.1cm} \right] \\[1cm]$$
 
 
 </p>
@@ -2595,12 +2595,80 @@ $$
 
 
 
-La regla de decisión  para resolver estos contrastes basada en los intervalos cuantil-bootstrap es la siguiente:
+La regla de decisión  para resolver estos contrastes  basada en los intervalos cuantil-bootstrap  es la siguiente:
+
+Para un nivel de significación $\hspace{0.12cm}\alpha$.
+
+Partimos del intervalo cuantil-bootstrap del parametro $\theta$ para un nivel de confianza $\hspace{0.12cm}1 -\alpha$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ $IC(\theta )_{1-\alpha}^{boot} = [ L1 , L2]$ 
 
 
 Caso $H_0: \theta = \theta_0 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta \neq \theta_0$
 
-$$\text{Rechazar} \hspace{0.12cm} H_0   
+$$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} \theta_0 \notin IC(\theta )_{1-\alpha}^{boot}$$
+
+
+Caso $H_0: \theta = \theta_0 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta < \theta_0$
+
+$$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} IC(\theta )_{1-\alpha}^{boot} \hspace{0.1 cm}<<\hspace{0.1 cm} \theta_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm}  L2 \hspace{0.1 cm}<\hspace{0.1 cm} \theta_0$$
+
+
+Caso $H_0: \theta = \theta_0 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta > \theta_0$
+
+$$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} IC(\theta )_{1-\alpha}^{boot} \hspace{0.1 cm}>>\hspace{0.1 cm} \theta_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm}  L1 \hspace{0.1 cm} > \hspace{0.1 cm} \theta_0$$
+
+
+
+<br>
+
+## Contraste de hipótesis sobre dos poblaciones
+
+
+
+
+Tenemos dos v.a's $\hspace{0.1cm}\mathcal{X}_1\sim D_1(\theta_1)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim D_2(\theta_2)\hspace{0.1cm}$ , una m.a.s. $\hspace{0.1cm}(\mathcal{X}_{11},...,\mathcal{X}_{n_1 1})\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ , otra  m.a.s. $\hspace{0.1cm}(\mathcal{X}_{12},...,\mathcal{X}_{n_2 2})\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ y un par de estimadores $\hspace{0.1cm}\widehat{\theta}_1(\mathcal{X}_{11},...,\mathcal{X}_{n_1 1})\hspace{0.1cm}$ y $\hspace{0.1cm}\widehat{\theta}_2(\mathcal{X}_{12},...,\mathcal{X}_{n_2 2})\hspace{0.1cm}$ de los parámetros $\hspace{0.1cm}\theta_1\hspace{0.1cm}$ y  $\hspace{0.1cm}\theta_2\hspace{0.1cm}$, respectivamente.
+
+
+Además tenemos una muestras de observaciones $\hspace{0.1cm}X_1=(x_{11},...,x_{n_1 1})\hspace{0.1cm}$   de la v.a.  $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y otra $\hspace{0.1cm}X_1=(x_{11},...,x_{n_1 1})\hspace{0.1cm}$  de  $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$, por lo que tenemos las estimaciones $\hspace{0.1cm}\widehat{\theta}_1(X_1)=\widehat{\theta}_1(x_{1 1},...,x_{n_1 1})\hspace{0.1cm}$ de los parámetros $\hspace{0.1cm}\theta_1\hspace{0.1cm}$ y  $\hspace{0.1cm}\theta_2\hspace{0.1cm}$ , respectivamente.
+
+
+
+
+
+Se quieren resolver los siguientes contrastes: $\\[0.5cm]$
+
+$$
+H_0: \theta_1 = \theta_2  \hspace{1.5cm} H_0: \theta_1 = \theta_2  \hspace{1.5cm}  H_0: \theta_1 = \theta_2 \\[0.3cm]
+H_1: \theta_1 \neq \theta_2 \hspace{1.5cm}  H_1: \theta_1 < \theta_2  \hspace{1.5cm}   H_1: \theta_1 > \theta_2
+$$
+
+
+La regla de decisión  para resolver estos contrastes  basada en los intervalos cuantil-bootstrap  es la siguiente:
+
+Para un nivel de significación $\hspace{0.12cm}\alpha$.
+
+Partimos del intervalo cuantil-bootstrap de la diferencia de parámetros $\theta_1 - \theta_2$ para un nivel de confianza $\hspace{0.12cm}1 -\alpha$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ $IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} = [ L1 , L2]$ 
+
+
+Caso $H_0: \theta_1 = \theta_2 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta_1 \neq \theta_2$
+
+$$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} 0 \notin IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot}$$
+
+
+Caso $H_0: \theta_1 = \theta_2 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta_1 < \theta_2$
+
+$$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} \hspace{0.1 cm}<<\hspace{0.1 cm} 0 \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm}  L2 \hspace{0.1 cm}<\hspace{0.1 cm} 0$$
+
+
+Caso $H_0: \theta_1 = \theta_2 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta_1 > \theta_2$
+
+$$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} \hspace{0.1 cm}>>\hspace{0.1 cm} 0 \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm}  L1 \hspace{0.1 cm} > \hspace{0.1 cm} 0$$
+
+<br>
+
+## Contrastes bootstrap en `Python`
+
+
+
 
 
 
