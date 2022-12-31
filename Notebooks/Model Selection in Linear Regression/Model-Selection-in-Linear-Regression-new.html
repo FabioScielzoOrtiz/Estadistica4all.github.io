@@ -1521,9 +1521,24 @@ margin-left: 0 !important;
       <li><a href="#regla-de-decisión" id="toc-regla-de-decisión"><span class="toc-section-number">3.2</span> Regla de decisión</a></li>
       <li><a href="#anova-como-f-test" id="toc-anova-como-f-test"><span class="toc-section-number">3.3</span> ANOVA como F-test</a></li>
       <li><a href="#contraste-de-significación-individual-como-f-test" id="toc-contraste-de-significación-individual-como-f-test"><span class="toc-section-number">3.4</span> Contraste de significación individual como F-test</a></li>
-      <li><a href="#f-test-en-python" id="toc-f-test-en-python"><span class="toc-section-number">3.5</span> F-test en <code>Python</code></a></li>
+      <li><a href="#f-test-programado-en-python" id="toc-f-test-programado-en-python"><span class="toc-section-number">3.5</span> F-test programado en <code>Python</code></a></li>
       </ul></li>
-      <li><a href="#algoritmo-best-subset-selection" id="toc-algoritmo-best-subset-selection"><span class="toc-section-number">4</span> Algoritmo best-subset-selection</a></li>
+      <li><a href="#introducción-a-los-algoritmos-de-selección-de-predictores-en-regresión-lineal" id="toc-introducción-a-los-algoritmos-de-selección-de-predictores-en-regresión-lineal"><span class="toc-section-number">4</span> Introducción a los algoritmos de selección de predictores en regresión lineal</a>
+      <ul>
+      <li><a href="#coeficiente-de-determinación-ajustado" id="toc-coeficiente-de-determinación-ajustado"><span class="toc-section-number">4.1</span> Coeficiente de determinación ajustado</a></li>
+      <li><a href="#criterio-de-información-de-akaike" id="toc-criterio-de-información-de-akaike"><span class="toc-section-number">4.2</span> Criterio de información de Akaike</a></li>
+      <li><a href="#criterio-de-información-bayesiano" id="toc-criterio-de-información-bayesiano"><span class="toc-section-number">4.3</span> Criterio de información bayesiano</a></li>
+      <li><a href="#estimación-máximo-verosimil-en-el-modelo-de-regresión-lineal" id="toc-estimación-máximo-verosimil-en-el-modelo-de-regresión-lineal"><span class="toc-section-number">4.4</span> Estimación máximo-verosimil en el modelo de regresión lineal <a class="anchor" id="14"></a></a></li>
+      <li><a href="#criterios-de-información-de-akaike-y-bayesiano-en-el-modelo-de-regresión-lineal" id="toc-criterios-de-información-de-akaike-y-bayesiano-en-el-modelo-de-regresión-lineal"><span class="toc-section-number">4.5</span> Criterios de información de Akaike y bayesiano en el modelo de regresión lineal</a></li>
+      <li><a href="#mallows-cp" id="toc-mallows-cp"><span class="toc-section-number">4.6</span> Mallow’s Cp</a></li>
+      </ul></li>
+      <li><a href="#algoritmo-best-subset-selection" id="toc-algoritmo-best-subset-selection"><span class="toc-section-number">5</span> Algoritmo best-subset-selection</a>
+      <ul>
+      <li><a href="#alternative-best-subset-selection" id="toc-alternative-best-subset-selection"><span class="toc-section-number">5.1</span> Alternative Best Subset Selection <a class="anchor" id="20"></a></a></li>
+      <li><a href="#algoritmo-best-subset-selection-programado-en-python" id="toc-algoritmo-best-subset-selection-programado-en-python"><span class="toc-section-number">5.2</span> Algoritmo best-subset-selection programado en <code>Python</code></a></li>
+      </ul></li>
+      <li><a href="#algoritmo-forward-selection" id="toc-algoritmo-forward-selection"><span class="toc-section-number">6</span> Algoritmo forward-selection</a></li>
+      <li><a href="#algoritmo-backward-selection" id="toc-algoritmo-backward-selection"><span class="toc-section-number">7</span> Algoritmo backward-selection</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1730,7 +1745,7 @@ H_1: \hspace{0.25cm} \beta_j \neq 0  \hspace{0.25cm} , \hspace{0.25cm}    \exist
 </ul>
 <p><br></p>
 <p>Entonces las hipotesis del contraste ANOVA se pueden expresar como: <span class="math inline">\(\\[0.4cm]\)</span></p>
-<p><span class="math inline">\(\hspace{6.5cm} H_0: \hspace{0.15cm} \hat{y}_i = \widehat{\beta}_0 \ \hspace{0.3cm} ( \omega_{q+1} ) \\[0.3cm] \hspace{6.5cm} H_1: \hspace{0.15cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} \hspace{0.1cm} +...+ \hspace{0.1cm} \beta_{p}\cdot x_{ip} \ \hspace{0.3cm} ( \Omega_{p+1} )\)</span></p>
+<p><span class="math inline">\(\hspace{5.5cm} H_0: \hspace{0.15cm} \hat{y}_i = \widehat{\beta}_0 \ \hspace{0.3cm} ( \omega_{q+1} ) \\[0.3cm] \hspace{5.5cm} H_1: \hspace{0.15cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} \hspace{0.1cm} +...+ \hspace{0.1cm} \beta_{p}\cdot x_{ip} \ \hspace{0.3cm} ( \Omega_{p+1} )\)</span></p>
 <p><br></p>
 <p>Además teniendo en cuenta los modelos antes definidos se tiene lo siguiente:</p>
 <ul>
@@ -1782,23 +1797,375 @@ H_0: \hspace{0.2cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1
 <li><p><span class="math inline">\(RSS_{\omega_{q+1}} = \sum_{i=1}^n ( y_i - \widehat{y}_{\hspace{0.01cm} \omega_{q+1} \hspace{0.02cm},\hspace{0.02cm} i})^2 \hspace{0.1cm} =\hspace{0.1cm} \sum_{i=1}^n \left( y_i - ( \widehat{\beta}_0 + \widehat{\beta}_1\cdot x_{i1} +\dots + \widehat{\beta}_{j-1} \cdot x_{i,j-1} + \widehat{\beta}_{j+1} \cdot x_{i,j+1}+\dots + \widehat{\beta}_{p}\cdot x_{ip} ) \right)^2\)</span></p></li>
 </ul>
 <p><br></p>
-<p>El estadístico de contras del F-test es:</p>
+<p>El estadístico de contras del F-test es: <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p><span class="math display">\[
-F\hspace{0.1cm} =\hspace{0.1cm} \dfrac{(RSS_{\omega_{q+1}} - RSS_{\Omega_{p+1}})/(p-q)}{RSS_{\Omega_k}/(n-p-1)} =\dfrac{(RSS_{\omega_{q+1}} - RSS_{\Omega_{p+1}})/1}{RSS_{\Omega_{p+1}}/(n-p-1)}  \hspace{0.1cm} \sim\hspace{0.1cm} F_{1, n-p-1} \\[0.5cm]
+F\hspace{0.1cm} =\hspace{0.1cm} \dfrac{(RSS_{\omega_{q+1}} - RSS_{\Omega_{p+1}})/(p-q)}{RSS_{\Omega_k}/(n-p-1)} \hspace{0.1cm} =\hspace{0.1cm}  \dfrac{(RSS_{\omega_{q+1}} - RSS_{\Omega_{p+1}})/1}{RSS_{\Omega_{p+1}}/(n-p-1)}  \hspace{0.1cm} \sim\hspace{0.1cm} F_{1, n-p-1} \\[0.5cm]
 \]</span></p>
-<p>The results of the test using the F-test is approximately equal to the result obtained with the other alternative (t-test).</p>
+<p>Los resultados de este contrastes son aproximadamente iguales a los que se obtienen con el contraste de significación individual clásico (t.test).</p>
 <p><br></p>
-<p><strong>Important</strong>: <span class="math inline">\(\hspace{0.1cm}\)</span> this is the way to test the significance of categorical variables (compare the model without the categorical variable vs the model with it), and also to test the significance of two or more variables at the same time.</p>
-<p><br></p>
-</div>
-<div id="f-test-en-python" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> F-test en <code>Python</code></h2>
-<p><br></p>
+<p><strong>Importante</strong>: <span class="math inline">\(\hspace{0.1cm}\)</span> usar este F-test es la vía adecuada para contrastar si un predictor categórico es significativo. No es adecuado usar el el t-test en ese caso.</p>
 <p><br></p>
 </div>
+<div id="f-test-programado-en-python" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> F-test programado en <code>Python</code></h2>
+<p><br></p>
+<p><br></p>
 </div>
-<div id="algoritmo-best-subset-selection" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Algoritmo best-subset-selection</h1>
+</div>
+<div id="introducción-a-los-algoritmos-de-selección-de-predictores-en-regresión-lineal" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Introducción a los algoritmos de selección de predictores en regresión lineal</h1>
+<p>A continuación vamos a ver algunos algoritmos cuyo proposito es la selección de predictores en modelos de regresión lineal.</p>
+<p>La idea, dado un modelo de regresión lineal, es seleccionar aquellos predictores que mejor expliquen la respuesta, y descartar aquellos que generan más ruido que información util.</p>
+<p>Esto algoritmos permiten obtener modelos de regresión lineal más pequeños que el modelo de partida (con menos coeficientes), pero iguales o incluso mejores a nivel de capacidad predictiva.</p>
+<p>Estos algoritmos usan una serie de métricas que se usan como criterio para determinar el mejor modelo de regresión lineal de entre los considerados.</p>
+<p>Algunas de estas métricas son:</p>
+<ul>
+<li><p>El coeficiente de determinación ajustado <span class="math inline">\((R_{adj}^2)\)</span></p></li>
+<li><p>El criterio de información de Akaike <span class="math inline">\((AIC)\)</span></p></li>
+<li><p>El criterio de información bayesiano <span class="math inline">\((BIC)\)</span></p></li>
+<li><p>El Mallow’s Cp <span class="math inline">\((Cp)\)</span></p></li>
+</ul>
+<p><br></p>
+<div id="coeficiente-de-determinación-ajustado" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Coeficiente de determinación ajustado</h2>
+<p>Esta métrica fue explicada con más detalles en el articulo sobre el <a href="http://estadistica4all.com/Articulos/Linear-Regression-new.html">modelo de regresión lineal</a> del blog <a href="http://estadistica4all.com/">Estadistica4all</a></p>
+<p>Aqui solo vamos a ver la formula que caracteriza al coeficiente de determinación ajustado.</p>
+<p>Dado un modelo de regresión lineal <span class="math inline">\(\hspace{0.1cm} M \hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm} p \hspace{0.1cm}\)</span> predictores and <span class="math inline">\(\hspace{0.1cm} n \hspace{0.1cm}\)</span> observaciones de train, el coeficiente de determinación ajustado del modelo <span class="math inline">\(\hspace{0.1cm} M\hspace{0.1cm}\)</span> viene dado por:</p>
+<p><span class="math display">\[
+R^2_{adj}\hspace{0.1cm} =\hspace{0.1cm} 1 - \left( 1- R^2 \right) \cdot \dfrac{n-1}{n-p_M}
+\]</span></p>
+<p>donde:</p>
+<p><span class="math display">\[
+R^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{TSS - RSS}{TSS}
+\]</span></p>
+<p>Esta métrica es usualmente usada con creterio para seleccionar modelos de regresión lineal.</p>
+<p><br></p>
+<p><strong>Criterio <span class="math inline">\(R_{adj}^2\)</span></strong></p>
+<p>Dados <span class="math inline">\(\hspace{0.1cm} h \hspace{0.1cm}\)</span> modelos de regresión lineal <span class="math inline">\(\hspace{0.1cm}M_1 , M_2, \dots, M_h\)</span></p>
+<p>El modelo seleccionado según el criterio <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\hspace{0.1cm}\)</span> es <span class="math inline">\(\hspace{0.1cm}M_{j\hspace{0.05cm}^*}\)</span></p>
+<p>donde:</p>
+<p><span class="math display">\[j\hspace{0.05cm}^* \hspace{0.15cm} =  \hspace{0.15cm} arg  \hspace{0.2cm} \underset{j\in \lbrace 1,...,h\rbrace}{Max}  \hspace{0.2cm}  R^2_{adj} (M_j) \\\]</span></p>
+<blockquote>
+<p>El modelo con <strong>mayor</strong> <span class="math inline">\(\hspace{0.1cm} R^2_{adj}\hspace{0.1cm}\)</span> es el seleccionado, segun el criterio del coeficiente de determinación ajustado.</p>
+</blockquote>
+<p><br></p>
+<div id="coeficiente-de-determinación-ajustado-en-python" class="section level3" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Coeficiente de determinación ajustado en <code>Python</code></h3>
+<p><br></p>
+</div>
+</div>
+<div id="criterio-de-información-de-akaike" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Criterio de información de Akaike</h2>
+<p>Dado un modelo de regresión lineal <span class="math inline">\(\hspace{0.1cm} M \hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm} p \hspace{0.1cm}\)</span> predictores y <span class="math inline">\(\hspace{0.1cm} n \hspace{0.1cm}\)</span> observaciones de train, el criterio de información de Akaike del modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> es:</p>
+<p><span class="math display">\[AIC(M) \hspace{0.1cm}=\hspace{0.1cm} -2 \cdot ln\left(\widehat{L}(M)\right) \hspace{0.1cm}+\hspace{0.1cm} 2 \cdot  \left(\hspace{0.1cm} p +1 \hspace{0.1cm}\right)  \]</span></p>
+<p>donde:</p>
+<p><span class="math inline">\(\widehat{L}(M)\hspace{0.1cm}\)</span> es el valor de la funcion de verosimilitud del modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> evaliada en la estimación máxima verosimil de los parametros del modelo.</p>
+<p><br></p>
+<p><strong>Criterio <span class="math inline">\(AIC\)</span> :</strong></p>
+<p>Dados <span class="math inline">\(\hspace{0.1cm}h\hspace{0.1cm}\)</span> modelos de regresión <span class="math inline">\(\hspace{0.1cm}M_1 , M_2, \dots, M_h\)</span></p>
+<p>El modelo seleccionado según el criterio <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span> es <span class="math inline">\(\hspace{0.1cm}M_{j\hspace{0.05cm}^*}\)</span></p>
+<p>donde:</p>
+<p><span class="math display">\[j\hspace{0.05cm}^* \hspace{0.15cm} =  \hspace{0.15cm} arg  \hspace{0.2cm} \underset{j\in \lbrace 1,...,h\rbrace}{Min}  \hspace{0.2cm}  AIC (M_j) \\\]</span></p>
+<blockquote>
+<p>El modelo con <strong>menor</strong> <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span> es el seleccionado, segun el criterio de Akaike.</p>
+</blockquote>
+<p><br></p>
+</div>
+<div id="criterio-de-información-bayesiano" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Criterio de información bayesiano</h2>
+<p>Dado un modelo de regresión lineal <span class="math inline">\(\hspace{0.1cm} M \hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm} p \hspace{0.1cm}\)</span> predictores y <span class="math inline">\(\hspace{0.1cm} n \hspace{0.1cm}\)</span> observaciones de train, el criterio de información de bayesiano del modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> es:</p>
+<p><span class="math display">\[BIC(M) \hspace{0.1cm} = \hspace{0.1cm} -2 \cdot ln\left(\widehat{L}(M)\right)\hspace{0.1cm} + \hspace{0.1cm}ln(n) \cdot  \left(\hspace{0.1cm} p + 1 \hspace{0.1cm}\right)\]</span></p>
+<p>donde:</p>
+<p><span class="math inline">\(\widehat{L}(M)\hspace{0.1cm}\)</span> es el valor de la funcion de verosimilitud del modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> evaliada en la estimación máxima verosimil de los parametros del modelo.</p>
+<p><br></p>
+<p><strong>Criterio <span class="math inline">\(BIC\)</span> :</strong></p>
+<p>Dados <span class="math inline">\(\hspace{0.1cm}h\hspace{0.1cm}\)</span> modelos de regresión <span class="math inline">\(\hspace{0.1cm}M_1 , M_2, \dots, M_h\)</span></p>
+<p>El modelo seleccionado según el criterio <span class="math inline">\(\hspace{0.1cm}BIC\hspace{0.1cm}\)</span> es <span class="math inline">\(\hspace{0.1cm}M_{j\hspace{0.05cm}^*}\)</span></p>
+<p>donde:</p>
+<p><span class="math display">\[j\hspace{0.05cm}^* \hspace{0.15cm} =  \hspace{0.15cm} arg  \hspace{0.2cm} \underset{j\in \lbrace 1,...,h\rbrace}{Min}  \hspace{0.2cm}  BIC (M_j) \\\]</span></p>
+<blockquote>
+<p>El modelo con <strong>menor</strong> <span class="math inline">\(\hspace{0.1cm}BIC\hspace{0.1cm}\)</span> es el seleccionado, segun el criterio de información bayesiano.</p>
+</blockquote>
+<p><br></p>
+</div>
+<div id="estimación-máximo-verosimil-en-el-modelo-de-regresión-lineal" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Estimación máximo-verosimil en el modelo de regresión lineal <a class="anchor" id="14"></a></h2>
+<p>Dado un modelo de regresión lineal <span class="math inline">\(\hspace{0.1cm} M \hspace{0.1cm}\)</span> con variable respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\)</span></p>
+<p>Dada una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}_1,...,\mathcal{Y}_n\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> , en el modelo de regresión lineal ordinario se considera el siguiente supuesto fundamental:</p>
+<p><span class="math display">\[\mathcal{Y}_i \hspace{0.1cm}=\hspace{0.1cm} \beta_0 + \sum_{j=1}^{p} \hspace{0.1cm}  \beta_j \cdot x_{ij}   \hspace{0.1cm}+\hspace{0.1cm} \varepsilon_i \hspace{0.35cm},\hspace{0.35cm} \text{con} \hspace{0.25cm} \varepsilon_i \sim N(\hspace{0.1cm} 0 , \sigma^2 \hspace{0.1cm})\hspace{0.35cm} , \hspace{0.35cm}\forall\hspace{0.1cm} i \in \lbrace 1,...,n \rbrace \\\]</span></p>
+<p>De lo que se deduce lo siguiente:</p>
+<p><span class="math display">\[\mathcal{Y}_i \hspace{0.1cm}\sim\hspace{0.1cm} N ( \hspace{0.1cm} \beta_0 + \sum_{j=1}^{p} \hspace{0.1cm}  \beta_j \cdot x_{ij} \hspace{0.2cm} , \hspace{0.2cm} \sigma^2 \hspace{0.1cm} )\hspace{0.35cm} , \hspace{0.35cm}\forall\hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\]</span></p>
+<p>Por tanto, la función de densidad de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}_i\hspace{0.1cm}\)</span> es la función de densidad normal con la media y varianza especificadas, es decir:</p>
+<p><span class="math display">\[
+f_{\mathcal{Y}_i}(z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{\sqrt{2\pi \sigma^2}} \cdot exp \left\lbrace \hspace{0.1cm} - \dfrac{1}{2\sigma^2} \cdot (\hspace{0.1cm} z -  \beta_0 + \sum_{j=1}^{p} \hspace{0.1cm}  \beta_j \cdot x_{ij}   \hspace{0.1cm} )^2 \hspace{0.1cm} \right\rbrace \hspace{0.35cm} , \hspace{0.35cm}\forall\hspace{0.1cm} i \in \lbrace 1,...,n \rbrace
+\]</span></p>
+<p><br></p>
+<p>Dada una muestra de observaciones <span class="math inline">\(Y=(y_1,...,y_n)\)</span> de la variable respuesta <span class="math inline">\(\mathcal{Y}\)</span>, donde y_i puede verse como una realizacion de la v.a. <span class="math inline">\(\mathcal{Y}_i\)</span> , la funcion de verosimilitud del modelo de regresión lineal es la funcion de densidad conjunta de la m.a.s <span class="math inline">\(\mathcal{Y}_1,...,\mathcal{Y}_n\)</span> evaluada en el vector de obeservaciones <span class="math inline">\(Y=(y_1,...,y_n)\)</span>, es decir:
+s:</p>
+<p><span class="math display">\[L( M )=L(\beta, \sigma \hspace{0.1cm}|\hspace{0.1cm} x_i, y_i) \hspace{0.2cm}=\hspace{0.2cm} f_{\mathcal{Y}_1,...,\mathcal{Y}_n}(y_1,...,y_n) \hspace{0.2cm}=\hspace{0.2cm} \prod_{i=1}^{n} f_{\mathcal{Y}_i}(y_i) \hspace{0.2cm}=\hspace{0.2cm} \dfrac{1}{\sqrt{2\pi \sigma^2}}^{n} \cdot exp \left\lbrace \hspace{0.1cm} - \dfrac{1}{2\sigma^2}\cdot \sum_{i=1}^{n} ( \hspace{0.1cm} y_i -  \beta_0 + \sum_{j=1}^{p} \hspace{0.1cm}  \beta_j \cdot x_{ij}   \hspace{0.1cm}  )^2 \hspace{0.1cm} \right\rbrace \\[0.3cm]\]</span></p>
+<p><br></p>
+<p>Si se toma el logaritmo natural se tiene lo siguiente:</p>
+<p><span class="math display">\[ln\left(\hspace{0.1cm}L(M)\hspace{0.1cm}\right)\hspace{0.1cm}=\hspace{0.1cm}ln(\hspace{0.1cm} L(\beta, \sigma \hspace{0.1cm}|\hspace{0.1cm} x_i, y_i)\hspace{0.1cm}) \hspace{0.1cm}=\hspace{0.1cm} - \dfrac{n}{2}\cdot \left(\hspace{0.1cm} ln(2\pi) + ln(\sigma^2) \hspace{0.1cm}\right) - \dfrac{1}{2\sigma^2} \sum_{i=1}^{n} \left(\hspace{0.1cm} y_i -  \beta_0 + \sum_{j=1}^{p} \hspace{0.1cm}  \beta_j \cdot x_{ij} \hspace{0.1cm}\right) ^2 \]</span></p>
+<p><br></p>
+<p>La estimación máximo verosimil de los parámetros <span class="math inline">\(\hspace{0.1cm} \beta\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\sigma \hspace{0.1cm}\)</span> del modelo de regresión lineal es calculada como sigue:</p>
+<p><span class="math display">\[\widehat{\beta}_{MLE} \hspace{0.12cm},\hspace{0.12cm} \widehat{\sigma}^2_{MLE} \hspace{0.2cm}=\hspace{0.2cm} arg \hspace{0.15cm} \underset{\beta \hspace{0.05cm},\hspace{0.05cm} \sigma^2}{Max} \hspace{0.2cm} \left\lbrace\hspace{0.1cm} ln(\hspace{0.1cm}  L(\beta, \sigma \hspace{0.1cm}|\hspace{0.1cm} x_i, y_i)  \hspace{0.1cm}) \hspace{0.1cm}\right\rbrace
+\]</span></p>
+<p>Existen expresiones cerrada para las soluciones del problema de optimización, y se puede demostrar que son las siguientes:</p>
+<p><span class="math display">\[
+\widehat{\beta}_{MLE}\hspace{0.1cm}=\hspace{0.1cm}(X^t \cdot X)^{-1} \cdot X^t \cdot Y  \hspace{0.1cm}=\hspace{0.1cm} \widehat{\beta}_{OLS} \\[0.5cm]
+\widehat{\sigma}^2_{MLE} \hspace{0.1cm}=\hspace{0.1cm} RSS(M)/n
+\]</span></p>
+<p><br></p>
+<p>Es importante notar que al ser el logaritmo una transformación monotona se conservan los puntos óptimos, aunque el valor de las funciones objetivo en los puntos optimos no sea el mismo. Pero a nosotros lo que nos interesa son los puntos óptimos.</p>
+<p>Formalmente:</p>
+<p><span class="math display">\[
+arg \hspace{0.1cm} \underset{\beta \hspace{0.05cm},\hspace{0.05cm} \sigma}{Max} \hspace{0.2cm} L(\beta, \sigma \hspace{0.1cm}|\hspace{0.1cm} x_i, y_i) \hspace{0.1cm}=\hspace{0.1cm} arg \hspace{0.1cm} \underset{\beta \hspace{0.05cm},\hspace{0.05cm} \sigma}{Max} \hspace{0.2cm} ln(\hspace{0.1cm}  L(\beta, \sigma \hspace{0.1cm}|\hspace{0.1cm} x_i, y_i)\hspace{0.1cm}) \\
+\]</span></p>
+<p>Finalmente, la función <span class="math inline">\(\hspace{0.15cm} ln \left( \hspace{0.1cm}L(M)\hspace{0.1cm} \right) \hspace{0.15cm}\)</span> evaluada en las estimaciones máximo-verosimiles <span class="math inline">\(\hspace{0.2cm} \beta=\widehat{\beta}_{MLE} \hspace{0.2cm}\)</span> y <span class="math inline">\(\hspace{0.2cm}\sigma^2 = \widehat{\sigma}^2_{MLE} \hspace{0.2cm}\)</span> es : <span class="math inline">\(\\[0.3cm]\)</span></p>
+<p><span class="math display">\[ ln \left( \hspace{0.1cm}\widehat{L}(M)\hspace{0.1cm} \right) =  - \dfrac{n}{2} \cdot \left( ln(2\pi) + ln\left(\dfrac{RSS(M)}{n}\right) - ln(n) + 1 \right) \]</span></p>
+<p><br></p>
+</div>
+<div id="criterios-de-información-de-akaike-y-bayesiano-en-el-modelo-de-regresión-lineal" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Criterios de información de Akaike y bayesiano en el modelo de regresión lineal</h2>
+<p>Por tanto, en el modelo de regresión lineal <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores y <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> observaciones de entrenamiento, el <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span> y el <span class="math inline">\(\hspace{0.1cm}BIC\hspace{0.1cm}\)</span> del modelo son:</p>
+<p><br></p>
+<p><span class="math display">\[
+AIC(M) = n \cdot \left( \hspace{0.1cm}  ln(2\pi) + ln(RSS(M)) - ln(n) + 1 \hspace{0.1cm} \right)   \hspace{0.1cm}+\hspace{0.1cm} 2\cdot (\hspace{0.1cm}p + 1\hspace{0.1cm})
+\]</span></p>
+<p><span class="math display">\[
+BIC(M) =  n \cdot \left(  \hspace{0.1cm} ln(2\pi) + ln(RSS(M)) - ln(n) + 1 \hspace{0.1cm} \right)  \hspace{0.1cm}+\hspace{0.1cm} ln(n)\cdot(\hspace{0.1cm} p + 1\hspace{0.1cm})
+\]</span></p>
+<p><br></p>
+<p>donde:</p>
+<p><span class="math display">\[
+RSS(M)  \hspace{0.1cm}=\hspace{0.1cm}  \sum_{i=1}^n \hspace{0.1cm} ( y_i - \hat{y}_i)^2
+\]</span></p>
+<p><br></p>
+<div id="criterio-de-información-de-akaike-en-python" class="section level3" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> Criterio de información de Akaike en <code>Python</code> <a class="anchor" id="14"></a></h3>
+<p><br></p>
+</div>
+<div id="criterio-de-información-bayesiano-en-python" class="section level3" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> Criterio de información bayesiano en <code>Python</code><a class="anchor" id="15"></a></h3>
+<p><br></p>
+</div>
+</div>
+<div id="mallows-cp" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Mallow’s Cp</h2>
+<p>Dado un modelo de regresión lineal <span class="math inline">\(\hspace{0.1cm} M_{Full}\hspace{0.1cm}\)</span> entrenado con <span class="math inline">\(\hspace{0.1cm} n\hspace{0.1cm}\)</span> observaciones la respuesta y <span class="math inline">\(\hspace{0.1cm} p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm} M_{Full}:\hspace{0.15cm} \hat{y}_i \hspace{0.1cm}=\hspace{0.1cm} \widehat{\beta}_0 + \sum_{j=1}^{p} \hspace{0.02cm} \widehat{\beta}_j \cdot x_{ij}\)</span></p>
+<p>Dado otro modelo de regresión lineal <span class="math inline">\(\hspace{0.1cm} M\hspace{0.1cm}\)</span> entrenado con con <span class="math inline">\(\hspace{0.1cm} n\hspace{0.1cm}\)</span> observaciones de la respuesta y de <span class="math inline">\(\hspace{0.1cm} q \hspace{0.1cm} \leq \hspace{0.1cm} p\hspace{0.1cm}\)</span> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores del modelo <span class="math inline">\(M_{Full}\)</span>, es decir, <span class="math inline">\(\hspace{0.1cm} M \subseteq M_{Full}\hspace{0.1cm}\)</span> , el Mallows <span class="math inline">\(\hspace{0.1cm}C_p\hspace{0.1cm}\)</span> del modelo <span class="math inline">\(M\)</span> se define como : <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[C_p(M) \hspace{0.15cm}=\hspace{0.15cm} \dfrac{RSS(M)}{\widehat{\sigma}_{M_{Full}}^2} - n \hspace{0.1cm}+\hspace{0.1cm} 2\cdot \left(\hspace{0.1cm} q + 1 \hspace{0.1cm}\right)\]</span></p>
+<p>donde:</p>
+<p><span class="math inline">\(\hat{\sigma}_{M_{Full}}^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{RSS(M_{Full})}{n-p-1} \hspace{0.35cm}\)</span> es la varianza residual del modelo completo.<span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math inline">\(RSS(M_{Full}) \hspace{0.1cm}=\hspace{0.1cm} \sum_{i=1}^{n} \hspace{0.1cm} (\hspace{0.1cm} y_i - \widehat{y}_{M_{Full}\hspace{0.02cm},\hspace{0.02cm} i} \hspace{0.1cm})^2\)</span></p>
+<p><br></p>
+<div id="mallows-c_p-en-python" class="section level3" number="4.6.1">
+<h3><span class="header-section-number">4.6.1</span> Mallows C_p en <code>Python</code> <a class="anchor" id="14"></a></h3>
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="algoritmo-best-subset-selection" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Algoritmo best-subset-selection</h1>
+<p>Classic best subset selection consist in the following algorithm :</p>
+<p>We have <span class="math inline">\(p\)</span> predictors: <span class="math inline">\(\hspace{0.1cm} X_1,...,X_p\)</span></p>
+<ul>
+<li><p>We train the null linear model <span class="math inline">\((M_0)\\[0.25cm]\)</span></p></li>
+<li><p>We train all possible linear models with <span class="math inline">\(\hspace{0.1cm}1\hspace{0.1cm}\)</span> predictor and select the one with the smallest train error <span class="math inline">\((M^*_1)\\[0.25cm]\)</span></p></li>
+<li><p>We train all the possible linear models with <span class="math inline">\(\hspace{0.1cm}2\hspace{0.1cm}\)</span> predictors and select the one with the smallest train error <span class="math inline">\((M^*_2)\)</span></p>
+<p><span class="math inline">\(\dots \\[0.3cm]\)</span></p></li>
+<li><p>We train all the possible linear models with <span class="math inline">\(\hspace{0.1cm}p-1\hspace{0.1cm}\)</span> predictors and select the one with the smallest train error <span class="math inline">\((M^*_{p-1})\\[0.25cm]\)</span></p></li>
+<li><p>We train the full linear model <span class="math inline">\((M_p)\\[0.25cm]\)</span></p></li>
+<li><p>We select one of those models under some criteria, for example the one with <strong>less</strong> <span class="math inline">\(\hspace{0.05cm}AIC\hspace{0.05cm}\)</span>, <span class="math inline">\(\hspace{0.05cm}BIC\hspace{0.05cm}\)</span> or <span class="math inline">\(\hspace{0.05cm}Cp\hspace{0.05cm}\)</span>, or <strong>greater</strong> <span class="math inline">\(\hspace{0.05cm}\widehat{R}^2\hspace{0.05cm}\)</span>. That model will be consider “the best model”.</p></li>
+</ul>
+<p><br></p>
+<p><strong>Scheme of the algorithm:</strong></p>
+<ul>
+<li><p>Train <span class="math inline">\(\hspace{0.08cm}M_0 = \text{null linear model} \\[0.35cm]\)</span></p></li>
+<li><p>Train <span class="math inline">\(\hspace{0.08cm}M_1=\lbrace \text{linear models with 1 predictor} \rbrace \hspace{0.12cm}\underset{\text{train error}}{\Rightarrow}\hspace{0.12cm} M_1^*\\[0.35cm]\)</span></p></li>
+<li><p>Train <span class="math inline">\(\hspace{0.08cm}M_2=\lbrace \text{linear models with 2 predictors} \rbrace \hspace{0.12cm}\underset{\text{train error}}{\Rightarrow}\hspace{0.12cm} M_2^*\)</span></p></li>
+</ul>
+<p><span class="math inline">\(\dots\)</span></p>
+<ul>
+<li><p>Train <span class="math inline">\(\hspace{0.08cm}M_{p-1}=\lbrace \text{linear models with p-1 predictors} \rbrace \hspace{0.12cm}\underset{\text{train error}}{\Rightarrow}\hspace{0.12cm} M_{p-1}^*\\[0.35cm]\)</span></p></li>
+<li><p>Train <span class="math inline">\(\hspace{0.08cm}M_{p}= \text{full linear model} \\[0.35cm]\)</span></p></li>
+<li><p><span class="math inline">\(M_0 , M_1^* , ..., M_{p-1}^*, M_p \underset{ \hspace{0.15cm} AIC\hspace{0.08cm},\hspace{0.08cm} BIC, \hspace{0.08cm}C_p \hspace{0.08cm},\hspace{0.08cm} \widehat{R}^2 \hspace{0.15cm}}{\Rightarrow} \hspace{0.1cm} M\hspace{0.05cm}^* \hspace{0.2cm}(Best \hspace{0.1cm} Model)\)</span></p></li>
+</ul>
+<p><br></p>
+<p><strong>Observation:</strong></p>
+<p>Due to the characteristics of the Backward algorithm, it <strong>doesn’t have to be true</strong> that:</p>
+<p><span class="math inline">\(M_0 \subset M_1^* \subset M_2^* \subset M_3^* ,..., M_{p-1}^* \subset M_p\)</span></p>
+<p><br></p>
+<p><strong>Why don’t we select the final model using the training error?</strong></p>
+<p>The train error of a linear regression model is defined as:</p>
+<p><span class="math display">\[\text{Train Error} (M_j) = ECM_{train}(M_j) =
+\dfrac{1}{n} \cdot RSS_{train}(M_j)\]</span></p>
+<p>And it is fulfilled that:</p>
+<p><span class="math display">\[RSS_{train}(M_0) &gt; RSS_{train}(M_1^*) &gt; RSS_{train}(M_2^*) &gt; ... &gt; RSS_{train}(M_{p-1}^*) &gt; RSS_ {train}(M_p^*)\]</span></p>
+<p>So:</p>
+<p><span class="math display">\[\text{Train Error} (M_0) &gt; \text{Train Error} (M_1^*) &gt;\text{Train Error} (M_2^*)&gt;...&gt;\text{Train Error} (M_{p -1}^*)&gt;\text{Train Error} (M_p)\]</span></p>
+<p>So if the train error were used as a metric to select the final model, the largest model (the one with the most parameters, that is, the complete model <span class="math inline">\(M_p\)</span>) would always be selected.</p>
+<p>For this reason we don’t select the final model using the training error.</p>
+<p>Although this isn’t true with the test error, for this reason the test error could be used to select the final model.</p>
+<p><br></p>
+<p><strong>Problems:</strong></p>
+<ul>
+<li><p><strong>Large computational requirements:</strong> compute <span class="math inline">\(2^p\)</span> models is required, which is impossible with more than <span class="math inline">\(\hspace{0.05cm} p=40 \hspace{0.05cm}\)</span> predictors, because <span class="math inline">\(\hspace{0.05cm} 2^{40}=1099511627776\)</span>.</p>
+<p>The growth of the computational requirements is exponential, for example, with <span class="math inline">\(\hspace{0.05cm} p=10\)</span> predictors we need to calculate <span class="math inline">\(\hspace{0.05cm} 2^{10}=1024 \hspace{0.05cm}\)</span> models, but with <span class="math inline">\(\hspace{0.05cm} p=15\hspace{0.05cm}\)</span> the models to be calculated are too many, <span class="math inline">\(\hspace{0.05cm} 2^{15}=32768\)</span></p></li>
+</ul>
+<p><br></p>
+<div id="alternative-best-subset-selection" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Alternative Best Subset Selection <a class="anchor" id="20"></a></h2>
+<p>Alternative best subset selection consist in the following algorithm :</p>
+<p>We have <span class="math inline">\(p\)</span> predictors: <span class="math inline">\(\hspace{0.1cm} X_1,...,X_p \\[0.25cm]\)</span></p>
+<ul>
+<li><p>We train the null linear model <span class="math inline">\(\\[0.25cm]\)</span></p></li>
+<li><p>We train all the possible linear models with <span class="math inline">\(\hspace{0.1cm}1\hspace{0.1cm}\)</span> predictor <span class="math inline">\(\\[0.25cm]\)</span></p></li>
+<li><p>We train all the possible linear models with <span class="math inline">\(\hspace{0.1cm}2\hspace{0.1cm}\)</span> predictors</p>
+<p><span class="math inline">\(\dots \\[0.3cm]\)</span></p></li>
+<li><p>We train all the possible linear models with <span class="math inline">\(\hspace{0.1cm}p-1\hspace{0.1cm}\)</span> predictors <span class="math inline">\(\\[0.25cm]\)</span></p></li>
+<li><p>We train the full linear model <span class="math inline">\(\\[0.25cm]\)</span></p></li>
+<li><p>We select one of those models under some criteria, for example the one with <strong>less</strong> <span class="math inline">\(\hspace{0.05cm}AIC\hspace{0.05cm}\)</span>, <span class="math inline">\(\hspace{0.05cm}BIC\hspace{0.05cm}\)</span> or <span class="math inline">\(\hspace{0.05cm}Cp\hspace{0.05cm}\)</span>, or <strong>greater</strong> <span class="math inline">\(\hspace{0.05cm}\widehat{R}^2\hspace{0.05cm}\)</span>. That model will be consider “the best model”.</p></li>
+</ul>
+<p><br></p>
+<p><strong>Scheme of the algorithm:</strong></p>
+<ul>
+<li><p>Train <span class="math inline">\(\hspace{0.08cm}M_0 = \lbrace \text{null linear model} \rbrace\)</span></p></li>
+<li><p>Train <span class="math inline">\(\hspace{0.08cm}M_1=\lbrace \text{linear models with 1 predictor} \rbrace\)</span></p></li>
+<li><p>Train <span class="math inline">\(\hspace{0.08cm}M_2=\lbrace \text{linear models with 2 predictors} \rbrace\)</span></p></li>
+</ul>
+<p><span class="math inline">\(\dots\)</span></p>
+<ul>
+<li><p>Train <span class="math inline">\(\hspace{0.08cm}M_{p-1}=\lbrace \text{linear models with p-1 predictors} \rbrace\)</span></p></li>
+<li><p>Train <span class="math inline">\(\hspace{0.08cm}M_{p}=\lbrace \text{full linear model} \rbrace \\[0.25cm]\)</span></p></li>
+<li><p><span class="math inline">\(M_0 \cup M_1 \cup ...\cup M_p \underset{ \hspace{0.15cm} AIC\hspace{0.08cm},\hspace{0.08cm} BIC, \hspace{0.08cm}C_p \hspace{0.08cm},\hspace{0.08cm} \widehat{R}^2 \hspace{0.15cm}}{\Rightarrow} \hspace{0.1cm} M\hspace{0.05cm}^* \hspace{0.2cm}(Best \hspace{0.1cm} Model)\)</span></p></li>
+</ul>
+<p><br></p>
+<p><strong>Problems:</strong></p>
+<ul>
+<li><p><strong>Large computational requirements:</strong> compute <span class="math inline">\(2^p\)</span> models is required, which is impossible with more than <span class="math inline">\(\hspace{0.05cm} p=40 \hspace{0.05cm}\)</span> predictors, because <span class="math inline">\(\hspace{0.05cm} 2^{40}=1099511627776\)</span>.</p>
+<p>The growth of the computational requirements is exponential, for example, with <span class="math inline">\(\hspace{0.05cm} p=10\)</span> predictors we need to calculate <span class="math inline">\(\hspace{0.05cm} 2^{10}=1024 \hspace{0.05cm}\)</span> models, but with <span class="math inline">\(\hspace{0.05cm} p=15\hspace{0.05cm}\)</span> the models to be calculated are too many, <span class="math inline">\(\hspace{0.05cm} 2^{15}=32768\)</span></p></li>
+</ul>
+<p><br></p>
+<div id="best-subset-selection-in-python" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Best Subset Selection in <code>Python</code> <a class="anchor" id="21"></a></h3>
+<p><br></p>
+</div>
+</div>
+<div id="algoritmo-best-subset-selection-programado-en-python" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Algoritmo best-subset-selection programado en <code>Python</code></h2>
+<p><br></p>
+</div>
+</div>
+<div id="algoritmo-forward-selection" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Algoritmo forward-selection</h1>
+<p>Forward selection consist in the following algorithm :</p>
+<p>We have <span class="math inline">\(p\)</span> predictors: <span class="math inline">\(X_1,...,X_p\)</span> and a response variable <span class="math inline">\(Y\)</span></p>
+<ul>
+<li><p>We train the null linear model <span class="math inline">\((M_0)\\[0.25cm]\)</span></p></li>
+<li><p>We train all the linear models that are the result of <em>adding one predictor</em> to the model <span class="math inline">\(M_0\)</span> , and we select the one with <strong>less</strong> train error <span class="math inline">\((M_1^*)\\[0.25cm]\)</span></p></li>
+<li><p>We train all the linear models that are the result of <em>adding one predictor</em> to the model <span class="math inline">\(M_1^*\)</span> , and we select the one with <strong>less</strong> train error <span class="math inline">\((M_2^*) \\[0.25cm]\)</span></p>
+<p><span class="math inline">\(\dots\)</span></p></li>
+<li><p>We train all the linear models that are the result of <em>adding one predictor</em> to the model <span class="math inline">\(M_{p-2}^*\)</span> , and we select the one with <strong>less</strong> train error <span class="math inline">\((M_{p-1}^*)\\[0.25cm]\)</span></p></li>
+<li><p>We train the full linear model <span class="math inline">\((M_p)\\[0.25cm]\)</span></p></li>
+<li><p>We select one of the models <span class="math inline">\(\hspace{0.15cm} \lbrace M_0, M_1^*,M_2^*,...,M_{p-1}^*,M_p \rbrace \hspace{0.15cm}\)</span> under some criteria, for example, the one with <strong>less</strong> <span class="math inline">\(AIC\)</span>, <span class="math inline">\(BIC\)</span> or <span class="math inline">\(Cp \hspace{0.1cm}\)</span>, or <strong>greater</strong> <span class="math inline">\(\hspace{0.1cm} \widehat{R}^2\)</span></p></li>
+</ul>
+<p><br></p>
+<p><strong>Scheme of the algorithm:</strong></p>
+<ul>
+<li>Train <span class="math inline">\(M_0\)</span></li>
+</ul>
+<ul>
+<li>Train <span class="math inline">\(\lbrace M_0 \hspace{0.1cm} \text{+ 1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_1^*\)</span></li>
+</ul>
+<ul>
+<li>Train <span class="math inline">\(\lbrace M_1^* \hspace{0.1cm} \text{+ 1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_2^*\)</span></li>
+</ul>
+<p><span class="math inline">\(\hspace{0.8cm} \dots\)</span></p>
+<ul>
+<li>Train <span class="math inline">\(\lbrace M_{p-2}^* \hspace{0.1cm} \text{+ 1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_{p-1}^*\)</span></li>
+</ul>
+<ul>
+<li>Train <span class="math inline">\(M_p\)</span></li>
+</ul>
+<ul>
+<li><span class="math inline">\(\lbrace M_0, M_1^*, M_2^*, ..., M_{p-1}^*, M_p \rbrace \underset{ AIC, BIC, C_p, \widehat{R}^2 }{\Rightarrow} \hspace{0.1cm} M\hspace{0.05cm}^* \hspace{0.2cm} (Best \hspace{0.1cm} Model)\)</span></li>
+</ul>
+<p><br></p>
+<p>Where:</p>
+<p><span class="math inline">\(\lbrace M_j \hspace{0.1cm} \text{+ 1 predictor} \rbrace \hspace{0.1cm}\)</span> is the set of the linear regression models that are the result of adding one predictor to the model <span class="math inline">\(M_j\)</span></p>
+<p><br></p>
+<p><strong>Observation:</strong></p>
+<p>Due to the characteristics of the Backward algorithm, it is true that:</p>
+<p><span class="math inline">\(M_0 \subset M_1^* \subset M_2^* \subset M_3^* ,..., M_{p-1}^* \subset M_p\)</span></p>
+<p><br></p>
+<p><strong>Why don’t we select the final model using the train error?</strong></p>
+<p>The train error of a linear regression model is defined as:</p>
+<p><span class="math display">\[\text{Train Error} (M_j) = ECM_{train}(M_j) =
+\dfrac{1}{n} \cdot RSS_{train}(M_j)\]</span></p>
+<p>And it is fulfilled that:</p>
+<p><span class="math display">\[RSS_{train}(M_0) &gt; RSS_{train}(M_1^*) &gt; RSS_{train}(M_2^*) &gt; ... &gt; RSS_{train}(M_{p-1}^*) &gt; RSS_ {train}(M_p^*)\]</span></p>
+<p>So:</p>
+<p><span class="math display">\[\text{Train Error} (M_0) &gt; \text{Train Error} (M_1^*) &gt;\text{Train Error} (M_2^*)&gt;...&gt;\text{Train Error} (M_{p -1}^*)&gt;\text{Train Error} (M_p)\]</span></p>
+<p>So if the train error were used as a metric to select the final model, the largest model (the one with the most parameters, that is, the complete model <span class="math inline">\(M_p\)</span>) would always be selected.</p>
+<p>For this reason we don’t select the final model using the training error.</p>
+<p>Although this isn’t true with the test error, for this reason the test error could be used to select the final model.</p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+</div>
+<div id="algoritmo-backward-selection" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Algoritmo backward-selection</h1>
+<p>Backward selection consist in the following algorithm :</p>
+<p>We have <span class="math inline">\(p\)</span> predictors: <span class="math inline">\(X_1,...,X_p\)</span></p>
+<ul>
+<li><p>We train the full linear regression model <span class="math inline">\((M_p)\)</span></p></li>
+<li><p>We train all the linear models that are the result of removing one predictor to the model <span class="math inline">\(M_p\)</span> , and we select the one with <strong>less</strong> train error <span class="math inline">\((M_{p-1}^*)\)</span></p></li>
+<li><p>We train all the linear models that are the result of removing one predictor to the model <span class="math inline">\(M_{p-1}^*\)</span> , and we select the one with <strong>less</strong> train error <span class="math inline">\((M_{p-2}^*)\)</span></p>
+<p><span class="math inline">\(\dots\)</span></p></li>
+<li><p>We train all the linear models that are the result of removing one predictor to the model <span class="math inline">\(M_{2}^*\)</span> , and we select the one with <strong>less</strong> train error <span class="math inline">\((M_{1}^*)\)</span></p></li>
+<li><p>We train the null linear model <span class="math inline">\((M_0)\)</span></p></li>
+<li><p>We select one of the models <span class="math inline">\(\hspace{0.1cm}\lbrace M_0,M_1,...,M_{p-1},M_p \rbrace\hspace{0.1cm}\)</span> under some criteria, for example, the one with <strong>less</strong> <span class="math inline">\(AIC\)</span>, <span class="math inline">\(BIC\)</span> or <span class="math inline">\(Cp \hspace{0.1cm}\)</span>, or <strong>greater</strong> <span class="math inline">\(\hspace{0.1cm} \widehat{R}^2\)</span></p></li>
+</ul>
+<p><br></p>
+<p><strong>Scheme of the algorithm:</strong></p>
+<ul>
+<li>Train <span class="math inline">\(M_p\)</span></li>
+</ul>
+<ul>
+<li>Train <span class="math inline">\(\lbrace M_p \hspace{0.1cm} - \text{1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_{p-1}^*\)</span></li>
+</ul>
+<ul>
+<li>Train <span class="math inline">\(\lbrace M_{p-1}^* \hspace{0.1cm} - \text{1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_{p-2}^*\)</span></li>
+</ul>
+<p><span class="math inline">\(\hspace{0.8cm} \dots\)</span></p>
+<ul>
+<li>Train <span class="math inline">\(\lbrace M_{2}^* \hspace{0.1cm} - \text{1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_{1}^*\)</span></li>
+</ul>
+<ul>
+<li><span class="math inline">\(M_0\)</span></li>
+</ul>
+<ul>
+<li><span class="math inline">\(\lbrace M_0, M_1^* ,M_2^*, ...,M_{p-1}^*, M_p \rbrace \underset{\hspace{0.15cm} AIC, BIC, C_p, \widehat{R}^2 \hspace{0.15cm}}{\Rightarrow} \hspace{0.1cm} M\hspace{0.05cm}^* \hspace{0.2cm} (Best \hspace{0.1cm} Model)\)</span></li>
+</ul>
+<p><br></p>
+<p><strong>Observation:</strong></p>
+<p>Due to the characteristics of the Backward algorithm, it is true that:</p>
+<p><span class="math inline">\(M_0 \subset M_1^* \subset M_2^* \subset M_3^* ,..., M_{p-1}^* \subset M_p\)</span></p>
+<p><br></p>
+<p><strong>Why don’t we select the final model using the training error?</strong></p>
+<p>The train error of a linear regression model is defined as:</p>
+<p><span class="math display">\[\text{Train Error} (M_j) = ECM_{train}(M_j) =
+\dfrac{1}{n} \cdot RSS_{train}(M_j)\]</span></p>
+<p>And it is fulfilled that:</p>
+<p><span class="math display">\[RSS_{train}(M_0) &gt; RSS_{train}(M_1^*) &gt; RSS_{train}(M_2^*) &gt; ... &gt; RSS_{train}(M_{p-1}^*) &gt; RSS_ {train}(M_p^*)\]</span></p>
+<p>So:</p>
+<p><span class="math display">\[\text{Train Error} (M_0) &gt; \text{Train Error} (M_1^*) &gt;\text{Train Error} (M_2^*)&gt;...&gt;\text{Train Error} (M_{p -1}^*)&gt;\text{Train Error} (M_p)\]</span></p>
+<p>So if the train error were used as a metric to select the final model, the largest model (the one with the most parameters, that is, the complete model <span class="math inline">\(M_p\)</span>) would always be selected.</p>
+<p>For this reason we don’t select the final model using the training error.</p>
+<p>Although this isn’t true with the test error, for this reason the test error could be used to select the final model.</p>
+<p><br></p>
 <p><br></p>
 <p><br></p>
 </div>
