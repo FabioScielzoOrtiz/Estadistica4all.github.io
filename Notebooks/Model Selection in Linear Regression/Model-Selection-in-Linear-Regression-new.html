@@ -1957,7 +1957,15 @@ RSS(M)  \hspace{0.1cm}=\hspace{0.1cm}  \sum_{i=1}^n \hspace{0.1cm} ( y_i - \hat{
 <p><span class="math display">\[C_p(M) \hspace{0.15cm}=\hspace{0.15cm} \dfrac{RSS(M)}{\widehat{\sigma}_{M_{Full}}^2} - n \hspace{0.1cm}+\hspace{0.1cm} 2\cdot \left(\hspace{0.1cm} q + 1 \hspace{0.1cm}\right)\]</span></p>
 <p>donde:</p>
 <p><span class="math inline">\(\hat{\sigma}_{M_{Full}}^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{RSS(M_{Full})}{n-p-1} \hspace{0.35cm}\)</span> es la varianza residual del modelo completo.<span class="math inline">\(\\[0.4cm]\)</span></p>
-<p><span class="math inline">\(RSS(M_{Full}) \hspace{0.1cm}=\hspace{0.1cm} \sum_{i=1}^{n} \hspace{0.1cm} (\hspace{0.1cm} y_i - \widehat{y}_{M_{Full}\hspace{0.02cm},\hspace{0.02cm} i} \hspace{0.1cm})^2\)</span></p>
+<p><span class="math inline">\(RSS(M_{Full}) \hspace{0.1cm}=\hspace{0.1cm} \sum_{i=1}^{n} \hspace{0.1cm} (\hspace{0.1cm} y_i - \widehat{y}_{M_{Full}\hspace{0.02cm},\hspace{0.02cm} i} \hspace{0.1cm})^2 \\\)</span></p>
+<p><strong>Criterio Mallows <span class="math inline">\(C_p\)</span> :</strong></p>
+<p>Dados <span class="math inline">\(\hspace{0.1cm}h\hspace{0.1cm}\)</span> modelos de regresión <span class="math inline">\(\hspace{0.1cm}M_1 , M_2, \dots, M_h\)</span></p>
+<p>El modelo seleccionado según el criterio <span class="math inline">\(\hspace{0.1cm}C_p\hspace{0.1cm}\)</span> es <span class="math inline">\(\hspace{0.1cm}M_{j\hspace{0.05cm}^*}\)</span></p>
+<p>donde:</p>
+<p><span class="math display">\[j\hspace{0.05cm}^* \hspace{0.15cm} =  \hspace{0.15cm} arg  \hspace{0.2cm} \underset{j\in \lbrace 1,...,h\rbrace}{Min}  \hspace{0.2cm}  C_p (M_j) \\\]</span></p>
+<blockquote>
+<p>El modelo con <strong>menor</strong> <span class="math inline">\(\hspace{0.1cm}C_p\hspace{0.1cm}\)</span> es el seleccionado, segun el criterio de información bayesiano.</p>
+</blockquote>
 <p><br></p>
 <div id="mallows-c_p-en-python" class="section level3" number="4.6.1">
 <h3><span class="header-section-number">4.6.1</span> Mallows C_p en <code>Python</code> <a class="anchor" id="14"></a></h3>
@@ -1968,16 +1976,36 @@ RSS(M)  \hspace{0.1cm}=\hspace{0.1cm}  \sum_{i=1}^n \hspace{0.1cm} ( y_i - \hat{
 </div>
 <div id="algoritmo-best-subset-selection" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Algoritmo best-subset-selection</h1>
-<p>Classic best subset selection consist in the following algorithm :</p>
-<p>We have <span class="math inline">\(p\)</span> predictors: <span class="math inline">\(\hspace{0.1cm} X_1,...,X_p\)</span></p>
 <ul>
-<li><p>We train the null linear model <span class="math inline">\((M_0)\\[0.25cm]\)</span></p></li>
-<li><p>We train all possible linear models with <span class="math inline">\(\hspace{0.1cm}1\hspace{0.1cm}\)</span> predictor and select the one with the smallest train error <span class="math inline">\((M^*_1)\\[0.25cm]\)</span></p></li>
-<li><p>We train all the possible linear models with <span class="math inline">\(\hspace{0.1cm}2\hspace{0.1cm}\)</span> predictors and select the one with the smallest train error <span class="math inline">\((M^*_2)\)</span></p>
-<p><span class="math inline">\(\dots \\[0.3cm]\)</span></p></li>
-<li><p>We train all the possible linear models with <span class="math inline">\(\hspace{0.1cm}p-1\hspace{0.1cm}\)</span> predictors and select the one with the smallest train error <span class="math inline">\((M^*_{p-1})\\[0.25cm]\)</span></p></li>
-<li><p>We train the full linear model <span class="math inline">\((M_p)\\[0.25cm]\)</span></p></li>
-<li><p>We select one of those models under some criteria, for example the one with <strong>less</strong> <span class="math inline">\(\hspace{0.05cm}AIC\hspace{0.05cm}\)</span>, <span class="math inline">\(\hspace{0.05cm}BIC\hspace{0.05cm}\)</span> or <span class="math inline">\(\hspace{0.05cm}Cp\hspace{0.05cm}\)</span>, or <strong>greater</strong> <span class="math inline">\(\hspace{0.05cm}\widehat{R}^2\hspace{0.05cm}\)</span>. That model will be consider “the best model”.</p></li>
+<li><p>Se consideran <span class="math inline">\(\hspace{0.1cm} p\hspace{0.1cm}\)</span> variables estadísticas <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}\)</span> y una variable respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Se tiene una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X_r = (x_{1r},...,x_{nr})^t\hspace{0.1cm}\)</span> de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_r\hspace{0.1cm}\)</span> , para cada <span class="math inline">\(\hspace{0.1cm}r \in \lbrace 1,...,p \rbrace\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Se tiene una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}Y = (y_1,...,y_n)^t\hspace{0.1cm}\)</span> de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>En conclusión, se tiene una muestra de observaciones <span class="math inline">\(\hspace{0.12cm}D=[\hspace{0.12cm}X_1,...,X_p,Y \hspace{0.12cm}]\hspace{0.12cm}\)</span>
+de los predictores y la respuesta. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+</ul>
+<p>El algoritmo best-subset-selection consiste en entrenar el modelo de regresión lineal con todas las posibles combinaciones de los <span class="math inline">\(\hspace{0.1cm} p\hspace{0.1cm}\)</span> predictores, y quedarse con el mejor de ellos, bajo algún criterio de selección.</p>
+<p>El algoritmo best-subset-selection tiene los siguientes pasos:</p>
+<ul>
+<li><p>Se entrena el modelo de rgesión lineal nulo <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_0 \hspace{0.1cm} : \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 \hspace{0.1cm}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Se entrenan todos los posibles modelos de regresión lineal con solo <strong>uno</strong> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_1 \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_j \cdot x_{ij} \hspace{0.15cm} / \hspace{0.15cm} j=1,...,p \hspace{0.1cm} \right\rbrace\)</span></p>
+<ul>
+<li>Se selecciona el modelo del conjunto <span class="math inline">\(M_1\)</span> que tienen menor error de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_1^*\)</span> <span class="math inline">\(\\[1cm]\)</span></li>
+</ul></li>
+<li><p>Se entrenan todos los posibles modelos de regresión lineal con solo <strong>dos</strong> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_2 \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_j \cdot x_{ij} + \widehat{\beta}_r \cdot x_{ir} \hspace{0.15cm} / \hspace{0.15cm} j\neq r =1,...,p \hspace{0.1cm} \right\rbrace\)</span></p>
+<ul>
+<li>Se selecciona el modelo del conjunto <span class="math inline">\(M_2\)</span> que tienen menor error de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_2^*\)</span> <span class="math inline">\(\\[1cm]\)</span></li>
+</ul>
+<p><span class="math inline">\(\dots\)</span> <span class="math inline">\(\\[1cm]\)</span></p></li>
+<li><p>Se entrenan todos los posibles modelos de regresión lineal con <span class="math inline">\(\hspace{0.1cm}p-1\hspace{0.1cm}\)</span> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1} \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_{j_1} \cdot x_{ij_1} + \widehat{\beta}_{j_2} \cdot x_{ij_2} +\dots + \widehat{\beta}_{j_{p-1}} \cdot x_{ij_{p-1}} \hspace{0.15cm} / \hspace{0.15cm} j_1 \neq j_2 \neq \dots \neq j_{p-1} = 1,...,p \hspace{0.1cm} \right\rbrace\)</span></p>
+<ul>
+<li>Se selecciona el modelo del conjunto <span class="math inline">\(M_{p-1}\)</span> que tienen menor error de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1}^*\)</span> <span class="math inline">\(\\[1cm]\)</span></li>
+</ul></li>
+<li><p>Se entrenan el modelo de regresión lineal con los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p} \hspace{0.1cm} : \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_{1} \cdot x_{i1} + \widehat{\beta}_{2} \cdot x_{i2} +\dots + \widehat{\beta}_{p} \cdot x_{ip}\)</span> <span class="math inline">\(\\[1cm]\)</span></p></li>
+<li><p>De entre los modelos <span class="math inline">\(\hspace{0.1cm}M_1, M_2^*,...,M_{p-1}^*,M_p\hspace{0.1cm}\)</span> se selecciona uno bajo algún criterio.</p>
+<ul>
+<li><p>Si se usa el criterio <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span>, <span class="math inline">\(\hspace{0.1cm}BIC\hspace{0.1cm}\)</span> o <span class="math inline">\(\hspace{0.1cm}C_p\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> se selecciona el modelo con <strong>menor</strong> <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span>, <span class="math inline">\(\hspace{0.1cm}BIC\hspace{0.1cm}\)</span> o <span class="math inline">\(\hspace{0.1cm}C_p\)</span></p></li>
+<li><p>Si se usa el criterio <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> se selecciona el modelo con <strong>mayor</strong> <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\hspace{0.1cm}\)</span></p></li>
+</ul></li>
 </ul>
 <p><br></p>
 <p><strong>Scheme of the algorithm:</strong></p>
