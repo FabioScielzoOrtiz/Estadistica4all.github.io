@@ -916,7 +916,7 @@ $$j\hspace{0.05cm}^* \hspace{0.15cm} =  \hspace{0.15cm} arg  \hspace{0.2cm} \und
 
 
 - En conclusión, se tiene una muestra de observaciones $\hspace{0.12cm}D=[\hspace{0.12cm}X_1,...,X_p,Y \hspace{0.12cm}]\hspace{0.12cm}$
-de los predictores y la respuesta. $\\[0.5cm]$
+de los predictores y la respuesta.  En este contexto juega el papel de muestra de train. $\\[0.5cm]$
 
 
 
@@ -969,6 +969,7 @@ El algoritmo best-subset-selection tiene los siguientes pasos:
 
 **Observación:**
 
+ No tiene por que cumplirse lo siguiente:
 
 $$M_0 \subset M_1^* \subset M_2^* \subset \dots \subset M_{p-1}^* \subset M_{p} \\$$
 
@@ -1017,7 +1018,7 @@ Aunque esto no se cumple con el error de test, por esta razón el error de test 
 
 
 
-## Algoritmo alternative-best-subset-selection  
+# Algoritmo alternative-best-subset-selection  
 
 
 - Se consideran $\hspace{0.1cm} p\hspace{0.1cm}$ variables estadísticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ y una variable respuesta $\hspace{0.1cm}\mathcal{Y}$ $\\[0.5cm]$
@@ -1032,107 +1033,62 @@ Aunque esto no se cumple con el error de test, por esta razón el error de test 
 
 
 - En conclusión, se tiene una muestra de observaciones $\hspace{0.12cm}D=[\hspace{0.12cm}X_1,...,X_p,Y \hspace{0.12cm}]\hspace{0.12cm}$
-de los predictores y la respuesta. $\\[0.5cm]$
+de los predictores y la respuesta. En este contexto juega el papel de muestra de train. $\\[0.5cm]$
 
 
 
 
-El algoritmo best-subset-selection consiste en entrenar el  modelo de regresión lineal con todas las posibles combinaciones de los $\hspace{0.1cm} p\hspace{0.1cm}$ predictores, y quedarse con el mejor de ellos, bajo algún criterio de selección.
+El algoritmo alternative-best-subset-selection consiste en entrenar el  modelo de regresión lineal con todas las posibles combinaciones de los $\hspace{0.1cm} p\hspace{0.1cm}$ predictores, y quedarse con el mejor de ellos, bajo algún criterio de selección.
 
-El algoritmo best-subset-selection tiene los siguientes pasos:
+El algoritmo alternative-best-subset-selection tiene los siguientes pasos:
 
 
-
- 
 - Se entrena el modelo de regresión lineal nulo $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_0 \hspace{0.1cm} : \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 \hspace{0.1cm}$  $\\[0.5cm]$
    
    
-- Se entrenan todos los posibles modelos de regresión lineal con solo **uno** de los $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_1  \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_j \cdot x_{ij} \hspace{0.15cm} / \hspace{0.15cm} j=1,...,p  \hspace{0.1cm} \right\rbrace$ 
+- Se entrenan todos los posibles modelos de regresión lineal con solo **uno** de los $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_1  \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_j \cdot x_{ij} \hspace{0.15cm} / \hspace{0.15cm} j=1,...,p  \hspace{0.1cm} \right\rbrace$ $\\[0.5cm]$ 
 
-    - Se selecciona el  modelo del conjunto $M_1$ que tienen menor error de train $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_1^*$ $\\[1cm]$
-
+ 
    
 - Se entrenan todos los posibles modelos de regresión lineal con solo **dos** de los $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_2  \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_j \cdot x_{ij} + \widehat{\beta}_r \cdot x_{ir} \hspace{0.15cm} / \hspace{0.15cm} j\neq r =1,...,p  \hspace{0.1cm} \right\rbrace$ 
 
-    - Se selecciona el  modelo del conjunto $M_2$ que tienen menor error de train $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_2^*$ $\\[1cm]$
-
+ 
 
 
      $\dots$ $\\[1cm]$
 
 
-- Se entrenan todos los posibles modelos de regresión lineal con $\hspace{0.1cm}p-1\hspace{0.1cm}$ de los $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1}  \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_{j_1} \cdot x_{ij_1} + \widehat{\beta}_{j_2} \cdot x_{ij_2} +\dots + \widehat{\beta}_{j_{p-1}} \cdot x_{ij_{p-1}}  \hspace{0.15cm} / \hspace{0.15cm} j_1 \neq j_2 \neq \dots \neq j_{p-1} = 1,...,p  \hspace{0.1cm} \right\rbrace$ 
+- Se entrenan todos los posibles modelos de regresión lineal con $\hspace{0.1cm}p-1\hspace{0.1cm}$ de los $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1}  \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_{j_1} \cdot x_{ij_1} + \widehat{\beta}_{j_2} \cdot x_{ij_2} +\dots + \widehat{\beta}_{j_{p-1}} \cdot x_{ij_{p-1}}  \hspace{0.15cm} / \hspace{0.15cm} j_1 \neq j_2 \neq \dots \neq j_{p-1} = 1,...,p  \hspace{0.1cm} \right\rbrace$ $\\[0.5cm]$ 
 
-    - Se selecciona el  modelo del conjunto $M_{p-1}$ que tienen menor error de train $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1}^*$ $\\[1cm]$ 
-
+ 
 
 - Se entrenan el modelo de regresión lineal con los $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p}  \hspace{0.1cm} : \hspace{0.1cm}  \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_{1} \cdot x_{i1} + \widehat{\beta}_{2} \cdot x_{i2} +\dots + \widehat{\beta}_{p} \cdot x_{ip}$ $\\[1.5cm]$ 
 
   
 
 
-------
+- De entre los modelos del conjunto $\hspace{0.1cm}M_1 \cup M_2^*\cup...\cup M_{p-1}^*\cup M_p\hspace{0.1cm}$ se selecciona uno bajo algún criterio.
 
+    - Si se usa el criterio $\hspace{0.1cm}AIC\hspace{0.1cm}$, $\hspace{0.1cm}BIC\hspace{0.1cm}$ o $\hspace{0.1cm}C_p$ $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ se selecciona el modelo con **menor** $\hspace{0.1cm}AIC\hspace{0.1cm}$, $\hspace{0.1cm}BIC\hspace{0.1cm}$ o $\hspace{0.1cm}C_p \\$ 
+    
+    
+    - Si se usa el criterio $\hspace{0.1cm}R_{adj}^2$ $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ se selecciona el modelo con **mayor** $\hspace{0.1cm}R_{adj}^2\hspace{0.1cm}$    
+ 
+ 
 
+<br>
+ 
 
+**Problemas:**
 
+- Esencialmente los mismos que el algoritmo best-subset-selection.
 
-Alternative best subset selection  consist in the following algorithm :
-
-We have $p$ predictors: $\hspace{0.1cm} X_1,...,X_p \\[0.25cm]$
-
-- We train the null linear model $\\[0.25cm]$
-   
-- We train all the possible linear models with  $\hspace{0.1cm}1\hspace{0.1cm}$ predictor $\\[0.25cm]$
-
-- We train all the possible linear models with $\hspace{0.1cm}2\hspace{0.1cm}$ predictors 
-  
-   $\dots \\[0.3cm]$ 
-
-- We train all the possible linear models with $\hspace{0.1cm}p-1\hspace{0.1cm}$ predictors $\\[0.25cm]$
-
-- We train the full linear model $\\[0.25cm]$
-
-
-- We select one of those models under some criteria, for example the one with **less**  $\hspace{0.05cm}AIC\hspace{0.05cm}$, $\hspace{0.05cm}BIC\hspace{0.05cm}$ or $\hspace{0.05cm}Cp\hspace{0.05cm}$, or **greater**  $\hspace{0.05cm}\widehat{R}^2\hspace{0.05cm}$. That model will be consider "the best model".
 
 
 
 <br>
 
-**Scheme of the algorithm:**
 
-- Train $\hspace{0.08cm}M_0 = \lbrace \text{null linear model} \rbrace$
-
-- Train $\hspace{0.08cm}M_1=\lbrace \text{linear models with 1 predictor} \rbrace$
-
-- Train $\hspace{0.08cm}M_2=\lbrace \text{linear models with 2 predictors} \rbrace$
-
-$\dots$
-
-- Train $\hspace{0.08cm}M_{p-1}=\lbrace \text{linear models with p-1 predictors} \rbrace$
-
-- Train $\hspace{0.08cm}M_{p}=\lbrace \text{full linear model} \rbrace \\[0.25cm]$
-
-
-
-- $M_0 \cup M_1 \cup ...\cup M_p  \underset{ \hspace{0.15cm}  AIC\hspace{0.08cm},\hspace{0.08cm} BIC, \hspace{0.08cm}C_p \hspace{0.08cm},\hspace{0.08cm} \widehat{R}^2 \hspace{0.15cm}}{\Rightarrow} \hspace{0.1cm} M\hspace{0.05cm}^* \hspace{0.2cm}(Best \hspace{0.1cm} Model)$
-
-<br>
-
-**Problems:**
-
-- **Large computational requirements:** compute $2^p$ models is required, which is impossible with more than $\hspace{0.05cm} p=40 \hspace{0.05cm}$ predictors, because $\hspace{0.05cm} 2^{40}=1099511627776$.
-  
-  The growth of the computational requirements is exponential, for example, with $\hspace{0.05cm} p=10\hspace{0.05cm}$ predictors we need to calculate $\hspace{0.05cm} 2^{10}=1024 \hspace{0.05cm}$ models, but with $\hspace{0.05cm} p=15\hspace{0.05cm}$ the models to be calculated are too many, $\hspace{0.05cm} 2^{15}=32768$
-
-
-
-
-
-
-
-<br>
 
 ### Alternative-best-subset-selection programado en `Python` <a class="anchor" id="21"></a>
 
@@ -1157,121 +1113,152 @@ $\dots$
 
 
 
+- Se consideran $\hspace{0.1cm} p\hspace{0.1cm}$ variables estadísticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ y una variable respuesta $\hspace{0.1cm}\mathcal{Y}$ $\\[0.5cm]$
 
 
-Forward selection  consist in the following algorithm :
 
-We have $p$ predictors: $X_1,...,X_p$ and a response variable $Y$
+- Se tiene una muestra de observaciones $\hspace{0.1cm}X_r = (x_{1r},...,x_{nr})^t\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{X}_r\hspace{0.1cm}$ , para cada $\hspace{0.1cm}r \in \lbrace 1,...,p \rbrace$ $\\[0.5cm]$
 
-- We train the null linear model $(M_0)\\[0.25cm]$ 
+
+- Se tiene una muestra de observaciones $\hspace{0.1cm}Y = (y_1,...,y_n)^t\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{Y}$ $\\[0.5cm]$
+
+
+- En conclusión, se tiene una muestra de observaciones $\hspace{0.12cm}D=[\hspace{0.12cm}X_1,...,X_p,Y \hspace{0.12cm}]\hspace{0.12cm}$
+de los predictores y la respuesta. En este contexto juega el papel de muestra de train. $\\[0.5cm]$
+
+
+
+
+El algoritmo forward-selection consiste en entrenar el  modelo de regresión lineal con todas las posibles combinaciones de los $\hspace{0.1cm} p\hspace{0.1cm}$ predictores, y quedarse con el mejor de ellos, bajo algún criterio de selección.
+
+El algoritmo forward-selection tiene los siguientes pasos:
+
+
+
+- Se entrena el modelo de regresión lineal nulo $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_0 \hspace{0.1cm} : \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 \hspace{0.1cm}$  $\\[0.5cm]$
+   
+   
+- Se entrenan todos los  modelos de regresión lineal que resultan de añadir uno de los predictores al modelo nulo $M_0$ $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_1  \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_r \cdot x_{ir} \hspace{0.15cm} / \hspace{0.15cm} r=1,...,p  \hspace{0.1cm} \right\rbrace$ $\\[0.5cm]$ 
+
+ 
+    - Se selecciona el  modelo del conjunto $M_1$ que tienen menor error de train $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_1^* : \hat{y}_i = \widehat{\beta}_0 + \beta_{r_1^*} \cdot x_{i r_1^*}\hspace{0.25cm}$ con $\hspace{0.25cm}r_1^* \in \lbrace 1,...,p \rbrace\\[1cm]$
+
+   
+- Se entrenan todos los  modelos de regresión lineal que resultan de añadir un nuevo predictor al modelo $M_1^*$ $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_2  \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  \hat{y}_i = \widehat{\beta}_0 + \beta_{j_1^*} \cdot x_{i r_1^*} + \widehat{\beta}_{j} \hspace{0.15cm} / \hspace{0.15cm} j\neq r_1^* \in \lbrace 1,...,p \rbrace \hspace{0.1cm} \right\rbrace$ 
+
+ 
+    - Se selecciona el  modelo del conjunto $M_2$ que tienen menor error de train $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_2^* : \hat{y}_i = \widehat{\beta}_0 + \beta_{r_1^*} \cdot x_{i r_1^*} + \beta_{r_2^*} \cdot x_{i r_2^*}\hspace{0.25cm}$ con $\hspace{0.25cm}r_1^*\neq r_2^* \in \lbrace 1,...,p \rbrace \\[1cm]$
+
+     $\dots$ $\\[1cm]$
+
+- Se entrenan todos los  modelos de regresión lineal que resultan de añadir un nuevo predictor al modelo $\hspace{0.15cm} M_{p-2}^*$ $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1}  \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  \hat{y}_i = \widehat{\beta}_0 + \beta_{r_1^*} \cdot x_{i r_1^*} + \dots + \beta_{r_{p-2}^*} \cdot x_{i r_{p-2}^*} + \widehat{\beta}_{j}\cdot x_{i j} \hspace{0.2cm} / \hspace{0.2cm} j\neq r_1^*\neq \dots \neq r_{p-2}^* \in \lbrace 1,...,p \rbrace  \hspace{0.1cm} \right\rbrace$ 
+
+ 
+    - Se selecciona el  modelo del conjunto $M_{p-1}$ que tienen menor error de train $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1}^* : \hat{y}_i = \widehat{\beta}_0 + \beta_{r_1^*} \cdot x_{i r_1^*} +  \dots + \beta_{r_{p-2}^*} \cdot x_{i r_{p-2}^*} + \beta_{r_{p-1}^*} \cdot x_{i r_{p-1}^*}\hspace{0.25cm}$ con $\hspace{0.25cm}r_1^*\neq\dots \neq r_{p-1}^* \in \lbrace 1,...,p \rbrace\\[1cm]$
+
+
+
+- Se entrenan el modelo de regresión lineal con los $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p}  \hspace{0.1cm} : \hspace{0.1cm}  \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_{1} \cdot x_{i1} + \widehat{\beta}_{2} \cdot x_{i2} +\dots + \widehat{\beta}_{p} \cdot x_{ip}$ $\\[1.5cm]$ 
+
   
-- We train all the  linear models that are the result of *adding one predictor* to the model $M_0$ , and we select the one with **less** train error $(M_1^*)\\[0.25cm]$ 
 
-- We train all the  linear models that are the result of *adding one predictor* to the model $M_1^*$ , and we select the one with **less** train error $(M_2^*) \\[0.25cm]$ 
 
+- De entre los modelos  $\hspace{0.1cm}M_1, M_2^*,..., M_{p-1}^*, M_p\hspace{0.1cm}$ se selecciona uno bajo algún criterio.
+
+    - Si se usa el criterio $\hspace{0.1cm}AIC\hspace{0.1cm}$, $\hspace{0.1cm}BIC\hspace{0.1cm}$ o $\hspace{0.1cm}C_p$ $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ se selecciona el modelo con **menor** $\hspace{0.1cm}AIC\hspace{0.1cm}$, $\hspace{0.1cm}BIC\hspace{0.1cm}$ o $\hspace{0.1cm}C_p \\$ 
+    
+    
+    - Si se usa el criterio $\hspace{0.1cm}R_{adj}^2$ $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ se selecciona el modelo con **mayor** $\hspace{0.1cm}R_{adj}^2\hspace{0.1cm}$    
  
-  
-  $\dots$ 
-
-- We train all the linear models that are the result of *adding one predictor* to the model $M_{p-2}^*$ , and we select  the one with **less** train error   $(M_{p-1}^*)\\[0.25cm]$  
-
-- We train the full linear model $(M_p)\\[0.25cm]$
-
-
-- We select one of the models $\hspace{0.15cm} \lbrace M_0, M_1^*,M_2^*,...,M_{p-1}^*,M_p \rbrace \hspace{0.15cm}$ under some criteria, for example, the one with **less**  $AIC$, $BIC$ or $Cp \hspace{0.1cm}$, or **greater**  $\hspace{0.1cm} \widehat{R}^2$ 
-
-
-<br>
-
-**Scheme of the algorithm:**
-
-- Train $M_0$
-
-\vspace{1cm}
-
-- Train $\lbrace  M_0 \hspace{0.1cm} \text{+ 1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_1^*$
-
-\vspace{1cm}
-
-- Train $\lbrace  M_1^* \hspace{0.1cm} \text{+ 1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_2^*$
-
- 
-$\hspace{0.8cm} \dots$
-
- 
-- Train $\lbrace  M_{p-2}^* \hspace{0.1cm} \text{+ 1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_{p-1}^*$
-
-\vspace{1cm}
-
-- Train $M_p$
-
-\vspace{1cm}
-
-- $\lbrace M_0, M_1^*, M_2^*, ..., M_{p-1}^*, M_p \rbrace \underset{ AIC, BIC, C_p, \widehat{R}^2 }{\Rightarrow} \hspace{0.1cm} M\hspace{0.05cm}^* \hspace{0.2cm} (Best \hspace{0.1cm} Model)$
-
-
-<br>
-
-Where:
-
-$\lbrace  M_j \hspace{0.1cm} \text{+ 1 predictor} \rbrace \hspace{0.1cm}$ is the set of the linear regression models that are the result of adding one predictor to the model $M_j$
-
-
-
-
-
-<br>
-
-**Observation:**
-
-Due to the characteristics of the Backward algorithm, it is true that:
-
-$M_0 \subset M_1^* \subset M_2^* \subset M_3^* ,..., M_{p-1}^* \subset M_p$
-
-
-
-
-
-
-<br>
-
  
 
-**Why don't we select the final model using the train error?**
-
-The train error of a linear regression model is defined as:
-
-$$\text{Train Error} (M_j) = ECM_{train}(M_j) =
-\dfrac{1}{n} \cdot RSS_{train}(M_j)$$
-
-And it is fulfilled that:
-
-$$RSS_{train}(M_0) > RSS_{train}(M_1^*) > RSS_{train}(M_2^*) > ... > RSS_{train}(M_{p-1}^*) > RSS_ {train}(M_p^*)$$
-
-So:
-
-$$\text{Train Error} (M_0) > \text{Train Error} (M_1^*) >\text{Train Error} (M_2^*)>...>\text{Train Error} (M_{p -1}^*)>\text{Train Error} (M_p)$$
-
-
-So if the train error were used as a metric to select the final model, the largest model (the one with the most parameters, that is, the complete model $M_p$) would always be selected.
-
-For this reason we don't select the final model using the training error.
-
-Although this isn't true with the test error, for this reason the test error    could be used to select the final model.
 
 <br>
 
+**Observación:**
+
+Se cumple en este algoritmo lo siguiente:
+
+$$M_0 \subset M_1^* \subset M_2^* \subset M_3^* ,..., M_{p-1}^* \subset M_p$$
+
+
+
+
+
 
 <br>
-
-
-
 
 
 <br>
 
 
 # Algoritmo backward-selection
+
+
+
+
+- Se consideran $\hspace{0.1cm} p\hspace{0.1cm}$ variables estadísticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ y una variable respuesta $\hspace{0.1cm}\mathcal{Y}$ $\\[0.5cm]$
+
+
+
+- Se tiene una muestra de observaciones $\hspace{0.1cm}X_r = (x_{1r},...,x_{nr})^t\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{X}_r\hspace{0.1cm}$ , para cada $\hspace{0.1cm}r \in \lbrace 1,...,p \rbrace$ $\\[0.5cm]$
+
+
+- Se tiene una muestra de observaciones $\hspace{0.1cm}Y = (y_1,...,y_n)^t\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{Y}$ $\\[0.5cm]$
+
+
+- En conclusión, se tiene una muestra de observaciones $\hspace{0.12cm}D=[\hspace{0.12cm}X_1,...,X_p,Y \hspace{0.12cm}]\hspace{0.12cm}$
+de los predictores y la respuesta. En este contexto juega el papel de muestra de train. $\\[0.5cm]$
+
+
+
+
+El algoritmo backward-selection consiste en entrenar el  modelo de regresión lineal con todas las posibles combinaciones de los $\hspace{0.1cm} p\hspace{0.1cm}$ predictores, y quedarse con el mejor de ellos, bajo algún criterio de selección.
+
+El algoritmo backward-selection tiene los siguientes pasos:
+
+
+
+- Se entrena el modelo de regresión lineal con los $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_p \hspace{0.1cm} : \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \sum_{j=1}^p \hspace{0.1cm} \widehat{\beta}_j \cdot x_{ij} \hspace{0.1cm}$  $\\[0.5cm]$
+   
+   
+- Se entrenan todos los  modelos de regresión lineal que resultan de eliminar uno de los predictores del modelo  $M_p$ $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1}  \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  \hat{y}_i = \widehat{\beta}_0 + \sum_{j=1}^p \hspace{0.1cm} \widehat{\beta}_j \cdot x_{ij}  - \beta_r \cdot x_{ir} \hspace{0.15cm} / \hspace{0.15cm}  r=1,...,p  \hspace{0.1cm} \right\rbrace$ $\\[0.5cm]$ 
+
+ 
+    - Se selecciona el  modelo del conjunto $M_{p-1}$ que tienen menor error de train $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1}^* : \hat{y}_i =  \widehat{\beta}_0 + \sum_{r \in A} \widehat{\beta}_{r} \cdot x_{i r}   = \widehat{\beta}_0 +  \widehat{\beta}_{r_{1}^{1*}} \cdot x_{i r_1^*} +\dots +  \widehat{\beta}_{r_{p-1,1}^*} \cdot x_{i r_{p-1}^*}  \hspace{0.25cm} , \hspace{0.25cm} r_1^*\neq \dots \neq r_{p-1}^* \in \lbrace 1,...,p \rbrace \\[1cm]$
+    
+    $$(r_1^* ,..., r_{p-1}^*) = arg \underset{r_1,...,r_{p-1} \in 1:p }{Min} ECM(M_{p-1}) =  \dfrac{1}{n} \sum_{i=1}^n (y_i - (\widehat{\beta}_0 +  \widehat{\beta}_{r_{1}} \cdot x_{i r_1} +\dots +  \widehat{\beta}_{r_{p-1}} \cdot x_{i r_{p-1}} ) ^2$$ 
+
+   
+- Se entrenan todos los  modelos de regresión lineal que resultan de eliminar un predictor del modelo $M_{p-1}^*$ $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-2}  \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  \hat{y}_i = \widehat{\beta}_0 +  \widehat{\beta}_{r_1^*} \cdot x_{i r_1^*} +\dots +  \widehat{\beta}_{r_{p-1}^*} \cdot x_{i r_{p-1}^*} - \beta_r \cdot x_{ir} \hspace{0.15cm} / \hspace{0.15cm}  r = r_{1}^*,...,r_{p-1}^*  \hspace{0.1cm} \right\rbrace$ 
+
+ 
+    - Se selecciona el  modelo del conjunto $M_{p-2}$ que tienen menor error de train $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-2}^* : \hat{y}_i = \widehat{\beta}_0 +  \widehat{\beta}_{r_1^*} \cdot x_{i r_1^*} +\dots +  \widehat{\beta}_{r_{p-2}^*} \cdot x_{i r_{p-1}^*}  \hspace{0.25cm} , \hspace{0.25cm} r_1^*\neq \dots \neq r_{p-2}^* \in \lbrace 1,...,p \rbrace \\[1cm]$
+
+     $\dots$ $\\[1cm]$
+
+- Se entrenan todos los  modelos de regresión lineal que resultan de eliminar un   predictor del modelo $\hspace{0.15cm} M_{2}^*$ $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{1}  \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  \hat{y}_i = \widehat{\beta}_0 + \beta_{r_1^*} \cdot x_{i r_1^*} + \beta_{r_2^*} \cdot x_{i r_2^*} - \widehat{\beta}_{r}\cdot x_{i r} \hspace{0.2cm} / \hspace{0.2cm} r = r_1^* ,r_{2}^*  \hspace{0.1cm} \right\rbrace$ 
+
+ 
+    - Se selecciona el  modelo del conjunto $M_{1}$ que tienen menor error de train $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{1}^* : \hat{y}_i = \widehat{\beta}_0 + \beta_{r_1^*}\hspace{0.25cm}$ con $\hspace{0.25cm}r_1^*\neq\dots \neq r_{p-1}^* \in \lbrace 1,...,p \rbrace\\[1cm]$
+
+
+
+- Se entrenan el modelo de regresión lineal nulo  $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{0}  \hspace{0.1cm} : \hspace{0.1cm}  \hat{y}_i = \widehat{\beta}_0$ $\\[1.5cm]$ 
+
+  
+
+
+- De entre los modelos  $\hspace{0.1cm}M_1, M_2^*,..., M_{p-1}^*, M_p\hspace{0.1cm}$ se selecciona uno bajo algún criterio.
+
+    - Si se usa el criterio $\hspace{0.1cm}AIC\hspace{0.1cm}$, $\hspace{0.1cm}BIC\hspace{0.1cm}$ o $\hspace{0.1cm}C_p$ $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ se selecciona el modelo con **menor** $\hspace{0.1cm}AIC\hspace{0.1cm}$, $\hspace{0.1cm}BIC\hspace{0.1cm}$ o $\hspace{0.1cm}C_p \\$ 
+    
+    
+    - Si se usa el criterio $\hspace{0.1cm}R_{adj}^2$ $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ se selecciona el modelo con **mayor** $\hspace{0.1cm}R_{adj}^2\hspace{0.1cm}$    
+ 
+ 
+<br>
+
 
 
 Backward selection consist in the following algorithm :
