@@ -2000,40 +2000,27 @@ de los predictores y la respuesta. <span class="math inline">\(\\[0.5cm]\)</span
 <ul>
 <li>Se selecciona el modelo del conjunto <span class="math inline">\(M_{p-1}\)</span> que tienen menor error de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1}^*\)</span> <span class="math inline">\(\\[1cm]\)</span></li>
 </ul></li>
-<li><p>Se entrenan el modelo de regresión lineal con los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p} \hspace{0.1cm} : \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_{1} \cdot x_{i1} + \widehat{\beta}_{2} \cdot x_{i2} +\dots + \widehat{\beta}_{p} \cdot x_{ip}\)</span> <span class="math inline">\(\\[1cm]\)</span></p></li>
+<li><p>Se entrenan el modelo de regresión lineal con los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p} \hspace{0.1cm} : \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_{1} \cdot x_{i1} + \widehat{\beta}_{2} \cdot x_{i2} +\dots + \widehat{\beta}_{p} \cdot x_{ip}\)</span> <span class="math inline">\(\\[1.5cm]\)</span></p></li>
 <li><p>De entre los modelos <span class="math inline">\(\hspace{0.1cm}M_1, M_2^*,...,M_{p-1}^*,M_p\hspace{0.1cm}\)</span> se selecciona uno bajo algún criterio.</p>
 <ul>
-<li><p>Si se usa el criterio <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span>, <span class="math inline">\(\hspace{0.1cm}BIC\hspace{0.1cm}\)</span> o <span class="math inline">\(\hspace{0.1cm}C_p\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> se selecciona el modelo con <strong>menor</strong> <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span>, <span class="math inline">\(\hspace{0.1cm}BIC\hspace{0.1cm}\)</span> o <span class="math inline">\(\hspace{0.1cm}C_p\)</span></p></li>
+<li><p>Si se usa el criterio <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span>, <span class="math inline">\(\hspace{0.1cm}BIC\hspace{0.1cm}\)</span> o <span class="math inline">\(\hspace{0.1cm}C_p\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> se selecciona el modelo con <strong>menor</strong> <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span>, <span class="math inline">\(\hspace{0.1cm}BIC\hspace{0.1cm}\)</span> o <span class="math inline">\(\hspace{0.1cm}C_p \\\)</span></p></li>
 <li><p>Si se usa el criterio <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> se selecciona el modelo con <strong>mayor</strong> <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\hspace{0.1cm}\)</span></p></li>
 </ul></li>
 </ul>
 <p><br></p>
-<p><strong>Scheme of the algorithm:</strong></p>
-<ul>
-<li><p>Train <span class="math inline">\(\hspace{0.08cm}M_0 = \text{null linear model} \\[0.35cm]\)</span></p></li>
-<li><p>Train <span class="math inline">\(\hspace{0.08cm}M_1=\lbrace \text{linear models with 1 predictor} \rbrace \hspace{0.12cm}\underset{\text{train error}}{\Rightarrow}\hspace{0.12cm} M_1^*\\[0.35cm]\)</span></p></li>
-<li><p>Train <span class="math inline">\(\hspace{0.08cm}M_2=\lbrace \text{linear models with 2 predictors} \rbrace \hspace{0.12cm}\underset{\text{train error}}{\Rightarrow}\hspace{0.12cm} M_2^*\)</span></p></li>
-</ul>
-<p><span class="math inline">\(\dots\)</span></p>
-<ul>
-<li><p>Train <span class="math inline">\(\hspace{0.08cm}M_{p-1}=\lbrace \text{linear models with p-1 predictors} \rbrace \hspace{0.12cm}\underset{\text{train error}}{\Rightarrow}\hspace{0.12cm} M_{p-1}^*\\[0.35cm]\)</span></p></li>
-<li><p>Train <span class="math inline">\(\hspace{0.08cm}M_{p}= \text{full linear model} \\[0.35cm]\)</span></p></li>
-<li><p><span class="math inline">\(M_0 , M_1^* , ..., M_{p-1}^*, M_p \underset{ \hspace{0.15cm} AIC\hspace{0.08cm},\hspace{0.08cm} BIC, \hspace{0.08cm}C_p \hspace{0.08cm},\hspace{0.08cm} \widehat{R}^2 \hspace{0.15cm}}{\Rightarrow} \hspace{0.1cm} M\hspace{0.05cm}^* \hspace{0.2cm}(Best \hspace{0.1cm} Model)\)</span></p></li>
-</ul>
-<p><br></p>
-<p><strong>Observation:</strong></p>
-<p>Due to the characteristics of the Backward algorithm, it <strong>doesn’t have to be true</strong> that:</p>
-<p><span class="math inline">\(M_0 \subset M_1^* \subset M_2^* \subset M_3^* ,..., M_{p-1}^* \subset M_p\)</span></p>
-<p><br></p>
-<p><strong>Why don’t we select the final model using the training error?</strong></p>
-<p>The train error of a linear regression model is defined as:</p>
-<p><span class="math display">\[\text{Train Error} (M_j) = ECM_{train}(M_j) =
-\dfrac{1}{n} \cdot RSS_{train}(M_j)\]</span></p>
-<p>And it is fulfilled that:</p>
-<p><span class="math display">\[RSS_{train}(M_0) &gt; RSS_{train}(M_1^*) &gt; RSS_{train}(M_2^*) &gt; ... &gt; RSS_{train}(M_{p-1}^*) &gt; RSS_ {train}(M_p^*)\]</span></p>
-<p>So:</p>
-<p><span class="math display">\[\text{Train Error} (M_0) &gt; \text{Train Error} (M_1^*) &gt;\text{Train Error} (M_2^*)&gt;...&gt;\text{Train Error} (M_{p -1}^*)&gt;\text{Train Error} (M_p)\]</span></p>
-<p>So if the train error were used as a metric to select the final model, the largest model (the one with the most parameters, that is, the complete model <span class="math inline">\(M_p\)</span>) would always be selected.</p>
+<p><strong>Observación:</strong></p>
+<p><span class="math display">\[M_0 \subset M_1^* \subset M_2^* \subset \dots \subset M_{p-1}^* \subset M_{p} \\\]</span></p>
+<p><strong>¿ Por qué no se selecciona el modelo final usando el error de train ?</strong></p>
+<p>En este punto es recomendable haber leido el articulo sobre <a href="http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html">métricas y algoritmos de validación de modelos de aprendizaje supervisado</a> que está disponible el blog <a href="http://estadistica4all.com/">Estadistic4all</a>.</p>
+<p>El error de train de un modelo de regresión lineal usando el error cuadrático medio como métrica de validación se define como:</p>
+<p><span class="math display">\[ECM(M)_{train} =
+\dfrac{1}{n} \cdot RS(M)S_{train} = \dfrac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_{M \hspace{0.05cm},\hspace{0.05cm} i})\]</span></p>
+<p>Y se cumple lo siguiente:</p>
+<p><span class="math display">\[RSS(M_0)_{train} &gt; RSS(M_1^*)_{train} &gt; RSS(M_2^*)_{train} &gt; ... &gt; RSS(M_{p-1}^*)_{train} &gt; RSS(M_p^*)_{train}\]</span></p>
+<p>Así que:</p>
+<p><span class="math display">\[ECM(M_0)_{train} &gt; ECM(M_1^*)_{train} &gt; ECM(M_2^*)_{train} &gt; ... &gt; ECM(M_{p-1}^*)_{train} &gt; ECM(M_p^*)_{train}\]</span></p>
+<p>Asi que si el error de entrenamiento, usando el ECM, fuese usado para seleccionar el modelo final, entonces el modelo mas grande (con más predictores) será siempre el seleccionado.</p>
+<p>Por esta razzon no se seleccion el modelo final usando el error de entrenamiento.</p>
 <p>For this reason we don’t select the final model using the training error.</p>
 <p>Although this isn’t true with the test error, for this reason the test error could be used to select the final model.</p>
 <p><br></p>
