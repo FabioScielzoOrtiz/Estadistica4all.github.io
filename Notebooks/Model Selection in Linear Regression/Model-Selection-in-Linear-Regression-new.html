@@ -1980,29 +1980,46 @@ RSS(M)  \hspace{0.1cm}=\hspace{0.1cm}  \sum_{i=1}^n \hspace{0.1cm} ( y_i - \hat{
 <li><p>En conclusión, se tiene una muestra de observaciones <span class="math inline">\(\hspace{0.12cm}D=[\hspace{0.12cm}X_1,...,X_p,Y \hspace{0.12cm}]\hspace{0.12cm}\)</span>
 de los predictores y la respuesta. En este contexto juega el papel de muestra de train. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 </ul>
+<p>Vamos a añadir algo de notación que nos será util para exponer teoricamente los algoritmos de selección de variables.</p>
+<p><span class="math inline">\(\hspace{0.1cm}M(r_1,...,r_h)\hspace{0.1cm}\)</span> es el modelo de regresión lineal que incluye la combinaciones de predictores <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{r_1} ,..., \mathcal{X}_{r_h}\hspace{0.1cm}\)</span>, donde <span class="math inline">\(\hspace{0.1cm}h\leq p\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}r_j \in \lbrace 1,...,p \rbrace\)</span>.</p>
+<p><span class="math display">\[M(r_1,...,r_h)\hspace{0.2cm} : \hspace{0.2cm} \hat{y}_i \hspace{0.1cm}=\hspace{0.1cm} \widehat{\beta}_0 \hspace{0.1cm} + \hspace{0.1cm} \sum_{j=r_1}^{r_h} \hspace{0.1cm} \widehat{\beta}_j \cdot x_{ij}\]</span></p>
 <p>El algoritmo best-subset-selection consiste en entrenar el modelo de regresión lineal con todas las posibles combinaciones de los <span class="math inline">\(\hspace{0.1cm} p\hspace{0.1cm}\)</span> predictores, y quedarse con el mejor de ellos, bajo algún criterio de selección.</p>
 <p>El algoritmo best-subset-selection tiene los siguientes pasos:</p>
 <ul>
 <li><p>Se entrena el modelo de regresión lineal nulo <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_0 \hspace{0.1cm} : \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 \hspace{0.1cm}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p>Se entrenan todos los posibles modelos de regresión lineal con solo <strong>uno</strong> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_1 \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_j \cdot x_{ij} \hspace{0.15cm} / \hspace{0.15cm} j=1,...,p \hspace{0.1cm} \right\rbrace\)</span></p>
+<li><p>Se entrenan todos los posibles modelos de regresión lineal con solo <span class="math inline">\(1\)</span> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_1 \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} M(r) \hspace{0.15cm} / \hspace{0.15cm} r=1,...,p \hspace{0.1cm} \right\rbrace \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_r \cdot x_{ir} \hspace{0.15cm} / \hspace{0.15cm} r=1,...,p \hspace{0.1cm} \right\rbrace\)</span></p>
 <ul>
-<li>Se selecciona el modelo del conjunto <span class="math inline">\(M_1\)</span> que tienen menor error de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_1^*\)</span> <span class="math inline">\(\\[1cm]\)</span></li>
+<li><p>Se selecciona el modelo del conjunto <span class="math inline">\(M_1\)</span> que tienen menor error cuadratico medio de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_1^* = M(r^*)\)</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[r^* \hspace{0.15cm} = \hspace{0.15cm} arg \hspace{0.15cm} \underset{r\in \lbrace 1,...,p\rbrace}{Min}   \hspace{0.15cm} ECM\left( \hspace{0.05cm} M(r) \hspace{0.05cm}\right)_{train} \\\]</span></p></li>
 </ul></li>
-<li><p>Se entrenan todos los posibles modelos de regresión lineal con solo <strong>dos</strong> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_2 \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_j \cdot x_{ij} + \widehat{\beta}_r \cdot x_{ir} \hspace{0.15cm} / \hspace{0.15cm} j\neq r =1,...,p \hspace{0.1cm} \right\rbrace\)</span></p>
+<li><p>Se entrenan todos los posibles modelos de regresión lineal con solo <span class="math inline">\(2\)</span> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores:</p>
+<p><span class="math display">\[M_2 \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} M(r_1 , r_2) \hspace{0.15cm} / \hspace{0.15cm} r_1 \neq r_2 \in \lbrace 1,...,p \rbrace  \hspace{0.1cm} \right\rbrace \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \sum_{j=r_1}^{r_2}  \hspace{0.1cm} \widehat{\beta}_j \cdot x_{ij}  \hspace{0.15cm} / \hspace{0.15cm}  r_1 \neq r_2 \in \lbrace 1,...,p \rbrace  \hspace{0.1cm} \right\rbrace\]</span></p>
 <ul>
-<li>Se selecciona el modelo del conjunto <span class="math inline">\(M_2\)</span> que tienen menor error de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_2^*\)</span> <span class="math inline">\(\\[1cm]\)</span></li>
+<li>Se selecciona el modelo del conjunto <span class="math inline">\(\hspace{0.1cm}M_2\hspace{0.1cm}\)</span> que tienen menor error cuadratico medio de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_2^* = M(r_1^* , r_2^*)\)</span> <span class="math inline">\(\\[1cm]\)</span></li>
 </ul>
-<p><span class="math inline">\(\dots\)</span> <span class="math inline">\(\\[1cm]\)</span></p></li>
-<li><p>Se entrenan todos los posibles modelos de regresión lineal con <span class="math inline">\(\hspace{0.1cm}p-1\hspace{0.1cm}\)</span> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1} \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_{j_1} \cdot x_{ij_1} + \widehat{\beta}_{j_2} \cdot x_{ij_2} +\dots + \widehat{\beta}_{j_{p-1}} \cdot x_{ij_{p-1}} \hspace{0.15cm} / \hspace{0.15cm} j_1 \neq j_2 \neq \dots \neq j_{p-1} = 1,...,p \hspace{0.1cm} \right\rbrace\)</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[(r_1^*  , r_2^*) \hspace{0.15cm} = \hspace{0.15cm} arg \hspace{0.15cm} \underset{r_1 , r_2\in \lbrace 1,...,p\rbrace \\ \hspace{0.5cm} r_1 \neq r_2}{Min}   \hspace{0.15cm} ECM\left( \hspace{0.05cm} M(r_1 , r_2) \hspace{0.05cm}\right)_{train} \\[1.5cm]\]</span></p></li>
+</ul>
+<p><span class="math inline">\(\dots\)</span> <span class="math inline">\(\\[2cm]\)</span></p>
 <ul>
-<li>Se selecciona el modelo del conjunto <span class="math inline">\(M_{p-1}\)</span> que tienen menor error de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1}^*\)</span> <span class="math inline">\(\\[1cm]\)</span></li>
+<li><p>Se entrenan todos los posibles modelos de regresión lineal con <span class="math inline">\(\hspace{0.1cm}p-1\hspace{0.1cm}\)</span> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores:</p>
+<p><span class="math display">\[M_{p-1}  \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} M(r_1,...,r_{p-1})  \hspace{0.15cm} / \hspace{0.15cm} r_1 \neq \dots \neq r_{p-1} \in \lbrace 1,...,p \rbrace \hspace{0.1cm} \right\rbrace \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i \hspace{0.1cm}=\hspace{0.1cm} \widehat{\beta}_0\hspace{0.1cm} +\hspace{0.1cm} \sum_{j=r_1}^{r_{p-1}} \hspace{0.1cm} \widehat{\beta}_{j} \cdot x_{ij}   \hspace{0.15cm} / \hspace{0.15cm} r_1 \neq   \dots \neq r_{p-1} \in \lbrace 1,...,p \rbrace \hspace{0.1cm} \right\rbrace\]</span></p>
+<ul>
+<li><p>Se selecciona el modelo del conjunto <span class="math inline">\(M_{p-1}\)</span> que tienen menor error de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1}^* = M(r_1^*,...,r_{p-1}^*)\)</span> <span class="math inline">\(\\[1cm]\)</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[(r_1^*  ,..., r_{p-1}^*) \hspace{0.15cm} = \hspace{0.15cm} arg \hspace{0.15cm} \underset{r_1 ,..., r_{p-1} \in \lbrace 1,...,p\rbrace \\ \hspace{0.5cm} r_1 \neq \dots \neq r_{p-1} }{Min}   \hspace{0.15cm} ECM\left( \hspace{0.05cm} M(r_1 ,..., r_{p-1}) \hspace{0.05cm}\right)_{train} \\\]</span></p></li>
 </ul></li>
-<li><p>Se entrenan el modelo de regresión lineal con los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p} \hspace{0.1cm} : \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_{1} \cdot x_{i1} + \widehat{\beta}_{2} \cdot x_{i2} +\dots + \widehat{\beta}_{p} \cdot x_{ip}\)</span> <span class="math inline">\(\\[1.5cm]\)</span></p></li>
-<li><p>De entre los modelos <span class="math inline">\(\hspace{0.1cm}M_1, M_2^*,...,M_{p-1}^*,M_p\hspace{0.1cm}\)</span> se selecciona uno bajo algún criterio.</p>
+<li><p>Se entrenan el modelo de regresión lineal con los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores:</p></li>
+</ul>
+<p><span class="math display">\[M_p \hspace{0.15cm} : \hspace{0.15cm}  \hat{y}_i \hspace{0.1cm}  =\hspace{0.1cm}  \widehat{\beta}_0 \hspace{0.1cm}  + \hspace{0.1cm} \sum_{j=1}^{p} \hspace{0.1cm}  \widehat{\beta}_{j} \cdot x_{ij}\\[0.7cm]\]</span></p>
+<ul>
+<li><p>De entre los modelos <span class="math inline">\(\hspace{0.15cm} M_1, M_2^*,...,M_{p-1}^*,M_p \hspace{0.15cm}\)</span> se selecciona uno bajo algún criterio. <span class="math inline">\(\\[0.5cm]\)</span></p>
 <ul>
 <li><p>Si se usa el criterio <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span>, <span class="math inline">\(\hspace{0.1cm}BIC\hspace{0.1cm}\)</span> o <span class="math inline">\(\hspace{0.1cm}C_p\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> se selecciona el modelo con <strong>menor</strong> <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span>, <span class="math inline">\(\hspace{0.1cm}BIC\hspace{0.1cm}\)</span> o <span class="math inline">\(\hspace{0.1cm}C_p \\\)</span></p></li>
-<li><p>Si se usa el criterio <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> se selecciona el modelo con <strong>mayor</strong> <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\hspace{0.1cm}\)</span></p></li>
-</ul></li>
+<li><p>Si se usa el criterio <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> se selecciona el modelo con <strong>mayor</strong> <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\hspace{0.1cm} \\[1cm]\)</span></p></li>
+</ul>
+<p>Por ejemplo, si se usa el criterio <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span>, entonces el modelo seleccionado es <span class="math inline">\(\hspace{0.15cm} M^* \hspace{0.15cm} = \hspace{0.15cm} arg \hspace{0.25cm} \underset{M \in \lbrace M_1,M_2^*,...,M_{p-1}^*,M_p \rbrace }{Min} \hspace{0.25cm} AIC\left( \hspace{0.05cm} M \hspace{0.05cm}\right)_{train} \\\)</span></p></li>
 </ul>
 <p><br></p>
 <p><strong>Observación:</strong></p>
@@ -2040,16 +2057,29 @@ de los predictores y la respuesta. En este contexto juega el papel de muestra de
 <p>El algoritmo alternative-best-subset-selection consiste en entrenar el modelo de regresión lineal con todas las posibles combinaciones de los <span class="math inline">\(\hspace{0.1cm} p\hspace{0.1cm}\)</span> predictores, y quedarse con el mejor de ellos, bajo algún criterio de selección.</p>
 <p>El algoritmo alternative-best-subset-selection tiene los siguientes pasos:</p>
 <ul>
-<li><p>Se entrena el modelo de regresión lineal nulo <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_0 \hspace{0.1cm} : \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 \hspace{0.1cm}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p>Se entrenan todos los posibles modelos de regresión lineal con solo <strong>uno</strong> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_1 \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_j \cdot x_{ij} \hspace{0.15cm} / \hspace{0.15cm} j=1,...,p \hspace{0.1cm} \right\rbrace\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p>Se entrenan todos los posibles modelos de regresión lineal con solo <strong>dos</strong> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_2 \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_j \cdot x_{ij} + \widehat{\beta}_r \cdot x_{ir} \hspace{0.15cm} / \hspace{0.15cm} j\neq r =1,...,p \hspace{0.1cm} \right\rbrace\)</span></p>
-<p><span class="math inline">\(\dots\)</span> <span class="math inline">\(\\[1cm]\)</span></p></li>
-<li><p>Se entrenan todos los posibles modelos de regresión lineal con <span class="math inline">\(\hspace{0.1cm}p-1\hspace{0.1cm}\)</span> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1} \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_{j_1} \cdot x_{ij_1} + \widehat{\beta}_{j_2} \cdot x_{ij_2} +\dots + \widehat{\beta}_{j_{p-1}} \cdot x_{ij_{p-1}} \hspace{0.15cm} / \hspace{0.15cm} j_1 \neq j_2 \neq \dots \neq j_{p-1} = 1,...,p \hspace{0.1cm} \right\rbrace\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p>Se entrenan el modelo de regresión lineal con los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p} \hspace{0.1cm} : \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_{1} \cdot x_{i1} + \widehat{\beta}_{2} \cdot x_{i2} +\dots + \widehat{\beta}_{p} \cdot x_{ip}\)</span> <span class="math inline">\(\\[1.5cm]\)</span></p></li>
-<li><p>De entre los modelos del conjunto <span class="math inline">\(\hspace{0.1cm}M_1 \cup M_2^*\cup...\cup M_{p-1}^*\cup M_p\hspace{0.1cm}\)</span> se selecciona uno bajo algún criterio.</p>
+<li><p>Se entrena el modelo de regresión lineal nulo <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_0 \hspace{0.15cm} : \hspace{0.15cm} \hat{y}_i = \widehat{\beta}_0 \hspace{0.1cm}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Se entrenan todos los posibles modelos de regresión lineal con solo <strong>uno</strong> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores:</p></li>
+</ul>
+<p><span class="math display">\[M_1   \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} M(r) \hspace{0.15cm} / \hspace{0.15cm} r=1,...,p  \hspace{0.1cm} \right\rbrace \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_r \cdot x_{ir} \hspace{0.15cm} / \hspace{0.15cm} r=1,...,p  \hspace{0.1cm} \right\rbrace\]</span> <span class="math inline">\(\\[0.5cm]\)</span></p>
+<ul>
+<li>Se entrenan todos los posibles modelos de regresión lineal con solo <strong>dos</strong> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores:</li>
+</ul>
+<p><span class="math display">\[M_2 \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} M(r_1,r_2) \hspace{0.15cm} / \hspace{0.15cm} r_1\neq r_2 =1,...,p  \hspace{0.1cm} \right\rbrace \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \sum_{j=r_1}^{r_2} \widehat{\beta}_j \cdot x_{ij}   \hspace{0.15cm} / \hspace{0.15cm} r_1 \neq r_2 =1,...,p  \hspace{0.1cm} \right\rbrace \\\]</span></p>
+<p><span class="math inline">\(\dots\)</span> <span class="math inline">\(\\[1cm]\)</span></p>
+<ul>
+<li>Se entrenan todos los posibles modelos de regresión lineal con <span class="math inline">\(\hspace{0.1cm}p-1\hspace{0.1cm}\)</span> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores:</li>
+</ul>
+<p><span class="math display">\[M_{p-1} \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} M(r_1,...,r_{p-1})  \hspace{0.15cm} / \hspace{0.15cm} r_1 \neq \dots \neq r_{p-1} = 1,...,p  \hspace{0.1cm} \right\rbrace \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \sum_{j=r_1}^{r_{p-1}} \widehat{\beta}_{j} \cdot x_{ij}   \hspace{0.15cm} / \hspace{0.15cm} r_1 \neq  \dots \neq r_{p-1} = 1,...,p  \hspace{0.1cm} \right\rbrace \\\]</span></p>
+<ul>
+<li>Se entrenan el modelo de regresión lineal con los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores:</li>
+</ul>
+<p><span class="math display">\[M_{p}  \hspace{0.1cm} : \hspace{0.1cm}  \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_{1} \cdot x_{i1} + \widehat{\beta}_{2} \cdot x_{i2} +\dots + \widehat{\beta}_{p} \cdot x_{ip} \\\]</span></p>
+<ul>
+<li><p>De entre los modelos del conjunto <span class="math inline">\(\hspace{0.1cm}M_1 \cup M_2 \cup...\cup M_{p-1} \cup M_p\hspace{0.1cm}\)</span> se selecciona uno bajo algún criterio.</p>
 <ul>
 <li><p>Si se usa el criterio <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span>, <span class="math inline">\(\hspace{0.1cm}BIC\hspace{0.1cm}\)</span> o <span class="math inline">\(\hspace{0.1cm}C_p\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> se selecciona el modelo con <strong>menor</strong> <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span>, <span class="math inline">\(\hspace{0.1cm}BIC\hspace{0.1cm}\)</span> o <span class="math inline">\(\hspace{0.1cm}C_p \\\)</span></p></li>
-<li><p>Si se usa el criterio <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> se selecciona el modelo con <strong>mayor</strong> <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\hspace{0.1cm}\)</span></p></li>
+<li><p>Si se usa el criterio <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> se selecciona el modelo con <strong>mayor</strong> <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\hspace{0.1cm}\\\)</span></p>
+<p>Por ejemplo, si se usa el criterio <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span>, entonces el modelo seleccionado es <span class="math inline">\(\hspace{0.15cm} M^* \hspace{0.15cm} = \hspace{0.15cm} arg \hspace{0.25cm} \underset{M \in M_1\cup ... \cup M_p }{Min} \hspace{0.25cm} AIC\left( \hspace{0.05cm} M \hspace{0.05cm}\right)_{train} \\\)</span></p></li>
 </ul></li>
 </ul>
 <p><br></p>
@@ -2075,25 +2105,35 @@ de los predictores y la respuesta. En este contexto juega el papel de muestra de
 <p>El algoritmo forward-selection consiste en entrenar el modelo de regresión lineal con todas las posibles combinaciones de los <span class="math inline">\(\hspace{0.1cm} p\hspace{0.1cm}\)</span> predictores, y quedarse con el mejor de ellos, bajo algún criterio de selección.</p>
 <p>El algoritmo forward-selection tiene los siguientes pasos:</p>
 <ul>
-<li><p>Se entrena el modelo de regresión lineal nulo <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_0 \hspace{0.1cm} : \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 \hspace{0.1cm}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p>Se entrenan todos los modelos de regresión lineal que resultan de añadir uno de los predictores al modelo nulo <span class="math inline">\(M_0\)</span> <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_1 \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_r \cdot x_{ir} \hspace{0.15cm} / \hspace{0.15cm} r=1,...,p \hspace{0.1cm} \right\rbrace\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p>
+<li><p>Se entrena el modelo de regresión lineal nulo <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_0 \hspace{0.15cm} : \hspace{0.15cm} \hat{y}_i = \widehat{\beta}_0 \hspace{0.1cm}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Se entrenan todos los modelos de regresión lineal que resultan de añadir uno de los predictores al modelo nulo <span class="math inline">\(M_0\)</span> :</p>
+<p><span class="math display">\[M_1 \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} M(r) \hspace{0.15cm} / \hspace{0.15cm} r=1,...,p  \hspace{0.1cm} \right\rbrace \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_r \cdot x_{ir} \hspace{0.15cm} / \hspace{0.15cm} r=1,...,p  \hspace{0.1cm} \right\rbrace\]</span></p>
 <ul>
-<li>Se selecciona el modelo del conjunto <span class="math inline">\(M_1\)</span> que tienen menor error de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_1^* : \hat{y}_i = \widehat{\beta}_0 + \beta_{r_1^*} \cdot x_{i r_1^*}\hspace{0.25cm}\)</span> con <span class="math inline">\(\hspace{0.25cm}r_1^* \in \lbrace 1,...,p \rbrace\\[1cm]\)</span></li>
+<li><p>Se selecciona el modelo del conjunto <span class="math inline">\(M_1\)</span> que tienen menor error de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_1^* = M(r_1^*) \\\)</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[r_1^* \hspace{0.15cm} = \hspace{0.15cm} arg \hspace{0.15cm} \underset{r\in \lbrace 1,...,p\rbrace}{Min}   \hspace{0.15cm} ECM\left( \hspace{0.05cm} M(r) \hspace{0.05cm}\right)_{train} \\\]</span></p></li>
 </ul></li>
-<li><p>Se entrenan todos los modelos de regresión lineal que resultan de añadir un nuevo predictor al modelo <span class="math inline">\(M_1^*\)</span> <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_2 \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \beta_{j_1^*} \cdot x_{i r_1^*} + \widehat{\beta}_{j} \hspace{0.15cm} / \hspace{0.15cm} j\neq r_1^* \in \lbrace 1,...,p \rbrace \hspace{0.1cm} \right\rbrace\)</span></p>
+<li><p>Se entrenan todos los modelos de regresión lineal que resultan de añadir un nuevo predictor al modelo <span class="math inline">\(M_1^*=M(r_1^*)\)</span> :</p>
+<p><span class="math display">\[M_2  \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  M(r_1^* , r) \hspace{0.15cm} / \hspace{0.15cm} r\neq r_1^* \in \lbrace 1,...,p \rbrace \hspace{0.1cm} \right\rbrace\hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  \hat{y}_i = \widehat{\beta}_0 + \beta_{r_1^*} \cdot x_{i r_1^*} + \widehat{\beta}_{r} \cdot x_{i r} \hspace{0.15cm} / \hspace{0.15cm} r\neq r_1^* \in \lbrace 1,...,p \rbrace \hspace{0.1cm} \right\rbrace\]</span></p>
 <ul>
-<li>Se selecciona el modelo del conjunto <span class="math inline">\(M_2\)</span> que tienen menor error de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_2^* : \hat{y}_i = \widehat{\beta}_0 + \beta_{r_1^*} \cdot x_{i r_1^*} + \beta_{r_2^*} \cdot x_{i r_2^*}\hspace{0.25cm}\)</span> con <span class="math inline">\(\hspace{0.25cm}r_1^*\neq r_2^* \in \lbrace 1,...,p \rbrace \\[1cm]\)</span></li>
+<li><p>Se selecciona el modelo del conjunto <span class="math inline">\(M_2\)</span> que tienen menor error de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_2^*=M(r_1^* , r_2^*) \\\)</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[r_2^* \hspace{0.15cm} = \hspace{0.15cm} arg \hspace{0.15cm} \underset{r\in \lbrace 1,...,p\rbrace}{Min}   \hspace{0.15cm} ECM\left( \hspace{0.05cm} M(r_1^* , r) \hspace{0.05cm}\right)_{train} \\\]</span></p></li>
 </ul>
 <p><span class="math inline">\(\dots\)</span> <span class="math inline">\(\\[1cm]\)</span></p></li>
-<li><p>Se entrenan todos los modelos de regresión lineal que resultan de añadir un nuevo predictor al modelo <span class="math inline">\(\hspace{0.15cm} M_{p-2}^*\)</span> <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1} \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \beta_{r_1^*} \cdot x_{i r_1^*} + \dots + \beta_{r_{p-2}^*} \cdot x_{i r_{p-2}^*} + \widehat{\beta}_{j}\cdot x_{i j} \hspace{0.2cm} / \hspace{0.2cm} j\neq r_1^*\neq \dots \neq r_{p-2}^* \in \lbrace 1,...,p \rbrace \hspace{0.1cm} \right\rbrace\)</span></p>
+<li><p>Se entrenan todos los modelos de regresión lineal que resultan de añadir un nuevo predictor al modelo <span class="math inline">\(\hspace{0.15cm} M_{p-2}^*\)</span> :</p>
+<p><span class="math display">\[M_{p-1} \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  M(r_1^* , r_2^*,...,r_{p-2}^*, r)    \hspace{0.2cm} / \hspace{0.2cm} r \neq r_1^*\neq \dots \neq r_{p-2}^* \in \lbrace 1,...,p \rbrace  \hspace{0.1cm} \right\rbrace   \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  \hat{y}_i = \widehat{\beta}_0 + \sum_{j=r_1^*}^{r_{p-2}^*} \beta_{j} \cdot x_{i j} +  \beta_{r} \cdot x_{i r}  \hspace{0.2cm} / \hspace{0.2cm} r\neq r_1^*\neq \dots \neq r_{p-2}^* \in \lbrace 1,...,p \rbrace  \hspace{0.1cm} \right\rbrace\]</span></p>
 <ul>
-<li>Se selecciona el modelo del conjunto <span class="math inline">\(M_{p-1}\)</span> que tienen menor error de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1}^* : \hat{y}_i = \widehat{\beta}_0 + \beta_{r_1^*} \cdot x_{i r_1^*} + \dots + \beta_{r_{p-2}^*} \cdot x_{i r_{p-2}^*} + \beta_{r_{p-1}^*} \cdot x_{i r_{p-1}^*}\hspace{0.25cm}\)</span> con <span class="math inline">\(\hspace{0.25cm}r_1^*\neq\dots \neq r_{p-1}^* \in \lbrace 1,...,p \rbrace\\[1cm]\)</span></li>
+<li><p>Se selecciona el modelo del conjunto <span class="math inline">\(M_{p-1}\)</span> que tienen menor error de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1}^*=M(r_1^* , r_2^*,...,r_{p-2}^*, r_{p-1}^*)\\\)</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[r_{p-1}^* \hspace{0.15cm} = \hspace{0.15cm} arg \hspace{0.15cm} \underset{r\in \lbrace 1,...,p\rbrace}{Min}   \hspace{0.15cm} ECM\left( \hspace{0.05cm}M(r_1^* , r_2^*,...,r_{p-2}^*, r) \hspace{0.05cm}\right)_{train} \\\]</span></p></li>
 </ul></li>
-<li><p>Se entrenan el modelo de regresión lineal con los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p} \hspace{0.1cm} : \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_{1} \cdot x_{i1} + \widehat{\beta}_{2} \cdot x_{i2} +\dots + \widehat{\beta}_{p} \cdot x_{ip}\)</span> <span class="math inline">\(\\[1.5cm]\)</span></p></li>
+<li><p>Se entrenan el modelo de regresión lineal con los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p} \hspace{0.1cm} : \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \sum_{j=1}^p \widehat{\beta}_{j} \cdot x_{ij} \\\)</span></p></li>
 <li><p>De entre los modelos <span class="math inline">\(\hspace{0.1cm}M_1, M_2^*,..., M_{p-1}^*, M_p\hspace{0.1cm}\)</span> se selecciona uno bajo algún criterio.</p>
 <ul>
 <li><p>Si se usa el criterio <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span>, <span class="math inline">\(\hspace{0.1cm}BIC\hspace{0.1cm}\)</span> o <span class="math inline">\(\hspace{0.1cm}C_p\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> se selecciona el modelo con <strong>menor</strong> <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span>, <span class="math inline">\(\hspace{0.1cm}BIC\hspace{0.1cm}\)</span> o <span class="math inline">\(\hspace{0.1cm}C_p \\\)</span></p></li>
-<li><p>Si se usa el criterio <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> se selecciona el modelo con <strong>mayor</strong> <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\hspace{0.1cm}\)</span></p></li>
+<li><p>Si se usa el criterio <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> se selecciona el modelo con <strong>mayor</strong> <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\hspace{0.1cm}\\\)</span></p>
+<p>Por ejemplo, si se usa el criterio <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span>, entonces el modelo seleccionado es <span class="math inline">\(\hspace{0.15cm} M^* \hspace{0.15cm} = \hspace{0.15cm} arg \hspace{0.25cm} \underset{M \in \lbrace M_1, M_2^*,..., M_{p-1}^*, M_p \rbrace }{Min} \hspace{0.25cm} AIC\left( \hspace{0.05cm} M \hspace{0.05cm}\right)_{train} \\\)</span></p></li>
 </ul></li>
 </ul>
 <p><br></p>
@@ -2116,77 +2156,35 @@ de los predictores y la respuesta. En este contexto juega el papel de muestra de
 <p>El algoritmo backward-selection tiene los siguientes pasos:</p>
 <ul>
 <li><p>Se entrena el modelo de regresión lineal con los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_p \hspace{0.1cm} : \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \sum_{j=1}^p \hspace{0.1cm} \widehat{\beta}_j \cdot x_{ij} \hspace{0.1cm}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p>Se entrenan todos los modelos de regresión lineal que resultan de eliminar uno de los predictores del modelo <span class="math inline">\(M_p\)</span> <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1} \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \sum_{j=1}^p \hspace{0.1cm} \widehat{\beta}_j \cdot x_{ij} - \beta_r \cdot x_{ir} \hspace{0.15cm} / \hspace{0.15cm} r=1,...,p \hspace{0.1cm} \right\rbrace\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p>
+<li><p>Se entrenan todos los modelos de regresión lineal que resultan de eliminar uno de los predictores del modelo completo <span class="math inline">\(M_p\)</span> :</p>
+<p><span class="math display">\[M_{p-1} \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  M(r_1 ,...,r_{p-1})    \hspace{0.2cm} / \hspace{0.2cm}  r_1\neq \dots \neq r_{p-1} \in \lbrace 1,...,p \rbrace  \hspace{0.1cm} \right\rbrace   \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  \hat{y}_i = \widehat{\beta}_0 + \sum_{j=r_1}^{r_{p-1}} \beta_{j} \cdot x_{i j}   \hspace{0.2cm} / \hspace{0.2cm}  r_1\neq \dots \neq r_{p-1} \in \lbrace 1,...,p \rbrace  \hspace{0.1cm} \right\rbrace\]</span></p>
 <ul>
-<li>Se selecciona el modelo del conjunto <span class="math inline">\(M_{p-1}\)</span> que tienen menor error de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1}^* : \hat{y}_i = \widehat{\beta}_0 + \sum_{r \in A} \widehat{\beta}_{r} \cdot x_{i r} = \widehat{\beta}_0 + \widehat{\beta}_{r_{1}^{1*}} \cdot x_{i r_1^*} +\dots + \widehat{\beta}_{r_{p-1,1}^*} \cdot x_{i r_{p-1}^*} \hspace{0.25cm} , \hspace{0.25cm} r_1^*\neq \dots \neq r_{p-1}^* \in \lbrace 1,...,p \rbrace \\[1cm]\)</span></li>
-</ul>
-<p><span class="math display">\[(r_1^* ,..., r_{p-1}^*) = arg \underset{r_1,...,r_{p-1} \in 1:p }{Min} ECM(M_{p-1}) =  \dfrac{1}{n} \sum_{i=1}^n (y_i - (\widehat{\beta}_0 +  \widehat{\beta}_{r_{1}} \cdot x_{i r_1} +\dots +  \widehat{\beta}_{r_{p-1}} \cdot x_{i r_{p-1}} ) ^2\]</span></p></li>
-<li><p>Se entrenan todos los modelos de regresión lineal que resultan de eliminar un predictor del modelo <span class="math inline">\(M_{p-1}^*\)</span> <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-2} \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_{r_1^*} \cdot x_{i r_1^*} +\dots + \widehat{\beta}_{r_{p-1}^*} \cdot x_{i r_{p-1}^*} - \beta_r \cdot x_{ir} \hspace{0.15cm} / \hspace{0.15cm} r = r_{1}^*,...,r_{p-1}^* \hspace{0.1cm} \right\rbrace\)</span></p>
+<li><p>Se selecciona el modelo del conjunto <span class="math inline">\(M_{p-1}\)</span> que tienen menor error de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-1}^* = M(r_{1,1}^*,...,r_{1,p-1}^*)\)</span> <span class="math inline">\(\\[1cm]\)</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[(r_{1,1}^*  ,..., r_{1, p-1}^*) \hspace{0.15cm} = \hspace{0.15cm} arg \hspace{0.15cm} \underset{r_1 ,..., r_{p-1} \in \lbrace 1,...,p\rbrace \\ \hspace{0.5cm} r_1 \neq \dots \neq r_{p-1} }{Min}   \hspace{0.15cm} ECM\left( \hspace{0.05cm} M(r_1 ,..., r_{p-1}) \hspace{0.05cm}\right)_{train} \\\]</span></p></li>
+</ul></li>
+<li><p>Se entrenan todos los modelos de regresión lineal que resultan de eliminar un predictor del modelo <span class="math inline">\(M_{p-1}^*\)</span> :</p>
+<p><span class="math display">\[M_{p-2} \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  M(r_1 ,...,r_{p-2})    \hspace{0.2cm} / \hspace{0.2cm}  r_1\neq \dots \neq r_{p-2} \in \lbrace r_{1,1}^*,...,r_{1,p-2}^*,r_{1,p-1}^* \rbrace  \hspace{0.1cm} \right\rbrace   \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  \hat{y}_i = \widehat{\beta}_0 + \sum_{j=r_1}^{r_{p-2}} \beta_{j} \cdot x_{i j}   \hspace{0.2cm} / \hspace{0.2cm}  r_1\neq \dots \neq r_{p-2}\in \lbrace r_{1,1}^*,...,r_{1,p-2}^*,r_{1,p-1}^* \rbrace  \hspace{0.1cm} \right\rbrace\]</span></p>
 <ul>
-<li>Se selecciona el modelo del conjunto <span class="math inline">\(M_{p-2}\)</span> que tienen menor error de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-2}^* : \hat{y}_i = \widehat{\beta}_0 + \widehat{\beta}_{r_1^*} \cdot x_{i r_1^*} +\dots + \widehat{\beta}_{r_{p-2}^*} \cdot x_{i r_{p-1}^*} \hspace{0.25cm} , \hspace{0.25cm} r_1^*\neq \dots \neq r_{p-2}^* \in \lbrace 1,...,p \rbrace \\[1cm]\)</span></li>
+<li><p>Se selecciona el modelo del conjunto <span class="math inline">\(M_{p-2}\)</span> que tienen menor error de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{p-2}^* = M(r_{2,1}^*,...,r_{2,p-2}^*)\)</span> <span class="math inline">\(\\[1cm]\)</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[(r_{2,1}^*  ,..., r_{2, p-2}^*) \hspace{0.15cm} = \hspace{0.15cm} arg \hspace{0.15cm} \underset{r_1 ,..., r_{p-2} \in \lbrace 1,...,p\rbrace \\ \hspace{0.5cm} r_1 \neq \dots \neq r_{p-2} }{Min}   \hspace{0.15cm} ECM\left( \hspace{0.05cm} M(r_1 ,..., r_{p-2}) \hspace{0.05cm}\right)_{train} \\\]</span></p></li>
 </ul>
 <p><span class="math inline">\(\dots\)</span> <span class="math inline">\(\\[1cm]\)</span></p></li>
-<li><p>Se entrenan todos los modelos de regresión lineal que resultan de eliminar un predictor del modelo <span class="math inline">\(\hspace{0.15cm} M_{2}^*\)</span> <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{1} \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 + \beta_{r_1^*} \cdot x_{i r_1^*} + \beta_{r_2^*} \cdot x_{i r_2^*} - \widehat{\beta}_{r}\cdot x_{i r} \hspace{0.2cm} / \hspace{0.2cm} r = r_1^* ,r_{2}^* \hspace{0.1cm} \right\rbrace\)</span></p>
-<ul>
-<li>Se selecciona el modelo del conjunto <span class="math inline">\(M_{1}\)</span> que tienen menor error de train <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{1}^* : \hat{y}_i = \widehat{\beta}_0 + \beta_{r_1^*}\hspace{0.25cm}\)</span> con <span class="math inline">\(\hspace{0.25cm}r_1^*\neq\dots \neq r_{p-1}^* \in \lbrace 1,...,p \rbrace\\[1cm]\)</span></li>
-</ul></li>
-<li><p>Se entrenan el modelo de regresión lineal nulo <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{0} \hspace{0.1cm} : \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0\)</span> <span class="math inline">\(\\[1.5cm]\)</span></p></li>
+<li><p>Se entrenan todos los modelos de regresión lineal que resultan de eliminar un predictor del modelo <span class="math inline">\(\hspace{0.15cm} M_{2}^*=M_{p-(p-2)}^*=M(r_{p-2,1}^*,r_{p-2,2}^*)\)</span> :</p>
+<p><span class="math display">\[M_{1} \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  M(r)    \hspace{0.2cm} / \hspace{0.2cm}  r \in \lbrace r_{p-2,1}^*,r_{p-2,2}^* \rbrace  \hspace{0.1cm} \right\rbrace   \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  \hat{y}_i = \widehat{\beta}_0 + \beta_{r} \cdot x_{i r}   \hspace{0.2cm} / \hspace{0.2cm}  r\in \lbrace r_{p-2,1}^*,r_{p-2,2}^* \rbrace  \hspace{0.1cm} \right\rbrace\]</span></p></li>
+<li><p>Se entrenan el modelo de regresión lineal nulo <span class="math inline">\(\hspace{0.25cm} \Rightarrow \hspace{0.25cm} M_{0} \hspace{0.1cm} : \hspace{0.1cm} \hat{y}_i = \widehat{\beta}_0 \\[0.7cm]\)</span></p></li>
 <li><p>De entre los modelos <span class="math inline">\(\hspace{0.1cm}M_1, M_2^*,..., M_{p-1}^*, M_p\hspace{0.1cm}\)</span> se selecciona uno bajo algún criterio.</p>
 <ul>
 <li><p>Si se usa el criterio <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span>, <span class="math inline">\(\hspace{0.1cm}BIC\hspace{0.1cm}\)</span> o <span class="math inline">\(\hspace{0.1cm}C_p\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> se selecciona el modelo con <strong>menor</strong> <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span>, <span class="math inline">\(\hspace{0.1cm}BIC\hspace{0.1cm}\)</span> o <span class="math inline">\(\hspace{0.1cm}C_p \\\)</span></p></li>
-<li><p>Si se usa el criterio <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> se selecciona el modelo con <strong>mayor</strong> <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\hspace{0.1cm}\)</span></p></li>
+<li><p>Si se usa el criterio <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> se selecciona el modelo con <strong>mayor</strong> <span class="math inline">\(\hspace{0.1cm}R_{adj}^2\hspace{0.1cm}\)</span></p>
+<p>Por ejemplo, si se usa el criterio <span class="math inline">\(\hspace{0.1cm}AIC\hspace{0.1cm}\)</span>, entonces el modelo seleccionado es <span class="math inline">\(\hspace{0.15cm} M^* \hspace{0.15cm} = \hspace{0.15cm} arg \hspace{0.25cm} \underset{M \in \lbrace M_1, M_2^*,..., M_{p-1}^*, M_p \rbrace }{Min} \hspace{0.25cm} AIC\left( \hspace{0.05cm} M \hspace{0.05cm}\right)_{train} \\\)</span></p></li>
 </ul></li>
 </ul>
 <p><br></p>
-<p>Backward selection consist in the following algorithm :</p>
-<p>We have <span class="math inline">\(p\)</span> predictors: <span class="math inline">\(X_1,...,X_p\)</span></p>
-<ul>
-<li><p>We train the full linear regression model <span class="math inline">\((M_p)\)</span></p></li>
-<li><p>We train all the linear models that are the result of removing one predictor to the model <span class="math inline">\(M_p\)</span> , and we select the one with <strong>less</strong> train error <span class="math inline">\((M_{p-1}^*)\)</span></p></li>
-<li><p>We train all the linear models that are the result of removing one predictor to the model <span class="math inline">\(M_{p-1}^*\)</span> , and we select the one with <strong>less</strong> train error <span class="math inline">\((M_{p-2}^*)\)</span></p>
-<p><span class="math inline">\(\dots\)</span></p></li>
-<li><p>We train all the linear models that are the result of removing one predictor to the model <span class="math inline">\(M_{2}^*\)</span> , and we select the one with <strong>less</strong> train error <span class="math inline">\((M_{1}^*)\)</span></p></li>
-<li><p>We train the null linear model <span class="math inline">\((M_0)\)</span></p></li>
-<li><p>We select one of the models <span class="math inline">\(\hspace{0.1cm}\lbrace M_0,M_1,...,M_{p-1},M_p \rbrace\hspace{0.1cm}\)</span> under some criteria, for example, the one with <strong>less</strong> <span class="math inline">\(AIC\)</span>, <span class="math inline">\(BIC\)</span> or <span class="math inline">\(Cp \hspace{0.1cm}\)</span>, or <strong>greater</strong> <span class="math inline">\(\hspace{0.1cm} \widehat{R}^2\)</span></p></li>
-</ul>
-<p><br></p>
-<p><strong>Scheme of the algorithm:</strong></p>
-<ul>
-<li>Train <span class="math inline">\(M_p\)</span></li>
-</ul>
-<ul>
-<li>Train <span class="math inline">\(\lbrace M_p \hspace{0.1cm} - \text{1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_{p-1}^*\)</span></li>
-</ul>
-<ul>
-<li>Train <span class="math inline">\(\lbrace M_{p-1}^* \hspace{0.1cm} - \text{1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_{p-2}^*\)</span></li>
-</ul>
-<p><span class="math inline">\(\hspace{0.8cm} \dots\)</span></p>
-<ul>
-<li>Train <span class="math inline">\(\lbrace M_{2}^* \hspace{0.1cm} - \text{1 predictor} \rbrace \underset{ \text{train  error} }{\Rightarrow}M_{1}^*\)</span></li>
-</ul>
-<ul>
-<li><span class="math inline">\(M_0\)</span></li>
-</ul>
-<ul>
-<li><span class="math inline">\(\lbrace M_0, M_1^* ,M_2^*, ...,M_{p-1}^*, M_p \rbrace \underset{\hspace{0.15cm} AIC, BIC, C_p, \widehat{R}^2 \hspace{0.15cm}}{\Rightarrow} \hspace{0.1cm} M\hspace{0.05cm}^* \hspace{0.2cm} (Best \hspace{0.1cm} Model)\)</span></li>
-</ul>
-<p><br></p>
-<p><strong>Observation:</strong></p>
-<p>Due to the characteristics of the Backward algorithm, it is true that:</p>
-<p><span class="math inline">\(M_0 \subset M_1^* \subset M_2^* \subset M_3^* ,..., M_{p-1}^* \subset M_p\)</span></p>
-<p><br></p>
-<p><strong>Why don’t we select the final model using the training error?</strong></p>
-<p>The train error of a linear regression model is defined as:</p>
-<p><span class="math display">\[\text{Train Error} (M_j) = ECM_{train}(M_j) =
-\dfrac{1}{n} \cdot RSS_{train}(M_j)\]</span></p>
-<p>And it is fulfilled that:</p>
-<p><span class="math display">\[RSS_{train}(M_0) &gt; RSS_{train}(M_1^*) &gt; RSS_{train}(M_2^*) &gt; ... &gt; RSS_{train}(M_{p-1}^*) &gt; RSS_ {train}(M_p^*)\]</span></p>
-<p>So:</p>
-<p><span class="math display">\[\text{Train Error} (M_0) &gt; \text{Train Error} (M_1^*) &gt;\text{Train Error} (M_2^*)&gt;...&gt;\text{Train Error} (M_{p -1}^*)&gt;\text{Train Error} (M_p)\]</span></p>
-<p>So if the train error were used as a metric to select the final model, the largest model (the one with the most parameters, that is, the complete model <span class="math inline">\(M_p\)</span>) would always be selected.</p>
-<p>For this reason we don’t select the final model using the training error.</p>
-<p>Although this isn’t true with the test error, for this reason the test error could be used to select the final model.</p>
-<p><br></p>
+<p><strong>Observación:</strong></p>
+<p>Se cumple en este algoritmo lo siguiente:</p>
+<p><span class="math display">\[M_0 \subset M_1^* \subset M_2^* \subset M_3^* ,..., M_{p-1}^* \subset M_p\]</span></p>
 <p><br></p>
 <p><br></p>
 </div>
