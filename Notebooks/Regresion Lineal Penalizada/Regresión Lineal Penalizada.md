@@ -467,64 +467,44 @@ No existe una solución cerrada para este problema de optimización. Por tanto e
 
 - Si $\hspace{0.15cm}\lambda = 0\hspace{0.15cm}$ el problema de optimizacion es el de minimos cuadrados ordinarios (MCO), propio del modelo de regresion lineal ordinario.$\\[0.7cm]$
 
-- Si $\hspace{0.15cm}\lambda\hspace{0.15cm}$ es **muy grande**  la solucion del problema $\hspace{0.15cm}\widehat{\beta}\hspace{0.15cm}$  tendra un **tamaño** (norma L1)  **muy pequeño**, es decir, los coeficientes estimados  $\hspace{0.15cm}\widehat{\beta}_1, \widehat{\beta}_2,..., \widehat{\beta}_p\hspace{0.15cm} \hspace{0.15cm} \approx \hspace{0.15cm} 0\hspace{0.25cm}$, **y algunos incluso serán** $\hspace{0.15cm}\neq 0$ $\\[0.7cm]$
+- Si $\hspace{0.15cm}\lambda\hspace{0.15cm}$ es **muy grande**  la solucion del problema $\hspace{0.15cm}\widehat{\beta}\hspace{0.15cm}$  tendra un **tamaño** (norma L1)  **muy pequeño**, es decir, los coeficientes estimados  $\hspace{0.15cm}\widehat{\beta}_1, \widehat{\beta}_2,..., \widehat{\beta}_p\hspace{0.15cm} \hspace{0.15cm} \approx \hspace{0.15cm} 0\hspace{0.25cm}$, **y algunos incluso serán** $\hspace{0.15cm}\neq 0$. Este es el cambio mas relevante entre regresión Lasso y Ridge, y viene provocado por la norma L1. $\\[0.7cm]$
 
 - $\lambda \hspace{0.1cm}$ debe ser seleccionado **a priori** de la resolución del problema de optimización Lasso. Es un **hiper-parámetro** del algoritmo de regresión lineal Lasso.
 
 
 
+<br>
+
+# Formulación alternativa del problema Ridge y Lasso
 
 
 
 
+**Problema Ridge:**
 
-
-
-
-
-
-
-
-
----------
-
+$$\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p \right)  \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_p}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  \widetilde{y}_i - \left( \hspace{0.12cm} \beta_0 + \sum_{r=1}^p \hspace{0.1 cm} \beta_r \cdot \widetilde{x}_{ir} \hspace{0.12cm} \right) \right)^2   \hspace{0.1cm}  \\[1.5cm]
+\hspace{4.6cm} \text{sujeto a:}  \hspace{0.35cm}  \beta_0 , \beta_1,...,\beta_p \in \mathbb{R} \\[0.3cm]  \hspace{7cm} \beta = (\beta_1,...,\beta_p)^t \\[0.3cm]
+\hspace{7cm} ||\hspace{0.1cm} \beta \hspace{0.1cm}||_2^2 \hspace{0.1cm} \leq \hspace{0.1cm} s
+$$
 
 
 <br>
 
-El algoritmo de regresión Lasso es básicamente el algoritmo de regresión lineal, pero con la respuesta y  predictores estandarizados, y con  y la estimacion de los coeficientes betas se hace resolviendo un problema de optimizan similar (pero diferente) al de minimos cuadrados ordinarios (MCO) propio de la regresión lineal ordinaria, pero diferente, llamado **problema Lasso**:
 
-<br>
+**Problema Lasso:**
 
-Sea $\hspace{0.15cm}\widetilde{\beta\hspace{0.15cm}}= (\widetilde{\beta_1},\widetilde{\beta_2},...,\widetilde{\beta_p})\in   \mathbb{R}^p \hspace{0.25cm}$ y $\hspace{0.25cm} \widetilde{x_i} = (\widetilde{x_{i1}},\widetilde{x_{i2}},...,\widetilde{x_{ip}})\in  \mathbb{R}^p$
-
-<br>
-
-\begin{gather*}
-\hspace{0.15cm}\widehat{\widetilde{\beta\hspace{0.15cm}}}\hspace{0.05cm}^{Lasso} \hspace{0.15cm} =\hspace{0.15cm}  arg \hspace{0.12cm} \underset{\widetilde{\beta\hspace{0.15cm}}}{Min} \hspace{0.2cm}  \biggl\{ \hspace{0.1cm} RSS\left(\hspace{0.12cm}\widetilde{\beta\hspace{0.15cm}}\hspace{0.12cm}\right) \hspace{0.1cm} +\hspace{0.1cm}  \lambda \cdot | | \hspace{0.06cm}\widetilde{\beta\hspace{0.15cm}} \hspace{0.06cm}||_1 \hspace{0.1cm} \biggl\} \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.12cm} \underset{\widetilde{\beta\hspace{0.15cm}}}{Min} \hspace{0.2cm} \biggl\{ \hspace{0.1cm} \sum_{i=1}^{n} \hspace{0.1cm}(y_i - \beta_0 - \widetilde{x_i}\hspace{0.1cm}^t \cdot \beta)\hspace{0.02cm}^2 \hspace{0.1cm} + \hspace{0.1cm}  \lambda \cdot | | \hspace{0.06cm}\widetilde{\beta\hspace{0.15cm}} \hspace{0.06cm}||_1  \hspace{0.1cm} \biggl\} \hspace{0.2cm} =  \\[0.8cm]
-  = \hspace{0.2cm} arg \hspace{0.12cm} \underset{\widetilde{\beta_1},\widetilde{\beta_2},...,\widetilde{\beta_p}}{Min} \hspace{0.2cm} \biggl\{ \hspace{0.1cm} \sum_{i=1}^{n} \hspace{0.1cm}(y_i - \beta_0 - \widetilde{\beta_1} \cdot \widetilde{x_{i1}} - \dots - \widetilde{\beta_p} \cdot \widetilde{x_{ip}})\hspace{0.02cm}^2  \hspace{0.1cm} + \hspace{0.1cm}  \lambda \cdot | | \hspace{0.06cm}\widetilde{\beta\hspace{0.15cm}} \hspace{0.06cm}||_1 \hspace{0.1cm} \biggl\}
-\end{gather*}
-
-<br>
-
-Donde: 
-
-- $\lambda \geq 0\hspace{0.2cm}$ es un **parámetro de penalización** $\\[0.7cm]$
-
-- $| | \hspace{0.06cm}\widetilde{\beta\hspace{0.15cm}} \hspace{0.06cm}||_1 \hspace{0.1cm} = \hspace{0.1cm} \sum_{j=1}^p \hspace{0.1cm} |\hspace{0.1cm} \widetilde{\beta_j}\hspace{0.1cm} |\hspace{0.15cm}$ es la **norma Euclidea** (al cuadrado) del vector $\hspace{0.15cm}\widetilde{\beta\hspace{0.15cm}}\hspace{0.15cm}$, la cual es una medida del tamaño del vector $\hspace{0.15cm}\widetilde{\beta\hspace{0.15cm}}\hspace{0.15cm}$.
-
-<br>
-
-**Observación:**
-
-La unica diferencia entre regresión Ridge y Lasso es que el termino $\hspace{0.15cm}| | \hspace{0.06cm}\widetilde{\beta\hspace{0.15cm}} \hspace{0.06cm}||_2^2\hspace{0.15cm}$ ha sido reemplado por el termino $\hspace{0.15cm}| | \hspace{0.06cm}\widetilde{\beta\hspace{0.15cm}} \hspace{0.06cm}||_1\hspace{0.15cm}$
+$$\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p \right)  \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_p}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  \widetilde{y}_i - \left( \hspace{0.12cm} \beta_0 + \sum_{r=1}^p \hspace{0.1 cm} \beta_r \cdot \widetilde{x}_{ir} \hspace{0.12cm} \right) \right)^2   \hspace{0.1cm} +  \hspace{0.1cm} \lambda \cdot ||\hspace{0.1cm} \beta \hspace{0.1cm}||_1 \\[1.5cm]
+\hspace{4.6cm} \text{sujeto a:}  \hspace{0.35cm}  \beta_0 , \beta_1,...,\beta_p \in \mathbb{R} \\[0.3cm]  \hspace{7cm} \beta = (\beta_1,...,\beta_p)^t \\[0.3cm]
+\hspace{7cm} ||\hspace{0.1cm} \beta \hspace{0.1cm}||_1 \hspace{0.1cm} \leq \hspace{0.1cm} s$$
 
 
+Donde:
 
+- $s >0\hspace{0.1cm}$ es el único valor asociado a cada $\hspace{0.1cm}\lambda\hspace{0.1cm}$ tal que las soluciones de ambos problemas (el problema en términos de $\hspace{0.1cm}\lambda\hspace{0.1cm}$ y el problema en términos de $\hspace{0.1cm}s\hspace{0.1cm}$) son similares. $\\[0.4cm]$
 
+- $||\hspace{0.1cm} \beta \hspace{0.1cm}||_2^2 \hspace{0.1cm} \leq \hspace{0.1cm} s \hspace{0.15cm}$ es denominada **restriccción Ridge**. $\\[0.4cm]$
 
-
-
+- $||\hspace{0.1cm} \beta \hspace{0.1cm}||_1 \hspace{0.1cm} \leq \hspace{0.1cm} s \hspace{0.15cm}$ es denominada **restriccción Lasso**.
 
 
 
@@ -532,25 +512,83 @@ La unica diferencia entre regresión Ridge y Lasso es que el termino $\hspace{0.
 
 
 
+## Diferencias entre Ridge y Lasso
+
+La región  $\hspace{0.1cm}\left\lbrace \hspace{0.15cm} \beta =(\beta_1,...,\beta_p)^t \hspace{0.2cm} / \hspace{0.2cm} ||\hspace{0.1cm} \beta \hspace{0.1cm}||_2^2 = \sum_{j=1}^p \hspace{0.1cm} \beta_j^2 \hspace{0.15cm} \leq \hspace{0.15cm} s \hspace{0.15cm} \right\rbrace\hspace{0.2cm}$ es denominada región Ridge, y es una circunferencia $\hspace{0.1cm}p$-dimensional. Por ejemplo, si $\hspace{0.1cm}p=2\hspace{0.1cm}$ es un circulo.
+
+
+
+La región  $\hspace{0.1cm}\left\lbrace \hspace{0.15cm} \beta =(\beta_1,...,\beta_p)^t \hspace{0.2cm} / \hspace{0.2cm} ||\hspace{0.1cm} \beta \hspace{0.1cm}||_1 = \sum_{j=1}^p \hspace{0.1cm} | \beta_j | \hspace{0.15cm} \leq \hspace{0.15cm} s \hspace{0.15cm} \right\rbrace\hspace{0.2cm}$ es denominada región Lasso, y es una rombo $\hspace{0.1cm} p$-dimensional. $\\[0.5cm]$
+
+
+Vamos a adoptar la siguiente notación:
+
+$$RSS(\beta) \hspace{0.1cm}=\hspace{0.1cm}RSS(\beta_0, \beta_1,...,\beta_p) \hspace{0.1cm}=\hspace{0.1cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  \widetilde{y}_i \hspace{0.1cm} - \hspace{0.1cm}  \left( \beta_{0} \hspace{0.1cm} + \hspace{0.1cm} \sum_{j=1}^p \hspace{0.1cm} \beta_{j} \cdot \widetilde{x}_{ij}  \hspace{0.12cm} \right) \right)^2$$ $\\[0.5cm]$
+
+
+Sea $\hspace{0.15cm}\widehat{\beta}_{mco} = \left(\widehat{\beta}_{0\hspace{0.05cm},\hspace{0.05cm}mco} \hspace{0.05cm},\hspace{0.05cm} \widehat{\beta}_{1\hspace{0.05cm},\hspace{0.05cm}mco}\hspace{0.05cm},\hspace{0.05cm} ...\hspace{0.05cm},\hspace{0.05cm} \widehat{\beta}_{p\hspace{0.05cm},\hspace{0.05cm}mco} \right)^t\hspace{0.15cm}$  la solución al problema de mínimos cuadrados ordinarios, entonces:
+
+$$RSS_{min} \hspace{0.1cm}=\hspace{0.1cm} RSS(\widehat{\beta}_{mco})$$ 
+
+
+es el mínimo valor de $\hspace{0.1cm} RSS(\beta)$.
+
+
+
+Consideremos ahora la curva de nivel $c$ de $RSS(\beta)$ :
+
+$$\lbrace \hspace{0.1cm} \beta \hspace{0.15cm} / \hspace{0.15cm} RSS(\beta) = c \hspace{0.1cm} \rbrace$$
+
+
+Se puede demostrar que la region definida por la curva de nivel $c$ de $RSS(\beta)$ es un elipsoide $p$-dimensional. Por ejemplo, si $p=2$, entonces es una elipse.
+
+
+Observemos lo siguiente sobre estas elipses:
+
+Si $c = RSS_{min}$ entonces la curva de nivel $c$ de $RSS(\beta)$ solo tiene un punto, que es $\widehat{\beta}_{MCO}$, luego en este caso la elipse queda reducida a un punto, el vector beta óptimo según mínimos cuadrados ordinarios.
+
+Si $c > RSS_{min}$ , entonces la curva de nivel $c$ de $RSS(\beta)$ es un elipsoide $p$-dimensional , como ya hemos mencionado.
+
+
+Si $c_1 > c_2 > RSS_{min}$ , entonces la curva de nivel $c_1$ de $RSS(\beta)$ es una elipse mas grande que la elipse asociada a la curva de nivel $c_2$ de $RSS(\beta)$.
+
+
+Si $c < RSS_{min}$, entonces la curva de nivel $c$ de $RSS(\beta)$ es el conjunto vacio.
+
+
+
+En la siguiente imagen se han representado las regiones Lasso y Ridge, asi como $\widehat{\beta}_{MCO}$  y las curvas de nivel $c$ de $RSS(\beta)$ , con varios valores de $c$, para un $p=2$
+
+
+Dada la elipse mas pequeña que interseca con la region Lasso, hay que notar que esta intersección será en un solo punto, $\widehat{\beta}_{Lasso}$, que es justamente el vector de betas óptimo segun el problema Lasso.
+
+Analogamente, dada la elipse mas pequeña que interseca con la region Ridge, hay que notar que esta intersección será en un solo punto, $\widehat{\beta}_{Ridge}$, que es justamente el vector de betas óptimo según el problema Ridge.
+
+
+
+ 
+Como la región Ridge es una circunferencia (en este caso un circulo), entonces lo normal es que el punto de intersección no este sobre un eje, por lo que las estimaciones de los betas serán exclusivamente distintas de cero.
+
+Y como la región Lasso es un rombo, entonces el punto de intersección óptimo a menudo estará sobre el eje, por lo que alguno de los betas estimados será cero.
+
+
+
+Y en la dimensión $p>2$ ocurre lo mismo.
 
 
 <br>
 
-# Error de train, test , sesgo y varianza en Regresion Ridge y Lasso
+<center>
 
+![](elipses.png){width="75%"}
 
-grafico de lambda vs train error/test error/sesgo/varianza
-
-
-
-
-
-
-
-
+</center>
 
 <br>
-
+ 
+ 
+ 
+<br>
 
 # Regresión lineal Elastic Net
 
@@ -558,7 +596,7 @@ grafico de lambda vs train error/test error/sesgo/varianza
 
 
 
-555
+<br>
 
 
 
