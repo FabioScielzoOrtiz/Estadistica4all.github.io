@@ -214,7 +214,94 @@ Supongamos que estamos en el mejor de los casos y la verdadera relacion entre la
 > Necesitamos metodos que nos permitan obtener modelos de regresión lineal competitivos con un numero de parametros bajo, para evitar así la maldicion de la dimensionalidad.
 
 
-A continuación vamos a ver algoritmos que nos permiten, dada  una muestra de observaciones de de $\hspace{0.1cm} p\hspace{0.1cm}$ predictores, obtener una muestra de $\hspace{0.1cm}q < p\hspace{0.1cm}$ predictores *auxiliares* que capture gran parte de la información presente en los $\hspace{0.1cm}p\hspace{0.1cm}$ predictores originales. La idea es entrenar el modelo de regresion lineal usando la informacion de los $\hspace{0.1cm}q < p\hspace{0.1cm}$ predictores auxiliares en lugar de los $\hspace{0.1cm}p\hspace{0.1cm}$ originales, en aras de reducir el número de parametros a estimar y mejorar así la maldicion de la dimensionalidad. 
+A continuación vamos a ver algoritmos que nos permiten, dada  una muestra de observaciones de de $\hspace{0.1cm} p\hspace{0.1cm}$ predictores, obtener una muestra de $\hspace{0.1cm}q < p\hspace{0.1cm}$ predictores *auxiliares* que capture gran parte de la información presente en los $\hspace{0.1cm}p\hspace{0.1cm}$ predictores originales. La idea es entrenar el modelo de regresion lineal usando la informacion de los $\hspace{0.1cm}q < p\hspace{0.1cm}$ predictores auxiliares en lugar de los $\hspace{0.1cm}p\hspace{0.1cm}$ originales, en aras de reducir el número de parametros a estimar y mejorar así la maldición de la dimensionalidad. 
+ 
+ 
+Vamos aver dos métodos a través de los cuales se puede llevar a cabo esta reduccion de la dimensionalidad y posterior aplicación al modelo de regresión lineal: Regresión lineal PCA y regresión lineal  PLS (regresión lineal por minimos cuadrados parciales). 
+
+ 
+<br>
+
+# Introducción a los métodos de reducción de la dimensión en regresión lineal
+
+
+
+
+Para usar los métodos que describiremos en las próximas secciones el primer paso es considerar las versiones **estandarizadas** de los predictores y de la respuesta.
+
+
+Las versiones estandarizadas de los predictores $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ y de la respuesta $\hspace{0.1cm} \mathcal{Y}\hspace{0.1cm}$ se obtienen  aplicando la operación de estandarización a los predictores y  la respuesta originales: $\\[0.5cm]$
+
+$$\widetilde{\hspace{0.01cm}\mathcal{\hspace{0.02cm}Y\hspace{0.1cm}}} = \dfrac{\mathcal{Y} - E[\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}]}{\sqrt{Var(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm})}}  \\[0.5cm]$$
+
+$$\widetilde{\hspace{0.02cm} \mathcal{X}}_j = \dfrac{\mathcal{X}_j - E[\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}]}{\sqrt{Var(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm})}}  \\[0.5cm]$$
+
+  
+
+para $\hspace{0.1cm} j \in \lbrace 1,..,p \rbrace\\$
+
+
+<br>
+
+---
+
+<br>
+
+
+Las muestras de los predictores y de la respuesta estandarizados $\hspace{0.1cm} \widetilde{\hspace{0.01cm}\mathcal{X}}_1,...,\widetilde{\hspace{0.01cm}\mathcal{X}}_p\hspace{0.1cm}$ y de la respuesta $\hspace{0.1cm} \widetilde{\hspace{0.01cm}\mathcal{\hspace{0.02cm}Y\hspace{0.1cm}}}\hspace{0.1cm}$ se obtienen de manera análoga, aplicando la operación de estandarización a las muestras disponibles de los predictores y de la respuesta originales: $\\[0.5cm]$
+
+$$\widetilde{\hspace{0.1cm} Y} = \dfrac{Y - \overline{y}}{\sigma_y}  \hspace{0.3cm}\Rightarrow \hspace{0.3cm} \widetilde{y}_i = \dfrac{y_i - \overline{y}}{\sigma_{y}} \\[0.5cm]$$
+
+$$\widetilde{X_j} = \dfrac{X_j - \overline{x}_j}{\sigma_{x_j}}  \hspace{0.3cm}\Rightarrow \hspace{0.3cm} \widetilde{x}_{ij} = \dfrac{x_{ij} - \overline{x}_j}{\sigma_{x_j}} \\$$ 
+
+para $\hspace{0.1cm} j \in \lbrace 1,..,p \rbrace$.
+
+
+Donde:
+
+$$\overline{y} = \dfrac{1}{n} \sum_{i=1}^n y_i \hspace{0.45cm} , \hspace{0.45cm} \overline{x_j} = \dfrac{1}{n} \sum_{i=1}^n x_{ij} \\$$
+
+$$\sigma_{y} = \sqrt{\sum_{i=1}^n (y_{i}- \overline{y})^2}  \hspace{0.45cm} , \hspace{0.45cm} \sigma_{x_j} = \sqrt{\sum_{i=1}^n (x_{ij}- \overline{x_j})^2}$$
+
+<br>
+
+---
+
+<br>
+ 
+
+Lo siguiente es obtener $\hspace{0.1cm} q < p\hspace{0.1cm}$ predictores auxiliares que capturen buena parte de la información contenida en las muestras de los $\hspace{0.1cm}p\hspace{0.1cm}$ predictores originales estandarizados .
+
+Estos predictores auxiliares se obtendrán de la siguiente forma:
+
+$$\mathcal{Z}_j \hspace{0.1cm}=\hspace{0.1cm} c_{j1} \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_1 \hspace{0.1cm}+ \dots +\hspace{0.1cm} c_{jp} \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_p$$
+
+
+
+
+
+# Regresión lineal PCA
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+<br>
+
+# Regresión PLS
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  

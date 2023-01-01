@@ -1512,6 +1512,9 @@ margin-left: 0 !important;
       <ul>
       <li><a href="#el-algoritmo-de-regresión-lineal-por-minimos-cuadrados-ordinaros" id="toc-el-algoritmo-de-regresión-lineal-por-minimos-cuadrados-ordinaros"><span class="toc-section-number">1</span> El algoritmo de regresión lineal por minimos cuadrados ordinaros <a class="anchor" id="5"></a></a></li>
       <li><a href="#la-maldición-de-la-dimensionalidad" id="toc-la-maldición-de-la-dimensionalidad"><span class="toc-section-number">2</span> La maldición de la dimensionalidad <a class="anchor" id="5"></a></a></li>
+      <li><a href="#introducción-a-los-métodos-de-reducción-de-la-dimensión-en-regresión-lineal" id="toc-introducción-a-los-métodos-de-reducción-de-la-dimensión-en-regresión-lineal"><span class="toc-section-number">3</span> Introducción a los métodos de reducción de la dimensión en regresión lineal</a></li>
+      <li><a href="#regresión-lineal-pca" id="toc-regresión-lineal-pca"><span class="toc-section-number">4</span> Regresión lineal PCA</a></li>
+      <li><a href="#regresión-pls" id="toc-regresión-pls"><span class="toc-section-number">5</span> Regresión PLS</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1625,7 +1628,40 @@ de los predictores y la respuesta. <span class="math inline">\(\\[0.5cm]\)</span
 <blockquote>
 <p>Necesitamos metodos que nos permitan obtener modelos de regresión lineal competitivos con un numero de parametros bajo, para evitar así la maldicion de la dimensionalidad.</p>
 </blockquote>
-<p>A continuación vamos a ver algoritmos que nos permiten, dada una muestra de observaciones de de <span class="math inline">\(\hspace{0.1cm} p\hspace{0.1cm}\)</span> predictores, obtener una muestra de <span class="math inline">\(\hspace{0.1cm}q &lt; p\hspace{0.1cm}\)</span> predictores <em>auxiliares</em> que capture gran parte de la información presente en los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores originales. La idea es entrenar el modelo de regresion lineal usando la informacion de los <span class="math inline">\(\hspace{0.1cm}q &lt; p\hspace{0.1cm}\)</span> predictores auxiliares en lugar de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> originales, en aras de reducir el número de parametros a estimar y mejorar así la maldicion de la dimensionalidad.</p>
+<p>A continuación vamos a ver algoritmos que nos permiten, dada una muestra de observaciones de de <span class="math inline">\(\hspace{0.1cm} p\hspace{0.1cm}\)</span> predictores, obtener una muestra de <span class="math inline">\(\hspace{0.1cm}q &lt; p\hspace{0.1cm}\)</span> predictores <em>auxiliares</em> que capture gran parte de la información presente en los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores originales. La idea es entrenar el modelo de regresion lineal usando la informacion de los <span class="math inline">\(\hspace{0.1cm}q &lt; p\hspace{0.1cm}\)</span> predictores auxiliares en lugar de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> originales, en aras de reducir el número de parametros a estimar y mejorar así la maldición de la dimensionalidad.</p>
+<p>Vamos aver dos métodos a través de los cuales se puede llevar a cabo esta reduccion de la dimensionalidad y posterior aplicación al modelo de regresión lineal: Regresión lineal PCA y regresión lineal PLS (regresión lineal por minimos cuadrados parciales).</p>
+<p><br></p>
+</div>
+<div id="introducción-a-los-métodos-de-reducción-de-la-dimensión-en-regresión-lineal" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Introducción a los métodos de reducción de la dimensión en regresión lineal</h1>
+<p>Para usar los métodos que describiremos en las próximas secciones el primer paso es considerar las versiones <strong>estandarizadas</strong> de los predictores y de la respuesta.</p>
+<p>Las versiones estandarizadas de los predictores <span class="math inline">\(\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}\)</span> y de la respuesta <span class="math inline">\(\hspace{0.1cm} \mathcal{Y}\hspace{0.1cm}\)</span> se obtienen aplicando la operación de estandarización a los predictores y la respuesta originales: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\widetilde{\hspace{0.01cm}\mathcal{\hspace{0.02cm}Y\hspace{0.1cm}}} = \dfrac{\mathcal{Y} - E[\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}]}{\sqrt{Var(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm})}}  \\[0.5cm]\]</span></p>
+<p><span class="math display">\[\widetilde{\hspace{0.02cm} \mathcal{X}}_j = \dfrac{\mathcal{X}_j - E[\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}]}{\sqrt{Var(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm})}}  \\[0.5cm]\]</span></p>
+<p>para <span class="math inline">\(\hspace{0.1cm} j \in \lbrace 1,..,p \rbrace\\\)</span></p>
+<p><br></p>
+<hr />
+<p><br></p>
+<p>Las muestras de los predictores y de la respuesta estandarizados <span class="math inline">\(\hspace{0.1cm} \widetilde{\hspace{0.01cm}\mathcal{X}}_1,...,\widetilde{\hspace{0.01cm}\mathcal{X}}_p\hspace{0.1cm}\)</span> y de la respuesta <span class="math inline">\(\hspace{0.1cm} \widetilde{\hspace{0.01cm}\mathcal{\hspace{0.02cm}Y\hspace{0.1cm}}}\hspace{0.1cm}\)</span> se obtienen de manera análoga, aplicando la operación de estandarización a las muestras disponibles de los predictores y de la respuesta originales: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\widetilde{\hspace{0.1cm} Y} = \dfrac{Y - \overline{y}}{\sigma_y}  \hspace{0.3cm}\Rightarrow \hspace{0.3cm} \widetilde{y}_i = \dfrac{y_i - \overline{y}}{\sigma_{y}} \\[0.5cm]\]</span></p>
+<p><span class="math display">\[\widetilde{X_j} = \dfrac{X_j - \overline{x}_j}{\sigma_{x_j}}  \hspace{0.3cm}\Rightarrow \hspace{0.3cm} \widetilde{x}_{ij} = \dfrac{x_{ij} - \overline{x}_j}{\sigma_{x_j}} \\\]</span></p>
+<p>para <span class="math inline">\(\hspace{0.1cm} j \in \lbrace 1,..,p \rbrace\)</span>.</p>
+<p>Donde:</p>
+<p><span class="math display">\[\overline{y} = \dfrac{1}{n} \sum_{i=1}^n y_i \hspace{0.45cm} , \hspace{0.45cm} \overline{x_j} = \dfrac{1}{n} \sum_{i=1}^n x_{ij} \\\]</span></p>
+<p><span class="math display">\[\sigma_{y} = \sqrt{\sum_{i=1}^n (y_{i}- \overline{y})^2}  \hspace{0.45cm} , \hspace{0.45cm} \sigma_{x_j} = \sqrt{\sum_{i=1}^n (x_{ij}- \overline{x_j})^2}\]</span></p>
+<p><br></p>
+<hr />
+<p><br></p>
+<p>Lo siguiente es obtener <span class="math inline">\(\hspace{0.1cm} q &lt; p\hspace{0.1cm}\)</span> predictores auxiliares que capturen buena parte de la información contenida en las muestras de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores originales estandarizados .</p>
+<p>Estos predictores auxiliares se obtendrán de la siguiente forma:</p>
+<p><span class="math display">\[\mathcal{Z}_j \hspace{0.1cm}=\hspace{0.1cm} c_{j1} \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_1 \hspace{0.1cm}+ \dots +\hspace{0.1cm} c_{jp} \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_p\]</span></p>
+</div>
+<div id="regresión-lineal-pca" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Regresión lineal PCA</h1>
+<p><br></p>
+</div>
+<div id="regresión-pls" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Regresión PLS</h1>
 </div>
 </div>
 
