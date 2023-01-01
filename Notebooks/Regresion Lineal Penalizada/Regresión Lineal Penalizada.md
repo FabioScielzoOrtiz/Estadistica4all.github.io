@@ -482,9 +482,9 @@ No existe una solución cerrada para este problema de optimización. Por tanto e
 
 **Problema Ridge:**
 
-$$\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p \right)  \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_p}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  \widetilde{y}_i - \left( \hspace{0.12cm} \beta_0 + \sum_{r=1}^p \hspace{0.1 cm} \beta_r \cdot \widetilde{x}_{ir} \hspace{0.12cm} \right) \right)^2   \hspace{0.1cm}  \\[1.5cm]
-\hspace{4.6cm} \text{sujeto a:}  \hspace{0.35cm}  \beta_0 , \beta_1,...,\beta_p \in \mathbb{R} \\[0.3cm]  \hspace{7cm} \beta = (\beta_1,...,\beta_p)^t \\[0.3cm]
-\hspace{7cm} ||\hspace{0.1cm} \beta \hspace{0.1cm}||_2^2 \hspace{0.1cm} \leq \hspace{0.1cm} s
+$$\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p \right)  \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_p}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  \widetilde{y}_i - \left( \hspace{0.12cm} \beta_0 + \sum_{r=1}^p \hspace{0.1 cm} \beta_r \cdot \widetilde{x}_{ir} \hspace{0.12cm} \right) \right)^2     \hspace{0.1cm} +  \hspace{0.1cm} \lambda \cdot ||\hspace{0.1cm} \beta \hspace{0.1cm}||_2^2 \\[1.5cm]
+\hspace{1.7cm} \text{sujeto a:}  \hspace{0.35cm}  \beta_0 , \beta_1,...,\beta_p \in \mathbb{R} \\[0.3cm]  \hspace{4cm} \beta = (\beta_1,...,\beta_p)^t \\[0.3cm]
+\hspace{4cm} ||\hspace{0.1cm} \beta \hspace{0.1cm}||_2^2 \hspace{0.1cm} \leq \hspace{0.1cm} s
 $$
 
 
@@ -494,8 +494,8 @@ $$
 **Problema Lasso:**
 
 $$\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p \right)  \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_p}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  \widetilde{y}_i - \left( \hspace{0.12cm} \beta_0 + \sum_{r=1}^p \hspace{0.1 cm} \beta_r \cdot \widetilde{x}_{ir} \hspace{0.12cm} \right) \right)^2   \hspace{0.1cm} +  \hspace{0.1cm} \lambda \cdot ||\hspace{0.1cm} \beta \hspace{0.1cm}||_1 \\[1.5cm]
-\hspace{4.6cm} \text{sujeto a:}  \hspace{0.35cm}  \beta_0 , \beta_1,...,\beta_p \in \mathbb{R} \\[0.3cm]  \hspace{7cm} \beta = (\beta_1,...,\beta_p)^t \\[0.3cm]
-\hspace{7cm} ||\hspace{0.1cm} \beta \hspace{0.1cm}||_1 \hspace{0.1cm} \leq \hspace{0.1cm} s$$
+\hspace{1.7cm} \text{sujeto a:}  \hspace{0.35cm}  \beta_0 , \beta_1,...,\beta_p \in \mathbb{R} \\[0.3cm]  \hspace{4cm} \beta = (\beta_1,...,\beta_p)^t \\[0.3cm]
+\hspace{4cm} ||\hspace{0.1cm} \beta \hspace{0.1cm}||_1 \hspace{0.1cm} \leq \hspace{0.1cm} s \\$$
 
 
 Donde:
@@ -512,32 +512,34 @@ Donde:
 
 
 
-## Diferencias entre Ridge y Lasso
+## ¿ Por qué Lasso selecciona predictores y Ridge no ?
 
-La región  $\hspace{0.1cm}\left\lbrace \hspace{0.15cm} \beta =(\beta_1,...,\beta_p)^t \hspace{0.2cm} / \hspace{0.2cm} ||\hspace{0.1cm} \beta \hspace{0.1cm}||_2^2 = \sum_{j=1}^p \hspace{0.1cm} \beta_j^2 \hspace{0.15cm} \leq \hspace{0.15cm} s \hspace{0.15cm} \right\rbrace\hspace{0.2cm}$ es denominada región Ridge, y es una circunferencia $\hspace{0.1cm}p$-dimensional. Por ejemplo, si $\hspace{0.1cm}p=2\hspace{0.1cm}$ es un circulo.
+### Regiones Lasso y Ridge
+
+- El conjunto  $\hspace{0.1cm}\left\lbrace \hspace{0.15cm} \beta =(\beta_1,...,\beta_p)^t \hspace{0.2cm} / \hspace{0.2cm} ||\hspace{0.1cm} \beta \hspace{0.1cm}||_2^2 = \sum_{j=1}^p \hspace{0.1cm} \beta_j^2 \hspace{0.15cm} \leq \hspace{0.15cm} s \hspace{0.15cm} \right\rbrace\hspace{0.2cm}$ es denominado **región Ridge**, y es una circunferencia $\hspace{0.1cm}p$-dimensional. Por ejemplo, si $\hspace{0.1cm}p=2\hspace{0.1cm}$ es un circulo.
 
 
 
-La región  $\hspace{0.1cm}\left\lbrace \hspace{0.15cm} \beta =(\beta_1,...,\beta_p)^t \hspace{0.2cm} / \hspace{0.2cm} ||\hspace{0.1cm} \beta \hspace{0.1cm}||_1 = \sum_{j=1}^p \hspace{0.1cm} | \beta_j | \hspace{0.15cm} \leq \hspace{0.15cm} s \hspace{0.15cm} \right\rbrace\hspace{0.2cm}$ es denominada región Lasso, y es una rombo $\hspace{0.1cm} p$-dimensional. $\\[0.5cm]$
+- El conjunto  $\hspace{0.1cm}\left\lbrace \hspace{0.15cm} \beta =(\beta_1,...,\beta_p)^t \hspace{0.2cm} / \hspace{0.2cm} ||\hspace{0.1cm} \beta \hspace{0.1cm}||_1 = \sum_{j=1}^p \hspace{0.1cm} | \beta_j | \hspace{0.15cm} \leq \hspace{0.15cm} s \hspace{0.15cm} \right\rbrace\hspace{0.2cm}$ es denominada **región Lasso**, y es un rombo $\hspace{0.1cm} p$-dimensional. $\\[0.5cm]$
 
+
+<br>
+
+
+### Elipses minimo-cuadraticas
 
 Vamos a adoptar la siguiente notación:
 
 $$RSS(\beta) \hspace{0.1cm}=\hspace{0.1cm}RSS(\beta_0, \beta_1,...,\beta_p) \hspace{0.1cm}=\hspace{0.1cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  \widetilde{y}_i \hspace{0.1cm} - \hspace{0.1cm}  \left( \beta_{0} \hspace{0.1cm} + \hspace{0.1cm} \sum_{j=1}^p \hspace{0.1cm} \beta_{j} \cdot \widetilde{x}_{ij}  \hspace{0.12cm} \right) \right)^2$$ $\\[0.5cm]$
 
 
-Sea $\hspace{0.15cm}\widehat{\beta}_{mco} = \left(\widehat{\beta}_{0\hspace{0.05cm},\hspace{0.05cm}mco} \hspace{0.05cm},\hspace{0.05cm} \widehat{\beta}_{1\hspace{0.05cm},\hspace{0.05cm}mco}\hspace{0.05cm},\hspace{0.05cm} ...\hspace{0.05cm},\hspace{0.05cm} \widehat{\beta}_{p\hspace{0.05cm},\hspace{0.05cm}mco} \right)^t\hspace{0.15cm}$  la solución al problema de mínimos cuadrados ordinarios, entonces:
-
-$$RSS_{min} \hspace{0.1cm}=\hspace{0.1cm} RSS(\widehat{\beta}_{mco})$$ 
-
-
+Sea $\hspace{0.15cm}\widehat{\beta}_{MCO} \hspace{0.15cm}$  la solución al problema de mínimos cuadrados ordinarios, entonces
+$RSS_{min} \hspace{0.1cm}=\hspace{0.1cm} RSS(\widehat{\beta}_{MCO}) \hspace{0.1cm}$ 
 es el mínimo valor de $\hspace{0.1cm} RSS(\beta)$.
 
 
 
-Consideremos ahora la curva de nivel $c$ de $RSS(\beta)$ :
-
-$$\lbrace \hspace{0.1cm} \beta \hspace{0.15cm} / \hspace{0.15cm} RSS(\beta) = c \hspace{0.1cm} \rbrace$$
+Consideremos ahora la curva de nivel $\hspace{0.1cm}c\hspace{0.1cm}$ de $\hspace{0.1cm}RSS(\beta) \hspace{0.25cm} \Rightarrow \hspace{0.25cm} \lbrace \hspace{0.1cm} \beta \hspace{0.15cm} / \hspace{0.15cm} RSS(\beta) = c \hspace{0.1cm} \rbrace$
 
 
 Se puede demostrar que la region definida por la curva de nivel $c$ de $RSS(\beta)$ es un elipsoide $p$-dimensional. Por ejemplo, si $p=2$, entonces es una elipse.
@@ -556,13 +558,17 @@ Si $c_1 > c_2 > RSS_{min}$ , entonces la curva de nivel $c_1$ de $RSS(\beta)$ es
 Si $c < RSS_{min}$, entonces la curva de nivel $c$ de $RSS(\beta)$ es el conjunto vacio.
 
 
+<br>
+
+
+### Intuición gráfica
 
 En la siguiente imagen se han representado las regiones Lasso y Ridge, asi como $\widehat{\beta}_{MCO}$  y las curvas de nivel $c$ de $RSS(\beta)$ , con varios valores de $c$, para un $p=2$
 
 
-Dada la elipse mas pequeña que interseca con la region Lasso, hay que notar que esta intersección será en un solo punto, $\widehat{\beta}_{Lasso}$, que es justamente el vector de betas óptimo segun el problema Lasso.
+Dada la elipse mas pequeña que interseca con la region Lasso, hay que notar que esta intersección será en un solo punto, $\hspace{0.1cm}\widehat{\beta}_{Lasso}\hspace{0.1cm}$, que es justamente el vector de betas óptimo segun el problema Lasso.
 
-Analogamente, dada la elipse mas pequeña que interseca con la region Ridge, hay que notar que esta intersección será en un solo punto, $\widehat{\beta}_{Ridge}$, que es justamente el vector de betas óptimo según el problema Ridge.
+Analogamente, dada la elipse mas pequeña que interseca con la region Ridge, hay que notar que esta intersección será en un solo punto, $\hspace{0.1cm}\widehat{\beta}_{Ridge}\hspace{0.1cm}$, que es justamente el vector de betas óptimo según el problema Ridge.
 
 
 
@@ -573,7 +579,7 @@ Y como la región Lasso es un rombo, entonces el punto de intersección óptimo 
 
 
 
-Y en la dimensión $p>2$ ocurre lo mismo.
+Y en la dimensión $\hspace{0.1cm}p>2\hspace{0.1cm}$ ocurre lo mismo.
 
 
 <br>
@@ -590,7 +596,13 @@ Y en la dimensión $p>2$ ocurre lo mismo.
  
 <br>
 
+
 # Regresión lineal Elastic Net
+
+
+
+
+
 
 
 
