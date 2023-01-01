@@ -1,7 +1,7 @@
 ---
-title: 'Model Selection in Linear Regression'
+title: 'Algoritmos de selección de predictores en regresión lienal'
 author: 'Fabio Scielzo Ortiz'
-date: '10/1/23'
+date: '20/1/23'
 output: 
    rmdformats::readthedown:
       use_bookdown: true
@@ -87,7 +87,6 @@ Se recomienda la lectura de algunos artículos de [Estadistica4all](http://estad
 # El algoritmo de regresión lineal <a class="anchor" id="5"></a>
 
 
-
 En esta seccion vamos a presentar el modelo de regresión lineal desde un enfoque algorítmico, como algoritmo de regresión.
 
 - Se consideran $\hspace{0.1cm} p\hspace{0.1cm}$ variables estadísticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ y una variable respuesta $\hspace{0.1cm}\mathcal{Y}$ $\\[0.5cm]$
@@ -106,9 +105,34 @@ de los predictores y la respuesta. $\\[0.5cm]$
 
 
 
+El modelo estadístico que se plantea en regresión lineal es el siguiente:
+
+Tenemos una m.a.s $\hspace{0.1cm}\mathcal{Y}_1,...,\mathcal{Y}_n\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{Y}$
+
+Se asume que para cada $\hspace{0.1cm}i=1,...,n\hspace{0.1cm}$ se tiene la siguiente relación:
+
+$$\mathcal{Y}_i = \beta_0 + \sum_{j=1}^p \beta_j \cdot x_{ij} + \varepsilon_i$$ 
 
 
-La predicción de la variable respuesta para un vector cualquiera de observaciones   de los predictores $\hspace{0.1cm}x_{*} \in \mathbb{R}^{p}\hspace{0.1cm}$, según el algoritmo de regresión lineal, es la siguiente:
+Donde:
+
+- $\varepsilon_i \sim N(0,\sigma^2) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n\rbrace \\$
+
+- $Corr(\varepsilon_i , \varepsilon_r) = 0 \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \neq r \in \lbrace 1,...,n\rbrace \\$
+
+- $\beta_0,...,\beta_p  \in \mathbb{R}\\$
+
+
+Observación: $\hspace{0.25cm} \mathcal{Y}_i \sim N( \beta_0 + \sum_{j=1}^p \beta_j \cdot x_{ij} , \sigma^2  )$
+
+
+Este modelo estadístico permite hacer inferencia estadistica sobre la respuesta y los predictores, que puede ser de gran interés, pero no es estrictamente necesario para realizar predicciones. 
+
+En regresión lineal clásica existen esencialmente dos vias equivalentes de hacer predicciones con el modelo. Una pasa por usar suspropiedades estadisticas para estimarl los coeficientes betas por el método de máxima verosimilitud. El otro pasa por estimar los betas por el método de minimos cuadrados, el cual no depende de las propiedades estadisticas del modelo. Estas dos vías son equivalentes en el contexto de la regresión lineal clasica, es decir, cuando las perturbaciones $\varepsilon_i$ cumplen las propiedades estadisticas especificadass anteriormente.
+
+En este caso vamos a esponer la vía basada en el método de mínimos cuadrados ordinarios:
+
+La predicción de la variable respuesta para un vector cualquiera de observaciones   de los predictores $\hspace{0.1cm}x_{*} \in \mathbb{R}^{p}\hspace{0.1cm}$, según el algoritmo de regresión lineal, es la siguiente: $\\[0.4cm]$
 
 
 
@@ -116,7 +140,8 @@ $$\hat{y}_*  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{r=1}^p \
 
 donde los parametros $\hspace{0.12cm}\widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p\hspace{0.12cm}$ se obtienen resolviendo el problema de mínimos cuadrados ordinarios:
 
-$$\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p \right)  \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_p}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  y_i - \left( \hspace{0.12cm} \beta_0 + \sum_{r=1}^p \hspace{0.1 cm} \beta_r \cdot x_{ir} \hspace{0.12cm} \right) \right)^2$$
+$$\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p \right)  \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_p}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  y_i - \left( \hspace{0.12cm} \beta_0 + \sum_{r=1}^p \hspace{0.1 cm} \beta_r \cdot x_{ir} \hspace{0.12cm} \right) \right)^2 \\[1.5cm]
+\hspace{4.6cm} \text{sujeto a:}  \hspace{0.35cm}  \beta_0 , \beta_1,...,\beta_p \in \mathbb{R}$$
 
  
 
@@ -151,6 +176,7 @@ $$\hspace{0.1cm} X \hspace{0.1cm}=\hspace{0.1cm} [\hspace{0.05cm}\mathbb{1} , X_
 - Se denomina regresión **lineal** por que la ecuación con la que se predice la respuesta es una ecuación lineal en los betas.  $\\[0.4cm]$
 
 - $\widehat{\beta}_0 +  \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x\hspace{0.12cm}$ , con $\hspace{0.12cm}x\in \mathbb{R}^p\hspace{0.12cm}$, es el hiper-plano $\hspace{0.12cm}p$-dimensional que mejor se ajusta a los datos disponibles de la respusta y los predictores $\hspace{0.12cm}\lbrace (y_i,x_i) \hspace{0.12cm} / \hspace{0.12cm} i=1,...,n \rbrace\hspace{0.12cm}$, dado que es el hiper-plano óptimo en el sentido de minimos cuadrados ordinarios.
+
 
 
 
@@ -1343,7 +1369,7 @@ El algoritmo backward-selection tiene los siguientes pasos:
 - Se entrenan todos los  modelos de regresión lineal que resultan de eliminar un   predictor del modelo $\hspace{0.15cm} M_{2}^*=M_{p-(p-2)}^*=M(r_{p-2,1}^*,r_{p-2,2}^*)$ :
 
 
-    $$M_{1} \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  M(r)    \hspace{0.2cm} / \hspace{0.2cm}  r \in \lbrace r_{p-2,1}^*,r_{p-2,2}^* \rbrace  \hspace{0.1cm} \right\rbrace   \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  \hat{y}_i = \widehat{\beta}_0 + \beta_{r} \cdot x_{i r}   \hspace{0.2cm} / \hspace{0.2cm}  r\in \lbrace r_{p-2,1}^*,r_{p-2,2}^* \rbrace  \hspace{0.1cm} \right\rbrace$$ 
+    $$M_{1} \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  M(r)    \hspace{0.2cm} / \hspace{0.2cm}  r \in \lbrace r_{p-2,1}^*,r_{p-2,2}^* \rbrace  \hspace{0.1cm} \right\rbrace   \hspace{0.1cm} = \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  \hat{y}_i = \widehat{\beta}_0 + \beta_{r} \cdot x_{i r}   \hspace{0.2cm} / \hspace{0.2cm}  r\in \lbrace r_{p-2,1}^*,r_{p-2,2}^* \rbrace  \hspace{0.1cm} \right\rbrace \\$$ 
 
 
 
@@ -1360,7 +1386,12 @@ El algoritmo backward-selection tiene los siguientes pasos:
     
     - Si se usa el criterio $\hspace{0.1cm}R_{adj}^2$ $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ se selecciona el modelo con **mayor** $\hspace{0.1cm}R_{adj}^2\hspace{0.1cm}$    
  
-       Por ejemplo, si se usa el criterio $\hspace{0.1cm}AIC\hspace{0.1cm}$, entonces el modelo seleccionado es $\hspace{0.15cm} M^*  \hspace{0.15cm} = \hspace{0.15cm} arg \hspace{0.25cm} \underset{M \in \lbrace M_1, M_2^*,..., M_{p-1}^*, M_p \rbrace  }{Min}   \hspace{0.25cm} AIC\left( \hspace{0.05cm} M \hspace{0.05cm}\right)_{train} \\$
+       Por ejemplo, si se usa el criterio $\hspace{0.1cm}AIC\hspace{0.1cm}$, entonces el modelo seleccionado es $M^*$.
+       
+       Donde:
+       
+$$M^*  \hspace{0.15cm} = \hspace{0.15cm} arg \hspace{0.25cm} \underset{M}{Min}   \hspace{0.25cm} AIC\left( \hspace{0.05cm} M  \hspace{0.05cm}\right)_{train} \\[0.6cm]    
+\hspace{-6.5cm} \text{sujeto a :}    \\[0.3cm]  \hspace{3cm}  M \in \lbrace M_1, M_2^*,..., M_{p-1}^*, M_p \rbrace$$
 
  
 
