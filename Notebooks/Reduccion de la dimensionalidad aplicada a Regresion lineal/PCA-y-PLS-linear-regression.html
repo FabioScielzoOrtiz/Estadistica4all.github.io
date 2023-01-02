@@ -1590,7 +1590,7 @@ de los predictores y la respuesta. <span class="math inline">\(\\[0.5cm]\)</span
 <p>Observación: <span class="math inline">\(\hspace{0.25cm} \mathcal{Y}_i \sim N( \beta_0 + \sum_{j=1}^p \beta_j \cdot x_{ij} , \sigma^2 )\)</span></p>
 <p>Este modelo estadístico permite hacer inferencia estadistica sobre la respuesta y los predictores, que puede ser de gran interés, pero no es estrictamente necesario para realizar predicciones.</p>
 <p>En regresión lineal clásica existen esencialmente dos vias equivalentes de hacer predicciones con el modelo. Una pasa por usar suspropiedades estadisticas para estimarl los coeficientes betas por el método de máxima verosimilitud. El otro pasa por estimar los betas por el método de minimos cuadrados, el cual no depende de las propiedades estadisticas del modelo. Estas dos vías son equivalentes en el contexto de la regresión lineal clasica, es decir, cuando las perturbaciones <span class="math inline">\(\varepsilon_i\)</span> cumplen las propiedades estadisticas especificadass anteriormente.</p>
-<p>En este caso vamos a esponer la vía basada en el método de mínimos cuadrados ordinarios:</p>
+<p>En este caso vamos a exponer la vía basada en el método de mínimos cuadrados ordinarios:</p>
 <p>La predicción de la variable respuesta para un vector cualquiera de observaciones de los predictores <span class="math inline">\(\hspace{0.1cm}x_{*} \in \mathbb{R}^{p}\hspace{0.1cm}\)</span>, según el algoritmo de regresión lineal, es la siguiente: <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p><span class="math display">\[\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_*  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x_{*r} \hspace{0.3cm} , \hspace{0.25cm} \forall \hspace{0.1cm} x_* \in \mathbb{R}^p\]</span></p>
 <p>donde los parametros <span class="math inline">\(\hspace{0.12cm}\widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p\hspace{0.12cm}\)</span> se obtienen resolviendo el <strong>problema de mínimos cuadrados ordinarios</strong>:</p>
@@ -1654,14 +1654,150 @@ de los predictores y la respuesta. <span class="math inline">\(\\[0.5cm]\)</span
 <p><br></p>
 <p>Lo siguiente es obtener <span class="math inline">\(\hspace{0.1cm} q &lt; p\hspace{0.1cm}\)</span> predictores auxiliares que capturen buena parte de la información contenida en las muestras de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores originales estandarizados .</p>
 <p>Estos predictores auxiliares se obtendrán de la siguiente forma:</p>
-<p><span class="math display">\[\mathcal{Z}_j \hspace{0.1cm}=\hspace{0.1cm} c_{j1} \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_1 \hspace{0.1cm}+ \dots +\hspace{0.1cm} c_{jp} \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_p\]</span></p>
+<p><span class="math display">\[\mathcal{Z}_j \hspace{0.1cm}=\hspace{0.1cm} c_{j1} \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_1 \hspace{0.1cm}+ \dots +\hspace{0.1cm} c_{jp} \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_p \hspace{0.35cm} , \hspace{0.35cm} \forall \hspace{0.1cm} j \in \lbrace 1,..., q \rbrace \\\]</span></p>
+<p>donde <span class="math inline">\(\hspace{0.1cm}c_{j1},...,c_{jp}\hspace{0.1cm}\)</span> son los pesos que en el predictor auxiliar <span class="math inline">\(\hspace{0.1cm}\mathcal{Z}_j\hspace{0.1cm}\)</span> tienen cada uno de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores originales, para <span class="math inline">\(\hspace{0.1cm}j=1,...,p\)</span> <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p>Las muestras de los predictores auxiliares se obtiene directamente de las muestras de los originales:</p>
+<p><span class="math display">\[Z_j \hspace{0.1cm}=\hspace{0.1cm} (z_{1j},...,z_{nj}) \hspace{0.1cm}=\hspace{0.1cm} c_{j1} \cdot  \widetilde{X}_1 \hspace{0.1cm}+ \dots +\hspace{0.1cm} c_{jp} \cdot  \widetilde{X}_p \hspace{0.35cm} , \hspace{0.35cm} \forall \hspace{0.1cm} j \in \lbrace 1,..., q \rbrace \\\]</span></p>
+<p>La idea es estimar por minimos cuadrados ordinarios un modelo de regresión lineal con los predictores auxiliares <span class="math inline">\(\mathcal{Z}_1,...,\mathcal{Z}_q\)</span>:</p>
+<p><span class="math display">\[\widetilde{\hspace{0.01cm}\mathcal{\hspace{0.02cm}Y\hspace{0.1cm}}} \hspace{0.1cm}=\hspace{0.1cm} \beta_0 \hspace{0.1cm} + \hspace{0.1cm} \sum_{j=1}^q \hspace{0.1cm} \beta_j \cdot z_{ij} \hspace{0.1cm}+\hspace{0.1cm} \varepsilon_i\]</span></p>
+<p>Si se aplica el algoritmo de regresión lineal por minimos cuadrados con los <strong>predictores auxiliares</strong> tenemos que la predicción de la variable respuesta para un vector cualquiera de observaciones de los <strong>predictores auxiliares</strong> <span class="math inline">\(\hspace{0.1cm}z_{*} \in \mathbb{R}^{q}\hspace{0.1cm}\)</span> es la siguiente: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_*  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{j=1}^q \hspace{0.12cm} \widehat{\beta}_j \cdot x_{*j} \hspace{0.3cm} , \hspace{0.25cm} \forall \hspace{0.1cm} z_* \in \mathbb{R}^q\]</span></p>
+<p>donde los parámetros <span class="math inline">\(\hspace{0.12cm}\widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_q\hspace{0.12cm}\)</span> se obtienen resolviendo el <strong>problema de mínimos cuadrados ordinarios</strong>:</p>
+<p><span class="math display">\[\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_q \right)  \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_q}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  y_i - \left( \hspace{0.12cm} \beta_0 + \sum_{j=1}^q \hspace{0.1 cm} \beta_j \cdot x_{ij} \hspace{0.12cm} \right) \right)^2 \\[1.5cm]
+\hspace{4.6cm} \text{sujeto a:}  \hspace{0.35cm}  \beta_0 , \beta_1,...,\beta_q \in \mathbb{R}\]</span></p>
+<p><br></p>
+<p>Existe una solución cerrada para este problema de optimización, y se puede demostrar que es la siguiente:</p>
+<p><span class="math display">\[\widehat{\beta}\hspace{0.1cm}=\hspace{0.1cm}(Z^t \cdot Z)^{-1} \cdot Z^t \cdot Y\]</span></p>
+<p>donde:</p>
+<p><span class="math display">\[\hspace{0.1cm} Z \hspace{0.1cm}=\hspace{0.1cm} [\hspace{0.05cm}\mathbb{1} , Z_1,...,Z_p \hspace{0.05cm}]\]</span></p>
+<p><br></p>
+<p><strong>Observaciones:</strong></p>
+<ul>
+<li><p>Si se determina adecuadamente la nueva dimensión <span class="math inline">\(\hspace{0.1cm}q\hspace{0.1cm}\)</span> y los pesos <span class="math inline">\(\hspace{0.1cm}c_{j1},...,c_{jp}\)</span>, el modelo de regresión que usa los predictores auxiliares puede predecir mejor que el modelo de regresión que incorpora los predictores originales.</p></li>
+<li><p>Las estimaciones de los parametros en el modelo de regresión con los predictores auxiliares será diferente a la obtenida con los predictores originales, lo que conduce a diferencia en las predicciones realizadas por cada modelo.</p></li>
+</ul>
+<p><br></p>
+<hr />
+<p><br></p>
+<p>Vamos a ver dos métodos para construir los predictores auxiliares. Siendo más concretos, dos métodos que nos permitiran definir los pesos <span class="math inline">\(\hspace{0.1cm}\hspace{0.1cm}c_{j1},...,c_{jp}\hspace{0.1cm}\)</span> para <span class="math inline">\(\hspace{0.1cm}j=1,...,q\)</span>.</p>
+<p>Estos métodos son regresión lineal con PCA (componentes principales) y regresión lineal PLS (por mínimos cuadrados parciales).</p>
+<p><br></p>
 </div>
 <div id="regresión-lineal-pca" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Regresión lineal PCA</h1>
+<p>El algoritmo PCA define los pesos de los predictores auxiliares (componentes principales) del siguiente modo: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p>El <strong>primer</strong> predictor auxiliar se define como sigue: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[\mathcal{Z}_1 \hspace{0.15cm}=\hspace{0.15cm}  c_1^* \cdot \widetilde{\hspace{0.01cm} \mathcal{X}}  \hspace{0.15cm}=\hspace{0.15cm} c_{11}^* \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_1 \hspace{0.1cm}+ \dots +\hspace{0.1cm} c_{1p}^* \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_p  \\[0.4cm]\]</span></p>
+<p>donde <span class="math inline">\(\hspace{0.15cm} c_1^* = (c_{11}^*,...,c_{1p}^*)\in \mathbb{R}^p\hspace{0.2cm}\)</span> y <span class="math inline">\(\hspace{0.2cm}\widetilde{\hspace{0.01cm}\mathcal{X}} \hspace{0.1cm}=\hspace{0.1cm} [\hspace{0.1cm} \widetilde{\hspace{0.01cm}\mathcal{X}}_1,...,\widetilde{\hspace{0.01cm}\mathcal{X}}_q \hspace{0.1cm}]\\[0.4cm]\)</span></p>
+<p>Los pesos se obtienen como sigue: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[c_1^* = (c_{11}^*,...,c_{1p}^*) \hspace{0.2cm}=\hspace{0.2cm} arg\hspace{0.25cm} \underset{c_1 \in \mathbb{R}^p }{Max} \hspace{0.25cm} \sigma^2 \left(\hspace{0.1cm} Z_1 \hspace{0.1cm}\right) \hspace{0.2cm}=\hspace{0.2cm} arg\hspace{0.25cm} \underset{c_1 \in \mathbb{R}^p }{Max} \hspace{0.25cm} \sigma^2 \left(\hspace{0.1cm} c_1\cdot \widetilde{X} \hspace{0.1cm}\right)   \\[0.7cm]
+\hspace{5.5cm} \text{sujeto a:} \hspace{0.5cm}   ||c_1|| = 1
+\\[0.6cm]\]</span></p>
+<p>siendo <span class="math inline">\(\hspace{0.15cm}\widetilde{X} \hspace{0.1cm}=\hspace{0.1cm} [\hspace{0.1cm} \widetilde{X}_1,...,\widetilde{X}_q \hspace{0.1cm}]\hspace{0.2cm}\)</span> , <span class="math inline">\(\hspace{0.2cm}||c_1||= \sqrt{ \sum_{j=1}^p c_{1j}^2 \hspace{0.25cm}}\hspace{0.25cm}\)</span> la norma Euclidea del vector <span class="math inline">\(\hspace{0.15cm}c_1\hspace{0.2cm}\)</span> y <span class="math inline">\(\hspace{0.2cm}\sigma^2 \left(\hspace{0.1cm} Z_1 \hspace{0.1cm}\right) = \frac{1}{n} \cdot \sum_{i=1}^{n} ( \hspace{0.05cm} z_{i1} - \overline{Z}_1 \hspace{0.05cm} )^2\hspace{0.15cm}\)</span> la varianza de la muestra <span class="math inline">\(\hspace{0.15cm}Z_1\)</span></p>
+<p>Como la respuesta y los predictores están estandarizados, existe una solución cerrada a este problema de optimización, que es la siguiente:</p>
+<p><span class="math inline">\(c_1^*\hspace{0.1cm}\)</span> es el el <strong>autovector</strong> asociado al <strong>mayor autovalor</strong> de de la matriz de correlaciones de <span class="math inline">\(\hspace{0.1cm}\widetilde{X}\hspace{0.1cm}\)</span>, es decir, de <span class="math inline">\(\hspace{0.1cm}R_{\widetilde{X}}\)</span></p>
+<p><br></p>
+<hr />
+<p><br></p>
+<p>El <strong>segundo</strong> predictor auxiliar se define como sigue: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[\mathcal{Z}_2 \hspace{0.15cm}=\hspace{0.15cm}  c_2^* \cdot \widetilde{\hspace{0.01cm} \mathcal{X}}  \hspace{0.15cm}=\hspace{0.15cm} c_{21}^* \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_1 \hspace{0.1cm}+ \dots +\hspace{0.1cm} c_{2p}^* \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_p  \\[0.4cm]\]</span></p>
+<p>donde <span class="math inline">\(\hspace{0.15cm} c_2^* = (c_{21}^*,...,c_{2p}^*)\in \mathbb{R}^p\hspace{0.2cm}\)</span> y <span class="math inline">\(\hspace{0.2cm}\widetilde{\hspace{0.01cm}\mathcal{X}} \hspace{0.1cm}=\hspace{0.1cm} [\hspace{0.1cm} \widetilde{\hspace{0.01cm}\mathcal{X}}_1,...,\widetilde{\hspace{0.01cm}\mathcal{X}}_q \hspace{0.1cm}]\\[0.4cm]\)</span></p>
+<p>Los pesos se obtienen como sigue: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[c_2^* = (c_{21}^*,...,c_{2p}^*) \hspace{0.2cm}=\hspace{0.2cm} arg\hspace{0.25cm} \underset{c_2 \in \mathbb{R}^p }{Max} \hspace{0.25cm} \sigma^2 \left(\hspace{0.1cm} Z_2 \hspace{0.1cm}\right)  \hspace{0.15 cm}=\hspace{0.15 cm} \sigma^2 \left(\hspace{0.1 cm}  c_2\cdot \widetilde{X} \hspace{0.1cm} \right) \\[0.7cm]
+\hspace{5.5cm} \text{sujeto a:}   \hspace{0.7cm}   ||c_2|| = 1 \\[0.3cm]
+\hspace{10cm}  Cov(Z_1,Z_2)=0
+\\[0.8cm]\]</span></p>
+<p>siendo <span class="math inline">\(\hspace{0.15cm}\widetilde{X} \hspace{0.1cm}=\hspace{0.1cm} [\hspace{0.1cm} \widetilde{X}_1,...,\widetilde{X}_q \hspace{0.1cm}]\hspace{0.2cm}\)</span> , <span class="math inline">\(\hspace{0.2cm}||c_2||= \sqrt{ \sum_{j=1}^p c_{2j}^2 \hspace{0.25cm}}\hspace{0.25cm}\)</span> la norma Euclidea del vector <span class="math inline">\(\hspace{0.15cm}c_2\hspace{0.2cm}\)</span> y <span class="math inline">\(\hspace{0.2cm}\sigma^2 \left(\hspace{0.1cm} Z_2 \hspace{0.1cm}\right) = \frac{1}{n} \cdot \sum_{i=1}^{n} ( \hspace{0.05cm} z_{i2} - \overline{Z}_2 \hspace{0.05cm} )^2\hspace{0.15cm}\)</span> la varianza de la muestra <span class="math inline">\(\hspace{0.15cm}Z_2\)</span></p>
+<p>Como la respuesta y los predictores están estandarizados, existe una solución cerrada a este problema de optimización, que es la siguiente:</p>
+<p><span class="math inline">\(c_2^*\hspace{0.1cm}\)</span> es el <strong>autovector</strong> asociado al <strong>segundo mayor</strong> <strong>autovalor</strong> de la matriz de correlaciones de <span class="math inline">\(\hspace{0.1cm}\widetilde{X}\hspace{0.1cm}\)</span>, es decir, de <span class="math inline">\(\hspace{0.1cm}R_{\widetilde{X}}\)</span></p>
+<p><br></p>
+<hr />
+<p><br></p>
+<p>A partir de aqui se sigue la misma dinamica para <span class="math inline">\(\hspace{0.15cm}j \in \lbrace 3,4,...,q \rbrace\)</span></p>
+<p>El <span class="math inline">\(\hspace{0.1cm}j\)</span>-esimo predictor auxiliar se define como sigue: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[\mathcal{Z}_j \hspace{0.15cm}=\hspace{0.15cm}  c_j^* \cdot \widetilde{\hspace{0.01cm} \mathcal{X}}  \hspace{0.15cm}=\hspace{0.15cm} c_{j1}^* \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_1 \hspace{0.1cm}+ \dots +\hspace{0.1cm} c_{jp}^* \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_p  \\[0.4cm]\]</span></p>
+<p>donde <span class="math inline">\(\hspace{0.15cm} c_j^* = (c_{j1}^*,...,c_{jp}^*)\in \mathbb{R}^p\hspace{0.2cm}\)</span> y <span class="math inline">\(\hspace{0.2cm}\widetilde{\hspace{0.01cm}\mathcal{X}} \hspace{0.1cm}=\hspace{0.1cm} [\hspace{0.1cm} \widetilde{\hspace{0.01cm}\mathcal{X}}_1,...,\widetilde{\hspace{0.01cm}\mathcal{X}}_q \hspace{0.1cm}]\\[0.4cm]\)</span></p>
+<p>Los pesos se obtienen como sigue: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[c_j^* = (c_{j1}^*,...,c_{jp}^*) \hspace{0.2cm}=\hspace{0.2cm} arg\hspace{0.25cm} \underset{c_j \in \mathbb{R}^p }{Max} \hspace{0.25cm} \sigma^2 \left(\hspace{0.1cm} Z_j \hspace{0.1cm}\right)  \hspace{0.15 cm}=\hspace{0.15 cm} \sigma^2 \left(\hspace{0.1 cm}  c_j\cdot \widetilde{X} \hspace{0.1cm} \right) \\[0.7cm]
+\hspace{5.5cm} \text{sujeto a:} \hspace{0.5cm}   ||c_j|| = 1 \\[0.3cm]
+\hspace{11.6cm}  Cov(Z_1,Z_2,...,Z_j)=0
+\\[0.6cm]\]</span></p>
+<p>siendo <span class="math inline">\(\hspace{0.15cm}\widetilde{X} \hspace{0.1cm}=\hspace{0.1cm} [\hspace{0.1cm} \widetilde{X}_1,...,\widetilde{X}_q \hspace{0.1cm}]\hspace{0.2cm}\)</span> , <span class="math inline">\(\hspace{0.2cm}||c_j||= \sqrt{ \sum_{r=1}^p c_{jr}^2 \hspace{0.25cm}}\hspace{0.25cm}\)</span> la norma Euclidea del vector <span class="math inline">\(\hspace{0.15cm}c_j\hspace{0.2cm}\)</span> y <span class="math inline">\(\hspace{0.2cm}\sigma^2 \left(\hspace{0.1cm} Z_j \hspace{0.1cm}\right) = \frac{1}{n} \cdot \sum_{i=1}^{n} ( \hspace{0.05cm} z_{ij} - \overline{Z}_j \hspace{0.05cm} )^2\hspace{0.15cm}\)</span> la varianza de la muestra <span class="math inline">\(\hspace{0.15cm}Z_j\)</span></p>
+<p>Como la respuesta y los predictores están estandarizados, existe una solución cerrada a este problema de optimización, que es la siguiente:</p>
+<p><span class="math inline">\(c_j^*\hspace{0.1cm}\)</span> es el <strong>autovector</strong> asociado al <strong><span class="math inline">\(\hspace{0.1cm} j\)</span>-esimo mayor</strong> <strong>autovalor</strong> de la matriz de correlaciones de <span class="math inline">\(\hspace{0.1cm}\widetilde{X}\hspace{0.1cm}\)</span>, es decir, de <span class="math inline">\(\hspace{0.1cm}R_{\widetilde{X}}\)</span></p>
+<p><br></p>
+<p><strong>¿Cuantos predictores auxiliares (componentes principales) considerar?</strong></p>
+<ul>
+<li><p>Se pueden seguir diferentes criterios para seleccionar el número <span class="math inline">\(\hspace{0.1cm} q\leq p \hspace{0.1cm}\)</span> de predictores auxiliares. Uno de los más comunes es el métdodo del porcentaje de variación explicada de los predictores originales. Se suele seleccionar un <span class="math inline">\(\hspace{0.1cm}q\hspace{0.1cm}\)</span> tal que el porcentaje de la varianza de los predictores originales que es explicada por los predictores auxiliares es al menos del 90 <span class="math inline">\(\%\)</span> .</p></li>
+<li><p>Se puede considerar <span class="math inline">\(\hspace{0.1cm}q\hspace{0.1cm}\)</span> como un hiper-parametro del algoritmo de regresion lineal con PCA. Por tanto puede determinarse mediante un algoritmo de ajuste de hiper-parametros, como grid search o random search.</p></li>
+</ul>
+<p><br></p>
+<p><strong>Desventajas de regresión lineal con PCA</strong></p>
+<ul>
+<li>Al construir los predictores auxiliares (componentes principales) no se considera en ningun momento información sobre la variable respuesta.</li>
+</ul>
 <p><br></p>
 </div>
 <div id="regresión-pls" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Regresión PLS</h1>
+<p>Este algoritmo tiene la misma filosofia que PCA, pero supera la principal desventaja de este último, ya que al construir los predictores auxiliares si que tiene en cuenta a la variable respuesta.</p>
+<p>El algoritmo PLS define los pesos de los predictores auxiliares del siguiente modo: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p>El <strong>primer</strong> predictor auxiliar se define como sigue: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[\mathcal{Z}_1 \hspace{0.15cm}=\hspace{0.15cm}  c_1^* \cdot \widetilde{\hspace{0.01cm} \mathcal{X}}  \hspace{0.15cm}=\hspace{0.15cm} c_{11}^* \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_1 \hspace{0.1cm}+ \dots +\hspace{0.1cm} c_{1p}^* \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_p  \\[0.4cm]\]</span></p>
+<p>donde <span class="math inline">\(\hspace{0.15cm} c_1^* = (c_{11}^*,...,c_{1p}^*)\)</span></p>
+<p>Los pesos se obtienen como sigue: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p>Dado el modelo de regresión lineal estimado que incluye al predictor <span class="math inline">\(\widetilde{\mathcal{X}}_j\)</span> y la respuesta <span class="math inline">\(\widetilde{\mathcal{Y}}\)</span>:</p>
+<p><span class="math display">\[\hat{\tilde{y}}_i = \widehat{\beta}_0 + \widehat{\beta}_j \cdot \tilde{x}_{ij}\]</span></p>
+<p>entonces, se define:</p>
+<p><span class="math display">\[c_{1j}^* = \widehat{\beta}_j \\[0.4cm]\]</span></p>
+<p>Y como los predictores y la respuesta han sido estandarizados se cumple lo siguiente:</p>
+<p><span class="math display">\[c_{1j}^* = \widehat{\beta}_r = Corr(\widetilde{Y}, \widetilde{X}_j) \hspace{0.3cm}  ,  \hspace{0.3cm}\forall \hspace{0.1 cm} r \in \lbrace 1,...,p \rbrace \\[0.4cm]\]</span></p>
+<p>Por tanto, <span class="math inline">\(\hspace{0.1 cm}\mathcal{Z}_1 = c_1^* \cdot \widetilde{\hspace{0.01cm} \mathcal{X}}\hspace{0.1 cm}\)</span> pone mayor peso en los predictores con mayor correlación muestral con la variable respuesta.</p>
+<p><br></p>
+<hr />
+<p><br></p>
+<p>El <strong>segundo</strong> predictor auxiliar se define como sigue: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[\mathcal{Z}_2 \hspace{0.15cm}=\hspace{0.15cm}  c_2^* \cdot \widetilde{\hspace{0.01cm} \mathcal{X}}  \hspace{0.15cm}=\hspace{0.15cm} c_{21}^* \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_1 \hspace{0.1cm}+ \dots +\hspace{0.1cm} c_{2p}^* \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_p  \\[0.4cm]\]</span></p>
+<p>donde <span class="math inline">\(\hspace{0.15cm} c_2^* = (c_{21}^*,...,c_{2p}^*)\)</span></p>
+<p>Los pesos se obtienen como sigue: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p>Dado el modelo de regresión lineal estimado que incluye al predictor <span class="math inline">\(\hspace{0.1cm}\mathcal{Z}_2\hspace{0.1cm}\)</span> y la respuesta <span class="math inline">\(\hspace{0.1cm}\widetilde{\mathcal{Y}}\hspace{0.1cm}\)</span>:</p>
+<p><span class="math display">\[\hat{\tilde{y}}_i = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot \tilde{z}_{i1}\]</span></p>
+<p>Se calculan el vector de residuos del modelo anterior:</p>
+<p><span class="math display">\[\widehat{\varepsilon} = \left(\hspace{0.1cm} \widehat{\varepsilon}_i = \tilde{y}_i - \hat{\tilde{y}}_i   \hspace{0.2cm} / \hspace{0.2cm} i \in \lbrace 1,...,n \rbrace \hspace{0.1cm} \right)^t\]</span></p>
+<p>entonces, se define:</p>
+<p><span class="math display">\[c_{2j}^* = Corr( \widehat{\varepsilon} , \widetilde{X}_r )   \hspace{0.3cm}  ,  \hspace{0.3cm}\forall \hspace{0.1 cm} r \in \lbrace 1,...,p \rbrace \\[0.4cm]\]</span></p>
+<p><br></p>
+<hr />
+<p><br></p>
+<p>El <strong>tercer</strong> predictor auxiliar se define como sigue: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[\mathcal{Z}_3 \hspace{0.15cm}=\hspace{0.15cm}  c_3^* \cdot \widetilde{\hspace{0.01cm} \mathcal{X}}  \hspace{0.15cm}=\hspace{0.15cm} c_{31}^* \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_1 \hspace{0.1cm}+ \dots +\hspace{0.1cm} c_{3p}^* \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_p  \\[0.4cm]\]</span></p>
+<p>donde <span class="math inline">\(\hspace{0.15cm} c_3^* = (c_{31}^*,...,c_{3p}^*)\)</span></p>
+<p>Los pesos se obtienen como sigue: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p>Dado el modelo de regresión lineal estimado que incluye al predictor <span class="math inline">\(\hspace{0.1cm}\mathcal{Z}_3\hspace{0.1cm}\)</span> y la respuesta <span class="math inline">\(\hspace{0.1cm}\widetilde{\mathcal{Y}}\hspace{0.1cm}\)</span>:</p>
+<p><span class="math display">\[\hat{\tilde{y}}_i = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot \tilde{z}_{i1} + \widehat{\beta}_2 \cdot \tilde{z}_{i2}\]</span></p>
+<p>Se calculan el vector de residuos del modelo anterior:</p>
+<p><span class="math display">\[\widehat{\varepsilon} = \left(\hspace{0.1cm} \widehat{\varepsilon}_i = \tilde{y}_i - \hat{\tilde{y}}_i   \hspace{0.2cm} / \hspace{0.2cm} i \in \lbrace 1,...,n \rbrace \hspace{0.1cm} \right)^t\]</span></p>
+<p>entonces, se define:</p>
+<p><span class="math display">\[c_{2j}^* = Corr( \widehat{\varepsilon} , \widetilde{X}_r )  \hspace{0.3cm}  ,  \hspace{0.3cm}\forall \hspace{0.1 cm} r \in \lbrace 1,...,p \rbrace \\[0.4cm]\]</span></p>
+<p><br></p>
+<hr />
+<p><br></p>
+<p>Para <span class="math inline">\(\hspace{0.15cm} j\in \lbrace 4,...,q \rbrace\)</span></p>
+<p>El <strong><span class="math inline">\(j\)</span>-esimo</strong> predictor auxiliar se define como sigue: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[\mathcal{Z}_j \hspace{0.15cm}=\hspace{0.15cm}  c_j^* \cdot \widetilde{\hspace{0.01cm} \mathcal{X}}  \hspace{0.15cm}=\hspace{0.15cm} c_{j1}^* \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_1 \hspace{0.1cm}+ \dots +\hspace{0.1cm} c_{jp}^* \cdot  \widetilde{\hspace{0.01cm}\mathcal{X}}_p  \\[0.4cm]\]</span></p>
+<p>donde <span class="math inline">\(\hspace{0.15cm} c_j^* = (c_{j1}^*,...,c_{jp}^*)\)</span></p>
+<p>Los pesos se obtienen como sigue: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p>Dado el modelo de regresión lineal estimado que incluye al predictor <span class="math inline">\(\hspace{0.1cm}\mathcal{Z}_j\hspace{0.1cm}\)</span> y la respuesta <span class="math inline">\(\hspace{0.1cm}\widetilde{\mathcal{Y}}\hspace{0.1cm}\)</span>:</p>
+<p><span class="math display">\[\hat{\tilde{y}}_i = \widehat{\beta}_0 + \widehat{\beta}_1 \cdot \tilde{z}_{i1} + \widehat{\beta}_2 \cdot \tilde{z}_{i2} + \dots + \widehat{\beta}_j \cdot \tilde{z}_{ij}\]</span></p>
+<p>Se calculan el vector de residuos del modelo anterior:</p>
+<p><span class="math display">\[\widehat{\varepsilon} = \left(\hspace{0.1cm} \widehat{\varepsilon}_i = \tilde{y}_i - \hat{\tilde{y}}_i   \hspace{0.2cm} / \hspace{0.2cm} i \in \lbrace 1,...,n \rbrace \hspace{0.1cm} \right)^t\]</span></p>
+<p>entonces, se define:</p>
+<p><span class="math display">\[c_{jr}^* = Corr( \widehat{\varepsilon} , \widetilde{X}_r )  \hspace{0.3cm}  ,  \hspace{0.3cm}\forall \hspace{0.1 cm} r \in \lbrace 1,...,p \rbrace \\[0.4cm]\]</span></p>
+<p><br></p>
+<p><strong>¿Cuantos predictores auxiliares considerar?</strong></p>
+<ul>
+<li>Se puede considerar <span class="math inline">\(\hspace{0.1cm}q\hspace{0.1cm}\)</span> como un hiper-parametro del algoritmo de regresion lineal con PLS. Por tanto puede determinarse mediante un algoritmo de ajuste de hiper-parametros, como grid search o random search.</li>
+</ul>
 </div>
 </div>
 
