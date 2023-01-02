@@ -1,7 +1,7 @@
 ---
-title: 'Modelos de Regresión No Lineal'
+title: 'Regresión no lineal'
 author: 'Fabio Scielzo Ortiz'
-date: '14/11/22'
+date: '15/1/23'
 output: 
    rmdformats::readthedown:
       use_bookdown: true
@@ -15,6 +15,31 @@ css: custom.css
 ---
 
 
+
+<div class="warning" style='background-color:#FCF2EC; color: #000000; border-left: solid #FE9554 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:10em;'>
+
+
+$\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)**
+
+$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/autores.html)
+
+$\hspace{0.3cm}$ **Si utilizas este artículo, por favor, cítalo:** 
+
+$\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). El algoritmo KNN. http://estadistica4all.com/Articulos/KNN.html
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
+***Se recomienda abrir el artículo en un ordenador o en una tablet.***
+ 
+ 
 
 El modelo de regresión lineal ordinario es relativamente sencillo de describir e implementar, y tiene ventajas sobre otros enfoques en términos de interpretación e inferencia.
 
