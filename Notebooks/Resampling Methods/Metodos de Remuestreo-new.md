@@ -1,7 +1,7 @@
 ---
 title: 'Inferencia basada en remuestreo'
 author: 'Fabio Scielzo Ortiz'
-date: '25/12/22'
+date: '7/1/23'
 output: 
    rmdformats::readthedown:
       use_bookdown: true
@@ -588,12 +588,15 @@ np.random.seed(123)
 X = np.random.normal(loc=10, scale=15, size=50)
 ```
 
+<br>
+
+**Jacknife para la mediana:**
 
 ```python
 np.median(X)
 ```
 
-8.23916733155832
+    8.23916733155832
 
 
 ```python
@@ -621,6 +624,8 @@ standard_error
     2.381386940718188
  
 <br>
+
+**Jacknife para la media:**
 
 
 ```python
@@ -652,7 +657,9 @@ standard_error
     2.5491917443460235
  
  
-<br> 
+<br>
+
+**Jacknife para la desviación típica:**
  
 ```python
 np.std(X)
@@ -684,6 +691,9 @@ standard_error
 
 <br>
 
+ 
+
+**Jacknife para los cuantiless:**
 
 ```python
 np.quantile(X , q=0.75)
@@ -716,7 +726,10 @@ standard_error
 
     0.9375849844484524
 
+
 <br>
+
+**Jacknife para la curtosis:**
 
 ```python
 import scipy
@@ -753,6 +766,12 @@ standard_error
 ``` 
 
     0.3609496287814513
+
+
+
+<br>
+
+**Jacknife para la asimetria:**
 
 ```python
 from scipy.stats import  skew
@@ -981,6 +1000,17 @@ $$\widehat{\theta}(X)\hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n
 
 <br>
 
+## Número de muestras bootstrap posibles
+
+
+
+
+
+
+
+
+<br>
+
 <br>
 
 ## Bootstrap en `Python`
@@ -1032,6 +1062,11 @@ def Bootstrap(Variable , B, estimator_function, q=0.75, random_seed=123 ):
 
     return sesgo , estimacion_sesgo_corregido , standard_error, replicas_estimador
 ```
+
+
+<br>
+
+**Bootstrap para la mediana:**
  
 ```python
 np.median(X)
@@ -1066,6 +1101,8 @@ standard_error
 
 <br>
 
+**Bootstrap para la media:**
+
 
 ```python
 np.mean(X)
@@ -1098,6 +1135,7 @@ standard_error
 
 <br>
 
+**Bootstrap para la desviación típica:**
 
 ```python
 np.std(X)
@@ -1148,9 +1186,11 @@ standard_error
 
 
 
+ 
+
 <br>
 
-
+**Bootstrap para los cuantiles:**
 
 ```python
 np.quantile(X, q=0.75)
@@ -1180,9 +1220,12 @@ standard_error
 
     3.4665427821179793
     
+
+
+
 <br>
 
-
+**Bootstrap para la asimetría:**
 
 ```python
 skew(X)
@@ -1217,6 +1260,8 @@ standard_error
 
 <br>
 
+**Bootstrap para la curtosis:**
+
 ```python
 kurtosis(X)
 ```
@@ -1248,8 +1293,10 @@ standard_error
 
     0.35103721258189574
 
+
 <br>
 
+<br>
 
 # Fundamentos del Bootstrap
 
@@ -1486,6 +1533,11 @@ $$sup \left\lbrace \hspace{0.1cm}\left|\hspace{0.1cm} \widehat{F}_n(z)  - F_X(z)
  
 </p></span>
 </div>
+
+
+<br>
+
+### Demostración del teorema de Glivenko-Cantelli
 
 
 
@@ -2030,7 +2082,7 @@ def cuantil_boot_interval(Variable1, Variable2, alpha, estimator , B,  q=0.75, r
 
 <br>
 
-**Para la media**
+**Intervalo para la media:**
 
 ```python
 interval , estimation = cuantil_boot_interval(Variable1=X, Variable2='no', alpha=0.05, estimator='mean' , B=20000, random_seed=123)
@@ -2047,6 +2099,9 @@ estimation
 ```
 
     10.199071616256777
+    
+    
+Comparación con el intervalo de confianza clásico frecuentista:
 
 ```python
 def CI_Mean(Variable , alpha=0.05):
@@ -2086,7 +2141,7 @@ interval
 
 <br>
 
-**Para la desviación típica**
+**Intervalo para la desviación típica:**
 
 
 ```python
@@ -2107,6 +2162,8 @@ estimation
 
     17.844342210422187
 
+
+Comparación con el intervalo de confianza clásico frecuentista:
 
 ```python
 def CI_Variance(Variable , alpha=0.05):
@@ -2149,7 +2206,7 @@ np.sqrt(interval)
  
 <br>
 
-**Para la mediana**
+**Intervalo para la mediana:**
 
 ```python
 interval , estimation = cuantil_boot_interval(Variable1=X, Variable2='no', alpha=0.05, estimator='median' , B=20000, random_seed=123)
@@ -2173,7 +2230,7 @@ estimation
 <br>
 
 
-**Para la asimetría**
+**Intervalo para el coeficiente de asimetria:**
 
 
 ```python
@@ -2197,7 +2254,7 @@ estimation
 
 <br>
 
-**Para la curtosis**
+**Intervalo para el coeficiente de curtosis:**
 
 ```python
 interval , estimation = cuantil_boot_interval(Variable1=X, Variable2='no', alpha=0.05, estimator='kurtosis' , B=20000, random_seed=123)
@@ -2221,7 +2278,7 @@ estimation
 
 <br>
 
-**Para los cuantiles**
+**Intervalo para los cuantiles:**
 
 ```python
 interval , estimation = cuantil_boot_interval(Variable1=X, Variable2='no', alpha=0.05, estimator='quantile' , B=20000, random_seed=123, q=0.75)
@@ -2244,7 +2301,7 @@ estimation
 
 <br>
 
-**Para la proporción**
+**Intervalo para la proporción:**
 
 
 ```python
@@ -2271,7 +2328,7 @@ estimation
 <br>
 
 
-**Para la diferencia de medias**
+**Intervalo para la diferencia de medias:**
 
 ```python
 np.random.seed(123)
@@ -2299,6 +2356,8 @@ estimation
     -4.001757444976697
 
 
+
+Comparación con el intervalo de confianza clásico frecuentista:
 
 ```python
 def CI_Mean_Diference(Variable1 , Variable2 , alpha=0.05):
@@ -2352,7 +2411,7 @@ estimation
 
 <br>
 
-**Para la diferencia de medianas**
+**Intervalo para la diferencia de medianas:**
 
 
 ```python
@@ -2378,7 +2437,7 @@ estimation
 <br>
 
 
-**Para la diferencia de desviaciones típicas**
+**Intervalo para la diferencia de desviaciones típicas:**
 
 ```python
 interval , estimation = cuantil_boot_interval(Variable1=X_1, Variable2=X_2, alpha=0.05, estimator='std_diff' , B=20000,  q=0.75, random_seed=123)
@@ -2401,7 +2460,7 @@ estimation
  
 <br>
 
-**Para la diferencia de cuantiles**
+**Intervalo para la diferencia de cuantiles:**
 
 ```python
 interval , estimation = cuantil_boot_interval(Variable1=X_1, Variable2=X_2, alpha=0.05, estimator='quantile_diff' , B=20000,  q=0.75, random_seed=123)
@@ -2425,7 +2484,7 @@ estimation
 
 <br>
 
-**Para la diferencia de kurtosis**
+**Intervalo para la diferencia de curtosis:**
 
 ```python
 interval , estimation = cuantil_boot_interval(Variable1=X_1, Variable2=X_2, alpha=0.05, estimator='kurtosis_diff' , B=20000,  q=0.75, random_seed=123)
@@ -2448,7 +2507,7 @@ estimation
 
 <br>
 
-**Para la diferencia de asimetrías**
+**Intervalo para la diferencia de asimetría:**
 
 ```python
 interval , estimation = cuantil_boot_interval(Variable1=X_1, Variable2=X_2, alpha=0.05, estimator='skewness_diff' , B=20000,  q=0.75, random_seed=123)
@@ -2470,7 +2529,7 @@ estimation
  
 <br>
 
-**Para la diferencia de proporciones**
+**Intervalo para la diferencia de proporciones:**
 
 ```python
 np.random.seed(123)
@@ -2498,7 +2557,13 @@ estimation
 
     -0.06
     
+    
+    
+    
 <br>
+
+
+
 
 ## Intervalos BCa en `Python`
 
@@ -2663,10 +2728,19 @@ Caso $H_0: \theta_1 = \theta_2 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \t
 
 $$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} \hspace{0.1 cm}>>\hspace{0.1 cm} 0 \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm}  L1 \hspace{0.1 cm} > \hspace{0.1 cm} 0$$
 
+
+
 <br>
+
+
 
 ## Contrastes bootstrap en `Python`
 
+
+```python
+
+
+```
 
 
 
