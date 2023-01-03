@@ -2734,7 +2734,138 @@ $$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{
 
 
 
-## Contrastes bootstrap en `Python`
+## Contrastes de hipotesis bootstrap en `Python`
+
+
+```python
+def bootstrap_cuantil_test(Variable1, Variable2, estimator, H1_type, theta_0,  alpha , B, random_seed, q):
+
+
+    interval , estimation = cuantil_boot_interval(Variable1=Variable1, Variable2=Variable2, alpha=alpha, estimator=estimator , B=B, random_seed=random_seed, q=q)
+
+    
+    if estimator in ['mean','median','std','quantile','kurtosis','skewness','proportion']:
+
+
+        if H1_type == 'greater':
+
+            if interval[0] > theta_0 : result = 'Reject H0: theta = theta_0  -->  Accept H1: theta > theta_0'
+
+            else : result = 'Not reject H0: theta = theta_0  -->  Not accept H1: theta > theta_0'
+
+
+        if H1_type == 'less':
+
+            if interval[1] < theta_0 : result = 'Reject H0: theta = theta_0  -->  Accept H1: theta < theta_0'
+
+            else : result = 'Not reject H0: theta = theta_0  -->  Not accept H1: theta < theta_0'
+
+        
+        if H1_type == 'two.sided':
+
+            if (interval[1] < theta_0)  | (interval[0] > theta_0) : result = 'Reject H0: theta = theta_0  -->  Accept H1: theta =/= theta_0'
+
+            else : result = 'Not reject H0: theta = theta_0  -->  Not accept H1: theta =/= theta_0'
+
+    
+
+    if estimator in ['mean_diff','median_diff','std_diff','quantile_diff','kurtosis_diff','skewness_diff', 'proportion_diff']:
+
+
+        if H1_type == 'greater':
+
+            if interval[0] > 0 : result = 'Reject H0: theta_1 = theta_2  -->  Accept H1: theta_1 > theta_2'
+
+            else : result = 'Not reject H0: theta_1 = theta_2 -->  Not accept H1: theta_1 > theta_2'
+
+
+        if H1_type == 'less':
+
+            if interval[1] < 0 : result = 'Reject H0: theta_1 = theta_2  -->  Accept H1: theta_1 < theta_2'
+
+            else : result = 'Not reject H0: theta_1 = theta_2  -->  Not accept H1: theta_1 < theta_2'
+
+        
+        if H1_type == 'two.sided':
+
+            if (interval[1] < 0)  | (interval[0] >  0)  : result = 'Reject H0: theta_1 = theta_2  -->  Accept H1: theta_1 =/= theta_2'
+
+            else : result = 'Not reject H0: theta_1 = theta_2  -->  Not accept H1: theta_1 =/= theta_2'
+
+
+
+    return result , interval
+```
+
+
+
+```python
+np.random.seed(123)
+
+X_1 = np.random.normal(loc=62, scale=25, size=150)
+
+X_2 = np.random.normal(loc=80, scale=25, size=150)
+```
+
+<br>
+
+
+
+**Contraste para la media de una población:**
+
+
+```python
+np.mean(X_1)
+```
+
+    63.44484985484652
+
+
+```python
+resultado , intervalo = bootstrap_cuantil_test(Variable1=X_1, Variable2='no', estimator='mean', H1_type='greater', theta_0=50,  alpha=0.05 , B=1000, random_seed=123, q='no')
+```
+
+```python
+resultado
+```
+
+    'Reject H0: theta = theta_0  -->  Accept H1: theta > theta_0'
+
+```python
+intervalo
+```
+
+    [59.300517176372914, 68.0853420655662]
+
+
+```python
+resultado , intervalo = bootstrap_cuantil_test(Variable1=X_1, Variable2='no', estimator='mean', H1_type='greater', theta_0=60,  alpha=0.05 , B=1000, random_seed=123, q='no')
+```
+
+```python
+resultado
+```
+
+    'Not reject H0: theta = theta_0  -->  Not accept H1: theta > theta_0'
+
+
+
+```python
+bootstrap_cuantil_test(Variable1=X_1, Variable2='no', estimator='mean', H1_type='two.sided', theta_0=60,  alpha=0.05 , B=1000, random_seed=123, q='no')
+```
+
+```python
+resultado
+```
+
+    'Not reject H0: theta = theta_0  -->  Not accept H1: theta =/= theta_0'
+ 
+ 
+ 
+<br>
+
+**Contraste para la mediana de una población:**
+
 
 
 ```python
@@ -2743,7 +2874,171 @@ $$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{
 ```
 
 
+```python
 
+resultado , intervalo =
+```
+
+```python
+resultado
+```
+
+
+```python
+intervalo
+```
+
+
+<br>
+
+**Contraste para la desviación típica de una población:**
+
+```python
+np.std(X_1)
+```
+
+    27.258568783722534
+
+```python
+resultado , intervalo = bootstrap_cuantil_test(Variable1=X_1, Variable2='no', estimator='std', H1_type='less', theta_0=30,  alpha=0.05 , B=1000, random_seed=123, q='no')
+```
+
+
+```python
+resultado
+```
+
+     'Reject H0: theta = theta_0  -->  Accept H1: theta < theta_0'
+
+```python
+intervalo
+```
+
+     [24.53136884527364, 29.84312683035364]
+     
+     
+
+
+
+
+```python
+resultado , intervalo = bootstrap_cuantil_test(Variable1=X_1, Variable2='no', estimator='std', H1_type='less', theta_0=26,  alpha=0.05 , B=1000, random_seed=123, q='no')
+```
+
+
+
+```python
+resultado
+```
+
+    'Not reject H0: theta = theta_0  -->  Not accept H1: theta < theta_0'
+
+ 
+
+<br>
+
+**Contraste para los cuantiles de una población:**
+
+
+```python
+np.quantile(X_1, q=0.6)
+```
+
+    70.37736516880977
+
+```python
+resultado , intervalo = bootstrap_cuantil_test(Variable1=X_1, Variable2='no', estimator='quantile', H1_type='greater', theta_0=50,  alpha=0.05 , B=1000, random_seed=123, q=0.6)
+```
+
+
+```python
+resultado
+```
+
+    'Reject H0: theta = theta_0  -->  Accept H1: theta > theta_0'
+
+```python
+intervalo
+```
+
+    [65.5777835208156, 76.34514656012644]
+
+
+
+<br>
+
+
+**Contraste para la curtosis de una población:**
+
+```python
+kurtosis(X_1)
+```
+
+    -0.4799399747044939
+
+
+
+```python
+resultado , intervalo = bootstrap_cuantil_test(Variable1=X_1, Variable2='no', estimator='kurtosis', H1_type='less', theta_0=0,  alpha=0.05 , B=1000, random_seed=123, q='no')
+```
+
+
+```python
+resultado
+```
+
+    'Reject H0: theta = theta_0  -->  Accept H1: theta < theta_0'
+
+```python
+intervalo
+```
+
+    [-0.8726641157248832, -0.03722884140184115]
+
+
+
+
+
+<br>
+
+
+**Contraste para la asimetría de una población:**
+
+```python
+skew(X_1)
+```
+ 
+    0.0030735881326157516
+
+
+```python
+resultado , intervalo = bootstrap_cuantil_test(Variable1=X_1, Variable2='no', estimator='skewness', H1_type='two.sided', theta_0=0,  alpha=0.05 , B=1000, random_seed=123, q='no')
+```
+
+```python
+resultado
+```
+
+    'Not reject H0: theta = theta_0  -->  Not accept H1: theta =/= theta_0'
+
+```python
+intervalo
+```
+
+    [-0.26701282609616306, 0.27862278159471443]
+
+
+<br>
+
+**Contraste para la media de dos poblaciones:**
+
+```python
+
+```
+
+```python
+
+```
 
 
 <br>
