@@ -137,7 +137,12 @@ La predicción de la variable respuesta para un vector cualquiera de observacion
 
 
 
-$$\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_*  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x_{*r} \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 \hspace{0.1cm}  +   \hspace{0.1cm}  x_{*}^t \cdot \widehat{\beta} \hspace{0.3cm} , \hspace{0.25cm} \forall \hspace{0.1cm} x_* \in \mathbb{R}^p$$
+$$\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_*  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x_{*r} \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 \hspace{0.1cm}  +   \hspace{0.1cm}  x_{*}^t \cdot \widehat{\beta} \hspace{0.3cm} , \hspace{0.25cm} \forall \hspace{0.1cm} x_* \in \mathbb{R}^p \\$$
+
+Matricialmente, el vector de predicciones de la respuesta para una matriz de $h$ datos cualesquiera $\hspace{0.01cm} X=[X_1,...,X_p]\hspace{0.01cm}$ de los predictores es el siguiente:
+
+$$\widehat{Y} \hspace{0.1cm} = \hspace{0.1cm} \widehat{\beta}_0 + X \cdot \widehat{\beta} \hspace{0.1cm}=\hspace{0.1cm}  \widehat{\beta}_0 +   \widehat{\beta}_1 \cdot X_1 + \dots + \widehat{\beta}_p \cdot X_p  \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} X_1,...,X_p \in \mathbb{R}^h \\$$
+
 
 donde los parámetros $\hspace{0.12cm}\widehat{\beta} \hspace{0.1cm}=\hspace{0.1cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p \right) \hspace{0.12cm}$ se obtienen resolviendo el **problema de mínimos cuadrados ordinarios**:
 

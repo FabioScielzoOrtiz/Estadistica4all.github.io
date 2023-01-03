@@ -323,14 +323,6 @@ sns.lineplot(x=X_train, y=Y_pred_train , color='red')
 
 
 
-
-
-
-
-
-<br>
-
-
 <br>
 
 

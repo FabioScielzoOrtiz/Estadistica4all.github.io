@@ -1517,6 +1517,7 @@ margin-left: 0 !important;
       <li><a href="#problemas" id="toc-problemas"><span class="toc-section-number">2.2</span> Problemas</a></li>
       </ul></li>
       <li><a href="#regresión-con-funciones-escalón" id="toc-regresión-con-funciones-escalón"><span class="toc-section-number">3</span> Regresión con funciones escalón <a class="anchor" id="52"></a></a></li>
+      <li><a href="#regresión-con-polinomios-a-trozos" id="toc-regresión-con-polinomios-a-trozos"><span class="toc-section-number">4</span> Regresión con polinomios a trozos</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1693,9 +1694,7 @@ del predictores y la respuesta. <span class="math inline">\(\\[1cm]\)</span></p>
 <p>donde:</p>
 <p><span class="math display">\[\hspace{0.1cm} X \hspace{0.1cm}=\hspace{0.1cm} [\hspace{0.05cm}\mathbb{1} , D_1(X_1),D_2(X_1),...,D_k(X_1) \hspace{0.05cm}]\]</span></p>
 <p>No entraremos aquí en los detalles matemáticos sobre como se obtiene esta solución. Lo reservamos para futuros artículos sobre métodos de optimización aplicados a la ciencia de datos.</p>
-<ul>
-<li></li>
-</ul>
+<p><br></p>
 <p><strong>Observaciones</strong></p>
 <ul>
 <li><p>No se incluye <span class="math inline">\(\hspace{0.1cm}D_0(X_1)\hspace{0.1cm}\)</span> en el modelo porque si no habría multicolinealidad perfecta y no se podría estimar el modelo. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
@@ -1705,7 +1704,7 @@ del predictores y la respuesta. <span class="math inline">\(\\[1cm]\)</span></p>
 <li>Por ejemplo si queremos <span class="math inline">\(\hspace{0.12cm}k=5\hspace{0.12cm}\)</span> , entonces se usan los cuantiles que van de <span class="math inline">\(\hspace{0.12cm}100/5=20\hspace{0.12cm}\)</span> en <span class="math inline">\(\hspace{0.12cm}20\hspace{0.12cm}\)</span> , es decir, los cuantiles <span class="math inline">\(\hspace{0.12cm}Q_0\hspace{0.1cm},\hspace{0.1cm} Q_{20}\hspace{0.1cm},\hspace{0.1cm}Q_{40}\hspace{0.1cm},\hspace{0.1cm}Q_{60}\hspace{0.1cm},\hspace{0.1cm}Q_{80}\hspace{0.1cm},\hspace{0.1cm} Q_{100}\hspace{0.12cm}\)</span> para definir los extremos de los intervalos. Así los intervalos serían los siguientes:</li>
 </ul>
 <p><span class="math display">\[[Q_0 , Q_{20}) \hspace{0.1cm},\hspace{0.1cm} [Q_{20} , Q_{40}) \hspace{0.1cm},\hspace{0.1cm} [Q_{40}, Q_{60})\hspace{0.1cm} ,\hspace{0.1cm} [Q_{60} , Q_{80})\hspace{0.1cm} ,\hspace{0.1cm} [Q_{80}, Q_{100} + c)\]</span></p>
-<p>Donde: <span class="math inline">\(\hspace{0.15cm} c&gt;0\)</span> , <span class="math inline">\(\hspace{0.15cm}Q_0 = Min(X_1)\)</span>, <span class="math inline">\(\hspace{0.15cm}Q_{100}=Max(X_1)\)</span></p>
+<p>Donde: <span class="math inline">\(\hspace{0.15cm} c&gt;0\)</span> , <span class="math inline">\(\hspace{0.15cm}Q_0 = Min(X_1) \hspace{0.15cm}\)</span> , <span class="math inline">\(\hspace{0.15cm}Q_{100}=Max(X_1)\)</span></p>
 <ul>
 <li>Notese que se añade <span class="math inline">\(\hspace{0.12cm}c&gt;0\hspace{0.12cm}\)</span> para cumplir la condición de que toda observacion de <span class="math inline">\(\hspace{0.12cm}X_1\hspace{0.12cm}\)</span> pertenezca a alguno de os intervalos. Si no se añadiese, entonces la observación <span class="math inline">\(\hspace{0.12cm}Max(X_1)\hspace{0.12cm}\)</span> no estaria en ninguno de los intervalos, al ser el último abierto en su extremo superior. <span class="math inline">\(\\[0.5cm]\)</span></li>
 </ul></li>
@@ -1719,21 +1718,69 @@ del predictores y la respuesta. <span class="math inline">\(\\[1cm]\)</span></p>
 <p>La versión categorizada de <span class="math inline">\(\hspace{0.1cm}X_1\hspace{0.1cm}\)</span> se puede definir como: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[X_1^{cat} \hspace{0.1cm}=\hspace{0.1cm} (\hspace{0.1cm} x^{cat}_{i1} \hspace{0.1cm}/\hspace{0.1cm} i=1,..,n \hspace{0.1cm}\hspace{0.1cm}) \\\]</span></p>
 <p>Donde:</p>
-<p><span class="math display">\[ x^{cat}_{i1}\hspace{0.1cm} =\hspace{0.1cm} \left\lbrace\begin{array}{l} 0, \hspace{0.1cm}\text{ Si} \hspace{0.2cm} x_{ik} \in [L_{0},L_{1}) \\ 1, \hspace{0.2cm}\text{ Si} \hspace{0.2cm} x_{ik} \in [L_{1},L_{2}) \\ ... \\ k, \hspace{0.2cm}\text{ Si } \hspace{0.2cm} x_{ik} \in [L_{k},L_{k+1})  \end{array}\right. \]</span></p></li>
+<p><span class="math display">\[ x^{cat}_{i1}\hspace{0.1cm} =\hspace{0.1cm} \left\lbrace\begin{array}{l} 0, \hspace{0.2cm}\text{ Si} \hspace{0.25cm} x_{ik} \in [L_{0},L_{1}) \\ 1, \hspace{0.2cm}\text{ Si} \hspace{0.25cm} x_{ik} \in [L_{1},L_{2}) \\ ... \\ k, \hspace{0.2cm}\text{ Si } \hspace{0.25cm} x_{ik} \in [L_{k},L_{k+1})  \end{array}\right. \]</span></p></li>
 </ul>
 <p><br></p>
-<pre><code>El modelo de regresión lineal con el predictor $X_1^{cat}$ es de la forma: $\\[0.5cm]$
-
-
-$$Y = \beta_0 + \beta_1 \cdot I(X_1^{cat} = 1) + \beta_2 \cdot I(X_1^{cat} = 2) + ... + \beta_k \cdot I(X_1^{cat}=k) + \varepsilon \\$$
-
-
-Donde:
-
-$$I(X_1^{cat} = h)  \hspace{0.15cm} = \hspace{0.15cm} \left(\hspace{0.2cm} \Upsilon (\hspace{0.15cm} x_{i1}^{cat} = h\hspace{0.15cm} ) \hspace{0.2cm} / \hspace{0.2cm} i=1,...,n    \hspace{0.2cm} \right)^t  \hspace{0.15cm} = \hspace{0.15cm} \left(\hspace{0.2cm} \Upsilon (\hspace{0.15cm} x_{i1} \in [L_h , L_{h+1} ) \hspace{0.15cm} ) \hspace{0.2cm} / \hspace{0.2cm} i=1,...,n    \hspace{0.2cm} \right)^t \hspace{0.15cm} = \hspace{0.15cm} I_h(X_{1}) \hspace{0.45cm} \forall \hspace{0.1cm} h=0,1,...,k \\$$
-
-
-Por tanto, queda demostrado que son el mismo modelo.</code></pre>
+<p>El modelo de regresión lineal con el predictor <span class="math inline">\(\hspace{0.1cm}X_1^{cat}\hspace{0.1cm}\)</span> es de la forma: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\mathcal{Y}_i \hspace{0.15cm}=\hspace{0.15cm}       \beta_0 \hspace{0.05cm} + \hspace{0.05cm} \sum_{j=1}^k \hspace{0.1cm} \beta_j \cdot D(x_{i1}^{cat} = j)  \hspace{0.05cm} + \hspace{0.05cm} \varepsilon_i   \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[D(x_{i1}^{cat} = j)  \hspace{0.15cm} = \hspace{0.15cm} \left(\hspace{0.1cm} I (\hspace{0.05cm} x_{i1}^{cat} = h \hspace{0.05cm} ) \hspace{0.2cm} / \hspace{0.2cm} i\in \lbrace 1,...,n \rbrace    \hspace{0.1cm} \right)^t  \hspace{0.15cm} = \hspace{0.15cm} \left(\hspace{0.1cm} I (\hspace{0.05cm} x_{i1} \in [L_h , L_{h+1} ) \hspace{0.05cm} ) \hspace{0.2cm} / \hspace{0.2cm} i=1,...,n    \hspace{0.1cm} \right)^t \hspace{0.15cm} = \hspace{0.15cm} D_j(X_1) \hspace{0.45cm} \forall \hspace{0.1cm} j  \in \lbrace 0,1,...,k \rbrace \\\]</span></p>
+<p>Por tanto, queda demostrado que son el mismo modelo.</p>
+<p><br></p>
+</div>
+<div id="regresión-con-polinomios-a-trozos" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Regresión con polinomios a trozos</h1>
+<p>Surge como combinación de la regresión polinómica y la regresión con funciones escalón.</p>
+<p>La idea es usar la filosofía de la regresión con funciones escalón pero en lugar de usar una función constante en cada intervalo, usar una función polinómica.</p>
+<p>PONER GRAFICO PARA ILUSTRAR LA IDEA</p>
+<p><br></p>
+<ul>
+<li><p>Se considera <span class="math inline">\(\hspace{0.1cm} 1\hspace{0.1cm}\)</span> predictor <strong>cuantitativo</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> y una variable respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Se tiene una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X_1 = (x_{11},...,x_{n1})^t\hspace{0.1cm}\)</span> del predictor <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Se tiene una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}Y = (y_1,...,y_n)^t\hspace{0.1cm}\)</span> de la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>En conclusión, se tiene una muestra de observaciones <span class="math inline">\(\hspace{0.12cm}D=[\hspace{0.12cm}X_1,Y \hspace{0.12cm}]\hspace{0.12cm}\)</span>
+del predictores y la respuesta. <span class="math inline">\(\\[1cm]\)</span></p></li>
+<li><p>Se tienen que considerar una serie de <span class="math inline">\(\hspace{0.1cm} k+1\hspace{0.1cm}\)</span> intervalos <span class="math inline">\(\hspace{0.1cm} L = \lbrace \hspace{0.15cm} [L_0 , L_1),[L_1 , L_2),...,[L_{k-1} , L_k)[L_k , L_{k+1}) \hspace{0.1cm} \rbrace \hspace{0.1cm}\)</span> tales que: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<ul>
+<li><p>Son disjuntos dos a dos, es decir, no comparten elementos dos a dos. <span class="math display">\[[L_h , L_{h+1})\cap [L_{r} , L_{r+1}) = \varnothing   \hspace{0.3cm}  ,   \hspace{0.3cm} \forall  \hspace{0.1cm} h\neq r \in \lbrace 0,1,...,k \rbrace \\[0.5cm]\]</span></p></li>
+<li><p>Toda observación de la muestra <span class="math inline">\(X_1\)</span> pertenece a alguno de los intervalos:</p></li>
+</ul></li>
+</ul>
+<p><span class="math display">\[x_{i1} \in [L_0 , L_1)\cup ... \cup [L_{k-1} , L_k)\cup [L_k , L_{k+1}) \hspace{0.3cm}  ,   \hspace{0.3cm}  \forall \hspace{0.1cm} i \in \lbrace 1,..,n \rbrace \\\]</span></p>
+<p>La idea es, en cada intervalo ajustar una regresión polinómica, con ciertas restricciones.</p>
+<p>Supongamos que se ajusta un polinomio de grado <span class="math inline">\(\hspace{0.1cm}d_h\hspace{0.1cm}\)</span> en el intervalo <span class="math inline">\(\hspace{0.1cm}[L_j , L_{j+1})\hspace{0.1cm}\)</span> , para <span class="math inline">\(\hspace{0.1cm} j\in \lbrace 0,1,...,k \rbrace\hspace{0.1cm}\)</span>, el modelo de regresión sería de la forma: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p>El modelo estadístico que se plantea en regresión con polinomios a trozos de grado <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> es el siguiente:</p>
+<p>Tenemos una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}_1,...,\mathcal{Y}_n\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\)</span></p>
+<p>Se asume la siguiente relación:</p>
+<p><span class="math display">\[\mathcal{Y}_i \hspace{0.15cm}=\hspace{0.15cm}     \sum_{h=0}^k \hspace{0.05cm} \left[ \hspace{0.1 cm}  \beta_{0h}    +   \left( \hspace{0.1 cm} \sum_{r=1}^{d_h} \hspace{0.1cm}  \beta_{rh} \cdot x_{i1}^{r} \hspace{0.1 cm} \right) \cdot D_h(X_1) \hspace{0.05cm} \right]  \hspace{0.1 cm} +  \hspace{0.1 cm} \varepsilon_i \hspace{0.15cm}=\hspace{0.15cm}      \sum_{h=0}^k \hspace{0.05cm} \left[ \beta_{0h}  + \hspace{0.1 cm} \left( \hspace{0.1 cm}   \sum_{r=1}^{d_h} \hspace{0.1cm} \beta_{rh} \cdot x_{i1}^{r} \right) \hspace{0.05cm} \cdot I( \hspace{0.05cm} x_{i1} \in [L_h , L_{h+1}) \hspace{0.05cm} \right]  \hspace{0.1 cm} +  \hspace{0.1 cm} \varepsilon_i \hspace{0.35cm} , \hspace{0.35cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\]</span></p>
+<p>Donde:</p>
+<ul>
+<li><p><span class="math inline">\(\varepsilon_i \sim N(0,\sigma^2) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n\rbrace \\\)</span></p></li>
+<li><p><span class="math inline">\(Corr(\varepsilon_i , \varepsilon_r) = 0 \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \neq r \in \lbrace 1,...,n\rbrace \\\)</span></p></li>
+<li><p><span class="math inline">\(\beta_0,\beta_1,...,\beta_d \in \mathbb{R}\\\)</span></p></li>
+</ul>
+<p><strong>Observaciones:</strong></p>
+<ul>
+<li><p>De lo anterior se deduce que <span class="math inline">\(\hspace{0.25cm} \mathcal{Y}_i \sim N(\hspace{0.1cm} \beta_0 \hspace{0.05cm} + \hspace{0.05cm} \sum_{j=1}^k \hspace{0.1cm} \beta_j \cdot d_{ij} \hspace{0.15cm},\hspace{0.15cm} \sigma^2 \hspace{0.1cm} )\)</span></p></li>
+<li><p>La regresión polinomica a trozos consiste en plantear un modelo de regresión polinómica de grado <span class="math inline">\(\hspace{0.1cm}d_h\hspace{0.1cm}\)</span> para las observaciones del predictor que pertenecen al intervalo <span class="math inline">\(\hspace{0.1cm}[L_h , L_{h+1})\hspace{0.1cm}\)</span>, y esto para cada <span class="math inline">\(\hspace{0.1cm}h=0,1,...,k\)</span></p></li>
+</ul>
+<p><br></p>
+<p>La predicción de la variable respuesta para una observación cualquiera del predictor <span class="math inline">\(\hspace{0.1cm}x_{*1} \in \mathbb{R}\hspace{0.1cm}\)</span>, según el algoritmo de regresión lineal con polinomios a trozos, es la siguiente: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_*  \hspace{0.15cm}=\hspace{0.15cm}
+\sum_{h=0}^k \hspace{0.05cm} \left[\hspace{0.1cm}  \widehat{\beta}_{0h} + \left(\hspace{0.05cm} \sum_{r=1}^{d_h} \hspace{0.1cm} \widehat{\beta}_{rh} \cdot x_{*1}^{r} \hspace{0.05cm}\right) \cdot D_h(X_1) \hspace{0.05cm} \right]
+\hspace{0.15cm}=\hspace{0.15cm}
+\sum_{h=0}^k \hspace{0.05cm} \left[ \hspace{0.05cm}  \widehat{\beta}_{0h} + \hspace{0.1 cm} \left( \hspace{0.05cm} \sum_{r=1}^{d_h} \hspace{0.1cm} \widehat{\beta}_{rh} \cdot x_{*1}^{r} \hspace{0.05cm}\right) \cdot I\left( \hspace{0.05cm} x_{*1} \in [L_h , L_{h+1}) \hspace{0.05cm} \right) \hspace{0.05cm} \right]
+\hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} x_{*1} \in \mathbb{R}\]</span></p>
+<p><br></p>
+<p>donde los parámetros <span class="math inline">\(\hspace{0.15cm} \widehat{\beta} \hspace{0.05cm}=\hspace{0.05cm} \left( \hspace{0.1cm} \widehat{\beta}_{h} \hspace{0.1cm} : \hspace{0.1cm} h\in \lbrace 0,1,..,k \rbrace \hspace{0.1cm} \right) \hspace{0.05cm}=\hspace{0.05cm} \left( \hspace{0.1cm} \widehat{\beta}_{0h} , \widehat{\beta}_{1h},...,\widehat{\beta}_{d_h h} \hspace{0.1cm} : \hspace{0.1cm} h\in \lbrace 0,1,..,k \rbrace \hspace{0.1cm} \right) \hspace{0.2cm}\)</span> se obtienen resolviendo el <strong>problema de mínimos cuadrados ordinarios</strong>, asociado a la regresión polinómica, en cada uno de los intervalos definidos para el predictor:</p>
+<p><span class="math display">\[\widehat{\beta}_h \hspace{0.05cm}=\hspace{0.05cm} \left( \hspace{0.1cm} \widehat{\beta}_{0h} , \widehat{\beta}_{1h},...,\widehat{\beta}_{d_h h}  \hspace{0.1cm} \right) \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.3cm} \underset{ \beta_{0h} , \beta_{1h},...,\beta_{d_h h}  }{Min}  \sum_{ \hspace{0.5cm}  i \in \lbrace 1,...,n \rbrace \\ \hspace{0.2cm} x_{i1} \in [L_h , L_{h+1})}  \left(  y_i - \left( \hspace{0.1cm} \widehat{\beta}_{0h} \hspace{0.05cm} + \hspace{0.05cm}      \sum_{r=1}^{d_h} \hspace{0.1cm} \widehat{\beta}_{rh} \cdot x_{i1}^{r} \right) \hspace{0.1cm} \right)^2\]</span></p>
+<p>Para cada <span class="math inline">\(\hspace{0.1cm}h\in \lbrace 0,1,...,k \rbrace\hspace{0.1cm}\)</span>, existe una solución cerrada para este problema de optimización, y se puede demostrar que es la siguiente:</p>
+<p><span class="math display">\[\widehat{\beta}_h\hspace{0.1cm}=\hspace{0.1cm}(X_h^t \cdot X_h)^{-1} \cdot X_h^t \cdot Y\]</span></p>
+<p>donde:</p>
+<p><span class="math display">\[\hspace{0.1cm} X_h \hspace{0.1cm}=\hspace{0.1cm} [\hspace{0.05cm}\mathbb{1} , X_{1h},X_{1h}^2,...,X_{1h}^{d_h} \hspace{0.05cm}]\]</span></p>
+<p><span class="math display">\[X_{1h} = \left(\hspace{0.2cm}  x_{i1} \hspace{0.2cm} : \hspace{0.2cm} i \in \lbrace 1,...,n \rbrace \hspace{0.2cm} \text{y} \hspace{0.2cm} x_{i1} \in [L_h , L_{h+1}) \hspace{0.2cm}  \right)\]</span></p>
+<p><br></p>
+<p><br></p>
 </div>
 </div>
 
