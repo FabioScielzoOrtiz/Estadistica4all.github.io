@@ -2444,65 +2444,229 @@ estimation
 
 
 ```python
+def BCa_boot_interval(Variable, estimator_function, B, alpha, random_seed, q=0.75):
 
+    np.random.seed(random_seed)
+
+
+    def Bootstrap_sample(Variable):
+
+        from sklearn.utils import resample
+
+        sample = resample( Variable, n_samples=len(Variable))
+
+        return sample
+
+
+    def Jacknife_sample(X , r):
+
+            X_sample_r = np.delete(X, r)
+
+            return(X_sample_r)
+
+
+
+    z_1_alpha_medios = scipy.stats.norm.ppf(q=alpha/2, loc=0, scale=1)
+
+    z_alpha_medios = scipy.stats.norm.ppf(q=1-alpha/2, loc=0, scale=1)
+
+##################################################################################
+
+    if estimator_function == np.quantile:  estimation = estimator_function(Variable, q=q)
+
+    else :  estimation = estimator_function(Variable)
+
+    replicas_boot_estimador = []
+
+    for b in range(0, B):
+
+        replicas_boot_estimador.append( np.mean( Bootstrap_sample(Variable) ) )
+
+
+    replicas_boot_estimador = np.array(replicas_boot_estimador)
+
+
+    rho = sum( replicas_boot_estimador <= estimation ) / B
+
+    z_0 = scipy.stats.norm.ppf(q=rho, loc=0, scale=1)
+
+    ###################################
+
+    replicas_jack_estimador = []
+
+    for r in range(0, len(Variable)):
+
+        if estimator_function == np.quantile :  Jack_estimation = estimator_function( Jacknife_sample(Variable, r) , q=q )
+
+        else :  Jack_estimation = estimator_function( Jacknife_sample(Variable, r) )
+
+        replicas_jack_estimador.append( Jack_estimation )
+
+    replicas_jack_estimador = np.array(replicas_jack_estimador)
+
+
+    a_numerator = sum( (np.mean(replicas_jack_estimador) - replicas_jack_estimador )**3 )
+
+    a_denominator = sum( (np.mean(replicas_jack_estimador) - replicas_jack_estimador )**2 )
+
+    a_denominator = 6*a_denominator**(3/2)
+
+    a = a_numerator / a_denominator
+
+
+    x_1 = z_0 + (z_0 + z_1_alpha_medios)/(1-a*(z_0 + z_1_alpha_medios))
+
+    x_2 = z_0 + (z_0 + z_alpha_medios)/(1-a*(z_0 + z_alpha_medios))
+
+
+    alpha_1 = scipy.stats.norm.cdf(x=x_1, loc=0, scale=1)
+
+    alpha_2 = scipy.stats.norm.cdf(x=x_2, loc=0, scale=1)
+
+
+#########################################################################################################
+
+    L1 = np.quantile( replicas_boot_estimador  , q=alpha_1)
+
+    L2 = np.quantile( replicas_boot_estimador  , q=alpha_2)
+
+    interval = [L1,L2]
+
+    return interval , estimation
 ```
 
 
 ```python
+np.random.seed(123)
 
+X = np.random.normal(loc=10, scale=15, size=50)
 ```
 
 ```python
-
+interval , estimation = BCa_boot_interval(Variable=X, estimator_function=np.mean, B=200000, alpha=0.05, random_seed=123)
 ```
 
 ```python
+interval
+```
 
+    [5.262399300501412, 15.148561429340479]
+
+
+```python
+estimation
+```
+
+    10.199071616256777
+
+
+```python
+interval , estimation = BCa_boot_interval(Variable=X, estimator_function=np.median, B=200000, alpha=0.05, random_seed=123)
 ```
 
 ```python
+interval
+```
 
+    [1.1580146455412295, 11.197676226492618]
+
+
+```python
+estimation
+```
+
+    8.23916733155832
+
+```python
+interval , estimation = BCa_boot_interval(Variable=X, estimator_function=np.std, B=200000, alpha=0.05, random_seed=123)
 ```
 
 ```python
+interval
+```
 
+    [20.774957571314236, 21.430372642336394]
+
+
+```python
+estimation
+```
+
+    17.844342210422187
+
+```python
+interval , estimation = BCa_boot_interval(Variable=X, estimator_function=np.quantile , B=200000, alpha=0.05, random_seed=123, q=0.6)
 ```
 
 ```python
+interval
+```
 
+    [14.014587566665833, 21.42972709983565]
+
+
+```python
+estimation
+```
+
+    14.584180220264427
+
+
+
+```python
+interval , estimation = BCa_boot_interval(Variable=X, estimator_function=np.quantile , B=200000, alpha=0.05, random_seed=123, q=0.3)
+```
+
+
+```python
+interval
+```
+
+    [-0.6003612573539066, -0.600281655451849]
+
+
+```python
+estimation
+```
+
+    0.23654135251192027
+    
+    
+```python
+interval , estimation = BCa_boot_interval(Variable=X, estimator_function=skew , B=200000, alpha=0.05, random_seed=123, q=0.5)
 ```
 
 ```python
+interval
+```
 
+    [-0.6003612573539066, -0.6003362491509903]
+
+```python
+estimation
+```
+
+    0.025587358812510053
+
+
+
+```python
+interval , estimation = BCa_boot_interval(Variable=X, estimator_function=kurtosis , B=200000, alpha=0.05, random_seed=123, q=0.5)
 ```
 
 ```python
-
+interval
 ```
+     
+    [-0.6003612573539066, -0.6003597491211978]
 
 ```python
-
+estimation
 ```
 
-```python
+    -0.37420768292897266
 
-```
-
-```python
-
-```
-
-```python
-
-```
-
-```python
-
-```
-
-
-
-
+    
 
 \newpage
 
@@ -3240,10 +3404,6 @@ resultado
 # Bootstrap en Regresión Lineal 
 
 
-Antes de leer esta sección se recomienda leer el articulo sobre  [el modelo de regresión lineal](http://estadistica4all.com/Articulos/Linear-Regression-new.html) que se encuentra en el blog [Estadistica4all.com](http://estadistica4all.com/). Principalmente porque vamos a usar conceptos y notación que están presentes y desarrollados con mucho más detalle en dicho articulo.
-
-
-
 
 ## Botstrap en Regresión Lineal basado en residuos
 
@@ -3261,6 +3421,7 @@ Donde:
 
 $$\widehat{\beta} = (X \cdot X^t)^{-1} \cdot X^t \cdot y\\$$
 
+\vspace{0.25cm}
 
 Recordemos que en el modelo de regresión lineal los residuos estimados del modelo son:  
 
@@ -3276,7 +3437,7 @@ Se toman $\hspace{0.1cm}B\hspace{0.1cm}$  muestras *bootstrap* (aleatorias y con
 
 $$\widehat{\varepsilon}_{(1)}\hspace{0.05cm},....,\hspace{0.05cm}\widehat{\varepsilon}_{(B)}\\$$
 
-
+\vspace{0.25cm}
 
 Se generan  $\hspace{0.1cm}B\hspace{0.1cm}$  replicas *bootstrap* de las respuestas del siguiente modo:  
 
@@ -3305,7 +3466,11 @@ Podemos usar estos modelos para obtener intervalos de confianza bootstrap de los
 
 Para cada modelo $\hspace{0.1cm} M_{(b)} \hspace{0.1cm}$ se tiene la estimación $\hspace{0.1cm} \widehat{\beta}_{(b)} \hspace{0.1cm}$ del vector de coeficientes betas, y con ello se tiene la estimación $\hspace{0.1cm}\widehat{\beta}_{j(b)}\hspace{0.1cm}$ del coeficiente   $\hspace{0.1cm}\beta_j\hspace{0.1cm}$, para cada predictor. 
 
+\vspace{0.25cm}
+
 Así que para cada estimador $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ se tiene   un vector de replicas bootstrap: $\hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} = \hspace{0.1cm} \left( \widehat{\beta}_{j(1)} \hspace{0.05cm} , \hspace{0.05cm} \widehat{\beta}_{j(2)} \hspace{0.05cm},...,\hspace{0.05cm} \widehat{\beta}_{j(B)} \right) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} j \in \lbrace 0,1,...,p\rbrace$
+
+\vspace{0.25cm}
 
 Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el intervalos bootstrap para los coeficientes betas del modelo: 
 
@@ -3313,7 +3478,7 @@ Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el 
 $$IC(\beta_j)_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{0.1cm} Q \left( \hspace{0.1cm} \alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm}boot} \hspace{0.1cm} \right) \hspace{0.1cm} , \hspace{0.1cm}  Q \left( \hspace{0.1cm} 1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm}boot} \hspace{0.1cm} \right)  \hspace{0.1cm} \right]$$
 
 
-<br>
+\vspace{0.5cm}
 
 
 ### Intervalo de confianza bootstrap para los coeficientes betas
@@ -3321,7 +3486,11 @@ $$IC(\beta_j)_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{0.
 
 Para cada modelo $\hspace{0.1cm} M_{(b)} \hspace{0.1cm}$ se tiene la estimación $\hspace{0.1cm} R^2_{adj\hspace{0.05cm} (b)} \hspace{0.1cm}$ del coeficiente de determinación ajustado. 
 
+\vspace{0.25cm}
+
 Así que para el estimador $\hspace{0.1cm}R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot}\hspace{0.1cm}$ se tiene   un vector de replicas bootstrap: $\hspace{0.1cm} R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} = \hspace{0.1cm} \left(  R^2_{adj\hspace{0.05cm} (1)} \hspace{0.05cm} , \hspace{0.05cm}  R^2_{adj\hspace{0.05cm} (2)} \hspace{0.05cm},...,\hspace{0.05cm}  R^2_{adj\hspace{0.05cm} (B)} \right) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} j \in \lbrace 0,1,...,p\rbrace$
+
+\vspace{0.25cm}
 
 Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el intervalos bootstrap para los coeficientes betas del modelo: 
 
@@ -3330,9 +3499,7 @@ $$IC(R^2_{adj})_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{
 
 
 
-<br>
-
-<br>
+\newpage
 
 ## Botstrap en Regresión Lineal basado en pares
 
@@ -3343,6 +3510,7 @@ Con ello se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ muestras:
 
 $$\left(X , Y \right)_{(1)} \hspace{0.05cm} ,..., \hspace{0.05cm} \left(X , Y \right)_{(B)}$$
  
+ \vspace{0.25cm}
  
 Para cada $\hspace{0.1cm} b \in \lbrace 1,...,B \rbrace$
 
@@ -3356,7 +3524,7 @@ Podemos usar estos modelos para obtener intervalos de confianza bootstrap de los
 
 
 
-<br>
+\vspace{0.25cm}
 
 
 
@@ -3365,7 +3533,11 @@ Podemos usar estos modelos para obtener intervalos de confianza bootstrap de los
 
 Para cada modelo $\hspace{0.1cm} M_{(b)} \hspace{0.1cm}$ se tiene la estimación $\hspace{0.1cm} \widehat{\beta}_{(b)} \hspace{0.1cm}$ del vector de coeficientes betas, y con ello se tiene la estimación $\hspace{0.1cm}\widehat{\beta}_{j(b)}\hspace{0.1cm}$ del coeficiente   $\hspace{0.1cm}\beta_j\hspace{0.1cm}$, para cada predictor. 
 
+\vspace{0.25cm}
+
 Así que para cada estimador $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ se tiene   un vector de replicas bootstrap: $\hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} = \hspace{0.1cm} \left( \widehat{\beta}_{j(1)} \hspace{0.05cm} , \hspace{0.05cm} \widehat{\beta}_{j(2)} \hspace{0.05cm},...,\hspace{0.05cm} \widehat{\beta}_{j(B)} \right) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} j \in \lbrace 0,1,...,p\rbrace$
+
+\vspace{0.25cm}
 
 Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el intervalos bootstrap para los coeficientes betas del modelo:
 
@@ -3373,7 +3545,7 @@ Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el 
 $$IC(\beta_j)_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{0.1cm} Q \left( \hspace{0.1cm} \alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm}boot} \hspace{0.1cm} \right) \hspace{0.1cm} , \hspace{0.1cm}  Q \left( \hspace{0.1cm} 1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm}boot} \hspace{0.1cm} \right)  \hspace{0.1cm} \right]$$
 
 
-<br>
+\vspace{0.25cm}
 
 
 ### Intervalo de confianza bootstrap para los coeficientes betas
@@ -3381,17 +3553,18 @@ $$IC(\beta_j)_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{0.
 
 Para cada modelo $\hspace{0.1cm} M_{(b)} \hspace{0.1cm}$ se tiene la estimación $\hspace{0.1cm} R^2_{adj\hspace{0.05cm} (b)} \hspace{0.1cm}$ del coeficiente de determinación ajustado. 
 
+\vspace{0.25cm}
+
 Así que para el estimador $\hspace{0.1cm}R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot}\hspace{0.1cm}$ se tiene   un vector de replicas bootstrap: $\hspace{0.1cm} R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} = \hspace{0.1cm} \left(  R^2_{adj\hspace{0.05cm} (1)} \hspace{0.05cm} , \hspace{0.05cm}  R^2_{adj\hspace{0.05cm} (2)} \hspace{0.05cm},...,\hspace{0.05cm}  R^2_{adj\hspace{0.05cm} (B)} \right) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} j \in \lbrace 0,1,...,p\rbrace$
 
-Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el intervalos bootstrap para los coeficientes betas del modelo: $\\[0.4cm]$
+\vspace{0.25cm}
+
+Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el intervalos bootstrap para los coeficientes betas del modelo:  
 
 
 $$IC(R^2_{adj})_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{0.1cm} Q \left( \hspace{0.1cm} \alpha/2 \hspace{0.1cm} , \hspace{0.1cm} R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} \right) \hspace{0.1cm} , \hspace{0.1cm}  Q \left( \hspace{0.1cm} 1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} \right)  \hspace{0.1cm} \right]$$
 
 
- 
- 
- 
  
  
 
@@ -3401,8 +3574,6 @@ $$IC(R^2_{adj})_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{
 
 
 ## Regresión lineal bootstrap en `Python`
-
-
 
 
 ```python
@@ -3419,7 +3590,7 @@ Data = Data.loc[:, ['latitude', 'longitude', 'price', 'size_in_m_2','no_of_bedro
 Data.head()
 ```
 ```
-    latitude  longitude    price  size_in_m_2  no_of_bedrooms  \
+    latitude  longitude    price  size_in_m_2  no_of_bedrooms  
 0  25.113208  55.138932  2700000   100.242337               1   
 1  25.106809  55.151201  2850000   146.972546               2   
 2  25.063302  55.137728  1150000   181.253753               3   
@@ -3434,11 +3605,13 @@ Data.head()
 4                1             2.0 
 ```
 
-
+\vspace{0.25cm}
 
 ```python
 Data['quality_recode'] = Data['quality_recode'].astype('category')
 ```
+
+\vspace{0.25cm}
 
 ```python
 import sklearn
@@ -3446,18 +3619,19 @@ import sklearn
 from sklearn.linear_model import LinearRegression
 ```
 
+\vspace{0.25cm}
 
 ```python
 X = Data[['size_in_m_2', 'longitude', 'latitude', 'no_of_bedrooms', 'no_of_bathrooms', 'quality_recode']]
 Y = Data['price']
 ```
-
+\vspace{0.25cm}
 
 ```python
 X.head()
 ```
 ```
-   size_in_m_2  longitude   latitude  no_of_bedrooms  no_of_bathrooms  \
+   size_in_m_2  longitude   latitude  no_of_bedrooms  no_of_bathrooms  
 0   100.242337  55.138932  25.113208               1                2   
 1   146.972546  55.151201  25.106809               2                2   
 2   181.253753  55.137728  25.063302               3                5   
@@ -3472,6 +3646,7 @@ X.head()
 4            2.0  
 ```
 
+\vspace{0.25cm}
 
 ```python
 Y.head()
@@ -3486,7 +3661,7 @@ Y.head()
 Name: price, dtype: int64
 ```
 
-
+\vspace{0.25cm}
 
 ```python
 def varcharProcessing(X, varchar_process = "dummy_dropfirst"):
@@ -3513,6 +3688,7 @@ def varcharProcessing(X, varchar_process = "dummy_dropfirst"):
     return X
 ```
 
+\vspace{0.25cm}
 
 ```python
 X = varcharProcessing(X, varchar_process = "dummy_dropfirst")
@@ -3522,7 +3698,7 @@ X.head()
 
 
 ```
-   intercept  size_in_m_2  longitude   latitude  no_of_bedrooms  \
+   intercept  size_in_m_2  longitude   latitude  no_of_bedrooms  
 0          1   100.242337  55.138932  25.113208               1   
 1          1   146.972546  55.151201  25.106809               2   
 2          1   181.253753  55.137728  25.063302               3   
@@ -3537,7 +3713,7 @@ X.head()
 4                1                   0                   1                   0 
 ```
 
-
+\vspace{0.25cm}
 
 ```python
 def boot_interval_linear_regression(X, Y, method, parameter, j, B, alpha) :
@@ -3563,7 +3739,7 @@ def boot_interval_linear_regression(X, Y, method, parameter, j, B, alpha) :
     
     beta_hat = np.concatenate( ( np.array([model.intercept_]) , model.coef_[1:len(X)]) )
 
-########################################################################################
+#######################################################################
 
     if method == 'residuals':
 
@@ -3586,7 +3762,7 @@ def boot_interval_linear_regression(X, Y, method, parameter, j, B, alpha) :
 
             interval = [L1,L2]
 
-########################################################################################
+#######################################################################
 
         elif parameter == 'adj_R2' :
 
@@ -3607,7 +3783,7 @@ def boot_interval_linear_regression(X, Y, method, parameter, j, B, alpha) :
 
             interval = [L1,L2]
 
-######################################################################################## 
+#######################################################################
        
     if method == 'pairs' :
 
@@ -3634,7 +3810,7 @@ def boot_interval_linear_regression(X, Y, method, parameter, j, B, alpha) :
 
             interval = [L1,L2]
 
-########################################################################################
+#######################################################################
 
         elif parameter == 'adj_R2' :
 
@@ -3657,12 +3833,15 @@ def boot_interval_linear_regression(X, Y, method, parameter, j, B, alpha) :
 
             interval = [L1,L2]
 
-########################################################################################
+#######################################################################
 
     return interval
 ```
 
 
+\vspace{0.35cm}
+
+**Intervalo de confianza para los coeficientes beta del modelo de regresión lineal:**
 
 
 ```python
@@ -3672,6 +3851,7 @@ boot_interval_linear_regression(X=X, Y=Y, method='residuals', parameter='beta', 
     [34457.35430762553, 37169.50119078313]
 
 
+\vspace{0.25cm}
 
 ```python
 boot_interval_linear_regression(X=X, Y=Y, method='pairs', parameter='beta', j=1, B=500, alpha=0.05) 
@@ -3680,13 +3860,15 @@ boot_interval_linear_regression(X=X, Y=Y, method='pairs', parameter='beta', j=1,
     [29306.688429798087, 40389.149018568656]
 
 
+\vspace{0.25cm}
+
 ```python
 boot_interval_linear_regression(X=X, Y=Y, method='residuals', parameter='beta', j=2, B=500, alpha=0.05) 
 ```
 
     [-2949083.96469503, -297017.35523746273]
 
-
+\vspace{0.25cm}
 
 ```python
 boot_interval_linear_regression(X=X, Y=Y, method='pairs', parameter='beta', j=2, B=500, alpha=0.05) 
@@ -3694,7 +3876,10 @@ boot_interval_linear_regression(X=X, Y=Y, method='pairs', parameter='beta', j=2,
 
     [-2906726.4973525056, -394604.81858878786]
 
+\vspace{0.35cm}
 
+
+Calculamos los intervalos de confianza para los coeficientes betas del modelo de regresión lineal con la libería `statmodels`
 
 ```python
 import statsmodels.api as sm
@@ -3708,10 +3893,23 @@ model_SM = sm.OLS(Y , X).fit()
 ```python
 model_SM.conf_int(alpha=0.05)
 ```
+```
+                                0             1
+intercept           -1.204625e+08 -2.999117e+06
+size_in_m_2          3.424446e+04  3.708364e+04
+longitude           -3.031978e+06 -3.223444e+05
+latitude             4.583358e+06  7.646506e+06
+no_of_bedrooms      -9.991120e+05 -6.742539e+05
+no_of_bathrooms     -1.910590e+05  7.681737e+04
+quality_recode_1.0  -6.448764e+05 -3.634981e+04
+quality_recode_2.0  -4.884944e+05  8.730549e+04
+quality_recode_3.0  -5.140369e+05  3.903336e+05
+```
 
-<br>
+\vspace{0.35cm}
 
-**Inervalo de confianza para el coeficiente de determinación ajustado:**
+
+**Intervalo de confianza para el coeficiente de determinación ajustado:**
 
 ```python 
 boot_interval_linear_regression(X=X, Y=Y, method='residuals', parameter='adj_R2', j='none', B=500, alpha=0.05) 
@@ -3719,6 +3917,7 @@ boot_interval_linear_regression(X=X, Y=Y, method='residuals', parameter='adj_R2'
 
      [0.6536518705306413, 0.7417060490432771]
 
+\vspace{0.25cm}
 
 ```python
 boot_interval_linear_regression(X=X, Y=Y, method='pairs', parameter='adj_R2', j='none', B=500, alpha=0.05) 
@@ -3726,6 +3925,7 @@ boot_interval_linear_regression(X=X, Y=Y, method='pairs', parameter='adj_R2', j=
 
      [0.6248263646856418, 0.7629699519613915]
 
+\vspace{0.25cm}
 
 ```python
 model_SM.rsquared_adj
@@ -3735,10 +3935,8 @@ model_SM.rsquared_adj
  
 
 
-<br>
 
-<br>
-
+\newpage
  
 
 # Estimación bootstrap de la varianza de las predicciones de un modelo de aprendizaje supervisado
@@ -3785,9 +3983,7 @@ Promediamos y obtenimos asi una estimacion de la varianza de las predcciones del
 $$ \dfrac{1}{h} \sum_{i=1}^{h} \widehat{Var}(\hat{y}_i) $$  
 
 
-<br>
-
-<br>
+\newpage
 
 
 # Estimación bootstrap del sesgo de las predicciones de un modelo de aprendizaje supervisado
@@ -3837,11 +4033,9 @@ Promediamos y obtenimos asi una estimacion de la varianza de las predcciones del
 $$ \dfrac{1}{h} \sum_{i=1}^{h} \widehat{Sesgo}(\hat{y}_i) $$  
 
 
-<br>
 
-----
 
-<br>
+\newpage
 
 # Bibliografía
 
