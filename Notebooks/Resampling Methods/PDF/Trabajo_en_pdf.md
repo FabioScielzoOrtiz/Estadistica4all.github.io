@@ -1,79 +1,28 @@
 ---
-title: 'Inferencia basada en remuestreo'
-author: 'Fabio Scielzo Ortiz'
-date: '7/1/23'
-output: 
-   rmdformats::readthedown:
-      use_bookdown: true
-      self_contained: true
-      thumbnails: true
-      lightbox: true
-      gallery: false
-      highlight: tango
-      
-css: custom.css
+title: ''
+author: ''
+date: ''
+output:
+  pdf_document:
+    includes:
+      in_header: "wrap-code.tex"
+      before_body: portada4.sty
+    toc_depth: 6
+    number_sections: yes
+  html_document:
+    toc_depth: '6'
+    df_print: paged
+header_includes:
+- \usepackage{longtable}
+- \usepackage{lscape}
+geometry: left=3cm,right=3cm,top=2cm,bottom=2cm
+institute: Universidad Carlos III de Madrid
+documentclass: article
+papersize: a4
+linestrech: 1.5
+fontsize: 11pt
+urlcolor: blue
 ---
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-    
- 
-    table {
-     display: block;
-     overflow-x: auto;
-     border-collapse: collapse;
-     border-spacing: 0;
-     border: 0px solid;
-     color: var(--jp-ui-font-color1);
-     font-size: 14px;
-     margin-left: auto;
-     margin-right: auto;
-     
-            }
-            
-</style>
-
-
-
-
-
-<div class="warning" style='background-color:#FCF2EC; color: #000000; border-left: solid #FE9554 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
- 
-<p style='margin-left:10em;'>
-
-
-$\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)**
-
-$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/autores.html)
-
-
-$\hspace{0.3cm}$ **Si utilizas este artículo, cítalo !!**
-
-$\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). Introducción a los contrastes de hipótesis. link.
-
-</p>
- 
-</p></span>
-</div>
-
-
-***Se recomienda abrir el artículo en un ordenador o en una tablet.***
- 
- 
-<br>
 
 
 
@@ -86,7 +35,7 @@ $\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). Introducción a los contrastes de hip
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ son variables aleatorias mutuamente independientes e identicamente distribuidas  *(i.i.d.)* $\hspace{0.3cm}\Leftrightarrow$
+$\hspace{0.25cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ son variables aleatorias mutuamente independientes e idénticamente distribuidas  *(i.i.d.)* $\hspace{0.3cm}\Leftrightarrow$
 
 - $\hspace{0.1cm}$ $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son mutuamente independientes , es decir:
 
@@ -108,7 +57,7 @@ $\hspace{0.4cm}$ Donde $\hspace{0.08cm}F( \cdot )\hspace{0.08cm}$ es una distrib
 
 
 
-Usaremos la siguiente notación: $\\[0.4cm]$
+Usaremos la siguiente notación: $\\[0.2cm]$
 
 
 $$(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \hspace{0.3cm} \Leftrightarrow
@@ -121,24 +70,18 @@ $$(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \hspace{0.3
 
 # Muestra Aleatoria Simple
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
  
-<p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ Sea $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ una v.a. tal que $\hspace{0.1cm}\mathcal{X} \sim F(\cdot)$ 
+Sea $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ una v.a. tal que $\hspace{0.1cm}\mathcal{X} \sim F(\cdot)$ 
 
 
-$\hspace{0.25cm}$ $\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.1cm}$ es una muestra aleatoria simple (m.a.s.) de tamaño $\hspace{0.08cm}n\hspace{0.08cm}$ de $\hspace{0.1cm}\mathcal{X}$ $\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}$ $(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \\$
+$\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.1cm}$ es una muestra aleatoria simple de tamaño $n$ de $\mathcal{X}$ $\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}$ $(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \\$
 
-</p>
  
-</p></span>
-</div>
 
 **Observación:**
 
-Una m.a.s. de una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ es un vector de v.a.'s mutuamente independientes y que se distribuyen probabilisticamente igual que la v.a. $\hspace{0.1cm}\mathcal{X}$
+Una m.a.s. de una v.a. $\mathcal{X}$ es un vector de v.a.'s mutuamente independientes y que se distribuyen probabilisticamente igual que la v.a. $\mathcal{X}$
 
 
 <br>
@@ -146,46 +89,41 @@ Una m.a.s. de una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ es un vector de
 # Muestra de Observaciones
 
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
  
-<p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$  Sea $\hspace{0.12cm}\mathcal{X}\hspace{0.12cm}$ una v.a. tal que $\hspace{0.12cm}\mathcal{X} \sim F(\cdot)$ 
-
-
-$\hspace{0.25cm}$ $X=(x_1,...,x_n)\hspace{0.12cm}$ es una muestra de $\hspace{0.08cm}n\hspace{0.08cm}$ observaciones de la v.a. $\hspace{0.12cm}\mathcal{X}$ $\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}$ $x_i \in Im(\mathcal{X}) \hspace{0.12cm} ,\hspace{0.12cm} \forall i\in \lbrace 1,...,n \rbrace$ $\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}$ $x_i$ es una realización de la v.a. $\hspace{0.12cm}\mathcal{X}$  , $\hspace{0.12cm}\forall i\in \lbrace 1,...,n \rbrace \\$
+Sea $\hspace{0.12cm}\mathcal{X}\hspace{0.12cm}$ una v.a. tal que $\hspace{0.12cm}\mathcal{X} \sim F(\cdot)$ 
 
 
-</p>
+ $X=(x_1,...,x_n)\hspace{0.12cm}$ es una muestra de $\hspace{0.08cm}n\hspace{0.08cm}$ observaciones de la v.a. $\mathcal{X}$ $\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}$ $x_i \in Im(\mathcal{X}) \hspace{0.12cm} ,\hspace{0.12cm} \forall i\in \lbrace 1,...,n \rbrace$ $\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}$ $x_i$ es una realización de la v.a. $\mathcal{X}$  , $\hspace{0.12cm}\forall i\in \lbrace 1,...,n \rbrace \\$
+
+
  
-</p></span>
-</div>
-
 Donde:
 
-$Im(\mathcal{X})\hspace{0.1cm}$ es la imagen de $\hspace{0.1cm}\mathcal{X}$$\hspace{0.1cm}$  , es decir, su campo de variación.
+$Im(\mathcal{X})\hspace{0.1cm}$ es la imagen de $\mathcal{X}$, es decir, su campo de variación.
 
-<br>
+
+
+\newpage
+
 
 **Observaciones:**
 
-- Una muestra de observaciones de una v.a. es un vector de números, no son v.a.'s. $\\[0.6cm]$
+- Una muestra de observaciones de una v.a. es un vector de números, no son v.a.'s. 
 
-- Si $\hspace{0.08cm} X=(x_1,...,x_n)\hspace{0.08cm}$ es una muestra de $\hspace{0.08cm}n\hspace{0.08cm}$ observaciones de $\hspace{0.08cm}\mathcal{X}\sim F(\cdot)$ , entonces $\hspace{0.08cm}x_i\hspace{0.08cm}$ es una observacion que ha sido generada por la distribución de probabilidad $\hspace{0.08cm}F(\cdot)\hspace{0.08cm}$, es decir, $\hspace{0.08cm}x_i\hspace{0.08cm}$ puede verse como un numero aleatorio generado en base a la distribución de probabilidad $\hspace{0.08cm} F(\cdot)$ $\\[0.6cm]$
+- Si $\hspace{0.08cm} X=(x_1,...,x_n)\hspace{0.08cm}$ es una muestra de $\hspace{0.08cm}n\hspace{0.08cm}$ observaciones de $\hspace{0.08cm}\mathcal{X}\sim F(\cdot)$ , entonces $\hspace{0.08cm}x_i\hspace{0.08cm}$ es una observacion que ha sido generada por la distribución de probabilidad $\hspace{0.08cm}F(\cdot)\hspace{0.08cm}$, es decir, $\hspace{0.08cm}x_i\hspace{0.08cm}$ puede verse como un numero aleatorio generado en base a la distribución de probabilidad $\hspace{0.08cm} F(\cdot)$ 
 
 - Si $\hspace{0.08cm}X=(x_1,...,x_n)\hspace{0.08cm}$ es una muestra de $\hspace{0.08cm}n\hspace{0.08cm}$ observaciones de $\mathcal{X}\sim F(\cdot)$ , entonces:
 
 
-    - $P(\mathcal{X}= x_i)$ es la probabilidad de  observar $x_i$ al extraer una muestra de observaciones de $\mathcal{X}$ $\\[0.6cm]$
+    -- $P(\mathcal{X}= x_i)$ es la probabilidad de  observar $x_i$ al extraer una muestra de observaciones de $\mathcal{X}$ $\\[0.2cm]$
 
 
 - Si $\hspace{0.08cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.08cm}$ es una muestra aleatoria simple (m.a.s.) de tamaño $\hspace{0.08cm}n\hspace{0.08cm}$ de $\hspace{0.08cm}\mathcal{X}\sim F(\cdot)\hspace{0.08cm}$ , entonces:
 
-    -  $P(\mathcal{X}_1 = x_1 , ..., \mathcal{X}_n=x_n)\hspace{0.08cm}$ es la probabilidad de obtener como valores $\hspace{0.08cm}(x_1,...,x_n)\hspace{0.08cm}$ al extraer una muestra de observaciones de $\hspace{0.08cm}\mathcal{X}$
+    -- $P(\mathcal{X}_1 = x_1 , ..., \mathcal{X}_n=x_n)\hspace{0.08cm}$ es la probabilidad de obtener como valores $\hspace{0.08cm}(x_1,...,x_n)\hspace{0.08cm}$ al extraer una muestra de observaciones de $\hspace{0.08cm}\mathcal{X}\\$
 
-
-<br>
+ 
 
 
 # Estadístico
@@ -194,39 +132,33 @@ $Im(\mathcal{X})\hspace{0.1cm}$ es la imagen de $\hspace{0.1cm}\mathcal{X}$$\hsp
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
-<p style='margin-left:1em;'>
-$\hspace{0.25cm}$ $T\hspace{0.1cm}$ es un estadístico de una m.a.s $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\sim F(\theta)$ $\hspace{0.25cm}\Leftrightarrow\hspace{0.25cm}$ $T\hspace{0.1cm}$ es una función de la m.a.s que no depende  del parámetro $\hspace{0.1cm}\theta$
-
-
-
-
-</p>
  
-</p></span>
-</div>
+ $T\hspace{0.1cm}$ es un estadístico de una m.a.s $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\sim F(\theta)$ $\hspace{0.25cm}\Leftrightarrow\hspace{0.25cm}$ $T\hspace{0.1cm}$ es una función de la m.a.s que no depende  del parámetro $\hspace{0.1cm}\theta$
+
+ 
 
 Por tanto:
 
-- $T(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ es un estadístico.  $\\[0.4cm]$
+- $T(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ es un estadístico.  
 
 
- 
+\vspace{0.2cm}
 
 **Observaciones:**
 
-- $\hspace{0.12cm}T(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ es una v.a. al ser una función de v.a.'s $\\[0.8cm]$
+- $T(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ es una v.a. al ser una función de v.a.'s 
 
 - Dada una muestra de observaciones $\hspace{0.1cm}(x_1 ,..., x_n)\hspace{0.1cm}$ de  la v.a. $\hspace{0.1cm}\mathcal{X} \sim D(\theta)$ 
 
-$\hspace{0.6cm} T(x_1,...,x_n)\hspace{0.1cm}$ es una observación de la v.a. $\hspace{0.1cm}T(\mathcal{X}_1,...,\mathcal{X}_n) \\$
+    -- $T(x_1,...,x_n)\hspace{0.1cm}$ es una observación de la v.a. $\hspace{0.1cm}T(\mathcal{X}_1,...,\mathcal{X}_n) \\$
 
 
 - Dadas $\hspace{0.1cm}B\hspace{0.1cm}$ muestras de observaciones $\hspace{0.1cm}(x_1^1 , ..., x_n^1)\hspace{0.1cm} ,...,\hspace{0.1cm}(x_1^B,...,x_n^B)\hspace{0.2cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X} \sim D(\theta)$ 
 
-     - $\hspace{0.1cm}T(x_1^1 , ..., x_n^1) \hspace{0.1cm},...,\hspace{0.1cm} T(x_1^B,...,x_n^B)\hspace{0.2cm}$ es una muestra de observaciones de la v.a. $\hspace{0.1cm}T(\mathcal{X}_1,...,\mathcal{X}_n)$
+     -- $T(x_1^1 , ..., x_n^1) \hspace{0.1cm},...,\hspace{0.1cm} T(x_1^B,...,x_n^B)\hspace{0.2cm}$ es una muestra de observaciones de la v.a. $\hspace{0.1cm}T(\mathcal{X}_1,...,\mathcal{X}_n)$
 
 
-<br>
+\newpage
 
 ## Ejemplos de estadisticos
 
@@ -251,42 +183,33 @@ $$T(\mathcal{X}_1,...,\mathcal{X}_n) = S^2 = \dfrac{1}{n-1} \sum_{i=1}^n (\mathc
 
 
 
-
-<br>
+\vspace{0.2cm}
 
 
 # Estimador Puntual
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
-
+ 
 $\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}$, 
 
 $\hspace{0.25cm}$ Un estimador puntual para el parametro $\hspace{0.1cm}\theta\hspace{0.1cm}$ es un estadistico $\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ que se propone para estimar $\hspace{0.1cm}\theta$
 
-</p>
  
-</p></span>
-</div>
 
-<br>
+
+
+\vspace{0.2cm}
 
 
 # Estimación Puntual
-
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
+ 
 
 $\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ , una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y un estadistico $\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)$
 
 $\hspace{0.25cm}$ Si  $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ es una muestra de observaciones  de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces:
 
-- $\hspace{0.1cm}$$\widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ es una estimación puntual del parametro $\hspace{0.1cm}\theta \\$
+- $\hspace{0.1cm}$$\widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ es una estimación puntual del parametro $\hspace{0.1cm}\theta$
 
-</p>
- 
-</p></span>
-</div>
+\vspace{0.2cm}
 
 
 **Observaciones:**
@@ -294,7 +217,8 @@ $\hspace{0.25cm}$ Si  $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ es una muest
 Un estimador puntual es una v.a. y una estimación puntual un número.
 
 
-<br>
+
+\newpage
 
 # Propiedades básicas de los estimadores
 
@@ -363,29 +287,26 @@ $$ECM(\widehat{\theta}) = E\left[\hspace{0.1cm} (\widehat{\theta} - \theta)^2 \h
 
 - $ECM(\widehat{\theta}) = Var(\hat{\theta} ) + Sesgo(\widehat{\theta})^2$
 
-<br>
-
-<br>
 
 
 
 
 
+\newpage
 
 
 
 
-# Estimacion del sesgo y varianza por Jacknife
 
-Tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ , una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y un estimador $\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ del parametro $\hspace{0.1cm}\theta$
+# Estimación del sesgo y varianza por Jacknife
 
-
-Además tenemos una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$   de la variable de interés $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , por lo que tenemos la estimación  $\hspace{0.1cm}\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ del parámetro $\hspace{0.1cm} \theta \\$
+Tenemos una v.a. $\mathcal{X}\sim D(\theta)$ , una m.a.s. $(\mathcal{X}_1,...,\mathcal{X}_n)$ de $\mathcal{X}$ y un estimador $\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)$ del parámetro $\theta$
 
 
+Además tenemos una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$   de la variable de interés $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , por lo que tenemos la estimación  $\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ del parámetro $\theta \\$
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
+
+ 
 
 $\hspace{0.25cm}$ Se define $\hspace{0.1cm}X_{(r)}\hspace{0.1cm}$ como la muestra que contiene todos los valores de $\hspace{0.1cm}X\hspace{0.1cm}$ excepto $\hspace{0.1cm}x_{r}$
 
@@ -403,18 +324,16 @@ $\hspace{0.25cm}$ Se define la replica $\hspace{0.1cm}r$-esima del estimador $\h
 $$\widehat{\theta}_{(r)} = \widehat{\theta}(X_{(r)})= \widehat{\theta}(\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.05cm},..,\hspace{0.05cm} x_{r-1}\hspace{0.05cm},\hspace{0.05cm}x_{r+1}\hspace{0.05cm} ,..,\hspace{0.05cm} x_{n}\hspace{0.05cm})$$
 
 
-</p>
  
-</p></span>
-</div>
+ 
+\vspace{0.3cm}
 
 
-<br>
+
 
 ## Estimación Jacknife del sesgo
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
+ 
 
 $\hspace{0.25cm}$ La **estimación Jacknife** del **sesgo** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como: $\\[0.5cm]$
 
@@ -429,14 +348,9 @@ $$\widehat{\theta}(X) \hspace{0.1cm}=\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n
 $$\widehat{\theta}_{(r)} = \widehat{\theta}(X_{(r)})= \widehat{\theta}(\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.05cm},..,\hspace{0.05cm} x_{r-1}\hspace{0.05cm},\hspace{0.05cm}x_{r+1}\hspace{0.05cm} ,..,\hspace{0.05cm} x_{n}\hspace{0.05cm})$$
 
 
-</p>
  
-</p></span>
-</div>
 
-
-
-<br>
+\newpage
 
 
 
@@ -482,6 +396,8 @@ $$\widehat{ s.e.}(\widehat{\theta})_{Jack} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ 
 <br>
 
 
+\vspace{0.25cm}
+
 **Observación:**
 
 El Jacknife funciona bien cuando el estimador es suave (smooth). 
@@ -496,7 +412,9 @@ Ejemplo de estimador no suave es el estimador plug-in de la mediana poblacional,
  
 
 
-<br>
+\newpage
+
+
 
 ## Estimación Jacknife de un parametro con corrección de sesgo
 
@@ -507,10 +425,7 @@ Tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ , una m
 Además tenemos una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$   de la variable de interés $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , por lo que tenemos la estimación  $\hspace{0.1cm}\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ del parámetro $\hspace{0.1cm} \theta \\[0.5cm]$
 
 
-
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
-
+ 
 $\hspace{0.25cm}$ La **estimación Jacknife con sesgo corregido** del parametro $\hspace{0.1cm} \theta\hspace{0.1cm}$ se define como: $\\[0.5cm]$
 
 $$
@@ -524,12 +439,9 @@ $$\widehat{\theta} \hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(X)\hspace{0.1
 
 $$\widehat{\theta}_{(r)} = \widehat{\theta}(X_{(r)})= \widehat{\theta}(\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.05cm},..,\hspace{0.05cm} x_{r-1}\hspace{0.05cm},\hspace{0.05cm}x_{r+1}\hspace{0.05cm} ,..,\hspace{0.05cm} x_{n}\hspace{0.05cm})$$
 
-</p>
  
-</p></span>
-</div>
 
-<br>
+\newpage
 
 
 ## Jacknife en `Python`
@@ -578,6 +490,8 @@ def Jacknife(Variable , estimator_function, q=0.75):
 ```
 
 
+\newpage
+
 ```python
 import numpy as np
 ```
@@ -588,7 +502,7 @@ np.random.seed(123)
 X = np.random.normal(loc=10, scale=15, size=50)
 ```
 
-<br>
+\vspace{0.4cm}
 
 **Jacknife para la mediana:**
 
@@ -623,7 +537,9 @@ standard_error
 
     2.381386940718188
  
-<br>
+
+\vspace{0.4cm}
+
 
 **Jacknife para la media:**
 
@@ -657,7 +573,8 @@ standard_error
     2.5491917443460235
  
  
-<br>
+\vspace{0.4cm}
+
 
 **Jacknife para la desviación típica:**
  
@@ -689,7 +606,7 @@ standard_error
 
 
 
-<br>
+\vspace{0.4cm}
 
  
 
@@ -726,8 +643,9 @@ standard_error
 
     0.9375849844484524
 
+\vspace{0.4cm}
 
-<br>
+
 
 **Jacknife para la curtosis:**
 
@@ -769,7 +687,8 @@ standard_error
 
 
 
-<br>
+\vspace{0.4cm}
+
 
 **Jacknife para la asimetria:**
 
@@ -814,57 +733,45 @@ standard_error
     
     
     
-    
- 
 
-<br>
+\newpage
 
-<br>
 
 
 # Estimación del sesgo , varianza y error cuadratico medio de un estimador por Bootstrap
 
 
-Tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ , una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y un estimador $\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ del parametro $\hspace{0.1cm}\theta$
+Tenemos una v.a. $\mathcal{X}\sim D(\theta)$ , una m.a.s. $\mathcal{X}_1,...,\mathcal{X}_n)$ de $\mathcal{X}$ y un estimador $\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)$ del parámetro $\theta$
 
 
-Además tenemos una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$   de la variable de interés $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , por lo que tenemos la estimación $\hspace{0.1cm}\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ del parametro $\hspace{0.1cm}\theta\\$ 
+Además tenemos una muestra de observaciones $X=(x_1,...,x_n)$   de la variable de interés $\mathcal{X}$ , por lo que tenemos la estimación $\hspace{0.1cm}\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ del parametro $\theta\\$ 
 
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
 
 
-$\hspace{0.25cm}$ Una **muestra bootstrap**  de $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ se define como una **muestra aleatoria con reemplazamiento** de tamaño $\hspace{0.1cm}n\hspace{0.1cm}$ de $\hspace{0.1cm}X$ 
+
+Una **muestra bootstrap**  de $X=(x_1,...,x_n)\hspace{0.1cm}$ se define como una **muestra aleatoria con reemplazamiento** de tamaño $n$ de $X$ 
 
 
-$\hspace{0.25cm}$ Tenemos $\hspace{0.1cm}B\hspace{0.1cm}$ muestras bootstrap de $\hspace{0.1cm}X\hspace{0.1cm}$ : $\\[0.5cm]$
+Tenemos $B$ muestras bootstrap de $X$ : 
 
 $$X_{(1)},X_{(2)},...,X_{(B)} \\$$
 
 
-$\hspace{0.25cm}$ Se define la replica bootstap $\hspace{0.1cm}b$-esima del estimador $\hspace{0.1cm}\widehat{\theta}$ como: $\\[0.5cm]$
-
+Se define la replica bootstap $\hspace{0.1cm}b$-esima del estimador $\hspace{0.1cm}\widehat{\theta}$ como: 
 
 $$\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)})$$
 
-</p>
- 
-</p></span>
-</div>
 
 
-<br>
 
-<br>
+\vspace{0.3cm}
 
 
 ## Estimación bootstrap del sesgo de un estimador
 
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
-
+ 
 
 $\hspace{0.25cm}$ La **estimación bootstrap** del **sesgo** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como: $\\[0.5cm]$
 
@@ -880,12 +787,7 @@ $$\widehat{\theta}(X) \hspace{0.12cm} =\hspace{0.12cm}  \widehat{\theta}(x_1,...
 
 
 
-
-</p>
- 
-</p></span>
-</div>
-
+\vspace{0.2cm}
 
 **Observación:**
 
@@ -893,15 +795,13 @@ La estimación bootstrap del sesgo del estimador $\hspace{0.12cm}\widehat{\theta
 
 
 
-<br>
+\newpage
 
 
 ## Estimación bootstrap de la varianza de un estimador
 
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
-
+ 
 
 $\hspace{0.25cm}$ La **estimación Bootstrap** de la **varianza** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como: $\\[0.5cm]$
 
@@ -913,29 +813,17 @@ $\hspace{0.25cm}$ Donde:
  
 $$\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)})$$
 
-
-</p>
  
-</p></span>
-</div>
+ 
 
-
-
-
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
-
-
-$\hspace{0.25cm}$ La **estimación bootstrap** de la **desviación típica** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como: $\\[0.5cm]$
+ 
+La **estimación bootstrap** de la **desviación típica** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como: $\\[0.5cm]$
 
 $$\widehat{s.e.}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}   \sqrt{ \widehat{Var}(\widehat{\theta})_{Boot}   }\\$$
 
 
-</p>
  
-</p></span>
-</div>
-
+\vspace{0.2cm}
 
 
 **Observación:**
@@ -943,7 +831,9 @@ $$\widehat{s.e.}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}   \sq
 La estimación bootstrap de la varianza del estimador $\hspace{0.12cm}\widehat{\theta}\hspace{0.12cm}$ es la cuasi-varianza del vector de replicas bootstrap $\hspace{0.12cm}(\widehat{\theta}_{(1)},\widehat{\theta}_{(2)},...,\widehat{\theta}_{(B)})$
 
 
-<br>
+
+\vspace{0.3cm}
+
 
 
 ## Estimación bootstrap del error cuadratico medio de un estimador
@@ -964,19 +854,14 @@ $$\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)})$$
 $$\widehat{\theta}(X) \hspace{0.12cm} =\hspace{0.12cm}  \widehat{\theta}(x_1,...,x_n)\\$$
 
 
-</p>
- 
-</p></span>
-</div>
 
 
+\newpage
 
-<br>
+
 
 ## Estimación bootstrap  de un parametro con corrección de sesgo
-
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
+ 
 
 $\hspace{0.25cm}$ La **estimación Bootstrap con sesgo corregido** del parametro $\hspace{0.1cm} \theta\hspace{0.1cm}$ se define como: $\\[0.5cm]$
 
@@ -992,13 +877,8 @@ $$\widehat{\theta}(X)\hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n
 
 
 
-</p>
  
-</p></span>
-</div>
-
-
-<br>
+\vspace{0.3cm}
 
 ## Número de muestras bootstrap posibles
 
@@ -1009,9 +889,14 @@ $$\widehat{\theta}(X)\hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n
 
 
 
-<br>
 
-<br>
+
+\newpage
+
+
+
+
+
 
 ## Bootstrap en `Python`
 
@@ -1064,7 +949,9 @@ def Bootstrap(Variable , B, estimator_function, q=0.75, random_seed=123 ):
 ```
 
 
-<br>
+\newpage
+
+
 
 **Bootstrap para la mediana:**
  
@@ -1099,7 +986,7 @@ standard_error
 
 
 
-<br>
+\vspace{0.4cm}
 
 **Bootstrap para la media:**
 
@@ -1133,7 +1020,8 @@ standard_error
     2.5121071650105433
 
 
-<br>
+\newpage
+
 
 **Bootstrap para la desviación típica:**
 
@@ -1188,7 +1076,8 @@ standard_error
 
  
 
-<br>
+\newpage
+
 
 **Bootstrap para los cuantiles:**
 
@@ -1222,8 +1111,8 @@ standard_error
     
 
 
+\vspace{0.4cm}
 
-<br>
 
 **Bootstrap para la asimetría:**
 
@@ -1258,7 +1147,8 @@ standard_error
     0.253427740069774
 
 
-<br>
+\newpage
+
 
 **Bootstrap para la curtosis:**
 
@@ -1294,27 +1184,29 @@ standard_error
     0.35103721258189574
 
 
-<br>
 
-<br>
+
+
+\newpage
+
+
+
 
 # Fundamentos del Bootstrap
 
 ## La función de distribución  
 
-Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$  
+Dada una v.a. $\mathcal{X}\sim D(\theta)$ y una m.a.s. $(\mathcal{X}_1,...,\mathcal{X}_n)$ de $\mathcal{X}$  
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
+ 
 
 La **función de distribución** de la v.a. $\mathcal{X}$ es : $\\[0.7cm]$
 
-$$F_{X}(z) = P(X \leq z)  \hspace{0.2cm}, \hspace{0.2cm}\forall z \in \mathbb{R} \\$$
+$$F_{X}(z) = P(X \leq z)  \hspace{0.2cm}, \hspace{0.2cm}\forall z \in \mathbb{R}$$
 
-</p>
  
-</p></span>
-</div>
+\vspace{0.3cm}
+
 
 
 **Observación:**
@@ -1324,7 +1216,10 @@ La función de distribución de la v.a. $\mathcal{X}$ coincide con las funciones
 $$F_{X}(z) = F_{X_i}(z) \hspace{0.2cm}, \hspace{0.2cm}\forall z \in \mathbb{R} \hspace{0.2cm},\hspace{0.2cm} \forall i \in \lbrace 1,...,n \rbrace$$
 
 
-<br>
+
+
+\vspace{0.3cm}
+
 
 
 
@@ -1334,7 +1229,7 @@ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
+cmpan>
 
 $\hspace{0.25cm}$  La función de distribución empírica basada en una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ se define como:
 
@@ -1351,8 +1246,8 @@ $\hspace{0.35cm}$  para $\hspace{0.1cm} z\in \mathbb{R}$
 
 </p>
  
-</p></span>
-</div>
+ 
+\vspace{0.3cm}
 
 
 **Observaciones:**
@@ -1361,28 +1256,32 @@ $\hspace{0.35cm}$  para $\hspace{0.1cm} z\in \mathbb{R}$
 
 - $\widehat{F}_n(z)\hspace{0.1cm}$ es usada como estimador de $\hspace{0.1cm}F_X(z)$
 
-<br>
+
+
+
+\newpage
 
 
 
 ### Porpiedades de la función de distribución empírica como v.a.
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
+ 
 
 $\hspace{0.2cm}$ Algunas propiedades de la distribución empírica como variable aleatoria:
 
-- $\hspace{0.2cm} I(X_i \geq z) \hspace{0.2cm}\sim\hspace{0.2cm} Bernoulli\left( p \right) \hspace{0.2cm} ,\hspace{0.2cm}  \text{con}\hspace{0.2cm} \hspace{0.2cm} p=F_X(z)=P(X<z)\\[0.8cm]$
+- $\hspace{0.2cm} I(X_i \geq z) \hspace{0.2cm}\sim\hspace{0.2cm} Bernoulli\left( p \right) \hspace{0.2cm} ,\hspace{0.2cm}  \text{con}\hspace{0.2cm} \hspace{0.2cm} p=F_X(z)=P(X<z)\\[0.2cm]$
 
-- $\hspace{0.2cm}  \sum_{i=1}^n  I(X_i \geq z) \hspace{0.2cm}\sim\hspace{0.2cm} Binomial(n , p  ) \hspace{0.2cm} ,\hspace{0.2cm}  \text{con}\hspace{0.2cm} \hspace{0.2cm} p=F_X(z)=P(X<z) \\[0.8cm]$
+- $\hspace{0.2cm}  \sum_{i=1}^n  I(X_i \geq z) \hspace{0.2cm}\sim\hspace{0.2cm} Binomial(n , p  ) \hspace{0.2cm} ,\hspace{0.2cm}  \text{con}\hspace{0.2cm} \hspace{0.2cm} p=F_X(z)=P(X<z) \\[0.2cm]$
 
-- $\hspace{0.2cm} \widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm}   \dfrac{1}{n} \sum_{i=1}^n  I(X_i \geq z) \hspace{0.2cm}\sim\hspace{0.2cm}  \dfrac{1}{n} \cdot Binomial(n , p  ) \hspace{0.2cm} ,\hspace{0.2cm}  \text{con}\hspace{0.2cm} \hspace{0.2cm} p\hspace{0.1cm}=\hspace{0.1cm}F_X(z)\hspace{0.1cm}=\hspace{0.1cm}P(X<z) \\[0.8cm]$
+- $\hspace{0.2cm} \widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm}   \dfrac{1}{n} \sum_{i=1}^n  I(X_i \geq z) \hspace{0.2cm}\sim\hspace{0.2cm}  \dfrac{1}{n} \cdot Binomial(n , p  )\\$
+
+    $\hspace{0.2cm} \text{donde}\hspace{0.2cm} p\hspace{0.1cm}=\hspace{0.1cm}F_X(z)\hspace{0.1cm}=\hspace{0.1cm}P(X<z) \\[0.2cm]$
 
 
-- $E\left[ \widehat{F}_n(z)  \right] \hspace{0.1cm}=\hspace{0.1cm}  E \left[ \dfrac{1}{n} \cdot Binomial(n , p  ) \right] \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot n \cdot  p  \hspace{0.1cm}=\hspace{0.1cm} p \hspace{0.1cm}=\hspace{0.1cm} F_X(z)=P(X<z) \\[0.8cm]$
+- $E\left[ \widehat{F}_n(z)  \right] \hspace{0.1cm}=\hspace{0.1cm}  E \left[ \dfrac{1}{n} \cdot Binomial(n , p  ) \right] \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot n \cdot  p  \hspace{0.1cm}=\hspace{0.1cm} p \hspace{0.1cm}=\hspace{0.1cm} F_X(z)=P(X<z) \\[0.2cm]$
 
 
-- $Var\left[ \widehat{F}_n(z)  \right] \hspace{0.1cm}=\hspace{0.1cm} Var \left[ \dfrac{1}{n} \cdot Binomial(n , p  ) \right]\hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n^2} \cdot n \cdot  p \cdot (1-p) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot  F_X(z)\cdot (1- F_X(z))  \hspace{0.1cm}=\hspace{0.1cm} F_X(z)=P(X<z) \\[0.8cm]$
+- $Var\left[ \widehat{F}_n(z)  \right] \hspace{0.1cm}=\hspace{0.1cm} Var \left[ \dfrac{1}{n} \cdot Binomial(n , p  ) \right]\hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n^2} \cdot n \cdot  p \cdot (1-p) = \\[0.25cm] \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot  F_X(z)\cdot (1- F_X(z))  \hspace{0.1cm}=\hspace{0.1cm} F_X(z)=P(X<z) \\[0.2cm]$
 
 
 </p>
@@ -1392,12 +1291,10 @@ $\hspace{0.2cm}$ Algunas propiedades de la distribución empírica como variable
 
 <br>
 
+\newpage
+
 
 ## Función de distribución empírica como estimación de la funcion de distribución
-
-
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
 
 
 
@@ -1406,19 +1303,13 @@ $\hspace{0.25cm}$ Si tenemos una muestra de observaciones $\hspace{0.1cm}X=(x_1,
 
 $\hspace{0.25cm}$ Tenemos la siguiente **estimación** de la función de distribución de $\mathcal{X}$ a través de la funcion de distribución emprica:
 
-$$\widehat{F}_n(z) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(x_i \geq z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{\# \lbrace \hspace{0.1cm}  i=1,..,n\hspace{0.1cm}  / \hspace{0.1cm}  x_i \geq z\hspace{0.1cm}  \rbrace}{n}\\$$
+$$\widehat{F}_n(z) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(x_i \geq z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{\# \lbrace \hspace{0.1cm}  i=1,..,n\hspace{0.1cm}  / \hspace{0.1cm}  x_i \geq z\hspace{0.1cm}  \rbrace}{n} \hspace{0.3cm} , \hspace{0.3cm} z\in \mathbb{R}\\$$
 
 
-$\hspace{0.35cm}$ para $\hspace{0.1cm} z\in \mathbb{R} \\$
-
-</p>
  
-</p></span>
-</div>
 
-
-
-
+\vspace{0.35cm}
+ 
 
 
 **Propiedades de la función de distribución empírica como estimación**
@@ -1426,14 +1317,13 @@ $\hspace{0.35cm}$ para $\hspace{0.1cm} z\in \mathbb{R} \\$
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-- $\hspace{0.2cm} \widehat{F}_n(z) \hspace{0.1cm}=\hspace{0.1cm} Q(X , z)$
+- $\widehat{F}_n(z) \hspace{0.1cm}=\hspace{0.1cm} Q(X , z)\\$
 
-$\hspace{0.25cm}$ Donde: $\hspace{0.2cm} Q(X , z)\hspace{0.1cm}$  es el cuantil de orden $\hspace{0.1cm}z\hspace{0.1cm}$ de $\hspace{0.1cm}X=(x_1,...,x_n) \\$
+    Donde: $\hspace{0.2cm} Q(X , z)\hspace{0.1cm}$  es el cuantil de orden $\hspace{0.1cm}z\hspace{0.1cm}$ de $\hspace{0.1cm}X=(x_1,...,x_n) \\$
 
 
 
-- Si se ordena la muestra $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de menor a mayor $x_{(1)}\hspace{0.1cm}<\hspace{0.1cm}x_{(2)}\hspace{0.1cm}<...<\hspace{0.1cm}x_{(n)}\hspace{0.1cm}$ , entonces: $\\[0.6cm]$
-
+- Si se ordena la muestra $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de menor a mayor $x_{(1)}\hspace{0.1cm}<\hspace{0.1cm}x_{(2)}\hspace{0.1cm}<...<\hspace{0.1cm}x_{(n)}\hspace{0.1cm}$ , entonces: 
 
 
 $$\hspace{0.2cm} \widehat{F}_n(z) = \left\lbrace\begin{array}{l}   \hspace{0.12cm} 0 \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm} z < x_{(1)} \\[0.1cm] 
@@ -1447,115 +1337,84 @@ $$\hspace{0.2cm} \widehat{F}_n(z) = \left\lbrace\begin{array}{l}   \hspace{0.12c
 \hspace{0.12cm} 1   \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm}   z \geq x_{(n)}
 \end{array}\right.$$
 
-</p>
  
-</p></span>
-</div>
 
-
-<br>
+\newpage
 
 ## Ley debil de los grandes números
 
 La ley debil de los grandes números afirma lo siguiente:
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
+Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ tal que $\hspace{0.1cm}E[\mathcal{X}]=\mu\hspace{0.1cm}$
 
-$\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ tal que $\hspace{0.1cm}E[\mathcal{X}]=\mu\hspace{0.1cm}$
-
-$\hspace{0.25cm}$ Si $\widehat{F}_n(z)$ es la función de distribución empirica basada en la m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , se cumple que:
+Si $\widehat{F}_n(z)$ es la función de distribución empirica basada en la m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , se cumple que:
 
 $$\dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \hspace{0.25cm}\underset{p}{\rightarrow}\hspace{0.25cm} E[X]=\mu$$
 
-</p>
+
+\vspace{0.25cm}
+
+
+**Observación:** $E[X]=E[X_i] \hspace{0.25cm},\hspace{0.25 cm} \forall i \in \lbrace 1,...,n \rbrace$
+
+
+
+ \vspace{1cm}
  
-</p></span>
-</div>
-
-
-**Observación:**
-
-$$E[X]=E[X_i] \hspace{0.25cm},\hspace{0.25 cm} \forall i \in \lbrace 1,...,n \rbrace$$
-
-
-
-<br>
-
----
-
 Podemos aplicar la ley de los grandes números a la distribución empirica:
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
+  Como $\hspace{0.15cm}I(\mathcal{X}_i \geq z) \sim Bernoulli(p)\hspace{0.15cm}$ , con $\hspace{0.15cm}E\left[I(\mathcal{X}_i \geq z)\right]\hspace{0.1cm} =\hspace{0.1cm} p\hspace{0.1cm}=\hspace{0.1cm}F_X(z)\hspace{0.1cm}=\hspace{0.1cm}P(X \leq z)\\$
 
-$\hspace{0.25cm}$ Como $\hspace{0.15cm}I(\mathcal{X}_i \geq z) \sim Bernoulli(p)\hspace{0.15cm}$ , con $\hspace{0.15cm}E\left[I(\mathcal{X}_i \geq z)\right]\hspace{0.1cm} =\hspace{0.1cm} p\hspace{0.1cm}=\hspace{0.1cm}F_X(z)\hspace{0.1cm}=\hspace{0.1cm}P(X \leq z)\\$
-
-$\hspace{0.25cm}$Aplicando la ley debil de los grandes números tenemos lo siguiente:
+ Aplicando la ley debil de los grandes números tenemos lo siguiente:
 
 
 $$\widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(\mathcal{X}_i \geq z) \hspace{0.25cm}\underset{p}{\rightarrow} \hspace{0.25cm} p=F_X(z) \\$$
 
-$\hspace{0.25cm}$En conclusión:
+ En conclusión:
 
 $$\widehat{F}_n(z) \hspace{0.25cm}\underset{p}{\rightarrow} \hspace{0.25cm} F_X(z)\\$$
 
 
 
-$\hspace{0.25cm}$ Usando la definición de convergencia en probabilidad, se tiene que: $\\[0.5cm]$
+  Usando la definición de convergencia en probabilidad, se tiene que: $\\[0.5cm]$
 
 
 $$\underset{n\rightarrow \infty}{lim} \hspace{0.1cm} P\left( \hspace{0.1cm} | \widehat{F}_n(z) - F_X(z) |\hspace{0.1cm} \leq \varepsilon \right) \hspace{0.1cm}=\hspace{0.1cm} 1 \hspace{0.25cm},\hspace{0.25cm} \forall \varepsilon > 0 \\$$
 
-</p>
  
-</p></span>
-</div>
-
-
+\vspace{0.55cm}
 
 Pero se cumple un resultado más fuerte aun, el **teorema de Glivenko-Cantelli**.
 
 ## Teorema de Glivenko-Cantelli
 
-Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.15cm}$ tal que $\hspace{0.15cm}E[\mathcal{X}]=\mu\hspace{0.1cm}\\$ 
+Dada una v.a. $\mathcal{X}\sim D(\theta)$ tal que $E[\mathcal{X}]=\mu \\$ 
 
-
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
-
-
-$\hspace{0.25cm}$ Si $\hspace{0.1cm}\widehat{F}_n(z)\hspace{0.1cm}$ es la función de distribución empirica basada en la m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , se cumple que: $\\[0.5cm]$
+Si $\widehat{F}_n(z)$ es la función de distribución empirica basada en la m.a.s. $(\mathcal{X}_1,...,\mathcal{X}_n)$ de $\mathcal{X}$ , se cumple que: 
 
 $$sup \left\lbrace \hspace{0.1cm}\left|\hspace{0.1cm} \widehat{F}_n(z)  - F_X(z)\hspace{0.1cm} \right| \hspace{0.15cm}  / \hspace{0.15cm} z \in \mathbb{R} \hspace{0.1cm}\right\rbrace \hspace{0.25cm}\underset{p}{\rightarrow} \hspace{0.25cm} 0\\$$
 
-</p>
- 
-</p></span>
-</div>
 
 
-<br>
+\newpage
 
 ### Demostración del teorema de Glivenko-Cantelli
 
 
 
+
+
+
+
+
+
+
+ 
+\newpage
  
 
 
-<br>
-
-
-
-
-<br>
-
-
-
 # Intervalos de confianza basados en bootstrap
-
-Es recomendable leer previamente la entrada sobre intervalos de confianza del blog [Estadistica4all](http://estadistica4all.com/), principalmente para fijar conceptos e ideas.
 
 Las desviaciones típicas o errores estándar se pueden usar para calcular intervalos de confianza aproximados para los parametros de interés.
 
@@ -1566,132 +1425,116 @@ Las desviaciones típicas o errores estándar se pueden usar para calcular inter
 Primero vamos a fijar una vez mas el contexto en el que no estamos moviendo, puesto que es importante recordarlo:
 
 
-Tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.05cm}$ , una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y un estimador $\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ del parámetro $\hspace{0.1cm}\theta$
+Tenemos una v.a. $\mathcal{X}\sim D(\theta)$ , una m.a.s. $(\mathcal{X}_1,...,\mathcal{X}_n)$ de $\mathcal{X}$ y un estimador $\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)$ del parámetro $\theta$
 
 
-Además tenemos una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$   de la variable de interés $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , por lo que tenemos la estimación $\hspace{0.1cm}\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ del parámetro $\hspace{0.1cm}\theta\\$ 
-
-
+Además tenemos una muestra de observaciones $X=(x_1,...,x_n)$   de la variable de interés $\mathcal{X}$ , por lo que tenemos la estimación $\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)$ del parámetro $\theta$ 
 
 
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
+\vspace{0.25cm}
 
 
-- Se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ muestras bootstrap (aleatorias y con reemplazamiento) de $\hspace{0.1cm}X\hspace{0.1cm}$ : $\\[0.3cm]$
+- Se obtienen $B$ muestras bootstrap (aleatorias y con reemplazamiento) de $X$ :
 
 $$X_{(1)},X_{(2)},...,X_{(B)} \\$$
 
 
-- Se calcula para $b\in \lbrace 1,...,B \rbrace$ la replica bootstrap $\hspace{0.1cm}b$-esima del estimador $\hspace{0.1cm}\widehat{\theta}$ como: $\\[0.3cm]$
+- Se calcula para $b\in \lbrace 1,...,B \rbrace$ la replica bootstrap $\hspace{0.1cm}b$-esima del estimador $\hspace{0.1cm}\widehat{\theta}$ como: 
 
 
 $$\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)}) \\$$
 
 
-$\hspace{0.25cm}$ Asi que se tiene:
+Asi que se tiene:
 
 $$\widehat{\theta}_{boot} = \left(\widehat{\theta}_{(1)},...,\widehat{\theta}_{(B)} \right)$$
 
 
-
-
+\vspace{1.5cm}
  
- 
-- Sea $\hspace{0.1cm}Q(\alpha \hspace{0.05cm} ,  \hspace{0.05cm} \widehat{\theta}_{boot})\hspace{0.1cm}$  el cuantil de orden $\hspace{0.1cm}\alpha\hspace{0.1cm}$ de la variable $\hspace{0.15cm}\widehat{\theta}_{boot}$ 
-
-    Por tanto, se cumple lo siguiente: $\\[0.4cm]$
-
-    $$\dfrac{\# \hspace{0.15cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm} Q(\alpha \hspace{0.05cm} , \hspace{0.05cm} \widehat{\theta}_{boot}) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}  \hspace{0.15cm} = \hspace{0.15cm} \alpha \\$$
+Sea $\hspace{0.1cm}Q(\alpha \hspace{0.05cm} ,  \hspace{0.05cm} \widehat{\theta}_{boot})\hspace{0.1cm}$  el cuantil de orden $\hspace{0.1cm}\alpha\hspace{0.1cm}$ de la variable $\hspace{0.15cm}\widehat{\theta}_{boot}$ , entonces se cumple lo siguiente:
 
 
-    - El intervalo cuantil-bootstrap para el parametro $\hspace{0.1cm}\theta\hspace{0.1cm}$ a un nivel $\hspace{0.1cm} 1-\alpha \hspace{0.1cm}$ es : $\\[0.4cm]$
+$$\dfrac{\# \hspace{0.15cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm} Q(\alpha \hspace{0.05cm} , \hspace{0.05cm} \widehat{\theta}_{boot}) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}  \hspace{0.15cm} = \hspace{0.15cm} \alpha$$
+
+
+\vspace{0.35cm}
+
+- El intervalo cuantil-bootstrap para el parámetro $\theta$ a un nivel $1-\alpha$ es : 
 
     $$IC(\theta )_{1-\alpha}^{boot} \hspace{0.1cm} = \hspace{0.1cm} \left[ \hspace{0.1cm} Q(\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\theta}_{boot}) \hspace{0.2cm} ;  \hspace{0.2cm} Q(1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\theta}_{boot}) \hspace{0.1cm} \right] \\[1cm]$$
 
 
-</p>
+
+
  
-</p></span>
-</div>
 
-
-
-<br>
-
-
+\newpage
 
 
 ## Intervalos cuantil-bootstrap con dos poblaciones
 
 
 
-Tenemos dos v.a's $\hspace{0.1cm}\mathcal{X}_1\sim D_1(\theta_1)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim D_2(\theta_2)\hspace{0.1cm}$ , una m.a.s. $\hspace{0.1cm}(\mathcal{X}_{11},...,\mathcal{X}_{n_1 1})\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ , otra  m.a.s. $\hspace{0.1cm}(\mathcal{X}_{12},...,\mathcal{X}_{n_2 2})\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ y un par de estimadores $\hspace{0.1cm}\widehat{\theta}_1(\mathcal{X}_{11},...,\mathcal{X}_{n_1 1})\hspace{0.1cm}$ y $\hspace{0.1cm}\widehat{\theta}_2(\mathcal{X}_{12},...,\mathcal{X}_{n_2 2})\hspace{0.1cm}$ de los parámetros $\hspace{0.1cm}\theta_1\hspace{0.1cm}$ y  $\hspace{0.1cm}\theta_2\hspace{0.1cm}$, respectivamente.
+Tenemos dos v.a's $\mathcal{X}_1\sim D_1(\theta_1)$ y $\mathcal{X}_2\sim D_2(\theta_2)$ , una m.a.s. $(\mathcal{X}_{11},...,\mathcal{X}_{n_1 1})$ de $\mathcal{X}_1$ , otra  m.a.s. $(\mathcal{X}_{12},...,\mathcal{X}_{n_2 2})$ de $\mathcal{X}_2$ y un par de estimadores $\widehat{\theta}_1(\mathcal{X}_{11},...,\mathcal{X}_{n_1 1})$ y $\widehat{\theta}_2(\mathcal{X}_{12},...,\mathcal{X}_{n_2 2})$ de los parámetros $\theta_1$ y  $\theta_2$, respectivamente.
 
 
-Además tenemos una muestras de observaciones $\hspace{0.1cm}X_1=(x_{11},...,x_{n_1 1})\hspace{0.1cm}$   de la v.a.  $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y otra $\hspace{0.1cm}X_1=(x_{11},...,x_{n_1 1})\hspace{0.1cm}$  de  $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$, por lo que tenemos las estimaciones $\hspace{0.1cm}\widehat{\theta}_1(X_1)=\widehat{\theta}_1(x_{1 1},...,x_{n_1 1})\hspace{0.1cm}$ de los parámetros $\hspace{0.1cm}\theta_1\hspace{0.1cm}$ y  $\hspace{0.1cm}\theta_2\hspace{0.1cm}$ , respectivamente.
+Además tenemos una muestras de observaciones $X_1=(x_{11},...,x_{n_1 1})$   de la v.a.  $\mathcal{X}_1$ y otra $X_1=(x_{11},...,x_{n_1 1})$  de  $\mathcal{X}_2$, por lo que tenemos las estimaciones $\widehat{\theta}_1(X_1)=\widehat{\theta}_1(x_{1 1},...,x_{n_1 1})$ de los parámetros $\theta_1$ y  $\theta_2$ , respectivamente.
 
 
 
 
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
+ 
 
-
-- Se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ muestras bootstrap (aleatorias y con reemplazamiento) de $\hspace{0.1cm}X_1\hspace{0.1cm}$ y $\hspace{0.1cm}X_2\hspace{0.1cm}$: $\\[0.3cm]$
+- Se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ muestras bootstrap (aleatorias y con reemplazamiento) de $\hspace{0.1cm}X_1\hspace{0.1cm}$ y $\hspace{0.1cm}X_2\hspace{0.1cm}$:  
 
 $$X_{1(1)},X_{1(2)},...,X_{1(B)}$$
 
 $$X_{2(1)},X_{2(2)},...,X_{2(B)} \\$$
 
-- Se calcula para $b\in \lbrace 1,...,B \rbrace$ la replica bootstrap $\hspace{0.1cm}b$-esima de los estimadores $\hspace{0.1cm}\widehat{\theta}_1$ y $\hspace{0.1cm}\widehat{\theta}_2$ como: $\\[0.3cm]$
 
 
-$$\widehat{\theta}_{1(b)} = \widehat{\theta}(X_{1(b)})$$
 
-$$\widehat{\theta}_{2(b)} = \widehat{\theta}(X_{2(b)}) \\$$
+- Se calcula para $b\in \lbrace 1,...,B \rbrace$ la replica bootstrap $\hspace{0.1cm}b$-esima de los estimadores $\hspace{0.1cm}\widehat{\theta}_1$ y $\hspace{0.1cm}\widehat{\theta}_2$ como: 
 
 
-$\hspace{0.25cm}$ Asi que se tiene:
+    $$\widehat{\theta}_{1(b)} = \widehat{\theta}(X_{1(b)})$$
 
-$$\widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} = \left(\widehat{\theta}_{1(1)},...,\widehat{\theta}_{1(B)} \right)$$
+    $$\widehat{\theta}_{2(b)} = \widehat{\theta}(X_{2(b)}) \\$$
 
-$$\widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot} = \left(\widehat{\theta}_{2(1)},...,\widehat{\theta}_{2(B)} \right)\\$$
+
+    Así que se tiene:
+
+    $$\widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} = \left(\widehat{\theta}_{1(1)},...,\widehat{\theta}_{1(B)} \right)$$
+
+    $$\widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot} = \left(\widehat{\theta}_{2(1)},...,\widehat{\theta}_{2(B)} \right)\\$$
+
+
+\vspace{0.35cm}
+ 
+ 
+Sea $\hspace{0.1cm}Q(\alpha \hspace{0.05cm} ,  \hspace{0.05cm} \widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} - \widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot} )\hspace{0.1cm}$  el cuantil de orden $\hspace{0.1cm}\alpha\hspace{0.1cm}$ de la variable $\hspace{0.15cm} \widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} - \widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot}\\$ 
+
+
+
+
+
+Por tanto, se cumple lo siguiente: 
+
+
+$$\dfrac{\# \hspace{0.15cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{1(b)} - \widehat{\theta}_{2(b)} \hspace{0.05cm} \leq \hspace{0.05cm} Q(\alpha \hspace{0.05cm} , \hspace{0.05cm}  \widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} - \widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot}) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}  \hspace{0.15cm} = \hspace{0.15cm} \alpha \\$$
+    
+    
+\vspace{0.35cm}
+
+- El intervalo cuantil-bootstrap para la diferencia de parametros $\hspace{0.1cm}\theta_1 - \theta_2\hspace{0.1cm}$ a un nivel $\hspace{0.1cm} 1-\alpha \hspace{0.1cm}$ es : 
+
+    $$IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} \hspace{0.1cm} = \hspace{0.1cm} \left[ \hspace{0.1cm} Q(\alpha/2 \hspace{0.1cm} , \hspace{0.1cm}  \widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} - \widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot}) \hspace{0.2cm} ;  \hspace{0.2cm} Q(1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm}  \widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} - \widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot}) \hspace{0.1cm} \right]$$
 
 
  
- 
-- Sea $\hspace{0.1cm}Q(\alpha \hspace{0.05cm} ,  \hspace{0.05cm} \widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} - \widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot} )\hspace{0.1cm}$  el cuantil de orden $\hspace{0.1cm}\alpha\hspace{0.1cm}$ de la variable $\hspace{0.15cm} \widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} - \widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot}$ 
-
-    Por tanto, se cumple lo siguiente: $\\[0.4cm]$
-
-    $$\dfrac{\# \hspace{0.15cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{1(b)} - \widehat{\theta}_{2(b)} \hspace{0.05cm} \leq \hspace{0.05cm} Q(\alpha \hspace{0.05cm} , \hspace{0.05cm}  \widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} - \widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot}) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}  \hspace{0.15cm} = \hspace{0.15cm} \alpha \\$$
-
-
-    - El intervalo cuantil-bootstrap para la diferencia de parametros $\hspace{0.1cm}\theta_1 - \theta_2\hspace{0.1cm}$ a un nivel $\hspace{0.1cm} 1-\alpha \hspace{0.1cm}$ es : $\\[0.4cm]$
-
-    $$IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} \hspace{0.1cm} = \hspace{0.1cm} \left[ \hspace{0.1cm} Q(\alpha/2 \hspace{0.1cm} , \hspace{0.1cm}  \widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} - \widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot}) \hspace{0.2cm} ;  \hspace{0.2cm} Q(1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm}  \widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} - \widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot}) \hspace{0.1cm} \right] \\[1cm]$$
-
-
-</p>
- 
-</p></span>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Los intervalos cuantil-bootstrap pueden conducir a estimaciones del intervalo de confianza algo erráticas cuando el estimador del parametro de interés es sesgado.
 
@@ -1708,13 +1551,15 @@ En la determinación de los intervalos BCa-bootstrap juegan un rol central dos c
 
 $\hat{z}_0\hspace{0.1cm}$ se introduce para corregir el sesgo del estimador $\hat{\theta}$
 
- 
+ \vspace{0.35cm}
 
-$\hat{z}_0\hspace{0.1cm}$ se define como
+$\hat{z}_0\hspace{0.1cm}$ se define como :
 
 
-$$\hat{z}_0 \hspace{0.1cm}=\hspace{0.1cm} F^{-1}_{N(0,1)} \left(  \dfrac{\# \hspace{0.15cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm}  \hat{\theta}(X) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}  \right)$$
+$$\hat{z}_0 \hspace{0.1cm}=\hspace{0.1cm} F^{-1}_{N(0,1)} \left(  \dfrac{\# \hspace{0.15cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm}  \hat{\theta}(X) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}  \right) \\$$
 
+
+\vspace{0.35cm}
 
 
 Aclaremos esto un poco:
@@ -1726,9 +1571,14 @@ Si $\hspace{0.1cm}\rho\hspace{0.1cm}$ es la proporción de replicas bootstrap de
 $$\rho \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{ \# \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm}  \hat{\theta}(X) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}$$
 
 
+\vspace{0.35cm}
+
+
 Por tanto:
 
 $$\hat{z}_0 \hspace{0.1cm}=\hspace{0.1cm} F^{-1}_{N(0,1)} ( \hspace{0.05cm}\rho\hspace{0.05cm} ) \hspace{0.3cm}\Rightarrow\hspace{0.3cm} F_{N(0,1)}(\hat{z}_0) \hspace{0.1cm}=\hspace{0.1cm} P\left( \hspace{0.1cm}N(0,1) \leq \hat{z}_0\hspace{0.1cm} \right) \hspace{0.1cm} =\hspace{0.1cm} \rho$$
+
+\vspace{0.35cm}
 
 
 En conclusión:
@@ -1738,15 +1588,12 @@ $\hat{z}_0\hspace{0.1cm}$ es el cuantil de orden $\hspace{0.1cm}\rho\hspace{0.1c
 
  
 
-<br>
-
----
-
-<br>
+\newpage
 
 
-La segunda cantidad, $\hspace{0.1cm}\hat{a}\hspace{0.1cm}$, denominada aceleración, corrige el caso en el que el error estandar del estimador del parametro de interés $\hspace{0.1cm}s.e.(\hat{\theta})\hspace{0.1cm}$ no sea constante, y se define en términos de estimaciones Jacknife.
+La segunda cantidad, $\hspace{0.1cm}\hat{a}\hspace{0.1cm}$, denominada aceleración, corrige el caso en el que el error estandar del estimador del parámetro de interés $\hspace{0.1cm}s.e.(\hat{\theta})\hspace{0.1cm}$ no sea constante, y se define en términos de estimaciones Jacknife.
 
+\vspace{0.35cm}
 
 Recordemos el contexto Jacknife:
 
@@ -1759,49 +1606,49 @@ $$X_{(r)} = (\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.
 
 $\hspace{0.35cm}$ para  $\hspace{0.2cm} r=1,...,n \\$
 
- 
+\vspace{0.35cm} 
 
-$\hspace{0.25cm}$ Se define la replica $\hspace{0.1cm}r$-esima del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ como: $\\[0.5cm]$
+Se define la replica $\hspace{0.1cm}r$-esima del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ como: $\\[0.5cm]$
 
 $$\widehat{\theta}_{(r)} = \widehat{\theta}(X_{(r)})= \widehat{\theta}(\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.05cm},..,\hspace{0.05cm} x_{r-1}\hspace{0.05cm},\hspace{0.05cm}x_{r+1}\hspace{0.05cm} ,..,\hspace{0.05cm} x_{n}\hspace{0.05cm})\\$$
 
+
+
+\vspace{0.35cm}
 
 Teniendo todo esto en cuenta, $\hspace{0.1cm}\hat{a}\hspace{0.1cm}$ se define como sigue:
 
 $$\hat{a} \hspace{0.1cm} = \hspace{0.1cm} \dfrac{ \sum_{r=1}^n \left( \hspace{0.1cm} \hat{\theta}_{(\cdot)} - \hat{\theta}_{(r)}  \right)^3   }{ 6 \cdot \left[ \sum_{r=1}^n \left( \hspace{0.1cm} \hat{\theta}_{(\cdot)} - \hat{\theta}_{(r)}  \right)^2 \right]^{3/2}  }$$
 
 
-Donde:
+donde:
 
  $$\hat{\theta}_{(\cdot)} = \frac{1}{n} \cdot \sum_{r=1}^n \hat{\theta}_{(r)} \\$$
 
 
 
-
-<br>
-
----
-
-<br>
+\vspace{0.35cm}
 
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
-
-$\hspace{0.25cm}$ El intervalo BCa-bootstrap de nivel $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ es: $\\[0.5cm]$
+El intervalo BCa-bootstrap de nivel $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ es: $\\[0.5cm]$
 
 
 $$\left[ \hspace{0.1cm}Q(\alpha_1 \hspace{0.1cm} ,\hspace{0.1cm}  \hat{\theta}_{boot})   \hspace{0.2cm}  ; \hspace{0.2cm}   Q(\alpha_2 \hspace{0.1cm} ,\hspace{0.1cm}  \hat{\theta}_{boot})  \hspace{0.1cm} \right] \\$$
 
-$\hspace{0.25cm}$ Donde:
+
+donde:
 
 $$\alpha_1 \hspace{0.1cm}=\hspace{0.1cm} F_{N(0,1)}\left( \hat{z}_0 + \dfrac{\hat{z}_0 + z_{1-\alpha/2} }{1 - \hat{a}\cdot(\hat{z}_0 + z_{1-\alpha/2} )} \right)$$
 
 $$\alpha_2 \hspace{0.1cm}=\hspace{0.1cm} F_{N(0,1)}\left( \hat{z}_0 + \dfrac{\hat{z}_0 + z_{\alpha/2} }{1 - \hat{a}\cdot(\hat{z}_0 + z_{\alpha/2} )} \right) \\$$
 
 
-$\hspace{0.25cm}$Teniendo en cuenta que:
 
+
+\newpage
+
+
+Teniendo en cuenta que:
 
 
 - $z_{\alpha}$ el valor tal que $P(N(0,1) \leq z_{\alpha}) = \alpha\\[0.5cm]$
@@ -1815,12 +1662,11 @@ $\hspace{0.25cm}$Teniendo en cuenta que:
 - $\rho \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{ \# \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm}  \hat{\theta}(X) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B} \\[0.3cm]$
 
 
-</p>
- 
-</p></span>
-</div>
 
-<br>
+
+\vspace{0.4cm}
+
+
 
 Si $\hspace{0.1cm}\hat{z}_0 = \hat{a} = 0\hspace{0.1cm}$ , entonces: 
 
@@ -1828,6 +1674,9 @@ $$\alpha_1 \hspace{0.1cm} = \hspace{0.1cm} F_{N(0,1)}(z_{1-\alpha/2}) \hspace{0.
 
 $$\alpha_2 \hspace{0.1cm} = \hspace{0.1cm} F_{N(0,1)}(z_{\alpha/2}) \hspace{0.1cm}=\hspace{0.1cm} 1- \alpha/2 \\$$
 
+
+
+\vspace{0.4cm}
 
 
 Por lo que en este caso particular el intervalo BCa coincide con el intervalo percentil.
@@ -1838,9 +1687,8 @@ El valor de $\hat{z}_0$ traslada el intervalo a la derecha o a la izquierda, y $
 Con este intervalo se recomienda usar $B \geq 1000$.
 
 
-<br>
 
-
+\newpage
 
 
 
@@ -2056,7 +1904,8 @@ def cuantil_boot_interval(Variable1, Variable2, alpha, estimator , B,  q=0.75, r
 ######################################################################
 ######################################################################
 
-    if estimator in ['mean','median','std','quantile','kurtosis','skewness','proportion']:
+    if estimator in ['mean','median','std','quantile','kurtosis',
+    'skewness','proportion']:
 
         L1_1 = np.quantile( replicas_estimador  , q=alpha/2)
 
@@ -2066,7 +1915,8 @@ def cuantil_boot_interval(Variable1, Variable2, alpha, estimator , B,  q=0.75, r
 
 ######################################################################
 
-    if estimator in ['mean_diff','median_diff','std_diff','quantile_diff','kurtosis_diff','skewness_diff', 'proportion_diff']:
+    if estimator in ['mean_diff','median_diff','std_diff','quantile_diff',
+    'kurtosis_diff','skewness_diff', 'proportion_diff']:
    
         L1_2 = np.quantile( replicas_estimador_diff  , q=alpha/2)
 
@@ -2080,7 +1930,11 @@ def cuantil_boot_interval(Variable1, Variable2, alpha, estimator , B,  q=0.75, r
     return interval , estimation
 ```
 
-<br>
+
+
+\newpage
+
+
 
 **Intervalo para la media:**
 
@@ -2099,6 +1953,9 @@ estimation
 ```
 
     10.199071616256777
+    
+    
+\vspace{0.3cm}    
     
     
 Comparación con el intervalo de confianza clásico frecuentista:
@@ -2139,7 +1996,8 @@ interval
 
 
 
-<br>
+\newpage
+
 
 **Intervalo para la desviación típica:**
 
@@ -2162,6 +2020,9 @@ estimation
 
     17.844342210422187
 
+
+
+\vspace{0.3cm}
 
 Comparación con el intervalo de confianza clásico frecuentista:
 
@@ -2204,7 +2065,7 @@ np.sqrt(interval)
  
  
  
-<br>
+\newpage
 
 **Intervalo para la mediana:**
 
@@ -2227,7 +2088,8 @@ estimation
     8.23916733155832
 
 
-<br>
+\vspace{0.35cm}
+
 
 
 **Intervalo para el coeficiente de asimetria:**
@@ -2252,7 +2114,8 @@ estimation
 
 
 
-<br>
+\vspace{0.35cm}
+
 
 **Intervalo para el coeficiente de curtosis:**
 
@@ -2276,7 +2139,8 @@ estimation
 
 
 
-<br>
+\newpage
+
 
 **Intervalo para los cuantiles:**
 
@@ -2299,7 +2163,8 @@ estimation
  
 
 
-<br>
+\vspace{0.35cm}
+
 
 **Intervalo para la proporción:**
 
@@ -2325,7 +2190,8 @@ estimation
     0.6
 
 
-<br>
+\vspace{0.35cm}
+
 
 
 **Intervalo para la diferencia de medias:**
@@ -2354,6 +2220,9 @@ estimation
 ```
 
     -4.001757444976697
+
+
+ 
 
 
 
@@ -2409,7 +2278,8 @@ estimation
     -4.001757444976697
 
 
-<br>
+\newpage
+
 
 **Intervalo para la diferencia de medianas:**
 
@@ -2434,7 +2304,8 @@ estimation
 
  
 
-<br>
+\vspace{0.35cm}
+
 
 
 **Intervalo para la diferencia de desviaciones típicas:**
@@ -2458,7 +2329,8 @@ estimation
 
 
  
-<br>
+\vspace{0.35cm}
+
 
 **Intervalo para la diferencia de cuantiles:**
 
@@ -2482,7 +2354,8 @@ estimation
 
  
 
-<br>
+\newpage
+
 
 **Intervalo para la diferencia de curtosis:**
 
@@ -2505,7 +2378,7 @@ estimation
 
  
 
-<br>
+\vspace{0.35cm}
 
 **Intervalo para la diferencia de asimetría:**
 
@@ -2527,7 +2400,8 @@ estimation
     0.019079758603481104
 
  
-<br>
+\vspace{0.35cm}
+
 
 **Intervalo para la diferencia de proporciones:**
 
@@ -2560,7 +2434,8 @@ estimation
     
     
     
-<br>
+\vspace{1cm}
+
 
 
 
@@ -2629,13 +2504,12 @@ estimation
 
 
 
-<br>
+\newpage
 
-<br>
 
 # Contrastes de hipotesis basados en bootstrap
 
-Existen multiples aproximaciones a los contrastes de hipotesis desde una perspectiva bootstrap. En este caso nos aproximaremos usando los intervalos cuantil-bootstrap, por simplicidad.
+Existen múltiples aproximaciones a los contrastes de hipótesis desde una perspectiva bootstrap. En este caso nos aproximaremos usando los intervalos cuantil-bootstrap, por simplicidad.
 
 Vamos a diferenciar contrastes de hipótesis sobre una población y sobre dos poblaciones.
 
@@ -2651,39 +2525,50 @@ Tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.05cm}$ , una 
 Además tenemos una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$   de la variable de interés $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , por lo que tenemos la estimación $\hspace{0.1cm}\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ del parámetro $\hspace{0.1cm}\theta .\\$ 
 
 
-Se quieren resolver los siguientes contrastes: $\\[0.5cm]$
+Se quieren resolver los siguientes contrastes:  
 
 $$
-H_0: \theta = \theta_0  \hspace{1.5cm} H_0: \theta = \theta_0  \hspace{1.5cm}  H_0: \theta = \theta_0 \\[0.3cm]
-H_1: \theta \neq \theta_0 \hspace{1.5cm}  H_1: \theta < \theta_0  \hspace{1.5cm}   H_1: \theta > \theta_0
+H_0: \theta = \theta_0  \hspace{1.5cm} H_0: \theta = \theta_0  \hspace{1.5cm}  H_0: \theta = \theta_0$$
+\vspace{-0.15cm}
+$$H_1: \theta \neq \theta_0 \hspace{1.5cm}  H_1: \theta < \theta_0  \hspace{1.5cm}   H_1: \theta > \theta_0
 $$
 
-
+\vspace{0.3cm}
 
 La regla de decisión  para resolver estos contrastes  basada en los intervalos cuantil-bootstrap  es la siguiente:
 
-Para un nivel de significación $\hspace{0.12cm}\alpha$.
-
-Partimos del intervalo cuantil-bootstrap del parametro $\theta$ para un nivel de confianza $\hspace{0.12cm}1 -\alpha$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ $IC(\theta )_{1-\alpha}^{boot} = [ L1 , L2]$ 
+Para un nivel de significación $\hspace{0.12cm}\alpha$, partimos del intervalo cuantil-bootstrap del parametro $\theta$ para un nivel de confianza $\hspace{0.12cm}1 -\alpha$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ $IC(\theta )_{1-\alpha}^{boot} = [ L1 , L2]$ 
 
 
-Caso $H_0: \theta = \theta_0 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta \neq \theta_0$
+- Caso $H_0: \theta = \theta_0 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta \neq \theta_0$
 
-$$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} \theta_0 \notin IC(\theta )_{1-\alpha}^{boot}$$
-
-
-Caso $H_0: \theta = \theta_0 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta < \theta_0$
-
-$$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} IC(\theta )_{1-\alpha}^{boot} \hspace{0.1 cm}<<\hspace{0.1 cm} \theta_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm}  L2 \hspace{0.1 cm}<\hspace{0.1 cm} \theta_0$$
-
-
-Caso $H_0: \theta = \theta_0 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta > \theta_0$
-
-$$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} IC(\theta )_{1-\alpha}^{boot} \hspace{0.1 cm}>>\hspace{0.1 cm} \theta_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm}  L1 \hspace{0.1 cm} > \hspace{0.1 cm} \theta_0$$
+    $$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} \theta_0 \notin IC(\theta )_{1-\alpha}^{boot}$$
+    
+    
+    
+\vspace{0.35cm}
 
 
 
-<br>
+- Caso $H_0: \theta = \theta_0 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta < \theta_0$
+
+    $$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} IC(\theta )_{1-\alpha}^{boot} \hspace{0.1 cm}<<\hspace{0.1 cm} \theta_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm}  L2 \hspace{0.1 cm}<\hspace{0.1 cm} \theta_0$$
+    
+
+
+\vspace{0.35cm}
+
+
+
+- Caso $H_0: \theta = \theta_0 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta > \theta_0$
+
+    $$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} IC(\theta )_{1-\alpha}^{boot} \hspace{0.1 cm}>>\hspace{0.1 cm} \theta_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm}  L1 \hspace{0.1 cm} > \hspace{0.1 cm} \theta_0$$
+
+
+ 
+\newpage
+
+ 
 
 ## Contraste de hipótesis sobre dos poblaciones
 
@@ -2699,12 +2584,15 @@ Además tenemos una muestras de observaciones $\hspace{0.1cm}X_1=(x_{11},...,x_{
 
 
 
-Se quieren resolver los siguientes contrastes: $\\[0.5cm]$
+Se quieren resolver los siguientes contrastes: 
 
 $$
-H_0: \theta_1 = \theta_2  \hspace{1.5cm} H_0: \theta_1 = \theta_2  \hspace{1.5cm}  H_0: \theta_1 = \theta_2 \\[0.3cm]
-H_1: \theta_1 \neq \theta_2 \hspace{1.5cm}  H_1: \theta_1 < \theta_2  \hspace{1.5cm}   H_1: \theta_1 > \theta_2
+H_0: \theta_1 = \theta_2  \hspace{1.5cm} H_0: \theta_1 = \theta_2  \hspace{1.5cm}  H_0: \theta_1 = \theta_2$$
+\vspace{-0.1cm}
+$$H_1: \theta_1 \neq \theta_2 \hspace{1.5cm}  H_1: \theta_1 < \theta_2  \hspace{1.5cm}   H_1: \theta_1 > \theta_2
 $$
+
+\vspace{0.35cm}
 
 
 La regla de decisión  para resolver estos contrastes  basada en los intervalos cuantil-bootstrap  es la siguiente:
@@ -2714,27 +2602,31 @@ Para un nivel de significación $\hspace{0.12cm}\alpha$.
 Partimos del intervalo cuantil-bootstrap de la diferencia de parámetros $\theta_1 - \theta_2$ para un nivel de confianza $\hspace{0.12cm}1 -\alpha$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ $IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} = [ L1 , L2]$ 
 
 
-Caso $H_0: \theta_1 = \theta_2 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta_1 \neq \theta_2$
+- Caso $H_0: \theta_1 = \theta_2 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta_1 \neq \theta_2$
 
-$$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} 0 \notin IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot}$$
-
-
-Caso $H_0: \theta_1 = \theta_2 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta_1 < \theta_2$
-
-$$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} \hspace{0.1 cm}<<\hspace{0.1 cm} 0 \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm}  L2 \hspace{0.1 cm}<\hspace{0.1 cm} 0$$
+    $$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} 0 \notin IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot}$$
+    
+\vspace{0.3cm}
 
 
-Caso $H_0: \theta_1 = \theta_2 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta_1 > \theta_2$
+- Caso $H_0: \theta_1 = \theta_2 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta_1 < \theta_2$
 
-$$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} \hspace{0.1 cm}>>\hspace{0.1 cm} 0 \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm}  L1 \hspace{0.1 cm} > \hspace{0.1 cm} 0$$
+    $$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} \hspace{0.1 cm}<<\hspace{0.1 cm} 0 \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm}  L2 \hspace{0.1 cm}<\hspace{0.1 cm} 0$$
+
+\vspace{0.3cm}
+
+- Caso $H_0: \theta_1 = \theta_2 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta_1 > \theta_2$
+
+    $$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} \hspace{0.1 cm}>>\hspace{0.1 cm} 0 \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm}  L1 \hspace{0.1 cm} > \hspace{0.1 cm} 0$$
 
 
 
-<br>
+\newpage
 
 
 
 ## Contrastes de hipotesis bootstrap en `Python`
+
 
 
 ```python
@@ -2769,7 +2661,8 @@ def bootstrap_cuantil_test(Variable1, Variable2, estimator, H1_type, theta_0,  a
 
     
 
-    if estimator in ['mean_diff','median_diff','std_diff','quantile_diff','kurtosis_diff','skewness_diff', 'proportion_diff']:
+    if estimator in ['mean_diff','median_diff','std_diff','quantile_diff',
+    'kurtosis_diff','skewness_diff', 'proportion_diff']:
 
 
         if H1_type == 'greater':
@@ -2797,7 +2690,7 @@ def bootstrap_cuantil_test(Variable1, Variable2, estimator, H1_type, theta_0,  a
     return result , interval
 ```
 
-
+\vspace{0.3cm}
 
 ```python
 np.random.seed(123)
@@ -2807,7 +2700,7 @@ X_1 = np.random.normal(loc=62, scale=25, size=150)
 X_2 = np.random.normal(loc=80, scale=25, size=150)
 ```
 
-<br>
+\vspace{0.3cm}
 
 
 
@@ -2820,6 +2713,7 @@ np.mean(X_1)
 
     63.44484985484652
 
+\vspace{0.3cm}
 
 ```python
 resultado , intervalo = bootstrap_cuantil_test(Variable1=X_1, Variable2='no', estimator='mean', H1_type='greater', theta_0=50,  alpha=0.05 , B=1000, random_seed=123, q='no')
@@ -2837,6 +2731,8 @@ intervalo
 
     [59.300517176372914, 68.0853420655662]
 
+\vspace{0.3cm}
+
 
 ```python
 resultado , intervalo = bootstrap_cuantil_test(Variable1=X_1, Variable2='no', estimator='mean', H1_type='greater', theta_0=60,  alpha=0.05 , B=1000, random_seed=123, q='no')
@@ -2848,6 +2744,8 @@ resultado
 
     'Not reject H0: theta = theta_0  -->  Not accept H1: theta > theta_0'
 
+
+\vspace{0.3cm}
 
 
 ```python
@@ -2862,7 +2760,7 @@ resultado
  
  
  
-<br>
+\vspace{0.3cm}
 
 **Contraste para la mediana de una población:**
 
@@ -2889,7 +2787,8 @@ intervalo
 ```
 
 
-<br>
+\newpage
+
 
 **Contraste para la desviación típica de una población:**
 
@@ -2916,8 +2815,6 @@ intervalo
 
      [24.53136884527364, 29.84312683035364]
      
-     
-
 
 
 
@@ -2935,7 +2832,7 @@ resultado
 
  
 
-<br>
+\vspace{0.5cm}
 
 **Contraste para los cuantiles de una población:**
 
@@ -2945,6 +2842,9 @@ np.quantile(X_1, q=0.6)
 ```
 
     70.37736516880977
+
+
+\vspace{0.3cm}
 
 ```python
 resultado , intervalo = bootstrap_cuantil_test(Variable1=X_1, Variable2='no', estimator='quantile', H1_type='greater', theta_0=50,  alpha=0.05 , B=1000, random_seed=123, q=0.6)
@@ -2965,8 +2865,7 @@ intervalo
 
 
 
-<br>
-
+\vspace{0.5cm}
 
 **Contraste para la curtosis de una población:**
 
@@ -2999,8 +2898,7 @@ intervalo
 
 
 
-<br>
-
+\vspace{0.5cm}
 
 **Contraste para la asimetría de una población:**
 
@@ -3028,7 +2926,8 @@ intervalo
     [-0.26701282609616306, 0.27862278159471443]
 
 
-<br>
+\vspace{0.5cm}
+
 
 **Contraste para la media de dos poblaciones:**
 
@@ -3046,7 +2945,8 @@ np.mean(X_2)
     77.09585348416586
     
     
-    
+\vspace{0.3cm}
+
 ```python
 resultado , intervalo = bootstrap_cuantil_test(Variable1=X_1, Variable2=X_2, estimator='mean_diff', H1_type='greater', theta_0='no',  alpha=0.05 , B=1000, random_seed=123, q='no')
 ```
@@ -3064,6 +2964,8 @@ intervalo
     [-19.673858833181058, -7.98554491914148]
     
     
+\vspace{0.3cm}
+
 
 ```python
 resultado , intervalo = bootstrap_cuantil_test(Variable1=X_1, Variable2=X_2, estimator='mean_diff', H1_type='less', theta_0='no',  alpha=0.05 , B=1000, random_seed=123, q='no')
@@ -3077,7 +2979,8 @@ resultado
 
  
 
-<br>
+\vspace{0.5cm}
+
 
 **Contraste para la desviación típica de dos poblaciones:**
 
@@ -3095,6 +2998,8 @@ np.std(X_2)
 
     23.76463767935987
     
+
+\vspace{0.3cm}
     
 ```python
 resultado , intervalo = bootstrap_cuantil_test(Variable1=X_1, Variable2=X_2, estimator='std_diff', H1_type='greater', theta_0='no',  alpha=0.05 , B=1000, random_seed=123, q='no')
@@ -3112,6 +3017,11 @@ intervalo
 
     [-0.4051994934727355, 7.849597038849807]
 
+
+\vspace{0.3cm}
+
+
+
 ```python
 resultado , intervalo = bootstrap_cuantil_test(Variable1=X_1, Variable2=X_2, estimator='std_diff', H1_type='two.sided', theta_0='no',  alpha=0.05 , B=1000, random_seed=123, q='no')
 ```
@@ -3123,7 +3033,7 @@ resultado
     'Not reject H0: theta_1 = theta_2  -->  Not accept H1: theta_1 =/= theta_2'
 
 
-<br>
+\newpage
 
 **Contraste para la mediana de dos poblaciones:**
 
@@ -3159,7 +3069,7 @@ intervalo
  
  
 
-<br>
+\newpage
 
 **Contraste para la curtosis de dos poblaciones:**
 
@@ -3195,7 +3105,7 @@ intervalo
 
 
 
-
+\vspace{0.5cm}
 
 ```python
 bootstrap_cuantil_test(Variable1=X_1, Variable2=X_2, estimator='kurtosis_diff', H1_type='less', theta_0='no',  alpha=0.1 , B=1000, random_seed=123, q='no')
@@ -3218,7 +3128,7 @@ intervalo
 
 
 
-<br>
+\vspace{0.5cm}
 
 **Contraste para los cuantiles de dos poblaciones:**
 
@@ -3235,6 +3145,7 @@ np.quantile(X_2, 0.70)
 
     87.39568341964177
 
+\vspace{0.3cm}
 
 ```python
 resultado , intervalo = bootstrap_cuantil_test(Variable1=X_1, Variable2=X_2, estimator='quantile_diff', H1_type='less', theta_0='no',  alpha=0.05 , B=1000, random_seed=123, q=0.70)
@@ -3255,7 +3166,9 @@ intervalo
 
 
 
-<br>
+
+
+\vspace{0.5cm}
 
 **Contraste para la asimetría de dos poblaciones:**
 
@@ -3272,6 +3185,11 @@ skew(X_2)
 ```
 
     -0.026878668133587646
+
+
+\vspace{0.3cm}
+
+
 
 ```python
 resultado , intervalo = bootstrap_cuantil_test(Variable1=X_1, Variable2=X_2, estimator='skewness_diff', H1_type='two.sided', theta_0='no',  alpha=0.05 , B=1000, random_seed=123, q='no')
@@ -3293,6 +3211,8 @@ intervalo
 
 
 
+\vspace{0.3cm}
+
 
 ```python
 resultado , intervalo = bootstrap_cuantil_test(Variable1=X_1, Variable2=X_2, estimator='skewness_diff', H1_type='greater', theta_0='no',  alpha=0.05 , B=1000, random_seed=123, q='no')
@@ -3307,9 +3227,15 @@ resultado
  
 
 
-<br>
 
-<br>
+
+
+\newpage
+
+
+
+
+
 
 # Bootstrap en Regresión Lineal 
 
@@ -3323,7 +3249,7 @@ Antes de leer esta sección se recomienda leer el articulo sobre  [el modelo de 
 
 Tenemos un modelo de regresión lineal:
 
-$$y_i =  x_i^t \cdot \beta + \varepsilon_i \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\$$
+$$y_i =  x_i^t \cdot \beta + \varepsilon_i \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\[0.25cm]$$
 
 donde  $\hspace{0.15cm} x_i \in \mathbb{R}^{p+1} \hspace{0.15cm} , \hspace{0.15cm}  \varepsilon_i \in \mathbb{R} \hspace{0.15cm} , \hspace{0.15cm}  y_i \in \mathbb{R} \\$
 
@@ -3336,7 +3262,7 @@ Donde:
 $$\widehat{\beta} = (X \cdot X^t)^{-1} \cdot X^t \cdot y\\$$
 
 
-Recordemos que en el modelo de regresión lineal los residuos estimados del modelo son: $\\[0.5cm]$
+Recordemos que en el modelo de regresión lineal los residuos estimados del modelo son:  
 
 
 $$\widehat{\varepsilon} = (\widehat{\varepsilon}_1,...,\widehat{\varepsilon}_n)^t\\$$
@@ -3345,16 +3271,14 @@ donde:
 
 $$\widehat{\varepsilon}_i \hspace{0.1cm}=\hspace{0.1cm} y_i - x_i^t  \cdot \widehat{\beta} \hspace{0.1cm}=\hspace{0.1cm} y_i - \hat{y}_i \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\\$$
 
-Se toman $\hspace{0.1cm}B\hspace{0.1cm}$  muestras *bootstrap* (aleatorias y con reemplazamiento) del vector de residuos estimados $\hspace{0.1cm}\hat{\varepsilon}\hspace{0.1cm}$ del modelo: $\\[0.2cm]$
+Se toman $\hspace{0.1cm}B\hspace{0.1cm}$  muestras *bootstrap* (aleatorias y con reemplazamiento) del vector de residuos estimados $\hspace{0.1cm}\hat{\varepsilon}\hspace{0.1cm}$ del modelo:  
 
 
 $$\widehat{\varepsilon}_{(1)}\hspace{0.05cm},....,\hspace{0.05cm}\widehat{\varepsilon}_{(B)}\\$$
 
 
 
-Se generan  $\hspace{0.1cm}B\hspace{0.1cm}$  replicas *bootstrap* de las respuestas del siguiente modo: $\\[0.2cm]$
-
-
+Se generan  $\hspace{0.1cm}B\hspace{0.1cm}$  replicas *bootstrap* de las respuestas del siguiente modo:  
 
 
 $$Y_{(b)} \hspace{0.1cm} = \hspace{0.1cm} X \cdot \widehat{\beta} \hspace{0.05cm} + \hspace{0.05cm} \varepsilon_{(b)}
@@ -3383,7 +3307,7 @@ Para cada modelo $\hspace{0.1cm} M_{(b)} \hspace{0.1cm}$ se tiene la estimación
 
 Así que para cada estimador $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ se tiene   un vector de replicas bootstrap: $\hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} = \hspace{0.1cm} \left( \widehat{\beta}_{j(1)} \hspace{0.05cm} , \hspace{0.05cm} \widehat{\beta}_{j(2)} \hspace{0.05cm},...,\hspace{0.05cm} \widehat{\beta}_{j(B)} \right) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} j \in \lbrace 0,1,...,p\rbrace$
 
-Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el intervalos bootstrap para los coeficientes betas del modelo: $\\[0.4cm]$
+Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el intervalos bootstrap para los coeficientes betas del modelo: 
 
 
 $$IC(\beta_j)_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{0.1cm} Q \left( \hspace{0.1cm} \alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm}boot} \hspace{0.1cm} \right) \hspace{0.1cm} , \hspace{0.1cm}  Q \left( \hspace{0.1cm} 1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm}boot} \hspace{0.1cm} \right)  \hspace{0.1cm} \right]$$
@@ -3399,7 +3323,7 @@ Para cada modelo $\hspace{0.1cm} M_{(b)} \hspace{0.1cm}$ se tiene la estimación
 
 Así que para el estimador $\hspace{0.1cm}R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot}\hspace{0.1cm}$ se tiene   un vector de replicas bootstrap: $\hspace{0.1cm} R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} = \hspace{0.1cm} \left(  R^2_{adj\hspace{0.05cm} (1)} \hspace{0.05cm} , \hspace{0.05cm}  R^2_{adj\hspace{0.05cm} (2)} \hspace{0.05cm},...,\hspace{0.05cm}  R^2_{adj\hspace{0.05cm} (B)} \right) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} j \in \lbrace 0,1,...,p\rbrace$
 
-Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el intervalos bootstrap para los coeficientes betas del modelo: $\\[0.4cm]$
+Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el intervalos bootstrap para los coeficientes betas del modelo: 
 
 
 $$IC(R^2_{adj})_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{0.1cm} Q \left( \hspace{0.1cm} \alpha/2 \hspace{0.1cm} , \hspace{0.1cm} R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} \right) \hspace{0.1cm} , \hspace{0.1cm}  Q \left( \hspace{0.1cm} 1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} R^2_{adj \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} \right)  \hspace{0.1cm} \right]$$
@@ -3443,7 +3367,7 @@ Para cada modelo $\hspace{0.1cm} M_{(b)} \hspace{0.1cm}$ se tiene la estimación
 
 Así que para cada estimador $\hspace{0.1cm}\widehat{\beta}_j\hspace{0.1cm}$ se tiene   un vector de replicas bootstrap: $\hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm} boot} \hspace{0.1cm} = \hspace{0.1cm} \left( \widehat{\beta}_{j(1)} \hspace{0.05cm} , \hspace{0.05cm} \widehat{\beta}_{j(2)} \hspace{0.05cm},...,\hspace{0.05cm} \widehat{\beta}_{j(B)} \right) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} j \in \lbrace 0,1,...,p\rbrace$
 
-Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el intervalos bootstrap para los coeficientes betas del modelo: $\\[0.4cm]$
+Se puede usar la filosofía de los intervalos cuantil-bootstrap para obtener el intervalos bootstrap para los coeficientes betas del modelo:
 
 
 $$IC(\beta_j)_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{0.1cm} Q \left( \hspace{0.1cm} \alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm}boot} \hspace{0.1cm} \right) \hspace{0.1cm} , \hspace{0.1cm}  Q \left( \hspace{0.1cm} 1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm} \widehat{\beta}_{j \hspace{0.05cm} , \hspace{0.05cm}boot} \hspace{0.1cm} \right)  \hspace{0.1cm} \right]$$
@@ -3472,7 +3396,7 @@ $$IC(R^2_{adj})_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{
  
 
 
-<br>
+\newpage
 
 
 
@@ -3926,8 +3850,4 @@ $$ \dfrac{1}{h} \sum_{i=1}^{h} \widehat{Sesgo}(\hat{y}_i) $$
 
 
 <br>
-
-
-
-
 

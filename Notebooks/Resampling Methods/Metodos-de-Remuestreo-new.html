@@ -1626,7 +1626,7 @@ margin-left: 0 !important;
       <ul>
       <li><a href="#contraste-de-hipótesis-sobre-una-población" id="toc-contraste-de-hipótesis-sobre-una-población"><span class="toc-section-number">12.1</span> Contraste de hipótesis sobre una población</a></li>
       <li><a href="#contraste-de-hipótesis-sobre-dos-poblaciones" id="toc-contraste-de-hipótesis-sobre-dos-poblaciones"><span class="toc-section-number">12.2</span> Contraste de hipótesis sobre dos poblaciones</a></li>
-      <li><a href="#contrastes-bootstrap-en-python" id="toc-contrastes-bootstrap-en-python"><span class="toc-section-number">12.3</span> Contrastes bootstrap en <code>Python</code></a></li>
+      <li><a href="#contrastes-de-hipotesis-bootstrap-en-python" id="toc-contrastes-de-hipotesis-bootstrap-en-python"><span class="toc-section-number">12.3</span> Contrastes de hipotesis bootstrap en <code>Python</code></a></li>
       </ul></li>
       <li><a href="#bootstrap-en-regresión-lineal" id="toc-bootstrap-en-regresión-lineal"><span class="toc-section-number">13</span> Bootstrap en Regresión Lineal</a>
       <ul>
@@ -2807,12 +2807,13 @@ margin-right: auto;
 <span id="cb114-228"><a href="#cb114-228" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb114-229"><a href="#cb114-229" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> interval , estimation</span></code></pre></div>
 <p><br></p>
-<p><strong>Para la media</strong></p>
+<p><strong>Intervalo para la media:</strong></p>
 <div class="sourceCode" id="cb115"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>interval , estimation <span class="op">=</span> cuantil_boot_interval(Variable1<span class="op">=</span>X, Variable2<span class="op">=</span><span class="st">&#39;no&#39;</span>, alpha<span class="op">=</span><span class="fl">0.05</span>, estimator<span class="op">=</span><span class="st">&#39;mean&#39;</span> , B<span class="op">=</span><span class="dv">20000</span>, random_seed<span class="op">=</span><span class="dv">123</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb116"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>interval</span></code></pre></div>
 <pre><code>[5.274553626813773, 15.146375204290525]</code></pre>
 <div class="sourceCode" id="cb118"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>estimation</span></code></pre></div>
 <pre><code>10.199071616256777</code></pre>
+<p>Comparación con el intervalo de confianza clásico frecuentista:</p>
 <div class="sourceCode" id="cb120"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> CI_Mean(Variable , alpha<span class="op">=</span><span class="fl">0.05</span>):</span>
 <span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb120-3"><a href="#cb120-3" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Variable)</span>
@@ -2836,12 +2837,13 @@ margin-right: auto;
 <div class="sourceCode" id="cb122"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a>interval</span></code></pre></div>
 <pre><code>[5.127765678327374, 15.27037755418618]</code></pre>
 <p><br></p>
-<p><strong>Para la desviación típica</strong></p>
+<p><strong>Intervalo para la desviación típica:</strong></p>
 <div class="sourceCode" id="cb124"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a>interval , estimation <span class="op">=</span> cuantil_boot_interval(Variable1<span class="op">=</span>X, Variable2<span class="op">=</span><span class="st">&#39;no&#39;</span>, alpha<span class="op">=</span><span class="fl">0.05</span>, estimator<span class="op">=</span><span class="st">&#39;std&#39;</span> , B<span class="op">=</span><span class="dv">20000</span>, random_seed<span class="op">=</span><span class="dv">123</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb125"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a>interval</span></code></pre></div>
 <pre><code>[14.427214668666169, 20.756590926218593]</code></pre>
 <div class="sourceCode" id="cb127"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a>estimation</span></code></pre></div>
 <pre><code>17.844342210422187</code></pre>
+<p>Comparación con el intervalo de confianza clásico frecuentista:</p>
 <div class="sourceCode" id="cb129"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> CI_Variance(Variable , alpha<span class="op">=</span><span class="fl">0.05</span>):</span>
 <span id="cb129-2"><a href="#cb129-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb129-3"><a href="#cb129-3" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Variable)</span>
@@ -2867,35 +2869,35 @@ margin-right: auto;
 <div class="sourceCode" id="cb131"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a>np.sqrt(interval)</span></code></pre></div>
 <pre><code>array([14.90598594, 22.23643012])</code></pre>
 <p><br></p>
-<p><strong>Para la mediana</strong></p>
+<p><strong>Intervalo para la mediana:</strong></p>
 <div class="sourceCode" id="cb133"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>interval , estimation <span class="op">=</span> cuantil_boot_interval(Variable1<span class="op">=</span>X, Variable2<span class="op">=</span><span class="st">&#39;no&#39;</span>, alpha<span class="op">=</span><span class="fl">0.05</span>, estimator<span class="op">=</span><span class="st">&#39;median&#39;</span> , B<span class="op">=</span><span class="dv">20000</span>, random_seed<span class="op">=</span><span class="dv">123</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb134"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a>interval</span></code></pre></div>
 <pre><code>[2.4028635430970975, 15.99323919612726]</code></pre>
 <div class="sourceCode" id="cb136"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>estimation</span></code></pre></div>
 <pre><code>8.23916733155832</code></pre>
 <p><br></p>
-<p><strong>Para la asimetría</strong></p>
+<p><strong>Intervalo para el coeficiente de asimetria:</strong></p>
 <div class="sourceCode" id="cb138"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a>interval , estimation <span class="op">=</span> cuantil_boot_interval(Variable1<span class="op">=</span>X, Variable2<span class="op">=</span><span class="st">&#39;no&#39;</span>, alpha<span class="op">=</span><span class="fl">0.05</span>, estimator<span class="op">=</span><span class="st">&#39;skewness&#39;</span> , B<span class="op">=</span><span class="dv">20000</span>, random_seed<span class="op">=</span><span class="dv">123</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb139"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a>interval</span></code></pre></div>
 <pre><code>[-0.43998686459545305, 0.5624134382838676]</code></pre>
 <div class="sourceCode" id="cb141"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a>estimation</span></code></pre></div>
 <pre><code>0.025587358812510053</code></pre>
 <p><br></p>
-<p><strong>Para la curtosis</strong></p>
+<p><strong>Intervalo para el coeficiente de curtosis:</strong></p>
 <div class="sourceCode" id="cb143"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a>interval , estimation <span class="op">=</span> cuantil_boot_interval(Variable1<span class="op">=</span>X, Variable2<span class="op">=</span><span class="st">&#39;no&#39;</span>, alpha<span class="op">=</span><span class="fl">0.05</span>, estimator<span class="op">=</span><span class="st">&#39;kurtosis&#39;</span> , B<span class="op">=</span><span class="dv">20000</span>, random_seed<span class="op">=</span><span class="dv">123</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb144"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a>interval </span></code></pre></div>
 <pre><code>[-0.9952663071794702, 0.38601833503542765]</code></pre>
 <div class="sourceCode" id="cb146"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a>estimation</span></code></pre></div>
 <pre><code>-0.37420768292897266</code></pre>
 <p><br></p>
-<p><strong>Para los cuantiles</strong></p>
+<p><strong>Intervalo para los cuantiles:</strong></p>
 <div class="sourceCode" id="cb148"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a>interval , estimation <span class="op">=</span> cuantil_boot_interval(Variable1<span class="op">=</span>X, Variable2<span class="op">=</span><span class="st">&#39;no&#39;</span>, alpha<span class="op">=</span><span class="fl">0.05</span>, estimator<span class="op">=</span><span class="st">&#39;quantile&#39;</span> , B<span class="op">=</span><span class="dv">20000</span>, random_seed<span class="op">=</span><span class="dv">123</span>, q<span class="op">=</span><span class="fl">0.75</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb149"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb149-1"><a href="#cb149-1" aria-hidden="true" tabindex="-1"></a>interval</span></code></pre></div>
 <pre><code>[15.078835764997024, 28.98904388058301]</code></pre>
 <div class="sourceCode" id="cb151"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true" tabindex="-1"></a>estimation</span></code></pre></div>
 <pre><code>23.835596841535178</code></pre>
 <p><br></p>
-<p><strong>Para la proporción</strong></p>
+<p><strong>Intervalo para la proporción:</strong></p>
 <div class="sourceCode" id="cb153"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb153-1"><a href="#cb153-1" aria-hidden="true" tabindex="-1"></a>X_dummy <span class="op">=</span> np.random.uniform(low<span class="op">=</span><span class="dv">0</span> , high<span class="op">=</span><span class="dv">1</span>, size<span class="op">=</span><span class="dv">50</span>).<span class="bu">round</span>()</span></code></pre></div>
 <div class="sourceCode" id="cb154"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a>interval , estimation <span class="op">=</span> cuantil_boot_interval(Variable1<span class="op">=</span>X_dummy, Variable2<span class="op">=</span><span class="st">&#39;no&#39;</span>, alpha<span class="op">=</span><span class="fl">0.05</span>, estimator<span class="op">=</span><span class="st">&#39;proportion&#39;</span> , B<span class="op">=</span><span class="dv">20000</span>, random_seed<span class="op">=</span><span class="dv">123</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb155"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb155-1"><a href="#cb155-1" aria-hidden="true" tabindex="-1"></a>interval</span></code></pre></div>
@@ -2903,7 +2905,7 @@ margin-right: auto;
 <div class="sourceCode" id="cb157"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb157-1"><a href="#cb157-1" aria-hidden="true" tabindex="-1"></a>estimation</span></code></pre></div>
 <pre><code>0.6</code></pre>
 <p><br></p>
-<p><strong>Para la diferencia de medias</strong></p>
+<p><strong>Intervalo para la diferencia de medias:</strong></p>
 <div class="sourceCode" id="cb159"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">123</span>)</span>
 <span id="cb159-2"><a href="#cb159-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb159-3"><a href="#cb159-3" aria-hidden="true" tabindex="-1"></a>X_1 <span class="op">=</span> np.random.normal(loc<span class="op">=</span><span class="dv">10</span>, scale<span class="op">=</span><span class="dv">15</span>, size<span class="op">=</span><span class="dv">50</span>)</span>
@@ -2914,6 +2916,7 @@ margin-right: auto;
 <pre><code>[-9.788335434742939, 1.810648408844556]</code></pre>
 <div class="sourceCode" id="cb163"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb163-1"><a href="#cb163-1" aria-hidden="true" tabindex="-1"></a>estimation</span></code></pre></div>
 <pre><code>-4.001757444976697</code></pre>
+<p>Comparación con el intervalo de confianza clásico frecuentista:</p>
 <div class="sourceCode" id="cb165"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb165-1"><a href="#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> CI_Mean_Diference(Variable1 , Variable2 , alpha<span class="op">=</span><span class="fl">0.05</span>):</span>
 <span id="cb165-2"><a href="#cb165-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb165-3"><a href="#cb165-3" aria-hidden="true" tabindex="-1"></a>    X1 <span class="op">=</span> Variable1</span>
@@ -2949,42 +2952,42 @@ margin-right: auto;
 <div class="sourceCode" id="cb169"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a>estimation</span></code></pre></div>
 <pre><code>-4.001757444976697</code></pre>
 <p><br></p>
-<p><strong>Para la diferencia de medianas</strong></p>
+<p><strong>Intervalo para la diferencia de medianas:</strong></p>
 <div class="sourceCode" id="cb171"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a>interval , estimation <span class="op">=</span> cuantil_boot_interval(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span>X_2, alpha<span class="op">=</span><span class="fl">0.05</span>, estimator<span class="op">=</span><span class="st">&#39;median_diff&#39;</span> , B<span class="op">=</span><span class="dv">20000</span>,  q<span class="op">=</span><span class="fl">0.75</span>, random_seed<span class="op">=</span><span class="dv">123</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb172"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a>interval</span></code></pre></div>
 <pre><code>[-13.881285812364158, 3.1918214145850397]</code></pre>
 <div class="sourceCode" id="cb174"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb174-1"><a href="#cb174-1" aria-hidden="true" tabindex="-1"></a>estimation</span></code></pre></div>
 <pre><code>-6.812252818435496</code></pre>
 <p><br></p>
-<p><strong>Para la diferencia de desviaciones típicas</strong></p>
+<p><strong>Intervalo para la diferencia de desviaciones típicas:</strong></p>
 <div class="sourceCode" id="cb176"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb176-1"><a href="#cb176-1" aria-hidden="true" tabindex="-1"></a>interval , estimation <span class="op">=</span> cuantil_boot_interval(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span>X_2, alpha<span class="op">=</span><span class="fl">0.05</span>, estimator<span class="op">=</span><span class="st">&#39;std_diff&#39;</span> , B<span class="op">=</span><span class="dv">20000</span>,  q<span class="op">=</span><span class="fl">0.75</span>, random_seed<span class="op">=</span><span class="dv">123</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb177"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb177-1"><a href="#cb177-1" aria-hidden="true" tabindex="-1"></a>interval</span></code></pre></div>
 <pre><code>[-1.440066276291272, 5.750492255040537]</code></pre>
 <div class="sourceCode" id="cb179"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb179-1"><a href="#cb179-1" aria-hidden="true" tabindex="-1"></a>estimation</span></code></pre></div>
 <pre><code>2.297921770341434</code></pre>
 <p><br></p>
-<p><strong>Para la diferencia de cuantiles</strong></p>
+<p><strong>Intervalo para la diferencia de cuantiles:</strong></p>
 <div class="sourceCode" id="cb181"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb181-1"><a href="#cb181-1" aria-hidden="true" tabindex="-1"></a>interval , estimation <span class="op">=</span> cuantil_boot_interval(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span>X_2, alpha<span class="op">=</span><span class="fl">0.05</span>, estimator<span class="op">=</span><span class="st">&#39;quantile_diff&#39;</span> , B<span class="op">=</span><span class="dv">20000</span>,  q<span class="op">=</span><span class="fl">0.75</span>, random_seed<span class="op">=</span><span class="dv">123</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb182"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb182-1"><a href="#cb182-1" aria-hidden="true" tabindex="-1"></a>interval</span></code></pre></div>
 <pre><code>[-12.249938782339909, 4.819498365231816]</code></pre>
 <div class="sourceCode" id="cb184"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a>estimation</span></code></pre></div>
 <pre><code>-1.2929002407485939</code></pre>
 <p><br></p>
-<p><strong>Para la diferencia de kurtosis</strong></p>
+<p><strong>Intervalo para la diferencia de curtosis:</strong></p>
 <div class="sourceCode" id="cb186"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb186-1"><a href="#cb186-1" aria-hidden="true" tabindex="-1"></a>interval , estimation <span class="op">=</span> cuantil_boot_interval(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span>X_2, alpha<span class="op">=</span><span class="fl">0.05</span>, estimator<span class="op">=</span><span class="st">&#39;kurtosis_diff&#39;</span> , B<span class="op">=</span><span class="dv">20000</span>,  q<span class="op">=</span><span class="fl">0.75</span>, random_seed<span class="op">=</span><span class="dv">123</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb187"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb187-1"><a href="#cb187-1" aria-hidden="true" tabindex="-1"></a>interval</span></code></pre></div>
 <pre><code> [-0.504742036075702, 1.1320430654741647]</code></pre>
 <div class="sourceCode" id="cb189"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb189-1"><a href="#cb189-1" aria-hidden="true" tabindex="-1"></a>estimation</span></code></pre></div>
 <pre><code>0.2817371126835462</code></pre>
 <p><br></p>
-<p><strong>Para la diferencia de asimetrías</strong></p>
+<p><strong>Intervalo para la diferencia de asimetría:</strong></p>
 <div class="sourceCode" id="cb191"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb191-1"><a href="#cb191-1" aria-hidden="true" tabindex="-1"></a>interval , estimation <span class="op">=</span> cuantil_boot_interval(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span>X_2, alpha<span class="op">=</span><span class="fl">0.05</span>, estimator<span class="op">=</span><span class="st">&#39;skewness_diff&#39;</span> , B<span class="op">=</span><span class="dv">20000</span>,  q<span class="op">=</span><span class="fl">0.75</span>, random_seed<span class="op">=</span><span class="dv">123</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb192"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb192-1"><a href="#cb192-1" aria-hidden="true" tabindex="-1"></a>interval</span></code></pre></div>
 <pre><code>[-0.5445430937619894, 0.6394836839729549]</code></pre>
 <div class="sourceCode" id="cb194"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb194-1"><a href="#cb194-1" aria-hidden="true" tabindex="-1"></a>estimation</span></code></pre></div>
 <pre><code>0.019079758603481104</code></pre>
 <p><br></p>
-<p><strong>Para la diferencia de proporciones</strong></p>
+<p><strong>Intervalo para la diferencia de proporciones:</strong></p>
 <div class="sourceCode" id="cb196"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb196-1"><a href="#cb196-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">123</span>)</span>
 <span id="cb196-2"><a href="#cb196-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb196-3"><a href="#cb196-3" aria-hidden="true" tabindex="-1"></a>X_dummy_1 <span class="op">=</span> np.random.uniform(low<span class="op">=</span><span class="dv">0</span> , high<span class="op">=</span><span class="dv">1</span>, size<span class="op">=</span><span class="dv">40</span>).<span class="bu">round</span>()</span>
@@ -3061,8 +3064,213 @@ H_1: \theta_1 \neq \theta_2 \hspace{1.5cm}  H_1: \theta_1 &lt; \theta_2  \hspace
 <p><span class="math display">\[\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} \hspace{0.1 cm}&gt;&gt;\hspace{0.1 cm} 0 \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm}  L1 \hspace{0.1 cm} &gt; \hspace{0.1 cm} 0\]</span></p>
 <p><br></p>
 </div>
-<div id="contrastes-bootstrap-en-python" class="section level2" number="12.3">
-<h2><span class="header-section-number">12.3</span> Contrastes bootstrap en <code>Python</code></h2>
+<div id="contrastes-de-hipotesis-bootstrap-en-python" class="section level2" number="12.3">
+<h2><span class="header-section-number">12.3</span> Contrastes de hipotesis bootstrap en <code>Python</code></h2>
+<div class="sourceCode" id="cb216"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb216-1"><a href="#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> bootstrap_cuantil_test(Variable1, Variable2, estimator, H1_type, theta_0,  alpha , B, random_seed, q):</span>
+<span id="cb216-2"><a href="#cb216-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-3"><a href="#cb216-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-4"><a href="#cb216-4" aria-hidden="true" tabindex="-1"></a>    interval , estimation <span class="op">=</span> cuantil_boot_interval(Variable1<span class="op">=</span>Variable1, Variable2<span class="op">=</span>Variable2, alpha<span class="op">=</span>alpha, estimator<span class="op">=</span>estimator , B<span class="op">=</span>B, random_seed<span class="op">=</span>random_seed, q<span class="op">=</span>q)</span>
+<span id="cb216-5"><a href="#cb216-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-6"><a href="#cb216-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb216-7"><a href="#cb216-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> estimator <span class="kw">in</span> [<span class="st">&#39;mean&#39;</span>,<span class="st">&#39;median&#39;</span>,<span class="st">&#39;std&#39;</span>,<span class="st">&#39;quantile&#39;</span>,<span class="st">&#39;kurtosis&#39;</span>,<span class="st">&#39;skewness&#39;</span>,<span class="st">&#39;proportion&#39;</span>]:</span>
+<span id="cb216-8"><a href="#cb216-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-9"><a href="#cb216-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-10"><a href="#cb216-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> H1_type <span class="op">==</span> <span class="st">&#39;greater&#39;</span>:</span>
+<span id="cb216-11"><a href="#cb216-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-12"><a href="#cb216-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> interval[<span class="dv">0</span>] <span class="op">&gt;</span> theta_0 : result <span class="op">=</span> <span class="st">&#39;Reject H0: theta = theta_0  --&gt;  Accept H1: theta &gt; theta_0&#39;</span></span>
+<span id="cb216-13"><a href="#cb216-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-14"><a href="#cb216-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span> : result <span class="op">=</span> <span class="st">&#39;Not reject H0: theta = theta_0  --&gt;  Not accept H1: theta &gt; theta_0&#39;</span></span>
+<span id="cb216-15"><a href="#cb216-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-16"><a href="#cb216-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-17"><a href="#cb216-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> H1_type <span class="op">==</span> <span class="st">&#39;less&#39;</span>:</span>
+<span id="cb216-18"><a href="#cb216-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-19"><a href="#cb216-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> interval[<span class="dv">1</span>] <span class="op">&lt;</span> theta_0 : result <span class="op">=</span> <span class="st">&#39;Reject H0: theta = theta_0  --&gt;  Accept H1: theta &lt; theta_0&#39;</span></span>
+<span id="cb216-20"><a href="#cb216-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-21"><a href="#cb216-21" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span> : result <span class="op">=</span> <span class="st">&#39;Not reject H0: theta = theta_0  --&gt;  Not accept H1: theta &lt; theta_0&#39;</span></span>
+<span id="cb216-22"><a href="#cb216-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-23"><a href="#cb216-23" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb216-24"><a href="#cb216-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> H1_type <span class="op">==</span> <span class="st">&#39;two.sided&#39;</span>:</span>
+<span id="cb216-25"><a href="#cb216-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-26"><a href="#cb216-26" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (interval[<span class="dv">1</span>] <span class="op">&lt;</span> theta_0)  <span class="op">|</span> (interval[<span class="dv">0</span>] <span class="op">&gt;</span> theta_0) : result <span class="op">=</span> <span class="st">&#39;Reject H0: theta = theta_0  --&gt;  Accept H1: theta =/= theta_0&#39;</span></span>
+<span id="cb216-27"><a href="#cb216-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-28"><a href="#cb216-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span> : result <span class="op">=</span> <span class="st">&#39;Not reject H0: theta = theta_0  --&gt;  Not accept H1: theta =/= theta_0&#39;</span></span>
+<span id="cb216-29"><a href="#cb216-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-30"><a href="#cb216-30" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb216-31"><a href="#cb216-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-32"><a href="#cb216-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> estimator <span class="kw">in</span> [<span class="st">&#39;mean_diff&#39;</span>,<span class="st">&#39;median_diff&#39;</span>,<span class="st">&#39;std_diff&#39;</span>,<span class="st">&#39;quantile_diff&#39;</span>,<span class="st">&#39;kurtosis_diff&#39;</span>,<span class="st">&#39;skewness_diff&#39;</span>, <span class="st">&#39;proportion_diff&#39;</span>]:</span>
+<span id="cb216-33"><a href="#cb216-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-34"><a href="#cb216-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-35"><a href="#cb216-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> H1_type <span class="op">==</span> <span class="st">&#39;greater&#39;</span>:</span>
+<span id="cb216-36"><a href="#cb216-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-37"><a href="#cb216-37" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> interval[<span class="dv">0</span>] <span class="op">&gt;</span> <span class="dv">0</span> : result <span class="op">=</span> <span class="st">&#39;Reject H0: theta_1 = theta_2  --&gt;  Accept H1: theta_1 &gt; theta_2&#39;</span></span>
+<span id="cb216-38"><a href="#cb216-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-39"><a href="#cb216-39" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span> : result <span class="op">=</span> <span class="st">&#39;Not reject H0: theta_1 = theta_2 --&gt;  Not accept H1: theta_1 &gt; theta_2&#39;</span></span>
+<span id="cb216-40"><a href="#cb216-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-41"><a href="#cb216-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-42"><a href="#cb216-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> H1_type <span class="op">==</span> <span class="st">&#39;less&#39;</span>:</span>
+<span id="cb216-43"><a href="#cb216-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-44"><a href="#cb216-44" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> interval[<span class="dv">1</span>] <span class="op">&lt;</span> <span class="dv">0</span> : result <span class="op">=</span> <span class="st">&#39;Reject H0: theta_1 = theta_2  --&gt;  Accept H1: theta_1 &lt; theta_2&#39;</span></span>
+<span id="cb216-45"><a href="#cb216-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-46"><a href="#cb216-46" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span> : result <span class="op">=</span> <span class="st">&#39;Not reject H0: theta_1 = theta_2  --&gt;  Not accept H1: theta_1 &lt; theta_2&#39;</span></span>
+<span id="cb216-47"><a href="#cb216-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-48"><a href="#cb216-48" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb216-49"><a href="#cb216-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> H1_type <span class="op">==</span> <span class="st">&#39;two.sided&#39;</span>:</span>
+<span id="cb216-50"><a href="#cb216-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-51"><a href="#cb216-51" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (interval[<span class="dv">1</span>] <span class="op">&lt;</span> <span class="dv">0</span>)  <span class="op">|</span> (interval[<span class="dv">0</span>] <span class="op">&gt;</span>  <span class="dv">0</span>)  : result <span class="op">=</span> <span class="st">&#39;Reject H0: theta_1 = theta_2  --&gt;  Accept H1: theta_1 =/= theta_2&#39;</span></span>
+<span id="cb216-52"><a href="#cb216-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-53"><a href="#cb216-53" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span> : result <span class="op">=</span> <span class="st">&#39;Not reject H0: theta_1 = theta_2  --&gt;  Not accept H1: theta_1 =/= theta_2&#39;</span></span>
+<span id="cb216-54"><a href="#cb216-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-55"><a href="#cb216-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-56"><a href="#cb216-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-57"><a href="#cb216-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result , interval</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb217-1"><a href="#cb217-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">123</span>)</span>
+<span id="cb217-2"><a href="#cb217-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb217-3"><a href="#cb217-3" aria-hidden="true" tabindex="-1"></a>X_1 <span class="op">=</span> np.random.normal(loc<span class="op">=</span><span class="dv">62</span>, scale<span class="op">=</span><span class="dv">25</span>, size<span class="op">=</span><span class="dv">150</span>)</span>
+<span id="cb217-4"><a href="#cb217-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb217-5"><a href="#cb217-5" aria-hidden="true" tabindex="-1"></a>X_2 <span class="op">=</span> np.random.normal(loc<span class="op">=</span><span class="dv">80</span>, scale<span class="op">=</span><span class="dv">25</span>, size<span class="op">=</span><span class="dv">150</span>)</span></code></pre></div>
+<p><br></p>
+<p><strong>Contraste para la media de una población:</strong></p>
+<div class="sourceCode" id="cb218"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb218-1"><a href="#cb218-1" aria-hidden="true" tabindex="-1"></a>np.mean(X_1)</span></code></pre></div>
+<pre><code>63.44484985484652</code></pre>
+<div class="sourceCode" id="cb220"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb220-1"><a href="#cb220-1" aria-hidden="true" tabindex="-1"></a>resultado , intervalo <span class="op">=</span> bootstrap_cuantil_test(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span><span class="st">&#39;no&#39;</span>, estimator<span class="op">=</span><span class="st">&#39;mean&#39;</span>, H1_type<span class="op">=</span><span class="st">&#39;greater&#39;</span>, theta_0<span class="op">=</span><span class="dv">50</span>,  alpha<span class="op">=</span><span class="fl">0.05</span> , B<span class="op">=</span><span class="dv">1000</span>, random_seed<span class="op">=</span><span class="dv">123</span>, q<span class="op">=</span><span class="st">&#39;no&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb221-1"><a href="#cb221-1" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<pre><code>&#39;Reject H0: theta = theta_0  --&gt;  Accept H1: theta &gt; theta_0&#39;</code></pre>
+<div class="sourceCode" id="cb223"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb223-1"><a href="#cb223-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
+<pre><code>[59.300517176372914, 68.0853420655662]</code></pre>
+<div class="sourceCode" id="cb225"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb225-1"><a href="#cb225-1" aria-hidden="true" tabindex="-1"></a>resultado , intervalo <span class="op">=</span> bootstrap_cuantil_test(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span><span class="st">&#39;no&#39;</span>, estimator<span class="op">=</span><span class="st">&#39;mean&#39;</span>, H1_type<span class="op">=</span><span class="st">&#39;greater&#39;</span>, theta_0<span class="op">=</span><span class="dv">60</span>,  alpha<span class="op">=</span><span class="fl">0.05</span> , B<span class="op">=</span><span class="dv">1000</span>, random_seed<span class="op">=</span><span class="dv">123</span>, q<span class="op">=</span><span class="st">&#39;no&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb226-1"><a href="#cb226-1" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<pre><code>&#39;Not reject H0: theta = theta_0  --&gt;  Not accept H1: theta &gt; theta_0&#39;</code></pre>
+<div class="sourceCode" id="cb228"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb228-1"><a href="#cb228-1" aria-hidden="true" tabindex="-1"></a>bootstrap_cuantil_test(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span><span class="st">&#39;no&#39;</span>, estimator<span class="op">=</span><span class="st">&#39;mean&#39;</span>, H1_type<span class="op">=</span><span class="st">&#39;two.sided&#39;</span>, theta_0<span class="op">=</span><span class="dv">60</span>,  alpha<span class="op">=</span><span class="fl">0.05</span> , B<span class="op">=</span><span class="dv">1000</span>, random_seed<span class="op">=</span><span class="dv">123</span>, q<span class="op">=</span><span class="st">&#39;no&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb229-1"><a href="#cb229-1" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<pre><code>&#39;Not reject H0: theta = theta_0  --&gt;  Not accept H1: theta =/= theta_0&#39;</code></pre>
+<p><br></p>
+<p><strong>Contraste para la mediana de una población:</strong></p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb231-1"><a href="#cb231-1" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb232-1"><a href="#cb232-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb232-2"><a href="#cb232-2" aria-hidden="true" tabindex="-1"></a>resultado , intervalo <span class="op">=</span></span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb233-1"><a href="#cb233-1" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<div class="sourceCode" id="cb234"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb234-1"><a href="#cb234-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
+<p><br></p>
+<p><strong>Contraste para la desviación típica de una población:</strong></p>
+<div class="sourceCode" id="cb235"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb235-1"><a href="#cb235-1" aria-hidden="true" tabindex="-1"></a>np.std(X_1)</span></code></pre></div>
+<pre><code>27.258568783722534</code></pre>
+<div class="sourceCode" id="cb237"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb237-1"><a href="#cb237-1" aria-hidden="true" tabindex="-1"></a>resultado , intervalo <span class="op">=</span> bootstrap_cuantil_test(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span><span class="st">&#39;no&#39;</span>, estimator<span class="op">=</span><span class="st">&#39;std&#39;</span>, H1_type<span class="op">=</span><span class="st">&#39;less&#39;</span>, theta_0<span class="op">=</span><span class="dv">30</span>,  alpha<span class="op">=</span><span class="fl">0.05</span> , B<span class="op">=</span><span class="dv">1000</span>, random_seed<span class="op">=</span><span class="dv">123</span>, q<span class="op">=</span><span class="st">&#39;no&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb238-1"><a href="#cb238-1" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<pre><code> &#39;Reject H0: theta = theta_0  --&gt;  Accept H1: theta &lt; theta_0&#39;</code></pre>
+<div class="sourceCode" id="cb240"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb240-1"><a href="#cb240-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
+<pre><code> [24.53136884527364, 29.84312683035364]
+ 
+ </code></pre>
+<div class="sourceCode" id="cb242"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb242-1"><a href="#cb242-1" aria-hidden="true" tabindex="-1"></a>resultado , intervalo <span class="op">=</span> bootstrap_cuantil_test(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span><span class="st">&#39;no&#39;</span>, estimator<span class="op">=</span><span class="st">&#39;std&#39;</span>, H1_type<span class="op">=</span><span class="st">&#39;less&#39;</span>, theta_0<span class="op">=</span><span class="dv">26</span>,  alpha<span class="op">=</span><span class="fl">0.05</span> , B<span class="op">=</span><span class="dv">1000</span>, random_seed<span class="op">=</span><span class="dv">123</span>, q<span class="op">=</span><span class="st">&#39;no&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb243-1"><a href="#cb243-1" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<pre><code>&#39;Not reject H0: theta = theta_0  --&gt;  Not accept H1: theta &lt; theta_0&#39;</code></pre>
+<p><br></p>
+<p><strong>Contraste para los cuantiles de una población:</strong></p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb245-1"><a href="#cb245-1" aria-hidden="true" tabindex="-1"></a>np.quantile(X_1, q<span class="op">=</span><span class="fl">0.6</span>)</span></code></pre></div>
+<pre><code>70.37736516880977</code></pre>
+<div class="sourceCode" id="cb247"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb247-1"><a href="#cb247-1" aria-hidden="true" tabindex="-1"></a>resultado , intervalo <span class="op">=</span> bootstrap_cuantil_test(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span><span class="st">&#39;no&#39;</span>, estimator<span class="op">=</span><span class="st">&#39;quantile&#39;</span>, H1_type<span class="op">=</span><span class="st">&#39;greater&#39;</span>, theta_0<span class="op">=</span><span class="dv">50</span>,  alpha<span class="op">=</span><span class="fl">0.05</span> , B<span class="op">=</span><span class="dv">1000</span>, random_seed<span class="op">=</span><span class="dv">123</span>, q<span class="op">=</span><span class="fl">0.6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb248-1"><a href="#cb248-1" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<pre><code>&#39;Reject H0: theta = theta_0  --&gt;  Accept H1: theta &gt; theta_0&#39;</code></pre>
+<div class="sourceCode" id="cb250"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb250-1"><a href="#cb250-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
+<pre><code>[65.5777835208156, 76.34514656012644]</code></pre>
+<p><br></p>
+<p><strong>Contraste para la curtosis de una población:</strong></p>
+<div class="sourceCode" id="cb252"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb252-1"><a href="#cb252-1" aria-hidden="true" tabindex="-1"></a>kurtosis(X_1)</span></code></pre></div>
+<pre><code>-0.4799399747044939</code></pre>
+<div class="sourceCode" id="cb254"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb254-1"><a href="#cb254-1" aria-hidden="true" tabindex="-1"></a>resultado , intervalo <span class="op">=</span> bootstrap_cuantil_test(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span><span class="st">&#39;no&#39;</span>, estimator<span class="op">=</span><span class="st">&#39;kurtosis&#39;</span>, H1_type<span class="op">=</span><span class="st">&#39;less&#39;</span>, theta_0<span class="op">=</span><span class="dv">0</span>,  alpha<span class="op">=</span><span class="fl">0.05</span> , B<span class="op">=</span><span class="dv">1000</span>, random_seed<span class="op">=</span><span class="dv">123</span>, q<span class="op">=</span><span class="st">&#39;no&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb255-1"><a href="#cb255-1" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<pre><code>&#39;Reject H0: theta = theta_0  --&gt;  Accept H1: theta &lt; theta_0&#39;</code></pre>
+<div class="sourceCode" id="cb257"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb257-1"><a href="#cb257-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
+<pre><code>[-0.8726641157248832, -0.03722884140184115]</code></pre>
+<p><br></p>
+<p><strong>Contraste para la asimetría de una población:</strong></p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb259-1"><a href="#cb259-1" aria-hidden="true" tabindex="-1"></a>skew(X_1)</span></code></pre></div>
+<pre><code>0.0030735881326157516</code></pre>
+<div class="sourceCode" id="cb261"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb261-1"><a href="#cb261-1" aria-hidden="true" tabindex="-1"></a>resultado , intervalo <span class="op">=</span> bootstrap_cuantil_test(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span><span class="st">&#39;no&#39;</span>, estimator<span class="op">=</span><span class="st">&#39;skewness&#39;</span>, H1_type<span class="op">=</span><span class="st">&#39;two.sided&#39;</span>, theta_0<span class="op">=</span><span class="dv">0</span>,  alpha<span class="op">=</span><span class="fl">0.05</span> , B<span class="op">=</span><span class="dv">1000</span>, random_seed<span class="op">=</span><span class="dv">123</span>, q<span class="op">=</span><span class="st">&#39;no&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb262-1"><a href="#cb262-1" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<pre><code>&#39;Not reject H0: theta = theta_0  --&gt;  Not accept H1: theta =/= theta_0&#39;</code></pre>
+<div class="sourceCode" id="cb264"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb264-1"><a href="#cb264-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
+<pre><code>[-0.26701282609616306, 0.27862278159471443]</code></pre>
+<p><br></p>
+<p><strong>Contraste para la media de dos poblaciones:</strong></p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb266-1"><a href="#cb266-1" aria-hidden="true" tabindex="-1"></a>np.mean(X_1)</span></code></pre></div>
+<pre><code>63.44484985484652</code></pre>
+<div class="sourceCode" id="cb268"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb268-1"><a href="#cb268-1" aria-hidden="true" tabindex="-1"></a>np.mean(X_2)</span></code></pre></div>
+<pre><code>77.09585348416586</code></pre>
+<div class="sourceCode" id="cb270"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb270-1"><a href="#cb270-1" aria-hidden="true" tabindex="-1"></a>resultado , intervalo <span class="op">=</span> bootstrap_cuantil_test(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span>X_2, estimator<span class="op">=</span><span class="st">&#39;mean_diff&#39;</span>, H1_type<span class="op">=</span><span class="st">&#39;greater&#39;</span>, theta_0<span class="op">=</span><span class="st">&#39;no&#39;</span>,  alpha<span class="op">=</span><span class="fl">0.05</span> , B<span class="op">=</span><span class="dv">1000</span>, random_seed<span class="op">=</span><span class="dv">123</span>, q<span class="op">=</span><span class="st">&#39;no&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb271-1"><a href="#cb271-1" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<pre><code>&#39;Not reject H0: theta_1 = theta_2 --&gt;  Not accept H1: theta_1 &gt; theta_2&#39;</code></pre>
+<div class="sourceCode" id="cb273"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb273-1"><a href="#cb273-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
+<pre><code>[-19.673858833181058, -7.98554491914148]</code></pre>
+<div class="sourceCode" id="cb275"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb275-1"><a href="#cb275-1" aria-hidden="true" tabindex="-1"></a>resultado , intervalo <span class="op">=</span> bootstrap_cuantil_test(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span>X_2, estimator<span class="op">=</span><span class="st">&#39;mean_diff&#39;</span>, H1_type<span class="op">=</span><span class="st">&#39;less&#39;</span>, theta_0<span class="op">=</span><span class="st">&#39;no&#39;</span>,  alpha<span class="op">=</span><span class="fl">0.05</span> , B<span class="op">=</span><span class="dv">1000</span>, random_seed<span class="op">=</span><span class="dv">123</span>, q<span class="op">=</span><span class="st">&#39;no&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb276-1"><a href="#cb276-1" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<pre><code>&#39;Reject H0: theta_1 = theta_2  --&gt;  Accept H1: theta_1 &lt; theta_2&#39;</code></pre>
+<p><br></p>
+<p><strong>Contraste para la desviación típica de dos poblaciones:</strong></p>
+<div class="sourceCode" id="cb278"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb278-1"><a href="#cb278-1" aria-hidden="true" tabindex="-1"></a>np.std(X_1)</span></code></pre></div>
+<pre><code>27.258568783722534</code></pre>
+<div class="sourceCode" id="cb280"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb280-1"><a href="#cb280-1" aria-hidden="true" tabindex="-1"></a>np.std(X_2)</span></code></pre></div>
+<pre><code>23.76463767935987</code></pre>
+<div class="sourceCode" id="cb282"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb282-1"><a href="#cb282-1" aria-hidden="true" tabindex="-1"></a>resultado , intervalo <span class="op">=</span> bootstrap_cuantil_test(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span>X_2, estimator<span class="op">=</span><span class="st">&#39;std_diff&#39;</span>, H1_type<span class="op">=</span><span class="st">&#39;greater&#39;</span>, theta_0<span class="op">=</span><span class="st">&#39;no&#39;</span>,  alpha<span class="op">=</span><span class="fl">0.05</span> , B<span class="op">=</span><span class="dv">1000</span>, random_seed<span class="op">=</span><span class="dv">123</span>, q<span class="op">=</span><span class="st">&#39;no&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb283-1"><a href="#cb283-1" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<pre><code>&#39;Not reject H0: theta_1 = theta_2 --&gt;  Not accept H1: theta_1 &gt; theta_2&#39;</code></pre>
+<div class="sourceCode" id="cb285"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb285-1"><a href="#cb285-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
+<pre><code>[-0.4051994934727355, 7.849597038849807]</code></pre>
+<div class="sourceCode" id="cb287"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb287-1"><a href="#cb287-1" aria-hidden="true" tabindex="-1"></a>resultado , intervalo <span class="op">=</span> bootstrap_cuantil_test(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span>X_2, estimator<span class="op">=</span><span class="st">&#39;std_diff&#39;</span>, H1_type<span class="op">=</span><span class="st">&#39;two.sided&#39;</span>, theta_0<span class="op">=</span><span class="st">&#39;no&#39;</span>,  alpha<span class="op">=</span><span class="fl">0.05</span> , B<span class="op">=</span><span class="dv">1000</span>, random_seed<span class="op">=</span><span class="dv">123</span>, q<span class="op">=</span><span class="st">&#39;no&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb288-1"><a href="#cb288-1" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<pre><code>&#39;Not reject H0: theta_1 = theta_2  --&gt;  Not accept H1: theta_1 =/= theta_2&#39;</code></pre>
+<p><br></p>
+<p><strong>Contraste para la mediana de dos poblaciones:</strong></p>
+<div class="sourceCode" id="cb290"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb290-1"><a href="#cb290-1" aria-hidden="true" tabindex="-1"></a>np.median(X_1)</span></code></pre></div>
+<pre><code>62.99540261926173</code></pre>
+<div class="sourceCode" id="cb292"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb292-1"><a href="#cb292-1" aria-hidden="true" tabindex="-1"></a>np.median(X_2)</span></code></pre></div>
+<pre><code>77.7284396794982</code></pre>
+<div class="sourceCode" id="cb294"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb294-1"><a href="#cb294-1" aria-hidden="true" tabindex="-1"></a>resultado , intervalo <span class="op">=</span> bootstrap_cuantil_test(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span>X_2, estimator<span class="op">=</span><span class="st">&#39;median_diff&#39;</span>, H1_type<span class="op">=</span><span class="st">&#39;less&#39;</span>, theta_0<span class="op">=</span><span class="st">&#39;no&#39;</span>,  alpha<span class="op">=</span><span class="fl">0.05</span> , B<span class="op">=</span><span class="dv">1000</span>, random_seed<span class="op">=</span><span class="dv">123</span>, q<span class="op">=</span><span class="st">&#39;no&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb295-1"><a href="#cb295-1" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<pre><code> &#39;Reject H0: theta_1 = theta_2  --&gt;  Accept H1: theta_1 &lt; theta_2&#39;</code></pre>
+<div class="sourceCode" id="cb297"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb297-1"><a href="#cb297-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
+<pre><code>[-23.9186359851631, -7.0611603691117395]</code></pre>
+<p><br></p>
+<p><strong>Contraste para la curtosis de dos poblaciones:</strong></p>
+<div class="sourceCode" id="cb299"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb299-1"><a href="#cb299-1" aria-hidden="true" tabindex="-1"></a>kurtosis(X_1)</span></code></pre></div>
+<pre><code>-0.4799399747044939</code></pre>
+<div class="sourceCode" id="cb301"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb301-1"><a href="#cb301-1" aria-hidden="true" tabindex="-1"></a>kurtosis(X_2)</span></code></pre></div>
+<pre><code> 0.6321922906256292</code></pre>
+<div class="sourceCode" id="cb303"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb303-1"><a href="#cb303-1" aria-hidden="true" tabindex="-1"></a>bootstrap_cuantil_test(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span>X_2, estimator<span class="op">=</span><span class="st">&#39;kurtosis_diff&#39;</span>, H1_type<span class="op">=</span><span class="st">&#39;less&#39;</span>, theta_0<span class="op">=</span><span class="st">&#39;no&#39;</span>,  alpha<span class="op">=</span><span class="fl">0.05</span> , B<span class="op">=</span><span class="dv">1000</span>, random_seed<span class="op">=</span><span class="dv">123</span>, q<span class="op">=</span><span class="st">&#39;no&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb304-1"><a href="#cb304-1" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<pre><code>&#39;Not reject H0: theta_1 = theta_2  --&gt;  Not accept H1: theta_1 &lt; theta_2&#39;</code></pre>
+<div class="sourceCode" id="cb306"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb306-1"><a href="#cb306-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
+<pre><code>[-2.145917163300932, 0.03602423829734017]</code></pre>
+<div class="sourceCode" id="cb308"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb308-1"><a href="#cb308-1" aria-hidden="true" tabindex="-1"></a>bootstrap_cuantil_test(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span>X_2, estimator<span class="op">=</span><span class="st">&#39;kurtosis_diff&#39;</span>, H1_type<span class="op">=</span><span class="st">&#39;less&#39;</span>, theta_0<span class="op">=</span><span class="st">&#39;no&#39;</span>,  alpha<span class="op">=</span><span class="fl">0.1</span> , B<span class="op">=</span><span class="dv">1000</span>, random_seed<span class="op">=</span><span class="dv">123</span>, q<span class="op">=</span><span class="st">&#39;no&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb309-1"><a href="#cb309-1" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<pre><code>&#39;Reject H0: theta_1 = theta_2  --&gt;  Accept H1: theta_1 &lt; theta_2&#39;</code></pre>
+<div class="sourceCode" id="cb311"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb311-1"><a href="#cb311-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
+<pre><code>[-1.9699920673146376, -0.10952260840217383]</code></pre>
+<p><br></p>
+<p><strong>Contraste para los cuantiles de dos poblaciones:</strong></p>
+<div class="sourceCode" id="cb313"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb313-1"><a href="#cb313-1" aria-hidden="true" tabindex="-1"></a>np.quantile(X_1, <span class="fl">0.70</span>)</span></code></pre></div>
+<pre><code>79.99489543995588</code></pre>
+<div class="sourceCode" id="cb315"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb315-1"><a href="#cb315-1" aria-hidden="true" tabindex="-1"></a>np.quantile(X_2, <span class="fl">0.70</span>)</span></code></pre></div>
+<pre><code>87.39568341964177</code></pre>
+<div class="sourceCode" id="cb317"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb317-1"><a href="#cb317-1" aria-hidden="true" tabindex="-1"></a>resultado , intervalo <span class="op">=</span> bootstrap_cuantil_test(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span>X_2, estimator<span class="op">=</span><span class="st">&#39;quantile_diff&#39;</span>, H1_type<span class="op">=</span><span class="st">&#39;less&#39;</span>, theta_0<span class="op">=</span><span class="st">&#39;no&#39;</span>,  alpha<span class="op">=</span><span class="fl">0.05</span> , B<span class="op">=</span><span class="dv">1000</span>, random_seed<span class="op">=</span><span class="dv">123</span>, q<span class="op">=</span><span class="fl">0.70</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb318-1"><a href="#cb318-1" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<pre><code>&#39;Reject H0: theta_1 = theta_2  --&gt;  Accept H1: theta_1 &lt; theta_2&#39;</code></pre>
+<div class="sourceCode" id="cb320"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb320-1"><a href="#cb320-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
+<pre><code>[-17.07794746423375, -1.5905138337254294]</code></pre>
+<p><br></p>
+<p><strong>Contraste para la asimetría de dos poblaciones:</strong></p>
+<div class="sourceCode" id="cb322"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb322-1"><a href="#cb322-1" aria-hidden="true" tabindex="-1"></a>skew(X_1)</span></code></pre></div>
+<pre><code>0.0030735881326157516</code></pre>
+<div class="sourceCode" id="cb324"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb324-1"><a href="#cb324-1" aria-hidden="true" tabindex="-1"></a>skew(X_2)</span></code></pre></div>
+<pre><code>-0.026878668133587646</code></pre>
+<div class="sourceCode" id="cb326"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb326-1"><a href="#cb326-1" aria-hidden="true" tabindex="-1"></a>resultado , intervalo <span class="op">=</span> bootstrap_cuantil_test(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span>X_2, estimator<span class="op">=</span><span class="st">&#39;skewness_diff&#39;</span>, H1_type<span class="op">=</span><span class="st">&#39;two.sided&#39;</span>, theta_0<span class="op">=</span><span class="st">&#39;no&#39;</span>,  alpha<span class="op">=</span><span class="fl">0.05</span> , B<span class="op">=</span><span class="dv">1000</span>, random_seed<span class="op">=</span><span class="dv">123</span>, q<span class="op">=</span><span class="st">&#39;no&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb327"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb327-1"><a href="#cb327-1" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<pre><code>&#39;Not reject H0: theta_1 = theta_2  --&gt;  Not accept H1: theta_1 =/= theta_2&#39;</code></pre>
+<div class="sourceCode" id="cb329"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb329-1"><a href="#cb329-1" aria-hidden="true" tabindex="-1"></a>intervalo</span></code></pre></div>
+<pre><code>[-0.5568062631492594, 0.6399990949904947]</code></pre>
+<div class="sourceCode" id="cb331"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb331-1"><a href="#cb331-1" aria-hidden="true" tabindex="-1"></a>resultado , intervalo <span class="op">=</span> bootstrap_cuantil_test(Variable1<span class="op">=</span>X_1, Variable2<span class="op">=</span>X_2, estimator<span class="op">=</span><span class="st">&#39;skewness_diff&#39;</span>, H1_type<span class="op">=</span><span class="st">&#39;greater&#39;</span>, theta_0<span class="op">=</span><span class="st">&#39;no&#39;</span>,  alpha<span class="op">=</span><span class="fl">0.05</span> , B<span class="op">=</span><span class="dv">1000</span>, random_seed<span class="op">=</span><span class="dv">123</span>, q<span class="op">=</span><span class="st">&#39;no&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb332-1"><a href="#cb332-1" aria-hidden="true" tabindex="-1"></a>resultado</span></code></pre></div>
+<pre><code>&#39;Not reject H0: theta_1 = theta_2 --&gt;  Not accept H1: theta_1 &gt; theta_2&#39;</code></pre>
 <p><br></p>
 <p><br></p>
 </div>
@@ -3140,6 +3348,229 @@ H_1: \theta_1 \neq \theta_2 \hspace{1.5cm}  H_1: \theta_1 &lt; \theta_2  \hspace
 </div>
 <div id="regresión-lineal-bootstrap-en-python" class="section level2" number="13.3">
 <h2><span class="header-section-number">13.3</span> Regresión lineal bootstrap en <code>Python</code></h2>
+<div class="sourceCode" id="cb334"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb334-1"><a href="#cb334-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb335-1"><a href="#cb335-1" aria-hidden="true" tabindex="-1"></a>Data <span class="op">=</span> pd.read_csv(<span class="st">&#39;House_Price_Regression.csv&#39;</span>)</span>
+<span id="cb335-2"><a href="#cb335-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb335-3"><a href="#cb335-3" aria-hidden="true" tabindex="-1"></a>Data <span class="op">=</span> Data.loc[:, [<span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;longitude&#39;</span>, <span class="st">&#39;price&#39;</span>, <span class="st">&#39;size_in_m_2&#39;</span>,<span class="st">&#39;no_of_bedrooms&#39;</span>, <span class="st">&#39;no_of_bathrooms&#39;</span>, <span class="st">&#39;quality_recode&#39;</span>]]</span>
+<span id="cb335-4"><a href="#cb335-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb335-5"><a href="#cb335-5" aria-hidden="true" tabindex="-1"></a>Data.head()</span></code></pre></div>
+<pre><code>    latitude  longitude    price  size_in_m_2  no_of_bedrooms  \
+0  25.113208  55.138932  2700000   100.242337               1   
+1  25.106809  55.151201  2850000   146.972546               2   
+2  25.063302  55.137728  1150000   181.253753               3   
+3  25.227295  55.341761  2850000   187.664060               2   
+4  25.114275  55.139764  1729200    47.101821               0   
+
+   no_of_bathrooms  quality_recode  
+0                2             2.0  
+1                2             2.0  
+2                5             2.0  
+3                3             1.0  
+4                1             2.0 </code></pre>
+<div class="sourceCode" id="cb337"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb337-1"><a href="#cb337-1" aria-hidden="true" tabindex="-1"></a>Data[<span class="st">&#39;quality_recode&#39;</span>] <span class="op">=</span> Data[<span class="st">&#39;quality_recode&#39;</span>].astype(<span class="st">&#39;category&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb338-1"><a href="#cb338-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sklearn</span>
+<span id="cb338-2"><a href="#cb338-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb338-3"><a href="#cb338-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span></code></pre></div>
+<div class="sourceCode" id="cb339"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb339-1"><a href="#cb339-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> Data[[<span class="st">&#39;size_in_m_2&#39;</span>, <span class="st">&#39;longitude&#39;</span>, <span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;no_of_bedrooms&#39;</span>, <span class="st">&#39;no_of_bathrooms&#39;</span>, <span class="st">&#39;quality_recode&#39;</span>]]</span>
+<span id="cb339-2"><a href="#cb339-2" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> Data[<span class="st">&#39;price&#39;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb340-1"><a href="#cb340-1" aria-hidden="true" tabindex="-1"></a>X.head()</span></code></pre></div>
+<pre><code>   size_in_m_2  longitude   latitude  no_of_bedrooms  no_of_bathrooms  \
+0   100.242337  55.138932  25.113208               1                2   
+1   146.972546  55.151201  25.106809               2                2   
+2   181.253753  55.137728  25.063302               3                5   
+3   187.664060  55.341761  25.227295               2                3   
+4    47.101821  55.139764  25.114275               0                1   
+
+  quality_recode  
+0            2.0  
+1            2.0  
+2            2.0  
+3            1.0  
+4            2.0  </code></pre>
+<div class="sourceCode" id="cb342"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb342-1"><a href="#cb342-1" aria-hidden="true" tabindex="-1"></a>Y.head()</span></code></pre></div>
+<pre><code>0    2700000
+1    2850000
+2    1150000
+3    2850000
+4    1729200
+Name: price, dtype: int64</code></pre>
+<div class="sourceCode" id="cb344"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb344-1"><a href="#cb344-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> varcharProcessing(X, varchar_process <span class="op">=</span> <span class="st">&quot;dummy_dropfirst&quot;</span>):</span>
+<span id="cb344-2"><a href="#cb344-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb344-3"><a href="#cb344-3" aria-hidden="true" tabindex="-1"></a>    dtypes <span class="op">=</span> X.dtypes</span>
+<span id="cb344-4"><a href="#cb344-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb344-5"><a href="#cb344-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> varchar_process <span class="op">==</span> <span class="st">&quot;drop&quot;</span>:   </span>
+<span id="cb344-6"><a href="#cb344-6" aria-hidden="true" tabindex="-1"></a>        X <span class="op">=</span> X.drop(columns <span class="op">=</span> dtypes[dtypes <span class="op">==</span> np.<span class="bu">object</span>].index.tolist())</span>
+<span id="cb344-7"><a href="#cb344-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb344-8"><a href="#cb344-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> varchar_process <span class="op">==</span> <span class="st">&quot;dummy&quot;</span>:</span>
+<span id="cb344-9"><a href="#cb344-9" aria-hidden="true" tabindex="-1"></a>        X <span class="op">=</span> pd.get_dummies(X,drop_first<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb344-10"><a href="#cb344-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb344-11"><a href="#cb344-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> varchar_process <span class="op">==</span> <span class="st">&quot;dummy_dropfirst&quot;</span>:</span>
+<span id="cb344-12"><a href="#cb344-12" aria-hidden="true" tabindex="-1"></a>        X <span class="op">=</span> pd.get_dummies(X,drop_first<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb344-13"><a href="#cb344-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb344-14"><a href="#cb344-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>: </span>
+<span id="cb344-15"><a href="#cb344-15" aria-hidden="true" tabindex="-1"></a>        X <span class="op">=</span> pd.get_dummies(X,drop_first<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb344-16"><a href="#cb344-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb344-17"><a href="#cb344-17" aria-hidden="true" tabindex="-1"></a>    X[<span class="st">&quot;intercept&quot;</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb344-18"><a href="#cb344-18" aria-hidden="true" tabindex="-1"></a>    cols <span class="op">=</span> X.columns.tolist()</span>
+<span id="cb344-19"><a href="#cb344-19" aria-hidden="true" tabindex="-1"></a>    cols <span class="op">=</span> cols[<span class="op">-</span><span class="dv">1</span>:] <span class="op">+</span> cols[:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb344-20"><a href="#cb344-20" aria-hidden="true" tabindex="-1"></a>    X <span class="op">=</span> X[cols]</span>
+<span id="cb344-21"><a href="#cb344-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb344-22"><a href="#cb344-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> X</span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb345-1"><a href="#cb345-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> varcharProcessing(X, varchar_process <span class="op">=</span> <span class="st">&quot;dummy_dropfirst&quot;</span>)</span>
+<span id="cb345-2"><a href="#cb345-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb345-3"><a href="#cb345-3" aria-hidden="true" tabindex="-1"></a>X.head()</span></code></pre></div>
+<pre><code>   intercept  size_in_m_2  longitude   latitude  no_of_bedrooms  \
+0          1   100.242337  55.138932  25.113208               1   
+1          1   146.972546  55.151201  25.106809               2   
+2          1   181.253753  55.137728  25.063302               3   
+3          1   187.664060  55.341761  25.227295               2   
+4          1    47.101821  55.139764  25.114275               0   
+
+   no_of_bathrooms  quality_recode_1.0  quality_recode_2.0  quality_recode_3.0  
+0                2                   0                   1                   0  
+1                2                   0                   1                   0  
+2                5                   0                   1                   0  
+3                3                   1                   0                   0  
+4                1                   0                   1                   0 </code></pre>
+<div class="sourceCode" id="cb347"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb347-1"><a href="#cb347-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> boot_interval_linear_regression(X, Y, method, parameter, j, B, alpha) :</span>
+<span id="cb347-2"><a href="#cb347-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-3"><a href="#cb347-3" aria-hidden="true" tabindex="-1"></a>    model_b_list , beta_hat_j_boot, R_2_adj_boot <span class="op">=</span> [] , [] , []</span>
+<span id="cb347-4"><a href="#cb347-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-5"><a href="#cb347-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(X)</span>
+<span id="cb347-6"><a href="#cb347-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb347-7"><a href="#cb347-7" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> X.shape[<span class="dv">1</span>] <span class="op">-</span> <span class="dv">1</span>  <span class="co"># Si X no contiene el intercept --&gt; p = X.shape[1]</span></span>
+<span id="cb347-8"><a href="#cb347-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-9"><a href="#cb347-9" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> LinearRegression().fit(X, Y)</span>
+<span id="cb347-10"><a href="#cb347-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-11"><a href="#cb347-11" aria-hidden="true" tabindex="-1"></a>    residuals <span class="op">=</span> Y <span class="op">-</span> model.predict(X) </span>
+<span id="cb347-12"><a href="#cb347-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-13"><a href="#cb347-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> Bootstrap_sample(X):</span>
+<span id="cb347-14"><a href="#cb347-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-15"><a href="#cb347-15" aria-hidden="true" tabindex="-1"></a>        <span class="im">from</span> sklearn.utils <span class="im">import</span> resample</span>
+<span id="cb347-16"><a href="#cb347-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-17"><a href="#cb347-17" aria-hidden="true" tabindex="-1"></a>        sample <span class="op">=</span> resample( X, n_samples<span class="op">=</span><span class="bu">len</span>(X))</span>
+<span id="cb347-18"><a href="#cb347-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-19"><a href="#cb347-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> sample</span>
+<span id="cb347-20"><a href="#cb347-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-21"><a href="#cb347-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb347-22"><a href="#cb347-22" aria-hidden="true" tabindex="-1"></a>    beta_hat <span class="op">=</span> np.concatenate( ( np.array([model.intercept_]) , model.coef_[<span class="dv">1</span>:<span class="bu">len</span>(X)]) )</span>
+<span id="cb347-23"><a href="#cb347-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-24"><a href="#cb347-24" aria-hidden="true" tabindex="-1"></a><span class="co">########################################################################################</span></span>
+<span id="cb347-25"><a href="#cb347-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-26"><a href="#cb347-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> method <span class="op">==</span> <span class="st">&#39;residuals&#39;</span>:</span>
+<span id="cb347-27"><a href="#cb347-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-28"><a href="#cb347-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> parameter <span class="op">==</span> <span class="st">&#39;beta&#39;</span> :</span>
+<span id="cb347-29"><a href="#cb347-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-30"><a href="#cb347-30" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> b <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, B):</span>
+<span id="cb347-31"><a href="#cb347-31" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb347-32"><a href="#cb347-32" aria-hidden="true" tabindex="-1"></a>                residuals_b <span class="op">=</span> Bootstrap_sample(residuals)</span>
+<span id="cb347-33"><a href="#cb347-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-34"><a href="#cb347-34" aria-hidden="true" tabindex="-1"></a>                Y_b <span class="op">=</span> X.to_numpy() <span class="op">@</span> beta_hat <span class="op">+</span> residuals_b</span>
+<span id="cb347-35"><a href="#cb347-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-36"><a href="#cb347-36" aria-hidden="true" tabindex="-1"></a>                model_b <span class="op">=</span> LinearRegression().fit(X, Y_b) </span>
+<span id="cb347-37"><a href="#cb347-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-38"><a href="#cb347-38" aria-hidden="true" tabindex="-1"></a>                beta_hat_j_boot.append( model_b.coef_[j] )</span>
+<span id="cb347-39"><a href="#cb347-39" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb347-40"><a href="#cb347-40" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb347-41"><a href="#cb347-41" aria-hidden="true" tabindex="-1"></a>            L1 <span class="op">=</span> np.quantile( beta_hat_j_boot  , q<span class="op">=</span>alpha<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb347-42"><a href="#cb347-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-43"><a href="#cb347-43" aria-hidden="true" tabindex="-1"></a>            L2 <span class="op">=</span> np.quantile( beta_hat_j_boot  , q<span class="op">=</span><span class="dv">1</span><span class="op">-</span>alpha<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb347-44"><a href="#cb347-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-45"><a href="#cb347-45" aria-hidden="true" tabindex="-1"></a>            interval <span class="op">=</span> [L1,L2]</span>
+<span id="cb347-46"><a href="#cb347-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-47"><a href="#cb347-47" aria-hidden="true" tabindex="-1"></a><span class="co">########################################################################################</span></span>
+<span id="cb347-48"><a href="#cb347-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-49"><a href="#cb347-49" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> parameter <span class="op">==</span> <span class="st">&#39;adj_R2&#39;</span> :</span>
+<span id="cb347-50"><a href="#cb347-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-51"><a href="#cb347-51" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> b <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, B):</span>
+<span id="cb347-52"><a href="#cb347-52" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb347-53"><a href="#cb347-53" aria-hidden="true" tabindex="-1"></a>                residuals_b <span class="op">=</span> Bootstrap_sample(residuals)</span>
+<span id="cb347-54"><a href="#cb347-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-55"><a href="#cb347-55" aria-hidden="true" tabindex="-1"></a>                Y_b <span class="op">=</span> X.to_numpy() <span class="op">@</span> beta_hat <span class="op">+</span> residuals_b</span>
+<span id="cb347-56"><a href="#cb347-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-57"><a href="#cb347-57" aria-hidden="true" tabindex="-1"></a>                model_b <span class="op">=</span> LinearRegression().fit(X, Y_b) </span>
+<span id="cb347-58"><a href="#cb347-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-59"><a href="#cb347-59" aria-hidden="true" tabindex="-1"></a>                R_2_adj_boot.append( <span class="dv">1</span> <span class="op">-</span> (<span class="dv">1</span> <span class="op">-</span> model_b.score(X , Y_b))<span class="op">*</span>( (n<span class="op">-</span><span class="dv">1</span>) <span class="op">/</span> (n<span class="op">-</span>p<span class="op">-</span><span class="dv">1</span>) ) )</span>
+<span id="cb347-60"><a href="#cb347-60" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb347-61"><a href="#cb347-61" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb347-62"><a href="#cb347-62" aria-hidden="true" tabindex="-1"></a>            L1 <span class="op">=</span> np.quantile( R_2_adj_boot  , q<span class="op">=</span>alpha<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb347-63"><a href="#cb347-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-64"><a href="#cb347-64" aria-hidden="true" tabindex="-1"></a>            L2 <span class="op">=</span> np.quantile( R_2_adj_boot  , q<span class="op">=</span><span class="dv">1</span><span class="op">-</span>alpha<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb347-65"><a href="#cb347-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-66"><a href="#cb347-66" aria-hidden="true" tabindex="-1"></a>            interval <span class="op">=</span> [L1,L2]</span>
+<span id="cb347-67"><a href="#cb347-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-68"><a href="#cb347-68" aria-hidden="true" tabindex="-1"></a><span class="co">######################################################################################## </span></span>
+<span id="cb347-69"><a href="#cb347-69" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb347-70"><a href="#cb347-70" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> method <span class="op">==</span> <span class="st">&#39;pairs&#39;</span> :</span>
+<span id="cb347-71"><a href="#cb347-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-72"><a href="#cb347-72" aria-hidden="true" tabindex="-1"></a>        X_Y <span class="op">=</span> pd.concat([X,Y], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb347-73"><a href="#cb347-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-74"><a href="#cb347-74" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> parameter <span class="op">==</span> <span class="st">&#39;beta&#39;</span> :</span>
+<span id="cb347-75"><a href="#cb347-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-76"><a href="#cb347-76" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> b <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, B):</span>
+<span id="cb347-77"><a href="#cb347-77" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb347-78"><a href="#cb347-78" aria-hidden="true" tabindex="-1"></a>                X_Y_b <span class="op">=</span> Bootstrap_sample(X_Y)</span>
+<span id="cb347-79"><a href="#cb347-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-80"><a href="#cb347-80" aria-hidden="true" tabindex="-1"></a>                X <span class="op">=</span> X_Y_b.iloc[: , <span class="dv">0</span>:(X_Y_b.shape[<span class="dv">1</span>]<span class="op">-</span><span class="dv">1</span>)]</span>
+<span id="cb347-81"><a href="#cb347-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-82"><a href="#cb347-82" aria-hidden="true" tabindex="-1"></a>                Y <span class="op">=</span> X_Y_b.iloc[: , X_Y_b.shape[<span class="dv">1</span>]<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb347-83"><a href="#cb347-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-84"><a href="#cb347-84" aria-hidden="true" tabindex="-1"></a>                model_b <span class="op">=</span> LinearRegression().fit(X, Y) </span>
+<span id="cb347-85"><a href="#cb347-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-86"><a href="#cb347-86" aria-hidden="true" tabindex="-1"></a>                beta_hat_j_boot.append( model_b.coef_[j] )</span>
+<span id="cb347-87"><a href="#cb347-87" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb347-88"><a href="#cb347-88" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb347-89"><a href="#cb347-89" aria-hidden="true" tabindex="-1"></a>            L1 <span class="op">=</span> np.quantile( beta_hat_j_boot  , q<span class="op">=</span>alpha<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb347-90"><a href="#cb347-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-91"><a href="#cb347-91" aria-hidden="true" tabindex="-1"></a>            L2 <span class="op">=</span> np.quantile( beta_hat_j_boot  , q<span class="op">=</span><span class="dv">1</span><span class="op">-</span>alpha<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb347-92"><a href="#cb347-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-93"><a href="#cb347-93" aria-hidden="true" tabindex="-1"></a>            interval <span class="op">=</span> [L1,L2]</span>
+<span id="cb347-94"><a href="#cb347-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-95"><a href="#cb347-95" aria-hidden="true" tabindex="-1"></a><span class="co">########################################################################################</span></span>
+<span id="cb347-96"><a href="#cb347-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-97"><a href="#cb347-97" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> parameter <span class="op">==</span> <span class="st">&#39;adj_R2&#39;</span> :</span>
+<span id="cb347-98"><a href="#cb347-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-99"><a href="#cb347-99" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> b <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, B):</span>
+<span id="cb347-100"><a href="#cb347-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-101"><a href="#cb347-101" aria-hidden="true" tabindex="-1"></a>                X_Y_b <span class="op">=</span> Bootstrap_sample(X_Y)</span>
+<span id="cb347-102"><a href="#cb347-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-103"><a href="#cb347-103" aria-hidden="true" tabindex="-1"></a>                X <span class="op">=</span> X_Y_b.iloc[: , <span class="dv">0</span>:(X_Y_b.shape[<span class="dv">1</span>]<span class="op">-</span><span class="dv">1</span>)]</span>
+<span id="cb347-104"><a href="#cb347-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-105"><a href="#cb347-105" aria-hidden="true" tabindex="-1"></a>                Y <span class="op">=</span> X_Y_b.iloc[: , X_Y_b.shape[<span class="dv">1</span>]<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb347-106"><a href="#cb347-106" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb347-107"><a href="#cb347-107" aria-hidden="true" tabindex="-1"></a>                model_b <span class="op">=</span> LinearRegression().fit(X, Y) </span>
+<span id="cb347-108"><a href="#cb347-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-109"><a href="#cb347-109" aria-hidden="true" tabindex="-1"></a>                R_2_adj_boot.append( <span class="dv">1</span> <span class="op">-</span> (<span class="dv">1</span> <span class="op">-</span> model_b.score(X , Y))<span class="op">*</span>( (n<span class="op">-</span><span class="dv">1</span>) <span class="op">/</span> (n<span class="op">-</span>p<span class="op">-</span><span class="dv">1</span>) ) )</span>
+<span id="cb347-110"><a href="#cb347-110" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb347-111"><a href="#cb347-111" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb347-112"><a href="#cb347-112" aria-hidden="true" tabindex="-1"></a>            L1 <span class="op">=</span> np.quantile( R_2_adj_boot  , q<span class="op">=</span>alpha<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb347-113"><a href="#cb347-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-114"><a href="#cb347-114" aria-hidden="true" tabindex="-1"></a>            L2 <span class="op">=</span> np.quantile( R_2_adj_boot  , q<span class="op">=</span><span class="dv">1</span><span class="op">-</span>alpha<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb347-115"><a href="#cb347-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-116"><a href="#cb347-116" aria-hidden="true" tabindex="-1"></a>            interval <span class="op">=</span> [L1,L2]</span>
+<span id="cb347-117"><a href="#cb347-117" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-118"><a href="#cb347-118" aria-hidden="true" tabindex="-1"></a><span class="co">########################################################################################</span></span>
+<span id="cb347-119"><a href="#cb347-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb347-120"><a href="#cb347-120" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> interval</span></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb348-1"><a href="#cb348-1" aria-hidden="true" tabindex="-1"></a>boot_interval_linear_regression(X<span class="op">=</span>X, Y<span class="op">=</span>Y, method<span class="op">=</span><span class="st">&#39;residuals&#39;</span>, parameter<span class="op">=</span><span class="st">&#39;beta&#39;</span>, j<span class="op">=</span><span class="dv">1</span>, B<span class="op">=</span><span class="dv">500</span>, alpha<span class="op">=</span><span class="fl">0.05</span>) </span></code></pre></div>
+<pre><code>[34457.35430762553, 37169.50119078313]</code></pre>
+<div class="sourceCode" id="cb350"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb350-1"><a href="#cb350-1" aria-hidden="true" tabindex="-1"></a>boot_interval_linear_regression(X<span class="op">=</span>X, Y<span class="op">=</span>Y, method<span class="op">=</span><span class="st">&#39;pairs&#39;</span>, parameter<span class="op">=</span><span class="st">&#39;beta&#39;</span>, j<span class="op">=</span><span class="dv">1</span>, B<span class="op">=</span><span class="dv">500</span>, alpha<span class="op">=</span><span class="fl">0.05</span>) </span></code></pre></div>
+<pre><code>[29306.688429798087, 40389.149018568656]</code></pre>
+<div class="sourceCode" id="cb352"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb352-1"><a href="#cb352-1" aria-hidden="true" tabindex="-1"></a>boot_interval_linear_regression(X<span class="op">=</span>X, Y<span class="op">=</span>Y, method<span class="op">=</span><span class="st">&#39;residuals&#39;</span>, parameter<span class="op">=</span><span class="st">&#39;beta&#39;</span>, j<span class="op">=</span><span class="dv">2</span>, B<span class="op">=</span><span class="dv">500</span>, alpha<span class="op">=</span><span class="fl">0.05</span>) </span></code></pre></div>
+<pre><code>[-2949083.96469503, -297017.35523746273]</code></pre>
+<div class="sourceCode" id="cb354"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb354-1"><a href="#cb354-1" aria-hidden="true" tabindex="-1"></a>boot_interval_linear_regression(X<span class="op">=</span>X, Y<span class="op">=</span>Y, method<span class="op">=</span><span class="st">&#39;pairs&#39;</span>, parameter<span class="op">=</span><span class="st">&#39;beta&#39;</span>, j<span class="op">=</span><span class="dv">2</span>, B<span class="op">=</span><span class="dv">500</span>, alpha<span class="op">=</span><span class="fl">0.05</span>) </span></code></pre></div>
+<pre><code>[-2906726.4973525056, -394604.81858878786]</code></pre>
+<div class="sourceCode" id="cb356"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb356-1"><a href="#cb356-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb357-1"><a href="#cb357-1" aria-hidden="true" tabindex="-1"></a>model_SM <span class="op">=</span> sm.OLS(Y , X).fit()</span></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb358-1"><a href="#cb358-1" aria-hidden="true" tabindex="-1"></a>model_SM.conf_int(alpha<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div>
+<p><br></p>
+<p><strong>Inervalo de confianza para el coeficiente de determinación ajustado:</strong></p>
+<div class="sourceCode" id="cb359"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb359-1"><a href="#cb359-1" aria-hidden="true" tabindex="-1"></a>boot_interval_linear_regression(X<span class="op">=</span>X, Y<span class="op">=</span>Y, method<span class="op">=</span><span class="st">&#39;residuals&#39;</span>, parameter<span class="op">=</span><span class="st">&#39;adj_R2&#39;</span>, j<span class="op">=</span><span class="st">&#39;none&#39;</span>, B<span class="op">=</span><span class="dv">500</span>, alpha<span class="op">=</span><span class="fl">0.05</span>) </span></code></pre></div>
+<pre><code> [0.6536518705306413, 0.7417060490432771]</code></pre>
+<div class="sourceCode" id="cb361"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb361-1"><a href="#cb361-1" aria-hidden="true" tabindex="-1"></a>boot_interval_linear_regression(X<span class="op">=</span>X, Y<span class="op">=</span>Y, method<span class="op">=</span><span class="st">&#39;pairs&#39;</span>, parameter<span class="op">=</span><span class="st">&#39;adj_R2&#39;</span>, j<span class="op">=</span><span class="st">&#39;none&#39;</span>, B<span class="op">=</span><span class="dv">500</span>, alpha<span class="op">=</span><span class="fl">0.05</span>) </span></code></pre></div>
+<pre><code> [0.6248263646856418, 0.7629699519613915]</code></pre>
+<div class="sourceCode" id="cb363"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb363-1"><a href="#cb363-1" aria-hidden="true" tabindex="-1"></a>model_SM.rsquared_adj</span></code></pre></div>
+<pre><code> 0.6965926130210288 </code></pre>
 <p><br></p>
 <p><br></p>
 </div>
