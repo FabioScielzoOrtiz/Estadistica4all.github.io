@@ -30,34 +30,27 @@ urlcolor: blue
 # Variables aleatorias i.i.d. <a class="anchor" id="1"></a>
 
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
- 
-<p style='margin-left:1em;'>
-
-$\hspace{0.25cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ son variables aleatorias mutuamente independientes e idénticamente distribuidas  *(i.i.d.)* $\hspace{0.3cm}\Leftrightarrow$
-
-- $\hspace{0.1cm}$ $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son mutuamente independientes , es decir:
-
-$$\hspace{0.08cm} P(\mathcal{X}_1=x_1,...,\mathcal{X}_n=x_n) \hspace{0.1cm}=\hspace{0.1cm} \prod_{i=1}^n P(\mathcal{X}_i=x_i) \\$$
-
-$\hspace{0.7cm}$ Lo que implica que también son independientes dos a dos , es decir, $\hspace{0.12cm} \mathcal{X}_i \perp \mathcal{X}_j \hspace{0.12cm} , \hspace{0.12cm} \forall i\neq j \\$
-
-- $\hspace{0.1cm}$ $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.12cm}$ tienen la misma distribución de probabilidad, es decir, $\hspace{0.12cm}\mathcal{X}_i \sim F( \cdot ) \hspace{0.15cm}, \hspace{0.1cm} \forall i=1,...,n$ 
 
 
+$\mathcal{X}_1,...,\mathcal{X}_n$ son variables aleatorias mutuamente independientes e idénticamente distribuidas  *(i.i.d.)* $\hspace{0.3cm}\Leftrightarrow$
 
-</p>
- 
-</p></span>
-</div>
+- $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son mutuamente independientes , es decir:
 
-$\hspace{0.4cm}$ Donde $\hspace{0.08cm}F( \cdot )\hspace{0.08cm}$ es una distribucion de probabilidad con parametros no especificados. $\\[0.5cm]$
+\vspace{-0.5cm}
+
+$$P(\mathcal{X}_1=x_1,...,\mathcal{X}_n=x_n) \hspace{0.1cm}=\hspace{0.1cm} \prod_{i=1}^n P(\mathcal{X}_i=x_i)$$
+
+Lo que implica que también son independientes dos a dos , es decir, $\hspace{0.05cm} \mathcal{X}_i \perp \mathcal{X}_j \hspace{0.12cm} , \hspace{0.12cm} \forall i\neq j$
+
+-  $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.12cm}$ tienen la misma distribución de probabilidad, es decir, $\hspace{0.12cm}\mathcal{X}_i \sim F( \cdot ) \hspace{0.15cm}, \hspace{0.1cm} \forall i\in \lbrace 1,...,n\rbrace$ 
+
+
+    Donde $\hspace{0.08cm}F( \cdot )\hspace{0.08cm}$ es una distribucion de probabilidad con parametros no especificados. 
 
 
 
 
-Usaremos la siguiente notación: $\\[0.2cm]$
+Usaremos la siguiente notación: 
 
 
 $$(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \hspace{0.3cm} \Leftrightarrow
@@ -72,7 +65,7 @@ $$(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \hspace{0.3
 
  
 
-Sea $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ una v.a. tal que $\hspace{0.1cm}\mathcal{X} \sim F(\cdot)$ 
+Sea $\mathcal{X}$ una v.a. tal que $\mathcal{X} \sim F(\cdot)$ 
 
 
 $\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.1cm}$ es una muestra aleatoria simple de tamaño $n$ de $\mathcal{X}$ $\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}$ $(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \\$
@@ -81,7 +74,7 @@ $\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.1cm}$ es una muestra aleatoria simple
 
 **Observación:**
 
-Una m.a.s. de una v.a. $\mathcal{X}$ es un vector de v.a.'s mutuamente independientes y que se distribuyen probabilisticamente igual que la v.a. $\mathcal{X}$
+Una m.a.s de una v.a $\mathcal{X}$ es un vector de v.a.'s mutuamente independientes y que se distribuyen probabilisticamente igual que la v.a $\mathcal{X}$
 
 
 <br>
@@ -91,10 +84,12 @@ Una m.a.s. de una v.a. $\mathcal{X}$ es un vector de v.a.'s mutuamente independi
 
  
 
-Sea $\hspace{0.12cm}\mathcal{X}\hspace{0.12cm}$ una v.a. tal que $\hspace{0.12cm}\mathcal{X} \sim F(\cdot)$ 
+Sea $\mathcal{X}$ una v.a. tal que $\mathcal{X} \sim F(\cdot)$ 
 
 
- $X=(x_1,...,x_n)\hspace{0.12cm}$ es una muestra de $\hspace{0.08cm}n\hspace{0.08cm}$ observaciones de la v.a. $\mathcal{X}$ $\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}$ $x_i \in Im(\mathcal{X}) \hspace{0.12cm} ,\hspace{0.12cm} \forall i\in \lbrace 1,...,n \rbrace$ $\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}$ $x_i$ es una realización de la v.a. $\mathcal{X}$  , $\hspace{0.12cm}\forall i\in \lbrace 1,...,n \rbrace \\$
+ $X=(x_1,...,x_n)\hspace{0.05cm}$ es una muestra de $\hspace{0.08cm}n\hspace{0.08cm}$ observaciones de la v.a. $\mathcal{X}\hspace{0.12cm}  \Leftrightarrow$ $\\[0.2cm] \Leftrightarrow\hspace{0.2cm}$ $x_i \in Im(\mathcal{X}) \hspace{0.12cm} ,\hspace{0.12cm} \forall i\in \lbrace 1,...,n \rbrace$ 
+ 
+$\Leftrightarrow\hspace{0.2cm}$ $x_i$ es una realización de la v.a. $\mathcal{X}$  , $\hspace{0.12cm}\forall i\in \lbrace 1,...,n \rbrace \\$
 
 
  
@@ -111,7 +106,7 @@ $Im(\mathcal{X})\hspace{0.1cm}$ es la imagen de $\mathcal{X}$, es decir, su camp
 
 - Una muestra de observaciones de una v.a. es un vector de números, no son v.a.'s. 
 
-- Si $\hspace{0.08cm} X=(x_1,...,x_n)\hspace{0.08cm}$ es una muestra de $\hspace{0.08cm}n\hspace{0.08cm}$ observaciones de $\hspace{0.08cm}\mathcal{X}\sim F(\cdot)$ , entonces $\hspace{0.08cm}x_i\hspace{0.08cm}$ es una observacion que ha sido generada por la distribución de probabilidad $\hspace{0.08cm}F(\cdot)\hspace{0.08cm}$, es decir, $\hspace{0.08cm}x_i\hspace{0.08cm}$ puede verse como un numero aleatorio generado en base a la distribución de probabilidad $\hspace{0.08cm} F(\cdot)$ 
+- Si $\hspace{0.08cm} X=(x_1,...,x_n)\hspace{0.08cm}$ es una muestra de $\hspace{0.08cm}n\hspace{0.08cm}$ observaciones de $\hspace{0.08cm}\mathcal{X}\sim F(\cdot)$ , entonces $\hspace{0.08cm}x_i\hspace{0.08cm}$ es una observación que ha sido generada por la distribución de probabilidad $\hspace{0.08cm}F(\cdot)\hspace{0.08cm}$, es decir, $\hspace{0.08cm}x_i\hspace{0.08cm}$ puede verse como un numero aleatorio generado en base a la distribución de probabilidad $\hspace{0.08cm} F(\cdot)$ 
 
 - Si $\hspace{0.08cm}X=(x_1,...,x_n)\hspace{0.08cm}$ es una muestra de $\hspace{0.08cm}n\hspace{0.08cm}$ observaciones de $\mathcal{X}\sim F(\cdot)$ , entonces:
 
@@ -135,9 +130,12 @@ $Im(\mathcal{X})\hspace{0.1cm}$ es la imagen de $\mathcal{X}$, es decir, su camp
  
  $T\hspace{0.1cm}$ es un estadístico de una m.a.s $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X}\sim F(\theta)$ $\hspace{0.25cm}\Leftrightarrow\hspace{0.25cm}$ $T\hspace{0.1cm}$ es una función de la m.a.s que no depende  del parámetro $\hspace{0.1cm}\theta$
 
- 
+ \vspace{0.2cm}
 
 Por tanto:
+
+ \vspace{-0.2cm}
+
 
 - $T(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ es un estadístico.  
 
@@ -148,14 +146,14 @@ Por tanto:
 
 - $T(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ es una v.a. al ser una función de v.a.'s 
 
-- Dada una muestra de observaciones $\hspace{0.1cm}(x_1 ,..., x_n)\hspace{0.1cm}$ de  la v.a. $\hspace{0.1cm}\mathcal{X} \sim D(\theta)$ 
+- Dada una muestra de observaciones $(x_1 ,..., x_n)$ de  la v.a $\mathcal{X} \sim D(\theta)$ 
 
-    -- $T(x_1,...,x_n)\hspace{0.1cm}$ es una observación de la v.a. $\hspace{0.1cm}T(\mathcal{X}_1,...,\mathcal{X}_n) \\$
+    -- $T(x_1,...,x_n)$ es una observación de la v.a. $T(\mathcal{X}_1,...,\mathcal{X}_n)$
 
 
-- Dadas $\hspace{0.1cm}B\hspace{0.1cm}$ muestras de observaciones $\hspace{0.1cm}(x_1^1 , ..., x_n^1)\hspace{0.1cm} ,...,\hspace{0.1cm}(x_1^B,...,x_n^B)\hspace{0.2cm}$ de la v.a. $\hspace{0.1cm}\mathcal{X} \sim D(\theta)$ 
+- Dadas $B$ muestras de observaciones $(x_1^1 , ..., x_n^1) ,...,(x_1^B,...,x_n^B)$ de la v.a $\mathcal{X} \sim D(\theta)$ 
 
-     -- $T(x_1^1 , ..., x_n^1) \hspace{0.1cm},...,\hspace{0.1cm} T(x_1^B,...,x_n^B)\hspace{0.2cm}$ es una muestra de observaciones de la v.a. $\hspace{0.1cm}T(\mathcal{X}_1,...,\mathcal{X}_n)$
+     -- $T(x_1^1 , ..., x_n^1) ,..., T(x_1^B,...,x_n^B)$ es una muestra de observaciones de la v.a. $T(\mathcal{X}_1,...,\mathcal{X}_n)$
 
 
 \newpage
@@ -163,22 +161,33 @@ Por tanto:
 ## Ejemplos de estadisticos
 
 
-Sea $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ una v.a. tal que $\hspace{0.1cm}\mathcal{X} \sim D(\theta)\hspace{0.1cm}$ , y sea $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ una m.a.s. de $\hspace{0.1cm} \mathcal{X} \\$
+Sea $\mathcal{X}$ una v.a. tal que $\mathcal{X} \sim D(\theta)$ , y sea $(\mathcal{X}_1,...,\mathcal{X}_n)$ una m.a.s. de $\mathcal{X} \\$
 
 
 - **Media muestral**
 
-$$T(\mathcal{X}_1,...,\mathcal{X}_n) = \overline{\mathcal{X}} = \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \\[1cm]$$
+\vspace{-0.7cm}
 
+
+$$T(\mathcal{X}_1,...,\mathcal{X}_n) = \overline{\mathcal{X}} = \dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i$$
+
+
+\vspace{0.4cm}
 
 - **Varianza muestral**
 
-$$T(\mathcal{X}_1,...,\mathcal{X}_n) = S^2 = \dfrac{1}{n} \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}})^2 \\[1cm]$$
+\vspace{-0.7cm}
 
+
+$$T(\mathcal{X}_1,...,\mathcal{X}_n) = S^2_n = \dfrac{1}{n} \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}})^2$$
+
+\vspace{0.4cm}
 
 - **Cuasi-Varianza muestral**
 
-$$T(\mathcal{X}_1,...,\mathcal{X}_n) = S^2 = \dfrac{1}{n-1} \sum_{i=1}^n (\mathcal{X}_i - \overline{X})^2 \\$$
+\vspace{-0.7cm}
+
+$$T(\mathcal{X}_1,...,\mathcal{X}_n) = S^2_{n-1} = \dfrac{1}{n-1} \sum_{i=1}^n (\mathcal{X}_i - \overline{X})^2$$
 
 
 
@@ -189,9 +198,9 @@ $$T(\mathcal{X}_1,...,\mathcal{X}_n) = S^2 = \dfrac{1}{n-1} \sum_{i=1}^n (\mathc
 # Estimador Puntual
 
  
-$\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ y una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}$, 
+Dada una v.a. $\mathcal{X}\sim D(\theta)$ y una m.a.s. $(\mathcal{X}_1,...,\mathcal{X}_n)$ de $\mathcal{X}$, 
 
-$\hspace{0.25cm}$ Un estimador puntual para el parametro $\hspace{0.1cm}\theta\hspace{0.1cm}$ es un estadistico $\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ que se propone para estimar $\hspace{0.1cm}\theta$
+Un estimador puntual para el parámetro $\theta$ es un estadístico $\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)$ que se propone para estimar $\theta$
 
  
 
@@ -203,11 +212,11 @@ $\hspace{0.25cm}$ Un estimador puntual para el parametro $\hspace{0.1cm}\theta\h
 # Estimación Puntual
  
 
-$\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ , una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y un estadistico $\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)$
+$\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ , una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y un estadístico $\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)$
 
 $\hspace{0.25cm}$ Si  $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ es una muestra de observaciones  de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces:
 
-- $\hspace{0.1cm}$$\widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ es una estimación puntual del parametro $\hspace{0.1cm}\theta$
+- $\hspace{0.1cm}$$\widehat{\theta}(X) = \widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ es una estimación puntual del parámetro $\hspace{0.1cm}\theta$
 
 \vspace{0.2cm}
 
@@ -222,32 +231,28 @@ Un estimador puntual es una v.a. y una estimación puntual un número.
 
 # Propiedades básicas de los estimadores
 
-Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ , una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y un estimador $\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)$
+Dada una v.a. $\mathcal{X}\sim D(\theta)$ , una m.a.s. $(\mathcal{X}_1,...,\mathcal{X}_n)$ de $\mathcal{X}$ y un estimador $\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)$
 
 
-<br>
+ 
 
 ## Sesgo
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
+ 
 
 $\hspace{0.25cm}$ El sesgo del estimador $\widehat{\theta}$ se define como:
 
 $$Sesgo(\widehat{\theta}) = E \left[ \hspace{0.05cm} \widehat{\theta} \hspace{0.05cm} \right]- \theta$$
 
 
-</p>
- 
-</p></span>
-</div>
+\vspace{0.3cm}
 
-<br>
+
+
 
 ## Varianza 
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
+ 
 
 $\hspace{0.25cm}$ La varianza del estimador $\widehat{\theta}$ se define como:
 
@@ -259,29 +264,17 @@ $\hspace{0.25cm}$ El error estandar (desviación típica) del estimador $\wideha
 $$s.e.(\widehat{\theta}) = \sqrt{Var(\widehat{\theta})}$$
 
 
-</p>
- 
-</p></span>
-</div>
-
-<br>
+\vspace{0.3cm}
 
 ## Error Cuadratico Medio
 
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
-
-$\hspace{0.25cm}$ El error cuadratico medio del estimador $\widehat{\theta}$ se define como:
+El error cuadrático medio del estimador $\widehat{\theta}$ se define como:
 
 $$ECM(\widehat{\theta}) = E\left[\hspace{0.1cm} (\widehat{\theta} - \theta)^2 \hspace{0.1cm} \right] $$
 
 
-</p>
  
-</p></span>
-</div>
-
 
 **Propiedades**
 
@@ -303,30 +296,29 @@ $$ECM(\widehat{\theta}) = E\left[\hspace{0.1cm} (\widehat{\theta} - \theta)^2 \h
 Tenemos una v.a. $\mathcal{X}\sim D(\theta)$ , una m.a.s. $(\mathcal{X}_1,...,\mathcal{X}_n)$ de $\mathcal{X}$ y un estimador $\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)$ del parámetro $\theta$
 
 
-Además tenemos una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$   de la variable de interés $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , por lo que tenemos la estimación  $\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ del parámetro $\theta \\$
+Además tenemos una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$   de la variable de interés $\mathcal{X}$ , por lo que tenemos la estimación  $\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)$ del parámetro $\theta \\$
 
 
  
 
-$\hspace{0.25cm}$ Se define $\hspace{0.1cm}X_{(r)}\hspace{0.1cm}$ como la muestra que contiene todos los valores de $\hspace{0.1cm}X\hspace{0.1cm}$ excepto $\hspace{0.1cm}x_{r}$
+ Se define $X_{(r)}$ como la muestra que contiene todos los valores de $X$ excepto $x_{r}$
 
-$\hspace{0.25cm}$ Es decir:
+Es decir:
 
 
-$$X_{(r)} = (\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.05cm},..,\hspace{0.05cm} x_{r-1}\hspace{0.05cm},\hspace{0.05cm}x_{r+1}\hspace{0.05cm} ,..,\hspace{0.05cm} x_{n}\hspace{0.05cm})$$  
-
-$\hspace{0.35cm}$ para  $\hspace{0.2cm} r=1,...,n \\$
+$$X_{(r)} = (\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.05cm},..,\hspace{0.05cm} x_{r-1}\hspace{0.05cm},\hspace{0.05cm}x_{r+1}\hspace{0.05cm} ,..,\hspace{0.05cm} x_{n}\hspace{0.05cm}) \hspace{0.25cm} , \hspace{0.25cm} \forall r\in \lbrace 1,..., \rbrace$$  
 
  
+ 
 
-$\hspace{0.25cm}$ Se define la replica $\hspace{0.1cm}r$-esima del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ como: $\\[0.5cm]$
+Se define la replica $r$-esima del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ como:  
 
 $$\widehat{\theta}_{(r)} = \widehat{\theta}(X_{(r)})= \widehat{\theta}(\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.05cm},..,\hspace{0.05cm} x_{r-1}\hspace{0.05cm},\hspace{0.05cm}x_{r+1}\hspace{0.05cm} ,..,\hspace{0.05cm} x_{n}\hspace{0.05cm})$$
 
 
  
  
-\vspace{0.3cm}
+\vspace{1cm}
 
 
 
@@ -335,15 +327,17 @@ $$\widehat{\theta}_{(r)} = \widehat{\theta}(X_{(r)})= \widehat{\theta}(\hspace{0
 
  
 
-$\hspace{0.25cm}$ La **estimación Jacknife** del **sesgo** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como: $\\[0.5cm]$
+ La **estimación Jacknife** del **sesgo** del estimador $\widehat{\theta}$ se define como: 
 
-$$\widehat{Sesgo}(\widehat{\theta})_{Jack} \hspace{0.1cm}=\hspace{0.1cm}  (n-1) \cdot \left(   \dfrac{1}{n} \cdot \sum_{r=1}^{n} \widehat{\theta}_{(r)} \hspace{0.1cm} -\hspace{0.1cm} \widehat{\theta}(X) \right)$$
+$$\widehat{Sesgo}(\widehat{\theta})_{Jack} \hspace{0.1cm}=\hspace{0.1cm}  (n-1) \cdot \left(   \dfrac{1}{n}  \sum_{r=1}^{n} \widehat{\theta}_{(r)} \hspace{0.1cm} -\hspace{0.1cm} \widehat{\theta}(X) \right)$$
 
 
 
-$\hspace{0.25cm}$ Donde:
+donde:
 
 $$\widehat{\theta}(X) \hspace{0.1cm}=\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n)$$
+
+\vspace{-0.3cm}
 
 $$\widehat{\theta}_{(r)} = \widehat{\theta}(X_{(r)})= \widehat{\theta}(\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.05cm},..,\hspace{0.05cm} x_{r-1}\hspace{0.05cm},\hspace{0.05cm}x_{r+1}\hspace{0.05cm} ,..,\hspace{0.05cm} x_{n}\hspace{0.05cm})$$
 
@@ -359,12 +353,12 @@ $$\widehat{\theta}_{(r)} = \widehat{\theta}(X_{(r)})= \widehat{\theta}(\hspace{0
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-$\hspace{0.25cm}$ La **estimación Jacknife** de la **varianza** del estimador $\widehat{\theta}$ se define como: $\\[0.2cm]$
+$\hspace{0.25cm}$ La **estimación Jacknife** de la **varianza** del estimador $\widehat{\theta}$ se define como:  
 
 
 $$\widehat{ Var}(\widehat{\theta})_{Jack} \hspace{0.1cm}= \hspace{0.1cm} \dfrac{n-1}{n} \cdot \sum_{r=1}^{n} \left( \widehat{\theta}_{(r)} \hspace{0.1cm}-\hspace{0.1cm} \dfrac{1}{n} \sum_{r=1}^{n} \widehat{\theta}_{(r)}  \right)^2$$
 
-$\hspace{0.25cm}$ Donde:
+$\hspace{0.25cm}$ donde:
 
  
 $$\widehat{\theta}_{(r)} = \widehat{\theta}(X_{(r)})= \widehat{\theta}(\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.05cm},..,\hspace{0.05cm} x_{r-1}\hspace{0.05cm},\hspace{0.05cm}x_{r+1}\hspace{0.05cm} ,..,\hspace{0.05cm} x_{n}\hspace{0.05cm})$$
@@ -376,13 +370,14 @@ $$\widehat{\theta}_{(r)} = \widehat{\theta}(X_{(r)})= \widehat{\theta}(\hspace{0
 
 
 
-<br>
+\vspace{0.5cm}
+
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
-$\hspace{0.25cm}$ La **estimación Jacknife** del **error estandar** del estimador $\widehat{\theta}$ se define como: $\\[0.2cm]$
+$\hspace{0.25cm}$ La **estimación Jacknife** del **error estandar** del estimador $\widehat{\theta}$ se define como:  
 
 $$\widehat{ s.e.}(\widehat{\theta})_{Jack} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ \widehat{ Var}(\widehat{\theta})_{Jack} \hspace{0.1cm}}$$
 
@@ -396,7 +391,7 @@ $$\widehat{ s.e.}(\widehat{\theta})_{Jack} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ 
 <br>
 
 
-\vspace{0.25cm}
+\vspace{0.5cm}
 
 **Observación:**
 
@@ -406,7 +401,7 @@ Un estimador es suave cuando ante pequeños cambios en la muestra de datos gener
 
 Ejemplo de estimador suave es el estimador plug-in de la media poblacional, es decir la media muestral.
 
-Ejemplo de estimador no suave es el estimador plug-in de la mediana poblacional, es decir la mediana muestral
+Ejemplo de estimador no suave es el estimador plug-in de la mediana poblacional, es decir la mediana muestral.
 
 
  
@@ -416,26 +411,28 @@ Ejemplo de estimador no suave es el estimador plug-in de la mediana poblacional,
 
 
 
-## Estimación Jacknife de un parametro con corrección de sesgo
+## Estimación Jacknife de un parámetro con corrección de sesgo
 
 
-Tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ , una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y un estimador $\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ del parametro $\hspace{0.1cm}\theta$
+Tenemos una v.a $\mathcal{X}\sim D(\theta)$ , una m.a.s $(\mathcal{X}_1,...,\mathcal{X}_n)$ de $\mathcal{X}$ y un estimador $\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)$ del parámetro $\theta$
 
 
-Además tenemos una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$   de la variable de interés $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , por lo que tenemos la estimación  $\hspace{0.1cm}\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ del parámetro $\hspace{0.1cm} \theta \\[0.5cm]$
+Además tenemos una muestra de observaciones $X=(x_1,...,x_n)$   de la variable de interés $\mathcal{X}$ , por lo que tenemos la estimación  $\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)$ del parámetro $\theta \\[0.5cm]$
 
 
  
-$\hspace{0.25cm}$ La **estimación Jacknife con sesgo corregido** del parametro $\hspace{0.1cm} \theta\hspace{0.1cm}$ se define como: $\\[0.5cm]$
+  La **estimación Jacknife con sesgo corregido** del parámetro $\theta$ se define como:  
 
 $$
-\widehat{\theta}_{Jack} \hspace{0.2cm}=\hspace{0.2cm} \widehat{\theta}(X) \hspace{0.1cm}-\hspace{0.1cm} \widehat{Sesgo}(\widehat{\theta})_{Jack} \ \hspace{0.2cm}=\hspace{0.2cm} \widehat{\theta}(X) -  (n-1) \cdot \left(    \dfrac{1}{n} \cdot \sum_{r=1}^{n} \widehat{\theta}_{(r)}
- - \widehat{\theta} \right) \hspace{0.2cm}=\hspace{0.2cm}   n\cdot \widehat{\theta}(X) - (n-1)\cdot  \dfrac{1}{n} \cdot \sum_{r=1}^{n} \widehat{\theta}_{(r)} \\
+\widehat{\theta}_{Jack} \hspace{0.1cm}=\hspace{0.1cm} \widehat{\theta}(X) \hspace{0.1cm}-\hspace{0.1cm} \widehat{Sesgo}(\widehat{\theta})_{Jack} \ \hspace{0.1cm}=\hspace{0.1cm} \widehat{\theta}(X) -  (n-1) \cdot \left(    \dfrac{1}{n} \cdot \sum_{r=1}^{n} \widehat{\theta}_{(r)}
+ - \widehat{\theta} \right) \hspace{0.1cm}=\hspace{0.1cm}   n  \widehat{\theta}(X) \hspace{0.05cm} -\hspace{0.05cm} (n-1)  \dfrac{1}{n}  \sum_{r=1}^{n} \widehat{\theta}_{(r)} \\
 $$
 
-$\hspace{0.25cm}$ Donde:
+donde:
 
 $$\widehat{\theta} \hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(X)\hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n)$$
+
+\vspace{-0.3cm}
 
 $$\widehat{\theta}_{(r)} = \widehat{\theta}(X_{(r)})= \widehat{\theta}(\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.05cm},..,\hspace{0.05cm} x_{r-1}\hspace{0.05cm},\hspace{0.05cm}x_{r+1}\hspace{0.05cm} ,..,\hspace{0.05cm} x_{n}\hspace{0.05cm})$$
 
@@ -738,24 +735,26 @@ standard_error
 
 
 
-# Estimación del sesgo , varianza y error cuadratico medio de un estimador por Bootstrap
+# Estimación del sesgo, varianza y error cuadratico medio de un estimador por Bootstrap
 
 
-Tenemos una v.a. $\mathcal{X}\sim D(\theta)$ , una m.a.s. $\mathcal{X}_1,...,\mathcal{X}_n)$ de $\mathcal{X}$ y un estimador $\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)$ del parámetro $\theta$
+Tenemos una v.a $\mathcal{X}\sim D(\theta)$ , una m.a.s $\mathcal{X}_1,...,\mathcal{X}_n)$ de $\mathcal{X}$ y un estimador $\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)$ del parámetro $\theta$
 
 
-Además tenemos una muestra de observaciones $X=(x_1,...,x_n)$   de la variable de interés $\mathcal{X}$ , por lo que tenemos la estimación $\hspace{0.1cm}\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ del parametro $\theta\\$ 
+Además tenemos una muestra de observaciones $X=(x_1,...,x_n)$   de la variable de interés $\mathcal{X}$ , por lo que tenemos la estimación $\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)$ del parametro $\theta\\$ 
 
 
 
 
 
-Una **muestra bootstrap**  de $X=(x_1,...,x_n)\hspace{0.1cm}$ se define como una **muestra aleatoria con reemplazamiento** de tamaño $n$ de $X$ 
+Una **muestra bootstrap**  de $X=(x_1,...,x_n)$ se define como una **muestra aleatoria con reemplazamiento** de tamaño $n$ de $X$ 
 
 
 Tenemos $B$ muestras bootstrap de $X$ : 
 
 $$X_{(1)},X_{(2)},...,X_{(B)} \\$$
+
+\vspace{0.2cm}
 
 
 Se define la replica bootstap $\hspace{0.1cm}b$-esima del estimador $\hspace{0.1cm}\widehat{\theta}$ como: 
@@ -773,21 +772,23 @@ $$\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)})$$
 
  
 
-$\hspace{0.25cm}$ La **estimación bootstrap** del **sesgo** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como: $\\[0.5cm]$
+ La **estimación bootstrap** del **sesgo** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como: $\\[0.5cm]$
 
 
 $$\widehat{Sesgo}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}  \dfrac{1}{B} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \widehat{\theta}(X) \right) \hspace{0.12cm}=\hspace{0.12cm}  \dfrac{1}{B} \cdot \sum_{b=1}^{B}  \widehat{\theta}_{(b)}  \hspace{0.1cm} -\hspace{0.1cm} \widehat{\theta}(X)$$
 
 
-$\hspace{0.25cm}$ Donde:
+donde:
 
 $$\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)})$$
+
+\vspace{-0.2cm}
 
 $$\widehat{\theta}(X) \hspace{0.12cm} =\hspace{0.12cm}  \widehat{\theta}(x_1,...,x_n)\\$$
 
 
 
-\vspace{0.2cm}
+\vspace{0.3cm}
 
 **Observación:**
 
@@ -807,23 +808,24 @@ $\hspace{0.25cm}$ La **estimación Bootstrap** de la **varianza** del estimador 
 
 $$\widehat{Var}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}   \dfrac{1}{B-1} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  \hspace{0.1cm}-\hspace{0.1cm} \dfrac{1}{B} \cdot \sum_{b=1}^{B} \widehat{\theta}_{(b)} \right)^2 \\[0.8cm]$$
 
-$\hspace{0.25cm}$ Donde:
+donde:
 
-
+\vspace{-0.4cm}
  
 $$\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)})$$
 
  
+\vspace{0.7cm}
  
 
  
-La **estimación bootstrap** de la **desviación típica** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como: $\\[0.5cm]$
+La **estimación bootstrap** de la **desviación típica** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como:  
 
 $$\widehat{s.e.}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}   \sqrt{ \widehat{Var}(\widehat{\theta})_{Boot}   }\\$$
 
 
  
-\vspace{0.2cm}
+\vspace{0.4cm}
 
 
 **Observación:**
@@ -832,7 +834,7 @@ La estimación bootstrap de la varianza del estimador $\hspace{0.12cm}\widehat{\
 
 
 
-\vspace{0.3cm}
+\vspace{0.5cm}
 
 
 
@@ -842,14 +844,16 @@ La estimación bootstrap de la varianza del estimador $\hspace{0.12cm}\widehat{\
 <span>
 
 
-$\hspace{0.25cm}$ La **estimación Bootstrap** del **error cuadrático medio** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como: $\\[0.5cm]$
+$\hspace{0.25cm}$ La **estimación Bootstrap** del **error cuadrático medio** del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ se define como:  
 
 $$\widehat{ECM}(\widehat{\theta})_{Boot} \hspace{0.12cm} =\hspace{0.12cm}   \dfrac{1}{B} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \widehat{\theta}(X) \right)^2\\$$
 
 
-$\hspace{0.25cm}$ Donde:
+donde:
 
 $$\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)})$$
+
+\vspace{-0.3cm}
 
 $$\widehat{\theta}(X) \hspace{0.12cm} =\hspace{0.12cm}  \widehat{\theta}(x_1,...,x_n)\\$$
 
@@ -863,22 +867,24 @@ $$\widehat{\theta}(X) \hspace{0.12cm} =\hspace{0.12cm}  \widehat{\theta}(x_1,...
 ## Estimación bootstrap  de un parametro con corrección de sesgo
  
 
-$\hspace{0.25cm}$ La **estimación Bootstrap con sesgo corregido** del parametro $\hspace{0.1cm} \theta\hspace{0.1cm}$ se define como: $\\[0.5cm]$
+$\hspace{0.25cm}$ La **estimación Bootstrap con sesgo corregido** del parametro $\hspace{0.1cm} \theta\hspace{0.1cm}$ se define como:
 
 $$
 \widehat{\theta}_{Boot} \hspace{0.2cm}=\hspace{0.2cm} \widehat{\theta}(X) \hspace{0.1cm}-\hspace{0.1cm} \widehat{Sesgo}(\widehat{\theta})_{Boot} \ \hspace{0.2cm}=\hspace{0.2cm}  \widehat{\theta}(X) \hspace{0.1cm} -\hspace{0.1cm}\hspace{0.1cm} \dfrac{1}{B} \cdot \sum_{b=1}^{B} \left( \widehat{\theta}_{(b)}  - \widehat{\theta}(X) \right) \\
 $$
 
-$\hspace{0.25cm}$ Donde:
+donde:
 
 $$\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)})$$
+
+\vspace{-0.2cm}
 
 $$\widehat{\theta}(X)\hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n)$$
 
 
 
  
-\vspace{0.3cm}
+\vspace{0.5cm}
 
 ## Número de muestras bootstrap posibles
 
@@ -1200,7 +1206,7 @@ Dada una v.a. $\mathcal{X}\sim D(\theta)$ y una m.a.s. $(\mathcal{X}_1,...,\math
 
  
 
-La **función de distribución** de la v.a. $\mathcal{X}$ es : $\\[0.7cm]$
+La **función de distribución** de la v.a. $\mathcal{X}$ es : 
 
 $$F_{X}(z) = P(X \leq z)  \hspace{0.2cm}, \hspace{0.2cm}\forall z \in \mathbb{R}$$
 
@@ -1225,34 +1231,32 @@ $$F_{X}(z) = F_{X_i}(z) \hspace{0.2cm}, \hspace{0.2cm}\forall z \in \mathbb{R} \
 
 ## La función de distribución empírica
 
-Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$
+Dada una v.a. $\mathcal{X}\sim D(\theta)\hspace{0.1cm}$
 
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-cmpan>
+ 
 
-$\hspace{0.25cm}$  La función de distribución empírica basada en una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ se define como:
+ La función de distribución empírica basada en una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ se define como:
 
 
 $$\widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(\mathcal{X}_i \geq z) $$
 
-$\hspace{0.25cm}$  donde:
+   donde:
 
 $$I(X_i \geq z) =  \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm} X_i \geq z \\[0.1cm] 
 \hspace{0.12cm} 0 \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm} X_i > z \\[0.1cm] 
 \end{array}\right.$$
 
-$\hspace{0.35cm}$  para $\hspace{0.1cm} z\in \mathbb{R}$
+   para $\hspace{0.1cm} z\in \mathbb{R}$
 
-</p>
+  
  
- 
-\vspace{0.3cm}
+\vspace{0.7cm}
 
 
 **Observaciones:**
 
-- $\widehat{F}_n(z)\hspace{0.1cm}$ es una v.a. $\\[0.5cm]$
+- $\widehat{F}_n(z)\hspace{0.1cm}$ es una v.a.  
 
 - $\widehat{F}_n(z)\hspace{0.1cm}$ es usada como estimador de $\hspace{0.1cm}F_X(z)$
 
@@ -1267,7 +1271,7 @@ $\hspace{0.35cm}$  para $\hspace{0.1cm} z\in \mathbb{R}$
 
  
 
-$\hspace{0.2cm}$ Algunas propiedades de la distribución empírica como variable aleatoria:
+ Algunas propiedades de la distribución empírica como variable aleatoria:
 
 - $\hspace{0.2cm} I(X_i \geq z) \hspace{0.2cm}\sim\hspace{0.2cm} Bernoulli\left( p \right) \hspace{0.2cm} ,\hspace{0.2cm}  \text{con}\hspace{0.2cm} \hspace{0.2cm} p=F_X(z)=P(X<z)\\[0.2cm]$
 
@@ -1278,52 +1282,46 @@ $\hspace{0.2cm}$ Algunas propiedades de la distribución empírica como variable
     $\hspace{0.2cm} \text{donde}\hspace{0.2cm} p\hspace{0.1cm}=\hspace{0.1cm}F_X(z)\hspace{0.1cm}=\hspace{0.1cm}P(X<z) \\[0.2cm]$
 
 
-- $E\left[ \widehat{F}_n(z)  \right] \hspace{0.1cm}=\hspace{0.1cm}  E \left[ \dfrac{1}{n} \cdot Binomial(n , p  ) \right] \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot n \cdot  p  \hspace{0.1cm}=\hspace{0.1cm} p \hspace{0.1cm}=\hspace{0.1cm} F_X(z)=P(X<z) \\[0.2cm]$
+- $E\left[ \widehat{F}_n(z)  \right] \hspace{0.1cm}=\hspace{0.1cm}  E \left[ \dfrac{1}{n} \cdot Binomial(n , p  ) \right] \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n}  n   p  \hspace{0.1cm}=\hspace{0.1cm} p \hspace{0.1cm}=\hspace{0.1cm} F_X(z)=P(X<z) \\[0.2cm]$
 
 
-- $Var\left[ \widehat{F}_n(z)  \right] \hspace{0.1cm}=\hspace{0.1cm} Var \left[ \dfrac{1}{n} \cdot Binomial(n , p  ) \right]\hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n^2} \cdot n \cdot  p \cdot (1-p) = \\[0.25cm] \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot  F_X(z)\cdot (1- F_X(z))  \hspace{0.1cm}=\hspace{0.1cm} F_X(z)=P(X<z) \\[0.2cm]$
+- $Var\left[ \widehat{F}_n(z)  \right] \hspace{0.1cm}=\hspace{0.1cm} Var \left[ \dfrac{1}{n} \cdot Binomial(n , p  ) \right]\hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n^2}  n   p  (1-p) = \\[0.25cm] \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n}  F_X(z) (1- F_X(z))  \hspace{0.1cm}=\hspace{0.1cm} F_X(z)=P(X<z) \\[0.2cm]$
 
 
-</p>
  
-</p></span>
-</div>
-
-<br>
 
 \newpage
 
 
-## Función de distribución empírica como estimación de la funcion de distribución
+## Función de distribución empírica como estimación de la función de distribución
 
 
 
-$\hspace{0.25cm}$ Si tenemos una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$   de la variable de interés $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$  
+ Si tenemos una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$   de la variable de interés $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$  
 
 
-$\hspace{0.25cm}$ Tenemos la siguiente **estimación** de la función de distribución de $\mathcal{X}$ a través de la funcion de distribución emprica:
+  Tenemos la siguiente **estimación** de la función de distribución de $\mathcal{X}$ a través de la función de distribución emprica:
 
 $$\widehat{F}_n(z) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(x_i \geq z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{\# \lbrace \hspace{0.1cm}  i=1,..,n\hspace{0.1cm}  / \hspace{0.1cm}  x_i \geq z\hspace{0.1cm}  \rbrace}{n} \hspace{0.3cm} , \hspace{0.3cm} z\in \mathbb{R}\\$$
 
 
  
 
-\vspace{0.35cm}
+\vspace{0.5cm}
  
 
 
 **Propiedades de la función de distribución empírica como estimación**
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
+ 
 
-- $\widehat{F}_n(z) \hspace{0.1cm}=\hspace{0.1cm} Q(X , z)\\$
+- $\widehat{F}_n(z) = Q(X , z)\\$
 
-    Donde: $\hspace{0.2cm} Q(X , z)\hspace{0.1cm}$  es el cuantil de orden $\hspace{0.1cm}z\hspace{0.1cm}$ de $\hspace{0.1cm}X=(x_1,...,x_n) \\$
-
+    Donde $Q(X , z)$  es el cuantil de orden $z$ de $X=(x_1,...,x_n) \\$
 
 
-- Si se ordena la muestra $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$ de menor a mayor $x_{(1)}\hspace{0.1cm}<\hspace{0.1cm}x_{(2)}\hspace{0.1cm}<...<\hspace{0.1cm}x_{(n)}\hspace{0.1cm}$ , entonces: 
+
+- Si se ordena la muestra $X=(x_1,...,x_n)$ de menor a mayor $x_{(1)}<\hspace{0.1cm}x_{(2)}<...<x_{(n)}\hspace{0.1cm}$ , entonces: 
 
 
 $$\hspace{0.2cm} \widehat{F}_n(z) = \left\lbrace\begin{array}{l}   \hspace{0.12cm} 0 \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm} z < x_{(1)} \\[0.1cm] 
@@ -1341,18 +1339,21 @@ $$\hspace{0.2cm} \widehat{F}_n(z) = \left\lbrace\begin{array}{l}   \hspace{0.12c
 
 \newpage
 
+
+
+
 ## Ley debil de los grandes números
 
 La ley debil de los grandes números afirma lo siguiente:
 
-Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.1cm}$ tal que $\hspace{0.1cm}E[\mathcal{X}]=\mu\hspace{0.1cm}$
+Dada una v.a. $\mathcal{X}\sim D(\theta)$ tal que $E[\mathcal{X}]=\mu$
 
-Si $\widehat{F}_n(z)$ es la función de distribución empirica basada en la m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , se cumple que:
+Si $\widehat{F}_n(z)$ es la función de distribución empírica basada en la m.a.s. $(\mathcal{X}_1,...,\mathcal{X}_n)$ de $\mathcal{X}$ , se cumple que:
 
-$$\dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \hspace{0.25cm}\underset{p}{\rightarrow}\hspace{0.25cm} E[X]=\mu$$
+$$\dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \hspace{0.15cm}\underset{p}{\rightarrow}\hspace{0.15cm} E[X]=\mu$$
 
 
-\vspace{0.25cm}
+\vspace{0.3cm}
 
 
 **Observación:** $E[X]=E[X_i] \hspace{0.25cm},\hspace{0.25 cm} \forall i \in \lbrace 1,...,n \rbrace$
@@ -1361,9 +1362,9 @@ $$\dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \hspace{0.25cm}\underset{p}{\rightarro
 
  \vspace{1cm}
  
-Podemos aplicar la ley de los grandes números a la distribución empirica:
+Podemos aplicar la ley de los grandes números a la distribución empírica:
 
-  Como $\hspace{0.15cm}I(\mathcal{X}_i \geq z) \sim Bernoulli(p)\hspace{0.15cm}$ , con $\hspace{0.15cm}E\left[I(\mathcal{X}_i \geq z)\right]\hspace{0.1cm} =\hspace{0.1cm} p\hspace{0.1cm}=\hspace{0.1cm}F_X(z)\hspace{0.1cm}=\hspace{0.1cm}P(X \leq z)\\$
+  Como $\hspace{0.1cm}I(\mathcal{X}_i \geq z) \sim Bernoulli(p)\hspace{0.1cm}$ , con $\hspace{0.1cm}E\left[I(\mathcal{X}_i \geq z)\right]\hspace{0.05cm} =\hspace{0.05cm} p\hspace{0.05cm}=\hspace{0.05cm}F_X(z)\hspace{0.05cm}=\hspace{0.05cm}P(X \leq z)\\$
 
  Aplicando la ley debil de los grandes números tenemos lo siguiente:
 
@@ -1372,11 +1373,12 @@ $$\widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(
 
  En conclusión:
 
-$$\widehat{F}_n(z) \hspace{0.25cm}\underset{p}{\rightarrow} \hspace{0.25cm} F_X(z)\\$$
+$$\widehat{F}_n(z) \hspace{0.15cm}\underset{p}{\rightarrow} \hspace{0.15cm} F_X(z)$$
+
+\vspace{0.25cm}
 
 
-
-  Usando la definición de convergencia en probabilidad, se tiene que: $\\[0.5cm]$
+  Usando la definición de convergencia en probabilidad, se tiene que:  
 
 
 $$\underset{n\rightarrow \infty}{lim} \hspace{0.1cm} P\left( \hspace{0.1cm} | \widehat{F}_n(z) - F_X(z) |\hspace{0.1cm} \leq \varepsilon \right) \hspace{0.1cm}=\hspace{0.1cm} 1 \hspace{0.25cm},\hspace{0.25cm} \forall \varepsilon > 0 \\$$
@@ -1386,19 +1388,34 @@ $$\underset{n\rightarrow \infty}{lim} \hspace{0.1cm} P\left( \hspace{0.1cm} | \w
 
 Pero se cumple un resultado más fuerte aun, el **teorema de Glivenko-Cantelli**.
 
+
+
 ## Teorema de Glivenko-Cantelli
 
 Dada una v.a. $\mathcal{X}\sim D(\theta)$ tal que $E[\mathcal{X}]=\mu \\$ 
 
-Si $\widehat{F}_n(z)$ es la función de distribución empirica basada en la m.a.s. $(\mathcal{X}_1,...,\mathcal{X}_n)$ de $\mathcal{X}$ , se cumple que: 
+Si $\widehat{F}_n(z)$ es la función de distribución empírica basada en la m.a.s. $(\mathcal{X}_1,...,\mathcal{X}_n)$ de $\mathcal{X}$ , se cumple que: 
 
-$$sup \left\lbrace \hspace{0.1cm}\left|\hspace{0.1cm} \widehat{F}_n(z)  - F_X(z)\hspace{0.1cm} \right| \hspace{0.15cm}  / \hspace{0.15cm} z \in \mathbb{R} \hspace{0.1cm}\right\rbrace \hspace{0.25cm}\underset{p}{\rightarrow} \hspace{0.25cm} 0\\$$
+$$sup \left\lbrace \hspace{0.1cm}\left|\hspace{0.1cm} \widehat{F}_n(z)  - F_X(z)\hspace{0.1cm} \right| \hspace{0.15cm}  : \hspace{0.15cm} z \in \mathbb{R} \hspace{0.1cm}\right\rbrace \hspace{0.15cm}\underset{p}{\rightarrow} \hspace{0.15cm} 0\\$$
+
 
 
 
 \newpage
 
 ### Demostración del teorema de Glivenko-Cantelli
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1437,21 +1454,27 @@ Además tenemos una muestra de observaciones $X=(x_1,...,x_n)$   de la variable 
 
 - Se obtienen $B$ muestras bootstrap (aleatorias y con reemplazamiento) de $X$ :
 
+\vspace{-0.25cm}
+
 $$X_{(1)},X_{(2)},...,X_{(B)} \\$$
 
 
 - Se calcula para $b\in \lbrace 1,...,B \rbrace$ la replica bootstrap $\hspace{0.1cm}b$-esima del estimador $\hspace{0.1cm}\widehat{\theta}$ como: 
 
+\vspace{-0.25cm}
 
 $$\widehat{\theta}_{(b)} = \widehat{\theta}(X_{(b)}) \\$$
 
 
 Asi que se tiene:
 
+\vspace{-0.25cm}
+
+
 $$\widehat{\theta}_{boot} = \left(\widehat{\theta}_{(1)},...,\widehat{\theta}_{(B)} \right)$$
 
 
-\vspace{1.5cm}
+\vspace{1cm}
  
 Sea $\hspace{0.1cm}Q(\alpha \hspace{0.05cm} ,  \hspace{0.05cm} \widehat{\theta}_{boot})\hspace{0.1cm}$  el cuantil de orden $\hspace{0.1cm}\alpha\hspace{0.1cm}$ de la variable $\hspace{0.15cm}\widehat{\theta}_{boot}$ , entonces se cumple lo siguiente:
 
@@ -1459,7 +1482,7 @@ Sea $\hspace{0.1cm}Q(\alpha \hspace{0.05cm} ,  \hspace{0.05cm} \widehat{\theta}_
 $$\dfrac{\# \hspace{0.15cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm} Q(\alpha \hspace{0.05cm} , \hspace{0.05cm} \widehat{\theta}_{boot}) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}  \hspace{0.15cm} = \hspace{0.15cm} \alpha$$
 
 
-\vspace{0.35cm}
+\vspace{0.25cm}
 
 - El intervalo cuantil-bootstrap para el parámetro $\theta$ a un nivel $1-\alpha$ es : 
 
@@ -1488,7 +1511,9 @@ Además tenemos una muestras de observaciones $X_1=(x_{11},...,x_{n_1 1})$   de 
 
  
 
-- Se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ muestras bootstrap (aleatorias y con reemplazamiento) de $\hspace{0.1cm}X_1\hspace{0.1cm}$ y $\hspace{0.1cm}X_2\hspace{0.1cm}$:  
+- Se obtienen $B$ muestras bootstrap (aleatorias y con reemplazamiento) de $X_1$ y $X_2$:  
+\vspace{-0.35cm}
+
 
 $$X_{1(1)},X_{1(2)},...,X_{1(B)}$$
 
@@ -1500,19 +1525,21 @@ $$X_{2(1)},X_{2(2)},...,X_{2(B)} \\$$
 - Se calcula para $b\in \lbrace 1,...,B \rbrace$ la replica bootstrap $\hspace{0.1cm}b$-esima de los estimadores $\hspace{0.1cm}\widehat{\theta}_1$ y $\hspace{0.1cm}\widehat{\theta}_2$ como: 
 
 
-    $$\widehat{\theta}_{1(b)} = \widehat{\theta}(X_{1(b)})$$
+\vspace{-0.25cm}
 
-    $$\widehat{\theta}_{2(b)} = \widehat{\theta}(X_{2(b)}) \\$$
+  $$\widehat{\theta}_{1(b)} = \widehat{\theta}(X_{1(b)})$$
 
-
-    Así que se tiene:
-
-    $$\widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} = \left(\widehat{\theta}_{1(1)},...,\widehat{\theta}_{1(B)} \right)$$
-
-    $$\widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot} = \left(\widehat{\theta}_{2(1)},...,\widehat{\theta}_{2(B)} \right)\\$$
+  $$\widehat{\theta}_{2(b)} = \widehat{\theta}(X_{2(b)}) \\$$
 
 
-\vspace{0.35cm}
+- Así que se tiene:
+
+  $$\widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} = \left(\widehat{\theta}_{1(1)},...,\widehat{\theta}_{1(B)} \right)$$
+
+  $$\widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot} = \left(\widehat{\theta}_{2(1)},...,\widehat{\theta}_{2(B)} \right)\\$$
+
+
+\vspace{0.45cm}
  
  
 Sea $\hspace{0.1cm}Q(\alpha \hspace{0.05cm} ,  \hspace{0.05cm} \widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} - \widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot} )\hspace{0.1cm}$  el cuantil de orden $\hspace{0.1cm}\alpha\hspace{0.1cm}$ de la variable $\hspace{0.15cm} \widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} - \widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot}\\$ 
@@ -1531,7 +1558,9 @@ $$\dfrac{\# \hspace{0.15cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.2
 
 - El intervalo cuantil-bootstrap para la diferencia de parametros $\hspace{0.1cm}\theta_1 - \theta_2\hspace{0.1cm}$ a un nivel $\hspace{0.1cm} 1-\alpha \hspace{0.1cm}$ es : 
 
-    $$IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} \hspace{0.1cm} = \hspace{0.1cm} \left[ \hspace{0.1cm} Q(\alpha/2 \hspace{0.1cm} , \hspace{0.1cm}  \widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} - \widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot}) \hspace{0.2cm} ;  \hspace{0.2cm} Q(1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm}  \widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} - \widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot}) \hspace{0.1cm} \right]$$
+\vspace{-0.3cm}
+
+$$IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} \hspace{0.1cm} = \hspace{0.1cm} \left[ \hspace{0.1cm} Q(\alpha/2 \hspace{0.1cm} , \hspace{0.1cm}  \widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} - \widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot}) \hspace{0.2cm} ;  \hspace{0.2cm} Q(1-\alpha/2 \hspace{0.1cm} , \hspace{0.1cm}  \widehat{\theta}_{1 \hspace{0.05cm},\hspace{0.05cm} boot} - \widehat{\theta}_{2 \hspace{0.05cm},\hspace{0.05cm} boot}) \hspace{0.1cm} \right] \\$$
 
 
  
@@ -1541,15 +1570,15 @@ Los intervalos cuantil-bootstrap pueden conducir a estimaciones del intervalo de
 Se pueden considerar una versión mejorada del intervalo cuantil-bootstrap llamada BCa, abreviatura que procede de sesgo-corregido (bias-corrected) y acelerado (accelerated).
 
 
-<br>
+\newpage
 
 ## Intervalo BCa-bootstrap
 
 
-En la determinación de los intervalos BCa-bootstrap juegan un rol central dos cantidades: $\hspace{0.25cm} \Rightarrow \hspace{0.25cm} \hat{z}_0\hspace{0.1cm}$ y $\hspace{0.1cm}\hat{a}$
+En la determinación de los intervalos BCa-bootstrap juegan un rol central dos cantidades: $\hspace{0.15cm} \Rightarrow \hspace{0.15cm} \hat{z}_0\hspace{0.1cm}$ y $\hspace{0.1cm}\hat{a}$
 
 
-$\hat{z}_0\hspace{0.1cm}$ se introduce para corregir el sesgo del estimador $\hat{\theta}$
+$\hat{z}_0$ se introduce para corregir el sesgo del estimador $\hat{\theta}$
 
  \vspace{0.35cm}
 
@@ -1562,10 +1591,10 @@ $$\hat{z}_0 \hspace{0.1cm}=\hspace{0.1cm} F^{-1}_{N(0,1)} \left(  \dfrac{\# \hsp
 \vspace{0.35cm}
 
 
-Aclaremos esto un poco:
+Aclaremos esto un poco.
 
 
-Si $\hspace{0.1cm}\rho\hspace{0.1cm}$ es la proporción de replicas bootstrap del estimador $\hspace{0.1cm}\hat{\theta}_{(1)},...,\hat{\theta}_{(B)}\hspace{0.1cm}$ que son menores o iguales que la estimacion $\hspace{0.1cm}\hat{\theta}(X)\hspace{0.1cm}$  , entonces:
+Si $\hspace{0.05cm}\rho\hspace{0.05cm}$ es la proporción de replicas bootstrap del estimador $\hat{\theta}_{(1)},...,\hat{\theta}_{(B)}$ que son menores o iguales que la estimacion $\hat{\theta}(X)$  , entonces:
 
  
 $$\rho \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{ \# \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm}  \hat{\theta}(X) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B}$$
@@ -1576,19 +1605,19 @@ $$\rho \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{ \# \hspace{0.1cm} \left\lbrace \hs
 
 Por tanto:
 
-$$\hat{z}_0 \hspace{0.1cm}=\hspace{0.1cm} F^{-1}_{N(0,1)} ( \hspace{0.05cm}\rho\hspace{0.05cm} ) \hspace{0.3cm}\Rightarrow\hspace{0.3cm} F_{N(0,1)}(\hat{z}_0) \hspace{0.1cm}=\hspace{0.1cm} P\left( \hspace{0.1cm}N(0,1) \leq \hat{z}_0\hspace{0.1cm} \right) \hspace{0.1cm} =\hspace{0.1cm} \rho$$
+$$\hat{z}_0 \hspace{0.1cm}=\hspace{0.1cm} F^{-1}_{N(0,1)} ( \hspace{0.05cm}\rho\hspace{0.05cm} ) \hspace{0.15cm}\Rightarrow\hspace{0.15cm} F_{N(0,1)}(\hat{z}_0) \hspace{0.1cm}=\hspace{0.1cm} P\left( \hspace{0.1cm}N(0,1) \leq \hat{z}_0\hspace{0.1cm} \right) \hspace{0.1cm} =\hspace{0.1cm} \rho$$
 
 \vspace{0.35cm}
 
 
 En conclusión:
 
-$\hat{z}_0\hspace{0.1cm}$ es el cuantil de orden $\hspace{0.1cm}\rho\hspace{0.1cm}$ de la distribucion $\hspace{0.1cm}N(0,1)\hspace{0.3cm}$ $\Rightarrow\hspace{0.3cm}$ $\hat{z}_0 \hspace{0.1cm} = \hspace{0.1cm} Q\left(\hspace{0.1cm}\rho \hspace{0.1cm},\hspace{0.1cm} N(0,1)\hspace{0.1cm}\right)$
+$\hat{z}_0\hspace{0.05cm}$ es el cuantil de orden $\hspace{0.05cm}\rho\hspace{0.05cm}$ de la distribucion $\hspace{0.05cm}N(0,1)\hspace{0.15cm}$ $\Rightarrow\hspace{0.15cm}$ $\hat{z}_0 \hspace{0.1cm} = \hspace{0.1cm} Q\left(\hspace{0.1cm}\rho \hspace{0.1cm},\hspace{0.1cm} N(0,1)\hspace{0.1cm}\right)$
 
 
  
 
-\newpage
+\vspace{1cm}
 
 
 La segunda cantidad, $\hspace{0.1cm}\hat{a}\hspace{0.1cm}$, denominada aceleración, corrige el caso en el que el error estandar del estimador del parámetro de interés $\hspace{0.1cm}s.e.(\hat{\theta})\hspace{0.1cm}$ no sea constante, y se define en términos de estimaciones Jacknife.
@@ -1601,6 +1630,7 @@ $\hspace{0.25cm}$ Se define $\hspace{0.1cm}X_{(r)}\hspace{0.1cm}$ como la muestr
 
 $\hspace{0.25cm}$ Es decir:
 
+\vspace{-0.25cm}
 
 $$X_{(r)} = (\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.05cm},..,\hspace{0.05cm} x_{r-1}\hspace{0.05cm},\hspace{0.05cm}x_{r+1}\hspace{0.05cm} ,..,\hspace{0.05cm} x_{n}\hspace{0.05cm})$$  
 
@@ -1608,7 +1638,9 @@ $\hspace{0.35cm}$ para  $\hspace{0.2cm} r=1,...,n \\$
 
 \vspace{0.35cm} 
 
-Se define la replica $\hspace{0.1cm}r$-esima del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ como: $\\[0.5cm]$
+Se define la replica $\hspace{0.1cm}r$-esima del estimador $\hspace{0.1cm}\widehat{\theta}\hspace{0.1cm}$ como:  
+
+\vspace{-0.25cm}
 
 $$\widehat{\theta}_{(r)} = \widehat{\theta}(X_{(r)})= \widehat{\theta}(\hspace{0.05cm}x_{1}\hspace{0.05cm},\hspace{0.05cm} x_{2}\hspace{0.05cm},..,\hspace{0.05cm} x_{r-1}\hspace{0.05cm},\hspace{0.05cm}x_{r+1}\hspace{0.05cm} ,..,\hspace{0.05cm} x_{n}\hspace{0.05cm})\\$$
 
@@ -1630,7 +1662,7 @@ donde:
 \vspace{0.35cm}
 
 
-El intervalo BCa-bootstrap de nivel $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ es: $\\[0.5cm]$
+El intervalo BCa-bootstrap de nivel $\hspace{0.1cm} 1-\alpha\hspace{0.1cm}$ es: 
 
 
 $$\left[ \hspace{0.1cm}Q(\alpha_1 \hspace{0.1cm} ,\hspace{0.1cm}  \hat{\theta}_{boot})   \hspace{0.2cm}  ; \hspace{0.2cm}   Q(\alpha_2 \hspace{0.1cm} ,\hspace{0.1cm}  \hat{\theta}_{boot})  \hspace{0.1cm} \right] \\$$
@@ -1638,28 +1670,21 @@ $$\left[ \hspace{0.1cm}Q(\alpha_1 \hspace{0.1cm} ,\hspace{0.1cm}  \hat{\theta}_{
 
 donde:
 
-$$\alpha_1 \hspace{0.1cm}=\hspace{0.1cm} F_{N(0,1)}\left( \hat{z}_0 + \dfrac{\hat{z}_0 + z_{1-\alpha/2} }{1 - \hat{a}\cdot(\hat{z}_0 + z_{1-\alpha/2} )} \right)$$
+- $\alpha_1 \hspace{0.1cm}=\hspace{0.1cm} F_{N(0,1)}\left( \hat{z}_0 + \dfrac{\hat{z}_0 + z_{1-\alpha/2} }{1 - \hat{a}\cdot(\hat{z}_0 + z_{1-\alpha/2} )} \right)\\$
 
-$$\alpha_2 \hspace{0.1cm}=\hspace{0.1cm} F_{N(0,1)}\left( \hat{z}_0 + \dfrac{\hat{z}_0 + z_{\alpha/2} }{1 - \hat{a}\cdot(\hat{z}_0 + z_{\alpha/2} )} \right) \\$$
-
-
-
-
-\newpage
-
-
-Teniendo en cuenta que:
-
-
-- $z_{\alpha}$ el valor tal que $P(N(0,1) \leq z_{\alpha}) = \alpha\\[0.5cm]$
+- $\alpha_2 \hspace{0.1cm}=\hspace{0.1cm} F_{N(0,1)}\left( \hat{z}_0 + \dfrac{\hat{z}_0 + z_{\alpha/2} }{1 - \hat{a}\cdot(\hat{z}_0 + z_{\alpha/2} )} \right) \\$
 
 
 
-- $\hat{a} \hspace{0.1cm} = \hspace{0.1cm} \dfrac{ \sum_{r=1}^n \left( \hspace{0.1cm} \hat{\theta}_{(\cdot)} - \hat{\theta}_{(r)}  \right)^3   }{ 6 \cdot \left[ \sum_{r=1}^n \left( \hspace{0.1cm} \hat{\theta}_{(\cdot)} - \hat{\theta}_{(r)}  \right)^2 \right]^{3/2}  } \\[0.5cm]$
+- $z_{\alpha}$ el valor tal que $P(N(0,1) \leq z_{\alpha}) = \alpha\\$
 
-- $\hat{z}_0  \hspace{0.1cm} = \hspace{0.1cm} Q\left(\hspace{0.1cm}\rho \hspace{0.1cm},\hspace{0.1cm} N(0,1)\hspace{0.1cm}\right) \\[0.5cm]$
 
-- $\rho \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{ \# \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm}  \hat{\theta}(X) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B} \\[0.3cm]$
+
+- $\hat{a} \hspace{0.1cm} = \hspace{0.1cm} \dfrac{ \sum_{r=1}^n \left( \hspace{0.1cm} \hat{\theta}_{(\cdot)} - \hat{\theta}_{(r)}  \right)^3   }{ 6 \cdot \left[ \sum_{r=1}^n \left( \hspace{0.1cm} \hat{\theta}_{(\cdot)} - \hat{\theta}_{(r)}  \right)^2 \right]^{3/2}  } \\$
+
+- $\hat{z}_0  \hspace{0.1cm} = \hspace{0.1cm} Q\left(\hspace{0.1cm}\rho \hspace{0.1cm},\hspace{0.1cm} N(0,1)\hspace{0.1cm}\right) \\$
+
+- $\rho \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{ \# \hspace{0.1cm} \left\lbrace \hspace{0.1cm}  b = 1,...,B \hspace{0.25cm} / \hspace{0.25cm} \widehat{\theta}_{(b)} \hspace{0.05cm} \leq \hspace{0.05cm}  \hat{\theta}(X) \hspace{0.1cm}  \right\rbrace \hspace{0.1cm} }{B} \\$
 
 
 
@@ -1729,7 +1754,7 @@ def cuantil_boot_interval(Variable1, Variable2, alpha, estimator , B,  q=0.75, r
         estimation = np.mean(Variable1)
 
 ######################################################################
-#     
+    
     if estimator == 'median':
 
         for b in range(0, B):
@@ -2434,7 +2459,7 @@ estimation
     
     
     
-\vspace{1cm}
+\vspace{0.5cm}
 
 
 
@@ -2470,7 +2495,7 @@ def BCa_boot_interval(Variable, estimator_function, B, alpha, random_seed, q=0.7
 
     z_alpha_medios = scipy.stats.norm.ppf(q=1-alpha/2, loc=0, scale=1)
 
-##################################################################################
+#################################################################
 
     if estimator_function == np.quantile:  estimation = estimator_function(Variable, q=q)
 
@@ -2490,7 +2515,7 @@ def BCa_boot_interval(Variable, estimator_function, B, alpha, random_seed, q=0.7
 
     z_0 = scipy.stats.norm.ppf(q=rho, loc=0, scale=1)
 
-    ###################################
+#################################################################
 
     replicas_jack_estimador = []
 
@@ -2524,7 +2549,7 @@ def BCa_boot_interval(Variable, estimator_function, B, alpha, random_seed, q=0.7
     alpha_2 = scipy.stats.norm.cdf(x=x_2, loc=0, scale=1)
 
 
-#########################################################################################################
+#################################################################
 
     L1 = np.quantile( replicas_boot_estimador  , q=alpha_1)
 
@@ -2534,7 +2559,10 @@ def BCa_boot_interval(Variable, estimator_function, B, alpha, random_seed, q=0.7
 
     return interval , estimation
 ```
+\vspace{0.25cm}
 
+
+**Intervalo para la media:**
 
 ```python
 np.random.seed(123)
@@ -2559,6 +2587,9 @@ estimation
 
     10.199071616256777
 
+\vspace{0.25cm}
+
+**Intervalo para la mediana:**
 
 ```python
 interval , estimation = BCa_boot_interval(Variable=X, estimator_function=np.median, B=200000, alpha=0.05, random_seed=123)
@@ -2577,6 +2608,10 @@ estimation
 
     8.23916733155832
 
+\vspace{0.25cm}
+
+**Intervalo para la desviación típica:**
+
 ```python
 interval , estimation = BCa_boot_interval(Variable=X, estimator_function=np.std, B=200000, alpha=0.05, random_seed=123)
 ```
@@ -2593,6 +2628,14 @@ estimation
 ```
 
     17.844342210422187
+    
+    
+Como puede verse el intervalo no incluye a la estimación. Es posible que haya algún defecto en la función programada.
+
+\vspace{0.25cm}
+
+
+**Intervalo para los cuantiles:**
 
 ```python
 interval , estimation = BCa_boot_interval(Variable=X, estimator_function=np.quantile , B=200000, alpha=0.05, random_seed=123, q=0.6)
@@ -2611,6 +2654,8 @@ estimation
 
     14.584180220264427
 
+
+\vspace{0.25cm}
 
 
 ```python
@@ -2632,6 +2677,13 @@ estimation
     0.23654135251192027
     
     
+Como puede verse el intervalo no incluye a la estimación. Es posible que haya algún defecto en la función programada.
+
+    
+\vspace{0.25cm}
+
+**Intervalo para la asimetría:**
+
 ```python
 interval , estimation = BCa_boot_interval(Variable=X, estimator_function=skew , B=200000, alpha=0.05, random_seed=123, q=0.5)
 ```
@@ -2647,8 +2699,13 @@ estimation
 ```
 
     0.025587358812510053
+    
+Como puede verse el intervalo no incluye a la estimación. Es posible que haya algún defecto en la función programada.
 
 
+\vspace{0.25cm}
+
+**Intervalo para la curtosis:**
 
 ```python
 interval , estimation = BCa_boot_interval(Variable=X, estimator_function=kurtosis , B=200000, alpha=0.05, random_seed=123, q=0.5)
@@ -2666,12 +2723,19 @@ estimation
 
     -0.37420768292897266
 
+Como puede verse el intervalo no incluye a la estimación. Es posible que haya algún defecto en la función programada.  
+  
+  
+    
+    
     
 
 \newpage
 
 
-# Contrastes de hipotesis basados en bootstrap
+
+
+# Contrastes de hipótesis basados en bootstrap
 
 Existen múltiples aproximaciones a los contrastes de hipótesis desde una perspectiva bootstrap. En este caso nos aproximaremos usando los intervalos cuantil-bootstrap, por simplicidad.
 
@@ -2683,25 +2747,25 @@ Vamos a diferenciar contrastes de hipótesis sobre una población y sobre dos po
 ## Contraste de hipótesis sobre una población
 
 
-Tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim D(\theta)\hspace{0.05cm}$ , una m.a.s. $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y un estimador $\hspace{0.1cm}\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$ del parámetro $\hspace{0.1cm}\theta$
+Tenemos una v.a. $\mathcal{X}\sim D(\theta)$ , una m.a.s. $(\mathcal{X}_1,...,\mathcal{X}_n)$ de $\mathcal{X}$ y un estimador $\widehat{\theta}(\mathcal{X}_1,...,\mathcal{X}_n)$ del parámetro $\theta$
 
 
-Además tenemos una muestra de observaciones $\hspace{0.1cm}X=(x_1,...,x_n)\hspace{0.1cm}$   de la variable de interés $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , por lo que tenemos la estimación $\hspace{0.1cm}\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)\hspace{0.1cm}$ del parámetro $\hspace{0.1cm}\theta .\\$ 
+Además tenemos una muestra de observaciones $X=(x_1,...,x_n)$   de la variable de interés $\mathcal{X}$ , por lo que tenemos la estimación $\widehat{\theta}(X)=\widehat{\theta}(x_1,...,x_n)$ del parámetro $\theta$. 
 
 
 Se quieren resolver los siguientes contrastes:  
 
 $$
-H_0: \theta = \theta_0  \hspace{1.5cm} H_0: \theta = \theta_0  \hspace{1.5cm}  H_0: \theta = \theta_0$$
-\vspace{-0.15cm}
-$$H_1: \theta \neq \theta_0 \hspace{1.5cm}  H_1: \theta < \theta_0  \hspace{1.5cm}   H_1: \theta > \theta_0
+H_0: \theta = \theta_0  \hspace{0.5cm} H_0: \theta = \theta_0  \hspace{0.5cm}  H_0: \theta = \theta_0$$
+\vspace{-0.25cm}
+$$H_1: \theta \neq \theta_0 \hspace{0.5cm}  H_1: \theta < \theta_0  \hspace{0.5cm}   H_1: \theta > \theta_0
 $$
 
 \vspace{0.3cm}
 
 La regla de decisión  para resolver estos contrastes  basada en los intervalos cuantil-bootstrap  es la siguiente:
 
-Para un nivel de significación $\hspace{0.12cm}\alpha$, partimos del intervalo cuantil-bootstrap del parametro $\theta$ para un nivel de confianza $\hspace{0.12cm}1 -\alpha$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ $IC(\theta )_{1-\alpha}^{boot} = [ L1 , L2]$ 
+Para un nivel de significación $\alpha$, partimos del intervalo cuantil-bootstrap del parametro $\theta$ para un nivel de confianza $1 -\alpha$ $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ $IC(\theta )_{1-\alpha}^{boot} = [ L1 , L2]$ 
 
 
 - Caso $H_0: \theta = \theta_0 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta \neq \theta_0$
@@ -2710,7 +2774,7 @@ Para un nivel de significación $\hspace{0.12cm}\alpha$, partimos del intervalo 
     
     
     
-\vspace{0.35cm}
+\vspace{0.2cm}
 
 
 
@@ -2720,7 +2784,7 @@ Para un nivel de significación $\hspace{0.12cm}\alpha$, partimos del intervalo 
     
 
 
-\vspace{0.35cm}
+\vspace{0.2cm}
 
 
 
@@ -2739,10 +2803,10 @@ Para un nivel de significación $\hspace{0.12cm}\alpha$, partimos del intervalo 
 
 
 
-Tenemos dos v.a's $\hspace{0.1cm}\mathcal{X}_1\sim D_1(\theta_1)\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_2\sim D_2(\theta_2)\hspace{0.1cm}$ , una m.a.s. $\hspace{0.1cm}(\mathcal{X}_{11},...,\mathcal{X}_{n_1 1})\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ , otra  m.a.s. $\hspace{0.1cm}(\mathcal{X}_{12},...,\mathcal{X}_{n_2 2})\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$ y un par de estimadores $\hspace{0.1cm}\widehat{\theta}_1(\mathcal{X}_{11},...,\mathcal{X}_{n_1 1})\hspace{0.1cm}$ y $\hspace{0.1cm}\widehat{\theta}_2(\mathcal{X}_{12},...,\mathcal{X}_{n_2 2})\hspace{0.1cm}$ de los parámetros $\hspace{0.1cm}\theta_1\hspace{0.1cm}$ y  $\hspace{0.1cm}\theta_2\hspace{0.1cm}$, respectivamente.
+Tenemos dos v.a's $\mathcal{X}_1\sim D_1(\theta_1)$ y $\mathcal{X}_2\sim D_2(\theta_2)$ , una m.a.s. $(\mathcal{X}_{11},...,\mathcal{X}_{n_1 1})$ de $\mathcal{X}_1$ , otra  m.a.s. $(\mathcal{X}_{12},...,\mathcal{X}_{n_2 2})$ de $\mathcal{X}_2$ y un par de estimadores $\widehat{\theta}_1(\mathcal{X}_{11},...,\mathcal{X}_{n_1 1})$ y $\widehat{\theta}_2(\mathcal{X}_{12},...,\mathcal{X}_{n_2 2})$ de los parámetros $\theta_1$ y  $\theta_2$, respectivamente.
 
 
-Además tenemos una muestras de observaciones $\hspace{0.1cm}X_1=(x_{11},...,x_{n_1 1})\hspace{0.1cm}$   de la v.a.  $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y otra $\hspace{0.1cm}X_1=(x_{11},...,x_{n_1 1})\hspace{0.1cm}$  de  $\hspace{0.1cm}\mathcal{X}_2\hspace{0.1cm}$, por lo que tenemos las estimaciones $\hspace{0.1cm}\widehat{\theta}_1(X_1)=\widehat{\theta}_1(x_{1 1},...,x_{n_1 1})\hspace{0.1cm}$ de los parámetros $\hspace{0.1cm}\theta_1\hspace{0.1cm}$ y  $\hspace{0.1cm}\theta_2\hspace{0.1cm}$ , respectivamente.
+Además tenemos una muestras de observaciones $X_1=(x_{11},...,x_{n_1 1})$   de la v.a.  $\mathcal{X}_1$ y otra $X_1=(x_{11},...,x_{n_1 1})$  de  $\mathcal{X}_2$, por lo que tenemos las estimaciones $\widehat{\theta}_1(X_1)=\widehat{\theta}_1(x_{1 1},...,x_{n_1 1})$ de los parámetros $\theta_1$ y  $\theta_2$ , respectivamente.
 
 
 
@@ -2751,9 +2815,9 @@ Además tenemos una muestras de observaciones $\hspace{0.1cm}X_1=(x_{11},...,x_{
 Se quieren resolver los siguientes contrastes: 
 
 $$
-H_0: \theta_1 = \theta_2  \hspace{1.5cm} H_0: \theta_1 = \theta_2  \hspace{1.5cm}  H_0: \theta_1 = \theta_2$$
-\vspace{-0.1cm}
-$$H_1: \theta_1 \neq \theta_2 \hspace{1.5cm}  H_1: \theta_1 < \theta_2  \hspace{1.5cm}   H_1: \theta_1 > \theta_2
+H_0: \theta_1 = \theta_2  \hspace{0.5cm} H_0: \theta_1 = \theta_2  \hspace{0.5cm}  H_0: \theta_1 = \theta_2$$
+\vspace{-0.2cm}
+$$H_1: \theta_1 \neq \theta_2 \hspace{0.5cm}  H_1: \theta_1 < \theta_2  \hspace{0.5cm}   H_1: \theta_1 > \theta_2
 $$
 
 \vspace{0.35cm}
@@ -2761,23 +2825,23 @@ $$
 
 La regla de decisión  para resolver estos contrastes  basada en los intervalos cuantil-bootstrap  es la siguiente:
 
-Para un nivel de significación $\hspace{0.12cm}\alpha$.
+Para un nivel de significación $\alpha$.
 
-Partimos del intervalo cuantil-bootstrap de la diferencia de parámetros $\theta_1 - \theta_2$ para un nivel de confianza $\hspace{0.12cm}1 -\alpha$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ $IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} = [ L1 , L2]$ 
+Partimos del intervalo cuantil-bootstrap de la diferencia de parámetros $\theta_1 - \theta_2$ para un nivel de confianza $1 -\alpha$ $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ $IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} = [ L1 , L2]$ 
 
 
 - Caso $H_0: \theta_1 = \theta_2 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta_1 \neq \theta_2$
 
     $$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} 0 \notin IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot}$$
     
-\vspace{0.3cm}
+\vspace{0.2cm}
 
 
 - Caso $H_0: \theta_1 = \theta_2 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta_1 < \theta_2$
 
     $$\text{Rechazar} \hspace{0.12cm} H_0  \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm} IC(\theta_1 - \theta_2 )_{1-\alpha}^{boot} \hspace{0.1 cm}<<\hspace{0.1 cm} 0 \hspace{0.25cm}  \Leftrightarrow \hspace{0.25cm}  L2 \hspace{0.1 cm}<\hspace{0.1 cm} 0$$
 
-\vspace{0.3cm}
+\vspace{0.2cm}
 
 - Caso $H_0: \theta_1 = \theta_2 \hspace{0.25cm} \text{vs} \hspace{0.25cm} H_1: \theta_1 > \theta_2$
 
@@ -2800,7 +2864,9 @@ def bootstrap_cuantil_test(Variable1, Variable2, estimator, H1_type, theta_0,  a
     interval , estimation = cuantil_boot_interval(Variable1=Variable1, Variable2=Variable2, alpha=alpha, estimator=estimator , B=B, random_seed=random_seed, q=q)
 
     
-    if estimator in ['mean','median','std','quantile','kurtosis','skewness','proportion']:
+    if estimator in ['mean','median','std','quantile','kurtosis',
+    
+    'skewness','proportion']:
 
 
         if H1_type == 'greater':
@@ -2864,7 +2930,7 @@ X_1 = np.random.normal(loc=62, scale=25, size=150)
 X_2 = np.random.normal(loc=80, scale=25, size=150)
 ```
 
-\vspace{0.3cm}
+\vspace{0.35cm}
 
 
 
@@ -2924,31 +2990,6 @@ resultado
  
  
  
-\vspace{0.3cm}
-
-**Contraste para la mediana de una población:**
-
-
-
-```python
-
-
-```
-
-
-```python
-
-resultado , intervalo =
-```
-
-```python
-resultado
-```
-
-
-```python
-intervalo
-```
 
 
 \newpage
@@ -3090,7 +3131,7 @@ intervalo
     [-0.26701282609616306, 0.27862278159471443]
 
 
-\vspace{0.5cm}
+\newpage
 
 
 **Contraste para la media de dos poblaciones:**
@@ -3197,7 +3238,7 @@ resultado
     'Not reject H0: theta_1 = theta_2  -->  Not accept H1: theta_1 =/= theta_2'
 
 
-\newpage
+
 
 **Contraste para la mediana de dos poblaciones:**
 
@@ -3292,7 +3333,7 @@ intervalo
 
 
 
-\vspace{0.5cm}
+\newpage
 
 **Contraste para los cuantiles de dos poblaciones:**
 
@@ -3445,6 +3486,7 @@ Se generan  $\hspace{0.1cm}B\hspace{0.1cm}$  replicas *bootstrap* de las respues
 $$Y_{(b)} \hspace{0.1cm} = \hspace{0.1cm} X \cdot \widehat{\beta} \hspace{0.05cm} + \hspace{0.05cm} \varepsilon_{(b)}
 \hspace{0.25cm} , \hspace{0.25cm} \forall   \hspace{0.15cm} b \in  \lbrace 1,...,B \rbrace \\$$
 
+\vspace{0.3cm}
 
 Para cada  $\hspace{0.1cm} b \in  \lbrace 1,...,B \rbrace\hspace{0.1cm}$
 
@@ -3578,6 +3620,10 @@ $$IC(R^2_{adj})_{1-\alpha}^{boot} \hspace{0.1cm} =\hspace{0.1cm} \left[ \hspace{
 
 ```python
 import pandas as pd
+
+import sklearn
+
+from sklearn.linear_model import LinearRegression
 ```
 
 
@@ -3586,6 +3632,8 @@ import pandas as pd
 Data = pd.read_csv('House_Price_Regression.csv')
 
 Data = Data.loc[:, ['latitude', 'longitude', 'price', 'size_in_m_2','no_of_bedrooms', 'no_of_bathrooms', 'quality_recode']]
+
+Data['quality_recode'] = Data['quality_recode'].astype('category')
 
 Data.head()
 ```
@@ -3605,27 +3653,19 @@ Data.head()
 4                1             2.0 
 ```
 
-\vspace{0.25cm}
+ 
+ 
 
-```python
-Data['quality_recode'] = Data['quality_recode'].astype('category')
-```
-
-\vspace{0.25cm}
-
-```python
-import sklearn
-
-from sklearn.linear_model import LinearRegression
-```
-
+ 
+ 
+ 
 \vspace{0.25cm}
 
 ```python
 X = Data[['size_in_m_2', 'longitude', 'latitude', 'no_of_bedrooms', 'no_of_bathrooms', 'quality_recode']]
 Y = Data['price']
 ```
-\vspace{0.25cm}
+ 
 
 ```python
 X.head()
@@ -3646,7 +3686,7 @@ X.head()
 4            2.0  
 ```
 
-\vspace{0.25cm}
+
 
 ```python
 Y.head()
@@ -3839,7 +3879,7 @@ def boot_interval_linear_regression(X, Y, method, parameter, j, B, alpha) :
 ```
 
 
-\vspace{0.35cm}
+\vspace{0.5cm}
 
 **Intervalo de confianza para los coeficientes beta del modelo de regresión lineal:**
 
@@ -3876,7 +3916,7 @@ boot_interval_linear_regression(X=X, Y=Y, method='pairs', parameter='beta', j=2,
 
     [-2906726.4973525056, -394604.81858878786]
 
-\vspace{0.35cm}
+\newpage
 
 
 Calculamos los intervalos de confianza para los coeficientes betas del modelo de regresión lineal con la libería `statmodels`
@@ -3906,7 +3946,7 @@ quality_recode_2.0  -4.884944e+05  8.730549e+04
 quality_recode_3.0  -5.140369e+05  3.903336e+05
 ```
 
-\vspace{0.35cm}
+\vspace{0.5cm}
 
 
 **Intervalo de confianza para el coeficiente de determinación ajustado:**
@@ -3943,6 +3983,8 @@ model_SM.rsquared_adj
 
 Consideraremos que una estimacion de la varianza de las predicciones de un modelo de regresion (variable respuesta cuantitativa) $M$ es:
 
+\vspace{-0.4cm}
+
 $$\dfrac{1}{h} \sum_{i=1}^{h} \widehat{Var}(\hat{y}_i)$$ 
 
 Cálculo de $\widehat{Var}(\hat{y}_i)$ por remuestreo (en algunos modelos no habra expresiones cerradas para este estimacion, por eso veo interesante un procedimiento general que no dependa del modelo usado):
@@ -3950,6 +3992,8 @@ Cálculo de $\widehat{Var}(\hat{y}_i)$ por remuestreo (en algunos modelos no hab
 Tenemos una muestra inicial de predictores y de la respuesta $(X,Y)=(X_1,...,X_p, Y)$ con $n$ filas (observaciones)
 
 Tomamos $B$ muestras bootstrap (muestras aleatorias con reemplazamiento) de $(X,Y)$:
+
+\vspace{-0.4cm}
 
 $$(X,Y)_1 ,...,(X,Y)_B$$
 
@@ -3980,7 +4024,9 @@ Asi obtenderemos: $\hspace{0.2cm} \widehat{Var}(\hat{y}_1),\widehat{Var}(\hat{y}
 
 Promediamos y obtenimos asi una estimacion de la varianza de las predcciones del modelo:
 
-$$ \dfrac{1}{h} \sum_{i=1}^{h} \widehat{Var}(\hat{y}_i) $$  
+\vspace{-0.4cm}
+
+$$\dfrac{1}{h} \sum_{i=1}^{h} \widehat{Var}(\hat{y}_i)$$  
 
 
 \newpage
@@ -3990,6 +4036,8 @@ $$ \dfrac{1}{h} \sum_{i=1}^{h} \widehat{Var}(\hat{y}_i) $$
 
 Consideraremos que una estimacion del sesgo de las predicciones de un modelo de regresion (variable respuesta cuantitativa) $M$ es:
 
+\vspace{-0.4cm}
+
 $$\dfrac{1}{h} \sum_{i=1}^{h} \widehat{Sesgo}(\hat{y}_i)$$ 
 
 
@@ -3998,6 +4046,8 @@ Cálculo de $\widehat{Sesgo}(\hat{y}_i)$ por remuestreo (en algunos modelos no h
 Tenemos una muestra inicial de predictores y de la respuesta $(X,Y)=(X_1,...,X_p, Y)$ con $n$ filas (observaciones)
 
 Tomamos $B$ muestras bootstrap (muestras aleatorias con reemplazamiento) de $(X,Y)$:
+
+\vspace{-0.4cm}
 
 $$(X,Y)_1 ,...,(X,Y)_B$$
 
@@ -4022,6 +4072,7 @@ Notese que sabemos que $y_i^{test}$ es el verdadero valor de la respuesta en la 
 
 Estimamos ${Sesgo}(\hat{y}_i)$ como la diferencia entre la media de  $\hat{y}_{i}^{boot}=( \hat{y}_{i1}^{test} , ...,\hat{y}_{iB}^{test})$ y el verdadero valor $y_i^{test}$ de la respuesta en la muestra de test para  la observacion de test $x_i^{test}$
 
+\vspace{-0.4cm}
 $$\widehat{Sesgo}(\hat{y}_i) = \left( \dfrac{1}{h} \sum_{r=1}^{B}  \hat{y}_{ir}^{test}    \right)- y_i^{test}$$
 
 Repetimos el proceso con cada $i=1,...,h$, donde $h$ es el tamaño de la muestra de test.
@@ -4030,7 +4081,1159 @@ Asi obtenderemos: $\hspace{0.2cm} \widehat{Sesgo}(\hat{y}_1),\widehat{Sesgo}(\ha
 
 Promediamos y obtenimos asi una estimacion de la varianza de las predcciones del modelo:
 
+\vspace{-0.4cm}
 $$ \dfrac{1}{h} \sum_{i=1}^{h} \widehat{Sesgo}(\hat{y}_i) $$  
+
+
+
+\newpage
+
+
+# Tareas parte 1
+
+
+## Ejercicio 1
+
+Supongamos que tienes una muestra de tamaño 25 que ha sido obtenida cuando ejecutas:
+```{r, eval=FALSE}
+rpois(25,10)
+```
+Utiliza el jackknife para estimar el error de muestreo y el sesgo de la estimación de:
+
+1. La varianza muestral.
+2. La media recortada (trimmed) al 20%.
+3. La mediana.
+
+
+\vspace{0.3cm}
+
+
+**Varianza muestral:**
+
+**Forma 1:**
+
+```python
+set.seed(100428853) # Semilla para reproductibilidad de este ejercicio
+
+numero_observaciones<-25 # numero observaciones 
+
+n<-1:numero_observaciones # Secuencia del 1 a número de observaciones
+
+muestra<-rpois(25,10) # Creación de muestra
+
+data<-data.frame(n,muestra) # Creación data.frame con el vector n y la muestra de la poisson
+
+theta_gorro<-var(muestra) # Varianza muestral (estadístico de interés)
+
+library(ggplot2)
+library(ggthemes)
+
+ggplot(data, aes(x=n,y=muestra))+
+  geom_point(colour = 4, show.legend = FALSE)+
+  theme_stata()+
+  ggtitle("Gráfico dispersión de la muestra poisson") # Gráfico de dispersión de los datos.
+
+jackknife<-sapply(n, function(i) with(data[-i,], var(muestra))) # Aplicación del jackknife
+jackknife
+
+(Sesgo_jack<-(numero_observaciones-1)*(mean(jackknife)-theta_gorro)) # Sesgo de la estimación con jackknife
+
+Error_muestreo <- sqrt((numero_observaciones-1)*mean((jackknife - mean(jackknife))^2)) # Error de muestreo
+
+Error_muestreo 
+```
+
+
+    
+![Gráfico de dispersión de la muestra poisson](p1.png)
+    
+
+\vspace{0.35cm}
+
+
+```python
+cat("Se puede ver como tenemos un sesgo de:",Sesgo_jack," y un error de muestreo de:",Error_muestreo)
+```
+
+Se puede ver como tenemos un sesgo de: 0  y un error de muestreo de: 2.547805
+
+
+\vspace{0.3cm}
+
+**Forma 2:**
+
+```python
+theta_jackknife=numeric(numero_observaciones) # theta va a ser númerico
+
+for(i in 1:numero_observaciones){
+  theta_jackknife[i] = var(muestra[-i]) # Bucle que nos calcula las varianzas muestrales en cada muestra jackknife
+}
+
+(Sesgo_jack=(numero_observaciones-1)*(mean(theta_jackknife)-theta_gorro)) # Calculamos el sesgo
+
+Error_muestreo <- sqrt((numero_observaciones-1)*mean((theta_jackknife - mean(theta_jackknife))^2)) # Calculamos el error de muestreo
+
+Error_muestreo
+```
+
+
+```python
+cat("Como era de esperar, sale un sesgo de:",Sesgo_jack," y un error de muestreo de:",Error_muestreo)
+```
+
+Como era de esperar, sale un sesgo de: 0  y un error de muestreo de: 2.547805
+
+
+\newpage
+
+**Forma 3:**
+
+
+```python
+library(bootstrap) # Cargamos librería
+
+numero_observaciones<-25 # Numero observaciones
+
+data<-as.matrix(cbind(n,muestra)) # Matriz de datos
+
+theta<-var(muestra) # Varianza de muestra
+
+fun_aux = function(nmuestra,data){
+  var(data[nmuestra,2]) #función auxiliar
+}
+
+jack = jackknife(1:numero_observaciones,fun_aux,data) # jackknife
+
+jack
+
+Estadis_correg_bias = theta - jack$jack.bias # Estadístico corregido por el sesgo
+
+Estadis_correg_bias
+```
+
+```python
+cat("El error de muestreo es: ",jack$jack.se,", el sesgo es: ",jack$jack.bias," y el estadístico corregido por el sesgo es:",Estadis_correg_bias, "que es igual a la media de los valores jackknife al ser el sesgo igual a 0 (en este caso).")
+```
+
+El error de muestreo es:  2.547805 , el sesgo es:  0  y el estadístico corregido por el sesgo es: 10.47667 que es igual a la media de los valores jackknife al ser el sesgo igual a 0 (en este caso).
+
+
+
+\newpage
+
+
+**Media recortada:**
+
+**Forma 1:**
+
+```python
+set.seed(100428853) # Semilla para reproductibilidad de este ejercicio
+
+numero_observaciones<-25 # numero observaciones 
+
+n<-1:numero_observaciones # Secuencia del 1 a número de observaciones
+
+muestra<-rpois(25,10) # Creación de muestra
+
+data<-data.frame(n,muestra) # Creación data.frame con el vector n y la muestra de la poisson
+
+theta_gorro<-mean(muestra, trim = 0.2) # Media recortada al 20% (estadístico de interés)
+
+jackknife<-sapply(n, function(i) with(data[-i,], mean(muestra, trim = 0.2))) # Aplicación del jackknife
+
+jackknife
+
+(Sesgo_jack<-(numero_observaciones-1)*(mean(jackknife)-theta_gorro)) # Sesgo de la estimación con jackknife
+
+Error_muestreo <- sqrt((numero_observaciones-1)*mean((jackknife - mean(jackknife))^2)) # Error de muestreo
+
+Error_muestreo
+```
+
+
+```python
+cat("Se puede ver como tenemos un sesgo de:",Sesgo_jack," y un error de muestreo de:",Error_muestreo)
+```
+
+Se puede ver como tenemos un sesgo de: 0.56  y un error de muestreo de: 0.7931582
+
+
+\newpage
+
+**Forma 2:**
+
+```python
+theta_jackknife=numeric(numero_observaciones) # theta va a ser númerico
+for(i in 1:numero_observaciones){
+  theta_jackknife[i] = mean(muestra[-i],trim = 0.2) # Bucle que nos calcula las medias recortadas en cada muestra jackknife
+}
+
+(Sesgo_jack=(numero_observaciones-1)*(mean(theta_jackknife)-theta_gorro)) # Calculamos el sesgo
+
+Error_muestreo <- sqrt((numero_observaciones-1)*mean((theta_jackknife - mean(theta_jackknife))^2)) # Calculamos el error de muestreo
+
+Error_muestreo
+```
+
+```python
+cat("Como era de esperar, sale un sesgo de:",Sesgo_jack," y un error de muestreo de:",Error_muestreo)
+```
+
+Como era de esperar, sale un sesgo de: 0.56  y un error de muestreo de: 0.7931582
+
+
+
+\vspace{0.34cm}
+
+**Forma 3.**
+
+
+```python
+library(bootstrap) # Cargamos librería
+
+numero_observaciones<-25 # Numero observaciones
+
+data<-as.matrix(cbind(n,muestra)) # Matriz de datos
+
+theta<-mean(muestra, trim = 0.2) # Media recortada
+
+fun_aux = function(nmuestra,data){
+  mean(data[nmuestra,2],trim=0.2) #función auxiliar
+}
+
+jack = jackknife(1:numero_observaciones,fun_aux,data) # jackknife
+
+jack
+
+Estadis_correg_bias = theta - jack$jack.bias # Estadístico corregido por el sesgo
+
+Estadis_correg_bias
+```
+
+```python
+cat("El error de muestreo es: ",jack$jack.se,", el sesgo es: ",jack$jack.bias," y el estadístico corregido por el sesgo es:",Estadis_correg_bias)
+```
+
+El error de muestreo es:  0.7931582 , el sesgo es:  0.56  y el estadístico corregido por el sesgo es: 9.706667
+
+
+
+
+
+\newpage
+
+**Mediana:**
+
+**Forma 1:**
+
+
+```python
+set.seed(100428853) # Semilla para reproductibilidad de este ejercicio
+numero_observaciones<-25 # numero observaciones 
+
+n<-1:numero_observaciones # Secuencia del 1 a número de observaciones
+
+muestra<-rpois(25,10) # Creación de muestra
+
+data<-data.frame(n,muestra) # Creación data.frame con el vector n y la muestra de la poisson
+
+theta_gorro<-median(muestra) # Mediana (estadístico de interés)
+
+jackknife<-sapply(n, function(i) with(data[-i,], median(muestra))) # Aplicación del jackknife
+
+jackknife
+
+(Sesgo_jack<-(numero_observaciones-1)*(mean(jackknife)-theta_gorro)) # Sesgo de la estimación con jackknife
+
+Error_muestreo <- sqrt((numero_observaciones-1)*mean((jackknife - mean(jackknife))^2)) # Error de muestreo
+
+Error_muestreo 
+```
+
+```python
+cat("Se puede ver como tenemos un sesgo de:",Sesgo_jack," y un error de muestreo de:",Error_muestreo)
+```
+
+Se puede ver como tenemos un sesgo de: 6.24  y un error de muestreo de: 1.223765
+
+
+
+
+
+
+
+\vspace{0.5cm}
+
+
+**Forma 2.**
+
+```python
+theta_jackknife=numeric(numero_observaciones) # theta va a ser númerico
+for(i in 1:numero_observaciones){
+  theta_jackknife[i] = median(muestra[-i]) # Bucle que nos calcula las medianas en cada muestra jackknife
+}
+
+(Sesgo_jack=(numero_observaciones-1)*(mean(theta_jackknife)-theta_gorro)) # Calculamos el sesgo
+
+Error_muestreo <- sqrt((numero_observaciones-1)*mean((theta_jackknife - mean(theta_jackknife))^2)) # Calculamos el error de muestreo
+
+Error_muestreo
+```
+
+```python
+cat("Como era de esperar, sale un sesgo de:",Sesgo_jack," y un error de muestreo de:",Error_muestreo)
+```
+
+Como era de esperar, sale un sesgo de: 6.24  y un error de muestreo de: 1.223765
+
+
+
+
+
+\vspace{0.4cm}
+
+**Forma 3.**
+
+```python
+library(bootstrap) # Cargamos librería
+
+numero_observaciones<-25 # Numero observaciones
+
+data<-as.matrix(cbind(n,muestra)) # Matriz de datos
+
+theta<-median(muestra) # Mediana
+
+fun_aux = function(nmuestra,data){
+  median(data[nmuestra,2]) #función auxiliar
+}
+
+jack = jackknife(1:numero_observaciones,fun_aux,data) # jackknife
+
+jack
+
+Estadis_correg_bias = theta - jack$jack.bias # Estadístico corregido por el sesgo
+
+Estadis_correg_bias
+```
+
+
+
+```python
+cat("El error de muestreo es: ",jack$jack.se,", el sesgo es: ",jack$jack.bias," y el estadístico corregido por el sesgo es:",Estadis_correg_bias)
+```
+El error de muestreo es:  1.223765 , el sesgo es:  6.24  y el estadístico corregido por el sesgo es: 3.76
+
+
+\newpage
+
+
+## Ejercicio 2.
+
+Se consideran dos variables: en la primera se recogen 4 tipos diferentes de tratamientos y en la segunda se recogen los valores obtenidos de productividad.
+Los datos simulados son:
+
+
+```python
+set.seed(100428853)
+
+grupos = c(rep("A",6), rep("B",6), rep("C",6), rep("D",6))
+
+invento = c(rgamma(6,8,2),rgamma(6,7.5,2),rgamma(6,10,3),rgamma(6,4,1.5))
+
+misdatos = data.frame(tratamiento=grupos, productividad=invento)
+
+misdatos
+```
+
+Estudia si el factor tratamiento es significativo mediante dos procedimientos ANOVA: uno por permutaciones y otro mediante ANOVA estándar. Compara y explica los resultados y cuáles son las condiciones que han de cumplirse en ambos casos.
+Haz un estudio post-hoc de los tratamientos por parejas de niveles del factor, tanto con el modelo clásico como en el de permutaciones. Compara y explica los resultados.
+
+\vspace{0.3cm}
+
+
+```python
+set.seed(100428853)
+grupos = c(rep("A",6), rep("B",6), rep("C",6), rep("D",6))
+invento = c(rgamma(6,8,2),rgamma(6,7.5,2),rgamma(6,10,3),rgamma(6,4,1.5))
+misdatos = data.frame(tratamiento=grupos, productividad=invento)
+knitr::kable(head(misdatos))
+```
+```
+tratamiento	    productividad
+    A	             3.891097
+    A	             3.508428
+    A	             2.969455
+    A	             5.837342
+    A	             4.178984
+    A              5.942017
+```
+
+
+
+\newpage
+
+
+**ANOVA tradicional**
+
+
+```python
+misdatos$tratamiento<-as.factor(misdatos$tratamiento) # Convertir a factor
+
+ANOVA<-aov(productividad~tratamiento,data=misdatos) # ANOVA
+
+summary(ANOVA) # Resumen del anova
+
+library(gplots)
+
+plotmeans(productividad ~ tratamiento, data= misdatos,xlab="tratamiento", ylab="productividad",main="Mean Plot\nwith 95% CI") # Gráfico de las medias con intervalo de confianza al 95%
+
+TukeyHSD(ANOVA) # Test de Tukey HSD
+
+plot(TukeyHSD(ANOVA)) # Gráfico de las diferencias entre grupos
+
+pairwise.t.test(misdatos$productividad, misdatos$tratamiento, p.adjust.method = "bonferroni") # Análisis post-hoc Bonferroni.
+```
+
+![](p2.png)
+
+
+![](p3.png)
+
+
+\vspace{0.4cm}
+
+```
+            Df Sum Sq Mean Sq F value Pr(>F)
+tratamiento  3   8.97   2.990   1.641  0.212
+Residuals   20  36.44   1.822               
+  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = productividad ~ tratamiento, data = misdatos)
+
+$tratamiento
+          diff       lwr       upr     p adj
+B-A -1.1305813 -3.311771 1.0506087 0.4841387
+C-A -0.4138374 -2.595027 1.7673525 0.9504948
+D-A -1.5735024 -3.754692 0.6076876 0.2143195
+C-B  0.7167438 -1.464446 2.8979338 0.7946766
+D-B -0.4429212 -2.624111 1.7382688 0.9403282
+D-C -1.1596650 -3.340855 1.0215250 0.4627329
+
+
+	Pairwise comparisons using t tests with pooled SD 
+
+data:  misdatos$productividad and misdatos$tratamiento 
+
+  A    B    C   
+B 0.97 -    -   
+C 1.00 1.00 -   
+D 0.34 1.00 0.91
+
+P value adjustment method: bonferroni 
+```
+
+\newpage
+
+A la vista de los resultados anteriores, podemos ver que los tratamientos no son significativos, es decir, el tratamiento no influye en la productividad.
+Recordatorio: Lo que estamos contrastando en el ANOVA es:
+
+$$H_{0}:\mu_{A}=\mu_{B}=\mu_{C}=\mu_{D}$$
+
+
+Además vistos los gráficos no parece haber diferencias entre los grupos, y lo comprobamos con los test de Tukey y Bonferroni que nos arrojan los mismos resultados, es decir, técnicamente, no podemos rechazar la hipótesis nula de igualdad de medias, por lo que estadísticamente, las medias de los 4 grupos son iguales.
+
+
+Comprobación de supuestos:
+
+Los supuestos que deben cumplirse son:
+
+1. Normalidad. Cada muestra se extrajo de una población distribuida normalmente.
+
+2. Varianzas iguales. Las varianzas de las poblaciones de las que provienen las muestras son iguales.
+
+3. Independencia, las observaciones de cada grupo son independientes entre sí y las observaciones dentro de los grupos se obtuvieron mediante una muestra aleatoria.
+
+
+**Normalidad:**
+
+
+```python
+# Histograma de la productividad
+ggplot(misdatos,aes(x=productividad, fill = 4))+
+  geom_histogram(bins = 5, show.legend = FALSE, colour="black")+
+  theme_stata()+
+  ggtitle("Histograma de la productividad")
+# Densidades de la productividad por grupos
+library(ggridges)
+ggplot(misdatos, aes(x = productividad, y = tratamiento, fill = stat(x))) +
+  geom_density_ridges_gradient() +
+  scale_fill_viridis_c(name = "productividad", option = "C")+
+  theme_stata()+
+  ggtitle("Densidades de la productividad por grupo")
+# Grafico QQ.
+resid<-data.frame(residuos=as.vector(ANOVA$residuals))
+ggplot(resid, aes(sample = residuos,)) +geom_qq(colour="blue")+ 
+  stat_qq_line(colour="black")+
+  ggtitle("Gráfico QQ de los residuos")+
+  theme_stata()
+# Test de shapiro-wilk para los residuos
+shapiro.test(ANOVA$residuals)
+# Test de Kolmogorov-Smirnov-Lilliefors
+library(nortest)
+lillie.test(ANOVA$residuals)
+# Test de Jarque-Bera
+library(tseries)
+jarque.bera.test(ANOVA$residuals)
+```
+
+
+![](p4.png)
+
+
+![](p5.png)
+
+
+![](p6.png)
+
+```python
+	Shapiro-Wilk normality test
+
+data:  ANOVA$residuals
+W = 0.93474, p-value = 0.1245
+
+
+	Lilliefors (Kolmogorov-Smirnov) normality test
+
+data:  ANOVA$residuals
+D = 0.18459, p-value = 0.0337
+
+
+	Jarque Bera Test
+
+data:  ANOVA$residuals
+X-squared = 2.4272, df = 2, p-value = 0.2971
+```
+
+Podemos decir que se cumple el supuesto de normalidad necesario para aplicar el ANOVA. Salvo en el Lilliefors que no se cumple, los residuos son normales.
+
+
+\newpage
+
+
+**Homocedasticidad**
+
+```python
+# Boxplot por grupos
+ggplot(misdatos,aes(x=tratamiento,y=productividad,fill=tratamiento))+
+  stat_boxplot(geom = "errorbar",width = 0.15)+
+  geom_boxplot()+
+  geom_jitter(position = position_jitter(0.2))+
+  stat_summary(fun = "mean", geom = "point", shape = 8,size = 2, color = "white")+ 
+  theme_stata()+
+  ggtitle("Boxplot de productividad por grupos según tratamiento")
+# Test de Bartlett
+bartlett.test(productividad~tratamiento,data = misdatos)
+```
+
+
+![](p7.png)
+
+
+```python
+Bartlett test of homogeneity of variances
+
+data:  productividad by tratamiento
+Bartlett's K-squared = 1.1431, df = 3, p-value = 0.7667
+```
+
+No podemos rechazar la hipótesis nula de igualdad varianzas en los grupos. Por lo tanto se cumple el segundo de los supuestos necesarios para la validez del ANOVA tradicional. Es decir, las varianzas de los grupos son estadísticamente iguales.
+
+
+\vspace{0.3cm}
+
+
+**Independencia.**
+
+Viendo que son datos aleatorios podemos concluir que sí son independientes, por lo que los tres supuestos se cumplen y el análisis es válido.
+
+\newpage
+
+**ANOVA con permutaciones**
+
+En estadística, la prueba de Kruskal-Wallis es un método no paramétrico para probar si un grupo de datos proviene de la misma población. Intuitivamente, es idéntico al ANOVA con los datos reemplazados por categorías. Es una extensión de la prueba de la U de Mann-Whitney para 3 o más grupos.
+
+Ya que es una prueba no paramétrica, la prueba de Kruskal-Wallis no asume normalidad en los datos, en oposición al tradicional ANOVA. Sí asume, bajo la hipótesis nula, que los datos vienen de la misma distribución. Una forma común en que se viola este supuesto es con datos heterocedásticos.
+
+```python
+# Número posible de permutaciones
+choose(24,6)
+library(coin)
+# Anova no parámetrico.
+kruskal_test(productividad ~ as.factor(tratamiento), data = misdatos, distribution=approximate(nresample = 1000))
+# Post-hoc 1
+pairwise.wilcox.test(misdatos$productividad, misdatos$tratamiento, p.adjust.method = "bonferroni")
+# Post-hoc2
+library(FSA)
+dunnTest(productividad ~ as.factor(tratamiento), data = misdatos, method="bonferroni")
+```
+
+
+
+```python
+Comparison        Z         P.unadj      P.adj     
+ A - B     	  1.6329932	  0.10247043	 0.6148226	
+ A - C     	  0.6123724  	0.54029137	 1.0000000	
+ B - C	      1.0206207  	0.30743417	 1.0000000	
+ A - D	      2.0004166	  0.04545529   0.2727318	
+ B - D	      0.3674235	  0.71330317	 1.0000000	
+ C - D	      1.3880442	  0.16512359	 0.9907415	
+```
+
+
+Como dijimos antes, no es necesario la normalidad en este test, pero sí que habría que ver si son las varianzas iguales, pero como ya se hizo en el apartado anterior, podemos ver que las varianzas entre los grupos son iguales. Por lo tanto llegamos a que este test también es válido para este problema. Como la evidencia de que las medias de los grupos son iguales es muy fuerte, tanto con el test de wilcox y como con el de dunn, nos sale lo mismo.
+
+
+\vspace{0.3cm}
+
+```python
+# Tabla de resultados del ejercicio
+Resultado_final<-data.frame(SIG=c("No","No"), DIF=c("No","No"), NOR=c("Si","No necesario"), VAR=c("Si","Si"), IND=c("Si","Si"))
+colnames(Resultado_final)<-c("Significatividad tratamiento","Diferencia entre grupos","Normalidad","Homocedasticidad","Independencia")
+rownames(Resultado_final)<-c("ANOVA tradicional","ANOVA no paramétrico")
+knitr::kable(Resultado_final)
+```
+
+
+![](p8.png)
+ 
+
+Por lo tanto podemos concluir este ejercicio diciendo que en este caso, nos da igual utilizar uno u otro.
+
+
+\vspace{0.3cm}
+
+## Ejercicio 3
+
+Simula una muestra aleatoria simple de 100 de una v.a. X con distribución gamma de parámetros a = 10, b = 5.
+
+1. Calcula la asimetría muestral de la muestra y el error estándar del estimador, mediante un bootstrap.
+
+2. Calcula el coeficiente de variación muestral de la muestra y el error estÃ¡ndar del estimador, mediante un procedimiento bootstrap.
+
+3. Programa ambos procedimientos mediante un programa escrito en Rcpp.
+
+```python
+set.seed(100428853) # Semilla
+Datos<-rgamma(100,10,5) # Creación de datos
+B=2000 # Número de réplicas
+```
+
+\vspace{0.3cm}
+
+**Asimetría**
+
+**Forma 1**
+
+```python
+# Función para la asimetría
+moment_skewness <- function(x) {
+  n <- length(x)
+  mean_x <- mean(x)
+  sd_x <- sd(x)
+  z <- (x - mean_x) / sd_x
+  mean(z^3)
+}
+
+moment_skewness(Datos) # Asimetría muestral
+sd(replicate(B,moment_skewness(sample(Datos,replace = TRUE)))) # Error estándar bootstrap
+```
+
+
+    [1] 0.4573946
+
+    [1] 0.1853091
+    
+    
+\vspace{0.3cm}    
+    
+**Forma 2**
+
+```python
+library(moments)
+skewness(Datos) # Asimetría muestral
+sd(replicate(B,skewness(sample(Datos,replace=TRUE)))) # Error estándar bootstrap
+```
+
+    [1] 0.4643423
+    
+    [1] 0.186493
+
+
+\vspace{0.3cm}      
+
+**Forma 3.**
+ 
+```python
+library(bootstrap)
+bootskew<-bootstrap(Datos,B,skewness) # Aplicación bootstrap
+sd(bootskew$thetastar) # Error estándar bootstrap
+```
+
+   
+    [1]  0.1828968
+
+
+\vspace{0.3cm}
+
+**Forma 4.**
+
+```python
+# Aplicación bootstrap con librería boot
+library(boot)
+n=length(Datos)
+# Función auxiliar
+funskew = function(data, i, n){
+  cosa = data[i]
+  skewness(cosa[1:n])
+}
+
+resultado = boot(Datos, funskew, R=2000, n=n)
+resultado
+```
+
+```
+ORDINARY NONPARAMETRIC BOOTSTRAP
+
+
+Call:
+boot(data = Datos, statistic = funskew, R = 2000, n = n)
+
+
+Bootstrap Statistics :
+     original      bias    std. error
+t1* 0.4643423 -0.01547586   0.1847539
+```
+
+Aunque los resultados no son exactamente iguales en todas las formas, lo cierto es que la asimetría muestral está en torno a 0.46 y su error sobre 0.19.
+
+
+\newpage
+
+```python
+plot(resultado, t0=resultado$t0, nclass = 10) # Plot réplicas bootstrap
+```
+
+![](p9.png)
+
+Podemos ver como el histograma de las réplicas bootstrap es bastante simétrico en torno al valor muestral original y podemos ver que además estas réplicas son normales ya que se ajustan muy bien al qqplot salvo en las colas.
+
+
+\vspace{0.3cm}
+
+
+**Coeficiente de variación**
+
+**Forma 1**
+
+
+```python
+set.seed(100428853) # Semilla
+cv=function(data){ # Función que calcula el coeficiente de variación
+  sd(data)/mean(data)*100
+} 
+cv(Datos) # Aplicación de cv a la muestra
+sd(replicate(B,cv(sample(Datos,replace=TRUE)))) # Error estándar bootstrap
+```
+
+    [1] 34.84712
+    
+    [1] 2.191089
+
+
+\vspace{0.3cm}
+
+
+**Forma 2**
+
+```python
+library(bootstrap)
+bootcv<-bootstrap(Datos,B,cv) # Aplicación bootstrap
+sd(bootcv$thetastar) # Error estándar bootstrap
+```
+
+    [1] 2.255368
+    
+\newpage
+
+**Forma 3.**
+
+```python 
+library(boot)
+n=length(Datos)
+# Función auxiliar
+funcv = function(data, i, n){
+  cosa = data[i]
+  sd(cosa[1:n])/mean(cosa[1:n])*100
+} 
+
+resultado = boot(Datos, funcv, R=2000, n=n) # Aplicación bootstrap
+resultado
+```
+```
+ORDINARY NONPARAMETRIC BOOTSTRAP
+
+
+Call:
+boot(data = Datos, statistic = funcv, R = 2000, n = n)
+
+
+Bootstrap Statistics :
+    original     bias    std. error
+t1* 34.84712 -0.2148447     2.26003
+```
+
+Aunque los resultados no son exactamente iguales en todas las formas, lo cierto es que el coeficiente de variación muestral es 34.8 y su error sobre 2.2.
+
+
+
+```python
+plot(resultado, t0=resultado$t0, nclass = 10) # Plot de las réplicas bootstrap
+```
+
+
+![](p10.png)
+
+
+Podemos ver como el histograma de las réplicas bootstrap es bastante simétrico en torno al valor muestral original y podemos ver que además estas réplicas son normales ya que se ajustan muy bien al qqplot salvo en las colas. Exactamente igual que pasó con la asimetría.
+
+
+\vspace{0.3cm}
+
+
+## Ejercicio 4
+
+Simula una población artificial consistente en 1000 observaciones de una distribución normal de media 0 y varianza = 10 y otra población X2 con 1000 observaciones de una distribución normal de media 0 y varianza = 2. Se trata de estudiar el cociente de ambas que dan lugar a una distribución $Z=X1/X2$
+
+Considera, a continuación una muestra de tamaño 200 de Z, digamos $z=z_{1},...,z_{200}$
+
+Calcula la mediana muestral de z muestral y el error estándar del estimado mediante un procedimiento de bootstrap paramétrico.
+
+```python
+# Creación de datos
+set.seed(100428853)
+X1<-rnorm(1000,0,10)
+X2<-rnorm(1000,0,2)
+Z<-X1/X2
+
+muestra<-sample(Z, size = 200, replace = FALSE) # muestreo
+n<-length(muestra) # tamaño de la muestra
+
+B<-2000 # número réplicas
+library(boot)
+# Función generadora
+ran.gen.cauchy<-function(data,mle){
+  out<-rcauchy(n,mle)
+  out
+}
+# Estadístico de interés
+statistic<-function(data){
+  median(data)
+}
+set.seed(100428853)
+# Bootstrap paramétrico
+res.boot<-boot(muestra,statistic,R=B,sim = "parametric", ran.gen = ran.gen.cauchy, mle = median(muestra))
+# Intervalos de confianza
+boot.ci(res.boot, type = "norm")
+boot.ci(res.boot, type = "basic")
+boot.ci(res.boot, type = "perc")
+# Gráfico réplicas bootstrap
+plot(res.boot, nclass = 10)
+```
+
+![](p11.png)
+
+
+Hemos sacado también los intervalos de confianza según distintos métodos para la mediana mediante un proceso de remuestreo bootstrap. Además se puede ver como el histograma es muy simétrico y además, en el qqplot podemos ver como las replicas bootstrap son normales.
+
+\vspace{0.3cm}
+
+## Ejercicio 5
+
+Se quiere determinar si las clases de repaso tienen un efecto significativo en el resultado de los exámenes finales. Para ello, un conjunto de estudiantes se reparte al azar en dos grupos (uno que asiste a clases de repaso y otro que no) y se evalúa su conocimiento en un examen.
+
+Los datos simulados son:
+```python
+# Generación datos
+set.seed(100428853)
+grupos = c(rep("clases repaso",21), rep("control",21))
+invento = c(rnorm(21,62,2), rnorm(21,51.5,2))
+misdatos = data.frame(trata=grupos, productividad=invento)
+knitr::kable(head(misdatos))
+```
+
+```
+    trata	       productividad
+clases repaso	      62.20418
+clases repaso	      61.64129
+clases repaso	      63.62980
+clases repaso	      63.35761
+clases repaso	      64.71284
+clases repaso	      62.60961
+```
+
+¿Existe una diferencia significativa en el promedio entre ambos grupos?
+
+Usa para resolverlo un test clásico de la t-student y un test de permutaciones.
+Contrasta normalidad de los datos mediante los test de Shapiro-Wilks y de Jarque-Bera. Muestra los correspondientes QQ-plots y explica como se pueden interpretar.
+Muestra histogramas múltiples, diagramas de caja múltiples y gráficos de densidad múltiples.
+Calcula y compara los p-valores obtenidos mediante el test t-student y el de permutaciones.
+
+
+
+```python
+# Boxplot por grupos
+ggplot(misdatos,aes(x=grupos,y=invento,fill=grupos))+
+  stat_boxplot(geom = "errorbar",width = 0.15)+
+  geom_boxplot()+
+  geom_jitter(position = position_jitter(0.2))+
+  stat_summary(fun = "mean", geom = "point", shape = 8,size = 2, color = "white")+ 
+  theme_stata()+
+  ggtitle("Boxplot por grupos según si asiste o no a clases de repaso")
+# Densidades por grupos
+ggplot(data=misdatos, aes(x=invento, fill=grupos))+
+  geom_density(colour="black")+
+  theme_stata()+
+  ggtitle("Densidades por grupos según si asiste o no a clases de repaso")
+# Histograma por grupos
+ggplot(data=misdatos, aes(x=invento, fill=grupos))+
+  geom_histogram(bins = 15,colour="black")+
+  theme_stata()+
+  ggtitle("Histograma por grupos según si asiste o no a clases de repaso")
+```
+
+
+![](p12.png) 
+
+![](p13.png) 
+
+![](p14.png) 
+
+A la vista de los anteriores gráficos parece claro que hay diferencias entre los dos grupos.
+
+
+\vspace{0.3cm}
+
+
+**Estadísticos media y varianza de cada uno de los grupos:**
+
+```python
+tapply(misdatos$productividad,misdatos$trata, mean) # Medias por grupos
+tapply(misdatos$productividad,misdatos$trata, sd) # Desviaciones típicas por grupos
+```
+```
+clases repaso       control 
+     62.24549      51.50000 
+clases repaso       control 
+     2.007912      2.206692 
+```
+
+\newpage
+
+**Contraste de igualdad de varianzas:**
+
+```python
+bartlett.test(misdatos$productividad~misdatos$trata) # Test de bartlet
+var.test(misdatos$productividad[misdatos$trata=="clases repaso"],misdatos$productividad[misdatos$trata=="control"]) # Test de la F
+```
+
+```
+	Bartlett test of homogeneity of variances
+
+data:  misdatos$productividad by misdatos$trata
+Bartlett's K-squared = 0.17362, df = 1, p-value = 0.6769
+
+
+	F test to compare two variances
+
+data:  misdatos$productividad[misdatos$trata == "clases repaso"] and
+
+misdatos$productividad[misdatos$trata == "control"]
+
+F = 0.82795, num df = 20, denom df = 20, p-value = 0.677
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.335954 2.040478
+sample estimates:
+ratio of variances 
+         0.8279535 
+```
+
+No podemos rechazar la hipótesis nula de igualdad de varianzas entre los grupos.
+
+
+```python
+# Test de Shapiro-Wilks para los datos en general y por grupos (Estos son los que de verdad nos interesan)
+shapiro.test(misdatos$productividad) 
+shapiro.test(misdatos$productividad[misdatos$trata=="clases repaso"])
+shapiro.test(misdatos$productividad[misdatos$trata=="control"])
+```
+
+```
+	Shapiro-Wilk normality test
+
+data:  misdatos$productividad
+W = 0.89589, p-value = 0.001087
+
+
+	Shapiro-Wilk normality test
+
+data:  misdatos$productividad[misdatos$trata == "clases repaso"]
+W = 0.97097, p-value = 0.7544
+
+
+	Shapiro-Wilk normality test
+
+data:  misdatos$productividad[misdatos$trata == "control"]
+W = 0.96175, p-value = 0.5521
+```
+
+
+Podemos ver como los datos en sí no son normales, pero cada uno de los grupos sí que lo son.
+
+
+```python
+# Test de Jarque Bera para los datos en general y por grupos (Estos son los que de verdad nos interesan)
+jarque.bera.test(misdatos$productividad)
+jarque.bera.test(misdatos$productividad[misdatos$trata=="clases repaso"])
+jarque.bera.test(misdatos$productividad[misdatos$trata=="control"])
+```
+
+```
+	Jarque Bera Test
+
+data:  misdatos$productividad
+X-squared = 4.3135, df = 2, p-value = 0.1157
+
+
+	Jarque Bera Test
+
+data:  misdatos$productividad[misdatos$trata == "clases repaso"]
+X-squared = 0.83715, df = 2, p-value = 0.658
+
+
+	Jarque Bera Test
+
+data:  misdatos$productividad[misdatos$trata == "control"]
+X-squared = 0.77118, df = 2, p-value = 0.68
+```
+
+Nos sale exactamente lo mismo que con el Shapiro-Wilk salvo que ahora todos los datos juntos sin distinción por grupos sí que es normal. Aunque tiene sentido ya que los datos en general tienen una forma relativamente simétrica.
+
+\vspace{0.3cm}
+
+T-Student test:
+
+```python
+# Test de la t-student
+t.test(misdatos$productividad~misdatos$trata,var.equal=TRUE)
+```
+```
+Two Sample t-test
+
+data:  misdatos$productividad by misdatos$trata
+t = 16.505, df = 40, p-value < 2.2e-16
+alternative hypothesis: true difference in means between group clases repaso and group control is not equal to 0
+95 percent confidence interval:
+  9.429668 12.061312
+sample estimates:
+mean in group clases repaso       mean in group control 
+                   62.24549                    51.50000 
+```
+
+Podemos ver que se puede rechazar la igualdad de medias, por lo tanto la media en las puntuaciones no son iguales según si asisten o no a clases de repaso.
+
+\vspace{0.3cm}
+
+Contraste de permutaciones:
+
+Un hecho a tener en cuenta es que el muestreo no ha sido aleatorio, ya que se ha basado en voluntarios. Una vez obtenidos los voluntarios, sí que se han dividido al azar entre repaso y control.
+```python
+# Diferencia de medias.
+dif_obs<-mean(misdatos$productividad[misdatos$trata=="clases repaso"])-mean(misdatos$productividad[misdatos$trata=="control"])
+dif_obs
+```
+
+    [1] 10.74549
+
+Determinar si la diferencia observada es significativa es equivalente a preguntarse cómo de probable es obtener esta diferencia si las clases de repaso no tienen efecto y los estudiantes se han asignado de forma aleatoria en cada grupo.
+
+Para obtener la probabilidad exacta, se requiere calcular todas las posibles permutaciones en las que 42 personas pueden repartirse en dos grupos y calcular la diferencia de medias para cada una.
+
+
+```python
+# Número de permutaciones posibles
+choose(42,2)
+```
+
+    [1] 861
+    
+    
+El número de permutaciones posibles es de 861.
+
+```python
+# Distribución exacta de permutaciones
+distribucion_permutaciones<-rep(NA,861)
+n_control<-length(misdatos$productividad[misdatos$trata=="control"])
+n_repaso<-length(misdatos$productividad[misdatos$trata=="clases repaso"])
+for(i in 1:861){
+  datos_aleatorizados<-sample(misdatos$productividad)
+  distribucion_permutaciones[i]<-mean(datos_aleatorizados[1:n_control])-mean(datos_aleatorizados[n_control+1:n_repaso])
+}
+# Gráfico de la distribución de las permutaciones.
+library(ggplot2)
+qplot(distribucion_permutaciones, geom = "blank")+geom_line(aes(y=..density..),stat = "density",colour="cadetblue4")+geom_histogram(aes(y=..density..),alpha=0.7, fill="firebrick3",colour="black",bins = 25)+geom_vline(xintercept = mean(distribucion_permutaciones))+geom_vline(xintercept = dif_obs,colour="gold2")+geom_vline(xintercept = -dif_obs,colour="gold2")+labs(title = "Distribución exacta de permutaciones", x="Diferencia de medias")+theme_stata()
+```    
+    
+    
+![](p15.png)     
+    
+    
+```python
+summary(distribucion_permutaciones) # Resumen numérico de la distribución de permutaciones
+sd(distribucion_permutaciones) # Desviación típica de la distribución de permutaciones
+```
+    
+```
+Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+-5.02614 -1.11697  0.04259  0.05696  1.21818  5.16530 
+[1] 1.789423
+```
+
+
+```python
+pvalor<-(sum(abs(distribucion_permutaciones)>abs(dif_obs)))/861 # Calculo del p-valor
+pvalor
+```
+
+    [1] 0
+    
+
+
+A la vista de los resultados anteriores podemos ver como el hecho de asistir o no a clases de repaso sí que influye en las posteriores calificaciones del examen. En media, los que asisten a clases de repaso obtienen mejores notas que los que no.
+
+En este caso, da igual utilizar un procedimiento u otro porque los resultados son los mismos.
+
+
+\newpage
+
+
+
+## Tareas parte 2
+
+
+
+
 
 
 
@@ -4038,6 +5241,8 @@ $$ \dfrac{1}{h} \sum_{i=1}^{h} \widehat{Sesgo}(\hat{y}_i) $$
 \newpage
 
 # Bibliografía
+
+
 
 
 
