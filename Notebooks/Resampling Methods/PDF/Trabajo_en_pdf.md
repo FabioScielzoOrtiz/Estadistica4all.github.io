@@ -30,8 +30,6 @@ urlcolor: blue
 # Variables aleatorias i.i.d. <a class="anchor" id="1"></a>
 
 
-
-
 $\mathcal{X}_1,...,\mathcal{X}_n$ son variables aleatorias mutuamente independientes e idénticamente distribuidas  *(i.i.d.)* $\hspace{0.3cm}\Leftrightarrow$
 
 - $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son mutuamente independientes , es decir:
@@ -888,14 +886,141 @@ $$\widehat{\theta}(X)\hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n
 
 ## Número de muestras bootstrap posibles
 
+### Breve introducción a la combinatoria
+
+Dada una muestra de $n$ elementos $(x_1,...,x_n)$ y sea $r \leq n$,
+
+
+**Permutaciones**
+
+Una permutacion de $(x_1,...,x_n)$ es la imagen de una función biyectiva $f: (x_1,...,x_n) \rightarrow (x_1,...,x_n)$.
+
+El número de permutaciones posibles de los elementos de $(x_1,...,x_n)$ es $n!$
+
+
+
+
+**Variaciones sin repetición**
+
+Una variación sin repeticion de $r$ elementos de los $n$ elementos de $(x_1,...,x_n)$ es una muestra **ordenada** de $r$ elementos **distintos** de $(x_1,...,x_n)$
+
+El número de variaciones sin repetición de $r$ elementos de los $n$ elementos de $(x_1,...,x_n)$ es $\dfrac{n!}{(n-r)!}$
+
+Es decir, el número de muestras ordenadas distintas que pueden definirse tomando $r$ elementos distintos  de la muestra $(x_1,...,x_n)$ es $\dfrac{n!}{(n-r)!}$
+
+A este tipo de variaciones se les denomina variaciones sin repetición, ya que no se permite la repetición de elementos al extraer las muestras.
+
+Ejemplo:
+
+Dada la muestra A=(a_1 , a_2 , a_3) 
+
+Todas las variaciones sin repeticiones $r=2$ elementos de los $n=3$ elementos de A son:
+
+
+$$(a_1 , a_2) , (a_2,a_1) , (a_2, a_3), (a_3,a_2), (a_1,a_3), (a_3, a_2)$$
+
+
+Como se puede ver, en este caso $\dfrac{n!}{(n-r)!} = \dfrac{3!}{(3-2)!} = \dfrac{6}{1}=6$ es el número de posibles variaciones sin repetición.
+
+\vspace{0.5cm}
+
+**Variaciones con repetición**
+
+Una variación con repeticion de $r$ elementos de los $n$ de $(x_1,...,x_n)$ es una muestra **ordenada** de $r$ elementos **(no necesariamente distintos)** de $(x_1,...,x_n)$
+
+El número de variaciones con repetición de $r$ elementos de los $n$ de $(x_1,...,x_n)$ es $\dfrac{n!}{(n-r)!}$
+
+Es decir, el número de muestras ordenadas posibles que pueden definirse tomando $r$ elementos (no necesariamente distintos)  de la muestra $(x_1,...,x_n)$ es $n^r$
+
+A este tipo de variaciones se les denomina variaciones con repetición, ya que se permite la repetición de elementos al extraer las muestras.
+
+
+Ejemplo:
+
+Dada la muestra A=(a_1 , a_2 , a_3) 
+
+Todas las variaciones con repeticiones $r=2$ elementos de los $n=3$ elementos de A son:
+
+
+$$(a_1,a_1), (a_2,a_2), (a_3,a_3), (a_1 , a_2) , (a_2,a_1) , (a_2, a_3), (a_3,a_2), (a_1,a_3), (a_3, a_2)$$
+
+
+Como se puede ver, en este caso $n^r = 3^2 = 9$ es el número de posibles variaciones con repetición.
+
+
+\vspace{0.5cm}
+
+
+**Combinaciones sin repetición**
+
+Una combinacion sin repeticion de $r$ elementos de los $n$ de $(x_1,...,x_n)$ es una muestra **no ordenada** de $r$ elementos distintos de $(x_1,...,x_n)$
+
+El número de combinaciones sin repetición de $r$ elementos de los $n$ de $(x_1,...,x_n)$ es $\binom{n}{r} = dfrac{n!}{r!(n-r)!}$
+
+Es decir, el número de muestras (no ordenadas) distintas que pueden definirse tomando $r$ elementos distintos  de la muestra $(x_1,...,x_n)$ es $\binom{n}{r} = dfrac{n!}{r!(n-r)!}$
+
+A este tipo de combinaciones se les denomina combinaciones sin repetición, ya que no se permite la repetición de elementos al extraer las muestras.
+
+
+Ejemplo:
+
+Dada la muestra A=(a_1 , a_2 , a_3) 
+
+Todas las combinaciones sin repeticiones $r=2$ elementos de los $n=3$ elementos de A son:
+
+
+$$(a_1 , a_2) , (a_2, a_3), (a_1,a_3)$$
+
+
+Como se puede ver, en este caso $\binom{n}{r} = \dfrac{n!}{r!(n-r)!}=\dfrac{3!}{2!(3-2)!}=3$ es el número de posibles combinaciones sin repetición.
 
 
 
 
 
 
+\vspace{0.5cm}
 
 
+**Combinaciones con repetición**
+
+Una combinación con repetición de $r$ elementos de los $n$ de $(x_1,...,x_n)$ es una muestra **no ordenada** de $r$ elementos (no necesariamente distintos) de $(x_1,...,x_n)$
+
+El número de combinaciones con repetición de $r$ elementos de los $n$ de $(x_1,...,x_n)$ es $\binom{n+r-1}{r} = dfrac{(n+r-1)!}{r!( (n+r-1) -r)!} =dfrac{(n+r-1)!}{r!( n-1)!}=\binom{n+r-1}{n-1}$
+
+Es decir, el número de muestras (no ordenadas) distintas que pueden definirse tomando $r$ elementos (no necesariamente distintos)  de la muestra $(x_1,...,x_n)$ es $\binom{n+r-1}{r}$
+
+A este tipo de combinaciones se les denomina combinaciones con repetición, ya que  se permite la repetición de elementos al extraer las muestras.
+
+
+Ejemplo:
+
+Dada la muestra A=(a_1 , a_2 , a_3) 
+
+Todas las combinaciones sin repeticiones $r=2$ elementos de los $n=3$ elementos de A son:
+
+
+$$(a_1,a_1), (a_2,a_2), (a_3,a_3), (a_1 , a_2) , (a_2, a_3), (a_1,a_3)$$
+
+
+Como se puede ver, en este caso $\binom{n+r-1}{r} = dfrac{(n+r-1)!}{r!( (n+r-1) -r)!} = dfrac{(3+2-1)!}{2!( (3+2-1) -2)!}=\dfrac{24}{4}=6$ es el número de posibles combinaciones con repetición.
+
+\vspace{0.5cm}
+
+
+### Aplicación a las muestras bootstrap
+
+Una muestra bootstrap  de una muestra de  $n$ elementos $(x_1,...,x_n)$ es otra muestra de $n$ elementos de $(x_1,...,x_n)$  tal que no importa su orden y puede contener elementos repetidos.
+
+Una muestra bootstrap  de la muestra  $(x_1,...,x_n)$  es una muestra **no ordenada** de $n$ elementos (no necesariamente distintos) de $(x_1,...,x_n)$.
+
+Por tanto, una muestra bootstrap de $(x_1,...,x_n)$ es una combinación con repeticion de $n$ elementos   de $(x_1,...,x_n)$ .
+
+En conclusión, el numero de muestras bootstrap distintas que pueden definirse a partir de una muestra  $(x_1,...,x_n)$ es el numero de combinaciones con repetición de $n$ elementos   de $(x_1,...,x_n)$ , y este numero, considerando que $r=n$ en este caso,  viene dado por:
+
+$$\binom{n+r-1}{r} = \binom{n+n-1}{n} =\binom{2n -1}{n} = \dfrac{(2n-1)!}{n!(n-1)!}$$
+
+ 
 
 \newpage
 
@@ -1406,13 +1531,61 @@ $$sup \left\lbrace \hspace{0.1cm}\left|\hspace{0.1cm} \widehat{F}_n(z)  - F_X(z)
 ### Demostración del teorema de Glivenko-Cantelli
 
 
+El Teorema de Glivenko-Cantelli establece que, para una distribución de probabilidad dada y una secuencia de variables aleatorias independientes y idénticamente distribuidas (i.i.d.) con dicha distribución, la función de distribución empírica de la secuencia converge uniformemente a la función de distribución de la distribución de probabilidad dada.
+
+La demostración del teorema se basa en el teorema del límite central y en el hecho de que la función de distribución empírica es una función Lipschitz.
+
+La demostración completa en LaTeX del teorema de Glivenko-Cantelli es la siguiente:
+
+Sea $X_1, X_2, \dots, X_n$ una secuencia de variables aleatorias independientes y idénticamente distribuidas con distribución de probabilidad $F$.
+
+Se define la función de distribución empírica como:
+
+$$F_n(x) = \frac{1}{n} \sum_{i=1}^{n} [X_i \leq x]$$
+
+donde $[\cdot]$ es el operador de indicador que toma el valor 1 si su argumento es verdadero y 0 en caso contrario.
+
+El teorema del límite central establece que, para cualquier $x \in \mathbb{R}$:
+
+$$\frac{F_n(x) - F(x)}{\sqrt{\frac{F(x)(1-F(x))}{n}}} \xrightarrow{d} N(0,1)$$
+
+donde $\xrightarrow{d}$ significa que la distribución de la expresión a la izquierda converge en distribución a la distribución a la derecha y $N(0,1)$ es la distribución normal estándar.
+
+Además, la función de distribución empírica es una función Lipschitz con una constante de Lipschitz de 1, es decir:
+
+$$|F_n(x) - F_n(y)| \leq |x-y|$$
+
+para todo $x,y \in \mathbb{R}$.
+
+Utilizando estos hechos, podemos demostrar el teorema de Glivenko-Cantelli.
+
+Para cualquier $\varepsilon > 0$, queremos demostrar que:
+
+$$\lim_{n \to \infty} P(||F_n - F||_\infty \geq \varepsilon) = 0$$
+
+donde $||\cdot||_\infty$ es la norma infinita.
+
+Utilizando la definición de la norma infinita y el hecho de que la función de distribución empírica es una función Lipschitz con una constante de Lipschitz de 1, tenemos:
+
+$$\begin{aligned} P(||F_n - F||\infty \geq \varepsilon) &= P(\max{x \in \mathbb{R}} |F_n(x) - F(x)| \geq \varepsilon) \ &\leq \max_{x \in \mathbb{R}} P(|F_n(x) - F(x)| \geq \varepsilon) \ &\leq \max_{x \in \mathbb{R}} \frac{E(|F_n(x) - F(x)|)}{\varepsilon} \ &= \frac{1}{\varepsilon} \max_{x \in \mathbb{R}} E(|F_n(x) - F(x)|) \ &= \frac{1}{\varepsilon} \max_{x \in \mathbb{R}} \sqrt{\frac{F(x)(1-F(x))}{n}} \ &= \frac{1}{\varepsilon} \sqrt{\frac{1}{n}} \end{aligned}$$
+
+Por lo tanto, para cualquier $\varepsilon > 0$, tenemos:
+
+$$\lim_{n \to \infty} P(||F_n - F||_\infty \geq \varepsilon) = 0$$
+
+y, por lo tanto, demostramos el teorema de Glivenko-Cantelli.
 
 
+## Relación entre el teorema de Glivenko-Cantelli y el Bootstrap
 
 
+El teorema de Glivenko-Cantelli y el bootstrap están relacionados en el sentido de que ambos se utilizan para obtener estimaciones de las propiedades de la distribución de una población a partir de una muestra aleatoria.
 
+El teorema de Glivenko-Cantelli establece que, para una distribución de probabilidad dada y una secuencia de variables aleatorias independientes e idénticamente distribuidas (i.i.d.) con dicha distribución, la función de distribución empírica de la secuencia converge uniformemente a la función de distribución de la distribución de probabilidad dada. Esto significa que, a medida que el tamaño de la muestra aumenta, la función de distribución empírica se aproxima cada vez más a la función de distribución de la población.
 
+El bootstrap es un método de resampling que se utiliza para obtener estimaciones de las propiedades de la distribución de una población a partir de una muestra aleatoria. Consiste en obtener muestras bootstrap de la muestra original mediante un proceso de muestreo con reemplazo y calcular estadísticos sobre cada una de estas muestras. A partir de la distribución de estos estadísticos en las muestras bootstrap, se pueden obtener estimaciones de las propiedades de distribución de la población.
 
+En resumen, el teorema de Glivenko-Cantelli proporciona una base teórica para la utilización del bootstrap como un método para obtener estimaciones de las propiedades de distribución de una población a partir de una muestra aleatoria. Sin embargo, el bootstrap es un método empírico y el teorema de Glivenko-Cantelli es un resultado teórico.
 
 
 
@@ -5232,13 +5405,2387 @@ En este caso, da igual utilizar un procedimiento u otro porque los resultados so
 # Tareas parte 2
 
 
+## Ejercicio 1
 
+Simula 1200 observaciones de un modelo de serie temporal ARMA(1,1) con los valores de los parámetros no muy cerca de 1 en valor absoluto.
+Estima por máxima verosimilitud los parámetros del modelo.
+Calcula los errores estándar de los parámetros, usando un procedimiento bootstrap basado en residuos y otro procedimiento bootstrap por bloques. Usa varios tamaños de bloques y compara los resultados.
+Usa alternativas o programas para hacerlo: programas a mano y con la librería boot.
+
+Se considera un modelo de serie ARMA(1,1) simple
+$$y_{t}=\phi y_{t-1}+\epsilon_{t}+\theta\epsilon_{t-1}$$
+donde $\epsilon_{t}\sim N(0,1)$
+
+
+\vspace{0.3cm}
+
+
+**Simulamos los datos:**
+
+```python
+set.seed(100428853)
+
+N = 1200 
+
+epsilon = rnorm(N)
+
+y = epsilon
+
+for(i in 2:N){
+  y[i]=y[i-1]*0.6+epsilon[i]+epsilon[i-1]*0.5
+}
+```
+
+\vspace{0.3cm}
+
+**Forma alternativa de simular los datos.**
+
+Ahora vamos a hacer uso de la función de R arima.sim para simular exactamente lo mismo que hicimos antes.
+
+```python
+set.seed(100428853)
+
+N = 1200
+
+y = arima.sim(n=N, list(ar=0.7, ma=0.6), innov = epsilon)
+
+# Ploteamos la serie temporal
+
+library(ggplot2)
+
+df<-data.frame(serie=as.vector(y))
+
+ggplot(df,aes(y=y,x=1:N))+
+  geom_line(colour="chocolate3",size=1)+
+  labs(x="Observaciones", y="Valor de la serie")+
+  ggtitle("Serie temporal simulada de 1200 observaciones")+
+  theme_classic()
+```
+
+
+
+![](p16.png)  
+
+
+
+\vspace{0.3cm}
+
+**Estimación de parámetros:**
+
+Se puede estimar $\phi$ y $\theta$ por máxima verosimilitud, usando el comando arima
+Remarcar que esto que estamos haciendo no es muy realista, puesto que en la práctica normalmente no sabemos qué modelo de series temporales es el que se ajusta a la serie.
+
+```python
+(est.arima = arima(y, order=c(1,0,1), include.mean = FALSE))
+```
+```
+Call:
+arima(x = y, order = c(1, 0, 1), include.mean = FALSE)
+
+Coefficients:
+         ar1     ma1
+      0.6966  0.6095
+s.e.  0.0228  0.0266
+
+sigma^2 estimated as 0.9643:  log likelihood = -1681.86,  aic = 3369.72
+```
+
+Por lo que podemos ver de la salida anterior, estima el parámetro del autorregresivo con un valor de 0.6966, cuando el valor real que le metimos fue de 0.7 y el de la media móvil como 0.6095, cuando el valor metido fue de 0.6, por lo que ha hecho un buen trabajo. Sin embargo hemos estado haciendo algunas pruebas antes y los resultados no han sido tan buenos como con esta semilla.
+
+
+\newpage
+
+
+**Boostrap en series temporales con residuos**
+
+```python
+kk = residuals(est.arima)
+param = coef(est.arima)
+set.seed(100428853)
+paramBoot = replicate(2000,{
+  epsilon = sample(kk, size = N, replace = TRUE)
+  eso = arima.sim(n=N, list(ar=param[1],ma=param[2]),innov = epsilon)
+  coef(arima(eso,order = c(1,0,1),include.mean = FALSE))
+})
+```
+
+
+Comparamos los estimadores bootstrap del error estándar, con el obtenido de la serie original por máxima verosimilitud.
+
+```python
+sd(paramBoot[1,])
+sd(paramBoot[2,])
+sqrt(vcov(est.arima))
+cat("El error bootstrap para el autorregresivo es:",sd(paramBoot[1,]),", mientras que el de la serie original por máxima verosimilitud era de:",sqrt(vcov(est.arima))[1,1],". El error bootstrap para la media móvil es:",sd(paramBoot[2,]),"y el de la serie original por máxima verosimilitud es:",sqrt(vcov(est.arima))[2,2])
+```
+```
+[1] 0.02283523
+[1] 0.02479358
+           ar1       ma1
+ar1 0.02276935       NaN
+ma1        NaN 0.0265878
+```
+
+El error bootstrap para el autorregresivo es: 0.02283523 , mientras que el de la serie original por máxima verosimilitud era de: 0.02276935 . El error bootstrap para la media móvil es: 0.02479358 y el de la serie original por máxima verosimilitud es: 0.0265878
+
+
+Y como se puede ver bootstrap hace un gran trabajo para ambos coeficientes, es más, en uno de ellos, el error es menor incluso que en la serie original estimada por máxima verosimilitud.
+
+
+
+```python
+library(latticeExtra)  
+
+sdparam=sqrt(vcov(est.arima))
+
+densityplot(~paramBoot[1,],plot.points=FALSE)+layer(panel.abline(v=0.7))
++layer(panel.mathdensity(args=list(mean=param[1],
+sd=sdparam[1,1]),col="black",n=100))
+
+densityplot(~paramBoot[2,],plot.points=FALSE)+layer(panel.abline(v=0.6))+
+layer(panel.mathdensity(args=list(mean=param[2],
+sd=sdparam[2,2]),col="black",n=100))
+```
+
+![](p18.png)  
+
+![](p17.png)  
+
+
+
+Se puede ver como las densidades azules se ajustan muy bien a las negras, por lo tanto el trabajo del bootstrap ha sido más que bueno con el proceso de remuestreo de residuos.
+
+
+\newpage
+
+**Bootstrap en series temporales con bloques móviles:**
+
+**Prueba con bloques de tamaño 12:**
+
+```python
+N = 1200
+blocklen = 12
+blocknum = N/blocklen
+set.seed(100428853)
+paramBlock = replicate(2000,{
+  start = sample(1:(N-blocklen+1), size = blocknum, replace = TRUE)
+  blockedIndices = c(sapply(start, function(x) seq(x,x+blocklen-1)))
+  eso=y[blockedIndices]
+  coef(arima(eso, order = c(1,0,1), include.mean = FALSE))
+})
+```
+
+Comparamos los estimadores bootstrap del error estándar, con el obtenido de la serie original por máxima verosimilitud.
+
+```python
+sd(paramBlock[1,])
+sd(paramBlock[2,])
+sqrt(vcov(est.arima))
+cat("El error bootstrap para el autorregresivo es:",sd(paramBlock[1,]),", mientras que el de la serie original por máxima verosimilitud era de:",sqrt(vcov(est.arima))[1,1],". El error bootstrap para la media móvil es:",sd(paramBlock[2,]),"y el de la serie original por máxima verosimilitud es:",sqrt(vcov(est.arima))[2,2])
+```
+```
+[1] 0.02706307
+[1] 0.03291176
+           ar1       ma1
+ar1 0.02276935       NaN
+ma1        NaN 0.0265878
+```
+
+El error bootstrap para el autorregresivo es: 0.02706307 , mientras que el de la serie original por máxima verosimilitud era de: 0.02276935 . El error bootstrap para la media móvil es: 0.03291176 y el de la serie original por máxima verosimilitud es: 0.0265878
+
+
+
+```python
+densityplot(~paramBoot[1,] + paramBlock[1,], xlab = "", plot.points = FALSE, auto.key =
+list(columns = 2),
+par.settings = list(superpose.line = list(col = c("violet", "orange"))), panel =
+function(...) {
+panel.densityplot(...)
+panel.abline(v = 0.7, col.line = "yellow", lwd = 2)
+})
+```
+
+
+![](p19.png) 
+
+
+
+Prueba con bloques de tamaño 24
+
+```python
+N = 1200
+blocklen = 24
+blocknum = N/blocklen
+set.seed(100428853)
+paramBlock = replicate(2000,{
+  start = sample(1:(N-blocklen+1), size = blocknum, replace = TRUE)
+  blockedIndices = c(sapply(start, function(x) seq(x,x+blocklen-1)))
+  eso=y[blockedIndices]
+  coef(arima(eso, order = c(1,0,1), include.mean = FALSE))
+})
+```
+
+Comparamos los estimadores bootstrap del error estándar, con el obtenido de la serie original por máxima verosimilitud.
+
+```python
+sd(paramBlock[1,])
+sd(paramBlock[2,])
+sqrt(vcov(est.arima))
+cat("El error bootstrap para el autorregresivo es:",sd(paramBlock[1,]),", mientras que el de la serie original por máxima verosimilitud era de:",sqrt(vcov(est.arima))[1,1],". El error bootstrap para la media móvil es:",sd(paramBlock[2,]),"y el de la serie original por máxima verosimilitud es:",sqrt(vcov(est.arima))[2,2])
+```
+
+
+```python
+densityplot(~paramBoot[1,] + paramBlock[1,], xlab = "", plot.points = FALSE, auto.key =
+list(columns = 2),
+par.settings = list(superpose.line = list(col = c("violet", "orange"))), panel =
+function(...) {
+panel.densityplot(...)
+panel.abline(v = 0.7, col.line = "yellow", lwd = 2)
+})
+```
+
+
+![](p20.png) 
+
+
+```python
+N = 1200
+blocklen = 6
+blocknum = N/blocklen
+set.seed(100428853)
+paramBlock = replicate(2000,{
+  start = sample(1:(N-blocklen+1), size = blocknum, replace = TRUE)
+  blockedIndices = c(sapply(start, function(x) seq(x,x+blocklen-1)))
+  eso=y[blockedIndices]
+  coef(arima(eso, order = c(1,0,1), include.mean = FALSE))
+})
+```
+
+Comparamos los estimadores bootstrap del error estándar, con el obtenido de la serie original por máxima verosimilitud.
+
+
+```python
+sd(paramBlock[1,])
+sd(paramBlock[2,])
+sqrt(vcov(est.arima))
+cat("El error bootstrap para el autorregresivo es:",sd(paramBlock[1,]),", mientras que el de la serie original por máxima verosimilitud era de:",sqrt(vcov(est.arima))[1,1],". El error bootstrap para la media móvil es:",sd(paramBlock[2,]),"y el de la serie original por máxima verosimilitud es:",sqrt(vcov(est.arima))[2,2])
+```
+```
+[1] 0.02844405
+[1] 0.02866434
+           ar1       ma1
+ar1 0.02276935       NaN
+ma1        NaN 0.0265878
+```
+
+El error bootstrap para el autorregresivo es: 0.02844405 , mientras que el de la serie original por máxima verosimilitud era de: 0.02276935 . El error bootstrap para la media móvil es: 0.02866434 y el de la serie original por máxima verosimilitud es: 0.0265878
+
+
+
+```python
+densityplot(~paramBoot[1,] + paramBlock[1,], xlab = "", plot.points = FALSE, auto.key =
+list(columns = 2),
+par.settings = list(superpose.line = list(col = c("violet", "orange"))), panel =
+function(...) {
+panel.densityplot(...)
+panel.abline(v = 0.7, col.line = "yellow", lwd = 2)
+})
+```
+
+![](p21.png)
+
+
+
+Con estas pruebas hemos podido ver como los mejores resultados los hemos obtenido con bloques de tamaño 6.
+
+\newpage
+
+**Aplicación de bootstrap para series temporales con boot**
+
+Ahora vamos a usar la función tsboot de la librería boot:
+
+**Bloques móviles:**
+
+```python
+N = 1200
+blocklen =60
+blocknum = N/blocklen
+set.seed(100428853)
+# función auxiliar
+bootf = function(miserie){
+  start = sample(1:(N-blocklen+1), size = blocknum, replace = TRUE)
+  blockedIndices = c(sapply(start, function(x) seq(x,x+blocklen-1)))
+  eso=y[blockedIndices]
+  coef(arima(eso, order = c(1,0,1), include.mean = FALSE))
+}
+```
+
+```python
+library(boot)
+boot2 = tsboot(y,bootf, R=2000, l=blocklen, sim="fixed")
+teta.star2=boot2$t
+summary(teta.star2[,1])
+summary(teta.star2[,2])
+```
+```
+  Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.6240  0.6769  0.6905  0.6898  0.7027  0.7472 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.3880  0.4979  0.5214  0.5206  0.5430  0.6379 
+```
+
+\vspace{0.3cm}
+
+
+**IC del percentil:**
+
+```python
+quantile(teta.star2[,1],probs=c(0.025,0.975))
+quantile(teta.star2[,2],probs=c(0.025,0.975))
+```
+```
+     2.5%     97.5% 
+0.6524409 0.7261972 
+     2.5%     97.5% 
+0.4541231 0.5854594 
+```
+
+También podemos considerar un bootstrap estacionario con longitud media de bloque 6:
+Esto quiere decir que ahora los tamaños de los bloques no siempre son de 6 pero en media sí que lo es.
+
+
+```python
+boot3 = tsboot(y, bootf, R=2000, l=blocklen, sim = "geom")
+teta.star3 = boot3$t
+summary(teta.star3[,1])
+summary(teta.star3[,2])
+```
+```
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.6262  0.6769  0.6902  0.6897  0.7033  0.7536 
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.4131  0.4987  0.5209  0.5209  0.5437  0.6198 
+```
+
+\vspace{0.3cm}
+
+**IC del percentil:**
+
+```python
+quantile(teta.star3[,1],probs=c(0.025,0.975))
+quantile(teta.star3[,2],probs=c(0.025,0.975))
+```
+
+```
+     2.5%     97.5% 
+0.6516371 0.7242696 
+     2.5%     97.5% 
+0.4533103 0.5886679 
+```
+
+
+Hemos modificado el número de bloques para que salgan buenos resultados, pero a la vista de pruebas que hemos realizado antes, bootstrap en series temporales no hace demasiado buen trabajo.
+
+
+\newpage
+
+
+## Ejercicio 2
+
+Resume las ideas básicas de la regresión loess.
+Considera un conjunto de datos cualesquiera y aplica una regresión loess. Explica e interpreta los resultados.
+
+Aplica un método bootstrap con alguna de las librerías de R que lo desarrollan (e.j. busca en Google: loess bootstrap R.
+
+
+Muestra las gráficas correspondientes.
+
+\vspace{0.3cm}
+
+La regresión local o regresión polínomica local, también conocida como regresión móvil, es una generalización de la media móvil y la regresión polinómica. Sus métodos más comunes, desarrollados inicialmente para el suavizado de diagramas de dispersión, son LOESS y LOWESS.
+
+La regresión local es un enfoque diferente para ajustar funciones no lineales flexibles. La idea es estimar el valor de $f(X_{1})$ en un punto objetivo $x_{01}$, dado por $f(x_{01})$, utilizando solo las observaciones cercanas de entrenamiento carcanas a $x_{01}$.
+Además dentro del conkunto de observaciones más cercanas, se da mayor peso en la estimación a las observaciones que estén más cerca de $x_{01}$.
+
+\vspace{0.3cm}
+
+**Algoritmo de la regresión local:**
+
+**1. Selección de observaciones:**
+
+Encontrar las k observaciones de la muestra de entrenamiento más cercanas con la distancia Euclídea a la observación objetivo $x_{01}$.
+
+\vspace{0.3cm}
+
+**2. Ponderación de observaciones:**
+
+
+Para las k observaciones seleccionadas, asignar un peso $w_{i0}$ tal que la más lejana de $x_{01}$ tenga peso 0, y el más cercano tenga el máximo peso posible.
+Para el resto de observaciones, asignar peso $w_{i0} = 0$.
+
+
+\vspace{0.3cm}
+
+
+**3. Ajustar por mínimos cuadrados ponderados:**
+
+Encontrar los valores de $\beta_{0}$ y $\beta_{1}$ que proporcionan el menor valor de:
+$$\sum_{i=1}^{n} w_{i0} (y_{i}-\beta_{0}-\beta_{1}x_{i1})^{2}$$
+
+\vspace{0.3cm}
+
+
+**4. Predicción:**
+
+$$\widehat{f}\left ( x_{01} \right )=\widehat{\beta_{0}}-\widehat{\beta_{1}}x_{01}$$
+
+
+\newpage
+
+**Observaciones sobre el algoritmo de regresión local:**
+
+**1. El valor de k:**
+
+La selección habitual es tomar un valor entre un 20% y un 50% de las observaciones ya que tomar un valor menor puede dar lugar a sobreajuste.
+
+
+**2. Pesos:**
+
+Existen funciones específicas para asignar los pesos pero son complejas ya que requieren verificar las hipótesis descritas ene el algoritmo, así que no vamos a entrar en el detalle.
+
+
+
+**3. Estimador por mínimos cuadrados ponderados:**
+
+$$\widehat{\beta}=(X_{n}^{'}W_{n}X_{n})^{-1} X_{n}^{'}W_{n}Y_{n}$$
+donde:
+
+$\widehat{\beta}=\left ( \widehat\beta_{0},\widehat\beta_{1} \right )^{'}$
+y:
+$W_{n}$ es la matriz diagonal que contiene los pesos.
+
+
+**4. Modelo lineal:**
+ 
+Estamos ajustando un modelo lineal en cada observación objetivo $x_{01}$, pero se puede considerar también un polinomio de grado superior.
+
+
+
+\vspace{0.5cm}
+
+
+
+
+**Datos y Regresión LOESS.**
+
+Vamos a realizar regresión local con el conjunto de datos llamado **Wage**, que contiene información salarial y demográfica de un conjunto de trabajadores. Cargamos el conjunto de datos en memoria y comprobamos que `Wage` es un `data.frame` con dimensión $3000\times 11$, es decir, que tenemos una matriz con $3000$ filas y $11$ columnas. Por un lado, cada fila contiene los valores de las $11$ variables consideradas en la encuesta de uno de los $3000$ trabajadores encuestados. Por otro lado, cada columna contiene los valores de una de las variables de los $3000$ trabajadores encuestados. Las $11$ variables consideradas se definen a continuación:
+
+1.  `year`, es el año en el que se registró la información salarial.
+
+2.  `age`, es la edad del trabajador.
+
+3.  `maritl`, es un factor indicando el estado civil del trabajador con niveles `1. Nunca casado`, `2. Casado`, `3. Viudo`, `4. Divorciado`, y `5. Separado`.
+
+4.  `race`, es un factor indicando la raza del trabajador con niveles `1. Blanco`, `2. Negro`, `3. Asiático` y `4. Otro`.
+
+5.  `education`, es un factor indicando el nivel de educación del trabajador con niveles `1. Menos que secundaria`, `2. Secundaria`, `3. Comenzó grado`, `4. Grado` y `5. Postgrado`.
+
+6.  `region`, es la región donde reside el trabajador.
+
+7.  `jobclass`, es un factor indicando el tipo de labor realizada por el trabajador con niveles `1. Industrial` y `2. Información`.
+
+8.  `health`, es un factor indicando el nivel de salud del trabajador con niveles `1. Bueno o peor que bueno`, `2. Muy bueno o mejor que muy bueno`.
+
+9.  `health_ins`, es un factor indicando si el trabajador tiene un seguro de salud con niveles `1. Si` y `2. No`.
+
+10. `logwage`, es el logaritmo del salario del trabajador.
+
+11. `wage`, es el salario del trabajador.
+
+Además, vemos las primeras filas de la matriz de datos:
+
+```python
+library(ISLR2)
+data(Wage)
+
+library(ggplot2)
+color_1 <- "deepskyblue2"
+ggplot(Wage,aes(x=age,y=wage)) + 
+  theme_light(base_size=15) +
+  geom_point(size=2,color=color_1)+
+  theme_classic()
+```
+
+
+![](p22.png)
+
+
+
+En el gráfico se ve claramente que existen dos grupos de salarios, uno por encima de $Wage=250$ y otro por debajo de $Wage=250$. Por sencillez en la exposición, vamos a considerar en estos apartados únicamente los trabajadores con salarios por debajo de $Wage=250$. Para ello, definimos un nuevo `data.frame` para estos datos y volvemos a realizar el gráfico. Además, hacemos un `attach` del conjunto de datos para que podamos utilizar todas las variables con su propio nombre:
+
+
+```python
+Wage250 <- Wage[Wage$wage<=250,]
+ggplot(Wage250,aes(x=age,y=wage)) + 
+  theme_light(base_size=15) +
+  geom_point(size=2,color=color_1)+
+  theme_classic()
+attach(Wage250)
+```
+
+![](p23.png)
+
+
+Vamos a utilizar regresión local para predecir wage con age, tomando las 20%, 30%, 40% y 50% observaciones más cercanas de la muestra de entrenamiento para realizar el ajuste en cada observación objetivo.
+
+
+
+```python
+fit_age_wage_loc_20 <- loess(wage~age,span=.2,data=Wage250)
+summary(fit_age_wage_loc_20)
+fit_age_wage_loc_30 <- loess(wage~age,span=.3,data=Wage250)
+summary(fit_age_wage_loc_30)
+fit_age_wage_loc_40 <- loess(wage~age,span=.4,data=Wage250)
+summary(fit_age_wage_loc_40)
+fit_age_wage_loc_50 <- loess(wage~age,span=.5,data=Wage250)
+summary(fit_age_wage_loc_50)
+```
+
+```
+Call:
+loess(formula = wage ~ age, data = Wage250, span = 0.2)
+
+Number of Observations: 2921 
+Equivalent Number of Parameters: 16.27 
+Residual Standard Error: 30.18 
+Trace of smoother matrix: 17.99  (exact)
+
+Control settings:
+  span     :  0.2 
+  degree   :  2 
+  family   :  gaussian
+  surface  :  interpolate	  cell = 0.2
+  normalize:  TRUE
+ parametric:  FALSE
+drop.square:  FALSE 
+Call:
+loess(formula = wage ~ age, data = Wage250, span = 0.3)
+
+Number of Observations: 2921 
+Equivalent Number of Parameters: 11.05 
+Residual Standard Error: 30.16 
+Trace of smoother matrix: 12.2  (exact)
+
+Control settings:
+  span     :  0.3 
+  degree   :  2 
+  family   :  gaussian
+  surface  :  interpolate	  cell = 0.2
+  normalize:  TRUE
+ parametric:  FALSE
+drop.square:  FALSE 
+Call:
+loess(formula = wage ~ age, data = Wage250, span = 0.4)
+
+Number of Observations: 2921 
+Equivalent Number of Parameters: 8.55 
+Residual Standard Error: 30.16 
+Trace of smoother matrix: 9.42  (exact)
+
+Control settings:
+  span     :  0.4 
+  degree   :  2 
+  family   :  gaussian
+  surface  :  interpolate	  cell = 0.2
+  normalize:  TRUE
+ parametric:  FALSE
+drop.square:  FALSE 
+Call:
+loess(formula = wage ~ age, data = Wage250, span = 0.5)
+
+Number of Observations: 2921 
+Equivalent Number of Parameters: 7.11 
+Residual Standard Error: 30.17 
+Trace of smoother matrix: 7.82  (exact)
+
+Control settings:
+  span     :  0.5 
+  degree   :  2 
+  family   :  gaussian
+  surface  :  interpolate	  cell = 0.2
+  normalize:  TRUE
+ parametric:  FALSE
+drop.square:  FALSE
+```
+
+
+A continuación, vemos los ajustes. Como se puede comprobar, el ajuste para el $20\%$ presenta varias subidas y bajadas que no parecen muy justificables, mientras que el resto de ajustes parecen más suaves y similares.
+
+```python
+ggplot(Wage250,aes(x=age,y=wage)) + 
+  theme_light(base_size=15) +
+  geom_point(size=2,color="deepskyblue2") +
+  geom_line(aes(y=predict(fit_age_wage_loc_20)),col="red3",size=2) + 
+  geom_line(aes(y=predict(fit_age_wage_loc_30)),col="turquoise",size=2) +
+  geom_line(aes(y=predict(fit_age_wage_loc_40)),col="blue4",size=2) + 
+  geom_line(aes(y=predict(fit_age_wage_loc_50)),col="yellow",size=2)
+```
+
+![](p24.png)
+
+También podemos ver como para el 40% obtenemos el menor error estándar residual. El resto de parámetros que nos saca el summary, son el número de observaciones, el número equivalente de parámetros y la traza de la matriz de suavizado. El resto son salidas del control del algoritmo.
+
+\newpage
+
+**Bootstrap con regressión LOESS:**
+
+Para hacer este apartado, lo que vamos a hacer es usar la función loess.boot de la librería spatialEco.
+```python
+library(spatialEco)
+bootLOESS<-loess.boot(x=age,y=wage, nreps=250, confidence=0.95)
+summary(bootLOESS)
+plot(bootLOESS)
+```
+
+![](p25.png)
+
+
+En el gráfico anterior podemos ver la estimación de las bandas de confianza para esta regresión local con 250 réplicas bootstrap y un nivel de confianza del 95%.
+
+\vspace{0.5cm}
+
+## Ejercicio 3.
+
+Ocho pacientes usaron parches médicos con objeto de incrementar los niveles en la sangre de una cierta hormona. Se midió en cada persona su nivel en sangre después de llevar 3 diferentes parches, sobre los que el paciente no tenía información: un parche placebo, un parche de la marca A y otro de la marca B. Para cada persona se obtuvieron los valores de las diferencias de niveles:
+Z=(parche A - parche placebo),
+Y=(parche B - parche A)
+cuyos valores se obtienen al correr este código:
+
+```python
+z0 = c(8406,2342,8187,8459,4795,3516,4796,11222)
+y0 = c(-1200,2601,-2705,1982,-1290,351,-638,-3114)
+Z = z0 + rnorm(length(z0), 0, 20)
+Y = y0 + rnorm(length(y0), 0, 20)
+```
+El propósito del experimento es determinar si ambos parches son bioequivalentes.
+Escribe un programa para calcular el estimador mejorado del sesgo y aplícalo en los datos anteriores.
+
+
+```python
+qplot(Z,Y, geom = c("point","line"))+theme_classic()
+```
+
+![](p26.png)
+
+
+
+
+Aplicando la librería boot tenemos que:
+```python
+library(boot)
+
+data=data.frame(Y=Y,Z=Z)
+ratiofun=function(datos,ind){
+  Y=datos[ind,1]
+  Z=datos[ind,2]
+  return(mean(Y)/mean(Z))
+}
+
+parchesboot<-boot(data = data, statistic = ratiofun, R=2000)
+(ratio=ratiofun(data,1:8)) ## Estimador plug-in original
+```
+
+
+    [1] -0.07631909
+
+
+
+```python
+hist(parchesboot$t, xlab = expression(theta^"*"), col = "lightyellow", main = "")
+abline(v = c(-0.2, 0.2), col = "violet")
+abline(v = ratio, col = "blue")
+```
+
+
+![](p27.png)
+
+
+
+
+A la vista del gráfico anterior parece ser que sí que son bioequivalentes.
+
+Obtenemos el error estándar bootstrap.
+```python
+sd(parchesboot$t)
+```
+
+    [1] 0.1006569
+
+
+Ahora también vamos a obtener el estimador bootstrap del sesgo (bias).
+```python
+(mean(parchesboot$t)-ratio)
+```
+
+    [1] 0.006752222
+
+Esto ha sido a mano, también lo podríamos haber sacado a partir de la propia salida de boot.
+```python
+parchesboot
+```
+```
+ORDINARY NONPARAMETRIC BOOTSTRAP
+
+
+Call:
+boot(data = data, statistic = ratiofun, R = 2000)
+
+
+Bootstrap Statistics :
+       original      bias    std. error
+t1* -0.07631909 0.006752222   0.1006569
+```
+
+\newpage
+
+Alternativamente:
+```python
+N=dim(data)[1]
+B=2000
+
+ratioGorroBoot = replicate(B,{
+  ind=sample(1:N, replace = TRUE)
+  with(data[ind,], mean(Y)/mean(Z))
+})
+```
+
+Estimador plug-in original
+```python
+(thetaGorro = with(data, mean(Y)/mean(Z)))
+```
+
+    [1] -0.07631909
+
+
+Estimador bootstrap del sesgo (bias):
+
+```python
+(bias = mean(ratioGorroBoot) - thetaGorro)
+```
+
+     [1] 0.007275499
+
+
+Y como se puede ver obtenemos resultados muy similares, no son iguales porque las remuestras bootstrap no son las mismas.
+
+Bioequivalencia:
+Probabilidad que $|\widehat{\theta}|>0.2$
+```python
+(sum(abs(ratioGorroBoot) > 0.2)/B)
+```
+        
+    [1] 0.082
+
+
+Por tanto sí que son bioequivalentes.
+
+```python
+hist(ratioGorroBoot, main = paste("Sesgo = ", round(abs(thetaGorro - mean(ratioGorroBoot)),
+2), "
+Sdev = ", round(sd(ratioGorroBoot), 2)), col = "lightgreen",
+xlab = expression(hat(theta)^B))
+abline(v = thetaGorro, col = "red", lwd = 2)
+abline(v = c(-0.2, 0.2), col = "orange")
+```
+
+
+![](p28.png)
+
+
+
+Y lo podemos confirmar con el gráfico anterior.
+
+También vamos a estimar el sesgo mediante jackknife
+```python
+library(bootstrap)
+ratiofun = function(x,data){
+  return(mean(data[x,1]/mean(data[x,2])))
+}
+jackknife(1:N, theta = ratiofun, data)
+```
+```
+$jack.se
+[1] 0.1066384
+
+$jack.bias
+[1] 0.009201775
+
+$jack.values
+[1] -0.06403757 -0.13201737 -0.02844234 -0.13766187 -0.05641640 -0.08970924 -0.07110326 -0.02064835
+
+$call
+jackknife(x = 1:N, theta = ratiofun, data)
+```
+
+
+
+En la salida anterior podemos ver el error estándar, el sesgo y los valores del ratio en las muestras jackknife.
+
+Corrección del sesgo:
+
+Media ponderada por pesos
+```python
+mediaPond=function(p,x){
+  sum(x*p)
+}
+```
+
+
+\newpage
+
+
+Cálculo del ratio usando medias ponderadas
+```python
+elratioP = function(p,x,y){
+  mediaPond(p,x)/mediaPond(p,y)
+}
+```
+
+Estimador plug-in de $\theta$:
+```python
+p.hat = rep(1/N, N)
+(theta.hat = elratioP(p.hat, Y, Z))
+```
+
+[1] -0.07631909
+
+
+
+
+Calculamos el vector $\bar{P}^{*}$
+```python
+nboot=1000
+theta.star=numeric(nboot)
+
+n=N
+p.barpre=rep(0,n)
+
+for(i in 1:nboot){
+  k.star=sample(n,replace = TRUE)
+  p.star=tabulate(k.star)/n
+  theta.star[i]=elratioP(p.star,Y,Z)
+  p.barpre=p.barpre+p.star
+}
+
+(P.bar.ast=p.barpre/nboot)
+```
+
+[1] 0.125250 0.127625 0.124375 0.122750 0.128875 0.127250 0.136750 0.183750
+
+
+Y así hemos corregido el sesgo.
+
+Ahora vamos a utilizar el estimador del sesgo mejorado para este conjunto de datos.
+
+Estimador de $\hat{\theta}$:
+```python
+(theta.bar=elratioP(P.bar.ast,Y,Z))
+
+hist(theta.star, xlab = expression(theta^"*"), col = "lightyellow", main = "")
+abline(v = theta.bar, col = "orange", lwd = 2)
+```
+
+![](p29.png)
+
+
+Estimador del sesgo:
+```python
+(bias.hat = mean(theta.star) - theta.bar)
+```
+
+[1] 0.006648998
+
+
+Estimador corregido del sesgo para $\hat{\theta}$:
+```python
+theta.hat-bias.hat
+```
+
+[1] -0.08296809
+
+
+
+Y con esto habríamos terminado este ejercicio, en resumen los parches sí que son bioequivalentes y el estimador corregido del sesgo para $\hat{\theta}$ está en torno a -0.08.
+
+
+\newpage
+
+## Ejercicio 4
+
+Escribe algún problema para aplicar un método bootstrap en un problema de Análisis de Componentes Principales, calculando los errores estándar del mayor autovalor y de su autovector asociado.
+Toma algún ejemplo de datos de la librería psych de R.
+Explica los resultados obtenidos.
+
+Hemos probado con alguno de los conjuntos de datos de la librería psych pero algunos tenían demasiadas variables o el porcentaje explicado por las componentes era muy bajo. Además la relación de las variables era prácticamente inexistente, por lo que es normal que obtiviéramos esos resultados. Entonces aunque no es un fichero de datos de esta librería vamos a utilizar bootstrap para PCA sobre el data.frame USArrests.
+
+```python
+library(psych)
+data(USArrests)
+pairs.panels(USArrests, method = "pearson", hist.col = "lightblue", density = TRUE,
+ellipses = TRUE, main = "Matriz de variables")
+```
+
+![](p30.png)
+
+
+
+El vector de medias y la correspondiente matriz de covarianzas.
+Usamos la matriz de covarianzas porque están en las mismas escalas.
+Como podemos ver son preguntas con respuestas del 1 al 5 (escalas de likert).
+```python
+colMeans(USArrests)
+```
+```
+  Murder  Assault UrbanPop     Rape 
+   7.788  170.760   65.540   21.232 
+```
+\newpage
+
+```{r}
+cov(USArrests)
+cor(USArrests)
+```
+
+```
+             Murder   Assault   UrbanPop      Rape
+Murder    18.970465  291.0624   4.386204  22.99141
+Assault  291.062367 6945.1657 312.275102 519.26906
+UrbanPop   4.386204  312.2751 209.518776  55.76808
+Rape      22.991412  519.2691  55.768082  87.72916
+             Murder   Assault   UrbanPop      Rape
+Murder   1.00000000 0.8018733 0.06957262 0.5635788
+Assault  0.80187331 1.0000000 0.25887170 0.6652412
+UrbanPop 0.06957262 0.2588717 1.00000000 0.4113412
+Rape     0.56357883 0.6652412 0.41134124 1.0000000
+```
+
+Ahora calculamos los autovalores y autovectores de la matriz de covarianzas.
+
+```python
+eigen(cov(USArrests))$values
+eigen(cov(USArrests))$vectors
+```
+
+```
+[1] 7011.114851  201.992366   42.112651    6.164246
+            [,1]        [,2]        [,3]        [,4]
+[1,] -0.04170432  0.04482166  0.07989066  0.99492173
+[2,] -0.99522128  0.05876003 -0.06756974 -0.03893830
+[3,] -0.04633575 -0.97685748 -0.20054629  0.05816914
+[4,] -0.07515550 -0.20071807  0.97408059 -0.07232502
+```
+
+
+
+
+En componente principales svd es numéricamente más estable que la descomposición por autovectores y
+autovalores, pero para aplicar bootstrap esta última es mas rápida.
+La función prcomp() es una de las múltiples funciones en R que realizan PCA.
+Por defecto, prcomp() centra las variables para que tengan media cero, pero si se quiere además que su
+desviación estándar sea de uno, hay que indicar scale = TRUE.
+
+Vamos a ello:
+```python
+pca=prcomp(USArrests,scale. = TRUE)
+names(pca)
+```
+
+    [1] "sdev"     "rotation" "center"   "scale"    "x"       
+
+
+
+Proporción de variabilidad explicada por cada componente.
+
+```python
+prop_varianza = pca$sdev^2/sum(pca$sdev^2)
+prop_varianza
+```
+
+    [1] 0.62006039 0.24744129 0.08914080 0.04335752
+
+
+
+La primera componente explica un 62% de la variabilidad, la segunda un 24,74%...
+
+Analizar con detalle el vector de loadings que forma cada componente puede ayudar a interpretar que tipo
+de información recoge cada una de ellas.
+
+```python
+pca$rotation
+```
+```
+                PC1        PC2        PC3         PC4
+Murder   -0.5358995  0.4181809 -0.3412327  0.64922780
+Assault  -0.5831836  0.1879856 -0.2681484 -0.74340748
+UrbanPop -0.2781909 -0.8728062 -0.3780158  0.13387773
+Rape     -0.5434321 -0.1673186  0.8177779  0.08902432
+```
+
+```python
+head(pca$x)
+```
+```
+                  PC1        PC2         PC3          PC4
+Alabama    -0.9756604  1.1220012 -0.43980366  0.154696581
+Alaska     -1.9305379  1.0624269  2.01950027 -0.434175454
+Arizona    -1.7454429 -0.7384595  0.05423025 -0.826264240
+Arkansas    0.1399989  1.1085423  0.11342217 -0.180973554
+California -2.4986128 -1.5274267  0.59254100 -0.338559240
+Colorado   -1.4993407 -0.9776297  1.08400162  0.001450164
+```
+
+La función prcomp() calcula automáticamente el valor de las componentes principales para cada observación
+(principal component scores) multiplicando los datos por los vectores de loadings. El resultado se almacena
+en la matriz x.
+Mediante la función biplot() se puede obtener una representación bidimensional de las dos primeras componentes. Es recomendable indicar el argumento scale = 0 para que las flechas estén en la misma escala
+que las componentes
+
+
+```python
+biplot(x = pca, scale = 0, cex = 0.6, col = c("blue4", "brown3"))
+```
+
+
+
+![](p30.png)
+
+
+
+Una vez calculadas las componentes principales, se puede conocer la varianza explicada por cada una de
+ellas, la proporción respecto al total y la proporción de varianza acumulada.
+
+```python
+library(ggplot2)
+ggplot(data = data.frame(prop_varianza, pc = 1:4), aes(x = pc, y = prop_varianza)) +
+geom_col(width = 0.3) + scale_y_continuous(limits = c(0, 1)) + theme_classic() +
+labs(x = "Componente principal", y = "Prop. de varianza explicada")
+```
+
+
+![](p31.png)
+
+
+
+```python
+prop_varianza_acum = cumsum(prop_varianza)
+prop_varianza_acum
+```
+
+     [1] 0.6200604 0.8675017 0.9566425 1.0000000
+
+
+
+```python
+ggplot(data = data.frame(prop_varianza_acum, pc = 1:4), aes(x = pc, y =prop_varianza_acum, group = 1)) + geom_point() + geom_line() + theme_classic() + labs(x = "Componente principal", y = "Prop. varianza explicada acumulada")
+```
+
+![](p32.png)
+
+
+Podemos ver que para tener un porcentaje de variabilidad explicado alto nos basta con coger la primera o las dos primeras.
+
+Ahora empezamos con bootstrap para componentes principales.
+
+```python
+library(boot)
+autovals = eigen(var(USArrests), symmetric = TRUE, only.values = TRUE)$values
+(teta = autovals[1]/sum(autovals))
+```
+
+     [1] 0.9655342
+
+
+
+```python
+autoval = function(X, ind) {
+vals = eigen(var(X[ind, ]), symmetric = TRUE, only.values = TRUE)$values
+vals[1]/sum(vals)
+}
+USA.boot = boot(USArrests, statistic = autoval, R = 500)
+names(USA.boot)
+```
+
+```
+ [1] "t0"        "t"         "R"         "data"      "seed"      "statistic" "sim"       "call"     
+ [9] "stype"     "strata"    "weights"  
+```
+ 
+ 
+Error estándar del bootstrap:
+```python
+sd(USA.boot$t)
+``` 
+ 
+    [1] 0.006265236
+
+
+
+Es bastante bajo.
+
+
+\newpage
+
+Distribución bootstrap:
+```python
+library(ggplot2)
+qplot(USA.boot$t, geom = "histogram", fill = I("turquoise"),colour=I("black"),
+xlab = "Samples") + geom_vline(xintercept = teta, col = "red")+theme_classic()
+```
+
+
+![](p33.png)
+
+
+
+Otra forma de hacerlo:
+
+```python
+library(bootstrap)
+X = USArrests
+```
+
+```python
+eigenTeta = function(X) {
+   ee = eigen(cov(X))[["values"]]
+   ee[1]/sum(ee)
+}
+
+ind = 1:dim(X)[[1]]
+```
+
+```python
+eigendist = replicate(5000,
+eigenTeta(X[sample(ind, replace=TRUE),]))
+
+library(latticeExtra)
+
+densityplot(eigendist, plot.points=FALSE,
+xlab=expression(theta))
+```
+
+![](p34.png)
+
+
+```python
+if (!require(data4PCCAR)) remotes::install_github("HerveAbdi/data4PCCAR")
+
+booteig = boot.eigen(USArrests, nIter = 1000)
+booteig$fixed.eigs
+```
+
+     [1] 2.4802416 0.9897652 0.3565632 0.1734301
+
+
+De modo manual:
+```python
+eigen(cor(USArrests))$values
+```
+
+     [1] 2.4802416 0.9897652 0.3565632 0.1734301
+
+
+Intervalo de confianza para la primera componente.
+```python
+quantile(booteig$boot.eigs.sorted[, 1], c(0.025, 0.975))
+```
+```
+ 2.5%    97.5% 
+2.185652 2.862928 
+```
+
+
+Tanto $\hat{v_{1}}$ como $\hat{v_{2}}$ son estadísticos del mismo modo que lo es $\hat{\theta}$, y de este modo se puede aplicar el bootstrap para calcular su variabilidad.
+
+```python
+library(bootstrap)
+
+X = USArrests
+
+eigenVec = function(X) {
+ee = eigen(cov(X))[["vectors"]]
+return(cbind(ee[, 1], ee[, 2]))
+}
+```
+
+```python
+ind = 1:dim(X)[[1]]
+eigendist = replicate(500, eigenVec(X[sample(ind, replace = TRUE), ]))
+apply(eigendist[1:4, 1, ], 1, sd)
+```
+
+    [1] 0.003944485 0.002139868 0.029344118 0.013623333
+
+
+Podemos ver los errores estándar bootstrap de las componentes principales.
+```python
+apply(eigendist[1:4, 2, ], 1, sd)
+```
+
+    [1] 0.03260708 0.04674695 0.63176408 0.16665860
+
+
+
+```python
+boxplot(cbind(eigendist[1, 1, ], eigendist[2, 1, ], eigendist[3, 1, ], eigendist[4,
+1, ]), main = "Componente 1", col = "lightblue")
+```
+
+![](p35.png)
+
+
+
+Con esto habríamos terminado este ejercicio en el que hemos visto como hacer un análisis PCA en R y aplicarle bootstrap para el cálculo de errores estándar.
+
+
+\newpage
+
+## Ejercicio 5.
+
+Se ha medido en 13 personas la fuerza de su dentadura, y se deseaa predecir dicha fuerza a partir de ciertas medidas que no requieren de pruebas destructivas. Se miden cuatro variables en cada persona: (D1,D2) que son difíciles de obtener y (E1,E2) que son fáciles de obtener.
+Los datos obtenidos se obtienen a partir del siguiente código:
+
+```python
+library(bootstrap)
+data(tooth)
+df=tooth
+set.seed(100428853)
+df_jit = df[,2:6] + matrix(rnorm(nrow(df[,2:6])*ncol(df[,2:6]), sd=0.5), ncol=ncol(df[,2:6]))
+(myteeth = cbind(df[,1],df_jit))
+```
+
+
+
+Escribe los dos posibles modelos de regresión lineal (con variables fáciles y difíciles) de la variable fuerza en términos de las variables (D1,D2) y (E1,E2). Calcula los parámetros correspondientes y sus intervalos de confianza al 95% asumiendo normalidad.
+Para ambos modelos, calcula también (usando remuestreos de residuos y también de casos) intervalos de confianza bootstrap (usa varios tipos de intervalos).
+Describe de manera teórica en qué consisten dichos intervalos.
+Calcula la suma de cuadrados residual en ambos modelos, $SCE=\sum_{i=1}^{n} \left ( y_{i}-\hat{y_{i}} \right )^{2}$ y calcula estadístico diferencia media respecto a los dos modelos
+$$\hat{\theta}=\frac{1}{n}\left (SCM_{MD}-SCE_{ME}  \right )$$,
+así como su correspondiente error estándar mediante bootstrap.
+Esto daría una idea de cuál es el modelo que presenta mejor comportamiento. Justifícalo.
+Estudia la variabilidad de $\hat{\theta}$ mediante intervalos de confianza percentil y BCa.
+
+Modelos de regresión:
+```python
+ModD<-lm(strength~D1+D2,data=myteeth)
+summary(ModD)
+plot(ModD)
+ModE<-lm(strength~E1+E2,data=myteeth)
+summary(ModE)
+plot(ModE)
+```
+
+```
+Call:
+lm(formula = strength ~ D1 + D2, data = myteeth)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.45304 -0.31127 -0.07818  0.62017  1.27062 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  31.4187     3.5942   8.741 5.37e-06 ***
+D1            0.5912     0.4000   1.478    0.170    
+D2            0.6788     0.3763   1.804    0.101    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.9094 on 10 degrees of freedom
+Multiple R-squared:  0.2847,	Adjusted R-squared:  0.1417 
+F-statistic: 1.991 on 2 and 10 DF,  p-value: 0.1872
+
+
+Call:
+lm(formula = strength ~ E1 + E2, data = myteeth)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.73417 -0.49069 -0.02641  0.82872  1.23917 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)   
+(Intercept)  29.8008     8.1508   3.656  0.00442 **
+E1            0.8269     0.5171   1.599  0.14086   
+E2           -0.3546     0.5189  -0.683  0.50994   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.9529 on 10 degrees of freedom
+Multiple R-squared:  0.2146,	Adjusted R-squared:  0.05754 
+F-statistic: 1.366 on 2 and 10 DF,  p-value: 0.2988
+```
+
+
+
+
+
+
+
+
+Intervalos de confianza asumiendo normalidad:
+```python
+confint(ModD)
+confint(ModE)
+```
+```
+                 2.5 %    97.5 %
+(Intercept) 23.4102440 39.427142
+D1          -0.3000667  1.482382
+D2          -0.1596955  1.517361
+                 2.5 %    97.5 %
+(Intercept) 11.6396470 47.961899
+E1          -0.3252196  1.979073
+E2          -1.5108262  0.801663
+```
+
+
+
+Intervalos de confianza bootstrap:
+Modelo 1:
+
+```python
+## Bootstrap con residuos.
+N=13
+x=as.matrix(myteeth[,c(2,3)])
+y=as.vector(myteeth[,6])
+kk=residuals(ModD)
+betas=coef(ModD)
+
+bootResid=replicate(2000,{
+  epsilon=sample(kk, replace = TRUE)
+  coef(lm((cbind(1,x)%*%betas+epsilon)~x))
+})
+
+library(latticeExtra)
+densityplot(~bootResid[1,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[0]))
+densityplot(~bootResid[2,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[1]))
+densityplot(~bootResid[3,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[2]))
+```
+
+
+![](p36.png)
+
+![](p37.png)
+
+![](p38.png)
+
+
+
+```python
+## Bootstrap con residuos opción 2.
+bootResid2=replicate(2000, coef(lm(simulate(ModD)[,1]~x)))
+
+library(latticeExtra)
+densityplot(~bootResid2[1,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[0]))
+densityplot(~bootResid2[2,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[1]))
+densityplot(~bootResid2[3,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[2]))
+```
+
+
+
+![](p39.png)
+
+![](p40.png)
+
+![](p41.png)
+
+
+```python
+## Bootstrap con librería simpleboot con residuos.
+library(simpleboot)
+lboot1=lm.boot(ModD,R=1000,rows=FALSE)
+summary(lboot1)
+```
+```
+BOOTSTRAP OF LINEAR MODEL  (method = residuals)
+
+Original Model Fit
+------------------
+Call:
+lm(formula = strength ~ D1 + D2, data = myteeth)
+
+Coefficients:
+(Intercept)           D1           D2  
+    31.4187       0.5912       0.6788  
+
+Bootstrap SD's:
+(Intercept)           D1           D2  
+  3.2106935    0.3537843    0.3375528  
+```  
+  
+  
+ 
+```python
+## Bootstrap con librería boot con residuos.
+library(boot)
+boot.reg=function(losdatos, i){
+  modelo=lm(y~x, data = losdatos)
+  yhat=fitted(modelo)
+  e=resid(modelo)
+  y.star=yhat+e[i]
+  modelB=lm(y.star~x)
+  coef(modelB)
+}
+bootbootr=boot(data = as.data.frame(x), statistic = boot.reg, R=1000)
+bootbootr
+
+plot(bootbootr, index = 1, nclass = 15)
+plot(bootbootr, index = 2, nclass = 15)
+plot(bootbootr, index = 3, nclass = 15)
+
+boot.ci(bootbootr,index = 1, type = "all")
+boot.ci(bootbootr,index = 2, type = "all")
+boot.ci(bootbootr,index = 3, type = "all")
+``` 
+  
+  
+![](p42.png)
+  
+  
+![](p43.png)
+  
+![](p44.png)
+  
+
+
+```python
+## Bootstrap con librería car para los residuos.
+library(car)
+betahat.boot=Boot(ModD, method="residual",R=2000)
+summary(betahat.boot)
+confint(betahat.boot)
+hist(betahat.boot)
+```
+
+
+```
+Number of bootstrap replications R = 2000 
+            original   bootBias  bootSE  bootMed
+(Intercept) 31.41869 -0.0343238 3.77290 31.43432
+D1           0.59116  0.0088582 0.42046  0.58837
+D2           0.67883  0.0086891 0.39506  0.68144
+Bootstrap bca confidence intervals
+
+
+
+                    2.5 %        97.5 %
+ 
+(Intercept)	    24.1184335	   39.038938		
+D1            	-0.1946184	   1.497955		
+D2             	-0.1179729     1.439213	
+```
+
+
+```python
+## Bootstrap basado en pares de valores.
+x1=x[,1]
+x2=x[,2]
+bootPair=replicate(2000,{
+  ind=sample(1:N, replace = TRUE)
+  coef(lm(y[ind]~x1[ind]+x2[ind]))
+})
+
+(betaEst = coef(ModD))
+(sdBeta = sqrt(vcov(ModD)))
+
+densityplot(~bootPair[1,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[0]))
+densityplot(~bootPair[2,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[1]))
+densityplot(~bootPair[3,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[2]))
+
+## Gráficos de la distribución del estadístico beta original y el estadístico beta remuestreado.
+densityplot(bootPair[1,], plot.points = FALSE, xlab = expression(beta[0])) + layer(panel.abline(v = betaEst[1])) +layer(panel.mathdensity(args = list(mean = betaEst[1], sd = sdBeta[1,1]), col = "orange",n = 100))
+densityplot(bootPair[2,], plot.points = FALSE, xlab = expression(beta[1])) + layer(panel.abline(v = betaEst[2])) +layer(panel.mathdensity(args = list(mean = betaEst[2], sd = sdBeta[2,2]), col = "orange",n = 100))
+densityplot(bootPair[3,], plot.points = FALSE, xlab = expression(beta[2])) + layer(panel.abline(v = betaEst[3])) +layer(panel.mathdensity(args = list(mean = betaEst[3], sd = sdBeta[3,3]), col = "orange",n = 100))
+
+## Comparación de errores estándar.
+sd(bootPair[1,])
+sqrt(vcov(ModD)[1,1])
+sd(bootPair[2,])
+sqrt(vcov(ModD)[2,2])
+sd(bootPair[3,])
+sqrt(vcov(ModD)[3,3])
+```
+
+```
+(Intercept)          D1          D2 
+ 31.4186930   0.5911574   0.6788327 
+            (Intercept)        D1        D2
+(Intercept)   3.5942325 0.5641584       NaN
+D1            0.5641584 0.3999859 0.2399557
+D2                  NaN 0.2399557 0.3763357
+[1] 6.161511
+[1] 3.594232
+[1] 0.5530538
+[1] 0.3999859
+[1] 0.5471134
+[1] 0.3763357
+```
+
+
+![](p45.png)
+
+![](p46.png)
+
+
+![](p47.png)
+
+
+```python
+## Bootstrap basado en pares de valores con boot.
+boot.reg2=function(data,i){
+  mod=lm(y~x, data[i,])
+  coef(mod)
+}
+library(boot)
+bootbootp=boot(data = data.frame(y=y,x=x), statistic = boot.reg2, R=2000)
+bootbootp
+
+plot(bootbootp, index = 1, nclass = 15)
+plot(bootbootp, index = 2, nclass = 15)
+plot(bootbootp, index = 3, nclass = 15)
+
+boot.ci(bootbootp,index = 1, type = "all")
+boot.ci(bootbootp,index = 2, type = "all")
+boot.ci(bootbootp,index = 3, type = "all")
+```
+
+
+![](p48.png)
+
+![](p49.png)
+
+
+![](p50.png)
+
+
+Hemos podido ver las distribuciónes bootstrap de cada uno de los parámetros.
+
+```python
+## Bootstrap con librería car para pares de valores.
+library(car)
+betahat.boot2=Boot(ModD,R=2000)
+summary(betahat.boot2)
+confint(betahat.boot2)
+hist(betahat.boot2)
+```
+
+```
+Number of bootstrap replications R = 2000 
+            original bootBias  bootSE  bootMed
+(Intercept) 31.41869 0.525355 5.87540 31.28942
+D1           0.59116 0.134945 0.51140  0.67852
+D2           0.67883 0.024932 0.52401  0.65195
+Bootstrap bca confidence intervals
+
+
+
+
+                   2.5 %        97.5 %
+            
+(Intercept)	    20.70841644	   42.547287		
+D1	            -0.41401693	   1.533183		
+D2	            -0.07292803	   1.961772	
+```
+
+
+![](p51.png)
+
+
+
+
+Modelo 2:
+```python
+## Bootstrap con residuos.
+
+N=13
+x=as.matrix(myteeth[,4:5])
+y=as.vector(myteeth[,6])
+
+kk=residuals(ModE)
+betas=coef(ModE)
+
+bootResid=replicate(2000,{
+  epsilon=sample(kk, replace = TRUE)
+  coef(lm((cbind(1,x)%*%betas+epsilon)~x))
+})
+
+library(latticeExtra)
+densityplot(~bootResid[1,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[0]))
+densityplot(~bootResid[2,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[1]))
+densityplot(~bootResid[3,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[2]))
+```
+
+
+![](p52.png)
+
+![](p53.png)
+
+
+![](p54.png)
+
+
+```python
+## Bootstrap con residuos opción 2.
+bootResid2=replicate(2000, coef(lm(simulate(ModE)[,1]~x)))
+
+library(latticeExtra)
+densityplot(~bootResid2[1,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[0]))
+densityplot(~bootResid2[2,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[1]))
+densityplot(~bootResid2[3,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[2]))
+```
+ ![](p55.png)
+
+![](p56.png)
+
+
+![](p57.png)
+
+ 
+
+
+```python
+## Bootstrap con librería simpleboot con residuos.
+library(simpleboot)
+lboot1=lm.boot(ModD,R=1000,rows=FALSE)
+summary(lboot1)
+```
+```
+BOOTSTRAP OF LINEAR MODEL  (method = residuals)
+
+Original Model Fit
+------------------
+Call:
+lm(formula = strength ~ D1 + D2, data = myteeth)
+
+Coefficients:
+(Intercept)           D1           D2  
+    31.4187       0.5912       0.6788  
+
+Bootstrap SD's:
+(Intercept)           D1           D2  
+  3.2106935    0.3537843    0.3375528  
+```
+
+
+
+```python
+## Bootstrap con librería boot con residuos.
+library(boot)
+boot.reg=function(losdatos, i){
+  modelo=lm(y~x, data = losdatos)
+  yhat=fitted(modelo)
+  e=resid(modelo)
+  y.star=yhat+e[i]
+  modelB=lm(y.star~x)
+  coef(modelB)
+}
+bootbootr=boot(data = as.data.frame(x), statistic = boot.reg, R=1000)
+bootbootr
+
+plot(bootbootr, index = 1, nclass = 15)
+plot(bootbootr, index = 2, nclass = 15)
+plot(bootbootr, index = 3, nclass = 15)
+
+boot.ci(bootbootr,index = 1, type = "all")
+boot.ci(bootbootr,index = 2, type = "all")
+boot.ci(bootbootr,index = 3, type = "all")
+```
+
+```
+ORDINARY NONPARAMETRIC BOOTSTRAP
+
+
+Call:
+boot(data = as.data.frame(x), statistic = boot.reg, R = 1000)
+
+
+Bootstrap Statistics :
+      original      bias    std. error
+t1* 31.4186930 0.010280859   3.2005925
+t2*  0.5911574 0.014729109   0.3447007
+t3*  0.6788327 0.004842572   0.3425400
+BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+Based on 1000 bootstrap replicates
+
+CALL : 
+boot.ci(boot.out = bootbootr, type = "all", index = 1)
+
+Intervals : 
+Level      Normal              Basic         
+95%   (25.14, 37.68 )   (25.26, 37.71 )  
+
+Level     Percentile            BCa          
+95%   (25.12, 37.58 )   (25.13, 37.58 )  
+Calculations and Intervals on Original Scale
+BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+Based on 1000 bootstrap replicates
+
+CALL : 
+boot.ci(boot.out = bootbootr, type = "all", index = 2)
+
+Intervals : 
+Level      Normal              Basic         
+95%   (-0.0992,  1.2520 )   (-0.0801,  1.2748 )  
+
+Level     Percentile            BCa          
+95%   (-0.0925,  1.2625 )   (-0.1054,  1.2509 )  
+Calculations and Intervals on Original Scale
+BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+Based on 1000 bootstrap replicates
+
+CALL : 
+boot.ci(boot.out = bootbootr, type = "all", index = 3)
+
+Intervals : 
+Level      Normal              Basic         
+95%   ( 0.0026,  1.3454 )   (-0.0361,  1.3161 )  
+
+Level     Percentile            BCa          
+95%   ( 0.0416,  1.3938 )   ( 0.0587,  1.4188 )  
+Calculations and Intervals on Original Scale
+```
+
+
+
+![](p58.png)
+
+![](p59.png)
+
+
+![](p60.png)
+
+
+
+
+```python
+## Bootstrap con librería car para los residuos.
+library(car)
+betahat.boot=Boot(ModD, method="residual",R=2000)
+summary(betahat.boot)
+confint(betahat.boot)
+hist(betahat.boot)
+```
+
+```
+Number of bootstrap replications R = 2000 
+            original   bootBias  bootSE  bootMed
+(Intercept) 31.41869 -0.0343238 3.77290 31.43432
+D1           0.59116  0.0088582 0.42046  0.58837
+D2           0.67883  0.0086891 0.39506  0.68144
+Bootstrap bca confidence intervals
+
+
+                   2.5 %       97.5 %  
+(Intercept)	   24.1184335	   39.038938		
+D1	           -0.1946184	   1.497955		
+D2	           -0.1179729	   1.439213	
+```
+
+
+
+
+```python
+## Bootstrap basado en pares de valores.
+x1=x[,1]
+x2=x[,2]
+bootPair=replicate(2000,{
+  ind=sample(1:N, replace = TRUE)
+  coef(lm(y[ind]~x1[ind]+x2[ind]))
+})
+
+(betaEst = coef(ModD))
+(sdBeta = sqrt(vcov(ModD)))
+
+densityplot(~bootPair[1,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[0]))
+densityplot(~bootPair[2,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[1]))
+densityplot(~bootPair[3,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[2]))
+
+## Gráficos de la distribución del estadístico beta original y el estadístico beta remuestreado.
+densityplot(bootPair[1,], plot.points = FALSE, xlab = expression(beta[0])) + layer(panel.abline(v = betaEst[1])) +layer(panel.mathdensity(args = list(mean = betaEst[1], sd = sdBeta[1,1]), col = "orange",n = 100))
+densityplot(bootPair[2,], plot.points = FALSE, xlab = expression(beta[1])) + layer(panel.abline(v = betaEst[2])) +layer(panel.mathdensity(args = list(mean = betaEst[2], sd = sdBeta[2,2]), col = "orange",n = 100))
+densityplot(bootPair[3,], plot.points = FALSE, xlab = expression(beta[2])) + layer(panel.abline(v = betaEst[3])) +layer(panel.mathdensity(args = list(mean = betaEst[3], sd = sdBeta[3,3]), col = "orange",n = 100))
+
+## Comparación de errores estándar.
+sd(bootPair[1,])
+sqrt(vcov(ModD)[1,1])
+sd(bootPair[2,])
+sqrt(vcov(ModD)[2,2])
+sd(bootPair[3,])
+sqrt(vcov(ModD)[3,3])
+```
+
+```
+(Intercept)          D1          D2 
+ 31.4186930   0.5911574   0.6788327 
+            (Intercept)        D1        D2
+(Intercept)   3.5942325 0.5641584       NaN
+D1            0.5641584 0.3999859 0.2399557
+D2                  NaN 0.2399557 0.3763357
+[1] 6.161511
+[1] 3.594232
+[1] 0.5530538
+[1] 0.3999859
+[1] 0.5471134
+[1] 0.3763357
+```
+
+
+
+![](p61.png)
+
+![](p62.png)
+
+
+![](p63.png)
+
+
+
+
+```python
+## Bootstrap basado en pares de valores con boot.
+boot.reg2=function(data,i){
+  mod=lm(y~x, data[i,])
+  coef(mod)
+}
+library(boot)
+bootbootp=boot(data = data.frame(y=y,x=x), statistic = boot.reg2, R=2000)
+bootbootp
+
+plot(bootbootp, index = 1, nclass = 15)
+plot(bootbootp, index = 2, nclass = 15)
+plot(bootbootp, index = 3, nclass = 15)
+
+boot.ci(bootbootp,index = 1, type = "all")
+boot.ci(bootbootp,index = 2, type = "all")
+boot.ci(bootbootp,index = 3, type = "all")
+```
+
+
+
+![](p64.png)
+
+![](p65.png)
+
+
+![](p66.png)
+
+
+
+
+
+Hemos podido ver las distribuciónes bootstrap de cada uno de los parámetros.
+
+```python
+## Bootstrap con librería car para pares de valores.
+library(car)
+betahat.boot2=Boot(ModD,R=2000)
+summary(betahat.boot2)
+confint(betahat.boot2)
+hist(betahat.boot2)
+```
+
+
+```
+Number of bootstrap replications R = 2000
+
+            original bootBias  bootSE  bootMed
+(Intercept) 31.41869 0.525355 5.87540 31.28942
+D1           0.59116 0.134945 0.51140  0.67852
+D2           0.67883 0.024932 0.52401  0.65195
+Bootstrap bca confidence intervals
+
+
+
+
+
+                  2.5 %         97.5 %
+
+(Intercept)    20.70841644	  42.547287		
+D1	           -0.41401693	  1.533183		
+D2	           -0.07292803  	1.961772
+```
+
+
+
+Modelo 2
+```python
+## Bootstrap con residuos.
+
+N=13
+x=as.matrix(myteeth[,4:5])
+y=as.vector(myteeth[,6])
+
+kk=residuals(ModE)
+betas=coef(ModE)
+
+bootResid=replicate(2000,{
+  epsilon=sample(kk, replace = TRUE)
+  coef(lm((cbind(1,x)%*%betas+epsilon)~x))
+})
+
+library(latticeExtra)
+densityplot(~bootResid[1,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[0]))
+densityplot(~bootResid[2,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[1]))
+densityplot(~bootResid[3,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[2]))
+```
+
+![](p67.png)
+
+![](p68.png)
+
+
+![](p69.png)
+
+
+```python
+## Bootstrap con residuos opción 2.
+bootResid2=replicate(2000, coef(lm(simulate(ModE)[,1]~x)))
+
+library(latticeExtra)
+densityplot(~bootResid2[1,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[0]))
+densityplot(~bootResid2[2,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[1]))
+densityplot(~bootResid2[3,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[2]))
+```
+
+![](p70.png)
+
+![](p71.png)
+
+![](p72.png)
+
+
+
+
+```python
+## Bootstrap con librería simpleboot con residuos.
+library(simpleboot)
+lboot1=lm.boot(ModE,R=1000,rows=FALSE)
+summary(lboot1)
+```
+```
+BOOTSTRAP OF LINEAR MODEL  (method = residuals)
+
+Original Model Fit
+------------------
+Call:
+lm(formula = strength ~ E1 + E2, data = myteeth)
+
+Coefficients:
+(Intercept)           E1           E2  
+    29.8008       0.8269      -0.3546  
+
+Bootstrap SD's:
+(Intercept)           E1           E2  
+  7.2068262    0.4472661    0.4563058 
+```
+
+
+```python
+## Bootstrap con librería boot con residuos.
+library(boot)
+boot.reg=function(losdatos, i){
+  modelo=lm(y~x, data = losdatos)
+  yhat=fitted(modelo)
+  e=resid(modelo)
+  y.star=yhat+e[i]
+  modelB=lm(y.star~x)
+  coef(modelB)
+}
+bootbootr=boot(data = as.data.frame(x), statistic = boot.reg, R=1000)
+bootbootr
+
+plot(bootbootr, index = 1, nclass = 15)
+plot(bootbootr, index = 2, nclass = 15)
+plot(bootbootr, index = 3, nclass = 15)
+
+boot.ci(bootbootr,index = 1, type = "all")
+boot.ci(bootbootr,index = 2, type = "all")
+boot.ci(bootbootr,index = 3, type = "all")
+```
+```
+CALL : 
+boot.ci(boot.out = bootbootr, type = "all", index = 2)
+
+Intervals : 
+Level      Normal              Basic         
+95%   (-0.0626,  1.7283 )   (-0.0628,  1.7373 )  
+
+Level     Percentile            BCa          
+95%   (-0.0834,  1.7167 )   (-0.0705,  1.7183 )  
+Calculations and Intervals on Original Scale
+BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+Based on 1000 bootstrap replicates
+
+CALL : 
+boot.ci(boot.out = bootbootr, type = "all", index = 3)
+
+Intervals : 
+Level      Normal              Basic         
+95%   (-1.3029,  0.5283 )   (-1.3450,  0.5234 )  
+
+Level     Percentile            BCa          
+95%   (-1.2326,  0.6358 )   (-1.2337,  0.6264 )  
+Calculations and Intervals on Original Scale
+```
+
+
+
+![](p73.png)
+
+![](p74.png)
+
+![](p75.png)
+
+
+
+```python
+## Bootstrap con librería car para los residuos.
+library(car)
+betahat.boot=Boot(ModE, method="residual",R=2000)
+summary(betahat.boot)
+confint(betahat.boot)
+hist(betahat.boot)
+```
+```
+Number of bootstrap replications R = 2000 
+            original   bootBias  bootSE  bootMed
+(Intercept) 29.80077 -0.0035836 8.94780 29.87609
+E1           0.82693 -0.0063686 0.57149  0.82434
+E2          -0.35458  0.0069833 0.55465 -0.34719
+Bootstrap bca confidence intervals
+```
+
+```
+                    2.5 %      97.5 %   
+(Intercept)	    12.9561074	 48.2449235		
+E1	            -0.3321568	 1.9003622		
+E2	            -1.4607125   0.7132267	
+```
+
+
+
+```python
+## Bootstrap basado en pares de valores.
+x1=x[,1]
+x2=x[,2]
+bootPair=replicate(2000,{
+  ind=sample(1:N, replace = TRUE)
+  coef(lm(y[ind]~x1[ind]+x2[ind]))
+})
+
+(betaEst = coef(ModE))
+(sdBeta = sqrt(vcov(ModE)))
+
+densityplot(~bootPair[1,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[0]))
+densityplot(~bootPair[2,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[1]))
+densityplot(~bootPair[3,], plot.points=FALSE, auto.key = list(columns=2), xlab = expression(beta[2]))
+
+## Gráficos de la distribución del estadístico beta original y el estadístico beta remuestreado.
+densityplot(bootPair[1,], plot.points = FALSE, xlab = expression(beta[0])) + layer(panel.abline(v = betaEst[1])) +layer(panel.mathdensity(args = list(mean = betaEst[1], sd = sdBeta[1,1]), col = "orange",n = 100))
+densityplot(bootPair[2,], plot.points = FALSE, xlab = expression(beta[1])) + layer(panel.abline(v = betaEst[2])) +layer(panel.mathdensity(args = list(mean = betaEst[2], sd = sdBeta[2,2]), col = "orange",n = 100))
+densityplot(bootPair[3,], plot.points = FALSE, xlab = expression(beta[2])) + layer(panel.abline(v = betaEst[3])) +layer(panel.mathdensity(args = list(mean = betaEst[3], sd = sdBeta[3,3]), col = "orange",n = 100))
+
+## Comparación de errores estándar.
+sd(bootPair[1,])
+sqrt(vcov(ModE)[1,1])
+sd(bootPair[2,])
+sqrt(vcov(ModE)[2,2])
+sd(bootPair[3,])
+sqrt(vcov(ModE)[3,3])
+```
+
+```
+(Intercept)          E1          E2 
+ 29.8007732   0.8269266  -0.3545816 
+            (Intercept)       E1        E2
+(Intercept)    8.150805      NaN       NaN
+E1                  NaN 0.517089       NaN
+E2                  NaN      NaN 0.5189284
+[1] 12.84318
+[1] 8.150805
+[1] 1.002647
+[1] 0.517089
+[1] 0.621148
+[1] 0.5189284
+```
+
+
+![](p76.png)
+
+![](p77.png)
+
+![](p78.png)
+
+
+
+
+```python
+## Bootstrap basado en pares de valores con boot.
+boot.reg2=function(data,i){
+  mod=lm(y~x, data[i,])
+  coef(mod)
+}
+library(boot)
+bootbootp=boot(data = data.frame(y=y,x=x), statistic = boot.reg2, R=2000)
+bootbootp
+
+plot(bootbootp, index = 1, nclass = 15)
+plot(bootbootp, index = 2, nclass = 15)
+plot(bootbootp, index = 3, nclass = 15)
+
+boot.ci(bootbootp,index = 1, type = "all")
+boot.ci(bootbootp,index = 2, type = "all")
+boot.ci(bootbootp,index = 3, type = "all")
+```
+
+
+```
+ORDINARY NONPARAMETRIC BOOTSTRAP
+
+
+Call:
+boot(data = data.frame(y = y, x = x), statistic = boot.reg2, 
+    R = 2000)
+
+
+Bootstrap Statistics :
+      original     bias    std. error
+t1* 29.8007732  4.9370854   7.9657497
+t2*  0.8269266 -0.8247282   0.5221080
+t3* -0.3545816  0.3681972   0.5057608
+BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+Based on 2000 bootstrap replicates
+
+CALL : 
+boot.ci(boot.out = bootbootp, type = "all", index = 1)
+
+Intervals : 
+Level      Normal              Basic         
+95%   ( 9.25, 40.48 )   ( 9.44, 40.31 )  
+
+Level     Percentile            BCa          
+95%   (19.29, 50.17 )   ( 4.61, 39.83 )  
+Calculations and Intervals on Original Scale
+Warning : BCa Intervals used Extreme Quantiles
+Some BCa intervals may be unstable
+BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+Based on 2000 bootstrap replicates
+
+CALL : 
+boot.ci(boot.out = bootbootp, type = "all", index = 2)
+
+Intervals : 
+Level      Normal              Basic         
+95%   ( 0.6283,  2.6750 )   ( 0.6851,  2.6792 )  
+
+Level     Percentile            BCa          
+95%   (-1.0253,  0.9687 )   ( 0.6537,  1.5048 )  
+Calculations and Intervals on Original Scale
+Warning : BCa Intervals used Extreme Quantiles
+Some BCa intervals may be unstable
+BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+Based on 2000 bootstrap replicates
+
+CALL : 
+boot.ci(boot.out = bootbootp, type = "all", index = 3)
+
+Intervals : 
+Level      Normal              Basic         
+95%   (-1.7141,  0.2685 )   (-1.7500,  0.2762 )  
+
+Level     Percentile            BCa          
+95%   (-0.9854,  1.0408 )   (-1.5277,  0.3007 )  
+Calculations and Intervals on Original Scale
+Some BCa intervals may be unstable
+```
+
+
+![](p79.png)
+
+![](p80.png)
+
+![](p81.png)
+
+
+```python
+## Bootstrap con librería car para pares de valores.
+library(car)
+betahat.boot2=Boot(ModE,R=2000)
+summary(betahat.boot2)
+confint(betahat.boot2)
+hist(betahat.boot2)
+```
+
+```
+Number of bootstrap replications R = 2000 
+            original  bootBias   bootSE  bootMed
+(Intercept) 29.80077 -3.410833 12.34338 27.80991
+E1           0.82693  0.322234  0.94627  0.80200
+E2          -0.35458 -0.028238  0.61937 -0.47207
+Bootstrap bca confidence intervals
+```
+
+```
+                  2.5 %        97.5 % 
+
+(Intercept)	    3.4865752  	  47.690204		
+E1	            0.0158614	    3.365666		
+E2	           -1.1493481   	1.895784
+```
+
+
+Estadístico SCE y $\hat{\theta}$, así como su correspondiente error bootstrap. 
+
+```python
+ModD
+summary(ModD)
+ModE
+summary(ModE)
+
+library(boot)
+mydata1<-myteeth[,c(2,3,6)]
+mydata2<-myteeth[,c(4,5,6)]
+
+bootstrapping<-function(formula,data,regressors){
+  dat<-data[regressors,]
+  reg<-lm(formula,data = dat)
+  return(reg$residuals^2)
+}
+
+bs.reg1<-boot(R=1000,formula=strength~D1+D2,data = mydata1,statistic = bootstrapping)
+SCED<-apply(bs.reg1$t, 1, sum)
+
+bs.reg2<-boot(R=1000,formula=strength~E1+E2,data = mydata2,statistic = bootstrapping)
+SCEE<-apply(bs.reg2$t, 1, sum)
+
+teta<-(1/13)*(SCED-SCEE)
+mean(teta)
+sd(teta)
+```
+
+
+```
+Call:
+lm(formula = strength ~ D1 + D2, data = myteeth)
+
+Coefficients:
+(Intercept)           D1           D2  
+    31.4187       0.5912       0.6788  
+
+
+Call:
+lm(formula = strength ~ D1 + D2, data = myteeth)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.45304 -0.31127 -0.07818  0.62017  1.27062 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  31.4187     3.5942   8.741 5.37e-06 ***
+D1            0.5912     0.4000   1.478    0.170    
+D2            0.6788     0.3763   1.804    0.101    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.9094 on 10 degrees of freedom
+Multiple R-squared:  0.2847,	Adjusted R-squared:  0.1417 
+F-statistic: 1.991 on 2 and 10 DF,  p-value: 0.1872
+
+
+Call:
+lm(formula = strength ~ E1 + E2, data = myteeth)
+
+Coefficients:
+(Intercept)           E1           E2  
+    29.8008       0.8269      -0.3546  
+
+
+Call:
+lm(formula = strength ~ E1 + E2, data = myteeth)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.73417 -0.49069 -0.02641  0.82872  1.23917 
+
+Coefficients:
+            Estimate Std. Error t value Pr(>|t|)   
+(Intercept)  29.8008     8.1508   3.656  0.00442 **
+E1            0.8269     0.5171   1.599  0.14086   
+E2           -0.3546     0.5189  -0.683  0.50994   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.9529 on 10 degrees of freedom
+Multiple R-squared:  0.2146,	Adjusted R-squared:  0.05754 
+F-statistic: 1.366 on 2 and 10 DF,  p-value: 0.2988
+```
+
+    [1] -0.03816239
+
+    [1] 0.309951
+
+
+
+Si el teta es negativo es porque el SCE del modelo E es más grande que el del modelo D, por lo tanto sabiendo que el estadístico SCE es la suma de residuos. El mejor modelo es el D. Por lo tanto presenta un mejor comportamiento que el modelo E.
+
+Ahora vamos a estudiar la varibilidad de $\hat{\theta}$ mediante intervalos de confianza percentil y BCa.
+
+
+
+
+```python
+## Percentil
+meanboot<-replicate(1000,mean(sample(teta,replace = TRUE)))
+quantile(meanboot,c(0.025,0.975))
+## BCa
+library(boot)
+mean.boot=function(teta,ind){
+  return(mean(teta[ind]))
+}
+eso=boot(teta,mean.boot,1000)
+boot.ci(eso)
+```
+
+```
+  2.5%       97.5% 
+-0.05717035 -0.01959516 
+BOOTSTRAP CONFIDENCE INTERVAL CALCULATIONS
+Based on 1000 bootstrap replicates
+
+CALL : 
+boot.ci(boot.out = eso)
+
+Intervals : 
+Level      Normal              Basic         
+95%   (-0.0578, -0.0190 )   (-0.0571, -0.0192 )  
+
+Level     Percentile            BCa          
+95%   (-0.0571, -0.0192 )   (-0.0586, -0.0198 )  
+Calculations and Intervals on Original Scale
+```
+
+
+Por lo tanto podemos ver que ninguno de los intervalos contiene al 0, por lo que se concluye que presenta un mejor comportamiento el modelo D.
 
 
 
 
 
 \newpage
+
+
 
 # Bibliografía
 
