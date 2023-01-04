@@ -314,14 +314,14 @@ $$x_{i1} \in [L_0 , L_1)\cup ... \cup [L_{k-1} , L_k)\cup [L_k , L_{k+1}) \hspac
 
 
 
-Se definen las siguientes variables **dummies**:
+-Se definen las siguientes variables **dummies**:
 
 
-$$D_j(X_{1})\hspace{0.15cm} = \hspace{0.15cm} \left(\hspace{0.15cm} I\left(\hspace{0.05cm} x_{i1} \in [L_j , L_{j+1}) \hspace{0.05cm} \right) \hspace{0.2cm} : \hspace{0.2cm} i\in \lbrace 1,...,n   \rbrace  \hspace{0.15cm} \right)^t \hspace{0.15cm}=\hspace{0.15cm} \left( \hspace{0.15cm} d_{ij}  \hspace{0.2cm} : \hspace{0.2cm} i\in \lbrace 1,...,n   \rbrace  \hspace{0.15cm} \right) \hspace{0.3cm}  ,   \hspace{0.3cm}  \forall \hspace{0.1cm} j \in \lbrace 1,..,k \rbrace\\$$  
+    $$D_j(X_{1})\hspace{0.15cm} = \hspace{0.15cm} \left(\hspace{0.15cm} I\left(\hspace{0.05cm} x_{i1} \in [L_j , L_{j+1}) \hspace{0.05cm} \right) \hspace{0.2cm} : \hspace{0.2cm} i\in \lbrace 1,...,n   \rbrace  \hspace{0.15cm} \right)^t \hspace{0.15cm}=\hspace{0.15cm} \left( \hspace{0.15cm} d_{ij}  \hspace{0.2cm} : \hspace{0.2cm} i\in \lbrace 1,...,n   \rbrace  \hspace{0.15cm} \right) \hspace{0.3cm}  ,   \hspace{0.3cm}  \forall \hspace{0.1cm} j \in \lbrace 1,..,k \rbrace\\$$  
 
 
 
-Donde: $\hspace{0.2cm}d_{ij} = I\left(\hspace{0.05cm} x_{i1} \in [L_j , L_{j+1}) \hspace{0.05cm} \right) \hspace{0.2cm}$ y  $\hspace{0.2cm} I (\cdot) \hspace{0.15cm}$ es la función indicatriz o indicadora.
+    donde: $\hspace{0.2cm}d_{ij} = I\left(\hspace{0.05cm} x_{i1} \in [L_j , L_{j+1}) \hspace{0.05cm} \right) \hspace{0.2cm}$ y  $\hspace{0.2cm} I (\cdot) \hspace{0.15cm}$ es la función indicatriz o indicadora.
 
 <br>
 
@@ -496,25 +496,28 @@ $$x_{i1} \in [L_0 , L_1)\cup ... \cup [L_{k-1} , L_k)\cup [L_k , L_{k+1}) \hspac
 
 
 
+- Se definen las siguientes variables **dummies**:
 
 
+    $$D_j(X_{1})\hspace{0.15cm} = \hspace{0.15cm} \left(\hspace{0.15cm} I\left(\hspace{0.05cm} x_{i1} \in [L_j , L_{j+1}) \hspace{0.05cm} \right) \hspace{0.2cm} : \hspace{0.2cm} i\in \lbrace 1,...,n   \rbrace  \hspace{0.15cm} \right)^t \hspace{0.15cm}=\hspace{0.15cm} \left( \hspace{0.15cm} d_{ij}  \hspace{0.2cm} : \hspace{0.2cm} i\in \lbrace 1,...,n   \rbrace  \hspace{0.15cm} \right) \hspace{0.3cm}  ,   \hspace{0.3cm}  \forall \hspace{0.1cm} j \in \lbrace 1,..,k \rbrace\\$$  
+
+
+
+    donde: $\hspace{0.2cm}d_{ij} = I\left(\hspace{0.05cm} x_{i1} \in [L_j , L_{j+1}) \hspace{0.05cm} \right) \hspace{0.2cm}$ y  $\hspace{0.2cm} I (\cdot) \hspace{0.15cm}$ es la función indicatriz o indicadora.
+
+<br>
 
 La idea es, en cada intervalo ajustar una regresión polinómica, con ciertas restricciones.
 
 
 
-Supongamos que se ajusta un polinomio de grado $\hspace{0.1cm}d_h\hspace{0.1cm}$ en el intervalo $\hspace{0.1cm}[L_j , L_{j+1})\hspace{0.1cm}$ , para $\hspace{0.1cm} j\in \lbrace 0,1,...,k \rbrace\hspace{0.1cm}$, el modelo de regresión sería de la forma: $\\[0.5cm]$
-
-
-
-
 El modelo estadístico que se plantea en regresión con  polinomios a trozos de grado $\hspace{0.1cm}k\hspace{0.1cm}$ es el siguiente:
 
-Tenemos una m.a.s $\hspace{0.1cm}\mathcal{Y}_1,...,\mathcal{Y}_n\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{Y}$
+- Tenemos una m.a.s $\hspace{0.1cm}\mathcal{Y}_1,...,\mathcal{Y}_n\hspace{0.1cm}$ de la v.a. $\hspace{0.1cm}\mathcal{Y}$
 
-Se asume la siguiente relación:
+- Se asume la siguiente relación:
 
-$$\mathcal{Y}_i \hspace{0.15cm}=\hspace{0.15cm}     \sum_{h=0}^k \hspace{0.05cm} \left[ \hspace{0.1 cm}  \beta_{0h}    +   \left( \hspace{0.1 cm} \sum_{r=1}^{d_h} \hspace{0.1cm}  \beta_{rh} \cdot x_{i1}^{r} \hspace{0.1 cm} \right) \cdot D_h(X_1) \hspace{0.05cm} \right]  \hspace{0.1 cm} +  \hspace{0.1 cm} \varepsilon_i \hspace{0.15cm}=\hspace{0.15cm}      \sum_{h=0}^k \hspace{0.05cm} \left[ \beta_{0h}  + \hspace{0.1 cm} \left( \hspace{0.1 cm}   \sum_{r=1}^{d_h} \hspace{0.1cm} \beta_{rh} \cdot x_{i1}^{r} \right) \hspace{0.05cm} \cdot I( \hspace{0.05cm} x_{i1} \in [L_h , L_{h+1}) \hspace{0.05cm} \right]  \hspace{0.1 cm} +  \hspace{0.1 cm} \varepsilon_i \hspace{0.35cm} , \hspace{0.35cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace$$ 
+$$\mathcal{Y}_i \hspace{0.15cm}=\hspace{0.15cm}     \sum_{h=0}^k \hspace{0.05cm} \left[ \hspace{0.05 cm} \left( \hspace{0.1 cm} \sum_{r=0}^{d_h} \hspace{0.1cm}  \beta_{rh} \cdot x_{i1}^{r} \hspace{0.1 cm} \right) \cdot D_h(X_1) \hspace{0.05cm} \right]  \hspace{0.1 cm} +  \hspace{0.1 cm} \varepsilon_i \hspace{0.15cm}=\hspace{0.15cm}      \sum_{h=0}^k \hspace{0.05cm} \left[  \hspace{0.05 cm} \left( \hspace{0.1 cm}   \sum_{r=0}^{d_h} \hspace{0.1cm} \beta_{rh} \cdot x_{i1}^{r} \right) \hspace{0.05cm} \cdot I( \hspace{0.05cm} x_{i1} \in [L_h , L_{h+1}) \hspace{0.05cm} \right]  \hspace{0.1 cm} +  \hspace{0.1 cm} \varepsilon_i \hspace{0.35cm} , \hspace{0.35cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace$$ 
 
 
 
@@ -533,10 +536,28 @@ Donde:
 
 - De lo anterior se deduce que  $\hspace{0.25cm} \mathcal{Y}_i \sim N(\hspace{0.1cm} \beta_0 \hspace{0.05cm} + \hspace{0.05cm} \sum_{j=1}^k \hspace{0.1cm} \beta_j \cdot d_{ij} \hspace{0.15cm},\hspace{0.15cm} \sigma^2 \hspace{0.1cm} )$
 
-- La regresión polinomica a trozos consiste en plantear un modelo de regresión polinómica de grado $\hspace{0.1cm}d_h\hspace{0.1cm}$ para las observaciones del predictor que pertenecen al intervalo   $\hspace{0.1cm}[L_h , L_{h+1})\hspace{0.1cm}$, y esto para cada $\hspace{0.1cm}h=0,1,...,k$
 
 <br>
 
+Podemos usar la siguiente notación alternativa para simplificar las formulas:
+
+Definimos el siguiente polinomio de grado $\hspace{0.1cm}d_h\hspace{0.1cm}$ :
+
+
+$$p_h(x) \hspace{0.1cm}=\hspace{0.1cm} \beta_{0h} + \beta_{1h}\cdot x + \beta_{2h}\cdot x^2 + ... + \beta_{d_h h}\cdot x^{d_h} \hspace{0.1cm}=\hspace{0.1cm}  \sum_{r=0}^{d_h} \hspace{0.1cm} \beta_{rh} \cdot x^{r} \hspace{0.2cm} ,\hspace{0.2cm} \forall \hspace{0.1cm} x\in\mathbb{R}$$
+
+Usando este polinomio se puede expresar la relación anterior como sigue:
+
+
+
+$$\mathcal{Y}_i  \hspace{0.15cm}=\hspace{0.15cm}      \sum_{h=0}^k \hspace{0.05cm}  p_h(x_i) \hspace{0.05cm} \cdot I( \hspace{0.05cm} x_{i1} \in [L_h , L_{h+1}) \hspace{0.05cm} )   \hspace{0.1 cm} +  \hspace{0.1 cm} \varepsilon_i \hspace{0.35cm} , \hspace{0.35cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace$$ 
+
+
+
+
+
+
+<br>
 
 
 
@@ -545,10 +566,27 @@ La predicción de la variable respuesta para una observación cualquiera del pre
 
 
 $$\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_*  \hspace{0.15cm}=\hspace{0.15cm}
- \sum_{h=0}^k \hspace{0.05cm} \left[\hspace{0.1cm}  \widehat{\beta}_{0h} + \left(\hspace{0.05cm} \sum_{r=1}^{d_h} \hspace{0.1cm} \widehat{\beta}_{rh} \cdot x_{*1}^{r} \hspace{0.05cm}\right) \cdot D_h(X_1) \hspace{0.05cm} \right]
+ \sum_{h=0}^k \hspace{0.05cm} \left[\hspace{0.1cm} \left(  \hspace{0.05cm} \sum_{r=0}^{d_h} \hspace{0.1cm} \widehat{\beta}_{rh} \cdot x_{*1}^{r} \hspace{0.05cm}\right) \cdot D_h(X_1) \hspace{0.05cm} \right]
 \hspace{0.15cm}=\hspace{0.15cm}
-\sum_{h=0}^k \hspace{0.05cm} \left[ \hspace{0.05cm}  \widehat{\beta}_{0h} + \hspace{0.1 cm} \left( \hspace{0.05cm} \sum_{r=1}^{d_h} \hspace{0.1cm} \widehat{\beta}_{rh} \cdot x_{*1}^{r} \hspace{0.05cm}\right) \cdot I\left( \hspace{0.05cm} x_{*1} \in [L_h , L_{h+1}) \hspace{0.05cm} \right) \hspace{0.05cm} \right]
-\hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} x_{*1} \in \mathbb{R}$$
+\sum_{h=0}^k \hspace{0.05cm} \left[ \hspace{0.05cm}\left(  \hspace{0.05cm} \sum_{r=0}^{d_h}  \hspace{0.1cm} \widehat{\beta}_{rh} \cdot x_{*1}^{r} \hspace{0.05cm}\right) \cdot I\left( \hspace{0.05cm} x_{*1} \in [L_h , L_{h+1}) \hspace{0.05cm} \right) \hspace{0.05cm} \right]
+\hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} x_{*1} \in \mathbb{R} \\[0.5cm]$$
+
+
+
+Considerando que el polinomio de grado $\hspace{0.1cm}d_h\hspace{0.1cm}$ ajustado en el intervalo $\hspace{0.1cm}[L_h , L_{h+1})\hspace{0.1cm}$ es:
+
+$$\hat{p}_h(x) = \widehat{\beta}_{0h} + \widehat{\beta}_{1h}\cdot x + \widehat{\beta}_{2h}\cdot x^2 + ... + \widehat{\beta}_{d_h h}\cdot x^{d_h} \hspace{0.1cm}=\hspace{0.1cm}  \sum_{r=0}^{d_h} \widehat{\beta}_{rh} \cdot x^{r} \hspace{0.25cm} ,\hspace{0.25cm} \forall \hspace{0.1cm} x\in\mathbb{R} \hspace{0.25cm}$$
+
+
+Entonces el criterio de predicción en el modelo de regresión polinómica a trozos puede expresarse del siguiente modo:
+
+
+$$\hat{y}_{*} = \sum_{h=0}^k \hspace{0.1cm} \hat{p}_h(x_{*1})\cdot I(x_{*1}\in [L_{h},L_{h+1}) ) \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} x_{*1} \in \mathbb{R}$$
+
+
+En particular:
+
+Si una nueva observación del predictor $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ es tal que $\hspace{0.1cm}x_{*1}\in [L_h , L_{h+1})\hspace{0.2cm}$ , entonces $\hspace{0.1cm}\hat{y}_* =\hat{p}_h(x_{*1})$.
 
 <br>
 
@@ -572,12 +610,163 @@ $$\hspace{0.1cm} X_h \hspace{0.1cm}=\hspace{0.1cm} [\hspace{0.05cm}\mathbb{1} , 
 
 $$X_{1h} = \left(\hspace{0.2cm}  x_{i1} \hspace{0.2cm} : \hspace{0.2cm} i \in \lbrace 1,...,n \rbrace \hspace{0.2cm} \text{y} \hspace{0.2cm} x_{i1} \in [L_h , L_{h+1}) \hspace{0.2cm}  \right)$$
 
-
  
 
 
 
 <br>
+
+<br>
+
+# Regresión con Splines
+
+
+
+
+- Se considera $\hspace{0.1cm} 1\hspace{0.1cm}$ predictor **cuantitativo** $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ y una variable respuesta $\hspace{0.1cm}\mathcal{Y}$ $\\[0.5cm]$
+
+
+- Se tiene una muestra de observaciones $\hspace{0.1cm}X_1 = (x_{11},...,x_{n1})^t\hspace{0.1cm}$ del predictor $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$  $\\[0.5cm]$
+
+
+- Se tiene una muestra de observaciones $\hspace{0.1cm}Y = (y_1,...,y_n)^t\hspace{0.1cm}$ de la respuesta $\hspace{0.1cm}\mathcal{Y}$ $\\[0.5cm]$
+
+
+- En conclusión, se tiene una muestra de observaciones $\hspace{0.12cm}D=[\hspace{0.12cm}X_1,Y \hspace{0.12cm}]\hspace{0.12cm}$
+del predictores y la respuesta. $\\[1cm]$
+
+
+- Se tienen que considerar una serie de $\hspace{0.1cm} k+1\hspace{0.1cm}$ intervalos $\hspace{0.1cm} L = \lbrace \hspace{0.15cm} [L_0 , L_1),[L_1 , L_2),...,[L_{k-1} , L_k)[L_k , L_{k+1}) \hspace{0.1cm} \rbrace  \hspace{0.1cm}$ tales que: $\\[0.4cm]$
+
+    - Son disjuntos dos a dos, es decir, no comparten elementos dos a dos. $$[L_h , L_{h+1})\cap [L_{r} , L_{r+1}) = \varnothing   \hspace{0.3cm}  ,   \hspace{0.3cm} \forall  \hspace{0.1cm} h\neq r \in \lbrace 0,1,...,k \rbrace \\[0.5cm]$$
+
+    - Toda observación de la muestra $X_1$ pertenece a alguno de los intervalos:
+
+$$x_{i1} \in [L_0 , L_1)\cup ... \cup [L_{k-1} , L_k)\cup [L_k , L_{k+1}) \hspace{0.3cm}  ,   \hspace{0.3cm}  \forall \hspace{0.1cm} i \in \lbrace 1,..,n \rbrace \\$$
+
+
+
+
+
+<br>
+
+
+La regresión con splines nace de un refinamiento del modelo de regresión con polinomios a trozos.
+
+Antes de explicar el modelo en sí vamos a hacer notar algunas peculiaridades del modelo anterior:
+
+
+
+
+En regresión polinómica a trozos se tiene el polinomio ajustado $\hspace{0.1cm} \hat{p}_h(x) = \widehat{\beta}_{0h} + \widehat{\beta}_{1h}\cdot x + \widehat{\beta}_{2h}\cdot x^2 + ... + \widehat{\beta}_{d_h h}\cdot x^{d_h} \hspace{0.2cm}$  con las observaciones del predictor que pertenecen al intervalo $\hspace{0.1cm} [L_h , L_{h+1}) \hspace{0.1cm}$.
+
+También se tiene el polinomio ajustado $\hspace{0.1cm} \hat{p}_{h+1}(x) = \widehat{\beta}_{0 (h+1)} + \widehat{\beta}_{1(h+1)}\cdot x + \widehat{\beta}_{2(h+1)}\cdot x^2 + ... + \widehat{\beta}_{d_{h+1} (h+1)}\cdot x^{d_{h+1}} \hspace{0.2cm}$ con las observaciones del intervalo $\hspace{0.1cm} [L_{h+1} , L_{h+2}) \hspace{0.1cm}$. 
+
+Y esto se tiene para cada $\hspace{0.1cm}h\in \lbrace 0,1,...,k \rbrace$
+
+En este punto es importante notar que, geométricamente, el extremo derecho del polinomio $\hspace{0.1cm}\hat{p}_h(x)\hspace{0.1cm}$  no tiene por qué coincidir con el extremo izquierdo del polinomio $\hspace{0.1cm}\hat{p}_{h+1}(x)$. 
+
+Analíticamente esto se traduce en que podria cumplirse que $\hspace{0.1cm}\hat{p}_h(L_{h+1}) \neq \hat{p}_{h+1}(L_{h+1})\hspace{0.1cm}$, para algún $\hspace{0.1cm}h\in \lbrace 0,1,...,k-1 \rbrace$
+
+
+
+Veamos esto con un gráfico:
+
+
+PONER GRAFICO PARA ILUSTRAR LA IDEA
+
+
+El modelo de regresión con Splines es un modelo de regresión con polinomios a trozos sobre los que se imponen restricciones que garantizan que lo anterior no pueda pasar, es decir, que no puede cumplirse $\hspace{0.1cm}\hat{p}_h(L_{h+1}) \neq \hat{p}_{h+1}(L_{h+1})\hspace{0.1cm}$
+ para ningún $\hspace{0.1cm}h\in \lbrace 0,1,...,k-1 \rbrace\hspace{0.1cm}$, y además el comportamiento de los polinomios cerca del extremo $\hspace{0.1cm}L_{h+1]\hspace{0.1cm}$ es suave.
+
+
+Las restricciones que garantizan esto son las siguientes:
+
+Dada la función:
+
+$$\widehat{f}(x) \hspace{0.1cm}=\hspace{0.1cm} \sum_{h=0}^k \hspace{0.1cm} \widehat{p}_h(x)\cdot I(x \in [L_h , L_{h+1}) )$$
+
+que cumple las siguientes condiciones: 
+
+- $\widehat{f}\hspace{0.1cm}$  es continua en $\hspace{0.1cm}[L_0 , L_{k+1}) \\$
+
+- $\widehat{f}^{'}\hspace{0.1cm}$ , $\hspace{0.1cm}\widehat{f}^{''}\hspace{0.1cm}$ son continuas al menos en los extremos de los intervalos $\hspace{0.1cm}\lbrace L_h / h=1,...,k \rbrace \\$
+
+
+se garantiza que $\hspace{0.1cm}\widehat{f}(x)\hspace{0.1cm}$ es un polinomio a trozos con las características buscadas: sin saltos y con suavidad en los ecxtremos.
+
+<br>
+
+
+El modelo de regresión con Splines de grado $\hspace{0.1cm} d\hspace{0.15cm}$ y  $\hspace{0.15cm} k+1\hspace{0.1cm}$ intervalos $\hspace{0.1cm}[L_0 , L_1),[L_1,L_2),...,[L_k, L_{k+1})\hspace{0.1cm}$ asume la siguiente relación: $\\[0.5cm]$
+
+
+$$\mathcal{Y}_i \hspace{0.15cm}=\hspace{0.15cm} \sum_{r=0}^d \hspace{0.05cm} \beta_r \cdot x_{i1}^r \hspace{0.1cm} + \hspace{0.1cm} \sum_{h=1}^k \hspace{0.05cm} \beta_{d+h} \cdot \phi (x_{i1} \geq L_h) \hspace{0.1cm} +\hspace{0.1cm}  \varepsilon_i  \hspace{0.3cm} , \hspace{0.3cm} \forall i \in \lbrace 1,...,n \rbrace$$ 
+
+
+donde:
+
+$$ 
+\phi (x_{i1} \geq L_h) = \left\lbrace\begin{array}{l} 0 , \hspace{0.1cm}\text{ Si} \hspace{0.2cm} x_{i1} < L_h \\ (x_{i1} -  L_h)^d , \hspace{0.2cm} \text{ Si} \hspace{0.2cm} x_{i1} \geq L_h  \end{array}\right.
+$$
+
+para $\hspace{0.1cm} h\in \lbrace 1,...,k\rbrace$
+
+<br>
+
+
+
+La predicción de la variable respuesta para una observación cualquiera $\hspace{0.1cm}x_{*1} \in \mathbb{R}\hspace{0.1cm}$ del predictor $\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}$ , según el algoritmo de regresión lineal con polinomios a trozos, es la siguiente: $\\[0.4cm]$
+
+
+
+$$\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_*  \hspace{0.15cm}=\hspace{0.15cm}
+ \sum_{r=0}^d \hspace{0.05cm} \widehat{\beta}_r \cdot x_{i1}^r \hspace{0.1cm} + \hspace{0.1cm} \sum_{h=1}^k \hspace{0.05cm} \widehat{\beta}_{d+h} \cdot \phi (x_{i1} \geq L_h)
+\hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} x_{*1} \in \mathbb{R} \\[0.5cm]$$
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+La estimación del modelo se puede hacer por minimos cuadrados ordinarios:
+
+
+
+$$\widehat{\beta} = arg Min ( y_i - ( \beta_0 + \beta_1 \cdot x_{i1} + \beta_2 \cdot x_{i1}^2 +  \beta_3 \cdot x_{i1}^3   +   \sum_{h=1}^k \beta_{3+h} \cdot \phi (x_{i1} \geq L_h) ) )^2$$
+
+
+
+**Observaciones**
+
+- El nº de intervalos que contempla el modelo es $k+1 \\$
+
+- El grado de los polinomios splines que se ajustan en cada intervalo es $3 \\$
+
+- Posteriormente usaremos la libreria `PyGAM`que construye splines a traves de la funcion `s(n_spline_order , n_splines, ...)`, en la cual `n_spline_order` es el grado del spline (en el caso canonico es 3) , y `n_splines` es el nº de coeficientes betas sin contar el intercept , en nuestra exposicion seria `n_splines` = k + 3 = k + `n_spline_order`  . Por lo que hay que notar que el nº de intervalos del modelo es k+1 = `n_splines` - `n_spline_order` + 1 . Esto será relevante cuando usemos `PyGAM` para crear modelos con splines controlando el grado y el nº de intervalos.
+
+
+<br>
+
+
+DUDA: PUEDE HABER SPLINES QUE TENGAN DIFERENTE GRADO $d$ EN CADA INTERVALO ??
+
+
+
 
 
 <br>
