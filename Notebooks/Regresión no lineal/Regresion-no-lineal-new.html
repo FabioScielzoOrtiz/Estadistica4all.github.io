@@ -1519,6 +1519,8 @@ margin-left: 0 !important;
       <li><a href="#regresión-con-funciones-escalón" id="toc-regresión-con-funciones-escalón"><span class="toc-section-number">3</span> Regresión con funciones escalón <a class="anchor" id="52"></a></a></li>
       <li><a href="#regresión-con-polinomios-a-trozos" id="toc-regresión-con-polinomios-a-trozos"><span class="toc-section-number">4</span> Regresión con polinomios a trozos</a></li>
       <li><a href="#regresión-con-splines" id="toc-regresión-con-splines"><span class="toc-section-number">5</span> Regresión con Splines</a></li>
+      <li><a href="#regresión-con-splines-suavizados" id="toc-regresión-con-splines-suavizados"><span class="toc-section-number">6</span> Regresión con Splines suavizados</a></li>
+      <li><a href="#modelos-aditivos-generalizados" id="toc-modelos-aditivos-generalizados"><span class="toc-section-number">7</span> Modelos Aditivos Generalizados</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1795,7 +1797,7 @@ del predictores y la respuesta. <span class="math inline">\(\\[1cm]\)</span></p>
 <p>Si una nueva observación del predictor <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> es tal que <span class="math inline">\(\hspace{0.1cm}x_{*1}\in [L_h , L_{h+1})\hspace{0.2cm}\)</span> , entonces <span class="math inline">\(\hspace{0.1cm}\hat{y}_* =\hat{p}_h(x_{*1})\)</span>.</p>
 <p><br></p>
 <p>donde los parámetros <span class="math inline">\(\hspace{0.15cm} \widehat{\beta} \hspace{0.05cm}=\hspace{0.05cm} \left( \hspace{0.1cm} \widehat{\beta}_{h} \hspace{0.1cm} : \hspace{0.1cm} h\in \lbrace 0,1,..,k \rbrace \hspace{0.1cm} \right) \hspace{0.05cm}=\hspace{0.05cm} \left( \hspace{0.1cm} \widehat{\beta}_{0h} , \widehat{\beta}_{1h},...,\widehat{\beta}_{d_h h} \hspace{0.1cm} : \hspace{0.1cm} h\in \lbrace 0,1,..,k \rbrace \hspace{0.1cm} \right) \hspace{0.2cm}\)</span> se obtienen resolviendo el <strong>problema de mínimos cuadrados ordinarios</strong>, asociado a la regresión polinómica, en cada uno de los intervalos definidos para el predictor:</p>
-<p><span class="math display">\[\widehat{\beta}_h \hspace{0.05cm}=\hspace{0.05cm} \left( \hspace{0.1cm} \widehat{\beta}_{0h} , \widehat{\beta}_{1h},...,\widehat{\beta}_{d_h h}  \hspace{0.1cm} \right) \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.3cm} \underset{ \beta_{0h} , \beta_{1h},...,\beta_{d_h h}  }{Min}  \sum_{ \hspace{0.5cm}  i \in \lbrace 1,...,n \rbrace \\ \hspace{0.2cm} x_{i1} \in [L_h , L_{h+1})}  \left(  y_i - \left( \hspace{0.1cm} \widehat{\beta}_{0h} \hspace{0.05cm} + \hspace{0.05cm}      \sum_{r=1}^{d_h} \hspace{0.1cm} \widehat{\beta}_{rh} \cdot x_{i1}^{r} \right) \hspace{0.1cm} \right)^2\]</span></p>
+<p><span class="math display">\[\widehat{\beta}_h \hspace{0.05cm}=\hspace{0.05cm} \left( \hspace{0.1cm} \widehat{\beta}_{0h} , \widehat{\beta}_{1h},...,\widehat{\beta}_{d_h h}  \hspace{0.1cm} \right) \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.3cm} \underset{ \beta_{0h} , \beta_{1h},...,\beta_{d_h h}  }{Min}  \sum_{ \hspace{0.5cm}  i \in \lbrace 1,...,n \rbrace \\ \hspace{0.2cm} x_{i1} \in [L_h , L_{h+1})}  \left(  y_i - \left( \hspace{0.1cm} {\beta}_{0h} \hspace{0.05cm} + \hspace{0.05cm}      \sum_{r=1}^{d_h} \hspace{0.1cm} {\beta}_{rh} \cdot x_{i1}^{r} \right) \hspace{0.1cm} \right)^2\]</span></p>
 <p>Para cada <span class="math inline">\(\hspace{0.1cm}h\in \lbrace 0,1,...,k \rbrace\hspace{0.1cm}\)</span>, existe una solución cerrada para este problema de optimización, y se puede demostrar que es la siguiente:</p>
 <p><span class="math display">\[\widehat{\beta}_h\hspace{0.1cm}=\hspace{0.1cm}(X_h^t \cdot X_h)^{-1} \cdot X_h^t \cdot Y\]</span></p>
 <p>donde:</p>
@@ -1837,7 +1839,7 @@ para ningún <span class="math inline">\(\hspace{0.1cm}h\in \lbrace 0,1,...,k-1 
 <p>que cumple las siguientes condiciones:</p>
 <ul>
 <li><p><span class="math inline">\(\widehat{f}\hspace{0.1cm}\)</span> es continua en <span class="math inline">\(\hspace{0.1cm}[L_0 , L_{k+1}) \\\)</span></p></li>
-<li><p><span class="math inline">\(\widehat{f}^{&#39;}\hspace{0.1cm}\)</span> , <span class="math inline">\(\hspace{0.1cm}\widehat{f}^{&#39;&#39;}\hspace{0.1cm}\)</span> son continuas al menos en los extremos de los intervalos <span class="math inline">\(\hspace{0.1cm}\lbrace L_h / h=1,...,k \rbrace \\\)</span></p></li>
+<li><p><span class="math inline">\(\partial\hspace{0.05cm}\widehat{f}\hspace{0.1cm} , \hspace{0.1cm}\partial^2\hspace{0.05cm}\widehat{f}\hspace{0.1cm}\)</span> son continuas al menos en los extremos de los intervalos <span class="math inline">\(\hspace{0.1cm}\lbrace L_h / h=1,...,k \rbrace \\\)</span></p></li>
 </ul>
 <p>se garantiza que <span class="math inline">\(\hspace{0.1cm}\widehat{f}(x)\hspace{0.1cm}\)</span> es un polinomio a trozos con las características buscadas: sin saltos y con suavidad en los ecxtremos.</p>
 <p><br></p>
@@ -1851,19 +1853,64 @@ para ningún <span class="math inline">\(\hspace{0.1cm}h\in \lbrace 0,1,...,k-1 
 <p><br></p>
 <p>La predicción de la variable respuesta para una observación cualquiera <span class="math inline">\(\hspace{0.1cm}x_{*1} \in \mathbb{R}\hspace{0.1cm}\)</span> del predictor <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> , según el algoritmo de regresión lineal con polinomios a trozos, es la siguiente: <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p><span class="math display">\[\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_*  \hspace{0.15cm}=\hspace{0.15cm}
-\sum_{r=0}^d \hspace{0.05cm} \widehat{\beta}_r \cdot x_{i1}^r \hspace{0.1cm} + \hspace{0.1cm} \sum_{h=1}^k \hspace{0.05cm} \widehat{\beta}_{d+h} \cdot \phi (x_{i1} \geq L_h)
+\sum_{r=0}^d \hspace{0.05cm} \widehat{\beta}_r \cdot x_{*1}^r \hspace{0.1cm} + \hspace{0.1cm} \sum_{h=1}^k \hspace{0.05cm} \widehat{\beta}_{d+h} \cdot \phi (x_{*1} \geq L_h)
 \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} x_{*1} \in \mathbb{R} \\[0.5cm]\]</span></p>
 <p><br></p>
-<p>La estimación del modelo se puede hacer por minimos cuadrados ordinarios:</p>
-<p><span class="math display">\[\widehat{\beta} = arg Min ( y_i - ( \beta_0 + \beta_1 \cdot x_{i1} + \beta_2 \cdot x_{i1}^2 +  \beta_3 \cdot x_{i1}^3   +   \sum_{h=1}^k \beta_{3+h} \cdot \phi (x_{i1} \geq L_h) ) )^2\]</span></p>
+<p>donde los parámetros <span class="math inline">\(\hspace{0.15cm} \widehat{\beta} \hspace{0.05cm}=\hspace{0.05cm} \left( \hspace{0.1cm} \widehat{\beta}_{0},\widehat{\beta}_{1},...,\widehat{\beta}_{d},\widehat{\beta}_{d+1},...,\widehat{\beta}_{d+k} \hspace{0.1cm} \right) \hspace{0.2cm}\)</span> se obtienen resolviendo el <strong>problema de mínimos cuadrados ordinarios</strong>, asociado a la regresión con splines:</p>
+<p><span class="math display">\[\widehat{\beta}\hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.3cm} \underset{ {\beta}_{0},{\beta}_{1},...,{\beta}_{d},{\beta}_{d+1},...,{\beta}_{d+k}  }{Min}  \sum_{ \hspace{0.5cm}  i \in \lbrace 1,...,n \rbrace }  \left(  \hspace{0.1cm} y_i - \left(\hspace{0.1cm} \sum_{r=0}^d \hspace{0.05cm} {\beta}_r \cdot x_{i1}^r \hspace{0.1cm} + \hspace{0.1cm} \sum_{h=1}^k \hspace{0.05cm} {\beta}_{d+h} \cdot \phi (x_{i1} \geq L_h)\hspace{0.1cm} \right) \hspace{0.1cm} \right)^2\]</span></p>
+<p><br></p>
 <p><strong>Observaciones</strong></p>
 <ul>
 <li><p>El nº de intervalos que contempla el modelo es <span class="math inline">\(k+1 \\\)</span></p></li>
-<li><p>El grado de los polinomios splines que se ajustan en cada intervalo es <span class="math inline">\(3 \\\)</span></p></li>
-<li><p>Posteriormente usaremos la libreria <code>PyGAM</code>que construye splines a traves de la funcion <code>s(n_spline_order , n_splines, ...)</code>, en la cual <code>n_spline_order</code> es el grado del spline (en el caso canonico es 3) , y <code>n_splines</code> es el nº de coeficientes betas sin contar el intercept , en nuestra exposicion seria <code>n_splines</code> = k + 3 = k + <code>n_spline_order</code> . Por lo que hay que notar que el nº de intervalos del modelo es k+1 = <code>n_splines</code> - <code>n_spline_order</code> + 1 . Esto será relevante cuando usemos <code>PyGAM</code> para crear modelos con splines controlando el grado y el nº de intervalos.</p></li>
+<li><p>El grado de los polinomios splines que se ajustan en cada intervalo es <span class="math inline">\(d \\\)</span></p></li>
+<li><p>Posteriormente usaremos la libreria <code>PyGAM</code>que construye splines a traves de la funcion <code>s(n_spline_order , n_splines, ...)</code>, en la cual <code>n_spline_order</code> es el grado del spline (en el caso canonico es 3) , y <code>n_splines</code> es el nº de coeficientes betas sin contar el intercept , en nuestra exposicion seria <code>n_splines</code> = k + d = k + <code>n_spline_order</code> . Por lo que hay que notar que el nº de intervalos del modelo es k+1 = <code>n_splines</code> - <code>n_spline_order</code> + 1 . Esto será relevante cuando usemos <code>PyGAM</code> para crear modelos con splines controlando el grado y el nº de intervalos.</p></li>
 </ul>
 <p><br></p>
 <p>DUDA: PUEDE HABER SPLINES QUE TENGAN DIFERENTE GRADO <span class="math inline">\(d\)</span> EN CADA INTERVALO ??</p>
+<p><br></p>
+</div>
+<div id="regresión-con-splines-suavizados" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Regresión con Splines suavizados</h1>
+<p>El principal problema de los splines es que si el número de intervalos <span class="math inline">\(k+1\)</span> es excesivo, la estimación por mínimos cuadrados puede dar lugar a sobre-ajuste (rugosidades).</p>
+<p>Dado el Spline <strong>cúbico</strong> ajustado:</p>
+<p><span class="math display">\[\widehat{f}(x) \hspace{0.1cm} = \hspace{0.1cm} \sum_{r=0}^3 \hspace{0.05cm} \widehat{\beta}_r \cdot x^r \hspace{0.1cm} + \hspace{0.1cm} \sum_{h=1}^k \hspace{0.05cm} \widehat{\beta}_{3+h} \cdot \phi (x \geq L_h) \hspace{0.3cm} , \hspace{0.3cm} \forall x \in \mathbb{R}\]</span></p>
+<p>¿Cómo evitar las subidas y bajadas abruptas de los Splines cúbicos? ¿Cómo suavizar los Splines cúbicos?</p>
+<p>La clave está en la segunda derivada del spline cúbico <span class="math inline">\(\widehat{f}(x) \hspace{0.25cm} \Rightarrow \hspace{0.25cm} \partial^2\hspace{0.05cm}\widehat{f}(x)\)</span></p>
+<p>La curvatura de <span class="math inline">\(\widehat{f}(x)\)</span> se mide con la siguiente cantidad :</p>
+<p><span class="math display">\[|| \hspace{0.07cm} \partial^2\hspace{0.05cm}\widehat{f} \hspace{0.07cm} ||_2^2 \hspace{0.07cm} = \hspace{0.07cm} \int \hspace{0.05cm}  \partial^2\hspace{0.05cm}\widehat{f}(x)^2
+\cdot dx\]</span></p>
+<p>Cuanto mayor sea <span class="math inline">\(\hspace{0.1cm}|| \hspace{0.07cm} \partial^2\hspace{0.05cm}\widehat{f} \hspace{0.07cm} ||_2^2\hspace{0.1cm}\)</span> , mayor será la curvatura de <span class="math inline">\(\hspace{0.06cm}\widehat{f}\)</span></p>
+<p>Por ello, la idea es penalizar la cantidad <span class="math inline">\(\hspace{0.1cm}|| \hspace{0.07cm} \partial^2\hspace{0.05cm}\widehat{f} \hspace{0.07cm} ||_2^2\hspace{0.1cm}\)</span> ,siguiendo la filosofia de la regresión Ridge y Lasso.</p>
+<p>Por lo que la predicción de la variable respuesta para una observación cualquiera <span class="math inline">\(\hspace{0.1cm}x_{*1} \in \mathbb{R}\hspace{0.1cm}\)</span> del predictor <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> , según el algoritmo de regresión con Splines cúbicos suavizados, es la siguiente: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_*  \hspace{0.15cm}=\hspace{0.15cm}
+\sum_{r=0}^3 \hspace{0.05cm} \widehat{\beta}_r \cdot x_{*1}^r \hspace{0.1cm} + \hspace{0.1cm} \sum_{h=1}^k \hspace{0.05cm} \widehat{\beta}_{3+h} \cdot \phi (x_{*1} \geq L_h)  
+\hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} x_{*1} \in \mathbb{R} \\[0.5cm]\]</span></p>
+<p><br></p>
+<p>donde los parámetros <span class="math inline">\(\hspace{0.15cm} \widehat{\beta} \hspace{0.05cm}=\hspace{0.05cm} \left( \hspace{0.1cm} \widehat{\beta}_{0},\widehat{\beta}_{1},...,\widehat{\beta}_{3},\widehat{\beta}_{3+1},...,\widehat{\beta}_{3+k} \hspace{0.1cm} \right) \hspace{0.2cm}\)</span> se obtienen resolviendo el <strong>problema de mínimos cuadrados ordinarios</strong>, asociado a la regresión con splines cúbicos suavizados:</p>
+<p><span class="math display">\[\widehat{\beta}\hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.3cm} \underset{ {\beta}_{0},{\beta}_{1},...,{\beta}_{3},{\beta}_{3+1},...,{\beta}_{3+k}  }{Min}  \sum_{ \hspace{0.5cm}  i \in \lbrace 1,...,n \rbrace }  \left(  \hspace{0.1cm} y_i - \left(\hspace{0.1cm} \sum_{r=0}^3 \hspace{0.05cm} {\beta}_r \cdot x_{i1}^r \hspace{0.1cm} + \hspace{0.1cm} \sum_{h=1}^k \hspace{0.05cm} {\beta}_{3+h} \cdot \phi (x_{i1} \geq L_h)\hspace{0.1cm} \right) \hspace{0.1cm} \right)^2 \hspace{0.1cm} + \hspace{0.1cm} \lambda \cdot  || \hspace{0.07cm} \partial^2\hspace{0.05cm}\widehat{f} \hspace{0.07cm} ||_2^2\]</span></p>
+<p><strong>Observaciones:</strong></p>
+<ul>
+<li><p><span class="math inline">\(\lambda \geq 0 \hspace{0.07cm}\)</span> es un parámetro de penalización de la curvatura del Spline cúbico. <span class="math inline">\(\\[0.25cm]\)</span></p></li>
+<li><p>El Spline cúbico ajustado que se obtiene con este algoritmo será mas suave, y por ello tendrá menos sobre-ajuste, que el Spline cubico que se obtiene sin incluir la penalización.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="modelos-aditivos-generalizados" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Modelos Aditivos Generalizados</h1>
+<p><span class="math display">\[
+\mathcal{Y}_i \hspace{0.06cm}=\hspace{0.06cm} \beta_0 \hspace{0.06cm}+\hspace{0.06cm} \sum_{r=1}^p \hspace{0.06cm}\beta_r\cdot f_r(x_{ir}) \hspace{0.06cm}+\hspace{0.06cm} \varepsilon_i
+\]</span></p>
+<p>Donde:</p>
+<p><span class="math inline">\(f_r(x_{ir})\)</span> es la función de regresión asociada al predictor <span class="math inline">\(r\)</span>-esimo. Podria ser la función de regresión de algoritmo de regresión lineal simple, regresión polinomica, regresión con funciones escalon, regresión polinomica a trozos, regresión con Splines, o cualquier otra función de regresión.</p>
+<p><br></p>
+<p>La predicción de la variable respuesta para una observación cualquiera <span class="math inline">\(\hspace{0.1cm}x_{*} \in \mathbb{R}\hspace{0.1cm}\)</span> de los predictores <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}\)</span> , según el algoritmo de regresión aditiva generalizada, es la siguiente: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_*  \hspace{0.15cm}=\hspace{0.15cm}  
+\widehat{\beta}_0 + \sum_{r=1}^{p}  \widehat{\beta}_r \cdot \widehat{f}_r(x_{*r}) \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} x_{*} \in \mathbb{R}^p \\[0.5cm]\]</span></p>
+<p>donde:</p>
+<p><span class="math inline">\(\widehat{f}_r(x_{*r})\)</span> es la función de regresión ya estimada.</p>
+<p><br></p>
+<p>Los parámetros <span class="math inline">\(\hspace{0.15cm} \widehat{\beta} \hspace{0.05cm}=\hspace{0.05cm} \left( \hspace{0.1cm} \widehat{\beta}_{0},\widehat{\beta}_{1},...,\widehat{\beta}_{p}\hspace{0.1cm} \right) \hspace{0.2cm}\)</span> se obtienen resolviendo el <strong>problema de mínimos cuadrados ordinarios</strong>, asociado a la regresión aditiva generalizada:</p>
+<p><span class="math display">\[\widehat{\beta}\hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.3cm} \underset{ {\beta}_{0},{\beta}_{1},...,{\beta}_{p}  }{Min}  \sum_{ \hspace{0.5cm}  i \in \lbrace 1,...,n \rbrace }  \left(  \hspace{0.1cm} y_i - \left(\hspace{0.1cm} \beta_0 + \sum_{r=1}^p \hspace{0.05cm} {\beta}_r \cdot \widehat{f}_r (x_{ir}) \hspace{0.1cm}  \right) \hspace{0.1cm} \right)^2\]</span></p>
 <p><br></p>
 </div>
 </div>
