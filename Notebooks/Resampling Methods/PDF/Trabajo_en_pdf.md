@@ -882,7 +882,7 @@ $$\widehat{\theta}(X)\hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n
 
 
  
-\vspace{0.5cm}
+\newpage
 
 ## Número de muestras bootstrap posibles
 
@@ -891,6 +891,8 @@ $$\widehat{\theta}(X)\hspace{0.1cm} =\hspace{0.1cm} \widehat{\theta}(x_1,...,x_n
 Dada una muestra de $n$ elementos $(x_1,...,x_n)$ y sea $r \leq n$,
 
 
+\vspace{0.5cm}
+
 **Permutaciones**
 
 Una permutacion de $(x_1,...,x_n)$ es la imagen de una función biyectiva $f: (x_1,...,x_n) \rightarrow (x_1,...,x_n)$.
@@ -898,54 +900,74 @@ Una permutacion de $(x_1,...,x_n)$ es la imagen de una función biyectiva $f: (x
 El número de permutaciones posibles de los elementos de $(x_1,...,x_n)$ es $n!$
 
 
+\vspace{0.5cm}
 
 
 **Variaciones sin repetición**
 
 Una variación sin repeticion de $r$ elementos de los $n$ elementos de $(x_1,...,x_n)$ es una muestra **ordenada** de $r$ elementos **distintos** de $(x_1,...,x_n)$
 
-El número de variaciones sin repetición de $r$ elementos de los $n$ elementos de $(x_1,...,x_n)$ es $\dfrac{n!}{(n-r)!}$
+El número de variaciones sin repetición de $r$ elementos de los $n$ elementos de $(x_1,...,x_n)$ es:
 
-Es decir, el número de muestras ordenadas distintas que pueden definirse tomando $r$ elementos distintos  de la muestra $(x_1,...,x_n)$ es $\dfrac{n!}{(n-r)!}$
+
+$$\dfrac{n!}{(n-r)!}$$
+
+Es decir, el número de muestras ordenadas distintas que pueden definirse tomando $r$ elementos distintos  de la muestra $(x_1,...,x_n)$ es:
+
+$$\dfrac{n!}{(n-r)!}$$
 
 A este tipo de variaciones se les denomina variaciones sin repetición, ya que no se permite la repetición de elementos al extraer las muestras.
 
+\vspace{0.3cm}
+
 Ejemplo:
 
-Dada la muestra A=(a_1 , a_2 , a_3) 
+Dada la muestra $A=(a_1 , a_2 , a_3)$ 
 
-Todas las variaciones sin repeticiones $r=2$ elementos de los $n=3$ elementos de A son:
+Todas las variaciones sin repeticiones $r=2$ elementos de los $n=3$ elementos de $A$ son:
 
-
+\vspace{-0.4cm}
 $$(a_1 , a_2) , (a_2,a_1) , (a_2, a_3), (a_3,a_2), (a_1,a_3), (a_3, a_2)$$
 
 
-Como se puede ver, en este caso $\dfrac{n!}{(n-r)!} = \dfrac{3!}{(3-2)!} = \dfrac{6}{1}=6$ es el número de posibles variaciones sin repetición.
+Como se puede ver, en este caso el número de posibles variaciones sin repetición es:
 
-\vspace{0.5cm}
+$$\dfrac{n!}{(n-r)!} = \dfrac{3!}{(3-2)!} = \dfrac{6}{1}=6$$ 
+
+
+
+
+
+\newpage
 
 **Variaciones con repetición**
 
 Una variación con repeticion de $r$ elementos de los $n$ de $(x_1,...,x_n)$ es una muestra **ordenada** de $r$ elementos **(no necesariamente distintos)** de $(x_1,...,x_n)$
 
-El número de variaciones con repetición de $r$ elementos de los $n$ de $(x_1,...,x_n)$ es $\dfrac{n!}{(n-r)!}$
+El número de variaciones con repetición de $r$ elementos de los $n$ de $(x_1,...,x_n)$ es:
+
+$$\dfrac{n!}{(n-r)!}$$
 
 Es decir, el número de muestras ordenadas posibles que pueden definirse tomando $r$ elementos (no necesariamente distintos)  de la muestra $(x_1,...,x_n)$ es $n^r$
 
 A este tipo de variaciones se les denomina variaciones con repetición, ya que se permite la repetición de elementos al extraer las muestras.
 
+\vspace{0.3cm}
 
 Ejemplo:
 
-Dada la muestra A=(a_1 , a_2 , a_3) 
+Dada la muestra $A=(a_1 , a_2 , a_3)$ 
 
-Todas las variaciones con repeticiones $r=2$ elementos de los $n=3$ elementos de A son:
+Todas las variaciones con repeticiones $r=2$ elementos de los $n=3$ elementos de $A$ son:
 
-
+\vspace{-0.4cm}
 $$(a_1,a_1), (a_2,a_2), (a_3,a_3), (a_1 , a_2) , (a_2,a_1) , (a_2, a_3), (a_3,a_2), (a_1,a_3), (a_3, a_2)$$
 
 
 Como se puede ver, en este caso $n^r = 3^2 = 9$ es el número de posibles variaciones con repetición.
+
+
+
 
 
 \vspace{0.5cm}
@@ -955,24 +977,31 @@ Como se puede ver, en este caso $n^r = 3^2 = 9$ es el número de posibles variac
 
 Una combinacion sin repeticion de $r$ elementos de los $n$ de $(x_1,...,x_n)$ es una muestra **no ordenada** de $r$ elementos distintos de $(x_1,...,x_n)$
 
-El número de combinaciones sin repetición de $r$ elementos de los $n$ de $(x_1,...,x_n)$ es $\binom{n}{r} = dfrac{n!}{r!(n-r)!}$
+El número de combinaciones sin repetición de $r$ elementos de los $n$ de $(x_1,...,x_n)$ es:
 
-Es decir, el número de muestras (no ordenadas) distintas que pueden definirse tomando $r$ elementos distintos  de la muestra $(x_1,...,x_n)$ es $\binom{n}{r} = dfrac{n!}{r!(n-r)!}$
+$$\binom{n}{r} = \dfrac{n!}{r!(n-r)!}$$
+
+Es decir, el número de muestras (no ordenadas) distintas que pueden definirse tomando $r$ elementos distintos  de la muestra $(x_1,...,x_n)$ es:
+
+$$\binom{n}{r} = \dfrac{n!}{r!(n-r)!}$$
 
 A este tipo de combinaciones se les denomina combinaciones sin repetición, ya que no se permite la repetición de elementos al extraer las muestras.
 
+\vspace{0.3cm}
 
 Ejemplo:
 
-Dada la muestra A=(a_1 , a_2 , a_3) 
+Dada la muestra $A=(a_1 , a_2 , a_3)$
 
-Todas las combinaciones sin repeticiones $r=2$ elementos de los $n=3$ elementos de A son:
+Todas las combinaciones sin repeticiones $r=2$ elementos de los $n=3$ elementos de $A$ son:
 
-
+\vspace{-0.4cm}
 $$(a_1 , a_2) , (a_2, a_3), (a_1,a_3)$$
 
 
-Como se puede ver, en este caso $\binom{n}{r} = \dfrac{n!}{r!(n-r)!}=\dfrac{3!}{2!(3-2)!}=3$ es el número de posibles combinaciones sin repetición.
+Como se puede ver, en este caso el número de posibles combinaciones sin repetición es: 
+
+$$\binom{n}{r} = \dfrac{n!}{r!(n-r)!}=\dfrac{3!}{2!(3-2)!}=3$$ 
 
 
 
@@ -986,26 +1015,34 @@ Como se puede ver, en este caso $\binom{n}{r} = \dfrac{n!}{r!(n-r)!}=\dfrac{3!}{
 
 Una combinación con repetición de $r$ elementos de los $n$ de $(x_1,...,x_n)$ es una muestra **no ordenada** de $r$ elementos (no necesariamente distintos) de $(x_1,...,x_n)$
 
-El número de combinaciones con repetición de $r$ elementos de los $n$ de $(x_1,...,x_n)$ es $\binom{n+r-1}{r} = dfrac{(n+r-1)!}{r!( (n+r-1) -r)!} =dfrac{(n+r-1)!}{r!( n-1)!}=\binom{n+r-1}{n-1}$
+El número de combinaciones con repetición de $r$ elementos de los $n$ de $(x_1,...,x_n)$ es:
 
-Es decir, el número de muestras (no ordenadas) distintas que pueden definirse tomando $r$ elementos (no necesariamente distintos)  de la muestra $(x_1,...,x_n)$ es $\binom{n+r-1}{r}$
+$$\binom{n+r-1}{r} = \dfrac{(n+r-1)!}{r!( (n+r-1) -r)!} =\dfrac{(n+r-1)!}{r!( n-1)!}=\binom{n+r-1}{n-1}$$
+
+Es decir, el número de muestras (no ordenadas) distintas que pueden definirse tomando $r$ elementos (no necesariamente distintos)  de la muestra $(x_1,...,x_n)$ es:
+
+$$\binom{n+r-1}{r}$$
 
 A este tipo de combinaciones se les denomina combinaciones con repetición, ya que  se permite la repetición de elementos al extraer las muestras.
 
+\vspace{0.3cm}
 
 Ejemplo:
 
-Dada la muestra A=(a_1 , a_2 , a_3) 
+Dada la muestra $A=(a_1 , a_2 , a_3)$ 
 
-Todas las combinaciones sin repeticiones $r=2$ elementos de los $n=3$ elementos de A son:
+Todas las combinaciones sin repeticiones $r=2$ elementos de los $n=3$ elementos de $A$ son:
 
+\vspace{-0.4cm}
 
 $$(a_1,a_1), (a_2,a_2), (a_3,a_3), (a_1 , a_2) , (a_2, a_3), (a_1,a_3)$$
 
 
-Como se puede ver, en este caso $\binom{n+r-1}{r} = dfrac{(n+r-1)!}{r!( (n+r-1) -r)!} = dfrac{(3+2-1)!}{2!( (3+2-1) -2)!}=\dfrac{24}{4}=6$ es el número de posibles combinaciones con repetición.
+Como se puede ver, en este caso el número de posibles combinaciones con repetición es:
 
-\vspace{0.5cm}
+$$\binom{n+r-1}{r} = \dfrac{(n+r-1)!}{r!( (n+r-1) -r)!} = \dfrac{(3+2-1)!}{2!( (3+2-1) -2)!}=\dfrac{24}{4}=6$$  
+
+\vspace{0.7cm}
 
 
 ### Aplicación a las muestras bootstrap
@@ -1333,7 +1370,7 @@ Dada una v.a. $\mathcal{X}\sim D(\theta)$ y una m.a.s. $(\mathcal{X}_1,...,\math
 
 La **función de distribución** de la v.a. $\mathcal{X}$ es : 
 
-$$F_{X}(z) = P(X \leq z)  \hspace{0.2cm}, \hspace{0.2cm}\forall z \in \mathbb{R}$$
+$$F_{\mathcal{X}}(z) = P(\mathcal{X} \leq z)  \hspace{0.2cm}, \hspace{0.2cm}\forall z \in \mathbb{R}$$
 
  
 \vspace{0.3cm}
@@ -1344,7 +1381,7 @@ $$F_{X}(z) = P(X \leq z)  \hspace{0.2cm}, \hspace{0.2cm}\forall z \in \mathbb{R}
 
 La función de distribución de la v.a. $\mathcal{X}$ coincide con las funciones de distribución de las v.a's $\mathcal{X}_1,...,\mathcal{X}_n \\$ , porque tienen la misma distribución de probabilidad.
 
-$$F_{X}(z) = F_{X_i}(z) \hspace{0.2cm}, \hspace{0.2cm}\forall z \in \mathbb{R} \hspace{0.2cm},\hspace{0.2cm} \forall i \in \lbrace 1,...,n \rbrace$$
+$$F_{\mathcal{X}}(z) = F_{\mathcal{X}_i}(z) \hspace{0.2cm}, \hspace{0.2cm}\forall z \in \mathbb{R} \hspace{0.2cm},\hspace{0.2cm} \forall i \in \lbrace 1,...,n \rbrace$$
 
 
 
@@ -1368,8 +1405,8 @@ $$\widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(
 
    donde:
 
-$$I(X_i \geq z) =  \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm} X_i \geq z \\[0.1cm] 
-\hspace{0.12cm} 0 \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm} X_i > z \\[0.1cm] 
+$$I(X_i \geq z) =  \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm} \mathcal{X}_i \geq z \\[0.1cm] 
+\hspace{0.12cm} 0 \hspace{0.2cm},\hspace{0.3cm} \text{si} \hspace{0.3cm} \mathcal{X}_i > z \\[0.1cm] 
 \end{array}\right.$$
 
    para $\hspace{0.1cm} z\in \mathbb{R}$
@@ -1383,7 +1420,7 @@ $$I(X_i \geq z) =  \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2c
 
 - $\widehat{F}_n(z)\hspace{0.1cm}$ es una v.a.  
 
-- $\widehat{F}_n(z)\hspace{0.1cm}$ es usada como estimador de $\hspace{0.1cm}F_X(z)$
+- $\widehat{F}_n(z)\hspace{0.1cm}$ es usada como estimador de $\hspace{0.1cm}F_\mathcal{X}(z)$
 
 
 
@@ -1398,19 +1435,19 @@ $$I(X_i \geq z) =  \left\lbrace\begin{array}{l}   \hspace{0.12cm} 1 \hspace{0.2c
 
  Algunas propiedades de la distribución empírica como variable aleatoria:
 
-- $\hspace{0.2cm} I(X_i \geq z) \hspace{0.2cm}\sim\hspace{0.2cm} Bernoulli\left( p \right) \hspace{0.2cm} ,\hspace{0.2cm}  \text{con}\hspace{0.2cm} \hspace{0.2cm} p=F_X(z)=P(X<z)\\[0.2cm]$
+- $\hspace{0.2cm} I(\mathcal{X}_i \geq z) \hspace{0.2cm}\sim\hspace{0.2cm} Bernoulli\left( p \right) \hspace{0.2cm} ,\hspace{0.2cm}  \text{con}\hspace{0.2cm}  p=F_X(z)=P(\mathcal{X}<z)\\[0.2cm]$
 
-- $\hspace{0.2cm}  \sum_{i=1}^n  I(X_i \geq z) \hspace{0.2cm}\sim\hspace{0.2cm} Binomial(n , p  ) \hspace{0.2cm} ,\hspace{0.2cm}  \text{con}\hspace{0.2cm} \hspace{0.2cm} p=F_X(z)=P(X<z) \\[0.2cm]$
+- $\hspace{0.2cm}  \sum_{i=1}^n  I(\mathcal{X}_i \geq z) \hspace{0.2cm}\sim\hspace{0.2cm} Binomial(n , p  ) \hspace{0.2cm} ,\hspace{0.2cm}  \text{con}\hspace{0.2cm} \hspace{0.2cm} p=F_X(z)=P(X<z) \\[0.2cm]$
 
-- $\hspace{0.2cm} \widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm}   \dfrac{1}{n} \sum_{i=1}^n  I(X_i \geq z) \hspace{0.2cm}\sim\hspace{0.2cm}  \dfrac{1}{n} \cdot Binomial(n , p  )\\$
+- $\hspace{0.2cm} \widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm}   \dfrac{1}{n} \sum_{i=1}^n  I(\mathcal{X}_i \geq z) \hspace{0.2cm}\sim\hspace{0.2cm}  \dfrac{1}{n} \cdot Binomial(n , p  )\\$
 
-    $\hspace{0.2cm} \text{donde}\hspace{0.2cm} p\hspace{0.1cm}=\hspace{0.1cm}F_X(z)\hspace{0.1cm}=\hspace{0.1cm}P(X<z) \\[0.2cm]$
-
-
-- $E\left[ \widehat{F}_n(z)  \right] \hspace{0.1cm}=\hspace{0.1cm}  E \left[ \dfrac{1}{n} \cdot Binomial(n , p  ) \right] \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n}  n   p  \hspace{0.1cm}=\hspace{0.1cm} p \hspace{0.1cm}=\hspace{0.1cm} F_X(z)=P(X<z) \\[0.2cm]$
+    $\hspace{0.2cm} \text{donde}\hspace{0.2cm} p=F_\mathcal{X}(z)=P(\mathcal{X}<z) \\[0.2cm]$
 
 
-- $Var\left[ \widehat{F}_n(z)  \right] \hspace{0.1cm}=\hspace{0.1cm} Var \left[ \dfrac{1}{n} \cdot Binomial(n , p  ) \right]\hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n^2}  n   p  (1-p) = \\[0.25cm] \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n}  F_X(z) (1- F_X(z))  \hspace{0.1cm}=\hspace{0.1cm} F_X(z)=P(X<z) \\[0.2cm]$
+- $E\left[ \widehat{F}_n(z)  \right] \hspace{0.1cm}=\hspace{0.1cm}  E \left[ \dfrac{1}{n} \cdot Binomial(n , p  ) \right] \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n}  n   p  \hspace{0.1cm}=\hspace{0.1cm} p \hspace{0.1cm}=\hspace{0.1cm} F_\mathcal{X}(z)=P(\mathcal{X}<z) \\[0.2cm]$
+
+
+- $Var\left[ \widehat{F}_n(z)  \right] \hspace{0.1cm}=\hspace{0.1cm} Var \left[ \dfrac{1}{n} \cdot Binomial(n , p  ) \right]\hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n^2}\cdot  n   p  (1-p) = \\[0.25cm] \hspace{0.5cm}=\hspace{0.1cm} \dfrac{1}{n}\cdot  F_\mathcal{X}(z) (1- F_\mathcal{X}(z))  \hspace{0.1cm}=\hspace{0.1cm} F_\mathcal{X}(z)=P(\mathcal{X}<z) \\[0.2cm]$
 
 
  
@@ -1475,13 +1512,13 @@ Dada una v.a. $\mathcal{X}\sim D(\theta)$ tal que $E[\mathcal{X}]=\mu$
 
 Si $\widehat{F}_n(z)$ es la función de distribución empírica basada en la m.a.s. $(\mathcal{X}_1,...,\mathcal{X}_n)$ de $\mathcal{X}$ , se cumple que:
 
-$$\dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \hspace{0.15cm}\underset{p}{\rightarrow}\hspace{0.15cm} E[X]=\mu$$
+$$\dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \hspace{0.15cm}\underset{p}{\rightarrow}\hspace{0.15cm} E[\mathcal{X}]=\mu$$
 
 
 \vspace{0.3cm}
 
 
-**Observación:** $E[X]=E[X_i] \hspace{0.25cm},\hspace{0.25 cm} \forall i \in \lbrace 1,...,n \rbrace$
+**Observación:** $E[\mathcal{X}]=E[\mathcal{X}_i] \hspace{0.25cm},\hspace{0.25 cm} \forall i \in \lbrace 1,...,n \rbrace$
 
 
 
@@ -1489,12 +1526,12 @@ $$\dfrac{1}{n} \sum_{i=1}^n \mathcal{X}_i \hspace{0.15cm}\underset{p}{\rightarro
  
 Podemos aplicar la ley de los grandes números a la distribución empírica:
 
-  Como $\hspace{0.1cm}I(\mathcal{X}_i \geq z) \sim Bernoulli(p)\hspace{0.1cm}$ , con $\hspace{0.1cm}E\left[I(\mathcal{X}_i \geq z)\right]\hspace{0.05cm} =\hspace{0.05cm} p\hspace{0.05cm}=\hspace{0.05cm}F_X(z)\hspace{0.05cm}=\hspace{0.05cm}P(X \leq z)\\$
+  Como $\hspace{0.1cm}I(\mathcal{X}_i \geq z) \sim Bernoulli(p)\hspace{0.1cm}$ , con $\hspace{0.1cm}E\left[I(\mathcal{X}_i \geq z)\right]\hspace{0.05cm} =\hspace{0.05cm} p\hspace{0.05cm}=\hspace{0.05cm}F_\mathcal{X}(z)\hspace{0.05cm}=\hspace{0.05cm}P(\mathcal{X} \leq z)\\$
 
  Aplicando la ley debil de los grandes números tenemos lo siguiente:
 
 
-$$\widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(\mathcal{X}_i \geq z) \hspace{0.25cm}\underset{p}{\rightarrow} \hspace{0.25cm} p=F_X(z) \\$$
+$$\widehat{F}_n(z) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \sum_{i=1}^n  I(\mathcal{X}_i \geq z) \hspace{0.25cm}\underset{p}{\rightarrow} \hspace{0.25cm} p=F_\mathcal{X}(z) \\$$
 
  En conclusión:
 
@@ -1506,7 +1543,7 @@ $$\widehat{F}_n(z) \hspace{0.15cm}\underset{p}{\rightarrow} \hspace{0.15cm} F_X(
   Usando la definición de convergencia en probabilidad, se tiene que:  
 
 
-$$\underset{n\rightarrow \infty}{lim} \hspace{0.1cm} P\left( \hspace{0.1cm} | \widehat{F}_n(z) - F_X(z) |\hspace{0.1cm} \leq \varepsilon \right) \hspace{0.1cm}=\hspace{0.1cm} 1 \hspace{0.25cm},\hspace{0.25cm} \forall \varepsilon > 0 \\$$
+$$\underset{n\rightarrow \infty}{lim} \hspace{0.1cm} P\left( \hspace{0.1cm} | \widehat{F}_n(z) - F_\mathcal{X}(z) |\hspace{0.1cm} \leq \varepsilon \right) \hspace{0.1cm}=\hspace{0.1cm} 1 \hspace{0.25cm},\hspace{0.25cm} \forall \varepsilon > 0 \\$$
 
  
 \vspace{0.55cm}
@@ -1517,11 +1554,11 @@ Pero se cumple un resultado más fuerte aun, el **teorema de Glivenko-Cantelli**
 
 ## Teorema de Glivenko-Cantelli
 
-Dada una v.a. $\mathcal{X}\sim D(\theta)$ tal que $E[\mathcal{X}]=\mu \\$ 
+Dada una v.a. $\mathcal{X}\sim D(\theta)$  
 
 Si $\widehat{F}_n(z)$ es la función de distribución empírica basada en la m.a.s. $(\mathcal{X}_1,...,\mathcal{X}_n)$ de $\mathcal{X}$ , se cumple que: 
 
-$$sup \left\lbrace \hspace{0.1cm}\left|\hspace{0.1cm} \widehat{F}_n(z)  - F_X(z)\hspace{0.1cm} \right| \hspace{0.15cm}  : \hspace{0.15cm} z \in \mathbb{R} \hspace{0.1cm}\right\rbrace \hspace{0.15cm}\underset{p}{\rightarrow} \hspace{0.15cm} 0\\$$
+$$sup \left\lbrace \hspace{0.1cm}\left|\hspace{0.1cm} \widehat{F}_n(z)  - F_\mathcal{X}(z)\hspace{0.1cm} \right| \hspace{0.15cm}  : \hspace{0.15cm} z \in \mathbb{R} \hspace{0.1cm}\right\rbrace \hspace{0.15cm}\underset{p}{\rightarrow} \hspace{0.15cm} 0\\$$
 
 
 
@@ -1530,24 +1567,23 @@ $$sup \left\lbrace \hspace{0.1cm}\left|\hspace{0.1cm} \widehat{F}_n(z)  - F_X(z)
 
 ### Demostración del teorema de Glivenko-Cantelli
 
-
 El Teorema de Glivenko-Cantelli establece que, para una distribución de probabilidad dada y una secuencia de variables aleatorias independientes y idénticamente distribuidas (i.i.d.) con dicha distribución, la función de distribución empírica de la secuencia converge uniformemente a la función de distribución de la distribución de probabilidad dada.
 
 La demostración del teorema se basa en el teorema del límite central y en el hecho de que la función de distribución empírica es una función Lipschitz.
 
 La demostración completa en LaTeX del teorema de Glivenko-Cantelli es la siguiente:
 
-Sea $X_1, X_2, \dots, X_n$ una secuencia de variables aleatorias independientes y idénticamente distribuidas con distribución de probabilidad $F$.
+Sea $X_1, X_2, \dots, X_n$ una secuencia de variables aleatorias independientes y idénticamente distribuidas como la v.a. $\mathcal{X}$, cuya función de  distribución de probabilidad es $F_\mathcal{X}$.
 
 Se define la función de distribución empírica como:
 
-$$F_n(x) = \frac{1}{n} \sum_{i=1}^{n} [X_i \leq x]$$
+$$F_n(x) = \frac{1}{n} \sum_{i=1}^{n} I[\mathcal{X}_i \leq x]$$
 
-donde $[\cdot]$ es el operador de indicador que toma el valor 1 si su argumento es verdadero y 0 en caso contrario.
+donde $I[\cdot]$ es el operador de indicador que toma el valor 1 si su argumento es verdadero y 0 en caso contrario.
 
 El teorema del límite central establece que, para cualquier $x \in \mathbb{R}$:
 
-$$\frac{F_n(x) - F(x)}{\sqrt{\frac{F(x)(1-F(x))}{n}}} \xrightarrow{d} N(0,1)$$
+$$\frac{F_n(x) - F_\mathcal{X}(x)}{\sqrt{\frac{F_\mathcal{X}(x)(1-F_\mathcal{X}(x))}{n}}} \xrightarrow{d} N(0,1)$$
 
 donde $\xrightarrow{d}$ significa que la distribución de la expresión a la izquierda converge en distribución a la distribución a la derecha y $N(0,1)$ es la distribución normal estándar.
 
@@ -1561,20 +1597,32 @@ Utilizando estos hechos, podemos demostrar el teorema de Glivenko-Cantelli.
 
 Para cualquier $\varepsilon > 0$, queremos demostrar que:
 
-$$\lim_{n \to \infty} P(||F_n - F||_\infty \geq \varepsilon) = 0$$
+$$\lim_{n \to \infty} P(||F_n - F_\mathcal{X}||_\infty \geq \varepsilon) = 0$$
 
 donde $||\cdot||_\infty$ es la norma infinita.
 
+
+\newpage 
+
 Utilizando la definición de la norma infinita y el hecho de que la función de distribución empírica es una función Lipschitz con una constante de Lipschitz de 1, tenemos:
 
-$$\begin{aligned} P(||F_n - F||\infty \geq \varepsilon) &= P(\max{x \in \mathbb{R}} |F_n(x) - F(x)| \geq \varepsilon) \ &\leq \max_{x \in \mathbb{R}} P(|F_n(x) - F(x)| \geq \varepsilon) \ &\leq \max_{x \in \mathbb{R}} \frac{E(|F_n(x) - F(x)|)}{\varepsilon} \ &= \frac{1}{\varepsilon} \max_{x \in \mathbb{R}} E(|F_n(x) - F(x)|) \ &= \frac{1}{\varepsilon} \max_{x \in \mathbb{R}} \sqrt{\frac{F(x)(1-F(x))}{n}} \ &= \frac{1}{\varepsilon} \sqrt{\frac{1}{n}} \end{aligned}$$
+$$P(||F_n - F_\mathcal{X}||\infty \geq \varepsilon) = P(\max{x \in \mathbb{R}} |F_n(x) - F_\mathcal{X}(x)| \geq \varepsilon) \ \leq \max_{x \in \mathbb{R}} P(|F_n(x) - F_\mathcal{X}(x)| \geq \varepsilon) \ \leq$$
+
+\vspace{-0.5cm}
+
+$$\leq \max_{x \in \mathbb{R}} \frac{E(|F_n(x) - F_\mathcal{X}(x)|)}{\varepsilon} \ = \frac{1}{\varepsilon} \max_{x \in \mathbb{R}} E(|F_n(x) - F_\mathcal{X}(x)|) \ = \frac{1}{\varepsilon} \max_{x \in \mathbb{R}} \sqrt{\frac{F_\mathcal{X}(x)(1-F_\mathcal{X}(x))}{n}} \ = \frac{1}{\varepsilon} \sqrt{\frac{1}{n}} $$
+
+
+\vspace{0.3cm}
 
 Por lo tanto, para cualquier $\varepsilon > 0$, tenemos:
 
-$$\lim_{n \to \infty} P(||F_n - F||_\infty \geq \varepsilon) = 0$$
+$$\lim_{n \to \infty} P(||F_n - F_\mathcal{X}||_\infty \geq \varepsilon) = 0$$
 
 y, por lo tanto, demostramos el teorema de Glivenko-Cantelli.
 
+
+ \vspace{0.6cm}
 
 ## Relación entre el teorema de Glivenko-Cantelli y el Bootstrap
 
@@ -4154,7 +4202,7 @@ model_SM.rsquared_adj
 
 # Estimación bootstrap de la varianza de las predicciones de un modelo de aprendizaje supervisado
 
-Consideraremos que una estimacion de la varianza de las predicciones de un modelo de regresion (variable respuesta cuantitativa) $M$ es:
+Consideraremos que una estimacion de la varianza de las predicciones de un modelo de aprendizaje supervisado $M$ es:
 
 \vspace{-0.4cm}
 
@@ -4207,7 +4255,7 @@ $$\dfrac{1}{h} \sum_{i=1}^{h} \widehat{Var}(\hat{y}_i)$$
 
 # Estimación bootstrap del sesgo de las predicciones de un modelo de aprendizaje supervisado
 
-Consideraremos que una estimacion del sesgo de las predicciones de un modelo de regresion (variable respuesta cuantitativa) $M$ es:
+Consideraremos que una estimacion del sesgo de las predicciones de un modelo de aprendizaje supervisado $M$ es:
 
 \vspace{-0.4cm}
 
@@ -7789,7 +7837,50 @@ Por lo tanto podemos ver que ninguno de los intervalos contiene al 0, por lo que
 
 # Bibliografía
 
+Diazaraque, J. M. (Curso de Técnicas de Remuestreo de 2022-2023). Prácticas Tema 1. Obtenido de Aula Global UC3M: https://aulaglobal.uc3m.es/pluginfile.php/5806564/mod_resource/content/4/Tema1_Practica.pdf
 
+Diazaraque, J. M. (Curso de Técnicas de Remuestreo de 2022-2023). Prácticas Tema 2. Obtenido de Aula Global UC3M: https://aulaglobal.uc3m.es/pluginfile.php/5892011/mod_resource/content/1/Tema2_Practica.pdf
+
+Diazaraque, J. M. (Curso de Técnicas de Remuestreo de 2022-2023). Prácticas Tema 3. Obtenido de Aula Global UC3M: https://aulaglobal.uc3m.es/pluginfile.php/5902440/mod_resource/content/1/Tema3_Practica.pdf
+
+Diazaraque, J. M. (Curso de Técnicas de Remuestreo de 2022-2023). Prácticas Tema 4. Obtenido de Aula Globa UC3M: https://aulaglobal.uc3m.es/pluginfile.php/5914587/mod_resource/content/4/Tema4_Practica.pdf
+
+Diazaraque, J. M. (Curso de Técnicas de Remuestreo de 2022-2023). Prácticas Tema 5. Obtenido de Aula Global UC3M: https://aulaglobal.uc3m.es/pluginfile.php/5932471/mod_resource/content/7/Tema5_Practica.pdf
+
+Diazaraque, J. M. (Curso de Técnicas de Remuestreo de 2022-2023). Prácticas Tema 6. Obtenido de Aula Global UC3M: https://aulaglobal.uc3m.es/pluginfile.php/5941981/mod_resource/content/3/Tema6_Practica.pdf
+
+Diazaraque, J. M. (Curso de Técnicas de Remuestreo de 2022-2023). Prácticas Tema 7. Obtenido de Aula Global UC3M: https://aulaglobal.uc3m.es/pluginfile.php/5963653/mod_resource/content/4/Tema7_Practica.pdf
+
+Diazaraque, J. M. (Curso de Técnicas de Remuestreo de 2022-2023). Tema 1. Introducción a los métodos de remuestreo con soporte computacional en R. Obtenido de Aula Global UC3M: https://aulaglobal.uc3m.es/pluginfile.php/5806563/mod_resource/content/1/tema1.pdf
+
+Diazaraque, J. M. (Curso de Técnicas de Remuestreo de 2022-2023). Tema 2. Introducción al Jackknife y a los test de permutaciones. Obtenido de Aula Global UC3M: https://aulaglobal.uc3m.es/pluginfile.php/5892009/mod_resource/content/2/tema2.pdf
+
+Diazaraque, J. M. (Curso de Técnicas de Remuestreo de 2022-2023). Tema 3. Conceptos relacionados con la Distribución Empírica. Obtenido de Aula Global UC3M: https://aulaglobal.uc3m.es/pluginfile.php/5902438/mod_resource/content/2/tema3.pdf
+
+DIazaraque, J. M. (Curso de Técnicas de Remuestreo de 2022-2023). Tema 4. Estimación de errores estándar mediante remuestreo. Obtenido de Aula Global UC3M: https://aulaglobal.uc3m.es/pluginfile.php/5914586/mod_resource/content/3/tema4.pdf
+
+Diazaraque, J. M. (Curso de Técnicas de Remuestreo de 2022-2023). Tema 5. Remuestreos en Modelos Lineales y Series Temporales. Obtenido de Aula Global UC3M: https://aulaglobal.uc3m.es/pluginfile.php/5932470/mod_resource/content/2/tema5.pdf
+
+Diazaraque, J. M. (Curso de Técnicas de Remuestreo de 2022-2023). Tema 6. Estimación de sesgos mediante remuestreo. Obtenido de Aula Global UC3M: https://aulaglobal.uc3m.es/pluginfile.php/5941980/mod_resource/content/2/tema6.pdf
+
+Diazaraque, J. M. (Curso de Técnicas de Remuestreo de 2022-2023). Tema 7. Intervalos de confianza y contrastes de hipótesis basados en remuestreos. Obtenido de Aula Global UC3M: https://aulaglobal.uc3m.es/pluginfile.php/5963651/mod_resource/content/1/tema7.pdf
+
+Scielzo Ortiz, F. (2022). [Estadística4all](http://estadistica4all.com/).  Introducción a los intervalos de confianza: http://estadistica4all.com/Articulos/Intervalos-de-confianza.html
+Rodrigo, J. A. (Enero de 2016). Cienciadedatos.net. Obtenido de Anova con R: https://www.cienciadedatos.net/documentos/19_anova
+
+Rodrigo, J. A. (Enero de 2016). Cienciadedatos.net. Obtenido de Test Kruskal-Wallis: https://www.cienciadedatos.net/documentos/20_kruskal-wallis_test
+
+Rodrigo, J. A. (Mayo de 2016). Cienciadedatos.net. Obtenido de Resampling: Test de pemutación, Simulación de Monte Carlo y Bootstrapping: https://www.cienciadedatos.net/documentos/23_resampling_test_permutacion_simulacion_de_monte_carlo_bootstrapping
+
+Rodrigo, J. A. (Diciembre de 2021). Cienciadedatos.net. Obtenido de Anova: https://www.cienciadedatos.net/documentos/pystats09-analisis-de-varianza-anova-python.html
+
+Rodrigo, J. A. (Diciembre de 2021). Cienciadedatos.net. Obtenido de T-Test: https://www.cienciadedatos.net/documentos/pystats10-t-test-python.html
+
+Rodrigo, J. A. (Enero de 2021). Cienciadedatos.net. Obtenido de Test de Permutación para el contraste de hipótesis: https://www.cienciadedatos.net/documentos/pystats03-test-permutacion-python.html
+
+Rodrigo, J. A. (Enero de 2021). Cienciadedatos.net. Obtenido de Bootstrapping, contraste de hipótesis e intervalos de confianza con Python: https://www.cienciadedatos.net/documentos/pystats04-bootstrapping-python.html
+
+Wikipedia The Free Encyclopedia. (6 de Diciembre de 2022). Glivenko-Cantelli theorem. Obtenido de https://en.wikipedia.org/wiki/Glivenko%E2%80%93Cantelli_theorem
 
 
 
