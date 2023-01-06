@@ -1562,14 +1562,16 @@ margin-left: 0 !important;
 <li><p>Se tiene una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X_r = (x_{1r},...,x_{nr})^t\hspace{0.1cm}\)</span> de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_r\hspace{0.1cm}\)</span> , para cada <span class="math inline">\(\hspace{0.1cm}r \in \lbrace 1,...,p \rbrace\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 <li><p>Se tiene una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}Y = (y_1,...,y_n)^t\hspace{0.1cm}\)</span> de la variable <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 <li><p>En conclusión, se tiene una muestra de observaciones <span class="math inline">\(\hspace{0.12cm}D=[\hspace{0.12cm}X_1,...,X_p,Y \hspace{0.12cm}]\hspace{0.12cm}\)</span>
-de los predictores y la respuesta. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+de los predictores y la respuesta.</p></li>
 </ul>
+<p><br></p>
 <p>El modelo estadístico que se plantea en regresión lineal es el siguiente:</p>
 <p>Tenemos una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}_1,...,\mathcal{Y}_n\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\)</span></p>
 <p>Se asume que para cada <span class="math inline">\(\hspace{0.1cm}i=1,...,n\hspace{0.1cm}\)</span> se tiene la siguiente relación:</p>
-<p><span class="math display">\[\mathcal{Y}_i = \beta_0 + \sum_{j=1}^p \beta_j \cdot x_{ij} + \varepsilon_i\]</span></p>
+<p><span class="math display">\[\mathcal{Y}_i \hspace{0.1cm}=\hspace{0.1cm} f(x_i) \hspace{0.05cm}+\hspace{0.05cm} \varepsilon_i \hspace{0.1cm}=\hspace{0.1cm} \beta_0 + \sum_{j=1}^p \hspace{0.05cm} \beta_j \cdot x_{ij} \hspace{0.05cm}+\hspace{0.05cm} \varepsilon_i \hspace{0.35cm} , \hspace{0.35cm} \forall \hspace{0.05cm} x_i=(x_{i1},...,x_{ip})^t \in \mathbb{R}^p\]</span></p>
 <p>Donde:</p>
 <ul>
+<li><p><span class="math inline">\(f(x_i) \hspace{0.1cm}=\hspace{0.1cm} \beta_0 + \sum_{j=1}^p \beta_j \cdot x_{ij}\hspace{0.25cm}\)</span> es la función de regresión en este algoritmo de regresión. <span class="math inline">\(\\[0.7cm]\)</span></p></li>
 <li><p><span class="math inline">\(\varepsilon_i \sim N(0,\sigma^2) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n\rbrace \\\)</span></p></li>
 <li><p><span class="math inline">\(Corr(\varepsilon_i , \varepsilon_r) = 0 \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \neq r \in \lbrace 1,...,n\rbrace \\\)</span></p></li>
 <li><p><span class="math inline">\(\beta_0,...,\beta_p \in \mathbb{R}\\\)</span></p></li>
@@ -1579,12 +1581,17 @@ de los predictores y la respuesta. <span class="math inline">\(\\[0.5cm]\)</span
 <p>En regresión lineal clásica existen esencialmente dos vias equivalentes de hacer predicciones con el modelo. Una pasa por usar suspropiedades estadisticas para estimarl los coeficientes betas por el método de máxima verosimilitud. El otro pasa por estimar los betas por el método de minimos cuadrados, el cual no depende de las propiedades estadisticas del modelo. Estas dos vías son equivalentes en el contexto de la regresión lineal clasica, es decir, cuando las perturbaciones <span class="math inline">\(\varepsilon_i\)</span> cumplen las propiedades estadisticas especificadass anteriormente.</p>
 <p>En este caso vamos a exponer la vía basada en el método de mínimos cuadrados ordinarios:</p>
 <p>La predicción de la variable respuesta para un vector cualquiera de observaciones de los predictores <span class="math inline">\(\hspace{0.1cm}x_{*}=(x_{*1},...,x_{*p}) \in \mathbb{R}^{p}\hspace{0.1cm}\)</span>, según el algoritmo de regresión lineal, es la siguiente: <span class="math inline">\(\\[0.4cm]\)</span></p>
-<p><span class="math display">\[\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_*  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x_{*r} \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 \hspace{0.1cm}  +   \hspace{0.1cm}  x_{*}^t \cdot \widehat{\beta} \hspace{0.3cm} , \hspace{0.25cm} \forall \hspace{0.1cm} x_* \in \mathbb{R}^p \\\]</span></p>
+<p><span class="math display">\[\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_*  \hspace{0.15cm}=\hspace{0.15cm} \widehat{f}(x_*)   \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x_{*r} \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 \hspace{0.1cm}  +   \hspace{0.1cm}  x_{*}^t \cdot \widehat{\beta} \hspace{0.3cm} , \hspace{0.25cm} \forall \hspace{0.1cm} x_* \in \mathbb{R}^p \\\]</span></p>
+<p>donde</p>
+<p><span class="math display">\[\widehat{f}(x_*) \hspace{0.1cm}=\hspace{0.1cm} \widehat{\beta}_0 \hspace{0.05cm}+\hspace{0.05cm} \sum_{j=1}^p\hspace{0.05cm} \widehat{\beta}_j \cdot x_{*j}\]</span></p>
+<p>es la función de regresión estimada, en este algoritmo de regresión.</p>
+<p><br></p>
 <p>Matricialmente, el vector de predicciones de la respuesta para una matriz de <span class="math inline">\(\hspace{0.1cm}h\hspace{0.1cm}\)</span> datos cualesquiera <span class="math inline">\(\hspace{0.01cm} X=[X_1,...,X_p]\hspace{0.01cm}\)</span> de los predictores es el siguiente:</p>
 <p><span class="math display">\[\widehat{Y} \hspace{0.1cm} = \hspace{0.1cm} \widehat{\beta}_0 + X \cdot \widehat{\beta} \hspace{0.1cm}=\hspace{0.1cm}  \widehat{\beta}_0 +   \widehat{\beta}_1 \cdot X_1 + \dots + \widehat{\beta}_p \cdot X_p  \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} X_1,...,X_p \in \mathbb{R}^h \\\]</span></p>
-<p>donde los parámetros <span class="math inline">\(\hspace{0.12cm}\widehat{\beta} \hspace{0.1cm}=\hspace{0.1cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p \right) \hspace{0.12cm}\)</span> se obtienen resolviendo el <strong>problema de mínimos cuadrados ordinarios</strong>:</p>
-<p><span class="math display">\[\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p \right)  \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_p}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  y_i - \left( \hspace{0.12cm} \beta_0 + \sum_{r=1}^p \hspace{0.1 cm} \beta_r \cdot x_{ir} \hspace{0.12cm} \right) \right)^2 \\[1.5cm]
-\hspace{4.6cm} \text{sujeto a:}  \hspace{0.35cm}  \beta_0 , \beta_1,...,\beta_p \in \mathbb{R}\]</span></p>
+<p><br></p>
+<p>Los parámetros <span class="math inline">\(\hspace{0.12cm}\widehat{\beta} \hspace{0.1cm}=\hspace{0.1cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p \right) \hspace{0.12cm}\)</span> se obtienen resolviendo el <strong>problema de mínimos cuadrados ordinarios</strong>:</p>
+<p><span class="math display">\[\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p \right) \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_p}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left( \hspace{0.1cm}  y_i - f(x_i) \hspace{0.1cm} \right)^2 \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_p}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  y_i \hspace{0.1cm} - \hspace{0.1cm} \left( \hspace{0.12cm} \beta_0 + \sum_{r=1}^p \hspace{0.1 cm} \beta_r \cdot x_{ir} \hspace{0.12cm} \right) \right)^2 \\[1.5cm]
+\hspace{0.1cm} \text{sujeto a:}  \hspace{0.35cm}  \beta_0 , \beta_1,...,\beta_p \in \mathbb{R}\]</span></p>
 <p><br></p>
 <p>Existe una solución cerrada para este problema de optimización, y se puede demostrar que es la siguiente:</p>
 <p><span class="math display">\[\widehat{\beta}\hspace{0.1cm}=\hspace{0.1cm}(X^t \cdot X)^{-1} \cdot X^t \cdot Y\]</span></p>
@@ -1597,9 +1604,9 @@ de los predictores y la respuesta. <span class="math inline">\(\\[0.5cm]\)</span
 <li><p>La muestra <span class="math inline">\(\hspace{0.12cm}D=[\hspace{0.12cm}X_1,...,X_p,Y\hspace{0.12cm}]\hspace{0.12cm}\)</span> esta jugando el papel de muestra de entrenamiento. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
 <li><p>Es de especial interés el caso en el que <span class="math inline">\(\hspace{0.12cm}x_*\hspace{0.12cm}\)</span> es una nueva observación de los predictores para la que se desconoce el valor de la respuesta, es decir, <span class="math inline">\(\hspace{0.12cm}x_* = x_{new}\)</span>. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
 <li><p>El algoritmo también permite predecir la respuesta para las observaciones de los predictores con las que el modelo ha sido entrenado, es decir:</p>
-<p><span class="math display">\[\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_i  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x_{ir} \hspace{0.3cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i =1,...,n \\\]</span></p></li>
+<p><span class="math display">\[\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_i  \hspace{0.15cm}=\hspace{0.15cm} \widehat{f}(x_i)  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x_{ir} \hspace{0.3cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i =1,...,n \\\]</span></p></li>
 <li><p>Se denomina regresión <strong>lineal</strong> por que la ecuación con la que se predice la respuesta es una ecuación lineal en los betas. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
-<li><p><span class="math inline">\(\widehat{\beta}_0 + \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x\hspace{0.12cm}\)</span> , con <span class="math inline">\(\hspace{0.12cm}x\in \mathbb{R}^p\hspace{0.12cm}\)</span>, es el hiper-plano <span class="math inline">\(\hspace{0.12cm}p\)</span>-dimensional que mejor se ajusta a los datos disponibles de la respusta y los predictores <span class="math inline">\(\hspace{0.12cm}\lbrace (y_i,x_i) \hspace{0.12cm} / \hspace{0.12cm} i=1,...,n \rbrace\hspace{0.12cm}\)</span>, dado que es el hiper-plano óptimo en el sentido de minimos cuadrados ordinarios.</p></li>
+<li><p><span class="math inline">\(\widehat{f}(x) \hspace{0.12cm} = \hspace{0.12cm} \widehat{\beta}_0 + \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x\hspace{0.12cm}\)</span> , con <span class="math inline">\(\hspace{0.12cm}x\in \mathbb{R}^p\hspace{0.12cm}\)</span>, es el hiper-plano <span class="math inline">\(\hspace{0.12cm}p\)</span>-dimensional que mejor se ajusta a los datos disponibles de la respusta y los predictores <span class="math inline">\(\hspace{0.12cm}\lbrace (y_i,x_i) \hspace{0.12cm} / \hspace{0.12cm} i=1,...,n \rbrace\hspace{0.12cm}\)</span>, dado que es el hiper-plano óptimo en el sentido de mínimos cuadrados ordinarios.</p></li>
 </ul>
 <p><br></p>
 <p>A continuación vamos a ver deferentes modelos o algoritmos de regresión no lineal. Primero veremos algoritmos que solo consideran un parámetro, para posteriormente ver un algoritmo que permite combinar los demás e involucrar varios predictores.</p>
@@ -1611,25 +1618,36 @@ de los predictores y la respuesta. <span class="math inline">\(\\[0.5cm]\)</span
 <li><p>Se tiene una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}X_1 = (x_{11},...,x_{n1})^t\hspace{0.1cm}\)</span> del predictor <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1\hspace{0.1cm}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 <li><p>Se tiene una muestra de observaciones <span class="math inline">\(\hspace{0.1cm}Y = (y_1,...,y_n)^t\hspace{0.1cm}\)</span> de la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 <li><p>En conclusión, se tiene una muestra de observaciones <span class="math inline">\(\hspace{0.12cm}D=[\hspace{0.12cm}X_1,Y \hspace{0.12cm}]\hspace{0.12cm}\)</span>
-del predictores y la respuesta. <span class="math inline">\(\\[1cm]\)</span></p></li>
+del predictores y la respuesta.</p></li>
 </ul>
+<p><br></p>
 <p>El modelo estadístico que se plantea en regresión polinómica de grado <span class="math inline">\(\hspace{0.1cm}d\hspace{0.1cm}\)</span> es el siguiente:</p>
 <p>Tenemos una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}_1,...,\mathcal{Y}_n\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\)</span></p>
 <p>Se asume que para cada <span class="math inline">\(\hspace{0.1cm} i=1,...,n\hspace{0.1cm}\)</span> se tiene la siguiente relación:</p>
-<p><span class="math display">\[\mathcal{Y}_i \hspace{0.15cm}=\hspace{0.15cm}       \beta_0 \hspace{0.05cm} + \hspace{0.05cm} \sum_{r=1}^d \hspace{0.1cm} \beta_r \cdot x_{i1}^r \hspace{0.05cm} + \hspace{0.05cm} \varepsilon_i \hspace{0.15cm}=\hspace{0.15cm} \beta_0  \hspace{0.05cm} + \hspace{0.05cm}   \beta_1 \cdot x_{i1}^1  \hspace{0.05cm} +  \hspace{0.05cm}  \beta_2 \cdot x_{i1}^2  \hspace{0.05cm} + \dots +  \hspace{0.05cm}  \beta_d \cdot x_{i1}^d \hspace{0.05cm} + \hspace{0.05cm} \varepsilon_i \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\]</span></p>
+<p><span class="math display">\[\mathcal{Y}_i \hspace{0.15cm}=\hspace{0.15cm}  f(x_{i1})  \hspace{0.15cm}=\hspace{0.15cm}    \beta_0 \hspace{0.05cm} + \hspace{0.05cm} \sum_{r=1}^d \hspace{0.1cm} \beta_r \cdot x_{i1}^r \hspace{0.05cm} + \hspace{0.05cm} \varepsilon_i \hspace{0.15cm}=\hspace{0.15cm} \beta_0  \hspace{0.05cm} + \hspace{0.05cm}   \beta_1 \cdot x_{i1}^1  \hspace{0.05cm} +  \hspace{0.05cm}  \beta_2 \cdot x_{i1}^2  \hspace{0.05cm} + \dots +  \hspace{0.05cm}  \beta_d \cdot x_{i1}^d \hspace{0.05cm} + \hspace{0.05cm} \varepsilon_i \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace\]</span></p>
 <p>Donde:</p>
 <ul>
+<li><p><span class="math inline">\(f(x_{i1}) \hspace{0.15cm}=\hspace{0.15cm} \beta_0 \hspace{0.05cm} + \hspace{0.05cm} \sum_{r=1}^d \hspace{0.12cm} \beta_r \cdot x_{i1}^r\hspace{0.22cm}\)</span> es la función de regresión en este algoritmo de regresión. <span class="math inline">\(\\[0.7cm]\)</span></p></li>
 <li><p><span class="math inline">\(\varepsilon_i \sim N(0,\sigma^2) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n\rbrace \\\)</span></p></li>
 <li><p><span class="math inline">\(Corr(\varepsilon_i , \varepsilon_r) = 0 \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \neq r \in \lbrace 1,...,n\rbrace \\\)</span></p></li>
 <li><p><span class="math inline">\(\beta_0,\beta_1,...,\beta_d \in \mathbb{R}\\\)</span></p></li>
 </ul>
 <p>Observación: de lo anterior se deduce que <span class="math inline">\(\hspace{0.25cm} \mathcal{Y}_i \sim N(\hspace{0.1cm} \beta_0 \hspace{0.05cm} + \hspace{0.05cm} \sum_{r=1}^d \hspace{0.1cm} \beta_r \cdot x_{i1}^r \hspace{0.15cm},\hspace{0.15cm} \sigma^2 \hspace{0.1cm} )\)</span></p>
 <p>La predicción de la variable respuesta para una observacioón cualquiera del predictor <span class="math inline">\(\hspace{0.1cm}x_{*1} \in \mathbb{R}\hspace{0.1cm}\)</span>, según el algoritmo de regresión lineal, es la siguiente: <span class="math inline">\(\\[0.4cm]\)</span></p>
-<p><span class="math display">\[\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_*  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{r=1}^d \hspace{0.12cm} \widehat{\beta}_r \cdot x_{*1}^r     \hspace{0.3cm} , \hspace{0.25cm} \forall \hspace{0.1cm} x_{*1} \in \mathbb{R}\]</span></p>
+<p><span class="math display">\[\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_*  \hspace{0.15cm}=\hspace{0.15cm}
+\widehat{f}(x_{*1})
+\hspace{0.15cm}=\hspace{0.15cm}\widehat{\beta}_0 +  \sum_{r=1}^d \hspace{0.12cm} \widehat{\beta}_r \cdot x_{*1}^r     \hspace{0.35cm} , \hspace{0.35cm} \forall \hspace{0.1cm} x_{*1} \in \mathbb{R}\]</span></p>
+<p>donde</p>
+<p><span class="math display">\[\widehat{f}(x_{*1})
+\hspace{0.15cm}=\hspace{0.15cm}\widehat{\beta}_0 +  \sum_{r=1}^d \hspace{0.12cm} \widehat{\beta}_r \cdot x_{*1}^r\]</span></p>
+<p>es la función de regresión estimada en este algoritmo de regresión.</p>
+<p><br></p>
 <p>Matricialmente, el vector de predicciones de la respuesta para una muestra cualquiera <span class="math inline">\(\hspace{0.01cm} X_1\hspace{0.01cm}\)</span> de tamaño <span class="math inline">\(\hspace{0.1cm}h\hspace{0.1cm}\)</span> del predictor <span class="math inline">\(\hspace{0.01cm}\mathcal{X}_1\hspace{0.01cm}\)</span>, es el siguiente:</p>
 <p><span class="math display">\[\widehat{Y} \hspace{0.1cm} = \hspace{0.1cm} \widehat{\beta}_0 \hspace{0.1cm}+\hspace{0.1cm}  \widehat{\beta}_1 \cdot X_1 \hspace{0.1cm}+\hspace{0.1cm}  \widehat{\beta}_2 \cdot X_1^2 \hspace{0.1cm}+\hspace{0.1cm} \dots \hspace{0.1cm}+\hspace{0.1cm} \widehat{\beta}_d \cdot X_1^d \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} X_1 \in \mathbb{R}^h \\\]</span></p>
 <p>donde los parámetros <span class="math inline">\(\hspace{0.12cm}\widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p\hspace{0.12cm}\)</span> se obtienen resolviendo el <strong>problema de mínimos cuadrados ordinarios</strong>:</p>
-<p><span class="math display">\[\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_d \right)  \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_d}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  y_i - \left( \hspace{0.12cm} \beta_0 + \sum_{r=1}^d \hspace{0.1 cm} \beta_r \cdot x_{i1}^r \hspace{0.12cm} \right) \right)^2 \\[1.5cm]
+<p><span class="math display">\[\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_d \right)  \hspace{0.2cm} = \hspace{0.2cm}    
+arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_d}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left( \hspace{0.1cm} y_i - f(x_i) \hspace{0.1cm} \right)^2
+\hspace{0.2cm}=\hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_d}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  y_i - \left( \hspace{0.12cm} \beta_0 + \sum_{r=1}^d \hspace{0.1 cm} \beta_r \cdot x_{i1}^r \hspace{0.12cm} \right) \right)^2 \\[1.5cm]
 \hspace{4.6cm} \text{sujeto a:}  \hspace{0.35cm}  \beta_0 , \beta_1,...,\beta_d \in \mathbb{R}\]</span></p>
 <p><br></p>
 <p>Existe una solución cerrada para este problema de optimización, y se puede demostrar que es la siguiente:</p>
@@ -1665,15 +1683,12 @@ del predictores y la respuesta. <span class="math inline">\(\\[1cm]\)</span></p>
 <ul>
 <li><p>Son disjuntos dos a dos, es decir, no comparten elementos dos a dos. <span class="math display">\[[L_h , L_{h+1})\cap [L_{r} , L_{r+1}) = \varnothing   \hspace{0.3cm}  ,   \hspace{0.3cm} \forall  \hspace{0.1cm} h\neq r \in \lbrace 0,1,...,k \rbrace \\[0.5cm]\]</span></p></li>
 <li><p>Toda observación de la muestra <span class="math inline">\(X_1\)</span> pertenece a alguno de los intervalos:</p></li>
-</ul></li>
 </ul>
-<p><span class="math display">\[x_{i1} \in [L_0 , L_1)\cup ... \cup [L_{k-1} , L_k)\cup [L_k , L_{k+1}) \hspace{0.3cm}  ,   \hspace{0.3cm}  \forall \hspace{0.1cm} i \in \lbrace 1,..,n \rbrace \\\]</span></p>
-<p>-Se definen las siguientes variables <strong>dummies</strong>:</p>
-<pre><code>$$D_j(X_{1})\hspace{0.15cm} = \hspace{0.15cm} \left(\hspace{0.15cm} I\left(\hspace{0.05cm} x_{i1} \in [L_j , L_{j+1}) \hspace{0.05cm} \right) \hspace{0.2cm} : \hspace{0.2cm} i\in \lbrace 1,...,n   \rbrace  \hspace{0.15cm} \right)^t \hspace{0.15cm}=\hspace{0.15cm} \left( \hspace{0.15cm} d_{ij}  \hspace{0.2cm} : \hspace{0.2cm} i\in \lbrace 1,...,n   \rbrace  \hspace{0.15cm} \right) \hspace{0.3cm}  ,   \hspace{0.3cm}  \forall \hspace{0.1cm} j \in \lbrace 1,..,k \rbrace\\$$  
-
-
-
-donde: $\hspace{0.2cm}d_{ij} = I\left(\hspace{0.05cm} x_{i1} \in [L_j , L_{j+1}) \hspace{0.05cm} \right) \hspace{0.2cm}$ y  $\hspace{0.2cm} I (\cdot) \hspace{0.15cm}$ es la función indicatriz o indicadora.</code></pre>
+<p><span class="math display">\[x_{i1} \in [L_0 , L_1)\cup ... \cup [L_{k-1} , L_k)\cup [L_k , L_{k+1}) \hspace{0.3cm}  ,   \hspace{0.3cm}  \forall \hspace{0.1cm} i \in \lbrace 1,..,n \rbrace \\\]</span></p></li>
+<li><p>Se definen las siguientes variables <strong>dummies</strong>:</p>
+<p><span class="math display">\[D_j(X_{1})\hspace{0.15cm} = \hspace{0.15cm} \left(\hspace{0.15cm} I\left(\hspace{0.05cm} x_{i1} \in [L_j , L_{j+1}) \hspace{0.05cm} \right) \hspace{0.2cm} : \hspace{0.2cm} i\in \lbrace 1,...,n   \rbrace  \hspace{0.15cm} \right)^t \hspace{0.15cm}=\hspace{0.15cm} \left( \hspace{0.15cm} d_{ij}  \hspace{0.2cm} : \hspace{0.2cm} i\in \lbrace 1,...,n   \rbrace  \hspace{0.15cm} \right) \hspace{0.3cm}  ,   \hspace{0.3cm}  \forall \hspace{0.1cm} j \in \lbrace 1,..,k \rbrace\\\]</span></p>
+<p>donde: <span class="math inline">\(\hspace{0.2cm}d_{ij} = I\left(\hspace{0.05cm} x_{i1} \in [L_j , L_{j+1}) \hspace{0.05cm} \right) \hspace{0.2cm}\)</span> y <span class="math inline">\(\hspace{0.2cm} I (\cdot) \hspace{0.15cm}\)</span> es la función indicatriz o indicadora.</p></li>
+</ul>
 <p><br></p>
 <p>El modelo estadístico que se plantea en regresión con funciones escalón de grado <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> es el siguiente:</p>
 <p>Tenemos una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}_1,...,\mathcal{Y}_n\hspace{0.1cm}\)</span> de la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\)</span></p>

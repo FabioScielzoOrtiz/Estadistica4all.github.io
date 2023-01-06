@@ -67,7 +67,7 @@ Se recomienda la lectura de algunos artículos de [Estadistica4all](http://estad
 
 En esta sección vamos a recordar el modelo de regresión lineal por mínimos cuadrados ordinarios desde un enfoque algorítmico, como algoritmo de regresión.
 
-- Se consideran $\hspace{0.1cm} p\hspace{0.1cm}$ predictores $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ y una variable respuesta $\hspace{0.1cm}\mathcal{Y}$ $\\[0.5cm]$
+- Se consideran $\hspace{0.1cm} p\hspace{0.1cm}$ predictores $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ y una variable respuesta $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ cuantitativa. $\\[0.5cm]$
 
 
 
@@ -79,7 +79,9 @@ En esta sección vamos a recordar el modelo de regresión lineal por mínimos cu
 
 
 - En conclusión, se tiene una muestra de observaciones $\hspace{0.12cm}D=[\hspace{0.12cm}X_1,...,X_p,Y \hspace{0.12cm}]\hspace{0.12cm}$
-de los predictores y la respuesta. $\\[0.5cm]$
+de los predictores y la respuesta. 
+
+<br>
 
 
 
@@ -89,12 +91,14 @@ Tenemos una m.a.s $\hspace{0.1cm}\mathcal{Y}_1,...,\mathcal{Y}_n\hspace{0.1cm}$ 
 
 Se asume que para cada $\hspace{0.1cm}i=1,...,n\hspace{0.1cm}$ se tiene la siguiente relación:
 
-$$\mathcal{Y}_i = \beta_0 + \sum_{j=1}^p \beta_j \cdot x_{ij} + \varepsilon_i$$ 
+$$\mathcal{Y}_i \hspace{0.1cm}=\hspace{0.1cm} f(x_i) \hspace{0.05cm}+\hspace{0.05cm} \varepsilon_i \hspace{0.1cm}=\hspace{0.1cm} \beta_0 + \sum_{j=1}^p \hspace{0.05cm} \beta_j \cdot x_{ij} \hspace{0.05cm}+\hspace{0.05cm} \varepsilon_i \hspace{0.35cm} , \hspace{0.35cm} \forall \hspace{0.05cm} x_i=(x_{i1},...,x_{ip})^t \in \mathbb{R}^p$$ 
 
 
 
 
 Donde:
+
+- $f(x_i) \hspace{0.1cm}=\hspace{0.1cm} \beta_0 + \sum_{j=1}^p \beta_j \cdot x_{ij}\hspace{0.25cm}$ es la función de regresión en este algoritmo de regresión. $\\[0.7cm]$
 
 - $\varepsilon_i \sim N(0,\sigma^2) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n\rbrace \\$
 
@@ -116,19 +120,28 @@ La predicción de la variable respuesta para un vector cualquiera de observacion
 
 
 
-$$\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_*  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x_{*r} \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 \hspace{0.1cm}  +   \hspace{0.1cm}  x_{*}^t \cdot \widehat{\beta} \hspace{0.3cm} , \hspace{0.25cm} \forall \hspace{0.1cm} x_* \in \mathbb{R}^p \\$$
+$$\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_*  \hspace{0.15cm}=\hspace{0.15cm} \widehat{f}(x_*)   \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x_{*r} \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 \hspace{0.1cm}  +   \hspace{0.1cm}  x_{*}^t \cdot \widehat{\beta} \hspace{0.3cm} , \hspace{0.25cm} \forall \hspace{0.1cm} x_* \in \mathbb{R}^p \\$$
 
+donde
+
+$$\widehat{f}(x_*) \hspace{0.1cm}=\hspace{0.1cm} \widehat{\beta}_0 \hspace{0.05cm}+\hspace{0.05cm} \sum_{j=1}^p\hspace{0.05cm} \widehat{\beta}_j \cdot x_{*j}$$
+
+es la función de regresión estimada, en este algoritmo de regresión.
+
+
+<br>
 
 Matricialmente, el vector de predicciones de la respuesta para una matriz de $\hspace{0.1cm}h\hspace{0.1cm}$ datos cualesquiera $\hspace{0.01cm} X=[X_1,...,X_p]\hspace{0.01cm}$ de los predictores es el siguiente:
 
 $$\widehat{Y} \hspace{0.1cm} = \hspace{0.1cm} \widehat{\beta}_0 + X \cdot \widehat{\beta} \hspace{0.1cm}=\hspace{0.1cm}  \widehat{\beta}_0 +   \widehat{\beta}_1 \cdot X_1 + \dots + \widehat{\beta}_p \cdot X_p  \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} X_1,...,X_p \in \mathbb{R}^h \\$$
 
 
+<br>
 
-donde los parámetros $\hspace{0.12cm}\widehat{\beta} \hspace{0.1cm}=\hspace{0.1cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p \right) \hspace{0.12cm}$ se obtienen resolviendo el **problema de mínimos cuadrados ordinarios**:
+Los parámetros $\hspace{0.12cm}\widehat{\beta} \hspace{0.1cm}=\hspace{0.1cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p \right) \hspace{0.12cm}$ se obtienen resolviendo el **problema de mínimos cuadrados ordinarios**:
 
-$$\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p \right)  \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_p}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  y_i - \left( \hspace{0.12cm} \beta_0 + \sum_{r=1}^p \hspace{0.1 cm} \beta_r \cdot x_{ir} \hspace{0.12cm} \right) \right)^2 \\[1.5cm]
-\hspace{4.6cm} \text{sujeto a:}  \hspace{0.35cm}  \beta_0 , \beta_1,...,\beta_p \in \mathbb{R}$$
+$$\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p \right) \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_p}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left( \hspace{0.1cm}  y_i - f(x_i) \hspace{0.1cm} \right)^2 \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_p}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  y_i \hspace{0.1cm} - \hspace{0.1cm} \left( \hspace{0.12cm} \beta_0 + \sum_{r=1}^p \hspace{0.1 cm} \beta_r \cdot x_{ir} \hspace{0.12cm} \right) \right)^2 \\[1.5cm]
+\hspace{0.1cm} \text{sujeto a:}  \hspace{0.35cm}  \beta_0 , \beta_1,...,\beta_p \in \mathbb{R}$$
 
  
 
@@ -159,16 +172,13 @@ No entraremos aquí en los detalles matemáticos sobre como se obtiene esta solu
 
 - El algoritmo también permite predecir la respuesta para las observaciones de los predictores con las que el modelo ha sido entrenado, es decir:
     
-    $$\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_i  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x_{ir} \hspace{0.3cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i =1,...,n \\$$
+    $$\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_i  \hspace{0.15cm}=\hspace{0.15cm} \widehat{f}(x_i)  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x_{ir} \hspace{0.3cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i =1,...,n \\$$
     
     
 
 - Se denomina regresión **lineal** por que la ecuación con la que se predice la respuesta es una ecuación lineal en los betas.  $\\[0.4cm]$
 
-- $\widehat{\beta}_0 +  \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x\hspace{0.12cm}$ , con $\hspace{0.12cm}x\in \mathbb{R}^p\hspace{0.12cm}$, es el hiper-plano $\hspace{0.12cm}p$-dimensional que mejor se ajusta a los datos disponibles de la respusta y los predictores $\hspace{0.12cm}\lbrace (y_i,x_i) \hspace{0.12cm} / \hspace{0.12cm} i=1,...,n \rbrace\hspace{0.12cm}$, dado que es el hiper-plano óptimo en el sentido de minimos cuadrados ordinarios.
-
-
-
+- $\widehat{f}(x) \hspace{0.12cm} = \hspace{0.12cm} \widehat{\beta}_0 +  \sum_{r=1}^p \hspace{0.12cm} \widehat{\beta}_r \cdot x\hspace{0.12cm}$ , con $\hspace{0.12cm}x\in \mathbb{R}^p\hspace{0.12cm}$, es el hiper-plano $\hspace{0.12cm}p$-dimensional que mejor se ajusta a los datos disponibles de la respusta y los predictores $\hspace{0.12cm}\lbrace (y_i,x_i) \hspace{0.12cm} / \hspace{0.12cm} i=1,...,n \rbrace\hspace{0.12cm}$,  dado que es el hiper-plano óptimo en el sentido de mínimos cuadrados ordinarios.
 
 
 
@@ -192,7 +202,9 @@ A continuación vamos a ver deferentes modelos o algoritmos de regresión no lin
 
 
 - En conclusión, se tiene una muestra de observaciones $\hspace{0.12cm}D=[\hspace{0.12cm}X_1,Y \hspace{0.12cm}]\hspace{0.12cm}$
-del predictores y la respuesta. $\\[1cm]$
+del predictores y la respuesta. 
+
+<br>
 
 
 
@@ -202,13 +214,15 @@ Tenemos una m.a.s $\hspace{0.1cm}\mathcal{Y}_1,...,\mathcal{Y}_n\hspace{0.1cm}$ 
 
 Se asume que para cada $\hspace{0.1cm} i=1,...,n\hspace{0.1cm}$ se tiene la siguiente relación:
 
-$$\mathcal{Y}_i \hspace{0.15cm}=\hspace{0.15cm}       \beta_0 \hspace{0.05cm} + \hspace{0.05cm} \sum_{r=1}^d \hspace{0.1cm} \beta_r \cdot x_{i1}^r \hspace{0.05cm} + \hspace{0.05cm} \varepsilon_i \hspace{0.15cm}=\hspace{0.15cm} \beta_0  \hspace{0.05cm} + \hspace{0.05cm}   \beta_1 \cdot x_{i1}^1  \hspace{0.05cm} +  \hspace{0.05cm}  \beta_2 \cdot x_{i1}^2  \hspace{0.05cm} + \dots +  \hspace{0.05cm}  \beta_d \cdot x_{i1}^d \hspace{0.05cm} + \hspace{0.05cm} \varepsilon_i \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace$$ 
+$$\mathcal{Y}_i \hspace{0.15cm}=\hspace{0.15cm}  f(x_{i1})  \hspace{0.15cm}=\hspace{0.15cm}    \beta_0 \hspace{0.05cm} + \hspace{0.05cm} \sum_{r=1}^d \hspace{0.1cm} \beta_r \cdot x_{i1}^r \hspace{0.05cm} + \hspace{0.05cm} \varepsilon_i \hspace{0.15cm}=\hspace{0.15cm} \beta_0  \hspace{0.05cm} + \hspace{0.05cm}   \beta_1 \cdot x_{i1}^1  \hspace{0.05cm} +  \hspace{0.05cm}  \beta_2 \cdot x_{i1}^2  \hspace{0.05cm} + \dots +  \hspace{0.05cm}  \beta_d \cdot x_{i1}^d \hspace{0.05cm} + \hspace{0.05cm} \varepsilon_i \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n \rbrace$$ 
 
 
 
 
 
 Donde:
+
+- $f(x_{i1})  \hspace{0.15cm}=\hspace{0.15cm}  \beta_0 \hspace{0.05cm} + \hspace{0.05cm} \sum_{r=1}^d \hspace{0.12cm} \beta_r \cdot x_{i1}^r\hspace{0.22cm}$ es la función de regresión en este algoritmo de regresión. $\\[0.7cm]$
 
 - $\varepsilon_i \sim N(0,\sigma^2) \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} i \in \lbrace 1,...,n\rbrace \\$
 
@@ -227,8 +241,19 @@ La predicción de la variable respuesta para una observacioón cualquiera del pr
 
 
 
-$$\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_*  \hspace{0.15cm}=\hspace{0.15cm} \widehat{\beta}_0 +  \sum_{r=1}^d \hspace{0.12cm} \widehat{\beta}_r \cdot x_{*1}^r     \hspace{0.3cm} , \hspace{0.25cm} \forall \hspace{0.1cm} x_{*1} \in \mathbb{R}$$
+$$\widehat{\hspace{0.01cm} y \hspace{0.01cm}}_*  \hspace{0.15cm}=\hspace{0.15cm}
+\widehat{f}(x_{*1})
+\hspace{0.15cm}=\hspace{0.15cm}\widehat{\beta}_0 +  \sum_{r=1}^d \hspace{0.12cm} \widehat{\beta}_r \cdot x_{*1}^r     \hspace{0.35cm} , \hspace{0.35cm} \forall \hspace{0.1cm} x_{*1} \in \mathbb{R}$$
 
+
+donde
+
+$$\widehat{f}(x_{*1})
+\hspace{0.15cm}=\hspace{0.15cm}\widehat{\beta}_0 +  \sum_{r=1}^d \hspace{0.12cm} \widehat{\beta}_r \cdot x_{*1}^r$$
+
+es la función de regresión estimada en este algoritmo de regresión.
+
+<br>
 
 Matricialmente, el vector de predicciones de la respuesta para una muestra cualquiera $\hspace{0.01cm} X_1\hspace{0.01cm}$ de tamaño  $\hspace{0.1cm}h\hspace{0.1cm}$      del predictor $\hspace{0.01cm}\mathcal{X}_1\hspace{0.01cm}$, es el siguiente:
 
@@ -237,7 +262,9 @@ $$\widehat{Y} \hspace{0.1cm} = \hspace{0.1cm} \widehat{\beta}_0 \hspace{0.1cm}+\
 
 donde los parámetros $\hspace{0.12cm}\widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_p\hspace{0.12cm}$ se obtienen resolviendo el **problema de mínimos cuadrados ordinarios**:
 
-$$\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_d \right)  \hspace{0.2cm} = \hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_d}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  y_i - \left( \hspace{0.12cm} \beta_0 + \sum_{r=1}^d \hspace{0.1 cm} \beta_r \cdot x_{i1}^r \hspace{0.12cm} \right) \right)^2 \\[1.5cm]
+$$\widehat{\beta} \hspace{0.15cm}=\hspace{0.15cm} \left( \widehat{\beta}_0 , \widehat{\beta}_1,...,\widehat{\beta}_d \right)  \hspace{0.2cm} = \hspace{0.2cm}    
+arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_d}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left( \hspace{0.1cm} y_i - f(x_i) \hspace{0.1cm} \right)^2
+\hspace{0.2cm}=\hspace{0.2cm} arg \hspace{0.2cm} \underset{ \beta_0 , \beta_1,...,\beta_d}{Min} \hspace{0.2cm} \sum_{i=1}^n  \hspace{0.12cm} \left(  y_i - \left( \hspace{0.12cm} \beta_0 + \sum_{r=1}^d \hspace{0.1 cm} \beta_r \cdot x_{i1}^r \hspace{0.12cm} \right) \right)^2 \\[1.5cm]
 \hspace{4.6cm} \text{sujeto a:}  \hspace{0.35cm}  \beta_0 , \beta_1,...,\beta_d \in \mathbb{R}$$
 
  
@@ -309,12 +336,12 @@ del predictores y la respuesta. $\\[1cm]$
 
     - Toda observación de la muestra $X_1$ pertenece a alguno de los intervalos:
 
-$$x_{i1} \in [L_0 , L_1)\cup ... \cup [L_{k-1} , L_k)\cup [L_k , L_{k+1}) \hspace{0.3cm}  ,   \hspace{0.3cm}  \forall \hspace{0.1cm} i \in \lbrace 1,..,n \rbrace \\$$
+    $$x_{i1} \in [L_0 , L_1)\cup ... \cup [L_{k-1} , L_k)\cup [L_k , L_{k+1}) \hspace{0.3cm}  ,   \hspace{0.3cm}  \forall \hspace{0.1cm} i \in \lbrace 1,..,n \rbrace \\$$
 
 
 
 
--Se definen las siguientes variables **dummies**:
+- Se definen las siguientes variables **dummies**:
 
 
     $$D_j(X_{1})\hspace{0.15cm} = \hspace{0.15cm} \left(\hspace{0.15cm} I\left(\hspace{0.05cm} x_{i1} \in [L_j , L_{j+1}) \hspace{0.05cm} \right) \hspace{0.2cm} : \hspace{0.2cm} i\in \lbrace 1,...,n   \rbrace  \hspace{0.15cm} \right)^t \hspace{0.15cm}=\hspace{0.15cm} \left( \hspace{0.15cm} d_{ij}  \hspace{0.2cm} : \hspace{0.2cm} i\in \lbrace 1,...,n   \rbrace  \hspace{0.15cm} \right) \hspace{0.3cm}  ,   \hspace{0.3cm}  \forall \hspace{0.1cm} j \in \lbrace 1,..,k \rbrace\\$$  

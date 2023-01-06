@@ -168,6 +168,9 @@ Si la definición de $\hspace{0.1cm}S\hspace{0.1cm}$ es aleatoria, el algoritmo 
 
 
 
+
+
+
 <br>
 
 <br>
