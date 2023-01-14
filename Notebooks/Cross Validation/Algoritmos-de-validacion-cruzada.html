@@ -1582,7 +1582,7 @@ margin-left: 0 !important;
       <li><a href="#test-set" id="toc-test-set"><span class="toc-section-number">1.3</span> Test-set</a></li>
       <li><a href="#predicciones-de-test" id="toc-predicciones-de-test"><span class="toc-section-number">1.4</span> Predicciones de test</a></li>
       </ul></li>
-      <li><a href="#métricas-para-evaluar-modelos-de-aprendizaje-supervisado" id="toc-métricas-para-evaluar-modelos-de-aprendizaje-supervisado"><span class="toc-section-number">2</span> Métricas para evaluar modelos de aprendizaje supervisado</a>
+      <li><a href="#métricas-para-evaluar-modelos-de-regresión" id="toc-métricas-para-evaluar-modelos-de-regresión"><span class="toc-section-number">2</span> Métricas para evaluar modelos de regresión</a>
       <ul>
       <li><a href="#error-cuadrático-medio-ecm" id="toc-error-cuadrático-medio-ecm"><span class="toc-section-number">2.1</span> Error cuadrático medio (ECM)</a></li>
       <li><a href="#raiz-del-error-cuadrático-medio-recm" id="toc-raiz-del-error-cuadrático-medio-recm"><span class="toc-section-number">2.2</span> Raiz del error cuadrático medio (RECM)</a></li>
@@ -1590,32 +1590,35 @@ margin-left: 0 !important;
       <li><a href="#coeficiente-de-determinación" id="toc-coeficiente-de-determinación"><span class="toc-section-number">2.4</span> Coeficiente de determinación</a></li>
       <li><a href="#error-absoluto-medio-eam" id="toc-error-absoluto-medio-eam"><span class="toc-section-number">2.5</span> Error absoluto medio (EAM)</a></li>
       <li><a href="#error-absoluto-relativo-ear" id="toc-error-absoluto-relativo-ear"><span class="toc-section-number">2.6</span> Error absoluto relativo (EAR)</a></li>
-      <li><a href="#tasa-de-acierto-en-la-clasificación-tac" id="toc-tasa-de-acierto-en-la-clasificación-tac"><span class="toc-section-number">2.7</span> Tasa de acierto en la clasificación (TAC)</a></li>
-      <li><a href="#tasa-de-error-en-la-clasificación-tec" id="toc-tasa-de-error-en-la-clasificación-tec"><span class="toc-section-number">2.8</span> Tasa de error en la clasificación (TEC)</a></li>
-      <li><a href="#kappa" id="toc-kappa"><span class="toc-section-number">2.9</span> Kappa</a></li>
       </ul></li>
-      <li><a href="#algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado" id="toc-algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado"><span class="toc-section-number">3</span> Algoritmos de validación de modelos de aprendizaje supervisado</a>
+      <li><a href="#métricas-para-evaluar-modelos-de-clasificación-supervisada" id="toc-métricas-para-evaluar-modelos-de-clasificación-supervisada"><span class="toc-section-number">3</span> Métricas para evaluar modelos de clasificación supervisada</a>
       <ul>
-      <li><a href="#validación-simple-no-aleatoria" id="toc-validación-simple-no-aleatoria"><span class="toc-section-number">3.1</span> Validación simple no aleatoria</a></li>
-      <li><a href="#validación-simple-aleatoria" id="toc-validación-simple-aleatoria"><span class="toc-section-number">3.2</span> Validación simple aleatoria</a></li>
-      <li><a href="#validación-simple-aleatoria-repetida" id="toc-validación-simple-aleatoria-repetida"><span class="toc-section-number">3.3</span> Validación simple aleatoria repetida</a></li>
-      <li><a href="#leave-one-out" id="toc-leave-one-out"><span class="toc-section-number">3.4</span> Leave-one-out</a></li>
-      <li><a href="#k-fold" id="toc-k-fold"><span class="toc-section-number">3.5</span> k-fold</a></li>
-      <li><a href="#repeted-k-fold" id="toc-repeted-k-fold"><span class="toc-section-number">3.6</span> Repeted k-fold</a></li>
+      <li><a href="#tasa-de-acierto-en-la-clasificación-tac" id="toc-tasa-de-acierto-en-la-clasificación-tac"><span class="toc-section-number">3.1</span> Tasa de acierto en la clasificación (TAC)</a></li>
+      <li><a href="#tasa-de-error-en-la-clasificación-tec" id="toc-tasa-de-error-en-la-clasificación-tec"><span class="toc-section-number">3.2</span> Tasa de error en la clasificación (TEC)</a></li>
+      <li><a href="#kappa" id="toc-kappa"><span class="toc-section-number">3.3</span> Kappa</a></li>
       </ul></li>
-      <li><a href="#selección-de-modelos-basada-en-validación-cruzada" id="toc-selección-de-modelos-basada-en-validación-cruzada"><span class="toc-section-number">4</span> Selección de modelos basada en validación cruzada</a></li>
-      <li><a href="#algoritmos-de-validación-cruzada-programados-en-python" id="toc-algoritmos-de-validación-cruzada-programados-en-python"><span class="toc-section-number">5</span> Algoritmos de validación cruzada programados en <code>Python</code></a>
+      <li><a href="#algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado" id="toc-algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado"><span class="toc-section-number">4</span> Algoritmos de validación de modelos de aprendizaje supervisado</a>
       <ul>
-      <li><a href="#validación-simple-no-aleatoria-1" id="toc-validación-simple-no-aleatoria-1"><span class="toc-section-number">5.1</span> Validación simple no aleatoria</a></li>
-      <li><a href="#validación-simple-aleatoria-1" id="toc-validación-simple-aleatoria-1"><span class="toc-section-number">5.2</span> Validación simple aleatoria</a></li>
-      <li><a href="#validación-simple-aleatoria-repetida-1" id="toc-validación-simple-aleatoria-repetida-1"><span class="toc-section-number">5.3</span> Validación simple aleatoria repetida</a></li>
-      <li><a href="#leave-one-out-1" id="toc-leave-one-out-1"><span class="toc-section-number">5.4</span> Leave one out</a></li>
+      <li><a href="#validación-simple-no-aleatoria" id="toc-validación-simple-no-aleatoria"><span class="toc-section-number">4.1</span> Validación simple no aleatoria</a></li>
+      <li><a href="#validación-simple-aleatoria" id="toc-validación-simple-aleatoria"><span class="toc-section-number">4.2</span> Validación simple aleatoria</a></li>
+      <li><a href="#validación-simple-aleatoria-repetida" id="toc-validación-simple-aleatoria-repetida"><span class="toc-section-number">4.3</span> Validación simple aleatoria repetida</a></li>
+      <li><a href="#leave-one-out" id="toc-leave-one-out"><span class="toc-section-number">4.4</span> Leave-one-out</a></li>
+      <li><a href="#k-fold" id="toc-k-fold"><span class="toc-section-number">4.5</span> k-fold</a></li>
+      <li><a href="#repeted-k-fold" id="toc-repeted-k-fold"><span class="toc-section-number">4.6</span> Repeted k-fold</a></li>
       </ul></li>
-      <li><a href="#k-folds" id="toc-k-folds"><span class="toc-section-number">6</span> K Folds</a>
+      <li><a href="#selección-de-modelos-basada-en-validación-cruzada" id="toc-selección-de-modelos-basada-en-validación-cruzada"><span class="toc-section-number">5</span> Selección de modelos basada en validación cruzada</a></li>
+      <li><a href="#algoritmos-de-validación-cruzada-programados-en-python" id="toc-algoritmos-de-validación-cruzada-programados-en-python"><span class="toc-section-number">6</span> Algoritmos de validación cruzada programados en <code>Python</code></a>
       <ul>
-      <li><a href="#repeted-k-folds" id="toc-repeted-k-folds"><span class="toc-section-number">6.1</span> Repeted k-folds</a></li>
+      <li><a href="#validación-simple-no-aleatoria-1" id="toc-validación-simple-no-aleatoria-1"><span class="toc-section-number">6.1</span> Validación simple no aleatoria</a></li>
+      <li><a href="#validación-simple-aleatoria-1" id="toc-validación-simple-aleatoria-1"><span class="toc-section-number">6.2</span> Validación simple aleatoria</a></li>
+      <li><a href="#validación-simple-aleatoria-repetida-1" id="toc-validación-simple-aleatoria-repetida-1"><span class="toc-section-number">6.3</span> Validación simple aleatoria repetida</a></li>
+      <li><a href="#leave-one-out-1" id="toc-leave-one-out-1"><span class="toc-section-number">6.4</span> Leave one out</a></li>
       </ul></li>
-      <li><a href="#bibliografía" id="toc-bibliografía"><span class="toc-section-number">7</span> Bibliografía <a class="anchor" id="1"></a></a></li>
+      <li><a href="#k-folds" id="toc-k-folds"><span class="toc-section-number">7</span> K Folds</a>
+      <ul>
+      <li><a href="#repeted-k-folds" id="toc-repeted-k-folds"><span class="toc-section-number">7.1</span> Repeted k-folds</a></li>
+      </ul></li>
+      <li><a href="#bibliografía" id="toc-bibliografía"><span class="toc-section-number">8</span> Bibliografía <a class="anchor" id="1"></a></a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1669,10 +1672,11 @@ margin-right: auto;
 <p>Los algoritmos de validación son una familia muy importante de algoritmos dentro del aprendizaje estadístico o machine learning que permiten evaluar la capacidad predictiva de un modelo predictivo.</p>
 <p>Distinguiremos dos tipos de algoritmos de validación de modelos:</p>
 <ul>
-<li><p>Métodos de validación de modelos de <strong>aprendizaje supervisado</strong> <span class="math inline">\(\Rightarrow\)</span> son algoritmos que permiten evaluar modelos de aprendizaje supervisado usando <strong>muestras de test y train de los predictores y la respuesta</strong>, y una <strong>métrica de evaluación</strong>.</p></li>
-<li><p>Métodos de evaluación de modelos de aprendizaje no supervisado <span class="math inline">\(\Rightarrow\)</span> son algoritmos que permiten evaluar modelos de aprendizaje no supervisado usando una <strong>muestra de train de los predictores</strong> y una <strong>métrica de evaluación</strong>.</p></li>
+<li><p>Métodos de validación de modelos de <strong>aprendizaje supervisado</strong> <span class="math inline">\(\hspace{0.2cm} \Rightarrow\hspace{0.2cm}\)</span> son algoritmos que permiten evaluar modelos de aprendizaje supervisado usando <strong>muestras de test y train de los predictores y la respuesta</strong>, y una <strong>métrica de evaluación</strong>.</p></li>
+<li><p>Métodos de evaluación de modelos de <strong>aprendizaje no supervisado</strong> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> son algoritmos que permiten evaluar modelos de aprendizaje no supervisado usando una <strong>muestra de train de los predictores</strong> y una <strong>métrica de evaluación</strong>.</p></li>
 </ul>
-<p>Observación:</p>
+<p><br></p>
+<p><strong>Observación:</strong></p>
 <p>Los métodos de validación de modelos de <strong>aprendizaje supervisado</strong>
 también son llamados <strong>métodos de validación cruzada</strong>. Aunque realmente son mucho más conocidos por su nombre en ingles: <strong>cross validation</strong></p>
 <p><br></p>
@@ -1696,8 +1700,8 @@ también son llamados <strong>métodos de validación cruzada</strong>. Aunque r
 <p>Esta aproximación tiende a infra-estimar el error de predicción real del modelo, ya que se está prediciendo la respuesta para observaciones de los predictores que ya han sido “vistas” por el modelo, por ello el rendimiento del modelo al predecir la respuesta para estas observaciones tiende a ser mejor que si fueran observaciones con las que el modelo no ha sido entrenado (observaciones que no ha “visto” aún).</p>
 <p>Los métodos de validación de modelos predictivos <strong>supervisados</strong> tiene tres elementos:</p>
 <ul>
-<li><p>Una muestra de <strong>train</strong> y otra de <strong>test</strong> de los predictores y la respuesta.</p></li>
-<li><p>Una <strong>métrica de evaluación</strong></p></li>
+<li><p>Muestras de <strong>train</strong> y <strong>test</strong> de los predictores y la respuesta. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Una <strong>métrica de evaluación</strong>. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 <li><p>Un <strong>algoritmo</strong> para <strong>evaluar el modelo</strong> que usa los anteriores dos elementos de algún modo.</p></li>
 </ul>
 <p>Este artículo es básicamente un tour (teórico-práctico) sobre estos elementos.</p>
@@ -1708,7 +1712,7 @@ también son llamados <strong>métodos de validación cruzada</strong>. Aunque r
 <p><span></p>
 <p style="margin-left:1em;">
 <ul>
-<li><p>Tenemos una muestra de <span class="math inline">\(\hspace{0.1cm}N\hspace{0.1cm}\)</span> observaciones de <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> variables predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> y de una variable respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\\\)</span></p>
+<li><p>Tenemos una muestra de <span class="math inline">\(\hspace{0.1cm}N\hspace{0.1cm}\)</span> observaciones de <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}\)</span> y de una variable respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\\\)</span></p>
 <p><span class="math display">\[D=[\hspace{0.1cm} X_1,...,X_p,Y \hspace{0.1cm}]=\begin{pmatrix}
   x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp; y_1\\
   x_{21}&amp;x_{22}&amp;...&amp;x_{2p} &amp; y_2\\
@@ -1726,7 +1730,7 @@ también son llamados <strong>métodos de validación cruzada</strong>. Aunque r
 <p></span></p>
 </div>
 <p><br></p>
-<p>Sin entrar aquí en particularidades, para evaluar un modelo predictivo supervisado <span class="math inline">\(\hspace{0.1cm} M\hspace{0.1cm}\)</span> este tiene que ser entrenado con un subconjunto de <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> , llamado <strong>muestra de entrenamiento</strong> <span class="math inline">\(\hspace{0.1cm}D_{train}\hspace{0.1cm}\)</span>, y testado/evaluado con el subconjunto de las <span class="math inline">\(\hspace{0.1cm}h\hspace{0.1cm}\)</span> filas restantes de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> llamado <strong>muestra de test</strong> <span class="math inline">\(\hspace{0.1cm}D_{test}\hspace{0.1cm}\)</span> , de modo tal que <span class="math inline">\(\hspace{0.1cm}n+h=N\)</span></p>
+<p>Sin entrar aquí en particularidades, para evaluar un modelo de aprendizaje supervisado <span class="math inline">\(\hspace{0.1cm} M\hspace{0.1cm}\)</span> este tiene que ser entrenado con un subconjunto de <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.05cm}\)</span> , llamado <strong>muestra de entrenamiento</strong> o de <strong>train</strong> <span class="math inline">\(\hspace{0.1cm}D_{train}\hspace{0.05cm}\)</span>, y testado con el subconjunto de las <span class="math inline">\(\hspace{0.1cm}h\hspace{0.1cm}\)</span> filas restantes de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.05cm}\)</span>, llamado <strong>muestra de test</strong> <span class="math inline">\(\hspace{0.1cm}D_{test}\hspace{0.1cm}\)</span> , de modo que <span class="math inline">\(\hspace{0.1cm}n+h=N\)</span></p>
 <p>Los métodos de validación típicos usan de algún modo <span class="math inline">\(\hspace{0.1cm}D_{train}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}D_{test}\hspace{0.1cm}\)</span> , junto con una <strong>métrica de evaluación</strong>, es por ello que vamos a definir estos elementos con mas precisión a continuación.</p>
 <p><br></p>
 <div id="train-set" class="section level2" number="1.1">
@@ -1738,11 +1742,11 @@ también son llamados <strong>métodos de validación cruzada</strong>. Aunque r
 <ul>
 <li><strong>Muestra train</strong> de <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> observaciones del predictor <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\\\)</span></li>
 </ul>
-<p><span class="math display">\[X_j^{train} \hspace{0.1cm}=\hspace{0.1cm} (x_{1j}^{train},...,x_{nj}^{train} )^t \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} j\in \lbrace 1,...,p \rbrace \\\]</span></p>
+<p><span class="math display">\[X_j^{train} \hspace{0.1cm}=\hspace{0.1cm} \left(\hspace{0.1cm}x_{1j}^{train},...,x_{nj}^{train}\hspace{0.1cm} \right)^t \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} j\in \lbrace 1,...,p \rbrace \\[0.4cm]\]</span></p>
 <ul>
 <li><strong>Muestra train</strong> de <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> observaciones de la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\)</span></li>
 </ul>
-<p><span class="math display">\[Y^{train}= (y_{1}^{train},...,y_n^{train})^t \\\]</span></p>
+<p><span class="math display">\[Y^{train}= \left(\hspace{0.1cm}y_{1}^{train},...,y_n^{train}\hspace{0.1cm}\right)^t \\[0.4cm]\]</span></p>
 <ul>
 <li><strong>Train-set</strong></li>
 </ul>
@@ -1764,21 +1768,21 @@ también son llamados <strong>métodos de validación cruzada</strong>. Aunque r
 <p><br></p>
 <p><strong>Observaciones:</strong></p>
 <ul>
-<li><p>La fila <span class="math inline">\(\hspace{0.1cm} i\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}D_{train}\hspace{0.1cm}\)</span> , es decir, <span class="math inline">\(\hspace{0.1cm}(x_i^{train},y_i^{train}) = (x_{i1}^{train}, x_{i2}^{train},...,x_{ip}^{train}, y_i^{train})\hspace{0.1cm}\)</span>, es la <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima observación de <em>train</em> de los predictores y la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y} \\\)</span></p></li>
-<li><p><span class="math inline">\(D_{train}\hspace{0.08cm}\)</span> también es llamada simplemente <strong>observaciones de train</strong> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y}\)</span></p></li>
+<li><p>La fila <span class="math inline">\(\hspace{0.1cm} i\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}D_{train}\hspace{0.1cm}\)</span> , es decir, <span class="math inline">\(\hspace{0.1cm}\left(x_i^{train},y_i^{train}\right) = \left(x_{i1}^{train}, x_{i2}^{train},...,x_{ip}^{train}, y_i^{train}\right)\hspace{0.1cm}\)</span>, es la <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima <strong>observación de train</strong> de los predictores y la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p \hspace{0.1cm},\hspace{0.1cm} \mathcal{Y} \\\)</span></p></li>
+<li><p><span class="math inline">\(D_{train}\hspace{0.08cm}\)</span> también es llamada simplemente <strong>observaciones de train</strong> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm},\hspace{0.1cm} \mathcal{Y}\)</span></p></li>
 </ul>
 <p><br></p>
 </div>
 <div id="predicciones-de-train" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Predicciones de train</h2>
-<p>Como <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> es un modelo predictivo supervisado es capaz de, una vez es entrenado con las observaciones de <span class="math inline">\(\hspace{0.08cm}D_{train}=[X_1^{train},...,X_p^{train}, Y^{train}]\hspace{0.08cm}\)</span> , generar predicciones de la respuesta <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span>, tanto para las <strong>observaciones de train</strong> de los predictores como para <strong>nuevas observaciones</strong>.</p>
-<p>Notese que <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> nos interesa realmente para predecir la respuesta para <strong>nuevas observaciones</strong> de los predictores, es decir, para predecir la respuesta para individuos/elementos de los que solo tenemos información de los predictores.</p>
+<p>Como <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> es un modelo de aprendizaje supervisado es capaz de, una vez es entrenado con las observaciones de <span class="math inline">\(\hspace{0.08cm}D_{train}=[X_1^{train},...,X_p^{train}, Y^{train}]\hspace{0.08cm}\)</span> , generar predicciones de la variable respuesta <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span>, tanto para las <strong>observaciones de train</strong> de los predictores como para <strong>nuevas observaciones</strong>.</p>
+<p>Notese que <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> nos interesa realmente para predecir la variable respuesta para <strong>nuevas observaciones</strong> de los predictores, es decir, para predecir la respuesta para individuos/elementos de los que solo tenemos información de los predictores.</p>
 <p><br></p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p>Las <strong>predicciones de train</strong> de la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> , son obtenidas aplicando el modelo predictivo ya <em>entrenado</em> a las observaciones de train de los predictores:</p>
-<p><span class="math display">\[\widehat{\hspace{0.08cm} Y}^{\hspace{0.08cm} train} \hspace{0.1cm} = \hspace{0.1cm}  M\left(\hspace{0.1cm} X_1^{train},...,X_p^{train} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train} \hspace{0.1cm}\right)\]</span></p>
+<p><span class="math inline">\(\hspace{0.2cm}\)</span> Las <strong>predicciones de train</strong> de la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> , son obtenidas aplicando el modelo de aprendizaje supervisado ya <strong>entrenado</strong> a las <strong>observaciones de train</strong> de los <strong>predictores</strong>:</p>
+<p><span class="math display">\[\widehat{\hspace{0.08cm} Y}^{\hspace{0.1cm} train} \hspace{0.1cm} = \hspace{0.1cm}  M\left(\hspace{0.1cm} X_1^{train},...,X_p^{train} \hspace{0.15cm}|\hspace{0.15cm} X_1^{train},...,X_p^{train}, Y^{train} \hspace{0.1cm}\right)\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -1786,9 +1790,9 @@ también son llamados <strong>métodos de validación cruzada</strong>. Aunque r
 <p><br></p>
 <p><strong>Observaciones:</strong></p>
 <ul>
-<li><p>Aqui <span class="math inline">\(\hspace{0.08cm}M(\hspace{0.1cm} z \hspace{0.1cm}|\hspace{0.1cm} w\hspace{0.1cm})\hspace{0.08cm}\)</span> representa una función de dos argumentos, el argumento posterior a <span class="math inline">\(\hspace{0.1cm}|\hspace{0.1cm}\)</span> , es decir <span class="math inline">\(\hspace{0.1cm}w\hspace{0.1cm}\)</span>, son los datos de predictores y respuestas con los que se entrena el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> , y el argumento previo a <span class="math inline">\(\hspace{0.1cm}|\hspace{0.1cm}\)</span> , es decir <span class="math inline">\(\hspace{0.1cm}z\hspace{0.1cm}\)</span>, son los datos de los predictores que el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> usa para generar predicciones de la respuesta. Y devuelve un vector con esas predicciones de la respuesta. <span class="math inline">\(\\[1cm]\)</span></p></li>
-<li><p><span class="math inline">\(\widehat{\hspace{0.08cm} Y}^{\hspace{0.08cm} train}=(\hat{y}_1^{train},..., \hat{y}_n^{train})^t\hspace{0.1cm}\)</span> es un vector con las predicciones de la respuesta hechas por el modelo entrenado <span class="math inline">\(\hspace{0.08cm}M\hspace{0.1cm}\)</span> para la muestra train de observaciones de los predictores <span class="math inline">\(\hspace{0.1cm}(X_1^{train},...,X_p^{train}) \\\)</span></p></li>
-<li><p><span class="math inline">\(\widehat{y}_i \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{train} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train} \hspace{0.1cm}) \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm}x_{i1}^{train},...,x_{ip}^{train} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train}\hspace{0.1cm})\hspace{0.1cm}\)</span> es la predicción de la variable respuesta generada por el modelo entrenado <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> para la observación de train de los predictores <span class="math inline">\(\hspace{0.1cm}x_i^{train}\hspace{0.1cm}=\hspace{0.1cm}(x_{i1}^{train},...,x_{ip}^{train})\)</span></p></li>
+<li><p>Aqui <span class="math inline">\(\hspace{0.08cm}M(\hspace{0.1cm} z \hspace{0.1cm}|\hspace{0.1cm} w\hspace{0.1cm})\hspace{0.08cm}\)</span> representa una función de dos argumentos, el argumento posterior a <span class="math inline">\(\hspace{0.1cm}|\hspace{0.1cm}\)</span> , es decir <span class="math inline">\(\hspace{0.1cm}w\hspace{0.1cm}\)</span>, son los datos de predictores y respuestas con los que se entrena el modelo de aprendizaje supervisado <span class="math inline">\(\hspace{0.1cm}M\hspace{0.05cm}\)</span> , y el argumento previo a <span class="math inline">\(\hspace{0.1cm}|\hspace{0.1cm}\)</span> , es decir <span class="math inline">\(\hspace{0.1cm}z\hspace{0.1cm}\)</span>, son los datos de los predictores que el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.05cm}\)</span> usa para generar predicciones de la variable respuesta. Y devuelve un vector con esas predicciones de la respuesta. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p><span class="math inline">\(\widehat{\hspace{0.08cm} Y}^{\hspace{0.08cm} train}\hspace{0.1cm}=\hspace{0.1cm}(\hat{y}_1^{train},..., \hat{y}_n^{train})^t\hspace{0.15cm}\)</span> es un vector con las predicciones de la respuesta hechas por el modelo entrenado <span class="math inline">\(\hspace{0.08cm}M\hspace{0.1cm}\)</span> para la muestra train de observaciones de los predictores <span class="math inline">\(\hspace{0.1cm}(X_1^{train},...,X_p^{train}) \\\)</span></p></li>
+<li><p><span class="math inline">\(\widehat{y}_i^{train} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{train} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train} \hspace{0.1cm}) \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm}x_{i1}^{train},...,x_{ip}^{train} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train}\hspace{0.1cm})\hspace{0.1cm}\)</span> es la predicción de la variable respuesta generada por el modelo entrenado <span class="math inline">\(\hspace{0.05cm}M\hspace{0.05cm}\)</span> para la observación de train de los predictores <span class="math inline">\(\hspace{0.1cm}x_i^{train}\hspace{0.1cm}=\hspace{0.1cm}(x_{i1}^{train},...,x_{ip}^{train})\)</span></p></li>
 </ul>
 <p><br></p>
 </div>
@@ -1800,11 +1804,11 @@ también son llamados <strong>métodos de validación cruzada</strong>. Aunque r
 <ul>
 <li><strong>Muestra test</strong> de <span class="math inline">\(\hspace{0.08cm}h\hspace{0.08cm}\)</span> observaciones del predictor <span class="math inline">\(\hspace{0.08cm}\mathcal{X}_j\\\)</span></li>
 </ul>
-<p><span class="math display">\[X_j^{test}=(x^{test}_{1j},...,x^{test}_{hj} )^t  \hspace{0.25cm} , \hspace{0.25cm} \forall j=1,...,p\\\]</span></p>
+<p><span class="math display">\[X_j^{test}=\left(x^{test}_{1j},...,x^{test}_{hj} \right)^t  \hspace{0.3cm} , \hspace{0.3cm} \forall j=1,...,p\\[0.4cm]\]</span></p>
 <ul>
 <li><strong>Muestra test</strong> de <span class="math inline">\(\hspace{0.1cm}h\hspace{0.1cm}\)</span> observaciones de la respuesta <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\\\)</span></li>
 </ul>
-<p><span class="math display">\[Y^{test}=(y^{test}_{1},...,y^{test}_{h} )^t  \hspace{0.25cm} , \hspace{0.25cm} \forall j=1,...,p \\\]</span></p>
+<p><span class="math display">\[Y^{test}=\left(y^{test}_{1},...,y^{test}_{h} \right)^t  \hspace{0.3cm} , \hspace{0.3cm} \forall j=1,...,p \\[0.4cm]\]</span></p>
 <ul>
 <li><strong>Test-set</strong></li>
 </ul>
@@ -1826,7 +1830,7 @@ también son llamados <strong>métodos de validación cruzada</strong>. Aunque r
 <p><br></p>
 <p><strong>Observaciones:</strong></p>
 <ul>
-<li><p>La fila <span class="math inline">\(\hspace{0.1cm}i\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}D_{test}\hspace{0.1cm}\)</span> , es decir, <span class="math inline">\(\hspace{0.1cm}(x_i^{test},y_i^{test})= (x^{test}_{i1}, x^{test}_{i2},...,x^{test}_{ip}, y_i^{test})\hspace{0.1cm}\)</span>, es la <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima observación de <em>test</em> de los predictores y la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y}\\\)</span></p></li>
+<li><p>La fila <span class="math inline">\(\hspace{0.1cm}i\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}D_{test}\hspace{0.1cm}\)</span> , es decir, <span class="math inline">\(\hspace{0.1cm}(x_i^{test},y_i^{test})= (x^{test}_{i1}, x^{test}_{i2},...,x^{test}_{ip}, y_i^{test})\hspace{0.1cm}\)</span>, es la <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima <strong>observación de test</strong> de los predictores y la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}\\\)</span></p></li>
 <li><p><span class="math inline">\(D_{test}\hspace{0.1cm}\)</span> también es llamada simplemente <strong>observaciones de test</strong> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p, \mathcal{Y}\)</span></p></li>
 </ul>
 <p><br></p>
@@ -1839,8 +1843,8 @@ también son llamados <strong>métodos de validación cruzada</strong>. Aunque r
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p>Las <strong>predicciones de test</strong> de la respuesta <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> , son obtenidas aplicando el <strong>modelo</strong> predictivo <strong>entrenado</strong> a las observaciones de <strong>test</strong>:</p>
-<p><span class="math display">\[\widehat{Y}^{test} \hspace{0.1cm} = \hspace{0.1cm} M(\hspace{0.1cm} X_1^{test},...,X_p^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train} \hspace{0.1cm})\]</span></p>
+<p><span class="math inline">\(\hspace{0.2cm}\)</span> Las <strong>predicciones de test</strong> de la respuesta <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> , son obtenidas aplicando el <strong>modelo</strong> predictivo <strong>entrenado</strong> a las observaciones de <strong>test</strong>:</p>
+<p><span class="math display">\[\widehat{Y}\hspace{0.08cm}^{test} \hspace{0.1cm} = \hspace{0.1cm} M\left(\hspace{0.1cm} X_1^{test},...,X_p^{test} \hspace{0.15cm}|\hspace{0.15cm} X_1^{train},...,X_p^{train}, Y^{train} \hspace{0.1cm}\right)\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -1848,25 +1852,21 @@ también son llamados <strong>métodos de validación cruzada</strong>. Aunque r
 <p><br></p>
 <p><strong>Observaciones:</strong></p>
 <ul>
-<li><p>Aqui <span class="math inline">\(\hspace{0.08cm}M(\hspace{0.1cm} z \hspace{0.1cm}|\hspace{0.1cm} w\hspace{0.1cm})\hspace{0.08cm}\)</span> representa una función de dos argumentos, el argumento posterior a <span class="math inline">\(\hspace{0.1cm}|\hspace{0.1cm}\)</span> , es decir <span class="math inline">\(\hspace{0.1cm}w\hspace{0.1cm}\)</span>, son los datos de predictores y respuestas con los que se entrena el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> , y el argumento previo a <span class="math inline">\(\hspace{0.1cm}|\hspace{0.1cm}\)</span> , es decir <span class="math inline">\(\hspace{0.1cm}z\hspace{0.1cm}\)</span>, son los datos de los predictores que el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> usa para generar predicciones de la respuesta. Y devuelve un vector con esas predicciones de la respuesta. <span class="math inline">\(\\[1cm]\)</span></p></li>
-<li><p><span class="math inline">\(\widehat{\hspace{0.08cm}Y}^{\hspace{0.08cm}test}=(\hat{y}_1^{\hspace{0.08cm}test},..., \hat{y}_h^{\hspace{0.08cm}test})^t\hspace{0.1cm}\)</span> es un vector con las predicciones de la respuesta hechas por el modelo entrenado <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> usando la <strong>muestra test</strong> de observaciones de los predictores <span class="math inline">\(\hspace{0.08cm}X_1^{test},...,X_p^{test}\)</span></p></li>
-<li><p><span class="math inline">\(\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train}\hspace{0.1cm} ) \hspace{0.1cm}=\hspace{0.1cm} M(x^{test}_{i1},...,x^{test}_{ip} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train})\hspace{0.1cm}\)</span> es la predicción de la respuesta que el modelo entrenado <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> genera para la observación de test de los predictores <span class="math inline">\(\hspace{0.1cm}x_i^{test}=(x^{test}_{i1},...,x^{test}_{ip})\)</span> .</p></li>
+<li><p>Aqui <span class="math inline">\(\hspace{0.08cm}M(\hspace{0.1cm} z \hspace{0.1cm}|\hspace{0.1cm} w\hspace{0.1cm})\hspace{0.08cm}\)</span> representa una función de dos argumentos, el argumento posterior a <span class="math inline">\(\hspace{0.1cm}|\hspace{0.1cm}\)</span> , es decir <span class="math inline">\(\hspace{0.1cm}w\hspace{0.1cm}\)</span>, son los datos de predictores y respuestas con los que se entrena el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> , y el argumento previo a <span class="math inline">\(\hspace{0.1cm}|\hspace{0.1cm}\)</span> , es decir <span class="math inline">\(\hspace{0.1cm}z\hspace{0.1cm}\)</span>, son los datos de los predictores que el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> usa para generar predicciones de la respuesta. Y devuelve un vector con esas predicciones de la respuesta. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p><span class="math inline">\(\widehat{\hspace{0.08cm}Y}^{\hspace{0.08cm}test}\hspace{0.08cm}=\hspace{0.08cm} \left(\hat{y}_1^{\hspace{0.08cm}test},..., \hat{y}_h^{\hspace{0.08cm}test}\right)^t\hspace{0.1cm}\)</span> es un vector con las predicciones de la respuesta hechas por el modelo entrenado <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> usando la <strong>muestra test</strong> de observaciones de los predictores <span class="math inline">\(\hspace{0.08cm}X_1^{test},...,X_p^{test} \\\)</span></p></li>
+<li><p><span class="math inline">\(\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M \left(\hspace{0.1cm} x_i^{test} \hspace{0.15cm}|\hspace{0.15cm} X_1^{train},...,X_p^{train}, Y^{train}\hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} M\left( \hspace{0.08cm} x^{test}_{i1},...,x^{test}_{ip} \hspace{0.15cm}|\hspace{0.15cm} X_1^{train},...,X_p^{train}, Y^{train}\right)\hspace{0.1cm}\)</span> es la predicción de la respuesta que el modelo entrenado <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> genera para la observación de test de los predictores <span class="math inline">\(\hspace{0.1cm}x_i^{test}=(x^{test}_{i1},...,x^{test}_{ip})\)</span> .</p></li>
 </ul>
 <p><br></p>
-<hr />
-<p>Teniendo todo lo anterior en cuenta, la evaluación de los modelos predictivos se realiza, sin entrar en particularidades, comparando las <em>predicciones de test</em> de la respuesta generadas por el modelo <span class="math inline">\(\hspace{0.08cm}\widehat{\hspace{0.08cm}Y}^{\hspace{0.08cm}test}\hspace{0.08cm}\)</span> con la muestra de <em>observaciones test</em> de la respuesta <span class="math inline">\(\hspace{0.08cm}Y^{test}\)</span></p>
-<p>Ya que la muestra test juega el rol de nuevas observaciones. Y el modelo interesa para predecir nuevas observaciones. Por ello se utiliza la muestra test como muestra de prueba para ver el rendimiento del modelo al predecir la respuesta para nuevas observaciones de los predictores.</p>
-<p><br></p>
-<hr />
+<p>Teniendo todo lo anterior en cuenta, la evaluación de los modelos de aprendizaje supervisado <span class="math inline">\(\hspace{0.05cm} M\hspace{0.05cm}\)</span> se realiza, sin entrar en particularidades, comparando las <strong>predicciones de test</strong> de la variable respuesta generadas por el modelo <span class="math inline">\(\hspace{0.05cm}M\hspace{0.05cm}\)</span>, es decir, <span class="math inline">\(\hspace{0.08cm}\widehat{\hspace{0.08cm}Y}^{\hspace{0.08cm}test}\hspace{0.08cm}\)</span>, con la muestra de <strong>observaciones test</strong> de la respuesta, <span class="math inline">\(\hspace{0.08cm}Y^{test}\)</span></p>
+<p>La muestra test juega el rol de muestra de nuevas observaciones. Y el modelo <span class="math inline">\(\hspace{0.05cm} M\hspace{0.05cm}\)</span> interesa para predecir nuevas observaciones.</p>
+<p>Por ello se utiliza la muestra test como muestra para evaluar el rendimiento del modelo al predecir la respuesta para nuevas observaciones de los predictores.</p>
 <p><br></p>
 </div>
 </div>
-<div id="métricas-para-evaluar-modelos-de-aprendizaje-supervisado" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Métricas para evaluar modelos de aprendizaje supervisado</h1>
-<p>Dado el modelo predictivo <span class="math inline">\(M\)</span> , existen varias métricas para evaluar la capacidad predictiva del modelo. Cada una de estas métricas tienen una versión de train (son calculadas usando las predicciones de train) y otra de test (son calculadas usando las predicciones de test).</p>
-<p>Además estas métricas son diferentes en función del tipo de modelo de aprendizaje supervisado que consideremos. Vamos a considerar dos tipos, los modelos de regresión y los de clasificación supervisadas.</p>
+<div id="métricas-para-evaluar-modelos-de-regresión" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Métricas para evaluar modelos de regresión</h1>
+<p>Dado un modelo de regresión <span class="math inline">\(\hspace{0.05cm} M\hspace{0.05cm}\)</span> , existen varias métricas para evaluar la capacidad predictiva del modelo. Cada una de estas métricas tienen una versión de train (son calculadas usando las predicciones de train) y otra de test (son calculadas usando las predicciones de test).</p>
 <p>Se recomienda al lector haber leido previamente el articulo sobre <a href="http://estadistica4all.com/Articulos/Los-problemas-de-clasificaci%C3%B3n-y-regresi%C3%B3n.html">los problemas de regresión y clasificación supervisada y no supervisada.</a></p>
-<p><br></p>
 <p>A continuación vamos a exponer las métricas de evaluación más habituales para <strong>modelos de regresión</strong>:</p>
 <div id="error-cuadrático-medio-ecm" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Error cuadrático medio (ECM)</h2>
@@ -1874,45 +1874,45 @@ también son llamados <strong>métodos de validación cruzada</strong>. Aunque r
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>ECM de train</strong></p>
-<p><span class="math display">\[ECM(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} \left(\hspace{0.08cm} y_i^{\hspace{0.08cm}train} - \hat{y}_i^{\hspace{0.08cm}train} \hspace{0.08cm} \right)^2 \\\]</span></p>
+<p><span class="math display">\[ECM(M)_{train} \hspace{0.15cm}=\hspace{0.15cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} \left(\hspace{0.08cm} y_i^{\hspace{0.08cm}train} - \hat{y}_i^{\hspace{0.08cm}train} \hspace{0.08cm} \right)^2 \\\]</span></p>
 </p>
 </p>
 <p></span></p>
 </div>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <ul>
-<li><p><span class="math inline">\(y_i^{test}\hspace{0.1cm}\)</span> es la observación de test <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la variable respuesta, es decir, <span class="math inline">\(\hspace{0.1cm}y_i^{test} \hspace{0.1cm}=\hspace{0.1cm} Y^{test}[\hspace{0.1cm} i\hspace{0.1cm}]\\\)</span></p></li>
-<li><p><span class="math inline">\(\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train}\hspace{0.1cm} )\\\)</span></p></li>
+<li><p><span class="math inline">\(y_i^{test}\hspace{0.1cm}\)</span> es la <strong>observación de test</strong> <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la variable respuesta, es decir, <span class="math inline">\(\hspace{0.15cm}y_i^{test} \hspace{0.1cm}=\hspace{0.1cm} Y^{test}[\hspace{0.1cm} i\hspace{0.1cm}]\\\)</span></p></li>
+<li><p><span class="math inline">\(\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M\left(\hspace{0.1cm} x_i^{test} \hspace{0.15cm}|\hspace{0.15cm} X_1^{train},...,X_p^{train}, Y^{train}\hspace{0.1cm} \right)\\\)</span></p></li>
 <li><p><span class="math inline">\(\hspace{0.2cm} n \hspace{0.1cm}=\hspace{0.1cm} \# \hspace{0.1cm} Y^{train} \\\)</span></p></li>
 </ul>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>ECM de test</strong></p>
-<p><span class="math display">\[ECM(M)_{test} \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} \right)^2\]</span></p>
+<p><span class="math display">\[ECM(M)_{test} \hspace{0.15cm} =\hspace{0.15cm} \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} \right)^2\]</span></p>
 </p>
 </p>
 <p></span></p>
 </div>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <ul>
-<li><p><span class="math inline">\(y_i^{test}\hspace{0.1cm}\)</span> es la observación de test <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la variable respuesta, es decir, <span class="math inline">\(\hspace{0.1cm}y_i^{test} \hspace{0.1cm}=\hspace{0.1cm} Y^{test}[\hspace{0.1cm} i \hspace{0.1cm}] \\\)</span></p></li>
-<li><p><span class="math inline">\(\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train}, Y^{train} \hspace{0.1cm} )\\\)</span></p></li>
+<li><p><span class="math inline">\(y_i^{test}\hspace{0.1cm}\)</span> es la observación de test <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la variable respuesta, es decir, <span class="math inline">\(\hspace{0.15cm}y_i^{test} \hspace{0.1cm}=\hspace{0.1cm} Y^{test}[\hspace{0.1cm} i \hspace{0.1cm}] \\\)</span></p></li>
+<li><p><span class="math inline">\(\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M\left(\hspace{0.1cm} x_i^{test} \hspace{0.15cm}|\hspace{0.15cm} X_1^{train},...,X_p^{train}, Y^{train} \hspace{0.1cm} \right)\\\)</span></p></li>
 <li><p><span class="math inline">\(\hspace{0.2cm} h\hspace{0.1cm}=\hspace{0.1cm}\# \hspace{0.1cm} Y^{test}\)</span></p></li>
 </ul>
 <p><br></p>
 <p><strong>Observación:</strong></p>
 <p>El <span class="math inline">\(\hspace{0.08cm} ECM\hspace{0.08cm}\)</span> tiene se mide en la unidad de medida que la respuesta <strong>al cuadrado</strong>. <span class="math inline">\(\\[0.7cm]\)</span></p>
 <p><strong>Interpretación:</strong></p>
-<p>Cuanto menor sea <span class="math inline">\(\hspace{0.08cm}ECM\hspace{0.08cm}\)</span> , mayor capacidad predictiva del modelo <span class="math inline">\(\hspace{0.08cm}M\hspace{0.08cm}\)</span>, y a la inversa.</p>
+<p>Cuanto menor sea <span class="math inline">\(\hspace{0.08cm}ECM(M)_{test}\hspace{0.08cm}\)</span> , mayor capacidad predictiva del modelo <span class="math inline">\(\hspace{0.08cm}M\hspace{0.08cm}\)</span>, y a la inversa.</p>
 <p><br></p>
 <p><strong>¿Por qué el ECM es tan usado en la práctica?</strong></p>
-<p>Teoricamente puede demostraste que en un modelo de regresion el error cuadratico medio de la prediccion puede descomponerse como sigue: <span class="math inline">\(\\[1cm]\)</span></p>
-<p><span class="math display">\[ECM(\widehat{Y}) = E\hspace{0.1cm}[\hspace{0.1cm}(Y - \widehat{Y})^2\hspace{0.1cm}]\hspace{0.1cm} =\hspace{0.1cm} Var(\widehat{Y}) \hspace{0.1cm}+\hspace{0.1cm} Sesgo(\widehat{Y})^2 \hspace{0.1cm}+\hspace{0.1cm} \sigma_{\varepsilon}^2 \\\]</span></p>
+<p>Teóricamente puede demostraste que en un modelo de regresión el error cuadrático medio de la predicción puede descomponerse como sigue: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[ECM(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm}) = E\hspace{0.1cm}[\hspace{0.1cm}(\mathcal{Y} - \widehat{\mathcal{Y}})^2\hspace{0.1cm}]\hspace{0.1cm} =\hspace{0.1cm} Var(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm}) \hspace{0.1cm}+\hspace{0.1cm} Sesgo(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm})^2 \hspace{0.1cm}+\hspace{0.1cm} \sigma_{\varepsilon}^2 \\\]</span></p>
 <p>Donde:</p>
 <ul>
-<li><p><span class="math inline">\(Var(\widehat{Y})\hspace{0.1cm} =\hspace{0.1cm} E[\hspace{0.1cm}(\widehat{Y} - E[\widehat{Y}])^2\hspace{0.1cm}]\hspace{0.1cm}\)</span> es la varianza de las predicciones del modelo. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p><span class="math inline">\(Sesgo(\widehat{Y})\hspace{0.1cm}=\hspace{0.1cm}E[\hspace{0.1cm}\widehat{Y}\hspace{0.1cm}] \hspace{0.1cm}-\hspace{0.1cm} Y\hspace{0.1cm}\)</span> es el sesgo de las predicciones del modelo.<span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p><span class="math inline">\(Var(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm})\hspace{0.1cm} =\hspace{0.1cm} E[\hspace{0.1cm}(\hspace{0.08cm}\widehat{\mathcal{Y}} - E[\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm}]\hspace{0.08cm})^2\hspace{0.1cm}]\hspace{0.1cm}\)</span> es la varianza de las predicciones del modelo. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p><span class="math inline">\(Sesgo(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm})\hspace{0.1cm}=\hspace{0.1cm}E[\hspace{0.08cm}\hspace{0.1cm}\widehat{\mathcal{Y}}\hspace{0.1cm}] \hspace{0.1cm}-\hspace{0.1cm} \mathcal{Y}\hspace{0.15cm}\)</span> es el sesgo de las predicciones del modelo.<span class="math inline">\(\\[0.5cm]\)</span></p></li>
 <li><p><span class="math inline">\(\sigma_{\varepsilon}^2\hspace{0.1cm}\)</span> es la varianza del ruido aleatorio o perturbación del modelo. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 </ul>
 <p>Por tanto, en un modelo de regresion, el ECM del estimador de la respuesta puede descomponerse como la suma de la varianza y sesgo al cuadrado de dicho estimador de la respuesta, y tambien de la varianza del ruido aleatorio del modelo.</p>
@@ -1932,7 +1932,7 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>RECM de train:</strong></p>
-<p><span class="math display">\[RECM(M)_{train} = \sqrt{\dfrac{1}{n} \sum_{i=1}^n \hspace{0.1cm} \left(y_i^{train} - \hat{y}_i^{train}\right)^2 \hspace{0.2cm}} \\\]</span></p>
+<p><span class="math display">\[RECM(M)_{train} \hspace{0.08cm}=\hspace{0.08cm} \sqrt{\dfrac{1}{n} \sum_{i=1}^n \hspace{0.1cm} \left(y_i^{train} - \hat{y}_i^{train}\right)^2 \hspace{0.2cm}} \\\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -1941,15 +1941,16 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>RECM de test:</strong></p>
-<p><span class="math display">\[RECM(M)_{test} = \sqrt{ \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_{i} ^{\hspace{0.1cm} test} \hspace{0.1cm} \right)^2 \hspace{0.2cm}} \\[0.2cm]\]</span></p>
+<p><span class="math display">\[RECM(M)_{test} \hspace{0.08cm}=\hspace{0.08cm} \sqrt{ \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_{i} ^{\hspace{0.1cm} test} \hspace{0.1cm} \right)^2 \hspace{0.2cm}} \\[0.2cm]\]</span></p>
 </p>
 </p>
 <p></span></p>
 </div>
+<p><br></p>
 <p><strong>Observación:</strong></p>
-<p>El <span class="math inline">\(RECM\)</span> tiene la misma unidad de medida que la respuesta. <span class="math inline">\(\\[0.2cm]\)</span></p>
+<p>El <span class="math inline">\(\hspace{0.08cm}RECM\hspace{0.08cm}\)</span> tiene la misma unidad de medida que la respuesta. <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p><strong>Interpretación:</strong></p>
-<p>Cuanto menor sea <span class="math inline">\(RECM\)</span> , mayor bondad predictiva del modelo <span class="math inline">\(M\)</span>, y a la inversa.</p>
+<p>Cuanto menor sea <span class="math inline">\(\hspace{0.08cm}RECM(M)_{test}\hspace{0.08cm}\)</span> , mayor bondad predictiva del modelo <span class="math inline">\(\hspace{0.08cm}M\hspace{0.08cm}\)</span>, y a la inversa.</p>
 <p><br></p>
 </div>
 <div id="error-cuadratico-relativo-ecr" class="section level2" number="2.3">
@@ -1973,7 +1974,7 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <p></span></p>
 </div>
 <p><strong>Interpretación:</strong></p>
-<p>Cuanto menor sea <span class="math inline">\(ECR\)</span> , mayor bondad predictiva del modelo <span class="math inline">\(M\)</span>, y a la inversa.</p>
+<p>Cuanto menor sea <span class="math inline">\(\hspace{0.08cm}ECR(M)_{test}\hspace{0.08cm}\)</span> , mayor bondad predictiva del modelo <span class="math inline">\(\hspace{0.08cm}M\hspace{0.08cm}\)</span>, y a la inversa.</p>
 <p><br></p>
 </div>
 <div id="coeficiente-de-determinación" class="section level2" number="2.4">
@@ -1982,7 +1983,7 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Coeficiente de determinación de train:</strong></p>
-<p><span class="math display">\[R_{train}^2 \hspace{0.1cm}=\hspace{0.1cm} 1 - ECR_{train} \\\]</span></p>
+<p><span class="math display">\[R(M)^2_{train} \hspace{0.1cm}=\hspace{0.1cm} 1 - ECR(M)_{train} \\\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -1991,13 +1992,13 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Coeficiente de determinación de train:</strong></p>
-<p><span class="math display">\[R_{test}^2 \hspace{0.1cm}=\hspace{0.1cm} 1 - ECR_{test} \\\]</span></p>
+<p><span class="math display">\[R(M)^2_{test} \hspace{0.1cm}=\hspace{0.1cm} 1 - ECR(M)_{test} \\\]</span></p>
 </p>
 </p>
 <p></span></p>
 </div>
 <p><strong>Interpretación:</strong></p>
-<p>Cuanto mayor sea <span class="math inline">\(R^2\)</span> , mayor bondad predictiva del modelo <span class="math inline">\(M\)</span>, y a la inversa.</p>
+<p>Cuanto mayor sea <span class="math inline">\(\hspace{0.05cm}R(M)^2_{test}\hspace{0.05cm}\)</span> , mayor bondad predictiva del modelo <span class="math inline">\(\hspace{0.05cm}M\hspace{0.05cm}\)</span>, y a la inversa.</p>
 <p><br></p>
 </div>
 <div id="error-absoluto-medio-eam" class="section level2" number="2.5">
@@ -2028,7 +2029,7 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>EAR de train:</strong></p>
-<p><span class="math display">\[EAR(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\sum_{i=1}^n \hspace{0.1cm} \left|\hspace{0.1cm} y_i^{train} - \hat{y}_i^{\hspace{0.08cm} train} \hspace{0.1cm} \right| }{\sum_{i=1}^n \hspace{0.1cm} \left| \hspace{0.1cm} y_i^{train} - \overline{y}^{train} \hspace{0.1cm} \right| \hspace{0.1cm}}  \\\]</span></p>
+<p><span class="math display">\[EAR(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\sum_{i=1}^n \hspace{0.1cm} \left|\hspace{0.1cm} y_i^{train} - \hat{y}_i^{\hspace{0.08cm} train} \hspace{0.1cm} \right| \hspace{0.2cm} }{\sum_{i=1}^n \hspace{0.1cm} \left| \hspace{0.1cm} y_i^{train} - \overline{y}^{train} \hspace{0.1cm} \right| \hspace{0.1cm}}  \\\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -2037,23 +2038,24 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>EAR de test:</strong></p>
-<p><span class="math display">\[EAR(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{ \sum_{i=1}^h \hspace{0.1cm} \hspace{0.1cm} \left| \hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm} \right| \hspace{0.1cm}  }{\sum_{i=1}^h \hspace{0.1cm}\left|\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \overline{y}^{\hspace{0.1cm} test} \hspace{0.1cm}\right|\hspace{0.1cm}}\]</span></p>
+<p><span class="math display">\[EAR(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{ \sum_{i=1}^h \hspace{0.1cm} \hspace{0.1cm} \left| \hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm} \right| \hspace{0.2cm}  }{\sum_{i=1}^h \hspace{0.1cm}\left|\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \overline{y}^{\hspace{0.1cm} test} \hspace{0.1cm}\right|\hspace{0.1cm}}\]</span></p>
 </p>
 </p>
 <p></span></p>
 </div>
 <p><br></p>
-<hr />
-<p><br></p>
-<p>A continuación vamos a exponer las métricas de evaluación más habituales para <strong>modelos de clasificación supervisada</strong>:</p>
 </div>
-<div id="tasa-de-acierto-en-la-clasificación-tac" class="section level2" number="2.7">
-<h2><span class="header-section-number">2.7</span> Tasa de acierto en la clasificación (TAC)</h2>
+</div>
+<div id="métricas-para-evaluar-modelos-de-clasificación-supervisada" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Métricas para evaluar modelos de clasificación supervisada</h1>
+<p>A continuación vamos a exponer las métricas de evaluación más habituales para <strong>modelos de clasificación supervisada</strong>:</p>
+<div id="tasa-de-acierto-en-la-clasificación-tac" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Tasa de acierto en la clasificación (TAC)</h2>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>TAC de train:</strong></p>
-<p><span class="math display">\[TAC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.15cm} \mathbf {I} \left( \hspace{0.1cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.1cm} \right)\]</span></p>
+<p><span class="math display">\[TAC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.2cm} \mathbf {I} \left( \hspace{0.1cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.1cm} \right)\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -2062,20 +2064,20 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>TAC de test:</strong></p>
-<p><span class="math display">\[TAC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.15cm} \mathbf{I} \left( \hspace{0.1cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.1cm}\right)\]</span></p>
+<p><span class="math display">\[TAC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.2cm} \mathbf{I} \left( \hspace{0.1cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.1cm}\right)\]</span></p>
 </p>
 </p>
 <p></span></p>
 </div>
 <p><br></p>
 </div>
-<div id="tasa-de-error-en-la-clasificación-tec" class="section level2" number="2.8">
-<h2><span class="header-section-number">2.8</span> Tasa de error en la clasificación (TEC)</h2>
+<div id="tasa-de-error-en-la-clasificación-tec" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Tasa de error en la clasificación (TEC)</h2>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>TEC de train:</strong></p>
-<p><span class="math display">\[TEC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.15cm} \mathbf {I} \left( \hspace{0.05cm} \hat{y}_i^{train} \neq y_i^{train} \hspace{0.05cm} \right)\]</span></p>
+<p><span class="math display">\[TEC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.2cm} \mathbf {I} \left( \hspace{0.05cm} \hat{y}_i^{train} \neq y_i^{train} \hspace{0.05cm} \right)\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -2084,15 +2086,15 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>TEC de test:</strong></p>
-<p><span class="math display">\[TEC(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{h} \cdot \sum_{i=1}^{h} \hspace{0.15cm} \mathbf {I} \left( \hspace{0.1cm} \hat{y}_i^{\hspace{0.05cm} test} \neq y_i^{\hspace{0.05cm} test} \hspace{0.1cm}\right)\]</span></p>
+<p><span class="math display">\[TEC(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{h} \cdot \sum_{i=1}^{h} \hspace{0.2cm} \mathbf {I} \left( \hspace{0.1cm} \hat{y}_i^{\hspace{0.05cm} test} \neq y_i^{\hspace{0.05cm} test} \hspace{0.1cm}\right)\]</span></p>
 </p>
 </p>
 <p></span></p>
 </div>
 <p><br></p>
 </div>
-<div id="kappa" class="section level2" number="2.9">
-<h2><span class="header-section-number">2.9</span> Kappa</h2>
+<div id="kappa" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Kappa</h2>
 <p>Suponemos que una variable respuesta tiene <span class="math inline">\(\hspace{0.05cm}k \geq 2\hspace{0.05cm}\)</span> categorias</p>
 <p>Si usamos un modelo de clasificación basado en la distribución de probabilidad uniforme discreta, este predice cada categoria de la respuesta con igual probabilidad <span class="math inline">\(\hspace{0.05cm}1/k\hspace{0.05cm}\)</span>, por lo que la tasa de acierto del modelo esperada es <span class="math inline">\(\hspace{0.05cm}1/k\)</span>, es decir, si el modelo se aplica muchas veces, la <span class="math inline">\(\hspace{0.08cm} TAC\hspace{0.08cm}\)</span> <strong>media</strong> será de <span class="math inline">\(1/k\)</span></p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
@@ -2114,8 +2116,8 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <p></span></p>
 </div>
 <p><br></p>
-<div id="modelo-de-clasificación-aleatoria-uniforme" class="section level3" number="2.9.1">
-<h3><span class="header-section-number">2.9.1</span> Modelo de clasificación aleatoria uniforme</h3>
+<div id="modelo-de-clasificación-aleatoria-uniforme" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Modelo de clasificación aleatoria uniforme</h3>
 <p>Dada una respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm}k\geq 2\hspace{0.1cm}\)</span> categorias y de una serie de predictotres <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1 , ..., \mathcal{X}_p\)</span></p>
 <p>Dada una muestra de <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> observaciones de <span class="math inline">\(\hspace{0.1cm}Y\hspace{0.1cm}\)</span> del predictor<br />
 y una muestra <span class="math inline">\(\hspace{0.1cm}X_j\hspace{0.1cm}\)</span> del predictor <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j \\\)</span></p>
@@ -2139,8 +2141,8 @@ y una muestra <span class="math inline">\(\hspace{0.1cm}X_j\hspace{0.1cm}\)</spa
 </div>
 </div>
 </div>
-<div id="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Algoritmos de validación de modelos de aprendizaje supervisado</h1>
+<div id="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Algoritmos de validación de modelos de aprendizaje supervisado</h1>
 <p>Los algoritmos de validación de modelos de aprendizaje supervisado permiten medir la capacidad predictiva de dichos modelos. Estoas algoritmos se suelen basar en:</p>
 <ol style="list-style-type: decimal">
 <li><p>División del data-set inicial de la respuesta y los predictores en parte de train y parte de test.</p></li>
@@ -2162,8 +2164,8 @@ y una muestra <span class="math inline">\(\hspace{0.1cm}X_j\hspace{0.1cm}\)</spa
     \end{pmatrix}\]</span></p>
 <p><br></p>
 <p><br></p>
-<div id="validación-simple-no-aleatoria" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Validación simple no aleatoria</h2>
+<div id="validación-simple-no-aleatoria" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Validación simple no aleatoria</h2>
 <p><strong>Descripción no formal del algoritmo:</strong></p>
 <p>Este algoritmo de validación consiste en dividir el data-set inicial en una parte de train y otra de test de manera no aleatoria.</p>
 <p>El <span class="math inline">\(\hspace{0.1cm} k\% \hspace{0.1cm}\)</span> de las primeras filas del data-set serán la parte de train, y el resto la parte de test.</p>
@@ -2229,8 +2231,8 @@ y una muestra <span class="math inline">\(\hspace{0.1cm}X_j\hspace{0.1cm}\)</spa
 <p><br></p>
 <p><br></p>
 </div>
-<div id="validación-simple-aleatoria" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Validación simple aleatoria</h2>
+<div id="validación-simple-aleatoria" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Validación simple aleatoria</h2>
 <p><strong>Decripción no formal del algoritmo:</strong></p>
 <p>Este algoritmo de validacion consiste en dividir el data-set inicial en una parte de train y otra de test de manera <strong>aleatoria</strong>.</p>
 <p>Se obtiene una muestra aleatoria sin remplazo de un <span class="math inline">\(\hspace{0.1cm} k\% \hspace{0.1cm}\)</span> de las filas del data-set inicial, las cuales serán la parte de train, y el resto la parte de test.</p>
@@ -2304,8 +2306,8 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 <p><br></p>
 <p><br></p>
 </div>
-<div id="validación-simple-aleatoria-repetida" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> Validación simple aleatoria repetida</h2>
+<div id="validación-simple-aleatoria-repetida" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Validación simple aleatoria repetida</h2>
 <p><strong>Decripción no formal del algoritmo:</strong></p>
 <p>Este algoritmo de validacion consiste en dividir el data-set inicial en una parte de train y otra de test de manera aleatoria.</p>
 <p>Se obtiene una muestra aleatoria sin remplazo de un <span class="math inline">\(\hspace{0.1cm}k\%\hspace{0.1cm}\)</span> de las filas del data-set inicial, las cuales serán la parte de train, y el resto la parte de test.</p>
@@ -2383,8 +2385,8 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 <p>Permite reducir la varianza de la métrica de validación. En la validación simple aleatoria no repetida la métrica de validación obtenida usando validacion simple tiene mayor varianza, en el sentido de que si se implementa el algoritmo un número elevado de veces, la varianza de los valores obtenidos de la métrica es mayor si se aplica el mismo procedimiento con validación simple aleatoria repetida. Esto será ilustrado en la práctica.</p>
 <p><br></p>
 </div>
-<div id="leave-one-out" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> Leave-one-out</h2>
+<div id="leave-one-out" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Leave-one-out</h2>
 <p>El algoritmo de validación leave-one-out tiene los siguientes pasos: <span class="math inline">\(\\[0.3cm]\)</span></p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
@@ -2452,8 +2454,8 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 <p><br></p>
 <p><br></p>
 </div>
-<div id="k-fold" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> k-fold</h2>
+<div id="k-fold" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> k-fold</h2>
 <p><strong>Decripción no formal del algoritmo:</strong></p>
 <p>Este algoritmo de validacion consiste en dividir el data-set inicial en <span class="math inline">\(\hspace{0.1cm} k\hspace{0.1cm}\)</span> partes, y usar de manera secuencial cada una de esas partes como muestra test, y las union de las partes restantes como muestra train.</p>
 <p>Por tanto con este método se usan <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> muestras de test y de train.</p>
@@ -2595,8 +2597,8 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 <p>La metrica de validacion calculada por k-fold tiene menor varianza que con los métodos anteriores, luego es el mas preciso de todos ellos.</p>
 <p><br></p>
 </div>
-<div id="repeted-k-fold" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> Repeted k-fold</h2>
+<div id="repeted-k-fold" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Repeted k-fold</h2>
 <p>Este algoritmo consiste en <strong>repetir</strong> el algoritmo <strong>k-fold</strong> un número <span class="math inline">\(\hspace{0.1cm} B \hspace{0.1cm}\)</span> de veces.</p>
 <p>No vamos a hacer aquí una descripción tan detallada del algoritmo como las anteriores, puesto que buena parte es repetir <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> veces la estructura del k-fold. <span class="math inline">\(\\[0.5cm]\)</span></p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
@@ -2635,8 +2637,8 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 <p><br></p>
 </div>
 </div>
-<div id="selección-de-modelos-basada-en-validación-cruzada" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Selección de modelos basada en validación cruzada</h1>
+<div id="selección-de-modelos-basada-en-validación-cruzada" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Selección de modelos basada en validación cruzada</h1>
 <p>Dado un conjunto de modelos de aprendizaje supervisado, nos interesa establecer un criterio para seleccionar uno de ellos como el mejor.</p>
 <p>A continuación se expone un criterio basado en las métricas y algoritmos de validación que se han visto anteriormente. <span class="math inline">\(\\[0.5cm]\)</span></p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
@@ -2666,8 +2668,8 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 <p><br></p>
 <p><br></p>
 </div>
-<div id="algoritmos-de-validación-cruzada-programados-en-python" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Algoritmos de validación cruzada programados en <code>Python</code></h1>
+<div id="algoritmos-de-validación-cruzada-programados-en-python" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Algoritmos de validación cruzada programados en <code>Python</code></h1>
 <p>Importamos las librerias que vamos a utilizar:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -2859,8 +2861,8 @@ quality_recode
 <p>A continuación se van a programar los algoritmos de validación cruzada que se han expuesto a nivel teórico anteriormente.</p>
 <p>Además se probarán los algoritmos con el modelo KNN tanto en su versión para regresión como para clasificación.</p>
 <p><br></p>
-<div id="validación-simple-no-aleatoria-1" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Validación simple no aleatoria</h2>
+<div id="validación-simple-no-aleatoria-1" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Validación simple no aleatoria</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simple_validation_not_random(D, k, response, metric, model):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># D --&gt; It has to be a pandas data frame.</span></span>
@@ -2922,8 +2924,8 @@ quality_recode
 <pre><code>0.5651260504201681</code></pre>
 <p><br></p>
 </div>
-<div id="validación-simple-aleatoria-1" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Validación simple aleatoria</h2>
+<div id="validación-simple-aleatoria-1" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> Validación simple aleatoria</h2>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simple_validation_random(D, k, response, random_seed, metric, model):</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># D --&gt; have to be a pandas data frame.</span></span>
@@ -2987,8 +2989,8 @@ quality_recode
 <pre><code>0.5777310924369747</code></pre>
 <p><br></p>
 </div>
-<div id="validación-simple-aleatoria-repetida-1" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Validación simple aleatoria repetida</h2>
+<div id="validación-simple-aleatoria-repetida-1" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Validación simple aleatoria repetida</h2>
 <div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> repeated_random_simple_validation(D, k, B, response, random_seed, metric, model):</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># D --&gt; have to be a pandas data frame.</span></span>
@@ -3049,8 +3051,8 @@ quality_recode
 <pre><code>0.5519558823529411</code></pre>
 <p><br></p>
 </div>
-<div id="leave-one-out-1" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Leave one out</h2>
+<div id="leave-one-out-1" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Leave one out</h2>
 <div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> leave_one_out_validation(D, response, metric, model):</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># D --&gt; have to be a pandas data frame.</span></span>
@@ -3123,8 +3125,8 @@ quality_recode
 <p><br></p>
 </div>
 </div>
-<div id="k-folds" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> K Folds</h1>
+<div id="k-folds" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> K Folds</h1>
 <div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> K_Fold_CV(D, K, response, random_seed, metric, model):</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    ECM_K_FOLDS_vector , TA_K_FOLDS_vector <span class="op">=</span> [] , []</span>
@@ -3214,8 +3216,8 @@ quality_recode
 <div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>TA_K_Folds</span></code></pre></div>
 <pre><code>0.5366807546993878</code></pre>
 <p><br></p>
-<div id="repeted-k-folds" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Repeted k-folds</h2>
+<div id="repeted-k-folds" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Repeted k-folds</h2>
 <div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> repeated_K_Fold_CV(D, B, K, response, random_seed, metric, model):</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3326,8 +3328,8 @@ quality_recode
 <p><br></p>
 </div>
 </div>
-<div id="bibliografía" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Bibliografía <a class="anchor" id="1"></a></h1>
+<div id="bibliografía" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Bibliografía <a class="anchor" id="1"></a></h1>
 <ul>
 <li><p>Amat Rodrigo, J. (Noviembre 2020). Validación de modelos predictivos: Cross-validation, OneLeaveOut, Bootstraping. <em>Cienciadedatos</em>.<br />
 <a href="https://www.cienciadedatos.net/documentos/30_cross-validation_oneleaveout_bootstrap" class="uri">https://www.cienciadedatos.net/documentos/30_cross-validation_oneleaveout_bootstrap</a></p></li>

@@ -254,20 +254,6 @@ GO
 
 <br>
 
-## Tipos de datos
-
-Algunos de los tipos de datos que pueden utilizarse al crear una tabla son los siguientes:
-
--- char(n) --> n caracteres fijos
--- varchar(n) --> n caracteres variables
--- nvarchar(n) --> cadena alfanumerica con n elementos variables
--- numeric(n, h) --> numero de n cifras con h decimales
--- int --> entero
--- float --> real
--- data --> fecha
-
-<br>
-
 ## Clave primaria 
 
 La sentencia **PRIMARY KEY** se asocia a las columnas que son  identificadores únicos principales.
@@ -417,6 +403,52 @@ GO
 ```
 No se puede insertar el valor NULL en la columna 'Nombre', tabla 'Base_Datos_Fabio.dbo.Proveedores'. La columna no admite valores NULL. Error de INSERT.
 ```
+
+
+<br>
+
+# Importar un CSV como una tabla
+
+Primero debemos instalar la extension SQL Server Import en Azure Data Studio. Lo podemos hacer como se muestra en la imagen siguiente:
+
+
+
+<center>
+
+![](p13.png){width="95%"}
+
+</center> 
+
+
+<center>
+
+![](p14.png){width="95%"}
+
+</center> 
+
+
+<center>
+
+![](p15.png){width="95%"}
+
+</center> 
+
+
+<center>
+
+![](p16.png){width="95%"}
+
+</center> 
+
+
+
+<center>
+
+![](p17.png){width="95%"}
+
+</center> 
+
+
 
 <br>
 
