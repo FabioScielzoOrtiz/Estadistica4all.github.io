@@ -2089,7 +2089,7 @@ ECM_test
 
 
 
-Definimos el modelo KNN para clasificación con el que vamos a testear el algoritmo que se acaba de programar:
+Definimos el modelo KNN para clasificacion con el que vamos a testear el algoritmo que se acaba de programar:
 
 ```python
 knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=2, metric='minkowski')
