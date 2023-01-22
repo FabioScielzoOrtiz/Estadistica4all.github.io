@@ -57,9 +57,9 @@ css: custom.css
 # Instalación de Azure Data Studio <a class="anchor" id="1"></a>
 
 
-Primero hay que descargar Azure Data Studio. Ello puede hacerse facilmente desde el siguiente [link](https://learn.microsoft.com/es-es/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver16) 
+Primero hay que descargar Azure Data Studio. Ello puede hacerse facilmente desde el siguiente [link](https://learn.microsoft.com/es-es/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver16).
 
-También es necesario descargar SQL Server 2019 Developer Edition. Lo podemos hacer desde el siguiente [link](https://www.microsoft.com/es-es/sql-server/sql-server-downloads?rtc=1)
+También es necesario descargar SQL Server 2019 Developer Edition. Lo podemos hacer desde el siguiente [link](https://www.microsoft.com/es-es/sql-server/sql-server-downloads?rtc=1).
 
 
 Una vez que hemos instalado correctamente ambos programas, abrilos Azure Data Studio.
@@ -72,7 +72,8 @@ Nos encontraremos una pantalla similar a la siguiente.
 
 </center> 
  
- 
+<br>
+
 Debemos establecer una conexión con un servidor para poder trabajar con bases de datos. En nuestro caso será un servidor alojado en local en nuestro propio ordinador. Para establecer la conexion debemos pinchar en la parte subrayada de amarillo.
 
 Tras pulsar ahi nos encontraremos con una pantalla similar a la siguiente:
@@ -84,6 +85,7 @@ Tras pulsar ahi nos encontraremos con una pantalla similar a la siguiente:
 </center> 
  
 
+<br>
 
 Debemos rellenar el campo Server con "localhost", tal y como se muestra en la siguiente imagen:
 
@@ -95,6 +97,8 @@ Debemos rellenar el campo Server con "localhost", tal y como se muestra en la si
 </center> 
 
 
+<br>
+
 Posteriormente saldrá un mensaje como este. Le daos al boton azul (Enable Trust server certificate):
 
 <center>
@@ -104,6 +108,7 @@ Posteriormente saldrá un mensaje como este. Le daos al boton azul (Enable Trust
 </center> 
 
 
+<br>
 
 Si se ha conectado correctamente al servidor en la pantalla debe aparecer algo similar a lo siguiente:
 
@@ -133,6 +138,9 @@ Vamos a crear una nueva base de datos llamada Base_Datos_Fabio:
 ![](p6.jpg){width="95%"}
 
 </center> 
+
+
+<br>
 
 El codigo empleado en la imagen para crear una nueva base de datos es el siguiente:
 
@@ -166,7 +174,7 @@ Tras la ejecución del codigo SQL anterior se deberia crear la base de datos, y 
 
 <br>
 
-# Crear una nueva tabla en una base de datos en Azure Data Studio
+# Crear una tabla
 
 Ahora vamos a crear una nueva tabla dentro de la base de datos que acabamos de crear. Para ello se puede usar el mismo script de SQL pero modificando el elemento señalado en la parte superior de la pantalla. Este elemento permite fijar en que base de datos vamos a realizar los cambios. En este caso seleccionamos la base de datos Base_Datos_Fabio, que es la que hemos creado en el paso anterior.
 
@@ -175,6 +183,8 @@ Ahora vamos a crear una nueva tabla dentro de la base de datos que acabamos de c
 ![](p8.jpg){width="95%"}
 
 </center> 
+
+<br>
 
 El codigo utilizado para crear la nueva tabla es el siguiente:
 
@@ -200,7 +210,7 @@ GO
 ```
 
 
-Ejecutamos el codigo anterior y verificamos que se ha creado la tabla Clientes dentro de la base de datos Base_Datos_Fabio:
+Ejecutamos el codigo anterior y verificamos que se ha creado la tabla **Clientes** dentro de la base de datos **Base_Datos_Fabio**:
 
 <center>
 
@@ -209,16 +219,16 @@ Ejecutamos el codigo anterior y verificamos que se ha creado la tabla Clientes d
 </center> 
 
 
-
+<br>
 
 
 A partir de ahora todas las operaciones que hagamos usando codigo SQL serán ejecutadas desde un script de SQL dentro del entorno Azure Data Studio, pero no se van a mostrar más capturas de pantalla sobre ello. Lo que haremos es mostrar el codigo que se debe ejecutar en cada ocasión y las salidas obtenidas tras su ejecución.
 
 
 
-Vamos a crear otras dos tablas más (proveedores y ventas) dentro de la base de datos Base_Datos_Fabio.
+Vamos a crear otras dos tablas más (**proveedores** y **ventas**) dentro de la base de datos **Base_Datos_Fabio**.
 
-El codigo empleado para crearlas es el siguiente:
+El código empleado para crearlas es el siguiente:
 
 ```SQL
 IF OBJECT_ID('dbo.Proveedores', 'U') IS NOT NULL
@@ -258,17 +268,17 @@ GO
 
 La sentencia **PRIMARY KEY** se asocia a las columnas que son  identificadores únicos principales.
 
-La sentencia PRIMARY KEY asociada en una columna impide que haya valores repetidos en esa columna.
+Si la sentencia **PRIMARY KEY** está asociada a una columna, impide que haya valores repetidos en esa columna.
 
-Este tipo de columnas son fundamentales en las bases de datos puesto que permitirán unir tablas mediante diferentes operaciones que se verán mas adelante.
+Este tipo de columnas son fundamentales en las bases de datos puesto que permitirán unir tablas mediante diferentes operaciones que se verán más adelante.
 
 <br>
 
 ## Not Null y Null
 
-La sentencia NOT NULL asociada en una columna  impide que esta tenga valores nulos. 
+Si la sentencia **NOT NULL** está asociada a una columna,  impide que esta columna tenga valores nulos. 
 
-La sentencia NULL asociada en una columna permite que esta tenga valores nulos.
+Si la sentencia **NULL** está asociada a una columna, permite que esta columna tenga valores nulos.
 
 
 <br>
@@ -409,7 +419,7 @@ No se puede insertar el valor NULL en la columna 'Nombre', tabla 'Base_Datos_Fab
 
 # Importar un CSV como una tabla
 
-Primero debemos instalar la extension SQL Server Import en Azure Data Studio. Lo podemos hacer como se muestra en la imagen siguiente:
+Primero debemos instalar la extensión **SQL Server Import** en Azure Data Studio. 
 
 
 
@@ -418,6 +428,10 @@ Primero debemos instalar la extension SQL Server Import en Azure Data Studio. Lo
 ![](p13.png){width="95%"}
 
 </center> 
+
+
+
+A continuación importamos un CSV siguiendo los siguientes pasos:
 
 
 <center>

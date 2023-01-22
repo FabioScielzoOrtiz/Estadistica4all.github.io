@@ -56,7 +56,7 @@ css: custom.css
 
 
 
-# Instalación de Azure Data Studio <a class="anchor" id="1"></a>
+# Crear una tabla <a class="anchor" id="1"></a>
 
 
 
@@ -64,7 +64,14 @@ css: custom.css
 
 
 
+# Insertar filas en una tabla
 
+
+# Vista completa de una tabla
+
+# Seleccionar columnas de una tabla
+
+# Filtrar filas de una tabla
 
 
 
