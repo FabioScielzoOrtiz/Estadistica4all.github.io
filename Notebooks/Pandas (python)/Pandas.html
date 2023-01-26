@@ -26883,7 +26883,7 @@ X_1 &amp; ... &amp; X_p \\
 Y_1  &amp; ... &amp; Y_p
 \end{pmatrix}\]</span></p>
 <p>If <span class="math inline">\(n_1 &gt; n_2\)</span> :</p>
-<p><span class="math display">\[concat([df1,df2], axis=0)  = \begin{pmatrix}
+<p><span class="math display">\[concat([df1,df2], axis=1)  = \begin{pmatrix}
 x_1 &amp; y_1 \\
 x_2 &amp; y_2 \\
 ... &amp; ... \\
@@ -26893,6 +26893,12 @@ x_{n_2 +1} &amp; NA \\
 x_{n_1} &amp; NA
 \end{pmatrix}\]</span></p>
 <p>if <span class="math inline">\(n_1 = n_2\)</span> :</p>
+<p><span class="math display">\[concat([df1,df2], axis=1)  = \begin{pmatrix}
+x_1 &amp; y_1 \\
+x_2 &amp; y_2 \\
+... &amp; ... \\
+x_{n_1} &amp; y_{n_2}
+\end{pmatrix}\]</span></p>
 <p><br></p>
 </div>
 <div id="join-data-frames" class="section level1" number="17">

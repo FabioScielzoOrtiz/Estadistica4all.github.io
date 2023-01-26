@@ -10806,7 +10806,7 @@ Y_1  & ... & Y_p
 If $n_1 > n_2$ :
 
 
-$$concat([df1,df2], axis=0)  = \begin{pmatrix}
+$$concat([df1,df2], axis=1)  = \begin{pmatrix}
 x_1 & y_1 \\
 x_2 & y_2 \\
 ... & ... \\
@@ -10820,7 +10820,12 @@ x_{n_1} & NA
 if $n_1 = n_2$ :
 
 
-
+$$concat([df1,df2], axis=1)  = \begin{pmatrix}
+x_1 & y_1 \\
+x_2 & y_2 \\
+... & ... \\
+x_{n_1} & y_{n_2}
+\end{pmatrix}$$
 
 
 
