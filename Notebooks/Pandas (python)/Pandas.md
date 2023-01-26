@@ -4870,15 +4870,338 @@ House_Price_Data.loc[ House_Price_Data['no_of_bedrooms'].isin([2,4]) == False , 
 
 <br>
 
-
-AÑADIR CONDICIONES ENCADENADASPOR & , | ETC
-
-
-
-Mathematically `loc[]` filter operation could be define as:
+```python
+House_Price_Data.loc[ ( (House_Price_Data.price > 1000000)  & (House_Price_Data.no_of_bedrooms > 2 ) ) | House_Price_Data.quality_recode == 0 , : ]
+```
 
 
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>neighborhood_recode</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>price</th>
+      <th>no_of_bedrooms</th>
+      <th>no_of_bathrooms</th>
+      <th>quality_recode</th>
+      <th>maid_room_recode</th>
+      <th>unfurnished_recode</th>
+      <th>balcony_recode</th>
+      <th>...</th>
+      <th>private_garden_recode</th>
+      <th>private_gym_recode</th>
+      <th>private_jacuzzi_recode</th>
+      <th>private_pool_recode</th>
+      <th>security_recode</th>
+      <th>shared_gym_recode</th>
+      <th>shared_pool_recode</th>
+      <th>shared_spa_recode</th>
+      <th>view_of_water_recode</th>
+      <th>size_in_m_2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>46.0</td>
+      <td>25.114275</td>
+      <td>55.139764</td>
+      <td>8503600</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>191.565986</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>6.0</td>
+      <td>25.060310</td>
+      <td>55.241403</td>
+      <td>750000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>73.950788</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>6.0</td>
+      <td>25.060310</td>
+      <td>55.241403</td>
+      <td>991000</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>107.953286</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>37.0</td>
+      <td>25.066791</td>
+      <td>55.203684</td>
+      <td>714000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>68.004996</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>15.0</td>
+      <td>25.197316</td>
+      <td>55.274196</td>
+      <td>2100000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>105.444905</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1829</th>
+      <td>37.0</td>
+      <td>25.066252</td>
+      <td>55.207929</td>
+      <td>370000</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>34.559916</td>
+    </tr>
+    <tr>
+      <th>1838</th>
+      <td>36.0</td>
+      <td>25.079130</td>
+      <td>55.154713</td>
+      <td>400888</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>38.554745</td>
+    </tr>
+    <tr>
+      <th>1839</th>
+      <td>36.0</td>
+      <td>25.079130</td>
+      <td>55.154713</td>
+      <td>400888</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>38.554745</td>
+    </tr>
+    <tr>
+      <th>1841</th>
+      <td>34.0</td>
+      <td>25.076319</td>
+      <td>55.133627</td>
+      <td>1500000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>98.291374</td>
+    </tr>
+    <tr>
+      <th>1904</th>
+      <td>36.0</td>
+      <td>25.079130</td>
+      <td>55.154713</td>
+      <td>760887</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>74.322400</td>
+    </tr>
+  </tbody>
+</table>
+<p>95 rows × 29 columns</p>
+</div>
+
+
+
+
+
+
+
+<br>
+
+
+ 
+
+Mathematically, the `loc[]` filter operation could be formalized as follows:
+
+$$df.loc[ df.name(X_2) < k_2 & df.name(X_4) >= k_4 ) | (df.name(X_3) == k_3) , :] = D[  X_2 < k_2 y X_4 \geq k_4 ) o X_3 = k_3 , :] = ( x_i : ( x_{i2} < k_2 y x_{i4} \geq k_4 ) o x_{i3} = k_3 , i = 1,...,n )$$
+
+$$df.loc[ df[name(X_2)].isin([k_1, k_2, k_3]) , : ] = D[  X_2 \in \lbrace k_1 , k_2, k_3 \rbrace , : ] = ( x_i : x_{i2} \in \lbrace k_1 , k_2, k_3 \rbrace , i = 1,...,n )$$
 
 
 
@@ -4989,6 +5312,13 @@ House_Price_Data.loc[ House_Price_Data.price > 1000000 , ['price', 'no_of_bedroo
 </div>
 
 
+
+<br>
+
+We can also filter rows and select columns at the same time using the `loc` method:
+
+$$df.loc[ df.name(X_2) < k_2 & df.name(X_4) >= k_4 ) | (df.name(X_3) == k_3) , [name(X_1) , name(X_4)]] = D[  X_2 < k_2 y X_4 \geq k_4 ) o X_3 = k_3 , [X_2 , X_4]] = ( x_i[1,4] : ( x_{i2} < k_2 y x_{i4} \geq k_4 ) o x_{i3} = k_3 , i = 1,...,n ) = ( (x_{i1},x_{i4}) : ( x_{i2} < k_2 y x_{i4} \geq k_4 ) o x_{i3} = k_3 , i = 1,...,n )$$
+
 <br>
 
 
@@ -4996,182 +5326,6 @@ House_Price_Data.loc[ House_Price_Data.price > 1000000 , ['price', 'no_of_bedroo
 
 With the `iloc` method we can filter rows using the index of the rows:
 
-```python
-House_Price_Data.iloc[0:5 , :]
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>neighborhood_recode</th>
-      <th>latitude</th>
-      <th>longitude</th>
-      <th>price</th>
-      <th>no_of_bedrooms</th>
-      <th>no_of_bathrooms</th>
-      <th>quality_recode</th>
-      <th>maid_room_recode</th>
-      <th>unfurnished_recode</th>
-      <th>balcony_recode</th>
-      <th>...</th>
-      <th>private_garden_recode</th>
-      <th>private_gym_recode</th>
-      <th>private_jacuzzi_recode</th>
-      <th>private_pool_recode</th>
-      <th>security_recode</th>
-      <th>shared_gym_recode</th>
-      <th>shared_pool_recode</th>
-      <th>shared_spa_recode</th>
-      <th>view_of_water_recode</th>
-      <th>size_in_m_2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>46.0</td>
-      <td>25.113208</td>
-      <td>55.138932</td>
-      <td>2700000</td>
-      <td>1</td>
-      <td>2</td>
-      <td>2.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>100.242337</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>46.0</td>
-      <td>25.106809</td>
-      <td>55.151201</td>
-      <td>2850000</td>
-      <td>2</td>
-      <td>2</td>
-      <td>2.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>146.972546</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>36.0</td>
-      <td>25.063302</td>
-      <td>55.137728</td>
-      <td>1150000</td>
-      <td>3</td>
-      <td>5</td>
-      <td>2.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>181.253753</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>11.0</td>
-      <td>25.227295</td>
-      <td>55.341761</td>
-      <td>2850000</td>
-      <td>2</td>
-      <td>3</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>187.664060</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>46.0</td>
-      <td>25.114275</td>
-      <td>55.139764</td>
-      <td>1729200</td>
-      <td>0</td>
-      <td>1</td>
-      <td>2.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>47.101821</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 29 columns</p>
-</div>
-
-
-<br>
 
 ```python
 House_Price_Data.iloc[15:120 , :]
@@ -5621,6 +5775,18 @@ House_Price_Data.iloc[[6,10,15] , :]
 <p>3 rows × 29 columns</p>
 </div>
 
+<br>
+
+
+Mathematically, the `iloc[]` filter operation could be formalized as follows:
+
+
+$$df.iloc[15:120 , :] = D[15:120 , :] = (x_i : i = 15,...,120 )$$
+
+
+
+$$df.iloc[[6,10,15]] = D[[6,10,15] , :] = (x_i : i =6,10,15 )$$
+
 
 
 <br>
@@ -5734,6 +5900,73 @@ House_Price_Data.iloc[3:15 , 2:5]
 </table>
 </div>
 
+<br>
+
+
+
+
+```python
+House_Price_Data.iloc[[3,5,6] , [2,8]]
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>longitude</th>
+      <th>unfurnished_recode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>55.341761</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>55.139764</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>55.139764</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+<br>
+
+
+Mathematically, the `iloc[]` filter operation could be formalized as follows:
+
+
+$$df.iloc[3:15 , 2:5] = D[3:15 , 2:5] = (x_i[2:5] : i = 3,...,15 ) = ( (x_{i2} , x_{i5} ) : i = 3,...,15 )$$
+
+$$df.iloc[[3,5,6] , [2,8]] = D[[3,5,6] , [2,8]] = (x_i[2,8] : i = 3,5,6 ) = ( (x_{i2} , x_{i8} ) : i = 3,5,6 )$$
 
 
 <br>
@@ -7171,6 +7404,17 @@ House_Price_Data.drop(['price', 'longitude'], axis=1)
 
 <br>
 
+
+Mathematically, `drop()` filter operation could be formalized as follows:
+
+
+$$df.drop([name(X_3) , name(X_5)], axis=1) = D[: , - [X_3 , X_7]] = (X_1,X_2,X_4,X_6,...,X_p)$$
+
+
+
+
+<br>
+
 # Delete rows from a data-frame
 
 
@@ -7814,6 +8058,26 @@ House_Price_Data.drop([2,3,1900], axis=0)
 </div>
 
 
+
+<br>
+
+
+Mathematically, `drop()` operation could be formalized as follows:
+
+
+$$df.drop([2 , 5], axis=0) = D[-[2,5] , :] = \begin{pmatrix}
+x_1^t \\
+x_3^t \\
+x_4^t \\
+x_6^t \\
+... \\
+x_n^t
+\end{pmatrix} $$
+
+
+
+
+
 <br>
 
 # Rename columns from a data-frame
@@ -8323,6 +8587,27 @@ House_Price_Data.groupby('quality_recode').sum()
 <br>
 
 
+Mathematically, `groupby()` operation could be formalized as follows:
+
+$$df.groupby( name(X_3)).mean() =  \begin{pmatrix}
+mean( x_{i1} : x_{i3}=0 , i=1,...,n ) & mean( x_{i2} : x_{i3}=0 , i=1,...,n ) & ... & mean( x_{ip} : x_{i3}=0 , i=1,...,n ) \\
+mean( x_{i1} : x_{i3}=1 , i=1,...,n ) & mean( x_{i2} : x_{i3}=1 , i=1,...,n ) & ... & mean( x_{ip} : x_{i3}=1 , i=1,...,n ) \\
+mean( x_{i1} : x_{i3}=2 , i=1,...,n ) & mean( x_{i2} : x_{i3}=2 , i=1,...,n ) & ... & mean( x_{ip} : x_{i3}=2 , i=1,...,n ) \\
+mean( x_{i1} : x_{i3}=3 , i=1,...,n ) & mean( x_{i2} : x_{i3}=3 , i=1,...,n ) & ... & mean( x_{ip} : x_{i3}=3 , i=1,...,n ) 
+\end{pmatrix} $$
+
+ 
+
+
+supposing that $Range(X_3) = \lbrace 0,1,2,3 \rbrace$
+
+
+
+
+
+<br>
+
+
 ```python
 House_Price_Data.groupby('quality_recode')['price'].sum()
 ```
@@ -8388,6 +8673,25 @@ House_Price_Data.groupby('quality_recode')['price'].std()
     2.0    2.947205e+06
     3.0    3.950463e+05
     Name: price, dtype: float64
+
+
+
+<br>
+
+
+Mathematically, `groupby()` operation could be formalized as follows:
+
+$$df.groupby( name(X_3))[name(X_6)].mean() =  \begin{pmatrix}
+mean( x_{i6} : x_{i3}=0 , i=1,...,n ) \\
+mean( x_{i6} : x_{i3}=1 , i=1,...,n ) \\
+mean( x_{i6} : x_{i3}=2 , i=1,...,n ) \\
+mean( x_{i6} : x_{i3}=3 , i=1,...,n ) 
+\end{pmatrix} $$
+
+
+supposing that $Range(X_3) = \lbrace 0,1,2,3 \rbrace$
+
+
 
 
 
@@ -10440,6 +10744,95 @@ concat([df1,df2] , axis=0)
 
 <br>
 
+
+
+Mathematically, `concat()` operation could be formalized as follows:
+
+Suppose we have two data frames $df1$ and $df2$ :
+
+$$df1 \Rightarrow D_1 = \begin{pmatrix}
+x_1 \\
+... \\
+x_{n_1}
+\end{pmatrix}$$
+
+$$df2 \Rightarrow D_2 = \begin{pmatrix}
+y_1 \\
+... \\
+y_{n_1}
+\end{pmatrix}$$
+
+
+
+If all the column names of $df1$ are different to all the column names of $df2$ :
+
+
+$$concat([df1,df2], axis=0)  =  \begin{pmatrix}
+x_1   &  NA \\
+...  & ... \\
+x_{n_1} & NA \\
+NA & y_1 \\
+... & ... \\
+NA & y_{n_2}
+\end{pmatrix}$$
+
+
+If $name(X_2) = name(Y_3)$ but the rest of column names are different one each other:
+
+
+
+$$concat([df1,df2], axis=0)  =  \begin{pmatrix}
+X_1 & X_2 & X_3 & ... &  X_p & NA & NA & NA & ... & NA \\
+NA  & Y_4 & NA  & ... & NA  & Y_1 & Y_2 & Y_4 & ... & Y_p
+\end{pmatrix}$$
+
+
+
+If all the column names of $df1$ are equal to all the column names of $df2$ :
+
+$$concat([df1,df2], axis=0)  = \begin{pmatrix}
+x_1 \\
+... \\
+x_{n_1} \\
+y_1  \\
+... \\
+y_{n_2}
+\end{pmatrix} = \begin{pmatrix}
+X_1 & ... & X_p \\
+Y_1  & ... & Y_p
+\end{pmatrix}$$
+
+
+If $n_1 > n_2$ :
+
+
+$$concat([df1,df2], axis=0)  = \begin{pmatrix}
+x_1 & y_1 \\
+x_2 & y_2 \\
+... & ... \\
+x_{n_2} & y_{n_2}\\
+x_{n_2 +1} & NA \\
+...  & ...
+x_{n_1} & NA
+\end{pmatrix}$$
+
+
+if $n_1 = n_2$ :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
 
 # Join data-frames <a class="anchor" id="1"></a>  
 
