@@ -1575,37 +1575,38 @@ margin-left: 0 !important;
     <h2><a href="#content">Introduction to Pandas</a></h2>
     <div id="toc">
       <ul>
-      <li><a href="#create-a-new-data-frame" id="toc-create-a-new-data-frame"><span class="toc-section-number">1</span> Create a new data-frame:</a></li>
-      <li><a href="#import-a-csv-as-a-table" id="toc-import-a-csv-as-a-table"><span class="toc-section-number">2</span> Import a CSV as a table</a></li>
-      <li><a href="#export-a-csv" id="toc-export-a-csv"><span class="toc-section-number">3</span> Export a CSV</a></li>
-      <li><a href="#number-of-rows-and-columns" id="toc-number-of-rows-and-columns"><span class="toc-section-number">4</span> Number of rows and columns</a></li>
-      <li><a href="#head-y-tail" id="toc-head-y-tail"><span class="toc-section-number">5</span> Head y Tail</a></li>
-      <li><a href="#columns-names" id="toc-columns-names"><span class="toc-section-number">6</span> Columns Names</a></li>
-      <li><a href="#selecting-columns-from-a-data-frame" id="toc-selecting-columns-from-a-data-frame"><span class="toc-section-number">7</span> Selecting columns from a data-frame</a>
+      <li><a href="#data-frame-as-matrix" id="toc-data-frame-as-matrix"><span class="toc-section-number">1</span> Data-frame as matrix</a></li>
+      <li><a href="#create-a-new-data-frame" id="toc-create-a-new-data-frame"><span class="toc-section-number">2</span> Create a new data-frame:</a></li>
+      <li><a href="#import-a-csv-as-a-data-frame" id="toc-import-a-csv-as-a-data-frame"><span class="toc-section-number">3</span> Import a CSV as a data-frame</a></li>
+      <li><a href="#export-a-csv" id="toc-export-a-csv"><span class="toc-section-number">4</span> Export a CSV</a></li>
+      <li><a href="#number-of-rows-and-columns" id="toc-number-of-rows-and-columns"><span class="toc-section-number">5</span> Number of rows and columns</a></li>
+      <li><a href="#head-y-tail" id="toc-head-y-tail"><span class="toc-section-number">6</span> Head y Tail</a></li>
+      <li><a href="#columns-names" id="toc-columns-names"><span class="toc-section-number">7</span> Columns Names</a></li>
+      <li><a href="#selecting-columns-from-a-data-frame" id="toc-selecting-columns-from-a-data-frame"><span class="toc-section-number">8</span> Selecting columns from a data-frame</a>
       <ul>
-      <li><a href="#loc-method" id="toc-loc-method"><span class="toc-section-number">7.1</span> loc method</a></li>
-      <li><a href="#iloc-method" id="toc-iloc-method"><span class="toc-section-number">7.2</span> iloc method</a></li>
+      <li><a href="#loc-method" id="toc-loc-method"><span class="toc-section-number">8.1</span> loc method</a></li>
+      <li><a href="#iloc-method" id="toc-iloc-method"><span class="toc-section-number">8.2</span> iloc method</a></li>
       </ul></li>
-      <li><a href="#filter-rows-of-a-data-frame" id="toc-filter-rows-of-a-data-frame"><span class="toc-section-number">8</span> Filter rows of a data-frame</a>
+      <li><a href="#filter-rows-of-a-data-frame" id="toc-filter-rows-of-a-data-frame"><span class="toc-section-number">9</span> Filter rows of a data-frame</a>
       <ul>
-      <li><a href="#loc-method-1" id="toc-loc-method-1"><span class="toc-section-number">8.1</span> <code>loc</code> method</a></li>
-      <li><a href="#iloc-method-1" id="toc-iloc-method-1"><span class="toc-section-number">8.2</span> <code>iloc</code> method</a></li>
+      <li><a href="#loc-method-1" id="toc-loc-method-1"><span class="toc-section-number">9.1</span> <code>loc</code> method</a></li>
+      <li><a href="#iloc-method-1" id="toc-iloc-method-1"><span class="toc-section-number">9.2</span> <code>iloc</code> method</a></li>
       </ul></li>
-      <li><a href="#traspose-a-data-frame" id="toc-traspose-a-data-frame"><span class="toc-section-number">9</span> Traspose a data-frame</a></li>
-      <li><a href="#data-frame-to-numpy" id="toc-data-frame-to-numpy"><span class="toc-section-number">10</span> Data-frame to numpy</a></li>
-      <li><a href="#delete-columns-from-a-data-frame" id="toc-delete-columns-from-a-data-frame"><span class="toc-section-number">11</span> Delete columns from a data-frame</a></li>
-      <li><a href="#delete-rows-from-a-data-frame" id="toc-delete-rows-from-a-data-frame"><span class="toc-section-number">12</span> Delete rows from a data-frame</a></li>
-      <li><a href="#rename-columns-from-a-data-frame" id="toc-rename-columns-from-a-data-frame"><span class="toc-section-number">13</span> Rename columns from a data-frame</a></li>
-      <li><a href="#group-by" id="toc-group-by"><span class="toc-section-number">14</span> Group by</a></li>
-      <li><a href="#concat-data-frames" id="toc-concat-data-frames"><span class="toc-section-number">15</span> Concat data-frames</a></li>
-      <li><a href="#join-data-frames" id="toc-join-data-frames"><span class="toc-section-number">16</span> Join data-frames <a class="anchor" id="1"></a></a>
+      <li><a href="#traspose-a-data-frame" id="toc-traspose-a-data-frame"><span class="toc-section-number">10</span> Traspose a data-frame</a></li>
+      <li><a href="#data-frame-to-numpy" id="toc-data-frame-to-numpy"><span class="toc-section-number">11</span> Data-frame to numpy</a></li>
+      <li><a href="#delete-columns-from-a-data-frame" id="toc-delete-columns-from-a-data-frame"><span class="toc-section-number">12</span> Delete columns from a data-frame</a></li>
+      <li><a href="#delete-rows-from-a-data-frame" id="toc-delete-rows-from-a-data-frame"><span class="toc-section-number">13</span> Delete rows from a data-frame</a></li>
+      <li><a href="#rename-columns-from-a-data-frame" id="toc-rename-columns-from-a-data-frame"><span class="toc-section-number">14</span> Rename columns from a data-frame</a></li>
+      <li><a href="#group-by" id="toc-group-by"><span class="toc-section-number">15</span> Group by</a></li>
+      <li><a href="#concat-data-frames" id="toc-concat-data-frames"><span class="toc-section-number">16</span> Concat data-frames</a></li>
+      <li><a href="#join-data-frames" id="toc-join-data-frames"><span class="toc-section-number">17</span> Join data-frames <a class="anchor" id="1"></a></a>
       <ul>
-      <li><a href="#inner-join" id="toc-inner-join"><span class="toc-section-number">16.1</span> Inner join</a></li>
-      <li><a href="#outer-join" id="toc-outer-join"><span class="toc-section-number">16.2</span> Outer join</a></li>
-      <li><a href="#left-join" id="toc-left-join"><span class="toc-section-number">16.3</span> Left join</a></li>
-      <li><a href="#right-join" id="toc-right-join"><span class="toc-section-number">16.4</span> Right join</a></li>
+      <li><a href="#inner-join" id="toc-inner-join"><span class="toc-section-number">17.1</span> Inner join</a></li>
+      <li><a href="#outer-join" id="toc-outer-join"><span class="toc-section-number">17.2</span> Outer join</a></li>
+      <li><a href="#left-join" id="toc-left-join"><span class="toc-section-number">17.3</span> Left join</a></li>
+      <li><a href="#right-join" id="toc-right-join"><span class="toc-section-number">17.4</span> Right join</a></li>
       </ul></li>
-      <li><a href="#sorting-columns-from-a-data-frame" id="toc-sorting-columns-from-a-data-frame"><span class="toc-section-number">17</span> Sorting columns from a data-frame</a></li>
+      <li><a href="#sorting-columns-from-a-data-frame" id="toc-sorting-columns-from-a-data-frame"><span class="toc-section-number">18</span> Sorting columns from a data-frame</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -1643,21 +1644,33 @@ margin-left: auto;
 margin-right: auto;
 }
 </style>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div>
-<div id="create-a-new-data-frame" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Create a new data-frame:</h1>
+<div id="data-frame-as-matrix" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Data-frame as matrix</h1>
+<p>We are going to consider data-frames as data matrix:</p>
+<p><span class="math display">\[D = \begin{pmatrix}
+x_1^t \\
+x_2^t \\
+... \\
+x_n^t
+\end{pmatrix} = \begin{pmatrix}
+x_{11} &amp; x_{11} &amp; ... &amp; x_{11}\\
+x_{11} &amp; x_{11} &amp; ... &amp; x_{11}\\
+... &amp;  ... &amp; ... &amp; ... \\
+x_{11} &amp; x_{11} &amp; ... &amp; x_{11}
+\end{pmatrix} = \left( X_1 X_2 ... X_p \right)\]</span></p>
+<p>It’s a data-frame with <span class="math inline">\(\hspace{0.05cm} n\hspace{0.05cm}\)</span> rows and <span class="math inline">\(\hspace{0.05cm}p\hspace{0.05cm}\)</span> columns. Where <span class="math inline">\(\hspace{0.05cm}x_i=(x_{i1},..., x_{ip})^t\hspace{0.05cm}\)</span> represent the <span class="math inline">\(\hspace{0.05cm}i\)</span>-th row and <span class="math inline">\(\hspace{0.05cm}X_j\hspace{0.05cm}\)</span> the <span class="math inline">\(\hspace{0.05cm}j\)</span>-th column of the data-frame.</p>
+<p><br></p>
+</div>
+<div id="create-a-new-data-frame" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Create a new data-frame:</h1>
 <p>We can create a new data-frame using <code>Pandas</code> as follows:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ClienteID <span class="op">=</span> pd.Series([<span class="st">&#39;C1&#39;</span>, <span class="st">&#39;C2&#39;</span>, <span class="st">&#39;C3&#39;</span>, <span class="st">&#39;C4&#39;</span>, <span class="st">&#39;C5&#39;</span>, <span class="st">&#39;C6&#39;</span>, <span class="st">&#39;C7&#39;</span>, <span class="st">&#39;C8&#39;</span>, <span class="st">&#39;C9&#39;</span>, <span class="st">&#39;C10&#39;</span>,<span class="st">&#39;C11&#39;</span>,<span class="st">&#39;C12&#39;</span>])</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Nombre <span class="op">=</span> pd.Series([<span class="st">&#39;Orlando&#39;</span>, <span class="st">&#39;Keith&#39;</span>, <span class="st">&#39;Donna&#39;</span>, <span class="st">&#39;Janet&#39;</span>, <span class="st">&#39;Fabio&#39;</span>, <span class="st">&#39;Juan&#39;</span>, <span class="st">&#39;Lucia&#39;</span>, <span class="st">&#39;Pedro&#39;</span>, <span class="st">&#39;Sergio&#39;</span>, <span class="st">&#39;Grecia&#39;</span>, <span class="st">&#39;Ismael&#39;</span>, <span class="st">&#39;Luis&#39;</span>])</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Pais <span class="op">=</span> pd.Series([<span class="st">&#39;Australia&#39;</span>, <span class="st">&#39;India&#39;</span>, <span class="st">&#39;Germany&#39;</span>, <span class="st">&#39;United States&#39;</span>, <span class="st">&#39;España&#39;</span>, <span class="st">&#39;España&#39;</span>, <span class="st">&#39;España&#39;</span>, <span class="st">&#39;Italia&#39;</span>, <span class="st">&#39;United States&#39;</span>, <span class="st">&#39;Peru&#39;</span>,<span class="st">&#39;España&#39;</span>,<span class="st">&#39;España&#39;</span>])</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>Ciudad <span class="op">=</span> pd.Series([<span class="st">&#39;&#39;</span>,<span class="st">&#39;&#39;</span>,<span class="st">&#39;Berlin&#39;</span>,<span class="st">&#39;California&#39;</span>,<span class="st">&#39;Madrid&#39;</span>, <span class="st">&#39;Sevilla&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;Roma&#39;</span>, <span class="st">&#39;New York&#39;</span>, <span class="st">&#39;Lima&#39;</span>, <span class="st">&#39;Madrid&#39;</span>, <span class="st">&#39;Murcia&#39;</span>])</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>Email <span class="op">=</span> pd.Series([<span class="st">&#39;&#39;</span>,<span class="st">&#39;keith0@adventure-works.com&#39;</span>,<span class="st">&#39;donna0@adventure-works.com&#39;</span>,<span class="st">&#39;janet1@adventure-works.com&#39;</span>,<span class="st">&#39;fabio10@gmail.com&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;LuciaPerez@hotmail.com&#39;</span>, <span class="st">&#39;Pedro99@gmail.com&#39;</span>, <span class="st">&#39;sergio_as@gmail.com&#39;</span>, <span class="st">&#39;Grecia89@gmail.com&#39;</span>, <span class="st">&#39;Isma98@gmail.com&#39;</span>, <span class="st">&#39;Luismiguel123@gmail.com&#39;</span>])</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>Telefono <span class="op">=</span> pd.Series([<span class="st">&#39;917755028&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;915547890&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;915869028&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;910007890&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;912234543&#39;</span>, <span class="st">&#39;&#39;</span>])</span></code></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Nombre <span class="op">=</span> pd.Series([<span class="st">&#39;Orlando&#39;</span>, <span class="st">&#39;Keith&#39;</span>, <span class="st">&#39;Donna&#39;</span>, <span class="st">&#39;Janet&#39;</span>, <span class="st">&#39;Fabio&#39;</span>, <span class="st">&#39;Juan&#39;</span>, <span class="st">&#39;Lucia&#39;</span>, <span class="st">&#39;Pedro&#39;</span>, <span class="st">&#39;Sergio&#39;</span>, <span class="st">&#39;Grecia&#39;</span>, <span class="st">&#39;Ismael&#39;</span>, <span class="st">&#39;Luis&#39;</span>])</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Pais <span class="op">=</span> pd.Series([<span class="st">&#39;Australia&#39;</span>, <span class="st">&#39;India&#39;</span>, <span class="st">&#39;Germany&#39;</span>, <span class="st">&#39;United States&#39;</span>, <span class="st">&#39;España&#39;</span>, <span class="st">&#39;España&#39;</span>, <span class="st">&#39;España&#39;</span>, <span class="st">&#39;Italia&#39;</span>, <span class="st">&#39;United States&#39;</span>, <span class="st">&#39;Peru&#39;</span>,<span class="st">&#39;España&#39;</span>,<span class="st">&#39;España&#39;</span>])</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>Ciudad <span class="op">=</span> pd.Series([<span class="st">&#39;&#39;</span>,<span class="st">&#39;&#39;</span>,<span class="st">&#39;Berlin&#39;</span>,<span class="st">&#39;California&#39;</span>,<span class="st">&#39;Madrid&#39;</span>, <span class="st">&#39;Sevilla&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;Roma&#39;</span>, <span class="st">&#39;New York&#39;</span>, <span class="st">&#39;Lima&#39;</span>, <span class="st">&#39;Madrid&#39;</span>, <span class="st">&#39;Murcia&#39;</span>])</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>Email <span class="op">=</span> pd.Series([<span class="st">&#39;&#39;</span>,<span class="st">&#39;keith0@adventure-works.com&#39;</span>,<span class="st">&#39;donna0@adventure-works.com&#39;</span>,<span class="st">&#39;janet1@adventure-works.com&#39;</span>,<span class="st">&#39;fabio10@gmail.com&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;LuciaPerez@hotmail.com&#39;</span>, <span class="st">&#39;Pedro99@gmail.com&#39;</span>, <span class="st">&#39;sergio_as@gmail.com&#39;</span>, <span class="st">&#39;Grecia89@gmail.com&#39;</span>, <span class="st">&#39;Isma98@gmail.com&#39;</span>, <span class="st">&#39;Luismiguel123@gmail.com&#39;</span>])</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Telefono <span class="op">=</span> pd.Series([<span class="st">&#39;917755028&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;915547890&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;915869028&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;910007890&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;912234543&#39;</span>, <span class="st">&#39;&#39;</span>])</span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Clientes <span class="op">=</span> pd.DataFrame({<span class="st">&#39;ClienteID&#39;</span>: ClienteID ,  <span class="st">&#39;Nombre&#39;</span>: Nombre, <span class="st">&#39;Pais&#39;</span>:Pais , </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&#39;Ciudad&#39;</span>:Ciudad, <span class="st">&#39;Email&#39;</span>:Email, <span class="st">&#39;Telefono&#39;</span>:Telefono})</span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Clientes</span></code></pre></div>
@@ -1914,6 +1927,51 @@ Lima
 </td>
 <td>
 <a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+10
+</th>
+<td>
+C11
+</td>
+<td>
+Ismael
+</td>
+<td>
+España
+</td>
+<td>
+Madrid
+</td>
+<td>
+<a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a>
+</td>
+<td>
+912234543
+</td>
+</tr>
+<tr>
+<th>
+11
+</th>
+<td>
+C12
+</td>
+<td>
+Luis
+</td>
+<td>
+España
+</td>
+<td>
+Murcia
+</td>
+<td>
+<a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a>
 </td>
 <td>
 </td>
@@ -2370,8 +2428,8 @@ OrientKillim
 </div>
 <p><br></p>
 </div>
-<div id="import-a-csv-as-a-table" class="section level1" number="2">
-<h1><span class="header-section-number">2</span> Import a CSV as a table</h1>
+<div id="import-a-csv-as-a-data-frame" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Import a CSV as a data-frame</h1>
 <p>The most common way to work is not to manually create a data frame, as we saw in the previous section. Instead, we often import CSV as data frames.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data <span class="op">=</span> pd.read_csv(<span class="st">&#39;House_Price_Regression.csv&#39;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data</span></code></pre></div>
@@ -3214,14 +3272,14 @@ size_in_m_2
 </div>
 <p><br></p>
 </div>
-<div id="export-a-csv" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Export a CSV</h1>
+<div id="export-a-csv" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Export a CSV</h1>
 <p>We can also export a data-frame as CSV as follows:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data_frame.to_csv(<span class="st">&#39;filename.csv&#39;</span>, index<span class="op">=</span><span class="va">False</span>)  </span></code></pre></div>
 <p><br></p>
 </div>
-<div id="number-of-rows-and-columns" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Number of rows and columns</h1>
+<div id="number-of-rows-and-columns" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Number of rows and columns</h1>
 <p>We can get the number of rows and columns of a data-frame:</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.shape</span></code></pre></div>
 <pre><code>(1905, 29)</code></pre>
@@ -3233,8 +3291,8 @@ size_in_m_2
 <pre><code>1905</code></pre>
 <p><br></p>
 </div>
-<div id="head-y-tail" class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Head y Tail</h1>
+<div id="head-y-tail" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Head y Tail</h1>
 <p>We can also view the first rows of a data-frame using <code>head()</code> method:</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.head()</span></code></pre></div>
 <div>
@@ -5436,8 +5494,8 @@ size_in_m_2
 </div>
 <p><br></p>
 </div>
-<div id="columns-names" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Columns Names</h1>
+<div id="columns-names" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Columns Names</h1>
 <p>We can get the column names of a data-frame:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.columns</span></code></pre></div>
 <pre><code>Index([&#39;neighborhood_recode&#39;, &#39;latitude&#39;, &#39;longitude&#39;, &#39;price&#39;,
@@ -5454,10 +5512,10 @@ size_in_m_2
       dtype=&#39;object&#39;)</code></pre>
 <p><br></p>
 </div>
-<div id="selecting-columns-from-a-data-frame" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Selecting columns from a data-frame</h1>
-<div id="loc-method" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> loc method</h2>
+<div id="selecting-columns-from-a-data-frame" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Selecting columns from a data-frame</h1>
+<div id="loc-method" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> loc method</h2>
 <p>With <code>loc</code> method we can select rows from a data-frame using the column names:</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.loc[ : , [<span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;price&#39;</span>, <span class="st">&#39;no_of_bathrooms&#39;</span>, <span class="st">&#39;quality_recode&#39;</span>, <span class="st">&#39;balcony_recode&#39;</span>]]</span></code></pre></div>
 <div>
@@ -5723,8 +5781,8 @@ balcony_recode
 </div>
 <p><br></p>
 </div>
-<div id="iloc-method" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> iloc method</h2>
+<div id="iloc-method" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> iloc method</h2>
 <p>With <code>iloc</code> method we can select columns from a data-frame using the index of the columns:</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.iloc[ : , <span class="dv">0</span>:<span class="dv">6</span>]</span></code></pre></div>
 <div>
@@ -6218,10 +6276,10 @@ no_of_bathrooms
 <p><br></p>
 </div>
 </div>
-<div id="filter-rows-of-a-data-frame" class="section level1" number="8">
-<h1><span class="header-section-number">8</span> Filter rows of a data-frame</h1>
-<div id="loc-method-1" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> <code>loc</code> method</h2>
+<div id="filter-rows-of-a-data-frame" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Filter rows of a data-frame</h1>
+<div id="loc-method-1" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> <code>loc</code> method</h2>
 <p>With the <code>loc</code> method we can filter rows that meet a condition related to their values for some columns:</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.loc[ House_Price_Data.price <span class="op">&lt;</span> <span class="dv">500000</span> , : ]</span></code></pre></div>
 <div>
@@ -13130,8 +13188,8 @@ quality_recode
 </div>
 <p><br></p>
 </div>
-<div id="iloc-method-1" class="section level2" number="8.2">
-<h2><span class="header-section-number">8.2</span> <code>iloc</code> method</h2>
+<div id="iloc-method-1" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> <code>iloc</code> method</h2>
 <p>With the <code>iloc</code> method we can filter rows using the index of the rows:</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.iloc[<span class="dv">0</span>:<span class="dv">5</span> , :]</span></code></pre></div>
 <div>
@@ -14903,8 +14961,8 @@ no_of_bedrooms
 <p><br></p>
 </div>
 </div>
-<div id="traspose-a-data-frame" class="section level1" number="9">
-<h1><span class="header-section-number">9</span> Traspose a data-frame</h1>
+<div id="traspose-a-data-frame" class="section level1" number="10">
+<h1><span class="header-section-number">10</span> Traspose a data-frame</h1>
 <p>We can traspose a data-frame using <code>T</code> method:</p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.T</span></code></pre></div>
 <div>
@@ -16970,8 +17028,8 @@ size_in_m_2
 </div>
 <p><br></p>
 </div>
-<div id="data-frame-to-numpy" class="section level1" number="10">
-<h1><span class="header-section-number">10</span> Data-frame to numpy</h1>
+<div id="data-frame-to-numpy" class="section level1" number="11">
+<h1><span class="header-section-number">11</span> Data-frame to numpy</h1>
 <p>We can convert a pandas data-frame to a numpy array using <code>to_numpy()</code> method:</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.to_numpy()</span></code></pre></div>
 <pre><code>array([[ 46.      ,  25.113208,  55.138932, ...,   0.      ,   1.      ,
@@ -16989,8 +17047,8 @@ size_in_m_2
          74.3224  ]])</code></pre>
 <p><br></p>
 </div>
-<div id="delete-columns-from-a-data-frame" class="section level1" number="11">
-<h1><span class="header-section-number">11</span> Delete columns from a data-frame</h1>
+<div id="delete-columns-from-a-data-frame" class="section level1" number="12">
+<h1><span class="header-section-number">12</span> Delete columns from a data-frame</h1>
 <div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.drop([<span class="st">&#39;price&#39;</span>], axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
 <div>
 <style scoped>
@@ -18670,8 +18728,8 @@ size_in_m_2
 </div>
 <p><br></p>
 </div>
-<div id="delete-rows-from-a-data-frame" class="section level1" number="12">
-<h1><span class="header-section-number">12</span> Delete rows from a data-frame</h1>
+<div id="delete-rows-from-a-data-frame" class="section level1" number="13">
+<h1><span class="header-section-number">13</span> Delete rows from a data-frame</h1>
 <div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.drop(<span class="dv">3</span>, axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
 <div>
 <style scoped>
@@ -20351,8 +20409,8 @@ size_in_m_2
 </div>
 <p><br></p>
 </div>
-<div id="rename-columns-from-a-data-frame" class="section level1" number="13">
-<h1><span class="header-section-number">13</span> Rename columns from a data-frame</h1>
+<div id="rename-columns-from-a-data-frame" class="section level1" number="14">
+<h1><span class="header-section-number">14</span> Rename columns from a data-frame</h1>
 <p>We can rename columns from a data-frame as follows:</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.rename(columns<span class="op">=</span>{<span class="st">&#39;neighborhood_recode&#39;</span> : <span class="st">&#39;neighborhood&#39;</span>})</span></code></pre></div>
 <div>
@@ -21194,8 +21252,8 @@ size_in_m_2
 </div>
 <p><br></p>
 </div>
-<div id="group-by" class="section level1" number="14">
-<h1><span class="header-section-number">14</span> Group by</h1>
+<div id="group-by" class="section level1" number="15">
+<h1><span class="header-section-number">15</span> Group by</h1>
 <p>We can group the rows of the data frame by the values ​​in one column and then compute within each group a statistic from some of the other columns:</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.groupby(<span class="st">&#39;quality_recode&#39;</span>).<span class="bu">sum</span>()</span></code></pre></div>
 <div>
@@ -21776,8 +21834,8 @@ quality_recode
 </div>
 <p><br></p>
 </div>
-<div id="concat-data-frames" class="section level1" number="15">
-<h1><span class="header-section-number">15</span> Concat data-frames</h1>
+<div id="concat-data-frames" class="section level1" number="16">
+<h1><span class="header-section-number">16</span> Concat data-frames</h1>
 <p>We can concat data-frames using <code>concat()</code> method.</p>
 <p>First we are going to remember the <code>Ventas</code>, <code>Proveedores</code>and <code>Clientes</code> data-frames, because we are going to use them in this section:</p>
 <div class="sourceCode" id="cb63"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>Ventas.head()</span></code></pre></div>
@@ -26233,8 +26291,8 @@ X4
 </div>
 <p><br></p>
 </div>
-<div id="join-data-frames" class="section level1" number="16">
-<h1><span class="header-section-number">16</span> Join data-frames <a class="anchor" id="1"></a></h1>
+<div id="join-data-frames" class="section level1" number="17">
+<h1><span class="header-section-number">17</span> Join data-frames <a class="anchor" id="1"></a></h1>
 <p>we are going to remember the <code>Ventas</code>, <code>Proveedores</code>and <code>Clientes</code> data-frames, because we are going to use them in this section:</p>
 <div class="sourceCode" id="cb75"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>Ventas</span></code></pre></div>
 <div>
@@ -26881,8 +26939,8 @@ Murcia
 </tbody>
 </table>
 </div>
-<div id="inner-join" class="section level2" number="16.1">
-<h2><span class="header-section-number">16.1</span> Inner join</h2>
+<div id="inner-join" class="section level2" number="17.1">
+<h2><span class="header-section-number">17.1</span> Inner join</h2>
 <p>Inner join es una operacion que consiste en juntar dos data-frames (df1 y df2) a través de una columna compartida por ambos, denominada columna de enlace. El data-frame resultante de un inner join tiene como filas la concatenacion de las filas de df1 y las de df2 que contienen en la columna de enlace un mismo valor.</p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co"># inner join</span></span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -27450,8 +27508,8 @@ Sevilla
 </div>
 <p><br></p>
 </div>
-<div id="outer-join" class="section level2" number="16.2">
-<h2><span class="header-section-number">16.2</span> Outer join</h2>
+<div id="outer-join" class="section level2" number="17.2">
+<h2><span class="header-section-number">17.2</span> Outer join</h2>
 <p>Outer join es una operacion que consiste en juntar dos data-frames (df1 y df2) a través de una columna compartida por ambos, denominada columna de enlace. El data-frame resultante de un inner join tiene como filas la concatenacion de las filas de df1 y las de df2 que contienen en la columna de enlace un mismo valor, y además si hay alguna fila de df1 que contiene un valor en la columna enlace que no aparece en ninguna fila de df2, entonces esta fila se concatena con una fila con tantos NaN como columnas (sin contar la de enlace) tiene df2, y se añade al nuevo data-frame. Y lo mismo para df2, es decir, si hay alguna fila de df2 que contiene un valor en la columna enlace que no aparece en ninguna fila de df1, entonces esta fila se concatena con una fila con tantos NaN como columnas (sin contar la de enlace) tiene df1, y se añade al nuevo data-frame.</p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Ventas, Clientes, on<span class="op">=</span><span class="st">&#39;ClienteID&#39;</span>, how<span class="op">=</span><span class="st">&#39;outer&#39;</span>)  </span></code></pre></div>
 <div>
@@ -28086,8 +28144,8 @@ Murcia
 </div>
 <p><br></p>
 </div>
-<div id="left-join" class="section level2" number="16.3">
-<h2><span class="header-section-number">16.3</span> Left join</h2>
+<div id="left-join" class="section level2" number="17.3">
+<h2><span class="header-section-number">17.3</span> Left join</h2>
 <p>Left join es una operacion que consiste en juntar dos data-frames (df1 y df2) a través de una columna compartida por ambos, denominada columna de enlace. El data-frame resultante de un inner join tiene como filas la concatenacion de las filas de df1 y las de df2 que contienen en la columna de enlace un mismo valor, y además si hay alguna fila de df1 (df de la izquierda) que contiene un valor en la columna enlace que no aparece en ninguna fila de df2, entonces esta fila se concatena con una fila con tantos NaN como columnas (sin contar la de enlace) tiene df2, y se añade al nuevo data-frame.</p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Ventas, Clientes, on<span class="op">=</span><span class="st">&#39;ClienteID&#39;</span>, how<span class="op">=</span><span class="st">&#39;left&#39;</span>)</span></code></pre></div>
 <div>
@@ -28653,9 +28711,9 @@ Lima
 </div>
 <p><br></p>
 </div>
-<div id="right-join" class="section level2" number="16.4">
-<h2><span class="header-section-number">16.4</span> Right join</h2>
-<p>Right join es una operacion que consiste en juntar dos data-frames (df1 y df2) a través de una columna compartida por ambos, denominada columna de enlace. El data-frame resultante de un right join tiene como filas la concatenacion de las filas de df1 y las de df2 que contienen en la columna de enlace un mismo valor, y además si hay alguna fila de df2 (df de la derecha) que contiene un valor en la columna enlace que no aparece en ninguna fila de df1, entonces esta fila se concatena con una fila con tantos NaN como columnas (sin contar la de enlace) tiene df1, y se añade al nuevo data-frame.</p>
+<div id="right-join" class="section level2" number="17.4">
+<h2><span class="header-section-number">17.4</span> Right join</h2>
+<p>Right join is an operation that consists of joining two data-frames (df1 and df2) through a column shared by both, called link column. The data-frame resulting from a right join has as rows the concatenation of the rows of df1 and those of df2 that contain the same value in the link column, and also if there is any row of df2 (df on the right) that contains a value in the link column that does not appear in any row of df1, then this row is concatenated with a row with as many NaN as there are columns (not counting the link column) df1 has, and it is added to the new data-frame.</p>
 <div class="sourceCode" id="cb80"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Ventas, Clientes, on<span class="op">=</span><span class="st">&#39;ClienteID&#39;</span>, how<span class="op">=</span><span class="st">&#39;right&#39;</span>) </span></code></pre></div>
 <div>
 <style scoped>
@@ -29293,8 +29351,8 @@ Murcia
 <p><br></p>
 </div>
 </div>
-<div id="sorting-columns-from-a-data-frame" class="section level1" number="17">
-<h1><span class="header-section-number">17</span> Sorting columns from a data-frame</h1>
+<div id="sorting-columns-from-a-data-frame" class="section level1" number="18">
+<h1><span class="header-section-number">18</span> Sorting columns from a data-frame</h1>
 <div class="sourceCode" id="cb82"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.sort_values(by<span class="op">=</span><span class="st">&#39;price&#39;</span>, ascending<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
 <div>
 <style scoped>

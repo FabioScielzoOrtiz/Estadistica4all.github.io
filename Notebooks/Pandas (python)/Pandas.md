@@ -46,9 +46,29 @@ css: custom.css
 </style>
 
 
-```python
-import pandas as pd
-```
+
+
+# Data-frame as matrix
+
+We are going to consider data-frames as data matrix:
+
+$$D = \begin{pmatrix}
+x_1^t \\
+x_2^t \\
+... \\
+x_n^t
+\end{pmatrix} = \begin{pmatrix}
+x_{11} & x_{11} & ... & x_{11}\\
+x_{11} & x_{11} & ... & x_{11}\\
+... &  ... & ... & ... \\
+x_{11} & x_{11} & ... & x_{11}
+\end{pmatrix} = \left( X_1 X_2 ... X_p \right)$$
+
+
+It's a data-frame with $\hspace{0.05cm} n\hspace{0.05cm}$ rows and $\hspace{0.05cm}p\hspace{0.05cm}$ columns. Where $\hspace{0.05cm}x_i=(x_{i1},..., x_{ip})^t\hspace{0.05cm}$ represent the $\hspace{0.05cm}i$-th row  and $\hspace{0.05cm}X_j\hspace{0.05cm}$ the $\hspace{0.05cm}j$-th column of the data-frame.
+
+
+<br>
 
 # Create a new data-frame: 
 
@@ -56,16 +76,15 @@ We can create a new data-frame using `Pandas` as follows:
 
 
 ```python
+import pandas as pd
+```
+
+```python
 ClienteID = pd.Series(['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10','C11','C12'])
-
 Nombre = pd.Series(['Orlando', 'Keith', 'Donna', 'Janet', 'Fabio', 'Juan', 'Lucia', 'Pedro', 'Sergio', 'Grecia', 'Ismael', 'Luis'])
-
 Pais = pd.Series(['Australia', 'India', 'Germany', 'United States', 'España', 'España', 'España', 'Italia', 'United States', 'Peru','España','España'])
-
 Ciudad = pd.Series(['','','Berlin','California','Madrid', 'Sevilla', '', 'Roma', 'New York', 'Lima', 'Madrid', 'Murcia'])
-
 Email = pd.Series(['','keith0@adventure-works.com','donna0@adventure-works.com','janet1@adventure-works.com','fabio10@gmail.com', '', 'LuciaPerez@hotmail.com', 'Pedro99@gmail.com', 'sergio_as@gmail.com', 'Grecia89@gmail.com', 'Isma98@gmail.com', 'Luismiguel123@gmail.com'])
-
 Telefono = pd.Series(['917755028', '', '915547890', '', '', '915869028', '', '910007890', '', '', '912234543', ''])
 ```
 
@@ -198,6 +217,24 @@ Clientes
       <td>Peru</td>
       <td>Lima</td>
       <td>Grecia89@gmail.com</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>C11</td>
+      <td>Ismael</td>
+      <td>España</td>
+      <td>Madrid</td>
+      <td>Isma98@gmail.com</td>
+      <td>912234543</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>C12</td>
+      <td>Luis</td>
+      <td>España</td>
+      <td>Murcia</td>
+      <td>Luismiguel123@gmail.com</td>
       <td></td>
     </tr>
   </tbody>
@@ -469,7 +506,7 @@ Proveedores
 <br>
 
 
-# Import a CSV as a table
+# Import a CSV as a data-frame
 
 The most common way to work is not to manually create a data frame, as we saw in the previous section. Instead, we often import CSV as data frames.
 
