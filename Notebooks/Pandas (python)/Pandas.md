@@ -52,6 +52,8 @@ css: custom.css
 
 We are going to consider data-frames as data matrix:
 
+<br>
+
 $$D = \begin{pmatrix}
 x_1^t \\
 x_2^t \\
@@ -64,8 +66,9 @@ x_{11} & x_{11} & ... & x_{11}\\
 x_{11} & x_{11} & ... & x_{11}
 \end{pmatrix} = \left( X_1 X_2 ... X_p \right)$$
 
+<br>
 
-It's a data-frame with $\hspace{0.05cm} n\hspace{0.05cm}$ rows and $\hspace{0.05cm}p\hspace{0.05cm}$ columns. Where $\hspace{0.05cm}x_i=(x_{i1},..., x_{ip})^t\hspace{0.05cm}$ represent the $\hspace{0.05cm}i$-th row  and $\hspace{0.05cm}X_j\hspace{0.05cm}$ the $\hspace{0.05cm}j$-th column of the data-frame.
+$D\hspace{0.05cm}$ is a data-frame with $\hspace{0.05cm} n\hspace{0.05cm}$ rows and $\hspace{0.05cm}p\hspace{0.05cm}$ columns. Where $\hspace{0.05cm}x_i=(x_{i1},..., x_{ip})^t\hspace{0.05cm}$ represent the $\hspace{0.05cm}i$-th row  and $\hspace{0.05cm}X_j\hspace{0.05cm}$ the $\hspace{0.05cm}j$-th column of the data-frame.
 
 
 <br>
@@ -855,7 +858,7 @@ data_frame.to_csv('filename.csv', index=False)
 We can get the number of rows and columns of a data-frame:
 
 
-```python
+```ruby
 House_Price_Data.shape
 ```
 
@@ -865,9 +868,11 @@ House_Price_Data.shape
     (1905, 29)
 
 
+<br>
 
+The number of rows:
 
-```python
+```ruby
 House_Price_Data.shape[0]
 ```
 
@@ -876,10 +881,25 @@ House_Price_Data.shape[0]
 
     1905
 
+<br>
+
+Another way to get the number of rows:
+
+```ruby
+len(House_Price_Data)
+```
 
 
 
-```python
+
+    1905
+    
+
+<br>
+
+The number of columns:
+
+```ruby
 House_Price_Data.shape[1]
 ```
 
@@ -891,14 +911,7 @@ House_Price_Data.shape[1]
 
 
 
-```python
-len(House_Price_Data)
-```
 
-
-
-
-    1905
 
 
 
@@ -909,7 +922,7 @@ len(House_Price_Data)
 We  can also view the first rows of a data-frame using `head()` method:
 
 
-```python
+```ruby
 House_Price_Data.head()
 ```
 
@@ -1086,7 +1099,7 @@ House_Price_Data.head()
 
 
 
-```python
+```ruby
 House_Price_Data.head(10)
 ```
 
@@ -1379,6 +1392,27 @@ House_Price_Data.head(10)
 </table>
 <p>10 rows × 29 columns</p>
 </div>
+
+<br>
+
+Mathematically the operation $head()$ could be defined as:
+
+Let $\hspace{0.1cm} D= \begin{pmatrix}
+x_1^t \\
+x_2^t \\
+... \\
+x_n^t
+\end{pmatrix}\hspace{0.1cm}$ be the data matrix that represent the data-frame $\hspace{0.1cm}df\hspace{0.1cm}$, then:
+
+
+
+$$df.head(k) \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}1:k \hspace{0.1cm},\hspace{0.1cm} : \hspace{0.1cm}] \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
+x_1^t \\
+x_2^t \\
+... \\
+x_k^t
+\end{pmatrix}$$
+
 
 
 <br>
@@ -1786,6 +1820,31 @@ House_Price_Data.tail(7)
 </div>
 
 
+
+<br>
+
+Mathematically the operation $tail()$ could be defined as:
+
+Let $\hspace{0.1cm} D= \begin{pmatrix}
+x_1^t \\
+x_2^t \\
+... \\
+x_n^t
+\end{pmatrix}\hspace{0.1cm}$ be the data matrix that represent the data-frame $\hspace{0.1cm}df\hspace{0.1cm}$, then:
+
+
+
+$$df.tail(k) \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}(n-k+1):n \hspace{0.1cm},\hspace{0.1cm} : \hspace{0.1cm}] \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
+x_{n-k+1}^t \\
+x_{n-k+2}^t \\
+... \\
+x_n^t
+\end{pmatrix}$$
+
+
+
+
+
 <br>
 
 
@@ -1818,6 +1877,11 @@ House_Price_Data.columns
 
 <br>
 
+We will denote the $\hspace{0.1cm} X_j\hspace{0.1cm}$ column name as $\hspace{0.1cm}name(X_j)$.
+
+
+<br>
+
 # Selecting columns from a data-frame
 
 ## loc method
@@ -1827,7 +1891,6 @@ With `loc` method we can select rows from a data-frame using the column names:
 ```python
 House_Price_Data.loc[ : , ['latitude', 'price', 'no_of_bathrooms', 'quality_recode', 'balcony_recode']]
 ```
-
 
 
 
@@ -1952,6 +2015,17 @@ House_Price_Data.loc[ : , ['latitude', 'price', 'no_of_bathrooms', 'quality_reco
 
 
 <br>
+
+Mathematically `loc[]`select operation could be define as:
+
+$$df.loc[\hspace{0.1cm} : \hspace{0.1cm} , \hspace{0.1cm} [\hspace{0.1cm}name(X_1), name(X_3), name(X_6) \hspace{0.1cm}]\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm} : \hspace{0.1cm}, \hspace{0.1cm} [\hspace{0.1cm} name(X_1),name(X_3),name(X_6) \hspace{0.1cm}] \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} \left( X_1 , X_3 , X_6 \right) \hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} (x_{i1} , x_{i3}, x_{i6}) \hspace{0.1cm}:\hspace{0.1cm} i = 1,...,n \hspace{0.1cm}\right) \hspace{0.1cm}= \hspace{0.1cm}\left(\hspace{0.1cm} x_{i}[1,3,6] \hspace{0.1cm}:\hspace{0.1cm} i = 1,...,n \hspace{0.1cm}\right)$$
+
+
+where: $\hspace{0.1cm}x_{i}[1,3,6] \hspace{0.1cm}=\hspace{0.1cm} (x_{i1} , x_{i3}, x_{i6})$
+
+<br>
+
+
 
 ## iloc method
 
@@ -2199,6 +2273,18 @@ House_Price_Data.iloc[ : , [0,3,5]]
 </table>
 <p>1905 rows × 3 columns</p>
 </div>
+
+
+<br>
+
+Mathematically `iloc[]`select operation could be define as:
+
+$$df.iloc[\hspace{0.1cm} : \hspace{0.1cm} , \hspace{0.1cm}   2:5  \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm} : \hspace{0.1cm}, \hspace{0.1cm} 2:5 \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} \left( X_2 , X_3 , X_4, X_5 \right) \hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} X_j \hspace{0.1cm}:\hspace{0.1cm} j = 1,...,5 \hspace{0.1cm}\right)$$
+
+
+$$df.iloc[\hspace{0.1cm} : \hspace{0.1cm} , \hspace{0.1cm}   [1,3,6]  \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm} : \hspace{0.1cm} , [1,3,6]  [1,3,6]  \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} \left( X_1 , X_3 , X_6 \right) \hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} X_j \hspace{0.1cm}:\hspace{0.1cm} j =1,3,6 \hspace{0.1cm}\right)$$
+
+
 
 
 <br>
@@ -4780,6 +4866,20 @@ House_Price_Data.loc[ House_Price_Data['no_of_bedrooms'].isin([2,4]) == False , 
 </table>
 <p>1106 rows × 29 columns</p>
 </div>
+
+
+<br>
+
+
+AÑADIR CONDICIONES ENCADENADASPOR & , | ETC
+
+
+
+Mathematically `loc[]` filter operation could be define as:
+
+
+
+
 
 
 <br>

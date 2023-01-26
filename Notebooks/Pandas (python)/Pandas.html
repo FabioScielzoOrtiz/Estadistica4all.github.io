@@ -1647,6 +1647,7 @@ margin-right: auto;
 <div id="data-frame-as-matrix" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Data-frame as matrix</h1>
 <p>We are going to consider data-frames as data matrix:</p>
+<p><br></p>
 <p><span class="math display">\[D = \begin{pmatrix}
 x_1^t \\
 x_2^t \\
@@ -1658,7 +1659,8 @@ x_{11} &amp; x_{11} &amp; ... &amp; x_{11}\\
 ... &amp;  ... &amp; ... &amp; ... \\
 x_{11} &amp; x_{11} &amp; ... &amp; x_{11}
 \end{pmatrix} = \left( X_1 X_2 ... X_p \right)\]</span></p>
-<p>It’s a data-frame with <span class="math inline">\(\hspace{0.05cm} n\hspace{0.05cm}\)</span> rows and <span class="math inline">\(\hspace{0.05cm}p\hspace{0.05cm}\)</span> columns. Where <span class="math inline">\(\hspace{0.05cm}x_i=(x_{i1},..., x_{ip})^t\hspace{0.05cm}\)</span> represent the <span class="math inline">\(\hspace{0.05cm}i\)</span>-th row and <span class="math inline">\(\hspace{0.05cm}X_j\hspace{0.05cm}\)</span> the <span class="math inline">\(\hspace{0.05cm}j\)</span>-th column of the data-frame.</p>
+<p><br></p>
+<p><span class="math inline">\(D\hspace{0.05cm}\)</span> is a data-frame with <span class="math inline">\(\hspace{0.05cm} n\hspace{0.05cm}\)</span> rows and <span class="math inline">\(\hspace{0.05cm}p\hspace{0.05cm}\)</span> columns. Where <span class="math inline">\(\hspace{0.05cm}x_i=(x_{i1},..., x_{ip})^t\hspace{0.05cm}\)</span> represent the <span class="math inline">\(\hspace{0.05cm}i\)</span>-th row and <span class="math inline">\(\hspace{0.05cm}X_j\hspace{0.05cm}\)</span> the <span class="math inline">\(\hspace{0.05cm}j\)</span>-th column of the data-frame.</p>
 <p><br></p>
 </div>
 <div id="create-a-new-data-frame" class="section level1" number="2">
@@ -3281,20 +3283,26 @@ size_in_m_2
 <div id="number-of-rows-and-columns" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Number of rows and columns</h1>
 <p>We can get the number of rows and columns of a data-frame:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.shape</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">House_Price_Data</span><span class="at">.shape</span></span></code></pre></div>
 <pre><code>(1905, 29)</code></pre>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.shape[<span class="dv">0</span>]</span></code></pre></div>
+<p><br></p>
+<p>The number of rows:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dt">House_Price_Data</span><span class="at">.shape</span><span class="kw">[</span><span class="dv">0</span><span class="kw">]</span></span></code></pre></div>
 <pre><code>1905</code></pre>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.shape[<span class="dv">1</span>]</span></code></pre></div>
+<p><br></p>
+<p>Another way to get the number of rows:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>len(<span class="dt">House_Price_Data</span>)</span></code></pre></div>
+<pre><code>1905</code></pre>
+<p><br></p>
+<p>The number of columns:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dt">House_Price_Data</span><span class="at">.shape</span><span class="kw">[</span><span class="dv">1</span><span class="kw">]</span></span></code></pre></div>
 <pre><code>29</code></pre>
-<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(House_Price_Data)</span></code></pre></div>
-<pre><code>1905</code></pre>
 <p><br></p>
 </div>
 <div id="head-y-tail" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Head y Tail</h1>
 <p>We can also view the first rows of a data-frame using <code>head()</code> method:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.head()</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">House_Price_Data</span><span class="at">.head</span>()</span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -3724,7 +3732,7 @@ size_in_m_2
 5 rows × 29 columns
 </p>
 </div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.head(<span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="dt">House_Price_Data</span><span class="at">.head</span>(<span class="dv">10</span>)</span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -4494,6 +4502,15 @@ size_in_m_2
 10 rows × 29 columns
 </p>
 </div>
+<p><br></p>
+<p>Mathematically the operation <span class="math inline">\(head()\)</span> could be defined as:</p>
+<p>Let <span class="math inline">\(\hspace{0.1cm} D= \begin{pmatrix} x_1^t \\ x_2^t \\ ... \\ x_n^t \end{pmatrix}\hspace{0.1cm}\)</span> be the data matrix that represent the data-frame <span class="math inline">\(\hspace{0.1cm}df\hspace{0.1cm}\)</span>, then:</p>
+<p><span class="math display">\[df.head(k) \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}1:k \hspace{0.1cm},\hspace{0.1cm} : \hspace{0.1cm}] \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
+x_1^t \\
+x_2^t \\
+... \\
+x_k^t
+\end{pmatrix}\]</span></p>
 <p><br></p>
 <p>We can also view the last rows of a data-frame using <code>tail()</code> method:</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.tail()</span></code></pre></div>
@@ -5493,6 +5510,15 @@ size_in_m_2
 </p>
 </div>
 <p><br></p>
+<p>Mathematically the operation <span class="math inline">\(tail()\)</span> could be defined as:</p>
+<p>Let <span class="math inline">\(\hspace{0.1cm} D= \begin{pmatrix} x_1^t \\ x_2^t \\ ... \\ x_n^t \end{pmatrix}\hspace{0.1cm}\)</span> be the data matrix that represent the data-frame <span class="math inline">\(\hspace{0.1cm}df\hspace{0.1cm}\)</span>, then:</p>
+<p><span class="math display">\[df.tail(k) \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}(n-k+1):n \hspace{0.1cm},\hspace{0.1cm} : \hspace{0.1cm}] \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
+x_{n-k+1}^t \\
+x_{n-k+2}^t \\
+... \\
+x_n^t
+\end{pmatrix}\]</span></p>
+<p><br></p>
 </div>
 <div id="columns-names" class="section level1" number="7">
 <h1><span class="header-section-number">7</span> Columns Names</h1>
@@ -5510,6 +5536,8 @@ size_in_m_2
        &#39;shared_gym_recode&#39;, &#39;shared_pool_recode&#39;, &#39;shared_spa_recode&#39;,
        &#39;view_of_water_recode&#39;, &#39;size_in_m_2&#39;],
       dtype=&#39;object&#39;)</code></pre>
+<p><br></p>
+<p>We will denote the <span class="math inline">\(\hspace{0.1cm} X_j\hspace{0.1cm}\)</span> column name as <span class="math inline">\(\hspace{0.1cm}name(X_j)\)</span>.</p>
 <p><br></p>
 </div>
 <div id="selecting-columns-from-a-data-frame" class="section level1" number="8">
@@ -5779,6 +5807,10 @@ balcony_recode
 1905 rows × 5 columns
 </p>
 </div>
+<p><br></p>
+<p>Mathematically <code>loc[]</code>select operation could be define as:</p>
+<p><span class="math display">\[df.loc[\hspace{0.1cm} : \hspace{0.1cm} , \hspace{0.1cm} [\hspace{0.1cm}name(X_1), name(X_3), name(X_6) \hspace{0.1cm}]\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm} : \hspace{0.1cm}, \hspace{0.1cm} [\hspace{0.1cm} name(X_1),name(X_3),name(X_6) \hspace{0.1cm}] \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} \left( X_1 , X_3 , X_6 \right) \hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} (x_{i1} , x_{i3}, x_{i6}) \hspace{0.1cm}:\hspace{0.1cm} i = 1,...,n \hspace{0.1cm}\right) \hspace{0.1cm}= \hspace{0.1cm}\left(\hspace{0.1cm} x_{i}[1,3,6] \hspace{0.1cm}:\hspace{0.1cm} i = 1,...,n \hspace{0.1cm}\right)\]</span></p>
+<p>where: <span class="math inline">\(\hspace{0.1cm}x_{i}[1,3,6] \hspace{0.1cm}=\hspace{0.1cm} (x_{i1} , x_{i3}, x_{i6})\)</span></p>
 <p><br></p>
 </div>
 <div id="iloc-method" class="section level2" number="8.2">
@@ -6273,6 +6305,10 @@ no_of_bathrooms
 1905 rows × 3 columns
 </p>
 </div>
+<p><br></p>
+<p>Mathematically <code>iloc[]</code>select operation could be define as:</p>
+<p><span class="math display">\[df.iloc[\hspace{0.1cm} : \hspace{0.1cm} , \hspace{0.1cm}   2:5  \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm} : \hspace{0.1cm}, \hspace{0.1cm} 2:5 \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} \left( X_2 , X_3 , X_4, X_5 \right) \hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} X_j \hspace{0.1cm}:\hspace{0.1cm} j = 1,...,5 \hspace{0.1cm}\right)\]</span></p>
+<p><span class="math display">\[df.iloc[\hspace{0.1cm} : \hspace{0.1cm} , \hspace{0.1cm}   [1,3,6]  \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm} : \hspace{0.1cm}[1,3,6]  \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} \left( X_1 , X_3 , X_6 \right) \hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} X_j \hspace{0.1cm}:\hspace{0.1cm} j =1,3,6 \hspace{0.1cm}\right)\]</span></p>
 <p><br></p>
 </div>
 </div>
