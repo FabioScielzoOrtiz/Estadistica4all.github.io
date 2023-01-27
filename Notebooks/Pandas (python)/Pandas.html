@@ -27647,6 +27647,27 @@ Murcia
 </table>
 </div>
 <p><br></p>
+<p>Suppose we have two data frames <span class="math inline">\(\hspace{0.1cm} df1\hspace{0.1cm}\)</span> and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> : <span class="math inline">\(\\[0.7cm]\)</span></p>
+<p><span class="math display">\[df1 \hspace{0.2cm}\Rightarrow\hspace{0.2cm} D_1 = \begin{pmatrix}
+x_1 \\
+... \\
+x_{n_1}
+\end{pmatrix} = \begin{pmatrix}
+X_1 &amp; ... &amp; X_{p_1} \\
+\end{pmatrix}  \\[1cm]\]</span></p>
+<p><span class="math display">\[df2 \hspace{0.2cm} \Rightarrow \hspace{0.2cm} D_2 = \begin{pmatrix}
+y_1 \\
+... \\
+y_{n_1}
+\end{pmatrix} = \begin{pmatrix}
+Y_1 &amp; ... &amp; Y_{p_2} \\
+\end{pmatrix}  \\[1.2cm]\]</span></p>
+<p>where there is a column shared by both data frames, called the <strong>link</strong> column, through which they will be joined.</p>
+<p>Taking the above into account, we define: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[y(x_i) \hspace{0.1cm}=\hspace{0.1cm} \lbrace \hspace{0.1cm} y_i \hspace{0.1cm} : \hspace{0.1cm} i = 1,...,n_2 \hspace{0.1cm} , \hspace{0.1cm} y_i[link] = x_i[link] \hspace{0.1cm} \rbrace \\\]</span></p>
+<p><span class="math display">\[x(y_i) \hspace{0.1cm} = \hspace{0.1cm} \lbrace \hspace{0.1cm} x_i \hspace{0.1cm} : \hspace{0.1cm} i = 1,...,n_2 \hspace{0.1cm} , \hspace{0.1cm} x_i[link] =y_i[link] \hspace{0.1cm} \rbrace \\\]</span></p>
+<p>where <span class="math inline">\(\hspace{0.1cm}x_i[link]\hspace{0.1cm}\)</span> is the value of the <strong>link</strong> column in the row <span class="math inline">\(\hspace{0.1cm}i\)</span>-th row of <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span>, that is, <span class="math inline">\(\hspace{0.1cm}x_i\)</span> .</p>
+<p><br></p>
 <div id="inner-join" class="section level2" number="17.1">
 <h2><span class="header-section-number">17.1</span> Inner join</h2>
 <p>Inner join es una operacion que consiste en juntar dos data-frames (df1 y df2) a través de una columna compartida por ambos, denominada columna de enlace. El data-frame resultante de un inner join tiene como filas la concatenacion de las filas de df1 y las de df2 que contienen en la columna de enlace un mismo valor.</p>
@@ -28214,28 +28235,7 @@ Sevilla
 </table>
 </div>
 <p><br></p>
-<p>Suppose we have two data frames <span class="math inline">\(\hspace{0.1cm} df1\hspace{0.1cm}\)</span> and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> : <span class="math inline">\(\\[0.7cm]\)</span></p>
-<p><span class="math display">\[df1 \hspace{0.2cm}\Rightarrow\hspace{0.2cm} D_1 = \begin{pmatrix}
-x_1 \\
-... \\
-x_{n_1}
-\end{pmatrix} = \begin{pmatrix}
-X_1 &amp; ... &amp; X_{p_1} \\
-\end{pmatrix}  \\[1cm]\]</span></p>
-<p><span class="math display">\[df2 \hspace{0.2cm} \Rightarrow \hspace{0.2cm} D_2 = \begin{pmatrix}
-y_1 \\
-... \\
-y_{n_1}
-\end{pmatrix} = \begin{pmatrix}
-Y_1 &amp; ... &amp; Y_{p_2} \\
-\end{pmatrix}  \\[1.2cm]\]</span></p>
-<p>where there is a column shared by both data frames, called the <strong>link</strong> column, through which they will be joined.</p>
-<p>Taking the above into account, we define: <span class="math inline">\(\\[0.5cm]\)</span></p>
-<p><span class="math display">\[y(x_i) \hspace{0.1cm}=\hspace{0.1cm} \lbrace \hspace{0.1cm} y_i \hspace{0.1cm} : \hspace{0.1cm} i = 1,...,n_2 \hspace{0.1cm} , \hspace{0.1cm} y_i[link] = x_i[link] \hspace{0.1cm} \rbrace \\\]</span></p>
-<p><span class="math display">\[x(y_i) \hspace{0.1cm} = \hspace{0.1cm} \lbrace \hspace{0.1cm} x_i \hspace{0.1cm} : \hspace{0.1cm} i = 1,...,n_2 \hspace{0.1cm} , \hspace{0.1cm} x_i[link] =y_i[link] \hspace{0.1cm} \rbrace \\\]</span></p>
-<p>where <span class="math inline">\(\hspace{0.1cm}x_i[link]\hspace{0.1cm}\)</span> is the value of the <strong>link</strong> column in the row <span class="math inline">\(\hspace{0.1cm}i\)</span>-th row of <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span>, that is, <span class="math inline">\(\hspace{0.1cm}x_i\)</span> .</p>
-<p><br></p>
-<p><span class="math display">\[pd.merge(df1, df2, on=link, how=&#39;inner&#39;)
+<p><span class="math display">\[pd.merge(df1, df2, on=link, how=inner)
 \hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} c(x_i , y(x_i)) \hspace{0.1cm} : \hspace{0.1cm} \exists \hspace{0.1cm}  i=1,...,n_1 \hspace{0.1cm} , \hspace{0.1cm} y_i \in y(x_i) \hspace{0.1cm} \right)\]</span></p>
 <p><br></p>
 </div>

@@ -11286,6 +11286,41 @@ Clientes
 <br>
 
 
+
+
+Suppose we have two data frames $\hspace{0.1cm} df1\hspace{0.1cm}$ and $\hspace{0.1cm}df2\hspace{0.1cm}$ : $\\[0.7cm]$
+
+$$df1 \hspace{0.2cm}\Rightarrow\hspace{0.2cm} D_1 = \begin{pmatrix}
+x_1 \\
+... \\
+x_{n_1}
+\end{pmatrix} = \begin{pmatrix}
+X_1 & ... & X_{p_1} \\
+\end{pmatrix}  \\[1cm]$$
+
+$$df2 \hspace{0.2cm} \Rightarrow \hspace{0.2cm} D_2 = \begin{pmatrix}
+y_1 \\
+... \\
+y_{n_1}
+\end{pmatrix} = \begin{pmatrix}
+Y_1 & ... & Y_{p_2} \\
+\end{pmatrix}  \\[1.2cm]$$
+
+
+where there is a column shared by both data frames, called the **link** column, through which they will be joined.
+
+
+Taking the above into account, we define: $\\[0.5cm]$
+
+$$y(x_i) \hspace{0.1cm}=\hspace{0.1cm} \lbrace \hspace{0.1cm} y_i \hspace{0.1cm} : \hspace{0.1cm} i = 1,...,n_2 \hspace{0.1cm} , \hspace{0.1cm} y_i[link] = x_i[link] \hspace{0.1cm} \rbrace \\$$
+
+$$x(y_i) \hspace{0.1cm} = \hspace{0.1cm} \lbrace \hspace{0.1cm} x_i \hspace{0.1cm} : \hspace{0.1cm} i = 1,...,n_2 \hspace{0.1cm} , \hspace{0.1cm} x_i[link] =y_i[link] \hspace{0.1cm} \rbrace \\$$
+
+where $\hspace{0.1cm}x_i[link]\hspace{0.1cm}$ is the value of the **link** column in the row $\hspace{0.1cm}i$-th row of $\hspace{0.1cm}df1\hspace{0.1cm}$, that is, $\hspace{0.1cm}x_i$ .
+
+<br>
+
+
 ## Inner join
 
 Inner join es una operacion que consiste en juntar dos data-frames (df1 y df2) a través de una columna compartida por ambos, denominada columna de enlace. El data-frame resultante de un inner join tiene como filas la concatenacion de las filas de df1 y las de df2 que contienen en la columna de enlace un mismo valor.
@@ -11530,38 +11565,6 @@ pd.merge(Ventas, Clientes, on='ClienteID', how='inner')
 </div>
 
 
-<br>
-
-
-Suppose we have two data frames $\hspace{0.1cm} df1\hspace{0.1cm}$ and $\hspace{0.1cm}df2\hspace{0.1cm}$ : $\\[0.7cm]$
-
-$$df1 \hspace{0.2cm}\Rightarrow\hspace{0.2cm} D_1 = \begin{pmatrix}
-x_1 \\
-... \\
-x_{n_1}
-\end{pmatrix} = \begin{pmatrix}
-X_1 & ... & X_{p_1} \\
-\end{pmatrix}  \\[1cm]$$
-
-$$df2 \hspace{0.2cm} \Rightarrow \hspace{0.2cm} D_2 = \begin{pmatrix}
-y_1 \\
-... \\
-y_{n_1}
-\end{pmatrix} = \begin{pmatrix}
-Y_1 & ... & Y_{p_2} \\
-\end{pmatrix}  \\[1.2cm]$$
-
-
-where there is a column shared by both data frames, called the **link** column, through which they will be joined.
-
-
-Taking the above into account, we define: $\\[0.5cm]$
-
-$$y(x_i) \hspace{0.1cm}=\hspace{0.1cm} \lbrace \hspace{0.1cm} y_i \hspace{0.1cm} : \hspace{0.1cm} i = 1,...,n_2 \hspace{0.1cm} , \hspace{0.1cm} y_i[link] = x_i[link] \hspace{0.1cm} \rbrace \\$$
-
-$$x(y_i) \hspace{0.1cm} = \hspace{0.1cm} \lbrace \hspace{0.1cm} x_i \hspace{0.1cm} : \hspace{0.1cm} i = 1,...,n_2 \hspace{0.1cm} , \hspace{0.1cm} x_i[link] =y_i[link] \hspace{0.1cm} \rbrace \\$$
-
-where $\hspace{0.1cm}x_i[link]\hspace{0.1cm}$ is the value of the **link** column in the row $\hspace{0.1cm}i$-th row of $\hspace{0.1cm}df1\hspace{0.1cm}$, that is, $\hspace{0.1cm}x_i$ .
 
 
 <br>
