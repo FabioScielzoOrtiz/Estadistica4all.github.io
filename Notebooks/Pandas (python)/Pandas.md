@@ -50,25 +50,27 @@ css: custom.css
 
 # Data-frame as matrix
 
-We are going to consider data-frames as data matrix:
+We are going to consider data-frames as data matrix.
+
+Given a data-frame $\hspace{0.1cm}df\hspace{0.1cm}$ with $\hspace{0.1cm}p\hspace{0.1cm}$ columns and $\hspace{0.1cm}n\hspace{0.1cm}$ rows, we can represent it as data-matrix as follows:
 
 <br>
 
-$$D = \begin{pmatrix}
+$$D(df) \hspace{0.05cm} = \hspace{0.05cm}  \begin{pmatrix}
 x_1^t \\
 x_2^t \\
 ... \\
 x_n^t
-\end{pmatrix} = \begin{pmatrix}
+\end{pmatrix} \hspace{0.05cm} =\hspace{0.05cm}  \begin{pmatrix}
 x_{11} & x_{11} & ... & x_{11}\\
 x_{11} & x_{11} & ... & x_{11}\\
 ... &  ... & ... & ... \\
 x_{11} & x_{11} & ... & x_{11}
-\end{pmatrix} = \left( X_1 X_2 ... X_p \right)$$
+\end{pmatrix} \hspace{0.05cm} =\hspace{0.05cm}  \left( X_1 X_2 ... X_p \right)$$
 
 <br>
 
-$D\hspace{0.05cm}$ is a data-frame with $\hspace{0.05cm} n\hspace{0.05cm}$ rows and $\hspace{0.05cm}p\hspace{0.05cm}$ columns. Where $\hspace{0.05cm}x_i=(x_{i1},..., x_{ip})^t\hspace{0.05cm}$ represent the $\hspace{0.05cm}i$-th row  and $\hspace{0.05cm}X_j\hspace{0.05cm}$ the $\hspace{0.05cm}j$-th column of the data-frame.
+Where $\hspace{0.1cm}x_i=(x_{i1},..., x_{ip})^t\hspace{0.1cm}$ represent the $\hspace{0.05cm}i$-th row  and $\hspace{0.1cm}X_j\hspace{0.1cm}$ the $\hspace{0.05cm}j$-th column of the data-frame $\hspace{0.1cm}df$.
 
 
 <br>
@@ -245,6 +247,7 @@ Clientes
 </div>
 
 
+<br>
 
 
 
@@ -1097,7 +1100,7 @@ House_Price_Data.head()
 </div>
 
 
-
+<br>
 
 ```ruby
 House_Price_Data.head(10)
@@ -1393,11 +1396,16 @@ House_Price_Data.head(10)
 <p>10 rows × 29 columns</p>
 </div>
 
+
 <br>
 
-Mathematically the operation $head()$ could be defined as:
+---
 
-Let $\hspace{0.1cm} D= \begin{pmatrix}
+<br>
+
+Mathematically  $head()$ operation  could be formalized as follows:
+
+Let $\hspace{0.1cm} D(df) \hspace{0.05cm}=\hspace{0.05cm} \begin{pmatrix}
 x_1^t \\
 x_2^t \\
 ... \\
@@ -1414,6 +1422,9 @@ x_k^t
 \end{pmatrix}$$
 
 
+<br>
+
+---
 
 <br>
 
@@ -1595,6 +1606,7 @@ House_Price_Data.tail()
 </div>
 
 
+<br>
 
 
 ```python
@@ -1823,7 +1835,11 @@ House_Price_Data.tail(7)
 
 <br>
 
-Mathematically the operation $tail()$ could be defined as:
+---
+
+<br>
+
+Mathematically $tail()$ operation could be formalized as follows:
 
 Let $\hspace{0.1cm} D= \begin{pmatrix}
 x_1^t \\
@@ -1844,11 +1860,14 @@ x_n^t
 
 
 
+<br>
+
+---
 
 <br>
 
 
-# Columns Names
+# Column Names
 
 We can get the column names of a data-frame:
 
@@ -1875,16 +1894,15 @@ House_Price_Data.columns
 
 
 
-<br>
 
-We will denote the $\hspace{0.1cm} X_j\hspace{0.1cm}$ column name as $\hspace{0.1cm}name(X_j)$.
+We will denote $\hspace{0.1cm} X_j\hspace{0.1cm}$ column name as $\hspace{0.1cm}name(X_j)$.
 
 
 <br>
 
 # Selecting columns from a data-frame
 
-## loc method
+## `loc` method
 
 With `loc` method we can select rows from a data-frame using the column names:
 
@@ -2016,18 +2034,31 @@ House_Price_Data.loc[ : , ['latitude', 'price', 'no_of_bathrooms', 'quality_reco
 
 <br>
 
-Mathematically `loc[]`select operation could be define as:
+---
 
-$$df.loc[\hspace{0.1cm} : \hspace{0.1cm} , \hspace{0.1cm} [\hspace{0.1cm}name(X_1), name(X_3), name(X_6) \hspace{0.1cm}]\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm} : \hspace{0.1cm}, \hspace{0.1cm} [\hspace{0.1cm} name(X_1),name(X_3),name(X_6) \hspace{0.1cm}] \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} \left( X_1 , X_3 , X_6 \right) \hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} (x_{i1} , x_{i3}, x_{i6}) \hspace{0.1cm}:\hspace{0.1cm} i = 1,...,n \hspace{0.1cm}\right) \hspace{0.1cm}= \hspace{0.1cm}\left(\hspace{0.1cm} x_{i}[1,3,6] \hspace{0.1cm}:\hspace{0.1cm} i = 1,...,n \hspace{0.1cm}\right)$$
+<br>
+
+Mathematically `loc[]`select operation could be define as: $\\[0.7cm]$
+
+$$df.loc\hspace{0.1cm} [\hspace{0.1cm} : \hspace{0.1cm} , \hspace{0.1cm} [\hspace{0.1cm}name(X_1), name(X_3), name(X_6) \hspace{0.1cm}]\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D\hspace{0.1cm} [\hspace{0.1cm} : \hspace{0.1cm}, \hspace{0.1cm} [\hspace{0.1cm} name(X_1),name(X_3),name(X_6) \hspace{0.1cm}] \hspace{0.1cm}] \hspace{0.1cm}= \\[0.7cm] = \hspace{0.1cm} \left( X_1 , X_3 , X_6 \right) \hspace{0.1cm}=\hspace{0.1cm}   \left( \hspace{0.1cm} (x_{i1} , x_{i3}, x_{i6}) \hspace{0.1cm}:\hspace{0.1cm} i = 1,...,n \hspace{0.1cm}\right) \hspace{0.1cm}= \hspace{0.1cm}\left(\hspace{0.1cm} x_{i}[1,3,6] \hspace{0.1cm}:\hspace{0.1cm} i = 1,...,n \hspace{0.1cm}\right) \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
+x_{11} & x_{13} & x_{16} \\
+x_{21} & x_{23} & x_{26} \\
+... &  ... & ... \\
+x_{n1} & x_{n3} & x_{n6} 
+\end{pmatrix} \\[1cm]$$
 
 
 where: $\hspace{0.1cm}x_{i}[1,3,6] \hspace{0.1cm}=\hspace{0.1cm} (x_{i1} , x_{i3}, x_{i6})$
 
+
+<br>
+
+---
+
 <br>
 
 
-
-## iloc method
+## `iloc` method
 
 With `iloc` method we can select columns from a data-frame using the index of the columns:
 
@@ -2275,17 +2306,36 @@ House_Price_Data.iloc[ : , [0,3,5]]
 </div>
 
 
+
 <br>
 
-Mathematically `iloc[]`select operation could be define as:
+---
 
-$$df.iloc[\hspace{0.1cm} : \hspace{0.1cm} , \hspace{0.1cm}   2:5  \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm} : \hspace{0.1cm}, \hspace{0.1cm} 2:5 \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} \left( X_2 , X_3 , X_4, X_5 \right) \hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} X_j \hspace{0.1cm}:\hspace{0.1cm} j = 1,...,5 \hspace{0.1cm}\right)$$
+<br>
+
+Mathematically `iloc[]`select operation could be formalized as follows:
+
+$$df.iloc[\hspace{0.1cm} : \hspace{0.1cm} , \hspace{0.1cm}   2:5  \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm} : \hspace{0.1cm}, \hspace{0.1cm} 2:5 \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} \left( X_2 , X_3 , X_4, X_5 \right) \hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} X_j \hspace{0.1cm}:\hspace{0.1cm} j = 1,...,5 \hspace{0.1cm}\right)\hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
+x_{12} & x_{13} & x_{14} & x_{15} \\
+x_{22} & x_{23} & x_{24} & x_{25} \\
+... &  ... & ... \\
+x_{n2} & x_{n3} & x_{n4} & x_{n5} 
+\end{pmatrix} \\[2cm]$$
 
 
-$$df.iloc[\hspace{0.1cm} : \hspace{0.1cm} , \hspace{0.1cm}   [1,3,6]  \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm} : \hspace{0.1cm} , [1,3,6]  [1,3,6]  \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} \left( X_1 , X_3 , X_6 \right) \hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} X_j \hspace{0.1cm}:\hspace{0.1cm} j =1,3,6 \hspace{0.1cm}\right)$$
+$$df.iloc[\hspace{0.1cm} : \hspace{0.1cm} , \hspace{0.1cm}   [1,3,6]  \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm} : \hspace{0.1cm} , [1,3,6]  [1,3,6]  \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} \left( X_1 , X_3 , X_6 \right) \hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} X_j \hspace{0.1cm}:\hspace{0.1cm} j =1,3,6 \hspace{0.1cm}\right)\hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
+x_{11} & x_{13} & x_{16} \\
+x_{21} & x_{23} & x_{26}  \\
+... &  ... & ... \\
+x_{n1} & x_{n3} & x_{n6}  
+\end{pmatrix}$$
 
 
 
+
+<br>
+
+---
 
 <br>
 
@@ -2294,7 +2344,7 @@ $$df.iloc[\hspace{0.1cm} : \hspace{0.1cm} , \hspace{0.1cm}   [1,3,6]  \hspace{0.
 
 ## `loc` method 
 
-With the `loc` method we can filter rows that meet a condition related to their values for some columns:
+With  `loc` method we can filter rows that meet a condition related to their values for some columns:
 
 ```python
 House_Price_Data.loc[ House_Price_Data.price < 500000 , : ]
@@ -4546,7 +4596,7 @@ House_Price_Data.loc[ House_Price_Data['no_of_bedrooms'].isin([2,4]) , : ]
 
 <br>
 
-We can also use the `isin()` method to filter out rows that have a value for a certain column that doesn't belong to a specific set of values.
+We can also use  `isin()` method to filter out rows that have a value for a certain column that doesn't belong to a specific set of values.
 
 
 ```python
@@ -5188,24 +5238,29 @@ House_Price_Data.loc[ ( (House_Price_Data.price > 1000000)  & (House_Price_Data.
 
 
 
+<br>
 
-
-
+---
 
 <br>
 
 
  
 
-Mathematically, the `loc[]` filter operation could be formalized as follows:
+Mathematically,  `loc[]` filter operation could be formalized as follows: $\\[0.7cm]$
 
-$$df.loc[ df.name(X_2) < k_2 & df.name(X_4) >= k_4 ) | (df.name(X_3) == k_3) , :] = D[  X_2 < k_2 y X_4 \geq k_4 ) o X_3 = k_3 , :] = ( x_i : ( x_{i2} < k_2 y x_{i4} \geq k_4 ) o x_{i3} = k_3 , i = 1,...,n )$$
+$$df.loc \hspace{0.1cm} [ \hspace{0.1cm} ( df.name(X_2) < k_2 \hspace{0.25cm}\&\hspace{0.25cm} df.name(X_4) >= k_4 ) \hspace{0.25cm} | \hspace{0.25cm} (df.name(X_3) == k_3) \hspace{0.15cm},\hspace{0.15cm} : \hspace{0.1cm} ] \hspace{0.1cm}=  \\[0.7cm] = \hspace{0.1cm} D \hspace{0.1cm} [ \hspace{0.1cm} ( \hspace{0.1cm} X_2 < k_2 \hspace{0.25cm} y \hspace{0.25cm} X_4 \geq k_4 ) \hspace{0.25cm} o \hspace{0.25cm} X_3 = k_3 \hspace{0.2cm} , \hspace{0.2cm} : \hspace{0.1cm}] \hspace{0.1cm} = \hspace{0.1cm} (\hspace{0.15cm}  x_i \hspace{0.15cm} : \hspace{0.15cm} ( x_{i2} < k_2 \hspace{0.25cm} y \hspace{0.25cm} x_{i4} \geq k_4 ) \hspace{0.25cm} o \hspace{0.25cm} x_{i3} = k_3 \hspace{0.2cm} , \hspace{0.2cm} i = 1,...,n \hspace{0.15cm}  ) \\[1cm]$$
 
-$$df.loc[ df[name(X_2)].isin([k_1, k_2, k_3]) , : ] = D[  X_2 \in \lbrace k_1 , k_2, k_3 \rbrace , : ] = ( x_i : x_{i2} \in \lbrace k_1 , k_2, k_3 \rbrace , i = 1,...,n )$$
+$$df.loc \hspace{0.1cm} [ \hspace{0.1cm} ( \hspace{0.1cm} df \hspace{0.1cm} [ \hspace{0.1cm} name(X_2) \hspace{0.1cm}].isin(\hspace{0.1cm}[k_1, k_2, k_3]\hspace{0.1cm}) \hspace{0.15cm} , \hspace{0.15cm} : \hspace{0.1cm} ] \hspace{0.1cm} = \hspace{0.1cm} D \hspace{0.1cm} [ \hspace{0.1cm}  X_2 \in \lbrace k_1 , k_2, k_3 \rbrace \hspace{0.15cm} , \hspace{0.15cm} : \hspace{0.1cm}] \hspace{0.1cm} =  \hspace{0.1cm} \left( \hspace{0.1cm} x_i \hspace{0.1cm} : \hspace{0.1cm} x_{i2} \in \lbrace k_1 , k_2, k_3 \rbrace \hspace{0.1cm} , \hspace{0.1cm} i = 1,...,n \hspace{0.1cm} \right)$$
 
 
 
 <br>
+
+---
+
+<br>
+
 
 We can also filter rows and select columns at the same time using the `loc` method:
 
@@ -5313,18 +5368,27 @@ House_Price_Data.loc[ House_Price_Data.price > 1000000 , ['price', 'no_of_bedroo
 
 
 
+
+<br>
+
+---
+
 <br>
 
 We can also filter rows and select columns at the same time using the `loc` method:
 
-$$df.loc[ df.name(X_2) < k_2 & df.name(X_4) >= k_4 ) | (df.name(X_3) == k_3) , [name(X_1) , name(X_4)]] = D[  X_2 < k_2 y X_4 \geq k_4 ) o X_3 = k_3 , [X_2 , X_4]] = ( x_i[1,4] : ( x_{i2} < k_2 y x_{i4} \geq k_4 ) o x_{i3} = k_3 , i = 1,...,n ) = ( (x_{i1},x_{i4}) : ( x_{i2} < k_2 y x_{i4} \geq k_4 ) o x_{i3} = k_3 , i = 1,...,n )$$
+$$df.loc\hspace{0.1cm}[\hspace{0.1cm} df.name(X_2) < k_2 \hspace{0.2cm}\&\hspace{0.2cm} df.name(X_4) >= k_4 ) \hspace{0.2cm} | \hspace{0.2cm} (df.name(X_3) == k_3) \hspace{0.15cm} , \hspace{0.15cm} [name(X_1) , name(X_4)] \hspace{0.1cm}] \hspace{0.1cm}= \\[0.8cm] = \hspace{0.1cm} D[  (X_2 < k_2 \hspace{0.2cm} y \hspace{0.2cm} X_4 \geq k_4 ) \hspace{0.2cm} o \hspace{0.2cm} X_3 = k_3 \hspace{0.1cm},\hspace{0.1cm} [X_2 , X_4] \hspace{0.1cm}] \hspace{0.1cm}  =\hspace{0.1cm} (\hspace{0.1cm} x_i[1,4] \hspace{0.1cm} : \hspace{0.1cm} ( x_{i2} < k_2 \hspace{0.25cm} y  \hspace{0.25cm} x_{i4} \geq k_4 ) \hspace{0.25cm} o \hspace{0.25cm} x_{i3} = k_3 \hspace{0.15cm},\hspace{0.15cm} i = 1,...,n \hspace{0.1cm} ) \hspace{0.1cm} = \\[0.8cm] = \hspace{0.1cm} ( \hspace{0.1cm} (x_{i1},x_{i4}) \hspace{0.1cm} : \hspace{0.1cm} ( x_{i2} < k_2 \hspace{0.25cm} y \hspace{0.25cm} x_{i4} \geq k_4 ) \hspace{0.25cm} o \hspace{0.25cm} x_{i3} = k_3 \hspace{0.15cm} , \hspace{0.15cm} i = 1,...,n \hspace{0.1cm} )$$
+
+<br>
+
+---
 
 <br>
 
 
 ## `iloc` method 
 
-With the `iloc` method we can filter rows using the index of the rows:
+With `iloc` method we can filter rows using the index of those rows:
 
 
 ```python
@@ -5775,19 +5839,36 @@ House_Price_Data.iloc[[6,10,15] , :]
 <p>3 rows × 29 columns</p>
 </div>
 
+
 <br>
 
+---
 
-Mathematically, the `iloc[]` filter operation could be formalized as follows:
+<br>
 
-
-$$df.iloc[15:120 , :] = D[15:120 , :] = (x_i : i = 15,...,120 )$$
-
-
-
-$$df.iloc[[6,10,15]] = D[[6,10,15] , :] = (x_i : i =6,10,15 )$$
+Mathematically, the `iloc[]` filter operation could be formalized as follows: $\\[0.7cm]$
 
 
+$$df.iloc \hspace{0.1cm} [ \hspace{0.1cm} 15:120 \hspace{0.1cm} , \hspace{0.1cm} : \hspace{0.1cm} ] \hspace{0.1cm} = \hspace{0.1cm} D\hspace{0.1cm} [ \hspace{0.1cm} 15:120 \hspace{0.1cm},\hspace{0.1cm} : \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} (x_i \hspace{0.1cm}:\hspace{0.1cm} i = 15,...,120 \hspace{0.1cm}) \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
+x_{15}^t \\
+x_{16}^t \\
+...  \\
+x_{120}^t
+\end{pmatrix}  \\[2cm]$$
+
+
+
+$$df.iloc[ \hspace{0.1cm} [6,10,15] \hspace{0.1cm} , \hspace{0.1cm} : \hspace{0.1cm} ] \hspace{0.1cm} = D\hspace{0.1cm} [ \hspace{0.1cm} [6,10,15] \hspace{0.1cm} , \hspace{0.1cm} : \hspace{0.1cm} ] \hspace{0.1cm} = \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} : \hspace{0.1cm} i =6,10,15 \hspace{0.1cm})  \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
+x_{6}^t \\
+x_{10}^t \\
+x_{15}^t
+\end{pmatrix} $$
+
+
+
+<br>
+
+---
 
 <br>
 
@@ -5961,12 +6042,20 @@ House_Price_Data.iloc[[3,5,6] , [2,8]]
 <br>
 
 
-Mathematically, the `iloc[]` filter operation could be formalized as follows:
+Mathematically, the `iloc[]` filter operation could be formalized as follows: $\\[0.7cm]$
 
+$$df.iloc\hspace{0.1cm}[\hspace{0.1cm}3:15 \hspace{0.1cm},\hspace{0.1cm} 2:5\hspace{0.1cm}]\hspace{0.1cm} =\hspace{0.1cm} D[\hspace{0.1cm}3:15 \hspace{0.1cm},\hspace{0.1cm} 2:5\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} (\hspace{0.1cm}x_i[2:5] \hspace{0.1cm}:\hspace{0.1cm} i = 3,...,15 \hspace{0.1cm}) \hspace{0.1cm}=\hspace{0.1cm} ( \hspace{0.1cm}(x_{i2} , x_{i5} ) \hspace{0.1cm}:\hspace{0.1cm} i = 3,...,15 \hspace{0.1cm}) \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
+x_{32} & x_{33} &  x_{34} & x_{35}\\
+x_{42} & x_{43} & x_{44} & x_{45}\\
+... &  ... & ... & ... \\
+x_{15 2} & x_{15 3} & x_{15 4} & x_{15 5}
+\end{pmatrix} \\[2cm]$$
 
-$$df.iloc[3:15 , 2:5] = D[3:15 , 2:5] = (x_i[2:5] : i = 3,...,15 ) = ( (x_{i2} , x_{i5} ) : i = 3,...,15 )$$
-
-$$df.iloc[[3,5,6] , [2,8]] = D[[3,5,6] , [2,8]] = (x_i[2,8] : i = 3,5,6 ) = ( (x_{i2} , x_{i8} ) : i = 3,5,6 )$$
+$$df.iloc\hspace{0.1cm}[\hspace{0.1cm}[3,5,6] \hspace{0.1cm},\hspace{0.1cm} [2,8]\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}[3,5,6]\hspace{0.1cm} , \hspace{0.1cm}[2,8]\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} (\hspace{0.1cm} x_i[2,8] \hspace{0.1cm} : \hspace{0.1cm} i = 3,5,6 \hspace{0.1cm} ) \hspace{0.1cm} = \hspace{0.1cm} ( \hspace{0.1cm} (x_{i2} , x_{i8} ) \hspace{0.1cm} : \hspace{0.1cm} i = 3,5,6 \hspace{0.1cm} ) \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
+x_{32} & x_{38}  \\
+x_{52} & x_{58}   \\
+x_{6 2} & x_{6 8} 
+\end{pmatrix} $$
 
 
 <br>
@@ -7404,17 +7493,23 @@ House_Price_Data.drop(['price', 'longitude'], axis=1)
 
 <br>
 
+---
 
-Mathematically, `drop()` filter operation could be formalized as follows:
+<br>
+
+Mathematically `drop()` filter operation could be formalized as follows: $\\[0.7cm]$
 
 
-$$df.drop([name(X_3) , name(X_5)], axis=1) = D[: , - [X_3 , X_7]] = (X_1,X_2,X_4,X_6,...,X_p)$$
-
-
+$$df.drop(\hspace{0.1cm} [name(X_3) , name(X_5)] \hspace{0.1cm} , \hspace{0.1cm} axis=1 \hspace{0.1cm} ) \hspace{0.1cm} = \hspace{0.1cm} D \hspace{0.1cm} [ \hspace{0.1cm} : \hspace{0.1cm} , \hspace{0.1cm} - [X_3 , X_7] \hspace{0.1cm} ] \hspace{0.1cm}=\hspace{0.1cm} (X_1,X_2,X_4,X_6,...,X_p)$$
 
 
 <br>
 
+---
+
+<br>
+
+ 
 # Delete rows from a data-frame
 
 
@@ -8061,11 +8156,15 @@ House_Price_Data.drop([2,3,1900], axis=0)
 
 <br>
 
+---
 
-Mathematically, `drop()` operation could be formalized as follows:
+<br>
 
 
-$$df.drop([2 , 5], axis=0) = D[-[2,5] , :] = \begin{pmatrix}
+Mathematically `drop()` operation could be formalized as follows: $\\[0.7cm]$
+
+
+$$df.drop( \hspace{0.1cm}  [2 , 5] \hspace{0.1cm}  , \hspace{0.1cm}  axis=0 \hspace{0.1cm}  ) \hspace{0.1cm} =\hspace{0.1cm}  D \hspace{0.1cm}  [-[2,5] \hspace{0.1cm} , \hspace{0.1cm}   : \hspace{0.1cm} ] \hspace{0.1cm}  = \hspace{0.1cm}  \begin{pmatrix}
 x_1^t \\
 x_3^t \\
 x_4^t \\
@@ -8077,6 +8176,9 @@ x_n^t
 
 
 
+<br>
+
+---
 
 <br>
 
@@ -8586,14 +8688,18 @@ House_Price_Data.groupby('quality_recode').sum()
 
 <br>
 
+---
 
-Mathematically, `groupby()` operation could be formalized as follows:
+<br>
 
-$$df.groupby( name(X_3)).mean() =  \begin{pmatrix}
-mean( x_{i1} : x_{i3}=0 , i=1,...,n ) & mean( x_{i2} : x_{i3}=0 , i=1,...,n ) & ... & mean( x_{ip} : x_{i3}=0 , i=1,...,n ) \\
-mean( x_{i1} : x_{i3}=1 , i=1,...,n ) & mean( x_{i2} : x_{i3}=1 , i=1,...,n ) & ... & mean( x_{ip} : x_{i3}=1 , i=1,...,n ) \\
-mean( x_{i1} : x_{i3}=2 , i=1,...,n ) & mean( x_{i2} : x_{i3}=2 , i=1,...,n ) & ... & mean( x_{ip} : x_{i3}=2 , i=1,...,n ) \\
-mean( x_{i1} : x_{i3}=3 , i=1,...,n ) & mean( x_{i2} : x_{i3}=3 , i=1,...,n ) & ... & mean( x_{ip} : x_{i3}=3 , i=1,...,n ) 
+
+Mathematically, `groupby()` operation could be formalized as follows: $\\[0.7cm]$
+
+$$df.groupby( \hspace{0.1cm} name(X_3) \hspace{0.1cm} ).mean() \hspace{0.1cm}=\hspace{0.1cm}  \begin{pmatrix}
+mean\hspace{0.1cm} ( \hspace{0.1cm} x_{i1} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=0 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n  \hspace{0.1cm} ) & mean \hspace{0.1cm} ( \hspace{0.1cm} x_{i2} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=0 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & ... & mean \hspace{0.1cm} ( \hspace{0.1cm} x_{ip} \hspace{0.1cm}:\hspace{0.1cm} x_{i3}=0 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
+mean \hspace{0.1cm} ( \hspace{0.1cm} x_{i1} \hspace{0.1cm}  : \hspace{0.1cm} x_{i3}=1 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & mean \hspace{0.1cm}( \hspace{0.1cm} x_{i2} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=1 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & ... & mean \hspace{0.1cm} ( \hspace{0.1cm} x_{ip} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=1 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
+mean \hspace{0.1cm} ( \hspace{0.1cm} x_{i1} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=2 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm}) & mean \hspace{0.1cm} (  \hspace{0.1cm} x_{i2} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=2 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & ... & mean \hspace{0.1cm} ( \hspace{0.1cm} x_{ip} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=2 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
+mean \hspace{0.1cm} ( \hspace{0.1cm} x_{i1} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=3 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & mean \hspace{0.1cm} ( \hspace{0.1cm} x_{i2} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=3 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & ... & mean \hspace{0.1cm} (\hspace{0.1cm} x_{ip} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=3 \hspace{0.1cm} ,  \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) 
 \end{pmatrix} $$
 
  
@@ -8602,7 +8708,11 @@ mean( x_{i1} : x_{i3}=3 , i=1,...,n ) & mean( x_{i2} : x_{i3}=3 , i=1,...,n ) & 
 supposing that $Range(X_3) = \lbrace 0,1,2,3 \rbrace$
 
 
+<br>
 
+---
+
+<br>
 
 
 <br>
@@ -10842,7 +10952,7 @@ x_{n_1} & y_{n_2}
 # Join data-frames <a class="anchor" id="1"></a>  
 
 
-we are going to remember the `Ventas`, `Proveedores`and `Clientes` data-frames, because we are going to use them in this section:
+We are going to remember the `Ventas`, `Proveedores`and `Clientes` data-frames, because we are going to use them in this section:
 
 
 
