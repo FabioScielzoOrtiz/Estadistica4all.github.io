@@ -8693,19 +8693,19 @@ House_Price_Data.groupby('quality_recode').sum()
 <br>
 
 
-Mathematically, `groupby()` operation could be formalized as follows: $\\[0.7cm]$
+Mathematically `groupby()` operation could be formalized as follows: $\\[0.7cm]$
 
-$$df.groupby( \hspace{0.1cm} name(X_3) \hspace{0.1cm} ).mean() \hspace{0.1cm}=\hspace{0.1cm}  \begin{pmatrix}
-mean\hspace{0.1cm} ( \hspace{0.1cm} x_{i1} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=0 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n  \hspace{0.1cm} ) & mean \hspace{0.1cm} ( \hspace{0.1cm} x_{i2} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=0 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & ... & mean \hspace{0.1cm} ( \hspace{0.1cm} x_{ip} \hspace{0.1cm}:\hspace{0.1cm} x_{i3}=0 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
-mean \hspace{0.1cm} ( \hspace{0.1cm} x_{i1} \hspace{0.1cm}  : \hspace{0.1cm} x_{i3}=1 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & mean \hspace{0.1cm}( \hspace{0.1cm} x_{i2} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=1 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & ... & mean \hspace{0.1cm} ( \hspace{0.1cm} x_{ip} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=1 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
-mean \hspace{0.1cm} ( \hspace{0.1cm} x_{i1} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=2 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm}) & mean \hspace{0.1cm} (  \hspace{0.1cm} x_{i2} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=2 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & ... & mean \hspace{0.1cm} ( \hspace{0.1cm} x_{ip} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=2 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
-mean \hspace{0.1cm} ( \hspace{0.1cm} x_{i1} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=3 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & mean \hspace{0.1cm} ( \hspace{0.1cm} x_{i2} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=3 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & ... & mean \hspace{0.1cm} (\hspace{0.1cm} x_{ip} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=3 \hspace{0.1cm} ,  \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) 
-\end{pmatrix} $$
+$$df.groupby( \hspace{0.1cm} name(X_3) \hspace{0.1cm} ).f() \hspace{0.1cm}=\hspace{0.1cm}  \begin{pmatrix}
+f\hspace{0.1cm} ( \hspace{0.1cm} x_{i1} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=0 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n  \hspace{0.1cm} ) & f \hspace{0.1cm} ( \hspace{0.1cm} x_{i2} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=0 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & ... & f \hspace{0.1cm} ( \hspace{0.1cm} x_{ip} \hspace{0.1cm}:\hspace{0.1cm} x_{i3}=0 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
+f \hspace{0.1cm} ( \hspace{0.1cm} x_{i1} \hspace{0.1cm}  : \hspace{0.1cm} x_{i3}=1 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & f \hspace{0.1cm}( \hspace{0.1cm} x_{i2} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=1 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & ... & f \hspace{0.1cm} ( \hspace{0.1cm} x_{ip} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=1 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
+f \hspace{0.1cm} ( \hspace{0.1cm} x_{i1} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=2 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm}) & f \hspace{0.1cm} (  \hspace{0.1cm} x_{i2} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=2 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & ... & f \hspace{0.1cm} ( \hspace{0.1cm} x_{ip} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=2 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
+f \hspace{0.1cm} ( \hspace{0.1cm} x_{i1} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=3 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & f \hspace{0.1cm} ( \hspace{0.1cm} x_{i2} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=3 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & ... & f \hspace{0.1cm} (\hspace{0.1cm} x_{ip} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=3 \hspace{0.1cm} ,  \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) 
+\end{pmatrix} \\[2cm]$$
 
  
 
 
-supposing that $Range(X_3) = \lbrace 0,1,2,3 \rbrace$
+where $\hspace{0.1cm}Range(X_3) = \lbrace 0,1,2,3 \rbrace\hspace{0.15cm}$ and $\hspace{0.12cm}f\hspace{0.12cm}$ is any function.
 
 
 <br>
@@ -8715,7 +8715,6 @@ supposing that $Range(X_3) = \lbrace 0,1,2,3 \rbrace$
 <br>
 
 
-<br>
 
 
 ```python
@@ -8788,24 +8787,32 @@ House_Price_Data.groupby('quality_recode')['price'].std()
 
 <br>
 
+---
 
-Mathematically, `groupby()` operation could be formalized as follows:
-
-$$df.groupby( name(X_3))[name(X_6)].mean() =  \begin{pmatrix}
-mean( x_{i6} : x_{i3}=0 , i=1,...,n ) \\
-mean( x_{i6} : x_{i3}=1 , i=1,...,n ) \\
-mean( x_{i6} : x_{i3}=2 , i=1,...,n ) \\
-mean( x_{i6} : x_{i3}=3 , i=1,...,n ) 
-\end{pmatrix} $$
+<br>
 
 
-supposing that $Range(X_3) = \lbrace 0,1,2,3 \rbrace$
+Mathematically, `groupby()` operation could be formalized as follows: $\\[0.7cm]$
 
+$$df.groupby( \hspace{0.1cm} name(X_3) \hspace{0.1cm})[\hspace{0.1cm} name(X_6) \hspace{0.1cm}].f() \hspace{0.1cm}= \hspace{0.1cm} \begin{pmatrix}
+f( x_{i6} \hspace{0.1cm}:\hspace{0.1cm} x_{i3}=0 , i=1,...,n ) \\
+f( x_{i6} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=1 , i=1,...,n ) \\
+f( x_{i6} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=2 , i=1,...,n ) \\
+f( x_{i6} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=3 , i=1,...,n ) 
+\end{pmatrix} \\[2cm]$$
+
+
+where $\hspace{0.1cm}Range(X_3) = \lbrace 0,1,2,3 \rbrace\hspace{0.15cm}$ and $\hspace{0.12cm}f\hspace{0.12cm}$ is any function.
 
 
 
 
 <br>
+
+---
+
+<br>
+
 
 ```python
 import numpy as np
@@ -10854,105 +10861,115 @@ concat([df1,df2] , axis=0)
 
 <br>
 
+---
 
+<br>
 
 Mathematically, `concat()` operation could be formalized as follows:
 
-Suppose we have two data frames $df1$ and $df2$ :
+Suppose we have two data frames $\hspace{0.1cm} df1\hspace{0.1cm}$ and $\hspace{0.1cm}df2\hspace{0.1cm}$ : $\\[0.7cm]$
 
-$$df1 \Rightarrow D_1 = \begin{pmatrix}
+$$df1 \hspace{0.2cm}\Rightarrow\hspace{0.2cm} D_1 = \begin{pmatrix}
 x_1 \\
 ... \\
 x_{n_1}
-\end{pmatrix}$$
+\end{pmatrix} = \begin{pmatrix}
+X_1 & ... & X_{p_1} \\
+\end{pmatrix}  \\[1cm]$$
 
-$$df2 \Rightarrow D_2 = \begin{pmatrix}
+$$df2 \hspace{0.2cm} \Rightarrow \hspace{0.2cm} D_2 = \begin{pmatrix}
 y_1 \\
 ... \\
 y_{n_1}
-\end{pmatrix}$$
-
-
-
-If all the column names of $df1$ are different to all the column names of $df2$ :
-
-
-$$concat([df1,df2], axis=0)  =  \begin{pmatrix}
-x_1   &  NA \\
-...  & ... \\
-x_{n_1} & NA \\
-NA & y_1 \\
-... & ... \\
-NA & y_{n_2}
-\end{pmatrix}$$
-
-
-If $name(X_2) = name(Y_3)$ but the rest of column names are different one each other:
-
-
-
-$$concat([df1,df2], axis=0)  =  \begin{pmatrix}
-X_1 & X_2 & X_3 & ... &  X_p & NA & NA & NA & ... & NA \\
-NA  & Y_4 & NA  & ... & NA  & Y_1 & Y_2 & Y_4 & ... & Y_p
-\end{pmatrix}$$
-
-
-
-If all the column names of $df1$ are equal to all the column names of $df2$ :
-
-$$concat([df1,df2], axis=0)  = \begin{pmatrix}
-x_1 \\
-... \\
-x_{n_1} \\
-y_1  \\
-... \\
-y_{n_2}
 \end{pmatrix} = \begin{pmatrix}
-X_1 & ... & X_p \\
-Y_1  & ... & Y_p
-\end{pmatrix}$$
+Y_1 & ... & Y_{p_2} \\
+\end{pmatrix}  \\[1.2cm]$$
 
+And $\hspace{0.15cm}NA \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
+NaN \\
+... \\
+NaN
+\end{pmatrix} \hspace{0.2cm}$ is a NaN vector with suitable dimensions.
 
-If $n_1 > n_2$ :
-
-
-$$concat([df1,df2], axis=1)  = \begin{pmatrix}
-x_1 & y_1 \\
-x_2 & y_2 \\
-... & ... \\
-x_{n_2} & y_{n_2}\\
-x_{n_2 +1} & NA \\
-...  & ...
-x_{n_1} & NA
-\end{pmatrix}$$
-
-
-if $n_1 = n_2$ :
-
-
-$$concat([df1,df2], axis=1)  = \begin{pmatrix}
-x_1 & y_1 \\
-x_2 & y_2 \\
-... & ... \\
-x_{n_1} & y_{n_2}
-\end{pmatrix}$$
+<br>
 
 
 
+- If all the column names of $\hspace{0.1cm}df1\hspace{0.1cm}$ are different to all the column names of $\hspace{0.1cm}df2\hspace{0.1cm}$ : $\\[0.7cm]$
+
+
+$$concat \hspace{0.1cm}( \hspace{0.1cm} [df1\hspace{0.1cm},\hspace{0.1cm}df2] \hspace{0.1cm}, \hspace{0.1cm} axis=0 \hspace{0.1cm}) \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
+X_1 &  ... & X_{p_1} & NA & ... & NA \\
+NA  & ...  & NA  & Y_1 & ... & Y_{p_2} 
+\end{pmatrix} \\[1cm]$$
+
+  
+
+
+- If $\hspace{0.1cm}name(X_2)\hspace{0.1cm} =\hspace{0.1cm} name(Y_3)\hspace{0.1cm}$ but the rest of column names are different one each other:
 
 
 
+$$concat \hspace{0.1cm} ( \hspace{0.1cm}[df1 \hspace{0.1cm},\hspace{0.1cm}df2] \hspace{0.1cm} , \hspace{0.1cm} axis=0 \hspace{0.1cm}) \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
+X_1 & X_2 & X_3 & ... &  X_{p_1} & NA & NA & NA & ... & NA \\
+NA  & Y_3 & NA  & ... & NA  & Y_1 & Y_2 & Y_4 & ... & Y_{p_2}
+\end{pmatrix} \\[1cm]$$
 
+
+
+- If all the column names of $\hspace{0.1cm} df1\hspace{0.1cm}$ are equal to all the column names of $\hspace{0.1cm}df2\hspace{0.1cm}$ :
+
+    $$concat\hspace{0.1cm}(\hspace{0.1cm}[df1\hspace{0.1cm},\hspace{0.1cm}df2]\hspace{0.1cm},\hspace{0.1cm} axis=0\hspace{0.1cm})  \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
+    x_1 \\
+    ... \\
+    x_{n_1} \\
+    y_1  \\
+    ... \\
+    y_{n_2}
+    \end{pmatrix} = \begin{pmatrix}
+    X_1 & ... & X_p \\
+    Y_1  & ... & Y_p
+    \end{pmatrix}\\[1cm]$$
+
+
+    - If $\hspace{0.1cm}n_1 > n_2\hspace{0.1cm}$ :
+
+
+    $$concat\hspace{0.1cm}(\hspace{0.1cm}[df1\hspace{0.1cm},\hspace{0.1cm}df2]\hspace{0.1cm},\hspace{0.1cm} axis=1\hspace{0.1cm}) \hspace{0.1cm} =\hspace{0.1cm} \begin{pmatrix}
+    x_1 & y_1 \\
+    x_2 & y_2 \\
+    ... & ... \\
+    x_{n_2} & y_{n_2}\\
+    x_{n_2 +1} & NA \\
+     ...  & ... \\
+    x_{n_1} & NA
+    \end{pmatrix} \\[1cm]$$
+    
+
+
+    -  if $\hspace{0.1cm}n_1 = n_2\hspace{0.1cm}$ :
+
+
+     $$concat\hspace{0.1cm}(\hspace{0.1cm}[df1\hspace{0.1cm},\hspace{0.1cm}df2]\hspace{0.1cm},\hspace{0.1cm} axis=1\hspace{0.1cm}) \hspace{0.1cm} =\hspace{0.1cm} \begin{pmatrix}
+     x_1 & y_1 \\
+     x_2 & y_2 \\
+     ... & ... \\
+     x_{n_1} & y_{n_2}
+     \end{pmatrix}$$
 
 
 
 
 <br>
 
+---
+
+<br>
+
 # Join data-frames <a class="anchor" id="1"></a>  
 
 
-We are going to remember the `Ventas`, `Proveedores`and `Clientes` data-frames, because we are going to use them in this section:
+We are going to remember the `Ventas` and `Clientes` data-frames, because we are going to use them in this section:
 
 
 
@@ -11114,6 +11131,7 @@ Ventas
 </div>
 
 
+<br>
 
 
 ```python
@@ -11262,16 +11280,20 @@ Clientes
 </table>
 </div>
 
+ 
+
+
+<br>
 
 
 ## Inner join
 
 Inner join es una operacion que consiste en juntar dos data-frames (df1 y df2) a través de una columna compartida por ambos, denominada columna de enlace. El data-frame resultante de un inner join tiene como filas la concatenacion de las filas de df1 y las de df2 que contienen en la columna de enlace un mismo valor.
 
-```python
-# inner join
+<br>
 
-pd.merge(Ventas, Clientes, on='ClienteID', how='inner')  
+```python
+pd.merge(Ventas, Clientes, on='ClienteID', how='inner') 
 ```
 
 
@@ -11507,11 +11529,61 @@ pd.merge(Ventas, Clientes, on='ClienteID', how='inner')
 </table>
 </div>
 
+
+<br>
+
+
+Suppose we have two data frames $\hspace{0.1cm} df1\hspace{0.1cm}$ and $\hspace{0.1cm}df2\hspace{0.1cm}$ : $\\[0.7cm]$
+
+$$df1 \hspace{0.2cm}\Rightarrow\hspace{0.2cm} D_1 = \begin{pmatrix}
+x_1 \\
+... \\
+x_{n_1}
+\end{pmatrix} = \begin{pmatrix}
+X_1 & ... & X_{p_1} \\
+\end{pmatrix}  \\[1cm]$$
+
+$$df2 \hspace{0.2cm} \Rightarrow \hspace{0.2cm} D_2 = \begin{pmatrix}
+y_1 \\
+... \\
+y_{n_1}
+\end{pmatrix} = \begin{pmatrix}
+Y_1 & ... & Y_{p_2} \\
+\end{pmatrix}  \\[1.2cm]$$
+
+
+where there is a column shared by both data frames, called the **link** column, through which they will be joined.
+
+
+Taking the above into account, we define: $\\[0.5cm]$
+
+$$y(x_i) \hspace{0.1cm}=\hspace{0.1cm} \lbrace \hspace{0.1cm} y_i \hspace{0.1cm} : \hspace{0.1cm} i = 1,...,n_2 \hspace{0.1cm} , \hspace{0.1cm} y_i[link] = x_i[link] \hspace{0.1cm} \rbrace \\$$
+
+$$x(y_i) \hspace{0.1cm} = \hspace{0.1cm} \lbrace \hspace{0.1cm} x_i \hspace{0.1cm} : \hspace{0.1cm} i = 1,...,n_2 \hspace{0.1cm} , \hspace{0.1cm} x_i[link] =y_i[link] \hspace{0.1cm} \rbrace \\$$
+
+where $\hspace{0.1cm}x_i[link]\hspace{0.1cm}$ is the value of the **link** column in the row $\hspace{0.1cm}i$-th row of $\hspace{0.1cm}df1\hspace{0.1cm}$, that is, $\hspace{0.1cm}x_i$ .
+
+
+<br>
+
+
+$$pd.merge(df1, df2, on=link, how=inner) 
+\hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} c(x_i , y(x_i)) \hspace{0.1cm} : \hspace{0.1cm} \exists \hspace{0.1cm}  i=1,...,n_1 \hspace{0.1cm} , \hspace{0.1cm} y_i \in y(x_i) \hspace{0.1cm} \right)$$
+
+
+
+
+
+
+
+
 <br>
 
 ## Outer join
 
 Outer join es una operacion que consiste en juntar dos data-frames (df1 y df2) a través de una columna compartida por ambos, denominada columna de enlace. El data-frame resultante de un inner join tiene como filas la concatenacion de las filas de df1 y las de df2 que contienen en la columna de enlace un mismo valor, y además si hay alguna fila de df1 que contiene un valor en la columna enlace que no aparece en ninguna fila de df2, entonces esta fila se concatena con una fila con tantos NaN como columnas (sin contar la de enlace) tiene df2, y se añade al nuevo data-frame. Y lo mismo para df2, es decir, si hay alguna fila de df2 que contiene un valor en la columna enlace que no aparece en ninguna fila de df1, entonces esta fila se concatena con una fila con tantos NaN como columnas (sin contar la de enlace) tiene df1, y se añade al nuevo data-frame.
+
+<br>
 
 ```python
 pd.merge(Ventas, Clientes, on='ClienteID', how='outer')  
@@ -11782,6 +11854,7 @@ pd.merge(Ventas, Clientes, on='ClienteID', how='outer')
 
 Left join es una operacion que consiste en juntar dos data-frames (df1 y df2) a través de una columna compartida por ambos, denominada columna de enlace. El data-frame resultante de un inner join tiene como filas la concatenacion de las filas de df1 y las de df2 que contienen en la columna de enlace un mismo valor, y además si hay alguna fila de df1 (df de la izquierda) que contiene un valor en la columna enlace que no aparece en ninguna fila de df2, entonces esta fila se concatena con una fila con tantos NaN como columnas (sin contar la de enlace) tiene df2, y se añade al nuevo data-frame.
 
+<br>
 
 ```python
 pd.merge(Ventas, Clientes, on='ClienteID', how='left')
@@ -12027,6 +12100,8 @@ pd.merge(Ventas, Clientes, on='ClienteID', how='left')
 ## Right join
 
 Right join is an operation that consists of joining two data-frames (df1 and df2) through a column shared by both, called link column. The data-frame resulting from a right join has as rows the concatenation of the rows of df1 and those of df2 that contain the same value in the link column, and also if there is any row of df2 (df on the right) that contains a value in the link column that does not appear in any row of df1, then this row is concatenated with a row with as many NaN as there are columns (not counting the link column) df1 has, and it is added to the new data-frame.
+
+<br>
 
 ```python
 pd.merge(Ventas, Clientes, on='ClienteID', how='right') 
@@ -12294,7 +12369,7 @@ pd.merge(Ventas, Clientes, on='ClienteID', how='right')
 
 <br>
 
-The correct way to use `merge` when the names of link columns are different is:
+The correct way to use `merge` when the names of link columns are different is the following:
 
 
 ```python
@@ -12627,6 +12702,7 @@ House_Price_Data.sort_values(by='price', ascending=True)
 </div>
 
 
+<br>
 
 
 ```python
