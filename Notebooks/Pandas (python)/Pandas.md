@@ -1,7 +1,7 @@
 ---
 title: 'Introduction to Pandas'
 author: 'Fabio Scielzo Ortiz'
-date: '25/1/23'
+date: '28/01/23'
 output: 
    rmdformats::readthedown:
       use_bookdown: true
@@ -48,6 +48,31 @@ css: custom.css
 
 
 
+<div class="warning" style='background-color:#FCF2EC; color: #000000; border-left: solid #FE9554 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:10em;'>
+
+
+$\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)**
+
+$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/autores.html)
+
+$\hspace{0.3cm}$ **Si utilizas este artículo, por favor, cítalo:** 
+
+$\hspace{0.5cm}$ Scielzo Ortiz, F. (2023). Introduction to Pandas. http://estadistica4all.com/Articulos/Pandas.html
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
+***Se recomienda abrir el artículo en un ordenador o en una tablet.***
+ 
+ <br>
+
 # Data-frame as matrix
 
 We are going to consider data-frames as data matrix.
@@ -62,10 +87,10 @@ x_2^t \\
 ... \\
 x_n^t
 \end{pmatrix} \hspace{0.05cm} =\hspace{0.05cm}  \begin{pmatrix}
-x_{11} & x_{11} & ... & x_{11}\\
-x_{11} & x_{11} & ... & x_{11}\\
+x_{11} & x_{12} & ... & x_{1p}\\
+x_{21} & x_{22} & ... & x_{2p}\\
 ... &  ... & ... & ... \\
-x_{11} & x_{11} & ... & x_{11}
+x_{n1} & x_{n2} & ... & x_{np}
 \end{pmatrix} \hspace{0.05cm} =\hspace{0.05cm}  \left( X_1 X_2 ... X_p \right)$$
 
 <br>
@@ -13133,10 +13158,10 @@ Mathematically sort operation could be formalized as follows:
 
 $$
 df.sort\_values \hspace{0.1cm} ( \hspace{0.1cm} by=name(X_3)  \hspace{0.1cm} , \hspace{0.1cm} ascending \hspace{0.1cm} ) \hspace{0.15cm} = \hspace{0.15cm} \begin{pmatrix}
-x_{i_11} & x_{i_11} & ... & x_{i_11}\\
-x_{i_21} & x_{i_21} & ... & x_{i_21}\\
-... &  ... & ... & ... \\
-x_{i_n1} & x_{i_n 1} & ... & x_{i_n1}
+x_{i_11} & x_{i_11} & ... & x_{i_1 3} & ... & x_{i_1 p}\\
+x_{i_21} & x_{i_21} &  ... & x_{i_2 3} & ... & x_{i_2 p}\\
+... &  ... & ... & ...  & ... & ...\\
+x_{i_n1} & x_{i_n 1} &  ... & x_{i_n 3} & ...& x_{i_n p}
 \end{pmatrix} \\
 $$
 
@@ -13144,12 +13169,14 @@ where:
 
 - if $\hspace{0.1cm}ascending = True$
 
-$$x_{i_1 3} \hspace{0.1cm} < \hspace{0.1cm} x_{i_2 3} \hspace{0.1cm} <  \hspace{0.1cm} \dots \hspace{0.1cm} < \hspace{0.1cm} x_{i_n 3}$$
+$$x_{i_1 3} \hspace{0.1cm} < \hspace{0.1cm} x_{i_2 3} \hspace{0.1cm} <  \hspace{0.1cm} \dots \hspace{0.1cm} < \hspace{0.1cm} x_{i_n 3} \\$$
 
 
 - if $\hspace{0.1cm} ascending = False$
 
 $$x_{i_1 3} \hspace{0.1cm} > \hspace{0.1cm} x_{i_2 3} \hspace{0.1cm} > \dots > \hspace{0.1cm} x_{i_n 3}$$
 
+
+<br>
 
 <br>

@@ -1611,7 +1611,7 @@ margin-left: 0 !important;
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
                   <p class="author"><span class="glyphicon glyphicon-user"></span> Fabio Scielzo Ortiz</p>
-                        <p class="date"><span class="glyphicon glyphicon-calendar"></span> 25/1/23</p>
+                        <p class="date"><span class="glyphicon glyphicon-calendar"></span> 28/01/23</p>
           </div>
    </div>
      
@@ -1644,6 +1644,19 @@ margin-left: auto;
 margin-right: auto;
 }
 </style>
+<div class="warning" style="background-color:#FCF2EC; color: #000000; border-left: solid #FE9554 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:10em;">
+<p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Más artículos: <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://fabioscielzoortiz.github.io/Estadistica4all.github.io/">Estadistica4all</a></strong></p>
+<p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Autor:</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="http://estadistica4all.com/autores/autores.html">Fabio Scielzo Ortiz</a></p>
+<p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Si utilizas este artículo, por favor, cítalo:</strong></p>
+<p><span class="math inline">\(\hspace{0.5cm}\)</span> Scielzo Ortiz, F. (2023). Introduction to Pandas. <a href="http://estadistica4all.com/Articulos/Pandas.html" class="uri">http://estadistica4all.com/Articulos/Pandas.html</a></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><strong><em>Se recomienda abrir el artículo en un ordenador o en una tablet.</em></strong></p>
+<p><br></p>
 <div id="data-frame-as-matrix" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Data-frame as matrix</h1>
 <p>We are going to consider data-frames as data matrix.</p>
@@ -1655,10 +1668,10 @@ x_2^t \\
 ... \\
 x_n^t
 \end{pmatrix} \hspace{0.05cm} =\hspace{0.05cm}  \begin{pmatrix}
-x_{11} &amp; x_{11} &amp; ... &amp; x_{11}\\
-x_{11} &amp; x_{11} &amp; ... &amp; x_{11}\\
+x_{11} &amp; x_{12} &amp; ... &amp; x_{1p}\\
+x_{21} &amp; x_{22} &amp; ... &amp; x_{2p}\\
 ... &amp;  ... &amp; ... &amp; ... \\
-x_{11} &amp; x_{11} &amp; ... &amp; x_{11}
+x_{n1} &amp; x_{n2} &amp; ... &amp; x_{np}
 \end{pmatrix} \hspace{0.05cm} =\hspace{0.05cm}  \left( X_1 X_2 ... X_p \right)\]</span></p>
 <p><br></p>
 <p>Where <span class="math inline">\(\hspace{0.1cm}x_i=(x_{i1},..., x_{ip})^t\hspace{0.1cm}\)</span> represent the <span class="math inline">\(\hspace{0.05cm}i\)</span>-th row and <span class="math inline">\(\hspace{0.1cm}X_j\hspace{0.1cm}\)</span> the <span class="math inline">\(\hspace{0.05cm}j\)</span>-th column of the data-frame <span class="math inline">\(\hspace{0.1cm}df\)</span>.</p>
@@ -31821,21 +31834,22 @@ size_in_m_2
 <p>Mathematically sort operation could be formalized as follows:</p>
 <p><span class="math display">\[
 df.sort\_values \hspace{0.1cm} ( \hspace{0.1cm} by=name(X_3)  \hspace{0.1cm} , \hspace{0.1cm} ascending \hspace{0.1cm} ) \hspace{0.15cm} = \hspace{0.15cm} \begin{pmatrix}
-x_{i_11} &amp; x_{i_11} &amp; ... &amp; x_{i_11}\\
-x_{i_21} &amp; x_{i_21} &amp; ... &amp; x_{i_21}\\
-... &amp;  ... &amp; ... &amp; ... \\
-x_{i_n1} &amp; x_{i_n 1} &amp; ... &amp; x_{i_n1}
+x_{i_11} &amp; x_{i_11} &amp; ... &amp; x_{i_1 3} &amp; ... &amp; x_{i_1 p}\\
+x_{i_21} &amp; x_{i_21} &amp;  ... &amp; x_{i_2 3} &amp; ... &amp; x_{i_2 p}\\
+... &amp;  ... &amp; ... &amp; ...  &amp; ... &amp; ...\\
+x_{i_n1} &amp; x_{i_n 1} &amp;  ... &amp; x_{i_n 3} &amp; ...&amp; x_{i_n p}
 \end{pmatrix} \\
 \]</span></p>
 <p>where:</p>
 <ul>
 <li>if <span class="math inline">\(\hspace{0.1cm}ascending = True\)</span></li>
 </ul>
-<p><span class="math display">\[x_{i_1 3} \hspace{0.1cm} &lt; \hspace{0.1cm} x_{i_2 3} \hspace{0.1cm} &lt;  \hspace{0.1cm} \dots \hspace{0.1cm} &lt; \hspace{0.1cm} x_{i_n 3}\]</span></p>
+<p><span class="math display">\[x_{i_1 3} \hspace{0.1cm} &lt; \hspace{0.1cm} x_{i_2 3} \hspace{0.1cm} &lt;  \hspace{0.1cm} \dots \hspace{0.1cm} &lt; \hspace{0.1cm} x_{i_n 3} \\\]</span></p>
 <ul>
 <li>if <span class="math inline">\(\hspace{0.1cm} ascending = False\)</span></li>
 </ul>
 <p><span class="math display">\[x_{i_1 3} \hspace{0.1cm} &gt; \hspace{0.1cm} x_{i_2 3} \hspace{0.1cm} &gt; \dots &gt; \hspace{0.1cm} x_{i_n 3}\]</span></p>
+<p><br></p>
 <p><br></p>
 </div>
 </div>
