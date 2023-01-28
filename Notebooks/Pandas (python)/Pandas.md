@@ -11323,7 +11323,7 @@ where $\hspace{0.1cm}x_i[link]\hspace{0.1cm}$ is the value of the **link** colum
 
 ## Inner join
 
-Inner join es una operacion que consiste en juntar dos data-frames (df1 y df2) a través de una columna compartida por ambos, denominada columna de enlace. El data-frame resultante de un inner join tiene como filas la concatenacion de las filas de df1 y las de df2 que contienen en la columna de enlace un mismo valor.
+In simple words, the inner join between $\hspace{0.1cm}df1\hspace{0.1cm}$ and $\hspace{0.1cm}df2\hspace{0.1cm}$ is an operation that consists of creating a new data frame that joins rows $\hspace{0.1cm}df1\hspace{0.1cm}$ and rows $\hspace{0.1cm}df2\hspace{0.1cm}$ through a link column, taking into account only the values of the link column appearing in both data frames. 
 
 <br>
 
@@ -11565,22 +11565,34 @@ pd.merge(Ventas, Clientes, on='ClienteID', how='inner')
 </div>
 
 
+<br>
+
+---
+
+<br>
+
+Mathematically inner join can be formalized as follows:
+
+$$pd.merge \hspace{0.1cm} ( \hspace{0.1cm}  df1 \hspace{0.1cm} , \hspace{0.1cm}  df2 \hspace{0.1cm} , \hspace{0.1cm}  on=link \hspace{0.1cm}  , \hspace{0.1cm}  how=inner \hspace{0.1cm} ) 
+\hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  y_j \hspace{0.1cm} ) \hspace{0.13cm} : \hspace{0.13cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} ,\hspace{0.15cm} j=1,...,n_2 \hspace{0.15cm},  \hspace{0.2cm} y_j \in y(x_i) \hspace{0.1cm} \right) \\$$
+
+where: 
+
+$c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y(x_i) \hspace{0.1cm} ) \hspace{0.1cm}$ is the row resulting from concatenating $\hspace{0.1cm}x_i \hspace{0.1cm}$ with $\hspace{0.1cm}y(x_i ) \hspace{0.1cm}$
+ 
+Note that in $\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y(x_i) \hspace{0.1cm} ) \hspace{0.1cm}$ the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.
 
 
 <br>
 
-
-$$pd.merge(df1, df2, on=link, how=inner) 
-\hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} c(x_i , y(x_i)) \hspace{0.1cm} : \hspace{0.1cm} \exists \hspace{0.1cm}  i=1,...,n_1 \hspace{0.1cm} , \hspace{0.1cm} y_i \in y(x_i) \hspace{0.1cm} \right)$$
-
-
-
-
-
-
-
+---
 
 <br>
+
+
+
+
+
 
 ## Outer join
 
@@ -11851,7 +11863,38 @@ pd.merge(Ventas, Clientes, on='ClienteID', how='outer')
 </table>
 </div>
 
+
+
+
 <br>
+
+---
+
+<br>
+
+Mathematically outer join can be formalized as follows:
+
+
+$$pd.merge \hspace{0.1cm} ( \hspace{0.1cm}  df1 \hspace{0.1cm} , \hspace{0.1cm}  df2 \hspace{0.1cm} , \hspace{0.1cm}  on=link \hspace{0.1cm}  , \hspace{0.1cm}  how=outeer \hspace{0.1cm} ) 
+\hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
+\left( \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  y(x_i) \hspace{0.1cm} ) \hspace{0.13cm} : \hspace{0.13cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} , \hspace{0.15cm} y_i \in y(x_i) \hspace{0.1cm} \right) \\
+\left( \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  NA \hspace{0.1cm} ) \hspace{0.13cm} : \hspace{0.13cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} , \hspace{0.15cm} \notexists j = 1,...,n_2 ,  y_j \in y(x_i) \hspace{0.1cm} \right) \\
+\left( \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  NA \hspace{0.1cm}  , \hspace{0.1cm}  y_i \hspace{0.1cm} ) \hspace{0.13cm} : \hspace{0.13cm}  \hspace{0.13cm}  i=1,...,n_2 \hspace{0.15cm} , \hspace{0.15cm} \notexists j = 1,...,n_1 ,  x_j \in y(y_i) \hspace{0.1cm} \right) \\
+\end{pmatrix}  \\$$
+
+where: 
+
+$c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y(x_i) \hspace{0.1cm} ) \hspace{0.1cm}$ is the row resulting from concatenating $\hspace{0.1cm}x_i \hspace{0.1cm}$ with $\hspace{0.1cm}y(x_i ) \hspace{0.1cm}$
+ 
+Note that in $\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y(x_i) \hspace{0.1cm} ) \hspace{0.1cm}$ the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.
+
+
+<br>
+
+---
+
+<br>
+
 
 ## Left join
 

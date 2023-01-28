@@ -27670,7 +27670,7 @@ Y_1 &amp; ... &amp; Y_{p_2} \\
 <p><br></p>
 <div id="inner-join" class="section level2" number="17.1">
 <h2><span class="header-section-number">17.1</span> Inner join</h2>
-<p>Inner join es una operacion que consiste en juntar dos data-frames (df1 y df2) a través de una columna compartida por ambos, denominada columna de enlace. El data-frame resultante de un inner join tiene como filas la concatenacion de las filas de df1 y las de df2 que contienen en la columna de enlace un mismo valor.</p>
+<p>In simple words, the inner join between <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> is an operation that consists of creating a new data frame that joins rows <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> and rows <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> through a link column, taking into account only the values of the link column appearing in both data frames.</p>
 <p><br></p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Ventas, Clientes, on<span class="op">=</span><span class="st">&#39;ClienteID&#39;</span>, how<span class="op">=</span><span class="st">&#39;inner&#39;</span>) </span></code></pre></div>
 <div>
@@ -28235,8 +28235,16 @@ Sevilla
 </table>
 </div>
 <p><br></p>
-<p><span class="math display">\[pd.merge(df1, df2, on=link, how=inner)
-\hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} c(x_i , y(x_i)) \hspace{0.1cm} : \hspace{0.1cm} \exists \hspace{0.1cm}  i=1,...,n_1 \hspace{0.1cm} , \hspace{0.1cm} y_i \in y(x_i) \hspace{0.1cm} \right)\]</span></p>
+<hr />
+<p><br></p>
+<p>Mathematically inner join can be formalized as follows:</p>
+<p><span class="math display">\[pd.merge \hspace{0.1cm} ( \hspace{0.1cm}  df1 \hspace{0.1cm} , \hspace{0.1cm}  df2 \hspace{0.1cm} , \hspace{0.1cm}  on=link \hspace{0.1cm}  , \hspace{0.1cm}  how=inner \hspace{0.1cm} )
+\hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  y_j \hspace{0.1cm} ) \hspace{0.13cm} : \hspace{0.13cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} ,\hspace{0.15cm} j=1,...,n_2 \hspace{0.15cm},  \hspace{0.2cm} y_j \in y(x_i) \hspace{0.1cm} \right) \\\]</span></p>
+<p>where:</p>
+<p><span class="math inline">\(c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y(x_i) \hspace{0.1cm} ) \hspace{0.1cm}\)</span> is the row resulting from concatenating <span class="math inline">\(\hspace{0.1cm}x_i \hspace{0.1cm}\)</span> with <span class="math inline">\(\hspace{0.1cm}y(x_i ) \hspace{0.1cm}\)</span></p>
+<p>Note that in <span class="math inline">\(\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y(x_i) \hspace{0.1cm} ) \hspace{0.1cm}\)</span> the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.</p>
+<p><br></p>
+<hr />
 <p><br></p>
 </div>
 <div id="outer-join" class="section level2" number="17.2">
@@ -28874,6 +28882,21 @@ Murcia
 </tbody>
 </table>
 </div>
+<p><br></p>
+<hr />
+<p><br></p>
+<p>Mathematically outer join can be formalized as follows:</p>
+<p><span class="math display">\[pd.merge \hspace{0.1cm} ( \hspace{0.1cm}  df1 \hspace{0.1cm} , \hspace{0.1cm}  df2 \hspace{0.1cm} , \hspace{0.1cm}  on=link \hspace{0.1cm}  , \hspace{0.1cm}  how=outeer \hspace{0.1cm} )
+\hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
+\left( \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  y(x_i) \hspace{0.1cm} ) \hspace{0.13cm} : \hspace{0.13cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} , \hspace{0.15cm} y_i \in y(x_i) \hspace{0.1cm} \right) \\
+\left( \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  NA \hspace{0.1cm} ) \hspace{0.13cm} : \hspace{0.13cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} , \hspace{0.15cm} \notexists j = 1,...,n_2 ,  y_j \in y(x_i) \hspace{0.1cm} \right) \\
+\left( \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  NA \hspace{0.1cm}  , \hspace{0.1cm}  y_i \hspace{0.1cm} ) \hspace{0.13cm} : \hspace{0.13cm}  \hspace{0.13cm}  i=1,...,n_2 \hspace{0.15cm} , \hspace{0.15cm} \notexists j = 1,...,n_1 ,  x_j \in y(y_i) \hspace{0.1cm} \right) \\
+\end{pmatrix}  \\\]</span></p>
+<p>where:</p>
+<p><span class="math inline">\(c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y(x_i) \hspace{0.1cm} ) \hspace{0.1cm}\)</span> is the row resulting from concatenating <span class="math inline">\(\hspace{0.1cm}x_i \hspace{0.1cm}\)</span> with <span class="math inline">\(\hspace{0.1cm}y(x_i ) \hspace{0.1cm}\)</span></p>
+<p>Note that in <span class="math inline">\(\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y(x_i) \hspace{0.1cm} ) \hspace{0.1cm}\)</span> the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.</p>
+<p><br></p>
+<hr />
 <p><br></p>
 </div>
 <div id="left-join" class="section level2" number="17.3">
