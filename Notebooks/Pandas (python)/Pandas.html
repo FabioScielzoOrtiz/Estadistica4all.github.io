@@ -28241,8 +28241,8 @@ Sevilla
 <p><span class="math display">\[pd.merge \hspace{0.1cm} ( \hspace{0.1cm}  df1 \hspace{0.1cm} , \hspace{0.1cm}  df2 \hspace{0.1cm} , \hspace{0.1cm}  on=link \hspace{0.1cm}  , \hspace{0.1cm}  how=inner \hspace{0.1cm} )
 \hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  y_j \hspace{0.1cm} ) \hspace{0.13cm} : \hspace{0.13cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} ,\hspace{0.15cm} j=1,...,n_2 \hspace{0.15cm},  \hspace{0.2cm} y_j \in y(x_i) \hspace{0.1cm} \right) \\\]</span></p>
 <p>where:</p>
-<p><span class="math inline">\(c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y(x_i) \hspace{0.1cm} ) \hspace{0.1cm}\)</span> is the row resulting from concatenating <span class="math inline">\(\hspace{0.1cm}x_i \hspace{0.1cm}\)</span> with <span class="math inline">\(\hspace{0.1cm}y(x_i ) \hspace{0.1cm}\)</span></p>
-<p>Note that in <span class="math inline">\(\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y(x_i) \hspace{0.1cm} ) \hspace{0.1cm}\)</span> the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.</p>
+<p><span class="math inline">\(c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}\)</span> is the row resulting from concatenating <span class="math inline">\(\hspace{0.1cm}x_i \hspace{0.1cm}\)</span> with <span class="math inline">\(\hspace{0.1cm}y_j \hspace{0.1cm}\)</span></p>
+<p>Note that in <span class="math inline">\(\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}\)</span> the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.</p>
 <p><br></p>
 <hr />
 <p><br></p>
@@ -28886,15 +28886,15 @@ Murcia
 <hr />
 <p><br></p>
 <p>Mathematically outer join can be formalized as follows:</p>
-<p><span class="math display">\[pd.merge \hspace{0.1cm} ( \hspace{0.1cm}  df1 \hspace{0.1cm} , \hspace{0.1cm}  df2 \hspace{0.1cm} , \hspace{0.1cm}  on=link \hspace{0.1cm}  , \hspace{0.1cm}  how=outeer \hspace{0.1cm} )
+<p><span class="math display">\[pd.merge \hspace{0.1cm} ( \hspace{0.1cm}  df1 \hspace{0.1cm} , \hspace{0.1cm}  df2 \hspace{0.1cm} , \hspace{0.1cm}  on=link \hspace{0.1cm}  , \hspace{0.1cm}  how=outer \hspace{0.1cm} )
 \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
-\left( \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  y(x_i) \hspace{0.1cm} ) \hspace{0.13cm} : \hspace{0.13cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} , \hspace{0.15cm} y_i \in y(x_i) \hspace{0.1cm} \right) \\
-\left( \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  NA \hspace{0.1cm} ) \hspace{0.13cm} : \hspace{0.13cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} , \hspace{0.15cm} \notexists j = 1,...,n_2 ,  y_j \in y(x_i) \hspace{0.1cm} \right) \\
-\left( \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  NA \hspace{0.1cm}  , \hspace{0.1cm}  y_i \hspace{0.1cm} ) \hspace{0.13cm} : \hspace{0.13cm}  \hspace{0.13cm}  i=1,...,n_2 \hspace{0.15cm} , \hspace{0.15cm} \notexists j = 1,...,n_1 ,  x_j \in y(y_i) \hspace{0.1cm} \right) \\
+\hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  y_j \hspace{0.1cm} ) \hspace{0.15cm} : \hspace{0.15cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} , \hspace{0.15cm} j=1,...,n_2 \hspace{0.15cm} , \hspace{0.15cm} y_j \in y(x_i) \hspace{0.1cm}  \\
+\hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  NA \hspace{0.1cm} ) \hspace{0.15cm} : \hspace{0.15cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} , \hspace{0.15cm} \nexists \hspace{0.1cm} j = 1,...,n_2 \hspace{0.15cm},\hspace{0.15cm}  y_j \in y(x_i) \hspace{0.1cm}\\
+\hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  NA \hspace{0.1cm}  , \hspace{0.1cm}  y_j \hspace{0.1cm} ) \hspace{0.15cm} : \hspace{0.15cm}  \hspace{0.13cm}  j=1,...,n_2 \hspace{0.15cm} , \hspace{0.15cm} \nexists \hspace{0.1cm} i = 1,...,n_1 \hspace{0.15cm}, \hspace{0.15cm}  x_i \in x(y_j) \\
 \end{pmatrix}  \\\]</span></p>
 <p>where:</p>
-<p><span class="math inline">\(c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y(x_i) \hspace{0.1cm} ) \hspace{0.1cm}\)</span> is the row resulting from concatenating <span class="math inline">\(\hspace{0.1cm}x_i \hspace{0.1cm}\)</span> with <span class="math inline">\(\hspace{0.1cm}y(x_i ) \hspace{0.1cm}\)</span></p>
-<p>Note that in <span class="math inline">\(\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y(x_i) \hspace{0.1cm} ) \hspace{0.1cm}\)</span> the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.</p>
+<p><span class="math inline">\(c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}\)</span> is the row resulting from concatenating <span class="math inline">\(\hspace{0.1cm}x_i \hspace{0.1cm}\)</span> with <span class="math inline">\(\hspace{0.1cm}y_j \hspace{0.1cm}\)</span></p>
+<p>Note that in <span class="math inline">\(\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}\)</span> the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.</p>
 <p><br></p>
 <hr />
 <p><br></p>
@@ -29465,6 +29465,20 @@ Lima
 </tbody>
 </table>
 </div>
+<p><br></p>
+<hr />
+<p><br></p>
+<p>Mathematically left join can be formalized as follows:</p>
+<p><span class="math display">\[pd.merge \hspace{0.1cm} ( \hspace{0.1cm}  df1 \hspace{0.1cm} , \hspace{0.1cm}  df2 \hspace{0.1cm} , \hspace{0.1cm}  on=link \hspace{0.1cm}  , \hspace{0.1cm}  how=left \hspace{0.1cm} )
+\hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
+\hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  y_j \hspace{0.1cm} ) \hspace{0.15cm} : \hspace{0.15cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} , \hspace{0.15cm} j=1,...,n_2 \hspace{0.15cm} , \hspace{0.15cm} y_j \in y(x_i) \hspace{0.1cm}  \\
+\hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  NA \hspace{0.1cm} ) \hspace{0.15cm} : \hspace{0.15cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} , \hspace{0.15cm} \nexists \hspace{0.1cm} j = 1,...,n_2 \hspace{0.15cm},\hspace{0.15cm}  y_j \in y(x_i) \hspace{0.1cm}  \end{pmatrix}\\
+\]</span></p>
+<p>where:</p>
+<p><span class="math inline">\(c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}\)</span> is the row resulting from concatenating <span class="math inline">\(\hspace{0.1cm}x_i \hspace{0.1cm}\)</span> with <span class="math inline">\(\hspace{0.1cm}y_j \hspace{0.1cm}\)</span></p>
+<p>Note that in <span class="math inline">\(\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}\)</span> the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.</p>
+<p><br></p>
+<hr />
 <p><br></p>
 </div>
 <div id="right-join" class="section level2" number="17.4">
@@ -30102,6 +30116,20 @@ Murcia
 </tbody>
 </table>
 </div>
+<p><br></p>
+<hr />
+<p><br></p>
+<p>Mathematically right join can be formalized as follows:</p>
+<p><span class="math display">\[pd.merge \hspace{0.1cm} ( \hspace{0.1cm}  df1 \hspace{0.1cm} , \hspace{0.1cm}  df2 \hspace{0.1cm} , \hspace{0.1cm}  on=link \hspace{0.1cm}  , \hspace{0.1cm}  how=right \hspace{0.1cm} )
+\hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
+\hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  y_j \hspace{0.1cm} ) \hspace{0.15cm} : \hspace{0.15cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} , \hspace{0.15cm} j=1,...,n_2 \hspace{0.15cm} , \hspace{0.15cm} y_j \in y(x_i) \hspace{0.1cm}  \\
+\hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  NA \hspace{0.1cm}  , \hspace{0.1cm}  y_j \hspace{0.1cm} ) \hspace{0.15cm} : \hspace{0.15cm}  \hspace{0.13cm}  j=1,...,n_2 \hspace{0.15cm} , \hspace{0.15cm} \nexists \hspace{0.1cm} i = 1,...,n_1 \hspace{0.15cm}, \hspace{0.15cm}  x_i \in x(y_j) \\
+\end{pmatrix}  \\\]</span></p>
+<p>where:</p>
+<p><span class="math inline">\(c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}\)</span> is the row resulting from concatenating <span class="math inline">\(\hspace{0.1cm}x_i \hspace{0.1cm}\)</span> with <span class="math inline">\(\hspace{0.1cm}y_j \hspace{0.1cm}\)</span></p>
+<p>Note that in <span class="math inline">\(\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}\)</span> the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.</p>
+<p><br></p>
+<hr />
 <p><br></p>
 <p>The correct way to use <code>merge</code> when the names of link columns are different is the following:</p>
 <div class="sourceCode" id="cb82"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># df_merge = pd.merge(df1, df2, left_on=&#39;id1&#39; , right_on=&#39;id2&#39;, how=&#39;inner&#39;)</span></span></code></pre></div>
@@ -31787,6 +31815,27 @@ size_in_m_2
 1905 rows × 29 columns
 </p>
 </div>
+<p><br></p>
+<hr />
+<p><br></p>
+<p>Mathematically sort operation could be formalized as follows:</p>
+<p><span class="math display">\[
+df.sort\_values \hspace{0.1cm} ( \hspace{0.1cm} by=name(X_3)  \hspace{0.1cm} , \hspace{0.1cm} ascending \hspace{0.1cm} ) \hspace{0.15cm} = \hspace{0.15cm} \begin{pmatrix}
+x_{i_11} &amp; x_{i_11} &amp; ... &amp; x_{i_11}\\
+x_{i_21} &amp; x_{i_21} &amp; ... &amp; x_{i_21}\\
+... &amp;  ... &amp; ... &amp; ... \\
+x_{i_n1} &amp; x_{i_n 1} &amp; ... &amp; x_{i_n1}
+\end{pmatrix} \\
+\]</span></p>
+<p>where:</p>
+<ul>
+<li>if <span class="math inline">\(\hspace{0.1cm}ascending = True\)</span></li>
+</ul>
+<p><span class="math display">\[x_{i_1 3} \hspace{0.1cm} &lt; \hspace{0.1cm} x_{i_2 3} \hspace{0.1cm} &lt;  \hspace{0.1cm} \dots \hspace{0.1cm} &lt; \hspace{0.1cm} x_{i_n 3}\]</span></p>
+<ul>
+<li>if <span class="math inline">\(\hspace{0.1cm} ascending = False\)</span></li>
+</ul>
+<p><span class="math display">\[x_{i_1 3} \hspace{0.1cm} &gt; \hspace{0.1cm} x_{i_2 3} \hspace{0.1cm} &gt; \dots &gt; \hspace{0.1cm} x_{i_n 3}\]</span></p>
 </div>
 </div>
 

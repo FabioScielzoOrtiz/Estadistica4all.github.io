@@ -11578,9 +11578,9 @@ $$pd.merge \hspace{0.1cm} ( \hspace{0.1cm}  df1 \hspace{0.1cm} , \hspace{0.1cm} 
 
 where: 
 
-$c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y(x_i) \hspace{0.1cm} ) \hspace{0.1cm}$ is the row resulting from concatenating $\hspace{0.1cm}x_i \hspace{0.1cm}$ with $\hspace{0.1cm}y(x_i ) \hspace{0.1cm}$
+$c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}$ is the row resulting from concatenating $\hspace{0.1cm}x_i \hspace{0.1cm}$ with $\hspace{0.1cm}y_j \hspace{0.1cm}$
  
-Note that in $\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y(x_i) \hspace{0.1cm} ) \hspace{0.1cm}$ the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.
+Note that in $\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}$ the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.
 
 
 <br>
@@ -11875,18 +11875,18 @@ pd.merge(Ventas, Clientes, on='ClienteID', how='outer')
 Mathematically outer join can be formalized as follows:
 
 
-$$pd.merge \hspace{0.1cm} ( \hspace{0.1cm}  df1 \hspace{0.1cm} , \hspace{0.1cm}  df2 \hspace{0.1cm} , \hspace{0.1cm}  on=link \hspace{0.1cm}  , \hspace{0.1cm}  how=outeer \hspace{0.1cm} ) 
+$$pd.merge \hspace{0.1cm} ( \hspace{0.1cm}  df1 \hspace{0.1cm} , \hspace{0.1cm}  df2 \hspace{0.1cm} , \hspace{0.1cm}  on=link \hspace{0.1cm}  , \hspace{0.1cm}  how=outer \hspace{0.1cm} ) 
 \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
-\left( \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  y(x_i) \hspace{0.1cm} ) \hspace{0.13cm} : \hspace{0.13cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} , \hspace{0.15cm} y_i \in y(x_i) \hspace{0.1cm} \right) \\
-\left( \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  NA \hspace{0.1cm} ) \hspace{0.13cm} : \hspace{0.13cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} , \hspace{0.15cm} \notexists j = 1,...,n_2 ,  y_j \in y(x_i) \hspace{0.1cm} \right) \\
-\left( \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  NA \hspace{0.1cm}  , \hspace{0.1cm}  y_i \hspace{0.1cm} ) \hspace{0.13cm} : \hspace{0.13cm}  \hspace{0.13cm}  i=1,...,n_2 \hspace{0.15cm} , \hspace{0.15cm} \notexists j = 1,...,n_1 ,  x_j \in y(y_i) \hspace{0.1cm} \right) \\
+ \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  y_j \hspace{0.1cm} ) \hspace{0.15cm} : \hspace{0.15cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} , \hspace{0.15cm} j=1,...,n_2 \hspace{0.15cm} , \hspace{0.15cm} y_j \in y(x_i) \hspace{0.1cm}  \\
+ \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  NA \hspace{0.1cm} ) \hspace{0.15cm} : \hspace{0.15cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} , \hspace{0.15cm} \nexists \hspace{0.1cm} j = 1,...,n_2 \hspace{0.15cm},\hspace{0.15cm}  y_j \in y(x_i) \hspace{0.1cm}\\
+ \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  NA \hspace{0.1cm}  , \hspace{0.1cm}  y_j \hspace{0.1cm} ) \hspace{0.15cm} : \hspace{0.15cm}  \hspace{0.13cm}  j=1,...,n_2 \hspace{0.15cm} , \hspace{0.15cm} \nexists \hspace{0.1cm} i = 1,...,n_1 \hspace{0.15cm}, \hspace{0.15cm}  x_i \in x(y_j) \\
 \end{pmatrix}  \\$$
 
 where: 
 
-$c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y(x_i) \hspace{0.1cm} ) \hspace{0.1cm}$ is the row resulting from concatenating $\hspace{0.1cm}x_i \hspace{0.1cm}$ with $\hspace{0.1cm}y(x_i ) \hspace{0.1cm}$
+$c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}$ is the row resulting from concatenating $\hspace{0.1cm}x_i \hspace{0.1cm}$ with $\hspace{0.1cm}y_j \hspace{0.1cm}$
  
-Note that in $\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y(x_i) \hspace{0.1cm} ) \hspace{0.1cm}$ the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.
+Note that in $\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}$ the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.
 
 
 <br>
@@ -12139,6 +12139,33 @@ pd.merge(Ventas, Clientes, on='ClienteID', how='left')
 </table>
 </div>
 
+
+
+<br>
+
+---
+
+<br>
+
+Mathematically left join can be formalized as follows:
+
+
+$$pd.merge \hspace{0.1cm} ( \hspace{0.1cm}  df1 \hspace{0.1cm} , \hspace{0.1cm}  df2 \hspace{0.1cm} , \hspace{0.1cm}  on=link \hspace{0.1cm}  , \hspace{0.1cm}  how=left \hspace{0.1cm} ) 
+\hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
+ \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  y_j \hspace{0.1cm} ) \hspace{0.15cm} : \hspace{0.15cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} , \hspace{0.15cm} j=1,...,n_2 \hspace{0.15cm} , \hspace{0.15cm} y_j \in y(x_i) \hspace{0.1cm}  \\
+ \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  NA \hspace{0.1cm} ) \hspace{0.15cm} : \hspace{0.15cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} , \hspace{0.15cm} \nexists \hspace{0.1cm} j = 1,...,n_2 \hspace{0.15cm},\hspace{0.15cm}  y_j \in y(x_i) \hspace{0.1cm}  \end{pmatrix}\\
+$$
+
+where: 
+
+$c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}$ is the row resulting from concatenating $\hspace{0.1cm}x_i \hspace{0.1cm}$ with $\hspace{0.1cm}y_j \hspace{0.1cm}$
+ 
+Note that in $\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}$ the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.
+
+
+<br>
+
+---
 
 <br>
 
@@ -12412,6 +12439,33 @@ pd.merge(Ventas, Clientes, on='ClienteID', how='right')
 </table>
 </div>
 
+
+
+<br>
+
+---
+
+<br>
+
+Mathematically right join can be formalized as follows:
+
+
+$$pd.merge \hspace{0.1cm} ( \hspace{0.1cm}  df1 \hspace{0.1cm} , \hspace{0.1cm}  df2 \hspace{0.1cm} , \hspace{0.1cm}  on=link \hspace{0.1cm}  , \hspace{0.1cm}  how=right \hspace{0.1cm} ) 
+\hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
+ \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  y_j \hspace{0.1cm} ) \hspace{0.15cm} : \hspace{0.15cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} , \hspace{0.15cm} j=1,...,n_2 \hspace{0.15cm} , \hspace{0.15cm} y_j \in y(x_i) \hspace{0.1cm}  \\
+ \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  NA \hspace{0.1cm}  , \hspace{0.1cm}  y_j \hspace{0.1cm} ) \hspace{0.15cm} : \hspace{0.15cm}  \hspace{0.13cm}  j=1,...,n_2 \hspace{0.15cm} , \hspace{0.15cm} \nexists \hspace{0.1cm} i = 1,...,n_1 \hspace{0.15cm}, \hspace{0.15cm}  x_i \in x(y_j) \\
+\end{pmatrix}  \\$$
+
+where: 
+
+$c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}$ is the row resulting from concatenating $\hspace{0.1cm}x_i \hspace{0.1cm}$ with $\hspace{0.1cm}y_j \hspace{0.1cm}$
+ 
+Note that in $\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}$ the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.
+
+
+<br>
+
+---
 
 <br>
 
@@ -13069,10 +13123,33 @@ House_Price_Data.sort_values(by='price', ascending=False)
 <p>1905 rows × 29 columns</p>
 </div>
 
+<br>
+
+---
+
+<br>
+
+Mathematically sort operation could be formalized as follows:
+
+$$
+df.sort\_values \hspace{0.1cm} ( \hspace{0.1cm} by=name(X_3)  \hspace{0.1cm} , \hspace{0.1cm} ascending \hspace{0.1cm} ) \hspace{0.15cm} = \hspace{0.15cm} \begin{pmatrix}
+x_{i_11} & x_{i_11} & ... & x_{i_11}\\
+x_{i_21} & x_{i_21} & ... & x_{i_21}\\
+... &  ... & ... & ... \\
+x_{i_n1} & x_{i_n 1} & ... & x_{i_n1}
+\end{pmatrix} \\
+$$
+
+where:
+
+- if $\hspace{0.1cm}ascending = True$
+
+$$x_{i_1 3} \hspace{0.1cm} < \hspace{0.1cm} x_{i_2 3} \hspace{0.1cm} <  \hspace{0.1cm} \dots \hspace{0.1cm} < \hspace{0.1cm} x_{i_n 3}$$
 
 
+- if $\hspace{0.1cm} ascending = False$
+
+$$x_{i_1 3} \hspace{0.1cm} > \hspace{0.1cm} x_{i_2 3} \hspace{0.1cm} > \dots > \hspace{0.1cm} x_{i_n 3}$$
 
 
-
-
-
+<br>
