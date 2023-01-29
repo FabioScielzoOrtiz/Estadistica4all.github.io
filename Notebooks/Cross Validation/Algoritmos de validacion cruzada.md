@@ -1775,12 +1775,12 @@ A continuación se expone un criterio basado en las métricas y algoritmos de va
 
 
 
-- Si la métrica es de **acierto**, como por ejemplo la $\hspace{0.1cm}TA\hspace{0.1cm}$, entonces: $\\[0.5cm]$
+- Si la métrica es de **acierto**, como por ejemplo la $\hspace{0.1cm}TAC\hspace{0.1cm}$, entonces: $\\[0.5cm]$
 
     - El modelo seleccionado es $\hspace{0.1cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.1cm}$ , donde: $\\[0.5cm]$
 
 
-    $$j^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} arg \hspace{0.1cm} \underset{j \in \lbrace 1,...,h\rbrace }{Max} \hspace{0.15cm}  TA(M_j)_{test}^{\hspace{0.05cm} *}$$
+    $$j^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} arg \hspace{0.1cm} \underset{j \in \lbrace 1,...,h\rbrace }{Max} \hspace{0.15cm}  TAC(M_j)_{test}^{\hspace{0.05cm} *}$$
 
 
 </p>
@@ -1814,7 +1814,7 @@ Cargamos los datos con los que vamos a trabajar, los cuales fueron detallados en
 ```python
 Data = pd.read_csv('House_Price_Regression.csv')
 
-Data = Data.loc[:, ['latitude', 'longitude', 'price', 'size_in_m_2', 'balcony_recode', 'private_garden_recode', 'quality_recode']]
+Data = Data.loc[:, ['no_of_bedrooms' , 'no_of_bathrooms','latitude', 'longitude', 'price', 'size_in_m_2', 'balcony_recode', 'private_garden_recode', 'quality_recode']]
 
 Data.head()
 ```
