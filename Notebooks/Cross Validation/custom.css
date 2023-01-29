@@ -6,7 +6,7 @@
 #main .nav-pills > li.active > a,
 #main .nav-pills > li.active > a:hover,
 #main .nav-pills > li.active > a:focus {
-   background-color: #ffffff;
+   background-color: #a5ea50;
 }
 
 #main .nav-pills > li > a:hover {
@@ -18,7 +18,7 @@ h1,h2,h3,h4,h5,h6,legend{
 }
 
 #nav-top span.glyphicon {
-  color: #008B8B;
+  color: #cc1313;
 }
 
 #table-of-contents header{
@@ -40,20 +40,20 @@ a:visited{
 }
 
 #sidebar {
-    color: #682929;
-    background: #652323;
+    color: #ffffff;
+    background: #752020;
 }
 
 #sidebar h2 {
     color: #fafafa;
-    background-color: #970f0f;
+    background-color: #a70303;
 }
 
 #sidebar a {
     color: #ffffff;
 }
-
+ 
 #sidebar a:hover {
-    background-color: #767272;
+    background-color: #9d9595;
     color: #FFFFFF;
 }

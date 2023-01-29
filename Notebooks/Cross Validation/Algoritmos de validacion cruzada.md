@@ -1814,11 +1814,10 @@ Cargamos los datos con los que vamos a trabajar, los cuales fueron detallados en
 ```python
 Data = pd.read_csv('House_Price_Regression.csv')
 
-Data = Data.loc[:, ['no_of_bedrooms' , 'no_of_bathrooms','latitude', 'longitude', 'price', 'size_in_m_2', 'balcony_recode', 'private_garden_recode', 'quality_recode']]
+Data = Data.loc[:, ['no_of_bedrooms' , 'no_of_bathrooms', 'latitude', 'longitude', 'price', 'size_in_m_2', 'balcony_recode', 'private_garden_recode', 'quality_recode']]
 
 Data.head()
 ```
-
 
 
 
@@ -1840,6 +1839,8 @@ Data.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>no_of_bedrooms</th>
+      <th>no_of_bathrooms</th>
       <th>latitude</th>
       <th>longitude</th>
       <th>price</th>
@@ -1852,6 +1853,8 @@ Data.head()
   <tbody>
     <tr>
       <th>0</th>
+      <td>1</td>
+      <td>2</td>
       <td>25.113208</td>
       <td>55.138932</td>
       <td>2700000</td>
@@ -1862,6 +1865,8 @@ Data.head()
     </tr>
     <tr>
       <th>1</th>
+      <td>2</td>
+      <td>2</td>
       <td>25.106809</td>
       <td>55.151201</td>
       <td>2850000</td>
@@ -1872,6 +1877,8 @@ Data.head()
     </tr>
     <tr>
       <th>2</th>
+      <td>3</td>
+      <td>5</td>
       <td>25.063302</td>
       <td>55.137728</td>
       <td>1150000</td>
@@ -1882,6 +1889,8 @@ Data.head()
     </tr>
     <tr>
       <th>3</th>
+      <td>2</td>
+      <td>3</td>
       <td>25.227295</td>
       <td>55.341761</td>
       <td>2850000</td>
@@ -1892,6 +1901,8 @@ Data.head()
     </tr>
     <tr>
       <th>4</th>
+      <td>0</td>
+      <td>1</td>
       <td>25.114275</td>
       <td>55.139764</td>
       <td>1729200</td>
@@ -1903,6 +1914,7 @@ Data.head()
   </tbody>
 </table>
 </div>
+
 
 
 
@@ -1975,15 +1987,15 @@ knn_regression = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, me
 Aplicamos el algoritmo de validación sobre el modelo KNN para regresión, usando como métrica de validación el error cuadratico medio (ECM):
 
 ```python
-ECM_test  = simple_validation_not_random(D=Data, k=0.75, response='price', metric='ECM', model=knn_regression)
+ECM_test_Simple_Validation_not_random  = simple_validation_not_random(D=Data, k=0.75, response='price', metric='ECM', model=knn_regression)
 
-ECM_test
+ECM_test_Simple_Validation_not_random
 ```
 
 
 
 
-    2198758842331.1843
+    2176125958588.6355
 
 
 
@@ -1998,15 +2010,15 @@ Aplicamos el algoritmo de validación simple no aleatoria sobre el modelo KNN pa
 
 
 ```python
-TA_test  = simple_validation_not_random(D=Data, k=0.75, response='quality_recode', metric='TA', model=knn_classification)
+TAC_test_Simple_Validation_not_random  = simple_validation_not_random(D=Data, k=0.75, response='quality_recode', metric='TA', model=knn_classification)
 
-TA_test
+TAC_test_Simple_Validation_not_random
 ```
 
 
 
 
-    0.5651260504201681
+    0.5609243697478992
 
 
 <br>
@@ -2077,15 +2089,15 @@ Aplicamos el algoritmo de validación simple aleatoria sobre el modelo KNN para 
 
 
 ```python
-ECM_test = simple_validation_random(D=Data, k=0.75, response='price', random_seed=123, metric='ECM', model=knn_regression)
+ECM_test_Simple_Validation_random = simple_validation_random(D=Data, k=0.75, response='price', random_seed=123, metric='ECM', model=knn_regression)
 
-ECM_test
+ECM_test_Simple_Validation_random
 ```
 
 
 
 
-    2505043526308.227
+    2464363295205.937
 
 
 
@@ -2098,15 +2110,17 @@ knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=
 Aplicamos el algoritmo de validación simple aleatoria sobre el modelo KNN para clasificación, usando como métrica de validación la tasa de acierto (TA):
 
 ```python
-TA_test = simple_validation_random(D=Data, k=0.75, response='quality_recode', random_seed=123, metric='TA', model =knn_classification)
+TAC_test_Simple_Validation_random = simple_validation_random(D=Data, k=0.75, response='quality_recode', random_seed=123, metric='TA', model =knn_classification)
 
-TA_test
+TAC_test_Simple_Validation_random
 ```
 
 
 
 
     0.5777310924369747
+
+
 
 
 <br>
@@ -2171,22 +2185,20 @@ knn_regression = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, me
 Aplicamos el algoritmo de validación simple aleatoria repetida sobre el modelo KNN para regresión, usando como métrica de validación el error cuadratico medio (ECM):
 
 ```python
-ECM_test = repeated_random_simple_validation(D=Data, k=0.75, B=1000, response='price', random_seed=123, metric='ECM', model=knn_regression)
-
-# Time: 14.4seg
+ECM_test_Simple_Validation_repeated = repeated_random_simple_validation(D=Data, k=0.75, B=1000, response='price', random_seed=123, metric='ECM', model=knn_regression)
 ```
 
-
+Time: 14.4seg
 
 
 ```python
-ECM_test
+ECM_test_Simple_Validation_repeated
 ```
 
 
 
 
-    2306416584216.64
+    2297076499859.55
     
 
 
@@ -2201,22 +2213,20 @@ Aplicamos el algoritmo de validación simple aleatoria repetida sobre el modelo 
 
 
 ```python
-TA_test = repeated_random_simple_validation(D=Data, k=0.75, B=1000, response='quality_recode', random_seed=123, metric='TA', model=knn_classification)
-
-# Time: 43 seg
+TAC_test_Simple_Validation_repeated = repeated_random_simple_validation(D=Data, k=0.75, B=1000, response='quality_recode', random_seed=123, metric='TA', model=knn_classification)
 ```
 
-
+Time: 43 seg
 
 
 ```python
-TA_test
+TAC_test_Simple_Validation_repeated
 ```
 
 
 
 
-    0.5519558823529411
+    0.5516638655462184
 
 
 <br>
@@ -2293,22 +2303,20 @@ knn_regression = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, me
 Aplicamos el algoritmo de validación leave one out  sobre el modelo KNN para regresión, usando como métrica de validación el error cuadratico medio (ECM):
 
 ```python
-ECM_test = leave_one_out_validation(D=Data, response='price', metric='ECM', model=knn_regression)
-
-# Time: 24 seg
+ECM_test_leave_one_out = leave_one_out_validation(D=Data, response='price', metric='ECM', model=knn_regression)
 ```
 
-
+Time: 24seg
 
 
 ```python
-ECM_test
+ECM_test_leave_one_out
 ```
 
 
 
 
-    2284557265816.7
+    2268581861335.2305
 
 
 
@@ -2323,13 +2331,9 @@ Aplicamos el algoritmo de validación leave one out  sobre el modelo KNN para cl
 
 
 ```python
-TA_test = leave_one_out_validation(D=Data, response='quality_recode', metric='TA', model=knn_classification)
+TAC_test_leave_one_out = leave_one_out_validation(D=Data, response='quality_recode', metric='TA', model=knn_classification)
 
-# Time: 26seg
-```
-
-```python
-TA_test
+TAC_test_leave_one_out
 ```
 
 
@@ -2435,11 +2439,9 @@ Aplicamos el algoritmo de validación cruzada K-fold  sobre el modelo KNN para r
 
 ```python
 ECM_K_Folds = K_Fold_CV(D=Data, response='price', K=10, random_seed=123, metric='ECM', model='knn_regression')
-
-# Time: 0.3seg
 ```
 
-
+Time: 0.3seg
 
 
 ```python
@@ -2449,7 +2451,7 @@ ECM_K_Folds
 
 
 
-    2234798522449.1147
+    2220503635404.005
 
 
 
@@ -2463,20 +2465,17 @@ knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=
 
 Aplicamos el algoritmo de validación cruzada K-fold  sobre el modelo KNN para clasificación, usando como métrica de validación la tasa de acierto (TA):
 
-```python
-TA_K_Folds = K_Fold_CV(D=Data, response='quality_recode', K=10, random_seed=123, metric='TA', model='knn_classification')
-
-# Time: 0.5 seg
-```
 
 ```python
-TA_K_Folds
+TAC_K_Folds = K_Fold_CV(D=Data, response='quality_recode', K=10, random_seed=123, metric='TA', model='knn_classification')
+
+TAC_K_Folds
 ```
 
 
 
 
-    0.5366807546993878
+    0.5363984159477089
 
 
 
@@ -2588,14 +2587,11 @@ knn_regression = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, me
 ```
 
 Aplicamos el algoritmo de validación cruzada K-fold repetida sobre el modelo KNN para regresión, usando como métrica de validación el error cuadrático medio (ECM):
-
 ```python
 ECM_repeated_K_Folds = repeated_K_Fold_CV(D=Data, response='price', K=10, B=100, random_seed=123, metric='ECM', model='knn_regression')
-
-# Time: 19seg
 ```
 
-
+Time: 19seg
 
 
 ```python
@@ -2605,7 +2601,7 @@ ECM_repeated_K_Folds
 
 
 
-    2279041727691.3813
+    2268486279605.6816
 
 
 
@@ -2618,22 +2614,20 @@ knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=
 Aplicamos el algoritmo de validación cruzada K-fold repetida sobre el modelo KNN para clasificación, usando como métrica la tasa de acierto (TA):
 
 ```python
-TA_repeated_K_Folds = repeated_K_Fold_CV(D=Data, response='quality_recode', K=10, B=100, random_seed=123, metric='TA', model='knn_classification')
-
-# Time: 30seg
+TAC_repeated_K_Folds = repeated_K_Fold_CV(D=Data, response='quality_recode', K=10, B=100, random_seed=123, metric='TA', model='knn_classification')
 ```
 
-
+Time:30seg
 
 
 ```python
-TA_repeated_K_Folds
+TAC_repeated_K_Folds
 ```
 
 
 
 
-    0.5372861131666384
+    0.5371267212075105
 
 
 
@@ -2643,10 +2637,207 @@ TA_repeated_K_Folds
 # Algoritmos de valicación cruzada con `Sklearn`
 
 
+```python
+from sklearn.model_selection import cross_val_score
+
+from sklearn.model_selection import RepeatedKFold
+
+from sklearn.model_selection import KFold
+```
+
+
+
+```python
+cv_k_fold = KFold(n_splits=10, random_state=123, shuffle=True)
+
+cv_repeated_k_fold = RepeatedKFold(n_splits=10, n_repeats=100, random_state=123)
+```
+
+<br>
+
+```python
+Y = Data.loc[:,'price']
+```
+
+
+```python
+X = Data.loc[:, Data.columns != 'price']
+```
+
+ 
+
+
+```python
+ECM_K_Folds_sklearn = cross_val_score(knn_regression, X, Y, cv=cv_k_fold, scoring='neg_mean_squared_error')
+```
+
+
+```python
+ECM_K_Folds_sklearn = np.mean( - ECM_K_Folds_sklearn )
+```
+
+
+```python
+ECM_K_Folds_sklearn
+```
 
 
 
 
+    2220103512647.2095
+
+<br>
+
+
+```python
+ECM_repeated_K_Folds_sklearn = cross_val_score(knn_regression, X, Y, cv=cv_repeated_k_fold, scoring='neg_mean_squared_error')
+```
+
+
+```python
+ECM_repeated_K_Folds_sklearn = np.mean( - ECM_repeated_K_Folds_sklearn )
+```
+
+
+```python
+ECM_repeated_K_Folds_sklearn
+```
+
+
+
+
+    2269036673148.278
+
+
+<br>
+
+```python
+ECM_df = pd.DataFrame({'ECM' : [ECM_test_Simple_Validation_not_random , ECM_test_Simple_Validation_random, ECM_test_Simple_Validation_repeated, ECM_test_leave_one_out, ECM_K_Folds, ECM_K_Folds_sklearn , ECM_repeated_K_Folds, ECM_repeated_K_Folds_sklearn],
+ 'names' : ['Simple validation (not random)' , 'Simple validation (random)', 'Simple validation (repeted)', 'Leave one out', 'k-folds', 'k-folds (sklearn)', 'repeted-k-folds', 'repeted-k-folds (sklearn)']})
+```
+
+
+
+
+    
+
+
+<br>
+ 
+
+
+
+```python
+Y = Data.loc[:,'quality_recode']
+```
+
+
+```python
+X = Data.loc[:, Data.columns != 'quality_recode']
+```
+
+
+
+
+```python
+TAC_K_Folds_sklearn = cross_val_score(knn_classification, X, Y, cv=cv_k_fold, scoring='accuracy')
+```
+
+
+```python
+TAC_K_Folds_sklearn = np.mean( TAC_K_Folds_sklearn )
+```
+
+
+```python
+TAC_K_Folds_sklearn
+```
+
+
+
+
+    0.5606558280518048
+
+
+
+<br>
+
+
+```python
+TAC_repeated_K_Folds_sklearn = cross_val_score(knn_classification, X, Y, cv=cv_repeated_k_fold, scoring='accuracy')
+```
+
+
+```python
+TAC_repeated_K_Folds_sklearn = np.mean( TAC_repeated_K_Folds_sklearn )
+```
+
+
+```python
+TAC_repeated_K_Folds_sklearn
+```
+
+
+
+
+    0.554644943510609
+
+
+
+<br>
+
+
+```python
+TAC_df = pd.DataFrame({'TAC' : [TAC_test_Simple_Validation_not_random , TAC_test_Simple_Validation_random, TAC_test_Simple_Validation_repeated, TAC_test_leave_one_out, TAC_K_Folds, TAC_K_Folds_sklearn, TAC_repeated_K_Folds, TAC_repeated_K_Folds_sklearn],
+ 'names' : ['Simple validation (not random)' , 'Simple validation (random)', 'Simple validation (repeted)', 'Leave one out', 'k-folds', 'k-folds (sklearn)', 'repeted-k-folds', 'repeted-k-folds (sklearn)']})
+```
+
+
+  
+
+
+
+<br>
+
+
+# Comparación final
+
+
+
+
+
+
+```python
+import seaborn as sns
+import matplotlib.pyplot as plt
+```
+
+```python
+fig, ax = plt.subplots()
+
+p3 = sns.barplot(x="ECM", y ='names' , data=ECM_df)
+
+fig.savefig('p3.jpg', format='jpg', dpi=1200)
+```
+
+
+    
+![ ](p3.jpg)
+
+
+<br>
+
+```python
+fig, ax = plt.subplots()
+
+p4 = sns.barplot(x="TAC", y ='names' , data=TAC_df)
+
+fig.savefig('p4.jpg', format='jpg', dpi=1200)
+```
+
+
+    
+![ ](p4.jpg)  
 
 
 
