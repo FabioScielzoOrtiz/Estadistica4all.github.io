@@ -73,7 +73,7 @@ $\hspace{0.5cm}$ Scielzo Ortiz, F. (2023). Introduction to Pandas. http://estadi
  
  <br>
 
-# Data-frame as matrix
+# Data-frame as data-matrix <a class="anchor" id="1"></a>
 
 We are going to consider data-frames as data matrix.
 
@@ -8812,6 +8812,26 @@ House_Price_Data.groupby('quality_recode')['price'].std()
 
 <br>
 
+```python
+House_Price_Data.groupby(['quality_recode', 'private_garden_recode'])['price'].mean()
+```
+
+```
+quality_recode  private_garden_recode
+0.0             0.0                      2.530969e+06
+                1.0                      4.881333e+06
+1.0             0.0                      1.932034e+06
+                1.0                      3.448444e+06
+2.0             0.0                      2.162129e+06
+                1.0                      2.505600e+06
+3.0             0.0                      9.213461e+05
+                1.0                      7.660000e+05
+Name: price, dtype: float64
+```
+
+
+<br>
+
 ---
 
 <br>
@@ -8819,15 +8839,19 @@ House_Price_Data.groupby('quality_recode')['price'].std()
 
 Mathematically, `groupby()` operation could be formalized as follows: $\\[0.7cm]$
 
-$$df.groupby( \hspace{0.1cm} name(X_3) \hspace{0.1cm})[\hspace{0.1cm} name(X_6) \hspace{0.1cm}].f() \hspace{0.1cm}= \hspace{0.1cm} \begin{pmatrix}
-f( x_{i6} \hspace{0.1cm}:\hspace{0.1cm} x_{i3}=0 , i=1,...,n ) \\
-f( x_{i6} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=1 , i=1,...,n ) \\
-f( x_{i6} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=2 , i=1,...,n ) \\
-f( x_{i6} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=3 , i=1,...,n ) 
+$$df.groupby( \hspace{0.1cm} [ \hspace{0.1cm}name(X_3)\hspace{0.1cm} ,\hspace{0.1cm} name(X_8)\hspace{0.1cm}] \hspace{0.1cm})[\hspace{0.1cm} name(X_6) \hspace{0.1cm}].f() \hspace{0.1cm}= \hspace{0.1cm} \begin{pmatrix}
+f\hspace{0.1cm}( \hspace{0.1cm} x_{i6} \hspace{0.1cm}:\hspace{0.1cm} x_{i3}=0 \hspace{0.15cm} , \hspace{0.15cm} x_{i8}=0 \hspace{0.1cm},\hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
+f\hspace{0.1cm}( \hspace{0.1cm} x_{i6} \hspace{0.1cm}:\hspace{0.1cm} x_{i3}=0 \hspace{0.15cm}, \hspace{0.15cm} x_{i8}=1 \hspace{0.1cm},\hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
+f\hspace{0.1cm}( \hspace{0.1cm} x_{i6} \hspace{0.1cm}:\hspace{0.1cm} x_{i3}=1 \hspace{0.15cm} , \hspace{0.15cm} x_{i8}=0 \hspace{0.1cm},\hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
+f\hspace{0.1cm}( \hspace{0.1cm} x_{i6} \hspace{0.1cm}:\hspace{0.1cm} x_{i3}=1 \hspace{0.15cm} , \hspace{0.15cm} x_{i8}=1 \hspace{0.1cm},\hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
+f\hspace{0.1cm}( \hspace{0.1cm} x_{i6} \hspace{0.1cm}:\hspace{0.1cm} x_{i3}=2 \hspace{0.15cm} , \hspace{0.15cm} x_{i8}=0 \hspace{0.1cm},\hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
+f\hspace{0.1cm}( \hspace{0.1cm} x_{i6} \hspace{0.1cm}:\hspace{0.1cm} x_{i3}=2 \hspace{0.15cm} , \hspace{0.15cm} x_{i8}=1 \hspace{0.1cm},\hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
+f\hspace{0.1cm}( \hspace{0.1cm} x_{i6} \hspace{0.1cm}:\hspace{0.1cm} x_{i3}=3 \hspace{0.15cm} , \hspace{0.15cm} x_{i8}=0 \hspace{0.1cm},\hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
+f\hspace{0.1cm}( \hspace{0.1cm} x_{i6} \hspace{0.1cm}:\hspace{0.1cm} x_{i3}=3 \hspace{0.15cm} , \hspace{0.15cm} x_{i8}=1 \hspace{0.1cm},\hspace{0.1cm} i=1,...,n \hspace{0.1cm} )
 \end{pmatrix} \\[2cm]$$
 
 
-where $\hspace{0.1cm}Range(X_3) = \lbrace 0,1,2,3 \rbrace\hspace{0.15cm}$ and $\hspace{0.12cm}f\hspace{0.12cm}$ is any function.
+where $\hspace{0.1cm}Range(X_3) = \lbrace 0,1,2,3 \rbrace\hspace{0.15cm}$ , $\hspace{0.1cm}Range(X_8) = \lbrace 0,1 \rbrace\hspace{0.15cm}$ and $\hspace{0.12cm}f\hspace{0.12cm}$ is any function.
 
 
 
@@ -10991,7 +11015,7 @@ NA  & Y_3 & NA  & ... & NA  & Y_1 & Y_2 & Y_4 & ... & Y_{p_2}
 
 <br>
 
-# Join data-frames <a class="anchor" id="1"></a>  
+# Join data-frames   
 
 
 We are going to remember the `Ventas` and `Clientes` data-frames, because we are going to use them in this section:
@@ -11348,7 +11372,7 @@ where $\hspace{0.1cm}x_i[link]\hspace{0.1cm}$ is the value of the **link** colum
 
 ## Inner join
 
-In simple words, the inner join between $\hspace{0.1cm}df1\hspace{0.1cm}$ and $\hspace{0.1cm}df2\hspace{0.1cm}$ is an operation that consists of creating a new data frame that joins rows $\hspace{0.1cm}df1\hspace{0.1cm}$ and rows $\hspace{0.1cm}df2\hspace{0.1cm}$ through a link column, taking into account only the values of the link column appearing in both data frames. 
+In simple words, the inner join between $\hspace{0.1cm}df1\hspace{0.1cm}$ and $\hspace{0.1cm}df2\hspace{0.1cm}$ is an operation that consists of creating a new data frame that joins $\hspace{0.1cm}df1\hspace{0.1cm}$ rows  and $\hspace{0.1cm}df2\hspace{0.1cm}$ rows  through a *link* column, taking into account only the values of the link column appearing in both data frames. 
 
 <br>
 
@@ -11621,7 +11645,8 @@ Note that in $\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm}
 
 ## Outer join
 
-Outer join es una operacion que consiste en juntar dos data-frames (df1 y df2) a través de una columna compartida por ambos, denominada columna de enlace. El data-frame resultante de un inner join tiene como filas la concatenacion de las filas de df1 y las de df2 que contienen en la columna de enlace un mismo valor, y además si hay alguna fila de df1 que contiene un valor en la columna enlace que no aparece en ninguna fila de df2, entonces esta fila se concatena con una fila con tantos NaN como columnas (sin contar la de enlace) tiene df2, y se añade al nuevo data-frame. Y lo mismo para df2, es decir, si hay alguna fila de df2 que contiene un valor en la columna enlace que no aparece en ninguna fila de df1, entonces esta fila se concatena con una fila con tantos NaN como columnas (sin contar la de enlace) tiene df1, y se añade al nuevo data-frame.
+In simple words, the outer join between $\hspace{0.1cm}df1\hspace{0.1cm}$ and $\hspace{0.1cm}df2\hspace{0.1cm}$ is an operation that consists of creating a new frame of data that joins $\hspace{0.1cm}df1\hspace{0.1cm}$ rows and $\hspace{0.1cm}df2\hspace{0.1cm}$ rows via a *link* column, taking into account all values  of the link column, both those that appear in both data-frames, and those that appear in $df1$ but not in $df2$, and those that appear in $df2$ but not in $df1$.
+ 
 
 <br>
 
@@ -11923,7 +11948,7 @@ Note that in $\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm}
 
 ## Left join
 
-Left join es una operacion que consiste en juntar dos data-frames (df1 y df2) a través de una columna compartida por ambos, denominada columna de enlace. El data-frame resultante de un inner join tiene como filas la concatenacion de las filas de df1 y las de df2 que contienen en la columna de enlace un mismo valor, y además si hay alguna fila de df1 (df de la izquierda) que contiene un valor en la columna enlace que no aparece en ninguna fila de df2, entonces esta fila se concatena con una fila con tantos NaN como columnas (sin contar la de enlace) tiene df2, y se añade al nuevo data-frame.
+In simple words, the left join between $\hspace{0.1cm}df1\hspace{0.1cm}$ and $\hspace{0.1cm}df2\hspace{0.1cm}$ is an operation that consists of creating a new frame of data that joins $\hspace{0.1cm}df1\hspace{0.1cm}$ rows and $\hspace{0.1cm}df2\hspace{0.1cm}$ rows via a *link* column, taking into account the values  of the link column that appear in both data-frames, and those that appear in $\hspace{0.1cm}df1\hspace{0.1cm}$ but not in $\hspace{0.1cm}df2$.
 
 <br>
 
@@ -12197,8 +12222,7 @@ Note that in $\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm}
 
 ## Right join
 
-Right join is an operation that consists of joining two data-frames (df1 and df2) through a column shared by both, called link column. The data-frame resulting from a right join has as rows the concatenation of the rows of df1 and those of df2 that contain the same value in the link column, and also if there is any row of df2 (df on the right) that contains a value in the link column that does not appear in any row of df1, then this row is concatenated with a row with as many NaN as there are columns (not counting the link column) df1 has, and it is added to the new data-frame.
-
+In simple words, the left join between $\hspace{0.1cm}df1\hspace{0.1cm}$ and $\hspace{0.1cm}df2\hspace{0.1cm}$ is an operation that consists of creating a new frame of data that joins $\hspace{0.1cm}df1\hspace{0.1cm}$ rows and $\hspace{0.1cm}df2\hspace{0.1cm}$ rows via a *link* column, taking into account the values  of the link column that appear in both data-frames, and those that appear in $\hspace{0.1cm}df2\hspace{0.1cm}$ but not in $\hspace{0.1cm}df1$.
 <br>
 
 ```python
