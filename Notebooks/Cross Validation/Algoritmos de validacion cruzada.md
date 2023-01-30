@@ -2636,6 +2636,7 @@ TAC_repeated_K_Folds
 
 # Algoritmos de valicación cruzada con `Sklearn`
 
+Importamos los módulos que usaremos en esta sección:
 
 ```python
 from sklearn.model_selection import cross_val_score
@@ -2646,6 +2647,11 @@ from sklearn.model_selection import KFold
 ```
 
 
+Inicializamos los métodos k-fold y repeated-k-fold.
+
+Para k-fold usaremos los parámetros k=10 y un inicio aleatorio del algoritmo con semilla 123.
+ 
+Para repeated-k-fold usaremos los parámetros k=10, un número de 100 repeticiones y un inicio aleatorio con semilla 123.
 
 ```python
 cv_k_fold = KFold(n_splits=10, random_state=123, shuffle=True)
@@ -2654,6 +2660,8 @@ cv_repeated_k_fold = RepeatedKFold(n_splits=10, n_repeats=100, random_state=123)
 ```
 
 <br>
+
+Creamos por un lado el vector de la respuesta y por otro la matriz de los predictores. En este caso la respuesta es la variable *price*, y los predictores son el resto de variables.
 
 ```python
 Y = Data.loc[:,'price']
@@ -2665,44 +2673,31 @@ X = Data.loc[:, Data.columns != 'price']
 ```
 
  
-
+Calculamos la métrica ECM usando el algoritmo de validación cruzada k-folds con k=10:
 
 ```python
 ECM_K_Folds_sklearn = cross_val_score(knn_regression, X, Y, cv=cv_k_fold, scoring='neg_mean_squared_error')
-```
 
-
-```python
 ECM_K_Folds_sklearn = np.mean( - ECM_K_Folds_sklearn )
-```
 
-
-```python
 ECM_K_Folds_sklearn
 ```
 
-
-
-
+ 
     2220103512647.2095
 
 <br>
 
+Calculamos la métrica ECM usando el algoritmo de validación cruzada repeated-k-folds con k=10 y B=100 repeticiones:
 
 ```python
 ECM_repeated_K_Folds_sklearn = cross_val_score(knn_regression, X, Y, cv=cv_repeated_k_fold, scoring='neg_mean_squared_error')
-```
 
-
-```python
 ECM_repeated_K_Folds_sklearn = np.mean( - ECM_repeated_K_Folds_sklearn )
-```
 
-
-```python
 ECM_repeated_K_Folds_sklearn
 ```
-
+ 
 
 
 
@@ -2711,10 +2706,7 @@ ECM_repeated_K_Folds_sklearn
 
 <br>
 
-```python
-ECM_df = pd.DataFrame({'ECM' : [ECM_test_Simple_Validation_not_random , ECM_test_Simple_Validation_random, ECM_test_Simple_Validation_repeated, ECM_test_leave_one_out, ECM_K_Folds, ECM_K_Folds_sklearn , ECM_repeated_K_Folds, ECM_repeated_K_Folds_sklearn],
- 'names' : ['Simple validation (not random)' , 'Simple validation (random)', 'Simple validation (repeted)', 'Leave one out', 'k-folds', 'k-folds (sklearn)', 'repeted-k-folds', 'repeted-k-folds (sklearn)']})
-```
+
 
 
 
@@ -2725,6 +2717,7 @@ ECM_df = pd.DataFrame({'ECM' : [ECM_test_Simple_Validation_not_random , ECM_test
 <br>
  
 
+Creamos por un lado el vector de la respuesta y por otro la matriz de los predictores. En este caso la respuesta es la variable *quality_recode*, y los predictores son el resto de variables.
 
 
 ```python
@@ -2787,10 +2780,7 @@ TAC_repeated_K_Folds_sklearn
 <br>
 
 
-```python
-TAC_df = pd.DataFrame({'TAC' : [TAC_test_Simple_Validation_not_random , TAC_test_Simple_Validation_random, TAC_test_Simple_Validation_repeated, TAC_test_leave_one_out, TAC_K_Folds, TAC_K_Folds_sklearn, TAC_repeated_K_Folds, TAC_repeated_K_Folds_sklearn],
- 'names' : ['Simple validation (not random)' , 'Simple validation (random)', 'Simple validation (repeted)', 'Leave one out', 'k-folds', 'k-folds (sklearn)', 'repeted-k-folds', 'repeted-k-folds (sklearn)']})
-```
+
 
 
   
@@ -2802,14 +2792,18 @@ TAC_df = pd.DataFrame({'TAC' : [TAC_test_Simple_Validation_not_random , TAC_test
 
 # Comparación final
 
-
-
-
-
+Importamos las librerias de visualización de datos que usaremos para realizar la comparación final.
 
 ```python
 import seaborn as sns
 import matplotlib.pyplot as plt
+```
+
+Creamos un data-frame con los distintos valores de la métrica ECM obtenidos con los distintos algoritmos de validación utilizados:
+
+```python
+ECM_df = pd.DataFrame({'ECM' : [ECM_test_Simple_Validation_not_random , ECM_test_Simple_Validation_random, ECM_test_Simple_Validation_repeated, ECM_test_leave_one_out, ECM_K_Folds, ECM_K_Folds_sklearn , ECM_repeated_K_Folds, ECM_repeated_K_Folds_sklearn],
+ 'names' : ['Simple validation (not random)' , 'Simple validation (random)', 'Simple validation (repeted)', 'Leave one out', 'k-folds', 'k-folds (sklearn)', 'repeted-k-folds', 'repeted-k-folds (sklearn)']})
 ```
 
 ```python
@@ -2821,11 +2815,22 @@ fig.savefig('p3.jpg', format='jpg', dpi=1200)
 ```
 
 
-    
-![ ](p3.jpg)
+<center>
+
+![](p3.jpg){width="45%"}
+
+</center>
+
 
 
 <br>
+
+Creamos un data-frame con los distintos valores de la métrica TAC obtenidos con los distintos algoritmos de validación utilizados:
+
+```python
+TAC_df = pd.DataFrame({'TAC' : [TAC_test_Simple_Validation_not_random , TAC_test_Simple_Validation_random, TAC_test_Simple_Validation_repeated, TAC_test_leave_one_out, TAC_K_Folds, TAC_K_Folds_sklearn, TAC_repeated_K_Folds, TAC_repeated_K_Folds_sklearn],
+ 'names' : ['Simple validation (not random)' , 'Simple validation (random)', 'Simple validation (repeted)', 'Leave one out', 'k-folds', 'k-folds (sklearn)', 'repeted-k-folds', 'repeted-k-folds (sklearn)']})
+```
 
 ```python
 fig, ax = plt.subplots()
@@ -2837,8 +2842,11 @@ fig.savefig('p4.jpg', format='jpg', dpi=1200)
 
 
     
-![ ](p4.jpg)  
+<center>
 
+![](p4.jpg){width="45%"}
+
+</center>
 
 
 
