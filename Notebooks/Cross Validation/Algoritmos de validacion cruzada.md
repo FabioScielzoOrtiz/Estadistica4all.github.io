@@ -2350,7 +2350,7 @@ TAC_test_leave_one_out
 <br>
 
 
-# K Folds
+## k-fold
 
 
 ```python
@@ -2484,7 +2484,7 @@ TAC_K_Folds
 
 <br>
 
-## Repeted k-folds
+## Repeated k-folds
 
 
 ```python
