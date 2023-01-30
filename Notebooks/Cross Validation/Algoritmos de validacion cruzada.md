@@ -2188,7 +2188,6 @@ Aplicamos el algoritmo de validación simple aleatoria repetida sobre el modelo 
 ECM_test_Simple_Validation_repeated = repeated_random_simple_validation(D=Data, k=0.75, B=1000, response='price', random_seed=123, metric='ECM', model=knn_regression)
 ```
 
-Time: 14.4seg
 
 
 ```python
@@ -2216,7 +2215,6 @@ Aplicamos el algoritmo de validación simple aleatoria repetida sobre el modelo 
 TAC_test_Simple_Validation_repeated = repeated_random_simple_validation(D=Data, k=0.75, B=1000, response='quality_recode', random_seed=123, metric='TA', model=knn_classification)
 ```
 
-Time: 43 seg
 
 
 ```python
@@ -2306,7 +2304,6 @@ Aplicamos el algoritmo de validación leave one out  sobre el modelo KNN para re
 ECM_test_leave_one_out = leave_one_out_validation(D=Data, response='price', metric='ECM', model=knn_regression)
 ```
 
-Time: 24seg
 
 
 ```python
@@ -2441,7 +2438,6 @@ Aplicamos el algoritmo de validación cruzada K-fold  sobre el modelo KNN para r
 ECM_K_Folds = K_Fold_CV(D=Data, response='price', K=10, random_seed=123, metric='ECM', model='knn_regression')
 ```
 
-Time: 0.3seg
 
 
 ```python
@@ -2587,11 +2583,11 @@ knn_regression = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, me
 ```
 
 Aplicamos el algoritmo de validación cruzada K-fold repetida sobre el modelo KNN para regresión, usando como métrica de validación el error cuadrático medio (ECM):
+
 ```python
 ECM_repeated_K_Folds = repeated_K_Fold_CV(D=Data, response='price', K=10, B=100, random_seed=123, metric='ECM', model='knn_regression')
 ```
 
-Time: 19seg
 
 
 ```python
@@ -2617,7 +2613,6 @@ Aplicamos el algoritmo de validación cruzada K-fold repetida sobre el modelo KN
 TAC_repeated_K_Folds = repeated_K_Fold_CV(D=Data, response='quality_recode', K=10, B=100, random_seed=123, metric='TA', model='knn_classification')
 ```
 
-Time:30seg
 
 
 ```python
@@ -2647,36 +2642,33 @@ from sklearn.model_selection import KFold
 ```
 
 
-Inicializamos los métodos k-fold y repeated-k-fold.
+## k-fold
 
-Para k-fold usaremos los parámetros k=10 y un inicio aleatorio del algoritmo con semilla 123.
- 
-Para repeated-k-fold usaremos los parámetros k=10, un número de 100 repeticiones y un inicio aleatorio con semilla 123.
+Inicializamos el algoritmo k-fold. Usaremos los parámetros k=10 y un inicio aleatorio del algoritmo con semilla 123.
 
 ```python
 cv_k_fold = KFold(n_splits=10, random_state=123, shuffle=True)
-
-cv_repeated_k_fold = RepeatedKFold(n_splits=10, n_repeats=100, random_state=123)
 ```
 
-<br>
+---
+
+Vamos a aplicar el algoritmo de validacion k-fold   a un porblema de regresión usando la métrica ECM.
+
+
 
 Creamos por un lado el vector de la respuesta y por otro la matriz de los predictores. En este caso la respuesta es la variable *price*, y los predictores son el resto de variables.
 
 ```python
-Y = Data.loc[:,'price']
-```
+Y_reg = Data.loc[:,'price']
 
-
-```python
-X = Data.loc[:, Data.columns != 'price']
+X_reg = Data.loc[:, Data.columns != 'price']
 ```
 
  
 Calculamos la métrica ECM usando el algoritmo de validación cruzada k-folds con k=10:
 
 ```python
-ECM_K_Folds_sklearn = cross_val_score(knn_regression, X, Y, cv=cv_k_fold, scoring='neg_mean_squared_error')
+ECM_K_Folds_sklearn = cross_val_score(knn_regression, X_reg, Y_reg, cv=cv_k_fold, scoring='neg_mean_squared_error')
 
 ECM_K_Folds_sklearn = np.mean( - ECM_K_Folds_sklearn )
 
@@ -2686,12 +2678,55 @@ ECM_K_Folds_sklearn
  
     2220103512647.2095
 
+
+---
+
+Vamos a aplicar el algoritmo de validacion k-fold   a un porblema de clasificación supervisada usando la métrica TAC.
+
+
+Creamos por un lado el vector de la respuesta y por otro la matriz de los predictores. En este caso la respuesta es la variable *quality_recode*, y los predictores son el resto de variables.
+
+
+```python
+Y_class = Data.loc[:,'quality_recode']
+ 
+X_class = Data.loc[:, Data.columns != 'quality_recode']
+```
+
+
+```python
+TAC_K_Folds_sklearn = cross_val_score(knn_classification, X_class, Y_class, cv=cv_k_fold, scoring='accuracy')
+
+TAC_K_Folds_sklearn = np.mean( TAC_K_Folds_sklearn )
+
+TAC_K_Folds_sklearn
+```
+
+
+    0.5606558280518048
+
+
+
+
 <br>
+
+## Repeated k-fold
+
+ 
+Inicializamos el algoritmo repeated k-fold. Usaremos los parámetros k=10, un número de 100 repeticiones y un inicio aleatorio con semilla 123.
+
+```python
+cv_repeated_k_fold = RepeatedKFold(n_splits=10, n_repeats=100, random_state=123)
+```
+
+---
+
+Vamos a aplicar el algoritmo de validacion k-fold   a un problema de **regresión** usando la métrica TAC.
 
 Calculamos la métrica ECM usando el algoritmo de validación cruzada repeated-k-folds con k=10 y B=100 repeticiones:
 
 ```python
-ECM_repeated_K_Folds_sklearn = cross_val_score(knn_regression, X, Y, cv=cv_repeated_k_fold, scoring='neg_mean_squared_error')
+ECM_repeated_K_Folds_sklearn = cross_val_score(knn_regression, X_reg, Y_reg, cv=cv_repeated_k_fold, scoring='neg_mean_squared_error')
 
 ECM_repeated_K_Folds_sklearn = np.mean( - ECM_repeated_K_Folds_sklearn )
 
@@ -2704,73 +2739,24 @@ ECM_repeated_K_Folds_sklearn
     2269036673148.278
 
 
-<br>
+ 
+----
 
-
-
-
-
-
-    
-
-
-<br>
  
 
-Creamos por un lado el vector de la respuesta y por otro la matriz de los predictores. En este caso la respuesta es la variable *quality_recode*, y los predictores son el resto de variables.
+Vamos a aplicar el algoritmo de validacion repeated k-fold a un problema de **clasificación supervisada** usando la métrica TAC.
 
+ 
 
-```python
-Y = Data.loc[:,'quality_recode']
-```
-
+Calculamos la métrica TAC usando el algoritmo de validación cruzada repeated-k-folds con k=10 y B=100 repeticiones:
 
 ```python
-X = Data.loc[:, Data.columns != 'quality_recode']
-```
+TAC_repeated_K_Folds_sklearn = cross_val_score(knn_classification, X_class, Y_class, cv=cv_repeated_k_fold, scoring='accuracy')
 
-
-
-
-```python
-TAC_K_Folds_sklearn = cross_val_score(knn_classification, X, Y, cv=cv_k_fold, scoring='accuracy')
-```
-
-
-```python
-TAC_K_Folds_sklearn = np.mean( TAC_K_Folds_sklearn )
-```
-
-
-```python
-TAC_K_Folds_sklearn
-```
-
-
-
-
-    0.5606558280518048
-
-
-
-<br>
-
-
-```python
-TAC_repeated_K_Folds_sklearn = cross_val_score(knn_classification, X, Y, cv=cv_repeated_k_fold, scoring='accuracy')
-```
-
-
-```python
 TAC_repeated_K_Folds_sklearn = np.mean( TAC_repeated_K_Folds_sklearn )
-```
 
-
-```python
 TAC_repeated_K_Folds_sklearn
 ```
-
-
 
 
     0.554644943510609
@@ -2779,15 +2765,6 @@ TAC_repeated_K_Folds_sklearn
 
 <br>
 
-
-
-
-
-  
-
-
-
-<br>
 
 
 # Comparación final
@@ -2822,6 +2799,10 @@ fig.savefig('p3.jpg', format='jpg', dpi=1200)
 </center>
 
 
+
+<br>
+
+---
 
 <br>
 
