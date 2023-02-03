@@ -1434,13 +1434,13 @@ Algunos autores (vease la referencia 1) consideran que, al emplearse todas las o
 **Decripción no formal del algoritmo:**
 
 
-Este algoritmo de validacion consiste en dividir el data-set inicial en $\hspace{0.1cm} k\hspace{0.1cm}$ partes, y usar de manera secuencial cada una de esas partes como muestra test, y las union de las partes restantes como muestra train.
+Este algoritmo de validacion consiste en dividir el data-set inicial en $\hspace{0.1cm} k\hspace{0.1cm}$ partes, y usar de manera secuencial cada una de esas partes como muestra test, y las unión de las partes restantes como muestra train.
 
 Por tanto con este método se usan $\hspace{0.1cm}k\hspace{0.1cm}$ muestras de test y de train.
 
-El modelo es entrenado secuencialmente con cada una de las $\hspace{0.1cm}k\hspace{0.1cm}$ muestras de train disitntas, y se testea con la correspondiente muestra de test (que es el complementario de la de train), usando una métrica de evaluacion.
+El modelo es entrenado secuencialmente con cada una de las $\hspace{0.1cm}k\hspace{0.1cm}$ muestras de train disitntas, y se testea con la correspondiente muestra de test (que es el complementario de la de train), usando una métrica de evaluación.
 
-Es decir, tras dividir el data-set inicial en $\hspace{0.1cm}k\hspace{0.1cm}$ partes la parte 1 se usa como test y el resto como train, se calcula la metrica de evaluacion. Luego la parte 2 se usa como test y el resto como train, y se calcula la metrica de evaluacion. Asi sucesivamente hasta haber usado las $\hspace{0.1cm}k\hspace{0.1cm}$ partes como muestras de test.
+Es decir, tras dividir el data-set inicial en $\hspace{0.1cm}k\hspace{0.1cm}$ partes, la parte 1 se usa como test y el resto como train, se calcula la métrica de evaluación. Luego la parte 2 se usa como test y el resto como train, y se calcula la métrica de evaluación. Asi sucesivamente hasta haber usado las $\hspace{0.1cm}k\hspace{0.1cm}$ partes como muestras de test.
 
 Tras este proceso se habrán obtenido $\hspace{0.1cm}k\hspace{0.1cm}$ valores de dicha métrica de evaluacion.
 
