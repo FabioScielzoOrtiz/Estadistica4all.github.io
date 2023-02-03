@@ -2380,29 +2380,16 @@ def K_Fold_CV(D, K, response, random_seed, metric, model):
 
            #########################################################################
 
-            if model == 'knn_regression' :
+            # Training the model wit train sample
 
-              # Training the model wit train sample
-
-                knn_regression.fit(X_train, Y_train)
+            model.fit(X_train, Y_train)
 
 
-               # Making predictions with test sample
+            # Making predictions with test sample
 
-                Y_predict_test = knn_regression.predict( X_test ) 
+            Y_predict_test = model.predict( X_test ) 
 
     
-            elif model == 'knn_classification' :
-
-               # Training the model wit train sample
-
-                knn_classification.fit(X_train, Y_train)
-
-
-               # Making predictions with test sample
-
-                Y_predict_test = knn_classification.predict( X_test )  
-
             #########################################################################
 
             if metric == 'ECM' :  ECM_K_FOLDS_vector.append( np.mean( ( Y_predict_test - Y_test )**2 ) )
@@ -2435,7 +2422,7 @@ knn_regression = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, me
 Aplicamos el algoritmo de validación cruzada K-fold  sobre el modelo KNN para regresión, usando como métrica de validación el error cuadrático medio (ECM):
 
 ```python
-ECM_K_Folds = K_Fold_CV(D=Data, response='price', K=10, random_seed=123, metric='ECM', model='knn_regression')
+ECM_K_Folds = K_Fold_CV(D=Data, response='price', K=10, random_seed=123, metric='ECM', model=knn_regression)
 ```
 
 
@@ -2463,7 +2450,7 @@ Aplicamos el algoritmo de validación cruzada K-fold  sobre el modelo KNN para c
 
 
 ```python
-TAC_K_Folds = K_Fold_CV(D=Data, response='quality_recode', K=10, random_seed=123, metric='TA', model='knn_classification')
+TAC_K_Folds = K_Fold_CV(D=Data, response='quality_recode', K=10, random_seed=123, metric='TA', model=knn_classification)
 
 TAC_K_Folds
 ```
@@ -2522,28 +2509,15 @@ def repeated_K_Fold_CV(D, B, K, response, random_seed, metric, model):
 
         #######################################################################
             
-            if model == 'knn_regression' :
+            # Training the model wit train sample
 
-              # Training the model wit train sample
-
-                knn_regression.fit(X_train, Y_train)
+            model.fit(X_train, Y_train)
 
 
-               # Making predictions with test sample
+            # Making predictions with test sample
 
-                Y_predict_test = knn_regression.predict( X_test ) 
+            Y_predict_test = model.predict( X_test ) 
 
-    
-            elif model == 'knn_classification' :
-
-               # Training the model wit train sample
-
-                knn_classification.fit(X_train, Y_train)
-
-
-               # Making predictions with test sample
-
-                Y_predict_test = knn_classification.predict( X_test )  
 
         #######################################################################
 
@@ -2585,7 +2559,7 @@ knn_regression = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, me
 Aplicamos el algoritmo de validación cruzada K-fold repetida sobre el modelo KNN para regresión, usando como métrica de validación el error cuadrático medio (ECM):
 
 ```python
-ECM_repeated_K_Folds = repeated_K_Fold_CV(D=Data, response='price', K=10, B=100, random_seed=123, metric='ECM', model='knn_regression')
+ECM_repeated_K_Folds = repeated_K_Fold_CV(D=Data, response='price', K=10, B=100, random_seed=123, metric='ECM', model=knn_regression)
 ```
 
 
@@ -2610,7 +2584,7 @@ knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=
 Aplicamos el algoritmo de validación cruzada K-fold repetida sobre el modelo KNN para clasificación, usando como métrica la tasa de acierto (TA):
 
 ```python
-TAC_repeated_K_Folds = repeated_K_Fold_CV(D=Data, response='quality_recode', K=10, B=100, random_seed=123, metric='TA', model='knn_classification')
+TAC_repeated_K_Folds = repeated_K_Fold_CV(D=Data, response='quality_recode', K=10, B=100, random_seed=123, metric='TA', model=knn_classification)
 ```
 
 

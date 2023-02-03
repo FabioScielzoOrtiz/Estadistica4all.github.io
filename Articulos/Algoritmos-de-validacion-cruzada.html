@@ -3194,59 +3194,46 @@ quality_recode
 <span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>           <span class="co">#########################################################################</span></span>
 <span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> model <span class="op">==</span> <span class="st">&#39;knn_regression&#39;</span> :</span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Training the model wit train sample</span></span>
 <span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>              <span class="co"># Training the model wit train sample</span></span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>            model.fit(X_train, Y_train)</span>
 <span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a>                knn_regression.fit(X_train, Y_train)</span>
-<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Making predictions with test sample</span></span>
 <span id="cb34-36"><a href="#cb34-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a>               <span class="co"># Making predictions with test sample</span></span>
+<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a>            Y_predict_test <span class="op">=</span> model.predict( X_test ) </span>
 <span id="cb34-38"><a href="#cb34-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a>                Y_predict_test <span class="op">=</span> knn_regression.predict( X_test ) </span>
-<span id="cb34-40"><a href="#cb34-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-41"><a href="#cb34-41" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb34-42"><a href="#cb34-42" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> model <span class="op">==</span> <span class="st">&#39;knn_classification&#39;</span> :</span>
+<span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-40"><a href="#cb34-40" aria-hidden="true" tabindex="-1"></a>            <span class="co">#########################################################################</span></span>
+<span id="cb34-41"><a href="#cb34-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-42"><a href="#cb34-42" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> metric <span class="op">==</span> <span class="st">&#39;ECM&#39;</span> :  ECM_K_FOLDS_vector.append( np.mean( ( Y_predict_test <span class="op">-</span> Y_test )<span class="op">**</span><span class="dv">2</span> ) )</span>
 <span id="cb34-43"><a href="#cb34-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-44"><a href="#cb34-44" aria-hidden="true" tabindex="-1"></a>               <span class="co"># Training the model wit train sample</span></span>
+<span id="cb34-44"><a href="#cb34-44" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> metric <span class="op">==</span> <span class="st">&#39;TA&#39;</span> :  TA_K_FOLDS_vector.append( np.mean( ( Y_predict_test <span class="op">==</span> Y_test ) ) )</span>
 <span id="cb34-45"><a href="#cb34-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-46"><a href="#cb34-46" aria-hidden="true" tabindex="-1"></a>                knn_classification.fit(X_train, Y_train)</span>
+<span id="cb34-46"><a href="#cb34-46" aria-hidden="true" tabindex="-1"></a><span class="co">##################################################################################################################################################</span></span>
 <span id="cb34-47"><a href="#cb34-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-48"><a href="#cb34-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-49"><a href="#cb34-49" aria-hidden="true" tabindex="-1"></a>               <span class="co"># Making predictions with test sample</span></span>
-<span id="cb34-50"><a href="#cb34-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-51"><a href="#cb34-51" aria-hidden="true" tabindex="-1"></a>                Y_predict_test <span class="op">=</span> knn_classification.predict( X_test )  </span>
-<span id="cb34-52"><a href="#cb34-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-53"><a href="#cb34-53" aria-hidden="true" tabindex="-1"></a>            <span class="co">#########################################################################</span></span>
-<span id="cb34-54"><a href="#cb34-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-55"><a href="#cb34-55" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> metric <span class="op">==</span> <span class="st">&#39;ECM&#39;</span> :  ECM_K_FOLDS_vector.append( np.mean( ( Y_predict_test <span class="op">-</span> Y_test )<span class="op">**</span><span class="dv">2</span> ) )</span>
+<span id="cb34-48"><a href="#cb34-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> metric <span class="op">==</span> <span class="st">&#39;ECM&#39;</span> :</span>
+<span id="cb34-49"><a href="#cb34-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-50"><a href="#cb34-50" aria-hidden="true" tabindex="-1"></a>        ECM_K_Folds <span class="op">=</span> np.mean(ECM_K_FOLDS_vector)</span>
+<span id="cb34-51"><a href="#cb34-51" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-52"><a href="#cb34-52" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>  ECM_K_Folds</span>
+<span id="cb34-53"><a href="#cb34-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-54"><a href="#cb34-54" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-55"><a href="#cb34-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> metric <span class="op">==</span> <span class="st">&#39;TA&#39;</span> :</span>
 <span id="cb34-56"><a href="#cb34-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-57"><a href="#cb34-57" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> metric <span class="op">==</span> <span class="st">&#39;TA&#39;</span> :  TA_K_FOLDS_vector.append( np.mean( ( Y_predict_test <span class="op">==</span> Y_test ) ) )</span>
-<span id="cb34-58"><a href="#cb34-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-59"><a href="#cb34-59" aria-hidden="true" tabindex="-1"></a><span class="co">##################################################################################################################################################</span></span>
-<span id="cb34-60"><a href="#cb34-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-61"><a href="#cb34-61" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> metric <span class="op">==</span> <span class="st">&#39;ECM&#39;</span> :</span>
-<span id="cb34-62"><a href="#cb34-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-63"><a href="#cb34-63" aria-hidden="true" tabindex="-1"></a>        ECM_K_Folds <span class="op">=</span> np.mean(ECM_K_FOLDS_vector)</span>
-<span id="cb34-64"><a href="#cb34-64" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb34-65"><a href="#cb34-65" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>  ECM_K_Folds</span>
-<span id="cb34-66"><a href="#cb34-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-67"><a href="#cb34-67" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb34-68"><a href="#cb34-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> metric <span class="op">==</span> <span class="st">&#39;TA&#39;</span> :</span>
-<span id="cb34-69"><a href="#cb34-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-70"><a href="#cb34-70" aria-hidden="true" tabindex="-1"></a>        TA_K_Folds <span class="op">=</span> np.mean(TA_K_FOLDS_vector)</span>
-<span id="cb34-71"><a href="#cb34-71" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb34-72"><a href="#cb34-72" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>  TA_K_Folds</span></code></pre></div>
+<span id="cb34-57"><a href="#cb34-57" aria-hidden="true" tabindex="-1"></a>        TA_K_Folds <span class="op">=</span> np.mean(TA_K_FOLDS_vector)</span>
+<span id="cb34-58"><a href="#cb34-58" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-59"><a href="#cb34-59" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>  TA_K_Folds</span></code></pre></div>
 <p>Definimos el modelo KNN para regresión con el que vamos a testear el algoritmo que se acaba de programar:</p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>knn_regression <span class="op">=</span> sklearn.neighbors.KNeighborsRegressor(n_neighbors<span class="op">=</span><span class="dv">10</span> ,  p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span></code></pre></div>
 <p>Aplicamos el algoritmo de validación cruzada K-fold sobre el modelo KNN para regresión, usando como métrica de validación el error cuadrático medio (ECM):</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>ECM_K_Folds <span class="op">=</span> K_Fold_CV(D<span class="op">=</span>Data, response<span class="op">=</span><span class="st">&#39;price&#39;</span>, K<span class="op">=</span><span class="dv">10</span>, random_seed<span class="op">=</span><span class="dv">123</span>, metric<span class="op">=</span><span class="st">&#39;ECM&#39;</span>, model<span class="op">=</span><span class="st">&#39;knn_regression&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>ECM_K_Folds <span class="op">=</span> K_Fold_CV(D<span class="op">=</span>Data, response<span class="op">=</span><span class="st">&#39;price&#39;</span>, K<span class="op">=</span><span class="dv">10</span>, random_seed<span class="op">=</span><span class="dv">123</span>, metric<span class="op">=</span><span class="st">&#39;ECM&#39;</span>, model<span class="op">=</span>knn_regression)</span></code></pre></div>
 <div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>ECM_K_Folds</span></code></pre></div>
 <pre><code>2220503635404.005</code></pre>
 <p>Definimos el modelo KNN para clasificación con el que vamos a testear el algoritmo que se acaba de programar:</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>knn_classification <span class="op">=</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span> ,  p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span></code></pre></div>
 <p>Aplicamos el algoritmo de validación cruzada K-fold sobre el modelo KNN para clasificación, usando como métrica de validación la tasa de acierto (TA):</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>TAC_K_Folds <span class="op">=</span> K_Fold_CV(D<span class="op">=</span>Data, response<span class="op">=</span><span class="st">&#39;quality_recode&#39;</span>, K<span class="op">=</span><span class="dv">10</span>, random_seed<span class="op">=</span><span class="dv">123</span>, metric<span class="op">=</span><span class="st">&#39;TA&#39;</span>, model<span class="op">=</span><span class="st">&#39;knn_classification&#39;</span>)</span>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>TAC_K_Folds <span class="op">=</span> K_Fold_CV(D<span class="op">=</span>Data, response<span class="op">=</span><span class="st">&#39;quality_recode&#39;</span>, K<span class="op">=</span><span class="dv">10</span>, random_seed<span class="op">=</span><span class="dv">123</span>, metric<span class="op">=</span><span class="st">&#39;TA&#39;</span>, model<span class="op">=</span>knn_classification)</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>TAC_K_Folds</span></code></pre></div>
 <pre><code>0.5363984159477089</code></pre>
@@ -3292,67 +3279,54 @@ quality_recode
 <span id="cb42-36"><a href="#cb42-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb42-37"><a href="#cb42-37" aria-hidden="true" tabindex="-1"></a>        <span class="co">#######################################################################</span></span>
 <span id="cb42-38"><a href="#cb42-38" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb42-39"><a href="#cb42-39" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> model <span class="op">==</span> <span class="st">&#39;knn_regression&#39;</span> :</span>
+<span id="cb42-39"><a href="#cb42-39" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Training the model wit train sample</span></span>
 <span id="cb42-40"><a href="#cb42-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-41"><a href="#cb42-41" aria-hidden="true" tabindex="-1"></a>              <span class="co"># Training the model wit train sample</span></span>
+<span id="cb42-41"><a href="#cb42-41" aria-hidden="true" tabindex="-1"></a>            model.fit(X_train, Y_train)</span>
 <span id="cb42-42"><a href="#cb42-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-43"><a href="#cb42-43" aria-hidden="true" tabindex="-1"></a>                knn_regression.fit(X_train, Y_train)</span>
-<span id="cb42-44"><a href="#cb42-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-43"><a href="#cb42-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-44"><a href="#cb42-44" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Making predictions with test sample</span></span>
 <span id="cb42-45"><a href="#cb42-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-46"><a href="#cb42-46" aria-hidden="true" tabindex="-1"></a>               <span class="co"># Making predictions with test sample</span></span>
+<span id="cb42-46"><a href="#cb42-46" aria-hidden="true" tabindex="-1"></a>            Y_predict_test <span class="op">=</span> model.predict( X_test ) </span>
 <span id="cb42-47"><a href="#cb42-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-48"><a href="#cb42-48" aria-hidden="true" tabindex="-1"></a>                Y_predict_test <span class="op">=</span> knn_regression.predict( X_test ) </span>
-<span id="cb42-49"><a href="#cb42-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-50"><a href="#cb42-50" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb42-51"><a href="#cb42-51" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> model <span class="op">==</span> <span class="st">&#39;knn_classification&#39;</span> :</span>
+<span id="cb42-48"><a href="#cb42-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-49"><a href="#cb42-49" aria-hidden="true" tabindex="-1"></a>        <span class="co">#######################################################################</span></span>
+<span id="cb42-50"><a href="#cb42-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-51"><a href="#cb42-51" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> metric <span class="op">==</span> <span class="st">&#39;ECM&#39;</span> :  ECM_K_FOLDS_vector.append( np.mean( ( Y_predict_test <span class="op">-</span> Y_test )<span class="op">**</span><span class="dv">2</span> ) )</span>
 <span id="cb42-52"><a href="#cb42-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-53"><a href="#cb42-53" aria-hidden="true" tabindex="-1"></a>               <span class="co"># Training the model wit train sample</span></span>
+<span id="cb42-53"><a href="#cb42-53" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> metric <span class="op">==</span> <span class="st">&#39;TA&#39;</span> :  TA_K_FOLDS_vector.append( np.mean( ( Y_predict_test <span class="op">==</span> Y_test ) ) )</span>
 <span id="cb42-54"><a href="#cb42-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-55"><a href="#cb42-55" aria-hidden="true" tabindex="-1"></a>                knn_classification.fit(X_train, Y_train)</span>
-<span id="cb42-56"><a href="#cb42-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-57"><a href="#cb42-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-58"><a href="#cb42-58" aria-hidden="true" tabindex="-1"></a>               <span class="co"># Making predictions with test sample</span></span>
-<span id="cb42-59"><a href="#cb42-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-60"><a href="#cb42-60" aria-hidden="true" tabindex="-1"></a>                Y_predict_test <span class="op">=</span> knn_classification.predict( X_test )  </span>
-<span id="cb42-61"><a href="#cb42-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-62"><a href="#cb42-62" aria-hidden="true" tabindex="-1"></a>        <span class="co">#######################################################################</span></span>
-<span id="cb42-63"><a href="#cb42-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-64"><a href="#cb42-64" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> metric <span class="op">==</span> <span class="st">&#39;ECM&#39;</span> :  ECM_K_FOLDS_vector.append( np.mean( ( Y_predict_test <span class="op">-</span> Y_test )<span class="op">**</span><span class="dv">2</span> ) )</span>
-<span id="cb42-65"><a href="#cb42-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-66"><a href="#cb42-66" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> metric <span class="op">==</span> <span class="st">&#39;TA&#39;</span> :  TA_K_FOLDS_vector.append( np.mean( ( Y_predict_test <span class="op">==</span> Y_test ) ) )</span>
-<span id="cb42-67"><a href="#cb42-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-68"><a href="#cb42-68" aria-hidden="true" tabindex="-1"></a>        <span class="co">#######################################################################</span></span>
-<span id="cb42-69"><a href="#cb42-69" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb42-70"><a href="#cb42-70" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> metric <span class="op">==</span> <span class="st">&#39;ECM&#39;</span> : ECM_Repeted_K_Folds_vector.append( np.mean(ECM_K_FOLDS_vector) )</span>
-<span id="cb42-71"><a href="#cb42-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-72"><a href="#cb42-72" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> metric <span class="op">==</span> <span class="st">&#39;TA&#39;</span> : TA_Repeted_K_Folds_vector.append( np.mean(TA_K_FOLDS_vector) )</span>
+<span id="cb42-55"><a href="#cb42-55" aria-hidden="true" tabindex="-1"></a>        <span class="co">#######################################################################</span></span>
+<span id="cb42-56"><a href="#cb42-56" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb42-57"><a href="#cb42-57" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> metric <span class="op">==</span> <span class="st">&#39;ECM&#39;</span> : ECM_Repeted_K_Folds_vector.append( np.mean(ECM_K_FOLDS_vector) )</span>
+<span id="cb42-58"><a href="#cb42-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-59"><a href="#cb42-59" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> metric <span class="op">==</span> <span class="st">&#39;TA&#39;</span> : TA_Repeted_K_Folds_vector.append( np.mean(TA_K_FOLDS_vector) )</span>
+<span id="cb42-60"><a href="#cb42-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-61"><a href="#cb42-61" aria-hidden="true" tabindex="-1"></a><span class="co">##########################################################################################################################</span></span>
+<span id="cb42-62"><a href="#cb42-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-63"><a href="#cb42-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> metric <span class="op">==</span> <span class="st">&#39;ECM&#39;</span> :</span>
+<span id="cb42-64"><a href="#cb42-64" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb42-65"><a href="#cb42-65" aria-hidden="true" tabindex="-1"></a>        ECM_Repeted_K_Folds <span class="op">=</span> np.mean(ECM_Repeted_K_Folds_vector)</span>
+<span id="cb42-66"><a href="#cb42-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-67"><a href="#cb42-67" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>  ECM_Repeted_K_Folds</span>
+<span id="cb42-68"><a href="#cb42-68" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb42-69"><a href="#cb42-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-70"><a href="#cb42-70" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> metric <span class="op">==</span> <span class="st">&#39;TA&#39;</span> :</span>
+<span id="cb42-71"><a href="#cb42-71" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb42-72"><a href="#cb42-72" aria-hidden="true" tabindex="-1"></a>        TA_Repeted_K_Folds <span class="op">=</span> np.mean(TA_Repeted_K_Folds_vector)</span>
 <span id="cb42-73"><a href="#cb42-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-74"><a href="#cb42-74" aria-hidden="true" tabindex="-1"></a><span class="co">##########################################################################################################################</span></span>
-<span id="cb42-75"><a href="#cb42-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-76"><a href="#cb42-76" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> metric <span class="op">==</span> <span class="st">&#39;ECM&#39;</span> :</span>
-<span id="cb42-77"><a href="#cb42-77" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb42-78"><a href="#cb42-78" aria-hidden="true" tabindex="-1"></a>        ECM_Repeted_K_Folds <span class="op">=</span> np.mean(ECM_Repeted_K_Folds_vector)</span>
-<span id="cb42-79"><a href="#cb42-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-80"><a href="#cb42-80" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>  ECM_Repeted_K_Folds</span>
-<span id="cb42-81"><a href="#cb42-81" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb42-82"><a href="#cb42-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-83"><a href="#cb42-83" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> metric <span class="op">==</span> <span class="st">&#39;TA&#39;</span> :</span>
-<span id="cb42-84"><a href="#cb42-84" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb42-85"><a href="#cb42-85" aria-hidden="true" tabindex="-1"></a>        TA_Repeted_K_Folds <span class="op">=</span> np.mean(TA_Repeted_K_Folds_vector)</span>
-<span id="cb42-86"><a href="#cb42-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-87"><a href="#cb42-87" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>  TA_Repeted_K_Folds</span>
-<span id="cb42-88"><a href="#cb42-88" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb42-89"><a href="#cb42-89" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
+<span id="cb42-74"><a href="#cb42-74" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>  TA_Repeted_K_Folds</span>
+<span id="cb42-75"><a href="#cb42-75" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb42-76"><a href="#cb42-76" aria-hidden="true" tabindex="-1"></a>    </span></code></pre></div>
 <p>Definimos el modelo KNN para regresión con el que vamos a testear el algoritmo que se acaba de programar:</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>knn_regression <span class="op">=</span> sklearn.neighbors.KNeighborsRegressor(n_neighbors<span class="op">=</span><span class="dv">10</span> ,  p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span></code></pre></div>
 <p>Aplicamos el algoritmo de validación cruzada K-fold repetida sobre el modelo KNN para regresión, usando como métrica de validación el error cuadrático medio (ECM):</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>ECM_repeated_K_Folds <span class="op">=</span> repeated_K_Fold_CV(D<span class="op">=</span>Data, response<span class="op">=</span><span class="st">&#39;price&#39;</span>, K<span class="op">=</span><span class="dv">10</span>, B<span class="op">=</span><span class="dv">100</span>, random_seed<span class="op">=</span><span class="dv">123</span>, metric<span class="op">=</span><span class="st">&#39;ECM&#39;</span>, model<span class="op">=</span><span class="st">&#39;knn_regression&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>ECM_repeated_K_Folds <span class="op">=</span> repeated_K_Fold_CV(D<span class="op">=</span>Data, response<span class="op">=</span><span class="st">&#39;price&#39;</span>, K<span class="op">=</span><span class="dv">10</span>, B<span class="op">=</span><span class="dv">100</span>, random_seed<span class="op">=</span><span class="dv">123</span>, metric<span class="op">=</span><span class="st">&#39;ECM&#39;</span>, model<span class="op">=</span>knn_regression)</span></code></pre></div>
 <div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>ECM_repeated_K_Folds</span></code></pre></div>
 <pre><code>2268486279605.6816</code></pre>
 <p>Definimos el modelo KNN para clasificación con el que vamos a testear el algoritmo que se acaba de programar:</p>
 <div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>knn_classification <span class="op">=</span> sklearn.neighbors.KNeighborsClassifier(n_neighbors<span class="op">=</span><span class="dv">10</span> ,  p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span></code></pre></div>
 <p>Aplicamos el algoritmo de validación cruzada K-fold repetida sobre el modelo KNN para clasificación, usando como métrica la tasa de acierto (TA):</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>TAC_repeated_K_Folds <span class="op">=</span> repeated_K_Fold_CV(D<span class="op">=</span>Data, response<span class="op">=</span><span class="st">&#39;quality_recode&#39;</span>, K<span class="op">=</span><span class="dv">10</span>, B<span class="op">=</span><span class="dv">100</span>, random_seed<span class="op">=</span><span class="dv">123</span>, metric<span class="op">=</span><span class="st">&#39;TA&#39;</span>, model<span class="op">=</span><span class="st">&#39;knn_classification&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>TAC_repeated_K_Folds <span class="op">=</span> repeated_K_Fold_CV(D<span class="op">=</span>Data, response<span class="op">=</span><span class="st">&#39;quality_recode&#39;</span>, K<span class="op">=</span><span class="dv">10</span>, B<span class="op">=</span><span class="dv">100</span>, random_seed<span class="op">=</span><span class="dv">123</span>, metric<span class="op">=</span><span class="st">&#39;TA&#39;</span>, model<span class="op">=</span>knn_classification)</span></code></pre></div>
 <div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>TAC_repeated_K_Folds</span></code></pre></div>
 <pre><code>0.5371267212075105</code></pre>
 <p><br></p>
