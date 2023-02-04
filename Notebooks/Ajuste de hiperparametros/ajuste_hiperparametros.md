@@ -306,10 +306,18 @@ Data.head()
 
 
 
+<br>
+
 
 
 ## Algoritmos de validación
 
+A continuación vamos a definir algunos algoritmos de validación que serán usados en esta sección, al construir el algoritmo Grid y Random search en base a ellos. 
+
+Estos programas han sido sacados del artículo [algoritmos de validación para modelos de aprendizaje supervisado](http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html), que puede encontrarse en nuestro blog.
+
+
+Programamos el algoritmo de validación simple aleatoria:
 
 ```python
 def simple_validation_random(D, k, response, random_seed, metric, model):
@@ -362,6 +370,11 @@ def simple_validation_random(D, k, response, random_seed, metric, model):
 ```
 
 
+<br>
+
+Programamos el algoritmo de validación simple aleatoria repetida:
+
+
 ```python
 def repeated_random_simple_validation(D, k, B, response, random_seed, metric, model):
 
@@ -408,7 +421,9 @@ def repeated_random_simple_validation(D, k, B, response, random_seed, metric, mo
 ```
 
 
+<br>
 
+Programamos el algoritmo de validación repeated K-Fold:
 
 ```python
 def repeated_K_Fold_CV(D, B, K, response, random_seed, metric, model):
@@ -490,10 +505,34 @@ def repeated_K_Fold_CV(D, B, K, response, random_seed, metric, model):
 
 
 
+<br>
+
+## Grid Search 
 
 
-## Grid search 
+Vamos a programar el algoritmo Grid Search, tanto su versión determinista como su versión random.
 
+Esta función tiene los siguientes parametros:
+
+- Data: conjunto de datos de interés.
+
+- Response: nombre de la variable respuesta.
+
+- model: nombre del modelo que se va a utilizar. En esta versión, por simplicidad, solo se ha considerado el modelo KNN, por ello los nombres disponibles son 'knn_regression' y 'knn_classification'.
+
+- Search_Space: es el espacio de búsqueda para los hiper-parámetros del modelo.
+
+- validation: es el nombre del algoritmo de validación que va a utilizar el algoritmo Grid Search. En esta versión hay dos posibles algoritmos de validación disponibles, validación simple aleatoria repetida y repeated K-fold. Los nombres disponibles son 'repeated_random_simple_validation' y 'repeated_K_Fold_CV'.
+
+- metric: es el nombre de la métrica de validación que usará el algoritmo. En esta versión, por simplicidad, solo se han considerado dos, el error cuadrático medio para modelos de regresión y la tasa de acierto para modelos de clasificación supervisada. Los nombres dispobles son 'ECM' y 'TAC'.
+
+- B y k: son parámetros asociados a la función repeated_random_simple_validation. B es el número de repeticiones y k la proporcion de observaciones de train. Para ver más detalles sobre la función repeated_random_simple_validation, se recomienda, una vez más, leer el artículo sobre [algoritmos de validación para modelos de aprendizaje supervisado](http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html).
+
+
+- B y k: son parametros asociados a la función repeated_K_Fold_CV. B es el número de repeticiones y K el número de folds. Para ver más detalles sobre la función repeated_K_Fold_CV, se recomienda, una vez más, leer el artículo sobre [algoritmos de validación para modelos de aprendizaje supervisado](http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html).
+
+
+- random_seed_2: es la semilla aleatoria de la funcion 
 
 ```python
 def Grid_search(Data, Search_Space, response, model, validation, metric, B, k, K, random_seed_2, random_search, random_seed_1, random_samples):
