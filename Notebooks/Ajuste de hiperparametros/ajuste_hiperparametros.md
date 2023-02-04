@@ -529,10 +529,22 @@ Esta función tiene los siguientes parametros:
 - B y k: son parámetros asociados a la función repeated_random_simple_validation. B es el número de repeticiones y k la proporcion de observaciones de train. Para ver más detalles sobre la función repeated_random_simple_validation, se recomienda, una vez más, leer el artículo sobre [algoritmos de validación para modelos de aprendizaje supervisado](http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html).
 
 
-- B y k: son parametros asociados a la función repeated_K_Fold_CV. B es el número de repeticiones y K el número de folds. Para ver más detalles sobre la función repeated_K_Fold_CV, se recomienda, una vez más, leer el artículo sobre [algoritmos de validación para modelos de aprendizaje supervisado](http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html).
+- B y k: son parámetros asociados a la función repeated_K_Fold_CV. B es el número de repeticiones y K el número de folds. Para ver más detalles sobre la función repeated_K_Fold_CV, se recomienda, una vez más, leer el artículo sobre [algoritmos de validación para modelos de aprendizaje supervisado](http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html).
 
 
-- random_seed_2: es la semilla aleatoria de la funcion 
+- random_seed_2: es la semilla aleatoria de la funcion repeated_random_simple_validation
+
+
+- random_search: es un parámetro que toma como valores 'True' o 'False'. Si es 'True' el algoritmo implementado es Random Search, si es 'False' es Grid Search determinista.
+
+- random_seed_1: es la semilla aleatoria de Random Search.
+
+- random_samples: es el número de vectores de valores posibles de los hiper-parametros que se van a considerar en Random Search.
+
+
+La función devuelve un data-frame con las distintas combinaciones de hiper-parámetros que han sido evaluadas, y los valores de la métrica de validación que han sido obtenidos para cada una de esas conbinaciones.
+
+La función con la que se ha  programado el algoritmo es la siguiente:
 
 ```python
 def Grid_search(Data, Search_Space, response, model, validation, metric, B, k, K, random_seed_2, random_search, random_seed_1, random_samples):
@@ -627,11 +639,22 @@ def Grid_search(Data, Search_Space, response, model, validation, metric, B, k, K
 ```
 
 
+
+
+<br>
+
+A continuación vamos a realizar diferentes pruebas de la función programada:
+
+
+
+
+Grid Search para KNN para regresión, siendo range(1,100) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean','cosine','cityblock','manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia* de usando el algoritmo de validación simple aleatoria repetida, con B=10 y k=0.75, y la métrica ECM.
+
 ```python
 Grid_search_1 = Grid_search(Data=Data, Search_Space=[range(1,100) , ['euclidean','cosine','cityblock','manhattan']], response='price', model='knn_regression', validation='repeated_random_simple_validation', metric='ECM', B=10, k=0.75, K='no', random_search=False, random_samples=150, random_seed_1=123, random_seed_2=123)
 ```
 
-Time: 56.8seg
+Tiempo de ejecución: 56.8 segundos.
 
 
 ```python
@@ -726,24 +749,10 @@ Grid_search_1
 
 
 
-
-```python
-fig, ax = plt.subplots()
-
-p1 = sns.barplot(x="ECM", y ='(k , distance)' , data=Grid_search_1.iloc[0:15 , :], palette='mako')
-
-plt.title("KNN regression - Grid search - Repeated random simple validation (k=0.75 , B=10)", fontsize=13)
-
-plt.tight_layout()
-
-fig.savefig('p1.jpg', format='jpg', dpi=1200)
-```
-
-
-    
-![png](output_16_0.png)
+ <br>
     
 
+Grid Search para KNN para clasificación, siendo range(1,100) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean','cosine','cityblock','manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia* de usando el algoritmo de validación simple aleatoria repetida, con B=10 y k=0.75, y la métrica TAC.
 
 
 ```python
@@ -843,33 +852,16 @@ Grid_search_1_2
 
 
 
-
-```python
-fig, ax = plt.subplots()
-
-p2 = sns.barplot(x="TAC", y ='(k , distance)' , data=Grid_search_1_2.iloc[0:15 , :], palette='mako')
-
-plt.title("KNN classification - Grid search - Repeated random simple validation (k=0.75 , B=10)", fontsize=13)
-
-plt.tight_layout()
-
-fig.savefig('p2.jpg', format='jpg', dpi=1200)
-```
+<br>
 
 
-    
-![png](output_19_0.png)
-    
-
-
-
-
+Grid Search para KNN para regresión, siendo range(1,100) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean','cosine','cityblock','manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia* de usando el algoritmo de validación simple aleatoria repetida, con B=20 y k=0.75, y la métrica ECM.
 
 ```python
 Grid_search_2 = Grid_search(Data=Data, Search_Space=[range(1,100) , ['euclidean','cosine','cityblock','manhattan']], response='price', model='knn_regression', validation='repeated_random_simple_validation', metric='ECM', B=20, k=0.75, K='no', random_search=False, random_samples=150, random_seed_1=123, random_seed_2=123)
 ```
 
-Time: 1.57seg
+Tiempo de ejecución: 1.57 segundos.
 
 
 ```python
