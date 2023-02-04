@@ -2610,6 +2610,8 @@ plt.show()
 </center>   
 
 
+Como puede verse, la combinación óptima de hiper-parámetros varía en función de la versión utilizada del algoritmo de ajuste de hiper-parámetros.
+
 
 <br>
 
@@ -2710,6 +2712,13 @@ plt.show()
 </center> 
 
 
+Como ocurría en el caso anterior, la combinación óptima de hiper-parámetros varía en función de la versión utilizada del algoritmo de ajuste de hiper-parámetros.
+
+
+
+<br>
+
+---
 
 <br>
 
@@ -3459,6 +3468,8 @@ plt.show()
 </center> 
 
 
+Como puede verse, la combinación óptima de hiper-parámetros varía en función de la versión utilizada del algoritmo de ajuste de hiper-parámetros.
+
 <br>
 
 
@@ -3492,7 +3503,7 @@ plt.show()
 
 
 
-
+Como ocurría en el caso anterior, la combinación óptima de hiper-parámetros varía en función de la versión utilizada del algoritmo de ajuste de hiper-parámetros.
 
 
  
@@ -3504,11 +3515,14 @@ plt.show()
 
 <br>
 
+
+
 # Bibliografia <a class="anchor" id="1"></a> 
+
 
 - Aler Mur, Ricardo. (2022). *Metodología: evaluación de modelos.* [Presentación de PowerPoint]. Aula Global UC3M.
  
- 
+- Rodriguez, Daniel. (julio 2018). GridSearchCV. *AnalyticsLane*. https://www.analyticslane.com/2018/07/02/gridsearchcv/
  
 <br> 
  
