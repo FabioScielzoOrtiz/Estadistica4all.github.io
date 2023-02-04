@@ -119,29 +119,29 @@ El algoritmo grid search tienen los siguientes pasos:
 <p style='margin-left:1em;'>
 
 
-- Para cada posible combinación de valores de los hiper-parametros contenida en el espacio de busqueda, es decir, para cada $\hspace{0.1cm}s=(s_1,...,s_r)\hspace{0.05cm} \in \hspace{0.05cm} S$
+- Para cada posible combinación de valores de los hiper-parametros contenida en el espacio de busqueda, es decir, para cada $\hspace{0.1cm}s=(s_1,...,s_r) \in S$
 
     - Se valida $M(h=s)\hspace{0.1cm}=\hspace{0.1cm}M(h_1=s_1 \hspace{0.05cm} ,..., \hspace{0.05cm} h_r=s_r)\hspace{0.15cm}$ usando algún **algoritmo de validación** de modelos de aprendizaje estadístico (ya sean supervisados o no-supervisados). Con ello se obtiene un valor de una **métrica de validacion** para la combinacion de hiper-parámetros $\hspace{0.1cm} s=(s_1,...,s_r)\\$
 
 
 - Tras el paso anterior se obtienen $\hspace{0.05cm}\#\hspace{0.05cm} S\hspace{0.05cm}$ valores de la métrica de validación calculada aplicando cierto algoritmo de validación.
 
-    - Si, por ejemplo,tuvieramos un modelo de regresión y la métrica usada fuera el $\hspace{0.1cm}ECM\hspace{0.1cm}$, entonces se obtienen los siguientes valores de la métrica:
+    - Si, por ejemplo, tuvieramos un modelo de regresión y la métrica usada fuera el $\hspace{0.1cm}ECM\hspace{0.1cm}$, entonces se obtienen los siguientes valores de la métrica:
     
-    $$\left\lbrace \hspace{0.1cm} ECM[\hspace{0.05cm}M(h=s)\hspace{0.05cm}]_{test}^* \hspace{0.15cm} / \hspace{0.15cm}  s\in S \hspace{0.1cm} \right\rbrace\\$$
+    $$\Bigl\{  \hspace{0.1cm} ECM \hspace{0.05cm}[ \hspace{0.05cm}  M(h=s) \hspace{0.05cm}]_{test}^* \hspace{0.2cm} : \hspace{0.2cm}  s\in S \hspace{0.1cm}  \Bigl\}\\$$
 
 
 
 
-- Se selecciona el vector de hiper-parametros $\hspace{0.1cm}s=(s_1,...,s_r) \in S\hspace{0.1cm}$ con el que se obtiene un mejor valor de la métrica de validacion. Si la metrica es de error, se selecciona el $\hspace{0.1cm}s\hspace{0.1cm}$ con el que se obtiene menor valor de la metrica. Si la metrica es de acierto, se seleciona el $\hspace{0.1cm}s\hspace{0.1cm}$ con el que se obtiene mayor valor de la metrica. $\\[0.5cm]$
+- Se selecciona el vector de hiper-parámetros $\hspace{0.1cm}s=(s_1,...,s_r) \in S\hspace{0.1cm}$ con el que se obtiene un mejor valor de la métrica de validacion. Si la metrica es de *error*, se selecciona el $\hspace{0.1cm}s\hspace{0.1cm}$ con el que se obtiene *menor* valor de la métrica. Si la métrica es de *acierto*, se seleciona el $\hspace{0.1cm}s\hspace{0.1cm}$ con el que se obtiene *mayor* valor de la metrica. $\\[0.5cm]$
 
-    - Si, por ejemplo,  la métrica usado fuera el $\hspace{0.1cm}ECM\hspace{0.1cm}$, que es una métrica de error, entonces el vector de hiper-parámetros seleccionado seria $\hspace{0.1cm}s^*\hspace{0.1cm}$, donde:
+    - Si, por ejemplo, tuvieramos un modelo de regresión y la métrica usado fuera el $\hspace{0.05cm}ECM\hspace{0.05cm}$, que es una métrica de error, entonces el vector de hiper-parámetros seleccionado sería $\hspace{0.1cm}s^*\hspace{0.1cm}$, donde:
  
-    $$s^* \hspace{0.2cm}=\hspace{0.2cm} arg\hspace{0.25cm} \underset{s \in S}{Min}\hspace{0.25cm} ECM( \hspace{0.05cm} M(h=s) \hspace{0.05cm} )_{test}^* \\$$
+    $$s^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.25cm} \underset{s \in S}{Min}\hspace{0.25cm} ECM \hspace{0.05cm}[ \hspace{0.05cm} M(h=s) \hspace{0.05cm} ]_{test}^* \\$$
 
-    - Si, por ejemplo, la métrica usado fuera la $\hspace{0.1cm}TA\hspace{0.1cm}$, que es una métrica de acierto, entonces el vector de hiper-parámetros seleccionado seria $\hspace{0.1cm}s^*\hspace{0.1cm}$, donde:
+    - Si, por ejemplo, tuvieramos un modelo de clasificación supervisada y la métrica usado fuera la $\hspace{0.1cm}TAC\hspace{0.1cm}$, que es una métrica de acierto, entonces el vector de hiper-parámetros seleccionado sería $\hspace{0.1cm}s^*\hspace{0.1cm}$, donde:
  
-    $$s^* \hspace{0.2cm}=\hspace{0.2cm} arg\hspace{0.25cm} \underset{s \in S}{Max}\hspace{0.25cm} TA\left( \hspace{0.05cm} M(h=s) \hspace{0.05cm}\right)_{test}^*$$
+    $$s^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.25cm} \underset{s \in S}{Max}\hspace{0.25cm} TA\hspace{0.05cm}[ \hspace{0.05cm} M(h=s) \hspace{0.05cm} ]_{test}^*$$
 
 
 </p>
@@ -154,23 +154,27 @@ El algoritmo grid search tienen los siguientes pasos:
 
 **¿ Cómo definir $\hspace{0.1cm}S\hspace{0.1cm}$ ?**
 
-Lo ideal es que $\hspace{0.1cm}S \hspace{0.1cm} = \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}...\text{x}\hspace{0.1cm}R(h_r)\hspace{0.1cm}$, pero cuando el numero de hiper-parametros es demasiado alto, o estos tienen campos de variacion grandes, esto no es factible en la practica. Por ello se suelen seguir dos vías más eficientes:
+Lo ideal es que $\hspace{0.05cm}S \hspace{0.05cm} = \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}\dots \text{x}\hspace{0.1cm}R(h_r)\hspace{0.1cm}$, pero cuando el número de hiper-parámetros es demasiado alto, o estos tienen campos de variación grandes, esto no es factible en la práctica. Por ello se suelen seguir dos vías más eficientes a nivel computacional, pero menos a nivel estadístico:
 
-- Se toma $\hspace{0.1cm}S\hspace{0.1cm}$ como un subconjunto estricto de  las posibles combinaciones de hiper-parametros , es decir, $\hspace{0.1cm}S \hspace{0.1cm} \subset \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}...\text{x}\hspace{0.1cm}R(h_r)$
+- Se toma $\hspace{0.05cm}S\hspace{0.05cm}$ como un subconjunto estricto de  las posibles combinaciones de hiper-parámetros , es decir, $\hspace{0.1cm}S \hspace{0.1cm} \subset \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}\dots \text{x}\hspace{0.1cm}R(h_r)$.
 
-La definición de $\hspace{0.1cm}S\hspace{0.1cm}$ en este contexto puede ser determinista, el usuario define las combinaciones de hiper-parametros que se van a considetar. O bien aleatoria, es decir, se escogen aleatoriamente las combinaciones de hiper-parametros que definirán a $\hspace{0.1cm}S\hspace{0.1cm}$
+    La definición de $\hspace{0.05cm}S\hspace{0.05cm}$ en este contexto puede ser **determinista**, el usuario define las combinaciones de hiper-parametros que se van a considetar. O bien **aleatoria**, es decir, se escogen aleatoriamente las combinaciones de hiper-parámetros que definirán a $\hspace{0.05cm}S\hspace{0.05cm}$.
 
-Si la definición de $\hspace{0.1cm}S\hspace{0.1cm}$ es aleatoria, el algoritmo suele denominarse random grid search, o simplemente random search.
+    - Si la definición de $\hspace{0.05cm}S\hspace{0.05cm}$ es **aleatoria**, el algoritmo suele denominarse Random Grid Search, o simplemente **Random Search**. $\\[0.35cm]$ 
+    
+    - Si la definción de  $\hspace{0.05cm}S\hspace{0.05cm}$  es **determinista**, el algoritmo se denomina **Grid search**.
 
 
 <br>
+
+---
 
 <br>
 
 
 # Grid search programado en `Python` <a class="anchor" id="1"></a>  
 
-
+Importamos las librerías que vamos a utilizar en esta sección:
 
 
 ```python
@@ -190,6 +194,10 @@ sns.set(rc={'figure.figsize':(9 , 6)})
 sns.set_theme()
 ```
 
+
+<br>
+
+Cargamos los datos con los que vamos a trabajar:
 
 ```python
 Data = pd.read_csv('House_Price_Regression.csv')

@@ -1652,24 +1652,24 @@ margin-right: auto;
 <p><span></p>
 <p style="margin-left:1em;">
 <ul>
-<li><p>Para cada posible combinación de valores de los hiper-parametros contenida en el espacio de busqueda, es decir, para cada <span class="math inline">\(\hspace{0.1cm}s=(s_1,...,s_r)\hspace{0.05cm} \in \hspace{0.05cm} S\)</span></p>
+<li><p>Para cada posible combinación de valores de los hiper-parametros contenida en el espacio de busqueda, es decir, para cada <span class="math inline">\(\hspace{0.1cm}s=(s_1,...,s_r) \in S\)</span></p>
 <ul>
 <li>Se valida <span class="math inline">\(M(h=s)\hspace{0.1cm}=\hspace{0.1cm}M(h_1=s_1 \hspace{0.05cm} ,..., \hspace{0.05cm} h_r=s_r)\hspace{0.15cm}\)</span> usando algún <strong>algoritmo de validación</strong> de modelos de aprendizaje estadístico (ya sean supervisados o no-supervisados). Con ello se obtiene un valor de una <strong>métrica de validacion</strong> para la combinacion de hiper-parámetros <span class="math inline">\(\hspace{0.1cm} s=(s_1,...,s_r)\\\)</span></li>
 </ul></li>
 <li><p>Tras el paso anterior se obtienen <span class="math inline">\(\hspace{0.05cm}\#\hspace{0.05cm} S\hspace{0.05cm}\)</span> valores de la métrica de validación calculada aplicando cierto algoritmo de validación.</p>
 <ul>
-<li>Si, por ejemplo,tuvieramos un modelo de regresión y la métrica usada fuera el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, entonces se obtienen los siguientes valores de la métrica:</li>
+<li>Si, por ejemplo, tuvieramos un modelo de regresión y la métrica usada fuera el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, entonces se obtienen los siguientes valores de la métrica:</li>
 </ul>
-<p><span class="math display">\[\left\lbrace \hspace{0.1cm} ECM[\hspace{0.05cm}M(h=s)\hspace{0.05cm}]_{test}^* \hspace{0.15cm} / \hspace{0.15cm}  s\in S \hspace{0.1cm} \right\rbrace\\\]</span></p></li>
-<li><p>Se selecciona el vector de hiper-parametros <span class="math inline">\(\hspace{0.1cm}s=(s_1,...,s_r) \in S\hspace{0.1cm}\)</span> con el que se obtiene un mejor valor de la métrica de validacion. Si la metrica es de error, se selecciona el <span class="math inline">\(\hspace{0.1cm}s\hspace{0.1cm}\)</span> con el que se obtiene menor valor de la metrica. Si la metrica es de acierto, se seleciona el <span class="math inline">\(\hspace{0.1cm}s\hspace{0.1cm}\)</span> con el que se obtiene mayor valor de la metrica. <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\Bigl\{  \hspace{0.1cm} ECM \hspace{0.05cm}[ \hspace{0.05cm}  M(h=s) \hspace{0.05cm}]_{test}^* \hspace{0.2cm} : \hspace{0.2cm}  s\in S \hspace{0.1cm}  \Bigl\}\\\]</span></p></li>
+<li><p>Se selecciona el vector de hiper-parámetros <span class="math inline">\(\hspace{0.1cm}s=(s_1,...,s_r) \in S\hspace{0.1cm}\)</span> con el que se obtiene un mejor valor de la métrica de validacion. Si la metrica es de <em>error</em>, se selecciona el <span class="math inline">\(\hspace{0.1cm}s\hspace{0.1cm}\)</span> con el que se obtiene <em>menor</em> valor de la métrica. Si la métrica es de <em>acierto</em>, se seleciona el <span class="math inline">\(\hspace{0.1cm}s\hspace{0.1cm}\)</span> con el que se obtiene <em>mayor</em> valor de la metrica. <span class="math inline">\(\\[0.5cm]\)</span></p>
 <ul>
-<li>Si, por ejemplo, la métrica usado fuera el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, que es una métrica de error, entonces el vector de hiper-parámetros seleccionado seria <span class="math inline">\(\hspace{0.1cm}s^*\hspace{0.1cm}\)</span>, donde:</li>
+<li>Si, por ejemplo, tuvieramos un modelo de regresión y la métrica usado fuera el <span class="math inline">\(\hspace{0.05cm}ECM\hspace{0.05cm}\)</span>, que es una métrica de error, entonces el vector de hiper-parámetros seleccionado sería <span class="math inline">\(\hspace{0.1cm}s^*\hspace{0.1cm}\)</span>, donde:</li>
 </ul>
-<p><span class="math display">\[s^* \hspace{0.2cm}=\hspace{0.2cm} arg\hspace{0.25cm} \underset{s \in S}{Min}\hspace{0.25cm} ECM( \hspace{0.05cm} M(h=s) \hspace{0.05cm} )_{test}^* \\\]</span></p>
+<p><span class="math display">\[s^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.25cm} \underset{s \in S}{Min}\hspace{0.25cm} ECM \hspace{0.05cm}[ \hspace{0.05cm} M(h=s) \hspace{0.05cm} ]_{test}^* \\\]</span></p>
 <ul>
-<li>Si, por ejemplo, la métrica usado fuera la <span class="math inline">\(\hspace{0.1cm}TA\hspace{0.1cm}\)</span>, que es una métrica de acierto, entonces el vector de hiper-parámetros seleccionado seria <span class="math inline">\(\hspace{0.1cm}s^*\hspace{0.1cm}\)</span>, donde:</li>
+<li>Si, por ejemplo, tuvieramos un modelo de clasificación supervisada y la métrica usado fuera la <span class="math inline">\(\hspace{0.1cm}TAC\hspace{0.1cm}\)</span>, que es una métrica de acierto, entonces el vector de hiper-parámetros seleccionado sería <span class="math inline">\(\hspace{0.1cm}s^*\hspace{0.1cm}\)</span>, donde:</li>
 </ul>
-<p><span class="math display">\[s^* \hspace{0.2cm}=\hspace{0.2cm} arg\hspace{0.25cm} \underset{s \in S}{Max}\hspace{0.25cm} TA\left( \hspace{0.05cm} M(h=s) \hspace{0.05cm}\right)_{test}^*\]</span></p></li>
+<p><span class="math display">\[s^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.25cm} \underset{s \in S}{Max}\hspace{0.25cm} TA\hspace{0.05cm}[ \hspace{0.05cm} M(h=s) \hspace{0.05cm} ]_{test}^*\]</span></p></li>
 </ul>
 </p>
 </p>
@@ -1677,17 +1677,22 @@ margin-right: auto;
 </div>
 <p><br></p>
 <p><strong>¿ Cómo definir <span class="math inline">\(\hspace{0.1cm}S\hspace{0.1cm}\)</span> ?</strong></p>
-<p>Lo ideal es que <span class="math inline">\(\hspace{0.1cm}S \hspace{0.1cm} = \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}...\text{x}\hspace{0.1cm}R(h_r)\hspace{0.1cm}\)</span>, pero cuando el numero de hiper-parametros es demasiado alto, o estos tienen campos de variacion grandes, esto no es factible en la practica. Por ello se suelen seguir dos vías más eficientes:</p>
+<p>Lo ideal es que <span class="math inline">\(\hspace{0.05cm}S \hspace{0.05cm} = \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}\dots \text{x}\hspace{0.1cm}R(h_r)\hspace{0.1cm}\)</span>, pero cuando el número de hiper-parámetros es demasiado alto, o estos tienen campos de variación grandes, esto no es factible en la práctica. Por ello se suelen seguir dos vías más eficientes a nivel computacional, pero menos a nivel estadístico:</p>
 <ul>
-<li>Se toma <span class="math inline">\(\hspace{0.1cm}S\hspace{0.1cm}\)</span> como un subconjunto estricto de las posibles combinaciones de hiper-parametros , es decir, <span class="math inline">\(\hspace{0.1cm}S \hspace{0.1cm} \subset \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}...\text{x}\hspace{0.1cm}R(h_r)\)</span></li>
+<li><p>Se toma <span class="math inline">\(\hspace{0.05cm}S\hspace{0.05cm}\)</span> como un subconjunto estricto de las posibles combinaciones de hiper-parámetros , es decir, <span class="math inline">\(\hspace{0.1cm}S \hspace{0.1cm} \subset \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}\dots \text{x}\hspace{0.1cm}R(h_r)\)</span>.</p>
+<p>La definición de <span class="math inline">\(\hspace{0.05cm}S\hspace{0.05cm}\)</span> en este contexto puede ser <strong>determinista</strong>, el usuario define las combinaciones de hiper-parametros que se van a considetar. O bien <strong>aleatoria</strong>, es decir, se escogen aleatoriamente las combinaciones de hiper-parámetros que definirán a <span class="math inline">\(\hspace{0.05cm}S\hspace{0.05cm}\)</span>.</p>
+<ul>
+<li><p>Si la definición de <span class="math inline">\(\hspace{0.05cm}S\hspace{0.05cm}\)</span> es <strong>aleatoria</strong>, el algoritmo suele denominarse Random Grid Search, o simplemente <strong>Random Search</strong>. <span class="math inline">\(\\[0.35cm]\)</span></p></li>
+<li><p>Si la definción de <span class="math inline">\(\hspace{0.05cm}S\hspace{0.05cm}\)</span> es <strong>determinista</strong>, el algoritmo se denomina <strong>Grid search</strong>.</p></li>
+</ul></li>
 </ul>
-<p>La definición de <span class="math inline">\(\hspace{0.1cm}S\hspace{0.1cm}\)</span> en este contexto puede ser determinista, el usuario define las combinaciones de hiper-parametros que se van a considetar. O bien aleatoria, es decir, se escogen aleatoriamente las combinaciones de hiper-parametros que definirán a <span class="math inline">\(\hspace{0.1cm}S\hspace{0.1cm}\)</span></p>
-<p>Si la definición de <span class="math inline">\(\hspace{0.1cm}S\hspace{0.1cm}\)</span> es aleatoria, el algoritmo suele denominarse random grid search, o simplemente random search.</p>
 <p><br></p>
+<hr />
 <p><br></p>
 </div>
 <div id="grid-search-programado-en-python" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Grid search programado en <code>Python</code> <a class="anchor" id="1"></a></h1>
+<p>Importamos las librerías que vamos a utilizar en esta sección:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
@@ -1702,6 +1707,8 @@ margin-right: auto;
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>sns.<span class="bu">set</span>(rc<span class="op">=</span>{<span class="st">&#39;figure.figsize&#39;</span>:(<span class="dv">9</span> , <span class="dv">6</span>)})</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>sns.set_theme()</span></code></pre></div>
+<p><br></p>
+<p>Cargamos los datos con los que vamos a trabajar:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Data <span class="op">=</span> pd.read_csv(<span class="st">&#39;House_Price_Regression.csv&#39;</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>Data <span class="op">=</span> Data.loc[:, [<span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;longitude&#39;</span>, <span class="st">&#39;no_of_bathrooms&#39;</span>, <span class="st">&#39;no_of_bedrooms&#39;</span>, <span class="st">&#39;price&#39;</span>, <span class="st">&#39;size_in_m_2&#39;</span>, <span class="st">&#39;balcony_recode&#39;</span>, <span class="st">&#39;private_garden_recode&#39;</span>, <span class="st">&#39;quality_recode&#39;</span>]]</span>
