@@ -1,5 +1,5 @@
 ---
-title: 'Ajuste de hiperparámetros'
+title: 'Algoritmos de ajuste de hiperparámetros'
 author: 'Fabio Scielzo Ortiz'
 date: '05/02/23'
 output: 
@@ -59,7 +59,7 @@ $\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadi
 
 $\hspace{0.3cm}$ **Si utilizas este artículo, por favor, cítalo:** 
 
-$\hspace{0.5cm}$ Scielzo Ortiz, Fabio. (2023). Ajuste de hiperparámetros. http://estadistica4all.com/Articulos/ajuste_hiperparametros.html
+$\hspace{0.5cm}$ Scielzo Ortiz, Fabio. (2023). Algoritmos de ajuste de hiperparámetros. http://estadistica4all.com/Articulos/ajuste_hiperparametros.html
 
 
 </p>
