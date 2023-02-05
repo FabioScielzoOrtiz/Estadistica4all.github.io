@@ -69,7 +69,7 @@ $\hspace{0.5cm}$ Scielzo Ortiz, Fabio. (2023). Exploratory Data Analysis. http:/
 </div>
 
 
-***It's recommended open the article in a computer or tablet.***
+***It's recommended to open the article on a computer or tablet.***
  
  
  
@@ -80,10 +80,15 @@ $\hspace{0.5cm}$ Scielzo Ortiz, Fabio. (2023). Exploratory Data Analysis. http:/
 
 # Exploratory Data Analysis (EDA) <a class="anchor" id="1"></a>
 
-Exploratory data analysis (análisis de datos exploratorio) hace referencia analisis estadistico, principalmente descriptivo, de un conjunto de datos.
+Exploratory data analysis (EDA) refers to the descriptive statistical analysis of a data-set. 
 
-A continuación se va a proponer una metodologia (unos pasos a seguir) para desarrollar un EDA.
+Next we are going to propose a metodology to carry out an EDA.
 
+
+
+# First step: data-set structure
+
+## Import data-set
 
 A continuación cargamos el data-set al que vamos a aplicar un EDA
 
@@ -93,151 +98,126 @@ import pandas as pd
 Netflix_Data = pd.read_csv('titles.csv')
 ```
 
-
-Hacemos un `head()` del data-set para ver que pinta tiene:
-
-```python
-Netflix_Data.head()
-```
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>id</th>
-      <th>title</th>
-      <th>type</th>
-      <th>description</th>
-      <th>release_year</th>
-      <th>age_certification</th>
-      <th>runtime</th>
-      <th>genres</th>
-      <th>production_countries</th>
-      <th>seasons</th>
-      <th>imdb_id</th>
-      <th>imdb_score</th>
-      <th>imdb_votes</th>
-      <th>tmdb_popularity</th>
-      <th>tmdb_score</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>ts300399</td>
-      <td>Five Came Back: The Reference Films</td>
-      <td>SHOW</td>
-      <td>This collection includes 12 World War II-era p...</td>
-      <td>1945</td>
-      <td>TV-MA</td>
-      <td>51</td>
-      <td>['documentation']</td>
-      <td>['US']</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>0.600</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>tm84618</td>
-      <td>Taxi Driver</td>
-      <td>MOVIE</td>
-      <td>A mentally unstable Vietnam War veteran works ...</td>
-      <td>1976</td>
-      <td>R</td>
-      <td>114</td>
-      <td>['drama', 'crime']</td>
-      <td>['US']</td>
-      <td>NaN</td>
-      <td>tt0075314</td>
-      <td>8.2</td>
-      <td>808582.0</td>
-      <td>40.965</td>
-      <td>8.179</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>tm154986</td>
-      <td>Deliverance</td>
-      <td>MOVIE</td>
-      <td>Intent on seeing the Cahulawassee River before...</td>
-      <td>1972</td>
-      <td>R</td>
-      <td>109</td>
-      <td>['drama', 'action', 'thriller', 'european']</td>
-      <td>['US']</td>
-      <td>NaN</td>
-      <td>tt0068473</td>
-      <td>7.7</td>
-      <td>107673.0</td>
-      <td>10.010</td>
-      <td>7.300</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>tm127384</td>
-      <td>Monty Python and the Holy Grail</td>
-      <td>MOVIE</td>
-      <td>King Arthur, accompanied by his squire, recrui...</td>
-      <td>1975</td>
-      <td>PG</td>
-      <td>91</td>
-      <td>['fantasy', 'action', 'comedy']</td>
-      <td>['GB']</td>
-      <td>NaN</td>
-      <td>tt0071853</td>
-      <td>8.2</td>
-      <td>534486.0</td>
-      <td>15.461</td>
-      <td>7.811</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>tm120801</td>
-      <td>The Dirty Dozen</td>
-      <td>MOVIE</td>
-      <td>12 American military prisoners in World War II...</td>
-      <td>1967</td>
-      <td>NaN</td>
-      <td>150</td>
-      <td>['war', 'action']</td>
-      <td>['GB', 'US']</td>
-      <td>NaN</td>
-      <td>tt0061578</td>
-      <td>7.7</td>
-      <td>72662.0</td>
-      <td>20.398</td>
-      <td>7.600</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
+ 
 
 <br>
 
+## Data-set conceptual description
 
-# Esctructura del data-set
+
+## Data-set size
+
+## info() method
+
+## Column types
+
+## NaN identification 
+
+
+
+
+# Auxiliar step: data preprocessing
+
+## Categorization of cuantitative variables
+
+## Dummification of categorical variables 
+
+## Recodefication of categorical variables
+
+## Variable Scaling 
+
+
+
+
+
+# Second step: statistical description
+
+## Statistical variable
+
+### types: quantitative and categorical
+
+## Sample of a statisitcal variable
+
+
+## Mean 
+
+## Median
+
+## Mode
+
+## Variance
+
+## Cuantiles
+
+## Kurtosis
+
+## Skewness
+
+## Outliers
+
+
+
+## Data matrix
+
+## Covariance
+
+## Correlation
+
+
+
+
+
+
+## Statistical description for quantitative variables
+
+mean. median, variance, cuantiles, kurtosis, skewness, outliers
+
+
+frequency tables --> https://www.statology.org/frequency-tables-python/
+
+
+## Statistical description for categorical variables
+
+mode, quantiles
+
+frequency tables 
+
+
+## Statistical description for variable crossings (cruces de variables cuantis-categoricas, categroicas-categoricas, cuantis-cuantis)
+
+quantitative-categorical --> mean, median, vaariance, quantiles etc BY GROUPS.  Joint and conditional frequency tables.
+
+categorical-categorical --> Joint and conditional frequency tables.
+
+quantitative-quantitative --> transform to categorical-categorical case.
+
+
+
+
+
+# Third step: statistical visualization
+
+
+## Visualization for quantitative variables
+
+## Visualization for categorical variables
+
+## Visualization for quantitative-categorical
+
+## Visualization for categorical-categorical
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Tamaño
 
