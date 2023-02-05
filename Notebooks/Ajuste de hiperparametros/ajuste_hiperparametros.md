@@ -2846,8 +2846,9 @@ fig.savefig('p9_2_new.jpg', format='jpg', dpi=1200)
 </center> 
 
 
-Como ocurría en el caso anterior, la combinación óptima de hiper-parámetros varía en función de la versión utilizada del algoritmo de ajuste de hiper-parámetros.
+Como ocurría en el caso anterior, la combinación óptima de hiper-parámetros varía en función de la versión utilizada del algoritmo de ajuste de hiper-parámetros. 
 
+Cabe destacar que en los últimos casos, las 30 combinaciones de hiper-parámetros representadas tienen el mismo valor de la métrica TAC, que es además el máximo alcanzado, por tanto son todas igual de óptimas, en el contexto de la variante del algoritmo empleada.
 
 
 <br>
@@ -3663,7 +3664,9 @@ plt.show()
 
 
 
-Como ocurría en el caso anterior, la combinación óptima de hiper-parámetros varía en función de la versión utilizada del algoritmo de ajuste de hiper-parámetros.
+La combinación óptima de hiper-parámetros varía en función de la versión utilizada del algoritmo de ajuste de hiper-parámetros. 
+
+Cabe destacar que en el segundo caso, las 30 combinaciones de hiper-parámetros representadas tienen el mismo valor de la métrica TAC, que es además el máximo alcanzado, por tanto son todas igual de óptimas.
 
 
  
