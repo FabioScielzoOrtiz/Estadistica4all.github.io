@@ -82,7 +82,7 @@ $\hspace{0.5cm}$ Scielzo Ortiz, Fabio. (2023). Exploratory Data Analysis. http:/
 
 Exploratory data analysis (EDA) refers to the descriptive statistical analysis of a data-set. 
 
-Next we are going to propose a metodology to carry out an EDA.
+Next we are going to propose a methodology to carry out an EDA, using Python as programming lenguage.
 
 
 
@@ -90,7 +90,7 @@ Next we are going to propose a metodology to carry out an EDA.
 
 ## Import data-set
 
-A continuación cargamos el data-set al que vamos a aplicar un EDA
+First of all, we import the data-set with which we will work.
 
 ```python
 import pandas as pd
@@ -98,25 +98,464 @@ import pandas as pd
 Netflix_Data = pd.read_csv('titles.csv')
 ```
 
- 
+
+```python
+Netflix_Data
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>title</th>
+      <th>type</th>
+      <th>description</th>
+      <th>release_year</th>
+      <th>age_certification</th>
+      <th>runtime</th>
+      <th>genres</th>
+      <th>production_countries</th>
+      <th>seasons</th>
+      <th>imdb_id</th>
+      <th>imdb_score</th>
+      <th>imdb_votes</th>
+      <th>tmdb_popularity</th>
+      <th>tmdb_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ts300399</td>
+      <td>Five Came Back: The Reference Films</td>
+      <td>SHOW</td>
+      <td>This collection includes 12 World War II-era p...</td>
+      <td>1945.0</td>
+      <td>TV-MA</td>
+      <td>51</td>
+      <td>['documentation']</td>
+      <td>['US']</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.600</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>tm84618</td>
+      <td>Taxi Driver</td>
+      <td>MOVIE</td>
+      <td>A mentally unstable Vietnam War veteran works ...</td>
+      <td>1976.0</td>
+      <td>R</td>
+      <td>114</td>
+      <td>['drama', 'crime']</td>
+      <td>['US']</td>
+      <td>NaN</td>
+      <td>tt0075314</td>
+      <td>8.2</td>
+      <td>808582.0</td>
+      <td>40.965</td>
+      <td>8.179</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>tm154986</td>
+      <td>Deliverance</td>
+      <td>MOVIE</td>
+      <td>Intent on seeing the Cahulawassee River before...</td>
+      <td>1972.0</td>
+      <td>R</td>
+      <td>109</td>
+      <td>['drama', 'action', 'thriller', 'european']</td>
+      <td>['US']</td>
+      <td>NaN</td>
+      <td>tt0068473</td>
+      <td>7.7</td>
+      <td>107673.0</td>
+      <td>10.010</td>
+      <td>7.300</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>tm127384</td>
+      <td>Monty Python and the Holy Grail</td>
+      <td>MOVIE</td>
+      <td>King Arthur, accompanied by his squire, recrui...</td>
+      <td>1975.0</td>
+      <td>PG</td>
+      <td>91</td>
+      <td>['fantasy', 'action', 'comedy']</td>
+      <td>['GB']</td>
+      <td>NaN</td>
+      <td>tt0071853</td>
+      <td>8.2</td>
+      <td>534486.0</td>
+      <td>15.461</td>
+      <td>7.811</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>tm120801</td>
+      <td>The Dirty Dozen</td>
+      <td>MOVIE</td>
+      <td>12 American military prisoners in World War II...</td>
+      <td>1967.0</td>
+      <td>NaN</td>
+      <td>150</td>
+      <td>['war', 'action']</td>
+      <td>['GB', 'US']</td>
+      <td>NaN</td>
+      <td>tt0061578</td>
+      <td>7.7</td>
+      <td>72662.0</td>
+      <td>20.398</td>
+      <td>7.600</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5845</th>
+      <td>tm1014599</td>
+      <td>Fine Wine</td>
+      <td>MOVIE</td>
+      <td>A beautiful love story that can happen between...</td>
+      <td>2021.0</td>
+      <td>NaN</td>
+      <td>100</td>
+      <td>['romance', 'drama']</td>
+      <td>['NG']</td>
+      <td>NaN</td>
+      <td>tt13857480</td>
+      <td>6.8</td>
+      <td>45.0</td>
+      <td>1.466</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5846</th>
+      <td>tm898842</td>
+      <td>C/O Kaadhal</td>
+      <td>MOVIE</td>
+      <td>A heart warming film that explores the concept...</td>
+      <td>2021.0</td>
+      <td>NaN</td>
+      <td>134</td>
+      <td>['drama']</td>
+      <td>[]</td>
+      <td>NaN</td>
+      <td>tt11803618</td>
+      <td>7.7</td>
+      <td>348.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5847</th>
+      <td>tm1059008</td>
+      <td>Lokillo</td>
+      <td>MOVIE</td>
+      <td>A controversial TV host and comedian who has b...</td>
+      <td>2021.0</td>
+      <td>NaN</td>
+      <td>90</td>
+      <td>['comedy']</td>
+      <td>['CO']</td>
+      <td>NaN</td>
+      <td>tt14585902</td>
+      <td>3.8</td>
+      <td>68.0</td>
+      <td>26.005</td>
+      <td>6.300</td>
+    </tr>
+    <tr>
+      <th>5848</th>
+      <td>tm1035612</td>
+      <td>Dad Stop Embarrassing Me - The Afterparty</td>
+      <td>MOVIE</td>
+      <td>Jamie Foxx, David Alan Grier and more from the...</td>
+      <td>2021.0</td>
+      <td>PG-13</td>
+      <td>37</td>
+      <td>[]</td>
+      <td>['US']</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.296</td>
+      <td>10.000</td>
+    </tr>
+    <tr>
+      <th>5849</th>
+      <td>ts271048</td>
+      <td>Mighty Little Bheem: Kite Festival</td>
+      <td>SHOW</td>
+      <td>With winter behind them, Bheem and his townspe...</td>
+      <td>2021.0</td>
+      <td>NaN</td>
+      <td>7</td>
+      <td>['family', 'animation', 'comedy']</td>
+      <td>[]</td>
+      <td>1.0</td>
+      <td>tt13711094</td>
+      <td>7.8</td>
+      <td>18.0</td>
+      <td>2.289</td>
+      <td>10.000</td>
+    </tr>
+  </tbody>
+</table>
+<p>5850 rows × 15 columns</p>
+</div>
+
 
 <br>
 
 ## Data-set conceptual description
 
+This data-set has information about 15 variables on 5850 Netflix titles.
+ 
+Next table has a brief conceptual description about data-set variables:
+
+
+
+|      Variable           |          Descripción   |  Tipo  |
+|:------------------------:|:---------------------:|:---------------------:|
+| id   |The title ID on JustWatch | Identifier  |
+| title | The name of the title | Text |
+| type    |TV show or movie  | Categorical |
+|  description |A brief description | Text |
+|  release_year   | release year | Quantitative |
+| age_certification  |  age rating   | Categorical |
+|  runtime   |  the number of episodes (show), the duration time in minutes (movie)   | Quantitative |
+|  genres | A list of genres    |Categorical |
+| production_countries    |   A list of countries that produced the title     | Categorical |
+|  seasons |     Number of seasons if it's a SHOW   | Quantitative |
+| imdb_id    |   The title ID on IMDB      | Identifier |
+|  imdb_score |   Rating on IMDB   | Quantitative |
+|  imdb_votes   |     number of votes on IMDB    | Quantitative |
+| tmdb_popularity  |   Popularity on TMDB | Quantitative |
+| tmdb_score  |   Rating on TMDB    | Quantitative |
+
+ 
+<br>
 
 ## Data-set size
 
+We can get the data-set size as the number of rows and columns of the data-set.
+
+```python
+Netflix_Data.shape
+```
+
+    (5850, 15)
+
+
+As discussed above, the data-set has 5850 rows and 15 columns.
+
+
+<br>
+
+
 ## info() method
+
+
+```python
+Netflix_Data.info()
+```
+
+    <class 'pandas.core.frame.DataFrame'>
+    RangeIndex: 5850 entries, 0 to 5849
+    Data columns (total 15 columns):
+     #   Column                Non-Null Count  Dtype  
+    ---  ------                --------------  -----  
+     0   id                    5850 non-null   object 
+     1   title                 5849 non-null   object 
+     2   type                  5850 non-null   object 
+     3   description           5832 non-null   object 
+     4   release_year          5850 non-null   int64  
+     5   age_certification     3231 non-null   object 
+     6   runtime               5850 non-null   int64  
+     7   genres                5850 non-null   object 
+     8   production_countries  5850 non-null   object 
+     9   seasons               2106 non-null   float64
+     10  imdb_id               5447 non-null   object 
+     11  imdb_score            5368 non-null   float64
+     12  imdb_votes            5352 non-null   float64
+     13  tmdb_popularity       5759 non-null   float64
+     14  tmdb_score            5539 non-null   float64
+    dtypes: float64(5), int64(2), object(8)
+    memory usage: 685.7+ KB
+    
+
+info() method give us column names, number of non null values in each column and column type.
+
+
+<br>
 
 ## Column types
 
-## NaN identification 
+
+
+```python
+Netflix_Data.dtypes
+```
 
 
 
 
-# Auxiliar step: data preprocessing
+    id                       object
+    title                    object
+    type                     object
+    description              object
+    release_year              int64
+    age_certification        object
+    runtime                   int64
+    genres                   object
+    production_countries     object
+    seasons                 float64
+    imdb_id                  object
+    imdb_score              float64
+    imdb_votes              float64
+    tmdb_popularity         float64
+    tmdb_score              float64
+    dtype: object
+
+
+
+It's another way to get column types.
+
+ 
+`Object` is the typical type of categorical variables, identifier or text. 
+
+`Float64` and `int64` is the typical type of quantitative variables, `float64` for continuous one, and `int64` for discrete one.
+
+
+<br>
+
+
+## Change column types
+
+We can change the type of a column with `astype()` method:
+
+```python
+Netflix_Data['release_year'] = Netflix_Data['release_year'].astype('float')
+```
+
+We can check if the changes have been done correctly:
+```python
+Netflix_Data.dtypes
+```
+
+
+
+
+    id                       object
+    title                    object
+    type                     object
+    description              object
+    release_year            float64
+    age_certification        object
+    runtime                   int64
+    genres                   object
+    production_countries     object
+    seasons                 float64
+    imdb_id                  object
+    imdb_score              float64
+    imdb_votes              float64
+    tmdb_popularity         float64
+    tmdb_score              float64
+    dtype: object
+
+
+
+
+
+<br>
+
+
+
+## NaN identification  <a class="anchor" id="1"></a>
+
+A NaN is a not a number value. NaN is equivalent to missing value.
+
+We are going to calculate, for each variable, the proportion of missing values over the total number of observations:
+
+```python
+Prop_NA = Netflix_Data.isnull().sum() / len(Netflix_Data)
+
+Prop_NA
+```
+
+
+    id                      0.000000
+    title                   0.000171
+    type                    0.000000
+    description             0.003077
+    release_year            0.000000
+    age_certification       0.447692
+    runtime                 0.000000
+    genres                  0.000000
+    production_countries    0.000000
+    seasons                 0.640000
+    imdb_id                 0.068889
+    imdb_score              0.082393
+    imdb_votes              0.085128
+    tmdb_popularity         0.015556
+    tmdb_score              0.053162
+    dtype: float64
+
+
+
+<br>
+
+We can see that there are variables with a high proportion of missing values, as `age_certification` (44.77%).
+
+
+`season` would be the variable with higher proportion of missing values, but it is because of `season` only is defined for `type=SHOW`.
+
+
+<br>
+
+
+# Auxiliar step: data preprocessing 
 
 ## Categorization of cuantitative variables
 
@@ -126,24 +565,157 @@ Netflix_Data = pd.read_csv('titles.csv')
 
 ## Variable Scaling 
 
+## Dealing with NaN <a class="anchor" id="1"></a>
+
+
+<br>
 
 
 
-
-# Second step: statistical description
+# Second step: statistical description 
 
 ## Statistical variable
 
-### types: quantitative and categorical
+A statistical variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$ can be modeled as a **random variable**.
 
-## Sample of a statisitcal variable
+Under this approach, we can apply all probability theory on random variables to statistical variables. $\\[0.4cm]$
 
 
-## Mean 
+ 
+
+ 
+
+## Range of a statistical variable
+
+The range of a statistical variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$ is denoted by $\hspace{0.05cm}Range(\mathcal{X}_k)\hspace{0.05cm}$, and is defined as the set of possible values of $\hspace{0.05cm}\mathcal{X}_k$. $\\[0.4cm]$
+
+
+
+### Statistical variable types: quantitative and categorical
+
+- The variable $\mathcal{X}_k$ is **quantitative** if the elements of it´s range are
+conceptually numbers. $\\[0.5cm]$
+
+- The variable $\mathcal{X}_k$ is **categorical** if the elements of it´s range aree labels or categories (they can be numbers at a symbolic level but not at a conceptual level). $\\[0.4cm]$
+
+
+
+### Quantitative variable types: continuous and discrete
+
+We can distinguish at least two types of quantitative variables: continuous and discrete.
+
+ 
+
+- $\mathcal{X}_k\hspace{0.05cm}$ is continuous if $\hspace{0.05cm}Range(\mathcal{X}_k)\hspace{0.05cm}$ is a not countable set. $\\[0.5cm]$
+ 
+- $\mathcal{X}_k\hspace{0.05cm}$ is discrete if $\hspace{0.05cm}Range(\mathcal{X}_k)\hspace{0.05cm}$ is countable set. $\\[0.2cm]$
+ 
+
+**Note:**
+
+In particular, variables whose  **range** is a **finite** set
+will be **discrete**.
+
+Variables whose  **range** isn´t a **finite** set
+will be **continuous**. $\\[0.4cm]$
+
+
+
+### Categorical variable types: r-ary   
+
+Let  $\mathcal{X}_k$ a **categorical** variable ,
+
+- $\mathcal{X}_k$ is **r-aria** if it´s range has **r** elements that are categories or labels.
+
+
+In Statistics **binary** (2-aria) categorical variables are particularly important. $\\[0.4cm]$
+ 
+
+### Categorical variable types: nominal and ordinal
+
+Let  $\mathcal{X}_k$ a $r$-ary **categorical** variable.
+
+- $\mathcal{X}_k$ is **nominal** if **there is no ordering** between the $r$ categories of it's range. $\\[0.4cm]$
+
+- $\mathcal{X}_k$ is **ordinal** if **there is ordering** between the $r$ categories of it's range. $\\[0.4cm]$
+
+ 
+
+
+
+
+
+
+
+
+
+## Sample of a statistical variable
+
+Given a statistical variable $\hspace{0.05cm}\mathcal{X}_k$.
+
+A sample of $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$ is a vector of values of $\hspace{0.05cm}\mathcal{X}_k$, called observations.
+
+Therefore:
+
+$$
+X_k \hspace{0.05cm} = \hspace{0.05cm} \begin{pmatrix}
+x_{1k} \\
+x_{2k}\\
+... \\
+x_{nk} 
+\end{pmatrix} \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t \\
+$$
+
+is a sample of a **statistical variable** because is a vector with the values or observations of the variable $\hspace{0.05cm} \mathcal{X}_k \hspace{0.05cm}$ for $\hspace{0.05cm} n \hspace{0.05cm}$ elements or individuals of a sample.  
+
+
+Where: $\hspace{0.1cm} x_{ik}\hspace{0.05cm}$  is the value $\hspace{0.05cm} i$-th observation of the variable $\hspace{0.05cm} \mathcal{X}_k$. $\\[0.4cm]$
+
+
+
+
+
+## Arithmetic Mean 
+
+Given a quantitative statistical variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
+
+The mean of $\hspace{0.05cm}X_k \hspace{0.05cm}$ is defined as:
+
+
+$$\overline{\hspace{0.05cm} X_k \hspace{0.05cm} } \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.05cm} x_{ik}$$ $\\[0.4cm]$
+
+
+
+## Geometric Mean   <a class="anchor" id="24"></a>
+
+
+
+Given the variable $X_k=(x_{1k}, x_{2k},...,x_{nk})^t$
+
+
+The **geometric mean** of the variable $X_k$ is:
+
+$$
+\overline{X_k}_{geom} =   \sqrt{\Pi_{i=1}^{n}  x_{ik}} = \sqrt{x_{1k}\cdot x_{2k}\cdot...\cdot x_{nk}} 
+$$
+
 
 ## Median
 
+Given a statistical variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
+
+The median of $\hspace{0.05cm}X_k \hspace{0.05cm}$ is $Me(X_k)$  $
+
+
+$$\overline{\hspace{0.05cm} X_k \hspace{0.05cm} } \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.05cm} x_{ik}$$ $\\[0.4cm]$
+
+
+
+
 ## Mode
+
+
+
 
 ## Variance
 
@@ -158,7 +730,10 @@ Netflix_Data = pd.read_csv('titles.csv')
 
 
 ## Data matrix
-
+ 
+ Data Martrix Representation by Rows 
+  Data Martrix Representation by columns
+ 
 ## Covariance
 
 ## Correlation
@@ -176,14 +751,14 @@ mean. median, variance, cuantiles, kurtosis, skewness, outliers
 frequency tables --> https://www.statology.org/frequency-tables-python/
 
 
-## Statistical description for categorical variables
+## Statistical description for categorical variables  
 
 mode, quantiles
 
 frequency tables 
 
 
-## Statistical description for variable crossings (cruces de variables cuantis-categoricas, categroicas-categoricas, cuantis-cuantis)
+## Statistical description for variable crossings (cruces de variables cuantis-categoricas, categroicas-categoricas, cuantis-cuantis) <a class="anchor" id="1"></a>
 
 quantitative-categorical --> mean, median, vaariance, quantiles etc BY GROUPS.  Joint and conditional frequency tables.
 
@@ -219,131 +794,10 @@ quantitative-quantitative --> transform to categorical-categorical case.
 
 
 
-## Tamaño
+<br>
 
-Lo primero es determinar el tamaño del data-set al que se le aplica el EDA. El tamaño de un data-set se puede concebir como su nº de filas y columnas.
-
-
-```python
-Netflix_Data.shape
-```
-
-    (5850, 15)
-
-
-El data set tiene 5850 filas (observaciones) y 15 columnas (variables).
-
-
-## Descripción conceptual de las variables
-
-Esta data-set contieene información sobre 15 variables para 5850 títulos de Netflix.
-
-La siguiente tabla contiene una breve descripción de las variables del data-set:
-
-
-|      Variable           |          Descripción   |  Tipo  |
-|:------------------------:|:---------------------:|:---------------------:|
-| id   |The title ID on JustWatch | Identificador  |
-| title | The name of the title | Texto |
-| type    |TV show or movie  | Categórica |
-|  description |A brief description | Texto |
-|  release_year   | Año de lanzamiento | Cuantitativa |
-| age_certification  |  La calificación de edad   | Categórica |
-|  runtime   |  el nº de episiodios (show), el tiempo de durancion en minutos (movie)   |Cuantitativa|
-|  genres | A list of genres      |Categórica |
-| production_countries    |   A list of countries that produced the title     | Categórica |
-|  seasons |     Number of seasons if it's a SHOW   | Cuantitativa |
-| imdb_id    |   The title ID on IMDB      | Identificador |
-|  imdb_score |   Puntuación en IMDB   | Cuantitativa |
-|  imdb_votes   |     nº de votos en IMDB    | Cuantitativa |
-| tmdb_popularity  |   Popularity on TMDB | Cuantitativa |
-| tmdb_score  |   Puntuación en TMDB    | Cuantitativa |
 
  
-
- 
-
- 
-<br>
-
-
-
-## Tipo de variables
-
-Ahora vamos a ver de que tipo son cada una de las 15 variables en `Python`
-
-```python
-Netflix_Data.info()
-```
-
-    <class 'pandas.core.frame.DataFrame'>
-    RangeIndex: 5850 entries, 0 to 5849
-    Data columns (total 15 columns):
-     #   Column                Non-Null Count  Dtype  
-    ---  ------                --------------  -----  
-     0   id                    5850 non-null   object 
-     1   title                 5849 non-null   object 
-     2   type                  5850 non-null   object 
-     3   description           5832 non-null   object 
-     4   release_year          5850 non-null   int64  
-     5   age_certification     3231 non-null   object 
-     6   runtime               5850 non-null   int64  
-     7   genres                5850 non-null   object 
-     8   production_countries  5850 non-null   object 
-     9   seasons               2106 non-null   float64
-     10  imdb_id               5447 non-null   object 
-     11  imdb_score            5368 non-null   float64
-     12  imdb_votes            5352 non-null   float64
-     13  tmdb_popularity       5759 non-null   float64
-     14  tmdb_score            5539 non-null   float64
-    dtypes: float64(5), int64(2), object(8)
-    memory usage: 685.7+ KB
-    
-
-El Dtype `object` es el típico de variables categoricas, identificadores o texto. 
-
-El Dtype `float64` y `int64` es típico de variables cuantitativas (continuas y discretas, respectivamente).
-
-<br>
-
-
-## Valores faltantes (NA)
-
-Ahora vamos a calcular la proporcion de valores faltantes sobre el total de datos, para cada una de las variables:
-```python
-Prop_NA = Netflix_Data.isnull().sum() / len(Netflix_Data)
-
-Prop_NA
-```
-
-
-    id                      0.000000
-    title                   0.000171
-    type                    0.000000
-    description             0.003077
-    release_year            0.000000
-    age_certification       0.447692
-    runtime                 0.000000
-    genres                  0.000000
-    production_countries    0.000000
-    seasons                 0.640000
-    imdb_id                 0.068889
-    imdb_score              0.082393
-    imdb_votes              0.085128
-    tmdb_popularity         0.015556
-    tmdb_score              0.053162
-    dtype: float64
-
-
-
-<br>
-
-Podemos ver que hay variables como `age_certification` con una alta proporción de valores faltantes (44.77%).
-
-`season`sería la variable con mayor proporción de valores faltantes, pero esto se debe a que solo esta definida para las series (`type=SHOW`)
-
-En este artículo no se hará un tratamiento de los valores faltantes, el cual será expuesto en un futuro articulo sobre pre-procesamiento de datos.
-<br>
 
 # Descripción Estadistica Básica 
 
