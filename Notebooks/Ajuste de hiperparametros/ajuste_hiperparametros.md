@@ -3683,7 +3683,7 @@ Cabe destacar que en el segundo caso, las 30 combinaciones de hiper-parámetros 
 # Bibliografía <a class="anchor" id="1"></a> 
 
 
-- Aler Mur, Ricardo. (2022). *Metodología: evaluación de modelos.* [Presentación de PowerPoint]. Aula Global UC3M.
+- Aler Mur, Ricardo. (2022). *Metodología: evaluación de modelos.* [Presentación de PowerPoint]. Aula Global UC3M. $\\[0.635cm]$
  
 - Rodriguez, Daniel. (julio 2018). GridSearchCV. *AnalyticsLane*. https://www.analyticslane.com/2018/07/02/gridsearchcv/
  
