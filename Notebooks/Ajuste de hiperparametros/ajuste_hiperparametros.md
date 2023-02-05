@@ -1,7 +1,7 @@
 ---
 title: 'Ajuste de hiperparámetros'
 author: 'Fabio Scielzo Ortiz'
-date: '04/02/23'
+date: '05/02/23'
 output: 
    rmdformats::readthedown:
       use_bookdown: true
@@ -653,8 +653,11 @@ A continuación vamos a realizar diferentes pruebas de la función programada:
 ```python
 Grid_search_1 = Grid_search(Data=Data, Search_Space=[range(1,100) , ['euclidean','cosine','cityblock','manhattan']], response='price', model='knn_regression', validation='repeated_random_simple_validation', metric='ECM', B=10, k=0.75, K='no', random_search=False, random_samples=150, random_seed_1=123, random_seed_2=123)
 ```
-
 Tiempo de ejecución: 56.8 segundos.
+
+
+
+
 
 
 ```python
@@ -2514,98 +2517,178 @@ Grid_search_9_2
 
 ## Visualización de resultados
 
+
+Primero hacemos unas transformaciones necesarias para la visualización gráfica que implementaremos:
+```python
+Grid_search_1['(k , distance)'] = Grid_search_1['(k , distance)'].astype('str') 
+Grid_search_1_2['(k , distance)'] = Grid_search_1_2['(k , distance)'].astype('str')
+Grid_search_2['(k , distance)'] = Grid_search_2['(k , distance)'].astype('str') 
+Grid_search_2_2['(k , distance)'] = Grid_search_2_2['(k , distance)'].astype('str')
+Grid_search_3['(k , distance)'] = Grid_search_3['(k , distance)'].astype('str') 
+Grid_search_3_2['(k , distance)'] = Grid_search_3_2['(k , distance)'].astype('str')
+Grid_search_4['(k , distance)'] = Grid_search_4['(k , distance)'].astype('str')
+Grid_search_4_2['(k , distance)'] = Grid_search_4_2['(k , distance)'].astype('str') 
+Grid_search_5['(k , distance)'] = Grid_search_5['(k , distance)'].astype('str') 
+Grid_search_5_2['(k , distance)'] = Grid_search_5_2['(k , distance)'].astype('str') 
+Grid_search_6['(k , distance)'] = Grid_search_6['(k , distance)'].astype('str') 
+Grid_search_6_2['(k , distance)'] = Grid_search_6_2['(k , distance)'].astype('str') 
+Grid_search_7['(k , distance)'] = Grid_search_7['(k , distance)'].astype('str')
+Grid_search_7_2['(k , distance)'] = Grid_search_7_2['(k , distance)'].astype('str') 
+Grid_search_8['(k , distance)'] = Grid_search_8['(k , distance)'].astype('str') 
+Grid_search_8_2['(k , distance)'] = Grid_search_8_2['(k , distance)'].astype('str')
+Grid_search_9['(k , distance)'] = Grid_search_9['(k , distance)'].astype('str') 
+Grid_search_9_2['(k , distance)'] = Grid_search_9_2['(k , distance)'].astype('str') 
+```
+
+
 - Gráfico de los resultados obtenidos con las distintas variantes probadas del algoritmo Grid Search para el ajuste de los hiper-parámetros del modelo KNN para regresión:
 
-```python
-fig, axs = plt.subplots(1, 2, figsize=(41, 10))
-
-p1 = sns.barplot(x="ECM", y ='(k , distance)' , data=Grid_search_1.iloc[0:10 , :], palette='mako', ax=axs[0])
-
-p1.title.set_text('KNN regression - Grid search - Repeated random simple validation (k=0.75 , B=10)')
-
-p3 = sns.barplot(x="ECM", y ='(k , distance)' , data=Grid_search_2.iloc[0:10 , :], palette='mako', ax=axs[1])
-
-p3.title.set_text('KNN regression - Grid search - Repeated random simple validation (k=0.75 , B=20)')
-
-fig.savefig('p1big_1.jpg', format='jpg', dpi=750)
-
-plt.show()
-```
 
 ```python
-fig, axs = plt.subplots(1, 2, figsize=(41, 10))
+fig, ax = plt.subplots()
 
-p5 = sns.barplot(x="ECM", y ='(k , distance)' , data=Grid_search_3.iloc[0:10 , :], palette='mako', ax=axs[0])
+p1 = sns.lineplot(y="ECM", x ='(k , distance)' , data=Grid_search_1.iloc[0:30 , :], color='red')
 
-p5.title.set_text('KNN regression - Grid search (greater search space)- Repeated random simple validation (k=0.75 , B=20)')
+plt.title("KNN regression - Grid search - Repeated random simple validation (k=0.75 , B=10)", fontsize=13)
 
-p6 = sns.barplot(x="ECM", y ='(k , distance)' , data=Grid_search_4.iloc[0:10 , :], palette='mako', ax=axs[1])
-
-p6.title.set_text('KNN regression - Random search - Repeated random simple validation (k=0.75 , B=20)')
-
-fig.savefig('p1big_2.jpg', format='jpg', dpi=750)
-
-plt.show()
-```
-
-```python
-fig, axs =  plt.subplots(1, 2, figsize=(41, 10))
-
-p7 = sns.barplot(x="ECM", y ='(k , distance)' , data=Grid_search_5.iloc[0:10 , :], palette='mako', ax=axs[0])
-
-p7.title.set_text('KNN regression - Random search - Repeated K Fold (K=10 , B=5)')
-
-p8 = sns.barplot(x="ECM", y ='(k , distance)' , data=Grid_search_6.iloc[0:10 , :], palette='mako', ax=axs[1])
-
-p8.title.set_text('KNN regression - Grid search - Repeated K Fold (K=10 , B=15)')
-
-fig.savefig('p1big_2_1.jpg', format='jpg', dpi=750)
-
-plt.show()
-```
-
-```python
-fig, axs =  plt.subplots(1, 2, figsize=(41, 10))
-
-p9 = sns.barplot(x="ECM", y ='(k , distance)' , data=Grid_search_7.iloc[0:10 , :], palette='mako', ax=axs[0])
-
-p9.title.set_text('KNN regression - Random search - Repeated K Fold (K=10 , B=15)')
-
-p10 = sns.barplot(x="ECM", y ='(k , distance)' , data=Grid_search_8.iloc[0:10 , :], palette='mako', ax=axs[1])
-
-p10.title.set_text('KNN regression - Random search - Repeated K Fold (K=10 , B=5)')
-
-fig.savefig('p1big_2_2.jpg', format='jpg', dpi=750)
-
-plt.show()
-```
-
-```python
-fig, axs =  plt.subplots(figsize=(10, 5))
-
-p11 = sns.barplot(x="ECM", y ='(k , distance)' , data=Grid_search_9.iloc[0:10 , :], palette='mako')
-
-p11.title.set_text('KNN regression - Random search - Repeated K Fold (K=10 , B=1)')
+plt.setp(p1.get_xticklabels(), rotation=90)
 
 plt.tight_layout()
 
-fig.savefig('p1big_2_3.jpg', format='jpg', dpi=750)
+fig.savefig('p1_new.jpg', format='jpg', dpi=1200)
 
 plt.show()
 ```
 
+```python
+fig, ax = plt.subplots()
+
+p3 = sns.lineplot(y="ECM", x='(k , distance)' , data=Grid_search_2.iloc[0:30 , :], color='red')
+
+plt.setp(p3.get_xticklabels(), rotation=90)
+
+plt.title("KNN regression - Grid search - Repeated random simple validation (k=0.75 , B=20)", fontsize=13)
+
+plt.tight_layout()
+
+fig.savefig('p2_new.jpg', format='jpg', dpi=1200)
+``` 
+ 
+```python
+fig, ax = plt.subplots()
+
+p5 = sns.lineplot(y="ECM", x='(k , distance)' , data=Grid_search_3.iloc[0:30, :], color='red')
+
+plt.setp(p5.get_xticklabels(), rotation=90)
+
+plt.title("KNN regression - Grid search - Repeated random simple validation (k=0.75 , B=20)", fontsize=13)
+
+plt.tight_layout()
+
+fig.savefig('p3_new.jpg', format='jpg', dpi=1200)
+``` 
+ 
+```python
+fig, ax = plt.subplots()
+
+p6 = sns.lineplot(y="ECM", x='(k , distance)' , data=Grid_search_4.iloc[0:30 , :], color='red')
+
+plt.setp(p6.get_xticklabels(), rotation=90)
+
+plt.title("KNN regression - Random search - Repeated random simple validation (k=0.75 , B=20)", fontsize=13)
+
+plt.tight_layout()
+
+fig.savefig('p4_new.jpg', format='jpg', dpi=1200)
+```
+
+
+```python
+fig, ax = plt.subplots()
+
+p7 = sns.lineplot(y="ECM", x='(k , distance)' , data=Grid_search_5.iloc[0:30, :], color='red')
+
+plt.setp(p7.get_xticklabels(), rotation=90)
+
+plt.title("KNN regression - Random search - Repeated K Fold (K=10 , B=5)", fontsize=13)
+
+plt.tight_layout()
+
+fig.savefig('p5_new.jpg', format='jpg', dpi=1200)
+```
+
+```python
+fig, ax = plt.subplots()
+
+p8 = sns.lineplot(y="ECM", x='(k , distance)' , data=Grid_search_6.iloc[0:30, :], color='red')
+
+plt.setp(p8.get_xticklabels(), rotation=90)
+
+plt.title("KNN regression - Grid search - Repeated K Fold (K=10 , B=15)", fontsize=13)
+
+plt.tight_layout()
+
+fig.savefig('p6_new.jpg', format='jpg', dpi=1200)
+```
+```python
+fig, ax = plt.subplots()
+
+p9 = sns.lineplot(y="ECM", x='(k , distance)' , data=Grid_search_7.iloc[0:30 , :], color='red')
+
+plt.setp(p9.get_xticklabels(), rotation=90)
+
+plt.title("KNN regression - Random search - Repeated K Fold (K=10 , B=15)", fontsize=13)
+
+plt.tight_layout()
+
+fig.savefig('p7_new.jpg', format='jpg', dpi=1200)
+```
+```python
+fig, ax = plt.subplots()
+
+p10 = sns.lineplot(y="ECM", x='(k , distance)' , data=Grid_search_8.iloc[0:30, :], color='red')
+
+plt.setp(p10.get_xticklabels(), rotation=90)
+
+plt.title("KNN regression - Random search - Repeated K Fold (K=10 , B=5)", fontsize=13)
+
+plt.tight_layout()
+
+fig.savefig('p8_new.jpg', format='jpg', dpi=1200)
+```
+```python
+fig, ax = plt.subplots()
+
+p11 = sns.lineplot(y="ECM", x='(k , distance)' , data=Grid_search_9.iloc[0:30 , :], color='red')
+
+plt.setp(p11.get_xticklabels(), rotation=90)
+
+plt.title("KNN regression - Random search - Repeated K Fold (K=10 , B=1)", fontsize=13)
+
+plt.tight_layout()
+
+fig.savefig('p9_new.jpg', format='jpg', dpi=1200)
+```
 
 <center>
 
-![](p1big_1.jpg){width="100%"}
+![](p1_new.jpg){width="60%"}
 
-![](p1big_2.jpg){width="100%"}
+![](p2_new.jpg){width="60%"}
 
-![](p1big_2_1.jpg){width="100%"}
+![](p3_new.jpg){width="60%"}
 
-![](p1big_2_2.jpg){width="100%"}
+![](p4_new.jpg){width="60%"}
 
-![](p1big_2_3.jpg){width="47%"}
+![](p5_new.jpg){width="60%"}
+
+![](p6_new.jpg){width="60%"}
+
+![](p7_new.jpg){width="60%"}
+
+![](p8_new.jpg){width="60%"}
+
+![](p9_new.jpg){width="60%"}
 
 </center>   
 
@@ -2618,96 +2701,147 @@ Como puede verse, la combinación óptima de hiper-parámetros varía en funció
 - Gráfico de los resultados obtenidos con las distintas variantes probadas del algoritmo Grid Search para el ajuste de los hiper-parámetros del modelo KNN para clasificación:
 
 ```python
-fig, axs = plt.subplots(1, 2, figsize=(41, 10))
+fig, ax = plt.subplots()
 
-p2 = sns.barplot(x="TAC", y ='(k , distance)' , data=Grid_search_1_2.iloc[0:10 , :], palette='mako', ax=axs[0])
+p2 = sns.lineplot(y="TAC", x='(k , distance)' , data=Grid_search_1_2.iloc[0:30 , :], color='red')
 
-p2.title.set_text('KNN classification - Grid search - Repeated random simple validation (k=0.75 , B=10)')
+plt.setp(p2.get_xticklabels(), rotation=90)
 
-p4 = sns.barplot(x="TAC", y ='(k , distance)' , data=Grid_search_2_2.iloc[0:10 , :], palette='mako', ax=axs[1])
-
-p4.title.set_text('KNN classification - Grid search - Repeated random simple validation (k=0.75 , B=20)')
-
-fig.savefig('p2big_1.jpg', format='jpg', dpi=750)
-
-plt.show()
-```
-
-```python
-fig, axs = plt.subplots(1, 2, figsize=(41, 10))
-
-p5_2 = sns.barplot(x="TAC", y ='(k , distance)' , data=Grid_search_3_2.iloc[0:10 , :], palette='mako', ax=axs[0])
-
-p5_2.title.set_text('KNN classification - Grid search (greater search space)- Repeated random simple validation (k=0.75 , B=20)')
-
-p6_2 = sns.barplot(x="TAC", y ='(k , distance)' , data=Grid_search_4_2.iloc[0:10 , :], palette='mako', ax=axs[1])
-
-p6_2.title.set_text('KNN classification - Random search - Repeated random simple validation (k=0.75 , B=20)')
-
-fig.savefig('p2big_2.jpg', format='jpg', dpi=750)
-
-plt.show()
-```
-
-```python
-fig, axs = plt.subplots(1, 2, figsize=(41, 10))
-
-p7_2 = sns.barplot(x="TAC", y ='(k , distance)' , data=Grid_search_5_2.iloc[0:10 , :], palette='mako', ax=axs[0])
-
-p7_2.title.set_text('KNN classification - Random search - Repeated K Fold (K=10 , B=5)')
-
-p8_2 = sns.barplot(x="TAC", y ='(k , distance)' , data=Grid_search_6_2.iloc[0:10 , :], palette='mako', ax=axs[1])
-
-p8_2.title.set_text('KNN classification - Grid search - Repeated K Fold (K=10 , B=15)')
-
-fig.savefig('p2big_3.jpg', format='jpg', dpi=750)
-
-plt.show()
-```
-
-```python
-fig, axs = plt.subplots(1, 2, figsize=(41, 10))
-
-p9_2 = sns.barplot(x="TAC", y ='(k , distance)', data=Grid_search_7_2.iloc[0:10 , :], palette='mako', ax=axs[0])
-
-p9_2.title.set_text('KNN classification - Random search - Repeated K Fold (K=10 , B=15)')
-
-p10_2 = sns.barplot(x="TAC", y ='(k , distance)' , data=Grid_search_8_2.iloc[0:10 , :], palette='mako', ax=axs[1])
-
-p10_2.title.set_text('KNN classification - Random search - Repeated K Fold (K=10 , B=5)')
-
-fig.savefig('p2big_4.jpg', format='jpg', dpi=750)
-
-plt.show()
-```
-
-```python
-fig, axs = plt.subplots(figsize=(10, 5))
-
-p11_2 = sns.barplot(x="TAC", y ='(k , distance)' , data=Grid_search_9_2.iloc[0:10, :], palette='mako')
-
-p11_2.title.set_text('KNN classification - Random search - Repeated K Fold (K=10 , B=1)')
+plt.title("KNN classification - Grid search - Repeated random simple validation (k=0.75 , B=10)", fontsize=13)
 
 plt.tight_layout()
 
-fig.savefig('p2big_5.jpg', format='jpg', dpi=750)
-
-plt.show()
+fig.savefig('p1_2_new.jpg', format='jpg', dpi=1200)
 ```
+```python
+fig, ax = plt.subplots()
+
+p4 = sns.lineplot(y="TAC", x='(k , distance)' , data=Grid_search_2_2.iloc[0:30 , :], color='red')
+
+plt.setp(p4.get_xticklabels(), rotation=90)
+
+plt.title("KNN classification - Grid search - Repeated random simple validation (k=0.75 , B=20)", fontsize=13)
+
+plt.tight_layout()
+
+fig.savefig('p2_2_new.jpg', format='jpg', dpi=1200)
+```
+
+
+```python
+fig, ax = plt.subplots()
+
+p5_2 = sns.lineplot(y="TAC", x='(k , distance)' , data=Grid_search_3_2.iloc[0:30 , :], color='red')
+
+plt.setp(p5_2.get_xticklabels(), rotation=90)
+
+plt.title("KNN classification - Grid search - Repeated random simple validation (k=0.75 , B=20)", fontsize=13)
+
+plt.tight_layout()
+
+fig.savefig('p3_2_new.jpg', format='jpg', dpi=1200)
+```
+```python
+fig, ax = plt.subplots()
+
+p6_2 = sns.lineplot(y="TAC", x='(k , distance)' , data=Grid_search_4_2.iloc[0:30 , :], color='red')
+
+plt.setp(p6_2.get_xticklabels(), rotation=90)
+
+plt.title("KNN classification - Random search - Repeated random simple validation (k=0.75 , B=20)", fontsize=13)
+
+plt.tight_layout()
+
+fig.savefig('p4_2_new.jpg', format='jpg', dpi=1200)
+```
+```python
+fig, ax = plt.subplots()
+
+p7_2 = sns.lineplot(y="TAC", x='(k , distance)' , data=Grid_search_5_2.iloc[0:30, :], color='red')
+
+plt.setp(p7_2.get_xticklabels(), rotation=90)
+
+plt.title("KNN classification - Random search - Repeated K Fold (K=10 , B=5)", fontsize=13)
+
+plt.tight_layout()
+
+fig.savefig('p5_2_new.jpg', format='jpg', dpi=1200)
+```
+```python
+fig, ax = plt.subplots()
+
+p8_2 = sns.lineplot(y="TAC", x='(k , distance)', data=Grid_search_6_2.iloc[0:30, :], color='red')
+
+plt.setp(p8_2.get_xticklabels(), rotation=90)
+
+plt.title("KNN classification - Grid search - Repeated K Fold (K=10 , B=15)", fontsize=13)
+
+plt.tight_layout()
+
+fig.savefig('p6_2_new.jpg', format='jpg', dpi=1200)
+```
+```python
+fig, ax = plt.subplots()
+
+p9_2 = sns.lineplot(y="TAC", x='(k , distance)', data=Grid_search_7_2.iloc[0:30, :], color='red')
+
+plt.setp(p9_2.get_xticklabels(), rotation=90)
+
+plt.title("KNN classification - Random search - Repeated K Fold (K=10 , B=15)", fontsize=13)
+
+plt.tight_layout()
+
+fig.savefig('p7_2_new.jpg', format='jpg', dpi=1200)
+```
+```python
+fig, ax = plt.subplots()
+
+p10_2 = sns.lineplot(y="TAC", x='(k , distance)' , data=Grid_search_8_2.iloc[0:30 , :], color='red')
+
+plt.setp(p10_2.get_xticklabels(), rotation=90)
+
+plt.title("KNN classification - Random search - Repeated K Fold (K=10 , B=5)", fontsize=13)
+
+plt.tight_layout()
+
+fig.savefig('p8_2_new.jpg', format='jpg', dpi=1200)
+```
+```python
+fig, ax = plt.subplots()
+
+p11_2 = sns.lineplot(y="TAC", x='(k , distance)' , data=Grid_search_9_2.iloc[0:30, :], color='red')
+
+plt.setp(p11_2.get_xticklabels(), rotation=90)
+
+plt.title("KNN classification - Random search - Repeated K Fold (K=10 , B=1)", fontsize=13)
+
+plt.tight_layout()
+
+fig.savefig('p9_2_new.jpg', format='jpg', dpi=1200)
+```
+
 
 
 
 <center>
 
-![](p2big_1.jpg){width="100%"}
+![](p1_2_new.jpg){width="60%"}
 
-![](p2big_2.jpg){width="100%"}
+![](p2_2_new.jpg){width="60%"}
 
-![](p2big_3.jpg){width="100%"}
+![](p3_2_new.jpg){width="60%"}
 
-![](p2big_4.jpg){width="100%"}
+![](p4_2_new.jpg){width="60%"}
 
-![](p2big_5.jpg){width="47%"}
+![](p5_2_new.jpg){width="60%"}
+
+![](p6_2_new.jpg){width="60%"}
+
+![](p7_2_new.jpg){width="60%"}
+
+![](p8_2_new.jpg){width="60%"}
+
+![](p9_2_new.jpg){width="60%"}
 
 </center> 
 
@@ -3446,24 +3580,38 @@ Vamos a visualizar los resultados obtenidos aplicando las funciones  `GridSearch
 
 
 ```python
-fig, axs = plt.subplots(1, 2, figsize=(17, 10))
+fig, axs = plt.subplots()
 
-p1 = sns.barplot(x="ECM", y ='k-distance' , data=df_grid_search_sklearn.iloc[0:15, :], palette='mako', ax=axs[0])
+p1 = sns.lineplot(y="ECM", x='k-distance' , data=df_grid_search_sklearn.iloc[0:30, :], color='red')
+
+plt.setp(p1.get_xticklabels(), rotation=90)
 
 p1.title.set_text('KNN regression - Grid search - K fold (K=10)')
 
-p2 = sns.barplot(x="ECM", y ='k-distance' , data=df_random_search_sklearn.iloc[0:15, :], palette='mako', ax=axs[1])
+fig.savefig('pp1.jpg', format='jpg', dpi=1200)
+
+plt.show()
+```
+
+```python
+fig, axs = plt.subplots()
+
+p2 = sns.lineplot(y="ECM", x='k-distance' , data=df_random_search_sklearn.iloc[0:30, :], color='red')
+
+plt.setp(p2.get_xticklabels(), rotation=90)
 
 p2.title.set_text('KNN regression - Random search - K fold (K=10)')
 
-fig.savefig('p3big.jpg', format='jpg', dpi=1200)
+fig.savefig('pp2.jpg', format='jpg', dpi=1200)
 
 plt.show()
 ```
 
 <center>
 
-![](p3big.jpg){width="80%"}
+![](pp1.jpg){width="60%"}
+
+![](pp2.jpg){width="60%"}
 
 </center> 
 
@@ -3477,27 +3625,39 @@ Como puede verse, la combinación óptima de hiper-parámetros varía en funció
 Ahora vamos a visualizar los resultados obtenidos aplicando las funciones  `GridSearchCV`  y  `RandomizedSearchCV` al modelo KNN para clasificación:
 
 ```python
-fig, axs = plt.subplots(1, 2, figsize=(17, 10))
+fig, axs = plt.subplots()
 
-p1 = sns.barplot(x="TAC", y ='k-distance' , data=df_grid_search_sklearn.iloc[0:15, :], palette='mako', ax=axs[0])
+p1 = sns.lineplot(y="TAC", x='k-distance' , data=df_grid_search_sklearn.iloc[0:30, :], color='red')
+
+plt.setp(p1.get_xticklabels(), rotation=90)
 
 p1.title.set_text('KNN classification - Grid search - K fold (K=10)')
 
-p2 = sns.barplot(x="TAC", y ='k-distance' , data=df_random_search_sklearn.iloc[0:15, :], palette='mako', ax=axs[1])
-
-p2.title.set_text('KNN classification - Random search - K fold (K=10)')
-
-fig.savefig('p4big.jpg', format='jpg', dpi=1200)
+fig.savefig('pp3.jpg', format='jpg', dpi=1200)
 
 plt.show()
 ```
+```python
+fig, axs = plt.subplots()
 
+p2 = sns.lineplot(y="TAC", x='k-distance' , data=df_random_search_sklearn.iloc[0:30, :], color='red')
+
+plt.setp(p2.get_xticklabels(), rotation=90)
+
+p2.title.set_text('KNN classification - Random search - K fold (K=10)')
+
+fig.savefig('pp4.jpg', format='jpg', dpi=1200)
+
+plt.show()
+```
 
     
      
 <center>
 
-![](p4big.jpg){width="80%"}
+![](pp3.jpg){width="60%"}
+
+![](pp4.jpg){width="60%"}
 
 </center> 
 
@@ -3517,7 +3677,7 @@ Como ocurría en el caso anterior, la combinación óptima de hiper-parámetros 
 
 
 
-# Bibliografia <a class="anchor" id="1"></a> 
+# Bibliografía <a class="anchor" id="1"></a> 
 
 
 - Aler Mur, Ricardo. (2022). *Metodología: evaluación de modelos.* [Presentación de PowerPoint]. Aula Global UC3M.
