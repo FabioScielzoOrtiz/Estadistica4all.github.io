@@ -677,53 +677,192 @@ Where: $\hspace{0.1cm} x_{ik}\hspace{0.05cm}$  is the value $\hspace{0.05cm} i$-
 
 ## Arithmetic Mean 
 
-Given a quantitative statistical variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
+Given a **quantitative** statistical variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
 
-The mean of $\hspace{0.05cm}X_k \hspace{0.05cm}$ is defined as:
+The **arithmetic mean** of $\hspace{0.05cm}X_k \hspace{0.05cm}$ is defined as: $\\[0.3cm]$
 
 
 $$\overline{\hspace{0.05cm} X_k \hspace{0.05cm} } \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.05cm} x_{ik}$$ $\\[0.4cm]$
 
 
 
-## Geometric Mean   <a class="anchor" id="24"></a>
+
+## Weighted Mean 
 
 
+Given a **quantitative** statistical variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
 
-Given the variable $X_k=(x_{1k}, x_{2k},...,x_{nk})^t$
 
+And given a weights for each observation of the variable $\hspace{0.05cm} \mathcal{X}_k \hspace{0.2cm} \Rightarrow \hspace{0.2cm}$ $w \hspace{0.05cm} = \hspace{0.05cm} (w_1,w_2,...,w_n)^t$
 
-The **geometric mean** of the variable $X_k$ is:
+ 
+The **weighted mean** of $\hspace{0.05cm} X_k \hspace{0.05cm}$ with the weights vector $\hspace{0.05cm} w \hspace{0.05cm}$ is defined as:
 
 $$
-\overline{X_k}_{geom} =   \sqrt{\Pi_{i=1}^{n}  x_{ik}} = \sqrt{x_{1k}\cdot x_{2k}\cdot...\cdot x_{nk}} 
+\overline{X_k} (w) \hspace{0.1cm} =  \hspace{0.1cm}  \dfrac{1}{\hspace{0.1cm}\sum_{i=1}^{n}  \hspace{0.05cm} w_{i} \hspace{0.1cm}} \hspace{0.05cm}\cdot\hspace{0.05cm} \sum_{i=1}^{n}  \hspace{0.1cm} x_{ik} \cdot w_i   
+$$ $\\[0.4cm]$
+
+
+
+
+## Geometric Mean   
+
+
+
+Given the variable $\hspace{0.05cm} X_k=(x_{1k}, x_{2k},...,x_{nk})^t$.
+
+
+The **geometric mean** of the variable $\hspace{0.05cm}X_k\hspace{0.05cm}$ is defined as: $\\[0.3cm]$
+
 $$
+\overline{X_k}_{geo} \hspace{0.05cm} = \hspace{0.05cm}  \sqrt{\Pi_{i=1}^{n}  x_{ik}} \hspace{0.05cm} =  \hspace{0.05cm} \sqrt{x_{1k}\cdot x_{2k}\cdot...\cdot x_{nk}} 
+$$ $\\[0.4cm]$
 
 
 ## Median
 
 Given a statistical variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
 
-The median of $\hspace{0.05cm}X_k \hspace{0.05cm}$ is $Me(X_k)$  $
+The **median** of $\hspace{0.05cm}X_k \hspace{0.05cm}$ is defined as a value $Me(X_k)$ such that: $\\[0.3cm]$
 
 
-$$\overline{\hspace{0.05cm} X_k \hspace{0.05cm} } \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.05cm} x_{ik}$$ $\\[0.4cm]$
+$$\dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} \mathbb{I} \hspace{0.05cm} \bigl[ \hspace{0.1cm} x_{ik} \hspace{0.05cm} \leq \hspace{0.05cm} Me(X_k) \hspace{0.1cm} \bigr] \hspace{0.1cm} = \hspace{0.1cm} 0.50$$ 
 
+
+ 
+where: $\hspace{0.15cm}\mathbb{I}\hspace{0.1cm}$ is the indicator function. $\\[0.4cm]$
 
 
 
 ## Mode
 
 
+Given a **categorical** variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
+
+The **mode** of $\hspace{0.05cm} X_k \hspace{0.05cm}$ is the most repeated value in $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$, so, the **mode** of $\hspace{0.05cm} X_k \hspace{0.05cm}$ is the most frequent value of $\hspace{0.05cm} X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$  $\\[0.4cm]$
 
 
 ## Variance
 
-## Cuantiles
+Given a **quantitative** variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
+
+
+The **variance** of  $\hspace{0.05cm} X_k \hspace{0.05cm}$ is defined as:
+
+$$\sigma(X_k)^2 \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n  \hspace{0.05cm} \left(\hspace{0.05cm} x_{ik} - \overline{X_k} \hspace{0.05cm}\right)^2$$
+
+
+The **standard deviation** or standard error of  $\hspace{0.05cm} X_k \hspace{0.05cm}$ is defined as:
+
+$$\sqrt{ \sigma(X_k)^2 } \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n  \left( \hspace{0.05cm} x_{ik} - \overline{X_k} \hspace{0.05cm} \right)$$ $\\[0.4cm]$
+
+
+
+## Median Absolute Deviation
+
+Given a statistical variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
+
+
+The median absolute deviation (MAD) of  $\hspace{0.05cm} X_k \hspace{0.05cm}$ is defined as:
+
+$$MAD(X_k) \hspace{0.1cm} = \hspace{0.1cm} Me \bigl( \hspace{0.1cm} \left| \hspace{0.05cm} X_k - Me(X_k) \hspace{0.05cm} \right| \hspace{0.1cm} \bigr)  \hspace{0.1cm} = \hspace{0.1cm} Me \hspace{0.1cm} \Bigr[ \hspace{0.1cm} \left( \hspace{0.2cm} \left| \hspace{0.1cm} x_{ik} - Me(X_k) \hspace{0.1cm} \right|  \hspace{0.15cm} : \hspace{0.15cm}  i =  1,\dots,n  \hspace{0.2cm} \right) \hspace{0.1cm} \Bigr]$$ $\\[0.4cm]$
+
+
+
+
+## Quantiles
+
+
+Given a statistical variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
+
+
+The $\hspace{0.05cm}q$-order quantile of $\hspace{0.05cm} X_k \hspace{0.05cm}$ is defined as a value $Q(X_k , q)$ such that:  
+
+
+
+$$\dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} \mathbb{I} \hspace{0.05cm} \bigl[ \hspace{0.1cm} x_{ik} \hspace{0.05cm} \leq \hspace{0.05cm} Q(\hspace{0.05cm} X_k \hspace{0.05cm},\hspace{0.05cm} q \hspace{0.05cm}) \hspace{0.1cm} \bigr] \hspace{0.1cm} = \hspace{0.1cm} q$$ 
+
+
+ 
+where: $\hspace{0.15cm}\mathbb{I}\hspace{0.1cm}$ is the indicator function. $\\[0.3cm]$
+
+
+**Observation:**
+
+The median is the 0.5-order quantile. $\\[0.4cm]$
+
+
+
 
 ## Kurtosis
 
+Given a **quantitative** variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
+
+
+
+The kurtosis coefficient of $\hspace{0.05cm} X_k \hspace{0.05cm}$ is defined as:
+
+ 
+$$
+\Psi_X = \dfrac{\mu_{4}}{\sigma^{4}}
+$$
+
+where:
+
+$$
+\mu_{4}=\frac{1}{n}\sum_{i=1}^{n} (X_i)^{4} \\
+\sigma = \sqrt{Var(X)} \\
+$$
+
+
+
+**Propierties:**
+
+\end{gather*}
+Si $\Psi_X > 3$ $\Rightarrow$ la distribucion de X es mas apuntada y con colas mas gruesas que la normal.
+
+Si $\Psi_X < 3$ $\Rightarrow$ la distribucion de X es menos apuntada y con colas menos gruesas que la normal.
+
+
 ## Skewness
+
+
+\subsection{Coeficiente de Asimetria:}
+Sea X variable numerica de la que se tiene una muestra de datos $\lbrace$ $X_i$ / $i=1,...,n$  $\rbrace$ ,
+
+
+\tcbset{colback=white!1!white,colframe=orange!80!black}
+\begin{tcolorbox}[toptitle=1mm,title=Coeficiente de Asimetria]
+ 
+El coeficiente de asimetria de los datos de la variable X es:
+
+\begin{gather*}
+\gamma_X = \dfrac{\mu_{3}}{\sigma^{3}}
+\end{gather*}
+
+donde: 
+\begin{gather*}
+\mu_{3}=\dfrac{1}{n}\sum_{i=1}^{n} (X_i)^{3}\\ \\
+\sigma = \sqrt{Var(X)}
+\end{gather*}
+\end{tcolorbox}
+
+
+
+
+\vspace{0.5cm}
+
+\textbf{Propiedades:}
+
+El \textbf{coeficiente de asimetria de Fisher} coeficiente de asimetria de Fisher mide el grado de simetria de la distribucion de unos datos respecto de su media aritmetica.
+
+
+Si $\gamma_X > 0$ $\Rightarrow$ la distribución de X es asimétrica positiva o a la derecha.
+
+Si  $\gamma_{X} <0$ $\Rightarrow$ la distribución es asimétrica negativa o a la izquierda.
+
+Si la distribución es simétrica respecto de la media $\Rightarrow$ $\gamma_{X}=0$ . \hspace{0.2cm} El recíproco no es cierto.
+
 
 ## Outliers
 
