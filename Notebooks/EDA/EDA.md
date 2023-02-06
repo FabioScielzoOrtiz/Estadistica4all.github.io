@@ -800,80 +800,128 @@ Given a **quantitative** variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$,
 
 
 
-The kurtosis coefficient of $\hspace{0.05cm} X_k \hspace{0.05cm}$ is defined as:
+The kurtosis coefficient of $\hspace{0.05cm} X_k \hspace{0.05cm}$ is defined as: $\\[0.35cm]$
 
  
 $$
-\Psi_X = \dfrac{\mu_{4}}{\sigma^{4}}
+\Psi(X_k) = \dfrac{\mu_{4}}{\sigma(X_k)^{4}}
 $$
 
 where:
 
 $$
-\mu_{4}=\frac{1}{n}\sum_{i=1}^{n} (X_i)^{4} \\
-\sigma = \sqrt{Var(X)} \\
+\mu_{4}\hspace{0.1cm} =\hspace{0.1cm} \frac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.05cm} x_{ik}^4 \\[0.3cm]
 $$
 
 
 
 **Propierties:**
 
-\end{gather*}
-Si $\Psi_X > 3$ $\Rightarrow$ la distribucion de X es mas apuntada y con colas mas gruesas que la normal.
+- If $\hspace{0.12cm}\Psi(X_k) \hspace{0.05cm} > \hspace{0.05cm} 3\hspace{0.08cm}$ $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ the distribution of $\hspace{0.05cm} X_k \hspace{0.05cm}$ is more pointed and with longer tails than the normal distribution. $\\[0.5cm]$
 
-Si $\Psi_X < 3$ $\Rightarrow$ la distribucion de X es menos apuntada y con colas menos gruesas que la normal.
+- If $\hspace{0.12cm}\Psi(X_k) \hspace{0.05cm} < \hspace{0.05cm} 3\hspace{0.08cm}$ $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ the distribution of $\hspace{0.05cm} X_k \hspace{0.05cm}$ is less pointed and with shorter tails than the normal distribution. $\\[0.4cm]$
+
+
 
 
 ## Skewness
 
-
-\subsection{Coeficiente de Asimetria:}
-Sea X variable numerica de la que se tiene una muestra de datos $\lbrace$ $X_i$ / $i=1,...,n$  $\rbrace$ ,
+Given a **quantitative** variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
 
 
-\tcbset{colback=white!1!white,colframe=orange!80!black}
-\begin{tcolorbox}[toptitle=1mm,title=Coeficiente de Asimetria]
+
+The skewness coefficient of $\hspace{0.05cm} X_k \hspace{0.05cm}$ is defined as: $\\[0.25cm]$
+
  
-El coeficiente de asimetria de los datos de la variable X es:
+$$
+\Gamma(X_k) = \dfrac{\mu_{3}}{\sigma(X_k)^{3}}
+$$
 
-\begin{gather*}
-\gamma_X = \dfrac{\mu_{3}}{\sigma^{3}}
-\end{gather*}
+where:
 
-donde: 
-\begin{gather*}
-\mu_{3}=\dfrac{1}{n}\sum_{i=1}^{n} (X_i)^{3}\\ \\
-\sigma = \sqrt{Var(X)}
-\end{gather*}
-\end{tcolorbox}
+$$
+\mu_{3}\hspace{0.1cm} =\hspace{0.1cm} \frac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.05cm} x_{ik}^3 \\[0.3cm]
+$$
 
+ 
+ 
+**Propierties:**
 
-
-
-\vspace{0.5cm}
-
-\textbf{Propiedades:}
-
-El \textbf{coeficiente de asimetria de Fisher} coeficiente de asimetria de Fisher mide el grado de simetria de la distribucion de unos datos respecto de su media aritmetica.
+Fisher's skewness coefficient measures the degree of skewness in the distribution of a given statistical variable.
 
 
-Si $\gamma_X > 0$ $\Rightarrow$ la distribución de X es asimétrica positiva o a la derecha.
 
-Si  $\gamma_{X} <0$ $\Rightarrow$ la distribución es asimétrica negativa o a la izquierda.
+- If $\hspace{0.12cm} \Gamma(X_k) > 0$ $\hspace{0.2cm} \Rightarrow \hspace{0.2cm}$ the distribution of $X_k$ has skewness to the right. $\\[0.6cm]$
 
-Si la distribución es simétrica respecto de la media $\Rightarrow$ $\gamma_{X}=0$ . \hspace{0.2cm} El recíproco no es cierto.
+- If $\hspace{0.12cm} \Gamma(X_k) < 0$ $\hspace{0.2cm} \Rightarrow \hspace{0.2cm}$ the distribution of $X_k$ has skewness to the left. $\\[0.4cm]$
+
+ 
 
 
 ## Outliers
 
+There are several definitions of outlier, but here we are going to consider the classic one.
+
+Given a statistical variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
 
 
-## Data matrix
+For any $\hspace{0.05cm} i\in \lbrace 1,...,n \rbrace$ , 
+
+The observation $\hspace{0.05cm} x_{ik}\hspace{0.05cm}$ of $\hspace{0.05cm} \mathcal{X}_k\hspace{0.05cm} $ is an outlier if and only if:
+
+$$x_{ik} \hspace{0.05cm} >\hspace{0.05cm}  Q(X_k \hspace{0.05cm} , \hspace{0.05cm} 0.75) + 1.5\cdot IQR(X_k) \hspace{0.5cm}\text{or}\hspace{0.5cm} x_{ik} \hspace{0.05cm} <\hspace{0.05cm}  Q(X_k \hspace{0.05cm} , \hspace{0.05cm} 0.25) - 1.5\cdot IQR(X_k) \\$$
+
+
+where: $\hspace{0.25cm} IQR(X_k) \hspace{0.12cm} = \hspace{0.12cm} Q(X_k \hspace{0.05cm} , \hspace{0.05cm} 0.75) \hspace{0.08cm} - \hspace{0.08cm} Q(X_k \hspace{0.05cm} , \hspace{0.05cm} 0.25) \hspace{0.25cm}$
+is the interquartile range of $\hspace{0.05cm} X_k \hspace{0.05cm}$.
+
  
- Data Martrix Representation by Rows 
-  Data Martrix Representation by columns
+ 
+<br>
+ 
+ 
+
+
+## Data Matrix
+
+Given $\hspace{0.05cm} p \hspace{0.05cm}$ statistical variables $\hspace{0.05cm}\mathcal{X}_1, \mathcal{X}_2, \dots \mathcal{X}_p\hspace{0.05cm}$, and given a sample $\hspace{0.05cm}X_k = (x_{1k},...,x_{nk})^t\hspace{0.05cm}$ of $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$ for each $\hspace{0.05cm}k \in \lbrace 1,...,p \rbrace$.
+
+
+A data matrix of the variables $\hspace{0.05cm}\mathcal{X}_1,...,\mathcal{X}_1\hspace{0.05cm}$ would be: $\\[0.35cm]$
+
+$$
+X \hspace{0.05cm}=\hspace{0.05cm} \left( X_1 , X_2,\dots , X_p  \right) \hspace{0.05cm}=\hspace{0.05cm} \begin{pmatrix}
+x_{1}^{t} \\
+x_{2} ^t \\
+... \\
+x_{n} ^t 
+\end{pmatrix} \hspace{0.05cm}=\hspace{0.05cm} \begin{pmatrix}
+x_{11} & x_{12}&...&x_{1p}\\
+x_{21} & x_{22}&...&x_{2p}\\
+...&...&...&...\\
+x_{n1}& x_{n2}&...&x_{np}
+\end{pmatrix} \\
+$$
+
+where:
+
+$x_i ^t \hspace{0.05cm}=\hspace{0.05cm} \left( x_{i1}, x_{i2}, \dots , x_{ip} \right)\hspace{0.1cm}$ is the vector with the values of the $\hspace{0.05cm} p \hspace{0.05cm}$ statistical variables $\hspace{0.05cm}\mathcal{X}_1,\dots ,\mathcal{X}_p\hspace{0.05cm}$ for the $\hspace{0.05cm}i$-th element of the sample, for $\hspace{0.05cm} i \in \lbrace 1,...,n \rbrace$ $\\[0.4cm]$
+
+
+**Observations:**
+
+$X \hspace{0.05cm}=\hspace{0.05cm} \left( X_1 , X_2,\dots , X_p  \right)\hspace{0.1cm}$ is a matrix with $\hspace{0.05cm}p\hspace{0.05cm}$ columns and $\hspace{0.05cm}n\hspace{0.05cm}$ rows, so, is a matrix of size $\hspace{0.05cm} p\hspace{0.05cm} \text{x}\hspace{0.05cm}n$. $\\[0.4cm]$
+
+
+ 
+ 
  
 ## Covariance
+
+
+
+
+
 
 ## Correlation
 
