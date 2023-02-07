@@ -510,9 +510,18 @@ Netflix_Data.dtypes
 
 <br>
 
+## Unique values of a variable
 
 
-## NaN identification  <a class="anchor" id="1"></a>
+
+
+
+
+
+
+<br>
+
+## NaN identification   
 
 A NaN is a not a number value. NaN is equivalent to missing value.
 
@@ -555,9 +564,13 @@ We can see that there are variables with a high proportion of missing values, as
 
 ## Variable Scaling
 
-Escalar una variable es aplicarle una transformación con el objetivo de conseguir que la variable transformada tenga ciertas propiedades que no tenia la variable original (la variable sin transformar).
+Scale a variable is apply a transformation to it, in order to get new propierties for the transformed variable, propierties that the origial variable doesn't have.
 
-En este artículo nos centraremos en tres tipos de escalado: escalado estandar, normalización (0,1) y normalización (a,b). En cualquier caso, hay mas procedimientos que aquí no será explorados, por lo que para ver una lista más amplia se recomienda, por ejemplo, ver la documentación sobre este tema de la libreria   [`sklearn`](https://scikit-learn.org/stable/modules/preprocessing.html)
+
+In this article we are going to be focus on three scale kinds: standard scaled, (0,1) normalization and (a,b) normalization.
+
+
+En cualquier caso, hay mas procedimientos que aquí no será explorados, por lo que para ver una lista más amplia se recomienda, por ejemplo, ver la documentación sobre este tema de la libreria   [`sklearn`](https://scikit-learn.org/stable/modules/preprocessing.html)
 
 
 <br>
@@ -1427,7 +1440,7 @@ $\\[0.4cm]$
 
 
 
-# Statistical Description Procedure for Quantitative Variables 
+# Statistical Description Protocol for Quantitative Variables 
 
 mean, median, variance, cuantiles, kurtosis, skewness, outliers
 
@@ -1435,14 +1448,14 @@ mean, median, variance, cuantiles, kurtosis, skewness, outliers
 frequency tables --> https://www.statology.org/frequency-tables-python/
 
 
-# Statistical Description Procedure for Categorical Variables   
+# Statistical Description Protocol for Categorical Variables   
 
 mode, quantiles
 
 frequency tables 
 
 
-# Statistical Description Procedure for Variable Crossings   (cruces de variables cuantis-categoricas, categroicas-categoricas, cuantis-cuantis) <a class="anchor" id="1"></a>
+# Statistical Description Protocol for Variable Crossings   (cruces de variables cuantis-categoricas, categroicas-categoricas, cuantis-cuantis) <a class="anchor" id="1"></a>
 
 quantitative-categorical --> mean, median, vaariance, quantiles etc BY GROUPS.  Joint and conditional frequency tables.
 
@@ -1457,13 +1470,13 @@ quantitative-quantitative --> transform to categorical-categorical case.
 # Statistical visualization  
 
 
-## Visualization Procedure for Quantitative Variables   
+## Visualization Protocol for Quantitative Variables   
 
-## Visualization Procedure for Categorical Variables   
+## Visualization Protocol for Categorical Variables   
 
-## Visualization Procedure for Quantitative-Categorical  
+## Visualization Protocol for Quantitative-Categorical  
 
-## Visualization Procedure for Categorical-Categorical   
+## Visualization Protocol for Categorical-Categorical   
 
 
 
