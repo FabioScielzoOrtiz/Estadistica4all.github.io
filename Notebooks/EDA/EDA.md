@@ -867,7 +867,7 @@ Given a statistical variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and 
 
 For any $\hspace{0.05cm} i\in \lbrace 1,...,n \rbrace$ , 
 
-The observation $\hspace{0.05cm} x_{ik}\hspace{0.05cm}$ of $\hspace{0.05cm} \mathcal{X}_k\hspace{0.05cm} $ is an outlier if and only if:
+The observation $\hspace{0.05cm} x_{ik}\hspace{0.05cm}$ of $\hspace{0.05cm} \mathcal{X}_k\hspace{0.05cm}$ is an outlier if and only if:
 
 $$x_{ik} \hspace{0.05cm} >\hspace{0.05cm}  Q(X_k \hspace{0.05cm} , \hspace{0.05cm} 0.75) + 1.5\cdot IQR(X_k) \hspace{0.5cm}\text{or}\hspace{0.5cm} x_{ik} \hspace{0.05cm} <\hspace{0.05cm}  Q(X_k \hspace{0.05cm} , \hspace{0.05cm} 0.25) - 1.5\cdot IQR(X_k) \\$$
 
@@ -910,13 +910,68 @@ $x_i ^t \hspace{0.05cm}=\hspace{0.05cm} \left( x_{i1}, x_{i2}, \dots , x_{ip} \r
 
 **Observations:**
 
-$X \hspace{0.05cm}=\hspace{0.05cm} \left( X_1 , X_2,\dots , X_p  \right)\hspace{0.1cm}$ is a matrix with $\hspace{0.05cm}p\hspace{0.05cm}$ columns and $\hspace{0.05cm}n\hspace{0.05cm}$ rows, so, is a matrix of size $\hspace{0.05cm} p\hspace{0.05cm} \text{x}\hspace{0.05cm}n$. $\\[0.4cm]$
+$X \hspace{0.1cm}$ is a matrix with $\hspace{0.05cm}p\hspace{0.05cm}$ columns and $\hspace{0.05cm}n\hspace{0.05cm}$ rows, so, is a matrix of size $\hspace{0.05cm} p\hspace{0.05cm} \text{x}\hspace{0.05cm}n$. $\\[0.4cm]$
 
 
- 
+
  
  
 ## Covariance
+
+Given the statistical variables $\hspace{0.05cm}\mathcal{X}_1, \mathcal{X}_2, \dots \mathcal{X}_p\hspace{0.05cm}$, and given a sample $\hspace{0.05cm}X_k = (x_{1k},...,x_{nk})^t\hspace{0.05cm}$ of $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$ for each $\hspace{0.05cm}k \in \lbrace 1,...,p \rbrace$.
+
+
+The covariance between  $\hspace{0.05cm}X_j\hspace{0.05cm}$ and $\hspace{0.05cm}X_r\hspace{0.05cm}$ is defined as:
+
+$$
+S(X_k, X_r) \hspace{0.1cm}=\hspace{0.1cm} \frac{1}{n} \cdot \sum_{i=1}^{n} \left(\hspace{0.05cm} x_{ik} - \overline{X_k} \hspace{0.05cm}\right)\cdot \left(\hspace{0.05cm} x_{ir} - \overline{X_r} \hspace{0.05cm}\right)
+$$ $\\[0.4cm]$
+
+
+
+
+### Properties of covariance  
+
+
+
+
+-   $S(X_k,X_r) \in (-\infty, \infty)$ $\\[0.5cm]$
+
+-   $S(X_k,X_r) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n}\cdot \sum_{i=1}^{n} (x_{ik} \cdot x_{ir}) \hspace{0.05cm} - \hspace{0.05cm} \overline{X_k} \cdot \overline{X_r} \hspace{0.1cm} = \hspace{0.1cm} \overline{X_k\cdot X_r} \hspace{0.05cm} - \hspace{0.05cm} \overline{x_k} \cdot \overline{x_r}$ $\\[0.5cm]$
+
+-   $S(X_k, a + b\cdot X_r) \hspace{0.1cm} = \hspace{0.1cm}  b\cdot S(X_k,X_r)$ $\\[0.5cm]$
+
+-   $S(X_k,X_r) \hspace{0.1cm} = \hspace{0.1cm}  S(X_r,X_k)$ $\\[0.5cm]$
+
+-   $S(X_k,X_r)\hspace{0.05cm} >\hspace{0.05cm} 0 \hspace{0.2cm} \Rightarrow \hspace{0.2cm}$ **Positive Relationship** between  $\hspace{0.05cm}X_k\hspace{0.05cm}$ and $\hspace{0.05cm}X_r\hspace{0.05cm}$. $\\[0.5cm]$
+
+-   $S(X_k,X_r)\hspace{0.05cm} <\hspace{0.05cm} 0 \hspace{0.2cm} \Rightarrow \hspace{0.2cm}$ **Negative Relationship** between  $\hspace{0.05cm}X_k\hspace{0.05cm}$ and $\hspace{0.05cm}X_r\hspace{0.05cm}$.  $\\[0.5cm]$
+
+-   $S(X_k,X_r) \hspace{0.05cm}=\hspace{0.05cm} 0 \hspace{0.2cm} \Rightarrow \hspace{0.2cm}$ **There is not relationship** between $\hspace{0.05cm}X_k\hspace{0.05cm}$ and $\hspace{0.05cm}X_r\hspace{0.05cm}$. $\\[0.5cm]$
+
+
+
+## Covariance Matrix  
+
+
+
+The **covariance matrix** of a given data matrix $\hspace{0.05cm}X \hspace{0.05cm}=\hspace{0.05cm} (X_1,...,X_p)\hspace{0.05cm}$ is: $\\[0.2cm]$
+
+$$
+S_X = \bigl( \hspace{0.2cm} s_{k,r} \hspace{0.05cm} : \hspace{0.05cm} k,r \in \lbrace 1,...,p \rbrace \hspace{0.2cm} \bigr)
+$$ 
+
+where: $\hspace{0.15cm} s_{k,r} = S(X_k , X_r)$ $\\[0.25cm]$
+
+
+**Matrix expression of the covariance matrix :**
+
+$$
+S_X \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \cdot  X\hspace{0.1cm}^t \cdot H \cdot X
+$$
+
+where: $\hspace{0.15cm} H \hspace{0.1cm}=\hspace{0.1cm} I_n \hspace{0.05cm} - \hspace{0.05cm} \dfrac{1}{n} \cdot  1_{nx1} \cdot 1^t_{nx1}  \hspace{0.15cm}$ is the centered matrix
+
 
 
 
@@ -926,13 +981,221 @@ $X \hspace{0.05cm}=\hspace{0.05cm} \left( X_1 , X_2,\dots , X_p  \right)\hspace{
 ## Correlation
 
 
+Given the statistical variables $\hspace{0.05cm}\mathcal{X}_1, \mathcal{X}_2, \dots \mathcal{X}_p\hspace{0.05cm}$, and given a sample $\hspace{0.05cm}X_k = (x_{1k},...,x_{nk})^t\hspace{0.05cm}$ of $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$ for each $\hspace{0.05cm}k \in \lbrace 1,...,p \rbrace$.
+
+
+ 
+
+The **Pearson linear correlation** between the variables $X_k$ and $X_r$ is defined as:
+
+$$
+r(X_k,X_r) = \frac{S(X_k,X_r)}{S(X_k) \cdot S(X_r)} 
+$$ $\\[0.25cm]$
+
+
+
+
+
+### Properties of Pearson linear correlation <a class="anchor" id="47"></a>
+
+
+-   $r(X_k,X_r) \in [-1,1]$ $\\[0.5cm]$
+
+ 
+
+-   $r_{X_k,a + b\cdot X_r} = r(X_k,X_r)$ $\\[0.5cm]$
+
+ 
+
+-  The sign of $r(X,X)$ is equal to the sign of $S(X_k,Xr)$ $\\[0.5cm]$
+
+-   $r(X_k,X_r) = \pm 1 \hspace{0.1cm} \Rightarrow \hspace{0.1cm} $ perfecto linear relationship between
+    $X_k$ and $X_r$. $\\[0.5cm]$
+
+-   $r(X_k,X_r) = 0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ There is not linear relationship between  $X_k$ and  $X_r$. $\\[0.5cm]$
+
+ 
+
+-   $r(X_k,X_r) \rightarrow \pm 1 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ hard linear relationship between $X_k$ and $X_r$. $\\[0.5cm]$
+
+ 
+
+-   $r(X_k,X_r) \rightarrow 0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ weak linear relationship between
+    $X_k$ and $X_r$. $\\[0.5cm]$
+
+ 
+
+-   $r(X_k,X_r) >0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ positive relationship between $X_k$ and $X_r$. $\\[0.5cm]$
+
+
+
+-   $r(X_k,X_r) <0 \hspace{0.1cm} \Rightarrow \hspace{0.1cm}$ negative relationship between  $X_k$ and $X_r$. $\\[0.5cm]$
+
+
+## Pearson Correlation Matrix 
+
+The Pearson correlation matrix of the data matrix $X=(X_1 ,..., X_p)$ is : $\\[0.25cm]$
+
+ 
+
+$$
+R_X  
+ =\bigl( \hspace{0.12cm} r_{k,r} \hspace{0.12cm} : \hspace{0.12cm} k,r\in \lbrace 1,...,p \rbrace \hspace{0.12cm} \bigr)
+$$ $\\[0.25cm]$
+
+ 
+
+where: $\hspace{0.2cm} r_{i j} = r(X_i , X_j) \hspace{0.1cm}$ , for $\hspace{0.12cm} i,j=1,...,p$ $\\[0.35cm]$
+
+
+
+
+
+**Matrix expression of the correlation matrix**
+
+
+
+$$
+R_X= D_s^{-1} \cdot S_X \cdot D_s^{-1}
+$$
+
+where:
+$$
+D_s \hspace{0.05cm} = \hspace{0.05cm}  \text{diag} \left( \hspace{0.05cm} \sigma(X_1)  ,..., \sigma(X_p) \hspace{0.05cm}  \right)  
+$$ $\\[0.5cm]$
+
+ 
+ 
+
+## Absolute Frequency
+
+Given the statistical variables $\hspace{0.07cm}\mathcal{X}_k\hspace{0.05cm}$,  given a sample $\hspace{0.05cm}X_k = (x_{1k},...,x_{nk})^t\hspace{0.07cm}$ of $\hspace{0.07cm}\mathcal{X}_k\hspace{0.03cm}$.
+
+
+
+### Absolute Frequency of an element
+
+Given $\hspace{0.07cm} b \in Range(\mathcal{X}_k)$.
+ 
+The **absolute frequency** of the **element** $\hspace{0.07cm}b\hspace{0.07cm}$ in $\hspace{0.07cm}X_k\hspace{0.07cm}$ is defined as :
+
+$$
+F_A(b ,X_k) \hspace{0.1cm}=\hspace{0.1cm} \# \hspace{0.05cm} \Bigl\{  \hspace{0.1cm} i \in \lbrace 1,... , n \rbrace \hspace{0.1cm} : \hspace{0.1cm} x_{ik}=b \hspace{0.1cm} \Bigl\} 
+$$
+
+
+
+
+
+**Observation:**
+
+If $\hspace{0.05cm}$ $\mathcal{X}_k$ $\hspace{0.05cm}$ is continuous, usually $\hspace{0.05cm}$ $F_A(b , X_k) = 0$ $\hspace{0.05cm}$ for many values $\hspace{0.05cm}$ $b$ $\\[0.4cm]$
+
+
+
+
+### Absolute frequency of a set  
+
+
+ Given $\hspace{0.05cm}B \subset Range(\mathcal{X}_k)$
+
+ 
+
+The absolute frequency of the set $\hspace{0.05cm}B\hspace{0.05cm}$ in $\hspace{0.05cm}X_k\hspace{0.05cm}$ is defined as:
+
+$$
+F_A(B, X_k) = \sum_{b \in B} F_A(b , X_k ) = 
+$$
+
+
+
+**Observation:**
+
+$F_A([c_1,c_2], X_k)$ $\hspace{0.08cm}$ is a particular case of $\hspace{0.08cm}$ $F_A(B, X_k)$ $\hspace{0.08cm}$ with $\hspace{0.08cm}$ $A=[c_1,c_2]$ $\\[0.4cm]$
+
+
+ 
+ 
+ 
+## Relative Frequency
+
+Given the statistical variables $\hspace{0.07cm}\mathcal{X}_k\hspace{0.05cm}$,  given a sample $\hspace{0.05cm}X_k = (x_{1k},...,x_{nk})^t\hspace{0.07cm}$ of $\hspace{0.07cm}\mathcal{X}_k\hspace{0.03cm}$.
+
+
+### Relative frequency of an element  
+
+
+
+Given $\hspace{0.07cm}b \in Range(\mathcal{X}_k)$
+
+ 
+The **relative frequency** of the **element**  $\hspace{0.07cm}b\hspace{0.07cm}$ in $\hspace{0.07cm}X_k\hspace{0.07cm}$ is defined as :
+
+
+$$
+F_{Re}(b,X_k) \hspace{0.07cm}=\hspace{0.07cm}  \dfrac{F_A(b,X_k) }{n} 
+$$ $\\[0.4cm]$
+ 
+ 
+ 
+
+
+### Relative frequency of a set  
+
+
+
+Given $\hspace{0.07cm}A \subset Range(\mathcal{X}_k)$.
+
+ 
+
+The **relative frequency** of the **set** $\hspace{0.07cm}B\hspace{0.07cm}$ in $\hspace{0.07cm}X_k\hspace{0.07cm}$ is defined as:
+
+$$
+F_{Re}(A,X_k) \hspace{0.07cm}=\hspace{0.07cm}  \dfrac{F_A(B ,X_k) }{n}
+$$ $\\[0.4cm]$
+
+ 
+
+
+
+## Cumulative Absolute Frequency
+
+
+The **cumulative absolute frequency** of the element $b$ in $X_k$ is defined as:
+
+$$
+F_{CumA}(b ,X_k) \hspace{0.07cm}= \hspace{0.07cm} F_A \left( \lbrace   i=1,...,n  \hspace{0.07cm} : \hspace{0.07cm} x_{ik} \leq b  \rbrace , X_k \right)   
+$$ $\\[0.4cm]$
+ 
+
+## Cumulative Relative Frequency
+ 
+The **cumulative relative frequency** of the element $b$ in $X_k$ is defined as:
+
+$$
+F_{CumRe}(b,X_k)= \dfrac{F_{CumA}(b,X_k)}{n}   
+$$  $\\[0.4cm]$
+
+
+
+
+## Frequency Table
+
+
+
+A frequency table is a table that contains the absolut, relative and also cumulative frequencies of a statistical variable.
+
+
+
+$\\[0.4cm]$
+
 
 
 
 
 ## Statistical description for quantitative variables
 
-mean. median, variance, cuantiles, kurtosis, skewness, outliers
+mean, median, variance, cuantiles, kurtosis, skewness, outliers
 
 
 frequency tables --> https://www.statology.org/frequency-tables-python/
