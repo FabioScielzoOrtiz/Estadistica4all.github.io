@@ -86,7 +86,7 @@ Next we are going to propose a methodology to carry out an EDA, using Python as 
 
 
 
-# First step: data pre-processing
+# Data Pre-processing
 
 ## Import data-set
 
@@ -806,7 +806,7 @@ $$
 
 
 
-# Second step: statistical description 
+# Statistical Description 
 
 ## Statistical variable
 
@@ -1413,7 +1413,7 @@ $$  $\\[0.4cm]$
 
 
 
-## Frequency Table
+## Frequency Table 
 
 
 
@@ -1427,7 +1427,7 @@ $\\[0.4cm]$
 
 
 
-## Statistical description for quantitative variables
+# Statistical Description Procedure for Quantitative Variables 
 
 mean, median, variance, cuantiles, kurtosis, skewness, outliers
 
@@ -1435,14 +1435,14 @@ mean, median, variance, cuantiles, kurtosis, skewness, outliers
 frequency tables --> https://www.statology.org/frequency-tables-python/
 
 
-## Statistical description for categorical variables  
+# Statistical Description Procedure for Categorical Variables   
 
 mode, quantiles
 
 frequency tables 
 
 
-## Statistical description for variable crossings (cruces de variables cuantis-categoricas, categroicas-categoricas, cuantis-cuantis) <a class="anchor" id="1"></a>
+# Statistical Description Procedure for Variable Crossings   (cruces de variables cuantis-categoricas, categroicas-categoricas, cuantis-cuantis) <a class="anchor" id="1"></a>
 
 quantitative-categorical --> mean, median, vaariance, quantiles etc BY GROUPS.  Joint and conditional frequency tables.
 
@@ -1454,19 +1454,16 @@ quantitative-quantitative --> transform to categorical-categorical case.
 
 
 
-# Third step: statistical visualization
+# Statistical visualization  
 
 
-## Visualization for quantitative variables
+## Visualization Procedure for Quantitative Variables   
 
-## Visualization for categorical variables
+## Visualization Procedure for Categorical Variables   
 
-## Visualization for quantitative-categorical
+## Visualization Procedure for Quantitative-Categorical  
 
-## Visualization for categorical-categorical
-
-
-
+## Visualization Procedure for Categorical-Categorical   
 
 
 
@@ -1475,6 +1472,12 @@ quantitative-quantitative --> transform to categorical-categorical case.
 
 
 
+<br>
+
+
+
+
+<br>
 
 
 
@@ -1908,24 +1911,4 @@ En la sección anterior se hizo una descripción estadistica básica de las vari
 
 En esta seccion además de ampliar la descripción estadistica de los datos, se llevará a cabo un analisis de los resultados obtenidos.
 
-
-<br>
-
-
-## Estadisticos para las variables cuantitativas
-
-
-
-
-
-
-## Estadisticos para las variables categoricas
-
-
-## Tablas de frecuencias
-
-## Gráficos individuales para las variables cuantitativas
-
-## Gráficos individuales para las variables categoricas
-
-
+ 
