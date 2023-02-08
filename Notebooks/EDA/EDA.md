@@ -702,7 +702,7 @@ array(["['US']", "['GB']", "['GB', 'US']", "['EG']", "['DE']", "['IN']",
 
 A NaN is a not a number value. **NaN** is equivalent to **missing value**.
 
-We are going to calculate, for each variable, the proportion of missing values over the total number of observations:
+We are going to calculate, for each variable, the proportion of missing values over the total number of observations. We can do it using `isnull()` method :
 
 ```python
 Prop_NA = Netflix_Data.isnull().sum() / len(Netflix_Data)
@@ -758,19 +758,32 @@ Some of the concepts that appear in this secction will be explained with more de
 
 Given a **quantitative** statistical variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
  
-The standard scaling version of  de $\hspace{0.1cm} X_k\hspace{0.1cm}$ is defined as: $\\[0.25cm]$
+ 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+
+$\hspace{0.25cm}$ The **standard scaling** version of   $\hspace{0.07cm} X_k\hspace{0.07cm}$ is defined as: $\\[0.25cm]$
 
 $$X_k^{std} \hspace{0.1cm} =\hspace{0.1cm} \dfrac{X_k - \overline{X}_k}{\sigma(X_k)} \\$$
 
+
+</p>
  
+</p></span>
+</div>
+
+
 
 **Properties:**
 
 
-- $\hspace{0.1cm}  \overline{X}_k^{\hspace{0.07cm}std}  \hspace{0.1cm} =\hspace{0.1cm} 0 \\[0.8cm]$
+- $\hspace{0.1cm}  \overline{\hspace{0.01cm}X\hspace{0.07cm}}_k^{\hspace{0.07cm}std}  \hspace{0.1cm} =\hspace{0.1cm} 0 \\[0.8cm]$
 
 
-- $\hspace{0.2cm} \sigma( X_k^{\hspace{0.07cm}std} )^2 \hspace{0.1cm} =\hspace{0.1cm} 1 \\$
+- $\hspace{0.2cm} \sigma\left(\hspace{0.07cm} X_k^{\hspace{0.07cm}std} \hspace{0.07cm}\right)^2 \hspace{0.1cm} =\hspace{0.1cm} 1 \\$
 
 
 
@@ -778,48 +791,78 @@ $$X_k^{std} \hspace{0.1cm} =\hspace{0.1cm} \dfrac{X_k - \overline{X}_k}{\sigma(X
 
 - $\overline{X}_k ^{\hspace{0.07cm}std}   \hspace{0.1cm} =\hspace{0.1cm} \overline{ \left( \dfrac{X_k - \overline{X_k}}{\sigma(X_j)} \right) } \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{\sigma(X_j)} \cdot \left( \hspace{0.12cm} \overline{ \hspace{0.08cm} X_j - \overline{X_k} \hspace{0.08cm} } \hspace{0.12cm} \right) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{\sigma(X_j)} \cdot \left(  \hspace{0.12cm}  \overline{X_j} - \overline{  \hspace{0.08cm} \overline{X_j} \hspace{0.08cm} } \hspace{0.12cm} \right) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{\sigma(X_j)} \cdot \left( \hspace{0.08cm}  \overline{X_j} -  \overline{X_j}  \hspace{0.08cm} \right) \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{\sigma(X_j)} \hspace{0.07cm}\cdot \hspace{0.07cm} 0 \hspace{0.1cm}=\hspace{0.1cm} 0 \\[0.8cm]$ $\\[0.6cm]$
 
-- $\sigma\left( X_j^{\hspace{0.07cm}std} \right)^2 \hspace{0.1cm} =\hspace{0.1cm}  \sigma\left( \dfrac{X_j - \overline{X_j}
-}{\sigma(X_j)} \right)^2 \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{\sigma(X_j)^2} \cdot \sigma\left( \hspace{0.08cm} X_j - \overline{X_j}   \hspace{0.08cm} \right)^2 \hspace{0.1cm} =\hspace{0.1cm}  \dfrac{1}{\sigma(X_j)^2} \cdot \sigma( \hspace{0.08cm} X_j   \hspace{0.08cm} )^2  \hspace{0.1cm}=\hspace{0.1cm} 1$
+- $\sigma\left( X_k^{\hspace{0.07cm}std} \right)^2 \hspace{0.1cm} =\hspace{0.1cm}  \sigma\left( \dfrac{X_k - \overline{X_k}
+}{\sigma(X_k)} \right)^2 \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{\sigma(X_k)^2} \cdot \sigma\left( \hspace{0.08cm} X_k - \overline{X_k}   \hspace{0.08cm} \right)^2 \hspace{0.1cm} =\hspace{0.1cm}  \dfrac{1}{\sigma(X_k)^2} \cdot \sigma( \hspace{0.08cm} X_j   \hspace{0.08cm} )^2  \hspace{0.1cm}=\hspace{0.1cm} 1$
 
 
 <br>
 
 
-### Normalización (0,1)
+### Standardization (0,1)
 
-Dada la muestra de una  variable estadística $\hspace{0.1cm} X_j=(x_{1j},...,x_{nj})^t$
+Given a **quantitative** statistical variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
+ 
+ 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
-La versión normalizada $\hspace{0.1cm}(0,1)\hspace{0.1cm}$ de $\hspace{0.1cm}X_j\hspace{0.1cm}$ es la siguiente variable: $\\[1cm]$
+ 
+$\hspace{0.25cm}$ The standardization a $\hspace{0.05cm}(0,1)\hspace{0.05cm}$ version of $\hspace{0.07cm}X_k\hspace{0.07cm}$ is defined as: $\\[0.5cm]$
 
-$$X_j^{norm(0,1)} = \dfrac{X_j - Min(X_j)}{Max(X_j) - Min(X_j)} \\$$
+$$X_k^{std(0,1)} \hspace{0.07cm}=\hspace{0.07cm} \dfrac{\hspace{0.07cm} X_k - Min(X_k) \hspace{0.07cm}}{Max(X_k) - Min(X_k)} \\$$
+
+</p>
+ 
+</p></span>
+</div>
+
+ 
+**Properties :**
+
+- $\hspace{0.1cm} Max \left(X_j^{std(0,1)} \right) \hspace{0.1cm}=\hspace{0.1cm} 1 \\[0.8cm]$
+
+- $\hspace{0.1cm} Min \left( X_j^{std(0,1)} \right) \hspace{0.1cm}=\hspace{0.1cm} 0 \\$
 
 
 
-**Propiedades :**
+**Proof :**
 
-- $\hspace{0.2cm} Max \left(X_j^{norm(0,1)} \right) \hspace{0.1cm}=\hspace{0.1cm} 1 \\[0.8cm]$
+- $\hspace{0.1cm} Max \left( X_k^{std(0,1)} \right) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{\hspace{0.07cm} Max(X_k) - Min(X_k) \hspace{0.07cm}}{Max(X_k) - Min(X_k)} \hspace{0.1cm}=\hspace{0.1cm} 1 \\[0.8cm]$
 
-- $\hspace{0.2cm} Min \left( X_j^{norm(0,1)} \right) \hspace{0.1cm}=\hspace{0.1cm} 0 \\$
-
-
-**Demostraciones :**
-
-- $\hspace{0.1cm} Max \left( X_j^{norm(0,1)} \right) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{ Max(X_j) - Min(X_j)}{Max(X_j) - Min(X_j)} \hspace{0.1cm}=\hspace{0.1cm} 1 \\[0.8cm]$
-
-- $\hspace{0.1cm} Min \left( X_j^{norm(0,1)} \right) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{ Min(X_j) - Min(X_j)}{Max(X_j) - Min(X_j)} \hspace{0.1cm}=\hspace{0.1cm} 0$
+- $\hspace{0.1cm} Min \left( X_k^{std(0,1)} \right) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.07cm} Min(X_k) - Min(X_k) \hspace{0.07cm}}{Max(X_k) - Min(X_k)} \hspace{0.1cm}=\hspace{0.1cm} 0$
 
 
 <br>
 
 
-### Normalización (a,b)
+### Standardization (a,b)
 
 
-Dada la muestra de una variable estadística $\hspace{0.1cm}X_j=(x_{1j},...,x_{nj})^t$
+Given a **quantitative** statistical variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
+ 
+ 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
-La versión normalizada $\hspace{0.1cm}(a,b)\hspace{0.1cm}$ de $\hspace{0.1cm}X_j\hspace{0.1cm}$ es la siguiente variable:
+ 
+$\hspace{0.25cm}$ The standardization a $\hspace{0.05cm}(a,b)\hspace{0.05cm}$ version of $\hspace{0.07cm}X_k\hspace{0.07cm}$ is defined as: $\\[0.5cm]$
 
-$$X_j^{norm(a,b)} = X_j^{norm(0,1)} \cdot (b - a) + a \\$$
+ 
+
+$$X_j^{std(a,b)} \hspace{0.07cm}=\hspace{0.07cm} X_j^{std(0,1)} \cdot (b - a) + a \\$$
+
+
+where: $a, b \in \mathbb{R}$
+
+</p>
+ 
+</p></span>
+</div>
+
 
 
 **Propiedades :**
