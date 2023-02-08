@@ -396,6 +396,7 @@ As discussed above, the data-set has 5850 rows and 15 columns.
 
 ## info() method
 
+`info()` method give us column names, number of non null values in each column and column type.
 
 ```python
 Netflix_Data.info()
@@ -425,7 +426,6 @@ Netflix_Data.info()
     memory usage: 685.7+ KB
     
 
-info() method give us column names, number of non null values in each column and column type.
 
 
 <br>
@@ -513,9 +513,186 @@ Netflix_Data.dtypes
 ## Unique values of a variable
 
 
+We can get the uniques values of a variable with the `unique()` method.
 
 
+We can get the uniques values of `type` as following :
 
+```python
+Netflix_Data['type'].unique()
+```
+
+    array(['SHOW', 'MOVIE'], dtype=object)
+
+
+$\\$
+
+
+We can get the uniques values of `age_certification` as following :
+
+```python
+Netflix_Data['age_certification'].unique()
+```
+
+    array(['TV-MA', 'R', 'PG', nan, 'TV-14', 'PG-13', 'TV-PG', 'TV-Y', 'TV-G', 'TV-Y7', 'G', 'NC-17'], dtype=object)
+
+
+$\\$
+
+We can get the uniques values of `production_countries` as following :
+
+```python
+Netflix_Data['production_countries'].unique()     
+```
+
+```
+array(["['US']", "['GB']", "['GB', 'US']", "['EG']", "['DE']", "['IN']",
+       "['SU', 'IN']", "['LB', 'CA', 'FR']", '[]', "['LB']",
+       "['DZ', 'EG']", "['CA', 'FR', 'LB']", "['US', 'GB']",
+       "['US', 'IT']", "['JP']", "['AR']", "['FR', 'EG']", "['FR', 'LB']",
+       "['CA', 'US']", "['US', 'FR']", "['JP', 'US']", "['US', 'CA']",
+       "['DE', 'US']", "['PE', 'US', 'BR']", "['IT', 'US', 'FR']",
+       "['IE', 'GB', 'DE', 'FR']", "['HK', 'US']", "['AU']", "['FR']",
+       "['DE', 'GH', 'GB', 'US', 'BF']", "['MX']", "['ES', 'AR']",
+       "['CO']", "['PS', 'US', 'FR', 'DE']", "['FR', 'NO', 'LB', 'BE']",
+       "['BE', 'FR', 'IT', 'LB']", "['TR']", "['IN', 'SU']", "['DK']",
+       "['CA']", "['DE', 'GB', 'US', 'BS', 'CZ']", "['MT', 'GB', 'US']",
+       "['AU', 'DE', 'GB', 'US']", "['US', 'JP']", "['BE', 'US']",
+       "['HK']", "['IT']", "['US', 'FR', 'DE', 'GB']",
+       "['GB', 'US', 'FR', 'DE']", "['IT', 'US']", "['US', 'ZA']",
+       "['GB', 'ES']", "['GB', 'US', 'JP']", "['HK', 'CN']",
+       "['GB', 'US', 'BG']", "['RU']", "['KR']", "['CA', 'US', 'IN']",
+       "['CN']", "['JP', 'HK']", "['CA', 'GB', 'US']",
+       "['FR', 'MX', 'ES']", "['IN', 'US']", "['AR', 'ES']", "['CL']",
+       "['FR', 'MA', 'DE', 'PS']", "['AR', 'DE', 'UY', 'ES']",
+       "['CL', 'AR']", "['CZ', 'GB', 'DK', 'NL', 'SE']", "['TW']",
+       "['SG']", "['NG']", "['MY']", "['Lebanon']",
+       "['BE', 'FR', 'ES', 'CH', 'PS']", "['ZA']", "['NG', 'US']",
+       "['LB', 'FR']", "['CN', 'HK']", "['PH']", "['LB', 'GB', 'FR']",
+       "['FR', 'DE', 'KW', 'PS']", "['PS']",
+       "['GB', 'US', 'AT', 'FR', 'DE', 'NG']", "['XX']", "['AE', 'US']",
+       "['DK', 'US']", "['FR', 'US', 'GB']", "['HU', 'US', 'CA']",
+       "['NO']", "['GB', 'FR', 'DE']", "['US', 'HU', 'IT']",
+       "['US', 'ZA', 'DE']", "['IN', 'DE']", "['SA']", "['ID']",
+       "['US', 'LB', 'AE']", "['PS', 'NL', 'US', 'AE']",
+       "['US', 'FR', 'GB']", "['US', 'DE', 'GB']", "['GB', 'ZA']",
+       "['US', 'CA', 'CL']", "['US', 'GB', 'CN', 'CA']",
+       "['AU', 'CH', 'GB']", "['ES']", "['FI']", "['IL']", "['FR', 'US']",
+       "['AU', 'US']", "['CA', 'US', 'GB']", "['AT']", "['CD', 'GB']",
+       "['US', 'BR']", "['CA', 'JP', 'US']", "['CA', 'KR']",
+       "['US', 'EG', 'GB']", "['BR']", "['PL']", "['VE', 'AR']", "['RO']",
+       "['IL', 'NO', 'ZA', 'AE', 'GB', 'IS', 'IE']",
+       "['US', 'CN', 'DE', 'SG', 'UA']", "['DE', 'IT', 'PS', 'FR']",
+       "['AE', 'LB']", "['LB', 'AE']", "['US', 'ES']", "['NZ']",
+       "['GB', 'US', 'FR']", "['US', 'FR', 'LU', 'GB']", "['FR', 'BE']",
+       "['IT', 'GB']", "['US', 'CA', 'GB']", "['CA', 'FR']",
+       "['US', 'CN']", "['UA']", "['MX', 'ZA', 'US']",
+       "['US', 'GB', 'ES']", "['BE', 'DK', 'DE', 'GB', 'US']",
+       "['GB', 'IR', 'JO', 'QA']", "['CH', 'US']", "['CA', 'DE', 'GB']",
+       "['GH', 'US']", "['IE', 'GB']", "['CN', 'US']",
+       "['UA', 'GB', 'US']", "['IE', 'ZA']", "['US', 'FR', 'MT']",
+       "['BG']", "['GB', 'FR']", "['BY']", "['IE']", "['IS']",
+       "['AU', 'FR', 'DE']", "['CN', 'FR', 'CA']", "['FR', 'QA']",
+       "['SE']", "['FR', 'ES']", "['NL']", "['HR']", "['FR', 'MA']",
+       "['RU', 'US', 'FR']", "['SY', 'GB']", "['AT', 'US']", "['CD']",
+       "['FR', 'CL']", "['AU', 'GB']", "['TN']", "['AE']", "['SE', 'NO']",
+       "['GL', 'FR']", "['LB', 'DE']", "['PT', 'SE', 'DK', 'BR', 'FR']",
+       "['QA', 'LB']", "['GB', 'AU', 'US']", "['ES', 'DK']",
+       "['AE', 'FR', 'JO', 'LB', 'QA', 'PS']", "['US', 'CA', 'JP']",
+       "['PK']", "['IN', 'GB']", "['PS', 'FR', 'DE']", "['CZ']",
+       "['CA', 'NG']", "['VN']", "['NL', 'GB']",
+       "['CA', 'HU', 'MX', 'ES', 'GB', 'US']", "['FR', 'GB', 'US']",
+       "['FR', 'NL', 'GB', 'US']", "['CN', 'CA', 'US']", "['CA', 'GB']",
+       "['KR', 'US']", "['FR', 'RO', 'GB', 'BE', 'DE']", "['US', 'MX']",
+       "['HK', 'IS', 'US']", "['IN', 'CN', 'US', 'GB']", "['BE', 'FR']",
+       "['PR', 'US', 'GB', 'CN']", "['GB', 'DE']", "['US', 'PR']",
+       "['IT', 'CH', 'FR']", "['IT', 'ES', 'FR']", "['US', 'IS', 'NO']",
+       "['IQ', 'GB']", "['HU']", "['US', 'AU', 'GB']",
+       "['CZ', 'GB', 'US']", "['US', 'IE', 'CA']", "['TH']",
+       "['IR', 'US', 'FR']", "['BE']",
+       "['GB', 'ID', 'CA', 'CN', 'SG', 'US']", "['ES', 'FR']",
+       "['SG', 'GB', 'US']", "['GE', 'DE', 'FR']", "['CA', 'US', 'DE']",
+       "['CA', 'IE']", "['NL', 'BE']", "['US', 'KH']", "['FR', 'JP']",
+       "['PR']", "['US', 'CA', 'CN']", "['CN', 'US', 'ES']",
+       "['CU', 'US']", "['BG', 'US']", "['US', 'BG']",
+       "['US', 'DK', 'GB']", "['ES', 'IT']", "['TR', 'US']",
+       "['PE', 'DE', 'NO']", "['LU', 'US', 'FR']",
+       "['IL', 'MA', 'US', 'BG', 'GB']", "['AR', 'CL']",
+       "['AR', 'ES', 'UY']", "['JP', 'CN']", "['US', 'AU']",
+       "['QA', 'TN', 'FR']", "['ES', 'MX']", "['PH', 'SG']",
+       "['US', 'AE']", "['DE', 'DK', 'NL', 'GB']", "['NL', 'MX']",
+       "['CA', 'CN']", "['NO', 'SE', 'DK', 'NL']", "['US', 'DE', 'ZA']",
+       "['IS', 'SE', 'BE']", "['DE', 'ES']", "['CN', 'FR', 'TW', 'US']",
+       "['KH']", "['BE', 'FR', 'IT']", "['DE', 'CH']",
+       "['JP', 'KR', 'FR']", "['DE', 'NZ', 'GB']", "['PE']",
+       "['MX', 'US']", "['US', 'DK']", "['PL', 'US']", "['KE']", "['GH']",
+       "['IT', 'CH', 'VA', 'FR', 'DE']", "['PE', 'GB', 'US', 'IL', 'IT']",
+       "['SA', 'SY', 'AE']", "['US', 'KR']", "['IN', 'FR']",
+       "['RS', 'PL', 'RU']", "['CL', 'NL', 'FR']", "['IE', 'CA']",
+       "['US', 'NL']", "['TZ']", "['IT', 'ES']", "['ID', 'MY', 'SG']",
+       "['FR', 'LU', 'CA']", "['FR', 'QA', 'TN', 'BE']",
+       "['PL', 'CH', 'AL', 'IT']", "['CZ', 'US']", "['AR', 'FR']",
+       "['DE', 'IT']", "['IT', 'FR']", "['MX', 'FI']", "['CA', 'BR']",
+       "['IN', 'MX']", "['BR', 'DK', 'FR', 'DE', 'PL', 'AR']",
+       "['ZA', 'US', 'CA']", "['ES', 'BE']", "['PY']", "['US', 'NG']",
+       "['US', 'BE', 'GB']", "['ZW']", "['IT', 'AR']",
+       "['AT', 'IQ', 'US']", "['GE']", "['AR', 'IT']", "['NG', 'NO']",
+       "['IS', 'GB']", "['MX', 'CO']", "['AR', 'US']", "['KW']",
+       "['JP', 'GB']", "['TW', 'US']", "['NP', 'IN']",
+       "['AU', 'US', 'CN']", "['FR', 'IN', 'SG']", "['LB', 'PS']",
+       "['JP', 'US', 'CA']", "['CM']", "['BD', 'IN']", "['CA', 'ZA']",
+       "['FR', 'PS', 'CH', 'QA']", "['NL', 'JO', 'DE']",
+       "['GB', 'DK', 'GR']", "['MX', 'AR']", "['US', 'CL', 'MX']",
+       "['KG']", "['CH']", "['BD']", "['LU']", "['ZA', 'GB']",
+       "['BT', 'CN']", "['CA', 'HU', 'US']", "['BE', 'LT', 'NL']",
+       "['IT', 'MC', 'US', 'CA']", "['CN', 'US', 'AU', 'CA']",
+       "['BE', 'SE', 'GB']", "['GB', 'CZ', 'FR']", "['US', 'MW', 'GB']",
+       "['US', 'CY']", "['BE', 'FR', 'SN']", "['BR', 'FR', 'ES', 'BE']",
+       "['US', 'CH']", "['US', 'IL']", "['FR', 'LT', 'GB']",
+       "['GB', 'IE']", "['GB', 'IT']", "['JO', 'TH', 'US', 'AL']",
+       "['PT', 'US']", "['IL', 'US', 'FR', 'DE']", "['TW', 'MY']",
+       "['US', 'CA', 'FR', 'ES']", "['FI', 'NO']", "['US', 'FR', 'JP']",
+       "['GB', 'JP']", "['US', 'CN', 'GB']",
+       "['US', 'FR', 'SE', 'GB', 'DE', 'DK', 'CA']", "['DE', 'AT']",
+       "['US', 'TH']", "['PH', 'US']", "['BR', 'MX']", "['NO', 'CA']",
+       "['CO', 'ES']", "['CN', 'DE', 'GB']", "['NO', 'DE']",
+       "['ES', 'PT']", "['IL', 'US']", "['ES', 'BE', 'DE']",
+       "['TH', 'US']", "['US', 'FR', 'ES']", "['ES', 'FR', 'AR']",
+       "['NL', 'PL', 'UA', 'GB', 'US']", "['QA', 'PS']",
+       "['RS', 'UY', 'AR']", "['FR', 'IT']", "['CA', 'LK']",
+       "['US', 'AR']", "['EG', 'US']", "['US', 'IN']",
+       "['FR', 'LU', 'BE', 'KH']", "['US', 'BE', 'ES']",
+       "['CA', 'FR', 'JP', 'GB', 'US']", "['AT', 'DE']",
+       "['US', 'GB', 'DE']", "['FR', 'MX', 'CO']", "['BR', 'FR']",
+       "['JO']", "['FR', 'IN', 'QA']", "['AR', 'PE']", "['MU']",
+       "['DE', 'DK', 'EG']", "['US', 'IE']", "['IO']", "['TW', 'CN']",
+       "['FR', 'NL', 'SG']", "['SN']", "['UY']", "['DE', 'IN', 'AT']",
+       "['MA', 'FR', 'QA']", "['PS', 'PH']", "['EG', 'SA']",
+       "['ES', 'CN']", "['CL', 'AR', 'CA']", "['AR', 'CO']",
+       "['GT', 'UY']", "['AF', 'DE', 'PS']", "['ZA', 'AO']",
+       "['HK', 'PH']", "['SG', 'MY']", "['SE', 'US']",
+       "['LB', 'US', 'NL', 'CA']", "['NL', 'PS', 'US', 'LB']",
+       "['DK', 'LB', 'GB']", "['UY', 'MX', 'ES']", "['PH', 'JP']",
+       "['CN', 'JP', 'US']", "['NA']", "['LB', 'QA', 'SY', 'FR']",
+       "['PS', 'DK', 'LB']", "['US', 'CZ']",
+       "['GB', 'AU', 'CA', 'GR', 'NZ']", "['GR', 'GB', 'US']",
+       "['DE', 'FR']", "['NL', 'US']", "['AT', 'GB', 'US']",
+       "['CH', 'DE']", "['GB', 'US', 'DE']", "['DK', 'IS']",
+       "['FR', 'DE', 'US']", "['US', 'JP', 'TH']", "['FR', 'DE']",
+       "['RO', 'US']", "['ES', 'KN']", "['SE', 'GB']",
+       "['SG', 'US', 'IN']", "['DE', 'AU']", "['GB', 'CA']",
+       "['IE', 'US', 'CA']", "['PT']", "['US', 'PL', 'KR']",
+       "['LU', 'FR']", "['IT', 'BR']", "['GB', 'HU', 'NL', 'CH']",
+       "['BR', 'DE', 'QA', 'MX', 'US', 'CH', 'AR']", "['ES', 'PE']",
+       "['BE', 'GB', 'DE']", "['ZA', 'GB', 'US']", "['CL', 'PE']",
+       "['CA', 'CN', 'US']", "['SG', 'US']", "['BR', 'US']",
+       "['BE', 'NL']", "['RU', 'US']", "['ES', 'US']", "['CZ', 'DE']",
+       "['NZ', 'HK']", "['MA', 'SA', 'TN', 'EG', 'LB']", "['CN', 'GB']",
+       "['AF']", "['BE', 'LU']", "['BE', 'DE']", "['SE', 'RO']",
+       "['ZA', 'US']", "['GB', 'IN']", "['HU', 'CA']", "['NG', 'CA']",
+       "['TZ', 'GB']", "['PH', 'FO']"], dtype=object)
+
+```
 
 
 
@@ -523,7 +700,7 @@ Netflix_Data.dtypes
 
 ## NaN identification   
 
-A NaN is a not a number value. NaN is equivalent to missing value.
+A NaN is a not a number value. **NaN** is equivalent to **missing value**.
 
 We are going to calculate, for each variable, the proportion of missing values over the total number of observations:
 
@@ -564,50 +741,45 @@ We can see that there are variables with a high proportion of missing values, as
 
 ## Variable Scaling
 
-Scale a variable is apply a transformation to it, in order to get new propierties for the transformed variable, propierties that the origial variable doesn't have.
+Scaling a variable is applying a transformation, in order to obtain new properties for the transformed variable, properties that the original variable doesn't have.
+
+In this article, we will focus on three scaling methods: standard scaling, normalization (0,1), and normalization (a,b).
+
+In any case, there are more procedures that will not be explored here, so for a more extensive list, it is recommended to consult the `sklearn` documentation on this topic: https://scikit-learn.org/stable/modules/preprocessing.html
 
 
-In this article we are going to be focus on three scale kinds: standard scaled, (0,1) normalization and (a,b) normalization.
-
-
-En cualquier caso, hay mas procedimientos que aquí no será explorados, por lo que para ver una lista más amplia se recomienda, por ejemplo, ver la documentación sobre este tema de la libreria   [`sklearn`](https://scikit-learn.org/stable/modules/preprocessing.html)
+Some of the concepts that appear in this secction will be explained with more details in Statistical Description section, such as the concept of statistical variable, sample, mean and variance.
 
 
 <br>
 
-### Escalado estandar
 
+### Standard Scaling
+
+Given a **quantitative** statistical variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
+ 
+The standard scaling version of  de $\hspace{0.1cm} X_k\hspace{0.1cm}$ is defined as: $\\[0.25cm]$
+
+$$X_k^{std} \hspace{0.1cm} =\hspace{0.1cm} \dfrac{X_k - \overline{X}_k}{\sigma(X_k)} \\$$
 
  
-Dada la muestra de una  variable estadística $\hspace{0.1cm} X_j=(x_{1j},...,x_{nj})^t$
 
-La versión escalada estandar de $\hspace{0.1cm} X_j\hspace{0.1cm}$ es la siguiente variable: $\\[1cm]$
+**Properties:**
 
-$$X_j^{std} \hspace{0.1cm} =\hspace{0.1cm} \dfrac{X_j - \mu(X_j)}{\sigma(X_j)} \\$$
 
-donde:
+- $\hspace{0.1cm}  \overline{X}_k^{\hspace{0.07cm}std}  \hspace{0.1cm} =\hspace{0.1cm} 0 \\[0.8cm]$
 
-$\hspace{0.1cm}\mu(X_j) \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n x_{ij}$
 
-$\hspace{0.1cm}\sigma(X_j) \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n (x_{ij} - \overline{x}_j )^2 \\[1cm]$
+- $\hspace{0.2cm} \sigma( X_k^{\hspace{0.07cm}std} )^2 \hspace{0.1cm} =\hspace{0.1cm} 1 \\$
 
 
 
-**Propiedades :**
+**Proof :** 
 
+- $\overline{X}_k ^{\hspace{0.07cm}std}   \hspace{0.1cm} =\hspace{0.1cm} \overline{ \left( \dfrac{X_k - \overline{X_k}}{\sigma(X_j)} \right) } \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{\sigma(X_j)} \cdot \left( \hspace{0.12cm} \overline{ \hspace{0.08cm} X_j - \overline{X_k} \hspace{0.08cm} } \hspace{0.12cm} \right) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{\sigma(X_j)} \cdot \left(  \hspace{0.12cm}  \overline{X_j} - \overline{  \hspace{0.08cm} \overline{X_j} \hspace{0.08cm} } \hspace{0.12cm} \right) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{\sigma(X_j)} \cdot \left( \hspace{0.08cm}  \overline{X_j} -  \overline{X_j}  \hspace{0.08cm} \right) \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{\sigma(X_j)} \hspace{0.07cm}\cdot \hspace{0.07cm} 0 \hspace{0.1cm}=\hspace{0.1cm} 0 \\[0.8cm]$ $\\[0.6cm]$
 
-- $\hspace{0.2cm} \mu( X_j^{\hspace{0.07cm}std} ) \hspace{0.1cm} =\hspace{0.1cm} 0 \\[0.8cm]$
-
-
-- $\hspace{0.2cm} \sigma^2( X_j^{\hspace{0.07cm}std} ) \hspace{0.1cm} =\hspace{0.1cm} 1 \\$
-
-
-
-**Demostraciones :** 
-
-- $\hspace{0.1cm} \mu(X_j ^{\hspace{0.07cm}std} ) \hspace{0.1cm} =\hspace{0.1cm} \mu \left( \dfrac{X_j - \mu(X_j)}{\sigma(X_j)} \right) \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{\sigma(X_j)} \cdot \mu( \hspace{0.08cm} X_j - \mu(X_j) \hspace{0.08cm} ) \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{\sigma(X_j)} \cdot [ \hspace{0.08cm}  \mu(X_j) - \mu \left( \hspace{0.08cm} \mu(X_j) \hspace{0.08cm} \right) \hspace{0.08cm} ] = \dfrac{1}{\sigma(X_j)} \cdot [ \hspace{0.08cm}  \mu(X_j) -  \mu(X_j)  \hspace{0.08cm} ] \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{\sigma(X_j)} \cdot  0 = 0 \\[0.8cm]$
-
-- $\hspace{0.1cm} \sigma^2( X_j^{\hspace{0.07cm}std} ) \hspace{0.1cm} =\hspace{0.1cm}  \sigma^2\left( \dfrac{X_j - \mu(X_j)}{\sigma(X_j)} \right) \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{\sigma(X_j)^2} \cdot \sigma^2( \hspace{0.08cm} X_j - \mu(X_j)   \hspace{0.08cm} ) \hspace{0.1cm} =\hspace{0.1cm}  \dfrac{1}{\sigma^2(X_j)} \cdot \sigma^2( \hspace{0.08cm} X_j   \hspace{0.08cm} ) = 1$
+- $\sigma\left( X_j^{\hspace{0.07cm}std} \right)^2 \hspace{0.1cm} =\hspace{0.1cm}  \sigma\left( \dfrac{X_j - \overline{X_j}
+}{\sigma(X_j)} \right)^2 \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{\sigma(X_j)^2} \cdot \sigma\left( \hspace{0.08cm} X_j - \overline{X_j}   \hspace{0.08cm} \right)^2 \hspace{0.1cm} =\hspace{0.1cm}  \dfrac{1}{\sigma(X_j)^2} \cdot \sigma( \hspace{0.08cm} X_j   \hspace{0.08cm} )^2  \hspace{0.1cm}=\hspace{0.1cm} 1$
 
 
 <br>
@@ -625,9 +797,9 @@ $$X_j^{norm(0,1)} = \dfrac{X_j - Min(X_j)}{Max(X_j) - Min(X_j)} \\$$
 
 **Propiedades :**
 
-- $\hspace{0.2cm} Max \left(X_j^{norm(a,b)} \right) \hspace{0.1cm}=\hspace{0.1cm} 1 \\[0.8cm]$
+- $\hspace{0.2cm} Max \left(X_j^{norm(0,1)} \right) \hspace{0.1cm}=\hspace{0.1cm} 1 \\[0.8cm]$
 
-- $\hspace{0.2cm} Min \left( X_j^{norm(a,b)} \right) \hspace{0.1cm}=\hspace{0.1cm} 0 \\$
+- $\hspace{0.2cm} Min \left( X_j^{norm(0,1)} \right) \hspace{0.1cm}=\hspace{0.1cm} 0 \\$
 
 
 **Demostraciones :**
@@ -932,6 +1104,22 @@ The **arithmetic mean** of $\hspace{0.05cm}X_k \hspace{0.05cm}$ is defined as: $
 $$\overline{\hspace{0.05cm} X_k \hspace{0.05cm} } \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.05cm} x_{ik}$$ $\\[0.4cm]$
 
 
+**Properties:**
+
+ 
+- Existence: the arithmetic mean of a sample $X_k$  of a statisitcal variable $\mathcal{X}_k$ always exist, for any $X_{k}$.
+
+- Commutatividad: arithmetic mean isn't affected by the order of the elements of the sample $X_k$ .
+
+
+- $\overline{X_k} + \overline{X_j} = \overline{X_k + X_j}$
+
+
+- $\overline{ a\cdot X_k + b} = a \cdot \overline{X_k} + b$ , for any $a,b \in \mathbb{R}$ 
+
+
+<br>
+
 
 
 ## Weighted Mean 
@@ -979,6 +1167,22 @@ $$\dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} \mathbb{I} \hspace{0.05cm} \big
  
 where: $\hspace{0.15cm}\mathbb{I}\hspace{0.1cm}$ is the indicator function. $\\[0.4cm]$
 
+
+**Properties:**
+
+Existencia: La mediana siempre existe para cualquier conjunto de números.
+
+Invariante a permutaciones: El orden de los números no afecta a la mediana.
+
+ 
+
+No linealidad: La mediana de una suma de números no es igual a la suma de las medianas de cada conjunto de números.
+
+Invarianza a la escala: Multiplicar todos los números por una constante no afecta la mediana.
+
+Si se cumple $median(cX_j) = c\cdot median(X_j)$ pero no es cierto en general que $median(cX_j + b) = c\cdot median(X_j) + b$
+
+<br>
 
 
 ## Mode
