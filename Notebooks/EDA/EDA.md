@@ -798,6 +798,57 @@ $$X_k^{std} \hspace{0.1cm} =\hspace{0.1cm} \dfrac{X_k - \overline{X}_k}{\sigma(X
 <br>
 
 
+#### Standard Scaling in `Python`
+
+```python
+from sklearn import preprocessing
+```
+
+```python
+scaler = preprocessing.StandardScaler().fit(Netflix_Data[['release_year']])
+```
+
+```python
+Netflix_Data['release_year_std_scaling'] = scaler.transform(Netflix_Data[['release_year']])
+```
+
+```python
+Netflix_Data['release_year_std_scaling']
+```
+
+```
+0      -10.294901
+1       -5.826196
+2       -6.402803
+3       -5.970348
+4       -7.123562
+          ...    
+5845     0.660634
+5846     0.660634
+5847     0.660634
+5848     0.660634
+5849     0.660634
+Name: release_year_std_scaling, Length: 5850, dtype: float64
+```
+
+
+```python
+Netflix_Data['release_year_std_scaling'].mean()
+```
+
+     -1.010549668636587e-14
+
+
+```python
+Netflix_Data['release_year_std_scaling'].std()
+```
+
+     1.0000854810447344
+
+
+<br>
+
+
 ### Standardization (0,1)
 
 Given a **quantitative** statistical variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
@@ -836,6 +887,54 @@ $$X_k^{std(0,1)} \hspace{0.07cm}=\hspace{0.07cm} \dfrac{\hspace{0.07cm} X_k - Mi
 
 <br>
 
+#### Standardization (0,1) in `Python`
+
+
+```python
+min_max_scaler = preprocessing.MinMaxScaler(feature_range=(0,1))
+```
+
+```python
+Netflix_Data['release_year_norm_0_1'] = min_max_scaler.fit_transform(Netflix_Data[['release_year']])
+```
+
+```python
+Netflix_Data['release_year_norm_0_1']
+```
+
+```
+0       0.000000
+1       0.402597
+2       0.350649
+3       0.389610
+4       0.285714
+          ...   
+5845    0.987013
+5846    0.987013
+5847    0.987013
+5848    0.987013
+5849    0.987013
+Name: release_year_norm_0_1, Length: 5850, dtype: float64
+```
+
+```python
+Netflix_Data['release_year_norm_0_1'].min()
+```
+
+    0.0
+
+```python
+Netflix_Data['release_year_norm_0_1'].max()
+```
+
+    1.0
+
+
+
+
+
+<br>
+
 
 ### Standardization (a,b)
 
@@ -853,10 +952,10 @@ $\hspace{0.25cm}$ The standardization a $\hspace{0.05cm}(a,b)\hspace{0.05cm}$ ve
 
  
 
-$$X_j^{std(a,b)} \hspace{0.07cm}=\hspace{0.07cm} X_j^{std(0,1)} \cdot (b - a) + a \\$$
+$$X_k^{std(a,b)} \hspace{0.07cm}=\hspace{0.07cm} X_k^{std(0,1)} \cdot (b - a) + a \\$$
 
 
-where: $a, b \in \mathbb{R}$
+$\hspace{0.25cm}$ where: $a, b \in \mathbb{R} \\$
 
 </p>
  
@@ -865,46 +964,100 @@ where: $a, b \in \mathbb{R}$
 
 
 
-**Propiedades :**
+**Properties :**
 
-- $\hspace{0.2cm} Max \left(X_j^{norm(a,b)} \right) = b \\[0.8cm]$
+- $\hspace{0.1cm} Max \left(X_k^{std(a,b)} \right) = b \\[0.8cm]$
 
-- $\hspace{0.2cm} Min \left( X_j^{norm(a,b)} \right) = a \\$
-
-
-
-**Demostraciones :**
-
-- $\hspace{0.1cm} Max \left(X_j^{norm(a,b)} \right) = Max \left(X_j^{norm(0,1)} \right)\cdot (a-b)+b= 1\cdot (b-a)+a = b \\[0.8cm]$
-
-- $\hspace{0.1cm} Min \left(X_j^{norm(a,b)} \right) = Min \left(X_j^{norm(0,1)} \right)\cdot (a-b)+b= 0\cdot (b-a)+a = a$
+- $\hspace{0.1cm} Min \left( X_k^{std(a,b)} \right) = a \\$
 
 
 
+**Proof :**
+
+- $\hspace{0.1cm} Max \left(X_k^{std(a,b)} \right) \hspace{0.07cm}=\hspace{0.07cm} Max \left(X_k^{std(0,1)} \right)\cdot (a-b)+b \hspace{0.07cm}=\hspace{0.07cm} 1\cdot (b-a)+a \hspace{0.07cm}=\hspace{0.07cm} b \\[0.8cm]$
+
+- $\hspace{0.1cm} Min \left(X_k^{std(a,b)} \right) \hspace{0.07cm}=\hspace{0.07cm} Min \left(X_k^{std(0,1)} \right)\cdot (a-b)+b \hspace{0.07cm}=\hspace{0.07cm} 0\cdot (b-a)+a \hspace{0.07cm}=\hspace{0.07cm} a$
+
+
+<br>
+
+
+### Standardization (a,b) in `Python`
+
+```python
+min_max_scaler = preprocessing.MinMaxScaler(feature_range=(2,7))
+```
+
+```python
+Netflix_Data['release_year_norm_2_7'] = min_max_scaler.fit_transform(Netflix_Data[['release_year']])
+```
+
+
+```python
+Netflix_Data['release_year_norm_2_7']
+```
+
+``` 
+0       2.000000
+1       4.012987
+2       3.753247
+3       3.948052
+4       3.428571
+          ...   
+5845    6.935065
+5846    6.935065
+5847    6.935065
+5848    6.935065
+5849    6.935065
+Name: release_year_norm_2_7, Length: 5850, dtype: float64
+```
+
+```python
+Netflix_Data['release_year_norm_2_7'].min()
+```
+
+    2.0 
+
+
+```python
+Netflix_Data['release_year_norm_2_7'].max()
+```
  
+    6.999999999999986
  
 
 
 
 <br>
 
-## Recodificación estandar de variables categoricas
+## Standard Recoding of Categorical Variables
 
-Dada la muestra de una variable estadística categórica $\hspace{0.1cm}X_j=(x_{1j},...,x_{nj})^t\hspace{0.1cm}$ con $\hspace{0.1cm}k\hspace{0.1cm}$ categorias tal que su recorrido (campo de variación) es $\hspace{0.1cm}\Gamma( X_j) = \lbrace g_1, g_2 , ..., g_k \rbrace$ ;
+Given a **categorical** statistical variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$ with range $\hspace{0.07cm}R( X_k) = \lbrace g_1, g_2 , ..., g_h \rbrace\hspace{0.07cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
+ 
+ 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
 
-La recodficación a formato estándar de  $\hspace{0.1cm}X_j\hspace{0.1cm}$ consiste en obtener una nueva variable $\hspace{0.1cm}X_j^{recod}\hspace{0.1cm}$ definida como :
+$\hspace{0.25cm}$ The standard recode of $\hspace{0.07cm}X_k\hspace{0.07cm}$ consists of obtaining a new sample  $\hspace{0.1cm}X_k^{cod}\hspace{0.1cm}$ defined as :
 
-$$x_{ij}^{recod} =  \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} ,  \text{ si} \hspace{0.2cm} x_{ij} = g_1 \\ 
-1 \hspace{0.3cm} , \hspace{0.15cm} \text{si} \hspace{0.2cm} x_{ij} = g_2 \\
+$$x_{ik}^{\hspace{0.07cm}cod} =  \left\lbrace\begin{array}{l} 0 \hspace{0.2cm} ,  \hspace{0.2cm} \text{ if} \hspace{0.3cm} x_{ik} = g_1 \\ 
+1 \hspace{0.2cm} ,  \hspace{0.2cm} \text{ if}  \hspace{0.3cm} x_{ik} = g_2 \\
 ... \\ 
-k-1  \hspace{0.3cm}  ,\text{ si} \hspace{0.2cm} x_{ij} = g_1 \end{array}\right.
+h-1  \hspace{0.2cm} ,  \hspace{0.2cm} \text{ if}  \hspace{0.3cm} x_{ik} = g_h \end{array}\right. \\
 $$
 
+</p>
+ 
+</p></span>
+</div>
 
-**Observación :**
 
-$\hspace{0.1cm}\Gamma( X_j^{recod}) = \lbrace 0,1,..., k-1 \rbrace$ 
+**Properties :**
+
+- $\hspace{0.1cm}R( X_k^{cod}) = \lbrace 0,1,..., h-1 \rbrace$ 
 
 
 
@@ -913,98 +1066,165 @@ $\hspace{0.1cm}\Gamma( X_j^{recod}) = \lbrace 0,1,..., k-1 \rbrace$
 <br>
 
 
-## Categorización de variables cuantitativas
+## Categorization of Quantitative Variables 
 
-Dada una muestra de una variable estadistica cuantitativa $\hspace{0.1cm} X_j=(x_{1j},...,x_{nj})^t\hspace{0.1cm}$ ;
+Given a **quantitative** statistical variable $\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}$, and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
+ 
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
 
-La categorización de $\hspace{0.1cm}X_j\hspace{0.1cm}$ consisiste en obtener una nueva variable $\hspace{0.1cm}X_j^{cat}\hspace{0.1cm}$ definida como:
+$\hspace{0.25cm}$ Categorization of $\hspace{0.1cm}X_k\hspace{0.1cm}$ consist of obtaining a new sample  $\hspace{0.1cm}X_k^{cat}\hspace{0.1cm}$ defined as: $\\[0.3cm]$
 
 
-$$x_{ij}^{cat} =  \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} ,  \text{ si} \hspace{0.2cm} x_{ij} \in [L_0 , L_1) \\ 
-1 \hspace{0.3cm} , \hspace{0.15cm} \text{si} \hspace{0.2cm} x_{ij} \in [L_1 , L_2)  \\
+$$x_{ik}^{cat} =  \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in [L_0 , L_1) \\ 
+1 \hspace{0.3cm} , \hspace{0.3cm} \text{if}  \hspace{0.3cm} x_{ik} \in [L_1 , L_2)  \\
 ... \\ 
-k-1  \hspace{0.3cm}  ,\text{ si} \hspace{0.2cm} x_{ij} \in [L_{k-1} , L_k) \end{array}\right. \\[1cm]
+h-1  \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in [L_{h-1} , L_h) \end{array}\right. \\[1.3cm]
 $$
 
-Otra forma de expresarlo:
-
-$$x_{ij}^{cat} = r  \Leftrightarrow x_{ij} \in [L_r , L_{r+1}) \\$$
 
 
-donde:
 
-$[L_0 , L_1), [L_1 , L_2), \dots , [L_{k-1} , L_k)\hspace{0.1cm}$ son denominados intervalos de categorizacioón de $\hspace{0.1cm}X_j\hspace{0.1cm}$ , y son una serie de intervalos con las siguientes propiedades:
+$\hspace{0.25cm}$ Another way of expressing it is: $\\[0.3cm]$
 
-- Son disjuntos dos a dos, es decir, no comparten elementos.
-
-- Cada observación de la muestra $\hspace{0.1cm}X_j\hspace{0.1cm}$ pertenece a un intervalo.
-
-- Tienen la misma amplitud.
+$$x_{ik}^{cat} = r \hspace{0.3cm}  \Leftrightarrow \hspace{0.3cm}  x_{ik} \in [L_r , L_{r+1}) \\$$
 
 
-Como consecuencia:
 
-- Cada elemento de $\hspace{0.1cm}X_j\hspace{0.1cm}$ pertenece a un único intervalo. $\\[1cm]$
 
+$\hspace{0.25cm}$ where:
 
  
 
-**Observaciones :**
+$\hspace{0.25cm}$ $[L_0 , L_1) \hspace{0.03cm} , \hspace{0.03cm} [L_1 , L_2) \hspace{0.03cm}, \dots ,\hspace{0.03cm} [L_{h-1} , L_h] \hspace{0.12cm}$ are called the categorization intervals of $\hspace { 0.07cm}X_k\hspace{0.07cm}$ , and are intervals with the following properties:
 
-$X^{cat}_j\hspace{0.1cm}$ es una versión categorizada de la variable $\hspace{0.1cm}X_j$ $\\[1cm]$
+- They are disjoint two by two, that is, they do not share elements. $\\[0.3cm]$
 
-
-
-**¿Cómo definir los intervalos de categorización?**
+- Every observation in the sample $\hspace{0.1cm}X_k\hspace{0.1cm}$ belongs to some interval.
 
 
-Existen diferentes procedimientos para definir los intervalos de categorización, los más habituales son reglas basadas en los cuantiles de la variable considerada. 
 
-A continuación vamos a exponer algunos procedimientos básados en cuantiles y otro alternativo, la regla de Scott.
+$\hspace{0.25cm}$ As a consequence:
+
+- Each element of $\hspace{0.1cm}X_k\hspace{0.1cm}$ belongs to a single interval. $\\[0.15cm]$
+
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
+<br>
+
+- **¿How to define the categorization intervals?**
+
+
+    There are different procedures to define the categorization intervals. Some of the most common are quantile-based rules.
+
+    Next, we are going to expose some procedures based on quantiles and another alternative, Scott's rule.
 
 
 <br>
 
 
-### Regla de la media
+### Mean Rule
 
-Siguiendo la regla de la media, los intervalos de categorizacion de una variable cuantitativa $\hspace{0.1cm} X_j\hspace{0.1cm}$ serían los siguientes:$\\[0.8cm]$
+Following the mean rule, the categorization intervals of a quantitative variable  $\hspace{0.1cm} X_k\hspace{0.1cm}$ would be the following: $\\[0.2cm]$
 
 
 
 $$
-\left[\hspace{0.1cm} Min(X_j) \hspace{0.1cm} ,\hspace{0.1cm} \overline{X}_j \hspace{0.1cm}\right] \hspace{0.1cm},\hspace{0.1cm} \left(\hspace{0.1cm} \overline{X}_j \hspace{0.1cm},\hspace{0.1cm} Max(X_j) \hspace{0.1cm}\right]
+\left[\hspace{0.1cm} Min(X_k) \hspace{0.1cm} ,\hspace{0.1cm} \overline{X}_k \hspace{0.1cm}\right) \hspace{0.1cm},\hspace{0.1cm} \left[\hspace{0.1cm} \overline{X}_k \hspace{0.1cm},\hspace{0.1cm} Max(X_k) \hspace{0.1cm}\right] \\[0.6cm]
 $$
 
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ With the mean rule, the categorical version of  $\hspace{0.07cm}X_k\hspace{0.07cm}$  is defined as: $\\[0.3cm]$
+
+$$x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \left[\hspace{0.1cm}Min(X_k)\hspace{0.1cm},\hspace{0.1cm} \overline{X}_k \hspace{0.1cm}\right)  \\
+1  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \left[\hspace{0.1cm}\overline{X}_k \hspace{0.1cm},\hspace{0.1cm} Max(X_j)\hspace{0.1cm}\right] \end{array}\right. \\[1cm]
+$$
+
+</p>
+ 
+</p></span>
+</div>
 
 
 <br>
 
-Con la regla de la media, la versión categorica $\hspace{0.1cm}X_j^{cat}\hspace{0.1cm}$ de la variable cuantitativa $\hspace{0.1cm}X_j\hspace{0.1cm}$ se define como: $\\[0.8cm]$
 
-$$x_{ij}^{cat} =  \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} ,  \text{ si} \hspace{0.2cm} x_{ij} \in \left[\hspace{0.1cm}Min(X_j)\hspace{0.1cm},\hspace{0.1cm} \overline{X}_j\hspace{0.1cm}\right)  \\ 
-1  \hspace{0.3cm}  ,\text{ si} \hspace{0.2cm} x_{ij} \in \left[\hspace{0.1cm}\overline{X}_j \hspace{0.1cm},\hspace{0.1cm} Max(X_j)\hspace{0.1cm}\right) \end{array}\right. \\[1cm]
+### Median Rule
+
+Following the median rule, the categorization intervals of a quantitative variable  $\hspace{0.1cm} X_k\hspace{0.1cm}$ would be the following: $\\[0.2cm]$
+
+
+
+$$
+\Bigl[\hspace{0.1cm} Min(X_k) \hspace{0.1cm} ,\hspace{0.1cm} Me({X}_k) \hspace{0.1cm}\Bigr) \hspace{0.1cm},\hspace{0.1cm} \Bigl[\hspace{0.1cm} Me({X}_k) \hspace{0.1cm},\hspace{0.1cm} Max(X_k) \hspace{0.1cm}\Bigr] \\[0.6cm]
 $$
 
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ With the mean rule, the categorical version of  $\hspace{0.07cm}X_k\hspace{0.07cm}$  is defined as: $\\[0.3cm]$
+
+$$x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \Bigl[\hspace{0.1cm}Min(X_k)\hspace{0.1cm},\hspace{0.1cm} Me({X}_k) \hspace{0.1cm}\Bigr]  \\
+1  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl(\hspace{0.1cm} Me({X}_k) \hspace{0.1cm},\hspace{0.1cm} Max(X_j)\hspace{0.1cm}\Bigr] \end{array}\right. \\[1cm]
+$$
+
+</p>
+ 
+</p></span>
+</div>
+
+
 <br>
 
 
-### Regla de la mediana
+
+### Quartile Rules
+
+Following the quartile rule, the categorization intervals of a quantitative variable  $\hspace{0.1cm} X_k\hspace{0.1cm}$ would be the following: $\\[0.2cm]$
 
 
 
-
-<br>
-
-
-### Regla de los cuartiles
+$$
+\Bigl[\hspace{0.1cm} Min(X_k) \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \hspace{0.1cm},\hspace{0.1cm} \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \hspace{0.1cm},\hspace{0.1cm} \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.75 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \hspace{0.1cm},\hspace{0.1cm} \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.75 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Max(X_k) \hspace{0.1cm}\Bigr] \\[0.6cm]
+$$
 
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
+$\hspace{0.25cm}$ With the mean rule, the categorical version of  $\hspace{0.07cm}X_k\hspace{0.07cm}$  is defined as: $\\[0.3cm]$
 
+$$x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \Bigl[\hspace{0.1cm} Min(X_k) \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr)  \\
+1  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\
+2  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.75 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\
+3  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.75 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Max(X_k) \hspace{0.1cm}\Bigr]
+\end{array}\right. \\[0.5cm]
+$$
+
+</p>
+ 
+</p></span>
+</div>
 
 
 <br>
@@ -1013,7 +1233,7 @@ $$
 ### Regla de Scott
 
 
-
+5
 
 
 <br>
