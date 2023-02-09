@@ -1353,7 +1353,7 @@ Following the mean rule, the categorization intervals of a quantitative variable
 
 
 $$
-\left[\hspace{0.1cm} Min(X_k) \hspace{0.1cm} ,\hspace{0.1cm} \overline{X}_k \hspace{0.1cm}\right) \hspace{0.1cm},\hspace{0.1cm} \left[\hspace{0.1cm} \overline{X}_k \hspace{0.1cm},\hspace{0.1cm} Max(X_k) \hspace{0.1cm}\right] \\[0.6cm]
+\left(\hspace{0.1cm} Min(X_k) \hspace{0.07cm}-\hspace{0.07cm} c \hspace{0.1cm} ,\hspace{0.1cm} \overline{X}_k \hspace{0.1cm}\right] \hspace{0.1cm},\hspace{0.1cm} \left(\hspace{0.1cm} \overline{X}_k \hspace{0.1cm},\hspace{0.1cm} Max(X_k) \hspace{0.1cm}\right] \\[0.6cm]
 $$
 
 
@@ -1384,7 +1384,7 @@ Following the median rule, the categorization intervals of a quantitative variab
 
 
 $$
-\Bigl[\hspace{0.1cm} Min(X_k) \hspace{0.1cm} ,\hspace{0.1cm} Me({X}_k) \hspace{0.1cm}\Bigr) \hspace{0.1cm},\hspace{0.1cm} \Bigl[\hspace{0.1cm} Me({X}_k) \hspace{0.1cm},\hspace{0.1cm} Max(X_k) \hspace{0.1cm}\Bigr] \\[0.6cm]
+\Bigl(\hspace{0.1cm} Min(X_k) \hspace{0.07cm}-\hspace{0.07cm} c \hspace{0.1cm} ,\hspace{0.1cm} Me({X}_k) \hspace{0.1cm}\Bigr] \hspace{0.1cm},\hspace{0.1cm} \Bigl(\hspace{0.1cm} Me({X}_k) \hspace{0.1cm},\hspace{0.1cm} Max(X_k) \hspace{0.1cm}\Bigr] \\[0.6cm]
 $$
 
 
@@ -1416,7 +1416,7 @@ Following the quartile rule, the categorization intervals of a quantitative vari
 
 
 $$
-\Bigl[\hspace{0.1cm} Min(X_k) \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \hspace{0.1cm},\hspace{0.1cm} \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \hspace{0.1cm},\hspace{0.1cm} \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.75 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \hspace{0.1cm},\hspace{0.1cm} \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.75 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Max(X_k) \hspace{0.1cm}\Bigr] \\[0.6cm]
+\Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.07cm}-\hspace{0.07cm} c \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr] \hspace{0.1cm},\hspace{0.1cm} \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr] \hspace{0.1cm},\hspace{0.1cm} \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.75 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr] \hspace{0.1cm},\hspace{0.1cm} \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.75 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Max(X_k) \hspace{0.1cm}\Bigr] \\[0.6cm]
 $$
 
 
@@ -1450,7 +1450,7 @@ Following the quartile rule, the categorization intervals of a quantitative vari
 
 
 $$
-\Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \hspace{0.1cm},\hspace{0.1cm} \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.2 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \hspace{0.1cm},\hspace{0.1cm} \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.2 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.3 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \hspace{0.1cm}, \dots ,\hspace{0.1cm} \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.9 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr] \\[0.6cm]
+\Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.07cm}-\hspace{0.07cm} c \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr] \hspace{0.1cm},\hspace{0.1cm} \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.2 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr] \hspace{0.1cm},\hspace{0.1cm} \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.2 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.3 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr] \hspace{0.1cm}, \dots ,\hspace{0.1cm} \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.9 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr] \\[0.6cm]
 $$
 
 
