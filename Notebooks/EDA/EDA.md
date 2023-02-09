@@ -1060,8 +1060,44 @@ $$
 - $\hspace{0.1cm}R( X_k^{cod}) = \lbrace 0,1,..., h-1 \rbrace$ 
 
 
+<br>
+
+### Standard Recoding of Categorical Variables in `Python`
 
 
+
+```python
+from sklearn.preprocessing import OrdinalEncoder
+
+ord_enc = OrdinalEncoder()
+```
+
+
+```python
+from sklearn.preprocessing import OrdinalEncoder
+
+ord_enc = OrdinalEncoder()
+```
+
+
+
+```python
+from sklearn.preprocessing import OrdinalEncoder
+
+ord_enc = OrdinalEncoder()
+```
+
+```python
+from sklearn.preprocessing import OrdinalEncoder
+
+ord_enc = OrdinalEncoder()
+```
+
+```python
+from sklearn.preprocessing import OrdinalEncoder
+
+ord_enc = OrdinalEncoder()
+```
 
 <br>
 
@@ -1230,24 +1266,134 @@ $$
 <br>
 
 
-### Regla de Scott
+ 
+
+### Scott's Rule  
 
 
-5
+According to Scott's rule, the categorization intervals of $\hspace{0.07cm} X_k \hspace{0.07cm}$
+are: $\hspace{0.1cm} [L_{1},L_{2})\hspace{0.07cm},\hspace{0.07cm} [L_{2}, L_{3})\hspace{0.07cm},...,\hspace{0.07cm}[L_{ \lambda},L_{ \lambda+1})$
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+
+$\hspace{0.25cm}$ With Scott's rule, the categorical version of $\hspace{0.07cm} X_k \hspace{0.07cm}$ is the new sample $\hspace{0.07cm}X_k^{cat}\hspace{0.07cm}$ defined as: $\\[0.35cm]$
+
+$$
+ x^{cat}_{ik} = \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in [L_{1},L_{2}) \\ 1 \hspace{0.3cm}, \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in [L_{2},L_{3})  \\
+\dots \\ \lambda - 1 \hspace{0.3cm} , \hspace{0.3cm} \text{ if } \hspace{0.3cm} x_{ik} \in [L_{\lambda},L_{\lambda+1})  \end{array}\right.
+$$
+
+
+</p>
+ 
+</p></span>
+</div>
+
 
 
 <br>
 
-## Dummificación de variables categoricas
+The procedure for calculating Scott's intervals is the following:
 
 
 
+- Determine the number of  intervals:
+
+
+    First you have to determine the **theoretical amplitude** $A_t$ of the intervals, which is calculated as:
+
+    $$
+    A_{t} \hspace{0.07cm} = \hspace{0.07cm} 3.5 \cdot \sigma (X_k) \cdot n^{-1/3}
+    $$
+
+    The **number of intervals** will be:
+
+    $$
+    \lambda=\left\lceil \frac{Max(X_k)-Min(X_k)}{A_{t}} \right\rceil
+    $$
+
+<br>
+
+- Determine the width of the intervals:
+
+    The **width** of the intervals $A$ will be the same for all them and is defined as:
+
+    $$
+    A=\left\lceil \frac{Max(X_k)-Min(X_k)}{\lambda} \right\rceil
+     $$
+
+<br>
+
+- Determine the extremes of the intervals:
+
+
+    The intervals will be:
+$\hspace{0.1cm}[L_{1},L_{2}), [L_{2}, L_{3}),...,[L_{ \lambda},L_{ \lambda+1})$
+
+ 
+
+    Where $\hspace{0.07cm}L_{i}, L_{i+1}\hspace{0.07cm}$ are the lower and upper intervals, respectively, of the interval $i$-th.
+
+ 
+
+    Scott's rule define the **extremes of the intervals** as follows:
+
+    $$
+      L_{1}= Min(X_k) - c_1 \\[0.3cm]
+     L_{2}=L_{1} + A \\[0.3cm]
+     L_{3}=L_{2} + A \\[0.3cm]
+      ... \\
+     L_{\lambda}=L_{\lambda-1} + A \\[0.3cm]
+     L_{\lambda+1}= Max(X_k) + c_2 
+     $$
+
+    where: $\hspace{0.1cm}c_1 , c_2 \geq 0\hspace{0.15cm}$ must be chosen at the convenience of the analyst.
+
+
+    In general:
+ 
+
+    $$
+    L_{i}=\left\lbrace\begin{array}{l} Min(X_k) - c_1 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} i = 1 \\[0.3cm] L_{1} + (i-1)\cdot A \hspace{0.25cm}, \hspace{0.3cm} \text{ if} \hspace{0.3cm} i \in \lbrace 2 ,..., \lambda    \\[0.25cm]
+    Max(X_k) + c_2 \hspace{0.3cm} , \hspace{0.3cm} \text{ if } \hspace{0.3cm} i = \lambda + 1  \end{array}\right.
+    $$
+
+
+<br>
+
+
+## Dummification of Categorical Variables
+
+Given a **categorical** statistical variable $\hspace{0.06cm}\mathcal{X}_k\hspace{0.05cm}$ with range $\hspace{0.06cm}R(\mathcal{X}_k)=\lbrace g_1 ,..., g_h \rbrace\hspace{0.06cm}$ , and a sample  $\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}$ of that statistical variable.
+ 
+
+
+Dummify $\hspace{0.06cm}X_k\hspace{0.06cm}$ consist of obtaining the new dummy samples $\hspace{0.06cm}X_{k\hspace{0.06cm}0}\hspace{0.06cm},\hspace{0.06cm}X_{k\hspace{0.06cm}1}\hspace{0.06cm},...,\hspace{0.06cm}X_{k \hspace{0.06cm}h-1}\hspace{0.06cm}$, where $\hspace{0.06cm}X_{kj}\hspace{0.06cm}$ is defined as:
+
+$$x_{i,kj} = \left\lbrace\begin{array}{l} 1 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} = j \\[0.1cm] 0 \hspace{0.25cm}, \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \neq j  \end{array}\right.$$
+
+for $\hspace{0.06cm}j\in \lbrace 0\hspace{0.06cm},\hspace{0.06cm}1\hspace{0.06cm},\dots ,\hspace{0.06cm}h-1 \rbrace$
 
 
 
-
+<br>
 
 ## Dealing with NaN <a class="anchor" id="1"></a>
+
+
+
+### Deleting all rows with NaN
+
+
+### Deleting all columns with NaN
+
+
+
 
 
 <br>

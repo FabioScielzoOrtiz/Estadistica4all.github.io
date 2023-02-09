@@ -8952,7 +8952,7 @@ House_Price_Data.groupby('quality_recode')['price'].agg([np.min, np.max, np.medi
 
 We can concat data-frames using `concat()` method.
 
-First we are going to remember the `Ventas`, `Proveedores`and `Clientes` data-frames, because we are going to use them in this section:
+First, we are going to remember the `Ventas`, `Proveedores`and `Clientes` data-frames, because we are going to use them in this section:
 
 ```python
 Ventas.head()
@@ -9187,10 +9187,12 @@ from pandas import concat
 
 There are several ways to apply the `concat` method to a pair of data frames, each one giving different results. 
 
-Let's see some of them:
+Let's see some of them.
+
+## Concat by rows
 
 ```python
-concat([Ventas,Clientes])
+concat([Ventas,Clientes] axis=0)
 ```
 
 
@@ -9586,7 +9588,7 @@ concat([Ventas,Clientes])
 
 
 ```python
-concat([Ventas,Clientes] , ignore_index=True)
+concat([Ventas,Clientes], axis=0 , ignore_index=True)
 ```
 
 
@@ -9979,662 +9981,10 @@ concat([Ventas,Clientes] , ignore_index=True)
 </div>
 
 
-
-<br>
-
-```python
-concat([Ventas,Clientes] , axis=1)
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>VentasId</th>
-      <th>Producto</th>
-      <th>Precio</th>
-      <th>Cliente</th>
-      <th>Proveedor</th>
-      <th>ClienteID</th>
-      <th>Nombre</th>
-      <th>Pais</th>
-      <th>Ciudad</th>
-      <th>Email</th>
-      <th>Telefono</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>V1</td>
-      <td>Alfombra</td>
-      <td>1500.0</td>
-      <td>C1</td>
-      <td>P1</td>
-      <td>C1</td>
-      <td>Orlando</td>
-      <td>Australia</td>
-      <td></td>
-      <td></td>
-      <td>917755028</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>V2</td>
-      <td>Killim</td>
-      <td>699.5</td>
-      <td>C3</td>
-      <td>P1</td>
-      <td>C2</td>
-      <td>Keith</td>
-      <td>India</td>
-      <td></td>
-      <td>keith0@adventure-works.com</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>V3</td>
-      <td>Killim</td>
-      <td>475.0</td>
-      <td>C9</td>
-      <td>P3</td>
-      <td>C3</td>
-      <td>Donna</td>
-      <td>Germany</td>
-      <td>Berlin</td>
-      <td>donna0@adventure-works.com</td>
-      <td>915547890</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>V4</td>
-      <td>Alfombra</td>
-      <td>5000.0</td>
-      <td>C4</td>
-      <td>P1</td>
-      <td>C4</td>
-      <td>Janet</td>
-      <td>United States</td>
-      <td>California</td>
-      <td>janet1@adventure-works.com</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>V5</td>
-      <td>Killim</td>
-      <td>499.5</td>
-      <td>C8</td>
-      <td>P1</td>
-      <td>C5</td>
-      <td>Fabio</td>
-      <td>España</td>
-      <td>Madrid</td>
-      <td>fabio10@gmail.com</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>V6</td>
-      <td>Killim</td>
-      <td>55.0</td>
-      <td>C5</td>
-      <td>P3</td>
-      <td>C6</td>
-      <td>Juan</td>
-      <td>España</td>
-      <td>Sevilla</td>
-      <td></td>
-      <td>915869028</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>V7</td>
-      <td>Alfombra</td>
-      <td>2500.0</td>
-      <td>C2</td>
-      <td>P1</td>
-      <td>C7</td>
-      <td>Lucia</td>
-      <td>España</td>
-      <td></td>
-      <td>LuciaPerez@hotmail.com</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>V8</td>
-      <td>Killim</td>
-      <td>299.5</td>
-      <td>C10</td>
-      <td>P1</td>
-      <td>C8</td>
-      <td>Pedro</td>
-      <td>Italia</td>
-      <td>Roma</td>
-      <td>Pedro99@gmail.com</td>
-      <td>910007890</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>V9</td>
-      <td>Killim</td>
-      <td>600.0</td>
-      <td>C2</td>
-      <td>P3</td>
-      <td>C9</td>
-      <td>Sergio</td>
-      <td>United States</td>
-      <td>New York</td>
-      <td>sergio_as@gmail.com</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>V10</td>
-      <td>Alfombra</td>
-      <td>1200.0</td>
-      <td>C7</td>
-      <td>P1</td>
-      <td>C10</td>
-      <td>Grecia</td>
-      <td>Peru</td>
-      <td>Lima</td>
-      <td>Grecia89@gmail.com</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>V11</td>
-      <td>Killim</td>
-      <td>500.0</td>
-      <td>C8</td>
-      <td>P1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>V12</td>
-      <td>Killim</td>
-      <td>650.0</td>
-      <td>C9</td>
-      <td>P3</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>V13</td>
-      <td>NaN</td>
-      <td>3500.0</td>
-      <td>C7</td>
-      <td>P1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>V14</td>
-      <td>NaN</td>
-      <td>1000.0</td>
-      <td>C6</td>
-      <td>P1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>V15</td>
-      <td>NaN</td>
-      <td>350.0</td>
-      <td>C10</td>
-      <td>P3</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-<br>
-
-```python
-concat([Ventas,Clientes] , axis=0)
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>VentasId</th>
-      <th>Producto</th>
-      <th>Precio</th>
-      <th>Cliente</th>
-      <th>Proveedor</th>
-      <th>ClienteID</th>
-      <th>Nombre</th>
-      <th>Pais</th>
-      <th>Ciudad</th>
-      <th>Email</th>
-      <th>Telefono</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>V1</td>
-      <td>Alfombra</td>
-      <td>1500.0</td>
-      <td>C1</td>
-      <td>P1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>V2</td>
-      <td>Killim</td>
-      <td>699.5</td>
-      <td>C3</td>
-      <td>P1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>V3</td>
-      <td>Killim</td>
-      <td>475.0</td>
-      <td>C9</td>
-      <td>P3</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>V4</td>
-      <td>Alfombra</td>
-      <td>5000.0</td>
-      <td>C4</td>
-      <td>P1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>V5</td>
-      <td>Killim</td>
-      <td>499.5</td>
-      <td>C8</td>
-      <td>P1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>V6</td>
-      <td>Killim</td>
-      <td>55.0</td>
-      <td>C5</td>
-      <td>P3</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>V7</td>
-      <td>Alfombra</td>
-      <td>2500.0</td>
-      <td>C2</td>
-      <td>P1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>V8</td>
-      <td>Killim</td>
-      <td>299.5</td>
-      <td>C10</td>
-      <td>P1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>V9</td>
-      <td>Killim</td>
-      <td>600.0</td>
-      <td>C2</td>
-      <td>P3</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>V10</td>
-      <td>Alfombra</td>
-      <td>1200.0</td>
-      <td>C7</td>
-      <td>P1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>V11</td>
-      <td>Killim</td>
-      <td>500.0</td>
-      <td>C8</td>
-      <td>P1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>V12</td>
-      <td>Killim</td>
-      <td>650.0</td>
-      <td>C9</td>
-      <td>P3</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>V13</td>
-      <td>NaN</td>
-      <td>3500.0</td>
-      <td>C7</td>
-      <td>P1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>V14</td>
-      <td>NaN</td>
-      <td>1000.0</td>
-      <td>C6</td>
-      <td>P1</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>V15</td>
-      <td>NaN</td>
-      <td>350.0</td>
-      <td>C10</td>
-      <td>P3</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>C1</td>
-      <td>Orlando</td>
-      <td>Australia</td>
-      <td></td>
-      <td></td>
-      <td>917755028</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>C2</td>
-      <td>Keith</td>
-      <td>India</td>
-      <td></td>
-      <td>keith0@adventure-works.com</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>C3</td>
-      <td>Donna</td>
-      <td>Germany</td>
-      <td>Berlin</td>
-      <td>donna0@adventure-works.com</td>
-      <td>915547890</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>C4</td>
-      <td>Janet</td>
-      <td>United States</td>
-      <td>California</td>
-      <td>janet1@adventure-works.com</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>C5</td>
-      <td>Fabio</td>
-      <td>España</td>
-      <td>Madrid</td>
-      <td>fabio10@gmail.com</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>C6</td>
-      <td>Juan</td>
-      <td>España</td>
-      <td>Sevilla</td>
-      <td></td>
-      <td>915869028</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>C7</td>
-      <td>Lucia</td>
-      <td>España</td>
-      <td></td>
-      <td>LuciaPerez@hotmail.com</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>C8</td>
-      <td>Pedro</td>
-      <td>Italia</td>
-      <td>Roma</td>
-      <td>Pedro99@gmail.com</td>
-      <td>910007890</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>C9</td>
-      <td>Sergio</td>
-      <td>United States</td>
-      <td>New York</td>
-      <td>sergio_as@gmail.com</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>C10</td>
-      <td>Grecia</td>
-      <td>Peru</td>
-      <td>Lima</td>
-      <td>Grecia89@gmail.com</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
 <br>
 
 
-We create two new data frames that will have the same column names:
+We create two new data-frames that will have the same column names, to show how `concat( , index=0)` works in this case:
 
 
 ```python
@@ -10908,6 +10258,268 @@ concat([df1,df2] , axis=0)
 </div>
 
 
+
+<br>
+
+## Concat by columns
+
+```python
+concat([Ventas,Clientes] , axis=1)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>VentasId</th>
+      <th>Producto</th>
+      <th>Precio</th>
+      <th>Cliente</th>
+      <th>Proveedor</th>
+      <th>ClienteID</th>
+      <th>Nombre</th>
+      <th>Pais</th>
+      <th>Ciudad</th>
+      <th>Email</th>
+      <th>Telefono</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>V1</td>
+      <td>Alfombra</td>
+      <td>1500.0</td>
+      <td>C1</td>
+      <td>P1</td>
+      <td>C1</td>
+      <td>Orlando</td>
+      <td>Australia</td>
+      <td></td>
+      <td></td>
+      <td>917755028</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>V2</td>
+      <td>Killim</td>
+      <td>699.5</td>
+      <td>C3</td>
+      <td>P1</td>
+      <td>C2</td>
+      <td>Keith</td>
+      <td>India</td>
+      <td></td>
+      <td>keith0@adventure-works.com</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>V3</td>
+      <td>Killim</td>
+      <td>475.0</td>
+      <td>C9</td>
+      <td>P3</td>
+      <td>C3</td>
+      <td>Donna</td>
+      <td>Germany</td>
+      <td>Berlin</td>
+      <td>donna0@adventure-works.com</td>
+      <td>915547890</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>V4</td>
+      <td>Alfombra</td>
+      <td>5000.0</td>
+      <td>C4</td>
+      <td>P1</td>
+      <td>C4</td>
+      <td>Janet</td>
+      <td>United States</td>
+      <td>California</td>
+      <td>janet1@adventure-works.com</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>V5</td>
+      <td>Killim</td>
+      <td>499.5</td>
+      <td>C8</td>
+      <td>P1</td>
+      <td>C5</td>
+      <td>Fabio</td>
+      <td>España</td>
+      <td>Madrid</td>
+      <td>fabio10@gmail.com</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>V6</td>
+      <td>Killim</td>
+      <td>55.0</td>
+      <td>C5</td>
+      <td>P3</td>
+      <td>C6</td>
+      <td>Juan</td>
+      <td>España</td>
+      <td>Sevilla</td>
+      <td></td>
+      <td>915869028</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>V7</td>
+      <td>Alfombra</td>
+      <td>2500.0</td>
+      <td>C2</td>
+      <td>P1</td>
+      <td>C7</td>
+      <td>Lucia</td>
+      <td>España</td>
+      <td></td>
+      <td>LuciaPerez@hotmail.com</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>V8</td>
+      <td>Killim</td>
+      <td>299.5</td>
+      <td>C10</td>
+      <td>P1</td>
+      <td>C8</td>
+      <td>Pedro</td>
+      <td>Italia</td>
+      <td>Roma</td>
+      <td>Pedro99@gmail.com</td>
+      <td>910007890</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>V9</td>
+      <td>Killim</td>
+      <td>600.0</td>
+      <td>C2</td>
+      <td>P3</td>
+      <td>C9</td>
+      <td>Sergio</td>
+      <td>United States</td>
+      <td>New York</td>
+      <td>sergio_as@gmail.com</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>V10</td>
+      <td>Alfombra</td>
+      <td>1200.0</td>
+      <td>C7</td>
+      <td>P1</td>
+      <td>C10</td>
+      <td>Grecia</td>
+      <td>Peru</td>
+      <td>Lima</td>
+      <td>Grecia89@gmail.com</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>V11</td>
+      <td>Killim</td>
+      <td>500.0</td>
+      <td>C8</td>
+      <td>P1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>V12</td>
+      <td>Killim</td>
+      <td>650.0</td>
+      <td>C9</td>
+      <td>P3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>V13</td>
+      <td>NaN</td>
+      <td>3500.0</td>
+      <td>C7</td>
+      <td>P1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>V14</td>
+      <td>NaN</td>
+      <td>1000.0</td>
+      <td>C6</td>
+      <td>P1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>V15</td>
+      <td>NaN</td>
+      <td>350.0</td>
+      <td>C10</td>
+      <td>P3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+ 
+
+
 <br>
 
 ---
@@ -10934,7 +10546,7 @@ y_{n_1}
 Y_1 & ... & Y_{p_2} \\
 \end{pmatrix}  \\[1.2cm]$$
 
-And $\hspace{0.15cm}NA \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
+In addition, $\hspace{0.15cm}NA \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
 NaN \\
 ... \\
 NaN
@@ -10950,23 +10562,23 @@ NaN
 $$concat \hspace{0.1cm}( \hspace{0.1cm} [df1\hspace{0.1cm},\hspace{0.1cm}df2] \hspace{0.1cm}, \hspace{0.1cm} axis=0 \hspace{0.1cm}) \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
 X_1 &  ... & X_{p_1} & NA & ... & NA \\
 NA  & ...  & NA  & Y_1 & ... & Y_{p_2} 
-\end{pmatrix} \\[1cm]$$
+\end{pmatrix} \\[1.5cm]$$
 
   
 
 
-- If $\hspace{0.1cm}name(X_2)\hspace{0.1cm} =\hspace{0.1cm} name(Y_3)\hspace{0.1cm}$ but the rest of column names are different one each other:
+- If $\hspace{0.1cm}name(X_2)\hspace{0.1cm} =\hspace{0.1cm} name(Y_3)\hspace{0.1cm}$ but the rest of column names are different one each other: $\\[0.7cm]$
 
 
 
 $$concat \hspace{0.1cm} ( \hspace{0.1cm}[df1 \hspace{0.1cm},\hspace{0.1cm}df2] \hspace{0.1cm} , \hspace{0.1cm} axis=0 \hspace{0.1cm}) \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
 X_1 & X_2 & X_3 & ... &  X_{p_1} & NA & NA & NA & ... & NA \\
 NA  & Y_3 & NA  & ... & NA  & Y_1 & Y_2 & Y_4 & ... & Y_{p_2}
-\end{pmatrix} \\[1cm]$$
+\end{pmatrix} \\[1.5cm]$$
 
 
 
-- If all the column names of $\hspace{0.1cm} df1\hspace{0.1cm}$ are equal to all the column names of $\hspace{0.1cm}df2\hspace{0.1cm}$ :
+- If all the column names of $\hspace{0.1cm} df1\hspace{0.1cm}$ are equal to all the column names of $\hspace{0.1cm}df2\hspace{0.1cm}$ : $\\[1cm]$
 
     $$concat\hspace{0.1cm}(\hspace{0.1cm}[df1\hspace{0.1cm},\hspace{0.1cm}df2]\hspace{0.1cm},\hspace{0.1cm} axis=0\hspace{0.1cm})  \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
     x_1 \\
@@ -10978,7 +10590,7 @@ NA  & Y_3 & NA  & ... & NA  & Y_1 & Y_2 & Y_4 & ... & Y_{p_2}
     \end{pmatrix} = \begin{pmatrix}
     X_1 & ... & X_p \\
     Y_1  & ... & Y_p
-    \end{pmatrix}\\[1cm]$$
+    \end{pmatrix}\\[3cm]$$
 
 
     - If $\hspace{0.1cm}n_1 > n_2\hspace{0.1cm}$ :
@@ -10992,7 +10604,7 @@ NA  & Y_3 & NA  & ... & NA  & Y_1 & Y_2 & Y_4 & ... & Y_{p_2}
     x_{n_2 +1} & NA \\
      ...  & ... \\
     x_{n_1} & NA
-    \end{pmatrix} \\[1cm]$$
+    \end{pmatrix} \\[3cm]$$
     
 
 

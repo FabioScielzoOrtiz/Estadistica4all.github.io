@@ -1598,7 +1598,11 @@ margin-left: 0 !important;
       <li><a href="#delete-rows-from-a-data-frame" id="toc-delete-rows-from-a-data-frame"><span class="toc-section-number">13</span> Delete rows from a data-frame</a></li>
       <li><a href="#rename-columns-from-a-data-frame" id="toc-rename-columns-from-a-data-frame"><span class="toc-section-number">14</span> Rename columns from a data-frame</a></li>
       <li><a href="#group-by" id="toc-group-by"><span class="toc-section-number">15</span> Group by</a></li>
-      <li><a href="#concat-data-frames" id="toc-concat-data-frames"><span class="toc-section-number">16</span> Concat data-frames</a></li>
+      <li><a href="#concat-data-frames" id="toc-concat-data-frames"><span class="toc-section-number">16</span> Concat data-frames</a>
+      <ul>
+      <li><a href="#concat-by-rows" id="toc-concat-by-rows"><span class="toc-section-number">16.1</span> Concat by rows</a></li>
+      <li><a href="#concat-by-columns" id="toc-concat-by-columns"><span class="toc-section-number">16.2</span> Concat by columns</a></li>
+      </ul></li>
       <li><a href="#join-data-frames" id="toc-join-data-frames"><span class="toc-section-number">17</span> Join data-frames</a>
       <ul>
       <li><a href="#inner-join" id="toc-inner-join"><span class="toc-section-number">17.1</span> Inner join</a></li>
@@ -22500,7 +22504,7 @@ quality_recode
 <div id="concat-data-frames" class="section level1" number="16">
 <h1><span class="header-section-number">16</span> Concat data-frames</h1>
 <p>We can concat data-frames using <code>concat()</code> method.</p>
-<p>First we are going to remember the <code>Ventas</code>, <code>Proveedores</code>and <code>Clientes</code> data-frames, because we are going to use them in this section:</p>
+<p>First, we are going to remember the <code>Ventas</code>, <code>Proveedores</code>and <code>Clientes</code> data-frames, because we are going to use them in this section:</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>Ventas.head()</span></code></pre></div>
 <div>
 <style scoped>
@@ -22881,8 +22885,10 @@ Madrid
 <p><br></p>
 <div class="sourceCode" id="cb69"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> concat</span></code></pre></div>
 <p>There are several ways to apply the <code>concat</code> method to a pair of data frames, each one giving different results.</p>
-<p>Let’s see some of them:</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>concat([Ventas,Clientes])</span></code></pre></div>
+<p>Let’s see some of them.</p>
+<div id="concat-by-rows" class="section level2" number="16.1">
+<h2><span class="header-section-number">16.1</span> Concat by rows</h2>
+<div class="sourceCode" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>concat([Ventas,Clientes] axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -23879,7 +23885,7 @@ Lima
 </table>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>concat([Ventas,Clientes] , ignore_index<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>concat([Ventas,Clientes], axis<span class="op">=</span><span class="dv">0</span> , ignore_index<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -24876,7 +24882,473 @@ Lima
 </table>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>concat([Ventas,Clientes] , axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<p>We create two new data-frames that will have the same column names, to show how <code>concat( , index=0)</code> works in this case:</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>X1 <span class="op">=</span> pd.Series([ <span class="dv">2</span> , <span class="dv">4</span> , <span class="dv">3</span>, <span class="dv">35</span>, <span class="dv">23</span> ])</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>X2 <span class="op">=</span> pd.Series([<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="op">-</span><span class="dv">13</span>])</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>X3 <span class="op">=</span> pd.Series([<span class="dv">22</span>, <span class="dv">33</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="op">-</span><span class="dv">3</span>])</span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>X4 <span class="op">=</span> pd.Series([<span class="dv">52</span>, <span class="dv">2</span>, <span class="dv">23</span>, <span class="dv">6</span>, <span class="op">-</span><span class="dv">5</span>])</span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>X5 <span class="op">=</span> pd.Series([ <span class="dv">22</span> , <span class="dv">34</span> , <span class="dv">13</span>, <span class="dv">35</span>, <span class="dv">23</span> ])</span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a>X6 <span class="op">=</span> pd.Series([<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">32</span>, <span class="dv">30</span>, <span class="op">-</span><span class="dv">13</span>])</span>
+<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a>X7 <span class="op">=</span> pd.Series([<span class="dv">22</span>, <span class="dv">33</span>, <span class="dv">1</span>, <span class="dv">56</span>, <span class="op">-</span><span class="dv">13</span>])</span>
+<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a>X8 <span class="op">=</span> pd.Series([<span class="dv">5</span>, <span class="dv">12</span>, <span class="dv">2</span>, <span class="dv">66</span>, <span class="op">-</span><span class="dv">5</span>])</span>
+<span id="cb72-9"><a href="#cb72-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-10"><a href="#cb72-10" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame( {<span class="st">&quot;X1&quot;</span>: X1 , <span class="st">&quot;X2&quot;</span>: X2 , <span class="st">&quot;X3&quot;</span>: X3 , <span class="st">&quot;X4&quot;</span>: X4} ) </span>
+<span id="cb72-11"><a href="#cb72-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-12"><a href="#cb72-12" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame( {<span class="st">&quot;X1&quot;</span>: X5 , <span class="st">&quot;X2&quot;</span>: X6 , <span class="st">&quot;X3&quot;</span>: X7 , <span class="st">&quot;X4&quot;</span>: X8} )</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>df1</span></code></pre></div>
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+X1
+</th>
+<th>
+X2
+</th>
+<th>
+X3
+</th>
+<th>
+X4
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+2
+</td>
+<td>
+10
+</td>
+<td>
+22
+</td>
+<td>
+52
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+4
+</td>
+<td>
+12
+</td>
+<td>
+33
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+3
+</td>
+<td>
+3
+</td>
+<td>
+1
+</td>
+<td>
+23
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+35
+</td>
+<td>
+3
+</td>
+<td>
+5
+</td>
+<td>
+6
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+23
+</td>
+<td>
+-13
+</td>
+<td>
+-3
+</td>
+<td>
+-5
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>df2</span></code></pre></div>
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+X1
+</th>
+<th>
+X2
+</th>
+<th>
+X3
+</th>
+<th>
+X4
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+22
+</td>
+<td>
+10
+</td>
+<td>
+22
+</td>
+<td>
+5
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+34
+</td>
+<td>
+12
+</td>
+<td>
+33
+</td>
+<td>
+12
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+13
+</td>
+<td>
+32
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+35
+</td>
+<td>
+30
+</td>
+<td>
+56
+</td>
+<td>
+66
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+23
+</td>
+<td>
+-13
+</td>
+<td>
+-13
+</td>
+<td>
+-5
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>concat([df1,df2] , axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+X1
+</th>
+<th>
+X2
+</th>
+<th>
+X3
+</th>
+<th>
+X4
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+2
+</td>
+<td>
+10
+</td>
+<td>
+22
+</td>
+<td>
+52
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+4
+</td>
+<td>
+12
+</td>
+<td>
+33
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+3
+</td>
+<td>
+3
+</td>
+<td>
+1
+</td>
+<td>
+23
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+35
+</td>
+<td>
+3
+</td>
+<td>
+5
+</td>
+<td>
+6
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+23
+</td>
+<td>
+-13
+</td>
+<td>
+-3
+</td>
+<td>
+-5
+</td>
+</tr>
+<tr>
+<th>
+0
+</th>
+<td>
+22
+</td>
+<td>
+10
+</td>
+<td>
+22
+</td>
+<td>
+5
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+34
+</td>
+<td>
+12
+</td>
+<td>
+33
+</td>
+<td>
+12
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+13
+</td>
+<td>
+32
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+35
+</td>
+<td>
+30
+</td>
+<td>
+56
+</td>
+<td>
+66
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+23
+</td>
+<td>
+-13
+</td>
+<td>
+-13
+</td>
+<td>
+-5
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+</div>
+<div id="concat-by-columns" class="section level2" number="16.2">
+<h2><span class="header-section-number">16.2</span> Concat by columns</h2>
+<div class="sourceCode" id="cb76"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>concat([Ventas,Clientes] , axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -25487,1466 +25959,6 @@ NaN
 </td>
 <td>
 NaN
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><br></p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>concat([Ventas,Clientes] , axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
-<div>
-<style scoped>
-.dataframe tbody tr th:only-of-type {
-vertical-align: middle;
-}
-.dataframe tbody tr th {
-vertical-align: top;
-}
-.dataframe thead th {
-text-align: right;
-}
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th>
-</th>
-<th>
-VentasId
-</th>
-<th>
-Producto
-</th>
-<th>
-Precio
-</th>
-<th>
-Cliente
-</th>
-<th>
-Proveedor
-</th>
-<th>
-ClienteID
-</th>
-<th>
-Nombre
-</th>
-<th>
-Pais
-</th>
-<th>
-Ciudad
-</th>
-<th>
-Email
-</th>
-<th>
-Telefono
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>
-0
-</th>
-<td>
-V1
-</td>
-<td>
-Alfombra
-</td>
-<td>
-1500.0
-</td>
-<td>
-C1
-</td>
-<td>
-P1
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-</tr>
-<tr>
-<th>
-1
-</th>
-<td>
-V2
-</td>
-<td>
-Killim
-</td>
-<td>
-699.5
-</td>
-<td>
-C3
-</td>
-<td>
-P1
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-</tr>
-<tr>
-<th>
-2
-</th>
-<td>
-V3
-</td>
-<td>
-Killim
-</td>
-<td>
-475.0
-</td>
-<td>
-C9
-</td>
-<td>
-P3
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-</tr>
-<tr>
-<th>
-3
-</th>
-<td>
-V4
-</td>
-<td>
-Alfombra
-</td>
-<td>
-5000.0
-</td>
-<td>
-C4
-</td>
-<td>
-P1
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-</tr>
-<tr>
-<th>
-4
-</th>
-<td>
-V5
-</td>
-<td>
-Killim
-</td>
-<td>
-499.5
-</td>
-<td>
-C8
-</td>
-<td>
-P1
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-</tr>
-<tr>
-<th>
-5
-</th>
-<td>
-V6
-</td>
-<td>
-Killim
-</td>
-<td>
-55.0
-</td>
-<td>
-C5
-</td>
-<td>
-P3
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-</tr>
-<tr>
-<th>
-6
-</th>
-<td>
-V7
-</td>
-<td>
-Alfombra
-</td>
-<td>
-2500.0
-</td>
-<td>
-C2
-</td>
-<td>
-P1
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-</tr>
-<tr>
-<th>
-7
-</th>
-<td>
-V8
-</td>
-<td>
-Killim
-</td>
-<td>
-299.5
-</td>
-<td>
-C10
-</td>
-<td>
-P1
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-</tr>
-<tr>
-<th>
-8
-</th>
-<td>
-V9
-</td>
-<td>
-Killim
-</td>
-<td>
-600.0
-</td>
-<td>
-C2
-</td>
-<td>
-P3
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-</tr>
-<tr>
-<th>
-9
-</th>
-<td>
-V10
-</td>
-<td>
-Alfombra
-</td>
-<td>
-1200.0
-</td>
-<td>
-C7
-</td>
-<td>
-P1
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-</tr>
-<tr>
-<th>
-10
-</th>
-<td>
-V11
-</td>
-<td>
-Killim
-</td>
-<td>
-500.0
-</td>
-<td>
-C8
-</td>
-<td>
-P1
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-</tr>
-<tr>
-<th>
-11
-</th>
-<td>
-V12
-</td>
-<td>
-Killim
-</td>
-<td>
-650.0
-</td>
-<td>
-C9
-</td>
-<td>
-P3
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-</tr>
-<tr>
-<th>
-12
-</th>
-<td>
-V13
-</td>
-<td>
-NaN
-</td>
-<td>
-3500.0
-</td>
-<td>
-C7
-</td>
-<td>
-P1
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-</tr>
-<tr>
-<th>
-13
-</th>
-<td>
-V14
-</td>
-<td>
-NaN
-</td>
-<td>
-1000.0
-</td>
-<td>
-C6
-</td>
-<td>
-P1
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-</tr>
-<tr>
-<th>
-14
-</th>
-<td>
-V15
-</td>
-<td>
-NaN
-</td>
-<td>
-350.0
-</td>
-<td>
-C10
-</td>
-<td>
-P3
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-</tr>
-<tr>
-<th>
-0
-</th>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-C1
-</td>
-<td>
-Orlando
-</td>
-<td>
-Australia
-</td>
-<td>
-</td>
-<td>
-</td>
-<td>
-917755028
-</td>
-</tr>
-<tr>
-<th>
-1
-</th>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-C2
-</td>
-<td>
-Keith
-</td>
-<td>
-India
-</td>
-<td>
-</td>
-<td>
-<a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<th>
-2
-</th>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-C3
-</td>
-<td>
-Donna
-</td>
-<td>
-Germany
-</td>
-<td>
-Berlin
-</td>
-<td>
-<a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a>
-</td>
-<td>
-915547890
-</td>
-</tr>
-<tr>
-<th>
-3
-</th>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-C4
-</td>
-<td>
-Janet
-</td>
-<td>
-United States
-</td>
-<td>
-California
-</td>
-<td>
-<a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<th>
-4
-</th>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-C5
-</td>
-<td>
-Fabio
-</td>
-<td>
-España
-</td>
-<td>
-Madrid
-</td>
-<td>
-<a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<th>
-5
-</th>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-C6
-</td>
-<td>
-Juan
-</td>
-<td>
-España
-</td>
-<td>
-Sevilla
-</td>
-<td>
-</td>
-<td>
-915869028
-</td>
-</tr>
-<tr>
-<th>
-6
-</th>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-C7
-</td>
-<td>
-Lucia
-</td>
-<td>
-España
-</td>
-<td>
-</td>
-<td>
-<a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<th>
-7
-</th>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-C8
-</td>
-<td>
-Pedro
-</td>
-<td>
-Italia
-</td>
-<td>
-Roma
-</td>
-<td>
-<a href="mailto:Pedro99@gmail.com" class="email">Pedro99@gmail.com</a>
-</td>
-<td>
-910007890
-</td>
-</tr>
-<tr>
-<th>
-8
-</th>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-C9
-</td>
-<td>
-Sergio
-</td>
-<td>
-United States
-</td>
-<td>
-New York
-</td>
-<td>
-<a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a>
-</td>
-<td>
-</td>
-</tr>
-<tr>
-<th>
-9
-</th>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-NaN
-</td>
-<td>
-C10
-</td>
-<td>
-Grecia
-</td>
-<td>
-Peru
-</td>
-<td>
-Lima
-</td>
-<td>
-<a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a>
-</td>
-<td>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><br></p>
-<p>We create two new data frames that will have the same column names:</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>X1 <span class="op">=</span> pd.Series([ <span class="dv">2</span> , <span class="dv">4</span> , <span class="dv">3</span>, <span class="dv">35</span>, <span class="dv">23</span> ])</span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>X2 <span class="op">=</span> pd.Series([<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="op">-</span><span class="dv">13</span>])</span>
-<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>X3 <span class="op">=</span> pd.Series([<span class="dv">22</span>, <span class="dv">33</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="op">-</span><span class="dv">3</span>])</span>
-<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>X4 <span class="op">=</span> pd.Series([<span class="dv">52</span>, <span class="dv">2</span>, <span class="dv">23</span>, <span class="dv">6</span>, <span class="op">-</span><span class="dv">5</span>])</span>
-<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a>X5 <span class="op">=</span> pd.Series([ <span class="dv">22</span> , <span class="dv">34</span> , <span class="dv">13</span>, <span class="dv">35</span>, <span class="dv">23</span> ])</span>
-<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a>X6 <span class="op">=</span> pd.Series([<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">32</span>, <span class="dv">30</span>, <span class="op">-</span><span class="dv">13</span>])</span>
-<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a>X7 <span class="op">=</span> pd.Series([<span class="dv">22</span>, <span class="dv">33</span>, <span class="dv">1</span>, <span class="dv">56</span>, <span class="op">-</span><span class="dv">13</span>])</span>
-<span id="cb74-8"><a href="#cb74-8" aria-hidden="true" tabindex="-1"></a>X8 <span class="op">=</span> pd.Series([<span class="dv">5</span>, <span class="dv">12</span>, <span class="dv">2</span>, <span class="dv">66</span>, <span class="op">-</span><span class="dv">5</span>])</span>
-<span id="cb74-9"><a href="#cb74-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-10"><a href="#cb74-10" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame( {<span class="st">&quot;X1&quot;</span>: X1 , <span class="st">&quot;X2&quot;</span>: X2 , <span class="st">&quot;X3&quot;</span>: X3 , <span class="st">&quot;X4&quot;</span>: X4} ) </span>
-<span id="cb74-11"><a href="#cb74-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-12"><a href="#cb74-12" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame( {<span class="st">&quot;X1&quot;</span>: X5 , <span class="st">&quot;X2&quot;</span>: X6 , <span class="st">&quot;X3&quot;</span>: X7 , <span class="st">&quot;X4&quot;</span>: X8} )</span></code></pre></div>
-<div class="sourceCode" id="cb75"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>df1</span></code></pre></div>
-<div>
-<style scoped>
-.dataframe tbody tr th:only-of-type {
-vertical-align: middle;
-}
-.dataframe tbody tr th {
-vertical-align: top;
-}
-.dataframe thead th {
-text-align: right;
-}
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th>
-</th>
-<th>
-X1
-</th>
-<th>
-X2
-</th>
-<th>
-X3
-</th>
-<th>
-X4
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>
-0
-</th>
-<td>
-2
-</td>
-<td>
-10
-</td>
-<td>
-22
-</td>
-<td>
-52
-</td>
-</tr>
-<tr>
-<th>
-1
-</th>
-<td>
-4
-</td>
-<td>
-12
-</td>
-<td>
-33
-</td>
-<td>
-2
-</td>
-</tr>
-<tr>
-<th>
-2
-</th>
-<td>
-3
-</td>
-<td>
-3
-</td>
-<td>
-1
-</td>
-<td>
-23
-</td>
-</tr>
-<tr>
-<th>
-3
-</th>
-<td>
-35
-</td>
-<td>
-3
-</td>
-<td>
-5
-</td>
-<td>
-6
-</td>
-</tr>
-<tr>
-<th>
-4
-</th>
-<td>
-23
-</td>
-<td>
--13
-</td>
-<td>
--3
-</td>
-<td>
--5
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode" id="cb76"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>df2</span></code></pre></div>
-<div>
-<style scoped>
-.dataframe tbody tr th:only-of-type {
-vertical-align: middle;
-}
-.dataframe tbody tr th {
-vertical-align: top;
-}
-.dataframe thead th {
-text-align: right;
-}
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th>
-</th>
-<th>
-X1
-</th>
-<th>
-X2
-</th>
-<th>
-X3
-</th>
-<th>
-X4
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>
-0
-</th>
-<td>
-22
-</td>
-<td>
-10
-</td>
-<td>
-22
-</td>
-<td>
-5
-</td>
-</tr>
-<tr>
-<th>
-1
-</th>
-<td>
-34
-</td>
-<td>
-12
-</td>
-<td>
-33
-</td>
-<td>
-12
-</td>
-</tr>
-<tr>
-<th>
-2
-</th>
-<td>
-13
-</td>
-<td>
-32
-</td>
-<td>
-1
-</td>
-<td>
-2
-</td>
-</tr>
-<tr>
-<th>
-3
-</th>
-<td>
-35
-</td>
-<td>
-30
-</td>
-<td>
-56
-</td>
-<td>
-66
-</td>
-</tr>
-<tr>
-<th>
-4
-</th>
-<td>
-23
-</td>
-<td>
--13
-</td>
-<td>
--13
-</td>
-<td>
--5
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><br></p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>concat([df1,df2] , axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
-<div>
-<style scoped>
-.dataframe tbody tr th:only-of-type {
-vertical-align: middle;
-}
-.dataframe tbody tr th {
-vertical-align: top;
-}
-.dataframe thead th {
-text-align: right;
-}
-</style>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th>
-</th>
-<th>
-X1
-</th>
-<th>
-X2
-</th>
-<th>
-X3
-</th>
-<th>
-X4
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>
-0
-</th>
-<td>
-2
-</td>
-<td>
-10
-</td>
-<td>
-22
-</td>
-<td>
-52
-</td>
-</tr>
-<tr>
-<th>
-1
-</th>
-<td>
-4
-</td>
-<td>
-12
-</td>
-<td>
-33
-</td>
-<td>
-2
-</td>
-</tr>
-<tr>
-<th>
-2
-</th>
-<td>
-3
-</td>
-<td>
-3
-</td>
-<td>
-1
-</td>
-<td>
-23
-</td>
-</tr>
-<tr>
-<th>
-3
-</th>
-<td>
-35
-</td>
-<td>
-3
-</td>
-<td>
-5
-</td>
-<td>
-6
-</td>
-</tr>
-<tr>
-<th>
-4
-</th>
-<td>
-23
-</td>
-<td>
--13
-</td>
-<td>
--3
-</td>
-<td>
--5
-</td>
-</tr>
-<tr>
-<th>
-0
-</th>
-<td>
-22
-</td>
-<td>
-10
-</td>
-<td>
-22
-</td>
-<td>
-5
-</td>
-</tr>
-<tr>
-<th>
-1
-</th>
-<td>
-34
-</td>
-<td>
-12
-</td>
-<td>
-33
-</td>
-<td>
-12
-</td>
-</tr>
-<tr>
-<th>
-2
-</th>
-<td>
-13
-</td>
-<td>
-32
-</td>
-<td>
-1
-</td>
-<td>
-2
-</td>
-</tr>
-<tr>
-<th>
-3
-</th>
-<td>
-35
-</td>
-<td>
-30
-</td>
-<td>
-56
-</td>
-<td>
-66
-</td>
-</tr>
-<tr>
-<th>
-4
-</th>
-<td>
-23
-</td>
-<td>
--13
-</td>
-<td>
--13
-</td>
-<td>
--5
 </td>
 </tr>
 </tbody>
@@ -26971,7 +25983,7 @@ y_{n_1}
 \end{pmatrix} = \begin{pmatrix}
 Y_1 &amp; ... &amp; Y_{p_2} \\
 \end{pmatrix}  \\[1.2cm]\]</span></p>
-<p>And <span class="math inline">\(\hspace{0.15cm}NA \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix} NaN \\ ... \\ NaN \end{pmatrix} \hspace{0.2cm}\)</span> is a NaN vector with suitable dimensions.</p>
+<p>In addition, <span class="math inline">\(\hspace{0.15cm}NA \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix} NaN \\ ... \\ NaN \end{pmatrix} \hspace{0.2cm}\)</span> is a NaN vector with suitable dimensions.</p>
 <p><br></p>
 <ul>
 <li>If all the column names of <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> are different to all the column names of <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> : <span class="math inline">\(\\[0.7cm]\)</span></li>
@@ -26979,16 +25991,16 @@ Y_1 &amp; ... &amp; Y_{p_2} \\
 <p><span class="math display">\[concat \hspace{0.1cm}( \hspace{0.1cm} [df1\hspace{0.1cm},\hspace{0.1cm}df2] \hspace{0.1cm}, \hspace{0.1cm} axis=0 \hspace{0.1cm}) \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
 X_1 &amp;  ... &amp; X_{p_1} &amp; NA &amp; ... &amp; NA \\
 NA  &amp; ...  &amp; NA  &amp; Y_1 &amp; ... &amp; Y_{p_2}
-\end{pmatrix} \\[1cm]\]</span></p>
+\end{pmatrix} \\[1.5cm]\]</span></p>
 <ul>
-<li>If <span class="math inline">\(\hspace{0.1cm}name(X_2)\hspace{0.1cm} =\hspace{0.1cm} name(Y_3)\hspace{0.1cm}\)</span> but the rest of column names are different one each other:</li>
+<li>If <span class="math inline">\(\hspace{0.1cm}name(X_2)\hspace{0.1cm} =\hspace{0.1cm} name(Y_3)\hspace{0.1cm}\)</span> but the rest of column names are different one each other: <span class="math inline">\(\\[0.7cm]\)</span></li>
 </ul>
 <p><span class="math display">\[concat \hspace{0.1cm} ( \hspace{0.1cm}[df1 \hspace{0.1cm},\hspace{0.1cm}df2] \hspace{0.1cm} , \hspace{0.1cm} axis=0 \hspace{0.1cm}) \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
 X_1 &amp; X_2 &amp; X_3 &amp; ... &amp;  X_{p_1} &amp; NA &amp; NA &amp; NA &amp; ... &amp; NA \\
 NA  &amp; Y_3 &amp; NA  &amp; ... &amp; NA  &amp; Y_1 &amp; Y_2 &amp; Y_4 &amp; ... &amp; Y_{p_2}
-\end{pmatrix} \\[1cm]\]</span></p>
+\end{pmatrix} \\[1.5cm]\]</span></p>
 <ul>
-<li><p>If all the column names of <span class="math inline">\(\hspace{0.1cm} df1\hspace{0.1cm}\)</span> are equal to all the column names of <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> :</p>
+<li><p>If all the column names of <span class="math inline">\(\hspace{0.1cm} df1\hspace{0.1cm}\)</span> are equal to all the column names of <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> : <span class="math inline">\(\\[1cm]\)</span></p>
 <p><span class="math display">\[concat\hspace{0.1cm}(\hspace{0.1cm}[df1\hspace{0.1cm},\hspace{0.1cm}df2]\hspace{0.1cm},\hspace{0.1cm} axis=0\hspace{0.1cm})  \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
   x_1 \\
   ... \\
@@ -26999,7 +26011,7 @@ NA  &amp; Y_3 &amp; NA  &amp; ... &amp; NA  &amp; Y_1 &amp; Y_2 &amp; Y_4 &amp; 
   \end{pmatrix} = \begin{pmatrix}
   X_1 &amp; ... &amp; X_p \\
   Y_1  &amp; ... &amp; Y_p
-  \end{pmatrix}\\[1cm]\]</span></p>
+  \end{pmatrix}\\[3cm]\]</span></p>
 <ul>
 <li>If <span class="math inline">\(\hspace{0.1cm}n_1 &gt; n_2\hspace{0.1cm}\)</span> :</li>
 </ul>
@@ -27011,7 +26023,7 @@ NA  &amp; Y_3 &amp; NA  &amp; ... &amp; NA  &amp; Y_1 &amp; Y_2 &amp; Y_4 &amp; 
   x_{n_2 +1} &amp; NA \\
    ...  &amp; ... \\
   x_{n_1} &amp; NA
-  \end{pmatrix} \\[1cm]\]</span></p>
+  \end{pmatrix} \\[3cm]\]</span></p>
 <ul>
 <li>if <span class="math inline">\(\hspace{0.1cm}n_1 = n_2\hspace{0.1cm}\)</span> :</li>
 </ul>
@@ -27026,10 +26038,11 @@ NA  &amp; Y_3 &amp; NA  &amp; ... &amp; NA  &amp; Y_1 &amp; Y_2 &amp; Y_4 &amp; 
 <hr />
 <p><br></p>
 </div>
+</div>
 <div id="join-data-frames" class="section level1" number="17">
 <h1><span class="header-section-number">17</span> Join data-frames</h1>
 <p>We are going to remember the <code>Ventas</code> and <code>Clientes</code> data-frames, because we are going to use them in this section:</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>Ventas</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>Ventas</span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -27369,7 +26382,7 @@ P3
 </table>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>Clientes</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>Clientes</span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -27701,7 +26714,7 @@ Y_1 &amp; ... &amp; Y_{p_2} \\
 <h2><span class="header-section-number">17.1</span> Inner join</h2>
 <p>In simple words, the inner join between <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> is an operation that consists of creating a new data frame that joins <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> rows and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> rows through a <em>link</em> column, taking into account only the values of the link column appearing in both data frames.</p>
 <p><br></p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Ventas, Clientes, on<span class="op">=</span><span class="st">&#39;ClienteID&#39;</span>, how<span class="op">=</span><span class="st">&#39;inner&#39;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Ventas, Clientes, on<span class="op">=</span><span class="st">&#39;ClienteID&#39;</span>, how<span class="op">=</span><span class="st">&#39;inner&#39;</span>) </span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -28280,7 +27293,7 @@ Sevilla
 <h2><span class="header-section-number">17.2</span> Outer join</h2>
 <p>In simple words, the outer join between <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> is an operation that consists of creating a new frame of data that joins <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> rows and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> rows via a <em>link</em> column, taking into account all values of the link column, both those that appear in both data-frames, and those that appear in <span class="math inline">\(df1\)</span> but not in <span class="math inline">\(df2\)</span>, and those that appear in <span class="math inline">\(df2\)</span> but not in <span class="math inline">\(df1\)</span>.</p>
 <p><br></p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Ventas, Clientes, on<span class="op">=</span><span class="st">&#39;ClienteID&#39;</span>, how<span class="op">=</span><span class="st">&#39;outer&#39;</span>)  </span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Ventas, Clientes, on<span class="op">=</span><span class="st">&#39;ClienteID&#39;</span>, how<span class="op">=</span><span class="st">&#39;outer&#39;</span>)  </span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -28932,7 +27945,7 @@ Murcia
 <h2><span class="header-section-number">17.3</span> Left join</h2>
 <p>In simple words, the left join between <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> is an operation that consists of creating a new frame of data that joins <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> rows and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> rows via a <em>link</em> column, taking into account the values of the link column that appear in both data-frames, and those that appear in <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> but not in <span class="math inline">\(\hspace{0.1cm}df2\)</span>.</p>
 <p><br></p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Ventas, Clientes, on<span class="op">=</span><span class="st">&#39;ClienteID&#39;</span>, how<span class="op">=</span><span class="st">&#39;left&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Ventas, Clientes, on<span class="op">=</span><span class="st">&#39;ClienteID&#39;</span>, how<span class="op">=</span><span class="st">&#39;left&#39;</span>)</span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -29514,7 +28527,7 @@ Lima
 <h2><span class="header-section-number">17.4</span> Right join</h2>
 <p>In simple words, the left join between <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> is an operation that consists of creating a new frame of data that joins <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> rows and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> rows via a <em>link</em> column, taking into account the values of the link column that appear in both data-frames, and those that appear in <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> but not in <span class="math inline">\(\hspace{0.1cm}df1\)</span>.
 <br></p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Ventas, Clientes, on<span class="op">=</span><span class="st">&#39;ClienteID&#39;</span>, how<span class="op">=</span><span class="st">&#39;right&#39;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Ventas, Clientes, on<span class="op">=</span><span class="st">&#39;ClienteID&#39;</span>, how<span class="op">=</span><span class="st">&#39;right&#39;</span>) </span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -30161,13 +29174,13 @@ Murcia
 <hr />
 <p><br></p>
 <p>The correct way to use <code>merge</code> when the names of link columns are different is the following:</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># df_merge = pd.merge(df1, df2, left_on=&#39;id1&#39; , right_on=&#39;id2&#39;, how=&#39;inner&#39;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># df_merge = pd.merge(df1, df2, left_on=&#39;id1&#39; , right_on=&#39;id2&#39;, how=&#39;inner&#39;)</span></span></code></pre></div>
 <p><br></p>
 </div>
 </div>
 <div id="sorting-columns-from-a-data-frame" class="section level1" number="18">
 <h1><span class="header-section-number">18</span> Sorting columns from a data-frame</h1>
-<div class="sourceCode" id="cb85"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.sort_values(by<span class="op">=</span><span class="st">&#39;price&#39;</span>, ascending<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.sort_values(by<span class="op">=</span><span class="st">&#39;price&#39;</span>, ascending<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
@@ -31006,7 +30019,7 @@ size_in_m_2
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.sort_values(by<span class="op">=</span><span class="st">&#39;price&#39;</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.sort_values(by<span class="op">=</span><span class="st">&#39;price&#39;</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
 <div>
 <style scoped>
 .dataframe tbody tr th:only-of-type {
