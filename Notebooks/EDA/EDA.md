@@ -1427,9 +1427,9 @@ $$
 
 $\hspace{0.25cm}$ With the mean rule, the categorical version of  $\hspace{0.07cm}X_k\hspace{0.07cm}$  is defined as: $\\[0.3cm]$
 
-$$x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \Bigl[\hspace{0.1cm} Min(X_k) \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr)  \\
-1  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\
-2  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.75 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\
+$$x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \Bigl[\hspace{0.1cm} Min(X_k) \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr)  \\[0.15cm]
+1  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\[0.15cm]
+2  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.75 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\[0.15cm]
 3  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.75 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Max(X_k) \hspace{0.1cm}\Bigr]
 \end{array}\right. \\[0.5cm]
 $$
@@ -1461,11 +1461,11 @@ $$
 
 $\hspace{0.25cm}$ With the mean rule, the categorical version of  $\hspace{0.07cm}X_k\hspace{0.07cm}$  is defined as: $\\[0.3cm]$
 
-$$x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr)  \\
-1  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.2 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\
+$$x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr)  \\[0.15cm]
+1  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.2 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\[0.15cm]
 2  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.2 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.3 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\
 \dots \\
-3  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.9 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm} 1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr]
+9  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.9 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm} 1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr]
 \end{array}\right. \\[0.5cm]
 $$
 
@@ -1477,7 +1477,7 @@ $$
 ### Quantile's Rule
 
 
-
+\lbrace  \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}q \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}q \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr)  : 
 
 <br>
 
