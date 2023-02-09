@@ -1074,30 +1074,300 @@ ord_enc = OrdinalEncoder()
 
 
 ```python
-from sklearn.preprocessing import OrdinalEncoder
-
-ord_enc = OrdinalEncoder()
+Netflix_Data['type_recode'] = ord_enc.fit_transform(Netflix_Data[['type']])
 ```
+
+
+```python
+Netflix_Data.loc[ : , ['type','type_recode']].head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>type</th>
+      <th>type_recode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>SHOW</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>MOVIE</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>MOVIE</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>MOVIE</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>MOVIE</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 
 ```python
-from sklearn.preprocessing import OrdinalEncoder
-
-ord_enc = OrdinalEncoder()
+Netflix_Data['age_certification_recode'] = ord_enc.fit_transform(Netflix_Data[['age_certification']])
 ```
+
 
 ```python
-from sklearn.preprocessing import OrdinalEncoder
-
-ord_enc = OrdinalEncoder()
+Netflix_Data.loc[ : , ['age_certification','age_certification_recode']].head(12)
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age_certification</th>
+      <th>age_certification_recode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>TV-MA</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>R</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>R</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>PG</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>TV-14</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>R</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>R</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>R</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>R</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>PG-13</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 
 ```python
-from sklearn.preprocessing import OrdinalEncoder
-
-ord_enc = OrdinalEncoder()
+Netflix_Data['age_certification_recode'].unique()
 ```
+
+
+
+
+    array([ 7.,  4.,  2., nan,  5.,  3.,  8.,  9.,  6., 10.,  0.,  1.])
+
+
+
+
+```python
+Netflix_Data['age_certification'].unique()
+```
+
+
+
+
+    array(['TV-MA', 'R', 'PG', nan, 'TV-14', 'PG-13', 'TV-PG', 'TV-Y', 'TV-G',
+           'TV-Y7', 'G', 'NC-17'], dtype=object)
+
+
+
+
+```python
+df1 = pd.DataFrame()
+
+for i in range(0,11):
+
+    df2 = Netflix_Data.loc[ Netflix_Data.age_certification_recode == i , ['age_certification','age_certification_recode']  ].head(1)
+
+    df1 = pd.concat([df1 , df2], axis=0)
+```
+
+
+```python
+df1
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age_certification</th>
+      <th>age_certification_recode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>162</th>
+      <td>G</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>198</th>
+      <td>NC-17</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>PG</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>PG-13</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>R</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>TV-14</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>TV-G</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>TV-MA</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>TV-PG</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>TV-Y</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>TV-Y7</td>
+      <td>10.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 <br>
 
