@@ -1145,100 +1145,6 @@ Netflix_Data['age_certification_recode'] = ord_enc.fit_transform(Netflix_Data[['
 ```
 
 
-```python
-Netflix_Data.loc[ : , ['age_certification','age_certification_recode']].head(12)
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>age_certification</th>
-      <th>age_certification_recode</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>TV-MA</td>
-      <td>7.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>R</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>R</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>PG</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>TV-14</td>
-      <td>5.0</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>R</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>R</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>R</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>R</td>
-      <td>4.0</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>PG-13</td>
-      <td>3.0</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
 
 
 
@@ -1366,6 +1272,7 @@ df1
   </tbody>
 </table>
 </div>
+
 
 
 
@@ -1502,7 +1409,7 @@ $$
 
 
 
-### Quartile Rules
+### Quartile's Rule
 
 Following the quartile rule, the categorization intervals of a quantitative variable  $\hspace{0.1cm} X_k\hspace{0.1cm}$ would be the following: $\\[0.2cm]$
 
@@ -1535,14 +1442,16 @@ $$
 
 <br>
 
-
- 
-
-### Scott's Rule  
+### Decile's Rule
 
 
-According to Scott's rule, the categorization intervals of $\hspace{0.07cm} X_k \hspace{0.07cm}$
-are: $\hspace{0.1cm} [L_{1},L_{2})\hspace{0.07cm},\hspace{0.07cm} [L_{2}, L_{3})\hspace{0.07cm},...,\hspace{0.07cm}[L_{ \lambda},L_{ \lambda+1})$
+Following the quartile rule, the categorization intervals of a quantitative variable  $\hspace{0.1cm} X_k\hspace{0.1cm}$ would be the following: $\\[0.2cm]$
+
+
+
+$$
+\Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \hspace{0.1cm},\hspace{0.1cm} \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.2 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \hspace{0.1cm},\hspace{0.1cm} \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.2 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.3 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \hspace{0.1cm}, \dots ,\hspace{0.1cm} \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.9 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr] \\[0.6cm]
+$$
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1550,88 +1459,24 @@ are: $\hspace{0.1cm} [L_{1},L_{2})\hspace{0.07cm},\hspace{0.07cm} [L_{2}, L_{3})
  
 <p style='margin-left:1em;'>
 
+$\hspace{0.25cm}$ With the mean rule, the categorical version of  $\hspace{0.07cm}X_k\hspace{0.07cm}$  is defined as: $\\[0.3cm]$
 
-$\hspace{0.25cm}$ With Scott's rule, the categorical version of $\hspace{0.07cm} X_k \hspace{0.07cm}$ is the new sample $\hspace{0.07cm}X_k^{cat}\hspace{0.07cm}$ defined as: $\\[0.35cm]$
-
+$$x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr)  \\
+1  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.2 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\
+2  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.2 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.3 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\
+\dots \\
+3  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.9 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm} 1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr]
+\end{array}\right. \\[0.5cm]
 $$
- x^{cat}_{ik} = \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in [L_{1},L_{2}) \\ 1 \hspace{0.3cm}, \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in [L_{2},L_{3})  \\
-\dots \\ \lambda - 1 \hspace{0.3cm} , \hspace{0.3cm} \text{ if } \hspace{0.3cm} x_{ik} \in [L_{\lambda},L_{\lambda+1})  \end{array}\right.
-$$
-
 
 </p>
  
 </p></span>
 </div>
 
+### Quantile's Rule
 
 
-<br>
-
-The procedure for calculating Scott's intervals is the following:
-
-
-
-- Determine the number of  intervals:
-
-
-    First you have to determine the **theoretical amplitude** $A_t$ of the intervals, which is calculated as:
-
-    $$
-    A_{t} \hspace{0.07cm} = \hspace{0.07cm} 3.5 \cdot \sigma (X_k) \cdot n^{-1/3}
-    $$
-
-    The **number of intervals** will be:
-
-    $$
-    \lambda=\left\lceil \frac{Max(X_k)-Min(X_k)}{A_{t}} \right\rceil
-    $$
-
-<br>
-
-- Determine the width of the intervals:
-
-    The **width** of the intervals $A$ will be the same for all them and is defined as:
-
-    $$
-    A=\left\lceil \frac{Max(X_k)-Min(X_k)}{\lambda} \right\rceil
-     $$
-
-<br>
-
-- Determine the extremes of the intervals:
-
-
-    The intervals will be:
-$\hspace{0.1cm}[L_{1},L_{2}), [L_{2}, L_{3}),...,[L_{ \lambda},L_{ \lambda+1})$
-
- 
-
-    Where $\hspace{0.07cm}L_{i}, L_{i+1}\hspace{0.07cm}$ are the lower and upper intervals, respectively, of the interval $i$-th.
-
- 
-
-    Scott's rule define the **extremes of the intervals** as follows:
-
-    $$
-      L_{1}= Min(X_k) - c_1 \\[0.3cm]
-     L_{2}=L_{1} + A \\[0.3cm]
-     L_{3}=L_{2} + A \\[0.3cm]
-      ... \\
-     L_{\lambda}=L_{\lambda-1} + A \\[0.3cm]
-     L_{\lambda+1}= Max(X_k) + c_2 
-     $$
-
-    where: $\hspace{0.1cm}c_1 , c_2 \geq 0\hspace{0.15cm}$ must be chosen at the convenience of the analyst.
-
-
-    In general:
- 
-
-    $$
-    L_{i}=\left\lbrace\begin{array}{l} Min(X_k) - c_1 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} i = 1 \\[0.3cm] L_{1} + (i-1)\cdot A \hspace{0.25cm}, \hspace{0.3cm} \text{ if} \hspace{0.3cm} i \in \lbrace 2 ,..., \lambda    \\[0.25cm]
-    Max(X_k) + c_2 \hspace{0.3cm} , \hspace{0.3cm} \text{ if } \hspace{0.3cm} i = \lambda + 1  \end{array}\right.
-    $$
 
 
 <br>
