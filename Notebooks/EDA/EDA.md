@@ -1483,7 +1483,7 @@ This rule is a generalization of the last two.
 Following quantile rule we have the following series of categorization intervals of $\hspace{0.07cm}X_k\hspace{0.07cm}$ : $\\[0.25cm]$
 
 $$\begin{align}
-& \biggl\{ \hspace{0.1cm} \Bigl(   \hspace{0.07cm} Q(  \hspace{0.07cm} q_{\hspace{0.07cm}i}  \hspace{0.07cm} , X_k  \hspace{0.07cm} )  \hspace{0.07cm}+ \hspace{0.07cm} c_i  \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}q_{\hspace{0.07cm}i+1} \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr] \hspace{0.2cm} : \hspace{0.2cm} i \in \lbrace 1,2,...,h \rbrace  \hspace{0.1cm} \biggr\} \hspace{0.2cm} = \\[0.5cm]  = \hspace{0.2cm} &\biggl\{ \hspace{0.1cm} \Bigl(   \hspace{0.07cm} Q(  \hspace{0.07cm} q_1  \hspace{0.07cm} , X_k  \hspace{0.07cm} ) \hspace{0.07cm}+ \hspace{0.07cm} c      \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}q_{2} \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr] \hspace{0.1cm} , \hspace{0.1cm}  \Bigl(   \hspace{0.07cm} Q(  \hspace{0.07cm} q_2  \hspace{0.07cm} , X_k  \hspace{0.07cm} )     \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}q_{3} \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]         
+& \biggl\{ \hspace{0.1cm} \Bigl(   \hspace{0.07cm} Q(  \hspace{0.07cm} q_{\hspace{0.07cm}i}  \hspace{0.07cm} , X_k  \hspace{0.07cm} )  \hspace{0.07cm} - \hspace{0.07cm} c_i  \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}q_{\hspace{0.07cm}i+1} \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr] \hspace{0.2cm} : \hspace{0.2cm} i \in \lbrace 1,2,...,h \rbrace  \hspace{0.1cm} \biggr\} \hspace{0.2cm} = \\[0.5cm]  = \hspace{0.2cm} &\biggl\{ \hspace{0.1cm} \Bigl(   \hspace{0.07cm} Q(  \hspace{0.07cm} q_1  \hspace{0.07cm} , X_k  \hspace{0.07cm} ) \hspace{0.07cm}+ \hspace{0.07cm} c      \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}q_{2} \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr] \hspace{0.1cm} , \hspace{0.1cm}  \Bigl(   \hspace{0.07cm} Q(  \hspace{0.07cm} q_2  \hspace{0.07cm} , X_k  \hspace{0.07cm} )     \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}q_{3} \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]         
  \hspace{0.1cm} , \hspace{0.1cm}  \dots  \hspace{0.1cm} , \hspace{0.1cm} 
  \Bigl(   \hspace{0.07cm} Q(  \hspace{0.07cm} q_h  \hspace{0.07cm} , X_k  \hspace{0.07cm} )     \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}q_{h+1} \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr] 
 \hspace{0.1cm} \biggr\}
@@ -1517,44 +1517,44 @@ $$c_{\hspace{0.07cm}i} \hspace{0.07cm} = \hspace{0.07cm} \left\lbrace\begin{arra
 \end{array}\right. $$ $\\[0.5cm]$
  
  
- - $\lbrace \hspace{0.07cm}q_ i \hspace{0.07cm}:\hspace{0.07cm} i=1,...,h \hspace{0.07cm}\rbrace \hspace{0.07cm} = \hspace{0.07cm} \lbrace \hspace{0.07cm}q_1, q_2, \dots , q_h \hspace{0.07cm}\rbrace \hspace{0.2cm}$ is an ordered set containing numbers between $\hspace{0.07cm}0\hspace{0.07cm}$ and $\hspace{0.07cm}1\hspace{0.07cm}$, starting at $\hspace{0.07cm}0\hspace{0.07cm}$ and with a space of degree $\hspace{0.07cm}t\hspace{0.07cm}$ between them. That is, it is an ordered set with numbers between $\hspace{0.07cm}0\hspace{0.07cm}$ and $\hspace{0.07cm}1\hspace{0.07cm}$, that starts at zero and its numbers are equispaced in degree $\hspace{0.07cm}t\hspace{0.07cm}$. 
+ - $\lbrace \hspace{0.07cm}q_ i \hspace{0.07cm}:\hspace{0.07cm} i=1,...,h \hspace{0.07cm}\rbrace \hspace{0.07cm} = \hspace{0.07cm} \lbrace \hspace{0.07cm}q_1\hspace{0.07cm},\hspace{0.07cm} q_2\hspace{0.07cm}, \dots ,\hspace{0.07cm} q_h \hspace{0.07cm}\rbrace \hspace{0.2cm}$ is an ordered set containing numbers between $\hspace{0.07cm}0\hspace{0.07cm}$ and $\hspace{0.07cm}1\hspace{0.07cm}$, starting at $\hspace{0.07cm}0\hspace{0.07cm}$ and with a space of degree $\hspace{0.07cm}t\hspace{0.07cm}$ between them. That is, it is an ordered set with numbers between $\hspace{0.07cm}0\hspace{0.07cm}$ and $\hspace{0.07cm}1\hspace{0.07cm}$, that starts at zero and its numbers are equispaced in degree $\hspace{0.07cm}t\hspace{0.07cm}$. 
  
      
      Formally, It's an ordered set that starts at zero and it's also a subset of $\hspace{0.07cm}[0,1]\hspace{0.07cm}$  because $\hspace{0.12cm} q_1 = 0 \hspace{0.07cm}\leq\hspace{0.07cm} q_2 \hspace{0.07cm}\leq \dots \leq\hspace{0.07cm} q_h \hspace{0.07cm}\leq\hspace{0.07cm} 1\hspace{0.12cm}$. In the other hand, It's equispaced in degree $\hspace{0.07cm}t\hspace{0.07cm}$ because  $\hspace{0.12cm}q_i - q_{i-1} = t\hspace{0.12cm}$ , for $\hspace{0.12cm}i = 2,...,h$.
  
        
-    For example, if $\hspace{0.12cm}t=0.15\hspace{0.12cm}$, then  $\lbrace\hspace{0.1cm} q_ i \hspace{0.1cm}:\hspace{0.1cm} i=1,...,h \hspace{0.07cm}\rbrace \hspace{0.07cm}=\hspace{0.07cm}  \lbrace\hspace{0.07cm} 0\hspace{0.07cm},\hspace{0.07cm} 0.15\hspace{0.07cm},\hspace{0.07cm} 0.3\hspace{0.07cm},\hspace{0.07cm} 0.45\hspace{0.07cm},\hspace{0.07cm} 0.6\hspace{0.07cm},\hspace{0.07cm} 0.75\hspace{0.07cm},\hspace{0.07cm} 0.9 \hspace{0.07cm}\rbrace$ $\\[0.3cm]$
+    For example, if $\hspace{0.12cm}t=0.15\hspace{0.12cm}$, then  $\lbrace\hspace{0.1cm} q_ i \hspace{0.1cm}:\hspace{0.1cm} i=1,...,h \hspace{0.07cm}\rbrace \hspace{0.07cm}=\hspace{0.07cm}  \lbrace\hspace{0.07cm} 0\hspace{0.07cm},\hspace{0.07cm} 0.15\hspace{0.07cm},\hspace{0.07cm} 0.3\hspace{0.07cm},\hspace{0.07cm} 0.45\hspace{0.07cm},\hspace{0.07cm} 0.6\hspace{0.07cm},\hspace{0.07cm} 0.75\hspace{0.07cm},\hspace{0.07cm} 0.9 \hspace{0.07cm}\rbrace$ $\\[0.4cm]$
  
  
 In order to understand in a better way this rule, we are going to derive manually the categorization intervals for two examples of $\hspace{0.07cm}t\hspace{0.07cm}$. $\\[0.35cm]$
 
 
-**Example one: $\hspace{0.2cm}t=0.15$** $\\[0.25cm]$
+**Example one: $\hspace{0.2cm}t=0.15$** $\\[0.45cm]$
 
-- $h =  \left\lceil \dfrac{1}{0.15}\right\rceil = 7$ $\\[0.25cm]$
+- $h =  \left\lceil \dfrac{1}{0.15}\right\rceil = 7$ $\\[1cm]$
 
-- $q_1 = 0$ $\\[0.25cm]$
+- $q_1 = 0$ $\\[0.45cm]$
 
-- $q_2 = q_0 + t = 0 + 0.15 = 0.15$ $\\[0.25cm]$
+- $q_2 = q_0 + t = 0 + 0.15 = 0.15$ $\\[0.45cm]$
 
-- $q_3 = q_1 + t = 0.15 + 0.15 = 0.3$ $\\[0.25cm]$$\\[0.25cm]$
+- $q_3 = q_1 + t = 0.15 + 0.15 = 0.3$  $\\[0.45cm]$
 
-- $q_4 = q_2 + t = 0.3 + 0.15 = 0.45$ $\\[0.25cm]$
+- $q_4 = q_2 + t = 0.3 + 0.15 = 0.45$ $\\[0.45cm]$
 
-- $q_5 = q_3 + t = 0.45 + 0.15 = 0.6$ $\\[0.25cm]$
+- $q_5 = q_3 + t = 0.45 + 0.15 = 0.6$ $\\[0.45cm]$
 
-- $q_6 = q_4 + t = 0.6 + 0.15 = 0.75$ $\\[0.25cm]$
+- $q_6 = q_4 + t = 0.6 + 0.15 = 0.75$ $\\[0.45cm]$
 
-- $q_h = q_7 = q_7 + t = 0.75 + 0.15 = 0.9$ $\\[0.25cm]$
+- $q_h = q_7 = q_7 + t = 0.75 + 0.15 = 0.9$ $\\[0.45cm]$
 
-- $q_{h+1} = q_8 = 1$ $\\[0.35cm]$
+- $q_{h+1} = q_8 = 1$ $\\[1cm]$
 
 
 - Therefore, the categorization intervals would be the following:
 
-$$\Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0  \hspace{0.07cm} , X_k  \hspace{0.07cm} )  \hspace{0.07cm}+ \hspace{0.07cm} c \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm} 0.15 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]    \hspace{0.1cm} , \hspace{0.1cm} 
-\Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0.15  \hspace{0.07cm} , X_k  \hspace{0.07cm} )     \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}0.3 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]    \hspace{0.1cm} \biggr\}  \hspace{0.1cm} , \hspace{0.1cm} 
-\Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0.3  \hspace{0.07cm} , X_k  \hspace{0.07cm} )     \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}0.45 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]    \hspace{0.1cm} \biggr\}  \hspace{0.1cm} , \hspace{0.1cm} \dots \hspace{0.1cm} , \hspace{0.1cm} \Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0.9  \hspace{0.07cm} , X_k  \hspace{0.07cm} ) \hspace{0.07cm} + \hspace{0.07cm} c    \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}1 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]    \hspace{0.1cm} \biggr\}
+$$\Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0  \hspace{0.07cm} , X_k  \hspace{0.07cm} )  \hspace{0.07cm}- \hspace{0.07cm} c \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm} 0.15 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]    \hspace{0.1cm} , \hspace{0.1cm} 
+\Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0.15  \hspace{0.07cm} , X_k  \hspace{0.07cm} )     \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}0.3 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]  \hspace{0.1cm} , \hspace{0.1cm} 
+\Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0.3  \hspace{0.07cm} , X_k  \hspace{0.07cm} )     \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}0.45 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]      \hspace{0.07cm} , \hspace{0.07cm} \dots \hspace{0.07cm} , \hspace{0.07cm} \Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0.9  \hspace{0.07cm} , X_k  \hspace{0.07cm} )     \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}1 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]    
 $$
 
 
@@ -1564,20 +1564,34 @@ $$
  
 We are going to see that in this case we will obtain the same categorization intervals as with the quartile rule. 
  
+
+- $h =  \left\lceil \dfrac{1}{0.25}\right\rceil = 4$ $\\[1cm]$
+
+- $q_1 = 0$ $\\[0.45cm]$
+
+- $q_2 = q_0 + t = 0 + 0.25 = 0.25$ $\\[0.45cm]$
+
+- $q_3 = q_1 + t = 0.25 + 0.25 = 0.5$  $\\[0.45cm]$
+
+- $q_h = q_4 = q_2 + t = 0.5 + 0.25 = 0.75$ $\\[0.45cm]$
+
+- $q_{h+1} = q_5 = 1$ $\\[0.45cm]$
+
+ 
+
+
+- Therefore, the categorization intervals would be the following:
+
+$$\Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0  \hspace{0.07cm} , X_k  \hspace{0.07cm} )  \hspace{0.07cm}- \hspace{0.07cm} c \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm} 0.25 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]    \hspace{0.1cm} , \hspace{0.1cm} 
+\Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0.25  \hspace{0.07cm} , X_k  \hspace{0.07cm} )     \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}0.5 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]  \hspace{0.1cm} , \hspace{0.1cm} 
+\Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0.5  \hspace{0.07cm} , X_k  \hspace{0.07cm} )     \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}0.75 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]    \hspace{0.07cm} , \hspace{0.07cm} \Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0.75  \hspace{0.07cm} , X_k  \hspace{0.07cm} )    \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}1 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]    
+$$ $\\[0.5cm]$
  
  
  
  
  
- 
- 
- 
- 
- 
- 
- 
- 
-Alsp, It's easy to see that if we had used $t=0.1$ we would have obtained the same categorization intervals as with the decile rule.
+Also It's easy to see that if we had used $t=0.1$ we would have obtained the same categorization intervals as with the decile rule.
 
  
  
@@ -1604,10 +1618,10 @@ for $\hspace{0.06cm}j\in \lbrace 0\hspace{0.06cm},\hspace{0.06cm}1\hspace{0.06cm
 
 
 
-### Deleting all rows with NaN
+### Deleting Rows with NaN
 
 
-### Deleting all columns with NaN
+### Deleting  Columns with NaN
 
 
 
