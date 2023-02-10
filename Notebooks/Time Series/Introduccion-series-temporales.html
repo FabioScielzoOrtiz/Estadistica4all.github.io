@@ -1579,13 +1579,20 @@ margin-right: auto;
 <div id="stochastic-processes" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> Stochastic processes</h2>
 <p>Let <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_t\hspace{0.1cm}\)</span> be a random variable (r.v.), for each <span class="math inline">\(\hspace{0.1cm}t\in T\)</span></p>
-<p>A stochastic processes is a set of random variables <span class="math inline">\(\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm}\right\rbrace\hspace{0.1cm}\)</span> such that <span class="math inline">\(\hspace{0.1cm}\hspace{0.1cm}\mathcal{X}_t \in S \subset \mathbb{R}\)</span></p>
-<p>Where:</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> A stochastic processes is a set of random variables <span class="math inline">\(\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm}\right\rbrace\hspace{0.1cm}\)</span> such that <span class="math inline">\(\hspace{0.1cm}\hspace{0.1cm}\mathcal{X}_t \in S \subset \mathbb{R}\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> where:</p>
 <ul>
 <li><p><span class="math inline">\(T\hspace{0.1cm}\)</span> is called <strong>parameter space</strong> and is the set of indices of the random variables that define the stochastic process. <span class="math inline">\(\\[0.35cm]\)</span></p></li>
 <li><p><span class="math inline">\(S\hspace{0.1cm}\)</span> is called <strong>states space</strong> and is the variation field of the random variables that define the stochastic process. <span class="math inline">\(\\[0.35cm]\)</span></p></li>
 <li><p>We will say that <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm} : \hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.1cm}\)</span> is a stochastic process with parameter space <span class="math inline">\(\hspace{0.1cm}T\hspace{0.1cm}\)</span> and states space <span class="math inline">\(\hspace{0.1cm}S\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><strong>Observation:</strong></p>
 <p><span class="math inline">\(T\hspace{0.1cm}\)</span> is generally interpreted as moments or periods of time, because one of the most important applications of stochastic processes is time series modeling.</p>
 <p>Therefore:</p>
@@ -1594,74 +1601,144 @@ margin-right: auto;
 </div>
 <div id="discrete-stochastic-process" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Discrete stochastic process</h2>
-<p><span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.15cm}\)</span> is a discrete stochastic process if <span class="math inline">\(\hspace{0.15cm}T\subset \lbrace 0,1,2,... \rbrace\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <span class="math inline">\(\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.15cm}\)</span> is a discrete stochastic process if <span class="math inline">\(\hspace{0.15cm}T\subset \lbrace 0,1,2,... \rbrace\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="continuous-stochastic-process" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Continuous stochastic process</h2>
-<p><span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.15cm}\)</span> is a continuous stochastic process if <span class="math inline">\(\hspace{0.15cm}T\subset [0, \infty)\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <span class="math inline">\(\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.15cm}\)</span> is a continuous stochastic process if <span class="math inline">\(\hspace{0.15cm}T\subset [0, \infty)\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="types-of-stochastic-processes" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> Types of stochastic processes <a class="anchor" id="1"></a></h2>
 <div id="independent-process" class="section level3" number="1.4.1">
 <h3><span class="header-section-number">1.4.1</span> Independent process</h3>
-<p><span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.1cm}\)</span> is a independient stochastic process if the random variables that define the process are independient.</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span><span class="math inline">\(\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.1cm}\)</span> is a independient stochastic process if the random variables that define the process are independient.</p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="markov-process" class="section level3" number="1.4.2">
 <h3><span class="header-section-number">1.4.2</span> Markov process</h3>
-<p>A discrete stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.1cm}\)</span> is a Markov process if:</p>
-<p><span class="math display">\[P(\mathcal{X}_{n+1} = x_{n+1}\hspace{0.15cm} |\hspace{0.15cm} \mathcal{X}_0 = x_0 ,..., \mathcal{X}_n =x_n) \hspace{0.1cm}=\hspace{0.1cm} P(\mathcal{X}_{n+1} = x_{n+1}\hspace{0.15cm} |\hspace{0.15cm} \mathcal{X}_n = x_n)\]</span> <span class="math inline">\(\\[0.35cm]\)</span></p>
-<p>where: <span class="math inline">\(\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace\)</span> <span class="math inline">\(\\[0.35cm]\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> A discrete stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.2cm}\)</span> is a Markov process if: <span class="math inline">\(\\[0.15cm]\)</span></p>
+<p><span class="math display">\[P(\mathcal{X}_{n+1} = x_{n+1}\hspace{0.15cm} |\hspace{0.15cm} \mathcal{X}_0 = x_0 ,..., \mathcal{X}_n =x_n) \hspace{0.1cm}=\hspace{0.1cm} P(\mathcal{X}_{n+1} = x_{n+1}\hspace{0.15cm} |\hspace{0.15cm} \mathcal{X}_n = x_n)\]</span> <span class="math inline">\(\\[0.15cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> where: <span class="math inline">\(\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace\)</span> <span class="math inline">\(\\[0.35cm]\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p>This property is known as the memoryless Markov property. Because it implies that the future state of the system, <span class="math inline">\(\mathcal{X}_{n+1}\)</span> , only depends on the present state <span class="math inline">\(x_n\)</span> and does not depend on past states <span class="math inline">\(x_0,...,x_{n- 1}\)</span></p>
 <p><br></p>
 </div>
 <div id="process-of-independent-increments" class="section level3" number="1.4.3">
 <h3><span class="header-section-number">1.4.3</span> Process of independent increments</h3>
-<p>A continouos stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}\)</span> is a independent increments process if:</p>
-<p>For all set of times <span class="math inline">\(\hspace{0.1cm}t_1,t_2,t_3\geq 0\hspace{0.13cm}\)</span> such that <span class="math inline">\(\hspace{0.1cm}t_1 &lt; t_2 &lt; t_3\)</span></p>
-<p><span class="math inline">\(\mathcal{X}_{t_2} - \mathcal{X}_{t_1} \hspace{0.1cm} , \hspace{0.1cm} \mathcal{X}_{t_3} - \mathcal{X}_{t_2}\hspace{0.1cm}\)</span> are independients.</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> A continuous stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}\)</span> is a independent increments process if:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> For all set of times <span class="math inline">\(\hspace{0.1cm}t_1,t_2,t_3\geq 0\hspace{0.13cm}\)</span> such that <span class="math inline">\(\hspace{0.1cm}t_1 &lt; t_2 &lt; t_3\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <span class="math inline">\(\mathcal{X}_{t_2} - \mathcal{X}_{t_1} \hspace{0.1cm} , \hspace{0.1cm} \mathcal{X}_{t_3} - \mathcal{X}_{t_2}\hspace{0.1cm}\)</span> are independents.</p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p>This means that the displacements of the process in the time intervals <span class="math inline">\(\hspace{0.1cm}[t_1 , t_2) , [t_2 , t_3)\hspace{0.1cm}\)</span> are independent of each other, for all <span class="math inline">\(\hspace{0.1cm }0 \leq t_1 &lt; t_2 &lt; t_3\)</span>.</p>
 <p><br></p>
 </div>
 <div id="strictly-stationary-process" class="section level3" number="1.4.4">
 <h3><span class="header-section-number">1.4.4</span> Strictly stationary process</h3>
-<p>A continouos stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}\)</span> is a strictly stationary process if:</p>
-<p>For all <span class="math inline">\(t \geq 0\)</span> , the probability distribution of <span class="math inline">\(\mathcal{X}_{t}\)</span> is the same as that of <span class="math inline">\(\mathcal{X}_{t+h}\)</span> , for all <span class="math inline">\(h&gt;0\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> A continuous stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.2cm}\)</span> is a strictly stationary process if:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> For all <span class="math inline">\(t \geq 0\)</span> , the probability distribution of <span class="math inline">\(\mathcal{X}_{t}\)</span> is the same as that of <span class="math inline">\(\mathcal{X}_{t+h}\)</span> , for all <span class="math inline">\(h&gt;0\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p>Therefore, for all set of times <span class="math inline">\(\hspace{0.1cm}t_1 , t_2,...,t_n\)</span></p>
 <p><span class="math inline">\((\mathcal{X}_{t_1}, \mathcal{X}_{t_2},\dots ,\mathcal{X}_{t_n} )\hspace{0.1cm}\)</span> is identically distributed as <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_{t_1+h}, \mathcal{X}_{t_2+h},\dots ,\mathcal{X}_{t_n+h} )\)</span></p>
 <p><br></p>
 </div>
 <div id="process-with-stationary-increments" class="section level3" number="1.4.5">
 <h3><span class="header-section-number">1.4.5</span> Process with stationary increments</h3>
-<p>A continouos stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}\)</span> is a process with stationary increments if:</p>
-<p>For all pair of times <span class="math inline">\(\hspace{0.1cm}t_1,t_2 &gt; 0\hspace{0.1cm}\)</span> such that <span class="math inline">\(\hspace{0.1cm}t_1 &lt; t_2\)</span></p>
-<p><span class="math inline">\(\mathcal{X}_{t_2} - \mathcal{X}_{t_1}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{t_2 + h} - \mathcal{X}_{t_1 + h}\hspace{0.1cm}\)</span> are independents, for any <span class="math inline">\(\hspace{0.1cm}h&gt;0\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> A continuous stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}\)</span> is a process with stationary increments if:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> For all pair of times <span class="math inline">\(\hspace{0.1cm}t_1,t_2 &gt; 0\hspace{0.1cm}\)</span> such that <span class="math inline">\(\hspace{0.1cm}t_1 &lt; t_2\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <span class="math inline">\(\mathcal{X}_{t_2} - \mathcal{X}_{t_1}\hspace{0.1cm}\)</span> and <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_{t_2 + h} - \mathcal{X}_{t_1 + h}\hspace{0.1cm}\)</span> are independents, for any <span class="math inline">\(\hspace{0.1cm}h&gt;0\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="martingalas-process" class="section level3" number="1.4.6">
 <h3><span class="header-section-number">1.4.6</span> Martingalas process</h3>
-<p>A discrete stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.1cm}\)</span> is a Martingalas process if:</p>
-<p><span class="math display">\[E\left[\hspace{0.1cm}\mathcal{X}_{n+1} | X_0 = x_0 ,..., X_n = x_n\hspace{0.1cm} \right] \hspace{0.1cm} = \hspace{0.1cm} x_n\]</span> <span class="math inline">\(\\[0.35cm]\)</span></p>
-<p>where: <span class="math inline">\(\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace\)</span> <span class="math inline">\(\\[0.35cm]\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> A discrete stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.1cm}\)</span> is a Martingalas process if: <span class="math inline">\(\\[0.15cm]\)</span></p>
+<p><span class="math display">\[E\left[\hspace{0.1cm}\mathcal{X}_{n+1} | X_0 = x_0 ,..., X_n = x_n\hspace{0.1cm} \right] \hspace{0.1cm} = \hspace{0.1cm} x_n\]</span> <span class="math inline">\(\\[0.15cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> where: <span class="math inline">\(\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace\)</span> <span class="math inline">\(\\[0.35cm]\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p>This property is known as Martingalas property, and it implies that the expected value of the sistym in the future <span class="math inline">\(\hspace{0.1cm}n+1\hspace{0.1cm}\)</span> is the value of the system in the present <span class="math inline">\(\hspace{0.1cm}x_n\)</span>. In mean the system doesn´t change of the state observed in the last moment.</p>
 <p>This property is known as Martingale property, and it implies that the expected value of the sistym in the future <span class="math inline">\(\hspace{0.1cm}n+1\hspace{0.1cm}\)</span> is the value of the system in the present <span class="math inline">\(\hspace {0.1cm}x_n\)</span>. So, in mean the system doesn´t change of the state observed in the last moment.</p>
 <p><br></p>
 </div>
 <div id="levy-process" class="section level3" number="1.4.7">
 <h3><span class="header-section-number">1.4.7</span> Levy process</h3>
-<p>A continouos stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.15cm}\)</span> is a Levy process if is a process of independents and stationaries increments.</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> A continuous stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.15cm}\)</span> is a Levy process if is a process of independents and stationaries increments.</p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p>The Poisson and Brownian process are examples of Levy process.</p>
 <p><br></p>
 </div>
-<div id="gaussian-procces" class="section level3" number="1.4.8">
-<h3><span class="header-section-number">1.4.8</span> Gaussian Procces <a class="anchor" id="1"></a></h3>
-<p>A continouos stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.15cm}\)</span> is a Gaussian process if:</p>
-<p>For all set of times <span class="math inline">\(\hspace{0.1cm}t_1,...,t_n \geq 0\)</span></p>
+<div id="gaussian-process" class="section level3" number="1.4.8">
+<h3><span class="header-section-number">1.4.8</span> Gaussian Process <a class="anchor" id="1"></a></h3>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> A continuous stochastic process <span class="math inline">\(\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.15cm}\)</span> is a Gaussian process if:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> For all set of times <span class="math inline">\(\hspace{0.1cm}t_1,...,t_n \geq 0\)</span></p>
 <p><span class="math display">\[(\mathcal{X}_{t_1}, \mathcal{X}_{t_2},...,\mathcal{X}_{t_n}) \sim NM(\mu , \Sigma)\]</span></p>
-<p>where:</p>
-<p><span class="math inline">\(NM(\mu , \Sigma)\hspace{0.1cm}\)</span> denote the multivariate Normal probability distribution with mean vector <span class="math inline">\(\hspace{0.1cm}\mu\hspace{0.1cm}\)</span> y covariance matrix <span class="math inline">\(\hspace{0.1cm}\Sigma\)</span> <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> where:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <span class="math inline">\(NM(\mu , \Sigma)\hspace{0.1cm}\)</span> denote the multivariate Normal probability distribution with mean vector <span class="math inline">\(\hspace{0.1cm}\mu\hspace{0.1cm}\)</span> y covariance matrix <span class="math inline">\(\hspace{0.1cm}\Sigma\)</span> <span class="math inline">\(\\[0.4cm]\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p>The dynamic phenomena that we observe in a time series can grouped into two classes:</p>
 <ul>
 <li>The first are those that take stable values in time around a constant level, without showing a long term increasing or decreasing trend. These processes are called stationary.</li>
@@ -1678,11 +1755,20 @@ margin-right: auto;
 </div>
 <div id="time-series" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Time series</h1>
-<p>Given a stochastic process <span class="math inline">\(\hspace{0.15cm}\Bigl\{ \hspace{0.06cm} \mathcal{X}_t \hspace{0.1cm}: \hspace{0.1cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.06cm}\Bigl\} \hspace{0.1cm} = \hspace{0.1cm}\Bigl\{ \hspace{0.06cm} \mathcal{X}_1 , \mathcal{X}_2 ,..., \mathcal{X}_n \hspace{0.06cm}\Bigl\} \hspace{0.1cm}\)</span></p>
-<p>Given a sample of one observation <span class="math inline">\(\hspace{0.06cm}x_t\hspace{0.06cm}\)</span> of each random variable <span class="math inline">\(\hspace{0.06cm}\mathcal{X}_t\hspace{0.06cm}\)</span> of the process, for <span class="math inline">\(\hspace{0.06cm}t \in T=\lbrace 1,2,...,n \rbrace\)</span>. <span class="math inline">\(\\[1cm]\)</span></p>
-<p><span class="math display">\[\hspace{10cm} X_t = \left( x_1, x_2, ...,x_n \right)^t \hspace{0.12cm} \text{ is a **time serie**. }\]</span></p>
-<p>where:</p>
-<p><span class="math inline">\(x_t\hspace{0.06cm}\)</span> could be interpreted as the value observed of the variable <span class="math inline">\(\hspace{0.06cm}\mathcal{X}\hspace{0.06cm}\)</span> at the time <span class="math inline">\(\hspace{0.06cm}t\)</span>. <span class="math inline">\(\\[0.35cm]\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Given a stochastic process <span class="math inline">\(\hspace{0.15cm}\Bigl\{ \hspace{0.06cm} \mathcal{X}_t \hspace{0.1cm}: \hspace{0.1cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.06cm}\Bigl\} \hspace{0.1cm} = \hspace{0.1cm}\Bigl\{ \hspace{0.06cm} \mathcal{X}_1 , \mathcal{X}_2 ,..., \mathcal{X}_n \hspace{0.06cm}\Bigl\} \hspace{0.1cm}\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Given a sample of one observation <span class="math inline">\(\hspace{0.06cm}x_t\hspace{0.06cm}\)</span> of each random variable <span class="math inline">\(\hspace{0.06cm}\mathcal{X}_t\hspace{0.06cm}\)</span> of the process, for <span class="math inline">\(\hspace{0.06cm}t \in T=\lbrace 1,2,...,n \rbrace\)</span>. <span class="math inline">\(\\[1cm]\)</span></p>
+<ul>
+<li><span class="math inline">\(X_t = \left( x_1, x_2, ...,x_n \right)^t \hspace{0.12cm}\)</span> is a <strong>time serie</strong>.</li>
+</ul>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> where:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <span class="math inline">\(x_t\hspace{0.06cm}\)</span> could be interpreted as the value observed of the variable <span class="math inline">\(\hspace{0.06cm}\mathcal{X}\hspace{0.06cm}\)</span> at the time <span class="math inline">\(\hspace{0.06cm}t\)</span>. <span class="math inline">\(\\[0.35cm]\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><strong>Observations:</strong></p>
 <ul>
 <li><p><span class="math inline">\(x_t \in \mathbb{R}\hspace{0.06cm}\)</span> is a realization of the random variable <span class="math inline">\(\mathcal{X}_t\)</span> <span class="math inline">\(\\[0.35cm]\)</span></p></li>
@@ -1694,15 +1780,24 @@ margin-right: auto;
 </div>
 <div id="random-walk" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Random walk</h1>
-<p>A random walk is a stochastic process <span class="math inline">\(\hspace{0.1cm}\Bigl\{ \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}:\hspace{0.1cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.1cm}\Bigl\} \hspace{0.1cm}\)</span> defined as:</p>
-<p><span class="math display">\[\mathcal{X}_t = \mathcal{X}_{t-1} + a_t\]</span></p>
-<p>for <span class="math inline">\(t \in \lbrace 1,...,n \rbrace\)</span></p>
-<p>where:</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> A random walk is a stochastic process <span class="math inline">\(\hspace{0.1cm}\Bigl\{ \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}:\hspace{0.1cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.1cm}\Bigl\} \hspace{0.1cm}\)</span> defined as:</p>
 <ul>
-<li><p><span class="math inline">\(\mathcal{X}_0 = 0\)</span></p></li>
-<li><p><span class="math inline">\(a_t \sim N(0, \sigma^2)\)</span></p></li>
+<li><span class="math inline">\(\mathcal{X}_t = \mathcal{X}_{t-1} + a_t\)</span> ,
+for <span class="math inline">\(t \in \lbrace 1,...,n \rbrace\)</span></li>
+</ul>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> where:</p>
+<ul>
+<li><p><span class="math inline">\(\mathcal{X}_0 = 0\)</span> <span class="math inline">\(\\[0.25cm]\)</span></p></li>
+<li><p><span class="math inline">\(a_t \sim N(0, \sigma^2)\)</span> <span class="math inline">\(\\[0.25cm]\)</span></p></li>
 <li><p>We say that <span class="math inline">\(\hspace{0.1cm}a_t \sim N(0, \sigma^2)\hspace{0.1cm}\)</span> is a white noise.</p></li>
 </ul>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 <div id="mean-function" class="section level1" number="4">
@@ -1776,7 +1871,7 @@ knowing the past.</p>
 <p><span class="math inline">\((\mathcal{X}_{t_1}, \mathcal{X}_{t_2},\dots ,\mathcal{X}_{t_n} )\hspace{0.1cm}\)</span> is identically distributed as <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_{t_1+h}, \mathcal{X}_{t_2+h},\dots ,\mathcal{X}_{t_n+h} )\)</span></p>
 <p><br></p>
 <p>Strict stationarity is a very strong condition, since to prove it we must have the joint distributions for any set of variables in the process. A weaker property, but one which is easier to prove, is <strong>weak stationarity</strong>.</p>
-<p>A stochastic process is <strong>strictly stationary</strong> if:</p>
+<p>A stochastic process is <strong>weakly stationary</strong> if:</p>
 <ul>
 <li><p><span class="math inline">\(\mu_t = \mu = cte , \forall t \in \lbrace 1,2,...,k \rbrace\)</span></p></li>
 <li><p><span class="math inline">\(\sigma_t^2 = \sigma = cte , , \forall t \in \lbrace 1,2,...,k \rbrace\)</span></p></li>

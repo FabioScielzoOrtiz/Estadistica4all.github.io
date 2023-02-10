@@ -90,11 +90,16 @@ $\hspace{0.5cm}$ Scielzo Ortiz, F. (2023). Introduction to Time Series.  http://
 Let  $\hspace{0.1cm}\mathcal{X}_t\hspace{0.1cm}$ be a random variable (r.v.), for each $\hspace{0.1cm}t\in T$
 
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
-A stochastic processes is a set of random variables $\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm}\right\rbrace\hspace{0.1cm}$ such that $\hspace{0.1cm}\hspace{0.1cm}\mathcal{X}_t \in S \subset \mathbb{R}$
+
+$\hspace{0.25cm}$ A stochastic processes is a set of random variables $\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm}\right\rbrace\hspace{0.1cm}$ such that $\hspace{0.1cm}\hspace{0.1cm}\mathcal{X}_t \in S \subset \mathbb{R}$
  
 
-Where:
+$\hspace{0.25cm}$ where:
 
 - $T\hspace{0.1cm}$ is called **parameter space** and is the set of indices of the random variables that define the stochastic process. $\\[0.35cm]$
 
@@ -103,6 +108,12 @@ Where:
 
 
 - We will say that $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm} : \hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.1cm}$ is a stochastic process with parameter space $\hspace{0.1cm}T\hspace{0.1cm}$ and states space $\hspace{0.1cm}S$ $\\[0.5cm]$
+
+</p>
+ 
+</p></span>
+</div>
+
 
 
 **Observation:**
@@ -120,18 +131,33 @@ $X_t\hspace{0.1cm}$ is a random variable ussually used to model the state of a s
 
 ## Discrete stochastic process  
 
- $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.15cm}$  is a discrete stochastic process if $\hspace{0.15cm}T\subset \lbrace 0,1,2,... \rbrace$
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
+$\hspace{0.25cm}$ $\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.15cm}$  is a discrete stochastic process if $\hspace{0.15cm}T\subset \lbrace 0,1,2,... \rbrace$
 
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
 ## Continuous stochastic process
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
+$\hspace{0.25cm}$ $\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.15cm}$ is a continuous stochastic process if $\hspace{0.15cm}T\subset [0, \infty)$
 
- $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.15cm}$ is a continuous stochastic process if $\hspace{0.15cm}T\subset [0, \infty)$
-
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
@@ -140,23 +166,41 @@ $X_t\hspace{0.1cm}$ is a random variable ussually used to model the state of a s
 ### Independent process
 
 
-$\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.1cm}$ is a independient stochastic process if the random variables that define the process are independient.
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
+$\hspace{0.25cm}$$\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.1cm}$ is a independient stochastic process if the random variables that define the process are independient.
+
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
+
 ### Markov process
 
-A discrete stochastic process  $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.1cm}$ is a Markov process if:
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ A discrete stochastic process  $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.2cm}$ is a Markov process if: $\\[0.15cm]$
 
 
 
-$$P(\mathcal{X}_{n+1} = x_{n+1}\hspace{0.15cm} |\hspace{0.15cm} \mathcal{X}_0 = x_0 ,..., \mathcal{X}_n =x_n) \hspace{0.1cm}=\hspace{0.1cm} P(\mathcal{X}_{n+1} = x_{n+1}\hspace{0.15cm} |\hspace{0.15cm} \mathcal{X}_n = x_n)$$ $\\[0.35cm]$
+$$P(\mathcal{X}_{n+1} = x_{n+1}\hspace{0.15cm} |\hspace{0.15cm} \mathcal{X}_0 = x_0 ,..., \mathcal{X}_n =x_n) \hspace{0.1cm}=\hspace{0.1cm} P(\mathcal{X}_{n+1} = x_{n+1}\hspace{0.15cm} |\hspace{0.15cm} \mathcal{X}_n = x_n)$$ $\\[0.15cm]$
 
 
-where: $\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace$  $\\[0.35cm]$
+$\hspace{0.25cm}$ where: $\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace$  $\\[0.35cm]$
 
-
+</p>
+ 
+</p></span>
+</div>
 
 This property is known as the memoryless Markov property. Because it implies that the future state of the system, $\mathcal{X}_{n+1}$ , only depends on the present state $x_n$ and does not depend on past states $x_0,...,x_{n- 1}$
 
@@ -166,12 +210,22 @@ This property is known as the memoryless Markov property. Because it implies tha
 ### Process of independent increments
 
 
-A continouos stochastic process  $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}$ is a independent increments process if:
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
-For all set of times $\hspace{0.1cm}t_1,t_2,t_3\geq 0\hspace{0.13cm}$ such that $\hspace{0.1cm}t_1 < t_2 < t_3$
+$\hspace{0.25cm}$ A continuous stochastic process  $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}$ is a independent increments process if:
+
+$\hspace{0.25cm}$ For all set of times $\hspace{0.1cm}t_1,t_2,t_3\geq 0\hspace{0.13cm}$ such that $\hspace{0.1cm}t_1 < t_2 < t_3$
 
 
-$\mathcal{X}_{t_2} - \mathcal{X}_{t_1} \hspace{0.1cm} , \hspace{0.1cm} \mathcal{X}_{t_3} - \mathcal{X}_{t_2}\hspace{0.1cm}$ are independients.
+$\hspace{0.25cm}$ $\mathcal{X}_{t_2} - \mathcal{X}_{t_1} \hspace{0.1cm} , \hspace{0.1cm} \mathcal{X}_{t_3} - \mathcal{X}_{t_2}\hspace{0.1cm}$ are independents.
+
+</p>
+ 
+</p></span>
+</div>
 
 This means that the displacements of the process in the time intervals $\hspace{0.1cm}[t_1 , t_2) , [t_2 , t_3)\hspace{0.1cm}$ are independent of each other, for all $\hspace{0.1cm }0 \leq t_1 < t_2 < t_3$.
 
@@ -181,10 +235,19 @@ This means that the displacements of the process in the time intervals $\hspace{
 
 ### Strictly stationary process
 
-A continouos stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}$ is a strictly stationary process  if:
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
-For all $t \geq 0$ , the probability distribution of $\mathcal{X}_{t}$ is the same as that of $\mathcal{X}_{t+h}$  , for all $h>0$
+$\hspace{0.25cm}$ A continuous stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.2cm}$ is a strictly stationary process  if:
 
+$\hspace{0.25cm}$ For all $t \geq 0$ , the probability distribution of $\mathcal{X}_{t}$ is the same as that of $\mathcal{X}_{t+h}$  , for all $h>0$
+
+</p>
+ 
+</p></span>
+</div>
 
 
 Therefore, for all set of times $\hspace{0.1cm}t_1 , t_2,...,t_n$ 
@@ -202,27 +265,46 @@ $(\mathcal{X}_{t_1}, \mathcal{X}_{t_2},\dots ,\mathcal{X}_{t_n} )\hspace{0.1cm}$
 
 ### Process with stationary increments
 
-A continouos stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}$ is a process with stationary increments if:
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
-For all pair of times  $\hspace{0.1cm}t_1,t_2 > 0\hspace{0.1cm}$ such that $\hspace{0.1cm}t_1 < t_2$
+$\hspace{0.25cm}$ A continuous stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}$ is a process with stationary increments if:
+
+$\hspace{0.25cm}$ For all pair of times  $\hspace{0.1cm}t_1,t_2 > 0\hspace{0.1cm}$ such that $\hspace{0.1cm}t_1 < t_2$
 
 
-$\mathcal{X}_{t_2} - \mathcal{X}_{t_1}\hspace{0.1cm}$ y $\hspace{0.1cm}\mathcal{X}_{t_2 + h} - \mathcal{X}_{t_1 + h}\hspace{0.1cm}$ are independents, for any $\hspace{0.1cm}h>0$
+$\hspace{0.25cm}$ $\mathcal{X}_{t_2} - \mathcal{X}_{t_1}\hspace{0.1cm}$ and $\hspace{0.1cm}\mathcal{X}_{t_2 + h} - \mathcal{X}_{t_1 + h}\hspace{0.1cm}$ are independents, for any $\hspace{0.1cm}h>0$
+
+</p>
+ 
+</p></span>
+</div>
+
 
 <br>
 
 ### Martingalas process
 
-A discrete stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.1cm}$ is a Martingalas process if:
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ A discrete stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.1cm}$ is a Martingalas process if: $\\[0.15cm]$
 
 
 
-$$E\left[\hspace{0.1cm}\mathcal{X}_{n+1} | X_0 = x_0 ,..., X_n = x_n\hspace{0.1cm} \right] \hspace{0.1cm} = \hspace{0.1cm} x_n$$ $\\[0.35cm]$
+$$E\left[\hspace{0.1cm}\mathcal{X}_{n+1} | X_0 = x_0 ,..., X_n = x_n\hspace{0.1cm} \right] \hspace{0.1cm} = \hspace{0.1cm} x_n$$ $\\[0.15cm]$
 
 
-where: $\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace$ $\\[0.35cm]$
+$\hspace{0.25cm}$ where: $\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace$ $\\[0.35cm]$
 
-
+</p>
+ 
+</p></span>
+</div>
 
 This property is known as Martingalas property, and it implies that the expected value of the sistym in the future  $\hspace{0.1cm}n+1\hspace{0.1cm}$ is the value of the system in the present $\hspace{0.1cm}x_n$. In mean the system doesn´t change of the state observed in the last moment.
 
@@ -233,28 +315,46 @@ This property is known as Martingale property, and it implies that the expected 
 
 ### Levy process
 
-A continouos stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.15cm}$ is a Levy process if is a  process of independents and stationaries increments. 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ A continuous stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.15cm}$ is a Levy process if is a  process of independents and stationaries increments. 
+
+</p>
+ 
+</p></span>
+</div>
 
 The Poisson and Brownian process are examples of Levy process.
 
 <br>
 
 
-### Gaussian Procces  <a class="anchor" id="1"></a>
+### Gaussian Process  <a class="anchor" id="1"></a>
 
-A continouos stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.15cm}$ is a Gaussian process if:
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
-For all set of times $\hspace{0.1cm}t_1,...,t_n \geq 0$
+$\hspace{0.25cm}$ A continuous stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.15cm}$ is a Gaussian process if:
+
+$\hspace{0.25cm}$ For all set of times $\hspace{0.1cm}t_1,...,t_n \geq 0$
 
 $$(\mathcal{X}_{t_1}, \mathcal{X}_{t_2},...,\mathcal{X}_{t_n}) \sim NM(\mu , \Sigma)$$
 
 
-where:
+$\hspace{0.25cm}$ where:
 
-$NM(\mu , \Sigma)\hspace{0.1cm}$ denote the multivariate Normal probability distribution with mean vector $\hspace{0.1cm}\mu\hspace{0.1cm}$ y covariance matrix $\hspace{0.1cm}\Sigma$ $\\[0.4cm]$
+$\hspace{0.25cm}$ $NM(\mu , \Sigma)\hspace{0.1cm}$ denote the multivariate Normal probability distribution with mean vector $\hspace{0.1cm}\mu\hspace{0.1cm}$ y covariance matrix $\hspace{0.1cm}\Sigma$ $\\[0.4cm]$
 
 
-
+</p>
+ 
+</p></span>
+</div>
 
 
 
@@ -284,17 +384,27 @@ In practice, the classification of a series as stationary or not depends on the 
 
 # Time series   
 
-Given a stochastic process $\hspace{0.15cm}\Bigl\{ \hspace{0.06cm} \mathcal{X}_t \hspace{0.1cm}: \hspace{0.1cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.06cm}\Bigl\} \hspace{0.1cm} = \hspace{0.1cm}\Bigl\{ \hspace{0.06cm} \mathcal{X}_1 ,  \mathcal{X}_2 ,..., \mathcal{X}_n  \hspace{0.06cm}\Bigl\} \hspace{0.1cm}$ 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
-Given a sample of one observation $\hspace{0.06cm}x_t\hspace{0.06cm}$ of each random variable $\hspace{0.06cm}\mathcal{X}_t\hspace{0.06cm}$ of the process, for $\hspace{0.06cm}t \in T=\lbrace 1,2,...,n \rbrace$. $\\[1cm]$
+$\hspace{0.25cm}$ Given a stochastic process $\hspace{0.15cm}\Bigl\{ \hspace{0.06cm} \mathcal{X}_t \hspace{0.1cm}: \hspace{0.1cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.06cm}\Bigl\} \hspace{0.1cm} = \hspace{0.1cm}\Bigl\{ \hspace{0.06cm} \mathcal{X}_1 ,  \mathcal{X}_2 ,..., \mathcal{X}_n  \hspace{0.06cm}\Bigl\} \hspace{0.1cm}$ 
+
+$\hspace{0.25cm}$ Given a sample of one observation $\hspace{0.06cm}x_t\hspace{0.06cm}$ of each random variable $\hspace{0.06cm}\mathcal{X}_t\hspace{0.06cm}$ of the process, for $\hspace{0.06cm}t \in T=\lbrace 1,2,...,n \rbrace$. $\\[1cm]$
 
 
-$\hspace{10cm} X_t = \left( x_1, x_2, ...,x_n \right)^t \hspace{0.12cm}$ is a **time serie**.
+- $X_t = \left( x_1, x_2, ...,x_n \right)^t \hspace{0.12cm}$ is a **time serie**.
  
  
-where:
+$\hspace{0.25cm}$ where:
 
-$x_t\hspace{0.06cm}$ could be interpreted as the value observed of the variable $\hspace{0.06cm}\mathcal{X}\hspace{0.06cm}$ at the time $\hspace{0.06cm}t$. $\\[0.35cm]$
+$\hspace{0.25cm}$ $x_t\hspace{0.06cm}$ could be interpreted as the value observed of the variable $\hspace{0.06cm}\mathcal{X}\hspace{0.06cm}$ at the time $\hspace{0.06cm}t$. $\\[0.35cm]$
+
+</p>
+ 
+</p></span>
+</div>
 
 
 **Observations:**
@@ -317,21 +427,29 @@ This distribution is called finite-dimensional distribution of the process. We s
 
 # Random walk
 
-A random walk is a stochastic process $\hspace{0.1cm}\Bigl\{  \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}:\hspace{0.1cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.1cm}\Bigl\} \hspace{0.1cm}$  defined as:
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
-$$\mathcal{X}_t = \mathcal{X}_{t-1} + a_t$$  
+$\hspace{0.25cm}$ A random walk is a stochastic process $\hspace{0.1cm}\Bigl\{  \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}:\hspace{0.1cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.1cm}\Bigl\} \hspace{0.1cm}$  defined as:
 
+- $\mathcal{X}_t = \mathcal{X}_{t-1} + a_t$ ,
 for $t \in \lbrace 1,...,n \rbrace$
 
-where:
+$\hspace{0.25cm}$ where:
 
-- $\mathcal{X}_0 = 0$
+- $\mathcal{X}_0 = 0$ $\\[0.25cm]$
 
-- $a_t \sim N(0, \sigma^2)$
+- $a_t \sim N(0, \sigma^2)$ $\\[0.25cm]$
 
 
 - We say that $\hspace{0.1cm}a_t \sim N(0, \sigma^2)\hspace{0.1cm}$ is a white noise.
 
+</p>
+ 
+</p></span>
+</div>
 
 <br>
 
