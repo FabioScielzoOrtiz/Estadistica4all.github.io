@@ -543,65 +543,6 @@ knowing the past.
 
 <br>
 
-# Stationary processes
-
-Given a stochastic process $\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}/\hspace{0.1cm} t \in T=\lbrace 1,2,...,k \rbrace \hspace{0.1cm}\right\rbrace \hspace{0.1cm}$
-
-A stochastic process is **strictly stationary** if:
-
-the probability distribution of $\mathcal{X}_{t}$ is the same as that of $\mathcal{X}_{t+h}$
-
-for all $\hspace{0.1cm}t \in \lbrace 1,2,...,k \rbrace\hspace{0.1cm}$ and $\hspace{0.1cm} h \in \in \lbrace 1,2,... \rbrace$.   
-
-
-
-Therefore, for all set of times $\hspace{0.1cm}t_1 , t_2,...,t_n$ 
-
-$(\mathcal{X}_{t_1}, \mathcal{X}_{t_2},\dots ,\mathcal{X}_{t_n} )\hspace{0.1cm}$ is identically distributed as $\hspace{0.1cm}(\mathcal{X}_{t_1+h}, \mathcal{X}_{t_2+h},\dots ,\mathcal{X}_{t_n+h} )$
-
-
-<br>
-
-Strict stationarity is a very strong condition, since to prove it we must have the joint distributions for any set of variables in the process. A weaker property, but one which is easier to prove, is **weak stationarity**.
-
-
-
-A stochastic process is **weakly stationary** if:
-
-- $\mu_t = \mu = cte , \forall t \in \lbrace 1,2,...,k \rbrace$
-
-- $\sigma_t^2 = \sigma = cte , , \forall t \in \lbrace 1,2,...,k \rbrace$
-
-- $\gamma_{t , t + h} = Cov(\mathcal{X}_t,\mathcal{X}_{t+h}) E[(\mathcal{X}_t - \mu)\cdot (\mathcal{X}_{t+h} - \mu)] = \gamma(h)  , \forall h \in  \lbrace 0 , \pm 1 , \pm 2 ,... \rbrace$
-
-
-
-The first two conditions indicate that the mean and variance are constant.
-
-The third indicates that the covariance between two variables depends only on
-their separation.
-
-In a stationary process the autocovariances and autocorrelations depend only on
-the lag between the variables and, in particular, the relationship between $\mathcal{X}_t$ and $\mathcal{X}_{t+h}$ ,  is always equal to the relationship between $\mathcal{X}_t$ and $\mathcal{X}_{t-h}$ .
-
-
-As a result, in stationary processes:
-
-
-
-$\gamma_{t , t + h} = \gamma_{t + r , t + h + r} = \gamma(h) , \forall r \in  \lbrace 0 , \pm 1 , \pm 2 ,... \rbrace$
-
-
-$$\rho_{t, t+h} = \dfrac{\gamma_{t , t + h}}{\sqrt{\sigma_t^2 \cdot \sigma_{t+h}^2}} = \dfrac{\gamma(h)}{\sqrt{\sigma^2 \cdot \sigma^2}} = \dfrac{\gamma(h)}{\sigma^2} = \dfrac{\gamma(h)}{\gamma(0)} = \rho(h)$$
-
-Where:
-
-$\gamma(0) = \sigma^2$
-
-
-<br>
-
-
 
 # Visualization of time series in `Python`
 
@@ -1844,7 +1785,7 @@ Time series decomposition is a process by which we separate a time series into i
 
 <br>
 
-# Forcasting Time Series
+#  Time Series Forecasting
 
 
 
@@ -1878,7 +1819,7 @@ $\widehat{y}_{n+k} \hspace{0.07cm}=\hspace{0.07cm} \widehat{g}(y_1, y_2, ...,y_n
 <br>
 
 
-# Regression Problem vs Forcasting Time Series 
+# Regression Problem vs   Time Series  Forecasting
  
 
 You probably have encountered regression problems where you must predict some continuous
@@ -1906,6 +1847,113 @@ our very first forecasting technique.
 <br>
 
 
+# Baseline Models
+
+
+
+
+
+
+<br>
+
+# Stationary processes
+
+**ver tbn lo de Maria dolores**
+
+
+
+
+Given a stochastic process $\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}/\hspace{0.1cm} t \in T=\lbrace 1,2,...,k \rbrace \hspace{0.1cm}\right\rbrace \hspace{0.1cm}$
+
+A stochastic process is **strictly stationary** if:
+
+the probability distribution of $\mathcal{X}_{t}$ is the same as that of $\mathcal{X}_{t+h}$
+
+for all $\hspace{0.1cm}t \in \lbrace 1,2,...,k \rbrace\hspace{0.1cm}$ and $\hspace{0.1cm} h \in \in \lbrace 1,2,... \rbrace$.   
+
+
+
+Therefore, for all set of times $\hspace{0.1cm}t_1 , t_2,...,t_n$ 
+
+$(\mathcal{X}_{t_1}, \mathcal{X}_{t_2},\dots ,\mathcal{X}_{t_n} )\hspace{0.1cm}$ is identically distributed as $\hspace{0.1cm}(\mathcal{X}_{t_1+h}, \mathcal{X}_{t_2+h},\dots ,\mathcal{X}_{t_n+h} )$
+
+
+<br>
+
+Strict stationarity is a very strong condition, since to prove it we must have the joint distributions for any set of variables in the process. A weaker property, but one which is easier to prove, is **weak stationarity**.
+
+
+
+A stochastic process is **weakly stationary** if:
+
+- $\mu_t = \mu = cte , \forall t \in \lbrace 1,2,...,k \rbrace$
+
+- $\sigma_t^2 = \sigma = cte , , \forall t \in \lbrace 1,2,...,k \rbrace$
+
+- $\gamma_{t , t + h} = Cov(\mathcal{X}_t,\mathcal{X}_{t+h}) E[(\mathcal{X}_t - \mu)\cdot (\mathcal{X}_{t+h} - \mu)] = \gamma(h)  , \forall h \in  \lbrace 0 , \pm 1 , \pm 2 ,... \rbrace$
+
+
+
+The first two conditions indicate that the mean and variance are constant.
+
+The third indicates that the covariance between two variables depends only on
+their separation.
+
+In a stationary process the autocovariances and autocorrelations depend only on
+the lag between the variables and, in particular, the relationship between $\mathcal{X}_t$ and $\mathcal{X}_{t+h}$ ,  is always equal to the relationship between $\mathcal{X}_t$ and $\mathcal{X}_{t-h}$ .
+
+
+As a result, in stationary processes:
+
+
+
+$\gamma_{t , t + h} = \gamma_{t + r , t + h + r} = \gamma(h) , \forall r \in  \lbrace 0 , \pm 1 , \pm 2 ,... \rbrace$
+
+
+$$\rho_{t, t+h} = \dfrac{\gamma_{t , t + h}}{\sqrt{\sigma_t^2 \cdot \sigma_{t+h}^2}} = \dfrac{\gamma(h)}{\sqrt{\sigma^2 \cdot \sigma^2}} = \dfrac{\gamma(h)}{\sigma^2} = \dfrac{\gamma(h)}{\gamma(0)} = \rho(h)$$
+
+Where:
+
+$\gamma(0) = \sigma^2$
+
+
+<br>
+
+
+# White Noise Process
+
+
+
+
+
+
+<br>
+
+
+
+
+
+
+# Transformation to get stationarity
+
+
+**ver tbn lo de Maria dolores**
+
+<br>
+
+
+# Testing for stationarity
+
+**ver tbn lo de Maria dolores**
+
+
+Dickey-fuller test
+
+Aumented Dickey Fuller test
+
+
+<br>
+
 # Random walk
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1925,12 +1973,35 @@ $\hspace{0.25cm}$ where:
 - $a_t \sim N(0, \sigma^2)$ $\\[0.25cm]$
 
 
-- We say that $\hspace{0.1cm}a_t \sim N(0, \sigma^2)\hspace{0.1cm}$ is a white noise.
+
 
 </p>
  
 </p></span>
 </div>
+
+<br>
+
+
+## Aplicar los conceptos dediferencia en parte regular y test de ddickey fuller al random walk
+
+
+
+
+<br>
+
+
+# Moving Average Process: MA
+
+
+
+
+
+
+
+
+# Autorregresive Process: AR
+
 
 <br>
 
