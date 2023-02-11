@@ -473,40 +473,40 @@ Netflix_Data.dtypes
 
 ## Change column types
 
-We can change the type of a column with `astype()` method:
+
+We can change the type of a column with `astype()` method.
+
+First, we check type of *release_year* variable is `int64`.
 
 ```python
-Netflix_Data['release_year'] = Netflix_Data['release_year'].astype('float')
+Netflix_Data.dtypes['release_year']
 ```
+
+    dtype('int64')
+
+
+Now, we can change that type to `float64` using the following function:
+
+ 
+```python
+def change_type(Data, Variable_name, New_type):
+
+    Data[Variable_name] = Data[Variable_name].astype(New_type)
+```
+ 
+```python
+change_type(Data=Netflix_Data, Variable_name='release_year', New_type='float64')
+```
+ 
+ 
 
 We can check if the changes have been done correctly:
+
 ```python
-Netflix_Data.dtypes
+Netflix_Data.dtypes['release_year']
 ```
 
-
-
-
-    id                       object
-    title                    object
-    type                     object
-    description              object
-    release_year            float64
-    age_certification        object
-    runtime                   int64
-    genres                   object
-    production_countries     object
-    seasons                 float64
-    imdb_id                  object
-    imdb_score              float64
-    imdb_votes              float64
-    tmdb_popularity         float64
-    tmdb_score              float64
-    dtype: object
-
-
-
-
+    dtype('float64')
 
 <br>
 
@@ -1593,6 +1593,893 @@ $$ $\\[0.5cm]$
  
 Also It's easy to see that if we had used $t=0.1$ we would have obtained the same categorization intervals as with the decile rule.
 
+<br>
+
+
+### Categorization of Quantitative Variables in `Python`
+
+
+```python
+pd.cut(x=Netflix_Data['release_year'] , bins=5 )
+```
+
+
+
+
+    0       (1944.923, 1960.4]
+    1         (1975.8, 1991.2]
+    2         (1960.4, 1975.8]
+    3         (1960.4, 1975.8]
+    4         (1960.4, 1975.8]
+                   ...        
+    5845      (2006.6, 2022.0]
+    5846      (2006.6, 2022.0]
+    5847      (2006.6, 2022.0]
+    5848      (2006.6, 2022.0]
+    5849      (2006.6, 2022.0]
+    Name: release_year, Length: 5850, dtype: category
+    Categories (5, interval[float64, right]): [(1944.923, 1960.4] < (1960.4, 1975.8] < (1975.8, 1991.2] < (1991.2, 2006.6] < (2006.6, 2022.0]]
+
+
+
+
+```python
+pd.cut(x=Netflix_Data['release_year'] , bins=5 , labels=False)
+```
+
+
+
+
+    0       0
+    1       2
+    2       1
+    3       1
+    4       1
+           ..
+    5845    4
+    5846    4
+    5847    4
+    5848    4
+    5849    4
+    Name: release_year, Length: 5850, dtype: int64
+
+
+
+
+
+### Using the median rule in `Python`
+
+
+
+```python
+intervals = [Netflix_Data['release_year'].min() - 0.5 , Netflix_Data['release_year'].median(), Netflix_Data['release_year'].max() ]
+intervals
+```
+
+
+
+
+    [1944.5, 2018.0, 2022.0]
+
+
+
+
+```python
+pd.cut(x=Netflix_Data['release_year'], bins=intervals )
+
+```
+
+
+
+
+    0       (1944.5, 2018.0]
+    1       (1944.5, 2018.0]
+    2       (1944.5, 2018.0]
+    3       (1944.5, 2018.0]
+    4       (1944.5, 2018.0]
+                  ...       
+    5845    (2018.0, 2022.0]
+    5846    (2018.0, 2022.0]
+    5847    (2018.0, 2022.0]
+    5848    (2018.0, 2022.0]
+    5849    (2018.0, 2022.0]
+    Name: release_year, Length: 5850, dtype: category
+    Categories (2, interval[float64, right]): [(1944.5, 2018.0] < (2018.0, 2022.0]]
+
+
+
+
+```python
+pd.cut(x=Netflix_Data['release_year'], bins=intervals, labels=False )
+```
+
+
+
+
+    0       0
+    1       0
+    2       0
+    3       0
+    4       0
+           ..
+    5845    1
+    5846    1
+    5847    1
+    5848    1
+    5849    1
+    Name: release_year, Length: 5850, dtype: int64
+
+
+
+
+
+### Using quartile's rule
+
+
+```python
+intervals = [Netflix_Data['release_year'].min() - 1 , Netflix_Data['release_year'].quantile(0.25), Netflix_Data['release_year'].quantile(0.5), Netflix_Data['release_year'].quantile(0.75), Netflix_Data['release_year'].max()]
+intervals
+```
+
+
+
+
+    [1944.0, 2016.0, 2018.0, 2020.0, 2022.0]
+
+
+
+
+```python
+Netflix_Data['release_year_cat_int_1'] = pd.cut(x=Netflix_Data['release_year'], bins=intervals )
+```
+
+
+```python
+Netflix_Data['release_year_cat_1'] = pd.cut(x=Netflix_Data['release_year'], bins=intervals, labels=False )
+```
+
+
+```python
+Netflix_Data.loc[: , ['release_year','release_year_cat_int_1','release_year_cat_1']]
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>release_year</th>
+      <th>release_year_cat_int</th>
+      <th>release_year_cat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1945.0</td>
+      <td>(1944.0, 2016.0]</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1976.0</td>
+      <td>(1944.0, 2016.0]</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1972.0</td>
+      <td>(1944.0, 2016.0]</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1975.0</td>
+      <td>(1944.0, 2016.0]</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1967.0</td>
+      <td>(1944.0, 2016.0]</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5845</th>
+      <td>2021.0</td>
+      <td>(2020.0, 2022.0]</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>5846</th>
+      <td>2021.0</td>
+      <td>(2020.0, 2022.0]</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>5847</th>
+      <td>2021.0</td>
+      <td>(2020.0, 2022.0]</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>5848</th>
+      <td>2021.0</td>
+      <td>(2020.0, 2022.0]</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>5849</th>
+      <td>2021.0</td>
+      <td>(2020.0, 2022.0]</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+<p>5850 rows × 3 columns</p>
+</div>
+
+
+
+
+
+### Using deciles rule
+
+
+```python
+import numpy as np
+```
+
+
+```python
+intervals = []
+
+for q in np.arange(0, 1, step=0.1) :
+
+    intervals.append( Netflix_Data['imdb_score'].quantile(q))
+```
+
+
+```python
+np.arange(0, 1, step=0.1)
+```
+
+
+
+
+    array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
+
+
+
+
+```python
+intervals
+```
+
+
+
+
+    [1.5, 5.0, 5.6, 6.0, 6.3, 6.6, 6.9, 7.2, 7.5, 7.9]
+
+
+
+
+```python
+intervals[0] = intervals[0] - 0.5 # El primer extremo debe ser Q(0) - c
+```
+
+
+```python
+intervals.append(Netflix_Data['imdb_score'].quantile(1)) # El ultimo extremo debe ser Q(1)
+```
+
+
+```python
+intervals
+```
+
+
+
+
+    [1.0, 5.0, 5.6, 6.0, 6.3, 6.6, 6.9, 7.2, 7.5, 7.9, 9.6]
+
+
+
+
+```python
+Netflix_Data['imdb_score_cat_int_1'] = pd.cut(x=Netflix_Data['imdb_score'], bins=intervals )
+```
+
+
+```python
+Netflix_Data['imdb_score_cat_1'] = pd.cut(x=Netflix_Data['imdb_score'], bins=intervals, labels=False )
+```
+
+
+```python
+Netflix_Data.loc[: , ['imdb_score','imdb_score_cat_int_1','imdb_score_cat_1']]
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>imdb_score</th>
+      <th>imdb_score_cat_int_1</th>
+      <th>imdb_score_cat_1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8.2</td>
+      <td>(7.9, 9.6]</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7.7</td>
+      <td>(7.5, 7.9]</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8.2</td>
+      <td>(7.9, 9.6]</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>7.7</td>
+      <td>(7.5, 7.9]</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5845</th>
+      <td>6.8</td>
+      <td>(6.6, 6.9]</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>5846</th>
+      <td>7.7</td>
+      <td>(7.5, 7.9]</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>5847</th>
+      <td>3.8</td>
+      <td>(1.0, 5.0]</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>5848</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5849</th>
+      <td>7.8</td>
+      <td>(7.5, 7.9]</td>
+      <td>8.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5850 rows × 3 columns</p>
+</div>
+
+
+
+
+```python
+df1 = pd.DataFrame()
+
+for i in range(0,len(Netflix_Data['imdb_score_cat_1'].unique())):
+
+    df2 = Netflix_Data.loc[ Netflix_Data.imdb_score_cat_1 == i , ['imdb_score_cat_int_1','imdb_score_cat_1']  ].head(1)
+
+    df1 = pd.concat([df1 , df2], axis=0)
+```
+
+
+```python
+df1
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>imdb_score_cat_int_1</th>
+      <th>imdb_score_cat_1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>19</th>
+      <td>(1.0, 5.0]</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>(5.0, 5.6]</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>(5.6, 6.0]</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>(6.0, 6.3]</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>(6.3, 6.6]</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>(6.6, 6.9]</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>(6.9, 7.2]</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>(7.2, 7.5]</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>(7.5, 7.9]</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>(7.9, 9.6]</td>
+      <td>9.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+### Using quantiles rule with t=0.05
+
+
+```python
+np.arange(0, 1, step=0.05)
+```
+
+
+
+
+    array([0.  , 0.05, 0.1 , 0.15, 0.2 , 0.25, 0.3 , 0.35, 0.4 , 0.45, 0.5 ,
+           0.55, 0.6 , 0.65, 0.7 , 0.75, 0.8 , 0.85, 0.9 , 0.95])
+
+
+
+
+```python
+intervals = []
+
+for q in np.arange(0, 1, step=0.05) :
+
+    intervals.append( Netflix_Data['imdb_score'].quantile(q))
+```
+
+
+```python
+intervals
+```
+
+
+
+
+    [1.5,
+     4.4,
+     5.0,
+     5.3,
+     5.6,
+     5.8,
+     6.0,
+     6.2,
+     6.3,
+     6.5,
+     6.6,
+     6.8,
+     6.9,
+     7.1,
+     7.2,
+     7.3,
+     7.5,
+     7.7,
+     7.9,
+     8.2]
+
+
+
+
+```python
+intervals[0] = intervals[0] - 0.5
+```
+
+
+```python
+intervals.append(Netflix_Data['imdb_score'].quantile(1))
+```
+
+
+```python
+intervals
+```
+
+
+
+
+    [1.0,
+     4.4,
+     5.0,
+     5.3,
+     5.6,
+     5.8,
+     6.0,
+     6.2,
+     6.3,
+     6.5,
+     6.6,
+     6.8,
+     6.9,
+     7.1,
+     7.2,
+     7.3,
+     7.5,
+     7.7,
+     7.9,
+     8.2,
+     9.6]
+
+
+
+
+```python
+Netflix_Data['imdb_score_cat_int_2'] = pd.cut(x=Netflix_Data['imdb_score'], bins=intervals )
+```
+
+
+```python
+Netflix_Data['imdb_score_cat_2'] = pd.cut(x=Netflix_Data['imdb_score'], bins=intervals, labels=False )
+```
+
+
+```python
+Netflix_Data.loc[: , ['imdb_score','imdb_score_cat_int_2','imdb_score_cat_2']]
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>imdb_score</th>
+      <th>imdb_score_cat_int_2</th>
+      <th>imdb_score_cat_2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8.2</td>
+      <td>(7.9, 8.2]</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7.7</td>
+      <td>(7.5, 7.7]</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8.2</td>
+      <td>(7.9, 8.2]</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>7.7</td>
+      <td>(7.5, 7.7]</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5845</th>
+      <td>6.8</td>
+      <td>(6.6, 6.8]</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>5846</th>
+      <td>7.7</td>
+      <td>(7.5, 7.7]</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>5847</th>
+      <td>3.8</td>
+      <td>(1.0, 4.4]</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>5848</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5849</th>
+      <td>7.8</td>
+      <td>(7.7, 7.9]</td>
+      <td>17.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5850 rows × 3 columns</p>
+</div>
+
+
+
+
+```python
+df1 = pd.DataFrame()
+
+for i in range(0,len(Netflix_Data['imdb_score_cat_2'].unique())):
+
+    df2 = Netflix_Data.loc[ Netflix_Data.imdb_score_cat_2 == i , ['imdb_score_cat_int_2','imdb_score_cat_2']  ].head(1)
+
+    df1 = pd.concat([df1 , df2], axis=0)
+```
+
+
+```python
+df1 
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>imdb_score_cat_int_2</th>
+      <th>imdb_score_cat_2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>19</th>
+      <td>(1.0, 4.4]</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>(4.4, 5.0]</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>(5.0, 5.3]</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>(5.3, 5.6]</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>(5.6, 5.8]</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>(5.8, 6.0]</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>(6.0, 6.2]</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>(6.2, 6.3]</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>(6.3, 6.5]</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>(6.5, 6.6]</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>(6.6, 6.8]</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>(6.8, 6.9]</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>(6.9, 7.1]</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>(7.1, 7.2]</td>
+      <td>13.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>(7.2, 7.3]</td>
+      <td>14.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>(7.3, 7.5]</td>
+      <td>15.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>(7.5, 7.7]</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>(7.7, 7.9]</td>
+      <td>17.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>(7.9, 8.2]</td>
+      <td>18.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>(8.2, 9.6]</td>
+      <td>19.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
  
  
 <br>
@@ -1609,6 +2496,503 @@ Dummify $\hspace{0.06cm}X_k\hspace{0.06cm}$ consist of obtaining the new dummy s
 $$x_{i,kj} = \left\lbrace\begin{array}{l} 1 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} = j \\[0.1cm] 0 \hspace{0.25cm}, \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \neq j  \end{array}\right.$$
 
 for $\hspace{0.06cm}j\in \lbrace 0\hspace{0.06cm},\hspace{0.06cm}1\hspace{0.06cm},\dots ,\hspace{0.06cm}h-1 \rbrace$
+
+<br>
+
+
+
+
+### Dummification of Categorical Variables in `Python`
+
+
+```python
+pd.get_dummies(Netflix_Data.loc[:, 'type'])
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MOVIE</th>
+      <th>SHOW</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5845</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5846</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5847</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5848</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5849</th>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>5850 rows × 2 columns</p>
+</div>
+
+
+
+
+```python
+pd.get_dummies(Netflix_Data.loc[:, 'age_certification'])
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>G</th>
+      <th>NC-17</th>
+      <th>PG</th>
+      <th>PG-13</th>
+      <th>R</th>
+      <th>TV-14</th>
+      <th>TV-G</th>
+      <th>TV-MA</th>
+      <th>TV-PG</th>
+      <th>TV-Y</th>
+      <th>TV-Y7</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5845</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5846</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5847</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5848</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5849</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5850 rows × 11 columns</p>
+</div>
+
+
+
+
+```python
+pd.get_dummies(Netflix_Data.loc[:, 'age_certification'], drop_first=True)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>NC-17</th>
+      <th>PG</th>
+      <th>PG-13</th>
+      <th>R</th>
+      <th>TV-14</th>
+      <th>TV-G</th>
+      <th>TV-MA</th>
+      <th>TV-PG</th>
+      <th>TV-Y</th>
+      <th>TV-Y7</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5845</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5846</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5847</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5848</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5849</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5850 rows × 10 columns</p>
+</div>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2275,6 +3659,19 @@ $$  $\\[0.4cm]$
 
 
 A frequency table is a table that contains the absolut, relative and also cumulative frequencies of a statistical variable.
+
+
+
+
+### Frequency Table in `Python`
+
+
+
+
+
+
+
+
 
 
 
