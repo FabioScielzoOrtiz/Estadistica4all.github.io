@@ -389,17 +389,17 @@ In practice, the classification of a series as stationary or not depends on the 
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ Given a stochastic process $\hspace{0.15cm}\Bigl\{ \hspace{0.06cm} \mathcal{X}_t \hspace{0.1cm}: \hspace{0.1cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.06cm}\Bigl\} \hspace{0.1cm} = \hspace{0.1cm}\Bigl\{ \hspace{0.06cm} \mathcal{X}_1 ,  \mathcal{X}_2 ,..., \mathcal{X}_n  \hspace{0.06cm}\Bigl\} \hspace{0.1cm}$ 
+$\hspace{0.25cm}$ Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.1cm}=\hspace{0.1cm} \Bigl( \hspace{0.06cm} \mathcal{Y}_t \hspace{0.12cm}: \hspace{0.12cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.06cm}\Bigl) \hspace{0.1cm} = \hspace{0.1cm}\Bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\Bigl) \hspace{0.1cm}$ 
 
-$\hspace{0.25cm}$ Given a sample of one observation $\hspace{0.06cm}x_t\hspace{0.06cm}$ of each random variable $\hspace{0.06cm}\mathcal{X}_t\hspace{0.06cm}$ of the process, for $\hspace{0.06cm}t \in T=\lbrace 1,2,...,n \rbrace$. $\\[1cm]$
+$\hspace{0.25cm}$ Given a sample of one observation $\hspace{0.06cm}y_t\hspace{0.06cm}$ of each random variable $\hspace{0.06cm}\mathcal{Y}_t\hspace{0.06cm}$ of the process, for $\hspace{0.06cm}t \in T=\lbrace 1,2,...,n \rbrace$. $\\[0.5cm]$
 
 
-- $X_t = \left( x_1, x_2, ...,x_n \right)^t \hspace{0.12cm}$ is a **time serie**.
+- $Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.12cm}$ is a **time serie**.
  
  
 $\hspace{0.25cm}$ where:
 
-$\hspace{0.25cm}$ $x_t\hspace{0.06cm}$ could be interpreted as the value observed of the variable $\hspace{0.06cm}\mathcal{X}\hspace{0.06cm}$ at the time $\hspace{0.06cm}t$. $\\[0.35cm]$
+$\hspace{0.35cm}$ $y_t\hspace{0.06cm}$ could be interpreted as the value observed of the variable $\hspace{0.06cm}\mathcal{Y}\hspace{0.06cm}$ at the time or period $\hspace{0.06cm}t$. $\\[0.15cm]$
 
 </p>
  
@@ -409,49 +409,25 @@ $\hspace{0.25cm}$ $x_t\hspace{0.06cm}$ could be interpreted as the value observe
 
 **Observations:**
 
-- $x_t \in \mathbb{R}\hspace{0.06cm}$ is a realization of the random variable $\mathcal{X}_t$ $\\[0.35cm]$
+- $y_t \in \mathbb{R}\hspace{0.06cm}$ is a realization of the random variable $\mathcal{Y}_t$ $\\[0.35cm]$
 
 
-- A time serie is a realization of a stochastic process. The time serie is considered a result or trajectory of the stochastic process.
+- A time series is a realization of a stochastic process. The time series is considered a result or trajectory of the stochastic process. $\\[0.35cm]$
+
+- A time series can be defined as a vector of data points ordered in time. Where the data is equally spaced in time, namely, between each data point there is the same time space, such as a week, a month, a trimester, a quarter ...
 
 
 
 
-The process is characterized by the join probability distribution of the random variables $\hspace{0.1cm}\Bigl\{  \hspace{0.06cm} \mathcal{X}_1 ,  \mathcal{X}_2 ,..., \mathcal{X}_k  \hspace{0.06cm} \Bigl\} \hspace{0.1cm}$, namely, is characterized by the join density or probability function $\hspace{0.06cm}f_{\mathcal{X}_1 ,  \mathcal{X}_2 ,..., \mathcal{X}_k}$. 
+The process is characterized by the join probability distribution of the random variables $\hspace{0.1cm}\Bigl\{  \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_k  \hspace{0.06cm} \Bigl\} \hspace{0.1cm}$, namely, is characterized by the join density or probability function $\hspace{0.06cm}f_{\mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_k}$. 
 
 This distribution is called finite-dimensional distribution of the process. We say that we know the probabilistic structure of the stochastic process when we know that join distribution, which determine the distribution of any subset of the variables and, in particular, the marginal distribution of each variable.
 
-
 <br>
 
 
-# Random walk
-
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
- 
-<p style='margin-left:1em;'>
-
-$\hspace{0.25cm}$ A random walk is a stochastic process $\hspace{0.1cm}\Bigl\{  \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}:\hspace{0.1cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.1cm}\Bigl\} \hspace{0.1cm}$  defined as:
-
-- $\mathcal{X}_t = \mathcal{X}_{t-1} + a_t$ ,
-for $t \in \lbrace 1,...,n \rbrace$
-
-$\hspace{0.25cm}$ where:
-
-- $\mathcal{X}_0 = 0$ $\\[0.25cm]$
-
-- $a_t \sim N(0, \sigma^2)$ $\\[0.25cm]$
 
 
-- We say that $\hspace{0.1cm}a_t \sim N(0, \sigma^2)\hspace{0.1cm}$ is a white noise.
-
-</p>
- 
-</p></span>
-</div>
-
-<br>
 
 # Mean function 
 
@@ -623,9 +599,1345 @@ Where:
 $\gamma(0) = \sigma^2$
 
 
+<br>
 
 
-DIAPOSITIVA 23
 
+# Visualization of time series in `Python`
+
+
+
+
+Throughout this article we will use a time series on sales of a company. 
+
+First of all, we load some of the libraries that we are to use:
+
+```python
+import pandas as pd
+import numpy as np
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
+
+```python
+sns.set_theme()
+
+sns.set(rc={'figure.figsize':(20,9)})
+```
+
+We load the data-set:
+
+```python
+Time_Series_1 = pd.read_csv('Time_Series_1.csv')
+```
+
+
+
+
+```python
+Time_Series_1
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CODARTIC</th>
+      <th>CODIREGG</th>
+      <th>IMPLINEA</th>
+      <th>IMPVENTA</th>
+      <th>CODTAVEN</th>
+      <th>QCANTDEC</th>
+      <th>NUMTARJE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10254201003449</td>
+      <td>1</td>
+      <td>59.99</td>
+      <td>59.99</td>
+      <td>2022-06-21001069602336387</td>
+      <td>1.0</td>
+      <td>6.008330e+18</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10234141001560</td>
+      <td>1</td>
+      <td>12.72</td>
+      <td>12.72</td>
+      <td>2021-08-03001002100821700</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10865290000019</td>
+      <td>4</td>
+      <td>11.20</td>
+      <td>11.20</td>
+      <td>2022-08-21001009006714129</td>
+      <td>1.0</td>
+      <td>6.008330e+18</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10004136025419</td>
+      <td>1</td>
+      <td>48.97</td>
+      <td>48.97</td>
+      <td>2022-07-09001003602372694</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10073131011804</td>
+      <td>1</td>
+      <td>22.95</td>
+      <td>22.95</td>
+      <td>2022-05-14001091203649080</td>
+      <td>1.0</td>
+      <td>6.008330e+18</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>704350</th>
+      <td>10271412016641</td>
+      <td>1</td>
+      <td>18.90</td>
+      <td>18.90</td>
+      <td>2022-02-10001003601776985</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>704351</th>
+      <td>10411524000184</td>
+      <td>2</td>
+      <td>-29.99</td>
+      <td>-29.99</td>
+      <td>2022-06-02001009803937030</td>
+      <td>-1.0</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>704352</th>
+      <td>10092532091505</td>
+      <td>1</td>
+      <td>75.00</td>
+      <td>75.00</td>
+      <td>2022-05-19001003602477163</td>
+      <td>1.0</td>
+      <td>6.008330e+18</td>
+    </tr>
+    <tr>
+      <th>704353</th>
+      <td>10805731000015</td>
+      <td>2</td>
+      <td>-12.59</td>
+      <td>-10.70</td>
+      <td>2022-02-17001009008963198</td>
+      <td>-1.0</td>
+      <td>6.008330e+18</td>
+    </tr>
+    <tr>
+      <th>704354</th>
+      <td>10084472093096</td>
+      <td>1</td>
+      <td>6.95</td>
+      <td>6.95</td>
+      <td>2021-06-06001048902492799</td>
+      <td>1.0</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>704355 rows × 7 columns</p>
+</div>
+
+
+The default periodicity of this time series is daily.
+
+
+We can group a time series by different periods, as hours, days, weeks, months, quarter, years... 
+
+Concretely we will group this time series by day, week, month and quarter.
+
+
+We can get date column as follows:
+
+```python
+Time_Series_1['Fecha'] = Time_Series_1['CODTAVEN'].str[0:10]
+```
+
+We have to convert date column to date format:
+```python
+Time_Series_1['Fecha'] = pd.to_datetime(Time_Series_1['Fecha'])
+```
+
+We can create the columns Day, Week, Month, Quarter and Year as follows:
+
+```python
+Time_Series_1['Dia'] = Time_Series_1['Fecha'].dt.day
+
+Time_Series_1['Semana'] = Time_Series_1['Fecha'].dt.week
+
+Time_Series_1['Mes'] = Time_Series_1['Fecha'].dt.month
+
+Time_Series_1['Trimestre'] = Time_Series_1['Fecha'].dt.quarter
+
+Time_Series_1['Año'] = Time_Series_1['Fecha'].dt.year
+```
+
+We select the columns with which we are going to work. IMPVENTA will be the response variable, namely, the variable we want to predict.
+
+```python
+Time_Series_1 = Time_Series_1.loc[: , ['Fecha', 'Dia', 'Semana', 'Mes', 'Trimestre', 'Año', 'IMPVENTA']]
+```
+
+
+```python
+Time_Series_1
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fecha</th>
+      <th>Dia</th>
+      <th>Semana</th>
+      <th>Mes</th>
+      <th>Trimestre</th>
+      <th>Año</th>
+      <th>IMPVENTA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2022-06-21</td>
+      <td>21</td>
+      <td>25</td>
+      <td>6</td>
+      <td>2</td>
+      <td>2022</td>
+      <td>59.99</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021-08-03</td>
+      <td>3</td>
+      <td>31</td>
+      <td>8</td>
+      <td>3</td>
+      <td>2021</td>
+      <td>12.72</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2022-08-21</td>
+      <td>21</td>
+      <td>33</td>
+      <td>8</td>
+      <td>3</td>
+      <td>2022</td>
+      <td>11.20</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2022-07-09</td>
+      <td>9</td>
+      <td>27</td>
+      <td>7</td>
+      <td>3</td>
+      <td>2022</td>
+      <td>48.97</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2022-05-14</td>
+      <td>14</td>
+      <td>19</td>
+      <td>5</td>
+      <td>2</td>
+      <td>2022</td>
+      <td>22.95</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>704350</th>
+      <td>2022-02-10</td>
+      <td>10</td>
+      <td>6</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2022</td>
+      <td>18.90</td>
+    </tr>
+    <tr>
+      <th>704351</th>
+      <td>2022-06-02</td>
+      <td>2</td>
+      <td>22</td>
+      <td>6</td>
+      <td>2</td>
+      <td>2022</td>
+      <td>-29.99</td>
+    </tr>
+    <tr>
+      <th>704352</th>
+      <td>2022-05-19</td>
+      <td>19</td>
+      <td>20</td>
+      <td>5</td>
+      <td>2</td>
+      <td>2022</td>
+      <td>75.00</td>
+    </tr>
+    <tr>
+      <th>704353</th>
+      <td>2022-02-17</td>
+      <td>17</td>
+      <td>7</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2022</td>
+      <td>-10.70</td>
+    </tr>
+    <tr>
+      <th>704354</th>
+      <td>2021-06-06</td>
+      <td>6</td>
+      <td>22</td>
+      <td>6</td>
+      <td>2</td>
+      <td>2021</td>
+      <td>6.95</td>
+    </tr>
+  </tbody>
+</table>
+<p>704355 rows × 7 columns</p>
+</div>
+
+
+<br>
+
+
+## Visualization of Monthly Time Series
+
+
+```python
+Monthly_Time_Series_1 = Time_Series_1.groupby(['Año', 'Mes'])['IMPVENTA'].sum().reset_index(drop=False)
+```
+
+
+```python
+Monthly_Time_Series_1
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Año</th>
+      <th>Mes</th>
+      <th>IMPVENTA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021</td>
+      <td>6</td>
+      <td>992891.50</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021</td>
+      <td>7</td>
+      <td>982142.75</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021</td>
+      <td>8</td>
+      <td>885289.16</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2021</td>
+      <td>9</td>
+      <td>878563.14</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2021</td>
+      <td>10</td>
+      <td>923552.45</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2021</td>
+      <td>11</td>
+      <td>1527486.61</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2021</td>
+      <td>12</td>
+      <td>1438722.72</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2022</td>
+      <td>1</td>
+      <td>1910816.46</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2022</td>
+      <td>2</td>
+      <td>1317501.34</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2022</td>
+      <td>3</td>
+      <td>1524652.47</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2022</td>
+      <td>4</td>
+      <td>2060509.71</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2022</td>
+      <td>5</td>
+      <td>2316733.47</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>2022</td>
+      <td>6</td>
+      <td>2872219.23</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2022</td>
+      <td>7</td>
+      <td>2731251.02</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2022</td>
+      <td>8</td>
+      <td>1844222.02</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>2022</td>
+      <td>9</td>
+      <td>1068975.95</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2022</td>
+      <td>10</td>
+      <td>895735.29</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>2022</td>
+      <td>11</td>
+      <td>1544511.61</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>2022</td>
+      <td>12</td>
+      <td>1272814.69</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+This step is necessary to create Month-Year column, which will be used to carry out the plot.
+
+```python
+Monthly_Time_Series_1['Año'] = Monthly_Time_Series_1['Año'].astype('string')
+Monthly_Time_Series_1['Mes'] = Monthly_Time_Series_1['Mes'].astype('string')
+
+Monthly_Time_Series_1['Mes-Año'] = Monthly_Time_Series_1[['Mes', 'Año']].agg('-'.join, axis=1)
+```
+
+
+```python
+Monthly_Time_Series_1
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Año</th>
+      <th>Mes</th>
+      <th>IMPVENTA</th>
+      <th>Mes-Año</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021</td>
+      <td>6</td>
+      <td>992891.50</td>
+      <td>6-2021</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021</td>
+      <td>7</td>
+      <td>982142.75</td>
+      <td>7-2021</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021</td>
+      <td>8</td>
+      <td>885289.16</td>
+      <td>8-2021</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2021</td>
+      <td>9</td>
+      <td>878563.14</td>
+      <td>9-2021</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2021</td>
+      <td>10</td>
+      <td>923552.45</td>
+      <td>10-2021</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2021</td>
+      <td>11</td>
+      <td>1527486.61</td>
+      <td>11-2021</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2021</td>
+      <td>12</td>
+      <td>1438722.72</td>
+      <td>12-2021</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2022</td>
+      <td>1</td>
+      <td>1910816.46</td>
+      <td>1-2022</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2022</td>
+      <td>2</td>
+      <td>1317501.34</td>
+      <td>2-2022</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2022</td>
+      <td>3</td>
+      <td>1524652.47</td>
+      <td>3-2022</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2022</td>
+      <td>4</td>
+      <td>2060509.71</td>
+      <td>4-2022</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2022</td>
+      <td>5</td>
+      <td>2316733.47</td>
+      <td>5-2022</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>2022</td>
+      <td>6</td>
+      <td>2872219.23</td>
+      <td>6-2022</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2022</td>
+      <td>7</td>
+      <td>2731251.02</td>
+      <td>7-2022</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2022</td>
+      <td>8</td>
+      <td>1844222.02</td>
+      <td>8-2022</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>2022</td>
+      <td>9</td>
+      <td>1068975.95</td>
+      <td>9-2022</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2022</td>
+      <td>10</td>
+      <td>895735.29</td>
+      <td>10-2022</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>2022</td>
+      <td>11</td>
+      <td>1544511.61</td>
+      <td>11-2022</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>2022</td>
+      <td>12</td>
+      <td>1272814.69</td>
+      <td>12-2022</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+We create the plot:
+
+```python
+fig, ax = plt.subplots()
+
+p=sns.lineplot(x="Mes-Año", y="IMPVENTA", data=Monthly_Time_Series_1 , color='red')
+
+plt.setp(p.get_xticklabels(), rotation=90)
+
+plt.title("Monthly Time Series",  fontsize = 17)
+
+fig.savefig('p1.jpg', format='jpg', dpi=1200)
+
+plt.show()
+```
+
+
+<center>
+
+![](p1.jpg){width="90%"}
+
+</center> 
+
+
+    
+
+
+<br>
+
+## Visualization of Daily Time Series
+
+
+```python
+Daily_Time_Series_1 = Time_Series_1.groupby(['Año', 'Mes','Dia'])['IMPVENTA'].sum().reset_index(drop=False)
+```
+
+
+```python
+Daily_Time_Series_1
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Año</th>
+      <th>Mes</th>
+      <th>Dia</th>
+      <th>IMPVENTA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021</td>
+      <td>6</td>
+      <td>1</td>
+      <td>26423.78</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021</td>
+      <td>6</td>
+      <td>2</td>
+      <td>18752.01</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021</td>
+      <td>6</td>
+      <td>3</td>
+      <td>22812.84</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2021</td>
+      <td>6</td>
+      <td>4</td>
+      <td>107889.11</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2021</td>
+      <td>6</td>
+      <td>5</td>
+      <td>136714.44</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>574</th>
+      <td>2022</td>
+      <td>12</td>
+      <td>27</td>
+      <td>64542.49</td>
+    </tr>
+    <tr>
+      <th>575</th>
+      <td>2022</td>
+      <td>12</td>
+      <td>28</td>
+      <td>59913.84</td>
+    </tr>
+    <tr>
+      <th>576</th>
+      <td>2022</td>
+      <td>12</td>
+      <td>29</td>
+      <td>53815.43</td>
+    </tr>
+    <tr>
+      <th>577</th>
+      <td>2022</td>
+      <td>12</td>
+      <td>30</td>
+      <td>52695.32</td>
+    </tr>
+    <tr>
+      <th>578</th>
+      <td>2022</td>
+      <td>12</td>
+      <td>31</td>
+      <td>39739.67</td>
+    </tr>
+  </tbody>
+</table>
+<p>579 rows × 4 columns</p>
+</div>
+
+
+
+
+```python
+Daily_Time_Series_1['Año'] = Daily_Time_Series_1['Año'].astype('string')
+Daily_Time_Series_1['Mes'] = Daily_Time_Series_1['Mes'].astype('string')
+Daily_Time_Series_1['Dia'] = Daily_Time_Series_1['Dia'].astype('string')
+
+Daily_Time_Series_1['Dia-Mes-Año'] = Daily_Time_Series_1[['Dia', 'Mes', 'Año']].agg('-'.join, axis=1)
+```
+
+
+```python
+Daily_Time_Series_1
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Año</th>
+      <th>Mes</th>
+      <th>Dia</th>
+      <th>IMPVENTA</th>
+      <th>Dia-Mes-Año</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021</td>
+      <td>6</td>
+      <td>1</td>
+      <td>26423.78</td>
+      <td>1-6-2021</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021</td>
+      <td>6</td>
+      <td>2</td>
+      <td>18752.01</td>
+      <td>2-6-2021</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021</td>
+      <td>6</td>
+      <td>3</td>
+      <td>22812.84</td>
+      <td>3-6-2021</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2021</td>
+      <td>6</td>
+      <td>4</td>
+      <td>107889.11</td>
+      <td>4-6-2021</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2021</td>
+      <td>6</td>
+      <td>5</td>
+      <td>136714.44</td>
+      <td>5-6-2021</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>574</th>
+      <td>2022</td>
+      <td>12</td>
+      <td>27</td>
+      <td>64542.49</td>
+      <td>27-12-2022</td>
+    </tr>
+    <tr>
+      <th>575</th>
+      <td>2022</td>
+      <td>12</td>
+      <td>28</td>
+      <td>59913.84</td>
+      <td>28-12-2022</td>
+    </tr>
+    <tr>
+      <th>576</th>
+      <td>2022</td>
+      <td>12</td>
+      <td>29</td>
+      <td>53815.43</td>
+      <td>29-12-2022</td>
+    </tr>
+    <tr>
+      <th>577</th>
+      <td>2022</td>
+      <td>12</td>
+      <td>30</td>
+      <td>52695.32</td>
+      <td>30-12-2022</td>
+    </tr>
+    <tr>
+      <th>578</th>
+      <td>2022</td>
+      <td>12</td>
+      <td>31</td>
+      <td>39739.67</td>
+      <td>31-12-2022</td>
+    </tr>
+  </tbody>
+</table>
+<p>579 rows × 5 columns</p>
+</div>
+
+
+
+
+```python
+fig, ax = plt.subplots()
+
+p=sns.lineplot(x="Dia-Mes-Año", y="IMPVENTA", data=Daily_Time_Series_1 , color='red')
+
+p.set_xticks(np.arange(0 , len(Daily_Time_Series_1) , 40))
+
+plt.setp(p.get_xticklabels(), rotation=90)
+
+plt.title("Daily Time Series", fontsize = 20)
+
+fig.savefig('p2.jpg', format='jpg', dpi=1200)
+
+plt.show()
+```
+
+
+    
+<center>
+
+![](p2.jpg){width="90%"}
+
+</center> 
+    
+
+<br>
+
+
+## Visualization of Weekly Time Series
+
+
+```python
+Weekly_Time_Series_1 = Time_Series_1.groupby(['Año', 'Mes','Semana'])['IMPVENTA'].sum().reset_index(drop=False)
+```
+
+
+```python
+Weekly_Time_Series_1['Año'] = Weekly_Time_Series_1['Año'].astype('string')
+Weekly_Time_Series_1['Mes'] = Weekly_Time_Series_1['Mes'].astype('string')
+Weekly_Time_Series_1['Semana'] = Weekly_Time_Series_1['Semana'].astype('string')
+
+Weekly_Time_Series_1['Semana-Mes-Año'] = Weekly_Time_Series_1[['Semana', 'Mes', 'Año']].agg('-'.join, axis=1)
+```
+
+
+```python
+fig, ax = plt.subplots()
+
+p=sns.lineplot(x="Semana-Mes-Año", y="IMPVENTA", data=Weekly_Time_Series_1 , color='red')
+
+p.set_xticks(np.arange(0 , len(Weekly_Time_Series_1) , 5))
+
+plt.setp(p.get_xticklabels(), rotation=90)
+
+plt.title("Weekly Time Series",  fontsize = 17)
+
+fig.savefig('p3.jpg', format='jpg', dpi=1200)
+
+plt.show()
+```
+
+
+    
+<center>
+
+![](p3.jpg){width="90%"}
+
+</center> 
+    
+    
+<br>
+
+
+
+## Visualization of Quarter Time Series
+
+
+```python
+Quarter_Time_Series_1 = Time_Series_1.groupby(['Año', 'Trimestre'])['IMPVENTA'].sum().reset_index(drop=False)
+```
+
+
+```python
+Quarter_Time_Series_1
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Año</th>
+      <th>Trimestre</th>
+      <th>IMPVENTA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021</td>
+      <td>2</td>
+      <td>992891.50</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021</td>
+      <td>3</td>
+      <td>2745995.05</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021</td>
+      <td>4</td>
+      <td>3889761.78</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2022</td>
+      <td>1</td>
+      <td>4752970.27</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2022</td>
+      <td>2</td>
+      <td>7249462.41</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2022</td>
+      <td>3</td>
+      <td>5644448.99</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2022</td>
+      <td>4</td>
+      <td>3713061.59</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+Quarter_Time_Series_1['Año'] = Quarter_Time_Series_1['Año'].astype('string')
+Quarter_Time_Series_1['Trimestre'] = Quarter_Time_Series_1['Trimestre'].astype('string')
+
+Quarter_Time_Series_1['Trimestre-Año'] = Quarter_Time_Series_1[['Trimestre', 'Año']].agg('-'.join, axis=1)
+```
+
+
+```python
+fig, ax = plt.subplots()
+
+p=sns.lineplot(x="Trimestre-Año", y="IMPVENTA", data=Quarter_Time_Series_1 , color='red')
+
+p.set_xticks(np.arange(0 , len(Quarter_Time_Series_1) , 1))
+
+plt.setp(p.get_xticklabels(), rotation=90)
+
+plt.title("Quarter Time Series",  fontsize = 17)
+
+fig.savefig('p4.jpg', format='jpg', dpi=1200)
+
+plt.show()
+```
+
+
+    
+<center>
+
+![](p4.jpg){width="90%"}
+
+</center> 
+    
+   
+<br>
+
+
+
+## Visualization of Yearly Time Series
+
+   
+   
+<center>
+
+![](p5.jpg){width="90%"}
+
+</center> 
+    
+    
+    
+    
+    
+    
+<br>
+
+
+# Time Series Descomposition
+
+Time series decomposition is a process by which we separate a time series into its components: trend, seasonality and residuals.
+
+- Trend represents the slow-moving changes in a time series. $\\[0.25cm]$
+
+- Seasonality represent the seasonal pattern in the series. The cycles occur repeatedly over a fixed period of time. $\\[0.25cm]$
+
+- Residuals represent the behavior that cannot be explained by the trend and seasonality components. $\\[0.25cm]$
+
+
+
+<br>
+
+# Forcasting Time Series
+
+
+
+$\hspace{0.25cm}$ Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.1cm}=\hspace{0.1cm} \Bigl( \hspace{0.06cm} \mathcal{Y}_t \hspace{0.12cm}: \hspace{0.12cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.06cm}\Bigl) \hspace{0.1cm} = \hspace{0.1cm}\Bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\Bigl) \hspace{0.1cm}$ 
+
+$\hspace{0.25cm}$ We have a time series $\hspace{0.07cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.1cm}$ associated to the  process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$. 
+
+So, $\hspace{0.07cm}y_t\hspace{0.07cm}$ is the value of the process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$ in the period $\hspace{0.07cm}t$.
+
+
+Our goal is to predict the future of the process. For that we will use the information on the process given by the time series, namely, using the available data.
+
+We want to predict $\hspace{0.07cm}y_{n+k}\hspace{0.07cm}$, for $\hspace{0.07cm}k=1,2,3,\dots$.
+ 
+The idea under most part of forecasting methods is to predict $\hspace{0.07cm}y_{n+k}\hspace{0.07cm}$ as:
+
+
+$\widehat{y}_{n+k} \hspace{0.07cm}=\hspace{0.07cm} \widehat{g}(y_1, y_2, ...,y_n)$
+
+
+
+**Observations:**
+
+- We are assuming that unique available data is $\hspace{0.07cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.1cm}$ $\\[0.2cm]$
+
+- If $\hspace{0.07cm}y_n\hspace{0.07cm}$ is the value of the process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$ corresponding to most recent period, $\hspace{0.07cm}y_{n+k}\hspace{0.07cm}$ is the value of the process in a future period. So, by definition, we don't know $\hspace{0.07cm}y_{n+k}\hspace{0.07cm}$, for $\hspace{0.07cm}k=1,2,3,\dots$.
+
+
+
+
+<br>
+
+
+# Regression Problem vs Forcasting Time Series 
+ 
+
+You probably have encountered regression problems where you must predict some continuous
+target given a certain set of features. At first glance, time series forecasting seems
+like a typical regression problem: we have some historical data, and we wish to build a
+mathematical expression that will express future values as a function of past values.
+However, there are some key differences between time series forecasting and regression
+for time-independent scenarios that deserve to be addressed before we look at
+our very first forecasting technique.
+
+
+
+- Time series have an order
+
+    The first concept to keep in mind is that time series have an order, and we cannot change that order when modeling. In time series forecasting, we express future values as a function of past values. Therefore, we must keep the data in order, so as to not violate this relationship.
+
+    Other regression tasks in machine learning often do not have an order. For example, if you are tasked to predict revenue based on ad spend, it does not matter when a certain amount was spent on ads. Instead, you simply want to relate the amount of ad spend to the revenue. In fact, you might even randomly shuffle the data to make your model more robust. Here the regression task is to simply derive a function such that given an amount on ad spend, an estimate of revenue is returned. On the other hand, time series are indexed by time, and that order must be kept.
+
+
+
+- Time series sometimes do not have features
+
+    It is possible to forecast time series without the use of features other than the time series itself. As data scientists, we are used to having datasets with many columns, each representing a potential predictor for our target. For example, consider the task of predicting revenue based on ad spend, where the revenue is the target variable. As features, we could have the amount spent on Google ads, Facebook ads, and television ads. Using these three features, we would build a regression model to estimate revenue. However, with time series, it is quite common to be given a simple dataset with a time column and a value at that point in time. Without any other features, we must learn ways of using past values of the time series to forecast future values. This is when the moving average model or autoregressive model come into play, as they are ways to express future values as a function of past values
+
+<br>
+
+
+# Random walk
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ A random walk is a stochastic process $\hspace{0.1cm}\Bigl\{  \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}:\hspace{0.1cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.1cm}\Bigl\} \hspace{0.1cm}$  defined as:
+
+- $\mathcal{X}_t = \mathcal{X}_{t-1} + a_t$ ,
+for $t \in \lbrace 1,...,n \rbrace$
+
+$\hspace{0.25cm}$ where:
+
+- $\mathcal{X}_0 = 0$ $\\[0.25cm]$
+
+- $a_t \sim N(0, \sigma^2)$ $\\[0.25cm]$
+
+
+- We say that $\hspace{0.1cm}a_t \sim N(0, \sigma^2)\hspace{0.1cm}$ is a white noise.
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+
+
+
+
+ 
 
 
