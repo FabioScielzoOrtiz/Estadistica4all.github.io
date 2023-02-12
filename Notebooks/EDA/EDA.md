@@ -508,7 +508,9 @@ Netflix_Data.dtypes['release_year']
 
     dtype('float64')
 
+
 <br>
+
 
 ## Unique values of a variable
 
@@ -528,7 +530,7 @@ Netflix_Data['type'].unique()
 $\\$
 
 
-We can get the uniques values of `age_certification` as following :
+We can get the unique values of `age_certification` as following :
 
 ```python
 Netflix_Data['age_certification'].unique()
@@ -705,9 +707,16 @@ A NaN is a not a number value. **NaN** is equivalent to **missing value**.
 We are going to calculate, for each variable, the proportion of missing values over the total number of observations. We can do it using `isnull()` method :
 
 ```python
-Prop_NA = Netflix_Data.isnull().sum() / len(Netflix_Data)
+def Prop_NaN(Data):
 
-Prop_NA
+    df_prop_nan = Data.isnull().sum() / len(Data)
+
+    return df_prop_nan
+```
+
+
+```python
+Prop_NaN(Data=Netflix_Data)
 ```
 
 
@@ -804,46 +813,135 @@ $$X_k^{std} \hspace{0.1cm} =\hspace{0.1cm} \dfrac{X_k - \overline{X}_k}{\sigma(X
 from sklearn import preprocessing
 ```
 
-```python
-scaler = preprocessing.StandardScaler().fit(Netflix_Data[['release_year']])
-```
 
 ```python
-Netflix_Data['release_year_std_scaling'] = scaler.transform(Netflix_Data[['release_year']])
+def standard_scaling(Data, Variable_name):
+
+    scaler = preprocessing.StandardScaler().fit(Data[[Variable_name]])
+
+    Data[Variable_name + '_std_scaling'] = scaler.transform(Netflix_Data[[Variable_name]])
 ```
+
 
 ```python
-Netflix_Data['release_year_std_scaling']
+standard_scaling(Data=Netflix_Data, Variable_name='release_year')
 ```
 
+
+```python
+Netflix_Data[['release_year', 'release_year_std_scaling']]
 ```
-0      -10.294901
-1       -5.826196
-2       -6.402803
-3       -5.970348
-4       -7.123562
-          ...    
-5845     0.660634
-5846     0.660634
-5847     0.660634
-5848     0.660634
-5849     0.660634
-Name: release_year_std_scaling, Length: 5850, dtype: float64
-```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>release_year</th>
+      <th>release_year_std_scaling</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1945.0</td>
+      <td>-10.294901</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1976.0</td>
+      <td>-5.826196</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1972.0</td>
+      <td>-6.402803</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1975.0</td>
+      <td>-5.970348</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1967.0</td>
+      <td>-7.123562</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5845</th>
+      <td>2021.0</td>
+      <td>0.660634</td>
+    </tr>
+    <tr>
+      <th>5846</th>
+      <td>2021.0</td>
+      <td>0.660634</td>
+    </tr>
+    <tr>
+      <th>5847</th>
+      <td>2021.0</td>
+      <td>0.660634</td>
+    </tr>
+    <tr>
+      <th>5848</th>
+      <td>2021.0</td>
+      <td>0.660634</td>
+    </tr>
+    <tr>
+      <th>5849</th>
+      <td>2021.0</td>
+      <td>0.660634</td>
+    </tr>
+  </tbody>
+</table>
+<p>5850 rows × 2 columns</p>
+</div>
+
+
 
 
 ```python
 Netflix_Data['release_year_std_scaling'].mean()
 ```
 
-     -1.010549668636587e-14
+
+
+
+    -1.010549668636587e-14
+
+
 
 
 ```python
 Netflix_Data['release_year_std_scaling'].std()
 ```
 
-     1.0000854810447344
+
+
+
+    1.0000854810447344
+
 
 
 <br>
@@ -891,44 +989,136 @@ $$X_k^{std(0,1)} \hspace{0.07cm}=\hspace{0.07cm} \dfrac{\hspace{0.07cm} X_k - Mi
 
 
 ```python
-min_max_scaler = preprocessing.MinMaxScaler(feature_range=(0,1))
+def Normalization(Data, Variable_name, min, max):
+
+    min_max_scaler = preprocessing.MinMaxScaler(feature_range=(min,max))
+
+    min = str(min)
+    max = str(max)
+
+    Data[Variable_name + '_norm_' + min + '_' + max] = min_max_scaler.fit_transform(Data[[Variable_name]])
+
 ```
+
 
 ```python
-Netflix_Data['release_year_norm_0_1'] = min_max_scaler.fit_transform(Netflix_Data[['release_year']])
+Normalization(Data=Netflix_Data, Variable_name='release_year', min=0, max=1)
 ```
+
 
 ```python
-Netflix_Data['release_year_norm_0_1']
+Netflix_Data[['release_year', 'release_year_norm_0_1']]
 ```
 
-```
-0       0.000000
-1       0.402597
-2       0.350649
-3       0.389610
-4       0.285714
-          ...   
-5845    0.987013
-5846    0.987013
-5847    0.987013
-5848    0.987013
-5849    0.987013
-Name: release_year_norm_0_1, Length: 5850, dtype: float64
-```
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>release_year</th>
+      <th>release_year_norm_0_1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1945.0</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1976.0</td>
+      <td>0.402597</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1972.0</td>
+      <td>0.350649</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1975.0</td>
+      <td>0.389610</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1967.0</td>
+      <td>0.285714</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5845</th>
+      <td>2021.0</td>
+      <td>0.987013</td>
+    </tr>
+    <tr>
+      <th>5846</th>
+      <td>2021.0</td>
+      <td>0.987013</td>
+    </tr>
+    <tr>
+      <th>5847</th>
+      <td>2021.0</td>
+      <td>0.987013</td>
+    </tr>
+    <tr>
+      <th>5848</th>
+      <td>2021.0</td>
+      <td>0.987013</td>
+    </tr>
+    <tr>
+      <th>5849</th>
+      <td>2021.0</td>
+      <td>0.987013</td>
+    </tr>
+  </tbody>
+</table>
+<p>5850 rows × 2 columns</p>
+</div>
+
+
+
 
 ```python
 Netflix_Data['release_year_norm_0_1'].min()
 ```
 
+
+
+
     0.0
+
+
+
 
 ```python
 Netflix_Data['release_year_norm_0_1'].max()
 ```
 
-    1.0
 
+
+
+    1.0
 
 
 
@@ -984,47 +1174,125 @@ $\hspace{0.25cm}$ where: $a, b \in \mathbb{R} \\$
 
 ### Standardization (a,b) in `Python`
 
-```python
-min_max_scaler = preprocessing.MinMaxScaler(feature_range=(2,7))
-```
 
 ```python
-Netflix_Data['release_year_norm_2_7'] = min_max_scaler.fit_transform(Netflix_Data[['release_year']])
+Normalization(Data=Netflix_Data, Variable_name='release_year', min=2, max=7)
 ```
 
 
 ```python
-Netflix_Data['release_year_norm_2_7']
+Netflix_Data[['release_year', 'release_year_norm_2_7']]
 ```
 
-``` 
-0       2.000000
-1       4.012987
-2       3.753247
-3       3.948052
-4       3.428571
-          ...   
-5845    6.935065
-5846    6.935065
-5847    6.935065
-5848    6.935065
-5849    6.935065
-Name: release_year_norm_2_7, Length: 5850, dtype: float64
-```
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>release_year</th>
+      <th>release_year_norm_2_7</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1945.0</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1976.0</td>
+      <td>4.012987</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1972.0</td>
+      <td>3.753247</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1975.0</td>
+      <td>3.948052</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1967.0</td>
+      <td>3.428571</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5845</th>
+      <td>2021.0</td>
+      <td>6.935065</td>
+    </tr>
+    <tr>
+      <th>5846</th>
+      <td>2021.0</td>
+      <td>6.935065</td>
+    </tr>
+    <tr>
+      <th>5847</th>
+      <td>2021.0</td>
+      <td>6.935065</td>
+    </tr>
+    <tr>
+      <th>5848</th>
+      <td>2021.0</td>
+      <td>6.935065</td>
+    </tr>
+    <tr>
+      <th>5849</th>
+      <td>2021.0</td>
+      <td>6.935065</td>
+    </tr>
+  </tbody>
+</table>
+<p>5850 rows × 2 columns</p>
+</div>
+
+
+
 
 ```python
 Netflix_Data['release_year_norm_2_7'].min()
 ```
 
-    2.0 
+
+
+
+    2.0
+
+
 
 
 ```python
 Netflix_Data['release_year_norm_2_7'].max()
 ```
- 
+
+
+
+
     6.999999999999986
- 
 
 
 
@@ -1068,21 +1336,24 @@ $$
 
 ```python
 from sklearn.preprocessing import OrdinalEncoder
-
-ord_enc = OrdinalEncoder()
 ```
 
 
 ```python
-Netflix_Data['type_recode'] = ord_enc.fit_transform(Netflix_Data[['type']])
+def Standard_recoding(Data, Variable_name) :
+
+    Data[Variable_name + '_recode'] = OrdinalEncoder().fit_transform(Data[[Variable_name]])
 ```
 
+```python
+Standard_recoding(Data=Netflix_Data , Variable_name = 'type')
+```
 
 ```python
 Netflix_Data.loc[ : , ['type','type_recode']].head()
 ```
 
-
+ 
 
 
 <div>
@@ -1141,36 +1412,8 @@ Netflix_Data.loc[ : , ['type','type_recode']].head()
 
 
 ```python
-Netflix_Data['age_certification_recode'] = ord_enc.fit_transform(Netflix_Data[['age_certification']])
+Standard_recoding(Data=Netflix_Data , Variable_name = 'age_certification')
 ```
-
-
-
-
-
-```python
-Netflix_Data['age_certification_recode'].unique()
-```
-
-
-
-
-    array([ 7.,  4.,  2., nan,  5.,  3.,  8.,  9.,  6., 10.,  0.,  1.])
-
-
-
-
-```python
-Netflix_Data['age_certification'].unique()
-```
-
-
-
-
-    array(['TV-MA', 'R', 'PG', nan, 'TV-14', 'PG-13', 'TV-PG', 'TV-Y', 'TV-G',
-           'TV-Y7', 'G', 'NC-17'], dtype=object)
-
-
 
 
 ```python
@@ -1178,10 +1421,11 @@ df1 = pd.DataFrame()
 
 for i in range(0,11):
 
-    df2 = Netflix_Data.loc[ Netflix_Data.age_certification_recode == i , ['age_certification','age_certification_recode']  ].head(1)
+    df2 = Netflix_Data.loc[ Netflix_Data['age_certification_recode'] == i , ['age_certification','age_certification_recode']  ].head(1)
 
     df1 = pd.concat([df1 , df2], axis=0)
 ```
+  
 
 
 ```python
@@ -1364,8 +1608,8 @@ $$
 
 $\hspace{0.25cm}$ With the mean rule, the categorical version of  $\hspace{0.07cm}X_k\hspace{0.07cm}$  is defined as: $\\[0.3cm]$
 
-$$x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \left[\hspace{0.1cm}Min(X_k)\hspace{0.1cm},\hspace{0.1cm} \overline{X}_k \hspace{0.1cm}\right)  \\
-1  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \left[\hspace{0.1cm}\overline{X}_k \hspace{0.1cm},\hspace{0.1cm} Max(X_j)\hspace{0.1cm}\right] \end{array}\right. \\[1cm]
+$$x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \left(\hspace{0.1cm}Min(X_k)\hspace{0.1cm},\hspace{0.1cm} \overline{X}_k \hspace{0.1cm}\right]  \\
+1  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \left(\hspace{0.1cm}\overline{X}_k \hspace{0.1cm},\hspace{0.1cm} Max(X_j)\hspace{0.1cm}\right] \end{array}\right. \\[1cm]
 $$
 
 </p>
@@ -1395,7 +1639,7 @@ $$
 
 $\hspace{0.25cm}$ With the mean rule, the categorical version of  $\hspace{0.07cm}X_k\hspace{0.07cm}$  is defined as: $\\[0.3cm]$
 
-$$x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \Bigl[\hspace{0.1cm}Min(X_k)\hspace{0.1cm},\hspace{0.1cm} Me({X}_k) \hspace{0.1cm}\Bigr]  \\
+$$x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \Bigl(\hspace{0.1cm}Min(X_k)\hspace{0.1cm},\hspace{0.1cm} Me({X}_k) \hspace{0.1cm}\Bigr]  \\
 1  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl(\hspace{0.1cm} Me({X}_k) \hspace{0.1cm},\hspace{0.1cm} Max(X_j)\hspace{0.1cm}\Bigr] \end{array}\right. \\[1cm]
 $$
 
@@ -1427,10 +1671,10 @@ $$
 
 $\hspace{0.25cm}$ With the mean rule, the categorical version of  $\hspace{0.07cm}X_k\hspace{0.07cm}$  is defined as: $\\[0.3cm]$
 
-$$x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \Bigl[\hspace{0.1cm} Min(X_k) \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr)  \\[0.15cm]
-1  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\[0.15cm]
-2  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.75 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\[0.15cm]
-3  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.75 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Max(X_k) \hspace{0.1cm}\Bigr]
+$$x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \Bigl(\hspace{0.1cm} Min(X_k) \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr)  \\[0.15cm]
+1  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\[0.15cm]
+2  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.75 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\[0.15cm]
+3  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.75 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Max(X_k) \hspace{0.1cm}\Bigr]
 \end{array}\right. \\[0.5cm]
 $$
 
@@ -1461,11 +1705,11 @@ $$
 
 $\hspace{0.25cm}$ With the mean rule, the categorical version of  $\hspace{0.07cm}X_k\hspace{0.07cm}$  is defined as: $\\[0.3cm]$
 
-$$x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr)  \\[0.15cm]
-1  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.2 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\[0.15cm]
-2  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.2 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.3 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\
+$$x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr)  \\[0.15cm]
+1  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.2 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\[0.15cm]
+2  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.2 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.3 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\
 \dots \\
-9  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl[\hspace{0.1cm} Q(\hspace{0.03cm}0.9 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm} 1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr]
+9  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.9 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm} 1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr]
 \end{array}\right. \\[0.5cm]
 $$
 
@@ -1599,6 +1843,9 @@ Also It's easy to see that if we had used $t=0.1$ we would have obtained the sam
 ### Categorization of Quantitative Variables in `Python`
 
 
+
+#### Using `Python` specific rule
+
 ```python
 pd.cut(x=Netflix_Data['release_year'] , bins=5 )
 ```
@@ -1647,7 +1894,7 @@ pd.cut(x=Netflix_Data['release_year'] , bins=5 , labels=False)
 
 
 
-### Using the median rule in `Python`
+#### Using the median rule in `Python`
 
 
 
@@ -1713,7 +1960,7 @@ pd.cut(x=Netflix_Data['release_year'], bins=intervals, labels=False )
 
 
 
-### Using quartile's rule
+#### Using quartile's rule
 
 
 ```python
@@ -1845,7 +2092,7 @@ Netflix_Data.loc[: , ['release_year','release_year_cat_int_1','release_year_cat_
 
 
 
-### Using deciles rule
+#### Using deciles rule
 
 
 ```python
@@ -2122,116 +2369,34 @@ df1
 
 
 
-### Using quantiles rule with t=0.05
-
+### Using quantiles rule 
 
 ```python
-np.arange(0, 1, step=0.05)
+def Categorization_quantiles_rule(Data, Variable_name, t):
+
+    intervals = []
+
+    for q in np.arange(0, 1, step=t) :
+
+        intervals.append( Data[Variable_name].quantile(q))
+
+    intervals[0] = intervals[0] - 0.5
+
+    intervals.append(Data[Variable_name].quantile(1))
+
+    Data[Variable_name + '_cat_interval'] = pd.cut(x=Data[Variable_name], bins=intervals)
+
+    Data[Variable_name + '_cat'] = pd.cut(x=Data[Variable_name], bins=intervals, labels=False) 
+ 
 ```
-
-
-
-
-    array([0.  , 0.05, 0.1 , 0.15, 0.2 , 0.25, 0.3 , 0.35, 0.4 , 0.45, 0.5 ,
-           0.55, 0.6 , 0.65, 0.7 , 0.75, 0.8 , 0.85, 0.9 , 0.95])
-
-
-
-
+ 
 ```python
-intervals = []
-
-for q in np.arange(0, 1, step=0.05) :
-
-    intervals.append( Netflix_Data['imdb_score'].quantile(q))
+Categorization_quantiles_rule(Data=Netflix_Data, Variable_name='imdb_score', t=0.05)
 ```
-
-
+ 
+ 
 ```python
-intervals
-```
-
-
-
-
-    [1.5,
-     4.4,
-     5.0,
-     5.3,
-     5.6,
-     5.8,
-     6.0,
-     6.2,
-     6.3,
-     6.5,
-     6.6,
-     6.8,
-     6.9,
-     7.1,
-     7.2,
-     7.3,
-     7.5,
-     7.7,
-     7.9,
-     8.2]
-
-
-
-
-```python
-intervals[0] = intervals[0] - 0.5
-```
-
-
-```python
-intervals.append(Netflix_Data['imdb_score'].quantile(1))
-```
-
-
-```python
-intervals
-```
-
-
-
-
-    [1.0,
-     4.4,
-     5.0,
-     5.3,
-     5.6,
-     5.8,
-     6.0,
-     6.2,
-     6.3,
-     6.5,
-     6.6,
-     6.8,
-     6.9,
-     7.1,
-     7.2,
-     7.3,
-     7.5,
-     7.7,
-     7.9,
-     8.2,
-     9.6]
-
-
-
-
-```python
-Netflix_Data['imdb_score_cat_int_2'] = pd.cut(x=Netflix_Data['imdb_score'], bins=intervals )
-```
-
-
-```python
-Netflix_Data['imdb_score_cat_2'] = pd.cut(x=Netflix_Data['imdb_score'], bins=intervals, labels=False )
-```
-
-
-```python
-Netflix_Data.loc[: , ['imdb_score','imdb_score_cat_int_2','imdb_score_cat_2']]
+Netflix_Data.loc[: , ['imdb_score','imdb_score_cat_int','imdb_score_cat']]
 ```
 
 
@@ -2340,7 +2505,7 @@ df1 = pd.DataFrame()
 
 for i in range(0,len(Netflix_Data['imdb_score_cat_2'].unique())):
 
-    df2 = Netflix_Data.loc[ Netflix_Data.imdb_score_cat_2 == i , ['imdb_score_cat_int_2','imdb_score_cat_2']  ].head(1)
+    df2 = Netflix_Data.loc[ Netflix_Data.imdb_score_cat == i , ['imdb_score_cat_int_2','imdb_score_cat_2']  ].head(1)
 
     df1 = pd.concat([df1 , df2], axis=0)
 ```
@@ -2480,7 +2645,403 @@ df1
 </table>
 </div>
 
- 
+
+
+$\\$
+
+
+
+```python
+Categorization_quantiles_rule(Data=Netflix_Data, Variable_name='imdb_score', t=0.25)
+```
+
+
+```python
+Netflix_Data.loc[: , ['imdb_score','imdb_score_cat_interval','imdb_score_cat']]
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>imdb_score</th>
+      <th>imdb_score_cat_interval</th>
+      <th>imdb_score_cat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8.2</td>
+      <td>(7.3, 9.6]</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7.7</td>
+      <td>(7.3, 9.6]</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8.2</td>
+      <td>(7.3, 9.6]</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>7.7</td>
+      <td>(7.3, 9.6]</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5845</th>
+      <td>6.8</td>
+      <td>(6.6, 7.3]</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>5846</th>
+      <td>7.7</td>
+      <td>(7.3, 9.6]</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>5847</th>
+      <td>3.8</td>
+      <td>(1.0, 5.8]</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>5848</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5849</th>
+      <td>7.8</td>
+      <td>(7.3, 9.6]</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5850 rows × 3 columns</p>
+</div>
+
+
+
+
+```python
+df1 = pd.DataFrame()
+
+for i in range(0,len(Netflix_Data['imdb_score_cat'].unique())):
+
+    df2 = Netflix_Data.loc[ Netflix_Data.imdb_score_cat == i , ['imdb_score_cat_interval','imdb_score_cat']  ].head(1)
+
+    df1 = pd.concat([df1 , df2], axis=0)
+```
+
+
+```python
+df1
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>imdb_score_cat_interval</th>
+      <th>imdb_score_cat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9</th>
+      <td>(1.0, 5.8]</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>(5.8, 6.6]</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>(6.6, 7.3]</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>(7.3, 9.6]</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+$\\$
+
+
+```python
+Categorization_quantiles_rule(Data=Netflix_Data, Variable_name='imdb_score', t=0.1)
+```
+
+
+```python
+Netflix_Data.loc[: , ['imdb_score','imdb_score_cat_interval','imdb_score_cat']]
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>imdb_score</th>
+      <th>imdb_score_cat_interval</th>
+      <th>imdb_score_cat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>8.2</td>
+      <td>(7.9, 9.6]</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>7.7</td>
+      <td>(7.5, 7.9]</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>8.2</td>
+      <td>(7.9, 9.6]</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>7.7</td>
+      <td>(7.5, 7.9]</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5845</th>
+      <td>6.8</td>
+      <td>(6.6, 6.9]</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>5846</th>
+      <td>7.7</td>
+      <td>(7.5, 7.9]</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>5847</th>
+      <td>3.8</td>
+      <td>(1.0, 5.0]</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>5848</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5849</th>
+      <td>7.8</td>
+      <td>(7.5, 7.9]</td>
+      <td>8.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5850 rows × 3 columns</p>
+</div>
+
+
+
+
+```python
+df1 = pd.DataFrame()
+
+for i in range(0,len(Netflix_Data['imdb_score_cat'].unique())):
+
+    df2 = Netflix_Data.loc[ Netflix_Data.imdb_score_cat == i , ['imdb_score_cat_interval','imdb_score_cat']  ].head(1)
+
+    df1 = pd.concat([df1 , df2], axis=0)
+```
+
+
+```python
+df1
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>imdb_score_cat_interval</th>
+      <th>imdb_score_cat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>19</th>
+      <td>(1.0, 5.0]</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>(5.0, 5.6]</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>(5.6, 6.0]</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>(6.0, 6.3]</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>(6.3, 6.6]</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>(6.6, 6.9]</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>(6.9, 7.2]</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>(7.2, 7.5]</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>(7.5, 7.9]</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>(7.9, 9.6]</td>
+      <td>9.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+
  
 <br>
 
@@ -2506,10 +3067,16 @@ for $\hspace{0.06cm}j\in \lbrace 0\hspace{0.06cm},\hspace{0.06cm}1\hspace{0.06cm
 
 
 ```python
-pd.get_dummies(Netflix_Data.loc[:, 'type'])
+def dummies(Data, Variable_name, drop_first=False):
+
+    df_dummies = pd.get_dummies(Data[Variable_name], drop_first=drop_first)
+
+    return df_dummies
 ```
 
-
+```python
+dummies(Data=Netflix_Data, Variable_name='type')
+```
 
 
 <div>
@@ -2596,14 +3163,9 @@ pd.get_dummies(Netflix_Data.loc[:, 'type'])
 </div>
 
 
-
-
 ```python
-pd.get_dummies(Netflix_Data.loc[:, 'age_certification'])
+dummies(Data=Netflix_Data, Variable_name='age_certification')
 ```
-
-
-
 
 <div>
 <style scoped>
@@ -2798,13 +3360,10 @@ pd.get_dummies(Netflix_Data.loc[:, 'age_certification'])
 
 
 
-
 ```python
-pd.get_dummies(Netflix_Data.loc[:, 'age_certification'], drop_first=True)
+dummies(Data=Netflix_Data, Variable_name='age_certification', drop_first=True)
 ```
-
-
-
+ 
 
 <div>
 <style scoped>
