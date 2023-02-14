@@ -8209,7 +8209,9 @@ x_n^t
 
 # Rename columns from a data-frame
 
-We can rename columns from a data-frame as follows:
+We can rename columns from a data-frame by several ways.
+
+For one thing, we can create a new data frame the same as the original, but with different names for some of its columns:
 
 ```python
 House_Price_Data.rename(columns={'neighborhood_recode' : 'neighborhood'})
@@ -8528,6 +8530,23 @@ House_Price_Data.rename(columns={'neighborhood_recode' : 'neighborhood'})
 </table>
 <p>1905 rows × 29 columns</p>
 </div>
+
+
+
+<br>
+
+
+On the other hand, we can rename specific columns of a data-frame without the need to create a new additional data-frame setting the  `inplace` parameter  to `True`:
+
+```python
+House_Price_Data.rename(columns={'neighborhood_recode' : 'neighborhood'}, inplace=True)
+```
+
+
+
+
+
+
 
 
 <br>
