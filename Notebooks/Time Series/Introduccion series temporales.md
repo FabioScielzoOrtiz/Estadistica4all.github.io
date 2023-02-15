@@ -96,7 +96,7 @@ Let  $\hspace{0.1cm}\mathcal{X}_t\hspace{0.1cm}$ be a random variable (r.v.), fo
 <p style='margin-left:1em;'>
 
 
-$\hspace{0.25cm}$ A stochastic processes is a set of random variables $\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm}\right\rbrace\hspace{0.1cm}$ such that $\hspace{0.1cm}\hspace{0.1cm}\mathcal{X}_t \in S \subset \mathbb{R}$
+$\hspace{0.25cm}$ A **stochastic processes** is a set of random variables $\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm}\right\rbrace\hspace{0.1cm}$ such that $\hspace{0.1cm}\mathcal{X}_t \in S \subset \mathbb{R}$
  
 
 $\hspace{0.25cm}$ where:
@@ -107,7 +107,7 @@ $\hspace{0.25cm}$ where:
 
 
 
-- We will say that $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm} : \hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.1cm}$ is a stochastic process with parameter space $\hspace{0.1cm}T\hspace{0.1cm}$ and states space $\hspace{0.1cm}S$ $\\[0.5cm]$
+- We will say that $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm} : \hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.15cm}$ is a stochastic process with parameter space $\hspace{0.1cm}T\hspace{0.1cm}$ and states space $\hspace{0.1cm}S$. $\\[0.5cm]$
 
 </p>
  
@@ -136,7 +136,7 @@ $X_t\hspace{0.1cm}$ is a random variable ussually used to model the state of a s
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ $\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.15cm}$  is a discrete stochastic process if $\hspace{0.15cm}T\subset \lbrace 0,1,2,... \rbrace$
+$\hspace{0.25cm}$ $\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.15cm}$  is a **discrete stochastic process** if $\hspace{0.15cm}T\subset \lbrace 0,1,2,... \rbrace$
 
 </p>
  
@@ -152,7 +152,7 @@ $\hspace{0.25cm}$ $\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}:\h
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ $\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.15cm}$ is a continuous stochastic process if $\hspace{0.15cm}T\subset [0, \infty)$
+$\hspace{0.25cm}$ $\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.15cm}$ is a **continuous stochastic process** if $\hspace{0.15cm}T\subset [0, \infty)$
 
 </p>
  
@@ -171,7 +171,7 @@ $\hspace{0.25cm}$ $\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}:\h
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$$\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.1cm}$ is a independient stochastic process if the random variables that define the process are independient.
+$\hspace{0.25cm}$$\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.1cm}$ is a **independent stochastic process** if the random variables that define the process are independent.
 
 </p>
  
@@ -188,11 +188,11 @@ $\hspace{0.25cm}$$\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}:\hs
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ A discrete stochastic process  $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.2cm}$ is a Markov process if: $\\[0.15cm]$
+$\hspace{0.25cm}$ A discrete stochastic process  $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.2cm}$ is a **Markov process** if: $\\[0.15cm]$
 
 
 
-$$P(\mathcal{X}_{n+1} = x_{n+1}\hspace{0.15cm} |\hspace{0.15cm} \mathcal{X}_0 = x_0 ,..., \mathcal{X}_n =x_n) \hspace{0.1cm}=\hspace{0.1cm} P(\mathcal{X}_{n+1} = x_{n+1}\hspace{0.15cm} |\hspace{0.15cm} \mathcal{X}_n = x_n)$$ $\\[0.15cm]$
+$$P(\mathcal{X}_{n+1} = x_{n+1}\hspace{0.15cm} |\hspace{0.15cm} \mathcal{X}_0 = x_0 ,..., \mathcal{X}_n =x_n) \hspace{0.1cm}=\hspace{0.1cm} P(\mathcal{X}_{n+1} = x_{n+1}\hspace{0.15cm} |\hspace{0.15cm} \mathcal{X}_n = x_n)$$ 
 
 
 $\hspace{0.25cm}$ where: $\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace$  $\\[0.35cm]$
@@ -202,7 +202,7 @@ $\hspace{0.25cm}$ where: $\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2c
 </p></span>
 </div>
 
-This property is known as the memoryless Markov property. Because it implies that the future state of the system, $\mathcal{X}_{n+1}$ , only depends on the present state $x_n$ and does not depend on past states $x_0,...,x_{n- 1}$
+This property is known as the memoryless Markov property. Because it implies that the future state of the system, $\hspace{0.05cm}\mathcal{X}_{n+1}\hspace{0.05cm}$ , only depends on the present state $x_n$ and does not depend on past states $\hspace{0.05cm}x_0,...,x_{n- 1}\hspace{0.05cm}$.
 
 <br>
 
@@ -220,7 +220,7 @@ $\hspace{0.25cm}$ A continuous stochastic process  $\hspace{0.1cm}\lbrace \hspac
 $\hspace{0.25cm}$ For all set of times $\hspace{0.1cm}t_1,t_2,t_3\geq 0\hspace{0.13cm}$ such that $\hspace{0.1cm}t_1 < t_2 < t_3$
 
 
-$\hspace{0.25cm}$ $\mathcal{X}_{t_2} - \mathcal{X}_{t_1} \hspace{0.1cm} , \hspace{0.1cm} \mathcal{X}_{t_3} - \mathcal{X}_{t_2}\hspace{0.1cm}$ are independents.
+$\hspace{0.25cm}$ $\mathcal{X}_{t_2} - \mathcal{X}_{t_1} \hspace{0.1cm}$ and $\hspace{0.1cm} \mathcal{X}_{t_3} - \mathcal{X}_{t_2}\hspace{0.1cm}$ are independents.
 
 </p>
  
@@ -240,9 +240,9 @@ This means that the displacements of the process in the time intervals $\hspace{
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ A continuous stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.2cm}$ is a strictly stationary process  if:
+$\hspace{0.25cm}$ A continuous stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.2cm}$ is a **strictly stationary process**  if:
 
-$\hspace{0.25cm}$ For all $t \geq 0$ , the probability distribution of $\mathcal{X}_{t}$ is the same as that of $\mathcal{X}_{t+h}$  , for all $h>0$
+$\hspace{0.25cm}$ For all $\hspace{0.05cm}t \geq 0\hspace{0.05cm}$ , the probability distribution of $\hspace{0.05cm}\mathcal{X}_{t}\hspace{0.05cm}$ is the same as that of $\hspace{0.05cm}\mathcal{X}_{t+h}\hspace{0.05cm}$  , for all $\hspace{0.05cm}h>0\hspace{0.05cm}$.
 
 </p>
  
@@ -250,9 +250,9 @@ $\hspace{0.25cm}$ For all $t \geq 0$ , the probability distribution of $\mathcal
 </div>
 
 
-Therefore, for all set of times $\hspace{0.1cm}t_1 , t_2,...,t_n$ 
+Therefore, for all set of times $\hspace{0.1cm}t_1 , t_2,...,t_n$ :
 
-$(\mathcal{X}_{t_1}, \mathcal{X}_{t_2},\dots ,\mathcal{X}_{t_n} )\hspace{0.1cm}$ is identically distributed as $\hspace{0.1cm}(\mathcal{X}_{t_1+h}, \mathcal{X}_{t_2+h},\dots ,\mathcal{X}_{t_n+h} )$
+$\hspace{0.2cm}(\mathcal{X}_{t_1}, \mathcal{X}_{t_2},\dots ,\mathcal{X}_{t_n} )\hspace{0.1cm}$ is identically distributed as $\hspace{0.1cm}(\mathcal{X}_{t_1+h}, \mathcal{X}_{t_2+h},\dots ,\mathcal{X}_{t_n+h} )$
 
 
 
@@ -296,7 +296,7 @@ $\hspace{0.25cm}$ A discrete stochastic process $\hspace{0.1cm}\lbrace \hspace{0
 
 
 
-$$E\left[\hspace{0.1cm}\mathcal{X}_{n+1} | X_0 = x_0 ,..., X_n = x_n\hspace{0.1cm} \right] \hspace{0.1cm} = \hspace{0.1cm} x_n$$ $\\[0.15cm]$
+$$E\left[\hspace{0.1cm}\mathcal{X}_{n+1} | X_0 = x_0 ,..., X_n = x_n\hspace{0.1cm} \right] \hspace{0.1cm} = \hspace{0.1cm} x_n$$  
 
 
 $\hspace{0.25cm}$ where: $\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace$ $\\[0.35cm]$
@@ -339,16 +339,16 @@ The Poisson and Brownian process are examples of Levy process.
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ A continuous stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.15cm}$ is a Gaussian process if:
+$\hspace{0.25cm}$ A continuous stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.15cm}$ is a **Gaussian process** if:
 
-$\hspace{0.25cm}$ For all set of times $\hspace{0.1cm}t_1,...,t_n \geq 0$
+$\hspace{0.25cm}$ For all set of times $\hspace{0.1cm}t_1,...,t_n \geq 0$ : $\\[0.12cm]$
 
 $$(\mathcal{X}_{t_1}, \mathcal{X}_{t_2},...,\mathcal{X}_{t_n}) \sim NM(\mu , \Sigma)$$
 
 
 $\hspace{0.25cm}$ where:
 
-$\hspace{0.25cm}$ $NM(\mu , \Sigma)\hspace{0.1cm}$ denote the multivariate Normal probability distribution with mean vector $\hspace{0.1cm}\mu\hspace{0.1cm}$ y covariance matrix $\hspace{0.1cm}\Sigma$ $\\[0.4cm]$
+$\hspace{0.3cm}$ $NM(\mu , \Sigma)\hspace{0.1cm}$ denote the multivariate Normal probability distribution with mean vector $\hspace{0.1cm}\mu\hspace{0.1cm}$ y covariance matrix $\hspace{0.1cm}\Sigma$ . $\\[0.2cm]$
 
 
 </p>
@@ -389,12 +389,12 @@ In practice, the classification of a series as stationary or not depends on the 
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.1cm}=\hspace{0.1cm} \Bigl( \hspace{0.06cm} \mathcal{Y}_t \hspace{0.12cm}: \hspace{0.12cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.06cm}\Bigl) \hspace{0.1cm} = \hspace{0.1cm}\Bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\Bigl) \hspace{0.1cm}$ 
+$\hspace{0.2cm}$ Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.1cm}=\hspace{0.1cm} \Bigl( \hspace{0.06cm} \mathcal{Y}_t \hspace{0.12cm}: \hspace{0.12cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.06cm}\Bigl) \hspace{0.1cm} = \hspace{0.1cm}\Bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\Bigl) \hspace{0.05cm}$ .
 
-$\hspace{0.25cm}$ Given a sample of one observation $\hspace{0.06cm}y_t\hspace{0.06cm}$ of each random variable $\hspace{0.06cm}\mathcal{Y}_t\hspace{0.06cm}$ of the process, for $\hspace{0.06cm}t \in T=\lbrace 1,2,...,n \rbrace$. $\\[0.5cm]$
+$\hspace{0.25cm}$ Given a sample of one observation $\hspace{0.08cm}y_t\hspace{0.08cm}$ of each random variable $\hspace{0.08cm}\mathcal{Y}_t\hspace{0.08cm}$ of the process, for $\hspace{0.06cm}t \in T=\lbrace 1,2,...,n \rbrace\hspace{0.06cm}$. $\\[0.3cm]$
 
 
-- $Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.12cm}$ is a **time serie**.
+- $\hspace{0.15cm} Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.15cm}$ is a **time series** associated to the stochastic process $\hspace{0.09cm}\mathcal{Y}$.
  
  
 $\hspace{0.25cm}$ where:
@@ -409,7 +409,7 @@ $\hspace{0.35cm}$ $y_t\hspace{0.06cm}$ could be interpreted as the value observe
 
 **Observations:**
 
-- $y_t \in \mathbb{R}\hspace{0.06cm}$ is a realization of the random variable $\mathcal{Y}_t$ $\\[0.35cm]$
+- $y_t \in \mathbb{R}\hspace{0.08cm}$ is a realization of the random variable $\\hspace{0.08cm}mathcal{Y}_t$ $\\[0.35cm]$
 
 
 - A time series is a realization of a stochastic process. The time series is considered a result or trajectory of the stochastic process. $\\[0.35cm]$
@@ -419,7 +419,7 @@ $\hspace{0.35cm}$ $y_t\hspace{0.06cm}$ could be interpreted as the value observe
 
 
 
-The process is characterized by the join probability distribution of the random variables $\hspace{0.1cm}\Bigl\{  \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_k  \hspace{0.06cm} \Bigl\} \hspace{0.1cm}$, namely, is characterized by the join density or probability function $\hspace{0.06cm}f_{\mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_k}$. 
+The process is characterized by the join probability distribution of the random variables $\hspace{0.1cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_k   \hspace{0.1cm}$, namely, is characterized by the join density or probability function $\hspace{0.08cm}f_{\hspace{0.08cm}\mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_k}$. 
 
 This distribution is called finite-dimensional distribution of the process. We say that we know the probabilistic structure of the stochastic process when we know that join distribution, which determine the distribution of any subset of the variables and, in particular, the marginal distribution of each variable.
 
@@ -431,24 +431,34 @@ This distribution is called finite-dimensional distribution of the process. We s
 
 # Mean function 
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
-Given a stochastic process $\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}/\hspace{0.1cm} t \in T=\lbrace 1,2,...,k \rbrace \hspace{0.1cm}\right\rbrace \hspace{0.1cm}$
+$\hspace{0.2cm}$ Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.1cm}=\hspace{0.1cm} \Bigl( \hspace{0.06cm} \mathcal{Y}_t \hspace{0.12cm}: \hspace{0.12cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.06cm}\Bigl) \hspace{0.1cm} = \hspace{0.1cm}\Bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\Bigl) \hspace{0.05cm}$ .
 
-The mean function $\mu_t$ of the process is defined as:
+$\hspace{0.2cm}$ Mean function $\hspace{0.1cm} \mu_t \hspace{0.1cm} $ of the process is defined as:
 
 $$\mu_t = E\left[\mathcal{X}_t\right]$$
 
-for $t \in \lbrace 1,2,...,k \rbrace \\$
+$\hspace{0.2cm}$ for $\hspace{0.1cm}  t \in \lbrace 1,2,...,k \rbrace \\$
 
 
-**Observaciones:**
+</p>
+ 
+</p></span>
+</div>
+
+
+**Observations:**
 
 - An important particular case, due to its simplicity, arises when all the variables have the same mean and thus the mean function is a constant.
-The realizations of the process show no trend and we say that the process is stable in the mean.
+The realizations of the process show no trend and we say that the process is stable in the mean. $\\[0.35cm]$
 
 
 - If, on the contrary, the means change over time, the observations at dierent
-moments will reveal that change.
+moments will reveal that change. $\\[0.35cm]$
 
 - On many occasions we only have one realization of the stochastic process and
 we have to deduce from that whether the mean function of the process is, or is
@@ -1854,6 +1864,19 @@ our very first forecasting technique.
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <br>
 
 # Stationary processes
@@ -1994,19 +2017,58 @@ $\hspace{0.25cm}$ where:
 # Moving Average Process: MA
 
 
+Para un modelo MA(1), la función de verosimilitud toma la forma:
 
+$$\mathcal{L}(\theta_1, \sigma^2) = \prod_{t=1}^T \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(y_t - \theta_1 \epsilon_{t-1})^2}{2\sigma^2}\right)$$
 
+donde $\epsilon_t$ es un término de error gaussiano con media cero y varianza $\sigma^2$, y $\theta_1$ es un parámetro del modelo. Nuevamente, la función de log-verosimilitud es:
 
+$$\ell(\theta_1, \sigma^2) = -\frac{T}{2} \ln(2\pi) - \frac{T}{2} \ln(\sigma^2) - \frac{1}{2\sigma^2} \sum_{t=1}^T (y_t - \theta_1 \epsilon_{t-1})^2$$
+
+El objetivo es encontrar los valores de los parámetros $\theta_1$ y $\sigma^2$ que maximizan la función de log-verosimilitud. Al igual que en los casos anteriores, se puede utilizar el método de Máxima Verosimilitud para estimar los parámetros, encontrando los valores de $\theta_1$ y $\sigma^2$ que maximizan $\ell(\theta_1, \sigma^2)$. Esto también se puede lograr mediante métodos numéricos como el método de Newton-Raphson o el método de gradiente descendente.
+
+<br>
+
+Para un modelo MA(q), la función de verosimilitud toma la forma:
+
+$$\mathcal{L}(\theta_1, \ldots, \theta_q, \sigma^2) = \prod_{t=q+1}^T \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(y_t - \sum_{i=1}^q \theta_i \epsilon_{t-i})^2}{2\sigma^2}\right)$$
+
+donde $\epsilon_t$ es un término de error gaussiano con media cero y varianza $\sigma^2$, y $\theta_1, \ldots, \theta_q$ son parámetros del modelo. Nuevamente, la función de log-verosimilitud es:
+
+$$\ell(\theta_1, \ldots, \theta_q, \sigma^2) = -\frac{T-q}{2} \ln(2\pi) - \frac{T-q}{2} \ln(\sigma^2) - \frac{1}{2\sigma^2} \sum_{t=q+1}^T (y_t - \sum_{i=1}^q \theta_i \epsilon_{t-i})^2$$
+
+El objetivo es encontrar los valores de los parámetros $\theta_1, \ldots, \theta_q$ y $\sigma^2$ que maximizan la función de log-verosimilitud. Al igual que en los casos anteriores, se puede utilizar el método de Máxima Verosimilitud para estimar los parámetros, encontrando los valores de $\theta_1, \ldots, \theta_q$ y $\sigma^2$ que maximizan $\ell(\theta_1, \ldots, \theta_q, \sigma^2)$. Esto también se puede lograr mediante métodos numéricos como el método de Newton-Raphson o el método de gradiente descendente.
 
 
 
 # Autorregresive Process: AR
 
+Para estimar los parámetros de un modelo AR(1), se puede utilizar el método de Máxima Verosimilitud. Dado un conjunto de datos $y_t$ para $t=1,\ldots,T$ y un modelo AR(1) dado por:
+
+$$ y_t = \phi_1 y_{t-1} + \epsilon_t $$
+
+donde $\epsilon_t \sim N(0,\sigma^2)$ es un término de error gaussiano con media cero y varianza $\sigma^2$, se busca encontrar los valores de los parámetros $\phi_1$ y $\sigma^2$ que maximizan la función de verosimilitud:
+
+$$ \mathcal{L}(\phi_1, \sigma^2) = \prod_{t=2}^T \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(y_t - \phi_1 y_{t-1})^2}{2\sigma^2}\right) $$
+
+La función de log-verosimilitud es entonces:
+
+$$ \ell(\phi_1, \sigma^2) = -\frac{T-1}{2} \ln(2\pi) - \frac{T-1}{2} \ln(\sigma^2) - \frac{1}{2\sigma^2} \sum_{t=2}^T (y_t - \phi_1 y_{t-1})^2 $$
+
+La estimación de los parámetros se realiza maximizando la función de log-verosimilitud, es decir, encontrando los valores de $\phi_1$ y $\sigma^2$ que hacen que $\ell(\phi_1, \sigma^2)$ sea lo más grande posible. Esto se puede hacer de varias maneras, por ejemplo, mediante métodos numéricos como el método de Newton-Raphson o el método de gradiente descendente.
 
 <br>
 
 
+¡Por supuesto! Para un modelo AR(p), la función de verosimilitud toma la forma:
 
+$$\mathcal{L}(\boldsymbol{\phi}, \sigma^2) = \prod_{t=p+1}^T \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(y_t - \sum_{i=1}^p \phi_i y_{t-i})^2}{2\sigma^2}\right)$$
+
+donde $\boldsymbol{\phi} = (\phi_1, \ldots, \phi_p)$ es un vector de parámetros, y $y_t$ es una serie de tiempo para $t=1, \ldots, T$. De nuevo, la función de log-verosimilitud es:
+
+$$ \ell(\boldsymbol{\phi}, \sigma^2) = -\frac{T-p}{2} \ln(2\pi) - \frac{T-p}{2} \ln(\sigma^2) - \frac{1}{2\sigma^2} \sum_{t=p+1}^T (y_t - \sum_{i=1}^p \phi_i y_{t-i})^2 $$
+
+El objetivo es encontrar los valores de los parámetros $\boldsymbol{\phi}$ y $\sigma^2$ que maximizan la función de log-verosimilitud. Al igual que en el caso AR(1), se puede utilizar el método de Máxima Verosimilitud para estimar los parámetros, encontrando los valores de $\boldsymbol{\phi}$ y $\sigma^2$ que maximizan $\ell(\boldsymbol{\phi}, \sigma^2)$. Esto también se puede lograr mediante métodos numéricos como el método de Newton-Raphson o el método de gradiente descendente.
 
 
  
