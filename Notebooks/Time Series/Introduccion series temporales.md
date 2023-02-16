@@ -2617,9 +2617,11 @@ $$\widehat{y}_{n+k} = \overline{Y}_t \hspace{0.25cm},\hspace{0.25cm} k =1,2,\dot
 
 ### not flexible
 
-Sea $Y_{:h} = (y_t : t=n,n-1, ..., n-(h-1))$
+Sea $Y_{:h} \hspace{0.08cm}=\hspace{0.08cm} \bigl( \hspace{0.08cm} y_{n}, y_{n-1}, y_{n-2}, \dots , y_{n-(h-1)} \hspace{0.08cm} \bigr)$
 
-$$\widehat{y}_{n+k} = \overline{Y}_{:h} \hspace{0.25cm},\hspace{0.25cm} k =1,2,\dots$$
+La predicción de $\hspace{0.08cm}{y}_{n+k}\hspace{0.08cm}$ se define como :
+
+$$\widehat{y}_{n+k} \hspace{0.08cm} = \hspace{0.08cm} \overline{\hspace{0.08cm}Y}_{:h} \hspace{0.3cm},\hspace{0.3cm} k =1,2,\dots$$
 
 
 
