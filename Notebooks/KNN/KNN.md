@@ -75,11 +75,11 @@ $\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). El algoritmo KNN. http://estadistica4
  <br>
  
  
-# Problema de clasificación supervisada <a class="anchor" id="1"></a>  
+# Problema de clasificación supervisada   
 
 
 
-Un problema de **clasificación supervisada**  es un problema estadistico que consiste en predecir una variable respuesta **categorica** usando para ello **información**   de unas **variables predictoras** y de la propia variable **respuesta**.
+Un problema de **clasificación supervisada**  es un problema estadístico que consiste en predecir una variable respuesta **categorica** usando para ello **información**   de unas **variables predictoras** y de la propia variable **respuesta**.
 
 
 La solución estadística al problema de regresión pasa por proponer un modelo o algoritmo que sea capaz usar la información muestral disponible de los predictores y la respuesta para predecir los valores de la respuesta para cada vector de observaciones de los predictores que se considere.
@@ -102,12 +102,12 @@ Un algoritmo de clasificación supervisada  es un algoritmo que permite predecir
 - Se consideran $\hspace{0.1cm} p\hspace{0.1cm}$ predictores $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ y una variable respuesta **categórica** $\hspace{0.1cm}\mathcal{Y}$ $\\[0.5cm]$
 
 
-- La variable respuesta **categorica**  tiene $\hspace{0.1cm}g\hspace{0.1cm}$ categorias , ya que $\hspace{0.1cm}R(\mathcal{Y})=\lbrace 0,1,...,g-1 \rbrace \\$
+- La variable respuesta **categorica**  tiene $\hspace{0.1cm}g\hspace{0.1cm}$ categorias , ya que $\hspace{0.07cm}R(\mathcal{Y})=\lbrace 0,1,...,g-1 \rbrace$ . $\\$
 
-- Se tiene una muestra de observaciones $\hspace{0.1cm}X_r = (x_{1r},...,x_{nr})^t\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{X}_r\hspace{0.1cm}$ , para cada $\hspace{0.1cm}r \in \lbrace 1,...,p \rbrace$ $\\[0.5cm]$
+- Se tiene una muestra de observaciones $\hspace{0.07cm}X_r = (x_{1r},...,x_{nr})^t\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{X}_r\hspace{0.1cm}$ , para cada $\hspace{0.07cm} r \in \lbrace 1,...,p \rbrace$ . $\\[0.5cm]$
 
 
-- Se tiene una muestra de observaciones $\hspace{0.1cm}Y = (y_1,...,y_n)^t\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{Y}$ $\\[0.5cm]$
+- Se tiene una muestra de observaciones $\hspace{0.07cm}Y = (y_1,...,y_n)^t\hspace{0.1cm}$ de la variable $\hspace{0.1cm}\mathcal{Y}$ . $\\[0.5cm]$
 
 
 - En conclusión, se tiene una muestra de observaciones de los predictores y la respuesta. 
@@ -128,7 +128,7 @@ $$D=[\hspace{0.12cm}X_1,...,X_p,Y \hspace{0.12cm}]\hspace{0.12cm}=\begin{pmatrix
  
 <br>
 
- ---
+
 
 A continuación vamos a hacer una exposición teorica del algoritmo de KNN para clasificación supervisada.
  
@@ -146,46 +146,47 @@ $\hspace{0.15cm}$ El algoritmo **KNN** para **clasificación supervisada** tiene
  
 
  
-- Dada una nueva observación $\hspace{0.1cm}x_{new}\hspace{0.1cm}$ de los predictores $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ , es decir, una observación que no está en la muestra de datos $\hspace{0.1cm}D\hspace{0.1cm}$, se calculan las distancias entre el par de observaciones $\hspace{0.1cm}(x_{new} \hspace{0.05cm} , \hspace{0.05cm} x_i)$ , para $\hspace{0.1cm}i=1,...,n \hspace{0.2cm} \Rightarrow \hspace{0.2cm} \delta(x_{new},x_i)$
+- Dada una nueva observación $\hspace{0.1cm}x_{*}\hspace{0.05cm}=\hspace{0.05cm}(x_{*1} \hspace{0.05cm},\hspace{0.05cm} x_{*2} \hspace{0.05cm},\dots ,\hspace{0.05cm} x_{*p})\hspace{0.1cm}$ de los predictores $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}$ , es decir, una observación que no está en la muestra de datos $\hspace{0.1cm}D\hspace{0.1cm}$, se calculan las distancias entre el par de observaciones $\hspace{0.1cm}(x_{*} \hspace{0.05cm} , \hspace{0.05cm} x_i)$ , para $\hspace{0.1cm}i=1,...,n \hspace{0.2cm} \Rightarrow \hspace{0.2cm} \delta(x_{*},x_i)$
  
 $\hspace{0.25cm}$ Aquí no se va a entrar en este asunto, pero $\hspace{0.1cm}D\hspace{0.1cm}$ está jugando el papel de muestra de entrenamiento.
  
 
 
-- Se seleccionan las $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones   $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$ que son más cercanas a la nueva observación $\hspace{0.1cm}x_{new}\hspace{0.1cm}$, según la medida de distancia $\hspace{0.1cm}\delta\hspace{0.1cm}$
+- Se seleccionan las $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones   $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$ que son más cercanas a la nueva observación $\hspace{0.1cm}x_{*}\hspace{0.1cm}$, según la medida de distancia $\hspace{0.1cm}\delta\hspace{0.1cm}$
 
-    El conjunto de estas $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones son los **k vecinos más cercanos de $\hspace{0.1cm}x_{new}\hspace{0.1cm}$** y se denota por $\hspace{0.1cm}K_{x_{new}} \\$
-
-
-
-- Se calcula la frecuencia relativa de cada categoría de la variable respuesta en el conjunto $\hspace{0.1cm}K_{x_{new}}$
-
-    Denotamos por $\hspace{0.15cm}P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r\hspace{0.1cm}]\hspace{0.15cm}$ a la frecuencia relativa (proporción) de observaciones del conjunto $\hspace{0.1cm}K_{x_{new}}\hspace{0.1cm}$ tales que $\hspace{0.1cm}\mathcal{Y}=r$
-
-    Es decir:
-
-  $$P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r \hspace{0.1cm}] \hspace{0.15cm}=\hspace{0.15cm} \dfrac{ \# \hspace{0.1cm}\left\lbrace\hspace{0.1cm} i \hspace{0.13cm}/\hspace{0.13cm} x_i \in K_{x_{new}} \hspace{0.3cm}\text{y}\hspace{0.3cm}  y_i = r \hspace{0.1cm} \right\rbrace  }{\# \hspace{0.1cm} K_{x_{new}} } \\$$
-  
-  
-    Notese que  $\hspace{0.15cm}\# \hspace{0.1cm} K_{x_{new}} \hspace{0.1cm}=\hspace{0.1cm} k \\$
+    El conjunto de estas $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones son los **k vecinos más cercanos de $\hspace{0.1cm}x_{*}\hspace{0.1cm}$** y se denota por $\hspace{0.1cm}K_{x_{*}} \\$
 
 
 
-- Para la nueva observación de los predictores $\hspace{0.1cm} x_{new} \hspace{0.1cm}$ se predice la variable respuesta como la categoría más frecuente en el conjunto $\hspace{0.1cm}K_{x_{new}}$
+- Se calcula la frecuencia relativa de cada categoría de la variable respuesta en el conjunto $\hspace{0.1cm}K_{x_{*}}$
 
+    Denotamos por $\hspace{0.15cm}P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{*}} \hspace{0.1cm},\hspace{0.1cm} r\hspace{0.1cm}]\hspace{0.15cm}$ a la frecuencia relativa (proporción) de observaciones del conjunto $\hspace{0.1cm}K_{x_{*}}\hspace{0.1cm}$ tales que $\hspace{0.1cm}\mathcal{Y}=r$
 
     Es decir:
 
-    $$\hspace{0.6 cm} \text{Si} \hspace{0.5 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 cm}  arg \hspace{0.15 cm} \underset{r\in R(\mathcal{Y})}{Max} \hspace{0.2cm} P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{new}} \hspace{0.1cm},\hspace{0.1cm} r \hspace{0.1cm}]  \hspace{0.3cm}  \Rightarrow \hspace{0.3cm} \widehat{y}_{new} \hspace{0.05 cm}=\hspace{0.05 cm} r^* \hspace{0.1cm}$$
+  $$P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{*}} \hspace{0.1cm},\hspace{0.1cm} r \hspace{0.1cm}] \hspace{0.15cm}=\hspace{0.15cm} \dfrac{ \# \hspace{0.1cm}\left\lbrace\hspace{0.1cm} i \hspace{0.13cm}/\hspace{0.13cm} x_i \in K_{x_{*}} \hspace{0.3cm}\text{y}\hspace{0.3cm}  y_i = r \hspace{0.1cm} \right\rbrace  }{\# \hspace{0.1cm} K_{x_{*}} } \\$$
+  
+  
+    Notese que  $\hspace{0.1cm}\# \hspace{0.1cm} K_{x_{*}} \hspace{0.05cm}=\hspace{0.05cm} k \\$
 
 
-    Donde $\hspace{0.12cm}\widehat{y}_{new}\hspace{0.12cm}$ es el valor de la variable respuesta que el modelo predice para la observación $\hspace{0.12cm}x_{new}\hspace{0.12cm}$ de los predictores.
+
+- Para la nueva observación de los predictores $\hspace{0.1cm} x_{*} \hspace{0.1cm}$ se predice la variable respuesta como la categoría más frecuente en el conjunto $\hspace{0.1cm}K_{x_{*}}$
+
+
+    Es decir:
+
+    $$\hspace{0.6 cm} \text{Si} \hspace{0.5 cm} r^*  \hspace{0.05 cm}= \hspace{0.05 cm}  arg \hspace{0.15 cm} \underset{r\in R(\mathcal{Y})}{Max} \hspace{0.2cm} P\hspace{0.05cm}[\hspace{0.1cm} K_{x_{*}} \hspace{0.1cm},\hspace{0.1cm} r \hspace{0.1cm}]  \hspace{0.3cm}  \Rightarrow \hspace{0.3cm} \widehat{y}_{*} \hspace{0.05 cm}=\hspace{0.05 cm} r^* \hspace{0.1cm}$$
+
+
+    Donde $\hspace{0.12cm}\widehat{y}_{*}\hspace{0.12cm}$ es el valor de la variable respuesta que el modelo predice para la observación $\hspace{0.12cm}x_{*}\hspace{0.12cm}$ de los predictores.
 
 
 </p>
  
 </p></span>
 </div>
+
 
 <br>
 
@@ -195,18 +196,18 @@ $\hspace{0.25cm}$ Aquí no se va a entrar en este asunto, pero $\hspace{0.1cm}D\
 
 
 
-# KNN para clasificación supervisada con `sklearn`  <a class="anchor" id="3"></a>
+## KNN para clasificación supervisada con `sklearn` 
 
 Importamos algunos de los paquetes y modulos que vamos a utilizar:
 
 ```python
-import seaborn as sns
 import pandas as pd
+
 import numpy as np
+
 from sklearn.utils import resample
+
 import math as math
-import matplotlib as mpl
-import matplotlib.pyplot as plt
 ```
 
 Cargamos los datos con los que vamos a trabajar, los cuales han sido descritos a nivel conceptual en el artículo de [regresión lineal](http://estadistica4all.com/Articulos/Linear-Regression-new.html)
@@ -313,21 +314,21 @@ Dividimos el data set inicial en dos partes. Una parte jugará el rol de datos d
 
 En la vida real es conjunto de datos nuevos serían exclusivamente de los predictores, y en base a esa información y el modelo entrenado se predecirian los valores de la respuesta para esos predictores, los cuales serían desconocidos de partida. Pero en este ejemplo no realista disponemos tambien de datos sobre la respuesta en el conjunto de datos nuevos. Esto permitirá medir de algun modo el error que comete el modelo al predecir la respuesta para las nuevas observaciones de los predictores, comparando las predicciones con los valores reales disponibles en la nueva muestra. Este principio es el que está detras de las técnicas de validación cruzada que serán estudiadas con detalle en futuros artículos.
 
-```python
-Data_Mixed_train = Data_Mixed.sample(frac=0.8, replace=False, weights=None, random_state=123, axis=None, ignore_index=False)
-
-Data_Mixed_new =  Data_Mixed.drop( Data_Mixed_train.index , )
-```
 
 En este caso la variable respuesta será la calidad de la vivienda (quality), que es la variable que se va a predecir. Es decir, dada una vivienda vamos a predecir su calidad, esto es, vamos a clasificarla en una de las categorias definidas por la variable quality.
 
 ```python
-## TRAIN DATA (Datos dispobles --> se usan para entrenar el modelo)
+## TRAIN DATA (Datos usados para entrenar el modelo)
+
+Data_Mixed_train = Data_Mixed.sample(frac=0.8, replace=False, weights=None, random_state=123, axis=None, ignore_index=False)
 
 X_train = Data_Mixed_train.loc[: , Data_Mixed_train.columns != 'quality_recode']
 Y_train = Data_Mixed_train.loc[: , 'quality_recode']
 
+
 ## NEW DATA (Nuevos datos de los predictores)
+
+Data_Mixed_new =  Data_Mixed.drop( Data_Mixed_train.index , )
 
 X_new = Data_Mixed_new.loc[: , Data_Mixed_new.columns != 'quality_recode']
 
@@ -338,6 +339,8 @@ X_new = Data_Mixed_new.loc[: , Data_Mixed_new.columns != 'quality_recode']
 Y_new = Data_Mixed_new.loc[: , 'quality_recode'] 
 
 ```
+
+<br>
 
 Veamos la pinta que tienen los data-frames que acabamos de crear:
 
@@ -425,7 +428,7 @@ X_train.head()
 </div>
 
 
-
+<br>
 
 ```python
 X_new.head()
@@ -513,7 +516,7 @@ X_new.head()
 
 
 
-
+<br>
 
 
 
@@ -529,7 +532,7 @@ Y_train.head()
 Name: quality_recode, dtype: float64
 ```
 
-
+<br>
 
 ```python
 Y_new.head()
@@ -557,16 +560,20 @@ from sklearn.neighbors import NearestNeighbors
 ```
 
 En la siguiente caja de codigo podemos ver todos los parametros disponibles para la función `KNeighborsClassifier`, la cual permite implementar el algoritmo KNN para clasificación supervisada.
+
 ```python
 # sklearn.neighbors.KNeighborsClassifier(n_neighbors=10, *, weights='uniform', algorithm='auto', leaf_size=30, p=2, metric='minkowski', metric_params=None, n_jobs=None) 
 ```
 
+<br>
 
-Fijamos algunos parametros del algoritmo. En concreto usaremos $k=10$ vecinos y la distancia de Minkowski con $p=2$, es decir, la distancia Euclidea.
+Inicializamos algunos parametros del algoritmo. En concreto usaremos k=10 vecinos y la distancia de Minkowski con p=2, es decir, la distancia **Euclidea**.
 
 ```python
 knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=2, metric='minkowski')
 ```
+
+<br>
 
 Entrenamos el modelo usando los data-frames X_train y Y_train, que contienen observaciones de los predictores y la respuesta, respectivamente.
 
@@ -577,10 +584,7 @@ knn_classification.fit(X_train, Y_train)
 ```
 
 
-
-
-    KNeighborsClassifier(n_neighbors=10)
-
+<br>
 
 
 Usando el método `predict` podemos predecir la respuesta para cada una de las observaciones de los predictores que consideremos. Para ello tenemos que pasarle al método los vectores de observaciones como filas de un array, en este caso esto ya lo tenemos en el data-frame X_new, que contiene las nuevas observaciones de los predictores como filas.
@@ -616,12 +620,12 @@ knn_classification.predict( X_new )
            2., 2., 1., 1., 2., 2., 2., 1., 2., 2., 1., 2., 2., 1., 2., 1., 2.,
            2., 2., 2., 2., 2., 2., 1.])
 
-
+<br>
 
 Como disponemos de los valores reales de la respuesta para las nuevas obserciones de los predictores, podemos calcular la tasa de acierto en la clasificación como la proporción de clasificaciones correctas :
 
 ```python
-TA = sum( knn_classification.predict( X_new )  == Y_new.reset_index().quality_recode ) / len(Y_new)
+TA = sum( knn_classification.predict( X_new ) == Y_new.reset_index().quality_recode ) / len(Y_new)
 
 TA
 ```
@@ -634,7 +638,7 @@ TA
 
 Podemos probar el algoritmo con otras funciones de distancia.
 
-Por ejemplo con la distancia de Minkowski con $p=1$ (distancia Manhattan):
+Por ejemplo con la distancia de Minkowski con p=1 (distancia **Manhattan**):
 
 
 ```python
@@ -645,7 +649,7 @@ knn_classification.fit(X_train, Y_train)
 
 Calculamos la tasa de  acierto de la clasificación:
 ```python
-TA = sum( knn_classification.predict( X_new )  == Y_new.reset_index().quality_recode ) / len(Y_new)
+TA = sum( knn_classification.predict( X_new ) == Y_new.reset_index().quality_recode ) / len(Y_new)
 TA
 ```
 
@@ -656,7 +660,7 @@ TA
 <br>
 
 
-Probamos ahora con la distancia coseno:
+Probamos ahora con la distancia **coseno**:
 
 ```python
 knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,   metric='cosine')
@@ -667,7 +671,7 @@ knn_classification.fit(X_train, Y_train)
 
 Calculamos la tasa de  acierto de la clasificación:
 ```python
-TA = sum( knn_classification.predict( X_new )  == Y_new.reset_index().quality_recode ) / len(Y_new)
+TA = sum( knn_classification.predict( X_new ) == Y_new.reset_index().quality_recode ) / len(Y_new)
 TA
 ```
 
@@ -678,9 +682,12 @@ TA
 
 <br>
 
+---
+
+<br>
 
 
-# KNN  para clasificación supervisada programado en `Python` <a class="anchor" id="4"></a>
+## KNN  para clasificación supervisada programado en `Python` <a class="anchor" id="4"></a>
 
 Vamos a crear una función que replique el algoritmo KNN para clasificación supervisada que anteriormente fue descrito. Este es un buen ejercicio para entender mejor como funciona realmente el algoritmo, y para practicar nuestra programación.
 
@@ -1022,9 +1029,9 @@ def Matrix_Gower_Distance(Data, p1, p2, p3 ):
 **Programamos desde "cero" el algoritmo KNN para clasificación supervisada:**
 
 ```python
-def KNN(Distance_Matrix_New_Data , k, X_train, Y_train ) :
+class KNNClassification:
 
-    # k es el hiper-parametro del algoritmo KNN.
+ # k es el hiper-parametro del algoritmo KNN.
 
     # 'Distance_Matrix_New_Data' debe contenere las distancias entre las nuevas observaciones de los predictores y las de train.
     # Su fila i-esima debe contener las distancias entre la i-esima nueva observacion de los predictores y las observaciones de train de los predictores.
@@ -1032,54 +1039,74 @@ def KNN(Distance_Matrix_New_Data , k, X_train, Y_train ) :
     # X_train tiene que ser un data-frame con las observaciones de los predictores con las que se va a entrenar el modelo.
     
     # Y_train tiene que ser un numpy array que contenga las observaciones de la respuesta con las que se va a entrenar el modelo.
+    
+    def __init__(self, k, X_train, Y_train, distance_matrix_new_data):
 
-
-    Y_predict_x_new_i_LIST = []
-
-    for i in range(0, len(Distance_Matrix_New_Data)):
-
-        distancias_x_new_i = pd.DataFrame({'id_x_train': X_train.index  , 'distancias': Distance_Matrix_New_Data[i,:]})
-
-        distancias_x_new_i_sort = distancias_x_new_i.sort_values(by=["distancias"]).reset_index(drop=True)
-
-        knn_x_new_i = distancias_x_new_i_sort.iloc[0:k , :]
-
-        categorias_knn_x_new_i = []
-
+        self.k = k
         
-        for j in knn_x_new_i.iloc[:,0]:
-
-            categorias_knn_x_new_i.append(Y_train[j])
-
-    
-        unique, counts = np.unique(categorias_knn_x_new_i , return_counts=True)
-
-        unique_Y , counts_Y = np.unique(Y_train , return_counts=True)
-
-    
-        if len(unique) == len(unique_Y) :
-
-            proporciones_categorias_knn_x_new_i = pd.DataFrame({'prop_categoria': counts/k, 'categoria': unique_Y })
+        self.X_train = X_train
         
-        elif len(unique) < len(unique_Y) :
-
-            proporciones_categorias_knn_x_new_i = pd.DataFrame({'prop_categoria': counts/k, 'categoria': unique })
-
-
-        Y_predict_x_new_i = proporciones_categorias_knn_x_new_i.sort_values(by=["prop_categoria"], ascending=False).iloc[0,:]['categoria']
-
-
-        Y_predict_x_new_i_LIST.append(Y_predict_x_new_i)
-
+        self.Y_train = Y_train
+        
+        self.distance_matrix_new_data = distance_matrix_new_data
+        
+        self.predictions = None
     
-    df_predictions = pd.DataFrame({'id_x_new':range(0, len(Distance_Matrix_New_Data)) , 'Y_predict': Y_predict_x_new_i_LIST})
 
-    return df_predictions
+    def predict(self):
+
+        Y_predict_x_new_i_LIST = []
+
+        for i in range(0, len(self.distance_matrix_new_data)):
+
+            distancias_x_new_i = pd.DataFrame({'id_x_train': self.X_train.index, 'distancias': self.distance_matrix_new_data[i,:]})
+
+            distancias_x_new_i_sort = distancias_x_new_i.sort_values(by=["distancias"]).reset_index(drop=True)
+
+            knn_x_new_i = distancias_x_new_i_sort.iloc[0:self.k, 0]
+
+           
+            categorias_knn_x_new_i = []
+
+            for j in knn_x_new_i :
+
+                categorias_knn_x_new_i.append(self.Y_train[j])
+
+
+            unique, counts = np.unique(categorias_knn_x_new_i , return_counts=True)
+
+            unique_Y , counts_Y = np.unique(self.Y_train , return_counts=True)
+
+
+            if len(unique) == len(unique_Y) :
+
+                proporciones_categorias_knn_x_new_i = pd.DataFrame({'prop_categoria': counts/self.k, 'categoria': unique_Y })
+
+            elif len(unique) < len(unique_Y) :
+
+                proporciones_categorias_knn_x_new_i = pd.DataFrame({'prop_categoria': counts/self.k, 'categoria': unique })
+
+
+            Y_predict_x_new_i = proporciones_categorias_knn_x_new_i.sort_values(by=["prop_categoria"], ascending=False).iloc[0 , :]['categoria']
+
+
+            Y_predict_x_new_i_LIST.append(Y_predict_x_new_i)
+
+
+        self.df_predictions = pd.DataFrame({'id_x_new':range(0, len(self.distance_matrix_new_data)) , 'Y_predict': Y_predict_x_new_i_LIST})
+
+        self.predictions = self.df_predictions['Y_predict']
+        
 ```
 
 
 
-Probaremos la función con la distancia de Gower. Para ello necesitamos calcular la matriz de distancias de Gower entre las nuevas observaciones y las observaciones de entrenamiento de los predictores.
+Probaremos la función con la distancia de **Gower**, ya que es una distancia que no está disponible en la implementación de `sklearn`. 
+
+Para ello necesitamos calcular la matriz de distancias de Gower entre las nuevas observaciones y las observaciones de entrenamiento de los predictores. Esto lo podemos conseguir como sigue:
+
+
+Primero obtenemos el conjunto total de observaciones de los predicitores. Es decir, un data-frame que se puede construir a partir de la concatenación por filas de los data-frames `X_train` y `X_new` .
 
 ```python
 X = pd.concat([X_train , X_new])
@@ -1166,6 +1193,12 @@ X.head()
 </table>
 </div>
 
+
+
+<br>
+
+Calculamos la matriz de distancias de gower del conjunto total de observaciones de los predictores.
+
 ```python
 M_Gower = Matrix_Gower_Distance(Data=X.to_numpy(), p1=4, p2=2, p3=0)
 M_Gower
@@ -1200,6 +1233,7 @@ M_Gower_new_data = M_Gower[ len(X_train):len(X) , 0:len(X_train) ]
 # Su fila i-esima contiene las distancias entre la i-esima nueva observacion de los predictores y las observaciones de entrenamiento.
 ```
 
+Podemos comprobar las dimensiones de esta matriz.
 
 ```python
 M_Gower_new_data.shape
@@ -1207,17 +1241,22 @@ M_Gower_new_data.shape
 
     (381, 1524)
 
+<br>
 
-
-
+Aplicamos la función para la matriz de distancias de **Gower** entre las observaciones de train y las nuevas observaciones de los predictores. Fijaremos, además, **k=10** :
 
 ```python
-df_predictions = KNN(Distance_Matrix_New_Data = M_Gower_new_data , k=10, X_train=X_train, Y_train=Y_train)
+KNNClassification_init = KNNClassification(k=10, X_train=X_train, Y_train=Y_train, distance_matrix_new_data=M_Gower_new_data)
+
+KNNClassification_init.predict()
 ```
 
+<br>
+
+`KNNClassification_init.df_predictions` almacena un data-frame que contiene la predicción de la variable respuesta para cada una de las nuevas observaciones de los predictores, es decir, para cada nuevo "individuo".
 
 ```python
-df_predictions
+KNNClassification_init.df_predictions
 ```
 
 <div>
@@ -1303,15 +1342,42 @@ df_predictions
 <p>381 rows × 2 columns</p>
 </div>
 
+
+<br> 
+
+También podemos acceder directamente a las predicciones generadas por el algoritmo con `KNNClassification_init.predictions`.
+
+```python
+KNNClassification_init.predictions
+```
+
+0      2.0
+1      2.0
+2      2.0
+3      1.0
+4      2.0
+      ... 
+376    2.0
+377    2.0
+378    2.0
+379    0.0
+380    2.0
+Name: Y_predict, Length: 381, dtype: float64
+
+
+
+
+
+
+
 <br>
 
 
 
-Podemos calcular la tasa de acierto en la clasificación obtenida con el algoritmo usando nuestra función con la distancia de Gower:
+Podemos calcular la tasa de acierto en la clasificación obtenida con el algoritmo usando nuestra función con la distancia de **Gower**:
 
 ```python
-TA = sum( df_predictions.Y_predict == Y_new.reset_index().quality_recode ) / len(Y_new)
-
+TA = sum( KNNClassification_init.predictions == Y_new.reset_index().quality_recode ) / len(Y_new)
 TA
 ```
 
@@ -1325,7 +1391,7 @@ TA
 <br>
 
 
-Probamos ahora el algoritmo con la distancia Euclidea:
+Ahora probamos el algoritmo con la distancia **Euclidea**:
 
 
 
@@ -1339,12 +1405,14 @@ M_Euclidea_new_data = M_Euclidea[ len(X_train):len(X) , 0:len(X_train) ]
 
 
 ```python
-df_predictions = KNN(Distance_Matrix_New_Data = M_Euclidea_new_data , k=10, X_train=X_train, Y_train=Y_train)
+KNNClassification_init = KNNClassification(k=10, X_train=X_train, Y_train=Y_train, distance_matrix_new_data=M_Euclidea_new_data)
+
+KNNClassification_init.predict()
 ```
 
 
 ```python
-df_predictions
+KNNClassification_init.df_predictions
 ```
 
 
@@ -1437,7 +1505,7 @@ df_predictions
 
 
 ```python
-TA = sum( df_predictions.Y_predict == Y_new.reset_index().quality_recode ) / len(Y_new)
+TA = sum( KNNClassification_init.predictions == Y_new.reset_index().quality_recode ) / len(Y_new)
 TA
 ```
 
@@ -1450,6 +1518,8 @@ Como se puede comprobar se obtiene la misma tasa de acierto que con el algoritmo
 
 
 <br>
+
+---
 
 <br>
 
@@ -1469,7 +1539,7 @@ La solución estadística al problema de regresión pasa por proponer un modelo 
 <br>
 
 
-# KNN como algoritmo de regresión  <a class="anchor" id="5"></a>
+# KNN como algoritmo de regresión 
 
 Un modelo de regresión es un modelo estadístico que permite predecir una respuesta **cuantitativa** usando para ello información sobre una serie de predictores y de la propia respuesta.
 
@@ -1519,41 +1589,41 @@ $\hspace{0.15cm}$ El algoritmo KNN para regresión tiene los siguientes pasos:
 
 
  
-- Dada una nueva observación $x_{new}$ de los predictores $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)$ , es decir, una observación que no está en la muestra de train, se calculan las distancias entre el par de observaciones $\hspace{0.1cm}(x_{new} \hspace{0.1cm},\hspace{0.1cm} x_i)\hspace{0.1cm}$ , para $\hspace{0.1cm}i=1,...,n  \hspace{0.25cm} \Rightarrow \hspace{0.25cm} \delta(x_{new} , x_i) \\$
+- Dada una nueva observación $\hspace{0.1cm}x_{*}\hspace{0.05cm}=\hspace{0.05cm}(x_{*1} \hspace{0.05cm},\hspace{0.05cm} x_{*2} \hspace{0.05cm},\dots ,\hspace{0.05cm} x_{*p})\hspace{0.1cm}$  de los predictores $\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)$ , es decir, una observación que no está en la muestra de train, se calculan las distancias entre el par de observaciones $\hspace{0.1cm}(x_{*} \hspace{0.1cm},\hspace{0.1cm} x_i)\hspace{0.1cm}$ , para $\hspace{0.1cm}i=1,...,n  \hspace{0.25cm} \Rightarrow \hspace{0.25cm} \delta(x_{*} , x_i) \\$
  
 
 
 
-- Se seleccionan las $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones  $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$ que son más cercanas a la nueva observación $\hspace{0.1cm}x_{new}\hspace{0.1cm}$ , según la distancia $\hspace{0.1cm}\delta$.
+- Se seleccionan las $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones  $\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}$ que son más cercanas a la nueva observación $\hspace{0.1cm}x_{*}\hspace{0.1cm}$ , según la distancia $\hspace{0.1cm}\delta$.
 
-    El conjunto de estas $\hspace{0.1cm}k\hspace{0.1cm}$ observaciones son los **k vecinos más cercanos de $x_{new}$** y se denota por $\hspace{0.1cm}K_{x_{new}} \\$
-
-
-
-- Se predice la respuesta para la nueva observacion $\hspace{0.1cm}x_{new}\hspace{0.1cm}$ de los predictores como la media de la respuesta en el conjunto $\hspace{0.1cm}K_{x_{new}}$
+    El conjunto de estas $\hspace{0.05cm}k\hspace{0.05cm}$ observaciones son los **$k$ vecinos más cercanos de $x_{*}$** y se denota por $\hspace{0.1cm}K_{x_{*}} \\$
 
 
 
+- Se predice la respuesta para la nueva observacion $\hspace{0.1cm}x_{*}\hspace{0.1cm}$ de los predictores como la media de la respuesta en el conjunto $\hspace{0.1cm}K_{x_{*}}$
 
-    $$\widehat{y}_{new}  \hspace{0.15cm} = \hspace{0.15cm} \dfrac{1}{k} \cdot \sum_{ \hspace{0.05cm} i \hspace{0.05cm} \in \hspace{0.05cm} \Delta }  y_i $$
+
+
+
+    $$\widehat{y}_{*}  \hspace{0.15cm} = \hspace{0.15cm} \dfrac{1}{k} \cdot \sum_{ \hspace{0.05cm} i \hspace{0.05cm} \in \hspace{0.05cm} \Delta }  y_i $$
 
 
 
     Donde: 
 
-    $$\hspace{0.1cm}\Delta = \left\lbrace i = 1,...,n \hspace{0.15cm}  / \hspace{0.15cm}  x_i \in K_{x_{new}} \right\rbrace \\$$
+    $$\hspace{0.1cm}\Delta = \left\lbrace i = 1,...,n \hspace{0.15cm}  / \hspace{0.15cm}  x_i \in K_{x_{*}} \right\rbrace \\$$
 
 
     - Otra forma de expresar el punto anterior es la siguiente:
 
-        - Si  $\hspace{0.15cm}Y_{K_{x_{new}}}\hspace{0.1cm}$ es la muestra de la respuesta para los $\hspace{0.1cm}k\hspace{0.1cm}$ individuos asociados al conjunto $\hspace{0.1cm}K_{x_{new}}\hspace{0.1cm}$ , es decir: $\\[0.5cm]$
+        - Si  $\hspace{0.15cm}Y_{K_{x_{*}}}\hspace{0.1cm}$ es la muestra de la respuesta para los $\hspace{0.1cm}k\hspace{0.1cm}$ individuos asociados al conjunto $\hspace{0.1cm}K_{x_{*}}\hspace{0.1cm}$ , es decir: $\\[0.5cm]$
 
-         $$Y_{K_{x_{new}}} = \left(\hspace{0.1cm} y_i \hspace{0.25cm} / \hspace{0.25cm}  i\in \lbrace 1,...,n \rbrace \hspace{0.3cm}  \text{y} \hspace{0.3cm} x_i \in K_{x_{new}}\hspace{0.1cm} \right)\\[0.3cm]$$
+         $$Y_{K_{x_{*}}} = \left(\hspace{0.1cm} y_i \hspace{0.25cm} / \hspace{0.25cm}  i\in \lbrace 1,...,n \rbrace \hspace{0.3cm}  \text{y} \hspace{0.3cm} x_i \in K_{x_{*}}\hspace{0.1cm} \right)\\[0.3cm]$$
 
        $\hspace{0.8cm}$  entonces:
 
 
-         $$\widehat{y}_{new} =  \overline{\hspace{0.15cm} Y}_{K_{x_{new}}}\\$$
+         $$\widehat{y}_{*} =  \overline{\hspace{0.15cm} Y}_{K_{x_{*}}}\\$$
  
 </p>
  
@@ -1566,12 +1636,12 @@ $\hspace{0.15cm}$ El algoritmo KNN para regresión tiene los siguientes pasos:
 
 
 
-# KNN para regresión con `sklearn` <a class="anchor" id="6"></a>
+## KNN para regresión con `sklearn` 
 
 Volvemos a crear los data-frames con los que entrenaremos el modelo y los que usaremos para predecir la respuesta. En este caso la variable respuesta es el precio de las viviendas (price).
 
 ```python
-## TRAIN DATA (Datos dispobles --> se usan para entrenar el modelo)
+## TRAIN DATA (Datos que se usan para entrenar el modelo)
 
 X_train = Data_Mixed_train.loc[: , Data_Mixed_train.columns != 'price']
 Y_train = Data_Mixed_train.loc[: , 'price']
@@ -1588,12 +1658,16 @@ Y_new = Data_Mixed_new.loc[: , 'price']
 
 ```
 
+<br>
+
 Fijamos algunos parametros de la función `KNeighborsRegressor`
 ```python
 knn_regression = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 , p=2,  metric='minkowski')
 ```
 
-Entrenamos el algoritmo con las observaciones de los predictores contenidas en X_train y con las observaciones de la respuesta contenidas en Y_train.
+<br>
+
+Entrenamos el algoritmo con las observaciones de los predictores contenidas en `X_train` y con las observaciones de la respuesta contenidas en `Y_train`.
 ```python
 knn_regression.fit(X_train, Y_train)
 ```
@@ -1603,9 +1677,9 @@ knn_regression.fit(X_train, Y_train)
 
     KNeighborsClassifier(n_neighbors=10)
 
+<br>
 
-
-Predecimos la respuesta para las observaciones de los predictores contenidas en X_new
+Predecimos la respuesta para las observaciones de los predictores contenidas en `X_new`.
 
 ```python
 knn_regression.predict( X_new ) 
@@ -1690,9 +1764,11 @@ array([ 1963827.5,  3046500. ,  2523990. ,  2477788.8,  2513966.5,
         2015688.7,  7541000. , 15675244. ,  1088657.4,  1165544. ,
         1130149.8])
 ```
- 
+
+<br>
  
 Como disponemos de los valores de la respuesta para las observaciones de los predictores con las que hemos predicho la respuesta podemos comparar los valores reales con los predichos a través de una métrica de error como el error cuadratico medio (ECM):
+
 ```python
 ECM = sum( (knn_regression.predict( X_new )  - Y_new.reset_index().price )**2 ) / len(Y_new)
 
@@ -1702,7 +1778,7 @@ ECM
     2405540681171.826
 
 
- 
+
 
 Para reducir la dimension de la cantidad anterior y además lograr que se mida en las mismas unidades que la respuesta tomamos la raiz cuadrada:
 
@@ -1719,21 +1795,19 @@ np.sqrt(ECM)
 
 <br>
 
+---
+
+<br>
 
 
-
-
-
-
-
-# KNN  para regresión  programado en `Python` <a class="anchor" id="7"></a>
+## KNN  para regresión  programado en `Python` <a class="anchor" id="7"></a>
 
 
 **Programamos desde "cero" el algoritmo KNN para regresión:**
 
 ```python
-def KNN_regresion(Distance_Matrix_New_Data , k , X_train, Y_train) :
-
+class KNNRegression :
+    
     # k es el hiper-parametro del algoritmo KNN.
 
     # 'Distance_Matrix_New_Data' debe contenere las distancias entre las nuevas observaciones de los predictores y las de train.
@@ -1742,38 +1816,53 @@ def KNN_regresion(Distance_Matrix_New_Data , k , X_train, Y_train) :
     # X_train tiene que ser un data-frame con las observaciones de los predictores con las que se va a entrenar el modelo.
     
     # Y_train tiene que ser un numpy array que contenga las observaciones de la respuesta con las que se va a entrenar el modelo.
-
-
-    Y_predict_x_new_i_LIST = []
-
-    for i in range(0, len(Distance_Matrix_New_Data)):
-
-        distancias_x_new_i = pd.DataFrame({'id_x_train': X_train.index  , 'distancias': Distance_Matrix_New_Data[i,:]})
-
-        distancias_x_new_i_sort = distancias_x_new_i.sort_values(by=["distancias"]).reset_index(drop=True)
-
-        knn_x_new_i = distancias_x_new_i_sort.iloc[0:k , :]
-
-        Y_values_knn_x_new_i = []
-
-        
-        for j in knn_x_new_i.iloc[:,0]:
-
-            Y_values_knn_x_new_i.append(Y_train[j])
-
-
-        Y_predict_x_new_i = sum(Y_values_knn_x_new_i)/k    
-
-        Y_predict_x_new_i_LIST.append(Y_predict_x_new_i)
-
     
-    df_predictions = pd.DataFrame({'id_x_new':range(0, len(Distance_Matrix_New_Data)) , 'Y_predict': Y_predict_x_new_i_LIST})
+    def __init__(self, k, X_train, Y_train, distance_matrix_new_data):
 
-    return df_predictions
+        self.k = k
+        
+        self.X_train = X_train
+        
+        self.Y_train = Y_train
+        
+        self.distance_matrix_new_data = distance_matrix_new_data
+        
+        self.predictions = None
+    
+
+    def predict(self):
+
+        Y_predict_x_new_i_LIST = []
+
+        for i in range(0, len(self.distance_matrix_new_data)):
+
+            distancias_x_new_i = pd.DataFrame({'id_x_train': self.X_train.index, 'distancias': self.distance_matrix_new_data[i,:]})
+
+            distancias_x_new_i_sort = distancias_x_new_i.sort_values(by=["distancias"]).reset_index(drop=True)
+
+            knn_x_new_i = distancias_x_new_i_sort.iloc[0:self.k, 0]
+
+           
+            Y_values_knn_x_new_i = []
+
+            for j in knn_x_new_i :
+
+                Y_values_knn_x_new_i.append(self.Y_train[j])
+
+            
+            Y_predict_x_new_i = sum(Y_values_knn_x_new_i)/self.k    
+
+            Y_predict_x_new_i_LIST.append(Y_predict_x_new_i)
+
+
+        self.df_predictions = pd.DataFrame({'id_x_new':range(0, len(self.distance_matrix_new_data)) , 'Y_predict': Y_predict_x_new_i_LIST})
+
+        self.predictions = self.df_predictions['Y_predict']
+        
 ```
 
 
-Probamos el algoritmo con la distancia de Gower y $k=10$ :
+Probamos el algoritmo con la distancia de **Gower** y **k=10** :
 
 ```python
 X = pd.concat([X_train , X_new])
@@ -1787,8 +1876,13 @@ M_Gower_new_data = M_Gower[ len(X_train):len(X) , 0:len(X_train) ]
 
 
 ```python
-df_predictions = KNN_regresion(Distance_Matrix_New_Data=M_Gower_new_data , k=10 , X_train=X_train, Y_train=Y_train) 
-df_predictions
+KNNRegression_init = KNNRegression(k=10, X_train=X_train, Y_train=Y_train, distance_matrix_new_data=M_Gower_new_data)
+
+KNNRegression_init.predict()
+```
+
+```python
+KNNRegression_init.df_predictions
 ```
 
 ```
@@ -1807,15 +1901,35 @@ df_predictions
 ```
 
 
+```python
+KNNRegression_init.predictions
+```
+
+0       2081499.9
+1       1710999.9
+2       2639277.7
+3       2817500.0
+4       2839583.6
+          ...    
+376     4778999.9
+377    12093477.6
+378     1019720.0
+379     1260699.9
+380     1088923.8
+Name: Y_predict, Length: 381, dtype: float64
+
+
+
+
 Calculamos el error cuadrático medio:
 
 ```python
-ECM = sum( (df_predictions.Y_predict - Y_new.reset_index().price)**2 ) / len(Y_new)
-
+ECM = sum( (KNNRegression_init.predictions - Y_new.reset_index().price)**2 ) / len(Y_new)
 ECM
 ```
 
     2694547525120.1924
+    
 
 
 ```python
@@ -1828,7 +1942,8 @@ np.sqrt(ECM)
 
 <br>
 
-Probamos ahora el algoritmo con la distancia Euclidea y $k=10$ :
+
+Probamos ahora el algoritmo con la distancia **Euclidea** y **k=10** :
 
 ```python
 M_Euclidea = Matrix_Dist_Euclidea(Data=X.to_numpy())
@@ -1840,20 +1955,21 @@ M_Euclidea_new_data = M_Euclidea[ len(X_train):len(X) , 0:len(X_train) ]
 
 
 ```python
-df_predictions = KNN_regresion(Distance_Matrix_New_Data=M_Euclidea_new_data , k=10 , X_train=X_train, Y_train=Y_train) 
+KNNRegression_init = KNNRegression(k=10, X_train=X_train, Y_train=Y_train, distance_matrix_new_data=M_Euclidea_new_data)
+
+KNNRegression_init.predict() 
 ```
 
 Calculamos el error cuadrático medio:
 ```python
-ECM = sum( (df_predictions.Y_predict - Y_new.reset_index().price)**2 ) / len(Y_new)
-
+ECM = sum( (KNNRegression_init.predictions - Y_new.reset_index().price)**2 ) / len(Y_new)
 ECM
 ```
 
     2406009496239.313
 
  
-Como vemos el ECM obtenido es similar al que obteniamos al implementar el algoritmo con `sklearn` , también con la distancia Euclidea y $k=10$
+Como vemos el ECM obtenido es similar al que obteniamos al implementar el algoritmo con `sklearn` , también con la distancia Euclidea y k=10.
 
 
 <br>
