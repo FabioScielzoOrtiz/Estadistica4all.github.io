@@ -589,7 +589,7 @@ knowing the past.
 <br>
 
 
-# Preprocessing and visualization of time series in `Python`
+# Preprocessing and visualizing  time series in `Python`
 
 
 
