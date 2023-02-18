@@ -142,7 +142,7 @@ Este artículo es básicamente un tour (teórico-práctico) sobre estos elemento
 
 <br>
 
-# Muestras de train y test <a class="anchor" id="1"></a>
+# Muestras de train y test
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -320,7 +320,7 @@ $$D_{test}  \hspace{0.1cm}=\hspace{0.1cm} [\hspace{0.1cm}X_1^{test},...,X_p^{tes
 
 <br>
 
-## Predicciones de test
+## Predicciones de test  <a class="anchor" id="1"></a>
 
 
 Puesto que $\hspace{0.1cm}M\hspace{0.1cm}$ es un modelo predictivo supervisado es capaz de, una vez es entrenado  con las observaciones de   $\hspace{0.08cm}D_{train}=[X_1^{train},...,X_p^{train}, Y^{train}]\hspace{0.08cm}$ , generar predicciones de la respuesta $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$  ,  tanto para las **observaciones de train** como  para **nuevas observaciones** de los predictores $\hspace{0.08cm}\mathcal{X}_1,...,\mathcal{X}_p$ . 
@@ -685,7 +685,7 @@ $$EAM(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{h} \cdot \sum_{i=1}^h \h
 
 <br>
 
-## Error absoluto relativo (EAR)
+## Error absoluto relativo (EAR)  <a class="anchor" id="1"></a>
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -808,7 +808,7 @@ $$TEC(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{h} \cdot \sum_{i=1}^{h} 
 
 <br>
 
-## Kappa
+## Kappa  <a class="anchor" id="1"></a>
 
 Suponemos que una variable respuesta tiene $\hspace{0.05cm}k \geq 2\hspace{0.05cm}$ categorias
 
@@ -945,7 +945,7 @@ Este algoritmo de validación consiste en dividir el data-set inicial en una par
 
 El $\hspace{0.1cm} k\% \hspace{0.1cm}$ de las primeras filas del data-set serán la parte de train, y el resto la parte de test.
 
-El modelo es entrenado con la muestra train y testado calculando una métrica de evaluación con la muestra test. Este valor de la métrica de evaluación es el que será usado para medir la capacidad predictiva del modelo y compararlo con otros modelos. $\\[1cm]$
+El modelo es entrenado con la muestra train y testado calculando una métrica de evaluación con la muestra test. Este valor de la métrica de evaluación es el que será usado para medir la capacidad predictiva del modelo y compararlo con otros modelos. $\\[0.5cm]$
 
 
 
@@ -962,11 +962,11 @@ El algoritmo de validación simple no aleatoria tiene los siguientes pasos: $\\[
 
 - Se divide $\hspace{0.1cm}D\hspace{0.1cm}$ en parte de train y parte de test del siguiente modo: $\\[0.4cm]$
 
-    - Sea $\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}$ la proporción de filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que formaran parte del muestra de **train** (es un hiper-parametro del algoritmo): $\\[0.5cm]$
+    $\hspace{0.2cm}$ Sea $\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}$ la proporción de filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que formaran parte del muestra de **train** (es un hiper-parametro del algoritmo): $\\[0.5cm]$
 
-         - Las primeras $\hspace{0.2cm}\lfloor k  \cdot N \rfloor\hspace{0.2cm}$ observaciones (filas) definen el conjunto de train:$\\[0.6cm]$
+    - Las primeras $\hspace{0.2cm}\lfloor k  \cdot N \rfloor\hspace{0.2cm}$ observaciones (filas) definen el conjunto de train:$\\[0.6cm]$
 
-         $$D_{train}= \begin{pmatrix}
+      $$D_{train}= \begin{pmatrix}
     x_{11}&x_{12}&...&x_{1p}& y_1\\
     x_{21}&x_{22}&...&x_{2p} & y_2\\
     &...&\\
@@ -979,14 +979,14 @@ El algoritmo de validación simple no aleatoria tiene los siguientes pasos: $\\[
     \end{pmatrix} \hspace{0.1cm}=\hspace{0.1cm} \left[\hspace{0.1cm} X_1^{train} ,..., X_p^{train} , Y^{train}\hspace{0.1cm}\right]\\$$
     
     
-        Donde:
+      Donde:
 
-        $\# D_{train}\hspace{0.1cm}$ es el número de **filas** de $\hspace{0.1cm}D_{train} \\[0.8cm]$
+      - $\# D_{train}\hspace{0.1cm}$ es el número de **filas** de $\hspace{0.1cm}D_{train} \\[0.8cm]$
 
 
-       - Las siguientes $\hspace{0.2cm} N - \lfloor k  \cdot N \rfloor\hspace{0.2cm}$ observaciones definen (filas) el conjunto de test: $\\[0.6cm]$ 
+    - Las siguientes $\hspace{0.2cm} N - \lfloor k  \cdot N \rfloor\hspace{0.2cm}$ observaciones definen (filas) el conjunto de test: $\\[0.6cm]$ 
 
-        $$D_{test}= \begin{pmatrix}
+      $$D_{test}= \begin{pmatrix}
     x_{(\lfloor k  \cdot N \rfloor + 1) \hspace{0.05cm} 1 } & x_{(\lfloor k  \cdot N \rfloor + 1) \hspace{0.05cm} 2}&...&x_{(\lfloor k  \cdot N \rfloor + 1) \hspace{0.05cm} p}& y_{\lfloor k  \cdot N \rfloor + 1} \\
     x_{(\lfloor k  \cdot N \rfloor + 2) \hspace{0.05cm} 1 } & x_{(\lfloor k  \cdot N \rfloor + 2) \hspace{0.05cm} 2}&...&x_{(\lfloor k  \cdot N \rfloor + 2) \hspace{0.05cm} p}& y_{\lfloor k  \cdot N \rfloor + 2}\\
     &...&\\
@@ -1000,11 +1000,11 @@ El algoritmo de validación simple no aleatoria tiene los siguientes pasos: $\\[
  
     
     
-        Donde:
+      Donde:
 
-        $\# D_{test}\hspace{0.1cm}$ es el número de **filas** de $\hspace{0.1cm}D_{test}$
+      - $\# D_{test}\hspace{0.1cm}$ es el número de **filas** de $\hspace{0.1cm}D_{test}$ $\\[0.2cm]$
 
-        $\hspace{0.1cm} \lfloor \cdot \rfloor\hspace{0.1cm}$ es la funcion suelo, que dado un número como argumento te  devuelve el mayor entero menor que dicho número $\\[1cm]$
+      - $\lfloor \cdot \rfloor\hspace{0.1cm}$ es la funcion suelo, que dado un número como argumento te  devuelve el mayor entero menor que dicho número $\\[1cm]$
 
 
 - Se entrena el modelo $\hspace{0.1cm} M\hspace{0.1cm}$ con la **muestra de train** $\hspace{0.1cm} D_{train}\hspace{0.1cm}$ $\hspace{0.25cm}\Rightarrow\hspace{0.25cm}$ $\widehat{M}\\$
@@ -1015,14 +1015,15 @@ El algoritmo de validación simple no aleatoria tiene los siguientes pasos: $\\[
 
 - La métrica de evaluación final del modelo es la obtenida en el paso anterior. 
 
-    Si la métrica empleada en el paso anterior es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces la métrica de evaluación calculada con el algoritmo de validación simple no aleatoria es la siguiente:
+    - Si la métrica empleada en el paso anterior es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces la métrica de evaluación calculada con el algoritmo de validación simple no aleatoria es la siguiente:
 
-    $$ECM(M)_{test}^* \hspace{0.1cm}=\hspace{0.1cm} ECM(\widehat{M})_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test}} \cdot \sum_{i=1}^{\# D_{test}} \hspace{0.1cm} \left( \hspace{0.1cm} y_i^{test} - \hat{y}_i^{test} \hspace{0.1cm}\right)^2 \\$$
+                     
+      $$ECM(M)_{test}^* \hspace{0.1cm}=\hspace{0.1cm} ECM(\widehat{M})_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test}} \cdot \sum_{i=1}^{\# D_{test}} \hspace{0.1cm} \left( \hspace{0.1cm} y_i^{test} - \hat{y}_i^{test} \hspace{0.1cm}\right)^2$$
 
 
-    Donde:
+      Donde:
 
-    $$\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} D_{train}) \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train},Y^{train})\hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm})$$
+       - $\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} D_{train}) \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train},Y^{train})\hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm})$
 
 </p>
  
@@ -1071,14 +1072,14 @@ El algoritmo de validación simple   aleatoria tiene los siguientes pasos: $\\[0
 
 - Se divide $\hspace{0.1cm}D\hspace{0.1cm}$ en parte de train y parte de test del siguiente modo: $\\[0.4cm]$
 
-    $\hspace{0.25cm}$ Sea $\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}$ la proporción de filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que formarán parte de la muestra de **train** (es un hiper-parametro del algoritmo): $\\[0.4cm]$
+    $\hspace{0.2cm}$ Sea $\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}$ la proporción de filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que formarán parte de la muestra de **train** (es un hiper-parametro del algoritmo): $\\[0.4cm]$
 
-    - Se genera una muestra aleatoria sin reemplazamiento de tamaño $\hspace{0.1cm} \lfloor k  \cdot N \rfloor\hspace{0.1cm}$  del vector $\hspace{0.1cm}(1,2,...,N) \\$
+    - Se genera una muestra aleatoria sin reemplazamiento de tamaño $\hspace{0.1cm} \lfloor k  \cdot N \rfloor\hspace{0.1cm}$  del vector $\hspace{0.1cm}(\hspace{0.05cm}1,2,...,N\hspace{0.05cm})$ $\\[0.2cm]$
 
 
     $$m=(m_1 ,m_2,...,m_{\lfloor k  \cdot N \rfloor}) \\$$
 
-    - Las observaciones (filas) $\hspace{0.1cm}m=(m_1,m_2 ,...,m_{\lfloor k  \cdot N \rfloor})\hspace{0.1cm}$ de $\hspace{0.1cm}D\hspace{0.1cm}$  definen la muestra de train: $\\[0.4cm]$
+    - Las observaciones (filas) $\hspace{0.1cm}m=(m_1,m_2 ,...,m_{\lfloor k  \cdot N \rfloor})\hspace{0.1cm}$ de $\hspace{0.1cm}D\hspace{0.1cm}$  definen la **muestra de train**: $\\[0.5cm]$
 
       $$D_{train}= D[m , :] = \begin{pmatrix}
     x_{m_11}&x_{m_12}&...&x_{m_1p}& y_{m_1}\\
@@ -1100,7 +1101,7 @@ El algoritmo de validación simple   aleatoria tiene los siguientes pasos: $\\[0
 
 
     - Las observaciones (filas) de $\hspace{0.1cm}D\hspace{0.1cm}$ complementarias a  $\hspace{0.1cm}m\hspace{0.1cm}$ , es decir, las filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que no estan en $\hspace{0.1cm}D_{train}\hspace{0.1cm}$, es decir, las filas de $\hspace{0.1cm}m^c\hspace{0.1cm}$,
- definen la muestra de test:  $\\[0.4cm]$
+ definen la **muestra de test**:  $\\[0.5cm]$
  
       $$D_{test} = D[m^c , :] =  \begin{pmatrix}
     x_{1}^{test} & y_{1}^{test}\\
@@ -1113,12 +1114,12 @@ El algoritmo de validación simple   aleatoria tiene los siguientes pasos: $\\[0
 
       Donde: 
  
-       - $\# D_{test}\hspace{0.1cm}$ es el número de **filas** de $\hspace{0.1cm}D_{test}\\$
+        - $\# D_{test}\hspace{0.1cm}$ es el número de **filas** de $\hspace{0.1cm}D_{test}\\$
 
  
-       - $\lfloor \cdot \rfloor\hspace{0.1cm}$ es la funcion suelo, que dado un número como argumento te  devuelve el mayor entero menor que dicho número $\\[0.5cm]$
+        - $\lfloor \cdot \rfloor\hspace{0.1cm}$ es la funcion suelo, que dado un número como argumento te  devuelve el mayor entero menor que dicho número $\\[0.5cm]$
 
-       - $m^c \hspace{0.1cm}= \hspace{0.1cm}\left(\hspace{0.1cm} i =1,...,N \hspace{0.1cm}/\hspace{0.1cm} i\neq m_j \hspace{0.1cm},\hspace{0.1cm} \forall j=1,...,\lfloor k  \cdot N \rfloor \hspace{0.1cm} \right) \\[1cm]$
+        - $m^c \hspace{0.1cm}= \hspace{0.1cm}\Bigl(\hspace{0.1cm} i =1,...,N \hspace{0.13cm} : \hspace{0.13cm} i\neq m_j \hspace{0.1cm},\hspace{0.1cm} \forall j=1,...,\lfloor k  \cdot N \rfloor \hspace{0.1cm} \Bigr) \\[1cm]$
 
 
 - Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con la **muestra de train** $\hspace{0.1cm}D_{train}\hspace{0.1cm}$ $\hspace{0.1cm}\Rightarrow\hspace{0.2cm}$  $\widehat{M}\\$
@@ -1128,14 +1129,14 @@ El algoritmo de validación simple   aleatoria tiene los siguientes pasos: $\\[0
 
 - La métrica de evaluación final del modelo es la obtenida en el paso anterior: 
 
-    Si la métrica empleada en el paso anterior fue el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces:
+    - Si la métrica empleada en el paso anterior fue el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces:
 
-    $$ECM(M)_{test}^* \hspace{0.1cm}=\hspace{0.1cm} ECM(\widehat{M})_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test}} \cdot \sum_{i=1}^{\# D_{test}} (y_i^{test} - \hat{y}_i^{test})$$
+       $$ECM(M)_{test}^* \hspace{0.1cm}=\hspace{0.1cm} ECM(\widehat{M})_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test}} \cdot \sum_{i=1}^{\# D_{test}} (y_i^{test} - \hat{y}_i^{test})$$
 
 
-    Donde:
+       Donde:
 
-    - $\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} D_{train})\hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train},Y^{train})\hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm})$
+       - $\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} D_{train})\hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test} \hspace{0.1cm}|\hspace{0.1cm} X_1^{train},...,X_p^{train},Y^{train})\hspace{0.1cm}=\hspace{0.1cm} \widehat{M}(\hspace{0.1cm} x_i^{test} \hspace{0.1cm})$
 
 </p>
  
@@ -1201,29 +1202,29 @@ El algoritmo de validación simple aleatoria tiene los siguientes pasos: $\\[0.4
    
    
    
-    $\hspace{0.25cm}$   Sea $\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}$ la proporción de filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que formarán parte de la muestra de **train** : $\\[0.4cm]$
+    $\hspace{0.2 cm}$   Sea $\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}$ la proporción de filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que formarán parte de la muestra de **train** : $\\[0.4cm]$
 
 
-    - Se generan $\hspace{0.1cm}B\hspace{0.1cm}$  muestras aleatoria sin reemplazamiento de tamaño $\hspace{0.1cm}\lfloor k  \cdot N \rfloor\hspace{0.1cm}$  del vector $\hspace{0.1cm}(1,2,...,N)\hspace{0.1cm}$ :
+    - Se generan $\hspace{0.1cm}B\hspace{0.1cm}$  muestras aleatoria sin reemplazamiento de tamaño $\hspace{0.1cm}\lfloor k  \cdot N \rfloor\hspace{0.1cm}$  del vector $\hspace{0.1cm}(1,2,...,N)\hspace{0.1cm}$ : $\\[0.25cm]$
 
-      $$m_1 \hspace{0.1cm},\hspace{0.1cm} m_2 \hspace{0.1cm},\hspace{0.1cm} ...\hspace{0.1cm},\hspace{0.1cm} m_B \\[0.4cm]$$
+       $$m_1 \hspace{0.1cm},\hspace{0.1cm} m_2 \hspace{0.1cm},\hspace{0.1cm} ...\hspace{0.1cm},\hspace{0.1cm} m_B \\[0.4cm]$$
 
  
-      Donde: 
+       Donde: 
 
-      $\hspace{0.25cm}m_r=(m_{r1} ,...,m_{r\lfloor k  \cdot N \rfloor})\hspace{0.15cm} \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} r\in\lbrace 1,...,B\rbrace$
+       - $\hspace{0.45cm}m_r=(m_{r1} ,...,m_{r\lfloor k  \cdot N \rfloor})\hspace{0.15cm} \hspace{0.25cm} , \hspace{0.25cm} \forall \hspace{0.1cm} r\in\lbrace 1,...,B\rbrace$
 
 
-      $\hspace{0.25cm}\lfloor \cdot \rfloor\hspace{0.1cm}$ es la función suelo, que dado un número como argumento devuelve el mayor entero menor que dicho número. $\\[1cm]$
+       - $\hspace{0.45cm}\lfloor \cdot \rfloor\hspace{0.1cm}$ es la función suelo, que dado un número como argumento devuelve el mayor entero menor que dicho número. $\\[1cm]$
 
     - Se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ **muestras de train** del data-set original $\hspace{0.1cm}D \\$ 
 
-      $$D_{train, 1}= D[\hspace{0.1cm}m_1\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.15cm},\hspace{0.15cm} D_{train, 2}= D[\hspace{0.1cm}m_2\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.15cm}, \dots ,\hspace{0.15cm} D_{train, B}= D[\hspace{0.1cm}m_B\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \\$$
+       $$D_{train, 1}= D[\hspace{0.1cm}m_1\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.15cm},\hspace{0.15cm} D_{train, 2}= D[\hspace{0.1cm}m_2\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.15cm}, \dots ,\hspace{0.15cm} D_{train, B}= D[\hspace{0.1cm}m_B\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \\$$
 
-      Donde: 
+       $\hspace{0.5cm}$ Donde: 
 
 
-      $$D_{train, r} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}m_r\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
+       $$D_{train, r} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}m_r\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
     x_{m_{r1},1} & x_{m_{r1},2} & ... & x_{m_{r1},p} & y_{m_{r1}} \\
     x_{m_{r1},1} & x_{m_{r1},2} & ... & x_{m_{r1},p} & y_{m_{r2}} \\
     ....&...\\
@@ -1234,7 +1235,7 @@ El algoritmo de validación simple aleatoria tiene los siguientes pasos: $\\[0.4
     x_{\# D_{train, r}}^{train, r} & y_{\# D_{train, r}}^{train, r}
     \end{pmatrix} \\$$ 
     
-    $\hspace{0.4cm}$ es la submatriz que resulta de quedarse solo con las filas de $\hspace{0.1cm}D\hspace{0.1cm}$ definidas por la muestra $\hspace{0.1cm}m_r\hspace{0.1cm}$ de $\hspace{0.1cm}(1,...,N) \\[1cm]$
+    $\hspace{1cm}$ es la submatriz que resulta de quedarse solo con las filas de $\hspace{0.1cm}D\hspace{0.1cm}$ definidas por la muestra $\hspace{0.1cm}m_r\hspace{0.1cm}$ de $\hspace{0.1cm}(1,...,N) \\[1cm]$
 
 
 
@@ -1242,51 +1243,51 @@ El algoritmo de validación simple aleatoria tiene los siguientes pasos: $\\[0.4
     - Se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ **muestras de test** del data-set original $\hspace{0.1cm}D \\$
 
 
-      $$D_{test, 1}= D[\hspace{0.1cm}m_1^c\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.15cm},\hspace{0.15cm} D_{test, 2}= D[\hspace{0.1cm}m_2^c\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.15cm}, ... ,\hspace{0.15cm} D_{test, B}= D[\hspace{0.1cm}m_B^c\hspace{0.1cm} , \hspace{0.1cm}:\hspace{0.1cm}] \\$$
+       $$D_{test, 1}= D[\hspace{0.1cm}m_1^c\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.15cm},\hspace{0.15cm} D_{test, 2}= D[\hspace{0.1cm}m_2^c\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.15cm}, ... ,\hspace{0.15cm} D_{test, B}= D[\hspace{0.1cm}m_B^c\hspace{0.1cm} , \hspace{0.1cm}:\hspace{0.1cm}] \\$$
 
 
-      Donde:
+       $\hspace{0.5cm}$Donde:
 
  
 
-      $$D_{test, r} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}m_r^c\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}]\hspace{0.1cm}=\hspace{0.1cm}  \begin{pmatrix}
+       $$D_{test, r} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}m_r^c\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}]\hspace{0.1cm}=\hspace{0.1cm}  \begin{pmatrix}
     x_{1}^{test, r} & y_{1}^{test, r}\\
     x_{2}^{test, r} & y_{2}^{test, r}\\
     ....&...\\
     x_{\# D_{test, r}}^{test, r} & y_{\# D_{test, r}}^{test, r} 
     \end{pmatrix} \\$$ 
     
-      $\hspace{0.4cm}$ es la submatriz que resulta de quedarse solo con las filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que no están en $\hspace{0.1cm}D_{train}\hspace{0.1cm}$, es decir, las filas de $\hspace{0.1cm}m_r^c \\$
+      $\hspace{1cm}$ es la submatriz que resulta de quedarse solo con las filas de $\hspace{0.1cm}D\hspace{0.1cm}$ que no están en $\hspace{0.1cm}D_{train}\hspace{0.1cm}$, es decir, las filas de $\hspace{0.1cm}m_r^c \\$
     
-      Formalmente:  $\hspace{0.15cm} m_r^c \hspace{0.1cm}=\hspace{0.1cm}\left(\hspace{0.1cm} i \in \lbrace 1,...,N \rbrace \hspace{0.15cm} / \hspace{0.15cm} i\hspace{0.1cm}\neq\hspace{0.1cm} m_{rj} \hspace{0.15cm} , \hspace{0.15cm} \forall \hspace{0.1cm} j\in \lbrace 1,...,\lfloor k  \cdot N \rfloor \rbrace \hspace{0.1cm} \right) \hspace{0.15cm}$ es el complementario de $\hspace{0.1  cm}m_r \\[0.5cm]$
+       - Formalmente:  $\hspace{0.15cm} m_r^c \hspace{0.1cm}=\hspace{0.1cm}\left(\hspace{0.1cm} i \in \lbrace 1,...,N \rbrace \hspace{0.15cm} / \hspace{0.15cm} i\hspace{0.1cm}\neq\hspace{0.1cm} m_{rj} \hspace{0.15cm} , \hspace{0.15cm} \forall \hspace{0.1cm} j\in \lbrace 1,...,\lfloor k  \cdot N \rfloor \rbrace \hspace{0.1cm} \right) \hspace{0.15cm}$ es el complementario de $\hspace{0.1  cm}m_r \\[0.5cm]$
 
  
-      Por tanto se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ particiones de **train** y **test** de $\hspace{0.1cm}D \\[1cm]$
+       - En conclusión: $\hspace{0.03cm}$ se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ particiones de **train** y **test** de $\hspace{0.1cm}D \\[1cm]$
 
 
-- Para cada $\hspace{0.1cm}r\in \lbrace 1,...,B\rbrace \\$ 
+- Para cada $\hspace{0.1cm}r\in \lbrace 1,...,B\rbrace$ $\\[0.15cm]$ 
 
     - Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con cada una de las **muestras de train** $\hspace{0.1cm} D_{train,r} \hspace{0.1cm}$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ $\hspace{0.1cm}\widehat{M}_r \\$
 
     - Se calcula una misma métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ con la **muestra de test** $\hspace{0.1cm}D_{test,r} \\$ 
 
-    Supongamos que la métrica de evaluación usada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ valores de esta métrica :
+        - Supongamos que la métrica de evaluación usada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ valores de esta métrica :
 
-    $$ECM_{test }(\widehat{M}_1) \hspace{0.1cm},\hspace{0.1cm}  ECM_{test }(\widehat{M}_2)\hspace{0.1cm} , ... ,\hspace{0.1cm} ECM_{test}(\widehat{M}_B)\\$$
+          $$ECM_{test }(\widehat{M}_1) \hspace{0.1cm},\hspace{0.1cm}  ECM_{test }(\widehat{M}_2)\hspace{0.1cm} , ... ,\hspace{0.1cm} ECM_{test}(\widehat{M}_B)\\$$
 
-     Donde: 
+          Donde: 
 
-     - $ECM_{test , r}\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ usando $\hspace{0.1cm}D_{test,r}\\$ 
+           $\hspace{0.5cm}$ $ECM_{test , r}  \hspace{0.1cm}$  es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ usando $\hspace{0.1cm}D_{test,r}\\$   
 
-    $$ECM_{test }(\widehat{M}_r) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test,r}} \cdot \sum_{i=1}^{\# D_{test,r}} \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm})^2 \\$$
-
-
+           $$ECM_{test }(\widehat{M}_r) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test,r}} \cdot \sum_{i=1}^{\# D_{test,r}} \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm})^2 \\$$
 
 
 
-     Teniendo en cuenta que:
 
-     - $\hat{y}_i^{test,r} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm}|\hspace{0.1cm} D_{train,r}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r (\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm} ) \\[1cm]$
+
+          Teniendo en cuenta que: $\\[0.3cm]$
+  
+          - $\hat{y}_i^{test,r} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm}|\hspace{0.1cm} D_{train,r}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r (\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm} ) \\[1cm]$
 
 
  
@@ -1294,7 +1295,7 @@ El algoritmo de validación simple aleatoria tiene los siguientes pasos: $\\[0.4
 
 - Se calcula la métrica final de evaluación del modelo como el promedio de las $\hspace{0.1cm}B\hspace{0.1cm}$ métricas calculadas en el apartado anterior. 
 
-    Si la métrica usada en el apartado anterior es el ECM, entonces: $\\[0.4cm]$
+    - Si la métrica usada en el apartado anterior es el ECM, entonces: $\\[0.4cm]$
 
     $$ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{B} \cdot \sum_{r=1}^B ECM_{test}(\widehat{M}_r)$$
 
@@ -1317,7 +1318,27 @@ Permite reducir la varianza de la métrica de validación. En la validación sim
 
 ## Leave-one-out
 
-El algoritmo de validación leave-one-out tiene los siguientes pasos: $\\[0.3cm]$
+**Descripción no formal del algoritmo:**
+
+
+Este algoritmo de validación consiste en dividir el data-set inicial en una parte de train y otra de test de una forma tal que la primera observación forma parte del conjunto de test y el resto de la de train. Se entrena el modelo con la muestra de train y se calculan las predicciones de la respuesta para las observaciones de test de los predictores. 
+
+Con las observaciones de test de la respuesta y las predicciones de esta misma se calcula una métrica de validación.
+
+Se repite el proceso anterior, pero tomando la segunda observación como muestra de test y las restantes como muestra de train. Se vuelve a repetir con la tercera observación, luego con la cuarta, y asi sucesivamente hasta llegar al punto en el que la última observación es la muestra de test.
+
+Tras este proceso se habrán obtenido $\hspace{0.05cm} N \hspace{0.05cm}$ valores de la métrica de validación. 
+
+El valor final de la métrica por el algoritmo de validación leave-one-out es la media de esos $\hspace{0.05cm} N \hspace{0.05cm}$ valores. $\\[0.05cm]$
+
+ 
+
+
+**Decripción formal del algoritmo:**
+
+El algoritmo de validación simple no aleatoria tiene los siguientes pasos: $\\[0.3cm]$
+
+ 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
@@ -1327,27 +1348,28 @@ El algoritmo de validación leave-one-out tiene los siguientes pasos: $\\[0.3cm]
 
 - Se obtienen $\hspace{0.1cm} B\hspace{0.1cm}$ particiones de $\hspace{0.1cm} D\hspace{0.1cm}$ en parte de train y parte de test del siguiente modo: $\\[0.5cm]$
 
-- Se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ **muestras  test** del data-set original $\hspace{0.1cm}D \\$ 
+    - Se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ **muestras  test** del data-set original $\hspace{0.1cm}D \\$ 
 
-    $$D_{test,1}=D[1, :] \hspace{0.1cm} ,\hspace{0.15cm} D_{test,2}=D[2, :]\hspace{0.15cm},...,\hspace{0.15cm} D_{test,B}=D[B, :] \\$$
-
-    Donde:
-
-    -  $D_{test,r}=D[\hspace{0.1cm}r\hspace{0.1cm}, \hspace{0.1cm}:\hspace{0.1cm}]\hspace{0.1cm}$ es la submatriz que resulta de considerar solo la fila $r$ de $D$ , es decir, es la observación $r$-esima del data-set inicial $\hspace{0.1cm}D \\$
-
-    $$D_{test,r} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}r\hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} (x_{i1} , ..., x_{rp} , y_r)=(x_r \hspace{0.1cm} ,\hspace{0.1cm}  y_r) \\[1cm]$$
+        $$D_{test,1}=D[1, :] \hspace{0.1cm} ,\hspace{0.15cm} D_{test,2}=D[2, :]\hspace{0.15cm},...,\hspace{0.15cm} D_{test,B}=D[B, :] \\$$
 
 
+       - Donde :
+       
+          $\hspace{0.5cm} D_{test,r}=D[\hspace{0.1cm}r\hspace{0.1cm}, \hspace{0.1cm}:\hspace{0.1cm}]\hspace{0.1cm}$ es la submatriz que resulta de considerar solo la fila $r$ de $D$ , es decir, es la observación $r$-esima del data-set inicial $\hspace{0.1cm}D \\$
 
-- Se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ **muestras  train** del data-set original $\hspace{0.1cm}D \\$
-
-    $$D_{train,1}=D[\hspace{0.1cm}-1 \hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.2cm},\hspace{0.2cm} D_{train,2}=D[\hspace{0.1cm}-2\hspace{0.1cm}, \hspace{0.1cm}:\hspace{0.1cm}]\hspace{0.2cm},...,\hspace{0.2cm} D_{train,B}=D[\hspace{0.1cm}-B\hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}] \\$$
+          $$D_{test,r} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}r\hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} (x_{i1} , ..., x_{rp} , y_r)=(x_r \hspace{0.1cm} ,\hspace{0.1cm}  y_r) \\[1cm]$$
 
 
-    Donde:
+
+    - Se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ **muestras  train** del data-set original $\hspace{0.1cm}D \\$
+
+       $$D_{train,1}=D[\hspace{0.1cm}-1 \hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.2cm},\hspace{0.2cm} D_{train,2}=D[\hspace{0.1cm}-2\hspace{0.1cm}, \hspace{0.1cm}:\hspace{0.1cm}]\hspace{0.2cm},...,\hspace{0.2cm} D_{train,B}=D[\hspace{0.1cm}-B\hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}] \\$$
+
+
+       - Donde:
       
 
-    - $D_{train,r}\hspace{0.1cm}=\hspace{0.1cm}D[\hspace{0.1cm}-r\hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}]\hspace{0.15cm}$ es la submatriz que resulta de eliminar la fila $i$ de $\hspace{0.1cm} D\hspace{0.1cm}$, es decir: $\\[1cm]$
+           $\hspace{0.5cm}D_{train,r}\hspace{0.1cm}=\hspace{0.1cm}D[\hspace{0.1cm}-r\hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}]\hspace{0.15cm}$ es la submatriz que resulta de eliminar la fila $i$ de $\hspace{0.1cm} D\hspace{0.1cm}$, es decir: $\\[1cm]$
 
 
     $$D_{train,r}\hspace{0.1cm}=\hspace{0.1cm}D[\hspace{0.1cm}-r\hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.1cm}= \hspace{0.1cm}\begin{pmatrix}
@@ -1376,26 +1398,26 @@ El algoritmo de validación leave-one-out tiene los siguientes pasos: $\\[0.3cm]
 
     - Se calcula una misma métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ con la **muestra de test** $\hspace{0.1cm}D_{test,r}\hspace{0.1cm} \\$ 
 
-    Supongamos que la métrica de evaluación usada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ valores de esta métrica :
+       - Supongamos que la métrica de evaluación usada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ valores de esta métrica :
   
-    $$ECM(\widehat{M}_1)_{test } \hspace{0.1cm} ,\hspace{0.1cm}   ECM(\widehat{M}_2)_{test } \hspace{0.1cm} , ... ,\hspace{0.1cm}  ECM(\widehat{M}_B)_{test}\\$$
+           $$ECM(\widehat{M}_1)_{test } \hspace{0.1cm} ,\hspace{0.1cm}   ECM(\widehat{M}_2)_{test } \hspace{0.1cm} , ... ,\hspace{0.1cm}  ECM(\widehat{M}_B)_{test}\\$$
 
-    Donde: 
+           Donde: 
 
-    - $\hspace{0.1cm} ECM_{test , r}\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ usando $\hspace{0.1cm}D_{test,r} \\$ 
+           $\hspace{0.5cm} ECM_{test , r}\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ usando $\hspace{0.1cm}D_{test,r} \\$ 
 
-    $$ECM(\widehat{M}_r)_{test } =  (\hspace{0.1cm} y_r - \hat{y}_r \hspace{0.1cm})^2$$
+           $$ECM(\widehat{M}_r)_{test } =  (\hspace{0.1cm} y_r - \hat{y}_r \hspace{0.1cm})^2$$
 
-    $\hspace{0.2cm}$ Teniendo en cuenta que:
+           Teniendo en cuenta que:
 
-    - $\hat{y}_r \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_r \hspace{0.1cm}|\hspace{0.1cm} D_{train,r}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r (\hspace{0.1cm} x_r \hspace{0.1cm} ) \\$
+           - $\hat{y}_r \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_r \hspace{0.1cm}|\hspace{0.1cm} D_{train,r}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r (\hspace{0.1cm} x_r \hspace{0.1cm} ) \\$
     
-    - $y_r\hspace{0.1cm}$ es la única observación de la muestra de test $\hspace{0.1cm} r$-esima de la variable respuesta. $\\[1cm]$
+           - $y_r\hspace{0.1cm}$ es la única observación de la muestra de test $\hspace{0.1cm} r$-esima de la variable respuesta. $\\[1cm]$
 
  
 - Se calcula la métrica final de evaluación del modelo como el promedio de las $\hspace{0.1cm}B\hspace{0.1cm}$ métricas calculadas en el paso anterior. 
 
-    Si la métrica  usada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$, entonces:
+    - Si la métrica  usada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$, entonces:
 
     $$ECM( M )_{test}^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{B} \cdot \sum_{r=1}^B \hspace{0.1cm} ECM(\widehat{M}_r)_{test}$$
    
@@ -1559,24 +1581,25 @@ El algoritmo de validación k-folds tiene los siguientes pasos:
 - Se obtienen la siguientes $\hspace{0.1cm}k\hspace{0.1cm}$ muestras de test: $\\[0.4cm]$
 
 
-    $$D_{test, 1} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm} p_{1,m} \hspace{0.1cm} ,\hspace{0.1cm} : \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}m[1:(\lfloor Q_{1/k} \rfloor -1)] \hspace{0.12cm},\hspace{0.12cm} : \hspace{0.12cm}]$$
+     $$D_{test, 1} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm} p_{1,m} \hspace{0.1cm} ,\hspace{0.1cm} : \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}m[1:(\lfloor Q_{1/k} \rfloor -1)] \hspace{0.12cm},\hspace{0.12cm} : \hspace{0.12cm}]$$
 
-    $$D_{test, 2} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}p_{2,m} \hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}m[\lfloor Q_{1/k} \rfloor : (\lfloor Q_{2/k} \rfloor - 1 )]\hspace{0.12cm} ,\hspace{0.12cm}:\hspace{0.12cm}]$$
+     $$D_{test, 2} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}p_{2,m} \hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}m[\lfloor Q_{1/k} \rfloor : (\lfloor Q_{2/k} \rfloor - 1 )]\hspace{0.12cm} ,\hspace{0.12cm}:\hspace{0.12cm}]$$
 
-    $$\dots$$
+     $$\dots$$
  
 
-    $$D_{test, k}\hspace{0.1cm} =\hspace{0.1cm} D[\hspace{0.1cm}p_{k,m} \hspace{0.12cm} ,\hspace{0.12cm} :\hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}m[\lfloor Q_{(k-1)/k} \rfloor : N]\hspace{0.12cm} ,\hspace{0.12cm} :\hspace{0.12cm}] \\[0.7cm]$$
+     $$D_{test, k}\hspace{0.1cm} =\hspace{0.1cm} D[\hspace{0.1cm}p_{k,m} \hspace{0.12cm} ,\hspace{0.12cm} :\hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}m[\lfloor Q_{(k-1)/k} \rfloor : N]\hspace{0.12cm} ,\hspace{0.12cm} :\hspace{0.12cm}] \\[0.7cm]$$
 
-    Siguiendo la notación habitual del articulo, podemos expresar: $\\[0.6cm]$
+    $\hspace{0.5cm}$ Siguiendo la notación habitual del articulo, podemos expresar: $\\[0.6cm]$
 
-$$
-  D_{test, r} \hspace{0.1cm}=\hspace{0.1cm}\begin{pmatrix}
-  x_{1}^{test, r} & y_{1}^{test, r}\\
-    x_{2}^{test, r} & y_{2}^{test, r}\\
+     $$
+     D_{test, r} \hspace{0.1cm}=\hspace{0.1cm}\begin{pmatrix}
+     x_{1}^{test, r} & y_{1}^{test, r}\\
+      x_{2}^{test, r} & y_{2}^{test, r}\\
     ....&...\\
     x_{\# D_{test, r}}^{test, r} & y_{\# D_{test, r}}^{test, r} 
-    \end{pmatrix}$$
+    \end{pmatrix}
+    $$
 
 $\\[0.3cm]$
 
@@ -1584,21 +1607,22 @@ $\\[0.3cm]$
 - Se obtiene las siguientes $\hspace{0.1cm}k\hspace{0.1cm}$ muestras de train: $\\[0.4cm]$
 
 
-    $$D_{train, 1} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm}p_{1,m} \hspace{0.12cm},\hspace{0.12cm} :\hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} m[1:(\lfloor Q_{1/k} \rfloor -1)] \hspace{0.12cm},\hspace{0.12cm}:\hspace{0.12cm}]$$
+     $$D_{train, 1} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm}p_{1,m} \hspace{0.12cm},\hspace{0.12cm} :\hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} m[1:(\lfloor Q_{1/k} \rfloor -1)] \hspace{0.12cm},\hspace{0.12cm}:\hspace{0.12cm}]$$
 
-    $$D_{train, 2} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} p_{2,m} \hspace{0.12cm},\hspace{0.12cm} :\hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm}m[\lfloor Q_{1/k} \rfloor : (\lfloor Q_{2/k} \rfloor - 1 )] \hspace{0.12cm},\hspace{0.12cm}:\hspace{0.12cm}]$$
+     $$D_{train, 2} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} p_{2,m} \hspace{0.12cm},\hspace{0.12cm} :\hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm}m[\lfloor Q_{1/k} \rfloor : (\lfloor Q_{2/k} \rfloor - 1 )] \hspace{0.12cm},\hspace{0.12cm}:\hspace{0.12cm}]$$
 
-    $$\dots$$
+     $$\dots$$
  
 
-    $$D_{train, k} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} p_{k,m} \hspace{0.12cm},\hspace{0.12cm} : \hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} m[\lfloor Q_{(k-1)/k} \rfloor : N] \hspace{0.12cm},\hspace{0.12cm} : \hspace{0.12cm}] \\$$
+     $$D_{train, k} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} p_{k,m} \hspace{0.12cm},\hspace{0.12cm} : \hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} m[\lfloor Q_{(k-1)/k} \rfloor : N] \hspace{0.12cm},\hspace{0.12cm} : \hspace{0.12cm}] \\$$
 
 
-    Siguiendo la notación habitual del articulo, podemos expresar: $\\[0.6cm]$
+    $\hspace{0.5cm}$ Siguiendo la notación habitual del articulo, podemos expresar: $\\[0.6cm]$
 
-    $$  D_{train, r} =\begin{pmatrix}   x_{1}^{train, r} & y_{1}^{train, r}\\
-    x_{2}^{train, r} & y_{2}^{train, r}\\
-    ....&...\\
+$$\hspace{0.5cm}D_{train, r} =
+\begin{pmatrix}  
+x_{1}^{train, r} & y_{1}^{train, r}\\
+x_{2}^{train, r} & y_{2}^{train, r}\\ ....&...\\
     x_{\# D_{train, r}}^{train, r} & y_{\# D_{train, r}}^{train, r} 
     \end{pmatrix}$$
 
@@ -1608,27 +1632,27 @@ $\\[0.2cm]$
 - Para $\hspace{0.1cm}r \in \lbrace 1,...,k \rbrace\hspace{0.1cm}$ 
 
 
-    - Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con la **muestra de train** $\hspace{0.1cm} D_{train,r}$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ $\hspace{0.1cm}\widehat{M}_r \\$
+    - Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con la **muestra de train** $\hspace{0.1cm} D_{train,r}$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ $\hspace{0.1cm}\widehat{M}_r$ $\\[0.25cm]$
 
-    - Se calcula una misma métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ con la **muestra de test** $\hspace{0.1cm}D_{test,r}\hspace{0.1cm} \\$
+    - Se calcula una misma métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ con la **muestra de test** $\hspace{0.1cm}D_{test,r}\hspace{0.1cm}$ $\\[0.25cm]$
 
-    Supongamos que la métrica de evaluación usada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces se obtienen $\hspace{0.1cm}k\hspace{0.1cm}$ valores de esta métrica :
+         - Supongamos que la métrica de evaluación usada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces se obtienen $\hspace{0.1cm}k\hspace{0.1cm}$ valores de esta métrica :
 
-    $$ECM_{test }\left(\widehat{M}_1\right) \hspace{0.1cm},\hspace{0.1cm}  ECM_{test }\left(\widehat{M}_2\right) \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}\left( \widehat{M}_k \right)\\$$
+         $$ECM_{test }\left(\widehat{M}_1\right) \hspace{0.1cm},\hspace{0.1cm}  ECM_{test }\left(\widehat{M}_2\right) \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}\left( \widehat{M}_k \right)\\$$
 
-    Donde: 
+         Donde: 
     
-    - $ECM_{test , r}\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ usando $\hspace{0.1cm}D_{test,r}\hspace{0.1cm} \\$ 
+         $\hspace{0.5cm} ECM_{test , r}\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ usando $\hspace{0.1cm}D_{test,r}\hspace{0.1cm} \\$ 
 
-    $$ECM_{test }\left( \hspace{0.05cm} \widehat{M}_r \hspace{0.05cm}\right) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test, r}} \cdot \sum_{i=1}^{\# D_{test, r}} \hspace{0.1cm} \left( \hspace{0.1cm} y_i^{\hspace{0.1cm}test,r} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm} \right)^2 \\$$
+         $$ECM_{test }\left( \hspace{0.05cm} \widehat{M}_r \hspace{0.05cm}\right) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test, r}} \cdot \sum_{i=1}^{\# D_{test, r}} \hspace{0.1cm} \left( \hspace{0.1cm} y_i^{\hspace{0.1cm}test,r} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm} \right)^2 \\$$
 
-    Teniendo en cuenta que :
+         Teniendo en cuenta que :
 
-    - $\hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm}=\hspace{0.1cm} M\left(\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm}|\hspace{0.1cm} D_{train,r} \right) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r \left(\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm} \right) \\[0.7cm]$
+         - $\hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm}=\hspace{0.1cm} M\left(\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm}|\hspace{0.1cm} D_{train,r} \right) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r \left(\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm} \right) \\[0.7cm]$
     
-    - $x_i^{\hspace{0.1cm}test,r}\hspace{0.1cm}$ es la observación $\hspace{0.1cm}i$-esima de la muestra de test $\hspace{0.1cm}r$-esima de los predictores. $\\[0.7cm]$
+         - $x_i^{\hspace{0.1cm}test,r}\hspace{0.1cm}$ es la observación $\hspace{0.1cm}i$-esima de la muestra de test $\hspace{0.1cm}r$-esima de los predictores. $\\[0.7cm]$
     
-    - $y_i^{\hspace{0.1cm}test,r}\hspace{0.1cm}$ es la observación $\hspace{0.1cm}i$-esima de la muestra de test $\hspace{0.1cm}r$-esima de la variable respuesta. $\\[1.5cm]$
+         - $y_i^{\hspace{0.1cm}test,r}\hspace{0.1cm}$ es la observación $\hspace{0.1cm}i$-esima de la muestra de test $\hspace{0.1cm}r$-esima de la variable respuesta. $\\[1cm]$
 
     
 
@@ -1654,7 +1678,7 @@ La metrica de validacion calculada por k-fold tiene menor varianza que con los m
 
 <br>
 
-## Repeted k-fold
+## Repeted k-fold  <a class="anchor" id="1"></a>
 
 
 
@@ -1663,6 +1687,8 @@ Este algoritmo consiste en **repetir** el algoritmo **k-fold** un número $\hspa
 No vamos a hacer aquí una descripción tan detallada del algoritmo como las anteriores, puesto que buena parte es repetir $\hspace{0.1cm}B\hspace{0.1cm}$ veces la estructura del k-fold. $\\[0.5cm]$
 
 
+Sintetizando, los pasos del algoritmo $\hspace{0.08cm}B$-repeated $\hspace{0.08cm}k$-fold son los siguientes:
+
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
@@ -1670,51 +1696,62 @@ No vamos a hacer aquí una descripción tan detallada del algoritmo como las ant
 <p style='margin-left:1em;'>
 
 
-- Es fácil ver que se obtendrían $\hspace{0.1cm}k\cdot B\hspace{0.1cm}$ muestras de test y train, por lo que se entrenaría y testaría el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ un total de $\hspace{0.1cm}k\cdot B\hspace{0.1cm}$ veces.$\\[0.5cm]$
+- Se itera el algoritmo $\hspace{0.08cm}k$-fold un total de $\hspace{0.08cm}B\hspace{0.08cm}$ veces. Con ello se obtienen $\hspace{0.08cm}k\cdot B\hspace{0.08cm}$ valores de la métrica de validacion, ya que cada iteracion del algoritmo k-fold produce $\hspace{0.08cm}k\hspace{0.08cm}$ valores de la métrica, y el algoritmo se itera $\hspace{0.08cm}B\hspace{0.08cm}$ veces. $\\[0.2cm]$
 
-- Si la métrica usada para evaluar el modelo es el  $\hspace{0.1cm}ECM\hspace{0.05cm}$ , entocnes se obtienen $\hspace{0.1cm}k\cdot B\hspace{0.1cm}$ valores de esta métrica:
+ 
+
+- Si la métrica usada para evaluar el modelo fuera el  $\hspace{0.1cm}ECM\hspace{0.05cm}$ , entocnes se obtendrian los siguientes $\hspace{0.1cm}k\cdot B\hspace{0.1cm}$ valores de esta métrica:
 
 
-    $$ECM_{test }\left(\hspace{0.1cm}\widehat{M}_1^{\hspace{0.1cm}1}\hspace{0.1cm}\right) \hspace{0.05cm}, ... ,\hspace{0.05cm} ECM_{test}\left(\hspace{0.1cm}\widehat{M}_k^{\hspace{0.1cm}1}\hspace{0.1cm}\right) \hspace{0.05cm},...,\hspace{0.05cm}ECM_{test }\left(\hspace{0.1cm}\widehat{M}_1^{\hspace{0.1cm}B}\hspace{0.1cm}\right) \hspace{0.05cm}, ... ,\hspace{0.05cm} ECM_{test}\left(\hspace{0.1cm}\widehat{M}_k^{\hspace{0.1cm}B} \hspace{0.1cm} \hspace{0.1cm}\right)   \\$$
+     $$ECM_{test }\left(\hspace{0.1cm}\widehat{M}_1^{\hspace{0.1cm}1}\hspace{0.1cm}\right) \hspace{0.05cm}, ... ,\hspace{0.05cm} ECM_{test}\left(\hspace{0.1cm}\widehat{M}_k^{\hspace{0.1cm}1}\hspace{0.1cm}\right) \hspace{0.05cm},...,\hspace{0.05cm}ECM_{test }\left(\hspace{0.1cm}\widehat{M}_1^{\hspace{0.1cm}B}\hspace{0.1cm}\right) \hspace{0.05cm}, ... ,\hspace{0.05cm} ECM_{test}\left(\hspace{0.1cm}\widehat{M}_k^{\hspace{0.1cm}B} \hspace{0.1cm} \hspace{0.1cm}\right) \\$$
 
 
     Donde: 
     
-    $\hspace{0.1cm}$ Para $\hspace{0.1cm}r\in \lbrace 1,...,k \rbrace\hspace{0.15cm}$ y $\hspace{0.15cm} j\in \lbrace 1,...,B \rbrace\\$
+    $\hspace{0.2cm}$ Para $\hspace{0.1cm}r\in \lbrace 1,...,k \rbrace\hspace{0.15cm}$ y $\hspace{0.15cm} j\in \lbrace 1,...,B \rbrace$ $\\[0.4cm]$
 
 
-    - $\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}$ es el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ entrenado con la **muestra de train** $\hspace{0.1cm}r$-esima  obtenida en la repetición $\hspace{0.1cm}j$-esima del algoritmo k-fold, es decir, es el modelo entrenado con la muestra de train $\hspace{0.1cm}D_{train, r}^{\hspace{0.1cm}j}\hspace{0.1cm} \\[0.7cm]$  
+    - $\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}$ es el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ entrenado con la **muestra de train** $\hspace{0.1cm}r$-esima  obtenida en la iteración $\hspace{0.1cm}j$-esima del algoritmo k-fold, es decir, es el modelo entrenado con la muestra de train $\hspace{0.1cm}D_{train, r}^{\hspace{0.1cm}j}\hspace{0.1cm} \\[0.5cm]$  
 
-    - $ECM_{test }\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right)\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre el modelo $\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}$ con la **muestra de test** $\hspace{0.1cm}r$-esima  obtenida en la repetición $\hspace{0.1cm}j$-esima del algoritmo k-fold, es decir,  con la muestra de test $\hspace{0.1cm}D_{test, r}^{\hspace{0.1cm}j}   \\[0.5cm]$ 
+    - $ECM_{test }\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right)\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre el modelo $\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}$ con la **muestra de test** $\hspace{0.1cm}r$-esima  obtenida en la repetición $\hspace{0.1cm}j$-esima del algoritmo k-fold, es decir,  con la muestra de test $\hspace{0.1cm}D_{test, r}^{\hspace{0.1cm}j}$ $\\[0.5cm]$ 
 
-    $$ECM_{test }\left( \hspace{0.1cm} \widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right) = \dfrac{1}{\# D_{test, r}^{\hspace{0.1cm}j}} \cdot \sum_{i=1}^{\# D_{test, r}^{\hspace{0.1cm}j}} \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r,j} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r,j} \hspace{0.1cm} \right)^2  \\[1cm]$$
+       $$ECM_{test }\left( \hspace{0.1cm} \widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right) = \dfrac{1}{\# D_{test, r}^{\hspace{0.1cm}j}} \cdot \sum_{i=1}^{\# D_{test, r}^{\hspace{0.1cm}j}} \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r,j} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r,j} \hspace{0.1cm} \right)^2  \\[1cm]$$
 
 
 
-    Considerando lo siguiente : $\\[0.5cm]$
+       Considerando lo siguiente : $\\[0.5cm]$
     
  
-    - $\hat{y}_i^{\hspace{0.1cm}test,r,j} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{\hspace{0.1cm}test, r,j} \hspace{0.12cm}|\hspace{0.12cm} D_{train,r}^{\hspace{0.1cm}j}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r^{\hspace{0.1cm}j} (\hspace{0.1cm} x_i^{test, r,j} \hspace{0.1cm} ) \\[0.7cm]$
+       - $\hat{y}_i^{\hspace{0.1cm}test,r,j} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{\hspace{0.1cm}test, r,j} \hspace{0.12cm}|\hspace{0.12cm} D_{train,r}^{\hspace{0.1cm}j}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r^{\hspace{0.1cm}j} (\hspace{0.1cm} x_i^{test, r,j} \hspace{0.1cm} ) \\[0.7cm]$
 
  
 
-    - $\left( \hspace{0.1cm} x_i^{\hspace{0.1cm} test, r,j} , y_i^{test, r,j}  \hspace{0.1cm}\right)\hspace{0.1cm}$ es la observación (fila) $\hspace{0.1cm}i$-esima de $\hspace{0.1cm}D_{test,r}^{\hspace{0.1cm} j} \\[0.7cm]$
+      - $\left( \hspace{0.1cm} x_i^{\hspace{0.1cm} test, r,j} , y_i^{test, r,j}  \hspace{0.1cm}\right)\hspace{0.1cm}$ es la observación (fila) $\hspace{0.1cm}i$-esima de $\hspace{0.1cm}D_{test,r}^{\hspace{0.1cm} j} \\[0.7cm]$
 
-    - $x_i^{\hspace{0.1cm}test, r,j}\hspace{0.1cm}$ es la observación $\hspace{0.1cm}i$-esima de la muestra de test $\hspace{0.1cm}r$-esima de los predictores obtenida en la repetición $\hspace{0.1cm}j$-esima del algoritmo k-folds. $\\[0.7cm]$
+      - $x_i^{\hspace{0.1cm}test, r,j}\hspace{0.1cm}$ es la observación $\hspace{0.1cm}i$-esima de la muestra de test $\hspace{0.1cm}r$-esima de los predictores obtenida en la repetición $\hspace{0.1cm}j$-esima del algoritmo k-folds. $\\[0.7cm]$
 
-    - $y_i^{\hspace{0.1cm}test, r,j}\hspace{0.1cm}$ es la observacion $\hspace{0.1cm}i$-esima de la muestra de test $\hspace{0.1cm}r$-esima de la variable respuesta obtenida en la repetición $\hspace{0.1cm}j$-esima del algoritmo k-folds. $\\[0.7cm]$
+      - $y_i^{\hspace{0.1cm}test, r,j}\hspace{0.1cm}$ es la observacion $\hspace{0.1cm}i$-esima de la muestra de test $\hspace{0.1cm}r$-esima de la variable respuesta obtenida en la repetición $\hspace{0.1cm}j$-esima del algoritmo k-folds. $\\[0.7cm]$
 
 
     
-    Nótese que debido al componente aleatorio presente en el algoritmo k-folds, cada vez que se repita el algoritmo se obtendran muestras de train y test diferentes. $\\[1cm]$
+      Nótese que debido al componente aleatorio presente en el algoritmo k-folds, cada vez que se repita el algoritmo se obtendran muestras de train y test diferentes. $\\[1cm]$
     
     
 
-- Se calcula la métrica final de evaluación del modelo como el promedio de las $\hspace{0.1cm}k\cdot B\hspace{0.1cm}$ métricas calculadas en el paso anterior. 
+- Se calcula la métrica final de evaluación del modelo como el promedio de las $\hspace{0.1cm}k\cdot B\hspace{0.1cm}$ métricas calculadas en el paso anterior. Es decir, como el promedio de las $\hspace{0.08cm}B\hspace{0.08cm}$ metricas obtenidas al iterar $\hspace{0.08cm}B\hspace{0.08cm}$ veces el algoritmo k-fold.
 
-    Si la métrica considerada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$, entonces:
 
-    $$ECM( {M})_{test}^{\hspace{0.08cm}*} \hspace{0.13cm} = \hspace{0.13cm}\dfrac{1}{k\cdot B} \hspace{0.1cm} \cdot\hspace{0.1cm} \sum_{j=1}^B \hspace{0.1cm} \sum_{r=1}^k \hspace{0.15cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)$$
+    - Si la métrica considerada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$, entonces: $\\[0.15cm]$
+    
+    
+      En la iteración $\hspace{0.08cm}j$-esima del algoritmo $\hspace{0.08cm}k$-fold se obtiene como métrica de validación final:
+    
+      $$ECM( {M})_{test}^{\hspace{0.08cm}j \hspace{0.05cm} *} \hspace{0.13cm} = \hspace{0.13cm}\dfrac{1}{k} \hspace{0.1cm} \cdot\hspace{0.1cm}   \sum_{r=1}^k \hspace{0.15cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)$$
+    
+     Por lo tanto, la métrica de validación final obtenida con el algoritmo $\hspace{0.08cm}B$-repeated $\hspace{0.08cm}k$-fold es:
+
+     $$ECM( {M})_{test}^{\hspace{0.08cm}*} \hspace{0.13cm} = \hspace{0.13cm} \dfrac{1}{ B} \hspace{0.1cm} \cdot\hspace{0.1cm} \sum_{j=1}^B ECM( {M})_{test}^{\hspace{0.08cm}j \hspace{0.05cm} *} \hspace{0.13cm} = \hspace{0.13cm} 
+    \dfrac{1}{k\cdot B} \hspace{0.1cm} \cdot\hspace{0.1cm} \sum_{j=1}^B \hspace{0.1cm} \sum_{r=1}^k \hspace{0.15cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)$$
     
 
 </p>
@@ -1738,7 +1775,7 @@ La métrica de validación calculada por repeted k-fold tiene menor varianza que
 <br>
 
 
-# Selección de modelos basada en validación cruzada
+# Selección de modelos basada en validación cruzada  <a class="anchor" id="1"></a>
 
 
 
@@ -1928,81 +1965,99 @@ Además se probarán los algoritmos con el modelo KNN tanto en su versión para 
 
 ## Validación simple no aleatoria
 
-
 ```python
-def simple_validation_not_random(D, k, response, metric, model):
+class NotRandomSimpleValidation :
+   
+    # D --> have to be a pandas data frame.
+    # k --> is the proportion of observation of D that define D_train.
+    # model --> object containing the initialized model to use.
+    # The function has been created thinking that the model to be used will be one from the `sklearn` library.
+    # response_name --> have to be a string with the name of the response variable.
+    # metric --> It's the name of the validation metric.
+    
+    def __init__(self, k, metric, model):
 
-    # D --> It has to be a pandas data frame.
-
-    # k --> It is the proportion of observation of D that define D_train.
-
-    # response --> It has to be a string with the name of the response variable.
-
-    N = len(D)
-
-    D_train = D.iloc[0:(math.floor(k*N)+1) , :]
-
-    D_test = D.iloc[(math.floor(k*N)+1):N , :]
-
-    X_train = D_train.loc[: , D_train.columns != response]
-    Y_train = D_train.loc[: , response]
-
-    X_test = D_test.loc[: , D_test.columns != response]
-    Y_test = D_test.loc[: , response]
-
-############################################################################
-
-    # Training the model wit train sample
-
-    model.fit(X_train, Y_train)
-
-    # Making predictions with test sample
-
-    Y_predict_test = model.predict( X_test )     
-
-############################################################################
-
- # Computing the test metric
-
-    if metric == 'ECM' :  
+        self.k = k
+                
+        self.metric = metric
         
-        ECM_test = np.mean( (Y_predict_test - Y_test)**2 )
+        self.model = model
+    
 
-        return ECM_test
+    def fit(self, D, response_name):
+    
+        N = len(D)
 
-    elif metric == 'TA' :  
+        self.D_train = D.iloc[0:(math.floor(self.k * N) + 1), :]
+        self.D_test = D.iloc[(math.floor(self.k * N) + 1):N, :]
+
+        self.X_train = self.D_train.loc[:, self.D_train.columns != response_name]
+        self.Y_train = self.D_train.loc[:, response_name]
+
+        self.X_test = self.D_test.loc[:, self.D_test.columns != response_name]
+        self.Y_test = self.D_test.loc[:, response_name]
+
+         self.model.fit(self.X_train, self.Y_train)
         
-        TA_test = np.mean( (Y_predict_test == Y_test) )
+    
+    def predict(self):
+    
+         self.Y_predict_test = self.model.predict(self.X_test)
 
-        return TA_test
+    
+    def compute_metric(self):
+    
+         if self.metric == 'ECM':
+
+            self.ECM_test = np.mean((self.Y_predict_test - self.Y_test) ** 2)
+            
+            return self.ECM_test
+
+
+        elif self.metric == 'TAC':
+
+            self.TAC_test = np.mean((self.Y_predict_test == self.Y_test))
+
+            return self.TAC_test
+
 ```
-
 
 Definimos el modelo KNN para regresión con el que vamos a testear el algoritmo que se acaba de programar:
 
 ```python
-knn_regression = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, metric='minkowski')
+knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, metric='minkowski')
 ```
+
 
 Aplicamos el algoritmo de validación sobre el modelo KNN para regresión, usando como métrica de validación el error cuadratico medio (ECM):
 
-```python
-ECM_test_Simple_Validation_not_random  = simple_validation_not_random(D=Data, k=0.75, response='price', metric='ECM', model=knn_regression)
 
-ECM_test_Simple_Validation_not_random
+```python
+NotRandomSimpleValidation_init = NotRandomSimpleValidation(k=0.75, metric='ECM', model=knn_regression_init)
+
+NotRandomSimpleValidation_init.fit(D=Data, response_name='price')
+
+NotRandomSimpleValidation_init.predict()
 ```
 
-
-
+```python
+ECM_test_Not_Random_Simple_Validation = NotRandomSimpleValidation_init.compute_metric()
+ECM_test_Not_Random_Simple_Validation
+```
 
     2176125958588.6355
 
+ 
 
+
+<br>
+
+ 
 
 Definimos el modelo KNN para clasificación con el que vamos a testear el algoritmo que se acaba de programar:
 
 ```python
-knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=2, metric='minkowski')
+knn_classification_init = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10,  p=2, metric='minkowski')
 ```
 
 
@@ -2010,13 +2065,17 @@ Aplicamos el algoritmo de validación simple no aleatoria sobre el modelo KNN pa
 
 
 ```python
-TAC_test_Simple_Validation_not_random  = simple_validation_not_random(D=Data, k=0.75, response='quality_recode', metric='TA', model=knn_classification)
+NotRandomSimpleValidation_init = NotRandomSimpleValidation(k=0.75, metric='TAC', model=knn_classification_init)
 
-TAC_test_Simple_Validation_not_random
+NotRandomSimpleValidation_init.fit(D=Data, response_name='quality_recode')
+
+NotRandomSimpleValidation_init.predict()
 ```
 
-
-
+```python
+TAC_test_Not_Random_Simple_Validation = NotRandomSimpleValidation_init.compute_metric()
+TAC_test_Not_Random_Simple_Validation
+```
 
     0.5609243697478992
 
@@ -2028,94 +2087,122 @@ TAC_test_Simple_Validation_not_random
 
 
 ```python
-def simple_validation_random(D, k, response, random_seed, metric, model):
-
+class RandomSimpleValidation :
+   
     # D --> have to be a pandas data frame.
-
     # k --> is the proportion of observation of D that define D_train.
-
     # response --> have to be a string with the name of the response variable.
+    # model --> object containing the initialized model to use.
+    # The function has been created thinking that the model to be used will be one from the `sklearn` library.
+    # metric --> It's the name of the validation metric.
+    # random_seed --> seed to replicate the random process.
+    
+    
+    
+    def __init__(self, k, metric, model, random_seed):
 
-    # random_seed --> seed to replicate the random process
-
-    N = len(D)
-
-    D_train = D.sample(frac=k, replace=False, random_state=random_seed)
-
-    D_test = D.drop( D_train.index , )
-
-    X_train = D_train.loc[: , D_train.columns != response]
-    Y_train = D_train.loc[: , response]
-
-    X_test = D_test.loc[: , D_test.columns != response]
-    Y_test = D_test.loc[: , response]
-
-############################################################################
-
-    # Training the model wit train sample
-
-    model.fit(X_train, Y_train)
-
-    # Making predictions with test sample
-
-    Y_predict_test = model.predict( X_test ) 
-
-####################################################################
-
- # Computing the test metric
-
-    if metric == 'ECM' :  
+        self.k = k
         
-        ECM_test = np.mean( (Y_predict_test - Y_test)**2 )
-
-        return ECM_test
-
-    elif metric == 'TA' :  
+        self.metric = metric
         
-        TA_test = np.mean( (Y_predict_test == Y_test) )
+        self.model = model
 
-        return TA_test
+        self.random_seed = random_seed
+    
+
+    def fit(self, D, response_name):
+    
+         
+        N = len(D)
+
+        self.D_train = D.sample(frac=self.k, replace=False, random_state=self.random_seed)
+
+        self.D_test = D.drop( self.D_train.index , )
+
+        self.X_train = self.D_train.loc[: , self.D_train.columns != response_name]
+        self.Y_train = self.D_train.loc[: , response_name]
+
+        self.X_test = self.D_test.loc[: , self.D_test.columns != response_name]
+        self.Y_test = self.D_test.loc[: , response_name]
+
+
+        self.model.fit(self.X_train, self.Y_train)
+        
+    
+    def predict(self):
+    
+        self.Y_predict_test = self.model.predict(self.X_test)
+
+    
+    def compute_metric(self):
+    
+        if self.metric == 'ECM':
+
+            self.ECM_test = np.mean((self.Y_predict_test - self.Y_test) ** 2)
+            
+            return self.ECM_test
+
+
+        elif self.metric == 'TAC':
+
+            self.TAC_test = np.mean((self.Y_predict_test == self.Y_test))
+
+            return self.TAC_test
 ```
 
 
 Definimos el modelo KNN para regresión con el que vamos a testear el algoritmo que se acaba de programar:
 
 ```python
-knn_regression = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, metric='minkowski')
+knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, metric='minkowski')
 ```
 
 
 Aplicamos el algoritmo de validación simple aleatoria sobre el modelo KNN para regresión, usando como métrica de validación el error cuadratico medio (ECM):
 
-
 ```python
-ECM_test_Simple_Validation_random = simple_validation_random(D=Data, k=0.75, response='price', random_seed=123, metric='ECM', model=knn_regression)
+RandomSimpleValidation_init = RandomSimpleValidation(k=0.75, metric='ECM', model=knn_regression_init, random_seed=123)
 
-ECM_test_Simple_Validation_random
+RandomSimpleValidation_init.fit(D=Data, response_name='price')
+
+RandomSimpleValidation_init.predict()
 ```
 
 
+```python
+ECM_test_Random_Simple_Validation  = RandomSimpleValidation_init.compute_metric()
+
+ECM_test_Random_Simple_Validation
+```
 
 
     2464363295205.937
+
+<br>
 
 
 
 Definimos el modelo KNN para clasificacion con el que vamos a testear el algoritmo que se acaba de programar:
 
 ```python
-knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=2, metric='minkowski')
+knn_classification_init = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=2, metric='minkowski')
 ```
 
 Aplicamos el algoritmo de validación simple aleatoria sobre el modelo KNN para clasificación, usando como métrica de validación la tasa de acierto (TA):
 
 ```python
-TAC_test_Simple_Validation_random = simple_validation_random(D=Data, k=0.75, response='quality_recode', random_seed=123, metric='TA', model =knn_classification)
+RandomSimpleValidation_init = RandomSimpleValidation(k=0.75, metric='TAC', model=knn_classification_init, random_seed=123)
 
-TAC_test_Simple_Validation_random
+RandomSimpleValidation_init.fit(D=Data, reesponse_name='quality_recode')
+
+RandomSimpleValidation_init.predict()
 ```
 
+```python
+TAC_test_Random_Simple_Validation = RandomSimpleValidation_init.compute_metric()
 
+TAC_test_Random_Simple_Validation
+```
 
 
     0.5777310924369747
@@ -2130,48 +2217,61 @@ TAC_test_Simple_Validation_random
 
 
 ```python
-def repeated_random_simple_validation(D, k, B, response, random_seed, metric, model):
+class RepeatedRandomSimpleValidation :
+   
+    # D --> It have to be a pandas data frame.
+    # B --> It's the number of iterations of the Random Simple Validation algorithm.    
+    # k --> It's the proportion of observation of D that define D_train.
+    # response --> It have to be a string with the name of the response variable.
+    # model --> It's an object containing the initialized model to use.
+    # The function has been created thinking that the model to be used will be one from the `sklearn` library.
+    # metric --> It's the name of the validation metric.
+    # random_seed --> It's the seed to replicate the random process
+    
+    def __init__(self, B, k, metric, model, random_seed):
 
-    # D --> have to be a pandas data frame.
+        self.B = B
 
-    # k --> is the proportion of observation of D that define D_train.
+        self.k = k
+        
+        self.metric = metric
+        
+        self.model = model
 
-    # B --> number of replications of the random simple validation algorithm
+        self.random_seed = random_seed
 
-    # response --> have to be a string with the name of the response variable.
+ 
 
-    # random_seed --> seed to replicate the random process
+    def fit(self, D, response_name):
+    
+        self.D = D
+        
+        self.response_name = response_name
 
+        np.random.seed(self.random_seed)    
 
-    np.random.seed(random_seed)
+        self.seed_array = np.random.randint(9999999, size=(self.B))
+ 
+    
+    def compute_metric(self):
+    
+        Metric_test_list = [ ]
 
-    ECM_test_list , TA_test_list = [ ] , [ ]
+        for b in range(0,self.B) :
 
-    seed_array = np.random.randint(9999999, size=(B))
+            SimpleValidationRandom_init = SimpleValidationRandom(k=self.k, response=self.response, metric=self.metric, model=self.model, random_seed=self.seed_array[b])
 
+            SimpleValidationRandom_init.fit(D=self.D)
 
-    if metric == 'ECM':
+            SimpleValidationRandom_init.predict()
 
-        for b in range(0,B) :
-
-            ECM_test_list.append( simple_validation_random(D, k, response, random_seed=seed_array[b], metric=metric, model=model) )
-
-
-        ECM_test = np.mean(ECM_test_list)    
-
-        return ECM_test 
-
-
-    elif metric == 'TA':
-
-        for b in range(0,B) :
-
-            TA_test_list.append( simple_validation_random(D, k, response, random_seed=seed_array[b], metric=metric, model=model) )
+            Metric_test_list.append( SimpleValidationRandom_init.compute_metric() )
 
 
-        TA_test = np.mean(TA_test_list)    
+        self.Metric_test = np.mean(Metric_test_list)    
 
-        return TA_test 
+        
+        return self.Metric_test
 ```
 
 
@@ -2179,52 +2279,58 @@ def repeated_random_simple_validation(D, k, B, response, random_seed, metric, mo
 Definimos el modelo KNN para regresión con el que vamos a testear el algoritmo que se acaba de programar:
 
 ```python
-knn_regression = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, metric='minkowski')
+knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, metric='minkowski')
 ```
 
 Aplicamos el algoritmo de validación simple aleatoria repetida sobre el modelo KNN para regresión, usando como métrica de validación el error cuadratico medio (ECM):
 
 ```python
-ECM_test_Simple_Validation_repeated = repeated_random_simple_validation(D=Data, k=0.75, B=1000, response='price', random_seed=123, metric='ECM', model=knn_regression)
+RepeatedRandomSimpleValidation_init = RepeatedRandomSimpleValidation(B=200, k=0.75, metric='ECM', model=knn_regression_init, random_seed=123)
+
+
+RepeatedRandomSimpleValidation_init.fit(D=Data, response_name='price')
 ```
 
 
 
 ```python
-ECM_test_Simple_Validation_repeated
+ECM_test_Repeated_Random_Simple_Validation = RepeatedRandomSimpleValidation_init.compute_metric()
+
+ECM_test_Repeated_Random_Simple_Validation
 ```
 
+    2273253730249.1133
 
 
-
-    2297076499859.55
-    
+ <br>   
 
 
 
 Definimos el modelo KNN para clasificación con el que vamos a testear el algoritmo que se acaba de programar:
 
 ```python
-knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=2, metric='minkowski')
+knn_classification_init = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10,  p=2, metric='minkowski')
 ```
 
 Aplicamos el algoritmo de validación simple aleatoria repetida sobre el modelo KNN para clasificación, usando como métrica de validación la tasa de acierto (TA):
 
 
 ```python
-TAC_test_Simple_Validation_repeated = repeated_random_simple_validation(D=Data, k=0.75, B=1000, response='quality_recode', random_seed=123, metric='TA', model=knn_classification)
+RepeatedRandomSimpleValidation_init = RepeatedRandomSimpleValidation(B=200, k=0.75,  metric='TAC', model=knn_classification_init, random_seed=123)
+
+RepeatedRandomSimpleValidation_init.fit(D=Data, response_name='quality_recode')
 ```
 
 
 
 ```python
-TAC_test_Simple_Validation_repeated
+TAC_test_Repeated_Random_Simple_Validation = RepeatedRandomSimpleValidation_init.compute_metric()
+
+TAC_test_Repeated_Random_Simple_Validation
 ```
 
 
-
-
-    0.5516638655462184
+    0.5515546218487395 
 
 
 <br>
@@ -2234,60 +2340,64 @@ TAC_test_Simple_Validation_repeated
 
 
 ```python
-def leave_one_out_validation(D, response, metric, model):
+class LeaveOneOutValidation:
 
-    # D --> have to be a pandas data frame.
+  # D --> It have to be a pandas data frame.
+    # response_name --> It have to be a string with the name of the response variable.
+    # model --> It's an object containing the initialized model to use.
+    # The function has been created thinking that the model to be used will be one from the `sklearn` library.
+    # metric --> It's the name of the validation metric.
+    # random_seed --> It's the seed to replicate the random process.
 
-    # k --> is the proportion of observation of D that define D_train.
-
-    # response --> have to be a string with the name of the response variable.
-
-    ECM_test_list , TA_test_list = [ ] , [ ]
-
-    N = len(D)
-
-    for r in range(0,N):
-
-        D_test = D.iloc[r,:]
-        D_train = D.drop( r , )
-
-        X_train = D_train.loc[: , D_train.columns != response]
-        Y_train = D_train.loc[: , response]
-
-        X_test = D_test.loc[D_test.index != response]
-        Y_test = D_test.loc[response]
-
-############################################################################
-
-        # Training the model wit train sample
-
-        model.fit(X_train, Y_train)
-
-        # Making predictions with test sample
-
-        Y_predict_test = model.predict( pd.DataFrame([X_test]) ) 
-        
-############################################################################
-
-        if metric == 'ECM' :  ECM_test_list.append( np.mean( (Y_predict_test - Y_test)**2 ) )
+    def __init__(self, metric, model):
     
-        elif metric == 'TA' :  TA_test_list.append( np.mean( (Y_predict_test == Y_test ) ) )
+        self.metric = metric
+    
+        self.model = model
+    
+        self.ECM_test_list = []
+    
+        self.TA_test_list = []
 
-############################################################################
-        
-    if metric == 'ECM' : 
-        
-        ECM_test = np.mean(ECM_test_list)
+    
+    def fit(self, D, response_name):
 
-        return ECM_test
+            
+        N = len(D)
+    
+        for r in range(0, N):
+    
+            D_test = D.iloc[r, :]
+            D_train = D.drop(r, )
+
+            X_train = D_train.loc[:, D_train.columns != response_name]
+            Y_train = D_train.loc[:, response_name]
+
+            X_test = D_test.loc[D_test.index != response_name]
+            Y_test = D_test.loc[response_name]
+
+            self.model.fit(X_train, Y_train)
+
+            Y_predict_test = self.model.predict(pd.DataFrame([X_test]))
+
+            if self.metric == 'ECM':
+            
+                self.ECM_test_list.append(np.mean((Y_predict_test - Y_test)**2))
+            
+            elif self.metric == 'TAC':
+            
+                self.TA_test_list.append(np.mean((Y_predict_test == Y_test)))
 
 
-    elif metric == 'TA' :
+    def compute_metric(self):
 
-        TA_test = np.mean(TA_test_list)
+        if self.metric == 'ECM':
 
-        return TA_test
+            return np.mean(self.ECM_test_list)
 
+        elif self.metric == 'TAC':
+
+            return np.mean(self.TA_test_list)
 ```
 
 
@@ -2295,49 +2405,54 @@ def leave_one_out_validation(D, response, metric, model):
 Definimos el modelo KNN para regresión con el que vamos a testear el algoritmo que se acaba de programar:
 
 ```python
-knn_regression = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, metric='minkowski')
+knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10, p=2, metric='minkowski')
 ```
 
 Aplicamos el algoritmo de validación leave one out  sobre el modelo KNN para regresión, usando como métrica de validación el error cuadratico medio (ECM):
 
 ```python
-ECM_test_leave_one_out = leave_one_out_validation(D=Data, response='price', metric='ECM', model=knn_regression)
+LeaveOneOutValidation_init = LeaveOneOutValidation(metric='ECM', model=knn_regression_init)
+
+LeaveOneOutValidation_init.fit(D=Data, response_name='price')
 ```
-
-
 
 ```python
+ECM_test_leave_one_out = LeaveOneOutValidation_init.compute_metric()
+
 ECM_test_leave_one_out
 ```
-
-
-
+ 
 
     2268581861335.2305
 
+<br>
 
 
 Definimos el modelo KNN para clasificación con el que vamos a testear el algoritmo que se acaba de programar:
 
 
 ```python
-knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=2, metric='minkowski')
+knn_classification_init = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10, p=2, metric='minkowski')
 ```
 
-Aplicamos el algoritmo de validación leave one out  sobre el modelo KNN para clasificación, usando como métrica de validación la tasa de acierto (TA):
-
+Aplicamos el algoritmo de validación leave one out  sobre el modelo KNN para clasificación, usando como métrica de validación la tasa de acierto (TAC):
 
 ```python
-TAC_test_leave_one_out = leave_one_out_validation(D=Data, response='quality_recode', metric='TA', model=knn_classification)
+LeaveOneOutValidation_init = LeaveOneOutValidation(metric='TAC', model=knn_classification_init)
+
+LeaveOneOutValidation_init.fit(D=Data, response_name='quality_recode')
+```
+
+```python
+TAC_test_leave_one_out = LeaveOneOutValidation_init.compute_metric()
 
 TAC_test_leave_one_out
 ```
 
-
-
-
     0.5511811023622047
 
+
+ 
 
 
 
@@ -2351,83 +2466,126 @@ TAC_test_leave_one_out
 
 
 ```python
-def K_Fold_CV(D, K, response, random_seed, metric, model):
+class KFoldCV:
 
-    ECM_K_FOLDS_vector , TA_K_FOLDS_vector = [] , []
-
-    np.random.seed(random_seed)
-
-    sample = resample(range(0, len(D)), n_samples=len(D), replace=False)
-
-    df_sample = pd.DataFrame({'index': range(0,len(D)) , 'sample':sample})
-
-    Q = []
-
-    for q in np.arange(0 , 1 + 1/K , 1/K):
-
-        Q.append( np.quantile( range(0, len(D)) , q ).round(0) )
-
-
-    for j in range(0, len(Q)-1):
-
-            X_test = D.loc[df_sample.loc[Q[j]:(math.floor(Q[j+1])-1), 'sample'] , D.columns != response ] 
-            Y_test = D.loc[df_sample.loc[Q[j]:(math.floor(Q[j+1])-1), 'sample'] , D.columns == response ]
-
-            X_train = D.loc[ : , D.columns != response ].drop(df_sample.loc[Q[j]:(math.floor(Q[j+1])-1), 'sample'] )
-            Y_train = D.loc[ : ,  D.columns == response ].drop(df_sample.loc[Q[j]:(math.floor(Q[j+1])-1), 'sample'])
-            
-            Y_test = Y_test.to_numpy()
-
-           #########################################################################
-
-            # Training the model wit train sample
-
-            model.fit(X_train, Y_train)
+    # D --> It have to be a pandas data frame.
+    # K --> It's the number of folds of K-fold algorithm..
+    # response_name --> It have to be a string with the name of the response variable.
+    # model --> It's an object containing the initialized model to use.
+    # The function has been created thinking that the model to be used will be one from the `sklearn` library.
+    # metric --> It's the name of the validation metric.
+    # random_seed --> It's the seed to replicate the random process.
+   
+    def __init__(self, D, K, response_name, random_seed, metric, model):
+   
+        self.D = D
+   
+        self.K = K
+   
+        self.response_name = response_name
+   
+        self.random_seed = random_seed
+   
+        self.metric = metric
+   
+        self.model = model
+   
+        self.ECM_K_FOLDS_vector = []
+   
+        self.TA_K_FOLDS_vector = []
+   
+        self.df_sample = None
 
 
-            # Making predictions with test sample
+    def __resample_df(self):
+   
+        np.random.seed(self.random_seed)
+   
+        sample = resample(range(0, len(self.D)), n_samples=len(self.D), replace=False)
+   
+        self.df_sample = pd.DataFrame({'index': range(0,len(self.D)) , 'sample':sample})
 
-            Y_predict_test = model.predict( X_test ) 
 
+    def __get_quantiles(self):
+   
+        Q = []
+   
+        for q in np.arange(0 , 1 + 1/self.K , 1/self.K):
+   
+            Q.append( np.quantile( range(0, len(self.D)) , q ).round(0) )
+   
+        return Q
     
-            #########################################################################
-
-            if metric == 'ECM' :  ECM_K_FOLDS_vector.append( np.mean( ( Y_predict_test - Y_test )**2 ) )
-
-            elif metric == 'TA' :  TA_K_FOLDS_vector.append( np.mean( ( Y_predict_test == Y_test ) ) )
-
-##################################################################################################################################################
-
-    if metric == 'ECM' :
-
-        ECM_K_Folds = np.mean(ECM_K_FOLDS_vector)
+   
+    def __train_test_split(self, q, Q):
+   
+        X_test = self.D.loc[self.df_sample.loc[Q[q]:(math.floor(Q[q+1])-1), 'sample'] , self.D.columns != self.response_name ] 
+   
+        Y_test = self.D.loc[self.df_sample.loc[Q[q]:(math.floor(Q[q+1])-1), 'sample'] , self.D.columns == self.response_name ]
+   
+        X_train = self.D.loc[ : , self.D.columns != self.response_name ].drop(self.df_sample.loc[Q[q]:(math.floor(Q[q+1])-1), 'sample'] )
+   
+        Y_train = self.D.loc[ : , self.D.columns == self.response_name ].drop(self.df_sample.loc[Q[q]:(math.floor(Q[q+1])-1), 'sample'])
+   
+        Y_test = Y_test.to_numpy()
+   
+        return X_test, Y_test, X_train, Y_train
     
-        return  ECM_K_Folds
+   
+    def fit(self):
+   
+        self.__resample_df()
+   
+        Q = self.__get_quantiles()
+   
+        for j in range(0, len(Q)-1):
+   
+            X_test, Y_test, X_train, Y_train = self.__train_test_split(j, Q)
+   
+            self.model.fit(X_train, Y_train)
+   
+            Y_predict_test = self.model.predict(X_test)
+   
+            if self.metric == 'ECM':
+   
+                self.ECM_K_FOLDS_vector.append(np.mean((Y_predict_test - Y_test)**2))
+   
+            elif self.metric == 'TAC':
+   
+                self.TA_K_FOLDS_vector.append(np.mean((Y_predict_test == Y_test)))
 
-    
-    elif metric == 'TA' :
 
-        TA_K_Folds = np.mean(TA_K_FOLDS_vector)
-    
-        return  TA_K_Folds
+    def get_metric(self):
+   
+        if self.metric == 'ECM':
+   
+            return np.mean(self.ECM_K_FOLDS_vector)
+   
+        elif self.metric == 'TAC':
+   
+            return np.mean(self.TA_K_FOLDS_vector)
 ```
 
 
 Definimos el modelo KNN para regresión con el que vamos a testear el algoritmo que se acaba de programar:
 
 ```python
-knn_regression = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, metric='minkowski')
+knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, metric='minkowski')
 ```
 
 Aplicamos el algoritmo de validación cruzada K-fold  sobre el modelo KNN para regresión, usando como métrica de validación el error cuadrático medio (ECM):
 
 ```python
-ECM_K_Folds = K_Fold_CV(D=Data, response='price', K=10, random_seed=123, metric='ECM', model=knn_regression)
+KFoldCV_init = KFoldCV(D=Data, K=10, response_name='price', random_seed=123, metric='ECM', model=knn_regression_init)
+
+KFoldCV_init.fit()
 ```
 
 
 
 ```python
+ECM_K_Folds = KFoldCV_init.get_metric()
+
 ECM_K_Folds
 ```
 
@@ -2437,24 +2595,30 @@ ECM_K_Folds
     2220503635404.005
 
 
+<br>
 
 
 Definimos el modelo KNN para clasificación con el que vamos a testear el algoritmo que se acaba de programar:
 
 
 ```python
-knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=2, metric='minkowski')
+knn_classification_init = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=2, metric='minkowski')
 ```
 
 Aplicamos el algoritmo de validación cruzada K-fold  sobre el modelo KNN para clasificación, usando como métrica de validación la tasa de acierto (TA):
 
 
 ```python
-TAC_K_Folds = K_Fold_CV(D=Data, response='quality_recode', K=10, random_seed=123, metric='TA', model=knn_classification)
+KFoldCV_init = KFoldCV(D=Data, K=10, response_name='quality_recode', random_seed=123, metric='TAC', model=knn_classification_init)
+
+KFoldCV_init.fit()
+```
+
+```python
+TAC_K_Folds = KFoldCV_init.get_metric()
 
 TAC_K_Folds
 ```
-
 
 
 
@@ -2467,136 +2631,107 @@ TAC_K_Folds
 
 <br>
 
-## Repeated k-folds
+## Repeated k-folds  <a class="anchor" id="1"></a>
 
 
 ```python
-def repeated_K_Fold_CV(D, B, K, response, random_seed, metric, model):
+class RepeatedKFoldCV:
 
-
-    ECM_Repeted_K_Folds_vector , TA_Repeted_K_Folds_vector = [] , []
-
-    np.random.seed(random_seed)
-
-
-    for b in range(0, B):
-
-        sample = resample(range(0, len(D)), n_samples=len(D), replace=False)
-
-        df_sample = pd.DataFrame({'index': range(0,len(D)) , 'sample':sample})
-
-        
-        Q = []
-
-        
-        for q in np.arange(0 , 1 + 1/K , 1/K):
-
-            Q.append( np.quantile( range(0, len(D)) , q ).round(0) )
-
-
-
-        ECM_K_FOLDS_vector , TA_K_FOLDS_vector = [] , []
-
-        for j in range(0, len(Q)-1):
-
-            X_test = D.loc[df_sample.loc[Q[j]:(math.floor(Q[j+1])-1), 'sample'] , D.columns != response ] 
-            Y_test = D.loc[df_sample.loc[Q[j]:(math.floor(Q[j+1])-1), 'sample'] , D.columns == response ]
-
-            X_train = D.loc[ : , D.columns != response ].drop(df_sample.loc[Q[j]:(math.floor(Q[j+1])-1), 'sample'] )
-            Y_train = D.loc[ : ,  D.columns == response ].drop(df_sample.loc[Q[j]:(math.floor(Q[j+1])-1), 'sample'])      
-
-            Y_test = Y_test.to_numpy()
-
-        #######################################################################
-            
-            # Training the model wit train sample
-
-            model.fit(X_train, Y_train)
-
-
-            # Making predictions with test sample
-
-            Y_predict_test = model.predict( X_test ) 
-
-
-        #######################################################################
-
-            if metric == 'ECM' :  ECM_K_FOLDS_vector.append( np.mean( ( Y_predict_test - Y_test )**2 ) )
-
-            elif metric == 'TA' :  TA_K_FOLDS_vector.append( np.mean( ( Y_predict_test == Y_test ) ) )
-
-        #######################################################################
+    # D --> It have to be a pandas data frame.
+    # B --> It's the number of iterations of the K-Fold algorithm.    
+    # K --> It's the number of folds of K-fold algorithm..
+    # response_name --> It have to be a string with the name of the response variable.
+    # model --> It's an object containing the initialized model to use.
+    # The function has been created thinking that the model to be used will be one from the `sklearn` library.
+    # metric --> It's the name of the validation metric.
+    # random_seed --> It's the seed to replicate the random process.
     
-        if metric == 'ECM' : ECM_Repeted_K_Folds_vector.append( np.mean(ECM_K_FOLDS_vector) )
-
-        elif metric == 'TA' : TA_Repeted_K_Folds_vector.append( np.mean(TA_K_FOLDS_vector) )
-
-##########################################################################################################################
-
-    if metric == 'ECM' :
+    def __init__(self, B, K, random_seed, metric, model):
+     
+     
+        self.B = B
+     
+        self.K = K
+         
+        self.random_seed = random_seed
+     
+        self.metric = metric
+     
+        self.model = model
         
-        ECM_Repeted_K_Folds = np.mean(ECM_Repeted_K_Folds_vector)
 
-        return  ECM_Repeted_K_Folds
-        
+    def fit(self, D, response_name):
+       
+        self.Metric_Repeted_K_Folds_list = [ ]
+       
+        np.random.seed(self.random_seed)
 
-    elif metric == 'TA' :
-        
-        TA_Repeted_K_Folds = np.mean(TA_Repeted_K_Folds_vector)
+        for b in range(0, self.B):
+       
+            KFoldCV_init = KFoldCV(D=D, K=self.K, response_name=response_name, random_seed=123, metric=self.metric, model=self.model)
 
-        return  TA_Repeted_K_Folds
-    
-    
+            KFoldCV_init.fit()
+
+            self.Metric_Repeted_K_Folds_list.append( KFoldCV_init.get_metric() )
+
+
+    def get_metric(self):
+
+        return  np.mean(self.Metric_Repeted_K_Folds_list)
 ```
 
 Definimos el modelo KNN para regresión con el que vamos a testear el algoritmo que se acaba de programar:
 
 
 ```python
-knn_regression = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, metric='minkowski')
+knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, metric='minkowski')
 ```
 
 Aplicamos el algoritmo de validación cruzada K-fold repetida sobre el modelo KNN para regresión, usando como métrica de validación el error cuadrático medio (ECM):
 
 ```python
-ECM_repeated_K_Folds = repeated_K_Fold_CV(D=Data, response='price', K=10, B=100, random_seed=123, metric='ECM', model=knn_regression)
+RepeatedKFoldCV_init = RepeatedKFoldCV(B=100, K=10, random_seed=123, metric='ECM', model=knn_regression_init)
+
+RepeatedKFoldCV_init.fit(D=Data, response_name='price')
 ```
 
 
 
 ```python
+ECM_repeated_K_Folds = RepeatedKFoldCV_init.get_metric()
+
 ECM_repeated_K_Folds
 ```
 
+    2220503635404.004
 
-
-
-    2268486279605.6816
-
+<br>
 
 
 Definimos el modelo KNN para clasificación con el que vamos a testear el algoritmo que se acaba de programar:
 
 ```python
-knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=2, metric='minkowski')
+knn_classification_init = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=2, metric='minkowski')
 ```
 
 Aplicamos el algoritmo de validación cruzada K-fold repetida sobre el modelo KNN para clasificación, usando como métrica la tasa de acierto (TA):
 
 ```python
-TAC_repeated_K_Folds = repeated_K_Fold_CV(D=Data, response='quality_recode', K=10, B=100, random_seed=123, metric='TA', model=knn_classification)
+RepeatedKFoldCV_init = RepeatedKFoldCV(B=100, K=10, random_seed=123, metric='TAC', model=knn_classification_init)
+
+RepeatedKFoldCV_init.fit(D=Data, response_name='quality_recode')
 ```
 
 
 
 ```python
+TAC_repeated_K_Folds = RepeatedKFoldCV_init.get_metric()
+
 TAC_repeated_K_Folds
 ```
 
 
-
-
-    0.5371267212075105
+     0.5363984159477088
 
 
 
@@ -2684,7 +2819,7 @@ TAC_K_Folds_sklearn
 
 <br>
 
-## Repeated k-fold
+## Repeated k-fold  <a class="anchor" id="1"></a>
 
  
 Inicializamos el algoritmo repeated k-fold. Usaremos los parámetros k=10, un número de 100 repeticiones y un inicio aleatorio con semilla 123.
@@ -2741,7 +2876,7 @@ TAC_repeated_K_Folds_sklearn
 
 
 
-# Comparación final
+# Comparación final  <a class="anchor" id="1"></a>
 
 Importamos las librerias de visualización de datos que usaremos para realizar la comparación final.
 
