@@ -4,11 +4,18 @@ from fastapi import File, UploadFile
 import pandas as pd
 import matplotlib.pyplot as plt
 
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
+
+
 app = FastAPI()
 
-@app.get('/')
-async def welcome():
-    return {"message": "Bienvenido a la aplicación de EDA!"}
+
+templates = Jinja2Templates(directory="templates")
+
+@app.get("/", response_class=HTMLResponse)
+async def welcome(request: Request):
+    return templates.TemplateResponse("welcome.html", {"request": request})
 
 
 @app.post('/analyze', response_class=HTMLResponse)
@@ -27,4 +34,3 @@ async def analyze(file: UploadFile = File(...)):
     </html>
     """
 
-    
