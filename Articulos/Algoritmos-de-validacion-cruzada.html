@@ -2641,14 +2641,16 @@ x_{2}^{train, r} &amp; y_{2}^{train, r}\\ ....&amp;...\\
 <p><span></p>
 <p style="margin-left:1em;">
 <ul>
-<li><p>Se itera el algoritmo <span class="math inline">\(\hspace{0.08cm}k\)</span>-fold un total de <span class="math inline">\(\hspace{0.08cm}B\hspace{0.08cm}\)</span> veces. Con ello se obtienen <span class="math inline">\(\hspace{0.08cm}k\cdot B\hspace{0.08cm}\)</span> valores de la métrica de validacion, ya que cada iteracion del algoritmo k-fold produce <span class="math inline">\(\hspace{0.08cm}k\hspace{0.08cm}\)</span> valores de la métrica, y el algoritmo se itera <span class="math inline">\(\hspace{0.08cm}B\hspace{0.08cm}\)</span> veces. <span class="math inline">\(\\[0.2cm]\)</span></p></li>
+<li><p>Se itera el algoritmo <span class="math inline">\(\hspace{0.08cm}k\)</span>-fold un total de <span class="math inline">\(\hspace{0.08cm}B\hspace{0.08cm}\)</span> veces. Con ello se obtienen <span class="math inline">\(\hspace{0.08cm}k\cdot B\hspace{0.08cm}\)</span> valores de la métrica de validacion, ya que cada iteracion del algoritmo k-fold produce <span class="math inline">\(\hspace{0.08cm}k\hspace{0.08cm}\)</span> valores de la métrica, y el algoritmo se itera <span class="math inline">\(\hspace{0.08cm}B\hspace{0.08cm}\)</span> veces. <span class="math inline">\(\\[0.2cm]\)</span></p>
+<ul>
 <li><p>Si la métrica usada para evaluar el modelo fuera el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.05cm}\)</span> , entocnes se obtendrian los siguientes <span class="math inline">\(\hspace{0.1cm}k\cdot B\hspace{0.1cm}\)</span> valores de esta métrica:</p>
 <p><span class="math display">\[ECM_{test }\left(\hspace{0.1cm}\widehat{M}_1^{\hspace{0.1cm}1}\hspace{0.1cm}\right) \hspace{0.05cm}, ... ,\hspace{0.05cm} ECM_{test}\left(\hspace{0.1cm}\widehat{M}_k^{\hspace{0.1cm}1}\hspace{0.1cm}\right) \hspace{0.05cm},...,\hspace{0.05cm}ECM_{test }\left(\hspace{0.1cm}\widehat{M}_1^{\hspace{0.1cm}B}\hspace{0.1cm}\right) \hspace{0.05cm}, ... ,\hspace{0.05cm} ECM_{test}\left(\hspace{0.1cm}\widehat{M}_k^{\hspace{0.1cm}B} \hspace{0.1cm} \hspace{0.1cm}\right) \\\]</span></p>
 <p>Donde:</p>
-<p><span class="math inline">\(\hspace{0.2cm}\)</span> Para <span class="math inline">\(\hspace{0.1cm}r\in \lbrace 1,...,k \rbrace\hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm} j\in \lbrace 1,...,B \rbrace\)</span> <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p>Para <span class="math inline">\(\hspace{0.1cm}r\in \lbrace 1,...,k \rbrace\hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm} j\in \lbrace 1,...,B \rbrace\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p>
 <ul>
 <li><p><span class="math inline">\(\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\)</span> es el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> entrenado con la <strong>muestra de train</strong> <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima obtenida en la iteración <span class="math inline">\(\hspace{0.1cm}j\)</span>-esima del algoritmo k-fold, es decir, es el modelo entrenado con la muestra de train <span class="math inline">\(\hspace{0.1cm}D_{train, r}^{\hspace{0.1cm}j}\hspace{0.1cm} \\[0.5cm]\)</span></p></li>
-<li><p><span class="math inline">\(ECM_{test }\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right)\hspace{0.1cm}\)</span> es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> calculado sobre el modelo <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\)</span> con la <strong>muestra de test</strong> <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima obtenida en la repetición <span class="math inline">\(\hspace{0.1cm}j\)</span>-esima del algoritmo k-fold, es decir, con la muestra de test <span class="math inline">\(\hspace{0.1cm}D_{test, r}^{\hspace{0.1cm}j}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p>
+<li><p><span class="math inline">\(ECM_{test }\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right)\hspace{0.1cm}\)</span> es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> calculado sobre el modelo <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\)</span> con la <strong>muestra de test</strong> <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima obtenida en la repetición <span class="math inline">\(\hspace{0.1cm}j\)</span>-esima del algoritmo k-fold, es decir, con la muestra de test <span class="math inline">\(\hspace{0.1cm}D_{test, r}^{\hspace{0.1cm}j}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+</ul>
 <p><span class="math display">\[ECM_{test }\left( \hspace{0.1cm} \widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right) = \dfrac{1}{\# D_{test, r}^{\hspace{0.1cm}j}} \cdot \sum_{i=1}^{\# D_{test, r}^{\hspace{0.1cm}j}} \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r,j} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r,j} \hspace{0.1cm} \right)^2  \\[1cm]\]</span></p>
 <p>Considerando lo siguiente : <span class="math inline">\(\\[0.5cm]\)</span></p>
 <ul>
@@ -2663,11 +2665,11 @@ x_{2}^{train, r} &amp; y_{2}^{train, r}\\ ....&amp;...\\
 <ul>
 <li><p>Si la métrica considerada es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, entonces: <span class="math inline">\(\\[0.15cm]\)</span></p>
 <p>En la iteración <span class="math inline">\(\hspace{0.08cm}j\)</span>-esima del algoritmo <span class="math inline">\(\hspace{0.08cm}k\)</span>-fold se obtiene como métrica de validación final:</p>
-<p><span class="math display">\[ECM( {M})_{test}^{\hspace{0.08cm}j \hspace{0.05cm} *} \hspace{0.13cm} = \hspace{0.13cm}\dfrac{1}{k} \hspace{0.1cm} \cdot\hspace{0.1cm}   \sum_{r=1}^k \hspace{0.15cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)\]</span></p></li>
-</ul>
+<p><span class="math display">\[ECM( {M})_{test}^{\hspace{0.08cm}j \hspace{0.05cm} *} \hspace{0.13cm} = \hspace{0.13cm}\dfrac{1}{k} \hspace{0.1cm} \cdot\hspace{0.1cm}   \sum_{r=1}^k \hspace{0.15cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)\]</span> <span class="math inline">\(\\[0.15cm]\)</span></p>
 <p>Por lo tanto, la métrica de validación final obtenida con el algoritmo <span class="math inline">\(\hspace{0.08cm}B\)</span>-repeated <span class="math inline">\(\hspace{0.08cm}k\)</span>-fold es:</p>
 <p><span class="math display">\[ECM( {M})_{test}^{\hspace{0.08cm}*} \hspace{0.13cm} = \hspace{0.13cm} \dfrac{1}{ B} \hspace{0.1cm} \cdot\hspace{0.1cm} \sum_{j=1}^B ECM( {M})_{test}^{\hspace{0.08cm}j \hspace{0.05cm} *} \hspace{0.13cm} = \hspace{0.13cm}
   \dfrac{1}{k\cdot B} \hspace{0.1cm} \cdot\hspace{0.1cm} \sum_{j=1}^B \hspace{0.1cm} \sum_{r=1}^k \hspace{0.15cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)\]</span></p></li>
+</ul></li>
 </ul>
 </p>
 </p>
@@ -2687,11 +2689,16 @@ x_{2}^{train, r} &amp; y_{2}^{train, r}\\ ....&amp;...\\
 <p><span></p>
 <p style="margin-left:1em;">
 <ul>
-<li><p>Tenemos <span class="math inline">\(\hspace{0.1cm}h\hspace{0.1cm}\)</span> modelos de aprendizaje supervisado <span class="math inline">\(\hspace{0.1cm}M_1\hspace{0.05cm},\hspace{0.05cm}M_2\hspace{0.05cm},...,\hspace{0.05cm}M_h\hspace{0.05cm} \\\)</span></p></li>
-<li><p>Se validan esos modelos usando un mismo algoritmo de validación, con una misma métrica de evaluación. Se obtendrán <span class="math inline">\(\hspace{0.1cm}h\hspace{0.1cm}\)</span> valores de la métrica, una para cada modelo. <span class="math inline">\(\\[0.3cm]\)</span></p>
-<p>Si la métrica fuera el ECM se tendrian por ejemplo los siguientes valores: <span class="math inline">\(\\[0.15cm]\)</span></p>
+<li><p>Supongamos que estamos ante un problema de regresión o clasificación supervisada.</p>
+<ul>
+<li>Tenemos <span class="math inline">\(\hspace{0.1cm}h\hspace{0.1cm}\)</span> modelos de aprendizaje supervisado <span class="math inline">\(\hspace{0.1cm}M_1\hspace{0.05cm},\hspace{0.05cm}M_2\hspace{0.05cm},...,\hspace{0.05cm}M_h\hspace{0.05cm} \\\)</span></li>
+</ul></li>
+<li><p>Se validan estos modelos usando un mismo algoritmo de validación, con una misma métrica de evaluación. Se obtendrán <span class="math inline">\(\hspace{0.1cm}h\hspace{0.1cm}\)</span> valores de la métrica, una para cada modelo. <span class="math inline">\(\\[0.3cm]\)</span></p>
+<ul>
+<li>Si la métrica fuera el ECM se tendrian por ejemplo los siguientes valores: <span class="math inline">\(\\[0.15cm]\)</span></li>
+</ul>
 <p><span class="math display">\[ECM(M_1)_{test}^{\hspace{0.05cm} *} \hspace{0.1cm}, ...,\hspace{0.1cm} ECM(M_h)_{test}^{\hspace{0.05cm} *} \\\]</span></p></li>
-<li><p>El criterio es seleccionar el modelo que tienen <strong>mejor</strong> valor de la métrica. Si es una métrica de error, el que menor valor tiene. Si es una métrica de acierto, el que mayor valor tiene. <span class="math inline">\(\\[0.8cm]\)</span></p></li>
+<li><p>El criterio es seleccionar el modelo que tienen <strong>mejor</strong> valor de la métrica. Si es una <strong>métrica de error</strong>, el que <strong>menor</strong> valor tiene. Si es una <strong>métrica de acierto</strong>, el que <strong>mayor</strong> valor tiene. <span class="math inline">\(\\[0.8cm]\)</span></p></li>
 <li><p>Si la métrica es de <strong>error</strong>, como por ejemplo el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, entonces: <span class="math inline">\(\\[0.7cm]\)</span></p>
 <ul>
 <li>El modelo seleccionado es <span class="math inline">\(\hspace{0.1cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.1cm}\)</span> , donde: <span class="math inline">\(\\[0.5cm]\)</span></li>
