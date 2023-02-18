@@ -2261,13 +2261,13 @@ class RepeatedRandomSimpleValidation :
 
         for b in range(0,self.B) :
 
-            SimpleValidationRandom_init = SimpleValidationRandom(k=self.k, response=self.response, metric=self.metric, model=self.model, random_seed=self.seed_array[b])
+            RandomSimpleValidation_init = RandomSimpleValidation(k=self.k, metric=self.metric, model=self.model, random_seed=self.seed_array[b])
 
-            SimpleValidationRandom_init.fit(D=self.D)
+            RandomSimpleValidation_init.fit(D=self.D,  response_name=self.response_name)
 
-            SimpleValidationRandom_init.predict()
+            RandomSimpleValidation_init.predict()
 
-            Metric_test_list.append( SimpleValidationRandom_init.compute_metric() )
+            Metric_test_list.append( RandomSimpleValidation_init.compute_metric() )
 
 
         self.Metric_test = np.mean(Metric_test_list)    
@@ -2686,7 +2686,7 @@ Definimos el modelo KNN para regresión con el que vamos a testear el algoritmo 
 
 
 ```python
-knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, metric='minkowski')
+knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10, p=2, metric='minkowski')
 ```
 
 Aplicamos el algoritmo de validación cruzada K-fold repetida sobre el modelo KNN para regresión, usando como métrica de validación el error cuadrático medio (ECM):
