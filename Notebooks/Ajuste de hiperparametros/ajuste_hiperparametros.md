@@ -92,7 +92,7 @@ Este algoritmo usa a su vez algoritmos y métricas de validación, por ello es m
 <br>
 
 
-# Grid Search - Random Search
+# Grid Search - Random Search <a class="anchor" id="1"></a>
 
 
 Tenemos un modelo de aprendizaje estadístico $\hspace{0.05cm} M \hspace{0.05cm}$, el cual tiene $\hspace{0.1cm}r\hspace{0.1cm}$ hiper-parámetros $\hspace{0.1cm}h_1,...,h_r\hspace{0.1cm}$, cuyos campos de variación son $\hspace{0.1cm}R(h_1),...,R(h_r)\hspace{0.1cm}$, respectivamente. 
@@ -176,7 +176,6 @@ Lo ideal es que $\hspace{0.05cm}S \hspace{0.05cm} = \hspace{0.1cm} R(h_1)\hspace
 
 Importamos las librerías que vamos a utilizar en esta sección:
 
-
 ```python
 import pandas as pd
 import numpy as np
@@ -190,11 +189,9 @@ from sklearn.neighbors import NearestNeighbors
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-sns.set(rc={'figure.figsize':(9 , 6)})
 sns.set_theme()
 ```
-
-
+ 
 <br>
 
 Cargamos los datos con los que vamos a trabajar:
@@ -305,222 +302,309 @@ Data.head()
 </div>
 
 
-
 <br>
-
 
 
 ## Algoritmos de validación
 
-A continuación vamos a definir algunos algoritmos de validación que serán usados en esta sección, al construir el algoritmo Grid y Random search en base a ellos. 
+Cargamos los algoritmos de validación de los que se nutrirá nuestro algoritmo de ajuste de hiperparámetros.
 
-Estos programas han sido sacados del artículo [algoritmos de validación para modelos de aprendizaje supervisado](http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html), que puede encontrarse en nuestro blog.
-
-
-Programamos el algoritmo de validación simple aleatoria:
+Estos algoritmos fueron tratados con detalle en el artículo sobre [algoritmos de validación para modelos de aprendizaje supervisado.](http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html)
 
 ```python
-def simple_validation_random(D, k, response, random_seed, metric, model):
-
+class RandomSimpleValidation :
+   
     # D --> have to be a pandas data frame.
-
     # k --> is the proportion of observation of D that define D_train.
-
     # response --> have to be a string with the name of the response variable.
+    # model --> object containing the initialized model to use.
+    # The function has been created thinking that the model to be used will be one from the `sklearn` library.
+    # metric --> It's the name of the validation metric.
+    # random_seed --> seed to replicate the random process.
+    
+    
+    
+    def __init__(self, k, metric, model, random_seed):
 
-    # random_seed --> seed to replicate the random process
-
-    N = len(D)
-
-    D_train = D.sample(frac=k, replace=False, random_state=random_seed)
-
-    D_test = D.drop( D_train.index , )
-
-    X_train = D_train.loc[: , D_train.columns != response]
-    Y_train = D_train.loc[: , response]
-
-    X_test = D_test.loc[: , D_test.columns != response]
-    Y_test = D_test.loc[: , response]
-
-############################################################################
-
-    # Training the model wit train sample
-
-    model.fit(X_train, Y_train)
-
-    # Making predictions with test sample
-
-    Y_predict_test = model.predict( X_test ) 
-
-####################################################################
-
- # Computing the test metric
-
-    if metric == 'ECM' :  
+        self.k = k
         
-        ECM_test = np.mean( (Y_predict_test - Y_test)**2 )
-
-        return ECM_test
-
-    elif metric == 'TAC' :  
+        self.metric = metric
         
-        TA_test = np.mean( (Y_predict_test == Y_test) )
+        self.model = model
 
-        return TA_test
-```
+        self.random_seed = random_seed
+    
 
+    def fit(self, D, response_name):
+    
+         
+        N = len(D)
 
-<br>
+        self.D_train = D.sample(frac=self.k, replace=False, random_state=self.random_seed)
 
-Programamos el algoritmo de validación simple aleatoria repetida:
+        self.D_test = D.drop( self.D_train.index , )
 
+        self.X_train = self.D_train.loc[: , self.D_train.columns != response_name]
+        self.Y_train = self.D_train.loc[: , response_name]
 
-```python
-def repeated_random_simple_validation(D, k, B, response, random_seed, metric, model):
-
-    # D --> have to be a pandas data frame.
-
-    # k --> is the proportion of observation of D that define D_train.
-
-    # B --> number of replications of the random simple validation algorithm
-
-    # response --> have to be a string with the name of the response variable.
-
-    # random_seed --> seed to replicate the random process
+        self.X_test = self.D_test.loc[: , self.D_test.columns != response_name]
+        self.Y_test = self.D_test.loc[: , response_name]
 
 
-    np.random.seed(random_seed)
-
-    ECM_test_list , TA_test_list = [ ] , [ ]
-
-    seed_array = np.random.randint(9999999, size=(B))
-
-
-    if metric == 'ECM':
-
-        for b in range(0,B) :
-
-            ECM_test_list.append( simple_validation_random(D, k, response, random_seed=seed_array[b], metric=metric, model=model) )
-
-
-        ECM_test = np.mean(ECM_test_list)    
-
-        return ECM_test 
-
-
-    elif metric == 'TAC':
-
-        for b in range(0,B) :
-
-            TA_test_list.append( simple_validation_random(D, k, response, random_seed=seed_array[b], metric=metric, model=model) )
-
-
-        TA_test = np.mean(TA_test_list)    
-
-        return TA_test 
-```
-
-
-<br>
-
-Programamos el algoritmo de validación repeated K-Fold:
-
-```python
-def repeated_K_Fold_CV(D, B, K, response, random_seed, metric, model):
-
-
-    ECM_Repeated_K_Folds_vector , TA_Repeated_K_Folds_vector = [] , []
-
-    np.random.seed(random_seed)
-
-
-    for b in range(0, B):
-
-        sample = resample(range(0, len(D)), n_samples=len(D), replace=False)
-
-        df_sample = pd.DataFrame({'index': range(0,len(D)) , 'sample':sample})
-
+        self.model.fit(self.X_train, self.Y_train)
         
-        Q = []
+    
+    def predict(self):
+    
+        self.Y_predict_test = self.model.predict(self.X_test)
 
-        
-        for q in np.arange(0 , 1 + 1/K , 1/K):
+    
+    def compute_metric(self):
+    
+        if self.metric == 'ECM':
 
-            Q.append( np.quantile( range(0, len(D)) , q ).round(0) )
-
-
-
-        ECM_K_FOLDS_vector , TA_K_FOLDS_vector = [] , []
-
-        for j in range(0, len(Q)-1):
-
-            X_test = D.loc[df_sample.loc[Q[j]:(math.floor(Q[j+1])-1), 'sample'] , D.columns != response ] 
-            Y_test = D.loc[df_sample.loc[Q[j]:(math.floor(Q[j+1])-1), 'sample'] , D.columns == response ]
-
-            X_train = D.loc[ : , D.columns != response ].drop(df_sample.loc[Q[j]:(math.floor(Q[j+1])-1), 'sample'] )
-            Y_train = D.loc[ : ,  D.columns == response ].drop(df_sample.loc[Q[j]:(math.floor(Q[j+1])-1), 'sample'])      
-
-            Y_test = Y_test.to_numpy()
-
-        #######################################################################
+            self.ECM_test = np.mean((self.Y_predict_test - self.Y_test) ** 2)
             
-            # Training the model wit train sample
+            return self.ECM_test
 
-            model.fit(X_train, Y_train)
 
-            # Making predictions with test sample
+        elif self.metric == 'TAC':
 
-            Y_predict_test = model.predict( X_test )   
+            self.TAC_test = np.mean((self.Y_predict_test == self.Y_test))
 
-        #######################################################################
+            return self.TAC_test
+```
 
-            if metric == 'ECM' :  ECM_K_FOLDS_vector.append( np.mean( ( Y_predict_test - Y_test )**2 ) )
 
-            elif metric == 'TAC' :  TA_K_FOLDS_vector.append( np.mean( ( Y_predict_test == Y_test ) ) )
-
+```python
+class RepeatedRandomSimpleValidation :
+   
+    # D --> It have to be a pandas data frame.
+    # B --> It's the number of iterations of the Random Simple Validation algorithm.    
+    # k --> It's the proportion of observation of D that define D_train.
+    # response --> It have to be a string with the name of the response variable.
+    # model --> It's an object containing the initialized model to use.
+    # The function has been created thinking that the model to be used will be one from the `sklearn` library.
+    # metric --> It's the name of the validation metric.
+    # random_seed --> It's the seed to replicate the random process
     
-    #######################################################################
-    
-        if metric == 'ECM' : ECM_Repeated_K_Folds_vector.append( np.mean(ECM_K_FOLDS_vector) )
+    def __init__(self, B, k, metric, model, random_seed):
 
-        elif metric == 'TAC' : TA_Repeated_K_Folds_vector.append( np.mean(TA_K_FOLDS_vector) )
+        self.B = B
 
-##########################################################################################################################
-
-    if metric == 'ECM' :
+        self.k = k
         
-        ECM_Repeated_K_Folds = np.mean(ECM_Repeated_K_Folds_vector)
+        self.metric = metric
+        
+        self.model = model
 
-        return  ECM_Repeated_K_Folds
+        self.random_seed = random_seed
+
+ 
+
+    def fit(self, D, response_name):
+    
+        self.D = D
+        
+        self.response_name = response_name
+
+        np.random.seed(self.random_seed)    
+
+        self.seed_array = np.random.randint(9999999, size=(self.B))
+ 
+    
+    def compute_metric(self):
+    
+        Metric_test_list = [ ]
+
+        for b in range(0,self.B) :
+
+            RandomSimpleValidation_init = RandomSimpleValidation(k=self.k, metric=self.metric, model=self.model, random_seed=self.seed_array[b])
+
+            RandomSimpleValidation_init.fit(D=self.D,  response_name=self.response_name)
+
+            RandomSimpleValidation_init.predict()
+
+            Metric_test_list.append( RandomSimpleValidation_init.compute_metric() )
+
+
+        self.Metric_test = np.mean(Metric_test_list)    
+
+        
+        return self.Metric_test
+```
+
+
+```python
+class KFoldCV:
+
+    # D --> It have to be a pandas data frame.
+    # K --> It's the number of folds of K-fold algorithm..
+    # response_name --> It have to be a string with the name of the response variable.
+    # model --> It's an object containing the initialized model to use.
+    # The function has been created thinking that the model to be used will be one from the `sklearn` library.
+    # metric --> It's the name of the validation metric.
+    # random_seed --> It's the seed to replicate the random process.
+   
+    def __init__(self, D, K, response_name, random_seed, metric, model):
+   
+        self.D = D
+   
+        self.K = K
+   
+        self.response_name = response_name
+   
+        self.random_seed = random_seed
+   
+        self.metric = metric
+   
+        self.model = model
+   
+        self.ECM_K_FOLDS_vector = []
+   
+        self.TA_K_FOLDS_vector = []
+   
+        self.df_sample = None
+
+
+    def __resample_df(self):
+   
+        np.random.seed(self.random_seed)
+   
+        sample = resample(range(0, len(self.D)), n_samples=len(self.D), replace=False)
+   
+        self.df_sample = pd.DataFrame({'index': range(0,len(self.D)) , 'sample':sample})
+
+
+    def __get_quantiles(self):
+   
+        Q = []
+   
+        for q in np.arange(0 , 1 + 1/self.K , 1/self.K):
+   
+            Q.append( np.quantile( range(0, len(self.D)) , q ).round(0) )
+   
+        return Q
+    
+   
+    def __train_test_split(self, q, Q):
+   
+        X_test = self.D.loc[self.df_sample.loc[Q[q]:(math.floor(Q[q+1])-1), 'sample'] , self.D.columns != self.response_name ] 
+   
+        Y_test = self.D.loc[self.df_sample.loc[Q[q]:(math.floor(Q[q+1])-1), 'sample'] , self.D.columns == self.response_name ]
+   
+        X_train = self.D.loc[ : , self.D.columns != self.response_name ].drop(self.df_sample.loc[Q[q]:(math.floor(Q[q+1])-1), 'sample'] )
+   
+        Y_train = self.D.loc[ : , self.D.columns == self.response_name ].drop(self.df_sample.loc[Q[q]:(math.floor(Q[q+1])-1), 'sample'])
+   
+        Y_test = Y_test.to_numpy()
+   
+        return X_test, Y_test, X_train, Y_train
+    
+   
+    def fit(self):
+   
+        self.__resample_df()
+   
+        Q = self.__get_quantiles()
+   
+        for j in range(0, len(Q)-1):
+   
+            X_test, Y_test, X_train, Y_train = self.__train_test_split(j, Q)
+   
+            self.model.fit(X_train, Y_train)
+   
+            Y_predict_test = self.model.predict(X_test)
+   
+            if self.metric == 'ECM':
+   
+                self.ECM_K_FOLDS_vector.append(np.mean((Y_predict_test - Y_test)**2))
+   
+            elif self.metric == 'TAC':
+   
+                self.TA_K_FOLDS_vector.append(np.mean((Y_predict_test == Y_test)))
+
+
+    def get_metric(self):
+   
+        if self.metric == 'ECM':
+   
+            return np.mean(self.ECM_K_FOLDS_vector)
+   
+        elif self.metric == 'TAC':
+   
+            return np.mean(self.TA_K_FOLDS_vector)
+```
+
+
+```python
+class RepeatedKFoldCV:
+
+    # D --> It have to be a pandas data frame.
+    # B --> It's the number of iterations of the K-Fold algorithm.    
+    # K --> It's the number of folds of K-fold algorithm..
+    # response_name --> It have to be a string with the name of the response variable.
+    # model --> It's an object containing the initialized model to use.
+    # The function has been created thinking that the model to be used will be one from the `sklearn` library.
+    # metric --> It's the name of the validation metric.
+    # random_seed --> It's the seed to replicate the random process.
+    
+    def __init__(self, B, K, random_seed, metric, model):
+     
+     
+        self.B = B
+     
+        self.K = K
+         
+        self.random_seed = random_seed
+     
+        self.metric = metric
+     
+        self.model = model
         
 
-    elif metric == 'TAC' :
-        
-        TA_Repeated_K_Folds = np.mean(TA_Repeated_K_Folds_vector)
+    def fit(self, D, response_name):
+       
+        self.Metric_Repeted_K_Folds_list = [ ]
+       
+        np.random.seed(self.random_seed)
 
-        return  TA_Repeated_K_Folds
-    
-    
+        for b in range(0, self.B):
+       
+            KFoldCV_init = KFoldCV(D=D, K=self.K, response_name=response_name, random_seed=123, metric=self.metric, model=self.model)
+
+            KFoldCV_init.fit()
+
+            self.Metric_Repeted_K_Folds_list.append( KFoldCV_init.get_metric() )
+
+
+    def get_metric(self):
+
+        return  np.mean(self.Metric_Repeted_K_Folds_list)
 ```
 
 
 
-<br>
 
+
+  
+
+
+ 
 ## Grid Search - Random Search
 
 
 Vamos a programar el algoritmo Grid Search, tanto su versión determinista como su versión random.
 
-Esta función tiene los siguientes parametros:
+La clase con la que se ha programado tiene los siguientes parámetros:
 
 - Data: conjunto de datos de interés. $\\[0.3cm]$
 
-- Response: nombre de la variable respuesta. $\\[0.3cm]$
+- Response_name: nombre de la variable respuesta. $\\[0.3cm]$
 
 - model: nombre del modelo que se va a utilizar. En esta versión, por simplicidad, solo se ha considerado el modelo KNN, por ello los nombres disponibles son 'knn_regression' y 'knn_classification'. $\\[0.3cm]$
 
-- Search_Space: es el espacio de búsqueda para los hiper-parámetros del modelo. $\\[0.3cm]$
+- search_space: es el espacio de búsqueda para los hiper-parámetros del modelo. $\\[0.3cm]$
 
 - validation: es el nombre del algoritmo de validación que va a utilizar el algoritmo Grid Search. En esta versión hay dos posibles algoritmos de validación disponibles, validación simple aleatoria repetida y repeated K-fold. Los nombres disponibles son 'repeated_random_simple_validation' y 'repeated_K_Fold_CV'. $\\[0.3cm]$
 
@@ -529,242 +613,225 @@ Esta función tiene los siguientes parametros:
 - B y k: son parámetros asociados a la función repeated_random_simple_validation. B es el número de repeticiones y k la proporcion de observaciones de train. Para ver más detalles sobre la función repeated_random_simple_validation, se recomienda, una vez más, leer el artículo sobre [algoritmos de validación para modelos de aprendizaje supervisado](http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html). $\\[0.3cm]$
 
 
-- B y k: son parámetros asociados a la función repeated_K_Fold_CV. B es el número de repeticiones y K el número de folds. Para ver más detalles sobre la función repeated_K_Fold_CV, se recomienda, una vez más, leer el artículo sobre [algoritmos de validación para modelos de aprendizaje supervisado](http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html). $\\[0.3cm]$
-
-
-- random_seed_2: es la semilla aleatoria de la funcion repeated_random_simple_validation. $\\[0.3cm]$
+- random_seed: es la semilla aleatoria de la funcion repeated_random_simple_validation. $\\[0.3cm]$
 
 
 - random_search: es un parámetro que toma como valores 'True' o 'False'. Si es 'True' el algoritmo implementado es Random Search, si es 'False' es Grid Search determinista. $\\[0.3cm]$
 
-- random_seed_1: es la semilla aleatoria de Random Search. $\\[0.3cm]$
+- random_state: es la semilla aleatoria de Random Search. $\\[0.3cm]$
 
-- random_samples: es el número de vectores de valores posibles de los hiper-parametros que se van a considerar en Random Search. $\\[0.3cm]$
+- n_random_samples: es el número de vectores de valores posibles de los hiper-parametros que se van a considerar en Random Search. $\\[0.3cm]$
 
 
-La función devuelve un data-frame con las distintas combinaciones de hiper-parámetros que han sido evaluadas, y los valores de la métrica de validación que han sido obtenidos para cada una de esas combinaciones. $\\[0.3cm]$
+La clase devuelve un data-frame con las distintas combinaciones de hiper-parámetros que han sido evaluadas, y los valores de la métrica de validación que han sido obtenidos para cada una de esas combinaciones. $\\[0.3cm]$
 
-La función con la que se ha  programado el algoritmo es la siguiente:
+La clase con la que se ha  programado el algoritmo Grid Search es la siguiente:
+
 
 ```python
-def Grid_search(Data, Search_Space, response, model, validation, metric, B, k, K, random_seed_2, random_search, random_seed_1, random_samples):
+class GridSearch:
 
-   Grid_Search_Metric_list = []
+    def __init__(self, model, search_space, metric, random_search=False, n_random_samples=None, random_state = None):
+        
+        self.model = model
+        self.search_space = search_space
+        self.metric = metric              
+        self.random_search = random_search
+        self.random_state = random_state
+        self.n_random_samples = n_random_samples
+               
 
-   hyperparameter_combinations = list( itertools.product(Search_Space[0], Search_Space[1]) )
+    def fit_KFoldCV(self, Data, response_name, K, random_seed):
 
-   if random_search == True : 
-      
-      hyperparameter_combinations = resample(hyperparameter_combinations, n_samples=random_samples, replace=False, random_state=random_seed_1)
-   
-   else : 
-      
-      pass
+        self.Data = Data
+        self.response_name = response_name
+        self.K = K
+        self.random_seed = random_seed
+        self.hyperparameter_combinations = list(itertools.product(self.search_space[0], self.search_space[1]))
+        self.grid_search_metric_list = []
+
+        if self.random_search:
+
+            self.hyperparameter_combinations = resample(self.hyperparameter_combinations, n_samples=self.n_random_samples, replace=False, random_state=self.random_state)
+        
+        else:  pass
 
 
-   if model == 'knn_regression' :
+        if self.model == 'knn_regression' :
 
-      if validation == 'repeated_random_simple_validation' :
-
-         for h in hyperparameter_combinations :
+            for h in self.hyperparameter_combinations:
             
-            # Setting the hyperparameters of the model
+                knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=h[0], metric=h[1])
 
-            knn_regression = sklearn.neighbors.KNeighborsRegressor(n_neighbors=h[0] ,  metric=h[1]) 
+                KFoldCV_init = KFoldCV(D=self.Data, K=self.K, response_name=self.response_name, 
+                                       random_seed=self.random_seed, metric=self.metric, model=knn_regression_init)
 
-            # Applying a validation algorithm on the model  
+                KFoldCV_init.fit()
 
-            Grid_Search_Metric_list.append( repeated_random_simple_validation(Data, k, B, response, random_seed_2, metric, model=knn_regression) )
+                self.grid_search_metric_list.append(KFoldCV_init.get_metric())            
 
-      #######################################################################   
-          
-      if validation == 'repeated_K_Fold_CV' :
+
+        elif self.model == 'knn_classification' :
+
+            for h in self.hyperparameter_combinations:
             
-         for h in hyperparameter_combinations :
+                knn_classification_init = sklearn.neighbors.KNeighborsClassifier(n_neighbors=h[0], metric=h[1])
+
+                KFoldCV_init = KFoldCV(D=self.Data, K=self.K, response_name=self.response_name,
+                                       random_seed=self.random_seed, metric=self.metric, model=knn_classification_init)
+
+                KFoldCV_init.fit()
+
+                self.grid_search_metric_list.append(KFoldCV_init.get_metric()) 
+
+
+
+    def fit_RepeatedRandomSimpleValidation(self, Data, response_name, k, B, random_seed):
+
+        self.Data = Data
+        self.response_name = response_name
+        self.k = k
+        self.B = B
+        self.random_seed = random_seed
+        self.hyperparameter_combinations = list(itertools.product(self.search_space[0], self.search_space[1]))
+        self.grid_search_metric_list = []
+
+        if self.random_search:
+
+            self.hyperparameter_combinations = resample(self.hyperparameter_combinations, n_samples=self.n_random_samples, replace=False, random_state=self.random_state)
+        
+        else:
+
+            pass
+
+
+        if self.model == 'knn_regression' :
+
+            for h in self.hyperparameter_combinations:
             
-            # Setting the hyperparameters of the model
+                knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=h[0], metric=h[1])
 
-            knn_regression = sklearn.neighbors.KNeighborsRegressor(n_neighbors=h[0], metric=h[1]) 
+                RepeatedRandomSimpleValidation_init = RepeatedRandomSimpleValidation(B=self.B, k=self.k, metric=self.metric, 
+                                                                                     model=knn_regression_init, random_seed=self.random_seed)
 
-            # Applying a validation algorithm on the model  
+                RepeatedRandomSimpleValidation_init.fit(D=self.Data, response_name=self.response_name)
 
-            Grid_Search_Metric_list.append( repeated_K_Fold_CV(Data, B, K, response, random_seed_2, metric, model=knn_regression) )
+                self.grid_search_metric_list.append(RepeatedRandomSimpleValidation_init.compute_metric())            
 
 
-####################################################################################
+        elif self.model == 'knn_classification' :
 
-   if model == 'knn_classification' :
-
-      if validation == 'repeated_random_simple_validation' :
-
-         for h in hyperparameter_combinations :
+            for h in self.hyperparameter_combinations:
             
-            # Setting the hyperparameters of the model
+                knn_classification_init = sklearn.neighbors.KNeighborsClassifier(n_neighbors=h[0], metric=h[1])
 
-            knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=h[0],  metric=h[1]) 
+                RepeatedRandomSimpleValidation_init = RepeatedRandomSimpleValidation(B=self.B, k=self.k, metric=self.metric,
+                                                                                     model=knn_classification_init, random_seed=self.random_seed)
 
-            # Applying a validation algorithm on the model  
+                RepeatedRandomSimpleValidation_init.fit(D=self.Data, response_name=self.response_name)
 
-            Grid_Search_Metric_list.append( repeated_random_simple_validation(Data, k, B, response, random_seed_2, metric, model=knn_classification) )
+                self.grid_search_metric_list.append(RepeatedRandomSimpleValidation_init.compute_metric())            
 
-            #######################################################################   
-          
-      if validation == 'repeated_K_Fold_CV' :
+
+
+
+    def fit_RepeatedKFoldCV(self, Data, response_name, K, B, random_seed):
+
+        self.Data = Data
+        self.response_name = response_name
+        self.K = K
+        self.B = B
+        self.random_seed = random_seed
+        self.hyperparameter_combinations = list(itertools.product(self.search_space[0], self.search_space[1]))
+        self.grid_search_metric_list = []
+
+        if self.random_search:
+
+            self.hyperparameter_combinations = resample(self.hyperparameter_combinations, n_samples=self.n_random_samples, 
+                                                        replace=False, random_state=self.random_state)
+        
+        else:
+
+            pass
+
+
+        if self.model == 'knn_regression' :
+
+            for h in self.hyperparameter_combinations:
             
-         for h in hyperparameter_combinations :
+                knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=h[0], metric=h[1])
+
+                RepeatedKFoldCV_init = RepeatedKFoldCV(B=self.B, K=self.K, metric=self.metric, 
+                                                        model=knn_regression_init, random_seed=self.random_seed)
+
+                RepeatedKFoldCV_init.fit(D=self.Data, response_name=self.response_name)
+
+                self.grid_search_metric_list.append(RepeatedKFoldCV_init.get_metric())            
+
+
+        elif self.model == 'knn_classification' :
+
+            for h in self.hyperparameter_combinations:
             
-            # Setting the hyperparameters of the model
+                knn_classification_init = sklearn.neighbors.KNeighborsClassifier(n_neighbors=h[0], metric=h[1])
 
-            knn_classification = sklearn.neighbors.KNeighborsClassifier(n_neighbors=h[0] ,  metric=h[1]) 
+                RepeatedKFoldCV_init = RepeatedKFoldCV(B=self.B, K=self.K, metric=self.metric, 
+                                                                      model=knn_classification_init, random_seed=self.random_seed)
 
-            # Applying a validation algorithm on the model  
+                RepeatedKFoldCV_init.fit(D=self.Data, response_name=self.response_name)
 
-            Grid_Search_Metric_list.append( repeated_K_Fold_CV(Data, B, K, response, random_seed_2, metric, model=knn_classification) )
+                self.grid_search_metric_list.append(RepeatedKFoldCV_init.get_metric())             
 
+        
+    def get_df_grid_search(self) :
 
-####################################################################################
+            self.df_grid_search = pd.DataFrame({'(k, distance)': self.hyperparameter_combinations, self.metric: self.grid_search_metric_list})
 
-   df = pd.DataFrame({'(k , distance)': hyperparameter_combinations, metric: Grid_Search_Metric_list})
+            if self.metric == 'ECM':
 
-   if metric == 'ECM' :
+                self.df_grid_search = self.df_grid_search.sort_values(by=self.metric, ascending=True)
+        
+            elif self.metric == 'TAC':
+        
+                self.df_grid_search = self.df_grid_search.sort_values(by=self.metric, ascending=False)
 
-      df = df.sort_values(by=metric, ascending=True)
+            return self.df_grid_search
 
-   elif metric == 'TAC' :
-
-      df = df.sort_values(by=metric, ascending=False)
-
-
-   return df
 ```
-
-
-
 
 <br>
 
-A continuación vamos a realizar diferentes pruebas de la función programada:
+A continuación vamos a probar el algoritmo usando el algoritmo KNN como referencia, tanto como algoritmo de clasificación como de regresión. 
 
-
-
-
-- Grid Search para KNN para regresión, siendo range(1,100) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean', 'cosine', 'cityblock', 'manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia*, usando el algoritmo de validación simple aleatoria repetida, con B=10 y k=0.75, y la métrica ECM.
+Usaremos el siguiente mismo espacio de búsqueda.
 
 ```python
-Grid_search_1 = Grid_search(Data=Data, Search_Space=[range(1,100) , ['euclidean','cosine','cityblock','manhattan']], response='price', model='knn_regression', validation='repeated_random_simple_validation', metric='ECM', B=10, k=0.75, K='no', random_search=False, random_samples=150, random_seed_1=123, random_seed_2=123)
-```
-Tiempo de ejecución: 56.8 segundos.
-
-
-
-
-
-
-```python
-Grid_search_1
+search_space = [range(1,100) , ['euclidean','cosine','cityblock','manhattan']]
 ```
 
 
 
+### Grid Search K-Fold Regression
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>(k , distance)</th>
-      <th>ECM</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>57</th>
-      <td>(15, cosine)</td>
-      <td>2.064764e+12</td>
-    </tr>
-    <tr>
-      <th>61</th>
-      <td>(16, cosine)</td>
-      <td>2.067621e+12</td>
-    </tr>
-    <tr>
-      <th>65</th>
-      <td>(17, cosine)</td>
-      <td>2.079897e+12</td>
-    </tr>
-    <tr>
-      <th>53</th>
-      <td>(14, cosine)</td>
-      <td>2.086479e+12</td>
-    </tr>
-    <tr>
-      <th>58</th>
-      <td>(15, cityblock)</td>
-      <td>2.088501e+12</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>395</th>
-      <td>(99, manhattan)</td>
-      <td>3.470547e+12</td>
-    </tr>
-    <tr>
-      <th>392</th>
-      <td>(99, euclidean)</td>
-      <td>3.471920e+12</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>(1, cosine)</td>
-      <td>3.646170e+12</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>(1, cityblock)</td>
-      <td>3.677001e+12</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>(1, manhattan)</td>
-      <td>3.677001e+12</td>
-    </tr>
-  </tbody>
-</table>
-<p>396 rows × 2 columns</p>
-</div>
-
-
-
- <br>
-    
-
-- Grid Search para KNN para clasificación, siendo range(1,100) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean','cosine','cityblock','manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia*, usando el algoritmo de validación simple aleatoria repetida, con B=10 y k=0.75, y la métrica TAC.
-
+Grid Search aplicado a KNN para regresión, usando el algoritmo K-Fold, con K=10, y la métrica de validación ECM.
 
 ```python
-Grid_search_1_2 = Grid_search(Data=Data, Search_Space=[range(1,100) , ['euclidean','cosine','cityblock','manhattan']], response='quality_recode', model='knn_classification', validation='repeated_random_simple_validation', metric='TAC', B=10, k=0.75, K='no', random_search=False, random_samples=150, random_seed_1=123, random_seed_2=123)
+GridSearch_init = GridSearch( model='knn_regression', search_space=search_space, metric='ECM')
 ```
 
 
 ```python
-Grid_search_1_2
+GridSearch_init.fit_KFoldCV(Data=Data, response_name='price', K=10, random_seed=123) # time: 1.23 min
+```
+
+
+```python
+GridSearch_10Fold_regression = GridSearch_init.get_df_grid_search()
+```
+
+
+```python
+GridSearch_10Fold_regression
 ```
 
 
@@ -788,1561 +855,7 @@ Grid_search_1_2
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>(k , distance)</th>
-      <th>TAC</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>210</th>
-      <td>(53, cityblock)</td>
-      <td>0.595168</td>
-    </tr>
-    <tr>
-      <th>211</th>
-      <td>(53, manhattan)</td>
-      <td>0.595168</td>
-    </tr>
-    <tr>
-      <th>301</th>
-      <td>(76, cosine)</td>
-      <td>0.594958</td>
-    </tr>
-    <tr>
-      <th>293</th>
-      <td>(74, cosine)</td>
-      <td>0.594958</td>
-    </tr>
-    <tr>
-      <th>297</th>
-      <td>(75, cosine)</td>
-      <td>0.594748</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>(4, euclidean)</td>
-      <td>0.483403</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>(2, cosine)</td>
-      <td>0.429622</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>(2, manhattan)</td>
-      <td>0.411555</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>(2, cityblock)</td>
-      <td>0.411555</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>(2, euclidean)</td>
-      <td>0.401050</td>
-    </tr>
-  </tbody>
-</table>
-<p>396 rows × 2 columns</p>
-</div>
-
-
-
-<br>
-
-
-- Grid Search para KNN para regresión, siendo range(1,100) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean', 'cosine', 'cityblock', 'manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia*, usando el algoritmo de validación simple aleatoria repetida, con B=20 y k=0.75, y la métrica ECM.
-
-```python
-Grid_search_2 = Grid_search(Data=Data, Search_Space=[range(1,100) , ['euclidean','cosine','cityblock','manhattan']], response='price', model='knn_regression', validation='repeated_random_simple_validation', metric='ECM', B=20, k=0.75, K='no', random_search=False, random_samples=150, random_seed_1=123, random_seed_2=123)
-```
-
-Tiempo de ejecución: 1.57 segundos.
-
-
-```python
-Grid_search_2
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>(k , distance)</th>
-      <th>ECM</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>61</th>
-      <td>(16, cosine)</td>
-      <td>2.079239e+12</td>
-    </tr>
-    <tr>
-      <th>57</th>
-      <td>(15, cosine)</td>
-      <td>2.084669e+12</td>
-    </tr>
-    <tr>
-      <th>65</th>
-      <td>(17, cosine)</td>
-      <td>2.090697e+12</td>
-    </tr>
-    <tr>
-      <th>53</th>
-      <td>(14, cosine)</td>
-      <td>2.108925e+12</td>
-    </tr>
-    <tr>
-      <th>73</th>
-      <td>(19, cosine)</td>
-      <td>2.109291e+12</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>391</th>
-      <td>(98, manhattan)</td>
-      <td>3.700114e+12</td>
-    </tr>
-    <tr>
-      <th>388</th>
-      <td>(98, euclidean)</td>
-      <td>3.703232e+12</td>
-    </tr>
-    <tr>
-      <th>394</th>
-      <td>(99, cityblock)</td>
-      <td>3.710922e+12</td>
-    </tr>
-    <tr>
-      <th>395</th>
-      <td>(99, manhattan)</td>
-      <td>3.710922e+12</td>
-    </tr>
-    <tr>
-      <th>392</th>
-      <td>(99, euclidean)</td>
-      <td>3.714191e+12</td>
-    </tr>
-  </tbody>
-</table>
-<p>396 rows × 2 columns</p>
-</div>
-
-
-
-
-
-<br>
-
-
-- Grid Search para KNN para clasificación, siendo range(1,100) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean', 'cosine', 'cityblock', 'manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia*, usando el algoritmo de validación simple aleatoria repetida, con B=20 y k=0.75, y la métrica TAC.
-
-
-
-```python
-Grid_search_2_2 = Grid_search(Data=Data, Search_Space=[range(1,100) , ['euclidean','cosine','cityblock','manhattan']], response='quality_recode', model='knn_classification', validation='repeated_random_simple_validation', metric='TAC', B=20, k=0.75, K='no', random_search=False, random_samples=150, random_seed_1=123, random_seed_2=123)
-```
-
-
-```python
-Grid_search_2_2
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>(k , distance)</th>
-      <th>TAC</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>369</th>
-      <td>(93, cosine)</td>
-      <td>0.597689</td>
-    </tr>
-    <tr>
-      <th>349</th>
-      <td>(88, cosine)</td>
-      <td>0.597689</td>
-    </tr>
-    <tr>
-      <th>321</th>
-      <td>(81, cosine)</td>
-      <td>0.597689</td>
-    </tr>
-    <tr>
-      <th>345</th>
-      <td>(87, cosine)</td>
-      <td>0.597689</td>
-    </tr>
-    <tr>
-      <th>325</th>
-      <td>(82, cosine)</td>
-      <td>0.597584</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>(4, euclidean)</td>
-      <td>0.478782</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>(2, cosine)</td>
-      <td>0.431092</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>(2, manhattan)</td>
-      <td>0.416071</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>(2, cityblock)</td>
-      <td>0.416071</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>(2, euclidean)</td>
-      <td>0.406092</td>
-    </tr>
-  </tbody>
-</table>
-<p>396 rows × 2 columns</p>
-</div>
-
-
-
-
- <br>
-
-
-
-
-- Grid Search para KNN para regresión, siendo range(1,200) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean', 'cosine', 'cityblock', 'manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia*, usando el algoritmo de validación simple aleatoria repetida, con B=20 y k=0.75, y la métrica ECM.
-
-
-```python
-Grid_search_3 = Grid_search(Data=Data, Search_Space=[range(1,200) , ['euclidean','cosine','cityblock','manhattan']], response='price', model='knn_regression', validation='repeated_random_simple_validation', metric='ECM', B=20, k=0.75, K='no', random_search=False, random_samples=150, random_seed_1=123, random_seed_2=123)
-```
-
-Time: 5.3min
-
-
-```python
-Grid_search_3
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>(k , distance)</th>
-      <th>ECM</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>61</th>
-      <td>(16, cosine)</td>
-      <td>2.079239e+12</td>
-    </tr>
-    <tr>
-      <th>57</th>
-      <td>(15, cosine)</td>
-      <td>2.084669e+12</td>
-    </tr>
-    <tr>
-      <th>65</th>
-      <td>(17, cosine)</td>
-      <td>2.090697e+12</td>
-    </tr>
-    <tr>
-      <th>53</th>
-      <td>(14, cosine)</td>
-      <td>2.108925e+12</td>
-    </tr>
-    <tr>
-      <th>73</th>
-      <td>(19, cosine)</td>
-      <td>2.109291e+12</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>791</th>
-      <td>(198, manhattan)</td>
-      <td>4.670408e+12</td>
-    </tr>
-    <tr>
-      <th>788</th>
-      <td>(198, euclidean)</td>
-      <td>4.672717e+12</td>
-    </tr>
-    <tr>
-      <th>794</th>
-      <td>(199, cityblock)</td>
-      <td>4.676174e+12</td>
-    </tr>
-    <tr>
-      <th>795</th>
-      <td>(199, manhattan)</td>
-      <td>4.676174e+12</td>
-    </tr>
-    <tr>
-      <th>792</th>
-      <td>(199, euclidean)</td>
-      <td>4.678516e+12</td>
-    </tr>
-  </tbody>
-</table>
-<p>796 rows × 2 columns</p>
-</div>
-
-
-
-<br>
- 
-    
-- Grid Search para KNN para clasificación, siendo range(1,200) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean', 'cosine', 'cityblock', 'manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia*, usando el algoritmo de validación simple aleatoria repetida, con B=20 y k=0.75, y la métrica TAC.
-
-
-```python
-Grid_search_3_2 = Grid_search(Data=Data, Search_Space=[range(1,200) , ['euclidean','cosine','cityblock','manhattan']], response='quality_recode', model='knn_classification', validation='repeated_random_simple_validation', metric='TAC', B=20, k=0.75, K='no', random_search=False, random_samples=150, random_seed_1=123, random_seed_2=123)
-```
-
-
-```python
-Grid_search_3_2
-```
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>(k , distance)</th>
-      <th>TAC</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>349</th>
-      <td>(88, cosine)</td>
-      <td>0.597689</td>
-    </tr>
-    <tr>
-      <th>369</th>
-      <td>(93, cosine)</td>
-      <td>0.597689</td>
-    </tr>
-    <tr>
-      <th>321</th>
-      <td>(81, cosine)</td>
-      <td>0.597689</td>
-    </tr>
-    <tr>
-      <th>345</th>
-      <td>(87, cosine)</td>
-      <td>0.597689</td>
-    </tr>
-    <tr>
-      <th>301</th>
-      <td>(76, cosine)</td>
-      <td>0.597584</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>(4, euclidean)</td>
-      <td>0.478782</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>(2, cosine)</td>
-      <td>0.431092</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>(2, manhattan)</td>
-      <td>0.416071</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>(2, cityblock)</td>
-      <td>0.416071</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>(2, euclidean)</td>
-      <td>0.406092</td>
-    </tr>
-  </tbody>
-</table>
-<p>796 rows × 2 columns</p>
-</div>
-
-
- 
-
-<br>
-
-- Random Search para KNN para regresión, siendo range(1,200) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean', 'cosine', 'cityblock', 'manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia*, usando el algoritmo de validación simple aleatoria repetida, con B=20 y k=0.75, y la métrica ECM, usando random_samples=200.
-
-
-```python
-Grid_search_4 = Grid_search(Data=Data, Search_Space=[range(1,200) , ['euclidean','cosine','cityblock','manhattan']], response='price', model='knn_regression', validation='repeated_random_simple_validation', metric='ECM', B=20, k=0.75, K='no', random_search=True, random_samples=200, random_seed_1=123, random_seed_2=123)
-```
-
-Tiempo de ejecución: 1.2 minutos.
-
-
-```python
-Grid_search_4
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>(k , distance)</th>
-      <th>ECM</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>23</th>
-      <td>(15, cosine)</td>
-      <td>2.084669e+12</td>
-    </tr>
-    <tr>
-      <th>190</th>
-      <td>(15, manhattan)</td>
-      <td>2.124952e+12</td>
-    </tr>
-    <tr>
-      <th>165</th>
-      <td>(17, euclidean)</td>
-      <td>2.126173e+12</td>
-    </tr>
-    <tr>
-      <th>47</th>
-      <td>(19, cityblock)</td>
-      <td>2.128057e+12</td>
-    </tr>
-    <tr>
-      <th>68</th>
-      <td>(19, manhattan)</td>
-      <td>2.128057e+12</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>128</th>
-      <td>(196, cityblock)</td>
-      <td>4.657349e+12</td>
-    </tr>
-    <tr>
-      <th>199</th>
-      <td>(196, euclidean)</td>
-      <td>4.659289e+12</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>(198, cityblock)</td>
-      <td>4.670408e+12</td>
-    </tr>
-    <tr>
-      <th>142</th>
-      <td>(198, manhattan)</td>
-      <td>4.670408e+12</td>
-    </tr>
-    <tr>
-      <th>154</th>
-      <td>(198, euclidean)</td>
-      <td>4.672717e+12</td>
-    </tr>
-  </tbody>
-</table>
-<p>200 rows × 2 columns</p>
-</div>
-
- 
-
-<br>
-
- 
-- Random Search para KNN para clasificación, siendo range(1,200) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean', 'cosine', 'cityblock', 'manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia*, usando el algoritmo de validación simple aleatoria repetida, con B=20 y k=0.75, y la métrica TAC, con random_samples=200.
- 
- 
-
-```python
-Grid_search_4_2 = Grid_search(Data=Data, Search_Space=[range(1,200) , ['euclidean','cosine','cityblock','manhattan']], response='quality_recode', model='knn_classification', validation='repeated_random_simple_validation', metric='TAC', B=20, k=0.75, K='no', random_search=True, random_samples=200, random_seed_1=123, random_seed_2=123)
-```
-
-
-```python
-Grid_search_4_2
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>(k , distance)</th>
-      <th>TAC</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>125</th>
-      <td>(93, cosine)</td>
-      <td>0.597689</td>
-    </tr>
-    <tr>
-      <th>167</th>
-      <td>(87, cosine)</td>
-      <td>0.597689</td>
-    </tr>
-    <tr>
-      <th>73</th>
-      <td>(66, euclidean)</td>
-      <td>0.597584</td>
-    </tr>
-    <tr>
-      <th>175</th>
-      <td>(83, cosine)</td>
-      <td>0.597584</td>
-    </tr>
-    <tr>
-      <th>119</th>
-      <td>(66, manhattan)</td>
-      <td>0.597584</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>160</th>
-      <td>(3, cosine)</td>
-      <td>0.507983</td>
-    </tr>
-    <tr>
-      <th>91</th>
-      <td>(4, cosine)</td>
-      <td>0.504727</td>
-    </tr>
-    <tr>
-      <th>78</th>
-      <td>(3, manhattan)</td>
-      <td>0.488866</td>
-    </tr>
-    <tr>
-      <th>118</th>
-      <td>(2, cosine)</td>
-      <td>0.431092</td>
-    </tr>
-    <tr>
-      <th>57</th>
-      <td>(2, euclidean)</td>
-      <td>0.406092</td>
-    </tr>
-  </tbody>
-</table>
-<p>200 rows × 2 columns</p>
-</div>
-
-
-
-
-<br>
-
-- Grid Search para KNN para regresión, siendo range(1,100) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean','cosine','cityblock','manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia*, usando el algoritmo de validación repeated K-Fold, con B=5 y K=10, y la métrica ECM.
-
-```python
-Grid_search_5 = Grid_search(Data=Data, Search_Space=[range(1,100) , ['euclidean','cosine','cityblock','manhattan']], response='price', model='knn_regression', validation='repeated_K_Fold_CV', metric='ECM', B=5, k='no', K=10, random_search=False, random_samples=150, random_seed_1=123, random_seed_2=123)
-```
-
-Tiempo de ejecución: 4.37 minutos.
-
-
-```python
-Grid_search_5
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>(k , distance)</th>
-      <th>ECM</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>69</th>
-      <td>(18, cosine)</td>
-      <td>2.213103e+12</td>
-    </tr>
-    <tr>
-      <th>73</th>
-      <td>(19, cosine)</td>
-      <td>2.213636e+12</td>
-    </tr>
-    <tr>
-      <th>57</th>
-      <td>(15, cosine)</td>
-      <td>2.215151e+12</td>
-    </tr>
-    <tr>
-      <th>61</th>
-      <td>(16, cosine)</td>
-      <td>2.221992e+12</td>
-    </tr>
-    <tr>
-      <th>65</th>
-      <td>(17, cosine)</td>
-      <td>2.222929e+12</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>391</th>
-      <td>(98, manhattan)</td>
-      <td>4.068432e+12</td>
-    </tr>
-    <tr>
-      <th>388</th>
-      <td>(98, euclidean)</td>
-      <td>4.072752e+12</td>
-    </tr>
-    <tr>
-      <th>394</th>
-      <td>(99, cityblock)</td>
-      <td>4.087051e+12</td>
-    </tr>
-    <tr>
-      <th>395</th>
-      <td>(99, manhattan)</td>
-      <td>4.087051e+12</td>
-    </tr>
-    <tr>
-      <th>392</th>
-      <td>(99, euclidean)</td>
-      <td>4.093847e+12</td>
-    </tr>
-  </tbody>
-</table>
-<p>396 rows × 2 columns</p>
-</div>
-
-
-
-
-<br>
-
-- Grid Search para KNN para clasificación, siendo range(1,100) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean', 'cosine', 'cityblock', 'manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia*, usando el algoritmo de validación repeated K-Fold, con B=5 y K=10, y la métrica TAC.
-
-
-
-```python
-Grid_search_5_2 = Grid_search(Data=Data, Search_Space=[range(1,100) , ['euclidean','cosine','cityblock','manhattan']], response='quality_recode', model='knn_classification', validation='repeated_K_Fold_CV', metric='TAC', B=5, k='no', K=10, random_search=False, random_samples=150, random_seed_1=123, random_seed_2=123)
-```
-
-
-```python
-Grid_search_5_2
-```
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>(k , distance)</th>
-      <th>TAC</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>395</th>
-      <td>(99, manhattan)</td>
-      <td>0.601331</td>
-    </tr>
-    <tr>
-      <th>322</th>
-      <td>(81, cityblock)</td>
-      <td>0.601331</td>
-    </tr>
-    <tr>
-      <th>324</th>
-      <td>(82, euclidean)</td>
-      <td>0.601331</td>
-    </tr>
-    <tr>
-      <th>326</th>
-      <td>(82, cityblock)</td>
-      <td>0.601331</td>
-    </tr>
-    <tr>
-      <th>327</th>
-      <td>(82, manhattan)</td>
-      <td>0.601331</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>(1, cosine)</td>
-      <td>0.450732</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>(2, cosine)</td>
-      <td>0.383782</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>(2, cityblock)</td>
-      <td>0.375330</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>(2, manhattan)</td>
-      <td>0.375330</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>(2, euclidean)</td>
-      <td>0.374087</td>
-    </tr>
-  </tbody>
-</table>
-<p>396 rows × 2 columns</p>
-</div>
-
-
-
-<br>
-
-
-
-- Grid Search para KNN para regresión, siendo range(1,100) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean', 'cosine', 'cityblock', 'manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia*, usando el algoritmo de validación repeated K-Fold, con B=15 y K=10, y la métrica ECM.
-
-
-
-
-```python
-Grid_search_6 = Grid_search(Data=Data, Search_Space=[range(1,100) , ['euclidean','cosine','cityblock','manhattan']], response='price', model='knn_regression', validation='repeated_K_Fold_CV', metric='ECM', B=15, k='no', K=10, random_search=False, random_samples=150, random_seed_1=123, random_seed_2=123)
-```
-
-Tiempo de ejecución: 14.35 minutos.
-
-
-```python
-Grid_search_6
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>(k , distance)</th>
-      <th>ECM</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>65</th>
-      <td>(17, cosine)</td>
-      <td>2.212144e+12</td>
-    </tr>
-    <tr>
-      <th>69</th>
-      <td>(18, cosine)</td>
-      <td>2.214874e+12</td>
-    </tr>
-    <tr>
-      <th>61</th>
-      <td>(16, cosine)</td>
-      <td>2.215972e+12</td>
-    </tr>
-    <tr>
-      <th>73</th>
-      <td>(19, cosine)</td>
-      <td>2.220315e+12</td>
-    </tr>
-    <tr>
-      <th>57</th>
-      <td>(15, cosine)</td>
-      <td>2.226790e+12</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>390</th>
-      <td>(98, cityblock)</td>
-      <td>4.082009e+12</td>
-    </tr>
-    <tr>
-      <th>388</th>
-      <td>(98, euclidean)</td>
-      <td>4.086456e+12</td>
-    </tr>
-    <tr>
-      <th>394</th>
-      <td>(99, cityblock)</td>
-      <td>4.101063e+12</td>
-    </tr>
-    <tr>
-      <th>395</th>
-      <td>(99, manhattan)</td>
-      <td>4.101063e+12</td>
-    </tr>
-    <tr>
-      <th>392</th>
-      <td>(99, euclidean)</td>
-      <td>4.105382e+12</td>
-    </tr>
-  </tbody>
-</table>
-<p>396 rows × 2 columns</p>
-</div>
-
-
-
-
-<br>
-
-- Grid Search para KNN para clasificación, siendo range(1,100) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean', 'cosine', 'cityblock', 'manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia*, usando el algoritmo de validación repeated K-Fold, con B=15 y K=10, y la métrica TAC.
-
-
-
-```python
-Grid_search_6_2 = Grid_search(Data=Data, Search_Space=[range(1,100) , ['euclidean','cosine','cityblock','manhattan']], response='quality_recode', model='knn_classification', validation='repeated_K_Fold_CV', metric='TAC', B=15, k='no', K=10, random_search=False, random_samples=150, random_seed_1=123, random_seed_2=123)
-```
-
-
-```python
-Grid_search_6_2
-```
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>(k , distance)</th>
-      <th>TAC</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>395</th>
-      <td>(99, manhattan)</td>
-      <td>0.601570</td>
-    </tr>
-    <tr>
-      <th>322</th>
-      <td>(81, cityblock)</td>
-      <td>0.601570</td>
-    </tr>
-    <tr>
-      <th>324</th>
-      <td>(82, euclidean)</td>
-      <td>0.601570</td>
-    </tr>
-    <tr>
-      <th>326</th>
-      <td>(82, cityblock)</td>
-      <td>0.601570</td>
-    </tr>
-    <tr>
-      <th>327</th>
-      <td>(82, manhattan)</td>
-      <td>0.601570</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>(1, cosine)</td>
-      <td>0.451868</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>(2, cosine)</td>
-      <td>0.383867</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>(2, manhattan)</td>
-      <td>0.375072</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>(2, cityblock)</td>
-      <td>0.375072</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>(2, euclidean)</td>
-      <td>0.373949</td>
-    </tr>
-  </tbody>
-</table>
-<p>396 rows × 2 columns</p>
-</div>   
-
-<br>
-
-
-- Random Search para KNN para regresión, siendo range(1,100) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean','cosine','cityblock','manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia*, usando el algoritmo de validación repeated K-Fold, con B=15 y K=10, y la métrica ECM, con random_samples=200.
-
-```python
-Grid_search_7 = Grid_search(Data=Data, Search_Space=[range(1,100) , ['euclidean','cosine','cityblock','manhattan']], response='price', model='knn_regression', validation='repeated_K_Fold_CV', metric='ECM', B=15, k='no', K=10, random_search=True, random_samples=200, random_seed_1=123, random_seed_2=123)
-```
-
-Tiempo de ejecución: 7.29 minutos
-
-
-```python
-Grid_search_7
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>(k , distance)</th>
-      <th>ECM</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>164</th>
-      <td>(16, cosine)</td>
-      <td>2.215972e+12</td>
-    </tr>
-    <tr>
-      <th>138</th>
-      <td>(14, cosine)</td>
-      <td>2.241301e+12</td>
-    </tr>
-    <tr>
-      <th>196</th>
-      <td>(13, cosine)</td>
-      <td>2.245269e+12</td>
-    </tr>
-    <tr>
-      <th>125</th>
-      <td>(8, cosine)</td>
-      <td>2.246148e+12</td>
-    </tr>
-    <tr>
-      <th>50</th>
-      <td>(7, cityblock)</td>
-      <td>2.249594e+12</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>36</th>
-      <td>(97, euclidean)</td>
-      <td>4.069186e+12</td>
-    </tr>
-    <tr>
-      <th>53</th>
-      <td>(98, manhattan)</td>
-      <td>4.082009e+12</td>
-    </tr>
-    <tr>
-      <th>134</th>
-      <td>(99, cityblock)</td>
-      <td>4.101063e+12</td>
-    </tr>
-    <tr>
-      <th>130</th>
-      <td>(99, manhattan)</td>
-      <td>4.101063e+12</td>
-    </tr>
-    <tr>
-      <th>146</th>
-      <td>(99, euclidean)</td>
-      <td>4.105382e+12</td>
-    </tr>
-  </tbody>
-</table>
-<p>200 rows × 2 columns</p>
-</div>
-
-
-
-<br>
-
-- Random Search para KNN para clasificación, siendo range(1,100) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean', 'cosine', 'cityblock', 'manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia*, usando el algoritmo de validación repeated K-Fold, con B=15 y K=10, y la métrica ECM, con random_samples=200.
-
-```python
-Grid_search_7_2 = Grid_search(Data=Data, Search_Space=[range(1,100) , ['euclidean','cosine','cityblock','manhattan']], response='quality_recode', model='knn_classification', validation='repeated_K_Fold_CV', metric='TAC', B=15, k='no', K=10, random_search=True, random_samples=200, random_seed_1=123, random_seed_2=123)
-```
-
-```python
-Grid_search_7_2
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>(k , distance)</th>
-      <th>TAC</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>199</th>
-      <td>(83, euclidean)</td>
-      <td>0.601570</td>
-    </tr>
-    <tr>
-      <th>160</th>
-      <td>(84, euclidean)</td>
-      <td>0.601570</td>
-    </tr>
-    <tr>
-      <th>152</th>
-      <td>(91, manhattan)</td>
-      <td>0.601570</td>
-    </tr>
-    <tr>
-      <th>36</th>
-      <td>(97, euclidean)</td>
-      <td>0.601570</td>
-    </tr>
-    <tr>
-      <th>37</th>
-      <td>(83, cityblock)</td>
-      <td>0.601570</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>94</th>
-      <td>(1, euclidean)</td>
-      <td>0.451919</td>
-    </tr>
-    <tr>
-      <th>121</th>
-      <td>(2, cosine)</td>
-      <td>0.383867</td>
-    </tr>
-    <tr>
-      <th>82</th>
-      <td>(2, cityblock)</td>
-      <td>0.375072</td>
-    </tr>
-    <tr>
-      <th>182</th>
-      <td>(2, manhattan)</td>
-      <td>0.375072</td>
-    </tr>
-    <tr>
-      <th>150</th>
-      <td>(2, euclidean)</td>
-      <td>0.373949</td>
-    </tr>
-  </tbody>
-</table>
-<p>200 rows × 2 columns</p>
-</div>
-
-
-<br>
-
-- Random Search para KNN para regresión, siendo range(1,100) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean', 'cosine', 'cityblock', 'manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia*, usando el algoritmo de validación repeated K-Fold, con B=5 y K=10, y la métrica ECM, con random_samples=200.
-
-
-```python
-Grid_search_8 = Grid_search(Data=Data, Search_Space=[range(1,100) , ['euclidean','cosine','cityblock','manhattan']], response='price', model='knn_regression', validation='repeated_K_Fold_CV', metric='ECM', B=5, k='no', K=10, random_search=True, random_samples=200, random_seed_1=123, random_seed_2=123)
-```
-
-Tiempo de ejecución: 2.16 minutos.
-
-
-```python
-Grid_search_8
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>(k , distance)</th>
-      <th>ECM</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>164</th>
-      <td>(16, cosine)</td>
-      <td>2.221992e+12</td>
-    </tr>
-    <tr>
-      <th>138</th>
-      <td>(14, cosine)</td>
-      <td>2.233684e+12</td>
-    </tr>
-    <tr>
-      <th>196</th>
-      <td>(13, cosine)</td>
-      <td>2.242026e+12</td>
-    </tr>
-    <tr>
-      <th>106</th>
-      <td>(14, manhattan)</td>
-      <td>2.251908e+12</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>(14, cityblock)</td>
-      <td>2.251908e+12</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>36</th>
-      <td>(97, euclidean)</td>
-      <td>4.056875e+12</td>
-    </tr>
-    <tr>
-      <th>53</th>
-      <td>(98, manhattan)</td>
-      <td>4.068432e+12</td>
-    </tr>
-    <tr>
-      <th>134</th>
-      <td>(99, cityblock)</td>
-      <td>4.087051e+12</td>
-    </tr>
-    <tr>
-      <th>130</th>
-      <td>(99, manhattan)</td>
-      <td>4.087051e+12</td>
-    </tr>
-    <tr>
-      <th>146</th>
-      <td>(99, euclidean)</td>
-      <td>4.093847e+12</td>
-    </tr>
-  </tbody>
-</table>
-<p>200 rows × 2 columns</p>
-</div>
-
-
-<br>
-
- 
-- Random Search para KNN para clasificación, siendo range(1,100) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean', 'cosine', 'cityblock', 'manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia*, usando el algoritmo de validación repeated K-Fold, con B=15 y K=10, y la métrica TAC, con random_samples=200.
-
-```python
-Grid_search_8_2 = Grid_search(Data=Data, Search_Space=[range(1,100) , ['euclidean','cosine','cityblock','manhattan']], response='quality_recode', model='knn_classification', validation='repeated_K_Fold_CV', metric='TAC', B=5, k='no', K=10, random_search=True, random_samples=200, random_seed_1=123, random_seed_2=123)
-```
-
-```python
-Grid_search_8_2
-``` 
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>(k , distance)</th>
-      <th>TAC</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>199</th>
-      <td>(83, euclidean)</td>
-      <td>0.601331</td>
-    </tr>
-    <tr>
-      <th>160</th>
-      <td>(84, euclidean)</td>
-      <td>0.601331</td>
-    </tr>
-    <tr>
-      <th>155</th>
-      <td>(96, cosine)</td>
-      <td>0.601331</td>
-    </tr>
-    <tr>
-      <th>36</th>
-      <td>(97, euclidean)</td>
-      <td>0.601331</td>
-    </tr>
-    <tr>
-      <th>37</th>
-      <td>(83, cityblock)</td>
-      <td>0.601331</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>94</th>
-      <td>(1, euclidean)</td>
-      <td>0.451380</td>
-    </tr>
-    <tr>
-      <th>121</th>
-      <td>(2, cosine)</td>
-      <td>0.383782</td>
-    </tr>
-    <tr>
-      <th>182</th>
-      <td>(2, manhattan)</td>
-      <td>0.375330</td>
-    </tr>
-    <tr>
-      <th>82</th>
-      <td>(2, cityblock)</td>
-      <td>0.375330</td>
-    </tr>
-    <tr>
-      <th>150</th>
-      <td>(2, euclidean)</td>
-      <td>0.374087</td>
-    </tr>
-  </tbody>
-</table>
-<p>200 rows × 2 columns</p>
-</div>
-
-
-
-<br>
-
-
-- Grid Search para KNN para regresión, siendo range(1,100) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean', 'cosine', 'cityblock', 'manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia*, usando el algoritmo de validación repeated K-Fold, con B=1 y K=10, y la métrica ECM.
-
-```python
-Grid_search_9 = Grid_search(Data=Data, Search_Space=[range(1,100) , ['euclidean','cosine','cityblock','manhattan']], response='price', model='knn_regression', validation='repeated_K_Fold_CV', metric='ECM', B=1, k='no', K=10, random_search=False, random_samples=200, random_seed_1=123, random_seed_2=123)
-```
-
-
-```python
-Grid_search_9
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>(k , distance)</th>
+      <th>(k, distance)</th>
       <th>ECM</th>
     </tr>
   </thead>
@@ -2410,17 +923,27 @@ Grid_search_9
 
 <br>
 
-- Grid Search para KNN para clasificación, siendo range(1,100) el espacio de búsqueda para el hiper-parámetro *k* (nº de vecinos), y  ['euclidean','cosine','cityblock','manhattan'] el espacio de búsqueda para el hiper-parámetro *distancia*, usando el algoritmo de validación repeated K-Fold, con B=1 y K=10, y la métrica TAC.
 
+### Random Search K-Fold Regression
 
+Random Search aplicado a KNN para regresión, usando el algoritmo K-Fold, con K=10, y la métrica de validación ECM.
 
 ```python
-Grid_search_9_2 = Grid_search(Data=Data, Search_Space=[range(1,100) , ['euclidean','cosine','cityblock','manhattan']], response='quality_recode', model='knn_classification', validation='repeated_K_Fold_CV', metric='TAC', B=1, k='no', K=10, random_search=False, random_samples=200, random_seed_1=123, random_seed_2=123)
+RandomSearch_init = GridSearch( model='knn_regression', search_space=search_space, metric='ECM', random_search=True, n_random_samples=150, random_state=123)
 ```
 
 
 ```python
-Grid_search_9_2
+RandomSearch_init.fit_KFoldCV(Data=Data, response_name='price', K=10, random_seed=123) # time: 25.8 seg
+```
+
+
+
+
+```python
+RandomSearch_10Fold_regression = RandomSearch_init.get_df_grid_search()
+
+RandomSearch_10Fold_regression
 ```
 
 
@@ -2444,7 +967,121 @@ Grid_search_9_2
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>(k , distance)</th>
+      <th>(k, distance)</th>
+      <th>ECM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>60</th>
+      <td>(8, manhattan)</td>
+      <td>2.149765e+12</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>(8, cityblock)</td>
+      <td>2.149765e+12</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>(9, cosine)</td>
+      <td>2.179763e+12</td>
+    </tr>
+    <tr>
+      <th>138</th>
+      <td>(14, cosine)</td>
+      <td>2.183241e+12</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>(11, cosine)</td>
+      <td>2.197101e+12</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>(97, euclidean)</td>
+      <td>4.016359e+12</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>(98, manhattan)</td>
+      <td>4.028750e+12</td>
+    </tr>
+    <tr>
+      <th>134</th>
+      <td>(99, cityblock)</td>
+      <td>4.048032e+12</td>
+    </tr>
+    <tr>
+      <th>130</th>
+      <td>(99, manhattan)</td>
+      <td>4.048032e+12</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>(99, euclidean)</td>
+      <td>4.049301e+12</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 2 columns</p>
+</div>
+
+
+
+<br>
+
+### Grid Search K-Fold Classification
+
+Grid Search aplicado a KNN para clasificación, usando el algoritmo K-Fold, con K=10, y la métrica de validación TAC.
+
+```python
+GridSearch_init = GridSearch( model='knn_classification', search_space=search_space, metric='TAC')
+```
+
+
+```python
+GridSearch_init.fit_KFoldCV(Data=Data, response_name='quality_recode', K=10, random_seed=123)  # time: 1.24 min
+```
+
+ 
+
+```python
+GridSearch_10Fold_classification = GridSearch_init.get_df_grid_search()
+```
+
+
+```python
+GridSearch_10Fold_classification
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>(k, distance)</th>
       <th>TAC</th>
     </tr>
   </thead>
@@ -2511,186 +1148,1057 @@ Grid_search_9_2
 
 
 
-
- 
 <br>
 
-## Visualización de resultados
+### Random Search K-Fold Classification
 
-
-Primero hacemos unas transformaciones necesarias para la visualización gráfica que implementaremos:
-```python
-Grid_search_1['(k , distance)'] = Grid_search_1['(k , distance)'].astype('str') 
-Grid_search_1_2['(k , distance)'] = Grid_search_1_2['(k , distance)'].astype('str')
-Grid_search_2['(k , distance)'] = Grid_search_2['(k , distance)'].astype('str') 
-Grid_search_2_2['(k , distance)'] = Grid_search_2_2['(k , distance)'].astype('str')
-Grid_search_3['(k , distance)'] = Grid_search_3['(k , distance)'].astype('str') 
-Grid_search_3_2['(k , distance)'] = Grid_search_3_2['(k , distance)'].astype('str')
-Grid_search_4['(k , distance)'] = Grid_search_4['(k , distance)'].astype('str')
-Grid_search_4_2['(k , distance)'] = Grid_search_4_2['(k , distance)'].astype('str') 
-Grid_search_5['(k , distance)'] = Grid_search_5['(k , distance)'].astype('str') 
-Grid_search_5_2['(k , distance)'] = Grid_search_5_2['(k , distance)'].astype('str') 
-Grid_search_6['(k , distance)'] = Grid_search_6['(k , distance)'].astype('str') 
-Grid_search_6_2['(k , distance)'] = Grid_search_6_2['(k , distance)'].astype('str') 
-Grid_search_7['(k , distance)'] = Grid_search_7['(k , distance)'].astype('str')
-Grid_search_7_2['(k , distance)'] = Grid_search_7_2['(k , distance)'].astype('str') 
-Grid_search_8['(k , distance)'] = Grid_search_8['(k , distance)'].astype('str') 
-Grid_search_8_2['(k , distance)'] = Grid_search_8_2['(k , distance)'].astype('str')
-Grid_search_9['(k , distance)'] = Grid_search_9['(k , distance)'].astype('str') 
-Grid_search_9_2['(k , distance)'] = Grid_search_9_2['(k , distance)'].astype('str') 
-```
-
-
-- Gráfico de los resultados obtenidos con las distintas variantes probadas del algoritmo Grid Search para el ajuste de los hiper-parámetros del modelo KNN para regresión:
-
-
-```python
-fig, ax = plt.subplots()
-
-p1 = sns.lineplot(y="ECM", x ='(k , distance)' , data=Grid_search_1.iloc[0:30 , :], color='red')
-
-plt.title("KNN regression - Grid search - Repeated random simple validation (k=0.75 , B=10)", fontsize=13)
-
-plt.setp(p1.get_xticklabels(), rotation=90)
-
-plt.tight_layout()
-
-fig.savefig('p1_new.jpg', format='jpg', dpi=1200)
-
-plt.show()
-```
-
-```python
-fig, ax = plt.subplots()
-
-p3 = sns.lineplot(y="ECM", x='(k , distance)' , data=Grid_search_2.iloc[0:30 , :], color='red')
-
-plt.setp(p3.get_xticklabels(), rotation=90)
-
-plt.title("KNN regression - Grid search - Repeated random simple validation (k=0.75 , B=20)", fontsize=13)
-
-plt.tight_layout()
-
-fig.savefig('p2_new.jpg', format='jpg', dpi=1200)
-``` 
  
+Random Search aplicado a KNN para clasificación, usando el algoritmo K-Fold, con K=10, y la métrica de validación TAC.
+
 ```python
-fig, ax = plt.subplots()
-
-p5 = sns.lineplot(y="ECM", x='(k , distance)' , data=Grid_search_3.iloc[0:30, :], color='red')
-
-plt.setp(p5.get_xticklabels(), rotation=90)
-
-plt.title("KNN regression - Grid search - Repeated random simple validation (k=0.75 , B=20)", fontsize=13)
-
-plt.tight_layout()
-
-fig.savefig('p3_new.jpg', format='jpg', dpi=1200)
-``` 
- 
-```python
-fig, ax = plt.subplots()
-
-p6 = sns.lineplot(y="ECM", x='(k , distance)' , data=Grid_search_4.iloc[0:30 , :], color='red')
-
-plt.setp(p6.get_xticklabels(), rotation=90)
-
-plt.title("KNN regression - Random search - Repeated random simple validation (k=0.75 , B=20)", fontsize=13)
-
-plt.tight_layout()
-
-fig.savefig('p4_new.jpg', format='jpg', dpi=1200)
+RandomSearch_init = GridSearch( model='knn_classification', search_space=search_space, metric='TAC', random_search=True, random_state=123)
 ```
 
 
 ```python
-fig, ax = plt.subplots()
+RandomSearch_init.fit_KFoldCV(Data=Data, response_name='quality_recode', K=10, random_seed=123) # time: 54 seg
+```
 
-p7 = sns.lineplot(y="ECM", x='(k , distance)' , data=Grid_search_5.iloc[0:30, :], color='red')
 
-plt.setp(p7.get_xticklabels(), rotation=90)
 
-plt.title("KNN regression - Random search - Repeated K Fold (K=10 , B=5)", fontsize=13)
 
-plt.tight_layout()
+```python
+RandomSearch_10Fold_classification = RandomSearch_init.get_df_grid_search()
 
-fig.savefig('p5_new.jpg', format='jpg', dpi=1200)
+RandomSearch_10Fold_classification
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>(k, distance)</th>
+      <th>TAC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>112</th>
+      <td>(72, cityblock)</td>
+      <td>0.601334</td>
+    </tr>
+    <tr>
+      <th>122</th>
+      <td>(76, manhattan)</td>
+      <td>0.601334</td>
+    </tr>
+    <tr>
+      <th>117</th>
+      <td>(71, cityblock)</td>
+      <td>0.601334</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>(73, manhattan)</td>
+      <td>0.601334</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>(85, cosine)</td>
+      <td>0.601334</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>(4, cosine)</td>
+      <td>0.459897</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>(4, euclidean)</td>
+      <td>0.459007</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>(1, euclidean)</td>
+      <td>0.451028</td>
+    </tr>
+    <tr>
+      <th>121</th>
+      <td>(2, cosine)</td>
+      <td>0.381866</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>(2, cityblock)</td>
+      <td>0.375512</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 2 columns</p>
+</div>
+
+
+<br>
+
+
+
+
+### Grid Search Repeated K-Fold Regression
+
+Grid Search aplicado a KNN para regresión, usando el algoritmo Repeated K-Fold, con B=15 y K=10, y la métrica de validación ECM.
+
+```python
+GridSearch_init = GridSearch(model='knn_regression', search_space=search_space, metric='ECM')
+```
+
+
+```python
+GridSearch_init.fit_RepeatedKFoldCV(Data=Data, response_name='price', B=5, K=10, random_seed=123) # time: 5.32 min
+```
+
+
+
+
+```python
+GridSearch_5_Repeated_10Fold_regression = GridSearch_init.get_df_grid_search()
+
+GridSearch_5_Repeated_10Fold_regression
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>(k, distance)</th>
+      <th>ECM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>30</th>
+      <td>(8, cityblock)</td>
+      <td>2.149765e+12</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>(8, manhattan)</td>
+      <td>2.149765e+12</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>(8, euclidean)</td>
+      <td>2.167357e+12</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>(18, cosine)</td>
+      <td>2.172008e+12</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>(9, cosine)</td>
+      <td>2.179763e+12</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>391</th>
+      <td>(98, manhattan)</td>
+      <td>4.028750e+12</td>
+    </tr>
+    <tr>
+      <th>388</th>
+      <td>(98, euclidean)</td>
+      <td>4.032013e+12</td>
+    </tr>
+    <tr>
+      <th>394</th>
+      <td>(99, cityblock)</td>
+      <td>4.048032e+12</td>
+    </tr>
+    <tr>
+      <th>395</th>
+      <td>(99, manhattan)</td>
+      <td>4.048032e+12</td>
+    </tr>
+    <tr>
+      <th>392</th>
+      <td>(99, euclidean)</td>
+      <td>4.049301e+12</td>
+    </tr>
+  </tbody>
+</table>
+<p>396 rows × 2 columns</p>
+</div>
+
+
+
+<br>
+
+
+### Random Search Repeated K-Fold Regression
+
+Random Search aplicado a KNN para regresión, usando el algoritmo Repeated K-Fold, con B=15 y K=10, y la métrica de validación ECM.
+
+
+```python
+RandomSearch_init = GridSearch(model='knn_regression', search_space=search_space, metric='ECM', random_search=True, n_random_samples=150, random_state=123)
+```
+
+
+```python
+RandomSearch_init.fit_RepeatedKFoldCV(Data=Data, response_name='quality_recode', B=5, K=10, random_seed=123) # time: 1.48 seg
+```
+
+
+
+
+```python
+RandomSearch_5_Repeated_10Fold_regression = RandomSearch_init.get_df_grid_search()
+
+RandomSearch_5_Repeated_10Fold_regression
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>(k, distance)</th>
+      <th>ECM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>145</th>
+      <td>(88, cosine)</td>
+      <td>0.457656</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>(85, cosine)</td>
+      <td>0.457697</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>(84, cosine)</td>
+      <td>0.458074</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>(97, cosine)</td>
+      <td>0.458586</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>(66, manhattan)</td>
+      <td>0.458723</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>(3, cosine)</td>
+      <td>0.574303</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>(3, manhattan)</td>
+      <td>0.579867</td>
+    </tr>
+    <tr>
+      <th>121</th>
+      <td>(2, cosine)</td>
+      <td>0.646198</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>(2, cityblock)</td>
+      <td>0.652763</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>(1, euclidean)</td>
+      <td>0.826616</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 2 columns</p>
+</div>
+
+
+<br>
+
+
+### Grid Search Repeted K-Fold Classification
+
+Grid Search aplicado a KNN para clasificación, usando el algoritmo Repeated K-Fold, con B=15 y K=10, y la métrica de validación TAC.
+
+```python
+GridSearch_init = GridSearch(model='knn_classification', search_space=search_space, metric='TAC')
+```
+
+
+```python
+GridSearch_init.fit_RepeatedKFoldCV(Data=Data, response_name='quality_recode', B=5, K=10, random_seed=123) # time: 7.52 min
+```
+
+
+
+
+```python
+GridSearch_5_Repeated_10Fold_classification = GridSearch_init.get_df_grid_search()
+
+GridSearch_5_Repeated_10Fold_classification
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>(k, distance)</th>
+      <th>TAC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>395</th>
+      <td>(99, manhattan)</td>
+      <td>0.601334</td>
+    </tr>
+    <tr>
+      <th>327</th>
+      <td>(82, manhattan)</td>
+      <td>0.601334</td>
+    </tr>
+    <tr>
+      <th>312</th>
+      <td>(79, euclidean)</td>
+      <td>0.601334</td>
+    </tr>
+    <tr>
+      <th>314</th>
+      <td>(79, cityblock)</td>
+      <td>0.601334</td>
+    </tr>
+    <tr>
+      <th>315</th>
+      <td>(79, manhattan)</td>
+      <td>0.601334</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>(1, cosine)</td>
+      <td>0.450322</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>(2, cosine)</td>
+      <td>0.381866</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>(2, manhattan)</td>
+      <td>0.375512</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>(2, cityblock)</td>
+      <td>0.375512</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>(2, euclidean)</td>
+      <td>0.375330</td>
+    </tr>
+  </tbody>
+</table>
+<p>396 rows × 2 columns</p>
+</div>
+
+
+<br>
+
+
+### Random Search  Repeated K-Fold Classification
+
+Random Search aplicado a KNN para clasificación, usando el algoritmo Repeated K-Fold, con B=15 y K=10, y la métrica de validación TAC.
+
+```python
+RandomSearch_init = GridSearch(model='knn_classification', search_space=search_space, metric='TAC', random_search=True, random_state=123)
+```
+
+
+```python
+RandomSearch_init.fit_RepeatedKFoldCV(Data=Data, response_name='quality_recode', B=5, K=10, random_seed=123) # Time: 3.48 min
+```
+
+
+```python
+RandomSearch_5_Repeated_10Fold_classification = RandomSearch_init.get_df_grid_search()
+
+RandomSearch_5_Repeated_10Fold_classification
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>(k, distance)</th>
+      <th>TAC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>395</th>
+      <td>(92, cosine)</td>
+      <td>0.601334</td>
+    </tr>
+    <tr>
+      <th>141</th>
+      <td>(71, manhattan)</td>
+      <td>0.601334</td>
+    </tr>
+    <tr>
+      <th>130</th>
+      <td>(99, manhattan)</td>
+      <td>0.601334</td>
+    </tr>
+    <tr>
+      <th>301</th>
+      <td>(74, cityblock)</td>
+      <td>0.601334</td>
+    </tr>
+    <tr>
+      <th>134</th>
+      <td>(99, cityblock)</td>
+      <td>0.601334</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>322</th>
+      <td>(1, cosine)</td>
+      <td>0.450322</td>
+    </tr>
+    <tr>
+      <th>121</th>
+      <td>(2, cosine)</td>
+      <td>0.381866</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>(2, cityblock)</td>
+      <td>0.375512</td>
+    </tr>
+    <tr>
+      <th>182</th>
+      <td>(2, manhattan)</td>
+      <td>0.375512</td>
+    </tr>
+    <tr>
+      <th>150</th>
+      <td>(2, euclidean)</td>
+      <td>0.375330</td>
+    </tr>
+  </tbody>
+</table>
+<p>396 rows × 2 columns</p>
+</div>
+
+
+<br>
+
+
+### Grid Search Repeated Random Simple Validation Regression
+
+Grid Search aplicado a KNN para regresón, usando el algoritmo Repeated Random Simple Validation, con B=15 y K=10, y la métrica de validación ECM.
+
+```python
+GridSearch_init = GridSearch(model='knn_regression', search_space=search_space, metric='ECM')
+```
+
+
+```python
+GridSearch_init.fit_RepeatedRandomSimpleValidation(Data=Data, response_name='price', B=15, k=0.8, random_seed=123) # Time: 1.49 min
+```
+
+
+```python
+GridSearch_Repeated_Random_Simple_Validation_regression = GridSearch_init.get_df_grid_search()
+
+GridSearch_Repeated_Random_Simple_Validation_regression
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>(k, distance)</th>
+      <th>ECM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>61</th>
+      <td>(16, cosine)</td>
+      <td>2.100355e+12</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>(15, cosine)</td>
+      <td>2.104077e+12</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>(17, cosine)</td>
+      <td>2.114013e+12</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>(14, cosine)</td>
+      <td>2.129950e+12</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>(18, cosine)</td>
+      <td>2.135545e+12</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>388</th>
+      <td>(98, euclidean)</td>
+      <td>3.707686e+12</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>(1, cosine)</td>
+      <td>3.716708e+12</td>
+    </tr>
+    <tr>
+      <th>394</th>
+      <td>(99, cityblock)</td>
+      <td>3.716987e+12</td>
+    </tr>
+    <tr>
+      <th>395</th>
+      <td>(99, manhattan)</td>
+      <td>3.716987e+12</td>
+    </tr>
+    <tr>
+      <th>392</th>
+      <td>(99, euclidean)</td>
+      <td>3.719429e+12</td>
+    </tr>
+  </tbody>
+</table>
+<p>396 rows × 2 columns</p>
+</div>
+
+
+<br>
+
+
+### Random Search Repeated Simple Validation Regression
+
+Random Search aplicado a KNN para regresión, usando el algoritmo Repeated Random Simple Validation, con B=15 y K=10, y la métrica de validación ECM.
+
+```python
+GridSearch_init = GridSearch(model='knn_regression', search_space=search_space, metric='ECM', random_search=True, random_state=123, n_random_samples=150)
+```
+
+
+```python
+GridSearch_init.fit_RepeatedRandomSimpleValidation(Data=Data, response_name='price', B=15, k=0.8, random_seed=123) # Time: 38.6 seg
+```
+
+
+```python
+RandomSearch_Repeated_Simple_Validation_regression = GridSearch_init.get_df_grid_search()
+
+RandomSearch_Repeated_Simple_Validation_regression
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>(k, distance)</th>
+      <th>ECM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>138</th>
+      <td>(14, cosine)</td>
+      <td>2.129950e+12</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>(15, manhattan)</td>
+      <td>2.154248e+12</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>(14, manhattan)</td>
+      <td>2.154595e+12</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>(14, cityblock)</td>
+      <td>2.154595e+12</td>
+    </tr>
+    <tr>
+      <th>131</th>
+      <td>(18, manhattan)</td>
+      <td>2.160066e+12</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>(97, euclidean)</td>
+      <td>3.697234e+12</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>(98, manhattan)</td>
+      <td>3.705077e+12</td>
+    </tr>
+    <tr>
+      <th>134</th>
+      <td>(99, cityblock)</td>
+      <td>3.716987e+12</td>
+    </tr>
+    <tr>
+      <th>130</th>
+      <td>(99, manhattan)</td>
+      <td>3.716987e+12</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>(99, euclidean)</td>
+      <td>3.719429e+12</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 2 columns</p>
+</div>
+
+
+<br>
+
+
+### Grid Search Repeated Simple Validation Classification
+
+Grid Search aplicado a KNN para clasificación, usando el algoritmo Repeated Random Simple Validation, con B=15 y K=10, y la métrica de validación TAC.
+
+```python
+GridSearch_init = GridSearch(model='knn_classification', search_space=search_space, metric='TAC')
+```
+
+
+```python
+GridSearch_init.fit_RepeatedRandomSimpleValidation(Data=Data, response_name='quality_recode', B=15, k=0.8, random_seed=123) # Time: 3.30 min
+```
+
+
+```python
+GridSearch_Repeated_Simple_Validation_classification = GridSearch_init.get_df_grid_search()
+
+GridSearch_Repeated_Simple_Validation_classification
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>(k, distance)</th>
+      <th>TAC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>365</th>
+      <td>(92, cosine)</td>
+      <td>0.591776</td>
+    </tr>
+    <tr>
+      <th>218</th>
+      <td>(55, cityblock)</td>
+      <td>0.591601</td>
+    </tr>
+    <tr>
+      <th>369</th>
+      <td>(93, cosine)</td>
+      <td>0.591601</td>
+    </tr>
+    <tr>
+      <th>377</th>
+      <td>(95, cosine)</td>
+      <td>0.591601</td>
+    </tr>
+    <tr>
+      <th>337</th>
+      <td>(85, cosine)</td>
+      <td>0.591601</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>(4, euclidean)</td>
+      <td>0.483990</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>(2, cosine)</td>
+      <td>0.427822</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>(2, manhattan)</td>
+      <td>0.414523</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>(2, cityblock)</td>
+      <td>0.414523</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>(2, euclidean)</td>
+      <td>0.401925</td>
+    </tr>
+  </tbody>
+</table>
+<p>396 rows × 2 columns</p>
+</div>
+
+
+
+<br>
+
+### Random Search Repeated Simple Validation Classification
+
+Random Search aplicado a KNN para clasificación, usando el algoritmo Repeated Random Simple Validation, con B=15 y K=10, y la métrica de validación TAC.
+
+```python
+GridSearch_init = GridSearch(model='knn_classification', search_space=search_space, metric='TAC', random_search=True, random_state=123, n_random_samples=150)
+```
+
+
+```python
+GridSearch_init.fit_RepeatedRandomSimpleValidation(Data=Data, response_name='quality_recode', B=15, k=0.8, random_seed=123) # Time: 1.23 min
+```
+
+
+```python
+RandomSearch_Repeated_Simple_Validation_classification = GridSearch_init.get_df_grid_search()
+
+RandomSearch_Repeated_Simple_Validation_classification
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>(k, distance)</th>
+      <th>TAC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>113</th>
+      <td>(85, cosine)</td>
+      <td>0.591601</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>(55, cityblock)</td>
+      <td>0.591601</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>(69, cosine)</td>
+      <td>0.591601</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>(66, cosine)</td>
+      <td>0.591426</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>(91, cityblock)</td>
+      <td>0.591426</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>(3, manhattan)</td>
+      <td>0.490114</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>(4, manhattan)</td>
+      <td>0.485389</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>(4, euclidean)</td>
+      <td>0.483990</td>
+    </tr>
+    <tr>
+      <th>121</th>
+      <td>(2, cosine)</td>
+      <td>0.427822</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>(2, cityblock)</td>
+      <td>0.414523</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 2 columns</p>
+</div>
+
+
+<br>
+
+
+## Visualización de resultados <a class="anchor" id="1"></a>
+
+Vamos a mostrar el código que se ha usado solo para el primero de los gráficos, para no saturar de código el artículo. 
+
+El resto de gráficos se han construido adaptando este código al caso concreto en cuestión. 
+
+```python
+GridSearch_10Fold_regression['(k, distance)'] = GridSearch_10Fold_regression['(k, distance)'].astype('str')
 ```
 
 ```python
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(11,8))
 
-p8 = sns.lineplot(y="ECM", x='(k , distance)' , data=Grid_search_6.iloc[0:30, :], color='red')
+p = sns.lineplot(y="ECM", x='(k, distance)' , data=GridSearch_10Fold_regression.iloc[0:30, :], color='red')
 
-plt.setp(p8.get_xticklabels(), rotation=90)
+plt.setp(p.get_xticklabels(), rotation=90)
 
-plt.title("KNN regression - Grid search - Repeated K Fold (K=10 , B=15)", fontsize=13)
-
-plt.tight_layout()
-
-fig.savefig('p6_new.jpg', format='jpg', dpi=1200)
-```
-```python
-fig, ax = plt.subplots()
-
-p9 = sns.lineplot(y="ECM", x='(k , distance)' , data=Grid_search_7.iloc[0:30 , :], color='red')
-
-plt.setp(p9.get_xticklabels(), rotation=90)
-
-plt.title("KNN regression - Random search - Repeated K Fold (K=10 , B=15)", fontsize=13)
+plt.title("KNN regression - Grid search - K Fold CV (K=10)", fontsize=15)
 
 plt.tight_layout()
 
-fig.savefig('p7_new.jpg', format='jpg', dpi=1200)
+fig.savefig('p1.jpg', format='jpg', dpi=600)
 ```
-```python
-fig, ax = plt.subplots()
 
-p10 = sns.lineplot(y="ECM", x='(k , distance)' , data=Grid_search_8.iloc[0:30, :], color='red')
 
-plt.setp(p10.get_xticklabels(), rotation=90)
+<br> 
 
-plt.title("KNN regression - Random search - Repeated K Fold (K=10 , B=5)", fontsize=13)
+- Gráficos de los resultados obtenidos con las distintas variantes probadas del algoritmo Grid Search para el ajuste de los hiper-parámetros del modelo KNN para regresión:
 
-plt.tight_layout()
 
-fig.savefig('p8_new.jpg', format='jpg', dpi=1200)
-```
-```python
-fig, ax = plt.subplots()
-
-p11 = sns.lineplot(y="ECM", x='(k , distance)' , data=Grid_search_9.iloc[0:30 , :], color='red')
-
-plt.setp(p11.get_xticklabels(), rotation=90)
-
-plt.title("KNN regression - Random search - Repeated K Fold (K=10 , B=1)", fontsize=13)
-
-plt.tight_layout()
-
-fig.savefig('p9_new.jpg', format='jpg', dpi=1200)
-```
 
 <center>
 
-![](p1_new.jpg){width="60%"}
+![](p1.jpg){width="60%"}
 
-![](p2_new.jpg){width="60%"}
+![](p2.jpg){width="60%"}
 
-![](p3_new.jpg){width="60%"}
+![](p5.jpg){width="60%"}
 
-![](p4_new.jpg){width="60%"}
+![](p6.jpg){width="60%"}
 
-![](p5_new.jpg){width="60%"}
+![](p9.jpg){width="60%"}
 
-![](p6_new.jpg){width="60%"}
+![](p10.jpg){width="60%"}
 
-![](p7_new.jpg){width="60%"}
-
-![](p8_new.jpg){width="60%"}
-
-![](p9_new.jpg){width="60%"}
-
-</center>   
+</center>
 
 
 Como puede verse, la combinación óptima de hiper-parámetros varía en función de la versión utilizada del algoritmo de ajuste de hiper-parámetros.
@@ -2698,164 +2206,35 @@ Como puede verse, la combinación óptima de hiper-parámetros varía en funció
 
 <br>
 
-- Gráfico de los resultados obtenidos con las distintas variantes probadas del algoritmo Grid Search para el ajuste de los hiper-parámetros del modelo KNN para clasificación:
-
-```python
-fig, ax = plt.subplots()
-
-p2 = sns.lineplot(y="TAC", x='(k , distance)' , data=Grid_search_1_2.iloc[0:30 , :], color='red')
-
-plt.setp(p2.get_xticklabels(), rotation=90)
-
-plt.title("KNN classification - Grid search - Repeated random simple validation (k=0.75 , B=10)", fontsize=13)
-
-plt.tight_layout()
-
-fig.savefig('p1_2_new.jpg', format='jpg', dpi=1200)
-```
-```python
-fig, ax = plt.subplots()
-
-p4 = sns.lineplot(y="TAC", x='(k , distance)' , data=Grid_search_2_2.iloc[0:30 , :], color='red')
-
-plt.setp(p4.get_xticklabels(), rotation=90)
-
-plt.title("KNN classification - Grid search - Repeated random simple validation (k=0.75 , B=20)", fontsize=13)
-
-plt.tight_layout()
-
-fig.savefig('p2_2_new.jpg', format='jpg', dpi=1200)
-```
 
 
-```python
-fig, ax = plt.subplots()
-
-p5_2 = sns.lineplot(y="TAC", x='(k , distance)' , data=Grid_search_3_2.iloc[0:30 , :], color='red')
-
-plt.setp(p5_2.get_xticklabels(), rotation=90)
-
-plt.title("KNN classification - Grid search - Repeated random simple validation (k=0.75 , B=20)", fontsize=13)
-
-plt.tight_layout()
-
-fig.savefig('p3_2_new.jpg', format='jpg', dpi=1200)
-```
-```python
-fig, ax = plt.subplots()
-
-p6_2 = sns.lineplot(y="TAC", x='(k , distance)' , data=Grid_search_4_2.iloc[0:30 , :], color='red')
-
-plt.setp(p6_2.get_xticklabels(), rotation=90)
-
-plt.title("KNN classification - Random search - Repeated random simple validation (k=0.75 , B=20)", fontsize=13)
-
-plt.tight_layout()
-
-fig.savefig('p4_2_new.jpg', format='jpg', dpi=1200)
-```
-```python
-fig, ax = plt.subplots()
-
-p7_2 = sns.lineplot(y="TAC", x='(k , distance)' , data=Grid_search_5_2.iloc[0:30, :], color='red')
-
-plt.setp(p7_2.get_xticklabels(), rotation=90)
-
-plt.title("KNN classification - Random search - Repeated K Fold (K=10 , B=5)", fontsize=13)
-
-plt.tight_layout()
-
-fig.savefig('p5_2_new.jpg', format='jpg', dpi=1200)
-```
-```python
-fig, ax = plt.subplots()
-
-p8_2 = sns.lineplot(y="TAC", x='(k , distance)', data=Grid_search_6_2.iloc[0:30, :], color='red')
-
-plt.setp(p8_2.get_xticklabels(), rotation=90)
-
-plt.title("KNN classification - Grid search - Repeated K Fold (K=10 , B=15)", fontsize=13)
-
-plt.tight_layout()
-
-fig.savefig('p6_2_new.jpg', format='jpg', dpi=1200)
-```
-```python
-fig, ax = plt.subplots()
-
-p9_2 = sns.lineplot(y="TAC", x='(k , distance)', data=Grid_search_7_2.iloc[0:30, :], color='red')
-
-plt.setp(p9_2.get_xticklabels(), rotation=90)
-
-plt.title("KNN classification - Random search - Repeated K Fold (K=10 , B=15)", fontsize=13)
-
-plt.tight_layout()
-
-fig.savefig('p7_2_new.jpg', format='jpg', dpi=1200)
-```
-```python
-fig, ax = plt.subplots()
-
-p10_2 = sns.lineplot(y="TAC", x='(k , distance)' , data=Grid_search_8_2.iloc[0:30 , :], color='red')
-
-plt.setp(p10_2.get_xticklabels(), rotation=90)
-
-plt.title("KNN classification - Random search - Repeated K Fold (K=10 , B=5)", fontsize=13)
-
-plt.tight_layout()
-
-fig.savefig('p8_2_new.jpg', format='jpg', dpi=1200)
-```
-```python
-fig, ax = plt.subplots()
-
-p11_2 = sns.lineplot(y="TAC", x='(k , distance)' , data=Grid_search_9_2.iloc[0:30, :], color='red')
-
-plt.setp(p11_2.get_xticklabels(), rotation=90)
-
-plt.title("KNN classification - Random search - Repeated K Fold (K=10 , B=1)", fontsize=13)
-
-plt.tight_layout()
-
-fig.savefig('p9_2_new.jpg', format='jpg', dpi=1200)
-```
-
-
-
+- Gráficos de los resultados obtenidos con las distintas variantes probadas del algoritmo Grid Search para el ajuste de los hiper-parámetros del modelo KNN para clasificación:
+ 
 
 <center>
 
-![](p1_2_new.jpg){width="60%"}
+![](p3.jpg){width="60%"}
 
-![](p2_2_new.jpg){width="60%"}
+![](p4.jpg){width="60%"}
 
-![](p3_2_new.jpg){width="60%"}
+![](p7.jpg){width="60%"}
 
-![](p4_2_new.jpg){width="60%"}
+![](p8.jpg){width="60%"}
 
-![](p5_2_new.jpg){width="60%"}
+![](p11.jpg){width="60%"}
 
-![](p6_2_new.jpg){width="60%"}
+![](p12.jpg){width="60%"}
 
-![](p7_2_new.jpg){width="60%"}
-
-![](p8_2_new.jpg){width="60%"}
-
-![](p9_2_new.jpg){width="60%"}
-
-</center> 
+</center>
+ 
 
 
 Como ocurría en el caso anterior, la combinación óptima de hiper-parámetros varía en función de la versión utilizada del algoritmo de ajuste de hiper-parámetros. 
 
-Cabe destacar que en los últimos casos, las 30 combinaciones de hiper-parámetros representadas tienen el mismo valor de la métrica TAC, que es además el máximo alcanzado, por tanto son todas igual de óptimas, en el contexto de la variante del algoritmo empleada.
-
-
-<br>
-
----
+ 
 
 <br>
+
 
 # Ajuste de hiperparámetros con `sklearn`
  
@@ -3062,6 +2441,10 @@ df_grid_search_sklearn['distance'] = df_grid_search_sklearn['distance'].astype(s
 df_grid_search_sklearn['k-distance'] = df_grid_search_sklearn[['k', 'distance']].agg('-'.join, axis=1)
 ```
 
+<br>
+
+
+---
 
 <br>
 
@@ -3430,6 +2813,11 @@ df_random_search_sklearn['k-distance'] = df_random_search_sklearn[['k', 'distanc
 <br>
 
 
+---
+
+<br>
+
+
 Ahora vamos a aplicar la función `RandomizedSearchCV` al modelo KNN para clasificación.
 
 Inicializamos algunos parámetros de la función `RandomizedSearchCV`: 
@@ -3575,7 +2963,7 @@ df_random_search_sklearn['k-distance'] = df_random_search_sklearn[['k', 'distanc
 
 <br>
 
-## Visualización de resultados
+## Visualización de resultados <a class="anchor" id="1"></a>
 
 Vamos a visualizar los resultados obtenidos aplicando las funciones  `GridSearchCV`  y  `RandomizedSearchCV` al modelo KNN para regresión:
 
@@ -3680,7 +3068,7 @@ Cabe destacar que en el segundo caso, las 30 combinaciones de hiper-parámetros 
 
 
 
-# Bibliografía <a class="anchor" id="1"></a> 
+# Bibliografía   
 
 
 - Aler Mur, Ricardo. (2022). *Metodología: evaluación de modelos.* [Presentación de PowerPoint]. Aula Global UC3M. $\\[0.635cm]$
