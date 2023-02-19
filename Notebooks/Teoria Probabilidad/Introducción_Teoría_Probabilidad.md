@@ -147,72 +147,82 @@ Sea $\hspace{0.08cm}\emptyset\hspace{0.08cm}$ el conjunto vacio, $\\[0.3cm]$
 
 # Operaciones con sucesos
 
-Sean $\hspace{0.08cm}A, B \subset \Omega(\varepsilon)$
 
 ## Unión de sucesos
 
+Sean $\hspace{0.08cm}A \hspace{0.05cm},\hspace{0.05cm} B \subset \Omega(\varepsilon)\hspace{0.08cm}$,
 
-$$A\cup B \hspace{0.08cm}=\hspace{0.08cm} \lbrace \hspace{0.08cm} w \in \Omega(\varepsilon)\hspace{0.08cm} : \hspace{0.08cm} w \in A \hspace{0.2cm} o\hspace{0.2cm} w \in B  \hspace{0.08cm}  \rbrace$$
+La unión de $\hspace{0.08cm}A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$ se define como: $\\[0.35cm]$
+
+$$A\cup B \hspace{0.08cm}=\hspace{0.08cm} \lbrace \hspace{0.08cm} w \in \Omega(\varepsilon)\hspace{0.15cm} : \hspace{0.15cm} w \in A \hspace{0.2cm} o\hspace{0.2cm} w \in B  \hspace{0.08cm}  \rbrace \\$$
 
 
 **Observación:**
 
 Sea $\hspace{0.08cm}w \in \Omega(\varepsilon)\hspace{0.08cm}$ el resultado de una realizacion del experimento aleatorio $\hspace{0.08cm}\varepsilon\hspace{0.08cm}$.
 
-Si $\hspace{0.08cm}w \in A\cup B \hspace{0.15cm} \Rigtharrow\hspace{0.15cm}$  ocurre $\hspace{0.08cm}A\hspace{0.08cm}$ o $\hspace{0.08cm}B\hspace{0.08cm}$.
+- Si $\hspace{0.08cm}w \in A\cup B \hspace{0.15cm} \Rightarrow\hspace{0.15cm}$  ocurre $\hspace{0.08cm}A\hspace{0.08cm}$ o $\hspace{0.08cm}B\hspace{0.08cm}$.
 
 <br>
 
-#### Propiedades de la unión de sucesos
+### Propiedades de la unión de sucesos
 
-1) $A\cup B \hspace{0.08cm}=\hspace{0.08cm} B\cup A$
+- $A\cup B \hspace{0.08cm}=\hspace{0.08cm} B\cup A$ $\\[0.45cm]$
 
-2) $A \cup A \hspace{0.08cm}=\hspace{0.08cm} A$
+- $A \cup A \hspace{0.08cm}=\hspace{0.08cm} A$ $\\[0.45cm]$
 
-3) $A \cup \C \hspace{0.08cm}=\hspace{0.08cm} A$
+- $A \cup \emptyset  \hspace{0.08cm}=\hspace{0.08cm} A$ $\\[0.45cm]$
 
-4) $A \cup \Omega(\varepsilon) \hspace{0.08cm}=\hspace{0.08cm} \Omega(\varepsilon)$
+- $A \cup \Omega(\varepsilon) \hspace{0.08cm}=\hspace{0.08cm} \Omega(\varepsilon)$ $\\[0.45cm]$
 
-5) $A \cup A^c \hspace{0.08cm}=\hspace{0.08cm} \Omega(\varepsilon)$
+- $A \cup A^c \hspace{0.08cm}=\hspace{0.08cm} \Omega(\varepsilon)$ $\\[0.45cm]$
 
-6) Si $\hspace{0.08cm} A \cup B \hspace{0.08cm}=\hspace{0.08cm} \emptyset \hspace{0.15cm}\Rightarrow\hspace{0.15cm} \# A \cup B \hspace{0.08cm}=\hspace{0.08cm} \#A + \#B$
+- Si $\hspace{0.08cm} A \cup B \hspace{0.08cm}=\hspace{0.08cm} \emptyset \hspace{0.25cm}\Rightarrow\hspace{0.25cm} \# A \cup B \hspace{0.08cm}=\hspace{0.08cm} \#A + \#B$ $\\[0.45cm]$
 
-7) $\# A \cup B \hspace{0.08cm}=\hspace{0.08cm} \# A + \# B - \# A\cap B$
+- $\# A \cup B \hspace{0.08cm}=\hspace{0.08cm} \# A \hspace{0.08cm}+\hspace{0.08cm} \# B \hspace{0.08cm}-\hspace{0.08cm} \# A\cap B$
 
 
 <br>
 
 ## Intersección de sucesos
 
-$$A\cap B \hspace{0.08cm}=\hspace{0.08cm} \lbrace \hspace{0.08cm} w \in \Omega(\varepsilon) \hspace{0.08cm} : \hspace{0.08cm} w \in A \hspace{0.2cm} y\hspace{0.2cm} w \in B   \hspace{0.08cm} \rbrace$$
+Sean $\hspace{0.08cm}A \hspace{0.05cm},\hspace{0.05cm} B \subset \Omega(\varepsilon)\hspace{0.08cm}$,
+
+La intersección de $\hspace{0.08cm}A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$ se define como: $\\[0.3cm]$
+
+$$A\cap B \hspace{0.08cm}=\hspace{0.08cm} \lbrace \hspace{0.08cm} w \in \Omega(\varepsilon) \hspace{0.15cm} : \hspace{0.15cm} w \in A \hspace{0.2cm} y\hspace{0.2cm} w \in B   \hspace{0.08cm} \rbrace \\$$
 
  
 **Observación:**
 
 Sea $\hspace{0.08cm}w \in \Omega(\varepsilon)\hspace{0.08cm}$ el resultado de una realizacion del experimento aleatorio $\hspace{0.08cm}\varepsilon\hspace{0.08cm}$.
 
-Si $\hspace{0.08cm}w \in A\cap B \hspace{0.15cm}\Rigtharrow\hspace{0.15cm}$  ocurre $\hspace{0.08cm}A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$.
+- Si $\hspace{0.08cm}w \in A\cap B \hspace{0.25cm}\Rightarrow\hspace{0.25cm}$  ocurren $\hspace{0.08cm}A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$.
 
 <br>
 
 ### Propiedades de la intersección de sucesos
 
-1) $A\cap B \hspace{0.08cm}=\hspace{0.08cm} B \cap A$
+- $A\cap B \hspace{0.08cm}=\hspace{0.08cm} B \cap A$ $\\[0.45cm]$
 
-2) $A\cap A \hspace{0.08cm}=\hspace{0.08cm} A$
+- $A\cap A \hspace{0.08cm}=\hspace{0.08cm} A$$\\[0.45cm]$
 
-3) $A \cap \emptyset \hspace{0.08cm}=\hspace{0.08cm} \emptyset$
+- $A \cap \emptyset \hspace{0.08cm}=\hspace{0.08cm} \emptyset$$\\[0.45cm]$
 
-4) $A \cap \Omega(\varepsilon) \hspace{0.08cm}=\hspace{0.08cm} A$
+- $A \cap \Omega(\varepsilon) \hspace{0.08cm}=\hspace{0.08cm} A$$\\[0.45cm]$
 
-5) $A \cap A^c \hspace{0.08cm}=\hspace{0.08cm} \emptyset$
+- $A \cap A^c \hspace{0.08cm}=\hspace{0.08cm} \emptyset$
 
 
 <br>
 
 ## Diferencia de sucesos
 
-$$A - B \hspace{0.08cm}=\hspace{0.08cm} \lbrace \hspace{0.08cm} w \in \\Omega(\varepsilon) \hspace{0.08cm} : \hspace{0.08cm} w \in A \hspace{0.2cm} y \hspace{0.2cm} w \notin B   \hspace{0.08cm} \rbrace$$
+Sean $\hspace{0.08cm}A \hspace{0.05cm},\hspace{0.05cm} B \subset \Omega(\varepsilon)\hspace{0.08cm}$,
+
+La diferencia de $\hspace{0.08cm}A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$ se define como:  $\\[0.3cm]$
+
+$$A - B \hspace{0.08cm}=\hspace{0.08cm} \lbrace \hspace{0.08cm} w \in \Omega(\varepsilon) \hspace{0.15cm} : \hspace{0.15cm} w \in A \hspace{0.2cm} y \hspace{0.2cm} w \notin B   \hspace{0.08cm} \rbrace \\$$
 
 
  
@@ -220,24 +230,24 @@ $$A - B \hspace{0.08cm}=\hspace{0.08cm} \lbrace \hspace{0.08cm} w \in \\Omega(\v
 
 Sea $\hspace{0.08cm}w \in \Omega(\varepsilon)\hspace{0.08cm}$ el resultado de una realizacion del experimento aleatorio $\hspace{0.08cm}\varepsilon\hspace{0.08cm}$ .
 
-Si $\hspace{0.08cm}w \in A - B \Rigtharrow\hspace{0.08cm}$  ocurre $\hspace{0.08cm}A\hspace{0.08cm}$ pero no $\hspace{0.08cm}B\hspace{0.08cm}$.
+- Si $\hspace{0.08cm}w \in A - B$ $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$  ocurre $\hspace{0.08cm}A\hspace{0.08cm}$ pero no $\hspace{0.08cm}B\hspace{0.08cm}$.
 
 
 <br>
 
 ### Propiedades de la diferencia de sucesos
 
-1) $A-B \hspace{0.08cm}\neq\hspace{0.08cm} B - A$  , en general
+- $A-B \hspace{0.08cm}\neq\hspace{0.08cm} B - A$  , en general. $\\[0.45cm]$
 
-2) $A-A \hspace{0.08cm}=\hspace{0.08cm} \emptyset$
+- $A-A \hspace{0.08cm}=\hspace{0.08cm} \emptyset$ $\\[0.45cm]$
 
-3) $A-\emptyset \hspace{0.08cm}=\hspace{0.08cm} A$
+- $A-\emptyset \hspace{0.08cm}=\hspace{0.08cm} A$ $\\[0.45cm]$
 
-4) $A - \Omega(\varepsilon) \hspace{0.08cm}=\hspace{0.08cm} \emptyset$
+- $A - \Omega(\varepsilon) \hspace{0.08cm}=\hspace{0.08cm} \emptyset$ $\\[0.45cm]$
 
-5) $A- B \hspace{0.08cm}=\hspace{0.08cm} A - (A\cap B)$
+- $A- B \hspace{0.08cm}=\hspace{0.08cm} A - (A\cap B)$ $\\[0.45cm]$
 
-6) $A-B \hspace{0.08cm}=\hspace{0.08cm} A\cap B^c$
+- $A-B \hspace{0.08cm}=\hspace{0.08cm} A\cap B^c$
 
 
 
@@ -246,15 +256,19 @@ Si $\hspace{0.08cm}w \in A - B \Rigtharrow\hspace{0.08cm}$  ocurre $\hspace{0.08
 
 ## Suceso Contrario
 
-$$A^c  \hspace{0.08cm}=\hspace{0.08cm} \lbrace \hspace{0.08cm} w \in \Omega(\varepsilon) \hspace{0.08cm} : \hspace{0.08cm} w \notin A  \hspace{0.08cm} \rbrace$$
+Sea $\hspace{0.08cm}A   \subset \Omega(\varepsilon)\hspace{0.08cm}$,
+
+El suceso contrario de $\hspace{0.08cm}A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$ se define como: $\\[0.3cm]$
+
+$$A^c  \hspace{0.08cm}=\hspace{0.08cm} \lbrace \hspace{0.08cm} w \in \Omega(\varepsilon) \hspace{0.15cm} : \hspace{0.15cm} w \notin A  \hspace{0.08cm} \rbrace$$
 
 ### Propiedades del suceso contrario
 
-1) $\emptyset^c \hspace{0.08cm}=\hspace{0.08cm} \Omega(\varepsilon)$
+- $\emptyset^c \hspace{0.08cm}=\hspace{0.08cm} \Omega(\varepsilon)$ $\\[0.45cm]$
 
-2) $\Omega(\varepsilon)^c \hspace{0.08cm}=\hspace{0.08cm} \emptyset$
+- $\Omega(\varepsilon)^c \hspace{0.08cm}=\hspace{0.08cm} \emptyset$ $\\[0.45cm]$
 
-3) $(A^c)^c \hspace{0.08cm}=\hspace{0.08cm} A$
+- $(A^c)^c \hspace{0.08cm}=\hspace{0.08cm} A$
 
 
 
@@ -266,34 +280,34 @@ $$A^c  \hspace{0.08cm}=\hspace{0.08cm} \lbrace \hspace{0.08cm} w \in \Omega(\var
 
 ## Leyes Asociativas
 
-1) $A \cup (B \cup C) = (A \cup B ) \cup C$
+- $A \cup (B \cup C) \hspace{0.08cm}=\hspace{0.08cm} (A \cup B ) \cup C$ $\\[0.45cm]$
 
-2) $A \cap (B \cap C) = (A \cap B ) \cap C$
+- $A \cap (B \cap C) \hspace{0.08cm}=\hspace{0.08cm} (A \cap B ) \cap C$ $\\[0.45cm]$
 
 ## Leyes Distributivas
 
-1) $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+- $A \cap (B \cup C) \hspace{0.08cm}=\hspace{0.08cm} (A \cap B) \cup (A \cap C)$ $\\[0.45cm]$
 
-2) $A \cup ( B \cap C) = (A \cup B) \cap (A \cup C)$
+- $A \cup ( B \cap C) \hspace{0.08cm}=\hspace{0.08cm} (A \cup B) \cap (A \cup C)$ $\\[0.45cm]$
 
 ## Leyes de Morgan
 
-1) $(A \cup B)^c = A^c \cap B^c$
+- $(A \cup B)^c \hspace{0.08cm}=\hspace{0.08cm} A^c \cap B^c$ $\\[0.45cm]$
 
-2) $(A \cap B)^c = A^c \cup B^c$
+- $(A \cap B)^c \hspace{0.08cm} =\hspace{0.08cm} A^c \cup B^c$ $\\[0.45cm]$
 
 
 <br>
 
 # Conjunto potencia del espacio muestral
 
-El conjunto potencia del espacio muestral $\Omega$ es:
+El conjunto potencia del espacio muestral $\hspace{0.08cm}\Omega\hspace{0.08cm}$ es:
 
-$$2^\Omega = \lbrace A / A \subset \Omega  \rbrace$$
+$$2^\Omega \hspace{0.08cm}=\hspace{0.08cm} \lbrace\hspace{0.08cm} A \hspace{0.15cm}:\hspace{0.15cm} A \subset \Omega  \hspace{0.08cm}\rbrace$$
 
-Propiedades:
+## Propiedades:
 
-$$\# 2 ^\Omega = 2 ^{\# \Omega}$$ 
+$$\# 2 ^\Omega \hspace{0.08cm}=\hspace{0.08cm} 2 ^{\# \Omega}$$ 
 
 
 <br>
@@ -301,9 +315,9 @@ $$\# 2 ^\Omega = 2 ^{\# \Omega}$$
 
 # Sucesos Disjuntos
 
-$A$ y $B$ son sucesos disjuntos $\Leftrightarrow A\cap B = \emptyset$
+$A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$ son sucesos disjuntos $\hspace{0.15cm}\Leftrightarrow\hspace{0.15cm} A\cap B \hspace{0.08cm}=\hspace{0.08cm} \emptyset$
 
-$A_1$ , $A_2$ ,..., $A_n$ son sucesos disjuntos $\Leftrightarrow A\cap A_2 \cap ... \cap A_n = \emptyset$
+$A_1\hspace{0.08cm},\hspace{0.08cm} A_2\hspace{0.08cm} ,..., \hspace{0.08cm}A_n\hspace{0.08cm}$ son sucesos disjuntos $\hspace{0.15cm}\Leftrightarrow \hspace{0.15cm} A\hspace{0.08cm}\cap\hspace{0.08cm} A_2 \hspace{0.08cm}\cap \dots \cap\hspace{0.08cm} A_n \hspace{0.08cm}=\hspace{0.08cm} \emptyset$
 
 
 <br>
@@ -311,7 +325,7 @@ $A_1$ , $A_2$ ,..., $A_n$ son sucesos disjuntos $\Leftrightarrow A\cap A_2 \cap 
 
 # Sucesos Disjuntos dos a dos
 
-$A_1$ , $A_2$ ,..., $A_n$ son sucesos disjuntos dos a dos $\Leftrightarrow A_i \cap A_j = \emptyset$ , $\forall i \neq j = 1,...,n$
+$A_1 \hspace{0.08cm},\hspace{0.08cm} A_2 \hspace{0.08cm},..., \hspace{0.08cm} A_n\hspace{0.08cm}$ son sucesos disjuntos dos a dos $\hspace{0.15cm}\Leftrightarrow\hspace{0.15cm} A_i \cap A_j \hspace{0.08cm}=\hspace{0.08cm} \emptyset \hspace{0.25cm} , \hspace{0.25cm}\forall \hspace{0.08cm}i \neq j = 1,...,n$
 
 
 <br>
@@ -320,23 +334,23 @@ $A_1$ , $A_2$ ,..., $A_n$ son sucesos disjuntos dos a dos $\Leftrightarrow A_i \
 
 ## Probabilidad de Laplace
 
-Sea $\varepsilon$ un experimento aleatorio con espacio muestral $\Omega$ , tal que $\# \omega < \infty$  y $\# \Omega \neq 0$
+Sea $\hspace{0.08cm}\varepsilon\hspace{0.08cm}$ un experimento aleatorio con espacio muestral $\hspace{0.08cm}\Omega\hspace{0.08cm}$ , tal que $\hspace{0.08cm}\# \omega < \infty\hspace{0.08cm}$  y $\hspace{0.08cm}\# \Omega \neq 0\hspace{0.08cm}$.
 
-La probabilidad en el sentido de Laplace de un suceso $A \subset \Omega$ se define como:
+La probabilidad, en el sentido de Laplace, de un suceso $\hspace{0.08cm}A \subset \Omega\hspace{0.08cm}$ se define como: $\\[0.3cm]$
 
-$$P(A) = \dfrac{\# A}{\# \Omega} = \dfrac{\text{casos favorables}}{\text{casos posibles}}$$
+$$P(A) \hspace{0.08cm} =\hspace{0.08cm} \dfrac{\# A}{\# \Omega} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\text{casos favorables}}{\text{casos posibles}}\\$$
 
 ### Propiedades de la probabilidad clásica:
 
-1) $P(\Omega) = 1$
+- $P(\Omega) \hspace{0.08cm}=\hspace{0.08cm} 1$ $\\[0.5cm]$
 
-2) $P(A) \geq 0$
+- $P(A) \hspace{0.08cm}\geq\hspace{0.08cm} 0$ $\\[0.5cm]$
 
-3) $P(A \cup B) = P(A) + P(B) + P(A\cap B)$
+- $P(A \cup B) \hspace{0.08cm}=\hspace{0.08cm} P(A) + P(B) + P(A\cap B)$ $\\[0.5cm]$
 
-4) Si $A$ y $B$ son sucesos disjuntos $(A\cap B = \emptyset)$ , entonces:
+- Si $\hspace{0.08cm}A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$ son sucesos disjuntos $\hspace{0.08cm}(A\cap B = \emptyset)\hspace{0.08cm}$ , entonces:
 
-$$P(A\cup B)= P(A) + P(B)$$
+$$P(A\cup B)\hspace{0.08cm}=\hspace{0.08cm} P(A) + P(B)$$
 
 
 <br>
@@ -344,75 +358,75 @@ $$P(A\cup B)= P(A) + P(B)$$
 
 ## Probabilidad Frecuentista
 
-Sea $\varepsilon$ un experimento aleatorio con espacio muestral $\Omgea$ y sea $A\subset \Omega$
+Sea $\hspace{0.08cm}\varepsilon\hspace{0.08cm}$ un experimento aleatorio con espacio muestral $\hspace{0.08cm}\Omega\hspace{0.08cm}$ y sea $\hspace{0.08cm}A\subset \Omega\hspace{0.08cm}$.
 
-Si se realiza $n$ veces el experimento $\varepsilon$ y $n(A)$ es el nº de veces que ocurre el suceso $A$ en las $n$ realizaciones del experimento, la probabilidad en sentido frecuentista de $A$ se define como:
-
-
-
-$$P(A) = \underset{n \rightarrow \infty}{lim}\left( \dfrac{n(A)}{n} \right)$$
+Si se realiza $\hspace{0.08cm}n\hspace{0.08cm}$ veces el experimento $\hspace{0.08cm}\varepsilon\hspace{0.08cm}$ y $\hspace{0.08cm}n(A)\hspace{0.08cm}$ es el nº de veces que ocurre el suceso $\hspace{0.08cm}A\hspace{0.08cm}$ en las $\hspace{0.08cm}n\hspace{0.08cm}$ realizaciones del experimento, la probabilidad en sentido frecuentista de $\hspace{0.08cm}A\hspace{0.08cm}$ se define como: $\\[0.3cm]$
 
 
 
-Es decir, la probabilidad de un suceso de un experimento aleatorio es la proporción de veces que ocurre cuando el experimento se repite muchas veces.
+$$P(A) \hspace{0.08cm}=\hspace{0.08cm} \underset{n \rightarrow \infty}{lim}\left( \dfrac{n(A)}{n} \right)$$
+
+
+
+Es decir, la probabilidad de un suceso de un experimento aleatorio es la proporción de veces que ocurre cuando el experimento se repite muchas veces. $\\[0.5cm]$
 
 
 ### Propiedades
 
-1) $P(\Omega) = 1$
+- $P(\Omega) \hspace{0.08cm} =\hspace{0.08cm} 1$ $\\[0.5cm]$
+ 
+- $P(\emptyset)\hspace{0.08cm}=\hspace{0.08cm}0$ $\\[0.5cm]$
 
-2) $P(\emptyset)=0$
+- $P(A) \hspace{0.08cm}\geq\hspace{0.08cm} 0$ $\\[0.5cm]$
 
-3) $P(A) \geq 0$
+- $P(A\cup B) \hspace{0.08cm}=\hspace{0.08cm} P(A) \hspace{0.08cm}+\hspace{0.08cm} P(B) \hspace{0.08cm}-\hspace{0.08cm} P(A\cap B)$ $\\[0.5cm]$
 
-4) $P(A\cup B) = P(A) + P(B) - P(A\cap B)$
+-  Si $\hspace{0.08cm}A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$ son sucesos disjuntos $\hspace{0.08cm}(A\cap B = \emptyset)\hspace{0.08cm}$ , entonces:
 
-5)  Si $A$ y $B$ son sucesos disjuntos $(A\cap B = \emptyset)$
-
-$$P(A\cup B) = P(A) + P(B)$$
+$$P(A\cup B) \hspace{0.08cm}=\hspace{0.08cm} P(A) \hspace{0.08cm}+\hspace{0.08cm} P(B)$$
 
 
 <br>
 
 ## Probabilidad Axiomatica de Kolmogorov
 
-Sea $\varepsilon$ un experimento aleatorio con espacio muestral $\Omega$
+Sea $\hspace{0.08cm}\varepsilon\hspace{0.08cm}$ un experimento aleatorio con espacio muestral $\hspace{0.08cm}\Omega\hspace{0.08cm}$.
 
 
-$P$ es una medida de probabilidad definida sobre $\Omega$ $\Leftrightarrow$
+$P\hspace{0.08cm}$ es una medida de probabilidad definida sobre $\hspace{0.08cm}\Omega\hspace{0.1cm}$ si y solo si :
 
-1) $P: 2^\Omega \rightarrow \mathbb{R}$
+- $P \hspace{0.08cm}:\hspace{0.08cm} 2^\Omega \hspace{0.08cm}\rightarrow\hspace{0.08cm} \mathbb{R}$ $\\[0.5cm]$
 
-2) $P(A) \geq 0$
+- $P(A) \hspace{0.08cm}\geq\hspace{0.08cm} 0$ $\\[0.5cm]$
 
-3) $P(\Omega) = 1$
+- $P(\Omega) \hspace{0.08cm}=\hspace{0.08cm} 1$ $\\[0.5cm]$
 
-4) Si $A_1,A_2,A_3,... \subset \Omega$  , entonces:
+- Si $\hspace{0.08cm}A_1,A_2,A_3,... \subset \Omega\hspace{0.1cm}$  , entonces:
 
-$$P(A_1 \cup A_2 \cup A_3 \cup ...) = P(A_1)+P(A_2)+P(A_3)+...$$
+$$P(A_1 \cup A_2 \cup A_3 \cup ...) \hspace{0.08cm}=\hspace{0.08cm} P(A_1)\hspace{0.08cm}+\hspace{0.08cm}P(A_2)\hspace{0.08cm}+\hspace{0.08cm}P(A_3)\hspace{0.08cm}+\dots \\$$
 
 
 ### Propiedades
 
 
-1) $P(\emptyset) = \0$
+- $P(\emptyset) \hspace{0.08cm}=\hspace{0.08cm} 0$ $\\[0.5cm]$
 
-2) Si $A_1,A_2,...,A_n \subset \Omega$  , entonces:
+- Si $\hspace{0.08cm}A_1,A_2,...,A_n \subset \Omega\hspace{0.08cm}$  , entonces:
 
-$$P(A_1 \cup A_2 \cup ...\cup A_n) = P(A_1)+P(A_2)+...+P(A_n)$$
+$$P(A_1 \cup A_2 \cup ...\cup A_n)\hspace{0.08cm} =\hspace{0.08cm} P(A_1)+P(A_2)+...+P(A_n) \hspace{0.08cm}=\hspace{0.08cm} \sum_{i=1}^n P(A_i)$$  
 
-3) $P(A^c) = 1 - P(A)$
+- $P(A^c) \hspace{0.08cm}=\hspace{0.08cm} 1 - P(A)$$\\[0.5cm]$
 
 
-4) Si $A \subseteq B \Rightarrow P(A) \geq P(B)$
+- Si $\hspace{0.08cm}A \subseteq B \hspace{0.15cm}\Rightarrow\hspace{0.15cm} P(A) \hspace{0.08cm}\geq\hspace{0.08cm} P(B)$$\\[0.5cm]$
 
-5) Si $A \subseteq B \Rightarrow P(B-A) = P(B)-P(A)$
+- Si $\hspace{0.08cm}A \subseteq B \hspace{0.15cm}\Rightarrow\hspace{0.15cm} P(B-A)\hspace{0.08cm} =\hspace{0.08cm} P(B)-P(A)$$\\[0.5cm]$
 
-6) $0 \geq P(A) \geq 1$
+- $0 \hspace{0.08cm}\geq\hspace{0.08cm} P(A) \hspace{0.08cm}\geq\hspace{0.08cm} 1$ $\\[0.5cm]$
 
-7) $P(A-B) = P(A) - P(A\cap B)$
+- $P(A-B) \hspace{0.08cm}=\hspace{0.08cm} P(A) - P(A\cap B)$ $\\[0.5cm]$
 
-8) $P(A \cup B)= P(A) + P(B) - P(A\cap B)$
+- $P(A \cup B)\hspace{0.08cm}=\hspace{0.08cm} P(A) \hspace{0.08cm}+\hspace{0.08cm} P(B) \hspace{0.08cm}-\hspace{0.08cm} P(A\cap B)$
 
 
 
@@ -420,48 +434,48 @@ $$P(A_1 \cup A_2 \cup ...\cup A_n) = P(A_1)+P(A_2)+...+P(A_n)$$
 
 # Probabilidad Condicionada
 
-La probabilidad de $A$ condicionada a $B$ se define como:
+La probabilidad de $\hspace{0.08cm}A\hspace{0.08cm}$ condicionada a $\hspace{0.08cm}B\hspace{0.08cm}$ se define como: $\\[0.3cm]$
 
-$$P(A | B) = \dfrac{P(A\cap B)}{P(B)}$$
+$$P(A \hspace{0.08cm}|\hspace{0.08cm} B) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.08cm}P(A\cap B)\hspace{0.08cm}}{P(B)} \\$$
 
 
 
 ## Propiedades
 
-1) $P(\emptyset | B) = 0$
+- $P(\emptyset | B) = 0$ $\\[0.5cm]$
 
-2) Si $A_1 , A_2,...,A_n$ son disjuntos dos a dos , entonces:
+- Si $A_1 , A_2,...,A_n$ son disjuntos dos a dos , entonces:
 
-$$P(A_1 \cup A_2 \cup ... \cup A_n | B) = P(A_1 | B) + P(A_2 | B)  + ... + P(A_n | B)$$
+$$P(A_1 \cup A_2 \cup ... \cup A_n | B) = P(A_1 | B) + P(A_2 | B)  + ... + P(A_n | B) = \sum_{i=1}^n P(A_i | B) \\$$  
 
-3) $P(A^c | B) = 1 - P(A | B)$
+- $P(A^c | B) = 1 - P(A | B)$ $\\[0.5cm]$
 
-4) Si $A \subseteq D \Rightarrow P(A | B) \geq P( D | B)$
+- Si $A \subseteq D \Rightarrow P(A | B) \geq P( D | B)$ $\\[0.5cm]$
 
-5) Si $A \subseteq D \Rightarrow P(D-A | B) = P( D | B) - P(A | B$
+- Si $A \subseteq D \Rightarrow P(D-A | B) = P( D | B) - P(A | B)$ $\\[0.5cm]$
 
-6) $0 \geq P(A | B)   \geq 1$
+- $0 \geq P(A | B)   \geq 1$ $\\[0.5cm]$
 
-7) $P(A-D | B) = P(A|B) - P(A\cap D | B)$
+- $P(A-D | B) = P(A|B) - P(A\cap D | B)$ $\\[0.5cm]$
 
-8) $P(A \cup B) = P(A) + P(B) - P(A\cap B)$
+- $P(A \cup B) = P(A) + P(B) - P(A\cap B)$
 
 <br>
 
 # Partición del espacio muestral
 
-Sea $\varepsion$ un experimento aleatorio con espacio muestral $\Omega$
+Sea $\hspace{0.08cm}\varepsilon\hspace{0.08cm}$ un experimento aleatorio con espacio muestral $\hspace{0.08cm}\Omega\hspace{0.08cm}$.
 
-Sean $A_1,A_2, ..., A_n \subseteq \Omega$
+Sean $\hspace{0.08cm}A_1,A_2, ..., A_n \subseteq \Omega\hspace{0.08cm}$.
 
-$A_1,A_2, ..., A_n$ es una partición de $\Omega$  $\Leftrightarrow$
+$A_1,A_2, ..., A_n\hspace{0.08cm}$ es una partición de $\hspace{0.08cm}\Omega\hspace{0.1cm}$  si y solo si:
 
-1)  $B_i \neq \Omega , \forall i = 1,...,n$
+-  $B_i \hspace{0.08cm}\neq\hspace{0.08cm} \Omega \hspace{0.18cm},\hspace{0.16cm} \forall\hspace{0.08cm} i = 1,...,n$  $\\[0.5cm]$
 
 
-2) $B_i \cap B_j = \emptyset , \forall i \neq j = 1,...,n$
+- $B_i \cap B_j \hspace{0.08cm}=\hspace{0.08cm} \emptyset \hspace{0.18cm},\hspace{0.18cm} \forall\hspace{0.08cm} i \neq j = 1,...,n$ $\\[0.5cm]$
 
-3) $B_1 \cup ... \cup B_n = \Omega$
+- $B_1 \cup ... \cup B_n \hspace{0.08cm}=\hspace{0.08cm} \Omega$
 
 
 <br>
@@ -469,48 +483,48 @@ $A_1,A_2, ..., A_n$ es una partición de $\Omega$  $\Leftrightarrow$
 
 # Teorema de la Probabilidad Total
 
-Sea $A \subseteq \Omega$
+Sea $\hspace{0.08cm}A \subseteq \Omega\hspace{0.08cm}$.
 
-Si $B_1,...,B_n$ una partición de $\Omega$ , entonces:
+Si $\hspace{0.08cm}B_1,...,B_n\hspace{0.08cm}$ una partición de $\hspace{0.08cm}\Omega\hspace{0.08cm}$ , entonces:
 
-$$P(A)=P(A\cap B_1) +...+ P(A \cap B_n)$$
+$$P(A)\hspace{0.08cm}=\hspace{0.08cm}P(A\cap B_1) \hspace{0.08cm}+\hspace{0.08cm} P(A\cap B_2) \hspace{0.08cm}+\dots +\hspace{0.08cm} P(A \cap B_n) \hspace{0.08cm}=\hspace{0.08cm} \sum_{i=1}^n P(A \cap B_i)$$
 
 <br>
 
 # Teorema de la Probabilidad Total con probabilidad condicionada
 
-Sea $A \subseteq \Omega$
+Sea $\hspace{0.08cm}A \subseteq \Omega\hspace{0.08cm}$
 
-Si $B_1,...,B_n$ una partición de $\Omega$, con $P(B_i)>0$ , entonces:
+Si $\hspace{0.08cm}B_1,...,B_n\hspace{0.08cm}$ una partición de $\hspace{0.08cm}\Omega\hspace{0.08cm}$, con $\hspace{0.08cm}P(B_i)>0\hspace{0.08cm}$ , entonces:
 
 
-$$P(A) = P(A | B_1)\cdot P(B_1) + ... + P(A | B_n)\cdot P(B_n)$$
+$$P(A) \hspace{0.08cm}=\hspace{0.08cm} P(A | B_1)\cdot P(B_1) \hspace{0.08cm}+ \dots + \hspace{0.08cm}P(A | B_n)\cdot P(B_n)\hspace{0.08cm}=\hspace{0.08cm} \sum_{i=1}^n P(A |  B_i)\cdot P(B_i)$$
 
 <br>
 
 # Teorema de Bayes
 
-Sean $A,B \subset \Omega$ , con $P(B)\neq 0$
+Sean $\hspace{0.08cm}A,B \subset \Omega\hspace{0.08cm}$ , con $\hspace{0.08cm}P(B)\neq 0\hspace{0.08cm}$. $\\[0.5cm]$
 
-$$P(A |B) = \dfrac{P(B|A)\cdot P(A)}{P(B)}$$
+$$P(A |B)\hspace{0.08cm} =\hspace{0.08cm} \dfrac{P(B|A)\cdot P(A)}{P(B)}$$
 
 
 <br>
 
 # Independencia de sucesos
 
-$A$ y $B$ son sucesos independientes $\Leftrightarrow$ $P(A\cap B) = P(A)\cdot P(B)$
+$A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$ son sucesos independientes $\hspace{0.15cm}\Leftrightarrow\hspace{0.15cm}$ $P(A\cap B) \hspace{0.08cm}=\hspace{0.08cm} P(A)\cdot P(B)$ $\\[0.5cm]$
 
 ## Propiedades
 
-1) $A$ y $B$ son sucesos independientes $\Leftrightarrow$ $P(A | B) = P(A)$ $\Leftrightarrow$ $P(B | A) = P(B)$
+- $A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$ son sucesos independientes $\hspace{0.08cm}\Leftrightarrow\hspace{0.08cm}$ $\hspace{0.08cm}P(A | B) \hspace{0.08cm}=\hspace{0.08cm} P(A)$ $\hspace{0.15cm}\Leftrightarrow\hspace{0.15cm}$ $P(B | A)\hspace{0.08cm} =\hspace{0.08cm} P(B)$ $\\[0.5cm]$
 
-2) Si $A$ y $B$ son sucesos independientes $\Rightarrow$ $A^c$ y $B^c$ también lo son 
+- Si $\hspace{0.08cm}A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$ son sucesos independientes $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ $A^c\hspace{0.08cm}$ y $\hspace{0.08cm}B^c\hspace{0.08cm}$ también lo son. $\\[0.5cm]$
 
 
-3) Sucesos disjuntos no implica independientes
+- Sucesos disjuntos no implica independientes. $\\[0.5cm]$
 
-4) Sucesos independientes no implica disjuntos
+- Sucesos independientes no implica disjuntos.
 
 
 <br>
@@ -518,57 +532,60 @@ $A$ y $B$ son sucesos independientes $\Leftrightarrow$ $P(A\cap B) = P(A)\cdot P
 # Independencia de múltiples sucesos
 
 
-$A_1 , A_2, ..., A_n$ son sucesos independientes $\Leftrightarrow$
+$A_1 , A_2, ..., A_n\hspace{0.08cm}$ son sucesos independientes, si y solo si:
 
-1) Son independientes 2 a 2
+- Son independientes $\hspace{0.08cm}2\hspace{0.08cm}$ a $\hspace{0.08cm}2\hspace{0.08cm}$. $\\[0.5cm]$
 
-2) Son independientes 3 a 3
+- Son independientes $\hspace{0.08cm}3\hspace{0.08cm}$ a $\hspace{0.08cm}3\hspace{0.08cm}$. $\\[0.2cm]$
 
-...
+$\hspace{2.5cm} \dots$ $\\[0.5cm]$
 
-n+1) Son independientes n a n
-
-
-$\Leftrightarrow$
+- Son independientes $\hspace{0.08cm}n\hspace{0.08cm}$ a $\hspace{0.08cm}n\hspace{0.08cm}$. $\\[0.5cm]$
 
 
-$1)$ $P(A_i \cap A_j)=P(A_i)\cdot P(A_j) , \forall i \neq j = 1,...,n$
+lo que equivale a que se cumplan las siguientes condiciones:
 
-$2)$ $P(A_i \cap A_j \cap A_r)=P(A_i)\cdot P(A_j)\cdot P(A_r) , \forall i \neq j \neq r = 1,...,n$
 
-...
+- $P(A_i \cap A_j) \hspace{0.08cm}=\hspace{0.08cm} P(A_i)\cdot P(A_j) \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.08cm} i \neq j = 1,...,n$ $\\[0.6cm]$
 
-$n+1)$ $P(A_1 \cap A_2 \cap ... \cap A_n)=P(A_1)\cdot P(A_2)\cdot ... \cdot P(A_n)$
+- $P(A_i \cap A_j \cap A_r) \hspace{0.08cm}= \hspace{0.08cm} P(A_i)\cdot P(A_j)\cdot P(A_r) \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.08cm}  i \neq j \neq r = 1,...,n$ $\\[0.2cm]$
+
+$\hspace{2.5cm}\dots$ $\\[0.5cm]$
+
+- $P(A_1 \cap A_2 \cap ... \cap A_n)\hspace{0.08cm}=\hspace{0.08cm}P(A_1)\cdot P(A_2)\cdot \dots \cdot P(A_n)$
 
 
 <br>
 
 # Sigma Algrebra
 
-$\sigma (\Omega)$ es un sigma-algebra de $\Omega$ $\Leftrightarrow$
+$\sigma (\Omega)\hspace{0.08cm}$ es un sigma-algebra de $\hspace{0.08cm}\Omega\hspace{0.08cm}$, si y solo si:
+
+- $\sigma (\Omega) \hspace{0.08cm}=\hspace{0.08cm} \lbrace \hspace{0.08cm} A \hspace{0.08cm}:\hspace{0.08cm} A\subset \Omega \hspace{0.08cm}\rbrace$  $\\[0.5cm]$
 
 
-1) $\sigma (\Omega) = \lbrace A / A\subset \Omega\rbrace$ 
-
-Es decir: $\sigma (\Omega)$ es un conjunto de subconjuntos de $\Omega$
-
-Otra forma de expresarlo: $\sigma (\Omega) \subseteq 2^\Omega$
 
 
-2) $\Omega \in \sigma (\Omega)$
+- $\Omega \in \sigma (\Omega)$ $\\[0.5cm]$
 
-3) Si $A \in \sigma(\Omega) \Rightarrow A^c \in \sigma (\Omega)$
+- Si $A \in \sigma(\Omega) \hspace{0.08cm}\Rightarrow\hspace{0.08cm} A^c \in \sigma (\Omega)$ $\\[0.5cm]$
 
-4) Si $A_1, A_2 , A_3 ,... \in \sigma (\Omega)  \Rightarrow A_1 \cup A2 \cup A_3 \cup ... \in \sigma (\Omega)$
+- Si $A_1, A_2 , A_3 ,\dots \hspace{0.08cm} \in\hspace{0.08cm} \sigma (\Omega)  \hspace{0.15cm}\Rightarrow\hspace{0.15cm} A_1 \cup A2 \cup A_3 \cup \dots \hspace{0.08cm}\in\hspace{0.08cm} \sigma (\Omega)$ $\\[0.5cm]$
+
+**Observación:**
+
+La condición primera significa que   $\hspace{0.08cm}\sigma (\Omega)\hspace{0.08cm}$ es un conjunto de subconjuntos de $\hspace{0.08cm}\Omega\hspace{0.08cm}$.
+
+Otra forma equivalente de expresar esta condición es: $\hspace{0.08cm}\sigma (\Omega) \subseteq 2^\Omega \\$
 
 
 ## Propiedades:
 
-1) $\emptyset \in \sigma (\Omega)$
+- $\emptyset \in \sigma (\Omega)$ $\\[0.7cm]$
 
-2) Si $A_1, A_2, A_3,... \in \sigma (\Omega) \Rightarrow A_1 \cap A_2 \cap A_3 \cap ... \in \sigma (\Omega)$
+- Si $\hspace{0.08cm}A_1, A_2, A_3,\dots \hspace{0.08cm} \in \sigma (\Omega) \hspace{0.15cm} \Rightarrow\hspace{0.15cm} A_1 \cap A_2 \cap A_3 \cap \dots \hspace{0.08cm} \in \sigma (\Omega)$ $\\[0.7cm]$
 
-3) Si $A,B \in \sigma (\Omega) \Rightarroe A-B \in \sigma (\Omega)$
+- Si $\hspace{0.08cm}A,B \in \sigma (\Omega)\hspace{0.15cm} \Rightarrow \hspace{0.08cm} A-B \in \sigma (\Omega)$
 
 
 <br>
@@ -576,14 +593,12 @@ Otra forma de expresarlo: $\sigma (\Omega) \subseteq 2^\Omega$
 # Variables aleatorias
 
 
-$X$ es una variable aleatoria (v.a.) definida sobre $(\Omega , \sigma (\Omega)) \Leftrightarrow$
+$X\hspace{0.08cm}$ es una variable aleatoria (v.a.) definida sobre $\hspace{0.08cm}(\Omega , \sigma (\Omega))\hspace{0.08cm}$, si y solo si:
 
-1) $X: \Omega \rightarrow R$
+- $X \hspace{0.08cm}:\hspace{0.08cm} \Omega \hspace{0.08cm}\rightarrow\hspace{0.08cm} R$ $\\[0.5cm]$
    
-   $\hspace{0.5cm} w \rightarrow X(w)$
 
-
-2) $\lbrace w \in \Omega / X(w)=x \rbrace \in \sigma(\Omega) , \forall x \in \mathbb{R}$
+- $\lbrace \hspace{0.08cm} w \in \Omega \hspace{0.15cm}:\hspace{0.15cm} X(w)=x \hspace{0.08cm} \rbrace \hspace{0.08cm} \in \hspace{0.08cm} \sigma(\Omega) \hspace{0.2cm},\hspace{0.2cm} \forall \hspace{0.08cm} x \in \mathbb{R}$ $\\[0.5cm]$
 
 
 
@@ -591,734 +606,761 @@ $X$ es una variable aleatoria (v.a.) definida sobre $(\Omega , \sigma (\Omega)) 
 
 **Observaciones:**
 
-1) Formalmente una v.a. ni es una variable ni es aleatoria, es una funcion que asigna números a los elementos de un espacio muestral.
+- Formalmente una v.a. ni es una variable ni es aleatoria, es una funcion que asigna números a los elementos de un espacio muestral. $\\[0.5cm]$
 
-2) Definiciones adicionales:
+- Definiciones adicionales:
 
-$$X=x  = \lbrace w\in \Omega / X(w) = x \rbrace$$
+$$\mathcal{X}=x \hspace{0.1cm} := \hspace{0.1cm} \lbrace \hspace{0.08cm} w\in \Omega \hspace{0.15cm} : \hspace{0.15cm} \mathcal{X}(w) = x \hspace{0.08cm} \rbrace$$
 
-$$ X\in A  = \lbrace w\in \Omega / X(w) \in A \rbrace$$
+$$ \mathcal{X}\in A  \hspace{0.1cm} := \hspace{0.1cm} \lbrace \hspace{0.08cm} w\in \Omega \hspace{0.15cm} : \hspace{0.15cm} \mathcal{X}(w) \in A \hspace{0.08cm} \rbrace$$
 
 <br>
 
 # Variables Aleatorias y Probabilidad
 
-Dada una medida de probabilidad $P: \sigma(\Omega) \righarrow [0,1]$
+Dada una medida de probabilidad $\hspace{0.08cm}P \hspace{0.08cm}:\hspace{0.08cm} \sigma(\Omega) \hspace{0.08cm}\rightarrow\hspace{0.08cm} [0,1]\hspace{0.08cm}$ .
 
 
-$P$ esta definida en $X=x$ , para todo $x\in \mathbb{R}$
+Se cumple que $\hspace{0.08cm}P\hspace{0.08cm}$ está definida en $\hspace{0.08cm}\mathcal{X}=x\hspace{0.08cm}$ , para todo $\hspace{0.08cm}x\in \mathbb{R}$
 
-Es decir, $P(X=x) \in [0,1]$ y se cumplen todas las propiedades de la probabilidad en sentido axiomatico.
+Es decir, $\hspace{0.08cm}P(\mathcal{X}=x) \in [0,1] \hspace{0.15cm},\hspace{0.15cm} \forall \hspace{0.08cm} x \in \mathbb{R}$ y se cumplen todas las propiedades de la probabilidad en sentido axiomatico.
 
 <br>
 
 # Variables aleatorias discretas y continuas
 
-Sea $X$ una v.a. 
+Sea $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ una variable aleatoria,
 
 
-$X$ es **discreta** $\Leftrightarrow Im(X)$ es un conjunto contable/numerable
+- $\mathcal{X}\hspace{0.08cm}$ es **discreta** $\hspace{0.15cm}\Leftrightarrow \hspace{0.15cm} Im(\mathcal{X})\hspace{0.08cm}$ es un conjunto **contable**. $\\[0.5cm]$
 
-$X$ es **continua** $\Leftrightarrow Im(X)$ es un conjunto **no** contable/numerable
+- $\mathcal{X}\hspace{0.08cm}$ es **continua** $\hspace{0.15cm}\Leftrightarrow\hspace{0.15cm} Im(X)$ es un conjunto **no contable**.
 
 
 
 
 Donde:
 
-$$Im(X)= {x \in \mathbb{R} / \exist w \in \Omega , X(w) = x \rbrace$$ 
+$$Im(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} \left\lbrace \hspace{0.08cm} x \in \mathbb{R} \hspace{0.15cm} : \hspace{0.15cm} \exists \hspace{0.08cm} w \in \Omega \hspace{0.08cm}, \hspace{0.08cm} \mathcal{X}(w) = x \hspace{0.08cm}\right\rbrace \\$$ 
 
-Es decir, $Im(X)$ es la imagen de la v.a. $X$ (notese que $X$ es una función, luego tiene dominio e imagen).
+Es decir, $\hspace{0.08cm}Im(\mathcal{X})\hspace{0.08cm}$ es la imagen de la v.a. $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$. Notese que $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es una función, luego tiene dominio e imagen. $\\[0.5cm]$
 
 
-**Observación**
+**Observación:**
 
-Un conjunto A es contable/numerable $\Leftrightarrow$ Existe alguna funcion $f: \mathbb{N} \rightarrow A$ que sea **biyectiva** 
+Un conjunto $\hspace{0.08cm}A\hspace{0.08cm}$ es **contable** $\hspace{0.08cm}\Leftrightarrow\hspace{0.08cm}$ Existe alguna función $\hspace{0.08cm}f \hspace{0.08cm}:\hspace{0.08cm} \mathbb{N} \hspace{0.08cm}\rightarrow\hspace{0.08cm} A\hspace{0.08cm}$ que sea **biyectiva** .
 
-Es decir, que para todo $y\in Im(f)$ , exista un único numero natural $x \in Dom(f)$ tal que $f(x)=y$
+Es decir, que para todo $\hspace{0.08cm}y\in Im(f)=A\hspace{0.08cm}$ , existe un único número   $\hspace{0.08cm}x \in Dom(f)=\mathbb{N}\hspace{0.11cm}$ tal que $\hspace{0.08cm}f(x)=y\hspace{0.08cm}$.
 
 
 <br>
 
 # Función de probabilidad
 
-Sea $X$ una v.a. **discreta**
+Sea $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ una variable aleatoria **discreta**.
 
-$P_X$ es la función de probabilidad de la v.a. $X \Leftrightarrow$
+$P_\mathcal{X}\hspace{0.08cm}$ es la función de probabilidad de la v.a. $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$, si y solo si: $\\[0.3cm]$
 
 
-$$P_X(x) = P(X=x) \cdot \mathbb{1}_{\lbrace x\in Im(X) \rbrace}$$
+$$P_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}=x) \cdot \mathbb{I}\hspace{0.08cm}[\hspace{0.08cm} x\in Im(\mathcal{X})\hspace{0.08cm} ]$$
 
 
 Donde:
 
 
- $\mathbb{1}_{\lbrace x\in Im(X) \rbrace}$  es igual a 1 cuando $x\in Im(X)$   y 0 cuando $x\notin Im(X)$
+ $\mathbb{I}\hspace{0.08cm}[\hspace{0.08cm} x\in Im(\mathcal{X})\hspace{0.08cm} ]$  es igual a $\hspace{0.08cm}1\hspace{0.08cm}$ cuando $\hspace{0.08cm}x\in Im(\mathcal{X})\hspace{0.12cm}$   y $\hspace{0.1cm}0\hspace{0.08cm}$ cuando $x\notin Im(\mathcal{X}) \\$
  
  
-### Propiedades
+## Propiedades
 
-1) $P_X (x) \geq 0 , \forall x \in \mathbb{R}$
+- $P_\mathcal{X} (x) \hspace{0.08cm} \geq \hspace{0.08cm} 0  \hspace{0.15cm} , \hspace{0.15cm} \forall x \in \mathbb{R}$ $\\[0.5cm]$
  
-2) $\sum_{x\in\mathbb{R}} P_X(x) = 1$ 
+- $\sum_{x\in\mathbb{R}}\hspace{0.08cm}  P_\mathcal{X}(x) \hspace{0.08cm}= \hspace{0.08cm} 1$ $\\[0.5cm]$
  
-3) Si $A\subset \mathbb{R} \Rightarrow  P(X\in A) = \sum_{x\in A} P_X(x)$
+- Si $\hspace{0.08cm}A\subset \mathbb{R} \hspace{0.25cm} \Rightarrow \hspace{0.25cm} P(\mathcal{X}\in A)\hspace{0.08cm} =\hspace{0.08cm} \sum_{x\in A} \hspace{0.08cm} P_\mathcal{X}(x)$
  
 <br> 
  
-## Función de densidad
+# Función de densidad
 
-Sea $X$ una v.a. **continua**
+Sea $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ una variable aleatoria **continua**,
 
 
  
-$f_X$ es la funcion de densidad de la v.a. $X \Leftrightarrow$
+$f_\mathcal{X}\hspace{0.08cm}$ es la funcion de densidad de la v.a. $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$, si y solo si: $\\[0.3cm]$
 
-1) $f_X(x) \geq 0 , \forall x \in Im(X)$
+- $f_\mathcal{X}(x) \hspace{0.08cm}\geq\hspace{0.08cm} 0 \hspace{0.2cm} ,  \hspace{0.2cm} \forall \hspace{0.08cm} x \in Im(\mathcal{X})$ $\\[0.6cm]$
 
-2) $f$ es integrable
+- $f\hspace{0.08cm}$ es integrable. $\\[0.6cm]$
 
-3) $P(X\in (a,b)) = \int_a^b f(x)\cdot dx$
+- $P(\mathcal{X}\in (a,b)) \hspace{0.08cm}=\hspace{0.08cm} \int_a^b f(x)\cdot dx$ $\\[0.5cm]$
  
  
-### Propiedades
+## Propiedades
 
-1) $\int_{-\infty}^{\infty} f(x)\cdot dx = 1$
+- $\int_{-\infty}^{\infty} f(x)\cdot dx \hspace{0.08cm}=\hspace{0.08cm} 1$ $\\[0.6cm]$
 
-2) Toda funcion no negativa, integrable y cuya integral entre $-\infty$ y $\infty$ sea 1 es una función de densidad.
+- Toda función no negativa, integrable y cuya integral entre $\hspace{0.08cm}-\infty\hspace{0.08cm}$ y $\hspace{0.08cm}\infty\hspace{0.08cm}$ sea 1 es una función de densidad.
  
 
 <br>
  
-## Función de distribución
+# Función de distribución
 
 
-$F_X$ es la función de distribucion de la v.a.  $X \Leftrightarrow$ $F_X(x)= P(X \geq x)$
+$F_\mathcal{X}\hspace{0.08cm}$ es la función de distribución de la v.a.  $\hspace{0.08cm}\mathcal{X} \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}$ $F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X} \geq x)$ $\\[0.3cm]$
 
 
-### Propiedades
+## Propiedades
 
 
-1) Si $X$ es una v.a. **continua** 
+- Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es una v.a. **continua**:
 
-$$F_X(x)= P(X \geq x) = \int_{-\infty}^{x} f_X(z)\cdot dz$$
-
-
-
-2) Si $X$ es una v.a. **discreta** : 
+$$F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X} \geq x) \hspace{0.08cm}=\hspace{0.08cm} \int_{-\infty}^{x} f_X(z)\cdot dz$$
 
 
-$$F_X(x) = P(X \geq x) = \sum_{z \geq x} P(X=z)$$
+
+- Si $\mathcal{X}$ es una v.a. **discreta** : 
+
+
+$$F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X} \geq x) \hspace{0.08cm}=\hspace{0.08cm} \sum_{z \geq x} P(\mathcal{X}=z)$$
  
  
-3) $\undersert{x\rightarrow \infty}{lim} F_X(x) = 1$
+- $\underset{x\rightarrow \infty}{lim} F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} 1$ $\\[0.8cm]$
  
-4) $\underset{x\rightarrow -\infty}{lim} F_X(x) = 0$
+- $\underset{x\rightarrow -\infty}{lim} F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} 0$ $\\[0.8cm]$
 
-5) $F_X$ es una función creciente
+- $F_\mathcal{X}\hspace{0.08cm}$ es una función creciente.
 
 
-<br>
 
-# Distribución de probabilidad de una variable aleatoria
-
-La distribucion de probabilidad de una v.a. hace referencia a su funcion de densidad o probabolidad, o a su funcion de distribución.
 
 <br>
 
 # Esperanza de una variable aleatoria
 
-Si $X$ es una v.a. **discreta** :
+La esperanza de una v.a. $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$  se define del siguiente modo. $\\[0.3cm]$
 
-$$E[X]= \sum_{x\in \mathbb{R}} x \cdot P(X=x)$$
+Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es una v.a. **discreta** :
 
 
-Si $X$ es una v.a. **continua** : 
+$$E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} x \cdot P(\mathcal{X}=x)$$
 
-$$E[X] = \int_{-\infty}^{\infty} x \cdot f_X(x) \cdot dx$$
+
+Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es una v.a. **continua** : 
+
+$$E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \int_{-\infty}^{\infty} x \cdot f_\mathcal{X}(x) \cdot dx$$ $\\[0.5cm]$
 
 
 ## Propiedades
 
-1) $E[a]=a$
+- $E[a]\hspace{0.08cm}=\hspace{0.08cm}a$ $\\[0.8cm]$
 
-2) $E[b\cdot X] = b \cdot E[X]$
+- $E[b\cdot \mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} b \cdot E[\mathcal{X}]$ $\\[0.8cm]$
 
-3) $E[a + b\cdot X] = a + b \cdot E[X]$
+- $E[a + b\cdot \mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} a + b \cdot E[\mathcal{X}]$ $\\[0.8cm]$
 
-4) $E[X_1 + X_2 + ...+ X_n]= E[X_1]+E[X_2] + ... + E[X_n]$
+- $E[\mathcal{X}_1 + \mathcal{X}_2 + ...+ \mathcal{X}_n] \hspace{0.08cm}=\hspace{0.08cm} E[\mathcal{X}_1]+E[\mathcal{X}_2] + ... + E[\mathcal{X}_n]$ $\\[0.8cm]$
 
-5) $E[g_1(X_1) + ... + g_n(X_n)]=E[g_1(X_1)]+...+E[g_n(X_n)]$
+- $E[g_1(\mathcal{X}_1) + ... + g_n(\mathcal{X}_n)]\hspace{0.08cm}=\hspace{0.08cm}E[g_1(\mathcal{X}_1)]+...+E[g_n(\mathcal{X}_n)]$ $\\[0.8cm]$
 
-6) Si $X_1,...,X_n$ son independientes, entonces:
+- Si $\hspace{0.08cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son independientes, entonces:
 
-$E[X_1 \cdot X_2 \cdot ...\cdot X_n]= E[X_1]\cdot E[X_2] \cdot ... \cdot E[X_n]$
+$$E[\mathcal{X}_1 \cdot \mathcal{X}_2 \cdot ...\cdot \mathcal{X}_n]= E[\mathcal{X}_1]\cdot E[\mathcal{X}_2] \cdot ... \cdot E[\mathcal{X}_n]$$ $\\[0.2cm]$
 
-7) Si $X_1,...,X_n$ son independientes, entonces:
+- Si $\hspace{0.08cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son independientes, entonces:
 
-$E[g_1(X_1) \cdot ... \cdot g_n(X_n)]=E[g_1(X_1)]\cdot ...\cdot E[g_n(X_n)]$
+$$E[g_1(\mathcal{X}_1) \cdot ... \cdot g_n(\mathcal{X}_n)]=E[g_1(\mathcal{X}_1)]\cdot ...\cdot E[g_n(\mathcal{X}_n)]$$ $\\[0.2cm]$
 
-8) Formulas de transferencia:
+- Formulas de transferencia:
 
-Si $X$ es **discreta** :
-
-
-$$E[g(X)] = \sum_{x\in \mathbb{R}} x \cdot P(g(X)=x) = \sum_{x\in \mathbb{R}} g(x) \cdot P(X=x)$$
+    Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es **discreta**:
 
 
-Si $X$ es **continua**
-
-$$E[g(X)] = \int_{-\infty}^{\infty} x \cdot f_{g(X)}(x) \cdot dx =  \int_{-\infty}^{\infty} g(x) \cdot f_X(x) \cdot dx$$
+    $$E[g(\mathcal{X})] \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} x \cdot P(g(\mathcal{X})=x) \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} g(x) \cdot P(\mathcal{X}=x)$$
 
 
+    Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es **continua**:
 
-Donde: $g(X)$ es una transformación de $X$
+    $$E[g(\mathcal{X})] = \int_{-\infty}^{\infty} x \cdot f_{g(\mathcal{X})}(x) \cdot dx =  \int_{-\infty}^{\infty} g(x) \cdot f_\mathcal{X}(x) \cdot dx$$
+
+
+
+    Donde: $\hspace{0.08cm}g(\mathcal{X})\hspace{0.08cm}$ es una transformación de $\hspace{0.08cm}\mathcal{X}$.
 
 
 <br>
 
 # Varianza de una variable aleatoria
 
+Dada una variable aleatoria $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$, 
 
-$$Var(X) = E\left[ (X - E[X])^2 \right]$$
+La varianza de $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$  se define como: $\\[0.3cm]$
+
+$$Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} E\Bigl[ \hspace{0.08cm} (\mathcal{X} - E[\mathcal{X}])^2 \hspace{0.08cm} \Bigr]$$ $\\[0.5cm]$
  
  
  
 ## Propiedades 
  
-1) $Var(X) \geq 0$
+- $Var(\mathcal{X}) \hspace{0.08cm}\geq\hspace{0.08cm} 0$ $\\[0.8cm]$
 
-2) $Var(a) = 0$
+- $Var(a) \hspace{0.08cm}=\hspace{0.08cm} 0$ $\\[0.8cm]$
 
-3) $Var(b\cdot X) = b^2 \cdot Var(X)$
+- $Var(b\cdot \mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} b^2 \cdot Var(\mathcal{X})$ $\\[0.8cm]$
 
-4) $Var(a + b\cdot X) = b^2 \cdot Var(X)$
+- $Var(a + b\cdot \mathcal{X})\hspace{0.08cm} =\hspace{0.08cm} b^2 \cdot Var(\mathcal{X})$ $\\[0.8cm]$
 
-5) $Var(X)=E[X^2] - E[X]^2$
+- $Var(\mathcal{X})\hspace{0.08cm}=\hspace{0.08cm}E[\mathcal{X}^2] - E[\mathcal{X}]^2$ $\\[0.8cm]$
 
-6) $Var(g_1(X)+g_2(Y)) = Var(g_1(X)) + Var(g_2(Y)) + 2\cdot Cov(g_1(X),g_2(Y))$
+- $Var(g_1(\mathcal{X})+g_2(\mathcal{Y})) \hspace{0.08cm}=\hspace{0.08cm} Var(g_1(\mathcal{X})) + Var(g_2(\mathcal{Y})) + 2\cdot Cov(g_1(\mathcal{X}),g_2(\mathcal{Y}))$ $\\[0.8cm]$
 
-7) $Var(a\cdot X + b\cdot Y) = a^2 \cdot Var(X) + b^2 \cdot Var(Y) + 2\cdot Cov(X,Y)$
+- $Var(a\cdot \mathcal{X} + b\cdot \mathcal{Y}) \hspace{0.08cm}=\hspace{0.08cm} a^2 \cdot Var(\mathcal{X}) + b^2 \cdot Var(\mathcal{Y}) + 2\cdot Cov(\mathcal{X},\mathcal{Y})$ $\\[0.8cm]$
 
-8) Si $X$ e $Y$ son independientes, entonces:
+- Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son independientes, entonces:
 
-$Var(a\cdot X , b\cdot Y) = a^2\cdot Var(X) + b^2 \cdot Var(Y)$ 
+$$Var(a\cdot \mathcal{X} , b\cdot \mathcal{Y}) \hspace{0.08cm}=\hspace{0.08cm} a^2\cdot Var(\mathcal{X}) + b^2 \cdot Var(\mathcal{Y})$$ 
 
+<br>
 
+## Covarianza  
 
-## Covarianza 
+La covarianza entre las variables $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ y $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ se define como : $\\[0.5cm]$
 
-$$Cov(X,Y) = E[ (X- E[X])\cdot (Y-E[Y])]$$
+$$Cov(\mathcal{X},\mathcal{Y}) = E\Bigl[\hspace{0.08cm} (\mathcal{X}- E[\mathcal{X}])\cdot (\mathcal{Y}-E[\mathcal{Y}])\hspace{0.08cm}\Bigr]$$ $\\[0.5cm]$
 
 ### Propiedades 
 
-1) $Cov(X,Y) = E[X\cdot Y] - E[X]\cdot E[Y]$
+- $Cov(\mathcal{X},\mathcal{Y}) \hspace{0.08cm}=\hspace{0.08cm} E[\mathcal{X}\cdot \mathcal{Y}] - E[\mathcal{X}]\cdot E[\mathcal{Y}]$ $\\[0.8cm]$
 
-2) Si $X$ e $Y$ son independientes $\Rightarrow$ $Cov(X,Y)=0$
+- Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son independientes $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ $Cov(\mathcal{X},\mathcal{Y})=0$ $\\[0.8cm]$
 
-3) Si $Cov(X,Y) \neq 0$ $\Rightarrow$ $X$ e $Y$ son independientes
+- Si $\hspace{0.08cm}Cov(\mathcal{X},\mathcal{Y}) \neq 0$ $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ $\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son independientes. $\\[0.8cm]$
 
-4) Si $Cov(X,Y)=0$ $\Rightarrow$ 
+- Que $\hspace{0.08cm}Cov(\mathcal{X},\mathcal{Y})=0\hspace{0.08cm}$ no implica que $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ sean independientes.  
 
-
-
-
-
-
-
-
-
-
-
-
-
-## Distribuciones de probabilidad discretas
-
-
-### Distribución Uniforme discreta
-
-
-$$X \sim Unif(x_1,....,x_n) \Leftrightarrow P(X=x) = \dfrac{1}{n}\cdot 1_{\lbrace x\in \lbrace x_1,...,x_n \rbrace \rbrace}$$
-
-
-#### Propiedades 
-
-
-1) $E[X] = \dfrac{1}{n} \sum_{i=1}{n} x_i = media(x_1,...,x_n)$
- 
-2) $Var(X) = \dfrac{1}{n} \sum_{i=1}{n} (x_i - E[X])^2 = varianza(x_1,...,x_n)$
- 
-3) Sea $(x_{(1)},...,x_{(n)})$ el vector $(x_1,...,x_n)$ ordenado de menor a mayor:
-
-$$F_X(x) = \left\lbrace\begin{array}{c} 1 , si x>x_{(n)} \\ 0 , si x < x_{(1)} \\ \dfrac{i}{n} , si x=x_{(i)} \end{array}\right.$$
- 
  
 
-### Distribución de Bernoulli
 
-$$X \sim Bernoulli(p) \Leftrightarrow P(X=x) =p^x (1-p)^x \cdot 1_{\lbrace x=0,1 \rbrace \rbrace}$$
+<br>
+
+
+
+
+# Distribuciones de probabilidad discretas
+
+
+## Distribución Uniforme Discreta
+
+ Sea $\hspace{0.08cm}X=(x_1,...,x_n)^t\hspace{0.08cm}$,
+
+$$\mathcal{X} \sim U(X) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}\mathcal{X} \sim U(x_1,....,x_n) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} P(\mathcal{X}=x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{n}\cdot \mathbb{I}\hspace{0.03cm} \left[ \hspace{0.03cm} x\in \lbrace x_1,...,x_n \rbrace \hspace{0.03cm} \right]$$ $\\[0.5cm]$
+
+
+### Propiedades 
+
+
+
+- $E[\mathcal{X}]\hspace{0.08cm} = \hspace{0.08cm}\dfrac{1}{n} \sum_{i=1}^{n} x_i \hspace{0.08cm}=\hspace{0.08cm} \overline{X}$ $\\[0.8cm]$
+ 
+- $Var(\mathcal{X})\hspace{0.08cm} =\hspace{0.08cm} \dfrac{1}{n} \sum_{i=1}^{n} (x_i - E[\mathcal{X}])^2 \hspace{0.08cm}=\hspace{0.08cm} \sigma(X)^2$ $\\[0.8cm]$
+ 
+- Sea $\hspace{0.1cm}(x_{(1)},...,x_{(n)})^t\hspace{0.1cm}$ el vector $\hspace{0.1cm}X=(x_1,...,x_n)^t\hspace{0.1cm}$ ordenado de menor a mayor:
+
+$$F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \left\lbrace\begin{array}{c} 1 \hspace{0.3cm},\hspace{0.3cm} \text{si} \hspace{0.2cm} x \hspace{0.08cm}> \hspace{0.08cm} x_{(n)} \\
+0 \hspace{0.3cm},\hspace{0.3cm}  \text{si} \hspace{0.2cm} x \hspace{0.08cm}<\hspace{0.08cm} x_{(1)} \\ \dfrac{i}{n} \hspace{0.3cm},\hspace{0.3cm} \text{si} \hspace{0.2cm} x=x_{(i)} \end{array}\right.$$
+ 
+ <br>
+
+## Distribución de Bernoulli
+
+$$\mathcal{X} \sim Bernoulli(p) \hspace{0.3cm} \Leftrightarrow\hspace{0.3cm} P(\mathcal{X}=x) \hspace{0.08cm}=\hspace{0.08cm} p^x \cdot (1-p)^x \cdot \mathbb{I}\hspace{0.05cm} \left[ \hspace{0.05cm}  x \in \lbrace 0,1 \rbrace \hspace{0.05cm}  \right]$$ $\\[0.5cm]$
 
 
 **Observaciones:**
 
-1) Las v.a. Bernoulli(p) se usan para modelar experimentos aleatorios con dos únicos resultados contrarios (exito-fracaso)
- tales que la probabilidad del exito es p y la del fracoso 1-p.
+- Las v.a. $\hspace{0.08cm}Bernoulli(p)\hspace{0.08cm}$ se usan para modelar experimentos aleatorios con dos únicos resultados contrarios (exito-fracaso)
+ tales que la probabilidad del exito es $\hspace{0.08cm}p\hspace{0.08cm}$ y la del fracoso $\hspace{0.08cm}1-p\hspace{0.08cm}$.  
  
- A este tipo de experimentos aleatorios se les llama experimentos tipo Bernoulli.
+     A este tipo de experimentos aleatorios se les llama experimentos tipo Bernoulli. $\\[0.6cm]$
  
-2) Si $X \sim Bernoulli(p)$ , entonces:
+- Si $\hspace{0.08cm}\mathcal{X} \sim Bernoulli(p)\hspace{0.08cm}$ , entonces:
 
-$X$ puede interpretarse como el nº de exitos obtenidos tras realizar una vez un experimento tipo Bernoulli (notese que este nº solo puede ser 0 o 1),  con probabilidad de exito $p$
+    $\mathcal{X}\hspace{0.08cm}$ puede interpretarse como el nº de exitos obtenidos tras realizar una vez un experimento tipo Bernoulli (notese que este nº solo puede ser 0 o 1),  con probabilidad de exito $\hspace{0.08cm}p\hspace{0.08cm}$. $\\[0.5cm]$
 
 
-
-
-#### Propiedades
-
-1) $P(X=1)=p$
-
-2) $P(X=0)=1-p$
-
-3) $E[X]=p$
-
-4) $Var(X)= p\cdot (1-p)$
-
-5) $$F_X(x) = \left\lbrace\begin{array}{c} 1 , si x\geq 1 \\ 0 , si x < 0 \\ 1-p , si x\in [0 , 1) \end{array}\right.$$
-
-
-
-
-
-### Distribución Binomial
-
-
-$$X \sim Binomial(n,p) \Leftrightarrow P(X=x) =\binom{n}{x} \cdot p^x (1-p)^x \cdot 1_{\lbrace x= 0,1,...,n \rbrace \rbrace}$$
-
-
-**Observación:**
-
-
-1) Si $X \sim Binomial(p)$ , entonces:
-
-$X$ puede interpretarse como el nº de exitos obtenidos tras realizar $n$ veces un experimento tipo Bernoulli (notese que este nº solo puede ser 0,1,...,n),  con probabilidad de exito $p$
-
-
-#### Propiedades 
-
-1) Si $X_1,...,X_n$ son v.a. independientes tales que $X_i \sim Bernoulli(p)$ , $i =1,...,n$ , entonces:
-
-$$X_1 + ... + X_n \sim Binomial (n, p)$$
-
-
-
-2) $E[X]=n\cdot p$
-
-
-3) $Var(X) = n \cdot p \cdot (1-p)$
-
-
-4) Para $x\geq n$ 
-
-$$F_X(x) = \sum_{z\in \lbrace 0,1,...,x\rbrace} \binom{n}{z} \cdot p^z \cdot (1-p)^{n-z}$$
-
-
-
-
-### Distribucion Geométrica (de fracasos)
-
-
-$$X \sim GeoFrac(p) \Leftrightarrow P(X=x) = (1-p)^x\cdot p \cdot 1_{\lbrace x=0,1,2,...  \rbrace}$$
-
-**Observacioón:**
-
-1) Si $X \sim GeoFrac(p)$ , entonces:
-
-$X$ puede interpretarse como el nº de  fracasos obtenidos hasta el primer exito tras realizar multiples veces un experimento tipo Bernoulli (notese que este nº solo puede ser 0,1,2,...), con probabilidad de exito $p$
-
-
-#### Propiedades
-
-1) $E[X] = \dfrac{1-p}$
-
-2) $Var(X) = \dfrac{1-p}{p^2}$
-
-
-### Distribucion Geométrica (de intentos)
-
-
-$$X \sim GeoInt(p) \Leftrightarrow P(X=x) = (1-p)^{x-1}\cdot p \cdot 1_{\lbrace x=0,1,2,...  \rbrace}$$
-
-
-**Observación:**
-
-$X$ se puede interpretar como el nº de intentos hasta la obtencion del primer exito tras realizar múltiples veces un experimento tipo Bernoulli (notese que este nº solo puede ser 0,1,2,...), con probabilidad de exito $p$
-
-
-
-#### Propiedades
-
-1) $E[X]= \dfrac{1}{p}$
-
-2) $Var(X)= \dfrac{1-p}{p^2}$
-
-
-
-
-### Distribución de Poisson
-
-
-$$X\sim Poisson(\lambda) \Leftrightarrow P(X=x) = e^{-\lambda} \cdot \dfrac{\lambda^x}{x!} \cdot 1_{\lbrace x=0,1,2,... \rbrace}$$
-
-
-Donde:  $\lambda > 0$
-
-#### Propiedad
-
-1) $E[X] = \lambda$
-
-2) $Var[X] = \lambda$
-
-3) Si $X_i \sim Poisson(\lambda_i)$  y son independientes , para $i =1,...,n$ , entonces:
-
-$$X_1 + ... + X_n \sim Poisson(\lambda_1 + ... + \lambda_n)$$
-
-
-### Distribución Hipergeommetrica
-
-
-$$X \sim HiperGeo(N, k, n) \Leftrightarrow P(X=x) = \dfrac{\binom{k}{n} \cdot \binom{N-k}{n-x}}{\binom{N}{n}} \cdot 1_{\lbrace x=0,1,..,n \rbrace}$$
-
-**Observación:**
-
-1) Las v.a. hipergeometrica se usan para modelar experimentos aleatorios que consisten en extrar sin reemplazamiento una muestra de $n$ elementos de un conjunto con $N$ elementos, $k$ de una clase llamada clase-k y $N-k$ de otra clase.
-
-2) Si  $X \sim HiperGeo(N, k, n)$ , entonces:
-
-$X$ puede interpretarse como el nº de elementos de la clase-k extraidos del conjunto tras haber extraido una muestra de $n$ elementos.
-
-
-#### Propiedades
-
-1) $E[X] = n \dfrac{k}{N}$
-
-2) $Var(X) = n\cdot \dfrac{k}{N} \cdot \dfrac{N-k}{N} \cdot \dfrac{N-n}{N-1}$
-
-
-
-
-## Distribuciones de probabilidad continuas
-
-
-
-### Distribución Uniforme Continua
-
-$$X \sim U(a,b) \Leftrightarrow f_X(x) = \dfrac{1}{b-a} \cdot 1_{\lbrace x\in (a,b)  \rbrace}$$
-
-
-
-#### Propiedades
-
-1) $E[X] = \dfrac{1}{2} \cdot (a + b)$
-
-2) $Var(X) = \dfrac{1}{12} \cdot (b-a)^2$
-
-3) $$F_X(x) = P(X \geq x) = \int_{-\infty}^{x} f_X(z) \cdot dz = \left\lbrace\begin{array}{c} 1 , si x\geq b \\ 0 , si x \leq a \\ \dfrac{x-a}{b-a} , si x\in (a,b) \end{array}\right.$$
-
-
-
-
-### Distribución Exponencial
-
-
-$$X \sim Exponencial(\lambda) \Leftrightarrow  f_X(x) = \lambda \cdot e^{-\lambda \cdot x} \cdot 1_{\lbrace x>0 \rbrace}$$
-
-Donde: $\lambda > 0$
-
-#### Propiedades
-
-1) $E[X] = \dfrac{1}{\lambda}$
-
-2) $Var(X)= \dfrac{1}{\lambda^2}$
-
-3) $$F_X(x)=  P(X \geq x) = \int_{-\infty}^{x} f_X(z) \cdot dz =\left\lbrace\begin{array}{c} 0 , si x \leq 0 \\ 1- e^{-\lambda \cdot x} , si x>0 \end{array}\right.$$
-
-
-### Funcion Gamma
-
-$\Gamma$ es la función Gamma $\Leftrightarrow \Gamma(\alpha) = \int_{0}^{\infty} x^{\alpha - 1} \cdot e^{-x} \cdot dx$
-
-Donde: $\alpha >0$
-
-#### Propiedades
-
-1) $\Gamma(1) = \Gamma(2) = 1$
-
-2) $\Gamma(\alpha + 1) = \alpha \cdot \Gamma(\alpha)$
-
-3) $\Gamma(\alpha + 1) = \alpha !$ , si $\alpha \in \mathbb{N}$
-
-4) $\Gamma(\alpha) = (\alpha -1)!$ , si $\alpha \in \mathbb{N}$
-
-5) $\Gamma(1/2) = \sqrt{\pi}$
-
-
-
-### Distribucion Gamma
-
-$$X\sim Gamma(\alpha , \lambda ) \Leftrightarrow f_X(x) = \dfrac{\lambda^\alpha}{\Gamma(\alpha )} \cdot x^{\alpha -1} \cdot e^{-\lambda \cdot x} \cdot 1_{\lbrace x>0  \rbrace}$$
-
-Donde: $\alpha, \lambda > 0$
-
-
-#### Propiedades
-
-1) Si $\alpha \in \mathbb{N}$ , entonces:
-
-
-$$f_X(x) = \dfrac{\lambda^\alpha}{(\alpha -1)!} \cdot x^{\alpha -1} \cdot e^{-\lambda \cdot x} \cdot 1_{\lbrace x>0  \rbrace}$$
-
-2) Si $\alpha = 1$ , entonces:
-
-$$f_X(x)= \lambda \cdot e^{-\lambda \cdot x} \cdot 1_{\lbrace x>0  \rbrace}$$
-
-Por tanto:
-
-$$Gamma(\alpha = 1 , \lambda) = Exponencial(\lambda)$$
-
-
-
-3) $E[X]= \dfrac{\alpha}{\lambda}$
-
-4) $Var(X)=\dfrac{\alpha}{\lambda^2}$
-
-5) $$F_X(x) = $$
-
-6) Si $X_1,...,Xn \sim Exponencial(\lambda)$ y son independientes, entonces:
-
-$$X_1+...+X_n \sim Gamma(n , \lambda)$$
-
-7) Si $X\sim Gamma(\alpha , \lambda)$ y $c>0$ , entonces:
-
-$$c\cdot X \sim Gamma(\alpha , \lambda / c)$$
-
-8) Si $X_1 , ..., X_n$ son independientes y $X_i\sim Gamma(\alpha_i , \lambda)$, entonces:
-
-$$X_1 +...+ X_n \sim Gamma(\alpha_1 +...+ \alpha_n , \lambda)$$
-
-
-
-
-
-### Distribucion Normal
-
-
-$$X \sim N(\mu, \sigma^2) \Leftrightarrow f_X(x) = \dfrac{}{} \cdot exp \left( \dfrac{-1}{2} \cdot \dfrac{(x- \mu)^2}{\sigma^2}  \right)$$
-
-
-Donde: $\mu \in \mathbb{R}$ y $\sigma^2 > 0$
-
-#### Propiedades
-
-1) $E[X]=\mu$
-
-2) $Var(X)=\sigma^2$
-
-3) $X\cdot a \sim N(\mu \cdot a , a^2 \cdot \sigma^2)$
-
-4) $X\cdot b + a \sim N( b\cdot \mu + a , b^2 \cdot \sigma^2)$
-
-5) Si $X_i \sim N(\mu_i , \sigma_i^2)$ , para $i =1,...,n$ , entonces:
-
-$$X_1 + ...+ X_n \sim N(\mu_1 +...+ \mu_n , \sigma_1^2 + ...+ \sigma_n^2)$$
-
-6) Si $X_i \sim N(\mu_i , \sigma_i^2)$ , para $i =1,...,n$ , entonces:
-
-$$a_1\cdot X_1 + ...+ a_n \cdot X_n \sim N(a_1 \cdot \mu_1 +...+ a_n \cdot \mu_n , a_1^2 \cdot \sigma_1^2 + ...+ a_n^2 \cdot \sigma_n^2)$$
-
-
-
-
-### Funcion Beta
-
-$$B(a,b)= \int_0^1 x^{a-1} \cdot (1-x)^{b-1} \cdot dx$$
-
-Donde: $a, b >0$
-
-
-#### Propiedades
-
-1) $B(a,b) = B(b,a)$
-
-2) $B(a,1) = 1/a$
-
-3) $B(a+1, b)= \dfrac{a}{a+b} \cdot B(a,b)$
-
-4) $B(a,b) = \dfrac{\Gamma(a) \cdot \Gamma(b)}{\Gamma(a+b)}$
-
-
-### Distribucion Beta
-
-$$X\sim Beta(a,b) \Leftrightarrow f_X(x)= \dfrac{1}{B(a,b)} \cdot x^{a-1} \cdot (1-x)^{b-1} \cdot 1_{\lbrace x \in (0,1)  \rbrace}$$
-
-
-Donde: $a, b >0$
-
-
-#### Propiedades
-
-1) $E[X]=\dfrac{a}{a+b}$
-
-2) $Var(X) = \dfrac{a\cdot b}{(a + b +1)(a+b)^2}$
-
-3) Si $X\sim Gamma(a, \lambda)$ y $Y\sim Gamma(b,\lambda)$ , entonces:
-
-$$\dfrac{X}{X+Y} \sim Beta(a,b)$$
-
-
-
-### Distribucion Weibull
-
-
-$$X\sim Weibull(\alpha , \lambda) \Leftrightarrow f_X(x)= \lambda\cdot \alpha (\lambda \cdot x)^{\alpha - 1} \cdot e^{-(\lambda \cdot x)^\alpha} \cdot 1_{\lbrace x > 0  \rbrace}$$
-
-Donde: $\alpha , \lambda >0$
-
-
-#### Propiedades
-
-1) $E[X]= \dfrac{1}{\lambda} \Gamma(1 + \dfrac{1}{\alpha})$
-
-2) $Var(X)= \dfrac{1}{\lambda^2} \left( \Gamma(1 + \dfrac{2}{\alpha}) - \Gamma(1+ \dfrac{1}{\alpha}) \right)$
-
-2) $$F_X(x) = (1 - e^{-(\lambda \cdot x)^\alpha}) \cdot 1_{\lbrace x>0 \rbrace}$$
-
-
-
-### Distribucion Chi-cuadrado
-
-$$X \sim \chi_n ^2 \Leftrightarrow f_X(x) = \dfrac{1}{\Gamma(n/2)} \cdot \dfrac{1}{2}^{n/2} \cdot x ^{n/2 -1} \cdot e^{-x/2}$$
-
-
-#### Propiedades
-
-1) $E[\chi_n ^2]= n$
-
-2) $Var(\chi_n ^2)= 2n$
-
-3) $\chi_n ^2 + \chi_m ^2 = \chi_{n+m} ^2$
-
-4) $\chi_n ^2 - \chi_m ^2 = \chi_{n-m} ^2$
-
-5) $\chi_n ^2 = Gamma( \alpha= n/2 , \lambda=1/2)$
-
-6) Si $X_1 ,..., X_n \sim N(0,1)$ y son independientes , entonces:
-
-$$X_1^2 + ... + X_n^2 \sim \chi_n^2$$
-
-
-### Distribucion t-student
-
-$$X\sim t_n \Leftrightarrow f_X(x) = \dfrac{\Gamma(\dfrac{n+1}{2})}{\sqrt{n\cdot \pi} \cdot \Gamma(n/2)} \cdot (1 + \dfrac{x^2}{n})^{-1/2 \cdot (n+1)} \cdot 1_{\lbrace x\in \mathbb{R} \rbrace}$$
-
-#### Propiedades 
-
-1) $E[X] = 0$
-
-2) $Var[X] = \dfrac{n}{n-2}$ , si $n>2$
-
-3) Si $Z \sim N(0,1)$ y $X\sim \chi_n^2$ y son independientes , entonces:
-
-$$\dfrac{Z}{\sqrt{X/n}} \sim t_n$$
-
-
-
-
-
-### Distribucion F-Fisher
-
-$$X\sim F(a,b) \Leftrightarrow f_X(x) = \dfrac{\Gamma(\dfrac{a+b}{2})}{\Gamma(a/2)\cdot \Gamma(b/2)} \cdot (a/b)^{a/2} \cdot x^{a/2-1} \cdot (1 + (a/b)\cdot x)^{-(a+b)/2} \cdot 1_{\lbrace x>0  \rbrace}$$
-
-
-#### Propiedades
-
-1) $E[X] = \dfrac{b}{b-2}$
-
-2) $Var(X) = \dfrac{2b^2 \cdot (a + b - 2)}{a \cdot (b-2)^2 \cdot (b-4)}$ , si $b>4$
-
-3) Si $X \sim \chi^2_a$ y $Y \sim \chi^2_b$ , entonces:
-
-$$\dfrac{X/a}{Y/b} \sim F(a,b)$$
-
-
-
-
-
-## Probabilidad conjunta de variables aleatorias discretas
-
-
-
-$$P(X=x , Y=y) = P(X= x \cap Y=y)$$
-
-### Propiedades
-
-
-1) $\sum_{x\in \mathbb{R}}\sum_{y\in \mathbb{R}} P(X=x , Y=y) = 1$
-
-2) Si $x\notin Im(X)$ o $y \notin Im(Y)$ , entonces:
-
-$$P(X=x , Y=y) = 0$$
-
-3) $P(X\in A , Y\in B) = \sum_{x\in A} \sum_{y\in B} P(X=x , Y=y)$
-
-4) $P(X\in A , Y=y) = \sum_{x\in A} P(X=x , Y=y)$
-
-5) $P(X=x) = \sum_{y\in \mathbb{R}} P(X=x , Y=y)$
-
-6) $P(Y=y) = \sum_{x\in \mathbb{R}} P(X=x , Y=y)$
-
-
-
-
-## Densidad conjunta de variables aleatorias continuas
-
-$$f_{X,Y}$$ es la funcion de densidad conjunta de las v.a. $X$ y $Y$ $\Leftrightarrow$
-
-
-1) $f_{X,Y} : \mathbb{R}^2 \rightarrow (0 , \infty)$
-
-2) $$P( X \in A , Y \in B) = \int_{x\in A} \int_{y\in B} f_{X,Y}(x,y) \cdot dy \cdot dx$$
-
-
-3) $$\int_{x\in \mathbb{R}} \int_{y\in \mathbb{R}}   f_{X,Y}(x,y) \cdot dy \cdot dx = 1$$
 
 
 ### Propiedades
 
-1) $P(X\in A , Y=y) = \int_{x\in A} f_{X,Y}(x , y)\cdot dx$
+- $P(\mathcal{X}=1)\hspace{0.08cm}=\hspace{0.08cm}p$ $\\[0.8cm]$
 
-2) $P(X=x , Y\in B) = \int_{y\in B} f_{X,Y}(x , y) \cdot dy$
+- $P(\mathcal{X}=0)\hspace{0.08cm}=\hspace{0.08cm}1-p$ $\\[0.8cm]$
 
-3) $f_X(x) = \int_{y\in \mathbb{R}} f_{X,Y}(x , y) \cdot dy$
+- $E[\mathcal{X}]\hspace{0.08cm}=\hspace{0.08cm}p$ $\\[0.8cm]$
 
-4) $f_Y(y) = \int_{x\in \mathbb{R}} f_{X,Y}(x , y) \cdot dx$
+- $Var(\mathcal{X})\hspace{0.08cm}=\hspace{0.08cm} p\cdot (1-p)$ $\\[0.8cm]$
+
+- $F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \left\lbrace\begin{array}{l} 1 \hspace{0.3cm},\hspace{0.3cm} \text{si} \hspace{0.12cm} x\geq 1 \\ 0 \hspace{0.3cm},\hspace{0.3cm} \text{si} \hspace{0.12cm} x < 0 \\ 1-p \hspace{0.3cm},\hspace{0.3cm} \text{si} \hspace{0.12cm} x\in [0 , 1) \end{array}\right.$ 
+
+<br>
 
 
-## Probabilidad condicionada de variables aleatorias discretas
+## Distribución Binomial
+
+
+$$\mathcal{X} \sim Binomial(n,p) \hspace{0.3cm} \Leftrightarrow \hspace{0.3cm} P(\mathcal{X}=x) \hspace{0.08cm}=\hspace{0.08cm}\binom{n}{x} \cdot p^x (1-p)^x \cdot \mathbb{I}\hspace{0.08cm}\bigl[ x\in \lbrace 0,1,..,n \rbrace \bigr] \\$$ 
+
+
+**Observación:**
+
+
+- Si $\hspace{0.08cm}\mathcal{X} \sim Binomial(p)\hspace{0.08cm}$ , entonces:
+
+    $\mathcal{X}$ puede interpretarse como el nº de exitos obtenidos tras realizar $n$ veces un experimento tipo Bernoulli (notese que este nº solo puede ser 0,1,...,n),  con probabilidad de exito $p$ $\\[0.7cm]$
+
+
+### Propiedades 
+
+- Si $\hspace{0.08cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son v.a. independientes tales que $\hspace{0.08cm}\mathcal{X}_i \sim Bernoulli(p)\hspace{0.08cm} , \hspace{0.08cm} i =1,...,n$ , entonces:
+
+$$\mathcal{X}_1 + ... + \mathcal{X}_n \sim Binomial (n, p)$$  
+
+
+
+- $E[\mathcal{X}]\hspace{0.08cm}=\hspace{0.08cm}n\cdot p$ $\\[0.8cm]$
+
+
+- $Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} n \cdot p \cdot (1-p)$ $\\[0.8cm]$
+
+
+- Para $\hspace{0.08cm}x\geq n\hspace{0.08cm}$ :
+
+$$F_\mathcal{X}(x) \hspace{0.15cm}=\sum_{z\in \lbrace 0,1,...,x\rbrace} \binom{n}{z} \cdot p^z \cdot (1-p)^{n-z}$$
+
+
+<br>
+
+## Distribución Geométrica (de fracasos)
+
+
+$$\mathcal{X} \sim GeoFrac(p) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} P(\mathcal{X}=x) \hspace{0.08cm}=\hspace{0.08cm} (1-p)^x \cdot p \cdot \mathbb{I}\hspace{0.08cm}\bigl[ x\in \lbrace 0,1,..,n \rbrace \bigr] \\$$ 
+
+
+**Observación:**
+
+- Si $\hspace{0.08cm}\mathcal{X} \sim GeoFrac(p)\hspace{0.08cm}$ , entonces:
+
+    $\mathcal{X}\hspace{0.08cm}$ puede interpretarse como el nº de  fracasos obtenidos hasta el primer exito tras realizar multiples veces un experimento tipo Bernoulli (notese que este nº solo puede ser 0,1,2,...), con probabilidad de exito $\hspace{0.08cm}p\hspace{0.08cm}$. $\\[0.7cm]$
+
+
+### Propiedades
+
+- $E[ \mathcal{X} ] \hspace{0.08cm} = \hspace{0.08cm} \dfrac{1-p}{p}$ $\\[0.8cm]$
+
+- $Var(\mathcal{X})\hspace{0.08cm} =\hspace{0.08cm} \dfrac{1-p}{p^2}$
+
+
+<br>
+
+## Distribucion Geométrica (de intentos)
+
+
+$$\mathcal{X} \sim GeoInt(p) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} P(\mathcal{X}=x) \hspace{0.08cm}=\hspace{0.08cm} (1-p)^{x-1}\cdot p \cdot \mathbb{I}\hspace{0.08cm}\bigl[ x\in \lbrace 0,1,..,n \rbrace \bigr] \\$$
+
+
+**Observación:**
+
+$\mathcal{X}\hspace{0.08cm}$ se puede interpretar como el nº de intentos hasta la obtencion del primer exito tras realizar múltiples veces un experimento tipo Bernoulli (notese que este nº solo puede ser 0,1,2,...), con probabilidad de exito $\hspace{0.08cm}p\hspace{0.08cm}$. $\\[0.6cm]$
+
+
+
+### Propiedades
+
+- $E[\mathcal{X}]\hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{p}$ $\\[0.8cm]$
+
+- $Var(\mathcal{X})\hspace{0.08cm}=\hspace{0.08cm} \dfrac{1-p}{p^2}$
+
+
+<br>
+
+## Distribución de Poisson
+
+
+$$\mathcal{X}\sim Poisson(\lambda) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} P(\mathcal{X}=x) \hspace{0.08cm}=\hspace{0.08cm} e^{-\lambda} \cdot \dfrac{\lambda^x}{x!} \cdot \mathbb{I}\hspace{0.08cm}\bigl[ x\in \lbrace 0,1,..,n \rbrace \bigr]$$
+
+
+Donde:  $\hspace{0.08cm}\lambda > 0 \\$
+
+
+### Propiedad
+
+- $E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \lambda$ $\\[0.8cm]$
+
+- $Var[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \lambda$ $\\[0.8cm]$
+
+- Si $\hspace{0.08cm}\mathcal{X}_i \sim Poisson(\lambda_i)\hspace{0.08cm}$  y son independientes , para $\hspace{0.08cm}i =1,...,n\hspace{0.08cm}$ , entonces:
+
+$$\mathcal{X}_1 + ... + \mathcal{X}_n \hspace{0.08cm}\sim\hspace{0.08cm} Poisson(\lambda_1 + ... + \lambda_n)$$
+
+<br>
+
+## Distribución Hipergeommetrica
+
+
+$$\mathcal{X} \sim HiperGeo(N, k, n) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} P(\mathcal{X}=x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.08cm}\binom{k}{n} \cdot \binom{N-k}{n-x}\hspace{0.08cm}}{\binom{N}{n}} \cdot \mathbb{I}\hspace{0.08cm}\bigl[ x\in \lbrace 0,1,..,n \rbrace \bigr]\\$$
+
+
+**Observación:**
+
+- Las v.a. hipergeométrica se usan para modelar experimentos aleatorios que consisten en extrar sin reemplazamiento una muestra de $\hspace{0.08cm}n\hspace{0.08cm}$ elementos de un conjunto con $\hspace{0.08cm}N\hspace{0.08cm}$ elementos, $\hspace{0.08cm}k\hspace{0.08cm}$ de una clase llamada clase-k y $\hspace{0.08cm}N-k\hspace{0.08cm}$ de otra clase. $\\[0.8cm]$
+
+- Si  $\hspace{0.08cm}\mathcal{X} \sim HiperGeo(N, k, n)\hspace{0.08cm}$ , entonces:
+
+    $\mathcal{X}\hspace{0.08cm}$ puede interpretarse como el nº de elementos de la clase-k extraidos del conjunto tras haber extraido una muestra de $\hspace{0.08cm}n\hspace{0.08cm}$ elementos. $\\[0.8cm]$
+
+
+### Propiedades
+
+- $E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} n \dfrac{k}{N}$ $\\[0.8cm]$
+
+- $Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} n\cdot \dfrac{k}{N} \cdot \dfrac{N-k}{N} \cdot \dfrac{N-n}{N-1}$
+
+
+<br>
+
+# Distribuciones de probabilidad continuas
+
+
+
+## Distribución Uniforme Continua
+
+$$\mathcal{X} \sim U(a,b) \hspace{0.3cm}\Leftrightarrow \hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm} =\hspace{0.08cm} \dfrac{1}{b-a} \cdot \mathbb{I}\hspace{0.08cm}\bigl[ x\in (a,b) \bigr] \\$$
+
+
+
+### Propiedades
+
+- $E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{2} \cdot (a + b)$ $\\[0.8cm]$
+
+- $Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{12} \cdot (b-a)^2$ $\\[0.8cm]$
+
+- $F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X} \geq x) \hspace{0.08cm}=\hspace{0.08cm} \int_{-\infty}^{x} f_X(z) \cdot dz \hspace{0.08cm}=\hspace{0.08cm} \left\lbrace\begin{array}{c} 1 , si x\geq b \\ 0 , si x \leq a \\ \dfrac{x-a}{b-a} , si x\in (a,b) \end{array}\right.$
+
+
+<br>
+
+## Distribución Exponencial
+
+
+$$\mathcal{X} \sim Exponencial(\lambda) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}  f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \lambda \cdot e^{-\lambda \cdot x} \cdot \mathbb{I}\bigl[ x>0 \bigr]$$
+
+Donde: $\hspace{0.08cm}\lambda > 0\hspace{0.08cm}\\$
+
+
+### Propiedades
+
+- $E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\lambda}$ $\\[0.8cm]$
+
+- $Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\lambda^2}$ $\\[0.8cm]$
+
+- $F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm}  P(\mathcal{X} \geq x) \hspace{0.08cm}=\hspace{0.08cm} \int_{-\infty}^{x} f_\mathcal{X}(z) \cdot dz \hspace{0.08cm}=\hspace{0.08cm} \left\lbrace\begin{array}{c} 0 , si x \leq 0 \\ 1- e^{-\lambda \cdot x} , si x>0 \end{array}\right.$
+
+
+## Funcion Gamma
+
+$\Gamma\hspace{0.08cm}$ es la función Gamma $\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} \Gamma(\alpha) \hspace{0.08cm}=\hspace{0.08cm} \int_{0}^{\infty} x^{\alpha - 1} \cdot e^{-x} \cdot dx$
+
+Donde: $\hspace{0.08cm}\alpha >0\hspace{0.08cm}\\$
+
+### Propiedades
+
+- $\Gamma(1) \hspace{0.08cm}=\hspace{0.08cm} \Gamma(2) \hspace{0.08cm}=\hspace{0.08cm} 1\hspace{0.08cm}$.
+
+- $\Gamma(\alpha + 1) \hspace{0.08cm}=\hspace{0.08cm} \alpha \cdot \Gamma(\alpha)\hspace{0.08cm}$.
+
+- $\Gamma(\alpha + 1) \hspace{0.08cm}=\hspace{0.08cm} \alpha !\hspace{0.08cm}$ , si $\hspace{0.08cm}\alpha \in \mathbb{N}\hspace{0.08cm}$.
+
+- $\Gamma(\alpha) \hspace{0.08cm}=\hspace{0.08cm} (\alpha -1)!\hspace{0.08cm}$ , si $\hspace{0.08cm}\alpha \in \mathbb{N}\hspace{0.08cm}$.
+
+- $\Gamma(1/2) \hspace{0.08cm}=\hspace{0.08cm} \sqrt{\pi}\hspace{0.08cm}$.
+
+
+<br>
+
+## Distribucion Gamma
+
+$$\mathcal{X}\sim Gamma(\alpha , \lambda ) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\lambda^\alpha}{\Gamma(\alpha )} \cdot x^{\alpha -1} \cdot e^{-\lambda \cdot x} \cdot \mathbb{I}\bigl[ x>0 \bigr]$$
+
+Donde: $\hspace{0.08cm}\alpha, \lambda > 0 \\$
+
+
+### Propiedades
+
+- Si $\hspace{0.08cm}\alpha \in \mathbb{N}\hspace{0.08cm}$ , entonces:
+
+
+    $$f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\lambda^\alpha}{(\alpha -1)!} \cdot x^{\alpha -1} \cdot e^{-\lambda \cdot x} \cdot \mathbb{I}( x>0 )$$ 
+
+- Si $\hspace{0.08cm}\alpha \hspace{0.08cm}=\hspace{0.08cm} 1\hspace{0.08cm}$ , entonces:
+
+    $$f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \lambda \cdot e^{-\lambda \cdot x} \cdot \mathbb{I}(  x>0 )$$
+
+    Por tanto:
+
+    $$Gamma(\alpha = 1 , \lambda) \hspace{0.08cm}=\hspace{0.08cm} Exponencial(\lambda)$$
+
+
+
+- $E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\alpha}{\lambda}$ $\\[0.7cm]$
+
+- $Var(\mathcal{X}) \hspace{0.08cm}= \hspace{0.08cm} \dfrac{\alpha}{\lambda^2}$ $\\[0.7cm]$
+
+ 
+- Si $\hspace{0.08cm}\mathcal{X}_1,...,\mathcal{X}_n \sim Exponencial(\lambda)\hspace{0.08cm}$ y son independientes, entonces:
+
+    $$\mathcal{X}_1+...+\mathcal{X}_n \sim Gamma(n , \lambda)$$
+
+- Si $\hspace{0.08cm}\mathcal{X}\sim Gamma(\alpha , \lambda)\hspace{0.08cm}$ y $\hspace{0.08cm}c>0\hspace{0.08cm}$ , entonces:
+
+    $$c\cdot \mathcal{X}\sim Gamma(\alpha , \lambda / c)$$
+
+- Si $\hspace{0.08cm}\mathcal{X}_1 , ..., \mathcal{X}_n\hspace{0.08cm}$ son independientes y $\hspace{0.08cm}\mathcal{X}_i\sim Gamma(\alpha_i , \lambda)\hspace{0.08cm}$, entonces:
+
+    $$\mathcal{X}_1 +...+ \mathcal{X}_n \sim Gamma(\alpha_1 +...+ \alpha_n , \lambda)$$
+
+
+<br>
+
+
+## Distribucion Normal
+
+
+$$\mathcal{X} \sim N(\mu, \sigma^2) \Leftrightarrow f_\mathcal{X}(x) = \dfrac{1}{\sigma \sqrt{2\pi}} \cdot exp \left( \dfrac{-1}{2} \cdot \dfrac{(x- \mu)^2}{\sigma^2}  \right) \hspace{0.3cm} , \hspace{0.3cm} x\in \mathbb{R}$$
+
+
+Donde: $\hspace{0.08cm}\mu \in \mathbb{R}\hspace{0.08cm}$ y $\hspace{0.08cm}\sigma^2 > 0 \\$
+
+### Propiedades
+
+- $E[\mathcal{X}]\hspace{0.08cm}=\hspace{0.08cm}\mu$ $\\[0.7cm]$
+
+- $Var(\mathcal{X})\hspace{0.08cm}=\hspace{0.08cm}\sigma^2$ $\\[0.7cm]$
+
+- $\mathcal{X}\cdot a \sim N(\mu \cdot a , a^2 \cdot \sigma^2)$ $\\[0.7cm]$
+
+- $\mathcal{X}\cdot b + a \sim N( b\cdot \mu + a , b^2 \cdot \sigma^2)$ $\\[0.7cm]$
+
+- Si $\hspace{0.08cm}\mathcal{X}_i \sim N(\mu_i , \sigma_i^2)\hspace{0.08cm}$ , para $\hspace{0.08cm}i =1,...,n\hspace{0.08cm}$ , entonces:
+
+    $$\mathcal{X}_1 + ...+ \mathcal{X}_n \sim N(\mu_1 +...+ \mu_n , \sigma_1^2 + ...+ \sigma_n^2)$$
+
+- Si $\hspace{0.08cm}\mathcal{X}_i \sim N(\mu_i , \sigma_i^2)\hspace{0.08cm}$ , para $\hspace{0.08cm}i =1,...,n\hspace{0.08cm}$ , entonces:
+
+    $$a_1\cdot \mathcal{X}_1 + ...+ a_n \cdot \mathcal{X}_n \sim N(a_1 \cdot \mu_1 +...+ a_n \cdot \mu_n , a_1^2 \cdot \sigma_1^2 + ...+ a_n^2 \cdot \sigma_n^2)$$
+
+
+<br>
+
+## Funcion Beta
+
+$$B(a,b) \hspace{0.08cm}=\hspace{0.08cm} \int_0^1 x^{a-1} \cdot (1-x)^{b-1} \cdot dx$$
+
+Donde: $\hspace{0.08cm}a, b >0 \\$
+
+
+### Propiedades
+
+- $B(a,b) \hspace{0.08cm}=\hspace{0.08cm} B(b,a)$ $\\[0.7cm]$
+
+- $B(a,1) \hspace{0.08cm}=\hspace{0.08cm} 1/a$ $\\[0.7cm]$
+
+- $B(a+1, b) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{a}{a+b} \cdot B(a,b)$ $\\[0.7cm]$
+
+- $B(a,b) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\Gamma(a) \cdot \Gamma(b)}{\Gamma(a+b)}$ $\\[0.7cm]$
+
+
+
+## Distribucion Beta
+
+$$\mathcal{X}\sim Beta(a,b) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{B(a,b)} \cdot x^{a-1} \cdot (1-x)^{b-1} \cdot \mathbb{I}( \hspace{0.05cm} x \in (0,1) \hspace{0.05cm} )$$
+
+
+Donde: $\hspace{0.08cm}a, b >0 \\$
+
+
+### Propiedades
+
+- $E[\mathcal{X}]\hspace{0.08cm}=\hspace{0.08cm}\dfrac{a}{a+b}$ $\\[0.7cm]$
+
+- $Var(\mathcal{X})\hspace{0.08cm} =\hspace{0.08cm} \dfrac{a\cdot b}{(a + b +1)(a+b)^2}$ $\\[0.7cm]$
+
+- Si $\hspace{0.08cm}\mathcal{X}\sim Gamma(a, \lambda)\hspace{0.08cm}$ y $\hspace{0.08cm}\mathcal{Y}\sim Gamma(b,\lambda)\hspace{0.08cm}$ , entonces:
+
+    $$\dfrac{\mathcal{X}}{\mathcal{X}+\mathcal{Y}} \sim Beta(a,b)$$
+
+
+<br>
+
+
+## Distribucion Weibull
+
+
+$$\mathcal{X}\sim Weibull(\alpha , \lambda) \Leftrightarrow f_\mathcal{X}(x)= \lambda\cdot \alpha (\lambda \cdot x)^{\alpha - 1} \cdot e^{-(\lambda \cdot x)^\alpha} \cdot \mathbb{I}\bigl[ x > 0 \bigr]$$
+
+Donde: $\hspace{0.08cm}\alpha , \lambda >0 \\$
+
+
+### Propiedades
+
+- $E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\lambda} \Gamma(1 + \dfrac{1}{\alpha})$ $\\[0.7cm]$
+
+- $Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\lambda^2} \left( \Gamma(1 + \dfrac{2}{\alpha}) - \Gamma(1+ \dfrac{1}{\alpha}) \right)$ $\\[0.7cm]$
+
+- $$F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} (1 - e^{-(\lambda \cdot x)^\alpha}) \cdot \mathbb{I}( x>0 )$$
+
+
+<br>
+
+## Distribucion Chi-cuadrado
+
+$$\mathcal{X} \sim \chi_n ^2 \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\Gamma(n/2)} \cdot \dfrac{1}{2}^{n/2} \cdot x ^{n/2 -1} \cdot e^{-x/2} \hspace{0.3cm} , \hspace{0.3cm} x\in \mathbb{R}$$
+
+
+### Propiedades
+
+- $E[\chi_n ^2] \hspace{0.08cm}=\hspace{0.08cm} n$ $\\[0.7cm]$
+
+- $Var(\chi_n ^2) \hspace{0.08cm}=\hspace{0.08cm} 2n$ $\\[0.7cm]$
+
+- $\chi_n ^2 + \chi_m ^2 \hspace{0.08cm}=\hspace{0.08cm} \chi_{n+m} ^2$ $\\[0.7cm]$
+
+- $\chi_n ^2 - \chi_m ^2 \hspace{0.08cm}=\hspace{0.08cm} \chi_{n-m} ^2$ $\\[0.7cm]$
+
+- $\chi_n ^2 \hspace{0.08cm}=\hspace{0.08cm} Gamma( \alpha= n/2 , \lambda=1/2)$ $\\[0.7cm]$
+
+- Si $\hspace{0.08cm}\mathcal{X}_1 ,..., \mathcal{X}_n \sim N(0,1)\hspace{0.08cm}$ y son independientes , entonces:
+
+    $$\mathcal{X}_1^2 + ... + \mathcal{X}_n^2 \sim \chi_n^2$$
+
+<br>
+
+## Distribucion t-student
+
+$$\mathcal{X}\sim t_n \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\Gamma(\dfrac{n+1}{2})}{\sqrt{n\cdot \pi} \cdot \Gamma(n/2)} \cdot (1 + \dfrac{x^2}{n})^{-1/2 \cdot (n+1)} \cdot \mathbb{I}(\hspace{0.03cm} x\in \mathbb{R}\hspace{0.03cm} )$$
+
+
+### Propiedades 
+
+- $E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} 0\hspace{0.08cm}$. $\\[0.7cm]$
+
+- $Var[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{n}{n-2}\hspace{0.08cm}$ , si $\hspace{0.08cm}n>2\hspace{0.08cm}$. $\\[0.7cm]$
+
+- Si $\hspace{0.08cm}Z \sim N(0,1)\hspace{0.08cm}$ y $\hspace{0.08cm}X\sim \chi_n^2\hspace{0.08cm}$ y son independientes , entonces:
+
+    $$\dfrac{Z}{\sqrt{X/n}} \sim t_n$$
+
+
+<br>
+
+
+## Distribucion F-Fisher
+
+$$\mathcal{X}\sim F(a,b) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\Gamma(\dfrac{a+b}{2})}{\Gamma(a/2)\cdot \Gamma(b/2)} \cdot (a/b)^{a/2} \cdot x^{a/2-1} \cdot (1 + (a/b)\cdot x)^{-(a+b)/2} \cdot \mathbb{I}( x>0 ) \\$$
+
+
+### Propiedades
+
+- $E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{b}{b-2}\hspace{0.08cm}$. $\\[0.7cm]$
+
+- $Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{2b^2 \cdot (a + b - 2)}{a \cdot (b-2)^2 \cdot (b-4)}\hspace{0.08cm}$ , si $\hspace{0.08cm}b>4\hspace{0.08cm}$. $\\[0.7cm]$
+
+- Si $\hspace{0.08cm}\mathcal{X} \sim \chi^2_a\hspace{0.08cm}$ y $\hspace{0.08cm}\mathcal{Y} \sim \chi^2_b\hspace{0.08cm}$ , entonces:
+
+    $$\dfrac{\mathcal{X}/a}{\mathcal{Y}/b} \sim F(a,b)$$
+
+
+<br>
+
+
+
+# Probabilidad conjunta de variables aleatorias discretas
+
+Sean $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ y $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ variables aleatorias discretas.
+
+$$P(\mathcal{X}=x , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}= x \cap \mathcal{Y}=y) \\$$
+
+
+
+
+## Propiedades
+
+
+- $\sum_{x\in \mathbb{R}}\sum_{y\in \mathbb{R}} P(X=x , Y=y) = 1$
+
+- Si $x\notin Im(X)$ o $y \notin Im(Y)$ , entonces:
+
+    $$P(X=x , Y=y) = 0$$
+
+- $P(X\in A , Y\in B) = \sum_{x\in A} \sum_{y\in B} P(X=x , Y=y)$
+
+- $P(X\in A , Y=y) = \sum_{x\in A} P(X=x , Y=y)$
+
+- $P(X=x) = \sum_{y\in \mathbb{R}} P(X=x , Y=y)$
+
+- $P(Y=y) = \sum_{x\in \mathbb{R}} P(X=x , Y=y)$
+
+
+<br>
+
+# Densidad conjunta de variables aleatorias continuas
+
+$$f_{X,Y}$$ es la función de densidad conjunta de las v.a. $X$ y $Y$ $\Leftrightarrow$
+
+
+- $f_{X,Y} : \mathbb{R}^2 \rightarrow (0 , \infty)$
+
+- $P( X \in A , Y \in B) = \int_{x\in A} \int_{y\in B} f_{X,Y}(x,y) \cdot dy \cdot dx$
+
+
+- $\int_{x\in \mathbb{R}} \int_{y\in \mathbb{R}}   f_{X,Y}(x,y) \cdot dy \cdot dx = 1$
+
+
+
+## Propiedades
+
+- $P(X\in A , Y=y) = \int_{x\in A} f_{X,Y}(x , y)\cdot dx$
+
+- $P(X=x , Y\in B) = \int_{y\in B} f_{X,Y}(x , y) \cdot dy$
+
+- $f_X(x) = \int_{y\in \mathbb{R}} f_{X,Y}(x , y) \cdot dy$
+
+- $f_Y(y) = \int_{x\in \mathbb{R}} f_{X,Y}(x , y) \cdot dx$
+
+
+<br>
+
+
+# Probabilidad condicionada de variables aleatorias discretas
 
 $$P(X=x | Y=y) = \dfrac{P(X=x , Y=y)}{P(Y=y)}$$
 
-### Propiedades
 
-1) $P(X\in A | Y=y) = \sum_{x\in A} P(X=x | Y=y)$
+## Propiedades
+
+- $P(X\in A | Y=y) = \sum_{x\in A} P(X=x | Y=y)$
 
 
-## Densidad condicionada de variables aleatorias continuas
+<br>
+
+# Densidad condicionada de variables aleatorias continuas
 
 $$f_{X|Y}(x,y) = \dfrac{f_{X,Y}(x,y)}{f_Y(y)}$$
 
-### Propiedades
 
-1) Si $Y$ es una v.a. continua , entonces:
+## Propiedades
+
+- Si $Y$ es una v.a. continua , entonces:
 
 $P(Y=y) = 0$ , para todo $y\in \mathbb{R}$
 
@@ -1327,7 +1369,7 @@ Por lo que $P(X\in A | Y=y)$ no está definido, ya que:
 $P(X\in A | Y=y) = \dfrac{P(X=x , Y=y)}{P(Y=y)} = \dfrac{P(X=x , Y=y)}{ 0}$
 
 
-2) Teniendo en consideración el problema anterior, se esquiva del siguiente modo:
+- Teniendo en consideración el problema anterior, se esquiva del siguiente modo:
 
 Sea $\delta \rightarrow 0^+$
 
@@ -1337,9 +1379,7 @@ $$P(X\in A | Y \in [y , y+ \delta]) = \dfrac{P(X\in A , Y\in [y , y+ \delta])}{P
 Donde ahora $P(Y\in [y , y+ \delta]) > 0$ 
 
 
-3) 
-
-$$P(X\in A | Y \in [y , y+ \delta]) = \int_{x\in A} \int_{y \in [y , y+ \delta]} f_{X|Y}(x,y) = \int_{x\in A} \int_{y \in [y , y+ \delta]} \dfrac{f_{X,Y}(x,y)}{f_Y(y)} \approx \int_{x\in A}   f_{X|Y}(x,y) = \int_{x\in A}   \dfrac{f_{X,Y}(x,y)}{f_Y(y)} = \dfrac{1}{f_Y(y)} \cdot \int_{x\in A}   f_{X,Y}(x,y)$$
+- $P(X\in A | Y \in [y , y+ \delta]) = \int_{x\in A} \int_{y \in [y , y+ \delta]} f_{X|Y}(x,y) = \int_{x\in A} \int_{y \in [y , y+ \delta]} \dfrac{f_{X,Y}(x,y)}{f_Y(y)} \approx \int_{x\in A}   f_{X|Y}(x,y) = \int_{x\in A}   \dfrac{f_{X,Y}(x,y)}{f_Y(y)} = \dfrac{1}{f_Y(y)} \cdot \int_{x\in A}   f_{X,Y}(x,y)$
 
 
 En resumen:
@@ -1348,13 +1388,14 @@ En resumen:
 $$P(X\in A | Y \in [y , y+ \delta]) \approx \int_{x\in A}   f_{X|Y}(x,y)$$
 
 
+<br>
 
-## Independencia de variables aleatorias discretas
+# Independencia de variables aleatorias discretas
 
 $X$ e $Y$ son v.a. independientes  $(X \perp Y)$ $\Leftrightarrow$ $P(X=x , Y=y) = P(X=x)\cdot P(Y=y) , \for x,y \in \mathbb{R}$
 
 
-### Teorema de Factorización para v.a. discretas
+## Teorema de Factorización para v.a. discretas
 
 
 Sean $X$ e $Y$ v.a. discretas, 
@@ -1369,12 +1410,12 @@ $X$ e $Y$ son independientes  $(X \perp Y)$
 
 
 
+<br>
 
 
 
 
-
-## Independencia de variables aleatorias continuas
+# Independencia de variables aleatorias continuas
 
 
 $X$ e $Y$ son v.a. independientes  $(X \perp Y)$ $\Leftrightarrow$ $P(X=x , Y=y) = P(X=x)\cdot P(Y=y) , \for x,y \in \mathbb{R}$  $\Leftrightarrow$
@@ -1386,16 +1427,16 @@ $\Leftrightarrow$
 
 $\for A,B \subset \mathbb{R} , \int_{x\in A} \int_{y \in B} f_{X,Y}(x,y) \cdot dy \cdot dx = \int_{x\in A}  f_{X}(x)  \cdot dx \int_{y \in B} f_{Y}(y) \cdot dy$
 
+<br>
 
-
-### Teorema de Factorización para v.a. continuas  
+## Teorema de Factorización para v.a. continuas  
 
 Sean $X$ e $Y$ v.a. continuas,  
 
 $X$ e $Y$ son v.a. independientes $(X \perp Y)$ $\Leftrightarrow$  $f_{X,Y}(x,y) = f_X(x) \cdot f_Y(y) , \forall x,y \in \mathbb{R}$
 
 
-#### Colorario
+### Colorario
 
 Si $\exist g,h: \mathbb{R} \rightarrow \mathbb{R}$  , tal que:
 
@@ -1406,18 +1447,18 @@ entonces:
 $X$ e $Y$ son independientes
 
 
+<br>
 
-
-## Independencia (dos a dos) de múltiples v.a. 
+# Independencia (dos a dos) de múltiples v.a. 
 
 
 
 $X_1,...,X_n$ son independientes (dos a dos) $Leftrightarrow$ $X_i \perp X_j , \forall i\neq j = 1,...,n$
 
 
+<br>
 
-
-## Teorema de Bayes para variables aleatorias 
+# Teorema de Bayes para variables aleatorias 
 
 - Si $X$ e $Y$ son discretas:
 
@@ -1430,7 +1471,9 @@ $$P(X=x | Y=y) = \dfrac{P(Y=y | X=x) \cdot P(X=x)}{P(Y=y)}$$
 $$f_{X|Y}(x,y) =  = \dfrac{f{Y|X}(x, y) \cdot f_X(x)}{f_Y(y)}$$
 
 
-## Formula de transferencia para funciones de varias v.a.
+<br>
+
+# Formula de transferencia para funciones de varias v.a.
 
 Sea $g: \mathbb{R}^2 \rightarrow \mathbb{R}$
 
@@ -1445,8 +1488,9 @@ $$E[g(X,Y)] = \sum_{x\in \mathbb{R}} \sum_{y\in \mathbb{R}} g(x,y) \cdot P(X=x ,
 $$E[g(X,Y)] = \int_{x\in \mathbb{R}} \int_{y\in \mathbb{R}} g(x,y) \cdot f_{X,Y}(x , y) \dcor dy \cdot dx$$
 
 
+<br>
 
-## Esperanza Condicionada
+# Esperanza Condicionada
 
 Si $X$ es v.a. discreta :
 
@@ -1457,7 +1501,9 @@ Si $Y$ es v.a. continua :
 $$E[ X | Y=y] = \int_{x\in \mathbb{R}} x \cdot P(X=x | Y=y) \cdot dx$$
 
 
-## Esperanza total 
+<br>
+
+# Ley de la Esperanza total 
 
 Si $Y$ es una v.a. discreta:
 
@@ -1469,277 +1515,25 @@ Si $Y$ es v.a. continua :
 $$E[X] = \int_{y\in \mathbb{R} } E[X / Y=y] \cdot f_Y(y) \cdot dy$$
 
 
-
-
-
-
-
-
 <br>
 
 
-<br>
+# Terorema de la probabilidad total con variables aleatorias
 
 
-En los años 30 del siglo pasado, Kolmogorov formaliza los axiomas de la
-probabilidad matemática, los cuales son: 
 
-- $P\left ( S \right )\geq 0$ , para cualquier suceso $S$. 
 
 
-- $P\left ( \Omega \right )= 1$
 
-- Si
-$S_{1},S_{2},...,S_{n}$ son incompatibles entonces:
 
-$$P\left ( S_{1}\cup S_{2}\cup ...,S_{n} \right )= \sum_{i=1}^{n}P\left ( S_{i} \right )$$
 
-Este último axioma implica que bajo muestreo al azar, la probabilidad de
-un suceso es proporcional al número de sucesos elementales que contiene.
 
 
-<br>
 
-## Independencia
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
- 
-<p style='margin-left:1em;'>
 
-Dos sucesos A y B son estadísticamente independientes si:
-$$P\left ( A\cap B \right )=P\left ( A \right )P\left ( B \right )$$
 
-</p>
- 
-</p></span>
-</div>
 
 
-<br>
 
-## Probabilidad Condicionada
-
-Si $P\left ( B \right )> 0$, la probabilidad de un suceso B dado A es:
-$$P\left ( A|B \right )=\frac{P\left ( A\cap B \right )}{P\left ( B \right )}$$.
-
-
-<br>
-
-##  Interpretando la Independencia Estadística
-
-Utilizando la definición de la probabilidad condicionada, si A y B son
-independientes, entonces:
-$$P\left ( A|B \right )=\frac{P\left ( A \right )P\left ( B \right )}{P\left ( B \right )}=P\left ( A \right )$$
-Luego si se sabe que B ha ocurrido, la probabilidad de A es invariante.
-
-<br>
-
-##  Ley de la Multipiclación
-
-Reordenando la fórmula para la probabilidad condicionada, se tiene:
-$$P\left ( A\cap B \right )=P\left ( B|A \right )P\left ( A \right )=P\left ( A|B \right )P\left ( B \right )$$
-
-<br>
-
-## Ley de la Probabilidad Total
-
-Para dos sucesos A y B,
-$$P\left ( A \right )=P\left ( A|B \right )P\left ( B \right )+P\left ( A|\bar{B} \right )P\left ( \bar{B} \right )$$.
-
-
-<br>
-
-##  Extendiendo la Ley de la Probabilidad Total
-
-De manera más general, si $B_{1},...,B_{k}$ forman una partición,
-entonces:
-$$P\left ( A \right )= \sum_{j=1}^{k}P\left ( A|B_{j} \right )P\left ( B_{j} \right )$$
-
-Con estos resultados, llegamos al teorema sobre el que se fundamenta la
-estadística bayesiana.
-
-
-
-
-<br>
-
-## Teorema de Bayes
-
-Para dos sucesos A, B, tal que $P\left ( A \right )>0$, se tiene:
-$$P\left ( B|A \right )=\frac{P\left ( B \right )P\left ( A|B \right )}{P\left ( A \right )}$$.
-
-Dicho esto, ahora vamos a repasar los conceptos de variables
-estadísticas, distribuciones conjuntas, marginales y condicionales.
-
-
-<br>
-
-## Variables Aleatorias
-
-Siendo bastante simplistas, y haciendo una definición corta, pero más
-que suficiente, podemos decir que una variable aleatoria es una función
-que ascribe un valor (numérico) al resultado de un experimento. Las
-variables aleatorias que son numéricas las podemos dividir en dos
-grupos: 
-
-- Discretas: Una definición de variable aleatoria discreta sin
-entrar en profundidad y en conceptos matemáticos complejos, es aquella
-que sólo puede tomar valores enteros; aunque en algunas ocasiones
-también pueden ser decimales siempre y cuando estén dentro de un rango
-concreto. Por ejemplo, el número de hijos o hermanos de una familia, el
-número obtenido de lanzar un dado... $\\[0.35cm]$
-
-- Continuas: Una variable aleatoria
-continua es aquella que puede tomar cualquier valor entre dos fijados y
-los valores de la variable (al menos teóricamente) no se repiten.
-Ejemplos de variable aleatoria continua son: la estatura, el peso, el
-nivel de colesterol en sangre, el tiempo observado al recorrer una
-distancia...
-
-<br>
-
-### Variables Aleatorias Discretas
-
-Para una variable discreta, $\mathbf{X}$, tomando valores
-$x_{1},x_{2},...$ se definen: 
-
-- La función de probabilidad o masa
-$P\left ( \mathbf{X}=x \right )$ tal que $\sum_{i}P\left (\mathbf{X}=x{i} \right )=1$ 
-
-- La función de distribución
-$\mathbf{F_{X}}\left ( x \right )$ tal que:
-$$\mathbf{F_{X}}\left ( x \right )=P\left ( \mathbf{X}\leq x \right )=\sum_{x_{i}<x}P\left ( \mathbf{X}=x_{i} \right)$$ 
-
-- Los momentos:
-$E\left [ g(\mathbf{x}) \right ]=\sum_{i}g(x_{i})P\left ( \mathbf{X}=x_{i} \right )$
-
-Ejemplo: la distribución de Poisson.
-
-Una variable discreta, $\mathbf{X}$,
-sigue una distribución de Poisson con parámetro $\lambda > 0$ si:
-$$P\left ( \mathbf{X}=x \right )=\frac{\lambda^{x}e^{-\lambda}}{x!}$$
-para x = 0,1,2,... Se tiene que $E[\mathbf{X}]=V[\mathbf{X}]=\lambda$
-
-
-
-<br>
-
-
-### Variables Aleatorias Continuas
-
-Para una variable aleatoria continua, $\mathbf{Y}$, tomando valores x
-$\in$ $\Re$, se tiene que: 
-
-- La función de distribución
-$\mathbf{F_{Y}}\left ( y \right )$ tal que:
-$$\mathbf{F_{Y}}\left ( y \right )=P\left ( \mathbf{Y}\leq y \right )$$ 
-
-- La función de densidad
-$\mathbf{f_{Y}}\left ( y \right )=\frac{dF\left ( y \right )}{dy}$ tal
-que:
-$$\int_{-\infty}^{y} \mathbf{f_{Y}}\left ( y \right )dy=\mathbf{F_{Y}}\left ( y \right )$$ 
-
-- Los momentos:
-$E\left [ g(\mathbf{Y}) \right ]=\int_{-\infty}^{\infty}g(y)\mathbf{f_{Y}}\left ( y \right )$
-
-Ejemplo: la distribución Gamma.
-
-Una variable continua, $\mathbf{Y}$ sigue
-una distribución gamma con parámetros $\alpha$,$\beta$\>0 si:
-$$\mathbf{f_{Y}}\left ( y \right )=\frac{\beta^{\alpha}}{\Gamma\left ( \alpha \right )}y^{\alpha-1}e^{-\beta y}$$
-para y \> 0 donde $\Gamma(\cdot)$ es la función gamma:
-$$\Gamma\left ( \alpha \right )=\int_{0}^{\infty}u^{\alpha-1}e^{-u}du$$
-$\Gamma\left ( \alpha+1 \right )=\alpha\Gamma\left ( \alpha \right )$ y
-$\Gamma\left ( \alpha \right )=\left ( \alpha-1! \right )$ si $\alpha$
-es un número entero. $$E[\mathbf{Y}]=\frac{\alpha}{\beta}$$
-$$V[\mathbf{Y}]=\frac{\alpha}{\beta^{2}}$$
-
-<br>
-
-
-## Distribuciones Conjuntas
-
-Para dos o más variables discretas, la distribución conjunta es la
-función $P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )$ tal que:
-$$\sum_{x}\sum_{y}P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )=1 $$
-$$\sum_{x}P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )=P\left ( \mathbf{Y}=y \right )$$
-la distribución marginal de Y,
-$$\sum_{y}P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )=P\left ( \mathbf{X}=x \right )$$
-la distribución marginal de X.
-
-Para el caso de variables continuas, sustituimos sus respectivos
-sumatorios por integrales.
-
-<br>
-
-## Distribucuines Condicionales
-
-La distribución condicional de una variable (discreta) $\mathbf{X}$ dada
-otra variable (discreta) $\mathbf{Y}$ es:
-$$P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )=\frac{P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )}{P\left ( \mathbf{Y}=y \right )}$$
-suponiendo que $P\left ( \mathbf{Y}=y \right ) > 0$. La esperanza
-condicional de una función $g\left (x,y \right )$ es:
-$$E[g\left (x,y  \right )|Y=y]=\sum_{x}g\left (x,y  \right )P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )$$
-
-
-<br>
-
-##  Media y Varianza Marginal
-
-Supongamos que queremos calcular $E[\mathbf{X}]$ y $V[\mathbf{X}]$.
-Suena complicado porqué en principio, tendríamos que evaluar la
-distribución marginal de X primero o computar a través de la
-distribución conjunta. Por ejemplo:
-$$E[\mathbf{X}]=\sum_{x} \int_{-\infty}^{\infty}x\mathbf{f_{x,y}}\left ( x,y \right )dy $$
-¿Existe una manera más fácil de hacer el cálculo? Pues afortunadamente
-sí, se puede calcular con la ley de las esperanzas iteradas.
-
-
-<br>
-
-## Ley de las Esperanzas Iteradas
-
-Para dos variables $\mathbf{X}$ e $\mathbf{Y}$, la ley de las esperanzas
-iteradas dice que: $$E[\mathbf{X}]=E[E[\mathbf{X|Y}]]$$ Existe otra
-descomposición semejante para la varianza:
-$$V[X]=E[V[\mathbf{X|Y}]]+V[E[\mathbf{X|Y}]]$$.
-
-
-<br>
-
-## Ley de la Probabilidad Total para Variables Aleatorias
-
-Tenemos que:
-
-$$P\left ( \mathbf{X}=x \right )=\sum_{y}P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )P\left ( \mathbf{Y}=y \right )$$
-si $\mathbf{Y}$ es discreta,
-$$P\left ( \mathbf{X}=x \right )=\int_{-\infty}^{\infty}P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\mathbf{f_{Y}}\left ( y \right )dx$$
-si $\mathbf{Y}$ es continua.
-
-Este segundo caso suele ser más interesante en la mayoría de las
-ocasiones.
-
-<br>
-
-## Terorema de Bayes para Variables Aleatorias
-
-Tenemos que:
-
-$$P\left ( \mathbf{Y}=y|\mathbf{X}=x \right )=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )P\left ( \mathbf{Y}=y \right )}{P\left ( \mathbf{X}=x \right )}=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )P\left ( \mathbf{Y}=y \right )}{\sum_{i}P\left ( \mathbf{X}=x|\mathbf{Y}=y_{i} \right )P\left ( \mathbf{Y}=y_{i} \right )}$$
-en el caso de variables discretas.
-$$\mathbf{f}_{x|y}\left ( y|\mathbf{X}=x \right )=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\mathbf{f}_y\left ( \mathbf{Y}=y \right )}{P\left ( \mathbf{X}=x \right )}=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\mathbf{f}_y\left ( \mathbf{Y}=y \right )}{\int_{-\infty}^{\infty}P\left ( \mathbf{X}=x|\mathbf{Y}=y_{i} \right )\mathbf{f}_{y}\left ( y \right )}dy$$
-en caso de variables continuas.
-
-Con esto, hemos terminado el repaso de conceptos probabilísticos
-necesarios para entender posteriormente los fundamentos bayesianos.
-
-Tras esto, es lógico pensar, ¡por Dios!, que me hablen ya de inferencia
-bayesiana, pero sentimos decirte que por el momento tendrás que seguir
-esperando, puesto que, como hemos dicho al principio de este artículo,
-el objetivo es presentar las principales diferencias entre ambos
-enfoques, y no hacemos nada si no presentamos antes los conceptos en el
-enfoque clásico o frecuentista. Si crees que esto no te va a servir,
-pasa directamente a la parte de inferencia bayesiana, pero si luego no
-entiendes nada, no digas que no te lo advertimos.
 

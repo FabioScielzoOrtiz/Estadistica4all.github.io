@@ -487,7 +487,7 @@ $n+1)$ $P(A_1 \cap A_2 \cap ... \cap A_n)=P(A_1)\cdot P(A_2)\cdot ... \cdot P(A_
 $\sigma (\Omega)$ es un sigma-algebra de $\Omega$ $\Leftrightarrow$
 
 
-1) $\sigma (\Omega)$ = \lbrace A / A\subset \Omega\rbrace 
+1) $\sigma (\Omega) = \lbrace A / A\subset \Omega\rbrace$ 
 
 Es decir: $\sigma (\Omega)$ es un conjunto de subconjuntos de $\Omega$
 
