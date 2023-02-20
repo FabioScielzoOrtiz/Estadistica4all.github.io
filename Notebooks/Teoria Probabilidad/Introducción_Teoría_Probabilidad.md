@@ -1399,15 +1399,13 @@ $\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son v
 <br>
 
 
-## Teorema de Factorización para v.a. discretas
+## Teorema de Factorización para Variables Aleatorias Discretas
 
 
 Sean $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ v.a. discretas, 
 
-Si $\hspace{0.08cm}\exists \hspace{0.1cm} h,g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R} \rightarrow \mathbb{R}\hspace{0.1cm}$  , tal que:
-
-$$P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} g(x)\cdot h(y) \hspace{0.3cm},\hspace{0.3cm} \forall x,y \in \mathbb{R}$$
-
+Si $\hspace{0.12cm}\exists \hspace{0.1cm} h,g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R} \rightarrow \mathbb{R}\hspace{0.12cm}$  , tal que:
+$\hspace{0.15cm} \forall \hspace{0.08cm} x,y \in \mathbb{R} \hspace{0.15cm},\hspace{0.15cm}  P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} g(x)\cdot h(y)  \hspace{0.2cm},$
 entonces: $\hspace{0.12cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son independientes  $\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})\hspace{0.08cm}$ .
 
 
@@ -1422,9 +1420,9 @@ entonces: $\hspace{0.12cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal
 
 $\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son v.a. independientes  $\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})\hspace{0.1cm}$ , si y solo si:
 
-$$P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}=x)\cdot P(\mathcal{Y}=y) \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} x,y \in \mathbb{R}$$
 
-$$\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}P(\mathcal{X}\in A \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}\in A)\cdot P(\mathcal{Y}\in B) \hspace{0.3cm} ,\hspace{0.3cm} \forall \hspace{0.08cm} A,B \subset \mathbb{R} \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$$
+
+$$P(\mathcal{X}\in A \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}\in A)\cdot P(\mathcal{Y}\in B) \hspace{0.3cm} ,\hspace{0.3cm} \forall \hspace{0.08cm} A,B \subset \mathbb{R} \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$$
 
 $$\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}\forall \hspace{0.08cm} A,B \subset \mathbb{R} \hspace{0.2cm},\hspace{0.2cm} \int_{x\in A} \int_{y \in B} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y) \cdot dy \cdot dx \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \hspace{0.08cm} f_{\mathcal{X}}(x)  \cdot dx \cdot \int_{y \in B} f_{\mathcal{Y}}(y) \cdot dy$$
 
@@ -1434,16 +1432,13 @@ $$\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}\forall \hspace{0.08cm} A,B \subset
 
 Sean $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ v.a. continuas,  
 
-$\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son v.a. independientes $\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})$ $\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$  $f_{\mathcal{X},\mathcal{Y}}(x,y) = f_X(x) \cdot f_\mathcal{Y}(y) \hspace{0.2cm},\hspace{0.2cm} \forall \hspace{0.08cm} x,y \in \mathbb{R}$
+$\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son v.a. independientes $\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})$ $\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$  $f_{\mathcal{X},\mathcal{Y}}(x,y) = f_X(x) \cdot f_\mathcal{Y}(y) \hspace{0.2cm},\hspace{0.2cm} \forall \hspace{0.08cm} x,y \in \mathbb{R} \\$
 
 
 ### Colorario
 
-Si $\hspace{0.1cm}\exists\hspace{0.1cm} h,g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R} \rightarrow \mathbb{R}\hspace{0.08cm}$  , tal que:
-
-$f_{\mathcal{X},\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm} g(x)\cdot h(y) \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.08cm} x,y \in \mathbb{R}$
-
-entonces: $\hspace{0.12cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son independientes.
+Si $\hspace{0.1cm}\exists\hspace{0.1cm} h,g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R} \rightarrow \mathbb{R}\hspace{0.08cm}$  , tal que: $\hspace{0.15cm} \forall \hspace{0.08cm} x,y \in \mathbb{R} \hspace{0.15cm},\hspace{0.15cm} f_{\mathcal{X},\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm} g(x)\cdot h(y) \hspace{0.2cm},$
+entonces: $\hspace{0.12cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son **independientes**.
 
 
 <br>
@@ -1462,7 +1457,7 @@ $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son independientes (dos a dos) 
 - Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son discretas:
 
 
-    $$P(\mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{P(\mathcal{Y}=y \hspace{0.08cm} | \hspace{0.08cm} \mathcal{X}=x) \cdot  P(\mathcal{X}=x)}{P(\mathcal{Y}=y)}$$
+    $$P(\mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{P(\mathcal{Y}=y \hspace{0.08cm} | \hspace{0.08cm} \mathcal{X}=x) \cdot  P(\mathcal{X}=x)}{P(\mathcal{Y}=y)}\\$$
 
 
 - Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son continuas:
@@ -1482,7 +1477,7 @@ Sea $\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R}^2 \rightarrow \
 - Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son discretas:
 
 
-    $$E[g(\mathcal{X},\mathcal{Y})] \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} \hspace{0.08cm}\sum_{y\in \mathbb{R}}\hspace{0.08cm} g(x,y) \cdot P(\mathcal{X}=x , \mathcal{Y}=y)$$
+    $$E[g(\mathcal{X},\mathcal{Y})] \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} \hspace{0.08cm}\sum_{y\in \mathbb{R}}\hspace{0.08cm} g(x,y) \cdot P(\mathcal{X}=x , \mathcal{Y}=y)\\$$
 
 
 - Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son continuas:
@@ -1496,31 +1491,120 @@ Sea $\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R}^2 \rightarrow \
 
 - Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es v.a. discreta :
 
-    $$E[\mathcal{X} | \mathcal{Y}=y] \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} x \cdot P(\mathcal{X}=x | \mathcal{Y}=y)$$
+    $$E\left[\mathcal{X} | \mathcal{Y}=y \right] \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} \hspace{0.08cm} x \cdot P(\mathcal{X}=x | \mathcal{Y}=y)\\$$
 
-- Si $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ es v.a. continua :
+- Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es v.a. continua :
 
-    $$E[ \mathcal{X} | \mathcal{Y}=y] \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in \mathbb{R}} x \cdot P(\mathcal{X}=x | \mathcal{Y}=y) \cdot dx$$
+    $$E\left[ \mathcal{X}\hspace{0.08cm} | \hspace{0.08cm}\mathcal{Y}=y \right] \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in \mathbb{R}} x \cdot f_{\mathcal{X} | \mathcal{Y}}(x,y)  \cdot dx$$
 
 
 <br>
 
-# Ley de la Esperanza total 
+# Teorema de la Esperanza total 
 
 - Si $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ es una v.a. discreta:
 
-    $$E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \sum_{y\in \mathbb{R} } E[\mathcal{X} \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y] \cdot P(\mathcal{Y}=y)$$
+    $$E\left[\mathcal{X}\right] \hspace{0.08cm}=\hspace{0.08cm} \sum_{y\in \mathbb{R} } E\left[\mathcal{X} \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y\right] \cdot P(\mathcal{Y}=y) \\$$
 
 
 - Si $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ es v.a. continua :
 
-    $$E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \int_{y\in \mathbb{R} } E[\mathcal{X} \hspace{0.08cm} | \hspace{0.08cm} \mathcal{Y}=y] \cdot f_\mathcal{Y}(y) \cdot dy$$
+    $$E\left[\mathcal{X}\right] \hspace{0.08cm}=\hspace{0.08cm} \int_{y\in \mathbb{R} } E\left[\mathcal{X} \hspace{0.08cm} | \hspace{0.08cm} \mathcal{Y}=y\right] \cdot f_\mathcal{Y}(y) \cdot dy$$
 
 
 <br>
 
 
-# Terorema de la probabilidad total con variables aleatorias
+# Terorema de la Probabilidad Total con Variables Aleatorias
+
+- Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es una v.a. discreta: $\\[0.25cm]$
+
+
+    - Si $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ es una v.a. discreta:
+
+
+    $$P\left ( \mathcal{X}=x \right ) \hspace{0.08cm}= \hspace{0.08cm} \sum_{y\in \mathbb{R}} \hspace{0.08cm} P\left ( \mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm}\mathcal{Y}=y \right )\cdot P\left ( \mathcal{Y}=y \right ) \\$$
+
+
+
+    - Si $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ es una v.a. continua:
+
+    $$P\left ( \mathcal{X}=x \right )\hspace{0.08cm}=\hspace{0.08cm}\int_{y\in \mathbb{R}} \hspace{0.08cm} P\left ( \mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y \right )\cdot f_{\mathcal{Y}}\left ( y \right )dy$$
+
+<br>
+
+- Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es una v.a. continua: $\\[0.25cm]$
+
+
+    - Si $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ es una v.a. discreta:
+
+   
+    
+    $$P(\mathcal{X}\in A)\hspace{0.15cm} =\hspace{0.15cm} \sum_{y\in \mathbb{R}} \hspace{0.08cm} P\left ( \mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm}\mathcal{Y}=y \right )\cdot P\left ( \mathcal{Y}=y \right ) \hspace{0.15cm}=\hspace{0.15cm} \sum_{y\in \mathbb{R}}   \hspace{0.15cm}  \int_{x\in A} f_{\mathcal{X} | \mathcal{Y}}(x,y) \hspace{0.08cm} dx  \cdot P\left ( \mathcal{Y}=y \right )\\$$
+
+
+    $$f_{\mathcal{X}}(x) \hspace{0.08cm}= \hspace{0.08cm} \sum_{y\in \mathbb{R}} \hspace{0.08cm} f_{\mathcal{X} | \mathcal{Y}}(x,y)\cdot P\left ( \mathcal{Y}=y \right ) \\$$
+    
+    
+    
+    - Si $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ es una v.a. continua:
+
+
+    $$P(\mathcal{X}\in A) \hspace{0.15cm}=\hspace{0.15cm} \sum_{y\in \mathbb{R}} \hspace{0.08cm} P\left ( \mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm}\mathcal{Y}=y \right )\cdot P\left ( \mathcal{Y}=y \right ) \hspace{0.15cm}= \hspace{0.15cm} \int_{y\in \mathbb{R}} \hspace{0.08cm}  \int_{x\in A} f_{\mathcal{X} | \mathcal{Y}}(x,y)\hspace{0.08cm} dx  \cdot f_{\mathcal{Y}}(y)\hspace{0.08cm} dy \\$$
+ 
+ 
+    $$f_{\mathcal{X}}(x) \hspace{0.08cm}= \hspace{0.08cm} \sum_{y\in \mathbb{R}} \hspace{0.08cm} f_{\mathcal{X} | \mathcal{Y}}(x,y)\cdot f_{\mathcal{Y}}(y) \\$$
+
+
+
+<br>
+
+
+# Distribución de la Transformación de una Variable Aleatoria
+
+Supongamos que conocemos la distribución de una v.a. $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ continua que toma valores en $\hspace{0.08cm}A \subset \mathbb{R}\hspace{0.08cm}$, es decir, conocemos su función de densidad.
+
+Si $\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} A \rightarrow \mathbb{R}\hspace{0.08cm}$, entonces  $\hspace{0.08cm}\mathcal{Y}=g(\mathcal{X})\hspace{0.08cm}$ es una transformación de de la v.a. $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$.
+
+
+Pues bien, en este contexto tenemos el siguiente teorema que nos permite determinar la distribución de la transformación de $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$, es decir, de  $\hspace{0.08cm}\mathcal{Y}=g(\mathcal{X})\hspace{0.08cm}$,   a partir de la distribución de la propia $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$
+
+
+Si $\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} A \rightarrow \mathbb{R}\hspace{0.08cm}$ es continua, estrictamente decreciente o creciente y $\hspace{0.08cm}g^{-1}\hspace{0.08cm}$ es diferenciable, entonces, la funcion de densidad de $\hspace{0.08cm}\mathcal{Y}=g(\mathcal{X})\hspace{0.08cm}$ es la siguiente:
+
+
+$$f_{\mathcal{Y}} \hspace{0.08cm}=\hspace{0.08cm} f_{\mathcal{X}}\left( g^{-1}(y) \right) \cdot \left| \dfrac{\partial g^{-1}(y)}{\partial y}  \right| \cdot \mathbb{I}\hspace{0.08cm}\Bigl[ \hspace{0.08cm} \lbrace g(x) : x \in A \rbrace \hspace{0.08cm} \Bigr]$$
+
+
+<br>
+
+ 
+
+
+# Distribución de la Transformación de varias Variables Aleatorias
+
+Supongamos que conocemos la distribución conjunta de las variables aleatorias $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y} \right)\hspace{0.08cm}$  continuas que toman valores en $\hspace{0.08cm}A\text{x}B \subset \mathbb{R}^2\hspace{0.08cm}$, es decir, conocemos la función de densidad conjunta $f_{\mathcal{X},\mathcal{Y}}$.
+
+Si $\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} A\text{x}B \rightarrow \mathbb{R}^2\hspace{0.08cm}$, entonces  $\hspace{0.08cm}g(\mathcal{X}, \mathcal{Y})=(g_1(\mathcal{X}), g_2(\mathcal{Y})\hspace{0.08cm}$ es una transformación de  las v.a.'s $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y} \right)\hspace{0.08cm}$.
+
+
+COMPLETAR
+
+
+COMPLETAR
+
+
+COMPLETAR
+
+COMPLETAR
+
+Pues bien, en este contexto tenemos el siguiente teorema que nos permite determinar la distribución de la transformación $\hspace{0.08cm}\mathcal{Y}=g(\mathcal{X})\hspace{0.08cm}$,   a partir de la distribución de la propia $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$
+
+
+Si $\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} A \rightarrow \mathbb{R}\hspace{0.08cm}$ es continua, estrictamente decreciente o creciente y $\hspace{0.08cm}g^{-1}\hspace{0.08cm}$ es diferenciable, entonces, la funcion de densidad de $\hspace{0.08cm}\mathcal{Y}=g(\mathcal{X})\hspace{0.08cm}$ es la siguiente:
+
+
+$$f_{\mathcal{Y}} \hspace{0.08cm}=\hspace{0.08cm} f_{\mathcal{X}}\left( g^{-1}(y) \right) \cdot \left| \dfrac{\partial g^{-1}(y)}{\partial y}  \right| \cdot \mathbb{I}\hspace{0.08cm}\Bigl[ \hspace{0.08cm} \lbrace g(x) : x \in A \rbrace \hspace{0.08cm} \Bigr]$$
 
 
 
@@ -1529,6 +1613,8 @@ Sea $\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R}^2 \rightarrow \
 
 
 
+
+<br>
 
 # Variables aleatorias i.i.d.
 
