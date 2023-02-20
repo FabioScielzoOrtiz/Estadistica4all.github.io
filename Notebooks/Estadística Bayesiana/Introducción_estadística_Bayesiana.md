@@ -166,10 +166,205 @@ emplean las técnicas que mejor funcionan en sus problemas.
 
 # Repaso de Teoría de la Probabilidad
 
-El objetivo de esta sección es el de familiarizarnos con algunos elementos de teoría de la probabilidad, los cuales serán relevantes en secciones posteriores de este artículo, y en posteriores entregas de la serie.
 
+El objetivo de este apéndice es el de refamiliarizarnos con las
+propiedades de la probabilidad, en particular la probabilidad
+condicionada y el teorema de Bayes.
 
-AÑADIR ENLACE ARTICULO SOBRE PROBABILIDAD
+En los años 30 del siglo pasado, Kolmogorov formaliza los axiomas de la
+probabilidad matemática, los cuales son: $$P\left ( S \right )\geq 0$$
+para cualquier suceso S. $$P\left ( \Omega \right )= 1$$ Si
+$S_{1},S_{2},...,S_{n}$ son incompatibles entonces:
+$$P\left ( S_{1}\cup S_{2}\cup ...,S_{n} \right )= \sum_{i=1}^{n}P\left ( S_{i} \right )$$
+Este último axioma implica que bajo muestreo al azar, la probabilidad de
+un suceso es proporcional al número de sucesos elementales que contiene.
+
+### 1.3.1. INDEPENDENCIA
+
+Dos sucesos A y B son estadísticamente independientes si:
+$$P\left ( A\cap B \right )=P\left ( A \right )P\left ( B \right )$$
+
+### 1.3.2. PROBABILIDAD CONDICIONADA
+
+Si $P\left ( B \right )> 0$, la probabilidad de un suceso B dado A es:
+$$P\left ( A|B \right )=\frac{P\left ( A\cap B \right )}{P\left ( B \right )}$$.
+
+### 1.3.3. Interpretando la independencia estadística
+
+Utilizando la definición de la probabilidad condicionada, si A y B son
+independientes, entonces:
+$$P\left ( A|B \right )=\frac{P\left ( A \right )P\left ( B \right )}{P\left ( B \right )}=P\left ( A \right )$$
+Luego si se sabe que B ha ocurrido, la probabilidad de A es invariante.
+
+### 1.3.4. LEY DE LA MULTIPLICACIÓN
+
+Reordenando la fórmula para la probabilidad condicionada, se tiene:
+$$P\left ( A\cap B \right )=P\left ( B|A \right )P\left ( A \right )=P\left ( A|B \right )P\left ( B \right )$$
+
+### 1.3.5. LEY DE LA PROBABILIDAD TOTAL
+
+Para dos sucesos A y B,
+$$P\left ( A \right )=P\left ( A|B \right )P\left ( B \right )+P\left ( A|\bar{B} \right )P\left ( \bar{B} \right )$$.
+
+### 1.3.6. Extendiendo la ley de la probabilidad total
+
+De manera más general, si $B_{1},...,B_{k}$ forman una partición,
+entonces:
+$$P\left ( A \right )= \sum_{j=1}^{k}P\left ( A|B_{j} \right )P\left ( B_{j} \right )$$
+
+Con estos resultados, llegamos al teorema sobre el que se fundamenta la
+estadística bayesiana.
+
+### 1.3.7. TEOREMA DE BAYES.
+
+Para dos sucesos A, B, tal que $P\left ( A \right )>0$, se tiene:
+$$P\left ( B|A \right )=\frac{P\left ( B \right )P\left ( A|B \right )}{P\left ( A \right )}$$.
+
+Dicho esto, ahora vamos a repasar los conceptos de variables
+estadísticas, distribuciones conjuntas, marginales y condicionales.
+
+## 1.4. VARIABLES ALEATORIAS
+
+Siendo bastante simplistas, y haciendo una definición corta, pero más
+que suficiente, podemos decir que una variable aleatoria es una función
+que ascribe un valor (numérico) al resultado de un experimento. Las
+variables aleatorias que son numéricas las podemos dividir en dos
+grupos: 
+
+- Discretas: Una definición de variable aleatoria discreta sin
+entrar en profundidad y en conceptos matemáticos complejos, es aquella
+que sólo puede tomar valores enteros; aunque en algunas ocasiones
+también pueden ser decimales siempre y cuando estén dentro de un rango
+concreto. Por ejemplo, el número de hijos o hermanos de una familia, el
+número obtenido de lanzar un dado... 
+
+- Continuas: Una variable aleatoria
+continua es aquella que puede tomar cualquier valor entre dos fijados y
+los valores de la variable (al menos teóricamente) no se repiten.
+Ejemplos de variable aleatoria continua son: la estatura, el peso, el
+nivel de colesterol en sangre, el tiempo observado al recorrer una
+distancia...
+
+### 1.4.1. VARIABLES ALEATORIAS DISCRETAS
+
+Para una variable discreta, $\mathbf{X}$, tomando valores
+$x_{1},x_{2},...$ se definen: 
+
+- La función de probabilidad o masa
+$P\left ( \mathbf{X}=x \right )$ tal que $\sum_{i}P\left (\mathbf{X}=x{i} \right )=1$ 
+
+- La función de distribución
+$\mathbf{F_{X}}\left ( x \right )$ tal que:
+$$\mathbf{F_{X}}\left ( x \right )=P\left ( \mathbf{X}\leq x \right )=\sum_{x_{i}<x}P\left ( \mathbf{X}=x_{i} \right)$$ 
+
+- Los momentos:
+$E\left [ g(\mathbf{x}) \right ]=\sum_{i}g(x_{i})P\left ( \mathbf{X}=x_{i} \right )$
+
+Ejemplo: la distribución de Poisson.
+
+Una variable discreta, $\mathbf{X}$,
+sigue una distribución de Poisson con parámetro $\lambda > 0$ si:
+$$P\left ( \mathbf{X}=x \right )=\frac{\lambda^{x}e^{-\lambda}}{x!}$$
+para x = 0,1,2,... Se tiene que $E[\mathbf{X}]=V[\mathbf{X}]=\lambda$
+
+### 1.4.2. VARIABLES ALEATORIAS CONTINUAS
+
+Para una variable aleatoria continua, $\mathbf{Y}$, tomando valores x
+$\in$ $\Re$, se tiene que: 
+
+- La función de distribución
+$\mathbf{F_{Y}}\left ( y \right )$ tal que:
+$$\mathbf{F_{Y}}\left ( y \right )=P\left ( \mathbf{Y}\leq y \right )$$ 
+
+- La función de densidad
+$\mathbf{f_{Y}}\left ( y \right )=\frac{dF\left ( y \right )}{dy}$ tal
+que:
+$$\int_{-\infty}^{y} \mathbf{f_{Y}}\left ( y \right )dy=\mathbf{F_{Y}}\left ( y \right )$$ 
+
+- Los momentos:
+$E\left [ g(\mathbf{Y}) \right ]=\int_{-\infty}^{\infty}g(y)\mathbf{f_{Y}}\left ( y \right )$
+
+Ejemplo: la distribución Gamma.
+
+Una variable continua, $\mathbf{Y}$ sigue
+una distribución gamma con parámetros $\alpha$,$\beta$\>0 si:
+$$\mathbf{f_{Y}}\left ( y \right )=\frac{\beta^{\alpha}}{\Gamma\left ( \alpha \right )}y^{\alpha-1}e^{-\beta y}$$
+para y \> 0 donde $\Gamma(\cdot)$ es la función gamma:
+$$\Gamma\left ( \alpha \right )=\int_{0}^{\infty}u^{\alpha-1}e^{-u}du$$
+$\Gamma\left ( \alpha+1 \right )=\alpha\Gamma\left ( \alpha \right )$ y
+$\Gamma\left ( \alpha \right )=\left ( \alpha-1! \right )$ si $\alpha$
+es un número entero. $$E[\mathbf{Y}]=\frac{\alpha}{\beta}$$
+$$V[\mathbf{Y}]=\frac{\alpha}{\beta^{2}}$$
+
+### 1.4.3. DISTRIBUCIONES CONJUNTAS
+
+Para dos o más variables discretas, la distribución conjunta es la
+función $P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )$ tal que:
+$$\sum_{x}\sum_{y}P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )=1 $$
+$$\sum_{x}P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )=P\left ( \mathbf{Y}=y \right )$$
+la distribución marginal de Y,
+$$\sum_{y}P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )=P\left ( \mathbf{X}=x \right )$$
+la distribución marginal de X.
+
+Para el caso de variables continuas, sustituimos sus respectivos
+sumatorios por integrales.
+
+### 1.4.4. DISTRIBUCIONES CONDICIONALES
+
+La distribución condicional de una variable (discreta) $\mathbf{X}$ dada
+otra variable (discreta) $\mathbf{Y}$ es:
+$$P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )=\frac{P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )}{P\left ( \mathbf{Y}=y \right )}$$
+suponiendo que $P\left ( \mathbf{Y}=y \right ) > 0$. La esperanza
+condicional de una función $g\left (x,y \right )$ es:
+$$E[g\left (x,y  \right )|Y=y]=\sum_{x}g\left (x,y  \right )P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )$$
+
+### 1.4.5. MEDIA Y VARIANZA MARGINAL
+
+Supongamos que queremos calcular $E[\mathbf{X}]$ y $V[\mathbf{X}]$.
+Suena complicado porqué en principio, tendríamos que evaluar la
+distribución marginal de X primero o computar a través de la
+distribución conjunta. Por ejemplo:
+$$E[\mathbf{X}]=\sum_{x} \int_{-\infty}^{\infty}x\mathbf{f_{x,y}}\left ( x,y \right )dy $$
+¿Existe una manera más fácil de hacer el cálculo? Pues afortunadamente
+sí, se puede calcular con la ley de las esperanzas iteradas.
+
+### 1.4.6. LEY DE LAS ESPERANZAS ITERADAS
+
+Para dos variables $\mathbf{X}$ e $\mathbf{Y}$, la ley de las esperanzas
+iteradas dice que: $$E[\mathbf{X}]=E[E[\mathbf{X|Y}]]$$ Existe otra
+descomposición semejante para la varianza:
+$$V[X]=E[V[\mathbf{X|Y}]]+V[E[\mathbf{X|Y}]]$$.
+
+### 1.4.7. LEY DE LA PROBABILIDAD TOTAL PARA VARIABLES
+Tenemos que:
+
+$$P\left ( \mathbf{X}=x \right )=\sum_{y}P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )P\left ( \mathbf{Y}=y \right )$$
+si $\mathbf{Y}$ es discreta,
+$$P\left ( \mathbf{X}=x \right )=\int_{-\infty}^{\infty}P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\mathbf{f_{Y}}\left ( y \right )dx$$
+si $\mathbf{Y}$ es continua.
+
+Este segundo caso suele ser más interesante en la mayoría de las
+ocasiones.
+
+### 1.4.8. TEOREMA DE BAYES PARA VARIABLES
+Tenemos que:
+
+$$P\left ( \mathbf{Y}=y|\mathbf{X}=x \right )=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )P\left ( \mathbf{Y}=y \right )}{P\left ( \mathbf{X}=x \right )}=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )P\left ( \mathbf{Y}=y \right )}{\sum_{i}P\left ( \mathbf{X}=x|\mathbf{Y}=y_{i} \right )P\left ( \mathbf{Y}=y_{i} \right )}$$
+en el caso de variables discretas.
+$$\mathbf{f}_{x|y}\left ( y|\mathbf{X}=x \right )=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\mathbf{f}_y\left ( \mathbf{Y}=y \right )}{P\left ( \mathbf{X}=x \right )}=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\mathbf{f}_y\left ( \mathbf{Y}=y \right )}{\int_{-\infty}^{\infty}P\left ( \mathbf{X}=x|\mathbf{Y}=y_{i} \right )\mathbf{f}_{y}\left ( y \right )}dy$$
+en caso de variables continuas.
+
+Con esto, hemos terminado el repaso de conceptos probabilísticos
+necesarios para entender posteriormente los fundamentos bayesianos.
+
+Tras esto, es lógico pensar, ¡por Dios!, que me hablen ya de inferencia
+bayesiana, pero sentimos decirte que por el momento tendrás que seguir
+esperando, puesto que, como hemos dicho al principio de este artículo,
+el objetivo es presentar las principales diferencias entre ambos
+enfoques, y no hacemos nada si no presentamos antes los conceptos en el
+enfoque clásico o frecuentista. Si crees que esto no te va a servir,
+pasa directamente a la parte de inferencia bayesiana, pero si luego no
+entiendes nada, no digas que no te lo advertimos.
 
 <br>
 
@@ -184,7 +379,7 @@ frecuentista de la probabilidad: en un experimento repetible, la
 probabilidad de un suceso es el límite de la proporción de ocurrencias
 del suceso en n repeticiones del experimento cuando $n \to \infty$
 
-## 2.1. CONSECUENCIAS.
+## Consecuencias
 
 -   La probabilidad es un concepto objetivo: la probabilidad de que
     salga un 1 en un dado será la misma para todos.
@@ -192,7 +387,7 @@ del suceso en n repeticiones del experimento cuando $n \to \infty$
     experimentos repetibles y eso no siempre es posible.
 -   Parámetros, $\theta$, son desconocidos, pero fijos.
 
-## 2.2. ESTIMACIÓN PUNTUAL.
+## Estimación puntual
 
 Un buen estimador tiene buenas propiedades probabilisticas
 (frecuentistas), ¡qué lejos quedaron estas propiedades! Vamos a
@@ -217,7 +412,7 @@ Por ejemplo, este último, se sabe que tiene unas muy buenas propiedades
 asintóticas, pero su ventaja no está tan clara en muestras de tamaño
 reducido.
 
-## 2.3. ESTIMACIÓN POR INTERVALOS.
+## Estimación por intervalos
 
 Formalmente, un intervalo de $100(1-\alpha)\%$ de confianza para un
 parámetro $\theta$ dada una muestra es un intervalo aleatorio tal que:
@@ -233,7 +428,9 @@ experimento aleatorio se espera que $100(1-\alpha)$ de esos intervalos
 obtenidos en cada uno de esos intentos contengan al verdadero valor del
 parámetro.
 
-## 2.4. CONTRASTES DE HIPÓTESIS.
+<br>
+
+## Contrastes de hipótesis
 
 Un contraste de hipótesis típicamente tiene una serie de pasos a
 completar:
@@ -290,7 +487,9 @@ claro porque sucede esto y en qué condiciones ocurre, tan sólo decir que
 este es uno de los grandes puntos en los que los estadísticos bayesianos
 están más en contra de lo frecuentista.
 
-## 2.5. PREDICCIÓN
+<br>
+
+## Predicción
 
 Típicamente, para hacer predicción en un procedimiento clásico, se
 utiliza un método denominado "plug in", que cumplen el principio del
@@ -325,7 +524,9 @@ $$AIC_{1}=-2\log \left\{\binom{12}{9}0.75^{9}0.25^{3} \right\}+2\times 1=4.71$$
 Luego el modelo preferido según el criterio de Akaike es el modelo
 completo.
 
-## 2.7. BONDAD DE AJUSTE
+<br>
+
+## Bondad de ajuste
 
 Para ver si los datos se ajustan a un modelo $\mathbf{M}$, se puede
 utilizar un contraste de hipótesis de la hipótesis nula:
@@ -335,13 +536,21 @@ son el contraste de la chi-cuadrado o el de Kolmogorov-Smirnov.
 Con esto, hemos resumido los puntos más característicos de la inferencia
 clásica o frecuentista.
 
-# 3. INFERENCIA BAYESIANA
+
+<br>
+
+---
+
+<br>
+
+# Inferencia Bayesiana
 
 Ahora sí, hemos llegado a lo que seguro estabáis esperando, la
 introducción a la estadística bayesiana y las diferencias más evidentes
 entre ambos enfoques.
 
-## 3.1. CONCEPTO DE PROBABILIDAD Y DISTRIBUCIÓN A PRIORI
+
+## Concepto de Probabilidad y Distribución A Priori
 
 Las ideas iniciales de la probabilidad surgieron relacionadas con los
 juegos de azar y su conceptualización e interpretación son básicamente
@@ -483,7 +692,9 @@ distintas. En este caso podemos coger la Beta(5,5).
 Antes de seguir vamos a desarrollar las diferentes aproximaciones al
 análisis bayesiano.
 
-## 3.2. APROXIMACIONES AL ANÁLISIS BAYESIANO
+<br>
+
+## Aproximaciones al Análisis Bayesiano
 
 Una clasificación de las diversas aproximaciones que podemos realizar
 cuando consideramos el enfoque bayesiano es la siguiente:
@@ -507,7 +718,9 @@ cuando consideramos el enfoque bayesiano es la siguiente:
     diversas formas, por ejemplo seleccionando distribuciones a priori
     vagas, o ajustando los parámetros.
 
-## 3.3. LA DISTRIBUCIÓN A POSTERIORI
+<br>
+
+## La Distribución A Posteriori
 
 Con la a priori podemos obtener la a posteriori que es la que de verdad
 nos importa y con la que trabajaremos. Para hallar la distribución a
@@ -529,10 +742,15 @@ De la fórmula anterior, observamos que el denominador no depende de $\theta$, l
 $$f\left ( \theta|datos \right ) \propto f\left ( \theta \right ) f\left (datos|\theta \right)$$
 $$a\ posteriori \propto a\ priori \times verosimilitud$$
 
-## 3.4. ESTIMACIÓN PUNTUAL
+<br>
+
+## Estimación Puntual
 Cuando hemos calculado la distribución a posteriori, podemos utilizar la media a posteriori, la mediana a posteriori, la moda a posteriori como estimadores puntuales de $\theta$. Este último caso es conocido como el estimador máximo a posteriori o MAP.
 
-## 3.5. ESTIMACIÓN POR INTERVALOS
+<br>
+
+## Estimación por Intervalos
+
 Un intervalo de $100(1-\alpha)\%$ de credibilidad o de confianza bayesiana es cualquier intervalo tal que $P\left ( LI<\theta<LS|datos \right )=1-\alpha$.
 ¿Cuál es la interpretación de este intervalo? ¿Será igual que en el caso frecuentista?
 El intervalo de credibilidad más corto se llama el intervalo de máxima densidad a posteriori. Y a las preguntas anteriores, la respuesta es que no, las interpretaciones son distintas, en el enfoque bayesiano, estos intervalos son interpretados de la forma siguiente:
@@ -556,7 +774,10 @@ Dada la regla de decisión de rechazar $H_{0}$ si su probabilidad a posterior es
 
 Aunque parezca que no hay ningun problema, hay que darse cuenta que las probabilidades tienen que sumar 1, por lo que la $P\left ( H_{1}|datos \right )$ será la complementaria a la de $H_{0}$, por lo que en este enfoque no tiene sentido el concepto de p-valor y para este caso rechazaríamos la hipótesis nula ya que la probabilidad a posteriori de la hipótesis alternativa es mayor que la de la nula.
 
-## 3.7. PREDICCIÓN
+<br>
+
+## Predicción
+
 Supongamos que queremos predecir el valor de una nueva variable $\mathbf{Y}$. Entonces, $$f\left ( \mathbf{y}|datos \right )=\int f\left (\mathbf{y}|\theta,datos \right )f\left (\theta|datos \right )d\theta$$ y en muchas ocasiones, $\mathbf{Y}$ es condicionalmente independiente de los datos dado $\theta$, y luego:
 $$f\left ( \mathbf{y}|datos \right )=\int f\left (\mathbf{y}|\theta \right )f\left (\theta|datos \right )d\theta$$
 
@@ -577,7 +798,15 @@ Pues afortunadamente sí, para los que pensaran al principio de este artículo..
 
 $E[X|datos]=E[E[\mathbf{X}|\theta]|datos]=E[10\theta|datos]=10E[\theta|datos]=10\times \frac{14}{14+8}=6.364$
 
-# 4. INFORMACIÓN DE RESUMEN
+
+<br>
+
+---
+
+<br>
+
+# Tabla Resumen
+
 Ya por último vamos a resumir en una tabla lo que hemos ido explicando en este artículo.
 
 | CARACTERÍSTICA  | TEORÍA CLASICA  |  TEORÍA BAYESIANA |
@@ -592,9 +821,11 @@ Ahora sí hemos terminado con esta introducción, en los próximos artículos pr
 
 Espero que os haya gustado y servido.
 
-Marcos Álvarez Martín
+<br>
 
-Estudiante de Estadística y Empresa en la Universidad Carlos III de Madrid
+---
+
+<br>
 
 # Bibliografía
 

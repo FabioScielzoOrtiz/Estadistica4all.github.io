@@ -1211,14 +1211,16 @@ Donde: $\hspace{0.08cm}a, b >0 \\$
 
 $$\mathcal{X}\sim Weibull(\alpha , \lambda) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \lambda\cdot \alpha (\lambda \cdot x)^{\alpha - 1} \cdot e^{-(\lambda \cdot x)^\alpha} \cdot \mathbb{I}\bigl[ x > 0 \bigr]$$
 
-Donde: $\hspace{0.08cm}\alpha \hspace{0.08cm},\hspace{0.08cm} \lambda\hspace{0.08cm} > \hspace{0.08cm}0 \\$
+Donde: $\hspace{0.08cm}\alpha \hspace{0.08cm},\hspace{0.08cm} \lambda\hspace{0.08cm} > \hspace{0.08cm}0\\$
+
+
 
 
 ### Propiedades
 
-- $E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\lambda} \Gamma(1 + \dfrac{1}{\alpha})$ $\\[0.9cm]$
+- $E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\lambda} \Gamma\left(1 + \dfrac{1}{\alpha}\right)$ $\\[0.9cm]$
 
-- $Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\lambda^2} \left( \Gamma(1 + \dfrac{2}{\alpha}) - \Gamma(1+ \dfrac{1}{\alpha}) \right)$ $\\[1.2cm]$
+- $Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\lambda^2}\cdot \left( \Gamma\left(1 + \dfrac{2}{\alpha}\right) - \Gamma\left(1+ \dfrac{1}{\alpha}\right) \right)$ $\\[1.2cm]$
 
 - $F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \left(\hspace{0.08cm} 1 - e^{-(\lambda \cdot x)^\alpha} \hspace{0.08cm} \right) \cdot \mathbb{I}\left[ x>0 \right]$
 
@@ -1227,8 +1229,9 @@ Donde: $\hspace{0.08cm}\alpha \hspace{0.08cm},\hspace{0.08cm} \lambda\hspace{0.0
 
 ## Distribucion Chi-cuadrado
 
-$$\mathcal{X} \sim \chi_n ^2 \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\Gamma(n/2)} \cdot \dfrac{1}{2}^{n/2} \cdot x ^{n/2 -1} \cdot e^{-x/2} \hspace{0.3cm} , \hspace{0.3cm} x\in \mathbb{R} \\$$
+$$\mathcal{X} \sim \chi_n ^2 \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\Gamma(n/2)} \cdot \dfrac{1}{2}^{n/2} \cdot x ^{n/2 -1} \cdot e^{-x/2} \hspace{0.3cm} , \hspace{0.3cm} x\in \mathbb{R}\\$$
 
+ 
 
 ### Propiedades
 
@@ -1419,7 +1422,7 @@ entonces: $\hspace{0.12cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal
 
 $\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son v.a. independientes  $\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})\hspace{0.1cm}$ , si y solo si:
 
-$$\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}=x)\cdot P(\mathcal{Y}=y) \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} x,y \in \mathbb{R}$$
+$$P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}=x)\cdot P(\mathcal{Y}=y) \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} x,y \in \mathbb{R}$$
 
 $$\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}P(\mathcal{X}\in A \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}\in A)\cdot P(\mathcal{Y}\in B) \hspace{0.3cm} ,\hspace{0.3cm} \forall \hspace{0.08cm} A,B \subset \mathbb{R} \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$$
 
@@ -1436,7 +1439,7 @@ $\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son v
 
 ### Colorario
 
-Si $\hspace{0.08cm}\exists\hspace{0.08cm} g,h \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R} \rightarrow \mathbb{R}\hspace{0.08cm}$  , tal que:
+Si $\hspace{0.1cm}\exists\hspace{0.1cm} h,g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R} \rightarrow \mathbb{R}\hspace{0.08cm}$  , tal que:
 
 $f_{\mathcal{X},\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm} g(x)\cdot h(y) \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.08cm} x,y \in \mathbb{R}$
 
@@ -1469,7 +1472,10 @@ $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son independientes (dos a dos) 
 
 <br>
 
-# Formula de transferencia para funciones de varias v.a.
+# Esperanza de una función devarias variables aleatorias
+
+Esta es la versión en varias variables de la fórmula de transferencia para la esperanza.
+
 
 Sea $\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R}^2 \rightarrow \mathbb{R}\hspace{0.08cm}$.
 
@@ -1488,13 +1494,13 @@ Sea $\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R}^2 \rightarrow \
 
 # Esperanza Condicionada
 
-Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es v.a. discreta :
+- Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es v.a. discreta :
 
-$$E[\mathcal{X} | \mathcal{Y}=y] \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} x \cdot P(\mathcal{X}=x | \mathcal{Y}=y)$$
+    $$E[\mathcal{X} | \mathcal{Y}=y] \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} x \cdot P(\mathcal{X}=x | \mathcal{Y}=y)$$
 
-Si $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ es v.a. continua :
+- Si $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ es v.a. continua :
 
-$$E[ \mathcal{X} | \mathcal{Y}=y] \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in \mathbb{R}} x \cdot P(\mathcal{X}=x | \mathcal{Y}=y) \cdot dx$$
+    $$E[ \mathcal{X} | \mathcal{Y}=y] \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in \mathbb{R}} x \cdot P(\mathcal{X}=x | \mathcal{Y}=y) \cdot dx$$
 
 
 <br>
@@ -1519,13 +1525,14 @@ $$E[ \mathcal{X} | \mathcal{Y}=y] \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in \ma
 
 
 
+
+
+
+
+
 # Variables aleatorias i.i.d.
 
-
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
  
-<p style='margin-left:1em;'>
 
 $\hspace{0.25cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ son variables aleatorias mutuamente independientes e identicamente distribuidas  *(i.i.d.)* $\hspace{0.3cm}\Leftrightarrow$
 
@@ -1539,12 +1546,9 @@ $\hspace{0.7cm}$ Lo que implica que también son independientes dos a dos , es d
 
 
 
-</p>
  
-</p></span>
-</div>
 
-$\hspace{0.4cm}$ Donde $\hspace{0.08cm}F( \cdot )\hspace{0.08cm}$ es una distribucion de probabilidad con parametros no especificados. $\\[0.5cm]$
+ Donde $\hspace{0.08cm}F( \cdot )\hspace{0.08cm}$ es una distribucion de probabilidad con parametros no especificados. $\\[0.5cm]$
 
 
 
@@ -1562,20 +1566,14 @@ $$(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \hspace{0.3
 
 # Muestra Aleatoria Simple
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
  
-<p style='margin-left:1em;'>
 
 $\hspace{0.25cm}$ Sea $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ una v.a. tal que $\hspace{0.1cm}\mathcal{X} \sim F(\cdot)$ 
 
 
 $\hspace{0.25cm}$ $\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.1cm}$ es una muestra aleatoria simple (m.a.s.) de tamaño $\hspace{0.08cm}n\hspace{0.08cm}$ de $\hspace{0.1cm}\mathcal{X}$ $\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}$ $(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \\$
 
-</p>
  
-</p></span>
-</div>
 
 **Observación:**
 
@@ -1594,10 +1592,9 @@ Una m.a.s. de una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ es un vector de
 
 
 
-### Teorema de esperanza-varianza de la media muestral
+# Teorema de esperanza-varianza de la media muestral
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
+ 
 
 $\hspace{0.25cm}$ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
 
@@ -1609,24 +1606,16 @@ $\hspace{0.25cm}$ Donde:
 
 - $\hspace{0.1cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i$
 
-
-</p>
  
-</p></span>
-</div>
-
 
 <br>
 
 
 
 
-### Teorema de distribución de la media muestral
+# Teorema de distribución de la media muestral
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
-
-<p style='margin-left:0.1em;'>
+ 
 
 $\hspace{0.25cm}$ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu , \sigma^2)\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
 
@@ -1638,20 +1627,13 @@ $\hspace{0.25cm}$ Por tanto:
 
 $$\dfrac{\hspace{0.2cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.2cm}}{ \sqrt{\sigma^2 / n}  } \hspace{0.1cm}\sim\hspace{0.1cm} N(0,1)$$
 
-</p>
  
-</p></span>
-</div>
 
 
 
+# Teorema de Gosset
 
-### Teorema de Gosset
-
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
-
-<p style='margin-left:0.1em;'>
+ 
 
 $\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}$, y dada una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X} \\$ 
 
@@ -1664,18 +1646,12 @@ $\hspace{0.25cm}$ Donde:
 
 - $S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2$
 
-</p>
  
-</p></span>
-</div>
 
 
-### Teorema de Fisher
+# Teorema de Fisher
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
-
-<p style='margin-left:0.1em;'>
+ 
 
 $\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}$, y dada una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}$ 
 
@@ -1689,17 +1665,13 @@ $\hspace{0.25cm}$ Donde:
 
 - $S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2$
 
-</p>
  
-</p></span>
-</div>
 
 
-### Teorema central del límite
+# Teorema central del límite
 
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
+ 
 
 $\hspace{0.25cm}$ El TCL dice lo siguiente:
 
@@ -1708,11 +1680,7 @@ $\hspace{0.25cm}$ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ 
 $$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} = \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.2cm}\underset{d}{\rightarrow}\hspace{0.2cm} N(0,1)\\$$
 
 
-</p>
  
-</p></span>
-</div>
-
 
 
 
@@ -1730,10 +1698,9 @@ Donde:
  
 <br> 
  
-### Teorema de Moivre-Laplace
+# Teorema de Moivre-Laplace
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
+ 
 
 $\hspace{0.25cm}$ Este teorema es un caso particular del TCL para v.a`s Binomiales.
 
@@ -1746,10 +1713,7 @@ $\hspace{0.25cm}$ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim Binomial(k,
 $$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.1cm}= \hspace{0.1cm}
 \dfrac{\overline{\mathcal{X}_n} - k\cdot p}{\sqrt{k\cdot p\cdot(1-p)/n}}\hspace{0.2cm}\underset{d}{\rightarrow}\hspace{0.2cm} N(0,1)\\$$
  
-</p>
  
-</p></span>
-</div>
  
 <br>
 
@@ -1767,10 +1731,8 @@ $$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqr
 
 # Distribución Normal Multivariante
 
-\section{Distribución Normal Multivariante:}
-
-\tcbset{colback=blue!1!white,colframe=orange!80!black}
-\begin{tcolorbox}[toptitle=2mm,title= Distribución Normal Multivariante: ]
+ 
+ 
 El vector aleatorio $X=(X_1 , X_2 ,..., X_p)^t$ tiene una distribucion Normal p-variante si: \vspace{0.2cm}
 
 Existen $p$ v.a's i.i.d. $Z_1 ,..., Z_p \sim N(0,1)$ tales que:
@@ -1831,10 +1793,9 @@ X_1=\mu_1 + a_{11}\cdot Z_1 +...+ a_{1p}\cdot Z_p \\
 X_p=\mu_p + a_{p1}\cdot Z_1 +...+ a_{pp}\cdot Z_p 
 \end{array}\right.
 \end{equation*}
-\end{tcolorbox}
+ 
 
-\tcbset{colback=blue!1!white,colframe=orange!80!black}
-\begin{tcolorbox}[toptitle=2mm,title=  ]
+ 
 Si $X= \mu + A\cdot Z$ , definidos estos conceptos como lo fueron en la sección 3.1, entonces: \\
 
 1) \hspace{0.1cm} $E[X]=\mu$ \\
@@ -1871,8 +1832,7 @@ Y es un vector cuya cuyas componentes son combinaciones lineales de X \\
 U_p = (X- \mu )^t \cdot \Sigma^{-1} \cdot (X - \mu ) \sim \chi_p^2
 \end{gather*}
 
-\end{tcolorbox}
-
+ <br>
 
 
 
