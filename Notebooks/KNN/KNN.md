@@ -1026,7 +1026,7 @@ def Matrix_Gower_Distance(Data, p1, p2, p3 ):
 
 <br>
 
-**Programamos desde "cero" el algoritmo KNN para clasificación supervisada:**
+**Programamos el algoritmo KNN para clasificación supervisada:**
 
 ```python
 class KNNClassification:
@@ -1351,6 +1351,7 @@ También podemos acceder directamente a las predicciones generadas por el algori
 KNNClassification_init.predictions
 ```
 
+```
 0      2.0
 1      2.0
 2      2.0
@@ -1363,7 +1364,7 @@ KNNClassification_init.predictions
 379    0.0
 380    2.0
 Name: Y_predict, Length: 381, dtype: float64
-
+```
 
 
 
@@ -1803,7 +1804,7 @@ np.sqrt(ECM)
 ## KNN  para regresión  programado en `Python` <a class="anchor" id="7"></a>
 
 
-**Programamos desde "cero" el algoritmo KNN para regresión:**
+**Programamos el algoritmo KNN para regresión:**
 
 ```python
 class KNNRegression :
@@ -1862,11 +1863,221 @@ class KNNRegression :
 ```
 
 
-Probamos el algoritmo con la distancia de **Gower** y **k=10** :
+Cargamos de nuevo los datos:
 
 ```python
-X = pd.concat([X_train , X_new])
+Data = pd.read_csv('House_Price_Regression.csv')
+
+Data_Mixed = Data.loc[:, ['latitude', 'longitude', 'price', 'size_in_m_2', 'balcony_recode', 'private_garden_recode', 'quality_recode']]
+
+Data_Mixed.head()
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>price</th>
+      <th>size_in_m_2</th>
+      <th>balcony_recode</th>
+      <th>private_garden_recode</th>
+      <th>quality_recode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>25.113208</td>
+      <td>55.138932</td>
+      <td>2700000</td>
+      <td>100.242337</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>25.106809</td>
+      <td>55.151201</td>
+      <td>2850000</td>
+      <td>146.972546</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>25.063302</td>
+      <td>55.137728</td>
+      <td>1150000</td>
+      <td>181.253753</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>25.227295</td>
+      <td>55.341761</td>
+      <td>2850000</td>
+      <td>187.664060</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>25.114275</td>
+      <td>55.139764</td>
+      <td>1729200</td>
+      <td>47.101821</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Volvemos a separar en train y new data, teniendo en cuenta que ahora la variable respuesta debe ser cuantitativa, en este caso *price*.
+
+```python
+Data_Mixed_train = Data_Mixed.sample(frac=0.8, replace=False, weights=None, random_state=123, axis=None, ignore_index=False)
+
+Data_Mixed_new =  Data_Mixed.drop( Data_Mixed_train.index , )
+```
+
+
+```python
+## TRAIN DATA (Datos dispobles --> se usan para entrenar el modelo)
+
+X_train = Data_Mixed_train.loc[: , Data_Mixed_train.columns != 'price']
+Y_train = Data_Mixed_train.loc[: , 'price']
+
+## NEW DATA (Nuevos datos de los predictores)
+
+X_new = Data_Mixed_new.loc[: , Data_Mixed_new.columns != 'price']
+
+# En la práctica real no se tienen datos sobre la respuesta asociado a las nuevas obsrvaciones de los predictores
+# Eso es justo lo que se quiere predecir.
+# Pero en este ejemplo al usar como "nuevos" datos una parte del data set original, si que tenemos esa información.
+
+Y_new = Data_Mixed_new.loc[: , 'price'] 
+```
+
+Hacemos una vista del data-frame `X` :
+```python
+X = pd.concat([X_train , X_new])
+
+X.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>size_in_m_2</th>
+      <th>balcony_recode</th>
+      <th>private_garden_recode</th>
+      <th>quality_recode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>382</th>
+      <td>25.196489</td>
+      <td>55.272126</td>
+      <td>488.019459</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>732</th>
+      <td>25.107984</td>
+      <td>55.244923</td>
+      <td>138.704179</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1888</th>
+      <td>25.071504</td>
+      <td>55.128579</td>
+      <td>171.220229</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>679</th>
+      <td>25.054336</td>
+      <td>55.203423</td>
+      <td>116.035847</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1004</th>
+      <td>25.087251</td>
+      <td>55.145574</td>
+      <td>162.208638</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+
+
+
+- Probamos el algoritmo con la distancia de **Gower** y **k=10** :
 
 ```python
 M_Gower = Matrix_Gower_Distance(Data=X.to_numpy(), p1=3, p2=2, p3=1)
@@ -1874,6 +2085,9 @@ M_Gower = Matrix_Gower_Distance(Data=X.to_numpy(), p1=3, p2=2, p3=1)
 M_Gower_new_data = M_Gower[ len(X_train):len(X) , 0:len(X_train) ]  
 ```
 
+
+
+ 
 
 ```python
 KNNRegression_init = KNNRegression(k=10, X_train=X_train, Y_train=Y_train, distance_matrix_new_data=M_Gower_new_data)
@@ -1904,7 +2118,7 @@ KNNRegression_init.df_predictions
 ```python
 KNNRegression_init.predictions
 ```
-
+```
 0       2081499.9
 1       1710999.9
 2       2639277.7
@@ -1917,7 +2131,7 @@ KNNRegression_init.predictions
 379     1260699.9
 380     1088923.8
 Name: Y_predict, Length: 381, dtype: float64
-
+```
 
 
 
@@ -1943,7 +2157,7 @@ np.sqrt(ECM)
 <br>
 
 
-Probamos ahora el algoritmo con la distancia **Euclidea** y **k=10** :
+- Probamos ahora el algoritmo con la distancia **Euclidea** y **k=10** :
 
 ```python
 M_Euclidea = Matrix_Dist_Euclidea(Data=X.to_numpy())

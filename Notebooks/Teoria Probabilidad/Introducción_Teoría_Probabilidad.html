@@ -1640,6 +1640,10 @@ margin-left: 0 !important;
       <li><a href="#esperanza-condicionada" id="toc-esperanza-condicionada"><span class="toc-section-number">40</span> Esperanza Condicionada</a></li>
       <li><a href="#ley-de-la-esperanza-total" id="toc-ley-de-la-esperanza-total"><span class="toc-section-number">41</span> Ley de la Esperanza total</a></li>
       <li><a href="#terorema-de-la-probabilidad-total-con-variables-aleatorias" id="toc-terorema-de-la-probabilidad-total-con-variables-aleatorias"><span class="toc-section-number">42</span> Terorema de la probabilidad total con variables aleatorias</a></li>
+      <li><a href="#variables-aleatorias-i.i.d." id="toc-variables-aleatorias-i.i.d."><span class="toc-section-number">43</span> Variables aleatorias i.i.d.</a></li>
+      <li><a href="#muestra-aleatoria-simple" id="toc-muestra-aleatoria-simple"><span class="toc-section-number">44</span> Muestra Aleatoria Simple</a></li>
+      <li><a href="#definiciones-de-convergencia" id="toc-definiciones-de-convergencia"><span class="toc-section-number">45</span> Definiciones de Convergencia</a></li>
+      <li><a href="#distribución-normal-multivariante" id="toc-distribución-normal-multivariante"><span class="toc-section-number">46</span> Distribución Normal Multivariante</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
@@ -2159,11 +2163,13 @@ margin-right: auto;
 </div>
 <div id="esperanza-de-una-variable-aleatoria" class="section level1" number="27">
 <h1><span class="header-section-number">27</span> Esperanza de una variable aleatoria</h1>
-<p>La esperanza de una v.a. <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}\)</span> se define del siguiente modo. <span class="math inline">\(\\[0.3cm]\)</span></p>
-<p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}\)</span> es una v.a. <strong>discreta</strong> :</p>
-<p><span class="math display">\[E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} x \cdot P(\mathcal{X}=x)\]</span></p>
-<p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}\)</span> es una v.a. <strong>continua</strong> :</p>
-<p><span class="math display">\[E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \int_{-\infty}^{\infty} x \cdot f_\mathcal{X}(x) \cdot dx\]</span> <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p>La esperanza de una v.a. <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}\)</span> se define del siguiente modo: <span class="math inline">\(\\[0.3cm]\)</span></p>
+<ul>
+<li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}\)</span> es una v.a. <strong>discreta</strong> :</p>
+<p><span class="math display">\[E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} x \cdot P(\mathcal{X}=x)\]</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}\)</span> es una v.a. <strong>continua</strong> :</p>
+<p><span class="math display">\[E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \int_{-\infty}^{\infty} x \cdot f_\mathcal{X}(x) \cdot dx\]</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+</ul>
 <div id="propiedades-9" class="section level2" number="27.1">
 <h2><span class="header-section-number">27.1</span> Propiedades</h2>
 <ul>
@@ -2541,8 +2547,7 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 <h2><span class="header-section-number">31.1</span> Propiedades</h2>
 <ul>
 <li><p><span class="math inline">\(\sum_{x\in \mathbb{R}}\sum_{y\in \mathbb{R}} P(\mathcal{X}=x , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 1\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
-<li><p>Si <span class="math inline">\(\hspace{0.08cm}x\notin Im(\mathcal{X})\hspace{0.08cm}\)</span> o <span class="math inline">\(\hspace{0.08cm}y \notin Im(\mathcal{Y})\hspace{0.08cm}\)</span> , entonces:</p>
-<p><span class="math display">\[P(\mathcal{X}=x , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 0 \\\]</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.08cm}x\notin Im(\mathcal{X})\hspace{0.08cm}\)</span> o <span class="math inline">\(\hspace{0.08cm}y \notin Im(\mathcal{Y})\hspace{0.08cm}\)</span> , entonces: <span class="math inline">\(\hspace{0.12cm}P(\mathcal{X}=x , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 0\)</span><span class="math inline">\(\\[0.8cm]\)</span></p></li>
 <li><p><span class="math inline">\(P(\mathcal{X}\in A , \mathcal{Y}\in B) \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in A} \sum_{y\in B} P(\mathcal{X}=x , \mathcal{Y}=y)\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
 <li><p><span class="math inline">\(P(\mathcal{X}\in A , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in A} P(\mathcal{X}=x , \mathcal{Y}=y)\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
 <li><p><span class="math inline">\(P(\mathcal{X}=x) \hspace{0.08cm}=\hspace{0.08cm} \sum_{y\in \mathbb{R}} P(\mathcal{X}=x , \mathcal{Y}=y)\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
@@ -2618,7 +2623,7 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 </div>
 <div id="independencia-de-variables-aleatorias-continuas" class="section level1" number="36">
 <h1><span class="header-section-number">36</span> Independencia de variables aleatorias continuas</h1>
-<p><span class="math inline">\(\mathcal{X}\hspace{0.08cm}\)</span> e <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> son v.a. independientes <span class="math inline">\(\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}\)</span></p>
+<p><span class="math inline">\(\mathcal{X}\hspace{0.08cm}\)</span> e <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> son v.a. independientes <span class="math inline">\(\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})\hspace{0.1cm}\)</span> , si y solo si:</p>
 <p><span class="math display">\[\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}=x)\cdot P(\mathcal{Y}=y) \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} x,y \in \mathbb{R}\]</span></p>
 <p><span class="math display">\[\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}P(\mathcal{X}\in A \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}\in A)\cdot P(\mathcal{Y}\in B) \hspace{0.3cm} ,\hspace{0.3cm} \forall \hspace{0.08cm} A,B \subset \mathbb{R} \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}\]</span></p>
 <p><span class="math display">\[\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}\forall \hspace{0.08cm} A,B \subset \mathbb{R} \hspace{0.2cm},\hspace{0.2cm} \int_{x\in A} \int_{y \in B} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y) \cdot dy \cdot dx \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \hspace{0.08cm} f_{\mathcal{X}}(x)  \cdot dx \cdot \int_{y \in B} f_{\mathcal{Y}}(y) \cdot dy\]</span></p>
@@ -2629,7 +2634,7 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 <p><span class="math inline">\(\mathcal{X}\hspace{0.08cm}\)</span> e <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> son v.a. independientes <span class="math inline">\(\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})\)</span> <span class="math inline">\(\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}\)</span> <span class="math inline">\(f_{\mathcal{X},\mathcal{Y}}(x,y) = f_X(x) \cdot f_\mathcal{Y}(y) \hspace{0.2cm},\hspace{0.2cm} \forall \hspace{0.08cm} x,y \in \mathbb{R}\)</span></p>
 <div id="colorario" class="section level3" number="36.1.1">
 <h3><span class="header-section-number">36.1.1</span> Colorario</h3>
-<p>Si <span class="math inline">\(\hspace{0.08cm}\exist\hspace{0.08cm} g,h \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R} \rightarrow \mathbb{R}\hspace{0.08cm}\)</span> , tal que:</p>
+<p>Si <span class="math inline">\(\hspace{0.08cm}\exists\hspace{0.08cm} g,h \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R} \rightarrow \mathbb{R}\hspace{0.08cm}\)</span> , tal que:</p>
 <p><span class="math inline">\(f_{\mathcal{X},\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm} g(x)\cdot h(y) \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.08cm} x,y \in \mathbb{R}\)</span></p>
 <p>entonces: <span class="math inline">\(\hspace{0.12cm}\mathcal{X}\hspace{0.08cm}\)</span> e <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> son independientes.</p>
 <p><br></p>
@@ -2682,6 +2687,176 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 </div>
 <div id="terorema-de-la-probabilidad-total-con-variables-aleatorias" class="section level1" number="42">
 <h1><span class="header-section-number">42</span> Terorema de la probabilidad total con variables aleatorias</h1>
+</div>
+<div id="variables-aleatorias-i.i.d." class="section level1" number="43">
+<h1><span class="header-section-number">43</span> Variables aleatorias i.i.d.</h1>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> son variables aleatorias mutuamente independientes e identicamente distribuidas <em>(i.i.d.)</em> <span class="math inline">\(\hspace{0.3cm}\Leftrightarrow\)</span></p>
+<ul>
+<li><span class="math inline">\(\hspace{0.1cm}\)</span> <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}\)</span> son mutuamente independientes , es decir:</li>
+</ul>
+<p><span class="math display">\[\hspace{0.08cm} P(\mathcal{X}_1=x_1,...,\mathcal{X}_n=x_n) \hspace{0.1cm}=\hspace{0.1cm} \prod_{i=1}^n P(\mathcal{X}_i=x_i) \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.7cm}\)</span> Lo que implica que también son independientes dos a dos , es decir, <span class="math inline">\(\hspace{0.12cm} \mathcal{X}_i \perp \mathcal{X}_j \hspace{0.12cm} , \hspace{0.12cm} \forall i\neq j \\\)</span></p>
+<ul>
+<li><span class="math inline">\(\hspace{0.1cm}\)</span> <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.12cm}\)</span> tienen la misma distribución de probabilidad, es decir, <span class="math inline">\(\hspace{0.12cm}\mathcal{X}_i \sim F( \cdot ) \hspace{0.15cm}, \hspace{0.1cm} \forall i=1,...,n\)</span></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><span class="math inline">\(\hspace{0.4cm}\)</span> Donde <span class="math inline">\(\hspace{0.08cm}F( \cdot )\hspace{0.08cm}\)</span> es una distribucion de probabilidad con parametros no especificados. <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p>Usaremos la siguiente notación: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \hspace{0.3cm} \Leftrightarrow
+\left\lbrace\begin{array}{l}   \hspace{0.12cm}\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.2cm} \text{son mutuamente independientes} \\[0.1cm]
+\hspace{0.12cm}\mathcal{X}_i \sim F(\cdot) \hspace{0.12cm} , \hspace{0.12cm} \forall i=1,...,n    \end{array}\right. \\[1cm]\]</span></p>
+<p><br></p>
+</div>
+<div id="muestra-aleatoria-simple" class="section level1" number="44">
+<h1><span class="header-section-number">44</span> Muestra Aleatoria Simple</h1>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Sea <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> una v.a. tal que <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \sim F(\cdot)\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.1cm}\)</span> es una muestra aleatoria simple (m.a.s.) de tamaño <span class="math inline">\(\hspace{0.08cm}n\hspace{0.08cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span> <span class="math inline">\(\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}\)</span> <span class="math inline">\((\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \\\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><strong>Observación:</strong></p>
+<p>Una m.a.s. de una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> es un vector de v.a.’s mutuamente independientes y que se distribuyen probabilisticamente igual que la v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span></p>
+</div>
+<div id="definiciones-de-convergencia" class="section level1" number="45">
+<h1><span class="header-section-number">45</span> Definiciones de Convergencia</h1>
+<div id="teorema-de-esperanza-varianza-de-la-media-muestral" class="section level3" number="45.0.1">
+<h3><span class="header-section-number">45.0.1</span> Teorema de esperanza-varianza de la media muestral</h3>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Si tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> y una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[E\left[\overline{\mathcal{X}_n}\right] \hspace{0.1cm}=\hspace{0.1cm} E[\mathcal{X}]\\\]</span></p>
+<p><span class="math display">\[Var\left(\overline{\mathcal{X}_n}\right) \hspace{0.1cm}=\hspace{0.1cm} Var(\mathcal{X})/n \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
+<ul>
+<li><span class="math inline">\(\hspace{0.1cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i\)</span></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+</div>
+<div id="teorema-de-distribución-de-la-media-muestral" class="section level3" number="45.0.2">
+<h3><span class="header-section-number">45.0.2</span> Teorema de distribución de la media muestral</h3>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:0.1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Si tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim N(\mu , \sigma^2)\hspace{0.1cm}\)</span> y una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\overline{ \mathcal{X}_n } \sim N(\mu \hspace{0.1cm},\hspace{0.1cm} \sigma^2/n)\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Por tanto:</p>
+<p><span class="math display">\[\dfrac{\hspace{0.2cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.2cm}}{ \sqrt{\sigma^2 / n}  } \hspace{0.1cm}\sim\hspace{0.1cm} N(0,1)\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+</div>
+<div id="teorema-de-gosset" class="section level3" number="45.0.3">
+<h3><span class="header-section-number">45.0.3</span> Teorema de Gosset</h3>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:0.1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}\)</span>, y dada una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \\\)</span></p>
+<p><span class="math display">\[\dfrac{\hspace{0.15cm} \overline{\mathcal{X}_n} - \mu \hspace{0.15cm}}{\sqrt{\dfrac{n}{n-1} S_n^2/n \hspace{0.1cm}} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{n-1} \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
+<ul>
+<li><p><span class="math inline">\(\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i \\\)</span></p></li>
+<li><p><span class="math inline">\(S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2\)</span></p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
+</div>
+<div id="teorema-de-fisher" class="section level3" number="45.0.4">
+<h3><span class="header-section-number">45.0.4</span> Teorema de Fisher</h3>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:0.1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}\)</span>, y dada una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\)</span></p>
+<p><span class="math display">\[\dfrac{\hspace{0.15cm} n\cdot S^2_n \hspace{0.15cm}}{ \sigma^2 \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} \chi^2_{n-1}\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
+<ul>
+<li><p><span class="math inline">\(\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i \\\)</span></p></li>
+<li><p><span class="math inline">\(S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2\)</span></p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
+</div>
+<div id="teorema-central-del-límite" class="section level3" number="45.0.5">
+<h3><span class="header-section-number">45.0.5</span> Teorema central del límite</h3>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> El TCL dice lo siguiente:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Si tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> con varianza finita y no nula, y una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} = \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.2cm}\underset{d}{\rightarrow}\hspace{0.2cm} N(0,1)\\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p>Usando la definicion de convergencia en distribución tenemos lo siguiente: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\underset{n \rightarrow \infty}{lim} \hspace{0.1cm} F_{W_n}(x) \hspace{0.1cm} =\hspace{0.1cm} F_{N(0,1)}(x) \hspace{0.25cm} , \hspace{0.25cm} \forall x\in \mathbb{R}\]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[W_n = \dfrac{\overline{\mathcal{X}_n} - E[\mathcal{X}]}{\sqrt{Var(\mathcal{X})/n}}\]</span></p>
+<p><br></p>
+</div>
+<div id="teorema-de-moivre-laplace" class="section level3" number="45.0.6">
+<h3><span class="header-section-number">45.0.6</span> Teorema de Moivre-Laplace</h3>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Este teorema es un caso particular del TCL para v.a`s Binomiales.</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Si tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim Binomial(k,p)\hspace{0.1cm}\)</span> y una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.1cm}= \hspace{0.1cm}
+\dfrac{\overline{\mathcal{X}_n} - k\cdot p}{\sqrt{k\cdot p\cdot(1-p)/n}}\hspace{0.2cm}\underset{d}{\rightarrow}\hspace{0.2cm} N(0,1)\\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+</div>
+</div>
+<div id="distribución-normal-multivariante" class="section level1" number="46">
+<h1><span class="header-section-number">46</span> Distribución Normal Multivariante</h1>
+<p><span class="math inline">\(X=(X_1 , X_2 ,..., X_p)^t\)</span> tiene una distribucion Normal p-variante si:</p>
+<p><span class="math display">\[\begin{gather*}
+X=\begin{pmatrix}
+X_1 \\
+... \\
+X_{p}
+\end{pmatrix} = \begin{pmatrix}
+\mu_{1} \\
+... \\
+\mu_{p}
+\end{pmatrix} +
+\begin{pmatrix}
+a_{11} &amp; ... &amp; a_{1p} \\
+...  &amp; ... &amp; ...\\
+a_{p1} &amp; ...&amp; a_{pp}
+\end{pmatrix} \cdot
+\begin{pmatrix}
+Z_{1 } \\
+... \\
+Z_{p}
+\end{pmatrix}=
+\begin{pmatrix}
+\mu_1 + a_{11}\cdot Z_1 +...+ a_{1p}\cdot Z_p \\
+... \\
+\mu_p + a_{p1}\cdot Z_1 +...+ a_{pp}\cdot Z_p
+\end{pmatrix}
+\end{gather*}\]</span></p>
+Por tanto:
+
 </div>
 </div>
 

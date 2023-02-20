@@ -739,17 +739,17 @@ $$F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X} \geq x) \hspace
 
 # Esperanza de una variable aleatoria
 
-La esperanza de una v.a. $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$  se define del siguiente modo. $\\[0.3cm]$
+La esperanza de una v.a. $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$  se define del siguiente modo: $\\[0.3cm]$
 
-Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es una v.a. **discreta** :
-
-
-$$E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} x \cdot P(\mathcal{X}=x)$$
+- Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es una v.a. **discreta** :
 
 
-Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es una v.a. **continua** : 
+    $$E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} x \cdot P(\mathcal{X}=x)$$
 
-$$E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \int_{-\infty}^{\infty} x \cdot f_\mathcal{X}(x) \cdot dx$$ $\\[0.5cm]$
+
+- Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es una v.a. **continua** : 
+
+    $$E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \int_{-\infty}^{\infty} x \cdot f_\mathcal{X}(x) \cdot dx$$ $\\[0.5cm]$
 
 
 ## Propiedades
@@ -1301,9 +1301,7 @@ $$P(\mathcal{X}=x , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}
 
 - $\sum_{x\in \mathbb{R}}\sum_{y\in \mathbb{R}} P(\mathcal{X}=x , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 1$ $\\[0.8cm]$
 
-- Si $\hspace{0.08cm}x\notin Im(\mathcal{X})\hspace{0.08cm}$ o $\hspace{0.08cm}y \notin Im(\mathcal{Y})\hspace{0.08cm}$ , entonces:
-
-    $$P(\mathcal{X}=x , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 0 \\$$
+- Si $\hspace{0.08cm}x\notin Im(\mathcal{X})\hspace{0.08cm}$ o $\hspace{0.08cm}y \notin Im(\mathcal{Y})\hspace{0.08cm}$ , entonces: $\hspace{0.12cm}P(\mathcal{X}=x , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 0$$\\[0.8cm]$
 
 - $P(\mathcal{X}\in A , \mathcal{Y}\in B) \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in A} \sum_{y\in B} P(\mathcal{X}=x , \mathcal{Y}=y)$ $\\[0.8cm]$
 
@@ -1419,7 +1417,7 @@ entonces: $\hspace{0.12cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal
 # Independencia de variables aleatorias continuas
 
 
-$\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son v.a. independientes  $\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$
+$\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son v.a. independientes  $\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})\hspace{0.1cm}$ , si y solo si:
 
 $$\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}=x)\cdot P(\mathcal{Y}=y) \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} x,y \in \mathbb{R}$$
 
@@ -1438,7 +1436,7 @@ $\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son v
 
 ### Colorario
 
-Si $\hspace{0.08cm}\exist\hspace{0.08cm} g,h \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R} \rightarrow \mathbb{R}\hspace{0.08cm}$  , tal que:
+Si $\hspace{0.08cm}\exists\hspace{0.08cm} g,h \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R} \rightarrow \mathbb{R}\hspace{0.08cm}$  , tal que:
 
 $f_{\mathcal{X},\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm} g(x)\cdot h(y) \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.08cm} x,y \in \mathbb{R}$
 
@@ -1521,8 +1519,359 @@ $$E[ \mathcal{X} | \mathcal{Y}=y] \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in \ma
 
 
 
+# Variables aleatorias i.i.d.
 
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ son variables aleatorias mutuamente independientes e identicamente distribuidas  *(i.i.d.)* $\hspace{0.3cm}\Leftrightarrow$
+
+- $\hspace{0.1cm}$ $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son mutuamente independientes , es decir:
+
+$$\hspace{0.08cm} P(\mathcal{X}_1=x_1,...,\mathcal{X}_n=x_n) \hspace{0.1cm}=\hspace{0.1cm} \prod_{i=1}^n P(\mathcal{X}_i=x_i) \\$$
+
+$\hspace{0.7cm}$ Lo que implica que también son independientes dos a dos , es decir, $\hspace{0.12cm} \mathcal{X}_i \perp \mathcal{X}_j \hspace{0.12cm} , \hspace{0.12cm} \forall i\neq j \\$
+
+- $\hspace{0.1cm}$ $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.12cm}$ tienen la misma distribución de probabilidad, es decir, $\hspace{0.12cm}\mathcal{X}_i \sim F( \cdot ) \hspace{0.15cm}, \hspace{0.1cm} \forall i=1,...,n$ 
+
+
+
+</p>
+ 
+</p></span>
+</div>
+
+$\hspace{0.4cm}$ Donde $\hspace{0.08cm}F( \cdot )\hspace{0.08cm}$ es una distribucion de probabilidad con parametros no especificados. $\\[0.5cm]$
+
+
+
+
+Usaremos la siguiente notación: $\\[0.4cm]$
+
+
+$$(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \hspace{0.3cm} \Leftrightarrow
+\left\lbrace\begin{array}{l}   \hspace{0.12cm}\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.2cm} \text{son mutuamente independientes} \\[0.1cm] 
+\hspace{0.12cm}\mathcal{X}_i \sim F(\cdot) \hspace{0.12cm} , \hspace{0.12cm} \forall i=1,...,n    \end{array}\right. \\[1cm]$$
+
+
+
+<br>
+
+# Muestra Aleatoria Simple
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ Sea $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ una v.a. tal que $\hspace{0.1cm}\mathcal{X} \sim F(\cdot)$ 
+
+
+$\hspace{0.25cm}$ $\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.1cm}$ es una muestra aleatoria simple (m.a.s.) de tamaño $\hspace{0.08cm}n\hspace{0.08cm}$ de $\hspace{0.1cm}\mathcal{X}$ $\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}$ $(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \\$
+
+</p>
+ 
+</p></span>
+</div>
+
+**Observación:**
+
+Una m.a.s. de una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ es un vector de v.a.'s mutuamente independientes y que se distribuyen probabilisticamente igual que la v.a. $\hspace{0.1cm}\mathcal{X}$
+
+
+
+
+
+# Definiciones de Convergencia
+
+
+
+
+
+
+
+
+### Teorema de esperanza-varianza de la media muestral
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
+
+$$E\left[\overline{\mathcal{X}_n}\right] \hspace{0.1cm}=\hspace{0.1cm} E[\mathcal{X}]\\$$
+
+$$Var\left(\overline{\mathcal{X}_n}\right) \hspace{0.1cm}=\hspace{0.1cm} Var(\mathcal{X})/n \\$$
+
+$\hspace{0.25cm}$ Donde:
+
+- $\hspace{0.1cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i$
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
+<br>
+
+
+
+
+### Teorema de distribución de la media muestral
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
+
+$\hspace{0.25cm}$ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu , \sigma^2)\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
+
+
+$$\overline{ \mathcal{X}_n } \sim N(\mu \hspace{0.1cm},\hspace{0.1cm} \sigma^2/n)$$
+
+$\hspace{0.25cm}$ Por tanto:
+
+
+$$\dfrac{\hspace{0.2cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.2cm}}{ \sqrt{\sigma^2 / n}  } \hspace{0.1cm}\sim\hspace{0.1cm} N(0,1)$$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+
+### Teorema de Gosset
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
+
+$\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}$, y dada una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X} \\$ 
+
+
+$$\dfrac{\hspace{0.15cm} \overline{\mathcal{X}_n} - \mu \hspace{0.15cm}}{\sqrt{\dfrac{n}{n-1} S_n^2/n \hspace{0.1cm}} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{n-1} \\$$
+
+$\hspace{0.25cm}$ Donde:
+
+- $\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i \\$
+
+- $S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+### Teorema de Fisher
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+<p style='margin-left:0.1em;'>
+
+$\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}$, y dada una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}$ 
+
+
+$$\dfrac{\hspace{0.15cm} n\cdot S^2_n \hspace{0.15cm}}{ \sigma^2 \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} \chi^2_{n-1}$$
+
+
+$\hspace{0.25cm}$ Donde:
+
+- $\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i \\$
+
+- $S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+### Teorema central del límite
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ El TCL dice lo siguiente:
+
+$\hspace{0.25cm}$ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ con varianza finita y no nula, y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
+
+$$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} = \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.2cm}\underset{d}{\rightarrow}\hspace{0.2cm} N(0,1)\\$$
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+
+
+
+Usando la definicion de convergencia en distribución tenemos lo siguiente: $\\[0.5cm]$
+
+
+
+$$\underset{n \rightarrow \infty}{lim} \hspace{0.1cm} F_{W_n}(x) \hspace{0.1cm} =\hspace{0.1cm} F_{N(0,1)}(x) \hspace{0.25cm} , \hspace{0.25cm} \forall x\in \mathbb{R}$$
+
+Donde:
+
+ $$W_n = \dfrac{\overline{\mathcal{X}_n} - E[\mathcal{X}]}{\sqrt{Var(\mathcal{X})/n}}$$
+ 
+<br> 
+ 
+### Teorema de Moivre-Laplace
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+
+$\hspace{0.25cm}$ Este teorema es un caso particular del TCL para v.a`s Binomiales.
+
+
+$\hspace{0.25cm}$ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim Binomial(k,p)\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
+
+ 
+ 
+ 
+$$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.1cm}= \hspace{0.1cm}
+\dfrac{\overline{\mathcal{X}_n} - k\cdot p}{\sqrt{k\cdot p\cdot(1-p)/n}}\hspace{0.2cm}\underset{d}{\rightarrow}\hspace{0.2cm} N(0,1)\\$$
+ 
+</p>
+ 
+</p></span>
+</div>
+ 
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Distribución Normal Multivariante
+
+\section{Distribución Normal Multivariante:}
+
+\tcbset{colback=blue!1!white,colframe=orange!80!black}
+\begin{tcolorbox}[toptitle=2mm,title= Distribución Normal Multivariante: ]
+El vector aleatorio $X=(X_1 , X_2 ,..., X_p)^t$ tiene una distribucion Normal p-variante si: \vspace{0.2cm}
+
+Existen $p$ v.a's i.i.d. $Z_1 ,..., Z_p \sim N(0,1)$ tales que:
+
+\begin{gather*}
+X= \mu + A\cdot Z
+\end{gather*}
+
+Donde:
+\begin{gather*}
+\mu=(\mu_1 ,..., \mu_p)^t \in \mathbb{R}^p \\
+Z=(Z_1 ,..., Z_p)^t \\
+A=( a_{ij} )_{i,j = 1,...,p} \in \mathbb{R}^{pxp}
+\end{gather*}
+\end{tcolorbox}
+
+\subsection{Propiedades Distribución Normal Multivariante:}
+
+
+$X=(X_1 , X_2 ,..., X_p)^t$  tiene una distribucion Normal p-variante si:
+
+\begin{gather*}
+X=\begin{pmatrix}
+X_1 \\
+... \\
+X_{p} 
+\end{pmatrix} = \begin{pmatrix}
+\mu_{1} \\
+... \\
+\mu_{p} 
+\end{pmatrix} +
+\begin{pmatrix}
+a_{11} & ... & a_{1p} \\
+...  & ... & ...\\
+a_{p1} & ...& a_{pp} 
+\end{pmatrix} \cdot
+\begin{pmatrix}
+Z_{1 } \\
+... \\
+Z_{p} 
+\end{pmatrix}=
+\begin{pmatrix}
+\mu_1 + a_{11}\cdot Z_1 +...+ a_{1p}\cdot Z_p \\
+... \\
+\mu_p + a_{p1}\cdot Z_1 +...+ a_{pp}\cdot Z_p 
+\end{pmatrix}
+\end{gather*}
+
+Por tanto:
+\tcbset{colback=blue!1!white,colframe=orange!80!black}
+\begin{tcolorbox}[toptitle=2mm,title=  ]
+$X=(X_1 , X_2 ,..., X_p)^t$  tiene una distribucion Normal p-variante si:
+
+\begin{equation*}
+\left\lbrace\begin{array}{c} 
+X_1=\mu_1 + a_{11}\cdot Z_1 +...+ a_{1p}\cdot Z_p \\
+... \\
+X_p=\mu_p + a_{p1}\cdot Z_1 +...+ a_{pp}\cdot Z_p 
+\end{array}\right.
+\end{equation*}
+\end{tcolorbox}
+
+\tcbset{colback=blue!1!white,colframe=orange!80!black}
+\begin{tcolorbox}[toptitle=2mm,title=  ]
+Si $X= \mu + A\cdot Z$ , definidos estos conceptos como lo fueron en la sección 3.1, entonces: \\
+
+1) \hspace{0.1cm} $E[X]=\mu$ \\
+
+2)\hspace{0.1cm} $Var(X)=A^t \cdot A = \Sigma$ \\
+
+3)\hspace{0.1cm} Notacion: $X \sim N_p(\mu , \Sigma )$ \\
+
+4)\hspace{0.1cm} $\Sigma$ es semi-definida positiva y positiva si $Rg(A)=p$ \\
+
+5)\hspace{0.1cm} Todo vector aleatorio Y obtenido como combinacion lineal de las componentes de X tiene distribucion normal multivariante. \\
+
+Es decir, si $\overrightarrow{c_1},...,\overrightarrow{c_k}$ son vectores de $p$ constantes, entonces:
+
+\begin{gather*}
+Y= \begin{pmatrix}
+\overrightarrow{c_1}^t \cdot X \\
+... \\
+ \overrightarrow{c_k}\cdot X
+\end{pmatrix} =
+\begin{pmatrix}
+c_{11} \cdot X_1 + ... + c_{p1}\cdot X_p \\
+... \\
+ c_{1k} \cdot X_1 + ... + c_{pk}\cdot X_p
+\end{pmatrix}
+\end{gather*} es un vector aleatorio con distribucion Normal multivariante.
+
+Y es un vector cuya cuyas componentes son combinaciones lineales de X \\
+
+6) Para v.a's con distribucion conjunta Normal multivariante, independencia equivale a incorrelacion lineal. \\
+
+7)\hspace{0.1cm} Si $X\sim N_p(\mu , \Sigma)$ es no singular, entonces:
+\begin{gather*}
+U_p = (X- \mu )^t \cdot \Sigma^{-1} \cdot (X - \mu ) \sim \chi_p^2
+\end{gather*}
+
+\end{tcolorbox}
 
 
 
