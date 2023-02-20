@@ -901,7 +901,7 @@ $$\mathcal{X} \sim Bernoulli(p) \hspace{0.3cm} \Leftrightarrow\hspace{0.3cm} P(\
 
 - $Var(\mathcal{X})\hspace{0.08cm}=\hspace{0.08cm} p\cdot (1-p)$ $\\[0.8cm]$
 
-- $F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \left\lbrace\begin{array}{l} 1 \hspace{0.3cm},\hspace{0.3cm} \text{si} \hspace{0.12cm} x\geq 1 \\ 0 \hspace{0.3cm},\hspace{0.3cm} \text{si} \hspace{0.12cm} x < 0 \\ 1-p \hspace{0.3cm},\hspace{0.3cm} \text{si} \hspace{0.12cm} x\in [0 , 1) \end{array}\right.$ 
+- $F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \left\lbrace\begin{array}{l} 1 \hspace{0.3cm},\hspace{0.3cm} \text{si} \hspace{0.2cm} x\geq 1 \\ 0 \hspace{0.3cm},\hspace{0.3cm} \text{si} \hspace{0.2cm} x < 0 \\ 1-p \hspace{0.3cm},\hspace{0.3cm} \text{si} \hspace{0.2cm} x\in [0 , 1) \end{array}\right.$ 
 
 <br>
 
@@ -1045,7 +1045,7 @@ $$\mathcal{X} \sim U(a,b) \hspace{0.3cm}\Leftrightarrow \hspace{0.3cm} f_\mathca
 
 - $Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{12} \cdot (b-a)^2$ $\\[0.8cm]$
 
-- $F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X} \geq x) \hspace{0.08cm}=\hspace{0.08cm} \int_{-\infty}^{x} f_X(z) \cdot dz \hspace{0.08cm}=\hspace{0.08cm} \left\lbrace\begin{array}{c} 1 , si x\geq b \\ 0 , si x \leq a \\ \dfrac{x-a}{b-a} , si x\in (a,b) \end{array}\right.$
+- $F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X} \geq x) \hspace{0.08cm}=\hspace{0.08cm} \int_{-\infty}^{x} \hspace{0.08cm} f_X(z) \cdot dz \hspace{0.08cm}=\hspace{0.08cm} \left\lbrace\begin{array}{l} 1 \hspace{0.3cm} , \hspace{0.3cm} \text{si} \hspace{0.2cm} x\geq b \\ 0  \hspace{0.3cm} , \hspace{0.3cm} \text{si} \hspace{0.2cm} x \leq a \\ \dfrac{x-a}{b-a}  \hspace{0.3cm} , \hspace{0.3cm} \text{si} \hspace{0.2cm} x\in (a,b) \end{array}\right.$
 
 
 <br>
@@ -1064,8 +1064,9 @@ Donde: $\hspace{0.08cm}\lambda > 0\hspace{0.08cm}\\$
 
 - $Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\lambda^2}$ $\\[0.8cm]$
 
-- $F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm}  P(\mathcal{X} \geq x) \hspace{0.08cm}=\hspace{0.08cm} \int_{-\infty}^{x} f_\mathcal{X}(z) \cdot dz \hspace{0.08cm}=\hspace{0.08cm} \left\lbrace\begin{array}{c} 0 , si x \leq 0 \\ 1- e^{-\lambda \cdot x} , si x>0 \end{array}\right.$
+- $F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm}  P(\mathcal{X} \geq x) \hspace{0.08cm}=\hspace{0.08cm} \int_{-\infty}^{x} f_\mathcal{X}(z) \cdot dz \hspace{0.08cm}=\hspace{0.08cm} \left\lbrace\begin{array}{l} 0  \hspace{0.3cm} , \hspace{0.3cm} \text{si} \hspace{0.2cm} x \leq 0 \\ 1- e^{-\lambda \cdot x}  \hspace{0.3cm} , \hspace{0.3cm} \text{si} \hspace{0.21cm} x>0 \end{array}\right.$
 
+<br>
 
 ## Funcion Gamma
 
@@ -1075,13 +1076,13 @@ Donde: $\hspace{0.08cm}\alpha >0\hspace{0.08cm}\\$
 
 ### Propiedades
 
-- $\Gamma(1) \hspace{0.08cm}=\hspace{0.08cm} \Gamma(2) \hspace{0.08cm}=\hspace{0.08cm} 1\hspace{0.08cm}$.
+- $\Gamma(1) \hspace{0.08cm}=\hspace{0.08cm} \Gamma(2) \hspace{0.08cm}=\hspace{0.08cm} 1\hspace{0.08cm}$. $\\[0.7cm]$
 
-- $\Gamma(\alpha + 1) \hspace{0.08cm}=\hspace{0.08cm} \alpha \cdot \Gamma(\alpha)\hspace{0.08cm}$.
+- $\Gamma(\alpha + 1) \hspace{0.08cm}=\hspace{0.08cm} \alpha \cdot \Gamma(\alpha)\hspace{0.08cm}$. $\\[0.7cm]$
 
-- $\Gamma(\alpha + 1) \hspace{0.08cm}=\hspace{0.08cm} \alpha !\hspace{0.08cm}$ , si $\hspace{0.08cm}\alpha \in \mathbb{N}\hspace{0.08cm}$.
+- $\Gamma(\alpha + 1) \hspace{0.08cm}=\hspace{0.08cm} \alpha !\hspace{0.08cm}$ , si $\hspace{0.08cm}\alpha \in \mathbb{N}\hspace{0.08cm}$. $\\[0.7cm]$
 
-- $\Gamma(\alpha) \hspace{0.08cm}=\hspace{0.08cm} (\alpha -1)!\hspace{0.08cm}$ , si $\hspace{0.08cm}\alpha \in \mathbb{N}\hspace{0.08cm}$.
+- $\Gamma(\alpha) \hspace{0.08cm}=\hspace{0.08cm} (\alpha -1)!\hspace{0.08cm}$ , si $\hspace{0.08cm}\alpha \in \mathbb{N}\hspace{0.08cm}$. $\\[0.7cm]$
 
 - $\Gamma(1/2) \hspace{0.08cm}=\hspace{0.08cm} \sqrt{\pi}\hspace{0.08cm}$.
 
@@ -1100,7 +1101,7 @@ Donde: $\hspace{0.08cm}\alpha, \lambda > 0 \\$
 - Si $\hspace{0.08cm}\alpha \in \mathbb{N}\hspace{0.08cm}$ , entonces:
 
 
-    $$f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\lambda^\alpha}{(\alpha -1)!} \cdot x^{\alpha -1} \cdot e^{-\lambda \cdot x} \cdot \mathbb{I}( x>0 )$$ 
+    $$f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\lambda^\alpha}{(\alpha -1)!} \cdot x^{\alpha -1} \cdot e^{-\lambda \cdot x} \cdot \mathbb{I}( x>0 )\\$$ 
 
 - Si $\hspace{0.08cm}\alpha \hspace{0.08cm}=\hspace{0.08cm} 1\hspace{0.08cm}$ , entonces:
 
@@ -1108,7 +1109,7 @@ Donde: $\hspace{0.08cm}\alpha, \lambda > 0 \\$
 
     Por tanto:
 
-    $$Gamma(\alpha = 1 , \lambda) \hspace{0.08cm}=\hspace{0.08cm} Exponencial(\lambda)$$
+    $$Gamma(\alpha = 1 , \lambda) \hspace{0.08cm}=\hspace{0.08cm} Exponencial(\lambda) \\$$
 
 
 
@@ -1119,11 +1120,11 @@ Donde: $\hspace{0.08cm}\alpha, \lambda > 0 \\$
  
 - Si $\hspace{0.08cm}\mathcal{X}_1,...,\mathcal{X}_n \sim Exponencial(\lambda)\hspace{0.08cm}$ y son independientes, entonces:
 
-    $$\mathcal{X}_1+...+\mathcal{X}_n \sim Gamma(n , \lambda)$$
+    $$\mathcal{X}_1+...+\mathcal{X}_n \sim Gamma(n , \lambda)\\$$
 
 - Si $\hspace{0.08cm}\mathcal{X}\sim Gamma(\alpha , \lambda)\hspace{0.08cm}$ y $\hspace{0.08cm}c>0\hspace{0.08cm}$ , entonces:
 
-    $$c\cdot \mathcal{X}\sim Gamma(\alpha , \lambda / c)$$
+    $$c\cdot \mathcal{X}\sim Gamma(\alpha , \lambda / c)\\$$
 
 - Si $\hspace{0.08cm}\mathcal{X}_1 , ..., \mathcal{X}_n\hspace{0.08cm}$ son independientes y $\hspace{0.08cm}\mathcal{X}_i\sim Gamma(\alpha_i , \lambda)\hspace{0.08cm}$, entonces:
 
@@ -1136,10 +1137,12 @@ Donde: $\hspace{0.08cm}\alpha, \lambda > 0 \\$
 ## Distribucion Normal
 
 
-$$\mathcal{X} \sim N(\mu, \sigma^2) \Leftrightarrow f_\mathcal{X}(x) = \dfrac{1}{\sigma \sqrt{2\pi}} \cdot exp \left( \dfrac{-1}{2} \cdot \dfrac{(x- \mu)^2}{\sigma^2}  \right) \hspace{0.3cm} , \hspace{0.3cm} x\in \mathbb{R}$$
+$$\mathcal{X} \sim N(\mu, \sigma^2) \Leftrightarrow f_\mathcal{X}(x) = \dfrac{1}{\sigma \sqrt{2\pi}} \cdot exp \left(  \dfrac{-(x- \mu)^2}{2\cdot \sigma^2}  \right) \hspace{0.3cm} , \hspace{0.3cm} x\in \mathbb{R}$$
 
 
-Donde: $\hspace{0.08cm}\mu \in \mathbb{R}\hspace{0.08cm}$ y $\hspace{0.08cm}\sigma^2 > 0 \\$
+Donde: $\hspace{0.12cm}\mu \in \mathbb{R}\hspace{0.12cm}$ y $\hspace{0.12cm}\sigma^2 > 0 \\$
+
+
 
 ### Propiedades
 
@@ -1153,11 +1156,11 @@ Donde: $\hspace{0.08cm}\mu \in \mathbb{R}\hspace{0.08cm}$ y $\hspace{0.08cm}\sig
 
 - Si $\hspace{0.08cm}\mathcal{X}_i \sim N(\mu_i , \sigma_i^2)\hspace{0.08cm}$ , para $\hspace{0.08cm}i =1,...,n\hspace{0.08cm}$ , entonces:
 
-    $$\mathcal{X}_1 + ...+ \mathcal{X}_n \sim N(\mu_1 +...+ \mu_n , \sigma_1^2 + ...+ \sigma_n^2)$$
+    $$\mathcal{X}_1 + ...+ \mathcal{X}_n \sim N(\mu_1 +...+ \mu_n \hspace{0.1cm},\hspace{0.1cm} \sigma_1^2 + ...+ \sigma_n^2)\\$$
 
 - Si $\hspace{0.08cm}\mathcal{X}_i \sim N(\mu_i , \sigma_i^2)\hspace{0.08cm}$ , para $\hspace{0.08cm}i =1,...,n\hspace{0.08cm}$ , entonces:
 
-    $$a_1\cdot \mathcal{X}_1 + ...+ a_n \cdot \mathcal{X}_n \sim N(a_1 \cdot \mu_1 +...+ a_n \cdot \mu_n , a_1^2 \cdot \sigma_1^2 + ...+ a_n^2 \cdot \sigma_n^2)$$
+    $$a_1\cdot \mathcal{X}_1 + ...+ a_n \cdot \mathcal{X}_n \sim N(a_1 \cdot \mu_1 +...+ a_n \cdot \mu_n \hspace{0.1cm},\hspace{0.1cm} a_1^2 \cdot \sigma_1^2 + ...+ a_n^2 \cdot \sigma_n^2)$$
 
 
 <br>
@@ -1175,7 +1178,7 @@ Donde: $\hspace{0.08cm}a, b >0 \\$
 
 - $B(a,1) \hspace{0.08cm}=\hspace{0.08cm} 1/a$ $\\[0.7cm]$
 
-- $B(a+1, b) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{a}{a+b} \cdot B(a,b)$ $\\[0.7cm]$
+- $B(a+1, b) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{a}{a+b} \cdot B(a,b)$ $\\[0.9cm]$
 
 - $B(a,b) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\Gamma(a) \cdot \Gamma(b)}{\Gamma(a+b)}$ $\\[0.7cm]$
 
@@ -1183,7 +1186,7 @@ Donde: $\hspace{0.08cm}a, b >0 \\$
 
 ## Distribucion Beta
 
-$$\mathcal{X}\sim Beta(a,b) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{B(a,b)} \cdot x^{a-1} \cdot (1-x)^{b-1} \cdot \mathbb{I}( \hspace{0.05cm} x \in (0,1) \hspace{0.05cm} )$$
+$$\mathcal{X}\sim Beta(a,b) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{B(a,b)} \cdot x^{a-1} \cdot (1-x)^{b-1} \cdot \mathbb{I}\left[ \hspace{0.05cm} x \in (0,1) \hspace{0.05cm} \right]$$
 
 
 Donde: $\hspace{0.08cm}a, b >0 \\$
@@ -1193,7 +1196,7 @@ Donde: $\hspace{0.08cm}a, b >0 \\$
 
 - $E[\mathcal{X}]\hspace{0.08cm}=\hspace{0.08cm}\dfrac{a}{a+b}$ $\\[0.7cm]$
 
-- $Var(\mathcal{X})\hspace{0.08cm} =\hspace{0.08cm} \dfrac{a\cdot b}{(a + b +1)(a+b)^2}$ $\\[0.7cm]$
+- $Var(\mathcal{X})\hspace{0.08cm} =\hspace{0.08cm} \dfrac{a\cdot b}{(a + b +1)(a+b)^2}$ $\\[1.2cm]$
 
 - Si $\hspace{0.08cm}\mathcal{X}\sim Gamma(a, \lambda)\hspace{0.08cm}$ y $\hspace{0.08cm}\mathcal{Y}\sim Gamma(b,\lambda)\hspace{0.08cm}$ , entonces:
 
@@ -1206,25 +1209,25 @@ Donde: $\hspace{0.08cm}a, b >0 \\$
 ## Distribucion Weibull
 
 
-$$\mathcal{X}\sim Weibull(\alpha , \lambda) \Leftrightarrow f_\mathcal{X}(x)= \lambda\cdot \alpha (\lambda \cdot x)^{\alpha - 1} \cdot e^{-(\lambda \cdot x)^\alpha} \cdot \mathbb{I}\bigl[ x > 0 \bigr]$$
+$$\mathcal{X}\sim Weibull(\alpha , \lambda) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \lambda\cdot \alpha (\lambda \cdot x)^{\alpha - 1} \cdot e^{-(\lambda \cdot x)^\alpha} \cdot \mathbb{I}\bigl[ x > 0 \bigr]$$
 
-Donde: $\hspace{0.08cm}\alpha , \lambda >0 \\$
+Donde: $\hspace{0.08cm}\alpha \hspace{0.08cm},\hspace{0.08cm} \lambda\hspace{0.08cm} > \hspace{0.08cm}0 \\$
 
 
 ### Propiedades
 
-- $E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\lambda} \Gamma(1 + \dfrac{1}{\alpha})$ $\\[0.7cm]$
+- $E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\lambda} \Gamma(1 + \dfrac{1}{\alpha})$ $\\[0.9cm]$
 
-- $Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\lambda^2} \left( \Gamma(1 + \dfrac{2}{\alpha}) - \Gamma(1+ \dfrac{1}{\alpha}) \right)$ $\\[0.7cm]$
+- $Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\lambda^2} \left( \Gamma(1 + \dfrac{2}{\alpha}) - \Gamma(1+ \dfrac{1}{\alpha}) \right)$ $\\[1.2cm]$
 
-- $$F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} (1 - e^{-(\lambda \cdot x)^\alpha}) \cdot \mathbb{I}( x>0 )$$
+- $F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \left(\hspace{0.08cm} 1 - e^{-(\lambda \cdot x)^\alpha} \hspace{0.08cm} \right) \cdot \mathbb{I}\left[ x>0 \right]$
 
 
 <br>
 
 ## Distribucion Chi-cuadrado
 
-$$\mathcal{X} \sim \chi_n ^2 \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\Gamma(n/2)} \cdot \dfrac{1}{2}^{n/2} \cdot x ^{n/2 -1} \cdot e^{-x/2} \hspace{0.3cm} , \hspace{0.3cm} x\in \mathbb{R}$$
+$$\mathcal{X} \sim \chi_n ^2 \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\Gamma(n/2)} \cdot \dfrac{1}{2}^{n/2} \cdot x ^{n/2 -1} \cdot e^{-x/2} \hspace{0.3cm} , \hspace{0.3cm} x\in \mathbb{R} \\$$
 
 
 ### Propiedades
@@ -1247,16 +1250,16 @@ $$\mathcal{X} \sim \chi_n ^2 \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\math
 
 ## Distribucion t-student
 
-$$\mathcal{X}\sim t_n \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\Gamma(\dfrac{n+1}{2})}{\sqrt{n\cdot \pi} \cdot \Gamma(n/2)} \cdot (1 + \dfrac{x^2}{n})^{-1/2 \cdot (n+1)} \cdot \mathbb{I}(\hspace{0.03cm} x\in \mathbb{R}\hspace{0.03cm} )$$
+$$\mathcal{X}\sim t_n \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\Gamma\left(\dfrac{n+1}{2}\right)}{\sqrt{n\cdot \pi} \cdot \Gamma(n/2)} \cdot \left(1 + \dfrac{x^2}{n}\right)^{-1/2 \cdot (n+1)}  \hspace{0.33cm} , \hspace{0.33cm} x\in \mathbb{R} \\$$
 
 
 ### Propiedades 
 
 - $E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} 0\hspace{0.08cm}$. $\\[0.7cm]$
 
-- $Var[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{n}{n-2}\hspace{0.08cm}$ , si $\hspace{0.08cm}n>2\hspace{0.08cm}$. $\\[0.7cm]$
+- $Var[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{n}{n-2}\hspace{0.08cm}$ , si $\hspace{0.08cm}n>2\hspace{0.08cm}$. $\\[0.9cm]$
 
-- Si $\hspace{0.08cm}Z \sim N(0,1)\hspace{0.08cm}$ y $\hspace{0.08cm}X\sim \chi_n^2\hspace{0.08cm}$ y son independientes , entonces:
+- Si $\hspace{0.08cm}Z \sim N(0,1)\hspace{0.12cm}$ y $\hspace{0.12cm}X\sim \chi_n^2\hspace{0.12cm}$ y son **independientes** , entonces:
 
     $$\dfrac{Z}{\sqrt{X/n}} \sim t_n$$
 
@@ -1266,18 +1269,18 @@ $$\mathcal{X}\sim t_n \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(
 
 ## Distribucion F-Fisher
 
-$$\mathcal{X}\sim F(a,b) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\Gamma(\dfrac{a+b}{2})}{\Gamma(a/2)\cdot \Gamma(b/2)} \cdot (a/b)^{a/2} \cdot x^{a/2-1} \cdot (1 + (a/b)\cdot x)^{-(a+b)/2} \cdot \mathbb{I}( x>0 ) \\$$
+$$\mathcal{X}\sim F(a,b) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\Gamma\left(\dfrac{a+b}{2}\right)}{\Gamma(a/2)\cdot \Gamma(b/2)} \cdot (a/b)^{a/2} \cdot x^{a/2-1} \cdot (1 + (a/b)\cdot x)^{-(a+b)/2} \cdot \mathbb{I}\left[ x>0 \right] \\$$
 
 
 ### Propiedades
 
-- $E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{b}{b-2}\hspace{0.08cm}$. $\\[0.7cm]$
+- $E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{b}{b-2}\hspace{0.08cm}$. $\\[0.8cm]$
 
-- $Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{2b^2 \cdot (a + b - 2)}{a \cdot (b-2)^2 \cdot (b-4)}\hspace{0.08cm}$ , si $\hspace{0.08cm}b>4\hspace{0.08cm}$. $\\[0.7cm]$
+- $Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{2b^2 \cdot (a + b - 2)}{a \cdot (b-2)^2 \cdot (b-4)}\hspace{0.128cm}$ , si $\hspace{0.12cm}b>4\hspace{0.08cm}$. $\\[1.2cm]$
 
-- Si $\hspace{0.08cm}\mathcal{X} \sim \chi^2_a\hspace{0.08cm}$ y $\hspace{0.08cm}\mathcal{Y} \sim \chi^2_b\hspace{0.08cm}$ , entonces:
+- Si $\hspace{0.08cm}\mathcal{X} \sim \chi^2_a\hspace{0.15cm}$ y $\hspace{0.15cm}\mathcal{Y} \sim \chi^2_b\hspace{0.12cm}$ , entonces:
 
-    $$\dfrac{\mathcal{X}/a}{\mathcal{Y}/b} \sim F(a,b)$$
+    $$\dfrac{\hspace{0.08cm}\mathcal{X}/a\hspace{0.08cm}}{\mathcal{Y}/b} \sim F(a,b)$$
 
 
 <br>
@@ -1286,7 +1289,7 @@ $$\mathcal{X}\sim F(a,b) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{
 
 # Probabilidad conjunta de variables aleatorias discretas
 
-Sean $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ y $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ variables aleatorias discretas.
+Sean $\hspace{0.08cm}\mathcal{X}\hspace{0.12cm}$ y $\hspace{0.12cm}\mathcal{Y}\hspace{0.12cm}$ variables aleatorias discretas. $\\[0.3cm]$
 
 $$P(\mathcal{X}=x , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}= x \cap \mathcal{Y}=y) \\$$
 
@@ -1296,46 +1299,46 @@ $$P(\mathcal{X}=x , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}
 ## Propiedades
 
 
-- $\sum_{x\in \mathbb{R}}\sum_{y\in \mathbb{R}} P(X=x , Y=y) = 1$
+- $\sum_{x\in \mathbb{R}}\sum_{y\in \mathbb{R}} P(\mathcal{X}=x , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 1$ $\\[0.8cm]$
 
-- Si $x\notin Im(X)$ o $y \notin Im(Y)$ , entonces:
+- Si $\hspace{0.08cm}x\notin Im(\mathcal{X})\hspace{0.08cm}$ o $\hspace{0.08cm}y \notin Im(\mathcal{Y})\hspace{0.08cm}$ , entonces:
 
-    $$P(X=x , Y=y) = 0$$
+    $$P(\mathcal{X}=x , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 0 \\$$
 
-- $P(X\in A , Y\in B) = \sum_{x\in A} \sum_{y\in B} P(X=x , Y=y)$
+- $P(\mathcal{X}\in A , \mathcal{Y}\in B) \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in A} \sum_{y\in B} P(\mathcal{X}=x , \mathcal{Y}=y)$ $\\[0.8cm]$
 
-- $P(X\in A , Y=y) = \sum_{x\in A} P(X=x , Y=y)$
+- $P(\mathcal{X}\in A , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in A} P(\mathcal{X}=x , \mathcal{Y}=y)$ $\\[0.8cm]$
 
-- $P(X=x) = \sum_{y\in \mathbb{R}} P(X=x , Y=y)$
+- $P(\mathcal{X}=x) \hspace{0.08cm}=\hspace{0.08cm} \sum_{y\in \mathbb{R}} P(\mathcal{X}=x , \mathcal{Y}=y)$ $\\[0.8cm]$
 
-- $P(Y=y) = \sum_{x\in \mathbb{R}} P(X=x , Y=y)$
+- $P(\mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} P(\mathcal{X}=x , \mathcal{Y}=y)$ 
 
 
 <br>
 
 # Densidad conjunta de variables aleatorias continuas
 
-$$f_{X,Y}$$ es la función de densidad conjunta de las v.a. $X$ y $Y$ $\Leftrightarrow$
+$f_{\mathcal{X},\mathcal{Y}}\hspace{0.08cm}$ es la función de densidad conjunta de las v.a. $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ y $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ , si y solo si:
 
 
-- $f_{X,Y} : \mathbb{R}^2 \rightarrow (0 , \infty)$
+- $f_{\mathcal{X},\mathcal{Y}} \hspace{0.12cm} :\hspace{0.12cm} \mathbb{R}^2 \hspace{0.08cm}\rightarrow\hspace{0.08cm} (0 , \infty)$ $\\[0.8cm]$
 
-- $P( X \in A , Y \in B) = \int_{x\in A} \int_{y\in B} f_{X,Y}(x,y) \cdot dy \cdot dx$
+- $P( \mathcal{X} \in A , \mathcal{Y} \in B) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \int_{y\in B} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y) \cdot dy \cdot dx$ $\\[0.8cm]$
 
 
-- $\int_{x\in \mathbb{R}} \int_{y\in \mathbb{R}}   f_{X,Y}(x,y) \cdot dy \cdot dx = 1$
+- $\int_{x\in \mathbb{R}} \int_{y\in \mathbb{R}} \hspace{0.08cm}  f_{\mathcal{X},\mathcal{Y}}(x,y) \cdot dy \cdot dx \hspace{0.08cm}=\hspace{0.08cm} 1$ $\\[1cm]$
 
 
 
 ## Propiedades
 
-- $P(X\in A , Y=y) = \int_{x\in A} f_{X,Y}(x , y)\cdot dx$
+- $P(\mathcal{X}\in A \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x , y)\cdot dx$ $\\[0.8cm]$
 
-- $P(X=x , Y\in B) = \int_{y\in B} f_{X,Y}(x , y) \cdot dy$
+- $P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.08cm}=\hspace{0.08cm} \int_{y\in B} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x , y) \cdot dy$ $\\[0.8cm]$
 
-- $f_X(x) = \int_{y\in \mathbb{R}} f_{X,Y}(x , y) \cdot dy$
+- $f_X(x) \hspace{0.08cm}=\hspace{0.08cm} \int_{y\in \mathbb{R}} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x , y) \cdot dy$ $\\[0.8cm]$
 
-- $f_Y(y) = \int_{x\in \mathbb{R}} f_{X,Y}(x , y) \cdot dx$
+- $f_Y(y) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in \mathbb{R}} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x , y) \cdot dx$
 
 
 <br>
@@ -1343,70 +1346,68 @@ $$f_{X,Y}$$ es la función de densidad conjunta de las v.a. $X$ y $Y$ $\Leftrigh
 
 # Probabilidad condicionada de variables aleatorias discretas
 
-$$P(X=x | Y=y) = \dfrac{P(X=x , Y=y)}{P(Y=y)}$$
+$$P(\mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.08cm}}{P(\mathcal{Y}=y)} \\$$
 
 
 ## Propiedades
 
-- $P(X\in A | Y=y) = \sum_{x\in A} P(X=x | Y=y)$
+- $P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm} = \hspace{0.08cm} \sum_{x\in A} P(\mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)$
 
 
 <br>
 
 # Densidad condicionada de variables aleatorias continuas
 
-$$f_{X|Y}(x,y) = \dfrac{f_{X,Y}(x,y)}{f_Y(y)}$$
+$$f_{\mathcal{X}|\mathcal{Y}}(x,y) = \dfrac{\hspace{0.08cm}f_{\mathcal{X},\mathcal{Y}\hspace{0.08cm}}(x,y)}{f_Y(y)} \\$$
 
 
 ## Propiedades
 
-- Si $Y$ es una v.a. continua , entonces:
+- Si $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ es una v.a. continua , entonces: $\hspace{0.12cm}P(\mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 0\hspace{0.08cm}$ , para todo $\hspace{0.08cm}y\in \mathbb{R}$
 
-$P(Y=y) = 0$ , para todo $y\in \mathbb{R}$
+    Por lo que $\hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.1cm}$ no está definido, ya que:
 
-Por lo que $P(X\in A | Y=y)$ no está definido, ya que:
-
-$P(X\in A | Y=y) = \dfrac{P(X=x , Y=y)}{P(Y=y)} = \dfrac{P(X=x , Y=y)}{ 0}$
+$$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}=x , \mathcal{Y}=y)\hspace{0.08cm}}{P(\mathcal{Y}=y)} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{P(\mathcal{X}=x , \mathcal{Y}=y)}{ 0}\\$$
 
 
 - Teniendo en consideración el problema anterior, se esquiva del siguiente modo:
 
-Sea $\delta \rightarrow 0^+$
+    Sea $\delta \rightarrow 0^+$
 
-$$P(X\in A | Y \in [y , y+ \delta]) = \dfrac{P(X\in A , Y\in [y , y+ \delta])}{P(Y\in [y , y+ \delta])}$$
-
-
-Donde ahora $P(Y\in [y , y+ \delta]) > 0$ 
+    $$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y} \in [y , y+ \delta]) = \dfrac{\hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm} , \hspace{0.08cm} \mathcal{Y}\in [y , y+ \delta])\hspace{0.08cm}}{P(\mathcal{Y}\in [y , y+ \delta])}$$
 
 
-- $P(X\in A | Y \in [y , y+ \delta]) = \int_{x\in A} \int_{y \in [y , y+ \delta]} f_{X|Y}(x,y) = \int_{x\in A} \int_{y \in [y , y+ \delta]} \dfrac{f_{X,Y}(x,y)}{f_Y(y)} \approx \int_{x\in A}   f_{X|Y}(x,y) = \int_{x\in A}   \dfrac{f_{X,Y}(x,y)}{f_Y(y)} = \dfrac{1}{f_Y(y)} \cdot \int_{x\in A}   f_{X,Y}(x,y)$
+    Donde ahora $\hspace{0.08cm}P(\mathcal{Y}\in [y , y+ \delta]) \hspace{0.08cm}>\hspace{0.08cm} 0\hspace{0.08cm}$ . $\\[1cm]$
 
 
-En resumen:
+- $P(\mathcal{X}\in A \hspace{0.08cm} | \hspace{0.08cm} \mathcal{Y} \in [y , y+ \delta]) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \int_{y \in [y , y+ \delta]} f_{\mathcal{X}|\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \int_{y \in [y , y+ \delta]} \dfrac{f_{\mathcal{X},\mathcal{Y}}(x,y)}{f_Y(y)} \hspace{0.08cm} \approx  \hspace{0.08cm} \int_{x\in A}   f_{\mathcal{X}|\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A}   \dfrac{f_{\mathcal{X},\mathcal{Y}}(x,y)}{f_Y(y)} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{f_Y(y)} \cdot \int_{x\in A}   f_{\mathcal{X},\mathcal{Y}}(x,y)$
 
 
-$$P(X\in A | Y \in [y , y+ \delta]) \approx \int_{x\in A}   f_{X|Y}(x,y)$$
+    En resumen:
+
+
+    $$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y} \in [y , y+ \delta]) \hspace{0.08cm}\approx\hspace{0.08cm} \int_{x\in A}   f_{\mathcal{X}|\mathcal{Y}}(x,y)$$
 
 
 <br>
 
 # Independencia de variables aleatorias discretas
 
-$X$ e $Y$ son v.a. independientes  $(X \perp Y)$ $\Leftrightarrow$ $P(X=x , Y=y) = P(X=x)\cdot P(Y=y) , \for x,y \in \mathbb{R}$
+$\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son v.a. independientes  $\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})$ $\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$ $P(\mathcal{X}=x , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}=x)\cdot P(\mathcal{Y}=y) \hspace{0.3cm},\hspace{0.3cm} \forall x,y \in \mathbb{R}$
+
+<br>
 
 
 ## Teorema de Factorización para v.a. discretas
 
 
-Sean $X$ e $Y$ v.a. discretas, 
+Sean $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ v.a. discretas, 
 
-Si $\exist g,h: \mathbb{R} \rightarrow \mathbb{R}$  , tal que:
+Si $\hspace{0.08cm}\exists \hspace{0.1cm} h,g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R} \rightarrow \mathbb{R}\hspace{0.1cm}$  , tal que:
 
-$P(X=x, Y=y) = g(x)\cdot h(y) , \forall x,y \in \mathbb{R}$
+$$P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} g(x)\cdot h(y) \hspace{0.3cm},\hspace{0.3cm} \forall x,y \in \mathbb{R}$$
 
-entonces:
-
-$X$ e $Y$ son independientes  $(X \perp Y)$
+entonces: $\hspace{0.12cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son independientes  $\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})\hspace{0.08cm}$ .
 
 
 
@@ -1418,33 +1419,30 @@ $X$ e $Y$ son independientes  $(X \perp Y)$
 # Independencia de variables aleatorias continuas
 
 
-$X$ e $Y$ son v.a. independientes  $(X \perp Y)$ $\Leftrightarrow$ $P(X=x , Y=y) = P(X=x)\cdot P(Y=y) , \for x,y \in \mathbb{R}$  $\Leftrightarrow$
+$\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son v.a. independientes  $\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$
 
-$P(X\in A , Y\in B) = P(X\in A)\cdot P(Y\in B) , \for A,B \subset \mathbb{R}$
+$$\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}=x)\cdot P(\mathcal{Y}=y) \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} x,y \in \mathbb{R}$$
 
+$$\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}P(\mathcal{X}\in A \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}\in A)\cdot P(\mathcal{Y}\in B) \hspace{0.3cm} ,\hspace{0.3cm} \forall \hspace{0.08cm} A,B \subset \mathbb{R} \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$$
 
-$\Leftrightarrow$
-
-$\for A,B \subset \mathbb{R} , \int_{x\in A} \int_{y \in B} f_{X,Y}(x,y) \cdot dy \cdot dx = \int_{x\in A}  f_{X}(x)  \cdot dx \int_{y \in B} f_{Y}(y) \cdot dy$
+$$\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}\forall \hspace{0.08cm} A,B \subset \mathbb{R} \hspace{0.2cm},\hspace{0.2cm} \int_{x\in A} \int_{y \in B} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y) \cdot dy \cdot dx \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \hspace{0.08cm} f_{\mathcal{X}}(x)  \cdot dx \cdot \int_{y \in B} f_{\mathcal{Y}}(y) \cdot dy$$
 
 <br>
 
 ## Teorema de Factorización para v.a. continuas  
 
-Sean $X$ e $Y$ v.a. continuas,  
+Sean $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ v.a. continuas,  
 
-$X$ e $Y$ son v.a. independientes $(X \perp Y)$ $\Leftrightarrow$  $f_{X,Y}(x,y) = f_X(x) \cdot f_Y(y) , \forall x,y \in \mathbb{R}$
+$\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son v.a. independientes $\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})$ $\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$  $f_{\mathcal{X},\mathcal{Y}}(x,y) = f_X(x) \cdot f_\mathcal{Y}(y) \hspace{0.2cm},\hspace{0.2cm} \forall \hspace{0.08cm} x,y \in \mathbb{R}$
 
 
 ### Colorario
 
-Si $\exist g,h: \mathbb{R} \rightarrow \mathbb{R}$  , tal que:
+Si $\hspace{0.08cm}\exist\hspace{0.08cm} g,h \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R} \rightarrow \mathbb{R}\hspace{0.08cm}$  , tal que:
 
-$f_{X,Y}(x,y) = g(x)\cdot h(y) , \forall x,y \in \mathbb{R}$
+$f_{\mathcal{X},\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm} g(x)\cdot h(y) \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.08cm} x,y \in \mathbb{R}$
 
-entonces:
-
-$X$ e $Y$ son independientes
+entonces: $\hspace{0.12cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son independientes.
 
 
 <br>
@@ -1453,66 +1451,66 @@ $X$ e $Y$ son independientes
 
 
 
-$X_1,...,X_n$ son independientes (dos a dos) $Leftrightarrow$ $X_i \perp X_j , \forall i\neq j = 1,...,n$
+$\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son independientes (dos a dos) $\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$ $\mathcal{X}_i \perp \mathcal{X}_j \hspace{0.2cm},\hspace{0.2cm} \forall i\neq j = 1,...,n$
 
 
 <br>
 
 # Teorema de Bayes para variables aleatorias 
 
-- Si $X$ e $Y$ son discretas:
+- Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son discretas:
 
 
-$$P(X=x | Y=y) = \dfrac{P(Y=y | X=x) \cdot P(X=x)}{P(Y=y)}$$
+    $$P(\mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{P(\mathcal{Y}=y \hspace{0.08cm} | \hspace{0.08cm} \mathcal{X}=x) \cdot  P(\mathcal{X}=x)}{P(\mathcal{Y}=y)}$$
 
 
-- Si $X$ e $Y$ son continuas:
+- Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son continuas:
 
-$$f_{X|Y}(x,y) =  = \dfrac{f{Y|X}(x, y) \cdot f_X(x)}{f_Y(y)}$$
+    $$f_{\mathcal{X}|\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm}    \dfrac{\hspace{0.08cm}f_{\mathcal{Y}|\mathcal{X}}(x, y) \cdot f_\mathcal{X}(x)\hspace{0.08cm}}{f_\mathcal{Y}(y)}$$
 
 
 <br>
 
 # Formula de transferencia para funciones de varias v.a.
 
-Sea $g: \mathbb{R}^2 \rightarrow \mathbb{R}$
+Sea $\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R}^2 \rightarrow \mathbb{R}\hspace{0.08cm}$.
 
-- Si $X$ e $Y$ son discretas:
-
-
-$$E[g(X,Y)] = \sum_{x\in \mathbb{R}} \sum_{y\in \mathbb{R}} g(x,y) \cdot P(X=x , Y=y)$$
+- Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son discretas:
 
 
-- Si $X$ e $Y$ son continuas:
+    $$E[g(\mathcal{X},\mathcal{Y})] \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} \hspace{0.08cm}\sum_{y\in \mathbb{R}}\hspace{0.08cm} g(x,y) \cdot P(\mathcal{X}=x , \mathcal{Y}=y)$$
 
-$$E[g(X,Y)] = \int_{x\in \mathbb{R}} \int_{y\in \mathbb{R}} g(x,y) \cdot f_{X,Y}(x , y) \dcor dy \cdot dx$$
+
+- Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son continuas:
+
+    $$E[g(\mathcal{X},\mathcal{Y})]\hspace{0.08cm} =\hspace{0.08cm} \int_{x\in \mathbb{R}} \int_{y\in \mathbb{R}} g(x,y) \cdot f_{\mathcal{X},\mathcal{Y}}(x , y) \cdot dy \cdot dx$$
 
 
 <br>
 
 # Esperanza Condicionada
 
-Si $X$ es v.a. discreta :
+Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es v.a. discreta :
 
-$$E[X | Y=y] = \sum_{x\in \mathbb{R}} x \cdot P(X=x | Y=y)$$
+$$E[\mathcal{X} | \mathcal{Y}=y] \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} x \cdot P(\mathcal{X}=x | \mathcal{Y}=y)$$
 
-Si $Y$ es v.a. continua :
+Si $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ es v.a. continua :
 
-$$E[ X | Y=y] = \int_{x\in \mathbb{R}} x \cdot P(X=x | Y=y) \cdot dx$$
+$$E[ \mathcal{X} | \mathcal{Y}=y] \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in \mathbb{R}} x \cdot P(\mathcal{X}=x | \mathcal{Y}=y) \cdot dx$$
 
 
 <br>
 
 # Ley de la Esperanza total 
 
-Si $Y$ es una v.a. discreta:
+- Si $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ es una v.a. discreta:
 
-$$E[X] = \sum_{y\in \mathbb{R} } E[X / Y=y] \cdot P(Y=y)$$
+    $$E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \sum_{y\in \mathbb{R} } E[\mathcal{X} \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y] \cdot P(\mathcal{Y}=y)$$
 
 
-Si $Y$ es v.a. continua :
+- Si $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ es v.a. continua :
 
-$$E[X] = \int_{y\in \mathbb{R} } E[X / Y=y] \cdot f_Y(y) \cdot dy$$
+    $$E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \int_{y\in \mathbb{R} } E[\mathcal{X} \hspace{0.08cm} | \hspace{0.08cm} \mathcal{Y}=y] \cdot f_\mathcal{Y}(y) \cdot dy$$
 
 
 <br>

@@ -2262,7 +2262,7 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 <li><p><span class="math inline">\(P(\mathcal{X}=0)\hspace{0.08cm}=\hspace{0.08cm}1-p\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
 <li><p><span class="math inline">\(E[\mathcal{X}]\hspace{0.08cm}=\hspace{0.08cm}p\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
 <li><p><span class="math inline">\(Var(\mathcal{X})\hspace{0.08cm}=\hspace{0.08cm} p\cdot (1-p)\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
-<li><p><span class="math inline">\(F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \left\lbrace\begin{array}{l} 1 \hspace{0.3cm},\hspace{0.3cm} \text{si} \hspace{0.12cm} x\geq 1 \\ 0 \hspace{0.3cm},\hspace{0.3cm} \text{si} \hspace{0.12cm} x &lt; 0 \\ 1-p \hspace{0.3cm},\hspace{0.3cm} \text{si} \hspace{0.12cm} x\in [0 , 1) \end{array}\right.\)</span></p></li>
+<li><p><span class="math inline">\(F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \left\lbrace\begin{array}{l} 1 \hspace{0.3cm},\hspace{0.3cm} \text{si} \hspace{0.2cm} x\geq 1 \\ 0 \hspace{0.3cm},\hspace{0.3cm} \text{si} \hspace{0.2cm} x &lt; 0 \\ 1-p \hspace{0.3cm},\hspace{0.3cm} \text{si} \hspace{0.2cm} x\in [0 , 1) \end{array}\right.\)</span></p></li>
 </ul>
 <p><br></p>
 </div>
@@ -2365,7 +2365,7 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 <ul>
 <li><p><span class="math inline">\(E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{2} \cdot (a + b)\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
 <li><p><span class="math inline">\(Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{12} \cdot (b-a)^2\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
-<li><p><span class="math inline">\(F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X} \geq x) \hspace{0.08cm}=\hspace{0.08cm} \int_{-\infty}^{x} f_X(z) \cdot dz \hspace{0.08cm}=\hspace{0.08cm} \left\lbrace\begin{array}{c} 1 , si x\geq b \\ 0 , si x \leq a \\ \dfrac{x-a}{b-a} , si x\in (a,b) \end{array}\right.\)</span></p></li>
+<li><p><span class="math inline">\(F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X} \geq x) \hspace{0.08cm}=\hspace{0.08cm} \int_{-\infty}^{x} \hspace{0.08cm} f_X(z) \cdot dz \hspace{0.08cm}=\hspace{0.08cm} \left\lbrace\begin{array}{l} 1 \hspace{0.3cm} , \hspace{0.3cm} \text{si} \hspace{0.2cm} x\geq b \\ 0 \hspace{0.3cm} , \hspace{0.3cm} \text{si} \hspace{0.2cm} x \leq a \\ \dfrac{x-a}{b-a} \hspace{0.3cm} , \hspace{0.3cm} \text{si} \hspace{0.2cm} x\in (a,b) \end{array}\right.\)</span></p></li>
 </ul>
 <p><br></p>
 </div>
@@ -2379,8 +2379,9 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 <ul>
 <li><p><span class="math inline">\(E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\lambda}\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
 <li><p><span class="math inline">\(Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\lambda^2}\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
-<li><p><span class="math inline">\(F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X} \geq x) \hspace{0.08cm}=\hspace{0.08cm} \int_{-\infty}^{x} f_\mathcal{X}(z) \cdot dz \hspace{0.08cm}=\hspace{0.08cm} \left\lbrace\begin{array}{c} 0 , si x \leq 0 \\ 1- e^{-\lambda \cdot x} , si x&gt;0 \end{array}\right.\)</span></p></li>
+<li><p><span class="math inline">\(F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X} \geq x) \hspace{0.08cm}=\hspace{0.08cm} \int_{-\infty}^{x} f_\mathcal{X}(z) \cdot dz \hspace{0.08cm}=\hspace{0.08cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{si} \hspace{0.2cm} x \leq 0 \\ 1- e^{-\lambda \cdot x} \hspace{0.3cm} , \hspace{0.3cm} \text{si} \hspace{0.21cm} x&gt;0 \end{array}\right.\)</span></p></li>
 </ul>
+<p><br></p>
 </div>
 </div>
 <div id="funcion-gamma" class="section level2" number="30.3">
@@ -2390,10 +2391,10 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 <div id="propiedades-20" class="section level3" number="30.3.1">
 <h3><span class="header-section-number">30.3.1</span> Propiedades</h3>
 <ul>
-<li><p><span class="math inline">\(\Gamma(1) \hspace{0.08cm}=\hspace{0.08cm} \Gamma(2) \hspace{0.08cm}=\hspace{0.08cm} 1\hspace{0.08cm}\)</span>.</p></li>
-<li><p><span class="math inline">\(\Gamma(\alpha + 1) \hspace{0.08cm}=\hspace{0.08cm} \alpha \cdot \Gamma(\alpha)\hspace{0.08cm}\)</span>.</p></li>
-<li><p><span class="math inline">\(\Gamma(\alpha + 1) \hspace{0.08cm}=\hspace{0.08cm} \alpha !\hspace{0.08cm}\)</span> , si <span class="math inline">\(\hspace{0.08cm}\alpha \in \mathbb{N}\hspace{0.08cm}\)</span>.</p></li>
-<li><p><span class="math inline">\(\Gamma(\alpha) \hspace{0.08cm}=\hspace{0.08cm} (\alpha -1)!\hspace{0.08cm}\)</span> , si <span class="math inline">\(\hspace{0.08cm}\alpha \in \mathbb{N}\hspace{0.08cm}\)</span>.</p></li>
+<li><p><span class="math inline">\(\Gamma(1) \hspace{0.08cm}=\hspace{0.08cm} \Gamma(2) \hspace{0.08cm}=\hspace{0.08cm} 1\hspace{0.08cm}\)</span>. <span class="math inline">\(\\[0.7cm]\)</span></p></li>
+<li><p><span class="math inline">\(\Gamma(\alpha + 1) \hspace{0.08cm}=\hspace{0.08cm} \alpha \cdot \Gamma(\alpha)\hspace{0.08cm}\)</span>. <span class="math inline">\(\\[0.7cm]\)</span></p></li>
+<li><p><span class="math inline">\(\Gamma(\alpha + 1) \hspace{0.08cm}=\hspace{0.08cm} \alpha !\hspace{0.08cm}\)</span> , si <span class="math inline">\(\hspace{0.08cm}\alpha \in \mathbb{N}\hspace{0.08cm}\)</span>. <span class="math inline">\(\\[0.7cm]\)</span></p></li>
+<li><p><span class="math inline">\(\Gamma(\alpha) \hspace{0.08cm}=\hspace{0.08cm} (\alpha -1)!\hspace{0.08cm}\)</span> , si <span class="math inline">\(\hspace{0.08cm}\alpha \in \mathbb{N}\hspace{0.08cm}\)</span>. <span class="math inline">\(\\[0.7cm]\)</span></p></li>
 <li><p><span class="math inline">\(\Gamma(1/2) \hspace{0.08cm}=\hspace{0.08cm} \sqrt{\pi}\hspace{0.08cm}\)</span>.</p></li>
 </ul>
 <p><br></p>
@@ -2407,17 +2408,17 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 <h3><span class="header-section-number">30.4.1</span> Propiedades</h3>
 <ul>
 <li><p>Si <span class="math inline">\(\hspace{0.08cm}\alpha \in \mathbb{N}\hspace{0.08cm}\)</span> , entonces:</p>
-<p><span class="math display">\[f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\lambda^\alpha}{(\alpha -1)!} \cdot x^{\alpha -1} \cdot e^{-\lambda \cdot x} \cdot \mathbb{I}( x&gt;0 )\]</span></p></li>
+<p><span class="math display">\[f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\lambda^\alpha}{(\alpha -1)!} \cdot x^{\alpha -1} \cdot e^{-\lambda \cdot x} \cdot \mathbb{I}( x&gt;0 )\\\]</span></p></li>
 <li><p>Si <span class="math inline">\(\hspace{0.08cm}\alpha \hspace{0.08cm}=\hspace{0.08cm} 1\hspace{0.08cm}\)</span> , entonces:</p>
 <p><span class="math display">\[f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \lambda \cdot e^{-\lambda \cdot x} \cdot \mathbb{I}(  x&gt;0 )\]</span></p>
 <p>Por tanto:</p>
-<p><span class="math display">\[Gamma(\alpha = 1 , \lambda) \hspace{0.08cm}=\hspace{0.08cm} Exponencial(\lambda)\]</span></p></li>
+<p><span class="math display">\[Gamma(\alpha = 1 , \lambda) \hspace{0.08cm}=\hspace{0.08cm} Exponencial(\lambda) \\\]</span></p></li>
 <li><p><span class="math inline">\(E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\alpha}{\lambda}\)</span> <span class="math inline">\(\\[0.7cm]\)</span></p></li>
 <li><p><span class="math inline">\(Var(\mathcal{X}) \hspace{0.08cm}= \hspace{0.08cm} \dfrac{\alpha}{\lambda^2}\)</span> <span class="math inline">\(\\[0.7cm]\)</span></p></li>
 <li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{X}_1,...,\mathcal{X}_n \sim Exponencial(\lambda)\hspace{0.08cm}\)</span> y son independientes, entonces:</p>
-<p><span class="math display">\[\mathcal{X}_1+...+\mathcal{X}_n \sim Gamma(n , \lambda)\]</span></p></li>
+<p><span class="math display">\[\mathcal{X}_1+...+\mathcal{X}_n \sim Gamma(n , \lambda)\\\]</span></p></li>
 <li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\sim Gamma(\alpha , \lambda)\hspace{0.08cm}\)</span> y <span class="math inline">\(\hspace{0.08cm}c&gt;0\hspace{0.08cm}\)</span> , entonces:</p>
-<p><span class="math display">\[c\cdot \mathcal{X}\sim Gamma(\alpha , \lambda / c)\]</span></p></li>
+<p><span class="math display">\[c\cdot \mathcal{X}\sim Gamma(\alpha , \lambda / c)\\\]</span></p></li>
 <li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{X}_1 , ..., \mathcal{X}_n\hspace{0.08cm}\)</span> son independientes y <span class="math inline">\(\hspace{0.08cm}\mathcal{X}_i\sim Gamma(\alpha_i , \lambda)\hspace{0.08cm}\)</span>, entonces:</p>
 <p><span class="math display">\[\mathcal{X}_1 +...+ \mathcal{X}_n \sim Gamma(\alpha_1 +...+ \alpha_n , \lambda)\]</span></p></li>
 </ul>
@@ -2426,8 +2427,8 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 </div>
 <div id="distribucion-normal" class="section level2" number="30.5">
 <h2><span class="header-section-number">30.5</span> Distribucion Normal</h2>
-<p><span class="math display">\[\mathcal{X} \sim N(\mu, \sigma^2) \Leftrightarrow f_\mathcal{X}(x) = \dfrac{1}{\sigma \sqrt{2\pi}} \cdot exp \left( \dfrac{-1}{2} \cdot \dfrac{(x- \mu)^2}{\sigma^2}  \right) \hspace{0.3cm} , \hspace{0.3cm} x\in \mathbb{R}\]</span></p>
-<p>Donde: <span class="math inline">\(\hspace{0.08cm}\mu \in \mathbb{R}\hspace{0.08cm}\)</span> y <span class="math inline">\(\hspace{0.08cm}\sigma^2 &gt; 0 \\\)</span></p>
+<p><span class="math display">\[\mathcal{X} \sim N(\mu, \sigma^2) \Leftrightarrow f_\mathcal{X}(x) = \dfrac{1}{\sigma \sqrt{2\pi}} \cdot exp \left(  \dfrac{-(x- \mu)^2}{2\cdot \sigma^2}  \right) \hspace{0.3cm} , \hspace{0.3cm} x\in \mathbb{R}\]</span></p>
+<p>Donde: <span class="math inline">\(\hspace{0.12cm}\mu \in \mathbb{R}\hspace{0.12cm}\)</span> y <span class="math inline">\(\hspace{0.12cm}\sigma^2 &gt; 0 \\\)</span></p>
 <div id="propiedades-22" class="section level3" number="30.5.1">
 <h3><span class="header-section-number">30.5.1</span> Propiedades</h3>
 <ul>
@@ -2436,9 +2437,9 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 <li><p><span class="math inline">\(\mathcal{X}\cdot a \sim N(\mu \cdot a , a^2 \cdot \sigma^2)\)</span> <span class="math inline">\(\\[0.7cm]\)</span></p></li>
 <li><p><span class="math inline">\(\mathcal{X}\cdot b + a \sim N( b\cdot \mu + a , b^2 \cdot \sigma^2)\)</span> <span class="math inline">\(\\[0.7cm]\)</span></p></li>
 <li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{X}_i \sim N(\mu_i , \sigma_i^2)\hspace{0.08cm}\)</span> , para <span class="math inline">\(\hspace{0.08cm}i =1,...,n\hspace{0.08cm}\)</span> , entonces:</p>
-<p><span class="math display">\[\mathcal{X}_1 + ...+ \mathcal{X}_n \sim N(\mu_1 +...+ \mu_n , \sigma_1^2 + ...+ \sigma_n^2)\]</span></p></li>
+<p><span class="math display">\[\mathcal{X}_1 + ...+ \mathcal{X}_n \sim N(\mu_1 +...+ \mu_n \hspace{0.1cm},\hspace{0.1cm} \sigma_1^2 + ...+ \sigma_n^2)\\\]</span></p></li>
 <li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{X}_i \sim N(\mu_i , \sigma_i^2)\hspace{0.08cm}\)</span> , para <span class="math inline">\(\hspace{0.08cm}i =1,...,n\hspace{0.08cm}\)</span> , entonces:</p>
-<p><span class="math display">\[a_1\cdot \mathcal{X}_1 + ...+ a_n \cdot \mathcal{X}_n \sim N(a_1 \cdot \mu_1 +...+ a_n \cdot \mu_n , a_1^2 \cdot \sigma_1^2 + ...+ a_n^2 \cdot \sigma_n^2)\]</span></p></li>
+<p><span class="math display">\[a_1\cdot \mathcal{X}_1 + ...+ a_n \cdot \mathcal{X}_n \sim N(a_1 \cdot \mu_1 +...+ a_n \cdot \mu_n \hspace{0.1cm},\hspace{0.1cm} a_1^2 \cdot \sigma_1^2 + ...+ a_n^2 \cdot \sigma_n^2)\]</span></p></li>
 </ul>
 <p><br></p>
 </div>
@@ -2452,20 +2453,20 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 <ul>
 <li><p><span class="math inline">\(B(a,b) \hspace{0.08cm}=\hspace{0.08cm} B(b,a)\)</span> <span class="math inline">\(\\[0.7cm]\)</span></p></li>
 <li><p><span class="math inline">\(B(a,1) \hspace{0.08cm}=\hspace{0.08cm} 1/a\)</span> <span class="math inline">\(\\[0.7cm]\)</span></p></li>
-<li><p><span class="math inline">\(B(a+1, b) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{a}{a+b} \cdot B(a,b)\)</span> <span class="math inline">\(\\[0.7cm]\)</span></p></li>
+<li><p><span class="math inline">\(B(a+1, b) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{a}{a+b} \cdot B(a,b)\)</span> <span class="math inline">\(\\[0.9cm]\)</span></p></li>
 <li><p><span class="math inline">\(B(a,b) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\Gamma(a) \cdot \Gamma(b)}{\Gamma(a+b)}\)</span> <span class="math inline">\(\\[0.7cm]\)</span></p></li>
 </ul>
 </div>
 </div>
 <div id="distribucion-beta" class="section level2" number="30.7">
 <h2><span class="header-section-number">30.7</span> Distribucion Beta</h2>
-<p><span class="math display">\[\mathcal{X}\sim Beta(a,b) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{B(a,b)} \cdot x^{a-1} \cdot (1-x)^{b-1} \cdot \mathbb{I}( \hspace{0.05cm} x \in (0,1) \hspace{0.05cm} )\]</span></p>
+<p><span class="math display">\[\mathcal{X}\sim Beta(a,b) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{B(a,b)} \cdot x^{a-1} \cdot (1-x)^{b-1} \cdot \mathbb{I}\left[ \hspace{0.05cm} x \in (0,1) \hspace{0.05cm} \right]\]</span></p>
 <p>Donde: <span class="math inline">\(\hspace{0.08cm}a, b &gt;0 \\\)</span></p>
 <div id="propiedades-24" class="section level3" number="30.7.1">
 <h3><span class="header-section-number">30.7.1</span> Propiedades</h3>
 <ul>
 <li><p><span class="math inline">\(E[\mathcal{X}]\hspace{0.08cm}=\hspace{0.08cm}\dfrac{a}{a+b}\)</span> <span class="math inline">\(\\[0.7cm]\)</span></p></li>
-<li><p><span class="math inline">\(Var(\mathcal{X})\hspace{0.08cm} =\hspace{0.08cm} \dfrac{a\cdot b}{(a + b +1)(a+b)^2}\)</span> <span class="math inline">\(\\[0.7cm]\)</span></p></li>
+<li><p><span class="math inline">\(Var(\mathcal{X})\hspace{0.08cm} =\hspace{0.08cm} \dfrac{a\cdot b}{(a + b +1)(a+b)^2}\)</span> <span class="math inline">\(\\[1.2cm]\)</span></p></li>
 <li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\sim Gamma(a, \lambda)\hspace{0.08cm}\)</span> y <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\sim Gamma(b,\lambda)\hspace{0.08cm}\)</span> , entonces:</p>
 <p><span class="math display">\[\dfrac{\mathcal{X}}{\mathcal{X}+\mathcal{Y}} \sim Beta(a,b)\]</span></p></li>
 </ul>
@@ -2474,21 +2475,21 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 </div>
 <div id="distribucion-weibull" class="section level2" number="30.8">
 <h2><span class="header-section-number">30.8</span> Distribucion Weibull</h2>
-<p><span class="math display">\[\mathcal{X}\sim Weibull(\alpha , \lambda) \Leftrightarrow f_\mathcal{X}(x)= \lambda\cdot \alpha (\lambda \cdot x)^{\alpha - 1} \cdot e^{-(\lambda \cdot x)^\alpha} \cdot \mathbb{I}\bigl[ x &gt; 0 \bigr]\]</span></p>
-<p>Donde: <span class="math inline">\(\hspace{0.08cm}\alpha , \lambda &gt;0 \\\)</span></p>
+<p><span class="math display">\[\mathcal{X}\sim Weibull(\alpha , \lambda) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \lambda\cdot \alpha (\lambda \cdot x)^{\alpha - 1} \cdot e^{-(\lambda \cdot x)^\alpha} \cdot \mathbb{I}\bigl[ x &gt; 0 \bigr]\]</span></p>
+<p>Donde: <span class="math inline">\(\hspace{0.08cm}\alpha \hspace{0.08cm},\hspace{0.08cm} \lambda\hspace{0.08cm} &gt; \hspace{0.08cm}0 \\\)</span></p>
 <div id="propiedades-25" class="section level3" number="30.8.1">
 <h3><span class="header-section-number">30.8.1</span> Propiedades</h3>
 <ul>
-<li><p><span class="math inline">\(E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\lambda} \Gamma(1 + \dfrac{1}{\alpha})\)</span> <span class="math inline">\(\\[0.7cm]\)</span></p></li>
-<li><p><span class="math inline">\(Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\lambda^2} \left( \Gamma(1 + \dfrac{2}{\alpha}) - \Gamma(1+ \dfrac{1}{\alpha}) \right)\)</span> <span class="math inline">\(\\[0.7cm]\)</span></p></li>
-<li><p><span class="math display">\[F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} (1 - e^{-(\lambda \cdot x)^\alpha}) \cdot \mathbb{I}( x&gt;0 )\]</span></p></li>
+<li><p><span class="math inline">\(E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\lambda} \Gamma(1 + \dfrac{1}{\alpha})\)</span> <span class="math inline">\(\\[0.9cm]\)</span></p></li>
+<li><p><span class="math inline">\(Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\lambda^2} \left( \Gamma(1 + \dfrac{2}{\alpha}) - \Gamma(1+ \dfrac{1}{\alpha}) \right)\)</span> <span class="math inline">\(\\[1.2cm]\)</span></p></li>
+<li><p><span class="math inline">\(F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \left(\hspace{0.08cm} 1 - e^{-(\lambda \cdot x)^\alpha} \hspace{0.08cm} \right) \cdot \mathbb{I}\left[ x&gt;0 \right]\)</span></p></li>
 </ul>
 <p><br></p>
 </div>
 </div>
 <div id="distribucion-chi-cuadrado" class="section level2" number="30.9">
 <h2><span class="header-section-number">30.9</span> Distribucion Chi-cuadrado</h2>
-<p><span class="math display">\[\mathcal{X} \sim \chi_n ^2 \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\Gamma(n/2)} \cdot \dfrac{1}{2}^{n/2} \cdot x ^{n/2 -1} \cdot e^{-x/2} \hspace{0.3cm} , \hspace{0.3cm} x\in \mathbb{R}\]</span></p>
+<p><span class="math display">\[\mathcal{X} \sim \chi_n ^2 \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{\Gamma(n/2)} \cdot \dfrac{1}{2}^{n/2} \cdot x ^{n/2 -1} \cdot e^{-x/2} \hspace{0.3cm} , \hspace{0.3cm} x\in \mathbb{R} \\\]</span></p>
 <div id="propiedades-26" class="section level3" number="30.9.1">
 <h3><span class="header-section-number">30.9.1</span> Propiedades</h3>
 <ul>
@@ -2505,13 +2506,13 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 </div>
 <div id="distribucion-t-student" class="section level2" number="30.10">
 <h2><span class="header-section-number">30.10</span> Distribucion t-student</h2>
-<p><span class="math display">\[\mathcal{X}\sim t_n \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\Gamma(\dfrac{n+1}{2})}{\sqrt{n\cdot \pi} \cdot \Gamma(n/2)} \cdot (1 + \dfrac{x^2}{n})^{-1/2 \cdot (n+1)} \cdot \mathbb{I}(\hspace{0.03cm} x\in \mathbb{R}\hspace{0.03cm} )\]</span></p>
+<p><span class="math display">\[\mathcal{X}\sim t_n \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\Gamma\left(\dfrac{n+1}{2}\right)}{\sqrt{n\cdot \pi} \cdot \Gamma(n/2)} \cdot \left(1 + \dfrac{x^2}{n}\right)^{-1/2 \cdot (n+1)}  \hspace{0.33cm} , \hspace{0.33cm} x\in \mathbb{R} \\\]</span></p>
 <div id="propiedades-27" class="section level3" number="30.10.1">
 <h3><span class="header-section-number">30.10.1</span> Propiedades</h3>
 <ul>
 <li><p><span class="math inline">\(E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} 0\hspace{0.08cm}\)</span>. <span class="math inline">\(\\[0.7cm]\)</span></p></li>
-<li><p><span class="math inline">\(Var[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{n}{n-2}\hspace{0.08cm}\)</span> , si <span class="math inline">\(\hspace{0.08cm}n&gt;2\hspace{0.08cm}\)</span>. <span class="math inline">\(\\[0.7cm]\)</span></p></li>
-<li><p>Si <span class="math inline">\(\hspace{0.08cm}Z \sim N(0,1)\hspace{0.08cm}\)</span> y <span class="math inline">\(\hspace{0.08cm}X\sim \chi_n^2\hspace{0.08cm}\)</span> y son independientes , entonces:</p>
+<li><p><span class="math inline">\(Var[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{n}{n-2}\hspace{0.08cm}\)</span> , si <span class="math inline">\(\hspace{0.08cm}n&gt;2\hspace{0.08cm}\)</span>. <span class="math inline">\(\\[0.9cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.08cm}Z \sim N(0,1)\hspace{0.12cm}\)</span> y <span class="math inline">\(\hspace{0.12cm}X\sim \chi_n^2\hspace{0.12cm}\)</span> y son <strong>independientes</strong> , entonces:</p>
 <p><span class="math display">\[\dfrac{Z}{\sqrt{X/n}} \sim t_n\]</span></p></li>
 </ul>
 <p><br></p>
@@ -2519,14 +2520,14 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 </div>
 <div id="distribucion-f-fisher" class="section level2" number="30.11">
 <h2><span class="header-section-number">30.11</span> Distribucion F-Fisher</h2>
-<p><span class="math display">\[\mathcal{X}\sim F(a,b) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\Gamma(\dfrac{a+b}{2})}{\Gamma(a/2)\cdot \Gamma(b/2)} \cdot (a/b)^{a/2} \cdot x^{a/2-1} \cdot (1 + (a/b)\cdot x)^{-(a+b)/2} \cdot \mathbb{I}( x&gt;0 ) \\\]</span></p>
+<p><span class="math display">\[\mathcal{X}\sim F(a,b) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\Gamma\left(\dfrac{a+b}{2}\right)}{\Gamma(a/2)\cdot \Gamma(b/2)} \cdot (a/b)^{a/2} \cdot x^{a/2-1} \cdot (1 + (a/b)\cdot x)^{-(a+b)/2} \cdot \mathbb{I}\left[ x&gt;0 \right] \\\]</span></p>
 <div id="propiedades-28" class="section level3" number="30.11.1">
 <h3><span class="header-section-number">30.11.1</span> Propiedades</h3>
 <ul>
-<li><p><span class="math inline">\(E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{b}{b-2}\hspace{0.08cm}\)</span>. <span class="math inline">\(\\[0.7cm]\)</span></p></li>
-<li><p><span class="math inline">\(Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{2b^2 \cdot (a + b - 2)}{a \cdot (b-2)^2 \cdot (b-4)}\hspace{0.08cm}\)</span> , si <span class="math inline">\(\hspace{0.08cm}b&gt;4\hspace{0.08cm}\)</span>. <span class="math inline">\(\\[0.7cm]\)</span></p></li>
-<li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{X} \sim \chi^2_a\hspace{0.08cm}\)</span> y <span class="math inline">\(\hspace{0.08cm}\mathcal{Y} \sim \chi^2_b\hspace{0.08cm}\)</span> , entonces:</p>
-<p><span class="math display">\[\dfrac{\mathcal{X}/a}{\mathcal{Y}/b} \sim F(a,b)\]</span></p></li>
+<li><p><span class="math inline">\(E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \dfrac{b}{b-2}\hspace{0.08cm}\)</span>. <span class="math inline">\(\\[0.8cm]\)</span></p></li>
+<li><p><span class="math inline">\(Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{2b^2 \cdot (a + b - 2)}{a \cdot (b-2)^2 \cdot (b-4)}\hspace{0.128cm}\)</span> , si <span class="math inline">\(\hspace{0.12cm}b&gt;4\hspace{0.08cm}\)</span>. <span class="math inline">\(\\[1.2cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{X} \sim \chi^2_a\hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm}\mathcal{Y} \sim \chi^2_b\hspace{0.12cm}\)</span> , entonces:</p>
+<p><span class="math display">\[\dfrac{\hspace{0.08cm}\mathcal{X}/a\hspace{0.08cm}}{\mathcal{Y}/b} \sim F(a,b)\]</span></p></li>
 </ul>
 <p><br></p>
 </div>
@@ -2534,155 +2535,149 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 </div>
 <div id="probabilidad-conjunta-de-variables-aleatorias-discretas" class="section level1" number="31">
 <h1><span class="header-section-number">31</span> Probabilidad conjunta de variables aleatorias discretas</h1>
-<p>Sean <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}\)</span> y <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> variables aleatorias discretas.</p>
+<p>Sean <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\hspace{0.12cm}\)</span> y <span class="math inline">\(\hspace{0.12cm}\mathcal{Y}\hspace{0.12cm}\)</span> variables aleatorias discretas. <span class="math inline">\(\\[0.3cm]\)</span></p>
 <p><span class="math display">\[P(\mathcal{X}=x , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}= x \cap \mathcal{Y}=y) \\\]</span></p>
 <div id="propiedades-29" class="section level2" number="31.1">
 <h2><span class="header-section-number">31.1</span> Propiedades</h2>
 <ul>
-<li><p><span class="math inline">\(\sum_{x\in \mathbb{R}}\sum_{y\in \mathbb{R}} P(X=x , Y=y) = 1\)</span></p></li>
-<li><p>Si <span class="math inline">\(x\notin Im(X)\)</span> o <span class="math inline">\(y \notin Im(Y)\)</span> , entonces:</p>
-<p><span class="math display">\[P(X=x , Y=y) = 0\]</span></p></li>
-<li><p><span class="math inline">\(P(X\in A , Y\in B) = \sum_{x\in A} \sum_{y\in B} P(X=x , Y=y)\)</span></p></li>
-<li><p><span class="math inline">\(P(X\in A , Y=y) = \sum_{x\in A} P(X=x , Y=y)\)</span></p></li>
-<li><p><span class="math inline">\(P(X=x) = \sum_{y\in \mathbb{R}} P(X=x , Y=y)\)</span></p></li>
-<li><p><span class="math inline">\(P(Y=y) = \sum_{x\in \mathbb{R}} P(X=x , Y=y)\)</span></p></li>
+<li><p><span class="math inline">\(\sum_{x\in \mathbb{R}}\sum_{y\in \mathbb{R}} P(\mathcal{X}=x , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 1\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.08cm}x\notin Im(\mathcal{X})\hspace{0.08cm}\)</span> o <span class="math inline">\(\hspace{0.08cm}y \notin Im(\mathcal{Y})\hspace{0.08cm}\)</span> , entonces:</p>
+<p><span class="math display">\[P(\mathcal{X}=x , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 0 \\\]</span></p></li>
+<li><p><span class="math inline">\(P(\mathcal{X}\in A , \mathcal{Y}\in B) \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in A} \sum_{y\in B} P(\mathcal{X}=x , \mathcal{Y}=y)\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
+<li><p><span class="math inline">\(P(\mathcal{X}\in A , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in A} P(\mathcal{X}=x , \mathcal{Y}=y)\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
+<li><p><span class="math inline">\(P(\mathcal{X}=x) \hspace{0.08cm}=\hspace{0.08cm} \sum_{y\in \mathbb{R}} P(\mathcal{X}=x , \mathcal{Y}=y)\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
+<li><p><span class="math inline">\(P(\mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} P(\mathcal{X}=x , \mathcal{Y}=y)\)</span></p></li>
 </ul>
 <p><br></p>
 </div>
 </div>
 <div id="densidad-conjunta-de-variables-aleatorias-continuas" class="section level1" number="32">
 <h1><span class="header-section-number">32</span> Densidad conjunta de variables aleatorias continuas</h1>
-<p><span class="math display">\[f_{X,Y}\]</span> es la función de densidad conjunta de las v.a. <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span> <span class="math inline">\(\Leftrightarrow\)</span></p>
+<p><span class="math inline">\(f_{\mathcal{X},\mathcal{Y}}\hspace{0.08cm}\)</span> es la función de densidad conjunta de las v.a. <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}\)</span> y <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> , si y solo si:</p>
 <ul>
-<li><p><span class="math inline">\(f_{X,Y} : \mathbb{R}^2 \rightarrow (0 , \infty)\)</span></p></li>
-<li><p><span class="math inline">\(P( X \in A , Y \in B) = \int_{x\in A} \int_{y\in B} f_{X,Y}(x,y) \cdot dy \cdot dx\)</span></p></li>
-<li><p><span class="math inline">\(\int_{x\in \mathbb{R}} \int_{y\in \mathbb{R}} f_{X,Y}(x,y) \cdot dy \cdot dx = 1\)</span></p></li>
+<li><p><span class="math inline">\(f_{\mathcal{X},\mathcal{Y}} \hspace{0.12cm} :\hspace{0.12cm} \mathbb{R}^2 \hspace{0.08cm}\rightarrow\hspace{0.08cm} (0 , \infty)\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
+<li><p><span class="math inline">\(P( \mathcal{X} \in A , \mathcal{Y} \in B) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \int_{y\in B} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y) \cdot dy \cdot dx\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
+<li><p><span class="math inline">\(\int_{x\in \mathbb{R}} \int_{y\in \mathbb{R}} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y) \cdot dy \cdot dx \hspace{0.08cm}=\hspace{0.08cm} 1\)</span> <span class="math inline">\(\\[1cm]\)</span></p></li>
 </ul>
 <div id="propiedades-30" class="section level2" number="32.1">
 <h2><span class="header-section-number">32.1</span> Propiedades</h2>
 <ul>
-<li><p><span class="math inline">\(P(X\in A , Y=y) = \int_{x\in A} f_{X,Y}(x , y)\cdot dx\)</span></p></li>
-<li><p><span class="math inline">\(P(X=x , Y\in B) = \int_{y\in B} f_{X,Y}(x , y) \cdot dy\)</span></p></li>
-<li><p><span class="math inline">\(f_X(x) = \int_{y\in \mathbb{R}} f_{X,Y}(x , y) \cdot dy\)</span></p></li>
-<li><p><span class="math inline">\(f_Y(y) = \int_{x\in \mathbb{R}} f_{X,Y}(x , y) \cdot dx\)</span></p></li>
+<li><p><span class="math inline">\(P(\mathcal{X}\in A \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x , y)\cdot dx\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
+<li><p><span class="math inline">\(P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.08cm}=\hspace{0.08cm} \int_{y\in B} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x , y) \cdot dy\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
+<li><p><span class="math inline">\(f_X(x) \hspace{0.08cm}=\hspace{0.08cm} \int_{y\in \mathbb{R}} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x , y) \cdot dy\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
+<li><p><span class="math inline">\(f_Y(y) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in \mathbb{R}} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x , y) \cdot dx\)</span></p></li>
 </ul>
 <p><br></p>
 </div>
 </div>
 <div id="probabilidad-condicionada-de-variables-aleatorias-discretas" class="section level1" number="33">
 <h1><span class="header-section-number">33</span> Probabilidad condicionada de variables aleatorias discretas</h1>
-<p><span class="math display">\[P(X=x | Y=y) = \dfrac{P(X=x , Y=y)}{P(Y=y)}\]</span></p>
+<p><span class="math display">\[P(\mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.08cm}}{P(\mathcal{Y}=y)} \\\]</span></p>
 <div id="propiedades-31" class="section level2" number="33.1">
 <h2><span class="header-section-number">33.1</span> Propiedades</h2>
 <ul>
-<li><span class="math inline">\(P(X\in A | Y=y) = \sum_{x\in A} P(X=x | Y=y)\)</span></li>
+<li><span class="math inline">\(P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm} = \hspace{0.08cm} \sum_{x\in A} P(\mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)\)</span></li>
 </ul>
 <p><br></p>
 </div>
 </div>
 <div id="densidad-condicionada-de-variables-aleatorias-continuas" class="section level1" number="34">
 <h1><span class="header-section-number">34</span> Densidad condicionada de variables aleatorias continuas</h1>
-<p><span class="math display">\[f_{X|Y}(x,y) = \dfrac{f_{X,Y}(x,y)}{f_Y(y)}\]</span></p>
+<p><span class="math display">\[f_{\mathcal{X}|\mathcal{Y}}(x,y) = \dfrac{\hspace{0.08cm}f_{\mathcal{X},\mathcal{Y}\hspace{0.08cm}}(x,y)}{f_Y(y)} \\\]</span></p>
 <div id="propiedades-32" class="section level2" number="34.1">
 <h2><span class="header-section-number">34.1</span> Propiedades</h2>
 <ul>
-<li>Si <span class="math inline">\(Y\)</span> es una v.a. continua , entonces:</li>
+<li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> es una v.a. continua , entonces: <span class="math inline">\(\hspace{0.12cm}P(\mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 0\hspace{0.08cm}\)</span> , para todo <span class="math inline">\(\hspace{0.08cm}y\in \mathbb{R}\)</span></p>
+<p>Por lo que <span class="math inline">\(\hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.1cm}\)</span> no está definido, ya que:</p></li>
 </ul>
-<p><span class="math inline">\(P(Y=y) = 0\)</span> , para todo <span class="math inline">\(y\in \mathbb{R}\)</span></p>
-<p>Por lo que <span class="math inline">\(P(X\in A | Y=y)\)</span> no está definido, ya que:</p>
-<p><span class="math inline">\(P(X\in A | Y=y) = \dfrac{P(X=x , Y=y)}{P(Y=y)} = \dfrac{P(X=x , Y=y)}{ 0}\)</span></p>
+<p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}=x , \mathcal{Y}=y)\hspace{0.08cm}}{P(\mathcal{Y}=y)} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{P(\mathcal{X}=x , \mathcal{Y}=y)}{ 0}\\\]</span></p>
 <ul>
-<li>Teniendo en consideración el problema anterior, se esquiva del siguiente modo:</li>
-</ul>
+<li><p>Teniendo en consideración el problema anterior, se esquiva del siguiente modo:</p>
 <p>Sea <span class="math inline">\(\delta \rightarrow 0^+\)</span></p>
-<p><span class="math display">\[P(X\in A | Y \in [y , y+ \delta]) = \dfrac{P(X\in A , Y\in [y , y+ \delta])}{P(Y\in [y , y+ \delta])}\]</span></p>
-<p>Donde ahora <span class="math inline">\(P(Y\in [y , y+ \delta]) &gt; 0\)</span></p>
-<ul>
-<li><span class="math inline">\(P(X\in A | Y \in [y , y+ \delta]) = \int_{x\in A} \int_{y \in [y , y+ \delta]} f_{X|Y}(x,y) = \int_{x\in A} \int_{y \in [y , y+ \delta]} \dfrac{f_{X,Y}(x,y)}{f_Y(y)} \approx \int_{x\in A} f_{X|Y}(x,y) = \int_{x\in A} \dfrac{f_{X,Y}(x,y)}{f_Y(y)} = \dfrac{1}{f_Y(y)} \cdot \int_{x\in A} f_{X,Y}(x,y)\)</span></li>
-</ul>
+<p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y} \in [y , y+ \delta]) = \dfrac{\hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm} , \hspace{0.08cm} \mathcal{Y}\in [y , y+ \delta])\hspace{0.08cm}}{P(\mathcal{Y}\in [y , y+ \delta])}\]</span></p>
+<p>Donde ahora <span class="math inline">\(\hspace{0.08cm}P(\mathcal{Y}\in [y , y+ \delta]) \hspace{0.08cm}&gt;\hspace{0.08cm} 0\hspace{0.08cm}\)</span> . <span class="math inline">\(\\[1cm]\)</span></p></li>
+<li><p><span class="math inline">\(P(\mathcal{X}\in A \hspace{0.08cm} | \hspace{0.08cm} \mathcal{Y} \in [y , y+ \delta]) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \int_{y \in [y , y+ \delta]} f_{\mathcal{X}|\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \int_{y \in [y , y+ \delta]} \dfrac{f_{\mathcal{X},\mathcal{Y}}(x,y)}{f_Y(y)} \hspace{0.08cm} \approx \hspace{0.08cm} \int_{x\in A} f_{\mathcal{X}|\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \dfrac{f_{\mathcal{X},\mathcal{Y}}(x,y)}{f_Y(y)} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{f_Y(y)} \cdot \int_{x\in A} f_{\mathcal{X},\mathcal{Y}}(x,y)\)</span></p>
 <p>En resumen:</p>
-<p><span class="math display">\[P(X\in A | Y \in [y , y+ \delta]) \approx \int_{x\in A}   f_{X|Y}(x,y)\]</span></p>
+<p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y} \in [y , y+ \delta]) \hspace{0.08cm}\approx\hspace{0.08cm} \int_{x\in A}   f_{\mathcal{X}|\mathcal{Y}}(x,y)\]</span></p></li>
+</ul>
 <p><br></p>
 </div>
 </div>
 <div id="independencia-de-variables-aleatorias-discretas" class="section level1" number="35">
 <h1><span class="header-section-number">35</span> Independencia de variables aleatorias discretas</h1>
-<p><span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son v.a. independientes <span class="math inline">\((X \perp Y)\)</span> <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(P(X=x , Y=y) = P(X=x)\cdot P(Y=y) , \for x,y \in \mathbb{R}\)</span></p>
+<p><span class="math inline">\(\mathcal{X}\hspace{0.08cm}\)</span> e <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> son v.a. independientes <span class="math inline">\(\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})\)</span> <span class="math inline">\(\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}\)</span> <span class="math inline">\(P(\mathcal{X}=x , \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}=x)\cdot P(\mathcal{Y}=y) \hspace{0.3cm},\hspace{0.3cm} \forall x,y \in \mathbb{R}\)</span></p>
+<p><br></p>
 <div id="teorema-de-factorización-para-v.a.-discretas" class="section level2" number="35.1">
 <h2><span class="header-section-number">35.1</span> Teorema de Factorización para v.a. discretas</h2>
-<p>Sean <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> v.a. discretas,</p>
-<p>Si <span class="math inline">\(\exist g,h: \mathbb{R} \rightarrow \mathbb{R}\)</span> , tal que:</p>
-<p><span class="math inline">\(P(X=x, Y=y) = g(x)\cdot h(y) , \forall x,y \in \mathbb{R}\)</span></p>
-<p>entonces:</p>
-<p><span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes <span class="math inline">\((X \perp Y)\)</span></p>
+<p>Sean <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}\)</span> e <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> v.a. discretas,</p>
+<p>Si <span class="math inline">\(\hspace{0.08cm}\exists \hspace{0.1cm} h,g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R} \rightarrow \mathbb{R}\hspace{0.1cm}\)</span> , tal que:</p>
+<p><span class="math display">\[P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} g(x)\cdot h(y) \hspace{0.3cm},\hspace{0.3cm} \forall x,y \in \mathbb{R}\]</span></p>
+<p>entonces: <span class="math inline">\(\hspace{0.12cm}\mathcal{X}\hspace{0.08cm}\)</span> e <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> son independientes <span class="math inline">\(\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})\hspace{0.08cm}\)</span> .</p>
 <p><br></p>
 </div>
 </div>
 <div id="independencia-de-variables-aleatorias-continuas" class="section level1" number="36">
 <h1><span class="header-section-number">36</span> Independencia de variables aleatorias continuas</h1>
-<p><span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son v.a. independientes <span class="math inline">\((X \perp Y)\)</span> <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(P(X=x , Y=y) = P(X=x)\cdot P(Y=y) , \for x,y \in \mathbb{R}\)</span> <span class="math inline">\(\Leftrightarrow\)</span></p>
-<p><span class="math inline">\(P(X\in A , Y\in B) = P(X\in A)\cdot P(Y\in B) , \for A,B \subset \mathbb{R}\)</span></p>
-<p><span class="math inline">\(\Leftrightarrow\)</span></p>
-<p><span class="math inline">\(\for A,B \subset \mathbb{R} , \int_{x\in A} \int_{y \in B} f_{X,Y}(x,y) \cdot dy \cdot dx = \int_{x\in A} f_{X}(x) \cdot dx \int_{y \in B} f_{Y}(y) \cdot dy\)</span></p>
+<p><span class="math inline">\(\mathcal{X}\hspace{0.08cm}\)</span> e <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> son v.a. independientes <span class="math inline">\(\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}\)</span></p>
+<p><span class="math display">\[\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}=x)\cdot P(\mathcal{Y}=y) \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} x,y \in \mathbb{R}\]</span></p>
+<p><span class="math display">\[\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}P(\mathcal{X}\in A \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}\in A)\cdot P(\mathcal{Y}\in B) \hspace{0.3cm} ,\hspace{0.3cm} \forall \hspace{0.08cm} A,B \subset \mathbb{R} \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}\]</span></p>
+<p><span class="math display">\[\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}\forall \hspace{0.08cm} A,B \subset \mathbb{R} \hspace{0.2cm},\hspace{0.2cm} \int_{x\in A} \int_{y \in B} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y) \cdot dy \cdot dx \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \hspace{0.08cm} f_{\mathcal{X}}(x)  \cdot dx \cdot \int_{y \in B} f_{\mathcal{Y}}(y) \cdot dy\]</span></p>
 <p><br></p>
 <div id="teorema-de-factorización-para-v.a.-continuas" class="section level2" number="36.1">
 <h2><span class="header-section-number">36.1</span> Teorema de Factorización para v.a. continuas</h2>
-<p>Sean <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> v.a. continuas,</p>
-<p><span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son v.a. independientes <span class="math inline">\((X \perp Y)\)</span> <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(f_{X,Y}(x,y) = f_X(x) \cdot f_Y(y) , \forall x,y \in \mathbb{R}\)</span></p>
+<p>Sean <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}\)</span> e <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> v.a. continuas,</p>
+<p><span class="math inline">\(\mathcal{X}\hspace{0.08cm}\)</span> e <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> son v.a. independientes <span class="math inline">\(\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})\)</span> <span class="math inline">\(\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}\)</span> <span class="math inline">\(f_{\mathcal{X},\mathcal{Y}}(x,y) = f_X(x) \cdot f_\mathcal{Y}(y) \hspace{0.2cm},\hspace{0.2cm} \forall \hspace{0.08cm} x,y \in \mathbb{R}\)</span></p>
 <div id="colorario" class="section level3" number="36.1.1">
 <h3><span class="header-section-number">36.1.1</span> Colorario</h3>
-<p>Si <span class="math inline">\(\exist g,h: \mathbb{R} \rightarrow \mathbb{R}\)</span> , tal que:</p>
-<p><span class="math inline">\(f_{X,Y}(x,y) = g(x)\cdot h(y) , \forall x,y \in \mathbb{R}\)</span></p>
-<p>entonces:</p>
-<p><span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son independientes</p>
+<p>Si <span class="math inline">\(\hspace{0.08cm}\exist\hspace{0.08cm} g,h \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R} \rightarrow \mathbb{R}\hspace{0.08cm}\)</span> , tal que:</p>
+<p><span class="math inline">\(f_{\mathcal{X},\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm} g(x)\cdot h(y) \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.08cm} x,y \in \mathbb{R}\)</span></p>
+<p>entonces: <span class="math inline">\(\hspace{0.12cm}\mathcal{X}\hspace{0.08cm}\)</span> e <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> son independientes.</p>
 <p><br></p>
 </div>
 </div>
 </div>
 <div id="independencia-dos-a-dos-de-múltiples-v.a." class="section level1" number="37">
 <h1><span class="header-section-number">37</span> Independencia (dos a dos) de múltiples v.a.</h1>
-<p><span class="math inline">\(X_1,...,X_n\)</span> son independientes (dos a dos) <span class="math inline">\(Leftrightarrow\)</span> <span class="math inline">\(X_i \perp X_j , \forall i\neq j = 1,...,n\)</span></p>
+<p><span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}\)</span> son independientes (dos a dos) <span class="math inline">\(\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}\)</span> <span class="math inline">\(\mathcal{X}_i \perp \mathcal{X}_j \hspace{0.2cm},\hspace{0.2cm} \forall i\neq j = 1,...,n\)</span></p>
 <p><br></p>
 </div>
 <div id="teorema-de-bayes-para-variables-aleatorias" class="section level1" number="38">
 <h1><span class="header-section-number">38</span> Teorema de Bayes para variables aleatorias</h1>
 <ul>
-<li>Si <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son discretas:</li>
+<li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}\)</span> e <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> son discretas:</p>
+<p><span class="math display">\[P(\mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{P(\mathcal{Y}=y \hspace{0.08cm} | \hspace{0.08cm} \mathcal{X}=x) \cdot  P(\mathcal{X}=x)}{P(\mathcal{Y}=y)}\]</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}\)</span> e <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> son continuas:</p>
+<p><span class="math display">\[f_{\mathcal{X}|\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm}    \dfrac{\hspace{0.08cm}f_{\mathcal{Y}|\mathcal{X}}(x, y) \cdot f_\mathcal{X}(x)\hspace{0.08cm}}{f_\mathcal{Y}(y)}\]</span></p></li>
 </ul>
-<p><span class="math display">\[P(X=x | Y=y) = \dfrac{P(Y=y | X=x) \cdot P(X=x)}{P(Y=y)}\]</span></p>
-<ul>
-<li>Si <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son continuas:</li>
-</ul>
-<p><span class="math display">\[f_{X|Y}(x,y) =  = \dfrac{f{Y|X}(x, y) \cdot f_X(x)}{f_Y(y)}\]</span></p>
 <p><br></p>
 </div>
 <div id="formula-de-transferencia-para-funciones-de-varias-v.a." class="section level1" number="39">
 <h1><span class="header-section-number">39</span> Formula de transferencia para funciones de varias v.a.</h1>
-<p>Sea <span class="math inline">\(g: \mathbb{R}^2 \rightarrow \mathbb{R}\)</span></p>
+<p>Sea <span class="math inline">\(\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R}^2 \rightarrow \mathbb{R}\hspace{0.08cm}\)</span>.</p>
 <ul>
-<li>Si <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son discretas:</li>
+<li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}\)</span> e <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> son discretas:</p>
+<p><span class="math display">\[E[g(\mathcal{X},\mathcal{Y})] \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} \hspace{0.08cm}\sum_{y\in \mathbb{R}}\hspace{0.08cm} g(x,y) \cdot P(\mathcal{X}=x , \mathcal{Y}=y)\]</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}\)</span> e <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> son continuas:</p>
+<p><span class="math display">\[E[g(\mathcal{X},\mathcal{Y})]\hspace{0.08cm} =\hspace{0.08cm} \int_{x\in \mathbb{R}} \int_{y\in \mathbb{R}} g(x,y) \cdot f_{\mathcal{X},\mathcal{Y}}(x , y) \cdot dy \cdot dx\]</span></p></li>
 </ul>
-<p><span class="math display">\[E[g(X,Y)] = \sum_{x\in \mathbb{R}} \sum_{y\in \mathbb{R}} g(x,y) \cdot P(X=x , Y=y)\]</span></p>
-<ul>
-<li>Si <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> son continuas:</li>
-</ul>
-<p><span class="math display">\[E[g(X,Y)] = \int_{x\in \mathbb{R}} \int_{y\in \mathbb{R}} g(x,y) \cdot f_{X,Y}(x , y) \dcor dy \cdot dx\]</span></p>
 <p><br></p>
 </div>
 <div id="esperanza-condicionada" class="section level1" number="40">
 <h1><span class="header-section-number">40</span> Esperanza Condicionada</h1>
-<p>Si <span class="math inline">\(X\)</span> es v.a. discreta :</p>
-<p><span class="math display">\[E[X | Y=y] = \sum_{x\in \mathbb{R}} x \cdot P(X=x | Y=y)\]</span></p>
-<p>Si <span class="math inline">\(Y\)</span> es v.a. continua :</p>
-<p><span class="math display">\[E[ X | Y=y] = \int_{x\in \mathbb{R}} x \cdot P(X=x | Y=y) \cdot dx\]</span></p>
+<p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}\)</span> es v.a. discreta :</p>
+<p><span class="math display">\[E[\mathcal{X} | \mathcal{Y}=y] \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} x \cdot P(\mathcal{X}=x | \mathcal{Y}=y)\]</span></p>
+<p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> es v.a. continua :</p>
+<p><span class="math display">\[E[ \mathcal{X} | \mathcal{Y}=y] \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in \mathbb{R}} x \cdot P(\mathcal{X}=x | \mathcal{Y}=y) \cdot dx\]</span></p>
 <p><br></p>
 </div>
 <div id="ley-de-la-esperanza-total" class="section level1" number="41">
 <h1><span class="header-section-number">41</span> Ley de la Esperanza total</h1>
-<p>Si <span class="math inline">\(Y\)</span> es una v.a. discreta:</p>
-<p><span class="math display">\[E[X] = \sum_{y\in \mathbb{R} } E[X / Y=y] \cdot P(Y=y)\]</span></p>
-<p>Si <span class="math inline">\(Y\)</span> es v.a. continua :</p>
-<p><span class="math display">\[E[X] = \int_{y\in \mathbb{R} } E[X / Y=y] \cdot f_Y(y) \cdot dy\]</span></p>
+<ul>
+<li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> es una v.a. discreta:</p>
+<p><span class="math display">\[E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \sum_{y\in \mathbb{R} } E[\mathcal{X} \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y] \cdot P(\mathcal{Y}=y)\]</span></p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> es v.a. continua :</p>
+<p><span class="math display">\[E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \int_{y\in \mathbb{R} } E[\mathcal{X} \hspace{0.08cm} | \hspace{0.08cm} \mathcal{Y}=y] \cdot f_\mathcal{Y}(y) \cdot dy\]</span></p></li>
+</ul>
 <p><br></p>
 </div>
 <div id="terorema-de-la-probabilidad-total-con-variables-aleatorias" class="section level1" number="42">
