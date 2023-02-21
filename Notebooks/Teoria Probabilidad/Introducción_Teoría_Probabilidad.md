@@ -1,7 +1,7 @@
 ---
 title: 'Introducción a la Teoría de la Probabilidad'
 author: 'Fabio Scielzo Ortiz'
-date: '19/02/23'
+date: '26/02/23'
 output: 
    rmdformats::readthedown:
       use_bookdown: true
@@ -55,12 +55,12 @@ css: custom.css
 
 $\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https://estadistica4all.com/)**
 
-$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Marcos Álvarez Martín.](http://estadistica4all.com/autores/autores.html) $\hspace{0.2cm}$
+$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ 
  [Fabio Scielzo Ortiz.](http://estadistica4all.com/autores/autores.html)
 
 $\hspace{0.3cm}$ **Si utilizas este artículo, por favor, cítalo:** 
 
-$\hspace{0.5cm}$ Álvarez Martín, M., Scielzo Ortiz, F. (2023). Introducción a la estadística bayesiana. http://estadistica4all.com/Articulos/ajuste_hiperparametros.html
+$\hspace{0.5cm}$ Scielzo Ortiz, F. (2023). Introducción a la teoría de la probabilidad. http://estadistica4all.com/Articulos/Introducción_Teoría_Probabilidad.html
 
 
 </p>
@@ -101,7 +101,7 @@ Sea $\hspace{0.08cm}\varepsilon\hspace{0.08cm}$  un experimento aleatorio con es
 
 <br>
 
-# Ocurrencia de sucesos <a class="anchor" id="1"></a>
+# Ocurrencia de sucesos 
 
 Se realiza un experimento aleatorio $\hspace{0.08cm}\varepsilon\hspace{0.08cm}$ un número $\hspace{0.08cm}n\hspace{0.08cm}$ determinado de veces.
 
@@ -297,15 +297,15 @@ $$A^c  \hspace{0.08cm}=\hspace{0.08cm} \lbrace \hspace{0.08cm} w \in \Omega(\var
 - $(A \cap B)^c \hspace{0.08cm} =\hspace{0.08cm} A^c \cup B^c$ $\\[0.45cm]$
 
 
-<br>
+ 
 
-# Conjunto potencia del espacio muestral
+## Conjunto potencia del espacio muestral
 
 El conjunto potencia del espacio muestral $\hspace{0.08cm}\Omega\hspace{0.08cm}$ es:
 
-$$2^\Omega \hspace{0.08cm}=\hspace{0.08cm} \lbrace\hspace{0.08cm} A \hspace{0.15cm}:\hspace{0.15cm} A \subset \Omega  \hspace{0.08cm}\rbrace$$
+$$2^\Omega \hspace{0.08cm}=\hspace{0.08cm} \lbrace\hspace{0.08cm} A \hspace{0.15cm}:\hspace{0.15cm} A \subset \Omega  \hspace{0.08cm}\rbrace\\$$
 
-## Propiedades:
+Se cumple la siguiente propiedad:
 
 $$\# 2 ^\Omega \hspace{0.08cm}=\hspace{0.08cm} 2 ^{\# \Omega}$$ 
 
@@ -323,14 +323,14 @@ $A_1\hspace{0.08cm},\hspace{0.08cm} A_2\hspace{0.08cm} ,..., \hspace{0.08cm}A_n\
 <br>
 
 
-# Sucesos Disjuntos dos a dos
+# Sucesos Disjuntos dos a dos <a class="anchor" id="1"></a>
 
 $A_1 \hspace{0.08cm},\hspace{0.08cm} A_2 \hspace{0.08cm},..., \hspace{0.08cm} A_n\hspace{0.08cm}$ son sucesos disjuntos dos a dos $\hspace{0.15cm}\Leftrightarrow\hspace{0.15cm} A_i \cap A_j \hspace{0.08cm}=\hspace{0.08cm} \emptyset \hspace{0.25cm} , \hspace{0.25cm}\forall \hspace{0.08cm}i \neq j = 1,...,n$
 
 
 <br>
 
-# Concepto de probabilidad
+# Concepto de probabilidad 
 
 ## Probabilidad de Laplace
 
@@ -409,22 +409,22 @@ $$P(A_1 \cup A_2 \cup A_3 \cup ...) \hspace{0.08cm}=\hspace{0.08cm} P(A_1)\hspac
 ### Propiedades
 
 
-- $P(\emptyset) \hspace{0.08cm}=\hspace{0.08cm} 0$ $\\[0.5cm]$
+- $P(\emptyset) \hspace{0.08cm}=\hspace{0.08cm} 0$ $\\[0.7cm]$
 
 - Si $\hspace{0.08cm}A_1,A_2,...,A_n \subset \Omega\hspace{0.08cm}$  , entonces:
 
 $$P(A_1 \cup A_2 \cup ...\cup A_n)\hspace{0.08cm} =\hspace{0.08cm} P(A_1)+P(A_2)+...+P(A_n) \hspace{0.08cm}=\hspace{0.08cm} \sum_{i=1}^n P(A_i)$$  
 
-- $P(A^c) \hspace{0.08cm}=\hspace{0.08cm} 1 - P(A)$$\\[0.5cm]$
+- $P(A^c) \hspace{0.08cm}=\hspace{0.08cm} 1 - P(A)$$\\[0.7cm]$
 
 
-- Si $\hspace{0.08cm}A \subseteq B \hspace{0.15cm}\Rightarrow\hspace{0.15cm} P(A) \hspace{0.08cm}\geq\hspace{0.08cm} P(B)$$\\[0.5cm]$
+- Si $\hspace{0.08cm}A \subseteq B \hspace{0.15cm}\Rightarrow\hspace{0.15cm} P(A) \hspace{0.08cm}\geq\hspace{0.08cm} P(B)$$\\[0.7cm]$
 
-- Si $\hspace{0.08cm}A \subseteq B \hspace{0.15cm}\Rightarrow\hspace{0.15cm} P(B-A)\hspace{0.08cm} =\hspace{0.08cm} P(B)-P(A)$$\\[0.5cm]$
+- Si $\hspace{0.08cm}A \subseteq B \hspace{0.15cm}\Rightarrow\hspace{0.15cm} P(B-A)\hspace{0.08cm} =\hspace{0.08cm} P(B)-P(A)$$\\[0.7cm]$
 
-- $0 \hspace{0.08cm}\geq\hspace{0.08cm} P(A) \hspace{0.08cm}\geq\hspace{0.08cm} 1$ $\\[0.5cm]$
+- $0 \hspace{0.08cm}\geq\hspace{0.08cm} P(A) \hspace{0.08cm}\geq\hspace{0.08cm} 1$ $\\[0.7cm]$
 
-- $P(A-B) \hspace{0.08cm}=\hspace{0.08cm} P(A) - P(A\cap B)$ $\\[0.5cm]$
+- $P(A-B) \hspace{0.08cm}=\hspace{0.08cm} P(A) - P(A\cap B)$ $\\[0.7cm]$
 
 - $P(A \cup B)\hspace{0.08cm}=\hspace{0.08cm} P(A) \hspace{0.08cm}+\hspace{0.08cm} P(B) \hspace{0.08cm}-\hspace{0.08cm} P(A\cap B)$
 
@@ -448,15 +448,15 @@ $$P(A \hspace{0.08cm}|\hspace{0.08cm} B) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{
 
 $$P(A_1 \cup A_2 \cup ... \cup A_n | B) = P(A_1 | B) + P(A_2 | B)  + ... + P(A_n | B) = \sum_{i=1}^n P(A_i | B) \\$$  
 
-- $P(A^c | B) = 1 - P(A | B)$ $\\[0.5cm]$
+- $P(A^c | B) = 1 - P(A | B)$ $\\[0.75cm]$
 
-- Si $A \subseteq D \Rightarrow P(A | B) \geq P( D | B)$ $\\[0.5cm]$
+- Si $A \subseteq D \Rightarrow P(A | B) \geq P( D | B)$ $\\[0.75cm]$
 
-- Si $A \subseteq D \Rightarrow P(D-A | B) = P( D | B) - P(A | B)$ $\\[0.5cm]$
+- Si $A \subseteq D \Rightarrow P(D-A | B) = P( D | B) - P(A | B)$ $\\[0.75cm]$
 
-- $0 \geq P(A | B)   \geq 1$ $\\[0.5cm]$
+- $0 \geq P(A | B)   \geq 1$ $\\[0.75cm]$
 
-- $P(A-D | B) = P(A|B) - P(A\cap D | B)$ $\\[0.5cm]$
+- $P(A-D | B) = P(A|B) - P(A\cap D | B)$ $\\[0.75cm]$
 
 - $P(A \cup B) = P(A) + P(B) - P(A\cap B)$
 
@@ -491,7 +491,7 @@ $$P(A)\hspace{0.08cm}=\hspace{0.08cm}P(A\cap B_1) \hspace{0.08cm}+\hspace{0.08cm
 
 <br>
 
-# Teorema de la Probabilidad Total con probabilidad condicionada
+## Teorema de la probabilidad total con probabilidad condicionada
 
 Sea $\hspace{0.08cm}A \subseteq \Omega\hspace{0.08cm}$
 
@@ -529,16 +529,16 @@ $A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$ son sucesos independiente
 
 <br>
 
-# Independencia de múltiples sucesos
+## Independencia de múltiples sucesos <a class="anchor" id="1"></a>
 
 
 $A_1 , A_2, ..., A_n\hspace{0.08cm}$ son sucesos independientes, si y solo si:
 
 - Son independientes $\hspace{0.08cm}2\hspace{0.08cm}$ a $\hspace{0.08cm}2\hspace{0.08cm}$. $\\[0.5cm]$
 
-- Son independientes $\hspace{0.08cm}3\hspace{0.08cm}$ a $\hspace{0.08cm}3\hspace{0.08cm}$. $\\[0.2cm]$
+- Son independientes $\hspace{0.08cm}3\hspace{0.08cm}$ a $\hspace{0.08cm}3\hspace{0.08cm}$. $\\[0.1cm]$
 
-$\hspace{2.5cm} \dots$ $\\[0.5cm]$
+$\hspace{2.5cm} \dots$ $\\[0.3cm]$
 
 - Son independientes $\hspace{0.08cm}n\hspace{0.08cm}$ a $\hspace{0.08cm}n\hspace{0.08cm}$. $\\[0.5cm]$
 
@@ -548,9 +548,9 @@ lo que equivale a que se cumplan las siguientes condiciones:
 
 - $P(A_i \cap A_j) \hspace{0.08cm}=\hspace{0.08cm} P(A_i)\cdot P(A_j) \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.08cm} i \neq j = 1,...,n$ $\\[0.6cm]$
 
-- $P(A_i \cap A_j \cap A_r) \hspace{0.08cm}= \hspace{0.08cm} P(A_i)\cdot P(A_j)\cdot P(A_r) \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.08cm}  i \neq j \neq r = 1,...,n$ $\\[0.2cm]$
+- $P(A_i \cap A_j \cap A_r) \hspace{0.08cm}= \hspace{0.08cm} P(A_i)\cdot P(A_j)\cdot P(A_r) \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.08cm}  i \neq j \neq r = 1,...,n$ $\\[0.1cm]$
 
-$\hspace{2.5cm}\dots$ $\\[0.5cm]$
+$\hspace{2.5cm}\dots$ $\\[0.3cm]$
 
 - $P(A_1 \cap A_2 \cap ... \cap A_n)\hspace{0.08cm}=\hspace{0.08cm}P(A_1)\cdot P(A_2)\cdot \dots \cdot P(A_n)$
 
@@ -564,13 +564,12 @@ $\sigma (\Omega)\hspace{0.08cm}$ es un sigma-algebra de $\hspace{0.08cm}\Omega\h
 - $\sigma (\Omega) \hspace{0.08cm}=\hspace{0.08cm} \lbrace \hspace{0.08cm} A \hspace{0.08cm}:\hspace{0.08cm} A\subset \Omega \hspace{0.08cm}\rbrace$  $\\[0.5cm]$
 
 
-
-
 - $\Omega \in \sigma (\Omega)$ $\\[0.5cm]$
 
 - Si $A \in \sigma(\Omega) \hspace{0.08cm}\Rightarrow\hspace{0.08cm} A^c \in \sigma (\Omega)$ $\\[0.5cm]$
 
 - Si $A_1, A_2 , A_3 ,\dots \hspace{0.08cm} \in\hspace{0.08cm} \sigma (\Omega)  \hspace{0.15cm}\Rightarrow\hspace{0.15cm} A_1 \cup A2 \cup A_3 \cup \dots \hspace{0.08cm}\in\hspace{0.08cm} \sigma (\Omega)$ $\\[0.5cm]$
+
 
 **Observación:**
 
@@ -616,7 +615,7 @@ $$ \mathcal{X}\in A  \hspace{0.1cm} := \hspace{0.1cm} \lbrace \hspace{0.08cm} w\
 
 <br>
 
-# Variables Aleatorias y Probabilidad
+## Variables Aleatorias y Probabilidad
 
 Dada una medida de probabilidad $\hspace{0.08cm}P \hspace{0.08cm}:\hspace{0.08cm} \sigma(\Omega) \hspace{0.08cm}\rightarrow\hspace{0.08cm} [0,1]\hspace{0.08cm}$ .
 
@@ -627,7 +626,7 @@ Es decir, $\hspace{0.08cm}P(\mathcal{X}=x) \in [0,1] \hspace{0.15cm},\hspace{0.1
 
 <br>
 
-# Variables aleatorias discretas y continuas
+## Variables aleatorias discretas y continuas <a class="anchor" id="1"></a>
 
 Sea $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ una variable aleatoria,
 
@@ -711,7 +710,7 @@ $f_\mathcal{X}\hspace{0.08cm}$ es la funcion de densidad de la v.a. $\hspace{0.0
 $F_\mathcal{X}\hspace{0.08cm}$ es la función de distribución de la v.a.  $\hspace{0.08cm}\mathcal{X} \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}$ $F_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X} \geq x)$ $\\[0.3cm]$
 
 
-## Propiedades
+## Propiedades <a class="anchor" id="1"></a>
 
 
 - Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es una v.a. **continua**:
@@ -823,13 +822,13 @@ $$Var(a\cdot \mathcal{X} , b\cdot \mathcal{Y}) \hspace{0.08cm}=\hspace{0.08cm} a
 
 <br>
 
-## Covarianza  
+## Covarianza  <a class="anchor" id="1"></a>
 
 La covarianza entre las variables $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ y $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ se define como : $\\[0.5cm]$
 
 $$Cov(\mathcal{X},\mathcal{Y}) = E\Bigl[\hspace{0.08cm} (\mathcal{X}- E[\mathcal{X}])\cdot (\mathcal{Y}-E[\mathcal{Y}])\hspace{0.08cm}\Bigr]$$ $\\[0.5cm]$
 
-### Propiedades 
+### Propiedades  <a class="anchor" id="1"></a>
 
 - $Cov(\mathcal{X},\mathcal{Y}) \hspace{0.08cm}=\hspace{0.08cm} E[\mathcal{X}\cdot \mathcal{Y}] - E[\mathcal{X}]\cdot E[\mathcal{Y}]$ $\\[0.8cm]$
 
@@ -1005,7 +1004,7 @@ $$\mathcal{X}_1 + ... + \mathcal{X}_n \hspace{0.08cm}\sim\hspace{0.08cm} Poisson
 
 <br>
 
-## Distribución Hipergeommetrica
+## Distribución Hipergeommetrica <a class="anchor" id="1"></a>
 
 
 $$\mathcal{X} \sim HiperGeo(N, k, n) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} P(\mathcal{X}=x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.08cm}\binom{k}{n} \cdot \binom{N-k}{n-x}\hspace{0.08cm}}{\binom{N}{n}} \cdot \mathbb{I}\hspace{0.08cm}\bigl[ x\in \lbrace 0,1,..,n \rbrace \bigr]\\$$
@@ -1020,7 +1019,7 @@ $$\mathcal{X} \sim HiperGeo(N, k, n) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}
     $\mathcal{X}\hspace{0.08cm}$ puede interpretarse como el nº de elementos de la clase-k extraidos del conjunto tras haber extraido una muestra de $\hspace{0.08cm}n\hspace{0.08cm}$ elementos. $\\[0.8cm]$
 
 
-### Propiedades
+### Propiedades <a class="anchor" id="1"></a>
 
 - $E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} n \dfrac{k}{N}$ $\\[0.8cm]$
 
@@ -1068,7 +1067,7 @@ Donde: $\hspace{0.08cm}\lambda > 0\hspace{0.08cm}\\$
 
 <br>
 
-## Funcion Gamma
+## Función Gamma
 
 $\Gamma\hspace{0.08cm}$ es la función Gamma $\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} \Gamma(\alpha) \hspace{0.08cm}=\hspace{0.08cm} \int_{0}^{\infty} x^{\alpha - 1} \cdot e^{-x} \cdot dx$
 
@@ -1270,7 +1269,7 @@ $$\mathcal{X}\sim t_n \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(
 <br>
 
 
-## Distribucion F-Fisher
+## Distribucion F-Fisher <a class="anchor" id="1"></a>
 
 $$\mathcal{X}\sim F(a,b) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\Gamma\left(\dfrac{a+b}{2}\right)}{\Gamma(a/2)\cdot \Gamma(b/2)} \cdot (a/b)^{a/2} \cdot x^{a/2-1} \cdot (1 + (a/b)\cdot x)^{-(a+b)/2} \cdot \mathbb{I}\left[ x>0 \right] \\$$
 
@@ -1362,7 +1361,7 @@ $$P(\mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}
 $$f_{\mathcal{X}|\mathcal{Y}}(x,y) = \dfrac{\hspace{0.08cm}f_{\mathcal{X},\mathcal{Y}\hspace{0.08cm}}(x,y)}{f_Y(y)} \\$$
 
 
-## Propiedades
+## Propiedades <a class="anchor" id="1"></a>
 
 - Si $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ es una v.a. continua , entonces: $\hspace{0.12cm}P(\mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 0\hspace{0.08cm}$ , para todo $\hspace{0.08cm}y\in \mathbb{R}$
 
@@ -1467,7 +1466,7 @@ $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son independientes (dos a dos) 
 
 <br>
 
-# Esperanza de una función devarias variables aleatorias
+# Esperanza de una función de varias Variables Aleatorias
 
 Esta es la versión en varias variables de la fórmula de transferencia para la esperanza.
 
@@ -1515,7 +1514,7 @@ Sea $\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R}^2 \rightarrow \
 <br>
 
 
-# Terorema de la Probabilidad Total con Variables Aleatorias
+# Terorema de la Probabilidad Total con Variables Aleatorias <a class="anchor" id="1"></a>
 
 - Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es una v.a. discreta: $\\[0.25cm]$
 
@@ -1621,7 +1620,7 @@ $$\left|\hspace{0.08cm} J^{-1}(u,v) \hspace{0.08cm} \right| \hspace{0.08cm} =\hs
 <br>
 
 
-# Fórmula de convolución
+# Fórmula de convolución <a class="anchor" id="1"></a>
 
 
 Sea $\hspace{0.08cm}\mathcal{Z}=\mathcal{X}+\mathcal{Y}\hspace{0.08cm}$.
@@ -1675,7 +1674,7 @@ $$(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} D(\cdot) \hspace{0.3
 
 <br>
 
-# Muestra Aleatoria Simple
+# Muestra Aleatoria Simple <a class="anchor" id="1"></a>
 
  
 
@@ -1696,8 +1695,7 @@ Una m.a.s. de una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ es un vector de
 <br>
 
 
-
-
+ 
 # Teorema de esperanza-varianza de la media muestral
 
  
@@ -1783,7 +1781,7 @@ Donde:
 <br>
 
 
-# Teorema de Fisher
+# Teorema de Fisher <a class="anchor" id="1"></a>
 
 
 Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}$, y dada una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.08cm} .$ , se cumple lo siguiente : $\\[0.5cm]$ 
@@ -1803,8 +1801,9 @@ $\hspace{0.25cm} \overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mat
  
  <br>
 
+# Algunas Desigualdades 
 
-# Desigualdad de Markov
+## Desigualdad de Markov
 
 Dada una v.a. $\hspace{0.1cm}\mathcal{X} \hspace{0.1cm}$ y una función $\hspace{0.1cm}g \hspace{0.08cm} : \hspace{0.08cm} Im(\mathcal{X}) \rightarrow \mathbb{R}^+\hspace{0.08cm}$.
 
@@ -1817,7 +1816,7 @@ $$P(\hspace{0.08cm} g(\mathcal{X}) \hspace{0.08cm}\geq\hspace{0.08cm} \epsilon \
 
 <br>
 
-# Desigualdad de Chebychev
+## Desigualdad de Chebychev <a class="anchor" id="1"></a>
 
 Dada una v.a. $\hspace{0.1cm}\mathcal{X} \hspace{0.1cm}$ con $\hspace{0.1cm}Var(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm})=\sigma^2\hspace{0.06cm}$.
 
@@ -1837,12 +1836,12 @@ $$P(\hspace{0.08cm} | \hspace{0.08cm} \mathcal{X} - \mu \hspace{0.08cm} | \hspac
 
 ## Convergencia en probabilidad
 
- Dada una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$, una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$, y una función de la m.a.s $\hspace{0.1cm}h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$, donde $\hspace{0.1cm}g \hspace{0.1cm} : \hspace{0.1cm} Im(\mathcal{X}_1)\hspace{0.05cm}\text{x}\dots \text{x}\hspace{0.05cm}Im(\mathcal{X}_n) \hspace{0.1cm}\rightarrow\hspace{0.1cm} \mathbb{R}\hspace{0.12cm}$ , entonces: $\\[1cm]$
+ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$, una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$, y una función de la m.a.s $\hspace{0.1cm}h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$, donde $\hspace{0.1cm}h \hspace{0.1cm} : \hspace{0.1cm} Im(\mathcal{X}_1)\hspace{0.05cm}\text{x}\dots \text{x}\hspace{0.05cm}Im(\mathcal{X}_n) \hspace{0.1cm}\rightarrow\hspace{0.1cm} \mathbb{R}\hspace{0.12cm}$ , entonces: $\\[1cm]$
  
 
  
  $$h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm} \text{converge en probabilidad a} \hspace{0.1cm}\mathcal{X}\hspace{0.3cm} \Leftrightarrow \\[0.7cm] \Leftrightarrow\hspace{0.3cm} \forall \hspace{0.08cm} \epsilon > 0 \hspace{0.25cm} , \hspace{0.25cm} P\left(\hspace{0.1cm} \left| \hspace{0.1cm} h(\mathcal{X}_1,...,\mathcal{X}_n) - \mathcal{X} \hspace{0.1cm} \right| \hspace{0.1cm} \geq \hspace{0.1cm} \epsilon \hspace{0.1cm} \right) \hspace{0.12cm}\rightarrow\hspace{0.12cm} 0 \hspace{0.2cm} , \hspace{0.2cm} \text{si}\hspace{0.15cm} n \hspace{0.1cm}\rightarrow\hspace{0.1cm} \infty \\[0.7cm]
- \Leftrightarrow \hspace{0.3cm} \forall \hspace{0.08cm} \epsilon > 0 \hspace{0.3cm} , \hspace{0.3cm} \underset{n\rightarrow \infty}{\text{lim}} \hspace{0.12cm} P(\hspace{0.1cm} | \hspace{0.1cm} h(\mathcal{X}_1,...,\mathcal{X}_n) - \mathcal{X} \hspace{0.1cm} | \hspace{0.1cm} \geq \hspace{0.1cm} \epsilon \hspace{0.1cm}) \hspace{0.1cm}=\hspace{0.1cm} 0 \\$$
+ \Leftrightarrow \hspace{0.3cm} \forall \hspace{0.08cm} \epsilon > 0 \hspace{0.3cm} , \hspace{0.3cm} \underset{n\rightarrow \infty}{\text{lim}} \hspace{0.12cm} P(\hspace{0.1cm} | \hspace{0.1cm} h(\mathcal{X}_1,...,\mathcal{X}_n) - \mathcal{X} \hspace{0.1cm} | \hspace{0.1cm} \geq \hspace{0.1cm} \epsilon \hspace{0.1cm}) \hspace{0.1cm}=\hspace{0.1cm} 0 \\[0.35cm]$$
 
  
 **Notación:** 
@@ -1850,15 +1849,15 @@ $$P(\hspace{0.08cm} | \hspace{0.08cm} \mathcal{X} - \mu \hspace{0.08cm} | \hspac
 $h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm} \text{converge en probabilidad a} \hspace{0.1cm}\mathcal{X}$ $\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$ $h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm} \underset{p}{\rightarrow} \hspace{0.1cm}\mathcal{X}$
 
 
- <br>
+<br>
 
-## Convergencia en distribución
+## Convergencia en distribución <a class="anchor" id="1"></a>
 
 
- Dada una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$, una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$, y una función de la m.a.s $\hspace{0.1cm}h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$, donde $\hspace{0.1cm}g \hspace{0.1cm} : \hspace{0.1cm} Im(\mathcal{X}_1)\hspace{0.05cm}\text{x}\dots \text{x}\hspace{0.05cm}Im(\mathcal{X}_n) \hspace{0.1cm}\rightarrow\hspace{0.1cm} \mathbb{R}\hspace{0.12cm}$ , entonces: $\\[1cm]$
+ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$, una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$, y una función de la m.a.s $\hspace{0.1cm}h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$, donde $\hspace{0.1cm}h \hspace{0.1cm} : \hspace{0.1cm} Im(\mathcal{X}_1)\hspace{0.05cm}\text{x}\dots \text{x}\hspace{0.05cm}Im(\mathcal{X}_n) \hspace{0.1cm}\rightarrow\hspace{0.1cm} \mathbb{R}\hspace{0.12cm}$ , entonces: $\\[1cm]$
  
  
- $$h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.2cm} \text{converge en distribucion a} \hspace{0.2cm}\mathcal{X}\hspace{0.3cm}\Leftrightarrow \hspace{0.3cm}  \underset{n\rightarrow \infty}{\text{lim}} \hspace{0.12cm} F_{ h(\mathcal{X}_1,...,\mathcal{X}_n)} = F_{\mathcal{X}}(x)$$
+ $$h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.2cm} \text{converge en distribucion a} \hspace{0.2cm}\mathcal{X}\hspace{0.3cm}\Leftrightarrow \hspace{0.3cm}  \underset{n\rightarrow \infty}{\text{lim}} \hspace{0.12cm} F_{ h(\mathcal{X}_1,...,\mathcal{X}_n)} = F_{\mathcal{X}}(x)\\[0.35cm]$$
 
 **Notación:** 
  
@@ -1874,7 +1873,7 @@ El momento de orden $\hspace{0.08cm}k\hspace{0.08cm}$ de la variable aleatoria $
 
 <br>
 
-# Ley de los grandes números
+# Ley de los grandes números <a class="anchor" id="1"></a>
 
   La ley (débil) de los grandes establece lo siguiente:
 
@@ -1948,23 +1947,21 @@ El momento de orden $\hspace{0.08cm}k\hspace{0.08cm}$ de la variable aleatoria $
 
 Si $\hspace{0.08cm}n\hspace{0.08cm}$ es grande y se obtiene un número elevado $\hspace{0.08cm}k\hspace{0.08cm}$ de realizaciones de la m.a.s. $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\mathcal{X}\sim D(\cdot)$, de manera que $\hspace{0.1cm}x_i = (x_{i1},...,x_{in})^t\hspace{0.1cm}$ es la realizacion i estima , donde $\hspace{0.1cm}x_{ij}\hspace{0.1cm}$ es la realizacion i-esima de la v.a. $\hspace{0.08cm}\mathcal{X}_j\hspace{0.1cm}$, entonces:
 
-La distribución de frecuencias relativas del vector $\hspace{0.08cm}( \hspace{0.08cm} x_i=(x_{i1},...,x_{in}) \hspace{0.08cm}:\hspace{0.08cm} i=1,...,k \hspace{0.08cm})\hspace{0.08cm}$ se aproxima a la de la distribución normal con media $\hspace{0.08cm}\mu=E[\mathcal{X}]\hspace{0.08cm}$ y varianza $\hspace{0.08cm}\sigma^2/n = Var(\mathcal{X})/n\hspace{0.08cm}$.
+La distribución de frecuencias relativas del vector $\hspace{0.08cm}\bigl( \hspace{0.08cm} x_i=(x_{i1},...,x_{in}) \hspace{0.08cm}:\hspace{0.08cm} i=1,...,k \hspace{0.08cm}\bigr)\hspace{0.1cm}$ se aproxima a la de la distribución normal con media $\hspace{0.08cm}\mu=E[\mathcal{X}]\hspace{0.1cm}$ y varianza $\hspace{0.1cm}\sigma^2/n = Var(\mathcal{X})/n\hspace{0.08cm}$.
 
  
 <br> 
  
-# Teorema de Moivre-Laplace
+# Teorema de Moivre-Laplace <a class="anchor" id="1"></a>
 
-  Este teorema es un caso particular del TCL para v.a`s Binomiales.
+Este teorema es un caso particular del TCL para v.a`s Binomiales.
 
 
-  Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim Binomial(k,p)\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
+- Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim Binomial(k,p)\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
 
  
  
- 
-$$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.1cm}= \hspace{0.1cm}
-\dfrac{\overline{\mathcal{X}_n} - k\cdot p}{\sqrt{k\cdot p\cdot(1-p)/n}}\hspace{0.2cm}\underset{d}{\rightarrow}\hspace{0.2cm} N(0,1)\\$$
+    $$\dfrac{\hspace{0.1cm}\overline{\mathcal{X}_n} - \mu \hspace{0.1cm}}{\sqrt{\sigma^2/n}} \hspace{0.1cm}= \hspace{0.1cm}\dfrac{\overline{\mathcal{X}_n} - k\cdot p}{\hspace{0.1cm}\sqrt{k\cdot p\cdot(1-p)/n}\hspace{0.1cm}}\hspace{0.2cm}\underset{d}{\rightarrow}\hspace{0.2cm} N(0,1)$$
  
  
  
@@ -1975,108 +1972,66 @@ $$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqr
 
 # Distribución Normal Multivariante
 
+Dado el vector de variables aleatorias $\hspace{0.08cm}\mathbf{X}=\left( \mathcal{X}_1,\dots , \mathcal{X}_p \right)^t\hspace{0.08cm}$.
+
+El vector aleatorio $\hspace{0.1cm}\mathbf{X}\hspace{0.1cm}$ tiene distribución normal multivariante, y lo denotamos como $\hspace{0.08cm}\mathbf{X} \sim NM_p(\mu , \sigma )\hspace{0.08cm}$, si y solo si, la función de densidad conjunta de las v.a.`s del vector es la siguiente: $\\[0.5cm]$
+
+$$f_{\mathbf{X}}(x) \hspace{0.08cm}=\hspace{0.08cm} f_{\mathcal{X}_1,\dots , \mathcal{X}_p }(x) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{(2\pi)^{p/2} \cdot | {\Sigma}  |^{1/2} } \hspace{0.08cm} \cdot\hspace{0.08cm} \text{exp} \Bigl(\hspace{0.08cm} -\dfrac{1}{2}\cdot (x - \mathbf{\mu})^t \cdot {\Sigma}^{-1} \cdot (x - \mathbf{\mu}) \hspace{0.08cm} \Bigr)\\$$
+
+
+Donde: 
+
+- $\hspace{0.12cm}x = (x_1,\dots , x_p)^t \in \mathbb{R}^p \\$
  
- 
-El vector aleatorio $X=(X_1 , X_2 ,..., X_p)^t$ tiene una distribucion Normal p-variante si: \vspace{0.2cm}
-
-Existen $p$ v.a's i.i.d. $Z_1 ,..., Z_p \sim N(0,1)$ tales que:
-
-\begin{gather*}
-X= \mu + A\cdot Z
-\end{gather*}
-
-Donde:
-\begin{gather*}
-\mu=(\mu_1 ,..., \mu_p)^t \in \mathbb{R}^p \\
-Z=(Z_1 ,..., Z_p)^t \\
-A=( a_{ij} )_{i,j = 1,...,p} \in \mathbb{R}^{pxp}
-\end{gather*}
-\end{tcolorbox}
-
-\subsection{Propiedades Distribución Normal Multivariante:}
+- $\hspace{0.08cm}\mathbf{\mu}=(\mu_1,\dots , \mu_p)\hspace{0.15cm}$ es el vector de esperanzas de las v.a's , es decir,  $\hspace{0.1cm}\mu_j = E[\mathcal{X}_j] \hspace{0.2cm},\hspace{0.2cm} \forall \hspace{0.08cm} j=1,..., p\hspace{0.08cm} \\$
 
 
-$X=(X_1 , X_2 ,..., X_p)^t$  tiene una distribucion Normal p-variante si:
+-  $\hspace{0.08cm}{\Sigma} = \left( \hspace{0.08cm}  \sigma_{ij} \hspace{0.1cm} : \hspace{0.1cm}  i,j=1,\dots p \hspace{0.08cm}  \right)\hspace{0.15cm}$ es la matriz de covarianzas de las v.a.'s, es decir,  $\hspace{0.1cm}\sigma_{ij}=Cov(\mathcal{X}_i , \mathcal{X}_j)\hspace{0.2cm} , \hspace{0.2cm}  \forall i,j =1,\dots , p \\$
 
-\begin{gather*}
-X=\begin{pmatrix}
-X_1 \\
-... \\
-X_{p} 
-\end{pmatrix} = \begin{pmatrix}
-\mu_{1} \\
-... \\
-\mu_{p} 
-\end{pmatrix} +
-\begin{pmatrix}
-a_{11} & ... & a_{1p} \\
-...  & ... & ...\\
-a_{p1} & ...& a_{pp} 
-\end{pmatrix} \cdot
-\begin{pmatrix}
-Z_{1 } \\
-... \\
-Z_{p} 
-\end{pmatrix}=
-\begin{pmatrix}
-\mu_1 + a_{11}\cdot Z_1 +...+ a_{1p}\cdot Z_p \\
-... \\
-\mu_p + a_{p1}\cdot Z_1 +...+ a_{pp}\cdot Z_p 
-\end{pmatrix}
-\end{gather*}
 
-Por tanto:
-\tcbset{colback=blue!1!white,colframe=orange!80!black}
-\begin{tcolorbox}[toptitle=2mm,title=  ]
-$X=(X_1 , X_2 ,..., X_p)^t$  tiene una distribucion Normal p-variante si:
 
-\begin{equation*}
-\left\lbrace\begin{array}{c} 
-X_1=\mu_1 + a_{11}\cdot Z_1 +...+ a_{1p}\cdot Z_p \\
-... \\
-X_p=\mu_p + a_{p1}\cdot Z_1 +...+ a_{pp}\cdot Z_p 
-\end{array}\right.
-\end{equation*}
- 
 
- 
-Si $X= \mu + A\cdot Z$ , definidos estos conceptos como lo fueron en la sección 3.1, entonces: \\
+## Propiedades <a class="anchor" id="1"></a>
 
-1) \hspace{0.1cm} $E[X]=\mu$ \\
+Algunas propiedades de la distribución normal multivariante son las siguientes:
 
-2)\hspace{0.1cm} $Var(X)=A^t \cdot A = \Sigma$ \\
 
-3)\hspace{0.1cm} Notacion: $X \sim N_p(\mu , \Sigma )$ \\
 
-4)\hspace{0.1cm} $\Sigma$ es semi-definida positiva y positiva si $Rg(A)=p$ \\
+- $\text{Si} \hspace{0.3cm}\mathbf{X} = (X_1, X_2, \ldots, X_p)^t  \sim NM_p(\mu, \Sigma)\hspace{0.1cm}\hspace{0.3cm}$ $\Rightarrow$  $\hspace{0.3cm}X_j \sim N(\mu_j , \sigma_j^2)\hspace{0.3cm} ,\hspace{0.25cm} \forall\hspace{0.08cm} j=1,...,p$ $\\[0.8cm]$
 
-5)\hspace{0.1cm} Todo vector aleatorio Y obtenido como combinacion lineal de las componentes de X tiene distribucion normal multivariante. \\
 
-Es decir, si $\overrightarrow{c_1},...,\overrightarrow{c_k}$ son vectores de $p$ constantes, entonces:
+- Si $\hspace{0.15cm}\mathbf{X} \sim NM_p(\mu, \Sigma)\hspace{0.15cm}$ , entonces cualquier combinación lineal de las componentes de $\hspace{0.1cm}\mathbf{X}\hspace{0.1cm}$ también sigue una distribución normal multivariante.
 
-\begin{gather*}
-Y= \begin{pmatrix}
-\overrightarrow{c_1}^t \cdot X \\
-... \\
- \overrightarrow{c_k}\cdot X
-\end{pmatrix} =
-\begin{pmatrix}
-c_{11} \cdot X_1 + ... + c_{p1}\cdot X_p \\
-... \\
- c_{1k} \cdot X_1 + ... + c_{pk}\cdot X_p
-\end{pmatrix}
-\end{gather*} es un vector aleatorio con distribucion Normal multivariante.
+  
+    Es decir:
+    
+    $$\text{Si} \hspace{0.3cm}\mathbf{X} \sim NM_p(\mu, \Sigma)\hspace{0.3cm}  \Rightarrow  \hspace{0.3cm}\mathcal{Y} \hspace{0.09cm}=\hspace{0.09cm} \mathbf{a}^t \cdot \mathbf{X} \hspace{0.09cm}=\hspace{0.09cm} \sum_{i=1}^p \hspace{0.09cm} a_i \cdot \mathcal{X}_i  \hspace{0.14cm}\sim\hspace{0.14cm} N(\mathbf{a}^t\cdot \mu \hspace{0.1cm},\hspace{0.1cm} \mathbf{a}^t \Sigma \mathbf{a} )\hspace{0.1cm}$$
+    
+    Donde:  
+    
+    $$\hspace{0.15cm}\mathbf{a}^t\cdot \mu\hspace{0.12cm} =\hspace{0.12cm} \sum_{i=1}^n a_i \cdot \mu_i \hspace{0.1cm}$$
+    
+    $$\hspace{0.1cm}\mathbf{a}^t \cdot \Sigma \cdot \mathbf{a} \hspace{0.13cm}=\hspace{0.13cm} \sum_{i=1}^p a_i^2\sigma{i}^2 \hspace{0.1cm}+\hspace{0.1cm} 2\cdot \sum_{i, j = 1,...,p \\ i\neq j} a_i \cdot a_j\cdot \sigma_{ij}$$ $\\[0.5cm]$
 
-Y es un vector cuya cuyas componentes son combinaciones lineales de X \\
 
-6) Para v.a's con distribucion conjunta Normal multivariante, independencia equivale a incorrelacion lineal. \\
 
-7)\hspace{0.1cm} Si $X\sim N_p(\mu , \Sigma)$ es no singular, entonces:
-\begin{gather*}
-U_p = (X- \mu )^t \cdot \Sigma^{-1} \cdot (X - \mu ) \sim \chi_p^2
-\end{gather*}
 
- <br>
+
+- $\text{Si} \hspace{0.3cm}\mathbf{X} \sim N_p(\mu, \Sigma)  \hspace{0.3cm} \Rightarrow \hspace{0.3cm} \mathbf{Y} = A\cdot \mathbf{X}+\mathbf{b} \hspace{0.12cm}\sim\hspace{0.12cm} NM_p(A\cdot \mu + \mathbf{b} \hspace{0.11cm},\hspace{0.11cm} A\cdot \Sigma\cdot A^t )$
+
+
+   
+    Donde:
+    
+    - $A\hspace{0.1cm}$ es una matriz $\hspace{0.1cm}q \times p\hspace{0.1cm}$.
+    
+    - $\mathbf{b}\hspace{0.1cm}$ es un vector $\hspace{0.11cm}q \times 1\hspace{0.1cm}$. $\\[0.8cm]$
+
+
+- La distribución condicional de una parte de $\hspace{0.1cm}\mathbf{X}\hspace{0.1cm}$ dado el resto de las componentes sigue también una distribución normal multivariante. $\\[0.8cm]$
+
+
+- Para variables aleatorias con distribución conjunta normal multivariante, independencia equivale a no correlación lineal.
 
 
 
@@ -2084,7 +2039,22 @@ U_p = (X- \mu )^t \cdot \Sigma^{-1} \cdot (X - \mu ) \sim \chi_p^2
 
 
 
+<br>
+
+---
+
+<br>
 
 
+# Bibliografía
 
 
+- Jimenez Recaredo, R. (2021). Probabilidad II [Notas de clase]. Universidad Carlos III, Madrid, España. $\\[0.6cm]$
+
+- Rincón, L (2014). Introducción a la  probabilidad. Universidad Nacional Autónoma de México. $\\[0.6cm]$
+
+- Rincón, L (2007). Curso intermedio de probabilidad. Universidad Nacional Autónoma de México. $\\[0.6cm]$
+
+<br>
+
+<br>

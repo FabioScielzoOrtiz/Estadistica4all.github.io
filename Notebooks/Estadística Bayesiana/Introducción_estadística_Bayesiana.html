@@ -1512,9 +1512,24 @@ margin-left: 0 !important;
       <ul>
       <li><a href="#motivación-de-la-estadística-bayesiana" id="toc-motivación-de-la-estadística-bayesiana"><span class="toc-section-number">1</span> Motivación de la estadística bayesiana</a></li>
       <li><a href="#historia-de-la-estadística-bayesiana" id="toc-historia-de-la-estadística-bayesiana"><span class="toc-section-number">2</span> Historia de la estadística bayesiana <a class="anchor" id="1"></a></a></li>
-      <li><a href="#repaso-de-teoría-de-la-probabilidad" id="toc-repaso-de-teoría-de-la-probabilidad"><span class="toc-section-number">3</span> Repaso de Teoría de la Probabilidad</a>
+      <li><a href="#repaso-de-teoría-de-la-probabilidad" id="toc-repaso-de-teoría-de-la-probabilidad"><span class="toc-section-number">3</span> Repaso de teoría de la probabilidad</a>
       <ul>
-      <li><a href="#variables-aleatorias" id="toc-variables-aleatorias"><span class="toc-section-number">3.1</span> 1.4. VARIABLES ALEATORIAS</a></li>
+      <li><a href="#independencia" id="toc-independencia"><span class="toc-section-number">3.1</span> Independencia</a></li>
+      <li><a href="#probabilidad-condicionada" id="toc-probabilidad-condicionada"><span class="toc-section-number">3.2</span> Probabilidad condicionada</a></li>
+      <li><a href="#interpretación-de-la-independencia-estadística" id="toc-interpretación-de-la-independencia-estadística"><span class="toc-section-number">3.3</span> Interpretación de la independencia estadística</a></li>
+      <li><a href="#ley-de-la-multiplicación" id="toc-ley-de-la-multiplicación"><span class="toc-section-number">3.4</span> Ley de la multiplicación</a></li>
+      <li><a href="#ley-de-la-probabilidad-total" id="toc-ley-de-la-probabilidad-total"><span class="toc-section-number">3.5</span> Ley de la probabilidad total</a></li>
+      <li><a href="#extendiendo-la-ley-de-la-probabilidad-total" id="toc-extendiendo-la-ley-de-la-probabilidad-total"><span class="toc-section-number">3.6</span> Extendiendo la ley de la probabilidad total</a></li>
+      <li><a href="#teorema-de-bayes" id="toc-teorema-de-bayes"><span class="toc-section-number">3.7</span> Teorema de Bayes</a></li>
+      <li><a href="#variables-aleatorias" id="toc-variables-aleatorias"><span class="toc-section-number">3.8</span> Variables aleatorias</a></li>
+      <li><a href="#variables-aleatorias-discretas" id="toc-variables-aleatorias-discretas"><span class="toc-section-number">3.9</span> Variables aleatorias discretas</a></li>
+      <li><a href="#variables-aleatorias-continuas" id="toc-variables-aleatorias-continuas"><span class="toc-section-number">3.10</span> Variables aleatorias continuas</a></li>
+      <li><a href="#distribuciones-conjuntas" id="toc-distribuciones-conjuntas"><span class="toc-section-number">3.11</span> Distribuciones conjuntas</a></li>
+      <li><a href="#distribuciones-condicionales" id="toc-distribuciones-condicionales"><span class="toc-section-number">3.12</span> Distribuciones condicionales</a></li>
+      <li><a href="#esperanza-y-varianza-marginal" id="toc-esperanza-y-varianza-marginal"><span class="toc-section-number">3.13</span> Esperanza y varianza marginal</a></li>
+      <li><a href="#ley-de-las-esperanzas-iteradas" id="toc-ley-de-las-esperanzas-iteradas"><span class="toc-section-number">3.14</span> Ley de las esperanzas iteradas</a></li>
+      <li><a href="#ley-de-la-probabilidad-total-para-variables-aleatorias" id="toc-ley-de-la-probabilidad-total-para-variables-aleatorias"><span class="toc-section-number">3.15</span> Ley de la probabilidad total para variables aleatorias</a></li>
+      <li><a href="#teorema-de-bayes-para-variables-aleatorias" id="toc-teorema-de-bayes-para-variables-aleatorias"><span class="toc-section-number">3.16</span> Teorema de Bayes para variables aleatorias</a></li>
       </ul></li>
       <li><a href="#inferencia-frecuentista" id="toc-inferencia-frecuentista"><span class="toc-section-number">4</span> Inferencia Frecuentista</a>
       <ul>
@@ -1523,7 +1538,7 @@ margin-left: 0 !important;
       <li><a href="#estimación-por-intervalos" id="toc-estimación-por-intervalos"><span class="toc-section-number">4.3</span> Estimación por intervalos</a></li>
       <li><a href="#contrastes-de-hipótesis" id="toc-contrastes-de-hipótesis"><span class="toc-section-number">4.4</span> Contrastes de hipótesis</a></li>
       <li><a href="#predicción" id="toc-predicción"><span class="toc-section-number">4.5</span> Predicción</a></li>
-      <li><a href="#comparación-de-modelos" id="toc-comparación-de-modelos"><span class="toc-section-number">4.6</span> 2.6. COMPARACIÓN DE MODELOS</a></li>
+      <li><a href="#comparación-de-modelos" id="toc-comparación-de-modelos"><span class="toc-section-number">4.6</span> Comparación de modelos</a></li>
       <li><a href="#bondad-de-ajuste" id="toc-bondad-de-ajuste"><span class="toc-section-number">4.7</span> Bondad de ajuste</a></li>
       </ul></li>
       <li><a href="#inferencia-bayesiana" id="toc-inferencia-bayesiana"><span class="toc-section-number">5</span> Inferencia Bayesiana</a>
@@ -1579,10 +1594,9 @@ margin-right: auto;
 <p><span></p>
 <p style="margin-left:10em;">
 <p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Más artículos: <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://estadistica4all.com/">Estadistica4all</a></strong></p>
-<p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Autor:</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="http://estadistica4all.com/autores/autores.html">Marcos Álvarez Martín.</a> <span class="math inline">\(\hspace{0.2cm}\)</span>
-<a href="http://estadistica4all.com/autores/autores.html">Fabio Scielzo Ortiz.</a></p>
+<p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Autor:</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="http://estadistica4all.com/autores/autores.html">Marcos Álvarez Martín.</a></p>
 <p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Si utilizas este artículo, por favor, cítalo:</strong></p>
-<p><span class="math inline">\(\hspace{0.5cm}\)</span> Álvarez Martín, M., Scielzo Ortiz, F. (2023). Introducción a la estadística bayesiana. <a href="http://estadistica4all.com/Articulos/ajuste_hiperparametros.html" class="uri">http://estadistica4all.com/Articulos/ajuste_hiperparametros.html</a></p>
+<p><span class="math inline">\(\hspace{0.5cm}\)</span> Álvarez Martín, M. (2023). Introducción a la estadística bayesiana. <a href="http://estadistica4all.com/Articulos/Introducción_estadística_Bayesiana.html" class="uri">http://estadistica4all.com/Articulos/Introducción_estadística_Bayesiana.html</a></p>
 </p>
 </p>
 <p></span></p>
@@ -1598,15 +1612,15 @@ esto de la estadística bayesiana, cuales son las circunstacias de idoneidad de 
 <ul>
 <li><p>Las técnicas bayesianas nos permiten combinar información de una
 muestra con información de expertos o combinar información de
-múltiples muestras a través del teorema de Bayes.<span class="math inline">\(\\[0.3cm]\)</span></p></li>
+múltiples muestras a través del teorema de Bayes.<span class="math inline">\(\\[0.4cm]\)</span></p></li>
 <li><p>En la época del “Big Data”, es posible resolver problemas muy
 complejos con aproximaciones bayesianas rápidas, por ejemplo,
 Variational Bayes es uno de los más empleados en problemas de
-aprendizaje profundo (“deep learning”).<span class="math inline">\(\\[0.3cm]\)</span></p></li>
+aprendizaje profundo (“deep learning”).<span class="math inline">\(\\[0.4cm]\)</span></p></li>
 <li><p>El uso de métodos bayesianos está creciendo de manera exponencial en
 este siglo, principalmente, por el auge de las nuevas tecnologías y
 el alto desarrollo del software que permite aplicar este tipo de
-técnicas. <span class="math inline">\(\\[0.3cm]\)</span></p></li>
+técnicas. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
 <li><p>El uso de dogmas de la estadística clásica empiezan a ser bastante
 cuestionados, como por ejemplo, el famosísimo p-valor.</p>
 <p><br></p></li>
@@ -1653,61 +1667,78 @@ emplean las técnicas que mejor funcionan en sus problemas.</p>
 <p><br></p>
 </div>
 <div id="repaso-de-teoría-de-la-probabilidad" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> Repaso de Teoría de la Probabilidad</h1>
-<p>El objetivo de este apéndice es el de refamiliarizarnos con las
+<h1><span class="header-section-number">3</span> Repaso de teoría de la probabilidad</h1>
+<p>El objetivo de este apéndice es el de familiarizarnos con algunas de las
 propiedades de la probabilidad, en particular la probabilidad
 condicionada y el teorema de Bayes.</p>
 <p>En los años 30 del siglo pasado, Kolmogorov formaliza los axiomas de la
-probabilidad matemática, los cuales son: <span class="math display">\[P\left ( S \right )\geq 0\]</span>
-para cualquier suceso S. <span class="math display">\[P\left ( \Omega \right )= 1\]</span> Si
-<span class="math inline">\(S_{1},S_{2},...,S_{n}\)</span> son incompatibles entonces:
-<span class="math display">\[P\left ( S_{1}\cup S_{2}\cup ...,S_{n} \right )= \sum_{i=1}^{n}P\left ( S_{i} \right )\]</span>
-Este último axioma implica que bajo muestreo al azar, la probabilidad de
+probabilidad matemática, los cuales son:</p>
+<ul>
+<li>Para cualquier suceso <span class="math inline">\(\hspace{0.08cm}S\hspace{0.08cm}\)</span> :</li>
+</ul>
+<p><span class="math display">\[P\left ( S \right )\geq 0\]</span></p>
+<ul>
+<li>Si <span class="math inline">\(\hspace{0.08cm}\Omega\hspace{0.08cm}\)</span> es el espacio muestral:</li>
+</ul>
+<p><span class="math display">\[P\left ( \Omega \right )= 1\]</span></p>
+<ul>
+<li>Si <span class="math inline">\(\hspace{0.08cm}S_{1},S_{2},...,S_{n}\hspace{0.08cm}\)</span> son incompatibles entonces:</li>
+</ul>
+<p><span class="math display">\[P\left ( S_{1}\cup S_{2}\cup ...,S_{n} \right )= \sum_{i=1}^{n}P\left ( S_{i} \right )\]</span></p>
+<p>Este último axioma implica que bajo muestreo al azar, la probabilidad de
 un suceso es proporcional al número de sucesos elementales que contiene.</p>
-<div id="independencia" class="section level3" number="3.0.1">
-<h3><span class="header-section-number">3.0.1</span> 1.3.1. INDEPENDENCIA</h3>
-<p>Dos sucesos A y B son estadísticamente independientes si:
-<span class="math display">\[P\left ( A\cap B \right )=P\left ( A \right )P\left ( B \right )\]</span></p>
+<p><br></p>
+<div id="independencia" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Independencia</h2>
+<p>Dos sucesos <span class="math inline">\(\hspace{0.08cm} A\hspace{0.08cm}\)</span> y <span class="math inline">\(\hspace{0.08cm}B\hspace{0.08cm}\)</span> son estadísticamente independientes si:</p>
+<p><span class="math display">\[P\left ( A\cap B \right )\hspace{0.08cm}=\hspace{0.08cm}P\left ( A \right )P\left ( B \right )\]</span></p>
+<p><br></p>
 </div>
-<div id="probabilidad-condicionada" class="section level3" number="3.0.2">
-<h3><span class="header-section-number">3.0.2</span> 1.3.2. PROBABILIDAD CONDICIONADA</h3>
-<p>Si <span class="math inline">\(P\left ( B \right )&gt; 0\)</span>, la probabilidad de un suceso B dado A es:
-<span class="math display">\[P\left ( A|B \right )=\frac{P\left ( A\cap B \right )}{P\left ( B \right )}\]</span>.</p>
+<div id="probabilidad-condicionada" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Probabilidad condicionada</h2>
+<p>Si <span class="math inline">\(\hspace{0.08cm}P\left ( B \right )&gt; 0\hspace{0.08cm}\)</span>, la probabilidad de un suceso B dado A es:
+<span class="math display">\[P\left ( A|B \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{P\left ( A\cap B \right )}{P\left ( B \right )}\]</span>.</p>
+<p><br></p>
 </div>
-<div id="interpretando-la-independencia-estadística" class="section level3" number="3.0.3">
-<h3><span class="header-section-number">3.0.3</span> 1.3.3. Interpretando la independencia estadística</h3>
-<p>Utilizando la definición de la probabilidad condicionada, si A y B son
-independientes, entonces:
-<span class="math display">\[P\left ( A|B \right )=\frac{P\left ( A \right )P\left ( B \right )}{P\left ( B \right )}=P\left ( A \right )\]</span>
-Luego si se sabe que B ha ocurrido, la probabilidad de A es invariante.</p>
+<div id="interpretación-de-la-independencia-estadística" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Interpretación de la independencia estadística</h2>
+<p>Utilizando la definición de la probabilidad condicionada, si <span class="math inline">\(\hspace{0.08cm}A\hspace{0.08cm}\)</span> y <span class="math inline">\(\hspace{0.08cm}B\hspace{0.08cm}\)</span> son
+independientes, entonces:</p>
+<p><span class="math display">\[P\left ( A|B \right )=\frac{P\left ( A \right )P\left ( B \right )}{P\left ( B \right )}=P\left ( A \right )\]</span></p>
+<p>Luego si se sabe que <span class="math inline">\(\hspace{0.08cm}B\hspace{0.08cm}\)</span> ha ocurrido, la probabilidad de <span class="math inline">\(\hspace{0.08cm}A\hspace{0.08cm}\)</span> es invariante.</p>
+<p><br></p>
 </div>
-<div id="ley-de-la-multiplicación" class="section level3" number="3.0.4">
-<h3><span class="header-section-number">3.0.4</span> 1.3.4. LEY DE LA MULTIPLICACIÓN</h3>
-<p>Reordenando la fórmula para la probabilidad condicionada, se tiene:
-<span class="math display">\[P\left ( A\cap B \right )=P\left ( B|A \right )P\left ( A \right )=P\left ( A|B \right )P\left ( B \right )\]</span></p>
+<div id="ley-de-la-multiplicación" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Ley de la multiplicación</h2>
+<p>Reordenando la fórmula para la probabilidad condicionada, se tiene:</p>
+<p><span class="math display">\[P\left ( A\cap B \right )\hspace{0.08cm}=\hspace{0.08cm}P\left ( B|A \right )P\left ( A \right )\hspace{0.08cm}=\hspace{0.08cm}P\left ( A|B \right )P\left ( B \right )\]</span></p>
+<p><br></p>
 </div>
-<div id="ley-de-la-probabilidad-total" class="section level3" number="3.0.5">
-<h3><span class="header-section-number">3.0.5</span> 1.3.5. LEY DE LA PROBABILIDAD TOTAL</h3>
-<p>Para dos sucesos A y B,
-<span class="math display">\[P\left ( A \right )=P\left ( A|B \right )P\left ( B \right )+P\left ( A|\bar{B} \right )P\left ( \bar{B} \right )\]</span>.</p>
+<div id="ley-de-la-probabilidad-total" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Ley de la probabilidad total</h2>
+<p>Para dos sucesos <span class="math inline">\(\hspace{0.08cm}A\hspace{0.08cm}\)</span> y <span class="math inline">\(\hspace{0.08cm}B\hspace{0.08cm}\)</span>,</p>
+<p><span class="math display">\[P\left ( A \right )=P\left ( A|B \right )P\left ( B \right )+P\left ( A|\bar{B} \right )P\left ( \bar{B} \right )\]</span>.</p>
+<p><br></p>
 </div>
-<div id="extendiendo-la-ley-de-la-probabilidad-total" class="section level3" number="3.0.6">
-<h3><span class="header-section-number">3.0.6</span> 1.3.6. Extendiendo la ley de la probabilidad total</h3>
-<p>De manera más general, si <span class="math inline">\(B_{1},...,B_{k}\)</span> forman una partición,
-entonces:
-<span class="math display">\[P\left ( A \right )= \sum_{j=1}^{k}P\left ( A|B_{j} \right )P\left ( B_{j} \right )\]</span></p>
+<div id="extendiendo-la-ley-de-la-probabilidad-total" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Extendiendo la ley de la probabilidad total</h2>
+<p>De manera más general, si <span class="math inline">\(\hspace{0.08cm}B_{1},...,B_{k}\hspace{0.08cm}\)</span> forman una partición,
+entonces:</p>
+<p><span class="math display">\[P\left ( A \right ) \hspace{0.08cm}=\hspace{0.08cm} \sum_{j=1}^{k}P\left ( A|B_{j} \right )P\left ( B_{j} \right )\]</span></p>
 <p>Con estos resultados, llegamos al teorema sobre el que se fundamenta la
-estadística bayesiana.</p>
+estadística bayesiana, el teorema de Bayes.</p>
+<p><br></p>
 </div>
-<div id="teorema-de-bayes." class="section level3" number="3.0.7">
-<h3><span class="header-section-number">3.0.7</span> 1.3.7. TEOREMA DE BAYES.</h3>
-<p>Para dos sucesos A, B, tal que <span class="math inline">\(P\left ( A \right )&gt;0\)</span>, se tiene:
-<span class="math display">\[P\left ( B|A \right )=\frac{P\left ( B \right )P\left ( A|B \right )}{P\left ( A \right )}\]</span>.</p>
+<div id="teorema-de-bayes" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> Teorema de Bayes</h2>
+<p>Para dos sucesos <span class="math inline">\(\hspace{0.08cm}A\hspace{0.08cm}\)</span>, <span class="math inline">\(\hspace{0.08cm}B\hspace{0.08cm}\)</span>, tal que <span class="math inline">\(\hspace{0.08cm}P\left ( A \right )&gt;0\hspace{0.08cm}\)</span>, se tiene:</p>
+<p><span class="math display">\[P\left ( B|A \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{P\left ( B \right )P\left ( A|B \right )}{P\left ( A \right )}\]</span>.</p>
 <p>Dicho esto, ahora vamos a repasar los conceptos de variables
 estadísticas, distribuciones conjuntas, marginales y condicionales.</p>
+<p><br></p>
 </div>
-<div id="variables-aleatorias" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> 1.4. VARIABLES ALEATORIAS</h2>
+<div id="variables-aleatorias" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> Variables aleatorias</h2>
 <p>Siendo bastante simplistas, y haciendo una definición corta, pero más
 que suficiente, podemos decir que una variable aleatoria es una función
 que ascribe un valor (numérico) al resultado de un experimento. Las
@@ -1719,7 +1750,7 @@ entrar en profundidad y en conceptos matemáticos complejos, es aquella
 que sólo puede tomar valores enteros; aunque en algunas ocasiones
 también pueden ser decimales siempre y cuando estén dentro de un rango
 concreto. Por ejemplo, el número de hijos o hermanos de una familia, el
-número obtenido de lanzar un dado…</p></li>
+número obtenido de lanzar un dado… <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 <li><p>Continuas: Una variable aleatoria
 continua es aquella que puede tomar cualquier valor entre dos fijados y
 los valores de la variable (al menos teóricamente) no se repiten.
@@ -1727,106 +1758,134 @@ Ejemplos de variable aleatoria continua son: la estatura, el peso, el
 nivel de colesterol en sangre, el tiempo observado al recorrer una
 distancia…</p></li>
 </ul>
-<div id="variables-aleatorias-discretas" class="section level3" number="3.1.1">
-<h3><span class="header-section-number">3.1.1</span> 1.4.1. VARIABLES ALEATORIAS DISCRETAS</h3>
-<p>Para una variable discreta, <span class="math inline">\(\mathbf{X}\)</span>, tomando valores
-<span class="math inline">\(x_{1},x_{2},...\)</span> se definen:</p>
+<p><br></p>
+</div>
+<div id="variables-aleatorias-discretas" class="section level2" number="3.9">
+<h2><span class="header-section-number">3.9</span> Variables aleatorias discretas</h2>
+<p>Para una variable discreta, <span class="math inline">\(\hspace{0.08cm}\mathbf{X}\hspace{0.08cm}\)</span>, tomando valores
+<span class="math inline">\(\hspace{0.08cm}x_{1},x_{2},...\hspace{0.08cm}\)</span> se definen:</p>
 <ul>
 <li><p>La función de probabilidad o masa
-<span class="math inline">\(P\left ( \mathbf{X}=x \right )\)</span> tal que <span class="math inline">\(\sum_{i}P\left (\mathbf{X}=x{i} \right )=1\)</span></p></li>
+<span class="math inline">\(\hspace{0.08cm}P\left ( \mathbf{X}=x \right )\hspace{0.08cm}\)</span> tal que <span class="math inline">\(\hspace{0.08cm}\sum_{i}P\left (\mathbf{X}=x{i} \right )=1\hspace{0.08cm}\)</span>.</p></li>
 <li><p>La función de distribución
-<span class="math inline">\(\mathbf{F_{X}}\left ( x \right )\)</span> tal que:
-<span class="math display">\[\mathbf{F_{X}}\left ( x \right )=P\left ( \mathbf{X}\leq x \right )=\sum_{x_{i}&lt;x}P\left ( \mathbf{X}=x_{i} \right)\]</span></p></li>
-<li><p>Los momentos:
-<span class="math inline">\(E\left [ g(\mathbf{x}) \right ]=\sum_{i}g(x_{i})P\left ( \mathbf{X}=x_{i} \right )\)</span></p></li>
+<span class="math inline">\(\hspace{0.08cm}\mathbf{F_{X}}\left ( x \right )\hspace{0.08cm}\)</span> tal que:</p></li>
 </ul>
-<p>Ejemplo: la distribución de Poisson.</p>
-<p>Una variable discreta, <span class="math inline">\(\mathbf{X}\)</span>,
-sigue una distribución de Poisson con parámetro <span class="math inline">\(\lambda &gt; 0\)</span> si:
-<span class="math display">\[P\left ( \mathbf{X}=x \right )=\frac{\lambda^{x}e^{-\lambda}}{x!}\]</span>
-para x = 0,1,2,… Se tiene que <span class="math inline">\(E[\mathbf{X}]=V[\mathbf{X}]=\lambda\)</span></p>
-</div>
-<div id="variables-aleatorias-continuas" class="section level3" number="3.1.2">
-<h3><span class="header-section-number">3.1.2</span> 1.4.2. VARIABLES ALEATORIAS CONTINUAS</h3>
-<p>Para una variable aleatoria continua, <span class="math inline">\(\mathbf{Y}\)</span>, tomando valores x
-<span class="math inline">\(\in\)</span> <span class="math inline">\(\Re\)</span>, se tiene que:</p>
+<p><span class="math display">\[\mathbf{F_{X}}\left ( x \right )=P\left ( \mathbf{X}\leq x \right )=\sum_{x_{i}&lt;x}P\left ( \mathbf{X}=x_{i} \right)\]</span></p>
 <ul>
-<li><p>La función de distribución
-<span class="math inline">\(\mathbf{F_{Y}}\left ( y \right )\)</span> tal que:
-<span class="math display">\[\mathbf{F_{Y}}\left ( y \right )=P\left ( \mathbf{Y}\leq y \right )\]</span></p></li>
-<li><p>La función de densidad
-<span class="math inline">\(\mathbf{f_{Y}}\left ( y \right )=\frac{dF\left ( y \right )}{dy}\)</span> tal
-que:
-<span class="math display">\[\int_{-\infty}^{y} \mathbf{f_{Y}}\left ( y \right )dy=\mathbf{F_{Y}}\left ( y \right )\]</span></p></li>
-<li><p>Los momentos:
-<span class="math inline">\(E\left [ g(\mathbf{Y}) \right ]=\int_{-\infty}^{\infty}g(y)\mathbf{f_{Y}}\left ( y \right )\)</span></p></li>
+<li>Los momentos:
+<span class="math inline">\(\hspace{0.08cm}E\left [ g(\mathbf{x}) \right ]=\sum_{i}g(x_{i})P\left ( \mathbf{X}=x_{i} \right )\hspace{0.08cm}\\\)</span>.</li>
 </ul>
-<p>Ejemplo: la distribución Gamma.</p>
-<p>Una variable continua, <span class="math inline">\(\mathbf{Y}\)</span> sigue
-una distribución gamma con parámetros <span class="math inline">\(\alpha\)</span>,<span class="math inline">\(\beta\)</span>&gt;0 si:
-<span class="math display">\[\mathbf{f_{Y}}\left ( y \right )=\frac{\beta^{\alpha}}{\Gamma\left ( \alpha \right )}y^{\alpha-1}e^{-\beta y}\]</span>
-para y &gt; 0 donde <span class="math inline">\(\Gamma(\cdot)\)</span> es la función gamma:
-<span class="math display">\[\Gamma\left ( \alpha \right )=\int_{0}^{\infty}u^{\alpha-1}e^{-u}du\]</span>
-<span class="math inline">\(\Gamma\left ( \alpha+1 \right )=\alpha\Gamma\left ( \alpha \right )\)</span> y
-<span class="math inline">\(\Gamma\left ( \alpha \right )=\left ( \alpha-1! \right )\)</span> si <span class="math inline">\(\alpha\)</span>
-es un número entero. <span class="math display">\[E[\mathbf{Y}]=\frac{\alpha}{\beta}\]</span>
-<span class="math display">\[V[\mathbf{Y}]=\frac{\alpha}{\beta^{2}}\]</span></p>
+<p><strong>Ejemplo: la distribución de Poisson.</strong></p>
+<p>Una variable discreta, <span class="math inline">\(\hspace{0.08cm}\mathbf{X}\hspace{0.08cm}\)</span>,
+sigue una distribución de Poisson con parámetro <span class="math inline">\(\hspace{0.08cm}\lambda &gt; 0\hspace{0.08cm}\)</span> si:</p>
+<p><span class="math display">\[P\left ( \mathbf{X}=x \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{\lambda^{x}e^{-\lambda}}{x!}\]</span></p>
+<p>para <span class="math inline">\(\hspace{0.08cm}x = 0,1,2,...\)</span></p>
+<p>Se tiene que <span class="math inline">\(\hspace{0.08cm}E[\mathbf{X}]=V[\mathbf{X}]=\lambda\hspace{0.08cm}\)</span>.</p>
+<p><br></p>
 </div>
-<div id="distribuciones-conjuntas" class="section level3" number="3.1.3">
-<h3><span class="header-section-number">3.1.3</span> 1.4.3. DISTRIBUCIONES CONJUNTAS</h3>
+<div id="variables-aleatorias-continuas" class="section level2" number="3.10">
+<h2><span class="header-section-number">3.10</span> Variables aleatorias continuas</h2>
+<p>Para una variable aleatoria continua, <span class="math inline">\(\hspace{0.08cm}\mathbf{Y}\hspace{0.08cm}\)</span>, tomando valores <span class="math inline">\(\hspace{0.08cm}x \in \Re\hspace{0.08cm}\)</span>, se tiene que:</p>
+<ul>
+<li>La función de distribución
+<span class="math inline">\(\hspace{0.12cm}\mathbf{F_{Y}}\left ( y \right )\hspace{0.12cm}\)</span> tal que:</li>
+</ul>
+<p><span class="math display">\[\mathbf{F_{Y}}\left ( y \right )=P\left ( \mathbf{Y}\leq y \right )\\\]</span></p>
+<ul>
+<li>La función de densidad
+<span class="math inline">\(\hspace{0.2cm}\mathbf{f_{Y}}\left ( y \right )=\frac{dF\left ( y \right )}{dy}\hspace{0.2cm}\)</span> tal
+que:</li>
+</ul>
+<p><span class="math display">\[\int_{-\infty}^{y} \mathbf{f_{Y}}\left ( y \right )dy=\mathbf{F_{Y}}\left ( y \right )\\\]</span></p>
+<ul>
+<li>Los momentos:
+<span class="math inline">\(\hspace{0.2cm}E\left [ g(\mathbf{Y}) \right ]=\int_{-\infty}^{\infty}g(y)\mathbf{f_{Y}}\left ( y \right )\hspace{0.08cm}\\[0.5cm]\)</span></li>
+</ul>
+<p><strong>Ejemplo: la distribución Gamma.</strong></p>
+<p>Una variable continua, <span class="math inline">\(\hspace{0.08cm}\mathbf{Y}\hspace{0.08cm}\)</span> sigue
+una distribución gamma con parámetros <span class="math inline">\(\hspace{0.08cm}\alpha\hspace{0.08cm},\hspace{0.08cm}\beta &gt;0\hspace{0.08cm}\)</span> si:</p>
+<p><span class="math display">\[\mathbf{f_{Y}}\left ( y \right )=\frac{\beta^{\alpha}}{\Gamma\left ( \alpha \right )}y^{\alpha-1}e^{-\beta y}\]</span></p>
+<p>para <span class="math inline">\(\hspace{0.1cm}y &gt; 0\hspace{0.1cm}\)</span> donde <span class="math inline">\(\hspace{0.08cm}\Gamma(\cdot)\hspace{0.08cm}\)</span> es la función gamma.</p>
+<p>La esperanza y varianza de la distribución Gamma son:</p>
+<p><span class="math display">\[E[\mathbf{Y}]\hspace{0.1cm}=\hspace{0.1cm}\frac{\alpha}{\beta}\]</span></p>
+<p><span class="math display">\[V[\mathbf{Y}]\hspace{0.1cm}=\hspace{0.1cm}\frac{\alpha}{\beta^{2}}\\\]</span></p>
+<p>La función gamma se define como sigue:</p>
+<p><span class="math display">\[\Gamma\left ( \alpha \right )\hspace{0.1cm}=\hspace{0.1cm}\int_{0}^{\infty}u^{\alpha-1}e^{-u} \hspace{0.05cm} du\]</span></p>
+<p>si <span class="math inline">\(\hspace{0.08cm}\alpha\hspace{0.08cm}\)</span> es un número entero:</p>
+<p><span class="math display">\[\Gamma\left ( \alpha+1 \right )\hspace{0.08cm}=\hspace{0.08cm}\alpha\Gamma\left ( \alpha \right )\]</span></p>
+<p><span class="math display">\[\Gamma\left ( \alpha \right )\hspace{0.08cm}=\hspace{0.08cm}\left ( \alpha-1! \right )\]</span></p>
+<p><br></p>
+</div>
+<div id="distribuciones-conjuntas" class="section level2" number="3.11">
+<h2><span class="header-section-number">3.11</span> Distribuciones conjuntas</h2>
 <p>Para dos o más variables discretas, la distribución conjunta es la
-función <span class="math inline">\(P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )\)</span> tal que:
-<span class="math display">\[\sum_{x}\sum_{y}P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )=1 \]</span>
-<span class="math display">\[\sum_{x}P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )=P\left ( \mathbf{Y}=y \right )\]</span>
-la distribución marginal de Y,
-<span class="math display">\[\sum_{y}P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )=P\left ( \mathbf{X}=x \right )\]</span>
-la distribución marginal de X.</p>
+función <span class="math inline">\(P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )\)</span> tal que: <span class="math inline">\(\\[0.8cm]\)</span></p>
+<p><span class="math display">\[\sum_{x}\sum_{y}P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )\hspace{0.08cm}=\hspace{0.08cm}1 \]</span></p>
+<p><span class="math display">\[\sum_{x}P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )\hspace{0.08cm}=\hspace{0.08cm}P\left ( \mathbf{Y}=y \right )\]</span></p>
+<p><span class="math display">\[\sum_{y}P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )\hspace{0.08cm}=\hspace{0.08cm}P\left ( \mathbf{X}=x \right )\]</span></p>
 <p>Para el caso de variables continuas, sustituimos sus respectivos
 sumatorios por integrales.</p>
+<p><br></p>
 </div>
-<div id="distribuciones-condicionales" class="section level3" number="3.1.4">
-<h3><span class="header-section-number">3.1.4</span> 1.4.4. DISTRIBUCIONES CONDICIONALES</h3>
-<p>La distribución condicional de una variable (discreta) <span class="math inline">\(\mathbf{X}\)</span> dada
-otra variable (discreta) <span class="math inline">\(\mathbf{Y}\)</span> es:
-<span class="math display">\[P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )=\frac{P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )}{P\left ( \mathbf{Y}=y \right )}\]</span>
-suponiendo que <span class="math inline">\(P\left ( \mathbf{Y}=y \right ) &gt; 0\)</span>. La esperanza
-condicional de una función <span class="math inline">\(g\left (x,y \right )\)</span> es:
-<span class="math display">\[E[g\left (x,y  \right )|Y=y]=\sum_{x}g\left (x,y  \right )P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\]</span></p>
+<div id="distribuciones-condicionales" class="section level2" number="3.12">
+<h2><span class="header-section-number">3.12</span> Distribuciones condicionales</h2>
+<p>La distribución condicional de una variable (discreta) <span class="math inline">\(\hspace{0.08cm}\mathbf{X}\hspace{0.08cm}\)</span> dada
+otra variable (discreta) <span class="math inline">\(\hspace{0.08cm}\mathbf{Y}\hspace{0.08cm}\)</span> es: <span class="math inline">\(\\[0.8cm]\)</span></p>
+<p><span class="math display">\[P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )=\frac{P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )}{P\left ( \mathbf{Y}=y \right )}\]</span></p>
+<p>suponiendo que <span class="math inline">\(\hspace{0.08cm}P\left ( \mathbf{Y}=y \right ) &gt; 0\hspace{0.08cm}\)</span>.</p>
+<p>La esperanza
+condicional de una función <span class="math inline">\(\hspace{0.08cm}g\left (x,y \right )\hspace{0.08cm}\)</span> es: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[E[\hspace{0.08cm}g\left (x,y  \right )\hspace{0.08cm}|\hspace{0.08cm}Y=y\hspace{0.08cm}]\hspace{0.08cm}=\hspace{0.08cm}\sum_{x}g\left (x,y  \right )P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\]</span></p>
+<p><br></p>
 </div>
-<div id="media-y-varianza-marginal" class="section level3" number="3.1.5">
-<h3><span class="header-section-number">3.1.5</span> 1.4.5. MEDIA Y VARIANZA MARGINAL</h3>
-<p>Supongamos que queremos calcular <span class="math inline">\(E[\mathbf{X}]\)</span> y <span class="math inline">\(V[\mathbf{X}]\)</span>.
-Suena complicado porqué en principio, tendríamos que evaluar la
-distribución marginal de X primero o computar a través de la
-distribución conjunta. Por ejemplo:
-<span class="math display">\[E[\mathbf{X}]=\sum_{x} \int_{-\infty}^{\infty}x\mathbf{f_{x,y}}\left ( x,y \right )dy \]</span>
-¿Existe una manera más fácil de hacer el cálculo? Pues afortunadamente
+<div id="esperanza-y-varianza-marginal" class="section level2" number="3.13">
+<h2><span class="header-section-number">3.13</span> Esperanza y varianza marginal</h2>
+<p>Supongamos que queremos calcular <span class="math inline">\(\hspace{0.08cm}E[\mathbf{X}]\hspace{0.08cm}\)</span> y <span class="math inline">\(\hspace{0.08cm}V[\mathbf{X}]\hspace{0.08cm}\)</span>.</p>
+<p>Suena complicado porqué en principio, tendríamos que evaluar la
+distribución marginal de <span class="math inline">\(\hspace{0.08cm}\mathbf{X}\hspace{0.08cm}\)</span> primero o computar a través de la
+distribución conjunta.</p>
+<p>Por ejemplo:</p>
+<p><span class="math display">\[E[\mathbf{X}]=\sum_{x} \int_{-\infty}^{\infty}x\mathbf{f_{x,y}}\left ( x,y \right )dy \]</span></p>
+<p>¿Existe una manera más fácil de hacer el cálculo? Pues afortunadamente
 sí, se puede calcular con la ley de las esperanzas iteradas.</p>
+<p><br></p>
 </div>
-<div id="ley-de-las-esperanzas-iteradas" class="section level3" number="3.1.6">
-<h3><span class="header-section-number">3.1.6</span> 1.4.6. LEY DE LAS ESPERANZAS ITERADAS</h3>
-<p>Para dos variables <span class="math inline">\(\mathbf{X}\)</span> e <span class="math inline">\(\mathbf{Y}\)</span>, la ley de las esperanzas
-iteradas dice que: <span class="math display">\[E[\mathbf{X}]=E[E[\mathbf{X|Y}]]\]</span> Existe otra
-descomposición semejante para la varianza:
-<span class="math display">\[V[X]=E[V[\mathbf{X|Y}]]+V[E[\mathbf{X|Y}]]\]</span>.</p>
+<div id="ley-de-las-esperanzas-iteradas" class="section level2" number="3.14">
+<h2><span class="header-section-number">3.14</span> Ley de las esperanzas iteradas</h2>
+<p>Para dos variables <span class="math inline">\(\hspace{0.08cm}\mathbf{X}\hspace{0.08cm}\)</span> e <span class="math inline">\(\hspace{0.08cm}\mathbf{Y}\hspace{0.08cm}\)</span>, la ley de las esperanzas
+iteradas dice que:</p>
+<p><span class="math display">\[E[\mathbf{X}]\hspace{0.08cm}=\hspace{0.08cm}E[E[\mathbf{X|Y}]]\]</span></p>
+<p>Existe otra
+descomposición semejante para la varianza:</p>
+<p><span class="math display">\[V[X]\hspace{0.08cm}=\hspace{0.08cm}E[V[\mathbf{X|Y}]]\hspace{0.08cm}+\hspace{0.08cm}V[E[\mathbf{X|Y}]]\]</span>.</p>
+<p><br></p>
 </div>
-<div id="ley-de-la-probabilidad-total-para-variables" class="section level3" number="3.1.7">
-<h3><span class="header-section-number">3.1.7</span> 1.4.7. LEY DE LA PROBABILIDAD TOTAL PARA VARIABLES</h3>
+<div id="ley-de-la-probabilidad-total-para-variables-aleatorias" class="section level2" number="3.15">
+<h2><span class="header-section-number">3.15</span> Ley de la probabilidad total para variables aleatorias</h2>
 <p>Tenemos que:</p>
-<p><span class="math display">\[P\left ( \mathbf{X}=x \right )=\sum_{y}P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )P\left ( \mathbf{Y}=y \right )\]</span>
-si <span class="math inline">\(\mathbf{Y}\)</span> es discreta,
-<span class="math display">\[P\left ( \mathbf{X}=x \right )=\int_{-\infty}^{\infty}P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\mathbf{f_{Y}}\left ( y \right )dx\]</span>
-si <span class="math inline">\(\mathbf{Y}\)</span> es continua.</p>
+<ul>
+<li>Si <span class="math inline">\(\hspace{0.08cm}\mathbf{Y}\hspace{0.08cm}\)</span> es discreta,</li>
+</ul>
+<p><span class="math display">\[P\left ( \mathbf{X}=x \right )\hspace{0.08cm}=\hspace{0.08cm}\sum_{y}P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\cdot P\left ( \mathbf{Y}=y \right ) \\\]</span></p>
+<ul>
+<li>Si <span class="math inline">\(\hspace{0.08cm}\mathbf{Y}\hspace{0.08cm}\)</span> es continua,</li>
+</ul>
+<p><span class="math display">\[P\left ( \mathbf{X}=x \right )=\int_{-\infty}^{\infty}P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\cdot\mathbf{f_{Y}}\left ( y \right )dx\\\]</span></p>
 <p>Este segundo caso suele ser más interesante en la mayoría de las
 ocasiones.</p>
+<p><br></p>
 </div>
-<div id="teorema-de-bayes-para-variables" class="section level3" number="3.1.8">
-<h3><span class="header-section-number">3.1.8</span> 1.4.8. TEOREMA DE BAYES PARA VARIABLES</h3>
+<div id="teorema-de-bayes-para-variables-aleatorias" class="section level2" number="3.16">
+<h2><span class="header-section-number">3.16</span> Teorema de Bayes para variables aleatorias</h2>
 <p>Tenemos que:</p>
-<p><span class="math display">\[P\left ( \mathbf{Y}=y|\mathbf{X}=x \right )=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )P\left ( \mathbf{Y}=y \right )}{P\left ( \mathbf{X}=x \right )}=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )P\left ( \mathbf{Y}=y \right )}{\sum_{i}P\left ( \mathbf{X}=x|\mathbf{Y}=y_{i} \right )P\left ( \mathbf{Y}=y_{i} \right )}\]</span>
-en el caso de variables discretas.
-<span class="math display">\[\mathbf{f}_{x|y}\left ( y|\mathbf{X}=x \right )=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\mathbf{f}_y\left ( \mathbf{Y}=y \right )}{P\left ( \mathbf{X}=x \right )}=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\mathbf{f}_y\left ( \mathbf{Y}=y \right )}{\int_{-\infty}^{\infty}P\left ( \mathbf{X}=x|\mathbf{Y}=y_{i} \right )\mathbf{f}_{y}\left ( y \right )}dy\]</span>
-en caso de variables continuas.</p>
+<ul>
+<li>Para el caso de v.a. discretas:</li>
+</ul>
+<p><span class="math display">\[P\left ( \mathbf{Y}=y|\mathbf{X}=x \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )P\left ( \mathbf{Y}=y \right )}{P\left ( \mathbf{X}=x \right )}=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )P\left ( \mathbf{Y}=y \right )}{\sum_{i}P\left ( \mathbf{X}=x|\mathbf{Y}=y_{i} \right )P\left ( \mathbf{Y}=y_{i} \right )}\]</span></p>
+<ul>
+<li>Para el caso de v.a. continuas:</li>
+</ul>
+<p><span class="math display">\[\mathbf{f}_{x|y}\left ( y|\mathbf{X}=x \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\mathbf{f}_y\left ( \mathbf{Y}=y \right )}{P\left ( \mathbf{X}=x \right )}=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\mathbf{f}_y\left ( \mathbf{Y}=y \right )}{\int_{-\infty}^{\infty}P\left ( \mathbf{X}=x|\mathbf{Y}=y_{i} \right )\mathbf{f}_{y}\left ( y \right )}dy\]</span></p>
 <p>Con esto, hemos terminado el repaso de conceptos probabilísticos
 necesarios para entender posteriormente los fundamentos bayesianos.</p>
 <p>Tras esto, es lógico pensar, ¡por Dios!, que me hablen ya de inferencia
@@ -1842,22 +1901,23 @@ entiendes nada, no digas que no te lo advertimos.</p>
 <p><br></p>
 </div>
 </div>
-</div>
 <div id="inferencia-frecuentista" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> Inferencia Frecuentista</h1>
 <p>La inferencia clásica se basa en el uso de la interpretación
 frecuentista de la probabilidad: en un experimento repetible, la
 probabilidad de un suceso es el límite de la proporción de ocurrencias
-del suceso en n repeticiones del experimento cuando <span class="math inline">\(n \to \infty\)</span></p>
+del suceso en <span class="math inline">\(\hspace{0.08cm}n\hspace{0.08cm}\)</span> repeticiones del experimento cuando <span class="math inline">\(\hspace{0.08cm}n \to \infty\hspace{0.08cm}\)</span>.</p>
+<p><br></p>
 <div id="consecuencias" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Consecuencias</h2>
 <ul>
-<li>La probabilidad es un concepto objetivo: la probabilidad de que
-salga un 1 en un dado será la misma para todos.</li>
-<li>La probabilidad es un concepto limitado a situaciones de
-experimentos repetibles y eso no siempre es posible.</li>
-<li>Parámetros, <span class="math inline">\(\theta\)</span>, son desconocidos, pero fijos.</li>
+<li><p>La probabilidad es un concepto objetivo: la probabilidad de que
+salga un 1 en un dado será la misma para todos. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>La probabilidad es un concepto limitado a situaciones de
+experimentos repetibles y eso no siempre es posible. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Parámetros, <span class="math inline">\(\hspace{0.08cm}\theta\hspace{0.08cm}\)</span>, son desconocidos, pero fijos.</p></li>
 </ul>
+<p><br></p>
 </div>
 <div id="estimación-puntual" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> Estimación puntual</h2>
@@ -1865,14 +1925,14 @@ experimentos repetibles y eso no siempre es posible.</li>
 (frecuentistas), ¡qué lejos quedaron estas propiedades! Vamos a
 refrescarlas:</p>
 <ul>
-<li><p>Insesgadez: Quiere decir que la esperanza del estimador
-coincide con el parámetro de interés.</p></li>
-<li><p>Alta precisión: Recordad que la
+<li><p><strong>Insesgadez</strong>: quiere decir que la esperanza del estimador
+coincide con el parámetro de interés. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p><strong>Alta precisión:</strong> recordad que la
 precisión es el inverso de la varianza por lo que es lo mismo que pedir
-que tenga una varianza pequeña.</p></li>
-<li><p>Pequeño ECM: El error cuadrático medio
+que tenga una varianza pequeña. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p><strong>Pequeño ECM:</strong> el error cuadrático medio
 se definía como la varianza más el sesgo elevado al cuadrado. Y como es
-un error nos interesa que sea lo más pequeño posible.</p></li>
+un error nos interesa que sea lo más pequeño posible. <span class="math inline">\(\\[0.3cm]\)</span></p></li>
 </ul>
 <p>Existen varios métodos de seleccionar un estimador, entre ellos, el
 método de los momentos, mínimos cuadrados o el estimador máximo
@@ -1880,20 +1940,20 @@ verosímil.</p>
 <p>Por ejemplo, este último, se sabe que tiene unas muy buenas propiedades
 asintóticas, pero su ventaja no está tan clara en muestras de tamaño
 reducido.</p>
+<p><br></p>
 </div>
 <div id="estimación-por-intervalos" class="section level2" number="4.3">
 <h2><span class="header-section-number">4.3</span> Estimación por intervalos</h2>
-<p>Formalmente, un intervalo de <span class="math inline">\(100(1-\alpha)\%\)</span> de confianza para un
-parámetro <span class="math inline">\(\theta\)</span> dada una muestra es un intervalo aleatorio tal que:
-<span class="math display">\[P\left ( LI &lt; \alpha &lt; LS \right )=1-\alpha\]</span> para cualquier valor del
+<p>Formalmente, un intervalo de <span class="math inline">\(\hspace{0.08cm}100(1-\alpha)\%\hspace{0.08cm}\)</span> de confianza para un
+parámetro <span class="math inline">\(\hspace{0.08cm}\theta\hspace{0.08cm}\)</span> dada una muestra es un intervalo aleatorio tal que:</p>
+<p><span class="math display">\[P\left ( LI &lt; \alpha &lt; LS \right )=1-\alpha\]</span></p>
+<p>para cualquier valor del
 parámetro (y cualquier otro parámetro del modelo).</p>
-<p>¿Cómo interpretamos este intervalo? ¿La probabilidad de que contenga a
-<span class="math inline">\(\theta\)</span> es <span class="math inline">\(100(1-\alpha)\)</span>?</p>
-<p>La respuesta es que la interpretación de un
-intervalo de confianza frecuentista es; que repitiendo 100 veces un
-experimento aleatorio se espera que <span class="math inline">\(100(1-\alpha)\)</span> de esos intervalos
-obtenidos en cada uno de esos intentos contengan al verdadero valor del
-parámetro.</p>
+<ul>
+<li><p>¿Cómo interpretamos este intervalo? ¿La probabilidad de que contenga a
+<span class="math inline">\(\hspace{0.08cm}\theta\hspace{0.08cm}\)</span> es <span class="math inline">\(\hspace{0.08cm}100(1-\alpha)\hspace{0.08cm}\)</span>?</p>
+<p>La respuesta es que la interpretación de un intervalo de confianza frecuentista es; que repitiendo 100 veces un experimento aleatorio se espera que <span class="math inline">\(\hspace{0.08cm}100(1-\alpha)\hspace{0.08cm}\)</span> de esos intervalos obtenidos en cada uno de esos intentos contengan al verdadero valor del parámetro.</p></li>
+</ul>
 <p><br></p>
 </div>
 <div id="contrastes-de-hipótesis" class="section level2" number="4.4">
@@ -1901,50 +1961,54 @@ parámetro.</p>
 <p>Un contraste de hipótesis típicamente tiene una serie de pasos a
 completar:</p>
 <ol style="list-style-type: decimal">
-<li>Formalizar una hipótesis estadística experimental o alternativa
-(<span class="math inline">\(H_{1}\)</span>) de la cual no sabemos su veracidad.</li>
-<li>Formalizar la hipótesis opuesta o nula (<span class="math inline">\(H_{0}\)</span>).</li>
-<li>Derivar un estadístico que lo usaremos como la base del contraste.</li>
-<li>Hallar la distribución del estadístico de contraste bajo la
-hipótesis nula.</li>
-<li>Fijar un nivel de significación o error de tipo I:
-<span class="math display">\[\alpha=P\left ( rechazar\ H_{0}|H_{0}\ es\ verdadera \right )\]</span></li>
-<li>Calcular la región crítica o de rechazo, es decir el rango de
-valores del estadístico de contraste donde se rechazaría <span class="math inline">\(H_{0}\)</span> a
-favor de <span class="math inline">\(H_{1}\)</span>.</li>
+<li><p>Formalizar una hipótesis estadística experimental o alternativa
+<span class="math inline">\(\hspace{0.08cm}(H_{1})\hspace{0.08cm}\)</span> de la cual no sabemos su veracidad. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Formalizar la hipótesis opuesta o nula <span class="math inline">\(\hspace{0.08cm}(H_{0})\hspace{0.08cm}\)</span>. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Derivar un estadístico que lo usaremos como la base del contraste. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Hallar la distribución del estadístico de contraste bajo la
+hipótesis nula. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Fijar un nivel de significación o error de tipo I:
+<span class="math display">\[\alpha\hspace{0.08cm}=\hspace{0.08cm}P\left( \hspace{0.08cm} \text{Rechazar} \hspace{0.08cm} H_{0} \hspace{0.08cm}|\hspace{0.08cm} H_{0} \text{es verdadera} \hspace{0.08cm}\right)\]</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Calcular la región crítica o de rechazo, es decir el rango de
+valores del estadístico de contraste donde se rechazaría <span class="math inline">\(\hspace{0.08cm}H_{0}\hspace{0.08cm}\)</span> a
+favor de <span class="math inline">\(\hspace{0.08cm}H_{1}\hspace{0.08cm}\)</span>. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 </ol>
 <p>Entonces, tenemos que dada una muestra observada, se calcula el valor
 del estadístico y si cae dentro de la región crítica, se rechaza
-<span class="math inline">\(H_{0}\)</span>.</p>
+<span class="math inline">\(\hspace{0.08cm}H_{0}\hspace{0.08cm}\)</span>.</p>
 <p>Aunque usualmente explicamos los contrastes o test de hipótesis como el
 cálculo de una región crítica, lo cierto es que es mucho más común hacer
 uso del p-valor, que se define como, dada una muestra observada,
-tenemos que el p-valor es la probabilidad bajo <span class="math inline">\(H_{0}\)</span> de observar un
+tenemos que el p-valor es la probabilidad bajo <span class="math inline">\(\hspace{0.08cm}H_{0}\hspace{0.08cm}\)</span> de observar un
 valor del estadístico por lo menos tan extremo como el observado.</p>
-<p>Si el p-valor por tanto es más pequeño que <span class="math inline">\(\alpha\)</span>, se rechaza la
+<p>Si el p-valor por tanto es más pequeño que <span class="math inline">\(\hspace{0.08cm}\alpha\hspace{0.08cm}\)</span>, se rechaza la
 hipótesis nula. Por el contrario, si el p-valor es más grande que
-<span class="math inline">\(\alpha\)</span>, no se rechaza la hipótesis nula.</p>
+<span class="math inline">\(\hspace{0.08cm}\alpha\hspace{0.08cm}\)</span>, no se rechaza la hipótesis nula.</p>
 <p>A menudo, interpretamos el concepto de p-valor como una medida de la
-fuerza de la evidencia en contra de <span class="math inline">\(H_{0}\)</span></p>
-<p>Ejemplo: Tenemos una moneda con <span class="math inline">\(P\left ( cruz \right )=\theta\)</span> y
-queremos contrastar: <span class="math display">\[H_{0}=0.5\]</span> <span class="math display">\[H_{1}&gt;0.5\]</span> Entonces tiramos la
+fuerza de la evidencia en contra de <span class="math inline">\(\hspace{0.08cm}H_{0}\hspace{0.08cm}\)</span>.</p>
+<p><strong>Ejemplo:</strong> Tenemos una moneda con <span class="math inline">\(\hspace{0.08cm}P\left ( cruz \right )=\theta\hspace{0.08cm}\)</span> y
+queremos contrastar:</p>
+<p><span class="math display">\[H_{0}=0.5\]</span></p>
+<p><span class="math display">\[H_{1}&gt;0.5\]</span></p>
+<p>Entonces tiramos la
 moneda 12 veces y observamos 9 cruces y 3 caras. Luego, el p-valor es:
-<span class="math display">\[p=\sum_{x=9}^{12} \binom{12}{x}0.5^{x}\left ( 1-0.5 \right )^{12-x}=0.073\]</span>
-En este caso, no rechazaríamos la hipótesis nula a un 5% de
+<span class="math display">\[p\hspace{0.08cm}=\hspace{0.08cm}\sum_{x=9}^{12} \binom{12}{x}0.5^{x}\left ( 1-0.5 \right )^{12-x}\hspace{0.08cm}=\hspace{0.08cm}0.073\]</span></p>
+<p>En este caso, no rechazaríamos la hipótesis nula a un 5% de
 significación.</p>
 <p>Ahora bien, supongamos que en lugar de decidir de antemano tirar la
 moneda 12 veces, vamos a tirar la moneda hasta observar la tercera cara.
 Ya el diseño del experimento no es binomial sino binomial negativa. Si
 la tercera cara ocurre en la duodécima tirada, es decir, hemos visto 9
-cruces y 3 caras ;y el EMV de <span class="math inline">\(\theta\)</span> sigue siendo
-<span class="math inline">\(\hat{\theta}=\frac{9}{12}\)</span>. No obstante, ahora el p-valor es:
-<span class="math display">\[p=\sum_{y=9}^{\infty}\binom{y+3-1}{y}\left ( 1-\theta \right )^{3}\theta^{9}=0.033\]</span>
-Y en este caso, sí rechazamos la hipótesis nula.</p>
+cruces y 3 caras ;y el EMV de <span class="math inline">\(\hspace{0.08cm}\theta\hspace{0.08cm}\)</span> sigue siendo
+<span class="math inline">\(\hspace{0.08cm}\hat{\theta}=\frac{9}{12}\hspace{0.08cm}\)</span>.</p>
+<p>No obstante, ahora el p-valor es:</p>
+<p><span class="math display">\[p\hspace{0.08cm}=\hspace{0.08cm}\sum_{y=9}^{\infty}\binom{y+3-1}{y}\left ( 1-\theta \right )^{3}\theta^{9}\hspace{0.08cm}=\hspace{0.08cm}0.033\]</span></p>
+<p>Y en este caso, sí rechazamos la hipótesis nula.</p>
 <p>¿No parece lógico verdad?</p>
 <p>Si a alguien le pica la curiosidad, no está
 claro porque sucede esto y en qué condiciones ocurre, tan sólo decir que
-este es uno de los grandes puntos en los que los estadísticos bayesianos
-están más en contra de lo frecuentista.</p>
+este es uno de los puntos en los que los estadísticos bayesianos
+están más en contra de la estadística frecuentista.</p>
 <p><br></p>
 </div>
 <div id="predicción" class="section level2" number="4.5">
@@ -1956,28 +2020,31 @@ puede ser aproximada por la equivalente evaluada en la distribución
 empírica de una muestra aleatoria.</p>
 <p>Siguiendo con el ejemplo anterior, si queremos predecir el número de
 cruces en 10 tiradas más de la moneda (Y), lo haríamos de la siguiente
-forma: <span class="math display">\[Y\sim Binomial \left ( 10, 0.75 \right )\]</span></p>
+forma:</p>
+<p><span class="math display">\[Y\sim Binomial \left ( 10, 0.75 \right )\]</span></p>
+<p><br></p>
 </div>
 <div id="comparación-de-modelos" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> 2.6. COMPARACIÓN DE MODELOS</h2>
+<h2><span class="header-section-number">4.6</span> Comparación de modelos</h2>
 <p>Para comparar varios modelos, podemos utilizar, por ejemplo un criterio
 basado en penalizar la verosimilitud de acuerdo al número de parámetros.
 Por ejemplo, el AIC (Akaike Information Criterion) para dado un modelo
-<span class="math inline">\(\mathbf{M}\)</span> es:
-<span class="math display">\[AIC=-2\log I\left( \hat{\theta_{\mathbf{M}}}|datos,\mathbf{M} \right ) +2k\]</span>
-dónde k es el número de parámetros presentes en el modelo. En el caso
+<span class="math inline">\(\mathbf{M}\)</span> es:</p>
+<p><span class="math display">\[AIC\hspace{0.08cm}=\hspace{0.08cm}-2\log I\left( \hat{\theta_{\mathbf{M}}}\hspace{0.08cm}|\hspace{0.08cm}datos,\mathbf{M} \right ) \hspace{0.08cm}+\hspace{0.08cm}2k\]</span></p>
+<p>dónde <span class="math inline">\(k\)</span> es el número de parámetros presentes en el modelo. En el caso
 del AIC el modelo seleccionado es el que minimice este criterio.</p>
-<p>Ejemplo: Para que quede más claro esto haremos un breve ejemplo ya que
+<p><strong>Ejemplo:</strong> Para que quede más claro esto haremos un breve ejemplo ya que
 pensamos que la comparación de modelos no siempre se estudia o al menos
 no en cursos de estadística básica-intermedia. Empecemos con el ejemplo,
 supongamos que queremos comparar el modelo con <span class="math inline">\(p=0.5\)</span>, que
 denominaremos (<span class="math inline">\(\mathbf{M_{0}}\)</span>) con el modelo completo
 (<span class="math inline">\(\mathbf{M_{1}}\)</span>): <span class="math inline">\(Y\sim Binomial\left ( 12,p \right )\)</span> para cualquier
-p. El AIC para el modelo <span class="math inline">\(\mathbf{M_{0}}\)</span> es:
-<span class="math display">\[AIC_{0}=-2\log \left\{\binom{12}{9}0.5^{12} \right\}+2\times 0=5.85\]</span>
-y el AIC para el modelo general es:
-<span class="math display">\[AIC_{1}=-2\log \left\{\binom{12}{9}0.75^{9}0.25^{3} \right\}+2\times 1=4.71\]</span>
-Luego el modelo preferido según el criterio de Akaike es el modelo
+<span class="math inline">\(\hspace{0.08cm}p\hspace{0.08cm}\)</span>.</p>
+<p>El AIC para el modelo <span class="math inline">\(\mathbf{M_{0}}\)</span> es:</p>
+<p><span class="math display">\[AIC_{0}\hspace{0.08cm}=\hspace{0.08cm}-2\log \left\{\binom{12}{9}0.5^{12} \right\}+2\times 0=5.85\]</span></p>
+<p>Y el AIC para el modelo general es:
+<span class="math display">\[AIC_{1}\hspace{0.08cm}=\hspace{0.08cm}-2\log \left\{\binom{12}{9}0.75^{9}0.25^{3} \right\}+2\times 1=4.71\]</span></p>
+<p>Luego el modelo preferido según el criterio de Akaike es el modelo
 completo.</p>
 <p><br></p>
 </div>
@@ -1985,7 +2052,8 @@ completo.</p>
 <h2><span class="header-section-number">4.7</span> Bondad de ajuste</h2>
 <p>Para ver si los datos se ajustan a un modelo <span class="math inline">\(\mathbf{M}\)</span>, se puede
 utilizar un contraste de hipótesis de la hipótesis nula:
-<span class="math display">\[H_{0}: los\ datos\ provienen\ del\ modelo\ \mathbf{M}.\]</span> Ejemplos típicos
+<span class="math display">\[H_{0}: \text{los datos provienen del modelo} \hspace{0.08cm} \mathbf{M}.\]</span></p>
+<p>Ejemplos típicos
 son el contraste de la chi-cuadrado o el de Kolmogorov-Smirnov.</p>
 <p>Con esto, hemos resumido los puntos más característicos de la inferencia
 clásica o frecuentista.</p>
@@ -2008,22 +2076,22 @@ situaciones, pero no en todas. Entre otras, destacamos las tres
 diferentes interpretaciones de Kyburg, Jr. señala que pueden
 considerarse respecto a la probabilidad:</p>
 <ol style="list-style-type: decimal">
-<li>Interpretación empírico frecuentista. Esta es la interpretación más
+<li><p>Interpretación empírico frecuentista. Esta es la interpretación más
 común de la probabilidad y hace referencia al comportamiento (real o
-hipotético) de ciertos objetos.</li>
-<li>Interpretación lógica. Esta interpretación es bastante poco común
+hipotético) de ciertos objetos. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Interpretación lógica. Esta interpretación es bastante poco común
 entre estadísticos y está más bien reservada al mundo de la lógica.
 De acuerdo con esta interpretación, hay una relación lógica entre
 una afirmación (considerada como una hipótesis) y otra afirmación
 (considerada como evidencia), en virtud de la cual la primera tiene
-cierta probabilidad relativa a la segunda.</li>
-<li>Interpretación subjetivista. Esta es una versión más débil de la
+cierta probabilidad relativa a la segunda. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Interpretación subjetivista. Esta es una versión más débil de la
 interpretación lógica. Es más del tipo psicológico que lógico. El
 grado de creencia es el concepto fundamental de la interpretación:
 las afirmaciones probabilísticas representan los grados de creencias
-de los individuos.</li>
+de los individuos.<span class="math inline">\(\\[0.5cm]\)</span></p></li>
 </ol>
-<p>En esta última de las interpretaciones es sobre la que se substenta la
+<p>En esta última de las interpretaciones es sobre la que se sustenta la
 inferencia bayesiana.</p>
 <p>Una característica distintiva de la estadística bayesiana es que tiene
 en cuenta de una forma explícita la información previa y se involucra en
@@ -2042,11 +2110,11 @@ son:</p>
 <li><p>Estudios previos similares. La utilización de estudios previos
 sobre unos pocos parámetros específicos ha dado origen a un área
 conocida como metaanálisis, la cual puede trabajarse desde el punto
-clásico y bayesiano.</p></li>
+clásico y bayesiano. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 <li><p>Opinión de expertos. La utilización de expertos
 es casi obligatoria en situaciones completamente nuevas donde
 experimentar puede ser muy costoso o imposible, por ejemplo en la
-implementación de políticas a nivel macroeconómico.</p></li>
+implementación de políticas a nivel macroeconómico. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 </ul>
 <p>Wallsten y Budescu presentan las condiciones para que un proceso de
 elicitación produzca una distribución apropiada. En teoría de la
@@ -2061,11 +2129,11 @@ observados de las probabilidades y las verdaderas probabilidades,
 <span class="math inline">\(\pi\)</span> y un error, <span class="math inline">\(e\)</span>: <span class="math display">\[p=\pi+e\]</span>. Los siguientes supuestos son
 estándares para este modelo:</p>
 <ol style="list-style-type: decimal">
-<li><span class="math inline">\(E(e)=0\)</span></li>
-<li><span class="math inline">\(\rho_{\pi e}=0\)</span></li>
-<li>Para cualquier par de mediciones independientes los errores son
-incorrelacionados: <span class="math inline">\(\rho_{e_{i}e_{j}}=0\)</span> para <span class="math inline">\(i\neq j\)</span></li>
-<li><span class="math inline">\(\rho_{\pi_{i}e_{j}}=0\)</span> para <span class="math inline">\(i\neq j\)</span></li>
+<li><p><span class="math inline">\(E(e)=0\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p><span class="math inline">\(\rho_{\pi e}=0\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Para cualquier par de mediciones independientes los errores son
+incorrelacionados: <span class="math inline">\(\rho_{e_{i}e_{j}}=0\)</span> para <span class="math inline">\(i\neq j\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p><span class="math inline">\(\rho_{\pi_{i}e_{j}}=0\)</span> para <span class="math inline">\(i\neq j\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 </ol>
 <p>Sea <span class="math inline">\(\sigma_{e}^{2}\)</span> la varianza del error. La raíz cuadrada de esta
 cantidad se conoce como el error estándar de la medición. Del modelo y
@@ -2133,24 +2201,24 @@ análisis bayesiano.</p>
 <p>Una clasificación de las diversas aproximaciones que podemos realizar
 cuando consideramos el enfoque bayesiano es la siguiente:</p>
 <ol style="list-style-type: decimal">
-<li>Análisis bayesiano objetivo: esta posición se caracteriza por la
-utilización de distribuciones a priori no informativas.</li>
-<li>Análisis bayesiano subjetivo: la utilización de distribuciones a
+<li><p>Análisis bayesiano objetivo: esta posición se caracteriza por la
+utilización de distribuciones a priori no informativas. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Análisis bayesiano subjetivo: la utilización de distribuciones a
 priori subjetivas es a menudo disponible como alternativa en algunos
-problemas.</li>
-<li>Análisis bayesiano robusto: esta posición asume que es imposible
+problemas. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Análisis bayesiano robusto: esta posición asume que es imposible
 especificar la distribución a priori o el modelo, en cuyo caso es
 mejor trabajar dentro de clases donde haya un nivel de incertidumbre
-sobre esta distribución o modelo.</li>
-<li>Análisis bayesiano-frecuentista: hay problemas en los que la
+sobre esta distribución o modelo. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Análisis bayesiano-frecuentista: hay problemas en los que la
 aproximación frecuentista produce resultados satisfactorios, como en
 los métodos no paramétricos, y al bayesiano le toca aceptarlos como
-soluciones pseudobayesianas.</li>
-<li>Análisis cuasibayesiano: esta aproximación utiliza distribuciones a
+soluciones pseudobayesianas. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Análisis cuasibayesiano: esta aproximación utiliza distribuciones a
 priori seleccionadas de una forma que acomoden a la solución
 “bonita” del problema, ajustando estas distribuciones a priori de
 diversas formas, por ejemplo seleccionando distribuciones a priori
-vagas, o ajustando los parámetros.</li>
+vagas, o ajustando los parámetros.</p></li>
 </ol>
 <p><br></p>
 </div>

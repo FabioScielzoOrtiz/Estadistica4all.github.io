@@ -55,12 +55,11 @@ css: custom.css
 
 $\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https://estadistica4all.com/)**
 
-$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Marcos Álvarez Martín.](http://estadistica4all.com/autores/autores.html) $\hspace{0.2cm}$
- [Fabio Scielzo Ortiz.](http://estadistica4all.com/autores/autores.html)
+$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Marcos Álvarez Martín.](http://estadistica4all.com/autores/autores.html) 
 
 $\hspace{0.3cm}$ **Si utilizas este artículo, por favor, cítalo:** 
 
-$\hspace{0.5cm}$ Álvarez Martín, M., Scielzo Ortiz, F. (2023). Introducción a la estadística bayesiana. http://estadistica4all.com/Articulos/ajuste_hiperparametros.html
+$\hspace{0.5cm}$ Álvarez Martín, M. (2023). Introducción a la estadística bayesiana. http://estadistica4all.com/Articulos/Introducción_estadística_Bayesiana.html
 
 
 </p>
@@ -92,17 +91,17 @@ esto de la estadística bayesiana, cuales son las circunstacias de idoneidad de 
 
 -   Las técnicas bayesianas nos permiten combinar información de una
     muestra con información de expertos o combinar información de
-    múltiples muestras a través del teorema de Bayes.$\\[0.3cm]$
+    múltiples muestras a través del teorema de Bayes.$\\[0.4cm]$
     
 -   En la época del "Big Data", es posible resolver problemas muy
     complejos con aproximaciones bayesianas rápidas, por ejemplo,
     Variational Bayes es uno de los más empleados en problemas de
-    aprendizaje profundo ("deep learning").$\\[0.3cm]$
+    aprendizaje profundo ("deep learning").$\\[0.4cm]$
     
 -   El uso de métodos bayesianos está creciendo de manera exponencial en
     este siglo, principalmente, por el auge de las nuevas tecnologías y
     el alto desarrollo del software que permite aplicar este tipo de
-    técnicas. $\\[0.3cm]$
+    técnicas. $\\[0.4cm]$
     
 -   El uso de dogmas de la estadística clásica empiezan a ser bastante
     cuestionados, como por ejemplo, el famosísimo p-valor.
@@ -164,66 +163,107 @@ emplean las técnicas que mejor funcionan en sus problemas.
 
 
 
-# Repaso de Teoría de la Probabilidad
+# Repaso de teoría de la probabilidad
 
 
-El objetivo de este apéndice es el de refamiliarizarnos con las
+El objetivo de este apéndice es el de familiarizarnos con algunas de las
 propiedades de la probabilidad, en particular la probabilidad
 condicionada y el teorema de Bayes.
 
 En los años 30 del siglo pasado, Kolmogorov formaliza los axiomas de la
-probabilidad matemática, los cuales son: $$P\left ( S \right )\geq 0$$
-para cualquier suceso S. $$P\left ( \Omega \right )= 1$$ Si
-$S_{1},S_{2},...,S_{n}$ son incompatibles entonces:
+probabilidad matemática, los cuales son:
+
+
+- Para cualquier suceso $\hspace{0.08cm}S\hspace{0.08cm}$ :
+
+$$P\left ( S \right )\geq 0$$
+
+- Si $\hspace{0.08cm}\Omega\hspace{0.08cm}$ es el espacio muestral:
+
+
+$$P\left ( \Omega \right )= 1$$ 
+
+- Si $\hspace{0.08cm}S_{1},S_{2},...,S_{n}\hspace{0.08cm}$ son incompatibles entonces:
+
 $$P\left ( S_{1}\cup S_{2}\cup ...,S_{n} \right )= \sum_{i=1}^{n}P\left ( S_{i} \right )$$
+
+
 Este último axioma implica que bajo muestreo al azar, la probabilidad de
 un suceso es proporcional al número de sucesos elementales que contiene.
 
-### 1.3.1. INDEPENDENCIA
+<br>
 
-Dos sucesos A y B son estadísticamente independientes si:
-$$P\left ( A\cap B \right )=P\left ( A \right )P\left ( B \right )$$
+## Independencia  
 
-### 1.3.2. PROBABILIDAD CONDICIONADA
+Dos sucesos $\hspace{0.08cm} A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$ son estadísticamente independientes si:
 
-Si $P\left ( B \right )> 0$, la probabilidad de un suceso B dado A es:
-$$P\left ( A|B \right )=\frac{P\left ( A\cap B \right )}{P\left ( B \right )}$$.
+$$P\left ( A\cap B \right )\hspace{0.08cm}=\hspace{0.08cm}P\left ( A \right )P\left ( B \right )$$
 
-### 1.3.3. Interpretando la independencia estadística
+<br>
 
-Utilizando la definición de la probabilidad condicionada, si A y B son
+## Probabilidad condicionada  
+
+Si $\hspace{0.08cm}P\left ( B \right )> 0\hspace{0.08cm}$, la probabilidad de un suceso B dado A es:
+$$P\left ( A|B \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{P\left ( A\cap B \right )}{P\left ( B \right )}$$.
+
+<br>
+
+## Interpretación de la independencia estadística
+
+Utilizando la definición de la probabilidad condicionada, si $\hspace{0.08cm}A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$ son
 independientes, entonces:
-$$P\left ( A|B \right )=\frac{P\left ( A \right )P\left ( B \right )}{P\left ( B \right )}=P\left ( A \right )$$
-Luego si se sabe que B ha ocurrido, la probabilidad de A es invariante.
 
-### 1.3.4. LEY DE LA MULTIPLICACIÓN
+
+$$P\left ( A|B \right )=\frac{P\left ( A \right )P\left ( B \right )}{P\left ( B \right )}=P\left ( A \right )$$
+
+Luego si se sabe que $\hspace{0.08cm}B\hspace{0.08cm}$ ha ocurrido, la probabilidad de $\hspace{0.08cm}A\hspace{0.08cm}$ es invariante.
+
+<br>
+
+## Ley de la multiplicación
 
 Reordenando la fórmula para la probabilidad condicionada, se tiene:
-$$P\left ( A\cap B \right )=P\left ( B|A \right )P\left ( A \right )=P\left ( A|B \right )P\left ( B \right )$$
 
-### 1.3.5. LEY DE LA PROBABILIDAD TOTAL
 
-Para dos sucesos A y B,
+$$P\left ( A\cap B \right )\hspace{0.08cm}=\hspace{0.08cm}P\left ( B|A \right )P\left ( A \right )\hspace{0.08cm}=\hspace{0.08cm}P\left ( A|B \right )P\left ( B \right )$$
+
+
+<br>
+
+## Ley de la probabilidad total
+
+Para dos sucesos $\hspace{0.08cm}A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$,
+
 $$P\left ( A \right )=P\left ( A|B \right )P\left ( B \right )+P\left ( A|\bar{B} \right )P\left ( \bar{B} \right )$$.
 
-### 1.3.6. Extendiendo la ley de la probabilidad total
 
-De manera más general, si $B_{1},...,B_{k}$ forman una partición,
+<br>
+
+## Extendiendo la ley de la probabilidad total
+
+De manera más general, si $\hspace{0.08cm}B_{1},...,B_{k}\hspace{0.08cm}$ forman una partición,
 entonces:
-$$P\left ( A \right )= \sum_{j=1}^{k}P\left ( A|B_{j} \right )P\left ( B_{j} \right )$$
+
+$$P\left ( A \right ) \hspace{0.08cm}=\hspace{0.08cm} \sum_{j=1}^{k}P\left ( A|B_{j} \right )P\left ( B_{j} \right )$$
 
 Con estos resultados, llegamos al teorema sobre el que se fundamenta la
-estadística bayesiana.
+estadística bayesiana, el teorema de Bayes.
 
-### 1.3.7. TEOREMA DE BAYES.
 
-Para dos sucesos A, B, tal que $P\left ( A \right )>0$, se tiene:
-$$P\left ( B|A \right )=\frac{P\left ( B \right )P\left ( A|B \right )}{P\left ( A \right )}$$.
+<br>
+
+## Teorema de Bayes
+
+Para dos sucesos $\hspace{0.08cm}A\hspace{0.08cm}$, $\hspace{0.08cm}B\hspace{0.08cm}$, tal que $\hspace{0.08cm}P\left ( A \right )>0\hspace{0.08cm}$, se tiene:
+
+$$P\left ( B|A \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{P\left ( B \right )P\left ( A|B \right )}{P\left ( A \right )}$$.
 
 Dicho esto, ahora vamos a repasar los conceptos de variables
 estadísticas, distribuciones conjuntas, marginales y condicionales.
 
-## 1.4. VARIABLES ALEATORIAS
+<br>
+
+## Variables aleatorias
 
 Siendo bastante simplistas, y haciendo una definición corta, pero más
 que suficiente, podemos decir que una variable aleatoria es una función
@@ -236,7 +276,7 @@ entrar en profundidad y en conceptos matemáticos complejos, es aquella
 que sólo puede tomar valores enteros; aunque en algunas ocasiones
 también pueden ser decimales siempre y cuando estén dentro de un rango
 concreto. Por ejemplo, el número de hijos o hermanos de una familia, el
-número obtenido de lanzar un dado... 
+número obtenido de lanzar un dado... $\\[0.5cm]$
 
 - Continuas: Una variable aleatoria
 continua es aquella que puede tomar cualquier valor entre dos fijados y
@@ -245,114 +285,195 @@ Ejemplos de variable aleatoria continua son: la estatura, el peso, el
 nivel de colesterol en sangre, el tiempo observado al recorrer una
 distancia...
 
-### 1.4.1. VARIABLES ALEATORIAS DISCRETAS
+<br>
 
-Para una variable discreta, $\mathbf{X}$, tomando valores
-$x_{1},x_{2},...$ se definen: 
+## Variables aleatorias discretas
+
+Para una variable discreta, $\hspace{0.08cm}\mathbf{X}\hspace{0.08cm}$, tomando valores
+$\hspace{0.08cm}x_{1},x_{2},...\hspace{0.08cm}$ se definen: 
 
 - La función de probabilidad o masa
-$P\left ( \mathbf{X}=x \right )$ tal que $\sum_{i}P\left (\mathbf{X}=x{i} \right )=1$ 
+$\hspace{0.08cm}P\left ( \mathbf{X}=x \right )\hspace{0.08cm}$ tal que $\hspace{0.08cm}\sum_{i}P\left (\mathbf{X}=x{i} \right )=1\hspace{0.08cm}$. 
 
 - La función de distribución
-$\mathbf{F_{X}}\left ( x \right )$ tal que:
+$\hspace{0.08cm}\mathbf{F_{X}}\left ( x \right )\hspace{0.08cm}$ tal que:
+
 $$\mathbf{F_{X}}\left ( x \right )=P\left ( \mathbf{X}\leq x \right )=\sum_{x_{i}<x}P\left ( \mathbf{X}=x_{i} \right)$$ 
 
 - Los momentos:
-$E\left [ g(\mathbf{x}) \right ]=\sum_{i}g(x_{i})P\left ( \mathbf{X}=x_{i} \right )$
+$\hspace{0.08cm}E\left [ g(\mathbf{x}) \right ]=\sum_{i}g(x_{i})P\left ( \mathbf{X}=x_{i} \right )\hspace{0.08cm}\\$.
 
-Ejemplo: la distribución de Poisson.
+**Ejemplo: la distribución de Poisson.**
 
-Una variable discreta, $\mathbf{X}$,
-sigue una distribución de Poisson con parámetro $\lambda > 0$ si:
-$$P\left ( \mathbf{X}=x \right )=\frac{\lambda^{x}e^{-\lambda}}{x!}$$
-para x = 0,1,2,... Se tiene que $E[\mathbf{X}]=V[\mathbf{X}]=\lambda$
+Una variable discreta, $\hspace{0.08cm}\mathbf{X}\hspace{0.08cm}$,
+sigue una distribución de Poisson con parámetro $\hspace{0.08cm}\lambda > 0\hspace{0.08cm}$ si:
 
-### 1.4.2. VARIABLES ALEATORIAS CONTINUAS
+$$P\left ( \mathbf{X}=x \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{\lambda^{x}e^{-\lambda}}{x!}$$
 
-Para una variable aleatoria continua, $\mathbf{Y}$, tomando valores x
-$\in$ $\Re$, se tiene que: 
+para $\hspace{0.08cm}x = 0,1,2,...$ 
+
+Se tiene que $\hspace{0.08cm}E[\mathbf{X}]=V[\mathbf{X}]=\lambda\hspace{0.08cm}$.
+
+
+<br>
+
+## Variables aleatorias continuas
+
+Para una variable aleatoria continua, $\hspace{0.08cm}\mathbf{Y}\hspace{0.08cm}$, tomando valores $\hspace{0.08cm}x \in \Re\hspace{0.08cm}$, se tiene que: 
 
 - La función de distribución
-$\mathbf{F_{Y}}\left ( y \right )$ tal que:
-$$\mathbf{F_{Y}}\left ( y \right )=P\left ( \mathbf{Y}\leq y \right )$$ 
+$\hspace{0.12cm}\mathbf{F_{Y}}\left ( y \right )\hspace{0.12cm}$ tal que:
+
+$$\mathbf{F_{Y}}\left ( y \right )=P\left ( \mathbf{Y}\leq y \right )\\$$ 
 
 - La función de densidad
-$\mathbf{f_{Y}}\left ( y \right )=\frac{dF\left ( y \right )}{dy}$ tal
+$\hspace{0.2cm}\mathbf{f_{Y}}\left ( y \right )=\frac{dF\left ( y \right )}{dy}\hspace{0.2cm}$ tal
 que:
-$$\int_{-\infty}^{y} \mathbf{f_{Y}}\left ( y \right )dy=\mathbf{F_{Y}}\left ( y \right )$$ 
+
+$$\int_{-\infty}^{y} \mathbf{f_{Y}}\left ( y \right )dy=\mathbf{F_{Y}}\left ( y \right )\\$$ 
 
 - Los momentos:
-$E\left [ g(\mathbf{Y}) \right ]=\int_{-\infty}^{\infty}g(y)\mathbf{f_{Y}}\left ( y \right )$
+$\hspace{0.2cm}E\left [ g(\mathbf{Y}) \right ]=\int_{-\infty}^{\infty}g(y)\mathbf{f_{Y}}\left ( y \right )\hspace{0.08cm}\\[0.5cm]$
 
-Ejemplo: la distribución Gamma.
 
-Una variable continua, $\mathbf{Y}$ sigue
-una distribución gamma con parámetros $\alpha$,$\beta$\>0 si:
+
+**Ejemplo: la distribución Gamma.**
+
+Una variable continua, $\hspace{0.08cm}\mathbf{Y}\hspace{0.08cm}$ sigue
+una distribución gamma con parámetros $\hspace{0.08cm}\alpha\hspace{0.08cm},\hspace{0.08cm}\beta >0\hspace{0.08cm}$ si:
+
 $$\mathbf{f_{Y}}\left ( y \right )=\frac{\beta^{\alpha}}{\Gamma\left ( \alpha \right )}y^{\alpha-1}e^{-\beta y}$$
-para y \> 0 donde $\Gamma(\cdot)$ es la función gamma:
-$$\Gamma\left ( \alpha \right )=\int_{0}^{\infty}u^{\alpha-1}e^{-u}du$$
-$\Gamma\left ( \alpha+1 \right )=\alpha\Gamma\left ( \alpha \right )$ y
-$\Gamma\left ( \alpha \right )=\left ( \alpha-1! \right )$ si $\alpha$
-es un número entero. $$E[\mathbf{Y}]=\frac{\alpha}{\beta}$$
-$$V[\mathbf{Y}]=\frac{\alpha}{\beta^{2}}$$
 
-### 1.4.3. DISTRIBUCIONES CONJUNTAS
+para $\hspace{0.1cm}y > 0\hspace{0.1cm}$ donde $\hspace{0.08cm}\Gamma(\cdot)\hspace{0.08cm}$ es la función gamma.
+
+La esperanza y varianza de la distribución Gamma son:
+
+$$E[\mathbf{Y}]\hspace{0.1cm}=\hspace{0.1cm}\frac{\alpha}{\beta}$$
+
+$$V[\mathbf{Y}]\hspace{0.1cm}=\hspace{0.1cm}\frac{\alpha}{\beta^{2}}\\$$
+
+
+
+La función gamma se define como sigue:
+
+$$\Gamma\left ( \alpha \right )\hspace{0.1cm}=\hspace{0.1cm}\int_{0}^{\infty}u^{\alpha-1}e^{-u} \hspace{0.05cm} du$$
+
+si $\hspace{0.08cm}\alpha\hspace{0.08cm}$ es un número entero:
+
+ $$\Gamma\left ( \alpha+1 \right )\hspace{0.08cm}=\hspace{0.08cm}\alpha\Gamma\left ( \alpha \right )$$
+ 
+ 
+$$\Gamma\left ( \alpha \right )\hspace{0.08cm}=\hspace{0.08cm}\left ( \alpha-1! \right )$$  
+
+
+
+<br>
+
+
+## Distribuciones conjuntas
 
 Para dos o más variables discretas, la distribución conjunta es la
-función $P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )$ tal que:
-$$\sum_{x}\sum_{y}P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )=1 $$
-$$\sum_{x}P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )=P\left ( \mathbf{Y}=y \right )$$
-la distribución marginal de Y,
-$$\sum_{y}P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )=P\left ( \mathbf{X}=x \right )$$
-la distribución marginal de X.
+función $P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )$ tal que: $\\[0.8cm]$
+
+$$\sum_{x}\sum_{y}P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )\hspace{0.08cm}=\hspace{0.08cm}1 $$
+
+$$\sum_{x}P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )\hspace{0.08cm}=\hspace{0.08cm}P\left ( \mathbf{Y}=y \right )$$
+ 
+
+$$\sum_{y}P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )\hspace{0.08cm}=\hspace{0.08cm}P\left ( \mathbf{X}=x \right )$$
+ 
 
 Para el caso de variables continuas, sustituimos sus respectivos
 sumatorios por integrales.
 
-### 1.4.4. DISTRIBUCIONES CONDICIONALES
 
-La distribución condicional de una variable (discreta) $\mathbf{X}$ dada
-otra variable (discreta) $\mathbf{Y}$ es:
+<br>
+
+## Distribuciones condicionales
+
+La distribución condicional de una variable (discreta) $\hspace{0.08cm}\mathbf{X}\hspace{0.08cm}$ dada
+otra variable (discreta) $\hspace{0.08cm}\mathbf{Y}\hspace{0.08cm}$ es: $\\[0.8cm]$
+
+
 $$P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )=\frac{P\left ( \mathbf{X}=x,\mathbf{Y}=y \right )}{P\left ( \mathbf{Y}=y \right )}$$
-suponiendo que $P\left ( \mathbf{Y}=y \right ) > 0$. La esperanza
-condicional de una función $g\left (x,y \right )$ es:
-$$E[g\left (x,y  \right )|Y=y]=\sum_{x}g\left (x,y  \right )P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )$$
 
-### 1.4.5. MEDIA Y VARIANZA MARGINAL
 
-Supongamos que queremos calcular $E[\mathbf{X}]$ y $V[\mathbf{X}]$.
+suponiendo que $\hspace{0.08cm}P\left ( \mathbf{Y}=y \right ) > 0\hspace{0.08cm}$. 
+
+La esperanza
+condicional de una función $\hspace{0.08cm}g\left (x,y \right )\hspace{0.08cm}$ es: $\\[0.5cm]$
+
+$$E[\hspace{0.08cm}g\left (x,y  \right )\hspace{0.08cm}|\hspace{0.08cm}Y=y\hspace{0.08cm}]\hspace{0.08cm}=\hspace{0.08cm}\sum_{x}g\left (x,y  \right )P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )$$
+
+
+<br>
+
+## Esperanza y varianza marginal
+
+Supongamos que queremos calcular $\hspace{0.08cm}E[\mathbf{X}]\hspace{0.08cm}$ y $\hspace{0.08cm}V[\mathbf{X}]\hspace{0.08cm}$.
+
 Suena complicado porqué en principio, tendríamos que evaluar la
-distribución marginal de X primero o computar a través de la
-distribución conjunta. Por ejemplo:
+distribución marginal de $\hspace{0.08cm}\mathbf{X}\hspace{0.08cm}$ primero o computar a través de la
+distribución conjunta. 
+
+Por ejemplo:
+
 $$E[\mathbf{X}]=\sum_{x} \int_{-\infty}^{\infty}x\mathbf{f_{x,y}}\left ( x,y \right )dy $$
+
 ¿Existe una manera más fácil de hacer el cálculo? Pues afortunadamente
 sí, se puede calcular con la ley de las esperanzas iteradas.
 
-### 1.4.6. LEY DE LAS ESPERANZAS ITERADAS
 
-Para dos variables $\mathbf{X}$ e $\mathbf{Y}$, la ley de las esperanzas
-iteradas dice que: $$E[\mathbf{X}]=E[E[\mathbf{X|Y}]]$$ Existe otra
+<br>
+
+## Ley de las esperanzas iteradas
+
+Para dos variables $\hspace{0.08cm}\mathbf{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathbf{Y}\hspace{0.08cm}$, la ley de las esperanzas
+iteradas dice que:
+
+$$E[\mathbf{X}]\hspace{0.08cm}=\hspace{0.08cm}E[E[\mathbf{X|Y}]]$$ 
+
+Existe otra
 descomposición semejante para la varianza:
-$$V[X]=E[V[\mathbf{X|Y}]]+V[E[\mathbf{X|Y}]]$$.
 
-### 1.4.7. LEY DE LA PROBABILIDAD TOTAL PARA VARIABLES
+$$V[X]\hspace{0.08cm}=\hspace{0.08cm}E[V[\mathbf{X|Y}]]\hspace{0.08cm}+\hspace{0.08cm}V[E[\mathbf{X|Y}]]$$.
+
+<br>
+
+## Ley de la probabilidad total para variables aleatorias
+
 Tenemos que:
 
-$$P\left ( \mathbf{X}=x \right )=\sum_{y}P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )P\left ( \mathbf{Y}=y \right )$$
-si $\mathbf{Y}$ es discreta,
-$$P\left ( \mathbf{X}=x \right )=\int_{-\infty}^{\infty}P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\mathbf{f_{Y}}\left ( y \right )dx$$
-si $\mathbf{Y}$ es continua.
+
+- Si $\hspace{0.08cm}\mathbf{Y}\hspace{0.08cm}$ es discreta,
+
+$$P\left ( \mathbf{X}=x \right )\hspace{0.08cm}=\hspace{0.08cm}\sum_{y}P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\cdot P\left ( \mathbf{Y}=y \right ) \\$$
+
+
+- Si $\hspace{0.08cm}\mathbf{Y}\hspace{0.08cm}$ es continua,
+
+$$P\left ( \mathbf{X}=x \right )=\int_{-\infty}^{\infty}P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\cdot\mathbf{f_{Y}}\left ( y \right )dx\\$$
+
 
 Este segundo caso suele ser más interesante en la mayoría de las
 ocasiones.
 
-### 1.4.8. TEOREMA DE BAYES PARA VARIABLES
+<br>
+
+## Teorema de Bayes para variables aleatorias
+
 Tenemos que:
 
-$$P\left ( \mathbf{Y}=y|\mathbf{X}=x \right )=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )P\left ( \mathbf{Y}=y \right )}{P\left ( \mathbf{X}=x \right )}=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )P\left ( \mathbf{Y}=y \right )}{\sum_{i}P\left ( \mathbf{X}=x|\mathbf{Y}=y_{i} \right )P\left ( \mathbf{Y}=y_{i} \right )}$$
-en el caso de variables discretas.
-$$\mathbf{f}_{x|y}\left ( y|\mathbf{X}=x \right )=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\mathbf{f}_y\left ( \mathbf{Y}=y \right )}{P\left ( \mathbf{X}=x \right )}=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\mathbf{f}_y\left ( \mathbf{Y}=y \right )}{\int_{-\infty}^{\infty}P\left ( \mathbf{X}=x|\mathbf{Y}=y_{i} \right )\mathbf{f}_{y}\left ( y \right )}dy$$
-en caso de variables continuas.
+- Para el caso de v.a. discretas:
+
+$$P\left ( \mathbf{Y}=y|\mathbf{X}=x \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )P\left ( \mathbf{Y}=y \right )}{P\left ( \mathbf{X}=x \right )}=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )P\left ( \mathbf{Y}=y \right )}{\sum_{i}P\left ( \mathbf{X}=x|\mathbf{Y}=y_{i} \right )P\left ( \mathbf{Y}=y_{i} \right )}$$
+
+
+- Para el caso de v.a. continuas:
+
+$$\mathbf{f}_{x|y}\left ( y|\mathbf{X}=x \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\mathbf{f}_y\left ( \mathbf{Y}=y \right )}{P\left ( \mathbf{X}=x \right )}=\frac{P\left ( \mathbf{X}=x|\mathbf{Y}=y \right )\mathbf{f}_y\left ( \mathbf{Y}=y \right )}{\int_{-\infty}^{\infty}P\left ( \mathbf{X}=x|\mathbf{Y}=y_{i} \right )\mathbf{f}_{y}\left ( y \right )}dy$$
+
+
 
 Con esto, hemos terminado el repaso de conceptos probabilísticos
 necesarios para entender posteriormente los fundamentos bayesianos.
@@ -377,15 +498,21 @@ entiendes nada, no digas que no te lo advertimos.
 La inferencia clásica se basa en el uso de la interpretación
 frecuentista de la probabilidad: en un experimento repetible, la
 probabilidad de un suceso es el límite de la proporción de ocurrencias
-del suceso en n repeticiones del experimento cuando $n \to \infty$
+del suceso en $\hspace{0.08cm}n\hspace{0.08cm}$ repeticiones del experimento cuando $\hspace{0.08cm}n \to \infty\hspace{0.08cm}$.
+
+<br>
 
 ## Consecuencias
 
 -   La probabilidad es un concepto objetivo: la probabilidad de que
-    salga un 1 en un dado será la misma para todos.
+    salga un 1 en un dado será la misma para todos. $\\[0.5cm]$
+    
 -   La probabilidad es un concepto limitado a situaciones de
-    experimentos repetibles y eso no siempre es posible.
--   Parámetros, $\theta$, son desconocidos, pero fijos.
+    experimentos repetibles y eso no siempre es posible. $\\[0.5cm]$
+    
+-   Parámetros, $\hspace{0.08cm}\theta\hspace{0.08cm}$, son desconocidos, pero fijos. 
+
+<br>
 
 ## Estimación puntual
 
@@ -393,16 +520,16 @@ Un buen estimador tiene buenas propiedades probabilisticas
 (frecuentistas), ¡qué lejos quedaron estas propiedades! Vamos a
 refrescarlas: 
 
-- Insesgadez: Quiere decir que la esperanza del estimador
-coincide con el parámetro de interés. 
+- **Insesgadez**: quiere decir que la esperanza del estimador
+coincide con el parámetro de interés.  $\\[0.5cm]$
 
-- Alta precisión: Recordad que la
+- **Alta precisión:** recordad que la
 precisión es el inverso de la varianza por lo que es lo mismo que pedir
-que tenga una varianza pequeña. 
+que tenga una varianza pequeña.  $\\[0.5cm]$
 
-- Pequeño ECM: El error cuadrático medio
+- **Pequeño ECM:** el error cuadrático medio
 se definía como la varianza más el sesgo elevado al cuadrado. Y como es
-un error nos interesa que sea lo más pequeño posible.
+un error nos interesa que sea lo más pequeño posible. $\\[0.3cm]$
 
 Existen varios métodos de seleccionar un estimador, entre ellos, el
 método de los momentos, mínimos cuadrados o el estimador máximo
@@ -412,21 +539,22 @@ Por ejemplo, este último, se sabe que tiene unas muy buenas propiedades
 asintóticas, pero su ventaja no está tan clara en muestras de tamaño
 reducido.
 
+<br>
+
 ## Estimación por intervalos
 
-Formalmente, un intervalo de $100(1-\alpha)\%$ de confianza para un
-parámetro $\theta$ dada una muestra es un intervalo aleatorio tal que:
-$$P\left ( LI < \alpha < LS \right )=1-\alpha$$ para cualquier valor del
+Formalmente, un intervalo de $\hspace{0.08cm}100(1-\alpha)\%\hspace{0.08cm}$ de confianza para un
+parámetro $\hspace{0.08cm}\theta\hspace{0.08cm}$ dada una muestra es un intervalo aleatorio tal que:
+
+$$P\left ( LI < \alpha < LS \right )=1-\alpha$$ 
+
+para cualquier valor del
 parámetro (y cualquier otro parámetro del modelo).
 
-¿Cómo interpretamos este intervalo? ¿La probabilidad de que contenga a
-$\theta$ es $100(1-\alpha)$? 
+- ¿Cómo interpretamos este intervalo? ¿La probabilidad de que contenga a
+$\hspace{0.08cm}\theta\hspace{0.08cm}$ es $\hspace{0.08cm}100(1-\alpha)\hspace{0.08cm}$? 
 
-La respuesta es que la interpretación de un
-intervalo de confianza frecuentista es; que repitiendo 100 veces un
-experimento aleatorio se espera que $100(1-\alpha)$ de esos intervalos
-obtenidos en cada uno de esos intentos contengan al verdadero valor del
-parámetro.
+    La respuesta es que la interpretación de un intervalo de confianza frecuentista es; que repitiendo 100 veces un experimento aleatorio se espera que $\hspace{0.08cm}100(1-\alpha)\hspace{0.08cm}$ de esos intervalos obtenidos en cada uno de esos intentos contengan al verdadero valor del parámetro.
 
 <br>
 
@@ -436,38 +564,50 @@ Un contraste de hipótesis típicamente tiene una serie de pasos a
 completar:
 
 1.  Formalizar una hipótesis estadística experimental o alternativa
-    ($H_{1}$) de la cual no sabemos su veracidad.
-2.  Formalizar la hipótesis opuesta o nula ($H_{0}$).
-3.  Derivar un estadístico que lo usaremos como la base del contraste.
+    $\hspace{0.08cm}(H_{1})\hspace{0.08cm}$ de la cual no sabemos su veracidad. $\\[0.5cm]$
+    
+2.  Formalizar la hipótesis opuesta o nula $\hspace{0.08cm}(H_{0})\hspace{0.08cm}$. $\\[0.5cm]$
+
+3.  Derivar un estadístico que lo usaremos como la base del contraste. $\\[0.5cm]$
+
 4.  Hallar la distribución del estadístico de contraste bajo la
-    hipótesis nula.
+    hipótesis nula. $\\[0.5cm]$
+    
 5.  Fijar un nivel de significación o error de tipo I:
-    $$\alpha=P\left ( rechazar\ H_{0}|H_{0}\ es\ verdadera \right )$$
+    $$\alpha\hspace{0.08cm}=\hspace{0.08cm}P\left( \hspace{0.08cm} \text{Rechazar} \hspace{0.08cm} H_{0} \hspace{0.08cm}|\hspace{0.08cm} H_{0} \text{es verdadera} \hspace{0.08cm}\right)$$ $\\[0.5cm]$
+    
 6.  Calcular la región crítica o de rechazo, es decir el rango de
-    valores del estadístico de contraste donde se rechazaría $H_{0}$ a
-    favor de $H_{1}$.
+    valores del estadístico de contraste donde se rechazaría $\hspace{0.08cm}H_{0}\hspace{0.08cm}$ a
+    favor de $\hspace{0.08cm}H_{1}\hspace{0.08cm}$. $\\[0.5cm]$
 
 Entonces, tenemos que dada una muestra observada, se calcula el valor
 del estadístico y si cae dentro de la región crítica, se rechaza
-$H_{0}$.
+$\hspace{0.08cm}H_{0}\hspace{0.08cm}$.
 
 Aunque usualmente explicamos los contrastes o test de hipótesis como el
 cálculo de una región crítica, lo cierto es que es mucho más común hacer
 uso del p-valor, que se define como, dada una muestra observada,
-tenemos que el p-valor es la probabilidad bajo $H_{0}$ de observar un
+tenemos que el p-valor es la probabilidad bajo $\hspace{0.08cm}H_{0}\hspace{0.08cm}$ de observar un
 valor del estadístico por lo menos tan extremo como el observado.
 
-Si el p-valor por tanto es más pequeño que $\alpha$, se rechaza la
+Si el p-valor por tanto es más pequeño que $\hspace{0.08cm}\alpha\hspace{0.08cm}$, se rechaza la
 hipótesis nula. Por el contrario, si el p-valor es más grande que
-$\alpha$, no se rechaza la hipótesis nula.
+$\hspace{0.08cm}\alpha\hspace{0.08cm}$, no se rechaza la hipótesis nula.
 
 A menudo, interpretamos el concepto de p-valor como una medida de la
-fuerza de la evidencia en contra de $H_{0}$
+fuerza de la evidencia en contra de $\hspace{0.08cm}H_{0}\hspace{0.08cm}$.
 
-Ejemplo: Tenemos una moneda con $P\left ( cruz \right )=\theta$ y
-queremos contrastar: $$H_{0}=0.5$$ $$H_{1}>0.5$$ Entonces tiramos la
+**Ejemplo:** Tenemos una moneda con $\hspace{0.08cm}P\left ( cruz \right )=\theta\hspace{0.08cm}$ y
+queremos contrastar: 
+
+$$H_{0}=0.5$$ 
+
+$$H_{1}>0.5$$ 
+
+Entonces tiramos la
 moneda 12 veces y observamos 9 cruces y 3 caras. Luego, el p-valor es:
-$$p=\sum_{x=9}^{12} \binom{12}{x}0.5^{x}\left ( 1-0.5 \right )^{12-x}=0.073$$
+$$p\hspace{0.08cm}=\hspace{0.08cm}\sum_{x=9}^{12} \binom{12}{x}0.5^{x}\left ( 1-0.5 \right )^{12-x}\hspace{0.08cm}=\hspace{0.08cm}0.073$$
+
 En este caso, no rechazaríamos la hipótesis nula a un 5% de
 significación.
 
@@ -475,17 +615,21 @@ Ahora bien, supongamos que en lugar de decidir de antemano tirar la
 moneda 12 veces, vamos a tirar la moneda hasta observar la tercera cara.
 Ya el diseño del experimento no es binomial sino binomial negativa. Si
 la tercera cara ocurre en la duodécima tirada, es decir, hemos visto 9
-cruces y 3 caras ;y el EMV de $\theta$ sigue siendo
-$\hat{\theta}=\frac{9}{12}$. No obstante, ahora el p-valor es:
-$$p=\sum_{y=9}^{\infty}\binom{y+3-1}{y}\left ( 1-\theta \right )^{3}\theta^{9}=0.033$$
+cruces y 3 caras ;y el EMV de $\hspace{0.08cm}\theta\hspace{0.08cm}$ sigue siendo
+$\hspace{0.08cm}\hat{\theta}=\frac{9}{12}\hspace{0.08cm}$. 
+
+No obstante, ahora el p-valor es:
+
+$$p\hspace{0.08cm}=\hspace{0.08cm}\sum_{y=9}^{\infty}\binom{y+3-1}{y}\left ( 1-\theta \right )^{3}\theta^{9}\hspace{0.08cm}=\hspace{0.08cm}0.033$$
+
 Y en este caso, sí rechazamos la hipótesis nula.
 
 ¿No parece lógico verdad?
 
 Si a alguien le pica la curiosidad, no está
 claro porque sucede esto y en qué condiciones ocurre, tan sólo decir que
-este es uno de los grandes puntos en los que los estadísticos bayesianos
-están más en contra de lo frecuentista.
+este es uno de los  puntos en los que los estadísticos bayesianos
+están más en contra de la estadística frecuentista.
 
 <br>
 
@@ -499,28 +643,40 @@ empírica de una muestra aleatoria.
 
 Siguiendo con el ejemplo anterior, si queremos predecir el número de
 cruces en 10 tiradas más de la moneda (Y), lo haríamos de la siguiente
-forma: $$Y\sim Binomial \left ( 10, 0.75 \right )$$
+forma: 
 
-## 2.6. COMPARACIÓN DE MODELOS
+$$Y\sim Binomial \left ( 10, 0.75 \right )$$
+
+<br>
+
+## Comparación de modelos
 
 Para comparar varios modelos, podemos utilizar, por ejemplo un criterio
 basado en penalizar la verosimilitud de acuerdo al número de parámetros.
 Por ejemplo, el AIC (Akaike Information Criterion) para dado un modelo
 $\mathbf{M}$ es:
-$$AIC=-2\log I\left( \hat{\theta_{\mathbf{M}}}|datos,\mathbf{M} \right ) +2k$$
-dónde k es el número de parámetros presentes en el modelo. En el caso
+
+$$AIC\hspace{0.08cm}=\hspace{0.08cm}-2\log I\left( \hat{\theta_{\mathbf{M}}}\hspace{0.08cm}|\hspace{0.08cm}datos,\mathbf{M} \right ) \hspace{0.08cm}+\hspace{0.08cm}2k$$
+
+dónde $k$ es el número de parámetros presentes en el modelo. En el caso
 del AIC el modelo seleccionado es el que minimice este criterio.
 
-Ejemplo: Para que quede más claro esto haremos un breve ejemplo ya que
+
+**Ejemplo:** Para que quede más claro esto haremos un breve ejemplo ya que
 pensamos que la comparación de modelos no siempre se estudia o al menos
 no en cursos de estadística básica-intermedia. Empecemos con el ejemplo,
 supongamos que queremos comparar el modelo con $p=0.5$, que
 denominaremos ($\mathbf{M_{0}}$) con el modelo completo
 ($\mathbf{M_{1}}$): $Y\sim Binomial\left ( 12,p \right )$ para cualquier
-p. El AIC para el modelo $\mathbf{M_{0}}$ es:
-$$AIC_{0}=-2\log \left\{\binom{12}{9}0.5^{12} \right\}+2\times 0=5.85$$
-y el AIC para el modelo general es:
-$$AIC_{1}=-2\log \left\{\binom{12}{9}0.75^{9}0.25^{3} \right\}+2\times 1=4.71$$
+$\hspace{0.08cm}p\hspace{0.08cm}$. 
+
+El AIC para el modelo $\mathbf{M_{0}}$ es:
+
+$$AIC_{0}\hspace{0.08cm}=\hspace{0.08cm}-2\log \left\{\binom{12}{9}0.5^{12} \right\}+2\times 0=5.85$$
+
+Y el AIC para el modelo general es:
+$$AIC_{1}\hspace{0.08cm}=\hspace{0.08cm}-2\log \left\{\binom{12}{9}0.75^{9}0.25^{3} \right\}+2\times 1=4.71$$
+
 Luego el modelo preferido según el criterio de Akaike es el modelo
 completo.
 
@@ -530,7 +686,9 @@ completo.
 
 Para ver si los datos se ajustan a un modelo $\mathbf{M}$, se puede
 utilizar un contraste de hipótesis de la hipótesis nula:
-$$H_{0}: los\ datos\ provienen\ del\ modelo\ \mathbf{M}.$$ Ejemplos típicos
+$$H_{0}: \text{los datos provienen del modelo} \hspace{0.08cm} \mathbf{M}.$$
+
+Ejemplos típicos
 son el contraste de la chi-cuadrado o el de Kolmogorov-Smirnov.
 
 Con esto, hemos resumido los puntos más característicos de la inferencia
@@ -561,20 +719,24 @@ considerarse respecto a la probabilidad:
 
 1.  Interpretación empírico frecuentista. Esta es la interpretación más
     común de la probabilidad y hace referencia al comportamiento (real o
-    hipotético) de ciertos objetos.
+    hipotético) de ciertos objetos. $\\[0.5cm]$
+    
+    
 2.  Interpretación lógica. Esta interpretación es bastante poco común
     entre estadísticos y está más bien reservada al mundo de la lógica.
     De acuerdo con esta interpretación, hay una relación lógica entre
     una afirmación (considerada como una hipótesis) y otra afirmación
     (considerada como evidencia), en virtud de la cual la primera tiene
-    cierta probabilidad relativa a la segunda.
+    cierta probabilidad relativa a la segunda. $\\[0.5cm]$
+    
+    
 3.  Interpretación subjetivista. Esta es una versión más débil de la
     interpretación lógica. Es más del tipo psicológico que lógico. El
     grado de creencia es el concepto fundamental de la interpretación:
     las afirmaciones probabilísticas representan los grados de creencias
-    de los individuos.
+    de los individuos.$\\[0.5cm]$
 
-En esta última de las interpretaciones es sobre la que se substenta la
+En esta última de las interpretaciones es sobre la que se sustenta la
 inferencia bayesiana.
 
 Una característica distintiva de la estadística bayesiana es que tiene
@@ -596,12 +758,12 @@ son:
 - Estudios previos similares. La utilización de estudios previos
 sobre unos pocos parámetros específicos ha dado origen a un área
 conocida como metaanálisis, la cual puede trabajarse desde el punto
-clásico y bayesiano. 
+clásico y bayesiano.  $\\[0.5cm]$
 
 - Opinión de expertos. La utilización de expertos
 es casi obligatoria en situaciones completamente nuevas donde
 experimentar puede ser muy costoso o imposible, por ejemplo en la
-implementación de políticas a nivel macroeconómico.
+implementación de políticas a nivel macroeconómico. $\\[0.5cm]$
 
 Wallsten y Budescu presentan las condiciones para que un proceso de
 elicitación produzca una distribución apropiada. En teoría de la
@@ -616,11 +778,14 @@ $p$, que puede ser descompuesta como la verdadera probabilidad fija
 $\pi$ y un error, $e$: $$p=\pi+e$$. Los siguientes supuestos son
 estándares para este modelo:
 
-1.  $E(e)=0$
-2.  $\rho_{\pi e}=0$
+1.  $E(e)=0$ $\\[0.5cm]$
+
+2.  $\rho_{\pi e}=0$ $\\[0.5cm]$
+
 3.  Para cualquier par de mediciones independientes los errores son
-    incorrelacionados: $\rho_{e_{i}e_{j}}=0$ para $i\neq j$
-4.  $\rho_{\pi_{i}e_{j}}=0$ para $i\neq j$
+    incorrelacionados: $\rho_{e_{i}e_{j}}=0$ para $i\neq j$ $\\[0.5cm]$
+    
+4.  $\rho_{\pi_{i}e_{j}}=0$ para $i\neq j$ $\\[0.5cm]$
 
 Sea $\sigma_{e}^{2}$ la varianza del error. La raíz cuadrada de esta
 cantidad se conoce como el error estándar de la medición. Del modelo y
@@ -700,18 +865,22 @@ Una clasificación de las diversas aproximaciones que podemos realizar
 cuando consideramos el enfoque bayesiano es la siguiente:
 
 1.  Análisis bayesiano objetivo: esta posición se caracteriza por la
-    utilización de distribuciones a priori no informativas.
+    utilización de distribuciones a priori no informativas. $\\[0.5cm]$
+    
 2.  Análisis bayesiano subjetivo: la utilización de distribuciones a
     priori subjetivas es a menudo disponible como alternativa en algunos
-    problemas.
+    problemas. $\\[0.5cm]$
+    
 3.  Análisis bayesiano robusto: esta posición asume que es imposible
     especificar la distribución a priori o el modelo, en cuyo caso es
     mejor trabajar dentro de clases donde haya un nivel de incertidumbre
-    sobre esta distribución o modelo.
+    sobre esta distribución o modelo. $\\[0.5cm]$
+    
 4.  Análisis bayesiano-frecuentista: hay problemas en los que la
     aproximación frecuentista produce resultados satisfactorios, como en
     los métodos no paramétricos, y al bayesiano le toca aceptarlos como
-    soluciones pseudobayesianas.
+    soluciones pseudobayesianas. $\\[0.5cm]$
+    
 5.  Análisis cuasibayesiano: esta aproximación utiliza distribuciones a
     priori seleccionadas de una forma que acomoden a la solución
     "bonita" del problema, ajustando estas distribuciones a priori de
