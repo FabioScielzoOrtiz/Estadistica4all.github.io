@@ -176,12 +176,12 @@ probabilidad matemática, los cuales son:
 
 - Para cualquier suceso $\hspace{0.08cm}S\hspace{0.08cm}$ :
 
-$$P\left ( S \right )\geq 0$$
+$$P\left ( S \right )\geq 0\\$$
 
 - Si $\hspace{0.08cm}\Omega\hspace{0.08cm}$ es el espacio muestral:
 
 
-$$P\left ( \Omega \right )= 1$$ 
+$$P\left ( \Omega \right )= 1\\$$ 
 
 - Si $\hspace{0.08cm}S_{1},S_{2},...,S_{n}\hspace{0.08cm}$ son incompatibles entonces:
 
@@ -195,7 +195,7 @@ un suceso es proporcional al número de sucesos elementales que contiene.
 
 ## Independencia  
 
-Dos sucesos $\hspace{0.08cm} A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$ son estadísticamente independientes si:
+Dos sucesos $\hspace{0.08cm} A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$ son estadísticamente independientes si: $\\[0.5cm]$
 
 $$P\left ( A\cap B \right )\hspace{0.08cm}=\hspace{0.08cm}P\left ( A \right )P\left ( B \right )$$
 
@@ -203,7 +203,8 @@ $$P\left ( A\cap B \right )\hspace{0.08cm}=\hspace{0.08cm}P\left ( A \right )P\l
 
 ## Probabilidad condicionada  
 
-Si $\hspace{0.08cm}P\left ( B \right )> 0\hspace{0.08cm}$, la probabilidad de un suceso B dado A es:
+Si $\hspace{0.08cm}P\left ( B \right )> 0\hspace{0.08cm}$, la probabilidad de un suceso B dado A es:$\\[0.5cm]$
+
 $$P\left ( A|B \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{P\left ( A\cap B \right )}{P\left ( B \right )}$$.
 
 <br>
@@ -211,10 +212,10 @@ $$P\left ( A|B \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{P\left ( A\cap B \ri
 ## Interpretación de la independencia estadística
 
 Utilizando la definición de la probabilidad condicionada, si $\hspace{0.08cm}A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$ son
-independientes, entonces:
+independientes, entonces: $\\[0.5cm]$
 
 
-$$P\left ( A|B \right )=\frac{P\left ( A \right )P\left ( B \right )}{P\left ( B \right )}=P\left ( A \right )$$
+$$P\left ( A|B \right )=\frac{P\left ( A \right )P\left ( B \right )}{P\left ( B \right )}=P\left ( A \right ) \\$$
 
 Luego si se sabe que $\hspace{0.08cm}B\hspace{0.08cm}$ ha ocurrido, la probabilidad de $\hspace{0.08cm}A\hspace{0.08cm}$ es invariante.
 
@@ -222,7 +223,7 @@ Luego si se sabe que $\hspace{0.08cm}B\hspace{0.08cm}$ ha ocurrido, la probabili
 
 ## Ley de la multiplicación
 
-Reordenando la fórmula para la probabilidad condicionada, se tiene:
+Reordenando la fórmula para la probabilidad condicionada, se tiene: $\\[0.5cm]$
 
 
 $$P\left ( A\cap B \right )\hspace{0.08cm}=\hspace{0.08cm}P\left ( B|A \right )P\left ( A \right )\hspace{0.08cm}=\hspace{0.08cm}P\left ( A|B \right )P\left ( B \right )$$
@@ -232,16 +233,16 @@ $$P\left ( A\cap B \right )\hspace{0.08cm}=\hspace{0.08cm}P\left ( B|A \right )P
 
 ## Ley de la probabilidad total
 
-Para dos sucesos $\hspace{0.08cm}A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$,
+Para dos sucesos $\hspace{0.08cm}A\hspace{0.08cm}$ y $\hspace{0.08cm}B\hspace{0.08cm}$, $\\[0.5cm]$
 
-$$P\left ( A \right )=P\left ( A|B \right )P\left ( B \right )+P\left ( A|\bar{B} \right )P\left ( \bar{B} \right )$$.
+$$P\left ( A \right )=P\left ( A|B \right )P\left ( B \right )+P\left ( A|\bar{B} \right )P\left ( \bar{B} \right )$$
 
 
 <br>
 
 ## Extendiendo la ley de la probabilidad total
 
-De manera más general, si $\hspace{0.08cm}B_{1},...,B_{k}\hspace{0.08cm}$ forman una partición,
+De manera más general, si $\hspace{0.1cm}B_{1},...,B_{k}\hspace{0.1cm}$ forman una partición,
 entonces:
 
 $$P\left ( A \right ) \hspace{0.08cm}=\hspace{0.08cm} \sum_{j=1}^{k}P\left ( A|B_{j} \right )P\left ( B_{j} \right )$$
@@ -254,7 +255,7 @@ estadística bayesiana, el teorema de Bayes.
 
 ## Teorema de Bayes
 
-Para dos sucesos $\hspace{0.08cm}A\hspace{0.08cm}$, $\hspace{0.08cm}B\hspace{0.08cm}$, tal que $\hspace{0.08cm}P\left ( A \right )>0\hspace{0.08cm}$, se tiene:
+Para dos sucesos $\hspace{0.08cm}A\hspace{0.08cm}$, $\hspace{0.08cm}B\hspace{0.08cm}$, tal que $\hspace{0.08cm}P\left ( A \right )>0\hspace{0.08cm}$, se tiene: $\\[0.5cm]$
 
 $$P\left ( B|A \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{P\left ( B \right )P\left ( A|B \right )}{P\left ( A \right )}$$.
 
@@ -289,11 +290,11 @@ distancia...
 
 ## Variables aleatorias discretas
 
-Para una variable discreta, $\hspace{0.08cm}\mathbf{X}\hspace{0.08cm}$, tomando valores
-$\hspace{0.08cm}x_{1},x_{2},...\hspace{0.08cm}$ se definen: 
+Para una variable discreta, $\hspace{0.1cm}\mathbf{X}\hspace{0.1cm}$, tomando valores
+$\hspace{0.08cm}x_{1},x_{2},...\hspace{0.12cm}$ se definen: 
 
 - La función de probabilidad o masa
-$\hspace{0.08cm}P\left ( \mathbf{X}=x \right )\hspace{0.08cm}$ tal que $\hspace{0.08cm}\sum_{i}P\left (\mathbf{X}=x{i} \right )=1\hspace{0.08cm}$. 
+$\hspace{0.08cm}P\left ( \mathbf{X}=x \right )\hspace{0.08cm}$ tal que $\hspace{0.08cm}\sum_{i}P\left (\mathbf{X}=x{i} \right )=1\hspace{0.08cm}[0.5cm]$ 
 
 - La función de distribución
 $\hspace{0.08cm}\mathbf{F_{X}}\left ( x \right )\hspace{0.08cm}$ tal que:
@@ -301,7 +302,7 @@ $\hspace{0.08cm}\mathbf{F_{X}}\left ( x \right )\hspace{0.08cm}$ tal que:
 $$\mathbf{F_{X}}\left ( x \right )=P\left ( \mathbf{X}\leq x \right )=\sum_{x_{i}<x}P\left ( \mathbf{X}=x_{i} \right)$$ 
 
 - Los momentos:
-$\hspace{0.08cm}E\left [ g(\mathbf{x}) \right ]=\sum_{i}g(x_{i})P\left ( \mathbf{X}=x_{i} \right )\hspace{0.08cm}\\$.
+$\hspace{0.1cm}E\left [ g(\mathbf{x}) \right ]=\sum_{i}g(x_{i})P\left ( \mathbf{X}=x_{i} \right )\hspace{0.08cm}\\[0.5cm]$.
 
 **Ejemplo: la distribución de Poisson.**
 
@@ -324,13 +325,13 @@ Para una variable aleatoria continua, $\hspace{0.08cm}\mathbf{Y}\hspace{0.08cm}$
 - La función de distribución
 $\hspace{0.12cm}\mathbf{F_{Y}}\left ( y \right )\hspace{0.12cm}$ tal que:
 
-$$\mathbf{F_{Y}}\left ( y \right )=P\left ( \mathbf{Y}\leq y \right )\\$$ 
+$$\mathbf{F_{Y}}\left ( y \right )=P\left ( \mathbf{Y}\leq y \right )\\[0.5cm]$$ 
 
 - La función de densidad
 $\hspace{0.2cm}\mathbf{f_{Y}}\left ( y \right )=\frac{dF\left ( y \right )}{dy}\hspace{0.2cm}$ tal
 que:
 
-$$\int_{-\infty}^{y} \mathbf{f_{Y}}\left ( y \right )dy=\mathbf{F_{Y}}\left ( y \right )\\$$ 
+$$\int_{-\infty}^{y} \mathbf{f_{Y}}\left ( y \right )dy=\mathbf{F_{Y}}\left ( y \right )\\[0.5cm]$$ 
 
 - Los momentos:
 $\hspace{0.2cm}E\left [ g(\mathbf{Y}) \right ]=\int_{-\infty}^{\infty}g(y)\mathbf{f_{Y}}\left ( y \right )\hspace{0.08cm}\\[0.5cm]$
@@ -460,7 +461,7 @@ ocasiones.
 
 <br>
 
-## Teorema de Bayes para variables aleatorias
+## Teorema de Bayes para variables aleatorias <a class="anchor" id="1"></a>
 
 Tenemos que:
 
@@ -493,7 +494,7 @@ entiendes nada, no digas que no te lo advertimos.
 
 <br>
 
-# Inferencia Frecuentista
+# Inferencia Frecuentista 
 
 La inferencia clásica se basa en el uso de la interpretación
 frecuentista de la probabilidad: en un experimento repetible, la
@@ -543,7 +544,7 @@ reducido.
 
 ## Estimación por intervalos
 
-Formalmente, un intervalo de $\hspace{0.08cm}100(1-\alpha)\%\hspace{0.08cm}$ de confianza para un
+Formalmente, un intervalo de $\hspace{0.08cm}(1-\alpha)\cdot 100\%\hspace{0.08cm}$ de confianza para un
 parámetro $\hspace{0.08cm}\theta\hspace{0.08cm}$ dada una muestra es un intervalo aleatorio tal que:
 
 $$P\left ( LI < \alpha < LS \right )=1-\alpha$$ 
@@ -552,9 +553,9 @@ para cualquier valor del
 parámetro (y cualquier otro parámetro del modelo).
 
 - ¿Cómo interpretamos este intervalo? ¿La probabilidad de que contenga a
-$\hspace{0.08cm}\theta\hspace{0.08cm}$ es $\hspace{0.08cm}100(1-\alpha)\hspace{0.08cm}$? 
+$\hspace{0.08cm}\theta\hspace{0.08cm}$ es $\hspace{0.08cm}(1-\alpha)\hspace{0.08cm}$? 
 
-    La respuesta es que la interpretación de un intervalo de confianza frecuentista es; que repitiendo 100 veces un experimento aleatorio se espera que $\hspace{0.08cm}100(1-\alpha)\hspace{0.08cm}$ de esos intervalos obtenidos en cada uno de esos intentos contengan al verdadero valor del parámetro.
+    La respuesta es que la interpretación de un intervalo de confianza frecuentista es que tras repetir un número elevado de veces un experimento aleatorio se espera que $\hspace{0.08cm}(1-\alpha)\cdot 100 \%\hspace{0.08cm}$ de esos intervalos obtenidos en cada uno de esas realización contengan al verdadero valor del parámetro.
 
 <br>
 
@@ -573,7 +574,8 @@ completar:
 4.  Hallar la distribución del estadístico de contraste bajo la
     hipótesis nula. $\\[0.5cm]$
     
-5.  Fijar un nivel de significación o error de tipo I:
+5.  Fijar un nivel de significación o error de tipo I :
+
     $$\alpha\hspace{0.08cm}=\hspace{0.08cm}P\left( \hspace{0.08cm} \text{Rechazar} \hspace{0.08cm} H_{0} \hspace{0.08cm}|\hspace{0.08cm} H_{0} \text{es verdadera} \hspace{0.08cm}\right)$$ $\\[0.5cm]$
     
 6.  Calcular la región crítica o de rechazo, es decir el rango de
@@ -595,9 +597,9 @@ hipótesis nula. Por el contrario, si el p-valor es más grande que
 $\hspace{0.08cm}\alpha\hspace{0.08cm}$, no se rechaza la hipótesis nula.
 
 A menudo, interpretamos el concepto de p-valor como una medida de la
-fuerza de la evidencia en contra de $\hspace{0.08cm}H_{0}\hspace{0.08cm}$.
+fuerza de la evidencia en contra de $\hspace{0.08cm}H_{0}\hspace{0.08cm}$. $\\[0.5cm]$
 
-**Ejemplo:** Tenemos una moneda con $\hspace{0.08cm}P\left ( cruz \right )=\theta\hspace{0.08cm}$ y
+**Ejemplo:** tenemos una moneda con $\hspace{0.08cm}P\left ( cruz \right )=\theta\hspace{0.11cm}$ y
 queremos contrastar: 
 
 $$H_{0}=0.5$$ 
@@ -606,7 +608,7 @@ $$H_{1}>0.5$$
 
 Entonces tiramos la
 moneda 12 veces y observamos 9 cruces y 3 caras. Luego, el p-valor es:
-$$p\hspace{0.08cm}=\hspace{0.08cm}\sum_{x=9}^{12} \binom{12}{x}0.5^{x}\left ( 1-0.5 \right )^{12-x}\hspace{0.08cm}=\hspace{0.08cm}0.073$$
+$$p\hspace{0.08cm}=\hspace{0.08cm}\sum_{x=9}^{12} \binom{12}{x}\cdot 0.5^{x} \cdot \left( 1-0.5 \right )^{12-x}\hspace{0.08cm}=\hspace{0.08cm}0.073$$
 
 En este caso, no rechazaríamos la hipótesis nula a un 5% de
 significación.
@@ -620,7 +622,7 @@ $\hspace{0.08cm}\hat{\theta}=\frac{9}{12}\hspace{0.08cm}$.
 
 No obstante, ahora el p-valor es:
 
-$$p\hspace{0.08cm}=\hspace{0.08cm}\sum_{y=9}^{\infty}\binom{y+3-1}{y}\left ( 1-\theta \right )^{3}\theta^{9}\hspace{0.08cm}=\hspace{0.08cm}0.033$$
+$$p\hspace{0.08cm}=\hspace{0.08cm}\sum_{y=9}^{\infty}\binom{y+3-1}{y}\cdot \left ( 1-\theta \right )^{3}\cdot \theta^{9}\hspace{0.08cm}=\hspace{0.08cm}0.033$$
 
 Y en este caso, sí rechazamos la hipótesis nula.
 
@@ -658,23 +660,24 @@ $\mathbf{M}$ es:
 
 $$AIC\hspace{0.08cm}=\hspace{0.08cm}-2\log I\left( \hat{\theta_{\mathbf{M}}}\hspace{0.08cm}|\hspace{0.08cm}datos,\mathbf{M} \right ) \hspace{0.08cm}+\hspace{0.08cm}2k$$
 
-dónde $k$ es el número de parámetros presentes en el modelo. En el caso
+dónde $\hspace{0.08cm}k\hspace{0.08cm}$ es el número de parámetros presentes en el modelo. En el caso
 del AIC el modelo seleccionado es el que minimice este criterio.
 
 
 **Ejemplo:** Para que quede más claro esto haremos un breve ejemplo ya que
 pensamos que la comparación de modelos no siempre se estudia o al menos
 no en cursos de estadística básica-intermedia. Empecemos con el ejemplo,
-supongamos que queremos comparar el modelo con $p=0.5$, que
-denominaremos ($\mathbf{M_{0}}$) con el modelo completo
-($\mathbf{M_{1}}$): $Y\sim Binomial\left ( 12,p \right )$ para cualquier
+supongamos que queremos comparar el modelo con $\hspace{0.08cm}p=0.5\hspace{0.08cm}$, que
+denominaremos $\hspace{0.08cm}(\mathbf{M_{0}})\hspace{0.08cm}$ con el modelo completo
+$\hspace{0.08cm}(\mathbf{M_{1}})\hspace{0.08cm}$: $\hspace{0.08cm}Y\sim Binomial\left ( 12,p \right )\hspace{0.08cm}$ para cualquier
 $\hspace{0.08cm}p\hspace{0.08cm}$. 
 
-El AIC para el modelo $\mathbf{M_{0}}$ es:
+El AIC para el modelo $\hspace{0.08cm}\mathbf{M_{0}}\hspace{0.08cm}$ es:
 
 $$AIC_{0}\hspace{0.08cm}=\hspace{0.08cm}-2\log \left\{\binom{12}{9}0.5^{12} \right\}+2\times 0=5.85$$
 
 Y el AIC para el modelo general es:
+
 $$AIC_{1}\hspace{0.08cm}=\hspace{0.08cm}-2\log \left\{\binom{12}{9}0.75^{9}0.25^{3} \right\}+2\times 1=4.71$$
 
 Luego el modelo preferido según el criterio de Akaike es el modelo
@@ -682,11 +685,12 @@ completo.
 
 <br>
 
-## Bondad de ajuste
+## Bondad de ajuste <a class="anchor" id="1"></a>
 
 Para ver si los datos se ajustan a un modelo $\mathbf{M}$, se puede
 utilizar un contraste de hipótesis de la hipótesis nula:
-$$H_{0}: \text{los datos provienen del modelo} \hspace{0.08cm} \mathbf{M}.$$
+
+$$H_{0}\hspace{0.08cm}:\hspace{0.08cm} \text{los datos provienen del modelo} \hspace{0.08cm} \mathbf{M}.\\$$
 
 Ejemplos típicos
 son el contraste de la chi-cuadrado o el de Kolmogorov-Smirnov.
@@ -773,34 +777,42 @@ externos y la determinación del error. El proceso de codificación debe
 garantizar condiciones básicas, como confiabilidad y validez. La
 confiabilidad se mide como la correlación al cuadrado entre los valores
 observados de las probabilidades y las verdaderas probabilidades,
-$\rho_{p\pi}^{2}$. La probabilidad subejtiva es una variable aleatoria,
-$p$, que puede ser descompuesta como la verdadera probabilidad fija
-$\pi$ y un error, $e$: $$p=\pi+e$$. Los siguientes supuestos son
+$\hspace{0.08cm}\rho_{p\pi}^{2}\hspace{0.08cm}$. La probabilidad subejtiva es una variable aleatoria,
+$\hspace{0.08cm}p\hspace{0.08cm}$, que puede ser descompuesta como la verdadera probabilidad fija
+$\hspace{0.08cm}\pi\hspace{0.08cm}$ y un error, $\hspace{0.08cm}e\hspace{0.08cm}$: 
+$$p\hspace{0.08cm}=\hspace{0.08cm}\pi+e$$ 
+
+Los siguientes supuestos son
 estándares para este modelo:
 
-1.  $E(e)=0$ $\\[0.5cm]$
+1.  $\hspace{0.15cm}E(e)\hspace{0.08cm}=\hspace{0.08cm}0$ $\\[0.5cm]$
 
-2.  $\rho_{\pi e}=0$ $\\[0.5cm]$
+2.  $\hspace{0.15cm}\rho_{\pi e}\hspace{0.08cm}=\hspace{0.08cm}0$ $\\[0.5cm]$
 
 3.  Para cualquier par de mediciones independientes los errores son
-    incorrelacionados: $\rho_{e_{i}e_{j}}=0$ para $i\neq j$ $\\[0.5cm]$
+    incorrelacionados: $\hspace{0.08cm}\rho_{e_{i}e_{j}}=0\hspace{0.08cm}$ para $\hspace{0.08cm}i\neq j\hspace{0.08cm}$. $\\[0.5cm]$
     
-4.  $\rho_{\pi_{i}e_{j}}=0$ para $i\neq j$ $\\[0.5cm]$
+4.  $\hspace{0.15cm}\rho_{\pi_{i}e_{j}}=0\hspace{0.08cm}$ para $\hspace{0.08cm}i\neq j\hspace{0.08cm}$. $\\[0.5cm]$
 
-Sea $\sigma_{e}^{2}$ la varianza del error. La raíz cuadrada de esta
+Sea $\hspace{0.08cm}\sigma_{e}^{2}\hspace{0.08cm}$ la varianza del error. La raíz cuadrada de esta
 cantidad se conoce como el error estándar de la medición. Del modelo y
 los supuestos anteriores se tiene:
-$$\sigma_{p}^{2}=\sigma_{\pi}^{2}+\sigma_{e}^{2}$$ Así, el coeficiente
+
+$$\sigma_{p}^{2}\hspace{0.08cm}=\hspace{0.08cm}\sigma_{\pi}^{2}+\sigma_{e}^{2}$$ 
+
+Así, el coeficiente
 de confiabilidad será:
-$$0\leq \rho_{\pi p}^{2}=\frac{\sigma_{\pi}^{2}}{\sigma_{p}^{2}}=1-\frac{\sigma_{e}^{2}}{\sigma_{p}^{2}}\leq 1$$
+
+$$0\hspace{0.08cm}\leq\hspace{0.08cm} \rho_{\pi p}^{2}\hspace{0.08cm}=\hspace{0.08cm}\frac{\sigma_{\pi}^{2}}{\sigma_{p}^{2}}\hspace{0.08cm}=\hspace{0.08cm}1-\frac{\sigma_{e}^{2}}{\sigma_{p}^{2}}\hspace{0.08cm}\leq\hspace{0.08cm} 1$$
+
 La confiabilidad está inversamente relacionada con el error de medición
-y es perfecta cuando $\sigma_{e}^{2}=0$. Ya que $\pi$ no puede ser
-observado directamente, no podemos determinar $\sigma_{\pi}^{2}$. Esto
+y es perfecta cuando $\hspace{0.08cm}\sigma_{e}^{2}=0\hspace{0.08cm}$. Ya que $\hspace{0.08cm}\pi\hspace{0.08cm}$ no puede ser
+observado directamente, no podemos determinar $\hspace{0.08cm}\sigma_{\pi}^{2}\hspace{0.08cm}$. Esto
 puede resolverse parcialmente a través de métodos indirectos, por
 ejemplo, usando varios métodos de cuantificación.
 
 La validez se define como la correlación entre dos procedimientos de
-cuantificación independientes, digamos $\rho_{xy}$.
+cuantificación independientes, digamos $\hspace{0.08cm}\rho_{xy}\hspace{0.08cm}$.
 
 Ayyub presenta una clasificación de la ignorancia que es importante
 considerar cuando se determina la claridad de un experto. La ignorancia
@@ -811,9 +823,9 @@ conocimiento no confiable (prejuicios) o que no aplica al problema de
 interés.
 
 Un elicitador subjetivo está bien calibrado si para cada probabilidad
-$p$, en la clase de todos los eventos en los cuales asigna una
+$\hspace{0.08cm}p\hspace{0.08cm}$, en la clase de todos los eventos en los cuales asigna una
 probabilidad subjetiva, la frecuencia relativa de ocurrencia es igual a
-$p$.
+$\hspace{0.08cm}p\hspace{0.08cm}$.
 
 A pesar de que el concepto anterior es atractivo, en la práctica puede
 ser difícil de verificar, excepto en ciertas circunstancias donde el
@@ -826,33 +838,42 @@ pueden ser evaluados, sin embargo no hay garantía que el resultado de un
 laboratorio pueda extrapolarse a un ambiente real.
 
 Entonces dicho esto, se supone que antes de hacer cualquier experimento
-una persona puede representar los conocimientos sobre $\theta$
+una persona puede representar los conocimientos sobre $\hspace{0.08cm}\theta\hspace{0.08cm}$
 (parámetro o parámetros de interés) con una distribución
-$f\left ( \theta \right )$.
+$\hspace{0.08cm}f\left ( \theta \right )\hspace{0.08cm}$.
 
 A esta distribución como hemos dicho antes, la llamamos distribución a priori.
 
 Como todo lo anterior puede sonar un poco raro y complejo, supongamos
 que queremos pedir una distribución a priori de un experto para
-$\theta=P\left ( cruz \right )$ ¿Qué sabemos sobre la probabilidad?
-$$0\leq \theta \leq 1$$. En la mayoría de experimentos, aproximadamente
+$\hspace{0.08cm}\theta=P\left ( cruz \right )\hspace{0.08cm}$ ¿Qué sabemos sobre la probabilidad? $\\[0.5cm]$
+
+$$0\leq \theta \leq 1$$.
+
+En la mayoría de experimentos, aproximadamente
 el 50% de los resultados son cruces. Entonces buscamos una distribución
-a priori con soporte en el intervalo $\left [ 0,1 \right ]$ y centrado
-en 0.5.
+a priori con soporte en el intervalo $\hspace{0.08cm}\left [ 0,1 \right ]\hspace{0.08cm}$ y centrado
+en $\hspace{0.08cm}0.5\hspace{0.08cm}$.
 
 Por ejemplo podemos utilizar para este caso la distribución beta, que
 tiene la siguiente definición matemática y propiedades. Una variable
-continua $\mathbf{Y}$ tiene una distribución beta con parámetros
-$\alpha, \beta>0$ si:
-$$\mathbf{f_{Y}}\left ( y \right )=\frac{1}{B\left ( \alpha, \beta \right )}y^{\alpha-1}\left ( 1-y \right )^{\beta-1}$$
-para $0 < y < 1$. $B\left ( \cdot,\cdot \right )$ es el coeficiente
-beta.
-$$B\left ( \alpha,\beta \right )=\int_{0}^{1}y^{\alpha-1}\left ( 1-y \right )^{\beta-1}dy=\frac{\Gamma\left ( \alpha \right )\Gamma\left ( \beta \right )}{\Gamma\left ( \alpha + \beta \right )}$$
-Se tiene que $E\left [ Y \right ]=\frac{\alpha}{\alpha + \beta}$ y
-$V\left [ Y \right ]=\frac{\alpha\beta}{\left ( \alpha + \beta \right )^{2}\left ( \alpha + \beta + 1 \right )}$
+continua $\hspace{0.08cm}\mathbf{Y}\hspace{0.08cm}$ tiene una distribución beta con parámetros
+$\hspace{0.08cm}\alpha, \beta>0\hspace{0.08cm}$ si:
+
+$$\mathbf{f_{Y}}\left ( y \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{1}{B\left ( \alpha, \beta \right )}y^{\alpha-1}\left \cdot ( 1-y \right )^{\beta-1}$$
+
+para $\hspace{0.08cm}0 < y < 1\hspace{0.08cm}$. 
+
+$B\left ( \cdot,\cdot \right )\hspace{0.08cm}$ es el coeficiente
+beta, que se define como sigue:
+
+$$B\left ( \alpha,\beta \right )=\int_{0}^{1}y^{\alpha-1}\left ( 1-y \right )^{\beta-1}dy=\frac{\Gamma\left ( \alpha \right )\Gamma\left ( \beta \right )}{\Gamma\left ( \alpha + \beta \right )}\\$$
+
+Se tiene que $\hspace{0.08cm}E\left [ Y \right ]=\frac{\alpha}{\alpha + \beta}\hspace{0.1cm}$ y
+$\hspace{0.1cm}V\left [ Y \right ]=\frac{\alpha\beta}{\left ( \alpha + \beta \right )^{2}\left ( \alpha + \beta + 1 \right )}\hspace{0.1cm}$.
 
 Cambiando los parámetros, la distribución beta toma formas muy
-distintas. En este caso podemos coger la Beta(5,5).
+distintas. En este caso podemos coger la $\hspace{0.08cm}Beta(5,5)\hspace{0.08cm}$.
 
 Antes de seguir vamos a desarrollar las diferentes aproximaciones al
 análisis bayesiano.
@@ -893,79 +914,115 @@ cuando consideramos el enfoque bayesiano es la siguiente:
 
 Con la a priori podemos obtener la a posteriori que es la que de verdad
 nos importa y con la que trabajaremos. Para hallar la distribución a
-posteriori... ¿Cómo creéis que se hará...? Pues claro con el teorema de
-Bayes.
-$$f\left ( \theta|datos \right )=\frac{f\left ( \theta \right )f\left ( datos|\theta \right )}{f\left ( datos \right )}$$
+posteriori... ¿Cómo creéis que se hará...? Pues claro, con el teorema de
+Bayes:
+
+$$f\left ( \theta|datos \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{\hspace{0.08cm}f\left ( \theta \right )f\left ( datos|\theta \right )\hspace{0.08cm}}{f\left ( datos \right )}$$
+
 En esta expresión:
 
-$f\left ( \theta|datos \right )$ es la distribución a posteriori.
+- $f\left ( \theta|datos \right )\hspace{0.08cm}$ es la distribución a posteriori. $\\[0.5cm]$
 
-$f\left ( \theta \right )$ es la distribución a priori.
+- $f\left ( \theta \right )\hspace{0.08cm}$ es la distribución a priori. $\\[0.5cm]$
 
-$f\left (datos|\theta \right)= I\left ( \theta|datos \right )$ es la
-función de verosimilitud.
+- $f\left (datos|\theta \right)= I\left ( \theta|datos \right )\hspace{0.08cm}$ es la
+función de verosimilitud. $\\[0.5cm]$
 
-$f\left (datos \right)=\int f\left (datos|\theta \right)f\left (\theta \right)d\theta$ es la verosimitud marginal.
+- $f\left (datos \right)=\int f\left (datos|\theta \right)f\left (\theta \right)d\theta\hspace{0.08cm}$ es la verosimitud marginal. $\\[0.5cm]$
 
-De la fórmula anterior, observamos que el denominador no depende de $\theta$, luego tenemos que:
-$$f\left ( \theta|datos \right ) \propto f\left ( \theta \right ) f\left (datos|\theta \right)$$
-$$a\ posteriori \propto a\ priori \times verosimilitud$$
+De la fórmula anterior, observamos que el denominador no depende de $\hspace{0.08cm}\theta\hspace{0.08cm}$, luego tenemos que:
+
+$$f\left ( \theta|datos \right ) \hspace{0.08cm}\propto\hspace{0.08cm} f\left ( \theta \right ) f\left (datos|\theta \right)$$
+$$\text{a posteriori} \hspace{0.08cm} \propto\hspace{0.08cm} \text{a priori \times verosimilitud}$$
 
 <br>
 
 ## Estimación Puntual
-Cuando hemos calculado la distribución a posteriori, podemos utilizar la media a posteriori, la mediana a posteriori, la moda a posteriori como estimadores puntuales de $\theta$. Este último caso es conocido como el estimador máximo a posteriori o MAP.
+Cuando hemos calculado la distribución a posteriori, podemos utilizar la media a posteriori, la mediana a posteriori, la moda a posteriori como estimadores puntuales de $\hspace{0.08cm}\theta\hspace{0.08cm}$. Este último caso es conocido como el estimador máximo a posteriori o MAP.
 
 <br>
 
 ## Estimación por Intervalos
 
-Un intervalo de $100(1-\alpha)\%$ de credibilidad o de confianza bayesiana es cualquier intervalo tal que $P\left ( LI<\theta<LS|datos \right )=1-\alpha$.
+Un intervalo de $\hspace{0.08cm}100\cdot(1-\alpha)\%\hspace{0.08cm}$ de credibilidad o de confianza bayesiana es cualquier intervalo tal que $\hspace{0.08cm}P\left ( LI<\theta<LS|datos \right )=1-\alpha\hspace{0.1cm}$.
+
 ¿Cuál es la interpretación de este intervalo? ¿Será igual que en el caso frecuentista?
+
 El intervalo de credibilidad más corto se llama el intervalo de máxima densidad a posteriori. Y a las preguntas anteriores, la respuesta es que no, las interpretaciones son distintas, en el enfoque bayesiano, estos intervalos son interpretados de la forma siguiente:
 Un intervalo de credibilidad es un intervalo dentro del cual cae un valor de un parámetro no observado con una probabilidad particular. Esto es, el verdadero valor del parámetro caerá dentro del intervalo por ejemplo con un 95% de probabilidad, que contrasta con la interpretación del intervalo frecuentista o clásico.
 
-## 3.6. CONTRASTES Y SELECCIÓN DE MODELOS
-En teoría, hacer contrastes de hipótesis a la bayesiana es bastante fácil y nuestro modo de ver más intuitivo que con el concepto de p-valor. Dadas las distribuciones a priori, $P\left ( H_{0} \right )$ y $P\left ( H_{1} \right )=1-P\left ( H_{0} \right )$, se calculan las probabilidades a posteriori con:
-$$P\left ( H_{0}|datos \right )\propto f\left ( datos|H_{0} \right )P\left ( H_{0} \right )\propto P\left ( H_{0} \right )\int f\left ( datos|H_{0},\theta \right )f\left ( \theta|H_{0} \right )d\theta$$
-Con esto, dada una regla de decisión, se puede decidir rechazar $H_{0}$ o no.
-En principio, podemos utilizar las mismas técnicas para seleccionar modelos: fijadas las probabilidades a priori de cada modelo, calculamos las a posteriori y seleccionamos el modelo probable.
-
-Ejemplo:
-Supongamos que queremos contrastar:
-$$H_{0}: \theta \leq 0.5$$
-$$H_{1}: \theta > 0.5$$
-Dada la a priori Beta(5,5) empleada anteriormente, entonces $P\left ( H_{0} \right )=\int_{0}^{0.5}f(\theta)d\theta=0.5$ y luego, a posteriori:
-$$P\left ( H_{0}|datos \right )=\int_{0}^{0.5} \frac{1}{B(14,8)}\theta^{14-1}\left ( 1-\theta \right )^{8-1}d\theta=0.0946$$
-Dada la regla de decisión de rechazar $H_{0}$ si su probabilidad a posterior es menor que 0.05, no rechazaríamos esta hipótesis.
-
-¿Hay algún problema con esta idea?
-
-Aunque parezca que no hay ningun problema, hay que darse cuenta que las probabilidades tienen que sumar 1, por lo que la $P\left ( H_{1}|datos \right )$ será la complementaria a la de $H_{0}$, por lo que en este enfoque no tiene sentido el concepto de p-valor y para este caso rechazaríamos la hipótesis nula ya que la probabilidad a posteriori de la hipótesis alternativa es mayor que la de la nula.
 
 <br>
 
-## Predicción
+## Contraste y selección de modelos
 
-Supongamos que queremos predecir el valor de una nueva variable $\mathbf{Y}$. Entonces, $$f\left ( \mathbf{y}|datos \right )=\int f\left (\mathbf{y}|\theta,datos \right )f\left (\theta|datos \right )d\theta$$ y en muchas ocasiones, $\mathbf{Y}$ es condicionalmente independiente de los datos dado $\theta$, y luego:
+En teoría, hacer contrastes de hipótesis a la bayesiana es bastante fácil y nuestro modo de ver más intuitivo que con el concepto de p-valor. Dadas las distribuciones a priori, $\hspace{0.08cm}P\left ( H_{0} \right )\hspace{0.1cm}$ y $\hspace{0.08cm}P\left ( H_{1} \right )=1-P\left ( H_{0} \right )\hspace{0.08cm}$, se calculan las probabilidades a posteriori con:
+
+
+$$P\left ( H_{0}|datos \right )\propto f\left ( datos|H_{0} \right )P\left ( H_{0} \right )\propto P\left ( H_{0} \right )\int f\left ( datos|H_{0},\theta \right )f\left ( \theta|H_{0} \right )d\theta$$
+
+
+Con esto, dada una regla de decisión, se puede decidir rechazar $\hspace{0.08cm}H_{0}\hspace{0.08cm}$ o no.
+
+En principio, podemos utilizar las mismas técnicas para seleccionar modelos: fijadas las probabilidades a priori de cada modelo, calculamos las a posteriori y seleccionamos el modelo probable. $\\[0.5cm]$
+
+**Ejemplo:**
+
+Supongamos que queremos contrastar:
+
+$$H_{0}: \theta \leq 0.5$$
+$$H_{1}: \theta > 0.5$$
+
+Dada la a priori Beta(5,5) empleada anteriormente, entonces $\hspace{0.08cm}P\left ( H_{0} \right )=\int_{0}^{0.5}f(\theta)d\theta=0.5\hspace{0.08cm}$ y luego, a posteriori:
+
+$$P\left ( H_{0}|datos \right )\hspace{0.08cm}=\hspace{0.08cm}\int_{0}^{0.5} \frac{1}{B(14,8)}\theta^{14-1}\left ( 1-\theta \right )^{8-1}d\theta\hspace{0.08cm}=\hspace{0.08cm}0.0946$$
+
+Dada la regla de decisión de rechazar $\hspace{0.08cm}H_{0}\hspace{0.08cm}$ si su probabilidad a posterior es menor que 0.05, no rechazaríamos esta hipótesis.
+
+¿Hay algún problema con esta idea?
+
+Aunque parezca que no hay ningun problema, hay que darse cuenta que las probabilidades tienen que sumar 1, por lo que la $\hspace{0.08cm}P\left ( H_{1}|datos \right )\hspace{0.08cm}$ será la complementaria a la de $\hspace{0.08cm}H_{0}\hspace{0.08cm}$, por lo que en este enfoque no tiene sentido el concepto de p-valor y para este caso rechazaríamos la hipótesis nula ya que la probabilidad a posteriori de la hipótesis alternativa es mayor que la de la nula.
+
+<br>
+
+## Predicción <a class="anchor" id="1"></a>
+
+Supongamos que queremos predecir el valor de una nueva variable $\mathbf{Y}$. 
+
+Entonces:
+
+$$f\left ( \mathbf{y}|datos \right )=\int f\left (\mathbf{y}|\theta,datos \right )f\left (\theta|datos \right )d\theta$$ 
+
+y en muchas ocasiones, $\hspace{0.08cm}\mathbf{Y}\hspace{0.08cm}$ es condicionalmente independiente de los datos dado $\theta$, y luego:
+
 $$f\left ( \mathbf{y}|datos \right )=\int f\left (\mathbf{y}|\theta \right )f\left (\theta|datos \right )d\theta$$
 
 Veamos un ejemplo de esto y terminamos con este artículo.
-Supongamos que queremos calcular la distribución del $\mathbf{X}$="número de cruces en 10 tiradas más de la moneda".
-Tenemos $X|\theta \sim Binomial(10,\theta)$, y $\theta|datos \sim Beta(14,8)$. Entonces:
-$$P\left ( \mathbf{X}=\mathbf{x}|datos \right )=\int_{0}^{1}\binom{10}{x}\theta^{x}\left ( 1-\theta \right )^{10-x}\frac{1}{B(14,8)}\theta^{14-1}\left ( 1-\theta \right )^{8-1}d\theta$$
-$$=\binom{10}{x}\frac{1}{B(14,8)}\int_{0}^{1}\theta^{14+x-1}\left ( 1-\theta \right )^{18-x-1}d\theta$$
-$$=\binom{10}{x}\frac{B(14+x,18-x)}{B(14,8)}\int_{0}^{1}\frac{1}{B(14+x,18-x)}\theta^{14+x-1}\left ( 1-\theta \right )^{18-x-1}d\theta$$
-$$=\binom{10}{x}\frac{B(14+x,18-x)}{B(14,8)}\ para\ x\ =0,1,...,10$$
+Supongamos que queremos calcular la distribución del $\hspace{0.08cm}\mathbf{X}\hspace{0.08cm}$="número de cruces en 10 tiradas más de la moneda".
 
-Como hemos podido ver las cuentas en el ámbito bayesiano no son tan amigables como en lo frecuentista. Ahora nos interesa el cálculo de la media de $\mathbf{X}$.
+Tenemos $\hspace{0.08cm}X|\theta \sim Binomial(10,\theta)$, y $\theta|datos \sim Beta(14,8)\hspace{0.08cm}$. 
+
+Entonces:
+
+$$P\left ( \mathbf{X}=\mathbf{x}|datos \right )=\int_{0}^{1}\binom{10}{x}\theta^{x}\left ( 1-\theta \right )^{10-x}\frac{1}{B(14,8)}\theta^{14-1}\left ( 1-\theta \right )^{8-1}d\theta\\$$
+
+$$=\binom{10}{x}\frac{1}{B(14,8)}\int_{0}^{1}\theta^{14+x-1}\left ( 1-\theta \right )^{18-x-1}d\theta\\$$
+
+$$=\binom{10}{x}\frac{B(14+x,18-x)}{B(14,8)}\int_{0}^{1}\frac{1}{B(14+x,18-x)}\theta^{14+x-1}\left ( 1-\theta \right )^{18-x-1}d\theta\\$$
+
+$$=\binom{10}{x}\frac{B(14+x,18-x)}{B(14,8)}$$
+
+para $x =0,1,...,10$
+
+Como hemos podido ver las cuentas en el ámbito bayesiano no son tan amigables como en lo frecuentista. Ahora nos interesa el cálculo de la media de $\hspace{0.08cm}\mathbf{X}\hspace{0.08cm}$.
+
 El cálculo directo a través de la distribución beta-binomial parece complicado. 
 
 ¿Existe una manera más sencilla? 
 
 Pues afortunadamente sí, para los que pensaran al principio de este artículo... y estos conceptos para que me sirven, pues veréis, en este caso es de gran utilidad la antes mencionada Ley de las Esperanzas Iteradas.
 
-$E[X|datos]=E[E[\mathbf{X}|\theta]|datos]=E[10\theta|datos]=10E[\theta|datos]=10\times \frac{14}{14+8}=6.364$
+$E[X|datos]\hspace{0.08cm}=\hspace{0.08cm}E[E[\mathbf{X}|\theta]|datos]\hspace{0.08cm}=\hspace{0.08cm}E[10\theta|datos]\hspace{0.08cm}=\hspace{0.08cm}10E[\theta|datos]\hspace{0.08cm}=\hspace{0.08cm}10\times \frac{14}{14+8}\hspace{0.08cm}=\hspace{0.08cm}6.364$
 
 
 <br>
@@ -974,7 +1031,7 @@ $E[X|datos]=E[E[\mathbf{X}|\theta]|datos]=E[10\theta|datos]=10E[\theta|datos]=10
 
 <br>
 
-# Tabla Resumen
+# Tabla Resumen <a class="anchor" id="1"></a>
 
 Ya por último vamos a resumir en una tabla lo que hemos ido explicando en este artículo.
 
@@ -998,5 +1055,18 @@ Espero que os haya gustado y servido.
 
 # Bibliografía
 
-Diapos de MIke Wiper, el libro de Introducción a la estadística bayesiana de Juan Carlos Correa Morales y Carlos Javier Barrera Causil.
+- Wiper,M. (2022). Repaso de algunos resultados de probabilidad. [Presentación de PowerPoint]. Aula Global UC3M. $\\[0.5cm]$
+
+- Wiper,M. (2022). Variables estadísticas, distribuciones  conjuntas, marginales y condicionales. [Presentación de PowerPoint]. Aula Global UC3M. $\\[0.5cm]$
+
+- Wiper,M. (2022). Inferencia frecuentista. [Presentación de PowerPoint]. Aula Global UC3M. $\\[0.5cm]$
+
+- Wiper,M. (2022). Inferencia bayesiana. [Presentación de PowerPoint]. Aula Global UC3M. $\\[0.5cm]$
+
+- Barrero Causil, C., Correa Morales, J. (2018). Introducción a la estadística bayesiana. Fondo Editorial ITM.
+
+<br>
+ 
+
+ 
 
