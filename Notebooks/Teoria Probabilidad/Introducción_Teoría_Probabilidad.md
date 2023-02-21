@@ -1573,7 +1573,7 @@ Pues bien, en este contexto tenemos el siguiente teorema que nos permite determi
 Si $\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} A \rightarrow \mathbb{R}\hspace{0.08cm}$ es continua, estrictamente decreciente o creciente y $\hspace{0.08cm}g^{-1}\hspace{0.08cm}$ es diferenciable, entonces, la funcion de densidad de $\hspace{0.08cm}\mathcal{Y}=g(\mathcal{X})\hspace{0.08cm}$ es la siguiente:
 
 
-$$f_{\mathcal{Y}} \hspace{0.08cm}=\hspace{0.08cm} f_{\mathcal{X}}\left( g^{-1}(y) \right) \cdot \left| \dfrac{\partial g^{-1}(y)}{\partial y}  \right| \cdot \mathbb{I}\hspace{0.08cm}\Bigl[ \hspace{0.08cm} \lbrace g(x) : x \in A \rbrace \hspace{0.08cm} \Bigr]$$
+$$f_{\mathcal{Y}}(y) \hspace{0.08cm}=\hspace{0.08cm} f_{\mathcal{X}}\left( g^{-1}(y) \right) \cdot \left| \dfrac{\partial g^{-1}(y)}{\partial y}  \right| \cdot \mathbb{I}\hspace{0.08cm}\Bigl[ \hspace{0.08cm} \lbrace g(x) \hspace{0.08cm}:\hspace{0.08cm} x \in A \rbrace \hspace{0.08cm} \Bigr]$$
 
 
 <br>
@@ -1583,34 +1583,59 @@ $$f_{\mathcal{Y}} \hspace{0.08cm}=\hspace{0.08cm} f_{\mathcal{X}}\left( g^{-1}(y
 
 # Distribución de la Transformación de varias Variables Aleatorias
 
-Supongamos que conocemos la distribución conjunta de las variables aleatorias $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y} \right)\hspace{0.08cm}$  continuas que toman valores en $\hspace{0.08cm}A\text{x}B \subset \mathbb{R}^2\hspace{0.08cm}$, es decir, conocemos la función de densidad conjunta $f_{\mathcal{X},\mathcal{Y}}$.
+Supongamos que conocemos la distribución conjunta de las variables aleatorias $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y} \hspace{0.08cm}$  continuas que toman valores en $\hspace{0.08cm}A\text{x}B \subset \mathbb{R}^2\hspace{0.08cm}$, es decir, conocemos la función de densidad conjunta $\hspace{0.08cm}f_{\mathcal{X},\mathcal{Y}}\hspace{0.08cm}$.
 
-Si $\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} A\text{x}B \rightarrow \mathbb{R}^2\hspace{0.08cm}$, entonces  $\hspace{0.08cm}g(\mathcal{X}, \mathcal{Y})=(g_1(\mathcal{X}), g_2(\mathcal{Y})\hspace{0.08cm}$ es una transformación de  las v.a.'s $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y} \right)\hspace{0.08cm}$.
-
-
-COMPLETAR
+Si $\hspace{0.12cm}g \hspace{0.05cm}:\hspace{0.05cm} A\text{x}B \subset \mathbb{R}^2 \hspace{0.08cm}\rightarrow\hspace{0.08cm} \mathbb{R}^2\hspace{0.12cm}$, entonces  $\hspace{0.1cm}g(\mathcal{X}, \mathcal{Y})\hspace{0.08cm}=\hspace{0.08cm}\left( \hspace{0.08cm} g_1(\mathcal{X}, \mathcal{Y}) \hspace{0.08cm},\hspace{0.08cm} g_2(\mathcal{X}, \mathcal{Y}) \hspace{0.08cm} \right) \hspace{0.1cm}$ es una transformación de  las v.a.'s $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y} \hspace{0.08cm}$.
 
 
-COMPLETAR
+ 
+
+En este contexto tenemos el siguiente teorema que nos permite determinar la distribución de la transformación $\hspace{0.1cm}g(\mathcal{X}, \mathcal{Y})\hspace{0.08cm}=\hspace{0.08cm}\left(\hspace{0.08cm} g_1(\mathcal{X}, \mathcal{Y}) \hspace{0.08cm},\hspace{0.08cm} g_2(\mathcal{X}, \mathcal{Y})\hspace{0.08cm} \right) \hspace{0.1cm}$,   a partir de la distribución conjunta de    $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$.
 
 
-COMPLETAR
-
-COMPLETAR
-
-Pues bien, en este contexto tenemos el siguiente teorema que nos permite determinar la distribución de la transformación $\hspace{0.08cm}\mathcal{Y}=g(\mathcal{X})\hspace{0.08cm}$,   a partir de la distribución de la propia $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$
+Si $\hspace{0.08cm}g \hspace{0.05cm}:\hspace{0.05cm} A \text{x} B \subset \mathbb{R}^2 \hspace{0.08cm}\rightarrow\hspace{0.08cm} \mathbb{R}^2\hspace{0.12cm}$ es continua, y $\hspace{0.08cm}g^{-1}\hspace{0.08cm}$ es diferenciable, entonces, la función de densidad conjunta de $\hspace{0.1cm}g(\mathcal{X}, \mathcal{Y})\hspace{0.08cm}=\hspace{0.08cm}\left(\hspace{0.08cm} g_1(\mathcal{X}, \mathcal{Y}) \hspace{0.08cm},\hspace{0.08cm} g_2(\mathcal{X}, \mathcal{Y})\hspace{0.08cm} \right) \hspace{0.1cm}$ es la siguiente: $\\[0.3cm]$
 
 
-Si $\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} A \rightarrow \mathbb{R}\hspace{0.08cm}$ es continua, estrictamente decreciente o creciente y $\hspace{0.08cm}g^{-1}\hspace{0.08cm}$ es diferenciable, entonces, la funcion de densidad de $\hspace{0.08cm}\mathcal{Y}=g(\mathcal{X})\hspace{0.08cm}$ es la siguiente:
+$$f_{g_1(\mathcal{X}, \mathcal{Y}), g_2(\mathcal{X}, \mathcal{Y}) }(u,v) \hspace{0.1cm}=\hspace{0.1cm} f_{\mathcal{X},\mathcal{Y}}\left( \hspace{0.08cm} g^{-1}(u,v) \hspace{0.08cm} \right) \cdot \left| \hspace{0.08cm} J^{-1}(u,v) \hspace{0.08cm} \right| \cdot \mathbb{I}\hspace{0.08cm}\Bigl[ \hspace{0.08cm} \left\{\hspace{0.08cm}  g(x,y) =\left( \hspace{0.08cm} g_1(x,y) \hspace{0.08cm},\hspace{0.08cm} g_2(x,y) \hspace{0.08cm}\right) \hspace{0.1cm} :\hspace{0.1cm} (x,y) \in A\text{x}B \hspace{0.08cm}\right\} \hspace{0.08cm} \Bigr]$$
+
+donde:
 
 
-$$f_{\mathcal{Y}} \hspace{0.08cm}=\hspace{0.08cm} f_{\mathcal{X}}\left( g^{-1}(y) \right) \cdot \left| \dfrac{\partial g^{-1}(y)}{\partial y}  \right| \cdot \mathbb{I}\hspace{0.08cm}\Bigl[ \hspace{0.08cm} \lbrace g(x) : x \in A \rbrace \hspace{0.08cm} \Bigr]$$
+$$g(x,y) \hspace{0.08cm}=\hspace{0.08cm} \left( \hspace{0.08cm} g_1(x,y) \hspace{0.08cm} , \hspace{0.08cm} g_2(x,y) \hspace{0.08cm} \right)$$
+
+
+$$g^{-1}(u,v) \hspace{0.08cm}=\hspace{0.08cm} \left( \hspace{0.08cm} h_1(u,v) \hspace{0.08cm},\hspace{0.08cm} h_2(u,v) \hspace{0.08cm}\right)$$
+
+$$g(\hspace{0.08cm}g^{-1}(u,v)\hspace{0.08cm}) \hspace{0.08cm}=\hspace{0.08cm} g(\hspace{0.08cm}h_1(u,v)\hspace{0.08cm},\hspace{0.08cm}h_2(u,v)\hspace{0.08cm})\hspace{0.08cm}=\hspace{0.08cm}(u,v)$$
+
+$$g^{-1}(\hspace{0.08cm}g(x,y)\hspace{0.08cm}) \hspace{0.08cm}=\hspace{0.08cm} g^{-1}(\hspace{0.08cm}g_1(x,y)\hspace{0.08cm},\hspace{0.08cm}g_2(x,y)\hspace{0.08cm}) \hspace{0.08cm}=\hspace{0.08cm} \left(x, y\right) \\$$
+
+$$\left|\hspace{0.08cm} J^{-1}(u,v) \hspace{0.08cm} \right| \hspace{0.08cm} =\hspace{0.08cm} \left|
+\begin{array}{cc}
+ \dfrac{\partial h_1(u,v)}{\partial u} & \dfrac{\partial h_1(u,v)}{\partial v}\\
+\dfrac{\partial h_2(u,v)}{\partial u} & \dfrac{\partial h_2(u,v)}{\partial v}
+\end{array}
+\right|$$
+
+
+<br>
+
+
+# Fórmula de convolución
+
+
+Sea $\hspace{0.08cm}\mathcal{Z}=\mathcal{X}+\mathcal{Y}\hspace{0.08cm}$.
+
+- Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son v.a.'s continuas: $\\[0.2cm]$
+
+
+$$f_{\mathcal{Z}}(z) = f_{\mathcal{X}+\mathcal{Y}}(z) = \int_{x\in \mathbb{R}} f_{\mathcal{X}, \mathcal{Y}}(x, z-x)\hspace{0.08cm} dx \\$$
 
 
 
+- Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son v.a.'s discretas: $\\[0.2cm]$
 
-
-
+$$f_{\mathcal{Z}}(z) = f_{\mathcal{X}+\mathcal{Y}}(z) = \sum_{x\in \mathbb{R}} f_{\mathcal{X}, \mathcal{Y}}(x, z-x)$$
 
 
 
@@ -1620,7 +1645,7 @@ $$f_{\mathcal{Y}} \hspace{0.08cm}=\hspace{0.08cm} f_{\mathcal{X}}\left( g^{-1}(y
 
  
 
-$\hspace{0.25cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ son variables aleatorias mutuamente independientes e identicamente distribuidas  *(i.i.d.)* $\hspace{0.3cm}\Leftrightarrow$
+$\hspace{0.25cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ son variables aleatorias mutuamente independientes e identicamente distribuidas  *(i.i.d.)*, si y solo si:
 
 - $\hspace{0.1cm}$ $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son mutuamente independientes , es decir:
 
@@ -1628,23 +1653,23 @@ $$\hspace{0.08cm} P(\mathcal{X}_1=x_1,...,\mathcal{X}_n=x_n) \hspace{0.1cm}=\hsp
 
 $\hspace{0.7cm}$ Lo que implica que también son independientes dos a dos , es decir, $\hspace{0.12cm} \mathcal{X}_i \perp \mathcal{X}_j \hspace{0.12cm} , \hspace{0.12cm} \forall i\neq j \\$
 
-- $\hspace{0.1cm}$ $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.12cm}$ tienen la misma distribución de probabilidad, es decir, $\hspace{0.12cm}\mathcal{X}_i \sim F( \cdot ) \hspace{0.15cm}, \hspace{0.1cm} \forall i=1,...,n$ 
+- $\hspace{0.1cm}$ $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.12cm}$ tienen la misma distribución de probabilidad, es decir, $\hspace{0.12cm}\mathcal{X}_i \sim D( \cdot ) \hspace{0.15cm}, \hspace{0.1cm} \forall i=1,...,n$ 
 
 
 
  
 
- Donde $\hspace{0.08cm}F( \cdot )\hspace{0.08cm}$ es una distribucion de probabilidad con parametros no especificados. $\\[0.5cm]$
+ Donde $\hspace{0.08cm}D( \cdot )\hspace{0.08cm}$ es una distribución de probabilidad con parámetros no especificados. $\\[0.5cm]$
 
 
 
 
-Usaremos la siguiente notación: $\\[0.4cm]$
+Se suele emplear la siguiente notación: $\\[0.4cm]$
 
 
-$$(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \hspace{0.3cm} \Leftrightarrow
-\left\lbrace\begin{array}{l}   \hspace{0.12cm}\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.2cm} \text{son mutuamente independientes} \\[0.1cm] 
-\hspace{0.12cm}\mathcal{X}_i \sim F(\cdot) \hspace{0.12cm} , \hspace{0.12cm} \forall i=1,...,n    \end{array}\right. \\[1cm]$$
+$$(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} D(\cdot) \hspace{0.3cm} \Leftrightarrow \hspace{0.3cm}
+\left\lbrace\begin{array}{l}   \hspace{0.12cm}\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.25cm} \text{son mutuamente independientes} \\[0.1cm] 
+\hspace{0.12cm}\mathcal{X}_i \sim D(\cdot) \hspace{0.12cm} , \hspace{0.12cm} \forall i=1,...,n    \end{array}\right. \\[1cm]$$
 
 
 
@@ -1654,26 +1679,21 @@ $$(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \hspace{0.3
 
  
 
-$\hspace{0.25cm}$ Sea $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ una v.a. tal que $\hspace{0.1cm}\mathcal{X} \sim F(\cdot)$ 
+ Sea $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ una v.a. tal que $\hspace{0.1cm}\mathcal{X} \sim D(\cdot)$ .
 
 
-$\hspace{0.25cm}$ $\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.1cm}$ es una muestra aleatoria simple (m.a.s.) de tamaño $\hspace{0.08cm}n\hspace{0.08cm}$ de $\hspace{0.1cm}\mathcal{X}$ $\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm}$ $(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} F(\cdot) \\$
+$\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.1cm}$ es una muestra aleatoria simple (m.a.s.) de tamaño $\hspace{0.08cm}n\hspace{0.08cm}$ de $\hspace{0.1cm}\mathcal{X}$ $\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$ $(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} D(\cdot) \\$
 
  
 
 **Observación:**
 
-Una m.a.s. de una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ es un vector de v.a.'s mutuamente independientes y que se distribuyen probabilisticamente igual que la v.a. $\hspace{0.1cm}\mathcal{X}$
+Una m.a.s. de una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ es un vector de v.a.'s mutuamente independientes y que se distribuyen probabilisticamente igual que la v.a. $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$.
 
 
 
 
-
-# Definiciones de Convergencia
-
-
-
-
+<br>
 
 
 
@@ -1682,15 +1702,15 @@ Una m.a.s. de una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ es un vector de
 
  
 
-$\hspace{0.25cm}$ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
+ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
 
-$$E\left[\overline{\mathcal{X}_n}\right] \hspace{0.1cm}=\hspace{0.1cm} E[\mathcal{X}]\\$$
+$$E\left[\hspace{0.08cm}\overline{\mathcal{X}_n}\hspace{0.08cm}\right] \hspace{0.1cm}=\hspace{0.1cm} E[\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}]\\$$
 
-$$Var\left(\overline{\mathcal{X}_n}\right) \hspace{0.1cm}=\hspace{0.1cm} Var(\mathcal{X})/n \\$$
+$$Var\left(\hspace{0.08cm}\overline{\mathcal{X}_n}\hspace{0.08cm}\right) \hspace{0.1cm}=\hspace{0.1cm} Var(\mathcal{X})/n \\$$
 
-$\hspace{0.25cm}$ Donde:
+ Donde:
 
-- $\hspace{0.1cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i$
+$\hspace{0.25cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i$
 
  
 
@@ -1702,96 +1722,243 @@ $\hspace{0.25cm}$ Donde:
 # Teorema de distribución de la media muestral
 
  
+ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu , \sigma^2)\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
 
-$\hspace{0.25cm}$ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu , \sigma^2)\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
+
+$$\overline{ \mathcal{X}_n } \sim N(\mu \hspace{0.1cm},\hspace{0.1cm} \sigma^2/n)\\$$
+
+Donde:
+
+$$\mu \hspace{0.08cm}=\hspace{0.08cm} E\left[\hspace{0.08cm}\overline{\mathcal{X}_n}\hspace{0.08cm}\right]$$
+
+$$\sigma^2 \hspace{0.08cm}=\hspace{0.08cm} Var\left(\hspace{0.08cm}\overline{\mathcal{X}_n}\hspace{0.08cm}\right) \\$$
 
 
-$$\overline{ \mathcal{X}_n } \sim N(\mu \hspace{0.1cm},\hspace{0.1cm} \sigma^2/n)$$
-
-$\hspace{0.25cm}$ Por tanto:
+Por tanto:
 
 
 $$\dfrac{\hspace{0.2cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.2cm}}{ \sqrt{\sigma^2 / n}  } \hspace{0.1cm}\sim\hspace{0.1cm} N(0,1)$$
 
  
+<br>
+
+# Independencia entre Media Aritmética y Cuasivarianza
+
+
+Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}$, y dada una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X} \hspace{0.08cm}$ , se cumple lo siguiente : $\\[0.7cm]$
+
+$$\overline{X}_n \hspace{0.25cm} y \hspace{0.25cm} S_n^2 \hspace{0.25cm} \text{son variables aleatorias independientes.}$$
+
+
+Donde:
+
+ $\hspace{0.25cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i \\$
+
+ $\hspace{0.25cm}S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2$
+
+ 
+
+
+
+
+<br>
 
 
 
 # Teorema de Gosset
 
- 
 
-$\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}$, y dada una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X} \\$ 
+Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}$, y dada una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X} \hspace{0.08cm}$ , se cumple lo siguiente : $\\[0.5cm]$ 
 
 
 $$\dfrac{\hspace{0.15cm} \overline{\mathcal{X}_n} - \mu \hspace{0.15cm}}{\sqrt{\dfrac{n}{n-1} S_n^2/n \hspace{0.1cm}} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{n-1} \\$$
 
-$\hspace{0.25cm}$ Donde:
+Donde:
 
-- $\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i \\$
+ $\hspace{0.25cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i \\$
 
-- $S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2$
+ $\hspace{0.25cm}S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2$
 
  
+<br>
 
 
 # Teorema de Fisher
 
- 
 
-$\hspace{0.25cm}$ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}$, y dada una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}$ 
+Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}$, y dada una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.08cm} .$ , se cumple lo siguiente : $\\[0.5cm]$ 
 
 
 $$\dfrac{\hspace{0.15cm} n\cdot S^2_n \hspace{0.15cm}}{ \sigma^2 \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} \chi^2_{n-1}$$
 
 
-$\hspace{0.25cm}$ Donde:
+Donde:
 
-- $\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i \\$
 
-- $S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2$
 
+$\hspace{0.25cm}S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2\\$
+
+$\hspace{0.25cm} \overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i$ 
+ 
+ 
+ <br>
+
+
+# Desigualdad de Markov
+
+Dada una v.a. $\hspace{0.1cm}\mathcal{X} \hspace{0.1cm}$ y una función $\hspace{0.1cm}g \hspace{0.08cm} : \hspace{0.08cm} Im(\mathcal{X}) \rightarrow \mathbb{R}^+\hspace{0.08cm}$.
+
+Se cumple la siguiente desigualdad, conocida como desigualdad de Markov: $\\[0.35cm]$
+
+
+$$P(\hspace{0.08cm} g(\mathcal{X}) \hspace{0.08cm}\geq\hspace{0.08cm} \epsilon \hspace{0.08cm}) \hspace{0.1cm}\leq\hspace{0.1cm} \dfrac{\hspace{0.08cm}E\left[ \hspace{0.08cm}g(\mathcal{X})\hspace{0.08cm} \right]\hspace{0.08cm}}{\epsilon} \hspace{0.3cm} ,  \hspace{0.3cm} \forall  \hspace{0.08cm} \epsilon > 0$$
+
+
+
+<br>
+
+# Desigualdad de Chebychev
+
+Dada una v.a. $\hspace{0.1cm}\mathcal{X} \hspace{0.1cm}$ con $\hspace{0.1cm}Var(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm})=\sigma^2\hspace{0.06cm}$.
+
+Se cumple la siguiente desigualdad, conocida como desigualdad de Chebychev: $\\[0.35cm]$
+
+
+$$P(\hspace{0.08cm} | \hspace{0.08cm} \mathcal{X} - \mu \hspace{0.08cm} | \hspace{0.08cm}\geq\hspace{0.08cm} \epsilon \hspace{0.08cm}) \hspace{0.1cm}\leq\hspace{0.1cm} \dfrac{\hspace{0.08cm}\sigma^2 \hspace{0.08cm} }{\epsilon^2} \hspace{0.3cm} ,  \hspace{0.3cm} \forall   \hspace{0.08cm} \epsilon > 0$$
+
+
+
+
+
+<br>
+
+
+# Definiciones de Convergencia
+
+## Convergencia en probabilidad
+
+ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$, una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$, y una función de la m.a.s $\hspace{0.1cm}h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$, donde $\hspace{0.1cm}g \hspace{0.1cm} : \hspace{0.1cm} Im(\mathcal{X}_1)\hspace{0.05cm}\text{x}\dots \text{x}\hspace{0.05cm}Im(\mathcal{X}_n) \hspace{0.1cm}\rightarrow\hspace{0.1cm} \mathbb{R}\hspace{0.12cm}$ , entonces: $\\[1cm]$
  
 
+ 
+ $$h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm} \text{converge en probabilidad a} \hspace{0.1cm}\mathcal{X}\hspace{0.3cm} \Leftrightarrow \\[0.7cm] \Leftrightarrow\hspace{0.3cm} \forall \hspace{0.08cm} \epsilon > 0 \hspace{0.25cm} , \hspace{0.25cm} P\left(\hspace{0.1cm} \left| \hspace{0.1cm} h(\mathcal{X}_1,...,\mathcal{X}_n) - \mathcal{X} \hspace{0.1cm} \right| \hspace{0.1cm} \geq \hspace{0.1cm} \epsilon \hspace{0.1cm} \right) \hspace{0.12cm}\rightarrow\hspace{0.12cm} 0 \hspace{0.2cm} , \hspace{0.2cm} \text{si}\hspace{0.15cm} n \hspace{0.1cm}\rightarrow\hspace{0.1cm} \infty \\[0.7cm]
+ \Leftrightarrow \hspace{0.3cm} \forall \hspace{0.08cm} \epsilon > 0 \hspace{0.3cm} , \hspace{0.3cm} \underset{n\rightarrow \infty}{\text{lim}} \hspace{0.12cm} P(\hspace{0.1cm} | \hspace{0.1cm} h(\mathcal{X}_1,...,\mathcal{X}_n) - \mathcal{X} \hspace{0.1cm} | \hspace{0.1cm} \geq \hspace{0.1cm} \epsilon \hspace{0.1cm}) \hspace{0.1cm}=\hspace{0.1cm} 0 \\$$
+
+ 
+**Notación:** 
+ 
+$h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm} \text{converge en probabilidad a} \hspace{0.1cm}\mathcal{X}$ $\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$ $h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm} \underset{p}{\rightarrow} \hspace{0.1cm}\mathcal{X}$
+
+
+ <br>
+
+## Convergencia en distribución
+
+
+ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$, una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$, y una función de la m.a.s $\hspace{0.1cm}h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$, donde $\hspace{0.1cm}g \hspace{0.1cm} : \hspace{0.1cm} Im(\mathcal{X}_1)\hspace{0.05cm}\text{x}\dots \text{x}\hspace{0.05cm}Im(\mathcal{X}_n) \hspace{0.1cm}\rightarrow\hspace{0.1cm} \mathbb{R}\hspace{0.12cm}$ , entonces: $\\[1cm]$
+ 
+ 
+ $$h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.2cm} \text{converge en distribucion a} \hspace{0.2cm}\mathcal{X}\hspace{0.3cm}\Leftrightarrow \hspace{0.3cm}  \underset{n\rightarrow \infty}{\text{lim}} \hspace{0.12cm} F_{ h(\mathcal{X}_1,...,\mathcal{X}_n)} = F_{\mathcal{X}}(x)$$
+
+**Notación:** 
+ 
+$h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm} \text{converge en distribucion a} \hspace{0.1cm}\mathcal{X}$ $\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$ $h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm} \underset{d}{\rightarrow} \hspace{0.1cm}\mathcal{X}$
+
+
+<br>
+
+# Momentos de una Variable Aleatoria
+
+El momento de orden $\hspace{0.08cm}k\hspace{0.08cm}$ de la variable aleatoria $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es $\hspace{0.1cm}E\left[\hspace{0.08cm}\mathcal{X}^k\hspace{0.08cm}\right]\hspace{0.08cm}$.
+
+
+<br>
+
+# Ley de los grandes números
+
+  La ley (débil) de los grandes establece lo siguiente:
+
+
+- Si tenemos una m.a.s $\hspace{0.1cm}\mathcal{X}_1 ,...,\mathcal{X}_n\hspace{0.1cm}$  de una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.6cm]$
+
+      
+    $$\overline{\mathcal{X}_n^k}\hspace{0.08cm} =\hspace{0.08cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^k \hspace{0.3cm} \underset{p}{\rightarrow} \hspace{0.3cm} E\left[\hspace{0.1cm}\mathcal{X}^k\hspace{0.1cm}\right] \\[1cm]$$
+
+
+
+    - El caso canónico es con $\hspace{0.08cm}k=1\hspace{0.08cm}$ :  $\\[0.6cm]$
+
+    $$\overline{\mathcal{X}_n} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i \hspace{0.3cm} \underset{p}{\rightarrow} \hspace{0.3cm} E\left[\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}\right]$$
+ 
+
+
+
+
+
+
+<br>
 
 # Teorema central del límite
 
 
+  El teorema central del límite (TCL) establece lo siguiente:
+
+- Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ con $\hspace{0.1cm}E[\mathcal{X}] = \mu\hspace{0.2cm}$ y $\hspace{0.2cm}Var(\mathcal{X})=\sigma^2 \neq 0 < \infty\hspace{0.2cm}$ , y también tenemos una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
+
+       
+       
+       
+    $$\overline{\mathcal{X}_n}  \hspace{0.2cm}\underset{d}{\rightarrow}\hspace{0.2cm} N(\mu\hspace{0.08cm},\hspace{0.08cm}\sigma^2/n)\\$$
+        
+        
+    Donde:
+        
+    $\hspace{0.15cm}\mu = E[\mathcal{X}] =E[\overline{\mathcal{X}_n}]$ 
+        
+         
+    $\hspace{0.15cm}\sigma^2/n = Var(\mathcal{X} ) / n = Var(\overline{\mathcal{X}_n}) \\$
+    
+    
+   
+    
+    
+    Por tanto:
+    
+    
+    $$\dfrac{\overline{\mathcal{X}_n} - \mu}{\sqrt{\sigma^2/n}}   \hspace{0.2cm}\underset{d}{\rightarrow}\hspace{0.2cm} N(0,1)\\[0.25cm]$$
+
+
+
+
+
+    Usando la definicion de convergencia en distribución tenemos lo siguiente: $\\[0.5cm]$
+
+
+
+    $$\underset{n \rightarrow \infty}{lim} \hspace{0.1cm} F_{W_n}(x) \hspace{0.1cm} =\hspace{0.1cm} F_{N(0,1)}(x) \hspace{0.25cm} , \hspace{0.25cm} \forall x\in \mathbb{R}$$
+
+    Donde:
+
+    $$W_n \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\overline{\mathcal{X}_n} - \mu}{\sqrt{\sigma^2 / n}}\\$$
  
-
-$\hspace{0.25cm}$ El TCL dice lo siguiente:
-
-$\hspace{0.25cm}$ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ con varianza finita y no nula, y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
-
-$$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqrt{Var\left(\overline{\mathcal{X}_n}\right)}} = \dfrac{\overline{\mathcal{X}_n} - E\left[\mathcal{X}\right]}{\sqrt{Var(\mathcal{X})/n}} \hspace{0.2cm}\underset{d}{\rightarrow}\hspace{0.2cm} N(0,1)\\$$
-
-
  
+ 
+ 
+**Interpretación:**
 
+Si $\hspace{0.08cm}n\hspace{0.08cm}$ es grande y se obtiene un número elevado $\hspace{0.08cm}k\hspace{0.08cm}$ de realizaciones de la m.a.s. $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\mathcal{X}\sim D(\cdot)$, de manera que $\hspace{0.1cm}x_i = (x_{i1},...,x_{in})^t\hspace{0.1cm}$ es la realizacion i estima , donde $\hspace{0.1cm}x_{ij}\hspace{0.1cm}$ es la realizacion i-esima de la v.a. $\hspace{0.08cm}\mathcal{X}_j\hspace{0.1cm}$, entonces:
 
+La distribución de frecuencias relativas del vector $\hspace{0.08cm}( \hspace{0.08cm} x_i=(x_{i1},...,x_{in}) \hspace{0.08cm}:\hspace{0.08cm} i=1,...,k \hspace{0.08cm})\hspace{0.08cm}$ se aproxima a la de la distribución normal con media $\hspace{0.08cm}\mu=E[\mathcal{X}]\hspace{0.08cm}$ y varianza $\hspace{0.08cm}\sigma^2/n = Var(\mathcal{X})/n\hspace{0.08cm}$.
 
-
-
-Usando la definicion de convergencia en distribución tenemos lo siguiente: $\\[0.5cm]$
-
-
-
-$$\underset{n \rightarrow \infty}{lim} \hspace{0.1cm} F_{W_n}(x) \hspace{0.1cm} =\hspace{0.1cm} F_{N(0,1)}(x) \hspace{0.25cm} , \hspace{0.25cm} \forall x\in \mathbb{R}$$
-
-Donde:
-
- $$W_n = \dfrac{\overline{\mathcal{X}_n} - E[\mathcal{X}]}{\sqrt{Var(\mathcal{X})/n}}$$
  
 <br> 
  
 # Teorema de Moivre-Laplace
 
- 
-
-$\hspace{0.25cm}$ Este teorema es un caso particular del TCL para v.a`s Binomiales.
+  Este teorema es un caso particular del TCL para v.a`s Binomiales.
 
 
-$\hspace{0.25cm}$ Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim Binomial(k,p)\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
+  Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim Binomial(k,p)\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
 
  
  
@@ -1802,15 +1969,6 @@ $$\dfrac{\overline{\mathcal{X}_n} - E\left[\overline{\mathcal{X}_n}\right]}{\sqr
  
  
 <br>
-
-
-
-
-
-
-
-
-
 
 
 
