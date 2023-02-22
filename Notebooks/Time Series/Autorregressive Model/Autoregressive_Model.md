@@ -1,7 +1,7 @@
 ---
-title: 'Autoregressive Model and Visualizing Time Series in Python'
+title: 'Autoregressive Model'
 author: 'Fabio Scielzo Ortiz'
-date: '1/03/23'
+date: '5/03/23'
 output: 
    rmdformats::readthedown:
       use_bookdown: true
@@ -73,3 +73,1113 @@ $\hspace{0.5cm}$ Scielzo Ortiz, Fabio. (2023). Preprocessing and Visualizing Tim
  
  
 <br>
+
+
+
+
+
+
+# Introduction to stochastic processes 
+
+
+## Stochastic processes  
+
+
+Let  $\hspace{0.1cm}\mathcal{X}_t\hspace{0.1cm}$ be a random variable (r.v.), for each $\hspace{0.1cm}t\in T$
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+
+$\hspace{0.25cm}$ A **stochastic processes** is a set of random variables $\hspace{0.1cm}\left\lbrace \hspace{0.1cm} \mathcal{X}_t \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm}\right\rbrace\hspace{0.1cm}$ such that $\hspace{0.1cm}\mathcal{X}_t \in S \subset \mathbb{R}$
+ 
+
+$\hspace{0.25cm}$ where:
+
+- $T\hspace{0.1cm}$ is called **parameter space** and is the set of indices of the random variables that define the stochastic process. $\\[0.35cm]$
+
+- $S\hspace{0.1cm}$ is called **states space** and is the variation field of the random variables that define the stochastic process. $\\[0.35cm]$
+
+
+
+- We will say that $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm} : \hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.15cm}$ is a stochastic process with parameter space $\hspace{0.1cm}T\hspace{0.1cm}$ and states space $\hspace{0.1cm}S$. $\\[0.5cm]$
+ 
+</p>
+ 
+</p></span>
+</div>
+
+
+
+**Observation:**
+
+$T\hspace{0.1cm}$ is generally interpreted as moments or periods of time, because one of the most important applications of stochastic processes is time series modeling.
+
+
+Therefore:
+
+$X_t\hspace{0.1cm}$ is a random variable ussually used to model the state of a system at time moment $\hspace{0.06cm}t\hspace{0.06cm}$, or to model a variable of interest at the moment or period $\hspace{0.06cm}t$. 
+
+
+<br>
+
+
+## Discrete stochastic process  
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ $\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.15cm}$  is a **discrete stochastic process** if $\hspace{0.15cm}T\subset \lbrace 0,1,2,... \rbrace$
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+## Continuous stochastic process
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ $\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.15cm}$ is a **continuous stochastic process** if $\hspace{0.15cm}T\subset [0, \infty)$
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+## Types of stochastic processes  <a class="anchor" id="1"></a>
+
+### Independent process
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$$\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}:\hspace{0.1cm} t \in T \hspace{0.1cm} \rbrace\hspace{0.1cm}$ is a **independent stochastic process** if the random variables that define the process are independent.
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+
+### Markov process
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ A discrete stochastic process  $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.2cm}$ is a **Markov process** if: $\\[0.15cm]$
+
+
+
+$$P(\mathcal{X}_{n+1} = x_{n+1}\hspace{0.15cm} |\hspace{0.15cm} \mathcal{X}_0 = x_0 ,..., \mathcal{X}_n =x_n) \hspace{0.1cm}=\hspace{0.1cm} P(\mathcal{X}_{n+1} = x_{n+1}\hspace{0.15cm} |\hspace{0.15cm} \mathcal{X}_n = x_n)$$ 
+
+
+$\hspace{0.25cm}$ where: $\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace$  $\\[0.35cm]$
+
+</p>
+ 
+</p></span>
+</div>
+
+This property is known as the memoryless Markov property. Because it implies that the future state of the system, $\hspace{0.05cm}\mathcal{X}_{n+1}\hspace{0.05cm}$ , only depends on the present state $x_n$ and does not depend on past states $\hspace{0.05cm}x_0,...,x_{n- 1}\hspace{0.05cm}$.
+
+<br>
+
+
+### Process of independent increments
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ A continuous stochastic process  $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}$ is a independent increments process if:
+
+$\hspace{0.25cm}$ For all set of times $\hspace{0.1cm}t_1,t_2,t_3\geq 0\hspace{0.13cm}$ such that $\hspace{0.1cm}t_1 < t_2 < t_3$
+
+
+$\hspace{0.25cm}$ $\mathcal{X}_{t_2} - \mathcal{X}_{t_1} \hspace{0.1cm}$ and $\hspace{0.1cm} \mathcal{X}_{t_3} - \mathcal{X}_{t_2}\hspace{0.1cm}$ are independents.
+
+</p>
+ 
+</p></span>
+</div>
+
+This means that the displacements of the process in the time intervals $\hspace{0.1cm}[t_1 , t_2) , [t_2 , t_3)\hspace{0.1cm}$ are independent of each other, for all $\hspace{0.1cm }0 \leq t_1 < t_2 < t_3$.
+
+
+
+<br>
+
+### Strictly stationary process
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ A continuous stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.2cm}$ is a **strictly stationary process**  if:
+
+$\hspace{0.25cm}$ For all $\hspace{0.05cm}t \geq 0\hspace{0.05cm}$ , the probability distribution of $\hspace{0.05cm}\mathcal{X}_{t}\hspace{0.05cm}$ is the same as that of $\hspace{0.05cm}\mathcal{X}_{t+h}\hspace{0.05cm}$  , for all $\hspace{0.05cm}h>0\hspace{0.05cm}$.
+
+</p>
+ 
+</p></span>
+</div>
+
+
+Therefore, for all set of times $\hspace{0.1cm}t_1 , t_2,...,t_n$ :
+
+$\hspace{0.2cm}(\mathcal{X}_{t_1}, \mathcal{X}_{t_2},\dots ,\mathcal{X}_{t_n} )\hspace{0.1cm}$ is identically distributed as $\hspace{0.1cm}(\mathcal{X}_{t_1+h}, \mathcal{X}_{t_2+h},\dots ,\mathcal{X}_{t_n+h} )$
+
+
+
+
+
+
+<br>
+
+
+
+### Process with stationary increments
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ A continuous stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.1cm}$ is a process with stationary increments if:
+
+$\hspace{0.25cm}$ For all pair of times  $\hspace{0.1cm}t_1,t_2 > 0\hspace{0.1cm}$ such that $\hspace{0.1cm}t_1 < t_2$
+
+
+$\hspace{0.25cm}$ $\mathcal{X}_{t_2} - \mathcal{X}_{t_1}\hspace{0.1cm}$ and $\hspace{0.1cm}\mathcal{X}_{t_2 + h} - \mathcal{X}_{t_1 + h}\hspace{0.1cm}$ are independents, for any $\hspace{0.1cm}h>0$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+<br>
+
+### Martingalas process
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ A discrete stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \in \lbrace 0,1,2,... \hspace{0.1cm} \rbrace\hspace{0.1cm}$ is a Martingalas process if: $\\[0.15cm]$
+
+
+
+$$E\left[\hspace{0.1cm}\mathcal{X}_{n+1} | X_0 = x_0 ,..., X_n = x_n\hspace{0.1cm} \right] \hspace{0.1cm} = \hspace{0.1cm} x_n$$  
+
+
+$\hspace{0.25cm}$ where: $\hspace{0.2cm} x_{t} \in S \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.1cm} t \in \lbrace 0,1,...,n+1\rbrace$ $\\[0.35cm]$
+
+</p>
+ 
+</p></span>
+</div>
+
+This property is known as Martingalas property, and it implies that the expected value of the sistym in the future  $\hspace{0.1cm}n+1\hspace{0.1cm}$ is the value of the system in the present $\hspace{0.1cm}x_n$. In mean the system doesn´t change of the state observed in the last moment.
+
+This property is known as Martingale property, and it implies that the expected value of the sistym in the future $\hspace{0.1cm}n+1\hspace{0.1cm}$ is the value of the system in the present $\hspace {0.1cm}x_n$. So, in mean the system doesn´t change of the state observed in the last moment.
+
+
+<br>
+
+### Levy process
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ A continuous stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.15cm}$ is a Levy process if is a  process of independents and stationaries increments. 
+
+</p>
+ 
+</p></span>
+</div>
+
+The Poisson and Brownian process are examples of Levy process.
+
+<br>
+
+
+### Gaussian Process  <a class="anchor" id="1"></a>
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$ A continuous stochastic process $\hspace{0.1cm}\lbrace \hspace{0.1cm} \mathcal{X}_t \in S  \hspace{0.1cm}/\hspace{0.1cm} t \geq 0 \rbrace\hspace{0.15cm}$ is a **Gaussian process** if:
+
+$\hspace{0.25cm}$ For all set of times $\hspace{0.1cm}t_1,...,t_n \geq 0$ : $\\[0.12cm]$
+
+$$(\mathcal{X}_{t_1}, \mathcal{X}_{t_2},...,\mathcal{X}_{t_n}) \sim NM(\mu , \Sigma)$$
+
+
+$\hspace{0.25cm}$ where:
+
+$\hspace{0.3cm}$ $NM(\mu , \Sigma)\hspace{0.1cm}$ denote the multivariate Normal probability distribution with mean vector $\hspace{0.1cm}\mu\hspace{0.1cm}$ y covariance matrix $\hspace{0.1cm}\Sigma$ . $\\[0.2cm]$
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+The  dynamic phenomena that we observe in a time series can grouped into two classes:
+
+- The first are those that take stable values in time around a constant level, without showing a long term increasing or decreasing trend. These processes are called stationary. 
+
+Examples of those are the average yearly  temperatures in a region or the propotion of births corresponding to males.
+
+
+- A second class of processes are the non-stationary processes, which are those that can show trend, seasonality and other evolutionary effects over time.
+
+Examples of those are the yearly income of a country, company sales or energy demand. These are series that evolve over time with more or less stable trends.
+
+
+
+In practice, the classification of a series as stationary or not depends on the period of observation, since the series can be stable in a short period and non-stationary in a longer one.
+
+
+
+
+
+
+<br>
+
+
+
+# Time series  
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.2cm}$ Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.1cm}=\hspace{0.1cm} \Bigl( \hspace{0.06cm} \mathcal{Y}_t \hspace{0.12cm}: \hspace{0.12cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.06cm}\Bigl) \hspace{0.1cm} = \hspace{0.1cm}\Bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\Bigl) \hspace{0.05cm}$ .
+
+$\hspace{0.25cm}$ Given a sample of one observation $\hspace{0.08cm}y_t\hspace{0.08cm}$ of each random variable $\hspace{0.08cm}\mathcal{Y}_t\hspace{0.08cm}$ of the process, for $\hspace{0.06cm}t \in T=\lbrace 1,2,...,n \rbrace\hspace{0.06cm}$. $\\[0.3cm]$
+
+
+- $\hspace{0.15cm} Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.15cm}$ is a **time series** associated to the stochastic process $\hspace{0.09cm}\mathcal{Y}$.
+ 
+ 
+$\hspace{0.25cm}$ where:
+
+$\hspace{0.35cm}$ $y_t\hspace{0.06cm}$ is frequently interpreted as the value observed of the variable $\hspace{0.06cm}\mathcal{Y}\hspace{0.06cm}$ at the time or period $\hspace{0.06cm}t$. Hence the name **time** series. $\\[0.15cm]$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+**Observations:**
+
+- $y_t \in \mathbb{R}\hspace{0.08cm}$ is a realization of the random variable $\hspace{0.08cm}\mathcal{Y}_t$ $\\[0.35cm]$
+
+
+- A time series is a realization of a stochastic process. The time series is considered a result or trajectory of the stochastic process. $\\[0.35cm]$
+
+- A time series can be defined as a vector of data points ordered in time. Where the data is equally spaced in time, namely, between each data point there is the same time space, such as a week, a month, a trimester, a quarter ...
+
+
+
+
+The process is characterized by the join probability distribution of the random variables $\hspace{0.1cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_k   \hspace{0.1cm}$, namely, is characterized by the join density or probability function $\hspace{0.08cm}f_{\hspace{0.08cm}\mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_k}$ 
+
+This distribution is called finite-dimensional distribution of the process. We say that we know the probabilistic structure of the stochastic process when we know that join distribution, which determine the distribution of any subset of the variables and, in particular, the marginal distribution of each variable.
+
+<br>
+
+
+
+
+
+# Mean function 
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.2cm}$ Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.1cm}=\hspace{0.1cm} \Bigl( \hspace{0.06cm} \mathcal{Y}_t \hspace{0.12cm}: \hspace{0.12cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.06cm}\Bigl) \hspace{0.1cm} = \hspace{0.1cm}\Bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\Bigl) \hspace{0.05cm}$ .
+
+$\hspace{0.2cm}$ Mean function $\hspace{0.1cm} \mu_{\hspace{0.03cm}t} \hspace{0.1cm}$ of the process is defined as: $\\[0.15cm]$
+
+$$\mu_{\hspace{0.03cm}t} = E\Bigl[\hspace{0.08cm}\mathcal{Y}_t\hspace{0.08cm}\Bigr]$$
+
+$\hspace{0.2cm}$ for $\hspace{0.1cm}  t \in \lbrace 1,2,...,k \rbrace .\\$
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
+**Observations:**
+
+- An important particular case, due to its simplicity, arises when all the variables have the same mean and thus the mean function is a constant.
+The realizations of the process show no trend and we say that the process is stable in the mean. $\\[0.35cm]$
+
+
+- If, on the contrary, the means change over time, the observations at different
+moments will reveal that change. $\\[0.35cm]$
+
+- On many occasions we only have one realization of the stochastic process and
+we have to deduce from that whether the mean function of the process is, or is
+not, constant over time.
+
+
+
+<br>
+
+# Variance function
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.2cm}$ Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.1cm}=\hspace{0.1cm} \Bigl( \hspace{0.06cm} \mathcal{Y}_t \hspace{0.12cm}: \hspace{0.12cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.06cm}\Bigl) \hspace{0.1cm} = \hspace{0.1cm}\Bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\Bigl) \hspace{0.05cm}$ .
+
+$\hspace{0.2cm}$ Variance function $\hspace{0.1cm} \sigma^2_{\hspace{0.03cm}t} \hspace{0.1cm}$ of the process is defined as: $\\[0.15cm]$
+
+$$\sigma^2_t = Var\Bigl[\hspace{0.08cm} \mathcal{Y}_t \hspace{0.08cm}\Bigr]$$
+
+$\hspace{0.2cm}$ for $t \in \lbrace 1,2,...,k \rbrace \\$
+
+
+</p>
+ 
+</p></span>
+</div>
+
+
+ 
+**Observations:**
+
+
+- We say that the process is stable in the variance if the variability is constant
+over time. $\\[0.3cm]$
+
+- A process can be stable in the mean but not in the variance and vice versa.
+
+
+<br>
+
+# Autocovariance function
+
+
+The structure of linear dependence between random variables is represented by
+the covariance and correlation functions.
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.2cm}$ Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.1cm}=\hspace{0.1cm} \Bigl( \hspace{0.06cm} \mathcal{Y}_t \hspace{0.12cm}: \hspace{0.12cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.06cm}\Bigl) \hspace{0.1cm} = \hspace{0.1cm}\Bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\Bigl) \hspace{0.05cm}$ .
+
+ 
+ 
+$\hspace{0.2cm}$ The autocovariance function $\hspace{0.08cm}\gamma_{\hspace{0.03cm}t \hspace{0.03cm},\hspace{0.03cm} t+h}\hspace{0.08cm}$ of the process is defined as: $\\[0.25cm]$
+
+$$\gamma_{\hspace{0.03cm}t\hspace{0.03cm} ,\hspace{0.03cm} t+h} \hspace{0.08cm}=\hspace{0.08cm} Cov\left(\hspace{0.08cm}\mathcal{Y}_t \hspace{0.08cm} ,\hspace{0.08cm} \mathcal{Y}_{t+h}\hspace{0.08cm} \right) \hspace{0.08cm}=\hspace{0.08cm} E \hspace{0.08cm}\Bigl[\hspace{0.08cm} (\mathcal{Y}_t - \mu_{\hspace{0.03cm}t})\cdot (\mathcal{Y}_{t+h} - \mu_{\hspace{0.03cm}t+h}) \hspace{0.08cm}  \Bigr] \\$$
+
+$\hspace{0.2cm}$ for $\hspace{0.1cm}t \in \lbrace 1,2,...,k \rbrace\hspace{0.12cm}$ and $\hspace{0.1cm}  h\in \lbrace \pm 1, \pm 2,... \rbrace . \\$
+
+
+
+$\hspace{0.2cm}$ In particular, we have :
+
+
+$$\gamma_{\hspace{0.03cm}t\hspace{0.03cm} , \hspace{0.03cm}t} \hspace{0.05cm}=\hspace{0.05cm} \sigma_t^2 \\$$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+The autocovariances have dimensions, the squares of the series, thus it is not
+advisable to use them for comparing series measured in different units.
+
+
+
+<br>
+
+# Autocorrelation function  <a class="anchor" id="1"></a> 
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.2cm}$ Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.1cm}=\hspace{0.1cm} \Bigl( \hspace{0.06cm} \mathcal{Y}_t \hspace{0.12cm}: \hspace{0.12cm} t \in T=\lbrace 1,2,...,n \rbrace \hspace{0.06cm}\Bigl) \hspace{0.1cm} = \hspace{0.1cm}\Bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\Bigl) \hspace{0.05cm}$ .
+
+
+$\hspace{0.2cm}$ The autocorrelation function $\hspace{0.08cm}\rho_{\hspace{0.05cm}t \hspace{0.05cm},\hspace{0.05cm} t+h}\hspace{0.08cm}$ of the process is defined as: $\\[0.25cm]$
+
+$$\rho_{\hspace{0.05cm}t \hspace{0.05cm},\hspace{0.05cm} t+h\hspace{0.05cm}} =\hspace{0.05cm} \dfrac{\gamma_{\hspace{0.05cm}t\hspace{0.05cm} , \hspace{0.05cm}t+h\hspace{0.05cm}}}{\sqrt{\sigma_{\hspace{0.05cm}t}^2 \cdot \sigma_{\hspace{0.05cm}t+h}^2\hspace{0.08cm}}\hspace{0.08cm}} \\$$
+
+$\hspace{0.2cm}$ for $\hspace{0.1cm}t \in \lbrace 1,2,...,k \rbrace\hspace{0.1cm}$ and $\hspace{0.1cm} h\in \lbrace \pm 1, \pm 2,... \rbrace \\$
+
+
+$\hspace{0.2cm}$ In particular, we have :
+
+
+$$\rho_{\hspace{0.05cm}t\hspace{0.05cm} ,\hspace{0.05cm} t\hspace{0.05cm}} =\hspace{0.05cm} 1 \\$$
+
+
+</p>
+ 
+</p></span>
+</div>
+
+ 
+
+It is interesting to notice the differences between conditional distributions and the marginal distributions.
+
+The marginal distribution of $\hspace{0.08cm}\mathcal{Y}_t\hspace{0.08cm}$ represents what we know about a variable, without knowing anything about its trajectory until time $\hspace{0.05cm}t\hspace{0.05cm}$.
+
+The conditional distribution of $\hspace{0.08cm}\mathcal{Y}_t\hspace{0.08cm}$ given $\hspace{0.08cm}\mathcal{Y}_{t-1}\hspace{0.05cm}$,...,$\hspace{0.05cm}\mathcal{Y}_{t-r}\hspace{0.08cm}$ represents what we
+know about a variable when we know the k previous values of the process.
+
+In time series conditional distributions are of greater interest than marginal
+ones because they define the predictions that we can make about the future
+knowing the past.
+
+
+
+
+
+<br>
+
+
+# Time Series Descomposition
+
+Time series decomposition is a process by which we separate a time series into its components: trend, seasonality and residuals.
+
+- Trend represents the slow-moving changes in a time series. $\\[0.25cm]$
+
+- Seasonality represent the seasonal pattern in the series. The cycles occur repeatedly over a fixed period of time. $\\[0.25cm]$
+
+- Residuals represent the behavior that cannot be explained by the trend and seasonality components. $\\[0.25cm]$
+
+<br>
+
+## Time Series Descomposition in `Python`  <a class="anchor" id="1"></a> 
+
+
+```python
+from statsmodels.tsa.seasonal import seasonal_decompose, STL
+```
+
+
+```python
+Weekly_Time_Series_1
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Año</th>
+      <th>Mes</th>
+      <th>Semana</th>
+      <th>IMPVENTA</th>
+      <th>Semana-Mes-Año</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2021</td>
+      <td>6</td>
+      <td>22</td>
+      <td>329029.82</td>
+      <td>22-6-2021</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021</td>
+      <td>6</td>
+      <td>23</td>
+      <td>158833.59</td>
+      <td>23-6-2021</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2021</td>
+      <td>6</td>
+      <td>24</td>
+      <td>201568.21</td>
+      <td>24-6-2021</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2021</td>
+      <td>6</td>
+      <td>25</td>
+      <td>196610.74</td>
+      <td>25-6-2021</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2021</td>
+      <td>6</td>
+      <td>26</td>
+      <td>106849.14</td>
+      <td>26-6-2021</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>2022</td>
+      <td>12</td>
+      <td>48</td>
+      <td>89144.45</td>
+      <td>48-12-2022</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>2022</td>
+      <td>12</td>
+      <td>49</td>
+      <td>301484.19</td>
+      <td>49-12-2022</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>2022</td>
+      <td>12</td>
+      <td>50</td>
+      <td>308829.59</td>
+      <td>50-12-2022</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>2022</td>
+      <td>12</td>
+      <td>51</td>
+      <td>262326.49</td>
+      <td>51-12-2022</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>2022</td>
+      <td>12</td>
+      <td>52</td>
+      <td>311029.97</td>
+      <td>52-12-2022</td>
+    </tr>
+  </tbody>
+</table>
+<p>99 rows × 5 columns</p>
+</div>
+
+
+
+
+```python
+advanced_decomposition = STL(Weekly_Time_Series_1.IMPVENTA, period=4).fit()
+```
+
+
+```python
+fig, axs = plt.subplots(nrows=4, ncols=1, sharex=True)
+
+plt.title("Time Series Decomposition",  fontsize = 16)
+
+p1=sns.lineplot(advanced_decomposition.observed, color='red', ax=axs[0])
+p2=sns.lineplot(advanced_decomposition.trend, color='red', ax=axs[1])
+p3=sns.lineplot(advanced_decomposition.seasonal, color='red', ax=axs[2])
+p4=sns.lineplot(advanced_decomposition.resid, color='red', ax=axs[3])
+
+p1.set_ylabel('Observed')
+p2.set_ylabel('trend')
+p3.set_ylabel('seasonal')
+p4.set_ylabel('resid')
+
+p1.set_xticks(np.arange(0 , len(Weekly_Time_Series_1) , 10))
+
+plt.setp(p1.get_xticklabels(), rotation=90)
+
+fig.savefig('p6.jpg', format='jpg', dpi=1200)
+
+plt.show()
+```
+
+
+   
+<center>
+
+![](p6.jpg){width="70%"}
+
+</center> 
+     
+     
+
+
+<br>
+
+The following graph has superimposed the observed series and the trend:
+
+
+```python
+fig, ax = plt.subplots()
+
+p1=sns.lineplot(x="Semana-Mes-Año", y="IMPVENTA", data=Weekly_Time_Series_1 , color='red')
+p2=sns.lineplot(advanced_decomposition.trend, color='blue', linestyle='-', label='Trend')
+
+p1.set_xticks(np.arange(0 , len(Weekly_Time_Series_1) , 10))
+
+plt.setp(p1.get_xticklabels(), rotation=90)
+
+plt.title("Trend and Time Series",  fontsize = 17)
+
+fig.savefig('p7.jpg', format='jpg', dpi=1200)
+
+plt.show()
+```
+
+
+<center>
+
+![](p7.jpg){width="70%"}
+
+</center> 
+
+
+
+
+<br>
+
+
+<br>
+
+
+# Regression Problem vs   Time Series  Forecasting
+ 
+
+You probably have encountered regression problems where you must predict some continuous
+target given a certain set of features. At first glance, time series forecasting seems
+like a typical regression problem: we have some historical data, and we wish to build a
+mathematical expression that will express future values as a function of past values.
+However, there are some key differences between time series forecasting and regression
+for time-independent scenarios that deserve to be addressed before we look at
+our very first forecasting technique.
+
+
+
+- **Time series have an order:**
+
+    The first concept to keep in mind is that time series have an order, and we cannot change that order when modeling. In time series forecasting, we express future values as a function of past values. Therefore, we must keep the data in order, so as to not violate this relationship.
+
+    Other regression tasks in machine learning often do not have an order. For example, if you are tasked to predict revenue based on ad spend, it does not matter when a certain amount was spent on ads. Instead, you simply want to relate the amount of ad spend to the revenue. In fact, you might even randomly shuffle the data to make your model more robust. Here the regression task is to simply derive a function such that given an amount on ad spend, an estimate of revenue is returned. On the other hand, time series are indexed by time, and that order must be kept. $\\[1.55cm]$
+
+
+
+- **Time series sometimes do not have features:**
+
+    It is possible to forecast time series without the use of features other than the time series itself. As data scientists, we are used to having datasets with many columns, each representing a potential predictor for our target. For example, consider the task of predicting revenue based on ad spend, where the revenue is the target variable. As features, we could have the amount spent on Google ads, Facebook ads, and television ads. Using these three features, we would build a regression model to estimate revenue. However, with time series, it is quite common to be given a simple dataset with a time column and a value at that point in time. Without any other features, we must learn ways of using past values of the time series to forecast future values. This is when the moving average model or autoregressive model come into play, as they are ways to express future values as a function of past values
+
+<br>
+
+
+#  Time Series Forecasting
+
+
+Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.1cm}=\hspace{0.1cm}  \hspace{0.1cm}\bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\bigl) \hspace{0.1cm}$ .
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+
+- We have a time series $\hspace{0.07cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.1cm}$ associated to the  process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$.$\\[0.4cm]$ 
+
+- $\hspace{0.05cm}y_t\hspace{0.07cm}$ is the value of the process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$ in the period $\hspace{0.07cm}t$.$\\[0.4cm]$ 
+
+
+- Our goal is to predict the value of the process at future periods. For that we will use the observed values of the process in the time series, namely, using the available data. $\\[0.4cm]$ 
+
+- We want to predict $\hspace{0.1cm}y_{n+k}\hspace{0.15cm}$, for $\hspace{0.07cm}k=1,2,3,\dots$ $\\[0.4cm]$ 
+ 
+- The idea under most part of forecasting methods is to predict $\hspace{0.1cm}y_{n+k}\hspace{0.1cm}$ as:
+
+
+$$\widehat{y}_{n+k} \hspace{0.1cm}=\hspace{0.1cm} \widehat{g}_k(y_1, y_2, ...,y_n) \hspace{0.25cm} , \hspace{0.25cm} k = 1,2,3,\dots$$
+
+</p>
+ 
+</p></span>
+</div>
+
+ 
+
+**Observations:**
+
+- We are assuming that the  available data is $\hspace{0.1cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.1cm}$. $\\[0.35cm]$
+
+- In many cases $\hspace{0.1cm}y_{n+k}\hspace{0.1cm}$ is the value of the process in a future period. So, by definition, we don't know $\hspace{0.1cm}y_{n+k}\hspace{0.12cm}$, for $\hspace{0.07cm}k=1,2,3,\dots$.
+
+ 
+<br>
+
+
+# Stationary processes
+
+
+
+## Strict Stationarity
+
+Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.1cm}=\hspace{0.1cm}  \hspace{0.1cm}\bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\bigl) \hspace{0.1cm}.$ $\\[0.25cm]$
+
+
+The stochastic process $\hspace{0.08cm}\mathcal{Y} \hspace{0.08cm}$ is **strictly stationary** if:
+
+the probability distribution of $\hspace{0.08cm}\mathcal{Y}_{t}\hspace{0.08cm}$ is the same as that of $\hspace{0.08cm}\mathcal{Y}_{t+h}\hspace{0.08cm}$,
+for all $\hspace{0.1cm}t = 1,2,...,n \rbrace\hspace{0.1cm}$ and $\hspace{0.1cm} h = 1,2,3,...\\$   
+
+ 
+Strict stationarity is a very strong condition, since to prove it we must have the joint distributions for any set of variables in the process. A weaker property, but one which is easier to prove, is **weak stationarity**.
+
+
+
+<br>
+
+
+
+## Weak Stationarity
+
+Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.1cm}=\hspace{0.1cm}  \hspace{0.1cm}\bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\bigl) \hspace{0.1cm}.$  $\\[0.25cm]$
+
+
+The stochastic process $\hspace{0.08cm}\mathcal{Y} \hspace{0.08cm}$ is **weakly stationary** if:  
+
+- $\mu_t \hspace{0.08cm}=\hspace{0.08cm} \mu \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,...,n \\$
+
+- $\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} \sigma  \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,...,n  \\$
+
+- $\gamma_{t , t + h} \hspace{0.08cm}=\hspace{0.08cm} Cov(\mathcal{X}_t,\mathcal{X}_{t+h}) \hspace{0.08cm}=\hspace{0.08cm}E[(\mathcal{X}_t - \mu)\cdot (\mathcal{X}_{t+h} - \mu)] \hspace{0.08cm}=\hspace{0.08cm} \gamma_h  \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} h = 0 , \pm 1 , \pm 2 ,...  \\$
+
+
+
+The first two conditions indicate that the **mean** and **variance** are **constant**.
+
+The third indicates that the covariance between two variables depends only on
+their temporal separation.
+
+In a stationary process the autocovariances and autocorrelations depend only on
+the lag between the variables and, in particular, the relationship between $\hspace{0.08cm}\mathcal{Y}_t\hspace{0.08cm}$ and $\hspace{0.08cm}\mathcal{Y}_{t+h}\hspace{0.08cm}$ ,  is always equal to the relationship between $\hspace{0.08cm}\mathcal{Y}_t\hspace{0.08cm}$ and $\hspace{0.08cm}\mathcal{Y}_{t-h}\hspace{0.08cm}$ .
+
+
+As a result, in stationary processes:
+
+
+
+$$\rho_{t, t+h} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_{t , t + h}}{\sqrt{\sigma_t^2 \cdot \sigma_{t+h}^2}} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_h}{\sqrt{\sigma^2 \cdot \sigma^2}} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_h}{\sigma^2}\hspace{0.08cm} =\hspace{0.08cm} \dfrac{\gamma_h}{\gamma_0} \hspace{0.08cm}=\hspace{0.08cm} \rho(h)$$
+
+
+<br>
+
+**Observation:**
+
+Weak stationarity doesn't guarantee full process stability, namely, the probability distribution of $\hspace{0.08cm}\mathcal{Y}_t\hspace{0.08cm}$ may change for different $\hspace{0.08cm}t\hspace{0.08cm}$ values.
+
+But, if it is assume that $\hspace{0.08cm}\mathcal{Y}_1,\dots , \mathcal{Y}_n \hspace{0.08cm}\sim\hspace{0.08cm} NM_n(\mathbf{\mu}, \mathbf{\Sigma})\hspace{0.08cm}$, then, weak stationariy is equivalent to strict stationarity.
+
+
+<br>
+
+
+# White Noise Process  <a class="anchor" id="1"></a>
+
+
+Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.08cm}=\hspace{0.08cm}  \hspace{0.1cm}\bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\bigl) \hspace{0.1cm}.$  $\\[0.25cm]$
+
+
+The process $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ is a white noise process if: $\\[0.25cm]$
+
+- $E[\mathcal{Y}_t] \hspace{0.08cm}=\hspace{0.08cm} 0 \hspace{0.3cm}, \hspace{0.3cm}\forall\hspace{0.08cm} t=1,\dots , n\\$
+
+- $Var(\mathcal{Y}_t)=\sigma^2 \hspace{0.3cm}, \hspace{0.3cm}\forall\hspace{0.08cm} t=1,\dots , n\\$
+
+- $\gamma_{t,t+h} \hspace{0.08cm}= \hspace{0.08cm}Cov(\mathcal{Y}_t, \mathcal{Y}_{t+h})\hspace{0.08cm}=\hspace{0.08cm}0 \hspace{0.3cm}, \hspace{0.3cm}\forall\hspace{0.08cm} t=1,\dots , n\\$
+
+
+**Observation:**
+
+A white noise process is a weak stationarity process.
+
+
+<br>
+
+
+
+
+
+
+
+
+
+# First-Order Autorregresive Model: AR(1)
+
+
+Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.08cm}=\hspace{0.08cm}  \hspace{0.1cm}\bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\bigl) \hspace{0.1cm}.$  $\\[0.25cm]$
+ 
+ 
+
+
+The first-order autoregressive model $AR(1)$ for the process $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ is defined as: $\\[0.25cm]$
+
+$$\mathcal{Y}_t\hspace{0.08cm}=\hspace{0.08cm}\phi_0 \hspace{0.08cm}+\hspace{0.08cm} \phi_1 \cdot \mathcal{Y}_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.4cm}  , \hspace{0.4cm}  t = 2,3,\dots , n$$ 
+
+Where:
+
+- $\varepsilon_t \sim N(0,\sigma^2) \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 2,3,\dots , n\\$
+
+- $Cov(\varepsilon_t , \varepsilon_{t+h})=0 \hspace{0.3cm},\hspace{0.3cm}  \forall\hspace{0.08cm} t = 2,3,\dots \hspace{0.15cm},\hspace{0.15cm}  \forall\hspace{0.08cm} h = \pm 1,\pm 2,\dots\\$
+
+    
+    In other words, $\hspace{0.08cm}(\hspace{0.08cm}\varepsilon_t \hspace{0.1cm}:\hspace{0.1cm} t = 2,3,\dots, n \hspace{0.08cm})\hspace{0.1cm}$ is a **normal white noise proccess**.
+
+<br>
+
+## Mean of AR(1) model
+
+
+
+
+
+
+
+
+
+---
+
+
+
+
+In practice, we have a time series $\hspace{0.07cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.1cm}$ associated to the  process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$.$\\[0.4cm]$ 
+
+Where $\hspace{0.05cm}y_t\hspace{0.07cm}$ is the value of the process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$ in the period $\hspace{0.07cm}t$.$\\[0.4cm]$ 
+
+
+ Our goal is to predict the value of the process at future periods. For that, we will use the observed values of the process in the time series, namely, the available data. $\\[0.4cm]$
+
+In this sense, the first-order autoregresive model for the time series $\hspace{0.07cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.1cm}$ is defined as:
+
+
+$$y_t\hspace{0.08cm}=\hspace{0.08cm}\phi_0 \hspace{0.08cm}+\hspace{0.08cm} \phi_1 \cdot y_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.4cm}  , \hspace{0.4cm}  t = 2,3,\dots , n$$ 
+
+Where:
+
+- $\varepsilon_t \sim N(0,\sigma^2) \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 2,3,\dots , n\\$
+
+- $Cov(\varepsilon_t , \varepsilon_{t+h})=0 \hspace{0.3cm},\hspace{0.3cm}  \forall\hspace{0.08cm} t = 2,3,\dots \hspace{0.15cm},\hspace{0.15cm}  \forall\hspace{0.08cm} h = \pm 1,\pm 2,\dots\\$
+
+
+
+
+---
+
+
+
+Los modelos AR (autoregresivos) son un tipo de modelo de series temporales en el que una variable se modela como una función lineal de sus valores pasados. El modelo AR(p) especifica que el valor de la variable en el tiempo t depende linealmente de los p valores anteriores de la variable, es decir,
+
+$$y_t  \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.05cm}+\hspace{0.05cm} \sum_{i=1}^p \phi_i \cdot y_{t-i}  \hspace{0.05cm}+\hspace{0.05cm} \varepsilon_t  \hspace{0.1cm}=\hspace{0.1cm} \phi \hspace{0.05cm}+\hspace{0.05cm} \phi_1 \cdot y_{t-1} \hspace{0.05cm}+\hspace{0.05cm} \phi_2 \cdot y_{t-2}\hspace{0.05cm}+\hspace{0.05cm} \cdots \hspace{0.05cm}+\hspace{0.05cm} \phi_p \cdot y_{t-p} \hspace{0.05cm}+\hspace{0.05cm} \varepsilon_t$$
+
+
+
+donde:
+
+- Se asume que $\hspace{0.05cm}\varepsilon_t\hspace{0.05cm}$ es una v.a. con $\hspace{0.05cm}E[\varepsilon_t]=0\hspace{0.07cm}$ y $\hspace{0.07cm}Var(\varepsilon_t)=\sigma^2\hspace{0.05cm}$ $\\[0.3cm]$
+
+- $y_t\hspace{0.05cm}$ es el valor de la variable en el tiempo $\hspace{0.05cm}t$. $\\[0.3cm]$ 
+
+- $\phi_0, \phi_1, \ldots, \phi_p\hspace{0.05cm}$ son parametros a estimar. Son los coeficientes asociados  a cada uno de los $\hspace{0.05cm}p\hspace{0.05cm}$ retardos del proceso.$\\[0.3cm]$
+
+ 
+<br>
+
+
+***Expresión AR(p) en funcion del  operador de retardos:***
+
+El modelo $\hspace{0.07cm}AR(p)\hspace{0.07cm}$ puede expresarse en funcion del operador de retardos $\hspace{0.07cm}B\hspace{0.07cm}$ como sigue:
+
+$$\phi_p(B) \cdot y_t \hspace{0.1cm} = \hspace{0.1cm} \left( 1- \phi_1 \cdot B - \phi_2 \cdot B^2 - \dots - \phi_p \cdot B^p \right)\cdot y_t  \hspace{0.1cm} = \hspace{0.1cm} \varepsilon_t + \phi_0$$
+
+donde: 
+
+$$\phi_p(B) \hspace{0.1cm}=\hspace{0.1cm} \left(1- \phi_1 \cdot B - \phi_2 \cdot B^2 - \dots - \phi_p \cdot B^p \right)$$
+
+
+ 
+
+
+ 
+<br>
+
+
+***Estimaciones del pasado:***
+
+Suponiendo que la informacion disponible para realizar la estimación del modelo (estimación de parametros) es $\hspace{0.08cm}Y_t = (y_1,\dots, y_n)^t\hspace{0.08cm}$, en el modelo $\hspace{0.07cm} AR(p) \hspace{0.07cm}$  tenemos las siguientes ecuaciones de estimación de los valores pasados del proceso: $\\[0.25cm]$
+
+
+
+$$\widehat{y}_{t} \hspace{0.1cm}=\hspace{0.1cm} c \hspace{0.05cm}+\hspace{0.05cm} \sum_{h=1}^p \hspace{0.05cm}\widehat{\phi}_h \cdot y_{\hspace{0.05cm} t - h} \hspace{0.1cm}=\hspace{0.1cm} c \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_1 \cdot y_{\hspace{0.05cm}t-1} \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_2\cdot y_{\hspace{0.05cm}t-2} \hspace{0.07cm}+\hspace{0.07cm} \cdots \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_p \cdot y_{\hspace{0.05cm}t-p} \hspace{0.25cm} , \hspace{0.25cm} t=1,\dots , n$$
+
+
+
+<br>
+
+
+***Predicciones del futuro:***
+
+Suponiendo que la informacion disponible para realizar la estimación del modelo (estimación de parametros) es $\hspace{0.08cm}Y_t = (y_1,\dots, y_n)^t\hspace{0.08cm}$, en un modelo $\hspace{0.07cm}AR(p)\hspace{0.07cm}$ tenemos las siguientes ecuaciones de estimación de los valores pasados del proceso: $\\[0.25cm]$
+
+$$\widehat{y}_{n+1} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.05cm}+\hspace{0.05cm} \sum_{h=1}^p \hspace{0.05cm}\widehat{\phi}_h \cdot y_{(n+1) - h} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_1 \cdot y_{(n+1)-1} \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_2\cdot y_{(n+1)-2} \hspace{0.07cm}+\hspace{0.07cm} \cdots \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_p \cdot y_{(n+1)-p} = \\
+\hspace{3cm}=\hspace{0.1cm} \phi_0 \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_1 \cdot y_{n} \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_2\cdot y_{n-1} \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_3\cdot y_{n-2} \hspace{0.07cm}+\hspace{0.07cm} \cdots \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_p \cdot y_{n-(p-1)} \\[0.25cm]$$
+
+
+$$\widehat{y}_{n+2} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.07cm}+\hspace{0.07cm}
+\widehat{\phi}_1 \cdot \widehat{y}_{(n+2)-1}
+\hspace{0.07cm}+\hspace{0.07cm} \sum_{h=2}^p \hspace{0.05cm} \widehat{\phi}_h \cdot y_{(n+2) - h} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.05cm}+\hspace{0.05cm}
+\widehat{\phi}_1 \cdot \widehat{y}_{n+1}
+\hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_2 \cdot y_{n} \hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_3\cdot y_{n-1} \hspace{0.05cm}+\hspace{0.05cm} \cdots \hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_p \cdot y_{n-(p-2)} \\[0.3cm]$$
+
+$$\widehat{y}_{n+3} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.07cm}+\hspace{0.07cm}
+\widehat{\phi}_1 \cdot \widehat{y}_{(n+3)-1} \hspace{0.07cm}+\hspace{0.07cm}
+\widehat{\phi}_2 \cdot \widehat{y}_{(n+3)-2}
+\hspace{0.07cm}+\hspace{0.07cm} \sum_{h=3}^p \hspace{0.05cm} \widehat{\phi}_h \cdot y_{(n+3) - h} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.05cm}+\hspace{0.05cm}
+\widehat{\phi}_1 \cdot \widehat{y}_{n+2} \hspace{0.05cm}+\hspace{0.05cm}
+\widehat{\phi}_2 \cdot \widehat{y}_{n+1}
+\hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_3 \cdot {y}_{n} \hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_3\cdot y_{n-1} \hspace{0.05cm}+\hspace{0.05cm} \cdots \hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_p \cdot y_{n-(p-2)} \\[0.5cm]$$
+
+
+
+
+En general, para $\hspace{0.1cm} k=1,2,3,\dots \\$
+
+$$\widehat{y}_{n+k} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.07cm}+\hspace{0.07cm}
+\sum_{h=1}^{k-1} \hspace{0.05cm} \widehat{\phi}_h \cdot \widehat{y}_{(n+k)-h}
+\hspace{0.07cm}+\hspace{0.07cm} \sum_{h=k}^p \hspace{0.05cm} \widehat{\phi}_h \cdot y_{(n+k) - h} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.05cm}+\hspace{0.05cm}
+\widehat{\phi}_1 \cdot \widehat{y}_{n+k-1}
+\hspace{0.05cm}+\hspace{0.05cm}
+\widehat{\phi}_2 \cdot \widehat{y}_{n+k-2}
+\hspace{0.05cm}+\hspace{0.05cm}
+\dots\hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_{k-1} \cdot \widehat{y}_{n+k-(k-1) = n+1}
+\hspace{0.05cm}+\hspace{0.05cm}
+\widehat{\phi}_k \cdot \widehat{y}_{n+k-k = n} \hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_3\cdot y_{n+k-(k+1)=n-1} \hspace{0.05cm}+\hspace{0.05cm}
+\widehat{\phi}_4\cdot y_{n+k-(k+2)=n-2} \hspace{0.05cm}+\hspace{0.05cm}\cdots \hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_p \cdot y_{n+k-(k+p-2)} \\[0.3cm]$$
+
+
+
+<br>
+
+***Estimación del modelo por máxima verosimilitud:***
+
+Para un modelo $\hspace{0.05cm}AR(p)\hspace{0.05cm}$ con término de error $\hspace{0.07cm}\varepsilon_t\hspace{0.07cm}$ Gaussiano, es decir, $\hspace{0.07cm}\varepsilon_t \sim N(0,\sigma^2)\hspace{0.07cm}$ , se asume la siguiente relación para cada variable del proceso:
+
+$$\mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \phi_0 + \sum_{h=1}^p \phi_h \cdot y_{t-h} + \varepsilon_t$$
+
+Como el termino de error es Gaussiano, tal y como se especificó antes, se deduce que:
+
+$$\mathcal{Y}_t \sim N\left( \hspace{0.07cm} \phi_0 + \sum_{h=1}^p \phi_h \cdot y_{t-h} \hspace{0.07cm} ,\hspace{0.07cm} \sigma^2 \hspace{0.07cm} \right)$$
+
+para cada $\hspace{0.07cm}t=1,\dots , n$
+
+
+Por tanto, la función de verosimilitud del modelo $\hspace{0.07cm}AR(p)\hspace{0.07cm}$ es:
+
+$$\mathcal{L}(\phi_0,\phi_1,\dots, \phi_p, \sigma^2) \hspace{0.07cm}=\hspace{0.07cm}
+f_{\mathcal{Y}_1,...,\mathcal{Y}_n}(y_{p+1},y_{p+2},...,y_n)
+\hspace{0.07cm}=\hspace{0.07cm}
+\prod_{t=p+1}^n  f_{\mathcal{Y}_t}(y_t)
+\hspace{0.07cm}=\hspace{0.07cm} \prod_{t=p+1}^n  \frac{1}{\sqrt{2\pi\sigma^2}} \cdot \exp\left(-\frac{(y_t - \phi_0 + \sum_{i=1}^p \phi_i y_{t-i})^2}{2\sigma^2}\right)$$
+
+La función de log-verosimilitud es:
+
+$$ ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,\dots, \phi_p, \sigma^2)\hspace{0.07cm} \right) \hspace{0.07cm}=\hspace{0.07cm} -\frac{n-p}{2} \cdot \ln(2\pi) - \frac{n-p}{2}\cdot \ln(\sigma^2) - \frac{1}{2\sigma^2}\cdot \sum_{t=p+1}^n \left( y_t - \sum_{h=1}^p \phi_h y_{t-h} \right)^2 $$
+
+La estimación de los parametros del modelo $\hspace{0.07cm} AR(p)\hspace{0.07cm}$  se realiza como sigue: $\\[0.3cm]$
+
+
+$$\widehat{\phi}_0, \widehat{\phi}_1, \dots , \widehat{\phi}_p , \widehat{\sigma}^2 \hspace{0.07cm} =\hspace{0.07cm}  arg \hspace{0.07cm}  \underset{\phi_0,\dots , \phi_p, \sigma^2}{Max}  ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,\dots, \phi_p, \sigma^2)\hspace{0.07cm} \right)$$
+
+
+Este problema se puede resolver a través de métodos numéricos como el método de Newton-Raphson o el método de gradiente descendente.
+
+
+
+
+
+
+
+
+
+
+
+
