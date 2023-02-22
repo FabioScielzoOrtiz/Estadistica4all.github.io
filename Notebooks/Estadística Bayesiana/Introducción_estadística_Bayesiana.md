@@ -59,7 +59,7 @@ $\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Marcos Álvarez Martín.](https://
 
 $\hspace{0.3cm}$ **Si utilizas este artículo, por favor, cítalo:** 
 
-$\hspace{0.5cm}$ Álvarez Martín, M. (2023). Introducción a la estadística bayesiana. http://estadistica4all.com/Articulos/Introducción_estadística_Bayesiana.html
+$\hspace{0.5cm}$ Álvarez Martín, M. (2023). Introducción a la estadística bayesiana. Estadistica4all. [Link]( http://estadistica4all.com/Articulos/Introducción_estadística_Bayesiana.html)
 
 
 </p>
@@ -860,17 +860,17 @@ tiene la siguiente definición matemática y propiedades. Una variable
 continua $\hspace{0.08cm}\mathbf{Y}\hspace{0.08cm}$ tiene una distribución beta con parámetros
 $\hspace{0.08cm}\alpha, \beta>0\hspace{0.08cm}$ si:
 
-$$\mathbf{f_{Y}}\left( y \right)\hspace{0.08cm}=\hspace{0.08cm}\frac{1}{B\left ( \alpha, \beta \right )}y^{\alpha-1} \cdot \left( 1-y \right)^{\beta-1}$$
+$$\mathbf{f_{Y}}\left( y \right)\hspace{0.08cm}=\hspace{0.08cm}\frac{1}{B\left ( \alpha, \beta \right )}  \cdot y^{\alpha-1} \cdot \left( 1-y \right)^{\beta-1}$$
 
 para $\hspace{0.08cm}0 < y < 1\hspace{0.08cm}$. 
 
 $B\left ( \cdot,\cdot \right )\hspace{0.08cm}$ es el coeficiente
 beta, que se define como sigue:
 
-$$B\left ( \alpha,\beta \right )=\int_{0}^{1}y^{\alpha-1}\left ( 1-y \right )^{\beta-1}dy=\frac{\Gamma\left ( \alpha \right )\Gamma\left ( \beta \right )}{\Gamma\left ( \alpha + \beta \right )}\\$$
+$$B\left ( \alpha,\beta \right )\hspace{0.08cm}=\hspace{0.08cm}\int_{0}^{1}y^{\alpha-1}\left ( 1-y \right )^{\beta-1}dy\hspace{0.08cm}=\hspace{0.08cm}\frac{\Gamma\left ( \alpha \right )\Gamma\left ( \beta \right )}{\Gamma\left ( \alpha + \beta \right )}\\$$
 
-Se tiene que $\hspace{0.08cm}E\left [ Y \right ]=\frac{\alpha}{\alpha + \beta}\hspace{0.1cm}$ y
-$\hspace{0.1cm}V\left [ Y \right ]=\frac{\alpha\beta}{\left ( \alpha + \beta \right )^{2}\left ( \alpha + \beta + 1 \right )}\hspace{0.1cm}$.
+Se tiene que $\hspace{0.08cm}E\left [ Y \right ]=\frac{\alpha}{\alpha + \beta}\hspace{0.14cm}$ y
+$\hspace{0.14cm}V\left [ Y \right ]=\frac{\alpha\beta}{\left ( \alpha + \beta \right )^{2}\left ( \alpha + \beta + 1 \right )}\hspace{0.1cm}$.
 
 Cambiando los parámetros, la distribución beta toma formas muy
 distintas. En este caso podemos coger la $\hspace{0.08cm}Beta(5,5)\hspace{0.08cm}$.
