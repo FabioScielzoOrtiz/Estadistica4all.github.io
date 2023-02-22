@@ -55,11 +55,11 @@ css: custom.css
 
 $\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)**
 
-$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/autores.html)
+$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/información.html)
 
 $\hspace{0.3cm}$ **Si utilizas este artículo, cítalo !!**
 
-$\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). Distancias Estadísticas. http://estadistica4all.com/Articulos/Distancias-Estadisticas-new.html
+$\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). Distancias Estadísticas. Estadistica4all. http://estadistica4all.com/Articulos/Distancias-Estadisticas-new.html
 
 
 </p>

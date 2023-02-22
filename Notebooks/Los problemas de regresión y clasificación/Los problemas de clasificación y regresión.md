@@ -57,12 +57,12 @@ css: custom.css
 
 $\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)**
 
-$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/autores.html)
+$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/información.html)
 
 
 $\hspace{0.3cm}$ **Si utilizas este artículo, por favor, cítalo:** $\hspace{0.1cm}$  
 
-$\hspace{0.4cm}$ Scielzo Ortiz, F. (2022). Los problemas de regresión y clasificación. $\hspace{0.1cm}$ [Link](http://estadistica4all.com/Articulos/Los-problemas-de-clasificaci%C3%B3n-y-regresi%C3%B3n.html)
+$\hspace{0.4cm}$ Scielzo Ortiz, F. (2022). Los problemas de regresión y clasificación. Estadistica4all. $\hspace{0.1cm}$ [Link](http://estadistica4all.com/Articulos/Los-problemas-de-clasificaci%C3%B3n-y-regresi%C3%B3n.html)
 
 </p>
  
