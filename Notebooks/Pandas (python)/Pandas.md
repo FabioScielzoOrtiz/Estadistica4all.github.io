@@ -56,11 +56,11 @@ css: custom.css
 
 $\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)**
 
-$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/autores.html)
+$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/información)
 
 $\hspace{0.3cm}$ **Si utilizas este artículo, por favor, cítalo:** 
 
-$\hspace{0.5cm}$ Scielzo Ortiz, F. (2023). Introduction to Pandas. http://estadistica4all.com/Articulos/Pandas.html
+$\hspace{0.5cm}$ Scielzo Ortiz, F. (2023). Introduction to Pandas. Estadistica4all. http://estadistica4all.com/Articulos/Pandas.html
 
 
 </p>
