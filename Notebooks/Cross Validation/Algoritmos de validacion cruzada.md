@@ -55,11 +55,11 @@ css: custom.css
 
 $\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)**
 
-$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/autores.html)
+$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](https://estadistica4all.com/autores/informaci%C3%B3n.html)
 
 $\hspace{0.3cm}$ **Si utilizas este artículo, por favor, cítalo:** 
 
-$\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). Algoritmos de validación cruzada. http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html
+$\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). Algoritmos de validación cruzada. Estadistica4all. http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html
 
 
 </p>

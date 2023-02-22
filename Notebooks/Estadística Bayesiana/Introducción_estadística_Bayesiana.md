@@ -1,7 +1,7 @@
 ---
 title: 'Introducción a la Estadística Bayesiana'
-author: 'Marcos Álvarez Martín. Fabio Scielzo Ortiz.'
-date: '19/02/23'
+author: 'Marcos Álvarez Martín'
+date: '22/02/23'
 output: 
    rmdformats::readthedown:
       use_bookdown: true
@@ -55,7 +55,7 @@ css: custom.css
 
 $\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https://estadistica4all.com/)**
 
-$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Marcos Álvarez Martín.](http://estadistica4all.com/autores/autores.html) 
+$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Marcos Álvarez Martín.](https://estadistica4all.com/autores/informaci%C3%B3n#Marcos-%C3%81lvarez) 
 
 $\hspace{0.3cm}$ **Si utilizas este artículo, por favor, cítalo:** 
 

@@ -55,11 +55,11 @@ css: custom.css
 
 $\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)**
 
-$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/autores.html)
+$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](https://estadistica4all.com/autores/informaci%C3%B3n#Fabio-Scielzo)
 
 $\hspace{0.3cm}$ **Si utilizas este artículo, por favor, cítalo:** 
 
-$\hspace{0.5cm}$ Scielzo Ortiz, Fabio. (2023). Algoritmos de ajuste de hiperparámetros. http://estadistica4all.com/Articulos/ajuste_hiperparametros.html
+$\hspace{0.5cm}$ Scielzo Ortiz, Fabio. (2023). Algoritmos de ajuste de hiperparámetros. Estadistica4all. http://estadistica4all.com/Articulos/ajuste_hiperparametros.html
 
 
 </p>

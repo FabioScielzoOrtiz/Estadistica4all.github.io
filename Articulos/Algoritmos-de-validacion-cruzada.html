@@ -1664,9 +1664,9 @@ margin-right: auto;
 <p><span></p>
 <p style="margin-left:10em;">
 <p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Más artículos: <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://fabioscielzoortiz.github.io/Estadistica4all.github.io/">Estadistica4all</a></strong></p>
-<p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Autor:</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="http://estadistica4all.com/autores/autores.html">Fabio Scielzo Ortiz</a></p>
+<p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Autor:</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://estadistica4all.com/autores/informaci%C3%B3n.html">Fabio Scielzo Ortiz</a></p>
 <p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Si utilizas este artículo, por favor, cítalo:</strong></p>
-<p><span class="math inline">\(\hspace{0.5cm}\)</span> Scielzo Ortiz, F. (2022). Algoritmos de validación cruzada. <a href="http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html" class="uri">http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html</a></p>
+<p><span class="math inline">\(\hspace{0.5cm}\)</span> Scielzo Ortiz, F. (2022). Algoritmos de validación cruzada. Estadistica4all. <a href="http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html" class="uri">http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html</a></p>
 </p>
 </p>
 <p></span></p>
@@ -3160,13 +3160,13 @@ quality_recode
 <span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> b <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="va">self</span>.B) :</span>
 <span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a>            SimpleValidationRandom_init <span class="op">=</span> SimpleValidationRandom(k<span class="op">=</span><span class="va">self</span>.k, response<span class="op">=</span><span class="va">self</span>.response, metric<span class="op">=</span><span class="va">self</span>.metric, model<span class="op">=</span><span class="va">self</span>.model, random_seed<span class="op">=</span><span class="va">self</span>.seed_array[b])</span>
+<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a>            RandomSimpleValidation_init <span class="op">=</span> RandomSimpleValidation(k<span class="op">=</span><span class="va">self</span>.k, metric<span class="op">=</span><span class="va">self</span>.metric, model<span class="op">=</span><span class="va">self</span>.model, random_seed<span class="op">=</span><span class="va">self</span>.seed_array[b])</span>
 <span id="cb21-44"><a href="#cb21-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-45"><a href="#cb21-45" aria-hidden="true" tabindex="-1"></a>            SimpleValidationRandom_init.fit(D<span class="op">=</span><span class="va">self</span>.D)</span>
+<span id="cb21-45"><a href="#cb21-45" aria-hidden="true" tabindex="-1"></a>            RandomSimpleValidation_init.fit(D<span class="op">=</span><span class="va">self</span>.D,  response_name<span class="op">=</span><span class="va">self</span>.response_name)</span>
 <span id="cb21-46"><a href="#cb21-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-47"><a href="#cb21-47" aria-hidden="true" tabindex="-1"></a>            SimpleValidationRandom_init.predict()</span>
+<span id="cb21-47"><a href="#cb21-47" aria-hidden="true" tabindex="-1"></a>            RandomSimpleValidation_init.predict()</span>
 <span id="cb21-48"><a href="#cb21-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-49"><a href="#cb21-49" aria-hidden="true" tabindex="-1"></a>            Metric_test_list.append( SimpleValidationRandom_init.compute_metric() )</span>
+<span id="cb21-49"><a href="#cb21-49" aria-hidden="true" tabindex="-1"></a>            Metric_test_list.append( RandomSimpleValidation_init.compute_metric() )</span>
 <span id="cb21-50"><a href="#cb21-50" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-51"><a href="#cb21-51" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-52"><a href="#cb21-52" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.Metric_test <span class="op">=</span> np.mean(Metric_test_list)    </span>
@@ -3449,7 +3449,7 @@ quality_recode
 <span id="cb48-42"><a href="#cb48-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-43"><a href="#cb48-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>  np.mean(<span class="va">self</span>.Metric_Repeted_K_Folds_list)</span></code></pre></div>
 <p>Definimos el modelo KNN para regresión con el que vamos a testear el algoritmo que se acaba de programar:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>knn_regression_init <span class="op">=</span> sklearn.neighbors.KNeighborsRegressor(n_neighbors<span class="op">=</span><span class="dv">10</span> ,  p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>knn_regression_init <span class="op">=</span> sklearn.neighbors.KNeighborsRegressor(n_neighbors<span class="op">=</span><span class="dv">10</span>, p<span class="op">=</span><span class="dv">2</span>, metric<span class="op">=</span><span class="st">&#39;minkowski&#39;</span>)</span></code></pre></div>
 <p>Aplicamos el algoritmo de validación cruzada K-fold repetida sobre el modelo KNN para regresión, usando como métrica de validación el error cuadrático medio (ECM):</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>RepeatedKFoldCV_init <span class="op">=</span> RepeatedKFoldCV(B<span class="op">=</span><span class="dv">100</span>, K<span class="op">=</span><span class="dv">10</span>, random_seed<span class="op">=</span><span class="dv">123</span>, metric<span class="op">=</span><span class="st">&#39;ECM&#39;</span>, model<span class="op">=</span>knn_regression_init)</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
