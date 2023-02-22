@@ -205,7 +205,7 @@ $$P\left ( A\cap B \right )\hspace{0.08cm}=\hspace{0.08cm}P\left ( A \right )P\l
 
 Si $\hspace{0.08cm}P\left ( B \right )> 0\hspace{0.08cm}$, la probabilidad de un suceso B dado A es:$\\[0.5cm]$
 
-$$P\left ( A|B \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{P\left ( A\cap B \right )}{P\left ( B \right )}$$.
+$$P\left ( A|B \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{P\left ( A\cap B \right )}{P\left ( B \right )}$$
 
 <br>
 
@@ -257,7 +257,7 @@ estadística bayesiana, el teorema de Bayes.
 
 Para dos sucesos $\hspace{0.08cm}A\hspace{0.08cm}$, $\hspace{0.08cm}B\hspace{0.08cm}$, tal que $\hspace{0.08cm}P\left ( A \right )>0\hspace{0.08cm}$, se tiene: $\\[0.5cm]$
 
-$$P\left ( B|A \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{P\left ( B \right )P\left ( A|B \right )}{P\left ( A \right )}$$.
+$$P\left ( B|A \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{P\left ( B \right )P\left ( A|B \right )}{P\left ( A \right )}$$
 
 Dicho esto, ahora vamos a repasar los conceptos de variables
 estadísticas, distribuciones conjuntas, marginales y condicionales.
@@ -294,7 +294,7 @@ Para una variable discreta, $\hspace{0.1cm}\mathbf{X}\hspace{0.1cm}$, tomando va
 $\hspace{0.08cm}x_{1},x_{2},...\hspace{0.12cm}$ se definen: 
 
 - La función de probabilidad o masa
-$\hspace{0.08cm}P\left ( \mathbf{X}=x \right )\hspace{0.08cm}$ tal que $\hspace{0.08cm}\sum_{i}P\left (\mathbf{X}=x{i} \right )=1\hspace{0.08cm}[0.5cm]$ 
+$\hspace{0.08cm}P\left ( \mathbf{X}=x \right )\hspace{0.08cm}$ tal que $\hspace{0.08cm}\sum_{i}P\left (\mathbf{X}=x{i} \right )=1\hspace{0.08cm}\\[0.5cm]$ 
 
 - La función de distribución
 $\hspace{0.08cm}\mathbf{F_{X}}\left ( x \right )\hspace{0.08cm}$ tal que:
@@ -848,7 +848,7 @@ Como todo lo anterior puede sonar un poco raro y complejo, supongamos
 que queremos pedir una distribución a priori de un experto para
 $\hspace{0.08cm}\theta=P\left ( cruz \right )\hspace{0.08cm}$ ¿Qué sabemos sobre la probabilidad? $\\[0.5cm]$
 
-$$0\leq \theta \leq 1$$.
+$$0\leq \theta \leq 1$$
 
 En la mayoría de experimentos, aproximadamente
 el 50% de los resultados son cruces. Entonces buscamos una distribución
@@ -860,7 +860,7 @@ tiene la siguiente definición matemática y propiedades. Una variable
 continua $\hspace{0.08cm}\mathbf{Y}\hspace{0.08cm}$ tiene una distribución beta con parámetros
 $\hspace{0.08cm}\alpha, \beta>0\hspace{0.08cm}$ si:
 
-$$\mathbf{f_{Y}}\left ( y \right )\hspace{0.08cm}=\hspace{0.08cm}\frac{1}{B\left ( \alpha, \beta \right )}y^{\alpha-1}\left \cdot ( 1-y \right )^{\beta-1}$$
+$$\mathbf{f_{Y}}\left( y \right)\hspace{0.08cm}=\hspace{0.08cm}\frac{1}{B\left ( \alpha, \beta \right )}y^{\alpha-1} \cdot \left( 1-y \right)^{\beta-1}$$
 
 para $\hspace{0.08cm}0 < y < 1\hspace{0.08cm}$. 
 
