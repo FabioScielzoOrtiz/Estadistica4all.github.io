@@ -820,15 +820,19 @@ $$Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} E\Bigl[ \hspace{0.08cm} (\mat
 
 $$Var(a\cdot \mathcal{X} , b\cdot \mathcal{Y}) \hspace{0.08cm}=\hspace{0.08cm} a^2\cdot Var(\mathcal{X}) + b^2 \cdot Var(\mathcal{Y})$$ 
 
+
+- AÑADIR  Var(aX1 + bX2 + cX3 + dX4 + ...)
+
+
 <br>
 
-## Covarianza  <a class="anchor" id="1"></a>
+# Covarianza  <a class="anchor" id="1"></a>
 
 La covarianza entre las variables $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ y $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ se define como : $\\[0.5cm]$
 
 $$Cov(\mathcal{X},\mathcal{Y}) = E\Bigl[\hspace{0.08cm} (\mathcal{X}- E[\mathcal{X}])\cdot (\mathcal{Y}-E[\mathcal{Y}])\hspace{0.08cm}\Bigr]$$ $\\[0.5cm]$
 
-### Propiedades  <a class="anchor" id="1"></a>
+## Propiedades  <a class="anchor" id="1"></a>
 
 - $Cov(\mathcal{X},\mathcal{Y}) \hspace{0.08cm}=\hspace{0.08cm} E[\mathcal{X}\cdot \mathcal{Y}] - E[\mathcal{X}]\cdot E[\mathcal{Y}]$ $\\[0.8cm]$
 
@@ -838,7 +842,15 @@ $$Cov(\mathcal{X},\mathcal{Y}) = E\Bigl[\hspace{0.08cm} (\mathcal{X}- E[\mathcal
 
 - Que $\hspace{0.08cm}Cov(\mathcal{X},\mathcal{Y})=0\hspace{0.08cm}$ no implica que $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ sean independientes.  
 
- 
+
+- AÑADIR COV(a , X)
+
+- AÑADIR COV(a , b)
+
+- AÑADIR COV(X, X)
+
+
+- AÑADIR COV(a + bX + cZ, r + qY + pW)
 
 
 <br>
