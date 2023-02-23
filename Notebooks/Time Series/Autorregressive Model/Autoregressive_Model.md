@@ -817,7 +817,7 @@ plt.show()
 <br>
 
 
-# Regression Problem vs   Time Series  Forecasting
+# Regression Problem vs   Time Series  Forecasting <a class="anchor" id="1"></a>
  
 
 You probably have encountered regression problems where you must predict some continuous
@@ -845,7 +845,7 @@ our very first forecasting technique.
 <br>
 
 
-#  Time Series Forecasting
+#  Time Series Forecasting <a class="anchor" id="1"></a>
 
 
 Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.1cm}=\hspace{0.1cm}  \hspace{0.1cm}\bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\bigl) \hspace{0.1cm}$ .
@@ -918,11 +918,11 @@ Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.1cm}=\hspace{0
 
 The stochastic process $\hspace{0.08cm}\mathcal{Y} \hspace{0.08cm}$ is **weakly stationary** if:  
 
-- $\mu_t \hspace{0.08cm}=\hspace{0.08cm} \mu \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,...,n \\$
+- $\mu_t \hspace{0.08cm}=\hspace{0.08cm} \mu \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,...,n \hspace{0.5cm}\text{(weak stationarity in mean)}\\$
 
-- $\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} \sigma  \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,...,n  \\$
+- $\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} \sigma^2  \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,...,n  \hspace{0.5cm}\text{(weak stationarity in variance)}\\$
 
-- $\gamma_{t , t + h} \hspace{0.08cm}=\hspace{0.08cm} Cov(\mathcal{X}_t,\mathcal{X}_{t+h}) \hspace{0.08cm}=\hspace{0.08cm}E[(\mathcal{X}_t - \mu)\cdot (\mathcal{X}_{t+h} - \mu)] \hspace{0.08cm}=\hspace{0.08cm} \gamma_h  \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} h = 0 , \pm 1 , \pm 2 ,...  \\$
+- $\gamma_{t , t + h} \hspace{0.08cm}=\hspace{0.08cm} Cov(\mathcal{X}_t,\mathcal{X}_{t+h}) \hspace{0.08cm}=\hspace{0.08cm}E[(\mathcal{X}_t - \mu)\cdot (\mathcal{X}_{t+h} - \mu)] \hspace{0.08cm}=\hspace{0.08cm} \gamma_h  \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} h = 0 , \pm 1 , \pm 2 ,...  \hspace{0.5cm}\text{(weak stationarity in covariance)}\\$
 
 
 
@@ -935,7 +935,7 @@ In a stationary process the autocovariances and autocorrelations depend only on
 the lag between the variables and, in particular, the relationship between $\hspace{0.08cm}\mathcal{Y}_t\hspace{0.08cm}$ and $\hspace{0.08cm}\mathcal{Y}_{t+h}\hspace{0.08cm}$ ,  is always equal to the relationship between $\hspace{0.08cm}\mathcal{Y}_t\hspace{0.08cm}$ and $\hspace{0.08cm}\mathcal{Y}_{t-h}\hspace{0.08cm}$ .
 
 
-As a result, in stationary processes:
+As a result, in a weak stationary processes:
 
 
 
@@ -949,6 +949,26 @@ $$\rho_{t, t+h} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_{t , t + h}}{\sqrt
 Weak stationarity doesn't guarantee full process stability, namely, the probability distribution of $\hspace{0.08cm}\mathcal{Y}_t\hspace{0.08cm}$ may change for different $\hspace{0.08cm}t\hspace{0.08cm}$ values.
 
 But, if it is assume that $\hspace{0.08cm}\mathcal{Y}_1,\dots , \mathcal{Y}_n \hspace{0.08cm}\sim\hspace{0.08cm} NM_n(\mathbf{\mu}, \mathbf{\Sigma})\hspace{0.08cm}$, then, weak stationariy is equivalent to strict stationarity.
+
+
+<br>
+
+
+## Asymptotic Weak Stationarity
+
+Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.1cm}=\hspace{0.1cm}  \hspace{0.1cm}\bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\bigl) \hspace{0.1cm}.$  $\\[0.25cm]$
+
+
+The stochastic process $\hspace{0.08cm}\mathcal{Y} \hspace{0.08cm}$ is **asymptotically stationary in a weak sense** if:  
+
+- $\mu_t \hspace{0.08cm}=\hspace{0.08cm} \mu \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} t \rightarrow \infty \hspace{0.5cm}\text{(asymptotic weak stationarity in mean)}\\$
+
+- $\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} \sigma^2  \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t \rightarrow \infty  \hspace{0.5cm}\text{(asymptotic weak stationarity in variance)}\\$
+
+- $\gamma_{t , t + h} \hspace{0.08cm}=\hspace{0.08cm} Cov(\mathcal{X}_t,\mathcal{X}_{t+h}) \hspace{0.08cm}=\hspace{0.08cm}E[(\mathcal{X}_t - \mu)\cdot (\mathcal{X}_{t+h} - \mu)] \hspace{0.08cm}=\hspace{0.08cm} \gamma_h  \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} h = 0 , \pm 1 , \pm 2 ,...  \hspace{0.5cm}\text{(weak stationarity in covariance)}\\$
+
+
+
 
 
 <br>
@@ -976,15 +996,16 @@ A white noise process is a weak stationarity process.
 
 <br>
 
+---
+
+<br>
 
 
 
 
 
 
-
-
-# First-Order Autorregresive Model: AR(1)
+# First-Order Autoregresive Process: AR(1) process <a class="anchor" id="1"></a>
 
 
 Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.08cm}=\hspace{0.08cm}  \hspace{0.1cm}\bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\bigl) \hspace{0.1cm}.$  $\\[0.25cm]$
@@ -992,22 +1013,189 @@ Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.08cm}=\hspace{
  
 
 
-The first-order autoregressive model $AR(1)$ for the process $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ is defined as: $\\[0.25cm]$
+The first-order autoregressive process $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ for the process $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ is defined as: $\\[0.35cm]$
 
 $$\mathcal{Y}_t\hspace{0.08cm}=\hspace{0.08cm}\phi_0 \hspace{0.08cm}+\hspace{0.08cm} \phi_1 \cdot \mathcal{Y}_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.4cm}  , \hspace{0.4cm}  t = 2,3,\dots , n$$ 
 
 Where:
 
-- $\varepsilon_t \sim N(0,\sigma^2) \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 2,3,\dots , n\\$
+- $\varepsilon_t \hspace{0.08cm}\sim \hspace{0.08cm}N(0,\sigma^2) \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 2,3,\dots , n\\$
 
 - $Cov(\varepsilon_t , \varepsilon_{t+h})=0 \hspace{0.3cm},\hspace{0.3cm}  \forall\hspace{0.08cm} t = 2,3,\dots \hspace{0.15cm},\hspace{0.15cm}  \forall\hspace{0.08cm} h = \pm 1,\pm 2,\dots\\$
 
     
     In other words, $\hspace{0.08cm}(\hspace{0.08cm}\varepsilon_t \hspace{0.1cm}:\hspace{0.1cm} t = 2,3,\dots, n \hspace{0.08cm})\hspace{0.1cm}$ is a **normal white noise proccess**.
 
+
 <br>
 
-## Mean of AR(1) model
+
+## Mean of AR(1) process
+
+In general, for an $\hspace{0.08cm}AR(1)\hspace{0.08cm}$  process we have the following:
+
+
+
+$$\mu_t \hspace{0.08cm}=\hspace{0.08cm} E[\mathcal{Y}_t] \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \cdot \sum_{i=0}^{t-2}\hspace{0.08cm} \phi_1^i \hspace{0.08cm}+\hspace{0.08cm} \phi_1^{t-1}\cdot \mu_1$$
+
+
+As we can see, $\hspace{0.08cm}\mu_t\hspace{0.08cm}$ depends on $\hspace{0.08cm}t\hspace{0.08cm}$ so, not is necessarily constant.
+
+
+
+- If $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$ , then:
+
+   
+    $\mu_t \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\ph_0}{1-\phi_1} \hspace{0.35cm} ,\hspace{0.35cm} t \rightarrow \infty$
+    
+    So, the AR(1) process is weakly stationary in mean, in an asymptotic sense.
+
+
+- If $\hspace{0.08cm}| \phi_1 | \geq 1\hspace{0.08cm}$ , then:
+
+
+    $\mu_t\hspace{0.08cm}$ doesn't converge to a constant value.
+
+    So, the AR(1) process  isn't weak stationary in mean, and by extension, the AR(1) process  isn't weak stationary, so neither in a strict sense. $\\[0.4cm]$
+
+
+
+**Proof:**
+
+Using the definition of the $\hspace{0.08cm}AR(1)\hspace{0.08cm}$  process by recursion we can proof the following statement:
+
+$$\mathcal{Y}_t \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \cdot \sum_{i=0}^{t-2}\hspace{0.08cm} \phi_1^i \hspace{0.08cm}+\hspace{0.08cm} \phi_1^{t-1}\cdot \mathcal{Y}_1 \hspace{0.08cm}+\hspace{0.08cm} \sum_{i=0}^{t-2} \hspace{0.08cm}\phi_1^i \cdot \varepsilon_{t-i}  \hspace{0.3cm},\hspace{0.3cm} t=2,3,\dots,n$$
+
+
+So,taking the expectation we have:
+
+$$\mu_t = E[\mathcal{Y}_t]  \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \cdot \sum_{i=0}^{t-2}\hspace{0.08cm} \phi_1^i \hspace{0.08cm}+\hspace{0.08cm} \phi_1^{t-1}\cdot \mu_1 \hspace{0.3cm},\hspace{0.3cm} t=2,3,\dots,n$$
+
+
+Therefore, $\hspace{0.08cm}\mu_t\hspace{0.08cm}$ depends on $\hspace{0.08cm}t\hspace{0.08cm}$ and isn't necessarily constant.
+
+- If $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$ , then:
+
+  
+    $$\sum_{i=0}^{t-2}\hspace{0.08cm} \phi_1^i \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1-\phi_1^{t-1}}{1-\phi_1}$$
+
+
+   
+    So, we have,:
+    
+    $$\mu_t = \phi_0 \cdot\dfrac{1-\phi_1^{t-1}}{1-\phi_1} \hspace{0.08cm}+\hspace{0.08cm} \phi_1^{t-1}\cdot \mu_1$$
+    
+    
+    And, under the assumption of $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$, we also have:
+    
+    $$\underset{t \rightarrow \infty}{lim} \phi_1^{t-1} \hspace{0.08cm}=\hspace{0.08cm} 0$$
+
+
+    Therefore:
+    
+    $$\underset{t \rightarrow \infty}{lim} \mu_t \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \cdot\dfrac{1}{1-\phi_1}\\$$
+    
+    So, the mean $\hspace{0.08cm}\mu_t\hspace{0.08cm}$ converge to a constant value when $t$ is large. So, the process $AR(1)$ process is weakly stationary in a asymptotic sense.
+    
+
+
+- If $\hspace{0.08cm}| \phi_1 | \geq 1\hspace{0.08cm}$ , then:
+
+
+
+    The sum $\sum_{i=0}^{t-2}\hspace{0.08cm} \phi_1^i$ doesn't converge to a constant value.
+ 
+ 
+    And the value of $\phi_1^{t-1}$ depends on $t$ and doen't converge to $0$ when $t\rightarrow \infty$
+ 
+
+    So, the mean $\hspace{0.08cm}\mu_t\hspace{0.08cm}$ doesn't converge to a constant value. So, the $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process is not stationary, neither in the weak nor in the strict sense.
+
+
+
+<br>
+
+
+## Variance of AR(1) process
+
+In general, for an $\hspace{0.08cm}AR(1)\hspace{0.08cm}$  process we have the following:
+
+
+$$\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} Var(\mathcal{Y}_t) \hspace{0.08cm}=\hspace{0.08cm} \phi_1^{2(t-1)} \cdot \sigma_1^2 \hspace{0.08cm}+\hspace{0.08cm} Var(\sum_{i=0}^{t-2} \phi_1^i \cdot \varepsilon_{t-i})$$
+
+
+As we can see, $\hspace{0.08cm}\sigma_t^2\hspace{0.08cm}$ depends on $\hspace{0.08cm}t\hspace{0.08cm}$ so, not is necessarily constant.
+
+
+
+- If $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$ , then:
+
+$\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\sigma^2}{1-\phi_1^2} \hspace{0.35cm} ,\hspace{0.35cm} t \rightarrow \infty$
+
+
+    So, the AR(1) process is weakly stationary in variance, in an asymptotic sense.
+    
+
+- If $\hspace{0.08cm}| \phi_1 | \geq 1\hspace{0.08cm}$ , then:
+
+   
+    $\hspace{0.08cm}\sigma_t^2\hspace{0.08cm}$ doesn't converge to a constant value.
+
+    So, the process AR(1) isn't weak stationary in variance, and by extension, the process AR(1) isn't weak stationary, so neither in a strict sense. $\\[0.4cm]$
+
+
+
+**Proof:**
+
+Using the definition of the $\hspace{0.08cm}AR(1)\hspace{0.08cm}$  process by recursion we can proof the following statement:
+
+$$\mathcal{Y}_t \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \cdot \sum_{i=0}^{t-2}\hspace{0.08cm} \phi_1^i \hspace{0.08cm}+\hspace{0.08cm} \phi_1^{t-1}\cdot \mathcal{Y}_1 \hspace{0.08cm}+\hspace{0.08cm} \sum_{i=0}^{t-2} \hspace{0.08cm}\phi_1^i \cdot \varepsilon_{t-i}  \hspace{0.3cm},\hspace{0.3cm} t=2,3,\dots,n$$
+
+
+So,taking the variance we have:
+
+$$\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} Var(\mathcal{Y}_t) \hspace{0.08cm}=\hspace{0.08cm} \phi_1^{2(t-1)} \cdot \sigma_1^2 \hspace{0.08cm}+\hspace{0.08cm} Var(\sum_{i=0}^{t-2} \phi_1^i \cdot \varepsilon_{t-i})$$
+
+
+We have that:
+
+Var(\sum_{i=0}^{t-2} \phi_1^i \cdot \varepsilon_{t-i}) = Var(\varepsilon_t + \phi_1\cdot\varepsilon_{t-1} + \phi_1^2\cdot \varepsilon_{t-2} +\dots + \phi_1^{t-2}\varepsilon_2)=
+
+\sigma^2 + (\phi_1)^2 \cdot \sigma^2 + (\phi_1^2)^2 \cdot \sigma^2 + \dots + (\phi_1^{t-2})^2 \cdot \sigma^2 + 2\cdot \sum_{i\neq j \\ i,j=2,...,t-2} Cov(\varepsilon_i , \varepsilon_j) \cdot a_i \cdot a_j
+
+
+a_i = \phi_1^{t-i}
+
+
+Taking into account that Cov(\varepsilon_i , \varepsilon_j)=0 , \forall i,j, then:
+
+
+
+Var(\sum_{i=0}^{t-2} \phi_1^i \cdot \varepsilon_{t-i}) = \sigma^2 + (\phi_1)^2 \cdot \sigma^2 + (\phi_1^2)^2 \cdot \sigma^2 + \dots + (\phi_1^{t-2})^2 \cdot \sigma^2  =
+\sum_{i=0}^{t-2} (\phi_1^i)^2 \cdot \sigma^2 = \sum_{i=0}^{t-2} \phi_1^{2i} \cdot \sigma^2 
+
+
+
+Therefore:
+
+\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} Var(\mathcal{Y}_t) \hspace{0.08cm}=\hspace{0.08cm} \phi_1^{2(t-1)} \cdot \sigma_1^2 \hspace{0.08cm}+\hspace{0.08cm} \sum_{i=0}^{t-2} \phi_1^{2i} \cdot \sigma^2 
+
+
+As we can see, \sigma_t^2 depend on t, so it is not necessarily the same constant for each $t$.
+
+If | \phi_1 | < 1 , then
+
+
+
+
+If | \phi_1 | \geq 1, then:
+
+
+
+
+<br>
+
+## Autocovariance of AR(1) process
 
 
 
@@ -1015,11 +1203,15 @@ Where:
 
 
 
+## Asymptotic Weak Stationarity Conditions of an AR(1)
 
 
----
 
 
+<br>
+
+
+# First-Order Autoregresive Model: AR(1) model
 
 
 In practice, we have a time series $\hspace{0.07cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.1cm}$ associated to the  process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$.$\\[0.4cm]$ 
@@ -1041,7 +1233,7 @@ Where:
 - $Cov(\varepsilon_t , \varepsilon_{t+h})=0 \hspace{0.3cm},\hspace{0.3cm}  \forall\hspace{0.08cm} t = 2,3,\dots \hspace{0.15cm},\hspace{0.15cm}  \forall\hspace{0.08cm} h = \pm 1,\pm 2,\dots\\$
 
 
-
+<br>
 
 ---
 
@@ -1176,10 +1368,88 @@ Este problema se puede resolver a través de métodos numéricos como el método
 
 
 
+<br>
+
+# Second-Order Autoregressive process: AR(2) process
+
+
+
+Condicion de estacionariedad debil, demostracion:
+
+Tienes razón. La demostración completa es un poco más complicada que lo que he descrito antes. Te la muestro a continuación.
+
+En general, la condición suficiente para que un proceso $AR(2)$ sea débilmente estacionario es que las raíces de la ecuación característica
+
+$$\phi(z) = 1 - \phi_1 z - \phi_2 z^2 = 0$$
+
+estén fuera del círculo unitario en el plano complejo, es decir, que $|\alpha_i| > 1$ para $i=1,2$, donde $\alpha_1$ y $\alpha_2$ son las raíces de $\phi(z)=0$.
+
+Para ver por qué esto es cierto, primero escribimos el proceso $AR(2)$ como
+
+$$Y_t = \phi_1 Y_{t-1} + \phi_2 Y_{t-2} + \epsilon_t,$$
+
+donde $\epsilon_t$ es un ruido blanco con media cero y varianza $\sigma^2$. Tomando la transformada de Laplace, obtenemos
+
+$$\phi(z) \mathcal{L}(Y_t) = \mathcal{L}(\epsilon_t),$$
+
+donde $\mathcal{L}$ denota la transformada de Laplace. Resolviendo para $\mathcal{L}(Y_t)$, tenemos
+
+$$\mathcal{L}(Y_t) = \frac{\mathcal{L}(\epsilon_t)}{\phi(z)}.$$
+
+Ahora, para que el proceso $AR(2)$ sea estacionario, es necesario que $\mathcal{L}(Y_t)$ exista para todo $t$. Esto es equivalente a que el denominador $\phi(z)$ no tenga raíces en el círculo unitario, porque las raíces en el círculo unitario generan polos de orden uno en el origen de la transformada de Laplace, lo que implica que la serie de Fourier correspondiente no converge. Por lo tanto, si $\phi(z)$ tiene raíces en el círculo unitario, el proceso $AR(2)$ no puede ser estacionario.
+
+Por otro lado, si las raíces de $\phi(z)$ están fuera del círculo unitario, entonces podemos expresar $\phi(z)$ como
+
+$$\phi(z) = (\alpha_1 - z)(\alpha_2 - z),$$
+
+donde $|\alpha_i| > 1$. Entonces, podemos expandir $\mathcal{L}(Y_t)$ en fracciones parciales como
+
+$$\mathcal{L}(Y_t) = \frac{c_1}{z-\alpha_1} + \frac{c_2}{z-\alpha_2},$$
+
+donde $c_1$ y $c_2$ son constantes que dependen de los valores iniciales $Y_0$ y $Y_1$. Tomando la transformada inversa de Laplace, obtenemos
+
+$$Y_t = c_1 \alpha_1^t + c_2 \alpha_2^t.$$
+
+Como $|\alpha_i|>1$, podemos ver que $\alpha_i^t$ converge a cero cuando $t$ tiende a infinito. Por lo tanto, $Y_t$ converge a una constante cuando $t$ tiende a infinito, lo que implica que el proceso $AR(2)$ es débilmente estacionario.
+ 
+ En resumen, para que un proceso AR(2) sea débilmente estacionario, es necesario que las raíces del polinomio característico estén dentro del círculo unitario. Esto se debe a que las raíces del polinomio característico están relacionadas con los coeficientes del modelo AR(2) y, por lo tanto, con las propiedades estadísticas del proceso. Cuando las raíces están dentro del círculo unitario, los coeficientes están acotados y el proceso AR(2) es estacionario en media, varianza y covarianza.
+
+Cabe señalar que la condición de que las raíces estén dentro del círculo unitario no es suficiente para garantizar la estacionariedad fuerte del proceso AR(2), que implica la invariancia del proceso bajo desplazamientos en el tiempo. La estacionariedad fuerte requiere que se cumplan algunas condiciones adicionales, como la existencia de ciertos momentos y la ergodicidad del proceso.
 
 
 
 
+<br>
 
+# AR(p)
 
+n primer lugar, escribimos el proceso $AR(p)$ como
+
+$$Y_t = \sum_{i=1}^p \phi_i Y_{t-i} + \epsilon_t,$$
+
+donde $\epsilon_t$ es un ruido blanco con media cero y varianza $\sigma^2$. Tomando la transformada de Laplace, obtenemos
+
+$$\phi(z) \mathcal{L}(Y_t) = \mathcal{L}(\epsilon_t),$$
+
+donde $\mathcal{L}$ denota la transformada de Laplace. Resolviendo para $\mathcal{L}(Y_t)$, tenemos
+
+$$\mathcal{L}(Y_t) = \frac{\mathcal{L}(\epsilon_t)}{\phi(z)}.$$
+
+Ahora, para que el proceso $AR(p)$ sea estacionario, es necesario que $\mathcal{L}(Y_t)$ exista para todo $t$. Esto es equivalente a que el denominador $\phi(z)$ no tenga raíces en el círculo unitario, porque las raíces en el círculo unitario generan polos de orden uno en el origen de la transformada de Laplace, lo que implica que la serie de Fourier correspondiente no converge. Por lo tanto, si $\phi(z)$ tiene raíces en el círculo unitario, el proceso $AR(p)$ no puede ser estacionario.
+
+Por otro lado, si las raíces de $\phi(z)$ están fuera del círculo unitario, entonces podemos expresar $\phi(z)$ como
+
+$$\phi(z) = (\alpha_1 - z)(\alpha_2 - z) \cdots (\alpha_p - z),$$
+
+donde $|\alpha_i| > 1$. Entonces, podemos expandir $\mathcal{L}(Y_t)$ en fracciones parciales como
+
+$$\mathcal{L}(Y_t) = \frac{c_1}{z-\alpha_1} + \frac{c_2}{z-\alpha_2} + \cdots + \frac{c_p}{z-\alpha_p},$$
+
+donde $c_1,\dots,c_p$ son constantes que dependen de los valores iniciales $Y_0,\dots,Y_{p-1}$. Tomando la transformada inversa de Laplace, obtenemos
+
+$$Y_t = c_1 \alpha_1^t + c_2 \alpha_2^t + \cdots + c_p \alpha_p^t.$$
+
+Como $|\alpha_i|>1$, podemos ver que $\alpha_i^t$ converge a cero cuando $t$ tiende a infinito. Por lo tanto, $Y_t$ converge a una constante cuando $t$ tiende a infinito, lo que implica que el proceso $AR(p)$ es débilmente estacionario.
+
+En resumen, las raíces de la ecuación característica de un proceso $AR(p)$ deben estar fuera del círculo unitario en el plano complejo para que el proceso sea débilmente estacionario.
 
