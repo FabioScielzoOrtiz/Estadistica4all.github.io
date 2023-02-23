@@ -916,13 +916,13 @@ Strict stationarity is a very strong condition, since to prove it we must have t
 Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.1cm}=\hspace{0.1cm}  \hspace{0.1cm}\bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\bigl) \hspace{0.1cm}.$  $\\[0.25cm]$
 
 
-The stochastic process $\hspace{0.08cm}\mathcal{Y} \hspace{0.08cm}$ is **weakly stationary** if:  
+The stochastic process $\hspace{0.08cm}\mathcal{Y} \hspace{0.08cm}$ is **weakly stationary** if:  $\\[0.35cm]$
 
 - $\mu_t \hspace{0.08cm}=\hspace{0.08cm} \mu \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,...,n \hspace{0.5cm}\text{(weak stationarity in mean)}\\$
 
 - $\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} \sigma^2  \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,...,n  \hspace{0.5cm}\text{(weak stationarity in variance)}\\$
 
-- $\gamma_{t , t + h} \hspace{0.08cm}=\hspace{0.08cm} Cov(\mathcal{X}_t,\mathcal{X}_{t+h}) \hspace{0.08cm}=\hspace{0.08cm}E[(\mathcal{X}_t - \mu)\cdot (\mathcal{X}_{t+h} - \mu)] \hspace{0.08cm}=\hspace{0.08cm} \gamma_h  \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} h = 0 , \pm 1 , \pm 2 ,...  \hspace{0.5cm}\text{(weak stationarity in covariance)}\\$
+- $\gamma_{t , t + h} \hspace{0.08cm}=\hspace{0.08cm} Cov(\mathcal{Y}_t,\mathcal{Y}_{t+h}) \hspace{0.08cm}=\hspace{0.08cm}E[(\mathcal{Y}_t - \mu)\cdot (\mathcal{Y}_{t+h} - \mu)] \hspace{0.08cm}=\hspace{0.08cm} \gamma_h  \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} h = 0 , \pm 1 , \pm 2 ,...  \hspace{0.5cm}\text{(weak stationarity in covariance)}\\$
 
 
 
@@ -959,13 +959,13 @@ But, if it is assume that $\hspace{0.08cm}\mathcal{Y}_1,\dots , \mathcal{Y}_n \h
 Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.1cm}=\hspace{0.1cm}  \hspace{0.1cm}\bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\bigl) \hspace{0.1cm}.$  $\\[0.25cm]$
 
 
-The stochastic process $\hspace{0.08cm}\mathcal{Y} \hspace{0.08cm}$ is **asymptotically stationary in a weak sense** if:  
+The stochastic process $\hspace{0.08cm}\mathcal{Y} \hspace{0.08cm}$ is **asymptotically stationary in a weak sense** if:   $\\[0.35cm]$
 
 - $\mu_t \hspace{0.08cm}=\hspace{0.08cm} \mu \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} t \rightarrow \infty \hspace{0.5cm}\text{(asymptotic weak stationarity in mean)}\\$
 
 - $\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} \sigma^2  \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t \rightarrow \infty  \hspace{0.5cm}\text{(asymptotic weak stationarity in variance)}\\$
 
-- $\gamma_{t , t + h} \hspace{0.08cm}=\hspace{0.08cm} Cov(\mathcal{X}_t,\mathcal{X}_{t+h}) \hspace{0.08cm}=\hspace{0.08cm}E[(\mathcal{X}_t - \mu)\cdot (\mathcal{X}_{t+h} - \mu)] \hspace{0.08cm}=\hspace{0.08cm} \gamma_h  \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} h = 0 , \pm 1 , \pm 2 ,...  \hspace{0.5cm}\text{(weak stationarity in covariance)}\\$
+- $\gamma_{t , t + h} \hspace{0.08cm}=\hspace{0.08cm} Cov(\mathcal{Y}_t,\mathcal{Y}_{t+h}) \hspace{0.08cm}=\hspace{0.08cm}E[(\mathcal{Y}_t - \mu)\cdot (\mathcal{Y}_{t+h} - \mu)] \hspace{0.08cm}=\hspace{0.08cm} \gamma_h  \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} h = 0 , \pm 1 , \pm 2 ,...  \hspace{0.5cm}\text{(weak stationarity in covariance)}\\$
 
 
 
@@ -980,7 +980,7 @@ The stochastic process $\hspace{0.08cm}\mathcal{Y} \hspace{0.08cm}$ is **asympto
 Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.08cm}=\hspace{0.08cm}  \hspace{0.1cm}\bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\bigl) \hspace{0.1cm}.$  $\\[0.25cm]$
 
 
-The process $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ is a white noise process if: $\\[0.25cm]$
+The process $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ is a white noise process if: $\\[0.35cm]$
 
 - $E[\mathcal{Y}_t] \hspace{0.08cm}=\hspace{0.08cm} 0 \hspace{0.3cm}, \hspace{0.3cm}\forall\hspace{0.08cm} t=1,\dots , n\\$
 
@@ -1005,7 +1005,7 @@ A white noise process is a weak stationarity process.
 
 
 
-# First-Order Autoregresive Process: AR(1) process <a class="anchor" id="1"></a>
+# First-Order Autoregresive Process: AR(1) process  
 
 
 Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.08cm}=\hspace{0.08cm}  \hspace{0.1cm}\bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\bigl) \hspace{0.1cm}.$  $\\[0.25cm]$
@@ -1021,10 +1021,32 @@ Where:
 
 - $\varepsilon_t \hspace{0.08cm}\sim \hspace{0.08cm}N(0,\sigma^2) \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 2,3,\dots , n\\$
 
-- $Cov(\varepsilon_t , \varepsilon_{t+h})=0 \hspace{0.3cm},\hspace{0.3cm}  \forall\hspace{0.08cm} t = 2,3,\dots \hspace{0.15cm},\hspace{0.15cm}  \forall\hspace{0.08cm} h = \pm 1,\pm 2,\dots\\$
+- $Cov(\varepsilon_t \hspace{0.08cm},\hspace{0.08cm} \varepsilon_{t+h})=0 \hspace{0.3cm},\hspace{0.3cm}  \forall\hspace{0.08cm} t = 2,3,\dots \hspace{0.15cm},\hspace{0.15cm}  \forall\hspace{0.08cm} h = \pm 1,\pm 2,\dots\\$
 
+
+- $Cov(\mathcal{Y}_{t+h}\hspace{0.08cm},\hspace{0.08cm} \varepsilon_t) \hspace{0.08cm}=\hspace{0.08cm} 0 \hspace{0.3cm},\hspace{0.3cm}  \forall\hspace{0.08cm} t = 2,3,\dots  \hspace{0.15cm},\hspace{0.15cm} \forall\hspace{0.08cm}  h = 0,\pm 1,\pm 2,\dots\\$
     
-    In other words, $\hspace{0.08cm}(\hspace{0.08cm}\varepsilon_t \hspace{0.1cm}:\hspace{0.1cm} t = 2,3,\dots, n \hspace{0.08cm})\hspace{0.1cm}$ is a **normal white noise proccess**.
+    First two assumptions means that $\hspace{0.08cm}(\hspace{0.03cm}\varepsilon_t \hspace{0.1cm}:\hspace{0.1cm} t = 2,3,\dots, n \hspace{0.03cm})\hspace{0.1cm}$ is a **normal white noise proccess**. 
+    
+    
+<br>    
+    
+
+## Expression of AR(1) as a function of the lag operator
+
+
+$$(1 - \phi_1 \cdot B) \cdot \mathcal{Y}_t \hspace{0.08cm} =\hspace{0.08cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t$$
+
+
+Where: 
+
+$B\hspace{0.08cm}$ is the lag operator and is defined as follows:
+
+$$B\cdot \mathcal{Y}_t \hspace{0.08cm}=\hspace{0.08cm} \mathcal{Y}_{t-1}$$
+
+$$B^h\cdot \mathcal{Y}_t \hspace{0.08cm}=\hspace{0.08cm} \mathcal{Y}_{t-j}  \hspace{0.3cm} , \hspace{0.3cm} h=1,2,\dots$$
+
+
 
 
 <br>
@@ -1039,32 +1061,50 @@ In general, for an $\hspace{0.08cm}AR(1)\hspace{0.08cm}$  process we have the fo
 $$\mu_t \hspace{0.08cm}=\hspace{0.08cm} E[\mathcal{Y}_t] \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \cdot \sum_{i=0}^{t-2}\hspace{0.08cm} \phi_1^i \hspace{0.08cm}+\hspace{0.08cm} \phi_1^{t-1}\cdot \mu_1$$
 
 
-As we can see, $\hspace{0.08cm}\mu_t\hspace{0.08cm}$ depends on $\hspace{0.08cm}t\hspace{0.08cm}$ so, not is necessarily constant.
+Where: $\hspace{0.12cm}\mu_1 \hspace{0.08cm}=\hspace{0.08cm} E[\mathcal{Y}_1]\\$
+
+
+As we can see, $\hspace{0.08cm}\mu_t\hspace{0.08cm}$ depends on $\hspace{0.08cm}t\hspace{0.08cm}$ so, It isn't necessarily constant. That means $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ isn't necessarily a weak stationary process.  $\\[1.5cm]$
 
 
 
-- If $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$ , then:
+- If $\hspace{0.1cm}| \phi_1 | < 1\hspace{0.1cm}$ , then:
 
    
-    $\mu_t \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\ph_0}{1-\phi_1} \hspace{0.35cm} ,\hspace{0.35cm} t \rightarrow \infty$
+    $$\mu_t \hspace{0.08cm}=\hspace{0.08cm} \mu_{\mathcal{Y}} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\phi_0}{1-\phi_1} \hspace{0.35cm} ,\hspace{0.35cm} t \rightarrow \infty \\$$
     
-    So, the AR(1) process is weakly stationary in mean, in an asymptotic sense.
+    
+    
+    So, the $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process is **weakly stationary in mean**, in an **asymptotic** sense, because the mean converge to a constant value when $\hspace{0.08cm}t\hspace{0.08cm}$ is large enough. $\\[0.3cm]$
+    
+    
+    
+    Using that fact, we will consider the following approximation:$\\[0.3cm]$
+    
+    $$\mu_t\hspace{0.08cm} \approx\hspace{0.08cm} \mu_{\mathcal{Y}} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\phi_0}{1-\phi_1} \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,\dots , n$$ $\\[0.7cm]$
 
 
-- If $\hspace{0.08cm}| \phi_1 | \geq 1\hspace{0.08cm}$ , then:
 
 
-    $\mu_t\hspace{0.08cm}$ doesn't converge to a constant value.
-
-    So, the AR(1) process  isn't weak stationary in mean, and by extension, the AR(1) process  isn't weak stationary, so neither in a strict sense. $\\[0.4cm]$
+- If $\hspace{0.1cm}| \phi_1 | \geq 1\hspace{0.1cm}$ , then: $\\[0.4cm]$ 
 
 
+    $$\mu_t\hspace{0.2cm}  \text{doesn't converge to a constant value.}\hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,\dots , n \\$$
+
+    So, the $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process  isn't weak stationary in mean, and by extension, It  isn't weak stationary, in general, so neither in a strict sense. 
+    
+    
+<br>
+
+---
+
+<br>
 
 **Proof:**
 
-Using the definition of the $\hspace{0.08cm}AR(1)\hspace{0.08cm}$  process by recursion we can proof the following statement:
+Using the definition of the $\hspace{0.08cm}AR(1)\hspace{0.08cm}$  process, by recursion, we can proof the following statement:
 
-$$\mathcal{Y}_t \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \cdot \sum_{i=0}^{t-2}\hspace{0.08cm} \phi_1^i \hspace{0.08cm}+\hspace{0.08cm} \phi_1^{t-1}\cdot \mathcal{Y}_1 \hspace{0.08cm}+\hspace{0.08cm} \sum_{i=0}^{t-2} \hspace{0.08cm}\phi_1^i \cdot \varepsilon_{t-i}  \hspace{0.3cm},\hspace{0.3cm} t=2,3,\dots,n$$
+$$\mathcal{Y}_t \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \cdot \sum_{i=0}^{t-2}\hspace{0.08cm} \phi_1^i \hspace{0.08cm}+\hspace{0.08cm} \phi_1^{t-1}\cdot \mathcal{Y}_1 \hspace{0.08cm}+\hspace{0.08cm} \sum_{i=0}^{t-2} \hspace{0.08cm}\phi_1^i \cdot \varepsilon_{t-i}  \hspace{0.3cm},\hspace{0.3cm} t=2,3,\dots,n \\$$
 
 
 So,taking the expectation we have:
@@ -1072,44 +1112,47 @@ So,taking the expectation we have:
 $$\mu_t = E[\mathcal{Y}_t]  \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \cdot \sum_{i=0}^{t-2}\hspace{0.08cm} \phi_1^i \hspace{0.08cm}+\hspace{0.08cm} \phi_1^{t-1}\cdot \mu_1 \hspace{0.3cm},\hspace{0.3cm} t=2,3,\dots,n$$
 
 
-Therefore, $\hspace{0.08cm}\mu_t\hspace{0.08cm}$ depends on $\hspace{0.08cm}t\hspace{0.08cm}$ and isn't necessarily constant.
+Therefore, $\hspace{0.08cm}\mu_t\hspace{0.08cm}$ depends on $\hspace{0.08cm}t\hspace{0.08cm}$ and isn't necessarily constant. $\\[1cm]$
 
-- If $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$ , then:
+
+
+- If $\hspace{0.1cm}| \phi_1 | < 1\hspace{0.1cm}$ , then:
 
   
-    $$\sum_{i=0}^{t-2}\hspace{0.08cm} \phi_1^i \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1-\phi_1^{t-1}}{1-\phi_1}$$
+    $$\sum_{i=0}^{t-2}\hspace{0.08cm} \phi_1^i \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.08cm}1-\phi_1^{t-1}\hspace{0.08cm}}{1-\phi_1}\\$$
 
 
    
     So, we have,:
     
-    $$\mu_t = \phi_0 \cdot\dfrac{1-\phi_1^{t-1}}{1-\phi_1} \hspace{0.08cm}+\hspace{0.08cm} \phi_1^{t-1}\cdot \mu_1$$
+    $$\mu_t \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \cdot\dfrac{1-\phi_1^{t-1}}{1-\phi_1} \hspace{0.08cm}+\hspace{0.08cm} \phi_1^{t-1}\cdot \mu_1\\$$
     
     
-    And, under the assumption of $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$, we also have:
+    And, under the assumption of $\hspace{0.1cm}| \phi_1 | < 1\hspace{0.1cm}$, we also have:
     
-    $$\underset{t \rightarrow \infty}{lim} \phi_1^{t-1} \hspace{0.08cm}=\hspace{0.08cm} 0$$
+    $$\underset{t \rightarrow \infty}{\text{lim}} \hspace{0.08cm} \phi_1^{t-1} \hspace{0.08cm}=\hspace{0.08cm} 0\\$$
 
 
     Therefore:
     
-    $$\underset{t \rightarrow \infty}{lim} \mu_t \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \cdot\dfrac{1}{1-\phi_1}\\$$
+    $$\underset{t \rightarrow \infty}{\text{lim}} \hspace{0.08cm} \mu_t \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \cdot\dfrac{1}{1-\phi_1}\\$$
     
-    So, the mean $\hspace{0.08cm}\mu_t\hspace{0.08cm}$ converge to a constant value when $t$ is large. So, the process $AR(1)$ process is weakly stationary in a asymptotic sense.
+    So, the mean $\hspace{0.08cm}\mu_t\hspace{0.08cm}$ converge to a constant value when $t$ is large. So, the process $AR(1)$ process is weakly stationary in a asymptotic sense. $\\[1.5cm]$
     
 
 
-- If $\hspace{0.08cm}| \phi_1 | \geq 1\hspace{0.08cm}$ , then:
+
+- If $\hspace{0.1cm}| \phi_1 | \geq 1\hspace{0.1cm}$ , then: $\\[0.7cm]$
 
 
 
-    The sum $\sum_{i=0}^{t-2}\hspace{0.08cm} \phi_1^i$ doesn't converge to a constant value.
+    The sum $\hspace{0.12cm}\sum_{i=0}^{t-2}\hspace{0.08cm} \phi_1^i\hspace{0.1cm}$ doesn't converge to a constant value.
  
  
-    And the value of $\phi_1^{t-1}$ depends on $t$ and doen't converge to $0$ when $t\rightarrow \infty$
+    And the value of $\hspace{0.1cm}\phi_1^{t-1}\hspace{0.1cm}$ depends on $\hspace{0.08cm}t\hspace{0.08cm}$ and doen't converge to $\hspace{0.08cm}0\hspace{0.1cm}$ when $\hspace{0.08cm}t\rightarrow \infty$
  
 
-    So, the mean $\hspace{0.08cm}\mu_t\hspace{0.08cm}$ doesn't converge to a constant value. So, the $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process is not stationary, neither in the weak nor in the strict sense.
+    So, the mean $\hspace{0.08cm}\mu_t\hspace{0.08cm}$ doesn't converge to a constant value. Then, the $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process is not stationary, neither in the weak nor in the strict sense.
 
 
 
@@ -1121,29 +1164,42 @@ Therefore, $\hspace{0.08cm}\mu_t\hspace{0.08cm}$ depends on $\hspace{0.08cm}t\hs
 In general, for an $\hspace{0.08cm}AR(1)\hspace{0.08cm}$  process we have the following:
 
 
-$$\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} Var(\mathcal{Y}_t) \hspace{0.08cm}=\hspace{0.08cm} \phi_1^{2(t-1)} \cdot \sigma_1^2 \hspace{0.08cm}+\hspace{0.08cm} Var(\sum_{i=0}^{t-2} \phi_1^i \cdot \varepsilon_{t-i})$$
+$$\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} Var(\mathcal{Y}_t) \hspace{0.08cm}=\hspace{0.08cm} \phi_1^{2(t-1)} \cdot \sigma_1^2 \hspace{0.08cm}+\hspace{0.08cm} Var\left(\hspace{0.08cm} \sum_{i=0}^{t-2} \phi_1^i \cdot \varepsilon_{t-i} \hspace{0.08cm} \right)\\$$
 
 
-As we can see, $\hspace{0.08cm}\sigma_t^2\hspace{0.08cm}$ depends on $\hspace{0.08cm}t\hspace{0.08cm}$ so, not is necessarily constant.
+As we can see, $\hspace{0.1cm}\sigma_t^2\hspace{0.1cm}$ depends on $\hspace{0.08cm}t\hspace{0.08cm}$ so, not is necessarily constant.  That means $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ isn't necessarily a weak stationary process.  $\\[1.5cm]$
 
 
 
-- If $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$ , then:
-
-$\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\sigma^2}{1-\phi_1^2} \hspace{0.35cm} ,\hspace{0.35cm} t \rightarrow \infty$
+- If $\hspace{0.1cm}| \phi_1 | < 1\hspace{0.1cm}$ , then:
 
 
-    So, the AR(1) process is weakly stationary in variance, in an asymptotic sense.
+
+    $$\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm}  \sigma_{\mathcal{Y}}^2  \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\sigma^2}{1-\phi_1^2} \hspace{0.35cm} ,\hspace{0.35cm} t \rightarrow \infty\\$$
+
+
+    So, the AR(1) process is **weakly stationary in variance**, in an **asymptotic sense**,    because the variance converge to a constant value when $\hspace{0.08cm}t\hspace{0.08cm}$ is large enough. $\\[0.3cm]$
+    
+    
+    
+    Using that fact, we will consider the following approximation:$\\[0.3cm]$
+    
+    $$\sigma_t^2\hspace{0.08cm} \approx\hspace{0.08cm} \sigma_{\mathcal{Y}}^2 \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\sigma^2}{1-\phi_1^2} \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,\dots , n $$ $\\[0.7cm]$
+
     
 
-- If $\hspace{0.08cm}| \phi_1 | \geq 1\hspace{0.08cm}$ , then:
+- If $\hspace{0.1cm}| \phi_1 | \geq 1\hspace{0.1cm}$ , then: $\\[0.35cm]$
 
    
-    $\hspace{0.08cm}\sigma_t^2\hspace{0.08cm}$ doesn't converge to a constant value.
+    $$\hspace{0.08cm}\sigma_t^2\hspace{0.13cm}  \text{doesn't converge to a constant value.} \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,\dots , n\\$$
 
-    So, the process AR(1) isn't weak stationary in variance, and by extension, the process AR(1) isn't weak stationary, so neither in a strict sense. $\\[0.4cm]$
+    So, the process $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ isn't weak stationary in variance, and by extension, the process $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ isn't a weak stationary process, so neither in a strict sense. $\\[1cm]$
 
+<br>
 
+---
+
+<br>
 
 **Proof:**
 
@@ -1152,43 +1208,73 @@ Using the definition of the $\hspace{0.08cm}AR(1)\hspace{0.08cm}$  process by re
 $$\mathcal{Y}_t \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \cdot \sum_{i=0}^{t-2}\hspace{0.08cm} \phi_1^i \hspace{0.08cm}+\hspace{0.08cm} \phi_1^{t-1}\cdot \mathcal{Y}_1 \hspace{0.08cm}+\hspace{0.08cm} \sum_{i=0}^{t-2} \hspace{0.08cm}\phi_1^i \cdot \varepsilon_{t-i}  \hspace{0.3cm},\hspace{0.3cm} t=2,3,\dots,n$$
 
 
-So,taking the variance we have:
+So, taking the variance we have:
 
-$$\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} Var(\mathcal{Y}_t) \hspace{0.08cm}=\hspace{0.08cm} \phi_1^{2(t-1)} \cdot \sigma_1^2 \hspace{0.08cm}+\hspace{0.08cm} Var(\sum_{i=0}^{t-2} \phi_1^i \cdot \varepsilon_{t-i})$$
+$$\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} Var(\mathcal{Y}_t) \hspace{0.08cm}=\hspace{0.08cm} \phi_1^{2(t-1)} \cdot \sigma_1^2 \hspace{0.08cm}+\hspace{0.08cm} Var\left(\sum_{i=0}^{t-2} \phi_1^i \cdot \varepsilon_{t-i}\right)$$
 
 
 We have that:
 
-Var(\sum_{i=0}^{t-2} \phi_1^i \cdot \varepsilon_{t-i}) = Var(\varepsilon_t + \phi_1\cdot\varepsilon_{t-1} + \phi_1^2\cdot \varepsilon_{t-2} +\dots + \phi_1^{t-2}\varepsilon_2)=
-
-\sigma^2 + (\phi_1)^2 \cdot \sigma^2 + (\phi_1^2)^2 \cdot \sigma^2 + \dots + (\phi_1^{t-2})^2 \cdot \sigma^2 + 2\cdot \sum_{i\neq j \\ i,j=2,...,t-2} Cov(\varepsilon_i , \varepsilon_j) \cdot a_i \cdot a_j
-
-
-a_i = \phi_1^{t-i}
+$$Var\left(\sum_{i=0}^{t-2} \phi_1^i \cdot \varepsilon_{t-i}\right) \hspace{0.08cm}=\hspace{0.08cm} Var(\varepsilon_t + \phi_1\cdot\varepsilon_{t-1} + \phi_1^2\cdot \varepsilon_{t-2} +\dots + \phi_1^{t-2}\varepsilon_2)\hspace{0.08cm}= \\[1cm] =\hspace{0.08cm}
+\sigma^2 + (\phi_1)^2 \cdot \sigma^2 + (\phi_1^2)^2 \cdot \sigma^2 + \dots + (\phi_1^{t-2})^2 \cdot \sigma^2 \hspace{0.08cm}+\hspace{0.08cm} 2\cdot \sum_{i\neq j \\ i,j=2,...,t-2} Cov(\varepsilon_i , \varepsilon_j) \cdot a_i \cdot a_j$$
 
 
-Taking into account that Cov(\varepsilon_i , \varepsilon_j)=0 , \forall i,j, then:
+Where: $\hspace{0.15cm}a_i = \phi_1^{t-i}  \hspace{0.25cm},\hspace{0.25cm}  i=2,3,\dots ,n$
+
+
+Taking into account that $\hspace{0.08cm}Cov(\varepsilon_i , \varepsilon_j)=0 \hspace{0.15cm},\hspace{0.15cm} \forall i,j\hspace{0.12cm}$, then: $\\[0.5cm]$
 
 
 
-Var(\sum_{i=0}^{t-2} \phi_1^i \cdot \varepsilon_{t-i}) = \sigma^2 + (\phi_1)^2 \cdot \sigma^2 + (\phi_1^2)^2 \cdot \sigma^2 + \dots + (\phi_1^{t-2})^2 \cdot \sigma^2  =
-\sum_{i=0}^{t-2} (\phi_1^i)^2 \cdot \sigma^2 = \sum_{i=0}^{t-2} \phi_1^{2i} \cdot \sigma^2 
+$$Var\left(\sum_{i=0}^{t-2} \phi_1^i \cdot \varepsilon_{t-i}\right) \hspace{0.08cm}=\hspace{0.08cm} \sigma^2 + (\phi_1)^2 \cdot \sigma^2 + (\phi_1^2)^2 \cdot \sigma^2 + \dots + (\phi_1^{t-2})^2 \cdot \sigma^2  \hspace{0.08cm} = \\[0.5cm]  = \hspace{0.08cm}
+\sum_{i=0}^{t-2} (\phi_1^i)^2 \cdot \sigma^2 = \sum_{i=0}^{t-2} \phi_1^{2i} \cdot \sigma^2$$
 
 
 
 Therefore:
 
-\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} Var(\mathcal{Y}_t) \hspace{0.08cm}=\hspace{0.08cm} \phi_1^{2(t-1)} \cdot \sigma_1^2 \hspace{0.08cm}+\hspace{0.08cm} \sum_{i=0}^{t-2} \phi_1^{2i} \cdot \sigma^2 
+$$\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} Var(\mathcal{Y}_t) \hspace{0.08cm}=\hspace{0.08cm} \phi_1^{2(t-1)} \cdot \sigma_1^2 \hspace{0.08cm}+\hspace{0.08cm} \sigma^2 \cdot \sum_{i=0}^{t-2} \phi_1^{2i}$$
 
 
-As we can see, \sigma_t^2 depend on t, so it is not necessarily the same constant for each $t$.
+As we can see, $\hspace{0.08cm}\sigma_t^2\hspace{0.08cm}$ depend on $\hspace{0.08cm}t\hspace{0.08cm}$, so it is not necessarily the same constant for each $\hspace{0.08cm}t\hspace{0.08cm}.\\$
 
-If | \phi_1 | < 1 , then
-
-
+- If $\hspace{0.1cm}| \phi_1 | < 1\hspace{0.1cm}$ , then:
 
 
-If | \phi_1 | \geq 1, then:
+    $$\sum_{i=0}^{t-2}\hspace{0.08cm} (\phi_1^2)^i \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.08cm}1-(\phi_1^2)^{t-1}\hspace{0.08cm}}{1-\phi_1^2}\\$$
+
+
+    So, we have:
+    
+    $$\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} Var(\mathcal{Y}_t) \hspace{0.08cm}=\hspace{0.08cm} \phi_1^{2(t-1)} \cdot \sigma_1^2 \hspace{0.08cm}+\hspace{0.08cm} \dfrac{\hspace{0.08cm}1-(\phi_1^2)^{t-1}\hspace{0.08cm}}{1-\phi_1^2} \cdot \sigma^2$$
+    
+   
+    
+And we also have:
+
+$$\underset{t\rightarrow  \infty}{\text{lim}} \hspace{0.08cm}  \phi_1^{2(t-1)} = 0$$
+
+
+Therefore:
+
+
+ $$\underset{t\rightarrow  \infty}{\text{lim}} \hspace{0.08cm}  \sigma_t^2   \hspace{0.1cm}=\hspace{0.1cm}     \dfrac{\hspace{0.08cm}1 \hspace{0.08cm}}{1-\phi_1^2} \cdot \sigma^2\hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.08cm}\sigma^2 \hspace{0.08cm}}{1-\phi_1^2}\\$$
+
+
+
+
+
+- If $\hspace{0.1cm}| \phi_1 | \geq 1\hspace{0.1cm}$, then: $\\[0.35cm]$
+
+
+    The sum $\hspace{0.12cm}\sum_{i=0}^{t-2}\hspace{0.08cm} (\phi_1^2)^i\hspace{0.1cm}$ doesn't converge to a constant value, is a divergent sum. $\\[0.3cm]$
+ 
+ 
+    And the value of $\hspace{0.1cm}\phi_1^{2(t-1)}\hspace{0.1cm}$ depends on $\hspace{0.08cm}t\hspace{0.08cm}$ and doen't converge to $\hspace{0.08cm}0\hspace{0.1cm}$ when $\hspace{0.08cm}t\rightarrow \infty$.  $\\[0.3cm]$
+ 
+
+    So, the variance $\hspace{0.08cm}\sigma^2_t\hspace{0.08cm}$ doesn't converge to a constant value. Then, the $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process is not stationary, neither in the weak nor in the strict sense.
+
 
 
 
@@ -1198,15 +1284,85 @@ If | \phi_1 | \geq 1, then:
 ## Autocovariance of AR(1) process
 
 
+If   $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process isn't weakly stationary  in autocovariance, then isn't a close expression for the covariance $\hspace{0.08cm}Cov(\mathcal{Y}_t , \mathcal{Y}_{t-h})\hspace{0.08cm}$.
+
+Assuming that   $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process is **weakly stationary in covariance**, we have the following: $\\[0.3cm]$
+
+
+$$\gamma_{h} \hspace{0.1cm}=\hspace{0.1cm} Cov(\mathcal{Y}_t , \mathcal{Y}_{t-h}) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\phi_1^k }{1-\phi_1^2}\cdot \sigma^2 \hspace{0.4cm},\hspace{0.4cm} \forall\hspace{0.08cm} t=1,2,\dots ,n \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.08cm} h=0,\pm 1, \pm 2,\dots \\$$
+
+
+And also we have the following relation between $\hspace{0.08cm}\gamma_{h}\hspace{0.08cm}$ and $\hspace{0.08cm}\gamma_{h-1}\hspace{0.08cm}$ : $\\[0.3cm]$ 
+
+
+$$\gamma_{h} \hspace{0.1cm}=\hspace{0.1cm} \phi_1 \cdot  \gamma_{h-1} \hspace{0.4cm},\hspace{0.4cm} \forall\hspace{0.08cm} h=0,\pm 1, \pm 2,\dots$$
 
 
 
 
+**Observation:**
 
-## Asymptotic Weak Stationarity Conditions of an AR(1)
+If $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$ , then $\hspace{0.08cm}\gamma_{h}\hspace{0.08cm}$ decrease when $\hspace{0.08cm}h\hspace{0.08cm}$ increases. This means that the relation between two variables of the process decreases when the temporal lag between them increases.
 
 
+<br>
 
+---
+
+<br>
+
+
+**Proof:**
+
+Using the definition of an $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process and some covariance properties, we obtain the following: $\\[0.35cm]$
+
+$$Cov(\mathcal{Y}_t , \mathcal{Y}_{t-h}) \hspace{0.08cm}=\hspace{0.08cm}
+Cov(\phi_0 + \phi_1\cdot \mathcal{Y}_{t-1} + \varepsilon_t \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-h}) \hspace{0.08cm}=\hspace{0.08cm}
+ Cov(\phi_0  \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-h}) \hspace{0.08cm}+\hspace{0.08cm} Cov(\phi_1\cdot \mathcal{Y}_{t-1}  \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-h}) \hspace{0.08cm}+\hspace{0.08cm}  Cov(\varepsilon_t   \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-h}) 
+\hspace{0.08cm}= \\[0.55cm] =\hspace{0.08cm}
+\phi_1\cdot Cov( \mathcal{Y}_{t-1}  \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-h})\hspace{0.08cm}=\hspace{0.08cm}Cov( \mathcal{Y}_{t-1}  \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-1-(h-1)}) \hspace{0.08cm}=\hspace{0.08cm} \gamma_{h-1}\\$$
+
+Where: 
+
+- $Cov(\phi_0  \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-h}) \hspace{0.08cm}=\hspace{0.08cm} 0\hspace{0.08cm}$ because $\hspace{0.08cm}\phi_0\hspace{0.08cm}$ is a constant. $\\[0.5cm]$
+
+ 
+ 
+- $Cov(\varepsilon_t   \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-h}) \hspace{0.08cm}=\hspace{0.08cm} 0\hspace{0.08cm}$ by initial assumption of $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process.  $\\[0.5cm]$
+
+
+- $Cov( \mathcal{Y}_{t-1}  \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-h})\hspace{0.08cm}=\hspace{0.08cm}Cov( \mathcal{Y}_{t-1}  \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-1-(h-1)}) \hspace{0.08cm}=\hspace{0.08cm} \gamma_{h-1}\hspace{0.08cm}$ because it has assumed that AR(1) is weakly stationary in covariance, so that, the covariance between two random variables of the process only depend on the time-lag between them.
+ 
+
+
+<br>
+
+
+##  Weak Stationarity Condition of an AR(1) <a class="anchor" id="1"></a>
+
+
+We will summarize the above points.
+
+- In a $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process, if $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$ ,   we have the following: $\\[0.35cm]$
+
+    $$\mu_t\hspace{0.08cm} \approx\hspace{0.08cm} \mu_{\mathcal{Y}} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\phi_0}{1-\phi_1} \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,\dots , n$$  
+
+    $$\sigma_t^2\hspace{0.08cm} \approx\hspace{0.08cm} \sigma_{\mathcal{Y}}^2 \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\sigma^2}{1-\phi_1^2} \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,\dots , n \\$$  
+
+
+    So, if $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$, then $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ is approximately weakly stationary in mean and variance, or being more precise, is asymptotically weakly stationary. $\\[0.35cm]$
+
+    For this reason, $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$ is known as weak stationarity condition (for mean and variance) of an $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ . $\\[0.45cm]$
+
+- And, if we assume that $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process is weakly stationary in covariance, we have:
+
+
+    $$\gamma_{h} \hspace{0.1cm}=\hspace{0.1cm} Cov(\mathcal{Y}_t , \mathcal{Y}_{t-h}) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\phi_1^k }{1-\phi_1^2}\cdot \sigma^2 \hspace{0.4cm},\hspace{0.4cm} \forall\hspace{0.08cm} t=1,2,\dots ,n \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.08cm} h=0,\pm 1, \pm 2,\dots \\$$
+
+
+<br>
+
+---
 
 <br>
 
@@ -1214,14 +1370,102 @@ If | \phi_1 | \geq 1, then:
 # First-Order Autoregresive Model: AR(1) model
 
 
-In practice, we have a time series $\hspace{0.07cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.1cm}$ associated to the  process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$.$\\[0.4cm]$ 
+In practice, we have a time series $\hspace{0.07cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.1cm}$ associated to the stochastic process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$. $\hspace{0.07cm}$
 
-Where $\hspace{0.05cm}y_t\hspace{0.07cm}$ is the value of the process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$ in the period $\hspace{0.07cm}t$.$\\[0.4cm]$ 
+Where $\hspace{0.05cm}y_t\hspace{0.07cm}$ is the value of the process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$ at period $\hspace{0.07cm}t$. $\\[0.4cm]$ 
+
+Our main goal is to predict the value of the process at future periods. For that, we will use the observed values of the process in the time series, namely, the available data. $\\[0.3cm]$
+
+In this sense, we can use   $\hspace{0.07cm}AR(1)\hspace{0.07cm}$ process as a model to predict (forecast) time series.
+
+Let be $\hspace{0.09cm}\widehat{y}_t\hspace{0.09cm}$ the model prediction for $\hspace{0.09cm}y_t\hspace{0.09cm}$ observation  of the process.
+
+We can use an $\hspace{0.07cm}AR(1)\hspace{0.07cm}$ to **estimate past values** of the process $\hspace{0.09cm}\mathcal{Y}\hspace{0.09cm}$ or to **forecast future values** of it. 
 
 
- Our goal is to predict the value of the process at future periods. For that, we will use the observed values of the process in the time series, namely, the available data. $\\[0.4cm]$
 
-In this sense, the first-order autoregresive model for the time series $\hspace{0.07cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.1cm}$ is defined as:
+
+<br>
+
+
+
+## Estimating past values of the process
+
+Using an $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ model, the estimation of the past (observed) values $\hspace{0.1cm}y_t \hspace{0.1cm},\hspace{0.1cm} t=1,...,n$ of the process is done using the following equation: $\\[0.3cm]$
+
+$$\widehat{y}_t \hspace{0.1cm}=\hspace{0.1cm} \widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot y_{t-1}  \hspace{0.35cm},\hspace{0.35cm} t = 2,3,\dots , n\\[0.3cm]$$
+
+**Observation:**
+
+If the avaible data of the process is given by the time series $\hspace{0.07cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.1cm}$ , then, for $\hspace{0.07cm}t=2,...,n\hspace{0.15cm},$ the value $\hspace{0.15cm}\widehat{y}_t\hspace{0.07cm}$ is an estimation of the observed value $\hspace{0.08cm}y_t\hspace{0.08cm}$ of the process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$. 
+
+Note that, an **observed value** of the process is also a **past value** of it.
+
+
+<br>
+
+
+## Forecasting future values of the process
+
+
+Using an $\hspace{0.07cm}AR(1)\hspace{0.07cm}$ model we can forcast future values $\hspace{0.1cm}y_t \hspace{0.1cm},\hspace{0.1cm} t=1,...,n$ of the process using the following equation: $\\[0.3cm]$
+
+$$\widehat{y}_{n+1} \hspace{0.1cm}=\hspace{0.1cm} \widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot y_{n}  \\[0.3cm]$$
+
+
+$$\widehat{y}_{n+2} \hspace{0.1cm}=\hspace{0.1cm} \widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot \widehat{y}_{n+1}  \\[0.3cm]$$
+
+
+$$\widehat{y}_{n+3} \hspace{0.1cm}=\hspace{0.1cm} \widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot \widehat{y}_{n+2}  \\[0.3cm]$$
+
+
+In general:
+
+
+$$
+\widehat{y}_{n+k} \hspace{0.1cm}=\hspace{0.1cm} \left\{ \begin{array}{lcc}
+\widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot y_{(n+k)-1} \hspace{0.4cm}  , \hspace{0.4cm} \text{if} \hspace{0.2cm}  k = 1 \\[0.2cm]
+\widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot \widehat{y}_{(n+k)-1} \hspace{0.4cm}  , \hspace{0.4cm} \text{if}  \hspace{0.2cm}  k = 2,3,\dots  
+\end{array}
+   \right.
+$$
+
+
+Note that (n+k)-1 > n when k=2,3,\dots , and  (n+k)-1 = n when k=1
+
+
+<br>
+
+## Stationariety and forecast
+
+
+
+
+
+<br>
+
+
+## Estimation of model coeficcients
+
+### Maximum Likelihood
+
+
+
+### Least Squares
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+we the first-order autoregresive model for the time series $\hspace{0.07cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.1cm}$ is defined as: $\\[0.3cm]$
 
 
 $$y_t\hspace{0.08cm}=\hspace{0.08cm}\phi_0 \hspace{0.08cm}+\hspace{0.08cm} \phi_1 \cdot y_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.4cm}  , \hspace{0.4cm}  t = 2,3,\dots , n$$ 
