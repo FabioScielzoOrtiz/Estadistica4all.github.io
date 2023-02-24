@@ -638,7 +638,7 @@ Weekly_Time_Series_1
       <th>Año</th>
       <th>Mes</th>
       <th>Semana</th>
-      <th>IMPVENTA</th>
+      <th>Ventas</th>
       <th>Semana-Mes-Año</th>
     </tr>
   </thead>
@@ -740,7 +740,7 @@ Weekly_Time_Series_1
 
 
 ```python
-advanced_decomposition = STL(Weekly_Time_Series_1.IMPVENTA, period=4).fit()
+advanced_decomposition = STL(Weekly_Time_Series_1.Ventas, period=4).fit()
 ```
 
 
@@ -787,7 +787,7 @@ The following graph has superimposed the observed series and the trend:
 ```python
 fig, ax = plt.subplots()
 
-p1=sns.lineplot(x="Semana-Mes-Año", y="IMPVENTA", data=Weekly_Time_Series_1 , color='red')
+p1=sns.lineplot(x="Semana-Mes-Año", y="Ventas", data=Weekly_Time_Series_1 , color='red')
 p2=sns.lineplot(advanced_decomposition.trend, color='blue', linestyle='-', label='Trend')
 
 p1.set_xticks(np.arange(0 , len(Weekly_Time_Series_1) , 10))
@@ -1526,214 +1526,6 @@ This problems can be solved using classical optimization techniques or numeric o
  
 # AR(1) model in `Python`
 
-
-
-First of all, we import some of the libraries we will be using throughout this article:
-
-```python
-import pandas as pd
-import numpy as np
-
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-sns.set_style("darkgrid")
-```
- 
-We load a time series data-set, in this case the minimum periodicity of the time series is daily:
-
-```python
-Time_Series_1 = pd.read_csv('Time_Series_1.csv')
-```
-
-We are going to expose some preprocessing time series task, not many but important. 
-
-When we have a time series, usually we will have a date column, in this data-set called *Fecha*.
-
-When we have identified the date column we must convert it to date-time format. We can do it using `Pandas` as follows:
-
-```python
-Time_Series_1['Fecha'] = pd.to_datetime(Time_Series_1['Fecha'])
-```
-
-
-Other important preprocessing task when we have a time series data-set is to create new columns with the day, week, month, quarter, and year associated to each observation. 
-
-We can carry out these tasks with `Pandas`:
-
-```python
-Time_Series_1['Dia'] = Time_Series_1['Fecha'].dt.day
-
-Time_Series_1['Semana'] = Time_Series_1['Fecha'].dt.week
-
-Time_Series_1['Mes'] = Time_Series_1['Fecha'].dt.month
-
-Time_Series_1['Trimestre'] = Time_Series_1['Fecha'].dt.quarter
-
-Time_Series_1['Año'] = Time_Series_1['Fecha'].dt.year
-```
-
-
-
-We select the specific columns we will use throughout this article. The response variable will be the *Ventas* column, and the rest are columns related with the observation date.
-
-```python
-Time_Series_1 = Time_Series_1.loc[: , ['Fecha', 'Dia', 'Semana', 'Mes', 'Trimestre', 'Año', 'Ventas']]
-```
-
-
-```python
-Time_Series_1
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Fecha</th>
-      <th>Dia</th>
-      <th>Semana</th>
-      <th>Mes</th>
-      <th>Trimestre</th>
-      <th>Año</th>
-      <th>Ventas</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>2022-06-21</td>
-      <td>21</td>
-      <td>25</td>
-      <td>6</td>
-      <td>2</td>
-      <td>2022</td>
-      <td>59.99</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2021-08-03</td>
-      <td>3</td>
-      <td>31</td>
-      <td>8</td>
-      <td>3</td>
-      <td>2021</td>
-      <td>12.72</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2022-08-21</td>
-      <td>21</td>
-      <td>33</td>
-      <td>8</td>
-      <td>3</td>
-      <td>2022</td>
-      <td>11.20</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>2022-07-09</td>
-      <td>9</td>
-      <td>27</td>
-      <td>7</td>
-      <td>3</td>
-      <td>2022</td>
-      <td>48.97</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>2022-05-14</td>
-      <td>14</td>
-      <td>19</td>
-      <td>5</td>
-      <td>2</td>
-      <td>2022</td>
-      <td>22.95</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>704350</th>
-      <td>2022-02-10</td>
-      <td>10</td>
-      <td>6</td>
-      <td>2</td>
-      <td>1</td>
-      <td>2022</td>
-      <td>18.90</td>
-    </tr>
-    <tr>
-      <th>704351</th>
-      <td>2022-06-02</td>
-      <td>2</td>
-      <td>22</td>
-      <td>6</td>
-      <td>2</td>
-      <td>2022</td>
-      <td>-29.99</td>
-    </tr>
-    <tr>
-      <th>704352</th>
-      <td>2022-05-19</td>
-      <td>19</td>
-      <td>20</td>
-      <td>5</td>
-      <td>2</td>
-      <td>2022</td>
-      <td>75.00</td>
-    </tr>
-    <tr>
-      <th>704353</th>
-      <td>2022-02-17</td>
-      <td>17</td>
-      <td>7</td>
-      <td>2</td>
-      <td>1</td>
-      <td>2022</td>
-      <td>-10.70</td>
-    </tr>
-    <tr>
-      <th>704354</th>
-      <td>2021-06-06</td>
-      <td>6</td>
-      <td>22</td>
-      <td>6</td>
-      <td>2</td>
-      <td>2021</td>
-      <td>6.95</td>
-    </tr>
-  </tbody>
-</table>
-<p>704355 rows × 7 columns</p>
-</div>
-
-
-<br>
 
 
 
