@@ -922,9 +922,13 @@ The stochastic process $\hspace{0.08cm}\mathcal{Y} \hspace{0.08cm}$ is **weakly 
 
 - $\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} \sigma^2  \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,...,n  \hspace{0.5cm}\text{(weak stationarity in variance)}\\$
 
-- $\gamma_{t , t + h} \hspace{0.08cm}=\hspace{0.08cm} Cov(\mathcal{Y}_t,\mathcal{Y}_{t+h}) \hspace{0.08cm}=\hspace{0.08cm}E[(\mathcal{Y}_t - \mu)\cdot (\mathcal{Y}_{t+h} - \mu)] \hspace{0.08cm}=\hspace{0.08cm} \gamma_h  \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} h = 0 , \pm 1 , \pm 2 ,...  \hspace{0.5cm}\text{(weak stationarity in covariance)}\\$
+- $\gamma_{t , t - h} \hspace{0.08cm}=\hspace{0.08cm}   \gamma_h   \hspace{0.4cm},\hspace{0.4cm} \gamma_{h}\hspace{0.08cm}=\hspace{0.08cm}   \gamma_{-h} \hspace{0.4cm},\hspace{0.4cm} \forall\hspace{0.08cm} h = 0 , \pm 1 , \pm 2 ,...  \hspace{0.5cm}\text{(weak stationarity in covariance)}\\$
 
-
+   
+   
+    Where:  $\hspace{0.2cm}\gamma_{t , t - h} \hspace{0.08cm}=\hspace{0.08cm}Cov(\mathcal{Y}_t,\mathcal{Y}_{t-h}) \hspace{0.08cm}=\hspace{0.08cm}E[(\mathcal{Y}_t - \mu)\cdot (\mathcal{Y}_{t+h} - \mu)]\\$
+    
+    
 
 The first two conditions indicate that the **mean** and **variance** are **constant**.
 
@@ -939,7 +943,7 @@ As a result, in a weak stationary processes:
 
 
 
-$$\rho_{t, t+h} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_{t , t + h}}{\sqrt{\sigma_t^2 \cdot \sigma_{t+h}^2}} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_h}{\sqrt{\sigma^2 \cdot \sigma^2}} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_h}{\sigma^2}\hspace{0.08cm} =\hspace{0.08cm} \dfrac{\gamma_h}{\gamma_0} \hspace{0.08cm}=\hspace{0.08cm} \rho(h)$$
+$$\rho_{t, t+h} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_{t , t + h}}{\sqrt{\sigma_t^2 \cdot \sigma_{t+h}^2}} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_h}{\sqrt{\sigma^2 \cdot \sigma^2}} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_h}{\sigma^2}\hspace{0.08cm} =\hspace{0.08cm} \dfrac{\gamma_h}{\gamma_0} \hspace{0.08cm}=\hspace{0.08cm} \rho_h$$
 
 
 <br>
@@ -965,7 +969,7 @@ The stochastic process $\hspace{0.08cm}\mathcal{Y} \hspace{0.08cm}$ is **asympto
 
 - $\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} \sigma^2  \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t \rightarrow \infty  \hspace{0.5cm}\text{(asymptotic weak stationarity in variance)}\\$
 
-- $\gamma_{t , t + h} \hspace{0.08cm}=\hspace{0.08cm} Cov(\mathcal{Y}_t,\mathcal{Y}_{t+h}) \hspace{0.08cm}=\hspace{0.08cm}E[(\mathcal{Y}_t - \mu)\cdot (\mathcal{Y}_{t+h} - \mu)] \hspace{0.08cm}=\hspace{0.08cm} \gamma_h  \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} h = 0 , \pm 1 , \pm 2 ,...  \hspace{0.5cm}\text{(weak stationarity in covariance)}\\$
+- $\gamma_{t , t - h} \hspace{0.08cm}=\hspace{0.08cm}   \gamma_h   \hspace{0.4cm},\hspace{0.4cm} \gamma_{h}\hspace{0.08cm}=\hspace{0.08cm}   \gamma_{-h} \hspace{0.4cm},\hspace{0.4cm} \forall\hspace{0.08cm} h = 0 , \pm 1 , \pm 2 ,...  \hspace{0.5cm}\text{(weak stationarity in covariance)}\\$
 
 
 
@@ -974,7 +978,7 @@ The stochastic process $\hspace{0.08cm}\mathcal{Y} \hspace{0.08cm}$ is **asympto
 <br>
 
 
-# White Noise Process  <a class="anchor" id="1"></a>
+## White Noise Process  <a class="anchor" id="1"></a>
 
 
 Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.08cm}=\hspace{0.08cm}  \hspace{0.1cm}\bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\bigl) \hspace{0.1cm}.$  $\\[0.25cm]$
@@ -1034,8 +1038,9 @@ Where:
 
 ## Expression of AR(1) as a function of the lag operator
 
+We can express $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ process using the lag operator as follows: $\\[0.3cm]$
 
-$$(1 - \phi_1 \cdot B) \cdot \mathcal{Y}_t \hspace{0.08cm} =\hspace{0.08cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t$$
+$$\left(1 - \phi_1 \cdot B\right) \cdot \mathcal{Y}_t \hspace{0.08cm} =\hspace{0.08cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t$$
 
 
 Where: 
@@ -1044,7 +1049,7 @@ $B\hspace{0.08cm}$ is the lag operator and is defined as follows:
 
 $$B\cdot \mathcal{Y}_t \hspace{0.08cm}=\hspace{0.08cm} \mathcal{Y}_{t-1}$$
 
-$$B^h\cdot \mathcal{Y}_t \hspace{0.08cm}=\hspace{0.08cm} \mathcal{Y}_{t-j}  \hspace{0.3cm} , \hspace{0.3cm} h=1,2,\dots$$
+$$B^h\cdot \mathcal{Y}_t \hspace{0.08cm}=\hspace{0.08cm} \mathcal{Y}_{t-h}  \hspace{0.3cm} , \hspace{0.3cm} h=1,2,\dots$$
 
 
 
@@ -1278,18 +1283,23 @@ Therefore:
 
 
 
-
 <br>
+
 
 ## Autocovariance of AR(1) process
 
 
-If   $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process isn't weakly stationary  in autocovariance, then isn't a close expression for the covariance $\hspace{0.08cm}Cov(\mathcal{Y}_t , \mathcal{Y}_{t-h})\hspace{0.08cm}$.
+If $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process isn't weakly stationary  in autocovariance, then isn't a close expression for the covariance $\hspace{0.08cm}Cov(\mathcal{Y}_t , \mathcal{Y}_{t-h})\hspace{0.08cm}$.
 
 Assuming that   $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process is **weakly stationary in covariance**, we have the following: $\\[0.3cm]$
 
 
-$$\gamma_{h} \hspace{0.1cm}=\hspace{0.1cm} Cov(\mathcal{Y}_t , \mathcal{Y}_{t-h}) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\phi_1^k }{1-\phi_1^2}\cdot \sigma^2 \hspace{0.4cm},\hspace{0.4cm} \forall\hspace{0.08cm} t=1,2,\dots ,n \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.08cm} h=0,\pm 1, \pm 2,\dots \\$$
+$$\gamma_{h} \hspace{0.1cm}=\hspace{0.1cm} Cov(\mathcal{Y}_t , \mathcal{Y}_{t-h}) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\phi_1^{|h|} }{1-\phi_1^2}\cdot \sigma^2\hspace{0.1cm}=\hspace{0.1cm}
+\phi_1^{|h|} \cdot \sigma_{\mathcal{Y}}^2
+\hspace{0.4cm},\hspace{0.4cm} \forall\hspace{0.08cm} t=1,2,\dots ,n \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.08cm} h=0,\pm 1, \pm 2,\dots \\$$
+
+
+Note that: $\hspace{0.1cm}\gamma_{h} = \gamma_{-h}$
 
 
 And also we have the following relation between $\hspace{0.08cm}\gamma_{h}\hspace{0.08cm}$ and $\hspace{0.08cm}\gamma_{h-1}\hspace{0.08cm}$ : $\\[0.3cm]$ 
@@ -1305,6 +1315,8 @@ $$\gamma_{h} \hspace{0.1cm}=\hspace{0.1cm} \phi_1 \cdot  \gamma_{h-1} \hspace{0.
 If $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$ , then $\hspace{0.08cm}\gamma_{h}\hspace{0.08cm}$ decrease when $\hspace{0.08cm}h\hspace{0.08cm}$ increases. This means that the relation between two variables of the process decreases when the temporal lag between them increases.
 
 
+
+
 <br>
 
 ---
@@ -1316,11 +1328,11 @@ If $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$ , then $\hspace{0.08cm}\gamma_
 
 Using the definition of an $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process and some covariance properties, we obtain the following: $\\[0.35cm]$
 
-$$Cov(\mathcal{Y}_t , \mathcal{Y}_{t-h}) \hspace{0.08cm}=\hspace{0.08cm}
+$$\gamma_{h} \hspace{0.1cm}=\hspace{0.1cm}Cov(\mathcal{Y}_t , \mathcal{Y}_{t-h}) \hspace{0.08cm}=\hspace{0.08cm}
 Cov(\phi_0 + \phi_1\cdot \mathcal{Y}_{t-1} + \varepsilon_t \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-h}) \hspace{0.08cm}=\hspace{0.08cm}
  Cov(\phi_0  \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-h}) \hspace{0.08cm}+\hspace{0.08cm} Cov(\phi_1\cdot \mathcal{Y}_{t-1}  \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-h}) \hspace{0.08cm}+\hspace{0.08cm}  Cov(\varepsilon_t   \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-h}) 
 \hspace{0.08cm}= \\[0.55cm] =\hspace{0.08cm}
-\phi_1\cdot Cov( \mathcal{Y}_{t-1}  \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-h})\hspace{0.08cm}=\hspace{0.08cm}Cov( \mathcal{Y}_{t-1}  \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-1-(h-1)}) \hspace{0.08cm}=\hspace{0.08cm} \gamma_{h-1}\\$$
+\phi_1\cdot Cov( \mathcal{Y}_{t-1}  \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-h})\hspace{0.08cm}=\hspace{0.08cm} \phi_1 \cdot Cov( \mathcal{Y}_{t-1}  \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-1-(h-1)}) \hspace{0.08cm}=\hspace{0.08cm} \phi_1 \cdot \gamma_{h-1}\\$$
 
 Where: 
 
@@ -1331,9 +1343,51 @@ Where:
 - $Cov(\varepsilon_t   \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-h}) \hspace{0.08cm}=\hspace{0.08cm} 0\hspace{0.08cm}$ by initial assumption of $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process.  $\\[0.5cm]$
 
 
-- $Cov( \mathcal{Y}_{t-1}  \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-h})\hspace{0.08cm}=\hspace{0.08cm}Cov( \mathcal{Y}_{t-1}  \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-1-(h-1)}) \hspace{0.08cm}=\hspace{0.08cm} \gamma_{h-1}\hspace{0.08cm}$ because it has assumed that AR(1) is weakly stationary in covariance, so that, the covariance between two random variables of the process only depend on the time-lag between them.
+- $Cov( \mathcal{Y}_{t-1}  \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-h})\hspace{0.08cm}=\hspace{0.08cm}Cov( \mathcal{Y}_{t-1}  \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}_{t-1-(h-1)}) \hspace{0.08cm}=\hspace{0.08cm} \gamma_{h-1}\hspace{0.08cm}$ because it has assumed that AR(1) is weakly stationary in covariance, so that, the covariance between two random variables of the process only depend on the time-lag between them. $\\[0.35cm]$
  
+ 
+Now we have to proof: 
+$\hspace{0.13cm}\gamma_{h}  \hspace{0.1cm}=\hspace{0.1cm} Cov(\mathcal{Y}_t , \mathcal{Y}_{t-h}) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\phi_1^k }{1-\phi_1^2}\cdot \sigma^2\hspace{0.1cm}.\\$
 
+
+$$\hspace{0.1cm}\gamma_{1}  \hspace{0.1cm}=\hspace{0.1cm} Cov(\mathcal{Y}_t , \mathcal{Y}_{t-1}) \hspace{0.1cm}=\hspace{0.1cm} Cov(\phi_0+\phi_1\cdot \mathcal{Y}_{t-1} + \varepsilon_t , \mathcal{Y}_{t-1} \hspace{0.1cm}=\hspace{0.1cm} Cov(\phi_0 , \mathcal{Y}_{t-1}) + \phi_1\cdot Cov(\mathcal{Y}_{t-1} , \mathcal{Y}_{t-1} ) + Cov(\varepsilon_t , \mathcal{Y}_{t-1})\hspace{0.1cm}= \\[0.4cm] =\hspace{0.1cm} \phi_1 \cdot \sigma_{t-1}^2 \hspace{0.1cm}=\hspace{0.1cm} \phi_1 \cdot \sigma_{\mathcal{Y}}^2 \hspace{0.1cm}=\hspace{0.1cm} \phi_1 \cdot \dfrac{\sigma^2}{1-\phi_1^2}$$
+
+
+ Now, using the fact $\hspace{0.08cm} \gamma_{h} \hspace{0.08cm}=\hspace{0.08cm} \phi_1 \cdot \gamma_{h-1}\hspace{0.08cm}$ in a recursive way, we have:
+ 
+ 
+$$\gamma_{2} \hspace{0.08cm}=\hspace{0.08cm} \phi_1 \cdot \gamma_{1} \hspace{0.08cm}=\hspace{0.08cm} \phi_1 \cdot \phi_1 \cdot \dfrac{\sigma^2}{1-\phi_1^2} \hspace{0.08cm}=\hspace{0.08cm}\phi_1^2 \cdot \dfrac{\sigma^2}{1-\phi_1^2}$$
+
+
+
+$$\gamma_{3} \hspace{0.08cm}=\hspace{0.08cm} \phi_1 \cdot \gamma_{2} \hspace{0.08cm}=\hspace{0.08cm} \phi_1 \cdot \phi_1^2 \cdot \dfrac{\sigma^2}{1-\phi_1^2} \hspace{0.08cm}=\hspace{0.08cm}\phi_1^3 \cdot \dfrac{\sigma^2}{1-\phi_1^2}$$
+
+
+$$\gamma_{4} \hspace{0.08cm}=\hspace{0.08cm} \phi_1 \cdot \gamma_{3} \hspace{0.08cm}=\hspace{0.08cm} \phi_1 \cdot \phi_1^3 \cdot \dfrac{\sigma^2}{1-\phi_1^2} \hspace{0.08cm}=\hspace{0.08cm}\phi_1^4 \cdot \dfrac{\sigma^2}{1-\phi_1^2}$$
+
+
+In general:
+
+$$\gamma_{h} \hspace{0.08cm}=\hspace{0.08cm} \phi_1 \cdot \gamma_{h-1} \hspace{0.08cm}=\hspace{0.08cm} \phi_1 \cdot \phi_h^{h-1} \cdot \dfrac{\sigma^2}{1-\phi_1^2} \hspace{0.08cm}=\hspace{0.08cm}\phi_1^h \cdot \dfrac{\sigma^2}{1-\phi_1^2}$$
+
+<br>
+
+## Autocorrelation of AR(1) process
+
+As we have said, $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process isn't weakly stationary  in covariance, then isn't a close expression for the covariance $\hspace{0.08cm}Cov(\mathcal{Y}_t , \mathcal{Y}_{t-h})\hspace{0.08cm}$, so, by extension, neither for the correlation, since it depend on covariance.
+
+Assuming that   $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process is **weakly stationary in covariance**, using the relation between correlation and covariance, we have the following: $\\[0.4cm]$
+
+     
+    
+$$\rho_h \hspace{0.08cm}=\hspace{0.08cm}     Corr(\mathcal{Y}_t , \mathcal{Y}_{t-h})
+    \hspace{0.08cm}=\hspace{0.08cm}
+    \dfrac{Cov(\mathcal{Y}_t , \mathcal{Y}_{t-h})}{\sqrt{Var(\mathcal{Y}_t)\cdot Var(\mathcal{Y}_{t-h})}}
+    \hspace{0.08cm}=\hspace{0.08cm}\dfrac{\hspace{0.08cm}\gamma_{h}\hspace{0.08cm}}{\sigma^2_{\mathcal{Y}}}$$
+
+
+ 
+Note that: $\hspace{0.11cm}\rho_h = \rho_{-h}$
 
 <br>
 
@@ -1341,7 +1395,7 @@ Where:
 ##  Weak Stationarity Condition of an AR(1) <a class="anchor" id="1"></a>
 
 
-We will summarize the above points.
+We will summarize the above points. $\\[0.3cm]$
 
 - In a $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process, if $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$ ,   we have the following: $\\[0.4cm]$
 
@@ -1350,14 +1404,28 @@ We will summarize the above points.
     $$\sigma_t^2\hspace{0.08cm} \approx\hspace{0.08cm} \sigma_{\mathcal{Y}}^2 \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\sigma^2}{1-\phi_1^2} \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,\dots , n \\[0.4cm]$$  
 
 
-    So, if $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$, then $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ is approximately weakly stationary in mean and variance, or being more precise, is asymptotically weakly stationary. $\\[0.35cm]$
+    So, if $\hspace{0.1cm}| \phi_1 | < 1\hspace{0.1cm}$, then $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ is approximately weakly stationary in mean and variance, or being more precise, is asymptotically weakly stationary in mean and variance. $\\[0.35cm]$
 
-    For this reason, $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$ is known as weak stationarity condition (for mean and variance) of an $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ . $\\[0.6cm]$
+    For this reason, **$\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$ is known as weak stationarity condition, for mean and variance, of an $\hspace{0.08cm}AR(1)\hspace{0.08cm}$** . $\\[1.5cm]$
+
 
 - And, if we assume that $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process is weakly stationary in covariance, we have:
 
 
-    $$\gamma_{h} \hspace{0.1cm}=\hspace{0.1cm} Cov(\mathcal{Y}_t , \mathcal{Y}_{t-h}) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\phi_1^k }{1-\phi_1^2}\cdot \sigma^2 \hspace{0.4cm},\hspace{0.4cm} \forall\hspace{0.08cm} t=1,2,\dots ,n \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.08cm} h=0,\pm 1, \pm 2,\dots \\$$
+    $$\gamma_{h} \hspace{0.1cm}=\hspace{0.1cm} Cov(\mathcal{Y}_t , \mathcal{Y}_{t-h}) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\phi_1^h }{1-\phi_1^2}\cdot \sigma^2 \hspace{0.08cm}=\hspace{0.08cm} \phi_1^h \cdot \sigma_{\mathcal{Y}}^2 \hspace{0.4cm},\hspace{0.4cm} \forall\hspace{0.08cm} t=1,2,\dots ,n \hspace{0.2cm},\hspace{0.2cm} \forall\hspace{0.08cm} h=0,\pm 1, \pm 2,\dots \\$$
+
+   
+
+
+    And using correlation definition we also have:
+    
+    
+    $$\rho_h \hspace{0.08cm}=\hspace{0.08cm}
+    Corr(\mathcal{Y}_t , \mathcal{Y}_{t-h})
+    \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.08cm}\gamma_{h}\hspace{0.08cm}}{\sigma^2_{\mathcal{Y}}}$$
+
+
+ If $\hspace{0.1cm}| \phi_1 | < 1\hspace{0.1cm}$ , then $\hspace{0.08cm}\gamma_{h}\hspace{0.08cm}$ decrease when $\hspace{0.08cm}h\hspace{0.08cm}$ increases. That means that the relation between two variables of the process decreases when the temporal lag between them increases. In other words, $\hspace{0.08cm}\gamma_{1} \hspace{0.08cm}>\hspace{0.08cm} \gamma_{2} \hspace{0.08cm}>\hspace{0.08cm} \gamma_{3} \hspace{0.08cm}>\hspace{0.08cm} \dots \hspace{0.12cm}$ And, by extension $\hspace{0.08cm}\rho_{1} \hspace{0.08cm}>\hspace{0.08cm} \rho_{2} \hspace{0.08cm}>\hspace{0.08cm} \rho_{3} \hspace{0.08cm}>\hspace{0.08cm} \dots \hspace{0.08cm}$
 
 
 <br>
@@ -1408,7 +1476,7 @@ Note that, an **observed value** of the process is also a **past value** of it.
 ## Forecasting future values of the process
 
 
-Using an $\hspace{0.07cm}AR(1)\hspace{0.07cm}$ model we can forcast future values $\hspace{0.1cm}y_t \hspace{0.1cm},\hspace{0.1cm} t=1,...,n$ of the process using the following equation: $\\[0.3cm]$
+Using an $\hspace{0.07cm}AR(1)\hspace{0.07cm}$ model we can forcast future values $\hspace{0.1cm}y_{n+k} \hspace{0.12cm},\hspace{0.12cm} k=1,...,n\hspace{0.1cm}$ of the process using the following equation: $\\[0.3cm]$
 
 $$\widehat{y}_{n+1} \hspace{0.1cm}=\hspace{0.1cm} \widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot y_{n}  \\[0.3cm]$$
 
@@ -1458,7 +1526,7 @@ In summary, stationarity is an important property of time series for accurate fo
 As it was seen, the fundamental equation of an $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ model is: $\\[0.35cm]$
 
 
-$$\mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm}  \phi_1 \cdot \mathcal{Y}_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.3cm} , \hspace{0.3cm} t=2,\dots , n$$
+$$\mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm}  \phi_1 \cdot \mathcal{Y}_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.3cm} , \hspace{0.3cm} t=2,\dots , n\\$$
 
 
 
@@ -1489,7 +1557,7 @@ The $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ parameters estimation is made as follo
 $\\[0.3cm]$
 
 
-$$\widehat{\phi}_0, \widehat{\phi}_1,  \widehat{\sigma}^2 \hspace{0.13cm} =\hspace{0.13cm}  arg \hspace{0.1cm}  \underset{\phi_0, \phi_1, \sigma^2}{Max} \hspace{0.1cm}  ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,\sigma^2) \hspace{0.07cm} \right)$$
+$$\widehat{\phi}_0, \widehat{\phi}_1,  \widehat{\sigma}^2 \hspace{0.13cm} =\hspace{0.13cm}  arg \hspace{0.13cm}  \underset{\phi_0, \phi_1, \sigma^2}{Max} \hspace{0.13cm}  ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,\sigma^2) \hspace{0.07cm} \right)$$
 
 
 This problems can be solved using numeric optimization methods, such as Newton-Raphson or descendent gradient. 
@@ -1505,26 +1573,18 @@ The ordinary least squares (OLS) method is another common approach for estimatin
 
 The fundamental equation of an AR(1) model is:
 
-$$y_t = \phi_0 + \phi_1 y_{t-1} + \varepsilon_t$$
+$$y_t \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm} \phi_1 y_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t$$
 
 With OLS method, $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ parameters estimation is made as follows:
 $\\[0.3cm]$
 
 
-$$\widehat{\phi}_0, \widehat{\phi}_1,  \widehat{\sigma}^2 \hspace{0.13cm} =\hspace{0.13cm}  arg \hspace{0.1cm}  \underset{\phi_0, \phi_1, \sigma^2}{Min} \hspace{0.1cm}  \sum_{t=2}^n e_t^2 = \sum_{t=2}^n (y_t - (\phi_0 + \phi_1\cdot y_{t-1}) )^2$$
+$$\widehat{\phi}_0, \widehat{\phi}_1,  \widehat{\sigma}^2 \hspace{0.13cm} =\hspace{0.13cm}  arg \hspace{0.13cm}  \underset{\phi_0, \phi_1, \sigma^2}{Min} \hspace{0.13cm}  \sum_{t=2}^n\hspace{0.08cm} e_t^2 \hspace{0.08cm} =\hspace{0.08cm} \sum_{t=2}^n \hspace{0.08cm} \left(y_t - (\phi_0 + \phi_1\cdot y_{t-1}) \right)^2$$
 
 
 This problems can be solved using classical optimization techniques or numeric optimization methods, such as Newton-Raphson or descendent gradient. 
 
   
-<br>
-
----
-
-<br>
-
- 
-# AR(1) model in `Python`
 
 
 
@@ -1532,7 +1592,8 @@ This problems can be solved using classical optimization techniques or numeric o
 
 
 
- 
+
+
 
 <br>
 
@@ -1541,40 +1602,760 @@ This problems can be solved using classical optimization techniques or numeric o
 <br>
 
 
-Los modelos AR (autoregresivos) son un tipo de modelo de series temporales en el que una variable se modela como una función lineal de sus valores pasados. El modelo AR(p) especifica que el valor de la variable en el tiempo t depende linealmente de los p valores anteriores de la variable, es decir,
 
-$$y_t  \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.05cm}+\hspace{0.05cm} \sum_{i=1}^p \phi_i \cdot y_{t-i}  \hspace{0.05cm}+\hspace{0.05cm} \varepsilon_t  \hspace{0.1cm}=\hspace{0.1cm} \phi \hspace{0.05cm}+\hspace{0.05cm} \phi_1 \cdot y_{t-1} \hspace{0.05cm}+\hspace{0.05cm} \phi_2 \cdot y_{t-2}\hspace{0.05cm}+\hspace{0.05cm} \cdots \hspace{0.05cm}+\hspace{0.05cm} \phi_p \cdot y_{t-p} \hspace{0.05cm}+\hspace{0.05cm} \varepsilon_t$$
-
+# Second-Order Autoregresive Process: AR(2) process  
 
 
-donde:
+Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.08cm}=\hspace{0.08cm}  \hspace{0.1cm}\bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\bigl) \hspace{0.1cm}.$  $\\[0.25cm]$
+ 
+ 
 
-- Se asume que $\hspace{0.05cm}\varepsilon_t\hspace{0.05cm}$ es una v.a. con $\hspace{0.05cm}E[\varepsilon_t]=0\hspace{0.07cm}$ y $\hspace{0.07cm}Var(\varepsilon_t)=\sigma^2\hspace{0.05cm}$ $\\[0.3cm]$
 
-- $y_t\hspace{0.05cm}$ es el valor de la variable en el tiempo $\hspace{0.05cm}t$. $\\[0.3cm]$ 
+The second-order autoregressive process $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ for the process $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ is defined as: $\\[0.35cm]$
 
-- $\phi_0, \phi_1, \ldots, \phi_p\hspace{0.05cm}$ son parametros a estimar. Son los coeficientes asociados  a cada uno de los $\hspace{0.05cm}p\hspace{0.05cm}$ retardos del proceso.$\\[0.3cm]$
+$$\mathcal{Y}_t\hspace{0.08cm}=\hspace{0.08cm}\phi_0 \hspace{0.08cm}+\hspace{0.08cm} \phi_1 \cdot \mathcal{Y}_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \phi_2 \cdot \mathcal{Y}_{t-2} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.4cm}  , \hspace{0.4cm}  t = 3,4,\dots , n\\$$ 
+
+Where:
+
+- $\varepsilon_t \hspace{0.08cm}\sim \hspace{0.08cm}N(0,\sigma^2) \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 3,\dots , n\\$
+
+- $Cov(\varepsilon_t \hspace{0.08cm},\hspace{0.08cm} \varepsilon_{t+h})=0 \hspace{0.3cm},\hspace{0.3cm}  \forall\hspace{0.08cm} t = 3,\dots \hspace{0.15cm},\hspace{0.15cm}  \forall\hspace{0.08cm} h = \pm 1,\pm 2,\dots\\$
+
+
+- $Cov(\mathcal{Y}_{t+h}\hspace{0.08cm},\hspace{0.08cm} \varepsilon_t) \hspace{0.08cm}=\hspace{0.08cm} 0 \hspace{0.3cm},\hspace{0.3cm}  \forall\hspace{0.08cm} t = 3,\dots  \hspace{0.15cm},\hspace{0.15cm} \forall\hspace{0.08cm}  h = 0,\pm 1,\pm 2,\dots\\$
+    
+    First two assumptions means that $\hspace{0.08cm}(\hspace{0.03cm}\varepsilon_t \hspace{0.1cm}:\hspace{0.1cm} t = 3,\dots, n \hspace{0.03cm})\hspace{0.1cm}$ is a **normal white noise proccess**. 
+    
+    
+<br>    
+    
+
+## Expression of AR(2) as a function of the lag operator
+
+We can express $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ process using the lag operator as follows: $\\[0.3cm]$
+
+$$\left(1 - \phi_1 \cdot B - \phi_2 \cdot B^2 \right) \cdot \mathcal{Y}_t \hspace{0.08cm} =\hspace{0.08cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t$$
+
+
+Where: 
+
+$\hspace{0.15cm}B\hspace{0.08cm}$ is the lag operator and is defined as follows:
+
+$$B\cdot \mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \mathcal{Y}_{t-1}$$
+
+$$B^h\cdot \mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \mathcal{Y}_{t-h}  \hspace{0.3cm} , \hspace{0.3cm} h=1,2,\dots$$
+
+
+
+
+<br>
+
+
+## Mean of AR(2) process
+
+Assuming that $\hspace{0.07cm}AR(2)\hspace{0.07cm}$ process is weakly stationary in mean we have the following: $\\[0.4cm]$
+
+
+$$\mu_t \hspace{0.07cm}=\hspace{0.07cm} \mu_{\mathcal{Y}} \hspace{0.07cm}=\hspace{0.07cm} \dfrac{\phi_0}{1-\phi_1-\phi_2} \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.07cm} t=1,2,\dots ,n\\$$
+
+ 
+Where: $\hspace{0.12cm}\mu_t \hspace{0.08cm}=\hspace{0.08cm} E[\mathcal{Y}_t]\\$
+
+ 
+    
+**Observation:**
+
+
+$\mu_{\mathcal{Y}}\hspace{0.08cm}$ is finite only if $\hspace{0.08cm}1-\phi_1-\phi_2 \neq 0\hspace{0.08cm}$.
+
+<br>
+
+
+## Variance of AR(2) process
+
+
+Assuming that $\hspace{0.07cm}AR(2)\hspace{0.07cm}$ process is weakly stationary in variance we have the following: $\\[0.4cm]$
+
+
+$$\sigma^2_t \hspace{0.07cm}=\hspace{0.07cm} \sigma_{\mathcal{Y}} \hspace{0.07cm}=\hspace{0.07cm} \dfrac{(1-\phi_2)\cdot \sigma^2}{(1+\phi_2)\cdot (1-\phi_1-\phi_2)\cdot (1+\phi_1 - \phi_2)} \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.07cm} t=1,2,\dots ,n \\$$
+
+ 
+Where: $\hspace{0.12cm}\sigma^2_t \hspace{0.08cm}=\hspace{0.08cm} Var(\mathcal{Y}_t)\\$
+
+ 
+
+**Observation:**
+
+
+$\sigma^2_{\mathcal{Y}}\hspace{0.11cm}$ is finite and positive only if $\hspace{0.12cm}\phi_1+\phi_2 < 1\hspace{0.15cm} ,$  $\hspace{0.15cm}\phi_2-\phi_1 < 1\hspace{0.15cm}$ and $\hspace{0.15cm}-1< \phi_2 < 1\hspace{0.1cm}$.
+
+
+
+<br>
+
+## Autocovariance of AR(2) process
+
+
+
+Assuming that   $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process is **weakly stationary in covariance**, we have the following: $\\[0.3cm]$
+
+ 
+ 
+
+$$\gamma_{h} \hspace{0.1cm}=\hspace{0.1cm} \phi_1 \cdot  \gamma_{h-1} \hspace{0.08cm}+\hspace{0.08cm} \phi_2\cdot \gamma_{h-2} \hspace{0.4cm},\hspace{0.4cm} \forall\hspace{0.08cm} h=0,\pm 1, \pm 2,\dots$$
+
+
+
+
+There isn't a general expression for $\hspace{0.08cm}\gamma_{h}\hspace{0.08cm}$ for any $\hspace{0.08cm}h=0,\pm 1, \pm 2,\dots\hspace{0.08cm}$ , but we can get them by recursion using the previous formula.
+
+$$\gamma_{1} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\phi_1}{1-\phi_2} \cdot \sigma_{\mathcal{Y}}^2 \\$$
+
+$$\gamma_{2} \hspace{0.08cm}=\hspace{0.08cm} \left( \dfrac{\phi_1^2}{1-\phi_2} + \phi_2 \right)\cdot \sigma_{\mathcal{Y}}^2 \\[1cm]$$
+
+
+We can prove easily these last results as follow:
+
+$$\gamma_{1} \hspace{0.08cm}=\hspace{0.08cm} \phi_1 \gamma_0 + \phi_2\cdot \gamma_{-1} \hspace{0.08cm}=\hspace{0.08cm}  \phi_1 \sigma_{\mathcal{Y}}^2 + \phi_2\cdot \gamma_{1} \hspace{0.3cm}\Rightarrow\hspace{0.3cm} \gamma_{1} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\phi_1}{1-\phi_2} \cdot \sigma_{\mathcal{Y}}^2\\$$
+
+
+$$\gamma_{2} \hspace{0.08cm}=\hspace{0.08cm} \phi_1 \gamma_1 + \phi_2\cdot \gamma_{0} \hspace{0.08cm}=\hspace{0.08cm}  \phi_1\cdot\dfrac{\phi_1}{1-\phi_2} \cdot \sigma_{\mathcal{Y}}^2 + \phi_2\cdot \sigma_{\mathcal{Y}}^2 \hspace{0.08cm}=\hspace{0.08cm}  \left( \dfrac{\phi_1^2}{1-\phi_2} + \phi_2 \right)\cdot \sigma_{\mathcal{Y}}^2\\$$
+
+ 
+
+
+
+
+<br>
+
+## Autocorrelation of AR(2)
+
+
+
+
+Assuming that   $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process is **weakly stationary in covariance**, we have the following: $\\[0.3cm]$
+
+ 
+ 
+
+$$\rho_{h} \hspace{0.1cm}=\hspace{0.1cm} \rho_1 \cdot  \gamma_{h-1} \hspace{0.08cm}+\hspace{0.08cm} \phi_2\cdot \rho_{h-2} \hspace{0.4cm},\hspace{0.4cm} \forall\hspace{0.08cm} h=0,\pm 1, \pm 2,\dots$$
+
+
+
+
+There isn't a general expression for $\hspace{0.08cm}\rho_{h}\hspace{0.08cm}$ for any $\hspace{0.08cm}h=0,\pm 1, \pm 2,\dots\hspace{0.08cm}$ , but we can get them by recursion using the previous formula.
+
+$$\rho_{1} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\phi_1}{1-\phi_2}   \\$$
+
+$$\rho_{2} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\phi_1^2}{1-\phi_2} + \phi_2  \\[1cm]$$
+
+
+We can prove easily these last results considering the relationship between $\hspace{0.08cm}\rho_{h}\hspace{0.08cm}$ and $\hspace{0.08cm}\gamma_{h}\hspace{0.08cm}$ that exists in a weakly stationary process in covariance, namely :
+
+
+$$\rho_{h} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_{h}}{\sigma_{\mathcal{Y}}}^2$$
 
  
 <br>
 
 
-***Expresión AR(p) en funcion del  operador de retardos:***
+##  Weak Stationarity Condition of an AR(2) <a class="anchor" id="1"></a>
 
-El modelo $\hspace{0.07cm}AR(p)\hspace{0.07cm}$ puede expresarse en funcion del operador de retardos $\hspace{0.07cm}B\hspace{0.07cm}$ como sigue:
 
-$$\phi_p(B) \cdot y_t \hspace{0.1cm} = \hspace{0.1cm} \left( 1- \phi_1 \cdot B - \phi_2 \cdot B^2 - \dots - \phi_p \cdot B^p \right)\cdot y_t  \hspace{0.1cm} = \hspace{0.1cm} \varepsilon_t + \phi_0$$
 
-donde: 
+The weak stationarity condition is that $\hspace{0.08cm}| \hspace{0.08cm}G_1\hspace{0.08cm} | < 1\hspace{0.1cm}$ and $\hspace{0.1cm}| \hspace{0.08cm}G_2\hspace{0.08cm} | < 1\hspace{0.08cm}$.
 
-$$\phi_p(B) \hspace{0.1cm}=\hspace{0.1cm} \left(1- \phi_1 \cdot B - \phi_2 \cdot B^2 - \dots - \phi_p \cdot B^p \right)$$
+
+Where $\hspace{0.08cm}G_1\hspace{0.08cm}$ and $\hspace{0.08cm}G_2\hspace{0.08cm}$ are the roots of the following equation:
+
+
+$$1\hspace{0.08cm}-\hspace{0.08cm}\phi_1 \cdot B \hspace{0.08cm}-\hspace{0.08cm} \phi_2 \cdot B^2 \hspace{0.08cm}=\hspace{0.08cm} 0 \\$$
 
 
  
 
+**Observation:**
 
+The proof that a stationary $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ process requires the roots of the characteristic equation to be inside the unit circle is somewhat involved and relies on some results from linear algebra and complex analysis. So, in order to not make more complex this article, we are not going to show the proof here.
+
+
+
+<br>
+
+---
+
+<br>
+
+
+
+# Second-Order Autoregresive Model: AR(2) model
+
+
+In practice, we have a time series $\hspace{0.07cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.1cm}$ associated to the stochastic process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$. $\hspace{0.07cm}$
+
+Where $\hspace{0.05cm}y_t\hspace{0.07cm}$ is the value of the process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$ at period $\hspace{0.07cm}t$. $\\[0.4cm]$ 
+
+Our main goal is to predict the value of the process at future periods. For that, we will use the observed values of the process in the time series, namely, the available data. $\\[0.3cm]$
+
+In this sense, we can use   $\hspace{0.07cm}AR(2)\hspace{0.07cm}$ process as a model to predict (forecast) time series.
+
+Let be $\hspace{0.09cm}\widehat{y}_t\hspace{0.09cm}$ the model prediction for $\hspace{0.09cm}y_t\hspace{0.09cm}$ observation  of the process.
+
+We can use an $\hspace{0.07cm}AR(2)\hspace{0.07cm}$ to **estimate past values** of the process $\hspace{0.09cm}\mathcal{Y}\hspace{0.09cm}$ or to **forecast future values** of it. 
+
+
+
+
+<br>
+
+
+
+## Estimating past values of the process
+
+Using an $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ model, the estimation of the past (observed) values $\hspace{0.1cm}y_t \hspace{0.1cm},\hspace{0.1cm} t=1,...,n$ of the process is done using the following equation: $\\[0.3cm]$
+
+$$\widehat{y}_t \hspace{0.1cm}=\hspace{0.1cm} \widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot y_{t-1} 
+\hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot y_{t-2} \hspace{0.35cm},\hspace{0.35cm} t = 3,4,\dots , n\\[0.3cm]$$
+
+**Observation:**
+
+If the avaible data of the process is given by the time series $\hspace{0.07cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.1cm}$ , then, for $\hspace{0.07cm}t=3,4,...,n\hspace{0.15cm},$ the value $\hspace{0.15cm}\widehat{y}_t\hspace{0.07cm}$ is an estimation of the observed value $\hspace{0.08cm}y_t\hspace{0.08cm}$ of the process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$. 
+
+Note that, an **observed value** of the process is also a **past value** of it.
+
+
+<br>
+
+
+## Forecasting future values of the process
+
+
+Using an $\hspace{0.07cm}AR(2)\hspace{0.07cm}$ model we can forecast future values $\hspace{0.1cm}y_{n+k} \hspace{0.12cm},\hspace{0.12cm} k=1,...,n\hspace{0.1cm}$ of the process using the following equation: $\\[0.3cm]$
+
+$$\widehat{y}_{n+1} \hspace{0.1cm}=\hspace{0.1cm} \widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot y_{n} \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot y_{n-1}  \\[0.3cm]$$
+
+
+$$\widehat{y}_{n+2} \hspace{0.1cm}=\hspace{0.1cm} \widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot \widehat{y}_{n+1} \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot y_{n}  \\[0.3cm]$$
+
+
+$$\widehat{y}_{n+3} \hspace{0.1cm}=\hspace{0.1cm} \widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot \widehat{y}_{n+2} 
+\hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot \widehat{y}_{n+1} \\[0.35cm]$$
+
+
+In general:
+
+
+$$
+\widehat{y}_{n+k} \hspace{0.1cm}=\hspace{0.1cm} \left\{ \begin{array}{lcc}
+\widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot y_{(n+k)-1}
+\hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot y_{(n+k)-2}
+\hspace{0.4cm}  , \hspace{0.4cm} \text{if} \hspace{0.3cm}  k = 1 \\[0.2cm]
+\widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot \hat{y}_{(n+k)-1}
+\hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot y_{(n+k)-2}
+\hspace{0.4cm}  , \hspace{0.4cm} \text{if} \hspace{0.3cm}  k = 2 \\[0.2cm]
+\widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot \widehat{y}_{(n+k)-1} 
+\hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot \widehat{y}_{(n+k)-2}\hspace{0.4cm}  , \hspace{0.4cm} \text{if}  \hspace{0.3cm}  k = 3,4,\dots  
+\end{array}
+   \right. \\[1.3cm]$$
+
+
+
+
+<br>
+
+## Stationariety and forecast
+
+Stationarity is an important property of time series that indicates that the properties of the time series don't change over time. In other words, the mean, variance, and autocorrelation of a stationary time series are constant over time. $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ models can be used to model stationary time series.
+
+It is important to note that if a time series isn't stationary, long-term forecasts may be inaccurate. In this sense, before applying the $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ model to a time series, it is advisable to verify if it verify the stationarity property. For this, various statistical tests can be performed, such as autocorrelation analysis, unit root test, among others, which will be seen in another specific article.
+
+In the event that a time series is not stationary, transformations can be applied to the data, such as differentiation, that allow obtaining a stationary time series. Then, the $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ model can be fitted to the differentiated time series and make long-term forecasts. As before, these transformation techniques will be seen in another article with more detail.
+
+In summary, stationarity is an important property of time series for accurate forecasting and $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ models can be used to model stationary time series. If a time series is not stationary, transformations can be applied to the data to obtain a stationary series and then fit the $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ model to the transformed time series.
+
+
+
+<br>
+
+
+## Estimation of model coeficcients <a class="anchor" id="1"></a>
+
+### Maximum Likelihood
+
+
+As it was seen, the fundamental equation of an $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ model is: $\\[0.35cm]$
+
+
+$$\mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm}  \phi_1 \cdot \mathcal{Y}_{t-1}
+\hspace{0.08cm}+\hspace{0.08cm}  \phi_2 \cdot \mathcal{Y}_{t-2}
+\hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.3cm} , \hspace{0.3cm} t=3,\dots , n\\$$
+
+
+
+Since the error term $\hspace{0.07cm}\varepsilon_t\hspace{0.07cm}$ is Gaussian, namely, $\hspace{0.07cm}\varepsilon_t \sim N(0,\sigma^2)\hspace{0.07cm}$, it turns out that: $\\[0.35cm]$
+
+ 
+
+$$\mathcal{Y}_t \hspace{0.07cm}\sim\hspace{0.07cm} N\left( \hspace{0.07cm} \phi_0 + \phi_1 \cdot y_{t-1} + \phi_2 \cdot y_{t-2} \hspace{0.15cm} ,\hspace{0.15cm} \sigma^2 \hspace{0.07cm} \right) \hspace{0.3cm} , \hspace{0.3cm} t=3,\dots , n \\[0.7cm]$$
+
+
+
+Therefore, the likelihood function of $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ model is:
+
+$$\mathcal{L}(\phi_0,\phi_1, \phi_2, \sigma^2) \hspace{0.09cm}=\hspace{0.09cm}
+f_{\mathcal{Y}_3,...,\mathcal{Y}_n}(y_{2},...,y_n)
+\hspace{0.09cm}=\hspace{0.09cm}
+\prod_{t=3}^n\hspace{0.07cm}  f_{\mathcal{Y}_t}(y_t)
+\hspace{0.09cm}=\hspace{0.09cm} \prod_{t=3}^n \hspace{0.07cm}  \frac{1}{\sqrt{2\pi\sigma^2}} \cdot \exp\left(-\frac{(y_t - ( \phi_0 +  \phi_1 \cdot y_{t-1} +  \phi_2 \cdot y_{t-2}))^2}{2\sigma^2}\right)\\$$
+
+
+
+The log-likelihood function is:
+
+$$ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1, \phi_2, \sigma^2)\hspace{0.07cm} \right) \hspace{0.09cm}=\hspace{0.09cm} -\frac{n-1}{2} \cdot \ln(2\pi) - \frac{n-1}{2}\cdot \ln(\sigma^2) - \frac{1}{2\sigma^2}\cdot \sum_{t=3}^n \left( y_t - (\phi_0 + \phi_1\cdot y_{t-1}+ \phi_2\cdot y_{t-2}) \right)^2$$
+
+
+The $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ parameters estimation is made as follows:
+$\\[0.3cm]$
+
+
+$$\widehat{\phi}_0, \widehat{\phi}_1, \widehat{\phi}_2,  \widehat{\sigma}^2 \hspace{0.13cm} =\hspace{0.13cm}  arg \hspace{0.13cm}  \underset{\phi_0, \phi_1,\phi_2, \sigma^2}{Max} \hspace{0.13cm}  ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,\phi_2, \sigma^2) \hspace{0.07cm} \right)$$
+
+
+This problems can be solved using numeric optimization methods, such as Newton-Raphson or descendent gradient. 
+
+
+
+<br>
+
+
+### Ordinary Least Squares
+
+The ordinary least squares (OLS) method is another common approach for estimating the coefficients of an AR(1) model. This method involves minimizing the sum of the squared residuals between the predicted values of the model and the observed values of the time series.
+
+The fundamental equation of an AR(1) model is:
+
+$$y_t \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm} \phi_1 \cdot  y_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \phi_2 \cdot  y_{t-2} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t$$
+
+With OLS method, $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ parameters estimation is made as follows:
+$\\[0.3cm]$
+
+
+$$\widehat{\phi}_0, \widehat{\phi}_1, \widehat{\phi}_2 \hspace{0.13cm} =\hspace{0.13cm}  arg \hspace{0.13cm}  \underset{\phi_0, \phi_1, \phi_2}{Min} \hspace{0.13cm}  \sum_{t=3}^n \hspace{0.08cm}e_t^2 \hspace{0.08cm}=\hspace{0.08cm} \sum_{t=3}^n \hspace{0.08cm} \left(y_t - (\phi_0 + \phi_1\cdot y_{t-1} + \phi_2\cdot y_{t-2}) \right)^2$$
+
+
+This problems can be solved using classical optimization techniques or numeric optimization methods, such as Newton-Raphson or descendent gradient. 
+
+  
+
+
+
+
+
+
+
+
+
+
+<br>
+
+---
+
+<br>
+
+
+
+ 
+
+# p-Order Autoregresive Process: AR(p) process  
+
+
+Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.08cm}=\hspace{0.08cm}  \hspace{0.1cm}\bigl( \hspace{0.06cm} \mathcal{Y}_1 ,  \mathcal{Y}_2 ,..., \mathcal{Y}_n  \hspace{0.06cm}\bigl) \hspace{0.1cm}.$  $\\[0.25cm]$
+ 
+ 
+
+
+The $\hspace{0.08cm}p$-order autoregressive process $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ for the process $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ is defined as: $\\[0.35cm]$
+
+$$\mathcal{Y}_t\hspace{0.08cm}=\hspace{0.08cm}\phi_0 \hspace{0.08cm}+\hspace{0.08cm} \phi_1 \cdot \mathcal{Y}_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \phi_2 \cdot \mathcal{Y}_{t-2}
+\hspace{0.08cm}+\hspace{0.08cm} \dots  \hspace{0.08cm}+\hspace{0.08cm} \phi_p \cdot \mathcal{Y}_{t-p}
+\hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.08cm}=\hspace{0.08cm}
+\phi_0 \hspace{0.08cm}+\hspace{0.08cm} \sum_{i=1}^p \hspace{0.08cm} \phi_i \cdot \mathcal{Y}_{t-i}
+\hspace{0.4cm}  , \hspace{0.4cm}  t = p,\dots , n\\$$ 
+
+Where:
+
+- $\varepsilon_t \hspace{0.08cm}\sim \hspace{0.08cm}N(0,\sigma^2) \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = p,\dots , n\\$
+
+- $Cov(\varepsilon_t \hspace{0.08cm},\hspace{0.08cm} \varepsilon_{t+h})=0 \hspace{0.3cm},\hspace{0.3cm}  \forall\hspace{0.08cm} t = p,\dots \hspace{0.15cm},\hspace{0.15cm}  \forall\hspace{0.08cm} h = \pm 1,\pm 2,\dots\\$
+
+
+- $Cov(\mathcal{Y}_{t+h}\hspace{0.08cm},\hspace{0.08cm} \varepsilon_t) \hspace{0.08cm}=\hspace{0.08cm} 0 \hspace{0.3cm},\hspace{0.3cm}  \forall\hspace{0.08cm} t = p,\dots  \hspace{0.15cm},\hspace{0.15cm} \forall\hspace{0.08cm}  h = 0,\pm 1,\pm 2,\dots\\$
+    
+    First two assumptions means that $\hspace{0.08cm}(\hspace{0.03cm}\varepsilon_t \hspace{0.1cm}:\hspace{0.1cm} t = p,\dots, n \hspace{0.03cm})\hspace{0.1cm}$ is a **normal white noise proccess**. 
+    
+    
+<br>    
+    
+
+## Expression of AR(p) as a function of the lag operator
+
+We can express $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ process using the lag operator as follows: $\\[0.3cm]$
+
+$$\phi_p(B)\cdot \mathcal{Y}_t \hspace{0.08cm} =\hspace{0.08cm}\left(1 - \phi_1 \cdot B - \phi_2 \cdot B^2 - \dots - \phi_p \cdot B^p \right) \cdot \mathcal{Y}_t \hspace{0.08cm} =\hspace{0.08cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t$$
+
+
+Where: 
+
+$\hspace{0.15cm}B\hspace{0.08cm}$ is the lag operator and is defined as follows:
+
+$$B\cdot \mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \mathcal{Y}_{t-1}$$
+
+$$B^h\cdot \mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \mathcal{Y}_{t-h}  \hspace{0.3cm} , \hspace{0.3cm} h=1,2,\dots$$
+
+
+
+
+<br>
+
+
+## Mean of AR(p) process
+
+Assuming that $\hspace{0.07cm}AR(p)\hspace{0.07cm}$ process is weakly stationary in mean we have the following: $\\[0.4cm]$
+
+
+$$\mu_t \hspace{0.07cm}=\hspace{0.07cm} \mu_{\mathcal{Y}} \hspace{0.07cm}=\hspace{0.07cm} \dfrac{\phi_0}{1-\phi_1-\phi_2-\dots -\phi_p}\hspace{0.07cm}=\hspace{0.07cm} \dfrac{\phi_0}{1- \sum_{i=1}^p \phi_i} \hspace{0.35cm} , \hspace{0.35cm} \forall \hspace{0.07cm} t=1,2,\dots ,n\\$$
+
+ 
+Where: $\hspace{0.12cm}\mu_t \hspace{0.08cm}=\hspace{0.08cm} E[\mathcal{Y}_t]\\$
+
+ 
+    
+**Observation:**
+
+
+$\mu_{\mathcal{Y}}\hspace{0.1cm}$ is finite only if $\hspace{0.1cm}1-\phi_1-\phi_2- \dots - \phi_p \neq 0\hspace{0.08cm}$.
+
+<br>
+
+
+## Variance of AR(p) process
+
+
+Assuming that $\hspace{0.07cm}AR(p)\hspace{0.07cm}$ process is weakly stationary in variance we have the following: $\\[0.4cm]$
+
+ 
+ 
+$$\sigma_t^2 \hspace{0.08cm}=\hspace{0.08cm} \sigma_{\mathcal{Y}}^2 \hspace{0.08cm}=\hspace{0.08cm} \sigma^2 \hspace{0.08cm}+\hspace{0.08cm} \sum_{h=1}^p\hspace{0.08cm} \phi_h \gamma_{h}$$ 
+ 
+Where: 
+
+$\hspace{0.12cm}\sigma^2_t \hspace{0.08cm}=\hspace{0.08cm} Var(\mathcal{Y}_t)\\$
+
+$\gamma_{h} = Cov(\mathcal{Y}_{t}, \mathcal{Y}_{t-h})  , t =1,\dots , n$
+
+ 
+
+<br>
+
+## Autocovariance of AR(p) process
+
+
+There isn't a general expression for $\hspace{0.08cm}\gamma_{h}\hspace{0.08cm}$ for any $\hspace{0.08cm}h=0,\pm 1, \pm 2,\dots\hspace{0.08cm}$.
+
+But, assuming that   $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process is **weakly stationary in covariance**, we have a usuful result, **the Yule-Walker equations**.  $\\[0.3cm]$
+
+ 
+
+The **Yule-Walker equations** for an $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ process are a system of $\hspace{0.08cm}p\hspace{0.08cm}$ linear equations that relate the autocovariances at lags $\hspace{0.08cm}1, 2, ..., p\hspace{0.08cm}$ to the coefficients $\hspace{0.08cm}\phi_1, \phi_2, \ldots, \phi_p\hspace{0.08cm}$. 
+
+These equations are:
+
+$$
+\gamma_1 \hspace{0.08cm}=\hspace{0.08cm} \phi_1\cdot \gamma_0 \hspace{0.08cm}+\hspace{0.08cm} \phi_2\cdot \gamma_1 \hspace{0.08cm}+ \cdots +\hspace{0.08cm} \phi_p \cdot\gamma_{p-1} \\
+\gamma_2 \hspace{0.08cm}=\hspace{0.08cm} \phi_1 \cdot\gamma_1 \hspace{0.08cm}+\hspace{0.08cm} \phi_2 \cdot\gamma_0 \hspace{0.08cm}+ \cdots +\hspace{0.08cm} \phi_p \cdot\gamma_{p-2} \\
+\vdots \\
+\gamma_p \hspace{0.08cm}=\hspace{0.08cm} \phi_1\cdot \gamma_{p-1} \hspace{0.08cm}+\hspace{0.08cm} \phi_2\cdot \gamma_{p-2} \hspace{0.08cm}+ \cdots +\hspace{0.08cm} \phi_{p}\cdot \gamma_0
+$$
+
+These equations can be solved to obtain estimates of the coefficients $\hspace{0.08cm}\phi_1, \phi_2, \ldots, \phi_p\hspace{0.08cm}$ based on the **sample estimation** of autocovariances $\widehat{\gamma}_1, \widehat{\gamma}_2, \ldots, \widehat{\gamma}_p$. 
+ 
+ 
+### Sample Estimation of Autocovariances
+
+The sample estimation of $\gamma_h = Cov(\mathcal{Y}_t , \mathcal{Y}_{t-h})$ in a weakly stationary process can be done with the following formula:
+
+$$
+\widehat{\gamma}_k \hspace{0.08cm}=\hspace{0.08cm} \frac{1}{n} \cdot \sum_{t=k+1}^n \hspace{0.08cm} (y_t - \bar{y})\cdot (y_{t-k} - \bar{y})
+$$
+
+where: 
+
+$$\bar{y} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.08cm} y_i$$
+
+<br>
+
+
+
+
+## Autocorrelation of AR(p)
+
+
+Assuming that   $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process is **weakly stationary in covariance**, we have the following: $\\[0.3cm]$
+
+ 
+ 
+
+$$\rho_{h} \hspace{0.1cm}=\hspace{0.1cm} \rho_1 \cdot  \gamma_{h-1} \hspace{0.08cm}+\hspace{0.08cm} \phi_2\cdot \rho_{h-2} \hspace{0.4cm},\hspace{0.4cm} \forall\hspace{0.08cm} h=0,\pm 1, \pm 2,\dots$$
+
+
+
+
+There isn't a general expression for $\hspace{0.08cm}\rho_{h}\hspace{0.08cm}$ for any $\hspace{0.08cm}h=0,\pm 1, \pm 2,\dots\hspace{0.08cm}$ , but we can get them by recursion using the previous formula.
+
+$$\rho_{1} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\phi_1}{1-\phi_2}   \\$$
+
+$$\rho_{2} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\phi_1^2}{1-\phi_2} + \phi_2  \\[1cm]$$
+
+
+We can prove easily these last results considering the relationship between $\hspace{0.08cm}\rho_{h}\hspace{0.08cm}$ and $\hspace{0.08cm}\gamma_{h}\hspace{0.08cm}$ that exists in a weakly stationary process in covariance, namely :
+
+
+$$\rho_{h} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_{h}}{\sigma_{\mathcal{Y}}}^2$$
+
+ 
+ 
+ 
+The Yule-Walker equations for the autocorrelation function of an AR(p) process can be obtained by normalizing the autocovariance function by its variance, giving the autocorrelation function:
+
+$$\rho(k) = \frac{\gamma(k)}{\gamma(0)}$$
+
+Substituting this expression into the Yule-Walker equations for the autocovariance function yields:
+
+$$\rho(0) = 1$$
+
+and
+
+$$\rho(k) = \phi_1 \rho(k-1) + \phi_2 \rho(k-2) + \cdots + \phi_p \rho(k-p)$$
+
+for $k = 1, 2, \ldots, p$, where $\rho(k)$ is the autocorrelation function of the stationary AR(p) process.
+
+These equations can be used to compute the autocorrelation function of an AR(p) process given the coefficients of the autoregressive model $\phi_1, \phi_2, \ldots, \phi_p$ and the variance of the process.
+
+Like the Yule-Walker equations for the autocovariance function, the Yule-Walker equations for the autocorrelation function can be solved to obtain estimates of the coefficients and variance based on the sample autocorrelations. The solution involves inverting a system of linear equations, which can be done numerically. 
  
 <br>
+
+
+##  Weak Stationarity Condition of an AR(2) <a class="anchor" id="1"></a>
+
+
+
+The weak stationarity condition is that $\hspace{0.08cm}| \hspace{0.08cm}G_1\hspace{0.08cm} | < 1\hspace{0.1cm}$ and $\hspace{0.1cm}| \hspace{0.08cm}G_2\hspace{0.08cm} | < 1\hspace{0.08cm}$.
+
+
+Where $\hspace{0.08cm}G_1\hspace{0.08cm}$ and $\hspace{0.08cm}G_2\hspace{0.08cm}$ are the roots of the following equation:
+
+
+$$1\hspace{0.08cm}-\hspace{0.08cm}\phi_1 \cdot B \hspace{0.08cm}-\hspace{0.08cm} \phi_2 \cdot B^2 \hspace{0.08cm}=\hspace{0.08cm} 0 \\$$
+
+
+ 
+
+**Observation:**
+
+The proof that a stationary $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ process requires the roots of the characteristic equation to be inside the unit circle is somewhat involved and relies on some results from linear algebra and complex analysis. So, in order to not make more complex this article, we are not going to show the proof here.
+
+
+
+<br>
+
+---
+
+<br>
+
+
+
+# Second-Order Autoregresive Model: AR(2) model
+
+
+In practice, we have a time series $\hspace{0.07cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.1cm}$ associated to the stochastic process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$. $\hspace{0.07cm}$
+
+Where $\hspace{0.05cm}y_t\hspace{0.07cm}$ is the value of the process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$ at period $\hspace{0.07cm}t$. $\\[0.4cm]$ 
+
+Our main goal is to predict the value of the process at future periods. For that, we will use the observed values of the process in the time series, namely, the available data. $\\[0.3cm]$
+
+In this sense, we can use   $\hspace{0.07cm}AR(2)\hspace{0.07cm}$ process as a model to predict (forecast) time series.
+
+Let be $\hspace{0.09cm}\widehat{y}_t\hspace{0.09cm}$ the model prediction for $\hspace{0.09cm}y_t\hspace{0.09cm}$ observation  of the process.
+
+We can use an $\hspace{0.07cm}AR(2)\hspace{0.07cm}$ to **estimate past values** of the process $\hspace{0.09cm}\mathcal{Y}\hspace{0.09cm}$ or to **forecast future values** of it. 
+
+
+
+
+<br>
+
+
+
+## Estimating past values of the process
+
+Using an $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ model, the estimation of the past (observed) values $\hspace{0.1cm}y_t \hspace{0.1cm},\hspace{0.1cm} t=1,...,n$ of the process is done using the following equation: $\\[0.3cm]$
+
+$$\widehat{y}_t \hspace{0.1cm}=\hspace{0.1cm} \widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot y_{t-1} 
+\hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot y_{t-2} \hspace{0.35cm},\hspace{0.35cm} t = 3,4,\dots , n\\[0.3cm]$$
+
+**Observation:**
+
+If the avaible data of the process is given by the time series $\hspace{0.07cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.1cm}$ , then, for $\hspace{0.07cm}t=3,4,...,n\hspace{0.15cm},$ the value $\hspace{0.15cm}\widehat{y}_t\hspace{0.07cm}$ is an estimation of the observed value $\hspace{0.08cm}y_t\hspace{0.08cm}$ of the process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$. 
+
+Note that, an **observed value** of the process is also a **past value** of it.
+
+
+<br>
+
+
+## Forecasting future values of the process
+
+
+Using an $\hspace{0.07cm}AR(2)\hspace{0.07cm}$ model we can forecast future values $\hspace{0.1cm}y_{n+k} \hspace{0.12cm},\hspace{0.12cm} k=1,...,n\hspace{0.1cm}$ of the process using the following equation: $\\[0.3cm]$
+
+$$\widehat{y}_{n+1} \hspace{0.1cm}=\hspace{0.1cm} \widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot y_{n} \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot y_{n-1}  \\[0.3cm]$$
+
+
+$$\widehat{y}_{n+2} \hspace{0.1cm}=\hspace{0.1cm} \widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot \widehat{y}_{n+1} \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot y_{n}  \\[0.3cm]$$
+
+
+$$\widehat{y}_{n+3} \hspace{0.1cm}=\hspace{0.1cm} \widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot \widehat{y}_{n+2} 
+\hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot \widehat{y}_{n+1} \\[0.35cm]$$
+
+
+In general:
+
+
+$$
+\widehat{y}_{n+k} \hspace{0.1cm}=\hspace{0.1cm} \left\{ \begin{array}{lcc}
+\widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot y_{(n+k)-1}
+\hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot y_{(n+k)-2}
+\hspace{0.4cm}  , \hspace{0.4cm} \text{if} \hspace{0.3cm}  k = 1 \\[0.2cm]
+\widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot \hat{y}_{(n+k)-1}
+\hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot y_{(n+k)-2}
+\hspace{0.4cm}  , \hspace{0.4cm} \text{if} \hspace{0.3cm}  k = 2 \\[0.2cm]
+\widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot \widehat{y}_{(n+k)-1} 
+\hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot \widehat{y}_{(n+k)-2}\hspace{0.4cm}  , \hspace{0.4cm} \text{if}  \hspace{0.3cm}  k = 3,4,\dots  
+\end{array}
+   \right. \\[1.3cm]$$
+
+
+
+
+<br>
+
+## Stationariety and forecast
+
+Stationarity is an important property of time series that indicates that the properties of the time series don't change over time. In other words, the mean, variance, and autocorrelation of a stationary time series are constant over time. $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ models can be used to model stationary time series.
+
+It is important to note that if a time series isn't stationary, long-term forecasts may be inaccurate. In this sense, before applying the $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ model to a time series, it is advisable to verify if it verify the stationarity property. For this, various statistical tests can be performed, such as autocorrelation analysis, unit root test, among others, which will be seen in another specific article.
+
+In the event that a time series is not stationary, transformations can be applied to the data, such as differentiation, that allow obtaining a stationary time series. Then, the $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ model can be fitted to the differentiated time series and make long-term forecasts. As before, these transformation techniques will be seen in another article with more detail.
+
+In summary, stationarity is an important property of time series for accurate forecasting and $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ models can be used to model stationary time series. If a time series is not stationary, transformations can be applied to the data to obtain a stationary series and then fit the $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ model to the transformed time series.
+
+
+
+<br>
+
+
+## Estimation of model coeficcients <a class="anchor" id="1"></a>
+
+### Maximum Likelihood
+
+
+As it was seen, the fundamental equation of an $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ model is: $\\[0.35cm]$
+
+
+$$\mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm}  \phi_1 \cdot \mathcal{Y}_{t-1}
+\hspace{0.08cm}+\hspace{0.08cm}  \phi_2 \cdot \mathcal{Y}_{t-2}
+\hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.3cm} , \hspace{0.3cm} t=3,\dots , n\\$$
+
+
+
+Since the error term $\hspace{0.07cm}\varepsilon_t\hspace{0.07cm}$ is Gaussian, namely, $\hspace{0.07cm}\varepsilon_t \sim N(0,\sigma^2)\hspace{0.07cm}$, it turns out that: $\\[0.35cm]$
+
+ 
+
+$$\mathcal{Y}_t \hspace{0.07cm}\sim\hspace{0.07cm} N\left( \hspace{0.07cm} \phi_0 + \phi_1 \cdot y_{t-1} + \phi_2 \cdot y_{t-2} \hspace{0.15cm} ,\hspace{0.15cm} \sigma^2 \hspace{0.07cm} \right) \hspace{0.3cm} , \hspace{0.3cm} t=3,\dots , n \\[0.7cm]$$
+
+
+
+Therefore, the likelihood function of $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ model is:
+
+$$\mathcal{L}(\phi_0,\phi_1, \phi_2, \sigma^2) \hspace{0.09cm}=\hspace{0.09cm}
+f_{\mathcal{Y}_3,...,\mathcal{Y}_n}(y_{2},...,y_n)
+\hspace{0.09cm}=\hspace{0.09cm}
+\prod_{t=3}^n\hspace{0.07cm}  f_{\mathcal{Y}_t}(y_t)
+\hspace{0.09cm}=\hspace{0.09cm} \prod_{t=3}^n \hspace{0.07cm}  \frac{1}{\sqrt{2\pi\sigma^2}} \cdot \exp\left(-\frac{(y_t - ( \phi_0 +  \phi_1 \cdot y_{t-1} +  \phi_2 \cdot y_{t-2}))^2}{2\sigma^2}\right)\\$$
+
+
+
+The log-likelihood function is:
+
+$$ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1, \phi_2, \sigma^2)\hspace{0.07cm} \right) \hspace{0.09cm}=\hspace{0.09cm} -\frac{n-1}{2} \cdot \ln(2\pi) - \frac{n-1}{2}\cdot \ln(\sigma^2) - \frac{1}{2\sigma^2}\cdot \sum_{t=3}^n \left( y_t - (\phi_0 + \phi_1\cdot y_{t-1}+ \phi_2\cdot y_{t-2}) \right)^2$$
+
+
+The $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ parameters estimation is made as follows:
+$\\[0.3cm]$
+
+
+$$\widehat{\phi}_0, \widehat{\phi}_1, \widehat{\phi}_2,  \widehat{\sigma}^2 \hspace{0.13cm} =\hspace{0.13cm}  arg \hspace{0.13cm}  \underset{\phi_0, \phi_1,\phi_2, \sigma^2}{Max} \hspace{0.13cm}  ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,\phi_2, \sigma^2) \hspace{0.07cm} \right)$$
+
+
+This problems can be solved using numeric optimization methods, such as Newton-Raphson or descendent gradient. 
+
+
+
+<br>
+
+
+### Ordinary Least Squares
+
+The ordinary least squares (OLS) method is another common approach for estimating the coefficients of an AR(1) model. This method involves minimizing the sum of the squared residuals between the predicted values of the model and the observed values of the time series.
+
+The fundamental equation of an AR(1) model is:
+
+$$y_t \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm} \phi_1 \cdot  y_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \phi_2 \cdot  y_{t-2} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t$$
+
+With OLS method, $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ parameters estimation is made as follows:
+$\\[0.3cm]$
+
+
+$$\widehat{\phi}_0, \widehat{\phi}_1, \widehat{\phi}_2 \hspace{0.13cm} =\hspace{0.13cm}  arg \hspace{0.13cm}  \underset{\phi_0, \phi_1, \phi_2}{Min} \hspace{0.13cm}  \sum_{t=3}^n \hspace{0.08cm}e_t^2 \hspace{0.08cm}=\hspace{0.08cm} \sum_{t=3}^n \hspace{0.08cm} \left(y_t - (\phi_0 + \phi_1\cdot y_{t-1} + \phi_2\cdot y_{t-2}) \right)^2$$
+
+
+This problems can be solved using classical optimization techniques or numeric optimization methods, such as Newton-Raphson or descendent gradient. 
+
+  
+
+
+
+
+
+
+
+
+
+
+<br>
+
+---
+
+<br>
+
+
+
+
+
+
 
 
 ***Estimaciones del pasado:***
@@ -1665,93 +2446,22 @@ $$\widehat{\phi}_0, \widehat{\phi}_1, \dots , \widehat{\phi}_p , \widehat{\sigma
 
 
 Este problema se puede resolver a través de métodos numéricos como el método de Newton-Raphson o el método de gradiente descendente.
-
-
-
-
-
-<br>
-
-# Second-Order Autoregressive process: AR(2) process
-
-
-
-Condicion de estacionariedad debil, demostracion:
-
-Tienes razón. La demostración completa es un poco más complicada que lo que he descrito antes. Te la muestro a continuación.
-
-En general, la condición suficiente para que un proceso $AR(2)$ sea débilmente estacionario es que las raíces de la ecuación característica
-
-$$\phi(z) = 1 - \phi_1 z - \phi_2 z^2 = 0$$
-
-estén fuera del círculo unitario en el plano complejo, es decir, que $|\alpha_i| > 1$ para $i=1,2$, donde $\alpha_1$ y $\alpha_2$ son las raíces de $\phi(z)=0$.
-
-Para ver por qué esto es cierto, primero escribimos el proceso $AR(2)$ como
-
-$$Y_t = \phi_1 Y_{t-1} + \phi_2 Y_{t-2} + \epsilon_t,$$
-
-donde $\epsilon_t$ es un ruido blanco con media cero y varianza $\sigma^2$. Tomando la transformada de Laplace, obtenemos
-
-$$\phi(z) \mathcal{L}(Y_t) = \mathcal{L}(\epsilon_t),$$
-
-donde $\mathcal{L}$ denota la transformada de Laplace. Resolviendo para $\mathcal{L}(Y_t)$, tenemos
-
-$$\mathcal{L}(Y_t) = \frac{\mathcal{L}(\epsilon_t)}{\phi(z)}.$$
-
-Ahora, para que el proceso $AR(2)$ sea estacionario, es necesario que $\mathcal{L}(Y_t)$ exista para todo $t$. Esto es equivalente a que el denominador $\phi(z)$ no tenga raíces en el círculo unitario, porque las raíces en el círculo unitario generan polos de orden uno en el origen de la transformada de Laplace, lo que implica que la serie de Fourier correspondiente no converge. Por lo tanto, si $\phi(z)$ tiene raíces en el círculo unitario, el proceso $AR(2)$ no puede ser estacionario.
-
-Por otro lado, si las raíces de $\phi(z)$ están fuera del círculo unitario, entonces podemos expresar $\phi(z)$ como
-
-$$\phi(z) = (\alpha_1 - z)(\alpha_2 - z),$$
-
-donde $|\alpha_i| > 1$. Entonces, podemos expandir $\mathcal{L}(Y_t)$ en fracciones parciales como
-
-$$\mathcal{L}(Y_t) = \frac{c_1}{z-\alpha_1} + \frac{c_2}{z-\alpha_2},$$
-
-donde $c_1$ y $c_2$ son constantes que dependen de los valores iniciales $Y_0$ y $Y_1$. Tomando la transformada inversa de Laplace, obtenemos
-
-$$Y_t = c_1 \alpha_1^t + c_2 \alpha_2^t.$$
-
-Como $|\alpha_i|>1$, podemos ver que $\alpha_i^t$ converge a cero cuando $t$ tiende a infinito. Por lo tanto, $Y_t$ converge a una constante cuando $t$ tiende a infinito, lo que implica que el proceso $AR(2)$ es débilmente estacionario.
  
- En resumen, para que un proceso AR(2) sea débilmente estacionario, es necesario que las raíces del polinomio característico estén dentro del círculo unitario. Esto se debe a que las raíces del polinomio característico están relacionadas con los coeficientes del modelo AR(2) y, por lo tanto, con las propiedades estadísticas del proceso. Cuando las raíces están dentro del círculo unitario, los coeficientes están acotados y el proceso AR(2) es estacionario en media, varianza y covarianza.
+ 
+ 
+# AR(p) model in `Python`
 
-Cabe señalar que la condición de que las raíces estén dentro del círculo unitario no es suficiente para garantizar la estacionariedad fuerte del proceso AR(2), que implica la invariancia del proceso bajo desplazamientos en el tiempo. La estacionariedad fuerte requiere que se cumplan algunas condiciones adicionales, como la existencia de ciertos momentos y la ergodicidad del proceso.
 
 
 
+
+
+
+ 
 
 <br>
 
-# AR(p)
+---
 
-n primer lugar, escribimos el proceso $AR(p)$ como
-
-$$Y_t = \sum_{i=1}^p \phi_i Y_{t-i} + \epsilon_t,$$
-
-donde $\epsilon_t$ es un ruido blanco con media cero y varianza $\sigma^2$. Tomando la transformada de Laplace, obtenemos
-
-$$\phi(z) \mathcal{L}(Y_t) = \mathcal{L}(\epsilon_t),$$
-
-donde $\mathcal{L}$ denota la transformada de Laplace. Resolviendo para $\mathcal{L}(Y_t)$, tenemos
-
-$$\mathcal{L}(Y_t) = \frac{\mathcal{L}(\epsilon_t)}{\phi(z)}.$$
-
-Ahora, para que el proceso $AR(p)$ sea estacionario, es necesario que $\mathcal{L}(Y_t)$ exista para todo $t$. Esto es equivalente a que el denominador $\phi(z)$ no tenga raíces en el círculo unitario, porque las raíces en el círculo unitario generan polos de orden uno en el origen de la transformada de Laplace, lo que implica que la serie de Fourier correspondiente no converge. Por lo tanto, si $\phi(z)$ tiene raíces en el círculo unitario, el proceso $AR(p)$ no puede ser estacionario.
-
-Por otro lado, si las raíces de $\phi(z)$ están fuera del círculo unitario, entonces podemos expresar $\phi(z)$ como
-
-$$\phi(z) = (\alpha_1 - z)(\alpha_2 - z) \cdots (\alpha_p - z),$$
-
-donde $|\alpha_i| > 1$. Entonces, podemos expandir $\mathcal{L}(Y_t)$ en fracciones parciales como
-
-$$\mathcal{L}(Y_t) = \frac{c_1}{z-\alpha_1} + \frac{c_2}{z-\alpha_2} + \cdots + \frac{c_p}{z-\alpha_p},$$
-
-donde $c_1,\dots,c_p$ son constantes que dependen de los valores iniciales $Y_0,\dots,Y_{p-1}$. Tomando la transformada inversa de Laplace, obtenemos
-
-$$Y_t = c_1 \alpha_1^t + c_2 \alpha_2^t + \cdots + c_p \alpha_p^t.$$
-
-Como $|\alpha_i|>1$, podemos ver que $\alpha_i^t$ converge a cero cuando $t$ tiende a infinito. Por lo tanto, $Y_t$ converge a una constante cuando $t$ tiende a infinito, lo que implica que el proceso $AR(p)$ es débilmente estacionario.
-
-En resumen, las raíces de la ecuación característica de un proceso $AR(p)$ deben estar fuera del círculo unitario en el plano complejo para que el proceso sea débilmente estacionario.
+<br>
 
