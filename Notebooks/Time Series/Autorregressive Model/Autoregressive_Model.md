@@ -1343,16 +1343,16 @@ Where:
 
 We will summarize the above points.
 
-- In a $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process, if $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$ ,   we have the following: $\\[0.35cm]$
+- In a $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process, if $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$ ,   we have the following: $\\[0.4cm]$
 
-    $$\mu_t\hspace{0.08cm} \approx\hspace{0.08cm} \mu_{\mathcal{Y}} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\phi_0}{1-\phi_1} \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,\dots , n$$  
+    $$\mu_t\hspace{0.08cm} \approx\hspace{0.08cm} \mu_{\mathcal{Y}} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\phi_0}{1-\phi_1} \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,\dots , n\\$$  
 
-    $$\sigma_t^2\hspace{0.08cm} \approx\hspace{0.08cm} \sigma_{\mathcal{Y}}^2 \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\sigma^2}{1-\phi_1^2} \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,\dots , n \\$$  
+    $$\sigma_t^2\hspace{0.08cm} \approx\hspace{0.08cm} \sigma_{\mathcal{Y}}^2 \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\sigma^2}{1-\phi_1^2} \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 1,2,\dots , n \\[0.4cm]$$  
 
 
     So, if $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$, then $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ is approximately weakly stationary in mean and variance, or being more precise, is asymptotically weakly stationary. $\\[0.35cm]$
 
-    For this reason, $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$ is known as weak stationarity condition (for mean and variance) of an $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ . $\\[0.45cm]$
+    For this reason, $\hspace{0.08cm}| \phi_1 | < 1\hspace{0.08cm}$ is known as weak stationarity condition (for mean and variance) of an $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ . $\\[0.6cm]$
 
 - And, if we assume that $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process is weakly stationary in covariance, we have:
 
@@ -1424,40 +1424,313 @@ In general:
 
 $$
 \widehat{y}_{n+k} \hspace{0.1cm}=\hspace{0.1cm} \left\{ \begin{array}{lcc}
-\widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot y_{(n+k)-1} \hspace{0.4cm}  , \hspace{0.4cm} \text{if} \hspace{0.2cm}  k = 1 \\[0.2cm]
-\widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot \widehat{y}_{(n+k)-1} \hspace{0.4cm}  , \hspace{0.4cm} \text{if}  \hspace{0.2cm}  k = 2,3,\dots  
+\widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot y_{(n+k)-1} \hspace{0.4cm}  , \hspace{0.4cm} \text{if} \hspace{0.3cm}  k = 1 \\[0.2cm]
+\widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot \widehat{y}_{(n+k)-1} \hspace{0.4cm}  , \hspace{0.4cm} \text{if}  \hspace{0.3cm}  k = 2,3,\dots  
 \end{array}
-   \right.
-$$
+   \right. \\[1.3cm]$$
 
 
-Note that (n+k)-1 > n when k=2,3,\dots , and  (n+k)-1 = n when k=1
+Note that $\hspace{0.08cm}(n+k)-1 > n\hspace{0.1cm}$ when $\hspace{0.08cm}k=2,3,\dots\hspace{0.1cm}$ , and  $\hspace{0.08cm}(n+k)-1 = n\hspace{0.1cm}$ when $\hspace{0.08cm}k=1\hspace{0.08cm}$.
 
 
 <br>
 
 ## Stationariety and forecast
 
+Stationarity is an important property of time series that indicates that the properties of the time series don't change over time. In other words, the mean, variance, and autocorrelation of a stationary time series are constant over time. $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ models can be used to model stationary time series.
 
+It is important to note that if a time series isn't stationary, long-term forecasts may be inaccurate. In this sense, before applying the $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ model to a time series, it is advisable to verify if it verify the stationarity property. For this, various statistical tests can be performed, such as autocorrelation analysis, unit root test, among others, which will be seen in another specific article.
+
+In the event that a time series is not stationary, transformations can be applied to the data, such as differentiation, that allow obtaining a stationary time series. Then, the $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ model can be fitted to the differentiated time series and make long-term forecasts. As before, these transformation techniques will be seen in another article with more detail.
+
+In summary, stationarity is an important property of time series for accurate forecasting and $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ models can be used to model stationary time series. If a time series is not stationary, transformations can be applied to the data to obtain a stationary series and then fit the $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ model to the transformed time series.
 
 
 
 <br>
 
 
-## Estimation of model coeficcients
+## Estimation of model coeficcients <a class="anchor" id="1"></a>
 
 ### Maximum Likelihood
 
 
-
-### Least Squares
-
+As it was seen, the fundamental equation of an $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ model is: $\\[0.35cm]$
 
 
+$$\mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm}  \phi_1 \cdot \mathcal{Y}_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.3cm} , \hspace{0.3cm} t=2,\dots , n$$
 
 
 
+Since the error term $\hspace{0.07cm}\varepsilon_t\hspace{0.07cm}$ is Gaussian, namely, $\hspace{0.07cm}\varepsilon_t \sim N(0,\sigma^2)\hspace{0.07cm}$, it turns out that: $\\[0.35cm]$
+
+ 
+
+$$\mathcal{Y}_t \hspace{0.07cm}\sim\hspace{0.07cm} N\left( \hspace{0.07cm} \phi_0 + \phi_1 \cdot y_{t-1} \hspace{0.13cm} ,\hspace{0.13cm} \sigma^2 \hspace{0.07cm} \right) \hspace{0.3cm} , \hspace{0.3cm} t=2,\dots , n \\[0.7cm]$$
+
+
+
+Therefore, the likelihood function of $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ model is:
+
+$$\mathcal{L}(\phi_0,\phi_1, \sigma^2) \hspace{0.09cm}=\hspace{0.09cm}
+f_{\mathcal{Y}_2,...,\mathcal{Y}_n}(y_{2},...,y_n)
+\hspace{0.09cm}=\hspace{0.09cm}
+\prod_{t=2}^n\hspace{0.07cm}  f_{\mathcal{Y}_t}(y_t)
+\hspace{0.09cm}=\hspace{0.09cm} \prod_{t=2}^n \hspace{0.07cm}  \frac{1}{\sqrt{2\pi\sigma^2}} \cdot \exp\left(-\frac{(y_t - ( \phi_0 +  \phi_1 \cdot y_{t-1}))^2}{2\sigma^2}\right)\\$$
+
+
+
+The log-likelihood function is:
+
+$$ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1, \sigma^2)\hspace{0.07cm} \right) \hspace{0.09cm}=\hspace{0.09cm} -\frac{n-1}{2} \cdot \ln(2\pi) - \frac{n-1}{2}\cdot \ln(\sigma^2) - \frac{1}{2\sigma^2}\cdot \sum_{t=2}^n \left( y_t - (\phi_0 + \phi_1 y_{t-1}) \right)^2$$
+
+
+The $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ parameters estimation is made as follows:
+$\\[0.3cm]$
+
+
+$$\widehat{\phi}_0, \widehat{\phi}_1,  \widehat{\sigma}^2 \hspace{0.13cm} =\hspace{0.13cm}  arg \hspace{0.1cm}  \underset{\phi_0, \phi_1, \sigma^2}{Max} \hspace{0.1cm}  ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,\sigma^2) \hspace{0.07cm} \right)$$
+
+
+This problems can be solved using numeric optimization methods, such as Newton-Raphson or descendent gradient. 
+
+
+
+<br>
+
+
+### Ordinary Least Squares
+
+The ordinary least squares (OLS) method is another common approach for estimating the coefficients of an AR(1) model. This method involves minimizing the sum of the squared residuals between the predicted values of the model and the observed values of the time series.
+
+The fundamental equation of an AR(1) model is:
+
+$$y_t = \phi_0 + \phi_1 y_{t-1} + \varepsilon_t$$
+
+With OLS method, $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ parameters estimation is made as follows:
+$\\[0.3cm]$
+
+
+$$\widehat{\phi}_0, \widehat{\phi}_1,  \widehat{\sigma}^2 \hspace{0.13cm} =\hspace{0.13cm}  arg \hspace{0.1cm}  \underset{\phi_0, \phi_1, \sigma^2}{Min} \hspace{0.1cm}  \sum_{t=2}^n e_t^2 = \sum_{t=2}^n (y_t - (\phi_0 + \phi_1\cdot y_{t-1}) )^2$$
+
+
+This problems can be solved using classical optimization techniques or numeric optimization methods, such as Newton-Raphson or descendent gradient. 
+
+  
+<br>
+
+---
+
+<br>
+
+ 
+# AR(1) model in `Python`
+
+
+
+First of all, we import some of the libraries we will be using throughout this article:
+
+```python
+import pandas as pd
+import numpy as np
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.set_style("darkgrid")
+```
+ 
+We load a time series data-set, in this case the minimum periodicity of the time series is daily:
+
+```python
+Time_Series_1 = pd.read_csv('Time_Series_1.csv')
+```
+
+We are going to expose some preprocessing time series task, not many but important. 
+
+When we have a time series, usually we will have a date column, in this data-set called *Fecha*.
+
+When we have identified the date column we must convert it to date-time format. We can do it using `Pandas` as follows:
+
+```python
+Time_Series_1['Fecha'] = pd.to_datetime(Time_Series_1['Fecha'])
+```
+
+
+Other important preprocessing task when we have a time series data-set is to create new columns with the day, week, month, quarter, and year associated to each observation. 
+
+We can carry out these tasks with `Pandas`:
+
+```python
+Time_Series_1['Dia'] = Time_Series_1['Fecha'].dt.day
+
+Time_Series_1['Semana'] = Time_Series_1['Fecha'].dt.week
+
+Time_Series_1['Mes'] = Time_Series_1['Fecha'].dt.month
+
+Time_Series_1['Trimestre'] = Time_Series_1['Fecha'].dt.quarter
+
+Time_Series_1['Año'] = Time_Series_1['Fecha'].dt.year
+```
+
+
+
+We select the specific columns we will use throughout this article. The response variable will be the *Ventas* column, and the rest are columns related with the observation date.
+
+```python
+Time_Series_1 = Time_Series_1.loc[: , ['Fecha', 'Dia', 'Semana', 'Mes', 'Trimestre', 'Año', 'Ventas']]
+```
+
+
+```python
+Time_Series_1
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fecha</th>
+      <th>Dia</th>
+      <th>Semana</th>
+      <th>Mes</th>
+      <th>Trimestre</th>
+      <th>Año</th>
+      <th>Ventas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2022-06-21</td>
+      <td>21</td>
+      <td>25</td>
+      <td>6</td>
+      <td>2</td>
+      <td>2022</td>
+      <td>59.99</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2021-08-03</td>
+      <td>3</td>
+      <td>31</td>
+      <td>8</td>
+      <td>3</td>
+      <td>2021</td>
+      <td>12.72</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2022-08-21</td>
+      <td>21</td>
+      <td>33</td>
+      <td>8</td>
+      <td>3</td>
+      <td>2022</td>
+      <td>11.20</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2022-07-09</td>
+      <td>9</td>
+      <td>27</td>
+      <td>7</td>
+      <td>3</td>
+      <td>2022</td>
+      <td>48.97</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2022-05-14</td>
+      <td>14</td>
+      <td>19</td>
+      <td>5</td>
+      <td>2</td>
+      <td>2022</td>
+      <td>22.95</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>704350</th>
+      <td>2022-02-10</td>
+      <td>10</td>
+      <td>6</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2022</td>
+      <td>18.90</td>
+    </tr>
+    <tr>
+      <th>704351</th>
+      <td>2022-06-02</td>
+      <td>2</td>
+      <td>22</td>
+      <td>6</td>
+      <td>2</td>
+      <td>2022</td>
+      <td>-29.99</td>
+    </tr>
+    <tr>
+      <th>704352</th>
+      <td>2022-05-19</td>
+      <td>19</td>
+      <td>20</td>
+      <td>5</td>
+      <td>2</td>
+      <td>2022</td>
+      <td>75.00</td>
+    </tr>
+    <tr>
+      <th>704353</th>
+      <td>2022-02-17</td>
+      <td>17</td>
+      <td>7</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2022</td>
+      <td>-10.70</td>
+    </tr>
+    <tr>
+      <th>704354</th>
+      <td>2021-06-06</td>
+      <td>6</td>
+      <td>22</td>
+      <td>6</td>
+      <td>2</td>
+      <td>2021</td>
+      <td>6.95</td>
+    </tr>
+  </tbody>
+</table>
+<p>704355 rows × 7 columns</p>
+</div>
 
 
 <br>
@@ -1465,22 +1738,15 @@ Note that (n+k)-1 > n when k=2,3,\dots , and  (n+k)-1 = n when k=1
 
 
 
-we the first-order autoregresive model for the time series $\hspace{0.07cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.1cm}$ is defined as: $\\[0.3cm]$
 
 
-$$y_t\hspace{0.08cm}=\hspace{0.08cm}\phi_0 \hspace{0.08cm}+\hspace{0.08cm} \phi_1 \cdot y_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.4cm}  , \hspace{0.4cm}  t = 2,3,\dots , n$$ 
-
-Where:
-
-- $\varepsilon_t \sim N(0,\sigma^2) \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = 2,3,\dots , n\\$
-
-- $Cov(\varepsilon_t , \varepsilon_{t+h})=0 \hspace{0.3cm},\hspace{0.3cm}  \forall\hspace{0.08cm} t = 2,3,\dots \hspace{0.15cm},\hspace{0.15cm}  \forall\hspace{0.08cm} h = \pm 1,\pm 2,\dots\\$
-
+ 
 
 <br>
 
 ---
 
+<br>
 
 
 Los modelos AR (autoregresivos) son un tipo de modelo de series temporales en el que una variable se modela como una función lineal de sus valores pasados. El modelo AR(p) especifica que el valor de la variable en el tiempo t depende linealmente de los p valores anteriores de la variable, es decir,
