@@ -3340,5 +3340,9 @@ input, select, textarea {
 			background-image: none !important;
 			}
 
+		.tiles article > .image:after {
+				background-image: none !important;
+			}
+
 
 
