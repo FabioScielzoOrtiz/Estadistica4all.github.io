@@ -3327,3 +3327,10 @@ input, select, textarea {
 			}
 
 		}
+
+
+
+		body::before,
+		body::after {
+			display: none;
+		}
