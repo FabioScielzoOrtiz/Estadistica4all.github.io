@@ -15,6 +15,8 @@ css: custom.css
 ---
 
 
+
+
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -819,12 +821,14 @@ $$Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} E\Bigl[ \hspace{0.08cm} (\mat
 $$Var(a\cdot \mathcal{X} , b\cdot \mathcal{Y}) \hspace{0.08cm}=\hspace{0.08cm} a^2\cdot Var(\mathcal{X}) + b^2 \cdot Var(\mathcal{Y})\\$$ 
 
 
-- $Var(g_1(\mathcal{X})+g_2(\mathcal{Y})) \hspace{0.08cm}=\hspace{0.08cm} Var(g_1(\mathcal{X})) + Var(g_2(\mathcal{Y})) + 2\cdot Cov(g_1(\mathcal{X}),g_2(\mathcal{Y}))$ $\\[0.8cm]$
+- $Var(g_1(\mathcal{X})\hspace{0.08cm}+\hspace{0.08cm}g_2(\mathcal{Y})) \hspace{0.08cm}=\hspace{0.08cm} Var(g_1(\mathcal{X})) + Var(g_2(\mathcal{Y})) + 2\cdot Cov(g_1(\mathcal{X}),g_2(\mathcal{Y}))$ $\\[0.8cm]$
 
 
 
 
-- $Var(a_1\cdot \mathcal{X}_1 + a_2\cdot \mathcal{X}_2 + \dots + a_k\cdot \mathcal{X}_k) \hspace{0.08cm}=\hspace{0.08cm} a_1^2 \cdot Var(\mathcal{X}_1) + a_2^2 \cdot Var(\mathcal{X}_2) + \dots +   a_k^2 \cdot Var(\mathcal{X}_k)  + 2\cdot \sum_{i\neq j \\ i,j=1,...,k} a_i \cdot a_j \cdot Cov(\mathcal{X}_i,\mathcal{X}_j)0$ $\\[0.8cm]$
+- Si $\hspace{0.08cm}\mathcal{X}_1,\dots ,\mathcal{X}_k \hspace{0.08cm}$  no son independientes:
+
+$$Var(a_1\cdot \mathcal{X}_1 + a_2\cdot \mathcal{X}_2 + \dots + a_k\cdot \mathcal{X}_k) \hspace{0.08cm}=\hspace{0.08cm} a_1^2 \cdot Var(\mathcal{X}_1) + a_2^2 \cdot Var(\mathcal{X}_2) + \dots +   a_k^2 \cdot Var(\mathcal{X}_k)  + 2\cdot \sum_{i\neq j =1,...,k} a_i \cdot a_j \cdot Cov(\mathcal{X}_i,\mathcal{X}_j)\\$$  
 
 
 - Si $\hspace{0.08cm}\mathcal{X}_1,\dots ,\mathcal{X}_k \hspace{0.08cm}$   son independientes, entonces:
@@ -862,10 +866,10 @@ $$Cov(\mathcal{X},\mathcal{Y}) = E\Bigl[\hspace{0.08cm} (\mathcal{X}- E[\mathcal
 
 -  $Cov( a\cdot \mathcal{X}\hspace{0.08cm} ,\hspace{0.08cm}   b \cdot \mathcal{Y}) \hspace{0.08cm}=\hspace{0.08cm} a\cdot b\cdot Cov(\mathcal{X},\mathcal{Y})$  $\\[0.8cm]$
 
-- $Cov(a + b\cdot\mathcal{X}\hspace{0.08cm} ,\hspace{0.08cm}  \mathcal{Y})\hspace{0.08cm} =\hspace{0.08cm}  Cov(a,\mathcal{Y}) + Cov(b\mathcal{X},\mathcal{Y})\hspace{0.08cm}  = \hspace{0.08cm} b\cdot Cov(\mathcal{X},\mathcal{Y})$  $\\[0.8cm]$
+- $Cov(a + b\cdot\mathcal{X}\hspace{0.08cm} ,\hspace{0.08cm}  \mathcal{Y})\hspace{0.08cm} =\hspace{0.08cm}  Cov(a,\mathcal{Y}) + Cov(b\cdot \mathcal{X}\hspace{0.08cm},\hspace{0.08cm}\mathcal{Y})\hspace{0.08cm}  = \hspace{0.08cm} b\cdot Cov(\mathcal{X},\mathcal{Y})$  $\\[0.8cm]$
 
-- $Cov(c_1 + a_1\cdot \mathcal{X}_1 + a_2\cdot \mathcal{X}_2\hspace{0.08cm} ,\hspace{0.08cm}   c_2 + b_1 \cdot \mathcal{Y}_1 + b_2 \cdot \mathcal{Y}_2) \hspace{0.08cm}=\hspace{0.08cm}  
-Cov(c_1, c_2) \hspace{0.08cm}+\hspace{0.08cm} Cov(c_1\hspace{0.08cm} ,\hspace{0.08cm}  b_1 \cdot \mathcal{Y}_1) + Cov(c_1, b_2 \cdot \mathcal{Y}_2) \hspace{0.08cm}+\hspace{0.08cm} Cov(a_1\cdot \mathcal{X}_1\hspace{0.08cm} ,\hspace{0.08cm}  c_2) \hspace{0.08cm}+\hspace{0.08cm} Cov(a_1\cdot \mathcal{X}_1\hspace{0.08cm} ,\hspace{0.08cm}   b_1 \cdot \mathcal{Y}_1) \hspace{0.08cm}+ \\[0.4cm] +\hspace{0.08cm} Cov(a_1\cdot \mathcal{X}_1\hspace{0.08cm} ,\hspace{0.08cm}  b_2 \cdot \mathcal{Y}_2) \hspace{0.08cm}+\hspace{0.08cm}  Cov(a_2\cdot \mathcal{X}_2\hspace{0.08cm} ,\hspace{0.08cm}  c_2) \hspace{0.08cm}+\hspace{0.08cm} Cov(a_2\cdot \mathcal{X}_2\hspace{0.08cm} , \hspace{0.08cm}  b_1 \cdot \mathcal{Y}_1) \hspace{0.08cm}+\hspace{0.08cm} Cov(a_2\cdot \mathcal{X}_2\hspace{0.08cm} ,\hspace{0.08cm}  b_2 \cdot \mathcal{Y}_2)$
+- $Cov(c_1 + a_1\cdot \mathcal{X}_1 + a_2\cdot \mathcal{X}_2\hspace{0.1cm} ,\hspace{0.1cm}   c_2 + b_1 \cdot \mathcal{Y}_1 + b_2 \cdot \mathcal{Y}_2) \hspace{0.1cm}=\hspace{0.1cm}  
+Cov(c_1, c_2) \hspace{0.1cm}+\hspace{0.1cm} Cov(c_1\hspace{0.1cm} ,\hspace{0.1cm}  b_1 \cdot \mathcal{Y}_1)\hspace{0.1cm}  +\hspace{0.1cm} Cov(c_1, b_2 \cdot \mathcal{Y}_2) \hspace{0.1cm}+\hspace{0.1cm} Cov(a_1\cdot \mathcal{X}_1\hspace{0.1cm} ,\hspace{0.1cm}  c_2) \hspace{0.1cm}+\\[0.6cm] \hspace{0.4cm} + \hspace{0.1cm} Cov(a_1\cdot \mathcal{X}_1\hspace{0.1cm} ,\hspace{0.1cm}   b_1 \cdot \mathcal{Y}_1) \hspace{0.1cm} +\hspace{0.1cm} Cov(a_1\cdot \mathcal{X}_1\hspace{0.1cm} ,\hspace{0.1cm}  b_2 \cdot \mathcal{Y}_2) \hspace{0.1cm}+\hspace{0.1cm}  Cov(a_2\cdot \mathcal{X}_2\hspace{0.1cm} ,\hspace{0.1cm}  c_2) \hspace{0.1cm}+\hspace{0.1cm} Cov(a_2\cdot \mathcal{X}_2\hspace{0.1cm} , \hspace{0.1cm}  b_1 \cdot \mathcal{Y}_1) \hspace{0.1cm}+\hspace{0.1cm} Cov(a_2\cdot \mathcal{X}_2\hspace{0.1cm} ,\hspace{0.1cm}  b_2 \cdot \mathcal{Y}_2)$
 
 <br>
 

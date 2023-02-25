@@ -57,3 +57,11 @@ a:visited{
     background-color: #9d9595;
     color: #FFFFFF;
 }
+
+p {
+    font-size: 17px;
+  }
+
+ul li {
+    font-size: 17px;
+  }
