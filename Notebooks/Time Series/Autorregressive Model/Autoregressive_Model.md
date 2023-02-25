@@ -2351,6 +2351,43 @@ where $\hat{\phi}_1, \hat{\phi}_2, \ldots, \hat{\phi}_p$ are the estimated coeff
 
 
 
+<br>
+
+
+
+***Estimación del modelo por máxima verosimilitud:***
+
+Para un modelo $\hspace{0.05cm}AR(p)\hspace{0.05cm}$ con término de error $\hspace{0.07cm}\varepsilon_t\hspace{0.07cm}$ Gaussiano, es decir, $\hspace{0.07cm}\varepsilon_t \sim N(0,\sigma^2)\hspace{0.07cm}$ , se asume la siguiente relación para cada variable del proceso:
+
+$$\mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \phi_0 + \sum_{h=1}^p \phi_h \cdot y_{t-h} + \varepsilon_t$$
+
+Como el termino de error es Gaussiano, tal y como se especificó antes, se deduce que:
+
+$$\mathcal{Y}_t \sim N\left( \hspace{0.07cm} \phi_0 + \sum_{h=1}^p \phi_h \cdot y_{t-h} \hspace{0.07cm} ,\hspace{0.07cm} \sigma^2 \hspace{0.07cm} \right)$$
+
+para cada $\hspace{0.07cm}t=1,\dots , n$
+
+
+Por tanto, la función de verosimilitud del modelo $\hspace{0.07cm}AR(p)\hspace{0.07cm}$ es:
+
+$$\mathcal{L}(\phi_0,\phi_1,\dots, \phi_p, \sigma^2) \hspace{0.07cm}=\hspace{0.07cm}
+f_{\mathcal{Y}_1,...,\mathcal{Y}_n}(y_{p+1},y_{p+2},...,y_n)
+\hspace{0.07cm}=\hspace{0.07cm}
+\prod_{t=p+1}^n  f_{\mathcal{Y}_t}(y_t)
+\hspace{0.07cm}=\hspace{0.07cm} \prod_{t=p+1}^n  \frac{1}{\sqrt{2\pi\sigma^2}} \cdot \exp\left(-\frac{(y_t - \phi_0 + \sum_{i=1}^p \phi_i y_{t-i})^2}{2\sigma^2}\right)$$
+
+La función de log-verosimilitud es:
+
+$$ ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,\dots, \phi_p, \sigma^2)\hspace{0.07cm} \right) \hspace{0.07cm}=\hspace{0.07cm} -\frac{n-p}{2} \cdot \ln(2\pi) - \frac{n-p}{2}\cdot \ln(\sigma^2) - \frac{1}{2\sigma^2}\cdot \sum_{t=p+1}^n \left( y_t - \sum_{h=1}^p \phi_h y_{t-h} \right)^2 $$
+
+La estimación de los parametros del modelo $\hspace{0.07cm} AR(p)\hspace{0.07cm}$  se realiza como sigue: $\\[0.3cm]$
+
+
+$$\widehat{\phi}_0, \widehat{\phi}_1, \dots , \widehat{\phi}_p , \widehat{\sigma}^2 \hspace{0.07cm} =\hspace{0.07cm}  arg \hspace{0.07cm}  \underset{\phi_0,\dots , \phi_p, \sigma^2}{Max}  ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,\dots, \phi_p, \sigma^2)\hspace{0.07cm} \right)$$
+
+
+Este problema se puede resolver a través de métodos numéricos como el método de Newton-Raphson o el método de gradiente descendente.
+ 
 
 
 

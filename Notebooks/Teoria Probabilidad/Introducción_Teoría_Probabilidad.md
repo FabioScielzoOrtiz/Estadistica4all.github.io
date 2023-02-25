@@ -748,7 +748,7 @@ La esperanza de una v.a. $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$  se define 
 
 - Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es una v.a. **continua** : 
 
-    $$E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \int_{-\infty}^{\infty} x \cdot f_\mathcal{X}(x) \cdot dx$$ $\\[0.5cm]$
+    $$E[\mathcal{X}] \hspace{0.08cm}=\hspace{0.08cm} \int_{-\infty}^{\infty} x \cdot f_\mathcal{X}(x) \cdot dx\\$$ 
 
 
 ## Propiedades
@@ -765,7 +765,7 @@ La esperanza de una v.a. $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$  se define 
 
 - Si $\hspace{0.08cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son independientes, entonces:
 
-$$E[\mathcal{X}_1 \cdot \mathcal{X}_2 \cdot ...\cdot \mathcal{X}_n]= E[\mathcal{X}_1]\cdot E[\mathcal{X}_2] \cdot ... \cdot E[\mathcal{X}_n]$$ $\\[0.2cm]$
+$$E[\mathcal{X}_1 \cdot \mathcal{X}_2 \cdot ...\cdot \mathcal{X}_n]= E[\mathcal{X}_1]\cdot E[\mathcal{X}_2] \cdot ... \cdot E[\mathcal{X}_n]\\$$ 
 
 - Si $\hspace{0.08cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son independientes, entonces:
 
@@ -776,12 +776,12 @@ $$E[g_1(\mathcal{X}_1) \cdot ... \cdot g_n(\mathcal{X}_n)]=E[g_1(\mathcal{X}_1)]
     Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es **discreta**:
 
 
-    $$E[g(\mathcal{X})] \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} x \cdot P(g(\mathcal{X})=x) \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} g(x) \cdot P(\mathcal{X}=x)$$
+    $$E[g(\mathcal{X})] \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} x \cdot P(g(\mathcal{X})=x) \hspace{0.08cm}=\hspace{0.08cm} \sum_{x\in \mathbb{R}} g(x) \cdot P(\mathcal{X}=x)\\$$
 
 
     Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es **continua**:
 
-    $$E[g(\mathcal{X})] = \int_{-\infty}^{\infty} x \cdot f_{g(\mathcal{X})}(x) \cdot dx =  \int_{-\infty}^{\infty} g(x) \cdot f_\mathcal{X}(x) \cdot dx$$
+    $$E[g(\mathcal{X})] = \int_{-\infty}^{\infty} x \cdot f_{g(\mathcal{X})}(x) \cdot dx =  \int_{-\infty}^{\infty} g(x) \cdot f_\mathcal{X}(x) \cdot dx\\$$
 
 
 
@@ -796,7 +796,7 @@ Dada una variable aleatoria $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$,
 
 La varianza de $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$  se define como: $\\[0.3cm]$
 
-$$Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} E\Bigl[ \hspace{0.08cm} (\mathcal{X} - E[\mathcal{X}])^2 \hspace{0.08cm} \Bigr]$$ $\\[0.5cm]$
+$$Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} E\Bigl[ \hspace{0.08cm} (\mathcal{X} - E[\mathcal{X}])^2 \hspace{0.08cm} \Bigr]\\$$ 
  
  
  
@@ -810,27 +810,37 @@ $$Var(\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} E\Bigl[ \hspace{0.08cm} (\mat
 
 - $Var(a + b\cdot \mathcal{X})\hspace{0.08cm} =\hspace{0.08cm} b^2 \cdot Var(\mathcal{X})$ $\\[0.8cm]$
 
-- $Var(\mathcal{X})\hspace{0.08cm}=\hspace{0.08cm}E[\mathcal{X}^2] - E[\mathcal{X}]^2$ $\\[0.8cm]$
-
-- $Var(g_1(\mathcal{X})+g_2(\mathcal{Y})) \hspace{0.08cm}=\hspace{0.08cm} Var(g_1(\mathcal{X})) + Var(g_2(\mathcal{Y})) + 2\cdot Cov(g_1(\mathcal{X}),g_2(\mathcal{Y}))$ $\\[0.8cm]$
+- $Var(\mathcal{X})\hspace{0.08cm}=\hspace{0.08cm}E\left[\mathcal{X}^2\right] - E\left[\mathcal{X}\right]^2$ $\\[0.8cm]$
 
 - $Var(a\cdot \mathcal{X} + b\cdot \mathcal{Y}) \hspace{0.08cm}=\hspace{0.08cm} a^2 \cdot Var(\mathcal{X}) + b^2 \cdot Var(\mathcal{Y}) + 2\cdot Cov(\mathcal{X},\mathcal{Y})$ $\\[0.8cm]$
 
 - Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son independientes, entonces:
 
-$$Var(a\cdot \mathcal{X} , b\cdot \mathcal{Y}) \hspace{0.08cm}=\hspace{0.08cm} a^2\cdot Var(\mathcal{X}) + b^2 \cdot Var(\mathcal{Y})$$ 
+$$Var(a\cdot \mathcal{X} , b\cdot \mathcal{Y}) \hspace{0.08cm}=\hspace{0.08cm} a^2\cdot Var(\mathcal{X}) + b^2 \cdot Var(\mathcal{Y})\\$$ 
 
 
-- AÑADIR  Var(aX1 + bX2 + cX3 + dX4 + ...)
+- $Var(g_1(\mathcal{X})+g_2(\mathcal{Y})) \hspace{0.08cm}=\hspace{0.08cm} Var(g_1(\mathcal{X})) + Var(g_2(\mathcal{Y})) + 2\cdot Cov(g_1(\mathcal{X}),g_2(\mathcal{Y}))$ $\\[0.8cm]$
+
+
+
+
+- $Var(a_1\cdot \mathcal{X}_1 + a_2\cdot \mathcal{X}_2 + \dots + a_k\cdot \mathcal{X}_k) \hspace{0.08cm}=\hspace{0.08cm} a_1^2 \cdot Var(\mathcal{X}_1) + a_2^2 \cdot Var(\mathcal{X}_2) + \dots +   a_k^2 \cdot Var(\mathcal{X}_k)  + 2\cdot \sum_{i\neq j \\ i,j=1,...,k} a_i \cdot a_j \cdot Cov(\mathcal{X}_i,\mathcal{X}_j)0$ $\\[0.8cm]$
+
+
+- Si $\hspace{0.08cm}\mathcal{X}_1,\dots ,\mathcal{X}_k \hspace{0.08cm}$   son independientes, entonces:
+
+   
+    $$Var(a_1\cdot \mathcal{X}_1 + a_2\cdot \mathcal{X}_2 + \dots + a_k\cdot \mathcal{X}_k) \hspace{0.08cm}=\hspace{0.08cm} a_1^2 \cdot Var(\mathcal{X}_1) + a_2^2 \cdot Var(\mathcal{X}_2) + \dots +   a_k^2 \cdot Var(\mathcal{X}_k)$$ 
+
 
 
 <br>
 
-# Covarianza  <a class="anchor" id="1"></a>
+# Covarianza 
 
 La covarianza entre las variables $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ y $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ se define como : $\\[0.5cm]$
 
-$$Cov(\mathcal{X},\mathcal{Y}) = E\Bigl[\hspace{0.08cm} (\mathcal{X}- E[\mathcal{X}])\cdot (\mathcal{Y}-E[\mathcal{Y}])\hspace{0.08cm}\Bigr]$$ $\\[0.5cm]$
+$$Cov(\mathcal{X},\mathcal{Y}) = E\Bigl[\hspace{0.08cm} (\mathcal{X}- E[\mathcal{X}])\cdot (\mathcal{Y}-E[\mathcal{Y}])\hspace{0.08cm}\Bigr]\\$$ 
 
 ## Propiedades  <a class="anchor" id="1"></a>
 
@@ -840,18 +850,22 @@ $$Cov(\mathcal{X},\mathcal{Y}) = E\Bigl[\hspace{0.08cm} (\mathcal{X}- E[\mathcal
 
 - Si $\hspace{0.08cm}Cov(\mathcal{X},\mathcal{Y}) \neq 0$ $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ $\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son independientes. $\\[0.8cm]$
 
-- Que $\hspace{0.08cm}Cov(\mathcal{X},\mathcal{Y})=0\hspace{0.08cm}$ no implica que $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ sean independientes.  
+- Que $\hspace{0.08cm}Cov(\mathcal{X},\mathcal{Y})=0\hspace{0.08cm}$ no implica que $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ sean independientes.   $\\[0.8cm]$
 
 
-- AÑADIR COV(a , X)
+- $Cov(a,\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} 0$   $\\[0.8cm]$
 
-- AÑADIR COV(a , b)
+- $Cov(a,b) \hspace{0.08cm}=\hspace{0.08cm} 0$  $\\[0.8cm]$
 
-- AÑADIR COV(X, X)
+-  $Cov(\mathcal{X},\mathcal{X}) \hspace{0.08cm}=\hspace{0.08cm} Var(\mathcal{X})$  $\\[0.8cm]$ $\\[0.8cm]$
 
 
-- AÑADIR COV(a + bX + cZ, r + qY + pW)
+-  $Cov( a\cdot \mathcal{X}\hspace{0.08cm} ,\hspace{0.08cm}   b \cdot \mathcal{Y}) \hspace{0.08cm}=\hspace{0.08cm} a\cdot b\cdot Cov(\mathcal{X},\mathcal{Y})$  $\\[0.8cm]$
 
+- $Cov(a + b\cdot\mathcal{X}\hspace{0.08cm} ,\hspace{0.08cm}  \mathcal{Y})\hspace{0.08cm} =\hspace{0.08cm}  Cov(a,\mathcal{Y}) + Cov(b\mathcal{X},\mathcal{Y})\hspace{0.08cm}  = \hspace{0.08cm} b\cdot Cov(\mathcal{X},\mathcal{Y})$  $\\[0.8cm]$
+
+- $Cov(c_1 + a_1\cdot \mathcal{X}_1 + a_2\cdot \mathcal{X}_2\hspace{0.08cm} ,\hspace{0.08cm}   c_2 + b_1 \cdot \mathcal{Y}_1 + b_2 \cdot \mathcal{Y}_2) \hspace{0.08cm}=\hspace{0.08cm}  
+Cov(c_1, c_2) \hspace{0.08cm}+\hspace{0.08cm} Cov(c_1\hspace{0.08cm} ,\hspace{0.08cm}  b_1 \cdot \mathcal{Y}_1) + Cov(c_1, b_2 \cdot \mathcal{Y}_2) \hspace{0.08cm}+\hspace{0.08cm} Cov(a_1\cdot \mathcal{X}_1\hspace{0.08cm} ,\hspace{0.08cm}  c_2) \hspace{0.08cm}+\hspace{0.08cm} Cov(a_1\cdot \mathcal{X}_1\hspace{0.08cm} ,\hspace{0.08cm}   b_1 \cdot \mathcal{Y}_1) \hspace{0.08cm}+ \\[0.4cm] +\hspace{0.08cm} Cov(a_1\cdot \mathcal{X}_1\hspace{0.08cm} ,\hspace{0.08cm}  b_2 \cdot \mathcal{Y}_2) \hspace{0.08cm}+\hspace{0.08cm}  Cov(a_2\cdot \mathcal{X}_2\hspace{0.08cm} ,\hspace{0.08cm}  c_2) \hspace{0.08cm}+\hspace{0.08cm} Cov(a_2\cdot \mathcal{X}_2\hspace{0.08cm} , \hspace{0.08cm}  b_1 \cdot \mathcal{Y}_1) \hspace{0.08cm}+\hspace{0.08cm} Cov(a_2\cdot \mathcal{X}_2\hspace{0.08cm} ,\hspace{0.08cm}  b_2 \cdot \mathcal{Y}_2)$
 
 <br>
 
