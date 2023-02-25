@@ -1579,7 +1579,7 @@ With OLS method, $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ parameters estimation is 
 $\\[0.3cm]$
 
 
-$$\widehat{\phi}_0, \widehat{\phi}_1,  \widehat{\sigma}^2 \hspace{0.13cm} =\hspace{0.13cm}  arg \hspace{0.13cm}  \underset{\phi_0, \phi_1, \sigma^2}{Min} \hspace{0.13cm}  \sum_{t=2}^n\hspace{0.08cm} e_t^2 \hspace{0.08cm} =\hspace{0.08cm} \sum_{t=2}^n \hspace{0.08cm} \left(y_t - (\phi_0 + \phi_1\cdot y_{t-1}) \right)^2$$
+$$\widehat{\phi}_0, \widehat{\phi}_1,  \widehat{\sigma}^2 \hspace{0.13cm} =\hspace{0.13cm}  arg \hspace{0.13cm}  \underset{\phi_0, \phi_1}{Min} \hspace{0.13cm}  \sum_{t=2}^n\hspace{0.08cm} e_t^2 \hspace{0.08cm} =\hspace{0.08cm} \sum_{t=2}^n \hspace{0.08cm} \left(y_t - (\phi_0 + \phi_1\cdot y_{t-1}) \right)^2$$
 
 
 This problems can be solved using classical optimization techniques or numeric optimization methods, such as Newton-Raphson or descendent gradient. 
@@ -1766,7 +1766,7 @@ $$\rho_{h} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_{h}}{\sigma_{\mathcal{Y
 The weak stationarity condition is that $\hspace{0.08cm}| \hspace{0.08cm}G_1\hspace{0.08cm} | < 1\hspace{0.1cm}$ and $\hspace{0.1cm}| \hspace{0.08cm}G_2\hspace{0.08cm} | < 1\hspace{0.08cm}$.
 
 
-Where $\hspace{0.08cm}G_1\hspace{0.08cm}$ and $\hspace{0.08cm}G_2\hspace{0.08cm}$ are the roots of the following equation:
+Where $\hspace{0.08cm}G_1\hspace{0.08cm}$ and $\hspace{0.08cm}G_2\hspace{0.08cm}$ are the roots of the following equation, called **characteristic equation**::
 
 
 $$1\hspace{0.08cm}-\hspace{0.08cm}\phi_1 \cdot B \hspace{0.08cm}-\hspace{0.08cm} \phi_2 \cdot B^2 \hspace{0.08cm}=\hspace{0.08cm} 0 \\$$
@@ -1975,24 +1975,24 @@ Given a stochastic process $\hspace{0.15cm} \mathcal{Y} \hspace{0.08cm}=\hspace{
  
 
 
-The $\hspace{0.08cm}p$-order autoregressive process $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ for the process $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ is defined as: $\\[0.35cm]$
+The $\hspace{0.08cm}p$-order autoregressive process $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ for the process $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ is defined as: $\\[0.35cm]$
 
 $$\mathcal{Y}_t\hspace{0.08cm}=\hspace{0.08cm}\phi_0 \hspace{0.08cm}+\hspace{0.08cm} \phi_1 \cdot \mathcal{Y}_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \phi_2 \cdot \mathcal{Y}_{t-2}
 \hspace{0.08cm}+\hspace{0.08cm} \dots  \hspace{0.08cm}+\hspace{0.08cm} \phi_p \cdot \mathcal{Y}_{t-p}
 \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.08cm}=\hspace{0.08cm}
-\phi_0 \hspace{0.08cm}+\hspace{0.08cm} \sum_{i=1}^p \hspace{0.08cm} \phi_i \cdot \mathcal{Y}_{t-i}
-\hspace{0.4cm}  , \hspace{0.4cm}  t = p,\dots , n\\$$ 
+\phi_0 \hspace{0.08cm}+\hspace{0.08cm} \sum_{h=1}^p \hspace{0.08cm} \phi_i \cdot \mathcal{Y}_{t-h}
+\hspace{0.4cm}  , \hspace{0.4cm}  t = p+1,\dots , n\\$$ 
 
 Where:
 
-- $\varepsilon_t \hspace{0.08cm}\sim \hspace{0.08cm}N(0,\sigma^2) \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = p,\dots , n\\$
+- $\varepsilon_t \hspace{0.08cm}\sim \hspace{0.08cm}N(0,\sigma^2) \hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.08cm} t = p+1,\dots , n\\$
 
-- $Cov(\varepsilon_t \hspace{0.08cm},\hspace{0.08cm} \varepsilon_{t+h})=0 \hspace{0.3cm},\hspace{0.3cm}  \forall\hspace{0.08cm} t = p,\dots \hspace{0.15cm},\hspace{0.15cm}  \forall\hspace{0.08cm} h = \pm 1,\pm 2,\dots\\$
+- $Cov(\varepsilon_t \hspace{0.08cm},\hspace{0.08cm} \varepsilon_{t+h})=0 \hspace{0.3cm},\hspace{0.3cm}  \forall\hspace{0.08cm} t = p+1,\dots \hspace{0.15cm},\hspace{0.15cm}  \forall\hspace{0.08cm} h = \pm 1,\pm 2,\dots\\$
 
 
-- $Cov(\mathcal{Y}_{t+h}\hspace{0.08cm},\hspace{0.08cm} \varepsilon_t) \hspace{0.08cm}=\hspace{0.08cm} 0 \hspace{0.3cm},\hspace{0.3cm}  \forall\hspace{0.08cm} t = p,\dots  \hspace{0.15cm},\hspace{0.15cm} \forall\hspace{0.08cm}  h = 0,\pm 1,\pm 2,\dots\\$
+- $Cov(\mathcal{Y}_{t+h}\hspace{0.08cm},\hspace{0.08cm} \varepsilon_t) \hspace{0.08cm}=\hspace{0.08cm} 0 \hspace{0.3cm},\hspace{0.3cm}  \forall\hspace{0.08cm} t = p+1,\dots  \hspace{0.15cm},\hspace{0.15cm} \forall\hspace{0.08cm}  h = 0,\pm 1,\pm 2,\dots\\$
     
-    First two assumptions means that $\hspace{0.08cm}(\hspace{0.03cm}\varepsilon_t \hspace{0.1cm}:\hspace{0.1cm} t = p,\dots, n \hspace{0.03cm})\hspace{0.1cm}$ is a **normal white noise proccess**. 
+    First two assumptions means that $\hspace{0.08cm}(\hspace{0.03cm}\varepsilon_t \hspace{0.1cm}:\hspace{0.1cm} t = p+1,\dots, n \hspace{0.03cm})\hspace{0.1cm}$ is a **normal white noise proccess**. 
     
     
 <br>    
@@ -2063,7 +2063,7 @@ $\gamma_{h} = Cov(\mathcal{Y}_{t}, \mathcal{Y}_{t-h})  , t =1,\dots , n$
 
 There isn't a general expression for $\hspace{0.08cm}\gamma_{h}\hspace{0.08cm}$ for any $\hspace{0.08cm}h=0,\pm 1, \pm 2,\dots\hspace{0.08cm}$.
 
-But, assuming that   $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process is **weakly stationary in covariance**, we have a usuful result, **the Yule-Walker equations**.  $\\[0.3cm]$
+But, assuming that   $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ process is **weakly stationary in covariance**, we have a usuful result, **the Yule-Walker equations**.  $\\[0.3cm]$
 
  
 
@@ -2076,14 +2076,15 @@ $$
 \gamma_2 \hspace{0.08cm}=\hspace{0.08cm} \phi_1 \cdot\gamma_1 \hspace{0.08cm}+\hspace{0.08cm} \phi_2 \cdot\gamma_0 \hspace{0.08cm}+ \cdots +\hspace{0.08cm} \phi_p \cdot\gamma_{p-2} \\
 \vdots \\
 \gamma_p \hspace{0.08cm}=\hspace{0.08cm} \phi_1\cdot \gamma_{p-1} \hspace{0.08cm}+\hspace{0.08cm} \phi_2\cdot \gamma_{p-2} \hspace{0.08cm}+ \cdots +\hspace{0.08cm} \phi_{p}\cdot \gamma_0
-$$
+\\$$
 
-These equations can be solved to obtain estimates of the coefficients $\hspace{0.08cm}\phi_1, \phi_2, \ldots, \phi_p\hspace{0.08cm}$ based on the **sample estimation** of autocovariances $\widehat{\gamma}_1, \widehat{\gamma}_2, \ldots, \widehat{\gamma}_p$. 
+These equations can be solved to obtain estimates of the coefficients $\hspace{0.08cm}\phi_1, \phi_2, \ldots, \phi_p\hspace{0.08cm}$ based on the **sample estimation** of autocovariances $\hspace{0.08cm}\widehat{\gamma}_1, \widehat{\gamma}_2, \ldots, \widehat{\gamma}_p\hspace{0.08cm}$.  The solution involves inverting a system of linear equations, which can be done numerically. 
  
+<br> 
  
 ### Sample Estimation of Autocovariances
 
-The sample estimation of $\gamma_h = Cov(\mathcal{Y}_t , \mathcal{Y}_{t-h})$ in a weakly stationary process can be done with the following formula:
+The sample estimation of $\hspace{0.08cm}\gamma_h = Cov(\mathcal{Y}_t , \mathcal{Y}_{t-h})\hspace{0.08cm}$ in a weakly stationary process can be done with the following formula:
 
 $$
 \widehat{\gamma}_k \hspace{0.08cm}=\hspace{0.08cm} \frac{1}{n} \cdot \sum_{t=k+1}^n \hspace{0.08cm} (y_t - \bar{y})\cdot (y_{t-k} - \bar{y})
@@ -2101,70 +2102,47 @@ $$\bar{y} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspac
 ## Autocorrelation of AR(p)
 
 
-Assuming that   $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ process is **weakly stationary in covariance**, we have the following: $\\[0.3cm]$
+There isn't a general expression for $\hspace{0.08cm}\rho_{h}\hspace{0.08cm}$ for any $\hspace{0.08cm}h=0,\pm 1, \pm 2,\dots\hspace{0.08cm}$.
+
+But, assuming that   $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ process is **weakly stationary in covariance**, we have a usuful result, **the Yule-Walker equations**.  $\\[0.3cm]$
 
  
+
+The **Yule-Walker equations** for an $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ process are a system of $\hspace{0.08cm}p\hspace{0.08cm}$ linear equations that relate the autocorrelation at lags $\hspace{0.08cm}1, 2, ..., p\hspace{0.08cm}$ to the coefficients $\hspace{0.08cm}\phi_1, \phi_2, \ldots, \phi_p\hspace{0.08cm}$. 
+
+These equations are:
+
+$$
+\rho_1 \hspace{0.08cm}=\hspace{0.08cm} \phi_1 \hspace{0.08cm}+\hspace{0.08cm} \phi_2\cdot \rho_1 \hspace{0.08cm}+ \cdots +\hspace{0.08cm} \phi_p \cdot\rho_{p-1} \\
+\rho_2 \hspace{0.08cm}=\hspace{0.08cm} \phi_1 \cdot\rho_1 \hspace{0.08cm}+\hspace{0.08cm} \phi_2   \hspace{0.08cm}+ \cdots +\hspace{0.08cm} \phi_p \cdot\rho_{p-2} \\
+\vdots \\
+\rho_p \hspace{0.08cm}=\hspace{0.08cm} \phi_1\cdot \rho_{p-1} \hspace{0.08cm}+\hspace{0.08cm} \phi_2\cdot \rho_{p-2} \hspace{0.08cm}+ \cdots +\hspace{0.08cm} \phi_{p}\cdot \gamma_0 \\
+$$
+
+These equations can be solved to obtain estimates of the coefficients $\hspace{0.08cm}\phi_1, \phi_2, \ldots, \phi_p\hspace{0.08cm}$ based on the **sample estimation** of autocorrelations $\hspace{0.08cm}\widehat{\rho}_1, \widehat{\rho}_2, \ldots, \widehat{\rho}_p\hspace{0.08cm}$.  The solution involves inverting a system of linear equations, which can be done numerically.
  
-
-$$\rho_{h} \hspace{0.1cm}=\hspace{0.1cm} \rho_1 \cdot  \gamma_{h-1} \hspace{0.08cm}+\hspace{0.08cm} \phi_2\cdot \rho_{h-2} \hspace{0.4cm},\hspace{0.4cm} \forall\hspace{0.08cm} h=0,\pm 1, \pm 2,\dots$$
-
-
-
-
-There isn't a general expression for $\hspace{0.08cm}\rho_{h}\hspace{0.08cm}$ for any $\hspace{0.08cm}h=0,\pm 1, \pm 2,\dots\hspace{0.08cm}$ , but we can get them by recursion using the previous formula.
-
-$$\rho_{1} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\phi_1}{1-\phi_2}   \\$$
-
-$$\rho_{2} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\phi_1^2}{1-\phi_2} + \phi_2  \\[1cm]$$
-
-
-We can prove easily these last results considering the relationship between $\hspace{0.08cm}\rho_{h}\hspace{0.08cm}$ and $\hspace{0.08cm}\gamma_{h}\hspace{0.08cm}$ that exists in a weakly stationary process in covariance, namely :
-
-
-$$\rho_{h} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_{h}}{\sigma_{\mathcal{Y}}}^2$$
-
- 
- 
- 
-The Yule-Walker equations for the autocorrelation function of an AR(p) process can be obtained by normalizing the autocovariance function by its variance, giving the autocorrelation function:
-
-$$\rho(k) = \frac{\gamma(k)}{\gamma(0)}$$
-
-Substituting this expression into the Yule-Walker equations for the autocovariance function yields:
-
-$$\rho(0) = 1$$
-
-and
-
-$$\rho(k) = \phi_1 \rho(k-1) + \phi_2 \rho(k-2) + \cdots + \phi_p \rho(k-p)$$
-
-for $k = 1, 2, \ldots, p$, where $\rho(k)$ is the autocorrelation function of the stationary AR(p) process.
-
-These equations can be used to compute the autocorrelation function of an AR(p) process given the coefficients of the autoregressive model $\phi_1, \phi_2, \ldots, \phi_p$ and the variance of the process.
-
-Like the Yule-Walker equations for the autocovariance function, the Yule-Walker equations for the autocorrelation function can be solved to obtain estimates of the coefficients and variance based on the sample autocorrelations. The solution involves inverting a system of linear equations, which can be done numerically. 
  
 <br>
 
 
-##  Weak Stationarity Condition of an AR(2) <a class="anchor" id="1"></a>
+##  Weak Stationarity Condition of an AR(p) <a class="anchor" id="1"></a>
 
 
 
-The weak stationarity condition is that $\hspace{0.08cm}| \hspace{0.08cm}G_1\hspace{0.08cm} | < 1\hspace{0.1cm}$ and $\hspace{0.1cm}| \hspace{0.08cm}G_2\hspace{0.08cm} | < 1\hspace{0.08cm}$.
+The weak stationarity condition is that $\hspace{0.08cm}| \hspace{0.08cm}G_i\hspace{0.08cm} | < 1\hspace{0.2cm} ,\hspace{0.2cm}  \forall i =1,\dots ,p\hspace{0.08cm}$.
 
 
-Where $\hspace{0.08cm}G_1\hspace{0.08cm}$ and $\hspace{0.08cm}G_2\hspace{0.08cm}$ are the roots of the following equation:
+Where $\hspace{0.08cm}G_i\hspace{0.08cm}\hspace{0.2cm} ,\hspace{0.2cm}  \forall i =1,\dots ,p\hspace{0.08cm}$   are the roots of the following equation, called **characteristic equation**: $\\[0.35cm]$
 
 
-$$1\hspace{0.08cm}-\hspace{0.08cm}\phi_1 \cdot B \hspace{0.08cm}-\hspace{0.08cm} \phi_2 \cdot B^2 \hspace{0.08cm}=\hspace{0.08cm} 0 \\$$
+$$\phi_p(B) \hspace{0.08cm}=\hspace{0.08cm} 1\hspace{0.08cm}-\hspace{0.08cm}\phi_1 \cdot B \hspace{0.08cm}-\hspace{0.08cm} \phi_2 \cdot B^2 \hspace{0.08cm}-\hspace{0.08cm} \dots \hspace{0.08cm}-\hspace{0.08cm} \phi_p \cdot B^p \hspace{0.08cm}=\hspace{0.08cm} 0 \\$$
 
 
  
 
 **Observation:**
 
-The proof that a stationary $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ process requires the roots of the characteristic equation to be inside the unit circle is somewhat involved and relies on some results from linear algebra and complex analysis. So, in order to not make more complex this article, we are not going to show the proof here.
+The proof that a stationary $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ process requires the roots of the characteristic equation to be inside the unit circle is somewhat involved and relies on some results from linear algebra and complex analysis. So, in order to not make more complex this article, we are not going to show the proof here.
 
 
 
@@ -2176,7 +2154,7 @@ The proof that a stationary $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ process requir
 
 
 
-# Second-Order Autoregresive Model: AR(2) model
+# p-Order Autoregresive Model: AR(p) model
 
 
 In practice, we have a time series $\hspace{0.07cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.1cm}$ associated to the stochastic process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$. $\hspace{0.07cm}$
@@ -2185,11 +2163,11 @@ Where $\hspace{0.05cm}y_t\hspace{0.07cm}$ is the value of the process $\hspace{0
 
 Our main goal is to predict the value of the process at future periods. For that, we will use the observed values of the process in the time series, namely, the available data. $\\[0.3cm]$
 
-In this sense, we can use   $\hspace{0.07cm}AR(2)\hspace{0.07cm}$ process as a model to predict (forecast) time series.
+In this sense, we can use   $\hspace{0.07cm}AR(p)\hspace{0.07cm}$ process as a model to predict (forecast) time series.
 
 Let be $\hspace{0.09cm}\widehat{y}_t\hspace{0.09cm}$ the model prediction for $\hspace{0.09cm}y_t\hspace{0.09cm}$ observation  of the process.
 
-We can use an $\hspace{0.07cm}AR(2)\hspace{0.07cm}$ to **estimate past values** of the process $\hspace{0.09cm}\mathcal{Y}\hspace{0.09cm}$ or to **forecast future values** of it. 
+We can use an $\hspace{0.07cm}AR(p)\hspace{0.07cm}$ to **estimate past values** of the process $\hspace{0.09cm}\mathcal{Y}\hspace{0.09cm}$ or to **forecast future values** of it. 
 
 
 
@@ -2200,14 +2178,16 @@ We can use an $\hspace{0.07cm}AR(2)\hspace{0.07cm}$ to **estimate past values** 
 
 ## Estimating past values of the process
 
-Using an $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ model, the estimation of the past (observed) values $\hspace{0.1cm}y_t \hspace{0.1cm},\hspace{0.1cm} t=1,...,n$ of the process is done using the following equation: $\\[0.3cm]$
+Using an $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ model, the estimation of the past (observed) values $\hspace{0.1cm}y_t \hspace{0.1cm},\hspace{0.1cm} t=1,...,n$ of the process is done using the following equation: $\\[0.3cm]$
 
 $$\widehat{y}_t \hspace{0.1cm}=\hspace{0.1cm} \widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot y_{t-1} 
-\hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot y_{t-2} \hspace{0.35cm},\hspace{0.35cm} t = 3,4,\dots , n\\[0.3cm]$$
+\hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot y_{t-2} \hspace{0.1cm}+\hspace{0.1cm} \dots \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_p \cdot y_{t-p} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.1cm}+\hspace{0.1cm} \sum_{h=1}^p \widehat{\phi}_h \cdot y_{t-h}  \hspace{0.35cm},\hspace{0.35cm} t = p+1,\dots , n\\[0.4cm]$$
+
+
 
 **Observation:**
 
-If the avaible data of the process is given by the time series $\hspace{0.07cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.1cm}$ , then, for $\hspace{0.07cm}t=3,4,...,n\hspace{0.15cm},$ the value $\hspace{0.15cm}\widehat{y}_t\hspace{0.07cm}$ is an estimation of the observed value $\hspace{0.08cm}y_t\hspace{0.08cm}$ of the process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$. 
+If the avaible data of the process is given by the time series $\hspace{0.07cm}Y_t = \left( y_1, y_2, ...,y_n \right)^t \hspace{0.12cm}$ , then, for $\hspace{0.07cm}t=p+1,...,n,\hspace{0.15cm}$ the value $\hspace{0.15cm}\widehat{y}_t\hspace{0.07cm}$ is an estimation of the observed value $\hspace{0.08cm}y_t\hspace{0.08cm}$ of the process $\hspace{0.07cm}\mathcal{Y}\hspace{0.07cm}$. 
 
 Note that, an **observed value** of the process is also a **past value** of it.
 
@@ -2218,33 +2198,30 @@ Note that, an **observed value** of the process is also a **past value** of it.
 ## Forecasting future values of the process
 
 
-Using an $\hspace{0.07cm}AR(2)\hspace{0.07cm}$ model we can forecast future values $\hspace{0.1cm}y_{n+k} \hspace{0.12cm},\hspace{0.12cm} k=1,...,n\hspace{0.1cm}$ of the process using the following equation: $\\[0.3cm]$
+Using an $\hspace{0.07cm}AR(p)\hspace{0.07cm}$ model we can forecast future values $\hspace{0.1cm}y_{n+k} \hspace{0.12cm},\hspace{0.12cm} k=1,...,n\hspace{0.12cm}$ of the process using the following equations: $\\[0.3cm]$
 
-$$\widehat{y}_{n+1} \hspace{0.1cm}=\hspace{0.1cm} \widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot y_{n} \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot y_{n-1}  \\[0.3cm]$$
-
-
-$$\widehat{y}_{n+2} \hspace{0.1cm}=\hspace{0.1cm} \widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot \widehat{y}_{n+1} \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot y_{n}  \\[0.3cm]$$
+$$\widehat{y}_{n+1} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.05cm}+\hspace{0.05cm} \sum_{h=1}^p \hspace{0.05cm}\widehat{\phi}_h \cdot y_{(n+1) - h} \hspace{0.1cm}=\hspace{0.1cm}  \phi_0 \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_1 \cdot y_{n} \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_2\cdot y_{n-1}   \hspace{0.07cm}+\hspace{0.07cm} \cdots \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_p \cdot y_{n-(p-1)} \\[0.25cm]$$
 
 
-$$\widehat{y}_{n+3} \hspace{0.1cm}=\hspace{0.1cm} \widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot \widehat{y}_{n+2} 
-\hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot \widehat{y}_{n+1} \\[0.35cm]$$
+$$\widehat{y}_{n+2} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.07cm}+\hspace{0.07cm}
+\widehat{\phi}_1 \cdot \widehat{y}_{(n+2)-1}
+\hspace{0.07cm}+\hspace{0.07cm} \sum_{h=2}^p \hspace{0.05cm} \widehat{\phi}_h \cdot y_{(n+2) - h} \\[0.3cm]$$
+
+$$\widehat{y}_{n+3} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.07cm}+\hspace{0.07cm}
+\widehat{\phi}_1 \cdot \widehat{y}_{(n+3)-1} \hspace{0.07cm}+\hspace{0.07cm}
+\widehat{\phi}_2 \cdot \widehat{y}_{(n+3)-2}
+\hspace{0.07cm}+\hspace{0.07cm} \sum_{h=3}^p \hspace{0.05cm} \widehat{\phi}_h \cdot y_{(n+3) - h}  \\[1.5cm]$$
 
 
-In general:
 
 
-$$
-\widehat{y}_{n+k} \hspace{0.1cm}=\hspace{0.1cm} \left\{ \begin{array}{lcc}
-\widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot y_{(n+k)-1}
-\hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot y_{(n+k)-2}
-\hspace{0.4cm}  , \hspace{0.4cm} \text{if} \hspace{0.3cm}  k = 1 \\[0.2cm]
-\widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot \hat{y}_{(n+k)-1}
-\hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot y_{(n+k)-2}
-\hspace{0.4cm}  , \hspace{0.4cm} \text{if} \hspace{0.3cm}  k = 2 \\[0.2cm]
-\widehat{\phi}_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot \widehat{y}_{(n+k)-1} 
-\hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot \widehat{y}_{(n+k)-2}\hspace{0.4cm}  , \hspace{0.4cm} \text{if}  \hspace{0.3cm}  k = 3,4,\dots  
-\end{array}
-   \right. \\[1.3cm]$$
+- In general, for $\hspace{0.1cm} k=1,2,3,\dots\hspace{0.1cm}$ , we have the following prediction equation: $\\[0.35cm]$
+
+    
+    $$\widehat{y}_{n+k} \hspace{0.13cm}=\hspace{0.13cm} \phi_0 \hspace{0.1cm}+\hspace{0.1cm} \sum_{h=1}^{k-1} \hspace{0.08cm} \widehat{\phi}_h \cdot \widehat{y}_{(n+k)-h} \hspace{0.1cm}+\hspace{0.1cm} \sum_{h=k}^p \hspace{0.08cm} \widehat{\phi}_h \cdot y_{(n+k) - h} \hspace{0.13cm}=\hspace{0.13cm} \phi_0 \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_1 \cdot \widehat{y}_{(n+k)-1} \hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_2 \cdot \widehat{y}_{(n+k)-2} \hspace{0.1cm}+\hspace{0.1cm} \dots\hspace{0.1cm}+\hspace{0.1cm} \widehat{\phi}_{k-1} \cdot \widehat{y}_{(n+k)-(k-1)} \hspace{0.05cm}+\hspace{0.05cm}\widehat{\phi}_k \cdot \widehat{y}_{(n+k)-k } \hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_{k+1}\cdot y_{(n+k)-(k+1) }\hspace{0.05cm}+\hspace{0.05cm}\widehat{\phi}_{k+2}\cdot y_{(n+k)-(k+2)} \hspace{0.05cm}+\hspace{0.05cm}\cdots \hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_{p} \cdot y_{(n+k)-p} \\[0.45cm]$$
+
+    
+    Where, it must be assumed that $\hspace{0.09cm}n+k \hspace{0.05cm}> \hspace{0.05cm}p\hspace{0.05cm}$.
 
 
 
@@ -2253,13 +2230,13 @@ $$
 
 ## Stationariety and forecast
 
-Stationarity is an important property of time series that indicates that the properties of the time series don't change over time. In other words, the mean, variance, and autocorrelation of a stationary time series are constant over time. $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ models can be used to model stationary time series.
+Stationarity is an important property of time series that indicates that the properties of the time series don't change over time. In other words, the mean, variance, and autocorrelation of a stationary time series are constant over time. $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ models can be used to model stationary time series.
 
-It is important to note that if a time series isn't stationary, long-term forecasts may be inaccurate. In this sense, before applying the $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ model to a time series, it is advisable to verify if it verify the stationarity property. For this, various statistical tests can be performed, such as autocorrelation analysis, unit root test, among others, which will be seen in another specific article.
+It is important to note that if a time series isn't stationary, long-term forecasts may be inaccurate. In this sense, before applying the $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ model to a time series, it is advisable to verify if it verify the stationarity property. For this, various statistical tests can be performed, such as autocorrelation analysis, unit root test, among others, which will be seen in another specific article.
 
-In the event that a time series is not stationary, transformations can be applied to the data, such as differentiation, that allow obtaining a stationary time series. Then, the $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ model can be fitted to the differentiated time series and make long-term forecasts. As before, these transformation techniques will be seen in another article with more detail.
+In the event that a time series is not stationary, transformations can be applied to the data, such as differentiation, that allow obtaining a stationary time series. Then, the $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ model can be fitted to the differentiated time series and make long-term forecasts. As before, these transformation techniques will be seen in another article with more detail.
 
-In summary, stationarity is an important property of time series for accurate forecasting and $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ models can be used to model stationary time series. If a time series is not stationary, transformations can be applied to the data to obtain a stationary series and then fit the $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ model to the transformed time series.
+In summary, stationarity is an important property of time series for accurate forecasting and $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ models can be used to model stationary time series. If a time series is not stationary, transformations can be applied to the data to obtain a stationary series and then fit the $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ model to the transformed time series.
 
 
 
@@ -2336,7 +2313,40 @@ This problems can be solved using classical optimization techniques or numeric o
 
   
 
+But in this case, there is a closed-form solution for the ordinary least squares (OLS) method to estimate the coefficients of an AR(p) model. The OLS method seeks to minimize the sum of squared residuals between the predicted values of the AR(p) model and the observed values.
 
+
+It can be proved that:
+
+$$\hat{\phi}=(X^TX)^{-1}X^TY$$
+
+where $X$ is an $n-p$ by $p$ matrix containing the $p$ lagged values of the time series $Y$, $Y$ is an $n-p$ by $1$ matrix containing the observed values of the time series after discarding the first $p$ observations, and $\hat{\beta}$ is a $p$ by $1$ matrix of the estimated coefficients.
+
+Specifically, $X$ is given by:
+
+$$
+Y_{p-1} & Y_{p-2} & \cdots & Y_1 \\
+Y_{p} & Y_{p-1} & \cdots & Y_2 \\
+\vdots & \vdots & \ddots & \vdots \\
+Y_{n-2} & Y_{n-3} & \cdots & Y_{n-p+1} \\
+Y_{n-1} & Y_{n-2} & \cdots & Y_{n-p+2} \\
+\end{bmatrix}$$
+
+and $Y$ is given by:
+
+$$Y = \begin{bmatrix}
+Y_p \\
+Y_{p+1} \\
+\vdots \\
+Y_{n-1} \\
+Y_n \\
+\end{bmatrix}$$
+
+Once $\hat{\beta}$ is obtained, the estimated AR(p) model can be written as:
+
+$$\hat{Y_t} = \hat{\phi}_1 Y_{t-1} + \hat{\phi}_2 Y_{t-2} + \cdots + \hat{\phi}_p Y_{t-p}$$
+
+where $\hat{\phi}_1, \hat{\phi}_2, \ldots, \hat{\phi}_p$ are the estimated coefficients in $\hat{\beta}$.
 
 
 
@@ -2355,99 +2365,6 @@ This problems can be solved using classical optimization techniques or numeric o
 
 
 
-
-
-
-***Estimaciones del pasado:***
-
-Suponiendo que la informacion disponible para realizar la estimación del modelo (estimación de parametros) es $\hspace{0.08cm}Y_t = (y_1,\dots, y_n)^t\hspace{0.08cm}$, en el modelo $\hspace{0.07cm} AR(p) \hspace{0.07cm}$  tenemos las siguientes ecuaciones de estimación de los valores pasados del proceso: $\\[0.25cm]$
-
-
-
-$$\widehat{y}_{t} \hspace{0.1cm}=\hspace{0.1cm} c \hspace{0.05cm}+\hspace{0.05cm} \sum_{h=1}^p \hspace{0.05cm}\widehat{\phi}_h \cdot y_{\hspace{0.05cm} t - h} \hspace{0.1cm}=\hspace{0.1cm} c \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_1 \cdot y_{\hspace{0.05cm}t-1} \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_2\cdot y_{\hspace{0.05cm}t-2} \hspace{0.07cm}+\hspace{0.07cm} \cdots \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_p \cdot y_{\hspace{0.05cm}t-p} \hspace{0.25cm} , \hspace{0.25cm} t=1,\dots , n$$
-
-
-
-<br>
-
-
-***Predicciones del futuro:***
-
-Suponiendo que la informacion disponible para realizar la estimación del modelo (estimación de parametros) es $\hspace{0.08cm}Y_t = (y_1,\dots, y_n)^t\hspace{0.08cm}$, en un modelo $\hspace{0.07cm}AR(p)\hspace{0.07cm}$ tenemos las siguientes ecuaciones de estimación de los valores pasados del proceso: $\\[0.25cm]$
-
-$$\widehat{y}_{n+1} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.05cm}+\hspace{0.05cm} \sum_{h=1}^p \hspace{0.05cm}\widehat{\phi}_h \cdot y_{(n+1) - h} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_1 \cdot y_{(n+1)-1} \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_2\cdot y_{(n+1)-2} \hspace{0.07cm}+\hspace{0.07cm} \cdots \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_p \cdot y_{(n+1)-p} = \\
-\hspace{3cm}=\hspace{0.1cm} \phi_0 \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_1 \cdot y_{n} \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_2\cdot y_{n-1} \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_3\cdot y_{n-2} \hspace{0.07cm}+\hspace{0.07cm} \cdots \hspace{0.07cm}+\hspace{0.07cm} \widehat{\phi}_p \cdot y_{n-(p-1)} \\[0.25cm]$$
-
-
-$$\widehat{y}_{n+2} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.07cm}+\hspace{0.07cm}
-\widehat{\phi}_1 \cdot \widehat{y}_{(n+2)-1}
-\hspace{0.07cm}+\hspace{0.07cm} \sum_{h=2}^p \hspace{0.05cm} \widehat{\phi}_h \cdot y_{(n+2) - h} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.05cm}+\hspace{0.05cm}
-\widehat{\phi}_1 \cdot \widehat{y}_{n+1}
-\hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_2 \cdot y_{n} \hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_3\cdot y_{n-1} \hspace{0.05cm}+\hspace{0.05cm} \cdots \hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_p \cdot y_{n-(p-2)} \\[0.3cm]$$
-
-$$\widehat{y}_{n+3} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.07cm}+\hspace{0.07cm}
-\widehat{\phi}_1 \cdot \widehat{y}_{(n+3)-1} \hspace{0.07cm}+\hspace{0.07cm}
-\widehat{\phi}_2 \cdot \widehat{y}_{(n+3)-2}
-\hspace{0.07cm}+\hspace{0.07cm} \sum_{h=3}^p \hspace{0.05cm} \widehat{\phi}_h \cdot y_{(n+3) - h} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.05cm}+\hspace{0.05cm}
-\widehat{\phi}_1 \cdot \widehat{y}_{n+2} \hspace{0.05cm}+\hspace{0.05cm}
-\widehat{\phi}_2 \cdot \widehat{y}_{n+1}
-\hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_3 \cdot {y}_{n} \hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_3\cdot y_{n-1} \hspace{0.05cm}+\hspace{0.05cm} \cdots \hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_p \cdot y_{n-(p-2)} \\[0.5cm]$$
-
-
-
-
-En general, para $\hspace{0.1cm} k=1,2,3,\dots \\$
-
-$$\widehat{y}_{n+k} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.07cm}+\hspace{0.07cm}
-\sum_{h=1}^{k-1} \hspace{0.05cm} \widehat{\phi}_h \cdot \widehat{y}_{(n+k)-h}
-\hspace{0.07cm}+\hspace{0.07cm} \sum_{h=k}^p \hspace{0.05cm} \widehat{\phi}_h \cdot y_{(n+k) - h} \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.05cm}+\hspace{0.05cm}
-\widehat{\phi}_1 \cdot \widehat{y}_{n+k-1}
-\hspace{0.05cm}+\hspace{0.05cm}
-\widehat{\phi}_2 \cdot \widehat{y}_{n+k-2}
-\hspace{0.05cm}+\hspace{0.05cm}
-\dots\hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_{k-1} \cdot \widehat{y}_{n+k-(k-1) = n+1}
-\hspace{0.05cm}+\hspace{0.05cm}
-\widehat{\phi}_k \cdot \widehat{y}_{n+k-k = n} \hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_3\cdot y_{n+k-(k+1)=n-1} \hspace{0.05cm}+\hspace{0.05cm}
-\widehat{\phi}_4\cdot y_{n+k-(k+2)=n-2} \hspace{0.05cm}+\hspace{0.05cm}\cdots \hspace{0.05cm}+\hspace{0.05cm} \widehat{\phi}_p \cdot y_{n+k-(k+p-2)} \\[0.3cm]$$
-
-
-
-<br>
-
-***Estimación del modelo por máxima verosimilitud:***
-
-Para un modelo $\hspace{0.05cm}AR(p)\hspace{0.05cm}$ con término de error $\hspace{0.07cm}\varepsilon_t\hspace{0.07cm}$ Gaussiano, es decir, $\hspace{0.07cm}\varepsilon_t \sim N(0,\sigma^2)\hspace{0.07cm}$ , se asume la siguiente relación para cada variable del proceso:
-
-$$\mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \phi_0 + \sum_{h=1}^p \phi_h \cdot y_{t-h} + \varepsilon_t$$
-
-Como el termino de error es Gaussiano, tal y como se especificó antes, se deduce que:
-
-$$\mathcal{Y}_t \sim N\left( \hspace{0.07cm} \phi_0 + \sum_{h=1}^p \phi_h \cdot y_{t-h} \hspace{0.07cm} ,\hspace{0.07cm} \sigma^2 \hspace{0.07cm} \right)$$
-
-para cada $\hspace{0.07cm}t=1,\dots , n$
-
-
-Por tanto, la función de verosimilitud del modelo $\hspace{0.07cm}AR(p)\hspace{0.07cm}$ es:
-
-$$\mathcal{L}(\phi_0,\phi_1,\dots, \phi_p, \sigma^2) \hspace{0.07cm}=\hspace{0.07cm}
-f_{\mathcal{Y}_1,...,\mathcal{Y}_n}(y_{p+1},y_{p+2},...,y_n)
-\hspace{0.07cm}=\hspace{0.07cm}
-\prod_{t=p+1}^n  f_{\mathcal{Y}_t}(y_t)
-\hspace{0.07cm}=\hspace{0.07cm} \prod_{t=p+1}^n  \frac{1}{\sqrt{2\pi\sigma^2}} \cdot \exp\left(-\frac{(y_t - \phi_0 + \sum_{i=1}^p \phi_i y_{t-i})^2}{2\sigma^2}\right)$$
-
-La función de log-verosimilitud es:
-
-$$ ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,\dots, \phi_p, \sigma^2)\hspace{0.07cm} \right) \hspace{0.07cm}=\hspace{0.07cm} -\frac{n-p}{2} \cdot \ln(2\pi) - \frac{n-p}{2}\cdot \ln(\sigma^2) - \frac{1}{2\sigma^2}\cdot \sum_{t=p+1}^n \left( y_t - \sum_{h=1}^p \phi_h y_{t-h} \right)^2 $$
-
-La estimación de los parametros del modelo $\hspace{0.07cm} AR(p)\hspace{0.07cm}$  se realiza como sigue: $\\[0.3cm]$
-
-
-$$\widehat{\phi}_0, \widehat{\phi}_1, \dots , \widehat{\phi}_p , \widehat{\sigma}^2 \hspace{0.07cm} =\hspace{0.07cm}  arg \hspace{0.07cm}  \underset{\phi_0,\dots , \phi_p, \sigma^2}{Max}  ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,\dots, \phi_p, \sigma^2)\hspace{0.07cm} \right)$$
-
-
-Este problema se puede resolver a través de métodos numéricos como el método de Newton-Raphson o el método de gradiente descendente.
- 
- 
  
 # AR(p) model in `Python`
 
