@@ -1526,7 +1526,7 @@ In summary, stationarity is an important property of time series for accurate fo
 As it was seen, the fundamental equation of an $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ model is: $\\[0.35cm]$
 
 
-$$\mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm}  \phi_1 \cdot \mathcal{Y}_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.3cm} , \hspace{0.3cm} t=2,\dots , n\\$$
+$$\mathcal{Y}_t  \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm}  \phi_1 \cdot \mathcal{Y}_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.3cm} , \hspace{0.3cm} t=2,\dots , n\\$$
 
 
 
@@ -1534,7 +1534,7 @@ Since the error term $\hspace{0.07cm}\varepsilon_t\hspace{0.07cm}$ is Gaussian, 
 
  
 
-$$\mathcal{Y}_t \hspace{0.07cm}\sim\hspace{0.07cm} N\left( \hspace{0.07cm} \phi_0 + \phi_1 \cdot y_{t-1} \hspace{0.13cm} ,\hspace{0.13cm} \sigma^2 \hspace{0.07cm} \right) \hspace{0.3cm} , \hspace{0.3cm} t=2,\dots , n \\[0.7cm]$$
+$$\mathcal{Y}_t \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}_{t-1} = y_{t-1} \hspace{0.07cm}\sim\hspace{0.07cm} N\left( \hspace{0.07cm} \phi_0 + \phi_1 \cdot y_{t-1} \hspace{0.13cm} ,\hspace{0.13cm} \sigma^2 \hspace{0.07cm} \right) \hspace{0.3cm} , \hspace{0.3cm} t=2,\dots , n \\[0.7cm]$$
 
 
 
@@ -2248,20 +2248,19 @@ In summary, stationarity is an important property of time series for accurate fo
 ### Maximum Likelihood
 
 
-As it was seen, the fundamental equation of an $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ model is: $\\[0.35cm]$
+As it was seen, the fundamental equation of an $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ model is: $\\[0.35cm]$
 
 
-$$\mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm}  \phi_1 \cdot \mathcal{Y}_{t-1}
-\hspace{0.08cm}+\hspace{0.08cm}  \phi_2 \cdot \mathcal{Y}_{t-2}
-\hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.3cm} , \hspace{0.3cm} t=3,\dots , n\\$$
+$$\mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm} \sum_{h=1}^p  \phi_h \cdot \mathcal{Y}_{t-h}
+\hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.3cm} , \hspace{0.3cm} t=p+1,\dots , n\\$$
 
 
 
-Since the error term $\hspace{0.07cm}\varepsilon_t\hspace{0.07cm}$ is Gaussian, namely, $\hspace{0.07cm}\varepsilon_t \sim N(0,\sigma^2)\hspace{0.07cm}$, it turns out that: $\\[0.35cm]$
+Since the error term $\hspace{0.09cm}\varepsilon_t\hspace{0.09cm}$ is Gaussian, namely, $\hspace{0.1cm}\varepsilon_t \sim N(0,\sigma^2)\hspace{0.1cm}$, it turns out that: $\\[0.35cm]$
 
  
 
-$$\mathcal{Y}_t \hspace{0.07cm}\sim\hspace{0.07cm} N\left( \hspace{0.07cm} \phi_0 + \phi_1 \cdot y_{t-1} + \phi_2 \cdot y_{t-2} \hspace{0.15cm} ,\hspace{0.15cm} \sigma^2 \hspace{0.07cm} \right) \hspace{0.3cm} , \hspace{0.3cm} t=3,\dots , n \\[0.7cm]$$
+$$\mathcal{Y}_t \hspace{0.07cm}\sim\hspace{0.07cm} N\left( \hspace{0.07cm} \phi_0 + \sum_{h=1}^p \phi_h \cdot y_{t-h} \hspace{0.15cm} ,\hspace{0.15cm} \sigma^2 \hspace{0.07cm} \right) \hspace{0.3cm} , \hspace{0.3cm} t=p+1,\dots , n \\[0.7cm]$$
 
 
 
@@ -2273,7 +2272,7 @@ f_{\mathcal{Y}_3,...,\mathcal{Y}_n}(y_{2},...,y_n)
 \prod_{t=3}^n\hspace{0.07cm}  f_{\mathcal{Y}_t}(y_t)
 \hspace{0.09cm}=\hspace{0.09cm} \prod_{t=3}^n \hspace{0.07cm}  \frac{1}{\sqrt{2\pi\sigma^2}} \cdot \exp\left(-\frac{(y_t - ( \phi_0 +  \phi_1 \cdot y_{t-1} +  \phi_2 \cdot y_{t-2}))^2}{2\sigma^2}\right)\\$$
 
-
+$$ L(\phi_0, \phi_1, \ldots, \phi_p, \sigma^2 | \mathcal{Y}_1, \mathcal{Y}2, \ldots, \mathcal{Y}n) = (2 \pi \sigma^2)^{-n/2} \exp\left( -\frac{1}{2\sigma^2} \sum{t=p+1}^n (\mathcal{Y}t - \phi_0 - \sum{h=1}^p \phi_h \cdot \mathcal{Y}{t-h})^2 \right) $$
 
 The log-likelihood function is:
 
@@ -2318,13 +2317,14 @@ But in this case, there is a closed-form solution for the ordinary least squares
 
 It can be proved that:
 
-$$\hat{\phi}=(X^TX)^{-1}X^TY$$
+$$\hat{\phi}\hspace{0.08cm}=\hspace{0.08cm}(X^t \cdot X)^{-1} \cdot X^t \cdot Y$$
 
-where $X$ is an $n-p$ by $p$ matrix containing the $p$ lagged values of the time series $Y$, $Y$ is an $n-p$ by $1$ matrix containing the observed values of the time series after discarding the first $p$ observations, and $\hat{\beta}$ is a $p$ by $1$ matrix of the estimated coefficients.
+where $\hspace{0.08cm}X$ is an $n-p$ by $p$ matrix containing the $p$ lagged values of the time series $Y$, $Y$ is an $n-p$ by $1$ matrix containing the observed values of the time series after discarding the first $p$ observations, and $\hat{\beta}$ is a $p$ by $1$ matrix of the estimated coefficients.
 
 Specifically, $X$ is given by:
 
 $$
+\begin{bmatrix}
 Y_{p-1} & Y_{p-2} & \cdots & Y_1 \\
 Y_{p} & Y_{p-1} & \cdots & Y_2 \\
 \vdots & \vdots & \ddots & \vdots \\
@@ -2341,55 +2341,7 @@ Y_{p+1} \\
 Y_{n-1} \\
 Y_n \\
 \end{bmatrix}$$
-
-Once $\hat{\beta}$ is obtained, the estimated AR(p) model can be written as:
-
-$$\hat{Y_t} = \hat{\phi}_1 Y_{t-1} + \hat{\phi}_2 Y_{t-2} + \cdots + \hat{\phi}_p Y_{t-p}$$
-
-where $\hat{\phi}_1, \hat{\phi}_2, \ldots, \hat{\phi}_p$ are the estimated coefficients in $\hat{\beta}$.
-
-
-
-
-<br>
-
-
-
-***Estimación del modelo por máxima verosimilitud:***
-
-Para un modelo $\hspace{0.05cm}AR(p)\hspace{0.05cm}$ con término de error $\hspace{0.07cm}\varepsilon_t\hspace{0.07cm}$ Gaussiano, es decir, $\hspace{0.07cm}\varepsilon_t \sim N(0,\sigma^2)\hspace{0.07cm}$ , se asume la siguiente relación para cada variable del proceso:
-
-$$\mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \phi_0 + \sum_{h=1}^p \phi_h \cdot y_{t-h} + \varepsilon_t$$
-
-Como el termino de error es Gaussiano, tal y como se especificó antes, se deduce que:
-
-$$\mathcal{Y}_t \sim N\left( \hspace{0.07cm} \phi_0 + \sum_{h=1}^p \phi_h \cdot y_{t-h} \hspace{0.07cm} ,\hspace{0.07cm} \sigma^2 \hspace{0.07cm} \right)$$
-
-para cada $\hspace{0.07cm}t=1,\dots , n$
-
-
-Por tanto, la función de verosimilitud del modelo $\hspace{0.07cm}AR(p)\hspace{0.07cm}$ es:
-
-$$\mathcal{L}(\phi_0,\phi_1,\dots, \phi_p, \sigma^2) \hspace{0.07cm}=\hspace{0.07cm}
-f_{\mathcal{Y}_1,...,\mathcal{Y}_n}(y_{p+1},y_{p+2},...,y_n)
-\hspace{0.07cm}=\hspace{0.07cm}
-\prod_{t=p+1}^n  f_{\mathcal{Y}_t}(y_t)
-\hspace{0.07cm}=\hspace{0.07cm} \prod_{t=p+1}^n  \frac{1}{\sqrt{2\pi\sigma^2}} \cdot \exp\left(-\frac{(y_t - \phi_0 + \sum_{i=1}^p \phi_i y_{t-i})^2}{2\sigma^2}\right)$$
-
-La función de log-verosimilitud es:
-
-$$ ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,\dots, \phi_p, \sigma^2)\hspace{0.07cm} \right) \hspace{0.07cm}=\hspace{0.07cm} -\frac{n-p}{2} \cdot \ln(2\pi) - \frac{n-p}{2}\cdot \ln(\sigma^2) - \frac{1}{2\sigma^2}\cdot \sum_{t=p+1}^n \left( y_t - \sum_{h=1}^p \phi_h y_{t-h} \right)^2 $$
-
-La estimación de los parametros del modelo $\hspace{0.07cm} AR(p)\hspace{0.07cm}$  se realiza como sigue: $\\[0.3cm]$
-
-
-$$\widehat{\phi}_0, \widehat{\phi}_1, \dots , \widehat{\phi}_p , \widehat{\sigma}^2 \hspace{0.07cm} =\hspace{0.07cm}  arg \hspace{0.07cm}  \underset{\phi_0,\dots , \phi_p, \sigma^2}{Max}  ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,\dots, \phi_p, \sigma^2)\hspace{0.07cm} \right)$$
-
-
-Este problema se puede resolver a través de métodos numéricos como el método de Newton-Raphson o el método de gradiente descendente.
  
-
-
 
 
 <br>
@@ -2397,9 +2349,6 @@ Este problema se puede resolver a través de métodos numéricos como el método
 ---
 
 <br>
-
-
-
 
 
  
