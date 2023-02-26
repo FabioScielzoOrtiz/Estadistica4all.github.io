@@ -1401,7 +1401,7 @@ $$f_{\mathcal{X}|\mathcal{Y}}(x,y) = \dfrac{\hspace{0.08cm}f_{\mathcal{X},\mathc
 
     Por lo que $\hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.1cm}$ no está definido, ya que:
 
-$$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}=x , \mathcal{Y}=y)\hspace{0.08cm}}{P(\mathcal{Y}=y)} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{P(\mathcal{X}=x , \mathcal{Y}=y)}{ 0}\\$$
+    $$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}=x , \mathcal{Y}=y)\hspace{0.08cm}}{P(\mathcal{Y}=y)} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{P(\mathcal{X}=x , \mathcal{Y}=y)}{ 0}\\[0.9cm]$$
 
 
 - Teniendo en consideración el problema anterior, se esquiva del siguiente modo:
@@ -1416,16 +1416,18 @@ $$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08
 
     - Por lo que se tiene la siguiente propiedad:
 
-    $$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}\approx \hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm} | \hspace{0.08cm} \mathcal{Y} \in [y , y+ \delta]) \hspace{0.08cm}=\hspace{0.08cm}     \dfrac{\int_{x\in A} \int_{y \in [y , y+ \delta]} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y)}{ \int_{y \in [y , y+ \delta]} \hspace{0.08cm}f_Y(y)}$$
+    $$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}\approx \hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm} | \hspace{0.08cm} \mathcal{Y} \in [y , y+ \delta]) \hspace{0.08cm}=\hspace{0.08cm}     \dfrac{\int_{x\in A} \int_{y \in [y , y+ \delta]} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y)}{ \int_{y \in [y , y+ \delta]} \hspace{0.08cm}f_\mathcal{Y}(y)}\\[0.9cm]$$
 
 
-    En resumen:
 
 
-    $$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y} =y) \hspace{0.08cm}\approx\hspace{0.08cm} \dfrac{\int_{x\in A} \int_{y \in [y , y+ \delta]} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y)}{ \int_{y \in [y , y+ \delta]} \hspace{0.08cm}f_Y(y)}$$
+- Por otro lado, también se cumple lo siguiente:
+
+    $$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.08cm} = \hspace{0.08cm} \dfrac{\int_{x\in A} \int_{y \in B} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y)}{ \int_{y \in B} \hspace{0.08cm}f_\mathcal{Y}(y)}\\$$
 
 
 <br>
+
 
 # Independencia de variables aleatorias discretas
 

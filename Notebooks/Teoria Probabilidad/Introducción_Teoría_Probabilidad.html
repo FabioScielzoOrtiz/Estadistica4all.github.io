@@ -2635,10 +2635,8 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 <h2><span class="header-section-number">30.1</span> Propiedades <a class="anchor" id="1"></a></h2>
 <ul>
 <li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> es una v.a. continua , entonces: <span class="math inline">\(\hspace{0.14cm}P(\mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 0\hspace{0.1cm}\)</span> , para todo <span class="math inline">\(\hspace{0.08cm}y\in \mathbb{R}.\\\)</span></p>
-<p>Por lo que <span class="math inline">\(\hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.1cm}\)</span> no está definido, ya que:</p></li>
-</ul>
-<p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}=x , \mathcal{Y}=y)\hspace{0.08cm}}{P(\mathcal{Y}=y)} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{P(\mathcal{X}=x , \mathcal{Y}=y)}{ 0}\\\]</span></p>
-<ul>
+<p>Por lo que <span class="math inline">\(\hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.1cm}\)</span> no está definido, ya que:</p>
+<p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}=x , \mathcal{Y}=y)\hspace{0.08cm}}{P(\mathcal{Y}=y)} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{P(\mathcal{X}=x , \mathcal{Y}=y)}{ 0}\\[0.9cm]\]</span></p></li>
 <li><p>Teniendo en consideración el problema anterior, se esquiva del siguiente modo:</p>
 <p>Sea <span class="math inline">\(\hspace{0.08cm}\delta \rightarrow 0^+\hspace{0.08cm}\)</span>,</p>
 <p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}\approx \hspace{0.08cm}P(\hspace{0.1cm}\mathcal{X}\in A \hspace{0.1cm}|\hspace{0.1cm} \mathcal{Y} \in [y , y+ \delta] \hspace{0.1cm}) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.1cm}P(\mathcal{X}\in A \hspace{0.1cm} , \hspace{0.1cm} \mathcal{Y}\in [y , y+ \delta]\hspace{0.1cm})\hspace{0.08cm}}{P(\hspace{0.08cm}\mathcal{Y}\in [y , y+ \delta]\hspace{0.08cm})}\\\]</span></p>
@@ -2646,9 +2644,9 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 <ul>
 <li>Por lo que se tiene la siguiente propiedad:</li>
 </ul>
-<p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}\approx \hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm} | \hspace{0.08cm} \mathcal{Y} \in [y , y+ \delta]) \hspace{0.08cm}=\hspace{0.08cm}     \dfrac{\int_{x\in A} \int_{y \in [y , y+ \delta]} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y)}{ \int_{y \in [y , y+ \delta]} \hspace{0.08cm}f_Y(y)}\]</span></p>
-<p>En resumen:</p>
-<p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y} =y) \hspace{0.08cm}\approx\hspace{0.08cm} \dfrac{\int_{x\in A} \int_{y \in [y , y+ \delta]} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y)}{ \int_{y \in [y , y+ \delta]} \hspace{0.08cm}f_Y(y)}\]</span></p></li>
+<p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}\approx \hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm} | \hspace{0.08cm} \mathcal{Y} \in [y , y+ \delta]) \hspace{0.08cm}=\hspace{0.08cm}     \dfrac{\int_{x\in A} \int_{y \in [y , y+ \delta]} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y)}{ \int_{y \in [y , y+ \delta]} \hspace{0.08cm}f_\mathcal{Y}(y)}\\[0.9cm]\]</span></p></li>
+<li><p>Por otro lado, también se cumple lo siguiente:</p>
+<p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.08cm} = \hspace{0.08cm} \dfrac{\int_{x\in A} \int_{y \in B} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y)}{ \int_{y \in B} \hspace{0.08cm}f_\mathcal{Y}(y)}\\\]</span></p></li>
 </ul>
 <p><br></p>
 </div>
