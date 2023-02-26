@@ -1163,10 +1163,10 @@ Donde: $\hspace{0.08cm}\alpha, \lambda > 0 \\$
 <br>
 
 
-## Distribucion Normal
+## Distribución Normal
 
 
-$$\mathcal{X} \sim N(\mu, \sigma^2) \Leftrightarrow f_\mathcal{X}(x) = \dfrac{1}{\sigma \sqrt{2\pi}} \cdot exp \left(  \dfrac{-(x- \mu)^2}{2\cdot \sigma^2}  \right) \hspace{0.3cm} , \hspace{0.3cm} x\in \mathbb{R}$$
+$$\mathcal{X} \sim N(\mu, \sigma^2) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) = \dfrac{1}{\sigma \sqrt{2\pi}} \cdot exp \left(  \dfrac{-(x- \mu)^2}{2\cdot \sigma^2}  \right) \hspace{0.3cm} , \hspace{0.3cm} x\in \mathbb{R}$$
 
 
 Donde: $\hspace{0.12cm}\mu \in \mathbb{R}\hspace{0.12cm}$ y $\hspace{0.12cm}\sigma^2 > 0 \\$
@@ -1366,6 +1366,8 @@ $f_{\mathcal{X},\mathcal{Y}}\hspace{0.08cm}$ es la función de densidad conjunta
 
 - $P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.08cm}=\hspace{0.08cm} \int_{y\in B} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x , y) \cdot dy$ $\\[0.8cm]$
 
+- $P(\mathcal{X}\in A \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \int_{y\in B} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x , y) \cdot dy$ $\\[0.8cm]$
+
 - $f_X(x) \hspace{0.08cm}=\hspace{0.08cm} \int_{y\in \mathbb{R}} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x , y) \cdot dy$ $\\[0.8cm]$
 
 - $f_Y(y) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in \mathbb{R}} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x , y) \cdot dx$
@@ -1381,7 +1383,9 @@ $$P(\mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}
 
 ## Propiedades
 
-- $P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm} = \hspace{0.08cm} \sum_{x\in A} P(\mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)$
+- $P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm} = \hspace{0.08cm} \sum_{x\in A} P(\mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)$ $\\[0.9cm]$
+
+- $P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.08cm} = \hspace{0.08cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}\in B)\hspace{0.08cm}}{P(\mathcal{Y}\in B)} = \dfrac{\hspace{0.08cm} \sum_{x\in A} \sum_{y\in B} P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.08cm}}{ \sum_{y\in B} P(\mathcal{Y}=y)}\\$
 
 
 <br>
@@ -1393,7 +1397,7 @@ $$f_{\mathcal{X}|\mathcal{Y}}(x,y) = \dfrac{\hspace{0.08cm}f_{\mathcal{X},\mathc
 
 ## Propiedades <a class="anchor" id="1"></a>
 
-- Si $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ es una v.a. continua , entonces: $\hspace{0.12cm}P(\mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 0\hspace{0.08cm}$ , para todo $\hspace{0.08cm}y\in \mathbb{R}$
+- Si $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ es una v.a. continua , entonces: $\hspace{0.14cm}P(\mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 0\hspace{0.1cm}$ , para todo $\hspace{0.08cm}y\in \mathbb{R}.\\$
 
     Por lo que $\hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.1cm}$ no está definido, ya que:
 
@@ -1402,21 +1406,23 @@ $$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08
 
 - Teniendo en consideración el problema anterior, se esquiva del siguiente modo:
 
-    Sea $\delta \rightarrow 0^+$
+    Sea $\hspace{0.08cm}\delta \rightarrow 0^+\hspace{0.08cm}$,
 
-    $$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y} \in [y , y+ \delta]) = \dfrac{\hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm} , \hspace{0.08cm} \mathcal{Y}\in [y , y+ \delta])\hspace{0.08cm}}{P(\mathcal{Y}\in [y , y+ \delta])}$$
-
-
-    Donde ahora $\hspace{0.08cm}P(\mathcal{Y}\in [y , y+ \delta]) \hspace{0.08cm}>\hspace{0.08cm} 0\hspace{0.08cm}$ . $\\[1cm]$
+    $$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}\approx \hspace{0.08cm}P(\hspace{0.1cm}\mathcal{X}\in A \hspace{0.1cm}|\hspace{0.1cm} \mathcal{Y} \in [y , y+ \delta] \hspace{0.1cm}) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.1cm}P(\mathcal{X}\in A \hspace{0.1cm} , \hspace{0.1cm} \mathcal{Y}\in [y , y+ \delta]\hspace{0.1cm})\hspace{0.08cm}}{P(\hspace{0.08cm}\mathcal{Y}\in [y , y+ \delta]\hspace{0.08cm})}\\$$
 
 
-- $P(\mathcal{X}\in A \hspace{0.08cm} | \hspace{0.08cm} \mathcal{Y} \in [y , y+ \delta]) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \int_{y \in [y , y+ \delta]} f_{\mathcal{X}|\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \int_{y \in [y , y+ \delta]} \dfrac{f_{\mathcal{X},\mathcal{Y}}(x,y)}{f_Y(y)} \hspace{0.08cm} \approx  \hspace{0.08cm} \int_{x\in A}   f_{\mathcal{X}|\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A}   \dfrac{f_{\mathcal{X},\mathcal{Y}}(x,y)}{f_Y(y)} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{f_Y(y)} \cdot \int_{x\in A}   f_{\mathcal{X},\mathcal{Y}}(x,y)$
+    Donde ahora $\hspace{0.1cm}P(\mathcal{Y}\in [y , y+ \delta]) \hspace{0.08cm}>\hspace{0.08cm} 0\hspace{0.08cm}$ . $\\[1.2cm]$
+
+
+    - Por lo que se tiene la siguiente propiedad:
+
+    $$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}\approx \hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm} | \hspace{0.08cm} \mathcal{Y} \in [y , y+ \delta]) \hspace{0.08cm}=\hspace{0.08cm}     \dfrac{\int_{x\in A} \int_{y \in [y , y+ \delta]} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y)}{ \int_{y \in [y , y+ \delta]} \hspace{0.08cm}f_Y(y)}$$
 
 
     En resumen:
 
 
-    $$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y} \in [y , y+ \delta]) \hspace{0.08cm}\approx\hspace{0.08cm} \int_{x\in A}   f_{\mathcal{X}|\mathcal{Y}}(x,y)$$
+    $$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y} =y) \hspace{0.08cm}\approx\hspace{0.08cm} \dfrac{\int_{x\in A} \int_{y \in [y , y+ \delta]} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y)}{ \int_{y \in [y , y+ \delta]} \hspace{0.08cm}f_Y(y)}$$
 
 
 <br>

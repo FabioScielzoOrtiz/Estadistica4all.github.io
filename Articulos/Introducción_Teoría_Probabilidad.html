@@ -1606,7 +1606,7 @@ margin-left: 0 !important;
       <li><a href="#distribución-exponencial" id="toc-distribución-exponencial"><span class="toc-section-number">26.2</span> Distribución Exponencial</a></li>
       <li><a href="#función-gamma" id="toc-función-gamma"><span class="toc-section-number">26.3</span> Función Gamma</a></li>
       <li><a href="#distribucion-gamma" id="toc-distribucion-gamma"><span class="toc-section-number">26.4</span> Distribucion Gamma</a></li>
-      <li><a href="#distribucion-normal" id="toc-distribucion-normal"><span class="toc-section-number">26.5</span> Distribucion Normal</a></li>
+      <li><a href="#distribución-normal" id="toc-distribución-normal"><span class="toc-section-number">26.5</span> Distribución Normal</a></li>
       <li><a href="#funcion-beta" id="toc-funcion-beta"><span class="toc-section-number">26.6</span> Funcion Beta</a></li>
       <li><a href="#distribucion-beta" id="toc-distribucion-beta"><span class="toc-section-number">26.7</span> Distribucion Beta</a></li>
       <li><a href="#distribucion-weibull" id="toc-distribucion-weibull"><span class="toc-section-number">26.8</span> Distribucion Weibull</a></li>
@@ -2471,9 +2471,9 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 <p><br></p>
 </div>
 </div>
-<div id="distribucion-normal" class="section level2" number="26.5">
-<h2><span class="header-section-number">26.5</span> Distribucion Normal</h2>
-<p><span class="math display">\[\mathcal{X} \sim N(\mu, \sigma^2) \Leftrightarrow f_\mathcal{X}(x) = \dfrac{1}{\sigma \sqrt{2\pi}} \cdot exp \left(  \dfrac{-(x- \mu)^2}{2\cdot \sigma^2}  \right) \hspace{0.3cm} , \hspace{0.3cm} x\in \mathbb{R}\]</span></p>
+<div id="distribución-normal" class="section level2" number="26.5">
+<h2><span class="header-section-number">26.5</span> Distribución Normal</h2>
+<p><span class="math display">\[\mathcal{X} \sim N(\mu, \sigma^2) \hspace{0.3cm}\Leftrightarrow\hspace{0.3cm} f_\mathcal{X}(x) = \dfrac{1}{\sigma \sqrt{2\pi}} \cdot exp \left(  \dfrac{-(x- \mu)^2}{2\cdot \sigma^2}  \right) \hspace{0.3cm} , \hspace{0.3cm} x\in \mathbb{R}\]</span></p>
 <p>Donde: <span class="math inline">\(\hspace{0.12cm}\mu \in \mathbb{R}\hspace{0.12cm}\)</span> y <span class="math inline">\(\hspace{0.12cm}\sigma^2 &gt; 0 \\\)</span></p>
 <div id="propiedades-21" class="section level3" number="26.5.1">
 <h3><span class="header-section-number">26.5.1</span> Propiedades</h3>
@@ -2609,6 +2609,7 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 <ul>
 <li><p><span class="math inline">\(P(\mathcal{X}\in A \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x , y)\cdot dx\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
 <li><p><span class="math inline">\(P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.08cm}=\hspace{0.08cm} \int_{y\in B} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x , y) \cdot dy\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
+<li><p><span class="math inline">\(P(\mathcal{X}\in A \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \int_{y\in B} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x , y) \cdot dy\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
 <li><p><span class="math inline">\(f_X(x) \hspace{0.08cm}=\hspace{0.08cm} \int_{y\in \mathbb{R}} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x , y) \cdot dy\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p></li>
 <li><p><span class="math inline">\(f_Y(y) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in \mathbb{R}} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x , y) \cdot dx\)</span></p></li>
 </ul>
@@ -2621,7 +2622,8 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 <div id="propiedades-30" class="section level2" number="29.1">
 <h2><span class="header-section-number">29.1</span> Propiedades</h2>
 <ul>
-<li><span class="math inline">\(P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm} = \hspace{0.08cm} \sum_{x\in A} P(\mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)\)</span></li>
+<li><p><span class="math inline">\(P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm} = \hspace{0.08cm} \sum_{x\in A} P(\mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)\)</span> <span class="math inline">\(\\[0.9cm]\)</span></p></li>
+<li><p><span class="math inline">\(P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.08cm} = \hspace{0.08cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}\in B)\hspace{0.08cm}}{P(\mathcal{Y}\in B)} = \dfrac{\hspace{0.08cm} \sum_{x\in A} \sum_{y\in B} P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.08cm}}{ \sum_{y\in B} P(\mathcal{Y}=y)}\\\)</span></p></li>
 </ul>
 <p><br></p>
 </div>
@@ -2632,18 +2634,21 @@ tales que la probabilidad del exito es <span class="math inline">\(\hspace{0.08c
 <div id="propiedades-31" class="section level2" number="30.1">
 <h2><span class="header-section-number">30.1</span> Propiedades <a class="anchor" id="1"></a></h2>
 <ul>
-<li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> es una v.a. continua , entonces: <span class="math inline">\(\hspace{0.12cm}P(\mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 0\hspace{0.08cm}\)</span> , para todo <span class="math inline">\(\hspace{0.08cm}y\in \mathbb{R}\)</span></p>
+<li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> es una v.a. continua , entonces: <span class="math inline">\(\hspace{0.14cm}P(\mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 0\hspace{0.1cm}\)</span> , para todo <span class="math inline">\(\hspace{0.08cm}y\in \mathbb{R}.\\\)</span></p>
 <p>Por lo que <span class="math inline">\(\hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.1cm}\)</span> no está definido, ya que:</p></li>
 </ul>
 <p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}=x , \mathcal{Y}=y)\hspace{0.08cm}}{P(\mathcal{Y}=y)} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{P(\mathcal{X}=x , \mathcal{Y}=y)}{ 0}\\\]</span></p>
 <ul>
 <li><p>Teniendo en consideración el problema anterior, se esquiva del siguiente modo:</p>
-<p>Sea <span class="math inline">\(\delta \rightarrow 0^+\)</span></p>
-<p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y} \in [y , y+ \delta]) = \dfrac{\hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm} , \hspace{0.08cm} \mathcal{Y}\in [y , y+ \delta])\hspace{0.08cm}}{P(\mathcal{Y}\in [y , y+ \delta])}\]</span></p>
-<p>Donde ahora <span class="math inline">\(\hspace{0.08cm}P(\mathcal{Y}\in [y , y+ \delta]) \hspace{0.08cm}&gt;\hspace{0.08cm} 0\hspace{0.08cm}\)</span> . <span class="math inline">\(\\[1cm]\)</span></p></li>
-<li><p><span class="math inline">\(P(\mathcal{X}\in A \hspace{0.08cm} | \hspace{0.08cm} \mathcal{Y} \in [y , y+ \delta]) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \int_{y \in [y , y+ \delta]} f_{\mathcal{X}|\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \int_{y \in [y , y+ \delta]} \dfrac{f_{\mathcal{X},\mathcal{Y}}(x,y)}{f_Y(y)} \hspace{0.08cm} \approx \hspace{0.08cm} \int_{x\in A} f_{\mathcal{X}|\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \dfrac{f_{\mathcal{X},\mathcal{Y}}(x,y)}{f_Y(y)} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{f_Y(y)} \cdot \int_{x\in A} f_{\mathcal{X},\mathcal{Y}}(x,y)\)</span></p>
+<p>Sea <span class="math inline">\(\hspace{0.08cm}\delta \rightarrow 0^+\hspace{0.08cm}\)</span>,</p>
+<p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}\approx \hspace{0.08cm}P(\hspace{0.1cm}\mathcal{X}\in A \hspace{0.1cm}|\hspace{0.1cm} \mathcal{Y} \in [y , y+ \delta] \hspace{0.1cm}) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.1cm}P(\mathcal{X}\in A \hspace{0.1cm} , \hspace{0.1cm} \mathcal{Y}\in [y , y+ \delta]\hspace{0.1cm})\hspace{0.08cm}}{P(\hspace{0.08cm}\mathcal{Y}\in [y , y+ \delta]\hspace{0.08cm})}\\\]</span></p>
+<p>Donde ahora <span class="math inline">\(\hspace{0.1cm}P(\mathcal{Y}\in [y , y+ \delta]) \hspace{0.08cm}&gt;\hspace{0.08cm} 0\hspace{0.08cm}\)</span> . <span class="math inline">\(\\[1.2cm]\)</span></p>
+<ul>
+<li>Por lo que se tiene la siguiente propiedad:</li>
+</ul>
+<p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}\approx \hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm} | \hspace{0.08cm} \mathcal{Y} \in [y , y+ \delta]) \hspace{0.08cm}=\hspace{0.08cm}     \dfrac{\int_{x\in A} \int_{y \in [y , y+ \delta]} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y)}{ \int_{y \in [y , y+ \delta]} \hspace{0.08cm}f_Y(y)}\]</span></p>
 <p>En resumen:</p>
-<p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y} \in [y , y+ \delta]) \hspace{0.08cm}\approx\hspace{0.08cm} \int_{x\in A}   f_{\mathcal{X}|\mathcal{Y}}(x,y)\]</span></p></li>
+<p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y} =y) \hspace{0.08cm}\approx\hspace{0.08cm} \dfrac{\int_{x\in A} \int_{y \in [y , y+ \delta]} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y)}{ \int_{y \in [y , y+ \delta]} \hspace{0.08cm}f_Y(y)}\]</span></p></li>
 </ul>
 <p><br></p>
 </div>
