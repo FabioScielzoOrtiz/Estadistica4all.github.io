@@ -604,11 +604,12 @@ Time series decomposition is a process by which we separate a time series into i
 
 ## Time Series Descomposition in `Python`  <a class="anchor" id="1"></a> 
 
-
+First of all, we import the needed `Statsmodels` module for this section:
 ```python
 from statsmodels.tsa.seasonal import seasonal_decompose, STL
 ```
 
+We now print the time series dataset that we are going to use throughout this article. It is recommended that you first read our article on preprocessing and visualizing time series in `Python`.
 
 ```python
 Weekly_Time_Series_1
@@ -737,7 +738,10 @@ Weekly_Time_Series_1
 </div>
 
 
+<br>
 
+
+We create a plot whit the different components of the time series:
 
 ```python
 advanced_decomposition = STL(Weekly_Time_Series_1.Ventas, period=4).fit()
@@ -781,8 +785,7 @@ plt.show()
 
 <br>
 
-The following graph has superimposed the observed series and the trend:
-
+The following plot has superimposed trend on the time series:
 
 ```python
 fig, ax = plt.subplots()
@@ -2028,45 +2031,29 @@ $$
 \mathcal{Y}_{p+1} \\
 \mathcal{Y}_{p+2}\\
 ... \\
-\mathcal{Y}_{n}
-\end{pmatrix}
-$$
-
-
-
-$$
-\mathbf{X} = \begin{pmatrix}
-1 & \mathcal{Y}_p & \mathcal{Y}_{p-1} & ... & \mathcal{Y}_{1} \\
-1 & \mathcal{Y}_{p+1} & \mathcal{Y}_{p} & ... & \mathcal{Y}_{2} \\
+\mathcal{Y}_{n}\end{pmatrix} \hspace{0.3cm}, \hspace{0.3cm} \mathbf{X} = \begin{pmatrix} & \mathcal{Y}_p & \mathcal{Y}_{p-1} & ... & \mathcal{Y}_{1} \\
+1 & \mathcal{Y}_{p+1} & \mathcal{Y}_{p} 1& ... & \mathcal{Y}_{2} \\
 ... \\
 1 & \mathcal{Y}_{n-1} & \mathcal{Y}_{n-2} & ... & \mathcal{Y}_{n-p} \\
 \end{pmatrix}
-$$
-
-$$
-\boldsymbol{\phi} = \begin{pmatrix}
+  \hspace{0.3cm}, \hspace{0.3cm} \boldsymbol{\phi} = \begin{pmatrix}
 \phi_0 \\
 \phi_1 \\
 ... \\
 \phi_p 
 \end{pmatrix}
-$$
-
-
-$$
-\boldsymbol{\varepsilon} = \begin{pmatrix}
+ \hspace{0.3cm}, \hspace{0.3cm}  \boldsymbol{\varepsilon} = \begin{pmatrix}
 \varepsilon_{p+1} \\
 \varepsilon_{p+2} \\
 ... \\
 \varepsilon_{n}
-\end{pmatrix}
+\end{pmatrix} \\[3cm]
 $$
 
 
-We can express an AR(p) process as follow:
+We can express an $\hspace{0.09cm}AR(p)\hspace{0.09cm}$ process as follow: $\\[0.35cm]$
 
-
-$$\mathbf{Y} \hspace{0.08cm}=\hspace{0.08cm} \mathbf{X}  \cdot \boldsymbol{\phi} \hspace{0.08cm}+\hspace{0.08cm} \boldsymbol{\varepsilon}$$
+$$\mathbf{Y} \hspace{0.09cm}=\hspace{0.09cm} \mathbf{X}  \cdot \boldsymbol{\phi} \hspace{0.08cm}+\hspace{0.08cm} \boldsymbol{\varepsilon}$$
 
     
     
@@ -2323,6 +2310,7 @@ In summary, stationarity is an important property of time series for accurate fo
 
 ### Maximum Likelihood
 
+   
 
 As it was seen, the fundamental equation of an $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ model is: $\\[0.35cm]$
 
@@ -2387,46 +2375,47 @@ $$\widehat{\phi}_0, \widehat{\phi}_1,..., \widehat{\phi}_p \hspace{0.13cm} =\hsp
 
 
 
-
-
-
-
-
 This problems can be solved using classical optimization techniques or numeric optimization methods, such as Newton-Raphson or descendent gradient. 
 
 <br>
 
-But in this case, there is a closed-form solution for the ordinary least squares (OLS) method to estimate the coefficients of an AR(p) model. The OLS method seeks to minimize the sum of squared residuals between the predicted values of the AR(p) model and the observed values.
+But in this case, there is a closed-form solution for the ordinary least squares (OLS) method to estimate the coefficients of an $AR(p)$ model. The OLS method seeks to minimize the sum of squared residuals between the predicted values of the $AR(p)$ model and the observed values.
 
 
-It can be proved that:
-
-$$\hat{\phi}\hspace{0.08cm}=\hspace{0.08cm}(X^t \cdot X)^{-1} \cdot X^t \cdot Y$$
-
-where $\hspace{0.08cm}X$ is an $n-p$ by $p$ matrix containing the $p$ lagged values of the time series $Y$, $Y$ is an $n-p$ by $1$ matrix containing the observed values of the time series after discarding the first $p$ observations, and $\hat{\beta}$ is a $p$ by $1$ matrix of the estimated coefficients.
-
-Specifically, $X$ is given by:
+Taking into account the following matrix:
 
 $$
-\begin{bmatrix}
-Y_{p-1} & Y_{p-2} & \cdots & Y_1 \\
-Y_{p} & Y_{p-1} & \cdots & Y_2 \\
-\vdots & \vdots & \ddots & \vdots \\
-Y_{n-2} & Y_{n-3} & \cdots & Y_{n-p+1} \\
-Y_{n-1} & Y_{n-2} & \cdots & Y_{n-p+2} \\
-\end{bmatrix}$$
+\mathbf{Y} = \begin{pmatrix}
+y_{p+1} \\
+y_{p+2}\\
+... \\
+y_{n}\end{pmatrix} \hspace{0.3cm}, \hspace{0.3cm} \mathbf{X} = \begin{pmatrix}
+1 & y_p & y_{p-1} & ... & y_{1} \\
+1 & y_{p+1} & y_{p}  & ... & y_{2} \\
+... \\
+1 & y_{n-1} & y_{n-2} & ... & y_{n-p} \\
+\end{pmatrix}
+  \hspace{0.3cm}, \hspace{0.3cm} \boldsymbol{\phi} = \begin{pmatrix}
+\phi_0 \\
+\phi_1 \\
+... \\
+\phi_p 
+\end{pmatrix} \\[3cm]
+$$
 
-and $Y$ is given by:
+We can express the ordinary least squares problem as follow: $\\[0.5cm]$
 
-$$Y = \begin{bmatrix}
-Y_p \\
-Y_{p+1} \\
-\vdots \\
-Y_{n-1} \\
-Y_n \\
-\end{bmatrix}$$
+$$\widehat{\boldsymbol{\phi}} \hspace{0.13cm} =\hspace{0.13cm}  arg \hspace{0.13cm}  \underset{\boldsymbol{\phi}}{Min} \hspace{0.13cm}  \sum_{t=p+1}^n \hspace{0.08cm} (\mathbf{Y} - \mathbf{X}\cdot \boldsymbol{\phi})^t \cdot (\mathbf{Y} - \mathbf{X}\cdot \boldsymbol{\phi})  \\[1cm]$$
+
+
  
 
+It can be proved that:  $\\[0.5cm]$
+
+$$\hat{\boldsymbol{\phi}}\hspace{0.08cm}=\hspace{0.08cm}(\mathbf{X}^t \cdot \mathbf{X})^{-1} \cdot \mathbf{X}^t \cdot \mathbf{Y}$$
+
+ 
+ 
 
 <br>
 
