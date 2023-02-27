@@ -2536,3 +2536,28 @@ Name: predicted_mean, dtype: float64
 
 <br>
 
+
+# Residuals analisis of AR(p) model
+
+## Residuals hypothesis
+
+## Autocorrelation analysis
+
+
+## Partial Autocorrelation analysis
+
+
+
+# Residuals analisis of AR(p) in `python` 
+
+## Residuals hypothesis in `python` 
+
+## Autocorrelation analysis in `python` 
+
+
+## Partial Autocorrelation analysis in `python` 
+
+
+
+
+
