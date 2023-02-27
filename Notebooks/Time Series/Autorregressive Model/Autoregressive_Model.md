@@ -926,7 +926,7 @@ The stochastic process $\hspace{0.08cm}\mathcal{Y} \hspace{0.08cm}$ is **weakly 
 
    
    
-    Where:  $\hspace{0.2cm}\gamma_{t , t - h} \hspace{0.08cm}=\hspace{0.08cm}Cov(\mathcal{Y}_t,\mathcal{Y}_{t-h}) \hspace{0.08cm}=\hspace{0.08cm}E[(\mathcal{Y}_t - \mu)\cdot (\mathcal{Y}_{t+h} - \mu)]\\$
+    Where:  $\hspace{0.2cm}\gamma_{t , t - h} \hspace{0.08cm}=\hspace{0.08cm}Cov(\mathcal{Y}_t,\mathcal{Y}_{t-h}) \hspace{0.08cm}=\hspace{0.08cm}E[(\mathcal{Y}_t - \mu)\cdot (\mathcal{Y}_{t-h} - \mu)]\\$
     
     
 
@@ -936,14 +936,16 @@ The third indicates that the covariance between two variables depends only on
 their temporal separation.
 
 In a stationary process the autocovariances and autocorrelations depend only on
-the lag between the variables and, in particular, the relationship between $\hspace{0.08cm}\mathcal{Y}_t\hspace{0.08cm}$ and $\hspace{0.08cm}\mathcal{Y}_{t+h}\hspace{0.08cm}$ ,  is always equal to the relationship between $\hspace{0.08cm}\mathcal{Y}_t\hspace{0.08cm}$ and $\hspace{0.08cm}\mathcal{Y}_{t-h}\hspace{0.08cm}$ .
+the lag between the variables and, in particular, the relationship between $\hspace{0.08cm}\mathcal{Y}_t\hspace{0.08cm}$ and $\hspace{0.08cm}\mathcal{Y}_{t+h}\hspace{0.08cm}$ ,  is always equal to the relationship between $\hspace{0.08cm}\mathcal{Y}_t\hspace{0.08cm}$ and $\hspace{0.08cm}\mathcal{Y}_{t-h}\hspace{0.08cm}$, this can be summarize as $\hspace{0.08cm}\gamm_{t,t-h} \hspace{0.08cm}=\hspace{0.08cm} \gamma_{h}\hspace{0.08cm}=\hspace{0.08cm}   \gamma_{-h} \hspace{0.08cm}=\hspace{0.08cm}  \gamma_{t,t+h}\hspace{0.08cm}$ .
 
 
 As a result, in a weak stationary processes:
 
 
 
-$$\rho_{t, t+h} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_{t , t + h}}{\sqrt{\sigma_t^2 \cdot \sigma_{t+h}^2}} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_h}{\sqrt{\sigma^2 \cdot \sigma^2}} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_h}{\sigma^2}\hspace{0.08cm} =\hspace{0.08cm} \dfrac{\gamma_h}{\gamma_0} \hspace{0.08cm}=\hspace{0.08cm} \rho_h$$
+$$\rho_{t, t-h} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_{t , t - h}}{\sqrt{\sigma_t^2 \cdot \sigma_{t-h}^2}} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_h}{\sqrt{\sigma^2 \cdot \sigma^2}} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\gamma_h}{\sigma^2}\hspace{0.08cm} =\hspace{0.08cm} \dfrac{\gamma_h}{\gamma_0} \hspace{0.08cm}=\hspace{0.08cm} \rho_h$$
+
+And also it's fulfilled that $\hspace{0.08cm}\rho_h\hspace{0.08cm} = \hspace{0.08cm}\rho_{-h}\hspace{0.08cm}$.
 
 
 <br>
@@ -1530,34 +1532,42 @@ $$\mathcal{Y}_t  \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.08cm}+\hspace{0.
 
 
 
-Since the error term $\hspace{0.07cm}\varepsilon_t\hspace{0.07cm}$ is Gaussian, namely, $\hspace{0.07cm}\varepsilon_t \sim N(0,\sigma^2)\hspace{0.07cm}$, it turns out that: $\\[0.35cm]$
+Since the error term $\hspace{0.07cm}\varepsilon_t\hspace{0.07cm}$ is Gaussian, namely, $\hspace{0.07cm}\varepsilon_t \sim N(0,\sigma^2)\hspace{0.07cm}$, it's fulfilled that: $\\[0.35cm]$
 
  
 
-$$\mathcal{Y}_t \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}_{t-1} = y_{t-1} \hspace{0.07cm}\sim\hspace{0.07cm} N\left( \hspace{0.07cm} \phi_0 + \phi_1 \cdot y_{t-1} \hspace{0.13cm} ,\hspace{0.13cm} \sigma^2 \hspace{0.07cm} \right) \hspace{0.3cm} , \hspace{0.3cm} t=2,\dots , n \\[0.7cm]$$
+$$\mathcal{Y}_t \hspace{0.1cm}|\hspace{0.1cm} \mathcal{Y}_{t-1} = y_{t-1} \hspace{0.13cm} = \hspace{0.13cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm}  \phi_1 \cdot y_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.13cm}\sim\hspace{0.13cm} N\left( \hspace{0.07cm} \phi_0 + \phi_1 \cdot y_{t-1} \hspace{0.13cm} ,\hspace{0.13cm} \sigma^2 \hspace{0.07cm} \right) \hspace{0.35cm} , \hspace{0.35cm} t=2,\dots , n \\[1.5cm]$$
+
+
+
+So, one has:
+
+$$f_{\mathcal{Y}_t \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}_{t-1}=y_{t-1}}(y_t)\hspace{0.08cm}=\hspace{0.08cm}\dfrac{1}{\sqrt{2\pi \sigma^2}} \cdot exp \left( - \dfrac{(\hspace{0.08cm} y_t \hspace{0.08cm}-\hspace{0.08cm} (\phi_0 + \phi_1\cdot y_{t-1}) \hspace{0.08cm})^2}{\hspace{0.08cm}2\cdot \sigma^2\hspace{0.08cm}} \right)\\[1.5cm]$$
 
 
 
 Therefore, the likelihood function of $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ model is:
 
+
+
 $$\mathcal{L}(\phi_0,\phi_1, \sigma^2) \hspace{0.09cm}=\hspace{0.09cm}
-f_{\mathcal{Y}_2,...,\mathcal{Y}_n}(y_{2},...,y_n)
-\hspace{0.09cm}=\hspace{0.09cm}
-\prod_{t=2}^n\hspace{0.07cm}  f_{\mathcal{Y}_t}(y_t)
-\hspace{0.09cm}=\hspace{0.09cm} \prod_{t=2}^n \hspace{0.07cm}  \frac{1}{\sqrt{2\pi\sigma^2}} \cdot \exp\left(-\frac{(y_t - ( \phi_0 +  \phi_1 \cdot y_{t-1}))^2}{2\sigma^2}\right)\\$$
+f_{\mathcal{Y}_2 \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}_{1}=y_{1},\dots ,\mathcal{Y}_n \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}_{n-1}=y_{n-1}}(y_{2},...,y_n)
+\hspace{0.1cm}=\hspace{0.1cm}
+\prod_{t=2}^n\hspace{0.1cm}  f_{\mathcal{Y}_t \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}_{t-1}=y_{t-1}}(y_t)
+\hspace{0.1cm}=\hspace{0.1cm} \prod_{t=2}^n \hspace{0.1cm}  \frac{1}{\sqrt{2\pi\sigma^2}} \cdot \exp\left(-\frac{(y_t - ( \phi_0 +  \phi_1 \cdot y_{t-1}))^2}{2\sigma^2}\right)\\[1.5cm]$$
 
 
 
 The log-likelihood function is:
 
-$$ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1, \sigma^2)\hspace{0.07cm} \right) \hspace{0.09cm}=\hspace{0.09cm} -\frac{n-1}{2} \cdot \ln(2\pi) - \frac{n-1}{2}\cdot \ln(\sigma^2) - \frac{1}{2\sigma^2}\cdot \sum_{t=2}^n \left( y_t - (\phi_0 + \phi_1 y_{t-1}) \right)^2$$
+$$ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1, \sigma^2)\hspace{0.07cm} \right) \hspace{0.09cm}=\hspace{0.09cm} -\frac{n-1}{2} \cdot \ln(2\pi) - \frac{n-1}{2}\cdot \ln(\sigma^2) - \frac{1}{2\sigma^2}\cdot \sum_{t=2}^n \left( y_t - (\phi_0 + \phi_1 y_{t-1}) \right)^2 \\[1.5cm]$$
 
 
 The $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ parameters estimation is made as follows:
-$\\[0.3cm]$
+$\\[0.4cm]$
 
 
-$$\widehat{\phi}_0, \widehat{\phi}_1,  \widehat{\sigma}^2 \hspace{0.13cm} =\hspace{0.13cm}  arg \hspace{0.13cm}  \underset{\phi_0, \phi_1, \sigma^2}{Max} \hspace{0.13cm}  ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,\sigma^2) \hspace{0.07cm} \right)$$
+$$\widehat{\phi}_0 \hspace{0.08cm},\hspace{0.08cm} \widehat{\phi}_1 \hspace{0.08cm},\hspace{0.08cm}  \widehat{\sigma}^2 \hspace{0.15cm} =\hspace{0.15cm}  arg \hspace{0.15cm}  \underset{\phi_0, \phi_1, \sigma^2}{Max} \hspace{0.15cm}  ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,\sigma^2) \hspace{0.07cm} \right)$$
 
 
 This problems can be solved using numeric optimization methods, such as Newton-Raphson or descendent gradient. 
@@ -1883,7 +1893,7 @@ In summary, stationarity is an important property of time series for accurate fo
 ### Maximum Likelihood
 
 
-As it was seen, the fundamental equation of an $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ model is: $\\[0.35cm]$
+As it was seen, the fundamental equation of an $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ model is: $\\[0.5cm]$
 
 
 $$\mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm}  \phi_1 \cdot \mathcal{Y}_{t-1}
@@ -1892,34 +1902,46 @@ $$\mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.08cm}+\hspace{0.0
 
 
 
-Since the error term $\hspace{0.07cm}\varepsilon_t\hspace{0.07cm}$ is Gaussian, namely, $\hspace{0.07cm}\varepsilon_t \sim N(0,\sigma^2)\hspace{0.07cm}$, it turns out that: $\\[0.35cm]$
+Since the error term $\hspace{0.07cm}\varepsilon_t\hspace{0.07cm}$ is Gaussian, namely, $\hspace{0.07cm}\varepsilon_t \sim N(0,\sigma^2)\hspace{0.07cm}$, it turns out that: $\\[0.5cm]$
 
+$$\mathcal{Y}_t \hspace{0.15cm}|\hspace{0.15cm} \mathcal{Y}_{t-1} = y_{t-1} \hspace{0.05cm},\hspace{0.05cm} \mathcal{Y}_{t-2} = y_{t-2} \hspace{0.13cm} = \hspace{0.13cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm}  \phi_1 \cdot y_{t-1} \hspace{0.08cm}+\hspace{0.08cm}  \phi_2 \cdot y_{t-2} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.13cm}\sim\hspace{0.13cm} N\left( \hspace{0.07cm} \phi_0 + \phi_1 \cdot y_{t-1} + \phi_2 \cdot y_{t-2} \hspace{0.13cm} ,\hspace{0.13cm} \sigma^2 \hspace{0.07cm} \right) \hspace{0.35cm} , \hspace{0.35cm} t=3,\dots , n \\[1.5cm]$$ 
  
 
-$$\mathcal{Y}_t \hspace{0.07cm}\sim\hspace{0.07cm} N\left( \hspace{0.07cm} \phi_0 + \phi_1 \cdot y_{t-1} + \phi_2 \cdot y_{t-2} \hspace{0.15cm} ,\hspace{0.15cm} \sigma^2 \hspace{0.07cm} \right) \hspace{0.3cm} , \hspace{0.3cm} t=3,\dots , n \\[0.7cm]$$
+Then, one has the following:
 
+$$
+\mathcal{Y}_t \hspace{0.15cm}|\hspace{0.15cm} \mathcal{Y}_{t-1} = y_{t-1} \hspace{0.06cm},\hspace{0.06cm} \mathcal{Y}_{t-2} = y_{t-2} \hspace{0.15cm} \sim \hspace{0.15cm}
+\frac{1}{\sqrt{2\pi\sigma^2}} \cdot \exp\left(-\frac{(y_t - ( \phi_0 +  \phi_1 \cdot y_{t-1} +\phi_2 \cdot y_{t-2}))^2}{2\sigma^2}\right) \\[1.5cm]
+$$
 
-
-Therefore, the likelihood function of $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ model is:
+Therefore, the likelihood function of $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ model is:
 
 $$\mathcal{L}(\phi_0,\phi_1, \phi_2, \sigma^2) \hspace{0.09cm}=\hspace{0.09cm}
-f_{\mathcal{Y}_3,...,\mathcal{Y}_n}(y_{2},...,y_n)
-\hspace{0.09cm}=\hspace{0.09cm}
-\prod_{t=3}^n\hspace{0.07cm}  f_{\mathcal{Y}_t}(y_t)
-\hspace{0.09cm}=\hspace{0.09cm} \prod_{t=3}^n \hspace{0.07cm}  \frac{1}{\sqrt{2\pi\sigma^2}} \cdot \exp\left(-\frac{(y_t - ( \phi_0 +  \phi_1 \cdot y_{t-1} +  \phi_2 \cdot y_{t-2}))^2}{2\sigma^2}\right)\\$$
+f_{\hspace{0.1cm} (\hspace{0.06cm} \mathcal{Y}_t \hspace{0.1cm}|\hspace{0.1cm} \mathcal{Y}_{t-1}=y_{t-1}\hspace{0.06cm},\hspace{0.06cm} \mathcal{Y}_{t-2}=y_{t-2} \hspace{0.12cm}:\hspace{0.12cm} t=3,...,n \hspace{0.06cm}) } \hspace{0.08cm} (y_{3},...,y_n)
+\hspace{0.1cm}=\hspace{0.1cm}
+\prod_{t=3}^n\hspace{0.1cm}  f_{\hspace{0.06cm}\mathcal{Y}_t \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}_{t-1}=y_{t-1}}(y_t)
+\hspace{0.1cm}=\hspace{0.1cm} \prod_{t=3}^n \hspace{0.1cm}  \frac{1}{\sqrt{2\pi\sigma^2}} \cdot \exp\left(-\frac{(y_t - ( \phi_0 +  \phi_1 \cdot y_{t-1} +\phi_2 \cdot y_{t-2}))^2}{2\sigma^2}\right)\\[0.7cm]$$
 
 
 
-The log-likelihood function is:
+Where:
 
-$$ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1, \phi_2, \sigma^2)\hspace{0.07cm} \right) \hspace{0.09cm}=\hspace{0.09cm} -\frac{n-1}{2} \cdot \ln(2\pi) - \frac{n-1}{2}\cdot \ln(\sigma^2) - \frac{1}{2\sigma^2}\cdot \sum_{t=3}^n \left( y_t - (\phi_0 + \phi_1\cdot y_{t-1}+ \phi_2\cdot y_{t-2}) \right)^2$$
+$$f_{\hspace{0.1cm} (\hspace{0.06cm} \mathcal{Y}_t \hspace{0.1cm}|\hspace{0.1cm} \mathcal{Y}_{t-1}=y_{t-1}\hspace{0.06cm},\hspace{0.06cm} \mathcal{Y}_{t-2}=y_{t-2} \hspace{0.12cm}:\hspace{0.12cm} t=3,...,n \hspace{0.06cm}) } \hspace{0.08cm} (y_{3},...,y_n)
+\hspace{0.1cm}=\hspace{0.1cm}    f_{\hspace{0.1cm}\mathcal{Y}_3 \hspace{0.1cm}|\hspace{0.1cm} \mathcal{Y}_{2}=y_{2}\hspace{0.06cm},\hspace{0.06cm} \mathcal{Y}_{1}=y_{1} \hspace{0.1cm},... ,\hspace{0.1cm} \mathcal{Y}_n \hspace{0.1cm}|\hspace{0.1cm} \mathcal{Y}_{n-1}=y_{n-1}\hspace{0.06cm},\hspace{0.06cm}\mathcal{Y}_{n-2}=y_{n-2}}\hspace{0.08cm} (y_{3},...,y_n) \\[1.5cm]$$
+
+
+
+
+The log-likelihood function is: $\\[0.5cm]$
+
+$$ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1, \phi_2,  \sigma^2)\hspace{0.07cm} \right) \hspace{0.09cm}=\hspace{0.09cm} -\frac{n-1}{2} \cdot \ln(2\pi) - \frac{n-1}{2}\cdot \ln(\sigma^2) - \frac{1}{2\sigma^2}\cdot \sum_{t=3}^n \left( y_t - (\phi_0 + \phi_1\cdot y_{t-1}+ \phi_2\cdot y_{t-2}) \right)^2 \\[1.5cm]$$
 
 
 The $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ parameters estimation is made as follows:
-$\\[0.3cm]$
+$\\[0.5cm]$
 
 
-$$\widehat{\phi}_0, \widehat{\phi}_1, \widehat{\phi}_2,  \widehat{\sigma}^2 \hspace{0.13cm} =\hspace{0.13cm}  arg \hspace{0.13cm}  \underset{\phi_0, \phi_1,\phi_2, \sigma^2}{Max} \hspace{0.13cm}  ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,\phi_2, \sigma^2) \hspace{0.07cm} \right)$$
+$$\widehat{\phi}_0, \widehat{\phi}_1, \widehat{\phi}_2,  \widehat{\sigma}^2 \hspace{0.13cm} =\hspace{0.13cm}  arg \hspace{0.13cm}  \underset{\phi_0, \phi_1,\phi_2, \sigma^2}{Max} \hspace{0.13cm}  ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,\phi_2, \sigma^2) \hspace{0.07cm} \right)\\[0.6cm]$$
 
 
 This problems can be solved using numeric optimization methods, such as Newton-Raphson or descendent gradient. 
@@ -1931,11 +1953,11 @@ This problems can be solved using numeric optimization methods, such as Newton-R
 
 ### Ordinary Least Squares
 
-The ordinary least squares (OLS) method is another common approach for estimating the coefficients of an AR(1) model. This method involves minimizing the sum of the squared residuals between the predicted values of the model and the observed values of the time series.
+The ordinary least squares (OLS) method is another common approach for estimating the coefficients of an $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ model. This method involves minimizing the sum of the squared residuals between the predicted values of the model and the observed values of the time series.
 
-The fundamental equation of an AR(1) model is:
+The fundamental equation of an $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ model is: $\\[0.5cm]$
 
-$$y_t \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm} \phi_1 \cdot  y_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \phi_2 \cdot  y_{t-2} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t$$
+$$y_t \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm} \phi_1 \cdot  y_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \phi_2 \cdot  y_{t-2} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \\[0.6cm]$$
 
 With OLS method, $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ parameters estimation is made as follows:
 $\\[0.3cm]$
@@ -1993,6 +2015,60 @@ Where:
 - $Cov(\mathcal{Y}_{t+h}\hspace{0.08cm},\hspace{0.08cm} \varepsilon_t) \hspace{0.08cm}=\hspace{0.08cm} 0 \hspace{0.3cm},\hspace{0.3cm}  \forall\hspace{0.08cm} t = p+1,\dots  \hspace{0.15cm},\hspace{0.15cm} \forall\hspace{0.08cm}  h = 0,\pm 1,\pm 2,\dots\\$
     
     First two assumptions means that $\hspace{0.08cm}(\hspace{0.03cm}\varepsilon_t \hspace{0.1cm}:\hspace{0.1cm} t = p+1,\dots, n \hspace{0.03cm})\hspace{0.1cm}$ is a **normal white noise proccess**. 
+    
+
+<br>
+
+## Matrix expression of AR(p)  
+    
+Taking into account the following matrix:
+
+$$
+\mathbf{Y} = \begin{pmatrix}
+\mathcal{Y}_{p+1} \\
+\mathcal{Y}_{p+2}\\
+... \\
+\mathcal{Y}_{n}
+\end{pmatrix}
+$$
+
+
+
+$$
+\mathbf{X} = \begin{pmatrix}
+1 & \mathcal{Y}_p & \mathcal{Y}_{p-1} & ... & \mathcal{Y}_{1} \\
+1 & \mathcal{Y}_{p+1} & \mathcal{Y}_{p} & ... & \mathcal{Y}_{2} \\
+... \\
+1 & \mathcal{Y}_{n-1} & \mathcal{Y}_{n-2} & ... & \mathcal{Y}_{n-p} \\
+\end{pmatrix}
+$$
+
+$$
+\boldsymbol{\phi} = \begin{pmatrix}
+\phi_0 \\
+\phi_1 \\
+... \\
+\phi_p 
+\end{pmatrix}
+$$
+
+
+$$
+\boldsymbol{\varepsilon} = \begin{pmatrix}
+\varepsilon_{p+1} \\
+\varepsilon_{p+2} \\
+... \\
+\varepsilon_{n}
+\end{pmatrix}
+$$
+
+
+We can express an AR(p) process as follow:
+
+
+$$\mathbf{Y} \hspace{0.08cm}=\hspace{0.08cm} \mathbf{X}  \cdot \boldsymbol{\phi} \hspace{0.08cm}+\hspace{0.08cm} \boldsymbol{\varepsilon}$$
+
+    
     
     
 <br>    
@@ -2251,43 +2327,44 @@ In summary, stationarity is an important property of time series for accurate fo
 As it was seen, the fundamental equation of an $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ model is: $\\[0.35cm]$
 
 
-$$\mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm} \sum_{h=1}^p  \phi_h \cdot \mathcal{Y}_{t-h}
+$$\mathcal{Y}_t \hspace{0.1cm}=\hspace{0.1cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm} \sum_{h=1}^p \hspace{0.08cm}  \phi_h \cdot \mathcal{Y}_{t-h}
 \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.3cm} , \hspace{0.3cm} t=p+1,\dots , n\\$$
 
 
 
-Since the error term $\hspace{0.09cm}\varepsilon_t\hspace{0.09cm}$ is Gaussian, namely, $\hspace{0.1cm}\varepsilon_t \sim N(0,\sigma^2)\hspace{0.1cm}$, it turns out that: $\\[0.35cm]$
+Since the error term $\hspace{0.07cm}\varepsilon_t\hspace{0.07cm}$ is Gaussian, namely, $\hspace{0.07cm}\varepsilon_t \sim N(0,\sigma^2)\hspace{0.07cm}$, it turns out that: $\\[0.5cm]$
+
+$$\mathcal{Y}_t \hspace{0.15cm}|\hspace{0.15cm} \mathcal{Y}_{t-1} = y_{t-1},\dots \hspace{0.07cm},\hspace{0.07cm} \mathcal{Y}_{t-p} = y_{t-p} \hspace{0.15cm} = \hspace{0.15cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm}  \sum_{h=1}^p \phi_h \cdot y_{t-h} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t \hspace{0.15cm}\sim\hspace{0.15cm} N\left( \hspace{0.07cm} \phi_0 + \sum_{h=1}^p \phi_h \cdot y_{t-h} \hspace{0.13cm} ,\hspace{0.13cm} \sigma^2 \hspace{0.07cm} \right) \hspace{0.35cm} , \hspace{0.35cm} t=p+1,\dots , n \\[1.5cm]$$ 
+ 
+
+
+
+Therefore, the likelihood function of $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ model is: $\\[0.5cm]$
+
+$$\mathcal{L}(\phi_0,\phi_1,..., \phi_p, \sigma^2) \hspace{0.09cm}=\hspace{0.09cm} f_{(\hspace{0.08cm}\mathcal{Y}_t \hspace{0.12cm}|\hspace{0.12cm} \mathcal{Y}_{t-1}\hspace{0.05cm}=\hspace{0.05cm}y_{t-1}\hspace{0.06cm},...,\hspace{0.06cm}\mathcal{Y}_{t-p}\hspace{0.05cm}=\hspace{0.05cm}y_{t-p} \hspace{0.12cm} : \hspace{0.12cm} t\hspace{0.05cm}=\hspace{0.05cm}p+1,...,n \hspace{0.08cm})}
+\hspace{0.1cm}=\hspace{0.1cm} \prod_{t=p+1}^n \hspace{0.1cm}  \frac{1}{\sqrt{2\pi\sigma^2}} \cdot \exp\left(-\frac{(y_t - ( \phi_0 + \sum_{h=1}^p \phi_h \cdot y_{t-h}))^2}{2\sigma^2}\right)\\[1.5cm]$$
 
  
 
-$$\mathcal{Y}_t \hspace{0.07cm}\sim\hspace{0.07cm} N\left( \hspace{0.07cm} \phi_0 + \sum_{h=1}^p \phi_h \cdot y_{t-h} \hspace{0.15cm} ,\hspace{0.15cm} \sigma^2 \hspace{0.07cm} \right) \hspace{0.3cm} , \hspace{0.3cm} t=p+1,\dots , n \\[0.7cm]$$
-
-
-
-Therefore, the likelihood function of $\hspace{0.08cm}AR(1)\hspace{0.08cm}$ model is:
-
-$$\mathcal{L}(\phi_0,\phi_1, \phi_2, \sigma^2) \hspace{0.09cm}=\hspace{0.09cm}
-f_{\mathcal{Y}_3,...,\mathcal{Y}_n}(y_{2},...,y_n)
-\hspace{0.09cm}=\hspace{0.09cm}
-\prod_{t=3}^n\hspace{0.07cm}  f_{\mathcal{Y}_t}(y_t)
-\hspace{0.09cm}=\hspace{0.09cm} \prod_{t=3}^n \hspace{0.07cm}  \frac{1}{\sqrt{2\pi\sigma^2}} \cdot \exp\left(-\frac{(y_t - ( \phi_0 +  \phi_1 \cdot y_{t-1} +  \phi_2 \cdot y_{t-2}))^2}{2\sigma^2}\right)\\$$
-
-$$ L(\phi_0, \phi_1, \ldots, \phi_p, \sigma^2 | \mathcal{Y}_1, \mathcal{Y}2, \ldots, \mathcal{Y}n) = (2 \pi \sigma^2)^{-n/2} \exp\left( -\frac{1}{2\sigma^2} \sum{t=p+1}^n (\mathcal{Y}t - \phi_0 - \sum{h=1}^p \phi_h \cdot \mathcal{Y}{t-h})^2 \right) $$
-
 The log-likelihood function is:
 
-$$ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1, \phi_2, \sigma^2)\hspace{0.07cm} \right) \hspace{0.09cm}=\hspace{0.09cm} -\frac{n-1}{2} \cdot \ln(2\pi) - \frac{n-1}{2}\cdot \ln(\sigma^2) - \frac{1}{2\sigma^2}\cdot \sum_{t=3}^n \left( y_t - (\phi_0 + \phi_1\cdot y_{t-1}+ \phi_2\cdot y_{t-2}) \right)^2$$
+$$ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,..., \phi_p,  \sigma^2)\hspace{0.07cm} \right) \hspace{0.09cm}=\hspace{0.09cm} -\frac{n-1}{2} \cdot \ln(2\pi) - \frac{n-1}{2}\cdot \ln(\sigma^2) - \frac{1}{2\sigma^2}\cdot \sum_{t=3}^n \left( y_t - (\phi_0 + \sum_{h=1}^n \phi_h \cdot y_{t-h}) \right)^2 \\[1.5cm]$$
 
 
-The $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ parameters estimation is made as follows:
-$\\[0.3cm]$
+The $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ parameters estimation is made as follows:
+$\\[0.5cm]$
 
 
-$$\widehat{\phi}_0, \widehat{\phi}_1, \widehat{\phi}_2,  \widehat{\sigma}^2 \hspace{0.13cm} =\hspace{0.13cm}  arg \hspace{0.13cm}  \underset{\phi_0, \phi_1,\phi_2, \sigma^2}{Max} \hspace{0.13cm}  ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,\phi_2, \sigma^2) \hspace{0.07cm} \right)$$
+$$\widehat{\phi}_0, \widehat{\phi}_1,..., \widehat{\phi}_p,  \widehat{\sigma}^2 \hspace{0.15cm} =\hspace{0.15cm}  arg \hspace{0.15cm}  \underset{\phi_0, \phi_1,...,\phi_p, \sigma^2}{Max} \hspace{0.13cm}  ln\left( \hspace{0.07cm}  \mathcal{L}(\phi_0,\phi_1,...,\phi_p, \sigma^2) \hspace{0.07cm} \right)$$
 
 
 This problems can be solved using numeric optimization methods, such as Newton-Raphson or descendent gradient. 
 
+
+ 
+ 
+ 
+ 
 
 
 <br>
@@ -2295,22 +2372,29 @@ This problems can be solved using numeric optimization methods, such as Newton-R
 
 ### Ordinary Least Squares
 
-The ordinary least squares (OLS) method is another common approach for estimating the coefficients of an AR(1) model. This method involves minimizing the sum of the squared residuals between the predicted values of the model and the observed values of the time series.
+The ordinary least squares (OLS) method is another common approach for estimating the coefficients of an $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ model. This method involves minimizing the sum of the squared residuals between the predicted values of the model and the observed values of the time series.
 
-The fundamental equation of an AR(1) model is:
+The fundamental equation of an $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ model is: $\\[0.5cm]$
 
-$$y_t \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm} \phi_1 \cdot  y_{t-1} \hspace{0.08cm}+\hspace{0.08cm} \phi_2 \cdot  y_{t-2} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t$$
+$$y_t \hspace{0.08cm}=\hspace{0.08cm} \phi_0 \hspace{0.08cm}+\hspace{0.08cm} \sum_{h=1}^p \hspace{0.05cm} \phi_h \cdot  y_{t-h} \hspace{0.08cm}+\hspace{0.08cm} \varepsilon_t  \\[0.8cm]$$
 
-With OLS method, $\hspace{0.08cm}AR(2)\hspace{0.08cm}$ parameters estimation is made as follows:
-$\\[0.3cm]$
+With OLS method, $\hspace{0.08cm}AR(p)\hspace{0.08cm}$ parameters estimation is made as follows:
+$\\[0.5cm]$
 
 
-$$\widehat{\phi}_0, \widehat{\phi}_1, \widehat{\phi}_2 \hspace{0.13cm} =\hspace{0.13cm}  arg \hspace{0.13cm}  \underset{\phi_0, \phi_1, \phi_2}{Min} \hspace{0.13cm}  \sum_{t=3}^n \hspace{0.08cm}e_t^2 \hspace{0.08cm}=\hspace{0.08cm} \sum_{t=3}^n \hspace{0.08cm} \left(y_t - (\phi_0 + \phi_1\cdot y_{t-1} + \phi_2\cdot y_{t-2}) \right)^2$$
+$$\widehat{\phi}_0, \widehat{\phi}_1,..., \widehat{\phi}_p \hspace{0.13cm} =\hspace{0.13cm}  arg \hspace{0.13cm}  \underset{\phi_0, \phi_1,..., \phi_p}{Min} \hspace{0.13cm}  \sum_{t=p+1}^n \hspace{0.08cm}e_t^2 \hspace{0.13cm}=\hspace{0.13cm} \sum_{t=p+1}^n \hspace{0.08cm} \left(y_t - (\phi_0 + \sum_{h=1}^n \phi_h \cdot y_{t-h} ) \right)^2 \\[0.8cm]$$
+
+
+
+
+
+
+
 
 
 This problems can be solved using classical optimization techniques or numeric optimization methods, such as Newton-Raphson or descendent gradient. 
 
-  
+<br>
 
 But in this case, there is a closed-form solution for the ordinary least squares (OLS) method to estimate the coefficients of an AR(p) model. The OLS method seeks to minimize the sum of squared residuals between the predicted values of the AR(p) model and the observed values.
 
