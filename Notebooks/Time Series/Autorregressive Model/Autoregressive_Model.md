@@ -785,7 +785,7 @@ plt.show()
 
 <br>
 
-The following plot has superimposed trend on the time series:
+The following plot has a trend superimposed on the time series:
 
 ```python
 fig, ax = plt.subplots()
@@ -2425,15 +2425,110 @@ $$\hat{\boldsymbol{\phi}}\hspace{0.08cm}=\hspace{0.08cm}(\mathbf{X}^t \cdot \mat
 
 
  
-# AR(p) model in `Python`
+# Forcasting with AR(p) model in `Python`
+
+```python
+from statsmodels.tsa.arima.model import ARIMA
+```
 
 
+## AR(1) 
+
+```python
+p=1
+
+AR_1_model = ARIMA(Weekly_Time_Series_1['Ventas'], order=(p,0,0))
+
+AR_1_model = AR_1_model.fit()
+```
+
+```python
+k = 5
+
+n = len(Weekly_Time_Series_1) - 1
+
+Y_predict_AR_1 = AR_1_model.predict(start= n + 1, end= n + k)
+```
+```python
+Y_predict_AR_1
+```
+```
+99     299603.813264
+100    295344.854457
+101    293757.380160
+102    293165.668722
+103    292945.115591
+Name: predicted_mean, dtype: float64
+```
 
 
+<br>
 
 
+## AR(2)
 
- 
+```python
+p=2
+
+AR_2_model = ARIMA(Weekly_Time_Series_1['Ventas'], order=(p,0,0))
+
+AR_2_model = AR_2_model.fit()
+```
+
+```python
+k = 5
+
+n = len(Weekly_Time_Series_1) - 1
+
+Y_predict_AR_2 = AR_2_model.predict(start= n + 1, end= n + k)
+```
+
+```python
+Y_predict_AR_2
+```
+```
+99     295235.294447
+100    295733.738232
+101    294054.681878
+102    293561.810618
+103    293204.182323
+Name: predicted_mean, dtype: float64
+```
+
+
+<br>
+
+
+## AR(3)
+
+```python
+p=3
+
+AR_3_model = ARIMA(Weekly_Time_Series_1['Ventas'], order=(p,0,0))
+
+AR_3_model = AR_3_model.fit()
+```
+
+```python
+k = 5
+
+n = len(Weekly_Time_Series_1) - 1
+
+Y_predict_AR_3 = AR_3_model.predict(start= n + 1, end= n + k)
+```
+
+```python
+Y_predict_AR_3
+```
+```
+99     302981.143897
+100    286070.378339
+101    296833.462374
+102    297198.266674
+103    291939.312891
+Name: predicted_mean, dtype: float64
+```
+
 
 <br>
 
