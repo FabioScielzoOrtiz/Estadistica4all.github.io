@@ -79,17 +79,17 @@ Los algoritmos de validación son una familia muy importante de algoritmos dentr
 
 Distinguiremos dos tipos de algoritmos de validación de modelos:
 
-- Métodos de validación de modelos de **aprendizaje supervisado** $\hspace{0.2cm} \Rightarrow\hspace{0.2cm}$ son algoritmos que permiten evaluar modelos de aprendizaje supervisado usando **muestras de test y train de los predictores y la respuesta**, y una **métrica de evaluación**.
+- Métodos de validación de modelos de **aprendizaje supervisado** $\hspace{0.3cm} \Rightarrow\hspace{0.3cm}$ son algoritmos que permiten evaluar modelos de aprendizaje supervisado usando **muestras de test y train de los predictores y la respuesta**, y una **métrica de evaluación**. $\\[0.4cm]$
 
-- Métodos de evaluación de modelos de **aprendizaje no supervisado** $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ son algoritmos que permiten evaluar modelos de aprendizaje no supervisado usando una **muestra de train de los predictores** y una **métrica de evaluación**.
+- Métodos de evaluación de modelos de **aprendizaje no supervisado** $\hspace{0.3cm}\Rightarrow\hspace{0.3cm}$ son algoritmos que permiten evaluar modelos de aprendizaje no supervisado usando una **muestra de train de los predictores** y una **métrica de evaluación**. $\\[0.55cm]$
 
 
-<br>
+
 
 **Observación:**
 
 Los métodos de validación de modelos de **aprendizaje supervisado**
-también son llamados **métodos de validación cruzada**. Aunque realmente son mucho más conocidos por su nombre en ingles: **cross validation**
+también son llamados **métodos de validación cruzada**. Aunque realmente son mucho más conocidos por su nombre en inglés: **cross validation**
 
 <br>
 
