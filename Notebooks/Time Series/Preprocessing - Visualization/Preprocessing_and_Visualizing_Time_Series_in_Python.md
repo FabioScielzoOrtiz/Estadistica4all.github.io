@@ -688,7 +688,6 @@ plt.title("Daily Time Series", fontsize = 17)
 
 plt.tight_layout()
 
-
 fig.savefig('p2.jpg', format='jpg', dpi=500)
 
 plt.show()
@@ -869,18 +868,19 @@ p.set_xticks(np.arange(0 , len(Weekly_Time_Series_1) , 5))
 
 plt.setp(p.get_xticklabels(), rotation=90)
 
-plt.tight_layout()
 
 plt.title("Weekly Time Series",  fontsize = 17)
 
-fig.savefig('p3.jpg', format='jpg', dpi=500)
+plt.tight_layout()
+
+fig.savefig('p3_1.jpg', format='jpg', dpi=500)
 
 plt.show()
 ```
 
 <center>
     
-![ ](p3.jpg){width="60%"}
+![ ](p3_1.jpg){width="60%"}
     
 
 </center>
