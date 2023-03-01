@@ -3015,7 +3015,7 @@ D(\delta , A)^{(2)} \hspace{0.08cm}= \hspace{0.08cm}
 <pre><code>1969900.0019225744</code></pre>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Euclidea(Data):</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Paso previo necesario si Data es pd.DataFrame  --&gt; Data = Data.to_numpy()</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    Data <span class="op">=</span> Data.to_numpy()</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
@@ -3032,11 +3032,11 @@ D(\delta , A)^{(2)} \hspace{0.08cm}= \hspace{0.08cm}
 <span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
 <span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Euclidea(Data[i,:] , Data[r,:])  <span class="co"># Seria bueno paralelizar esta parte</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Euclidea(Data[i,:] , Data[r,:])   </span>
 <span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>                      </span>
 <span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>M_Euclidean <span class="op">=</span> Matrix_Dist_Euclidea(Data<span class="op">=</span>Data_quant_numpy)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>M_Euclidean <span class="op">=</span> Matrix_Dist_Euclidea(Data<span class="op">=</span>Data_quant)</span></code></pre></div>
 <div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>M_Euclidean</span></code></pre></div>
 <pre><code>array([[      0.        ,  150000.00728238, 1550000.00212124, ...,
          200000.01565902, 2025000.00024491, 1939113.00017324],
@@ -3046,12 +3046,11 @@ D(\delta , A)^{(2)} \hspace{0.08cm}= \hspace{0.08cm}
         1750000.00000111,  475000.01333737,  389113.0147095 ],
        ...,
        [      0.        ,       0.        ,       0.        , ...,
-              0.        , 2225000.00274952, 2139113.00257909],
+              1.        , 2225000.00274952, 2139113.00257909],
        [      0.        ,       0.        ,       0.        , ...,
-              0.        ,       0.        ,   85887.00018092],
+              2.        ,       0.        ,   85887.00018092],
        [      0.        ,       0.        ,       0.        , ...,
-              0.        ,       0.        ,       0.        ]])</code></pre>
-<p><br></p>
+              3.        ,       0.        ,       0.        ]])</code></pre>
 <div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>M_Euclidean <span class="op">=</span> M_Euclidean <span class="op">+</span> M_Euclidean.T</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>M_Euclidean</span></code></pre></div>
@@ -3076,20 +3075,20 @@ D(\delta , A)^{(2)} \hspace{0.08cm}= \hspace{0.08cm}
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de Minkowski de parametro <span class="math inline">\(\hspace{0.1cm} q=1,2,3,... \hspace{0.1cm}\)</span> entre el par de observaciones <span class="math inline">\(\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}\)</span> de las variables estadisticas <span class="math inline">\(\hspace{0.1cm} \mathcal{X}_1,. ..,\mathcal{X}_k\hspace{0.1cm}\)</span> se define como: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de Minkowski con parametro <span class="math inline">\(\hspace{0.1cm} q=1,2,3,\dots \hspace{0.13cm}\)</span> entre el par de observaciones <span class="math inline">\(\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}\)</span> de las variables estadisticas <span class="math inline">\(\hspace{0.1cm} \mathcal{X}_1,. ..,\mathcal{X}_k\hspace{0.1cm}\)</span> se define como: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[
-\hspace{0.25cm} \delta_q(x_i,x_r)_{Mink} \hspace{0.1cm} = \hspace{0.1cm}  \left( \sum_{k=1}^{p}  \mid x_{ik} - x_{jk} \mid  ^q  \right)^{(1/q)}     
+\delta_q(x_i,x_r)_{Mink} \hspace{0.1cm} = \hspace{0.1cm}  \left(  \sum_{k=1}^{p} \hspace{0.08cm}  \mid x_{ik} - x_{rk} \mid  ^q  \right)^{(1/q)}     
 \]</span></p>
 </p>
 </p>
 <p></span></p>
 </div>
 <p><br></p>
+<p><strong>Distancia Minkowski entre vectores</strong></p>
+<p>La distancia de Minkowski puede definirse de un modo más general no sujeto al contexto estadístico.</p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Distancia Minkowski entre vectores</strong></p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de Minkowski puede definirse de un modo mas general no sujeto al contexto estadistico.</p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Dados dos vectores <span class="math inline">\(\hspace{0.1cm} v=(v_1,...,v_n)^t\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm} w=(w_1,...,w_n)^t\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathbb{R}^n \\\)</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de Minkowski entre esos vectores se define como:</p>
 <p><span class="math display">\[
@@ -3099,16 +3098,15 @@ D(\delta , A)^{(2)} \hspace{0.08cm}= \hspace{0.08cm}
 </p>
 <p></span></p>
 </div>
-<ul>
-<li>Asi que <span class="math inline">\(\hspace{0.1cm} \delta_q(x_i,x_r)_{Minkowski}\hspace{0.1cm}\)</span> es la distancia de Minkowski entre los vectores (de observaciones) <span class="math inline">\(\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}\)</span> de las variables estadisticas <span class="math inline">\(\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p\)</span></li>
-</ul>
+<p><strong>Observación:</strong></p>
+<p><span class="math inline">\(\hspace{0.1cm} \delta_q(x_i,x_r)_{Minkowski}\hspace{0.1cm}\)</span> es la distancia de Minkowski entre los vectores (de observaciones) <span class="math inline">\(\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}\)</span> de las variables estadísticas <span class="math inline">\(\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p \hspace{0.07cm}.\)</span></p>
 <p><br></p>
 <p><strong>Desventajas de la distancia de Minkowski</strong></p>
-<ol style="list-style-type: decimal">
-<li><p>Asume que las variables son incorreladas y tienen varianza uno.</p></li>
-<li><p>No es invariante ante cambios de escala (cambios en las unidades de medida) de las variables.</p></li>
+<ul>
+<li><p>Asume que las variables son incorreladas y tienen varianza uno. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p>No es invariante ante cambios de escala (cambios en las unidades de medida) de las variables. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
 <li><p>Es dificilmente euclideanizable.</p></li>
-</ol>
+</ul>
 <p><br></p>
 <div id="casos-particulares-de-la-distancia-de-minkowski" class="section level3" number="3.3.1">
 <h3><span class="header-section-number">3.3.1</span> Casos particulares de la distancia de Minkowski</h3>

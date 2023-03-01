@@ -988,6 +988,7 @@ Aunque es una de las distancias más usadas en la práctica, en muchos casos no 
 
 
 
+
 ```python
 def Dist_Euclidea(x_i, x_r):
 
@@ -1014,7 +1015,7 @@ Dist_Euclidea(Data_quant.iloc[2,:] , Data_quant.iloc[5,:])
 ```python
 def Matrix_Dist_Euclidea(Data):
 
-    # Paso previo necesario si Data es pd.DataFrame  --> Data = Data.to_numpy()
+    Data = Data.to_numpy()
 
     n = len(Data)
 
@@ -1031,7 +1032,7 @@ def Matrix_Dist_Euclidea(Data):
 
              else :
 
-                 M[i,r] = Dist_Euclidea(Data[i,:] , Data[r,:])  # Seria bueno paralelizar esta parte
+                 M[i,r] = Dist_Euclidea(Data[i,:] , Data[r,:])   
 
                       
     return M 
@@ -1039,7 +1040,7 @@ def Matrix_Dist_Euclidea(Data):
 
 
 ```python
-M_Euclidean = Matrix_Dist_Euclidea(Data=Data_quant_numpy)
+M_Euclidean = Matrix_Dist_Euclidea(Data=Data_quant)
 ```
 
 
@@ -1058,14 +1059,14 @@ M_Euclidean
             1750000.00000111,  475000.01333737,  389113.0147095 ],
            ...,
            [      0.        ,       0.        ,       0.        , ...,
-                  0.        , 2225000.00274952, 2139113.00257909],
+                  1.        , 2225000.00274952, 2139113.00257909],
            [      0.        ,       0.        ,       0.        , ...,
-                  0.        ,       0.        ,   85887.00018092],
+                  2.        ,       0.        ,   85887.00018092],
            [      0.        ,       0.        ,       0.        , ...,
-                  0.        ,       0.        ,       0.        ]])
+                  3.        ,       0.        ,       0.        ]])
 
 
-<br>
+
 
 ```python
 M_Euclidean = M_Euclidean + M_Euclidean.T
@@ -1092,6 +1093,10 @@ M_Euclidean
 
 
 
+
+
+
+
 <br>
 
 <br>
@@ -1103,11 +1108,11 @@ M_Euclidean
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ La distancia de Minkowski de parametro $\hspace{0.1cm} q=1,2,3,... \hspace{0.1cm}$ entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm} \mathcal{X}_1,. ..,\mathcal{X}_k\hspace{0.1cm}$  se define como: $\\[0.5cm]$
+$\hspace{0.25cm}$ La distancia de Minkowski con parametro $\hspace{0.1cm} q=1,2,3,\dots \hspace{0.13cm}$ entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm} \mathcal{X}_1,. ..,\mathcal{X}_k\hspace{0.1cm}$  se define como: $\\[0.5cm]$
 
 
 $$
-\hspace{0.25cm} \delta_q(x_i,x_r)_{Mink} \hspace{0.1cm} = \hspace{0.1cm}  \left( \sum_{k=1}^{p}  \mid x_{ik} - x_{jk} \mid  ^q  \right)^{(1/q)}     
+ \delta_q(x_i,x_r)_{Mink} \hspace{0.1cm} = \hspace{0.1cm}  \left(  \sum_{k=1}^{p} \hspace{0.08cm}  \mid x_{ik} - x_{rk} \mid  ^q  \right)^{(1/q)}     
 $$
 
 </p>
@@ -1121,16 +1126,16 @@ $$
 
 
 
+**Distancia Minkowski entre vectores**
+
+
+La distancia de Minkowski puede definirse de un modo más general no sujeto al contexto estadístico.
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ **Distancia Minkowski entre vectores**
-
-
-$\hspace{0.25cm}$ La distancia de Minkowski puede definirse de un modo mas general no sujeto al contexto estadistico.
 
 $\hspace{0.25cm}$ Dados dos vectores $\hspace{0.1cm} v=(v_1,...,v_n)^t\hspace{0.1cm}$ y $\hspace{0.1cm} w=(w_1,...,w_n)^t\hspace{0.1cm}$ de $\hspace{0.1cm}\mathbb{R}^n \\$
 
@@ -1147,8 +1152,9 @@ $$
 </p></span>
 </div>
 
+**Observación:**
 
-- Asi que $\hspace{0.1cm} \delta_q(x_i,x_r)_{Minkowski}\hspace{0.1cm}$ es la distancia de Minkowski entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}$ y $\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p$
+$\hspace{0.1cm} \delta_q(x_i,x_r)_{Minkowski}\hspace{0.1cm}$ es la distancia de Minkowski entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}$ y $\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p \hspace{0.07cm}.$
 
 
 <br>
@@ -1157,11 +1163,11 @@ $$
 **Desventajas de la distancia de Minkowski**
 
 
-1) Asume que las variables son incorreladas y tienen varianza uno.
+- Asume que las variables son incorreladas y tienen varianza uno. $\\[0.4cm]$
 
-2) No es invariante ante cambios de escala (cambios en las unidades de medida) de las variables.
+- No es invariante ante cambios de escala (cambios en las unidades de medida) de las variables. $\\[0.4cm]$
 
-3) Es dificilmente euclideanizable.
+- Es dificilmente euclideanizable.
 
 
 

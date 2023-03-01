@@ -88,16 +88,19 @@ import seaborn as sns
 
 sns.set_style("darkgrid")
 ```
- 
-We load a time series data-set, in this case the minimum periodicity of the time series is daily:
+<br>
 
+Next, we load a time series dataset. 
 ```python
 Time_Series_1 = pd.read_csv('Time_Series_1.csv')
 ```
+<br>
 
-We are going to expose some preprocessing time series task, not many but important. 
+In this case, the periodicity of the original time series is daily, which will allow us to transform it to other higher periodicities.
 
-When we have a time series, usually we will have a date column, in this data-set called *Fecha*.
+Now, we are going to expose some preprocessing time series task, not many but important. 
+
+When we have a time series, often we will have a **date column** in *yy-mm-dd* or *dd-mm-yy* format , in this data-set that column is called *Fecha* and it has *yy-mm-dd* format.
 
 When we have identified the date column we must convert it to date-time format. We can do it using `Pandas` as follows:
 
@@ -105,6 +108,7 @@ When we have identified the date column we must convert it to date-time format. 
 Time_Series_1['Fecha'] = pd.to_datetime(Time_Series_1['Fecha'])
 ```
 
+<br>
 
 Other important preprocessing task when we have a time series data-set is to create new columns with the day, week, month, quarter, and year associated to each observation. 
 
@@ -122,7 +126,7 @@ Time_Series_1['Trimestre'] = Time_Series_1['Fecha'].dt.quarter
 Time_Series_1['Año'] = Time_Series_1['Fecha'].dt.year
 ```
 
-
+<br>
 
 We select the specific columns we will use throughout this article. The response variable will be the *Ventas* column, and the rest are columns related with the observation date.
 
@@ -282,7 +286,7 @@ Time_Series_1
 </div>
 
 
-
+<br>
 
 <br>
 
