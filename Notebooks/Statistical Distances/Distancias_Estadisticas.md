@@ -642,14 +642,6 @@ Data_mixed.head()
 
 <br>
 
-```python
-Data_quant_numpy = Data_quant.to_numpy()
-Data_binary_numpy = Data_binary.to_numpy()
-Data_multiclass_numpy = Data_multiclass.to_numpy()
-Data_mixed_numpy = Data_mixed.to_numpy()
-```
-
-
 
 <br>
 
@@ -659,7 +651,7 @@ Data_mixed_numpy = Data_mixed.to_numpy()
 Es un concepto que permite expresar una medida de distancia entre un par de elementos cualesquiera.
 
 
-Dado un conjunto cualquiera $\hspace{0.1cm}A$
+Dado un conjunto cualquiera $\hspace{0.1cm}A\hspace{0.08cm}$.
 
 
 ## Casi-métrica 
@@ -670,14 +662,14 @@ Dado un conjunto cualquiera $\hspace{0.1cm}A$
 <p style='margin-left:1em;'>
 
 
-$\hspace{0.25cm}$ Denominamos casi-metrica o disimilaridad a cualquier función $\hspace{0.1cm}\delta : A \hspace{0.05cm}x\hspace{0.05cm} A \rightarrow \mathbb{R}\hspace{0.1cm}$ que tiene las siguientes propiedades: $\\[0.5cm]$
+$\hspace{0.25cm}$ Denominamos casi-métrica o disimilaridad a cualquier función $\hspace{0.1cm}\delta : A \hspace{0.05cm}\text{x}\hspace{0.05cm} A \rightarrow \mathbb{R}\hspace{0.1cm}$ que tiene las siguientes propiedades: $\\[0.5cm]$
 
 
-$\hspace{0.35cm} 1)$ $\hspace{0.25cm}\delta (i,j) \geq 0 \hspace{0.25cm} , \hspace{0.25cm}   \forall i,j \in A \\$
+- $\delta (i,j) \geq 0 \hspace{0.3cm} , \hspace{0.3cm}   \forall \hspace{0.08cm} i,j \in A \\$
 
-$\hspace{0.35cm}  2)$ $\hspace{0.25cm}\delta (i,i) = 0 \hspace{0.25cm} , \hspace{0.25cm} \forall i \in  A \\$
+- $\delta (i,i) = 0 \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.08cm} i \in  A \\$
 
-$\hspace{0.35cm}  3)$ $\hspace{0.25cm}\delta (i,j) = \delta (j, i) \hspace{0.25cm} , \hspace{0.25cm} \forall i,j \in A$
+- $\delta (i,j) = \delta (j, i) \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.08cm} i,j \in A$
 
 </p>
  
@@ -699,7 +691,7 @@ $\hspace{0.35cm}  3)$ $\hspace{0.25cm}\delta (i,j) = \delta (j, i) \hspace{0.25c
 $\hspace{0.25cm}$ Es denominada **semi-métrica**  a toda disimilaridad (casi-métrica) que tiene la propiedad siguiente (desigualdad triangular):
 
 
-$\hspace{0.35cm}  4)$ $\hspace{0.25cm} \delta (i,j) \hspace{0.1 cm}\leq \hspace{0.1 cm} \delta (i,k) + \delta (k,j) \hspace{0.25cm} , \hspace{0.25cm} \forall i,j,k \in A$
+- $\delta (i,j) \hspace{0.15cm}\leq \hspace{0.15cm} \delta (i,k) \hspace{0.1cm} + \hspace{0.1cm} \delta (k,j) \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.08cm} i,j,k \in A$
 
 </p>
  
@@ -718,9 +710,9 @@ $\hspace{0.35cm}  4)$ $\hspace{0.25cm} \delta (i,j) \hspace{0.1 cm}\leq \hspace{
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ Se denomina **metrica**  a toda semi-metrica que tiene la siguiente propiedad:
+$\hspace{0.25cm}$ Se denomina **metrica**  a toda semi-métrica que tiene la siguiente propiedad:
 
-$\hspace{0.35cm} 5)$ $\hspace{0.25cm} \delta (i,j)=0 \hspace{0.15cm}\Leftrightarrow\hspace{0.15cm} i=j \hspace{0.25cm} , \hspace{0.25cm} \forall i,j \in A$
+- $\delta (i,j)=0 \hspace{0.25cm}\Leftrightarrow\hspace{0.25cm} i=j \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.08cm} i,j \in A$
 
 </p>
  
@@ -733,7 +725,7 @@ $\hspace{0.35cm} 5)$ $\hspace{0.25cm} \delta (i,j)=0 \hspace{0.15cm}\Leftrightar
 
 ## Distancia  
 
-- Una **distancia** es una metrica o semi-metrica
+- Una **distancia** es una métrica o semi-métrica.
  
 
 Expresandolo de otra manera:
@@ -745,22 +737,22 @@ Expresandolo de otra manera:
 
 $\hspace{0.25cm}$ Sea $\hspace{0.1cm}\delta : A \hspace{0.05cm}x\hspace{0.05cm} A \rightarrow \mathbb{R}\hspace{0.1cm}$
 
-$\hspace{0.35cm} \delta$ es una distancia si y solo si : 
+$\hspace{0.35cm} \delta$ es una distancia, si y solo si : 
 
-$\hspace{0.25cm}$ Cumple las siguientes cuatro propiedades:
+$\hspace{0.35cm}$ Cumple las siguientes cuatro propiedades:
 
-$\hspace{0.35cm} 1)$  $\hspace{0.25cm}\delta (i,j) \geq 0 \hspace{0.25cm} , \hspace{0.25cm} \forall i,j \in A \\$
+-  $\delta (i,j)\hspace{0.1cm} \geq \hspace{0.1cm} 0 \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.08cm} i,j \in A \\$
 
-$\hspace{0.35cm} 2)$  $\hspace{0.25cm}\delta (i,i) = 0 \hspace{0.25cm} , \hspace{0.25cm} \forall i \in  A \\$
+- $\delta (i,i) \hspace{0.08cm}=\hspace{0.08cm} 0 \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} i \in  A \\$
 
-$\hspace{0.35cm} 3)$  $\hspace{0.25cm}\delta (i,j) = \delta (j, i) \hspace{0.25cm} , \hspace{0.25cm} \forall i,j \in A \\$
+-  $\delta (i,j) \hspace{0.1cm}=\hspace{0.1cm} \delta (j, i) \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} i,j \in A \\$
 
-$\hspace{0.35cm} 4)$  $\hspace{0.25cm} \delta (i,j) \hspace{0.1 cm}\leq \hspace{0.1 cm} \delta (i,k) + \delta (k,j) \hspace{0.25cm} , \hspace{0.25cm} \forall i,j,k \in A$
+- $\delta (i,j) \hspace{0.1 cm}\leq \hspace{0.1 cm} \delta (i,k) \hspace{0.1cm}+\hspace{0.1cm} \delta (k,j) \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} i,j,k \in A$
 
 
 $\hspace{0.25cm}$ o bien, cumple las cuatro anteriores y además la siguiente propiedad:
 
-$\hspace{0.35cm} 5)$ $\hspace{0.25cm} \delta (i,j)=0 \hspace{0.15cm}\Leftrightarrow\hspace{0.15cm} i=j \hspace{0.25cm} , \hspace{0.25cm} \forall i,j \in A \\$
+- $\delta (i,j) \hspace{0.1cm}= \hspace{0.1cm} 0 \hspace{0.25cm}\Leftrightarrow\hspace{0.25cm} i=j \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} i,j \in A \\$
 
 </p>
  
@@ -778,13 +770,13 @@ $\hspace{0.35cm} 5)$ $\hspace{0.25cm} \delta (i,j)=0 \hspace{0.15cm}\Leftrightar
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ Dada una distanccia $\delta$ definida sobre el conjutno  $\hspace{0.1cm} A=\lbrace a_1,...,a_n\rbrace$ 
+$\hspace{0.25cm}$ Dada una distanccia $\hspace{0.08cm}\delta\hspace{0.08cm}$ definida sobre el conjutno  $\hspace{0.08cm} A=\lbrace a_1,...,a_n\rbrace\hspace{0.08cm}$ .
 
-$\hspace{0.25cm}$ Se define la matriz de distancias $\delta$ sobre $A$ como: $\\[0.7cm]$
+$\hspace{0.25cm}$ Se define la **matriz de distancias** $\hspace{0.08cm}\delta\hspace{0.08cm}$ sobre el conjunto de elementos $\hspace{0.08cm}A\hspace{0.08cm}$ como: $\\[0.7cm]$
 
 
 $$
-D(\delta , A) = \begin{pmatrix}
+D(\delta , A) \hspace{0.08cm}=\hspace{0.08cm} \begin{pmatrix}
 0 & \delta_{12}&...&\delta_{1n}\\
 \delta_{21} & 0&...&\delta_{2n}\\
 ...&...&...&...\\
@@ -795,9 +787,9 @@ $$
 
 $\hspace{0.25cm}$ Donde:
  
-$\hspace{0.35cm} \delta_{ir} = \delta(a_i,a_r) \hspace{0.25cm} , \hspace{0.25cm} \forall i,r \in \lbrace 1,...,n \rbrace$
+$\hspace{0.5cm} \delta_{ir} = \delta(a_i,a_r) \hspace{0.25cm} , \hspace{0.25cm} \forall i,r \in \lbrace 1,...,n \rbrace$
 
-$\hspace{0.35cm} \delta_{ir}\hspace{0.1cm}$ puede interpretarse como la distancia $\hspace{0.1cm}\delta\hspace{0.1cm}$ entre el par de elementos $\hspace{0.1cm}(a_i,a_r)\hspace{0.1cm}$ de $\hspace{0.1cm}A$
+$\hspace{0.5cm} \delta(a_i,a_r)\hspace{0.1cm}$ puede interpretarse como la distancia $\hspace{0.1cm}\delta\hspace{0.1cm}$ entre el par de elementos $\hspace{0.1cm}(a_i,a_r)\hspace{0.1cm}$ de $\hspace{0.1cm}A\hspace{0.08cm}.$
 
 </p>
  
@@ -811,12 +803,12 @@ $\hspace{0.35cm} \delta_{ir}\hspace{0.1cm}$ puede interpretarse como la distanci
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ También es relevante en algunas técnicas estadisticas la matrid de cuadrados de las distancias: $\\[0.7cm]$
+$\hspace{0.25cm}$ También es relevante en algunas técnicas estadísticas la **matriz de cuadrados de las distancias**: $\\[0.7cm]$
 
 
 
 $$
-D(\delta , A)^{(2)}= 
+D(\delta , A)^{(2)} \hspace{0.08cm}= \hspace{0.08cm}
 \begin{pmatrix}
 0 & \delta^2_{12}&...&\delta^2_{1n}\\
 \delta^2_{21} & 0&...&\delta^2_{2n}\\
@@ -832,6 +824,9 @@ $$
 </p></span>
 </div>
 
+
+**Observación:**
+
 No debe confundirse con  $\hspace{0.1cm} D\hspace{0.05cm}^2=D\cdot D$
 
 
@@ -846,24 +841,23 @@ No debe confundirse con  $\hspace{0.1cm} D\hspace{0.05cm}^2=D\cdot D$
 
 El escenario inicial es el siguiente:
 
-Tenemos una muestra de $n$  elementos/individuos $\hspace{0.1cm}\Omega = \lbrace e_1,e_2,...,e_n \rbrace$ 
+ 
+- Tenemos una serie de variables estadísticas **cuantitativas** $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.08cm} . \\$
 
-Tenemos una serie de variables estadisticas **cuantitativas** $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
-
-Para cada variable cuantitativa $\mathcal{X}_j$ tenemos una muestra de $n$ observaciones $X_j$  basada en la muestra de $n$ individuos $\hspace{0.1cm}\Omega$
+- Para cada variable cuantitativa $\hspace{0.08cm}\mathcal{X}_j\hspace{0.08cm}$ tenemos una muestra de $\hspace{0.08cm}n\hspace{0.08cm}$ observaciones $\hspace{0.08cm}X_j\hspace{0.08cm}. \\$  
 
  
-Es decir, tenemos lo siguiente:
+    Es decir, tenemos lo siguiente:
 
-- $\hspace{0.1cm}X_j=(x_{j1},...,x_{jn})^t$ , para $j=1,...,p \\$
+    - $X_j=(x_{1j},...,x_{nj})^t\hspace{0.08cm}$ , para $\hspace{0.08cm} j=1,...,p \\$
 
-- $\hspace{0.1cm}x_{ji}\hspace{0.1cm}$ es la observación de la variable $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ para el individuo $\hspace{0.1cm}e_i\hspace{0.1cm}$ de la muestra $\hspace{0.1cm}\Omega$ , para $\hspace{0.1cm}j=1,...,p\hspace{0.15cm}$ y $\hspace{0.15cm}i=1,...,n \\$
+    - $x_{ij}\hspace{0.1cm}$ es la $\hspace{0.08cm} i$-esima observación de la variable $\hspace{0.08cm}\mathcal{X}_j\hspace{0.1cm}$   , para $\hspace{0.1cm}j=1,...,p\hspace{0.2cm}$ y $\hspace{0.2cm}i=1,...,n \hspace{0.08cm} .\\$
 
-Por tanto :
+    Por tanto :
 
-- $\hspace{0.1cm}X_j=(x_{j1},...,x_{jn})^t\hspace{0.1cm}$ es el vector con las observaciones de la variable $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ para los individuos de la muestra $\hspace{0.1cm}\Omega\hspace{0.1cm}$  , para $\hspace{0.1cm}j=1,...,p \\$
+    - $X_j=(x_{1j},...,x_{nj})^t\hspace{0.1cm}$ es el vector con las observaciones de la variable $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$   , para $\hspace{0.1cm}j=1,...,p \\$
 
-- $\hspace{0.1cm}x_i = (x_{1i} , x_{2i} ,..., x_{pi})^t\hspace{0.1cm}$ es el vector con las observaciones de las variables  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ para el individuo $\hspace{0.1cm}e_i\hspace{0.1cm}$ de $\hspace{0.1cm}\Omega$ , para $\hspace{0.1cm}i=1,...,n$
+    - $x_i = (x_{i1} , x_{i2} ,..., x_{ip})^t\hspace{0.1cm}$ es el vector con las $\hspace{0.08cm} i$-esimas observaciones de las variables  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$   , para $\hspace{0.1cm}i=1,...,n$
 
 
 
@@ -878,18 +872,18 @@ Por tanto :
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ La distancia Euclidea entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables cuantitativas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ se define como: $\\[0.7cm]$
+$\hspace{0.25cm}$ La distancia Euclidea entre el par de observaciones $\hspace{0.08cm}(x_i , x_r)\hspace{0.08cm}$ de las variables cuantitativas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ se define como: $\\[0.7cm]$
 
 
 $$
-\hspace{0.35cm} \delta(x_i,x_r)_{E} =\sqrt{\sum_{k=1}^{p} (x_{ik} - x_{rk})\hspace{0.05cm}^2 \hspace{0.1cm} }  \hspace{0.1cm}=\hspace{0.1cm} \sqrt{(x_i - x_r)\hspace{0.05cm}^t\cdot (x_i - x_r)\hspace{0.1cm}}  \\[0.6cm]
+\hspace{0.35cm} \delta(x_i,x_r)_{E} \hspace{0.12cm} = \hspace{0.12cm} \sqrt{\sum_{k=1}^{p} (x_{ik} - x_{rk})\hspace{0.05cm}^2 \hspace{0.1cm} }  \hspace{0.12cm}=\hspace{0.12cm} \sqrt{(x_i - x_r)\hspace{0.05cm}^t\cdot (x_i - x_r)\hspace{0.1cm}}  \\[0.6cm]
 $$
 
 
 
 
 
-$\hspace{0.35cm}$ para $\hspace{0.15cm} i,r \in \lbrace 1,...,n \rbrace$
+$\hspace{0.35cm}$ para $\hspace{0.15cm} i,r \hspace{0.08cm}=\hspace{0.08cm}  1,...,n \hspace{0.08cm} .$
 
 
 </p>
@@ -903,9 +897,9 @@ $\hspace{0.35cm}$ para $\hspace{0.15cm} i,r \in \lbrace 1,...,n \rbrace$
 **Observaciones:**
 
 
-$\delta(x_i,x_r)_{E}$ puede interpretarse como la distancia Euclidea entre el par de individuos $(e_i , e_r)$ respecto de las variables estadisticas  $\mathcal{X}_1,...,\mathcal{X}_p$  
+$\delta(x_i,x_r)_{E}\hspace{0.08cm}$ puede interpretarse como la distancia Euclidea entre  los individuos $\hspace{0.08cm}i\hspace{0.08cm}$ y $\hspace{0.08cm}r\hspace{0.08cm}$ respecto de las variables estadisticas  $\hspace{0.08cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.08cm}.$  
 
-Nos da una medida de distancia entre individuos basada en datos de esos individuos sobre variables estadisticas.  
+Nos da una medida de distancia entre individuos basada en  datos de esos individuos respecto a unas variables estadísticas.  
 
 
 
@@ -915,19 +909,20 @@ Nos da una medida de distancia entre individuos basada en datos de esos individu
 
 **Distancia Euclidea entre vectores**
 
+ La distancia Euclidea no se circunscribe solamente al campo de la estadística, una definición mas general que contiene a la anteriormente dada es la siguiente:
+ 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ La distancia Euclidea no se circusncribe solamente al campo de la estadística, una definicion mas general que contiene a la anteriormente dada es la siguiente:
 
 $\hspace{0.25cm}$ Dados dos vectores  $\hspace{0.1cm}v=(v_1,...,v_n)^t\hspace{0.1cm}$ y $\hspace{0.1cm}w=(w_1,...,w_n)^t\hspace{0.1cm}$ de $\hspace{0.1cm}\mathbb{R}^n$
 
-$\hspace{0.25cm}$ La distancia Euclidea entre esos vectores es:
+$\hspace{0.25cm}$ La distancia Euclidea entre esos vectores es: $\\[0.3cm]$
 
 $$
-\hspace{0.25cm} \delta(v,w)_{E} \hspace{0.07cm}=\hspace{0.07cm}  \sqrt{ \sum_{i=1}^{n} (v_{i} - w_{i})\hspace{0.05cm}}
+\hspace{0.25cm} \delta(v,w)_{E} \hspace{0.1cm}=\hspace{0.1cm}  \sqrt{ \hspace{0.1cm} \sum_{i=1}^{n} \hspace{0.08cm}  (v_{i} - w_{i})^2 \hspace{0.1cm}} \hspace{0.1cm} = \hspace{0.1cm} \sqrt{ \hspace{0.1cm} (v-w)^t \cdot (v-w) \hspace{0.1cm}}
 $$
 
 </p>
@@ -935,7 +930,11 @@ $$
 </p></span>
 </div>
 
-- Así que $\hspace{0.1cm} \delta(x_i,x_r)_{E}\hspace{0.1cm}$ es la distancia Euclidea entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}$ y $\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p$
+
+
+**Observación:**
+
+$\hspace{0.1cm} \delta(x_i,x_r)_{E}\hspace{0.1cm}$ es la distancia Euclidea entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.13cm}$ y $\hspace{0.13cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$.
 
 
 
@@ -948,35 +947,34 @@ $$
 
 
  
-Aunque es una de las distancias mas usadas en la práctica, en muchos casos no es la más adecuada desde un punto de vista estadistico por las siguientes razones: 
+Aunque es una de las distancias más usadas en la práctica, en muchos casos no es la más adecuada desde un punto de vista estadístico por las siguientes razones: 
 
--  Asume que las variables están incorreladas y tienen varianza uno. 
+-  Asume que las variables están incorreladas y tienen varianza uno. $\\[0.4cm]$
 
 -  No es invariante ante cambios de escala de las variables.
 
 
  
-Vamos a ver que significa esto último:
+    Vamos a ver que significa esto último con mayor detalle:
 
-Si cambiamos la escala de las variables, es decir, aplicamos la siguiente transformación sobre las variables:
+    Si cambiamos la escala de las variables, es decir, aplicamos la siguiente transformación sobre las variables:
 
-$$a\cdot \mathcal{X}_j + b$$ 
+    $$a\cdot \mathcal{X}_j + b$$ 
 
-con $\hspace{0.1cm}a\neq 1\hspace{0.1cm}$ y $\hspace{0.1cm}b\neq 0$
+    con $\hspace{0.1cm}a\neq 1\hspace{0.1cm}$ y $\hspace{0.1cm}b\neq 0$
 
-Ahora las observaciones de los elementos $\hspace{0.1cm}i\hspace{0.1cm}$ y $\hspace{0.1cm}r\hspace{0.1cm}$ son $\hspace{0.1cm}\hat{x}_i = a\cdot x_i + b\hspace{0.2cm}$ y $\hspace{0.2cm}\hat{x}_r = a\cdot x_r + b$
+    Ahora las observaciones de los elementos $\hspace{0.1cm}i\hspace{0.1cm}$ y $\hspace{0.1cm}r\hspace{0.1cm}$ son $\hspace{0.1cm}\hat{x}_i = a\cdot x_i + b\hspace{0.2cm}$ y $\hspace{0.2cm}\hat{x}_r = a\cdot x_r + b$
 
-Por lo que la distancia Euclidea entre el par de observaciones $\hat{x}_i$ y $\hat{x}_r$  es:
+    Por lo que la distancia Euclidea entre el par de observaciones $\hat{x}_i$ y $\hat{x}_r$  es:
 
-$$
-\delta(\hat{x}_i , \hat{x}_r) \hspace{0.1cm}=\hspace{0.1cm} \delta(a\cdot x_i + b \hspace{0.1cm},\hspace{0.1cm} a\cdot x_r + b)_{E} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ a^2 \cdot (x_i - x_r)^t\cdot (x_i - x_r) }
-$$
+    $$
+    \delta(\hat{x}_i , \hat{x}_r) \hspace{0.1cm}=\hspace{0.1cm} \delta(a\cdot x_i + b \hspace{0.1cm},\hspace{0.1cm} a\cdot x_r + b)_{E} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ a^2 \cdot (x_i - x_r)^t\cdot (x_i - x_r) }$$
 
 <br>
 
 **Ventajas de la distancia Euclidea**
 
-- Facilidad de cálculo
+- Facilidad de cálculo. $\\[0.4cm]$
 
 - Facilidad de interpretación geométrica. Dados dos puntos en un espacio de dos o tres dimensiones, la distancia Euclidea entre ese par de puntos es la longitud del segmento que los une. Es una distancia fácil de visualizar e intuitiva.
 
