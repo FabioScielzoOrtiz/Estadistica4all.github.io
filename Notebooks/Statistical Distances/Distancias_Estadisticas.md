@@ -59,7 +59,7 @@ $\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadi
 
 $\hspace{0.3cm}$ **Si utilizas este artículo, cítalo !!**
 
-$\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). Distancias Estadísticas. Estadistica4all. http://estadistica4all.com/Articulos/Distancias-Estadisticas-new.html
+$\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). Distancias Estadísticas. Estadistica4all. http://estadistica4all.com/Articulos/Distancias_Estadisticas.html
 
 
 </p>
@@ -81,7 +81,7 @@ El concepto de distancia entre observaciones de variables estadisticas tiene un 
 
 <br>
 
-# Data-set de trabajo
+# Data-sets   <a class="anchor" id="3"></a>
 
 ```python
 import pandas as pd
@@ -654,7 +654,7 @@ Data_mixed_numpy = Data_mixed.to_numpy()
 <br>
 
 
-# Distancias  <a class="anchor" id="3"></a>
+# Distancias  
 
 Es un concepto que permite expresar una medida de distancia entre un par de elementos cualesquiera.
 
@@ -662,7 +662,7 @@ Es un concepto que permite expresar una medida de distancia entre un par de elem
 Dado un conjunto cualquiera $\hspace{0.1cm}A$
 
 
-## Casi-métrica <a class="anchor" id="1"></a>
+## Casi-métrica 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
@@ -688,7 +688,7 @@ $\hspace{0.35cm}  3)$ $\hspace{0.25cm}\delta (i,j) = \delta (j, i) \hspace{0.25c
 
 <br>
 
-## Semi-métrica <a class="anchor" id="6"></a>
+## Semi-métrica  
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
@@ -710,7 +710,7 @@ $\hspace{0.35cm}  4)$ $\hspace{0.25cm} \delta (i,j) \hspace{0.1 cm}\leq \hspace{
 <br>
 
 
-## Métrica <a class="anchor" id="7"></a>
+## Métrica  
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -731,7 +731,7 @@ $\hspace{0.35cm} 5)$ $\hspace{0.25cm} \delta (i,j)=0 \hspace{0.15cm}\Leftrightar
 
 
 
-## Distancia <a class="anchor" id="9"></a>
+## Distancia  
 
 - Una **distancia** es una metrica o semi-metrica
  
@@ -842,7 +842,7 @@ No debe confundirse con  $\hspace{0.1cm} D\hspace{0.05cm}^2=D\cdot D$
 
 
 
-# Distancias con variables estadísticas cuantitativas <a class="anchor" id="11"></a>
+# Distancias con variables estadísticas cuantitativas 
 
 El escenario inicial es el siguiente:
 
@@ -870,7 +870,7 @@ Por tanto :
 <br>
 
 
-## Distancia Euclidea <a class="anchor" id="12"></a>
+## Distancia Euclidea  
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -986,7 +986,7 @@ $$
 
 
 
-## Distancia Euclidea en `Python` <a class="anchor" id="14"></a>
+## Distancia Euclidea en `Python` 
 
 
 
@@ -1098,7 +1098,7 @@ M_Euclidean
 
 <br>
 
-##  Distancia de Minkowski <a class="anchor" id="18"></a>
+##  Distancia de Minkowski 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
@@ -1172,7 +1172,7 @@ $$
 
 
 
-### Casos particulares de la distancia de Minkowski <a class="anchor" id="20"></a>
+### Casos particulares de la distancia de Minkowski  
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1346,7 +1346,7 @@ array([[      0.      ,  150047.748877, 1550086.062526, ...,
 
 
 
-## Distancia de Canberra  <a class="anchor" id="32"></a>
+## Distancia de Canberra  
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1424,7 +1424,7 @@ $$
 
 
 
-## Distancia de Canberra en `Python` <a class="anchor" id="33"></a>
+## Distancia de Canberra en `Python`  
 
 ```python
 def Dist_Canberra(x_i, x_r):
@@ -1533,7 +1533,7 @@ array([[0.        , 0.5496257 , 1.61996314, ..., 1.25082356, 0.78797391,
 
 
 
-## Distancia de Pearson  <a class="anchor" id="37"></a>
+## Distancia de Pearson  
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1606,7 +1606,7 @@ Es decir, si la variable $\hspace{0.08cm}\mathcal{X}_k\hspace{0.08cm}$ tiene muc
 
 
 
-## Distancia de Pearson en `Python` <a class="anchor" id="38"></a>
+## Distancia de Pearson en `Python`  
 
 
 
@@ -1709,7 +1709,7 @@ array([[0.        , 1.21345279, 3.77819153, ..., 4.95085256, 1.66393723,
 
 
 
-## Distancia de Mahalanobis  <a class="anchor" id="42"></a>
+## Distancia de Mahalanobis  
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1823,7 +1823,7 @@ Por último señalar que las alternativas para definir $\hspace{0.1cm}S\hspace{0
 
 
 
-## Distancia de Mahalanobis en `Python` <a class="anchor" id="43"></a>
+## Distancia de Mahalanobis en `Python`   <a class="anchor" id="1"></a>
 
 
 
@@ -2161,7 +2161,7 @@ array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
 
 # Similaridades
 
-## Similaridad <a class="anchor" id="48"></a>
+## Similaridad  
 
 Es un concepto que expresa la proximidad o similaridad entre un par de elementos cualesquiera.
 
@@ -2190,7 +2190,7 @@ $\hspace{0.35cm} 3)$  $\hspace{0.2cm} \phi(i , r) = \phi(r, i)  \hspace{0.25cm} 
 
 <br>
 
-## Pasar de similaridad a distancia  <a class="anchor" id="50"></a>
+## Pasar de similaridad a distancia   
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
@@ -2258,7 +2258,7 @@ $\hspace{0.35cm} \phi_{ir} = \phi(a_i , a_r) \hspace{0.25cm} , \hspace{0.25cm}  
 
 
 
-# Similaridades con variables categoricas binarias <a class="anchor" id="51"></a>
+# Similaridades con variables categoricas binarias 
 
 
 El escenario es el siguiente:
@@ -2334,7 +2334,7 @@ $$a(x_i, x_r) + b(x_i, x_r) + c(x_i, x_r) +d(x_i, x_r) =p$$
 
 
 
-## Matrices con los parametros a, b, c y d <a class="anchor" id="52"></a>
+## Matrices con los parametros a, b, c y d  
 
 
 
@@ -2372,7 +2372,7 @@ pueden expresarse del siguiente modo: $\\[0.4cm]$
 
 
 
-## Cálculo de las matrices a, b , c y d en `Python`   <a class="anchor" id="53"></a>
+## Cálculo de las matrices a, b , c y d en `Python`  
 
 
 ```python
@@ -2590,7 +2590,7 @@ d[40,1903]
 <br>
 
 
-## Similaridad de Sokal <a class="anchor" id="55"></a>
+## Similaridad de Sokal  
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -2653,7 +2653,7 @@ $$
 <br>
 
 
-## Distancia de Sokal   <a class="anchor" id="56"></a>
+## Distancia de Sokal   
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -2681,7 +2681,7 @@ $\hspace{0.25cm}$ Podemos obtener la distancia de Sokal entre el par de observac
 <br>
 
 
-##  Similaridad de Sokal en `Python` <a class="anchor" id="57"></a>
+##  Similaridad de Sokal en `Python` 
 
 
 ```python
@@ -2870,7 +2870,7 @@ array([[1.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ],
 <br>
 
 
-##  Distancia de Sokal en `Python` <a class="anchor" id="57"></a>
+##  Distancia de Sokal en `Python`  
 
 
 ```python
@@ -2969,7 +2969,7 @@ array([[0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
 <br>
 
 
-## Similaridad de Jaccard  <a class="anchor" id="65"></a>
+## Similaridad de Jaccard   
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -3032,7 +3032,7 @@ $$
 <br>
 
 
-## Distancia de Jaccard    <a class="anchor" id="66"></a>
+## Distancia de Jaccard     
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
@@ -3361,7 +3361,7 @@ array([[0.        , 0.        , 1.        , ..., 0.        , 1.        ,
 
 
 
-# Similaridades con variables categoricas multiclase   <a class="anchor" id="76"></a>
+# Similaridades con variables categoricas multiclase    
 
 El escenario de trabajo es el siguiente:
 
@@ -3425,7 +3425,7 @@ $$\alpha(x_i, x_r) \hspace{0.05cm}=\hspace{0.05cm} a(x_i, x_r) + b(x_i, x_r)$$
 
 <br>
 
-## Similaridad por coincidencias  <a class="anchor" id="77"></a>
+## Similaridad por coincidencias  
 
 La medida de similaridad mas común con variables categoricas multiclase es la similaridad por coincidencias
 
@@ -3493,7 +3493,7 @@ $$
 
 <br>
 
-## Distancia por coincidencias   <a class="anchor" id="78"></a>
+## Distancia por coincidencias   
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -3520,7 +3520,7 @@ $\hspace{0.25cm}$ La distancia por coincidencias entre el par de observaciones $
 
 
 
-## Similaridad por coincidencias en `Python`   <a class="anchor" id="79"></a>
+## Similaridad por coincidencias en `Python`  <a class="anchor" id="1"></a>
 
 
 
@@ -3779,7 +3779,7 @@ array([[0.        , 1.15470054, 1.15470054, ..., 1.15470054, 1.15470054,
 
 
 
-# Conjuntos de variables estadisticas de tipo mixto  <a class="anchor" id="76"></a>
+# Conjuntos de variables estadisticas de tipo mixto   
 
 
 Un conjunto de variables estadisticas $\hspace{0.1cm} (\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ es de tipo mixto si hay al menos un par de variables de tipo (cuantitativo, binario, multiclase) distinto. 
@@ -3828,7 +3828,7 @@ $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ forman un conjun
 
 <br>
 
-## Similaridad de Gower  <a class="anchor" id="86"></a>
+## Similaridad de Gower  
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
@@ -3889,7 +3889,7 @@ $\\[0.5cm]$
 
 
 
-## Distancia de Gower    <a class="anchor" id="87"></a>
+## Distancia de Gower    
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -3948,7 +3948,7 @@ Siguiendo esta idea pueden crearse otras similaridades para conjuntos de variabl
 
 
 
-## Similaridad de Gower en `Python`   <a class="anchor" id="88"></a>
+## Similaridad de Gower en `Python`    
 
 
 ```python
@@ -4072,7 +4072,7 @@ array([[1.        , 0.76928447, 0.61234779, ..., 0.61200705, 0.68768535,
 <br>
 
 
-## Distancia de Gower en `Python`   <a class="anchor" id="88"></a>
+## Distancia de Gower en `Python`  
 
 
 ```python
@@ -4503,7 +4503,7 @@ array([[1.        , 0.78829544, 0.70814829, ..., 0.7749854 , 0.7156049 ,
 <br>
 
 
-## Distancia de Gower-Mahalanobis en `Python`
+## Distancia de Gower-Mahalanobis en `Python` <a class="anchor" id="1"></a>
 
 
 ```python
@@ -4549,9 +4549,9 @@ array([[0.        , 0.46011364, 0.54023301, ..., 0.47435704, 0.53328707,
 
 # Bibliografía
 
-Grané, A. (2022). *Distancias Estadisticas* [Presentación de PowerPoint]. Aula Global UC3M.
+- Grané, A. (2022). *Distancias Estadisticas* [Presentación de PowerPoint]. Aula Global UC3M. $\\[0.75cm]$
 
-Grané, A., Manzi, G. and Salini, S. (2021) *Smart visualization of mixed data*. Stats 4(2), 472-485; https://doi.org/10.3390/stats4020029 (S.I. Robust Statistics in Action).
+- Grané, A., Manzi, G. and Salini, S. (2021) *Smart visualization of mixed data*. Stats 4(2), 472-485; https://doi.org/10.3390/stats4020029 (S.I. Robust Statistics in Action).
 
 
 
