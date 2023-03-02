@@ -876,7 +876,7 @@ $\hspace{0.25cm}$ La distancia Euclidea entre el par de observaciones $\hspace{0
 
 
 $$
-\hspace{0.35cm} \delta(x_i,x_r)_{E} \hspace{0.12cm} = \hspace{0.12cm} \sqrt{\sum_{k=1}^{p} (x_{ik} - x_{rk})\hspace{0.05cm}^2 \hspace{0.1cm} }  \hspace{0.12cm}=\hspace{0.12cm} \sqrt{(x_i - x_r)\hspace{0.05cm}^t\cdot (x_i - x_r)\hspace{0.1cm}}  \\[0.6cm]
+\hspace{0.35cm} \delta(x_i,x_r)_{Euclidea} \hspace{0.12cm} = \hspace{0.12cm} \sqrt{\sum_{k=1}^{p} (x_{ik} - x_{rk})\hspace{0.05cm}^2 \hspace{0.1cm} }  \hspace{0.12cm}=\hspace{0.12cm} \sqrt{(x_i - x_r)\hspace{0.05cm}^t\cdot (x_i - x_r)\hspace{0.1cm}}  \\[0.6cm]
 $$
 
 
@@ -922,7 +922,7 @@ $\hspace{0.25cm}$ Dados dos vectores  $\hspace{0.1cm}v=(v_1,...,v_n)^t\hspace{0.
 $\hspace{0.25cm}$ La distancia Euclidea entre esos vectores es: $\\[0.3cm]$
 
 $$
-\hspace{0.25cm} \delta(v,w)_{E} \hspace{0.1cm}=\hspace{0.1cm}  \sqrt{ \hspace{0.1cm} \sum_{i=1}^{n} \hspace{0.08cm}  (v_{i} - w_{i})^2 \hspace{0.1cm}} \hspace{0.1cm} = \hspace{0.1cm} \sqrt{ \hspace{0.1cm} (v-w)^t \cdot (v-w) \hspace{0.1cm}}
+\hspace{0.25cm} \delta(v,w)_{Euclidea} \hspace{0.1cm}=\hspace{0.1cm}  \sqrt{ \hspace{0.1cm} \sum_{i=1}^{n} \hspace{0.08cm}  (v_{i} - w_{i})^2 \hspace{0.1cm}} \hspace{0.1cm} = \hspace{0.1cm} \sqrt{ \hspace{0.1cm} (v-w)^t \cdot (v-w) \hspace{0.1cm}}
 $$
 
 </p>
@@ -934,7 +934,7 @@ $$
 
 **Observación:**
 
-$\hspace{0.1cm} \delta(x_i,x_r)_{E}\hspace{0.1cm}$ es la distancia Euclidea entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.13cm}$ y $\hspace{0.13cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$.
+$\hspace{0.1cm} \delta(x_i,x_r)_{Euclidea}\hspace{0.1cm}$ es la distancia Euclidea entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.13cm}$ y $\hspace{0.13cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$.
 
 
 
@@ -968,7 +968,7 @@ Aunque es una de las distancias más usadas en la práctica, en muchos casos no 
     Por lo que la distancia Euclidea entre el par de observaciones $\hat{x}_i$ y $\hat{x}_r$  es:
 
     $$
-    \delta(\hat{x}_i , \hat{x}_r) \hspace{0.1cm}=\hspace{0.1cm} \delta(a\cdot x_i + b \hspace{0.1cm},\hspace{0.1cm} a\cdot x_r + b)_{E} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ a^2 \cdot (x_i - x_r)^t\cdot (x_i - x_r) }$$
+    \delta(\hat{x}_i , \hat{x}_r)_{Euclidea} \hspace{0.1cm}=\hspace{0.1cm} \delta(a\cdot x_i + b \hspace{0.1cm},\hspace{0.1cm} a\cdot x_r + b)_{Euclidea} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ a^2 \cdot (x_i - x_r)^t\cdot (x_i - x_r) }$$
 
 <br>
 
@@ -1112,7 +1112,7 @@ $\hspace{0.25cm}$ La distancia de Minkowski con parametro $\hspace{0.1cm} q=1,2,
 
 
 $$
- \delta_q(x_i,x_r)_{Mink} \hspace{0.1cm} = \hspace{0.1cm}  \left(  \sum_{k=1}^{p} \hspace{0.08cm}  \mid x_{ik} - x_{rk} \mid  ^q  \right)^{(1/q)}     
+ \delta_q(x_i,x_r)_{Minkowski} \hspace{0.1cm} = \hspace{0.1cm}  \left(  \sum_{k=1}^{p} \hspace{0.08cm}  \mid x_{ik} - x_{rk} \mid  ^q  \right)^{(1/q)}     
 $$
 
 </p>
@@ -1144,7 +1144,7 @@ $\hspace{0.25cm}$ Dados dos vectores $\hspace{0.1cm} v=(v_1,...,v_n)^t\hspace{0.
 $\hspace{0.25cm}$ La distancia de Minkowski entre  esos vectores se define como:
 
 $$
-\hspace{0.25cm} \delta_q(v,w)_{Mink}   \hspace{0.07cm}=\hspace{0.07cm}  \left( \sum_{i=1}^{n}  \mid v_{i } - w_{i} \mid  ^q  \right)^{(1/q)}
+\hspace{0.25cm} \delta_q(v,w)_{Minkowski}   \hspace{0.07cm}=\hspace{0.07cm}  \left( \sum_{i=1}^{n}  \mid v_{i } - w_{i} \mid  ^q  \right)^{(1/q)}
 $$
 
 </p>
@@ -1154,7 +1154,7 @@ $$
 
 **Observación:**
 
-$\hspace{0.1cm} \delta_q(x_i,x_r)_{Mink }\hspace{0.1cm}$ es la distancia de Minkowski entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}$ y $\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p \hspace{0.07cm}.$
+$\hspace{0.1cm} \delta_q(x_i,x_r)_{Minkowski }\hspace{0.1cm}$ es la distancia de Minkowski entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}$ y $\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p \hspace{0.07cm}.$
 
 
 <br>
@@ -1188,7 +1188,7 @@ $\hspace{0.25cm}$  **Distancia Euclidea**
 
 
 $$
- \delta_2(i,j)_{Mink }=\delta (i,j)_{Euclidea }   \hspace{1cm} (q=2) \\
+ \delta_2(i,j)_{Minkowski }=\delta (i,j)_{Euclidea }   \hspace{1cm} (q=2) \\
 $$
  
  
@@ -1210,7 +1210,7 @@ $\hspace{0.25cm}$  **Distancia Manhattan**
 
 
 $$
- \delta_1(i,j)_{Mink } \hspace{0.1cm}=\hspace{0.1cm} \sum_{k=1}^{p}  \mid x_{ik} - x_{jk}  \mid   \hspace{1cm} (q=1) \\
+ \delta_1(i,j)_{Minkowski } \hspace{0.1cm}=\hspace{0.1cm} \sum_{k=1}^{p}  \mid x_{ik} - x_{jk}  \mid   \hspace{1cm} (q=1) \\
 $$
 
 </p>
@@ -1232,7 +1232,7 @@ $\hspace{0.25cm}$  **Distancia Dominante** <a class="anchor" id="23"></a>
 
 
 $$
- \delta_{\infty}(i,j)_{Mink } \hspace{0.1cm}=\hspace{0.1cm} max \lbrace  \hspace{0.1cm} \mid x_{i1} - x_{j1} \mid \hspace{0.1cm},...,\hspace{0.1cm} \mid x_{ip} - x_{jp} \mid \hspace{0.1cm}  \rbrace \hspace{1cm} (q\rightarrow \infty) 
+ \delta_{\infty}(i,j)_{Minkowski } \hspace{0.1cm}=\hspace{0.1cm} max \lbrace  \hspace{0.1cm} \mid x_{i1} - x_{j1} \mid \hspace{0.1cm},...,\hspace{0.1cm} \mid x_{ip} - x_{jp} \mid \hspace{0.1cm}  \rbrace \hspace{1cm} (q\rightarrow \infty) 
 $$
 
 
@@ -1404,7 +1404,7 @@ $\hspace{0.25cm}$ La distancia de Canberra entre el par de observaciones $\hspac
 
 
 $$
-\delta(x_i,x_r)_{C}\hspace{0.11cm}= \hspace{0.11cm} \sum_{k=1}^{p} \hspace{0.08cm} \dfrac{\hspace{0.08cm} \mid x_{ik} - x_{jk} \mid \hspace{0.08cm}}{\mid x_{ik} \mid + \mid x_{jk} \mid}  
+\delta(x_i,x_r)_{Canberra}\hspace{0.11cm}= \hspace{0.11cm} \sum_{k=1}^{p} \hspace{0.08cm} \dfrac{\hspace{0.08cm} \mid x_{ik} - x_{jk} \mid \hspace{0.08cm}}{\mid x_{ik} \mid + \mid x_{jk} \mid}  
 $$
 
 </p>
@@ -1437,7 +1437,7 @@ $\hspace{0.25cm}$ Dados dos vectores $\hspace{0.08cm}v=(v_1,...,v_n)^t\hspace{0.
 $\hspace{0.25cm}$ La distancia Canberra entre esos dos vectores es: $\\[0.7cm]$
 
 $$
-\delta (v,w)_{C}  \hspace{0.07cm}=\hspace{0.07cm}   \sum_{i=1}^{n}\hspace{0.07cm} \dfrac{\hspace{0.07cm} \mid v_i - w_i \mid \hspace{0.07cm}}{\mid v_i \mid + \mid w_i \mid} \\
+\delta (v,w)_{Canberra}  \hspace{0.07cm}=\hspace{0.07cm}   \sum_{i=1}^{n}\hspace{0.07cm} \dfrac{\hspace{0.07cm} \mid v_i - w_i \mid \hspace{0.07cm}}{\mid v_i \mid + \mid w_i \mid} \\
 $$
 
 </p>
@@ -1448,7 +1448,7 @@ $$
 
 **Observación:**
 
-$\hspace{0.1cm} \delta_q(x_i,x_r)_{C}\hspace{0.1cm}$ es la distancia de Canberra entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.12cm}$ y $\hspace{0.12cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p\hspace{0.07cm}$.
+$\hspace{0.1cm} \delta_q(x_i,x_r)_{Canberra}\hspace{0.1cm}$ es la distancia de Canberra entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.12cm}$ y $\hspace{0.12cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p\hspace{0.07cm}$.
 
 
 
@@ -1598,9 +1598,14 @@ M_Canberra
 $\hspace{0.25cm}$ La distancia de Karl Pearson entre el par de observaciones $\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ se define como: $\\[0.5cm]$
 
 $$
-\hspace{0.45cm} \delta(x_i,x_r)_{P} \hspace{0.12cm}=\hspace{0.12cm} \sqrt{ \hspace{0.1cm} \sum_{k=1}^{p} \hspace{0.1cm} \dfrac{1}{s\hspace{0.03cm}^2_k} \cdot ( x_{ik} - x_{rk} )\hspace{0.03cm}^2 \hspace{0.1cm} } \hspace{0.12cm} =\hspace{0.12cm} \sqrt{\hspace{0.1cm}(x_i - x_r)\hspace{0.03cm}^t \cdot S_0^{-1} \cdot (x_i - x_r )\hspace{0.1cm}}   \\[0.8cm]
+\hspace{0.45cm} \delta(x_i,x_r)_{Pearson} \hspace{0.12cm}=\hspace{0.12cm} \sqrt{ \hspace{0.1cm} \sum_{k=1}^{p} \hspace{0.1cm} \dfrac{1}{s\hspace{0.03cm}^2_k} \cdot ( x_{ik} - x_{rk} )\hspace{0.03cm}^2 \hspace{0.1cm} } \hspace{0.12cm} =\hspace{0.12cm} \sqrt{\hspace{0.1cm}(x_i - x_r)\hspace{0.03cm}^t \cdot S_0^{-1} \cdot (x_i - x_r )\hspace{0.1cm}}   \\[0.8cm]
 $$
   
+Donde:
+ 
+- $S_0 \hspace{0.1cm}=\hspace{0.1cm} \text{diag}(s_1 ^2 ,..., s_p ^2)\\$
+ 
+- $s_k ^2\hspace{0.1cm}$ es la varianza de la muestra $\hspace{0.08cm}X_k\hspace{0.08cm}$ , es decir, $\hspace{0.1cm} s_k ^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n}\cdot \sum_{i=1}^n ( x_{ik} - \overline{X}_k )^2\hspace{0.1cm}.\\$
 
 </p>
  
@@ -1611,11 +1616,6 @@ $$
 
 
 
-Donde:
- 
-- $S_0 \hspace{0.1cm}=\hspace{0.1cm} \text{diag}(s_1 ^2 ,..., s_p ^2)\\$
- 
-- $s_k ^2\hspace{0.1cm}$ es la varianza de la muestra $\hspace{0.08cm}X_k\hspace{0.08cm}$ , es decir, $\hspace{0.1cm} s_k ^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n}\cdot \sum_{i=1}^n ( x_{ik} - \overline{X}_k )^2\hspace{0.1cm}.\\$
 
  
 
@@ -1782,13 +1782,21 @@ $\hspace{0.25cm}$ La distancia de Mahalanobis entre el par de observaciones $\hs
 
  
 $$
- \delta(x_i,x_r)_{Maha} \hspace{0.1cm}= \hspace{0.1cm} \sqrt{\hspace{0.1cm}(x_i - x_r)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - x_r ) \hspace{0.1cm}}   \\[0.6cm]
+ \delta(x_i,x_r)_{Mahalanobis} \hspace{0.1cm}= \hspace{0.1cm} \sqrt{\hspace{0.1cm}(x_i - x_r)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - x_r ) \hspace{0.1cm}}   \\[0.6cm]
 $$
 
 
 $\hspace{0.25cm}$ Donde:
 
-$\hspace{0.4cm} S \hspace{0.08cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.08cm}X=(X_1,...,X_p)$
+$\hspace{0.4cm} S \hspace{0.08cm}$ es la estimación de la matriz de covarianzas de las variables  $\hspace{0.08cm}(\mathcal{X}_1,\dots , \mathcal{X}_p)\hspace{0.08cm}$ basada en la matriz de datos $\hspace{0.08cm}X=(X_1,...,X_p)$
+
+$\hspace{0.4cm}$ Es decir: 
+
+$$S  \hspace{0.1cm}= \hspace{0.1cm} \bigl(  \hspace{0.1cm} s_{jk}   \hspace{0.2cm} :  \hspace{0.2cm} j,k = 1,\dots , p  \hspace{0.1cm} \bigr)$$
+
+$\hspace{0.4cm}$ donde:
+
+$$s_{jk}  \hspace{0.1cm}= \hspace{0.1cm} S(X_j, X_k)  \hspace{0.1cm}= \hspace{0.1cm} \dfrac{1}{n}\cdot \sum_{i=1}^n  \hspace{0.1cm} (x_{ij}-\overline{X}_j)\cdot (x_{ik}-\overline{X}_k)$$
 
 </p>
  
@@ -1840,11 +1848,11 @@ $\hspace{0.25cm}$ Dada una observación $\hspace{0.1cm}x_i\hspace{0.1cm}$ de esa
 $\hspace{0.25cm}$ La distancia Mahalanobis entre $\hspace{0.1cm}x_i\hspace{0.1cm}$ y $\hspace{0.1cm}v\hspace{0.1cm}$ es: $\\[0.7cm]$
 
 $$
-\delta (x_i, v)_{Maha}  \hspace{0.09cm}=\hspace{0.09cm}  \sqrt{\hspace{0.07cm}(x_i - v)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - v) \hspace{0.07cm}} \\
+\delta (x_i, v)_{Mahalanobis}  \hspace{0.09cm}=\hspace{0.09cm}  \sqrt{\hspace{0.07cm}(x_i - v)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - v) \hspace{0.07cm}} \\[0.8cm]
 $$
 
 
-$\hspace{0.25cm}$ Vamos a considerar dos alternativas para definir $\hspace{0.1cm} S$ 
+$\hspace{0.25cm}$ Vamos a considerar dos alternativas para definir $\hspace{0.1cm} S\hspace{0.07cm}$ : 
 
 - $S\hspace{0.1cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.1cm} X=(X_1,...,X_p) \\$
 
@@ -1868,7 +1876,7 @@ $\hspace{0.25cm}$ Vamos a considerar dos alternativas para definir $\hspace{0.1c
 
 Esta ampliación de la distancia de Mahalanobis a vectores que no necesariamente forman parte de la matriz de datos permite ampliar su capacidad de aplicación. Vamos a dar varios ejemplos en donde la distancia de Gower definida estrictamente entre pares de observaciones de una matriz de datos no podria aplicarse, y que en cambio su versión ampliada si permite hacerlo.
 
-- En el algoritmo KNN se requiere de una distancia que pueda aplicarse a un vector de observaciones de las variables que no pertenece a la matriz de datos de entrenamiento. Ese vector juega el papel de $\hspace{0.1cm}v\hspace{0.1cm}$ en la definición anterior. $\\[0.4cm]$
+- En el algoritmo KNN se requiere de una distancia que pueda aplicarse a un vector de observaciones de las variables que no pertenece a la matriz de datos de entrenamiento. Ese vector juega el papel de $\hspace{0.1cm}v\hspace{0.1cm}$ en la definición anterior. $\\[0.5cm]$
 
 - En el algoritmo k-medias se requiere de una distancia que pueda aplicarse sobre el vector de medias $\hspace{0.1cm}\overline{x}\hspace{0.1cm}$ de la matriz de datos de entrenamiento. Tomando $\hspace{0.1cm}v=\overline{x}\hspace{0.1cm}$ se podría aplicar también en este caso la distancia de Mahalanobis. 
 
@@ -2374,24 +2382,24 @@ Supongamos que las variables $\hspace{0.1cm}\mathcal{X}_1 , \dots , \mathcal{X}_
  -  $a(x_i, x_r) \hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
  
   
- $$a(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm}  j =  1,..,p \hspace{0.2cm} : \hspace{0.2cm} x_{ij}=x_{rj}=1  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{coincidencias (1,1)} \\[0.7cm]$$
+ $$a(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm}  j =  1,..,p \hspace{0.2cm} : \hspace{0.2cm} x_{ij}=x_{rj}=1  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{numero coincidencias (1,1)} \\[0.7cm]$$
 
  - $b(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias  $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=1 \\$ 
 
 
- $$b(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm}  j = 1,..,p \hspace{0.2cm} : \hspace{0.2cm} x_{ij}=0 \hspace{0.25cm}\text{y}\hspace{0.25cm} x_{rj}=1  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{no coincidencias (0,1)} \\[0.7cm]$$
+ $$b(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm}  j = 1,..,p \hspace{0.2cm} : \hspace{0.2cm} x_{ij}=0 \hspace{0.25cm}\text{y}\hspace{0.25cm} x_{rj}=1  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{numero no coincidencias (0,1)} \\[0.7cm]$$
 
 
  - $c(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =1\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
 
 
- $$c(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm}  j =  1,..,p \hspace{0.2cm}:\hspace{0.2cm} x_{ij}=1 \hspace{0.25cm}\text{y}\hspace{0.25cm} x_{rj}=0  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{no coincidencias (1,0)} \\[0.7cm]$$
+ $$c(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm}  j =  1,..,p \hspace{0.2cm}:\hspace{0.2cm} x_{ij}=1 \hspace{0.25cm}\text{y}\hspace{0.25cm} x_{rj}=0  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{numero no coincidencias (1,0)} \\[0.7cm]$$
 
 
 
  - $d(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
  
- $$d(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm} j = 1,..,p \hspace{0.2cm}:\hspace{0.2cm} x_{ij}= x_{rj}=0  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{coincidencias (0,0)} \\[0.5cm]$$
+ $$d(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm} j = 1,..,p \hspace{0.2cm}:\hspace{0.2cm} x_{ij}= x_{rj}=0  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{numero coincidencias (0,0)} \\[0.5cm]$$
  
  
 
@@ -2785,9 +2793,10 @@ $$
 
 **Observaciones:**
 
-- La similaridad de Sokal coincide con el coeficiente de coincidencias aplicado a variables binarias. El coeficiente de coincidencias es una medida de similaridad definida para variables categóricas multiclase, el cual veremos posteriormente. $\\[0.4cm]$
+- La similaridad de Sokal coincide con la similaridad simple matching aplicada a variables binarias. La similaridad simple matching es una medida de similaridad definida para variables categóricas multiclase, la cual veremos posteriormente. $\\[0.4cm]$
 
-- Es fácil ver que si $\hspace{0.1cm}x_i = x_r\hspace{0.1cm}$, entonces $\hspace{0.1cm}\phi(x_i, x_r)_{Sokal} = 1\hspace{0.1cm}$ , puesto que $\hspace{0.1cm}a(x_i)+d(x_i,x_r) = p\hspace{0.1cm}$.
+
+- Es fácil ver que si $\hspace{0.15cm}x_i = x_r\hspace{0.15cm}$, entonces $\hspace{0.15cm}\phi(x_i, x_r)_{Sokal} = 1\hspace{0.15cm}$ , puesto que $\hspace{0.15cm}a(x_i,x_r)+d(x_i,x_r) = p\hspace{0.15cm}$.
 
 
 <br>
@@ -3209,25 +3218,27 @@ $$
 </p></span>
 </div>
 
+<br>
+
 **Observación:**
 
-Tal y como hemos definido La similaridad de Jaccard genera problemas para el caso en el que ambos vectores de observaciones son nulos.
+Tal y como hemos definido la similaridad de Jaccard, esta no está definida para el caso en el que ambos vectores de observaciones son nulos.
 
-Sea $x_i = x_r = (0,\dots , 0)$ , entonces, $a(x_i,x_r)=0$, por lo que $\phi(x_i, x_r) = \dfrac{0}{0}$ , lo cual no está definido. Además, toda similaridad debe ser igual a $1$ para un par de vectores iguales.
+Es facil ver que  $\hspace{0.15cm} x_i = x_r = (0,\dots , 0)\hspace{0.15cm}$ equivale a que  $\hspace{0.15cm}a(x_i,x_r)=0\hspace{0.15cm}$ y $\hspace{0.15cm}d(x_i,x_r)=p\hspace{0.15cm}$, por lo que $\hspace{0.15cm}\phi(x_i, x_r) = \dfrac{\hspace{0.15cm}0\hspace{0.15cm}}{0}\hspace{0.15cm}$ , lo cual no está definido. Además, toda similaridad debe ser igual a $\hspace{0.1cm}1\hspace{0.1cm}$ para un par de vectores iguales.
 
-Para solventar este problema en la práctica vamos a considerar la siguiente modificación del coeficiente de Jaccard original: $\\[0.3cm]$
+Para solventar este problema, en la práctica, vamos a considerar la siguiente modificación del coeficiente de Jaccard original: $\\[0.3cm]$
 
 
-- Si $x_i$ o $x_r$ es distinto del vector nulo :
+- Si $\hspace{0.15cm}x_i\hspace{0.15cm}$ o $\hspace{0.15cm}x_r\hspace{0.15cm}$ es distinto del vector nulo :
 $$
-\phi(x_i,x_r)_{J}  \hspace{0.1cm}=\hspace{0.1cm}   \dfrac{\hspace{0.2cm} a(x_i,x_r) \hspace{0.2cm}}{ p \hspace{0.1cm}-\hspace{0.1cm} d(x_i,x_r) } \\
+\phi(x_i,x_r)_{Jaccard}  \hspace{0.1cm}=\hspace{0.1cm}   \dfrac{\hspace{0.2cm} a(x_i,x_r) \hspace{0.2cm}}{ p \hspace{0.1cm}-\hspace{0.1cm} d(x_i,x_r) } \\
 $$
 
-- Si $x_i = x_ r = (0,\dots , 0)$ :
+- Si $\hspace{0.15cm}x_i = x_ r = (0,\dots , 0)\hspace{0.15cm}$ :
 
 
 $$
-\phi(x_i,x_r)_{J}  \hspace{0.1cm}=\hspace{0.1cm}  1 
+\phi(x_i,x_r)_{Jaccard}  \hspace{0.1cm}=\hspace{0.1cm}  1 
 $$
 
 <br>
@@ -3255,7 +3266,7 @@ $\hspace{0.25cm}$ Dados dos vectores **binarios**  $\hspace{0.07cm}v=(v_1,...,v_
 $\hspace{0.25cm}$ La similaridad entre $\hspace{0.1cm}v\hspace{0.1cm}$ y $\hspace{0.1cm}w\hspace{0.1cm}$ es: $\\[0.5cm]$
 
 $$
-\phi (v,w)_{J}  \hspace{0.07cm}=\hspace{0.07cm}  \dfrac{ a(v,w) + d(v,w) }{p} \\
+\phi (v,w)_{Jaccard}  \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{\hspace{0.1cm} a(v,w) + d(v,w) \hspace{0.1cm}}{p} \\
 $$
 
 
@@ -3285,7 +3296,7 @@ $$
 $\hspace{0.25cm}$ Podemos obtener la distancia de Jaccard entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables binarias $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ como sigue:  $\\[0.4cm]$
 
 $$
-\hspace{0.35cm} \delta(x_i,x_r)_{J} \hspace{0.1cm} = \hspace{0.1cm} \sqrt{\phi(x_i,x_i)_{J} \hspace{0.08cm}+\hspace{0.08cm} \phi(x_r,x_r)_{J} \hspace{0.08cm}-\hspace{0.08cm} 2\cdot \phi(x_i,x_r)_{J} }
+\hspace{0.35cm} \delta(x_i,x_r)_{Jaccard} \hspace{0.1cm} = \hspace{0.1cm} \sqrt{\phi(x_i,x_i)_{Jaccard} \hspace{0.08cm}+\hspace{0.08cm} \phi(x_r,x_r)_{Jaccard} \hspace{0.08cm}-\hspace{0.08cm} 2\cdot \phi(x_i,x_r)_{Jaccard} }
 $$
 
 
@@ -3307,13 +3318,13 @@ def Jaccard_Similarity_1(i, r, Data):
 
     a, b, c, d, p = a_b_c_d_Matrix(Data)
 
-    if a[i,r] == 0 :
+    if a[i,r] == 0 and  (p-d[i,r]) == 0 :
 
-        Jaccard_Similarity = 0
+        Jaccard_Similarity = 1
 
     else :
 
-        Jaccard_Similarity = a[i,r] / (a[i,r] + b[i,r] + c[i,r])
+        Jaccard_Similarity = a[i,r] / (p-d[i,r])
 
 
     return Jaccard_Similarity
@@ -3336,14 +3347,13 @@ Jaccard_Similarity_1(i=2, r=5, Data=Data_binary)
 def Jaccard_Similarity_2(i , r, a , b, c):
 
 
-    if a[i,r] == 0 :
+    if a[i,r] == 0 and  (p-d[i,r]) == 0 :
 
-        Jaccard_Similarity = 0
+        Jaccard_Similarity = 1
 
-        
     else :
 
-        Jaccard_Similarity = a[i,r] / (a[i,r] + b[i,r] + c[i,r])
+        Jaccard_Similarity = a[i,r] / (p-d[i,r])
         
 
     return Jaccard_Similarity
@@ -3396,17 +3406,18 @@ def Matrix_Sim_Jaccard_1(Data):
 Matrix_Sim_Jaccard_1(Data=Data_binary.iloc[0:300, 0:300])  # 1.52 min
 ```
 
-
-
-
-    array([[1. , 1. , 0.5, ..., 0. , 0. , 1. ],
-           [0. , 1. , 0.5, ..., 0. , 0. , 1. ],
-           [0. , 0. , 1. , ..., 0. , 0. , 0.5],
-           ...,
-           [0. , 0. , 0. , ..., 1. , 0. , 0. ],
-           [0. , 0. , 0. , ..., 0. , 1. , 0. ],
-           [0. , 0. , 0. , ..., 0. , 0. , 1. ]])
-
+```
+array([[1. , 1. , 0.5, ..., 0. , 0. , 1. ],
+       [0. , 1. , 0.5, ..., 0. , 0. , 1. ],
+       [0. , 0. , 1. , ..., 0. , 0. , 0.5],
+       ...,
+       [0. , 0. , 0. , ..., 1. , 1. , 0. ],
+       [0. , 0. , 0. , ..., 0. , 1. , 0. ],
+       [0. , 0. , 0. , ..., 0. , 0. , 1. ]])
+  
+``` 
+  
+       
 <br>
 
 
@@ -3444,17 +3455,15 @@ def Matrix_Sim_Jaccard_2(Data):
 Matrix_Sim_Jaccard_2(Data=Data_binary.iloc[0:300,0:300])
 ```
 
-
-
-
-    array([[1. , 1. , 0.5, ..., 0. , 0. , 1. ],
-           [0. , 1. , 0.5, ..., 0. , 0. , 1. ],
-           [0. , 0. , 1. , ..., 0. , 0. , 0.5],
-           ...,
-           [0. , 0. , 0. , ..., 1. , 0. , 0. ],
-           [0. , 0. , 0. , ..., 0. , 1. , 0. ],
-           [0. , 0. , 0. , ..., 0. , 0. , 1. ]])
-
+```
+array([[1. , 1. , 0.5, ..., 0. , 0. , 1. ],
+       [0. , 1. , 0.5, ..., 0. , 0. , 1. ],
+       [0. , 0. , 1. , ..., 0. , 0. , 0.5],
+       ...,
+       [0. , 0. , 0. , ..., 1. , 1. , 0. ],
+       [0. , 0. , 0. , ..., 0. , 1. , 0. ],
+       [0. , 0. , 0. , ..., 0. , 0. , 1. ]])
+```
 
 <br>
 
@@ -3464,23 +3473,21 @@ M_Jaccard = Matrix_Sim_Jaccard_2(Data=Data_binary)
 M_Jaccard 
 ```
 
-
-
-
-    array([[1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
-            1.        ],
-           [0.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
-            1.        ],
-           [0.        , 0.        , 1.        , ..., 0.5       , 0.33333333,
-            0.5       ],
-           ...,
-           [0.        , 0.        , 0.        , ..., 1.        , 0.5       ,
-            1.        ],
-           [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
-            0.5       ],
-           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-            1.        ]])
-
+```
+array([[1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+        1.        ],
+       [0.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+        1.        ],
+       [0.        , 0.        , 1.        , ..., 0.5       , 0.33333333,
+        0.5       ],
+       ...,
+       [0.        , 0.        , 0.        , ..., 1.        , 0.5       ,
+        1.        ],
+       [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
+        0.5       ],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.        ]])
+```
 
 
 
@@ -3491,23 +3498,23 @@ M_Jaccard
 ```
 
 
+```
 
+array([[1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+        1.        ],
+       [1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+        1.        ],
+       [0.5       , 0.5       , 1.        , ..., 0.5       , 0.33333333,
+        0.5       ],
+       ...,
+       [1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+        1.        ],
+       [0.5       , 0.5       , 0.33333333, ..., 0.5       , 1.        ,
+        0.5       ],
+       [1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+        1.        ]])
 
-    array([[1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
-            1.        ],
-           [1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
-            1.        ],
-           [0.5       , 0.5       , 1.        , ..., 0.5       , 0.33333333,
-            0.5       ],
-           ...,
-           [1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
-            1.        ],
-           [0.5       , 0.5       , 0.33333333, ..., 0.5       , 1.        ,
-            0.5       ],
-           [1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
-            1.        ]])
-
-
+```
 
 <br>
 
@@ -3521,6 +3528,60 @@ def Dist_Jaccard(i , r, a , b, c):
 ```
 
 
+
+```python
+Data_binary.iloc[[2,5],:]
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>private_garden_recode</th>
+      <th>private_gym_recode</th>
+      <th>private_jacuzzi_recode</th>
+      <th>balcony_recode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
 ```python
 a, b, c, d, p = a_b_c_d_Matrix(Data_binary)
 
@@ -3530,7 +3591,55 @@ Dist_Jaccard(i=2 , r=5, a=a , b=b, c=c)
 
 
 
+    1.4142135623730951
+
+
+<br>
+
+```python
+Jaccard_Similarity_2(2 , 2, a , b, c) 
+```
+
+
+
+
     1.0
+
+
+
+
+```python
+Jaccard_Similarity_2(5 , 5, a , b, c) 
+```
+
+
+
+
+    1
+
+
+
+
+```python
+2*Jaccard_Similarity_2(2 , 5, a , b, c)
+```
+
+
+
+
+    0.0
+
+
+
+
+```python
+np.sqrt(Jaccard_Similarity_2(2 , 2, a , b, c) + Jaccard_Similarity_2(5 , 5, a , b, c)  -2*Jaccard_Similarity_2(2 , 5, a , b, c) )
+```
+
+
+
+
+    1.4142135623730951
 
 
 
@@ -3612,10 +3721,10 @@ M_Dist_Jaccard
            [0.        , 0.        , 1.        , ..., 0.        , 1.        ,
             0.        ]])
 
- 
- 
- 
- 
+
+
+
+
  
  
 
@@ -3627,33 +3736,10 @@ M_Dist_Jaccard
 
 # Similaridades con variables categoricas multiclase    
 
-El escenario de trabajo es el siguiente:
 
-Tenemos una muestra de $n$  elementos/individuos $\hspace{0.1cm}\Omega = \lbrace e_1,e_2,...,e_n \rbrace$ 
+## Parámetro alpha
 
-Tenemos una serie de variables estadisticas **categóricas multiclase** con no necesariamente igual número de categorias $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
-
-Para cada variable categórica multiclase $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tenemos una muestra de $n$ observaciones $\hspace{0.1cm}X_j\hspace{0.1cm}$  basada en la muestra de $n$ individuos $\hspace{0.1cm}\Omega$
-
- 
-Es decir, tenemos lo siguiente:
-
-- $\hspace{0.1cm}X_j=(x_{j1},...,x_{jn})^t$ , para $j=1,...,p \\$
-
-- $\hspace{0.1cm}x_{ji}\hspace{0.1cm}$ es la observación de la variable $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ para el individuo $\hspace{0.1cm}e_i\hspace{0.1cm}$ de la muestra $\hspace{0.1cm}\Omega$ , para $\hspace{0.1cm}j=1,...,p\hspace{0.1cm}$ y $\hspace{0.1cm}i=1,...,n \\$
-
-
-
-Por tanto:
-
-- $\hspace{0.1cm}X_j=(x_{j1},...,x_{jn})^t\hspace{0.1cm}$ es el vector con las observaciones de la variable para los individuos de la muestra $\hspace{0.1cm}\Omega$  , para $\hspace{0.1cm}j=1,...,p \\$
-
-- $\hspace{0.1cm}x_i = (x_{1i} , x_{2i} ,..., x_{pi})^t\hspace{0.1cm}$ es el vector con las observaciones de las variables  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ para el individuo $\hspace{0.1cm}e_i\hspace{0.1cm}$ de $\hspace{0.1cm}\Omega$ , para $\hspace{0.1cm}i=1,...,n$
-
-
-
-
-<br>
+El parámetro que habitualmente se usan para construir las similaridades con variables multiclase es el siguiente:
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
@@ -3661,50 +3747,15 @@ Por tanto:
 <p style='margin-left:1em;'>
 
 
-$\hspace{0.25cm}$ Los parametros que habitualmente se usan para construir las similaridades con variables multiclase son:
 
+- $\alpha(x_i, x_r) \hspace{0.05cm} =\hspace{0.05cm}$ número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} \hspace{0.05cm}=\hspace{0.05cm} x_{rj}\\$
 
-$\hspace{0.45cm}$ $\alpha(x_i, x_r) \hspace{0.05cm} =\hspace{0.05cm}$ número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} \hspace{0.05cm}=\hspace{0.05cm} x_{rj}\\$
+$$\alpha(x_i, x_r) \hspace{0.09cm}=\hspace{0.09cm} \# \hspace{0.08cm} \bigl\{\hspace{0.1cm} j = 1,...,p \hspace{0.2cm} : \hspace{0.2cm} x_{ij} = x_{rj}  \hspace{0.1cm}\bigr\}  \hspace{0.25cm} \Rightarrow \hspace{0.25cm} \text{numero de coincidencias} \\[0.7cm]$$
 
-$$\alpha(x_i, x_r) \hspace{0.07cm}=\hspace{0.07cm} \# \lbrace\hspace{0.1cm} j\in \lbrace 1,...,p\rbrace \hspace{0.15cm}/\hspace{0.15cm} x_{ij} = x_{rj}  \hspace{0.1cm}\rbrace\\$$
+- $p-\alpha(x_i, x_r) \hspace{0.05cm}=\hspace{0.05cm}$  número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} \neq x_{rj} \\$ 
 
-$\hspace{0.45cm}$ $p-\alpha(x_i, x_r) \hspace{0.05cm}=\hspace{0.05cm}$  número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} \neq x_{rj} \\$ 
+$$p - \alpha(x_i, x_r) \hspace{0.09cm}=\hspace{0.09cm} \# \hspace{0.09cm} \bigl\{ \hspace{0.1cm} j = 1,...,p \hspace{0.2cm} : \hspace{0.2cm} x_{ij} \neq x_{rj}  \hspace{0.1cm}\bigr\} \hspace{0.25cm} \Rightarrow \hspace{0.25cm} \text{numero de no coincidencias}\\$$
 
-$$p - \alpha(x_i, x_r) \hspace{0.07cm}=\hspace{0.07cm} \# \lbrace\hspace{0.1cm} j\in \lbrace 1,...,p\rbrace \hspace{0.15cm}/\hspace{0.15cm} x_{ij} \neq x_{rj}  \hspace{0.1cm}\rbrace\\$$
-
-
-
-
-$\hspace{0.25cm}$ **Observación:**
-
-$$\alpha(x_i, x_r) \hspace{0.05cm}=\hspace{0.05cm} a(x_i, x_r) + b(x_i, x_r)$$
-
-
-</p>
- 
-</p></span>
-</div>
-
-
-
-<br>
-
-## Similaridad por coincidencias  
-
-La medida de similaridad mas común con variables categoricas multiclase es la similaridad por coincidencias
-
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
- 
-<p style='margin-left:1em;'>
-
-$\hspace{0.25cm}$La similaridad por coincidencias entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables categoricas multiclase $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ se define como: $\\[0.4cm]$
-
-
- 
-\begin{gather*}
-\phi(x_i,x_r)_{Coin}\hspace{0.05cm}=\hspace{0.05cm} \dfrac{\alpha(x_i, x_r)}{p}
-\end{gather*}
 
 </p>
  
@@ -3714,12 +3765,48 @@ $\hspace{0.25cm}$La similaridad por coincidencias entre el par de observaciones 
 
 **Observación:**
 
-Cuando las variables son binarias, el la similaridad por coincidencias es igual a la similaridad de Sokal, ya que $\hspace{0.1cm} \alpha(x_i, x_r)=a(x_i, x_r)+b(x_i, x_r)$
+$$\alpha(x_i, x_r) \hspace{0.05cm}=\hspace{0.05cm} a(x_i, x_r) + b(x_i, x_r)$$
+
 
 
 
 <br>
 
+## Similaridad simple matching  
+
+La medida de similaridad mas común con variables categóricas multiclase es el coeficiente de similaridad simple matching.
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+$\hspace{0.25cm}$La similaridad simple matching entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables categóricas multiclase $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ se define como: $\\[0.4cm]$
+
+
+ 
+$$
+\phi(x_i,x_r)_{Matching}\hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.08cm}\alpha(x_i, x_r)\hspace{0.08cm}}{p}
+$$
+
+</p>
+ 
+</p></span>
+</div>
+
+
+**Observación:**
+
+La similaridad simple matching aplicada a variables binarias coincide con la similaridad de Sokal, ya que $\hspace{0.1cm} \alpha(x_i, x_r)=a(x_i, x_r)+b(x_i, x_r)\hspace{0.08cm}$.
+
+
+
+<br>
+
+
+**Similaridad de Coincidencias entre vectores**
+
+$\hspace{0.25cm}$ La distancia de Coincidencias puede definirse de forma más general, sin estar sujeta a un contexto estadístico. 
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -3727,21 +3814,17 @@ Cuando las variables son binarias, el la similaridad por coincidencias es igual 
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ **Similaridad de Coincidencias entre vectores**
-
-$\hspace{0.25cm}$ La distancia de Coincidencias puede definirse de forma más general, sin estar sujeta a un contexto estadístico. 
-
-$\hspace{0.25cm}$ Dada una matriz de datos $\hspace{0.1cm}X=(X_1,...,X_p)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n$
+ 
 
 $\hspace{0.25cm}$ Dados dos vectores **multiclase**  $\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.07cm} ,\hspace{0.07cm} w=(w_1,...,w_p)^t \hspace{0.07cm}\in \hspace{0.07cm} \mathbb{R}^p\hspace{0.07cm} \\$
 
 
 
 
-$\hspace{0.25cm}$ La similaridad entre $\hspace{0.1cm}v\hspace{0.1cm}$ y $\hspace{0.1cm}w\hspace{0.1cm}$ es: $\\[0.5cm]$
+$\hspace{0.25cm}$ La similaridad entre $\hspace{0.1cm}v\hspace{0.1cm}$ y $\hspace{0.1cm}w\hspace{0.1cm}$ es: 
 
 $$
-\phi (v,w)_{Coin}  \hspace{0.07cm}=\hspace{0.07cm}  \dfrac{ \alpha(v,w) }{p} \\
+\phi (v,w)_{Matching}  \hspace{0.07cm}=\hspace{0.07cm}  \dfrac{ \alpha(v,w) }{p} \\
 $$
 
 
@@ -3767,9 +3850,9 @@ $$
 
 $\hspace{0.25cm}$ La distancia por coincidencias entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables categoricas multiclase $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ se obtiene como: $\\[0.4cm]$
 
-\begin{gather*}
-\hspace{0.35cm} \delta(x_i,x_r)_{Coin} = \sqrt{\phi(x_i,x_i)_{Coin} + \phi(x_r,x_r)_{Coin} - 2\cdot \phi(x_i,x_r)_{Coin} }
-\end{gather*}
+$$
+ \delta(x_i,x_r)_{Matching} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ \hspace{0.1cm} \phi(x_i,x_i)_{Matching} \hspace{0.07cm}+\hspace{0.07cm} \phi(x_r,x_r)_{Matching} \hspace{0.07cm}-\hspace{0.07cm} 2\cdot \phi(x_i,x_r)_{Matching} \hspace{0.1cm}}
+$$
 
 </p>
  
@@ -3784,8 +3867,7 @@ $\hspace{0.25cm}$ La distancia por coincidencias entre el par de observaciones $
 
 
 
-## Similaridad por coincidencias en `Python`  <a class="anchor" id="1"></a>
-
+## Similaridad simple matching en `Python`  <a class="anchor" id="1"></a>
 
 
 ```python
@@ -3793,87 +3875,132 @@ def alpha(x_i, x_r):
 
     alpha = sum(x_i == x_r)
 
-    return(alpha)    
+    return(alpha)   
 ```
+
 
 ```python
-Data_multiclass_numpy[2,:] 
+Data_multiclass.iloc[2,:] 
 ```
 
-    array([2., 5., 1.])
+
+
+
+    quality_recode    2.0
+    rating            5.0
+    type              1.0
+    Name: 2, dtype: float64
+
+
+
 
 ```python
-Data_multiclass_numpy[5,:] 
+Data_multiclass.iloc[5,:] 
 ```
-     
-    array([2., 5., 1.])
+
+
+
+
+    quality_recode    2.0
+    rating            5.0
+    type              1.0
+    Name: 5, dtype: float64
+
+
+
 
 ```python
-alpha(x_i=Data_multiclass_numpy[2,:] , x_r=Data_multiclass_numpy[5,:])
+alpha(x_i=Data_multiclass.iloc[2,:] , x_r=Data_multiclass.iloc[5,:])
 ```
 
-    2
 
+
+
+    3
 
 <br>
 
-```python
-Data_multiclass_numpy[15,:] 
-```
-
-    array([2., 3., 2.])
-
-
-
 
 ```python
-Data_multiclass_numpy[14,:]
+Data_multiclass.iloc[15,:] 
 ```
 
-    array([2., 4., 1.])
+
+
+
+    quality_recode    2.0
+    rating            3.0
+    type              2.0
+    Name: 15, dtype: float64
+
 
 
 
 ```python
-alpha(x_i=Data_multiclass_numpy[14,:] , x_r=Data_multiclass_numpy[15,:])
+Data_multiclass.iloc[14,:]
 ```
+
+
+
+
+    quality_recode    2.0
+    rating            4.0
+    type              1.0
+    Name: 14, dtype: float64
+
+
+
+
+```python
+alpha(x_i=Data_multiclass.iloc[14,:] , x_r=Data_multiclass.iloc[15,:])
+```
+
 
     1
 
 
 <br>
 
+
 ```python
-def matches_similarity(x_i, x_r, Data):
+def matching_similarity(x_i, x_r, Data):
 
     p = Data.shape[1]
 
-    matches_similarity = alpha(x_i, x_r) / p
+    matching_similarity = alpha(x_i, x_r) / p
 
-    return(matches_similarity)
+    return(matching_similarity)
 ```
+
 
 ```python
-matches_similarity(x_i=Data_multiclass_numpy[2,:] , x_r=Data_multiclass_numpy[5,:], Data=Data_multiclass_numpy)
+matching_similarity(x_i=Data_multiclass.iloc[2,:] , x_r=Data_multiclass.iloc[5,:], Data=Data_multiclass)
 ```
+
 
     1.0
 
-<br>
+
+
 
 ```python
-matches_similarity(x_i=Data_multiclass_numpy[14,:] , x_r=Data_multiclass_numpy[15,:], Data=Data_multiclass_numpy)
+matching_similarity(x_i=Data_multiclass.iloc[14,:] , x_r=Data_multiclass.iloc[15,:], Data=Data_multiclass)
 ```
+
+
+
 
     0.3333333333333333
 
 
 <br>
 
-```python
-def Matrix_Sim_Matches(Data):
 
-    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+
+```python
+def Matrix_Sim_Matching(Data):
+    
+    Data = Data.to_numpy()
 
     n = len(Data)
 
@@ -3894,81 +4021,93 @@ def Matrix_Sim_Matches(Data):
             
             else :
 
-                 M[i,r] = matches_similarity(x_i=Data[i,:], x_r=Data[r,:], Data=Data)
+                 M[i,r] = matching_similarity(x_i=Data[i,:], x_r=Data[r,:], Data=Data)
                       
     return M 
 ```
 
+
+```python
+M_matching = Matrix_Sim_Matching(Data=Data_multiclass)
+
+M_matching 
+```
+
+
+
+
+    array([[1.        , 0.33333333, 0.33333333, ..., 0.33333333, 0.33333333,
+            0.33333333],
+           [0.        , 1.        , 0.66666667, ..., 1.        , 0.66666667,
+            0.        ],
+           [0.        , 0.        , 1.        , ..., 0.66666667, 0.66666667,
+            0.        ],
+           ...,
+           [0.        , 0.        , 0.        , ..., 1.        , 0.66666667,
+            0.        ],
+           [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
+            0.        ],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            1.        ]])
+
+
+
+
+```python
+M_matching = M_matching + M_matching.T - np.diag(np.repeat(1 , len(M_matching)), k=0)
+
+M_matching
+```
+
+
+
+
+    array([[1.        , 0.33333333, 0.33333333, ..., 0.33333333, 0.33333333,
+            0.33333333],
+           [0.33333333, 1.        , 0.66666667, ..., 1.        , 0.66666667,
+            0.        ],
+           [0.33333333, 0.66666667, 1.        , ..., 0.66666667, 0.66666667,
+            0.        ],
+           ...,
+           [0.33333333, 1.        , 0.66666667, ..., 1.        , 0.66666667,
+            0.        ],
+           [0.33333333, 0.66666667, 0.66666667, ..., 0.66666667, 1.        ,
+            0.        ],
+           [0.33333333, 0.        , 0.        , ..., 0.        , 0.        ,
+            1.        ]])
+
+
+
+
 <br>
 
 ```python
-M_matches = Matrix_Sim_Matches(Data=Data_multiclass_numpy)
+def Dist_Matching(x_i, x_r, Data):
 
-M_matches 
+    Dist_Matching = np.sqrt(matches_similarity(x_i, x_i, Data) +  matches_similarity(x_r, x_r, Data) - 2*matches_similarity(x_i, x_r, Data) )
+
+    return( Dist_Matching )
 ```
-```
-array([[1.        , 0.33333333, 0.33333333, ..., 0.33333333, 0.33333333,
-        0.33333333],
-       [0.        , 1.        , 0.66666667, ..., 1.        , 0.66666667,
-        0.        ],
-       [0.        , 0.        , 1.        , ..., 0.66666667, 0.66666667,
-        0.        ],
-       ...,
-       [0.        , 0.        , 0.        , ..., 1.        , 0.66666667,
-        0.        ],
-       [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
-        0.        ],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        1.        ]])
-```
-
-<br>
-
-```python
-M_matches = M_matches + M_matches.T - np.diag(np.repeat(1 , len(M_matches)), k=0)
-
-M_matches
-```
-```
-array([[1.        , 0.33333333, 0.33333333, ..., 0.33333333, 0.33333333,
-        0.33333333],
-       [0.33333333, 1.        , 0.66666667, ..., 1.        , 0.66666667,
-        0.        ],
-       [0.33333333, 0.66666667, 1.        , ..., 0.66666667, 0.66666667,
-        0.        ],
-       ...,
-       [0.33333333, 1.        , 0.66666667, ..., 1.        , 0.66666667,
-        0.        ],
-       [0.33333333, 0.66666667, 0.66666667, ..., 0.66666667, 1.        ,
-        0.        ],
-       [0.33333333, 0.        , 0.        , ..., 0.        , 0.        ,
-        1.        ]])
-```
-
-<br>
-
-```python
-def Dist_Matches(x_i, x_r, Data):
-
-    Dist_Matches = np.sqrt(matches_similarity(x_i, x_i, Data) +  matches_similarity(x_r, x_r, Data) - 2*matches_similarity(x_i, x_r, Data) )
-
-    return( Dist_Matches )
-```
-
 
 
 ```python
-matches_similarity(x_i=Data_multiclass_numpy[2,:] , x_r=Data_multiclass_numpy[5,:], Data=Data_multiclass_numpy)
+matching_similarity(x_i=Data_multiclass.iloc[2,:] , x_r=Data_multiclass.iloc[5,:], Data=Data_multiclass)
 ```
+
+
+
 
     1.0
-    
+
+
+
 <br>
 
-```python
-def Matrix_Dist_Matches(Data):
 
-    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+```python
+def Matrix_Dist_Matching(Data):
+
+    Data = Data.to_numpy()
 
     n = len(Data)
 
@@ -3984,54 +4123,61 @@ def Matrix_Dist_Matches(Data):
 
              else :
 
-                M[i,r] = Dist_Matches(x_i=Data[i,:], x_r=Data[r,:], Data=Data)
+                M[i,r] = Dist_Matching(x_i=Data[i,:], x_r=Data[r,:], Data=Data)
                       
     return M 
 ```
 
-```python
-M_Dist_Matches = Matrix_Dist_Matches(Data=Data_multiclass_numpy)
-
-M_Dist_Matches
-```
-```
-array([[0.        , 1.15470054, 1.15470054, ..., 1.15470054, 1.15470054,
-        1.15470054],
-       [0.        , 0.        , 0.81649658, ..., 0.        , 0.81649658,
-        1.41421356],
-       [0.        , 0.        , 0.        , ..., 0.81649658, 0.81649658,
-        1.41421356],
-       ...,
-       [0.        , 0.        , 0.        , ..., 0.        , 0.81649658,
-        1.41421356],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        1.41421356],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        0.        ]])
-```
-
-<br>
 
 ```python
-M_Dist_Matches = M_Dist_Matches + M_Dist_Matches.T
+M_Dist_Matching = Matrix_Dist_Matching(Data=Data_multiclass)
 
-M_Dist_Matches
+M_Dist_Matching
 ```
+
+
+
+
+    array([[0.        , 1.15470054, 1.15470054, ..., 1.15470054, 1.15470054,
+            1.15470054],
+           [0.        , 0.        , 0.81649658, ..., 0.        , 0.81649658,
+            1.41421356],
+           [0.        , 0.        , 0.        , ..., 0.81649658, 0.81649658,
+            1.41421356],
+           ...,
+           [0.        , 0.        , 0.        , ..., 0.        , 0.81649658,
+            1.41421356],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            1.41421356],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            0.        ]])
+
+
+
+
+```python
+M_Dist_Matching = M_Dist_Matching + M_Dist_Matching.T
+
+M_Dist_Matching
 ```
-array([[0.        , 1.15470054, 1.15470054, ..., 1.15470054, 1.15470054,
-        1.15470054],
-       [1.15470054, 0.        , 0.81649658, ..., 0.        , 0.81649658,
-        1.41421356],
-       [1.15470054, 0.81649658, 0.        , ..., 0.81649658, 0.81649658,
-        1.41421356],
-       ...,
-       [1.15470054, 0.        , 0.81649658, ..., 0.        , 0.81649658,
-        1.41421356],
-       [1.15470054, 0.81649658, 0.81649658, ..., 0.81649658, 0.        ,
-        1.41421356],
-       [1.15470054, 1.41421356, 1.41421356, ..., 1.41421356, 1.41421356,
-        0.        ]])
-```
+
+
+
+
+    array([[0.        , 1.15470054, 1.15470054, ..., 1.15470054, 1.15470054,
+            1.15470054],
+           [1.15470054, 0.        , 0.81649658, ..., 0.        , 0.81649658,
+            1.41421356],
+           [1.15470054, 0.81649658, 0.        , ..., 0.81649658, 0.81649658,
+            1.41421356],
+           ...,
+           [1.15470054, 0.        , 0.81649658, ..., 0.        , 0.81649658,
+            1.41421356],
+           [1.15470054, 0.81649658, 0.81649658, ..., 0.81649658, 0.        ,
+            1.41421356],
+           [1.15470054, 1.41421356, 1.41421356, ..., 1.41421356, 1.41421356,
+            0.        ]])
+
 
 
 
@@ -4046,22 +4192,21 @@ array([[0.        , 1.15470054, 1.15470054, ..., 1.15470054, 1.15470054,
 # Conjuntos de variables estadisticas de tipo mixto   
 
 
-Un conjunto de variables estadisticas $\hspace{0.1cm} (\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ es de tipo mixto si hay al menos un par de variables de tipo (cuantitativo, binario, multiclase) distinto. 
+Un conjunto de variables estadísticas $\hspace{0.1cm} (\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ es de tipo mixto si hay al menos un par de variables de distinto tipo  (cuantitativo, binario, multiclase). 
 
 
-Distnguimos cuatro cuatro tipos de conjuntos de variables mixtos:
+Distinguimos cuatro cuatro tipos de conjuntos de variables mixtos:
 
-- Conunto de variables de tipo cuantitativo-binario-multiclase: en el conjunto hay alguna variable cuantitativa, alguna binaria y tambien alguna multiclase. $\\[0.5cm]$
+- Conjunto de variables de tipo **cuantitativo-binario-multiclase**$\hspace{0.25cm} \Rightarrow \hspace{0.25cm}$ en el conjunto hay alguna variable cuantitativa, alguna binaria y también alguna multiclase. $\\[0.5cm]$
 
-- Conjunto de variables de tipo cuantitativo-binario: en el conjunto hay alguna variable cuantitativa, y también alguna binaria, pero no hay multiclase. $\\[0.5cm]$
+- Conjunto de variables de tipo **cuantitativo-binario** $\hspace{0.25cm} \Rightarrow \hspace{0.25cm}$ en el conjunto hay alguna variable cuantitativa, y también alguna binaria, pero no hay multiclase. $\\[0.5cm]$
 
-- Conjunto de variables de tipo cuantitativo-multiclase:  en el conjunto hay alguna variable cuantitativa, y también alguna multiclase, pero no hay binarias. $\\[0.5cm]$
+- Conjunto de variables de tipo **cuantitativo-multiclase** $\hspace{0.25cm} \Rightarrow \hspace{0.25cm}$  en el conjunto hay alguna variable cuantitativa, y también alguna multiclase, pero no hay binarias. $\\[0.5cm]$
 
-- Conjunto de variables de tipo binario-multiclase:  en el conjunto hay alguna variable binaria, y también alguna multiclase, pero no hay cuantitativas.
+- Conjunto de variables de tipo **binario-multiclase** $\hspace{0.25cm} \Rightarrow \hspace{0.25cm}$  en el conjunto hay alguna variable binaria, y también alguna multiclase, pero no hay cuantitativas.
 
 
 <br>
-
 
 
 
@@ -4070,7 +4215,7 @@ Distnguimos cuatro cuatro tipos de conjuntos de variables mixtos:
 
 
 
-Tenemos un conjunto de variables estadisticas $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ tales que:
+Tenemos un conjunto de variables estadísticas $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p )\hspace{0.1cm}$ tales que: $\\[0.3cm]$
 
 
 - $\mathcal{X}_1,...,\mathcal{X}_{p_1} \hspace{0.15cm}$ son **cuantitativas**. $\\[0.5cm]$
@@ -4085,7 +4230,7 @@ Donde: $\hspace{0.2cm} p=p_1 + p_2 + p_3 \\$
 
 **Observación:**
 
-$\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ forman un conjunto de variables de tipo cuantitativo-binario-multiclase
+$\mathcal{X}_1,...,\mathcal{X}_p \hspace{0.1cm}$ forman un conjunto de variables de tipo cuantitativo-binario-multiclase
 
 
 
