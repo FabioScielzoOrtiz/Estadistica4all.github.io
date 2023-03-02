@@ -2357,6 +2357,10 @@ $\hspace{0.45cm} \phi_{ir} \hspace{0.08cm}=\hspace{0.08cm} \phi(a_i , a_r) \hspa
 
 # Similaridades con variables categoricas binarias 
 
+
+
+## Parámetros a, b , c y d
+
 Supongamos que las variables $\hspace{0.1cm}\mathcal{X}_1 , \dots , \mathcal{X}_p\hspace{0.1cm}$ son **categóricas binarias**.
 
 
@@ -2370,24 +2374,24 @@ Supongamos que las variables $\hspace{0.1cm}\mathcal{X}_1 , \dots , \mathcal{X}_
  -  $a(x_i, x_r) \hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
  
   
- $$a(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j\in \lbrace 1,..,p\rbrace \hspace{0.2cm} : \hspace{0.2cm} x_{ij}=x_{rj}=1  \hspace{0.1cm}  \rbrace \\[0.7cm]$$
+ $$a(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm}  j =  1,..,p \hspace{0.2cm} : \hspace{0.2cm} x_{ij}=x_{rj}=1  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{coincidencias (1,1)} \\[0.7cm]$$
 
  - $b(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias  $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=1 \\$ 
 
 
- $$b(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j\in \lbrace 1,..,p\rbrace \hspace{0.2cm} : \hspace{0.2cm} x_{ij}=0 \hspace{0.25cm}\text{y}\hspace{0.25cm} x_{rj}=1  \hspace{0.1cm}  \rbrace \\[0.7cm]$$
+ $$b(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm}  j = 1,..,p \hspace{0.2cm} : \hspace{0.2cm} x_{ij}=0 \hspace{0.25cm}\text{y}\hspace{0.25cm} x_{rj}=1  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{no coincidencias (0,1)} \\[0.7cm]$$
 
 
  - $c(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =1\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
 
 
- $$c(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j\in \lbrace 1,..,p\rbrace \hspace{0.2cm}:\hspace{0.2cm} x_{ij}=1 \hspace{0.25cm}\text{y}\hspace{0.25cm} x_{rj}=0  \hspace{0.1cm}  \rbrace \\[0.7cm]$$
+ $$c(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm}  j =  1,..,p \hspace{0.2cm}:\hspace{0.2cm} x_{ij}=1 \hspace{0.25cm}\text{y}\hspace{0.25cm} x_{rj}=0  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{no coincidencias (1,0)} \\[0.7cm]$$
 
 
 
  - $d(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
  
- $$d(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm} j \in \lbrace 1,..,p\rbrace \hspace{0.2cm}:\hspace{0.2cm} x_{ij}= x_{rj}=0  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
+ $$d(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm} j = 1,..,p \hspace{0.2cm}:\hspace{0.2cm} x_{ij}= x_{rj}=0  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{coincidencias (0,0)} \\[0.5cm]$$
  
  
 
@@ -2779,9 +2783,11 @@ $$
 
 
 
-**Observación:**
+**Observaciones:**
 
-La similaridad de Sokal coincide con el coeficiente de coincidencias aplicado a variables binarias. El coeficiente de coincidencias es una medida de similaridad definida para variables categóricas multiclase, el cual veremos posteriormente.
+- La similaridad de Sokal coincide con el coeficiente de coincidencias aplicado a variables binarias. El coeficiente de coincidencias es una medida de similaridad definida para variables categóricas multiclase, el cual veremos posteriormente. $\\[0.4cm]$
+
+- Es fácil ver que si $\hspace{0.1cm}x_i = x_r\hspace{0.1cm}$, entonces $\hspace{0.1cm}\phi(x_i, x_r)_{Sokal} = 1\hspace{0.1cm}$ , puesto que $\hspace{0.1cm}a(x_i)+d(x_i,x_r) = p\hspace{0.1cm}$.
 
 
 <br>
@@ -3194,7 +3200,7 @@ $\hspace{0.25cm}$ El coeficiente de similaridad de Jaccard (o simplemente la sim
 
 
 $$
-\phi(x_i,x_r)_{J}  \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.1cm} a(x_i,x_r) \hspace{0.1cm}}{a(x_i,x_r) \hspace{0.1cm}+\hspace{0.1cm} b(x_i,x_r) \hspace{0.1cm}+\hspace{0.1cm} c(x_i,x_r)} 
+\phi(x_i,x_r)_{Jaccard}  \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.1cm} a(x_i,x_r) \hspace{0.1cm}}{a(x_i,x_r) \hspace{0.1cm}+\hspace{0.1cm} b(x_i,x_r) \hspace{0.1cm}+\hspace{0.1cm} c(x_i,x_r)} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.2cm} a(x_i,x_r) \hspace{0.2cm}}{ p \hspace{0.1cm}-\hspace{0.1cm} d(x_i,x_r) }  
 $$
 
 
@@ -3203,18 +3209,41 @@ $$
 </p></span>
 </div>
 
+**Observación:**
+
+Tal y como hemos definido La similaridad de Jaccard genera problemas para el caso en el que ambos vectores de observaciones son nulos.
+
+Sea $x_i = x_r = (0,\dots , 0)$ , entonces, $a(x_i,x_r)=0$, por lo que $\phi(x_i, x_r) = \dfrac{0}{0}$ , lo cual no está definido. Además, toda similaridad debe ser igual a $1$ para un par de vectores iguales.
+
+Para solventar este problema en la práctica vamos a considerar la siguiente modificación del coeficiente de Jaccard original: $\\[0.3cm]$
+
+
+- Si $x_i$ o $x_r$ es distinto del vector nulo :
+$$
+\phi(x_i,x_r)_{J}  \hspace{0.1cm}=\hspace{0.1cm}   \dfrac{\hspace{0.2cm} a(x_i,x_r) \hspace{0.2cm}}{ p \hspace{0.1cm}-\hspace{0.1cm} d(x_i,x_r) } \\
+$$
+
+- Si $x_i = x_ r = (0,\dots , 0)$ :
+
+
+$$
+\phi(x_i,x_r)_{J}  \hspace{0.1cm}=\hspace{0.1cm}  1 
+$$
+
+<br>
 
 
 
+**Similaridad de Jaccard entre vectores**
+
+La distancia de Jaccard puede definirse de forma más general, sin estar sujeta a un contexto estadístico. 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ **Similaridad de Jaccard entre vectores**
 
-$\hspace{0.25cm}$ La distancia de Jaccard puede definirse de forma más general, sin estar sujeta a un contexto estadístico. 
 
 $\hspace{0.25cm}$ Dada una matriz de datos $\hspace{0.1cm}X=(X_1,...,X_p)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n$
 
