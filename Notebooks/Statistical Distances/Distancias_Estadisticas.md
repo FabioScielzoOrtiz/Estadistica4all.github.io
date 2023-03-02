@@ -57,7 +57,7 @@ $\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https:
 
 $\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](http://estadistica4all.com/autores/información.html)
 
-$\hspace{0.3cm}$ **Si utilizas este artículo, cítalo !!**
+$\hspace{0.3cm}$ **Si utilizas este artículo, cítalo, por favor.**
 
 $\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). Distancias Estadísticas. Estadistica4all. http://estadistica4all.com/Articulos/Distancias_Estadisticas.html
 
@@ -1154,7 +1154,7 @@ $$
 
 **Observación:**
 
-$\hspace{0.1cm} \delta_q(x_i,x_r)_{Minkowski}\hspace{0.1cm}$ es la distancia de Minkowski entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}$ y $\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p \hspace{0.07cm}.$
+$\hspace{0.1cm} \delta_q(x_i,x_r)_{Mink }\hspace{0.1cm}$ es la distancia de Minkowski entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}$ y $\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p \hspace{0.07cm}.$
 
 
 <br>
@@ -1187,33 +1187,53 @@ $\hspace{0.1cm} \delta_q(x_i,x_r)_{Minkowski}\hspace{0.1cm}$ es la distancia de 
 $\hspace{0.25cm}$  **Distancia Euclidea** 
 
 
-\begin{gather*}
+$$
  \delta_2(i,j)_{Mink }=\delta (i,j)_{Euclidea }   \hspace{1cm} (q=2) \\
- \end{gather*}
+$$
  
+ 
+ </p>
+ 
+</p></span>
+</div>
 
 
 <br>
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
 $\hspace{0.25cm}$  **Distancia Manhattan**
 
 
 
-\begin{gather*}
+$$
  \delta_1(i,j)_{Mink } \hspace{0.1cm}=\hspace{0.1cm} \sum_{k=1}^{p}  \mid x_{ik} - x_{jk}  \mid   \hspace{1cm} (q=1) \\
- \end{gather*}
+$$
+
+</p>
+ 
+</p></span>
+</div>
 
 
 
 <br>
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
 $\hspace{0.25cm}$  **Distancia Dominante** <a class="anchor" id="23"></a>
 
 
 
-\begin{gather*}
+$$
  \delta_{\infty}(i,j)_{Mink } \hspace{0.1cm}=\hspace{0.1cm} max \lbrace  \hspace{0.1cm} \mid x_{i1} - x_{j1} \mid \hspace{0.1cm},...,\hspace{0.1cm} \mid x_{ip} - x_{jp} \mid \hspace{0.1cm}  \rbrace \hspace{1cm} (q\rightarrow \infty) 
- \end{gather*}
+$$
 
 
 </p>
@@ -1232,6 +1252,7 @@ $\hspace{0.25cm}$  **Distancia Dominante** <a class="anchor" id="23"></a>
 
 ## Distancia de Minkowski en `Python`
 
+ 
 ```python
 def Dist_Minkowski(x_i, x_r, q):
 
@@ -1245,34 +1266,52 @@ def Dist_Minkowski(x_i, x_r, q):
 Dist_Minkowski(Data_quant.iloc[2,:], Data_quant.iloc[5,:], q=1)
 ```
 
-    1969992.0102169998
+
+```
+1969992.0102169998
+```
+
+
 
 ```python
 Dist_Minkowski(Data_quant.iloc[2,:], Data_quant.iloc[5,:], q=2)
 ```
 
-    1969900.0019225744
+
+
+```
+1969900.0019225744
+```
+
+
 
 ```python
 Dist_Minkowski(Data_quant.iloc[2,:], Data_quant.iloc[5,:], q=3)
 ```
 
-    1969900.000000055
+
+
+```
+1969900.000000055
+```
+
 
 
 ```python
 Dist_Minkowski(Data_quant.iloc[2,:], Data_quant.iloc[5,:], q=10)
 ```
 
-    1969900.0000000016
 
+```
+1969900.0000000016
+```
 
 <br>
 
 ```python
 def Matrix_Dist_Minkowski(Data, q):
 
-    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+    Data = Data.to_numpy()
 
     n = len(Data)
 
@@ -1290,35 +1329,36 @@ def Matrix_Dist_Minkowski(Data, q):
              else :
 
                  M[i,r] = Dist_Minkowski(Data[i,:] , Data[r,:], q)   
-
                       
     return M 
 ```
 
 
 ```python
-M_Minkowski = Matrix_Dist_Minkowski(Data=Data_quant_numpy , q=1)
+M_Minkowski = Matrix_Dist_Minkowski(Data=Data_quant, q=1)
 
 M_Minkowski
 ```
 
-```
-array([[      0.      ,  150047.748877, 1550086.062526, ...,
-         200084.359869, 2025031.624379, 1939138.969796],
-       [      0.      ,       0.      , 1700038.338187, ...,
-          50036.62379 , 2175079.33592 , 2089186.681337],
-       [      0.      ,       0.      ,       0.      , ...,
-        1750002.301489,  475117.608205,  389224.964166],
-       ...,
-       [      0.      ,       0.      ,       0.      , ...,
-              0.      , 2225115.802424, 2139223.298103],
-       [      0.      ,       0.      ,       0.      , ...,
-              0.      ,       0.      ,   85892.654583],
-       [      0.      ,       0.      ,       0.      , ...,
-              0.      ,       0.      ,       0.      ]])
-```              
 
-<br>
+
+```
+    array([[      0.      ,  150047.748877, 1550086.062526, ...,
+             200084.359869, 2025031.624379, 1939138.969796],
+           [      0.      ,       0.      , 1700038.338187, ...,
+              50036.62379 , 2175079.33592 , 2089186.681337],
+           [      0.      ,       0.      ,       0.      , ...,
+            1750002.301489,  475117.608205,  389224.964166],
+           ...,
+           [      0.      ,       0.      ,       0.      , ...,
+                  0.      , 2225115.802424, 2139223.298103],
+           [      0.      ,       0.      ,       0.      , ...,
+                  0.      ,       0.      ,   85892.654583],
+           [      0.      ,       0.      ,       0.      , ...,
+                  0.      ,       0.      ,       0.      ]])
+```
+
+
 
 ```python
 M_Minkowski = M_Minkowski + M_Minkowski.T
@@ -1326,23 +1366,23 @@ M_Minkowski = M_Minkowski + M_Minkowski.T
 M_Minkowski
 ```
 
-```
 
-array([[      0.      ,  150047.748877, 1550086.062526, ...,
-         200084.359869, 2025031.624379, 1939138.969796],
-       [ 150047.748877,       0.      , 1700038.338187, ...,
-          50036.62379 , 2175079.33592 , 2089186.681337],
-       [1550086.062526, 1700038.338187,       0.      , ...,
-        1750002.301489,  475117.608205,  389224.964166],
-       ...,
-       [ 200084.359869,   50036.62379 , 1750002.301489, ...,
-              0.      , 2225115.802424, 2139223.298103],
-       [2025031.624379, 2175079.33592 ,  475117.608205, ...,
-        2225115.802424,       0.      ,   85892.654583],
-       [1939138.969796, 2089186.681337,  389224.964166, ...,
-        2139223.298103,   85892.654583,       0.      ]])
-```
 
+```
+    array([[      0.      ,  150047.748877, 1550086.062526, ...,
+             200084.359869, 2025031.624379, 1939138.969796],
+           [ 150047.748877,       0.      , 1700038.338187, ...,
+              50036.62379 , 2175079.33592 , 2089186.681337],
+           [1550086.062526, 1700038.338187,       0.      , ...,
+            1750002.301489,  475117.608205,  389224.964166],
+           ...,
+           [ 200084.359869,   50036.62379 , 1750002.301489, ...,
+                  0.      , 2225115.802424, 2139223.298103],
+           [2025031.624379, 2175079.33592 ,  475117.608205, ...,
+            2225115.802424,       0.      ,   85892.654583],
+           [1939138.969796, 2089186.681337,  389224.964166, ...,
+            2139223.298103,   85892.654583,       0.      ]])
+```
 
  
  
@@ -1363,9 +1403,9 @@ $\hspace{0.25cm}$ La distancia de Canberra entre el par de observaciones $\hspac
 
 
 
-\begin{gather*}
-\delta(x_i,x_r)_{C}\hspace{0.1cm}= \hspace{0.1cm} \sum_{k=1}^{p} \dfrac{\mid x_{ik} - x_{jk} \mid}{\mid x_{ik} \mid + \mid x_{jk} \mid}  
- \end{gather*}
+$$
+\delta(x_i,x_r)_{C}\hspace{0.11cm}= \hspace{0.11cm} \sum_{k=1}^{p} \hspace{0.08cm} \dfrac{\hspace{0.08cm} \mid x_{ik} - x_{jk} \mid \hspace{0.08cm}}{\mid x_{ik} \mid + \mid x_{jk} \mid}  
+$$
 
 </p>
  
@@ -1379,6 +1419,9 @@ $\hspace{0.25cm}$ La distancia de Canberra entre el par de observaciones $\hspac
 
 
 
+**Distancia Canberra entre vectores**
+
+La distancia de Canberra se puede definir de forma más general no sujeta a un contexto estadístico.
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1386,18 +1429,15 @@ $\hspace{0.25cm}$ La distancia de Canberra entre el par de observaciones $\hspac
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ **Distancia Canberra entre vectores**
-
-$\hspace{0.25cm}$ La distancia de Canberra se puede definir de forma más general no sujeta a un contexto estadístico.
-
-$\hspace{0.25cm}$ Dados dos vectores $\hspace{0.07cm}v=(v_1,...,v_n)^t\hspace{0.07cm}$ y $\hspace{0.07cm}w=(w_1,...,w_n)^t$ de $\hspace{0.07cm}\mathbb{R}^n$
+ 
+$\hspace{0.25cm}$ Dados dos vectores $\hspace{0.08cm}v=(v_1,...,v_n)^t\hspace{0.08cm}$ y $\hspace{0.07cm}w=(w_1,...,w_n)^t\hspace{0.08cm}$ de $\hspace{0.08cm}\mathbb{R}^n$
 
 
 
 $\hspace{0.25cm}$ La distancia Canberra entre esos dos vectores es: $\\[0.7cm]$
 
 $$
-\delta (v,w)_{C}  \hspace{0.07cm}=\hspace{0.07cm}   \sum_{i=1}^{n} \dfrac{ \mid v_i - w_i \mid }{\mid v_i \mid + \mid w_i \mid} \\
+\delta (v,w)_{C}  \hspace{0.07cm}=\hspace{0.07cm}   \sum_{i=1}^{n}\hspace{0.07cm} \dfrac{\hspace{0.07cm} \mid v_i - w_i \mid \hspace{0.07cm}}{\mid v_i \mid + \mid w_i \mid} \\
 $$
 
 </p>
@@ -1406,7 +1446,9 @@ $$
 </div>
 
 
-- Asi que $\hspace{0.1cm} \delta_q(x_i,x_r)_{Mink}\hspace{0.1cm}$ es la distancia de Minkowski entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}$ y $\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p$
+**Observación:**
+
+$\hspace{0.1cm} \delta_q(x_i,x_r)_{C}\hspace{0.1cm}$ es la distancia de Canberra entre los vectores (de observaciones) $\hspace{0.1cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.12cm}$ y $\hspace{0.12cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm} \mathcal{X}_1,...,\mathcal{X}_p\hspace{0.07cm}$.
 
 
 
@@ -1453,7 +1495,10 @@ def Dist_Canberra(x_i, x_r):
 Dist_Canberra(Data.iloc[2,:] , Data.iloc[5,:])
 ```
 
-    9.3284791957755
+
+
+
+    8.8284791957755
 
 
 <br>
@@ -1461,7 +1506,7 @@ Dist_Canberra(Data.iloc[2,:] , Data.iloc[5,:])
 ```python
 def Matrix_Dist_Canberra(Data):
 
-    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+    Data = Data.to_numpy()
 
     n = len(Data)
 
@@ -1479,36 +1524,36 @@ def Matrix_Dist_Canberra(Data):
              else :
 
                  M[i,r] = Dist_Canberra(Data[i,:] , Data[r,:])   
-
-                      
+                     
     return M 
 ```
 
 
-
-
 ```python
-M_Canberra = Matrix_Dist_Canberra(Data=Data_quant_numpy)
+M_Canberra = Matrix_Dist_Canberra(Data=Data_quant)
 
 M_Canberra
 ```
-```
-array([[0.        , 0.5496257 , 1.61996314, ..., 1.25082356, 0.78797391,
-        0.70959891],
-       [0.        , 0.        , 1.15900459, ..., 0.74009173, 1.31434216,
-        1.24077176],
-       [0.        , 0.        , 0.        , ..., 0.44223489, 1.63990915,
-        1.55106392],
-       ...,
-       [0.        , 0.        , 0.        , ..., 0.        , 2.00032192,
-        1.93106183],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        0.09956138],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        0.        ]])
-```
 
-<br>
+
+
+
+    array([[0.        , 0.5496257 , 1.61996314, ..., 1.25082356, 0.78797391,
+            0.70959891],
+           [0.        , 0.        , 1.15900459, ..., 0.74009173, 1.31434216,
+            1.24077176],
+           [0.        , 0.        , 0.        , ..., 0.44223489, 1.63990915,
+            1.55106392],
+           ...,
+           [0.        , 0.        , 0.        , ..., 0.        , 2.00032192,
+            1.93106183],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            0.09956138],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            0.        ]])
+
+
+
 
 ```python
 M_Canberra = M_Canberra + M_Canberra.T
@@ -1517,21 +1562,23 @@ M_Canberra
 ```
 
 
-```
-array([[0.        , 0.5496257 , 1.61996314, ..., 1.25082356, 0.78797391,
-        0.70959891],
-       [0.5496257 , 0.        , 1.15900459, ..., 0.74009173, 1.31434216,
-        1.24077176],
-       [1.61996314, 1.15900459, 0.        , ..., 0.44223489, 1.63990915,
-        1.55106392],
-       ...,
-       [1.25082356, 0.74009173, 0.44223489, ..., 0.        , 2.00032192,
-        1.93106183],
-       [0.78797391, 1.31434216, 1.63990915, ..., 2.00032192, 0.        ,
-        0.09956138],
-       [0.70959891, 1.24077176, 1.55106392, ..., 1.93106183, 0.09956138,
-        0.        ]])
-```
+
+
+    array([[0.        , 0.5496257 , 1.61996314, ..., 1.25082356, 0.78797391,
+            0.70959891],
+           [0.5496257 , 0.        , 1.15900459, ..., 0.74009173, 1.31434216,
+            1.24077176],
+           [1.61996314, 1.15900459, 0.        , ..., 0.44223489, 1.63990915,
+            1.55106392],
+           ...,
+           [1.25082356, 0.74009173, 0.44223489, ..., 0.        , 2.00032192,
+            1.93106183],
+           [0.78797391, 1.31434216, 1.63990915, ..., 2.00032192, 0.        ,
+            0.09956138],
+           [0.70959891, 1.24077176, 1.55106392, ..., 1.93106183, 0.09956138,
+            0.        ]])
+
+
 
 <br>
 
@@ -1539,18 +1586,19 @@ array([[0.        , 0.5496257 , 1.61996314, ..., 1.25082356, 0.78797391,
 
 ## Distancia de Pearson  
 
-
+ Dada una matriz de datos $\hspace{0.1cm} X = (X_1,...,X_p)\hspace{0.1cm}$ de las variables estadísticas  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}.$
+ 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ Dada una serie de muestras $\hspace{0.1cm} X_1,...,X_p\hspace{0.1cm}$ de las variables estadisticas  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
+ 
 
-$\hspace{0.25cm}$ La distancia de Karl Pearson entre el par de observaciones $\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ se define como: $\\[0.5cm]$
+$\hspace{0.25cm}$ La distancia de Karl Pearson entre el par de observaciones $\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ se define como: $\\[0.5cm]$
 
 $$
-\hspace{0.45cm} \delta(x_i,x_r)_{P} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ \sum_{k=1}^{p} \hspace{0.08cm} \dfrac{1}{s\hspace{0.03cm}^2_k} \cdot ( x_{ik} - x_{rk} )\hspace{0.03cm}^2 } \hspace{0.1cm} =\hspace{0.1cm} \sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S_0^{-1} \cdot (x_i - x_r )}   \\[0.8cm]
+\hspace{0.45cm} \delta(x_i,x_r)_{P} \hspace{0.12cm}=\hspace{0.12cm} \sqrt{ \hspace{0.1cm} \sum_{k=1}^{p} \hspace{0.1cm} \dfrac{1}{s\hspace{0.03cm}^2_k} \cdot ( x_{ik} - x_{rk} )\hspace{0.03cm}^2 \hspace{0.1cm} } \hspace{0.12cm} =\hspace{0.12cm} \sqrt{\hspace{0.1cm}(x_i - x_r)\hspace{0.03cm}^t \cdot S_0^{-1} \cdot (x_i - x_r )\hspace{0.1cm}}   \\[0.8cm]
 $$
   
 
@@ -1565,12 +1613,11 @@ $$
 
 Donde:
  
-- $S_0 = \text{diag}(s_1 ^2 ,..., s_p ^2)\\$
+- $S_0 \hspace{0.1cm}=\hspace{0.1cm} \text{diag}(s_1 ^2 ,..., s_p ^2)\\$
  
-- $s_k ^2\hspace{0.08cm}$ es la varianza de la muestra $\hspace{0.08cm}X_k\hspace{0.08cm}$ , es decir, $\hspace{0.08cm} s_k ^2 = \dfrac{1}{n}\cdot \sum_{i=1}^n ( x_{ik} - \overline{X}_k )^2\\$
+- $s_k ^2\hspace{0.1cm}$ es la varianza de la muestra $\hspace{0.08cm}X_k\hspace{0.08cm}$ , es decir, $\hspace{0.1cm} s_k ^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n}\cdot \sum_{i=1}^n ( x_{ik} - \overline{X}_k )^2\hspace{0.1cm}.\\$
 
-- $\overrightarrow{s} = ( s_1 ,..., s_p )$
-
+ 
 
 
 
@@ -1613,31 +1660,33 @@ Es decir, si la variable $\hspace{0.08cm}\mathcal{X}_k\hspace{0.08cm}$ tiene muc
 ## Distancia de Pearson en `Python`  
 
 
-
 ```python
-def Dist_Pearson(x_i, x_r, Data) :
+def Dist_Pearson(x_i, x_r, variance) :
 
-    # Si Data  es un pd.DataFrame --> hay que convertilos antes a numpy con Data.to_numpy()
-
-    Dist_Pearson = ( ( x_i - x_r )**2 / np.var(Data , axis=0, ddof=1) ).sum()
-
-    # np.var(Data , axis=0, ddof=1)  calcula la cuasi-varianza (ddof=1) por columnas (axis=0)
+    Dist_Pearson = ( ( x_i - x_r )**2 / variance ).sum()
 
     Dist_Pearson = np.sqrt(Dist_Pearson)
 
     return Dist_Pearson
 ```
 
+
 ```python
-Dist_Pearson(x_i=Data_quant_numpy[2,:], x_r=Data_quant_numpy[5,:], Data=Data_quant_numpy)
+Dist_Pearson(x_i=Data_quant.iloc[2,:], x_r=Data_quant.iloc[5,:], variance = np.var(Data_quant , axis=0, ddof=1))
 ```
 
+
+
+
     3.8239347754243425
+
+
+<br>
 
 ```python
 def Matrix_Dist_Pearson(Data):
 
-    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+    Data = Data.to_numpy()
 
     n = len(Data)
 
@@ -1654,35 +1703,36 @@ def Matrix_Dist_Pearson(Data):
 
              else :
 
-                 M[i,r] = Dist_Pearson(Data[i,:] , Data[r,:], Data=Data)   
-
-                      
+                 M[i,r] = Dist_Pearson(Data[i,:] , Data[r,:], variance=np.var(Data, axis=0, ddof=1))   
+                     
     return M 
 ```
 
+
 ```python
-M_Pearson = Matrix_Dist_Pearson(Data=Data_quant_numpy)
+M_Pearson = Matrix_Dist_Pearson(Data=Data_quant)
 
 M_Pearson
 ```
 
-```
-array([[0.        , 1.21345279, 3.77819153, ..., 4.95085256, 1.66393723,
-        0.94314867],
-       [0.        , 0.        , 3.17880538, ..., 4.43821303, 2.03523139,
-        1.60958264],
-       [0.        , 0.        , 0.        , ..., 3.82999056, 4.01162596,
-        3.76955491],
-       ...,
-       [0.        , 0.        , 0.        , ..., 0.        , 4.69603617,
-        5.13174853],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        1.09780835],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        0.        ]])
-```
 
-<br>
+
+
+    array([[0.        , 1.21345279, 3.77819153, ..., 4.95085256, 1.66393723,
+            0.94314867],
+           [0.        , 0.        , 3.17880538, ..., 4.43821303, 2.03523139,
+            1.60958264],
+           [0.        , 0.        , 0.        , ..., 3.82999056, 4.01162596,
+            3.76955491],
+           ...,
+           [0.        , 0.        , 0.        , ..., 0.        , 4.69603617,
+            5.13174853],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            1.09780835],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            0.        ]])
+
+
 
 
 ```python
@@ -1691,21 +1741,25 @@ M_Pearson = M_Pearson + M_Pearson.T
 M_Pearson
 ```
 
-```
-array([[0.        , 1.21345279, 3.77819153, ..., 4.95085256, 1.66393723,
-        0.94314867],
-       [1.21345279, 0.        , 3.17880538, ..., 4.43821303, 2.03523139,
-        1.60958264],
-       [3.77819153, 3.17880538, 0.        , ..., 3.82999056, 4.01162596,
-        3.76955491],
-       ...,
-       [4.95085256, 4.43821303, 3.82999056, ..., 0.        , 4.69603617,
-        5.13174853],
-       [1.66393723, 2.03523139, 4.01162596, ..., 4.69603617, 0.        ,
-        1.09780835],
-       [0.94314867, 1.60958264, 3.76955491, ..., 5.13174853, 1.09780835,
-        0.        ]])
-```
+
+
+
+    array([[0.        , 1.21345279, 3.77819153, ..., 4.95085256, 1.66393723,
+            0.94314867],
+           [1.21345279, 0.        , 3.17880538, ..., 4.43821303, 2.03523139,
+            1.60958264],
+           [3.77819153, 3.17880538, 0.        , ..., 3.82999056, 4.01162596,
+            3.76955491],
+           ...,
+           [4.95085256, 4.43821303, 3.82999056, ..., 0.        , 4.69603617,
+            5.13174853],
+           [1.66393723, 2.03523139, 4.01162596, ..., 4.69603617, 0.        ,
+            1.09780835],
+           [0.94314867, 1.60958264, 3.76955491, ..., 5.13174853, 1.09780835,
+            0.        ]])
+
+
+
 
 <br>
 
@@ -1715,26 +1769,26 @@ array([[0.        , 1.21345279, 3.77819153, ..., 4.95085256, 1.66393723,
 
 ## Distancia de Mahalanobis  
 
+Dada una matriz de datos $\hspace{0.1cm} X=(X_1,...,X_p)\hspace{0.1cm}$ de las variables estadísticas  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
+
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ Dada una matriz de datos $\hspace{0.1cm} X=(X_1,...,X_p)\hspace{0.1cm}$ de las variables estadisticas  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
-
-
-$\hspace{0.25cm}$ La distancia de Mahalanobis entre el par de observaciones $\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$ se define como: $\\[0.5cm]$
+ 
+$\hspace{0.25cm}$ La distancia de Mahalanobis entre el par de observaciones $\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$ se define como: $\\[0.5cm]$
 
  
 $$
- \delta(x_i,x_r)_{Maha} \hspace{0.08cm}= \hspace{0.08cm} \sqrt{(x_i - x_r)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - x_r ) }   \\[0.6cm]
+ \delta(x_i,x_r)_{Maha} \hspace{0.1cm}= \hspace{0.1cm} \sqrt{\hspace{0.1cm}(x_i - x_r)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - x_r ) \hspace{0.1cm}}   \\[0.6cm]
 $$
 
 
 $\hspace{0.25cm}$ Donde:
 
-$\hspace{0.35cm} S \hspace{0.08cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.08cm}X=(X_1,...,X_p)$
+$\hspace{0.4cm} S \hspace{0.08cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.08cm}X=(X_1,...,X_p)$
 
 </p>
  
@@ -1750,13 +1804,13 @@ $\hspace{0.35cm} S \hspace{0.08cm}$ es la matriz de covarianzas de la matriz de 
 
 La distancia de Mahalanobis es adecuada como distancia estadística por las siguientes razones: 
 
-- Es invariante ante cambios de escala (cambios en las unidades de medida) de las variables.
+- Es invariante ante cambios de escala (cambios en las unidades de medida) de las variables. $\\[0.4cm]$
 
-- Tiene en cuenta la correlación entre las variables. No aumenta al incrementar el número de variables observadas. Solo aumenta cuando estas nuevas variables no estan correladas con las anteriores. Asi que solo cuando las nuevas variables no son redundantes con respecto a la infromacion provista por las anteriores, la distancia de Mahalanobis aumentará.
+- Tiene en cuenta la correlación entre las variables. No aumenta al incrementar el número de variables observadas. Solo aumenta cuando estas nuevas variables no están correladas con las anteriores. Así que solo cuando las nuevas variables no son redundantes con respecto a la infromación provista por las anteriores, la distancia de Mahalanobis aumentará. $\\[0.4cm]$
 
-<br>
+ 
 
-***Observaciones***
+**Observaciones**
 
 - La distancia Euclidea es igual a la de Mahalanobis cuando $\hspace{0.1cm} S=I \\$
 
@@ -1766,19 +1820,19 @@ La distancia de Mahalanobis es adecuada como distancia estadística por las sigu
 
 <br>
 
+**Distancia Mahalanobis entre vectores $\hspace{0.1cm}x_i\hspace{0.1cm}$ y $\hspace{0.1cm}v\hspace{0.1cm}$**
+
+La distancia de Mahalanobis puede definirse de forma más general, para abordar el caso en el que uno de los vectores del par considerado no pertenecen a la matriz de datos a partir de la que se calcula la matriz de covarianzas $\hspace{0.1cm}S\hspace{0.08cm}$.
+
+Dada una matriz de datos $\hspace{0.1cm}X=(X_1,...,X_p)\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$.
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ **Distancia Mahalanobis entre vectores $\hspace{0.1cm}x_i\hspace{0.1cm}$ y $\hspace{0.1cm}v\hspace{0.1cm}$**
-
-$\hspace{0.25cm}$ La distancia de Mahalanobis puede definirse de forma más general, para abordar el caso en el que uno de los vectores del par considerado no pertenecen a la matriz de datos a partir de la que se calcula la matriz de covarianzas $\hspace{0.1cm}S$.
-
-$\hspace{0.25cm}$ Dada una matriz de datos $\hspace{0.1cm}X=(X_1,...,X_p)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n$
-
-$\hspace{0.25cm}$ Dada una observación $\hspace{0.1cm}x_i\hspace{0.1cm}$ de esas variables estadisticas tal que $\hspace{0.1cm}x_i = X[i,:]\hspace{0.1cm}$  y dado un vector  $\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.07cm} \in \hspace{0.07cm}\mathbb{R}^p\hspace{0.07cm}$ , que no está incluido en la matriz de datos.
+ 
+$\hspace{0.25cm}$ Dada una observación $\hspace{0.1cm}x_i\hspace{0.1cm}$ de esas variables estadísticas tal que $\hspace{0.1cm}x_i = X[i,:]\hspace{0.1cm}$  y dado un vector  $\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.07cm} \in \hspace{0.07cm}\mathbb{R}^p\hspace{0.07cm}$ , que no está incluido en la matriz de datos $\hspace{0.07cm}X\hspace{0.07cm}$.
 
 
 
@@ -1786,15 +1840,15 @@ $\hspace{0.25cm}$ Dada una observación $\hspace{0.1cm}x_i\hspace{0.1cm}$ de esa
 $\hspace{0.25cm}$ La distancia Mahalanobis entre $\hspace{0.1cm}x_i\hspace{0.1cm}$ y $\hspace{0.1cm}v\hspace{0.1cm}$ es: $\\[0.7cm]$
 
 $$
-\delta (x_i, v)_{Maha}  \hspace{0.07cm}=\hspace{0.07cm}  \sqrt{(x_i - v)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - v) } \\
+\delta (x_i, v)_{Maha}  \hspace{0.09cm}=\hspace{0.09cm}  \sqrt{\hspace{0.07cm}(x_i - v)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - v) \hspace{0.07cm}} \\
 $$
 
 
 $\hspace{0.25cm}$ Vamos a considerar dos alternativas para definir $\hspace{0.1cm} S$ 
 
-- $\hspace{0.1cm} S\hspace{0.1cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.1cm} X=(X_1,...,X_p) \\$
+- $S\hspace{0.1cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.1cm} X=(X_1,...,X_p) \\$
 
-- $\hspace{0.1cm} S\hspace{0.1cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.1cm} \begin{pmatrix}
+- $S\hspace{0.1cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.1cm} \begin{pmatrix}
     X\\
     v
     \end{pmatrix}$
@@ -1814,14 +1868,14 @@ $\hspace{0.25cm}$ Vamos a considerar dos alternativas para definir $\hspace{0.1c
 
 Esta ampliación de la distancia de Mahalanobis a vectores que no necesariamente forman parte de la matriz de datos permite ampliar su capacidad de aplicación. Vamos a dar varios ejemplos en donde la distancia de Gower definida estrictamente entre pares de observaciones de una matriz de datos no podria aplicarse, y que en cambio su versión ampliada si permite hacerlo.
 
-- En el algoritmo KNN se requiere de una distancia que pueda aplicarse a un vector de observaciones de las variables que no pertenece a la matriz de datos de entrenamiento. Ese vector juega el papel de $\hspace{0.1cm}v\hspace{0.1cm}$ en la definción anterior. 
+- En el algoritmo KNN se requiere de una distancia que pueda aplicarse a un vector de observaciones de las variables que no pertenece a la matriz de datos de entrenamiento. Ese vector juega el papel de $\hspace{0.1cm}v\hspace{0.1cm}$ en la definición anterior. $\\[0.4cm]$
 
-- En el algoritmo k-medias se requiere de una distancia que pueda aplicarse sobre el vector de medias $\hspace{0.1cm}\overline{x}\hspace{0.1cm}$ de la matriz de datos de entrenamiento. Tomando $\hspace{0.1cm}v=overline{x}\hspace{0.1cm}$ se podria aplicar también en este caso la distancia de Mahalanobis.
+- En el algoritmo k-medias se requiere de una distancia que pueda aplicarse sobre el vector de medias $\hspace{0.1cm}\overline{x}\hspace{0.1cm}$ de la matriz de datos de entrenamiento. Tomando $\hspace{0.1cm}v=\overline{x}\hspace{0.1cm}$ se podría aplicar también en este caso la distancia de Mahalanobis. 
 
 Además esto no solo amplia la aplicabilidad de la distancia de Mahalanobis, sino también aquellas relacionadas con ella, como la distancia de Gower-Mahalanobis, que veremos mas adelante.
 
 
-Por último señalar que las alternativas para definir $\hspace{0.1cm}S\hspace{0.1cm}$ son las que consideramos más razonables. En el caso de que $\hspace{0.1cm}v\hspace{0.1cm}$ fuese un vector de observaciones de las variables estadisticas, consideramos que los mas razonable es seguir la segunda definición. Pero en el caso de que $\hspace{0.1cm}v\hspace{0.1cm}$ fuese el vector de medias de las variables, lo más razonable sería seguir la primera definición.
+Por último señalar que las alternativas para definir $\hspace{0.1cm}S\hspace{0.1cm}$ son las que consideramos más razonables. En el caso de que $\hspace{0.1cm}v\hspace{0.1cm}$ fuese un vector de observaciones de las variables estadísticas, consideramos que los mas razonable es seguir la segunda definición. Pero en el caso de que $\hspace{0.1cm}v\hspace{0.1cm}$ fuese el vector de medias de las variables, lo más razonable sería seguir la primera definición.
  
 <br>
 
@@ -1831,7 +1885,9 @@ Por último señalar que las alternativas para definir $\hspace{0.1cm}S\hspace{0
 
 
 
+
 ```python
+
 def Dist_Mahalanobis_1(x_i, x_r, Data):
 
     # All the columns of Data must be type = 'float' or 'int' (specially not 'object'), in other case we will find 
@@ -1852,13 +1908,18 @@ def Dist_Mahalanobis_1(x_i, x_r, Data):
 
 
 ```python
-Dist_Mahalanobis_1(Data_quant_numpy[2,:] , Data_quant_numpy[5,:] , Data=Data_quant_numpy )
+Dist_Mahalanobis_1(Data_quant.iloc[2,:] , Data_quant.iloc[5,:] , Data=Data_quant)
 ```
+
+
+
 
     3.931396144771864
 
 
 <br>
+
+
 
 ```python
 def Dist_Mahalanobis_2(x_i, x_r, S_inv):  # Más eficiente que la anterior
@@ -1866,7 +1927,7 @@ def Dist_Mahalanobis_2(x_i, x_r, S_inv):  # Más eficiente que la anterior
     # All the columns of Data must be type = 'float' or 'int' (specially not 'object'), in other case we will find 
     # dimensional problems when Python compute   x @ S_inv @ x.T
 
-    x = (x_i - x_r)
+    x = x_i - x_r
 
     x = np.array([x]) # necessary step to transpose a 1D array
 
@@ -1879,11 +1940,13 @@ def Dist_Mahalanobis_2(x_i, x_r, S_inv):  # Más eficiente que la anterior
 
 
 ```python
-Dist_Mahalanobis_2(x_i = Data_quant_numpy[2,:] , x_r = Data_quant_numpy[5,:] , S_inv = np.linalg.inv( np.cov(Data_quant_numpy , rowvar=False) ) )
+Dist_Mahalanobis_2(x_i = Data_quant.iloc[2,:] , x_r = Data_quant.iloc[5,:] , S_inv = np.linalg.inv( np.cov(Data_quant, rowvar=False) ) )
 ```
 
-    3.931396144771864
 
+
+
+    3.931396144771864
 
 <br>
 
@@ -1906,20 +1969,24 @@ def Dist_Mahalanobis_3(x, S_inv):  # Más eficiente que la anterior
 ```
 
 
-
 ```python
-Dist_Mahalanobis_3(x = np.array([Data_quant_numpy[2,:] - Data_quant_numpy[5,:]]) , S_inv=np.linalg.inv( np.cov(Data_quant_numpy , rowvar=False) ))
+Dist_Mahalanobis_3(x = Data_quant.iloc[2,:] - Data_quant.iloc[5,:] , S_inv=np.linalg.inv( np.cov(Data_quant, rowvar=False) ))
 ```
-    
+
+
+
+
     3.931396144771864
+
 
 
 <br>
 
+
 ```python
 def Matrix_Dist_Mahalanobis_1(Data):
 
-    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+    Data = Data.to_numpy()
 
     n = len(Data)
 
@@ -1942,53 +2009,59 @@ def Matrix_Dist_Mahalanobis_1(Data):
     return M 
 ```
 
-
+<br>
 ```python
-Matrix_Dist_Mahalanobis_1(Data=Data_quant_numpy[0:1000 , 0:1000]) # 2.25 mins
+Matrix_Dist_Mahalanobis_1(Data=Data_quant.iloc[0:1000, :]) # 2.25 mins
 ```
 
-```
-array([[0.        , 2.16321817, 3.81131086, ..., 2.74083537, 3.84799958,
-        1.06041471],
-       [0.        , 0.        , 4.29953104, ..., 2.76698155, 2.78100414,
-        2.20791581],
-       [0.        , 0.        , 0.        , ..., 2.63546884, 4.34269664,
-        3.32469143],
-       ...,
-       [0.        , 0.        , 0.        , ..., 0.        , 2.18534065,
-        1.8408748 ],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        3.09496075],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        0.        ]])
-```
+
+
+
+    array([[0.        , 2.16321817, 3.81131086, ..., 2.74083537, 3.84799958,
+            1.06041471],
+           [0.        , 0.        , 4.29953104, ..., 2.76698155, 2.78100414,
+            2.20791581],
+           [0.        , 0.        , 0.        , ..., 2.63546884, 4.34269664,
+            3.32469143],
+           ...,
+           [0.        , 0.        , 0.        , ..., 0.        , 2.18534065,
+            1.8408748 ],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            3.09496075],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            0.        ]])
+
 
 <br>
 
 ```python
-Matrix_Dist_Mahalanobis_1(Data=Data_quant_numpy) # 8.52 mins
+Matrix_Dist_Mahalanobis_1(Data=Data_quant) # 8.52 mins
 ```
-```
-array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
-        1.10588047],
-       [0.        , 0.        , 4.35615967, ..., 4.93340427, 2.74011739,
-        2.12938584],
-       [0.        , 0.        , 0.        , ..., 3.17779509, 3.49432487,
-        3.23723317],
-       ...,
-       [0.        , 0.        , 0.        , ..., 0.        , 3.58695453,
-        4.11275247],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        1.46894947],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        0.        ]])
-```
+
+
+
+
+    array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
+            1.10588047],
+           [0.        , 0.        , 4.35615967, ..., 4.93340427, 2.74011739,
+            2.12938584],
+           [0.        , 0.        , 0.        , ..., 3.17779509, 3.49432487,
+            3.23723317],
+           ...,
+           [0.        , 0.        , 0.        , ..., 0.        , 3.58695453,
+            4.11275247],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            1.46894947],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            0.        ]])
+
 <br>
+
 
 ```python
 def Matrix_Dist_Mahalanobis_2(Data):
 
-    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+    Data = Data.to_numpy()
 
     n = len(Data)
 
@@ -2012,56 +2085,60 @@ def Matrix_Dist_Mahalanobis_2(Data):
                       
     return M 
 ```
-
+<br>
 
 ```python
-Matrix_Dist_Mahalanobis_2(Data=Data_quant_numpy[0:1000 , 0:1000]) # 6.8 seg
+Matrix_Dist_Mahalanobis_2(Data=Data_quant.iloc[0:1000, :]) # 6.8 seg
 ```
-```
-array([[0.        , 2.16321817, 3.81131086, ..., 2.74083537, 3.84799958,
-        1.06041471],
-       [0.        , 0.        , 4.29953104, ..., 2.76698155, 2.78100414,
-        2.20791581],
-       [0.        , 0.        , 0.        , ..., 2.63546884, 4.34269664,
-        3.32469143],
-       ...,
-       [0.        , 0.        , 0.        , ..., 0.        , 2.18534065,
-        1.8408748 ],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        3.09496075],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        0.        ]])
-```
+
+
+
+
+    array([[0.        , 2.16321817, 3.81131086, ..., 2.74083537, 3.84799958,
+            1.06041471],
+           [0.        , 0.        , 4.29953104, ..., 2.76698155, 2.78100414,
+            2.20791581],
+           [0.        , 0.        , 0.        , ..., 2.63546884, 4.34269664,
+            3.32469143],
+           ...,
+           [0.        , 0.        , 0.        , ..., 0.        , 2.18534065,
+            1.8408748 ],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            3.09496075],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            0.        ]])
+
 
 <br>
 
 ```python
-Matrix_Dist_Mahalanobis_2(Data=Data_quant_numpy) # 22.5 seg
+Matrix_Dist_Mahalanobis_2(Data=Data_quant) # 22.5 seg
 ```
 
-```
-array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
-        1.10588047],
-       [0.        , 0.        , 4.35615967, ..., 4.93340427, 2.74011739,
-        2.12938584],
-       [0.        , 0.        , 0.        , ..., 3.17779509, 3.49432487,
-        3.23723317],
-       ...,
-       [0.        , 0.        , 0.        , ..., 0.        , 3.58695453,
-        4.11275247],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        1.46894947],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        0.        ]])
-```
+
+
+
+    array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
+            1.10588047],
+           [0.        , 0.        , 4.35615967, ..., 4.93340427, 2.74011739,
+            2.12938584],
+           [0.        , 0.        , 0.        , ..., 3.17779509, 3.49432487,
+            3.23723317],
+           ...,
+           [0.        , 0.        , 0.        , ..., 0.        , 3.58695453,
+            4.11275247],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            1.46894947],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            0.        ]])
+
 
 <br>
-
 
 ```python
 def Matrix_Dist_Mahalanobis_3(Data):
 
-    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+    Data = Data.to_numpy()
 
     n = len(Data)
 
@@ -2086,54 +2163,58 @@ def Matrix_Dist_Mahalanobis_3(Data):
     return M 
 ```
 
+<br>
 
 ```python
-Matrix_Dist_Mahalanobis_3(Data=Data_quant_numpy[0:1000 , 0:1000]) # 4.8 seg
+Matrix_Dist_Mahalanobis_3(Data=Data_quant.iloc[0:1000, :]) # 4.8 seg
 ```
 
-```
-array([[0.        , 2.16321817, 3.81131086, ..., 2.74083537, 3.84799958,
-        1.06041471],
-       [0.        , 0.        , 4.29953104, ..., 2.76698155, 2.78100414,
-        2.20791581],
-       [0.        , 0.        , 0.        , ..., 2.63546884, 4.34269664,
-        3.32469143],
-       ...,
-       [0.        , 0.        , 0.        , ..., 0.        , 2.18534065,
-        1.8408748 ],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        3.09496075],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        0.        ]])
-```
+
+
+
+    array([[0.        , 2.16321817, 3.81131086, ..., 2.74083537, 3.84799958,
+            1.06041471],
+           [0.        , 0.        , 4.29953104, ..., 2.76698155, 2.78100414,
+            2.20791581],
+           [0.        , 0.        , 0.        , ..., 2.63546884, 4.34269664,
+            3.32469143],
+           ...,
+           [0.        , 0.        , 0.        , ..., 0.        , 2.18534065,
+            1.8408748 ],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            3.09496075],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            0.        ]])
+
+
 
 <br>
 
-
 ```python
-M_Mahalanobis = Matrix_Dist_Mahalanobis_3(Data=Data_quant_numpy) # 19.7 seg
+M_Mahalanobis = Matrix_Dist_Mahalanobis_3(Data=Data_quant) # 19.7 seg
 
 M_Mahalanobis
 ```
 
 
-```
-array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
-        1.10588047],
-       [0.        , 0.        , 4.35615967, ..., 4.93340427, 2.74011739,
-        2.12938584],
-       [0.        , 0.        , 0.        , ..., 3.17779509, 3.49432487,
-        3.23723317],
-       ...,
-       [0.        , 0.        , 0.        , ..., 0.        , 3.58695453,
-        4.11275247],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        1.46894947],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        0.        ]])
-```
 
-<br>
+
+    array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
+            1.10588047],
+           [0.        , 0.        , 4.35615967, ..., 4.93340427, 2.74011739,
+            2.12938584],
+           [0.        , 0.        , 0.        , ..., 3.17779509, 3.49432487,
+            3.23723317],
+           ...,
+           [0.        , 0.        , 0.        , ..., 0.        , 3.58695453,
+            4.11275247],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            1.46894947],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            0.        ]])
+
+
+
 
 ```python
 M_Mahalanobis = M_Mahalanobis + M_Mahalanobis.T
@@ -2141,21 +2222,30 @@ M_Mahalanobis = M_Mahalanobis + M_Mahalanobis.T
 M_Mahalanobis
 ```
 
-```
-array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
-        1.10588047],
-       [2.11289055, 0.        , 4.35615967, ..., 4.93340427, 2.74011739,
-        2.12938584],
-       [3.7975463 , 4.35615967, 0.        , ..., 3.17779509, 3.49432487,
-        3.23723317],
-       ...,
-       [4.51559865, 4.93340427, 3.17779509, ..., 0.        , 3.58695453,
-        4.11275247],
-       [2.31688444, 2.74011739, 3.49432487, ..., 3.58695453, 0.        ,
-        1.46894947],
-       [1.10588047, 2.12938584, 3.23723317, ..., 4.11275247, 1.46894947,
-        0.        ]])
-```
+
+
+
+    array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
+            1.10588047],
+           [2.11289055, 0.        , 4.35615967, ..., 4.93340427, 2.74011739,
+            2.12938584],
+           [3.7975463 , 4.35615967, 0.        , ..., 3.17779509, 3.49432487,
+            3.23723317],
+           ...,
+           [4.51559865, 4.93340427, 3.17779509, ..., 0.        , 3.58695453,
+            4.11275247],
+           [2.31688444, 2.74011739, 3.49432487, ..., 3.58695453, 0.        ,
+            1.46894947],
+           [1.10588047, 2.12938584, 3.23723317, ..., 4.11275247, 1.46894947,
+            0.        ]])
+
+
+
+
+
+
+
+
 
 
 <br>
@@ -2175,17 +2265,17 @@ Es un concepto que expresa la proximidad o similaridad entre un par de elementos
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ Dado un conjunto cualquiera $\hspace{0.1cm}A$
+$\hspace{0.25cm}$ Dado un conjunto cualquiera $\hspace{0.1cm}A\hspace{0.08cm}.$
 
 
 
-$\hspace{0.25cm}$ Se denomina similaridad a toda función $\hspace{0.1cm} \phi : A \text{x} A \rightarrow \mathbb{R}\hspace{0.1cm}$   tal que:
+$\hspace{0.25cm}$ Se denomina similaridad a toda función $\hspace{0.12cm} \phi \hspace{0.08cm} : \hspace{0.08cm} A \hspace{0.08cm}\text{x}\hspace{0.08cm} A \hspace{0.08cm} \rightarrow\hspace{0.08cm} \mathbb{R}\hspace{0.12cm}$   tal que:
 
-$\hspace{0.35cm} 1)$ $\hspace{0.2cm} \phi(i , r) \in [0,1] \hspace{0.25cm} , \hspace{0.25cm}  \forall i,r \in A \\$
+- $\phi(i , r) \in [0,1] \hspace{0.3cm} , \hspace{0.3cm}  \forall \hspace{0.08cm} i,r \in A \\$
 
-$\hspace{0.35cm} 2)$ $\hspace{0.2cm} \phi(i, i) = 1  \hspace{0.25cm} , \hspace{0.25cm}  \forall i,r \in A \\$
+- $\phi(i, i) \hspace{0.08cm}=\hspace{0.08cm} 1  \hspace{0.3cm} , \hspace{0.3cm}  \forall \hspace{0.08cm} i,r \in A \\$
 
-$\hspace{0.35cm} 3)$  $\hspace{0.2cm} \phi(i , r) = \phi(r, i)  \hspace{0.25cm} , \hspace{0.25cm} \forall i,r \in A$
+- $\phi(i , r) \hspace{0.08cm}=\hspace{0.08cm} \phi(r, i)  \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} i,r \in A$
 
 </p>
  
@@ -2194,21 +2284,21 @@ $\hspace{0.35cm} 3)$  $\hspace{0.2cm} \phi(i , r) = \phi(r, i)  \hspace{0.25cm} 
 
 <br>
 
-## Pasar de similaridad a distancia   
+## Pasar de similaridad a distancia  
+
+Las siguientes transformaciones nos permiten pasar de una similaridad a una distancia:
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ Las siguientes transformaciones nos permiten pasar de una similaridad a una distancia:
-
-$\hspace{0.35cm} 1)$  $\hspace{0.25cm} \delta(i,r)=1- \phi(i,r) \\$
+- $\delta(i,r) \hspace{0.08cm}=\hspace{0.08cm} 1- \phi(i,r) \\[0.4cm]$
 
 
-$\hspace{0.35cm} 2)$  $\hspace{0.25cm} \delta(i,r)=\sqrt{1-\phi(i,r)} \\$
+-  $\delta(i,r) \hspace{0.08cm}=\hspace{0.08cm} \sqrt{1-\phi(i,r)} \\[0.4cm]$
 
-$\hspace{0.35cm} 3)$ $\hspace{0.25cm} \delta(i,r) \hspace{0.07cm}=\hspace{0.07cm} \sqrt{ \phi(i,i) + \phi(r,r) - 2\cdot \phi(i,r) }$
+- $\delta(i,r) \hspace{0.08cm}=\hspace{0.08cm} \sqrt{\hspace{0.08cm} \phi(i,i) \hspace{0.08cm}+\hspace{0.08cm} \phi(r,r) \hspace{0.08cm}-\hspace{0.08cm} 2\cdot \phi(i,r) \hspace{0.08cm}}$
 
 </p>
  
@@ -2223,14 +2313,17 @@ $\hspace{0.35cm} 3)$ $\hspace{0.25cm} \delta(i,r) \hspace{0.07cm}=\hspace{0.07cm
 
 ## Matriz de Similaridades  <a class="anchor" id="49"></a>
 
+
+ Dada una similaridad $\hspace{0.1cm}\phi\hspace{0.1cm}$ definida sobre el conjunto $\hspace{0.1cm}A=\lbrace a_1 ,..., a_n \rbrace\hspace{0.08cm}.$
+ 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ Dada una similaridad $\hspace{0.1cm}\phi\hspace{0.1cm}$ definida sobre el conjunto $\hspace{0.1cm}A=\lbrace a_1 ,..., a_n \rbrace$
+ 
 
-$\hspace{0.25cm}$ Se define la matriz de similaridades $\hspace{0.1cm}\phi\hspace{0.1cm}$ sobre $\hspace{0.1cm} A\hspace{0.1cm}$ como: $\\[0.6cm]$
+$\hspace{0.25cm}$ Se define la matriz de similaridades $\hspace{0.1cm}\phi\hspace{0.1cm}$ sobre el conjunto de elementos $\hspace{0.1cm} A\hspace{0.1cm}$ como: $\\[0.6cm]$
  
 
 $$
@@ -2246,7 +2339,7 @@ $$
 
 $\hspace{0.25cm}$ Donde:
 
-$\hspace{0.35cm} \phi_{ir} = \phi(a_i , a_r) \hspace{0.25cm} , \hspace{0.25cm}  \forall i, j \in \lbrace 1,...,n\rbrace$
+$\hspace{0.45cm} \phi_{ir} \hspace{0.08cm}=\hspace{0.08cm} \phi(a_i , a_r) \hspace{0.3cm} , \hspace{0.3cm}  \forall \hspace{0.08cm} i, j \in \lbrace 1,...,n\rbrace$
 
 
 </p>
@@ -2264,83 +2357,62 @@ $\hspace{0.35cm} \phi_{ir} = \phi(a_i , a_r) \hspace{0.25cm} , \hspace{0.25cm}  
 
 # Similaridades con variables categoricas binarias 
 
-
-El escenario es el siguiente:
-
-Tenemos una muestra de $n$  elementos/individuos $\hspace{0.1cm}\Omega = \lbrace e_1,e_2,...,e_n \rbrace$ 
-
-Tenemos una serie de variables estadisticas **categóricas binarias** $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
-
-Para cada variable binaria $\mathcal{X}_j$ tenemos una muestra de $n$ observaciones $X_j$  basada en la muestra de $n$ individuos $\hspace{0.1cm}\Omega$
-
- 
-Es decir, tenemos lo siguiente:
-
-- $\hspace{0.1cm}X_j=(x_{j1},...,x_{jn})^t$ , para $j=1,...,p \\$
-
-- $\hspace{0.1cm}x_{ji}\hspace{0.1cm}$ es la observación de la variable $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ para el individuo $\hspace{0.1cm}e_i\hspace{0.1cm}$ de la muestra $\hspace{0.1cm}\Omega$ , para $\hspace{0.1cm}j=1,...,p\hspace{0.1cm}$ y $\hspace{0.1cm}i=1,...,n \\$
+Supongamos que las variables $\hspace{0.1cm}\mathcal{X}_1 , \dots , \mathcal{X}_p\hspace{0.1cm}$ son **categóricas binarias**.
 
 
-
-Por tanto:
-
-- $\hspace{0.1cm}X_j=(x_{j1},...,x_{jn})^t\hspace{0.1cm}$ es el vector con las observaciones de la variable para los individuos de la muestra $\Omega$  , para $j=1,...,p \\$
-
-- $\hspace{0.1cm}x_i = (x_{1i} , x_{2i} ,..., x_{pi})^t\hspace{0.1cm}$ es el vector con las observaciones de las variables  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ para el individuo $\hspace{0.1cm}e_i\hspace{0.1cm}$ de $\hspace{0.1cm}\Omega$ , para $\hspace{0.1cm}i=1,...,n$
-
-
-
-<br>
+ Los principales coeficientes de similaridad involucran algunos de los siguientes parámetros:
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ Los principales coeficientes de similaridad involucran algunos de los siguientes parametros:
-
- - $\hspace{0.1cm} a(x_i, x_r) \hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
+ -  $a(x_i, x_r) \hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
  
   
- $$\hspace{0.2cm} a(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j\in \lbrace 1,..,p\rbrace \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=x_{rj}=1  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
+ $$a(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j\in \lbrace 1,..,p\rbrace \hspace{0.2cm} : \hspace{0.2cm} x_{ij}=x_{rj}=1  \hspace{0.1cm}  \rbrace \\[0.7cm]$$
 
- - $\hspace{0.1cm} b(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias  $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=1 \\$ 
-
-
- $$\hspace{0.2cm} b(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j\in \lbrace 1,..,p\rbrace \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=0 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=1  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
+ - $b(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias  $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=1 \\$ 
 
 
- - $\hspace{0.1cm} c(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =1\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+ $$b(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j\in \lbrace 1,..,p\rbrace \hspace{0.2cm} : \hspace{0.2cm} x_{ij}=0 \hspace{0.25cm}\text{y}\hspace{0.25cm} x_{rj}=1  \hspace{0.1cm}  \rbrace \\[0.7cm]$$
 
 
- $$\hspace{0.2cm} c(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j\in \lbrace 1,..,p\rbrace \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=1 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=0  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
+ - $c(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =1\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+
+
+ $$c(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm}  j\in \lbrace 1,..,p\rbrace \hspace{0.2cm}:\hspace{0.2cm} x_{ij}=1 \hspace{0.25cm}\text{y}\hspace{0.25cm} x_{rj}=0  \hspace{0.1cm}  \rbrace \\[0.7cm]$$
 
 
 
- - $\hspace{0.1cm} d(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+ - $d(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
  
- $$\hspace{0.2cm} d(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm} j \in \lbrace 1,..,p\rbrace \hspace{0.15cm}/\hspace{0.15cm} x_{ij}=0 \hspace{0.2cm}\text{y}\hspace{0.2cm} x_{rj}=0  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
+ $$d(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \lbrace \hspace{0.1cm} j \in \lbrace 1,..,p\rbrace \hspace{0.2cm}:\hspace{0.2cm} x_{ij}= x_{rj}=0  \hspace{0.1cm}  \rbrace \\[0.5cm]$$
  
  
-
-$\hspace{0.25cm}$ **Observación:**
-
-$$a(x_i, x_r) + b(x_i, x_r) + c(x_i, x_r) +d(x_i, x_r) =p$$
-
 
 </p>
  
 </p></span>
 </div>
 
+
+
+**Observación:**
+
+$$a(x_i, x_r) \hspace{0.08cm} +  \hspace{0.08cm} b(x_i, x_r)  \hspace{0.08cm} +  \hspace{0.08cm} c(x_i, x_r)  \hspace{0.08cm} +  \hspace{0.08cm} d(x_i, x_r)  \hspace{0.08cm} =  \hspace{0.08cm} p$$
+
+
+
+
 <br>
 
 
 
 
-## Matrices con los parametros a, b, c y d  
+## Matrices con los parámetros a, b, c y d  
 
-
+ Dada una matriz de datos $\hspace{0.1cm}X=(X_1,...,X_p )\hspace{0.1cm}$  de  variables  **categóricas binarias**.
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
@@ -2348,19 +2420,19 @@ $$a(x_i, x_r) + b(x_i, x_r) + c(x_i, x_r) +d(x_i, x_r) =p$$
 <p style='margin-left:1em;'>
 
 
-$\hspace{0.25cm}$ Dada una matriz de datos $\hspace{0.1cm}X=[X_1,...,X_p]\hspace{0.1cm}$  de  variables  **categoricas binarias**.
 
-$\hspace{0.25cm}$ Las matrices $\hspace{0.1cm}a \hspace{0.1cm},\hspace{0.1cm} b\hspace{0.1cm},\hspace{0.1cm} c\hspace{0.1cm}$ y $\hspace{0.1cm}d\hspace{0.1cm}$ tales que $\hspace{0.1cm} a[i,r]=a(x_i, x_r)  \hspace{0.1cm}$ ,  $\hspace{0.1cm}b[i,r]=b(x_i, x_r)  \hspace{0.1cm}$,  $\hspace{0.1cm} c[i,r]=c(x_i, x_r)\hspace{0.15cm}$ y  $\hspace{0.15cm}d[i,r]=d(x_i, x_r)\hspace{0.15cm}$ , para $\hspace{0.1cm}i \hspace{0.1cm}, \hspace{0.1cm} r \hspace{0.1cm}\in\hspace{0.1cm} \lbrace 1,...,n\rbrace \hspace{0.2cm}$
+
+$\hspace{0.25cm}$ Las matrices $\hspace{0.1cm}a \hspace{0.1cm},\hspace{0.1cm} b\hspace{0.1cm},\hspace{0.1cm} c\hspace{0.1cm}$ y $\hspace{0.1cm}d ,\hspace{0.12cm}$ tales que $\hspace{0.1cm} a[i,r]=a(x_i, x_r)  \hspace{0.1cm} ,  \hspace{0.1cm}b[i,r]=b(x_i, x_r)  \hspace{0.1cm},  \hspace{0.1cm} c[i,r]=c(x_i, x_r)\hspace{0.15cm}$ y  $\hspace{0.15cm}d[i,r]=d(x_i, x_r) ,\hspace{0.15cm}$  para $\hspace{0.15cm}i \hspace{0.1cm}, \hspace{0.1cm} r  \hspace{0.08cm}=\hspace{0.08cm} 1,...,n \hspace{0.2cm}$
 pueden expresarse del siguiente modo: $\\[0.4cm]$
 
 
-- $\hspace{0.2cm}$$a \hspace{0.05cm}=\hspace{0.05cm} X\cdot X^t \\$
+- $\hspace{0.1cm} a \hspace{0.08cm}=\hspace{0.08cm} X\cdot X^t \\$
 
-- $\hspace{0.2cm}$$b\hspace{0.05cm}=\hspace{0.05cm}(1_{nxp} - X)\cdot X\hspace{0.03cm}^t\\$
+- $\hspace{0.1cm} b\hspace{0.08cm}=\hspace{0.08cm}(\mathbf{1}_{nxp} - X)\cdot X\hspace{0.03cm}^t\\$
 
-- $\hspace{0.2cm}$$c\hspace{0.05cm}=\hspace{0.05cm}b\hspace{0.03cm}^t \\$
+- $\hspace{0.1cm} c\hspace{0.08cm}=\hspace{0.08cm}b\hspace{0.03cm}^t \\$
 
-- $\hspace{0.2cm}$$d\hspace{0.05cm}=\hspace{0.05cm}(1_{nxp} - X)\cdot(1_{nxp} - X)\hspace{0.03cm}^t \\$
+- $\hspace{0.1cm} d\hspace{0.08cm}=\hspace{0.08cm}(\mathbf{1}_{nxp} - X)\cdot(1_{nxp} - X)\hspace{0.03cm}^t$
 
 </p>
  
@@ -2379,10 +2451,12 @@ pueden expresarse del siguiente modo: $\\[0.4cm]$
 ## Cálculo de las matrices a, b , c y d en `Python`  
 
 
+
+
 ```python
 def a_b_c_d_Matrix(Data):
 
-    X = Data
+    X = Data.to_numpy()
 
     a = X @ X.T
 
@@ -2401,35 +2475,132 @@ def a_b_c_d_Matrix(Data):
     return a , b , c , d , p
 ```
 
+
+
+
+
 ```python
-a, b, c, d, p = a_b_c_d_Matrix(Data_binary_numpy)
+Data_binary.iloc[[30,1903], :]
 ```
 
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>private_garden_recode</th>
+      <th>private_gym_recode</th>
+      <th>private_jacuzzi_recode</th>
+      <th>balcony_recode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>30</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1903</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+Data_binary.iloc[[40,1903], :]
+```
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>private_garden_recode</th>
+      <th>private_gym_recode</th>
+      <th>private_jacuzzi_recode</th>
+      <th>balcony_recode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>40</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1903</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 <br>
+
+```python
+a, b, c, d, p = a_b_c_d_Matrix(Data_binary)
+```
+
 
 ```python
 a
 ```
-```
-array([[1., 1., 1., ..., 1., 1., 1.],
-       [1., 1., 1., ..., 1., 1., 1.],
-       [1., 1., 2., ..., 1., 1., 1.],
-       ...,
-       [1., 1., 1., ..., 1., 1., 1.],
-       [1., 1., 1., ..., 1., 2., 1.],
-       [1., 1., 1., ..., 1., 1., 1.]])
-```
 
-<br>
 
-```python
-Data_binary_numpy[[30,1903], :]
-```
+    array([[1., 1., 1., ..., 1., 1., 1.],
+           [1., 1., 1., ..., 1., 1., 1.],
+           [1., 1., 2., ..., 1., 1., 1.],
+           ...,
+           [1., 1., 1., ..., 1., 1., 1.],
+           [1., 1., 1., ..., 1., 2., 1.],
+           [1., 1., 1., ..., 1., 1., 1.]])
 
-```
-array([[0., 1., 0., 1.],
-       [1., 0., 0., 1.]])
-```
 
 
 ```python
@@ -2438,52 +2609,36 @@ a[30 , 1903]
 
     1.0
 
-<br>
 
-```python
-Data_binary_numpy[[40,1903], :]
-```
-
-```
-array([[0., 0., 0., 1.],
-       [1., 0., 0., 1.]])
-```
 
 
 ```python
 a[40 , 1903]
 ```
 
+
     1.0
 
 
-
 <br>
-
 
 ```python
 b
 ```
 
-```
-array([[0., 0., 1., ..., 0., 1., 0.],
-       [0., 0., 1., ..., 0., 1., 0.],
-       [0., 0., 0., ..., 0., 1., 0.],
-       ...,
-       [0., 0., 1., ..., 0., 1., 0.],
-       [0., 0., 1., ..., 0., 0., 0.],
-       [0., 0., 1., ..., 0., 1., 0.]])
-```
 
-<br>
+    array([[0., 0., 1., ..., 0., 1., 0.],
+           [0., 0., 1., ..., 0., 1., 0.],
+           [0., 0., 0., ..., 0., 1., 0.],
+           ...,
+           [0., 0., 1., ..., 0., 1., 0.],
+           [0., 0., 1., ..., 0., 0., 0.],
+           [0., 0., 1., ..., 0., 1., 0.]])
 
-```python
-Data_binary_numpy[[30,1903], :]
-```
-```
-array([[0., 1., 0., 1.],
-       [1., 0., 0., 1.]])
-```
+
+
+ 
+
 
 ```python
 b[30 , 1903]
@@ -2491,102 +2646,108 @@ b[30 , 1903]
 
     1.0
 
-<br>
 
-```python
-Data_binary_numpy[[40,1903], :]
-```
+ 
 
-```
-array([[0., 0., 0., 1.],
-       [1., 0., 0., 1.]])
-```
+
 
 ```python
 b[40,1903]
 ```
 
+
     1.0
-    
+
+
 <br>
+
 
 ```python
 c
 ```
 
-```
-array([[0., 0., 0., ..., 0., 0., 0.],
-       [0., 0., 0., ..., 0., 0., 0.],
-       [1., 1., 0., ..., 1., 1., 1.],
-       ...,
-       [0., 0., 0., ..., 0., 0., 0.],
-       [1., 1., 1., ..., 1., 0., 1.],
-       [0., 0., 0., ..., 0., 0., 0.]])
-```
 
-<br>
+    array([[0., 0., 0., ..., 0., 0., 0.],
+           [0., 0., 0., ..., 0., 0., 0.],
+           [1., 1., 0., ..., 1., 1., 1.],
+           ...,
+           [0., 0., 0., ..., 0., 0., 0.],
+           [1., 1., 1., ..., 1., 0., 1.],
+           [0., 0., 0., ..., 0., 0., 0.]])
 
-```python
-Data_binary_numpy[[30,1903], :]
-```
-```
-array([[0., 1., 0., 1.],
-       [1., 0., 0., 1.]])
-```
+
+
 
 ```python
 c[30, 1903]
 ```
 
+
+
+
     1.0
-    
-<br>
-   
-```python
-Data_binary_numpy[[40,1903], :] 
-```
-```
-array([[0., 0., 0., 1.],
-       [1., 0., 0., 1.]])
-```
-    
+
+
+
+ 
 ```python
 c[40, 1903]
 ```
 
+
+
+
     0.0
-    
+
+
 <br>
 
 ```python
 d
-```    
-    
-```
-array([[3., 3., 2., ..., 3., 2., 3.],
-       [3., 3., 2., ..., 3., 2., 3.],
-       [2., 2., 2., ..., 2., 1., 2.],
-       ...,
-       [3., 3., 2., ..., 3., 2., 3.],
-       [2., 2., 1., ..., 2., 2., 2.],
-       [3., 3., 2., ..., 3., 2., 3.]])
 ```
 
-<br>
+
+
+
+    array([[3., 3., 2., ..., 3., 2., 3.],
+           [3., 3., 2., ..., 3., 2., 3.],
+           [2., 2., 2., ..., 2., 1., 2.],
+           ...,
+           [3., 3., 2., ..., 3., 2., 3.],
+           [2., 2., 1., ..., 2., 2., 2.],
+           [3., 3., 2., ..., 3., 2., 3.]])
+
+
+
 
 ```python
-Data_binary_numpy[[40,1903], :]
+d[30,1903]
 ```
-```
-array([[0., 0., 0., 1.],
-       [1., 0., 0., 1.]])
-```
+
+
+
+
+    1.0
+
+
+
+ 
+
 
 ```python
 d[40,1903]
 ```
 
+
+
+
     2.0
+
+
+
+
+
+
 
 
  
@@ -2617,26 +2778,38 @@ $$
 </div>
 
 
+
+**Observación:**
+
+La similaridad de Sokal coincide con el coeficiente de coincidencias aplicado a variables binarias. El coeficiente de coincidencias es una medida de similaridad definida para variables categóricas multiclase, el cual veremos posteriormente.
+
+
+<br>
+
+
+
+**Similaridad de Sokal entre vectores**
+
+La distancia de Sokal puede definirse de forma más general, sin estar sujeta a un contexto estadístico. 
+
+
+ Dada una matriz de datos $\hspace{0.1cm}X=(X_1,...,X_p)\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.08cm}.$
+
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ **Similaridad de Sokal entre vectores**
 
-$\hspace{0.25cm}$ La distancia de Sokal puede definirse de forma más general, sin estar sujeta a un contexto estadístico. 
-
-$\hspace{0.25cm}$ Dada una matriz de datos $\hspace{0.1cm}X=(X_1,...,X_p)\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n$
-
-$\hspace{0.25cm}$ Dados dos vectores **binarios**  $\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.1cm} ,\hspace{0.1cm} w=(w_1,...,w_p)^t \hspace{0.07cm}\in \hspace{0.07cm} \mathbb{R}^p\hspace{0.07cm}$
+$\hspace{0.25cm}$ Dados dos vectores **binarios**  $\hspace{0.1cm}v=(v_1,...,v_p)^t\hspace{0.15cm} ,\hspace{0.15cm} w=(w_1,...,w_p)^t \hspace{0.1cm}\in \hspace{0.1cm} \mathbb{R}^p\hspace{0.07cm}.$
 
 
 
 
-$\hspace{0.25cm}$ La similaridad entre $\hspace{0.1cm}v\hspace{0.1cm}$ y $\hspace{0.1cm}w\hspace{0.1cm}$ es: $\\[0.6cm]$
+$\hspace{0.25cm}$ La similaridad entre los vectores binarios $\hspace{0.1cm}v\hspace{0.1cm}$ y $\hspace{0.1cm}w\hspace{0.1cm}$ es: $\\[0.6cm]$
 
 $$
-\phi (v,w)_{Sokal}  \hspace{0.07cm}=\hspace{0.07cm}  \dfrac{ a(v,w) + d(v,w) }{p} \\
+\phi (v,w)_{Sokal}  \hspace{0.09cm}=\hspace{0.09cm}  \dfrac{\hspace{0.1cm} a(v,w) + d(v,w) \hspace{0.1cm}}{p} \\
 $$
 
 
@@ -2669,10 +2842,9 @@ $$
 $\hspace{0.25cm}$ Podemos obtener la distancia de Sokal entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables binarias $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ como sigue:  $\\[0.4cm]$
 
 
-
-\begin{gather*}
-\delta(x_i,x_r)_{Sokal} \hspace{0.05cm}=\hspace{0.05cm} \sqrt{\phi(x_i,x_i)_{Sokal} + \phi(x_r,x_r)_{Sokal} - 2\cdot \phi(x_i,x_r)_{Sokal} }
-\end{gather*}
+$$
+\delta(x_i,x_r)_{Sokal} \hspace{0.09cm}=\hspace{0.09cm} \sqrt{\hspace{0.09cm}\phi(x_i,x_i)_{Sokal} \hspace{0.09cm}+\hspace{0.09cm} \phi(x_r,x_r)_{Sokal} \hspace{0.09cm}-\hspace{0.09cm} 2\cdot \phi(x_i,x_r)_{Sokal} \hspace{0.12cm}}
+$$
 
 </p>
  
@@ -2686,6 +2858,7 @@ $\hspace{0.25cm}$ Podemos obtener la distancia de Sokal entre el par de observac
 
 
 ##  Similaridad de Sokal en `Python` 
+
 
 
 ```python
@@ -2708,13 +2881,16 @@ def Sokal_Similarity_1(i , r, Data):
 
 
 ```python
-Sokal_Similarity_1(i=1 , r=2, Data=Data_binary_numpy)
+Sokal_Similarity_1(i=1 , r=2, Data=Data_binary)
 ```
 
+
+
+
     0.75
-    
-    
+
 <br>
+
 
 ```python
 def Sokal_Similarity_2(i , r, a , d, p):
@@ -2733,21 +2909,23 @@ def Sokal_Similarity_2(i , r, a , d, p):
     return Sokal_Similarity
 ```
 
+
 ```python
-a, b, c, d, p = a_b_c_d_Matrix(Data_binary_numpy)
+a, b, c, d, p = a_b_c_d_Matrix(Data_binary)
 
 Sokal_Similarity_2(i=1, r=2, a=a, d=d, p=p)
 ```
 
+
+
+
     0.75
-    
+
+
 <br>
 
-
 ```python
-def Matrix_Dist_Sokal_1(Data):
-
-    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+def Matrix_Sim_Sokal_1(Data):
 
     n = len(Data)
 
@@ -2765,7 +2943,7 @@ def Matrix_Dist_Sokal_1(Data):
             elif i == r :
                
                  M[i,r] = 1
-
+            
             else :
 
                  M[i,r] = Sokal_Similarity_1(i, r, Data)
@@ -2775,25 +2953,27 @@ def Matrix_Dist_Sokal_1(Data):
 
 
 ```python
-Matrix_Sim_Sokal_1(Data=Data_binary_numpy[0:300 , 0:300]) # 1.29 mins
+Matrix_Sim_Sokal_1(Data=Data_binary.iloc[0:300 , 0:300]) # 1.29 mins
 ```
-```
-array([[1.  , 1.  , 0.75, ..., 0.75, 0.75, 1.  ],
-       [0.  , 1.  , 0.75, ..., 0.75, 0.75, 1.  ],
-       [0.  , 0.  , 1.  , ..., 0.5 , 0.5 , 0.75],
-       ...,
-       [0.  , 0.  , 0.  , ..., 1.  , 1.  , 0.75],
-       [0.  , 0.  , 0.  , ..., 0.  , 1.  , 0.75],
-       [0.  , 0.  , 0.  , ..., 0.  , 0.  , 1.  ]])
-```
+
+
+
+
+    array([[1.  , 1.  , 0.75, ..., 0.75, 0.75, 1.  ],
+           [0.  , 1.  , 0.75, ..., 0.75, 0.75, 1.  ],
+           [0.  , 0.  , 1.  , ..., 0.5 , 0.5 , 0.75],
+           ...,
+           [0.  , 0.  , 0.  , ..., 1.  , 1.  , 0.75],
+           [0.  , 0.  , 0.  , ..., 0.  , 1.  , 0.75],
+           [0.  , 0.  , 0.  , ..., 0.  , 0.  , 1.  ]])
+
+
 
 <br>
 
 
 ```python
-def Matrix_Dist_Sokal_2(Data):
-
-    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
+def Matrix_Sim_Sokal_2(Data):
 
     n = len(Data)
 
@@ -2816,60 +2996,75 @@ def Matrix_Dist_Sokal_2(Data):
 
             else :
 
-                 M[i,r] = Sokal_Similarity_2(i=2, r=5, a=a, d=d, p=p)
+                 M[i,r] = Sokal_Similarity_2(i=i, r=r, a=a, d=d, p=p)
                       
     return M 
 ```
 
 
 ```python
-Matrix_Dist_Sokal_2(Data=Data_binary_numpy[0:500 , 0:500]) # 0.2 seg
-```
-```
-array([[1.  , 1.  , 0.75, ..., 1.  , 1.  , 0.75],
-       [0.  , 1.  , 0.75, ..., 1.  , 1.  , 0.75],
-       [0.  , 0.  , 1.  , ..., 0.75, 0.75, 0.5 ],
-       ...,
-       [0.  , 0.  , 0.  , ..., 1.  , 1.  , 0.75],
-       [0.  , 0.  , 0.  , ..., 0.  , 1.  , 0.75],
-       [0.  , 0.  , 0.  , ..., 0.  , 0.  , 1.  ]])
+Matrix_Sim_Sokal_2(Data=Data_binary.iloc[0:500 , 0:500]) # 0.2 seg
 ```
 
-<br>
+
+
+
+    array([[1.  , 1.  , 0.75, ..., 1.  , 1.  , 0.75],
+           [0.  , 1.  , 0.75, ..., 1.  , 1.  , 0.75],
+           [0.  , 0.  , 1.  , ..., 0.75, 0.75, 0.5 ],
+           ...,
+           [0.  , 0.  , 0.  , ..., 1.  , 1.  , 0.75],
+           [0.  , 0.  , 0.  , ..., 0.  , 1.  , 0.75],
+           [0.  , 0.  , 0.  , ..., 0.  , 0.  , 1.  ]])
+
+
 
 
 ```python
-M_Sim_Sokal = Matrix_Dist_Sokal_2(Data=Data_binary_numpy) # 3.4 seg
+M_Sim_Sokal = Matrix_Sim_Sokal_2(Data=Data_binary) # 3.4 seg
 
 M_Sim_Sokal
 ```
-```
-array([[1.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ],
-       [0.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ],
-       [0.  , 0.  , 1.  , ..., 0.75, 0.5 , 0.75],
-       ...,
-       [0.  , 0.  , 0.  , ..., 1.  , 0.75, 1.  ],
-       [0.  , 0.  , 0.  , ..., 0.  , 1.  , 0.75],
-       [0.  , 0.  , 0.  , ..., 0.  , 0.  , 1.  ]])
-```
 
-<br>
+
+
+
+    array([[1.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ],
+           [0.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ],
+           [0.  , 0.  , 1.  , ..., 0.75, 0.5 , 0.75],
+           ...,
+           [0.  , 0.  , 0.  , ..., 1.  , 0.75, 1.  ],
+           [0.  , 0.  , 0.  , ..., 0.  , 1.  , 0.75],
+           [0.  , 0.  , 0.  , ..., 0.  , 0.  , 1.  ]])
+
+
+
 
 ```python
 M_Sim_Sokal = M_Sim_Sokal + M_Sim_Sokal.T - np.diag(np.repeat(1 , len(M_Sim_Sokal)), k=0)
 
 M_Sim_Sokal
 ```
-```
-array([[1.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ],
-       [1.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ],
-       [0.75, 0.75, 1.  , ..., 0.75, 0.5 , 0.75],
-       ...,
-       [1.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ],
-       [0.75, 0.75, 0.5 , ..., 0.75, 1.  , 0.75],
-       [1.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ]])
-```
- 
+
+
+
+
+    array([[1.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ],
+           [1.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ],
+           [0.75, 0.75, 1.  , ..., 0.75, 0.5 , 0.75],
+           ...,
+           [1.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ],
+           [0.75, 0.75, 0.5 , ..., 0.75, 1.  , 0.75],
+           [1.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ]])
+
+
+
+
+
+
+
+
+
 
 <br>
 
@@ -2877,29 +3072,32 @@ array([[1.  , 1.  , 0.75, ..., 1.  , 0.75, 1.  ],
 ##  Distancia de Sokal en `Python`  
 
 
+
 ```python
 def Dist_Sokal(i, r, a, d, p):
 
     dist_Sokal = np.sqrt( Sokal_Similarity_2(i , i, a , d, p) + Sokal_Similarity_2(r , r, a , d, p) - 2*Sokal_Similarity_2(i , r, a , d, p) )
 
-    return dist_Sokal
+    return dist_Sokal  
 ```
 
 
 ```python
-a, b, c, d, p = a_b_c_d_Matrix(Data_binary_numpy)
+a, b, c, d, p = a_b_c_d_Matrix(Data_binary)
 
 Dist_Sokal(i=1, r=2, a=a, d=d, p=p)
 ```
 
+
+
+
     0.7071067811865476
-    
+
+
 <br>
 
 ```python
 def Matrix_Dist_Sokal(Data):
-
-    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
 
     n = len(Data)
 
@@ -2923,28 +3121,31 @@ def Matrix_Dist_Sokal(Data):
     return M 
 ```
 
+
 ```python
-M_Dist_Sokal = Matrix_Dist_Sokal(Data=Data_binary_numpy)
+M_Dist_Sokal = Matrix_Dist_Sokal(Data=Data_binary)
 
 M_Dist_Sokal
 ```
-```
-array([[0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
-        0.        ],
-       [0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
-        0.        ],
-       [0.        , 0.        , 0.        , ..., 0.70710678, 1.        ,
-        0.70710678],
-       ...,
-       [0.        , 0.        , 0.        , ..., 0.        , 0.70710678,
-        0.        ],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        0.70710678],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        0.        ]])
-```
 
-<br>
+
+
+
+    array([[0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
+            0.        ],
+           [0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
+            0.        ],
+           [0.        , 0.        , 0.        , ..., 0.70710678, 1.        ,
+            0.70710678],
+           ...,
+           [0.        , 0.        , 0.        , ..., 0.        , 0.70710678,
+            0.        ],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            0.70710678],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            0.        ]])
+
+
 
 
 ```python
@@ -2952,21 +3153,29 @@ M_Dist_Sokal = M_Dist_Sokal + M_Dist_Sokal.T
 
 M_Dist_Sokal
 ```
-```
-array([[0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
-        0.        ],
-       [0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
-        0.        ],
-       [0.70710678, 0.70710678, 0.        , ..., 0.70710678, 1.        ,
-        0.70710678],
-       ...,
-       [0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
-        0.        ],
-       [0.70710678, 0.70710678, 1.        , ..., 0.70710678, 0.        ,
-        0.70710678],
-       [0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
-        0.        ]])
-```
+
+
+
+
+    array([[0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
+            0.        ],
+           [0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
+            0.        ],
+           [0.70710678, 0.70710678, 0.        , ..., 0.70710678, 1.        ,
+            0.70710678],
+           ...,
+           [0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
+            0.        ],
+           [0.70710678, 0.70710678, 1.        , ..., 0.70710678, 0.        ,
+            0.70710678],
+           [0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
+            0.        ]])
+
+
+
+
+
+
 
  
 
@@ -2984,9 +3193,9 @@ array([[0.        , 0.        , 0.70710678, ..., 0.        , 0.70710678,
 $\hspace{0.25cm}$ El coeficiente de similaridad de Jaccard (o simplemente la similaridad de Sokal) entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables **binarias** $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ se define como: $\\[0.4cm]$
 
 
-\begin{gather*}
-\phi(x_i,x_r)_{J}  = \dfrac{a(x_i,x_r)} }{a(x_i,x_r) + b(x_i,x_r) + c(x_i,x_r)} 
-\end{gather*}
+$$
+\phi(x_i,x_r)_{J}  \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.1cm} a(x_i,x_r) \hspace{0.1cm}}{a(x_i,x_r) \hspace{0.1cm}+\hspace{0.1cm} b(x_i,x_r) \hspace{0.1cm}+\hspace{0.1cm} c(x_i,x_r)} 
+$$
 
 
 </p>
@@ -3017,7 +3226,7 @@ $\hspace{0.25cm}$ Dados dos vectores **binarios**  $\hspace{0.07cm}v=(v_1,...,v_
 $\hspace{0.25cm}$ La similaridad entre $\hspace{0.1cm}v\hspace{0.1cm}$ y $\hspace{0.1cm}w\hspace{0.1cm}$ es: $\\[0.5cm]$
 
 $$
-\phi (v,w)_{Jaccard}  \hspace{0.07cm}=\hspace{0.07cm}  \dfrac{ a(v,w) + d(v,w) }{p} \\
+\phi (v,w)_{J}  \hspace{0.07cm}=\hspace{0.07cm}  \dfrac{ a(v,w) + d(v,w) }{p} \\
 $$
 
 
@@ -3047,7 +3256,7 @@ $$
 $\hspace{0.25cm}$ Podemos obtener la distancia de Jaccard entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables binarias $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ como sigue:  $\\[0.4cm]$
 
 $$
-\hspace{0.35cm} \delta(x_i,x_r)_{Jaccard} = \sqrt{\phi(x_i,x_i)_{Jaccard} + \phi(x_r,x_r)_{Jaccard} - 2\cdot \phi(x_i,x_r)_{Jaccard} }
+\hspace{0.35cm} \delta(x_i,x_r)_{J} \hspace{0.1cm} = \hspace{0.1cm} \sqrt{\phi(x_i,x_i)_{J} \hspace{0.08cm}+\hspace{0.08cm} \phi(x_r,x_r)_{J} \hspace{0.08cm}-\hspace{0.08cm} 2\cdot \phi(x_i,x_r)_{J} }
 $$
 
 
@@ -3083,11 +3292,15 @@ def Jaccard_Similarity_1(i, r, Data):
 
 
 ```python
-Jaccard_Similarity_1(i=2, r=5, Data=Data_binary_numpy)
+Jaccard_Similarity_1(i=2, r=5, Data=Data_binary)
 ```
 
+
+
+
     0
-    
+
+
 <br>
 
 ```python
@@ -3108,23 +3321,22 @@ def Jaccard_Similarity_2(i , r, a , b, c):
 ```
 
 
-
-
 ```python
-a, b, c, d, p = a_b_c_d_Matrix(Data=Data_binary_numpy)
+a, b, c, d, p = a_b_c_d_Matrix(Data=Data_binary)
 
 Jaccard_Similarity_2(i=2, r=5, a=a , b=b, c=c)
 ```
 
+
+
+
     0
-    
-    
+
 <br>
+
 
 ```python
 def Matrix_Sim_Jaccard_1(Data):
-
-    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
 
     n = len(Data)
 
@@ -3150,33 +3362,33 @@ def Matrix_Sim_Jaccard_1(Data):
     return M 
 ```
 
+
 ```python
-Matrix_Sim_Jaccard_1(Data=Data_binary_numpy[0:300,0:300])  # 1.52 min
+Matrix_Sim_Jaccard_1(Data=Data_binary.iloc[0:300, 0:300])  # 1.52 min
 ```
 
-```
-array([[1. , 1. , 0.5, ..., 0. , 0. , 1. ],
-       [0. , 1. , 0.5, ..., 0. , 0. , 1. ],
-       [0. , 0. , 1. , ..., 0. , 0. , 0.5],
-       ...,
-       [0. , 0. , 0. , ..., 1. , 0. , 0. ],
-       [0. , 0. , 0. , ..., 0. , 1. , 0. ],
-       [0. , 0. , 0. , ..., 0. , 0. , 1. ]])
-```
 
+
+
+    array([[1. , 1. , 0.5, ..., 0. , 0. , 1. ],
+           [0. , 1. , 0.5, ..., 0. , 0. , 1. ],
+           [0. , 0. , 1. , ..., 0. , 0. , 0.5],
+           ...,
+           [0. , 0. , 0. , ..., 1. , 0. , 0. ],
+           [0. , 0. , 0. , ..., 0. , 1. , 0. ],
+           [0. , 0. , 0. , ..., 0. , 0. , 1. ]])
 
 <br>
 
+
 ```python
 def Matrix_Sim_Jaccard_2(Data):
-
-    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
 
     n = len(Data)
 
     M =  np.empty((n , n))
 
-    a, b, c, d, p = a_b_c_d_Matrix(Data=Data_binary_numpy)
+    a, b, c, d, p = a_b_c_d_Matrix(Data=Data)
 
    
     for i in range(0, n):
@@ -3200,44 +3412,48 @@ def Matrix_Sim_Jaccard_2(Data):
 
 
 ```python
-Matrix_Sim_Jaccard_2(Data=Data_binary_numpy[0:300,0:300]) # 0.1 seg
+Matrix_Sim_Jaccard_2(Data=Data_binary.iloc[0:300,0:300])
 ```
-```
-array([[1. , 1. , 0.5, ..., 0. , 0. , 1. ],
-       [0. , 1. , 0.5, ..., 0. , 0. , 1. ],
-       [0. , 0. , 1. , ..., 0. , 0. , 0.5],
-       ...,
-       [0. , 0. , 0. , ..., 1. , 0. , 0. ],
-       [0. , 0. , 0. , ..., 0. , 1. , 0. ],
-       [0. , 0. , 0. , ..., 0. , 0. , 1. ]])
-```
+
+
+
+
+    array([[1. , 1. , 0.5, ..., 0. , 0. , 1. ],
+           [0. , 1. , 0.5, ..., 0. , 0. , 1. ],
+           [0. , 0. , 1. , ..., 0. , 0. , 0.5],
+           ...,
+           [0. , 0. , 0. , ..., 1. , 0. , 0. ],
+           [0. , 0. , 0. , ..., 0. , 1. , 0. ],
+           [0. , 0. , 0. , ..., 0. , 0. , 1. ]])
 
 
 <br>
 
 ```python
-M_Jaccard = Matrix_Sim_Jaccard_2(Data=Data_binary_numpy)
+M_Jaccard = Matrix_Sim_Jaccard_2(Data=Data_binary)
 
 M_Jaccard 
 ```
-```
-array([[1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
-        1.        ],
-       [0.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
-        1.        ],
-       [0.        , 0.        , 1.        , ..., 0.5       , 0.33333333,
-        0.5       ],
-       ...,
-       [0.        , 0.        , 0.        , ..., 1.        , 0.5       ,
-        1.        ],
-       [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
-        0.5       ],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        1.        ]])
-```
 
 
-<br>
+
+
+    array([[1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+            1.        ],
+           [0.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+            1.        ],
+           [0.        , 0.        , 1.        , ..., 0.5       , 0.33333333,
+            0.5       ],
+           ...,
+           [0.        , 0.        , 0.        , ..., 1.        , 0.5       ,
+            1.        ],
+           [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
+            0.5       ],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            1.        ]])
+
+
+
 
 ```python
 M_Jaccard = M_Jaccard + M_Jaccard.T - np.diag(np.repeat(1 , len(M_Jaccard)), k=0)
@@ -3245,23 +3461,27 @@ M_Jaccard = M_Jaccard + M_Jaccard.T - np.diag(np.repeat(1 , len(M_Jaccard)), k=0
 M_Jaccard 
 ```
 
-```
-array([[1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
-        1.        ],
-       [1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
-        1.        ],
-       [0.5       , 0.5       , 1.        , ..., 0.5       , 0.33333333,
-        0.5       ],
-       ...,
-       [1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
-        1.        ],
-       [0.5       , 0.5       , 0.33333333, ..., 0.5       , 1.        ,
-        0.5       ],
-       [1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
-        1.        ]])
-```
+
+
+
+    array([[1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+            1.        ],
+           [1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+            1.        ],
+           [0.5       , 0.5       , 1.        , ..., 0.5       , 0.33333333,
+            0.5       ],
+           ...,
+           [1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+            1.        ],
+           [0.5       , 0.5       , 0.33333333, ..., 0.5       , 1.        ,
+            0.5       ],
+           [1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
+            1.        ]])
+
+
 
 <br>
+
 
 ```python
 def Dist_Jaccard(i , r, a , b, c):
@@ -3273,20 +3493,23 @@ def Dist_Jaccard(i , r, a , b, c):
 
 
 ```python
-a, b, c, d, p = a_b_c_d_Matrix(Data_binary_numpy)
+a, b, c, d, p = a_b_c_d_Matrix(Data_binary)
 
 Dist_Jaccard(i=2 , r=5, a=a , b=b, c=c)
 ```
 
-    1
+
+
+
+    1.0
+
 
 
 <br>
 
+
 ```python
 def Matrix_Dist_Jaccard(Data):
-
-    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
 
     n = len(Data)
 
@@ -3310,28 +3533,31 @@ def Matrix_Dist_Jaccard(Data):
     return M 
 ```
 
+
 ```python
-M_Dist_Jaccard = Matrix_Dist_Jaccard(Data=Data_binary_numpy)
+M_Dist_Jaccard = Matrix_Dist_Jaccard(Data=Data_binary)
 
 M_Dist_Jaccard
 ```
-```
-array([[0.        , 0.        , 1.        , ..., 0.        , 1.        ,
-        0.        ],
-       [0.        , 0.        , 1.        , ..., 0.        , 1.        ,
-        0.        ],
-       [0.        , 0.        , 0.        , ..., 1.        , 1.15470054,
-        1.        ],
-       ...,
-       [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
-        0.        ],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        1.        ],
-       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
-        0.        ]])
-```
 
-<br>
+
+
+
+    array([[0.        , 0.        , 1.        , ..., 0.        , 1.        ,
+            0.        ],
+           [0.        , 0.        , 1.        , ..., 0.        , 1.        ,
+            0.        ],
+           [0.        , 0.        , 0.        , ..., 1.        , 1.15470054,
+            1.        ],
+           ...,
+           [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
+            0.        ],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            1.        ],
+           [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+            0.        ]])
+
+
 
 
 ```python
@@ -3340,24 +3566,29 @@ M_Dist_Jaccard = M_Dist_Jaccard + M_Dist_Jaccard.T
 M_Dist_Jaccard
 ```
 
-```
-array([[0.        , 0.        , 1.        , ..., 0.        , 1.        ,
-        0.        ],
-       [0.        , 0.        , 1.        , ..., 0.        , 1.        ,
-        0.        ],
-       [1.        , 1.        , 0.        , ..., 1.        , 1.15470054,
-        1.        ],
-       ...,
-       [0.        , 0.        , 1.        , ..., 0.        , 1.        ,
-        0.        ],
-       [1.        , 1.        , 1.15470054, ..., 1.        , 0.        ,
-        1.        ],
-       [0.        , 0.        , 1.        , ..., 0.        , 1.        ,
-        0.        ]])
-```
 
 
 
+    array([[0.        , 0.        , 1.        , ..., 0.        , 1.        ,
+            0.        ],
+           [0.        , 0.        , 1.        , ..., 0.        , 1.        ,
+            0.        ],
+           [1.        , 1.        , 0.        , ..., 1.        , 1.15470054,
+            1.        ],
+           ...,
+           [0.        , 0.        , 1.        , ..., 0.        , 1.        ,
+            0.        ],
+           [1.        , 1.        , 1.15470054, ..., 1.        , 0.        ,
+            1.        ],
+           [0.        , 0.        , 1.        , ..., 0.        , 1.        ,
+            0.        ]])
+
+ 
+ 
+ 
+ 
+ 
+ 
 
 <br>
 
