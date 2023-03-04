@@ -4259,23 +4259,23 @@ $\hspace{0.25cm}$ Donde:
 
 
 
-- $x_i^Q\hspace{0.1cm}$ es el $i$-esimo vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^Q = (x_{i 1},....,x_{i p1})$. $\\[0.4cm]$
+- $\hspace{0.12cm}x_i^Q\hspace{0.1cm}$ es el $i$-esimo vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^Q = (x_{i 1},....,x_{i p_1})$. $\\[0.46cm]$
 
-- $x_i^B\hspace{0.1cm}$ es el $i$-esimo vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^B = (x_{i, p1+1},....,x_{i p1+p2})$. $\\[0.4cm]$
+- $\hspace{0.12cm}x_i^B\hspace{0.1cm}$ es el $i$-esimo vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^B = ( \hspace{0.1cm} x_{i, (p_1+1)},....,x_{i (p_1+p_2)} \hspace{0.1cm})\hspace{0.1cm}$. $\\[0.6cm]$
 
-- $x_i^M$ es el $i$-esimo vector de observaciones de las variables multiclase, es decir, $\hspace{0.1cm}x_i^M = (x_{i p1+p_2+1},....,x_{i p_1+p_2+p_3})$. $\\[0.4cm]$
+- $\hspace{0.12cm}x_i^M$ es el $i$-esimo vector de observaciones de las variables multiclase, es decir, $\hspace{0.1cm}x_i^M = ( \hspace{0.1cm}x_{i (p_1+p_2+1)},...,x_{i (p_1+p_2+p_3)} \hspace{0.1cm})\hspace{0.1cm}$. $\\[0.6cm]$
 
-- $G_j \hspace{0.1cm}=\hspace{0.1cm} Max(X_j) - Min(X_j)$. $\\[0.4cm]$
-
-
- - $\hspace{0.2cm} a(x_i^B, x_r^B)\hspace{0.1cm}$ es el número de coincidencias $\hspace{0.1cm}(1,1)\hspace{0.1cm}$ entre $\hspace{0.1cm} x_{ij}\hspace{0.1cm}$ y $\hspace{0.1cm}x_{rj}=1\hspace{0.1cm}$. $\\[0.4cm]$
+- $\hspace{0.12cm}G_j \hspace{0.1cm}=\hspace{0.1cm} Max(X_j) - Min(X_j)\hspace{0.1cm}$. $\\[0.6cm]$
 
 
-- $\hspace{0.2cm} d(x_i^B, x_r^B)\hspace{0.1cm}$ es el número de coincidencias $\hspace{0.1cm}(0,0)\hspace{0.1cm}$ entre $\hspace{0.1cm} x_{ij}\hspace{0.1cm}$ y $\hspace{0.1cm}x_{rj}=1\hspace{0.1cm}$. $\\[0.4cm]$
+ - $\hspace{0.12cm} a(x_i^B, x_r^B)\hspace{0.1cm}$ es el número de coincidencias $\hspace{0.1cm}(1,1)\hspace{0.1cm}$ entre $\hspace{0.1cm} x_{ij}\hspace{0.1cm}$ y $\hspace{0.1cm}x_{rj}\hspace{0.1cm}$. $\\[0.6cm]$
+
+
+- $\hspace{0.12cm} d(x_i^B, x_r^B)\hspace{0.1cm}$ es el número de coincidencias $\hspace{0.1cm}(0,0)\hspace{0.1cm}$ entre $\hspace{0.1cm} x_{ij}\hspace{0.1cm}$ y $\hspace{0.1cm}x_{rj}\hspace{0.1cm}$. $\\[0.6cm]$
 
  
 
-- $\hspace{0.2cm}\alpha(x_i^M, x_r^M)$  es el número de coincidencias entre $\hspace{0.1cm} x_{ij}\hspace{0.1cm}$ y $\hspace{0.1cm}x_{rj}=1\hspace{0.1cm}$.  
+- $\hspace{0.12cm}\alpha(x_i^M, x_r^M)$  es el número de coincidencias entre $\hspace{0.1cm} x_{ij}\hspace{0.1cm}$ y $\hspace{0.1cm}x_{rj}\hspace{0.1cm}$.  
 
  
  
