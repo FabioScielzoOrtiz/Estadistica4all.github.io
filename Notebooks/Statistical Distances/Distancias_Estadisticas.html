@@ -4931,39 +4931,34 @@ Name: 14, dtype: float64</code></pre>
 </div>
 <div id="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase" class="section level1" number="8">
 <h1><span class="header-section-number">8</span> Distancias con conjuntos de variables de tipo cuantitativo-binario-multiclase</h1>
-<p>Tenemos un conjunto de variables estadísticas <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p )\hspace{0.1cm}\)</span> tales que: <span class="math inline">\(\\[0.3cm]\)</span></p>
+<p>Tenemos un conjunto de variables estadísticas <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p )\hspace{0.1cm}\)</span> tales que las <span class="math inline">\(\hspace{0.1cm}p_1\hspace{0.1cm}\)</span> primeras son cuantitativas, las <span class="math inline">\(\hspace{0.1cm}p_2\hspace{0.1cm}\)</span> siguientes son binarias y las últimas <span class="math inline">\(\hspace{0.1cm}p_3\hspace{0.1cm}\)</span> son multiclase, es decir: <span class="math inline">\(\\[0.3cm]\)</span></p>
 <ul>
-<li><p><span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_{p_1} \hspace{0.15cm}\)</span> son <strong>cuantitativas</strong>. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p><span class="math inline">\(\mathcal{X}_{p_1 + 1},...,\mathcal{X}_{p_1 + p_2} \hspace{0.15cm}\)</span> son <strong>binarias</strong>.<span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p><span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_{p_1} \hspace{0.15cm}\)</span> son <strong>cuantitativas</strong>. <span class="math inline">\(\\[0.7cm]\)</span></p></li>
+<li><p><span class="math inline">\(\mathcal{X}_{p_1 + 1},...,\mathcal{X}_{p_1 + p_2} \hspace{0.15cm}\)</span> son <strong>binarias</strong>.<span class="math inline">\(\\[0.7cm]\)</span></p></li>
 <li><p><span class="math inline">\(\mathcal{X}_{p_1 + p_2 + 1},...,\mathcal{X}_{p_1 + p_2 + p_3} \hspace{0.15cm}\)</span> son <strong>multiclase</strong> (no binarias).<span class="math inline">\(\\[0.5cm]\)</span></p></li>
 </ul>
 <p>Donde: <span class="math inline">\(\hspace{0.2cm} p=p_1 + p_2 + p_3 \\\)</span></p>
 <p><strong>Observación:</strong></p>
-<p><span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_p \hspace{0.1cm}\)</span> forman un conjunto de variables de tipo cuantitativo-binario-multiclase</p>
+<p><span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_p \hspace{0.1cm}\)</span> forman un conjunto de variables de tipo <strong>cuantitativo-binario-multiclase</strong>.</p>
 <p><br></p>
 <div id="similaridad-de-gower" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> Similaridad de Gower</h2>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> La similaridad de Gower entre el par de observaciones <span class="math inline">\(\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}\)</span> de las variables <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> , tales que las primeras <span class="math inline">\(\hspace{0.1cm}p_1\hspace{0.1cm}\)</span> variables son cuantitativas, las siguientes <span class="math inline">\(\hspace{0.1cm}p_2\hspace{0.1cm}\)</span> son binarias y las siguientes <span class="math inline">\(\hspace{0.1cm}p_3\hspace{0.1cm}\)</span> son multiclase, se define como : <span class="math inline">\(\\[1.5cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La similaridad de Gower entre el par de observaciones <span class="math inline">\(\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}\)</span> de las variables <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> descritas anteriormente, se define como : <span class="math inline">\(\\[1cm]\)</span></p>
 <p><span class="math display">\[
-\hspace{0.45cm} \phi(x_i,x_r)_{Gower} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm}\sum_{j=1}^{p_1} \left(1- \dfrac{\mid x_{ij} - x_{rj} \mid}{G_j} \right) \hspace{0.1cm} +\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p_1 \hspace{0.05cm}+\hspace{0.05cm} p_2 - d(x_i^B , x_r^B) \hspace{0.05cm}+\hspace{0.05cm} p_3}  \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm} p_1 \hspace{0.1cm}-\hspace{0.1cm} \sum_{j=1}^{p_1} \dfrac{\mid x_{ij} - x_{rj} \mid}{G_j}  \hspace{0.1cm}+\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p - d(x_i^B , x_r^B) } \\[1cm]
+\phi(x_i,x_r)_{Gower} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm}\sum_{j=1}^{p_1} \left(1- \dfrac{\mid x_{ij} - x_{rj} \mid}{G_j} \right) \hspace{0.1cm} +\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p  \hspace{0.05cm}-\hspace{0.05cm}   d(x_i^B , x_r^B)  }   \\[1cm]
 \]</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <ul>
-<li><p><span class="math inline">\(p_1 \hspace{0.05cm}\)</span> es el número de variables cuantitativas. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p><span class="math inline">\(p_2 \hspace{0.05cm}\)</span> es el número de variables categóricas binarias.
-<span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p><span class="math inline">\(p_3 \hspace{0.05cm}\)</span> es el número de variables categóricas múltiples (no binarias).<span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p><span class="math inline">\(p_1+p_2+p_3=p \\\)</span></p></li>
-<li><p><span class="math inline">\(x_i^Q\hspace{0.1cm}\)</span> es vector de observaciones de las variables binarias, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^Q = (x_{i, 1},....,x_{i,p1})\\\)</span></p></li>
-<li><p><span class="math inline">\(x_i^B\hspace{0.1cm}\)</span> es vector de observaciones de las variables binarias, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^B = (x_{i, p1+1},....,x_{i,p1+p2}) \\\)</span></p></li>
-<li><p><span class="math inline">\(x_i^M\)</span> es vector de observaciones de las variables multiclase, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^M = (x_{i, p1+p_2+1},....,x_{i,p_1+p_2+p_3}) \\\)</span></p></li>
-<li><p><span class="math inline">\(G_j \hspace{0.1cm}=\hspace{0.1cm} Max(X_j) - Min(X_j) \\\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.2cm} a(x_i^B, x_r^B)\hspace{0.1cm}\)</span> es el número de variables binarias <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm} x_{ij} = x_{rj}=1 \\\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.2cm} d(x_i^B, x_r^B)\hspace{0.1cm}\)</span> es el número de variables binarias <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm}x_{rj}=0 \\\)</span></p></li>
-<li><p><span class="math inline">\(\alpha(x_i^M, x_r^M) =\)</span> número de variables multiclase <span class="math inline">\(\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm}x_{ij} = x_{rj}\\\)</span></p></li>
+<li><p><span class="math inline">\(x_i^Q\hspace{0.1cm}\)</span> es el <span class="math inline">\(i\)</span>-esimo vector de observaciones de las variables binarias, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^Q = (x_{i 1},....,x_{i p1})\)</span>. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p><span class="math inline">\(x_i^B\hspace{0.1cm}\)</span> es el <span class="math inline">\(i\)</span>-esimo vector de observaciones de las variables binarias, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^B = (x_{i, p1+1},....,x_{i p1+p2})\)</span>. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p><span class="math inline">\(x_i^M\)</span> es el <span class="math inline">\(i\)</span>-esimo vector de observaciones de las variables multiclase, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^M = (x_{i p1+p_2+1},....,x_{i p_1+p_2+p_3})\)</span>. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p><span class="math inline">\(G_j \hspace{0.1cm}=\hspace{0.1cm} Max(X_j) - Min(X_j)\)</span>. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.2cm} a(x_i^B, x_r^B)\hspace{0.1cm}\)</span> es el número de coincidencias <span class="math inline">\(\hspace{0.1cm}(1,1)\hspace{0.1cm}\)</span> entre <span class="math inline">\(\hspace{0.1cm} x_{ij}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}x_{rj}=1\hspace{0.1cm}\)</span>. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.2cm} d(x_i^B, x_r^B)\hspace{0.1cm}\)</span> es el número de coincidencias <span class="math inline">\(\hspace{0.1cm}(0,0)\hspace{0.1cm}\)</span> entre <span class="math inline">\(\hspace{0.1cm} x_{ij}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}x_{rj}=1\hspace{0.1cm}\)</span>. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.2cm}\alpha(x_i^M, x_r^M)\)</span> es el número de coincidencias entre <span class="math inline">\(\hspace{0.1cm} x_{ij}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}x_{rj}=1\hspace{0.1cm}\)</span>.</p></li>
 </ul>
 </p>
 </p>

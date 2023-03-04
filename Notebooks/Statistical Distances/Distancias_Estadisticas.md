@@ -4215,12 +4215,12 @@ Distinguimos cuatro cuatro tipos de conjuntos de variables mixtos:
 
 
 
-Tenemos un conjunto de variables estadísticas $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p )\hspace{0.1cm}$ tales que: $\\[0.3cm]$
+Tenemos un conjunto de variables estadísticas $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p )\hspace{0.1cm}$ tales que las $\hspace{0.1cm}p_1\hspace{0.1cm}$ primeras son cuantitativas, las $\hspace{0.1cm}p_2\hspace{0.1cm}$ siguientes son binarias y las últimas $\hspace{0.1cm}p_3\hspace{0.1cm}$ son multiclase, es decir: $\\[0.3cm]$
 
 
-- $\mathcal{X}_1,...,\mathcal{X}_{p_1} \hspace{0.15cm}$ son **cuantitativas**. $\\[0.5cm]$
+- $\mathcal{X}_1,...,\mathcal{X}_{p_1} \hspace{0.15cm}$ son **cuantitativas**. $\\[0.7cm]$
 
-- $\mathcal{X}_{p_1 + 1},...,\mathcal{X}_{p_1 + p_2} \hspace{0.15cm}$ son **binarias**.$\\[0.5cm]$
+- $\mathcal{X}_{p_1 + 1},...,\mathcal{X}_{p_1 + p_2} \hspace{0.15cm}$ son **binarias**.$\\[0.7cm]$
 
 - $\mathcal{X}_{p_1 + p_2 + 1},...,\mathcal{X}_{p_1 + p_2 + p_3} \hspace{0.15cm}$ son **multiclase** (no binarias).$\\[0.5cm]$
 
@@ -4230,7 +4230,7 @@ Donde: $\hspace{0.2cm} p=p_1 + p_2 + p_3 \\$
 
 **Observación:**
 
-$\mathcal{X}_1,...,\mathcal{X}_p \hspace{0.1cm}$ forman un conjunto de variables de tipo cuantitativo-binario-multiclase
+$\mathcal{X}_1,...,\mathcal{X}_p \hspace{0.1cm}$ forman un conjunto de variables de tipo **cuantitativo-binario-multiclase**.
 
 
 
@@ -4245,12 +4245,12 @@ $\mathcal{X}_1,...,\mathcal{X}_p \hspace{0.1cm}$ forman un conjunto de variables
 <p style='margin-left:1em;'>
 
 
-$\hspace{0.25cm}$ La similaridad de Gower entre el par de observaciones $\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ ,  tales que las primeras $\hspace{0.1cm}p_1\hspace{0.1cm}$ variables son cuantitativas, las siguientes $\hspace{0.1cm}p_2\hspace{0.1cm}$ son binarias y las siguientes $\hspace{0.1cm}p_3\hspace{0.1cm}$ son multiclase,  se define como : $\\[1.5cm]$
+$\hspace{0.25cm}$ La similaridad de Gower entre el par de observaciones $\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ descritas anteriormente,  se define como : $\\[1cm]$
 
 
 
 $$
-\hspace{0.45cm} \phi(x_i,x_r)_{Gower} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm}\sum_{j=1}^{p_1} \left(1- \dfrac{\mid x_{ij} - x_{rj} \mid}{G_j} \right) \hspace{0.1cm} +\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p_1 \hspace{0.05cm}+\hspace{0.05cm} p_2 - d(x_i^B , x_r^B) \hspace{0.05cm}+\hspace{0.05cm} p_3}  \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm} p_1 \hspace{0.1cm}-\hspace{0.1cm} \sum_{j=1}^{p_1} \dfrac{\mid x_{ij} - x_{rj} \mid}{G_j}  \hspace{0.1cm}+\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p - d(x_i^B , x_r^B) } \\[1cm]
+\phi(x_i,x_r)_{Gower} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm}\sum_{j=1}^{p_1} \left(1- \dfrac{\mid x_{ij} - x_{rj} \mid}{G_j} \right) \hspace{0.1cm} +\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p  \hspace{0.05cm}-\hspace{0.05cm}   d(x_i^B , x_r^B)  }   \\[1cm]
 $$
 
 
@@ -4258,33 +4258,24 @@ $$
 $\hspace{0.25cm}$ Donde:
 
 
-- $p_1 \hspace{0.05cm}$ es el número de variables cuantitativas. $\\[0.5cm]$
 
-- $p_2 \hspace{0.05cm}$ es el número de variables categóricas binarias.
-$\\[0.5cm]$
+- $x_i^Q\hspace{0.1cm}$ es el $i$-esimo vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^Q = (x_{i 1},....,x_{i p1})$. $\\[0.4cm]$
 
-- $p_3 \hspace{0.05cm}$ es el número de variables categóricas múltiples (no binarias).$\\[0.5cm]$
+- $x_i^B\hspace{0.1cm}$ es el $i$-esimo vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^B = (x_{i, p1+1},....,x_{i p1+p2})$. $\\[0.4cm]$
 
-- $p_1+p_2+p_3=p \\$
+- $x_i^M$ es el $i$-esimo vector de observaciones de las variables multiclase, es decir, $\hspace{0.1cm}x_i^M = (x_{i p1+p_2+1},....,x_{i p_1+p_2+p_3})$. $\\[0.4cm]$
 
-- $x_i^Q\hspace{0.1cm}$ es vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^Q = (x_{i, 1},....,x_{i,p1})\\$
-
-- $x_i^B\hspace{0.1cm}$ es vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^B = (x_{i, p1+1},....,x_{i,p1+p2}) \\$
-
-- $x_i^M$ es vector de observaciones de las variables multiclase, es decir, $\hspace{0.1cm}x_i^M = (x_{i, p1+p_2+1},....,x_{i,p_1+p_2+p_3}) \\$
-
-- $G_j \hspace{0.1cm}=\hspace{0.1cm} Max(X_j) - Min(X_j) \\$
+- $G_j \hspace{0.1cm}=\hspace{0.1cm} Max(X_j) - Min(X_j)$. $\\[0.4cm]$
 
 
- - $\hspace{0.2cm} a(x_i^B, x_r^B)\hspace{0.1cm}$ es el número de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
+ - $\hspace{0.2cm} a(x_i^B, x_r^B)\hspace{0.1cm}$ es el número de coincidencias $\hspace{0.1cm}(1,1)\hspace{0.1cm}$ entre $\hspace{0.1cm} x_{ij}\hspace{0.1cm}$ y $\hspace{0.1cm}x_{rj}=1\hspace{0.1cm}$. $\\[0.4cm]$
 
 
- - $\hspace{0.2cm} d(x_i^B, x_r^B)\hspace{0.1cm}$ es el número  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
- 
-
-- $\alpha(x_i^M, x_r^M) =$ número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} = x_{rj}\\$
+- $\hspace{0.2cm} d(x_i^B, x_r^B)\hspace{0.1cm}$ es el número de coincidencias $\hspace{0.1cm}(0,0)\hspace{0.1cm}$ entre $\hspace{0.1cm} x_{ij}\hspace{0.1cm}$ y $\hspace{0.1cm}x_{rj}=1\hspace{0.1cm}$. $\\[0.4cm]$
 
  
+
+- $\hspace{0.2cm}\alpha(x_i^M, x_r^M)$  es el número de coincidencias entre $\hspace{0.1cm} x_{ij}\hspace{0.1cm}$ y $\hspace{0.1cm}x_{rj}=1\hspace{0.1cm}$.  
 
  
  
