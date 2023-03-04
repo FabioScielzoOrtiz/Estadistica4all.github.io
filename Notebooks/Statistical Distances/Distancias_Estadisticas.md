@@ -1960,7 +1960,7 @@ Dist_Mahalanobis_2(x_i = Data_quant.iloc[2,:] , x_r = Data_quant.iloc[5,:] , S_i
 
 
 ```python
-def Dist_Mahalanobis_3(x, S_inv):  # Más eficiente que la anterior
+def Dist_Mahalanobis(x, S_inv):  # Más eficiente que la anterior
 
     # All the columns of Data must be type = 'float' or 'int' (specially not 'object'), in other case we will find 
     # dimensional problems when Python compute   x @ S_inv @ x.T
@@ -1978,7 +1978,7 @@ def Dist_Mahalanobis_3(x, S_inv):  # Más eficiente que la anterior
 
 
 ```python
-Dist_Mahalanobis_3(x = Data_quant.iloc[2,:] - Data_quant.iloc[5,:] , S_inv=np.linalg.inv( np.cov(Data_quant, rowvar=False) ))
+Dist_Mahalanobis(x = Data_quant.iloc[2,:] - Data_quant.iloc[5,:] , S_inv=np.linalg.inv( np.cov(Data_quant, rowvar=False) ))
 ```
 
 
@@ -2144,7 +2144,7 @@ Matrix_Dist_Mahalanobis_2(Data=Data_quant) # 22.5 seg
 <br>
 
 ```python
-def Matrix_Dist_Mahalanobis_3(Data):
+def Matrix_Dist_Mahalanobis(Data):
 
     Data = Data.to_numpy()
 
@@ -2165,7 +2165,7 @@ def Matrix_Dist_Mahalanobis_3(Data):
 
              else :
 
-                 M[i,r] = Dist_Mahalanobis_3(x = np.array([Data[i,:] - Data[r,:]]) , S_inv=S_inv ) 
+                 M[i,r] = Dist_Mahalanobis(x = np.array([Data[i,:] - Data[r,:]]) , S_inv=S_inv ) 
 
                       
     return M 
@@ -2174,7 +2174,7 @@ def Matrix_Dist_Mahalanobis_3(Data):
 <br>
 
 ```python
-Matrix_Dist_Mahalanobis_3(Data=Data_quant.iloc[0:1000, :]) # 4.8 seg
+Matrix_Dist_Mahalanobis(Data=Data_quant.iloc[0:1000, :]) # 4.8 seg
 ```
 
 
@@ -2199,7 +2199,7 @@ Matrix_Dist_Mahalanobis_3(Data=Data_quant.iloc[0:1000, :]) # 4.8 seg
 <br>
 
 ```python
-M_Mahalanobis = Matrix_Dist_Mahalanobis_3(Data=Data_quant) # 19.7 seg
+M_Mahalanobis = Matrix_Dist_Mahalanobis(Data=Data_quant) # 19.7 seg
 
 M_Mahalanobis
 ```
@@ -4612,7 +4612,7 @@ array([[1.        , 0.76928447, 0.61234779, ..., 0.61200705, 0.68768535,
 
 
 ```python
-def Matrix_Gower_Distance(Data, p1, p2, p3 ):
+def Matrix_Dist_Gower(Data, p1, p2, p3 ):
 
     M = Matrix_Gower_Similarity(Data, p1, p2, p3)
 
@@ -4927,7 +4927,7 @@ def Matrix_Gower_Maha_Similarity(Data, p1, p2, p3):
 
     S_inv = np.linalg.inv( np.cov(Quant_Data , rowvar=False) ) 
 
-    D_maha = Matrix_Dist_Mahalanobis_3(Data=Quant_Data_pd) 
+    D_maha = Matrix_Dist_Mahalanobis(Data=Quant_Data_pd) 
 
     Max_D_maha = D_maha.max()
 
