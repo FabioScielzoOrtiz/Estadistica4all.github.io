@@ -4952,9 +4952,9 @@ Name: 14, dtype: float64</code></pre>
 \]</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <ul>
-<li><p><span class="math inline">\(\hspace{0.12cm}x_i^Q\hspace{0.1cm}\)</span> es el <span class="math inline">\(i\)</span>-esimo vector de observaciones de las variables binarias, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^Q = (x_{i 1},....,x_{i p_1})\)</span>. <span class="math inline">\(\\[0.46cm]\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.12cm}x_i^B\hspace{0.1cm}\)</span> es el <span class="math inline">\(i\)</span>-esimo vector de observaciones de las variables binarias, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^B = ( \hspace{0.1cm} x_{i, (p_1+1)},....,x_{i (p_1+p_2)} \hspace{0.1cm})\hspace{0.1cm}\)</span>. <span class="math inline">\(\\[0.6cm]\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.12cm}x_i^M\)</span> es el <span class="math inline">\(i\)</span>-esimo vector de observaciones de las variables multiclase, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^M = ( \hspace{0.1cm}x_{i (p_1+p_2+1)},...,x_{i (p_1+p_2+p_3)} \hspace{0.1cm})\hspace{0.1cm}\)</span>. <span class="math inline">\(\\[0.6cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.12cm}x_i^Q\hspace{0.1cm}\)</span> es el <span class="math inline">\(\hspace{0.1cm}i\)</span>-esimo vector de observaciones de las variables binarias, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^Q = (x_{i 1},....,x_{i p_1})\)</span>. <span class="math inline">\(\\[0.46cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.12cm}x_i^B\hspace{0.1cm}\)</span> es el <span class="math inline">\(\hspace{0.1cm}i\)</span>-esimo vector de observaciones de las variables binarias, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^B = ( \hspace{0.1cm} x_{i, (p_1+1)},....,x_{i (p_1+p_2)} \hspace{0.1cm})\hspace{0.1cm}\)</span>. <span class="math inline">\(\\[0.6cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.12cm}x_i^M\hspace{0.1cm}\)</span> es el <span class="math inline">\(\hspace{0.1cm}i\)</span>-esimo vector de observaciones de las variables multiclase, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^M = ( \hspace{0.1cm}x_{i (p_1+p_2+1)},...,x_{i (p_1+p_2+p_3)} \hspace{0.1cm})\hspace{0.1cm}\)</span>. <span class="math inline">\(\\[0.6cm]\)</span></p></li>
 <li><p><span class="math inline">\(\hspace{0.12cm}G_j \hspace{0.1cm}=\hspace{0.1cm} Max(X_j) - Min(X_j)\hspace{0.1cm}\)</span>. <span class="math inline">\(\\[0.6cm]\)</span></p></li>
 <li><p><span class="math inline">\(\hspace{0.12cm} a(x_i^B, x_r^B)\hspace{0.1cm}\)</span> es el número de coincidencias <span class="math inline">\(\hspace{0.1cm}(1,1)\hspace{0.1cm}\)</span> entre <span class="math inline">\(\hspace{0.1cm} x_{ij}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}x_{rj}\hspace{0.1cm}\)</span>. <span class="math inline">\(\\[0.6cm]\)</span></p></li>
 <li><p><span class="math inline">\(\hspace{0.12cm} d(x_i^B, x_r^B)\hspace{0.1cm}\)</span> es el número de coincidencias <span class="math inline">\(\hspace{0.1cm}(0,0)\hspace{0.1cm}\)</span> entre <span class="math inline">\(\hspace{0.1cm} x_{ij}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}x_{rj}\hspace{0.1cm}\)</span>. <span class="math inline">\(\\[0.6cm]\)</span></p></li>
@@ -4971,34 +4971,33 @@ Name: 14, dtype: float64</code></pre>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de Gower entre el par de observaciones <span class="math inline">\(\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}\)</span> de las variables <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> (que forman un conjunto de variables de tipo cuantitativo-binario-multiclase ) es obtenida como: <span class="math inline">\(\\[0.6cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de Gower entre el par de observaciones <span class="math inline">\(\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}\)</span> de las variables <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> es obtenida como sigue: <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math display">\[
-\delta(x_i,x_r)_{Gower} = \sqrt{1 - \phi(x_i,x_r)_{Gower}}
+\delta(x_i,x_r)_{Gower} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ \hspace{0.1cm} 1 - \phi(x_i,x_r)_{Gower} \hspace{0.1cm}} \\
 \]</span></p>
 </p>
 </p>
 <p></span></p>
 </div>
-<p><br></p>
 <p><strong>Propiedades:</strong></p>
 <ul>
-<li><p>La similaridad de Gower es la suma de diferentes similaridades apropiadas para cada tipo de variable (cuantitativas, binarias y multiclase). <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p>La similaridad de Gower es la suma de diferentes similaridades apropiadas para cada tipo de variable (cuantitativas, binarias y multiclase). <span class="math inline">\(\\[0.6cm]\)</span></p></li>
 <li><p>Si consideramos un conjunto de variables cuantitativas, la similaridad de Gower es la transformación a similaridad de la distancia Manhattan<br />
-normalizada por el rango, para que tome valores en <span class="math inline">\(\hspace{0.1cm} [0,1]\hspace{0.1cm}\)</span> :</p></li>
+normalizada por el rango, para que tome valores en <span class="math inline">\(\hspace{0.1cm} [0,1]\hspace{0.1cm}\)</span> : <span class="math inline">\(\\[0.3cm]\)</span></p></li>
 </ul>
 <p><span class="math display">\[
 \dfrac{1}{p} \sum_{k=1}^{p} \left(1- \dfrac{\mid x_{ik} - x_{jk} \mid}{G_k} \right) =  \\
 \]</span></p>
 <ul>
-<li><p>Si consideramos un conjunto de variables binarias, la similaridad de Gower coincide con la de Jaccard. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p>Si consideramos un conjunto de variables binarias, la similaridad de Gower coincide con la de Jaccard. <span class="math inline">\(\\[0.6cm]\)</span></p></li>
 <li><p>Si consideramos un conjunto de variables multiclase (no binarias), la similaridad de Gower coincide con la similaridad por coincidencias.</p></li>
 </ul>
 <p><br></p>
 <p>Siguiendo esta idea pueden crearse otras similaridades para conjuntos de variables de tipo mixto. Algunas recomendaciones para ello son las siguientes:</p>
 <ul>
-<li><p>Si queremos que la similaridad resultante tenga la propiedad Euclidea, todos las similaridades que se han combinado deben tenerla. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
-<li><p>Para variables cuantitativas, se debe usar una distancia normalizada, para que así esté contenida en <span class="math inline">\(\hspace{0.1cm}[0,1]\hspace{0.1cm}\)</span> y pueda convertirse en similaridad usando la transformacion <span class="math inline">\(\hspace{0.1cm}1 - \delta\)</span> <span class="math inline">\(\\[0.4cm]\)</span></p></li>
-<li><p>Para variables categoricas es preferible usar similaridades contenidas en <span class="math inline">\(\hspace{0.1cm}[0,1]\hspace{0.1cm}\)</span> para evitar tener que normalizarlas.</p></li>
+<li><p>Si queremos que la similaridad resultante tenga la propiedad Euclidea, todos las similaridades que se han combinado deben tenerla. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Para variables cuantitativas, se debe usar una distancia normalizada, para que así esté contenida en <span class="math inline">\(\hspace{0.1cm}[0,1]\hspace{0.1cm}\)</span> y pueda convertirse en similaridad usando la transformacion <span class="math inline">\(\hspace{0.1cm}1 - \delta\hspace{0.1cm}\)</span> . <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Para variables categóricas es preferible usar similaridades contenidas en <span class="math inline">\(\hspace{0.1cm}[0,1]\hspace{0.1cm}\)</span> para evitar tener que normalizarlas.</p></li>
 </ul>
 <p><br></p>
 </div>
@@ -5006,76 +5005,369 @@ normalizada por el rango, para que tome valores en <span class="math inline">\(\
 <h2><span class="header-section-number">8.3</span> Similaridad de Gower en <code>Python</code></h2>
 <div class="sourceCode" id="cb189"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb189-1"><a href="#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Gower_Similarity(Data, p1, p2, p3 ):</span>
 <span id="cb189-2"><a href="#cb189-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-3"><a href="#cb189-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-4"><a href="#cb189-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Data tiene que ser un numpy array tal que:</span></span>
-<span id="cb189-5"><a href="#cb189-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># las primeras p1 tiene que ser variables cuantitativas, </span></span>
-<span id="cb189-6"><a href="#cb189-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># las siguientes p2 binarias y las restantes p3 multicales</span></span>
-<span id="cb189-7"><a href="#cb189-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-8"><a href="#cb189-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Si Data no contiene variables cuantitativas --&gt; p1=0</span></span>
-<span id="cb189-9"><a href="#cb189-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Si Data no contiene variables binarias --&gt; p2=0</span></span>
-<span id="cb189-10"><a href="#cb189-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Si Data no contiene variables multiclase --&gt; p3=0</span></span>
-<span id="cb189-11"><a href="#cb189-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb189-12"><a href="#cb189-12" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################    </span></span>
-<span id="cb189-13"><a href="#cb189-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-14"><a href="#cb189-14" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
-<span id="cb189-15"><a href="#cb189-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-16"><a href="#cb189-16" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
-<span id="cb189-17"><a href="#cb189-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-18"><a href="#cb189-18" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
-<span id="cb189-19"><a href="#cb189-19" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb189-20"><a href="#cb189-20" aria-hidden="true" tabindex="-1"></a>    G_vector <span class="op">=</span> np.repeat(<span class="fl">0.5</span>, p1)</span>
-<span id="cb189-21"><a href="#cb189-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-22"><a href="#cb189-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, p1):</span>
-<span id="cb189-23"><a href="#cb189-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-24"><a href="#cb189-24" aria-hidden="true" tabindex="-1"></a>        G_vector[k] <span class="op">=</span> Data[:,k].<span class="bu">max</span>() <span class="op">-</span> Data[:,k].<span class="bu">min</span>()</span>
-<span id="cb189-25"><a href="#cb189-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-26"><a href="#cb189-26" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
-<span id="cb189-27"><a href="#cb189-27" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb189-28"><a href="#cb189-28" aria-hidden="true" tabindex="-1"></a>    ones <span class="op">=</span> np.repeat(<span class="dv">1</span>, p1)</span>
-<span id="cb189-29"><a href="#cb189-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-30"><a href="#cb189-30" aria-hidden="true" tabindex="-1"></a>    Quant_Data <span class="op">=</span> Data[: , <span class="dv">0</span>:p1]</span>
-<span id="cb189-31"><a href="#cb189-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-32"><a href="#cb189-32" aria-hidden="true" tabindex="-1"></a>    Binary_Data <span class="op">=</span> Data[: , (p1):(p1<span class="op">+</span>p2)]</span>
-<span id="cb189-33"><a href="#cb189-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-34"><a href="#cb189-34" aria-hidden="true" tabindex="-1"></a>    Multiple_Data <span class="op">=</span> Data[: , (p1<span class="op">+</span>p2):(p1<span class="op">+</span>p2<span class="op">+</span>p3) ]</span>
-<span id="cb189-35"><a href="#cb189-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-36"><a href="#cb189-36" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
-<span id="cb189-37"><a href="#cb189-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-38"><a href="#cb189-38" aria-hidden="true" tabindex="-1"></a>    a, b, c, d, p <span class="op">=</span> a_b_c_d_Matrix(Binary_Data)</span>
-<span id="cb189-39"><a href="#cb189-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-40"><a href="#cb189-40" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
-<span id="cb189-41"><a href="#cb189-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-42"><a href="#cb189-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
-<span id="cb189-43"><a href="#cb189-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-44"><a href="#cb189-44" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
-<span id="cb189-45"><a href="#cb189-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-46"><a href="#cb189-46" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> i <span class="op">&gt;</span> r :</span>
-<span id="cb189-47"><a href="#cb189-47" aria-hidden="true" tabindex="-1"></a>               </span>
-<span id="cb189-48"><a href="#cb189-48" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb189-49"><a href="#cb189-49" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb189-50"><a href="#cb189-50" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> i <span class="op">==</span> r :</span>
-<span id="cb189-51"><a href="#cb189-51" aria-hidden="true" tabindex="-1"></a>               </span>
-<span id="cb189-52"><a href="#cb189-52" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb189-53"><a href="#cb189-53" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb189-54"><a href="#cb189-54" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span> :</span>
-<span id="cb189-55"><a href="#cb189-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-56"><a href="#cb189-56" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Calculo de la distancia de Gower entre las observaciones x_i y x_r</span></span>
-<span id="cb189-57"><a href="#cb189-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-58"><a href="#cb189-58" aria-hidden="true" tabindex="-1"></a>                numerator_part_1 <span class="op">=</span> ( ones <span class="op">-</span> ( <span class="bu">abs</span>(Quant_Data[i,:] <span class="op">-</span> Quant_Data[r,:]) <span class="op">/</span> G_vector ) ).<span class="bu">sum</span>() </span>
-<span id="cb189-59"><a href="#cb189-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-60"><a href="#cb189-60" aria-hidden="true" tabindex="-1"></a>                numerator_part_2 <span class="op">=</span> a[i,r] <span class="op">+</span> alpha(Multiple_Data[i,:], Multiple_Data[r,:])</span>
-<span id="cb189-61"><a href="#cb189-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-62"><a href="#cb189-62" aria-hidden="true" tabindex="-1"></a>                numerator <span class="op">=</span> numerator_part_1 <span class="op">+</span> numerator_part_2</span>
-<span id="cb189-63"><a href="#cb189-63" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb189-64"><a href="#cb189-64" aria-hidden="true" tabindex="-1"></a>                denominator <span class="op">=</span> p1 <span class="op">+</span> (p2 <span class="op">-</span> d[i,r]) <span class="op">+</span> p3</span>
-<span id="cb189-65"><a href="#cb189-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb189-66"><a href="#cb189-66" aria-hidden="true" tabindex="-1"></a>                M[i,r] <span class="op">=</span> numerator <span class="op">/</span> denominator</span>
-<span id="cb189-67"><a href="#cb189-67" aria-hidden="true" tabindex="-1"></a>                      </span>
-<span id="cb189-68"><a href="#cb189-68" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb189-69"><a href="#cb189-69" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M  </span></code></pre></div>
-<div class="sourceCode" id="cb190"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb190-1"><a href="#cb190-1" aria-hidden="true" tabindex="-1"></a>M_Gower <span class="op">=</span> Matrix_Gower_Similarity(Data<span class="op">=</span>Data_mixed_numpy, p1<span class="op">=</span><span class="dv">6</span>, p2<span class="op">=</span><span class="dv">4</span>, p3<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb190-2"><a href="#cb190-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb190-3"><a href="#cb190-3" aria-hidden="true" tabindex="-1"></a>M_Gower</span></code></pre></div>
+<span id="cb189-3"><a href="#cb189-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Data tiene que ser un numpy array tal que:</span></span>
+<span id="cb189-4"><a href="#cb189-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># las primeras p1 tiene que ser variables cuantitativas, </span></span>
+<span id="cb189-5"><a href="#cb189-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># las siguientes p2 binarias y las restantes p3 multicales</span></span>
+<span id="cb189-6"><a href="#cb189-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-7"><a href="#cb189-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Si Data no contiene variables cuantitativas --&gt; p1=0</span></span>
+<span id="cb189-8"><a href="#cb189-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Si Data no contiene variables binarias --&gt; p2=0</span></span>
+<span id="cb189-9"><a href="#cb189-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Si Data no contiene variables multiclase --&gt; p3=0</span></span>
+<span id="cb189-10"><a href="#cb189-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-11"><a href="#cb189-11" aria-hidden="true" tabindex="-1"></a>    Data_pd <span class="op">=</span> Data</span>
+<span id="cb189-12"><a href="#cb189-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-13"><a href="#cb189-13" aria-hidden="true" tabindex="-1"></a>    Data <span class="op">=</span> Data.to_numpy()</span>
+<span id="cb189-14"><a href="#cb189-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-15"><a href="#cb189-15" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb189-16"><a href="#cb189-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-17"><a href="#cb189-17" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb189-18"><a href="#cb189-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-19"><a href="#cb189-19" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
+<span id="cb189-20"><a href="#cb189-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb189-21"><a href="#cb189-21" aria-hidden="true" tabindex="-1"></a>    G_vector <span class="op">=</span> np.repeat(<span class="fl">0.5</span>, p1)</span>
+<span id="cb189-22"><a href="#cb189-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-23"><a href="#cb189-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, p1):</span>
+<span id="cb189-24"><a href="#cb189-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-25"><a href="#cb189-25" aria-hidden="true" tabindex="-1"></a>        G_vector[k] <span class="op">=</span> Data[:,k].<span class="bu">max</span>() <span class="op">-</span> Data[:,k].<span class="bu">min</span>()</span>
+<span id="cb189-26"><a href="#cb189-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-27"><a href="#cb189-27" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
+<span id="cb189-28"><a href="#cb189-28" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb189-29"><a href="#cb189-29" aria-hidden="true" tabindex="-1"></a>    ones <span class="op">=</span> np.repeat(<span class="dv">1</span>, p1)</span>
+<span id="cb189-30"><a href="#cb189-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-31"><a href="#cb189-31" aria-hidden="true" tabindex="-1"></a>    Quant_Data <span class="op">=</span> Data[: , <span class="dv">0</span>:p1]</span>
+<span id="cb189-32"><a href="#cb189-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-33"><a href="#cb189-33" aria-hidden="true" tabindex="-1"></a>    Binary_Data_pd <span class="op">=</span> Data_pd.iloc[: , (p1):(p1<span class="op">+</span>p2)]</span>
+<span id="cb189-34"><a href="#cb189-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-35"><a href="#cb189-35" aria-hidden="true" tabindex="-1"></a>    Multiple_Data <span class="op">=</span> Data[: , (p1<span class="op">+</span>p2):(p1<span class="op">+</span>p2<span class="op">+</span>p3) ]</span>
+<span id="cb189-36"><a href="#cb189-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-37"><a href="#cb189-37" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
+<span id="cb189-38"><a href="#cb189-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-39"><a href="#cb189-39" aria-hidden="true" tabindex="-1"></a>    a, b, c, d, p <span class="op">=</span> a_b_c_d_Matrix(Binary_Data_pd)</span>
+<span id="cb189-40"><a href="#cb189-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-41"><a href="#cb189-41" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
+<span id="cb189-42"><a href="#cb189-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-43"><a href="#cb189-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb189-44"><a href="#cb189-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-45"><a href="#cb189-45" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb189-46"><a href="#cb189-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-47"><a href="#cb189-47" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> i <span class="op">&gt;</span> r :</span>
+<span id="cb189-48"><a href="#cb189-48" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb189-49"><a href="#cb189-49" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb189-50"><a href="#cb189-50" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb189-51"><a href="#cb189-51" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> i <span class="op">==</span> r :</span>
+<span id="cb189-52"><a href="#cb189-52" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb189-53"><a href="#cb189-53" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb189-54"><a href="#cb189-54" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb189-55"><a href="#cb189-55" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span> :</span>
+<span id="cb189-56"><a href="#cb189-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-57"><a href="#cb189-57" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Calculo de la distancia de Gower entre las observaciones x_i y x_r</span></span>
+<span id="cb189-58"><a href="#cb189-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-59"><a href="#cb189-59" aria-hidden="true" tabindex="-1"></a>                numerator_part_1 <span class="op">=</span> ( ones <span class="op">-</span> ( <span class="bu">abs</span>(Quant_Data[i,:] <span class="op">-</span> Quant_Data[r,:]) <span class="op">/</span> G_vector ) ).<span class="bu">sum</span>() </span>
+<span id="cb189-60"><a href="#cb189-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-61"><a href="#cb189-61" aria-hidden="true" tabindex="-1"></a>                numerator_part_2 <span class="op">=</span> a[i,r] </span>
+<span id="cb189-62"><a href="#cb189-62" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb189-63"><a href="#cb189-63" aria-hidden="true" tabindex="-1"></a>                numerator_part_3 <span class="op">=</span> alpha(Multiple_Data[i,:], Multiple_Data[r,:])</span>
+<span id="cb189-64"><a href="#cb189-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-65"><a href="#cb189-65" aria-hidden="true" tabindex="-1"></a>                numerator <span class="op">=</span> numerator_part_1 <span class="op">+</span> numerator_part_2 <span class="op">+</span> numerator_part_3</span>
+<span id="cb189-66"><a href="#cb189-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-67"><a href="#cb189-67" aria-hidden="true" tabindex="-1"></a>                denominator <span class="op">=</span> p1 <span class="op">+</span> (p2 <span class="op">-</span> d[i,r]) <span class="op">+</span> p3</span>
+<span id="cb189-68"><a href="#cb189-68" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb189-69"><a href="#cb189-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-70"><a href="#cb189-70" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> denominator <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb189-71"><a href="#cb189-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-72"><a href="#cb189-72" aria-hidden="true" tabindex="-1"></a>                    M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb189-73"><a href="#cb189-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb189-74"><a href="#cb189-74" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:    </span>
+<span id="cb189-75"><a href="#cb189-75" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb189-76"><a href="#cb189-76" aria-hidden="true" tabindex="-1"></a>                    M[i,r] <span class="op">=</span> numerator <span class="op">/</span> denominator</span>
+<span id="cb189-77"><a href="#cb189-77" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb189-78"><a href="#cb189-78" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb189-79"><a href="#cb189-79" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M  </span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb190-1"><a href="#cb190-1" aria-hidden="true" tabindex="-1"></a>Data_mixed.head()</span></code></pre></div>
+<div>
+<style scoped>
+.dataframe tbody tr th:only-of-type {
+vertical-align: middle;
+}
+.dataframe tbody tr th {
+vertical-align: top;
+}
+.dataframe thead th {
+text-align: right;
+}
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+latitude
+</th>
+<th>
+longitude
+</th>
+<th>
+price
+</th>
+<th>
+size_in_m_2
+</th>
+<th>
+no_of_bedrooms
+</th>
+<th>
+no_of_bathrooms
+</th>
+<th>
+private_garden_recode
+</th>
+<th>
+private_gym_recode
+</th>
+<th>
+private_jacuzzi_recode
+</th>
+<th>
+balcony_recode
+</th>
+<th>
+quality_recode
+</th>
+<th>
+rating
+</th>
+<th>
+type
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+25.113208
+</td>
+<td>
+55.138932
+</td>
+<td>
+2700000
+</td>
+<td>
+100.242337
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+2.0
+</td>
+<td>
+3.0
+</td>
+<td>
+2.0
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+25.106809
+</td>
+<td>
+55.151201
+</td>
+<td>
+2850000
+</td>
+<td>
+146.972546
+</td>
+<td>
+2
+</td>
+<td>
+2
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+2.0
+</td>
+<td>
+2.0
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+25.063302
+</td>
+<td>
+55.137728
+</td>
+<td>
+1150000
+</td>
+<td>
+181.253753
+</td>
+<td>
+3
+</td>
+<td>
+5
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+2.0
+</td>
+<td>
+5.0
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+25.227295
+</td>
+<td>
+55.341761
+</td>
+<td>
+2850000
+</td>
+<td>
+187.664060
+</td>
+<td>
+2
+</td>
+<td>
+3
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+5.0
+</td>
+<td>
+2.0
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+25.114275
+</td>
+<td>
+55.139764
+</td>
+<td>
+1729200
+</td>
+<td>
+47.101821
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+2.0
+</td>
+<td>
+1.0
+</td>
+<td>
+2.0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb191-1"><a href="#cb191-1" aria-hidden="true" tabindex="-1"></a>M_Gower <span class="op">=</span> Matrix_Gower_Similarity(Data<span class="op">=</span>Data_mixed_numpy, p1<span class="op">=</span><span class="dv">6</span>, p2<span class="op">=</span><span class="dv">4</span>, p3<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb191-2"><a href="#cb191-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-3"><a href="#cb191-3" aria-hidden="true" tabindex="-1"></a>M_Gower</span></code></pre></div>
 <pre><code>array([[1.        , 0.76928447, 0.61234779, ..., 0.61200705, 0.68768535,
         0.77882015],
        [0.        , 1.        , 0.72440439, ..., 0.83958297, 0.75951698,
@@ -5090,9 +5382,9 @@ normalizada por el rango, para que tome valores en <span class="math inline">\(\
        [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
         1.        ]])</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb192-1"><a href="#cb192-1" aria-hidden="true" tabindex="-1"></a>M_Gower <span class="op">=</span> M_Gower  <span class="op">+</span> M_Gower.T <span class="op">-</span> np.diag(np.repeat(<span class="dv">1</span> , <span class="bu">len</span>(M_Gower)), k<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb192-2"><a href="#cb192-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb192-3"><a href="#cb192-3" aria-hidden="true" tabindex="-1"></a>M_Gower</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb193-1"><a href="#cb193-1" aria-hidden="true" tabindex="-1"></a>M_Gower <span class="op">=</span> M_Gower  <span class="op">+</span> M_Gower.T <span class="op">-</span> np.diag(np.repeat(<span class="dv">1</span> , <span class="bu">len</span>(M_Gower)), k<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb193-2"><a href="#cb193-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb193-3"><a href="#cb193-3" aria-hidden="true" tabindex="-1"></a>M_Gower</span></code></pre></div>
 <pre><code>array([[1.        , 0.76928447, 0.61234779, ..., 0.61200705, 0.68768535,
         0.77882015],
        [0.76928447, 1.        , 0.72440439, ..., 0.83958297, 0.75951698,
@@ -5110,18 +5402,18 @@ normalizada por el rango, para que tome valores en <span class="math inline">\(\
 </div>
 <div id="distancia-de-gower-en-python" class="section level2" number="8.4">
 <h2><span class="header-section-number">8.4</span> Distancia de Gower en <code>Python</code></h2>
-<div class="sourceCode" id="cb194"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb194-1"><a href="#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Gower_Distance(Data, p1, p2, p3 ):</span>
-<span id="cb194-2"><a href="#cb194-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb194-3"><a href="#cb194-3" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> Matrix_Gower_Similarity(Data, p1, p2, p3)</span>
-<span id="cb194-4"><a href="#cb194-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb194-5"><a href="#cb194-5" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> M <span class="op">+</span> M.T <span class="op">-</span> np.diag(np.repeat(<span class="dv">1</span> , <span class="bu">len</span>(M)), k<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb194-6"><a href="#cb194-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb194-7"><a href="#cb194-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> np.sqrt( <span class="dv">1</span> <span class="op">-</span> M )</span>
-<span id="cb194-8"><a href="#cb194-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb194-9"><a href="#cb194-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M</span></code></pre></div>
-<div class="sourceCode" id="cb195"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb195-1"><a href="#cb195-1" aria-hidden="true" tabindex="-1"></a>M_Gower_Dist <span class="op">=</span> Matrix_Gower_Distance(Data<span class="op">=</span>Data_mixed_numpy, p1<span class="op">=</span><span class="dv">6</span>, p2<span class="op">=</span><span class="dv">4</span>, p3<span class="op">=</span><span class="dv">3</span>)</span>
+<div class="sourceCode" id="cb195"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb195-1"><a href="#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Gower_Distance(Data, p1, p2, p3 ):</span>
 <span id="cb195-2"><a href="#cb195-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-3"><a href="#cb195-3" aria-hidden="true" tabindex="-1"></a>M_Gower_Dist</span></code></pre></div>
+<span id="cb195-3"><a href="#cb195-3" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> Matrix_Gower_Similarity(Data, p1, p2, p3)</span>
+<span id="cb195-4"><a href="#cb195-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-5"><a href="#cb195-5" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> M <span class="op">+</span> M.T <span class="op">-</span> np.diag(np.repeat(<span class="dv">1</span> , <span class="bu">len</span>(M)), k<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb195-6"><a href="#cb195-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-7"><a href="#cb195-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> np.sqrt( <span class="dv">1</span> <span class="op">-</span> M )</span>
+<span id="cb195-8"><a href="#cb195-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb195-9"><a href="#cb195-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb196-1"><a href="#cb196-1" aria-hidden="true" tabindex="-1"></a>M_Gower_Dist <span class="op">=</span> Matrix_Gower_Distance(Data<span class="op">=</span>Data_mixed_numpy, p1<span class="op">=</span><span class="dv">6</span>, p2<span class="op">=</span><span class="dv">4</span>, p3<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb196-2"><a href="#cb196-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-3"><a href="#cb196-3" aria-hidden="true" tabindex="-1"></a>M_Gower_Dist</span></code></pre></div>
 <pre><code>array([[0.        , 0.48032856, 0.62261723, ..., 0.6228908 , 0.55885118,
         0.47029762],
        [0.48032856, 0.        , 0.52497201, ..., 0.40052095, 0.49039069,
@@ -5136,8 +5428,8 @@ normalizada por el rango, para que tome valores en <span class="math inline">\(\
        [0.47029762, 0.58494877, 0.6888489 , ..., 0.70759841, 0.61965259,
         0.        ]])</code></pre>
 <p><br></p>
-<p>Vamos a probar ahora la función con conjuntos de datos que no son cuantitativos-binarios-multiclase, si no una combinación de estos.</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb197-1"><a href="#cb197-1" aria-hidden="true" tabindex="-1"></a>Matrix_Gower_Similarity(Data<span class="op">=</span>Data_quant_numpy, p1<span class="op">=</span><span class="dv">6</span>, p2<span class="op">=</span><span class="dv">0</span>, p3<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
+<p>Vamos a probar ahora la función con conjuntos de datos que no son cuantitativos-binarios-multiclase, si no una combinación de pares de estos.</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb198-1"><a href="#cb198-1" aria-hidden="true" tabindex="-1"></a>Matrix_Gower_Similarity(Data<span class="op">=</span>Data_quant, p1<span class="op">=</span><span class="dv">6</span>, p2<span class="op">=</span><span class="dv">0</span>, p3<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
 <pre><code>array([[1.        , 0.94880745, 0.78930428, ..., 0.68667841, 0.92742315,
         0.96470026],
        [0.        , 1.        , 0.82807471, ..., 0.73263828, 0.89244779,
@@ -5152,9 +5444,9 @@ normalizada por el rango, para que tome valores en <span class="math inline">\(\
        [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
         1.        ]])</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb199-1"><a href="#cb199-1" aria-hidden="true" tabindex="-1"></a>Matrix_Gower_Similarity(Data<span class="op">=</span>Data_binary_numpy, p1<span class="op">=</span><span class="dv">0</span>, p2<span class="op">=</span><span class="dv">4</span>, p3<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb199-2"><a href="#cb199-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb199-3"><a href="#cb199-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Coincide con la matriz de similaridades de Jaccard que se ha obtenido anteriormente.</span></span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb200-1"><a href="#cb200-1" aria-hidden="true" tabindex="-1"></a>Matrix_Gower_Similarity(Data<span class="op">=</span>Data_binary, p1<span class="op">=</span><span class="dv">0</span>, p2<span class="op">=</span><span class="dv">4</span>, p3<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb200-2"><a href="#cb200-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb200-3"><a href="#cb200-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Coincide con la matriz de similaridades de Jaccard que se ha obtenido anteriormente.</span></span></code></pre></div>
 <pre><code>array([[1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
         1.        ],
        [0.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
@@ -5169,9 +5461,9 @@ normalizada por el rango, para que tome valores en <span class="math inline">\(\
        [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
         1.        ]])</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb201-1"><a href="#cb201-1" aria-hidden="true" tabindex="-1"></a>Matrix_Gower_Similarity(Data<span class="op">=</span>Data_multiclass_numpy, p1<span class="op">=</span><span class="dv">0</span>, p2<span class="op">=</span><span class="dv">0</span>, p3<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb201-2"><a href="#cb201-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb201-3"><a href="#cb201-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Coincide con la matriz de similaridades por coincidencias que se ha obtenido anteriormente.</span></span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb202-1"><a href="#cb202-1" aria-hidden="true" tabindex="-1"></a>Matrix_Gower_Similarity(Data<span class="op">=</span>Data_multiclass, p1<span class="op">=</span><span class="dv">0</span>, p2<span class="op">=</span><span class="dv">0</span>, p3<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb202-2"><a href="#cb202-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb202-3"><a href="#cb202-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Coincide con la matriz de similaridades por coincidencias que se ha obtenido anteriormente.</span></span></code></pre></div>
 <pre><code>array([[1.        , 0.33333333, 0.33333333, ..., 0.33333333, 0.33333333,
         0.33333333],
        [0.        , 1.        , 0.66666667, ..., 1.        , 0.66666667,
@@ -5186,10 +5478,8 @@ normalizada por el rango, para que tome valores en <span class="math inline">\(\
        [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
         1.        ]])</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb203-1"><a href="#cb203-1" aria-hidden="true" tabindex="-1"></a>Data_binary_multiclass <span class="op">=</span> pd.concat([Data_binary,Data_multiclass], axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb203-2"><a href="#cb203-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb203-3"><a href="#cb203-3" aria-hidden="true" tabindex="-1"></a>Data_binary_multiclass_numpy <span class="op">=</span> Data_binary_multiclass.to_numpy()</span></code></pre></div>
-<div class="sourceCode" id="cb204"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb204-1"><a href="#cb204-1" aria-hidden="true" tabindex="-1"></a>Matrix_Gower_Similarity(Data<span class="op">=</span>Data_binary_multiclass_numpy , p1<span class="op">=</span><span class="dv">0</span>, p2<span class="op">=</span><span class="dv">4</span>, p3<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb204-1"><a href="#cb204-1" aria-hidden="true" tabindex="-1"></a>Data_binary_multiclass <span class="op">=</span> pd.concat([Data_binary,Data_multiclass], axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb205-1"><a href="#cb205-1" aria-hidden="true" tabindex="-1"></a>Matrix_Gower_Similarity(Data<span class="op">=</span>Data_binary_multiclass , p1<span class="op">=</span><span class="dv">0</span>, p2<span class="op">=</span><span class="dv">4</span>, p3<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>array([[1.  , 0.5 , 0.4 , ..., 0.5 , 0.4 , 0.5 ],
        [0.  , 1.  , 0.6 , ..., 1.  , 0.6 , 0.25],
        [0.  , 0.  , 1.  , ..., 0.6 , 0.5 , 0.2 ],
@@ -5198,10 +5488,8 @@ normalizada por el rango, para que tome valores en <span class="math inline">\(\
        [0.  , 0.  , 0.  , ..., 0.  , 1.  , 0.2 ],
        [0.  , 0.  , 0.  , ..., 0.  , 0.  , 1.  ]])</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb206-1"><a href="#cb206-1" aria-hidden="true" tabindex="-1"></a>Data_quant_multiclass <span class="op">=</span> pd.concat([Data_quant,Data_multiclass], axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb206-2"><a href="#cb206-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb206-3"><a href="#cb206-3" aria-hidden="true" tabindex="-1"></a>Data_quant_multiclass_numpy <span class="op">=</span> Data_quant_multiclass.to_numpy()</span></code></pre></div>
-<div class="sourceCode" id="cb207"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb207-1"><a href="#cb207-1" aria-hidden="true" tabindex="-1"></a>Matrix_Gower_Similarity(Data<span class="op">=</span>Data_quant_multiclass_numpy , p1<span class="op">=</span><span class="dv">6</span>, p2<span class="op">=</span><span class="dv">0</span>, p3<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb207-1"><a href="#cb207-1" aria-hidden="true" tabindex="-1"></a>Data_quant_multiclass <span class="op">=</span> pd.concat([Data_quant,Data_multiclass], axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb208-1"><a href="#cb208-1" aria-hidden="true" tabindex="-1"></a>Matrix_Gower_Similarity(Data<span class="op">=</span>Data_quant_multiclass , p1<span class="op">=</span><span class="dv">6</span>, p2<span class="op">=</span><span class="dv">0</span>, p3<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>array([[1.        , 0.74364941, 0.63731397, ..., 0.56889672, 0.72939321,
         0.75424461],
        [0.        , 1.        , 0.77427203, ..., 0.82175886, 0.81718741,
@@ -5216,10 +5504,8 @@ normalizada por el rango, para que tome valores en <span class="math inline">\(\
        [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
         1.        ]])</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb209-1"><a href="#cb209-1" aria-hidden="true" tabindex="-1"></a>Data_quant_binary <span class="op">=</span> pd.concat([Data_quant,Data_binary], axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb209-2"><a href="#cb209-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb209-3"><a href="#cb209-3" aria-hidden="true" tabindex="-1"></a>Data_quant_binary_numpy <span class="op">=</span> Data_quant_binary.to_numpy()</span></code></pre></div>
-<div class="sourceCode" id="cb210"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb210-1"><a href="#cb210-1" aria-hidden="true" tabindex="-1"></a>Matrix_Gower_Similarity(Data<span class="op">=</span>Data_quant_binary_numpy , p1<span class="op">=</span><span class="dv">6</span>, p2<span class="op">=</span><span class="dv">4</span>, p3<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb210-1"><a href="#cb210-1" aria-hidden="true" tabindex="-1"></a>Data_quant_binary <span class="op">=</span> pd.concat([Data_quant,Data_binary], axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb211-1"><a href="#cb211-1" aria-hidden="true" tabindex="-1"></a>Matrix_Gower_Similarity(Data<span class="op">=</span>Data_quant_binary, p1<span class="op">=</span><span class="dv">6</span>, p2<span class="op">=</span><span class="dv">4</span>, p3<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
 <pre><code>array([[1.        , 0.95612067, 0.71697821, ..., 0.73143864, 0.82056736,
         0.96974308],
        [0.        , 1.        , 0.74605603, ..., 0.77083282, 0.79433584,
@@ -5238,30 +5524,25 @@ normalizada por el rango, para que tome valores en <span class="math inline">\(\
 </div>
 <div id="similaridad-de-gower-mahalanobis" class="section level2" number="8.5">
 <h2><span class="header-section-number">8.5</span> Similaridad de Gower-Mahalanobis</h2>
+<p>Dada la matriz de datos <span class="math inline">\(\hspace{0.1cm}X=(X_1,...,X_n)\hspace{0.1cm}\)</span> de las variables estadísticas <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> descritas en al inicio de esta sección.</p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada la matriz de datos <span class="math inline">\(\hspace{0.1cm}X=[X_1,...,X_n]\hspace{0.1cm}\)</span> de las variables estadisticas <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}\)</span></p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> La similaridad de Gower-Mahalanobis entre el par de observaciones <span class="math inline">\(\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}\)</span> de las variables <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> , tales que las primeras <span class="math inline">\(\hspace{0.1cm}p_1\hspace{0.1cm}\)</span> variables son cuantitativas, las siguientes <span class="math inline">\(\hspace{0.1cm}p_2\hspace{0.1cm}\)</span> son binarias y las siguientes <span class="math inline">\(\hspace{0.1cm}p_3\hspace{0.1cm}\)</span> son multiclase, se define como : <span class="math inline">\(\\[1.5cm]\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La similaridad de Gower-Mahalanobis entre el par de observaciones <span class="math inline">\(\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}\)</span> de las variables <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> , se define como : <span class="math inline">\(\\[1 cm]\)</span></p>
 <p><span class="math display">\[
-\hspace{0.45cm} \phi(x_i,x_r)_{GM} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm} p_1 \hspace{0.1cm}-\hspace{0.1cm} \dfrac{ \delta(x_i^Q , x_r^Q)_{Maha} }{Max(D_{Maha})} \hspace{0.1cm} +\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p_1 \hspace{0.05cm}+\hspace{0.05cm} p_2 - d(x_i^B , x_r^B) \hspace{0.05cm}+\hspace{0.05cm} p_3}  \\[1cm]
+\phi(x_i,x_r)_{GM} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm} p_1 \hspace{0.1cm}-\hspace{0.1cm} \dfrac{ \delta(x_i^Q , x_r^Q)_{Maha} }{Max(D_{Maha})} \hspace{0.1cm} +\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p \hspace{0.05cm}-\hspace{0.05cm} d(x_i^B , x_r^B) }  \\[1cm]
 \]</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <ul>
-<li><p><span class="math inline">\(p_1 \hspace{0.05cm}\)</span> es el número de variables cuantitativas. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p><span class="math inline">\(p_2 \hspace{0.05cm}\)</span> es el número de variables categóricas binarias.
-<span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p><span class="math inline">\(p_3 \hspace{0.05cm}\)</span> es el número de variables categóricas múltiples (no binarias).<span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p><span class="math inline">\(p_1+p_2+p_3=p \\\)</span></p></li>
-<li><p><span class="math inline">\(x_i^Q\hspace{0.1cm}\)</span> es vector de observaciones de las variables binarias, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^Q = (x_{i, 1},....,x_{i,p1})\\\)</span></p></li>
-<li><p><span class="math inline">\(x_i^B\hspace{0.1cm}\)</span> es vector de observaciones de las variables binarias, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^B = (x_{i, p1+1},....,x_{i,p1+p2}) \\\)</span></p></li>
-<li><p><span class="math inline">\(x_i^M\)</span> es vector de observaciones de las variables multiclase, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^M = (x_{i, p1+p_2+1},....,x_{i,p_1+p_2+p_3}) \\\)</span></p></li>
-<li><p><span class="math inline">\(\delta(x_i^Q , x_r^Q)_{Maha} = \sqrt{ (x_i^Q - x_r^Q)^t \cdot S^{-1} \cdot (x_i^Q - x_r^Q) }\hspace{0.25cm}\)</span> es la distancia de Mahalanobis entre el par de observaciones <span class="math inline">\(\hspace{0.15cm}x_i^Q\)</span> y <span class="math inline">\(x_r^Q\)</span></p></li>
-<li><p><span class="math inline">\(S\hspace{0.1cm}\)</span> es la matriz de covarianzas de la matriz de datos de las variables cuantitativas <span class="math inline">\(\hspace{0.1cm}X^Q=[X_1,...,X_{p_1}] \\\)</span></p></li>
-<li><p><span class="math inline">\(D_{Maha} \hspace{0.1cm}\)</span> es la matriz de distancias de Mahalanobis entre los individuios de la matriz de datos <span class="math inline">\(\hspace{0.1cm}X=[X_1,...,X_n] \\\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.2cm} a(x_i^B, x_r^B)\hspace{0.1cm}\)</span> es el número de variables binarias <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm} x_{ij} = x_{rj}=1 \\\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.2cm} d(x_i^B, x_r^B)\hspace{0.1cm}\)</span> es el número de variables binarias <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm}x_{rj}=0 \\\)</span></p></li>
-<li><p><span class="math inline">\(\alpha(x_i^M, x_r^M) =\)</span> número de variables multiclase <span class="math inline">\(\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm}x_{ij} = x_{rj}\\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm}x_i^Q\hspace{0.1cm}\)</span> es vector de observaciones de las variables binarias, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^Q = (x_{i, 1},....,x_{i p_1})\hspace{0.1cm}.\)</span> <span class="math inline">\(\\[0.6cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm}x_i^B\hspace{0.1cm}\)</span> es vector de observaciones de las variables binarias, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^B = (x_{i, (p_1+1)},....,x_{i (p_1+p_2)})\hspace{0.1cm}.\)</span> <span class="math inline">\(\\[0.6cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm}x_i^M\hspace{0.1cm}\)</span> es vector de observaciones de las variables multiclase, es decir, <span class="math inline">\(\hspace{0.1cm}x_i^M = (x_{i, (p_1+p_2+1)},....,x_{i (p_1+p_2+p_3)})\hspace{0.1cm}.\)</span> <span class="math inline">\(\\[0.6cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm}\delta(x_i^Q , x_r^Q)_{Maha} = \sqrt{ (x_i^Q - x_r^Q)^t \cdot S^{-1} \cdot (x_i^Q - x_r^Q) }\hspace{0.25cm}\)</span> es la distancia de Mahalanobis entre el par de observaciones <span class="math inline">\(\hspace{0.1cm}x_i^Q\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}x_r^Q\hspace{0.1cm}\)</span> . <span class="math inline">\(\\[0.6cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm}S\hspace{0.1cm}\)</span> es la estimación de matriz de covarianzas de las variables <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_{p_1})\hspace{0.1cm}\)</span> en base a la matriz de datos <span class="math inline">\(\hspace{0.1cm}X^Q=(X_1,...,X_{p_1})\hspace{0.1cm}\)</span>. <span class="math inline">\(\\[0.6cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm}D_{Maha} \hspace{0.1cm}=\hspace{0.1cm} \left(\hspace{0.1cm} \delta(x_i^Q , x_r^Q)_{Maha} : i,r=1,...,n \hspace{0.1cm}\right) \hspace{0.1cm} .\)</span> <span class="math inline">\(\\[0.6cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.12cm} a(x_i^B, x_r^B)\hspace{0.1cm}\)</span> es el número de coincidencias <span class="math inline">\(\hspace{0.1cm}(1,1)\hspace{0.1cm}\)</span> entre <span class="math inline">\(\hspace{0.1cm} x_{ij}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}x_{rj}\hspace{0.1cm}\)</span>. <span class="math inline">\(\\[0.6cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.12cm} d(x_i^B, x_r^B)\hspace{0.1cm}\)</span> es el número de coincidencias <span class="math inline">\(\hspace{0.1cm}(0,0)\hspace{0.1cm}\)</span> entre <span class="math inline">\(\hspace{0.1cm} x_{ij}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}x_{rj}\hspace{0.1cm}\)</span>. <span class="math inline">\(\\[0.6cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.12cm}\alpha(x_i^M, x_r^M)\)</span> es el número de coincidencias entre <span class="math inline">\(\hspace{0.1cm} x_{ij}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}x_{rj}\hspace{0.1cm}\)</span>.</p></li>
 </ul>
 </p>
 </p>
@@ -5286,90 +5567,90 @@ normalizada por el rango, para que tome valores en <span class="math inline">\(\
 </div>
 <div id="similaridad-de-gower-mahalanobis-en-python" class="section level2" number="8.7">
 <h2><span class="header-section-number">8.7</span> Similaridad de Gower-Mahalanobis en <code>Python</code></h2>
-<div class="sourceCode" id="cb212"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb212-1"><a href="#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Gower_Maha_Similarity(Data, p1, p2, p3):</span>
-<span id="cb212-2"><a href="#cb212-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-3"><a href="#cb212-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-4"><a href="#cb212-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Data tiene que ser un numpy array tal que:</span></span>
-<span id="cb212-5"><a href="#cb212-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># las primeras p1 tiene que ser variables cuantitativas, </span></span>
-<span id="cb212-6"><a href="#cb212-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># las siguientes p2 binarias y las restantes p3 multicales</span></span>
-<span id="cb212-7"><a href="#cb212-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-8"><a href="#cb212-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Si Data no contiene variables cuantitativas --&gt; p1=0</span></span>
-<span id="cb212-9"><a href="#cb212-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Si Data no contiene variables binarias --&gt; p2=0</span></span>
-<span id="cb212-10"><a href="#cb212-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Si Data no contiene variables multiclase --&gt; p3=0</span></span>
-<span id="cb212-11"><a href="#cb212-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb212-12"><a href="#cb212-12" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
-<span id="cb212-13"><a href="#cb212-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-14"><a href="#cb212-14" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
-<span id="cb212-15"><a href="#cb212-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-16"><a href="#cb212-16" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
-<span id="cb212-17"><a href="#cb212-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-18"><a href="#cb212-18" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
-<span id="cb212-19"><a href="#cb212-19" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb212-20"><a href="#cb212-20" aria-hidden="true" tabindex="-1"></a>    G_vector <span class="op">=</span> np.repeat(<span class="fl">0.5</span>, p1)</span>
-<span id="cb212-21"><a href="#cb212-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-22"><a href="#cb212-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, p1):</span>
-<span id="cb212-23"><a href="#cb212-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-24"><a href="#cb212-24" aria-hidden="true" tabindex="-1"></a>        G_vector[k] <span class="op">=</span> Data[:,k].<span class="bu">max</span>() <span class="op">-</span> Data[:,k].<span class="bu">min</span>()</span>
-<span id="cb212-25"><a href="#cb212-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-26"><a href="#cb212-26" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
-<span id="cb212-27"><a href="#cb212-27" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb212-28"><a href="#cb212-28" aria-hidden="true" tabindex="-1"></a>    ones <span class="op">=</span> np.repeat(<span class="dv">1</span>, p1)</span>
-<span id="cb212-29"><a href="#cb212-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-30"><a href="#cb212-30" aria-hidden="true" tabindex="-1"></a>    Quant_Data <span class="op">=</span> Data[: , <span class="dv">0</span>:p1]</span>
-<span id="cb212-31"><a href="#cb212-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-32"><a href="#cb212-32" aria-hidden="true" tabindex="-1"></a>    Binary_Data <span class="op">=</span> Data[: , (p1):(p1<span class="op">+</span>p2)]</span>
-<span id="cb212-33"><a href="#cb212-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-34"><a href="#cb212-34" aria-hidden="true" tabindex="-1"></a>    Multiple_Data <span class="op">=</span> Data[: , (p1<span class="op">+</span>p2):(p1<span class="op">+</span>p2<span class="op">+</span>p3) ]</span>
-<span id="cb212-35"><a href="#cb212-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-36"><a href="#cb212-36" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
-<span id="cb212-37"><a href="#cb212-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-38"><a href="#cb212-38" aria-hidden="true" tabindex="-1"></a>    a, b, c, d, p <span class="op">=</span> a_b_c_d_Matrix(Binary_Data)</span>
-<span id="cb212-39"><a href="#cb212-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-40"><a href="#cb212-40" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
-<span id="cb212-41"><a href="#cb212-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-42"><a href="#cb212-42" aria-hidden="true" tabindex="-1"></a>    S_inv <span class="op">=</span> np.linalg.inv( np.cov(Quant_Data , rowvar<span class="op">=</span><span class="va">False</span>) ) </span>
-<span id="cb212-43"><a href="#cb212-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-44"><a href="#cb212-44" aria-hidden="true" tabindex="-1"></a>    D_maha <span class="op">=</span> Matrix_Dist_Mahalanobis_3(Data<span class="op">=</span>Quant_Data) </span>
-<span id="cb212-45"><a href="#cb212-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-46"><a href="#cb212-46" aria-hidden="true" tabindex="-1"></a>    Max_D_maha <span class="op">=</span> D_maha.<span class="bu">max</span>()</span>
-<span id="cb212-47"><a href="#cb212-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-48"><a href="#cb212-48" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
-<span id="cb212-49"><a href="#cb212-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-50"><a href="#cb212-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
-<span id="cb212-51"><a href="#cb212-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-52"><a href="#cb212-52" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
-<span id="cb212-53"><a href="#cb212-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-54"><a href="#cb212-54" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> i <span class="op">&gt;</span> r :</span>
-<span id="cb212-55"><a href="#cb212-55" aria-hidden="true" tabindex="-1"></a>               </span>
-<span id="cb212-56"><a href="#cb212-56" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb212-57"><a href="#cb212-57" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb212-58"><a href="#cb212-58" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> i <span class="op">==</span> r :</span>
-<span id="cb212-59"><a href="#cb212-59" aria-hidden="true" tabindex="-1"></a>               </span>
-<span id="cb212-60"><a href="#cb212-60" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb212-61"><a href="#cb212-61" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb212-62"><a href="#cb212-62" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span> :</span>
-<span id="cb212-63"><a href="#cb212-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-64"><a href="#cb212-64" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Calculo de la distancia de Gower entre las observaciones x_i y x_r</span></span>
-<span id="cb212-65"><a href="#cb212-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-66"><a href="#cb212-66" aria-hidden="true" tabindex="-1"></a>                x <span class="op">=</span> (Quant_Data[i,:] <span class="op">-</span> Quant_Data[r,:])</span>
-<span id="cb212-67"><a href="#cb212-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-68"><a href="#cb212-68" aria-hidden="true" tabindex="-1"></a>                x <span class="op">=</span> np.array([x])</span>
-<span id="cb212-69"><a href="#cb212-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-70"><a href="#cb212-70" aria-hidden="true" tabindex="-1"></a>                numerator_part_1 <span class="op">=</span> p1 <span class="op">-</span> <span class="bu">float</span>( np.sqrt( x <span class="op">@</span> S_inv <span class="op">@</span> x.T ) ) <span class="op">/</span> Max_D_maha </span>
-<span id="cb212-71"><a href="#cb212-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-72"><a href="#cb212-72" aria-hidden="true" tabindex="-1"></a>                numerator_part_2 <span class="op">=</span> a[i,r] <span class="op">+</span> alpha(Multiple_Data[i,:], Multiple_Data[r,:])</span>
-<span id="cb212-73"><a href="#cb212-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-74"><a href="#cb212-74" aria-hidden="true" tabindex="-1"></a>                numerator <span class="op">=</span> numerator_part_1 <span class="op">+</span> numerator_part_2</span>
-<span id="cb212-75"><a href="#cb212-75" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb212-76"><a href="#cb212-76" aria-hidden="true" tabindex="-1"></a>                denominator <span class="op">=</span> p1 <span class="op">+</span> (p2 <span class="op">-</span> d[i,r]) <span class="op">+</span> p3</span>
-<span id="cb212-77"><a href="#cb212-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb212-78"><a href="#cb212-78" aria-hidden="true" tabindex="-1"></a>                M[i,r] <span class="op">=</span> numerator <span class="op">/</span> denominator</span>
-<span id="cb212-79"><a href="#cb212-79" aria-hidden="true" tabindex="-1"></a>                      </span>
-<span id="cb212-80"><a href="#cb212-80" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb212-81"><a href="#cb212-81" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M  </span></code></pre></div>
-<div class="sourceCode" id="cb213"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb213-1"><a href="#cb213-1" aria-hidden="true" tabindex="-1"></a>M_Gower_Maha <span class="op">=</span> Matrix_Gower_Maha_Similarity(Data<span class="op">=</span>Data_mixed_numpy, p1<span class="op">=</span><span class="dv">6</span>, p2<span class="op">=</span><span class="dv">4</span>, p3<span class="op">=</span><span class="dv">3</span>)</span>
+<div class="sourceCode" id="cb213"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb213-1"><a href="#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Gower_Maha_Similarity(Data, p1, p2, p3):</span>
 <span id="cb213-2"><a href="#cb213-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb213-3"><a href="#cb213-3" aria-hidden="true" tabindex="-1"></a>M_Gower_Maha</span></code></pre></div>
+<span id="cb213-3"><a href="#cb213-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-4"><a href="#cb213-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Data tiene que ser un numpy array tal que:</span></span>
+<span id="cb213-5"><a href="#cb213-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># las primeras p1 tiene que ser variables cuantitativas, </span></span>
+<span id="cb213-6"><a href="#cb213-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># las siguientes p2 binarias y las restantes p3 multicales</span></span>
+<span id="cb213-7"><a href="#cb213-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-8"><a href="#cb213-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Si Data no contiene variables cuantitativas --&gt; p1=0</span></span>
+<span id="cb213-9"><a href="#cb213-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Si Data no contiene variables binarias --&gt; p2=0</span></span>
+<span id="cb213-10"><a href="#cb213-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Si Data no contiene variables multiclase --&gt; p3=0</span></span>
+<span id="cb213-11"><a href="#cb213-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb213-12"><a href="#cb213-12" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
+<span id="cb213-13"><a href="#cb213-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-14"><a href="#cb213-14" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb213-15"><a href="#cb213-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-16"><a href="#cb213-16" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb213-17"><a href="#cb213-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-18"><a href="#cb213-18" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
+<span id="cb213-19"><a href="#cb213-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb213-20"><a href="#cb213-20" aria-hidden="true" tabindex="-1"></a>    G_vector <span class="op">=</span> np.repeat(<span class="fl">0.5</span>, p1)</span>
+<span id="cb213-21"><a href="#cb213-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-22"><a href="#cb213-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, p1):</span>
+<span id="cb213-23"><a href="#cb213-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-24"><a href="#cb213-24" aria-hidden="true" tabindex="-1"></a>        G_vector[k] <span class="op">=</span> Data[:,k].<span class="bu">max</span>() <span class="op">-</span> Data[:,k].<span class="bu">min</span>()</span>
+<span id="cb213-25"><a href="#cb213-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-26"><a href="#cb213-26" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
+<span id="cb213-27"><a href="#cb213-27" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb213-28"><a href="#cb213-28" aria-hidden="true" tabindex="-1"></a>    ones <span class="op">=</span> np.repeat(<span class="dv">1</span>, p1)</span>
+<span id="cb213-29"><a href="#cb213-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-30"><a href="#cb213-30" aria-hidden="true" tabindex="-1"></a>    Quant_Data <span class="op">=</span> Data[: , <span class="dv">0</span>:p1]</span>
+<span id="cb213-31"><a href="#cb213-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-32"><a href="#cb213-32" aria-hidden="true" tabindex="-1"></a>    Binary_Data <span class="op">=</span> Data[: , (p1):(p1<span class="op">+</span>p2)]</span>
+<span id="cb213-33"><a href="#cb213-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-34"><a href="#cb213-34" aria-hidden="true" tabindex="-1"></a>    Multiple_Data <span class="op">=</span> Data[: , (p1<span class="op">+</span>p2):(p1<span class="op">+</span>p2<span class="op">+</span>p3) ]</span>
+<span id="cb213-35"><a href="#cb213-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-36"><a href="#cb213-36" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
+<span id="cb213-37"><a href="#cb213-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-38"><a href="#cb213-38" aria-hidden="true" tabindex="-1"></a>    a, b, c, d, p <span class="op">=</span> a_b_c_d_Matrix(Binary_Data)</span>
+<span id="cb213-39"><a href="#cb213-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-40"><a href="#cb213-40" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
+<span id="cb213-41"><a href="#cb213-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-42"><a href="#cb213-42" aria-hidden="true" tabindex="-1"></a>    S_inv <span class="op">=</span> np.linalg.inv( np.cov(Quant_Data , rowvar<span class="op">=</span><span class="va">False</span>) ) </span>
+<span id="cb213-43"><a href="#cb213-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-44"><a href="#cb213-44" aria-hidden="true" tabindex="-1"></a>    D_maha <span class="op">=</span> Matrix_Dist_Mahalanobis_3(Data<span class="op">=</span>Quant_Data) </span>
+<span id="cb213-45"><a href="#cb213-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-46"><a href="#cb213-46" aria-hidden="true" tabindex="-1"></a>    Max_D_maha <span class="op">=</span> D_maha.<span class="bu">max</span>()</span>
+<span id="cb213-47"><a href="#cb213-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-48"><a href="#cb213-48" aria-hidden="true" tabindex="-1"></a><span class="co">############################################################</span></span>
+<span id="cb213-49"><a href="#cb213-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-50"><a href="#cb213-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb213-51"><a href="#cb213-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-52"><a href="#cb213-52" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb213-53"><a href="#cb213-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-54"><a href="#cb213-54" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> i <span class="op">&gt;</span> r :</span>
+<span id="cb213-55"><a href="#cb213-55" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb213-56"><a href="#cb213-56" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb213-57"><a href="#cb213-57" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb213-58"><a href="#cb213-58" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> i <span class="op">==</span> r :</span>
+<span id="cb213-59"><a href="#cb213-59" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb213-60"><a href="#cb213-60" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb213-61"><a href="#cb213-61" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb213-62"><a href="#cb213-62" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span> :</span>
+<span id="cb213-63"><a href="#cb213-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-64"><a href="#cb213-64" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Calculo de la distancia de Gower entre las observaciones x_i y x_r</span></span>
+<span id="cb213-65"><a href="#cb213-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-66"><a href="#cb213-66" aria-hidden="true" tabindex="-1"></a>                x <span class="op">=</span> (Quant_Data[i,:] <span class="op">-</span> Quant_Data[r,:])</span>
+<span id="cb213-67"><a href="#cb213-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-68"><a href="#cb213-68" aria-hidden="true" tabindex="-1"></a>                x <span class="op">=</span> np.array([x])</span>
+<span id="cb213-69"><a href="#cb213-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-70"><a href="#cb213-70" aria-hidden="true" tabindex="-1"></a>                numerator_part_1 <span class="op">=</span> p1 <span class="op">-</span> <span class="bu">float</span>( np.sqrt( x <span class="op">@</span> S_inv <span class="op">@</span> x.T ) ) <span class="op">/</span> Max_D_maha </span>
+<span id="cb213-71"><a href="#cb213-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-72"><a href="#cb213-72" aria-hidden="true" tabindex="-1"></a>                numerator_part_2 <span class="op">=</span> a[i,r] <span class="op">+</span> alpha(Multiple_Data[i,:], Multiple_Data[r,:])</span>
+<span id="cb213-73"><a href="#cb213-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-74"><a href="#cb213-74" aria-hidden="true" tabindex="-1"></a>                numerator <span class="op">=</span> numerator_part_1 <span class="op">+</span> numerator_part_2</span>
+<span id="cb213-75"><a href="#cb213-75" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb213-76"><a href="#cb213-76" aria-hidden="true" tabindex="-1"></a>                denominator <span class="op">=</span> p1 <span class="op">+</span> (p2 <span class="op">-</span> d[i,r]) <span class="op">+</span> p3</span>
+<span id="cb213-77"><a href="#cb213-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb213-78"><a href="#cb213-78" aria-hidden="true" tabindex="-1"></a>                M[i,r] <span class="op">=</span> numerator <span class="op">/</span> denominator</span>
+<span id="cb213-79"><a href="#cb213-79" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb213-80"><a href="#cb213-80" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb213-81"><a href="#cb213-81" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M  </span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb214-1"><a href="#cb214-1" aria-hidden="true" tabindex="-1"></a>M_Gower_Maha <span class="op">=</span> Matrix_Gower_Maha_Similarity(Data<span class="op">=</span>Data_mixed_numpy, p1<span class="op">=</span><span class="dv">6</span>, p2<span class="op">=</span><span class="dv">4</span>, p3<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb214-2"><a href="#cb214-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb214-3"><a href="#cb214-3" aria-hidden="true" tabindex="-1"></a>M_Gower_Maha</span></code></pre></div>
 <pre><code>array([[1.        , 0.78829544, 0.70814829, ..., 0.7749854 , 0.7156049 ,
         0.79387387],
        [0.        , 1.        , 0.79624421, ..., 0.97267093, 0.80438259,
@@ -5384,9 +5665,9 @@ normalizada por el rango, para que tome valores en <span class="math inline">\(\
        [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
         1.        ]])</code></pre>
 <p><br></p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb215-1"><a href="#cb215-1" aria-hidden="true" tabindex="-1"></a>M_Gower_Maha <span class="op">=</span> M_Gower_Maha  <span class="op">+</span> M_Gower_Maha.T <span class="op">-</span> np.diag(np.repeat(<span class="dv">1</span> , <span class="bu">len</span>(M_Gower_Maha)), k<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb215-2"><a href="#cb215-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb215-3"><a href="#cb215-3" aria-hidden="true" tabindex="-1"></a>M_Gower_Maha</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb216-1"><a href="#cb216-1" aria-hidden="true" tabindex="-1"></a>M_Gower_Maha <span class="op">=</span> M_Gower_Maha  <span class="op">+</span> M_Gower_Maha.T <span class="op">-</span> np.diag(np.repeat(<span class="dv">1</span> , <span class="bu">len</span>(M_Gower_Maha)), k<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb216-2"><a href="#cb216-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb216-3"><a href="#cb216-3" aria-hidden="true" tabindex="-1"></a>M_Gower_Maha</span></code></pre></div>
 <pre><code>array([[1.        , 0.78829544, 0.70814829, ..., 0.7749854 , 0.7156049 ,
         0.79387387],
        [0.78829544, 1.        , 0.79624421, ..., 0.97267093, 0.80438259,
@@ -5404,18 +5685,18 @@ normalizada por el rango, para que tome valores en <span class="math inline">\(\
 </div>
 <div id="distancia-de-gower-mahalanobis-en-python" class="section level2" number="8.8">
 <h2><span class="header-section-number">8.8</span> Distancia de Gower-Mahalanobis en <code>Python</code> <a class="anchor" id="1"></a></h2>
-<div class="sourceCode" id="cb217"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb217-1"><a href="#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Gower_Maha_Distance(Data, p1, p2, p3):</span>
-<span id="cb217-2"><a href="#cb217-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb217-3"><a href="#cb217-3" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> Matrix_Gower_Maha_Similarity(Data, p1, p2, p3)</span>
-<span id="cb217-4"><a href="#cb217-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb217-5"><a href="#cb217-5" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> M <span class="op">+</span> M.T <span class="op">-</span> np.diag(np.repeat(<span class="dv">1</span> , <span class="bu">len</span>(M)), k<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb217-6"><a href="#cb217-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb217-7"><a href="#cb217-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> np.sqrt( <span class="dv">1</span> <span class="op">-</span> M )</span>
-<span id="cb217-8"><a href="#cb217-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb217-9"><a href="#cb217-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M</span></code></pre></div>
-<div class="sourceCode" id="cb218"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb218-1"><a href="#cb218-1" aria-hidden="true" tabindex="-1"></a>M_Gower_Maha_Distance <span class="op">=</span> Matrix_Gower_Maha_Distance(Data<span class="op">=</span>Data_mixed_numpy, p1<span class="op">=</span><span class="dv">6</span>, p2<span class="op">=</span><span class="dv">4</span>, p3<span class="op">=</span><span class="dv">3</span>)</span>
+<div class="sourceCode" id="cb218"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb218-1"><a href="#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Gower_Maha_Distance(Data, p1, p2, p3):</span>
 <span id="cb218-2"><a href="#cb218-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb218-3"><a href="#cb218-3" aria-hidden="true" tabindex="-1"></a>M_Gower_Maha_Distance</span></code></pre></div>
+<span id="cb218-3"><a href="#cb218-3" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> Matrix_Gower_Maha_Similarity(Data, p1, p2, p3)</span>
+<span id="cb218-4"><a href="#cb218-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-5"><a href="#cb218-5" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> M <span class="op">+</span> M.T <span class="op">-</span> np.diag(np.repeat(<span class="dv">1</span> , <span class="bu">len</span>(M)), k<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb218-6"><a href="#cb218-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-7"><a href="#cb218-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span> np.sqrt( <span class="dv">1</span> <span class="op">-</span> M )</span>
+<span id="cb218-8"><a href="#cb218-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-9"><a href="#cb218-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb219-1"><a href="#cb219-1" aria-hidden="true" tabindex="-1"></a>M_Gower_Maha_Distance <span class="op">=</span> Matrix_Gower_Maha_Distance(Data<span class="op">=</span>Data_mixed_numpy, p1<span class="op">=</span><span class="dv">6</span>, p2<span class="op">=</span><span class="dv">4</span>, p3<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb219-2"><a href="#cb219-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb219-3"><a href="#cb219-3" aria-hidden="true" tabindex="-1"></a>M_Gower_Maha_Distance</span></code></pre></div>
 <pre><code>array([[0.        , 0.46011364, 0.54023301, ..., 0.47435704, 0.53328707,
         0.45401116],
        [0.46011364, 0.        , 0.45139317, ..., 0.16531507, 0.44228657,

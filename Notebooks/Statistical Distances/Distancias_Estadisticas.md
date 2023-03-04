@@ -4259,11 +4259,11 @@ $\hspace{0.25cm}$ Donde:
 
 
 
-- $\hspace{0.12cm}x_i^Q\hspace{0.1cm}$ es el $i$-esimo vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^Q = (x_{i 1},....,x_{i p_1})$. $\\[0.46cm]$
+- $\hspace{0.12cm}x_i^Q\hspace{0.1cm}$ es el $\hspace{0.1cm}i$-esimo vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^Q = (x_{i 1},....,x_{i p_1})$. $\\[0.46cm]$
 
-- $\hspace{0.12cm}x_i^B\hspace{0.1cm}$ es el $i$-esimo vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^B = ( \hspace{0.1cm} x_{i, (p_1+1)},....,x_{i (p_1+p_2)} \hspace{0.1cm})\hspace{0.1cm}$. $\\[0.6cm]$
+- $\hspace{0.12cm}x_i^B\hspace{0.1cm}$ es el $\hspace{0.1cm}i$-esimo vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^B = ( \hspace{0.1cm} x_{i, (p_1+1)},....,x_{i (p_1+p_2)} \hspace{0.1cm})\hspace{0.1cm}$. $\\[0.6cm]$
 
-- $\hspace{0.12cm}x_i^M$ es el $i$-esimo vector de observaciones de las variables multiclase, es decir, $\hspace{0.1cm}x_i^M = ( \hspace{0.1cm}x_{i (p_1+p_2+1)},...,x_{i (p_1+p_2+p_3)} \hspace{0.1cm})\hspace{0.1cm}$. $\\[0.6cm]$
+- $\hspace{0.12cm}x_i^M\hspace{0.1cm}$ es el $\hspace{0.1cm}i$-esimo vector de observaciones de las variables multiclase, es decir, $\hspace{0.1cm}x_i^M = ( \hspace{0.1cm}x_{i (p_1+p_2+1)},...,x_{i (p_1+p_2+p_3)} \hspace{0.1cm})\hspace{0.1cm}$. $\\[0.6cm]$
 
 - $\hspace{0.12cm}G_j \hspace{0.1cm}=\hspace{0.1cm} Max(X_j) - Min(X_j)\hspace{0.1cm}$. $\\[0.6cm]$
 
@@ -4297,11 +4297,11 @@ $\hspace{0.25cm}$ Donde:
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ La distancia de Gower entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ (que forman un conjunto de variables de tipo cuantitativo-binario-multiclase )   es obtenida como: $\\[0.6cm]$
+$\hspace{0.25cm}$ La distancia de Gower entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$  es obtenida como sigue: $\\[0.6cm]$
 
 
 $$
-\delta(x_i,x_r)_{Gower} = \sqrt{1 - \phi(x_i,x_r)_{Gower}}
+\delta(x_i,x_r)_{Gower} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ \hspace{0.1cm} 1 - \phi(x_i,x_r)_{Gower} \hspace{0.1cm}} \\
 $$
 
 </p>
@@ -4310,20 +4310,19 @@ $$
 </div>
 
 
-<br>
-
+ 
 **Propiedades:**  
 
-- La similaridad de Gower es la suma de diferentes similaridades apropiadas para cada tipo de variable (cuantitativas, binarias y multiclase).  $\\[0.4cm]$
+- La similaridad de Gower es la suma de diferentes similaridades apropiadas para cada tipo de variable (cuantitativas, binarias y multiclase).  $\\[0.6cm]$
 
 - Si consideramos un conjunto de variables cuantitativas, la similaridad de Gower es la transformación a similaridad de la distancia Manhattan  
-normalizada por el rango, para que tome valores en $\hspace{0.1cm} [0,1]\hspace{0.1cm}$ :
+normalizada por el rango, para que tome valores en $\hspace{0.1cm} [0,1]\hspace{0.1cm}$ : $\\[0.3cm]$
  
 $$
 \dfrac{1}{p} \sum_{k=1}^{p} \left(1- \dfrac{\mid x_{ik} - x_{jk} \mid}{G_k} \right) =  \\
 $$
 
-- Si consideramos un conjunto de variables binarias, la similaridad de Gower coincide con la de Jaccard. $\\[0.4cm]$
+- Si consideramos un conjunto de variables binarias, la similaridad de Gower coincide con la de Jaccard. $\\[0.6cm]$
 
 -  Si consideramos un conjunto de variables multiclase (no binarias), la similaridad de Gower coincide con la similaridad por coincidencias.
 
@@ -4336,11 +4335,11 @@ $$
 
 Siguiendo esta idea pueden crearse otras similaridades para conjuntos de variables de tipo mixto. Algunas recomendaciones para ello son las siguientes:
 
-- Si queremos que la similaridad resultante tenga la propiedad Euclidea, todos las similaridades que se han combinado deben tenerla. $\\[0.4cm]$
+- Si queremos que la similaridad resultante tenga la propiedad Euclidea, todos las similaridades que se han combinado deben tenerla. $\\[0.5cm]$
 
-- Para variables cuantitativas, se debe usar una distancia normalizada, para que así esté contenida en $\hspace{0.1cm}[0,1]\hspace{0.1cm}$ y pueda convertirse en similaridad usando la transformacion $\hspace{0.1cm}1 - \delta$ $\\[0.4cm]$
+- Para variables cuantitativas, se debe usar una distancia normalizada, para que así esté contenida en $\hspace{0.1cm}[0,1]\hspace{0.1cm}$ y pueda convertirse en similaridad usando la transformacion $\hspace{0.1cm}1 - \delta\hspace{0.1cm}$ . $\\[0.5cm]$
 
-- Para variables categoricas es preferible usar similaridades contenidas en $\hspace{0.1cm}[0,1]\hspace{0.1cm}$ para evitar tener que normalizarlas.
+- Para variables categóricas es preferible usar similaridades contenidas en $\hspace{0.1cm}[0,1]\hspace{0.1cm}$ para evitar tener que normalizarlas.
 
 
 
@@ -4354,7 +4353,6 @@ Siguiendo esta idea pueden crearse otras similaridades para conjuntos de variabl
 ```python
 def Matrix_Gower_Similarity(Data, p1, p2, p3 ):
 
-
     # Data tiene que ser un numpy array tal que:
     # las primeras p1 tiene que ser variables cuantitativas, 
     # las siguientes p2 binarias y las restantes p3 multicales
@@ -4362,8 +4360,10 @@ def Matrix_Gower_Similarity(Data, p1, p2, p3 ):
     # Si Data no contiene variables cuantitativas --> p1=0
     # Si Data no contiene variables binarias --> p2=0
     # Si Data no contiene variables multiclase --> p3=0
-    
-############################################################    
+
+    Data_pd = Data
+
+    Data = Data.to_numpy()
 
     n = len(Data)
 
@@ -4383,13 +4383,13 @@ def Matrix_Gower_Similarity(Data, p1, p2, p3 ):
 
     Quant_Data = Data[: , 0:p1]
 
-    Binary_Data = Data[: , (p1):(p1+p2)]
+    Binary_Data_pd = Data_pd.iloc[: , (p1):(p1+p2)]
 
     Multiple_Data = Data[: , (p1+p2):(p1+p2+p3) ]
 
 ############################################################
 
-    a, b, c, d, p = a_b_c_d_Matrix(Binary_Data)
+    a, b, c, d, p = a_b_c_d_Matrix(Binary_Data_pd)
 
 ############################################################
 
@@ -4411,17 +4411,153 @@ def Matrix_Gower_Similarity(Data, p1, p2, p3 ):
 
                 numerator_part_1 = ( ones - ( abs(Quant_Data[i,:] - Quant_Data[r,:]) / G_vector ) ).sum() 
 
-                numerator_part_2 = a[i,r] + alpha(Multiple_Data[i,:], Multiple_Data[r,:])
+                numerator_part_2 = a[i,r] 
+                
+                numerator_part_3 = alpha(Multiple_Data[i,:], Multiple_Data[r,:])
 
-                numerator = numerator_part_1 + numerator_part_2
- 
+                numerator = numerator_part_1 + numerator_part_2 + numerator_part_3
+
                 denominator = p1 + (p2 - d[i,r]) + p3
+                
 
-                M[i,r] = numerator / denominator
+                if denominator == 0:
+
+                    M[i,r] = 0
+
+                else:    
+                    
+                    M[i,r] = numerator / denominator
                       
    
     return M  
 ```
+
+```python
+Data_mixed.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>price</th>
+      <th>size_in_m_2</th>
+      <th>no_of_bedrooms</th>
+      <th>no_of_bathrooms</th>
+      <th>private_garden_recode</th>
+      <th>private_gym_recode</th>
+      <th>private_jacuzzi_recode</th>
+      <th>balcony_recode</th>
+      <th>quality_recode</th>
+      <th>rating</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>25.113208</td>
+      <td>55.138932</td>
+      <td>2700000</td>
+      <td>100.242337</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>25.106809</td>
+      <td>55.151201</td>
+      <td>2850000</td>
+      <td>146.972546</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>25.063302</td>
+      <td>55.137728</td>
+      <td>1150000</td>
+      <td>181.253753</td>
+      <td>3</td>
+      <td>5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>25.227295</td>
+      <td>55.341761</td>
+      <td>2850000</td>
+      <td>187.664060</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>25.114275</td>
+      <td>55.139764</td>
+      <td>1729200</td>
+      <td>47.101821</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 ```python
 M_Gower = Matrix_Gower_Similarity(Data=Data_mixed_numpy, p1=6, p2=4, p3=3)
@@ -4513,11 +4649,11 @@ array([[0.        , 0.48032856, 0.62261723, ..., 0.6228908 , 0.55885118,
 
 <br>
 
-Vamos a probar ahora la función con conjuntos de datos que no son cuantitativos-binarios-multiclase, si no una combinación de estos.
+Vamos a probar ahora la función con conjuntos de datos que no son cuantitativos-binarios-multiclase, si no una combinación de pares de estos.
 
 
 ```python
-Matrix_Gower_Similarity(Data=Data_quant_numpy, p1=6, p2=0, p3=0)
+Matrix_Gower_Similarity(Data=Data_quant, p1=6, p2=0, p3=0)
 ```
 
 ```
@@ -4539,7 +4675,7 @@ array([[1.        , 0.94880745, 0.78930428, ..., 0.68667841, 0.92742315,
 <br>
 
 ```python
-Matrix_Gower_Similarity(Data=Data_binary_numpy, p1=0, p2=4, p3=0)
+Matrix_Gower_Similarity(Data=Data_binary, p1=0, p2=4, p3=0)
 
 # Coincide con la matriz de similaridades de Jaccard que se ha obtenido anteriormente.
 ```
@@ -4564,7 +4700,7 @@ array([[1.        , 1.        , 0.5       , ..., 1.        , 0.5       ,
 
 
 ```python
-Matrix_Gower_Similarity(Data=Data_multiclass_numpy, p1=0, p2=0, p3=3)
+Matrix_Gower_Similarity(Data=Data_multiclass, p1=0, p2=0, p3=3)
 
 # Coincide con la matriz de similaridades por coincidencias que se ha obtenido anteriormente.
 ```
@@ -4591,13 +4727,11 @@ array([[1.        , 0.33333333, 0.33333333, ..., 0.33333333, 0.33333333,
 
 ```python
 Data_binary_multiclass = pd.concat([Data_binary,Data_multiclass], axis=1)
-
-Data_binary_multiclass_numpy = Data_binary_multiclass.to_numpy()
 ```
 
 
 ```python
-Matrix_Gower_Similarity(Data=Data_binary_multiclass_numpy , p1=0, p2=4, p3=3)
+Matrix_Gower_Similarity(Data=Data_binary_multiclass , p1=0, p2=4, p3=3)
 ```
 ```
 array([[1.  , 0.5 , 0.4 , ..., 0.5 , 0.4 , 0.5 ],
@@ -4613,13 +4747,11 @@ array([[1.  , 0.5 , 0.4 , ..., 0.5 , 0.4 , 0.5 ],
 
 ```python
 Data_quant_multiclass = pd.concat([Data_quant,Data_multiclass], axis=1)
-
-Data_quant_multiclass_numpy = Data_quant_multiclass.to_numpy()
 ```
 
 
 ```python
-Matrix_Gower_Similarity(Data=Data_quant_multiclass_numpy , p1=6, p2=0, p3=3)
+Matrix_Gower_Similarity(Data=Data_quant_multiclass , p1=6, p2=0, p3=3)
 ```
 ```
 array([[1.        , 0.74364941, 0.63731397, ..., 0.56889672, 0.72939321,
@@ -4641,12 +4773,10 @@ array([[1.        , 0.74364941, 0.63731397, ..., 0.56889672, 0.72939321,
 
 ```python
 Data_quant_binary = pd.concat([Data_quant,Data_binary], axis=1)
-
-Data_quant_binary_numpy = Data_quant_binary.to_numpy()
 ```
 
 ```python
-Matrix_Gower_Similarity(Data=Data_quant_binary_numpy , p1=6, p2=4, p3=0)
+Matrix_Gower_Similarity(Data=Data_quant_binary, p1=6, p2=4, p3=0)
 ```
 
 
@@ -4676,6 +4806,7 @@ array([[1.        , 0.95612067, 0.71697821, ..., 0.73143864, 0.82056736,
 ## Similaridad de Gower-Mahalanobis
 
 
+Dada la matriz de datos $\hspace{0.1cm}X=(X_1,...,X_n)\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ descritas en al inicio de esta sección.
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -4683,13 +4814,12 @@ array([[1.        , 0.95612067, 0.71697821, ..., 0.73143864, 0.82056736,
  
 <p style='margin-left:1em;'>
 
+ 
 
-$\hspace{0.25cm}$ Dada la matriz de datos $\hspace{0.1cm}X=[X_1,...,X_n]\hspace{0.1cm}$ de las variables estadisticas $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$
-
-$\hspace{0.25cm}$ La similaridad de Gower-Mahalanobis entre el par de observaciones $\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$ ,  tales que las primeras $\hspace{0.1cm}p_1\hspace{0.1cm}$ variables son cuantitativas, las siguientes $\hspace{0.1cm}p_2\hspace{0.1cm}$ son binarias y las siguientes $\hspace{0.1cm}p_3\hspace{0.1cm}$ son multiclase,  se define como :  $\\[1.5cm]$
+$\hspace{0.25cm}$ La similaridad de Gower-Mahalanobis entre el par de observaciones $\hspace{0.1cm} (x_i , x_r)\hspace{0.1cm}$ de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_p)\hspace{0.1cm}$  ,  se define como :  $\\[1 cm]$
  
 $$
-\hspace{0.45cm} \phi(x_i,x_r)_{GM} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm} p_1 \hspace{0.1cm}-\hspace{0.1cm} \dfrac{ \delta(x_i^Q , x_r^Q)_{Maha} }{Max(D_{Maha})} \hspace{0.1cm} +\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p_1 \hspace{0.05cm}+\hspace{0.05cm} p_2 - d(x_i^B , x_r^B) \hspace{0.05cm}+\hspace{0.05cm} p_3}  \\[1cm]
+ \phi(x_i,x_r)_{GM} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{ \hspace{0.15cm} p_1 \hspace{0.1cm}-\hspace{0.1cm} \dfrac{ \delta(x_i^Q , x_r^Q)_{Maha} }{Max(D_{Maha})} \hspace{0.1cm} +\hspace{0.1cm} a(x_i^B , x_r^B) \hspace{0.1cm}+\hspace{0.1cm} \alpha(x_i^M , x_r^M)  \hspace{0.15cm}}{p \hspace{0.05cm}-\hspace{0.05cm} d(x_i^B , x_r^B) }  \\[1cm]
 $$
  
 
@@ -4697,38 +4827,30 @@ $$
 
 $\hspace{0.25cm}$ Donde:
 
-- $p_1 \hspace{0.05cm}$ es el número de variables cuantitativas. $\\[0.5cm]$
-
-- $p_2 \hspace{0.05cm}$ es el número de variables categóricas binarias.
-$\\[0.5cm]$
-
-- $p_3 \hspace{0.05cm}$ es el número de variables categóricas múltiples (no binarias).$\\[0.5cm]$
-
-- $p_1+p_2+p_3=p \\$
-
-- $x_i^Q\hspace{0.1cm}$ es vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^Q = (x_{i, 1},....,x_{i,p1})\\$
-
-- $x_i^B\hspace{0.1cm}$ es vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^B = (x_{i, p1+1},....,x_{i,p1+p2}) \\$
-
-- $x_i^M$ es vector de observaciones de las variables multiclase, es decir, $\hspace{0.1cm}x_i^M = (x_{i, p1+p_2+1},....,x_{i,p_1+p_2+p_3}) \\$
-
-
-- $\delta(x_i^Q , x_r^Q)_{Maha} = \sqrt{ (x_i^Q - x_r^Q)^t \cdot S^{-1} \cdot (x_i^Q - x_r^Q) }\hspace{0.25cm}$ es la distancia de Mahalanobis entre el par de observaciones $\hspace{0.15cm}x_i^Q$ y $x_r^Q$
-
-- $S\hspace{0.1cm}$ es la matriz de covarianzas de la matriz de datos de las variables cuantitativas $\hspace{0.1cm}X^Q=[X_1,...,X_{p_1}] \\$
-
-- $D_{Maha} \hspace{0.1cm}$ es la matriz de distancias de Mahalanobis entre los individuios de la matriz de datos $\hspace{0.1cm}X=[X_1,...,X_n] \\$
-
-
- - $\hspace{0.2cm} a(x_i^B, x_r^B)\hspace{0.1cm}$ es el número de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
-
-
- - $\hspace{0.2cm} d(x_i^B, x_r^B)\hspace{0.1cm}$ es el número  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
  
 
-- $\alpha(x_i^M, x_r^M) =$ número de variables multiclase $\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}$ tales que  $\hspace{0.1cm}x_{ij} = x_{rj}\\$
+- $\hspace{0.1cm}x_i^Q\hspace{0.1cm}$ es vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^Q = (x_{i, 1},....,x_{i p_1})\hspace{0.1cm}.$ $\\[0.6cm]$
+
+- $\hspace{0.1cm}x_i^B\hspace{0.1cm}$ es vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^B = (x_{i, (p_1+1)},....,x_{i (p_1+p_2)})\hspace{0.1cm}.$ $\\[0.6cm]$
+
+- $\hspace{0.1cm}x_i^M\hspace{0.1cm}$ es vector de observaciones de las variables multiclase, es decir, $\hspace{0.1cm}x_i^M = (x_{i, (p_1+p_2+1)},....,x_{i (p_1+p_2+p_3)})\hspace{0.1cm}.$ $\\[0.6cm]$
+
+
+- $\hspace{0.1cm}\delta(x_i^Q , x_r^Q)_{Maha} = \sqrt{ (x_i^Q - x_r^Q)^t \cdot S^{-1} \cdot (x_i^Q - x_r^Q) }\hspace{0.25cm}$ es la distancia de Mahalanobis entre el par de observaciones $\hspace{0.1cm}x_i^Q\hspace{0.1cm}$ y $\hspace{0.1cm}x_r^Q\hspace{0.1cm}$ . $\\[0.6cm]$
+
+- $\hspace{0.1cm}S\hspace{0.1cm}$ es la estimación de matriz de covarianzas de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_{p_1})\hspace{0.1cm}$ en base a la matriz de datos  $\hspace{0.1cm}X^Q=(X_1,...,X_{p_1})\hspace{0.1cm}$. $\\[0.6cm]$
+
+- $\hspace{0.1cm}D_{Maha} \hspace{0.1cm}=\hspace{0.1cm} \left(\hspace{0.1cm} \delta(x_i^Q , x_r^Q)_{Maha}  :  i,r=1,...,n \hspace{0.1cm}\right) \hspace{0.1cm} .$   $\\[0.6cm]$
+
+
+ - $\hspace{0.12cm} a(x_i^B, x_r^B)\hspace{0.1cm}$ es el número de coincidencias $\hspace{0.1cm}(1,1)\hspace{0.1cm}$ entre $\hspace{0.1cm} x_{ij}\hspace{0.1cm}$ y $\hspace{0.1cm}x_{rj}\hspace{0.1cm}$. $\\[0.6cm]$
+
+
+- $\hspace{0.12cm} d(x_i^B, x_r^B)\hspace{0.1cm}$ es el número de coincidencias $\hspace{0.1cm}(0,0)\hspace{0.1cm}$ entre $\hspace{0.1cm} x_{ij}\hspace{0.1cm}$ y $\hspace{0.1cm}x_{rj}\hspace{0.1cm}$. $\\[0.6cm]$
 
  
+
+- $\hspace{0.12cm}\alpha(x_i^M, x_r^M)$  es el número de coincidencias entre $\hspace{0.1cm} x_{ij}\hspace{0.1cm}$ y $\hspace{0.1cm}x_{rj}\hspace{0.1cm}$.  
  
  
 </p>
