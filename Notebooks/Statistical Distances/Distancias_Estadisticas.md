@@ -4829,24 +4829,24 @@ $\hspace{0.25cm}$ Donde:
 
  
 
-- $\hspace{0.1cm}x_i^Q\hspace{0.1cm}$ es vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^Q = (x_{i, 1},....,x_{i p_1})\hspace{0.1cm}.$ $\\[0.6cm]$
+- $\hspace{0.1cm}x_i^Q\hspace{0.1cm}$ es vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^Q = (x_{i, 1},....,x_{i p_1})\hspace{0.1cm}.$ $\\[0.7cm]$
 
-- $\hspace{0.1cm}x_i^B\hspace{0.1cm}$ es vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^B = (x_{i, (p_1+1)},....,x_{i (p_1+p_2)})\hspace{0.1cm}.$ $\\[0.6cm]$
+- $\hspace{0.1cm}x_i^B\hspace{0.1cm}$ es vector de observaciones de las variables binarias, es decir, $\hspace{0.1cm}x_i^B = (x_{i, (p_1+1)},....,x_{i (p_1+p_2)})\hspace{0.1cm}.$ $\\[0.7cm]$
 
-- $\hspace{0.1cm}x_i^M\hspace{0.1cm}$ es vector de observaciones de las variables multiclase, es decir, $\hspace{0.1cm}x_i^M = (x_{i, (p_1+p_2+1)},....,x_{i (p_1+p_2+p_3)})\hspace{0.1cm}.$ $\\[0.6cm]$
-
-
-- $\hspace{0.1cm}\delta(x_i^Q , x_r^Q)_{Maha} = \sqrt{ (x_i^Q - x_r^Q)^t \cdot S^{-1} \cdot (x_i^Q - x_r^Q) }\hspace{0.25cm}$ es la distancia de Mahalanobis entre el par de observaciones $\hspace{0.1cm}x_i^Q\hspace{0.1cm}$ y $\hspace{0.1cm}x_r^Q\hspace{0.1cm}$ . $\\[0.6cm]$
-
-- $\hspace{0.1cm}S\hspace{0.1cm}$ es la estimación de matriz de covarianzas de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_{p_1})\hspace{0.1cm}$ en base a la matriz de datos  $\hspace{0.1cm}X^Q=(X_1,...,X_{p_1})\hspace{0.1cm}$. $\\[0.6cm]$
-
-- $\hspace{0.1cm}D_{Maha} \hspace{0.1cm}=\hspace{0.1cm} \left(\hspace{0.1cm} \delta(x_i^Q , x_r^Q)_{Maha}  :  i,r=1,...,n \hspace{0.1cm}\right) \hspace{0.1cm} .$   $\\[0.6cm]$
+- $\hspace{0.1cm}x_i^M\hspace{0.1cm}$ es vector de observaciones de las variables multiclase, es decir, $\hspace{0.1cm}x_i^M = (x_{i, (p_1+p_2+1)},....,x_{i (p_1+p_2+p_3)})\hspace{0.1cm}.$ $\\[0.7cm]$
 
 
- - $\hspace{0.12cm} a(x_i^B, x_r^B)\hspace{0.1cm}$ es el número de coincidencias $\hspace{0.1cm}(1,1)\hspace{0.1cm}$ entre $\hspace{0.1cm} x_{ij}\hspace{0.1cm}$ y $\hspace{0.1cm}x_{rj}\hspace{0.1cm}$. $\\[0.6cm]$
+- $\hspace{0.1cm}\delta(x_i^Q , x_r^Q)_{Maha} = \sqrt{ (x_i^Q - x_r^Q)^t \cdot S^{-1} \cdot (x_i^Q - x_r^Q) }\hspace{0.25cm}$ es la distancia de Mahalanobis entre el par de observaciones $\hspace{0.1cm}x_i^Q\hspace{0.1cm}$ y $\hspace{0.1cm}x_r^Q\hspace{0.1cm}$ . $\\[0.7cm]$
+
+- $\hspace{0.1cm}S\hspace{0.1cm}$ es la estimación de matriz de covarianzas de las variables $\hspace{0.1cm}(\mathcal{X}_1,...,\mathcal{X}_{p_1})\hspace{0.1cm}$ en base a la matriz de datos  $\hspace{0.1cm}X^Q=(X_1,...,X_{p_1})\hspace{0.1cm}$. $\\[0.7cm]$
+
+- $\hspace{0.1cm}D_{Maha} \hspace{0.1cm}=\hspace{0.1cm} \left(\hspace{0.1cm} \delta(x_i^Q , x_r^Q)_{Maha} \hspace{0.2cm} :  \hspace{0.2cm} i,r=1,...,n \hspace{0.1cm}\right) \hspace{0.1cm}$   $\\[0.7cm]$
 
 
-- $\hspace{0.12cm} d(x_i^B, x_r^B)\hspace{0.1cm}$ es el número de coincidencias $\hspace{0.1cm}(0,0)\hspace{0.1cm}$ entre $\hspace{0.1cm} x_{ij}\hspace{0.1cm}$ y $\hspace{0.1cm}x_{rj}\hspace{0.1cm}$. $\\[0.6cm]$
+ - $\hspace{0.12cm} a(x_i^B, x_r^B)\hspace{0.1cm}$ es el número de coincidencias $\hspace{0.1cm}(1,1)\hspace{0.1cm}$ entre $\hspace{0.1cm} x_{ij}\hspace{0.1cm}$ y $\hspace{0.1cm}x_{rj}\hspace{0.1cm}$. $\\[0.7cm]$
+
+
+- $\hspace{0.12cm} d(x_i^B, x_r^B)\hspace{0.1cm}$ es el número de coincidencias $\hspace{0.1cm}(0,0)\hspace{0.1cm}$ entre $\hspace{0.1cm} x_{ij}\hspace{0.1cm}$ y $\hspace{0.1cm}x_{rj}\hspace{0.1cm}$. $\\[0.7cm]$
 
  
 
