@@ -45,6 +45,34 @@
 	      }
 	    </style>
 
+        <style>
+
+         body {
+            background-image: url('images/ultimos_articulos.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0.5); /* Color semi-transparente */
+            }
+
+             /* Ajusta la opacidad de la capa semi-transparente */
+        body::before {
+            content: "";
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff; /* Color de fondo */
+            opacity: 0.5; /* Opacidad */
+            z-index: -1;
+           }
+
+        </style>
+
+
+
+
+
 
   
 
