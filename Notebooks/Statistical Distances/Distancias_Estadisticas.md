@@ -4873,7 +4873,7 @@ $\hspace{0.25cm}$ La distancia de Gower-Mahalanobis   entre el par de observacio
 
 
 $$
-\delta(x_i,x_r)_{GM} = \sqrt{1 - \phi(x_i,x_r)_{GM}}
+\delta(x_i,x_r)_{GM} \hspace{0.1cm}= \hspace{0.1cm} \sqrt{ \hspace{0.1cm}1 - \phi(x_i,x_r)_{GM} \hspace{0.1cm}}
 $$
 
 </p>
@@ -4893,16 +4893,9 @@ $$
 ```python
 def Matrix_Gower_Maha_Similarity(Data, p1, p2, p3):
 
+    Data_pd = Data
 
-    # Data tiene que ser un numpy array tal que:
-    # las primeras p1 tiene que ser variables cuantitativas, 
-    # las siguientes p2 binarias y las restantes p3 multicales
-
-    # Si Data no contiene variables cuantitativas --> p1=0
-    # Si Data no contiene variables binarias --> p2=0
-    # Si Data no contiene variables multiclase --> p3=0
-    
-############################################################
+    Data = Data.to_numpy()
 
     n = len(Data)
 
@@ -4918,23 +4911,23 @@ def Matrix_Gower_Maha_Similarity(Data, p1, p2, p3):
 
 ############################################################
    
-    ones = np.repeat(1, p1)
-
     Quant_Data = Data[: , 0:p1]
 
-    Binary_Data = Data[: , (p1):(p1+p2)]
+    Quant_Data_pd = Data_pd.iloc[: , 0:p1]
 
-    Multiple_Data = Data[: , (p1+p2):(p1+p2+p3) ]
+    Binary_Data_pd = Data_pd.iloc[: , (p1):(p1+p2)]
+
+    Multiple_Data = Data[: , (p1+p2):(p1+p2+p3)]
 
 ############################################################
 
-    a, b, c, d, p = a_b_c_d_Matrix(Binary_Data)
+    a, b, c, d, p = a_b_c_d_Matrix(Binary_Data_pd)
 
 ############################################################
 
     S_inv = np.linalg.inv( np.cov(Quant_Data , rowvar=False) ) 
 
-    D_maha = Matrix_Dist_Mahalanobis_3(Data=Quant_Data) 
+    D_maha = Matrix_Dist_Mahalanobis_3(Data=Quant_Data_pd) 
 
     Max_D_maha = D_maha.max()
 
@@ -4960,7 +4953,7 @@ def Matrix_Gower_Maha_Similarity(Data, p1, p2, p3):
 
                 x = np.array([x])
 
-                numerator_part_1 = p1 - float( np.sqrt( x @ S_inv @ x.T ) ) / Max_D_maha 
+                numerator_part_1 = p1 - float( np.sqrt( x @ S_inv @ x.T ) ) / Max_D_maha  
 
                 numerator_part_2 = a[i,r] + alpha(Multiple_Data[i,:], Multiple_Data[r,:])
 
@@ -4976,7 +4969,7 @@ def Matrix_Gower_Maha_Similarity(Data, p1, p2, p3):
 
 
 ```python
-M_Gower_Maha = Matrix_Gower_Maha_Similarity(Data=Data_mixed_numpy, p1=6, p2=4, p3=3)
+M_Gower_Maha = Matrix_Gower_Maha_Similarity(Data=Data_mixed, p1=6, p2=4, p3=3)
 
 M_Gower_Maha
 ```
@@ -5041,7 +5034,7 @@ def Matrix_Gower_Maha_Distance(Data, p1, p2, p3):
 ```
 
 ```python
-M_Gower_Maha_Distance = Matrix_Gower_Maha_Distance(Data=Data_mixed_numpy, p1=6, p2=4, p3=3)
+M_Gower_Maha_Distance = Matrix_Gower_Maha_Distance(Data=Data_mixed, p1=6, p2=4, p3=3)
 
 M_Gower_Maha_Distance
 ```
@@ -5076,4 +5069,4 @@ array([[0.        , 0.46011364, 0.54023301, ..., 0.47435704, 0.53328707,
 - Grané, A., Manzi, G. and Salini, S. (2021) *Smart visualization of mixed data*. Stats 4(2), 472-485; https://doi.org/10.3390/stats4020029 (S.I. Robust Statistics in Action).
 
 
-
+<br>
