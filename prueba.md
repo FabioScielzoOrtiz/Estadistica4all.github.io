@@ -2,9 +2,14 @@
 layout: paper
 title: Prueba
 subtitle: Subtítulo del artículo
-tags: [etiqueta1, etiqueta2, etiqueta3]
+tags:
+  - etiqueta1
+  - etiqueta2
+  - etiqueta3
 comments: true
 ---
+
+<!-- TOC -->
  
 Texto de introducción del artículo. Puedes escribir lo que desees aquí.
  
