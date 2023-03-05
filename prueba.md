@@ -7,17 +7,50 @@ tags:
   - etiqueta2
   - etiqueta3
 comments: true
-toc: true
 ---
-<!-- TOC -->
-- [Sección 1](#sección-1)
-- [Sección 2](#sección-2)
-  - [Subsección 2.1](#subsección-21)
-  - [Subsección 2.2](#subsección-22)
-- [Código](#código)
-
  
-Texto de introducción del artículo. Puedes escribir lo que desees aquí.
+<style>
+.scroll-sync-container {
+   position: sticky;
+   top: 0px;
+   height: calc(100vh - 60px);
+   overflow-y: auto;
+}
+</style>
+
+<style>
+table.toc {
+  margin: 0px;
+  border: none;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  font-weight: bold;
+  width: 100%;
+  max-width: 320px;
+}
+
+table.toc td {
+  padding: 0px;
+}
+
+table.toc a {
+  color: #444444;
+  display: block;
+  padding: 4px 16px;
+  text-decoration: none;
+}
+
+table.toc a:hover {
+  background-color: #eeeeee;
+}
+</style>
+
+<!-- START doctoc -->
+<!-- END doctoc -->
+
+# Hola
+ 
+Texto de introducción del artículo. Puedes escribir lo que desees aquí.ddd
  
 ## Sección 1
  
