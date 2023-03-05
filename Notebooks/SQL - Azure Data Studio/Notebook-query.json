@@ -1,0 +1,153 @@
+{
+    "metadata": {
+        "kernelspec": {
+            "name": "SQL",
+            "display_name": "SQL",
+            "language": "sql"
+        },
+        "language_info": {
+            "name": "sql",
+            "version": ""
+        }
+    },
+    "nbformat_minor": 2,
+    "nbformat": 4,
+    "cells": [
+        {
+            "cell_type": "code",
+            "source": [
+                "-- Eliminar una base de datos:\r\n",
+                "\r\n",
+                "-- Drop the database 'Base_Datos_Fabio'\r\n",
+                "-- Connect to the 'master' database to run this snippet\r\n",
+                "USE master\r\n",
+                "GO\r\n",
+                "-- Uncomment the ALTER DATABASE statement below to set the database to SINGLE_USER mode if the drop database command fails because the database is in use.\r\n",
+                "ALTER DATABASE Base_Datos_Fabio SET SINGLE_USER WITH ROLLBACK IMMEDIATE;\r\n",
+                "-- Drop the database if it exists\r\n",
+                "IF EXISTS (\r\n",
+                "  SELECT [name]\r\n",
+                "   FROM sys.databases\r\n",
+                "   WHERE [name] = N'Base_Datos_Fabio'\r\n",
+                ")\r\n",
+                "DROP DATABASE Base_Datos_Fabio\r\n",
+                "GO\r\n",
+                "\r\n",
+                ""
+            ],
+            "metadata": {
+                "azdata_cell_guid": "1b473ccf-4abc-4339-9d09-f5ce9abe1909",
+                "language": "sql"
+            },
+            "outputs": [
+                {
+                    "output_type": "display_data",
+                    "data": {
+                        "text/html": "Commands completed successfully."
+                    },
+                    "metadata": {}
+                },
+                {
+                    "output_type": "display_data",
+                    "data": {
+                        "text/html": "Se están revirtiendo las transacciones no calificadas. Estimación de porcentaje de reversión: 0%."
+                    },
+                    "metadata": {}
+                },
+                {
+                    "output_type": "display_data",
+                    "data": {
+                        "text/html": "Se están revirtiendo las transacciones no calificadas. Estimación de porcentaje de reversión: 100%."
+                    },
+                    "metadata": {}
+                },
+                {
+                    "output_type": "display_data",
+                    "data": {
+                        "text/html": "Total execution time: 00:00:03.182"
+                    },
+                    "metadata": {}
+                }
+            ],
+            "execution_count": 2
+        },
+        {
+            "cell_type": "code",
+            "source": [
+                "-------------------------------------------------------------------------\r\n",
+                "\r\n",
+                "-- Crear una nueva base de datos\r\n",
+                "\r\n",
+                "USE master\r\n",
+                "GO\r\n",
+                "IF NOT EXISTS (\r\n",
+                " SELECT name\r\n",
+                " FROM sys.databases\r\n",
+                " WHERE name = N'Base_Datos_Fabio'\r\n",
+                ")\r\n",
+                " CREATE DATABASE [Base_Datos_Fabio];\r\n",
+                "GO\r\n",
+                "IF SERVERPROPERTY('ProductVersion') > '12'\r\n",
+                " ALTER DATABASE [Base_Datos_Fabio] SET QUERY_STORE=ON;\r\n",
+                "GO\r\n",
+                "\r\n",
+                "-------------------------------------------------------------------------\r\n",
+                "\r\n",
+                "-- Crear una nueva tabla dentro de la base de datos\r\n",
+                "\r\n",
+                "-- Create a new table called 'Clientes' in schema 'dbo'\r\n",
+                "-- Drop the table if it already exists\r\n",
+                "IF OBJECT_ID('dbo.Clientes', 'U') IS NOT NULL\r\n",
+                " DROP TABLE dbo.Clientes;\r\n",
+                "GO\r\n",
+                "-- Create the table in the specified schema\r\n",
+                "CREATE TABLE dbo.Clientes\r\n",
+                "(\r\n",
+                " ClienteId nvarchar(50) NOT NULL PRIMARY KEY, -- primary key column --> impide repeticiones de valores en esta columna\r\n",
+                " Nombre char (50) NOT NULL,\r\n",
+                " Pais nvarchar(50) NOT NULL,\r\n",
+                " Ciudad nvarchar(50) NOT NULL,\r\n",
+                " Email nvarchar (50) NOT NULL,\r\n",
+                " Telefono  nvarchar (50) NOT NULL\r\n",
+                ");\r\n",
+                "GO\r\n",
+                "\r\n",
+                "\r\n",
+                "-- PRIMARY KEY --> impide repeticiones de valores en esta columan\r\n",
+                "\r\n",
+                "-- char(n) --> n caracteres fijos\r\n",
+                "-- varchar(n) --> n caracteres variables\r\n",
+                "-- nvarchar(n) --> cadena alfanumerica con n elementos variables\r\n",
+                "-- numeric(n, h) --> numero de n cifras con h decimales\r\n",
+                "-- int --> entero\r\n",
+                "-- float --> real\r\n",
+                "-- data --> fecha\r\n",
+                "\r\n",
+                "-------------------------------------------------------------------------\r\n",
+                "\r\n",
+                "\r\n",
+                "IF OBJECT_ID('dbo.Proveedores', 'U') IS NOT NULL\r\n",
+                " DROP TABLE dbo.Proveedores;\r\n",
+                "GO\r\n",
+                "-- Create the table in the specified schema\r\n",
+                "CREATE TABLE dbo.Proveedores\r\n",
+                "(\r\n",
+                " ProveedorId nvarchar (50) NOT NULL PRIMARY KEY, -- primary key column\r\n",
+                " Nombre nvarchar (50) NOT NULL,\r\n",
+                " Email nvarchar(50) NOT NULL,\r\n",
+                " Telefono nvarchar (50) NOT NULL\r\n",
+                ");\r\n",
+                "GO\r\n",
+                "\r\n",
+                "---\r\n",
+                ""
+            ],
+            "metadata": {
+                "language": "sql",
+                "azdata_cell_guid": "15e3ceb4-998a-48bc-9768-e0b3183e2e8f"
+            },
+            "outputs": [],
+            "execution_count": null
+        }
+    ]
+}

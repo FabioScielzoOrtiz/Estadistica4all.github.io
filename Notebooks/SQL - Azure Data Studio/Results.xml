@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<data>
+  <row>
+    <ClienteId>C1</ClienteId>
+    <Nombre>Orlando                                           </Nombre>
+    <Pais>Australia</Pais>
+    <Ciudad />
+    <Email />
+    <Telefono>917755028</Telefono>
+  </row>
+</data>
