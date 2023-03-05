@@ -261,26 +261,118 @@ pre[data-line] .line-highlight[data-end]:after {
     </head>
     <body for="html-export">
       <div class="mume markdown-preview  ">
-      <p>Texto de introducci&#xF3;n del art&#xED;culo. Puedes escribir lo que desees aqu&#xED;.</p>
-<h2 class="mume-header" id="secci%C3%B3n-1">Secci&#xF3;n 1</h2>
+      <style>
+.scroll-sync-container {
+   position: sticky;
+   top: 0px;
+   height: calc(100vh - 60px);
+   overflow-y: auto;
+}
+</style>
+<style>
+table.toc {
+  margin: 0px;
+  border: none;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  font-weight: bold;
+  width: 100%;
+  max-width: 320px;
+}
+
+table.toc td {
+  padding: 0px;
+}
+
+table.toc a {
+  color: #444444;
+  display: block;
+  padding: 4px 16px;
+  text-decoration: none;
+}
+
+table.toc a:hover {
+  background-color: #eeeeee;
+}
+</style>
+<style>
+.scroll-sync-container {
+  position: sticky;
+  top: 0px;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+}
+
+table.toc {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  font-weight: bold;
+  width: 100%;
+  max-width: 320px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
+table.toc td {
+  padding: 0px;
+}
+
+table.toc a {
+  color: #444444;
+  display: block;
+  padding: 4px 16px;
+  text-decoration: none;
+  border-bottom: 1px solid #dddddd;
+  transition: background-color 0.2s;
+}
+
+table.toc a:hover {
+  background-color: #eeeeee;
+}
+</style>
+<ul>
+<li><a href="#hola">Hola</a>
+<ul>
+<li><a href="#1-secci%C3%B3n-1">1. Secci&#xF3;n 1</a></li>
+<li><a href="#2-secci%C3%B3n-2">2. Secci&#xF3;n 2</a>
+<ul>
+<li><a href="#21-subsecci%C3%B3n-21">2.1. Subsecci&#xF3;n 2.1</a></li>
+<li><a href="#22-subsecci%C3%B3n-22">2.2. Subsecci&#xF3;n 2.2</a></li>
+</ul>
+</li>
+<li><a href="#3-c%C3%B3digo">3. C&#xF3;digo</a></li>
+<li><a href="#adios">Adios</a></li>
+</ul>
+</li>
+</ul>
+<h1 class="mume-header" id="hola">Hola</h1>
+
+<p>Texto de introducci&#xF3;n del art&#xED;culo. Puedes escribir lo que desees aqu&#xED;.ddd</p>
+<h2 class="mume-header" id="1-a-nameseccin1asecci%C3%B3n-1">1. <a name="Seccin1" href></a>Secci&#xF3;n 1</h2>
 
 <p>Texto de la secci&#xF3;n 1.</p>
-<h2 class="mume-header" id="secci%C3%B3n-2">Secci&#xF3;n 2</h2>
+<h2 class="mume-header" id="2-a-nameseccin2asecci%C3%B3n-2">2. <a name="Seccin2" href></a>Secci&#xF3;n 2</h2>
 
 <p>Texto de la secci&#xF3;n 2.</p>
-<h3 class="mume-header" id="subsecci%C3%B3n-21">Subsecci&#xF3;n 2.1</h3>
+<h3 class="mume-header" id="21-a-namesubseccin21asubsecci%C3%B3n-21">2.1. <a name="Subseccin2.1" href></a>Subsecci&#xF3;n 2.1</h3>
 
 <p>Texto de la subsecci&#xF3;n 2.1.</p>
-<h3 class="mume-header" id="subsecci%C3%B3n-22">Subsecci&#xF3;n 2.2</h3>
+<h3 class="mume-header" id="22-a-namesubseccin22asubsecci%C3%B3n-22">2.2. <a name="Subseccin2.2" href></a>Subsecci&#xF3;n 2.2</h3>
 
 <p>Texto de la subsecci&#xF3;n 2.2.</p>
-<h2 class="mume-header" id="c%C3%B3digo">C&#xF3;digo</h2>
+<h2 class="mume-header" id="3-a-namecdigoac%C3%B3digo">3. <a name="Cdigo" href></a>C&#xF3;digo</h2>
 
 <p>Puedes insertar c&#xF3;digo de la siguiente manera:</p>
 <pre data-role="codeBlock" data-info="python" class="language-python"><span class="token comment"># C&#xF3;digo en Python</span>
 <span class="token keyword keyword-print">print</span><span class="token punctuation">(</span><span class="token string">&quot;Hola, mundo!&quot;</span><span class="token punctuation">)</span>
 </pre><p>Esto es una f&#xF3;rmula:</p>
 <p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mo>&#x222B;</mo><mrow><mi>x</mi><mo>&#x2208;</mo><mi mathvariant="double-struck">R</mi></mrow></msub><msup><mi>x</mi><mn>2</mn></msup><mo>&#x22C5;</mo><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">f(x) = \int_{x \in \mathbb{R}} x^2 \cdot dx</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.2993em;vertical-align:-0.9393em;"></span><span class="mop"><span class="mop op-symbol large-op" style="margin-right:0.44445em;position:relative;top:-0.0011em;">&#x222B;</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:-0.4297em;"><span style="top:-1.7881em;margin-left:-0.4445em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span><span class="mrel mtight">&#x2208;</span><span class="mord mathbb mtight">R</span></span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:0.9393em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#x22C5;</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">x</span></span></span></span></span></p>
+<h2 class="mume-header" id="adios">Adios</h2>
+
 
       </div>
       
