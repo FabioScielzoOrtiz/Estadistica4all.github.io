@@ -7,9 +7,15 @@ tags:
   - etiqueta2
   - etiqueta3
 comments: true
+toc: true
 ---
-
 <!-- TOC -->
+- [Sección 1](#sección-1)
+- [Sección 2](#sección-2)
+  - [Subsección 2.1](#subsección-21)
+  - [Subsección 2.2](#subsección-22)
+- [Código](#código)
+
  
 Texto de introducción del artículo. Puedes escribir lo que desees aquí.
  
@@ -40,3 +46,4 @@ print("Hola, mundo!")
 Esto es una fórmula:
 
 $$f(x) = \int_{x \in \mathbb{R}} x^2 \cdot dx$$
+
