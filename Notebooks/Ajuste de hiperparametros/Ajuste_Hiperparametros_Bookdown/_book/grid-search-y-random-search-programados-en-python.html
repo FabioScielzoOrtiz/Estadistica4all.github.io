@@ -4,20 +4,20 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Grid Search y Random Search programados en Python | Algoritmos de Ajuste de Hiperparametros</title>
-  <meta name="description" content="Esta es una introducción a los algoritmos de ajuste de hiperparámetros, aplicados a modelos de aprendizaje supervisado." />
+  <title>Chapter 3 Grid Search y Random Search programados en Python | Ajuste de Hiperparámetros</title>
+  <meta name="description" content="Introducción a los algoritmos de ajuste de hiperparámetro, aplicados a modelos de aprendizaje supervisado." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Grid Search y Random Search programados en Python | Algoritmos de Ajuste de Hiperparametros" />
+  <meta property="og:title" content="Chapter 3 Grid Search y Random Search programados en Python | Ajuste de Hiperparámetros" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Esta es una introducción a los algoritmos de ajuste de hiperparámetros, aplicados a modelos de aprendizaje supervisado." />
+  <meta property="og:description" content="Introducción a los algoritmos de ajuste de hiperparámetro, aplicados a modelos de aprendizaje supervisado." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Grid Search y Random Search programados en Python | Algoritmos de Ajuste de Hiperparametros" />
+  <meta name="twitter:title" content="Chapter 3 Grid Search y Random Search programados en Python | Ajuste de Hiperparámetros" />
   
-  <meta name="twitter:description" content="Esta es una introducción a los algoritmos de ajuste de hiperparámetros, aplicados a modelos de aprendizaje supervisado." />
+  <meta name="twitter:description" content="Introducción a los algoritmos de ajuste de hiperparámetro, aplicados a modelos de aprendizaje supervisado." />
   
 
 <meta name="author" content="Fabio Scielzo Ortiz" />
@@ -119,28 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -155,7 +133,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Algoritmos de Ajuste de Hiperparámetros</a></li>
+<li><a href="./">Ajuste de Hiperparámetros</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
@@ -198,40 +176,9 @@ div.csl-indent {
 <li class="chapter" data-level="4.2.1" data-path="ajuste-de-hiperparámetros-con-sklearn.html"><a href="ajuste-de-hiperparámetros-con-sklearn.html#randomizedsearchcv---regression"><i class="fa fa-check"></i><b>4.2.1</b> <code>RandomizedSearchCV</code> - Regression</a></li>
 <li class="chapter" data-level="4.2.2" data-path="ajuste-de-hiperparámetros-con-sklearn.html"><a href="ajuste-de-hiperparámetros-con-sklearn.html#randomizedsearchcv---classification"><i class="fa fa-check"></i><b>4.2.2</b> <code>RandomizedSearchCV</code> - Classification</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="ajuste-de-hiperparámetros-con-sklearn.html"><a href="ajuste-de-hiperparámetros-con-sklearn.html#visualización-de-resultados-1"><i class="fa fa-check"></i><b>4.3</b> Visualización de resultados <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="4.3" data-path="ajuste-de-hiperparámetros-con-sklearn.html"><a href="ajuste-de-hiperparámetros-con-sklearn.html#visualización-de-resultados-1"><i class="fa fa-check"></i><b>4.3</b> Visualización de resultados</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i><b>5</b> Bibliografía</a></li>
-<li class="chapter" data-level="6" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>6</b> Hello bookdown</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="hello-bookdown.html"><a href="hello-bookdown.html#a-section"><i class="fa fa-check"></i><b>6.1</b> A section</a>
-<ul>
-<li class="chapter" data-level="" data-path="hello-bookdown.html"><a href="hello-bookdown.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>7</b> Cross-references</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>7.1</b> Chapters and sub-chapters</a></li>
-<li class="chapter" data-level="7.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>7.2</b> Captioned figures and tables</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>8</b> Parts</a></li>
-<li class="chapter" data-level="9" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>9</b> Footnotes and citations</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>9.1</b> Footnotes</a></li>
-<li class="chapter" data-level="9.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>9.2</b> Citations</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>10</b> Blocks</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>10.1</b> Equations</a></li>
-<li class="chapter" data-level="10.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>10.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="10.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>10.3</b> Callout blocks</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>11</b> Sharing your book</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>11.1</b> Publishing</a></li>
-<li class="chapter" data-level="11.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>11.2</b> 404 pages</a></li>
-<li class="chapter" data-level="11.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>11.3</b> Metadata for sharing</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -244,7 +191,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Algoritmos de Ajuste de Hiperparametros</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ajuste de Hiperparámetros</a>
           </h1>
         </div>
 
@@ -490,57 +437,54 @@ quality_recode
 <span id="cb3-8"><a href="grid-search-y-random-search-programados-en-python.html#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># metric --&gt; It&#39;s the name of the validation metric.</span></span>
 <span id="cb3-9"><a href="grid-search-y-random-search-programados-en-python.html#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># random_seed --&gt; seed to replicate the random process.</span></span>
 <span id="cb3-10"><a href="grid-search-y-random-search-programados-en-python.html#cb3-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-11"><a href="grid-search-y-random-search-programados-en-python.html#cb3-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-12"><a href="grid-search-y-random-search-programados-en-python.html#cb3-12" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-13"><a href="grid-search-y-random-search-programados-en-python.html#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, k, metric, model, random_seed):</span>
-<span id="cb3-14"><a href="grid-search-y-random-search-programados-en-python.html#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="grid-search-y-random-search-programados-en-python.html#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.k <span class="op">=</span> k</span>
+<span id="cb3-11"><a href="grid-search-y-random-search-programados-en-python.html#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, k, metric, model, random_seed):</span>
+<span id="cb3-12"><a href="grid-search-y-random-search-programados-en-python.html#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="grid-search-y-random-search-programados-en-python.html#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.k <span class="op">=</span> k</span>
+<span id="cb3-14"><a href="grid-search-y-random-search-programados-en-python.html#cb3-14" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-15"><a href="grid-search-y-random-search-programados-en-python.html#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.metric <span class="op">=</span> metric</span>
 <span id="cb3-16"><a href="grid-search-y-random-search-programados-en-python.html#cb3-16" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-17"><a href="grid-search-y-random-search-programados-en-python.html#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.metric <span class="op">=</span> metric</span>
-<span id="cb3-18"><a href="grid-search-y-random-search-programados-en-python.html#cb3-18" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-19"><a href="grid-search-y-random-search-programados-en-python.html#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> model</span>
-<span id="cb3-20"><a href="grid-search-y-random-search-programados-en-python.html#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-21"><a href="grid-search-y-random-search-programados-en-python.html#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.random_seed <span class="op">=</span> random_seed</span>
-<span id="cb3-22"><a href="grid-search-y-random-search-programados-en-python.html#cb3-22" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-23"><a href="grid-search-y-random-search-programados-en-python.html#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-24"><a href="grid-search-y-random-search-programados-en-python.html#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fit(<span class="va">self</span>, D, response_name):</span>
-<span id="cb3-25"><a href="grid-search-y-random-search-programados-en-python.html#cb3-25" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-26"><a href="grid-search-y-random-search-programados-en-python.html#cb3-26" aria-hidden="true" tabindex="-1"></a>         </span>
-<span id="cb3-27"><a href="grid-search-y-random-search-programados-en-python.html#cb3-27" aria-hidden="true" tabindex="-1"></a>        N <span class="op">=</span> <span class="bu">len</span>(D)</span>
-<span id="cb3-28"><a href="grid-search-y-random-search-programados-en-python.html#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="grid-search-y-random-search-programados-en-python.html#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.D_train <span class="op">=</span> D.sample(frac<span class="op">=</span><span class="va">self</span>.k, replace<span class="op">=</span><span class="va">False</span>, random_state<span class="op">=</span><span class="va">self</span>.random_seed)</span>
-<span id="cb3-30"><a href="grid-search-y-random-search-programados-en-python.html#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-31"><a href="grid-search-y-random-search-programados-en-python.html#cb3-31" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.D_test <span class="op">=</span> D.drop( <span class="va">self</span>.D_train.index , )</span>
+<span id="cb3-17"><a href="grid-search-y-random-search-programados-en-python.html#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> model</span>
+<span id="cb3-18"><a href="grid-search-y-random-search-programados-en-python.html#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="grid-search-y-random-search-programados-en-python.html#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.random_seed <span class="op">=</span> random_seed</span>
+<span id="cb3-20"><a href="grid-search-y-random-search-programados-en-python.html#cb3-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-21"><a href="grid-search-y-random-search-programados-en-python.html#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="grid-search-y-random-search-programados-en-python.html#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fit(<span class="va">self</span>, D, response_name):</span>
+<span id="cb3-23"><a href="grid-search-y-random-search-programados-en-python.html#cb3-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-24"><a href="grid-search-y-random-search-programados-en-python.html#cb3-24" aria-hidden="true" tabindex="-1"></a>        N <span class="op">=</span> <span class="bu">len</span>(D)</span>
+<span id="cb3-25"><a href="grid-search-y-random-search-programados-en-python.html#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="grid-search-y-random-search-programados-en-python.html#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.D_train <span class="op">=</span> D.sample(frac<span class="op">=</span><span class="va">self</span>.k, replace<span class="op">=</span><span class="va">False</span>, random_state<span class="op">=</span><span class="va">self</span>.random_seed)</span>
+<span id="cb3-27"><a href="grid-search-y-random-search-programados-en-python.html#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="grid-search-y-random-search-programados-en-python.html#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.D_test <span class="op">=</span> D.drop( <span class="va">self</span>.D_train.index , )</span>
+<span id="cb3-29"><a href="grid-search-y-random-search-programados-en-python.html#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="grid-search-y-random-search-programados-en-python.html#cb3-30" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.X_train <span class="op">=</span> <span class="va">self</span>.D_train.loc[: , <span class="va">self</span>.D_train.columns <span class="op">!=</span> response_name]</span>
+<span id="cb3-31"><a href="grid-search-y-random-search-programados-en-python.html#cb3-31" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.Y_train <span class="op">=</span> <span class="va">self</span>.D_train.loc[: , response_name]</span>
 <span id="cb3-32"><a href="grid-search-y-random-search-programados-en-python.html#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-33"><a href="grid-search-y-random-search-programados-en-python.html#cb3-33" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.X_train <span class="op">=</span> <span class="va">self</span>.D_train.loc[: , <span class="va">self</span>.D_train.columns <span class="op">!=</span> response_name]</span>
-<span id="cb3-34"><a href="grid-search-y-random-search-programados-en-python.html#cb3-34" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.Y_train <span class="op">=</span> <span class="va">self</span>.D_train.loc[: , response_name]</span>
+<span id="cb3-33"><a href="grid-search-y-random-search-programados-en-python.html#cb3-33" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.X_test <span class="op">=</span> <span class="va">self</span>.D_test.loc[: , <span class="va">self</span>.D_test.columns <span class="op">!=</span> response_name]</span>
+<span id="cb3-34"><a href="grid-search-y-random-search-programados-en-python.html#cb3-34" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.Y_test <span class="op">=</span> <span class="va">self</span>.D_test.loc[: , response_name]</span>
 <span id="cb3-35"><a href="grid-search-y-random-search-programados-en-python.html#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-36"><a href="grid-search-y-random-search-programados-en-python.html#cb3-36" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.X_test <span class="op">=</span> <span class="va">self</span>.D_test.loc[: , <span class="va">self</span>.D_test.columns <span class="op">!=</span> response_name]</span>
-<span id="cb3-37"><a href="grid-search-y-random-search-programados-en-python.html#cb3-37" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.Y_test <span class="op">=</span> <span class="va">self</span>.D_test.loc[: , response_name]</span>
-<span id="cb3-38"><a href="grid-search-y-random-search-programados-en-python.html#cb3-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-39"><a href="grid-search-y-random-search-programados-en-python.html#cb3-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-40"><a href="grid-search-y-random-search-programados-en-python.html#cb3-40" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model.fit(<span class="va">self</span>.X_train, <span class="va">self</span>.Y_train)</span>
-<span id="cb3-41"><a href="grid-search-y-random-search-programados-en-python.html#cb3-41" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb3-42"><a href="grid-search-y-random-search-programados-en-python.html#cb3-42" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-43"><a href="grid-search-y-random-search-programados-en-python.html#cb3-43" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> predict(<span class="va">self</span>):</span>
+<span id="cb3-36"><a href="grid-search-y-random-search-programados-en-python.html#cb3-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-37"><a href="grid-search-y-random-search-programados-en-python.html#cb3-37" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model.fit(<span class="va">self</span>.X_train, <span class="va">self</span>.Y_train)</span>
+<span id="cb3-38"><a href="grid-search-y-random-search-programados-en-python.html#cb3-38" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-39"><a href="grid-search-y-random-search-programados-en-python.html#cb3-39" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-40"><a href="grid-search-y-random-search-programados-en-python.html#cb3-40" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> predict(<span class="va">self</span>):</span>
+<span id="cb3-41"><a href="grid-search-y-random-search-programados-en-python.html#cb3-41" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-42"><a href="grid-search-y-random-search-programados-en-python.html#cb3-42" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.Y_predict_test <span class="op">=</span> <span class="va">self</span>.model.predict(<span class="va">self</span>.X_test)</span>
+<span id="cb3-43"><a href="grid-search-y-random-search-programados-en-python.html#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-44"><a href="grid-search-y-random-search-programados-en-python.html#cb3-44" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-45"><a href="grid-search-y-random-search-programados-en-python.html#cb3-45" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.Y_predict_test <span class="op">=</span> <span class="va">self</span>.model.predict(<span class="va">self</span>.X_test)</span>
-<span id="cb3-46"><a href="grid-search-y-random-search-programados-en-python.html#cb3-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-47"><a href="grid-search-y-random-search-programados-en-python.html#cb3-47" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-48"><a href="grid-search-y-random-search-programados-en-python.html#cb3-48" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> compute_metric(<span class="va">self</span>):</span>
-<span id="cb3-49"><a href="grid-search-y-random-search-programados-en-python.html#cb3-49" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb3-50"><a href="grid-search-y-random-search-programados-en-python.html#cb3-50" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.metric <span class="op">==</span> <span class="st">&#39;ECM&#39;</span>:</span>
-<span id="cb3-51"><a href="grid-search-y-random-search-programados-en-python.html#cb3-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-52"><a href="grid-search-y-random-search-programados-en-python.html#cb3-52" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.ECM_test <span class="op">=</span> np.mean((<span class="va">self</span>.Y_predict_test <span class="op">-</span> <span class="va">self</span>.Y_test) <span class="op">**</span> <span class="dv">2</span>)</span>
-<span id="cb3-53"><a href="grid-search-y-random-search-programados-en-python.html#cb3-53" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb3-54"><a href="grid-search-y-random-search-programados-en-python.html#cb3-54" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">self</span>.ECM_test</span>
+<span id="cb3-45"><a href="grid-search-y-random-search-programados-en-python.html#cb3-45" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> compute_metric(<span class="va">self</span>):</span>
+<span id="cb3-46"><a href="grid-search-y-random-search-programados-en-python.html#cb3-46" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-47"><a href="grid-search-y-random-search-programados-en-python.html#cb3-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.metric <span class="op">==</span> <span class="st">&#39;ECM&#39;</span>:</span>
+<span id="cb3-48"><a href="grid-search-y-random-search-programados-en-python.html#cb3-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-49"><a href="grid-search-y-random-search-programados-en-python.html#cb3-49" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.ECM_test <span class="op">=</span> np.mean((<span class="va">self</span>.Y_predict_test <span class="op">-</span> <span class="va">self</span>.Y_test) <span class="op">**</span> <span class="dv">2</span>)</span>
+<span id="cb3-50"><a href="grid-search-y-random-search-programados-en-python.html#cb3-50" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb3-51"><a href="grid-search-y-random-search-programados-en-python.html#cb3-51" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">self</span>.ECM_test</span>
+<span id="cb3-52"><a href="grid-search-y-random-search-programados-en-python.html#cb3-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-53"><a href="grid-search-y-random-search-programados-en-python.html#cb3-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-54"><a href="grid-search-y-random-search-programados-en-python.html#cb3-54" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="va">self</span>.metric <span class="op">==</span> <span class="st">&#39;TAC&#39;</span>:</span>
 <span id="cb3-55"><a href="grid-search-y-random-search-programados-en-python.html#cb3-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-56"><a href="grid-search-y-random-search-programados-en-python.html#cb3-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-57"><a href="grid-search-y-random-search-programados-en-python.html#cb3-57" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> <span class="va">self</span>.metric <span class="op">==</span> <span class="st">&#39;TAC&#39;</span>:</span>
-<span id="cb3-58"><a href="grid-search-y-random-search-programados-en-python.html#cb3-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-59"><a href="grid-search-y-random-search-programados-en-python.html#cb3-59" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.TAC_test <span class="op">=</span> np.mean((<span class="va">self</span>.Y_predict_test <span class="op">==</span> <span class="va">self</span>.Y_test))</span>
-<span id="cb3-60"><a href="grid-search-y-random-search-programados-en-python.html#cb3-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-61"><a href="grid-search-y-random-search-programados-en-python.html#cb3-61" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">self</span>.TAC_test</span></code></pre></div>
+<span id="cb3-56"><a href="grid-search-y-random-search-programados-en-python.html#cb3-56" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.TAC_test <span class="op">=</span> np.mean((<span class="va">self</span>.Y_predict_test <span class="op">==</span> <span class="va">self</span>.Y_test))</span>
+<span id="cb3-57"><a href="grid-search-y-random-search-programados-en-python.html#cb3-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-58"><a href="grid-search-y-random-search-programados-en-python.html#cb3-58" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="va">self</span>.TAC_test</span></code></pre></div>
 <p><br></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="grid-search-y-random-search-programados-en-python.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> RepeatedRandomSimpleValidation :</span>
 <span id="cb4-2"><a href="grid-search-y-random-search-programados-en-python.html#cb4-2" aria-hidden="true" tabindex="-1"></a>   </span>
@@ -710,36 +654,35 @@ quality_recode
 <span id="cb6-11"><a href="grid-search-y-random-search-programados-en-python.html#cb6-11" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb6-12"><a href="grid-search-y-random-search-programados-en-python.html#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, B, K, random_seed, metric, model):</span>
 <span id="cb6-13"><a href="grid-search-y-random-search-programados-en-python.html#cb6-13" aria-hidden="true" tabindex="-1"></a>     </span>
-<span id="cb6-14"><a href="grid-search-y-random-search-programados-en-python.html#cb6-14" aria-hidden="true" tabindex="-1"></a>     </span>
-<span id="cb6-15"><a href="grid-search-y-random-search-programados-en-python.html#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.B <span class="op">=</span> B</span>
-<span id="cb6-16"><a href="grid-search-y-random-search-programados-en-python.html#cb6-16" aria-hidden="true" tabindex="-1"></a>     </span>
-<span id="cb6-17"><a href="grid-search-y-random-search-programados-en-python.html#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.K <span class="op">=</span> K</span>
-<span id="cb6-18"><a href="grid-search-y-random-search-programados-en-python.html#cb6-18" aria-hidden="true" tabindex="-1"></a>         </span>
-<span id="cb6-19"><a href="grid-search-y-random-search-programados-en-python.html#cb6-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.random_seed <span class="op">=</span> random_seed</span>
-<span id="cb6-20"><a href="grid-search-y-random-search-programados-en-python.html#cb6-20" aria-hidden="true" tabindex="-1"></a>     </span>
-<span id="cb6-21"><a href="grid-search-y-random-search-programados-en-python.html#cb6-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.metric <span class="op">=</span> metric</span>
-<span id="cb6-22"><a href="grid-search-y-random-search-programados-en-python.html#cb6-22" aria-hidden="true" tabindex="-1"></a>     </span>
-<span id="cb6-23"><a href="grid-search-y-random-search-programados-en-python.html#cb6-23" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> model</span>
-<span id="cb6-24"><a href="grid-search-y-random-search-programados-en-python.html#cb6-24" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb6-25"><a href="grid-search-y-random-search-programados-en-python.html#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-26"><a href="grid-search-y-random-search-programados-en-python.html#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fit(<span class="va">self</span>, D, response_name):</span>
-<span id="cb6-27"><a href="grid-search-y-random-search-programados-en-python.html#cb6-27" aria-hidden="true" tabindex="-1"></a>       </span>
-<span id="cb6-28"><a href="grid-search-y-random-search-programados-en-python.html#cb6-28" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.Metric_Repeted_K_Folds_list <span class="op">=</span> [ ]</span>
-<span id="cb6-29"><a href="grid-search-y-random-search-programados-en-python.html#cb6-29" aria-hidden="true" tabindex="-1"></a>       </span>
-<span id="cb6-30"><a href="grid-search-y-random-search-programados-en-python.html#cb6-30" aria-hidden="true" tabindex="-1"></a>        np.random.seed(<span class="va">self</span>.random_seed)</span>
-<span id="cb6-31"><a href="grid-search-y-random-search-programados-en-python.html#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-32"><a href="grid-search-y-random-search-programados-en-python.html#cb6-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> b <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="va">self</span>.B):</span>
-<span id="cb6-33"><a href="grid-search-y-random-search-programados-en-python.html#cb6-33" aria-hidden="true" tabindex="-1"></a>       </span>
-<span id="cb6-34"><a href="grid-search-y-random-search-programados-en-python.html#cb6-34" aria-hidden="true" tabindex="-1"></a>            KFoldCV_init <span class="op">=</span> KFoldCV(D<span class="op">=</span>D, K<span class="op">=</span><span class="va">self</span>.K, response_name<span class="op">=</span>response_name, random_seed<span class="op">=</span><span class="dv">123</span>, metric<span class="op">=</span><span class="va">self</span>.metric, model<span class="op">=</span><span class="va">self</span>.model)</span>
-<span id="cb6-35"><a href="grid-search-y-random-search-programados-en-python.html#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-36"><a href="grid-search-y-random-search-programados-en-python.html#cb6-36" aria-hidden="true" tabindex="-1"></a>            KFoldCV_init.fit()</span>
-<span id="cb6-37"><a href="grid-search-y-random-search-programados-en-python.html#cb6-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-38"><a href="grid-search-y-random-search-programados-en-python.html#cb6-38" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.Metric_Repeted_K_Folds_list.append( KFoldCV_init.get_metric() )</span>
+<span id="cb6-14"><a href="grid-search-y-random-search-programados-en-python.html#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.B <span class="op">=</span> B</span>
+<span id="cb6-15"><a href="grid-search-y-random-search-programados-en-python.html#cb6-15" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb6-16"><a href="grid-search-y-random-search-programados-en-python.html#cb6-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.K <span class="op">=</span> K</span>
+<span id="cb6-17"><a href="grid-search-y-random-search-programados-en-python.html#cb6-17" aria-hidden="true" tabindex="-1"></a>         </span>
+<span id="cb6-18"><a href="grid-search-y-random-search-programados-en-python.html#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.random_seed <span class="op">=</span> random_seed</span>
+<span id="cb6-19"><a href="grid-search-y-random-search-programados-en-python.html#cb6-19" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb6-20"><a href="grid-search-y-random-search-programados-en-python.html#cb6-20" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.metric <span class="op">=</span> metric</span>
+<span id="cb6-21"><a href="grid-search-y-random-search-programados-en-python.html#cb6-21" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb6-22"><a href="grid-search-y-random-search-programados-en-python.html#cb6-22" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.model <span class="op">=</span> model</span>
+<span id="cb6-23"><a href="grid-search-y-random-search-programados-en-python.html#cb6-23" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb6-24"><a href="grid-search-y-random-search-programados-en-python.html#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="grid-search-y-random-search-programados-en-python.html#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> fit(<span class="va">self</span>, D, response_name):</span>
+<span id="cb6-26"><a href="grid-search-y-random-search-programados-en-python.html#cb6-26" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb6-27"><a href="grid-search-y-random-search-programados-en-python.html#cb6-27" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.Metric_Repeted_K_Folds_list <span class="op">=</span> [ ]</span>
+<span id="cb6-28"><a href="grid-search-y-random-search-programados-en-python.html#cb6-28" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb6-29"><a href="grid-search-y-random-search-programados-en-python.html#cb6-29" aria-hidden="true" tabindex="-1"></a>        np.random.seed(<span class="va">self</span>.random_seed)</span>
+<span id="cb6-30"><a href="grid-search-y-random-search-programados-en-python.html#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="grid-search-y-random-search-programados-en-python.html#cb6-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> b <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="va">self</span>.B):</span>
+<span id="cb6-32"><a href="grid-search-y-random-search-programados-en-python.html#cb6-32" aria-hidden="true" tabindex="-1"></a>       </span>
+<span id="cb6-33"><a href="grid-search-y-random-search-programados-en-python.html#cb6-33" aria-hidden="true" tabindex="-1"></a>            KFoldCV_init <span class="op">=</span> KFoldCV(D<span class="op">=</span>D, K<span class="op">=</span><span class="va">self</span>.K, response_name<span class="op">=</span>response_name, random_seed<span class="op">=</span><span class="dv">123</span>, metric<span class="op">=</span><span class="va">self</span>.metric, model<span class="op">=</span><span class="va">self</span>.model)</span>
+<span id="cb6-34"><a href="grid-search-y-random-search-programados-en-python.html#cb6-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-35"><a href="grid-search-y-random-search-programados-en-python.html#cb6-35" aria-hidden="true" tabindex="-1"></a>            KFoldCV_init.fit()</span>
+<span id="cb6-36"><a href="grid-search-y-random-search-programados-en-python.html#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-37"><a href="grid-search-y-random-search-programados-en-python.html#cb6-37" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.Metric_Repeted_K_Folds_list.append( KFoldCV_init.get_metric() )</span>
+<span id="cb6-38"><a href="grid-search-y-random-search-programados-en-python.html#cb6-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-39"><a href="grid-search-y-random-search-programados-en-python.html#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-40"><a href="grid-search-y-random-search-programados-en-python.html#cb6-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-41"><a href="grid-search-y-random-search-programados-en-python.html#cb6-41" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_metric(<span class="va">self</span>):</span>
-<span id="cb6-42"><a href="grid-search-y-random-search-programados-en-python.html#cb6-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-43"><a href="grid-search-y-random-search-programados-en-python.html#cb6-43" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>  np.mean(<span class="va">self</span>.Metric_Repeted_K_Folds_list)</span></code></pre></div>
+<span id="cb6-40"><a href="grid-search-y-random-search-programados-en-python.html#cb6-40" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_metric(<span class="va">self</span>):</span>
+<span id="cb6-41"><a href="grid-search-y-random-search-programados-en-python.html#cb6-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-42"><a href="grid-search-y-random-search-programados-en-python.html#cb6-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span>  np.mean(<span class="va">self</span>.Metric_Repeted_K_Folds_list)</span></code></pre></div>
 <p><br></p>
 </div>
 <div id="grid-search-y-random-search-en-python" class="section level2 hasAnchor" number="3.2">
@@ -2611,7 +2554,7 @@ TAC
 <div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="grid-search-y-random-search-programados-en-python.html#cb45-1" aria-hidden="true" tabindex="-1"></a>GridSearch_init.fit_RepeatedRandomSimpleValidation(Data<span class="op">=</span>Data, response_name<span class="op">=</span><span class="st">&#39;quality_recode&#39;</span>, B<span class="op">=</span><span class="dv">15</span>, k<span class="op">=</span><span class="fl">0.8</span>, random_seed<span class="op">=</span><span class="dv">123</span>) <span class="co"># Time: 1.23 min</span></span></code></pre></div>
 <div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="grid-search-y-random-search-programados-en-python.html#cb46-1" aria-hidden="true" tabindex="-1"></a>RandomSearch_Repeated_Simple_Validation_classification <span class="op">=</span> GridSearch_init.get_df_grid_search()</span>
 <span id="cb46-2"><a href="grid-search-y-random-search-programados-en-python.html#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-3"><a href="grid-search-y-random-search-programados-en-python.html#cb46-3" aria-hidden="true" tabindex="-1"></a>RandomSearch_Repeated_Simple_Validation_classification</span></code></pre></div>
+<span id="cb46-3"><a href="grid-search-y-random-search-programados-en-python.html#cb46-3" aria-hidden="true" tabindex="-1"></a>RandomSearch_Repeated_Simple_Validation_classification </span></code></pre></div>
 <div style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
 <thead>
@@ -2778,12 +2721,12 @@ TAC
 <li>Gráficos de los resultados obtenidos con las distintas variantes probadas del algoritmo Grid Search para el ajuste de los hiper-parámetros del algoritmo <strong>KNN para regresión</strong>:</li>
 </ul>
 <center>
-<p><img src="p1.jpg" style="width:70.0%" /></p>
-<p><img src="p2.jpg" style="width:70.0%" /></p>
-<p><img src="p5.jpg" style="width:70.0%" /></p>
-<p><img src="p6.jpg" style="width:70.0%" /></p>
-<p><img src="p9.jpg" style="width:70.0%" /></p>
-<p><img src="p10.jpg" style="width:70.0%" /></p>
+<p><img src="p1.jpg" style="width:80.0%" /></p>
+<p><img src="p2.jpg" style="width:80.0%" /></p>
+<p><img src="p5.jpg" style="width:80.0%" /></p>
+<p><img src="p6.jpg" style="width:80.0%" /></p>
+<p><img src="p9.jpg" style="width:80.0%" /></p>
+<p><img src="p10.jpg" style="width:80.0%" /></p>
 </center>
 <p>Como puede verse, la combinación óptima de hiper-parámetros varía en función de la versión utilizada del algoritmo de ajuste de hiper-parámetros.</p>
 <p><br></p>
@@ -2793,12 +2736,12 @@ TAC
 <li>Gráficos de los resultados obtenidos con las distintas variantes probadas del algoritmo Grid Search para el ajuste de los hiper-parámetros del algoritmo <strong>KNN para clasificación</strong>:</li>
 </ul>
 <center>
-<p><img src="p3.jpg" style="width:70.0%" /></p>
-<p><img src="p4.jpg" style="width:70.0%" /></p>
-<p><img src="p7.jpg" style="width:70.0%" /></p>
-<p><img src="p8.jpg" style="width:70.0%" /></p>
-<p><img src="p11.jpg" style="width:70.0%" /></p>
-<p><img src="p12.jpg" style="width:70.0%" /></p>
+<p><img src="p3.jpg" style="width:80.0%" /></p>
+<p><img src="p4.jpg" style="width:80.0%" /></p>
+<p><img src="p7.jpg" style="width:80.0%" /></p>
+<p><img src="p8.jpg" style="width:80.0%" /></p>
+<p><img src="p11.jpg" style="width:80.0%" /></p>
+<p><img src="p12.jpg" style="width:80.0%" /></p>
 </center>
 <p>Como ocurría en el caso anterior, la combinación óptima de hiper-parámetros varía en función de la versión utilizada del algoritmo de ajuste de hiper-parámetros.</p>
 <p><br></p>
@@ -2859,9 +2802,6 @@ gitbook.start({
 },
 "toc": {
 "collapse": "subsection"
-},
-"ebookConfig": {
-"fontSize": "120%"
 }
 });
 });

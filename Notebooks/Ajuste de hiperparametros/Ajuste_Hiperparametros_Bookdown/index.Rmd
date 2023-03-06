@@ -1,17 +1,17 @@
 --- 
-title: "Algoritmos de Ajuste de Hiperparametros"
+title: "Ajuste de Hiperparámetros"
 author: "Fabio Scielzo Ortiz"
 date: "`r Sys.Date()`"
-subtitle: Aprendizaje Supervisado
 site: bookdown::bookdown_site
 documentclass: book
-bibliography:
-- book.bib
-- packages.bib
-description: "Esta es una introducción a los algoritmos de ajuste de hiperparámetros, aplicados a modelos de aprendizaje supervisado."
+bibliography: book.bib
+description: Introducción a los algoritmos de ajuste de hiperparámetro, aplicados
+  a modelos de aprendizaje supervisado.
 link-citations: yes
 github-repo: null
 ---
+
+
 
 
 # Introducción
@@ -32,20 +32,24 @@ github-repo: null
  
 <p style='margin-left:10em;'>
 
+- **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https://Estadistica4all.com/)**
 
-$\hspace{0.2cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https://Estadistica4all.com/)**
+- **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](https://estadistica4all.com/creador.html)
 
-$\hspace{0.2cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](https://estadistica4all.com/creador.html)
+- **Si utilizas este artículo, por favor, cítalo:** 
 
-$\hspace{0.2cm}$ **Si utilizas este artículo, por favor, cítalo:** 
+    - Scielzo Ortiz, Fabio. (2023). Algoritmos de ajuste de hiperparámetros. Estadistica4all. 
 
-$\hspace{0.3cm}$ Scielzo Ortiz, Fabio. (2023). Algoritmos de ajuste de hiperparámetros. Estadistica4all. 
 
 
 </p>
  
 </p></span>
 </div>
+
+<br>
+
+***Se recomienda abrir el artículo en un ordenador, una tablet o en el móvil en versión de escritorio.***
 
 
 <br>
@@ -84,7 +88,7 @@ $$S \hspace{0.1cm} \subseteq \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}\dots \t
 
 ## Algoritmo Grid Search
 
-El algoritmo grid search queda resumido en el siguiente bloque:
+El algoritmo grid search queda resumido a continuación:
 
 
 
@@ -118,26 +122,26 @@ El algoritmo grid search queda resumido en el siguiente bloque:
  
     $$s^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.25cm} \underset{s \in S}{Max}\hspace{0.25cm} TAC\hspace{0.05cm}\Bigl[ \hspace{0.05cm} M(h=s) \hspace{0.05cm}  \Bigr]_{test}^*$$
 
-
 </p>
  
 </p></span>
 </div>
 
 
+
 <br>
 
 ### ¿ Cómo definir el espacio de búsqueda $\hspace{0.03cm}S\hspace{0.03cm}$ ?
 
-Lo ideal es que $\hspace{0.05cm}S \hspace{0.05cm} = \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}\dots \text{x}\hspace{0.1cm}R(h_r)\hspace{0.1cm}$, pero cuando el número de hiper-parámetros es demasiado alto, o estos tienen campos de variación grandes, esto no es factible en la práctica. Por ello se suelen seguir dos vías más eficientes a nivel computacional, pero menos a nivel estadístico:
+Lo ideal es que $S=  R(h_1)\hspace{0.1cm}\text{x}\dots \text{x}\hspace{0.1cm}R(h_r)\hspace{0.1cm}$, pero cuando el número de hiper-parámetros es demasiado alto, o estos tienen campos de variación grandes, esto no es factible en la práctica. Por ello se suelen seguir dos vías más eficientes a nivel computacional, pero menos a nivel estadístico:
 
-- Se toma $\hspace{0.05cm}S\hspace{0.05cm}$ como un subconjunto estricto de  las posibles combinaciones de hiper-parámetros , es decir, $\hspace{0.1cm}S \hspace{0.1cm} \subset \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}\dots \text{x}\hspace{0.1cm}R(h_r)$.
+- Se toma $S$ como un subconjunto estricto de  las posibles combinaciones de hiper-parámetros , es decir, $S \hspace{0.05cm} \subset \hspace{0.05cm} R(h_1)\hspace{0.1cm}\text{x}\dots \text{x}\hspace{0.1cm}R(h_r)$.
 
-    La definición de $\hspace{0.05cm}S\hspace{0.05cm}$ en este contexto puede ser **determinista** o **aleatoria**. En el primcer caso, el analista define las combinaciones de hiper-parametros que se van a considerar. En el segundo caso, de entre un conjunto de combinaciones definidas por el analista, se escogen *aleatoriamente* las combinaciones de hiper-parámetros que definirán a $\hspace{0.05cm}S\hspace{0.05cm}$.
+    La definición de $S$ en este contexto puede ser **determinista** o **aleatoria**. En el primcer caso, el analista define las combinaciones de hiper-parametros que se van a considerar. En el segundo caso, de entre un conjunto de combinaciones definidas por el analista, se escogen *aleatoriamente* las combinaciones de hiper-parámetros que definirán a $S$.
 
-    - Si la definición de $\hspace{0.05cm}S\hspace{0.05cm}$ es **aleatoria**, el algoritmo suele denominarse Random Grid Search, o simplemente **Random Search**. 
+    - Si la definición de $S$ es **aleatoria**, el algoritmo suele denominarse Random Grid Search, o simplemente **Random Search**. 
     
-    - Si la definción de  $\hspace{0.05cm}S\hspace{0.05cm}$  es **determinista**, el algoritmo se denomina **Grid search**.
+    - Si la definción de  $S$  es **determinista**, el algoritmo se denomina **Grid search**.
 
 
  
@@ -284,8 +288,6 @@ class RandomSimpleValidation :
     # metric --> It's the name of the validation metric.
     # random_seed --> seed to replicate the random process.
     
-    
-    
     def __init__(self, k, metric, model, random_seed):
 
         self.k = k
@@ -299,7 +301,6 @@ class RandomSimpleValidation :
 
     def fit(self, D, response_name):
     
-         
         N = len(D)
 
         self.D_train = D.sample(frac=self.k, replace=False, random_state=self.random_seed)
@@ -517,7 +518,6 @@ class RepeatedKFoldCV:
     # random_seed --> It's the seed to replicate the random process.
     
     def __init__(self, B, K, random_seed, metric, model):
-     
      
         self.B = B
      
@@ -1886,7 +1886,7 @@ GridSearch_init.fit_RepeatedRandomSimpleValidation(Data=Data, response_name='qua
 ```python
 RandomSearch_Repeated_Simple_Validation_classification = GridSearch_init.get_df_grid_search()
 
-RandomSearch_Repeated_Simple_Validation_classification
+RandomSearch_Repeated_Simple_Validation_classification 
 ```
 
 
@@ -1999,17 +1999,17 @@ fig.savefig('p1.jpg', format='jpg', dpi=600)
 
 <center>
 
-![](p1.jpg){width="70%"}
+![](p1.jpg){width="80%"}
 
-![](p2.jpg){width="70%"}
+![](p2.jpg){width="80%"}
 
-![](p5.jpg){width="70%"}
+![](p5.jpg){width="80%"}
 
-![](p6.jpg){width="70%"}
+![](p6.jpg){width="80%"}
 
-![](p9.jpg){width="70%"}
+![](p9.jpg){width="80%"}
 
-![](p10.jpg){width="70%"}
+![](p10.jpg){width="80%"}
 
 </center>
 
@@ -2030,17 +2030,17 @@ Como puede verse, la combinación óptima de hiper-parámetros varía en funció
 
 <center>
 
-![](p3.jpg){width="70%"}
+![](p3.jpg){width="80%"}
 
-![](p4.jpg){width="70%"}
+![](p4.jpg){width="80%"}
 
-![](p7.jpg){width="70%"}
+![](p7.jpg){width="80%"}
 
-![](p8.jpg){width="70%"}
+![](p8.jpg){width="80%"}
 
-![](p11.jpg){width="70%"}
+![](p11.jpg){width="80%"}
 
-![](p12.jpg){width="70%"}
+![](p12.jpg){width="80%"}
 
 </center>
  
@@ -2739,7 +2739,7 @@ df_random_search_sklearn['k-distance'] = df_random_search_sklearn[['k', 'distanc
 
 <br>
 
-## Visualización de resultados <a class="anchor" id="1"></a>
+## Visualización de resultados 
 
 Vamos a visualizar los resultados obtenidos aplicando las funciones  `GridSearchCV`  y  `RandomizedSearchCV` al algoritmo **KNN para regresión**:
 
@@ -2774,9 +2774,9 @@ plt.show()
 
 <center>
 
-![](pp1.jpg){width="70%"}
+![](pp1.jpg){width="80%"}
 
-![](pp2.jpg){width="70%"}
+![](pp2.jpg){width="80%"}
 
 </center> 
 
@@ -2822,9 +2822,9 @@ plt.show()
      
 <center>
 
-![](pp3.jpg){width="70%"}
+![](pp3.jpg){width="80%"}
 
-![](pp4.jpg){width="70%"}
+![](pp4.jpg){width="80%"}
 
 </center> 
 
@@ -2846,13 +2846,8 @@ Cabe destacar que en el segundo caso, las 30 combinaciones de hiper-parámetros 
 # Bibliografía   
 
 
-- Aler Mur, Ricardo. (2022). *Metodología: evaluación de modelos.* [Presentación de PowerPoint]. Aula Global UC3M. $\\[0.635cm]$
+- Aler Mur, Ricardo. (2022). *Metodología: evaluación de modelos.* [Presentación de PowerPoint]. Aula Global UC3M.
  
 - Rodriguez, Daniel. (julio 2018). GridSearchCV. *AnalyticsLane*. https://www.analyticslane.com/2018/07/02/gridsearchcv/
  
 <br> 
- 
- 
- 
- 
- 

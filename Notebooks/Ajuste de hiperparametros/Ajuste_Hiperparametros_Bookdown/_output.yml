@@ -1,11 +1,9 @@
 bookdown::gitbook:
   css: style.css
   config:
-    ebookConfig:
-      fontSize: 120%
     toc:
       before: |
-        <li><a href="./">Algoritmos de Ajuste de Hiperparámetros</a></li>
+        <li><a href="./">Ajuste de Hiperparámetros</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     edit: https://github.com/USERNAME/REPO/edit/BRANCH/%s
@@ -17,5 +15,3 @@ bookdown::pdf_book:
   citation_package: natbib
   keep_tex: yes
 bookdown::epub_book: default
-
-

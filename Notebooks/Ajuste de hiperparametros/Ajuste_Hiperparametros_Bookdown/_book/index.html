@@ -4,20 +4,20 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Algoritmos de Ajuste de Hiperparametros</title>
-  <meta name="description" content="Esta es una introducción a los algoritmos de ajuste de hiperparámetros, aplicados a modelos de aprendizaje supervisado." />
+  <title>Ajuste de Hiperparámetros</title>
+  <meta name="description" content="Introducción a los algoritmos de ajuste de hiperparámetro, aplicados a modelos de aprendizaje supervisado." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Algoritmos de Ajuste de Hiperparametros" />
+  <meta property="og:title" content="Ajuste de Hiperparámetros" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Esta es una introducción a los algoritmos de ajuste de hiperparámetros, aplicados a modelos de aprendizaje supervisado." />
+  <meta property="og:description" content="Introducción a los algoritmos de ajuste de hiperparámetro, aplicados a modelos de aprendizaje supervisado." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Algoritmos de Ajuste de Hiperparametros" />
+  <meta name="twitter:title" content="Ajuste de Hiperparámetros" />
   
-  <meta name="twitter:description" content="Esta es una introducción a los algoritmos de ajuste de hiperparámetros, aplicados a modelos de aprendizaje supervisado." />
+  <meta name="twitter:description" content="Introducción a los algoritmos de ajuste de hiperparámetro, aplicados a modelos de aprendizaje supervisado." />
   
 
 <meta name="author" content="Fabio Scielzo Ortiz" />
@@ -119,28 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -155,7 +133,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Algoritmos de Ajuste de Hiperparámetros</a></li>
+<li><a href="./">Ajuste de Hiperparámetros</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
@@ -198,40 +176,9 @@ div.csl-indent {
 <li class="chapter" data-level="4.2.1" data-path="ajuste-de-hiperparámetros-con-sklearn.html"><a href="ajuste-de-hiperparámetros-con-sklearn.html#randomizedsearchcv---regression"><i class="fa fa-check"></i><b>4.2.1</b> <code>RandomizedSearchCV</code> - Regression</a></li>
 <li class="chapter" data-level="4.2.2" data-path="ajuste-de-hiperparámetros-con-sklearn.html"><a href="ajuste-de-hiperparámetros-con-sklearn.html#randomizedsearchcv---classification"><i class="fa fa-check"></i><b>4.2.2</b> <code>RandomizedSearchCV</code> - Classification</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="ajuste-de-hiperparámetros-con-sklearn.html"><a href="ajuste-de-hiperparámetros-con-sklearn.html#visualización-de-resultados-1"><i class="fa fa-check"></i><b>4.3</b> Visualización de resultados <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="4.3" data-path="ajuste-de-hiperparámetros-con-sklearn.html"><a href="ajuste-de-hiperparámetros-con-sklearn.html#visualización-de-resultados-1"><i class="fa fa-check"></i><b>4.3</b> Visualización de resultados</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i><b>5</b> Bibliografía</a></li>
-<li class="chapter" data-level="6" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>6</b> Hello bookdown</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="hello-bookdown.html"><a href="hello-bookdown.html#a-section"><i class="fa fa-check"></i><b>6.1</b> A section</a>
-<ul>
-<li class="chapter" data-level="" data-path="hello-bookdown.html"><a href="hello-bookdown.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>7</b> Cross-references</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>7.1</b> Chapters and sub-chapters</a></li>
-<li class="chapter" data-level="7.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>7.2</b> Captioned figures and tables</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>8</b> Parts</a></li>
-<li class="chapter" data-level="9" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>9</b> Footnotes and citations</a>
-<ul>
-<li class="chapter" data-level="9.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>9.1</b> Footnotes</a></li>
-<li class="chapter" data-level="9.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>9.2</b> Citations</a></li>
-</ul></li>
-<li class="chapter" data-level="10" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>10</b> Blocks</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>10.1</b> Equations</a></li>
-<li class="chapter" data-level="10.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>10.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="10.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>10.3</b> Callout blocks</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>11</b> Sharing your book</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>11.1</b> Publishing</a></li>
-<li class="chapter" data-level="11.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>11.2</b> 404 pages</a></li>
-<li class="chapter" data-level="11.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>11.3</b> Metadata for sharing</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -244,7 +191,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Algoritmos de Ajuste de Hiperparametros</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Ajuste de Hiperparámetros</a>
           </h1>
         </div>
 
@@ -253,8 +200,7 @@ div.csl-indent {
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Algoritmos de Ajuste de Hiperparametros</h1>
-<h2 class="subtitle"><em>Aprendizaje Supervisado</em></h2>
+<h1 class="title">Ajuste de Hiperparámetros</h1>
 <p class="author"><em>Fabio Scielzo Ortiz</em></p>
 <p class="date"><em>2023-03-06</em></p>
 </div>
@@ -267,14 +213,20 @@ div.csl-indent {
 <div class="warning" style="background-color:#FCF2EC; color: #000000; border-left: solid #FE9554 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:10em;">
-<p><span class="math inline">\(\hspace{0.2cm}\)</span> <strong>Más artículos: <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://Estadistica4all.com/">Estadistica4all</a></strong></p>
-<p><span class="math inline">\(\hspace{0.2cm}\)</span> <strong>Autor:</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://estadistica4all.com/creador.html">Fabio Scielzo Ortiz</a></p>
-<p><span class="math inline">\(\hspace{0.2cm}\)</span> <strong>Si utilizas este artículo, por favor, cítalo:</strong></p>
-<p><span class="math inline">\(\hspace{0.3cm}\)</span> Scielzo Ortiz, Fabio. (2023). Algoritmos de ajuste de hiperparámetros. Estadistica4all.</p>
+<ul>
+<li><p><strong>Más artículos: <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://Estadistica4all.com/">Estadistica4all</a></strong></p></li>
+<li><p><strong>Autor:</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://estadistica4all.com/creador.html">Fabio Scielzo Ortiz</a></p></li>
+<li><p><strong>Si utilizas este artículo, por favor, cítalo:</strong></p>
+<ul>
+<li>Scielzo Ortiz, Fabio. (2023). Algoritmos de ajuste de hiperparámetros. Estadistica4all.</li>
+</ul></li>
+</ul>
 </p>
 </p>
 <p></span></p>
 </div>
+<p><br></p>
+<p><strong><em>Se recomienda abrir el artículo en un ordenador, una tablet o en el móvil en versión de escritorio.</em></strong></p>
 <p><br></p>
 <p>En un modelo de aprendizaje estadístico un hiper-parámetro es un parámetro del modelo que no es estimado por el propio modelo cuando este es entrenado. Es decir, es un parámetro al que hay que asignarle un valor a priori del entrenamiento del modelo.</p>
 <p>Los algoritmos de ajuste de hiper-parámetros son una familia de algoritmos cuyo propósito es seleccionar un valor óptimo (o razonablemente óptimo) para los hiper-parámetros de un modelo dado.</p>
@@ -338,9 +290,6 @@ gitbook.start({
 },
 "toc": {
 "collapse": "subsection"
-},
-"ebookConfig": {
-"fontSize": "120%"
 }
 });
 });
