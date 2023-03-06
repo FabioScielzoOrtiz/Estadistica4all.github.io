@@ -1,0 +1,69 @@
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+
+p {
+    font-size: 17px;
+  }
+
+ul li {
+    font-size: 17px;
+  }
+  
+.book-summary {
+  font-size: 11px;
+}
+
+
+.book .book-summary {
+  width: 350px;
+  position:absolute;
+  top:0;
+  left:-350px;
+}
+
+.book.with-summary .book-header.fixed {
+    left: 350px;
+}
+
+.book.with-summary .book-body {
+    left: 350px;
+}
+
+ 
+
+ .book .book-summary {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.book .book-summary::-webkit-scrollbar {
+  height: 10px;
+}
+
+.book .book-summary::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.book .book-summary::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+
+
+  
