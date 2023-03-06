@@ -140,14 +140,12 @@ Lo ideal es que $\hspace{0.05cm}S \hspace{0.05cm} = \hspace{0.1cm} R(h_1)\hspace
     - Si la definción de  $\hspace{0.05cm}S\hspace{0.05cm}$  es **determinista**, el algoritmo se denomina **Grid search**.
 
 
-<br>
-
----
+ 
 
 <br>
 
 
-# Grid Search - Random Search programados en `Python` 
+# Grid Search y Random Search programados en `Python` 
 
 Importamos las librerías que vamos a utilizar en esta sección:
 
@@ -182,20 +180,7 @@ Data.head()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -280,11 +265,13 @@ Data.head()
 <br>
 
 
-## Algoritmos de validación
+## Algoritmos de validación en `Python`
 
 Cargamos los algoritmos de validación de los que se nutrirá nuestro algoritmo de ajuste de hiperparámetros.
 
-Estos algoritmos fueron tratados con detalle en el artículo sobre [algoritmos de validación para modelos de aprendizaje supervisado.](http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html)
+Estos algoritmos fueron tratados con detalle en el artículo sobre **algoritmos de validación para modelos de aprendizaje supervisado**.
+
+<br>
 
 ```python
 class RandomSimpleValidation :
@@ -351,6 +338,9 @@ class RandomSimpleValidation :
 ```
 
 
+<br>
+
+
 ```python
 class RepeatedRandomSimpleValidation :
    
@@ -409,6 +399,7 @@ class RepeatedRandomSimpleValidation :
         return self.Metric_test
 ```
 
+<br>
 
 ```python
 class KFoldCV:
@@ -511,6 +502,7 @@ class KFoldCV:
             return np.mean(self.TA_K_FOLDS_vector)
 ```
 
+<br>
 
 ```python
 class RepeatedKFoldCV:
@@ -560,45 +552,47 @@ class RepeatedKFoldCV:
 
 
 
-
+<br>
 
   
 
 
  
-## Grid Search - Random Search
+## Grid Search y Random Search en `Python`
 
 
 Vamos a programar el algoritmo Grid Search, tanto su versión determinista como su versión random.
 
 La clase con la que se ha programado tiene los siguientes parámetros:
 
-- Data: conjunto de datos de interés. $\\[0.3cm]$
+- Data: conjunto de datos de interés.  
 
-- Response_name: nombre de la variable respuesta. $\\[0.3cm]$
+- Response_name: nombre de la variable respuesta.  
 
-- model: nombre del modelo que se va a utilizar. En esta versión, por simplicidad, solo se ha considerado el modelo KNN, por ello los nombres disponibles son 'knn_regression' y 'knn_classification'. $\\[0.3cm]$
+- model: nombre del modelo que se va a utilizar. En esta versión, por simplicidad, solo se ha considerado el modelo KNN, por ello los nombres disponibles son 'knn_regression' y 'knn_classification'. 
 
-- search_space: es el espacio de búsqueda para los hiper-parámetros del modelo. $\\[0.3cm]$
+- search_space: es el espacio de búsqueda para los hiper-parámetros del modelo.  
 
-- validation: es el nombre del algoritmo de validación que va a utilizar el algoritmo Grid Search. En esta versión hay dos posibles algoritmos de validación disponibles, validación simple aleatoria repetida y repeated K-fold. Los nombres disponibles son 'repeated_random_simple_validation' y 'repeated_K_Fold_CV'. $\\[0.3cm]$
+- validation: es el nombre del algoritmo de validación que va a utilizar el algoritmo Grid Search. En esta versión hay dos posibles algoritmos de validación disponibles, validación simple aleatoria repetida y repeated K-fold. Los nombres disponibles son 'repeated_random_simple_validation' y 'repeated_K_Fold_CV'.  
 
-- metric: es el nombre de la métrica de validación que usará el algoritmo. En esta versión, por simplicidad, solo se han considerado dos, el error cuadrático medio para modelos de regresión y la tasa de acierto para modelos de clasificación supervisada. Los nombres dispobles son 'ECM' y 'TAC'. $\\[0.3cm]$
+- metric: es el nombre de la métrica de validación que usará el algoritmo. En esta versión, por simplicidad, solo se han considerado dos, el error cuadrático medio para modelos de regresión y la tasa de acierto para modelos de clasificación supervisada. Los nombres dispobles son 'ECM' y 'TAC'.  
 
-- B y k: son parámetros asociados a la función repeated_random_simple_validation. B es el número de repeticiones y k la proporcion de observaciones de train. Para ver más detalles sobre la función repeated_random_simple_validation, se recomienda, una vez más, leer el artículo sobre [algoritmos de validación para modelos de aprendizaje supervisado](http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html). $\\[0.3cm]$
-
-
-- random_seed: es la semilla aleatoria de la funcion repeated_random_simple_validation. $\\[0.3cm]$
+- B y k: son parámetros asociados a la función repeated_random_simple_validation. B es el número de repeticiones y k la proporcion de observaciones de train. Para ver más detalles sobre la función repeated_random_simple_validation, se recomienda, una vez más, leer el artículo sobre **algoritmos de validación para modelos de aprendizaje supervisado**. 
 
 
-- random_search: es un parámetro que toma como valores 'True' o 'False'. Si es 'True' el algoritmo implementado es Random Search, si es 'False' es Grid Search determinista. $\\[0.3cm]$
-
-- random_state: es la semilla aleatoria de Random Search. $\\[0.3cm]$
-
-- n_random_samples: es el número de vectores de valores posibles de los hiper-parametros que se van a considerar en Random Search. $\\[0.3cm]$
+- random_seed: es la semilla aleatoria de la función repeated_random_simple_validation.  
 
 
-La clase devuelve un data-frame con las distintas combinaciones de hiper-parámetros que han sido evaluadas, y los valores de la métrica de validación que han sido obtenidos para cada una de esas combinaciones. $\\[0.3cm]$
+- random_search: es un parámetro que toma como valores 'True' o 'False'. Si es 'True' el algoritmo implementado es Random Search, si es 'False' es Grid Search determinista.  
+
+- random_state: es la semilla aleatoria de Random Search.  
+
+- n_random_samples: es el número de vectores de valores posibles de los hiper-parámetros que se van a considerar en Random Search.  
+
+
+La clase devuelve un data-frame con las distintas combinaciones de hiper-parámetros que han sido evaluadas, y los valores de la métrica de validación que han sido obtenidos para cada una de esas combinaciones.  
+
+<br>
 
 La clase con la que se ha  programado el algoritmo Grid Search es la siguiente:
 
@@ -784,7 +778,7 @@ Usaremos el siguiente mismo espacio de búsqueda.
 search_space = [range(1,100) , ['euclidean','cosine','cityblock','manhattan']]
 ```
 
-
+<br>
 
 ### Grid Search K-Fold Regression
 
@@ -813,25 +807,12 @@ GridSearch_10Fold_regression
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>(k, distance)</th>
-      <th>ECM</th>
+       <th style="text-align: left;">(k, distance)</th>
+        <th style="text-align: left;">ECM</th>
     </tr>
   </thead>
   <tbody>
@@ -899,7 +880,7 @@ GridSearch_10Fold_regression
 <br>
 
 
-### Random Search K-Fold Regression
+### Random Search - K-Fold - Regression
 
 Random Search aplicado a KNN para regresión, usando el algoritmo K-Fold, con K=10, y la métrica de validación ECM.
 
@@ -924,26 +905,13 @@ RandomSearch_10Fold_regression
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div  style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>(k, distance)</th>
-      <th>ECM</th>
+        <th style="text-align: left;">(k, distance)</th>
+        <th style="text-align: left;">ECM</th>
     </tr>
   </thead>
   <tbody>
@@ -1011,7 +979,7 @@ RandomSearch_10Fold_regression
 
 <br>
 
-### Grid Search K-Fold Classification
+### Grid Search - K-Fold - Classification
 
 Grid Search aplicado a KNN para clasificación, usando el algoritmo K-Fold, con K=10, y la métrica de validación TAC.
 
@@ -1038,26 +1006,13 @@ GridSearch_10Fold_classification
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div  style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>(k, distance)</th>
-      <th>TAC</th>
+        <th style="text-align: left;">(k, distance)</th>
+        <th style="text-align: left;">ECM</th>
     </tr>
   </thead>
   <tbody>
@@ -1125,7 +1080,7 @@ GridSearch_10Fold_classification
 
 <br>
 
-### Random Search K-Fold Classification
+### Random Search - K-Fold - Classification
 
  
 Random Search aplicado a KNN para clasificación, usando el algoritmo K-Fold, con K=10, y la métrica de validación TAC.
@@ -1151,26 +1106,13 @@ RandomSearch_10Fold_classification
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div  style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>(k, distance)</th>
-      <th>TAC</th>
+        <th style="text-align: left;">(k, distance)</th>
+        <th style="text-align: left;">TAC</th>
     </tr>
   </thead>
   <tbody>
@@ -1240,7 +1182,7 @@ RandomSearch_10Fold_classification
 
 
 
-### Grid Search Repeated K-Fold Regression
+### Grid Search - Repeated K-Fold - Regression
 
 Grid Search aplicado a KNN para regresión, usando el algoritmo Repeated K-Fold, con B=15 y K=10, y la métrica de validación ECM.
 
@@ -1265,26 +1207,13 @@ GridSearch_5_Repeated_10Fold_regression
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div  style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>(k, distance)</th>
-      <th>ECM</th>
+        <th style="text-align: left;">(k, distance)</th>
+        <th style="text-align: left;">ECM</th>
     </tr>
   </thead>
   <tbody>
@@ -1353,7 +1282,7 @@ GridSearch_5_Repeated_10Fold_regression
 <br>
 
 
-### Random Search Repeated K-Fold Regression
+### Random Search - Repeated K-Fold  - Regression
 
 Random Search aplicado a KNN para regresión, usando el algoritmo Repeated K-Fold, con B=15 y K=10, y la métrica de validación ECM.
 
@@ -1379,26 +1308,13 @@ RandomSearch_5_Repeated_10Fold_regression
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div  style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>(k, distance)</th>
-      <th>ECM</th>
+        <th style="text-align: left;">(k, distance)</th>
+        <th style="text-align: left;">ECM</th>
     </tr>
   </thead>
   <tbody>
@@ -1466,7 +1382,7 @@ RandomSearch_5_Repeated_10Fold_regression
 <br>
 
 
-### Grid Search Repeted K-Fold Classification
+### Grid Search - Repeted K-Fold - Classification
 
 Grid Search aplicado a KNN para clasificación, usando el algoritmo Repeated K-Fold, con B=15 y K=10, y la métrica de validación TAC.
 
@@ -1491,26 +1407,13 @@ GridSearch_5_Repeated_10Fold_classification
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div  style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>(k, distance)</th>
-      <th>TAC</th>
+        <th style="text-align: left;">(k, distance)</th>
+        <th style="text-align: left;">TAC</th>
     </tr>
   </thead>
   <tbody>
@@ -1578,7 +1481,7 @@ GridSearch_5_Repeated_10Fold_classification
 <br>
 
 
-### Random Search  Repeated K-Fold Classification
+### Random Search - Repeated K-Fold - Classification
 
 Random Search aplicado a KNN para clasificación, usando el algoritmo Repeated K-Fold, con B=15 y K=10, y la métrica de validación TAC.
 
@@ -1601,26 +1504,13 @@ RandomSearch_5_Repeated_10Fold_classification
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div  style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>(k, distance)</th>
-      <th>TAC</th>
+        <th style="text-align: left;">(k, distance)</th>
+        <th style="text-align: left;">TAC</th>
     </tr>
   </thead>
   <tbody>
@@ -1688,7 +1578,7 @@ RandomSearch_5_Repeated_10Fold_classification
 <br>
 
 
-### Grid Search Repeated Random Simple Validation Regression
+### Grid Search - Repeated Random Simple Validation - Regression
 
 Grid Search aplicado a KNN para regresón, usando el algoritmo Repeated Random Simple Validation, con B=15 y K=10, y la métrica de validación ECM.
 
@@ -1711,26 +1601,13 @@ GridSearch_Repeated_Random_Simple_Validation_regression
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div  style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>(k, distance)</th>
-      <th>ECM</th>
+        <th style="text-align: left;">(k, distance)</th>
+        <th style="text-align: left;">ECM</th>
     </tr>
   </thead>
   <tbody>
@@ -1798,7 +1675,7 @@ GridSearch_Repeated_Random_Simple_Validation_regression
 <br>
 
 
-### Random Search Repeated Simple Validation Regression
+### Random Search - Repeated Simple Validation - Regression
 
 Random Search aplicado a KNN para regresión, usando el algoritmo Repeated Random Simple Validation, con B=15 y K=10, y la métrica de validación ECM.
 
@@ -1821,26 +1698,13 @@ RandomSearch_Repeated_Simple_Validation_regression
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div  style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>(k, distance)</th>
-      <th>ECM</th>
+        <th style="text-align: left;">(k, distance)</th>
+        <th style="text-align: left;">ECM</th>
     </tr>
   </thead>
   <tbody>
@@ -1908,7 +1772,7 @@ RandomSearch_Repeated_Simple_Validation_regression
 <br>
 
 
-### Grid Search Repeated Simple Validation Classification
+### Grid Search - Repeated Simple Validation - Classification
 
 Grid Search aplicado a KNN para clasificación, usando el algoritmo Repeated Random Simple Validation, con B=15 y K=10, y la métrica de validación TAC.
 
@@ -1931,26 +1795,13 @@ GridSearch_Repeated_Simple_Validation_classification
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div  style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>(k, distance)</th>
-      <th>TAC</th>
+         <th style="text-align: left;">(k, distance)</th>
+        <th style="text-align: left;">TAC</th>
     </tr>
   </thead>
   <tbody>
@@ -2018,7 +1869,7 @@ GridSearch_Repeated_Simple_Validation_classification
 
 <br>
 
-### Random Search Repeated Simple Validation Classification
+### Random Search - Repeated Simple Validation - Classification
 
 Random Search aplicado a KNN para clasificación, usando el algoritmo Repeated Random Simple Validation, con B=15 y K=10, y la métrica de validación TAC.
 
@@ -2041,26 +1892,13 @@ RandomSearch_Repeated_Simple_Validation_classification
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div  style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>(k, distance)</th>
-      <th>TAC</th>
+        <th style="text-align: left;">(k, distance)</th>
+        <th style="text-align: left;">TAC</th>
     </tr>
   </thead>
   <tbody>
@@ -2128,7 +1966,7 @@ RandomSearch_Repeated_Simple_Validation_classification
 <br>
 
 
-## Visualización de resultados <a class="anchor" id="1"></a>
+## Visualización de resultados 
 
 Vamos a mostrar el código que se ha usado solo para el primero de los gráficos, para no saturar de código el artículo. 
 
@@ -2155,23 +1993,23 @@ fig.savefig('p1.jpg', format='jpg', dpi=600)
 
 <br> 
 
-- Gráficos de los resultados obtenidos con las distintas variantes probadas del algoritmo Grid Search para el ajuste de los hiper-parámetros del modelo KNN para regresión:
+- Gráficos de los resultados obtenidos con las distintas variantes probadas del algoritmo Grid Search para el ajuste de los hiper-parámetros del algoritmo **KNN para regresión**:
 
 
 
 <center>
 
-![](p1.jpg){width="60%"}
+![](p1.jpg){width="70%"}
 
-![](p2.jpg){width="60%"}
+![](p2.jpg){width="70%"}
 
-![](p5.jpg){width="60%"}
+![](p5.jpg){width="70%"}
 
-![](p6.jpg){width="60%"}
+![](p6.jpg){width="70%"}
 
-![](p9.jpg){width="60%"}
+![](p9.jpg){width="70%"}
 
-![](p10.jpg){width="60%"}
+![](p10.jpg){width="70%"}
 
 </center>
 
@@ -2181,24 +2019,28 @@ Como puede verse, la combinación óptima de hiper-parámetros varía en funció
 
 <br>
 
+---
+
+<br>
 
 
-- Gráficos de los resultados obtenidos con las distintas variantes probadas del algoritmo Grid Search para el ajuste de los hiper-parámetros del modelo KNN para clasificación:
+
+- Gráficos de los resultados obtenidos con las distintas variantes probadas del algoritmo Grid Search para el ajuste de los hiper-parámetros del algoritmo **KNN para clasificación**:
  
 
 <center>
 
-![](p3.jpg){width="60%"}
+![](p3.jpg){width="70%"}
 
-![](p4.jpg){width="60%"}
+![](p4.jpg){width="70%"}
 
-![](p7.jpg){width="60%"}
+![](p7.jpg){width="70%"}
 
-![](p8.jpg){width="60%"}
+![](p8.jpg){width="70%"}
 
-![](p11.jpg){width="60%"}
+![](p11.jpg){width="70%"}
 
-![](p12.jpg){width="60%"}
+![](p12.jpg){width="70%"}
 
 </center>
  
@@ -2221,15 +2063,15 @@ La función que vamos a utilizar para aplicar el algoritmo de ajuste de hiper-pa
 Esta función tiene, entre otros, los siguientes parámetros:
 
 
-- estimator: es el modelo que cuyos hiper-parámetros quieren ajustarse. $\\[0.3cm]$
+- estimator: es el modelo que cuyos hiper-parámetros quieren ajustarse.  
 
-- param_grid: es un diccionario con los valores considerados para cada uno de los hiper-parámetros del modelo. $\\[0.3cm]$
+- param_grid: es un diccionario con los valores considerados para cada uno de los hiper-parámetros del modelo.  
 
-- cv: esta función utiliza como algoritmo de validación el K-Fold. cv es el parámetro K, es decir, el número de folds. $\\[0.3cm]$
+- cv: esta función utiliza como algoritmo de validación el K-Fold. cv es el parámetro K, es decir, el número de folds.  
 
-- scoring: es la métrica de validación que usará el algoritmo. $\\[0.3cm]$
+- scoring: es la métrica de validación que usará el algoritmo.  
 
-
+<br>
 
 Importamos la función `GridSearchCV`:
 
@@ -2237,12 +2079,18 @@ Importamos la función `GridSearchCV`:
 from sklearn.model_selection import GridSearchCV
 ```
 
+<br>
+
+
+### GridSearchCV - Regression
+
 
 En este primer ejemplo vamos a utilizar como modelo el KNN para *regresión*.
 
 ```python
 knn_regression = sklearn.neighbors.KNeighborsRegressor( )
 ```
+<br>
 
 
 Inicializamos la función `GridSearchCV` con los siguientes parametros:
@@ -2250,6 +2098,8 @@ Inicializamos la función `GridSearchCV` con los siguientes parametros:
 ```python
 grid_search = GridSearchCV(estimator = knn_regression, param_grid = {'n_neighbors': range(1,200), 'metric': ['euclidean','cosine','cityblock','manhattan']}, cv = 10, scoring='neg_mean_squared_error')
 ```
+
+<br>
 
 Creamos un array con la variable respuesta, que en este caso es *price*, y un data-frame con los predictores, que serán el resto de variables del data-set con el que estamos trabajando:
 
@@ -2259,6 +2109,8 @@ Y = Data.loc[:,'price']
 X = Data.loc[:, Data.columns != 'price']
 ```
 
+<br>
+
 
 Ajustamos la función `GridSearchCV` con los datos de `Y` y `X` usando el método `fit` 
 
@@ -2266,24 +2118,26 @@ Ajustamos la función `GridSearchCV` con los datos de `Y` y `X` usando el métod
 grid_search.fit(X,Y)
 ```
  
+ <br>
+
 Podemos acceder a alguna información relevante tras ajustar la función con los datos.
 
 
 
-La combinación de hiper-parámetros óptimos:
+- La combinación de hiper-parámetros óptimos:
 
 
 ```python
 grid_search.best_params_
 ```
 
-
-
-
     {'metric': 'cosine', 'n_neighbors': 17}
 
 
-El valor de la métrica que se ha considerado para esa combinación de hiper-parámetros óptimos:
+<br>
+
+
+- El valor de la métrica que se ha considerado para esa combinación de hiper-parámetros óptimos:
 
 ```python
 grid_search.best_score_
@@ -2294,6 +2148,7 @@ grid_search.best_score_
 
 
 
+<br>
 
 
 Podemos crear un data-frame con las distintas combinaciones de valores de los hiper-parámetros que han sido utilizadas y el valor de la métrica de validación que se ha obtenido para cada una de esas combinaciones. Esto es justamente lo que nos devolvía nuestra función programada en la sección anterior.
@@ -2309,27 +2164,14 @@ df_grid_search_sklearn
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
   <thead>
-    <tr style="text-align: right;">
+    <tr style="text-align: left;">
       <th></th>
-      <th>k</th>
-      <th>distance</th>
-      <th>ECM</th>
+        <th style="text-align: left;">k</th>
+        <th style="text-align: left;">distance</th>
+        <th style="text-align: left;">ECM</th>
     </tr>
   </thead>
   <tbody>
@@ -2405,6 +2247,7 @@ df_grid_search_sklearn
 </div>
 
 
+<br>
 
 Realizamos algunos cambios orientados a una mejor visualización gráfica posterior.
 
@@ -2416,12 +2259,11 @@ df_grid_search_sklearn['distance'] = df_grid_search_sklearn['distance'].astype(s
 df_grid_search_sklearn['k-distance'] = df_grid_search_sklearn[['k', 'distance']].agg('-'.join, axis=1)
 ```
 
-<br>
-
-
----
+ 
 
 <br>
+
+### GridSearchCV - Classification
 
 
 Ahora vamos a aplicar la función `GridSearchCV` al modelo KNN para clasificación.
@@ -2491,27 +2333,14 @@ df_grid_search_sklearn
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
   <thead>
-    <tr style="text-align: right;">
+    <tr style="text-align: left;">
       <th></th>
-      <th>k</th>
-      <th>distance</th>
-      <th>TAC</th>
+        <th style="text-align: left;">k</th>
+        <th style="text-align: left;">distance</th>
+        <th style="text-align: left;">ECM</th>
     </tr>
   </thead>
   <tbody>
@@ -2611,19 +2440,20 @@ La función que vamos a utilizar para aplicar el algoritmo de ajuste de hiper-pa
 Esta función tiene, entre otros, los siguientes parámetros:
 
 
-- estimator: es el modelo que cuyos hiper-parámetros quieren ajustarse. $\\[0.3cm]$
+- estimator: es el modelo que cuyos hiper-parámetros quieren ajustarse.  
 
-- param_distributions: es un diccionario con los valores considerados para cada uno de los hiper-parámetros del modelo. $\\[0.3cm]$
+- param_distributions: es un diccionario con los valores considerados para cada uno de los hiper-parámetros del modelo.  
 
-- cv: esta función utiliza como algoritmo de validación el K-Fold. cv es el parámetro K, es decir, el número de folds. $\\[0.3cm]$
+- cv: esta función utiliza como algoritmo de validación el K-Fold. cv es el parámetro K, es decir, el número de folds.  
 
-- scoring: es la métrica de validación que usará el algoritmo. $\\[0.3cm]$
+- scoring: es la métrica de validación que usará el algoritmo.  
 
-- n_iter: es el número de combinaciones de hiper-paramétros que se van a seleccionar aleatoriamente. $\\[0.3cm]$
+- n_iter: es el número de combinaciones de hiper-paramétros que se van a seleccionar aleatoriamente.  
 
-- random_state: es la semilla aleatoria de la parte aleatoria que tiene el algoritmo Random Search. $\\[0.3cm]$
+- random_state: es la semilla aleatoria de la parte aleatoria que tiene el algoritmo Random Search. 
 
 
+<br>
 
 Importamos la función `RandomizedSearchCV` de la librería `sklearn`:
 
@@ -2631,11 +2461,18 @@ Importamos la función `RandomizedSearchCV` de la librería `sklearn`:
 from sklearn.model_selection import RandomizedSearchCV
 ```
 
+<br>
+
+###  `RandomizedSearchCV` - Regression
+
+
 Inicializamos algunos parámetros de la función `RandomizedSearchCV`:
 
 ```python
 random_search = RandomizedSearchCV(estimator = knn_regression, param_distributions = {'n_neighbors': range(1,200), 'metric': ['euclidean','cosine','cityblock','manhattan']}, cv = 10, n_iter=100, random_state=123, scoring='neg_mean_squared_error')
 ```
+
+<br>
 
 Creamos un array con la variable respuesta, que en este caso es *price*, y un data-frame con los predictores, que serán el resto de variables del data-set con el que estamos trabajando:
 
@@ -2645,11 +2482,15 @@ Y = Data.loc[:,'price']
 X = Data.loc[:, Data.columns != 'price']
 ``` 
 
+<br>
+
 Entrenamos la función `RandomizedSearchCV` con los datos : 
 
 ```python
 random_search.fit(X,Y)
 ```
+
+<br>
 
 Podemos crear un data-frame con las distintas combinaciones de valores de los hiper-parámetros que han sido utilizadas y el valor de la métrica de validación que se ha obtenido para cada una de esas combinaciones. Esto es justamente lo que nos devolvía nuestra función programada en la sección anterior.
  
@@ -2664,28 +2505,14 @@ df_random_search_sklearn
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>k</th>
-      <th>distance</th>
-      <th>ECM</th>
-      <th>k-distance</th>
+        <th style="text-align: left;">k</th>
+        <th style="text-align: left;">distance</th>
+        <th style="text-align: left;">ECM</th>
     </tr>
   </thead>
   <tbody>
@@ -2694,39 +2521,33 @@ df_random_search_sklearn
       <td>11</td>
       <td>cosine</td>
       <td>2.287579e+12</td>
-      <td>11-cosine</td>
     </tr>
     <tr>
       <th>38</th>
       <td>11</td>
       <td>manhattan</td>
       <td>2.321534e+12</td>
-      <td>11-manhattan</td>
     </tr>
     <tr>
       <th>91</th>
       <td>14</td>
       <td>euclidean</td>
       <td>2.334281e+12</td>
-      <td>14-euclidean</td>
     </tr>
     <tr>
       <th>84</th>
       <td>19</td>
       <td>cosine</td>
       <td>2.337300e+12</td>
-      <td>19-cosine</td>
     </tr>
     <tr>
       <th>78</th>
       <td>12</td>
       <td>euclidean</td>
       <td>2.339571e+12</td>
-      <td>12-euclidean</td>
     </tr>
     <tr>
       <th>...</th>
-      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
@@ -2736,43 +2557,38 @@ df_random_search_sklearn
       <td>189</td>
       <td>cityblock</td>
       <td>5.180324e+12</td>
-      <td>189-cityblock</td>
     </tr>
     <tr>
       <th>43</th>
       <td>189</td>
       <td>euclidean</td>
       <td>5.182189e+12</td>
-      <td>189-euclidean</td>
     </tr>
     <tr>
       <th>46</th>
       <td>190</td>
       <td>cityblock</td>
       <td>5.187852e+12</td>
-      <td>190-cityblock</td>
     </tr>
     <tr>
       <th>17</th>
       <td>194</td>
       <td>manhattan</td>
       <td>5.227831e+12</td>
-      <td>194-manhattan</td>
     </tr>
     <tr>
       <th>27</th>
       <td>196</td>
       <td>euclidean</td>
       <td>5.247368e+12</td>
-      <td>196-euclidean</td>
     </tr>
   </tbody>
 </table>
-<p>100 rows × 4 columns</p>
+<p>100 rows × 3 columns</p>
 </div>
 
 
-
+<br>
 
 Realizamos cambios para una posterior mejor visualización gráfica:
 
@@ -2785,12 +2601,10 @@ df_random_search_sklearn['k-distance'] = df_random_search_sklearn[['k', 'distanc
 ```
 
  
-<br>
-
-
----
 
 <br>
+
+###  `RandomizedSearchCV` - Classification
 
 
 Ahora vamos a aplicar la función `RandomizedSearchCV` al modelo KNN para clasificación.
@@ -2829,27 +2643,14 @@ df_random_search_sklearn
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>k</th>
-      <th>distance</th>
-      <th>TAC</th>
+        <th style="text-align: left;">k</th>
+        <th style="text-align: left;">distance</th>
+        <th style="text-align: left;">TAC</th>
     </tr>
   </thead>
   <tbody>
@@ -2940,7 +2741,7 @@ df_random_search_sklearn['k-distance'] = df_random_search_sklearn[['k', 'distanc
 
 ## Visualización de resultados <a class="anchor" id="1"></a>
 
-Vamos a visualizar los resultados obtenidos aplicando las funciones  `GridSearchCV`  y  `RandomizedSearchCV` al modelo KNN para regresión:
+Vamos a visualizar los resultados obtenidos aplicando las funciones  `GridSearchCV`  y  `RandomizedSearchCV` al algoritmo **KNN para regresión**:
 
 
 ```python
@@ -2973,9 +2774,9 @@ plt.show()
 
 <center>
 
-![](pp1.jpg){width="60%"}
+![](pp1.jpg){width="70%"}
 
-![](pp2.jpg){width="60%"}
+![](pp2.jpg){width="70%"}
 
 </center> 
 
@@ -2984,9 +2785,11 @@ Como puede verse, la combinación óptima de hiper-parámetros varía en funció
 
 <br>
 
+---
 
+<br>
 
-Ahora vamos a visualizar los resultados obtenidos aplicando las funciones  `GridSearchCV`  y  `RandomizedSearchCV` al modelo KNN para clasificación:
+Ahora vamos a visualizar los resultados obtenidos aplicando las funciones  `GridSearchCV`  y  `RandomizedSearchCV` al algoritmo **KNN para clasificación**:
 
 ```python
 fig, axs = plt.subplots()
@@ -3019,9 +2822,9 @@ plt.show()
      
 <center>
 
-![](pp3.jpg){width="60%"}
+![](pp3.jpg){width="70%"}
 
-![](pp4.jpg){width="60%"}
+![](pp4.jpg){width="70%"}
 
 </center> 
 
@@ -3037,9 +2840,6 @@ Cabe destacar que en el segundo caso, las 30 combinaciones de hiper-parámetros 
 
 <br>
 
----
-
-<br>
 
 
 
