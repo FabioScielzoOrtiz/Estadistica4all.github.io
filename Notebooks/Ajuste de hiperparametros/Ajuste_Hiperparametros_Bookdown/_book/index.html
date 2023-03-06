@@ -31,7 +31,7 @@
   
   
 
-<link rel="next" href="grid-search---random-search.html"/>
+<link rel="next" href="grid-search-y-random-search.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -155,15 +155,21 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Algoritmos de Ajuste de Hiperparámetros</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
-<li class="chapter" data-level="2" data-path="grid-search---random-search.html"><a href="grid-search---random-search.html"><i class="fa fa-check"></i><b>2</b> Grid Search - Random Search <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="2" data-path="grid-search-y-random-search.html"><a href="grid-search-y-random-search.html"><i class="fa fa-check"></i><b>2</b> Grid Search y Random Search</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="grid-search-y-random-search.html"><a href="grid-search-y-random-search.html#algoritmo-grid-search"><i class="fa fa-check"></i><b>2.1</b> Algoritmo Grid Search</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="grid-search-y-random-search.html"><a href="grid-search-y-random-search.html#cómo-definir-el-espacio-de-búsqueda-hspace0.03cmshspace0.03cm"><i class="fa fa-check"></i><b>2.1.1</b> ¿ Cómo definir el espacio de búsqueda <span class="math inline">\(\hspace{0.03cm}S\hspace{0.03cm}\)</span> ?</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="grid-search---random-search-programados-en-python.html"><a href="grid-search---random-search-programados-en-python.html"><i class="fa fa-check"></i><b>3</b> Grid Search - Random Search programados en <code>Python</code></a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="grid-search---random-search-programados-en-python.html"><a href="grid-search---random-search-programados-en-python.html#algoritmos-de-validación"><i class="fa fa-check"></i><b>3.1</b> Algoritmos de validación</a></li>
-<li class="chapter" data-level="3.2" data-path="grid-search---random-search-programados-en-python.html"><a href="grid-search---random-search-programados-en-python.html#grid-search---random-search-1"><i class="fa fa-check"></i><b>3.2</b> Grid Search - Random Search</a>
+<li class="chapter" data-level="3.2" data-path="grid-search---random-search-programados-en-python.html"><a href="grid-search---random-search-programados-en-python.html#grid-search---random-search"><i class="fa fa-check"></i><b>3.2</b> Grid Search - Random Search</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="grid-search---random-search-programados-en-python.html"><a href="grid-search---random-search-programados-en-python.html#grid-search-k-fold-regression"><i class="fa fa-check"></i><b>3.2.1</b> Grid Search K-Fold Regression</a></li>
 <li class="chapter" data-level="3.2.2" data-path="grid-search---random-search-programados-en-python.html"><a href="grid-search---random-search-programados-en-python.html#random-search-k-fold-regression"><i class="fa fa-check"></i><b>3.2.2</b> Random Search K-Fold Regression</a></li>
@@ -249,22 +255,24 @@ div.csl-indent {
 <center>
 <p><img src="pic_ajuste.jpg" style="width:70.0%" /></p>
 </center>
+<p><br></p>
 <div class="warning" style="background-color:#FCF2EC; color: #000000; border-left: solid #FE9554 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:10em;">
-<p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Más artículos: <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://Estadistica4all.com/">Estadistica4all</a></strong></p>
-<p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Autor:</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://estadistica4all.com/creador.html">Fabio Scielzo Ortiz</a></p>
-<p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Si utilizas este artículo, por favor, cítalo:</strong></p>
-<p><span class="math inline">\(\hspace{0.5cm}\)</span> Scielzo Ortiz, Fabio. (2023). Algoritmos de ajuste de hiperparámetros. Estadistica4all. <a href="http://estadistica4all.com/Articulos/ajuste_hiperparametros.html" class="uri">http://estadistica4all.com/Articulos/ajuste_hiperparametros.html</a></p>
+<p><span class="math inline">\(\hspace{0.2cm}\)</span> <strong>Más artículos: <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://Estadistica4all.com/">Estadistica4all</a></strong></p>
+<p><span class="math inline">\(\hspace{0.2cm}\)</span> <strong>Autor:</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://estadistica4all.com/creador.html">Fabio Scielzo Ortiz</a></p>
+<p><span class="math inline">\(\hspace{0.2cm}\)</span> <strong>Si utilizas este artículo, por favor, cítalo:</strong></p>
+<p><span class="math inline">\(\hspace{0.3cm}\)</span> Scielzo Ortiz, Fabio. (2023). Algoritmos de ajuste de hiperparámetros. Estadistica4all.</p>
 </p>
 </p>
 <p></span></p>
 </div>
-<p>En un modelo de aprendizaje estadistico un hiper-parámetro es un parámetro del modelo que no es estimado por el propio modelo cuando este es entrenado. Es decir, es un parámetro al que hay que asignarle un valor a priori del entrenamiento del modelo.</p>
+<p><br></p>
+<p>En un modelo de aprendizaje estadístico un hiper-parámetro es un parámetro del modelo que no es estimado por el propio modelo cuando este es entrenado. Es decir, es un parámetro al que hay que asignarle un valor a priori del entrenamiento del modelo.</p>
 <p>Los algoritmos de ajuste de hiper-parámetros son una familia de algoritmos cuyo propósito es seleccionar un valor óptimo (o razonablemente óptimo) para los hiper-parámetros de un modelo dado.</p>
 <p>En este artículo nos centraremos en el algoritmo Grid Search (busqueda en rejilla o cuadricula), tanto en su versión determinista como en su versión aleatoria (Random Search).</p>
 <p>Grid search puede ser aplicado tanto a modelos de aprendizaje supervisado como a modelos de aprendizaje no supervisado. Pero en este artículo nos centraremos en su aplicación a modelos de aprendizaje supervisado, concretamente usaremos KNN como modelo supervisado para realizar los ejemplos de aplicación. No obstante, es fácilmente extrapolable su aplicación a otros modelos supervisados y también a modelos no supervisados.</p>
-<p>Este algoritmo usa a su vez algoritmos y métricas de validación, por ello es muy recomendable leer el artículo que tenemos en el blog sobre <a href="http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html">algoritmos de validación para modelos de aprendizaje supervisado</a>. Además, puesto que los ejemplos se ilustraran usando KNN como modelo supervisado de referencia, también es recomendable leer el artículo que tenemos en el blog sobre <a href="http://estadistica4all.com/Articulos/KNN.html">KNN</a>.</p>
+<p>Este algoritmo usa a su vez algoritmos y métricas de validación, por ello es muy recomendable leer el artículo que tenemos en el blog sobre <strong>algoritmos de validación para modelos de aprendizaje supervisado</strong>. Además, puesto que los ejemplos se ilustraran usando KNN como modelo supervisado de referencia, también es recomendable leer el artículo que tenemos en el blog sobre <strong>KNN</strong>.</p>
 <p><br></p>
 </div>
             </section>
@@ -273,7 +281,7 @@ div.csl-indent {
         </div>
       </div>
 
-<a href="grid-search---random-search.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="grid-search-y-random-search.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

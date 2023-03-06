@@ -41,3 +41,7 @@ introducción
 que-tal
 prefacio
 section
+grid-search-y-random-search
+cómo-definir-hspace0.03cmshspace0.03cm
+algoritmo-grid-search
+cómo-definir-el-espacio-de-búsqueda-hspace0.03cmshspace0.03cm

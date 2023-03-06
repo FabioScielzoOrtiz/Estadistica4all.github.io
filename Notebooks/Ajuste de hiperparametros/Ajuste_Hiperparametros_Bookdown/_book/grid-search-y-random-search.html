@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Bibliografía | Algoritmos de Ajuste de Hiperparametros</title>
+  <title>Chapter 2 Grid Search y Random Search | Algoritmos de Ajuste de Hiperparametros</title>
   <meta name="description" content="Esta es una introducción a los algoritmos de ajuste de hiperparámetros, aplicados a modelos de aprendizaje supervisado." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Bibliografía | Algoritmos de Ajuste de Hiperparametros" />
+  <meta property="og:title" content="Chapter 2 Grid Search y Random Search | Algoritmos de Ajuste de Hiperparametros" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Esta es una introducción a los algoritmos de ajuste de hiperparámetros, aplicados a modelos de aprendizaje supervisado." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Bibliografía | Algoritmos de Ajuste de Hiperparametros" />
+  <meta name="twitter:title" content="Chapter 2 Grid Search y Random Search | Algoritmos de Ajuste de Hiperparametros" />
   
   <meta name="twitter:description" content="Esta es una introducción a los algoritmos de ajuste de hiperparámetros, aplicados a modelos de aprendizaje supervisado." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ajuste-de-hiperparámetros-con-sklearn.html"/>
-<link rel="next" href="hello-bookdown.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="grid-search---random-search-programados-en-python.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -244,22 +244,69 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="bibliografía" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Bibliografía<a href="bibliografía.html#bibliografía" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="grid-search-y-random-search" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Grid Search y Random Search<a href="grid-search-y-random-search.html#grid-search-y-random-search" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Tenemos un modelo de aprendizaje estadístico <span class="math inline">\(M\)</span>, el cual tiene <span class="math inline">\(r\)</span> hiper-parámetros <span class="math inline">\(h_1,...,h_r\)</span>, cuyos campos de variación son <span class="math inline">\(R(h_1),...,R(h_r)\)</span>, respectivamente.</p>
+<p>Usaremos la notación <span class="math inline">\(M(h) = M(h_1,...,h_r)\)</span> para denotar al modelo <span class="math inline">\(M\)</span> con vector de hiper-parámetros <span class="math inline">\(h=(h_1,...,h_r)\hspace{0.05cm}\)</span>.</p>
+<p>Esta notación nos interesa para hacer explicitos los hiper-parámetros que tiene el modelo.</p>
+<p>Se define el espacio de búsqueda <span class="math inline">\(S\)</span> como un subconjunto del conjunto de posibles combinaciones de valores de los hiper-parámetros:</p>
+<p><span class="math display">\[S \hspace{0.1cm} \subseteq \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}\dots \text{x}\hspace{0.1cm}R(h_r)\]</span></p>
+<p><br></p>
+<div id="algoritmo-grid-search" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Algoritmo Grid Search<a href="grid-search-y-random-search.html#algoritmo-grid-search" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El algoritmo grid search queda resumido en el siguiente bloque:</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
 <ul>
-<li><p>Aler Mur, Ricardo. (2022). <em>Metodología: evaluación de modelos.</em> [Presentación de PowerPoint]. Aula Global UC3M. <span class="math inline">\(\\[0.635cm]\)</span></p></li>
-<li><p>Rodriguez, Daniel. (julio 2018). GridSearchCV. <em>AnalyticsLane</em>. <a href="https://www.analyticslane.com/2018/07/02/gridsearchcv/" class="uri">https://www.analyticslane.com/2018/07/02/gridsearchcv/</a></p></li>
+<li><p>Para cada posible combinación de valores de los hiper-parámetros contenida en el espacio de búsqueda, es decir, para cada <span class="math inline">\(s=(s_1,...,s_r) \in S\)</span></p>
+<ul>
+<li>Se valida <span class="math inline">\(M(h=s)\)</span> , es decir, <span class="math inline">\(M(h_1=s_1 \hspace{0.05cm} ,..., \hspace{0.05cm} h_r=s_r)\)</span> usando algún <strong>algoritmo de validación</strong> de modelos de aprendizaje estadístico (ya sean supervisados o no-supervisados). Con ello se obtiene un valor de una <strong>métrica de validacion</strong> para la combinacion de hiper-parámetros <span class="math inline">\(s=(s_1,...,s_r)\\\)</span></li>
+</ul></li>
+<li><p>Tras el paso anterior se obtienen <span class="math inline">\(\hspace{0.05cm}\#\hspace{0.05cm} S\hspace{0.05cm}\)</span> valores de la métrica de validación calculada aplicando cierto algoritmo de validación.</p>
+<ul>
+<li>Si, por ejemplo, tuvieramos un modelo de regresión y la métrica usada fuera el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, entonces se obtienen los siguientes valores de la métrica:</li>
+</ul>
+<p><span class="math display">\[\Bigl\{  \hspace{0.1cm} ECM \hspace{0.05cm}[ \hspace{0.05cm}  M(h=s) \hspace{0.05cm}]_{test}^* \hspace{0.2cm} : \hspace{0.2cm}  s\in S \hspace{0.1cm}  \Bigl\}\\\]</span></p></li>
+<li><p>Se selecciona el vector de hiper-parámetros <span class="math inline">\(s=(s_1,...,s_r) \in S\)</span> con el que se obtiene un mejor valor de la métrica de validacion. Si la metrica es de <em>error</em>, se selecciona el <span class="math inline">\(s\)</span> con el que se obtiene <em>menor</em> valor de la métrica. Si la métrica es de <em>acierto</em>, se seleciona el <span class="math inline">\(s\)</span> con el que se obtiene <em>mayor</em> valor de la metrica.</p>
+<ul>
+<li>Si, por ejemplo, tuvieramos un modelo de regresión y la métrica usado fuera el <span class="math inline">\(\hspace{0.07cm}ECM\hspace{0.07cm}\)</span>, que es una métrica de error, entonces el vector de hiper-parámetros seleccionado sería <span class="math inline">\(s^*\)</span>, donde:</li>
+</ul>
+<p><span class="math display">\[s^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.25cm} \underset{s \in S}{Min}\hspace{0.25cm} ECM \hspace{0.05cm}\Bigl[ \hspace{0.05cm} M(h=s) \hspace{0.05cm} \Bigr]_{test}^* \\\]</span></p>
+<ul>
+<li>Si, por ejemplo, tuvieramos un modelo de clasificación supervisada y la métrica usado fuera la <span class="math inline">\(\hspace{0.1cm}TAC\hspace{0.1cm}\)</span>, que es una métrica de acierto, entonces el vector de hiper-parámetros seleccionado sería <span class="math inline">\(s^*\)</span>, donde:</li>
+</ul>
+<p><span class="math display">\[s^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.25cm} \underset{s \in S}{Max}\hspace{0.25cm} TAC\hspace{0.05cm}\Bigl[ \hspace{0.05cm} M(h=s) \hspace{0.05cm}  \Bigr]_{test}^*\]</span></p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<div id="cómo-definir-el-espacio-de-búsqueda-hspace0.03cmshspace0.03cm" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> ¿ Cómo definir el espacio de búsqueda <span class="math inline">\(\hspace{0.03cm}S\hspace{0.03cm}\)</span> ?<a href="grid-search-y-random-search.html#cómo-definir-el-espacio-de-búsqueda-hspace0.03cmshspace0.03cm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Lo ideal es que <span class="math inline">\(\hspace{0.05cm}S \hspace{0.05cm} = \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}\dots \text{x}\hspace{0.1cm}R(h_r)\hspace{0.1cm}\)</span>, pero cuando el número de hiper-parámetros es demasiado alto, o estos tienen campos de variación grandes, esto no es factible en la práctica. Por ello se suelen seguir dos vías más eficientes a nivel computacional, pero menos a nivel estadístico:</p>
+<ul>
+<li><p>Se toma <span class="math inline">\(\hspace{0.05cm}S\hspace{0.05cm}\)</span> como un subconjunto estricto de las posibles combinaciones de hiper-parámetros , es decir, <span class="math inline">\(\hspace{0.1cm}S \hspace{0.1cm} \subset \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}\dots \text{x}\hspace{0.1cm}R(h_r)\)</span>.</p>
+<p>La definición de <span class="math inline">\(\hspace{0.05cm}S\hspace{0.05cm}\)</span> en este contexto puede ser <strong>determinista</strong> o <strong>aleatoria</strong>. En el primcer caso, el analista define las combinaciones de hiper-parametros que se van a considerar. En el segundo caso, de entre un conjunto de combinaciones definidas por el analista, se escogen <em>aleatoriamente</em> las combinaciones de hiper-parámetros que definirán a <span class="math inline">\(\hspace{0.05cm}S\hspace{0.05cm}\)</span>.</p>
+<ul>
+<li><p>Si la definición de <span class="math inline">\(\hspace{0.05cm}S\hspace{0.05cm}\)</span> es <strong>aleatoria</strong>, el algoritmo suele denominarse Random Grid Search, o simplemente <strong>Random Search</strong>. <span class="math inline">\(\\[0.35cm]\)</span></p></li>
+<li><p>Si la definción de <span class="math inline">\(\hspace{0.05cm}S\hspace{0.05cm}\)</span> es <strong>determinista</strong>, el algoritmo se denomina <strong>Grid search</strong>.</p></li>
+</ul></li>
 </ul>
 <p><br></p>
-
+<hr />
+<p><br></p>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="ajuste-de-hiperparámetros-con-sklearn.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="hello-bookdown.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="grid-search---random-search-programados-en-python.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

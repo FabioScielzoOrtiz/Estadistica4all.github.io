@@ -15,11 +15,11 @@ pre code {
 
 
 p {
-    font-size: 17px;
+    font-size: 16px;
   }
 
 ul li {
-    font-size: 17px;
+    font-size: 16px;
   }
   
 .book-summary {
@@ -28,18 +28,18 @@ ul li {
 
 
 .book .book-summary {
-  width: 350px;
+  width: 300px;
   position:absolute;
   top:0;
-  left:-350px;
+  left:-300px;
 }
 
 .book.with-summary .book-header.fixed {
-    left: 350px;
+    left: 300px;
 }
 
 .book.with-summary .book-body {
-    left: 350px;
+    left: 300px;
 }
 
  

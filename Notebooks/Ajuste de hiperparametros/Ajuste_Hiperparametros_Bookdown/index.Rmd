@@ -25,7 +25,7 @@ github-repo: null
 </center>
 
 
-
+<br>
 
 <div class="warning" style='background-color:#FCF2EC; color: #000000; border-left: solid #FE9554 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
@@ -33,13 +33,13 @@ github-repo: null
 <p style='margin-left:10em;'>
 
 
-$\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https://Estadistica4all.com/)**
+$\hspace{0.2cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https://Estadistica4all.com/)**
 
-$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](https://estadistica4all.com/creador.html)
+$\hspace{0.2cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](https://estadistica4all.com/creador.html)
 
-$\hspace{0.3cm}$ **Si utilizas este artículo, por favor, cítalo:** 
+$\hspace{0.2cm}$ **Si utilizas este artículo, por favor, cítalo:** 
 
-$\hspace{0.5cm}$ Scielzo Ortiz, Fabio. (2023). Algoritmos de ajuste de hiperparámetros. Estadistica4all. http://estadistica4all.com/Articulos/ajuste_hiperparametros.html
+$\hspace{0.3cm}$ Scielzo Ortiz, Fabio. (2023). Algoritmos de ajuste de hiperparámetros. Estadistica4all. 
 
 
 </p>
@@ -48,7 +48,9 @@ $\hspace{0.5cm}$ Scielzo Ortiz, Fabio. (2023). Algoritmos de ajuste de hiperpar�
 </div>
 
 
-En un modelo de aprendizaje estadistico un hiper-parámetro es un parámetro del modelo que no es estimado por el propio modelo cuando este es entrenado. Es decir, es un parámetro al que hay que asignarle un valor a priori del entrenamiento del modelo. 
+<br>
+
+En un modelo de aprendizaje estadístico un hiper-parámetro es un parámetro del modelo que no es estimado por el propio modelo cuando este es entrenado. Es decir, es un parámetro al que hay que asignarle un valor a priori del entrenamiento del modelo. 
  
 Los algoritmos de ajuste de hiper-parámetros son una familia de algoritmos cuyo propósito es seleccionar un valor óptimo (o razonablemente óptimo) para los hiper-parámetros de un modelo dado.
 
@@ -56,23 +58,23 @@ En este artículo nos centraremos en el algoritmo Grid Search (busqueda en rejil
 
 Grid search puede ser aplicado tanto a modelos de aprendizaje supervisado como a modelos de aprendizaje no supervisado. Pero en este artículo nos centraremos en su aplicación a modelos de aprendizaje supervisado, concretamente usaremos KNN como modelo supervisado para realizar los ejemplos de aplicación. No obstante, es fácilmente extrapolable su aplicación a otros modelos supervisados y también a modelos no supervisados.
 
-Este algoritmo usa a su vez algoritmos y métricas de validación, por ello es muy recomendable leer el artículo que tenemos en el blog sobre [algoritmos de validación para modelos de aprendizaje supervisado](http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html). Además, puesto que los ejemplos se ilustraran usando KNN como modelo supervisado de referencia, también es recomendable leer el artículo que tenemos en el blog sobre [KNN](http://estadistica4all.com/Articulos/KNN.html).
+Este algoritmo usa a su vez algoritmos y métricas de validación, por ello es muy recomendable leer el artículo que tenemos en el blog sobre **algoritmos de validación para modelos de aprendizaje supervisado**. Además, puesto que los ejemplos se ilustraran usando KNN como modelo supervisado de referencia, también es recomendable leer el artículo que tenemos en el blog sobre **KNN**.
  
 
 
 <br>
 
 
-# Grid Search - Random Search <a class="anchor" id="1"></a>
+# Grid Search y Random Search  
 
 
-Tenemos un modelo de aprendizaje estadístico $\hspace{0.05cm} M \hspace{0.05cm}$, el cual tiene $\hspace{0.1cm}r\hspace{0.1cm}$ hiper-parámetros $\hspace{0.1cm}h_1,...,h_r\hspace{0.1cm}$, cuyos campos de variación son $\hspace{0.1cm}R(h_1),...,R(h_r)\hspace{0.1cm}$, respectivamente. 
+Tenemos un modelo de aprendizaje estadístico $M$, el cual tiene $r$ hiper-parámetros $h_1,...,h_r$, cuyos campos de variación son $R(h_1),...,R(h_r)$, respectivamente. 
 
-Usaremos la notación $\hspace{0.1cm}M(h) = M(h_1,...,h_r)\hspace{0.1cm}$ para denotar al modelo $M$ con vector de hiper-parámetros   $\hspace{0.1cm}h=(h_1,...,h_r)\hspace{0.1cm}$.
+Usaremos la notación $M(h) = M(h_1,...,h_r)$ para denotar al modelo $M$ con vector de hiper-parámetros   $h=(h_1,...,h_r)\hspace{0.05cm}$.
 
 Esta notación nos interesa para hacer explicitos los hiper-parámetros que tiene el modelo.
 
-Se define el espacio de búsqueda $\hspace{0.05cm}S\hspace{0.05cm}$ como un subconjunto del conjunto de posibles combinaciones de valores de los hiper-parámetros:
+Se define el espacio de búsqueda $S$ como un subconjunto del conjunto de posibles combinaciones de valores de los hiper-parámetros:
 
 
 $$S \hspace{0.1cm} \subseteq \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}\dots \text{x}\hspace{0.1cm}R(h_r)$$
@@ -80,7 +82,9 @@ $$S \hspace{0.1cm} \subseteq \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}\dots \t
 <br>
 
 
-El algoritmo grid search tienen los siguientes pasos:
+## Algoritmo Grid Search
+
+El algoritmo grid search queda resumido en el siguiente bloque:
 
 
 
@@ -90,9 +94,9 @@ El algoritmo grid search tienen los siguientes pasos:
 <p style='margin-left:1em;'>
 
 
-- Para cada posible combinación de valores de los hiper-parametros contenida en el espacio de busqueda, es decir, para cada $\hspace{0.1cm}s=(s_1,...,s_r) \in S$
+- Para cada posible combinación de valores de los hiper-parámetros contenida en el espacio de búsqueda, es decir, para cada $s=(s_1,...,s_r) \in S$
 
-    - Se valida $\hspace{0.05cm}M(h=s)\hspace{0.05cm}$ , es decir, $\hspace{0.05cm} M(h_1=s_1 \hspace{0.05cm} ,..., \hspace{0.05cm} h_r=s_r)\hspace{0.15cm}$ usando algún **algoritmo de validación** de modelos de aprendizaje estadístico (ya sean supervisados o no-supervisados). Con ello se obtiene un valor de una **métrica de validacion** para la combinacion de hiper-parámetros $\hspace{0.1cm} s=(s_1,...,s_r)\\$
+    - Se valida $M(h=s)$ , es decir, $M(h_1=s_1 \hspace{0.05cm} ,..., \hspace{0.05cm} h_r=s_r)$ usando algún **algoritmo de validación** de modelos de aprendizaje estadístico (ya sean supervisados o no-supervisados). Con ello se obtiene un valor de una **métrica de validacion** para la combinacion de hiper-parámetros $s=(s_1,...,s_r)\\$
 
 
 - Tras el paso anterior se obtienen $\hspace{0.05cm}\#\hspace{0.05cm} S\hspace{0.05cm}$ valores de la métrica de validación calculada aplicando cierto algoritmo de validación.
@@ -104,13 +108,13 @@ El algoritmo grid search tienen los siguientes pasos:
 
 
 
-- Se selecciona el vector de hiper-parámetros $\hspace{0.1cm}s=(s_1,...,s_r) \in S\hspace{0.15cm}$ con el que se obtiene un mejor valor de la métrica de validacion. Si la metrica es de *error*, se selecciona el $\hspace{0.1cm}s\hspace{0.1cm}$ con el que se obtiene *menor* valor de la métrica. Si la métrica es de *acierto*, se seleciona el $\hspace{0.1cm}s\hspace{0.1cm}$ con el que se obtiene *mayor* valor de la metrica. $\\[0.5cm]$
+- Se selecciona el vector de hiper-parámetros $s=(s_1,...,s_r) \in S$ con el que se obtiene un mejor valor de la métrica de validacion. Si la metrica es de *error*, se selecciona el $s$ con el que se obtiene *menor* valor de la métrica. Si la métrica es de *acierto*, se seleciona el $s$ con el que se obtiene *mayor* valor de la metrica.
 
-    - Si, por ejemplo, tuvieramos un modelo de regresión y la métrica usado fuera el $\hspace{0.07cm}ECM\hspace{0.07cm}$, que es una métrica de error, entonces el vector de hiper-parámetros seleccionado sería $\hspace{0.1cm}s^*\hspace{0.1cm}$, donde:
+    - Si, por ejemplo, tuvieramos un modelo de regresión y la métrica usado fuera el $\hspace{0.07cm}ECM\hspace{0.07cm}$, que es una métrica de error, entonces el vector de hiper-parámetros seleccionado sería $s^*$, donde:
  
     $$s^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.25cm} \underset{s \in S}{Min}\hspace{0.25cm} ECM \hspace{0.05cm}\Bigl[ \hspace{0.05cm} M(h=s) \hspace{0.05cm} \Bigr]_{test}^* \\$$
 
-    - Si, por ejemplo, tuvieramos un modelo de clasificación supervisada y la métrica usado fuera la $\hspace{0.1cm}TAC\hspace{0.1cm}$, que es una métrica de acierto, entonces el vector de hiper-parámetros seleccionado sería $\hspace{0.1cm}s^*\hspace{0.1cm}$, donde:
+    - Si, por ejemplo, tuvieramos un modelo de clasificación supervisada y la métrica usado fuera la $\hspace{0.1cm}TAC\hspace{0.1cm}$, que es una métrica de acierto, entonces el vector de hiper-parámetros seleccionado sería $s^*$, donde:
  
     $$s^* \hspace{0.12cm}=\hspace{0.12cm} arg\hspace{0.25cm} \underset{s \in S}{Max}\hspace{0.25cm} TAC\hspace{0.05cm}\Bigl[ \hspace{0.05cm} M(h=s) \hspace{0.05cm}  \Bigr]_{test}^*$$
 
@@ -123,7 +127,7 @@ El algoritmo grid search tienen los siguientes pasos:
 
 <br>
 
-**¿ Cómo definir $\hspace{0.1cm}S\hspace{0.1cm}$ ?**
+### ¿ Cómo definir el espacio de búsqueda $\hspace{0.03cm}S\hspace{0.03cm}$ ?
 
 Lo ideal es que $\hspace{0.05cm}S \hspace{0.05cm} = \hspace{0.1cm} R(h_1)\hspace{0.1cm}\text{x}\dots \text{x}\hspace{0.1cm}R(h_r)\hspace{0.1cm}$, pero cuando el número de hiper-parámetros es demasiado alto, o estos tienen campos de variación grandes, esto no es factible en la práctica. Por ello se suelen seguir dos vías más eficientes a nivel computacional, pero menos a nivel estadístico:
 
@@ -131,7 +135,7 @@ Lo ideal es que $\hspace{0.05cm}S \hspace{0.05cm} = \hspace{0.1cm} R(h_1)\hspace
 
     La definición de $\hspace{0.05cm}S\hspace{0.05cm}$ en este contexto puede ser **determinista** o **aleatoria**. En el primcer caso, el analista define las combinaciones de hiper-parametros que se van a considerar. En el segundo caso, de entre un conjunto de combinaciones definidas por el analista, se escogen *aleatoriamente* las combinaciones de hiper-parámetros que definirán a $\hspace{0.05cm}S\hspace{0.05cm}$.
 
-    - Si la definición de $\hspace{0.05cm}S\hspace{0.05cm}$ es **aleatoria**, el algoritmo suele denominarse Random Grid Search, o simplemente **Random Search**. $\\[0.35cm]$ 
+    - Si la definición de $\hspace{0.05cm}S\hspace{0.05cm}$ es **aleatoria**, el algoritmo suele denominarse Random Grid Search, o simplemente **Random Search**. 
     
     - Si la definción de  $\hspace{0.05cm}S\hspace{0.05cm}$  es **determinista**, el algoritmo se denomina **Grid search**.
 
