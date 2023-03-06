@@ -18,7 +18,7 @@ github-repo: null
 
 We are going to consider data-frames as data matrix.
 
-Given a data-frame $\hspace{0.1cm}df\hspace{0.1cm}$ with $\hspace{0.1cm}p\hspace{0.1cm}$ columns and $\hspace{0.1cm}n\hspace{0.1cm}$ rows, we can represent it as data-matrix as follows:
+Given a data-frame $\hspace{0.05cm}df\hspace{0.05cm}$ with $\hspace{0.05cm}p\hspace{0.05cm}$ columns and $\hspace{0.05cm}n\hspace{0.05cm}$ rows, we can represent it as data-matrix as follows:
 
 <br>
 
@@ -36,12 +36,12 @@ x_{n1} & x_{n2} & ... & x_{np}
 
 <br>
 
-Where $\hspace{0.1cm}x_i=(x_{i1},..., x_{ip})^t\hspace{0.1cm}$ represent the $\hspace{0.05cm}i$-th row  and $\hspace{0.1cm}X_j\hspace{0.1cm}$ the $\hspace{0.05cm}j$-th column of the data-frame $\hspace{0.1cm}df$.
+Where $\hspace{0.05cm}x_i=(x_{i1},..., x_{ip})^t\hspace{0.05cm}$ represent the $\hspace{0.05cm}i$-th row  and $\hspace{0.05cm}X_j\hspace{0.05cm}$ the $\hspace{0.05cm}j$-th column of the data-frame $\hspace{0.05cm}df$.
 
 
 <br>
 
-# Create a new data-frame: 
+# Create a new data-frame
 
 We can create a new data-frame using `Pandas` as follows:
 
@@ -52,10 +52,15 @@ import pandas as pd
 
 ```python
 ClienteID = pd.Series(['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10','C11','C12'])
+
 Nombre = pd.Series(['Orlando', 'Keith', 'Donna', 'Janet', 'Fabio', 'Juan', 'Lucia', 'Pedro', 'Sergio', 'Grecia', 'Ismael', 'Luis'])
+
 Pais = pd.Series(['Australia', 'India', 'Germany', 'United States', 'España', 'España', 'España', 'Italia', 'United States', 'Peru','España','España'])
+
 Ciudad = pd.Series(['','','Berlin','California','Madrid', 'Sevilla', '', 'Roma', 'New York', 'Lima', 'Madrid', 'Murcia'])
+
 Email = pd.Series(['','keith0@adventure-works.com','donna0@adventure-works.com','janet1@adventure-works.com','fabio10@gmail.com', '', 'LuciaPerez@hotmail.com', 'Pedro99@gmail.com', 'sergio_as@gmail.com', 'Grecia89@gmail.com', 'Isma98@gmail.com', 'Luismiguel123@gmail.com'])
+
 Telefono = pd.Series(['917755028', '', '915547890', '', '', '915869028', '', '910007890', '', '', '912234543', ''])
 ```
 
@@ -73,20 +78,7 @@ Clientes
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -246,20 +238,7 @@ Ventas
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -424,20 +403,7 @@ Proveedores
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -495,20 +461,7 @@ House_Price_Data
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -827,7 +780,7 @@ data_frame.to_csv('filename.csv', index=False)
 We can get the number of rows and columns of a data-frame:
 
 
-```ruby
+```python
 House_Price_Data.shape
 ```
 
@@ -841,7 +794,7 @@ House_Price_Data.shape
 
 The number of rows:
 
-```ruby
+```python
 House_Price_Data.shape[0]
 ```
 
@@ -854,7 +807,7 @@ House_Price_Data.shape[0]
 
 Another way to get the number of rows:
 
-```ruby
+```python
 len(House_Price_Data)
 ```
 
@@ -886,32 +839,21 @@ House_Price_Data.shape[1]
 
 <br>
 
-# Head y Tail
+# Head and Tail
+
+## Head
 
 We  can also view the first rows of a data-frame using `head()` method:
 
 
-```ruby
+```python
 House_Price_Data.head()
 ```
 
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1075,20 +1017,7 @@ House_Price_Data.head(10)
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1363,20 +1292,18 @@ House_Price_Data.head(10)
 </div>
 
 
-<br>
-
----
+<br> 
 
 <br>
 
-Mathematically  $head()$ operation  could be formalized as follows:
+Mathematically  $head()$ operation  could be formalized as follows: $\\[0.3cm]$
 
-Let $\hspace{0.1cm} D(df) \hspace{0.05cm}=\hspace{0.05cm} \begin{pmatrix}
+Let $\hspace{0.05cm} D(df) \hspace{0.05cm}=\hspace{0.05cm} \begin{pmatrix}
 x_1^t \\
 x_2^t \\
 ... \\
 x_n^t
-\end{pmatrix}\hspace{0.1cm}$ be the data matrix that represent the data-frame $\hspace{0.1cm}df\hspace{0.1cm}$, then:
+\end{pmatrix}\hspace{0.1cm}$ be the data matrix that represent the data-frame $\hspace{0.05cm}df\hspace{0.05cm}$, then:
 
 
 
@@ -1388,11 +1315,11 @@ x_k^t
 \end{pmatrix}$$
 
 
-<br>
-
----
+ 
 
 <br>
+
+## Tail
 
 We can also  view the last rows of a data-frame using `tail()` method:
 
@@ -1404,20 +1331,7 @@ House_Price_Data.tail()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1582,20 +1496,7 @@ House_Price_Data.tail(7)
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1801,18 +1702,16 @@ House_Price_Data.tail(7)
 
 <br>
 
----
-
 <br>
 
-Mathematically $tail()$ operation could be formalized as follows:
+Mathematically $\hspace{0.05cm} tail() \hspace{0.05cm}$ operation could be formalized as follows:
 
 Let $\hspace{0.1cm} D= \begin{pmatrix}
 x_1^t \\
 x_2^t \\
 ... \\
 x_n^t
-\end{pmatrix}\hspace{0.1cm}$ be the data matrix that represent the data-frame $\hspace{0.1cm}df\hspace{0.1cm}$, then:
+\end{pmatrix}\hspace{0.1cm}$ be the data matrix that represent the data-frame $\hspace{0.05cm}df\hspace{0.05cm}$, then:
 
 
 
@@ -1826,9 +1725,7 @@ x_n^t
 
 
 
-<br>
-
----
+ 
 
 <br>
 
@@ -1859,9 +1756,9 @@ House_Price_Data.columns
           dtype='object')
 
 
+<br>
 
-
-We will denote $\hspace{0.1cm} X_j\hspace{0.1cm}$ column name as $\hspace{0.1cm}name(X_j)$.
+We will denote $\hspace{0.05cm} X_j\hspace{0.05cm}$ column name as $\hspace{0.05cm}name(X_j) \hspace{0.05cm}$.
 
 
 <br>
@@ -1878,20 +1775,7 @@ House_Price_Data.loc[ : , ['latitude', 'price', 'no_of_bathrooms', 'quality_reco
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1997,14 +1881,12 @@ House_Price_Data.loc[ : , ['latitude', 'price', 'no_of_bathrooms', 'quality_reco
 <p>1905 rows × 5 columns</p>
 </div>
 
+<br>
+ 
 
 <br>
 
----
-
-<br>
-
-Mathematically `loc[]`select operation could be define as: $\\[0.7cm]$
+Mathematically `loc[]`select operation could be define as: $\\[0.4cm]$
 
 $$df.loc\hspace{0.1cm} [\hspace{0.1cm} : \hspace{0.1cm} , \hspace{0.1cm} [\hspace{0.1cm}name(X_1), name(X_3), name(X_6) \hspace{0.1cm}]\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D\hspace{0.1cm} [\hspace{0.1cm} : \hspace{0.1cm}, \hspace{0.1cm} [\hspace{0.1cm} name(X_1),name(X_3),name(X_6) \hspace{0.1cm}] \hspace{0.1cm}] \hspace{0.1cm}= \\[0.7cm] = \hspace{0.1cm} \left( X_1 , X_3 , X_6 \right) \hspace{0.1cm}=\hspace{0.1cm}   \left( \hspace{0.1cm} (x_{i1} , x_{i3}, x_{i6}) \hspace{0.1cm}:\hspace{0.1cm} i = 1,...,n \hspace{0.1cm}\right) \hspace{0.1cm}= \hspace{0.1cm}\left(\hspace{0.1cm} x_{i}[1,3,6] \hspace{0.1cm}:\hspace{0.1cm} i = 1,...,n \hspace{0.1cm}\right) \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
 x_{11} & x_{13} & x_{16} \\
@@ -2014,13 +1896,10 @@ x_{n1} & x_{n3} & x_{n6}
 \end{pmatrix} \\[1cm]$$
 
 
-where: $\hspace{0.1cm}x_{i}[1,3,6] \hspace{0.1cm}=\hspace{0.1cm} (x_{i1} , x_{i3}, x_{i6})$
+Where: $\hspace{0.1cm}x_{i}[1,3,6] \hspace{0.1cm}=\hspace{0.1cm} (x_{i1} , x_{i3}, x_{i6})$
 
 
-<br>
-
----
-
+ 
 <br>
 
 
@@ -2035,20 +1914,7 @@ House_Price_Data.iloc[ : , 0:6]
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2176,20 +2042,7 @@ House_Price_Data.iloc[ : , [0,3,5]]
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2272,14 +2125,11 @@ House_Price_Data.iloc[ : , [0,3,5]]
 </div>
 
 
-
+<br>
+ 
 <br>
 
----
-
-<br>
-
-Mathematically `iloc[]`select operation could be formalized as follows:
+Mathematically `iloc[]`select operation could be formalized as follows: $\\[0.4cm]$
 
 $$df.iloc[\hspace{0.1cm} : \hspace{0.1cm} , \hspace{0.1cm}   2:5  \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm} : \hspace{0.1cm}, \hspace{0.1cm} 2:5 \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} \left( X_2 , X_3 , X_4, X_5 \right) \hspace{0.1cm}=\hspace{0.1cm} \left( \hspace{0.1cm} X_j \hspace{0.1cm}:\hspace{0.1cm} j = 1,...,5 \hspace{0.1cm}\right)\hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
 x_{12} & x_{13} & x_{14} & x_{15} \\
@@ -2299,9 +2149,7 @@ x_{n1} & x_{n3} & x_{n6}
 
 
 
-<br>
-
----
+ 
 
 <br>
 
@@ -2319,20 +2167,7 @@ House_Price_Data.loc[ House_Price_Data.price < 500000 , : ]
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2640,20 +2475,7 @@ House_Price_Data.loc[ House_Price_Data.price <= 1000000 , : ]
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2961,20 +2783,7 @@ House_Price_Data.loc[ House_Price_Data.price > 1000000 , : ]
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3282,20 +3091,7 @@ House_Price_Data.loc[ House_Price_Data.no_of_bedrooms == 2 , : ]
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3604,20 +3400,7 @@ House_Price_Data.loc[ House_Price_Data.no_of_bedrooms != 2 , : ]
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -3925,20 +3708,7 @@ House_Price_Data.loc[ House_Price_Data['no_of_bedrooms'] != 2 , : ]
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -4248,20 +4018,7 @@ House_Price_Data.loc[ House_Price_Data['no_of_bedrooms'].isin([2,4]) , : ]
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -4572,20 +4329,7 @@ House_Price_Data.loc[ House_Price_Data['no_of_bedrooms'].isin([2,4]) == False , 
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -4891,20 +4635,7 @@ House_Price_Data.loc[ ( (House_Price_Data.price > 1000000)  & (House_Price_Data.
 ```
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -5204,26 +4935,22 @@ House_Price_Data.loc[ ( (House_Price_Data.price > 1000000)  & (House_Price_Data.
 
 
 
-<br>
-
----
+<br> 
 
 <br>
 
 
  
 
-Mathematically,  `loc[]` filter operation could be formalized as follows: $\\[0.7cm]$
+Mathematically,  `loc[]` filter operation could be formalized as follows: $\\[0.4cm]$
 
-$$df.loc \hspace{0.1cm} [ \hspace{0.1cm} ( df.name(X_2) < k_2 \hspace{0.25cm}\&\hspace{0.25cm} df.name(X_4) >= k_4 ) \hspace{0.25cm} | \hspace{0.25cm} (df.name(X_3) == k_3) \hspace{0.15cm},\hspace{0.15cm} : \hspace{0.1cm} ] \hspace{0.1cm}=  \\[0.7cm] = \hspace{0.1cm} D \hspace{0.1cm} [ \hspace{0.1cm} ( \hspace{0.1cm} X_2 < k_2 \hspace{0.25cm} y \hspace{0.25cm} X_4 \geq k_4 ) \hspace{0.25cm} o \hspace{0.25cm} X_3 = k_3 \hspace{0.2cm} , \hspace{0.2cm} : \hspace{0.1cm}] \hspace{0.1cm} = \hspace{0.1cm} (\hspace{0.15cm}  x_i \hspace{0.15cm} : \hspace{0.15cm} ( x_{i2} < k_2 \hspace{0.25cm} y \hspace{0.25cm} x_{i4} \geq k_4 ) \hspace{0.25cm} o \hspace{0.25cm} x_{i3} = k_3 \hspace{0.2cm} , \hspace{0.2cm} i = 1,...,n \hspace{0.15cm}  ) \\[1cm]$$
+$$df.loc \hspace{0.1cm} [ \hspace{0.1cm} ( df.name(X_2) < k_2 \hspace{0.25cm}\&\hspace{0.25cm} df.name(X_4) >= k_4 ) \hspace{0.25cm} | \hspace{0.25cm} (df.name(X_3) == k_3) \hspace{0.15cm},\hspace{0.15cm} : \hspace{0.1cm} ] \hspace{0.1cm}=  \\[0.7cm] = \hspace{0.1cm} D \hspace{0.1cm} [ \hspace{0.1cm} ( \hspace{0.1cm} X_2 < k_2 \hspace{0.25cm} y \hspace{0.25cm} X_4 \geq k_4 ) \hspace{0.25cm} o \hspace{0.25cm} X_3 = k_3 \hspace{0.2cm} , \hspace{0.2cm} : \hspace{0.1cm}] \hspace{0.1cm} = \hspace{0.1cm} (\hspace{0.15cm}  x_i \hspace{0.15cm} : \hspace{0.15cm} ( x_{i2} < k_2 \hspace{0.25cm} y \hspace{0.25cm} x_{i4} \geq k_4 ) \hspace{0.25cm} o \hspace{0.25cm} x_{i3} = k_3 \hspace{0.2cm} , \hspace{0.2cm} i = 1,...,n \hspace{0.15cm}  ) \\[07cm]$$
 
 $$df.loc \hspace{0.1cm} [ \hspace{0.1cm} ( \hspace{0.1cm} df \hspace{0.1cm} [ \hspace{0.1cm} name(X_2) \hspace{0.1cm}].isin(\hspace{0.1cm}[k_1, k_2, k_3]\hspace{0.1cm}) \hspace{0.15cm} , \hspace{0.15cm} : \hspace{0.1cm} ] \hspace{0.1cm} = \hspace{0.1cm} D \hspace{0.1cm} [ \hspace{0.1cm}  X_2 \in \lbrace k_1 , k_2, k_3 \rbrace \hspace{0.15cm} , \hspace{0.15cm} : \hspace{0.1cm}] \hspace{0.1cm} =  \hspace{0.1cm} \left( \hspace{0.1cm} x_i \hspace{0.1cm} : \hspace{0.1cm} x_{i2} \in \lbrace k_1 , k_2, k_3 \rbrace \hspace{0.1cm} , \hspace{0.1cm} i = 1,...,n \hspace{0.1cm} \right)$$
 
 
 
-<br>
-
----
+ 
 
 <br>
 
@@ -5237,20 +4964,7 @@ House_Price_Data.loc[ House_Price_Data.price > 1000000 , ['price', 'no_of_bedroo
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -5333,11 +5047,8 @@ House_Price_Data.loc[ House_Price_Data.price > 1000000 , ['price', 'no_of_bedroo
 </div>
 
 
-
-
 <br>
-
----
+ 
 
 <br>
 
@@ -5345,10 +5056,7 @@ We can also filter rows and select columns at the same time using the `loc` meth
 
 $$df.loc\hspace{0.1cm}[\hspace{0.1cm} df.name(X_2) < k_2 \hspace{0.2cm}\&\hspace{0.2cm} df.name(X_4) >= k_4 ) \hspace{0.2cm} | \hspace{0.2cm} (df.name(X_3) == k_3) \hspace{0.15cm} , \hspace{0.15cm} [name(X_1) , name(X_4)] \hspace{0.1cm}] \hspace{0.1cm}= \\[0.8cm] = \hspace{0.1cm} D[  (X_2 < k_2 \hspace{0.2cm} y \hspace{0.2cm} X_4 \geq k_4 ) \hspace{0.2cm} o \hspace{0.2cm} X_3 = k_3 \hspace{0.1cm},\hspace{0.1cm} [X_2 , X_4] \hspace{0.1cm}] \hspace{0.1cm}  =\hspace{0.1cm} (\hspace{0.1cm} x_i[1,4] \hspace{0.1cm} : \hspace{0.1cm} ( x_{i2} < k_2 \hspace{0.25cm} y  \hspace{0.25cm} x_{i4} \geq k_4 ) \hspace{0.25cm} o \hspace{0.25cm} x_{i3} = k_3 \hspace{0.15cm},\hspace{0.15cm} i = 1,...,n \hspace{0.1cm} ) \hspace{0.1cm} = \\[0.8cm] = \hspace{0.1cm} ( \hspace{0.1cm} (x_{i1},x_{i4}) \hspace{0.1cm} : \hspace{0.1cm} ( x_{i2} < k_2 \hspace{0.25cm} y \hspace{0.25cm} x_{i4} \geq k_4 ) \hspace{0.25cm} o \hspace{0.25cm} x_{i3} = k_3 \hspace{0.15cm} , \hspace{0.15cm} i = 1,...,n \hspace{0.1cm} )$$
 
-<br>
-
----
-
+ 
 <br>
 
 
@@ -5364,20 +5072,7 @@ House_Price_Data.iloc[15:120 , :]
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -5686,20 +5381,7 @@ House_Price_Data.iloc[[6,10,15] , :]
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -5805,14 +5487,12 @@ House_Price_Data.iloc[[6,10,15] , :]
 <p>3 rows × 29 columns</p>
 </div>
 
+<br>
+ 
 
 <br>
 
----
-
-<br>
-
-Mathematically, the `iloc[]` filter operation could be formalized as follows: $\\[0.7cm]$
+Mathematically, the `iloc[]` filter operation could be formalized as follows: $\\[0.4cm]$
 
 
 $$df.iloc \hspace{0.1cm} [ \hspace{0.1cm} 15:120 \hspace{0.1cm} , \hspace{0.1cm} : \hspace{0.1cm} ] \hspace{0.1cm} = \hspace{0.1cm} D\hspace{0.1cm} [ \hspace{0.1cm} 15:120 \hspace{0.1cm},\hspace{0.1cm} : \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} (x_i \hspace{0.1cm}:\hspace{0.1cm} i = 15,...,120 \hspace{0.1cm}) \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
@@ -5820,7 +5500,7 @@ x_{15}^t \\
 x_{16}^t \\
 ...  \\
 x_{120}^t
-\end{pmatrix}  \\[2cm]$$
+\end{pmatrix}  \\[0.7cm]$$
 
 
 
@@ -5832,9 +5512,7 @@ x_{15}^t
 
 
 
-<br>
-
----
+ 
 
 <br>
 
@@ -5847,20 +5525,7 @@ House_Price_Data.iloc[3:15 , 2:5]
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -5959,20 +5624,7 @@ House_Price_Data.iloc[[3,5,6] , [2,8]]
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -6003,19 +5655,19 @@ House_Price_Data.iloc[[3,5,6] , [2,8]]
 
 
 
-
+<br>
 
 <br>
 
 
-Mathematically, the `iloc[]` filter operation could be formalized as follows: $\\[0.7cm]$
+Mathematically, the `iloc[]` filter operation could be formalized as follows: $\\[0.4cm]$
 
 $$df.iloc\hspace{0.1cm}[\hspace{0.1cm}3:15 \hspace{0.1cm},\hspace{0.1cm} 2:5\hspace{0.1cm}]\hspace{0.1cm} =\hspace{0.1cm} D[\hspace{0.1cm}3:15 \hspace{0.1cm},\hspace{0.1cm} 2:5\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} (\hspace{0.1cm}x_i[2:5] \hspace{0.1cm}:\hspace{0.1cm} i = 3,...,15 \hspace{0.1cm}) \hspace{0.1cm}=\hspace{0.1cm} ( \hspace{0.1cm}(x_{i2} , x_{i5} ) \hspace{0.1cm}:\hspace{0.1cm} i = 3,...,15 \hspace{0.1cm}) \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
 x_{32} & x_{33} &  x_{34} & x_{35}\\
 x_{42} & x_{43} & x_{44} & x_{45}\\
 ... &  ... & ... & ... \\
 x_{15 2} & x_{15 3} & x_{15 4} & x_{15 5}
-\end{pmatrix} \\[2cm]$$
+\end{pmatrix} \\[0.7cm]$$
 
 $$df.iloc\hspace{0.1cm}[\hspace{0.1cm}[3,5,6] \hspace{0.1cm},\hspace{0.1cm} [2,8]\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}[3,5,6]\hspace{0.1cm} , \hspace{0.1cm}[2,8]\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} (\hspace{0.1cm} x_i[2,8] \hspace{0.1cm} : \hspace{0.1cm} i = 3,5,6 \hspace{0.1cm} ) \hspace{0.1cm} = \hspace{0.1cm} ( \hspace{0.1cm} (x_{i2} , x_{i8} ) \hspace{0.1cm} : \hspace{0.1cm} i = 3,5,6 \hspace{0.1cm} ) \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
 x_{32} & x_{38}  \\
@@ -6037,20 +5689,7 @@ House_Price_Data.T
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -6824,20 +6463,7 @@ House_Price_Data.drop(['price'], axis=1)
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -7145,20 +6771,7 @@ House_Price_Data.drop(['price', 'longitude'], axis=1)
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -7456,22 +7069,17 @@ House_Price_Data.drop(['price', 'longitude'], axis=1)
 <p>1905 rows × 27 columns</p>
 </div>
 
-
+<br>
+ 
 <br>
 
----
-
-<br>
-
-Mathematically `drop()` filter operation could be formalized as follows: $\\[0.7cm]$
+Mathematically `drop()` filter operation could be formalized as follows: $\\[0.4cm]$
 
 
 $$df.drop(\hspace{0.1cm} [name(X_3) , name(X_5)] \hspace{0.1cm} , \hspace{0.1cm} axis=1 \hspace{0.1cm} ) \hspace{0.1cm} = \hspace{0.1cm} D \hspace{0.1cm} [ \hspace{0.1cm} : \hspace{0.1cm} , \hspace{0.1cm} - [X_3 , X_7] \hspace{0.1cm} ] \hspace{0.1cm}=\hspace{0.1cm} (X_1,X_2,X_4,X_6,...,X_p)$$
 
 
-<br>
-
----
+ 
 
 <br>
 
@@ -7486,20 +7094,7 @@ House_Price_Data.drop(3, axis=0)
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -7807,20 +7402,7 @@ House_Price_Data.drop([2,3,1900], axis=0)
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -8120,14 +7702,12 @@ House_Price_Data.drop([2,3,1900], axis=0)
 
 
 
-<br>
-
----
+ 
 
 <br>
 
 
-Mathematically `drop()` operation could be formalized as follows: $\\[0.7cm]$
+Mathematically `drop()` operation could be formalized as follows: $\\[0.4cm]$
 
 
 $$df.drop( \hspace{0.1cm}  [2 , 5] \hspace{0.1cm}  , \hspace{0.1cm}  axis=0 \hspace{0.1cm}  ) \hspace{0.1cm} =\hspace{0.1cm}  D \hspace{0.1cm}  [-[2,5] \hspace{0.1cm} , \hspace{0.1cm}   : \hspace{0.1cm} ] \hspace{0.1cm}  = \hspace{0.1cm}  \begin{pmatrix}
@@ -8140,11 +7720,7 @@ x_n^t
 \end{pmatrix} $$
 
 
-
-
-<br>
-
----
+ 
 
 <br>
 
@@ -8161,20 +7737,7 @@ House_Price_Data.rename(columns={'neighborhood_recode' : 'neighborhood'})
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -8503,20 +8066,7 @@ House_Price_Data.groupby('quality_recode').sum()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -8670,32 +8220,27 @@ House_Price_Data.groupby('quality_recode').sum()
 <p>4 rows × 28 columns</p>
 </div>
 
-
 <br>
-
----
 
 <br>
 
 
-Mathematically `groupby()` operation could be formalized as follows: $\\[0.7cm]$
+Mathematically `groupby()` operation could be formalized as follows: $\\[0.4cm]$
 
 $$df.groupby( \hspace{0.1cm} name(X_3) \hspace{0.1cm} ).f() \hspace{0.1cm}=\hspace{0.1cm}  \begin{pmatrix}
 f\hspace{0.1cm} ( \hspace{0.1cm} x_{i1} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=0 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n  \hspace{0.1cm} ) & f \hspace{0.1cm} ( \hspace{0.1cm} x_{i2} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=0 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & ... & f \hspace{0.1cm} ( \hspace{0.1cm} x_{ip} \hspace{0.1cm}:\hspace{0.1cm} x_{i3}=0 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
 f \hspace{0.1cm} ( \hspace{0.1cm} x_{i1} \hspace{0.1cm}  : \hspace{0.1cm} x_{i3}=1 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & f \hspace{0.1cm}( \hspace{0.1cm} x_{i2} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=1 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & ... & f \hspace{0.1cm} ( \hspace{0.1cm} x_{ip} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=1 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
 f \hspace{0.1cm} ( \hspace{0.1cm} x_{i1} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=2 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm}) & f \hspace{0.1cm} (  \hspace{0.1cm} x_{i2} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=2 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & ... & f \hspace{0.1cm} ( \hspace{0.1cm} x_{ip} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=2 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
 f \hspace{0.1cm} ( \hspace{0.1cm} x_{i1} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=3 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & f \hspace{0.1cm} ( \hspace{0.1cm} x_{i2} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=3 \hspace{0.1cm} , \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) & ... & f \hspace{0.1cm} (\hspace{0.1cm} x_{ip} \hspace{0.1cm} : \hspace{0.1cm} x_{i3}=3 \hspace{0.1cm} ,  \hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) 
-\end{pmatrix} \\[2cm]$$
+\end{pmatrix} \\[0.5cm]$$
 
  
 
 
-where $\hspace{0.1cm}Range(X_3) = \lbrace 0,1,2,3 \rbrace\hspace{0.15cm}$ and $\hspace{0.12cm}f\hspace{0.12cm}$ is any function.
+Where $\hspace{0.1cm}Range(X_3) = \lbrace 0,1,2,3 \rbrace\hspace{0.15cm}$ and $\hspace{0.12cm}f\hspace{0.12cm}$ is any function.
 
 
-<br>
-
----
+ 
 
 <br>
 
@@ -8792,12 +8337,10 @@ Name: price, dtype: float64
 
 <br>
 
----
-
 <br>
 
 
-Mathematically, `groupby()` operation could be formalized as follows: $\\[0.7cm]$
+Mathematically, `groupby()` operation could be formalized as follows: $\\[0.4cm]$
 
 $$df.groupby( \hspace{0.1cm} [ \hspace{0.1cm}name(X_3)\hspace{0.1cm} ,\hspace{0.1cm} name(X_8)\hspace{0.1cm}] \hspace{0.1cm})[\hspace{0.1cm} name(X_6) \hspace{0.1cm}].f() \hspace{0.1cm}= \hspace{0.1cm} \begin{pmatrix}
 f\hspace{0.1cm}( \hspace{0.1cm} x_{i6} \hspace{0.1cm}:\hspace{0.1cm} x_{i3}=0 \hspace{0.15cm} , \hspace{0.15cm} x_{i8}=0 \hspace{0.1cm},\hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
@@ -8808,17 +8351,15 @@ f\hspace{0.1cm}( \hspace{0.1cm} x_{i6} \hspace{0.1cm}:\hspace{0.1cm} x_{i3}=2 \h
 f\hspace{0.1cm}( \hspace{0.1cm} x_{i6} \hspace{0.1cm}:\hspace{0.1cm} x_{i3}=2 \hspace{0.15cm} , \hspace{0.15cm} x_{i8}=1 \hspace{0.1cm},\hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
 f\hspace{0.1cm}( \hspace{0.1cm} x_{i6} \hspace{0.1cm}:\hspace{0.1cm} x_{i3}=3 \hspace{0.15cm} , \hspace{0.15cm} x_{i8}=0 \hspace{0.1cm},\hspace{0.1cm} i=1,...,n \hspace{0.1cm} ) \\
 f\hspace{0.1cm}( \hspace{0.1cm} x_{i6} \hspace{0.1cm}:\hspace{0.1cm} x_{i3}=3 \hspace{0.15cm} , \hspace{0.15cm} x_{i8}=1 \hspace{0.1cm},\hspace{0.1cm} i=1,...,n \hspace{0.1cm} )
-\end{pmatrix} \\[2cm]$$
+\end{pmatrix} \\[0.5cm]$$
 
 
-where $\hspace{0.1cm}Range(X_3) = \lbrace 0,1,2,3 \rbrace\hspace{0.15cm}$ , $\hspace{0.1cm}Range(X_8) = \lbrace 0,1 \rbrace\hspace{0.15cm}$ and $\hspace{0.12cm}f\hspace{0.12cm}$ is any function.
+Where $\hspace{0.1cm}Range(X_3) = \lbrace 0,1,2,3 \rbrace\hspace{0.15cm}$ , $\hspace{0.1cm}Range(X_8) = \lbrace 0,1 \rbrace\hspace{0.15cm}$ and $\hspace{0.12cm}f\hspace{0.12cm}$ is any function.
 
 
 
 
-<br>
-
----
+ 
 
 <br>
 
@@ -8835,20 +8376,7 @@ House_Price_Data.groupby('quality_recode')['price'].agg([np.min, np.max, np.medi
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -8921,20 +8449,7 @@ Ventas.head()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -8991,7 +8506,7 @@ Ventas.head()
 </table>
 </div>
 
-
+<br>
 
 
 ```python
@@ -9001,20 +8516,7 @@ Proveedores
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -9061,20 +8563,7 @@ Clientes.head()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -9158,20 +8647,7 @@ concat([Ventas,Clientes] axis=0)
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -9554,20 +9030,7 @@ concat([Ventas,Clientes], axis=0 , ignore_index=True)
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -9970,20 +9433,7 @@ df1
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -10042,22 +9492,7 @@ df2
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -10118,20 +9553,7 @@ concat([df1,df2] , axis=0)
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -10228,22 +9650,7 @@ concat([Ventas,Clientes] , axis=1)
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -10476,19 +9883,13 @@ concat([Ventas,Clientes] , axis=1)
 </table>
 </div>
 
-
- 
-
-
 <br>
-
----
-
+ 
 <br>
 
 Mathematically, `concat()` operation could be formalized as follows:
 
-Suppose we have two data frames $\hspace{0.1cm} df1\hspace{0.1cm}$ and $\hspace{0.1cm}df2\hspace{0.1cm}$ : $\\[0.7cm]$
+Suppose we have two data frames $\hspace{0.1cm} df1\hspace{0.1cm}$ and $\hspace{0.1cm}df2\hspace{0.1cm}$ : $\\[0.4cm]$
 
 $$df1 \hspace{0.2cm}\Rightarrow\hspace{0.2cm} D_1 = \begin{pmatrix}
 x_1 \\
@@ -10504,41 +9905,41 @@ y_1 \\
 y_{n_1}
 \end{pmatrix} = \begin{pmatrix}
 Y_1 & ... & Y_{p_2} \\
-\end{pmatrix}  \\[1.2cm]$$
+\end{pmatrix}  \\[0.5cm]$$
 
-In addition, $\hspace{0.15cm}NA \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
+In addition, $\hspace{0.08cm}NA \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
 NaN \\
 ... \\
 NaN
-\end{pmatrix} \hspace{0.2cm}$ is a NaN vector with suitable dimensions.
+\end{pmatrix} \hspace{0.1cm}$ is a NaN vector with suitable dimensions.
 
 <br>
 
 
 
-- If all the column names of $\hspace{0.1cm}df1\hspace{0.1cm}$ are different to all the column names of $\hspace{0.1cm}df2\hspace{0.1cm}$ : $\\[0.7cm]$
+- If all the column names of $\hspace{0.1cm}df1\hspace{0.1cm}$ are different to all the column names of $\hspace{0.1cm}df2\hspace{0.1cm}$ : $\\[0.4cm]$
 
 
 $$concat \hspace{0.1cm}( \hspace{0.1cm} [df1\hspace{0.1cm},\hspace{0.1cm}df2] \hspace{0.1cm}, \hspace{0.1cm} axis=0 \hspace{0.1cm}) \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
 X_1 &  ... & X_{p_1} & NA & ... & NA \\
 NA  & ...  & NA  & Y_1 & ... & Y_{p_2} 
-\end{pmatrix} \\[1.5cm]$$
+\end{pmatrix} \\[1cm]$$
 
   
 
 
-- If $\hspace{0.1cm}name(X_2)\hspace{0.1cm} =\hspace{0.1cm} name(Y_3)\hspace{0.1cm}$ but the rest of column names are different one each other: $\\[0.7cm]$
+- If $\hspace{0.1cm}name(X_2)\hspace{0.1cm} =\hspace{0.1cm} name(Y_3)\hspace{0.1cm}$ but the rest of column names are different one each other: $\\[0.4cm]$
 
 
 
 $$concat \hspace{0.1cm} ( \hspace{0.1cm}[df1 \hspace{0.1cm},\hspace{0.1cm}df2] \hspace{0.1cm} , \hspace{0.1cm} axis=0 \hspace{0.1cm}) \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
 X_1 & X_2 & X_3 & ... &  X_{p_1} & NA & NA & NA & ... & NA \\
 NA  & Y_3 & NA  & ... & NA  & Y_1 & Y_2 & Y_4 & ... & Y_{p_2}
-\end{pmatrix} \\[1.5cm]$$
+\end{pmatrix} \\[1cm]$$
 
 
 
-- If all the column names of $\hspace{0.1cm} df1\hspace{0.1cm}$ are equal to all the column names of $\hspace{0.1cm}df2\hspace{0.1cm}$ : $\\[1cm]$
+- If all the column names of $\hspace{0.1cm} df1\hspace{0.1cm}$ are equal to all the column names of $\hspace{0.1cm}df2\hspace{0.1cm}$ : $\\[0.4cm]$
 
     $$concat\hspace{0.1cm}(\hspace{0.1cm}[df1\hspace{0.1cm},\hspace{0.1cm}df2]\hspace{0.1cm},\hspace{0.1cm} axis=0\hspace{0.1cm})  \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
     x_1 \\
@@ -10550,7 +9951,7 @@ NA  & Y_3 & NA  & ... & NA  & Y_1 & Y_2 & Y_4 & ... & Y_{p_2}
     \end{pmatrix} = \begin{pmatrix}
     X_1 & ... & X_p \\
     Y_1  & ... & Y_p
-    \end{pmatrix}\\[3cm]$$
+    \end{pmatrix}\\[1cm]$$
 
 
     - If $\hspace{0.1cm}n_1 > n_2\hspace{0.1cm}$ :
@@ -10564,7 +9965,7 @@ NA  & Y_3 & NA  & ... & NA  & Y_1 & Y_2 & Y_4 & ... & Y_{p_2}
     x_{n_2 +1} & NA \\
      ...  & ... \\
     x_{n_1} & NA
-    \end{pmatrix} \\[3cm]$$
+    \end{pmatrix} \\[1cm]$$
     
 
 
@@ -10581,9 +9982,7 @@ NA  & Y_3 & NA  & ... & NA  & Y_1 & Y_2 & Y_4 & ... & Y_{p_2}
 
 
 
-<br>
-
----
+ 
 
 <br>
 
@@ -10601,20 +10000,7 @@ Ventas
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -10760,22 +10146,7 @@ Clientes
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -10907,9 +10278,9 @@ Clientes
 <br>
 
 
+<br>
 
-
-Suppose we have two data frames $\hspace{0.1cm} df1\hspace{0.1cm}$ and $\hspace{0.1cm}df2\hspace{0.1cm}$ : $\\[0.7cm]$
+Suppose we have two data frames $\hspace{0.1cm} df1\hspace{0.1cm}$ and $\hspace{0.1cm}df2\hspace{0.1cm}$ : $\\[0.4cm]$
 
 $$df1 \hspace{0.2cm}\Rightarrow\hspace{0.2cm} D_1 = \begin{pmatrix}
 x_1 \\
@@ -10925,7 +10296,7 @@ y_1 \\
 y_{n_1}
 \end{pmatrix} = \begin{pmatrix}
 Y_1 & ... & Y_{p_2} \\
-\end{pmatrix}  \\[1.2cm]$$
+\end{pmatrix}  \\[1cm]$$
 
 
 where there is a column shared by both data frames, called the **link** column, through which they will be joined.
@@ -10955,20 +10326,7 @@ pd.merge(Ventas, Clientes, on='ClienteID', how='inner')
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -11185,10 +10543,8 @@ pd.merge(Ventas, Clientes, on='ClienteID', how='inner')
 </table>
 </div>
 
-
 <br>
-
----
+ 
 
 <br>
 
@@ -11204,9 +10560,7 @@ $c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspa
 Note that in $\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}$ the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.
 
 
-<br>
-
----
+ 
 
 <br>
 
@@ -11227,22 +10581,7 @@ pd.merge(Ventas, Clientes, on='ClienteID', how='outer')
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -11490,9 +10829,8 @@ pd.merge(Ventas, Clientes, on='ClienteID', how='outer')
 
 <br>
 
----
-
 <br>
+ 
 
 Mathematically outer join can be formalized as follows:
 
@@ -11511,9 +10849,7 @@ $c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspa
 Note that in $\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}$ the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.
 
 
-<br>
-
----
+ 
 
 <br>
 
@@ -11531,20 +10867,7 @@ pd.merge(Ventas, Clientes, on='ClienteID', how='left')
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -11765,8 +11088,6 @@ pd.merge(Ventas, Clientes, on='ClienteID', how='left')
 
 <br>
 
----
-
 <br>
 
 Mathematically left join can be formalized as follows:
@@ -11778,6 +11099,8 @@ $$pd.merge \hspace{0.1cm} ( \hspace{0.1cm}  df1 \hspace{0.1cm} , \hspace{0.1cm} 
  \hspace{0.1cm} c \hspace{0.1cm}  ( \hspace{0.1cm}  x_i \hspace{0.1cm}  , \hspace{0.1cm}  NA \hspace{0.1cm} ) \hspace{0.15cm} : \hspace{0.15cm}  \hspace{0.13cm}  i=1,...,n_1 \hspace{0.15cm} , \hspace{0.15cm} \nexists \hspace{0.1cm} j = 1,...,n_2 \hspace{0.15cm},\hspace{0.15cm}  y_j \in y(x_i) \hspace{0.1cm}  \end{pmatrix}\\
 $$
 
+
+
 where: 
 
 $c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}$ is the row resulting from concatenating $\hspace{0.1cm}x_i \hspace{0.1cm}$ with $\hspace{0.1cm}y_j \hspace{0.1cm}$
@@ -11787,9 +11110,7 @@ Note that in $\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm}
 
 <br>
 
----
-
-<br>
+ 
 
 
 ## Right join
@@ -11804,20 +11125,7 @@ pd.merge(Ventas, Clientes, on='ClienteID', how='right')
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -12064,9 +11372,7 @@ pd.merge(Ventas, Clientes, on='ClienteID', how='right')
 
 <br>
 
----
-
-<br>
+ 
 
 Mathematically right join can be formalized as follows:
 
@@ -12086,9 +11392,7 @@ Note that in $\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm}
 
 <br>
 
----
-
-<br>
+ 
 
 The correct way to use `merge` when the names of link columns are different is the following:
 
@@ -12111,20 +11415,7 @@ House_Price_Data.sort_values(by='price', ascending=True)
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -12431,22 +11722,7 @@ House_Price_Data.sort_values(by='price', ascending=False)
 ```
 
 
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -12744,9 +12020,9 @@ House_Price_Data.sort_values(by='price', ascending=False)
 <p>1905 rows × 29 columns</p>
 </div>
 
-<br>
 
----
+<br>
+ 
 
 <br>
 

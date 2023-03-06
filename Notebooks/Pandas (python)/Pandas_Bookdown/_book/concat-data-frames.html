@@ -119,28 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -155,15 +133,19 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Introduction to Pandas</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Data-frame as data-matrix</a></li>
-<li class="chapter" data-level="2" data-path="create-a-new-data-frame.html"><a href="create-a-new-data-frame.html"><i class="fa fa-check"></i><b>2</b> Create a new data-frame:</a></li>
+<li class="chapter" data-level="2" data-path="create-a-new-data-frame.html"><a href="create-a-new-data-frame.html"><i class="fa fa-check"></i><b>2</b> Create a new data-frame</a></li>
 <li class="chapter" data-level="3" data-path="import-a-csv-as-a-data-frame.html"><a href="import-a-csv-as-a-data-frame.html"><i class="fa fa-check"></i><b>3</b> Import a CSV as a data-frame</a></li>
 <li class="chapter" data-level="4" data-path="export-a-csv.html"><a href="export-a-csv.html"><i class="fa fa-check"></i><b>4</b> Export a CSV</a></li>
 <li class="chapter" data-level="5" data-path="number-of-rows-and-columns.html"><a href="number-of-rows-and-columns.html"><i class="fa fa-check"></i><b>5</b> Number of rows and columns</a></li>
-<li class="chapter" data-level="6" data-path="head-y-tail.html"><a href="head-y-tail.html"><i class="fa fa-check"></i><b>6</b> Head y Tail</a></li>
+<li class="chapter" data-level="6" data-path="head-and-tail.html"><a href="head-and-tail.html"><i class="fa fa-check"></i><b>6</b> Head and Tail</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="head-and-tail.html"><a href="head-and-tail.html#head"><i class="fa fa-check"></i><b>6.1</b> Head</a></li>
+<li class="chapter" data-level="6.2" data-path="head-and-tail.html"><a href="head-and-tail.html#tail"><i class="fa fa-check"></i><b>6.2</b> Tail</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="column-names.html"><a href="column-names.html"><i class="fa fa-check"></i><b>7</b> Column Names</a></li>
 <li class="chapter" data-level="8" data-path="selecting-columns-from-a-data-frame.html"><a href="selecting-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>8</b> Selecting columns from a data-frame</a>
 <ul>
@@ -194,37 +176,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.4" data-path="join-data-frames.html"><a href="join-data-frames.html#right-join"><i class="fa fa-check"></i><b>17.4</b> Right join</a></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="sorting-columns-from-a-data-frame.html"><a href="sorting-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>18</b> Sorting columns from a data-frame</a></li>
-<li class="chapter" data-level="19" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>19</b> Hello bookdown</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="hello-bookdown.html"><a href="hello-bookdown.html#a-section"><i class="fa fa-check"></i><b>19.1</b> A section</a>
-<ul>
-<li class="chapter" data-level="" data-path="hello-bookdown.html"><a href="hello-bookdown.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="20" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>20</b> Cross-references</a>
-<ul>
-<li class="chapter" data-level="20.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>20.1</b> Chapters and sub-chapters</a></li>
-<li class="chapter" data-level="20.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>20.2</b> Captioned figures and tables</a></li>
-</ul></li>
-<li class="chapter" data-level="21" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>21</b> Parts</a></li>
-<li class="chapter" data-level="22" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>22</b> Footnotes and citations</a>
-<ul>
-<li class="chapter" data-level="22.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>22.1</b> Footnotes</a></li>
-<li class="chapter" data-level="22.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>22.2</b> Citations</a></li>
-</ul></li>
-<li class="chapter" data-level="23" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>23</b> Blocks</a>
-<ul>
-<li class="chapter" data-level="23.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>23.1</b> Equations</a></li>
-<li class="chapter" data-level="23.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>23.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="23.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>23.3</b> Callout blocks</a></li>
-</ul></li>
-<li class="chapter" data-level="24" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>24</b> Sharing your book</a>
-<ul>
-<li class="chapter" data-level="24.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>24.1</b> Publishing</a></li>
-<li class="chapter" data-level="24.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>24.2</b> 404 pages</a></li>
-<li class="chapter" data-level="24.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>24.3</b> Metadata for sharing</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -250,20 +201,7 @@ div.csl-indent {
 <p>We can concat data-frames using <code>concat()</code> method.</p>
 <p>First, we are going to remember the <code>Ventas</code>, <code>Proveedores</code>and <code>Clientes</code> data-frames, because we are going to use them in this section:</p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb67-1"><a href="concat-data-frames.html#cb67-1" aria-hidden="true" tabindex="-1"></a>Ventas.head()</span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
 <thead>
 <tr style="text-align: right;">
@@ -390,21 +328,9 @@ P1
 </tbody>
 </table>
 </div>
+<p><br></p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb68-1"><a href="concat-data-frames.html#cb68-1" aria-hidden="true" tabindex="-1"></a>Proveedores</span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
 <thead>
 <tr style="text-align: right;">
@@ -480,20 +406,7 @@ OrientKillim
 </table>
 </div>
 <div class="sourceCode" id="cb69"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb69-1"><a href="concat-data-frames.html#cb69-1" aria-hidden="true" tabindex="-1"></a>Clientes.head()</span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
 <thead>
 <tr style="text-align: right;">
@@ -639,20 +552,7 @@ Madrid
 <div id="concat-by-rows" class="section level2 hasAnchor" number="16.1">
 <h2><span class="header-section-number">16.1</span> Concat by rows<a href="concat-data-frames.html#concat-by-rows" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb71-1"><a href="concat-data-frames.html#cb71-1" aria-hidden="true" tabindex="-1"></a>concat([Ventas,Clientes] axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
 <thead>
 <tr style="text-align: right;">
@@ -1638,20 +1538,7 @@ Lima
 </div>
 <p><br></p>
 <div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb72-1"><a href="concat-data-frames.html#cb72-1" aria-hidden="true" tabindex="-1"></a>concat([Ventas,Clientes], axis<span class="op">=</span><span class="dv">0</span> , ignore_index<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
 <thead>
 <tr style="text-align: right;">
@@ -2650,20 +2537,7 @@ Lima
 <span id="cb73-11"><a href="concat-data-frames.html#cb73-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb73-12"><a href="concat-data-frames.html#cb73-12" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame( {<span class="st">&quot;X1&quot;</span>: X5 , <span class="st">&quot;X2&quot;</span>: X6 , <span class="st">&quot;X3&quot;</span>: X7 , <span class="st">&quot;X4&quot;</span>: X8} )</span></code></pre></div>
 <div class="sourceCode" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb74-1"><a href="concat-data-frames.html#cb74-1" aria-hidden="true" tabindex="-1"></a>df1</span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
 <thead>
 <tr style="text-align: right;">
@@ -2773,20 +2647,7 @@ X4
 </table>
 </div>
 <div class="sourceCode" id="cb75"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb75-1"><a href="concat-data-frames.html#cb75-1" aria-hidden="true" tabindex="-1"></a>df2</span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
 <thead>
 <tr style="text-align: right;">
@@ -2897,20 +2758,7 @@ X4
 </div>
 <p><br></p>
 <div class="sourceCode" id="cb76"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb76-1"><a href="concat-data-frames.html#cb76-1" aria-hidden="true" tabindex="-1"></a>concat([df1,df2] , axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
 <thead>
 <tr style="text-align: right;">
@@ -3109,20 +2957,7 @@ X4
 <div id="concat-by-columns" class="section level2 hasAnchor" number="16.2">
 <h2><span class="header-section-number">16.2</span> Concat by columns<a href="concat-data-frames.html#concat-by-columns" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="sourceCode" id="cb77"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb77-1"><a href="concat-data-frames.html#cb77-1" aria-hidden="true" tabindex="-1"></a>concat([Ventas,Clientes] , axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
 <thead>
 <tr style="text-align: right;">
@@ -3727,10 +3562,9 @@ NaN
 </table>
 </div>
 <p><br></p>
-<hr />
 <p><br></p>
 <p>Mathematically, <code>concat()</code> operation could be formalized as follows:</p>
-<p>Suppose we have two data frames <span class="math inline">\(\hspace{0.1cm} df1\hspace{0.1cm}\)</span> and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> : <span class="math inline">\(\\[0.7cm]\)</span></p>
+<p>Suppose we have two data frames <span class="math inline">\(\hspace{0.1cm} df1\hspace{0.1cm}\)</span> and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> : <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p><span class="math display">\[df1 \hspace{0.2cm}\Rightarrow\hspace{0.2cm} D_1 = \begin{pmatrix}
 x_1 \\
 ... \\
@@ -3744,25 +3578,25 @@ y_1 \\
 y_{n_1}
 \end{pmatrix} = \begin{pmatrix}
 Y_1 &amp; ... &amp; Y_{p_2} \\
-\end{pmatrix}  \\[1.2cm]\]</span></p>
-<p>In addition, <span class="math inline">\(\hspace{0.15cm}NA \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix} NaN \\ ... \\ NaN \end{pmatrix} \hspace{0.2cm}\)</span> is a NaN vector with suitable dimensions.</p>
+\end{pmatrix}  \\[0.5cm]\]</span></p>
+<p>In addition, <span class="math inline">\(\hspace{0.08cm}NA \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix} NaN \\ ... \\ NaN \end{pmatrix} \hspace{0.1cm}\)</span> is a NaN vector with suitable dimensions.</p>
 <p><br></p>
 <ul>
-<li>If all the column names of <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> are different to all the column names of <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> : <span class="math inline">\(\\[0.7cm]\)</span></li>
+<li>If all the column names of <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> are different to all the column names of <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> : <span class="math inline">\(\\[0.4cm]\)</span></li>
 </ul>
 <p><span class="math display">\[concat \hspace{0.1cm}( \hspace{0.1cm} [df1\hspace{0.1cm},\hspace{0.1cm}df2] \hspace{0.1cm}, \hspace{0.1cm} axis=0 \hspace{0.1cm}) \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
 X_1 &amp;  ... &amp; X_{p_1} &amp; NA &amp; ... &amp; NA \\
 NA  &amp; ...  &amp; NA  &amp; Y_1 &amp; ... &amp; Y_{p_2}
-\end{pmatrix} \\[1.5cm]\]</span></p>
+\end{pmatrix} \\[1cm]\]</span></p>
 <ul>
-<li>If <span class="math inline">\(\hspace{0.1cm}name(X_2)\hspace{0.1cm} =\hspace{0.1cm} name(Y_3)\hspace{0.1cm}\)</span> but the rest of column names are different one each other: <span class="math inline">\(\\[0.7cm]\)</span></li>
+<li>If <span class="math inline">\(\hspace{0.1cm}name(X_2)\hspace{0.1cm} =\hspace{0.1cm} name(Y_3)\hspace{0.1cm}\)</span> but the rest of column names are different one each other: <span class="math inline">\(\\[0.4cm]\)</span></li>
 </ul>
 <p><span class="math display">\[concat \hspace{0.1cm} ( \hspace{0.1cm}[df1 \hspace{0.1cm},\hspace{0.1cm}df2] \hspace{0.1cm} , \hspace{0.1cm} axis=0 \hspace{0.1cm}) \hspace{0.1cm} = \hspace{0.1cm} \begin{pmatrix}
 X_1 &amp; X_2 &amp; X_3 &amp; ... &amp;  X_{p_1} &amp; NA &amp; NA &amp; NA &amp; ... &amp; NA \\
 NA  &amp; Y_3 &amp; NA  &amp; ... &amp; NA  &amp; Y_1 &amp; Y_2 &amp; Y_4 &amp; ... &amp; Y_{p_2}
-\end{pmatrix} \\[1.5cm]\]</span></p>
+\end{pmatrix} \\[1cm]\]</span></p>
 <ul>
-<li><p>If all the column names of <span class="math inline">\(\hspace{0.1cm} df1\hspace{0.1cm}\)</span> are equal to all the column names of <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> : <span class="math inline">\(\\[1cm]\)</span></p>
+<li><p>If all the column names of <span class="math inline">\(\hspace{0.1cm} df1\hspace{0.1cm}\)</span> are equal to all the column names of <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> : <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p><span class="math display">\[concat\hspace{0.1cm}(\hspace{0.1cm}[df1\hspace{0.1cm},\hspace{0.1cm}df2]\hspace{0.1cm},\hspace{0.1cm} axis=0\hspace{0.1cm})  \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
   x_1 \\
   ... \\
@@ -3773,7 +3607,7 @@ NA  &amp; Y_3 &amp; NA  &amp; ... &amp; NA  &amp; Y_1 &amp; Y_2 &amp; Y_4 &amp; 
   \end{pmatrix} = \begin{pmatrix}
   X_1 &amp; ... &amp; X_p \\
   Y_1  &amp; ... &amp; Y_p
-  \end{pmatrix}\\[3cm]\]</span></p>
+  \end{pmatrix}\\[1cm]\]</span></p>
 <ul>
 <li>If <span class="math inline">\(\hspace{0.1cm}n_1 &gt; n_2\hspace{0.1cm}\)</span> :</li>
 </ul>
@@ -3785,7 +3619,7 @@ NA  &amp; Y_3 &amp; NA  &amp; ... &amp; NA  &amp; Y_1 &amp; Y_2 &amp; Y_4 &amp; 
   x_{n_2 +1} &amp; NA \\
    ...  &amp; ... \\
   x_{n_1} &amp; NA
-  \end{pmatrix} \\[3cm]\]</span></p>
+  \end{pmatrix} \\[1cm]\]</span></p>
 <ul>
 <li>if <span class="math inline">\(\hspace{0.1cm}n_1 = n_2\hspace{0.1cm}\)</span> :</li>
 </ul>
@@ -3796,8 +3630,6 @@ NA  &amp; Y_3 &amp; NA  &amp; ... &amp; NA  &amp; Y_1 &amp; Y_2 &amp; Y_4 &amp; 
    x_{n_1} &amp; y_{n_2}
    \end{pmatrix}\]</span></p></li>
 </ul>
-<p><br></p>
-<hr />
 <p><br></p>
 </div>
 </div>

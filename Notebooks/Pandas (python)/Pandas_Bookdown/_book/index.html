@@ -119,28 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -155,15 +133,19 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Introduction to Pandas</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Data-frame as data-matrix</a></li>
-<li class="chapter" data-level="2" data-path="create-a-new-data-frame.html"><a href="create-a-new-data-frame.html"><i class="fa fa-check"></i><b>2</b> Create a new data-frame:</a></li>
+<li class="chapter" data-level="2" data-path="create-a-new-data-frame.html"><a href="create-a-new-data-frame.html"><i class="fa fa-check"></i><b>2</b> Create a new data-frame</a></li>
 <li class="chapter" data-level="3" data-path="import-a-csv-as-a-data-frame.html"><a href="import-a-csv-as-a-data-frame.html"><i class="fa fa-check"></i><b>3</b> Import a CSV as a data-frame</a></li>
 <li class="chapter" data-level="4" data-path="export-a-csv.html"><a href="export-a-csv.html"><i class="fa fa-check"></i><b>4</b> Export a CSV</a></li>
 <li class="chapter" data-level="5" data-path="number-of-rows-and-columns.html"><a href="number-of-rows-and-columns.html"><i class="fa fa-check"></i><b>5</b> Number of rows and columns</a></li>
-<li class="chapter" data-level="6" data-path="head-y-tail.html"><a href="head-y-tail.html"><i class="fa fa-check"></i><b>6</b> Head y Tail</a></li>
+<li class="chapter" data-level="6" data-path="head-and-tail.html"><a href="head-and-tail.html"><i class="fa fa-check"></i><b>6</b> Head and Tail</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="head-and-tail.html"><a href="head-and-tail.html#head"><i class="fa fa-check"></i><b>6.1</b> Head</a></li>
+<li class="chapter" data-level="6.2" data-path="head-and-tail.html"><a href="head-and-tail.html#tail"><i class="fa fa-check"></i><b>6.2</b> Tail</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="column-names.html"><a href="column-names.html"><i class="fa fa-check"></i><b>7</b> Column Names</a></li>
 <li class="chapter" data-level="8" data-path="selecting-columns-from-a-data-frame.html"><a href="selecting-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>8</b> Selecting columns from a data-frame</a>
 <ul>
@@ -194,37 +176,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.4" data-path="join-data-frames.html"><a href="join-data-frames.html#right-join"><i class="fa fa-check"></i><b>17.4</b> Right join</a></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="sorting-columns-from-a-data-frame.html"><a href="sorting-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>18</b> Sorting columns from a data-frame</a></li>
-<li class="chapter" data-level="19" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>19</b> Hello bookdown</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="hello-bookdown.html"><a href="hello-bookdown.html#a-section"><i class="fa fa-check"></i><b>19.1</b> A section</a>
-<ul>
-<li class="chapter" data-level="" data-path="hello-bookdown.html"><a href="hello-bookdown.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="20" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>20</b> Cross-references</a>
-<ul>
-<li class="chapter" data-level="20.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>20.1</b> Chapters and sub-chapters</a></li>
-<li class="chapter" data-level="20.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>20.2</b> Captioned figures and tables</a></li>
-</ul></li>
-<li class="chapter" data-level="21" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>21</b> Parts</a></li>
-<li class="chapter" data-level="22" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>22</b> Footnotes and citations</a>
-<ul>
-<li class="chapter" data-level="22.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>22.1</b> Footnotes</a></li>
-<li class="chapter" data-level="22.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>22.2</b> Citations</a></li>
-</ul></li>
-<li class="chapter" data-level="23" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>23</b> Blocks</a>
-<ul>
-<li class="chapter" data-level="23.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>23.1</b> Equations</a></li>
-<li class="chapter" data-level="23.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>23.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="23.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>23.3</b> Callout blocks</a></li>
-</ul></li>
-<li class="chapter" data-level="24" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>24</b> Sharing your book</a>
-<ul>
-<li class="chapter" data-level="24.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>24.1</b> Publishing</a></li>
-<li class="chapter" data-level="24.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>24.2</b> 404 pages</a></li>
-<li class="chapter" data-level="24.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>24.3</b> Metadata for sharing</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -253,7 +204,7 @@ div.csl-indent {
 <div id="data-frame-as-data-matrix" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Data-frame as data-matrix<a href="index.html#data-frame-as-data-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>We are going to consider data-frames as data matrix.</p>
-<p>Given a data-frame <span class="math inline">\(\hspace{0.1cm}df\hspace{0.1cm}\)</span> with <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> columns and <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> rows, we can represent it as data-matrix as follows:</p>
+<p>Given a data-frame <span class="math inline">\(\hspace{0.05cm}df\hspace{0.05cm}\)</span> with <span class="math inline">\(\hspace{0.05cm}p\hspace{0.05cm}\)</span> columns and <span class="math inline">\(\hspace{0.05cm}n\hspace{0.05cm}\)</span> rows, we can represent it as data-matrix as follows:</p>
 <p><br></p>
 <p><span class="math display">\[D(df) \hspace{0.05cm} = \hspace{0.05cm}  \begin{pmatrix}
 x_1^t \\
@@ -267,7 +218,7 @@ x_{21} &amp; x_{22} &amp; ... &amp; x_{2p}\\
 x_{n1} &amp; x_{n2} &amp; ... &amp; x_{np}
 \end{pmatrix} \hspace{0.05cm} =\hspace{0.05cm}  \left( X_1 X_2 ... X_p \right)\]</span></p>
 <p><br></p>
-<p>Where <span class="math inline">\(\hspace{0.1cm}x_i=(x_{i1},..., x_{ip})^t\hspace{0.1cm}\)</span> represent the <span class="math inline">\(\hspace{0.05cm}i\)</span>-th row and <span class="math inline">\(\hspace{0.1cm}X_j\hspace{0.1cm}\)</span> the <span class="math inline">\(\hspace{0.05cm}j\)</span>-th column of the data-frame <span class="math inline">\(\hspace{0.1cm}df\)</span>.</p>
+<p>Where <span class="math inline">\(\hspace{0.05cm}x_i=(x_{i1},..., x_{ip})^t\hspace{0.05cm}\)</span> represent the <span class="math inline">\(\hspace{0.05cm}i\)</span>-th row and <span class="math inline">\(\hspace{0.05cm}X_j\hspace{0.05cm}\)</span> the <span class="math inline">\(\hspace{0.05cm}j\)</span>-th column of the data-frame <span class="math inline">\(\hspace{0.05cm}df\)</span>.</p>
 <p><br></p>
 </div>
             </section>

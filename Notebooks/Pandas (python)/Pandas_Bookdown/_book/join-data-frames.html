@@ -119,28 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -155,15 +133,19 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Introduction to Pandas</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Data-frame as data-matrix</a></li>
-<li class="chapter" data-level="2" data-path="create-a-new-data-frame.html"><a href="create-a-new-data-frame.html"><i class="fa fa-check"></i><b>2</b> Create a new data-frame:</a></li>
+<li class="chapter" data-level="2" data-path="create-a-new-data-frame.html"><a href="create-a-new-data-frame.html"><i class="fa fa-check"></i><b>2</b> Create a new data-frame</a></li>
 <li class="chapter" data-level="3" data-path="import-a-csv-as-a-data-frame.html"><a href="import-a-csv-as-a-data-frame.html"><i class="fa fa-check"></i><b>3</b> Import a CSV as a data-frame</a></li>
 <li class="chapter" data-level="4" data-path="export-a-csv.html"><a href="export-a-csv.html"><i class="fa fa-check"></i><b>4</b> Export a CSV</a></li>
 <li class="chapter" data-level="5" data-path="number-of-rows-and-columns.html"><a href="number-of-rows-and-columns.html"><i class="fa fa-check"></i><b>5</b> Number of rows and columns</a></li>
-<li class="chapter" data-level="6" data-path="head-y-tail.html"><a href="head-y-tail.html"><i class="fa fa-check"></i><b>6</b> Head y Tail</a></li>
+<li class="chapter" data-level="6" data-path="head-and-tail.html"><a href="head-and-tail.html"><i class="fa fa-check"></i><b>6</b> Head and Tail</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="head-and-tail.html"><a href="head-and-tail.html#head"><i class="fa fa-check"></i><b>6.1</b> Head</a></li>
+<li class="chapter" data-level="6.2" data-path="head-and-tail.html"><a href="head-and-tail.html#tail"><i class="fa fa-check"></i><b>6.2</b> Tail</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="column-names.html"><a href="column-names.html"><i class="fa fa-check"></i><b>7</b> Column Names</a></li>
 <li class="chapter" data-level="8" data-path="selecting-columns-from-a-data-frame.html"><a href="selecting-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>8</b> Selecting columns from a data-frame</a>
 <ul>
@@ -194,37 +176,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.4" data-path="join-data-frames.html"><a href="join-data-frames.html#right-join"><i class="fa fa-check"></i><b>17.4</b> Right join</a></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="sorting-columns-from-a-data-frame.html"><a href="sorting-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>18</b> Sorting columns from a data-frame</a></li>
-<li class="chapter" data-level="19" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>19</b> Hello bookdown</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="hello-bookdown.html"><a href="hello-bookdown.html#a-section"><i class="fa fa-check"></i><b>19.1</b> A section</a>
-<ul>
-<li class="chapter" data-level="" data-path="hello-bookdown.html"><a href="hello-bookdown.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="20" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>20</b> Cross-references</a>
-<ul>
-<li class="chapter" data-level="20.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>20.1</b> Chapters and sub-chapters</a></li>
-<li class="chapter" data-level="20.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>20.2</b> Captioned figures and tables</a></li>
-</ul></li>
-<li class="chapter" data-level="21" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>21</b> Parts</a></li>
-<li class="chapter" data-level="22" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>22</b> Footnotes and citations</a>
-<ul>
-<li class="chapter" data-level="22.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>22.1</b> Footnotes</a></li>
-<li class="chapter" data-level="22.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>22.2</b> Citations</a></li>
-</ul></li>
-<li class="chapter" data-level="23" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>23</b> Blocks</a>
-<ul>
-<li class="chapter" data-level="23.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>23.1</b> Equations</a></li>
-<li class="chapter" data-level="23.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>23.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="23.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>23.3</b> Callout blocks</a></li>
-</ul></li>
-<li class="chapter" data-level="24" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>24</b> Sharing your book</a>
-<ul>
-<li class="chapter" data-level="24.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>24.1</b> Publishing</a></li>
-<li class="chapter" data-level="24.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>24.2</b> 404 pages</a></li>
-<li class="chapter" data-level="24.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>24.3</b> Metadata for sharing</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -249,20 +200,7 @@ div.csl-indent {
 <h1><span class="header-section-number">Chapter 17</span> Join data-frames<a href="join-data-frames.html#join-data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>We are going to remember the <code>Ventas</code> and <code>Clientes</code> data-frames, because we are going to use them in this section:</p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb78-1"><a href="join-data-frames.html#cb78-1" aria-hidden="true" tabindex="-1"></a>Ventas</span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
 <thead>
 <tr style="text-align: right;">
@@ -591,20 +529,7 @@ P3
 </div>
 <p><br></p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb79-1"><a href="join-data-frames.html#cb79-1" aria-hidden="true" tabindex="-1"></a>Clientes</span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
 <thead>
 <tr style="text-align: right;">
@@ -899,7 +824,8 @@ Murcia
 </table>
 </div>
 <p><br></p>
-<p>Suppose we have two data frames <span class="math inline">\(\hspace{0.1cm} df1\hspace{0.1cm}\)</span> and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> : <span class="math inline">\(\\[0.7cm]\)</span></p>
+<p><br></p>
+<p>Suppose we have two data frames <span class="math inline">\(\hspace{0.1cm} df1\hspace{0.1cm}\)</span> and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> : <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p><span class="math display">\[df1 \hspace{0.2cm}\Rightarrow\hspace{0.2cm} D_1 = \begin{pmatrix}
 x_1 \\
 ... \\
@@ -913,7 +839,7 @@ y_1 \\
 y_{n_1}
 \end{pmatrix} = \begin{pmatrix}
 Y_1 &amp; ... &amp; Y_{p_2} \\
-\end{pmatrix}  \\[1.2cm]\]</span></p>
+\end{pmatrix}  \\[1cm]\]</span></p>
 <p>where there is a column shared by both data frames, called the <strong>link</strong> column, through which they will be joined.</p>
 <p>Taking the above into account, we define: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <p><span class="math display">\[y(x_i) \hspace{0.1cm}=\hspace{0.1cm} \lbrace \hspace{0.1cm} y_i \hspace{0.1cm} : \hspace{0.1cm} i = 1,...,n_2 \hspace{0.1cm} , \hspace{0.1cm} y_i[link] = x_i[link] \hspace{0.1cm} \rbrace \\\]</span></p>
@@ -925,20 +851,7 @@ Y_1 &amp; ... &amp; Y_{p_2} \\
 <p>In simple words, the inner join between <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> is an operation that consists of creating a new data frame that joins <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> rows and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> rows through a <em>link</em> column, taking into account only the values of the link column appearing in both data frames.</p>
 <p><br></p>
 <div class="sourceCode" id="cb80"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb80-1"><a href="join-data-frames.html#cb80-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Ventas, Clientes, on<span class="op">=</span><span class="st">&#39;ClienteID&#39;</span>, how<span class="op">=</span><span class="st">&#39;inner&#39;</span>) </span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
 <thead>
 <tr style="text-align: right;">
@@ -1489,7 +1402,6 @@ Sevilla
 </table>
 </div>
 <p><br></p>
-<hr />
 <p><br></p>
 <p>Mathematically inner join can be formalized as follows:</p>
 <p><span class="math display">\[pd.merge \hspace{0.1cm} ( \hspace{0.1cm}  df1 \hspace{0.1cm} , \hspace{0.1cm}  df2 \hspace{0.1cm} , \hspace{0.1cm}  on=link \hspace{0.1cm}  , \hspace{0.1cm}  how=inner \hspace{0.1cm} )
@@ -1498,28 +1410,13 @@ Sevilla
 <p><span class="math inline">\(c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}\)</span> is the row resulting from concatenating <span class="math inline">\(\hspace{0.1cm}x_i \hspace{0.1cm}\)</span> with <span class="math inline">\(\hspace{0.1cm}y_j \hspace{0.1cm}\)</span></p>
 <p>Note that in <span class="math inline">\(\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}\)</span> the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.</p>
 <p><br></p>
-<hr />
-<p><br></p>
 </div>
 <div id="outer-join" class="section level2 hasAnchor" number="17.2">
 <h2><span class="header-section-number">17.2</span> Outer join<a href="join-data-frames.html#outer-join" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In simple words, the outer join between <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> is an operation that consists of creating a new frame of data that joins <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> rows and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> rows via a <em>link</em> column, taking into account all values of the link column, both those that appear in both data-frames, and those that appear in <span class="math inline">\(df1\)</span> but not in <span class="math inline">\(df2\)</span>, and those that appear in <span class="math inline">\(df2\)</span> but not in <span class="math inline">\(df1\)</span>.</p>
 <p><br></p>
 <div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb81-1"><a href="join-data-frames.html#cb81-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Ventas, Clientes, on<span class="op">=</span><span class="st">&#39;ClienteID&#39;</span>, how<span class="op">=</span><span class="st">&#39;outer&#39;</span>)  </span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
 <thead>
 <tr style="text-align: right;">
@@ -2139,7 +2036,6 @@ Murcia
 </table>
 </div>
 <p><br></p>
-<hr />
 <p><br></p>
 <p>Mathematically outer join can be formalized as follows:</p>
 <p><span class="math display">\[pd.merge \hspace{0.1cm} ( \hspace{0.1cm}  df1 \hspace{0.1cm} , \hspace{0.1cm}  df2 \hspace{0.1cm} , \hspace{0.1cm}  on=link \hspace{0.1cm}  , \hspace{0.1cm}  how=outer \hspace{0.1cm} )
@@ -2152,28 +2048,13 @@ Murcia
 <p><span class="math inline">\(c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}\)</span> is the row resulting from concatenating <span class="math inline">\(\hspace{0.1cm}x_i \hspace{0.1cm}\)</span> with <span class="math inline">\(\hspace{0.1cm}y_j \hspace{0.1cm}\)</span></p>
 <p>Note that in <span class="math inline">\(\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}\)</span> the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.</p>
 <p><br></p>
-<hr />
-<p><br></p>
 </div>
 <div id="left-join" class="section level2 hasAnchor" number="17.3">
 <h2><span class="header-section-number">17.3</span> Left join<a href="join-data-frames.html#left-join" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In simple words, the left join between <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> is an operation that consists of creating a new frame of data that joins <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> rows and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> rows via a <em>link</em> column, taking into account the values of the link column that appear in both data-frames, and those that appear in <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> but not in <span class="math inline">\(\hspace{0.1cm}df2\)</span>.</p>
 <p><br></p>
 <div class="sourceCode" id="cb82"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb82-1"><a href="join-data-frames.html#cb82-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Ventas, Clientes, on<span class="op">=</span><span class="st">&#39;ClienteID&#39;</span>, how<span class="op">=</span><span class="st">&#39;left&#39;</span>)</span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
 <thead>
 <tr style="text-align: right;">
@@ -2724,7 +2605,6 @@ Lima
 </table>
 </div>
 <p><br></p>
-<hr />
 <p><br></p>
 <p>Mathematically left join can be formalized as follows:</p>
 <p><span class="math display">\[pd.merge \hspace{0.1cm} ( \hspace{0.1cm}  df1 \hspace{0.1cm} , \hspace{0.1cm}  df2 \hspace{0.1cm} , \hspace{0.1cm}  on=link \hspace{0.1cm}  , \hspace{0.1cm}  how=left \hspace{0.1cm} )
@@ -2736,28 +2616,13 @@ Lima
 <p><span class="math inline">\(c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}\)</span> is the row resulting from concatenating <span class="math inline">\(\hspace{0.1cm}x_i \hspace{0.1cm}\)</span> with <span class="math inline">\(\hspace{0.1cm}y_j \hspace{0.1cm}\)</span></p>
 <p>Note that in <span class="math inline">\(\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}\)</span> the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.</p>
 <p><br></p>
-<hr />
-<p><br></p>
 </div>
 <div id="right-join" class="section level2 hasAnchor" number="17.4">
 <h2><span class="header-section-number">17.4</span> Right join<a href="join-data-frames.html#right-join" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In simple words, the left join between <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> is an operation that consists of creating a new frame of data that joins <span class="math inline">\(\hspace{0.1cm}df1\hspace{0.1cm}\)</span> rows and <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> rows via a <em>link</em> column, taking into account the values of the link column that appear in both data-frames, and those that appear in <span class="math inline">\(\hspace{0.1cm}df2\hspace{0.1cm}\)</span> but not in <span class="math inline">\(\hspace{0.1cm}df1\)</span>.
 <br></p>
 <div class="sourceCode" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb83-1"><a href="join-data-frames.html#cb83-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Ventas, Clientes, on<span class="op">=</span><span class="st">&#39;ClienteID&#39;</span>, how<span class="op">=</span><span class="st">&#39;right&#39;</span>) </span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x:auto;">
 <table border="1" class="dataframe">
 <thead>
 <tr style="text-align: right;">
@@ -3377,8 +3242,6 @@ Murcia
 </table>
 </div>
 <p><br></p>
-<hr />
-<p><br></p>
 <p>Mathematically right join can be formalized as follows:</p>
 <p><span class="math display">\[pd.merge \hspace{0.1cm} ( \hspace{0.1cm}  df1 \hspace{0.1cm} , \hspace{0.1cm}  df2 \hspace{0.1cm} , \hspace{0.1cm}  on=link \hspace{0.1cm}  , \hspace{0.1cm}  how=right \hspace{0.1cm} )
 \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
@@ -3388,8 +3251,6 @@ Murcia
 <p>where:</p>
 <p><span class="math inline">\(c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}\)</span> is the row resulting from concatenating <span class="math inline">\(\hspace{0.1cm}x_i \hspace{0.1cm}\)</span> with <span class="math inline">\(\hspace{0.1cm}y_j \hspace{0.1cm}\)</span></p>
 <p>Note that in <span class="math inline">\(\hspace{0.1cm}c \hspace{0.1cm} ( \hspace{0.1cm} x_i \hspace{0.1cm} , \hspace{0.1cm} y_j \hspace{0.1cm} ) \hspace{0.1cm}\)</span> the link column appears two times, so in many software such as Pandas one of them is removed to avoid repetition.</p>
-<p><br></p>
-<hr />
 <p><br></p>
 <p>The correct way to use <code>merge</code> when the names of link columns are different is the following:</p>
 <div class="sourceCode" id="cb84"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb84-1"><a href="join-data-frames.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="co"># df_merge = pd.merge(df1, df2, left_on=&#39;id1&#39; , right_on=&#39;id2&#39;, how=&#39;inner&#39;)</span></span></code></pre></div>

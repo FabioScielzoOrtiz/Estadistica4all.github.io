@@ -47,3 +47,8 @@ outer-join
 left-join
 right-join
 sorting-columns-from-a-data-frame
+fig:nice-fig
+tab:nice-tab
+head-and-tail
+head
+tail

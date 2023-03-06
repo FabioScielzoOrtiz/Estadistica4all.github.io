@@ -119,28 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -155,15 +133,19 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Introduction to Pandas</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Data-frame as data-matrix</a></li>
-<li class="chapter" data-level="2" data-path="create-a-new-data-frame.html"><a href="create-a-new-data-frame.html"><i class="fa fa-check"></i><b>2</b> Create a new data-frame:</a></li>
+<li class="chapter" data-level="2" data-path="create-a-new-data-frame.html"><a href="create-a-new-data-frame.html"><i class="fa fa-check"></i><b>2</b> Create a new data-frame</a></li>
 <li class="chapter" data-level="3" data-path="import-a-csv-as-a-data-frame.html"><a href="import-a-csv-as-a-data-frame.html"><i class="fa fa-check"></i><b>3</b> Import a CSV as a data-frame</a></li>
 <li class="chapter" data-level="4" data-path="export-a-csv.html"><a href="export-a-csv.html"><i class="fa fa-check"></i><b>4</b> Export a CSV</a></li>
 <li class="chapter" data-level="5" data-path="number-of-rows-and-columns.html"><a href="number-of-rows-and-columns.html"><i class="fa fa-check"></i><b>5</b> Number of rows and columns</a></li>
-<li class="chapter" data-level="6" data-path="head-y-tail.html"><a href="head-y-tail.html"><i class="fa fa-check"></i><b>6</b> Head y Tail</a></li>
+<li class="chapter" data-level="6" data-path="head-and-tail.html"><a href="head-and-tail.html"><i class="fa fa-check"></i><b>6</b> Head and Tail</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="head-and-tail.html"><a href="head-and-tail.html#head"><i class="fa fa-check"></i><b>6.1</b> Head</a></li>
+<li class="chapter" data-level="6.2" data-path="head-and-tail.html"><a href="head-and-tail.html#tail"><i class="fa fa-check"></i><b>6.2</b> Tail</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="column-names.html"><a href="column-names.html"><i class="fa fa-check"></i><b>7</b> Column Names</a></li>
 <li class="chapter" data-level="8" data-path="selecting-columns-from-a-data-frame.html"><a href="selecting-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>8</b> Selecting columns from a data-frame</a>
 <ul>
@@ -194,37 +176,6 @@ div.csl-indent {
 <li class="chapter" data-level="17.4" data-path="join-data-frames.html"><a href="join-data-frames.html#right-join"><i class="fa fa-check"></i><b>17.4</b> Right join</a></li>
 </ul></li>
 <li class="chapter" data-level="18" data-path="sorting-columns-from-a-data-frame.html"><a href="sorting-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>18</b> Sorting columns from a data-frame</a></li>
-<li class="chapter" data-level="19" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>19</b> Hello bookdown</a>
-<ul>
-<li class="chapter" data-level="19.1" data-path="hello-bookdown.html"><a href="hello-bookdown.html#a-section"><i class="fa fa-check"></i><b>19.1</b> A section</a>
-<ul>
-<li class="chapter" data-level="" data-path="hello-bookdown.html"><a href="hello-bookdown.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="20" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>20</b> Cross-references</a>
-<ul>
-<li class="chapter" data-level="20.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>20.1</b> Chapters and sub-chapters</a></li>
-<li class="chapter" data-level="20.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>20.2</b> Captioned figures and tables</a></li>
-</ul></li>
-<li class="chapter" data-level="21" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>21</b> Parts</a></li>
-<li class="chapter" data-level="22" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>22</b> Footnotes and citations</a>
-<ul>
-<li class="chapter" data-level="22.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>22.1</b> Footnotes</a></li>
-<li class="chapter" data-level="22.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>22.2</b> Citations</a></li>
-</ul></li>
-<li class="chapter" data-level="23" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>23</b> Blocks</a>
-<ul>
-<li class="chapter" data-level="23.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>23.1</b> Equations</a></li>
-<li class="chapter" data-level="23.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>23.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="23.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>23.3</b> Callout blocks</a></li>
-</ul></li>
-<li class="chapter" data-level="24" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>24</b> Sharing your book</a>
-<ul>
-<li class="chapter" data-level="24.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>24.1</b> Publishing</a></li>
-<li class="chapter" data-level="24.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>24.2</b> 404 pages</a></li>
-<li class="chapter" data-level="24.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>24.3</b> Metadata for sharing</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
