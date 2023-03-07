@@ -1127,14 +1127,14 @@ El algoritmo de validación simple aleatoria tiene los siguientes pasos:
 <p style='margin-left:1em;'>
 
 
-- Se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ particiones de la muestra de observaciones $\hspace{0.1cm}D\hspace{0.1cm}$ en parte de **train** y parte de **test** del siguiente modo: 
+- Se obtienen $B$ particiones de la muestra de observaciones $D$ en parte de **train** y parte de **test** del siguiente modo: 
    
    
    
     Sea $\hspace{0.05cm}k\in (0,1)\hspace{0.05cm}$ la proporción de filas de $\hspace{0.05cm}D\hspace{0.05cm}$ que formarán parte de la muestra de **train** : 
 
 
-    - Se generan $\hspace{0.1cm}B\hspace{0.1cm}$  muestras aleatoria sin reemplazamiento de tamaño $\hspace{0.1cm}\lfloor k  \cdot N \rfloor\hspace{0.1cm}$  del vector $\hspace{0.1cm}(1,2,...,N)\hspace{0.1cm}$ : 
+    - Se generan $\hspace{0.01cm}B\hspace{0.01cm}$  muestras aleatoria sin reemplazamiento de tamaño $\hspace{0.01cm}\lfloor k  \cdot N \rfloor\hspace{0.01cm}$  del vector $\hspace{0.01cm}(1,2,...,N)\hspace{0.1cm}$ : 
 
        $$m_1 \hspace{0.1cm},\hspace{0.1cm} m_2 \hspace{0.1cm},\hspace{0.1cm} ...\hspace{0.1cm},\hspace{0.1cm} m_B \\[0.01cm]$$
 
@@ -1151,47 +1151,47 @@ El algoritmo de validación simple aleatoria tiene los siguientes pasos:
        $$D_{train, 1}= D[\hspace{0.1cm}m_1\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.15cm},\hspace{0.15cm} D_{train, 2}= D[\hspace{0.1cm}m_2\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.15cm}, \dots ,\hspace{0.15cm} D_{train, B}= D[\hspace{0.1cm}m_B\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \\$$
 
         
-        Donde $D_{train, r}$ es la submatriz que resulta de quedarse solo con las filas de $D$ definidas por la muestra $m_r$ de $(1,...,N) \hspace{0.1cm}$ : 
+        Donde $D_{train, r}\hspace{0.03cm}$ es la submatriz que resulta de quedarse solo con las filas de $D$ definidas por la muestra $m_r$ de $(1,...,N) \hspace{0.1cm}$ : 
 
 
         $$D_{train, r} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}m_r\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} \begin{pmatrix}
     x_{m_{r1},1}  & ... & x_{m_{r1},p} & y_{m_{r1}} \\
     x_{m_{r2},1} &   ... & x_{m_{r2},p} & y_{m_{r2}} \\
     ....&...\\
-    x_{m_{r\lfloor k  \cdot N \rfloor} ,1}   & ... & x_{m_{r\lfloor k  \cdot N \rfloor},p} & y_{m_{r\lfloor k  \cdot N \rfloor}} \end{pmatrix}  \\$$ 
+    x_{m_{r\lfloor k  \cdot N \rfloor} ,1}   & ... & x_{m_{r\lfloor k  \cdot N \rfloor},p} & y_{m_{r\lfloor k  \cdot N \rfloor}} \end{pmatrix}  \\[0.7cm]$$ 
     
          
 
 
 
 
-    - Se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ **muestras de test** del data-set original $\hspace{0.01cm}D \hspace{0.1cm}:$ $\\[0.03cm]$
+    - Se obtienen las siguientes $\hspace{0.01cm}B\hspace{0.01cm}$ **muestras de test** del data-set original $\hspace{0.01cm}D \hspace{0.02cm}:$ 
 
 
        $$D_{test, 1}= D[\hspace{0.1cm}m_1^c\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.15cm},\hspace{0.15cm} D_{test, 2}= D[\hspace{0.1cm}m_2^c\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.15cm}, ... ,\hspace{0.15cm} D_{test, B}= D[\hspace{0.1cm}m_B^c\hspace{0.1cm} , \hspace{0.1cm}:\hspace{0.1cm}] \\$$
 
 
-       Donde: $\hspace{0.1cm}D_{test, r} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}m_r^c\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}]\hspace{0.1cm}$ es la submatriz que resulta de quedarse solo con las filas de $\hspace{0.01cm}D\hspace{0.01cm}$ que no están en $\hspace{0.01cm}D_{train}\hspace{0.01cm}$, es decir, las filas de $\hspace{0.01cm}m_r^c$. $\\[0.01cm]$
-    
-       - Formalmente:  $\hspace{0.15cm} m_r^c \hspace{0.1cm}=\hspace{0.1cm}\left(\hspace{0.1cm} i \in \lbrace 1,...,N \rbrace \hspace{0.15cm} / \hspace{0.15cm} i\hspace{0.1cm}\neq\hspace{0.1cm} m_{rj} \hspace{0.15cm} , \hspace{0.15cm} \forall \hspace{0.1cm} j\in \lbrace 1,...,\lfloor k  \cdot N \rfloor \rbrace \hspace{0.1cm} \right) \hspace{0.15cm}$   $\\[0.15cm]$
+       Donde: $\hspace{0.1cm}D_{test, r} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}m_r^c\hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}]\hspace{0.1cm}$ es la submatriz que resulta de quedarse solo con las filas de $\hspace{0.01cm}D\hspace{0.01cm}$ que no están en $\hspace{0.01cm}D_{train}\hspace{0.01cm}$, es decir, las filas de $\hspace{0.01cm}m_r^c$. 
+       
+       Formalmente:  $\hspace{0.15cm} m_r^c \hspace{0.1cm}=\hspace{0.1cm}\left(\hspace{0.1cm} i \in \lbrace 1,...,N \rbrace \hspace{0.15cm} / \hspace{0.15cm} i\hspace{0.1cm}\neq\hspace{0.1cm} m_{rj} \hspace{0.15cm} , \hspace{0.15cm} \forall \hspace{0.1cm} j\in \lbrace 1,...,\lfloor k  \cdot N \rfloor \rbrace \hspace{0.1cm} \right) \hspace{0.15cm}$   $\\[0.2cm]$
 
  
-  - En conclusión: $\hspace{0.03cm}$ se obtienen $\hspace{0.01cm}B\hspace{0.01cm}$ particiones de **train** y **test** de $\hspace{0.01cm}D$ $\\[1cm]$
+  - En conclusión: $\hspace{0.03cm}$ se obtienen $\hspace{0.01cm}B\hspace{0.01cm}$ particiones de **train** y **test** de $\hspace{0.01cm}D\hspace{0.03cm}$ . $\\[0.75cm]$
 
 
-- Para cada $\hspace{0.01cm}r\in \lbrace 1,...,B\rbrace$ $\\[0.05cm]$ 
+- Para cada $\hspace{0.01cm}r\in \lbrace 1,...,B\rbrace$ $\\[0.01cm]$ 
 
-    - Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con cada una de las **muestras de train** $\hspace{0.1cm} D_{train,r} \hspace{0.1cm}$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ $\hspace{0.1cm}\widehat{M}_r$.
+    - Se entrena el modelo $\hspace{0.01cm}M\hspace{0.01cm}$ con cada una de las **muestras de train** $\hspace{0.01cm} D_{train,r} \hspace{0.1cm}$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ $\hspace{0.1cm}\widehat{M}_r\hspace{0.03cm}$.
 
-    - Se calcula una misma métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ con la **muestra de test** $\hspace{0.1cm}D_{test,r}$. 
+    - Se calcula una misma métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ con la **muestra de test** $\hspace{0.01cm}D_{test,r}\hspace{0.03cm}$. 
 
-        - Supongamos que la métrica de evaluación usada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ valores de esta métrica : $\\[0.1cm]$
+        - Supongamos que la métrica de evaluación usada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces se obtienen $\hspace{0.1cm}B\hspace{0.1cm}$ valores de esta métrica : $\\[0.02cm]$
 
           $$ECM_{test }(\widehat{M}_1) \hspace{0.1cm},\hspace{0.1cm}  ECM_{test }(\widehat{M}_2)\hspace{0.1cm} , ... ,\hspace{0.1cm} ECM_{test}(\widehat{M}_B)$$
 
           Donde: 
 
-           $\hspace{0.5cm}$ $ECM_{test , r}  \hspace{0.1cm}$  es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ usando $\hspace{0.1cm}D_{test,r}$ .   
+           $\hspace{0.5cm}$ $ECM_{test , r}  \hspace{0.1cm}$  es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ usando $\hspace{0.1cm}D_{test,r}\hspace{0.02cm}$ :   
 
            $$ECM_{test }(\widehat{M}_r) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test,r}} \cdot \sum_{i=1}^{\# D_{test,r}} \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm})^2 \\$$
 
@@ -1201,7 +1201,7 @@ El algoritmo de validación simple aleatoria tiene los siguientes pasos:
 
           Teniendo en cuenta que:  
   
-          - $\hat{y}_i^{test,r} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm}|\hspace{0.1cm} D_{train,r}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r (\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm} )$ $\\[0.1cm]$ 
+          - $\hat{y}_i^{test,r} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm}|\hspace{0.1cm} D_{train,r}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r (\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm} )$ $\\[0.2cm]$ 
 
 
  
@@ -1209,7 +1209,7 @@ El algoritmo de validación simple aleatoria tiene los siguientes pasos:
 
 - Se calcula la métrica final de evaluación del modelo como el promedio de las $B$ métricas calculadas en el apartado anterior. 
 
-    - Si la métrica usada en el apartado anterior es el $ECM$, entonces: $\\[0.1cm]$
+    - Si la métrica usada en el apartado anterior es el $ECM$, entonces: $\\[0.02cm]$
 
     $$ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{B} \cdot \sum_{r=1}^B ECM_{test}(\widehat{M}_r)$$
 
