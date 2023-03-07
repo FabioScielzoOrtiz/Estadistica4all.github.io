@@ -151,13 +151,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#error-cuadratico-relativo-ecr"><i class="fa fa-check"></i><b>3.3</b> Error cuadratico relativo (ECR)</a></li>
 <li class="chapter" data-level="3.4" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#coeficiente-de-determinación"><i class="fa fa-check"></i><b>3.4</b> Coeficiente de determinación</a></li>
 <li class="chapter" data-level="3.5" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#error-absoluto-medio-eam"><i class="fa fa-check"></i><b>3.5</b> Error absoluto medio (EAM)</a></li>
-<li class="chapter" data-level="3.6" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#error-absoluto-relativo-ear"><i class="fa fa-check"></i><b>3.6</b> Error absoluto relativo (EAR) <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="3.6" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#error-absoluto-relativo-ear"><i class="fa fa-check"></i><b>3.6</b> Error absoluto relativo (EAR)</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><i class="fa fa-check"></i><b>4</b> Métricas para evaluar modelos de clasificación supervisada</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#tasa-de-acierto-en-la-clasificación-tac"><i class="fa fa-check"></i><b>4.1</b> Tasa de acierto en la clasificación (TAC)</a></li>
 <li class="chapter" data-level="4.2" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#tasa-de-error-en-la-clasificación-tec"><i class="fa fa-check"></i><b>4.2</b> Tasa de error en la clasificación (TEC)</a></li>
-<li class="chapter" data-level="4.3" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#kappa"><i class="fa fa-check"></i><b>4.3</b> Kappa <a class="anchor" id="1"></a></a>
+<li class="chapter" data-level="4.3" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#kappa"><i class="fa fa-check"></i><b>4.3</b> Kappa</a>
 <ul>
 <li class="chapter" data-level="4.3.1" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#modelo-de-clasificación-aleatoria-uniforme"><i class="fa fa-check"></i><b>4.3.1</b> Modelo de clasificación aleatoria uniforme</a></li>
 </ul></li>
@@ -216,17 +216,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>TAC de train:</strong></p>
-<p><span class="math display">\[TAC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.2cm} \mathbf {I} \left( \hspace{0.1cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.1cm} \right)\]</span></p>
-</p>
-</p>
-<p></span></p>
-</div>
-<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
-<p><span></p>
-<p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>TAC de test:</strong></p>
-<p><span class="math display">\[TAC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.2cm} \mathbf{I} \left( \hspace{0.1cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.1cm}\right)\]</span></p>
+<ul>
+<li><strong>TAC de train:</strong></li>
+</ul>
+<p><span class="math display">\[TAC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.2cm} \mathbf {I} ( \hspace{0.1cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.1cm} )\\\]</span></p>
+<ul>
+<li><strong>TAC de test:</strong></li>
+</ul>
+<p><span class="math display">\[TAC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.2cm} \mathbf{I} ( \hspace{0.1cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.1cm})\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -238,16 +235,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>TEC de train:</strong></p>
-<p><span class="math display">\[TEC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.2cm} \mathbf {I} \left( \hspace{0.05cm} \hat{y}_i^{train} \neq y_i^{train} \hspace{0.05cm} \right)\]</span></p>
-</p>
-</p>
-<p></span></p>
-</div>
-<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
-<p><span></p>
-<p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>TEC de test:</strong></p>
+<ul>
+<li><strong>TEC de train:</strong></li>
+</ul>
+<p><span class="math display">\[TEC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.2cm} \mathbf {I} \left( \hspace{0.05cm} \hat{y}_i^{train} \neq y_i^{train} \hspace{0.05cm} \right)\\\]</span></p>
+<ul>
+<li><strong>TEC de test:</strong></li>
+</ul>
 <p><span class="math display">\[TEC(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{h} \cdot \sum_{i=1}^{h} \hspace{0.2cm} \mathbf {I} \left( \hspace{0.1cm} \hat{y}_i^{\hspace{0.05cm} test} \neq y_i^{\hspace{0.05cm} test} \hspace{0.1cm}\right)\]</span></p>
 </p>
 </p>
@@ -256,22 +250,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br></p>
 </div>
 <div id="kappa" class="section level2 hasAnchor" number="4.3">
-<h2><span class="header-section-number">4.3</span> Kappa <a class="anchor" id="1"></a><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#kappa" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">4.3</span> Kappa<a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#kappa" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Suponemos que una variable respuesta tiene <span class="math inline">\(\hspace{0.05cm}k \geq 2\hspace{0.05cm}\)</span> categorias</p>
-<p>Si usamos un modelo de clasificación basado en la distribución de probabilidad uniforme discreta, este predice cada categoria de la respuesta con igual probabilidad <span class="math inline">\(\hspace{0.05cm}1/k\hspace{0.05cm}\)</span>, por lo que la tasa de acierto del modelo esperada es <span class="math inline">\(\hspace{0.05cm}1/k\)</span>, es decir, si el modelo se aplica muchas veces, la <span class="math inline">\(\hspace{0.08cm} TAC\hspace{0.08cm}\)</span> <strong>media</strong> será de <span class="math inline">\(1/k\)</span></p>
+<p>Si usamos un modelo de clasificación basado en la distribución de probabilidad uniforme discreta, este predice cada categoria de la respuesta con igual probabilidad <span class="math inline">\(\hspace{0.05cm}1/k\hspace{0.05cm}\)</span>, por lo que la tasa de acierto del modelo esperada es <span class="math inline">\(\hspace{0.05cm}1/k\)</span>, es decir, si el modelo se aplica muchas veces, la <span class="math inline">\(\hspace{0.08cm} TAC\hspace{0.08cm}\)</span> <strong>media</strong> será de <span class="math inline">\(1/k\)</span>.</p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Kappa de train:</strong></p>
-<p><span class="math display">\[Kappa(M)_{\hspace{0.05cm} train} \hspace{0.1cm} = \hspace{0.1cm} \dfrac{\hspace{0.1cm} TAC_{\hspace{0.05cm} train} \hspace{0.1cm}-\hspace{0.1cm} 1/k \hspace{0.1cm}}{1 \hspace{0.1cm} -\hspace{0.1cm} 1/k}\]</span></p>
-</p>
-</p>
-<p></span></p>
-</div>
-<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
-<p><span></p>
-<p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Kappa de test:</strong></p>
+<ul>
+<li><strong>Kappa de train:</strong></li>
+</ul>
+<p><span class="math display">\[Kappa(M)_{\hspace{0.05cm} train} \hspace{0.1cm} = \hspace{0.1cm} \dfrac{\hspace{0.1cm} TAC_{\hspace{0.05cm} train} \hspace{0.1cm}-\hspace{0.1cm} 1/k \hspace{0.1cm}}{1 \hspace{0.1cm} -\hspace{0.1cm} 1/k} \\\]</span></p>
+<ul>
+<li><strong>Kappa de test:</strong></li>
+</ul>
 <p><span class="math display">\[Kappa(M)_{\hspace{0.05cm} test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.1cm} TAC_{\hspace{0.05cm} test} \hspace{0.1cm}-\hspace{0.1cm} 1/k \hspace{0.1cm}}{1 \hspace{0.1cm}-\hspace{0.1cm} 1/k}\]</span></p>
 </p>
 </p>
@@ -280,25 +271,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br></p>
 <div id="modelo-de-clasificación-aleatoria-uniforme" class="section level3 hasAnchor" number="4.3.1">
 <h3><span class="header-section-number">4.3.1</span> Modelo de clasificación aleatoria uniforme<a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#modelo-de-clasificación-aleatoria-uniforme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Dada una respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm}k\geq 2\hspace{0.1cm}\)</span> categorias y de una serie de predictotres <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1 , ..., \mathcal{X}_p\)</span></p>
-<p>Dada una muestra de <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> observaciones de <span class="math inline">\(\hspace{0.1cm}Y\hspace{0.1cm}\)</span> del predictor<br />
-y una muestra <span class="math inline">\(\hspace{0.1cm}X_j\hspace{0.1cm}\)</span> del predictor <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j \\\)</span></p>
-<p>Un modelo de clasificación aleatorio basado en la distribución discreta <span class="math inline">\(\hspace{0.1cm}U\lbrace 0,1,..., k-1 \rbrace\hspace{0.1cm}\)</span> es un modelo tal que:</p>
+<p>Dada una respuesta <span class="math inline">\(\mathcal{Y}\)</span> con <span class="math inline">\(k\geq 2\)</span> categorías y de una serie de predictores <span class="math inline">\(\mathcal{X}_1 , ..., \mathcal{X}_p\)</span>.</p>
+<p>Dada una muestra de <span class="math inline">\(n\)</span> observaciones de <span class="math inline">\(Y\)</span> del predictor<br />
+y una muestra <span class="math inline">\(X_j\)</span> del predictor <span class="math inline">\(\mathcal{X}_j\)</span>.</p>
+<p>Un modelo de clasificación aleatorio basado en la distribución discreta <span class="math inline">\(U\lbrace 0,1,..., k-1 \rbrace\)</span> es un modelo tal que:</p>
 <p><span class="math display">\[\widehat{y}_i \sim U\lbrace 0,1,..., k-1 \rbrace\]</span></p>
 <p>Por lo que:</p>
 <p><span class="math display">\[P(\widehat{y}_i = h) = 1/k = p\]</span></p>
-<p>para todo <span class="math inline">\(\hspace{0.1cm}h=0,1,...,k-1\)</span></p>
-<p>Por tanto, para cada <span class="math inline">\(\hspace{0.15cm}i=1,...,n\hspace{0.15cm}\)</span> tenemos que: <span class="math inline">\(\\[0.4cm]\)</span></p>
-<p><span class="math inline">\(\hspace{0.5cm} P\left( \hspace{0.1cm} \mathbf{I}(\hat{y}_i = y_i) = 1\hspace{0.1cm} \right) = P \left( \hspace{0.1cm} \hat{y}_i = y_i \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1/k \hspace{0.1cm}=\hspace{0.1cm} p\)</span></p>
-<p><span class="math inline">\(\hspace{0.5cm} P\left( \hspace{0.1cm} \mathbf{I}(\hat{y}_i = y_i) = 0 \hspace{0.1cm} \right) \hspace{0.1cm} =\hspace{0.1cm} P\left( \hspace{0.1cm} \hat{y}_i \neq y_i \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1- 1/k \hspace{0.1cm}=\hspace{0.1cm} 1 - p\\\)</span></p>
-<p>Por lo que <span class="math inline">\(\hspace{0.1cm}\mathbf{I}(\hat{y}_i = y_i)\hspace{0.1cm}\)</span> es una variable binaria, con probabilidad de exito <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> y de fracaso <span class="math inline">\(\hspace{0.1cm}1-p\hspace{0.1cm}\)</span>, es decir:</p>
+<p>para todo <span class="math inline">\(h=0,1,...,k-1\)</span></p>
+<p><br></p>
+<p>Por tanto, para cada <span class="math inline">\(\hspace{0.15cm}i=1,...,n\hspace{0.15cm}\)</span> tenemos que: <span class="math inline">\(\\[0.15cm]\)</span></p>
+<ul>
+<li><p><span class="math inline">\(P\left( \hspace{0.1cm} \mathbf{I}(\hat{y}_i = y_i) = 1\hspace{0.1cm} \right) = P \left( \hspace{0.1cm} \hat{y}_i = y_i \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1/k \hspace{0.1cm}=\hspace{0.1cm} p\)</span>.</p></li>
+<li><p><span class="math inline">\(P\left( \hspace{0.1cm} \mathbf{I}(\hat{y}_i = y_i) = 0 \hspace{0.1cm} \right) \hspace{0.1cm} =\hspace{0.1cm} P\left( \hspace{0.1cm} \hat{y}_i \neq y_i \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1- 1/k \hspace{0.1cm}=\hspace{0.1cm} 1 - p\)</span>.</p></li>
+</ul>
+<p><br></p>
+<p>Por lo que <span class="math inline">\(\mathbf{I}(\hat{y}_i = y_i)\)</span> es una variable binaria, con probabilidad de exito <span class="math inline">\(p\)</span> y de fracaso <span class="math inline">\(1-p\)</span>, es decir:</p>
 <p><span class="math display">\[\mathbf{I}(\hat{y}_i = y_i)  \hspace{0.1cm}\sim\hspace{0.1cm} Bernoulli\left( \hspace{0.1cm} p=1/k \hspace{0.1cm} \right)\]</span></p>
 <p>Por lo tanto:</p>
-<p><span class="math display">\[\sum_{i=1}^n \mathbf{I}(\hat{y}_i = y_i) \hspace{0.1cm}\sim\hspace{0.1cm} Binomial(n\cdot p )\]</span></p>
-<p>Asi que, la tasa de acierto esperada del modelo de clasificación aleatoria uniforme es:</p>
-<p><span class="math display">\[E\left[TAC\right] \hspace{0.1cm}=\hspace{0.1cm} E\left[ \dfrac{1}{n} \sum_{i=1}^n \mathbf{I}(\hat{y}_i = y_i) \right] \hspace{0.1cm}=\hspace{0.1cm} E\left[  \dfrac{1}{n} \cdot Binomial(n\cdot p )  \right] \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot E\left[ Binomial(n\cdot p )   \right]  \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot (n\cdot p) = p = 1/k\]</span></p>
-<p><br></p>
-<hr />
+<p><span class="math display">\[\sum_{i=1}^n \mathbf{I}(\hat{y}_i = y_i) \hspace{0.1cm}\sim\hspace{0.1cm} Binomial(n\cdot p )\]</span>
+<br></p>
+<p>Así que, la tasa de acierto esperada del modelo de clasificación aleatoria uniforme es: <span class="math inline">\(\\[0.2cm]\)</span></p>
+<p><span class="math display">\[E\left[TAC\right] \hspace{0.1cm}=\hspace{0.1cm} E\left[ \dfrac{1}{n} \sum_{i=1}^n \mathbf{I}(\hat{y}_i = y_i) \right] \hspace{0.1cm}=\hspace{0.1cm} E\left[  \dfrac{1}{n} \cdot Binomial(n\cdot p )  \right] \hspace{0.1cm} = \\[1.2cm] = \hspace{0.1cm} \dfrac{1}{n} \cdot E\left[ Binomial(n\cdot p )   \right]  \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot (n\cdot p) = p = 1/k\]</span></p>
 <p><br></p>
 </div>
 </div>

@@ -151,13 +151,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#error-cuadratico-relativo-ecr"><i class="fa fa-check"></i><b>3.3</b> Error cuadratico relativo (ECR)</a></li>
 <li class="chapter" data-level="3.4" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#coeficiente-de-determinación"><i class="fa fa-check"></i><b>3.4</b> Coeficiente de determinación</a></li>
 <li class="chapter" data-level="3.5" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#error-absoluto-medio-eam"><i class="fa fa-check"></i><b>3.5</b> Error absoluto medio (EAM)</a></li>
-<li class="chapter" data-level="3.6" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#error-absoluto-relativo-ear"><i class="fa fa-check"></i><b>3.6</b> Error absoluto relativo (EAR) <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="3.6" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#error-absoluto-relativo-ear"><i class="fa fa-check"></i><b>3.6</b> Error absoluto relativo (EAR)</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><i class="fa fa-check"></i><b>4</b> Métricas para evaluar modelos de clasificación supervisada</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#tasa-de-acierto-en-la-clasificación-tac"><i class="fa fa-check"></i><b>4.1</b> Tasa de acierto en la clasificación (TAC)</a></li>
 <li class="chapter" data-level="4.2" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#tasa-de-error-en-la-clasificación-tec"><i class="fa fa-check"></i><b>4.2</b> Tasa de error en la clasificación (TEC)</a></li>
-<li class="chapter" data-level="4.3" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#kappa"><i class="fa fa-check"></i><b>4.3</b> Kappa <a class="anchor" id="1"></a></a>
+<li class="chapter" data-level="4.3" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#kappa"><i class="fa fa-check"></i><b>4.3</b> Kappa</a>
 <ul>
 <li class="chapter" data-level="4.3.1" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#modelo-de-clasificación-aleatoria-uniforme"><i class="fa fa-check"></i><b>4.3.1</b> Modelo de clasificación aleatoria uniforme</a></li>
 </ul></li>
@@ -218,7 +218,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>ECM de train</strong>:</p>
+<ul>
+<li><strong>ECM de train</strong>:</li>
+</ul>
 <p><span class="math display">\[ECM(M)_{train} \hspace{0.15cm}=\hspace{0.15cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} (\hspace{0.08cm} y_i^{\hspace{0.08cm}train} - \hat{y}_i^{\hspace{0.08cm}train} \hspace{0.08cm} )^2 \\\]</span></p>
 </p>
 </p>
@@ -235,7 +237,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>ECM de test</strong></p>
+<ul>
+<li><strong>ECM de test</strong></li>
+</ul>
 <p><span class="math display">\[ECM(M)_{test} \hspace{0.15cm} =\hspace{0.15cm} \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} )^2\]</span></p>
 </p>
 </p>
@@ -278,16 +282,13 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>RECM de train:</strong></p>
-<p><span class="math display">\[RECM(M)_{train} \hspace{0.08cm}=\hspace{0.08cm} \sqrt{\dfrac{1}{n} \sum_{i=1}^n \hspace{0.1cm} (y_i^{train} - \hat{y}_i^{train})^2 \hspace{0.2cm}} \\\]</span></p>
-</p>
-</p>
-<p></span></p>
-</div>
-<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
-<p><span></p>
-<p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>RECM de test:</strong></p>
+<ul>
+<li><strong>RECM de train:</strong></li>
+</ul>
+<p><span class="math display">\[RECM(M)_{train} \hspace{0.08cm}=\hspace{0.08cm} \sqrt{\dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} (y_i^{train} - \hat{y}_i^{train})^2 \hspace{0.2cm}} \\\]</span></p>
+<ul>
+<li><strong>RECM de test:</strong></li>
+</ul>
 <p><span class="math display">\[RECM(M)_{test} \hspace{0.08cm}=\hspace{0.08cm} \sqrt{ \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_{i} ^{\hspace{0.1cm} test} \hspace{0.1cm} )^2 \hspace{0.2cm}} \\[0.2cm]\]</span></p>
 </p>
 </p>
@@ -305,16 +306,13 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>ECR de train:</strong></p>
+<ul>
+<li><strong>ECR de train:</strong></li>
+</ul>
 <p><span class="math display">\[ECR(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.5cm} \sum_{i=1}^n \hspace{0.1cm} ( y_i^{train}- \hat{y}_i^{train} )^2 \hspace{0.5cm}}{\sum_{i=1}^n ( y_i^{train} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} train} )^2 }  \\\]</span></p>
-</p>
-</p>
-<p></span></p>
-</div>
-<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
-<p><span></p>
-<p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>ECR de test:</strong></p>
+<ul>
+<li><strong>ECR de test:</strong></li>
+</ul>
 <p><span class="math display">\[ECR(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{ \hspace{0.5cm} \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm})^2 \hspace{0.5cm}    }{\sum_{i=1}^h (\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} test} \hspace{0.1cm} )^2 } \\\]</span></p>
 </p>
 </p>
@@ -329,21 +327,19 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Coeficiente de determinación de train:</strong></p>
+<ul>
+<li><strong>Coeficiente de determinación de train:</strong></li>
+</ul>
 <p><span class="math display">\[R(M)^2_{train} \hspace{0.1cm}=\hspace{0.1cm} 1 - ECR(M)_{train} \\\]</span></p>
-</p>
-</p>
-<p></span></p>
-</div>
-<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
-<p><span></p>
-<p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Coeficiente de determinación de train:</strong></p>
+<ul>
+<li><strong>Coeficiente de determinación de train:</strong></li>
+</ul>
 <p><span class="math display">\[R(M)^2_{test} \hspace{0.1cm}=\hspace{0.1cm} 1 - ECR(M)_{test} \\\]</span></p>
 </p>
 </p>
 <p></span></p>
 </div>
+<p><br></p>
 <p><strong>Interpretación:</strong></p>
 <p>Cuanto mayor sea <span class="math inline">\(\hspace{0.05cm}R(M)^2_{test}\hspace{0.05cm}\)</span> , mayor bondad predictiva del modelo <span class="math inline">\(\hspace{0.05cm}M\hspace{0.05cm}\)</span>, y a la inversa.</p>
 <p><br></p>
@@ -353,16 +349,13 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>EAM de train:</strong></p>
+<ul>
+<li><strong>EAM de train:</strong></li>
+</ul>
 <p><span class="math display">\[EAM(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} \left|\hspace{0.1cm} y_i^{train} - \hat{y}_i^{train} \hspace{0.1cm}\right| \\\]</span></p>
-</p>
-</p>
-<p></span></p>
-</div>
-<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
-<p><span></p>
-<p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>EAM de test:</strong></p>
+<ul>
+<li><strong>EAM de test:</strong></li>
+</ul>
 <p><span class="math display">\[EAM(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left| \hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} \right|\]</span></p>
 </p>
 </p>
@@ -371,20 +364,17 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <p><br></p>
 </div>
 <div id="error-absoluto-relativo-ear" class="section level2 hasAnchor" number="3.6">
-<h2><span class="header-section-number">3.6</span> Error absoluto relativo (EAR) <a class="anchor" id="1"></a><a href="métricas-para-evaluar-modelos-de-regresión.html#error-absoluto-relativo-ear" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">3.6</span> Error absoluto relativo (EAR)<a href="métricas-para-evaluar-modelos-de-regresión.html#error-absoluto-relativo-ear" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>EAR de train:</strong></p>
+<ul>
+<li><strong>EAR de train:</strong></li>
+</ul>
 <p><span class="math display">\[EAR(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\sum_{i=1}^n \hspace{0.1cm} \left|\hspace{0.1cm} y_i^{train} - \hat{y}_i^{\hspace{0.08cm} train} \hspace{0.1cm} \right| \hspace{0.2cm} }{\sum_{i=1}^n \hspace{0.1cm} \left| \hspace{0.1cm} y_i^{train} - \overline{y}^{train} \hspace{0.1cm} \right| \hspace{0.1cm}}  \\\]</span></p>
-</p>
-</p>
-<p></span></p>
-</div>
-<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
-<p><span></p>
-<p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>EAR de test:</strong></p>
+<ul>
+<li><strong>EAR de test:</strong></li>
+</ul>
 <p><span class="math display">\[EAR(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{ \sum_{i=1}^h \hspace{0.1cm} \hspace{0.1cm} \left| \hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm} \right| \hspace{0.2cm}  }{\sum_{i=1}^h \hspace{0.1cm}\left|\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \overline{y}^{\hspace{0.1cm} test} \hspace{0.1cm}\right|\hspace{0.1cm}}\]</span></p>
 </p>
 </p>

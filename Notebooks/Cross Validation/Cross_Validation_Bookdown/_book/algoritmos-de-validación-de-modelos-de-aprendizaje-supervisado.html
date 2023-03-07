@@ -151,13 +151,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.3" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#error-cuadratico-relativo-ecr"><i class="fa fa-check"></i><b>3.3</b> Error cuadratico relativo (ECR)</a></li>
 <li class="chapter" data-level="3.4" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#coeficiente-de-determinación"><i class="fa fa-check"></i><b>3.4</b> Coeficiente de determinación</a></li>
 <li class="chapter" data-level="3.5" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#error-absoluto-medio-eam"><i class="fa fa-check"></i><b>3.5</b> Error absoluto medio (EAM)</a></li>
-<li class="chapter" data-level="3.6" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#error-absoluto-relativo-ear"><i class="fa fa-check"></i><b>3.6</b> Error absoluto relativo (EAR) <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="3.6" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#error-absoluto-relativo-ear"><i class="fa fa-check"></i><b>3.6</b> Error absoluto relativo (EAR)</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><i class="fa fa-check"></i><b>4</b> Métricas para evaluar modelos de clasificación supervisada</a>
 <ul>
 <li class="chapter" data-level="4.1" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#tasa-de-acierto-en-la-clasificación-tac"><i class="fa fa-check"></i><b>4.1</b> Tasa de acierto en la clasificación (TAC)</a></li>
 <li class="chapter" data-level="4.2" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#tasa-de-error-en-la-clasificación-tec"><i class="fa fa-check"></i><b>4.2</b> Tasa de error en la clasificación (TEC)</a></li>
-<li class="chapter" data-level="4.3" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#kappa"><i class="fa fa-check"></i><b>4.3</b> Kappa <a class="anchor" id="1"></a></a>
+<li class="chapter" data-level="4.3" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#kappa"><i class="fa fa-check"></i><b>4.3</b> Kappa</a>
 <ul>
 <li class="chapter" data-level="4.3.1" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#modelo-de-clasificación-aleatoria-uniforme"><i class="fa fa-check"></i><b>4.3.1</b> Modelo de clasificación aleatoria uniforme</a></li>
 </ul></li>
@@ -211,12 +211,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">Chapter 5</span> Algoritmos de validación de modelos de aprendizaje supervisado<a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Los algoritmos de validación de modelos de aprendizaje supervisado permiten medir la capacidad predictiva de dichos modelos. Estoas algoritmos se suelen basar en:</p>
-<ol style="list-style-type: decimal">
+<ul>
 <li><p>División del data-set inicial de la respuesta y los predictores en parte de train y parte de test.</p></li>
 <li><p>Entrenamiento del modelo con la parte de train.</p></li>
 <li><p>Obtención de predicciones de la respuesta con la parte de test.</p></li>
-<li><p>Cálculo de una métrica de evaluación usando las predicciones obtenidas en el paso 4) y las observaciones de test de la respuesta. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
-</ol>
+<li><p>Cálculo de una métrica de evaluación usando las predicciones obtenidas en el paso 4) y las observaciones de test de la respuesta. <span class="math inline">\(\\[0.3cm]\)</span></p></li>
+</ul>
 <p>Tenemos un modelo de aprendizaje supervisado <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> y una muestra de <span class="math inline">\(\hspace{0.1cm}N\hspace{0.1cm}\)</span> observaciones de <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}\)</span> y de la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\\[0.7cm]\)</span></p>
 <p><span class="math display">\[D\hspace{0.1cm}=\hspace{0.1cm}[X_1,...,X_p,Y]\hspace{0.1cm}=\hspace{0.1cm}\begin{pmatrix}
     x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp; y_1\\
@@ -236,32 +236,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Descripción no formal del algoritmo:</strong></p>
 <p>Este algoritmo de validación consiste en dividir el data-set inicial en una parte de train y otra de test de manera no aleatoria.</p>
 <p>El <span class="math inline">\(\hspace{0.1cm} k\% \hspace{0.1cm}\)</span> de las primeras filas del data-set serán la parte de train, y el resto la parte de test.</p>
-<p>El modelo es entrenado con la muestra train y testado calculando una métrica de evaluación con la muestra test. Este valor de la métrica de evaluación es el que será usado para medir la capacidad predictiva del modelo y compararlo con otros modelos. <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p>El modelo es entrenado con la muestra train y testado calculando una métrica de evaluación con la muestra test. Este valor de la métrica de evaluación es el que será usado para medir la capacidad predictiva del modelo y compararlo con otros modelos. <span class="math inline">\(\\[0.4cm]\)</span></p>
 <p><strong>Decripción formal del algoritmo:</strong></p>
 <p>El algoritmo de validación simple no aleatoria tiene los siguientes pasos: <span class="math inline">\(\\[0.3cm]\)</span></p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
 <ul>
-<li><p>Se divide <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> en parte de train y parte de test del siguiente modo: <span class="math inline">\(\\[0.4cm]\)</span></p>
-<p><span class="math inline">\(\hspace{0.2cm}\)</span> Sea <span class="math inline">\(\hspace{0.1cm}k\in (0,1)\hspace{0.1cm}\)</span> la proporción de filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.1cm}\)</span> que formaran parte del muestra de <strong>train</strong> (es un hiper-parametro del algoritmo): <span class="math inline">\(\\[0.5cm]\)</span></p>
+<li><p>Se divide <span class="math inline">\(D\)</span> en parte de train y parte de test del siguiente modo:</p>
+<p>Sea <span class="math inline">\(\hspace{0.05cm}k\in (0,1)\hspace{0.05cm}\)</span> la proporción de filas de <span class="math inline">\(D\)</span> que formaran parte del muestra de <strong>train</strong> :</p>
 <ul>
-<li><p>Las primeras <span class="math inline">\(\hspace{0.2cm}\lfloor k \cdot N \rfloor\hspace{0.2cm}\)</span> observaciones (filas) definen el conjunto de train:<span class="math inline">\(\\[0.6cm]\)</span></p>
+<li><p>Las primeras <span class="math inline">\(\hspace{0.2cm}\lfloor k \cdot N \rfloor\hspace{0.2cm}\)</span> observaciones (filas) definen el conjunto de train: <span class="math inline">\(\\[0.15cm]\)</span></p>
 <p><span class="math display">\[D_{train}= \begin{pmatrix}
-  x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp; y_1\\
-  x_{21}&amp;x_{22}&amp;...&amp;x_{2p} &amp; y_2\\
-  &amp;...&amp;\\
-  x_{\lfloor k  \cdot N \rfloor1}&amp;x_{\lfloor k  \cdot N \rfloor2}&amp;...&amp;x_{\lfloor k  \cdot N \rfloor p}&amp; y_{\lfloor k  \cdot N \rfloor}
+  x_{11}&amp;...&amp;x_{1p}&amp; y_1\\
+  x_{21}&amp;...&amp;x_{2p} &amp; y_2\\
+  ...&amp;...&amp;...&amp;... \\
+  x_{\lfloor k  \cdot N \rfloor1}&amp; ...&amp;x_{\lfloor k  \cdot N \rfloor p}&amp; y_{\lfloor k  \cdot N \rfloor}
   \end{pmatrix}=\begin{pmatrix}
   x_{1}^{train} &amp; y_{1}^{train}\\
   x_{2}^{train} &amp; y_{2}^{train}\\
   ....&amp;...\\
   x_{\# D_{train}}^{train} &amp; y_{\# D_{train}}^{train}\\
-  \end{pmatrix} \hspace{0.1cm}=\hspace{0.1cm} \left[\hspace{0.1cm} X_1^{train} ,..., X_p^{train} , Y^{train}\hspace{0.1cm}\right]\\\]</span></p>
+  \end{pmatrix} \\\]</span></p></li>
+</ul>
+<p><span class="math display">\[D_{train}=\left[\hspace{0.01cm} X_1^{train} ,..., X_p^{train} , Y^{train}\hspace{0.01cm}\right] \\\]</span></p>
 <p>Donde:</p>
 <ul>
-<li><span class="math inline">\(\# D_{train}\hspace{0.1cm}\)</span> es el número de <strong>filas</strong> de <span class="math inline">\(\hspace{0.1cm}D_{train} \\[0.8cm]\)</span></li>
-</ul></li>
+<li><p><span class="math inline">\(\# D_{train}\hspace{0.01cm}\)</span> es el número de <strong>filas</strong> de <span class="math inline">\(\hspace{0.01cm}D_{train}\)</span>.</p></li>
 <li><p>Las siguientes <span class="math inline">\(\hspace{0.2cm} N - \lfloor k \cdot N \rfloor\hspace{0.2cm}\)</span> observaciones definen (filas) el conjunto de test: <span class="math inline">\(\\[0.6cm]\)</span></p>
 <p><span class="math display">\[D_{test}= \begin{pmatrix}
   x_{(\lfloor k  \cdot N \rfloor + 1) \hspace{0.05cm} 1 } &amp; x_{(\lfloor k  \cdot N \rfloor + 1) \hspace{0.05cm} 2}&amp;...&amp;x_{(\lfloor k  \cdot N \rfloor + 1) \hspace{0.05cm} p}&amp; y_{\lfloor k  \cdot N \rfloor + 1} \\
