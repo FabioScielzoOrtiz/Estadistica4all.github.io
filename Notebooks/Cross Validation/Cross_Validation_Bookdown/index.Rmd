@@ -1688,24 +1688,24 @@ A continuación se expone un criterio basado en las métricas y algoritmos de va
     $$ECM(M_1)_{test}^{\hspace{0.05cm} *} \hspace{0.1cm}, ...,\hspace{0.1cm} ECM(M_h)_{test}^{\hspace{0.05cm} *} \\$$
 
 
-- El criterio es seleccionar el modelo que tienen **mejor** valor de la métrica. Si es una **métrica de error**, el que **menor** valor tiene. Si es una **métrica de acierto**, el que **mayor** valor tiene. $\\[0.8cm]$
+- El criterio es seleccionar el modelo que tienen **mejor** valor de la métrica. Si es una **métrica de error**, el que **menor** valor tiene. Si es una **métrica de acierto**, el que **mayor** valor tiene.  
 
 
 - Si la métrica es de **error**, como por ejemplo el $\hspace{0.1cm}ECM\hspace{0.1cm}$, entonces:
 
 
-    - El modelo seleccionado es $\hspace{0.1cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.1cm}$ , donde: $\\[0.05cm]$
+    - El modelo seleccionado es $\hspace{0.1cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.1cm}$ , donde: $\\[0.01cm]$
 
     $$j^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} arg \hspace{0.1cm} \underset{j \in \lbrace 1,...,h\rbrace }{Min} \hspace{0.15cm}  ECM(M_j)_{test}^{\hspace{0.05cm} *} \\[1cm]$$
 
 
 
-- Si la métrica es de **acierto**, como por ejemplo la $\hspace{0.01cm}TAC\hspace{0.01cm}$, entonces: $\\[0.05cm]$
+- Si la métrica es de **acierto**, como por ejemplo la $\hspace{0.01cm}TAC\hspace{0.01cm}$, entonces:  
 
-    - El modelo seleccionado es $\hspace{0.01cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.01cm}$ , donde: $\\[0.05cm]$
+    - El modelo seleccionado es $\hspace{0.01cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.01cm}$ , donde: $\\[0.01cm]$
 
 
-    $$j^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} arg \hspace{0.1cm} \underset{j \in \lbrace 1,...,h\rbrace }{Max} \hspace{0.15cm}  TAC(M_j)_{test}^{\hspace{0.05cm} *}$$
+    $$j^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} arg \hspace{0.1cm} \underset{j \in \lbrace 1,...,h\rbrace }{Max} \hspace{0.15cm}  TAC(M_j)_{test}^{\hspace{0.05cm} *} \\$$
 
 
 </p>
@@ -1713,7 +1713,7 @@ A continuación se expone un criterio basado en las métricas y algoritmos de va
 </p></span>
 </div>
 
-<br>
+
 
 <br>
 

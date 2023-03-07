@@ -2178,6 +2178,7 @@ input, select, textarea {
 	background-image: url("/images/fondo4.jpg");
 	background-position: center top;
 	background-repeat: no-repeat;
+	background-size: cover;
 	text-align: center;
 	position: relative;
 	padding: 2em 0;
@@ -2192,7 +2193,7 @@ input, select, textarea {
   }
   
   #banner header h2 {
-	color: #fff;
+	color: #000000;
 	font-weight: 700;
 	font-size: 2.5em;
 	margin: 0 0 0.65em 0;
