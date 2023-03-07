@@ -1419,12 +1419,12 @@ El algoritmo de validación k-folds tiene los siguientes pasos:
 
        - Si $\hspace{0.01cm} k=4\hspace{0.1cm}$ , los cuantiles serían $\hspace{0.1cm} Q_0 \hspace{0.1cm},\hspace{0.1cm} Q_{0.25} \hspace{0.1cm},\hspace{0.1cm} Q_{0.5} \hspace{0.1cm},\hspace{0.1cm}  Q_{0.75} \hspace{0.1cm},\hspace{0.1cm} Q_1\hspace{0.01cm}$.
 
-          Notese que: $\hspace{0.02cm} Q_0 = Min(1,...,N) = 1\hspace{0.2cm}$ y $\hspace{0.2cm} Q_1=Max(1,...,N)=N \hspace{0.01cm}$. $\\[0.25cm]
+          Notese que: $\hspace{0.02cm} Q_0 = Min(1,...,N) = 1\hspace{0.2cm}$ y $\hspace{0.2cm} Q_1=Max(1,...,N)=N \hspace{0.01cm}$. $\\[0.25cm]$
 
 
 
 
-    - Definimos las $\hspace{0.01cm} k\hspace{0.01cm}$ particiones de $\hspace{0.01cm} m \hspace{0.01cm}$ usando los cuantiles $\hspace{0.01cm} Q_0=1 \hspace{0.1cm},\hspace{0.1cm} Q_{1/k} \hspace{0.1cm},\hspace{0.1cm} Q_{2/k}\hspace{0.1cm},...,\hspace{0.1cm}Q_{(k-1)/k}\hspace{0.1cm},\hspace{0.1cm} Q_1=N\hspace{0.02cm}$ como sigue:  $\\[0.1cm]$
+    - Definimos las $\hspace{0.01cm} k\hspace{0.01cm}$ particiones de $\hspace{0.01cm} m \hspace{0.01cm}$ usando los cuantiles $\hspace{0.01cm} Q_0\hspace{0.01cm},\hspace{0.01cm} Q_{1/k} \hspace{0.01cm},\hspace{0.01cm} Q_{2/k}\hspace{0.01cm},...,\hspace{0.01cm} Q_{(k-1)/k}\hspace{0.01cm},\hspace{0.01cm} Q_1\hspace{0.02cm}$ como sigue:  
 
       $\hspace{2cm} p_{1,m} \hspace{0.1cm}=\hspace{0.1cm} m\left[\hspace{0.1cm}1:(\lfloor Q_{1/k} \rfloor -1)\hspace{0.1cm}\right]\hspace{0.1cm}=\hspace{0.1cm}(m_1,...,m_{\lfloor  Q_{1/k} \rfloor - 1} ) \\$
 
@@ -1436,9 +1436,9 @@ El algoritmo de validación k-folds tiene los siguientes pasos:
 
 
 
-    - Se puede demostrar que $\hspace{0.1cm} p_{1,m}\hspace{0.1cm},...,\hspace{0.1cm} p_{k,m}\hspace{0.1cm}$ tienen un nº de elementos aproximadamente igual , por lo que son particiones aproximadamente igualitarias (balanceadas), que era lo que buscabamos. 
+    - Se puede demostrar que $\hspace{0.1cm} p_{1,m}\hspace{0.1cm},...,\hspace{0.1cm} p_{k,m}\hspace{0.1cm}$ tienen un número de elementos aproximadamente igual , por lo que son particiones aproximadamente igualitarias (balanceadas), que era lo que buscabamos. 
 
-    - La siguiente matriz ilustra por qué este método funciona:  
+    - La siguiente matriz ilustra por qué este método funciona:  $\\[0.02cm]$
 
     $$\begin{pmatrix}
     1 & m_1\\
@@ -1482,89 +1482,69 @@ El algoritmo de validación k-folds tiene los siguientes pasos:
     ... & ...\\
     \end{pmatrix}$$
     
- $\\[0.3cm]$
+ $\\[0.35cm]$
  
-- Se obtienen la siguientes $\hspace{0.1cm}k\hspace{0.1cm}$ muestras de test: $\\[0.4cm]$
+- Se obtienen la siguientes $\hspace{0.1cm}k\hspace{0.1cm}$ muestras de test: $\\[0.01cm]$
 
 
-     $$D_{test, 1} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm} p_{1,m} \hspace{0.1cm} ,\hspace{0.1cm} : \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}m[1:(\lfloor Q_{1/k} \rfloor -1)] \hspace{0.12cm},\hspace{0.12cm} : \hspace{0.12cm}]$$
+     $\hspace{2cm} D_{test, 1} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm} p_{1,m} \hspace{0.1cm} ,\hspace{0.1cm} : \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}m[1:(\lfloor Q_{1/k} \rfloor -1)] \hspace{0.12cm},\hspace{0.12cm} : \hspace{0.12cm}]$
 
-     $$D_{test, 2} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}p_{2,m} \hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}m[\lfloor Q_{1/k} \rfloor : (\lfloor Q_{2/k} \rfloor - 1 )]\hspace{0.12cm} ,\hspace{0.12cm}:\hspace{0.12cm}]$$
+     $\hspace{2cm}D_{test, 2} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}p_{2,m} \hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}m[\lfloor Q_{1/k} \rfloor : (\lfloor Q_{2/k} \rfloor - 1 )]\hspace{0.12cm} ,\hspace{0.12cm}:\hspace{0.12cm}]$$
 
-     $$\dots$$
- 
-
-     $$D_{test, k}\hspace{0.1cm} =\hspace{0.1cm} D[\hspace{0.1cm}p_{k,m} \hspace{0.12cm} ,\hspace{0.12cm} :\hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}m[\lfloor Q_{(k-1)/k} \rfloor : N]\hspace{0.12cm} ,\hspace{0.12cm} :\hspace{0.12cm}] \\[0.7cm]$$
-
-    $\hspace{0.5cm}$ Siguiendo la notación habitual del articulo, podemos expresar: $\\[0.6cm]$
-
-     $$
-     D_{test, r} \hspace{0.1cm}=\hspace{0.1cm}\begin{pmatrix}
-     x_{1}^{test, r} & y_{1}^{test, r}\\
-      x_{2}^{test, r} & y_{2}^{test, r}\\
-    ....&...\\
-    x_{\# D_{test, r}}^{test, r} & y_{\# D_{test, r}}^{test, r} 
-    \end{pmatrix}
-    $$
-
-$\\[0.3cm]$
-
-
-- Se obtiene las siguientes $\hspace{0.1cm}k\hspace{0.1cm}$ muestras de train:  
-
-
-     $$D_{train, 1} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm}p_{1,m} \hspace{0.12cm},\hspace{0.12cm} :\hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} m[1:(\lfloor Q_{1/k} \rfloor -1)] \hspace{0.12cm},\hspace{0.12cm}:\hspace{0.12cm}]$$
-
-     $$D_{train, 2} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} p_{2,m} \hspace{0.12cm},\hspace{0.12cm} :\hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm}m[\lfloor Q_{1/k} \rfloor : (\lfloor Q_{2/k} \rfloor - 1 )] \hspace{0.12cm},\hspace{0.12cm}:\hspace{0.12cm}]$$
-
-     $$\dots$$
+     $\hspace{2cm}\dots$
  
 
-     $$D_{train, k} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} p_{k,m} \hspace{0.12cm},\hspace{0.12cm} : \hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} m[\lfloor Q_{(k-1)/k} \rfloor : N] \hspace{0.12cm},\hspace{0.12cm} : \hspace{0.12cm}] \\$$
+     $\hspace{2cm}D_{test, k}\hspace{0.1cm} =\hspace{0.1cm} D[\hspace{0.1cm}p_{k,m} \hspace{0.12cm} ,\hspace{0.12cm} :\hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}m[\lfloor Q_{(k-1)/k} \rfloor : N]\hspace{0.12cm} ,\hspace{0.12cm} :\hspace{0.12cm}] \\[0.7cm]$
+
+   
 
 
-    $\hspace{0.5cm}$ Siguiendo la notación habitual del articulo, podemos expresar: $\\[0.6cm]$
-
-$$\hspace{0.5cm}D_{train, r} =
-\begin{pmatrix}  
-x_{1}^{train, r} & y_{1}^{train, r}\\
-x_{2}^{train, r} & y_{2}^{train, r}\\ ....&...\\
-    x_{\# D_{train, r}}^{train, r} & y_{\# D_{train, r}}^{train, r} 
-    \end{pmatrix}$$
+- Se obtiene las siguientes $\hspace{0.01cm}k\hspace{0.01cm}$ muestras de train: $\\[0.01cm]$  
 
 
-$\\[0.2cm]$
+     $\hspace{2cm}D_{train, 1} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm}p_{1,m} \hspace{0.12cm},\hspace{0.12cm} :\hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} m[1:(\lfloor Q_{1/k} \rfloor -1)] \hspace{0.12cm},\hspace{0.12cm}:\hspace{0.12cm}]$
 
-- Para $\hspace{0.1cm}r \in \lbrace 1,...,k \rbrace\hspace{0.1cm}$ 
+     $\hspace{2cm}D_{train, 2} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} p_{2,m} \hspace{0.12cm},\hspace{0.12cm} :\hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm}m[\lfloor Q_{1/k} \rfloor : (\lfloor Q_{2/k} \rfloor - 1 )] \hspace{0.12cm},\hspace{0.12cm}:\hspace{0.12cm}]$
+
+     $\hspace{2cm} \dots$
+ 
+
+     $\hspace{2cm}D_{train, k} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} p_{k,m} \hspace{0.12cm},\hspace{0.12cm} : \hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} m[\lfloor Q_{(k-1)/k} \rfloor : N] \hspace{0.12cm},\hspace{0.12cm} : \hspace{0.12cm}] \\[0.25cm]$
 
 
-    - Se entrena el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ con la **muestra de train** $\hspace{0.1cm} D_{train,r}$  $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ $\hspace{0.1cm}\widehat{M}_r$ $\\[0.25cm]$
+    
 
-    - Se calcula una misma métrica de evaluación sobre el modelo entrenado $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ con la **muestra de test** $\hspace{0.1cm}D_{test,r}\hspace{0.1cm}$ $\\[0.25cm]$
+
+- Para $\hspace{0.03cm}r \in \lbrace 1,...,k \rbrace\hspace{0.1cm}$ : 
+
+
+    - Se entrena el modelo $\hspace{0.01cm}M\hspace{0.01cm}$ con la **muestra de train** $\hspace{0.01cm} D_{train,r}$  $\hspace{0.02cm}\Rightarrow\hspace{0.2cm}$ $\hspace{0.01cm}\widehat{M}_r\hspace{0.02cm}$  .
+
+    - Se calcula una misma métrica de evaluación sobre el modelo entrenado $\hspace{0.01cm}\widehat{M}_r\hspace{0.01cm}$ con la **muestra de test** $\hspace{0.01cm}D_{test,r}\hspace{0.02cm}$  .
 
          - Supongamos que la métrica de evaluación usada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ , entonces se obtienen $\hspace{0.1cm}k\hspace{0.1cm}$ valores de esta métrica :
 
-         $$ECM_{test }\left(\widehat{M}_1\right) \hspace{0.1cm},\hspace{0.1cm}  ECM_{test }\left(\widehat{M}_2\right) \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}\left( \widehat{M}_k \right)\\$$
+            $$ECM_{test }\left(\widehat{M}_1\right) \hspace{0.1cm},\hspace{0.1cm}  ECM_{test }\left(\widehat{M}_2\right) \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}\left( \widehat{M}_k \right)\\$$
 
-         Donde: 
+            Donde: 
     
-         $\hspace{0.5cm} ECM_{test , r}\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ usando $\hspace{0.1cm}D_{test,r}\hspace{0.1cm} \\$ 
+            $\hspace{0.5cm} ECM_{test , r}\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre $\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}$ usando $\hspace{0.1cm}D_{test,r}\hspace{0.1cm}$ 
 
-         $$ECM_{test }\left( \hspace{0.05cm} \widehat{M}_r \hspace{0.05cm}\right) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test, r}} \cdot \sum_{i=1}^{\# D_{test, r}} \hspace{0.1cm} \left( \hspace{0.1cm} y_i^{\hspace{0.1cm}test,r} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm} \right)^2 \\$$
+            $$ECM_{test }\left( \hspace{0.05cm} \widehat{M}_r \hspace{0.05cm}\right) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test, r}} \cdot \sum_{i=1}^{\# D_{test, r}} \hspace{0.1cm} \left( \hspace{0.1cm} y_i^{\hspace{0.1cm}test,r} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm} \right)^2 \\$$
 
-         Teniendo en cuenta que :
+            Teniendo en cuenta que :
 
-         - $\hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm}=\hspace{0.1cm} M\left(\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm}|\hspace{0.1cm} D_{train,r} \right) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r \left(\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm} \right) \\[0.7cm]$
+            - $\hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm}=\hspace{0.1cm} M\left(\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm}|\hspace{0.1cm} D_{train,r} \right) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r \left(\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm} \right)$
     
-         - $x_i^{\hspace{0.1cm}test,r}\hspace{0.1cm}$ es la observación $\hspace{0.1cm}i$-esima de la muestra de test $\hspace{0.1cm}r$-esima de los predictores. $\\[0.7cm]$
+            - $x_i^{\hspace{0.1cm}test,r}\hspace{0.1cm}$ es la observación $\hspace{0.1cm}i$-esima de la muestra de test $\hspace{0.1cm}r$-esima de los predictores.  
     
-         - $y_i^{\hspace{0.1cm}test,r}\hspace{0.1cm}$ es la observación $\hspace{0.1cm}i$-esima de la muestra de test $\hspace{0.1cm}r$-esima de la variable respuesta. $\\[1cm]$
+            - $y_i^{\hspace{0.1cm}test,r}\hspace{0.1cm}$ es la observación $\hspace{0.1cm}i$-esima de la muestra de test $\hspace{0.1cm}r$-esima de la variable respuesta. $\\[0.25cm]$ 
 
     
 
-- Se calcula la métrica final de evaluación del modelo como el promedio de las $\hspace{0.1cm}k\hspace{0.1cm}$ métricas calculadas en el paso anterior. Si la métrica usada fuera el ECM, entonces:
+- Se calcula la métrica final de evaluación del modelo como el promedio de las $\hspace{0.01cm}k\hspace{0.01cm}$ métricas calculadas en el paso anterior. Si la métrica usada fuera el ECM, entonces:
 
-    $$ECM( {M})_{test}^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{k} \cdot \sum_{r=1}^k ECM_{test}(\widehat{M}_r)$$
+    $$ECM({M})_{test}^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{k} \cdot \sum_{r=1}^k ECM_{test}(\widehat{M}_r)$$
     
 
 </p>
@@ -1584,16 +1564,16 @@ La metrica de validacion calculada por k-fold tiene menor varianza que con los m
 
 <br>
 
-## Repeted k-fold  <a class="anchor" id="1"></a>
+## Repeted k-fold  
 
 
 
-Este algoritmo consiste en **repetir** el algoritmo **k-fold** un número $\hspace{0.1cm} B \hspace{0.1cm}$ de veces.
+Este algoritmo consiste en **repetir** el algoritmo **k-fold** un número $\hspace{0.01cm} B \hspace{0.01cm}$ de veces.
 
-No vamos a hacer aquí una descripción tan detallada del algoritmo como las anteriores, puesto que buena parte es repetir $\hspace{0.1cm}B\hspace{0.1cm}$ veces la estructura del k-fold. $\\[0.5cm]$
+No vamos a hacer aquí una descripción tan detallada del algoritmo como las anteriores, puesto que buena parte es repetir $\hspace{0.01cm}B\hspace{0.01cm}$ veces la estructura del k-fold. $\\[0.1cm]$
 
 
-Sintetizando, los pasos del algoritmo $\hspace{0.08cm}B$-repeated $\hspace{0.08cm}k$-fold son los siguientes:
+Sintetizando, los pasos del algoritmo $\hspace{0.01cm}B$-repeated $\hspace{0.01cm}k$-fold son los siguientes:
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1602,62 +1582,60 @@ Sintetizando, los pasos del algoritmo $\hspace{0.08cm}B$-repeated $\hspace{0.08c
 <p style='margin-left:1em;'>
 
 
-- Se itera el algoritmo $\hspace{0.08cm}k$-fold un total de $\hspace{0.08cm}B\hspace{0.08cm}$ veces. Con ello se obtienen $\hspace{0.08cm}k\cdot B\hspace{0.08cm}$ valores de la métrica de validacion, ya que cada iteracion del algoritmo k-fold produce $\hspace{0.08cm}k\hspace{0.08cm}$ valores de la métrica, y el algoritmo se itera $\hspace{0.08cm}B\hspace{0.08cm}$ veces. $\\[0.2cm]$
+- Se itera el algoritmo $\hspace{0.01cm}k$-fold un total de $\hspace{0.01cm}B\hspace{0.01cm}$ veces. Con ello se obtienen $\hspace{0.01cm}k\cdot B\hspace{0.01cm}$ valores de la métrica de validacion, ya que cada iteracion del algoritmo k-fold produce $\hspace{0.01cm}k\hspace{0.01cm}$ valores de la métrica, y el algoritmo se itera $\hspace{0.08cm}B\hspace{0.08cm}$ veces. $\\[0.04cm]$
 
  
 
-    - Si la métrica usada para evaluar el modelo fuera el  $\hspace{0.1cm}ECM\hspace{0.05cm}$ , entocnes se obtendrian los siguientes $\hspace{0.1cm}k\cdot B\hspace{0.1cm}$ valores de esta métrica:
+    - Si la métrica usada para evaluar el modelo fuera el  $\hspace{0.01cm}ECM\hspace{0.01cm}$ , entocnes se obtendrian los siguientes $\hspace{0.01cm}k\cdot B\hspace{0.01cm}$ valores de esta métrica:
 
 
-       $$ECM_{test }\left(\hspace{0.1cm}\widehat{M}_1^{\hspace{0.1cm}1}\hspace{0.1cm}\right) \hspace{0.05cm}, ... ,\hspace{0.05cm} ECM_{test}\left(\hspace{0.1cm}\widehat{M}_k^{\hspace{0.1cm}1}\hspace{0.1cm}\right) \hspace{0.05cm},...,\hspace{0.05cm}ECM_{test }\left(\hspace{0.1cm}\widehat{M}_1^{\hspace{0.1cm}B}\hspace{0.1cm}\right) \hspace{0.05cm}, ... ,\hspace{0.05cm} ECM_{test}\left(\hspace{0.1cm}\widehat{M}_k^{\hspace{0.1cm}B} \hspace{0.1cm} \hspace{0.1cm}\right) \\$$
+       $$ECM_{test }(\hspace{0.1cm}\widehat{M}_1^{\hspace{0.1cm}1}\hspace{0.1cm} ) \hspace{0.05cm}, ... ,\hspace{0.05cm} ECM_{test}\left(\hspace{0.1cm}\widehat{M}_k^{\hspace{0.1cm}1}\hspace{0.1cm}\right) \hspace{0.05cm},...,\hspace{0.05cm}ECM_{test }\left(\hspace{0.1cm}\widehat{M}_1^{\hspace{0.1cm}B}\hspace{0.1cm}\right) \hspace{0.05cm}, ... ,\hspace{0.05cm} ECM_{test}\left(\hspace{0.1cm}\widehat{M}_k^{\hspace{0.1cm}B} \hspace{0.1cm} \hspace{0.1cm}\right) \\$$
 
 
-      Donde: 
-    
-      Para $\hspace{0.1cm}r\in \lbrace 1,...,k \rbrace\hspace{0.15cm}$ y $\hspace{0.15cm} j\in \lbrace 1,...,B \rbrace$  $\\[0.45cm]$
+      Donde, para $\hspace{0.1cm}r\in \lbrace 1,...,k \rbrace\hspace{0.15cm}$ y $\hspace{0.15cm} j\in \lbrace 1,...,B \rbrace$ :   
 
 
-      - $\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}$ es el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ entrenado con la **muestra de train** $\hspace{0.1cm}r$-esima  obtenida en la iteración $\hspace{0.1cm}j$-esima del algoritmo k-fold, es decir, es el modelo entrenado con la muestra de train $\hspace{0.1cm}D_{train, r}^{\hspace{0.1cm}j}\hspace{0.1cm} \\[0.5cm]$  
+      - $\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}$ es el modelo $\hspace{0.1cm}M\hspace{0.1cm}$ entrenado con la **muestra de train** $\hspace{0.1cm}r$-esima  obtenida en la iteración $\hspace{0.1cm}j$-esima del algoritmo k-fold, es decir, es el modelo entrenado con la muestra de train $\hspace{0.1cm}D_{train, r}^{\hspace{0.1cm}j}$ . 
 
-      - $ECM_{test }\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right)\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre el modelo $\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}$ con la **muestra de test** $\hspace{0.1cm}r$-esima  obtenida en la repetición $\hspace{0.1cm}j$-esima del algoritmo k-fold, es decir,  con la muestra de test $\hspace{0.1cm}D_{test, r}^{\hspace{0.1cm}j}$ $\\[0.5cm]$ 
+      - $ECM_{test }\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right)\hspace{0.1cm}$ es el $\hspace{0.1cm}ECM\hspace{0.1cm}$ calculado sobre el modelo $\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}$ con la **muestra de test** $\hspace{0.1cm}r$-esima  obtenida en la repetición $\hspace{0.1cm}j$-esima del algoritmo k-fold, es decir,  con la muestra de test $\hspace{0.1cm}D_{test, r}^{\hspace{0.1cm}j}$  :
 
        $$ECM_{test }\left( \hspace{0.1cm} \widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right) = \dfrac{1}{\# D_{test, r}^{\hspace{0.1cm}j}} \cdot \sum_{i=1}^{\# D_{test, r}^{\hspace{0.1cm}j}} \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r,j} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r,j} \hspace{0.1cm} \right)^2  \\[1cm]$$
 
 
 
-       Considerando lo siguiente : $\\[0.5cm]$
+       Considerando lo siguiente : 
     
  
-       - $\hat{y}_i^{\hspace{0.1cm}test,r,j} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{\hspace{0.1cm}test, r,j} \hspace{0.12cm}|\hspace{0.12cm} D_{train,r}^{\hspace{0.1cm}j}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r^{\hspace{0.1cm}j} (\hspace{0.1cm} x_i^{test, r,j} \hspace{0.1cm} ) \\[0.7cm]$
+       - $\hat{y}_i^{\hspace{0.1cm}test,r,j} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{\hspace{0.1cm}test, r,j} \hspace{0.12cm}|\hspace{0.12cm} D_{train,r}^{\hspace{0.1cm}j}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r^{\hspace{0.1cm}j} (\hspace{0.1cm} x_i^{test, r,j} \hspace{0.1cm} )$
 
  
 
-      - $\left( \hspace{0.1cm} x_i^{\hspace{0.1cm} test, r,j} , y_i^{test, r,j}  \hspace{0.1cm}\right)\hspace{0.1cm}$ es la observación (fila) $\hspace{0.1cm}i$-esima de $\hspace{0.1cm}D_{test,r}^{\hspace{0.1cm} j} \\[0.7cm]$
+      - $( \hspace{0.1cm} x_i^{\hspace{0.1cm} test, r,j} , y_i^{test, r,j}  \hspace{0.1cm})\hspace{0.02cm}$ es la observación (fila) $\hspace{0.01cm}i$-esima de $\hspace{0.01cm}D_{test,r}^{\hspace{0.1cm} j}$
 
-      - $x_i^{\hspace{0.1cm}test, r,j}\hspace{0.1cm}$ es la observación $\hspace{0.1cm}i$-esima de la muestra de test $\hspace{0.1cm}r$-esima de los predictores obtenida en la repetición $\hspace{0.1cm}j$-esima del algoritmo k-folds. $\\[0.7cm]$
+      - $x_i^{\hspace{0.1cm}test, r,j}\hspace{0.01cm}$ es la observación $\hspace{0.01cm}i$-esima de la muestra de test $\hspace{0.01cm}r$-esima de los predictores obtenida en la repetición $\hspace{0.01cm}j$-esima del algoritmo $k$-folds. 
 
-      - $y_i^{\hspace{0.1cm}test, r,j}\hspace{0.1cm}$ es la observacion $\hspace{0.1cm}i$-esima de la muestra de test $\hspace{0.1cm}r$-esima de la variable respuesta obtenida en la repetición $\hspace{0.1cm}j$-esima del algoritmo k-folds. $\\[0.7cm]$
+      - $y_i^{\hspace{0.1cm}test, r,j}\hspace{0.1cm}$ es la observacion $\hspace{0.1cm}i$-esima de la muestra de test $\hspace{0.1cm}r$-esima de la variable respuesta obtenida en la repetición $\hspace{0.1cm}j$-esima del algoritmo k-folds. 
 
 
     
-      Nótese que debido al componente aleatorio presente en el algoritmo k-folds, cada vez que se repita el algoritmo se obtendran muestras de train y test diferentes. $\\[1cm]$
+      Nótese que debido al componente aleatorio presente en el algoritmo k-folds, cada vez que se repita el algoritmo se obtendran muestras de train y test diferentes. $\\[0.5cm]$
     
     
 
-- Se calcula la métrica final de evaluación del modelo como el promedio de las $\hspace{0.1cm}k\cdot B\hspace{0.1cm}$ métricas calculadas en el paso anterior. Es decir, como el promedio de las $\hspace{0.08cm}B\hspace{0.08cm}$ metricas obtenidas al iterar $\hspace{0.08cm}B\hspace{0.08cm}$ veces el algoritmo k-fold.
+- Se calcula la métrica final de evaluación del modelo como el promedio de las $\hspace{0.01cm}k\cdot B\hspace{0.01cm}$ métricas calculadas en el paso anterior. Es decir, como el promedio de las $\hspace{0.01cm}B\hspace{0.01cm}$ metricas obtenidas al iterar $\hspace{0.01cm}B\hspace{0.01cm}$ veces el algoritmo k-fold.
 
 
-    - Si la métrica considerada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$, entonces: $\\[0.15cm]$
+    - Si la métrica considerada es el $\hspace{0.1cm}ECM\hspace{0.1cm}$, entonces:  
     
     
-      En la iteración $\hspace{0.08cm}j$-esima del algoritmo $\hspace{0.08cm}k$-fold se obtiene como métrica de validación final:
+      En la iteración $\hspace{0.01cm}j$-esima del algoritmo $\hspace{0.01cm}k$-fold se obtiene como métrica de validación final:
     
-       $$ECM( {M})_{test}^{\hspace{0.08cm}j \hspace{0.05cm} *} \hspace{0.13cm} = \hspace{0.13cm}\dfrac{1}{k} \hspace{0.1cm} \cdot\hspace{0.1cm}   \sum_{r=1}^k \hspace{0.15cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)$$ $\\[0.15cm]$
+       $$ECM( {M})_{test}^{\hspace{0.08cm}j \hspace{0.05cm} *} \hspace{0.13cm} = \hspace{0.13cm}\dfrac{1}{k} \hspace{0.1cm} \cdot\hspace{0.1cm}   \sum_{r=1}^k \hspace{0.15cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right) \\$$  
     
-      Por lo tanto, la métrica de validación final obtenida con el algoritmo $\hspace{0.08cm}B$-repeated $\hspace{0.08cm}k$-fold es:
+      Por lo tanto, la métrica de validación final obtenida con el algoritmo $\hspace{0.08cm}B$-repeated $\hspace{0.08cm}k$-fold es: $\\[0.15cm]$
 
       $$ECM( {M})_{test}^{\hspace{0.08cm}*} \hspace{0.13cm} = \hspace{0.13cm} \dfrac{1}{ B} \hspace{0.1cm} \cdot\hspace{0.1cm} \sum_{j=1}^B ECM( {M})_{test}^{\hspace{0.08cm}j \hspace{0.05cm} *} \hspace{0.13cm} = \hspace{0.13cm} 
-    \dfrac{1}{k\cdot B} \hspace{0.1cm} \cdot\hspace{0.1cm} \sum_{j=1}^B \hspace{0.1cm} \sum_{r=1}^k \hspace{0.15cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)$$
+    \dfrac{1}{k\cdot B} \hspace{0.1cm} \cdot\hspace{0.1cm} \sum_{j=1}^B \hspace{0.1cm} \sum_{r=1}^k \hspace{0.15cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)\\$$
     
 
 </p>
@@ -1687,7 +1665,7 @@ La métrica de validación calculada por repeted k-fold tiene menor varianza que
 
 Dado un conjunto de  modelos de aprendizaje supervisado, nos interesa establecer un criterio para seleccionar uno de ellos como el mejor.
 
-A continuación se expone un criterio basado en las métricas y algoritmos de validación que se han visto anteriormente. $\\[0.5cm]$
+A continuación se expone un criterio basado en las métricas y algoritmos de validación que se han visto anteriormente.
 
 
 
@@ -1700,11 +1678,12 @@ A continuación se expone un criterio basado en las métricas y algoritmos de va
 
 - Supongamos que estamos ante un problema de regresión o clasificación supervisada.
 
-    - Tenemos $\hspace{0.1cm}h\hspace{0.1cm}$ modelos de aprendizaje supervisado $\hspace{0.1cm}M_1\hspace{0.05cm},\hspace{0.05cm}M_2\hspace{0.05cm},...,\hspace{0.05cm}M_h\hspace{0.05cm}  \\$
+    - Tenemos $\hspace{0.01cm}h\hspace{0.01cm}$ modelos de aprendizaje supervisado $\hspace{0.01cm}M_1\hspace{0.05cm},\hspace{0.05cm}M_2\hspace{0.05cm},...,\hspace{0.05cm}M_h\hspace{0.02cm}$.
 
-- Se validan estos modelos usando un mismo algoritmo de validación, con una misma métrica de evaluación. Se obtendrán $\hspace{0.1cm}h\hspace{0.1cm}$ valores de la métrica, una para cada modelo. $\\[0.3cm]$
+- Se validan estos modelos usando un mismo algoritmo de validación, con una misma métrica de evaluación. Se obtendrán $\hspace{0.01cm}h\hspace{0.01cm}$ valores de la métrica, una para cada modelo. 
 
-     - Si la métrica fuera el ECM se tendrian por ejemplo los siguientes valores: $\\[0.15cm]$
+
+     - Si la métrica fuera el ECM se tendrian por ejemplo los siguientes valores: $\\[0.05cm]$
 
     $$ECM(M_1)_{test}^{\hspace{0.05cm} *} \hspace{0.1cm}, ...,\hspace{0.1cm} ECM(M_h)_{test}^{\hspace{0.05cm} *} \\$$
 
@@ -1712,17 +1691,18 @@ A continuación se expone un criterio basado en las métricas y algoritmos de va
 - El criterio es seleccionar el modelo que tienen **mejor** valor de la métrica. Si es una **métrica de error**, el que **menor** valor tiene. Si es una **métrica de acierto**, el que **mayor** valor tiene. $\\[0.8cm]$
 
 
-- Si la métrica es de **error**, como por ejemplo el $\hspace{0.1cm}ECM\hspace{0.1cm}$, entonces: $\\[0.7cm]$
+- Si la métrica es de **error**, como por ejemplo el $\hspace{0.1cm}ECM\hspace{0.1cm}$, entonces:
 
-    - El modelo seleccionado es $\hspace{0.1cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.1cm}$ , donde: $\\[0.5cm]$
+
+    - El modelo seleccionado es $\hspace{0.1cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.1cm}$ , donde: $\\[0.05cm]$
 
     $$j^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} arg \hspace{0.1cm} \underset{j \in \lbrace 1,...,h\rbrace }{Min} \hspace{0.15cm}  ECM(M_j)_{test}^{\hspace{0.05cm} *} \\[1cm]$$
 
 
 
-- Si la métrica es de **acierto**, como por ejemplo la $\hspace{0.1cm}TAC\hspace{0.1cm}$, entonces: $\\[0.5cm]$
+- Si la métrica es de **acierto**, como por ejemplo la $\hspace{0.01cm}TAC\hspace{0.01cm}$, entonces: $\\[0.05cm]$
 
-    - El modelo seleccionado es $\hspace{0.1cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.1cm}$ , donde: $\\[0.5cm]$
+    - El modelo seleccionado es $\hspace{0.01cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.01cm}$ , donde: $\\[0.05cm]$
 
 
     $$j^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} arg \hspace{0.1cm} \underset{j \in \lbrace 1,...,h\rbrace }{Max} \hspace{0.15cm}  TAC(M_j)_{test}^{\hspace{0.05cm} *}$$

@@ -169,7 +169,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#validación-simple-aleatoria-repetida"><i class="fa fa-check"></i><b>5.3</b> Validación simple aleatoria repetida</a></li>
 <li class="chapter" data-level="5.4" data-path="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#leave-one-out"><i class="fa fa-check"></i><b>5.4</b> Leave-one-out</a></li>
 <li class="chapter" data-level="5.5" data-path="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#k-fold"><i class="fa fa-check"></i><b>5.5</b> k-fold</a></li>
-<li class="chapter" data-level="5.6" data-path="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#repeted-k-fold"><i class="fa fa-check"></i><b>5.6</b> Repeted k-fold <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="5.6" data-path="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#repeted-k-fold"><i class="fa fa-check"></i><b>5.6</b> Repeted k-fold</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="selección-de-modelos-basada-en-validación-cruzada.html"><a href="selección-de-modelos-basada-en-validación-cruzada.html"><i class="fa fa-check"></i><b>6</b> Selección de modelos basada en validación cruzada <a class="anchor" id="1"></a></a></li>
 <li class="chapter" data-level="7" data-path="algoritmos-de-validación-cruzada-programados-en-python.html"><a href="algoritmos-de-validación-cruzada-programados-en-python.html"><i class="fa fa-check"></i><b>7</b> Algoritmos de validación cruzada programados en <code>Python</code></a>
@@ -211,29 +211,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="selección-de-modelos-basada-en-validación-cruzada" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">Chapter 6</span> Selección de modelos basada en validación cruzada <a class="anchor" id="1"></a><a href="selección-de-modelos-basada-en-validación-cruzada.html#selección-de-modelos-basada-en-validación-cruzada" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Dado un conjunto de modelos de aprendizaje supervisado, nos interesa establecer un criterio para seleccionar uno de ellos como el mejor.</p>
-<p>A continuación se expone un criterio basado en las métricas y algoritmos de validación que se han visto anteriormente. <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p>A continuación se expone un criterio basado en las métricas y algoritmos de validación que se han visto anteriormente.</p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
 <ul>
 <li><p>Supongamos que estamos ante un problema de regresión o clasificación supervisada.</p>
 <ul>
-<li>Tenemos <span class="math inline">\(\hspace{0.1cm}h\hspace{0.1cm}\)</span> modelos de aprendizaje supervisado <span class="math inline">\(\hspace{0.1cm}M_1\hspace{0.05cm},\hspace{0.05cm}M_2\hspace{0.05cm},...,\hspace{0.05cm}M_h\hspace{0.05cm} \\\)</span></li>
+<li>Tenemos <span class="math inline">\(\hspace{0.01cm}h\hspace{0.01cm}\)</span> modelos de aprendizaje supervisado <span class="math inline">\(\hspace{0.01cm}M_1\hspace{0.05cm},\hspace{0.05cm}M_2\hspace{0.05cm},...,\hspace{0.05cm}M_h\hspace{0.02cm}\)</span>.</li>
 </ul></li>
-<li><p>Se validan estos modelos usando un mismo algoritmo de validación, con una misma métrica de evaluación. Se obtendrán <span class="math inline">\(\hspace{0.1cm}h\hspace{0.1cm}\)</span> valores de la métrica, una para cada modelo. <span class="math inline">\(\\[0.3cm]\)</span></p>
+<li><p>Se validan estos modelos usando un mismo algoritmo de validación, con una misma métrica de evaluación. Se obtendrán <span class="math inline">\(\hspace{0.01cm}h\hspace{0.01cm}\)</span> valores de la métrica, una para cada modelo.</p>
 <ul>
-<li>Si la métrica fuera el ECM se tendrian por ejemplo los siguientes valores: <span class="math inline">\(\\[0.15cm]\)</span></li>
+<li>Si la métrica fuera el ECM se tendrian por ejemplo los siguientes valores: <span class="math inline">\(\\[0.05cm]\)</span></li>
 </ul>
 <p><span class="math display">\[ECM(M_1)_{test}^{\hspace{0.05cm} *} \hspace{0.1cm}, ...,\hspace{0.1cm} ECM(M_h)_{test}^{\hspace{0.05cm} *} \\\]</span></p></li>
 <li><p>El criterio es seleccionar el modelo que tienen <strong>mejor</strong> valor de la métrica. Si es una <strong>métrica de error</strong>, el que <strong>menor</strong> valor tiene. Si es una <strong>métrica de acierto</strong>, el que <strong>mayor</strong> valor tiene. <span class="math inline">\(\\[0.8cm]\)</span></p></li>
-<li><p>Si la métrica es de <strong>error</strong>, como por ejemplo el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, entonces: <span class="math inline">\(\\[0.7cm]\)</span></p>
+<li><p>Si la métrica es de <strong>error</strong>, como por ejemplo el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, entonces:</p>
 <ul>
-<li>El modelo seleccionado es <span class="math inline">\(\hspace{0.1cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.1cm}\)</span> , donde: <span class="math inline">\(\\[0.5cm]\)</span></li>
+<li>El modelo seleccionado es <span class="math inline">\(\hspace{0.1cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.1cm}\)</span> , donde: <span class="math inline">\(\\[0.05cm]\)</span></li>
 </ul>
 <p><span class="math display">\[j^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} arg \hspace{0.1cm} \underset{j \in \lbrace 1,...,h\rbrace }{Min} \hspace{0.15cm}  ECM(M_j)_{test}^{\hspace{0.05cm} *} \\[1cm]\]</span></p></li>
-<li><p>Si la métrica es de <strong>acierto</strong>, como por ejemplo la <span class="math inline">\(\hspace{0.1cm}TAC\hspace{0.1cm}\)</span>, entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<li><p>Si la métrica es de <strong>acierto</strong>, como por ejemplo la <span class="math inline">\(\hspace{0.01cm}TAC\hspace{0.01cm}\)</span>, entonces: <span class="math inline">\(\\[0.05cm]\)</span></p>
 <ul>
-<li>El modelo seleccionado es <span class="math inline">\(\hspace{0.1cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.1cm}\)</span> , donde: <span class="math inline">\(\\[0.5cm]\)</span></li>
+<li>El modelo seleccionado es <span class="math inline">\(\hspace{0.01cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.01cm}\)</span> , donde: <span class="math inline">\(\\[0.05cm]\)</span></li>
 </ul>
 <p><span class="math display">\[j^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} arg \hspace{0.1cm} \underset{j \in \lbrace 1,...,h\rbrace }{Max} \hspace{0.15cm}  TAC(M_j)_{test}^{\hspace{0.05cm} *}\]</span></p></li>
 </ul>

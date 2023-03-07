@@ -169,7 +169,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#validación-simple-aleatoria-repetida"><i class="fa fa-check"></i><b>5.3</b> Validación simple aleatoria repetida</a></li>
 <li class="chapter" data-level="5.4" data-path="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#leave-one-out"><i class="fa fa-check"></i><b>5.4</b> Leave-one-out</a></li>
 <li class="chapter" data-level="5.5" data-path="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#k-fold"><i class="fa fa-check"></i><b>5.5</b> k-fold</a></li>
-<li class="chapter" data-level="5.6" data-path="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#repeted-k-fold"><i class="fa fa-check"></i><b>5.6</b> Repeted k-fold <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="5.6" data-path="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#repeted-k-fold"><i class="fa fa-check"></i><b>5.6</b> Repeted k-fold</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="selección-de-modelos-basada-en-validación-cruzada.html"><a href="selección-de-modelos-basada-en-validación-cruzada.html"><i class="fa fa-check"></i><b>6</b> Selección de modelos basada en validación cruzada <a class="anchor" id="1"></a></a></li>
 <li class="chapter" data-level="7" data-path="algoritmos-de-validación-cruzada-programados-en-python.html"><a href="algoritmos-de-validación-cruzada-programados-en-python.html"><i class="fa fa-check"></i><b>7</b> Algoritmos de validación cruzada programados en <code>Python</code></a>
@@ -543,15 +543,15 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 <li><p>Dichos cuantiles permiten separar <span class="math inline">\(\hspace{0.01cm} m \hspace{0.01cm}\)</span> en <span class="math inline">\(\hspace{0.01cm} k \hspace{0.01cm}\)</span> partes de un tamaño aproximadamente igual.</p></li>
 <li><p>Si <span class="math inline">\(\hspace{0.01cm} k=10\hspace{0.1cm}\)</span>, entonces esos cuantiles serian <span class="math inline">\(\hspace{0.01cm} Q_0 \hspace{0.1cm},\hspace{0.1cm} Q_{0.1} \hspace{0.1cm},\hspace{0.1cm} Q_{0.2} \hspace{0.1cm}, ...,\hspace{0.1cm} Q_{0.8} \hspace{0.1cm},\hspace{0.1cm} Q_{0.9} \hspace{0.1cm},\hspace{0.1cm} Q_1\hspace{0.01cm}\)</span>.</p></li>
 <li><p>Si <span class="math inline">\(\hspace{0.01cm} k=4\hspace{0.1cm}\)</span> , los cuantiles serían <span class="math inline">\(\hspace{0.1cm} Q_0 \hspace{0.1cm},\hspace{0.1cm} Q_{0.25} \hspace{0.1cm},\hspace{0.1cm} Q_{0.5} \hspace{0.1cm},\hspace{0.1cm} Q_{0.75} \hspace{0.1cm},\hspace{0.1cm} Q_1\hspace{0.01cm}\)</span>.</p>
-<p>Notese que: <span class="math inline">\(\hspace{0.02cm} Q_0 = Min(1,...,N) = 1\hspace{0.2cm}\)</span> y <span class="math inline">\(\hspace{0.2cm} Q_1=Max(1,...,N)=N \hspace{0.01cm}\)</span>. $\[0.25cm]</p></li>
+<p>Notese que: <span class="math inline">\(\hspace{0.02cm} Q_0 = Min(1,...,N) = 1\hspace{0.2cm}\)</span> y <span class="math inline">\(\hspace{0.2cm} Q_1=Max(1,...,N)=N \hspace{0.01cm}\)</span>. <span class="math inline">\(\\[0.25cm]\)</span></p></li>
 </ul></li>
-<li><p>Definimos las <span class="math inline">\(\hspace{0.01cm} k\hspace{0.01cm}\)</span> particiones de <span class="math inline">\(\hspace{0.01cm} m \hspace{0.01cm}\)</span> usando los cuantiles <span class="math inline">\(\hspace{0.01cm} Q_0=1 \hspace{0.1cm},\hspace{0.1cm} Q_{1/k} \hspace{0.1cm},\hspace{0.1cm} Q_{2/k}\hspace{0.1cm},...,\hspace{0.1cm}Q_{(k-1)/k}\hspace{0.1cm},\hspace{0.1cm} Q_1=N\hspace{0.02cm}\)</span> como sigue: <span class="math inline">\(\\[0.1cm]\)</span></p>
+<li><p>Definimos las <span class="math inline">\(\hspace{0.01cm} k\hspace{0.01cm}\)</span> particiones de <span class="math inline">\(\hspace{0.01cm} m \hspace{0.01cm}\)</span> usando los cuantiles <span class="math inline">\(\hspace{0.01cm} Q_0\hspace{0.01cm},\hspace{0.01cm} Q_{1/k} \hspace{0.01cm},\hspace{0.01cm} Q_{2/k}\hspace{0.01cm},...,\hspace{0.01cm} Q_{(k-1)/k}\hspace{0.01cm},\hspace{0.01cm} Q_1\hspace{0.02cm}\)</span> como sigue:</p>
 <p><span class="math inline">\(\hspace{2cm} p_{1,m} \hspace{0.1cm}=\hspace{0.1cm} m\left[\hspace{0.1cm}1:(\lfloor Q_{1/k} \rfloor -1)\hspace{0.1cm}\right]\hspace{0.1cm}=\hspace{0.1cm}(m_1,...,m_{\lfloor Q_{1/k} \rfloor - 1} ) \\\)</span></p>
 <p><span class="math inline">\(\hspace{2cm} p_{2,m} \hspace{0.1cm}=\hspace{0.1cm} m\left[\hspace{0.1cm}\lfloor Q_{1/k} \rfloor:(\lfloor Q_{2/k} \rfloor-1)\hspace{0.1cm}\right]\hspace{0.1cm}=\hspace{0.1cm}(m_{\lfloor Q_{1/k} \rfloor},...,m_{\lfloor Q_{2/k} \rfloor - 1})\)</span></p>
 <p><span class="math inline">\(\hspace{2cm} \dots \\\)</span></p>
 <p><span class="math inline">\(\hspace{2cm} p_{k,m} \hspace{0.1cm}=\hspace{0.1cm} m\left[\hspace{0.1cm}\lfloor Q_{(k-1)/k} \rfloor : N\hspace{0.1cm}\right]\hspace{0.1cm}=\hspace{0.1cm}(m_{\lfloor Q_{(k-1)/k} \rfloor},...,m_{N})\\[0.75cm]\)</span></p></li>
-<li><p>Se puede demostrar que <span class="math inline">\(\hspace{0.1cm} p_{1,m}\hspace{0.1cm},...,\hspace{0.1cm} p_{k,m}\hspace{0.1cm}\)</span> tienen un nº de elementos aproximadamente igual , por lo que son particiones aproximadamente igualitarias (balanceadas), que era lo que buscabamos.</p></li>
-<li><p>La siguiente matriz ilustra por qué este método funciona:</p></li>
+<li><p>Se puede demostrar que <span class="math inline">\(\hspace{0.1cm} p_{1,m}\hspace{0.1cm},...,\hspace{0.1cm} p_{k,m}\hspace{0.1cm}\)</span> tienen un número de elementos aproximadamente igual , por lo que son particiones aproximadamente igualitarias (balanceadas), que era lo que buscabamos.</p></li>
+<li><p>La siguiente matriz ilustra por qué este método funciona: <span class="math inline">\(\\[0.02cm]\)</span></p></li>
 </ul>
 <p><span class="math display">\[\begin{pmatrix}
   1 &amp; m_1\\
@@ -595,60 +595,38 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
   ... &amp; ...\\
   \end{pmatrix}\]</span></p></li>
 </ul>
-<p><span class="math inline">\(\\[0.3cm]\)</span></p>
+<p><span class="math inline">\(\\[0.35cm]\)</span></p>
 <ul>
-<li><p>Se obtienen la siguientes <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> muestras de test: <span class="math inline">\(\\[0.4cm]\)</span></p>
-<p><span class="math display">\[D_{test, 1} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm} p_{1,m} \hspace{0.1cm} ,\hspace{0.1cm} : \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}m[1:(\lfloor Q_{1/k} \rfloor -1)] \hspace{0.12cm},\hspace{0.12cm} : \hspace{0.12cm}]\]</span></p>
-<p><span class="math display">\[D_{test, 2} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}p_{2,m} \hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}m[\lfloor Q_{1/k} \rfloor : (\lfloor Q_{2/k} \rfloor - 1 )]\hspace{0.12cm} ,\hspace{0.12cm}:\hspace{0.12cm}]\]</span></p>
-<p><span class="math display">\[\dots\]</span></p>
-<p><span class="math display">\[D_{test, k}\hspace{0.1cm} =\hspace{0.1cm} D[\hspace{0.1cm}p_{k,m} \hspace{0.12cm} ,\hspace{0.12cm} :\hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}m[\lfloor Q_{(k-1)/k} \rfloor : N]\hspace{0.12cm} ,\hspace{0.12cm} :\hspace{0.12cm}] \\[0.7cm]\]</span></p>
-<p><span class="math inline">\(\hspace{0.5cm}\)</span> Siguiendo la notación habitual del articulo, podemos expresar: <span class="math inline">\(\\[0.6cm]\)</span></p>
-<p><span class="math display">\[
-   D_{test, r} \hspace{0.1cm}=\hspace{0.1cm}\begin{pmatrix}
-   x_{1}^{test, r} &amp; y_{1}^{test, r}\\
-    x_{2}^{test, r} &amp; y_{2}^{test, r}\\
-  ....&amp;...\\
-  x_{\# D_{test, r}}^{test, r} &amp; y_{\# D_{test, r}}^{test, r}
-  \end{pmatrix}
-  \]</span></p></li>
-</ul>
-<p><span class="math inline">\(\\[0.3cm]\)</span></p>
+<li><p>Se obtienen la siguientes <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> muestras de test: <span class="math inline">\(\\[0.01cm]\)</span></p>
+<p><span class="math inline">\(\hspace{2cm} D_{test, 1} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm} p_{1,m} \hspace{0.1cm} ,\hspace{0.1cm} : \hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}m[1:(\lfloor Q_{1/k} \rfloor -1)] \hspace{0.12cm},\hspace{0.12cm} : \hspace{0.12cm}]\)</span></p>
+<p><span class="math inline">\(\hspace{2cm}D_{test, 2} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}p_{2,m} \hspace{0.1cm} ,\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}m[\lfloor Q_{1/k} \rfloor : (\lfloor Q_{2/k} \rfloor - 1 )]\hspace{0.12cm} ,\hspace{0.12cm}:\hspace{0.12cm}]\)</span>$</p>
+<p><span class="math inline">\(\hspace{2cm}\dots\)</span></p>
+<p><span class="math inline">\(\hspace{2cm}D_{test, k}\hspace{0.1cm} =\hspace{0.1cm} D[\hspace{0.1cm}p_{k,m} \hspace{0.12cm} ,\hspace{0.12cm} :\hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}m[\lfloor Q_{(k-1)/k} \rfloor : N]\hspace{0.12cm} ,\hspace{0.12cm} :\hspace{0.12cm}] \\[0.7cm]\)</span></p></li>
+<li><p>Se obtiene las siguientes <span class="math inline">\(\hspace{0.01cm}k\hspace{0.01cm}\)</span> muestras de train: <span class="math inline">\(\\[0.01cm]\)</span></p>
+<p><span class="math inline">\(\hspace{2cm}D_{train, 1} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm}p_{1,m} \hspace{0.12cm},\hspace{0.12cm} :\hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} m[1:(\lfloor Q_{1/k} \rfloor -1)] \hspace{0.12cm},\hspace{0.12cm}:\hspace{0.12cm}]\)</span></p>
+<p><span class="math inline">\(\hspace{2cm}D_{train, 2} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} p_{2,m} \hspace{0.12cm},\hspace{0.12cm} :\hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm}m[\lfloor Q_{1/k} \rfloor : (\lfloor Q_{2/k} \rfloor - 1 )] \hspace{0.12cm},\hspace{0.12cm}:\hspace{0.12cm}]\)</span></p>
+<p><span class="math inline">\(\hspace{2cm} \dots\)</span></p>
+<p><span class="math inline">\(\hspace{2cm}D_{train, k} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} p_{k,m} \hspace{0.12cm},\hspace{0.12cm} : \hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} m[\lfloor Q_{(k-1)/k} \rfloor : N] \hspace{0.12cm},\hspace{0.12cm} : \hspace{0.12cm}] \\[0.25cm]\)</span></p></li>
+<li><p>Para <span class="math inline">\(\hspace{0.03cm}r \in \lbrace 1,...,k \rbrace\hspace{0.1cm}\)</span> :</p>
 <ul>
-<li><p>Se obtiene las siguientes <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> muestras de train:</p>
-<p><span class="math display">\[D_{train, 1} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm}p_{1,m} \hspace{0.12cm},\hspace{0.12cm} :\hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} m[1:(\lfloor Q_{1/k} \rfloor -1)] \hspace{0.12cm},\hspace{0.12cm}:\hspace{0.12cm}]\]</span></p>
-<p><span class="math display">\[D_{train, 2} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} p_{2,m} \hspace{0.12cm},\hspace{0.12cm} :\hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm}m[\lfloor Q_{1/k} \rfloor : (\lfloor Q_{2/k} \rfloor - 1 )] \hspace{0.12cm},\hspace{0.12cm}:\hspace{0.12cm}]\]</span></p>
-<p><span class="math display">\[\dots\]</span></p>
-<p><span class="math display">\[D_{train, k} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} p_{k,m} \hspace{0.12cm},\hspace{0.12cm} : \hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} m[\lfloor Q_{(k-1)/k} \rfloor : N] \hspace{0.12cm},\hspace{0.12cm} : \hspace{0.12cm}] \\\]</span></p>
-<p><span class="math inline">\(\hspace{0.5cm}\)</span> Siguiendo la notación habitual del articulo, podemos expresar: <span class="math inline">\(\\[0.6cm]\)</span></p></li>
-</ul>
-<p><span class="math display">\[\hspace{0.5cm}D_{train, r} =
-\begin{pmatrix}  
-x_{1}^{train, r} &amp; y_{1}^{train, r}\\
-x_{2}^{train, r} &amp; y_{2}^{train, r}\\ ....&amp;...\\
-    x_{\# D_{train, r}}^{train, r} &amp; y_{\# D_{train, r}}^{train, r}
-    \end{pmatrix}\]</span></p>
-<p><span class="math inline">\(\\[0.2cm]\)</span></p>
+<li><p>Se entrena el modelo <span class="math inline">\(\hspace{0.01cm}M\hspace{0.01cm}\)</span> con la <strong>muestra de train</strong> <span class="math inline">\(\hspace{0.01cm} D_{train,r}\)</span> <span class="math inline">\(\hspace{0.02cm}\Rightarrow\hspace{0.2cm}\)</span> <span class="math inline">\(\hspace{0.01cm}\widehat{M}_r\hspace{0.02cm}\)</span> .</p></li>
+<li><p>Se calcula una misma métrica de evaluación sobre el modelo entrenado <span class="math inline">\(\hspace{0.01cm}\widehat{M}_r\hspace{0.01cm}\)</span> con la <strong>muestra de test</strong> <span class="math inline">\(\hspace{0.01cm}D_{test,r}\hspace{0.02cm}\)</span> .</p>
 <ul>
-<li><p>Para <span class="math inline">\(\hspace{0.1cm}r \in \lbrace 1,...,k \rbrace\hspace{0.1cm}\)</span></p>
-<ul>
-<li><p>Se entrena el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> con la <strong>muestra de train</strong> <span class="math inline">\(\hspace{0.1cm} D_{train,r}\)</span> <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r\)</span> <span class="math inline">\(\\[0.25cm]\)</span></p></li>
-<li><p>Se calcula una misma métrica de evaluación sobre el modelo entrenado <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}\)</span> con la <strong>muestra de test</strong> <span class="math inline">\(\hspace{0.1cm}D_{test,r}\hspace{0.1cm}\)</span> <span class="math inline">\(\\[0.25cm]\)</span></p>
-<ul>
-<li>Supongamos que la métrica de evaluación usada es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , entonces se obtienen <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> valores de esta métrica :</li>
-</ul>
+<li><p>Supongamos que la métrica de evaluación usada es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> , entonces se obtienen <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> valores de esta métrica :</p>
 <p><span class="math display">\[ECM_{test }\left(\widehat{M}_1\right) \hspace{0.1cm},\hspace{0.1cm}  ECM_{test }\left(\widehat{M}_2\right) \hspace{0.1cm}, ... ,\hspace{0.1cm} ECM_{test}\left( \widehat{M}_k \right)\\\]</span></p>
 <p>Donde:</p>
-<p><span class="math inline">\(\hspace{0.5cm} ECM_{test , r}\hspace{0.1cm}\)</span> es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> calculado sobre <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}\)</span> usando <span class="math inline">\(\hspace{0.1cm}D_{test,r}\hspace{0.1cm} \\\)</span></p>
+<p><span class="math inline">\(\hspace{0.5cm} ECM_{test , r}\hspace{0.1cm}\)</span> es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> calculado sobre <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r\hspace{0.1cm}\)</span> usando <span class="math inline">\(\hspace{0.1cm}D_{test,r}\hspace{0.1cm}\)</span></p>
 <p><span class="math display">\[ECM_{test }\left( \hspace{0.05cm} \widehat{M}_r \hspace{0.05cm}\right) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{\# D_{test, r}} \cdot \sum_{i=1}^{\# D_{test, r}} \hspace{0.1cm} \left( \hspace{0.1cm} y_i^{\hspace{0.1cm}test,r} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm} \right)^2 \\\]</span></p>
 <p>Teniendo en cuenta que :</p>
 <ul>
-<li><p><span class="math inline">\(\hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm}=\hspace{0.1cm} M\left(\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm}|\hspace{0.1cm} D_{train,r} \right) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r \left(\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm} \right) \\[0.7cm]\)</span></p></li>
-<li><p><span class="math inline">\(x_i^{\hspace{0.1cm}test,r}\hspace{0.1cm}\)</span> es la observación <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la muestra de test <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima de los predictores. <span class="math inline">\(\\[0.7cm]\)</span></p></li>
-<li><p><span class="math inline">\(y_i^{\hspace{0.1cm}test,r}\hspace{0.1cm}\)</span> es la observación <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la muestra de test <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima de la variable respuesta. <span class="math inline">\(\\[1cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r} \hspace{0.1cm}=\hspace{0.1cm} M\left(\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm}|\hspace{0.1cm} D_{train,r} \right) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r \left(\hspace{0.1cm} x_i^{test, r} \hspace{0.1cm} \right)\)</span></p></li>
+<li><p><span class="math inline">\(x_i^{\hspace{0.1cm}test,r}\hspace{0.1cm}\)</span> es la observación <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la muestra de test <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima de los predictores.</p></li>
+<li><p><span class="math inline">\(y_i^{\hspace{0.1cm}test,r}\hspace{0.1cm}\)</span> es la observación <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la muestra de test <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima de la variable respuesta. <span class="math inline">\(\\[0.25cm]\)</span></p></li>
 </ul></li>
 </ul></li>
-<li><p>Se calcula la métrica final de evaluación del modelo como el promedio de las <span class="math inline">\(\hspace{0.1cm}k\hspace{0.1cm}\)</span> métricas calculadas en el paso anterior. Si la métrica usada fuera el ECM, entonces:</p>
-<p><span class="math display">\[ECM( {M})_{test}^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{k} \cdot \sum_{r=1}^k ECM_{test}(\widehat{M}_r)\]</span></p></li>
+</ul></li>
+<li><p>Se calcula la métrica final de evaluación del modelo como el promedio de las <span class="math inline">\(\hspace{0.01cm}k\hspace{0.01cm}\)</span> métricas calculadas en el paso anterior. Si la métrica usada fuera el ECM, entonces:</p>
+<p><span class="math display">\[ECM({M})_{test}^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{k} \cdot \sum_{r=1}^k ECM_{test}(\widehat{M}_r)\]</span></p></li>
 </ul>
 </p>
 </p>
@@ -660,42 +638,41 @@ x_{2}^{train, r} &amp; y_{2}^{train, r}\\ ....&amp;...\\
 <p><br></p>
 </div>
 <div id="repeted-k-fold" class="section level2 hasAnchor" number="5.6">
-<h2><span class="header-section-number">5.6</span> Repeted k-fold <a class="anchor" id="1"></a><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#repeted-k-fold" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Este algoritmo consiste en <strong>repetir</strong> el algoritmo <strong>k-fold</strong> un número <span class="math inline">\(\hspace{0.1cm} B \hspace{0.1cm}\)</span> de veces.</p>
-<p>No vamos a hacer aquí una descripción tan detallada del algoritmo como las anteriores, puesto que buena parte es repetir <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> veces la estructura del k-fold. <span class="math inline">\(\\[0.5cm]\)</span></p>
-<p>Sintetizando, los pasos del algoritmo <span class="math inline">\(\hspace{0.08cm}B\)</span>-repeated <span class="math inline">\(\hspace{0.08cm}k\)</span>-fold son los siguientes:</p>
+<h2><span class="header-section-number">5.6</span> Repeted k-fold<a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#repeted-k-fold" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Este algoritmo consiste en <strong>repetir</strong> el algoritmo <strong>k-fold</strong> un número <span class="math inline">\(\hspace{0.01cm} B \hspace{0.01cm}\)</span> de veces.</p>
+<p>No vamos a hacer aquí una descripción tan detallada del algoritmo como las anteriores, puesto que buena parte es repetir <span class="math inline">\(\hspace{0.01cm}B\hspace{0.01cm}\)</span> veces la estructura del k-fold. <span class="math inline">\(\\[0.1cm]\)</span></p>
+<p>Sintetizando, los pasos del algoritmo <span class="math inline">\(\hspace{0.01cm}B\)</span>-repeated <span class="math inline">\(\hspace{0.01cm}k\)</span>-fold son los siguientes:</p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
 <ul>
-<li><p>Se itera el algoritmo <span class="math inline">\(\hspace{0.08cm}k\)</span>-fold un total de <span class="math inline">\(\hspace{0.08cm}B\hspace{0.08cm}\)</span> veces. Con ello se obtienen <span class="math inline">\(\hspace{0.08cm}k\cdot B\hspace{0.08cm}\)</span> valores de la métrica de validacion, ya que cada iteracion del algoritmo k-fold produce <span class="math inline">\(\hspace{0.08cm}k\hspace{0.08cm}\)</span> valores de la métrica, y el algoritmo se itera <span class="math inline">\(\hspace{0.08cm}B\hspace{0.08cm}\)</span> veces. <span class="math inline">\(\\[0.2cm]\)</span></p>
+<li><p>Se itera el algoritmo <span class="math inline">\(\hspace{0.01cm}k\)</span>-fold un total de <span class="math inline">\(\hspace{0.01cm}B\hspace{0.01cm}\)</span> veces. Con ello se obtienen <span class="math inline">\(\hspace{0.01cm}k\cdot B\hspace{0.01cm}\)</span> valores de la métrica de validacion, ya que cada iteracion del algoritmo k-fold produce <span class="math inline">\(\hspace{0.01cm}k\hspace{0.01cm}\)</span> valores de la métrica, y el algoritmo se itera <span class="math inline">\(\hspace{0.08cm}B\hspace{0.08cm}\)</span> veces. <span class="math inline">\(\\[0.04cm]\)</span></p>
 <ul>
-<li><p>Si la métrica usada para evaluar el modelo fuera el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.05cm}\)</span> , entocnes se obtendrian los siguientes <span class="math inline">\(\hspace{0.1cm}k\cdot B\hspace{0.1cm}\)</span> valores de esta métrica:</p>
-<p><span class="math display">\[ECM_{test }\left(\hspace{0.1cm}\widehat{M}_1^{\hspace{0.1cm}1}\hspace{0.1cm}\right) \hspace{0.05cm}, ... ,\hspace{0.05cm} ECM_{test}\left(\hspace{0.1cm}\widehat{M}_k^{\hspace{0.1cm}1}\hspace{0.1cm}\right) \hspace{0.05cm},...,\hspace{0.05cm}ECM_{test }\left(\hspace{0.1cm}\widehat{M}_1^{\hspace{0.1cm}B}\hspace{0.1cm}\right) \hspace{0.05cm}, ... ,\hspace{0.05cm} ECM_{test}\left(\hspace{0.1cm}\widehat{M}_k^{\hspace{0.1cm}B} \hspace{0.1cm} \hspace{0.1cm}\right) \\\]</span></p>
-<p>Donde:</p>
-<p>Para <span class="math inline">\(\hspace{0.1cm}r\in \lbrace 1,...,k \rbrace\hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm} j\in \lbrace 1,...,B \rbrace\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p>
+<li><p>Si la métrica usada para evaluar el modelo fuera el <span class="math inline">\(\hspace{0.01cm}ECM\hspace{0.01cm}\)</span> , entocnes se obtendrian los siguientes <span class="math inline">\(\hspace{0.01cm}k\cdot B\hspace{0.01cm}\)</span> valores de esta métrica:</p>
+<p><span class="math display">\[ECM_{test }(\hspace{0.1cm}\widehat{M}_1^{\hspace{0.1cm}1}\hspace{0.1cm} ) \hspace{0.05cm}, ... ,\hspace{0.05cm} ECM_{test}\left(\hspace{0.1cm}\widehat{M}_k^{\hspace{0.1cm}1}\hspace{0.1cm}\right) \hspace{0.05cm},...,\hspace{0.05cm}ECM_{test }\left(\hspace{0.1cm}\widehat{M}_1^{\hspace{0.1cm}B}\hspace{0.1cm}\right) \hspace{0.05cm}, ... ,\hspace{0.05cm} ECM_{test}\left(\hspace{0.1cm}\widehat{M}_k^{\hspace{0.1cm}B} \hspace{0.1cm} \hspace{0.1cm}\right) \\\]</span></p>
+<p>Donde, para <span class="math inline">\(\hspace{0.1cm}r\in \lbrace 1,...,k \rbrace\hspace{0.15cm}\)</span> y <span class="math inline">\(\hspace{0.15cm} j\in \lbrace 1,...,B \rbrace\)</span> :</p>
 <ul>
-<li><p><span class="math inline">\(\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\)</span> es el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> entrenado con la <strong>muestra de train</strong> <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima obtenida en la iteración <span class="math inline">\(\hspace{0.1cm}j\)</span>-esima del algoritmo k-fold, es decir, es el modelo entrenado con la muestra de train <span class="math inline">\(\hspace{0.1cm}D_{train, r}^{\hspace{0.1cm}j}\hspace{0.1cm} \\[0.5cm]\)</span></p></li>
-<li><p><span class="math inline">\(ECM_{test }\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right)\hspace{0.1cm}\)</span> es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> calculado sobre el modelo <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\)</span> con la <strong>muestra de test</strong> <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima obtenida en la repetición <span class="math inline">\(\hspace{0.1cm}j\)</span>-esima del algoritmo k-fold, es decir, con la muestra de test <span class="math inline">\(\hspace{0.1cm}D_{test, r}^{\hspace{0.1cm}j}\)</span> <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p><span class="math inline">\(\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\)</span> es el modelo <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> entrenado con la <strong>muestra de train</strong> <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima obtenida en la iteración <span class="math inline">\(\hspace{0.1cm}j\)</span>-esima del algoritmo k-fold, es decir, es el modelo entrenado con la muestra de train <span class="math inline">\(\hspace{0.1cm}D_{train, r}^{\hspace{0.1cm}j}\)</span> .</p></li>
+<li><p><span class="math inline">\(ECM_{test }\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right)\hspace{0.1cm}\)</span> es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span> calculado sobre el modelo <span class="math inline">\(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\)</span> con la <strong>muestra de test</strong> <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima obtenida en la repetición <span class="math inline">\(\hspace{0.1cm}j\)</span>-esima del algoritmo k-fold, es decir, con la muestra de test <span class="math inline">\(\hspace{0.1cm}D_{test, r}^{\hspace{0.1cm}j}\)</span> :</p></li>
 </ul>
 <p><span class="math display">\[ECM_{test }\left( \hspace{0.1cm} \widehat{M}_r^{\hspace{0.1cm}j} \hspace{0.1cm}\right) = \dfrac{1}{\# D_{test, r}^{\hspace{0.1cm}j}} \cdot \sum_{i=1}^{\# D_{test, r}^{\hspace{0.1cm}j}} \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm}test,r,j} - \hat{\hspace{0.1cm}y\hspace{0.1cm}}_i^{\hspace{0.1cm}test,r,j} \hspace{0.1cm} \right)^2  \\[1cm]\]</span></p>
-<p>Considerando lo siguiente : <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p>Considerando lo siguiente :</p>
 <ul>
-<li><p><span class="math inline">\(\hat{y}_i^{\hspace{0.1cm}test,r,j} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{\hspace{0.1cm}test, r,j} \hspace{0.12cm}|\hspace{0.12cm} D_{train,r}^{\hspace{0.1cm}j}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r^{\hspace{0.1cm}j} (\hspace{0.1cm} x_i^{test, r,j} \hspace{0.1cm} ) \\[0.7cm]\)</span></p></li>
-<li><p><span class="math inline">\(\left( \hspace{0.1cm} x_i^{\hspace{0.1cm} test, r,j} , y_i^{test, r,j} \hspace{0.1cm}\right)\hspace{0.1cm}\)</span> es la observación (fila) <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de <span class="math inline">\(\hspace{0.1cm}D_{test,r}^{\hspace{0.1cm} j} \\[0.7cm]\)</span></p></li>
-<li><p><span class="math inline">\(x_i^{\hspace{0.1cm}test, r,j}\hspace{0.1cm}\)</span> es la observación <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la muestra de test <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima de los predictores obtenida en la repetición <span class="math inline">\(\hspace{0.1cm}j\)</span>-esima del algoritmo k-folds. <span class="math inline">\(\\[0.7cm]\)</span></p></li>
-<li><p><span class="math inline">\(y_i^{\hspace{0.1cm}test, r,j}\hspace{0.1cm}\)</span> es la observacion <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la muestra de test <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima de la variable respuesta obtenida en la repetición <span class="math inline">\(\hspace{0.1cm}j\)</span>-esima del algoritmo k-folds. <span class="math inline">\(\\[0.7cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hat{y}_i^{\hspace{0.1cm}test,r,j} \hspace{0.1cm}=\hspace{0.1cm} M(\hspace{0.1cm} x_i^{\hspace{0.1cm}test, r,j} \hspace{0.12cm}|\hspace{0.12cm} D_{train,r}^{\hspace{0.1cm}j}) \hspace{0.1cm}=\hspace{0.1cm} \widehat{M}_r^{\hspace{0.1cm}j} (\hspace{0.1cm} x_i^{test, r,j} \hspace{0.1cm} )\)</span></p></li>
+<li><p><span class="math inline">\(( \hspace{0.1cm} x_i^{\hspace{0.1cm} test, r,j} , y_i^{test, r,j} \hspace{0.1cm})\hspace{0.02cm}\)</span> es la observación (fila) <span class="math inline">\(\hspace{0.01cm}i\)</span>-esima de <span class="math inline">\(\hspace{0.01cm}D_{test,r}^{\hspace{0.1cm} j}\)</span></p></li>
+<li><p><span class="math inline">\(x_i^{\hspace{0.1cm}test, r,j}\hspace{0.01cm}\)</span> es la observación <span class="math inline">\(\hspace{0.01cm}i\)</span>-esima de la muestra de test <span class="math inline">\(\hspace{0.01cm}r\)</span>-esima de los predictores obtenida en la repetición <span class="math inline">\(\hspace{0.01cm}j\)</span>-esima del algoritmo <span class="math inline">\(k\)</span>-folds.</p></li>
+<li><p><span class="math inline">\(y_i^{\hspace{0.1cm}test, r,j}\hspace{0.1cm}\)</span> es la observacion <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la muestra de test <span class="math inline">\(\hspace{0.1cm}r\)</span>-esima de la variable respuesta obtenida en la repetición <span class="math inline">\(\hspace{0.1cm}j\)</span>-esima del algoritmo k-folds.</p></li>
 </ul>
-<p>Nótese que debido al componente aleatorio presente en el algoritmo k-folds, cada vez que se repita el algoritmo se obtendran muestras de train y test diferentes. <span class="math inline">\(\\[1cm]\)</span></p></li>
+<p>Nótese que debido al componente aleatorio presente en el algoritmo k-folds, cada vez que se repita el algoritmo se obtendran muestras de train y test diferentes. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
 </ul></li>
-<li><p>Se calcula la métrica final de evaluación del modelo como el promedio de las <span class="math inline">\(\hspace{0.1cm}k\cdot B\hspace{0.1cm}\)</span> métricas calculadas en el paso anterior. Es decir, como el promedio de las <span class="math inline">\(\hspace{0.08cm}B\hspace{0.08cm}\)</span> metricas obtenidas al iterar <span class="math inline">\(\hspace{0.08cm}B\hspace{0.08cm}\)</span> veces el algoritmo k-fold.</p>
+<li><p>Se calcula la métrica final de evaluación del modelo como el promedio de las <span class="math inline">\(\hspace{0.01cm}k\cdot B\hspace{0.01cm}\)</span> métricas calculadas en el paso anterior. Es decir, como el promedio de las <span class="math inline">\(\hspace{0.01cm}B\hspace{0.01cm}\)</span> metricas obtenidas al iterar <span class="math inline">\(\hspace{0.01cm}B\hspace{0.01cm}\)</span> veces el algoritmo k-fold.</p>
 <ul>
-<li><p>Si la métrica considerada es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, entonces: <span class="math inline">\(\\[0.15cm]\)</span></p>
-<p>En la iteración <span class="math inline">\(\hspace{0.08cm}j\)</span>-esima del algoritmo <span class="math inline">\(\hspace{0.08cm}k\)</span>-fold se obtiene como métrica de validación final:</p>
-<p><span class="math display">\[ECM( {M})_{test}^{\hspace{0.08cm}j \hspace{0.05cm} *} \hspace{0.13cm} = \hspace{0.13cm}\dfrac{1}{k} \hspace{0.1cm} \cdot\hspace{0.1cm}   \sum_{r=1}^k \hspace{0.15cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)\]</span> <span class="math inline">\(\\[0.15cm]\)</span></p>
-<p>Por lo tanto, la métrica de validación final obtenida con el algoritmo <span class="math inline">\(\hspace{0.08cm}B\)</span>-repeated <span class="math inline">\(\hspace{0.08cm}k\)</span>-fold es:</p>
+<li><p>Si la métrica considerada es el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, entonces:</p>
+<p>En la iteración <span class="math inline">\(\hspace{0.01cm}j\)</span>-esima del algoritmo <span class="math inline">\(\hspace{0.01cm}k\)</span>-fold se obtiene como métrica de validación final:</p>
+<p><span class="math display">\[ECM( {M})_{test}^{\hspace{0.08cm}j \hspace{0.05cm} *} \hspace{0.13cm} = \hspace{0.13cm}\dfrac{1}{k} \hspace{0.1cm} \cdot\hspace{0.1cm}   \sum_{r=1}^k \hspace{0.15cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right) \\\]</span></p>
+<p>Por lo tanto, la métrica de validación final obtenida con el algoritmo <span class="math inline">\(\hspace{0.08cm}B\)</span>-repeated <span class="math inline">\(\hspace{0.08cm}k\)</span>-fold es: <span class="math inline">\(\\[0.15cm]\)</span></p>
 <p><span class="math display">\[ECM( {M})_{test}^{\hspace{0.08cm}*} \hspace{0.13cm} = \hspace{0.13cm} \dfrac{1}{ B} \hspace{0.1cm} \cdot\hspace{0.1cm} \sum_{j=1}^B ECM( {M})_{test}^{\hspace{0.08cm}j \hspace{0.05cm} *} \hspace{0.13cm} = \hspace{0.13cm}
-  \dfrac{1}{k\cdot B} \hspace{0.1cm} \cdot\hspace{0.1cm} \sum_{j=1}^B \hspace{0.1cm} \sum_{r=1}^k \hspace{0.15cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)\]</span></p></li>
+  \dfrac{1}{k\cdot B} \hspace{0.1cm} \cdot\hspace{0.1cm} \sum_{j=1}^B \hspace{0.1cm} \sum_{r=1}^k \hspace{0.15cm}   ECM_{test}\left(\hspace{0.1cm}\widehat{M}_r^{\hspace{0.1cm}j}\hspace{0.1cm}\right)\\\]</span></p></li>
 </ul></li>
 </ul>
 </p>
