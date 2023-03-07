@@ -248,10 +248,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 8</span> Algoritmos de valicación cruzada con <code>Sklearn</code><a href="algoritmos-de-valicación-cruzada-con-sklearn.html#algoritmos-de-valicación-cruzada-con-sklearn" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Importamos los módulos que usaremos en esta sección:</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="algoritmos-de-valicación-cruzada-con-sklearn.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> cross_val_score</span>
-<span id="cb57-2"><a href="algoritmos-de-valicación-cruzada-con-sklearn.html#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-3"><a href="algoritmos-de-valicación-cruzada-con-sklearn.html#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> RepeatedKFold</span>
-<span id="cb57-4"><a href="algoritmos-de-valicación-cruzada-con-sklearn.html#cb57-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb57-5"><a href="algoritmos-de-valicación-cruzada-con-sklearn.html#cb57-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</span></code></pre></div>
+<span id="cb57-2"><a href="algoritmos-de-valicación-cruzada-con-sklearn.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> RepeatedKFold</span>
+<span id="cb57-3"><a href="algoritmos-de-valicación-cruzada-con-sklearn.html#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> KFold</span></code></pre></div>
 <div id="k-fold-2" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> k-fold<a href="algoritmos-de-valicación-cruzada-con-sklearn.html#k-fold-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Inicializamos el algoritmo k-fold. Usaremos los parámetros k=10 y un inicio aleatorio del algoritmo con semilla 123.</p>
