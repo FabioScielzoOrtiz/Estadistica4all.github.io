@@ -142,7 +142,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="muestras-de-train-y-test.html"><a href="muestras-de-train-y-test.html#train-set"><i class="fa fa-check"></i><b>2.1</b> Train-set</a></li>
 <li class="chapter" data-level="2.2" data-path="muestras-de-train-y-test.html"><a href="muestras-de-train-y-test.html#predicciones-de-train"><i class="fa fa-check"></i><b>2.2</b> Predicciones de train</a></li>
 <li class="chapter" data-level="2.3" data-path="muestras-de-train-y-test.html"><a href="muestras-de-train-y-test.html#test-set"><i class="fa fa-check"></i><b>2.3</b> Test-set</a></li>
-<li class="chapter" data-level="2.4" data-path="muestras-de-train-y-test.html"><a href="muestras-de-train-y-test.html#predicciones-de-test"><i class="fa fa-check"></i><b>2.4</b> Predicciones de test <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="2.4" data-path="muestras-de-train-y-test.html"><a href="muestras-de-train-y-test.html#predicciones-de-test"><i class="fa fa-check"></i><b>2.4</b> Predicciones de test</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html"><i class="fa fa-check"></i><b>3</b> Métricas para evaluar modelos de regresión</a>
 <ul>
@@ -210,55 +210,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="métricas-para-evaluar-modelos-de-regresión" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number">Chapter 3</span> Métricas para evaluar modelos de regresión<a href="métricas-para-evaluar-modelos-de-regresión.html#métricas-para-evaluar-modelos-de-regresión" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Dado un modelo de regresión <span class="math inline">\(\hspace{0.05cm} M\hspace{0.05cm}\)</span> , existen varias métricas para evaluar la capacidad predictiva del modelo. Cada una de estas métricas tienen una versión de train (son calculadas usando las predicciones de train) y otra de test (son calculadas usando las predicciones de test).</p>
-<p>Se recomienda al lector haber leido previamente el articulo sobre <a href="http://estadistica4all.com/Articulos/Los-problemas-de-clasificaci%C3%B3n-y-regresi%C3%B3n.html">los problemas de regresión y clasificación supervisada y no supervisada.</a></p>
+<p>Dado un modelo de regresión <span class="math inline">\(M\)</span> , existen varias métricas para evaluar la capacidad predictiva del modelo. Cada una de estas métricas tienen una versión de train (son calculadas usando las predicciones de train) y otra de test (son calculadas usando las predicciones de test).</p>
+<p>Se recomienda al lector haber leido previamente el articulo sobre <strong>los problemas de regresión y clasificación supervisada y no supervisada</strong>.</p>
 <p>A continuación vamos a exponer las métricas de evaluación más habituales para <strong>modelos de regresión</strong>:</p>
 <div id="error-cuadrático-medio-ecm" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Error cuadrático medio (ECM)<a href="métricas-para-evaluar-modelos-de-regresión.html#error-cuadrático-medio-ecm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>ECM de train</strong></p>
-<p><span class="math display">\[ECM(M)_{train} \hspace{0.15cm}=\hspace{0.15cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} \left(\hspace{0.08cm} y_i^{\hspace{0.08cm}train} - \hat{y}_i^{\hspace{0.08cm}train} \hspace{0.08cm} \right)^2 \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>ECM de train</strong>:</p>
+<p><span class="math display">\[ECM(M)_{train} \hspace{0.15cm}=\hspace{0.15cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} (\hspace{0.08cm} y_i^{\hspace{0.08cm}train} - \hat{y}_i^{\hspace{0.08cm}train} \hspace{0.08cm} )^2 \\\]</span></p>
 </p>
 </p>
 <p></span></p>
 </div>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
+<p><br></p>
+<p>Donde:</p>
 <ul>
-<li><p><span class="math inline">\(y_i^{test}\hspace{0.1cm}\)</span> es la <strong>observación de test</strong> <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la variable respuesta, es decir, <span class="math inline">\(\hspace{0.15cm}y_i^{test} \hspace{0.1cm}=\hspace{0.1cm} Y^{test}[\hspace{0.1cm} i\hspace{0.1cm}]\\\)</span></p></li>
-<li><p><span class="math inline">\(\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M\left(\hspace{0.1cm} x_i^{test} \hspace{0.15cm}|\hspace{0.15cm} X_1^{train},...,X_p^{train}, Y^{train}\hspace{0.1cm} \right)\\\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.2cm} n \hspace{0.1cm}=\hspace{0.1cm} \# \hspace{0.1cm} Y^{train} \\\)</span></p></li>
+<li><p><span class="math inline">\(y_i^{test}\)</span> es la <strong>observación de test</strong> <span class="math inline">\(i\)</span>-esima de la variable respuesta, es decir, <span class="math inline">\(y_i^{test} \hspace{0.1cm}=\hspace{0.1cm} Y^{test}[\hspace{0.1cm} i\hspace{0.1cm}]\)</span>.</p></li>
+<li><p><span class="math inline">\(\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M\left(\hspace{0.1cm} x_i^{test} \hspace{0.2cm}|\hspace{0.2cm} X_1^{train},...,X_p^{train}, Y^{train}\hspace{0.1cm} \right)\)</span>.</p></li>
+<li><p><span class="math inline">\(n \hspace{0.1cm}=\hspace{0.1cm} \# \hspace{0.1cm} Y^{train}\)</span>.</p></li>
 </ul>
+<p><br></p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>ECM de test</strong></p>
-<p><span class="math display">\[ECM(M)_{test} \hspace{0.15cm} =\hspace{0.15cm} \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} \right)^2\]</span></p>
+<p><span class="math display">\[ECM(M)_{test} \hspace{0.15cm} =\hspace{0.15cm} \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} )^2\]</span></p>
 </p>
 </p>
 <p></span></p>
 </div>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
+<p><br></p>
+<p>Donde:</p>
 <ul>
-<li><p><span class="math inline">\(y_i^{test}\hspace{0.1cm}\)</span> es la observación de test <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la variable respuesta, es decir, <span class="math inline">\(\hspace{0.15cm}y_i^{test} \hspace{0.1cm}=\hspace{0.1cm} Y^{test}[\hspace{0.1cm} i \hspace{0.1cm}] \\\)</span></p></li>
-<li><p><span class="math inline">\(\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M\left(\hspace{0.1cm} x_i^{test} \hspace{0.15cm}|\hspace{0.15cm} X_1^{train},...,X_p^{train}, Y^{train} \hspace{0.1cm} \right)\\\)</span></p></li>
-<li><p><span class="math inline">\(\hspace{0.2cm} h\hspace{0.1cm}=\hspace{0.1cm}\# \hspace{0.1cm} Y^{test}\)</span></p></li>
+<li><p><span class="math inline">\(y_i^{test}\hspace{0.1cm}\)</span> es la observación de test <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la variable respuesta, es decir, <span class="math inline">\(\hspace{0.15cm}y_i^{test} \hspace{0.1cm}=\hspace{0.1cm} Y^{test}[\hspace{0.1cm} i \hspace{0.1cm}]\)</span>.</p></li>
+<li><p><span class="math inline">\(\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M\left(\hspace{0.1cm} x_i^{test} \hspace{0.15cm}|\hspace{0.15cm} X_1^{train},...,X_p^{train}, Y^{train} \hspace{0.1cm} \right)\)</span>.</p></li>
+<li><p><span class="math inline">\(h\hspace{0.1cm}=\hspace{0.1cm}\# \hspace{0.1cm} Y^{test}\)</span></p></li>
 </ul>
 <p><br></p>
 <p><strong>Observación:</strong></p>
-<p>El <span class="math inline">\(\hspace{0.08cm} ECM\hspace{0.08cm}\)</span> tiene se mide en la unidad de medida que la respuesta <strong>al cuadrado</strong>. <span class="math inline">\(\\[0.7cm]\)</span></p>
+<p>El <span class="math inline">\(\hspace{0.08cm} ECM\hspace{0.08cm}\)</span> tiene se mide en la unidad de medida que la respuesta <strong>al cuadrado</strong>.</p>
 <p><strong>Interpretación:</strong></p>
 <p>Cuanto menor sea <span class="math inline">\(\hspace{0.08cm}ECM(M)_{test}\hspace{0.08cm}\)</span> , mayor capacidad predictiva del modelo <span class="math inline">\(\hspace{0.08cm}M\hspace{0.08cm}\)</span>, y a la inversa.</p>
-<p><br></p>
 <p><strong>¿Por qué el ECM es tan usado en la práctica?</strong></p>
-<p>Teóricamente puede demostraste que en un modelo de regresión el error cuadrático medio de la predicción puede descomponerse como sigue: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p>Teóricamente puede demostraste que en un modelo de regresión el error cuadrático medio de la predicción puede descomponerse como sigue:</p>
 <p><span class="math display">\[ECM(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm}) = E\hspace{0.1cm}[\hspace{0.1cm}(\mathcal{Y} - \widehat{\mathcal{Y}})^2\hspace{0.1cm}]\hspace{0.1cm} =\hspace{0.1cm} Var(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm}) \hspace{0.1cm}+\hspace{0.1cm} Sesgo(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm})^2 \hspace{0.1cm}+\hspace{0.1cm} \sigma_{\varepsilon}^2 \\\]</span></p>
 <p>Donde:</p>
 <ul>
-<li><p><span class="math inline">\(Var(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm})\hspace{0.1cm} =\hspace{0.1cm} E[\hspace{0.1cm}(\hspace{0.08cm}\widehat{\mathcal{Y}} - E[\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm}]\hspace{0.08cm})^2\hspace{0.1cm}]\hspace{0.1cm}\)</span> es la varianza de las predicciones del modelo. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p><span class="math inline">\(Sesgo(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm})\hspace{0.1cm}=\hspace{0.1cm}E[\hspace{0.08cm}\hspace{0.1cm}\widehat{\mathcal{Y}}\hspace{0.1cm}] \hspace{0.1cm}-\hspace{0.1cm} \mathcal{Y}\hspace{0.15cm}\)</span> es el sesgo de las predicciones del modelo.<span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p><span class="math inline">\(\sigma_{\varepsilon}^2\hspace{0.1cm}\)</span> es la varianza del ruido aleatorio o perturbación del modelo. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p><span class="math inline">\(Var(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm})\hspace{0.1cm} =\hspace{0.1cm} E[\hspace{0.1cm}(\hspace{0.08cm}\widehat{\mathcal{Y}} - E[\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm}]\hspace{0.08cm})^2\hspace{0.1cm}]\hspace{0.1cm}\)</span> es la varianza de las predicciones del modelo.</p></li>
+<li><p><span class="math inline">\(Sesgo(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm})\hspace{0.1cm}=\hspace{0.1cm}E[\hspace{0.08cm}\hspace{0.1cm}\widehat{\mathcal{Y}}\hspace{0.1cm}] \hspace{0.1cm}-\hspace{0.1cm} \mathcal{Y}\hspace{0.15cm}\)</span> es el sesgo de las predicciones del modelo.</p></li>
+<li><p><span class="math inline">\(\sigma_{\varepsilon}^2\hspace{0.1cm}\)</span> es la varianza del ruido aleatorio o perturbación del modelo.</p></li>
 </ul>
 <p>Por tanto, en un modelo de regresion, el ECM del estimador de la respuesta puede descomponerse como la suma de la varianza y sesgo al cuadrado de dicho estimador de la respuesta, y tambien de la varianza del ruido aleatorio del modelo.</p>
 <p>Los dos primeros terminos (varianza y sesgo del estimador de la respuesta) pueden se reducidos, en función del modelo utilizado. En cambio el tercer componente (la varianza del ruido) es irreducible, no depende del modelo.</p>
@@ -277,7 +279,7 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>RECM de train:</strong></p>
-<p><span class="math display">\[RECM(M)_{train} \hspace{0.08cm}=\hspace{0.08cm} \sqrt{\dfrac{1}{n} \sum_{i=1}^n \hspace{0.1cm} \left(y_i^{train} - \hat{y}_i^{train}\right)^2 \hspace{0.2cm}} \\\]</span></p>
+<p><span class="math display">\[RECM(M)_{train} \hspace{0.08cm}=\hspace{0.08cm} \sqrt{\dfrac{1}{n} \sum_{i=1}^n \hspace{0.1cm} (y_i^{train} - \hat{y}_i^{train})^2 \hspace{0.2cm}} \\\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -286,14 +288,14 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>RECM de test:</strong></p>
-<p><span class="math display">\[RECM(M)_{test} \hspace{0.08cm}=\hspace{0.08cm} \sqrt{ \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_{i} ^{\hspace{0.1cm} test} \hspace{0.1cm} \right)^2 \hspace{0.2cm}} \\[0.2cm]\]</span></p>
+<p><span class="math display">\[RECM(M)_{test} \hspace{0.08cm}=\hspace{0.08cm} \sqrt{ \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_{i} ^{\hspace{0.1cm} test} \hspace{0.1cm} )^2 \hspace{0.2cm}} \\[0.2cm]\]</span></p>
 </p>
 </p>
 <p></span></p>
 </div>
 <p><br></p>
 <p><strong>Observación:</strong></p>
-<p>El <span class="math inline">\(\hspace{0.08cm}RECM\hspace{0.08cm}\)</span> tiene la misma unidad de medida que la respuesta. <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p>El <span class="math inline">\(\hspace{0.08cm}RECM\hspace{0.08cm}\)</span> tiene la misma unidad de medida que la respuesta.</p>
 <p><strong>Interpretación:</strong></p>
 <p>Cuanto menor sea <span class="math inline">\(\hspace{0.08cm}RECM(M)_{test}\hspace{0.08cm}\)</span> , mayor bondad predictiva del modelo <span class="math inline">\(\hspace{0.08cm}M\hspace{0.08cm}\)</span>, y a la inversa.</p>
 <p><br></p>
@@ -304,7 +306,7 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>ECR de train:</strong></p>
-<p><span class="math display">\[ECR(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.5cm} \sum_{i=1}^n \hspace{0.1cm} \left( y_i^{train}- \hat{y}_i^{train} \right)^2 \hspace{0.5cm}}{\sum_{i=1}^n \left( y_i^{train} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} train} \right)^2 }  \\\]</span></p>
+<p><span class="math display">\[ECR(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.5cm} \sum_{i=1}^n \hspace{0.1cm} ( y_i^{train}- \hat{y}_i^{train} )^2 \hspace{0.5cm}}{\sum_{i=1}^n ( y_i^{train} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} train} )^2 }  \\\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -313,7 +315,7 @@ En cambio un modelo con bajo sesgo genera predicciones que en media son bastante
 <p><span></p>
 <p style="margin-left:1em;">
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>ECR de test:</strong></p>
-<p><span class="math display">\[ECR(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{ \hspace{0.5cm} \sum_{i=1}^h \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm}\right)^2 \hspace{0.5cm}    }{\sum_{i=1}^h \left(\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} test} \hspace{0.1cm} \right)^2 } \\\]</span></p>
+<p><span class="math display">\[ECR(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{ \hspace{0.5cm} \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm})^2 \hspace{0.5cm}    }{\sum_{i=1}^h (\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} test} \hspace{0.1cm} )^2 } \\\]</span></p>
 </p>
 </p>
 <p></span></p>
