@@ -1362,17 +1362,17 @@ Algunos autores (vease la referencia 1) consideran que, al emplearse todas las o
 **Decripción no formal del algoritmo:**
 
 
-Este algoritmo de validación consiste en dividir el data-set inicial en $\hspace{0.1cm} k\hspace{0.1cm}$ partes, y usar de manera secuencial cada una de esas partes como muestra test, y las unión de las partes restantes como muestra train.
+Este algoritmo de validación consiste en dividir el data-set inicial en $\hspace{0.01cm} k\hspace{0.01cm}$ partes, y usar de manera secuencial cada una de esas partes como muestra test, y las unión de las partes restantes como muestra train.
 
-Por tanto con este método se usan $\hspace{0.1cm}k\hspace{0.1cm}$ muestras de test y de train.
+Por tanto con este método se usan $\hspace{0.01cm}k\hspace{0.01cm}$ muestras de test y de train.
 
-El modelo es entrenado secuencialmente con cada una de las $\hspace{0.1cm}k\hspace{0.1cm}$ muestras de train disitntas, y se testea con la correspondiente muestra de test (que es el complementario de la de train), usando una métrica de evaluación.
+El modelo es entrenado secuencialmente con cada una de las $\hspace{0.01cm}k\hspace{0.01cm}$ muestras de train disitntas, y se testea con la correspondiente muestra de test (que es el complementario de la de train), usando una métrica de evaluación.
 
-Es decir, tras dividir el data-set inicial en $\hspace{0.1cm}k\hspace{0.1cm}$ partes, la parte 1 se usa como test y el resto como train, se calcula la métrica de evaluación. Luego la parte 2 se usa como test y el resto como train, y se calcula la métrica de evaluación. Asi sucesivamente hasta haber usado las $\hspace{0.1cm}k\hspace{0.1cm}$ partes como muestras de test.
+Es decir, tras dividir el data-set inicial en $\hspace{0.01cm}k\hspace{0.01cm}$ partes, la parte 1 se usa como test y el resto como train, se calcula la métrica de evaluación. Luego la parte 2 se usa como test y el resto como train, y se calcula la métrica de evaluación. Asi sucesivamente hasta haber usado las $\hspace{0.1cm}k\hspace{0.1cm}$ partes como muestras de test.
 
 Tras este proceso se habrán obtenido $\hspace{0.1cm}k\hspace{0.1cm}$ valores de dicha métrica de evaluacion.
 
-La métrica de evaluacion calculada usando este método de validación es la media de dichos $\hspace{0.1cm}k\hspace{0.1cm}$ valores obtenidos para la métrica de evaluación escogida. Este valor medio final es la que será usado para medir el poder predictivo del modelo y compararlo con otros modelos.
+La métrica de evaluacion calculada usando este método de validación es la media de dichos $\hspace{0.01cm}k\hspace{0.01cm}$ valores obtenidos para la métrica de evaluación escogida. Este valor medio final es la que será usado para medir el poder predictivo del modelo y compararlo con otros modelos.
 
 <br>
 
@@ -1388,57 +1388,57 @@ El algoritmo de validación k-folds tiene los siguientes pasos:
  
 <p style='margin-left:1em;'>
 
-- Se divide aleatoriamente el data-set inicial $\hspace{0.1cm}D\hspace{0.1cm}$  en $\hspace{0.1cm}k\hspace{0.1cm}$ partes de manera que  cada parte tenga aproximadamente el mismo número de observaciones (sean lo mas balanceadas posibles).
+- Se divide aleatoriamente el data-set inicial $\hspace{0.01cm}D\hspace{0.01cm}$  en $\hspace{0.01cm}k\hspace{0.01cm}$ partes de manera que  cada parte tenga aproximadamente el mismo número de observaciones (sean lo mas balanceadas posibles).
 
-    - Existen diferentes métodos para hacer esta división. La problematica de la división es cómo hacer que las partes resultantes estén lo más balanceadas posibles respecto al numero de observaciones que contienen. $\\[0.7cm]$
+    - Existen diferentes métodos para hacer esta división. La problematica de la división es cómo hacer que las partes resultantes estén lo más balanceadas posibles respecto al numero de observaciones que contienen.  
 
-    - Hemos desarrollado un método basado en cuantiles que permite obtener este balanceo, el cual ha sido implementado en `Python` con buenos resultados en este aspecto, como se podrá ver posteriormente en la parte de implementación. $\\[0.7cm]$
-
-
-    -  Vamos a explicar la mecánica del método ideado: $\\[0.2cm]$
+    - Hemos desarrollado un método basado en cuantiles que permite obtener este balanceo, el cual ha sido implementado en Python con buenos resultados en este aspecto, como se podrá ver posteriormente en la parte de implementación.  
 
 
-       - Obtenemos una muestra aleatoria sin remplazamiento $\hspace{0.1cm}m=(m_1,...,m_N)\hspace{0.1cm}$ de tamaño $N$ del vector  $\hspace{0.1cm}(1,...,N) \\$
-
-       - El siguiente paso es dividir la muestra $\hspace{0.1cm}m\hspace{0.1cm}$ en $\hspace{0.1cm}k\hspace{0.1cm}$ partes lo mas balanceadas posibles. No queremos que unas partes tenga muchos elementos, y otras pocos. Queremos que la repartición  de los elementos de $\hspace{0.1cm}m\hspace{0.1cm}$ en las $\hspace{0.1cm}k\hspace{0.1cm}$ partes sea lo mas igualitaria posible. $\\[0.5cm]$
+    -  Vamos a explicar la mecánica del método ideado:  
 
 
-       - La idea es que si, por ejemplo $\hspace{0.1cm}k=10\hspace{0.1cm}$, cada una de las 10 partes en las que dividimos $\hspace{0.1cm}m\hspace{0.1cm}$ tenga un 10% de los elementos totales de $m \\$
+       - Obtenemos una muestra aleatoria sin remplazamiento $\hspace{0.01cm}m=(m_1,...,m_N)\hspace{0.01cm}$ de tamaño $N$ del vector  $\hspace{0.01cm}(1,...,N)\hspace{0.03cm}$.
 
-       - Si $\hspace{0.1cm}k=4\hspace{0.1cm}$  se busca que cada una de las 4 partes en las que dividimos $\hspace{0.1cm}m\hspace{0.1cm}$ tenga el 25% de los elementos de $\hspace{0.1cm}m . \\$
-
-       - En general, se busca que cada una de las $\hspace{0.1cm} k\hspace{0.1cm}$ partes en las que dividimos $\hspace{0.1cm}m\hspace{0.1cm}$ tengan $\hspace{0.1cm}(1/k)\cdot 100 \%\hspace{0.1cm}$ de elementos de $\hspace{0.1cm}m\hspace{0.1cm}$, es decir, $\hspace{0.1cm} N/k\hspace{0.1cm}$ elementos de $\hspace{0.1cm}m\hspace{0.1cm}$ , puesto que m tiene N elementos. $\\[0.5cm]$
+       - El siguiente paso es dividir la muestra $\hspace{0.01cm}m\hspace{0.01cm}$ en $\hspace{0.01cm}k\hspace{0.01cm}$ partes lo mas balanceadas posibles. No queremos que unas partes tenga muchos elementos, y otras pocos. Queremos que la repartición  de los elementos de $\hspace{0.01cm}m\hspace{0.01cm}$ en las $\hspace{0.01cm}k\hspace{0.01cm}$ partes sea lo mas igualitaria posible.  
 
 
+       - La idea es que si, por ejemplo $\hspace{0.01cm}k=10\hspace{0.01cm}$, cada una de las 10 partes en las que dividimos $\hspace{0.01cm}m\hspace{0.01cm}$ tenga un 10% de los elementos totales de $m$.
 
-       - Una forma de hacer esto es usando los cuantiles $\hspace{0.1cm} Q_0 \hspace{0.1cm} , \hspace{0.1cm}  Q_{1/k} \hspace{0.1cm} ,\hspace{0.1cm}  Q_{2/k} \hspace{0.1cm} ,...,\hspace{0.1cm} Q_{(k-1)/k}\hspace{0.1cm} ,\hspace{0.1cm}  Q_1\hspace{0.1cm}$  del vector $\hspace{0.1cm}(1,...,N)\hspace{0.1cm}$ como los limites que definen las partes en las que dividiremos $\hspace{0.1cm} m=(m_1,...,m_N) \\$
+       - Si $\hspace{0.01cm}k=4\hspace{0.01cm}$  se busca que cada una de las 4 partes en las que dividimos $\hspace{0.1cm}m\hspace{0.1cm}$ tenga el 25% de los elementos de $\hspace{0.01cm}m$.
 
-       - Dichos cuantiles permiten separar $\hspace{0.1cm} m \hspace{0.1cm}$ en $\hspace{0.1cm} k \hspace{0.1cm}$ partes de un tamaño aproximadamente igual. $\\[0.5cm]$
-
-       - Si $\hspace{0.1cm} k=10\hspace{0.1cm}$, entonces esos cuantiles serian $\hspace{0.1cm} Q_0 \hspace{0.1cm},\hspace{0.1cm} Q_{0.1} \hspace{0.1cm},\hspace{0.1cm} Q_{0.2} \hspace{0.1cm}, ...,\hspace{0.1cm} Q_{0.8} \hspace{0.1cm},\hspace{0.1cm} Q_{0.9} \hspace{0.1cm},\hspace{0.1cm} Q_1 \\$
-
-       - Si $\hspace{0.1cm} k=4\hspace{0.1cm}$ , los cuantiles serían $\hspace{0.1cm} Q_0 \hspace{0.1cm},\hspace{0.1cm} Q_{0.25} \hspace{0.1cm},\hspace{0.1cm} Q_{0.5} \hspace{0.1cm},\hspace{0.1cm}  Q_{0.75} \hspace{0.1cm},\hspace{0.1cm} Q_1\hspace{0.1cm} \\$
-
-          Notese que: $\hspace{0.2cm} Q_0 = Min(1,...,N) = 1\hspace{0.2cm}$ y $\hspace{0.2cm} Q_1=Max(1,...,N)=N \\[0.6cm]$
+       - En general, se busca que cada una de las $\hspace{0.01cm} k\hspace{0.01cm}$ partes en las que dividimos $\hspace{0.01cm}m\hspace{0.01cm}$ tengan $\hspace{0.01cm}(1/k)\cdot 100 \%\hspace{0.01cm}$ de elementos de $\hspace{0.01cm}m\hspace{0.01cm}$, es decir, $\hspace{0.01cm} N/k\hspace{0.01cm}$ elementos de $\hspace{0.01cm}m\hspace{0.01cm}$ , puesto que $m$ tiene $N$ elementos. 
 
 
 
+       - Una forma de hacer esto es usando los cuantiles $\hspace{0.01cm} Q_0 \hspace{0.1cm} , \hspace{0.1cm}  Q_{1/k} \hspace{0.1cm} ,\hspace{0.1cm}  Q_{2/k} \hspace{0.1cm} ,...,\hspace{0.1cm} Q_{(k-1)/k}\hspace{0.1cm} ,\hspace{0.1cm}  Q_1\hspace{0.01cm}$  del vector $\hspace{0.01cm}(1,...,N)\hspace{0.01cm}$ como los limites que definen las partes en las que dividiremos $\hspace{0.01cm} m=(m_1,...,m_N)\hspace{0.01cm}$.
 
-    - Definimos las $\hspace{0.1cm} k\hspace{0.1cm}$ particiones de $\hspace{0.1cm} m \hspace{0.1cm}$ usando los cuantiles $\hspace{0.15cm} Q_0=1 \hspace{0.1cm},\hspace{0.1cm} Q_{1/k} \hspace{0.1cm},\hspace{0.1cm} Q_{2/k}\hspace{0.1cm},...,\hspace{0.1cm}Q_{(k-1)/k}\hspace{0.1cm},\hspace{0.1cm} Q_1=N\hspace{0.2cm}$ como sigue: $\\[0.8cm]$
+       - Dichos cuantiles permiten separar $\hspace{0.01cm} m \hspace{0.01cm}$ en $\hspace{0.01cm} k \hspace{0.01cm}$ partes de un tamaño aproximadamente igual. 
+
+       - Si $\hspace{0.01cm} k=10\hspace{0.1cm}$, entonces esos cuantiles serian $\hspace{0.01cm} Q_0 \hspace{0.1cm},\hspace{0.1cm} Q_{0.1} \hspace{0.1cm},\hspace{0.1cm} Q_{0.2} \hspace{0.1cm}, ...,\hspace{0.1cm} Q_{0.8} \hspace{0.1cm},\hspace{0.1cm} Q_{0.9} \hspace{0.1cm},\hspace{0.1cm} Q_1\hspace{0.01cm}$.
+
+       - Si $\hspace{0.01cm} k=4\hspace{0.1cm}$ , los cuantiles serían $\hspace{0.1cm} Q_0 \hspace{0.1cm},\hspace{0.1cm} Q_{0.25} \hspace{0.1cm},\hspace{0.1cm} Q_{0.5} \hspace{0.1cm},\hspace{0.1cm}  Q_{0.75} \hspace{0.1cm},\hspace{0.1cm} Q_1\hspace{0.01cm}$.
+
+          Notese que: $\hspace{0.02cm} Q_0 = Min(1,...,N) = 1\hspace{0.2cm}$ y $\hspace{0.2cm} Q_1=Max(1,...,N)=N \hspace{0.01cm}$. $\\[0.25cm]
+
+
+
+
+    - Definimos las $\hspace{0.01cm} k\hspace{0.01cm}$ particiones de $\hspace{0.01cm} m \hspace{0.01cm}$ usando los cuantiles $\hspace{0.01cm} Q_0=1 \hspace{0.1cm},\hspace{0.1cm} Q_{1/k} \hspace{0.1cm},\hspace{0.1cm} Q_{2/k}\hspace{0.1cm},...,\hspace{0.1cm}Q_{(k-1)/k}\hspace{0.1cm},\hspace{0.1cm} Q_1=N\hspace{0.02cm}$ como sigue:  $\\[0.1cm]$
 
       $\hspace{2cm} p_{1,m} \hspace{0.1cm}=\hspace{0.1cm} m\left[\hspace{0.1cm}1:(\lfloor Q_{1/k} \rfloor -1)\hspace{0.1cm}\right]\hspace{0.1cm}=\hspace{0.1cm}(m_1,...,m_{\lfloor  Q_{1/k} \rfloor - 1} ) \\$
 
       $\hspace{2cm} p_{2,m} \hspace{0.1cm}=\hspace{0.1cm} m\left[\hspace{0.1cm}\lfloor Q_{1/k} \rfloor:(\lfloor Q_{2/k} \rfloor-1)\hspace{0.1cm}\right]\hspace{0.1cm}=\hspace{0.1cm}(m_{\lfloor  Q_{1/k} \rfloor},...,m_{\lfloor  Q_{2/k} \rfloor - 1})$
 
-      $\hspace{2.4cm} \dots \\$
+      $\hspace{2cm} \dots \\$
 
-      $\hspace{2cm} p_{k,m} \hspace{0.1cm}=\hspace{0.1cm} m\left[\hspace{0.1cm}\lfloor Q_{(k-1)/k} \rfloor : N\hspace{0.1cm}\right]\hspace{0.1cm}=\hspace{0.1cm}(m_{\lfloor  Q_{(k-1)/k} \rfloor},...,m_{N})\\[1cm]$
+      $\hspace{2cm} p_{k,m} \hspace{0.1cm}=\hspace{0.1cm} m\left[\hspace{0.1cm}\lfloor Q_{(k-1)/k} \rfloor : N\hspace{0.1cm}\right]\hspace{0.1cm}=\hspace{0.1cm}(m_{\lfloor  Q_{(k-1)/k} \rfloor},...,m_{N})\\[0.75cm]$
 
 
 
-    - Se puede demostrar que $\hspace{0.1cm} p_{1,m}\hspace{0.1cm},...,\hspace{0.1cm} p_{k,m}\hspace{0.1cm}$ tienen un nº de elementos aproximadamente igual , por lo que son particiones aproximadamente igualitarias (balanceadas), que era lo que buscabamos. $\\[0.7cm]$
+    - Se puede demostrar que $\hspace{0.1cm} p_{1,m}\hspace{0.1cm},...,\hspace{0.1cm} p_{k,m}\hspace{0.1cm}$ tienen un nº de elementos aproximadamente igual , por lo que son particiones aproximadamente igualitarias (balanceadas), que era lo que buscabamos. 
 
-    - La siguiente matriz ilustra por qué este método funciona: $\\[0.7cm]$
+    - La siguiente matriz ilustra por qué este método funciona:  
 
     $$\begin{pmatrix}
     1 & m_1\\
@@ -1510,7 +1510,7 @@ El algoritmo de validación k-folds tiene los siguientes pasos:
 $\\[0.3cm]$
 
 
-- Se obtiene las siguientes $\hspace{0.1cm}k\hspace{0.1cm}$ muestras de train: $\\[0.4cm]$
+- Se obtiene las siguientes $\hspace{0.1cm}k\hspace{0.1cm}$ muestras de train:  
 
 
      $$D_{train, 1} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm}p_{1,m} \hspace{0.12cm},\hspace{0.12cm} :\hspace{0.12cm}] \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.12cm}-\hspace{0.12cm} m[1:(\lfloor Q_{1/k} \rfloor -1)] \hspace{0.12cm},\hspace{0.12cm}:\hspace{0.12cm}]$$
