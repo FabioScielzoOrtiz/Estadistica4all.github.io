@@ -426,9 +426,9 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 </ul></li>
 </ul></li>
 </ul></li>
-<li><p>Se calcula la métrica final de evaluación del modelo como el promedio de las <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> métricas calculadas en el apartado anterior.</p>
+<li><p>Se calcula la métrica final de evaluación del modelo como el promedio de las <span class="math inline">\(B\)</span> métricas calculadas en el apartado anterior.</p>
 <ul>
-<li>Si la métrica usada en el apartado anterior es el ECM, entonces: <span class="math inline">\(\\[0.1cm]\)</span></li>
+<li>Si la métrica usada en el apartado anterior es el <span class="math inline">\(ECM\)</span>, entonces: <span class="math inline">\(\\[0.1cm]\)</span></li>
 </ul>
 <p><span class="math display">\[ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{B} \cdot \sum_{r=1}^B ECM_{test}(\widehat{M}_r)\]</span></p></li>
 </ul>
@@ -447,28 +447,28 @@ Si por ejemplo se calcula el <span class="math inline">\(\hspace{0.1cm}ECM\hspac
 <p>Este algoritmo de validación consiste en dividir el data-set inicial en una parte de train y otra de test de una forma tal que la primera observación forma parte del conjunto de test y el resto de la de train. Se entrena el modelo con la muestra de train y se calculan las predicciones de la respuesta para las observaciones de test de los predictores.</p>
 <p>Con las observaciones de test de la respuesta y las predicciones de esta misma se calcula una métrica de validación.</p>
 <p>Se repite el proceso anterior, pero tomando la segunda observación como muestra de test y las restantes como muestra de train. Se vuelve a repetir con la tercera observación, luego con la cuarta, y asi sucesivamente hasta llegar al punto en el que la última observación es la muestra de test.</p>
-<p>Tras este proceso se habrán obtenido <span class="math inline">\(\hspace{0.05cm} N \hspace{0.05cm}\)</span> valores de la métrica de validación.</p>
-<p>El valor final de la métrica por el algoritmo de validación leave-one-out es la media de esos <span class="math inline">\(\hspace{0.05cm} N \hspace{0.05cm}\)</span> valores. <span class="math inline">\(\\[0.05cm]\)</span></p>
+<p>Tras este proceso se habrán obtenido <span class="math inline">\(N\)</span> valores de la métrica de validación.</p>
+<p>El valor final de la métrica por el algoritmo de validación leave-one-out es la media de esos <span class="math inline">\(N\)</span> valores. <span class="math inline">\(\\[0.05cm]\)</span></p>
 <p><strong>Decripción formal del algoritmo:</strong></p>
-<p>El algoritmo de validación simple no aleatoria tiene los siguientes pasos: <span class="math inline">\(\\[0.3cm]\)</span></p>
+<p>El algoritmo de validación simple no aleatoria tiene los siguientes pasos:</p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
 <ul>
-<li><p>Se obtienen <span class="math inline">\(\hspace{0.1cm} B\hspace{0.1cm}\)</span> particiones de <span class="math inline">\(\hspace{0.1cm} D\hspace{0.1cm}\)</span> en parte de train y parte de test del siguiente modo: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<li><p>Se obtienen <span class="math inline">\(B\)</span> particiones de <span class="math inline">\(D\)</span> en parte de train y parte de test del siguiente modo: <span class="math inline">\(\\[0.5cm]\)</span></p>
 <ul>
-<li><p>Se obtienen las siguientes <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> <strong>muestras test</strong> del data-set original <span class="math inline">\(\hspace{0.1cm}D \\\)</span></p>
+<li><p>Se obtienen las siguientes <span class="math inline">\(B\)</span> <strong>muestras test</strong> del data-set original <span class="math inline">\(D\)</span>.</p>
 <p><span class="math display">\[D_{test,1}=D[1, :] \hspace{0.1cm} ,\hspace{0.15cm} D_{test,2}=D[2, :]\hspace{0.15cm},...,\hspace{0.15cm} D_{test,B}=D[B, :] \\\]</span></p>
 <ul>
 <li><p>Donde :</p>
-<p><span class="math inline">\(\hspace{0.5cm} D_{test,r}=D[\hspace{0.1cm}r\hspace{0.1cm}, \hspace{0.1cm}:\hspace{0.1cm}]\hspace{0.1cm}\)</span> es la submatriz que resulta de considerar solo la fila <span class="math inline">\(r\)</span> de <span class="math inline">\(D\)</span> , es decir, es la observación <span class="math inline">\(r\)</span>-esima del data-set inicial <span class="math inline">\(\hspace{0.1cm}D \\\)</span></p>
+<p><span class="math inline">\(D_{test,r}=D[\hspace{0.1cm}r\hspace{0.1cm}, \hspace{0.1cm}:\hspace{0.1cm}]\hspace{0.1cm}\)</span> es la submatriz que resulta de considerar solo la fila <span class="math inline">\(r\)</span> de <span class="math inline">\(D\)</span> , es decir, es la observación <span class="math inline">\(r\)</span>-esima del data-set inicial <span class="math inline">\(\hspace{0.1cm}D \\\)</span></p>
 <p><span class="math display">\[D_{test,r} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}r\hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} (x_{i1} , ..., x_{rp} , y_r)=(x_r \hspace{0.1cm} ,\hspace{0.1cm}  y_r) \\[1cm]\]</span></p></li>
 </ul></li>
-<li><p>Se obtienen las siguientes <span class="math inline">\(\hspace{0.1cm}B\hspace{0.1cm}\)</span> <strong>muestras train</strong> del data-set original <span class="math inline">\(\hspace{0.1cm}D \\\)</span></p>
+<li><p>Se obtienen las siguientes <span class="math inline">\(B\)</span> <strong>muestras train</strong> del data-set original <span class="math inline">\(D\)</span>:</p>
 <p><span class="math display">\[D_{train,1}=D[\hspace{0.1cm}-1 \hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.2cm},\hspace{0.2cm} D_{train,2}=D[\hspace{0.1cm}-2\hspace{0.1cm}, \hspace{0.1cm}:\hspace{0.1cm}]\hspace{0.2cm},...,\hspace{0.2cm} D_{train,B}=D[\hspace{0.1cm}-B\hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}] \\\]</span></p>
 <ul>
 <li><p>Donde:</p>
-<p><span class="math inline">\(\hspace{0.5cm}D_{train,r}\hspace{0.1cm}=\hspace{0.1cm}D[\hspace{0.1cm}-r\hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}]\hspace{0.15cm}\)</span> es la submatriz que resulta de eliminar la fila <span class="math inline">\(i\)</span> de <span class="math inline">\(\hspace{0.1cm} D\hspace{0.1cm}\)</span>, es decir: <span class="math inline">\(\\[1cm]\)</span></p></li>
+<p><span class="math inline">\(D_{train,r}\hspace{0.1cm}=\hspace{0.1cm}D[\hspace{0.1cm}-r\hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}]\hspace{0.15cm}\)</span> es la submatriz que resulta de eliminar la fila <span class="math inline">\(i\)</span> de <span class="math inline">\(\hspace{0.1cm} D\hspace{0.1cm}\)</span>, es decir: <span class="math inline">\(\\[1cm]\)</span></p></li>
 </ul></li>
 </ul>
 <p><span class="math display">\[D_{train,r}\hspace{0.1cm}=\hspace{0.1cm}D[\hspace{0.1cm}-r\hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.1cm}= \hspace{0.1cm}\begin{pmatrix}

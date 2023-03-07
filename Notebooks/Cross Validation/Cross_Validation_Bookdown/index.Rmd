@@ -1207,9 +1207,9 @@ El algoritmo de validación simple aleatoria tiene los siguientes pasos:
  
 
 
-- Se calcula la métrica final de evaluación del modelo como el promedio de las $\hspace{0.1cm}B\hspace{0.1cm}$ métricas calculadas en el apartado anterior. 
+- Se calcula la métrica final de evaluación del modelo como el promedio de las $B$ métricas calculadas en el apartado anterior. 
 
-    - Si la métrica usada en el apartado anterior es el ECM, entonces: $\\[0.1cm]$
+    - Si la métrica usada en el apartado anterior es el $ECM$, entonces: $\\[0.1cm]$
 
     $$ECM_{test}^{\hspace{0.08cm}*}( {M}) = \dfrac{1}{B} \cdot \sum_{r=1}^B ECM_{test}(\widehat{M}_r)$$
 
@@ -1241,16 +1241,16 @@ Con las observaciones de test de la respuesta y las predicciones de esta misma s
 
 Se repite el proceso anterior, pero tomando la segunda observación como muestra de test y las restantes como muestra de train. Se vuelve a repetir con la tercera observación, luego con la cuarta, y asi sucesivamente hasta llegar al punto en el que la última observación es la muestra de test.
 
-Tras este proceso se habrán obtenido $\hspace{0.05cm} N \hspace{0.05cm}$ valores de la métrica de validación. 
+Tras este proceso se habrán obtenido $N$ valores de la métrica de validación. 
 
-El valor final de la métrica por el algoritmo de validación leave-one-out es la media de esos $\hspace{0.05cm} N \hspace{0.05cm}$ valores. $\\[0.05cm]$
+El valor final de la métrica por el algoritmo de validación leave-one-out es la media de esos $N$ valores. $\\[0.05cm]$
 
  
 
 
 **Decripción formal del algoritmo:**
 
-El algoritmo de validación simple no aleatoria tiene los siguientes pasos: $\\[0.3cm]$
+El algoritmo de validación simple no aleatoria tiene los siguientes pasos: 
 
  
 
@@ -1260,22 +1260,22 @@ El algoritmo de validación simple no aleatoria tiene los siguientes pasos: $\\[
 <p style='margin-left:1em;'>
 
 
-- Se obtienen $\hspace{0.1cm} B\hspace{0.1cm}$ particiones de $\hspace{0.1cm} D\hspace{0.1cm}$ en parte de train y parte de test del siguiente modo: $\\[0.5cm]$
+- Se obtienen $B$ particiones de $D$ en parte de train y parte de test del siguiente modo: $\\[0.5cm]$
 
-    - Se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ **muestras  test** del data-set original $\hspace{0.1cm}D \\$ 
+    - Se obtienen las siguientes $B$ **muestras  test** del data-set original $D$. 
 
         $$D_{test,1}=D[1, :] \hspace{0.1cm} ,\hspace{0.15cm} D_{test,2}=D[2, :]\hspace{0.15cm},...,\hspace{0.15cm} D_{test,B}=D[B, :] \\$$
 
 
        - Donde :
        
-          $\hspace{0.5cm} D_{test,r}=D[\hspace{0.1cm}r\hspace{0.1cm}, \hspace{0.1cm}:\hspace{0.1cm}]\hspace{0.1cm}$ es la submatriz que resulta de considerar solo la fila $r$ de $D$ , es decir, es la observación $r$-esima del data-set inicial $\hspace{0.1cm}D \\$
+          $D_{test,r}=D[\hspace{0.1cm}r\hspace{0.1cm}, \hspace{0.1cm}:\hspace{0.1cm}]\hspace{0.1cm}$ es la submatriz que resulta de considerar solo la fila $r$ de $D$ , es decir, es la observación $r$-esima del data-set inicial $\hspace{0.1cm}D \\$
 
           $$D_{test,r} \hspace{0.1cm}=\hspace{0.1cm} D[\hspace{0.1cm}r\hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.1cm}=\hspace{0.1cm} (x_{i1} , ..., x_{rp} , y_r)=(x_r \hspace{0.1cm} ,\hspace{0.1cm}  y_r) \\[1cm]$$
 
 
 
-    - Se obtienen las siguientes $\hspace{0.1cm}B\hspace{0.1cm}$ **muestras  train** del data-set original $\hspace{0.1cm}D \\$
+    - Se obtienen las siguientes $B$ **muestras  train** del data-set original $D$:
 
        $$D_{train,1}=D[\hspace{0.1cm}-1 \hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.2cm},\hspace{0.2cm} D_{train,2}=D[\hspace{0.1cm}-2\hspace{0.1cm}, \hspace{0.1cm}:\hspace{0.1cm}]\hspace{0.2cm},...,\hspace{0.2cm} D_{train,B}=D[\hspace{0.1cm}-B\hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}] \\$$
 
@@ -1283,7 +1283,7 @@ El algoritmo de validación simple no aleatoria tiene los siguientes pasos: $\\[
        - Donde:
       
 
-           $\hspace{0.5cm}D_{train,r}\hspace{0.1cm}=\hspace{0.1cm}D[\hspace{0.1cm}-r\hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}]\hspace{0.15cm}$ es la submatriz que resulta de eliminar la fila $i$ de $\hspace{0.1cm} D\hspace{0.1cm}$, es decir: $\\[1cm]$
+           $D_{train,r}\hspace{0.1cm}=\hspace{0.1cm}D[\hspace{0.1cm}-r\hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}]\hspace{0.15cm}$ es la submatriz que resulta de eliminar la fila $i$ de $\hspace{0.1cm} D\hspace{0.1cm}$, es decir: $\\[1cm]$
 
 
     $$D_{train,r}\hspace{0.1cm}=\hspace{0.1cm}D[\hspace{0.1cm}-r\hspace{0.1cm},\hspace{0.1cm} :\hspace{0.1cm}] \hspace{0.1cm}= \hspace{0.1cm}\begin{pmatrix}
