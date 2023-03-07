@@ -1,7 +1,7 @@
 --- 
 title: "Algoritmos de validación de modelos de aprendizaje supervisado"
 author: "Fabio Scielzo Ortiz"
-date: "`r Sys.Date()`"
+date: "2023-03-07"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
@@ -2788,3 +2788,6 @@ https://www.cienciadedatos.net/documentos/30_cross-validation_oneleaveout_bootst
  
  
  
+
+<!--chapter:end:index.Rmd-->
+

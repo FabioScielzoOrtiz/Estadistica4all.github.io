@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 Comparación final | Algoritmos de validación de modelos de aprendizaje supervisado</title>
+  <title>Chapter 3 Métricas para evaluar modelos de regresión | Algoritmos de validación de modelos de aprendizaje supervisado</title>
   <meta name="description" content="Esta es una introducción a los algoritmos de validación de modelos de aprendizaje supervisado." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 Comparación final | Algoritmos de validación de modelos de aprendizaje supervisado" />
+  <meta property="og:title" content="Chapter 3 Métricas para evaluar modelos de regresión | Algoritmos de validación de modelos de aprendizaje supervisado" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Esta es una introducción a los algoritmos de validación de modelos de aprendizaje supervisado." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 Comparación final | Algoritmos de validación de modelos de aprendizaje supervisado" />
+  <meta name="twitter:title" content="Chapter 3 Métricas para evaluar modelos de regresión | Algoritmos de validación de modelos de aprendizaje supervisado" />
   
   <meta name="twitter:description" content="Esta es una introducción a los algoritmos de validación de modelos de aprendizaje supervisado." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="algoritmos-de-valicación-cruzada-con-sklearn.html"/>
-<link rel="next" href="bibliografía.html"/>
+<link rel="prev" href="muestras-y-predicciones-de-de-train-y-test.html"/>
+<link rel="next" href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -244,42 +244,178 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="comparación-final" class="section level1 hasAnchor" number="9">
-<h1><span class="header-section-number">Chapter 9</span> Comparación final<a href="comparación-final.html#comparación-final" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Importamos las librerias de visualización de datos que usaremos para realizar la comparación final.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb70-1"><a href="comparación-final.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb70-2"><a href="comparación-final.html#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div>
+<div id="métricas-para-evaluar-modelos-de-regresión" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Métricas para evaluar modelos de regresión<a href="métricas-para-evaluar-modelos-de-regresión.html#métricas-para-evaluar-modelos-de-regresión" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Dado un modelo de regresión <span class="math inline">\(M\)</span> , existen varias métricas para evaluar la capacidad predictiva del modelo. Cada una de estas métricas tienen una versión de train (son calculadas usando las predicciones de train) y otra de test (son calculadas usando las predicciones de test).</p>
+<p>Se recomienda al lector haber leido previamente el articulo sobre <strong>los problemas de regresión y clasificación supervisada y no supervisada</strong>.</p>
+<p>A continuación vamos a exponer las métricas de evaluación más habituales para <strong>modelos de regresión</strong>:</p>
+<div id="error-cuadrático-medio-ecm" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Error cuadrático medio (ECM)<a href="métricas-para-evaluar-modelos-de-regresión.html#error-cuadrático-medio-ecm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<ul>
+<li><strong>ECM de train</strong>:</li>
+</ul>
+<p><span class="math display">\[ECM(M)_{train} \hspace{0.15cm}=\hspace{0.15cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} (\hspace{0.08cm} y_i^{\hspace{0.08cm}train} - \hat{y}_i^{\hspace{0.08cm}train} \hspace{0.08cm} )^2 \\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
-<div id="visualización-aplicada-a-knn-para-regresión" class="section level2 hasAnchor" number="9.1">
-<h2><span class="header-section-number">9.1</span> Visualización aplicada a KNN para regresión<a href="comparación-final.html#visualización-aplicada-a-knn-para-regresión" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Creamos un data-frame con los distintos valores de la métrica ECM obtenidos con los distintos algoritmos de validación utilizados:</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb71-1"><a href="comparación-final.html#cb71-1" aria-hidden="true" tabindex="-1"></a>ECM_df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;ECM&#39;</span> : [ECM_test_Simple_Validation_not_random , ECM_test_Simple_Validation_random, ECM_test_Simple_Validation_repeated, ECM_test_leave_one_out, ECM_K_Folds, ECM_K_Folds_sklearn , ECM_repeated_K_Folds, ECM_repeated_K_Folds_sklearn],</span>
-<span id="cb71-2"><a href="comparación-final.html#cb71-2" aria-hidden="true" tabindex="-1"></a> <span class="st">&#39;names&#39;</span> : [<span class="st">&#39;Simple validation (not random)&#39;</span> , <span class="st">&#39;Simple validation (random)&#39;</span>, <span class="st">&#39;Simple validation (repeted)&#39;</span>, <span class="st">&#39;Leave one out&#39;</span>, <span class="st">&#39;k-folds&#39;</span>, <span class="st">&#39;k-folds (sklearn)&#39;</span>, <span class="st">&#39;repeted-k-folds&#39;</span>, <span class="st">&#39;repeted-k-folds (sklearn)&#39;</span>]})</span></code></pre></div>
-<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb72-1"><a href="comparación-final.html#cb72-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb72-2"><a href="comparación-final.html#cb72-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-3"><a href="comparación-final.html#cb72-3" aria-hidden="true" tabindex="-1"></a>p3 <span class="op">=</span> sns.barplot(x<span class="op">=</span><span class="st">&quot;ECM&quot;</span>, y <span class="op">=</span><span class="st">&#39;names&#39;</span> , data<span class="op">=</span>ECM_df)</span>
-<span id="cb72-4"><a href="comparación-final.html#cb72-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-5"><a href="comparación-final.html#cb72-5" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">&#39;p3.jpg&#39;</span>, <span class="bu">format</span><span class="op">=</span><span class="st">&#39;jpg&#39;</span>, dpi<span class="op">=</span><span class="dv">1200</span>)</span></code></pre></div>
+<p>Donde:</p>
+<ul>
+<li><p><span class="math inline">\(y_i^{test}\)</span> es la <strong>observación de test</strong> <span class="math inline">\(i\)</span>-esima de la variable respuesta, es decir, <span class="math inline">\(y_i^{test} \hspace{0.1cm}=\hspace{0.1cm} Y^{test}[\hspace{0.1cm} i\hspace{0.1cm}]\)</span>.</p></li>
+<li><p><span class="math inline">\(\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M\left(\hspace{0.1cm} x_i^{test} \hspace{0.2cm}|\hspace{0.2cm} X_1^{train},...,X_p^{train}, Y^{train}\hspace{0.1cm} \right)\)</span>.</p></li>
+<li><p><span class="math inline">\(n \hspace{0.1cm}=\hspace{0.1cm} \# \hspace{0.1cm} Y^{train}\)</span>.</p></li>
+</ul>
 <p><br></p>
-<center>
-<p><img src="p3.jpg" style="width:60.0%" /></p>
-</center>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<ul>
+<li><strong>ECM de test</strong></li>
+</ul>
+<p><span class="math display">\[ECM(M)_{test} \hspace{0.15cm} =\hspace{0.15cm} \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} )^2\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<p>Donde:</p>
+<ul>
+<li><p><span class="math inline">\(y_i^{test}\hspace{0.1cm}\)</span> es la observación de test <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la variable respuesta, es decir, <span class="math inline">\(\hspace{0.15cm}y_i^{test} \hspace{0.1cm}=\hspace{0.1cm} Y^{test}[\hspace{0.1cm} i \hspace{0.1cm}]\)</span>.</p></li>
+<li><p><span class="math inline">\(\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M\left(\hspace{0.1cm} x_i^{test} \hspace{0.15cm}|\hspace{0.15cm} X_1^{train},...,X_p^{train}, Y^{train} \hspace{0.1cm} \right)\)</span>.</p></li>
+<li><p><span class="math inline">\(h\hspace{0.1cm}=\hspace{0.1cm}\# \hspace{0.1cm} Y^{test}\)</span></p></li>
+</ul>
+<p><br></p>
+<p><strong>Observación:</strong></p>
+<p>El <span class="math inline">\(\hspace{0.08cm} ECM\hspace{0.08cm}\)</span> tiene se mide en la unidad de medida que la respuesta <strong>al cuadrado</strong>.</p>
+<p><strong>Interpretación:</strong></p>
+<p>Cuanto menor sea <span class="math inline">\(\hspace{0.08cm}ECM(M)_{test}\hspace{0.08cm}\)</span> , mayor capacidad predictiva del modelo <span class="math inline">\(\hspace{0.08cm}M\hspace{0.08cm}\)</span>, y a la inversa.</p>
+<p><strong>¿Por qué el ECM es tan usado en la práctica?</strong></p>
+<p>Teóricamente puede demostraste que en un modelo de regresión el error cuadrático medio de la predicción puede descomponerse como sigue:</p>
+<p><span class="math display">\[ECM(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm}) = E\hspace{0.1cm}[\hspace{0.1cm}(\mathcal{Y} - \widehat{\mathcal{Y}})^2\hspace{0.1cm}]\hspace{0.1cm} =\hspace{0.1cm} Var(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm}) \hspace{0.1cm}+\hspace{0.1cm} Sesgo(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm})^2 \hspace{0.1cm}+\hspace{0.1cm} \sigma_{\varepsilon}^2 \\\]</span></p>
+<p>Donde:</p>
+<ul>
+<li><p><span class="math inline">\(Var(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm})\hspace{0.1cm} =\hspace{0.1cm} E[\hspace{0.1cm}(\hspace{0.08cm}\widehat{\mathcal{Y}} - E[\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm}]\hspace{0.08cm})^2\hspace{0.1cm}]\hspace{0.1cm}\)</span> es la varianza de las predicciones del modelo.</p></li>
+<li><p><span class="math inline">\(Sesgo(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm})\hspace{0.1cm}=\hspace{0.1cm}E[\hspace{0.08cm}\hspace{0.1cm}\widehat{\mathcal{Y}}\hspace{0.1cm}] \hspace{0.1cm}-\hspace{0.1cm} \mathcal{Y}\hspace{0.15cm}\)</span> es el sesgo de las predicciones del modelo.</p></li>
+<li><p><span class="math inline">\(\sigma_{\varepsilon}^2\hspace{0.1cm}\)</span> es la varianza del ruido aleatorio o perturbación del modelo.</p></li>
+</ul>
+<p>Por tanto, en un modelo de regresion, el ECM del estimador de la respuesta puede descomponerse como la suma de la varianza y sesgo al cuadrado de dicho estimador de la respuesta, y tambien de la varianza del ruido aleatorio del modelo.</p>
+<p>Los dos primeros terminos (varianza y sesgo del estimador de la respuesta) pueden se reducidos, en función del modelo utilizado. En cambio el tercer componente (la varianza del ruido) es irreducible, no depende del modelo.</p>
+<p>Esta propiedad del ECM es una de las razones por las que es tan usado, ya que nos da información sobre el ratio varianza-sego de las predicciones de un modelo.</p>
+<p>Un modelo con baja varianza y sesgo en sus predicciones tendra bajo ECM.</p>
+<p>Un modelo con alta varianza o alto sesgo en sus predicciones tendra alto ECM.</p>
+<p>Los modelos con menor ECM de entre una colección de modelos serán aquellos con un mayor equilibrio en el ratio varianza-sesgo en sus predicciones.</p>
+<p>Un modelo con mucha varianza en sus predicciones es un modelo cuyas predicciones sobre la respuesta varian mucho de una muestra de train a otra. Es decir, al ser entrenado con múltiples muestras, las predicciones que el modelo hace de la respuesta usando una determinada muestra fija de test varían mucho de un modelo entrenado a otro. En un modelo con poca varianza en sus predicciones ocurre al revés, la precisión de sus predicciones es alta en el sentido de que varian poco en funcion de la muestra de train empleada. Otra cuestión es si estas predicciones son mas o menos acertadas (esto tiene que ver mas con el sesgo).</p>
+<p>Un modelo con mucho sesgo en sus predicciones es un modelo cuyas predicciones sobre la respuesta están en media muy lejos de los verdaderos valores de la respuesta. Es decir, si el modelo es entrenado con múltiples muestras de train y se predice la respuesta para una muestra fija de test, la media de las predicciones de la respuesta obtenidas con cada uno de los modelos entrenados aleja bastante de la verdadera respuesta.
+En cambio un modelo con bajo sesgo genera predicciones que en media son bastante acertadas. Es decir, si se entrena el modelo con múltiples muestras de train y se predice la respuesta usando una muestra fija de test, la media de esas predicciones obtenidas con cada uno de los modelos entrenados es bastante cercana a la respuesta real.</p>
 <p><br></p>
 </div>
-<div id="visualización-aplicada-a-knn-para-clasificación" class="section level2 hasAnchor" number="9.2">
-<h2><span class="header-section-number">9.2</span> Visualización aplicada a KNN para clasificación<a href="comparación-final.html#visualización-aplicada-a-knn-para-clasificación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Creamos un data-frame con los distintos valores de la métrica TAC obtenidos con los distintos algoritmos de validación utilizados:</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb73-1"><a href="comparación-final.html#cb73-1" aria-hidden="true" tabindex="-1"></a>TAC_df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;TAC&#39;</span> : [TAC_test_Simple_Validation_not_random , TAC_test_Simple_Validation_random, TAC_test_Simple_Validation_repeated, TAC_test_leave_one_out, TAC_K_Folds, TAC_K_Folds_sklearn, TAC_repeated_K_Folds, TAC_repeated_K_Folds_sklearn],</span>
-<span id="cb73-2"><a href="comparación-final.html#cb73-2" aria-hidden="true" tabindex="-1"></a> <span class="st">&#39;names&#39;</span> : [<span class="st">&#39;Simple validation (not random)&#39;</span> , <span class="st">&#39;Simple validation (random)&#39;</span>, <span class="st">&#39;Simple validation (repeted)&#39;</span>, <span class="st">&#39;Leave one out&#39;</span>, <span class="st">&#39;k-folds&#39;</span>, <span class="st">&#39;k-folds (sklearn)&#39;</span>, <span class="st">&#39;repeted-k-folds&#39;</span>, <span class="st">&#39;repeted-k-folds (sklearn)&#39;</span>]})</span></code></pre></div>
-<div class="sourceCode" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb74-1"><a href="comparación-final.html#cb74-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb74-2"><a href="comparación-final.html#cb74-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-3"><a href="comparación-final.html#cb74-3" aria-hidden="true" tabindex="-1"></a>p4 <span class="op">=</span> sns.barplot(x<span class="op">=</span><span class="st">&quot;TAC&quot;</span>, y <span class="op">=</span><span class="st">&#39;names&#39;</span> , data<span class="op">=</span>TAC_df)</span>
-<span id="cb74-4"><a href="comparación-final.html#cb74-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-5"><a href="comparación-final.html#cb74-5" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">&#39;p4.jpg&#39;</span>, <span class="bu">format</span><span class="op">=</span><span class="st">&#39;jpg&#39;</span>, dpi<span class="op">=</span><span class="dv">1200</span>)</span></code></pre></div>
+<div id="raiz-del-error-cuadrático-medio-recm" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Raiz del error cuadrático medio (RECM)<a href="métricas-para-evaluar-modelos-de-regresión.html#raiz-del-error-cuadrático-medio-recm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<ul>
+<li><strong>RECM de train:</strong></li>
+</ul>
+<p><span class="math display">\[RECM(M)_{train} \hspace{0.08cm}=\hspace{0.08cm} \sqrt{\dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} (y_i^{train} - \hat{y}_i^{train})^2 \hspace{0.2cm}} \\\]</span></p>
+<ul>
+<li><strong>RECM de test:</strong></li>
+</ul>
+<p><span class="math display">\[RECM(M)_{test} \hspace{0.08cm}=\hspace{0.08cm} \sqrt{ \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_{i} ^{\hspace{0.1cm} test} \hspace{0.1cm} )^2 \hspace{0.2cm}} \\[0.2cm]\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
-<center>
-<p><img src="p4.jpg" style="width:60.0%" /></p>
-</center>
+<p><strong>Observación:</strong></p>
+<p>El <span class="math inline">\(\hspace{0.08cm}RECM\hspace{0.08cm}\)</span> tiene la misma unidad de medida que la respuesta.</p>
+<p><strong>Interpretación:</strong></p>
+<p>Cuanto menor sea <span class="math inline">\(\hspace{0.08cm}RECM(M)_{test}\hspace{0.08cm}\)</span> , mayor bondad predictiva del modelo <span class="math inline">\(\hspace{0.08cm}M\hspace{0.08cm}\)</span>, y a la inversa.</p>
+<p><br></p>
+</div>
+<div id="error-cuadratico-relativo-ecr" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Error cuadratico relativo (ECR)<a href="métricas-para-evaluar-modelos-de-regresión.html#error-cuadratico-relativo-ecr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<ul>
+<li><strong>ECR de train:</strong></li>
+</ul>
+<p><span class="math display">\[ECR(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.5cm} \sum_{i=1}^n \hspace{0.1cm} ( y_i^{train}- \hat{y}_i^{train} )^2 \hspace{0.5cm}}{\sum_{i=1}^n ( y_i^{train} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} train} )^2 }  \\\]</span></p>
+<ul>
+<li><strong>ECR de test:</strong></li>
+</ul>
+<p><span class="math display">\[ECR(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{ \hspace{0.5cm} \sum_{i=1}^h \hspace{0.1cm} (\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm})^2 \hspace{0.5cm}    }{\sum_{i=1}^h (\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} test} \hspace{0.1cm} )^2 } \\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><strong>Interpretación:</strong></p>
+<p>Cuanto menor sea <span class="math inline">\(\hspace{0.08cm}ECR(M)_{test}\hspace{0.08cm}\)</span> , mayor bondad predictiva del modelo <span class="math inline">\(\hspace{0.08cm}M\hspace{0.08cm}\)</span>, y a la inversa.</p>
+<p><br></p>
+</div>
+<div id="coeficiente-de-determinación" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Coeficiente de determinación<a href="métricas-para-evaluar-modelos-de-regresión.html#coeficiente-de-determinación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<ul>
+<li><strong>Coeficiente de determinación de train:</strong></li>
+</ul>
+<p><span class="math display">\[R(M)^2_{train} \hspace{0.1cm}=\hspace{0.1cm} 1 - ECR(M)_{train} \\\]</span></p>
+<ul>
+<li><strong>Coeficiente de determinación de train:</strong></li>
+</ul>
+<p><span class="math display">\[R(M)^2_{test} \hspace{0.1cm}=\hspace{0.1cm} 1 - ECR(M)_{test} \\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<p><strong>Interpretación:</strong></p>
+<p>Cuanto mayor sea <span class="math inline">\(\hspace{0.05cm}R(M)^2_{test}\hspace{0.05cm}\)</span> , mayor bondad predictiva del modelo <span class="math inline">\(\hspace{0.05cm}M\hspace{0.05cm}\)</span>, y a la inversa.</p>
+<p><br></p>
+</div>
+<div id="error-absoluto-medio-eam" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Error absoluto medio (EAM)<a href="métricas-para-evaluar-modelos-de-regresión.html#error-absoluto-medio-eam" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<ul>
+<li><strong>EAM de train:</strong></li>
+</ul>
+<p><span class="math display">\[EAM(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} \left|\hspace{0.1cm} y_i^{train} - \hat{y}_i^{train} \hspace{0.1cm}\right| \\\]</span></p>
+<ul>
+<li><strong>EAM de test:</strong></li>
+</ul>
+<p><span class="math display">\[EAM(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left| \hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} \right|\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+</div>
+<div id="error-absoluto-relativo-ear" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Error absoluto relativo (EAR)<a href="métricas-para-evaluar-modelos-de-regresión.html#error-absoluto-relativo-ear" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<ul>
+<li><strong>EAR de train:</strong></li>
+</ul>
+<p><span class="math display">\[EAR(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\sum_{i=1}^n \hspace{0.1cm} \left|\hspace{0.1cm} y_i^{train} - \hat{y}_i^{\hspace{0.08cm} train} \hspace{0.1cm} \right| \hspace{0.2cm} }{\sum_{i=1}^n \hspace{0.1cm} \left| \hspace{0.1cm} y_i^{train} - \overline{y}^{train} \hspace{0.1cm} \right| \hspace{0.1cm}}  \\\]</span></p>
+<ul>
+<li><strong>EAR de test:</strong></li>
+</ul>
+<p><span class="math display">\[EAR(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{ \sum_{i=1}^h \hspace{0.1cm} \hspace{0.1cm} \left| \hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm} \right| \hspace{0.2cm}  }{\sum_{i=1}^h \hspace{0.1cm}\left|\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \overline{y}^{\hspace{0.1cm} test} \hspace{0.1cm}\right|\hspace{0.1cm}}\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
 </div>
@@ -288,8 +424,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="algoritmos-de-valicación-cruzada-con-sklearn.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bibliografía.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="muestras-y-predicciones-de-de-train-y-test.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 Comparación final | Algoritmos de validación de modelos de aprendizaje supervisado</title>
+  <title>Chapter 6 Selección de modelos basada en validación cruzada | Algoritmos de validación de modelos de aprendizaje supervisado</title>
   <meta name="description" content="Esta es una introducción a los algoritmos de validación de modelos de aprendizaje supervisado." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 Comparación final | Algoritmos de validación de modelos de aprendizaje supervisado" />
+  <meta property="og:title" content="Chapter 6 Selección de modelos basada en validación cruzada | Algoritmos de validación de modelos de aprendizaje supervisado" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Esta es una introducción a los algoritmos de validación de modelos de aprendizaje supervisado." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 Comparación final | Algoritmos de validación de modelos de aprendizaje supervisado" />
+  <meta name="twitter:title" content="Chapter 6 Selección de modelos basada en validación cruzada | Algoritmos de validación de modelos de aprendizaje supervisado" />
   
   <meta name="twitter:description" content="Esta es una introducción a los algoritmos de validación de modelos de aprendizaje supervisado." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="algoritmos-de-valicación-cruzada-con-sklearn.html"/>
-<link rel="next" href="bibliografía.html"/>
+<link rel="prev" href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"/>
+<link rel="next" href="algoritmos-de-validación-cruzada-programados-en-python.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -244,52 +244,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="comparación-final" class="section level1 hasAnchor" number="9">
-<h1><span class="header-section-number">Chapter 9</span> Comparación final<a href="comparación-final.html#comparación-final" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Importamos las librerias de visualización de datos que usaremos para realizar la comparación final.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb70-1"><a href="comparación-final.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb70-2"><a href="comparación-final.html#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div>
-<p><br></p>
-<div id="visualización-aplicada-a-knn-para-regresión" class="section level2 hasAnchor" number="9.1">
-<h2><span class="header-section-number">9.1</span> Visualización aplicada a KNN para regresión<a href="comparación-final.html#visualización-aplicada-a-knn-para-regresión" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Creamos un data-frame con los distintos valores de la métrica ECM obtenidos con los distintos algoritmos de validación utilizados:</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb71-1"><a href="comparación-final.html#cb71-1" aria-hidden="true" tabindex="-1"></a>ECM_df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;ECM&#39;</span> : [ECM_test_Simple_Validation_not_random , ECM_test_Simple_Validation_random, ECM_test_Simple_Validation_repeated, ECM_test_leave_one_out, ECM_K_Folds, ECM_K_Folds_sklearn , ECM_repeated_K_Folds, ECM_repeated_K_Folds_sklearn],</span>
-<span id="cb71-2"><a href="comparación-final.html#cb71-2" aria-hidden="true" tabindex="-1"></a> <span class="st">&#39;names&#39;</span> : [<span class="st">&#39;Simple validation (not random)&#39;</span> , <span class="st">&#39;Simple validation (random)&#39;</span>, <span class="st">&#39;Simple validation (repeted)&#39;</span>, <span class="st">&#39;Leave one out&#39;</span>, <span class="st">&#39;k-folds&#39;</span>, <span class="st">&#39;k-folds (sklearn)&#39;</span>, <span class="st">&#39;repeted-k-folds&#39;</span>, <span class="st">&#39;repeted-k-folds (sklearn)&#39;</span>]})</span></code></pre></div>
-<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb72-1"><a href="comparación-final.html#cb72-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb72-2"><a href="comparación-final.html#cb72-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-3"><a href="comparación-final.html#cb72-3" aria-hidden="true" tabindex="-1"></a>p3 <span class="op">=</span> sns.barplot(x<span class="op">=</span><span class="st">&quot;ECM&quot;</span>, y <span class="op">=</span><span class="st">&#39;names&#39;</span> , data<span class="op">=</span>ECM_df)</span>
-<span id="cb72-4"><a href="comparación-final.html#cb72-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-5"><a href="comparación-final.html#cb72-5" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">&#39;p3.jpg&#39;</span>, <span class="bu">format</span><span class="op">=</span><span class="st">&#39;jpg&#39;</span>, dpi<span class="op">=</span><span class="dv">1200</span>)</span></code></pre></div>
-<p><br></p>
-<center>
-<p><img src="p3.jpg" style="width:60.0%" /></p>
-</center>
-<p><br></p>
+<div id="selección-de-modelos-basada-en-validación-cruzada" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Selección de modelos basada en validación cruzada<a href="selección-de-modelos-basada-en-validación-cruzada.html#selección-de-modelos-basada-en-validación-cruzada" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Dado un conjunto de modelos de aprendizaje supervisado, nos interesa establecer un criterio para seleccionar uno de ellos como el mejor.</p>
+<p>A continuación se expone un criterio basado en las métricas y algoritmos de validación que se han visto anteriormente.</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<ul>
+<li><p>Supongamos que estamos ante un problema de regresión o clasificación supervisada.</p>
+<ul>
+<li>Tenemos <span class="math inline">\(\hspace{0.01cm}h\hspace{0.01cm}\)</span> modelos de aprendizaje supervisado <span class="math inline">\(\hspace{0.01cm}M_1\hspace{0.05cm},\hspace{0.05cm}M_2\hspace{0.05cm},...,\hspace{0.05cm}M_h\hspace{0.02cm}\)</span>.</li>
+</ul></li>
+<li><p>Se validan estos modelos usando un mismo algoritmo de validación, con una misma métrica de evaluación. Se obtendrán <span class="math inline">\(\hspace{0.01cm}h\hspace{0.01cm}\)</span> valores de la métrica, una para cada modelo.</p>
+<ul>
+<li>Si la métrica fuera el ECM se tendrian por ejemplo los siguientes valores: <span class="math inline">\(\\[0.05cm]\)</span></li>
+</ul>
+<p><span class="math display">\[ECM(M_1)_{test}^{\hspace{0.05cm} *} \hspace{0.1cm}, ...,\hspace{0.1cm} ECM(M_h)_{test}^{\hspace{0.05cm} *} \\\]</span></p></li>
+<li><p>El criterio es seleccionar el modelo que tienen <strong>mejor</strong> valor de la métrica. Si es una <strong>métrica de error</strong>, el que <strong>menor</strong> valor tiene. Si es una <strong>métrica de acierto</strong>, el que <strong>mayor</strong> valor tiene.</p></li>
+<li><p>Si la métrica es de <strong>error</strong>, como por ejemplo el <span class="math inline">\(\hspace{0.1cm}ECM\hspace{0.1cm}\)</span>, entonces:</p>
+<ul>
+<li>El modelo seleccionado es <span class="math inline">\(\hspace{0.1cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.1cm}\)</span> , donde: <span class="math inline">\(\\[0.01cm]\)</span></li>
+</ul>
+<p><span class="math display">\[j^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} arg \hspace{0.1cm} \underset{j \in \lbrace 1,...,h\rbrace }{Min} \hspace{0.15cm}  ECM(M_j)_{test}^{\hspace{0.05cm} *} \\[1cm]\]</span></p></li>
+<li><p>Si la métrica es de <strong>acierto</strong>, como por ejemplo la <span class="math inline">\(\hspace{0.01cm}TAC\hspace{0.01cm}\)</span>, entonces:</p>
+<ul>
+<li>El modelo seleccionado es <span class="math inline">\(\hspace{0.01cm}M_{j^{\hspace{0.08cm}*}}\hspace{0.01cm}\)</span> , donde: <span class="math inline">\(\\[0.01cm]\)</span></li>
+</ul>
+<p><span class="math display">\[j^{\hspace{0.08cm}*} \hspace{0.1cm}=\hspace{0.1cm} arg \hspace{0.1cm} \underset{j \in \lbrace 1,...,h\rbrace }{Max} \hspace{0.15cm}  TAC(M_j)_{test}^{\hspace{0.05cm} *} \\\]</span></p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
 </div>
-<div id="visualización-aplicada-a-knn-para-clasificación" class="section level2 hasAnchor" number="9.2">
-<h2><span class="header-section-number">9.2</span> Visualización aplicada a KNN para clasificación<a href="comparación-final.html#visualización-aplicada-a-knn-para-clasificación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Creamos un data-frame con los distintos valores de la métrica TAC obtenidos con los distintos algoritmos de validación utilizados:</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb73-1"><a href="comparación-final.html#cb73-1" aria-hidden="true" tabindex="-1"></a>TAC_df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;TAC&#39;</span> : [TAC_test_Simple_Validation_not_random , TAC_test_Simple_Validation_random, TAC_test_Simple_Validation_repeated, TAC_test_leave_one_out, TAC_K_Folds, TAC_K_Folds_sklearn, TAC_repeated_K_Folds, TAC_repeated_K_Folds_sklearn],</span>
-<span id="cb73-2"><a href="comparación-final.html#cb73-2" aria-hidden="true" tabindex="-1"></a> <span class="st">&#39;names&#39;</span> : [<span class="st">&#39;Simple validation (not random)&#39;</span> , <span class="st">&#39;Simple validation (random)&#39;</span>, <span class="st">&#39;Simple validation (repeted)&#39;</span>, <span class="st">&#39;Leave one out&#39;</span>, <span class="st">&#39;k-folds&#39;</span>, <span class="st">&#39;k-folds (sklearn)&#39;</span>, <span class="st">&#39;repeted-k-folds&#39;</span>, <span class="st">&#39;repeted-k-folds (sklearn)&#39;</span>]})</span></code></pre></div>
-<div class="sourceCode" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb74-1"><a href="comparación-final.html#cb74-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb74-2"><a href="comparación-final.html#cb74-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-3"><a href="comparación-final.html#cb74-3" aria-hidden="true" tabindex="-1"></a>p4 <span class="op">=</span> sns.barplot(x<span class="op">=</span><span class="st">&quot;TAC&quot;</span>, y <span class="op">=</span><span class="st">&#39;names&#39;</span> , data<span class="op">=</span>TAC_df)</span>
-<span id="cb74-4"><a href="comparación-final.html#cb74-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-5"><a href="comparación-final.html#cb74-5" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">&#39;p4.jpg&#39;</span>, <span class="bu">format</span><span class="op">=</span><span class="st">&#39;jpg&#39;</span>, dpi<span class="op">=</span><span class="dv">1200</span>)</span></code></pre></div>
 <p><br></p>
-<center>
-<p><img src="p4.jpg" style="width:60.0%" /></p>
-</center>
-<p><br></p>
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="algoritmos-de-valicación-cruzada-con-sklearn.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bibliografía.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="algoritmos-de-validación-cruzada-programados-en-python.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 Comparación final | Algoritmos de validación de modelos de aprendizaje supervisado</title>
+  <title>Chapter 4 Métricas para evaluar modelos de clasificación supervisada | Algoritmos de validación de modelos de aprendizaje supervisado</title>
   <meta name="description" content="Esta es una introducción a los algoritmos de validación de modelos de aprendizaje supervisado." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 Comparación final | Algoritmos de validación de modelos de aprendizaje supervisado" />
+  <meta property="og:title" content="Chapter 4 Métricas para evaluar modelos de clasificación supervisada | Algoritmos de validación de modelos de aprendizaje supervisado" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Esta es una introducción a los algoritmos de validación de modelos de aprendizaje supervisado." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 Comparación final | Algoritmos de validación de modelos de aprendizaje supervisado" />
+  <meta name="twitter:title" content="Chapter 4 Métricas para evaluar modelos de clasificación supervisada | Algoritmos de validación de modelos de aprendizaje supervisado" />
   
   <meta name="twitter:description" content="Esta es una introducción a los algoritmos de validación de modelos de aprendizaje supervisado." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="algoritmos-de-valicación-cruzada-con-sklearn.html"/>
-<link rel="next" href="bibliografía.html"/>
+<link rel="prev" href="métricas-para-evaluar-modelos-de-regresión.html"/>
+<link rel="next" href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -244,43 +244,93 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="comparación-final" class="section level1 hasAnchor" number="9">
-<h1><span class="header-section-number">Chapter 9</span> Comparación final<a href="comparación-final.html#comparación-final" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Importamos las librerias de visualización de datos que usaremos para realizar la comparación final.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb70-1"><a href="comparación-final.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb70-2"><a href="comparación-final.html#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div>
-<p><br></p>
-<div id="visualización-aplicada-a-knn-para-regresión" class="section level2 hasAnchor" number="9.1">
-<h2><span class="header-section-number">9.1</span> Visualización aplicada a KNN para regresión<a href="comparación-final.html#visualización-aplicada-a-knn-para-regresión" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Creamos un data-frame con los distintos valores de la métrica ECM obtenidos con los distintos algoritmos de validación utilizados:</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb71-1"><a href="comparación-final.html#cb71-1" aria-hidden="true" tabindex="-1"></a>ECM_df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;ECM&#39;</span> : [ECM_test_Simple_Validation_not_random , ECM_test_Simple_Validation_random, ECM_test_Simple_Validation_repeated, ECM_test_leave_one_out, ECM_K_Folds, ECM_K_Folds_sklearn , ECM_repeated_K_Folds, ECM_repeated_K_Folds_sklearn],</span>
-<span id="cb71-2"><a href="comparación-final.html#cb71-2" aria-hidden="true" tabindex="-1"></a> <span class="st">&#39;names&#39;</span> : [<span class="st">&#39;Simple validation (not random)&#39;</span> , <span class="st">&#39;Simple validation (random)&#39;</span>, <span class="st">&#39;Simple validation (repeted)&#39;</span>, <span class="st">&#39;Leave one out&#39;</span>, <span class="st">&#39;k-folds&#39;</span>, <span class="st">&#39;k-folds (sklearn)&#39;</span>, <span class="st">&#39;repeted-k-folds&#39;</span>, <span class="st">&#39;repeted-k-folds (sklearn)&#39;</span>]})</span></code></pre></div>
-<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb72-1"><a href="comparación-final.html#cb72-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb72-2"><a href="comparación-final.html#cb72-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-3"><a href="comparación-final.html#cb72-3" aria-hidden="true" tabindex="-1"></a>p3 <span class="op">=</span> sns.barplot(x<span class="op">=</span><span class="st">&quot;ECM&quot;</span>, y <span class="op">=</span><span class="st">&#39;names&#39;</span> , data<span class="op">=</span>ECM_df)</span>
-<span id="cb72-4"><a href="comparación-final.html#cb72-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-5"><a href="comparación-final.html#cb72-5" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">&#39;p3.jpg&#39;</span>, <span class="bu">format</span><span class="op">=</span><span class="st">&#39;jpg&#39;</span>, dpi<span class="op">=</span><span class="dv">1200</span>)</span></code></pre></div>
-<p><br></p>
-<center>
-<p><img src="p3.jpg" style="width:60.0%" /></p>
-</center>
+<div id="métricas-para-evaluar-modelos-de-clasificación-supervisada" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapter 4</span> Métricas para evaluar modelos de clasificación supervisada<a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#métricas-para-evaluar-modelos-de-clasificación-supervisada" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>A continuación vamos a exponer las métricas de evaluación más habituales para <strong>modelos de clasificación supervisada</strong>:</p>
+<div id="tasa-de-acierto-en-la-clasificación-tac" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Tasa de acierto en la clasificación (TAC)<a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#tasa-de-acierto-en-la-clasificación-tac" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<ul>
+<li><strong>TAC de train:</strong></li>
+</ul>
+<p><span class="math display">\[TAC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.2cm} \mathbf {I} ( \hspace{0.1cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.1cm} )\\\]</span></p>
+<ul>
+<li><strong>TAC de test:</strong></li>
+</ul>
+<p><span class="math display">\[TAC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.2cm} \mathbf{I} ( \hspace{0.1cm} \hat{y}_i^{train} = y_i^{train} \hspace{0.1cm})\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
 </div>
-<div id="visualización-aplicada-a-knn-para-clasificación" class="section level2 hasAnchor" number="9.2">
-<h2><span class="header-section-number">9.2</span> Visualización aplicada a KNN para clasificación<a href="comparación-final.html#visualización-aplicada-a-knn-para-clasificación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Creamos un data-frame con los distintos valores de la métrica TAC obtenidos con los distintos algoritmos de validación utilizados:</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb73-1"><a href="comparación-final.html#cb73-1" aria-hidden="true" tabindex="-1"></a>TAC_df <span class="op">=</span> pd.DataFrame({<span class="st">&#39;TAC&#39;</span> : [TAC_test_Simple_Validation_not_random , TAC_test_Simple_Validation_random, TAC_test_Simple_Validation_repeated, TAC_test_leave_one_out, TAC_K_Folds, TAC_K_Folds_sklearn, TAC_repeated_K_Folds, TAC_repeated_K_Folds_sklearn],</span>
-<span id="cb73-2"><a href="comparación-final.html#cb73-2" aria-hidden="true" tabindex="-1"></a> <span class="st">&#39;names&#39;</span> : [<span class="st">&#39;Simple validation (not random)&#39;</span> , <span class="st">&#39;Simple validation (random)&#39;</span>, <span class="st">&#39;Simple validation (repeted)&#39;</span>, <span class="st">&#39;Leave one out&#39;</span>, <span class="st">&#39;k-folds&#39;</span>, <span class="st">&#39;k-folds (sklearn)&#39;</span>, <span class="st">&#39;repeted-k-folds&#39;</span>, <span class="st">&#39;repeted-k-folds (sklearn)&#39;</span>]})</span></code></pre></div>
-<div class="sourceCode" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb74-1"><a href="comparación-final.html#cb74-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb74-2"><a href="comparación-final.html#cb74-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-3"><a href="comparación-final.html#cb74-3" aria-hidden="true" tabindex="-1"></a>p4 <span class="op">=</span> sns.barplot(x<span class="op">=</span><span class="st">&quot;TAC&quot;</span>, y <span class="op">=</span><span class="st">&#39;names&#39;</span> , data<span class="op">=</span>TAC_df)</span>
-<span id="cb74-4"><a href="comparación-final.html#cb74-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-5"><a href="comparación-final.html#cb74-5" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">&#39;p4.jpg&#39;</span>, <span class="bu">format</span><span class="op">=</span><span class="st">&#39;jpg&#39;</span>, dpi<span class="op">=</span><span class="dv">1200</span>)</span></code></pre></div>
+<div id="tasa-de-error-en-la-clasificación-tec" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Tasa de error en la clasificación (TEC)<a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#tasa-de-error-en-la-clasificación-tec" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<ul>
+<li><strong>TEC de train:</strong></li>
+</ul>
+<p><span class="math display">\[TEC(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^{n} \hspace{0.2cm} \mathbf {I} \left( \hspace{0.05cm} \hat{y}_i^{train} \neq y_i^{train} \hspace{0.05cm} \right)\\\]</span></p>
+<ul>
+<li><strong>TEC de test:</strong></li>
+</ul>
+<p><span class="math display">\[TEC(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{h} \cdot \sum_{i=1}^{h} \hspace{0.2cm} \mathbf {I} \left( \hspace{0.1cm} \hat{y}_i^{\hspace{0.05cm} test} \neq y_i^{\hspace{0.05cm} test} \hspace{0.1cm}\right)\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
-<center>
-<p><img src="p4.jpg" style="width:60.0%" /></p>
-</center>
+</div>
+<div id="kappa" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Kappa<a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#kappa" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Suponemos que una variable respuesta tiene <span class="math inline">\(\hspace{0.05cm}k \geq 2\hspace{0.05cm}\)</span> categorias</p>
+<p>Si usamos un modelo de clasificación basado en la distribución de probabilidad uniforme discreta, este predice cada categoria de la respuesta con igual probabilidad <span class="math inline">\(\hspace{0.05cm}1/k\hspace{0.05cm}\)</span>, por lo que la tasa de acierto del modelo esperada es <span class="math inline">\(\hspace{0.05cm}1/k\)</span>, es decir, si el modelo se aplica muchas veces, la <span class="math inline">\(\hspace{0.08cm} TAC\hspace{0.08cm}\)</span> <strong>media</strong> será de <span class="math inline">\(1/k\)</span>.</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<ul>
+<li><strong>Kappa de train:</strong></li>
+</ul>
+<p><span class="math display">\[Kappa(M)_{\hspace{0.05cm} train} \hspace{0.1cm} = \hspace{0.1cm} \dfrac{\hspace{0.1cm} TAC_{\hspace{0.05cm} train} \hspace{0.1cm}-\hspace{0.1cm} 1/k \hspace{0.1cm}}{1 \hspace{0.1cm} -\hspace{0.1cm} 1/k} \\\]</span></p>
+<ul>
+<li><strong>Kappa de test:</strong></li>
+</ul>
+<p><span class="math display">\[Kappa(M)_{\hspace{0.05cm} test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.1cm} TAC_{\hspace{0.05cm} test} \hspace{0.1cm}-\hspace{0.1cm} 1/k \hspace{0.1cm}}{1 \hspace{0.1cm}-\hspace{0.1cm} 1/k}\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
 <p><br></p>
+<div id="modelo-de-clasificación-aleatoria-uniforme" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Modelo de clasificación aleatoria uniforme<a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#modelo-de-clasificación-aleatoria-uniforme" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Dada una respuesta <span class="math inline">\(\mathcal{Y}\)</span> con <span class="math inline">\(k\geq 2\)</span> categorías y de una serie de predictores <span class="math inline">\(\mathcal{X}_1 , ..., \mathcal{X}_p\)</span>.</p>
+<p>Dada una muestra de <span class="math inline">\(n\)</span> observaciones de <span class="math inline">\(Y\)</span> del predictor<br />
+y una muestra <span class="math inline">\(X_j\)</span> del predictor <span class="math inline">\(\mathcal{X}_j\)</span>.</p>
+<p>Un modelo de clasificación aleatorio basado en la distribución discreta <span class="math inline">\(U\lbrace 0,1,..., k-1 \rbrace\)</span> es un modelo tal que:</p>
+<p><span class="math display">\[\widehat{y}_i \sim U\lbrace 0,1,..., k-1 \rbrace\]</span></p>
+<p>Por lo que:</p>
+<p><span class="math display">\[P(\widehat{y}_i = h) = 1/k = p\]</span></p>
+<p>para todo <span class="math inline">\(h=0,1,...,k-1\)</span></p>
+<p><br></p>
+<p>Por tanto, para cada <span class="math inline">\(\hspace{0.15cm}i=1,...,n\hspace{0.15cm}\)</span> tenemos que: <span class="math inline">\(\\[0.15cm]\)</span></p>
+<ul>
+<li><p><span class="math inline">\(P\left( \hspace{0.1cm} \mathbf{I}(\hat{y}_i = y_i) = 1\hspace{0.1cm} \right) = P \left( \hspace{0.1cm} \hat{y}_i = y_i \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1/k \hspace{0.1cm}=\hspace{0.1cm} p\)</span>.</p></li>
+<li><p><span class="math inline">\(P\left( \hspace{0.1cm} \mathbf{I}(\hat{y}_i = y_i) = 0 \hspace{0.1cm} \right) \hspace{0.1cm} =\hspace{0.1cm} P\left( \hspace{0.1cm} \hat{y}_i \neq y_i \hspace{0.1cm} \right) \hspace{0.1cm}=\hspace{0.1cm} 1- 1/k \hspace{0.1cm}=\hspace{0.1cm} 1 - p\)</span>.</p></li>
+</ul>
+<p><br></p>
+<p>Por lo que <span class="math inline">\(\mathbf{I}(\hat{y}_i = y_i)\)</span> es una variable binaria, con probabilidad de exito <span class="math inline">\(p\)</span> y de fracaso <span class="math inline">\(1-p\)</span>, es decir:</p>
+<p><span class="math display">\[\mathbf{I}(\hat{y}_i = y_i)  \hspace{0.1cm}\sim\hspace{0.1cm} Bernoulli\left( \hspace{0.1cm} p=1/k \hspace{0.1cm} \right)\]</span></p>
+<p>Por lo tanto:</p>
+<p><span class="math display">\[\sum_{i=1}^n \mathbf{I}(\hat{y}_i = y_i) \hspace{0.1cm}\sim\hspace{0.1cm} Binomial(n\cdot p )\]</span>
+<br></p>
+<p>Así que, la tasa de acierto esperada del modelo de clasificación aleatoria uniforme es: <span class="math inline">\(\\[0.2cm]\)</span></p>
+<p><span class="math display">\[E\left[TAC\right] \hspace{0.1cm}=\hspace{0.1cm} E\left[ \dfrac{1}{n} \sum_{i=1}^n \mathbf{I}(\hat{y}_i = y_i) \right] \hspace{0.1cm}=\hspace{0.1cm} E\left[  \dfrac{1}{n} \cdot Binomial(n\cdot p )  \right] \hspace{0.1cm} = \\[1.2cm] = \hspace{0.1cm} \dfrac{1}{n} \cdot E\left[ Binomial(n\cdot p )   \right]  \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot (n\cdot p) = p = 1/k\]</span></p>
+<p><br></p>
+</div>
 </div>
 </div>
             </section>
@@ -288,8 +338,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="algoritmos-de-valicación-cruzada-con-sklearn.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bibliografía.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="métricas-para-evaluar-modelos-de-regresión.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
