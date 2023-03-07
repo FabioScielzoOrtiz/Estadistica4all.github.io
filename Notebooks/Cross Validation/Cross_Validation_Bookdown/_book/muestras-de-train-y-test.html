@@ -214,7 +214,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span></p>
 <p style="margin-left:1em;">
 <ul>
-<li><p>Tenemos una muestra de <span class="math inline">\(\hspace{0.1cm}N\hspace{0.1cm}\)</span> observaciones de <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}\)</span> y de una variable respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\\\)</span></p>
+<li><p>Tenemos una muestra de <span class="math inline">\(N\)</span> observaciones de <span class="math inline">\(p\)</span> predictores <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_p\)</span> y de una variable respuesta <span class="math inline">\(\mathcal{Y}\)</span> :</p>
 <p><span class="math display">\[D=[\hspace{0.1cm} X_1,...,X_p,Y \hspace{0.1cm}]=\begin{pmatrix}
   x_{11}&amp;x_{12}&amp;...&amp;x_{1p}&amp; y_1\\
   x_{21}&amp;x_{22}&amp;...&amp;x_{2p} &amp; y_2\\
@@ -232,8 +232,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p></span></p>
 </div>
 <p><br></p>
-<p>Sin entrar aquí en particularidades, para evaluar un modelo de aprendizaje supervisado <span class="math inline">\(\hspace{0.1cm} M\hspace{0.1cm}\)</span> este tiene que ser entrenado con un subconjunto de <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> filas de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.05cm}\)</span> , llamado <strong>muestra de entrenamiento</strong> o de <strong>train</strong> <span class="math inline">\(\hspace{0.1cm}D_{train}\hspace{0.05cm}\)</span>, y testado con el subconjunto de las <span class="math inline">\(\hspace{0.1cm}h\hspace{0.1cm}\)</span> filas restantes de <span class="math inline">\(\hspace{0.1cm}D\hspace{0.05cm}\)</span>, llamado <strong>muestra de test</strong> <span class="math inline">\(\hspace{0.1cm}D_{test}\hspace{0.1cm}\)</span> , de modo que <span class="math inline">\(\hspace{0.1cm}n+h=N\)</span></p>
-<p>Los métodos de validación típicos usan de algún modo <span class="math inline">\(\hspace{0.1cm}D_{train}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}D_{test}\hspace{0.1cm}\)</span> , junto con una <strong>métrica de evaluación</strong>, es por ello que vamos a definir estos elementos con mas precisión a continuación.</p>
+<p>Sin entrar aquí en particularidades, para evaluar un modelo de aprendizaje supervisado <span class="math inline">\(M\)</span> este tiene que ser entrenado con un subconjunto de <span class="math inline">\(n\)</span> filas de <span class="math inline">\(D\)</span> , llamado <strong>muestra de entrenamiento</strong> o de <strong>train</strong> <span class="math inline">\(D_{train}\)</span>, y testado con el subconjunto de las <span class="math inline">\(h\)</span> filas restantes de <span class="math inline">\(D\)</span>, llamado <strong>muestra de test</strong> <span class="math inline">\(D_{test}\)</span> , de modo que <span class="math inline">\(n+h=N\)</span></p>
+<p>Los métodos de validación típicos usan de algún modo <span class="math inline">\(D_{train}\)</span> y <span class="math inline">\(D_{test}\)</span> , junto con una <strong>métrica de evaluación</strong>, es por ello que vamos a definir estos elementos con mas precisión a continuación.</p>
 <p><br></p>
 <div id="train-set" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Train-set<a href="muestras-de-train-y-test.html#train-set" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -242,17 +242,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span></p>
 <p style="margin-left:1em;">
 <ul>
-<li><strong>Muestra train</strong> de <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> observaciones del predictor <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\\\)</span></li>
+<li><strong>Muestra train</strong> de <span class="math inline">\(n\)</span> observaciones del predictor <span class="math inline">\(\mathcal{X}_j\)</span> :</li>
 </ul>
-<p><span class="math display">\[X_j^{train} \hspace{0.1cm}=\hspace{0.1cm} \left(\hspace{0.1cm}x_{1j}^{train},...,x_{nj}^{train}\hspace{0.1cm} \right)^t \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} j\in \lbrace 1,...,p \rbrace \\[0.4cm]\]</span></p>
+<p><span class="math display">\[X_j^{train} \hspace{0.1cm}=\hspace{0.1cm} (\hspace{0.1cm} x_{1j}^{train},...,x_{nj}^{train}\hspace{0.1cm} )^t \hspace{0.3cm} , \hspace{0.3cm} j\in \lbrace 1,...,p \rbrace \\[0.4cm]\]</span></p>
 <ul>
-<li><strong>Muestra train</strong> de <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> observaciones de la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\)</span></li>
+<li><strong>Muestra train</strong> de <span class="math inline">\(n\)</span> observaciones de la respuesta <span class="math inline">\(\mathcal{Y}\)</span> :</li>
 </ul>
-<p><span class="math display">\[Y^{train}= \left(\hspace{0.1cm}y_{1}^{train},...,y_n^{train}\hspace{0.1cm}\right)^t \\[0.4cm]\]</span></p>
+<p><span class="math display">\[Y^{train} \hspace{0.1cm}=\hspace{0.1cm} \left(\hspace{0.1cm}y_{1}^{train},...,y_n^{train}\hspace{0.1cm}\right)^t \\[0.4cm]\]</span></p>
 <ul>
-<li><strong>Train-set</strong></li>
+<li><strong>Train-set</strong> :</li>
 </ul>
-<p><span class="math display">\[D_{train}\hspace{0.1cm}=\hspace{0.1cm}[\hspace{0.1cm}X_1^{train},...,X_p^{train}, Y^{train}\hspace{0.1cm}]\hspace{0.1cm} =\hspace{0.1cm}  \begin{pmatrix}
+<p><span class="math display">\[D_{train}\hspace{0.1cm}=\hspace{0.1cm}[\hspace{0.1cm}X_1^{train}\hspace{0.03cm},...,\hspace{0.03cm}X_p^{train} \hspace{0.03cm},\hspace{0.03cm} Y^{train}\hspace{0.1cm}]\hspace{0.1cm} = \\[1cm] =\hspace{0.1cm}  \begin{pmatrix}
     x_{11}^{train} &amp;x_{12}^{train}&amp;...&amp;x_{1p}^{train}&amp; y_1^{train}\\
     x_{21}^{train}&amp;x_{22}^{train}&amp;...&amp;x_{2p}^{train} &amp; y_2^{train}\\
     &amp;...&amp;\\
@@ -262,7 +262,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     x_{2}^{train}&amp; y_2^{train}\\
     ...&amp;...\\
     x_{n}^{train}&amp; y_n^{train}
-    \end{pmatrix}\]</span></p>
+    \end{pmatrix} \\\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -270,15 +270,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><br></p>
 <p><strong>Observaciones:</strong></p>
 <ul>
-<li><p>La fila <span class="math inline">\(\hspace{0.1cm} i\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}D_{train}\hspace{0.1cm}\)</span> , es decir, <span class="math inline">\(\hspace{0.1cm}\left(x_i^{train},y_i^{train}\right) = \left(x_{i1}^{train}, x_{i2}^{train},...,x_{ip}^{train}, y_i^{train}\right)\hspace{0.1cm}\)</span>, es la <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima <strong>observación de train</strong> de los predictores y la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p \hspace{0.1cm},\hspace{0.1cm} \mathcal{Y} \\\)</span></p></li>
-<li><p><span class="math inline">\(D_{train}\hspace{0.08cm}\)</span> también es llamada simplemente <strong>observaciones de train</strong> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm},\hspace{0.1cm} \mathcal{Y}\)</span></p></li>
+<li><p>La fila <span class="math inline">\(i\)</span> de <span class="math inline">\(D_{train}\)</span> , es decir, <span class="math inline">\(\left(x_i^{train},y_i^{train}\right) = \left(x_{i1}^{train}, x_{i2}^{train},...,x_{ip}^{train}, y_i^{train}\right)\hspace{0.1cm}\)</span>, es la <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima <strong>observación de train</strong> de los predictores y la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p \hspace{0.1cm},\hspace{0.1cm} \mathcal{Y}\)</span>.</p></li>
+<li><p><span class="math inline">\(D_{train}\)</span> también es llamada simplemente <strong>observaciones de train</strong> de <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm},\hspace{0.1cm} \mathcal{Y}\)</span>.</p></li>
 </ul>
 <p><br></p>
 </div>
 <div id="predicciones-de-train" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Predicciones de train<a href="muestras-de-train-y-test.html#predicciones-de-train" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Como <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> es un modelo de aprendizaje supervisado es capaz de, una vez es entrenado con las observaciones de <span class="math inline">\(\hspace{0.08cm}D_{train}=[X_1^{train},...,X_p^{train}, Y^{train}]\hspace{0.08cm}\)</span> , generar predicciones de la variable respuesta <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span>, tanto para las <strong>observaciones de train</strong> de los predictores como para <strong>nuevas observaciones</strong>.</p>
-<p>Notese que <span class="math inline">\(\hspace{0.1cm}M\hspace{0.1cm}\)</span> nos interesa realmente para predecir la variable respuesta para <strong>nuevas observaciones</strong> de los predictores, es decir, para predecir la respuesta para individuos/elementos de los que solo tenemos información de los predictores.</p>
+<p>Como <span class="math inline">\(M\)</span> es un modelo de aprendizaje supervisado es capaz de, una vez es entrenado con las observaciones de <span class="math inline">\(D_{train}=[X_1^{train},...,X_p^{train}, Y^{train}]\)</span> , generar predicciones de la variable respuesta <span class="math inline">\(\mathcal{Y}\)</span>, tanto para las <strong>observaciones de train</strong> de los predictores como para <strong>nuevas observaciones</strong>.</p>
+<p>Notese que <span class="math inline">\(M\)</span> nos interesa realmente para predecir la variable respuesta para <strong>nuevas observaciones</strong> de los predictores, es decir, para predecir la respuesta para individuos/elementos de los que solo tenemos información de los predictores.</p>
 <p><br></p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>

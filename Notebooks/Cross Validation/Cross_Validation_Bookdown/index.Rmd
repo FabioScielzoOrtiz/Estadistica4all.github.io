@@ -59,11 +59,11 @@ github-repo: rstudio/bookdown-demo
 <p style='margin-left:10em;'>
 
 
-$\hspace{0.3cm}$ **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)**
+- **Más artículos:    $\hspace{0.1cm}$ [Estadistica4all](https://estadistica4all.com/)**
 
-$\hspace{0.3cm}$ **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](https://estadistica4all.com/autores/informaci%C3%B3n.html)
+- **Autor:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](https://estadistica4all.com/creador.html)
 
-$\hspace{0.3cm}$ **Si utilizas este artículo, por favor, cítalo:** 
+- **Si utilizas este artículo, por favor, cítalo:** 
 
 $\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). Algoritmos de validación cruzada. Estadistica4all. http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html
 
@@ -74,8 +74,10 @@ $\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). Algoritmos de validación cruzada. Es
 </div>
 
 
-***Se recomienda abrir el artículo en un ordenador o en una tablet.***
- 
+<br>
+
+
+***Se recomienda abrir el artículo en un ordenador, en una tablet o en un móvil en versión de escritorio.***
  
  
  
@@ -85,9 +87,9 @@ Los algoritmos de validación son una familia muy importante de algoritmos dentr
 
 Distinguiremos dos tipos de algoritmos de validación de modelos:
 
-- Métodos de validación de modelos de **aprendizaje supervisado** $\hspace{0.3cm} \Rightarrow\hspace{0.3cm}$ son algoritmos que permiten evaluar modelos de aprendizaje supervisado usando **muestras de test y train de los predictores y la respuesta**, y una **métrica de evaluación**. $\\[0.4cm]$
+- Métodos de validación de modelos de **aprendizaje supervisado** $\hspace{0.3cm} \Rightarrow\hspace{0.3cm}$ son algoritmos que permiten evaluar modelos de aprendizaje supervisado usando **muestras de test y train de los predictores y la respuesta**, y una **métrica de evaluación**. 
 
-- Métodos de evaluación de modelos de **aprendizaje no supervisado** $\hspace{0.3cm}\Rightarrow\hspace{0.3cm}$ son algoritmos que permiten evaluar modelos de aprendizaje no supervisado usando una **muestra de train de los predictores** y una **métrica de evaluación**. $\\[0.55cm]$
+- Métodos de evaluación de modelos de **aprendizaje no supervisado** $\hspace{0.3cm}\Rightarrow\hspace{0.3cm}$ son algoritmos que permiten evaluar modelos de aprendizaje no supervisado usando una **muestra de train de los predictores** y una **métrica de evaluación**. 
 
 
 
@@ -103,7 +105,7 @@ también son llamados **métodos de validación cruzada**. Aunque realmente son 
 
 Debido a que tienen unas características diferentes, en particular, en el aprendizaje supervisado se tienen datos de la variable respuesta, mientras que en el no supervisado no se dispone de información alguna.
 
-Si se quiere ver un planteamiento algo más detallado de los problemas de aprendizaje supervisado y no supervisado se recomienda leer el siguiente articulo de nuestro blog: [link](http://estadistica4all.com/Articulos/Los-problemas-de-clasificaci%C3%B3n-y-regresi%C3%B3n.html)
+Si se quiere ver un planteamiento algo más detallado de los problemas de aprendizaje supervisado y no supervisado se recomienda leer el artículo sobre ese tema que tenemos en [Estadistica4all](https://estadistica4all.com/)
 <br>
 
 Los métodos de evaluación son usados para dos propósitos, principalmente:
@@ -136,14 +138,14 @@ Esta aproximación tiende a infra-estimar el error de predicción real del model
 
 Los métodos de validación de modelos predictivos **supervisados** tiene tres elementos:
 
-- Muestras de **train** y **test** de los predictores y la respuesta. $\\[0.5cm]$
+- Muestras de **train** y **test** de los predictores y la respuesta.  
 
-- Una **métrica de evaluación**. $\\[0.5cm]$
+- Una **métrica de evaluación**. 
 
 - Un **algoritmo** para **evaluar el modelo** que usa los anteriores dos elementos de algún modo.
 
 
-Este artículo es básicamente un tour (teórico-práctico) sobre estos elementos.
+Este artículo es básicamente un tour teórico-práctico sobre estos elementos.
 
 
 <br>
@@ -156,7 +158,7 @@ Este artículo es básicamente un tour (teórico-práctico) sobre estos elemento
  
 <p style='margin-left:1em;'>
 
-- Tenemos una muestra  de $\hspace{0.1cm}N\hspace{0.1cm}$ observaciones de $\hspace{0.1cm}p\hspace{0.1cm}$ predictores $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}$ y  de una variable respuesta $\hspace{0.1cm}\mathcal{Y}\\$ 
+- Tenemos una muestra  de $N$ observaciones de $p$ predictores $\mathcal{X}_1,...,\mathcal{X}_p$ y  de una variable respuesta $\mathcal{Y}$ : 
 
 
     $$D=[\hspace{0.1cm} X_1,...,X_p,Y \hspace{0.1cm}]=\begin{pmatrix}
@@ -179,9 +181,9 @@ Este artículo es básicamente un tour (teórico-práctico) sobre estos elemento
 
 <br>
 
-Sin entrar aquí en particularidades, para evaluar un modelo de aprendizaje supervisado $\hspace{0.1cm} M\hspace{0.1cm}$ este tiene que ser entrenado con un subconjunto de $\hspace{0.1cm}n\hspace{0.1cm}$ filas de $\hspace{0.1cm}D\hspace{0.05cm}$ , llamado **muestra de entrenamiento** o de **train** $\hspace{0.1cm}D_{train}\hspace{0.05cm}$, y testado con el subconjunto de las $\hspace{0.1cm}h\hspace{0.1cm}$ filas restantes de $\hspace{0.1cm}D\hspace{0.05cm}$, llamado  **muestra de test** $\hspace{0.1cm}D_{test}\hspace{0.1cm}$ , de modo  que $\hspace{0.1cm}n+h=N$ 
+Sin entrar aquí en particularidades, para evaluar un modelo de aprendizaje supervisado $M$ este tiene que ser entrenado con un subconjunto de $n$ filas de $D$ , llamado **muestra de entrenamiento** o de **train** $D_{train}$, y testado con el subconjunto de las $h$ filas restantes de $D$, llamado  **muestra de test** $D_{test}$ , de modo  que $n+h=N$ 
 
-Los métodos de validación típicos usan de algún modo $\hspace{0.1cm}D_{train}\hspace{0.1cm}$ y  $\hspace{0.1cm}D_{test}\hspace{0.1cm}$ , junto con una **métrica de evaluación**, es por ello  que vamos a definir estos elementos con mas precisión a continuación.
+Los métodos de validación típicos usan de algún modo $D_{train}$ y  $D_{test}$ , junto con una **métrica de evaluación**, es por ello  que vamos a definir estos elementos con mas precisión a continuación.
 
 
 
@@ -198,17 +200,17 @@ Los elementos antes mencionados se definen formalmente como sigue:
  
 <p style='margin-left:1em;'>
 
-- **Muestra train** de $\hspace{0.1cm}n\hspace{0.1cm}$ observaciones  del predictor $\hspace{0.1cm}\mathcal{X}_j\\$
+- **Muestra train** de $n$ observaciones  del predictor $\mathcal{X}_j$ :
 
-$$X_j^{train} \hspace{0.1cm}=\hspace{0.1cm} \left(\hspace{0.1cm}x_{1j}^{train},...,x_{nj}^{train}\hspace{0.1cm} \right)^t \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.1cm} j\in \lbrace 1,...,p \rbrace \\[0.4cm]$$
+$$X_j^{train} \hspace{0.1cm}=\hspace{0.1cm} (\hspace{0.1cm} x_{1j}^{train},...,x_{nj}^{train}\hspace{0.1cm} )^t \hspace{0.3cm} , \hspace{0.3cm} j\in \lbrace 1,...,p \rbrace \\[0.4cm]$$
 
-- **Muestra train** de $\hspace{0.1cm}n\hspace{0.1cm}$ observaciones de la respuesta $\hspace{0.1cm}\mathcal{Y}$
+- **Muestra train** de $n$ observaciones de la respuesta $\mathcal{Y}$ :
 
-$$Y^{train}= \left(\hspace{0.1cm}y_{1}^{train},...,y_n^{train}\hspace{0.1cm}\right)^t \\[0.4cm]$$
+$$Y^{train} \hspace{0.1cm}=\hspace{0.1cm} \left(\hspace{0.1cm}y_{1}^{train},...,y_n^{train}\hspace{0.1cm}\right)^t \\[0.4cm]$$
 
-- **Train-set**
+- **Train-set** :
 
-$$D_{train}\hspace{0.1cm}=\hspace{0.1cm}[\hspace{0.1cm}X_1^{train},...,X_p^{train}, Y^{train}\hspace{0.1cm}]\hspace{0.1cm} =\hspace{0.1cm}  \begin{pmatrix}
+$$D_{train}\hspace{0.1cm}=\hspace{0.1cm}[\hspace{0.1cm}X_1^{train}\hspace{0.03cm},...,\hspace{0.03cm}X_p^{train} \hspace{0.03cm},\hspace{0.03cm} Y^{train}\hspace{0.1cm}]\hspace{0.1cm} = \\[1cm] =\hspace{0.1cm}  \begin{pmatrix}
     x_{11}^{train} &x_{12}^{train}&...&x_{1p}^{train}& y_1^{train}\\
     x_{21}^{train}&x_{22}^{train}&...&x_{2p}^{train} & y_2^{train}\\
     &...&\\
@@ -218,7 +220,7 @@ $$D_{train}\hspace{0.1cm}=\hspace{0.1cm}[\hspace{0.1cm}X_1^{train},...,X_p^{trai
     x_{2}^{train}& y_2^{train}\\
     ...&...\\
     x_{n}^{train}& y_n^{train}
-    \end{pmatrix}$$
+    \end{pmatrix} \\$$
 
 </p>
  
@@ -229,18 +231,18 @@ $$D_{train}\hspace{0.1cm}=\hspace{0.1cm}[\hspace{0.1cm}X_1^{train},...,X_p^{trai
 
 **Observaciones:**
 
-- La fila $\hspace{0.1cm} i\hspace{0.1cm}$ de $\hspace{0.1cm}D_{train}\hspace{0.1cm}$ , es decir, $\hspace{0.1cm}\left(x_i^{train},y_i^{train}\right) = \left(x_{i1}^{train}, x_{i2}^{train},...,x_{ip}^{train}, y_i^{train}\right)\hspace{0.1cm}$, es la $\hspace{0.1cm}i$-esima **observación de train** de los predictores y la respuesta $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p \hspace{0.1cm},\hspace{0.1cm} \mathcal{Y} \\$
+- La fila $i$ de $D_{train}$ , es decir, $\left(x_i^{train},y_i^{train}\right) = \left(x_{i1}^{train}, x_{i2}^{train},...,x_{ip}^{train}, y_i^{train}\right)\hspace{0.1cm}$, es la $\hspace{0.1cm}i$-esima **observación de train** de los predictores y la respuesta $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p \hspace{0.1cm},\hspace{0.1cm} \mathcal{Y}$.
 
-- $D_{train}\hspace{0.08cm}$ también es llamada simplemente **observaciones de train** de $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm},\hspace{0.1cm} \mathcal{Y}$
+- $D_{train}$ también es llamada simplemente **observaciones de train** de $\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm},\hspace{0.1cm} \mathcal{Y}$.
 
 
 <br>
 
 ## Predicciones de train
 
-Como $\hspace{0.1cm}M\hspace{0.1cm}$ es un modelo de aprendizaje supervisado es capaz de, una vez es entrenado  con las observaciones de   $\hspace{0.08cm}D_{train}=[X_1^{train},...,X_p^{train}, Y^{train}]\hspace{0.08cm}$ , generar predicciones de la variable respuesta $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$, tanto para las **observaciones de train** de los predictores como para  **nuevas observaciones**.
+Como $M$ es un modelo de aprendizaje supervisado es capaz de, una vez es entrenado  con las observaciones de   $D_{train}=[X_1^{train},...,X_p^{train}, Y^{train}]$ , generar predicciones de la variable respuesta $\mathcal{Y}$, tanto para las **observaciones de train** de los predictores como para  **nuevas observaciones**.
 
-Notese que $\hspace{0.1cm}M\hspace{0.1cm}$ nos interesa realmente para predecir la variable respuesta para **nuevas observaciones** de los predictores, es decir, para predecir la respuesta para individuos/elementos de los que solo tenemos información de los predictores.  
+Notese que $M$ nos interesa realmente para predecir la variable respuesta para **nuevas observaciones** de los predictores, es decir, para predecir la respuesta para individuos/elementos de los que solo tenemos información de los predictores.  
 
 
 <br>

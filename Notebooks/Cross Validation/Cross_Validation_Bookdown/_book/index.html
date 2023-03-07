@@ -218,21 +218,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="warning" style="background-color:#FCF2EC; color: #000000; border-left: solid #FE9554 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:10em;">
-<p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Más artículos: <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://fabioscielzoortiz.github.io/Estadistica4all.github.io/">Estadistica4all</a></strong></p>
-<p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Autor:</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://estadistica4all.com/autores/informaci%C3%B3n.html">Fabio Scielzo Ortiz</a></p>
-<p><span class="math inline">\(\hspace{0.3cm}\)</span> <strong>Si utilizas este artículo, por favor, cítalo:</strong></p>
+<ul>
+<li><p><strong>Más artículos: <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://estadistica4all.com/">Estadistica4all</a></strong></p></li>
+<li><p><strong>Autor:</strong> <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://estadistica4all.com/creador.html">Fabio Scielzo Ortiz</a></p></li>
+<li><p><strong>Si utilizas este artículo, por favor, cítalo:</strong></p></li>
+</ul>
 <p><span class="math inline">\(\hspace{0.5cm}\)</span> Scielzo Ortiz, F. (2022). Algoritmos de validación cruzada. Estadistica4all. <a href="http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html" class="uri">http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html</a></p>
 </p>
 </p>
 <p></span></p>
 </div>
-<p><strong><em>Se recomienda abrir el artículo en un ordenador o en una tablet.</em></strong></p>
+<p><br></p>
+<p><strong><em>Se recomienda abrir el artículo en un ordenador, en una tablet o en un móvil en versión de escritorio.</em></strong></p>
 <p><br></p>
 <p>Los algoritmos de validación son una familia muy importante de algoritmos dentro del aprendizaje estadístico o machine learning que permiten evaluar la capacidad predictiva de un modelo predictivo.</p>
 <p>Distinguiremos dos tipos de algoritmos de validación de modelos:</p>
 <ul>
-<li><p>Métodos de validación de modelos de <strong>aprendizaje supervisado</strong> <span class="math inline">\(\hspace{0.3cm} \Rightarrow\hspace{0.3cm}\)</span> son algoritmos que permiten evaluar modelos de aprendizaje supervisado usando <strong>muestras de test y train de los predictores y la respuesta</strong>, y una <strong>métrica de evaluación</strong>. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
-<li><p>Métodos de evaluación de modelos de <strong>aprendizaje no supervisado</strong> <span class="math inline">\(\hspace{0.3cm}\Rightarrow\hspace{0.3cm}\)</span> son algoritmos que permiten evaluar modelos de aprendizaje no supervisado usando una <strong>muestra de train de los predictores</strong> y una <strong>métrica de evaluación</strong>. <span class="math inline">\(\\[0.55cm]\)</span></p></li>
+<li><p>Métodos de validación de modelos de <strong>aprendizaje supervisado</strong> <span class="math inline">\(\hspace{0.3cm} \Rightarrow\hspace{0.3cm}\)</span> son algoritmos que permiten evaluar modelos de aprendizaje supervisado usando <strong>muestras de test y train de los predictores y la respuesta</strong>, y una <strong>métrica de evaluación</strong>.</p></li>
+<li><p>Métodos de evaluación de modelos de <strong>aprendizaje no supervisado</strong> <span class="math inline">\(\hspace{0.3cm}\Rightarrow\hspace{0.3cm}\)</span> son algoritmos que permiten evaluar modelos de aprendizaje no supervisado usando una <strong>muestra de train de los predictores</strong> y una <strong>métrica de evaluación</strong>.</p></li>
 </ul>
 <p><strong>Observación:</strong></p>
 <p>Los métodos de validación de modelos de <strong>aprendizaje supervisado</strong>
@@ -240,7 +243,7 @@ también son llamados <strong>métodos de validación cruzada</strong>. Aunque r
 <p><br></p>
 <p><strong>¿Por qué no se aplican los mismos métodos de validación a los modelos de aprendizaje supervisado y no supervisado?</strong></p>
 <p>Debido a que tienen unas características diferentes, en particular, en el aprendizaje supervisado se tienen datos de la variable respuesta, mientras que en el no supervisado no se dispone de información alguna.</p>
-<p>Si se quiere ver un planteamiento algo más detallado de los problemas de aprendizaje supervisado y no supervisado se recomienda leer el siguiente articulo de nuestro blog: <a href="http://estadistica4all.com/Articulos/Los-problemas-de-clasificaci%C3%B3n-y-regresi%C3%B3n.html">link</a>
+<p>Si se quiere ver un planteamiento algo más detallado de los problemas de aprendizaje supervisado y no supervisado se recomienda leer el artículo sobre ese tema que tenemos en <a href="https://estadistica4all.com/">Estadistica4all</a>
 <br></p>
 <p>Los métodos de evaluación son usados para dos propósitos, principalmente:</p>
 <ul>
@@ -258,11 +261,11 @@ también son llamados <strong>métodos de validación cruzada</strong>. Aunque r
 <p>Esta aproximación tiende a infra-estimar el error de predicción real del modelo, ya que se está prediciendo la respuesta para observaciones de los predictores que ya han sido “vistas” por el modelo, por ello el rendimiento del modelo al predecir la respuesta para estas observaciones tiende a ser mejor que si fueran observaciones con las que el modelo no ha sido entrenado (observaciones que no ha “visto” aún).</p>
 <p>Los métodos de validación de modelos predictivos <strong>supervisados</strong> tiene tres elementos:</p>
 <ul>
-<li><p>Muestras de <strong>train</strong> y <strong>test</strong> de los predictores y la respuesta. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
-<li><p>Una <strong>métrica de evaluación</strong>. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>Muestras de <strong>train</strong> y <strong>test</strong> de los predictores y la respuesta.</p></li>
+<li><p>Una <strong>métrica de evaluación</strong>.</p></li>
 <li><p>Un <strong>algoritmo</strong> para <strong>evaluar el modelo</strong> que usa los anteriores dos elementos de algún modo.</p></li>
 </ul>
-<p>Este artículo es básicamente un tour (teórico-práctico) sobre estos elementos.</p>
+<p>Este artículo es básicamente un tour teórico-práctico sobre estos elementos.</p>
 <p><br></p>
 </div>
             </section>
