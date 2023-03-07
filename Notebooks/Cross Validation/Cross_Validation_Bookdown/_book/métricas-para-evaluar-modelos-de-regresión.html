@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Métricas para evaluar modelos de regresión | Algoritmos de validación de modelos de aprendizaje supervisado</title>
+  <meta name="description" content="Esta es una introducción a los algoritmos de validación de modelos de aprendizaje supervisado." />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Métricas para evaluar modelos de regresión | Algoritmos de validación de modelos de aprendizaje supervisado" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Esta es una introducción a los algoritmos de validación de modelos de aprendizaje supervisado." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Métricas para evaluar modelos de regresión | Algoritmos de validación de modelos de aprendizaje supervisado" />
+  
+  <meta name="twitter:description" content="Esta es una introducción a los algoritmos de validación de modelos de aprendizaje supervisado." />
+  
+
+<meta name="author" content="Fabio Scielzo Ortiz" />
+
+
+<meta name="date" content="2023-03-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="muestras-de-train-y-test.html"/>
+<link rel="next" href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Algoritmos de validación de modelos de aprendizaje supervisado </a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="muestras-de-train-y-test.html"><a href="muestras-de-train-y-test.html"><i class="fa fa-check"></i><b>2</b> Muestras de train y test</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="muestras-de-train-y-test.html"><a href="muestras-de-train-y-test.html#train-set"><i class="fa fa-check"></i><b>2.1</b> Train-set</a></li>
+<li class="chapter" data-level="2.2" data-path="muestras-de-train-y-test.html"><a href="muestras-de-train-y-test.html#predicciones-de-train"><i class="fa fa-check"></i><b>2.2</b> Predicciones de train</a></li>
+<li class="chapter" data-level="2.3" data-path="muestras-de-train-y-test.html"><a href="muestras-de-train-y-test.html#test-set"><i class="fa fa-check"></i><b>2.3</b> Test-set</a></li>
+<li class="chapter" data-level="2.4" data-path="muestras-de-train-y-test.html"><a href="muestras-de-train-y-test.html#predicciones-de-test"><i class="fa fa-check"></i><b>2.4</b> Predicciones de test <a class="anchor" id="1"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html"><i class="fa fa-check"></i><b>3</b> Métricas para evaluar modelos de regresión</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#error-cuadrático-medio-ecm"><i class="fa fa-check"></i><b>3.1</b> Error cuadrático medio (ECM)</a></li>
+<li class="chapter" data-level="3.2" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#raiz-del-error-cuadrático-medio-recm"><i class="fa fa-check"></i><b>3.2</b> Raiz del error cuadrático medio (RECM)</a></li>
+<li class="chapter" data-level="3.3" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#error-cuadratico-relativo-ecr"><i class="fa fa-check"></i><b>3.3</b> Error cuadratico relativo (ECR)</a></li>
+<li class="chapter" data-level="3.4" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#coeficiente-de-determinación"><i class="fa fa-check"></i><b>3.4</b> Coeficiente de determinación</a></li>
+<li class="chapter" data-level="3.5" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#error-absoluto-medio-eam"><i class="fa fa-check"></i><b>3.5</b> Error absoluto medio (EAM)</a></li>
+<li class="chapter" data-level="3.6" data-path="métricas-para-evaluar-modelos-de-regresión.html"><a href="métricas-para-evaluar-modelos-de-regresión.html#error-absoluto-relativo-ear"><i class="fa fa-check"></i><b>3.6</b> Error absoluto relativo (EAR) <a class="anchor" id="1"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><i class="fa fa-check"></i><b>4</b> Métricas para evaluar modelos de clasificación supervisada</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#tasa-de-acierto-en-la-clasificación-tac"><i class="fa fa-check"></i><b>4.1</b> Tasa de acierto en la clasificación (TAC)</a></li>
+<li class="chapter" data-level="4.2" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#tasa-de-error-en-la-clasificación-tec"><i class="fa fa-check"></i><b>4.2</b> Tasa de error en la clasificación (TEC)</a></li>
+<li class="chapter" data-level="4.3" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#kappa"><i class="fa fa-check"></i><b>4.3</b> Kappa <a class="anchor" id="1"></a></a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="métricas-para-evaluar-modelos-de-clasificación-supervisada.html"><a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html#modelo-de-clasificación-aleatoria-uniforme"><i class="fa fa-check"></i><b>4.3.1</b> Modelo de clasificación aleatoria uniforme</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><i class="fa fa-check"></i><b>5</b> Algoritmos de validación de modelos de aprendizaje supervisado</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#validación-simple-no-aleatoria"><i class="fa fa-check"></i><b>5.1</b> Validación simple no aleatoria</a></li>
+<li class="chapter" data-level="5.2" data-path="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#validación-simple-aleatoria"><i class="fa fa-check"></i><b>5.2</b> Validación simple aleatoria</a></li>
+<li class="chapter" data-level="5.3" data-path="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#validación-simple-aleatoria-repetida"><i class="fa fa-check"></i><b>5.3</b> Validación simple aleatoria repetida</a></li>
+<li class="chapter" data-level="5.4" data-path="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#leave-one-out"><i class="fa fa-check"></i><b>5.4</b> Leave-one-out</a></li>
+<li class="chapter" data-level="5.5" data-path="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#k-fold"><i class="fa fa-check"></i><b>5.5</b> k-fold</a></li>
+<li class="chapter" data-level="5.6" data-path="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#repeted-k-fold"><i class="fa fa-check"></i><b>5.6</b> Repeted k-fold <a class="anchor" id="1"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="selección-de-modelos-basada-en-validación-cruzada.html"><a href="selección-de-modelos-basada-en-validación-cruzada.html"><i class="fa fa-check"></i><b>6</b> Selección de modelos basada en validación cruzada <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="7" data-path="algoritmos-de-validación-cruzada-programados-en-python.html"><a href="algoritmos-de-validación-cruzada-programados-en-python.html"><i class="fa fa-check"></i><b>7</b> Algoritmos de validación cruzada programados en <code>Python</code></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="algoritmos-de-validación-cruzada-programados-en-python.html"><a href="algoritmos-de-validación-cruzada-programados-en-python.html#validación-simple-no-aleatoria-1"><i class="fa fa-check"></i><b>7.1</b> Validación simple no aleatoria</a></li>
+<li class="chapter" data-level="7.2" data-path="algoritmos-de-validación-cruzada-programados-en-python.html"><a href="algoritmos-de-validación-cruzada-programados-en-python.html#validación-simple-aleatoria-1"><i class="fa fa-check"></i><b>7.2</b> Validación simple aleatoria</a></li>
+<li class="chapter" data-level="7.3" data-path="algoritmos-de-validación-cruzada-programados-en-python.html"><a href="algoritmos-de-validación-cruzada-programados-en-python.html#validación-simple-aleatoria-repetida-1"><i class="fa fa-check"></i><b>7.3</b> Validación simple aleatoria repetida</a></li>
+<li class="chapter" data-level="7.4" data-path="algoritmos-de-validación-cruzada-programados-en-python.html"><a href="algoritmos-de-validación-cruzada-programados-en-python.html#leave-one-out-1"><i class="fa fa-check"></i><b>7.4</b> Leave one out</a></li>
+<li class="chapter" data-level="7.5" data-path="algoritmos-de-validación-cruzada-programados-en-python.html"><a href="algoritmos-de-validación-cruzada-programados-en-python.html#k-fold-1"><i class="fa fa-check"></i><b>7.5</b> k-fold</a></li>
+<li class="chapter" data-level="7.6" data-path="algoritmos-de-validación-cruzada-programados-en-python.html"><a href="algoritmos-de-validación-cruzada-programados-en-python.html#repeated-k-folds"><i class="fa fa-check"></i><b>7.6</b> Repeated k-folds <a class="anchor" id="1"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="algoritmos-de-valicación-cruzada-con-sklearn.html"><a href="algoritmos-de-valicación-cruzada-con-sklearn.html"><i class="fa fa-check"></i><b>8</b> Algoritmos de valicación cruzada con <code>Sklearn</code></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="algoritmos-de-valicación-cruzada-con-sklearn.html"><a href="algoritmos-de-valicación-cruzada-con-sklearn.html#k-fold-2"><i class="fa fa-check"></i><b>8.1</b> k-fold</a></li>
+<li class="chapter" data-level="8.2" data-path="algoritmos-de-valicación-cruzada-con-sklearn.html"><a href="algoritmos-de-valicación-cruzada-con-sklearn.html#repeated-k-fold"><i class="fa fa-check"></i><b>8.2</b> Repeated k-fold <a class="anchor" id="1"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="comparación-final.html"><a href="comparación-final.html"><i class="fa fa-check"></i><b>9</b> Comparación final <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="10" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i><b>10</b> Bibliografía <a class="anchor" id="1"></a></a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Algoritmos de validación de modelos de aprendizaje supervisado</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="métricas-para-evaluar-modelos-de-regresión" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Métricas para evaluar modelos de regresión<a href="métricas-para-evaluar-modelos-de-regresión.html#métricas-para-evaluar-modelos-de-regresión" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Dado un modelo de regresión <span class="math inline">\(\hspace{0.05cm} M\hspace{0.05cm}\)</span> , existen varias métricas para evaluar la capacidad predictiva del modelo. Cada una de estas métricas tienen una versión de train (son calculadas usando las predicciones de train) y otra de test (son calculadas usando las predicciones de test).</p>
+<p>Se recomienda al lector haber leido previamente el articulo sobre <a href="http://estadistica4all.com/Articulos/Los-problemas-de-clasificaci%C3%B3n-y-regresi%C3%B3n.html">los problemas de regresión y clasificación supervisada y no supervisada.</a></p>
+<p>A continuación vamos a exponer las métricas de evaluación más habituales para <strong>modelos de regresión</strong>:</p>
+<div id="error-cuadrático-medio-ecm" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Error cuadrático medio (ECM)<a href="métricas-para-evaluar-modelos-de-regresión.html#error-cuadrático-medio-ecm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>ECM de train</strong></p>
+<p><span class="math display">\[ECM(M)_{train} \hspace{0.15cm}=\hspace{0.15cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} \left(\hspace{0.08cm} y_i^{\hspace{0.08cm}train} - \hat{y}_i^{\hspace{0.08cm}train} \hspace{0.08cm} \right)^2 \\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
+<ul>
+<li><p><span class="math inline">\(y_i^{test}\hspace{0.1cm}\)</span> es la <strong>observación de test</strong> <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la variable respuesta, es decir, <span class="math inline">\(\hspace{0.15cm}y_i^{test} \hspace{0.1cm}=\hspace{0.1cm} Y^{test}[\hspace{0.1cm} i\hspace{0.1cm}]\\\)</span></p></li>
+<li><p><span class="math inline">\(\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M\left(\hspace{0.1cm} x_i^{test} \hspace{0.15cm}|\hspace{0.15cm} X_1^{train},...,X_p^{train}, Y^{train}\hspace{0.1cm} \right)\\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.2cm} n \hspace{0.1cm}=\hspace{0.1cm} \# \hspace{0.1cm} Y^{train} \\\)</span></p></li>
+</ul>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>ECM de test</strong></p>
+<p><span class="math display">\[ECM(M)_{test} \hspace{0.15cm} =\hspace{0.15cm} \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} \right)^2\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
+<ul>
+<li><p><span class="math inline">\(y_i^{test}\hspace{0.1cm}\)</span> es la observación de test <span class="math inline">\(\hspace{0.1cm}i\)</span>-esima de la variable respuesta, es decir, <span class="math inline">\(\hspace{0.15cm}y_i^{test} \hspace{0.1cm}=\hspace{0.1cm} Y^{test}[\hspace{0.1cm} i \hspace{0.1cm}] \\\)</span></p></li>
+<li><p><span class="math inline">\(\hat{y}_i^{test} \hspace{0.1cm}=\hspace{0.1cm} M\left(\hspace{0.1cm} x_i^{test} \hspace{0.15cm}|\hspace{0.15cm} X_1^{train},...,X_p^{train}, Y^{train} \hspace{0.1cm} \right)\\\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.2cm} h\hspace{0.1cm}=\hspace{0.1cm}\# \hspace{0.1cm} Y^{test}\)</span></p></li>
+</ul>
+<p><br></p>
+<p><strong>Observación:</strong></p>
+<p>El <span class="math inline">\(\hspace{0.08cm} ECM\hspace{0.08cm}\)</span> tiene se mide en la unidad de medida que la respuesta <strong>al cuadrado</strong>. <span class="math inline">\(\\[0.7cm]\)</span></p>
+<p><strong>Interpretación:</strong></p>
+<p>Cuanto menor sea <span class="math inline">\(\hspace{0.08cm}ECM(M)_{test}\hspace{0.08cm}\)</span> , mayor capacidad predictiva del modelo <span class="math inline">\(\hspace{0.08cm}M\hspace{0.08cm}\)</span>, y a la inversa.</p>
+<p><br></p>
+<p><strong>¿Por qué el ECM es tan usado en la práctica?</strong></p>
+<p>Teóricamente puede demostraste que en un modelo de regresión el error cuadrático medio de la predicción puede descomponerse como sigue: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[ECM(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm}) = E\hspace{0.1cm}[\hspace{0.1cm}(\mathcal{Y} - \widehat{\mathcal{Y}})^2\hspace{0.1cm}]\hspace{0.1cm} =\hspace{0.1cm} Var(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm}) \hspace{0.1cm}+\hspace{0.1cm} Sesgo(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm})^2 \hspace{0.1cm}+\hspace{0.1cm} \sigma_{\varepsilon}^2 \\\]</span></p>
+<p>Donde:</p>
+<ul>
+<li><p><span class="math inline">\(Var(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm})\hspace{0.1cm} =\hspace{0.1cm} E[\hspace{0.1cm}(\hspace{0.08cm}\widehat{\mathcal{Y}} - E[\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm}]\hspace{0.08cm})^2\hspace{0.1cm}]\hspace{0.1cm}\)</span> es la varianza de las predicciones del modelo. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p><span class="math inline">\(Sesgo(\hspace{0.08cm}\widehat{\mathcal{Y}}\hspace{0.08cm})\hspace{0.1cm}=\hspace{0.1cm}E[\hspace{0.08cm}\hspace{0.1cm}\widehat{\mathcal{Y}}\hspace{0.1cm}] \hspace{0.1cm}-\hspace{0.1cm} \mathcal{Y}\hspace{0.15cm}\)</span> es el sesgo de las predicciones del modelo.<span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p><span class="math inline">\(\sigma_{\varepsilon}^2\hspace{0.1cm}\)</span> es la varianza del ruido aleatorio o perturbación del modelo. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+</ul>
+<p>Por tanto, en un modelo de regresion, el ECM del estimador de la respuesta puede descomponerse como la suma de la varianza y sesgo al cuadrado de dicho estimador de la respuesta, y tambien de la varianza del ruido aleatorio del modelo.</p>
+<p>Los dos primeros terminos (varianza y sesgo del estimador de la respuesta) pueden se reducidos, en función del modelo utilizado. En cambio el tercer componente (la varianza del ruido) es irreducible, no depende del modelo.</p>
+<p>Esta propiedad del ECM es una de las razones por las que es tan usado, ya que nos da información sobre el ratio varianza-sego de las predicciones de un modelo.</p>
+<p>Un modelo con baja varianza y sesgo en sus predicciones tendra bajo ECM.</p>
+<p>Un modelo con alta varianza o alto sesgo en sus predicciones tendra alto ECM.</p>
+<p>Los modelos con menor ECM de entre una colección de modelos serán aquellos con un mayor equilibrio en el ratio varianza-sesgo en sus predicciones.</p>
+<p>Un modelo con mucha varianza en sus predicciones es un modelo cuyas predicciones sobre la respuesta varian mucho de una muestra de train a otra. Es decir, al ser entrenado con múltiples muestras, las predicciones que el modelo hace de la respuesta usando una determinada muestra fija de test varían mucho de un modelo entrenado a otro. En un modelo con poca varianza en sus predicciones ocurre al revés, la precisión de sus predicciones es alta en el sentido de que varian poco en funcion de la muestra de train empleada. Otra cuestión es si estas predicciones son mas o menos acertadas (esto tiene que ver mas con el sesgo).</p>
+<p>Un modelo con mucho sesgo en sus predicciones es un modelo cuyas predicciones sobre la respuesta están en media muy lejos de los verdaderos valores de la respuesta. Es decir, si el modelo es entrenado con múltiples muestras de train y se predice la respuesta para una muestra fija de test, la media de las predicciones de la respuesta obtenidas con cada uno de los modelos entrenados aleja bastante de la verdadera respuesta.
+En cambio un modelo con bajo sesgo genera predicciones que en media son bastante acertadas. Es decir, si se entrena el modelo con múltiples muestras de train y se predice la respuesta usando una muestra fija de test, la media de esas predicciones obtenidas con cada uno de los modelos entrenados es bastante cercana a la respuesta real.</p>
+<p><br></p>
+</div>
+<div id="raiz-del-error-cuadrático-medio-recm" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Raiz del error cuadrático medio (RECM)<a href="métricas-para-evaluar-modelos-de-regresión.html#raiz-del-error-cuadrático-medio-recm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>RECM de train:</strong></p>
+<p><span class="math display">\[RECM(M)_{train} \hspace{0.08cm}=\hspace{0.08cm} \sqrt{\dfrac{1}{n} \sum_{i=1}^n \hspace{0.1cm} \left(y_i^{train} - \hat{y}_i^{train}\right)^2 \hspace{0.2cm}} \\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>RECM de test:</strong></p>
+<p><span class="math display">\[RECM(M)_{test} \hspace{0.08cm}=\hspace{0.08cm} \sqrt{ \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_{i} ^{\hspace{0.1cm} test} \hspace{0.1cm} \right)^2 \hspace{0.2cm}} \\[0.2cm]\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<p><strong>Observación:</strong></p>
+<p>El <span class="math inline">\(\hspace{0.08cm}RECM\hspace{0.08cm}\)</span> tiene la misma unidad de medida que la respuesta. <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><strong>Interpretación:</strong></p>
+<p>Cuanto menor sea <span class="math inline">\(\hspace{0.08cm}RECM(M)_{test}\hspace{0.08cm}\)</span> , mayor bondad predictiva del modelo <span class="math inline">\(\hspace{0.08cm}M\hspace{0.08cm}\)</span>, y a la inversa.</p>
+<p><br></p>
+</div>
+<div id="error-cuadratico-relativo-ecr" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Error cuadratico relativo (ECR)<a href="métricas-para-evaluar-modelos-de-regresión.html#error-cuadratico-relativo-ecr" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>ECR de train:</strong></p>
+<p><span class="math display">\[ECR(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.5cm} \sum_{i=1}^n \hspace{0.1cm} \left( y_i^{train}- \hat{y}_i^{train} \right)^2 \hspace{0.5cm}}{\sum_{i=1}^n \left( y_i^{train} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} train} \right)^2 }  \\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>ECR de test:</strong></p>
+<p><span class="math display">\[ECR(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{ \hspace{0.5cm} \sum_{i=1}^h \hspace{0.1cm} \left(\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm}\right)^2 \hspace{0.5cm}    }{\sum_{i=1}^h \left(\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \overline{Y \hspace{0.1cm}}^{\hspace{0.1cm} test} \hspace{0.1cm} \right)^2 } \\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><strong>Interpretación:</strong></p>
+<p>Cuanto menor sea <span class="math inline">\(\hspace{0.08cm}ECR(M)_{test}\hspace{0.08cm}\)</span> , mayor bondad predictiva del modelo <span class="math inline">\(\hspace{0.08cm}M\hspace{0.08cm}\)</span>, y a la inversa.</p>
+<p><br></p>
+</div>
+<div id="coeficiente-de-determinación" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Coeficiente de determinación<a href="métricas-para-evaluar-modelos-de-regresión.html#coeficiente-de-determinación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Coeficiente de determinación de train:</strong></p>
+<p><span class="math display">\[R(M)^2_{train} \hspace{0.1cm}=\hspace{0.1cm} 1 - ECR(M)_{train} \\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Coeficiente de determinación de train:</strong></p>
+<p><span class="math display">\[R(M)^2_{test} \hspace{0.1cm}=\hspace{0.1cm} 1 - ECR(M)_{test} \\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><strong>Interpretación:</strong></p>
+<p>Cuanto mayor sea <span class="math inline">\(\hspace{0.05cm}R(M)^2_{test}\hspace{0.05cm}\)</span> , mayor bondad predictiva del modelo <span class="math inline">\(\hspace{0.05cm}M\hspace{0.05cm}\)</span>, y a la inversa.</p>
+<p><br></p>
+</div>
+<div id="error-absoluto-medio-eam" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Error absoluto medio (EAM)<a href="métricas-para-evaluar-modelos-de-regresión.html#error-absoluto-medio-eam" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>EAM de train:</strong></p>
+<p><span class="math display">\[EAM(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.1cm} \left|\hspace{0.1cm} y_i^{train} - \hat{y}_i^{train} \hspace{0.1cm}\right| \\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>EAM de test:</strong></p>
+<p><span class="math display">\[EAM(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{h} \cdot \sum_{i=1}^h \hspace{0.1cm} \left| \hspace{0.1cm} y_i^{\hspace{0.1cm}test} - \hat{y}_i^{\hspace{0.1cm}test} \hspace{0.1cm} \right|\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+</div>
+<div id="error-absoluto-relativo-ear" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Error absoluto relativo (EAR) <a class="anchor" id="1"></a><a href="métricas-para-evaluar-modelos-de-regresión.html#error-absoluto-relativo-ear" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>EAR de train:</strong></p>
+<p><span class="math display">\[EAR(M)_{train} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\sum_{i=1}^n \hspace{0.1cm} \left|\hspace{0.1cm} y_i^{train} - \hat{y}_i^{\hspace{0.08cm} train} \hspace{0.1cm} \right| \hspace{0.2cm} }{\sum_{i=1}^n \hspace{0.1cm} \left| \hspace{0.1cm} y_i^{train} - \overline{y}^{train} \hspace{0.1cm} \right| \hspace{0.1cm}}  \\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>EAR de test:</strong></p>
+<p><span class="math display">\[EAR(M)_{test} \hspace{0.1cm}=\hspace{0.1cm} \dfrac{ \sum_{i=1}^h \hspace{0.1cm} \hspace{0.1cm} \left| \hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \hat{y}_i^{\hspace{0.1cm} test} \hspace{0.1cm} \right| \hspace{0.2cm}  }{\sum_{i=1}^h \hspace{0.1cm}\left|\hspace{0.1cm} y_i^{\hspace{0.1cm} test} - \overline{y}^{\hspace{0.1cm} test} \hspace{0.1cm}\right|\hspace{0.1cm}}\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="muestras-de-train-y-test.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="métricas-para-evaluar-modelos-de-clasificación-supervisada.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
