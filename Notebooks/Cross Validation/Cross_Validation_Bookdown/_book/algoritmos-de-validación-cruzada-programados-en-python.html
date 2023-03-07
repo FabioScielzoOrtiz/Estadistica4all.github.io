@@ -171,7 +171,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5" data-path="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#k-fold"><i class="fa fa-check"></i><b>5.5</b> k-fold</a></li>
 <li class="chapter" data-level="5.6" data-path="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html"><a href="algoritmos-de-validación-de-modelos-de-aprendizaje-supervisado.html#repeted-k-fold"><i class="fa fa-check"></i><b>5.6</b> Repeted k-fold</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="selección-de-modelos-basada-en-validación-cruzada.html"><a href="selección-de-modelos-basada-en-validación-cruzada.html"><i class="fa fa-check"></i><b>6</b> Selección de modelos basada en validación cruzada <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="6" data-path="selección-de-modelos-basada-en-validación-cruzada.html"><a href="selección-de-modelos-basada-en-validación-cruzada.html"><i class="fa fa-check"></i><b>6</b> Selección de modelos basada en validación cruzada</a></li>
 <li class="chapter" data-level="7" data-path="algoritmos-de-validación-cruzada-programados-en-python.html"><a href="algoritmos-de-validación-cruzada-programados-en-python.html"><i class="fa fa-check"></i><b>7</b> Algoritmos de validación cruzada programados en <code>Python</code></a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="algoritmos-de-validación-cruzada-programados-en-python.html"><a href="algoritmos-de-validación-cruzada-programados-en-python.html#validación-simple-no-aleatoria-1"><i class="fa fa-check"></i><b>7.1</b> Validación simple no aleatoria</a></li>
@@ -218,26 +218,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-5"><a href="algoritmos-de-validación-cruzada-programados-en-python.html#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="algoritmos-de-validación-cruzada-programados-en-python.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.utils <span class="im">import</span> resample</span>
 <span id="cb1-7"><a href="algoritmos-de-validación-cruzada-programados-en-python.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> NearestNeighbors</span></code></pre></div>
+<p><br></p>
 <p>Cargamos los datos con los que vamos a trabajar, los cuales fueron detallados en nuestro artículo sobre <a href="http://estadistica4all.com/Articulos/Linear-Regression-new.html">regresión lineal</a></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="algoritmos-de-validación-cruzada-programados-en-python.html#cb2-1" aria-hidden="true" tabindex="-1"></a>Data <span class="op">=</span> pd.read_csv(<span class="st">&#39;House_Price_Regression.csv&#39;</span>)</span>
 <span id="cb2-2"><a href="algoritmos-de-validación-cruzada-programados-en-python.html#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="algoritmos-de-validación-cruzada-programados-en-python.html#cb2-3" aria-hidden="true" tabindex="-1"></a>Data <span class="op">=</span> Data.loc[:, [<span class="st">&#39;no_of_bedrooms&#39;</span> , <span class="st">&#39;no_of_bathrooms&#39;</span>, <span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;longitude&#39;</span>, <span class="st">&#39;price&#39;</span>, <span class="st">&#39;size_in_m_2&#39;</span>, <span class="st">&#39;balcony_recode&#39;</span>, <span class="st">&#39;private_garden_recode&#39;</span>, <span class="st">&#39;quality_recode&#39;</span>]]</span>
 <span id="cb2-4"><a href="algoritmos-de-validación-cruzada-programados-en-python.html#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="algoritmos-de-validación-cruzada-programados-en-python.html#cb2-5" aria-hidden="true" tabindex="-1"></a>Data.head()</span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
 <thead>
 <tr style="text-align: right;">
@@ -436,6 +424,7 @@ quality_recode
 </tbody>
 </table>
 </div>
+<p><br></p>
 <p>A continuación se van a programar los algoritmos de validación cruzada que se han expuesto a nivel teórico anteriormente.</p>
 <p>Además se probarán los algoritmos con el modelo KNN tanto en su versión para regresión como para clasificación.</p>
 <p><br></p>

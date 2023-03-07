@@ -53,6 +53,14 @@ github-repo: rstudio/bookdown-demo
 # Introducción
 
 
+<center>
+
+![](validacion_cruzada.jpg){width="60%"}
+
+</center>
+
+<br>
+
 <div class="warning" style='background-color:#FCF2EC; color: #000000; border-left: solid #FE9554 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
@@ -1659,7 +1667,7 @@ La métrica de validación calculada por repeted k-fold tiene menor varianza que
 <br>
 
 
-# Selección de modelos basada en validación cruzada  <a class="anchor" id="1"></a>
+# Selección de modelos basada en validación cruzada 
 
 
 
@@ -1733,6 +1741,7 @@ from sklearn.utils import resample
 from sklearn.neighbors import NearestNeighbors
 ```
 
+<br>
 
 Cargamos los datos con los que vamos a trabajar, los cuales fueron detallados en nuestro artículo sobre [regresión lineal](http://estadistica4all.com/Articulos/Linear-Regression-new.html)
 
@@ -1746,20 +1755,7 @@ Data.head()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1841,7 +1837,7 @@ Data.head()
 </div>
 
 
-
+<br>
 
 
 A continuación se van a programar los algoritmos de validación cruzada que se han expuesto a nivel teórico anteriormente.
