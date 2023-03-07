@@ -2178,6 +2178,7 @@ input, select, textarea {
 	background-image: url("/images/fondo4.jpg");
 	background-position: center top;
 	background-repeat: no-repeat;
+	background-size: 100% auto;
 	text-align: center;
 	position: relative;
 	padding: 8em 0;
