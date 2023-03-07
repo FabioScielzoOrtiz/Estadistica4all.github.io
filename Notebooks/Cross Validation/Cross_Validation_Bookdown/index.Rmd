@@ -73,7 +73,7 @@ github-repo: rstudio/bookdown-demo
 
 - **Si utilizas este artículo, por favor, cítalo:** 
 
-$\hspace{0.5cm}$ Scielzo Ortiz, F. (2022). Algoritmos de validación cruzada. Estadistica4all. http://estadistica4all.com/Articulos/Algoritmos-de-validacion-cruzada.html
+$\hspace{1.5cm}$ Scielzo Ortiz, F. (2022). Algoritmos de validación cruzada. Estadistica4all. 
 
 
 </p>
@@ -130,11 +130,11 @@ En otros artículos estudiaremos métodos para selección de modelos y  ajuste d
 
 En este articulo vamos a estudiar los **métodos de validación de modelos de aprendizaje supervisado**. Los métodos de validación de modelos de aprendizaje no supervisado serán estudiados en otro artículo.
 
-Por lo que consideraremos que $\hspace{0.1cm} M \hspace{0.1cm}$ representa un **modelo o algoritmo de aprendizaje supervisado**, como por ejemplo el modelo de regresión lineal, regresión logistica, regresión no lineal, regresión lineal penalizada, arboles de regresión y clasificación, KNN , SVM, redes neuronales ...
+Por lo que consideraremos que $\hspace{0.01cm} M \hspace{0.01cm}$ representa un **modelo o algoritmo de aprendizaje supervisado**, como por ejemplo el modelo de regresión lineal, regresión logistica, regresión no lineal, regresión lineal penalizada, arboles de regresión y clasificación, KNN , SVM, redes neuronales ...
 
 Notese que en este articulo no se consideran modelos estadísticos predictivos no supervisados como son los modelos de clustering como K-medias, K-medoids, modelos jerarquicos, modelos basados en densidades ...
  
-Nos interesa tener un método a través del cual pueda evaluarse la capacidad o poder predictivo del modelo de aprendizaje supervisado $\hspace{0.1cm}M\hspace{0.1cm}$.
+Nos interesa tener un método a través del cual pueda evaluarse la capacidad o poder predictivo del modelo de aprendizaje supervisado $\hspace{0.01cm}M\hspace{0.01cm}$.
 
 Una aproximación naive es evaluar el poder predictivo del modelo usando dos elementos. Por un lado los datos disponibles de la variable respuesta, y por otro las predicciones que el modelo hace para los datos de los predcitores con los que el modelo ha sido entrenado. 
 
@@ -1743,7 +1743,7 @@ from sklearn.neighbors import NearestNeighbors
 
 <br>
 
-Cargamos los datos con los que vamos a trabajar, los cuales fueron detallados en nuestro artículo sobre [regresión lineal](http://estadistica4all.com/Articulos/Linear-Regression-new.html)
+Cargamos los datos con los que vamos a trabajar, los cuales fueron detallados en nuestro artículo sobre regresión lineal.
 
 ```python
 Data = pd.read_csv('House_Price_Regression.csv')
@@ -1906,12 +1906,17 @@ class NotRandomSimpleValidation :
 
 ```
 
+<br>
+
+### Ejemplo de aplicación a KNN para regresión
+
 Definimos el modelo KNN para regresión con el que vamos a testear el algoritmo que se acaba de programar:
 
 ```python
 knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, metric='minkowski')
 ```
 
+<br>
 
 Aplicamos el algoritmo de validación sobre el modelo KNN para regresión, usando como métrica de validación el error cuadratico medio (ECM):
 
@@ -1936,6 +1941,8 @@ ECM_test_Not_Random_Simple_Validation
 
 <br>
 
+### Ejemplo de aplicación a KNN para clasificación
+
  
 
 Definimos el modelo KNN para clasificación con el que vamos a testear el algoritmo que se acaba de programar:
@@ -1943,6 +1950,8 @@ Definimos el modelo KNN para clasificación con el que vamos a testear el algori
 ```python
 knn_classification_init = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10,  p=2, metric='minkowski')
 ```
+
+<br>
 
 
 Aplicamos el algoritmo de validación simple no aleatoria sobre el modelo KNN para clasificación, usando como métrica de validación la tasa de acierto (TA):
@@ -2034,6 +2043,9 @@ class RandomSimpleValidation :
             return self.TAC_test
 ```
 
+<br>
+
+### Ejemplo de aplicación a KNN para regresión
 
 Definimos el modelo KNN para regresión con el que vamos a testear el algoritmo que se acaba de programar:
 
@@ -2041,6 +2053,7 @@ Definimos el modelo KNN para regresión con el que vamos a testear el algoritmo 
 knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, metric='minkowski')
 ```
 
+<br>
 
 Aplicamos el algoritmo de validación simple aleatoria sobre el modelo KNN para regresión, usando como métrica de validación el error cuadratico medio (ECM):
 
@@ -2062,15 +2075,19 @@ ECM_test_Random_Simple_Validation
 
     2464363295205.937
 
+
+
 <br>
 
-
+### Ejemplo de aplicación a KNN para clasifación
 
 Definimos el modelo KNN para clasificacion con el que vamos a testear el algoritmo que se acaba de programar:
 
 ```python
 knn_classification_init = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=2, metric='minkowski')
 ```
+
+<br>
 
 Aplicamos el algoritmo de validación simple aleatoria sobre el modelo KNN para clasificación, usando como métrica de validación la tasa de acierto (TA):
 
@@ -2158,7 +2175,9 @@ class RepeatedRandomSimpleValidation :
         return self.Metric_test
 ```
 
+<br>
 
+### Ejemplo de aplicación a KNN para regresión
 
 Definimos el modelo KNN para regresión con el que vamos a testear el algoritmo que se acaba de programar:
 
@@ -2166,7 +2185,10 @@ Definimos el modelo KNN para regresión con el que vamos a testear el algoritmo 
 knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, metric='minkowski')
 ```
 
-Aplicamos el algoritmo de validación simple aleatoria repetida sobre el modelo KNN para regresión, usando como métrica de validación el error cuadratico medio (ECM):
+<br>   
+
+
+Aplicamos el algoritmo de validación simple aleatoria repetida sobre el modelo KNN para regresión, usando como métrica de validación el error cuadrático medio (ECM):
 
 ```python
 RepeatedRandomSimpleValidation_init = RepeatedRandomSimpleValidation(B=200, k=0.75, metric='ECM', model=knn_regression_init, random_seed=123)
@@ -2186,15 +2208,18 @@ ECM_test_Repeated_Random_Simple_Validation
     2273253730249.1133
 
 
- <br>   
 
+<br>
 
+### Ejemplo de aplicación a KNN para clasificación
 
 Definimos el modelo KNN para clasificación con el que vamos a testear el algoritmo que se acaba de programar:
 
 ```python
 knn_classification_init = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10,  p=2, metric='minkowski')
 ```
+
+<br>   
 
 Aplicamos el algoritmo de validación simple aleatoria repetida sobre el modelo KNN para clasificación, usando como métrica de validación la tasa de acierto (TA):
 
@@ -2284,6 +2309,9 @@ class LeaveOneOutValidation:
             return np.mean(self.TA_test_list)
 ```
 
+<br>
+
+### Ejemplo de aplicación a KKN para regresión
 
 
 Definimos el modelo KNN para regresión con el que vamos a testear el algoritmo que se acaba de programar:
@@ -2291,6 +2319,8 @@ Definimos el modelo KNN para regresión con el que vamos a testear el algoritmo 
 ```python
 knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10, p=2, metric='minkowski')
 ```
+
+<br>
 
 Aplicamos el algoritmo de validación leave one out  sobre el modelo KNN para regresión, usando como métrica de validación el error cuadratico medio (ECM):
 
@@ -2312,12 +2342,18 @@ ECM_test_leave_one_out
 <br>
 
 
+<br>
+
+### Ejemplo de aplicación a KKN para clasificación
+
 Definimos el modelo KNN para clasificación con el que vamos a testear el algoritmo que se acaba de programar:
 
 
 ```python
 knn_classification_init = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10, p=2, metric='minkowski')
 ```
+
+<br>
 
 Aplicamos el algoritmo de validación leave one out  sobre el modelo KNN para clasificación, usando como métrica de validación la tasa de acierto (TAC):
 
@@ -2334,10 +2370,6 @@ TAC_test_leave_one_out
 ```
 
     0.5511811023622047
-
-
- 
-
 
 
 
@@ -2451,11 +2483,21 @@ class KFoldCV:
 ```
 
 
+
+<br>
+
+### Ejemplo de aplicación a KKN para regresión
+
+
+
+
 Definimos el modelo KNN para regresión con el que vamos a testear el algoritmo que se acaba de programar:
 
 ```python
 knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10 ,  p=2, metric='minkowski')
 ```
+
+<br>
 
 Aplicamos el algoritmo de validación cruzada K-fold  sobre el modelo KNN para regresión, usando como métrica de validación el error cuadrático medio (ECM):
 
@@ -2478,9 +2520,11 @@ ECM_K_Folds
 
     2220503635404.005
 
+ 
 
 <br>
 
+### Ejemplo de aplicación a KKN para clasificación
 
 Definimos el modelo KNN para clasificación con el que vamos a testear el algoritmo que se acaba de programar:
 
@@ -2488,6 +2532,8 @@ Definimos el modelo KNN para clasificación con el que vamos a testear el algori
 ```python
 knn_classification_init = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=2, metric='minkowski')
 ```
+
+<br>
 
 Aplicamos el algoritmo de validación cruzada K-fold  sobre el modelo KNN para clasificación, usando como métrica de validación la tasa de acierto (TA):
 
@@ -2515,7 +2561,7 @@ TAC_K_Folds
 
 <br>
 
-## Repeated k-folds  <a class="anchor" id="1"></a>
+## Repeated k-folds  
 
 
 ```python
@@ -2564,12 +2610,19 @@ class RepeatedKFoldCV:
         return  np.mean(self.Metric_Repeted_K_Folds_list)
 ```
 
+<br>
+
+### Ejemplo de aplicación a KKN para regresión
+
 Definimos el modelo KNN para regresión con el que vamos a testear el algoritmo que se acaba de programar:
 
 
 ```python
 knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=10, p=2, metric='minkowski')
 ```
+
+<br>
+
 
 Aplicamos el algoritmo de validación cruzada K-fold repetida sobre el modelo KNN para regresión, usando como métrica de validación el error cuadrático medio (ECM):
 
@@ -2592,11 +2645,18 @@ ECM_repeated_K_Folds
 <br>
 
 
+### Ejemplo de aplicación a KKN para clasificación
+
 Definimos el modelo KNN para clasificación con el que vamos a testear el algoritmo que se acaba de programar:
 
 ```python
 knn_classification_init = sklearn.neighbors.KNeighborsClassifier(n_neighbors=10 ,  p=2, metric='minkowski')
 ```
+
+
+<br>
+
+
 
 Aplicamos el algoritmo de validación cruzada K-fold repetida sobre el modelo KNN para clasificación, usando como métrica la tasa de acierto (TA):
 
@@ -2643,9 +2703,12 @@ Inicializamos el algoritmo k-fold. Usaremos los parámetros k=10 y un inicio ale
 cv_k_fold = KFold(n_splits=10, random_state=123, shuffle=True)
 ```
 
----
+<br>
 
-Vamos a aplicar el algoritmo de validacion k-fold   a un porblema de regresión usando la métrica ECM.
+
+### Aplicación a KNN para regresión
+
+Vamos a aplicar el algoritmo de validación k-fold   a un problema de regresión usando la métrica ECM.
 
 
 
@@ -2672,9 +2735,12 @@ ECM_K_Folds_sklearn
     2220103512647.2095
 
 
----
+<br>
 
-Vamos a aplicar el algoritmo de validacion k-fold   a un porblema de clasificación supervisada usando la métrica TAC.
+
+### Aplicación a KNN para clasificación
+
+Vamos a aplicar el algoritmo de validación k-fold   a un problema de clasificación supervisada usando la métrica TAC.
 
 
 Creamos por un lado el vector de la respuesta y por otro la matriz de los predictores. En este caso la respuesta es la variable *quality_recode*, y los predictores son el resto de variables.
@@ -2703,7 +2769,7 @@ TAC_K_Folds_sklearn
 
 <br>
 
-## Repeated k-fold  <a class="anchor" id="1"></a>
+## Repeated k-fold  
 
  
 Inicializamos el algoritmo repeated k-fold. Usaremos los parámetros k=10, un número de 100 repeticiones y un inicio aleatorio con semilla 123.
@@ -2712,7 +2778,10 @@ Inicializamos el algoritmo repeated k-fold. Usaremos los parámetros k=10, un n�
 cv_repeated_k_fold = RepeatedKFold(n_splits=10, n_repeats=100, random_state=123)
 ```
 
----
+<br>
+
+
+### Aplicación a KNN para regresión
 
 Vamos a aplicar el algoritmo de validacion k-fold   a un problema de **regresión** usando la métrica TAC.
 
@@ -2733,7 +2802,10 @@ ECM_repeated_K_Folds_sklearn
 
 
  
-----
+<br>
+
+
+### Aplicación a KNN para regresión
 
  
 
@@ -2760,7 +2832,7 @@ TAC_repeated_K_Folds_sklearn
 
 
 
-# Comparación final  <a class="anchor" id="1"></a>
+# Comparación final   
 
 Importamos las librerias de visualización de datos que usaremos para realizar la comparación final.
 
@@ -2768,6 +2840,9 @@ Importamos las librerias de visualización de datos que usaremos para realizar l
 import seaborn as sns
 import matplotlib.pyplot as plt
 ```
+<br>
+
+## Visualización aplicada a KNN para regresión
 
 Creamos un data-frame con los distintos valores de la métrica ECM obtenidos con los distintos algoritmos de validación utilizados:
 
@@ -2787,7 +2862,7 @@ fig.savefig('p3.jpg', format='jpg', dpi=1200)
 
 <center>
 
-![](p3.jpg){width="45%"}
+![](p3.jpg){width="60%"}
 
 </center>
 
@@ -2795,9 +2870,8 @@ fig.savefig('p3.jpg', format='jpg', dpi=1200)
 
 <br>
 
----
+## Visualización aplicada a KNN para clasificación
 
-<br>
 
 Creamos un data-frame con los distintos valores de la métrica TAC obtenidos con los distintos algoritmos de validación utilizados:
 
@@ -2818,7 +2892,7 @@ fig.savefig('p4.jpg', format='jpg', dpi=1200)
     
 <center>
 
-![](p4.jpg){width="45%"}
+![](p4.jpg){width="60%"}
 
 </center>
 
@@ -2826,12 +2900,9 @@ fig.savefig('p4.jpg', format='jpg', dpi=1200)
 
 
 <br>
+ 
 
-----
-
-<br>
-
-# Bibliografía <a class="anchor" id="1"></a>  
+# Bibliografía  
 
 
 - Amat Rodrigo, J. (Noviembre 2020). Validación de modelos predictivos: Cross-validation, OneLeaveOut, Bootstraping. *Cienciadedatos*.  
