@@ -16,35 +16,6 @@ github-repo: rstudio/bookdown-demo
  
  
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-    
- 
-    table {
-     display: block;
-     overflow-x: auto;
-     border-collapse: collapse;
-     border-spacing: 0;
-     border: 0px solid;
-     color: var(--jp-ui-font-color1);
-     font-size: 14px;
-     margin-left: auto;
-     margin-right: auto;
-     
-            }
-            
-</style>
 
 
 
@@ -95,9 +66,9 @@ Los algoritmos de validación son una familia muy importante de algoritmos dentr
 
 Distinguiremos dos tipos de algoritmos de validación de modelos:
 
-- Métodos de validación de modelos de **aprendizaje supervisado** $\hspace{0.3cm} \Rightarrow\hspace{0.3cm}$ son algoritmos que permiten evaluar modelos de aprendizaje supervisado usando **muestras de test y train de los predictores y la respuesta**, y una **métrica de evaluación**. 
+- Métodos de validación de modelos de **aprendizaje supervisado** $\hspace{0.1cm} \Rightarrow\hspace{0.1cm}$ son algoritmos que permiten evaluar modelos de aprendizaje supervisado usando **muestras de test y train de los predictores y la respuesta**, y una **métrica de evaluación**. 
 
-- Métodos de evaluación de modelos de **aprendizaje no supervisado** $\hspace{0.3cm}\Rightarrow\hspace{0.3cm}$ son algoritmos que permiten evaluar modelos de aprendizaje no supervisado usando una **muestra de train de los predictores** y una **métrica de evaluación**. 
+- Métodos de evaluación de modelos de **aprendizaje no supervisado** $\hspace{0.1cm}\Rightarrow\hspace{0.1cm}$ son algoritmos que permiten evaluar modelos de aprendizaje no supervisado usando una **muestra de train de los predictores** y una **métrica de evaluación**. 
 
 
 
@@ -1734,7 +1705,6 @@ import pandas as pd
 import numpy as np
 import math
 import sklearn
-
 from sklearn.utils import resample
 from sklearn.neighbors import NearestNeighbors
 ```
@@ -1849,6 +1819,7 @@ Además se probarán los algoritmos con el modelo KNN tanto en su versión para 
 
 ```python
 class NotRandomSimpleValidation :
+
     # D --> have to be a pandas data frame.
     # k --> is the proportion of observation of D that define D_train.
     # model --> object containing the initialized model to use.
@@ -1959,6 +1930,7 @@ TAC_test_Not_Random_Simple_Validation
 
 ```python
 class RandomSimpleValidation :
+
     # D --> have to be a pandas data frame.
     # k --> is the proportion of observation of D that define D_train.
     # response --> have to be a string with the name of the response variable.
@@ -2093,7 +2065,6 @@ class RepeatedRandomSimpleValidation :
         self.response_name = response_name
         np.random.seed(self.random_seed)    
         self.seed_array = np.random.randint(9999999, size=(self.B))
- 
     
     def compute_metric(self):
             Metric_test_list = [ ]
@@ -2206,10 +2177,8 @@ class LeaveOneOutValidation:
             Y_test = D_test.loc[response_name]
             self.model.fit(X_train, Y_train)
             Y_predict_test = self.model.predict(pd.DataFrame([X_test]))
-
             if self.metric == 'ECM':
                 self.ECM_test_list.append(np.mean((Y_predict_test - Y_test)**2))
-            
             elif self.metric == 'TAC':
                 self.TA_test_list.append(np.mean((Y_predict_test == Y_test)))
 
@@ -2217,7 +2186,6 @@ class LeaveOneOutValidation:
     def compute_metric(self):
         if self.metric == 'ECM':
             return np.mean(self.ECM_test_list)
-
         elif self.metric == 'TAC':
             return np.mean(self.TA_test_list)
 ```
@@ -2339,18 +2307,14 @@ class KFoldCV:
     
    
     def fit(self):
-   
         self.__resample_df()
         Q = self.__get_quantiles()
-   
         for j in range(0, len(Q)-1):
             X_test, Y_test, X_train, Y_train = self.__train_test_split(j, Q)
             self.model.fit(X_train, Y_train)
             Y_predict_test = self.model.predict(X_test)
-   
             if self.metric == 'ECM':
                  self.ECM_K_FOLDS_vector.append(np.mean((Y_predict_test - Y_test)**2))
-   
             elif self.metric == 'TAC':
                  self.TA_K_FOLDS_vector.append(np.mean((Y_predict_test == Y_test)))
 
@@ -2776,7 +2740,7 @@ https://www.cienciadedatos.net/documentos/30_cross-validation_oneleaveout_bootst
 
 - Aler Mur, Ricardo. (2022). *Metodología: evaluación de modelos.* [Presentación de PowerPoint]. Aula Global UC3M.
 
-<br>
+
  
  
  
