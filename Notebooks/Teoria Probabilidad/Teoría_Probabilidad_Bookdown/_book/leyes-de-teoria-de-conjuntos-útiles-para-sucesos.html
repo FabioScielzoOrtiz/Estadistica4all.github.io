@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 Leyes de teoria de conjuntos útiles para sucesos | Introducción Teoría de la Probabilidad</title>
+  <meta name="description" content="Este artículo es una introducción, más o menos formal, a la teoría de la probabilidad." />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 Leyes de teoria de conjuntos útiles para sucesos | Introducción Teoría de la Probabilidad" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Este artículo es una introducción, más o menos formal, a la teoría de la probabilidad." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 Leyes de teoria de conjuntos útiles para sucesos | Introducción Teoría de la Probabilidad" />
+  
+  <meta name="twitter:description" content="Este artículo es una introducción, más o menos formal, a la teoría de la probabilidad." />
+  
+
+<meta name="author" content="Fabio Scielzo Ortiz" />
+
+
+<meta name="date" content="2023-03-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="operaciones-con-sucesos.html"/>
+<link rel="next" href="sucesos-disjuntos.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="experimento-aleatorio.html"><a href="experimento-aleatorio.html"><i class="fa fa-check"></i><b>2</b> Experimento Aleatorio</a></li>
+<li class="chapter" data-level="3" data-path="espacio-muestral.html"><a href="espacio-muestral.html"><i class="fa fa-check"></i><b>3</b> Espacio Muestral</a></li>
+<li class="chapter" data-level="4" data-path="sucesos.html"><a href="sucesos.html"><i class="fa fa-check"></i><b>4</b> Sucesos</a></li>
+<li class="chapter" data-level="5" data-path="ocurrencia-de-sucesos.html"><a href="ocurrencia-de-sucesos.html"><i class="fa fa-check"></i><b>5</b> Ocurrencia de sucesos</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="ocurrencia-de-sucesos.html"><a href="ocurrencia-de-sucesos.html#suceso-imposible"><i class="fa fa-check"></i><b>5.1</b> Suceso Imposible</a></li>
+<li class="chapter" data-level="5.2" data-path="ocurrencia-de-sucesos.html"><a href="ocurrencia-de-sucesos.html#suceso-seguro"><i class="fa fa-check"></i><b>5.2</b> Suceso Seguro</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="suceso-simple.html"><a href="suceso-simple.html"><i class="fa fa-check"></i><b>6</b> Suceso Simple</a></li>
+<li class="chapter" data-level="7" data-path="suceso-compuesto.html"><a href="suceso-compuesto.html"><i class="fa fa-check"></i><b>7</b> Suceso Compuesto</a></li>
+<li class="chapter" data-level="8" data-path="operaciones-con-sucesos.html"><a href="operaciones-con-sucesos.html"><i class="fa fa-check"></i><b>8</b> Operaciones con sucesos</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="operaciones-con-sucesos.html"><a href="operaciones-con-sucesos.html#unión-de-sucesos"><i class="fa fa-check"></i><b>8.1</b> Unión de sucesos</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="operaciones-con-sucesos.html"><a href="operaciones-con-sucesos.html#propiedades-de-la-unión-de-sucesos"><i class="fa fa-check"></i><b>8.1.1</b> Propiedades de la unión de sucesos</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="operaciones-con-sucesos.html"><a href="operaciones-con-sucesos.html#intersección-de-sucesos"><i class="fa fa-check"></i><b>8.2</b> Intersección de sucesos</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="operaciones-con-sucesos.html"><a href="operaciones-con-sucesos.html#propiedades-de-la-intersección-de-sucesos"><i class="fa fa-check"></i><b>8.2.1</b> Propiedades de la intersección de sucesos</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="operaciones-con-sucesos.html"><a href="operaciones-con-sucesos.html#diferencia-de-sucesos"><i class="fa fa-check"></i><b>8.3</b> Diferencia de sucesos</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="operaciones-con-sucesos.html"><a href="operaciones-con-sucesos.html#propiedades-de-la-diferencia-de-sucesos"><i class="fa fa-check"></i><b>8.3.1</b> Propiedades de la diferencia de sucesos</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="operaciones-con-sucesos.html"><a href="operaciones-con-sucesos.html#suceso-contrario"><i class="fa fa-check"></i><b>8.4</b> Suceso Contrario</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="operaciones-con-sucesos.html"><a href="operaciones-con-sucesos.html#propiedades-del-suceso-contrario"><i class="fa fa-check"></i><b>8.4.1</b> Propiedades del suceso contrario</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="leyes-de-teoria-de-conjuntos-útiles-para-sucesos.html"><a href="leyes-de-teoria-de-conjuntos-útiles-para-sucesos.html"><i class="fa fa-check"></i><b>9</b> Leyes de teoria de conjuntos útiles para sucesos</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="leyes-de-teoria-de-conjuntos-útiles-para-sucesos.html"><a href="leyes-de-teoria-de-conjuntos-útiles-para-sucesos.html#leyes-asociativas"><i class="fa fa-check"></i><b>9.1</b> Leyes Asociativas</a></li>
+<li class="chapter" data-level="9.2" data-path="leyes-de-teoria-de-conjuntos-útiles-para-sucesos.html"><a href="leyes-de-teoria-de-conjuntos-útiles-para-sucesos.html#leyes-distributivas"><i class="fa fa-check"></i><b>9.2</b> Leyes Distributivas</a></li>
+<li class="chapter" data-level="9.3" data-path="leyes-de-teoria-de-conjuntos-útiles-para-sucesos.html"><a href="leyes-de-teoria-de-conjuntos-útiles-para-sucesos.html#leyes-de-morgan"><i class="fa fa-check"></i><b>9.3</b> Leyes de Morgan</a></li>
+<li class="chapter" data-level="9.4" data-path="leyes-de-teoria-de-conjuntos-útiles-para-sucesos.html"><a href="leyes-de-teoria-de-conjuntos-útiles-para-sucesos.html#conjunto-potencia-del-espacio-muestral"><i class="fa fa-check"></i><b>9.4</b> Conjunto potencia del espacio muestral</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="sucesos-disjuntos.html"><a href="sucesos-disjuntos.html"><i class="fa fa-check"></i><b>10</b> Sucesos Disjuntos</a></li>
+<li class="chapter" data-level="11" data-path="sucesos-disjuntos-dos-a-dos.html"><a href="sucesos-disjuntos-dos-a-dos.html"><i class="fa fa-check"></i><b>11</b> Sucesos Disjuntos dos a dos <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="12" data-path="concepto-de-probabilidad.html"><a href="concepto-de-probabilidad.html"><i class="fa fa-check"></i><b>12</b> Concepto de probabilidad</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="concepto-de-probabilidad.html"><a href="concepto-de-probabilidad.html#probabilidad-de-laplace"><i class="fa fa-check"></i><b>12.1</b> Probabilidad de Laplace</a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="concepto-de-probabilidad.html"><a href="concepto-de-probabilidad.html#propiedades-de-la-probabilidad-clásica"><i class="fa fa-check"></i><b>12.1.1</b> Propiedades de la probabilidad clásica:</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="concepto-de-probabilidad.html"><a href="concepto-de-probabilidad.html#probabilidad-frecuentista"><i class="fa fa-check"></i><b>12.2</b> Probabilidad Frecuentista</a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="concepto-de-probabilidad.html"><a href="concepto-de-probabilidad.html#propiedades"><i class="fa fa-check"></i><b>12.2.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="concepto-de-probabilidad.html"><a href="concepto-de-probabilidad.html#probabilidad-axiomatica-de-kolmogorov"><i class="fa fa-check"></i><b>12.3</b> Probabilidad Axiomatica de Kolmogorov</a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="concepto-de-probabilidad.html"><a href="concepto-de-probabilidad.html#propiedades-1"><i class="fa fa-check"></i><b>12.3.1</b> Propiedades</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="probabilidad-condicionada.html"><a href="probabilidad-condicionada.html"><i class="fa fa-check"></i><b>13</b> Probabilidad Condicionada</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="probabilidad-condicionada.html"><a href="probabilidad-condicionada.html#propiedades-2"><i class="fa fa-check"></i><b>13.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="partición-del-espacio-muestral.html"><a href="partición-del-espacio-muestral.html"><i class="fa fa-check"></i><b>14</b> Partición del espacio muestral</a></li>
+<li class="chapter" data-level="15" data-path="teorema-de-la-probabilidad-total.html"><a href="teorema-de-la-probabilidad-total.html"><i class="fa fa-check"></i><b>15</b> Teorema de la Probabilidad Total</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="teorema-de-la-probabilidad-total.html"><a href="teorema-de-la-probabilidad-total.html#teorema-de-la-probabilidad-total-con-probabilidad-condicionada"><i class="fa fa-check"></i><b>15.1</b> Teorema de la probabilidad total con probabilidad condicionada</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="teorema-de-bayes.html"><a href="teorema-de-bayes.html"><i class="fa fa-check"></i><b>16</b> Teorema de Bayes</a></li>
+<li class="chapter" data-level="17" data-path="independencia-de-sucesos.html"><a href="independencia-de-sucesos.html"><i class="fa fa-check"></i><b>17</b> Independencia de sucesos</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="independencia-de-sucesos.html"><a href="independencia-de-sucesos.html#propiedades-3"><i class="fa fa-check"></i><b>17.1</b> Propiedades</a></li>
+<li class="chapter" data-level="17.2" data-path="independencia-de-sucesos.html"><a href="independencia-de-sucesos.html#independencia-de-múltiples-sucesos"><i class="fa fa-check"></i><b>17.2</b> Independencia de múltiples sucesos <a class="anchor" id="1"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="sigma-algrebra.html"><a href="sigma-algrebra.html"><i class="fa fa-check"></i><b>18</b> Sigma Algrebra</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="sigma-algrebra.html"><a href="sigma-algrebra.html#propiedades-4"><i class="fa fa-check"></i><b>18.1</b> Propiedades:</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html"><i class="fa fa-check"></i><b>19</b> Variables aleatorias</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#variables-aleatorias-y-probabilidad"><i class="fa fa-check"></i><b>19.1</b> Variables Aleatorias y Probabilidad</a></li>
+<li class="chapter" data-level="19.2" data-path="variables-aleatorias.html"><a href="variables-aleatorias.html#variables-aleatorias-discretas-y-continuas"><i class="fa fa-check"></i><b>19.2</b> Variables aleatorias discretas y continuas <a class="anchor" id="1"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="función-de-probabilidad.html"><a href="función-de-probabilidad.html"><i class="fa fa-check"></i><b>20</b> Función de probabilidad</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="función-de-probabilidad.html"><a href="función-de-probabilidad.html#propiedades-5"><i class="fa fa-check"></i><b>20.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="función-de-densidad.html"><a href="función-de-densidad.html"><i class="fa fa-check"></i><b>21</b> Función de densidad</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="función-de-densidad.html"><a href="función-de-densidad.html#propiedades-6"><i class="fa fa-check"></i><b>21.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="función-de-distribución.html"><a href="función-de-distribución.html"><i class="fa fa-check"></i><b>22</b> Función de distribución</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="función-de-distribución.html"><a href="función-de-distribución.html#propiedades-7"><i class="fa fa-check"></i><b>22.1</b> Propiedades <a class="anchor" id="1"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="esperanza-de-una-variable-aleatoria.html"><a href="esperanza-de-una-variable-aleatoria.html"><i class="fa fa-check"></i><b>23</b> Esperanza de una variable aleatoria</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="esperanza-de-una-variable-aleatoria.html"><a href="esperanza-de-una-variable-aleatoria.html#propiedades-8"><i class="fa fa-check"></i><b>23.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="varianza-de-una-variable-aleatoria.html"><a href="varianza-de-una-variable-aleatoria.html"><i class="fa fa-check"></i><b>24</b> Varianza de una variable aleatoria</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="varianza-de-una-variable-aleatoria.html"><a href="varianza-de-una-variable-aleatoria.html#propiedades-9"><i class="fa fa-check"></i><b>24.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="covarianza.html"><a href="covarianza.html"><i class="fa fa-check"></i><b>25</b> Covarianza</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="covarianza.html"><a href="covarianza.html#propiedades-10"><i class="fa fa-check"></i><b>25.1</b> Propiedades <a class="anchor" id="1"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="distribuciones-de-probabilidad-discretas.html"><a href="distribuciones-de-probabilidad-discretas.html"><i class="fa fa-check"></i><b>26</b> Distribuciones de probabilidad discretas</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="distribuciones-de-probabilidad-discretas.html"><a href="distribuciones-de-probabilidad-discretas.html#distribución-uniforme-discreta"><i class="fa fa-check"></i><b>26.1</b> Distribución Uniforme Discreta</a>
+<ul>
+<li class="chapter" data-level="26.1.1" data-path="distribuciones-de-probabilidad-discretas.html"><a href="distribuciones-de-probabilidad-discretas.html#propiedades-11"><i class="fa fa-check"></i><b>26.1.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="26.2" data-path="distribuciones-de-probabilidad-discretas.html"><a href="distribuciones-de-probabilidad-discretas.html#distribución-de-bernoulli"><i class="fa fa-check"></i><b>26.2</b> Distribución de Bernoulli</a>
+<ul>
+<li class="chapter" data-level="26.2.1" data-path="distribuciones-de-probabilidad-discretas.html"><a href="distribuciones-de-probabilidad-discretas.html#propiedades-12"><i class="fa fa-check"></i><b>26.2.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="26.3" data-path="distribuciones-de-probabilidad-discretas.html"><a href="distribuciones-de-probabilidad-discretas.html#distribución-binomial"><i class="fa fa-check"></i><b>26.3</b> Distribución Binomial</a>
+<ul>
+<li class="chapter" data-level="26.3.1" data-path="distribuciones-de-probabilidad-discretas.html"><a href="distribuciones-de-probabilidad-discretas.html#propiedades-13"><i class="fa fa-check"></i><b>26.3.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="26.4" data-path="distribuciones-de-probabilidad-discretas.html"><a href="distribuciones-de-probabilidad-discretas.html#distribución-geométrica-de-fracasos"><i class="fa fa-check"></i><b>26.4</b> Distribución Geométrica (de fracasos)</a>
+<ul>
+<li class="chapter" data-level="26.4.1" data-path="distribuciones-de-probabilidad-discretas.html"><a href="distribuciones-de-probabilidad-discretas.html#propiedades-14"><i class="fa fa-check"></i><b>26.4.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="26.5" data-path="distribuciones-de-probabilidad-discretas.html"><a href="distribuciones-de-probabilidad-discretas.html#distribucion-geométrica-de-intentos"><i class="fa fa-check"></i><b>26.5</b> Distribucion Geométrica (de intentos)</a>
+<ul>
+<li class="chapter" data-level="26.5.1" data-path="distribuciones-de-probabilidad-discretas.html"><a href="distribuciones-de-probabilidad-discretas.html#propiedades-15"><i class="fa fa-check"></i><b>26.5.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="26.6" data-path="distribuciones-de-probabilidad-discretas.html"><a href="distribuciones-de-probabilidad-discretas.html#distribución-de-poisson"><i class="fa fa-check"></i><b>26.6</b> Distribución de Poisson</a>
+<ul>
+<li class="chapter" data-level="26.6.1" data-path="distribuciones-de-probabilidad-discretas.html"><a href="distribuciones-de-probabilidad-discretas.html#propiedad"><i class="fa fa-check"></i><b>26.6.1</b> Propiedad</a></li>
+</ul></li>
+<li class="chapter" data-level="26.7" data-path="distribuciones-de-probabilidad-discretas.html"><a href="distribuciones-de-probabilidad-discretas.html#distribución-hipergeommetrica"><i class="fa fa-check"></i><b>26.7</b> Distribución Hipergeommetrica <a class="anchor" id="1"></a></a>
+<ul>
+<li class="chapter" data-level="26.7.1" data-path="distribuciones-de-probabilidad-discretas.html"><a href="distribuciones-de-probabilidad-discretas.html#propiedades-16"><i class="fa fa-check"></i><b>26.7.1</b> Propiedades <a class="anchor" id="1"></a></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html"><i class="fa fa-check"></i><b>27</b> Distribuciones de probabilidad continuas</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#distribución-uniforme-continua"><i class="fa fa-check"></i><b>27.1</b> Distribución Uniforme Continua</a>
+<ul>
+<li class="chapter" data-level="27.1.1" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#propiedades-17"><i class="fa fa-check"></i><b>27.1.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="27.2" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#distribución-exponencial"><i class="fa fa-check"></i><b>27.2</b> Distribución Exponencial</a>
+<ul>
+<li class="chapter" data-level="27.2.1" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#propiedades-18"><i class="fa fa-check"></i><b>27.2.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="27.3" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#función-gamma"><i class="fa fa-check"></i><b>27.3</b> Función Gamma</a>
+<ul>
+<li class="chapter" data-level="27.3.1" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#propiedades-19"><i class="fa fa-check"></i><b>27.3.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="27.4" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#distribucion-gamma"><i class="fa fa-check"></i><b>27.4</b> Distribucion Gamma</a>
+<ul>
+<li class="chapter" data-level="27.4.1" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#propiedades-20"><i class="fa fa-check"></i><b>27.4.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="27.5" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#distribución-normal"><i class="fa fa-check"></i><b>27.5</b> Distribución Normal</a>
+<ul>
+<li class="chapter" data-level="27.5.1" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#propiedades-21"><i class="fa fa-check"></i><b>27.5.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="27.6" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#funcion-beta"><i class="fa fa-check"></i><b>27.6</b> Funcion Beta</a>
+<ul>
+<li class="chapter" data-level="27.6.1" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#propiedades-22"><i class="fa fa-check"></i><b>27.6.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="27.7" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#distribucion-beta"><i class="fa fa-check"></i><b>27.7</b> Distribucion Beta</a>
+<ul>
+<li class="chapter" data-level="27.7.1" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#propiedades-23"><i class="fa fa-check"></i><b>27.7.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="27.8" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#distribucion-weibull"><i class="fa fa-check"></i><b>27.8</b> Distribucion Weibull</a>
+<ul>
+<li class="chapter" data-level="27.8.1" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#propiedades-24"><i class="fa fa-check"></i><b>27.8.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="27.9" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#distribucion-chi-cuadrado"><i class="fa fa-check"></i><b>27.9</b> Distribucion Chi-cuadrado</a>
+<ul>
+<li class="chapter" data-level="27.9.1" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#propiedades-25"><i class="fa fa-check"></i><b>27.9.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="27.10" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#distribucion-t-student"><i class="fa fa-check"></i><b>27.10</b> Distribucion t-student</a>
+<ul>
+<li class="chapter" data-level="27.10.1" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#propiedades-26"><i class="fa fa-check"></i><b>27.10.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="27.11" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#distribucion-f-fisher"><i class="fa fa-check"></i><b>27.11</b> Distribucion F-Fisher <a class="anchor" id="1"></a></a>
+<ul>
+<li class="chapter" data-level="27.11.1" data-path="distribuciones-de-probabilidad-continuas.html"><a href="distribuciones-de-probabilidad-continuas.html#propiedades-27"><i class="fa fa-check"></i><b>27.11.1</b> Propiedades</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="probabilidad-conjunta-de-variables-aleatorias-discretas.html"><a href="probabilidad-conjunta-de-variables-aleatorias-discretas.html"><i class="fa fa-check"></i><b>28</b> Probabilidad conjunta de variables aleatorias discretas</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="probabilidad-conjunta-de-variables-aleatorias-discretas.html"><a href="probabilidad-conjunta-de-variables-aleatorias-discretas.html#propiedades-28"><i class="fa fa-check"></i><b>28.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="densidad-conjunta-de-variables-aleatorias-continuas.html"><a href="densidad-conjunta-de-variables-aleatorias-continuas.html"><i class="fa fa-check"></i><b>29</b> Densidad conjunta de variables aleatorias continuas</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="densidad-conjunta-de-variables-aleatorias-continuas.html"><a href="densidad-conjunta-de-variables-aleatorias-continuas.html#propiedades-29"><i class="fa fa-check"></i><b>29.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="probabilidad-condicionada-de-variables-aleatorias-discretas.html"><a href="probabilidad-condicionada-de-variables-aleatorias-discretas.html"><i class="fa fa-check"></i><b>30</b> Probabilidad condicionada de variables aleatorias discretas</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="probabilidad-condicionada-de-variables-aleatorias-discretas.html"><a href="probabilidad-condicionada-de-variables-aleatorias-discretas.html#propiedades-30"><i class="fa fa-check"></i><b>30.1</b> Propiedades</a></li>
+</ul></li>
+<li class="chapter" data-level="31" data-path="densidad-condicionada-de-variables-aleatorias-continuas.html"><a href="densidad-condicionada-de-variables-aleatorias-continuas.html"><i class="fa fa-check"></i><b>31</b> Densidad condicionada de variables aleatorias continuas</a>
+<ul>
+<li class="chapter" data-level="31.1" data-path="densidad-condicionada-de-variables-aleatorias-continuas.html"><a href="densidad-condicionada-de-variables-aleatorias-continuas.html#propiedades-31"><i class="fa fa-check"></i><b>31.1</b> Propiedades <a class="anchor" id="1"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="32" data-path="independencia-de-variables-aleatorias-discretas.html"><a href="independencia-de-variables-aleatorias-discretas.html"><i class="fa fa-check"></i><b>32</b> Independencia de variables aleatorias discretas</a>
+<ul>
+<li class="chapter" data-level="32.1" data-path="independencia-de-variables-aleatorias-discretas.html"><a href="independencia-de-variables-aleatorias-discretas.html#teorema-de-factorización-para-variables-aleatorias-discretas"><i class="fa fa-check"></i><b>32.1</b> Teorema de Factorización para Variables Aleatorias Discretas</a></li>
+</ul></li>
+<li class="chapter" data-level="33" data-path="independencia-de-variables-aleatorias-continuas.html"><a href="independencia-de-variables-aleatorias-continuas.html"><i class="fa fa-check"></i><b>33</b> Independencia de variables aleatorias continuas</a>
+<ul>
+<li class="chapter" data-level="33.1" data-path="independencia-de-variables-aleatorias-continuas.html"><a href="independencia-de-variables-aleatorias-continuas.html#teorema-de-factorización-para-v.a.-continuas"><i class="fa fa-check"></i><b>33.1</b> Teorema de Factorización para v.a. continuas</a>
+<ul>
+<li class="chapter" data-level="33.1.1" data-path="independencia-de-variables-aleatorias-continuas.html"><a href="independencia-de-variables-aleatorias-continuas.html#colorario"><i class="fa fa-check"></i><b>33.1.1</b> Colorario</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="34" data-path="independencia-dos-a-dos-de-múltiples-v.a..html"><a href="independencia-dos-a-dos-de-múltiples-v.a..html"><i class="fa fa-check"></i><b>34</b> Independencia (dos a dos) de múltiples v.a.</a></li>
+<li class="chapter" data-level="35" data-path="teorema-de-bayes-para-variables-aleatorias.html"><a href="teorema-de-bayes-para-variables-aleatorias.html"><i class="fa fa-check"></i><b>35</b> Teorema de Bayes para variables aleatorias</a></li>
+<li class="chapter" data-level="36" data-path="esperanza-de-una-función-de-varias-variables-aleatorias.html"><a href="esperanza-de-una-función-de-varias-variables-aleatorias.html"><i class="fa fa-check"></i><b>36</b> Esperanza de una función de varias Variables Aleatorias</a></li>
+<li class="chapter" data-level="37" data-path="esperanza-condicionada.html"><a href="esperanza-condicionada.html"><i class="fa fa-check"></i><b>37</b> Esperanza Condicionada</a></li>
+<li class="chapter" data-level="38" data-path="teorema-de-la-esperanza-total.html"><a href="teorema-de-la-esperanza-total.html"><i class="fa fa-check"></i><b>38</b> Teorema de la Esperanza total</a></li>
+<li class="chapter" data-level="39" data-path="terorema-de-la-probabilidad-total-con-variables-aleatorias.html"><a href="terorema-de-la-probabilidad-total-con-variables-aleatorias.html"><i class="fa fa-check"></i><b>39</b> Terorema de la Probabilidad Total con Variables Aleatorias <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="40" data-path="distribución-de-la-transformación-de-una-variable-aleatoria.html"><a href="distribución-de-la-transformación-de-una-variable-aleatoria.html"><i class="fa fa-check"></i><b>40</b> Distribución de la Transformación de una Variable Aleatoria</a></li>
+<li class="chapter" data-level="41" data-path="distribución-de-la-transformación-de-varias-variables-aleatorias.html"><a href="distribución-de-la-transformación-de-varias-variables-aleatorias.html"><i class="fa fa-check"></i><b>41</b> Distribución de la Transformación de varias Variables Aleatorias</a></li>
+<li class="chapter" data-level="42" data-path="fórmula-de-convolución.html"><a href="fórmula-de-convolución.html"><i class="fa fa-check"></i><b>42</b> Fórmula de convolución <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="43" data-path="variables-aleatorias-i.i.d..html"><a href="variables-aleatorias-i.i.d..html"><i class="fa fa-check"></i><b>43</b> Variables aleatorias i.i.d.</a></li>
+<li class="chapter" data-level="44" data-path="muestra-aleatoria-simple.html"><a href="muestra-aleatoria-simple.html"><i class="fa fa-check"></i><b>44</b> Muestra Aleatoria Simple <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="45" data-path="teorema-de-esperanza-varianza-de-la-media-muestral.html"><a href="teorema-de-esperanza-varianza-de-la-media-muestral.html"><i class="fa fa-check"></i><b>45</b> Teorema de esperanza-varianza de la media muestral</a></li>
+<li class="chapter" data-level="46" data-path="teorema-de-distribución-de-la-media-muestral.html"><a href="teorema-de-distribución-de-la-media-muestral.html"><i class="fa fa-check"></i><b>46</b> Teorema de distribución de la media muestral</a></li>
+<li class="chapter" data-level="47" data-path="independencia-entre-media-aritmética-y-cuasivarianza.html"><a href="independencia-entre-media-aritmética-y-cuasivarianza.html"><i class="fa fa-check"></i><b>47</b> Independencia entre Media Aritmética y Cuasivarianza</a></li>
+<li class="chapter" data-level="48" data-path="teorema-de-gosset.html"><a href="teorema-de-gosset.html"><i class="fa fa-check"></i><b>48</b> Teorema de Gosset</a></li>
+<li class="chapter" data-level="49" data-path="teorema-de-fisher.html"><a href="teorema-de-fisher.html"><i class="fa fa-check"></i><b>49</b> Teorema de Fisher <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="50" data-path="algunas-desigualdades.html"><a href="algunas-desigualdades.html"><i class="fa fa-check"></i><b>50</b> Algunas Desigualdades</a>
+<ul>
+<li class="chapter" data-level="50.1" data-path="algunas-desigualdades.html"><a href="algunas-desigualdades.html#desigualdad-de-markov"><i class="fa fa-check"></i><b>50.1</b> Desigualdad de Markov</a></li>
+<li class="chapter" data-level="50.2" data-path="algunas-desigualdades.html"><a href="algunas-desigualdades.html#desigualdad-de-chebychev"><i class="fa fa-check"></i><b>50.2</b> Desigualdad de Chebychev <a class="anchor" id="1"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="51" data-path="definiciones-de-convergencia.html"><a href="definiciones-de-convergencia.html"><i class="fa fa-check"></i><b>51</b> Definiciones de Convergencia</a>
+<ul>
+<li class="chapter" data-level="51.1" data-path="definiciones-de-convergencia.html"><a href="definiciones-de-convergencia.html#convergencia-en-probabilidad"><i class="fa fa-check"></i><b>51.1</b> Convergencia en probabilidad</a></li>
+<li class="chapter" data-level="51.2" data-path="definiciones-de-convergencia.html"><a href="definiciones-de-convergencia.html#convergencia-en-distribución"><i class="fa fa-check"></i><b>51.2</b> Convergencia en distribución <a class="anchor" id="1"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="52" data-path="momentos-de-una-variable-aleatoria.html"><a href="momentos-de-una-variable-aleatoria.html"><i class="fa fa-check"></i><b>52</b> Momentos de una Variable Aleatoria</a></li>
+<li class="chapter" data-level="53" data-path="ley-de-los-grandes-números.html"><a href="ley-de-los-grandes-números.html"><i class="fa fa-check"></i><b>53</b> Ley de los grandes números <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="54" data-path="teorema-central-del-límite.html"><a href="teorema-central-del-límite.html"><i class="fa fa-check"></i><b>54</b> Teorema central del límite</a></li>
+<li class="chapter" data-level="55" data-path="teorema-de-moivre-laplace.html"><a href="teorema-de-moivre-laplace.html"><i class="fa fa-check"></i><b>55</b> Teorema de Moivre-Laplace <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="56" data-path="distribución-normal-multivariante.html"><a href="distribución-normal-multivariante.html"><i class="fa fa-check"></i><b>56</b> Distribución Normal Multivariante</a>
+<ul>
+<li class="chapter" data-level="56.1" data-path="distribución-normal-multivariante.html"><a href="distribución-normal-multivariante.html#propiedades-32"><i class="fa fa-check"></i><b>56.1</b> Propiedades <a class="anchor" id="1"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="57" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i><b>57</b> Bibliografía</a></li>
+<li class="chapter" data-level="58" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>58</b> Hello bookdown</a>
+<ul>
+<li class="chapter" data-level="58.1" data-path="hello-bookdown.html"><a href="hello-bookdown.html#a-section"><i class="fa fa-check"></i><b>58.1</b> A section</a>
+<ul>
+<li class="chapter" data-level="" data-path="hello-bookdown.html"><a href="hello-bookdown.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="59" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>59</b> Cross-references</a>
+<ul>
+<li class="chapter" data-level="59.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>59.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="59.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>59.2</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="chapter" data-level="60" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>60</b> Parts</a></li>
+<li class="chapter" data-level="61" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>61</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="61.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>61.1</b> Footnotes</a></li>
+<li class="chapter" data-level="61.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>61.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="62" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>62</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="62.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>62.1</b> Equations</a></li>
+<li class="chapter" data-level="62.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>62.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="62.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>62.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="63" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>63</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="63.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>63.1</b> Publishing</a></li>
+<li class="chapter" data-level="63.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>63.2</b> 404 pages</a></li>
+<li class="chapter" data-level="63.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>63.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introducción Teoría de la Probabilidad</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="leyes-de-teoria-de-conjuntos-útiles-para-sucesos" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> Leyes de teoria de conjuntos útiles para sucesos<a href="leyes-de-teoria-de-conjuntos-útiles-para-sucesos.html#leyes-de-teoria-de-conjuntos-útiles-para-sucesos" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="leyes-asociativas" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Leyes Asociativas<a href="leyes-de-teoria-de-conjuntos-útiles-para-sucesos.html#leyes-asociativas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p><span class="math inline">\(A \cup (B \cup C) \hspace{0.08cm}=\hspace{0.08cm} (A \cup B ) \cup C\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(A \cap (B \cap C) \hspace{0.08cm}=\hspace{0.08cm} (A \cap B ) \cap C\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+</ul>
+</div>
+<div id="leyes-distributivas" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Leyes Distributivas<a href="leyes-de-teoria-de-conjuntos-útiles-para-sucesos.html#leyes-distributivas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p><span class="math inline">\(A \cap (B \cup C) \hspace{0.08cm}=\hspace{0.08cm} (A \cap B) \cup (A \cap C)\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(A \cup ( B \cap C) \hspace{0.08cm}=\hspace{0.08cm} (A \cup B) \cap (A \cup C)\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+</ul>
+</div>
+<div id="leyes-de-morgan" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Leyes de Morgan<a href="leyes-de-teoria-de-conjuntos-útiles-para-sucesos.html#leyes-de-morgan" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p><span class="math inline">\((A \cup B)^c \hspace{0.08cm}=\hspace{0.08cm} A^c \cap B^c\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\((A \cap B)^c \hspace{0.08cm} =\hspace{0.08cm} A^c \cup B^c\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+</ul>
+</div>
+<div id="conjunto-potencia-del-espacio-muestral" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> Conjunto potencia del espacio muestral<a href="leyes-de-teoria-de-conjuntos-útiles-para-sucesos.html#conjunto-potencia-del-espacio-muestral" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El conjunto potencia del espacio muestral <span class="math inline">\(\hspace{0.08cm}\Omega\hspace{0.08cm}\)</span> es:</p>
+<p><span class="math display">\[2^\Omega \hspace{0.08cm}=\hspace{0.08cm} \lbrace\hspace{0.08cm} A \hspace{0.15cm}:\hspace{0.15cm} A \subset \Omega  \hspace{0.08cm}\rbrace\\\]</span></p>
+<p>Se cumple la siguiente propiedad:</p>
+<p><span class="math display">\[\# 2 ^\Omega \hspace{0.08cm}=\hspace{0.08cm} 2 ^{\# \Omega}\]</span></p>
+<p><br></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="operaciones-con-sucesos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sucesos-disjuntos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
