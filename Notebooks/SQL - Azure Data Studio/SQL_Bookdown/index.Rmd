@@ -60,15 +60,19 @@ Este artículo es una introducción a SQL en Azure Data Studio.
 
 # Instalación de Azure Data Studio  
 
+<br>
 
-- Primero hay que descargar Azure Data Studio. Ello puede hacerse fácilmente desde el siguiente [link](https://learn.microsoft.com/es-es/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver16).
+- First, we need to download Azure Data Studio. It can be done easily from the following [link](https://learn.microsoft.com/es-es/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver16)
 
-- También es necesario descargar SQL Server 2019 Developer Edition. Lo podemos hacer desde el siguiente [link](https://www.microsoft.com/es-es/sql-server/sql-server-downloads?rtc=1).
+- You also need to download SQL Server 2019 Developer Edition. We can do that from the following [link](https://www.microsoft.com/es-es/sql-server/sql-server-downloads?rtc=1).
 
 
-- Una vez que hemos instalado correctamente ambos programas, abrimos Azure Data Studio.
 
-    Nos encontraremos una pantalla similar a la siguiente: 
+- Once we have successfully installed both programs, we open Azure Data Studio.
+
+ 
+
+    We will find a screen similar to the following:
 
 <center>
 
@@ -78,9 +82,9 @@ Este artículo es una introducción a SQL en Azure Data Studio.
  
 <br>
 
-- Debemos establecer una conexión con un servidor para poder trabajar con bases de datos. En nuestro caso será un servidor alojado en local en nuestro propio ordinador. Para establecer la conexion debemos pinchar en la parte subrayada de amarillo.
+- We must establish a connection with the server, to be able to work with databases. In our case it will be a server hosted on our local computer. To establish the connection we must click on the yellow part.
 
-    Tras pulsar ahí nos encontraremos con una pantalla similar a la siguiente:
+    After clicking on it, we will find a screen similar to the following:
 
 <center>
 
@@ -91,7 +95,7 @@ Este artículo es una introducción a SQL en Azure Data Studio.
 
 <br>
 
-- Debemos rellenar el campo Server con "localhost", tal y como se muestra en la siguiente imagen:
+- We must fill the Server field with "localhost", as shown in the following image:
 
 
 <center>
@@ -103,7 +107,7 @@ Este artículo es una introducción a SQL en Azure Data Studio.
 
 <br>
 
-- Posteriormente saldrá un mensaje como este. Le daos al boton azul (Enable Trust server certificate):
+- Then a message like this will be displayed. We click on the blue button (Enable trusted server certificate):
 
 <center>
 
@@ -114,7 +118,7 @@ Este artículo es una introducción a SQL en Azure Data Studio.
 
 <br>
 
-- Si se ha conectado correctamente al servidor en la pantalla debe aparecer algo similar a lo siguiente:
+- If the server has connected successfully, the screen will show something like this:
 
 
 <center>
@@ -126,17 +130,21 @@ Este artículo es una introducción a SQL en Azure Data Studio.
 
 <br>
 
-- Pinchando en New Query se abrirá un script de SQL donde podemos empezar a trabajar usando sentencias de SQL.
 
+- Clicking on New Query, It will open an SQL script where we can start working with SQL.
 
-<br>
-
-
-# Crear una nueva base de datos en Azure Data Studio
+ 
 
 <br>
 
-- Vamos a crear una nueva base de datos, a la que vamos a llamar **Base_Datos_Fabio**:
+
+# Create a database
+
+<br>
+
+- We are going to create a new database, which will be called **Fabio_Database**:
+
+
 
 <center>
 
@@ -147,12 +155,10 @@ Este artículo es una introducción a SQL en Azure Data Studio.
 
 <br>
 
-El código empleado en la imagen para crear una nueva base de datos es el siguiente:
+The code used to create the new database is the following:
 
 
 ```sql
--- Crear una nueva base de datos
-
 USE master
 GO
 IF NOT EXISTS (
@@ -169,8 +175,9 @@ GO
 
 <br>
 
-Tras la ejecución del codigo SQL anterior se deberia crear la base de datos, y ello deberia reflejarase en la parte izquierda del entorno, tal y como se muestra en la imagen:
+After the execution of the above SQL code, the database should be created, and it should appear on the left side of the environment, as shown in the following image:
 
+ 
 <center>
 
 ![](p7.jpg){width="100%"}
@@ -180,9 +187,40 @@ Tras la ejecución del codigo SQL anterior se deberia crear la base de datos, y 
 
 <br>
 
-# Crear una tabla
 
-Ahora vamos a crear una nueva tabla dentro de la base de datos que acabamos de crear. Para ello se puede usar el mismo script de SQL pero modificando el elemento señalado en la parte superior de la pantalla. Este elemento permite fijar en que base de datos vamos a realizar los cambios. En este caso seleccionamos la base de datos Base_Datos_Fabio, que es la que hemos creado en el paso anterior.
+# Delete a database
+
+We can delete a database as follows:
+
+```sql
+-- Drop the database 'Base_Datos_Fabio'
+-- Connect to the 'master' database to run this snippet
+USE master
+GO
+-- Uncomment the ALTER DATABASE statement below to set the database to SINGLE_USER mode if the drop database command fails because the database is in use.
+ALTER DATABASE Base_Datos_Fabio SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+-- Drop the database if it exists
+IF EXISTS (
+  SELECT [name]
+   FROM sys.databases
+   WHERE [name] = N'Base_Datos_Fabio'
+)
+DROP DATABASE Base_Datos_Fabio
+GO
+```
+
+
+<br>
+
+
+
+# Create a table
+
+Now we are going to create a new table inside the database that we have just defined.
+
+To do this, the same SQL script can be used but modifying the element indicated at the top of the screen. This element allows us to set the database in which we are going to make the changes.
+
+In this case we select the database **Base_Datos_Fabio**, which is the one we created in the previous step.
 
 <center>
 
@@ -192,20 +230,18 @@ Ahora vamos a crear una nueva tabla dentro de la base de datos que acabamos de c
 
 <br>
 
-El codigo utilizado para crear la nueva tabla es el siguiente:
+The code used to create the new table is the following:
 
-```SQL
--- Crear una nueva tabla dentro de la base de datos
-
--- Create a new table called 'Clientes' in schema 'dbo'
+```sql
+-- Create a new table called 'Alumnos' in schema 'dbo'
 -- Drop the table if it already exists
-IF OBJECT_ID('dbo.Clientes', 'U') IS NOT NULL
- DROP TABLE dbo.Clientes;
+IF OBJECT_ID('dbo.Alumnos', 'U') IS NOT NULL
+ DROP TABLE dbo.Alumnos;
 GO
 -- Create the table in the specified schema
-CREATE TABLE dbo.Clientes
+CREATE TABLE dbo.Alumnos
 (
- ClienteId nvarchar(50) NOT NULL PRIMARY KEY, -- primary key column --> impide repeticiones de valores en esta columna
+ ClienteId nvarchar(50) NOT NULL PRIMARY KEY, 
  Nombre char (50) NOT NULL,
  Pais nvarchar(50) NOT NULL,
  Ciudad nvarchar(50) NOT NULL,
@@ -215,9 +251,9 @@ CREATE TABLE dbo.Clientes
 GO
 ```
 
+<br>
 
-Ejecutamos el codigo anterior y verificamos que se ha creado la tabla **Clientes** dentro de la base de datos **Base_Datos_Fabio**:
-
+We execute the last code and check if the table **Students** has been created inside **Database_Fabio**:
 <center>
 
 ![](p9.jpg){width="100%"}
@@ -228,204 +264,212 @@ Ejecutamos el codigo anterior y verificamos que se ha creado la tabla **Clientes
 <br>
 
 
-A partir de ahora todas las operaciones que hagamos usando codigo SQL serán ejecutadas desde un script de SQL dentro del entorno Azure Data Studio, pero no se van a mostrar más capturas de pantalla sobre ello. Lo que haremos es mostrar el codigo que se debe ejecutar en cada ocasión y las salidas obtenidas tras su ejecución.
+From now on, all the operations we do with SQL code will be executed from a SQL script within the Azure Data Studio environment, but no more screenshots will be shown about it. 
+
+What we will do is show the code that must be executed each time and the outputs that are obtained after its execution.
 
 
 
-Vamos a crear otras dos tablas más (**proveedores** y **ventas**) dentro de la base de datos **Base_Datos_Fabio**.
+We are going to create two more tables (**Profesores** and **Examenes**) inside the database **Base_Datos_Fabio**.
 
-El código empleado para crearlas es el siguiente:
+The code used to create them is as follows:
 
-```SQL
-IF OBJECT_ID('dbo.Proveedores', 'U') IS NOT NULL
- DROP TABLE dbo.Proveedores;
+```sql
+IF OBJECT_ID('dbo.Profesores', 'U') IS NOT NULL
+ DROP TABLE dbo.Profesores;
 GO
 -- Create the table in the specified schema
-CREATE TABLE dbo.Proveedores
+CREATE TABLE dbo.Profesores
 (
- ProveedorId nvarchar (50) NOT NULL PRIMARY KEY, -- primary key column
+ ProfesorId nvarchar (50) NOT NULL PRIMARY KEY, -- primary key column
  Nombre nvarchar (50) NOT NULL,
+ Estudios nvarchar(50) NOT NULL,
  Email nvarchar(50) NOT NULL,
- Telefono nvarchar (50) NOT NULL
 );
 GO
 ```
 
 
-```SQL
-IF OBJECT_ID('dbo.Ventas', 'U') IS NOT NULL
- DROP TABLE dbo.Ventas;
+```sql
+IF OBJECT_ID('dbo.Examenes', 'U') IS NOT NULL
+ DROP TABLE dbo.Examenes;
 GO
 -- Create the table in the specified schema
-CREATE TABLE dbo.Ventas
+CREATE TABLE dbo.Examenes
 (
- VentasId nvarchar (50) NOT NULL PRIMARY KEY, -- primary key column
- Producto char (50) NOT NULL,
- Precio float (50) NOT NULL,
- Cliente nvarchar (50) NOT NULL,
- Proveedor  nvarchar (50) NOT NULL
+ ExamenId nvarchar (50) NOT NULL PRIMARY KEY, -- primary key column
+ Nota DECIMAL(5,2) NOT NULL,
+ Asignatura nvarchar (50) NOT NULL,
+ AlumnoID nvarchar (50) NOT NULL,
+ ProfesorID  nvarchar (50) NOT NULL
 );
 GO
 ```
 
 <br>
 
-## Clave primaria 
+## Primary Key 
 
-La sentencia **PRIMARY KEY** se asocia a las columnas que son  identificadores únicos principales.
+The **PRIMARY KEY** statement is associated with columns that are unique identifiers.
 
-Si la sentencia **PRIMARY KEY** está asociada a una columna, impide que haya valores repetidos en esa columna.
+If the **PRIMARY KEY** statement is attached to a column, it prevents repeating values in that column.
 
-Este tipo de columnas son fundamentales en las bases de datos puesto que permitirán unir tablas mediante diferentes operaciones que se verán más adelante.
-
-<br>
-
-## Not Null y Null
-
-Si la sentencia **NOT NULL** está asociada a una columna,  impide que esta columna tenga valores nulos. 
-
-Si la sentencia **NULL** está asociada a una columna, permite que esta columna tenga valores nulos.
-
+These types of columns are essential in databases since they will allow joining tables through different operations that will be seen later.
 
 <br>
 
+## Not Null and Null
 
-# Insertar filas en una tabla
+If the **NOT NULL** statement is associated with a column, it prevents this column from having null values.
 
-```SQL
-INSERT INTO dbo.Clientes
- ([ClienteId], [Nombre], [Pais], [Ciudad], [Email], [Telefono])
+If the **NULL** statement is associated with a column, it allows this column to have null values.
+
+
+<br>
+
+
+# Insert rows into a table
+
+Inserting rows into **Alumnos** table:
+
+```sql
+INSERT INTO dbo.Alumnos
+ ([AlumnoID], [Nombre], [Pais], [Ciudad], [Email], [Telefono])
 VALUES
- ( 'C1', N'Orlando', N'Australia', N'', N'' , N'917755028'),
- ( 'C2', N'Keith', N'India', N'', N'keith0@adventure-works.com', N''),
- ( 'C3', N'Donna', N'Germany', N'Berlin', N'donna0@adventure-works.com', N'915547890'),
- ( 'C4', N'Janet', N'United States', N'California',  N'janet1@adventure-works.com', N''),
- ( 'C5', N'Fabio', N'España', N'Madrid', N'fabio10@gmail.com', N''),
- ( 'C6', N'Juan', N'España', N'Sevilla', N'' , N'915869028'),
- ( 'C7', N'Lucia', N'España', N'', N'LuciaPerez@hotmail.com', N''),
- ( 'C8', N'Pedro', N'Italia', N'Roma', N'Pedro99@gmail.com', N'910007890'),
- ( 'C9', N'Sergio', N'United States', N'New York',  N'sergio_as@gmail.com', N''),
- ( 'C10', N'Grecia', N'Peru', N'Lima', N'Grecia89@gmail.com', N'')
+ ( 'A1', N'Orlando', N'Australia', N'', N'' , N'917755028'),
+ ( 'A2', N'Keith', N'India', N'', N'keith0@adventure-works.com', N''),
+ ( 'A3', N'Donna', N'Germany', N'Berlin', N'donna0@adventure-works.com', N'915547890'),
+ ( 'A4', N'Janet', N'United States', N'California',  N'janet1@adventure-works.com', N''),
+ ( 'A5', N'Fabio', N'España', N'Madrid', N'fabio10@gmail.com', N''),
+ ( 'A6', N'Juan', N'España', N'Sevilla', N'' , N'915869028'),
+ ( 'A7', N'Lucia', N'España', N'', N'LuciaPerez@hotmail.com', N''),
+ ( 'A8', N'Pedro', N'Italia', N'Roma', N'Pedro99@gmail.com', N'910007890'),
+ ( 'A9', N'Sergio', N'United States', N'New York',  N'sergio_as@gmail.com', N''),
+ ( 'A10', N'Grecia', N'Peru', N'Lima', N'Grecia89@gmail.com', N''),
+ ( 'A11', N'Ismael', N'España', N'Madrid', N'Isma98@gmail.com', N'912234543'),
+ ( 'A12', N'Luis', N'España', N'Murcia', N'Luismiguel123@gmail.com', N''),
+ ( 'A13', N'Pedro', N'Argentina', N'Buenos Aires', N'Pedro120@gmail.com', N'')
 GO
 ```
 
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
 |---|---|---|---|---|---|
-|C1|Orlando                                           |Australia|||917755028|
-|C10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
-|C2|Keith                                             |India||keith0@adventure-works.com||
-|C3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
-|C4|Janet                                             |United States|California|janet1@adventure-works.com||
-|C5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
-|C6|Juan                                              |Espa&#241;a|Sevilla||915869028|
-|C7|Lucia                                             |Espa&#241;a||LuciaPerez@hotmail.com||
-|C8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|
-|C9|Sergio                                            |United States|New York|sergio_as@gmail.com||
-
-<br>
-
-```SQL
-INSERT INTO dbo.Ventas
- ([VentasId], [Producto], [Precio], [Cliente], [Proveedor])
-VALUES
- ( 'V1', N'Alfombra', N'1500', N'C1' , N'P1'),
- ( 'V2', N'Killim', N'699.50', N'C3', N'P1'),
- ( 'V3', N'Killim', N'475', N'C9', N'P3'),
-  ( 'V4', N'Alfombra', N'5000', N'C4' , N'P1'),
- ( 'V5', N'Killim', N'499.50', N'C8', N'P1'),
- ( 'V6', N'Killim', N'555', N'C5', N'P3'),
- ( 'V7', N'Alfombra', N'2500', N'C2' , N'P1'),
- ( 'V8', N'Killim', N'299.50', N'C10', N'P1'),
- ( 'V9', N'Killim', N'600', N'C2', N'P3'),
- ( 'V10', N'Alfombra', N'1200', N'C7' , N'P1'),
- ( 'V11', N'Killim', N'500', N'C8', N'P1'),
- ( 'V12', N'Killim', N'650', N'C9', N'P3'),
- ( 'V13', N'Alfombra', N'3500', N'C7' , N'P1'),
- ( 'V14', N'Killim', N'1000', N'C6', N'P1'),
- ( 'V15', N'Killim', N'350', N'C10', N'P3')
-GO
-```
-
-|VentasId|Producto|Precio|Cliente|Proveedor|
-|---|---|---|---|---|
-|V1|Alfombra                                          |1500|C1|P1|
-|V10|Alfombra                                          |1200|C7|P1|
-|V11|Killim                                            |500|C8|P1|
-|V12|Killim                                            |650|C9|P3|
-|V13|Alfombra                                          |3500|C7|P1|
-|V14|Killim                                            |1000|C6|P1|
-|V15|Killim                                            |350|C10|P3|
-|V2|Killim                                            |699,5|C3|P1|
-|V3|Killim                                            |475|C9|P3|
-|V4|Alfombra                                          |5000|C4|P1|
-|V5|Killim                                            |499,5|C8|P1|
-|V6|Killim                                            |555|C5|P3|
-|V7|Alfombra                                          |2500|C2|P1|
-|V8|Killim                                            |299,5|C10|P1|
-|V9|Killim                                            |600|C2|P3|
+|A1|Orlando                                           |Australia|||917755028|
+|A10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
+|A11|Ismael                                            |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|
+|A12|Luis                                              |Espa&#241;a|Murcia|Luismiguel123@gmail.com||
+|A13|Pedro                                             |Argentina|Buenos Aires|Pedro120@gmail.com||
+|A2|Keith                                             |India||keith0@adventure-works.com||
+|A3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
+|A4|Janet                                             |United States|California|janet1@adventure-works.com||
+|A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
+|A6|Juan                                              |Espa&#241;a|Sevilla||915869028|
+|A7|Lucia                                             |Espa&#241;a||LuciaPerez@hotmail.com||
+|A8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|
+|A9|Sergio                                            |United States|New York|sergio_as@gmail.com||
 
 
 
 <br>
 
+Inserting rows into **Profesores** table:
 
 
-```SQL
--- Insert rows into table 'Proveedores'
-INSERT INTO dbo.Proveedores
- ([ProveedorId], [Nombre], [Email], [Telefono])
+```sql
+INSERT INTO dbo.Profesores
+ ([ProfesorID], [Nombre], [Estudios], [Email])
 VALUES
- ( 'P1', N'Intertrade', N'Intertrade@gmail.com', N'912223344'),
- ( 'P2', N'SaidKarpet', N'SaidKarpet@gmail.com', N'912783794'),
- ( 'P3', N'OrientKillim', N'OrientKillim@gmail.com', N'9100155475')
+ ( 'P1', N'Juan', N'Matemáticas', N'JuanPerez@colegio.es'),
+ ( 'P2', N'Sonia', N'Física', N'SoniDiaz@colegio.es'),
+ ( 'P3', N'Lucia', N'Lengua', N'LuciaPerez@colegio.es'),
+  ( 'P4', N'Marcos', N'Biología', N'MarcosSanz@colegio.es'),
+ ( 'P5', N'Carlos', N'Educación Física', N'CarlosFernandez@colegio.es'),
+ ( 'P6', N'Daniel', N'Geografía', N'DanielOrtiz@colegio.es'),
+ ( 'P7', N'Garazi', N'Inglés', N'GaraziGarcia@colegio.es')
 GO
 ```
-
-|ProveedorId|Nombre|Email|Telefono|
+|ProfesorID|Nombre|Estudios|Email|
 |---|---|---|---|
-|P1|Intertrade|Intertrade@gmail.com|912223344|
-|P2|SaidKarpet|SaidKarpet@gmail.com|912783794|
-|P3|OrientKillim|OrientKillim@gmail.com|9100155475|
+|P1|Juan|Matem&#225;ticas|JuanPerez@colegio.es|
+|P2|Sonia|F&#237;sica|SoniDiaz@colegio.es|
+|P3|Lucia|Lengua|LuciaPerez@colegio.es|
+|P4|Marcos|Biolog&#237;a|MarcosSanz@colegio.es|
+|P5|Carlos|Educaci&#243;n F&#237;sica|CarlosFernandez@colegio.es|
+|P6|Daniel|Geograf&#237;a|DanielOrtiz@colegio.es|
+|P7|Garazi|Ingl&#233;s|GaraziGarcia@colegio.es|
 
 
-
-<br>
-
-## Comprobación de la restricción PRIMARY KEY
-
-```SQL
-INSERT INTO dbo.Proveedores
- ([ProveedorId], [Nombre], [Email], [Telefono])
-VALUES
- ( 'P3' , 'AlfombrasSA', N'AlfombrasSA@gmail.com', N'91235344')
-GO
-```
-```
-Infracción de la restricción PRIMARY KEY 'PK__Proveedo__61266A5981C729E1'. No se puede insertar una clave duplicada en el objeto 'dbo.Proveedores'. El valor de la clave duplicada es (P3).
-```
-
-
-## Comprobación de la restricción NOT NULL
-
-
-
-```SQL
-INSERT INTO dbo.Proveedores
- ([ProveedorId], [Nombre], [Email], [Telefono])
-VALUES
- ( 'P4' , NULL, N'AlfombrasSA@gmail.com', N'91235344')
-GO
-```
-```
-No se puede insertar el valor NULL en la columna 'Nombre', tabla 'Base_Datos_Fabio.dbo.Proveedores'. La columna no admite valores NULL. Error de INSERT.
-```
 
 
 <br>
 
-# Importar un CSV como una tabla
+Inserting rows into **Examenes** table:
 
-Primero debemos instalar la extensión **SQL Server Import** en Azure Data Studio. 
+```sql
+INSERT INTO dbo.Examenes
+ ([ExamenID], [Nota], [Asignatura], [AlumnoID], [ProfesorID])
+VALUES
+ ( 'E1', 6.7, N'Matemáticas', N'A2', N'P1'),
+ ( 'E2', 8, N'Física', N'A4', N'P2'),
+ ( 'E3', 4.25, N'Matemáticas', N'A1', N'P1'),
+ ( 'E4', 6.5, N'Matemáticas', N'A7', N'P7'),
+ ( 'E5', 7, N'Matemáticas', N'A9', N'P3')
+GO
+```
+
+|ExamenID|Nota|Asignatura|AlumnoID|ProfesorID|
+|---|---|---|---|---|
+|E1|6.70|Matem&#225;ticas|A2|P1|
+|E2|8.00|F&#237;sica|A4|P2|
+|E3|4.25|Matem&#225;ticas|A1|P1|
+|E4|6.50|Matem&#225;ticas|A7|P7|
+|E5|7.00|Matem&#225;ticas|A9|P3|
+
+
+<br>
+
+
+
+## Cheking Primary Key restriction
+
+```sql
+INSERT INTO dbo.Profesores
+ ([ProfesorID], [Nombre], [Estudios], [Email])
+VALUES
+ ( 'P1' , N'Juan', N'Filosofía', N'JuanDiaz@colegio.es')
+GO
+```
+
+```
+Infracción de la restricción PRIMARY KEY 'PK__Profesor__4DF3F028228525F7'. No se puede insertar una clave duplicada en el objeto 'dbo.Profesores'. El valor de la clave duplicada es (P1).
+```
+
+<br>
+
+
+## Checking Not Null restriction
+
+
+
+```sql
+INSERT INTO dbo.Profesores
+ ([ProfesorID], [Nombre], [Estudios], [Email])
+VALUES
+ ( 'P8' , NULL, N'Filosofía', N'JuanDiaz@colegio.es')
+GO
+```
+
+```
+No se puede insertar el valor NULL en la columna 'Nombre', tabla 'Base_Datos_Fabio.dbo.Profesores'. La columna no admite valores NULL. Error de INSERT.
+```
+
+
+<br>
+
+
+# Import a CSV as table
+
+First of all, we must intall the **SQL Server Import** Azure Data Studio extension. 
 
 
 
@@ -437,7 +481,7 @@ Primero debemos instalar la extensión **SQL Server Import** en Azure Data Studi
 
 
 
-A continuación importamos un CSV siguiendo los siguientes pasos:
+Next we import a CSV following the following steps:
 
 
 <center>
@@ -473,7 +517,7 @@ A continuación importamos un CSV siguiendo los siguientes pasos:
 <br>
 
 
-# Vista completa de una tabla
+# Full view of a table
 
 
 ```SQL

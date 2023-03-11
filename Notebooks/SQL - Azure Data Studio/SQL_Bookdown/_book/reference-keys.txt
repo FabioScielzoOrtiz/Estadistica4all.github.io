@@ -24,3 +24,13 @@ min-max-sum-avg
 group-by
 having
 introducción
+create-a-database
+delete-a-database
+create-a-table
+primary-key
+not-null-and-null
+insert-rows-into-a-table
+cheking-primary-key-restriction
+checking-not-null-restriction
+import-a-csv-as-table
+full-view-of-a-table
