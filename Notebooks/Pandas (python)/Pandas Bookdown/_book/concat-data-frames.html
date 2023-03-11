@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 16 Concat data-frames | Introduction to Pandas</title>
+  <meta name="description" content="This is a hands-on introduction to Pandas, probably the most important Python library for handling data frames." />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 16 Concat data-frames | Introduction to Pandas" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a hands-on introduction to Pandas, probably the most important Python library for handling data frames." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 16 Concat data-frames | Introduction to Pandas" />
+  
+  <meta name="twitter:description" content="This is a hands-on introduction to Pandas, probably the most important Python library for handling data frames." />
+  
+
+<meta name="author" content="Fabio Scielzo Ortiz" />
+
+
+<meta name="date" content="2023-03-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="group-by.html"/>
+<link rel="next" href="join-data-frames-using-merge.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introduction to Pandas</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="create-a-new-table-data-frame.html"><a href="create-a-new-table-data-frame.html"><i class="fa fa-check"></i><b>2</b> Create a new table (data-frame)</a></li>
+<li class="chapter" data-level="3" data-path="import-a-csv-as-a-table.html"><a href="import-a-csv-as-a-table.html"><i class="fa fa-check"></i><b>3</b> Import a CSV as a table</a></li>
+<li class="chapter" data-level="4" data-path="export-a-csv.html"><a href="export-a-csv.html"><i class="fa fa-check"></i><b>4</b> Export a CSV</a></li>
+<li class="chapter" data-level="5" data-path="number-of-rows-and-columns.html"><a href="number-of-rows-and-columns.html"><i class="fa fa-check"></i><b>5</b> Number of rows and columns</a></li>
+<li class="chapter" data-level="6" data-path="head-y-tail.html"><a href="head-y-tail.html"><i class="fa fa-check"></i><b>6</b> Head y Tail</a></li>
+<li class="chapter" data-level="7" data-path="column-names.html"><a href="column-names.html"><i class="fa fa-check"></i><b>7</b> Column Names</a></li>
+<li class="chapter" data-level="8" data-path="selecting-columns-from-a-data-frame.html"><a href="selecting-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>8</b> Selecting columns from a data-frame</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="selecting-columns-from-a-data-frame.html"><a href="selecting-columns-from-a-data-frame.html#loc-method"><i class="fa fa-check"></i><b>8.1</b> <code>loc</code> method</a></li>
+<li class="chapter" data-level="8.2" data-path="selecting-columns-from-a-data-frame.html"><a href="selecting-columns-from-a-data-frame.html#iloc-method"><i class="fa fa-check"></i><b>8.2</b> <code>iloc</code> method</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="filter-rows-of-a-data-frame.html"><a href="filter-rows-of-a-data-frame.html"><i class="fa fa-check"></i><b>9</b> Filter rows of a data-frame</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="filter-rows-of-a-data-frame.html"><a href="filter-rows-of-a-data-frame.html#loc-method-1"><i class="fa fa-check"></i><b>9.1</b> <code>loc</code> method</a></li>
+<li class="chapter" data-level="9.2" data-path="filter-rows-of-a-data-frame.html"><a href="filter-rows-of-a-data-frame.html#iloc-method-1"><i class="fa fa-check"></i><b>9.2</b> <code>iloc</code> method</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="traspose-a-data-frame.html"><a href="traspose-a-data-frame.html"><i class="fa fa-check"></i><b>10</b> Traspose a data-frame</a></li>
+<li class="chapter" data-level="11" data-path="data-frame-to-numpy.html"><a href="data-frame-to-numpy.html"><i class="fa fa-check"></i><b>11</b> Data-frame to numpy</a></li>
+<li class="chapter" data-level="12" data-path="delete-columns-from-a-data-frame.html"><a href="delete-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>12</b> Delete columns from a data-frame</a></li>
+<li class="chapter" data-level="13" data-path="delete-rows-from-a-data-frame.html"><a href="delete-rows-from-a-data-frame.html"><i class="fa fa-check"></i><b>13</b> Delete rows from a data-frame</a></li>
+<li class="chapter" data-level="14" data-path="rename-columns-from-a-data-frame.html"><a href="rename-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>14</b> Rename columns from a data-frame</a></li>
+<li class="chapter" data-level="15" data-path="group-by.html"><a href="group-by.html"><i class="fa fa-check"></i><b>15</b> Group by</a></li>
+<li class="chapter" data-level="16" data-path="concat-data-frames.html"><a href="concat-data-frames.html"><i class="fa fa-check"></i><b>16</b> Concat data-frames</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="concat-data-frames.html"><a href="concat-data-frames.html#concat-by-columns"><i class="fa fa-check"></i><b>16.1</b> Concat by columns</a></li>
+<li class="chapter" data-level="16.2" data-path="concat-data-frames.html"><a href="concat-data-frames.html#concat-by-rows"><i class="fa fa-check"></i><b>16.2</b> Concat by rows</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="join-data-frames-using-merge.html"><a href="join-data-frames-using-merge.html"><i class="fa fa-check"></i><b>17</b> Join data-frames using <code>merge</code></a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="join-data-frames-using-merge.html"><a href="join-data-frames-using-merge.html#inner-join"><i class="fa fa-check"></i><b>17.1</b> Inner Join</a></li>
+<li class="chapter" data-level="17.2" data-path="join-data-frames-using-merge.html"><a href="join-data-frames-using-merge.html#outer-join"><i class="fa fa-check"></i><b>17.2</b> Outer Join</a></li>
+<li class="chapter" data-level="17.3" data-path="join-data-frames-using-merge.html"><a href="join-data-frames-using-merge.html#left-join"><i class="fa fa-check"></i><b>17.3</b> Left Join</a></li>
+<li class="chapter" data-level="17.4" data-path="join-data-frames-using-merge.html"><a href="join-data-frames-using-merge.html#right-join"><i class="fa fa-check"></i><b>17.4</b> Right Join</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="sorting-columns-from-a-data-frame.html"><a href="sorting-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>18</b> Sorting columns from a data-frame</a></li>
+<li class="chapter" data-level="19" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i><b>19</b> Bibliography</a></li>
+<li class="divider"></li>
+<li><a href="https://estadistica4all.com" target="blank">Estadistica4all.com</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Pandas</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="concat-data-frames" class="section level1 hasAnchor" number="16">
+<h1><span class="header-section-number">Chapter 16</span> Concat data-frames<a href="concat-data-frames.html#concat-data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>We can concat data-frames using <code>concat()</code> method.</p>
+<p>First, we are going to remember the <code>Alumnos</code>, <code>Profesores</code>and <code>Examenes</code> data-frames, because we are going to use them in this section:</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb67-1"><a href="concat-data-frames.html#cb67-1" aria-hidden="true" tabindex="-1"></a>Alumnos</span></code></pre></div>
+<table>
+<colgroup>
+<col width="4%" />
+<col width="11%" />
+<col width="10%" />
+<col width="15%" />
+<col width="14%" />
+<col width="31%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="right"></th>
+<th align="left">AlumnoID</th>
+<th align="left">Nombre</th>
+<th align="left">Pais</th>
+<th align="left">Ciudad</th>
+<th align="left">Email</th>
+<th align="left">Telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="left">A1</td>
+<td align="left">Orlando</td>
+<td align="left">Australia</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">917755028</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="left">A2</td>
+<td align="left">Keith</td>
+<td align="left">India</td>
+<td align="left"></td>
+<td align="left"><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="left">A3</td>
+<td align="left">Donna</td>
+<td align="left">Germany</td>
+<td align="left">Berlin</td>
+<td align="left"><a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a></td>
+<td align="left">915547890</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="left">A4</td>
+<td align="left">Janet</td>
+<td align="left">United States</td>
+<td align="left">California</td>
+<td align="left"><a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="left">A5</td>
+<td align="left">Fabio</td>
+<td align="left">España</td>
+<td align="left">Madrid</td>
+<td align="left"><a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="left">A6</td>
+<td align="left">Juan</td>
+<td align="left">España</td>
+<td align="left">Sevilla</td>
+<td align="left"></td>
+<td align="left">915869028</td>
+</tr>
+<tr class="odd">
+<td align="right">6</td>
+<td align="left">A7</td>
+<td align="left">Lucia</td>
+<td align="left">España</td>
+<td align="left"></td>
+<td align="left"><a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="right">7</td>
+<td align="left">A8</td>
+<td align="left">Pedro</td>
+<td align="left">Italia</td>
+<td align="left">Roma</td>
+<td align="left"><a href="mailto:Pedro99@gmail.com" class="email">Pedro99@gmail.com</a></td>
+<td align="left">910007890</td>
+</tr>
+<tr class="odd">
+<td align="right">8</td>
+<td align="left">A9</td>
+<td align="left">Sergio</td>
+<td align="left">United States</td>
+<td align="left">New York</td>
+<td align="left"><a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="right">9</td>
+<td align="left">A10</td>
+<td align="left">Grecia</td>
+<td align="left">Peru</td>
+<td align="left">Lima</td>
+<td align="left"><a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="right">10</td>
+<td align="left">A11</td>
+<td align="left">Ismael</td>
+<td align="left">España</td>
+<td align="left">Madrid</td>
+<td align="left"><a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a></td>
+<td align="left">912234543</td>
+</tr>
+<tr class="even">
+<td align="right">11</td>
+<td align="left">A12</td>
+<td align="left">Luis</td>
+<td align="left">España</td>
+<td align="left">Murcia</td>
+<td align="left"><a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="right">12</td>
+<td align="left">A13</td>
+<td align="left">Pedro</td>
+<td align="left">Argentina</td>
+<td align="left">Buenos Aires</td>
+<td align="left"><a href="mailto:Pedro120@gmail.com" class="email">Pedro120@gmail.com</a></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb68-1"><a href="concat-data-frames.html#cb68-1" aria-hidden="true" tabindex="-1"></a>Profesores</span></code></pre></div>
+<table>
+<colgroup>
+<col width="4%" />
+<col width="15%" />
+<col width="12%" />
+<col width="28%" />
+<col width="39%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>ProfesorID</th>
+<th>Nombre</th>
+<th>Estudios</th>
+<th>Email</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>P1</td>
+<td>Juan</td>
+<td>Matemáticas</td>
+<td><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>P2</td>
+<td>Sonia</td>
+<td>Física</td>
+<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>P3</td>
+<td>Lucia</td>
+<td>Lengua</td>
+<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>P4</td>
+<td>Marcos</td>
+<td>Biología</td>
+<td><a href="mailto:MarcosSanz@colegio.es" class="email">MarcosSanz@colegio.es</a></td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>P5</td>
+<td>Carlos</td>
+<td>Educación Física</td>
+<td><a href="mailto:CarlosFernandez@colegio.es" class="email">CarlosFernandez@colegio.es</a></td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>P6</td>
+<td>Daniel</td>
+<td>Geografía</td>
+<td><a href="mailto:DanielOrtiz@colegio.es" class="email">DanielOrtiz@colegio.es</a></td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>P7</td>
+<td>Garazi</td>
+<td>Inglés</td>
+<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb69-1"><a href="concat-data-frames.html#cb69-1" aria-hidden="true" tabindex="-1"></a>Examenes</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>ExamenId</th>
+<th>Nota</th>
+<th>Asignatura</th>
+<th>AlumnoID</th>
+<th>ProfesorID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>E1</td>
+<td>6.70</td>
+<td>Matemáticas</td>
+<td>A2</td>
+<td>P1</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>E2</td>
+<td>8.00</td>
+<td>Física</td>
+<td>A4</td>
+<td>P2</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>E3</td>
+<td>4.25</td>
+<td>Matemáticas</td>
+<td>A1</td>
+<td>P1</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>E4</td>
+<td>6.50</td>
+<td>Inglés</td>
+<td>A7</td>
+<td>P7</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>E5</td>
+<td>7.00</td>
+<td>Lengua</td>
+<td>A9</td>
+<td>P3</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb70-1"><a href="concat-data-frames.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> concat</span></code></pre></div>
+<p>There are several ways to apply the <code>concat</code> method to a pair of data frames, each one giving different results.</p>
+<p>Let’s see some of them.</p>
+<div id="concat-by-columns" class="section level2 hasAnchor" number="16.1">
+<h2><span class="header-section-number">16.1</span> Concat by columns<a href="concat-data-frames.html#concat-by-columns" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb71-1"><a href="concat-data-frames.html#cb71-1" aria-hidden="true" tabindex="-1"></a>concat([Profesores,Alumnos], axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<div style="width: 100%; overflow-x: auto;">
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+ProfesorID
+</th>
+<th>
+Nombre
+</th>
+<th>
+Estudios
+</th>
+<th>
+Email
+</th>
+<th>
+AlumnoID
+</th>
+<th>
+Nombre
+</th>
+<th>
+Pais
+</th>
+<th>
+Ciudad
+</th>
+<th>
+Email
+</th>
+<th>
+Telefono
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+P1
+</td>
+<td>
+Juan
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+<a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a>
+</td>
+<td>
+A1
+</td>
+<td>
+Orlando
+</td>
+<td>
+Australia
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+917755028
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+P2
+</td>
+<td>
+Sonia
+</td>
+<td>
+Física
+</td>
+<td>
+<a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a>
+</td>
+<td>
+A2
+</td>
+<td>
+Keith
+</td>
+<td>
+India
+</td>
+<td>
+</td>
+<td>
+<a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+P3
+</td>
+<td>
+Lucia
+</td>
+<td>
+Lengua
+</td>
+<td>
+<a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a>
+</td>
+<td>
+A3
+</td>
+<td>
+Donna
+</td>
+<td>
+Germany
+</td>
+<td>
+Berlin
+</td>
+<td>
+<a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a>
+</td>
+<td>
+915547890
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+P4
+</td>
+<td>
+Marcos
+</td>
+<td>
+Biología
+</td>
+<td>
+<a href="mailto:MarcosSanz@colegio.es" class="email">MarcosSanz@colegio.es</a>
+</td>
+<td>
+A4
+</td>
+<td>
+Janet
+</td>
+<td>
+United States
+</td>
+<td>
+California
+</td>
+<td>
+<a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+P5
+</td>
+<td>
+Carlos
+</td>
+<td>
+Educación Física
+</td>
+<td>
+<a href="mailto:CarlosFernandez@colegio.es" class="email">CarlosFernandez@colegio.es</a>
+</td>
+<td>
+A5
+</td>
+<td>
+Fabio
+</td>
+<td>
+España
+</td>
+<td>
+Madrid
+</td>
+<td>
+<a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+P6
+</td>
+<td>
+Daniel
+</td>
+<td>
+Geografía
+</td>
+<td>
+<a href="mailto:DanielOrtiz@colegio.es" class="email">DanielOrtiz@colegio.es</a>
+</td>
+<td>
+A6
+</td>
+<td>
+Juan
+</td>
+<td>
+España
+</td>
+<td>
+Sevilla
+</td>
+<td>
+</td>
+<td>
+915869028
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+P7
+</td>
+<td>
+Garazi
+</td>
+<td>
+Inglés
+</td>
+<td>
+<a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a>
+</td>
+<td>
+A7
+</td>
+<td>
+Lucia
+</td>
+<td>
+España
+</td>
+<td>
+</td>
+<td>
+<a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+7
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A8
+</td>
+<td>
+Pedro
+</td>
+<td>
+Italia
+</td>
+<td>
+Roma
+</td>
+<td>
+<a href="mailto:Pedro99@gmail.com" class="email">Pedro99@gmail.com</a>
+</td>
+<td>
+910007890
+</td>
+</tr>
+<tr>
+<th>
+8
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A9
+</td>
+<td>
+Sergio
+</td>
+<td>
+United States
+</td>
+<td>
+New York
+</td>
+<td>
+<a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+9
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A10
+</td>
+<td>
+Grecia
+</td>
+<td>
+Peru
+</td>
+<td>
+Lima
+</td>
+<td>
+<a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+10
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A11
+</td>
+<td>
+Ismael
+</td>
+<td>
+España
+</td>
+<td>
+Madrid
+</td>
+<td>
+<a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a>
+</td>
+<td>
+912234543
+</td>
+</tr>
+<tr>
+<th>
+11
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A12
+</td>
+<td>
+Luis
+</td>
+<td>
+España
+</td>
+<td>
+Murcia
+</td>
+<td>
+<a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+12
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A13
+</td>
+<td>
+Pedro
+</td>
+<td>
+Argentina
+</td>
+<td>
+Buenos Aires
+</td>
+<td>
+<a href="mailto:Pedro120@gmail.com" class="email">Pedro120@gmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+</div>
+<div id="concat-by-rows" class="section level2 hasAnchor" number="16.2">
+<h2><span class="header-section-number">16.2</span> Concat by rows<a href="concat-data-frames.html#concat-by-rows" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb72-1"><a href="concat-data-frames.html#cb72-1" aria-hidden="true" tabindex="-1"></a>concat([Profesores,Alumnos], axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
+<div style="width: 100%; overflow-x: auto;">
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+ProfesorID
+</th>
+<th>
+Nombre
+</th>
+<th>
+Estudios
+</th>
+<th>
+Email
+</th>
+<th>
+AlumnoID
+</th>
+<th>
+Pais
+</th>
+<th>
+Ciudad
+</th>
+<th>
+Telefono
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+P1
+</td>
+<td>
+Juan
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+<a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a>
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+P2
+</td>
+<td>
+Sonia
+</td>
+<td>
+Física
+</td>
+<td>
+<a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a>
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+P3
+</td>
+<td>
+Lucia
+</td>
+<td>
+Lengua
+</td>
+<td>
+<a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a>
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+P4
+</td>
+<td>
+Marcos
+</td>
+<td>
+Biología
+</td>
+<td>
+<a href="mailto:MarcosSanz@colegio.es" class="email">MarcosSanz@colegio.es</a>
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+P5
+</td>
+<td>
+Carlos
+</td>
+<td>
+Educación Física
+</td>
+<td>
+<a href="mailto:CarlosFernandez@colegio.es" class="email">CarlosFernandez@colegio.es</a>
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+P6
+</td>
+<td>
+Daniel
+</td>
+<td>
+Geografía
+</td>
+<td>
+<a href="mailto:DanielOrtiz@colegio.es" class="email">DanielOrtiz@colegio.es</a>
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+P7
+</td>
+<td>
+Garazi
+</td>
+<td>
+Inglés
+</td>
+<td>
+<a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a>
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+0
+</th>
+<td>
+NaN
+</td>
+<td>
+Orlando
+</td>
+<td>
+NaN
+</td>
+<td>
+</td>
+<td>
+A1
+</td>
+<td>
+Australia
+</td>
+<td>
+</td>
+<td>
+917755028
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+NaN
+</td>
+<td>
+Keith
+</td>
+<td>
+NaN
+</td>
+<td>
+<a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a>
+</td>
+<td>
+A2
+</td>
+<td>
+India
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+NaN
+</td>
+<td>
+Donna
+</td>
+<td>
+NaN
+</td>
+<td>
+<a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a>
+</td>
+<td>
+A3
+</td>
+<td>
+Germany
+</td>
+<td>
+Berlin
+</td>
+<td>
+915547890
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+NaN
+</td>
+<td>
+Janet
+</td>
+<td>
+NaN
+</td>
+<td>
+<a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a>
+</td>
+<td>
+A4
+</td>
+<td>
+United States
+</td>
+<td>
+California
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+NaN
+</td>
+<td>
+Fabio
+</td>
+<td>
+NaN
+</td>
+<td>
+<a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a>
+</td>
+<td>
+A5
+</td>
+<td>
+España
+</td>
+<td>
+Madrid
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+NaN
+</td>
+<td>
+Juan
+</td>
+<td>
+NaN
+</td>
+<td>
+</td>
+<td>
+A6
+</td>
+<td>
+España
+</td>
+<td>
+Sevilla
+</td>
+<td>
+915869028
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+NaN
+</td>
+<td>
+Lucia
+</td>
+<td>
+NaN
+</td>
+<td>
+<a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a>
+</td>
+<td>
+A7
+</td>
+<td>
+España
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+7
+</th>
+<td>
+NaN
+</td>
+<td>
+Pedro
+</td>
+<td>
+NaN
+</td>
+<td>
+<a href="mailto:Pedro99@gmail.com" class="email">Pedro99@gmail.com</a>
+</td>
+<td>
+A8
+</td>
+<td>
+Italia
+</td>
+<td>
+Roma
+</td>
+<td>
+910007890
+</td>
+</tr>
+<tr>
+<th>
+8
+</th>
+<td>
+NaN
+</td>
+<td>
+Sergio
+</td>
+<td>
+NaN
+</td>
+<td>
+<a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a>
+</td>
+<td>
+A9
+</td>
+<td>
+United States
+</td>
+<td>
+New York
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+9
+</th>
+<td>
+NaN
+</td>
+<td>
+Grecia
+</td>
+<td>
+NaN
+</td>
+<td>
+<a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a>
+</td>
+<td>
+A10
+</td>
+<td>
+Peru
+</td>
+<td>
+Lima
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+10
+</th>
+<td>
+NaN
+</td>
+<td>
+Ismael
+</td>
+<td>
+NaN
+</td>
+<td>
+<a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a>
+</td>
+<td>
+A11
+</td>
+<td>
+España
+</td>
+<td>
+Madrid
+</td>
+<td>
+912234543
+</td>
+</tr>
+<tr>
+<th>
+11
+</th>
+<td>
+NaN
+</td>
+<td>
+Luis
+</td>
+<td>
+NaN
+</td>
+<td>
+<a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a>
+</td>
+<td>
+A12
+</td>
+<td>
+España
+</td>
+<td>
+Murcia
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+12
+</th>
+<td>
+NaN
+</td>
+<td>
+Pedro
+</td>
+<td>
+NaN
+</td>
+<td>
+<a href="mailto:Pedro120@gmail.com" class="email">Pedro120@gmail.com</a>
+</td>
+<td>
+A13
+</td>
+<td>
+Argentina
+</td>
+<td>
+Buenos Aires
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<p>We create two new data-frames that will have the same column names, to show how <code>concat( , index=0)</code> works in this case:</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb73-1"><a href="concat-data-frames.html#cb73-1" aria-hidden="true" tabindex="-1"></a>X1 <span class="op">=</span> pd.Series([ <span class="dv">2</span> , <span class="dv">4</span> , <span class="dv">3</span>, <span class="dv">35</span>, <span class="dv">23</span> ])</span>
+<span id="cb73-2"><a href="concat-data-frames.html#cb73-2" aria-hidden="true" tabindex="-1"></a>X2 <span class="op">=</span> pd.Series([<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="op">-</span><span class="dv">13</span>])</span>
+<span id="cb73-3"><a href="concat-data-frames.html#cb73-3" aria-hidden="true" tabindex="-1"></a>X3 <span class="op">=</span> pd.Series([<span class="dv">22</span>, <span class="dv">33</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="op">-</span><span class="dv">3</span>])</span>
+<span id="cb73-4"><a href="concat-data-frames.html#cb73-4" aria-hidden="true" tabindex="-1"></a>X4 <span class="op">=</span> pd.Series([<span class="dv">52</span>, <span class="dv">2</span>, <span class="dv">23</span>, <span class="dv">6</span>, <span class="op">-</span><span class="dv">5</span>])</span>
+<span id="cb73-5"><a href="concat-data-frames.html#cb73-5" aria-hidden="true" tabindex="-1"></a>X5 <span class="op">=</span> pd.Series([ <span class="dv">22</span> , <span class="dv">34</span> , <span class="dv">13</span>, <span class="dv">35</span>, <span class="dv">23</span> ])</span>
+<span id="cb73-6"><a href="concat-data-frames.html#cb73-6" aria-hidden="true" tabindex="-1"></a>X6 <span class="op">=</span> pd.Series([<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">32</span>, <span class="dv">30</span>, <span class="op">-</span><span class="dv">13</span>])</span>
+<span id="cb73-7"><a href="concat-data-frames.html#cb73-7" aria-hidden="true" tabindex="-1"></a>X7 <span class="op">=</span> pd.Series([<span class="dv">22</span>, <span class="dv">33</span>, <span class="dv">1</span>, <span class="dv">56</span>, <span class="op">-</span><span class="dv">13</span>])</span>
+<span id="cb73-8"><a href="concat-data-frames.html#cb73-8" aria-hidden="true" tabindex="-1"></a>X8 <span class="op">=</span> pd.Series([<span class="dv">5</span>, <span class="dv">12</span>, <span class="dv">2</span>, <span class="dv">66</span>, <span class="op">-</span><span class="dv">5</span>])</span>
+<span id="cb73-9"><a href="concat-data-frames.html#cb73-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-10"><a href="concat-data-frames.html#cb73-10" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame( {<span class="st">&quot;X1&quot;</span>: X1 , <span class="st">&quot;X2&quot;</span>: X2 , <span class="st">&quot;X3&quot;</span>: X3 , <span class="st">&quot;X4&quot;</span>: X4} ) </span>
+<span id="cb73-11"><a href="concat-data-frames.html#cb73-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-12"><a href="concat-data-frames.html#cb73-12" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame( {<span class="st">&quot;X1&quot;</span>: X5 , <span class="st">&quot;X2&quot;</span>: X6 , <span class="st">&quot;X3&quot;</span>: X7 , <span class="st">&quot;X4&quot;</span>: X8} )</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb74-1"><a href="concat-data-frames.html#cb74-1" aria-hidden="true" tabindex="-1"></a>df1</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>X1</th>
+<th>X2</th>
+<th>X3</th>
+<th>X4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>2</td>
+<td>10</td>
+<td>22</td>
+<td>52</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>4</td>
+<td>12</td>
+<td>33</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>1</td>
+<td>23</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>35</td>
+<td>3</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>23</td>
+<td>-13</td>
+<td>-3</td>
+<td>-5</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb75-1"><a href="concat-data-frames.html#cb75-1" aria-hidden="true" tabindex="-1"></a>df2</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>X1</th>
+<th>X2</th>
+<th>X3</th>
+<th>X4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>22</td>
+<td>10</td>
+<td>22</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>34</td>
+<td>12</td>
+<td>33</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>13</td>
+<td>32</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>35</td>
+<td>30</td>
+<td>56</td>
+<td>66</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>23</td>
+<td>-13</td>
+<td>-13</td>
+<td>-5</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb76-1"><a href="concat-data-frames.html#cb76-1" aria-hidden="true" tabindex="-1"></a>concat([df1,df2] , axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th>X1</th>
+<th>X2</th>
+<th>X3</th>
+<th>X4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>2</td>
+<td>10</td>
+<td>22</td>
+<td>52</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>4</td>
+<td>12</td>
+<td>33</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>3</td>
+<td>3</td>
+<td>1</td>
+<td>23</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>35</td>
+<td>3</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>23</td>
+<td>-13</td>
+<td>-3</td>
+<td>-5</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>22</td>
+<td>10</td>
+<td>22</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>34</td>
+<td>12</td>
+<td>33</td>
+<td>12</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>13</td>
+<td>32</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>35</td>
+<td>30</td>
+<td>56</td>
+<td>66</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>23</td>
+<td>-13</td>
+<td>-13</td>
+<td>-5</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb77-1"><a href="concat-data-frames.html#cb77-1" aria-hidden="true" tabindex="-1"></a>concat([df1,df2] , axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right"></th>
+<th align="right">X1</th>
+<th align="right">X2</th>
+<th align="right">X3</th>
+<th align="right">X4</th>
+<th align="right">X1</th>
+<th align="right">X2</th>
+<th align="right">X3</th>
+<th align="right">X4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">10</td>
+<td align="right">22</td>
+<td align="right">52</td>
+<td align="right">22</td>
+<td align="right">10</td>
+<td align="right">22</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">12</td>
+<td align="right">33</td>
+<td align="right">2</td>
+<td align="right">34</td>
+<td align="right">12</td>
+<td align="right">33</td>
+<td align="right">12</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">23</td>
+<td align="right">13</td>
+<td align="right">32</td>
+<td align="right">1</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">35</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">6</td>
+<td align="right">35</td>
+<td align="right">30</td>
+<td align="right">56</td>
+<td align="right">66</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">23</td>
+<td align="right">-13</td>
+<td align="right">-3</td>
+<td align="right">-5</td>
+<td align="right">23</td>
+<td align="right">-13</td>
+<td align="right">-13</td>
+<td align="right">-5</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="group-by.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="join-data-frames-using-merge.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://estadistica4all.com/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

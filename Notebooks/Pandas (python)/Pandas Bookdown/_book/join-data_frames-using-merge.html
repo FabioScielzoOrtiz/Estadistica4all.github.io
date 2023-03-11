@@ -1,0 +1,2600 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 17 Join data_frames using merge | Introduction to Pandas</title>
+  <meta name="description" content="This is a hands-on introduction to Pandas, probably the most important Python library for handling data frames." />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 17 Join data_frames using merge | Introduction to Pandas" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a hands-on introduction to Pandas, probably the most important Python library for handling data frames." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 17 Join data_frames using merge | Introduction to Pandas" />
+  
+  <meta name="twitter:description" content="This is a hands-on introduction to Pandas, probably the most important Python library for handling data frames." />
+  
+
+<meta name="author" content="Fabio Scielzo Ortiz" />
+
+
+<meta name="date" content="2023-03-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="concat-data-frames.html"/>
+<link rel="next" href="sorting-columns-from-a-data-frame.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introduction to Pandas</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="create-a-new-table-data-frame.html"><a href="create-a-new-table-data-frame.html"><i class="fa fa-check"></i><b>2</b> Create a new table (data-frame)</a></li>
+<li class="chapter" data-level="3" data-path="import-a-csv-as-a-table.html"><a href="import-a-csv-as-a-table.html"><i class="fa fa-check"></i><b>3</b> Import a CSV as a table</a></li>
+<li class="chapter" data-level="4" data-path="export-a-csv.html"><a href="export-a-csv.html"><i class="fa fa-check"></i><b>4</b> Export a CSV</a></li>
+<li class="chapter" data-level="5" data-path="number-of-rows-and-columns.html"><a href="number-of-rows-and-columns.html"><i class="fa fa-check"></i><b>5</b> Number of rows and columns</a></li>
+<li class="chapter" data-level="6" data-path="head-y-tail.html"><a href="head-y-tail.html"><i class="fa fa-check"></i><b>6</b> Head y Tail</a></li>
+<li class="chapter" data-level="7" data-path="column-names.html"><a href="column-names.html"><i class="fa fa-check"></i><b>7</b> Column Names</a></li>
+<li class="chapter" data-level="8" data-path="selecting-columns-from-a-data-frame.html"><a href="selecting-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>8</b> Selecting columns from a data-frame</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="selecting-columns-from-a-data-frame.html"><a href="selecting-columns-from-a-data-frame.html#loc-method"><i class="fa fa-check"></i><b>8.1</b> <code>loc</code> method</a></li>
+<li class="chapter" data-level="8.2" data-path="selecting-columns-from-a-data-frame.html"><a href="selecting-columns-from-a-data-frame.html#iloc-method"><i class="fa fa-check"></i><b>8.2</b> <code>iloc</code> method</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="filter-rows-of-a-data-frame.html"><a href="filter-rows-of-a-data-frame.html"><i class="fa fa-check"></i><b>9</b> Filter rows of a data-frame</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="filter-rows-of-a-data-frame.html"><a href="filter-rows-of-a-data-frame.html#loc-method-1"><i class="fa fa-check"></i><b>9.1</b> <code>loc</code> method</a></li>
+<li class="chapter" data-level="9.2" data-path="filter-rows-of-a-data-frame.html"><a href="filter-rows-of-a-data-frame.html#iloc-method-1"><i class="fa fa-check"></i><b>9.2</b> <code>iloc</code> method</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="traspose-a-data-frame.html"><a href="traspose-a-data-frame.html"><i class="fa fa-check"></i><b>10</b> Traspose a data-frame</a></li>
+<li class="chapter" data-level="11" data-path="data-frame-to-numpy.html"><a href="data-frame-to-numpy.html"><i class="fa fa-check"></i><b>11</b> Data-frame to numpy</a></li>
+<li class="chapter" data-level="12" data-path="delete-columns-from-a-data-frame.html"><a href="delete-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>12</b> Delete columns from a data-frame</a></li>
+<li class="chapter" data-level="13" data-path="delete-rows-from-a-data-frame.html"><a href="delete-rows-from-a-data-frame.html"><i class="fa fa-check"></i><b>13</b> Delete rows from a data-frame</a></li>
+<li class="chapter" data-level="14" data-path="rename-columns-from-a-data-frame.html"><a href="rename-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>14</b> Rename columns from a data-frame</a></li>
+<li class="chapter" data-level="15" data-path="group-by.html"><a href="group-by.html"><i class="fa fa-check"></i><b>15</b> Group by</a></li>
+<li class="chapter" data-level="16" data-path="concat-data-frames.html"><a href="concat-data-frames.html"><i class="fa fa-check"></i><b>16</b> Concat data-frames</a></li>
+<li class="chapter" data-level="17" data-path="join-data_frames-using-merge.html"><a href="join-data_frames-using-merge.html"><i class="fa fa-check"></i><b>17</b> Join data_frames using <code>merge</code></a></li>
+<li class="chapter" data-level="18" data-path="sorting-columns-from-a-data-frame.html"><a href="sorting-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>18</b> Sorting columns from a data-frame</a></li>
+<li class="chapter" data-level="19" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i><b>19</b> Bibliography</a></li>
+<li class="divider"></li>
+<li><a href="https://estadistica4all.com" target="blank">Estadistica4all.com</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Pandas</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="join-data_frames-using-merge" class="section level1 hasAnchor" number="17">
+<h1><span class="header-section-number">Chapter 17</span> Join data_frames using <code>merge</code><a href="join-data_frames-using-merge.html#join-data_frames-using-merge" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb78-1"><a href="join-data_frames-using-merge.html#cb78-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Examenes, Alumnos, on<span class="op">=</span><span class="st">&#39;AlumnoID&#39;</span>, how<span class="op">=</span><span class="st">&#39;inner&#39;</span>)  <span class="co"># equivalent to inner join</span></span></code></pre></div>
+<div style="width: 100%; overflow-x: auto;">
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+ExamenId
+</th>
+<th>
+Nota
+</th>
+<th>
+Asignatura
+</th>
+<th>
+AlumnoID
+</th>
+<th>
+ProfesorID
+</th>
+<th>
+Nombre
+</th>
+<th>
+Pais
+</th>
+<th>
+Ciudad
+</th>
+<th>
+Email
+</th>
+<th>
+Telefono
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+E1
+</td>
+<td>
+6.70
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+A2
+</td>
+<td>
+P1
+</td>
+<td>
+Keith
+</td>
+<td>
+India
+</td>
+<td>
+</td>
+<td>
+<a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+E2
+</td>
+<td>
+8.00
+</td>
+<td>
+Física
+</td>
+<td>
+A4
+</td>
+<td>
+P2
+</td>
+<td>
+Janet
+</td>
+<td>
+United States
+</td>
+<td>
+California
+</td>
+<td>
+<a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+E3
+</td>
+<td>
+4.25
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+A1
+</td>
+<td>
+P1
+</td>
+<td>
+Orlando
+</td>
+<td>
+Australia
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+917755028
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+E4
+</td>
+<td>
+6.50
+</td>
+<td>
+Inglés
+</td>
+<td>
+A7
+</td>
+<td>
+P7
+</td>
+<td>
+Lucia
+</td>
+<td>
+España
+</td>
+<td>
+</td>
+<td>
+<a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+E5
+</td>
+<td>
+7.00
+</td>
+<td>
+Lengua
+</td>
+<td>
+A9
+</td>
+<td>
+P3
+</td>
+<td>
+Sergio
+</td>
+<td>
+United States
+</td>
+<td>
+New York
+</td>
+<td>
+<a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb79-1"><a href="join-data_frames-using-merge.html#cb79-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Examenes, Profesores, on<span class="op">=</span><span class="st">&#39;ProfesorID&#39;</span>, how<span class="op">=</span><span class="st">&#39;inner&#39;</span>)  <span class="co"># equivalent to inner join</span></span></code></pre></div>
+<div style="width: 100%; overflow-x: auto;">
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+ExamenId
+</th>
+<th>
+Nota
+</th>
+<th>
+Asignatura
+</th>
+<th>
+AlumnoID
+</th>
+<th>
+ProfesorID
+</th>
+<th>
+Nombre
+</th>
+<th>
+Estudios
+</th>
+<th>
+Email
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+E1
+</td>
+<td>
+6.70
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+A2
+</td>
+<td>
+P1
+</td>
+<td>
+Juan
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+<a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a>
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+E3
+</td>
+<td>
+4.25
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+A1
+</td>
+<td>
+P1
+</td>
+<td>
+Juan
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+<a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a>
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+E2
+</td>
+<td>
+8.00
+</td>
+<td>
+Física
+</td>
+<td>
+A4
+</td>
+<td>
+P2
+</td>
+<td>
+Sonia
+</td>
+<td>
+Física
+</td>
+<td>
+<a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a>
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+E4
+</td>
+<td>
+6.50
+</td>
+<td>
+Inglés
+</td>
+<td>
+A7
+</td>
+<td>
+P7
+</td>
+<td>
+Garazi
+</td>
+<td>
+Inglés
+</td>
+<td>
+<a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a>
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+E5
+</td>
+<td>
+7.00
+</td>
+<td>
+Lengua
+</td>
+<td>
+A9
+</td>
+<td>
+P3
+</td>
+<td>
+Lucia
+</td>
+<td>
+Lengua
+</td>
+<td>
+<a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb80-1"><a href="join-data_frames-using-merge.html#cb80-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Examenes, Alumnos, on<span class="op">=</span><span class="st">&#39;AlumnoID&#39;</span>, how<span class="op">=</span><span class="st">&#39;outer&#39;</span>)  <span class="co"># equivalent to outer join</span></span></code></pre></div>
+<div style="width: 100%; overflow-x: auto;">
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+ExamenId
+</th>
+<th>
+Nota
+</th>
+<th>
+Asignatura
+</th>
+<th>
+AlumnoID
+</th>
+<th>
+ProfesorID
+</th>
+<th>
+Nombre
+</th>
+<th>
+Pais
+</th>
+<th>
+Ciudad
+</th>
+<th>
+Email
+</th>
+<th>
+Telefono
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+E1
+</td>
+<td>
+6.70
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+A2
+</td>
+<td>
+P1
+</td>
+<td>
+Keith
+</td>
+<td>
+India
+</td>
+<td>
+</td>
+<td>
+<a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+E2
+</td>
+<td>
+8.00
+</td>
+<td>
+Física
+</td>
+<td>
+A4
+</td>
+<td>
+P2
+</td>
+<td>
+Janet
+</td>
+<td>
+United States
+</td>
+<td>
+California
+</td>
+<td>
+<a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+E3
+</td>
+<td>
+4.25
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+A1
+</td>
+<td>
+P1
+</td>
+<td>
+Orlando
+</td>
+<td>
+Australia
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+917755028
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+E4
+</td>
+<td>
+6.50
+</td>
+<td>
+Inglés
+</td>
+<td>
+A7
+</td>
+<td>
+P7
+</td>
+<td>
+Lucia
+</td>
+<td>
+España
+</td>
+<td>
+</td>
+<td>
+<a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+E5
+</td>
+<td>
+7.00
+</td>
+<td>
+Lengua
+</td>
+<td>
+A9
+</td>
+<td>
+P3
+</td>
+<td>
+Sergio
+</td>
+<td>
+United States
+</td>
+<td>
+New York
+</td>
+<td>
+<a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A3
+</td>
+<td>
+NaN
+</td>
+<td>
+Donna
+</td>
+<td>
+Germany
+</td>
+<td>
+Berlin
+</td>
+<td>
+<a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a>
+</td>
+<td>
+915547890
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A5
+</td>
+<td>
+NaN
+</td>
+<td>
+Fabio
+</td>
+<td>
+España
+</td>
+<td>
+Madrid
+</td>
+<td>
+<a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+7
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A6
+</td>
+<td>
+NaN
+</td>
+<td>
+Juan
+</td>
+<td>
+España
+</td>
+<td>
+Sevilla
+</td>
+<td>
+</td>
+<td>
+915869028
+</td>
+</tr>
+<tr>
+<th>
+8
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A8
+</td>
+<td>
+NaN
+</td>
+<td>
+Pedro
+</td>
+<td>
+Italia
+</td>
+<td>
+Roma
+</td>
+<td>
+<a href="mailto:Pedro99@gmail.com" class="email">Pedro99@gmail.com</a>
+</td>
+<td>
+910007890
+</td>
+</tr>
+<tr>
+<th>
+9
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A10
+</td>
+<td>
+NaN
+</td>
+<td>
+Grecia
+</td>
+<td>
+Peru
+</td>
+<td>
+Lima
+</td>
+<td>
+<a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+10
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A11
+</td>
+<td>
+NaN
+</td>
+<td>
+Ismael
+</td>
+<td>
+España
+</td>
+<td>
+Madrid
+</td>
+<td>
+<a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a>
+</td>
+<td>
+912234543
+</td>
+</tr>
+<tr>
+<th>
+11
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A12
+</td>
+<td>
+NaN
+</td>
+<td>
+Luis
+</td>
+<td>
+España
+</td>
+<td>
+Murcia
+</td>
+<td>
+<a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+12
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A13
+</td>
+<td>
+NaN
+</td>
+<td>
+Pedro
+</td>
+<td>
+Argentina
+</td>
+<td>
+Buenos Aires
+</td>
+<td>
+<a href="mailto:Pedro120@gmail.com" class="email">Pedro120@gmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb81-1"><a href="join-data_frames-using-merge.html#cb81-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Examenes, Profesores, on<span class="op">=</span><span class="st">&#39;ProfesorID&#39;</span>, how<span class="op">=</span><span class="st">&#39;outer&#39;</span>)  <span class="co"># equivalent to outer join</span></span></code></pre></div>
+<div style="width: 100%; overflow-x: auto;">
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+ExamenId
+</th>
+<th>
+Nota
+</th>
+<th>
+Asignatura
+</th>
+<th>
+AlumnoID
+</th>
+<th>
+ProfesorID
+</th>
+<th>
+Nombre
+</th>
+<th>
+Estudios
+</th>
+<th>
+Email
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+E1
+</td>
+<td>
+6.70
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+A2
+</td>
+<td>
+P1
+</td>
+<td>
+Juan
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+<a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a>
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+E3
+</td>
+<td>
+4.25
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+A1
+</td>
+<td>
+P1
+</td>
+<td>
+Juan
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+<a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a>
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+E2
+</td>
+<td>
+8.00
+</td>
+<td>
+Física
+</td>
+<td>
+A4
+</td>
+<td>
+P2
+</td>
+<td>
+Sonia
+</td>
+<td>
+Física
+</td>
+<td>
+<a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a>
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+E4
+</td>
+<td>
+6.50
+</td>
+<td>
+Inglés
+</td>
+<td>
+A7
+</td>
+<td>
+P7
+</td>
+<td>
+Garazi
+</td>
+<td>
+Inglés
+</td>
+<td>
+<a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a>
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+E5
+</td>
+<td>
+7.00
+</td>
+<td>
+Lengua
+</td>
+<td>
+A9
+</td>
+<td>
+P3
+</td>
+<td>
+Lucia
+</td>
+<td>
+Lengua
+</td>
+<td>
+<a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a>
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+P4
+</td>
+<td>
+Marcos
+</td>
+<td>
+Biología
+</td>
+<td>
+<a href="mailto:MarcosSanz@colegio.es" class="email">MarcosSanz@colegio.es</a>
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+P5
+</td>
+<td>
+Carlos
+</td>
+<td>
+Educación Física
+</td>
+<td>
+<a href="mailto:CarlosFernandez@colegio.es" class="email">CarlosFernandez@colegio.es</a>
+</td>
+</tr>
+<tr>
+<th>
+7
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+P6
+</td>
+<td>
+Daniel
+</td>
+<td>
+Geografía
+</td>
+<td>
+<a href="mailto:DanielOrtiz@colegio.es" class="email">DanielOrtiz@colegio.es</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb82-1"><a href="join-data_frames-using-merge.html#cb82-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Examenes, Alumnos, on<span class="op">=</span><span class="st">&#39;AlumnoID&#39;</span>, how<span class="op">=</span><span class="st">&#39;left&#39;</span>)  <span class="co"># equivalent to left join</span></span></code></pre></div>
+<div style="width: 100%; overflow-x: auto;">
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+ExamenId
+</th>
+<th>
+Nota
+</th>
+<th>
+Asignatura
+</th>
+<th>
+AlumnoID
+</th>
+<th>
+ProfesorID
+</th>
+<th>
+Nombre
+</th>
+<th>
+Pais
+</th>
+<th>
+Ciudad
+</th>
+<th>
+Email
+</th>
+<th>
+Telefono
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+E1
+</td>
+<td>
+6.70
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+A2
+</td>
+<td>
+P1
+</td>
+<td>
+Keith
+</td>
+<td>
+India
+</td>
+<td>
+</td>
+<td>
+<a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+E2
+</td>
+<td>
+8.00
+</td>
+<td>
+Física
+</td>
+<td>
+A4
+</td>
+<td>
+P2
+</td>
+<td>
+Janet
+</td>
+<td>
+United States
+</td>
+<td>
+California
+</td>
+<td>
+<a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+E3
+</td>
+<td>
+4.25
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+A1
+</td>
+<td>
+P1
+</td>
+<td>
+Orlando
+</td>
+<td>
+Australia
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+917755028
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+E4
+</td>
+<td>
+6.50
+</td>
+<td>
+Inglés
+</td>
+<td>
+A7
+</td>
+<td>
+P7
+</td>
+<td>
+Lucia
+</td>
+<td>
+España
+</td>
+<td>
+</td>
+<td>
+<a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+E5
+</td>
+<td>
+7.00
+</td>
+<td>
+Lengua
+</td>
+<td>
+A9
+</td>
+<td>
+P3
+</td>
+<td>
+Sergio
+</td>
+<td>
+United States
+</td>
+<td>
+New York
+</td>
+<td>
+<a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb83-1"><a href="join-data_frames-using-merge.html#cb83-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Alumnos, Examenes, on<span class="op">=</span><span class="st">&#39;AlumnoID&#39;</span>, how<span class="op">=</span><span class="st">&#39;left&#39;</span>)  <span class="co"># equivalent to left join</span></span></code></pre></div>
+<div style="width: 100%; overflow-x: auto;">
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+AlumnoID
+</th>
+<th>
+Nombre
+</th>
+<th>
+Pais
+</th>
+<th>
+Ciudad
+</th>
+<th>
+Email
+</th>
+<th>
+Telefono
+</th>
+<th>
+ExamenId
+</th>
+<th>
+Nota
+</th>
+<th>
+Asignatura
+</th>
+<th>
+ProfesorID
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+A1
+</td>
+<td>
+Orlando
+</td>
+<td>
+Australia
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+917755028
+</td>
+<td>
+E3
+</td>
+<td>
+4.25
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+P1
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+A2
+</td>
+<td>
+Keith
+</td>
+<td>
+India
+</td>
+<td>
+</td>
+<td>
+<a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a>
+</td>
+<td>
+</td>
+<td>
+E1
+</td>
+<td>
+6.70
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+P1
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+A3
+</td>
+<td>
+Donna
+</td>
+<td>
+Germany
+</td>
+<td>
+Berlin
+</td>
+<td>
+<a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a>
+</td>
+<td>
+915547890
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+A4
+</td>
+<td>
+Janet
+</td>
+<td>
+United States
+</td>
+<td>
+California
+</td>
+<td>
+<a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a>
+</td>
+<td>
+</td>
+<td>
+E2
+</td>
+<td>
+8.00
+</td>
+<td>
+Física
+</td>
+<td>
+P2
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+A5
+</td>
+<td>
+Fabio
+</td>
+<td>
+España
+</td>
+<td>
+Madrid
+</td>
+<td>
+<a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a>
+</td>
+<td>
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+A6
+</td>
+<td>
+Juan
+</td>
+<td>
+España
+</td>
+<td>
+Sevilla
+</td>
+<td>
+</td>
+<td>
+915869028
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+A7
+</td>
+<td>
+Lucia
+</td>
+<td>
+España
+</td>
+<td>
+</td>
+<td>
+<a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a>
+</td>
+<td>
+</td>
+<td>
+E4
+</td>
+<td>
+6.50
+</td>
+<td>
+Inglés
+</td>
+<td>
+P7
+</td>
+</tr>
+<tr>
+<th>
+7
+</th>
+<td>
+A8
+</td>
+<td>
+Pedro
+</td>
+<td>
+Italia
+</td>
+<td>
+Roma
+</td>
+<td>
+<a href="mailto:Pedro99@gmail.com" class="email">Pedro99@gmail.com</a>
+</td>
+<td>
+910007890
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+8
+</th>
+<td>
+A9
+</td>
+<td>
+Sergio
+</td>
+<td>
+United States
+</td>
+<td>
+New York
+</td>
+<td>
+<a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a>
+</td>
+<td>
+</td>
+<td>
+E5
+</td>
+<td>
+7.00
+</td>
+<td>
+Lengua
+</td>
+<td>
+P3
+</td>
+</tr>
+<tr>
+<th>
+9
+</th>
+<td>
+A10
+</td>
+<td>
+Grecia
+</td>
+<td>
+Peru
+</td>
+<td>
+Lima
+</td>
+<td>
+<a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a>
+</td>
+<td>
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+10
+</th>
+<td>
+A11
+</td>
+<td>
+Ismael
+</td>
+<td>
+España
+</td>
+<td>
+Madrid
+</td>
+<td>
+<a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a>
+</td>
+<td>
+912234543
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+11
+</th>
+<td>
+A12
+</td>
+<td>
+Luis
+</td>
+<td>
+España
+</td>
+<td>
+Murcia
+</td>
+<td>
+<a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a>
+</td>
+<td>
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+12
+</th>
+<td>
+A13
+</td>
+<td>
+Pedro
+</td>
+<td>
+Argentina
+</td>
+<td>
+Buenos Aires
+</td>
+<td>
+<a href="mailto:Pedro120@gmail.com" class="email">Pedro120@gmail.com</a>
+</td>
+<td>
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb84-1"><a href="join-data_frames-using-merge.html#cb84-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Examenes, Alumnos, on<span class="op">=</span><span class="st">&#39;AlumnoID&#39;</span>, how<span class="op">=</span><span class="st">&#39;right&#39;</span>)  <span class="co"># equivalent to right join</span></span></code></pre></div>
+<div style="width: 100%; overflow-x: auto;">
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+ExamenId
+</th>
+<th>
+Nota
+</th>
+<th>
+Asignatura
+</th>
+<th>
+AlumnoID
+</th>
+<th>
+ProfesorID
+</th>
+<th>
+Nombre
+</th>
+<th>
+Pais
+</th>
+<th>
+Ciudad
+</th>
+<th>
+Email
+</th>
+<th>
+Telefono
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+E3
+</td>
+<td>
+4.25
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+A1
+</td>
+<td>
+P1
+</td>
+<td>
+Orlando
+</td>
+<td>
+Australia
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+917755028
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+E1
+</td>
+<td>
+6.70
+</td>
+<td>
+Matemáticas
+</td>
+<td>
+A2
+</td>
+<td>
+P1
+</td>
+<td>
+Keith
+</td>
+<td>
+India
+</td>
+<td>
+</td>
+<td>
+<a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A3
+</td>
+<td>
+NaN
+</td>
+<td>
+Donna
+</td>
+<td>
+Germany
+</td>
+<td>
+Berlin
+</td>
+<td>
+<a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a>
+</td>
+<td>
+915547890
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+E2
+</td>
+<td>
+8.00
+</td>
+<td>
+Física
+</td>
+<td>
+A4
+</td>
+<td>
+P2
+</td>
+<td>
+Janet
+</td>
+<td>
+United States
+</td>
+<td>
+California
+</td>
+<td>
+<a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A5
+</td>
+<td>
+NaN
+</td>
+<td>
+Fabio
+</td>
+<td>
+España
+</td>
+<td>
+Madrid
+</td>
+<td>
+<a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A6
+</td>
+<td>
+NaN
+</td>
+<td>
+Juan
+</td>
+<td>
+España
+</td>
+<td>
+Sevilla
+</td>
+<td>
+</td>
+<td>
+915869028
+</td>
+</tr>
+<tr>
+<th>
+6
+</th>
+<td>
+E4
+</td>
+<td>
+6.50
+</td>
+<td>
+Inglés
+</td>
+<td>
+A7
+</td>
+<td>
+P7
+</td>
+<td>
+Lucia
+</td>
+<td>
+España
+</td>
+<td>
+</td>
+<td>
+<a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+7
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A8
+</td>
+<td>
+NaN
+</td>
+<td>
+Pedro
+</td>
+<td>
+Italia
+</td>
+<td>
+Roma
+</td>
+<td>
+<a href="mailto:Pedro99@gmail.com" class="email">Pedro99@gmail.com</a>
+</td>
+<td>
+910007890
+</td>
+</tr>
+<tr>
+<th>
+8
+</th>
+<td>
+E5
+</td>
+<td>
+7.00
+</td>
+<td>
+Lengua
+</td>
+<td>
+A9
+</td>
+<td>
+P3
+</td>
+<td>
+Sergio
+</td>
+<td>
+United States
+</td>
+<td>
+New York
+</td>
+<td>
+<a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+9
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A10
+</td>
+<td>
+NaN
+</td>
+<td>
+Grecia
+</td>
+<td>
+Peru
+</td>
+<td>
+Lima
+</td>
+<td>
+<a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+10
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A11
+</td>
+<td>
+NaN
+</td>
+<td>
+Ismael
+</td>
+<td>
+España
+</td>
+<td>
+Madrid
+</td>
+<td>
+<a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a>
+</td>
+<td>
+912234543
+</td>
+</tr>
+<tr>
+<th>
+11
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A12
+</td>
+<td>
+NaN
+</td>
+<td>
+Luis
+</td>
+<td>
+España
+</td>
+<td>
+Murcia
+</td>
+<td>
+<a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<th>
+12
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+A13
+</td>
+<td>
+NaN
+</td>
+<td>
+Pedro
+</td>
+<td>
+Argentina
+</td>
+<td>
+Buenos Aires
+</td>
+<td>
+<a href="mailto:Pedro120@gmail.com" class="email">Pedro120@gmail.com</a>
+</td>
+<td>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+<p>The correct way to use <code>merge</code> when the names of link columns are different is:</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb85-1"><a href="join-data_frames-using-merge.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># df_merge = pd.merge(df1, df2, left_on=&#39;id1&#39; , right_on=&#39;id2&#39;, how=&#39;inner&#39;)</span></span></code></pre></div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="concat-data-frames.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sorting-columns-from-a-data-frame.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://estadistica4all.com/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

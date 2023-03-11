@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 15 Group by | Introduction to Pandas</title>
+  <meta name="description" content="This is a hands-on introduction to Pandas, probably the most important Python library for handling data frames." />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 15 Group by | Introduction to Pandas" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is a hands-on introduction to Pandas, probably the most important Python library for handling data frames." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 15 Group by | Introduction to Pandas" />
+  
+  <meta name="twitter:description" content="This is a hands-on introduction to Pandas, probably the most important Python library for handling data frames." />
+  
+
+<meta name="author" content="Fabio Scielzo Ortiz" />
+
+
+<meta name="date" content="2023-03-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="rename-columns-from-a-data-frame.html"/>
+<link rel="next" href="concat-data-frames.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Introduction to Pandas</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="create-a-new-table-data-frame.html"><a href="create-a-new-table-data-frame.html"><i class="fa fa-check"></i><b>2</b> Create a new table (data-frame)</a></li>
+<li class="chapter" data-level="3" data-path="import-a-csv-as-a-table.html"><a href="import-a-csv-as-a-table.html"><i class="fa fa-check"></i><b>3</b> Import a CSV as a table</a></li>
+<li class="chapter" data-level="4" data-path="export-a-csv.html"><a href="export-a-csv.html"><i class="fa fa-check"></i><b>4</b> Export a CSV</a></li>
+<li class="chapter" data-level="5" data-path="number-of-rows-and-columns.html"><a href="number-of-rows-and-columns.html"><i class="fa fa-check"></i><b>5</b> Number of rows and columns</a></li>
+<li class="chapter" data-level="6" data-path="head-y-tail.html"><a href="head-y-tail.html"><i class="fa fa-check"></i><b>6</b> Head y Tail</a></li>
+<li class="chapter" data-level="7" data-path="column-names.html"><a href="column-names.html"><i class="fa fa-check"></i><b>7</b> Column Names</a></li>
+<li class="chapter" data-level="8" data-path="selecting-columns-from-a-data-frame.html"><a href="selecting-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>8</b> Selecting columns from a data-frame</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="selecting-columns-from-a-data-frame.html"><a href="selecting-columns-from-a-data-frame.html#loc-method"><i class="fa fa-check"></i><b>8.1</b> <code>loc</code> method</a></li>
+<li class="chapter" data-level="8.2" data-path="selecting-columns-from-a-data-frame.html"><a href="selecting-columns-from-a-data-frame.html#iloc-method"><i class="fa fa-check"></i><b>8.2</b> <code>iloc</code> method</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="filter-rows-of-a-data-frame.html"><a href="filter-rows-of-a-data-frame.html"><i class="fa fa-check"></i><b>9</b> Filter rows of a data-frame</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="filter-rows-of-a-data-frame.html"><a href="filter-rows-of-a-data-frame.html#loc-method-1"><i class="fa fa-check"></i><b>9.1</b> <code>loc</code> method</a></li>
+<li class="chapter" data-level="9.2" data-path="filter-rows-of-a-data-frame.html"><a href="filter-rows-of-a-data-frame.html#iloc-method-1"><i class="fa fa-check"></i><b>9.2</b> <code>iloc</code> method</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="traspose-a-data-frame.html"><a href="traspose-a-data-frame.html"><i class="fa fa-check"></i><b>10</b> Traspose a data-frame</a></li>
+<li class="chapter" data-level="11" data-path="data-frame-to-numpy.html"><a href="data-frame-to-numpy.html"><i class="fa fa-check"></i><b>11</b> Data-frame to numpy</a></li>
+<li class="chapter" data-level="12" data-path="delete-columns-from-a-data-frame.html"><a href="delete-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>12</b> Delete columns from a data-frame</a></li>
+<li class="chapter" data-level="13" data-path="delete-rows-from-a-data-frame.html"><a href="delete-rows-from-a-data-frame.html"><i class="fa fa-check"></i><b>13</b> Delete rows from a data-frame</a></li>
+<li class="chapter" data-level="14" data-path="rename-columns-from-a-data-frame.html"><a href="rename-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>14</b> Rename columns from a data-frame</a></li>
+<li class="chapter" data-level="15" data-path="group-by.html"><a href="group-by.html"><i class="fa fa-check"></i><b>15</b> Group by</a></li>
+<li class="chapter" data-level="16" data-path="concat-data-frames.html"><a href="concat-data-frames.html"><i class="fa fa-check"></i><b>16</b> Concat data-frames</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="concat-data-frames.html"><a href="concat-data-frames.html#concat-by-columns"><i class="fa fa-check"></i><b>16.1</b> Concat by columns</a></li>
+<li class="chapter" data-level="16.2" data-path="concat-data-frames.html"><a href="concat-data-frames.html#concat-by-rows"><i class="fa fa-check"></i><b>16.2</b> Concat by rows</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="join-data-frames-using-merge.html"><a href="join-data-frames-using-merge.html"><i class="fa fa-check"></i><b>17</b> Join data-frames using <code>merge</code></a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="join-data-frames-using-merge.html"><a href="join-data-frames-using-merge.html#inner-join"><i class="fa fa-check"></i><b>17.1</b> Inner Join</a></li>
+<li class="chapter" data-level="17.2" data-path="join-data-frames-using-merge.html"><a href="join-data-frames-using-merge.html#outer-join"><i class="fa fa-check"></i><b>17.2</b> Outer Join</a></li>
+<li class="chapter" data-level="17.3" data-path="join-data-frames-using-merge.html"><a href="join-data-frames-using-merge.html#left-join"><i class="fa fa-check"></i><b>17.3</b> Left Join</a></li>
+<li class="chapter" data-level="17.4" data-path="join-data-frames-using-merge.html"><a href="join-data-frames-using-merge.html#right-join"><i class="fa fa-check"></i><b>17.4</b> Right Join</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="sorting-columns-from-a-data-frame.html"><a href="sorting-columns-from-a-data-frame.html"><i class="fa fa-check"></i><b>18</b> Sorting columns from a data-frame</a></li>
+<li class="chapter" data-level="19" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i><b>19</b> Bibliography</a></li>
+<li class="divider"></li>
+<li><a href="https://estadistica4all.com" target="blank">Estadistica4all.com</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to Pandas</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="group-by" class="section level1 hasAnchor" number="15">
+<h1><span class="header-section-number">Chapter 15</span> Group by<a href="group-by.html#group-by" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>We can group the rows of the data frame by the values in one column and then compute within each group a statistic from some of the other columns:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb54-1"><a href="group-by.html#cb54-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.groupby(<span class="st">&#39;quality_recode&#39;</span>).<span class="bu">sum</span>()</span></code></pre></div>
+<div style="width: 100%; overflow-x: auto;">
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+neighborhood_recode
+</th>
+<th>
+latitude
+</th>
+<th>
+longitude
+</th>
+<th>
+price
+</th>
+<th>
+no_of_bedrooms
+</th>
+<th>
+no_of_bathrooms
+</th>
+<th>
+maid_room_recode
+</th>
+<th>
+unfurnished_recode
+</th>
+<th>
+balcony_recode
+</th>
+<th>
+barbecue_area_recode
+</th>
+<th>
+…
+</th>
+<th>
+private_garden_recode
+</th>
+<th>
+private_gym_recode
+</th>
+<th>
+private_jacuzzi_recode
+</th>
+<th>
+private_pool_recode
+</th>
+<th>
+security_recode
+</th>
+<th>
+shared_gym_recode
+</th>
+<th>
+shared_pool_recode
+</th>
+<th>
+shared_spa_recode
+</th>
+<th>
+view_of_water_recode
+</th>
+<th>
+size_in_m_2
+</th>
+</tr>
+<tr>
+<th>
+quality_recode
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+<th>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0.0
+</th>
+<td>
+3733.0
+</td>
+<td>
+3364.807548
+</td>
+<td>
+7397.947955
+</td>
+<td>
+360303131
+</td>
+<td>
+259
+</td>
+<td>
+356
+</td>
+<td>
+48.0
+</td>
+<td>
+80.0
+</td>
+<td>
+127.0
+</td>
+<td>
+50.0
+</td>
+<td>
+…
+</td>
+<td>
+9.0
+</td>
+<td>
+5.0
+</td>
+<td>
+20.0
+</td>
+<td>
+14.0
+</td>
+<td>
+116.0
+</td>
+<td>
+131.0
+</td>
+<td>
+129.0
+</td>
+<td>
+51.0
+</td>
+<td>
+88.0
+</td>
+<td>
+19662.548338
+</td>
+</tr>
+<tr>
+<th>
+1.0
+</th>
+<td>
+14463.0
+</td>
+<td>
+13665.847174
+</td>
+<td>
+30036.819722
+</td>
+<td>
+1054059587
+</td>
+<td>
+964
+</td>
+<td>
+1351
+</td>
+<td>
+10.0
+</td>
+<td>
+223.0
+</td>
+<td>
+140.0
+</td>
+<td>
+4.0
+</td>
+<td>
+…
+</td>
+<td>
+2.0
+</td>
+<td>
+1.0
+</td>
+<td>
+5.0
+</td>
+<td>
+5.0
+</td>
+<td>
+15.0
+</td>
+<td>
+87.0
+</td>
+<td>
+151.0
+</td>
+<td>
+2.0
+</td>
+<td>
+36.0
+</td>
+<td>
+70533.072436
+</td>
+</tr>
+<tr>
+<th>
+2.0
+</th>
+<td>
+30586.0
+</td>
+<td>
+28786.683374
+</td>
+<td>
+63272.825114
+</td>
+<td>
+2484669505
+</td>
+<td>
+2063
+</td>
+<td>
+2876
+</td>
+<td>
+163.0
+</td>
+<td>
+887.0
+</td>
+<td>
+1023.0
+</td>
+<td>
+134.0
+</td>
+<td>
+…
+</td>
+<td>
+20.0
+</td>
+<td>
+8.0
+</td>
+<td>
+71.0
+</td>
+<td>
+62.0
+</td>
+<td>
+460.0
+</td>
+<td>
+959.0
+</td>
+<td>
+1043.0
+</td>
+<td>
+62.0
+</td>
+<td>
+452.0
+</td>
+<td>
+152492.563551
+</td>
+</tr>
+<tr>
+<th>
+3.0
+</th>
+<td>
+2896.0
+</td>
+<td>
+2029.667054
+</td>
+<td>
+4471.911678
+</td>
+<td>
+74473686
+</td>
+<td>
+130
+</td>
+<td>
+204
+</td>
+<td>
+54.0
+</td>
+<td>
+32.0
+</td>
+<td>
+81.0
+</td>
+<td>
+81.0
+</td>
+<td>
+…
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+80.0
+</td>
+<td>
+81.0
+</td>
+<td>
+81.0
+</td>
+<td>
+79.0
+</td>
+<td>
+78.0
+</td>
+<td>
+8101.699018
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+4 rows × 28 columns
+</p>
+</div>
+<p><br></p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb55-1"><a href="group-by.html#cb55-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.groupby(<span class="st">&#39;quality_recode&#39;</span>)[<span class="st">&#39;price&#39;</span>].<span class="bu">sum</span>()</span></code></pre></div>
+<pre><code>quality_recode
+0.0     360303131
+1.0    1054059587
+2.0    2484669505
+3.0      74473686
+Name: price, dtype: int64</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="group-by.html#cb57-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.groupby(<span class="st">&#39;quality_recode&#39;</span>)[<span class="st">&#39;price&#39;</span>].mean()</span></code></pre></div>
+<pre><code>quality_recode
+0.0    2.688829e+06
+1.0    1.937610e+06
+2.0    2.168123e+06
+3.0    9.194282e+05
+Name: price, dtype: float64</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb59-1"><a href="group-by.html#cb59-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.groupby(<span class="st">&#39;quality_recode&#39;</span>)[<span class="st">&#39;price&#39;</span>].median()</span></code></pre></div>
+<pre><code>quality_recode
+0.0    1400103.0
+1.0    1465444.0
+2.0    1470388.5
+3.0     759502.0
+Name: price, dtype: float64</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb61-1"><a href="group-by.html#cb61-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.groupby(<span class="st">&#39;quality_recode&#39;</span>)[<span class="st">&#39;price&#39;</span>].std()</span></code></pre></div>
+<pre><code>quality_recode
+0.0    4.852033e+06
+1.0    2.307412e+06
+2.0    2.947205e+06
+3.0    3.950463e+05
+Name: price, dtype: float64</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb63-1"><a href="group-by.html#cb63-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.groupby([<span class="st">&#39;quality_recode&#39;</span>, <span class="st">&#39;private_garden_recode&#39;</span>])[<span class="st">&#39;price&#39;</span>].mean()</span></code></pre></div>
+<pre><code>quality_recode  private_garden_recode
+0.0             0.0                      2.530969e+06
+                1.0                      4.881333e+06
+1.0             0.0                      1.932034e+06
+                1.0                      3.448444e+06
+2.0             0.0                      2.162129e+06
+                1.0                      2.505600e+06
+3.0             0.0                      9.213461e+05
+                1.0                      7.660000e+05
+Name: price, dtype: float64</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb65-1"><a href="group-by.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb66-1"><a href="group-by.html#cb66-1" aria-hidden="true" tabindex="-1"></a>House_Price_Data.groupby(<span class="st">&#39;quality_recode&#39;</span>)[<span class="st">&#39;price&#39;</span>].agg([np.<span class="bu">min</span>, np.<span class="bu">max</span>, np.median, np.<span class="bu">sum</span>, np.std])</span></code></pre></div>
+<table style="width:100%;">
+<colgroup>
+<col width="23%" />
+<col width="11%" />
+<col width="14%" />
+<col width="14%" />
+<col width="18%" />
+<col width="17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>quality_recode</th>
+<th>amin</th>
+<th>amax</th>
+<th>median</th>
+<th>sum</th>
+<th>std</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.0</td>
+<td>360000</td>
+<td>34340000</td>
+<td>1400103</td>
+<td>360303131</td>
+<td>4.852033e+06</td>
+</tr>
+<tr class="even">
+<td>1.0</td>
+<td>220000</td>
+<td>35000000</td>
+<td>1465444</td>
+<td>1054059587</td>
+<td>2.307412e+06</td>
+</tr>
+<tr class="odd">
+<td>2.0</td>
+<td>230000</td>
+<td>34314000</td>
+<td>1470388.5</td>
+<td>2484669505</td>
+<td>2.947205e+06</td>
+</tr>
+<tr class="even">
+<td>3.0</td>
+<td>440500</td>
+<td>2551888</td>
+<td>759502</td>
+<td>74473686</td>
+<td>3.950463e+05</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="rename-columns-from-a-data-frame.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="concat-data-frames.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://estadistica4all.com/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
