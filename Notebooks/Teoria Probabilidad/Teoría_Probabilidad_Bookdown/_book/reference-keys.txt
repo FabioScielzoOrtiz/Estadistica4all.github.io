@@ -166,3 +166,4 @@ teorema-de-la-probabilidad-total-1
 teorema-de-la-probabilidad-total-para-variables-discretas-1
 teorema-de-la-probabilidad-total-para-variables-continuas-1
 teorema-de-la-probabilidad-total-para-variables-discretas-continuas
+probabilidad-condicionada-de-variables-aleatorias

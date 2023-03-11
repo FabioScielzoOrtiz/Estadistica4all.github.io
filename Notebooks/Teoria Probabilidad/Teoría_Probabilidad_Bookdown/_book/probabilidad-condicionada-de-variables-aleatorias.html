@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 35 Teorema de Gosset | Introducción Teoría de la Probabilidad</title>
+  <title>Chapter 21 Probabilidad condicionada de variables aleatorias | Introducción Teoría de la Probabilidad</title>
   <meta name="description" content="Este artículo es una introducción, más o menos formal, a la teoría de la probabilidad." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 35 Teorema de Gosset | Introducción Teoría de la Probabilidad" />
+  <meta property="og:title" content="Chapter 21 Probabilidad condicionada de variables aleatorias | Introducción Teoría de la Probabilidad" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este artículo es una introducción, más o menos formal, a la teoría de la probabilidad." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 35 Teorema de Gosset | Introducción Teoría de la Probabilidad" />
+  <meta name="twitter:title" content="Chapter 21 Probabilidad condicionada de variables aleatorias | Introducción Teoría de la Probabilidad" />
   
   <meta name="twitter:description" content="Este artículo es una introducción, más o menos formal, a la teoría de la probabilidad." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="independencia-entre-media-aritmética-y-cuasivarianza.html"/>
-<link rel="next" href="teorema-de-fisher.html"/>
+<link rel="prev" href="teorema-de-la-probabilidad-total-1.html"/>
+<link rel="next" href="independencia-de-variables-aleatorias.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -394,22 +394,59 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="teorema-de-gosset" class="section level1 hasAnchor" number="35">
-<h1><span class="header-section-number">Chapter 35</span> Teorema de Gosset<a href="teorema-de-gosset.html#teorema-de-gosset" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}\)</span>, y dada una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \hspace{0.08cm}\)</span> , se cumple lo siguiente : <span class="math inline">\(\\[0.5cm]\)</span></p>
-<p><span class="math display">\[\dfrac{\hspace{0.15cm} \overline{\mathcal{X}_n} - \mu \hspace{0.15cm}}{\sqrt{\dfrac{n}{n-1} S_n^2/n \hspace{0.1cm}} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{n-1} \\\]</span></p>
-<p>Donde:</p>
-<p><span class="math inline">\(\hspace{0.25cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i \\\)</span></p>
-<p><span class="math inline">\(\hspace{0.25cm}S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2\)</span></p>
+<div id="probabilidad-condicionada-de-variables-aleatorias" class="section level1 hasAnchor" number="21">
+<h1><span class="header-section-number">Chapter 21</span> Probabilidad condicionada de variables aleatorias<a href="probabilidad-condicionada-de-variables-aleatorias.html#probabilidad-condicionada-de-variables-aleatorias" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="probabilidad-condicionada-de-variables-aleatorias-discretas" class="section level2 hasAnchor" number="21.1">
+<h2><span class="header-section-number">21.1</span> Probabilidad condicionada de variables aleatorias discretas<a href="probabilidad-condicionada-de-variables-aleatorias.html#probabilidad-condicionada-de-variables-aleatorias-discretas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sean <span class="math inline">\(\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}\)</span> e <span class="math inline">\(\hspace{0.03cm}\mathcal{Y}\hspace{0.03cm}\)</span> v.a’s <strong>discretas</strong>.</p>
+<p>La probabilidad de <span class="math inline">\(\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}\)</span> condicionada a <span class="math inline">\(\hspace{0.03cm}\mathcal{Y}\hspace{0.03cm}\)</span> se define como sigue: <span class="math inline">\(\\\)</span></p>
+<p><span class="math display">\[P(\mathcal{X}=x \hspace{0.1cm}|\hspace{0.1cm} \mathcal{Y}=y) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.08cm}}{P(\mathcal{Y}=y)} \hspace{0.3cm},\hspace{0.3cm} \forall \hspace{0.05cm} x,y \in \mathbb{R}\\\]</span></p>
+<div id="propiedades-30" class="section level3 hasAnchor" number="21.1.1">
+<h3><span class="header-section-number">21.1.1</span> Propiedades<a href="probabilidad-condicionada-de-variables-aleatorias.html#propiedades-30" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p><span class="math inline">\(P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.1cm} = \hspace{0.1cm} \sum_{x\in A} P(\mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.05cm} y \in \mathbb{R}\)</span></p></li>
+<li><p><span class="math inline">\(P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}\in B)\hspace{0.08cm}}{P(\mathcal{Y}\in B)}\hspace{0.1cm} =\hspace{0.1cm} \dfrac{\hspace{0.08cm} \sum_{x\in A} \sum_{y\in B} P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.08cm}}{ \sum_{y\in B} P(\mathcal{Y}=y)}\hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.05cm} A, B \subset \mathbb{R}\)</span></p></li>
+</ul>
 <p><br></p>
+</div>
+</div>
+<div id="densidad-condicionada-de-variables-aleatorias-continuas" class="section level2 hasAnchor" number="21.2">
+<h2><span class="header-section-number">21.2</span> Densidad condicionada de variables aleatorias continuas<a href="probabilidad-condicionada-de-variables-aleatorias.html#densidad-condicionada-de-variables-aleatorias-continuas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sean <span class="math inline">\(\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}\)</span> e <span class="math inline">\(\hspace{0.03cm}\mathcal{Y}\hspace{0.03cm}\)</span> v.a’s <strong>continuas</strong>.</p>
+<p>La densidad de <span class="math inline">\(\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}\)</span> condicionada a <span class="math inline">\(\hspace{0.03cm}\mathcal{Y}\hspace{0.03cm}\)</span> se define como sigue: <span class="math inline">\(\\\)</span></p>
+<p><span class="math display">\[f_{\mathcal{X}|\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.12cm}f_{\mathcal{X},\mathcal{Y}\hspace{0.12cm}}(x,y)}{f_Y(y)} \\\]</span></p>
+<div id="propiedades-31" class="section level3 hasAnchor" number="21.2.1">
+<h3><span class="header-section-number">21.2.1</span> Propiedades<a href="probabilidad-condicionada-de-variables-aleatorias.html#propiedades-31" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Al ser <span class="math inline">\(\hspace{0.03cm}\mathcal{Y}\hspace{0.03cm}\)</span> continua, <span class="math inline">\(\hspace{0.04cm}P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.1cm}\)</span> no está definida, ya que:</li>
+</ul>
+<p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}=x , \mathcal{Y}=y)\hspace{0.08cm}}{P(\mathcal{Y}=y)} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{P(\mathcal{X}=x , \mathcal{Y}=y)}{ 0} \hspace{0.3cm} , \hspace{0.3cm} \forall y \in \mathbb{R} \\\]</span></p>
+<ul>
+<li><p>Si <span class="math inline">\(\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}\)</span> es una v.a. continua , entonces: <span class="math inline">\(\hspace{0.14cm}P(\mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 0\hspace{0.1cm}\)</span> , para todo <span class="math inline">\(\hspace{0.08cm}y\in \mathbb{R}.\)</span></p>
+<p>Por lo que <span class="math inline">\(\hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.1cm}\)</span> no está definido, ya que:</p>
+<p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}=x , \mathcal{Y}=y)\hspace{0.08cm}}{P(\mathcal{Y}=y)} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{P(\mathcal{X}=x , \mathcal{Y}=y)}{ 0}\\\]</span></p></li>
+<li><p>El problema anterior se esquiva del siguiente modo:</p>
+<p>Sea <span class="math inline">\(\hspace{0.08cm}\delta \rightarrow 0^+\hspace{0.08cm}\)</span>,</p>
+<p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}\approx \hspace{0.08cm}P(\hspace{0.1cm}\mathcal{X}\in A \hspace{0.1cm}|\hspace{0.1cm} \mathcal{Y} \in [y , y+ \delta] \hspace{0.1cm}) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.1cm}P(\mathcal{X}\in A \hspace{0.1cm} , \hspace{0.1cm} \mathcal{Y}\in [y , y+ \delta]\hspace{0.1cm})\hspace{0.08cm}}{P(\hspace{0.08cm}\mathcal{Y}\in [y , y+ \delta]\hspace{0.08cm})}\\\]</span></p>
+<p>Donde ahora <span class="math inline">\(\hspace{0.05cm}P(\mathcal{Y}\in [y , y+ \delta]) \hspace{0.08cm}&gt;\hspace{0.08cm} 0\hspace{0.08cm}\)</span>. <span class="math inline">\(\\\)</span></p>
+<ul>
+<li>Por lo que se tiene la siguiente propiedad:</li>
+</ul>
+<p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}\approx \hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm} | \hspace{0.08cm} \mathcal{Y} \in [y , y+ \delta]) \hspace{0.08cm}=\hspace{0.08cm}     \dfrac{\int_{x\in A} \int_{y \in [y , y+ \delta]} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y)}{ \int_{y \in [y , y+ \delta]} \hspace{0.08cm}f_\mathcal{Y}(y)}\\[0.9cm]\]</span></p></li>
+<li><p>Por otro lado, también se cumple lo siguiente:</p>
+<p><span class="math display">\[P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.08cm} = \hspace{0.08cm} \dfrac{\hspace{0.08cm}\int_{x\in A} \int_{y \in B} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y)\hspace{0.08cm}}{ \int_{y \in B} \hspace{0.08cm}f_\mathcal{Y}(y)}\\\]</span></p></li>
+</ul>
+<p><br></p>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="independencia-entre-media-aritmética-y-cuasivarianza.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="teorema-de-fisher.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="teorema-de-la-probabilidad-total-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="independencia-de-variables-aleatorias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

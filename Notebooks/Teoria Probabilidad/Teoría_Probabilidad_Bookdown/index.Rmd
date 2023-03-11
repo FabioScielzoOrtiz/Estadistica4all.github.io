@@ -1483,47 +1483,58 @@ $$P(\mathcal{X}\in A \hspace{0.07cm},\hspace{0.07cm} \mathcal{Y}\in B) \hspace{0
 
 <br>
 
-# Probabilidad condicionada de variables aleatorias discretas
+# Probabilidad condicionada de variables aleatorias 
+
+## Probabilidad condicionada de variables aleatorias discretas
+
+Sean $\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}$ e $\hspace{0.03cm}\mathcal{Y}\hspace{0.03cm}$ v.a's **discretas**.
+
+La probabilidad de $\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}$ condicionada a $\hspace{0.03cm}\mathcal{Y}\hspace{0.03cm}$  se define como sigue: $\\$
+
+$$P(\mathcal{X}=x \hspace{0.1cm}|\hspace{0.1cm} \mathcal{Y}=y) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.08cm}}{P(\mathcal{Y}=y)} \hspace{0.3cm},\hspace{0.3cm} \forall \hspace{0.05cm} x,y \in \mathbb{R}\\$$
 
 
-La probabilidad condicionada entre variables aleatorias discretas se define como sigue: $\\$
+### Propiedades
 
-$$P(\mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.08cm}}{P(\mathcal{Y}=y)} \\$$
+- $P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.1cm} = \hspace{0.1cm} \sum_{x\in A} P(\mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.05cm} y \in \mathbb{R}$  
 
-
-## Propiedades
-
-- $P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.1cm} = \hspace{0.1cm} \sum_{x\in A} P(\mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)$  
-
-- $P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}\in B)\hspace{0.08cm}}{P(\mathcal{Y}\in B)}\hspace{0.1cm} =\hspace{0.1cm} \dfrac{\hspace{0.08cm} \sum_{x\in A} \sum_{y\in B} P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.08cm}}{ \sum_{y\in B} P(\mathcal{Y}=y)}$
+- $P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}\in B)\hspace{0.08cm}}{P(\mathcal{Y}\in B)}\hspace{0.1cm} =\hspace{0.1cm} \dfrac{\hspace{0.08cm} \sum_{x\in A} \sum_{y\in B} P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.08cm}}{ \sum_{y\in B} P(\mathcal{Y}=y)}\hspace{0.3cm},\hspace{0.3cm} \forall\hspace{0.05cm} A, B \subset \mathbb{R}$
 
 
 <br>
 
-# Densidad condicionada de variables aleatorias continuas
+## Densidad condicionada de variables aleatorias continuas
 
-La probabilidad condicionada entre variables aleatorias continuas se define como sigue:
+Sean $\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}$ e $\hspace{0.03cm}\mathcal{Y}\hspace{0.03cm}$ v.a's **continuas**.
 
-$$f_{\mathcal{X}|\mathcal{Y}}(x,y) = \dfrac{\hspace{0.08cm}f_{\mathcal{X},\mathcal{Y}\hspace{0.08cm}}(x,y)}{f_Y(y)} \\$$
+La densidad de $\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}$ condicionada a $\hspace{0.03cm}\mathcal{Y}\hspace{0.03cm}$  se define como sigue: $\\$
+
+ 
+
+$$f_{\mathcal{X}|\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.12cm}f_{\mathcal{X},\mathcal{Y}\hspace{0.12cm}}(x,y)}{f_Y(y)} \\$$
 
 
-## Propiedades 
+### Propiedades 
 
-- Si $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ es una v.a. continua , entonces: $\hspace{0.14cm}P(\mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 0\hspace{0.1cm}$ , para todo $\hspace{0.08cm}y\in \mathbb{R}.\\$
+-  Al ser $\hspace{0.03cm}\mathcal{Y}\hspace{0.03cm}$ continua, $\hspace{0.04cm}P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.1cm}$ no está definida, ya que:
+
+$$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}=x , \mathcal{Y}=y)\hspace{0.08cm}}{P(\mathcal{Y}=y)} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{P(\mathcal{X}=x , \mathcal{Y}=y)}{ 0} \hspace{0.3cm} , \hspace{0.3cm} \forall y \in \mathbb{R} \\$$
+
+- Si $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ es una v.a. continua , entonces: $\hspace{0.14cm}P(\mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} 0\hspace{0.1cm}$ , para todo $\hspace{0.08cm}y\in \mathbb{R}.$
 
     Por lo que $\hspace{0.08cm}P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y)\hspace{0.1cm}$ no está definido, ya que:
 
     $$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.08cm}P(\mathcal{X}=x , \mathcal{Y}=y)\hspace{0.08cm}}{P(\mathcal{Y}=y)} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{P(\mathcal{X}=x , \mathcal{Y}=y)}{ 0}\\$$
 
 
-- Teniendo en consideración el problema anterior, se esquiva del siguiente modo:
+- El problema anterior se esquiva del siguiente modo:
 
     Sea $\hspace{0.08cm}\delta \rightarrow 0^+\hspace{0.08cm}$,
 
     $$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}\approx \hspace{0.08cm}P(\hspace{0.1cm}\mathcal{X}\in A \hspace{0.1cm}|\hspace{0.1cm} \mathcal{Y} \in [y , y+ \delta] \hspace{0.1cm}) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.1cm}P(\mathcal{X}\in A \hspace{0.1cm} , \hspace{0.1cm} \mathcal{Y}\in [y , y+ \delta]\hspace{0.1cm})\hspace{0.08cm}}{P(\hspace{0.08cm}\mathcal{Y}\in [y , y+ \delta]\hspace{0.08cm})}\\$$
 
 
-    Donde ahora $\hspace{0.1cm}P(\mathcal{Y}\in [y , y+ \delta]) \hspace{0.08cm}>\hspace{0.08cm} 0\hspace{0.08cm}$. $\\$ 
+    Donde ahora $\hspace{0.05cm}P(\mathcal{Y}\in [y , y+ \delta]) \hspace{0.08cm}>\hspace{0.08cm} 0\hspace{0.08cm}$. $\\$ 
 
 
     - Por lo que se tiene la siguiente propiedad:
@@ -1535,7 +1546,7 @@ $$f_{\mathcal{X}|\mathcal{Y}}(x,y) = \dfrac{\hspace{0.08cm}f_{\mathcal{X},\mathc
 
 - Por otro lado, también se cumple lo siguiente:
 
-    $$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.08cm} = \hspace{0.08cm} \dfrac{\int_{x\in A} \int_{y \in B} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y)}{ \int_{y \in B} \hspace{0.08cm}f_\mathcal{Y}(y)}\\$$
+    $$P(\mathcal{X}\in A \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0.08cm} = \hspace{0.08cm} \dfrac{\hspace{0.08cm}\int_{x\in A} \int_{y \in B} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y)\hspace{0.08cm}}{ \int_{y \in B} \hspace{0.08cm}f_\mathcal{Y}(y)}\\$$
 
 
 <br>
@@ -1545,7 +1556,7 @@ $$f_{\mathcal{X}|\mathcal{Y}}(x,y) = \dfrac{\hspace{0.08cm}f_{\mathcal{X},\mathc
 
 ## Independencia de variables aleatorias discretas
 
-$\mathcal{X}\hspace{0.03cm}$ e $\hspace{0.03cm}\mathcal{Y}\hspace{0.03cm}$ son v.a. independientes $\hspace{0.05cm}(\mathcal{X} \perp \mathcal{Y}) \hspace{0.07cm}$ si y solo si: $\\$
+- $\mathcal{X}\hspace{0.03cm}$ e $\hspace{0.03cm}\mathcal{Y}\hspace{0.03cm}$ son v.a. independientes $\hspace{0.05cm}(\mathcal{X} \perp \mathcal{Y}) \hspace{0.07cm}$ si y solo si: $\\$
 
 $$P(\mathcal{X}=x \hspace{0.03cm},\hspace{0.03cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} P(\mathcal{X}=x)\cdot P(\mathcal{Y}=y) \hspace{0.2cm},\hspace{0.2cm} \forall x,y \in \mathbb{R}$$
 
@@ -1557,7 +1568,7 @@ $$P(\mathcal{X}=x \hspace{0.03cm},\hspace{0.03cm} \mathcal{Y}=y) \hspace{0.08cm}
 
 Sean $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ v.a. discretas, $\\$
 
-$$\text{Si} \hspace{0.15cm}\exists \hspace{0.1cm} h,g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R} \rightarrow \mathbb{R}\hspace{0.2cm} , \hspace{0.2cm} \forall \hspace{0.08cm} x,y \in \mathbb{R} \hspace{0.15cm},\hspace{0.15cm}  P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} g(x)\cdot h(y)  \hspace{0.2cm} \Rightarrow \hspace{0.2cm}\mathcal{X} \perp \mathcal{Y}\hspace{0.08cm}$$.  
+$$\text{Si} \hspace{0.15cm}\exists \hspace{0.1cm} h,g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R} \rightarrow \mathbb{R}\hspace{0.2cm} , \hspace{0.2cm} \forall \hspace{0.08cm} x,y \in \mathbb{R} \hspace{0.15cm},\hspace{0.15cm}  P(\mathcal{X}=x \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} g(x)\cdot h(y)  \hspace{0.2cm} \Rightarrow \hspace{0.2cm}\mathcal{X} \perp \mathcal{Y}\hspace{0.08cm}$$
 
 
 
@@ -1569,7 +1580,7 @@ $$\text{Si} \hspace{0.15cm}\exists \hspace{0.1cm} h,g \hspace{0.08cm}:\hspace{0.
 ## Independencia de variables aleatorias continuas
 
 
-$\mathcal{X}\hspace{0.02cm}$ e $\hspace{0.02cm}\mathcal{Y}\hspace{0.03cm}$ son v.a. independientes  $\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})\hspace{0.1cm}$ , si y solo si: $\\$
+- $\mathcal{X}\hspace{0.02cm}$ e $\hspace{0.02cm}\mathcal{Y}\hspace{0.03cm}$ son v.a. independientes  $\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})\hspace{0.1cm}$ , si y solo si: $\\$
 
 
 
@@ -1577,7 +1588,7 @@ $$P(\mathcal{X}\in A \hspace{0.08cm},\hspace{0.08cm} \mathcal{Y}\in B) \hspace{0
 
 Lo que es equivalente a:
 
-$$\forall \hspace{0.08cm} A,B \subset \mathbb{R} \hspace{0.2cm},\hspace{0.2cm} \int_{x\in A} \int_{y \in B} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y) \cdot dy \cdot dx \hspace{0.08cm}=\hspace{0.08cm} \int_{x\in A} \hspace{0.08cm} f_{\mathcal{X}}(x)  \cdot dx \cdot \int_{y \in B} f_{\mathcal{Y}}(y) \cdot dy$$
+$$ \int_{x\in A} \int_{y \in B} \hspace{0.08cm} f_{\mathcal{X},\mathcal{Y}}(x,y) \cdot dy \cdot dx \hspace{0.1cm}=\hspace{0.1cm} \int_{x\in A} \hspace{0.08cm} f_{\mathcal{X}}(x)  \cdot dx \cdot \int_{y \in B} f_{\mathcal{Y}}(y) \cdot dy \hspace{0.3cm},\hspace{0.3cm} \forall \hspace{0.08cm} A,B \subset \mathbb{R} $$
 
 <br>
 
@@ -1585,15 +1596,15 @@ $$\forall \hspace{0.08cm} A,B \subset \mathbb{R} \hspace{0.2cm},\hspace{0.2cm} \
 
 Sean $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ v.a. continuas,  
 
-$\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son v.a. independientes $\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})$ , si y solo si: $\\$
+- $\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son v.a. independientes $\hspace{0.08cm}(\mathcal{X} \perp \mathcal{Y})$ , si y solo si: $\\$
 
  $$f_{\mathcal{X},\mathcal{Y}}(x,y) = f_X(x) \cdot f_\mathcal{Y}(y) \hspace{0.2cm},\hspace{0.2cm} \forall \hspace{0.08cm} x,y \in \mathbb{R} \\$$
 
 
 #### Colorario
 
-$$\text{Si} \hspace{0.25cm}\exists\hspace{0.1cm} h,g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R} \rightarrow \mathbb{R}\hspace{0.15cm} , \hspace{0.15cm} \forall \hspace{0.08cm} x,y \in \mathbb{R} \hspace{0.15cm},\hspace{0.15cm} f_{\mathcal{X},\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm} g(x)\cdot h(y) \hspace{0.24cm}
-\Rightarrow\hspace{0.24cm} \mathcal{X} \perp \mathcal{Y}.$$
+$$\text{Si} \hspace{0.25cm}\exists\hspace{0.1cm} h,g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R} \rightarrow \mathbb{R}\hspace{0.15cm} , \hspace{0.15cm} \forall \hspace{0.08cm} x,y \in \mathbb{R} \hspace{0.15cm},\hspace{0.15cm} f_{\mathcal{X},\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm} g(x)\cdot h(y) \hspace{0.3cm}
+\Rightarrow\hspace{0.3cm} \mathcal{X} \perp \mathcal{Y}.$$
 
 
 <br>
@@ -1602,20 +1613,20 @@ $$\text{Si} \hspace{0.25cm}\exists\hspace{0.1cm} h,g \hspace{0.08cm}:\hspace{0.0
 
 
 
-$\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.04cm}$ son independientes (dos a dos) $\hspace{0.25cm}\Leftrightarrow\hspace{0.25cm}$ $\mathcal{X}_i \perp \mathcal{X}_j \hspace{0.2cm},\hspace{0.2cm} \forall i\neq j = 1,...,n$
+- $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.04cm}$ son independientes (dos a dos) $\hspace{0.25cm}\Leftrightarrow\hspace{0.25cm}$ $\mathcal{X}_i \perp \mathcal{X}_j \hspace{0.2cm},\hspace{0.2cm} \forall i\neq j = 1,...,n$
 
 
 <br>
 
 # Teorema de Bayes para variables aleatorias 
 
-- Si $\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}$ e $\hspace{0.03cm}\mathcal{Y}\hspace{0.03cm}$ son discretas:
+- Si $\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}$ e $\hspace{0.03cm}\mathcal{Y}\hspace{0.03cm}$ son **discretas**:
 
 
     $$P(\mathcal{X}=x \hspace{0.08cm}|\hspace{0.08cm} \mathcal{Y}=y) \hspace{0.08cm}=\hspace{0.08cm} \dfrac{P(\mathcal{Y}=y \hspace{0.08cm} | \hspace{0.08cm} \mathcal{X}=x) \cdot  P(\mathcal{X}=x)}{P(\mathcal{Y}=y)}\\$$
 
 
-- Si $\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}$ e $\hspace{0.03cm}\mathcal{Y}\hspace{0.03cm}$ son continuas:
+- Si $\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}$ e $\hspace{0.03cm}\mathcal{Y}\hspace{0.03cm}$ son **continuas**:
 
     $$f_{\mathcal{X}|\mathcal{Y}}(x,y) \hspace{0.08cm}=\hspace{0.08cm}    \dfrac{\hspace{0.08cm}f_{\mathcal{Y}|\mathcal{X}}(x, y) \cdot f_\mathcal{X}(x)\hspace{0.08cm}}{f_\mathcal{Y}(y)}$$
 
@@ -1678,13 +1689,13 @@ Sea $\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} \mathbb{R}^2 \rightarrow \
 
 Supongamos que conocemos la distribución de una v.a. $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ continua que toma valores en $\hspace{0.08cm}A \subset \mathbb{R}\hspace{0.08cm}$, es decir, conocemos su función de densidad.
 
-Si $\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} A \rightarrow \mathbb{R}\hspace{0.08cm}$, entonces  $\hspace{0.08cm}\mathcal{Y}=g(\mathcal{X})\hspace{0.08cm}$ es una transformación de de la v.a. $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$.
+Si $\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} A \rightarrow \mathbb{R}\hspace{0.08cm}$, entonces,  $\hspace{0.05cm}\mathcal{Y}=g(\mathcal{X})\hspace{0.08cm}$ es una transformación de de la v.a. $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$.
 
 
 Pues bien, en este contexto tenemos el siguiente teorema que nos permite determinar la distribución de la transformación de $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$, es decir, de  $\hspace{0.08cm}\mathcal{Y}=g(\mathcal{X})\hspace{0.08cm}$,   a partir de la distribución de la propia $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$
 
 
-Si $\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} A \rightarrow \mathbb{R}\hspace{0.08cm}$ es continua, estrictamente decreciente o creciente y $\hspace{0.08cm}g^{-1}\hspace{0.08cm}$ es diferenciable, entonces, la funcion de densidad de $\hspace{0.08cm}\mathcal{Y}=g(\mathcal{X})\hspace{0.08cm}$ es la siguiente:
+- Si $\hspace{0.08cm}g \hspace{0.08cm}:\hspace{0.08cm} A \rightarrow \mathbb{R}\hspace{0.08cm}$ es continua, estrictamente decreciente o creciente y $\hspace{0.08cm}g^{-1}\hspace{0.08cm}$ es diferenciable, entonces, la función de densidad de $\hspace{0.08cm}\mathcal{Y}=g(\mathcal{X})\hspace{0.08cm}$ es la siguiente: $\\$
 
 
 $$f_{\mathcal{Y}}(y) \hspace{0.08cm}=\hspace{0.08cm} f_{\mathcal{X}}\left( g^{-1}(y) \right) \cdot \left| \dfrac{\partial g^{-1}(y)}{\partial y}  \right| \cdot \mathbb{I}\hspace{0.08cm}\Bigl[ \hspace{0.08cm} \lbrace g(x) \hspace{0.08cm}:\hspace{0.08cm} x \in A \rbrace \hspace{0.08cm} \Bigr]$$
@@ -1707,49 +1718,44 @@ Si $\hspace{0.12cm}g \hspace{0.05cm}:\hspace{0.05cm} A\text{x}B \subset \mathbb{
 En este contexto tenemos el siguiente teorema que nos permite determinar la distribución de la transformación $\hspace{0.1cm}g(\mathcal{X}, \mathcal{Y})\hspace{0.08cm}=\hspace{0.08cm}\left(\hspace{0.08cm} g_1(\mathcal{X}, \mathcal{Y}) \hspace{0.08cm},\hspace{0.08cm} g_2(\mathcal{X}, \mathcal{Y})\hspace{0.08cm} \right) \hspace{0.1cm}$,   a partir de la distribución conjunta de    $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$.
 
 
-Si $\hspace{0.08cm}g \hspace{0.05cm}:\hspace{0.05cm} A \text{x} B \subset \mathbb{R}^2 \hspace{0.08cm}\rightarrow\hspace{0.08cm} \mathbb{R}^2\hspace{0.12cm}$ es continua, y $\hspace{0.08cm}g^{-1}\hspace{0.08cm}$ es diferenciable, entonces, la función de densidad conjunta de $\hspace{0.1cm}g(\mathcal{X}, \mathcal{Y})\hspace{0.08cm}=\hspace{0.08cm}\left(\hspace{0.08cm} g_1(\mathcal{X}, \mathcal{Y}) \hspace{0.08cm},\hspace{0.08cm} g_2(\mathcal{X}, \mathcal{Y})\hspace{0.08cm} \right) \hspace{0.1cm}$ es la siguiente: $\\[0.3cm]$
+- Si $\hspace{0.08cm}g \hspace{0.05cm}:\hspace{0.05cm} A \text{x} B \subset \mathbb{R}^2 \hspace{0.08cm}\rightarrow\hspace{0.08cm} \mathbb{R}^2\hspace{0.12cm}$ es continua, y $\hspace{0.08cm}g^{-1}\hspace{0.08cm}$ es diferenciable, entonces, la función de densidad conjunta de $\hspace{0.1cm}g(\mathcal{X}, \mathcal{Y})\hspace{0.08cm}=\hspace{0.08cm}\left(\hspace{0.08cm} g_1(\mathcal{X}, \mathcal{Y}) \hspace{0.08cm},\hspace{0.08cm} g_2(\mathcal{X}, \mathcal{Y})\hspace{0.08cm} \right) \hspace{0.1cm}$ es la siguiente: $\\[0.3cm]$
 
 
-$$f_{g_1(\mathcal{X}, \mathcal{Y}), g_2(\mathcal{X}, \mathcal{Y}) }(u,v) \hspace{0.1cm}=\hspace{0.1cm} f_{\mathcal{X},\mathcal{Y}}\left( \hspace{0.08cm} g^{-1}(u,v) \hspace{0.08cm} \right) \cdot \left| \hspace{0.08cm} J^{-1}(u,v) \hspace{0.08cm} \right| \cdot \mathbb{I}\hspace{0.08cm}\Bigl[ \hspace{0.08cm} \left\{\hspace{0.08cm}  g(x,y) =\left( \hspace{0.08cm} g_1(x,y) \hspace{0.08cm},\hspace{0.08cm} g_2(x,y) \hspace{0.08cm}\right) \hspace{0.1cm} :\hspace{0.1cm} (x,y) \in A\text{x}B \hspace{0.08cm}\right\} \hspace{0.08cm} \Bigr]$$
+    $$f_{g_1(\mathcal{X}, \mathcal{Y}), g_2(\mathcal{X}, \mathcal{Y}) }(u,v) \hspace{0.1cm}=\hspace{0.1cm} f_{\mathcal{X},\mathcal{Y}}\left( \hspace{0.08cm} g^{-1}(u,v) \hspace{0.08cm} \right) \cdot \left| \hspace{0.08cm} J^{-1}(u,v) \hspace{0.08cm} \right| \cdot \mathbb{I}\hspace{0.08cm}\Bigl[ \hspace{0.08cm} \left\{\hspace{0.08cm}  g(x,y)   \hspace{0.12cm} :\hspace{0.12cm} (x,y) \in A\text{x}B \hspace{0.08cm}\right\} \hspace{0.08cm} \Bigr] \\$$
 
-donde:
-
-
-$$g(x,y) \hspace{0.08cm}=\hspace{0.08cm} \left( \hspace{0.08cm} g_1(x,y) \hspace{0.08cm} , \hspace{0.08cm} g_2(x,y) \hspace{0.08cm} \right)$$
+    donde:
 
 
-$$g^{-1}(u,v) \hspace{0.08cm}=\hspace{0.08cm} \left( \hspace{0.08cm} h_1(u,v) \hspace{0.08cm},\hspace{0.08cm} h_2(u,v) \hspace{0.08cm}\right)$$
+    $$g(x,y) \hspace{0.08cm}=\hspace{0.08cm} \left( \hspace{0.08cm} g_1(x,y) \hspace{0.08cm} , \hspace{0.08cm} g_2(x,y) \hspace{0.08cm} \right)$$
 
-$$g(\hspace{0.08cm}g^{-1}(u,v)\hspace{0.08cm}) \hspace{0.08cm}=\hspace{0.08cm} g(\hspace{0.08cm}h_1(u,v)\hspace{0.08cm},\hspace{0.08cm}h_2(u,v)\hspace{0.08cm})\hspace{0.08cm}=\hspace{0.08cm}(u,v)$$
 
-$$g^{-1}(\hspace{0.08cm}g(x,y)\hspace{0.08cm}) \hspace{0.08cm}=\hspace{0.08cm} g^{-1}(\hspace{0.08cm}g_1(x,y)\hspace{0.08cm},\hspace{0.08cm}g_2(x,y)\hspace{0.08cm}) \hspace{0.08cm}=\hspace{0.08cm} \left(x, y\right) \\$$
+    $$g^{-1}(u,v) \hspace{0.08cm}=\hspace{0.08cm} \left( \hspace{0.08cm} h_1(u,v) \hspace{0.08cm},\hspace{0.08cm} h_2(u,v) \hspace{0.08cm}\right)$$
 
-$$\left|\hspace{0.08cm} J^{-1}(u,v) \hspace{0.08cm} \right| \hspace{0.08cm} =\hspace{0.08cm} \left|
-\begin{array}{cc}
- \dfrac{\partial h_1(u,v)}{\partial u} & \dfrac{\partial h_1(u,v)}{\partial v}\\
-\dfrac{\partial h_2(u,v)}{\partial u} & \dfrac{\partial h_2(u,v)}{\partial v}
-\end{array}
-\right|$$
+    $$g(\hspace{0.08cm}g^{-1}(u,v)\hspace{0.08cm}) \hspace{0.08cm}=\hspace{0.08cm} g(\hspace{0.08cm}h_1(u,v)\hspace{0.08cm},\hspace{0.08cm}h_2(u,v)\hspace{0.08cm})\hspace{0.08cm}=\hspace{0.08cm}(u,v)$$
+
+    $$g^{-1}(\hspace{0.08cm}g(x,y)\hspace{0.08cm}) \hspace{0.08cm}=\hspace{0.08cm} g^{-1}(\hspace{0.08cm}g_1(x,y)\hspace{0.08cm},\hspace{0.08cm}g_2(x,y)\hspace{0.08cm}) \hspace{0.08cm}=\hspace{0.08cm} \left(x, y\right) \\$$
+
+    $$\left|\hspace{0.08cm} J^{-1}(u,v) \hspace{0.08cm} \right| \hspace{0.08cm} =\hspace{0.08cm} \left| \begin{array}{cc} \dfrac{\partial h_1(u,v)}{\partial u} & \dfrac{\partial h_1(u,v)}{\partial v}\\ \dfrac{\partial h_2(u,v)}{\partial u} & \dfrac{\partial h_2(u,v)}{\partial v} \end{array} \right|$$
 
 
 <br>
 
 
-# Fórmula de convolución <a class="anchor" id="1"></a>
+# Fórmula de convolución  
 
 
-Sea $\hspace{0.08cm}\mathcal{Z}=\mathcal{X}+\mathcal{Y}\hspace{0.08cm}$.
+Sea $\hspace{0.03cm}\mathcal{Z}=\mathcal{X}+\mathcal{Y}\hspace{0.03cm}$.
 
-- Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son v.a.'s continuas: $\\[0.2cm]$
-
-
-$$f_{\mathcal{Z}}(z) = f_{\mathcal{X}+\mathcal{Y}}(z) = \int_{x\in \mathbb{R}} f_{\mathcal{X}, \mathcal{Y}}(x, z-x)\hspace{0.08cm} dx \\$$
+- Si $\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}$ e $\hspace{0.03cm}\mathcal{Y}\hspace{0.03cm}$ son v.a.'s **continuas**: 
 
 
+    $$f_{\mathcal{Z}}(z)  \hspace{0.08cm}= \hspace{0.08cm} f_{\mathcal{X}+\mathcal{Y}}(z)  \hspace{0.08cm}= \hspace{0.08cm} \int_{x\in \mathbb{R}} f_{\mathcal{X}, \mathcal{Y}}(x, z-x)\hspace{0.08cm} dx \\$$
 
-- Si $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ e $\hspace{0.08cm}\mathcal{Y}\hspace{0.08cm}$ son v.a.'s discretas: $\\[0.2cm]$
 
-$$f_{\mathcal{Z}}(z) = f_{\mathcal{X}+\mathcal{Y}}(z) = \sum_{x\in \mathbb{R}} f_{\mathcal{X}, \mathcal{Y}}(x, z-x)$$
+
+- Si $\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}$ e $\hspace{0.03cm}\mathcal{Y}\hspace{0.03cm}$ son v.a.'s **discretas**:  
+
+$$f_{\mathcal{Z}}(z) \hspace{0.08cm}= \hspace{0.08cm} f_{\mathcal{X}+\mathcal{Y}}(z)  \hspace{0.08cm}= \hspace{0.08cm} \sum_{x\in \mathbb{R}}  \hspace{0.05cm} f_{\mathcal{X}, \mathcal{Y}}(x, z-x)$$
 
 
 
@@ -1759,44 +1765,48 @@ $$f_{\mathcal{Z}}(z) = f_{\mathcal{X}+\mathcal{Y}}(z) = \sum_{x\in \mathbb{R}} f
 
  
 
-$\hspace{0.25cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ son variables aleatorias mutuamente independientes e identicamente distribuidas  *(i.i.d.)*, si y solo si:
+$\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.03cm}$ son variables aleatorias mutuamente independientes e idénticamente distribuidas  *(i.i.d.)*, si y solo si:
 
-- $\hspace{0.1cm}$ $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son mutuamente independientes , es decir:
+-  $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.08cm}$ son mutuamente independientes 
 
-$$\hspace{0.08cm} P(\mathcal{X}_1=x_1,...,\mathcal{X}_n=x_n) \hspace{0.1cm}=\hspace{0.1cm} \prod_{i=1}^n P(\mathcal{X}_i=x_i) \\$$
-
-$\hspace{0.7cm}$ Lo que implica que también son independientes dos a dos , es decir, $\hspace{0.12cm} \mathcal{X}_i \perp \mathcal{X}_j \hspace{0.12cm} , \hspace{0.12cm} \forall i\neq j \\$
-
-- $\hspace{0.1cm}$ $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.12cm}$ tienen la misma distribución de probabilidad, es decir, $\hspace{0.12cm}\mathcal{X}_i \sim D( \cdot ) \hspace{0.15cm}, \hspace{0.1cm} \forall i=1,...,n$ 
+-  $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.05cm}$ tienen la misma distribución de probabilidad, es decir, $\hspace{0.12cm}\mathcal{X}_i \sim D( \cdot ) \hspace{0.15cm}, \hspace{0.1cm} \forall i=1,...,n$ $\\$
 
 
 
  
 
- Donde $\hspace{0.08cm}D( \cdot )\hspace{0.08cm}$ es una distribución de probabilidad con parámetros no especificados. $\\[0.5cm]$
+    Donde $\hspace{0.03cm}D( \cdot )\hspace{0.08cm}$ es una distribución de probabilidad con parámetros no especificados.  
+
+<br>
+
+**Observaciones:**
+
+- La primera condición equivale a:
+
+
+    $$\hspace{0.08cm} P(\mathcal{X}_1=x_1,...,\mathcal{X}_n=x_n) \hspace{0.1cm}=\hspace{0.1cm} \prod_{i=1}^n P(\mathcal{X}_i=x_i) \\$$
+
+    Lo que implica que también son independientes dos a dos , es decir, $\hspace{0.12cm} \mathcal{X}_i \perp \mathcal{X}_j \hspace{0.3cm} , \hspace{0.3cm} \forall i\neq j \hspace{0.08cm}$. $\\$
 
 
 
 
-Se suele emplear la siguiente notación: $\\[0.4cm]$
+- Se suele emplear la siguiente notación: 
 
 
-$$(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} D(\cdot) \hspace{0.3cm} \Leftrightarrow \hspace{0.3cm}
-\left\lbrace\begin{array}{l}   \hspace{0.12cm}\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.25cm} \text{son mutuamente independientes} \\[0.1cm] 
-\hspace{0.12cm}\mathcal{X}_i \sim D(\cdot) \hspace{0.12cm} , \hspace{0.12cm} \forall i=1,...,n    \end{array}\right. \\[1cm]$$
+    $$(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} D(\cdot) \hspace{0.3cm} \Leftrightarrow \hspace{0.3cm} \left\lbrace\begin{array}{l}   \hspace{0.12cm}\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.25cm} \text{son mutuamente independientes} \\[0.1cm] \hspace{0.12cm}\mathcal{X}_i \sim D(\cdot) \hspace{0.12cm} , \hspace{0.12cm} \forall i=1,...,n    \end{array}\right. \\[1cm]$$
 
 
 
 <br>
 
-# Muestra Aleatoria Simple <a class="anchor" id="1"></a>
-
+# Muestra Aleatoria Simple
  
 
  Sea $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ una v.a. tal que $\hspace{0.1cm}\mathcal{X} \sim D(\cdot)$ .
 
 
-$\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.1cm}$ es una muestra aleatoria simple (m.a.s.) de tamaño $\hspace{0.08cm}n\hspace{0.08cm}$ de $\hspace{0.1cm}\mathcal{X}$ $\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$ $(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} D(\cdot) \\$
+$\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.05cm}$ es una muestra aleatoria simple (m.a.s.) de tamaño $\hspace{0.04cm}n\hspace{0.04cm}$ de $\hspace{0.04cm}\mathcal{X}$ $\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$ $(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} D(\cdot)$
 
  
 
