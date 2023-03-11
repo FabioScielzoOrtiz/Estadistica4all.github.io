@@ -253,7 +253,7 @@ GO
 
 <br>
 
-We execute the last code and check if the table **Students** has been created inside **Database_Fabio**:
+We execute the last code and check if the table **Alumnos** has been created inside **Database_Fabio**:
 <center>
 
 ![](p9.jpg){width="100%"}
@@ -520,21 +520,30 @@ Next we import a CSV following the following steps:
 # Full view of a table
 
 
-```SQL
+```sql
 SELECT * FROM dbo.Clientes;
 ```
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
-|C1|Orlando                                           |Australia|||917755028|
-|C10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
-|C2|Keith                                             |India||keith0@adventure-works.com||
-|C3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
-|C4|Janet                                             |United States|California|janet1@adventure-works.com||
-|C5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
-|C6|Juan                                              |Espa&#241;a|Sevilla||915869028|
-|C7|Lucia                                             |Espa&#241;a||LuciaPerez@hotmail.com||
-|C8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|
-|C9|Sergio                                            |United States|New York|sergio_as@gmail.com||
+|neighborhood_recode|latitude|longitude|price|no_of_bedrooms|no_of_bathrooms|quality_recode|maid_room_recode|unfurnished_recode|balcony_recode|barbecue_area_recode|central_ac_recode|childrens_play_area_recode|childrens_pool_recode|concierge_recode|covered_parking_recode|kitchen_appliances_recode|maid_service_recode|pets_allowed_recode|private_garden_recode|private_gym_recode|private_jacuzzi_recode|private_pool_recode|security_recode|shared_gym_recode|shared_pool_recode|shared_spa_recode|view_of_water_recode|size_in_m_2|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|460|25113208|55138932|2700000|1|2|20|0|0|10|10|10|10|0|10|0|10|0|10|0|0|0|0|0|10|0|0|10|100242337|
+|460|25106809|55151201|2850000|2|2|20|0|0|10|0|10|10|0|0|0|0|0|0|0|0|0|0|0|10|10|0|10|146972546|
+|360|25063302|55137728|1150000|3|5|20|10|10|10|0|0|0|0|0|10|0|0|0|0|0|10|0|10|10|10|0|10|181253753|
+|110|25227295|55341761|2850000|2|3|10|0|10|10|0|0|0|0|10|10|0|0|10|0|0|0|0|0|0|0|0|0|18766406|
+|460|25114275|55139764|1729200|0|1|20|0|0|0|0|10|0|0|0|10|10|0|0|0|0|0|0|10|10|10|10|10|47101821|
+|460|25114275|55139764|3119900|1|2|20|0|0|0|0|10|0|0|0|10|10|0|0|0|0|0|0|10|10|10|10|10|94296545|
+|460|25114275|55139764|8503600|2|3|0|10|0|0|0|10|0|0|0|10|10|0|0|0|0|0|0|10|10|10|10|10|191565986|
+|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|
+
+<br>
+
+
+
+```sql
+SELECT * FROM dbo.Alumnos;
+```
+
+
+
 
 
 <br>

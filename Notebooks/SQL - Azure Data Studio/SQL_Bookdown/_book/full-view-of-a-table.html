@@ -23,7 +23,7 @@
 <meta name="author" content="Fabio Scielzo Ortiz" />
 
 
-<meta name="date" content="2023-03-11" />
+<meta name="date" content="2023-03-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -194,103 +194,317 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb13"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb13-1"><a href="full-view-of-a-table.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes;</span></code></pre></div>
 <table style="width:100%;">
 <colgroup>
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th>ClienteId</th>
-<th>Nombre</th>
-<th>Pais</th>
-<th>Ciudad</th>
-<th>Email</th>
-<th>Telefono</th>
+<th>neighborhood_recode</th>
+<th>latitude</th>
+<th>longitude</th>
+<th>price</th>
+<th>no_of_bedrooms</th>
+<th>no_of_bathrooms</th>
+<th>quality_recode</th>
+<th>maid_room_recode</th>
+<th>unfurnished_recode</th>
+<th>balcony_recode</th>
+<th>barbecue_area_recode</th>
+<th>central_ac_recode</th>
+<th>childrens_play_area_recode</th>
+<th>childrens_pool_recode</th>
+<th>concierge_recode</th>
+<th>covered_parking_recode</th>
+<th>kitchen_appliances_recode</th>
+<th>maid_service_recode</th>
+<th>pets_allowed_recode</th>
+<th>private_garden_recode</th>
+<th>private_gym_recode</th>
+<th>private_jacuzzi_recode</th>
+<th>private_pool_recode</th>
+<th>security_recode</th>
+<th>shared_gym_recode</th>
+<th>shared_pool_recode</th>
+<th>shared_spa_recode</th>
+<th>view_of_water_recode</th>
+<th>size_in_m_2</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>C1</td>
-<td>Orlando</td>
-<td>Australia</td>
-<td></td>
-<td></td>
-<td>917755028</td>
+<td>460</td>
+<td>25113208</td>
+<td>55138932</td>
+<td>2700000</td>
+<td>1</td>
+<td>2</td>
+<td>20</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>100242337</td>
 </tr>
 <tr class="even">
-<td>C10</td>
-<td>Grecia</td>
-<td>Peru</td>
-<td>Lima</td>
-<td><a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a></td>
-<td></td>
+<td>460</td>
+<td>25106809</td>
+<td>55151201</td>
+<td>2850000</td>
+<td>2</td>
+<td>2</td>
+<td>20</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+<td>10</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>10</td>
+<td>0</td>
+<td>10</td>
+<td>146972546</td>
 </tr>
 <tr class="odd">
-<td>C2</td>
-<td>Keith</td>
-<td>India</td>
-<td></td>
-<td><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
-<td></td>
+<td>360</td>
+<td>25063302</td>
+<td>55137728</td>
+<td>1150000</td>
+<td>3</td>
+<td>5</td>
+<td>20</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>0</td>
+<td>10</td>
+<td>181253753</td>
 </tr>
 <tr class="even">
-<td>C3</td>
-<td>Donna</td>
-<td>Germany</td>
-<td>Berlin</td>
-<td><a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a></td>
-<td>915547890</td>
+<td>110</td>
+<td>25227295</td>
+<td>55341761</td>
+<td>2850000</td>
+<td>2</td>
+<td>3</td>
+<td>10</td>
+<td>0</td>
+<td>10</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>18766406</td>
 </tr>
 <tr class="odd">
-<td>C4</td>
-<td>Janet</td>
-<td>United States</td>
-<td>California</td>
-<td><a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a></td>
-<td></td>
+<td>460</td>
+<td>25114275</td>
+<td>55139764</td>
+<td>1729200</td>
+<td>0</td>
+<td>1</td>
+<td>20</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>47101821</td>
 </tr>
 <tr class="even">
-<td>C5</td>
-<td>Fabio</td>
-<td>España</td>
-<td>Madrid</td>
-<td><a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a></td>
-<td></td>
+<td>460</td>
+<td>25114275</td>
+<td>55139764</td>
+<td>3119900</td>
+<td>1</td>
+<td>2</td>
+<td>20</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>94296545</td>
 </tr>
 <tr class="odd">
-<td>C6</td>
-<td>Juan</td>
-<td>España</td>
-<td>Sevilla</td>
-<td></td>
-<td>915869028</td>
+<td>460</td>
+<td>25114275</td>
+<td>55139764</td>
+<td>8503600</td>
+<td>2</td>
+<td>3</td>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>10</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>10</td>
+<td>191565986</td>
 </tr>
 <tr class="even">
-<td>C7</td>
-<td>Lucia</td>
-<td>España</td>
-<td></td>
-<td><a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>C8</td>
-<td>Pedro</td>
-<td>Italia</td>
-<td>Roma</td>
-<td><a href="mailto:Pedro99@gmail.com" class="email">Pedro99@gmail.com</a></td>
-<td>910007890</td>
-</tr>
-<tr class="even">
-<td>C9</td>
-<td>Sergio</td>
-<td>United States</td>
-<td>New York</td>
-<td><a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a></td>
-<td></td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
 </tr>
 </tbody>
 </table>
