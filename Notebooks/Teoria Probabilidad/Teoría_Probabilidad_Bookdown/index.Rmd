@@ -18,6 +18,15 @@ github-repo: rstudio/bookdown-demo
 # Introducción
 
 
+<center>
+
+![](probabilidad.jpg){width="45%"}
+
+</center>
+
+
+<br>
+
 <div class="warning" style='background-color:#FCF2EC; color: #000000; border-left: solid #FE9554 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
@@ -1806,8 +1815,9 @@ $\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.03cm}$ son variables aleatorias mutuam
  Sea $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ una v.a. tal que $\hspace{0.1cm}\mathcal{X} \sim D(\cdot)$ .
 
 
-$\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.05cm}$ es una muestra aleatoria simple (m.a.s.) de tamaño $\hspace{0.04cm}n\hspace{0.04cm}$ de $\hspace{0.04cm}\mathcal{X}$ $\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$ $(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} D(\cdot)$
+- $\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.05cm}$ es una muestra aleatoria simple (m.a.s.) de tamaño $\hspace{0.03cm}n\hspace{0.03cm}$ de $\hspace{0.04cm}\mathcal{X}$ $\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$ $(\mathcal{X}_1,...,\mathcal{X}_n) \underset{i.i.d.}{\sim} D(\cdot)$ $\\$
 
+ 
  
 
 **Observación:**
@@ -1819,13 +1829,13 @@ Una m.a.s. de una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ es un vector de
 
 <br>
 
+# Algunos teoremas relevantes en inferencia estadística
+ 
+## Teorema de esperanza-varianza de la media muestral
 
  
-# Teorema de esperanza-varianza de la media muestral
 
- 
-
- Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
+ Si tenemos una v.a. $\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}$ y una m.a.s $\hspace{0.03cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.03cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.03cm}$ , entonces: $\\$
 
 $$E\left[\hspace{0.08cm}\overline{\mathcal{X}_n}\hspace{0.08cm}\right] \hspace{0.1cm}=\hspace{0.1cm} E[\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}]\\$$
 
@@ -1833,7 +1843,7 @@ $$Var\left(\hspace{0.08cm}\overline{\mathcal{X}_n}\hspace{0.08cm}\right) \hspace
 
  Donde:
 
-$\hspace{0.25cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i$
+$$\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i$$
 
  
 
@@ -1842,7 +1852,7 @@ $\hspace{0.25cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \math
 
 
 
-# Teorema de distribución de la media muestral
+## Teorema de distribución de la media muestral
 
  
  Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu , \sigma^2)\hspace{0.1cm}$ y una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
@@ -1865,7 +1875,7 @@ $$\dfrac{\hspace{0.2cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.2cm}}{ \sqrt{
  
 <br>
 
-# Independencia entre Media Aritmética y Cuasivarianza
+## Independencia entre Media Aritmética y Cuasivarianza
 
 
 Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}$, y dada una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X} \hspace{0.08cm}$ , se cumple lo siguiente : $\\[0.7cm]$
@@ -1875,9 +1885,9 @@ $$\overline{X}_n \hspace{0.25cm} y \hspace{0.25cm} S_n^2 \hspace{0.25cm} \text{s
 
 Donde:
 
- $\hspace{0.25cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i \\$
+ $$\hspace{0.25cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i \\$$
 
- $\hspace{0.25cm}S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2$
+$$\hspace{0.25cm}S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2$$
 
  
 
@@ -1888,7 +1898,7 @@ Donde:
 
 
 
-# Teorema de Gosset
+## Teorema de Gosset
 
 
 Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}$, y dada una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X} \hspace{0.08cm}$ , se cumple lo siguiente : $\\[0.5cm]$ 
@@ -1898,15 +1908,15 @@ $$\dfrac{\hspace{0.15cm} \overline{\mathcal{X}_n} - \mu \hspace{0.15cm}}{\sqrt{\
 
 Donde:
 
- $\hspace{0.25cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i \\$
+ $$\hspace{0.25cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i \\$$
 
- $\hspace{0.25cm}S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2$
+ $$\hspace{0.25cm}S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2$$
 
  
 <br>
 
 
-# Teorema de Fisher <a class="anchor" id="1"></a>
+## Teorema de Fisher  
 
 
 Dada una v.a. $\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}$, y dada una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.08cm} .$ , se cumple lo siguiente : $\\[0.5cm]$ 
@@ -1919,20 +1929,20 @@ Donde:
 
 
 
-$\hspace{0.25cm}S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2\\$
+$$\hspace{0.25cm}S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2\\$$
 
-$\hspace{0.25cm} \overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i$ 
+$$\hspace{0.25cm} \overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i$$
  
  
  <br>
 
-# Algunas Desigualdades 
+# Algunas desigualdades relevantes 
 
 ## Desigualdad de Markov
 
 Dada una v.a. $\hspace{0.1cm}\mathcal{X} \hspace{0.1cm}$ y una función $\hspace{0.1cm}g \hspace{0.08cm} : \hspace{0.08cm} Im(\mathcal{X}) \rightarrow \mathbb{R}^+\hspace{0.08cm}$.
 
-Se cumple la siguiente desigualdad, conocida como desigualdad de Markov: $\\[0.35cm]$
+Se cumple la siguiente desigualdad, conocida como desigualdad de Markov: $\\$
 
 
 $$P(\hspace{0.08cm} g(\mathcal{X}) \hspace{0.08cm}\geq\hspace{0.08cm} \epsilon \hspace{0.08cm}) \hspace{0.1cm}\leq\hspace{0.1cm} \dfrac{\hspace{0.08cm}E\left[ \hspace{0.08cm}g(\mathcal{X})\hspace{0.08cm} \right]\hspace{0.08cm}}{\epsilon} \hspace{0.3cm} ,  \hspace{0.3cm} \forall  \hspace{0.08cm} \epsilon > 0$$
@@ -1941,11 +1951,11 @@ $$P(\hspace{0.08cm} g(\mathcal{X}) \hspace{0.08cm}\geq\hspace{0.08cm} \epsilon \
 
 <br>
 
-## Desigualdad de Chebychev <a class="anchor" id="1"></a>
+## Desigualdad de Chebychev 
 
 Dada una v.a. $\hspace{0.1cm}\mathcal{X} \hspace{0.1cm}$ con $\hspace{0.1cm}Var(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm})=\sigma^2\hspace{0.06cm}$.
 
-Se cumple la siguiente desigualdad, conocida como desigualdad de Chebychev: $\\[0.35cm]$
+Se cumple la siguiente desigualdad, conocida como desigualdad de Chebychev: $\\$
 
 
 $$P(\hspace{0.08cm} | \hspace{0.08cm} \mathcal{X} - \mu \hspace{0.08cm} | \hspace{0.08cm}\geq\hspace{0.08cm} \epsilon \hspace{0.08cm}) \hspace{0.1cm}\leq\hspace{0.1cm} \dfrac{\hspace{0.08cm}\sigma^2 \hspace{0.08cm} }{\epsilon^2} \hspace{0.3cm} ,  \hspace{0.3cm} \forall   \hspace{0.08cm} \epsilon > 0$$
@@ -1961,25 +1971,25 @@ $$P(\hspace{0.08cm} | \hspace{0.08cm} \mathcal{X} - \mu \hspace{0.08cm} | \hspac
 
 ## Convergencia en probabilidad
 
- Dada una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$, una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$, y una función de la m.a.s $\hspace{0.1cm}h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$, donde $\hspace{0.1cm}h \hspace{0.1cm} : \hspace{0.1cm} Im(\mathcal{X}_1)\hspace{0.05cm}\text{x}\dots \text{x}\hspace{0.05cm}Im(\mathcal{X}_n) \hspace{0.1cm}\rightarrow\hspace{0.1cm} \mathbb{R}\hspace{0.12cm}$ , entonces: $\\[1cm]$
+ Dada una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$, una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$, y una función de la m.a.s $\hspace{0.1cm}h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$, donde $\hspace{0.1cm}h \hspace{0.1cm} : \hspace{0.1cm} \text{Im}(\mathcal{X}_1)\hspace{0.05cm}\text{x}\dots \text{x}\hspace{0.05cm}\text{Im}(\mathcal{X}_n) \hspace{0.1cm}\rightarrow\hspace{0.1cm} \mathbb{R}\hspace{0.12cm}$ , entonces: $\\$
  
 
  
- $$h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm} \text{converge en probabilidad a} \hspace{0.1cm}\mathcal{X}\hspace{0.3cm} \Leftrightarrow \\[0.7cm] \Leftrightarrow\hspace{0.3cm} \forall \hspace{0.08cm} \epsilon > 0 \hspace{0.25cm} , \hspace{0.25cm} P\left(\hspace{0.1cm} \left| \hspace{0.1cm} h(\mathcal{X}_1,...,\mathcal{X}_n) - \mathcal{X} \hspace{0.1cm} \right| \hspace{0.1cm} \geq \hspace{0.1cm} \epsilon \hspace{0.1cm} \right) \hspace{0.12cm}\rightarrow\hspace{0.12cm} 0 \hspace{0.2cm} , \hspace{0.2cm} \text{si}\hspace{0.15cm} n \hspace{0.1cm}\rightarrow\hspace{0.1cm} \infty \\[0.7cm]
+ $$h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm} \text{converge en probabilidad a} \hspace{0.1cm}\mathcal{X}\hspace{0.3cm} \Leftrightarrow \\[0.7cm] \Leftrightarrow\hspace{0.3cm} \forall \hspace{0.08cm} \epsilon > 0 \hspace{0.25cm} , \hspace{0.25cm} P\left(\hspace{0.1cm} \left| \hspace{0.1cm} h(\mathcal{X}_1,...,\mathcal{X}_n) - \mathcal{X} \hspace{0.1cm} \right| \hspace{0.1cm} \geq \hspace{0.1cm} \epsilon \hspace{0.1cm} \right) \hspace{0.12cm}\rightarrow\hspace{0.12cm} 0 \hspace{0.2cm} , \hspace{0.2cm} \text{si}\hspace{0.2cm} n \hspace{0.1cm}\rightarrow\hspace{0.1cm} \infty \\[0.7cm]
  \Leftrightarrow \hspace{0.3cm} \forall \hspace{0.08cm} \epsilon > 0 \hspace{0.3cm} , \hspace{0.3cm} \underset{n\rightarrow \infty}{\text{lim}} \hspace{0.12cm} P(\hspace{0.1cm} | \hspace{0.1cm} h(\mathcal{X}_1,...,\mathcal{X}_n) - \mathcal{X} \hspace{0.1cm} | \hspace{0.1cm} \geq \hspace{0.1cm} \epsilon \hspace{0.1cm}) \hspace{0.1cm}=\hspace{0.1cm} 0 \\[0.35cm]$$
 
  
 **Notación:** 
  
-$h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm} \text{converge en probabilidad a} \hspace{0.1cm}\mathcal{X}$ $\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$ $h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm} \underset{p}{\rightarrow} \hspace{0.1cm}\mathcal{X}$
+$h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.13cm} \text{converge en probabilidad a} \hspace{0.12cm}\mathcal{X}$ $\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$ $h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm} \underset{p}{\rightarrow} \hspace{0.1cm}\mathcal{X}$
 
 
 <br>
 
-## Convergencia en distribución <a class="anchor" id="1"></a>
+## Convergencia en distribución 
 
 
- Dada una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$, una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$, y una función de la m.a.s $\hspace{0.1cm}h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm}$, donde $\hspace{0.1cm}h \hspace{0.1cm} : \hspace{0.1cm} Im(\mathcal{X}_1)\hspace{0.05cm}\text{x}\dots \text{x}\hspace{0.05cm}Im(\mathcal{X}_n) \hspace{0.1cm}\rightarrow\hspace{0.1cm} \mathbb{R}\hspace{0.12cm}$ , entonces: $\\[1cm]$
+ Dada una v.a. $\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}$, una m.a.s $\hspace{0.03cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.03cm}$ de $\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}$, y una función de la m.a.s $\hspace{0.03cm}h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.03cm}$, donde $\hspace{0.1cm}h \hspace{0.1cm} : \hspace{0.1cm} \text{Im}(\mathcal{X}_1)\hspace{0.05cm}\text{x}\dots \text{x}\hspace{0.05cm}\text{Im}(\mathcal{X}_n) \hspace{0.1cm}\rightarrow\hspace{0.1cm} \mathbb{R}\hspace{0.12cm}$ , entonces: $\\$
  
  
  $$h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.2cm} \text{converge en distribucion a} \hspace{0.2cm}\mathcal{X}\hspace{0.3cm}\Leftrightarrow \hspace{0.3cm}  \underset{n\rightarrow \infty}{\text{lim}} \hspace{0.12cm} F_{ h(\mathcal{X}_1,...,\mathcal{X}_n)} = F_{\mathcal{X}}(x)\\[0.35cm]$$
@@ -1989,28 +1999,32 @@ $h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm} \text{converge en probabilidad
 $h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm} \text{converge en distribucion a} \hspace{0.1cm}\mathcal{X}$ $\hspace{0.3cm}\Leftrightarrow\hspace{0.3cm}$ $h(\mathcal{X}_1,...,\mathcal{X}_n)\hspace{0.1cm} \underset{d}{\rightarrow} \hspace{0.1cm}\mathcal{X}$
 
 
-<br>
-
-# Momentos de una Variable Aleatoria
-
-El momento de orden $\hspace{0.08cm}k\hspace{0.08cm}$ de la variable aleatoria $\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}$ es $\hspace{0.1cm}E\left[\hspace{0.08cm}\mathcal{X}^k\hspace{0.08cm}\right]\hspace{0.08cm}$.
 
 
 <br>
 
-# Ley de los grandes números <a class="anchor" id="1"></a>
+# Ley de los grandes números
+
+
+## Momentos de una Variable Aleatoria
+
+El momento de orden $\hspace{0.03cm}k\hspace{0.03cm}$ de la variable aleatoria $\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}$ es $\hspace{0.03cm}E\left[\hspace{0.03cm}\mathcal{X}^k\hspace{0.03cm}\right]\hspace{0.08cm}$.
+
+<br>
+
+## Ley (debil) de los grandes números
 
   La ley (débil) de los grandes establece lo siguiente:
 
 
-- Si tenemos una m.a.s $\hspace{0.1cm}\mathcal{X}_1 ,...,\mathcal{X}_n\hspace{0.1cm}$  de una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.6cm]$
+- Si tenemos una m.a.s $\hspace{0.1cm}\mathcal{X}_1 ,...,\mathcal{X}_n\hspace{0.1cm}$  de una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\$
 
       
     $$\overline{\mathcal{X}_n^k}\hspace{0.08cm} =\hspace{0.08cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i^k \hspace{0.3cm} \underset{p}{\rightarrow} \hspace{0.3cm} E\left[\hspace{0.1cm}\mathcal{X}^k\hspace{0.1cm}\right] \\[1cm]$$
 
 
 
-    - El caso canónico es con $\hspace{0.08cm}k=1\hspace{0.08cm}$ :  $\\[0.6cm]$
+    - El caso canónico es con $\hspace{0.08cm}k=1\hspace{0.08cm}$ :  $\\$
 
     $$\overline{\mathcal{X}_n} \hspace{0.08cm}=\hspace{0.08cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i \hspace{0.3cm} \underset{p}{\rightarrow} \hspace{0.3cm} E\left[\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}\right]$$
  
@@ -2022,12 +2036,12 @@ El momento de orden $\hspace{0.08cm}k\hspace{0.08cm}$ de la variable aleatoria $
 
 <br>
 
-# Teorema central del límite
+# Teorema Central del Límite
 
 
   El teorema central del límite (TCL) establece lo siguiente:
 
-- Si tenemos una v.a. $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ con $\hspace{0.1cm}E[\mathcal{X}] = \mu\hspace{0.2cm}$ y $\hspace{0.2cm}Var(\mathcal{X})=\sigma^2 \neq 0 < \infty\hspace{0.2cm}$ , y también tenemos una m.a.s $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}$ , entonces: $\\[0.5cm]$
+- Si tenemos una v.a. $\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}$ con $\hspace{0.03cm}E[\mathcal{X}] = \mu\hspace{0.2cm}$ y $\hspace{0.2cm}Var(\mathcal{X})=\sigma^2 \neq 0 < \infty\hspace{0.03cm}$ , y también tenemos una m.a.s $\hspace{0.03cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.03cm}$ de $\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}$ , entonces: $\\$
 
        
        
@@ -2037,10 +2051,10 @@ El momento de orden $\hspace{0.08cm}k\hspace{0.08cm}$ de la variable aleatoria $
         
     Donde:
         
-    $\hspace{0.15cm}\mu = E[\mathcal{X}] =E[\overline{\mathcal{X}_n}]$ 
+    $$\hspace{0.15cm}\mu = E[\mathcal{X}] =E[\overline{\mathcal{X}_n}]$$ 
         
          
-    $\hspace{0.15cm}\sigma^2/n = Var(\mathcal{X} ) / n = Var(\overline{\mathcal{X}_n}) \\$
+    $$\hspace{0.15cm}\sigma^2/n = Var(\mathcal{X} ) / n = Var(\overline{\mathcal{X}_n}) \\$$
     
     
    
@@ -2066,8 +2080,8 @@ El momento de orden $\hspace{0.08cm}k\hspace{0.08cm}$ de la variable aleatoria $
     $$W_n \hspace{0.08cm}=\hspace{0.08cm} \dfrac{\overline{\mathcal{X}_n} - \mu}{\sqrt{\sigma^2 / n}}\\$$
  
  
- 
- 
+<br>
+
 **Interpretación:**
 
 Si $\hspace{0.08cm}n\hspace{0.08cm}$ es grande y se obtiene un número elevado $\hspace{0.08cm}k\hspace{0.08cm}$ de realizaciones de la m.a.s. $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$ de $\mathcal{X}\sim D(\cdot)$, de manera que $\hspace{0.1cm}x_i = (x_{i1},...,x_{in})^t\hspace{0.1cm}$ es la realizacion i estima , donde $\hspace{0.1cm}x_{ij}\hspace{0.1cm}$ es la realizacion i-esima de la v.a. $\hspace{0.08cm}\mathcal{X}_j\hspace{0.1cm}$, entonces:
@@ -2077,7 +2091,7 @@ La distribución de frecuencias relativas del vector $\hspace{0.08cm}\bigl( \hsp
  
 <br> 
  
-# Teorema de Moivre-Laplace <a class="anchor" id="1"></a>
+## Teorema de Moivre-Laplace 
 
 Este teorema es un caso particular del TCL para v.a`s Binomiales.
 
@@ -2106,15 +2120,15 @@ $$f_{\mathbf{X}}(x) \hspace{0.08cm}=\hspace{0.08cm} f_{\mathcal{X}_1,\dots , \ma
 
 Donde: 
 
-- $\hspace{0.12cm}x = (x_1,\dots , x_p)^t \in \mathbb{R}^p \\$
+- $\hspace{0.12cm}x = (x_1,\dots , x_p)^t \in \mathbb{R}^p$.
  
-- $\hspace{0.08cm}\mathbf{\mu}=(\mu_1,\dots , \mu_p)\hspace{0.15cm}$ es el vector de esperanzas de las v.a's , es decir,  $\hspace{0.1cm}\mu_j = E[\mathcal{X}_j] \hspace{0.2cm},\hspace{0.2cm} \forall \hspace{0.08cm} j=1,..., p\hspace{0.08cm} \\$
+- $\hspace{0.08cm}\mathbf{\mu}=(\mu_1,\dots , \mu_p)\hspace{0.15cm}$ es el vector de esperanzas de las v.a's , es decir,  $\hspace{0.1cm}\mu_j = E[\mathcal{X}_j] \hspace{0.2cm},\hspace{0.2cm} \forall \hspace{0.08cm} j=1,..., p\hspace{0.08cm}$.
 
 
--  $\hspace{0.08cm}{\Sigma} = \left( \hspace{0.08cm}  \sigma_{ij} \hspace{0.1cm} : \hspace{0.1cm}  i,j=1,\dots p \hspace{0.08cm}  \right)\hspace{0.15cm}$ es la matriz de covarianzas de las v.a.'s, es decir,  $\hspace{0.1cm}\sigma_{ij}=Cov(\mathcal{X}_i , \mathcal{X}_j)\hspace{0.2cm} , \hspace{0.2cm}  \forall i,j =1,\dots , p \\$
+-  $\hspace{0.08cm}{\Sigma} = \left( \hspace{0.08cm}  \sigma_{ij} \hspace{0.1cm} : \hspace{0.1cm}  i,j=1,\dots p \hspace{0.08cm}  \right)\hspace{0.15cm}$ es la matriz de covarianzas de las v.a.'s, es decir,  $\hspace{0.1cm}\sigma_{ij}=Cov(\mathcal{X}_i , \mathcal{X}_j)\hspace{0.2cm} , \hspace{0.2cm}  \forall i,j =1,\dots , p$.
 
 
-
+<br>
 
 ## Propiedades  
 
@@ -2122,10 +2136,10 @@ Algunas propiedades de la distribución normal multivariante son las siguientes:
 
 
 
-- $\text{Si} \hspace{0.3cm}\mathbf{X} = (X_1, X_2, \ldots, X_p)^t  \sim NM_p(\mu, \Sigma)\hspace{0.1cm}\hspace{0.3cm}$ $\Rightarrow$  $\hspace{0.3cm}X_j \sim N(\mu_j , \sigma_j^2)\hspace{0.3cm} ,\hspace{0.25cm} \forall\hspace{0.08cm} j=1,...,p$ $\\[0.8cm]$
+- $\text{Si} \hspace{0.3cm}\mathbf{X} = (X_1, X_2, \ldots, X_p)^t  \sim NM_p(\mu, \Sigma)\hspace{0.1cm}\hspace{0.3cm}$ $\Rightarrow$  $\hspace{0.3cm}X_j \sim N(\mu_j , \sigma_j^2)\hspace{0.3cm} ,\hspace{0.25cm} \forall\hspace{0.08cm} j=1,...,p\hspace{0.08cm}$.
 
 
-- Si $\hspace{0.15cm}\mathbf{X} \sim NM_p(\mu, \Sigma)\hspace{0.15cm}$ , entonces cualquier combinación lineal de las componentes de $\hspace{0.1cm}\mathbf{X}\hspace{0.1cm}$ también sigue una distribución normal multivariante.
+- Si $\hspace{0.04cm}\mathbf{X} \sim NM_p(\mu, \Sigma)\hspace{0.04cm}$ , entonces cualquier combinación lineal de las componentes de $\hspace{0.03cm}\mathbf{X}\hspace{0.03cm}$ también sigue una distribución normal multivariante.
 
   
     Es decir:
@@ -2150,10 +2164,10 @@ Algunas propiedades de la distribución normal multivariante son las siguientes:
     
     - $A\hspace{0.1cm}$ es una matriz $\hspace{0.1cm}q \times p\hspace{0.1cm}$.
     
-    - $\mathbf{b}\hspace{0.1cm}$ es un vector $\hspace{0.11cm}q \times 1\hspace{0.1cm}$. $\\[0.8cm]$
+    - $\mathbf{b}\hspace{0.1cm}$ es un vector $\hspace{0.11cm}q \times 1\hspace{0.1cm}$.
 
 
-- La distribución condicional de una parte de $\hspace{0.1cm}\mathbf{X}\hspace{0.1cm}$ dado el resto de las componentes sigue también una distribución normal multivariante. $\\[0.8cm]$
+- La distribución condicional de una parte de $\hspace{0.1cm}\mathbf{X}\hspace{0.1cm}$ dado el resto de las componentes sigue también una distribución normal multivariante.
 
 
 - Para variables aleatorias con distribución conjunta normal multivariante, independencia equivale a no correlación lineal.
@@ -2164,9 +2178,7 @@ Algunas propiedades de la distribución normal multivariante son las siguientes:
 
 
 
-<br>
 
----
 
 <br>
 
@@ -2174,14 +2186,14 @@ Algunas propiedades de la distribución normal multivariante son las siguientes:
 # Bibliografía
 
 
-- Jimenez Recaredo, R. (2021). Probabilidad II [Notas de clase]. Universidad Carlos III, Madrid, España. $\\[0.6cm]$
+- Jimenez Recaredo, R. (2021). Probabilidad II [Notas de clase]. Universidad Carlos III, Madrid, España. 
 
-- Rincón, L (2014). Introducción a la  probabilidad. Universidad Nacional Autónoma de México. $\\[0.6cm]$
+- Rincón, L (2014). Introducción a la  probabilidad. Universidad Nacional Autónoma de México.
 
-- Rincón, L (2007). Curso intermedio de probabilidad. Universidad Nacional Autónoma de México. $\\[0.6cm]$
-
-<br>
+- Rincón, L (2007). Curso intermedio de probabilidad. Universidad Nacional Autónoma de México. 
 
 <br>
+
+
 
 

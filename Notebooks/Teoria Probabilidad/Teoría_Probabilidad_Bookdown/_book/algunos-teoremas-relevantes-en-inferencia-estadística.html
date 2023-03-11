@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introducción Teoría de la Probabilidad</title>
+  <title>Chapter 32 Algunos teoremas relevantes en inferencia estadística | Introducción Teoría de la Probabilidad</title>
   <meta name="description" content="Este artículo es una introducción, más o menos formal, a la teoría de la probabilidad." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introducción Teoría de la Probabilidad" />
+  <meta property="og:title" content="Chapter 32 Algunos teoremas relevantes en inferencia estadística | Introducción Teoría de la Probabilidad" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este artículo es una introducción, más o menos formal, a la teoría de la probabilidad." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introducción Teoría de la Probabilidad" />
+  <meta name="twitter:title" content="Chapter 32 Algunos teoremas relevantes en inferencia estadística | Introducción Teoría de la Probabilidad" />
   
   <meta name="twitter:description" content="Este artículo es una introducción, más o menos formal, a la teoría de la probabilidad." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="conceptos-sobre-sucesos.html"/>
+<link rel="prev" href="muestra-aleatoria-simple.html"/>
+<link rel="next" href="algunas-desigualdades-relevantes.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -349,45 +349,63 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Introducción Teoría de la Probabilidad</h1>
-<p class="author"><em>Fabio Scielzo Ortiz</em></p>
-<p class="date"><em>2023-03-11</em></p>
+<div id="algunos-teoremas-relevantes-en-inferencia-estadística" class="section level1 hasAnchor" number="32">
+<h1><span class="header-section-number">Chapter 32</span> Algunos teoremas relevantes en inferencia estadística<a href="algunos-teoremas-relevantes-en-inferencia-estadística.html#algunos-teoremas-relevantes-en-inferencia-estadística" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="teorema-de-esperanza-varianza-de-la-media-muestral" class="section level2 hasAnchor" number="32.1">
+<h2><span class="header-section-number">32.1</span> Teorema de esperanza-varianza de la media muestral<a href="algunos-teoremas-relevantes-en-inferencia-estadística.html#teorema-de-esperanza-varianza-de-la-media-muestral" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Si tenemos una v.a. <span class="math inline">\(\hspace{0.03cm}\mathcal{X}\hspace{0.03cm}\)</span> y una m.a.s <span class="math inline">\(\hspace{0.03cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.03cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.03cm}\)</span> , entonces: <span class="math inline">\(\\\)</span></p>
+<p><span class="math display">\[E\left[\hspace{0.08cm}\overline{\mathcal{X}_n}\hspace{0.08cm}\right] \hspace{0.1cm}=\hspace{0.1cm} E[\hspace{0.08cm}\mathcal{X}\hspace{0.08cm}]\\\]</span></p>
+<p><span class="math display">\[Var\left(\hspace{0.08cm}\overline{\mathcal{X}_n}\hspace{0.08cm}\right) \hspace{0.1cm}=\hspace{0.1cm} Var(\mathcal{X})/n \\\]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i\]</span></p>
+<p><br></p>
 </div>
-<div id="introducción" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Introducción<a href="index.html#introducción" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<center>
-<p><img src="probabilidad.jpg" style="width:45.0%" /></p>
-</center>
+<div id="teorema-de-distribución-de-la-media-muestral" class="section level2 hasAnchor" number="32.2">
+<h2><span class="header-section-number">32.2</span> Teorema de distribución de la media muestral<a href="algunos-teoremas-relevantes-en-inferencia-estadística.html#teorema-de-distribución-de-la-media-muestral" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Si tenemos una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim N(\mu , \sigma^2)\hspace{0.1cm}\)</span> y una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.1cm}\)</span> , entonces: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\overline{ \mathcal{X}_n } \sim N(\mu \hspace{0.1cm},\hspace{0.1cm} \sigma^2/n)\\\]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[\mu \hspace{0.08cm}=\hspace{0.08cm} E\left[\hspace{0.08cm}\overline{\mathcal{X}_n}\hspace{0.08cm}\right]\]</span></p>
+<p><span class="math display">\[\sigma^2 \hspace{0.08cm}=\hspace{0.08cm} Var\left(\hspace{0.08cm}\overline{\mathcal{X}_n}\hspace{0.08cm}\right) \\\]</span></p>
+<p>Por tanto:</p>
+<p><span class="math display">\[\dfrac{\hspace{0.2cm} \overline{ \mathcal{X}_n } - \mu \hspace{0.2cm}}{ \sqrt{\sigma^2 / n}  } \hspace{0.1cm}\sim\hspace{0.1cm} N(0,1)\]</span></p>
 <p><br></p>
-<div class="warning" style="background-color:#FCF2EC; color: #000000; border-left: solid #FE9554 7px; border-radius: 3px; size:1px ; padding:0.1em;">
-<p><span></p>
-<p style="margin-left:10em;">
-<ul>
-<li><p><strong>Más artículos: <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://estadistica4all.com/">Estadistica4all</a></strong></p></li>
-<li><p><strong>Autor:</strong> <span class="math inline">\(\hspace{0.1cm}\)</span>
-<a href="http://estadistica4all.com/autores/autores.html">Fabio Scielzo Ortiz.</a></p></li>
-<li><p><strong>Si utilizas este artículo, por favor, cítalo:</strong></p></li>
-</ul>
-<p><span class="math inline">\(\hspace{1cm}\)</span> Scielzo Ortiz, Fabio. (2023). Introducción a la teoría de la probabilidad. Estadistica4all.</p>
-<ul>
-<li><strong><em>Se recomienda abrir el artículo en un ordenador o en una tablet.</em></strong></li>
-</ul>
-</p>
-</p>
-<p></span></p>
 </div>
+<div id="independencia-entre-media-aritmética-y-cuasivarianza" class="section level2 hasAnchor" number="32.3">
+<h2><span class="header-section-number">32.3</span> Independencia entre Media Aritmética y Cuasivarianza<a href="algunos-teoremas-relevantes-en-inferencia-estadística.html#independencia-entre-media-aritmética-y-cuasivarianza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}\)</span>, y dada una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \hspace{0.08cm}\)</span> , se cumple lo siguiente : <span class="math inline">\(\\[0.7cm]\)</span></p>
+<p><span class="math display">\[\overline{X}_n \hspace{0.25cm} y \hspace{0.25cm} S_n^2 \hspace{0.25cm} \text{son variables aleatorias independientes.}\]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[\hspace{0.25cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i \\\]</span></p>
+<p><span class="math display">\[\hspace{0.25cm}S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2\]</span></p>
 <p><br></p>
-<p>Este artículo es una introducción, más o menos formal, a la teoría de la probabilidad.</p>
+</div>
+<div id="teorema-de-gosset" class="section level2 hasAnchor" number="32.4">
+<h2><span class="header-section-number">32.4</span> Teorema de Gosset<a href="algunos-teoremas-relevantes-en-inferencia-estadística.html#teorema-de-gosset" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}\)</span>, y dada una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \hspace{0.08cm}\)</span> , se cumple lo siguiente : <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\dfrac{\hspace{0.15cm} \overline{\mathcal{X}_n} - \mu \hspace{0.15cm}}{\sqrt{\dfrac{n}{n-1} S_n^2/n \hspace{0.1cm}} } \hspace{0.1cm}\sim\hspace{0.1cm} t_{n-1} \\\]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[\hspace{0.25cm}\overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i \\\]</span></p>
+<p><span class="math display">\[\hspace{0.25cm}S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2\]</span></p>
 <p><br></p>
+</div>
+<div id="teorema-de-fisher" class="section level2 hasAnchor" number="32.5">
+<h2><span class="header-section-number">32.5</span> Teorema de Fisher<a href="algunos-teoremas-relevantes-en-inferencia-estadística.html#teorema-de-fisher" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\sim N(\mu, \sigma^2)\hspace{0.1cm}\)</span>, y dada una m.a.s <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathcal{X}\hspace{0.08cm} .\)</span> , se cumple lo siguiente : <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[\dfrac{\hspace{0.15cm} n\cdot S^2_n \hspace{0.15cm}}{ \sigma^2 \hspace{0.1cm} } \hspace{0.1cm}\sim\hspace{0.1cm} \chi^2_{n-1}\]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[\hspace{0.25cm}S_n^2 = \dfrac{1}{n} \cdot \sum_{i=1}^n (\mathcal{X}_i - \overline{\mathcal{X}_n} )^2\\\]</span></p>
+<p><span class="math display">\[\hspace{0.25cm} \overline{\mathcal{X}_n} = \dfrac{1}{n} \cdot \sum_{i=1}^n \mathcal{X}_i\]</span></p>
+<p><br></p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="conceptos-sobre-sucesos.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="muestra-aleatoria-simple.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="algunas-desigualdades-relevantes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

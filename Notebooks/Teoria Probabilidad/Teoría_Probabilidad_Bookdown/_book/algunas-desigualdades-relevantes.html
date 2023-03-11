@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Introducción Teoría de la Probabilidad</title>
+  <title>Chapter 33 Algunas desigualdades relevantes | Introducción Teoría de la Probabilidad</title>
   <meta name="description" content="Este artículo es una introducción, más o menos formal, a la teoría de la probabilidad." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Introducción Teoría de la Probabilidad" />
+  <meta property="og:title" content="Chapter 33 Algunas desigualdades relevantes | Introducción Teoría de la Probabilidad" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este artículo es una introducción, más o menos formal, a la teoría de la probabilidad." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Introducción Teoría de la Probabilidad" />
+  <meta name="twitter:title" content="Chapter 33 Algunas desigualdades relevantes | Introducción Teoría de la Probabilidad" />
   
   <meta name="twitter:description" content="Este artículo es una introducción, más o menos formal, a la teoría de la probabilidad." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="conceptos-sobre-sucesos.html"/>
+<link rel="prev" href="algunos-teoremas-relevantes-en-inferencia-estadística.html"/>
+<link rel="next" href="definiciones-de-convergencia.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -349,45 +349,30 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Introducción Teoría de la Probabilidad</h1>
-<p class="author"><em>Fabio Scielzo Ortiz</em></p>
-<p class="date"><em>2023-03-11</em></p>
+<div id="algunas-desigualdades-relevantes" class="section level1 hasAnchor" number="33">
+<h1><span class="header-section-number">Chapter 33</span> Algunas desigualdades relevantes<a href="algunas-desigualdades-relevantes.html#algunas-desigualdades-relevantes" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="desigualdad-de-markov" class="section level2 hasAnchor" number="33.1">
+<h2><span class="header-section-number">33.1</span> Desigualdad de Markov<a href="algunas-desigualdades-relevantes.html#desigualdad-de-markov" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \hspace{0.1cm}\)</span> y una función <span class="math inline">\(\hspace{0.1cm}g \hspace{0.08cm} : \hspace{0.08cm} Im(\mathcal{X}) \rightarrow \mathbb{R}^+\hspace{0.08cm}\)</span>.</p>
+<p>Se cumple la siguiente desigualdad, conocida como desigualdad de Markov: <span class="math inline">\(\\\)</span></p>
+<p><span class="math display">\[P(\hspace{0.08cm} g(\mathcal{X}) \hspace{0.08cm}\geq\hspace{0.08cm} \epsilon \hspace{0.08cm}) \hspace{0.1cm}\leq\hspace{0.1cm} \dfrac{\hspace{0.08cm}E\left[ \hspace{0.08cm}g(\mathcal{X})\hspace{0.08cm} \right]\hspace{0.08cm}}{\epsilon} \hspace{0.3cm} ,  \hspace{0.3cm} \forall  \hspace{0.08cm} \epsilon &gt; 0\]</span></p>
+<p><br></p>
 </div>
-<div id="introducción" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Introducción<a href="index.html#introducción" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<center>
-<p><img src="probabilidad.jpg" style="width:45.0%" /></p>
-</center>
+<div id="desigualdad-de-chebychev" class="section level2 hasAnchor" number="33.2">
+<h2><span class="header-section-number">33.2</span> Desigualdad de Chebychev<a href="algunas-desigualdades-relevantes.html#desigualdad-de-chebychev" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dada una v.a. <span class="math inline">\(\hspace{0.1cm}\mathcal{X} \hspace{0.1cm}\)</span> con <span class="math inline">\(\hspace{0.1cm}Var(\hspace{0.08cm}\mathcal{X}\hspace{0.08cm})=\sigma^2\hspace{0.06cm}\)</span>.</p>
+<p>Se cumple la siguiente desigualdad, conocida como desigualdad de Chebychev: <span class="math inline">\(\\\)</span></p>
+<p><span class="math display">\[P(\hspace{0.08cm} | \hspace{0.08cm} \mathcal{X} - \mu \hspace{0.08cm} | \hspace{0.08cm}\geq\hspace{0.08cm} \epsilon \hspace{0.08cm}) \hspace{0.1cm}\leq\hspace{0.1cm} \dfrac{\hspace{0.08cm}\sigma^2 \hspace{0.08cm} }{\epsilon^2} \hspace{0.3cm} ,  \hspace{0.3cm} \forall   \hspace{0.08cm} \epsilon &gt; 0\]</span></p>
 <p><br></p>
-<div class="warning" style="background-color:#FCF2EC; color: #000000; border-left: solid #FE9554 7px; border-radius: 3px; size:1px ; padding:0.1em;">
-<p><span></p>
-<p style="margin-left:10em;">
-<ul>
-<li><p><strong>Más artículos: <span class="math inline">\(\hspace{0.1cm}\)</span> <a href="https://estadistica4all.com/">Estadistica4all</a></strong></p></li>
-<li><p><strong>Autor:</strong> <span class="math inline">\(\hspace{0.1cm}\)</span>
-<a href="http://estadistica4all.com/autores/autores.html">Fabio Scielzo Ortiz.</a></p></li>
-<li><p><strong>Si utilizas este artículo, por favor, cítalo:</strong></p></li>
-</ul>
-<p><span class="math inline">\(\hspace{1cm}\)</span> Scielzo Ortiz, Fabio. (2023). Introducción a la teoría de la probabilidad. Estadistica4all.</p>
-<ul>
-<li><strong><em>Se recomienda abrir el artículo en un ordenador o en una tablet.</em></strong></li>
-</ul>
-</p>
-</p>
-<p></span></p>
 </div>
-<p><br></p>
-<p>Este artículo es una introducción, más o menos formal, a la teoría de la probabilidad.</p>
-<p><br></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="conceptos-sobre-sucesos.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="algunos-teoremas-relevantes-en-inferencia-estadística.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="definiciones-de-convergencia.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
