@@ -689,224 +689,281 @@ FROM dbo.Alumnos;
 # Filter rows of a table
 
 ```sql
-SELECT * FROM dbo.House_Price_Regression WHERE price < 500000 ;
+SELECT * FROM dbo.Examenes WHERE Nota < 7 ;
 ```
-
-|neighborhood_recode|latitude|longitude|price|no_of_bedrooms|no_of_bathrooms|...|private_pool_recode|security_recode|shared_gym_recode|shared_pool_recode|shared_spa_recode|view_of_water_recode|size_in_m_2|
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-|120|25016736|5525101|365000|0|1|...|0|0|0|0|0|0|69026929|
-|...|...|...|...|...|...|...|...|...|...|
-
-
-<br>
-
-
-
-
-```SQL
-SELECT * FROM dbo.Clientes WHERE Nombre = 'Fabio' ;
-```
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
-|C5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
-
-
-<br>
-
-
-```SQL
-SELECT * FROM dbo.Clientes WHERE Nombre != 'Fabio' ;
-```
-
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
-|C1|Orlando                                           |Australia|||917755028|
-|C10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
-|C2|Keith                                             |India||keith0@adventure-works.com||
-|C3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
-|C4|Janet                                             |United States|California|janet1@adventure-works.com||
-|C6|Juan                                              |Espa&#241;a|Sevilla||915869028|
-|C7|Lucia                                             |Espa&#241;a||LuciaPerez@hotmail.com||
-|C8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|
-|C9|Sergio                                            |United States|New York|sergio_as@gmail.com||
-
-<br>
-
-```SQL
-SELECT * FROM dbo.Ventas WHERE Precio < 500 ;
-```
-
-|VentasId|Producto|Precio|Cliente|Proveedor|
+|ExamenID|Nota|Asignatura|AlumnoID|ProfesorID|
 |---|---|---|---|---|
-|V15|Killim                                            |350|C10|P3|
-|V3|Killim                                            |475|C9|P3|
-|V5|Killim                                            |499,5|C8|P1|
-|V8|Killim                                            |299,5|C10|P1|
+|E1|6.70|Matem&#225;ticas|A2|P1|
+|E3|4.25|Matem&#225;ticas|A1|P1|
+|E4|6.50|Matem&#225;ticas|A7|P7|
+ 
 
 
 <br>
 
 
-```SQL
-SELECT * FROM dbo.Ventas WHERE Precio < 2000 AND Precio > 500 ;
+```sql
+SELECT * FROM dbo.Examenes WHERE Nota <= 7 ;
 ```
-|VentasId|Producto|Precio|Cliente|Proveedor|
+
+|ExamenID|Nota|Asignatura|AlumnoID|ProfesorID|
 |---|---|---|---|---|
-|V1|Alfombra                                          |1500|C1|P1|
-|V10|Alfombra                                          |1200|C7|P1|
-|V12|Killim                                            |650|C9|P3|
-|V14|Killim                                            |1000|C6|P1|
-|V2|Killim                                            |699,5|C3|P1|
-|V6|Killim                                            |555|C5|P3|
-|V9|Killim                                            |600|C2|P3|
+|E1|6.70|Matem&#225;ticas|A2|P1|
+|E3|4.25|Matem&#225;ticas|A1|P1|
+|E4|6.50|Matem&#225;ticas|A7|P7|
+|E5|7.00|Matem&#225;ticas|A9|P3|
 
 
 <br>
 
 
-```SQL
-SELECT * FROM dbo.Ventas WHERE Precio <= 2000 OR Precio > 500 ;
+```sql
+SELECT AlumnoID, Nota FROM dbo.Examenes WHERE Nota < 7 ;
 ```
-|VentasId|Producto|Precio|Cliente|Proveedor|
-|---|---|---|---|---|
-|V1|Alfombra                                          |1500|C1|P1|
-|V10|Alfombra                                          |1200|C7|P1|
-|V11|Killim                                            |500|C8|P1|
-|V12|Killim                                            |650|C9|P3|
-|V13|Alfombra                                          |3500|C7|P1|
-|V14|Killim                                            |1000|C6|P1|
-|V15|Killim                                            |350|C10|P3|
-|V2|Killim                                            |699,5|C3|P1|
-|V3|Killim                                            |475|C9|P3|
-|V4|Alfombra                                          |5000|C4|P1|
-|V5|Killim                                            |499,5|C8|P1|
-|V6|Killim                                            |555|C5|P3|
-|V7|Alfombra                                          |2500|C2|P1|
-|V8|Killim                                            |299,5|C10|P1|
-|V9|Killim                                            |600|C2|P3|
 
-<br>
-
-
-```SQL
-SELECT Nombre , Email  FROM dbo.Proveedores WHERE Email = 'Intertrade@gmail.com' ;
-```
-|Nombre|Email|
+|AlumnoID|Nota|
 |---|---|
-|Intertrade|Intertrade@gmail.com|
-
-
-
-<br>
-
-```SQL
-SELECT Producto , Cliente, Proveedor FROM dbo.Ventas WHERE Precio < 2000 AND Precio > 500 ;
-```
-
-|Producto|Cliente|Proveedor|
-|---|---|---|
-|Alfombra                                          |C1|P1|
-|Alfombra                                          |C7|P1|
-|Killim                                            |C9|P3|
-|Killim                                            |C6|P1|
-|Killim                                            |C3|P1|
-|Killim                                            |C5|P3|
-|Killim                                            |C2|P3|
+|A2|6.70|
+|A1|4.25|
+|A7|6.50|
 
 
 <br>
 
-```SQL
-SELECT*FROM Clientes WHERE Nombre is NOT NULL
+```sql
+SELECT * FROM dbo.Alumnos WHERE Nombre = 'Fabio';
 ```
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
+
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
 |---|---|---|---|---|---|
-|C1|Orlando                                           |Australia|||917755028|
-|C2|Keith                                             |India||keith0@adventure-works.com||
-|C3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
-|C4|Janet                                             |United States|California|janet1@adventure-works.com||
-|C5|Fabio                                             |Espa&#241;a|Madrid|fabio@gmail.com||
+|A5|Fabio |Espa&#241;a|Madrid|fabio10@gmail.com||
+
+
+<br>
+
+```sql
+SELECT * FROM dbo.Alumnos WHERE Nombre != 'Fabio';
+```
+
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
+|---|---|---|---|---|---|
+|A1|Orlando                                           |Australia|||917755028|
+|A10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
+|A11|Ismael                                            |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|
+|A12|Luis                                              |Espa&#241;a|Murcia|Luismiguel123@gmail.com||
+|A13|Pedro                                             |Argentina|Buenos Aires|Pedro120@gmail.com||
+|A2|Keith                                             |India||keith0@adventure-works.com||
+|A3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
+|A4|Janet                                             |United States|California|janet1@adventure-works.com||
+|A6|Juan                                              |Espa&#241;a|Sevilla||915869028|
+|A7|Lucia                                             |Espa&#241;a||LuciaPerez@hotmail.com||
+|A8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|
+|A9|Sergio                                            |United States|New York|sergio_as@gmail.com||
+
+
+<br>
+
+
+```sql
+SELECT * FROM dbo.Alumnos WHERE Nombre in ('Fabio','Pedro');
+```
+
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
+|---|---|---|---|---|---|
+|A13|Pedro                                             |Argentina|Buenos Aires|Pedro120@gmail.com||
+|A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
+|A8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|
+
+
+
+<br>
+
+
+```sql
+SELECT * FROM dbo.Alumnos WHERE Nombre not in ('Fabio','Pedro');
+```
+
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
+|---|---|---|---|---|---|
+|A1|Orlando                                           |Australia|||917755028|
+|A10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
+|A11|Ismael                                            |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|
+|A12|Luis                                              |Espa&#241;a|Murcia|Luismiguel123@gmail.com||
+|A2|Keith                                             |India||keith0@adventure-works.com||
+|A3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
+|A4|Janet                                             |United States|California|janet1@adventure-works.com||
+|A6|Juan                                              |Espa&#241;a|Sevilla||915869028|
+|A7|Lucia                                             |Espa&#241;a||LuciaPerez@hotmail.com||
+|A9|Sergio                                            |United States|New York|sergio_as@gmail.com||
+
+
+<br>
+
+
+```sql
+SELECT AlumnoID , Nota, ProfesorID FROM dbo.Examenes WHERE Nota < 7 AND Nota > 5 ;
+```
+
+|AlumnoID|Nota|ProfesorID|
+|---|---|---|
+|A2|6.70|P1|
+|A7|6.50|P7|
+
+
+
+<br>
+
+
+```sql
+SELECT Nombre FROM dbo.Profesores WHERE Estudios = 'Inglés' OR Estudios = 'Geografía' ;
+```
+
+|Nombre|
+|---|
+|Daniel|
+|Garazi|
+
+
+<br>
+ 
+
+ 
+
+```sql
+SELECT*FROM Alumnos WHERE Nombre is NOT NULL
+```
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
+|---|---|---|---|---|---|
+|A1|Orlando                                           |Australia|||917755028|
+|A10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
+|A11|Ismael                                            |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|
+|A12|Luis                                              |Espa&#241;a|Murcia|Luismiguel123@gmail.com||
+|A13|Pedro                                             |Argentina|Buenos Aires|Pedro120@gmail.com||
+|A2|Keith                                             |India||keith0@adventure-works.com||
+|A3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
+|A4|Janet                                             |United States|California|janet1@adventure-works.com||
+|A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
+|A6|Juan                                              |Espa&#241;a|Sevilla||915869028|
+|A7|Lucia                                             |Espa&#241;a||LuciaPerez@hotmail.com||
+|A8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|
+|A9|Sergio                                            |United States|New York|sergio_as@gmail.com||
 
  
 <br>
 
 
-
-
-```SQL
-SELECT * FROM dbo.Clientes WHERE Nombre in ( 'Orlando' , 'Fabio') ;
-```
-
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
-|C1|Orlando                                           |Australia|||917755028|
-|C5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
-
-
-
-```SQL
-SELECT * FROM dbo.Clientes WHERE Nombre not in ( 'Orlando' , 'Fabio') ;
-```
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
-|C10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
-|C2|Keith                                             |India||keith0@adventure-works.com||
-|C3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
-|C4|Janet                                             |United States|California|janet1@adventure-works.com||
-|C6|Juan                                              |Espa&#241;a|Sevilla||915869028|
-|C7|Lucia                                             |Espa&#241;a||LuciaPerez@hotmail.com||
-|C8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|
-|C9|Sergio                                            |United States|New York|sergio_as@gmail.com||
-
-
-<br>
+ 
+ 
 
 
 # Eliminar filas de una tabla
 
-```SQL
-DELETE from Ventas
+```sql
+DELETE from Alumnos
 ```
 
-|VentasId|Producto|Precio|Cliente|Proveedor|
-|---|---|---|---|---|
 
-
-<br>
-
-
-```SQL
-Delete from Clientes WHERE Nombre = 'Fabio'
+```sql
+SELECT * FROM Alumnos
 ```
-
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
 |---|---|---|---|---|---|
-|C1|Orlando                                           |Australia|||917755028|
-|C10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
-|C2|Keith                                             |India||keith0@adventure-works.com||
-|C3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
-|C4|Janet                                             |United States|California|janet1@adventure-works.com||
-|C6|Juan                                              |Espa&#241;a|Sevilla||915869028|
-|C7|Lucia                                             |Espa&#241;a||LuciaPerez@hotmail.com||
-|C8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|
-|C9|Sergio                                            |United States|New York|sergio_as@gmail.com||
+
 
 
 <br>
 
-# Eliminar una tabla
 
 
-```SQL
-DROP TABLE Clientes 
+
+```sql
+Delete from Alumnos WHERE Nombre = 'Fabio'
+```
+
+```sql
+SELECT * FROM Alumnos
+```
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
+|---|---|---|---|---|---|
+|A1|Orlando                                           |Australia|||917755028|
+|A10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
+|A11|Ismael                                            |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|
+|A12|Luis                                              |Espa&#241;a|Murcia|Luismiguel123@gmail.com||
+|A13|Pedro                                             |Argentina|Buenos Aires|Pedro120@gmail.com||
+|A2|Keith                                             |India||keith0@adventure-works.com||
+|A3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
+|A4|Janet                                             |United States|California|janet1@adventure-works.com||
+|A6|Juan                                              |Espa&#241;a|Sevilla||915869028|
+|A7|Lucia                                             |Espa&#241;a||LuciaPerez@hotmail.com||
+|A8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|
+|A9|Sergio                                            |United States|New York|sergio_as@gmail.com||
+
+
+
+
+
+<br>
+
+
+```sql
+Delete from Alumnos WHERE Nombre in ('Fabio','Grecia', 'Orlando')
+```
+```sql
+SELECT * FROM Alumnos
 ```
 
 
-<center>
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
+|---|---|---|---|---|---|
+|A11|Ismael                                            |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|
+|A12|Luis                                              |Espa&#241;a|Murcia|Luismiguel123@gmail.com||
+|A13|Pedro                                             |Argentina|Buenos Aires|Pedro120@gmail.com||
+|A2|Keith                                             |India||keith0@adventure-works.com||
+|A3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
+|A4|Janet                                             |United States|California|janet1@adventure-works.com||
+|A6|Juan                                              |Espa&#241;a|Sevilla||915869028|
+|A7|Lucia                                             |Espa&#241;a||LuciaPerez@hotmail.com||
+|A8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|
+|A9|Sergio                                            |United States|New York|sergio_as@gmail.com||
 
-![](p12.jpg){width="95%"}
 
-</center> 
+
+
+# Delete columns of a table
+
+```sql 
+ALTER TABLE dbo.Alumnos DROP COLUMN Nombre , Email;
+```
+
+```sql
+SELECT * FROM Alumnos
+```
+
+|AlumnoID|Pais|Ciudad|Telefono|
+|---|---|---|---|
+|A11|Espa&#241;a|Madrid|912234543|
+|A12|Espa&#241;a|Murcia||
+|A13|Argentina|Buenos Aires||
+|A2|India|||
+|A3|Germany|Berlin|915547890|
+|A4|United States|California||
+|A6|Espa&#241;a|Sevilla|915869028|
+|A7|Espa&#241;a|||
+|A8|Italia|Roma|910007890|
+|A9|United States|New York||
+
+
+<br>
+
+# Delete a table
+
+
+```sql
+DROP TABLE Alumnos 
+```
+
+
+
 
  
 
@@ -914,89 +971,100 @@ DROP TABLE Clientes
 <br>
 
 
-# Actualizar columnas de una table
-
-Primero volvemos a cargar las tablas Ventas y Clientes para recuperar su estado original, puesto que hemos eliminado todas las filas de Ventas y una de Clientes.
+# Update columns of a table
 
 
-Una vez hecho lo anterior, continuamos.
-
-
-```SQL
-UPDATE Clientes set Nombre = 'Messi' WHERE ClienteId = 'C1'
+```sql
+UPDATE Alumnos set Nombre = 'Messi' WHERE AlumnoID = 'A2'
 ```
-
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
+ 
+```sql
+SELECT * FROM Alumnos
+```
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
 |---|---|---|---|---|---|
-|C1|Messi                                             |Australia|||917755028|
-|C10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
-|C2|Keith                                             |India||keith0@adventure-works.com||
-|C3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
-|C4|Janet                                             |United States|California|janet1@adventure-works.com||
-|C5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
-|C6|Juan                                              |Espa&#241;a|Sevilla||915869028|
-|C7|Lucia                                             |Espa&#241;a||LuciaPerez@hotmail.com||
-|C8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|
-|C9|Sergio                                            |United States|New York|sergio_as@gmail.com||
-
-
-
+|A1|Orlando                                           |Australia|||917755028|
+|A10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
+|A11|Ismael                                            |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|
+|A12|Luis                                              |Espa&#241;a|Murcia|Luismiguel123@gmail.com||
+|A13|Pedro                                             |Argentina|Buenos Aires|Pedro120@gmail.com||
+|A2|Messi                                             |India||keith0@adventure-works.com||
+|A3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
+|A4|Janet                                             |United States|California|janet1@adventure-works.com||
+|A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
+|A6|Juan                                              |Espa&#241;a|Sevilla||915869028|
+|A7|Lucia                                             |Espa&#241;a||LuciaPerez@hotmail.com||
+|A8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|
+|A9|Sergio                                            |United States|New York|sergio_as@gmail.com||
 
 
 <br>
 
 ```SQL
-UPDATE Clientes set Nombre = 'Messi' , Pais = 'Argentina' WHERE ClienteId = 'C1'
+UPDATE Alumnos set Nombre = 'Messi' , Pais = 'Argentina' WHERE AlumnoID = 'A2'
 ```
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
+                                        
+```sql
+SELECT * FROM Alumnos
+```
+
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
 |---|---|---|---|---|---|
-|C1|Messi                                             |Argentina|||917755028|
-|C10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
-|C2|Keith                                             |India||keith0@adventure-works.com||
-|C3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
-|C4|Janet                                             |United States|California|janet1@adventure-works.com||
-|C5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
-|C6|Juan                                              |Espa&#241;a|Sevilla||915869028|
-|C7|Lucia                                             |Espa&#241;a||LuciaPerez@hotmail.com||
-|C8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|
-|C9|Sergio                                            |United States|New York|sergio_as@gmail.com||
+|A1|Orlando                                           |Australia|||917755028|
+|A10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
+|A11|Ismael                                            |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|
+|A12|Luis                                              |Espa&#241;a|Murcia|Luismiguel123@gmail.com||
+|A13|Pedro                                             |Argentina|Buenos Aires|Pedro120@gmail.com||
+|A2|Messi                                             |Argentina||keith0@adventure-works.com||
+|A3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
+|A4|Janet                                             |United States|California|janet1@adventure-works.com||
+|A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
+|A6|Juan                                              |Espa&#241;a|Sevilla||915869028|
+|A7|Lucia                                             |Espa&#241;a||LuciaPerez@hotmail.com||
+|A8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|
+|A9|Sergio                                            |United States|New York|sergio_as@gmail.com||
 
 
 <br>
 
 ```SQL
-UPDATE Clientes set Nombre = 'Messi' 
+UPDATE Alumnos set Nombre = 'Messi' 
+```
+ 
+```sql
+SELECT * FROM Alumnos
 ```
 
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
 |---|---|---|---|---|---|
-|C1|Messi                                             |Argentina|||917755028|
-|C10|Messi                                             |Peru|Lima|Grecia89@gmail.com||
-|C2|Messi                                             |India||keith0@adventure-works.com||
-|C3|Messi                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
-|C4|Messi                                             |United States|California|janet1@adventure-works.com||
-|C5|Messi                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
-|C6|Messi                                             |Espa&#241;a|Sevilla||915869028|
-|C7|Messi                                             |Espa&#241;a||LuciaPerez@hotmail.com||
-|C8|Messi                                             |Italia|Roma|Pedro99@gmail.com|910007890|
-|C9|Messi                                             |United States|New York|sergio_as@gmail.com||
-
-
+|A1|Messi                                             |Australia|||917755028|
+|A10|Messi                                             |Peru|Lima|Grecia89@gmail.com||
+|A11|Messi                                             |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|
+|A12|Messi                                             |Espa&#241;a|Murcia|Luismiguel123@gmail.com||
+|A13|Messi                                             |Argentina|Buenos Aires|Pedro120@gmail.com||
+|A2|Messi                                             |Argentina||keith0@adventure-works.com||
+|A3|Messi                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
+|A4|Messi                                             |United States|California|janet1@adventure-works.com||
+|A5|Messi                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
+|A6|Messi                                             |Espa&#241;a|Sevilla||915869028|
+|A7|Messi                                             |Espa&#241;a||LuciaPerez@hotmail.com||
+|A8|Messi                                             |Italia|Roma|Pedro99@gmail.com|910007890|
+|A9|Messi                                             |United States|New York|sergio_as@gmail.com||
+ 
 
 <br>
 
 
-## Fijar un valor por defecto para una columna
+## Setting a default value for a column
 
 
-```SQL
+```sql
 IF OBJECT_ID('dbo.Otra_Tabla_1', 'U') IS NOT NULL
  DROP TABLE dbo.Otra_Tabla_1;
 GO
--- Create the table in the specified schema
 CREATE TABLE dbo.Otra_Tabla_1
 (
- Id nvarchar (50) NOT NULL PRIMARY KEY, -- primary key column
+ Id nvarchar (50) NOT NULL PRIMARY KEY, 
  Nombre nvarchar (50) NOT NULL,
  Email nvarchar(50) NOT NULL DEFAULT 'no tiene',
  Telefono nvarchar (50) NOT NULL DEFAULT 'desconocido'
@@ -1004,7 +1072,7 @@ CREATE TABLE dbo.Otra_Tabla_1
 GO
 ```
 
-```SQL
+```sql
 INSERT INTO dbo.Otra_Tabla_1
  ([Id], [Nombre], [Email], [Telefono])
 VALUES
@@ -1030,19 +1098,15 @@ GO
 
 
 
-# Columnas calculadas a partir de otras
+# Columns calculated from others
 
-```SQL
-
-IF OBJECT_ID('dbo.Otra_Tabla_Ventas', 'U') IS NOT NULL
- DROP TABLE dbo.Otra_Tabla_Ventas;
+```sql
+IF OBJECT_ID('dbo.Ventas', 'U') IS NOT NULL
+ DROP TABLE dbo.Ventas;
 GO
-
--- Create the table in the specified schema
-
-CREATE TABLE dbo.Otra_Tabla_Ventas
+CREATE TABLE dbo.Ventas
 (
- VentasId nvarchar (50) NOT NULL PRIMARY KEY, -- primary key column
+ VentasId nvarchar (50) NOT NULL PRIMARY KEY, 
  Producto char (50) NOT NULL,
  Precio float (50) NOT NULL,
  Descuento float (50) NOT NULL,
@@ -1053,7 +1117,7 @@ GO
 
 -- Insert rows
 
-INSERT INTO dbo.Otra_Tabla_Ventas
+INSERT INTO dbo.Ventas
  ([VentasId], [Producto], [Precio], [Descuento], [Cliente], [Proveedor])
 VALUES
  ( 'V1', 'Alfombra', 1500, 0.5 ,'C2' , 'P1'),
@@ -1079,8 +1143,8 @@ GO
 
 <br>
 
-```SQL
-SELECT VentasId, Producto, Precio, Descuento, 'Precio_Final' = Precio - Precio*Descuento, Cliente, Proveedor FROM Otra_Tabla_Ventas
+```sql
+SELECT VentasId, Producto, Precio, Descuento, 'Precio_Final' = Precio - Precio*Descuento, Cliente, Proveedor FROM Ventas
 ```
 
 |VentasId|Producto|Precio|Descuento|Precio_Final|Cliente|Proveedor|
@@ -1097,86 +1161,63 @@ SELECT VentasId, Producto, Precio, Descuento, 'Precio_Final' = Precio - Precio*D
 <br>
 
 
-# Concatenar strings de filas distintas
+# Concat strings from different columns
 
-Primero volvemos a cargar la tabla clientes tal y como la teniamos en un inicio:
 
-```SQL
-IF OBJECT_ID('dbo.Clientes', 'U') IS NOT NULL
- DROP TABLE dbo.Clientes;
-GO
--- Create the table in the specified schema
-CREATE TABLE dbo.Clientes
-(
- ClienteId nvarchar(50) NOT NULL PRIMARY KEY, -- primary key column --> impide repeticiones de valores en esta columna
- Nombre char (50) NOT NULL,
- Pais nvarchar(50) NOT NULL,
- Ciudad nvarchar(50) NOT NULL,
- Email nvarchar (50) NOT NULL,
- Telefono  nvarchar (50) NOT NULL
-);
-GO
-
-INSERT INTO dbo.Clientes
- ([ClienteId], [Nombre], [Pais], [Ciudad], [Email], [Telefono])
-VALUES
- ( 'C1', N'Orlando', N'Australia', N'', N'' , N'917755028'),
- ( 'C2', N'Keith', N'India', N'', N'keith0@adventure-works.com', N''),
- ( 'C3', N'Donna', N'Germany', N'Berlin', N'donna0@adventure-works.com', N'915547890'),
- ( 'C4', N'Janet', N'United States', N'California',  N'janet1@adventure-works.com', N''),
- ( 'C5', N'Fabio', N'España', N'Madrid', N'fabio10@gmail.com', N''),
- ( 'C6', N'Juan', N'España', N'Sevilla', N'' , N'915869028'),
- ( 'C7', N'Lucia', N'España', N'', N'LuciaPerez@hotmail.com', N''),
- ( 'C8', N'Pedro', N'Italia', N'Roma', N'Pedro99@gmail.com', N'910007890'),
- ( 'C9', N'Sergio', N'United States', N'New York',  N'sergio_as@gmail.com', N''),
- ( 'C10', N'Grecia', N'Peru', N'Lima', N'Grecia89@gmail.com', N'')
-GO
-```
-<br>
-
-```SQL
-SELECT Nombre, 'nueva_columna' = Pais + ' - ' + Ciudad   FROM Clientes
+```sql
+SELECT Nombre, 'Pais-Alumnos' = Pais + '-' + Ciudad FROM Alumnos
 ```
 
-|Nombre|nueva_columna|
+|Nombre|Pais-Alumnos|
 |---|---|
-|Orlando                                           |Australia - |
-|Grecia                                            |Peru - Lima|
-|Keith                                             |India - |
-|Donna                                             |Germany - Berlin|
-|Janet                                             |United States - California|
-|Fabio                                             |Espa&#241;a - Madrid|
-|Juan                                              |Espa&#241;a - Sevilla|
-|Lucia                                             |Espa&#241;a - |
-|Pedro                                             |Italia - Roma|
-|Sergio                                            |United States - New York|
+|Orlando                                           |Australia-|
+|Grecia                                            |Peru-Lima|
+|Ismael                                            |Espa&#241;a-Madrid|
+|Luis                                              |Espa&#241;a-Murcia|
+|Pedro                                             |Argentina-Buenos Aires|
+|Keith                                             |India-|
+|Donna                                             |Germany-Berlin|
+|Janet                                             |United States-California|
+|Fabio                                             |Espa&#241;a-Madrid|
+|Juan                                              |Espa&#241;a-Sevilla|
+|Lucia                                             |Espa&#241;a-|
+|Pedro                                             |Italia-Roma|
+|Sergio                                            |United States-New York|
+
+
+<br>
+
+
+# Sorting a table by columns
+
+```sql
+SELECT*FROM Examenes ORDER BY Nota ASC
+```
+
+|ExamenID|Nota|Asignatura|AlumnoID|ProfesorID|
+|---|---|---|---|---|
+|E3|4.25|Matem&#225;ticas|A1|P1|
+|E4|6.50|Matem&#225;ticas|A7|P7|
+|E1|6.70|Matem&#225;ticas|A2|P1|
+|E5|7.00|Matem&#225;ticas|A9|P3|
+|E2|8.00|F&#237;sica|A4|P2|
 
 
 
 <br>
 
-# Ordenar tabla por columnas
-
-```SQL
-SELECT*FROM Ventas ORDER BY Precio ASC
-```
-|VentasId|Producto|Precio|Descuento|Cliente|Proveedor|
-|---|---|---|---|---|---|
-|V3|Killim                                            |475|0,1|C2|P3|
-|V2|Killim                                            |699,5|0,25|C3|P1|
-|V1|Alfombra                                          |1500|0,5|C2|P1|
-
-<br>
-
-```SQL
-SELECT*FROM Ventas ORDER BY Precio DESC
+```sql
+SELECT*FROM Examenes ORDER BY Nota DESC
 ```
 
-|VentasId|Producto|Precio|Descuento|Cliente|Proveedor|
-|---|---|---|---|---|---|
-|V1|Alfombra                                          |1500|0,5|C2|P1|
-|V2|Killim                                            |699,5|0,25|C3|P1|
-|V3|Killim                                            |475|0,1|C2|P3|
+|ExamenID|Nota|Asignatura|AlumnoID|ProfesorID|
+|---|---|---|---|---|
+|E2|8.00|F&#237;sica|A4|P2|
+|E5|7.00|Matem&#225;ticas|A9|P3|
+|E1|6.70|Matem&#225;ticas|A2|P1|
+|E4|6.50|Matem&#225;ticas|A7|P7|
+|E3|4.25|Matem&#225;ticas|A1|P1|
+
 
 
 
@@ -1187,52 +1228,40 @@ SELECT*FROM Ventas ORDER BY Precio DESC
 
 
 ```SQL
-SELECT * FROM dbo.Clientes WHERE Nombre like '%lan%' ;
+SELECT * FROM dbo.Alumnos WHERE Nombre like '%io%' ;
 ```
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
+
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
 |---|---|---|---|---|---|
-|C1|Orlando                                           |Australia|||917755028|
+|A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
+|A9|Sergio                                            |United States|New York|sergio_as@gmail.com||
+
+
+<br>
 
 
 ```SQL
-SELECT * FROM dbo.Clientes WHERE Nombre like '%i%' ;
-```
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
-|C2|Keith                                             |India||keith0@adventure-works.com||
-|C5|Fabio                                             |Espa&#241;a|Madrid|fabio@gmail.com||
-
-
-```SQL
-SELECT * FROM dbo.Clientes WHERE Nombre not like '%i%' ;
+SELECT * FROM dbo.Alumnos WHERE Nombre like '%io%' ;
 ```
 
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
-|C1|Orlando                                           |Australia|||917755028|
-|C3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
-|C4|Janet                                             |United States|California|janet1@adventure-works.com||
 
+
+
+
+<br>
 
 
 ```SQL
 SELECT * FROM dbo.Clientes WHERE Nombre like 'o%' ; -- empieza por 'o'
 ```
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
-|C1|Orlando                                           |Australia|||917755028|
+ 
 
-
+<br>
 
 ```SQL
 SELECT * FROM dbo.Clientes WHERE Nombre like '%o' ; -- acaba por 'o'
 ```
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
-|C1|Orlando                                           |Australia|||917755028|
-|C5|Fabio                                             |Espa&#241;a|Madrid|fabio@gmail.com||
-
-
+ 
 
 <br>
 
@@ -1240,10 +1269,7 @@ SELECT * FROM dbo.Clientes WHERE Nombre like '%o' ; -- acaba por 'o'
 ```SQL
 SELECT * FROM dbo.Clientes WHERE Nombre like '%lan%o' ; -- contiene 'lan' y acaba por 'o'
 ```
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
-|C1|Orlando                                           |Australia|||917755028|
-
+ 
 
 <br>
 
@@ -1251,10 +1277,7 @@ SELECT * FROM dbo.Clientes WHERE Nombre like '%lan%o' ; -- contiene 'lan' y acab
 ```SQL
 SELECT * FROM dbo.Clientes WHERE Nombre like '%b%o' ; -- contiene 'b' y acaba por 'o'
 ```
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
-|C5|Fabio                                             |Espa&#241;a|Madrid|fabio@gmail.com||
-
+ 
 
 <br>
 
@@ -1265,41 +1288,14 @@ SELECT * FROM dbo.Clientes WHERE Nombre like '%b%o' ; -- contiene 'b' y acaba po
 SELECT * FROM dbo.Clientes WHERE Nombre like '%F____' ; -- empieza por 'F' seguida de 4 caracteres
 ```
 
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
-|C5|Fabio                                             |Espa&#241;a|Madrid|fabio@gmail.com||
-
-
+ 
 
 ```SQL
 SELECT * FROM dbo.Clientes WHERE Nombre like '%F__' ; -- empieza por 'F' seguida de 2 caracteres
 ```
-
-|ClienteId|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
-
-
-
-# Count
-
-
-```SQL
-SELECT COUNT(*) FROM Clientes ;
-```
-
-|(No column name)|
-|---|
-|5|
-
-
-```SQL
-SELECT COUNT(Nombre) FROM Clientes ;
-```
-
-|(No column name)|
-|---|
-|5|
-
+ 
+ 
+ 
 
 <br>
 
@@ -1355,7 +1351,7 @@ SELECT Avg(Precio) FROM Ventas ;
 
 
 
-
+# Mas cosas ?
 
 
 

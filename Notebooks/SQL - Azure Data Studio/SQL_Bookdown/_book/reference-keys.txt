@@ -41,3 +41,11 @@ select-columns-of-a-table
 assign-alias-to-a-column
 head-of-a-table
 filter-rows-of-a-table
+delete-columns-of-a-table
+delete-a-table
+update-columns-of-a-table
+setting-a-default-value-for-a-column
+columns-calculated-from-others
+concat-strings-from-different-columns
+sorting-a-table-by-columns
+mas-cosas

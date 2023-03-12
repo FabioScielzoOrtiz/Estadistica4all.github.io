@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Import a CSV as table | Introducción a SQL en Azure Data Studio</title>
+  <title>Chapter 19 Columns calculated from others | Introducción a SQL en Azure Data Studio</title>
   <meta name="description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Import a CSV as table | Introducción a SQL en Azure Data Studio" />
+  <meta property="og:title" content="Chapter 19 Columns calculated from others | Introducción a SQL en Azure Data Studio" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Import a CSV as table | Introducción a SQL en Azure Data Studio" />
+  <meta name="twitter:title" content="Chapter 19 Columns calculated from others | Introducción a SQL en Azure Data Studio" />
   
   <meta name="twitter:description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="insert-rows-into-a-table.html"/>
-<link rel="next" href="full-view-of-a-table.html"/>
+<link rel="prev" href="update-columns-of-a-table.html"/>
+<link rel="next" href="concat-strings-from-different-columns.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -193,25 +193,184 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="import-a-csv-as-table" class="section level1 hasAnchor" number="7">
-<h1><span class="header-section-number">Chapter 7</span> Import a CSV as table<a href="import-a-csv-as-table.html#import-a-csv-as-table" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>First of all, we must intall the <strong>SQL Server Import</strong> Azure Data Studio extension.</p>
-<center>
-<p><img src="p13.png" style="width:100.0%" /></p>
-</center>
-<p>Next we import a CSV following the following steps:</p>
-<center>
-<p><img src="p14.png" style="width:100.0%" /></p>
-</center>
-<center>
-<p><img src="p15.png" style="width:100.0%" /></p>
-</center>
-<center>
-<p><img src="p16.png" style="width:100.0%" /></p>
-</center>
-<center>
-<p><img src="p17.png" style="width:100.0%" /></p>
-</center>
+<div id="columns-calculated-from-others" class="section level1 hasAnchor" number="19">
+<h1><span class="header-section-number">Chapter 19</span> Columns calculated from others<a href="columns-calculated-from-others.html#columns-calculated-from-others" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb47"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb47-1"><a href="columns-calculated-from-others.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="cf">IF</span> OBJECT_ID(<span class="st">&#39;dbo.Ventas&#39;</span>, <span class="st">&#39;U&#39;</span>) <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb47-2"><a href="columns-calculated-from-others.html#cb47-2" aria-hidden="true" tabindex="-1"></a> <span class="kw">DROP</span> <span class="kw">TABLE</span> dbo.Ventas;</span>
+<span id="cb47-3"><a href="columns-calculated-from-others.html#cb47-3" aria-hidden="true" tabindex="-1"></a>GO</span>
+<span id="cb47-4"><a href="columns-calculated-from-others.html#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> dbo.Ventas</span>
+<span id="cb47-5"><a href="columns-calculated-from-others.html#cb47-5" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb47-6"><a href="columns-calculated-from-others.html#cb47-6" aria-hidden="true" tabindex="-1"></a> VentasId <span class="dt">nvarchar</span> (<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>, </span>
+<span id="cb47-7"><a href="columns-calculated-from-others.html#cb47-7" aria-hidden="true" tabindex="-1"></a> Producto <span class="dt">char</span> (<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb47-8"><a href="columns-calculated-from-others.html#cb47-8" aria-hidden="true" tabindex="-1"></a> Precio <span class="dt">float</span> (<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb47-9"><a href="columns-calculated-from-others.html#cb47-9" aria-hidden="true" tabindex="-1"></a> Descuento <span class="dt">float</span> (<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb47-10"><a href="columns-calculated-from-others.html#cb47-10" aria-hidden="true" tabindex="-1"></a> Cliente <span class="dt">nvarchar</span> (<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb47-11"><a href="columns-calculated-from-others.html#cb47-11" aria-hidden="true" tabindex="-1"></a> Proveedor  <span class="dt">nvarchar</span> (<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb47-12"><a href="columns-calculated-from-others.html#cb47-12" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb47-13"><a href="columns-calculated-from-others.html#cb47-13" aria-hidden="true" tabindex="-1"></a>GO</span>
+<span id="cb47-14"><a href="columns-calculated-from-others.html#cb47-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-15"><a href="columns-calculated-from-others.html#cb47-15" aria-hidden="true" tabindex="-1"></a><span class="co">-- Insert rows</span></span>
+<span id="cb47-16"><a href="columns-calculated-from-others.html#cb47-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-17"><a href="columns-calculated-from-others.html#cb47-17" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> dbo.Ventas</span>
+<span id="cb47-18"><a href="columns-calculated-from-others.html#cb47-18" aria-hidden="true" tabindex="-1"></a> ([VentasId], [Producto], [Precio], [Descuento], [Cliente], [Proveedor])</span>
+<span id="cb47-19"><a href="columns-calculated-from-others.html#cb47-19" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span></span>
+<span id="cb47-20"><a href="columns-calculated-from-others.html#cb47-20" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;V1&#39;</span>, <span class="st">&#39;Alfombra&#39;</span>, <span class="dv">1500</span>, <span class="fl">0.5</span> ,<span class="st">&#39;C2&#39;</span> , <span class="st">&#39;P1&#39;</span>),</span>
+<span id="cb47-21"><a href="columns-calculated-from-others.html#cb47-21" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;V2&#39;</span>, <span class="st">&#39;Killim&#39;</span>, <span class="fl">699.50</span>, <span class="fl">0.25</span>, <span class="st">&#39;C3&#39;</span>, <span class="st">&#39;P1&#39;</span>),</span>
+<span id="cb47-22"><a href="columns-calculated-from-others.html#cb47-22" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;V3&#39;</span>, <span class="st">&#39;Killim&#39;</span>, <span class="dv">475</span>, <span class="fl">0.10</span>, <span class="st">&#39;C2&#39;</span>, <span class="st">&#39;P3&#39;</span>),</span>
+<span id="cb47-23"><a href="columns-calculated-from-others.html#cb47-23" aria-hidden="true" tabindex="-1"></a>  ( <span class="st">&#39;V4&#39;</span>, <span class="st">&#39;Alfombra&#39;</span>, <span class="dv">1500</span>, <span class="fl">0.5</span> ,<span class="st">&#39;C7&#39;</span> , <span class="st">&#39;P1&#39;</span>),</span>
+<span id="cb47-24"><a href="columns-calculated-from-others.html#cb47-24" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;V5&#39;</span>, <span class="st">&#39;Alfombra&#39;</span>, <span class="dv">5000</span>, <span class="fl">0.30</span>, <span class="st">&#39;C5&#39;</span>, <span class="st">&#39;P1&#39;</span>),</span>
+<span id="cb47-25"><a href="columns-calculated-from-others.html#cb47-25" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;V6&#39;</span>, <span class="st">&#39;Killim&#39;</span>, <span class="dv">250</span>, <span class="fl">0.10</span>, <span class="st">&#39;C9&#39;</span>, <span class="st">&#39;P3&#39;</span>)</span>
+<span id="cb47-26"><a href="columns-calculated-from-others.html#cb47-26" aria-hidden="true" tabindex="-1"></a>GO</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>VentasId</th>
+<th>Producto</th>
+<th>Precio</th>
+<th>Descuento</th>
+<th>Cliente</th>
+<th>Proveedor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V1</td>
+<td>Alfombra</td>
+<td>1500</td>
+<td>0,5</td>
+<td>C2</td>
+<td>P1</td>
+</tr>
+<tr class="even">
+<td>V2</td>
+<td>Killim</td>
+<td>699,5</td>
+<td>0,25</td>
+<td>C3</td>
+<td>P1</td>
+</tr>
+<tr class="odd">
+<td>V3</td>
+<td>Killim</td>
+<td>475</td>
+<td>0,1</td>
+<td>C2</td>
+<td>P3</td>
+</tr>
+<tr class="even">
+<td>V4</td>
+<td>Alfombra</td>
+<td>1500</td>
+<td>0,5</td>
+<td>C7</td>
+<td>P1</td>
+</tr>
+<tr class="odd">
+<td>V5</td>
+<td>Alfombra</td>
+<td>5000</td>
+<td>0,3</td>
+<td>C5</td>
+<td>P1</td>
+</tr>
+<tr class="even">
+<td>V6</td>
+<td>Killim</td>
+<td>250</td>
+<td>0,1</td>
+<td>C9</td>
+<td>P3</td>
+</tr>
+<tr class="odd">
+<td>475</td>
+<td>0,1</td>
+<td>C2</td>
+<td>P3</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb48-1"><a href="columns-calculated-from-others.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> VentasId, Producto, Precio, Descuento, <span class="st">&#39;Precio_Final&#39;</span> <span class="op">=</span> Precio <span class="op">-</span> Precio<span class="op">*</span>Descuento, Cliente, Proveedor <span class="kw">FROM</span> Ventas</span></code></pre></div>
+<table style="width:100%;">
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>VentasId</th>
+<th>Producto</th>
+<th>Precio</th>
+<th>Descuento</th>
+<th>Precio_Final</th>
+<th>Cliente</th>
+<th>Proveedor</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>V1</td>
+<td>Alfombra</td>
+<td>1500</td>
+<td>0,5</td>
+<td>750</td>
+<td>C2</td>
+<td>P1</td>
+</tr>
+<tr class="even">
+<td>V2</td>
+<td>Killim</td>
+<td>699,5</td>
+<td>0,25</td>
+<td>524,625</td>
+<td>C3</td>
+<td>P1</td>
+</tr>
+<tr class="odd">
+<td>V3</td>
+<td>Killim</td>
+<td>475</td>
+<td>0,1</td>
+<td>427,5</td>
+<td>C2</td>
+<td>P3</td>
+</tr>
+<tr class="even">
+<td>V4</td>
+<td>Alfombra</td>
+<td>1500</td>
+<td>0,5</td>
+<td>750</td>
+<td>C7</td>
+<td>P1</td>
+</tr>
+<tr class="odd">
+<td>V5</td>
+<td>Alfombra</td>
+<td>5000</td>
+<td>0,3</td>
+<td>3500</td>
+<td>C5</td>
+<td>P1</td>
+</tr>
+<tr class="even">
+<td>V6</td>
+<td>Killim</td>
+<td>250</td>
+<td>0,1</td>
+<td>225</td>
+<td>C9</td>
+<td>P3</td>
+</tr>
+</tbody>
+</table>
 <p><br></p>
 </div>
             </section>
@@ -219,8 +378,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="insert-rows-into-a-table.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="full-view-of-a-table.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="update-columns-of-a-table.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="concat-strings-from-different-columns.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

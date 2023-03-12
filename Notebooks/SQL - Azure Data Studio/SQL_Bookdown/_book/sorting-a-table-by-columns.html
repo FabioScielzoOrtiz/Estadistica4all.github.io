@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 7 Import a CSV as table | Introducción a SQL en Azure Data Studio</title>
+  <title>Chapter 21 Sorting a table by columns | Introducción a SQL en Azure Data Studio</title>
   <meta name="description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 7 Import a CSV as table | Introducción a SQL en Azure Data Studio" />
+  <meta property="og:title" content="Chapter 21 Sorting a table by columns | Introducción a SQL en Azure Data Studio" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 7 Import a CSV as table | Introducción a SQL en Azure Data Studio" />
+  <meta name="twitter:title" content="Chapter 21 Sorting a table by columns | Introducción a SQL en Azure Data Studio" />
   
   <meta name="twitter:description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="insert-rows-into-a-table.html"/>
-<link rel="next" href="full-view-of-a-table.html"/>
+<link rel="prev" href="concat-strings-from-different-columns.html"/>
+<link rel="next" href="seleccionar-filas-por-strings-con-like-y-not-like.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -193,25 +193,107 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="import-a-csv-as-table" class="section level1 hasAnchor" number="7">
-<h1><span class="header-section-number">Chapter 7</span> Import a CSV as table<a href="import-a-csv-as-table.html#import-a-csv-as-table" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>First of all, we must intall the <strong>SQL Server Import</strong> Azure Data Studio extension.</p>
-<center>
-<p><img src="p13.png" style="width:100.0%" /></p>
-</center>
-<p>Next we import a CSV following the following steps:</p>
-<center>
-<p><img src="p14.png" style="width:100.0%" /></p>
-</center>
-<center>
-<p><img src="p15.png" style="width:100.0%" /></p>
-</center>
-<center>
-<p><img src="p16.png" style="width:100.0%" /></p>
-</center>
-<center>
-<p><img src="p17.png" style="width:100.0%" /></p>
-</center>
+<div id="sorting-a-table-by-columns" class="section level1 hasAnchor" number="21">
+<h1><span class="header-section-number">Chapter 21</span> Sorting a table by columns<a href="sorting-a-table-by-columns.html#sorting-a-table-by-columns" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb50"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb50-1"><a href="sorting-a-table-by-columns.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span><span class="op">*</span><span class="kw">FROM</span> Examenes <span class="kw">ORDER</span> <span class="kw">BY</span> Nota <span class="kw">ASC</span></span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>ExamenID</th>
+<th>Nota</th>
+<th>Asignatura</th>
+<th>AlumnoID</th>
+<th>ProfesorID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>E3</td>
+<td>4.25</td>
+<td>Matemáticas</td>
+<td>A1</td>
+<td>P1</td>
+</tr>
+<tr class="even">
+<td>E4</td>
+<td>6.50</td>
+<td>Matemáticas</td>
+<td>A7</td>
+<td>P7</td>
+</tr>
+<tr class="odd">
+<td>E1</td>
+<td>6.70</td>
+<td>Matemáticas</td>
+<td>A2</td>
+<td>P1</td>
+</tr>
+<tr class="even">
+<td>E5</td>
+<td>7.00</td>
+<td>Matemáticas</td>
+<td>A9</td>
+<td>P3</td>
+</tr>
+<tr class="odd">
+<td>E2</td>
+<td>8.00</td>
+<td>Física</td>
+<td>A4</td>
+<td>P2</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb51-1"><a href="sorting-a-table-by-columns.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span><span class="op">*</span><span class="kw">FROM</span> Examenes <span class="kw">ORDER</span> <span class="kw">BY</span> Nota <span class="kw">DESC</span></span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>ExamenID</th>
+<th>Nota</th>
+<th>Asignatura</th>
+<th>AlumnoID</th>
+<th>ProfesorID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>E2</td>
+<td>8.00</td>
+<td>Física</td>
+<td>A4</td>
+<td>P2</td>
+</tr>
+<tr class="even">
+<td>E5</td>
+<td>7.00</td>
+<td>Matemáticas</td>
+<td>A9</td>
+<td>P3</td>
+</tr>
+<tr class="odd">
+<td>E1</td>
+<td>6.70</td>
+<td>Matemáticas</td>
+<td>A2</td>
+<td>P1</td>
+</tr>
+<tr class="even">
+<td>E4</td>
+<td>6.50</td>
+<td>Matemáticas</td>
+<td>A7</td>
+<td>P7</td>
+</tr>
+<tr class="odd">
+<td>E3</td>
+<td>4.25</td>
+<td>Matemáticas</td>
+<td>A1</td>
+<td>P1</td>
+</tr>
+</tbody>
+</table>
 <p><br></p>
 </div>
             </section>
@@ -219,8 +301,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="insert-rows-into-a-table.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="full-view-of-a-table.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="concat-strings-from-different-columns.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="seleccionar-filas-por-strings-con-like-y-not-like.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 21 Seleccionar filas por strings con Like y Not Like | Introducción a SQL en Azure Data Studio</title>
+  <title>Chapter 22 Seleccionar filas por strings con Like y Not Like | Introducción a SQL en Azure Data Studio</title>
   <meta name="description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 21 Seleccionar filas por strings con Like y Not Like | Introducción a SQL en Azure Data Studio" />
+  <meta property="og:title" content="Chapter 22 Seleccionar filas por strings con Like y Not Like | Introducción a SQL en Azure Data Studio" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 21 Seleccionar filas por strings con Like y Not Like | Introducción a SQL en Azure Data Studio" />
+  <meta name="twitter:title" content="Chapter 22 Seleccionar filas por strings con Like y Not Like | Introducción a SQL en Azure Data Studio" />
   
   <meta name="twitter:description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   
@@ -23,15 +23,15 @@
 <meta name="author" content="Fabio Scielzo Ortiz" />
 
 
-<meta name="date" content="2023-03-12" />
+<meta name="date" content="2023-03-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ordenar-tabla-por-columnas.html"/>
-<link rel="next" href="count.html"/>
+<link rel="prev" href="sorting-a-table-by-columns.html"/>
+<link rel="next" href="min-max-sum-avg.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -159,19 +159,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13" data-path="assign-alias-to-a-column.html"><a href="assign-alias-to-a-column.html"><i class="fa fa-check"></i><b>13</b> Assign alias to a column</a></li>
 <li class="chapter" data-level="14" data-path="filter-rows-of-a-table.html"><a href="filter-rows-of-a-table.html"><i class="fa fa-check"></i><b>14</b> Filter rows of a table</a></li>
 <li class="chapter" data-level="15" data-path="eliminar-filas-de-una-tabla.html"><a href="eliminar-filas-de-una-tabla.html"><i class="fa fa-check"></i><b>15</b> Eliminar filas de una tabla</a></li>
-<li class="chapter" data-level="16" data-path="eliminar-una-tabla.html"><a href="eliminar-una-tabla.html"><i class="fa fa-check"></i><b>16</b> Eliminar una tabla</a></li>
-<li class="chapter" data-level="17" data-path="actualizar-columnas-de-una-table.html"><a href="actualizar-columnas-de-una-table.html"><i class="fa fa-check"></i><b>17</b> Actualizar columnas de una table</a>
+<li class="chapter" data-level="16" data-path="delete-columns-of-a-table.html"><a href="delete-columns-of-a-table.html"><i class="fa fa-check"></i><b>16</b> Delete columns of a table</a></li>
+<li class="chapter" data-level="17" data-path="delete-a-table.html"><a href="delete-a-table.html"><i class="fa fa-check"></i><b>17</b> Delete a table</a></li>
+<li class="chapter" data-level="18" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html"><i class="fa fa-check"></i><b>18</b> Update columns of a table</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="actualizar-columnas-de-una-table.html"><a href="actualizar-columnas-de-una-table.html#fijar-un-valor-por-defecto-para-una-columna"><i class="fa fa-check"></i><b>17.1</b> Fijar un valor por defecto para una columna</a></li>
+<li class="chapter" data-level="18.1" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html#setting-a-default-value-for-a-column"><i class="fa fa-check"></i><b>18.1</b> Setting a default value for a column</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="columnas-calculadas-a-partir-de-otras.html"><a href="columnas-calculadas-a-partir-de-otras.html"><i class="fa fa-check"></i><b>18</b> Columnas calculadas a partir de otras</a></li>
-<li class="chapter" data-level="19" data-path="concatenar-strings-de-filas-distintas.html"><a href="concatenar-strings-de-filas-distintas.html"><i class="fa fa-check"></i><b>19</b> Concatenar strings de filas distintas</a></li>
-<li class="chapter" data-level="20" data-path="ordenar-tabla-por-columnas.html"><a href="ordenar-tabla-por-columnas.html"><i class="fa fa-check"></i><b>20</b> Ordenar tabla por columnas</a></li>
-<li class="chapter" data-level="21" data-path="seleccionar-filas-por-strings-con-like-y-not-like.html"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html"><i class="fa fa-check"></i><b>21</b> Seleccionar filas por strings con Like y Not Like</a></li>
-<li class="chapter" data-level="22" data-path="count.html"><a href="count.html"><i class="fa fa-check"></i><b>22</b> Count</a></li>
+<li class="chapter" data-level="19" data-path="columns-calculated-from-others.html"><a href="columns-calculated-from-others.html"><i class="fa fa-check"></i><b>19</b> Columns calculated from others</a></li>
+<li class="chapter" data-level="20" data-path="concat-strings-from-different-columns.html"><a href="concat-strings-from-different-columns.html"><i class="fa fa-check"></i><b>20</b> Concat strings from different columns</a></li>
+<li class="chapter" data-level="21" data-path="sorting-a-table-by-columns.html"><a href="sorting-a-table-by-columns.html"><i class="fa fa-check"></i><b>21</b> Sorting a table by columns</a></li>
+<li class="chapter" data-level="22" data-path="seleccionar-filas-por-strings-con-like-y-not-like.html"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html"><i class="fa fa-check"></i><b>22</b> Seleccionar filas por strings con Like y Not Like</a></li>
 <li class="chapter" data-level="23" data-path="min-max-sum-avg.html"><a href="min-max-sum-avg.html"><i class="fa fa-check"></i><b>23</b> Min, Max, Sum, Avg</a></li>
 <li class="chapter" data-level="24" data-path="group-by.html"><a href="group-by.html"><i class="fa fa-check"></i><b>24</b> Group by</a></li>
 <li class="chapter" data-level="25" data-path="having.html"><a href="having.html"><i class="fa fa-check"></i><b>25</b> Having</a></li>
+<li class="chapter" data-level="26" data-path="mas-cosas.html"><a href="mas-cosas.html"><i class="fa fa-check"></i><b>26</b> Mas cosas ?</a></li>
 <li class="divider"></li>
 <li><a href="https://estadistica4all.com" target="blank">Estadistica4all.com</a></li>
 
@@ -192,9 +193,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="seleccionar-filas-por-strings-con-like-y-not-like" class="section level1 hasAnchor" number="21">
-<h1><span class="header-section-number">Chapter 21</span> Seleccionar filas por strings con Like y Not Like<a href="seleccionar-filas-por-strings-con-like-y-not-like.html#seleccionar-filas-por-strings-con-like-y-not-like" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="sourceCode" id="cb45"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb45-1"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%lan%&#39;</span> ;</span></code></pre></div>
+<div id="seleccionar-filas-por-strings-con-like-y-not-like" class="section level1 hasAnchor" number="22">
+<h1><span class="header-section-number">Chapter 22</span> Seleccionar filas por strings con Like y Not Like<a href="seleccionar-filas-por-strings-con-like-y-not-like.html#seleccionar-filas-por-strings-con-like-y-not-like" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb52"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb52-1"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Alumnos <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%io%&#39;</span> ;</span></code></pre></div>
 <table style="width:100%;">
 <colgroup>
 <col width="16%" />
@@ -206,7 +207,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </colgroup>
 <thead>
 <tr class="header">
-<th>ClienteId</th>
+<th>AlumnoID</th>
 <th>Nombre</th>
 <th>Pais</th>
 <th>Ciudad</th>
@@ -216,290 +217,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td>C1</td>
-<td>Orlando</td>
-<td>Australia</td>
-<td></td>
-<td></td>
-<td>917755028</td>
-</tr>
-</tbody>
-</table>
-<div class="sourceCode" id="cb46"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb46-1"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%i%&#39;</span> ;</span></code></pre></div>
-<table style="width:100%;">
-<colgroup>
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>ClienteId</th>
-<th>Nombre</th>
-<th>Pais</th>
-<th>Ciudad</th>
-<th>Email</th>
-<th>Telefono</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>C2</td>
-<td>Keith</td>
-<td>India</td>
-<td></td>
-<td><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>C5</td>
+<td>A5</td>
 <td>Fabio</td>
 <td>España</td>
 <td>Madrid</td>
-<td><a href="mailto:fabio@gmail.com" class="email">fabio@gmail.com</a></td>
+<td><a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a></td>
 <td></td>
-</tr>
-</tbody>
-</table>
-<div class="sourceCode" id="cb47"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb47-1"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">not</span> <span class="kw">like</span> <span class="st">&#39;%i%&#39;</span> ;</span></code></pre></div>
-<table style="width:100%;">
-<colgroup>
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>ClienteId</th>
-<th>Nombre</th>
-<th>Pais</th>
-<th>Ciudad</th>
-<th>Email</th>
-<th>Telefono</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>C1</td>
-<td>Orlando</td>
-<td>Australia</td>
-<td></td>
-<td></td>
-<td>917755028</td>
 </tr>
 <tr class="even">
-<td>C3</td>
-<td>Donna</td>
-<td>Germany</td>
-<td>Berlin</td>
-<td><a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a></td>
-<td>915547890</td>
-</tr>
-<tr class="odd">
-<td>C4</td>
-<td>Janet</td>
+<td>A9</td>
+<td>Sergio</td>
 <td>United States</td>
-<td>California</td>
-<td><a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<div class="sourceCode" id="cb48"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb48-1"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;o%&#39;</span> ; <span class="co">-- empieza por &#39;o&#39;</span></span></code></pre></div>
-<table style="width:100%;">
-<colgroup>
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>ClienteId</th>
-<th>Nombre</th>
-<th>Pais</th>
-<th>Ciudad</th>
-<th>Email</th>
-<th>Telefono</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>C1</td>
-<td>Orlando</td>
-<td>Australia</td>
-<td></td>
-<td></td>
-<td>917755028</td>
-</tr>
-</tbody>
-</table>
-<div class="sourceCode" id="cb49"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb49-1"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%o&#39;</span> ; <span class="co">-- acaba por &#39;o&#39;</span></span></code></pre></div>
-<table style="width:100%;">
-<colgroup>
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>ClienteId</th>
-<th>Nombre</th>
-<th>Pais</th>
-<th>Ciudad</th>
-<th>Email</th>
-<th>Telefono</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>C1</td>
-<td>Orlando</td>
-<td>Australia</td>
-<td></td>
-<td></td>
-<td>917755028</td>
-</tr>
-<tr class="even">
-<td>C5</td>
-<td>Fabio</td>
-<td>España</td>
-<td>Madrid</td>
-<td><a href="mailto:fabio@gmail.com" class="email">fabio@gmail.com</a></td>
+<td>New York</td>
+<td><a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb50-1"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%lan%o&#39;</span> ; <span class="co">-- contiene &#39;lan&#39; y acaba por &#39;o&#39;</span></span></code></pre></div>
-<table style="width:100%;">
-<colgroup>
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>ClienteId</th>
-<th>Nombre</th>
-<th>Pais</th>
-<th>Ciudad</th>
-<th>Email</th>
-<th>Telefono</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>C1</td>
-<td>Orlando</td>
-<td>Australia</td>
-<td></td>
-<td></td>
-<td>917755028</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb53"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb53-1"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Alumnos <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%io%&#39;</span> ;</span></code></pre></div>
 <p><br></p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb51-1"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%b%o&#39;</span> ; <span class="co">-- contiene &#39;b&#39; y acaba por &#39;o&#39;</span></span></code></pre></div>
-<table style="width:100%;">
-<colgroup>
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>ClienteId</th>
-<th>Nombre</th>
-<th>Pais</th>
-<th>Ciudad</th>
-<th>Email</th>
-<th>Telefono</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>C5</td>
-<td>Fabio</td>
-<td>España</td>
-<td>Madrid</td>
-<td><a href="mailto:fabio@gmail.com" class="email">fabio@gmail.com</a></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb54"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb54-1"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;o%&#39;</span> ; <span class="co">-- empieza por &#39;o&#39;</span></span></code></pre></div>
 <p><br></p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb52-1"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%F____&#39;</span> ; <span class="co">-- empieza por &#39;F&#39; seguida de 4 caracteres</span></span></code></pre></div>
-<table style="width:100%;">
-<colgroup>
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>ClienteId</th>
-<th>Nombre</th>
-<th>Pais</th>
-<th>Ciudad</th>
-<th>Email</th>
-<th>Telefono</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>C5</td>
-<td>Fabio</td>
-<td>España</td>
-<td>Madrid</td>
-<td><a href="mailto:fabio@gmail.com" class="email">fabio@gmail.com</a></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<div class="sourceCode" id="cb53"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb53-1"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%F__&#39;</span> ; <span class="co">-- empieza por &#39;F&#39; seguida de 2 caracteres</span></span></code></pre></div>
-<table>
-<thead>
-<tr class="header">
-<th>ClienteId</th>
-<th>Nombre</th>
-<th>Pais</th>
-<th>Ciudad</th>
-<th>Email</th>
-<th>Telefono</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+<div class="sourceCode" id="cb55"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb55-1"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%o&#39;</span> ; <span class="co">-- acaba por &#39;o&#39;</span></span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb56-1"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%lan%o&#39;</span> ; <span class="co">-- contiene &#39;lan&#39; y acaba por &#39;o&#39;</span></span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb57-1"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%b%o&#39;</span> ; <span class="co">-- contiene &#39;b&#39; y acaba por &#39;o&#39;</span></span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb58-1"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%F____&#39;</span> ; <span class="co">-- empieza por &#39;F&#39; seguida de 4 caracteres</span></span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb59-1"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%F__&#39;</span> ; <span class="co">-- empieza por &#39;F&#39; seguida de 2 caracteres</span></span></code></pre></div>
+<p><br></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="ordenar-tabla-por-columnas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="count.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sorting-a-table-by-columns.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="min-max-sum-avg.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

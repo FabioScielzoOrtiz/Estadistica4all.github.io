@@ -23,7 +23,7 @@
 <meta name="author" content="Fabio Scielzo Ortiz" />
 
 
-<meta name="date" content="2023-03-12" />
+<meta name="date" content="2023-03-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -159,19 +159,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="13" data-path="assign-alias-to-a-column.html"><a href="assign-alias-to-a-column.html"><i class="fa fa-check"></i><b>13</b> Assign alias to a column</a></li>
 <li class="chapter" data-level="14" data-path="filter-rows-of-a-table.html"><a href="filter-rows-of-a-table.html"><i class="fa fa-check"></i><b>14</b> Filter rows of a table</a></li>
 <li class="chapter" data-level="15" data-path="eliminar-filas-de-una-tabla.html"><a href="eliminar-filas-de-una-tabla.html"><i class="fa fa-check"></i><b>15</b> Eliminar filas de una tabla</a></li>
-<li class="chapter" data-level="16" data-path="eliminar-una-tabla.html"><a href="eliminar-una-tabla.html"><i class="fa fa-check"></i><b>16</b> Eliminar una tabla</a></li>
-<li class="chapter" data-level="17" data-path="actualizar-columnas-de-una-table.html"><a href="actualizar-columnas-de-una-table.html"><i class="fa fa-check"></i><b>17</b> Actualizar columnas de una table</a>
+<li class="chapter" data-level="16" data-path="delete-columns-of-a-table.html"><a href="delete-columns-of-a-table.html"><i class="fa fa-check"></i><b>16</b> Delete columns of a table</a></li>
+<li class="chapter" data-level="17" data-path="delete-a-table.html"><a href="delete-a-table.html"><i class="fa fa-check"></i><b>17</b> Delete a table</a></li>
+<li class="chapter" data-level="18" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html"><i class="fa fa-check"></i><b>18</b> Update columns of a table</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="actualizar-columnas-de-una-table.html"><a href="actualizar-columnas-de-una-table.html#fijar-un-valor-por-defecto-para-una-columna"><i class="fa fa-check"></i><b>17.1</b> Fijar un valor por defecto para una columna</a></li>
+<li class="chapter" data-level="18.1" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html#setting-a-default-value-for-a-column"><i class="fa fa-check"></i><b>18.1</b> Setting a default value for a column</a></li>
 </ul></li>
-<li class="chapter" data-level="18" data-path="columnas-calculadas-a-partir-de-otras.html"><a href="columnas-calculadas-a-partir-de-otras.html"><i class="fa fa-check"></i><b>18</b> Columnas calculadas a partir de otras</a></li>
-<li class="chapter" data-level="19" data-path="concatenar-strings-de-filas-distintas.html"><a href="concatenar-strings-de-filas-distintas.html"><i class="fa fa-check"></i><b>19</b> Concatenar strings de filas distintas</a></li>
-<li class="chapter" data-level="20" data-path="ordenar-tabla-por-columnas.html"><a href="ordenar-tabla-por-columnas.html"><i class="fa fa-check"></i><b>20</b> Ordenar tabla por columnas</a></li>
-<li class="chapter" data-level="21" data-path="seleccionar-filas-por-strings-con-like-y-not-like.html"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html"><i class="fa fa-check"></i><b>21</b> Seleccionar filas por strings con Like y Not Like</a></li>
-<li class="chapter" data-level="22" data-path="count.html"><a href="count.html"><i class="fa fa-check"></i><b>22</b> Count</a></li>
+<li class="chapter" data-level="19" data-path="columns-calculated-from-others.html"><a href="columns-calculated-from-others.html"><i class="fa fa-check"></i><b>19</b> Columns calculated from others</a></li>
+<li class="chapter" data-level="20" data-path="concat-strings-from-different-columns.html"><a href="concat-strings-from-different-columns.html"><i class="fa fa-check"></i><b>20</b> Concat strings from different columns</a></li>
+<li class="chapter" data-level="21" data-path="sorting-a-table-by-columns.html"><a href="sorting-a-table-by-columns.html"><i class="fa fa-check"></i><b>21</b> Sorting a table by columns</a></li>
+<li class="chapter" data-level="22" data-path="seleccionar-filas-por-strings-con-like-y-not-like.html"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html"><i class="fa fa-check"></i><b>22</b> Seleccionar filas por strings con Like y Not Like</a></li>
 <li class="chapter" data-level="23" data-path="min-max-sum-avg.html"><a href="min-max-sum-avg.html"><i class="fa fa-check"></i><b>23</b> Min, Max, Sum, Avg</a></li>
 <li class="chapter" data-level="24" data-path="group-by.html"><a href="group-by.html"><i class="fa fa-check"></i><b>24</b> Group by</a></li>
 <li class="chapter" data-level="25" data-path="having.html"><a href="having.html"><i class="fa fa-check"></i><b>25</b> Having</a></li>
+<li class="chapter" data-level="26" data-path="mas-cosas.html"><a href="mas-cosas.html"><i class="fa fa-check"></i><b>26</b> Mas cosas ?</a></li>
 <li class="divider"></li>
 <li><a href="https://estadistica4all.com" target="blank">Estadistica4all.com</a></li>
 
@@ -194,151 +195,114 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="filter-rows-of-a-table" class="section level1 hasAnchor" number="14">
 <h1><span class="header-section-number">Chapter 14</span> Filter rows of a table<a href="filter-rows-of-a-table.html#filter-rows-of-a-table" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="sourceCode" id="cb20"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb20-1"><a href="filter-rows-of-a-table.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.House_Price_Regression <span class="kw">WHERE</span> price <span class="op">&lt;</span> <span class="dv">500000</span> ;</span></code></pre></div>
-<table style="width:100%;">
-<colgroup>
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-</colgroup>
+<div class="sourceCode" id="cb20"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb20-1"><a href="filter-rows-of-a-table.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Examenes <span class="kw">WHERE</span> Nota <span class="op">&lt;</span> <span class="dv">7</span> ;</span></code></pre></div>
+<table>
 <thead>
 <tr class="header">
-<th>neighborhood_recode</th>
-<th>latitude</th>
-<th>longitude</th>
-<th>price</th>
-<th>no_of_bedrooms</th>
-<th>no_of_bathrooms</th>
-<th>…</th>
-<th>private_pool_recode</th>
-<th>security_recode</th>
-<th>shared_gym_recode</th>
-<th>shared_pool_recode</th>
-<th>shared_spa_recode</th>
-<th>view_of_water_recode</th>
-<th>size_in_m_2</th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
+<th>ExamenID</th>
+<th>Nota</th>
+<th>Asignatura</th>
+<th>AlumnoID</th>
+<th>ProfesorID</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>120</td>
-<td>25016736</td>
-<td>5525101</td>
-<td>365000</td>
-<td>0</td>
-<td>1</td>
-<td>…</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>69026929</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>E1</td>
+<td>6.70</td>
+<td>Matemáticas</td>
+<td>A2</td>
+<td>P1</td>
 </tr>
 <tr class="even">
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td>…</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td>E3</td>
+<td>4.25</td>
+<td>Matemáticas</td>
+<td>A1</td>
+<td>P1</td>
+</tr>
+<tr class="odd">
+<td>E4</td>
+<td>6.50</td>
+<td>Matemáticas</td>
+<td>A7</td>
+<td>P7</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb21-1"><a href="filter-rows-of-a-table.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="op">=</span> <span class="st">&#39;Fabio&#39;</span> ;</span></code></pre></div>
-<table style="width:100%;">
-<colgroup>
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-</colgroup>
+<div class="sourceCode" id="cb21"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb21-1"><a href="filter-rows-of-a-table.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Examenes <span class="kw">WHERE</span> Nota <span class="op">&lt;=</span> <span class="dv">7</span> ;</span></code></pre></div>
+<table>
 <thead>
 <tr class="header">
-<th>ClienteId</th>
+<th>ExamenID</th>
+<th>Nota</th>
+<th>Asignatura</th>
+<th>AlumnoID</th>
+<th>ProfesorID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>E1</td>
+<td>6.70</td>
+<td>Matemáticas</td>
+<td>A2</td>
+<td>P1</td>
+</tr>
+<tr class="even">
+<td>E3</td>
+<td>4.25</td>
+<td>Matemáticas</td>
+<td>A1</td>
+<td>P1</td>
+</tr>
+<tr class="odd">
+<td>E4</td>
+<td>6.50</td>
+<td>Matemáticas</td>
+<td>A7</td>
+<td>P7</td>
+</tr>
+<tr class="even">
+<td>E5</td>
+<td>7.00</td>
+<td>Matemáticas</td>
+<td>A9</td>
+<td>P3</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb22-1"><a href="filter-rows-of-a-table.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> AlumnoID, Nota <span class="kw">FROM</span> dbo.Examenes <span class="kw">WHERE</span> Nota <span class="op">&lt;</span> <span class="dv">7</span> ;</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>AlumnoID</th>
+<th>Nota</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A2</td>
+<td>6.70</td>
+</tr>
+<tr class="even">
+<td>A1</td>
+<td>4.25</td>
+</tr>
+<tr class="odd">
+<td>A7</td>
+<td>6.50</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb23-1"><a href="filter-rows-of-a-table.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Alumnos <span class="kw">WHERE</span> Nombre <span class="op">=</span> <span class="st">&#39;Fabio&#39;</span>;</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>AlumnoID</th>
 <th>Nombre</th>
 <th>Pais</th>
 <th>Ciudad</th>
@@ -348,7 +312,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td>C5</td>
+<td>A5</td>
 <td>Fabio</td>
 <td>España</td>
 <td>Madrid</td>
@@ -358,7 +322,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb22-1"><a href="filter-rows-of-a-table.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="op">!=</span> <span class="st">&#39;Fabio&#39;</span> ;</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb24-1"><a href="filter-rows-of-a-table.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Alumnos <span class="kw">WHERE</span> Nombre <span class="op">!=</span> <span class="st">&#39;Fabio&#39;</span>;</span></code></pre></div>
 <table style="width:100%;">
 <colgroup>
 <col width="16%" />
@@ -370,7 +334,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </colgroup>
 <thead>
 <tr class="header">
-<th>ClienteId</th>
+<th>AlumnoID</th>
 <th>Nombre</th>
 <th>Pais</th>
 <th>Ciudad</th>
@@ -380,7 +344,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td>C1</td>
+<td>A1</td>
 <td>Orlando</td>
 <td>Australia</td>
 <td></td>
@@ -388,7 +352,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td>917755028</td>
 </tr>
 <tr class="even">
-<td>C10</td>
+<td>A10</td>
 <td>Grecia</td>
 <td>Peru</td>
 <td>Lima</td>
@@ -396,55 +360,79 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td></td>
 </tr>
 <tr class="odd">
-<td>C2</td>
+<td>A11</td>
+<td>Ismael</td>
+<td>España</td>
+<td>Madrid</td>
+<td><a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a></td>
+<td>912234543</td>
+</tr>
+<tr class="even">
+<td>A12</td>
+<td>Luis</td>
+<td>España</td>
+<td>Murcia</td>
+<td><a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>A13</td>
+<td>Pedro</td>
+<td>Argentina</td>
+<td>Buenos Aires</td>
+<td><a href="mailto:Pedro120@gmail.com" class="email">Pedro120@gmail.com</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>A2</td>
 <td>Keith</td>
 <td>India</td>
 <td></td>
 <td><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
 <td></td>
 </tr>
-<tr class="even">
-<td>C3</td>
+<tr class="odd">
+<td>A3</td>
 <td>Donna</td>
 <td>Germany</td>
 <td>Berlin</td>
 <td><a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a></td>
 <td>915547890</td>
 </tr>
-<tr class="odd">
-<td>C4</td>
+<tr class="even">
+<td>A4</td>
 <td>Janet</td>
 <td>United States</td>
 <td>California</td>
 <td><a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a></td>
 <td></td>
 </tr>
-<tr class="even">
-<td>C6</td>
+<tr class="odd">
+<td>A6</td>
 <td>Juan</td>
 <td>España</td>
 <td>Sevilla</td>
 <td></td>
 <td>915869028</td>
 </tr>
-<tr class="odd">
-<td>C7</td>
+<tr class="even">
+<td>A7</td>
 <td>Lucia</td>
 <td>España</td>
 <td></td>
 <td><a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a></td>
 <td></td>
 </tr>
-<tr class="even">
-<td>C8</td>
+<tr class="odd">
+<td>A8</td>
 <td>Pedro</td>
 <td>Italia</td>
 <td>Roma</td>
 <td><a href="mailto:Pedro99@gmail.com" class="email">Pedro99@gmail.com</a></td>
 <td>910007890</td>
 </tr>
-<tr class="odd">
-<td>C9</td>
+<tr class="even">
+<td>A9</td>
 <td>Sergio</td>
 <td>United States</td>
 <td>New York</td>
@@ -454,298 +442,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb23-1"><a href="filter-rows-of-a-table.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Ventas <span class="kw">WHERE</span> Precio <span class="op">&lt;</span> <span class="dv">500</span> ;</span></code></pre></div>
-<table>
-<thead>
-<tr class="header">
-<th>VentasId</th>
-<th>Producto</th>
-<th>Precio</th>
-<th>Cliente</th>
-<th>Proveedor</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>V15</td>
-<td>Killim</td>
-<td>350</td>
-<td>C10</td>
-<td>P3</td>
-</tr>
-<tr class="even">
-<td>V3</td>
-<td>Killim</td>
-<td>475</td>
-<td>C9</td>
-<td>P3</td>
-</tr>
-<tr class="odd">
-<td>V5</td>
-<td>Killim</td>
-<td>499,5</td>
-<td>C8</td>
-<td>P1</td>
-</tr>
-<tr class="even">
-<td>V8</td>
-<td>Killim</td>
-<td>299,5</td>
-<td>C10</td>
-<td>P1</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb24-1"><a href="filter-rows-of-a-table.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Ventas <span class="kw">WHERE</span> Precio <span class="op">&lt;</span> <span class="dv">2000</span> <span class="kw">AND</span> Precio <span class="op">&gt;</span> <span class="dv">500</span> ;</span></code></pre></div>
-<table>
-<thead>
-<tr class="header">
-<th>VentasId</th>
-<th>Producto</th>
-<th>Precio</th>
-<th>Cliente</th>
-<th>Proveedor</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>V1</td>
-<td>Alfombra</td>
-<td>1500</td>
-<td>C1</td>
-<td>P1</td>
-</tr>
-<tr class="even">
-<td>V10</td>
-<td>Alfombra</td>
-<td>1200</td>
-<td>C7</td>
-<td>P1</td>
-</tr>
-<tr class="odd">
-<td>V12</td>
-<td>Killim</td>
-<td>650</td>
-<td>C9</td>
-<td>P3</td>
-</tr>
-<tr class="even">
-<td>V14</td>
-<td>Killim</td>
-<td>1000</td>
-<td>C6</td>
-<td>P1</td>
-</tr>
-<tr class="odd">
-<td>V2</td>
-<td>Killim</td>
-<td>699,5</td>
-<td>C3</td>
-<td>P1</td>
-</tr>
-<tr class="even">
-<td>V6</td>
-<td>Killim</td>
-<td>555</td>
-<td>C5</td>
-<td>P3</td>
-</tr>
-<tr class="odd">
-<td>V9</td>
-<td>Killim</td>
-<td>600</td>
-<td>C2</td>
-<td>P3</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb25-1"><a href="filter-rows-of-a-table.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Ventas <span class="kw">WHERE</span> Precio <span class="op">&lt;=</span> <span class="dv">2000</span> <span class="kw">OR</span> Precio <span class="op">&gt;</span> <span class="dv">500</span> ;</span></code></pre></div>
-<table>
-<thead>
-<tr class="header">
-<th>VentasId</th>
-<th>Producto</th>
-<th>Precio</th>
-<th>Cliente</th>
-<th>Proveedor</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>V1</td>
-<td>Alfombra</td>
-<td>1500</td>
-<td>C1</td>
-<td>P1</td>
-</tr>
-<tr class="even">
-<td>V10</td>
-<td>Alfombra</td>
-<td>1200</td>
-<td>C7</td>
-<td>P1</td>
-</tr>
-<tr class="odd">
-<td>V11</td>
-<td>Killim</td>
-<td>500</td>
-<td>C8</td>
-<td>P1</td>
-</tr>
-<tr class="even">
-<td>V12</td>
-<td>Killim</td>
-<td>650</td>
-<td>C9</td>
-<td>P3</td>
-</tr>
-<tr class="odd">
-<td>V13</td>
-<td>Alfombra</td>
-<td>3500</td>
-<td>C7</td>
-<td>P1</td>
-</tr>
-<tr class="even">
-<td>V14</td>
-<td>Killim</td>
-<td>1000</td>
-<td>C6</td>
-<td>P1</td>
-</tr>
-<tr class="odd">
-<td>V15</td>
-<td>Killim</td>
-<td>350</td>
-<td>C10</td>
-<td>P3</td>
-</tr>
-<tr class="even">
-<td>V2</td>
-<td>Killim</td>
-<td>699,5</td>
-<td>C3</td>
-<td>P1</td>
-</tr>
-<tr class="odd">
-<td>V3</td>
-<td>Killim</td>
-<td>475</td>
-<td>C9</td>
-<td>P3</td>
-</tr>
-<tr class="even">
-<td>V4</td>
-<td>Alfombra</td>
-<td>5000</td>
-<td>C4</td>
-<td>P1</td>
-</tr>
-<tr class="odd">
-<td>V5</td>
-<td>Killim</td>
-<td>499,5</td>
-<td>C8</td>
-<td>P1</td>
-</tr>
-<tr class="even">
-<td>V6</td>
-<td>Killim</td>
-<td>555</td>
-<td>C5</td>
-<td>P3</td>
-</tr>
-<tr class="odd">
-<td>V7</td>
-<td>Alfombra</td>
-<td>2500</td>
-<td>C2</td>
-<td>P1</td>
-</tr>
-<tr class="even">
-<td>V8</td>
-<td>Killim</td>
-<td>299,5</td>
-<td>C10</td>
-<td>P1</td>
-</tr>
-<tr class="odd">
-<td>V9</td>
-<td>Killim</td>
-<td>600</td>
-<td>C2</td>
-<td>P3</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb26-1"><a href="filter-rows-of-a-table.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Nombre , Email  <span class="kw">FROM</span> dbo.Proveedores <span class="kw">WHERE</span> Email <span class="op">=</span> <span class="st">&#39;Intertrade@gmail.com&#39;</span> ;</span></code></pre></div>
-<table>
-<thead>
-<tr class="header">
-<th>Nombre</th>
-<th>Email</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Intertrade</td>
-<td><a href="mailto:Intertrade@gmail.com" class="email">Intertrade@gmail.com</a></td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb27-1"><a href="filter-rows-of-a-table.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Producto , Cliente, Proveedor <span class="kw">FROM</span> dbo.Ventas <span class="kw">WHERE</span> Precio <span class="op">&lt;</span> <span class="dv">2000</span> <span class="kw">AND</span> Precio <span class="op">&gt;</span> <span class="dv">500</span> ;</span></code></pre></div>
-<table>
-<thead>
-<tr class="header">
-<th>Producto</th>
-<th>Cliente</th>
-<th>Proveedor</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Alfombra</td>
-<td>C1</td>
-<td>P1</td>
-</tr>
-<tr class="even">
-<td>Alfombra</td>
-<td>C7</td>
-<td>P1</td>
-</tr>
-<tr class="odd">
-<td>Killim</td>
-<td>C9</td>
-<td>P3</td>
-</tr>
-<tr class="even">
-<td>Killim</td>
-<td>C6</td>
-<td>P1</td>
-</tr>
-<tr class="odd">
-<td>Killim</td>
-<td>C3</td>
-<td>P1</td>
-</tr>
-<tr class="even">
-<td>Killim</td>
-<td>C5</td>
-<td>P3</td>
-</tr>
-<tr class="odd">
-<td>Killim</td>
-<td>C2</td>
-<td>P3</td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb28-1"><a href="filter-rows-of-a-table.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span><span class="op">*</span><span class="kw">FROM</span> Clientes <span class="kw">WHERE</span> Nombre <span class="kw">is</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb25-1"><a href="filter-rows-of-a-table.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Alumnos <span class="kw">WHERE</span> Nombre <span class="kw">in</span> (<span class="st">&#39;Fabio&#39;</span>,<span class="st">&#39;Pedro&#39;</span>);</span></code></pre></div>
 <table style="width:100%;">
 <colgroup>
 <col width="16%" />
@@ -757,7 +454,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </colgroup>
 <thead>
 <tr class="header">
-<th>ClienteId</th>
+<th>AlumnoID</th>
 <th>Nombre</th>
 <th>Pais</th>
 <th>Ciudad</th>
@@ -767,88 +464,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td>C1</td>
-<td>Orlando</td>
-<td>Australia</td>
+<td>A13</td>
+<td>Pedro</td>
+<td>Argentina</td>
+<td>Buenos Aires</td>
+<td><a href="mailto:Pedro120@gmail.com" class="email">Pedro120@gmail.com</a></td>
 <td></td>
-<td></td>
-<td>917755028</td>
 </tr>
 <tr class="even">
-<td>C2</td>
-<td>Keith</td>
-<td>India</td>
-<td></td>
-<td><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>C3</td>
-<td>Donna</td>
-<td>Germany</td>
-<td>Berlin</td>
-<td><a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a></td>
-<td>915547890</td>
-</tr>
-<tr class="even">
-<td>C4</td>
-<td>Janet</td>
-<td>United States</td>
-<td>California</td>
-<td><a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>C5</td>
-<td>Fabio</td>
-<td>España</td>
-<td>Madrid</td>
-<td><a href="mailto:fabio@gmail.com" class="email">fabio@gmail.com</a></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb29-1"><a href="filter-rows-of-a-table.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">in</span> ( <span class="st">&#39;Orlando&#39;</span> , <span class="st">&#39;Fabio&#39;</span>) ;</span></code></pre></div>
-<table style="width:100%;">
-<colgroup>
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>ClienteId</th>
-<th>Nombre</th>
-<th>Pais</th>
-<th>Ciudad</th>
-<th>Email</th>
-<th>Telefono</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>C1</td>
-<td>Orlando</td>
-<td>Australia</td>
-<td></td>
-<td></td>
-<td>917755028</td>
-</tr>
-<tr class="even">
-<td>C5</td>
+<td>A5</td>
 <td>Fabio</td>
 <td>España</td>
 <td>Madrid</td>
 <td><a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a></td>
 <td></td>
 </tr>
+<tr class="odd">
+<td>A8</td>
+<td>Pedro</td>
+<td>Italia</td>
+<td>Roma</td>
+<td><a href="mailto:Pedro99@gmail.com" class="email">Pedro99@gmail.com</a></td>
+<td>910007890</td>
+</tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb30"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb30-1"><a href="filter-rows-of-a-table.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">not</span> <span class="kw">in</span> ( <span class="st">&#39;Orlando&#39;</span> , <span class="st">&#39;Fabio&#39;</span>) ;</span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb26-1"><a href="filter-rows-of-a-table.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Alumnos <span class="kw">WHERE</span> Nombre <span class="kw">not</span> <span class="kw">in</span> (<span class="st">&#39;Fabio&#39;</span>,<span class="st">&#39;Pedro&#39;</span>);</span></code></pre></div>
 <table style="width:100%;">
 <colgroup>
 <col width="16%" />
@@ -860,7 +502,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </colgroup>
 <thead>
 <tr class="header">
-<th>ClienteId</th>
+<th>AlumnoID</th>
 <th>Nombre</th>
 <th>Pais</th>
 <th>Ciudad</th>
@@ -870,15 +512,191 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td>C10</td>
+<td>A1</td>
+<td>Orlando</td>
+<td>Australia</td>
+<td></td>
+<td></td>
+<td>917755028</td>
+</tr>
+<tr class="even">
+<td>A10</td>
 <td>Grecia</td>
 <td>Peru</td>
 <td>Lima</td>
 <td><a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a></td>
 <td></td>
 </tr>
+<tr class="odd">
+<td>A11</td>
+<td>Ismael</td>
+<td>España</td>
+<td>Madrid</td>
+<td><a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a></td>
+<td>912234543</td>
+</tr>
 <tr class="even">
-<td>C2</td>
+<td>A12</td>
+<td>Luis</td>
+<td>España</td>
+<td>Murcia</td>
+<td><a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>A2</td>
+<td>Keith</td>
+<td>India</td>
+<td></td>
+<td><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>A3</td>
+<td>Donna</td>
+<td>Germany</td>
+<td>Berlin</td>
+<td><a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a></td>
+<td>915547890</td>
+</tr>
+<tr class="odd">
+<td>A4</td>
+<td>Janet</td>
+<td>United States</td>
+<td>California</td>
+<td><a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>A6</td>
+<td>Juan</td>
+<td>España</td>
+<td>Sevilla</td>
+<td></td>
+<td>915869028</td>
+</tr>
+<tr class="odd">
+<td>A7</td>
+<td>Lucia</td>
+<td>España</td>
+<td></td>
+<td><a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>A9</td>
+<td>Sergio</td>
+<td>United States</td>
+<td>New York</td>
+<td><a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb27-1"><a href="filter-rows-of-a-table.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> AlumnoID , Nota, ProfesorID <span class="kw">FROM</span> dbo.Examenes <span class="kw">WHERE</span> Nota <span class="op">&lt;</span> <span class="dv">7</span> <span class="kw">AND</span> Nota <span class="op">&gt;</span> <span class="dv">5</span> ;</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>AlumnoID</th>
+<th>Nota</th>
+<th>ProfesorID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A2</td>
+<td>6.70</td>
+<td>P1</td>
+</tr>
+<tr class="even">
+<td>A7</td>
+<td>6.50</td>
+<td>P7</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb28-1"><a href="filter-rows-of-a-table.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Nombre <span class="kw">FROM</span> dbo.Profesores <span class="kw">WHERE</span> Estudios <span class="op">=</span> <span class="st">&#39;Inglés&#39;</span> <span class="kw">OR</span> Estudios <span class="op">=</span> <span class="st">&#39;Geografía&#39;</span> ;</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>Nombre</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Daniel</td>
+</tr>
+<tr class="even">
+<td>Garazi</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb29-1"><a href="filter-rows-of-a-table.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span><span class="op">*</span><span class="kw">FROM</span> Alumnos <span class="kw">WHERE</span> Nombre <span class="kw">is</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span></code></pre></div>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>AlumnoID</th>
+<th>Nombre</th>
+<th>Pais</th>
+<th>Ciudad</th>
+<th>Email</th>
+<th>Telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A1</td>
+<td>Orlando</td>
+<td>Australia</td>
+<td></td>
+<td></td>
+<td>917755028</td>
+</tr>
+<tr class="even">
+<td>A10</td>
+<td>Grecia</td>
+<td>Peru</td>
+<td>Lima</td>
+<td><a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>A11</td>
+<td>Ismael</td>
+<td>España</td>
+<td>Madrid</td>
+<td><a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a></td>
+<td>912234543</td>
+</tr>
+<tr class="even">
+<td>A12</td>
+<td>Luis</td>
+<td>España</td>
+<td>Murcia</td>
+<td><a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>A13</td>
+<td>Pedro</td>
+<td>Argentina</td>
+<td>Buenos Aires</td>
+<td><a href="mailto:Pedro120@gmail.com" class="email">Pedro120@gmail.com</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>A2</td>
 <td>Keith</td>
 <td>India</td>
 <td></td>
@@ -886,7 +704,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td></td>
 </tr>
 <tr class="odd">
-<td>C3</td>
+<td>A3</td>
 <td>Donna</td>
 <td>Germany</td>
 <td>Berlin</td>
@@ -894,7 +712,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td>915547890</td>
 </tr>
 <tr class="even">
-<td>C4</td>
+<td>A4</td>
 <td>Janet</td>
 <td>United States</td>
 <td>California</td>
@@ -902,31 +720,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td></td>
 </tr>
 <tr class="odd">
-<td>C6</td>
+<td>A5</td>
+<td>Fabio</td>
+<td>España</td>
+<td>Madrid</td>
+<td><a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>A6</td>
 <td>Juan</td>
 <td>España</td>
 <td>Sevilla</td>
 <td></td>
 <td>915869028</td>
 </tr>
-<tr class="even">
-<td>C7</td>
+<tr class="odd">
+<td>A7</td>
 <td>Lucia</td>
 <td>España</td>
 <td></td>
 <td><a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a></td>
 <td></td>
 </tr>
-<tr class="odd">
-<td>C8</td>
+<tr class="even">
+<td>A8</td>
 <td>Pedro</td>
 <td>Italia</td>
 <td>Roma</td>
 <td><a href="mailto:Pedro99@gmail.com" class="email">Pedro99@gmail.com</a></td>
 <td>910007890</td>
 </tr>
-<tr class="even">
-<td>C9</td>
+<tr class="odd">
+<td>A9</td>
 <td>Sergio</td>
 <td>United States</td>
 <td>New York</td>

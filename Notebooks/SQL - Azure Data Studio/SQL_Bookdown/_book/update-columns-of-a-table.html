@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 8 Full view of a table | Introducción a SQL en Azure Data Studio</title>
+  <title>Chapter 18 Update columns of a table | Introducción a SQL en Azure Data Studio</title>
   <meta name="description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 8 Full view of a table | Introducción a SQL en Azure Data Studio" />
+  <meta property="og:title" content="Chapter 18 Update columns of a table | Introducción a SQL en Azure Data Studio" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 Full view of a table | Introducción a SQL en Azure Data Studio" />
+  <meta name="twitter:title" content="Chapter 18 Update columns of a table | Introducción a SQL en Azure Data Studio" />
   
   <meta name="twitter:description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="import-a-csv-as-table.html"/>
-<link rel="next" href="number-of-columns.html"/>
+<link rel="prev" href="delete-a-table.html"/>
+<link rel="next" href="columns-calculated-from-others.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -193,9 +193,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="full-view-of-a-table" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">Chapter 8</span> Full view of a table<a href="full-view-of-a-table.html#full-view-of-a-table" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb13-1"><a href="full-view-of-a-table.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Alumnos;</span></code></pre></div>
+<div id="update-columns-of-a-table" class="section level1 hasAnchor" number="18">
+<h1><span class="header-section-number">Chapter 18</span> Update columns of a table<a href="update-columns-of-a-table.html#update-columns-of-a-table" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb39"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb39-1"><a href="update-columns-of-a-table.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> Alumnos <span class="kw">set</span> Nombre <span class="op">=</span> <span class="st">&#39;Messi&#39;</span> <span class="kw">WHERE</span> AlumnoID <span class="op">=</span> <span class="st">&#39;A2&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb40-1"><a href="update-columns-of-a-table.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Alumnos</span></code></pre></div>
 <table style="width:100%;">
 <colgroup>
 <col width="16%" />
@@ -258,7 +259,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 <tr class="even">
 <td>A2</td>
-<td>Keith</td>
+<td>Messi</td>
 <td>India</td>
 <td></td>
 <td><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
@@ -323,14 +324,338 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p><br></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb41-1"><a href="update-columns-of-a-table.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> Alumnos <span class="kw">set</span> Nombre <span class="op">=</span> <span class="st">&#39;Messi&#39;</span> , Pais <span class="op">=</span> <span class="st">&#39;Argentina&#39;</span> <span class="kw">WHERE</span> AlumnoID <span class="op">=</span> <span class="st">&#39;A2&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb42-1"><a href="update-columns-of-a-table.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Alumnos</span></code></pre></div>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>AlumnoID</th>
+<th>Nombre</th>
+<th>Pais</th>
+<th>Ciudad</th>
+<th>Email</th>
+<th>Telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A1</td>
+<td>Orlando</td>
+<td>Australia</td>
+<td></td>
+<td></td>
+<td>917755028</td>
+</tr>
+<tr class="even">
+<td>A10</td>
+<td>Grecia</td>
+<td>Peru</td>
+<td>Lima</td>
+<td><a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>A11</td>
+<td>Ismael</td>
+<td>España</td>
+<td>Madrid</td>
+<td><a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a></td>
+<td>912234543</td>
+</tr>
+<tr class="even">
+<td>A12</td>
+<td>Luis</td>
+<td>España</td>
+<td>Murcia</td>
+<td><a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>A13</td>
+<td>Pedro</td>
+<td>Argentina</td>
+<td>Buenos Aires</td>
+<td><a href="mailto:Pedro120@gmail.com" class="email">Pedro120@gmail.com</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>A2</td>
+<td>Messi</td>
+<td>Argentina</td>
+<td></td>
+<td><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>A3</td>
+<td>Donna</td>
+<td>Germany</td>
+<td>Berlin</td>
+<td><a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a></td>
+<td>915547890</td>
+</tr>
+<tr class="even">
+<td>A4</td>
+<td>Janet</td>
+<td>United States</td>
+<td>California</td>
+<td><a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>A5</td>
+<td>Fabio</td>
+<td>España</td>
+<td>Madrid</td>
+<td><a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>A6</td>
+<td>Juan</td>
+<td>España</td>
+<td>Sevilla</td>
+<td></td>
+<td>915869028</td>
+</tr>
+<tr class="odd">
+<td>A7</td>
+<td>Lucia</td>
+<td>España</td>
+<td></td>
+<td><a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>A8</td>
+<td>Pedro</td>
+<td>Italia</td>
+<td>Roma</td>
+<td><a href="mailto:Pedro99@gmail.com" class="email">Pedro99@gmail.com</a></td>
+<td>910007890</td>
+</tr>
+<tr class="odd">
+<td>A9</td>
+<td>Sergio</td>
+<td>United States</td>
+<td>New York</td>
+<td><a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb43-1"><a href="update-columns-of-a-table.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> Alumnos <span class="kw">set</span> Nombre <span class="op">=</span> <span class="st">&#39;Messi&#39;</span> </span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb44-1"><a href="update-columns-of-a-table.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Alumnos</span></code></pre></div>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>AlumnoID</th>
+<th>Nombre</th>
+<th>Pais</th>
+<th>Ciudad</th>
+<th>Email</th>
+<th>Telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A1</td>
+<td>Messi</td>
+<td>Australia</td>
+<td></td>
+<td></td>
+<td>917755028</td>
+</tr>
+<tr class="even">
+<td>A10</td>
+<td>Messi</td>
+<td>Peru</td>
+<td>Lima</td>
+<td><a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>A11</td>
+<td>Messi</td>
+<td>España</td>
+<td>Madrid</td>
+<td><a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a></td>
+<td>912234543</td>
+</tr>
+<tr class="even">
+<td>A12</td>
+<td>Messi</td>
+<td>España</td>
+<td>Murcia</td>
+<td><a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>A13</td>
+<td>Messi</td>
+<td>Argentina</td>
+<td>Buenos Aires</td>
+<td><a href="mailto:Pedro120@gmail.com" class="email">Pedro120@gmail.com</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>A2</td>
+<td>Messi</td>
+<td>Argentina</td>
+<td></td>
+<td><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>A3</td>
+<td>Messi</td>
+<td>Germany</td>
+<td>Berlin</td>
+<td><a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a></td>
+<td>915547890</td>
+</tr>
+<tr class="even">
+<td>A4</td>
+<td>Messi</td>
+<td>United States</td>
+<td>California</td>
+<td><a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>A5</td>
+<td>Messi</td>
+<td>España</td>
+<td>Madrid</td>
+<td><a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>A6</td>
+<td>Messi</td>
+<td>España</td>
+<td>Sevilla</td>
+<td></td>
+<td>915869028</td>
+</tr>
+<tr class="odd">
+<td>A7</td>
+<td>Messi</td>
+<td>España</td>
+<td></td>
+<td><a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>A8</td>
+<td>Messi</td>
+<td>Italia</td>
+<td>Roma</td>
+<td><a href="mailto:Pedro99@gmail.com" class="email">Pedro99@gmail.com</a></td>
+<td>910007890</td>
+</tr>
+<tr class="odd">
+<td>A9</td>
+<td>Messi</td>
+<td>United States</td>
+<td>New York</td>
+<td><a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div id="setting-a-default-value-for-a-column" class="section level2 hasAnchor" number="18.1">
+<h2><span class="header-section-number">18.1</span> Setting a default value for a column<a href="update-columns-of-a-table.html#setting-a-default-value-for-a-column" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb45"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb45-1"><a href="update-columns-of-a-table.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="cf">IF</span> OBJECT_ID(<span class="st">&#39;dbo.Otra_Tabla_1&#39;</span>, <span class="st">&#39;U&#39;</span>) <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb45-2"><a href="update-columns-of-a-table.html#cb45-2" aria-hidden="true" tabindex="-1"></a> <span class="kw">DROP</span> <span class="kw">TABLE</span> dbo.Otra_Tabla_1;</span>
+<span id="cb45-3"><a href="update-columns-of-a-table.html#cb45-3" aria-hidden="true" tabindex="-1"></a>GO</span>
+<span id="cb45-4"><a href="update-columns-of-a-table.html#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> dbo.Otra_Tabla_1</span>
+<span id="cb45-5"><a href="update-columns-of-a-table.html#cb45-5" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb45-6"><a href="update-columns-of-a-table.html#cb45-6" aria-hidden="true" tabindex="-1"></a> <span class="kw">Id</span> <span class="dt">nvarchar</span> (<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>, </span>
+<span id="cb45-7"><a href="update-columns-of-a-table.html#cb45-7" aria-hidden="true" tabindex="-1"></a> Nombre <span class="dt">nvarchar</span> (<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb45-8"><a href="update-columns-of-a-table.html#cb45-8" aria-hidden="true" tabindex="-1"></a> Email <span class="dt">nvarchar</span>(<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="st">&#39;no tiene&#39;</span>,</span>
+<span id="cb45-9"><a href="update-columns-of-a-table.html#cb45-9" aria-hidden="true" tabindex="-1"></a> Telefono <span class="dt">nvarchar</span> (<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">DEFAULT</span> <span class="st">&#39;desconocido&#39;</span></span>
+<span id="cb45-10"><a href="update-columns-of-a-table.html#cb45-10" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb45-11"><a href="update-columns-of-a-table.html#cb45-11" aria-hidden="true" tabindex="-1"></a>GO</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb46-1"><a href="update-columns-of-a-table.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> dbo.Otra_Tabla_1</span>
+<span id="cb46-2"><a href="update-columns-of-a-table.html#cb46-2" aria-hidden="true" tabindex="-1"></a> ([<span class="kw">Id</span>], [Nombre], [Email], [Telefono])</span>
+<span id="cb46-3"><a href="update-columns-of-a-table.html#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span></span>
+<span id="cb46-4"><a href="update-columns-of-a-table.html#cb46-4" aria-hidden="true" tabindex="-1"></a> ( <span class="dv">1</span> , <span class="st">&#39;Juan&#39;</span>, <span class="kw">DEFAULT</span> , <span class="kw">DEFAULT</span>),</span>
+<span id="cb46-5"><a href="update-columns-of-a-table.html#cb46-5" aria-hidden="true" tabindex="-1"></a> ( <span class="dv">2</span> , <span class="st">&#39;Rodrigo&#39;</span>, <span class="kw">DEFAULT</span> , <span class="st">&#39;915568799&#39;</span>),</span>
+<span id="cb46-6"><a href="update-columns-of-a-table.html#cb46-6" aria-hidden="true" tabindex="-1"></a> ( <span class="dv">3</span> , <span class="st">&#39;Sofia&#39;</span>, <span class="kw">DEFAULT</span> , <span class="kw">DEFAULT</span>),</span>
+<span id="cb46-7"><a href="update-columns-of-a-table.html#cb46-7" aria-hidden="true" tabindex="-1"></a> ( <span class="dv">4</span> , <span class="st">&#39;Irene&#39;</span>, <span class="st">&#39;Irene99@hotmail.es&#39;</span> , <span class="st">&#39;914478236&#39;</span>),</span>
+<span id="cb46-8"><a href="update-columns-of-a-table.html#cb46-8" aria-hidden="true" tabindex="-1"></a> ( <span class="dv">5</span> , <span class="st">&#39;Luis&#39;</span>, <span class="st">&#39;LuisMP@gmail.com&#39;</span> , <span class="kw">DEFAULT</span>)</span>
+<span id="cb46-9"><a href="update-columns-of-a-table.html#cb46-9" aria-hidden="true" tabindex="-1"></a>GO </span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>Id</th>
+<th>Nombre</th>
+<th>Email</th>
+<th>Telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Juan</td>
+<td>no tiene</td>
+<td>desconocido</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Rodrigo</td>
+<td>no tiene</td>
+<td>915568799</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Sofia</td>
+<td>no tiene</td>
+<td>desconocido</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Irene</td>
+<td><a href="mailto:Irene99@hotmail.es" class="email">Irene99@hotmail.es</a></td>
+<td>914478236</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Luis</td>
+<td><a href="mailto:LuisMP@gmail.com" class="email">LuisMP@gmail.com</a></td>
+<td>desconocido</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="import-a-csv-as-table.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="number-of-columns.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="delete-a-table.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="columns-calculated-from-others.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
