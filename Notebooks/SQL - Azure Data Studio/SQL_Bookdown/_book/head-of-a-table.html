@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 19 Concatenar strings de filas distintas | Introducción a SQL en Azure Data Studio</title>
+  <title>Chapter 11 Head of a table | Introducción a SQL en Azure Data Studio</title>
   <meta name="description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 19 Concatenar strings de filas distintas | Introducción a SQL en Azure Data Studio" />
+  <meta property="og:title" content="Chapter 11 Head of a table | Introducción a SQL en Azure Data Studio" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 19 Concatenar strings de filas distintas | Introducción a SQL en Azure Data Studio" />
+  <meta name="twitter:title" content="Chapter 11 Head of a table | Introducción a SQL en Azure Data Studio" />
   
   <meta name="twitter:description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="columnas-calculadas-a-partir-de-otras.html"/>
-<link rel="next" href="ordenar-tabla-por-columnas.html"/>
+<link rel="prev" href="number-of-rows.html"/>
+<link rel="next" href="select-columns-of-a-table.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -192,91 +192,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="concatenar-strings-de-filas-distintas" class="section level1 hasAnchor" number="19">
-<h1><span class="header-section-number">Chapter 19</span> Concatenar strings de filas distintas<a href="concatenar-strings-de-filas-distintas.html#concatenar-strings-de-filas-distintas" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Primero volvemos a cargar la tabla clientes tal y como la teniamos en un inicio:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb41-1"><a href="concatenar-strings-de-filas-distintas.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="cf">IF</span> OBJECT_ID(<span class="st">&#39;dbo.Clientes&#39;</span>, <span class="st">&#39;U&#39;</span>) <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
-<span id="cb41-2"><a href="concatenar-strings-de-filas-distintas.html#cb41-2" aria-hidden="true" tabindex="-1"></a> <span class="kw">DROP</span> <span class="kw">TABLE</span> dbo.Clientes;</span>
-<span id="cb41-3"><a href="concatenar-strings-de-filas-distintas.html#cb41-3" aria-hidden="true" tabindex="-1"></a>GO</span>
-<span id="cb41-4"><a href="concatenar-strings-de-filas-distintas.html#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Create the table in the specified schema</span></span>
-<span id="cb41-5"><a href="concatenar-strings-de-filas-distintas.html#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> dbo.Clientes</span>
-<span id="cb41-6"><a href="concatenar-strings-de-filas-distintas.html#cb41-6" aria-hidden="true" tabindex="-1"></a>(</span>
-<span id="cb41-7"><a href="concatenar-strings-de-filas-distintas.html#cb41-7" aria-hidden="true" tabindex="-1"></a> ClienteId <span class="dt">nvarchar</span>(<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span> <span class="kw">PRIMARY</span> <span class="kw">KEY</span>, <span class="co">-- primary key column --&gt; impide repeticiones de valores en esta columna</span></span>
-<span id="cb41-8"><a href="concatenar-strings-de-filas-distintas.html#cb41-8" aria-hidden="true" tabindex="-1"></a> Nombre <span class="dt">char</span> (<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
-<span id="cb41-9"><a href="concatenar-strings-de-filas-distintas.html#cb41-9" aria-hidden="true" tabindex="-1"></a> Pais <span class="dt">nvarchar</span>(<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
-<span id="cb41-10"><a href="concatenar-strings-de-filas-distintas.html#cb41-10" aria-hidden="true" tabindex="-1"></a> Ciudad <span class="dt">nvarchar</span>(<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
-<span id="cb41-11"><a href="concatenar-strings-de-filas-distintas.html#cb41-11" aria-hidden="true" tabindex="-1"></a> Email <span class="dt">nvarchar</span> (<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
-<span id="cb41-12"><a href="concatenar-strings-de-filas-distintas.html#cb41-12" aria-hidden="true" tabindex="-1"></a> Telefono  <span class="dt">nvarchar</span> (<span class="dv">50</span>) <span class="kw">NOT</span> <span class="kw">NULL</span></span>
-<span id="cb41-13"><a href="concatenar-strings-de-filas-distintas.html#cb41-13" aria-hidden="true" tabindex="-1"></a>);</span>
-<span id="cb41-14"><a href="concatenar-strings-de-filas-distintas.html#cb41-14" aria-hidden="true" tabindex="-1"></a>GO</span>
-<span id="cb41-15"><a href="concatenar-strings-de-filas-distintas.html#cb41-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-16"><a href="concatenar-strings-de-filas-distintas.html#cb41-16" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> dbo.Clientes</span>
-<span id="cb41-17"><a href="concatenar-strings-de-filas-distintas.html#cb41-17" aria-hidden="true" tabindex="-1"></a> ([ClienteId], [Nombre], [Pais], [Ciudad], [Email], [Telefono])</span>
-<span id="cb41-18"><a href="concatenar-strings-de-filas-distintas.html#cb41-18" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span></span>
-<span id="cb41-19"><a href="concatenar-strings-de-filas-distintas.html#cb41-19" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;C1&#39;</span>, N<span class="st">&#39;Orlando&#39;</span>, N<span class="st">&#39;Australia&#39;</span>, N<span class="st">&#39;&#39;</span>, N<span class="st">&#39;&#39;</span> , N<span class="st">&#39;917755028&#39;</span>),</span>
-<span id="cb41-20"><a href="concatenar-strings-de-filas-distintas.html#cb41-20" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;C2&#39;</span>, N<span class="st">&#39;Keith&#39;</span>, N<span class="st">&#39;India&#39;</span>, N<span class="st">&#39;&#39;</span>, N<span class="st">&#39;keith0@adventure-works.com&#39;</span>, N<span class="st">&#39;&#39;</span>),</span>
-<span id="cb41-21"><a href="concatenar-strings-de-filas-distintas.html#cb41-21" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;C3&#39;</span>, N<span class="st">&#39;Donna&#39;</span>, N<span class="st">&#39;Germany&#39;</span>, N<span class="st">&#39;Berlin&#39;</span>, N<span class="st">&#39;donna0@adventure-works.com&#39;</span>, N<span class="st">&#39;915547890&#39;</span>),</span>
-<span id="cb41-22"><a href="concatenar-strings-de-filas-distintas.html#cb41-22" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;C4&#39;</span>, N<span class="st">&#39;Janet&#39;</span>, N<span class="st">&#39;United States&#39;</span>, N<span class="st">&#39;California&#39;</span>,  N<span class="st">&#39;janet1@adventure-works.com&#39;</span>, N<span class="st">&#39;&#39;</span>),</span>
-<span id="cb41-23"><a href="concatenar-strings-de-filas-distintas.html#cb41-23" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;C5&#39;</span>, N<span class="st">&#39;Fabio&#39;</span>, N<span class="st">&#39;España&#39;</span>, N<span class="st">&#39;Madrid&#39;</span>, N<span class="st">&#39;fabio10@gmail.com&#39;</span>, N<span class="st">&#39;&#39;</span>),</span>
-<span id="cb41-24"><a href="concatenar-strings-de-filas-distintas.html#cb41-24" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;C6&#39;</span>, N<span class="st">&#39;Juan&#39;</span>, N<span class="st">&#39;España&#39;</span>, N<span class="st">&#39;Sevilla&#39;</span>, N<span class="st">&#39;&#39;</span> , N<span class="st">&#39;915869028&#39;</span>),</span>
-<span id="cb41-25"><a href="concatenar-strings-de-filas-distintas.html#cb41-25" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;C7&#39;</span>, N<span class="st">&#39;Lucia&#39;</span>, N<span class="st">&#39;España&#39;</span>, N<span class="st">&#39;&#39;</span>, N<span class="st">&#39;LuciaPerez@hotmail.com&#39;</span>, N<span class="st">&#39;&#39;</span>),</span>
-<span id="cb41-26"><a href="concatenar-strings-de-filas-distintas.html#cb41-26" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;C8&#39;</span>, N<span class="st">&#39;Pedro&#39;</span>, N<span class="st">&#39;Italia&#39;</span>, N<span class="st">&#39;Roma&#39;</span>, N<span class="st">&#39;Pedro99@gmail.com&#39;</span>, N<span class="st">&#39;910007890&#39;</span>),</span>
-<span id="cb41-27"><a href="concatenar-strings-de-filas-distintas.html#cb41-27" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;C9&#39;</span>, N<span class="st">&#39;Sergio&#39;</span>, N<span class="st">&#39;United States&#39;</span>, N<span class="st">&#39;New York&#39;</span>,  N<span class="st">&#39;sergio_as@gmail.com&#39;</span>, N<span class="st">&#39;&#39;</span>),</span>
-<span id="cb41-28"><a href="concatenar-strings-de-filas-distintas.html#cb41-28" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;C10&#39;</span>, N<span class="st">&#39;Grecia&#39;</span>, N<span class="st">&#39;Peru&#39;</span>, N<span class="st">&#39;Lima&#39;</span>, N<span class="st">&#39;Grecia89@gmail.com&#39;</span>, N<span class="st">&#39;&#39;</span>)</span>
-<span id="cb41-29"><a href="concatenar-strings-de-filas-distintas.html#cb41-29" aria-hidden="true" tabindex="-1"></a>GO</span></code></pre></div>
-<p><br></p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb42-1"><a href="concatenar-strings-de-filas-distintas.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Nombre, <span class="st">&#39;nueva_columna&#39;</span> <span class="op">=</span> Pais <span class="op">+</span> <span class="st">&#39; - &#39;</span> <span class="op">+</span> Ciudad   <span class="kw">FROM</span> Clientes</span></code></pre></div>
+<div id="head-of-a-table" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Head of a table<a href="head-of-a-table.html#head-of-a-table" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb16-1"><a href="head-of-a-table.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> TOP (<span class="dv">4</span>) [neighborhood_recode]</span>
+<span id="cb16-2"><a href="head-of-a-table.html#cb16-2" aria-hidden="true" tabindex="-1"></a>       [price]</span>
+<span id="cb16-3"><a href="head-of-a-table.html#cb16-3" aria-hidden="true" tabindex="-1"></a>      ,[no_of_bedrooms]</span>
+<span id="cb16-4"><a href="head-of-a-table.html#cb16-4" aria-hidden="true" tabindex="-1"></a>      ,[no_of_bathrooms]</span>
+<span id="cb16-5"><a href="head-of-a-table.html#cb16-5" aria-hidden="true" tabindex="-1"></a>      ,[quality_recode]</span>
+<span id="cb16-6"><a href="head-of-a-table.html#cb16-6" aria-hidden="true" tabindex="-1"></a>      ,[size_in_m_2]</span>
+<span id="cb16-7"><a href="head-of-a-table.html#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> [Base_Datos_Fabio].[dbo].[House_Price_Regression]</span></code></pre></div>
 <table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
 <thead>
 <tr class="header">
-<th>Nombre</th>
-<th>nueva_columna</th>
+<th>price</th>
+<th>no_of_bedrooms</th>
+<th>no_of_bathrooms</th>
+<th>quality_recode</th>
+<th>size_in_m_2</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Orlando</td>
-<td>Australia -</td>
+<td>460</td>
+<td>1</td>
+<td>2</td>
+<td>20</td>
+<td>100242337</td>
 </tr>
 <tr class="even">
-<td>Grecia</td>
-<td>Peru - Lima</td>
+<td>460</td>
+<td>2</td>
+<td>2</td>
+<td>20</td>
+<td>146972546</td>
 </tr>
 <tr class="odd">
-<td>Keith</td>
-<td>India -</td>
+<td>360</td>
+<td>3</td>
+<td>5</td>
+<td>20</td>
+<td>181253753</td>
 </tr>
 <tr class="even">
-<td>Donna</td>
-<td>Germany - Berlin</td>
-</tr>
-<tr class="odd">
-<td>Janet</td>
-<td>United States - California</td>
-</tr>
-<tr class="even">
-<td>Fabio</td>
-<td>España - Madrid</td>
-</tr>
-<tr class="odd">
-<td>Juan</td>
-<td>España - Sevilla</td>
-</tr>
-<tr class="even">
-<td>Lucia</td>
-<td>España -</td>
-</tr>
-<tr class="odd">
-<td>Pedro</td>
-<td>Italia - Roma</td>
-</tr>
-<tr class="even">
-<td>Sergio</td>
-<td>United States - New York</td>
+<td>110</td>
+<td>2</td>
+<td>3</td>
+<td>10</td>
+<td>18766406</td>
 </tr>
 </tbody>
 </table>
@@ -287,8 +249,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="columnas-calculadas-a-partir-de-otras.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ordenar-tabla-por-columnas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="number-of-rows.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="select-columns-of-a-table.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,13 +4,11 @@ author: "Fabio Scielzo Ortiz"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib]
-# url: your book url like https://bookdown.org/yihui/bookdown
-# cover-image: path to the social sharing image like images/cover.jpg
+bibliography: book.bib
 description: |
   Este artículo es una introducción a SQL en Azure Data Studio.
 link-citations: yes
-github-repo: rstudio/bookdown-demo
+github-repo: "rstudio/bookdown-demo"
 ---
 
 # Introducción 
@@ -520,45 +518,104 @@ Next we import a CSV following the following steps:
 # Full view of a table
 
 
-```sql
-SELECT * FROM dbo.Clientes;
-```
-|neighborhood_recode|latitude|longitude|price|no_of_bedrooms|no_of_bathrooms|quality_recode|maid_room_recode|unfurnished_recode|balcony_recode|barbecue_area_recode|central_ac_recode|childrens_play_area_recode|childrens_pool_recode|concierge_recode|covered_parking_recode|kitchen_appliances_recode|maid_service_recode|pets_allowed_recode|private_garden_recode|private_gym_recode|private_jacuzzi_recode|private_pool_recode|security_recode|shared_gym_recode|shared_pool_recode|shared_spa_recode|view_of_water_recode|size_in_m_2|
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-|460|25113208|55138932|2700000|1|2|20|0|0|10|10|10|10|0|10|0|10|0|10|0|0|0|0|0|10|0|0|10|100242337|
-|460|25106809|55151201|2850000|2|2|20|0|0|10|0|10|10|0|0|0|0|0|0|0|0|0|0|0|10|10|0|10|146972546|
-|360|25063302|55137728|1150000|3|5|20|10|10|10|0|0|0|0|0|10|0|0|0|0|0|10|0|10|10|10|0|10|181253753|
-|110|25227295|55341761|2850000|2|3|10|0|10|10|0|0|0|0|10|10|0|0|10|0|0|0|0|0|0|0|0|0|18766406|
-|460|25114275|55139764|1729200|0|1|20|0|0|0|0|10|0|0|0|10|10|0|0|0|0|0|0|10|10|10|10|10|47101821|
-|460|25114275|55139764|3119900|1|2|20|0|0|0|0|10|0|0|0|10|10|0|0|0|0|0|0|10|10|10|10|10|94296545|
-|460|25114275|55139764|8503600|2|3|0|10|0|0|0|10|0|0|0|10|10|0|0|0|0|0|0|10|10|10|10|10|191565986|
-|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|
-
-<br>
-
 
 
 ```sql
 SELECT * FROM dbo.Alumnos;
 ```
 
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
+|---|---|---|---|---|---|
+|A1|Orlando                                           |Australia|||917755028|
+|A10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
+|A11|Ismael                                            |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|
+|A12|Luis                                              |Espa&#241;a|Murcia|Luismiguel123@gmail.com||
+|A13|Pedro                                             |Argentina|Buenos Aires|Pedro120@gmail.com||
+|A2|Keith                                             |India||keith0@adventure-works.com||
+|A3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
+|A4|Janet                                             |United States|California|janet1@adventure-works.com||
+|A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
+|A6|Juan                                              |Espa&#241;a|Sevilla||915869028|
+|A7|Lucia                                             |Espa&#241;a||LuciaPerez@hotmail.com||
+|A8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|
+|A9|Sergio                                            |United States|New York|sergio_as@gmail.com||
 
 
 
 
 <br>
 
+# Number of columns
 
-# Seleccionar columnas de una tabla
-
-```SQL
-SELECT Nombre, Pais, Ciudad FROM dbo.Clientes;
+```sql
+SELECT count(*) 
+FROM information_schema.columns 
+WHERE table_name ='House_Price_Regression';
 ```
 
-|Nombre|Pais|Ciudad|
+|(No column name)|
+|---|
+|29|
+
+
+
+
+<br>
+
+# Number of rows
+
+
+```sql
+SELECT COUNT(*) FROM House_Price_Regression;
+```
+
+|(No column name)|
+|---|
+|1905|
+
+
+
+<br>
+
+# Head of a table
+
+```sql
+SELECT TOP (4) [neighborhood_recode]
+       [price]
+      ,[no_of_bedrooms]
+      ,[no_of_bathrooms]
+      ,[quality_recode]
+      ,[size_in_m_2]
+  FROM [Base_Datos_Fabio].[dbo].[House_Price_Regression]
+```
+
+
+|price|no_of_bedrooms|no_of_bathrooms|quality_recode|size_in_m_2|
+|---|---|---|---|---|
+|460|1|2|20|100242337|
+|460|2|2|20|146972546|
+|360|3|5|20|181253753|
+|110|2|3|10|18766406|
+
+
+
+<br>
+
+
+# Select columns  of a table
+
+```SQL
+SELECT Nombre, Pais, Ciudad FROM dbo.Alumnos;
+```
+
+ 
+ |Nombre|Pais|Ciudad|
 |---|---|---|
 |Orlando                                           |Australia||
 |Grecia                                            |Peru|Lima|
+|Ismael                                            |Espa&#241;a|Madrid|
+|Luis                                              |Espa&#241;a|Murcia|
+|Pedro                                             |Argentina|Buenos Aires|
 |Keith                                             |India||
 |Donna                                             |Germany|Berlin|
 |Janet                                             |United States|California|
@@ -568,20 +625,51 @@ SELECT Nombre, Pais, Ciudad FROM dbo.Clientes;
 |Pedro                                             |Italia|Roma|
 |Sergio                                            |United States|New York|
 
+ 
+ 
+ <br>
+ 
+ 
+```sql
+SELECT quality_recode, balcony_recode,size_in_m_2, private_jacuzzi_recode, view_of_water_recode FROM House_Price_Regression
+```
+ 
+|quality_recode|balcony_recode|size_in_m_2|private_jacuzzi_recode|view_of_water_recode|
+|---|---|---|---|---|
+|20|10|100242337|0|10|
+|20|10|146972546|0|10|
+|20|10|181253753|10|10|
+|10|10|18766406|0|0|
+|20|0|47101821|0|10|
+|20|0|94296545|0|10|
+|0|0|191565986|0|10|
+|20|0|94296545|0|10|
+|10|0|203085958|0|0|
+|20|10|141305463|0|10|
+|10|10|178187954|0|10|
+|10|10|98291374|0|0|
+|10|0|56577927|0|0|
+|...|...|...|...|...|
+ 
+ 
+ 
+<br>
 
 
-
-
-# Asignar un alias a una columna
+# Assign alias to a column
 
 ```SQL
-SELECT Nombre AS NewName
-FROM dbo.Clientes;
+SELECT Nombre AS Nombre_Alumnos
+FROM dbo.Alumnos;
 ```
-|NewName|
+ 
+|Nombre_Alumnos|
 |---|
 |Orlando                                           |
 |Grecia                                            |
+|Ismael                                            |
+|Luis                                              |
+|Pedro                                             |
 |Keith                                             |
 |Donna                                             |
 |Janet                                             |
@@ -591,9 +679,29 @@ FROM dbo.Clientes;
 |Pedro                                             |
 |Sergio                                            |
 
+ 
+ 
+ 
+ 
+ 
+<br>
+
+# Filter rows of a table
+
+```sql
+SELECT * FROM dbo.House_Price_Regression WHERE price < 500000 ;
+```
+
+|neighborhood_recode|latitude|longitude|price|no_of_bedrooms|no_of_bathrooms|...|private_pool_recode|security_recode|shared_gym_recode|shared_pool_recode|shared_spa_recode|view_of_water_recode|size_in_m_2|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|120|25016736|5525101|365000|0|1|...|0|0|0|0|0|0|69026929|
+|...|...|...|...|...|...|...|...|...|...|
 
 
-# Filtrar filas de una tabla
+<br>
+
+
+
 
 ```SQL
 SELECT * FROM dbo.Clientes WHERE Nombre = 'Fabio' ;

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 14 Filtrar filas de una tabla | Introducción a SQL en Azure Data Studio</title>
+  <title>Chapter 14 Filter rows of a table | Introducción a SQL en Azure Data Studio</title>
   <meta name="description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 14 Filtrar filas de una tabla | Introducción a SQL en Azure Data Studio" />
+  <meta property="og:title" content="Chapter 14 Filter rows of a table | Introducción a SQL en Azure Data Studio" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 14 Filtrar filas de una tabla | Introducción a SQL en Azure Data Studio" />
+  <meta name="twitter:title" content="Chapter 14 Filter rows of a table | Introducción a SQL en Azure Data Studio" />
   
   <meta name="twitter:description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   
@@ -154,10 +154,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8" data-path="full-view-of-a-table.html"><a href="full-view-of-a-table.html"><i class="fa fa-check"></i><b>8</b> Full view of a table</a></li>
 <li class="chapter" data-level="9" data-path="number-of-columns.html"><a href="number-of-columns.html"><i class="fa fa-check"></i><b>9</b> Number of columns</a></li>
 <li class="chapter" data-level="10" data-path="number-of-rows.html"><a href="number-of-rows.html"><i class="fa fa-check"></i><b>10</b> Number of rows</a></li>
-<li class="chapter" data-level="11" data-path="head-of-a-teable.html"><a href="head-of-a-teable.html"><i class="fa fa-check"></i><b>11</b> Head of a teable</a></li>
+<li class="chapter" data-level="11" data-path="head-of-a-table.html"><a href="head-of-a-table.html"><i class="fa fa-check"></i><b>11</b> Head of a table</a></li>
 <li class="chapter" data-level="12" data-path="select-columns-of-a-table.html"><a href="select-columns-of-a-table.html"><i class="fa fa-check"></i><b>12</b> Select columns of a table</a></li>
 <li class="chapter" data-level="13" data-path="assign-alias-to-a-column.html"><a href="assign-alias-to-a-column.html"><i class="fa fa-check"></i><b>13</b> Assign alias to a column</a></li>
-<li class="chapter" data-level="14" data-path="filtrar-filas-de-una-tabla.html"><a href="filtrar-filas-de-una-tabla.html"><i class="fa fa-check"></i><b>14</b> Filtrar filas de una tabla</a></li>
+<li class="chapter" data-level="14" data-path="filter-rows-of-a-table.html"><a href="filter-rows-of-a-table.html"><i class="fa fa-check"></i><b>14</b> Filter rows of a table</a></li>
 <li class="chapter" data-level="15" data-path="eliminar-filas-de-una-tabla.html"><a href="eliminar-filas-de-una-tabla.html"><i class="fa fa-check"></i><b>15</b> Eliminar filas de una tabla</a></li>
 <li class="chapter" data-level="16" data-path="eliminar-una-tabla.html"><a href="eliminar-una-tabla.html"><i class="fa fa-check"></i><b>16</b> Eliminar una tabla</a></li>
 <li class="chapter" data-level="17" data-path="actualizar-columnas-de-una-table.html"><a href="actualizar-columnas-de-una-table.html"><i class="fa fa-check"></i><b>17</b> Actualizar columnas de una table</a>
@@ -192,9 +192,141 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="filtrar-filas-de-una-tabla" class="section level1 hasAnchor" number="14">
-<h1><span class="header-section-number">Chapter 14</span> Filtrar filas de una tabla<a href="filtrar-filas-de-una-tabla.html#filtrar-filas-de-una-tabla" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="sourceCode" id="cb20"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb20-1"><a href="filtrar-filas-de-una-tabla.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="op">=</span> <span class="st">&#39;Fabio&#39;</span> ;</span></code></pre></div>
+<div id="filter-rows-of-a-table" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">Chapter 14</span> Filter rows of a table<a href="filter-rows-of-a-table.html#filter-rows-of-a-table" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb20"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb20-1"><a href="filter-rows-of-a-table.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.House_Price_Regression <span class="kw">WHERE</span> price <span class="op">&lt;</span> <span class="dv">500000</span> ;</span></code></pre></div>
+<table style="width:100%;">
+<colgroup>
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>neighborhood_recode</th>
+<th>latitude</th>
+<th>longitude</th>
+<th>price</th>
+<th>no_of_bedrooms</th>
+<th>no_of_bathrooms</th>
+<th>…</th>
+<th>private_pool_recode</th>
+<th>security_recode</th>
+<th>shared_gym_recode</th>
+<th>shared_pool_recode</th>
+<th>shared_spa_recode</th>
+<th>view_of_water_recode</th>
+<th>size_in_m_2</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>120</td>
+<td>25016736</td>
+<td>5525101</td>
+<td>365000</td>
+<td>0</td>
+<td>1</td>
+<td>…</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>69026929</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb21-1"><a href="filter-rows-of-a-table.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="op">=</span> <span class="st">&#39;Fabio&#39;</span> ;</span></code></pre></div>
 <table style="width:100%;">
 <colgroup>
 <col width="16%" />
@@ -226,7 +358,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb21-1"><a href="filtrar-filas-de-una-tabla.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="op">!=</span> <span class="st">&#39;Fabio&#39;</span> ;</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb22-1"><a href="filter-rows-of-a-table.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="op">!=</span> <span class="st">&#39;Fabio&#39;</span> ;</span></code></pre></div>
 <table style="width:100%;">
 <colgroup>
 <col width="16%" />
@@ -322,7 +454,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb22-1"><a href="filtrar-filas-de-una-tabla.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Ventas <span class="kw">WHERE</span> Precio <span class="op">&lt;</span> <span class="dv">500</span> ;</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb23-1"><a href="filter-rows-of-a-table.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Ventas <span class="kw">WHERE</span> Precio <span class="op">&lt;</span> <span class="dv">500</span> ;</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -365,7 +497,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb23-1"><a href="filtrar-filas-de-una-tabla.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Ventas <span class="kw">WHERE</span> Precio <span class="op">&lt;</span> <span class="dv">2000</span> <span class="kw">AND</span> Precio <span class="op">&gt;</span> <span class="dv">500</span> ;</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb24-1"><a href="filter-rows-of-a-table.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Ventas <span class="kw">WHERE</span> Precio <span class="op">&lt;</span> <span class="dv">2000</span> <span class="kw">AND</span> Precio <span class="op">&gt;</span> <span class="dv">500</span> ;</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -429,7 +561,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb24-1"><a href="filtrar-filas-de-una-tabla.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Ventas <span class="kw">WHERE</span> Precio <span class="op">&lt;=</span> <span class="dv">2000</span> <span class="kw">OR</span> Precio <span class="op">&gt;</span> <span class="dv">500</span> ;</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb25-1"><a href="filter-rows-of-a-table.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Ventas <span class="kw">WHERE</span> Precio <span class="op">&lt;=</span> <span class="dv">2000</span> <span class="kw">OR</span> Precio <span class="op">&gt;</span> <span class="dv">500</span> ;</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -549,7 +681,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb25-1"><a href="filtrar-filas-de-una-tabla.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Nombre , Email  <span class="kw">FROM</span> dbo.Proveedores <span class="kw">WHERE</span> Email <span class="op">=</span> <span class="st">&#39;Intertrade@gmail.com&#39;</span> ;</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb26-1"><a href="filter-rows-of-a-table.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Nombre , Email  <span class="kw">FROM</span> dbo.Proveedores <span class="kw">WHERE</span> Email <span class="op">=</span> <span class="st">&#39;Intertrade@gmail.com&#39;</span> ;</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -565,7 +697,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb26-1"><a href="filtrar-filas-de-una-tabla.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Producto , Cliente, Proveedor <span class="kw">FROM</span> dbo.Ventas <span class="kw">WHERE</span> Precio <span class="op">&lt;</span> <span class="dv">2000</span> <span class="kw">AND</span> Precio <span class="op">&gt;</span> <span class="dv">500</span> ;</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb27-1"><a href="filter-rows-of-a-table.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Producto , Cliente, Proveedor <span class="kw">FROM</span> dbo.Ventas <span class="kw">WHERE</span> Precio <span class="op">&lt;</span> <span class="dv">2000</span> <span class="kw">AND</span> Precio <span class="op">&gt;</span> <span class="dv">500</span> ;</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -613,7 +745,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb27-1"><a href="filtrar-filas-de-una-tabla.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span><span class="op">*</span><span class="kw">FROM</span> Clientes <span class="kw">WHERE</span> Nombre <span class="kw">is</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb28-1"><a href="filter-rows-of-a-table.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span><span class="op">*</span><span class="kw">FROM</span> Clientes <span class="kw">WHERE</span> Nombre <span class="kw">is</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span></code></pre></div>
 <table style="width:100%;">
 <colgroup>
 <col width="16%" />
@@ -677,7 +809,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb28-1"><a href="filtrar-filas-de-una-tabla.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">in</span> ( <span class="st">&#39;Orlando&#39;</span> , <span class="st">&#39;Fabio&#39;</span>) ;</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb29-1"><a href="filter-rows-of-a-table.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">in</span> ( <span class="st">&#39;Orlando&#39;</span> , <span class="st">&#39;Fabio&#39;</span>) ;</span></code></pre></div>
 <table style="width:100%;">
 <colgroup>
 <col width="16%" />
@@ -716,7 +848,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb29"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb29-1"><a href="filtrar-filas-de-una-tabla.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">not</span> <span class="kw">in</span> ( <span class="st">&#39;Orlando&#39;</span> , <span class="st">&#39;Fabio&#39;</span>) ;</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb30-1"><a href="filter-rows-of-a-table.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">not</span> <span class="kw">in</span> ( <span class="st">&#39;Orlando&#39;</span> , <span class="st">&#39;Fabio&#39;</span>) ;</span></code></pre></div>
 <table style="width:100%;">
 <colgroup>
 <col width="16%" />

@@ -34,3 +34,10 @@ cheking-primary-key-restriction
 checking-not-null-restriction
 import-a-csv-as-table
 full-view-of-a-table
+number-of-columns
+number-of-rows
+head-of-a-teable
+select-columns-of-a-table
+assign-alias-to-a-column
+head-of-a-table
+filter-rows-of-a-table

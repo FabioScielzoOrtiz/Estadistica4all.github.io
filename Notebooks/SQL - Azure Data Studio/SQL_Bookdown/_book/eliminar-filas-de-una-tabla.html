@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 12 Eliminar filas de una tabla | Introducción a SQL en Azure Data Studio</title>
+  <title>Chapter 15 Eliminar filas de una tabla | Introducción a SQL en Azure Data Studio</title>
   <meta name="description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 12 Eliminar filas de una tabla | Introducción a SQL en Azure Data Studio" />
+  <meta property="og:title" content="Chapter 15 Eliminar filas de una tabla | Introducción a SQL en Azure Data Studio" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 12 Eliminar filas de una tabla | Introducción a SQL en Azure Data Studio" />
+  <meta name="twitter:title" content="Chapter 15 Eliminar filas de una tabla | Introducción a SQL en Azure Data Studio" />
   
   <meta name="twitter:description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   
@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="filtrar-filas-de-una-tabla.html"/>
+<link rel="prev" href="filter-rows-of-a-table.html"/>
 <link rel="next" href="eliminar-una-tabla.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -152,23 +152,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="import-a-csv-as-table.html"><a href="import-a-csv-as-table.html"><i class="fa fa-check"></i><b>7</b> Import a CSV as table</a></li>
 <li class="chapter" data-level="8" data-path="full-view-of-a-table.html"><a href="full-view-of-a-table.html"><i class="fa fa-check"></i><b>8</b> Full view of a table</a></li>
-<li class="chapter" data-level="9" data-path="seleccionar-columnas-de-una-tabla.html"><a href="seleccionar-columnas-de-una-tabla.html"><i class="fa fa-check"></i><b>9</b> Seleccionar columnas de una tabla</a></li>
-<li class="chapter" data-level="10" data-path="asignar-un-alias-a-una-columna.html"><a href="asignar-un-alias-a-una-columna.html"><i class="fa fa-check"></i><b>10</b> Asignar un alias a una columna</a></li>
-<li class="chapter" data-level="11" data-path="filtrar-filas-de-una-tabla.html"><a href="filtrar-filas-de-una-tabla.html"><i class="fa fa-check"></i><b>11</b> Filtrar filas de una tabla</a></li>
-<li class="chapter" data-level="12" data-path="eliminar-filas-de-una-tabla.html"><a href="eliminar-filas-de-una-tabla.html"><i class="fa fa-check"></i><b>12</b> Eliminar filas de una tabla</a></li>
-<li class="chapter" data-level="13" data-path="eliminar-una-tabla.html"><a href="eliminar-una-tabla.html"><i class="fa fa-check"></i><b>13</b> Eliminar una tabla</a></li>
-<li class="chapter" data-level="14" data-path="actualizar-columnas-de-una-table.html"><a href="actualizar-columnas-de-una-table.html"><i class="fa fa-check"></i><b>14</b> Actualizar columnas de una table</a>
+<li class="chapter" data-level="9" data-path="number-of-columns.html"><a href="number-of-columns.html"><i class="fa fa-check"></i><b>9</b> Number of columns</a></li>
+<li class="chapter" data-level="10" data-path="number-of-rows.html"><a href="number-of-rows.html"><i class="fa fa-check"></i><b>10</b> Number of rows</a></li>
+<li class="chapter" data-level="11" data-path="head-of-a-table.html"><a href="head-of-a-table.html"><i class="fa fa-check"></i><b>11</b> Head of a table</a></li>
+<li class="chapter" data-level="12" data-path="select-columns-of-a-table.html"><a href="select-columns-of-a-table.html"><i class="fa fa-check"></i><b>12</b> Select columns of a table</a></li>
+<li class="chapter" data-level="13" data-path="assign-alias-to-a-column.html"><a href="assign-alias-to-a-column.html"><i class="fa fa-check"></i><b>13</b> Assign alias to a column</a></li>
+<li class="chapter" data-level="14" data-path="filter-rows-of-a-table.html"><a href="filter-rows-of-a-table.html"><i class="fa fa-check"></i><b>14</b> Filter rows of a table</a></li>
+<li class="chapter" data-level="15" data-path="eliminar-filas-de-una-tabla.html"><a href="eliminar-filas-de-una-tabla.html"><i class="fa fa-check"></i><b>15</b> Eliminar filas de una tabla</a></li>
+<li class="chapter" data-level="16" data-path="eliminar-una-tabla.html"><a href="eliminar-una-tabla.html"><i class="fa fa-check"></i><b>16</b> Eliminar una tabla</a></li>
+<li class="chapter" data-level="17" data-path="actualizar-columnas-de-una-table.html"><a href="actualizar-columnas-de-una-table.html"><i class="fa fa-check"></i><b>17</b> Actualizar columnas de una table</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="actualizar-columnas-de-una-table.html"><a href="actualizar-columnas-de-una-table.html#fijar-un-valor-por-defecto-para-una-columna"><i class="fa fa-check"></i><b>14.1</b> Fijar un valor por defecto para una columna</a></li>
+<li class="chapter" data-level="17.1" data-path="actualizar-columnas-de-una-table.html"><a href="actualizar-columnas-de-una-table.html#fijar-un-valor-por-defecto-para-una-columna"><i class="fa fa-check"></i><b>17.1</b> Fijar un valor por defecto para una columna</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="columnas-calculadas-a-partir-de-otras.html"><a href="columnas-calculadas-a-partir-de-otras.html"><i class="fa fa-check"></i><b>15</b> Columnas calculadas a partir de otras</a></li>
-<li class="chapter" data-level="16" data-path="concatenar-strings-de-filas-distintas.html"><a href="concatenar-strings-de-filas-distintas.html"><i class="fa fa-check"></i><b>16</b> Concatenar strings de filas distintas</a></li>
-<li class="chapter" data-level="17" data-path="ordenar-tabla-por-columnas.html"><a href="ordenar-tabla-por-columnas.html"><i class="fa fa-check"></i><b>17</b> Ordenar tabla por columnas</a></li>
-<li class="chapter" data-level="18" data-path="seleccionar-filas-por-strings-con-like-y-not-like.html"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html"><i class="fa fa-check"></i><b>18</b> Seleccionar filas por strings con Like y Not Like</a></li>
-<li class="chapter" data-level="19" data-path="count.html"><a href="count.html"><i class="fa fa-check"></i><b>19</b> Count</a></li>
-<li class="chapter" data-level="20" data-path="min-max-sum-avg.html"><a href="min-max-sum-avg.html"><i class="fa fa-check"></i><b>20</b> Min, Max, Sum, Avg</a></li>
-<li class="chapter" data-level="21" data-path="group-by.html"><a href="group-by.html"><i class="fa fa-check"></i><b>21</b> Group by</a></li>
-<li class="chapter" data-level="22" data-path="having.html"><a href="having.html"><i class="fa fa-check"></i><b>22</b> Having</a></li>
+<li class="chapter" data-level="18" data-path="columnas-calculadas-a-partir-de-otras.html"><a href="columnas-calculadas-a-partir-de-otras.html"><i class="fa fa-check"></i><b>18</b> Columnas calculadas a partir de otras</a></li>
+<li class="chapter" data-level="19" data-path="concatenar-strings-de-filas-distintas.html"><a href="concatenar-strings-de-filas-distintas.html"><i class="fa fa-check"></i><b>19</b> Concatenar strings de filas distintas</a></li>
+<li class="chapter" data-level="20" data-path="ordenar-tabla-por-columnas.html"><a href="ordenar-tabla-por-columnas.html"><i class="fa fa-check"></i><b>20</b> Ordenar tabla por columnas</a></li>
+<li class="chapter" data-level="21" data-path="seleccionar-filas-por-strings-con-like-y-not-like.html"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html"><i class="fa fa-check"></i><b>21</b> Seleccionar filas por strings con Like y Not Like</a></li>
+<li class="chapter" data-level="22" data-path="count.html"><a href="count.html"><i class="fa fa-check"></i><b>22</b> Count</a></li>
+<li class="chapter" data-level="23" data-path="min-max-sum-avg.html"><a href="min-max-sum-avg.html"><i class="fa fa-check"></i><b>23</b> Min, Max, Sum, Avg</a></li>
+<li class="chapter" data-level="24" data-path="group-by.html"><a href="group-by.html"><i class="fa fa-check"></i><b>24</b> Group by</a></li>
+<li class="chapter" data-level="25" data-path="having.html"><a href="having.html"><i class="fa fa-check"></i><b>25</b> Having</a></li>
 <li class="divider"></li>
 <li><a href="https://estadistica4all.com" target="blank">Estadistica4all.com</a></li>
 
@@ -189,9 +192,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="eliminar-filas-de-una-tabla" class="section level1 hasAnchor" number="12">
-<h1><span class="header-section-number">Chapter 12</span> Eliminar filas de una tabla<a href="eliminar-filas-de-una-tabla.html#eliminar-filas-de-una-tabla" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="sourceCode" id="cb26"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb26-1"><a href="eliminar-filas-de-una-tabla.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">DELETE</span> <span class="kw">from</span> Ventas</span></code></pre></div>
+<div id="eliminar-filas-de-una-tabla" class="section level1 hasAnchor" number="15">
+<h1><span class="header-section-number">Chapter 15</span> Eliminar filas de una tabla<a href="eliminar-filas-de-una-tabla.html#eliminar-filas-de-una-tabla" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb31"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb31-1"><a href="eliminar-filas-de-una-tabla.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">DELETE</span> <span class="kw">from</span> Ventas</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -206,7 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb27-1"><a href="eliminar-filas-de-una-tabla.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">Delete</span> <span class="kw">from</span> Clientes <span class="kw">WHERE</span> Nombre <span class="op">=</span> <span class="st">&#39;Fabio&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb32-1"><a href="eliminar-filas-de-una-tabla.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">Delete</span> <span class="kw">from</span> Clientes <span class="kw">WHERE</span> Nombre <span class="op">=</span> <span class="st">&#39;Fabio&#39;</span></span></code></pre></div>
 <table style="width:100%;">
 <colgroup>
 <col width="16%" />
@@ -308,7 +311,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="filtrar-filas-de-una-tabla.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="filter-rows-of-a-table.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="eliminar-una-tabla.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
