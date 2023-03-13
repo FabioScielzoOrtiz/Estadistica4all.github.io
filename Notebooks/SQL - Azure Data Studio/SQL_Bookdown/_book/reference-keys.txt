@@ -49,3 +49,5 @@ columns-calculated-from-others
 concat-strings-from-different-columns
 sorting-a-table-by-columns
 mas-cosas
+delete-rows-from-a-table
+delete-columns-from-a-table

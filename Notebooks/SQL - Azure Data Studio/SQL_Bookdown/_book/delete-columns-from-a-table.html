@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 Create a database | Introducción a SQL en Azure Data Studio</title>
+  <title>Chapter 16 Delete columns from a table | Introducción a SQL en Azure Data Studio</title>
   <meta name="description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 Create a database | Introducción a SQL en Azure Data Studio" />
+  <meta property="og:title" content="Chapter 16 Delete columns from a table | Introducción a SQL en Azure Data Studio" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 Create a database | Introducción a SQL en Azure Data Studio" />
+  <meta name="twitter:title" content="Chapter 16 Delete columns from a table | Introducción a SQL en Azure Data Studio" />
   
   <meta name="twitter:description" content="Este artículo es una introducción a SQL en Azure Data Studio." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="instalación-de-azure-data-studio.html"/>
-<link rel="next" href="delete-a-database.html"/>
+<link rel="prev" href="delete-rows-from-a-table.html"/>
+<link rel="next" href="delete-a-table.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -197,34 +197,82 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="create-a-database" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Chapter 3</span> Create a database<a href="create-a-database.html#create-a-database" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><br></p>
-<ul>
-<li>We are going to create a new database, which will be called <strong>Fabio_Database</strong>:</li>
-</ul>
-<center>
-<p><img src="p6.jpg" style="width:100.0%" /></p>
-</center>
-<p><br></p>
-<p>The code used to create the new database is the following:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="create-a-database.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">USE</span> <span class="kw">master</span></span>
-<span id="cb1-2"><a href="create-a-database.html#cb1-2" aria-hidden="true" tabindex="-1"></a>GO</span>
-<span id="cb1-3"><a href="create-a-database.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">IF</span> <span class="kw">NOT</span> <span class="kw">EXISTS</span> (</span>
-<span id="cb1-4"><a href="create-a-database.html#cb1-4" aria-hidden="true" tabindex="-1"></a> <span class="kw">SELECT</span> name</span>
-<span id="cb1-5"><a href="create-a-database.html#cb1-5" aria-hidden="true" tabindex="-1"></a> <span class="kw">FROM</span> sys.databases</span>
-<span id="cb1-6"><a href="create-a-database.html#cb1-6" aria-hidden="true" tabindex="-1"></a> <span class="kw">WHERE</span> name <span class="op">=</span> N<span class="st">&#39;Base_Datos_Fabio&#39;</span></span>
-<span id="cb1-7"><a href="create-a-database.html#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-8"><a href="create-a-database.html#cb1-8" aria-hidden="true" tabindex="-1"></a> <span class="kw">CREATE</span> <span class="kw">DATABASE</span> [Base_Datos_Fabio];</span>
-<span id="cb1-9"><a href="create-a-database.html#cb1-9" aria-hidden="true" tabindex="-1"></a>GO</span>
-<span id="cb1-10"><a href="create-a-database.html#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="cf">IF</span> SERVERPROPERTY(<span class="st">&#39;ProductVersion&#39;</span>) <span class="op">&gt;</span> <span class="st">&#39;12&#39;</span></span>
-<span id="cb1-11"><a href="create-a-database.html#cb1-11" aria-hidden="true" tabindex="-1"></a> <span class="kw">ALTER</span> <span class="kw">DATABASE</span> [Base_Datos_Fabio] <span class="kw">SET</span> QUERY_STORE<span class="op">=</span><span class="kw">ON</span>;</span>
-<span id="cb1-12"><a href="create-a-database.html#cb1-12" aria-hidden="true" tabindex="-1"></a>GO</span></code></pre></div>
-<p><br></p>
-<p>After the execution of the above SQL code, the database should be created, and it should appear on the left side of the environment, as shown in the following image:</p>
-<center>
-<p><img src="p7.jpg" style="width:100.0%" /></p>
-</center>
+<div id="delete-columns-from-a-table" class="section level1 hasAnchor" number="16">
+<h1><span class="header-section-number">Chapter 16</span> Delete columns from a table<a href="delete-columns-from-a-table.html#delete-columns-from-a-table" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="sourceCode" id="cb44"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb44-1"><a href="delete-columns-from-a-table.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> dbo.Alumnos <span class="kw">DROP</span> <span class="kw">COLUMN</span> Nombre , Email;</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb45-1"><a href="delete-columns-from-a-table.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Alumnos</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th>AlumnoID</th>
+<th>Pais</th>
+<th>Ciudad</th>
+<th>Telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A11</td>
+<td>España</td>
+<td>Madrid</td>
+<td>912234543</td>
+</tr>
+<tr class="even">
+<td>A12</td>
+<td>España</td>
+<td>Murcia</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>A13</td>
+<td>Argentina</td>
+<td>Buenos Aires</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>A2</td>
+<td>India</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>A3</td>
+<td>Germany</td>
+<td>Berlin</td>
+<td>915547890</td>
+</tr>
+<tr class="even">
+<td>A4</td>
+<td>United States</td>
+<td>California</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>A6</td>
+<td>España</td>
+<td>Sevilla</td>
+<td>915869028</td>
+</tr>
+<tr class="even">
+<td>A7</td>
+<td>España</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>A8</td>
+<td>Italia</td>
+<td>Roma</td>
+<td>910007890</td>
+</tr>
+<tr class="even">
+<td>A9</td>
+<td>United States</td>
+<td>New York</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p><br></p>
 </div>
             </section>
@@ -232,8 +280,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="instalación-de-azure-data-studio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="delete-a-database.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="delete-rows-from-a-table.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="delete-a-table.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

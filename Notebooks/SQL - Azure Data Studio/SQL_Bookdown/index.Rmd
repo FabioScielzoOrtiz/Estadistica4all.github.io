@@ -410,8 +410,8 @@ VALUES
  ( 'E1', 6.7, N'Matemáticas', N'A2', N'P1'),
  ( 'E2', 8, N'Física', N'A4', N'P2'),
  ( 'E3', 4.25, N'Matemáticas', N'A1', N'P1'),
- ( 'E4', 6.5, N'Matemáticas', N'A7', N'P7'),
- ( 'E5', 7, N'Matemáticas', N'A9', N'P3')
+ ( 'E4', 6.5, N'Inglés', N'A7', N'P7'),
+ ( 'E5', 7, N'Lengua', N'A9', N'P3')
 GO
 ```
 
@@ -420,8 +420,8 @@ GO
 |E1|6.70|Matem&#225;ticas|A2|P1|
 |E2|8.00|F&#237;sica|A4|P2|
 |E3|4.25|Matem&#225;ticas|A1|P1|
-|E4|6.50|Matem&#225;ticas|A7|P7|
-|E5|7.00|Matem&#225;ticas|A9|P3|
+|E4|6.50|Inglés|A7|P7|
+|E5|7.00|Lengua|A9|P3|
 
 
 <br>
@@ -710,8 +710,8 @@ SELECT * FROM dbo.Examenes WHERE Nota <= 7 ;
 |---|---|---|---|---|
 |E1|6.70|Matem&#225;ticas|A2|P1|
 |E3|4.25|Matem&#225;ticas|A1|P1|
-|E4|6.50|Matem&#225;ticas|A7|P7|
-|E5|7.00|Matem&#225;ticas|A9|P3|
+|E4|6.50|Inglés|A7|P7|
+|E5|7.00|Lengua|A9|P3|
 
 
 <br>
@@ -852,11 +852,84 @@ SELECT*FROM Alumnos WHERE Nombre is NOT NULL
 <br>
 
 
+## Seleccionar filas por strings con Like y Not Like
+
+
+```SQL
+SELECT * FROM dbo.Alumnos WHERE Nombre like '%io%' ;
+```
+
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
+|---|---|---|---|---|---|
+|A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
+|A9|Sergio                                            |United States|New York|sergio_as@gmail.com||
+
+
+<br>
+
+
+```SQL
+SELECT * FROM dbo.Alumnos WHERE Nombre like '%io%' ;
+```
+
+
+
+
+
+<br>
+
+
+```SQL
+SELECT * FROM dbo.Clientes WHERE Nombre like 'o%' ; -- empieza por 'o'
+```
+ 
+
+<br>
+
+```SQL
+SELECT * FROM dbo.Clientes WHERE Nombre like '%o' ; -- acaba por 'o'
+```
+ 
+
+<br>
+
+
+```SQL
+SELECT * FROM dbo.Clientes WHERE Nombre like '%lan%o' ; -- contiene 'lan' y acaba por 'o'
+```
+ 
+
+<br>
+
+
+```SQL
+SELECT * FROM dbo.Clientes WHERE Nombre like '%b%o' ; -- contiene 'b' y acaba por 'o'
+```
+ 
+
+<br>
+
+
+
+
+```SQL
+SELECT * FROM dbo.Clientes WHERE Nombre like '%F____' ; -- empieza por 'F' seguida de 4 caracteres
+```
+
+ 
+
+```SQL
+SELECT * FROM dbo.Clientes WHERE Nombre like '%F__' ; -- empieza por 'F' seguida de 2 caracteres
+```
+ 
+ 
+ 
+<br>
  
  
 
 
-# Eliminar filas de una tabla
+# Delete rows from a table
 
 ```sql
 DELETE from Alumnos
@@ -929,7 +1002,7 @@ SELECT * FROM Alumnos
 
 
 
-# Delete columns of a table
+# Delete columns from a table
 
 ```sql 
 ALTER TABLE dbo.Alumnos DROP COLUMN Nombre , Email;
@@ -1197,9 +1270,9 @@ SELECT*FROM Examenes ORDER BY Nota ASC
 |ExamenID|Nota|Asignatura|AlumnoID|ProfesorID|
 |---|---|---|---|---|
 |E3|4.25|Matem&#225;ticas|A1|P1|
-|E4|6.50|Matem&#225;ticas|A7|P7|
+|E4|6.50|Inglés|A7|P7|
 |E1|6.70|Matem&#225;ticas|A2|P1|
-|E5|7.00|Matem&#225;ticas|A9|P3|
+|E5|7.00|Lengua|A9|P3|
 |E2|8.00|F&#237;sica|A4|P2|
 
 
@@ -1213,89 +1286,14 @@ SELECT*FROM Examenes ORDER BY Nota DESC
 |ExamenID|Nota|Asignatura|AlumnoID|ProfesorID|
 |---|---|---|---|---|
 |E2|8.00|F&#237;sica|A4|P2|
-|E5|7.00|Matem&#225;ticas|A9|P3|
+|E5|7.00|Lengua|A9|P3|
 |E1|6.70|Matem&#225;ticas|A2|P1|
-|E4|6.50|Matem&#225;ticas|A7|P7|
+|E4|6.50|Inglés|A7|P7|
 |E3|4.25|Matem&#225;ticas|A1|P1|
 
 
 
 
-<br>
-
-
-# Seleccionar filas por strings con Like y Not Like
-
-
-```SQL
-SELECT * FROM dbo.Alumnos WHERE Nombre like '%io%' ;
-```
-
-|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
-|A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
-|A9|Sergio                                            |United States|New York|sergio_as@gmail.com||
-
-
-<br>
-
-
-```SQL
-SELECT * FROM dbo.Alumnos WHERE Nombre like '%io%' ;
-```
-
-
-
-
-
-<br>
-
-
-```SQL
-SELECT * FROM dbo.Clientes WHERE Nombre like 'o%' ; -- empieza por 'o'
-```
- 
-
-<br>
-
-```SQL
-SELECT * FROM dbo.Clientes WHERE Nombre like '%o' ; -- acaba por 'o'
-```
- 
-
-<br>
-
-
-```SQL
-SELECT * FROM dbo.Clientes WHERE Nombre like '%lan%o' ; -- contiene 'lan' y acaba por 'o'
-```
- 
-
-<br>
-
-
-```SQL
-SELECT * FROM dbo.Clientes WHERE Nombre like '%b%o' ; -- contiene 'b' y acaba por 'o'
-```
- 
-
-<br>
-
-
-
-
-```SQL
-SELECT * FROM dbo.Clientes WHERE Nombre like '%F____' ; -- empieza por 'F' seguida de 4 caracteres
-```
-
- 
-
-```SQL
-SELECT * FROM dbo.Clientes WHERE Nombre like '%F__' ; -- empieza por 'F' seguida de 2 caracteres
-```
- 
- 
- 
 
 <br>
 
@@ -1344,7 +1342,7 @@ SELECT Avg(Precio) FROM Ventas ;
 
 <br>
 
-# Having
+## Having
 
 
 

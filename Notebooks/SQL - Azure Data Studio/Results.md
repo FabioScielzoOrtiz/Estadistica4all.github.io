@@ -1,6 +1,9 @@
-|Asignatura|Nota_Media|Nota_Min|Nota_Max|Nota_Var|
-|---|---|---|---|---|
-|F&#237;sica|6.410000|4.00|8.00|2,9905000000000044|
-|Ingl&#233;s|6.120000|3.00|7.20|3,1069999999999993|
-|Lengua|6.300000|5.00|8.00|1,4500000000000028|
-|Matem&#225;ticas|5.475000|4.25|6.70|3,001250000000006|
+|Nombre|Asignatura|Estudios|email|
+|---|---|---|---|
+|Carlos|NULL|Educaci&#243;n F&#237;sica|CarlosFernandez@colegio.es|
+|Daniel|NULL|Geograf&#237;a|DanielOrtiz@colegio.es|
+|Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|
+|Juan|Matem&#225;ticas|Matem&#225;ticas|JuanPerez@colegio.es|
+|Lucia|Lengua|Lengua|LuciaPerez@colegio.es|
+|Marcos|NULL|Biolog&#237;a|MarcosSanz@colegio.es|
+|Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|

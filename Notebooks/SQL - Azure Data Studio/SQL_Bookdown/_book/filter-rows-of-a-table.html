@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="assign-alias-to-a-column.html"/>
-<link rel="next" href="eliminar-filas-de-una-tabla.html"/>
+<link rel="next" href="delete-rows-from-a-table.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -157,9 +157,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11" data-path="head-of-a-table.html"><a href="head-of-a-table.html"><i class="fa fa-check"></i><b>11</b> Head of a table</a></li>
 <li class="chapter" data-level="12" data-path="select-columns-of-a-table.html"><a href="select-columns-of-a-table.html"><i class="fa fa-check"></i><b>12</b> Select columns of a table</a></li>
 <li class="chapter" data-level="13" data-path="assign-alias-to-a-column.html"><a href="assign-alias-to-a-column.html"><i class="fa fa-check"></i><b>13</b> Assign alias to a column</a></li>
-<li class="chapter" data-level="14" data-path="filter-rows-of-a-table.html"><a href="filter-rows-of-a-table.html"><i class="fa fa-check"></i><b>14</b> Filter rows of a table</a></li>
-<li class="chapter" data-level="15" data-path="eliminar-filas-de-una-tabla.html"><a href="eliminar-filas-de-una-tabla.html"><i class="fa fa-check"></i><b>15</b> Eliminar filas de una tabla</a></li>
-<li class="chapter" data-level="16" data-path="delete-columns-of-a-table.html"><a href="delete-columns-of-a-table.html"><i class="fa fa-check"></i><b>16</b> Delete columns of a table</a></li>
+<li class="chapter" data-level="14" data-path="filter-rows-of-a-table.html"><a href="filter-rows-of-a-table.html"><i class="fa fa-check"></i><b>14</b> Filter rows of a table</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="filter-rows-of-a-table.html"><a href="filter-rows-of-a-table.html#seleccionar-filas-por-strings-con-like-y-not-like"><i class="fa fa-check"></i><b>14.1</b> Seleccionar filas por strings con Like y Not Like</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="delete-rows-from-a-table.html"><a href="delete-rows-from-a-table.html"><i class="fa fa-check"></i><b>15</b> Delete rows from a table</a></li>
+<li class="chapter" data-level="16" data-path="delete-columns-from-a-table.html"><a href="delete-columns-from-a-table.html"><i class="fa fa-check"></i><b>16</b> Delete columns from a table</a></li>
 <li class="chapter" data-level="17" data-path="delete-a-table.html"><a href="delete-a-table.html"><i class="fa fa-check"></i><b>17</b> Delete a table</a></li>
 <li class="chapter" data-level="18" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html"><i class="fa fa-check"></i><b>18</b> Update columns of a table</a>
 <ul>
@@ -168,11 +171,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="19" data-path="columns-calculated-from-others.html"><a href="columns-calculated-from-others.html"><i class="fa fa-check"></i><b>19</b> Columns calculated from others</a></li>
 <li class="chapter" data-level="20" data-path="concat-strings-from-different-columns.html"><a href="concat-strings-from-different-columns.html"><i class="fa fa-check"></i><b>20</b> Concat strings from different columns</a></li>
 <li class="chapter" data-level="21" data-path="sorting-a-table-by-columns.html"><a href="sorting-a-table-by-columns.html"><i class="fa fa-check"></i><b>21</b> Sorting a table by columns</a></li>
-<li class="chapter" data-level="22" data-path="seleccionar-filas-por-strings-con-like-y-not-like.html"><a href="seleccionar-filas-por-strings-con-like-y-not-like.html"><i class="fa fa-check"></i><b>22</b> Seleccionar filas por strings con Like y Not Like</a></li>
-<li class="chapter" data-level="23" data-path="min-max-sum-avg.html"><a href="min-max-sum-avg.html"><i class="fa fa-check"></i><b>23</b> Min, Max, Sum, Avg</a></li>
-<li class="chapter" data-level="24" data-path="group-by.html"><a href="group-by.html"><i class="fa fa-check"></i><b>24</b> Group by</a></li>
-<li class="chapter" data-level="25" data-path="having.html"><a href="having.html"><i class="fa fa-check"></i><b>25</b> Having</a></li>
-<li class="chapter" data-level="26" data-path="mas-cosas.html"><a href="mas-cosas.html"><i class="fa fa-check"></i><b>26</b> Mas cosas ?</a></li>
+<li class="chapter" data-level="22" data-path="min-max-sum-avg.html"><a href="min-max-sum-avg.html"><i class="fa fa-check"></i><b>22</b> Min, Max, Sum, Avg</a></li>
+<li class="chapter" data-level="23" data-path="group-by.html"><a href="group-by.html"><i class="fa fa-check"></i><b>23</b> Group by</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="group-by.html"><a href="group-by.html#having"><i class="fa fa-check"></i><b>23.1</b> Having</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="mas-cosas.html"><a href="mas-cosas.html"><i class="fa fa-check"></i><b>24</b> Mas cosas ?</a></li>
 <li class="divider"></li>
 <li><a href="https://estadistica4all.com" target="blank">Estadistica4all.com</a></li>
 
@@ -260,14 +264,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td>E4</td>
 <td>6.50</td>
-<td>Matemáticas</td>
+<td>Inglés</td>
 <td>A7</td>
 <td>P7</td>
 </tr>
 <tr class="even">
 <td>E5</td>
 <td>7.00</td>
-<td>Matemáticas</td>
+<td>Lengua</td>
 <td>A9</td>
 <td>P3</td>
 </tr>
@@ -762,6 +766,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p><br></p>
+<div id="seleccionar-filas-por-strings-con-like-y-not-like" class="section level2 hasAnchor" number="14.1">
+<h2><span class="header-section-number">14.1</span> Seleccionar filas por strings con Like y Not Like<a href="filter-rows-of-a-table.html#seleccionar-filas-por-strings-con-like-y-not-like" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb30"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb30-1"><a href="filter-rows-of-a-table.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Alumnos <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%io%&#39;</span> ;</span></code></pre></div>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>AlumnoID</th>
+<th>Nombre</th>
+<th>Pais</th>
+<th>Ciudad</th>
+<th>Email</th>
+<th>Telefono</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A5</td>
+<td>Fabio</td>
+<td>España</td>
+<td>Madrid</td>
+<td><a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>A9</td>
+<td>Sergio</td>
+<td>United States</td>
+<td>New York</td>
+<td><a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb31-1"><a href="filter-rows-of-a-table.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Alumnos <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%io%&#39;</span> ;</span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb32-1"><a href="filter-rows-of-a-table.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;o%&#39;</span> ; <span class="co">-- empieza por &#39;o&#39;</span></span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb33-1"><a href="filter-rows-of-a-table.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%o&#39;</span> ; <span class="co">-- acaba por &#39;o&#39;</span></span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb34-1"><a href="filter-rows-of-a-table.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%lan%o&#39;</span> ; <span class="co">-- contiene &#39;lan&#39; y acaba por &#39;o&#39;</span></span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb35-1"><a href="filter-rows-of-a-table.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%b%o&#39;</span> ; <span class="co">-- contiene &#39;b&#39; y acaba por &#39;o&#39;</span></span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb36-1"><a href="filter-rows-of-a-table.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%F____&#39;</span> ; <span class="co">-- empieza por &#39;F&#39; seguida de 4 caracteres</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb37-1"><a href="filter-rows-of-a-table.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> dbo.Clientes <span class="kw">WHERE</span> Nombre <span class="kw">like</span> <span class="st">&#39;%F__&#39;</span> ; <span class="co">-- empieza por &#39;F&#39; seguida de 2 caracteres</span></span></code></pre></div>
+<p><br></p>
+</div>
 </div>
             </section>
 
@@ -769,7 +829,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="assign-alias-to-a-column.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="eliminar-filas-de-una-tabla.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="delete-rows-from-a-table.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
