@@ -1,17 +1,17 @@
 --- 
-title: "Introducción a SQL en Azure Data Studio"
+title: "Introduction to SQL in Azure Data Studio"
 author: "Fabio Scielzo Ortiz"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: book.bib
 description: |
-  Este artículo es una introducción a SQL en Azure Data Studio.
+  This article is an introduction to SQL in Azure Data Studio.
 link-citations: yes
 github-repo: "rstudio/bookdown-demo"
 ---
 
-# Introducción 
+# Introduction  
 
 
 <center>
@@ -30,13 +30,13 @@ github-repo: "rstudio/bookdown-demo"
 <p style='margin-left:10em;'>
 
 
-- **More articles:    $\hspace{0.1cm}$ [Estadistica4all](https://fabioscielzoortiz.github.io/Estadistica4all.github.io/)**
+- **More articles:    $\hspace{0.1cm}$ [Estadistica4all](https://estadistica4all.com/)**
 
 - **Author:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](https://estadistica4all.com/creador.html)
 
 - **If you use this article, please cite it:**
 
-$\hspace{0.5cm}$ Scielzo Ortiz, F. (2023). Introducción a Pandas. Estadistica4all. 
+$\hspace{1.2cm}$ Scielzo Ortiz, F. (2023). Introducción a Pandas. Estadistica4all. 
 
 
 - ***It is recommended to open the article on a computer or tablet.***
@@ -50,15 +50,15 @@ $\hspace{0.5cm}$ Scielzo Ortiz, F. (2023). Introducción a Pandas. Estadistica4a
  <br>
  
  
-Este artículo es una introducción a SQL en Azure Data Studio.
+This article is an introduction to SQL in Azure Data Studio.
  
  
  <br>
  
 
-# Instalación de Azure Data Studio  
+# Install Azure Data Studio    
 
-<br>
+
 
 - First, we need to download Azure Data Studio. It can be done easily from the following [link](https://learn.microsoft.com/es-es/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver16)
 
@@ -138,9 +138,8 @@ Este artículo es una introducción a SQL en Azure Data Studio.
 
 # Create a database
 
-<br>
 
-- We are going to create a new database, which will be called **Fabio_Database**:
+- We are going to create a new database, which will be called **Base_Datos_Fabio**:
 
 
 
@@ -251,7 +250,8 @@ GO
 
 <br>
 
-We execute the last code and check if the table **Alumnos** has been created inside **Database_Fabio**:
+We execute the last code and check if the table **Alumnos** has been created inside **Base_Datos_Fabio**:
+
 <center>
 
 ![](p9.jpg){width="100%"}
@@ -478,6 +478,7 @@ First of all, we must intall the **SQL Server Import** Azure Data Studio extensi
 </center> 
 
 
+<br>
 
 Next we import a CSV following the following steps:
 
@@ -518,10 +519,10 @@ Next we import a CSV following the following steps:
 # Full view of a table
 
 
-
+We can do a full view of a table as follows:
 
 ```sql
-SELECT * FROM dbo.Alumnos;
+SELECT * FROM Alumnos;
 ```
 
 |AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
@@ -547,14 +548,16 @@ SELECT * FROM dbo.Alumnos;
 
 # Number of columns
 
+We can get the number of columns of a table as follows:
+
 ```sql
 SELECT count(*) 
 FROM information_schema.columns 
 WHERE table_name ='House_Price_Regression';
 ```
 
-|(No column name)|
-|---|
+|Number of columns|
+|:---|
 |29|
 
 
@@ -564,13 +567,14 @@ WHERE table_name ='House_Price_Regression';
 
 # Number of rows
 
+We can get the number of rows of a table as follows:
 
 ```sql
 SELECT COUNT(*) FROM House_Price_Regression;
 ```
 
-|(No column name)|
-|---|
+|Number of rows|
+|:---|
 |1905|
 
 
@@ -578,6 +582,8 @@ SELECT COUNT(*) FROM House_Price_Regression;
 <br>
 
 # Head of a table
+
+We can get the first rows of a table as follows:
 
 ```sql
 SELECT TOP (4) [neighborhood_recode]
@@ -602,7 +608,10 @@ SELECT TOP (4) [neighborhood_recode]
 <br>
 
 
-# Select columns  of a table
+# Select columns  from a table
+
+
+We can select columns from a table as follows:
 
 ```SQL
 SELECT Nombre, Pais, Ciudad FROM dbo.Alumnos;
@@ -629,7 +638,8 @@ SELECT Nombre, Pais, Ciudad FROM dbo.Alumnos;
  
  <br>
  
- 
+Another example:
+
 ```sql
 SELECT quality_recode, balcony_recode,size_in_m_2, private_jacuzzi_recode, view_of_water_recode FROM House_Price_Regression
 ```
@@ -657,6 +667,9 @@ SELECT quality_recode, balcony_recode,size_in_m_2, private_jacuzzi_recode, view_
 
 
 # Assign alias to a column
+
+
+We can assign a name (alias) to a column as follows:
 
 ```SQL
 SELECT Nombre AS Nombre_Alumnos
@@ -686,7 +699,15 @@ FROM dbo.Alumnos;
  
 <br>
 
-# Filter rows of a table
+# Filter rows from a table
+
+We can filter rows from a table in different ways.
+
+
+## Filtering rows by conditions
+
+
+Filtering rows from **Examenes** table where **Nota** column is less than 7 :
 
 ```sql
 SELECT * FROM dbo.Examenes WHERE Nota < 7 ;
@@ -701,6 +722,7 @@ SELECT * FROM dbo.Examenes WHERE Nota < 7 ;
 
 <br>
 
+Filtering rows  from **Examenes** table where **Nota** column is less or equal than 7 :
 
 ```sql
 SELECT * FROM dbo.Examenes WHERE Nota <= 7 ;
@@ -716,6 +738,7 @@ SELECT * FROM dbo.Examenes WHERE Nota <= 7 ;
 
 <br>
 
+Filtering rows  from **Examenes** table where **Nota** column is less than 7 , and only **AlumnoID** and **Nota** columns are displayed :
 
 ```sql
 SELECT AlumnoID, Nota FROM dbo.Examenes WHERE Nota < 7 ;
@@ -730,6 +753,8 @@ SELECT AlumnoID, Nota FROM dbo.Examenes WHERE Nota < 7 ;
 
 <br>
 
+Filtering rows  from **Alumnos** table where **Nombre** column is equal to 'Fabio' :
+
 ```sql
 SELECT * FROM dbo.Alumnos WHERE Nombre = 'Fabio';
 ```
@@ -740,6 +765,8 @@ SELECT * FROM dbo.Alumnos WHERE Nombre = 'Fabio';
 
 
 <br>
+
+Filtering rows  from **Alumnos** table where **Nombre** column is not equal to 'Fabio':
 
 ```sql
 SELECT * FROM dbo.Alumnos WHERE Nombre != 'Fabio';
@@ -763,6 +790,7 @@ SELECT * FROM dbo.Alumnos WHERE Nombre != 'Fabio';
 
 <br>
 
+Filtering rows from **Alumnos** table where **Nombre** column is equal to 'Fabio' or 'Pedro' :
 
 ```sql
 SELECT * FROM dbo.Alumnos WHERE Nombre in ('Fabio','Pedro');
@@ -778,6 +806,7 @@ SELECT * FROM dbo.Alumnos WHERE Nombre in ('Fabio','Pedro');
 
 <br>
 
+Filtering rows from **Alumnos** table where **Nombre** column is different to 'Fabio' and 'Pedro' :
 
 ```sql
 SELECT * FROM dbo.Alumnos WHERE Nombre not in ('Fabio','Pedro');
@@ -799,6 +828,7 @@ SELECT * FROM dbo.Alumnos WHERE Nombre not in ('Fabio','Pedro');
 
 <br>
 
+Filtering rows from **Examenes** table where **Nota** column is less than 7 and greater than 5, and only **AlumnoID**, **Nota** and **ProfesorID** columns are displayed :
 
 ```sql
 SELECT AlumnoID , Nota, ProfesorID FROM dbo.Examenes WHERE Nota < 7 AND Nota > 5 ;
@@ -813,6 +843,7 @@ SELECT AlumnoID , Nota, ProfesorID FROM dbo.Examenes WHERE Nota < 7 AND Nota > 5
 
 <br>
 
+Filtering rows from **Profesores** table where **Estudios** column is equal to 'Inglés' or 'Geografía', and only **Nombre** column is displayed :
 
 ```sql
 SELECT Nombre FROM dbo.Profesores WHERE Estudios = 'Inglés' OR Estudios = 'Geografía' ;
@@ -827,7 +858,7 @@ SELECT Nombre FROM dbo.Profesores WHERE Estudios = 'Inglés' OR Estudios = 'Geog
 <br>
  
 
- 
+Filtering rows from **Alumnos** table where **Nombre** column is nor null :
 
 ```sql
 SELECT*FROM Alumnos WHERE Nombre is NOT NULL
@@ -852,11 +883,13 @@ SELECT*FROM Alumnos WHERE Nombre is NOT NULL
 <br>
 
 
-## Seleccionar filas por strings con Like y Not Like
+## Select rows with strings with Like and Not Like
 
 
-```SQL
-SELECT * FROM dbo.Alumnos WHERE Nombre like '%io%' ;
+Filtering rows from **Alumnos** table where **Nombre** column contains  the string 'io' :
+
+```sql
+SELECT * FROM Alumnos WHERE Nombre like '%io%' ;
 ```
 
 |AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
@@ -864,72 +897,95 @@ SELECT * FROM dbo.Alumnos WHERE Nombre like '%io%' ;
 |A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
 |A9|Sergio                                            |United States|New York|sergio_as@gmail.com||
 
-
-<br>
-
-
-```SQL
-SELECT * FROM dbo.Alumnos WHERE Nombre like '%io%' ;
-```
-
-
+ 
 
 
 
 <br>
 
+Filtering rows from **Alumnos** table where **Nombre** column starts by the string 'o' :
 
 ```SQL
-SELECT * FROM dbo.Clientes WHERE Nombre like 'o%' ; -- empieza por 'o'
+SELECT * FROM Alumnos WHERE Nombre like 'o%' ; -- starts by 'o'
 ```
+
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
+|---|---|---|---|---|---|
+|A1|Orlando                                           |Australia|||917755028|
+
  
 
 <br>
 
+Filtering rows from **Alumnos** table where **Nombre** column ends by the string 'o' :
+
 ```SQL
-SELECT * FROM dbo.Clientes WHERE Nombre like '%o' ; -- acaba por 'o'
+SELECT * FROM Alumnos WHERE Nombre like '%o' ; -- ends by 'o'
 ```
  
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
+|---|---|---|---|---|---|
+|A1|Orlando                                           |Australia|||917755028|
+|A13|Pedro                                             |Argentina|Buenos Aires|Pedro120@gmail.com||
+|A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
+|A8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|
+|A9|Sergio                                            |United States|New York|sergio_as@gmail.com||
+
+
+
 
 <br>
 
 
+Filtering rows from **Alumnos** table where **Nombre** column contains the string 'ab' an ends by 'o' :
+
 ```SQL
-SELECT * FROM dbo.Clientes WHERE Nombre like '%lan%o' ; -- contiene 'lan' y acaba por 'o'
+SELECT * FROM Alumnos WHERE Nombre like '%ab%o' ; -- has 'ab' and ends by 'o'
 ```
- 
+
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
+|---|---|---|---|---|---|
+|A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
+
+
+
 
 <br>
 
 
-```SQL
-SELECT * FROM dbo.Clientes WHERE Nombre like '%b%o' ; -- contiene 'b' y acaba por 'o'
+Filtering rows from **Alumnos** table where **Nombre** column starts with 'F' followed by 4 characters :
+
+```sql
+SELECT * FROM dbo.Alumnos WHERE Nombre like '%F____' ; -- starts with 'F' followed by 4 characters
 ```
- 
+
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
+|---|---|---|---|---|---|
+|A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
+
+
+
 
 <br>
 
+Filtering rows from **Alumnos** table where **Nombre** column starts with 'F' followed by 2 characters :
 
-
-
-```SQL
-SELECT * FROM dbo.Clientes WHERE Nombre like '%F____' ; -- empieza por 'F' seguida de 4 caracteres
-```
-
- 
-
-```SQL
+```sql
 SELECT * FROM dbo.Clientes WHERE Nombre like '%F__' ; -- empieza por 'F' seguida de 2 caracteres
 ```
  
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
+|---|---|---|---|---|---|
+ 
+
  
  
 <br>
  
- 
-
 
 # Delete rows from a table
+
+We can delete all the rows from a table as follows : 
 
 ```sql
 DELETE from Alumnos
@@ -946,8 +1002,9 @@ SELECT * FROM Alumnos
 
 <br>
 
+# Delete rows from a table that meet a condition
 
-
+We can also delete rows from a table that meet a specific condition as follows:
 
 ```sql
 Delete from Alumnos WHERE Nombre = 'Fabio'
@@ -1004,6 +1061,8 @@ SELECT * FROM Alumnos
 
 # Delete columns from a table
 
+We can delete specific columns from a table as follows : 
+
 ```sql 
 ALTER TABLE dbo.Alumnos DROP COLUMN Nombre , Email;
 ```
@@ -1030,6 +1089,7 @@ SELECT * FROM Alumnos
 
 # Delete a table
 
+We can completely delete a table as follows :
 
 ```sql
 DROP TABLE Alumnos 
@@ -1046,9 +1106,10 @@ DROP TABLE Alumnos
 
 # Update columns of a table
 
+We can update a column for specific rows that meet a condition as follows :
 
 ```sql
-UPDATE Alumnos set Nombre = 'Messi' WHERE AlumnoID = 'A2'
+UPDATE Alumnos  set  Nombre = 'Messi' WHERE AlumnoID = 'A2'
 ```
  
 ```sql
@@ -1071,36 +1132,12 @@ SELECT * FROM Alumnos
 |A9|Sergio                                            |United States|New York|sergio_as@gmail.com||
 
 
+
 <br>
 
-```SQL
-UPDATE Alumnos set Nombre = 'Messi' , Pais = 'Argentina' WHERE AlumnoID = 'A2'
-```
-                                        
+We can update all the values in a column as follows :
+
 ```sql
-SELECT * FROM Alumnos
-```
-
-|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
-|A1|Orlando                                           |Australia|||917755028|
-|A10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
-|A11|Ismael                                            |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|
-|A12|Luis                                              |Espa&#241;a|Murcia|Luismiguel123@gmail.com||
-|A13|Pedro                                             |Argentina|Buenos Aires|Pedro120@gmail.com||
-|A2|Messi                                             |Argentina||keith0@adventure-works.com||
-|A3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|
-|A4|Janet                                             |United States|California|janet1@adventure-works.com||
-|A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
-|A6|Juan                                              |Espa&#241;a|Sevilla||915869028|
-|A7|Lucia                                             |Espa&#241;a||LuciaPerez@hotmail.com||
-|A8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|
-|A9|Sergio                                            |United States|New York|sergio_as@gmail.com||
-
-
-<br>
-
-```SQL
 UPDATE Alumnos set Nombre = 'Messi' 
 ```
  
@@ -1125,11 +1162,13 @@ SELECT * FROM Alumnos
 |A9|Messi                                             |United States|New York|sergio_as@gmail.com||
  
 
+
 <br>
 
 
 ## Setting a default value for a column
 
+We can set a default value for a column when the 'DEFAULT' value is inserted : 
 
 ```sql
 IF OBJECT_ID('dbo.Otra_Tabla_1', 'U') IS NOT NULL
@@ -1173,6 +1212,8 @@ GO
 
 # Columns calculated from others
 
+
+
 ```sql
 IF OBJECT_ID('dbo.Ventas', 'U') IS NOT NULL
  DROP TABLE dbo.Ventas;
@@ -1214,7 +1255,11 @@ GO
                                            |475|0,1|C2|P3|
 
 
+
 <br>
+
+
+We can define a column based on operations between other columns as follows :
 
 ```sql
 SELECT VentasId, Producto, Precio, Descuento, 'Precio_Final' = Precio - Precio*Descuento, Cliente, Proveedor FROM Ventas
@@ -1236,7 +1281,7 @@ SELECT VentasId, Producto, Precio, Descuento, 'Precio_Final' = Precio - Precio*D
 
 # Concat strings from different columns
 
-
+We can concat string form different columns as follows :
 ```sql
 SELECT Nombre, 'Pais-Alumnos' = Pais + '-' + Ciudad FROM Alumnos
 ```
@@ -1258,10 +1303,13 @@ SELECT Nombre, 'Pais-Alumnos' = Pais + '-' + Ciudad FROM Alumnos
 |Sergio                                            |United States-New York|
 
 
+
 <br>
 
 
 # Sorting a table by columns
+
+We can sort a table by the values in a specific column, in ascended or descended order, as follows
 
 ```sql
 SELECT*FROM Examenes ORDER BY Nota ASC
@@ -1297,64 +1345,702 @@ SELECT*FROM Examenes ORDER BY Nota DESC
 
 <br>
 
-# Min, Max, Sum, Avg
+# Minmun, Maximun, Sum, Mean, Quantiles
+
+
+```sql
+INSERT INTO dbo.Examenes
+ ([ExamenID], [Nota], [Asignatura], [AlumnoID], [ProfesorID])
+VALUES
+  ( 'E6', 5, N'Lengua', N'A3', N'P3'),
+ ( 'E7', 7, N'Inglés', N'A12', N'P7'),
+ ( 'E8', 7, N'Física', N'A1', N'P2'),
+   ( 'E9', 8, N'Lengua', N'A2', N'P3'),
+ ( 'E10', 6.90, N'Inglés', N'A11', N'P7'),
+ ( 'E11', 5.25, N'Física', N'A2', N'P2'),
+   ( 'E12', 6, N'Lengua', N'A4', N'P3'),
+ ( 'E13', 7.2, N'Inglés', N'A6', N'P7'),
+ ( 'E14', 7.8, N'Física', N'A5', N'P2'),
+   ( 'E15', 5.5, N'Lengua', N'A7', N'P3'),
+ ( 'E16', 3, N'Inglés', N'A10', N'P7'),
+ ( 'E17', 4, N'Física', N'A10', N'P2')
+GO
+```
+
+```sql
+SELECT * FROM Examenes
+```
+
+|ExamenID|Nota|Asignatura|AlumnoID|ProfesorID|
+|---|---|---|---|---|
+|E1|6.70|Matem&#225;ticas|A2|P1|
+|E10|6.90|Ingl&#233;s|A11|P7|
+|E11|5.25|F&#237;sica|A2|P2|
+|E12|6.00|Lengua|A4|P3|
+|E13|7.20|Ingl&#233;s|A6|P7|
+|E14|7.80|F&#237;sica|A5|P2|
+|E15|5.50|Lengua|A7|P3|
+|E16|3.00|Ingl&#233;s|A10|P7|
+|E17|4.00|F&#237;sica|A10|P2|
+|E2|8.00|F&#237;sica|A4|P2|
+|E3|4.25|Matem&#225;ticas|A1|P1|
+|E4|6.50|Ingl&#233;s|A7|P7|
+|E5|7.00|Lengua|A9|P3|
+|E6|5.00|Lengua|A3|P3|
+|E7|7.00|Ingl&#233;s|A12|P7|
+|E8|7.00|F&#237;sica|A1|P2|
+|E9|8.00|Lengua|A2|P3|
+
+<br>
+
 
 ```SQL
-SELECT Min(Precio) FROM Ventas ;
+SELECT Min(Nota) as Nota_min FROM Examenes ;
 ```
-|(No column name)|
+
+|Nota_min|
 |---|
-|475|
+|3.00|
 
 
+
+<br>
 
 ```SQL
-SELECT Max(Precio) FROM Ventas ;
+SELECT Max(Nota) as Nota_max FROM Examenes ;
 ```
-|(No column name)|
-|---|
-|1500|
 
+|Nota_max|
+|---|
+|8.00|
+
+
+
+<br>
 
 ```SQL
-SELECT Sum(Precio) FROM Ventas ;
+SELECT Avg(Nota) as Nota_mean FROM Examenes ;
 ```
-|(No column name)|
+
+|Nota_mean|
 |---|
-|2674,5|
+|6.182352|
 
 
 
-```SQL
-SELECT Avg(Precio) FROM Ventas ;
+
+<br>
+
+```sql
+SELECT Var(Nota) as Nota_var FROM Examenes ;
 ```
-|(No column name)|
+
+|Nota_var|
 |---|
-|891,5|
+|2,1587316176470708|
+
+
+
+<br>
+
+
+```sql
+SELECT Stdev(Nota) as Nota_std FROM Examenes ;
+```
+
+|Nota_std|
+|---|
+|1,4692622698643938|
+
+
+<br>
+
+```sql
+SELECT TOP (1) PERCENTILE_DISC(0.30) 
+WITHIN GROUP (ORDER BY Nota ASC)
+OVER () AS Nota_Q30
+FROM Examenes
+```
+
+|Nota_Q30|
+|---|
+|5.50|
+
+<br>
+
+```sql
+SELECT TOP (1) PERCENTILE_DISC(0.80) 
+WITHIN GROUP (ORDER BY Nota ASC)
+OVER () AS Nota_Q80
+FROM Examenes
+```
+
+|Nota_Q80|
+|---|
+|7.20|
+
 
 
 <br>
 
 # Group by
 
+```sql
+SELECT Nombre, COUNT(Nombre) as Cantidad_Nombre
+FROM Alumnos
+GROUP BY Nombre
+```
+
+|Nombre|Cantidad_Nombre|
+|---|---|
+|Donna                                             |1|
+|Fabio                                             |1|
+|Grecia                                            |1|
+|Ismael                                            |1|
+|Janet                                             |1|
+|Juan                                              |1|
+|Keith                                             |1|
+|Lucia                                             |1|
+|Luis                                              |1|
+|Orlando                                           |1|
+|Pedro                                             |2|
+|Sergio                                            |1|
+
+
+<br>
+
+ 
+
+```sql
+SELECT Asignatura, AVG(Nota) as Nota_Media, MIN(Nota) as Nota_Min, MAX(Nota) as Nota_Max, VAR(Nota) as Nota_Var
+INTO Tabla_Resumen
+FROM Examenes
+GROUP BY Asignatura;
+```
+
+```sql
+SELECT * FROM Tabla_Resumen
+```
+
+|Asignatura|Nota_Media|Nota_Min|Nota_Max|Nota_Var|
+|---|---|---|---|---|
+|F&#237;sica|6.410000|4.00|8.00|2,9905000000000044|
+|Ingl&#233;s|6.120000|3.00|7.20|3,1069999999999993|
+|Lengua|6.300000|5.00|8.00|1,4500000000000028|
+|Matem&#225;ticas|5.475000|4.25|6.70|3,001250000000006|
+
 
 
 
 <br>
 
+```sql
+SELECT DISTINCT Asignatura, PERCENTILE_CONT(0.30) 
+WITHIN GROUP (ORDER BY Nota ASC) 
+OVER (PARTITION BY Asignatura) as Nota_Q30
+FROM Examenes
+```
+
+|Asignatura|Nota_Q30|
+|---|---|
+|F&#237;sica|5,6000000000000005|
+|Ingl&#233;s|6,58|
+|Lengua|5,6|
+|Matem&#225;ticas|4,984999999999999|
+
+
+<br>
+
+```sql
+SELECT DISTINCT Asignatura, PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY Nota ASC) OVER (PARTITION BY Asignatura) as Nota_Q25
+INTO Tabla_Q25
+FROM Examenes
+```
+
+```sql
+SELECT * FROM Tabla_Q25
+```
+
+|Asignatura|Nota_Q25|
+|---|---|
+|F&#237;sica|5,25|
+|Ingl&#233;s|6,5|
+|Lengua|5,5|
+|Matem&#225;ticas|4,8625|
+
+
+
+<br>
+
+```sql
+SELECT DISTINCT Asignatura, PERCENTILE_CONT(0.50) WITHIN GROUP (ORDER BY Nota ASC) OVER (PARTITION BY Asignatura) as Nota_Q50
+INTO Tabla_Q50
+FROM Examenes
+```
+
+```sql
+SELECT * FROM Tabla_Q50
+```
+
+|Asignatura|Nota_Q50|
+|---|---|
+|F&#237;sica|7|
+|Ingl&#233;s|6,9|
+|Lengua|6|
+|Matem&#225;ticas|5,475|
+
+
+
+<br>
+
+```sql
+SELECT DISTINCT Asignatura, PERCENTILE_CONT(0.75) WITHIN GROUP (ORDER BY Nota ASC) OVER (PARTITION BY Asignatura) as Nota_Q75
+INTO Tabla_Q75
+FROM Examenes
+```
+
+```sql
+SELECT * FROM Tabla_Q75
+```
+
+|Asignatura|Nota_Q75|
+|---|---|
+|F&#237;sica|7,8|
+|Ingl&#233;s|7|
+|Lengua|7|
+|Matem&#225;ticas|6,0875|
+
+
+
+
+
+<br>
+
+```sql
+SELECT e.Asignatura, e.Nota_Media, e.Nota_Min, e.Nota_Max, e.Nota_Var, c.Nota_Q25, d.Nota_Q50, f.Nota_Q75
+FROM Tabla_Resumen e
+JOIN Tabla_Q25 c ON e.Asignatura = c.Asignatura
+JOIN Tabla_Q50 d ON e.Asignatura = d.Asignatura
+JOIN Tabla_Q75 f ON e.Asignatura = f.Asignatura;
+```
+
+|Asignatura|Nota_Media|Nota_Min|Nota_Max|Nota_Var|Nota_Q25|Nota_Q50|Nota_Q75|
+|---|---|---|---|---|---|---|---|
+|F&#237;sica|6.410000|4.00|8.00|2,9905000000000044|5,25|7|7,8|
+|Ingl&#233;s|6.120000|3.00|7.20|3,1069999999999993|6,5|6,9|7|
+|Lengua|6.300000|5.00|8.00|1,4500000000000028|5,5|6|7|
+|Matem&#225;ticas|5.475000|4.25|6.70|3,001250000000006|4,8625|5,475|6,0875|
+
+
+ 
+
+
+<br>
+
+
 ## Having
 
 
+```sql
+SELECT Nombre, COUNT(Nombre) as Cantidad_Nombre
+FROM Alumnos
+GROUP BY Nombre
+```
+
+|Nombre|Cantidad_Nombre|
+|---|---|
+|Donna                                             |1|
+|Fabio                                             |1|
+|Grecia                                            |1|
+|Ismael                                            |1|
+|Janet                                             |1|
+|Juan                                              |1|
+|Keith                                             |1|
+|Lucia                                             |1|
+|Luis                                              |1|
+|Orlando                                           |1|
+|Pedro                                             |2|
+|Sergio                                            |1|
+
+
+
+<br>
+
+```sql
+SELECT Nombre, COUNT(Nombre) as Cantidad_Nombre
+FROM Alumnos
+GROUP BY Nombre
+HAVING COUNT(Nombre) > 1
+```
+
+|Nombre|Cantidad_Nombre|
+|---|---|
+|Pedro                                             |2|
 
 
 
 
-# Mas cosas ?
+
+
+<br>
+
+
+
+```sql
+SELECT Asignatura, AVG(Nota) as Nota_Media, MIN(Nota) as Nota_Min , MAX(Nota) as Nota_Max , VAR(Nota) as Nota_Var
+FROM Examenes
+GROUP BY Asignatura
+```
+
+|Asignatura|Nota_Media|Nota_Min|Nota_Max|Nota_Var|
+|---|---|---|---|---|
+|F&#237;sica|6.410000|4.00|8.00|2,9905000000000044|
+|Ingl&#233;s|6.120000|3.00|7.20|3,1069999999999993|
+|Lengua|6.300000|5.00|8.00|1,4500000000000028|
+|Matem&#225;ticas|5.475000|4.25|6.70|3,001250000000006|
+
+
+
+<br>
+
+```sql
+SELECT Asignatura, AVG(Nota) as Nota_Media, MIN(Nota) as Nota_Min , MAX(Nota) as Nota_Max , VAR(Nota) as Nota_Var
+FROM Examenes
+GROUP BY Asignatura
+HAVING AVG(Nota) > 6.2
+```
+
+|Asignatura|Nota_Media|Nota_Min|Nota_Max|Nota_Var|
+|---|---|---|---|---|
+|F&#237;sica|6.410000|4.00|8.00|2,9905000000000044|
+|Lengua|6.300000|5.00|8.00|1,4500000000000028|
+
+
+
+<br>
+
+```sql
+SELECT Asignatura, AVG(Nota) as Nota_Media, MIN(Nota) as Nota_Min , MAX(Nota) as Nota_Max , VAR(Nota) as Nota_Var
+FROM Examenes
+GROUP BY Asignatura
+HAVING Min(Nota) >= 5
+```
+
+|Asignatura|Nota_Media|Nota_Min|Nota_Max|Nota_Var|
+|---|---|---|---|---|
+|Lengua|6.300000|5.00|8.00|1,4500000000000028|
 
 
 
 
 
 
+
+<br>
+
+
+
+ 
+# Join tables
+
+
+```sql
+SELECT a.Nombre, b.Asignatura , b.Nota
+FROM Alumnos a
+JOIN Examenes b 
+ON a.AlumnoID = b.AlumnoID
+```
+
+|Nombre|Asignatura|Nota|
+|---|---|---|
+|Keith                                             |Matem&#225;ticas|6.70|
+|Ismael                                            |Ingl&#233;s|6.90|
+|Keith                                             |F&#237;sica|5.25|
+|Janet                                             |Lengua|6.00|
+|Juan                                              |Ingl&#233;s|7.20|
+|Fabio                                             |F&#237;sica|7.80|
+|Lucia                                             |Lengua|5.50|
+|Grecia                                            |Ingl&#233;s|3.00|
+|Grecia                                            |F&#237;sica|4.00|
+|Janet                                             |F&#237;sica|8.00|
+|Orlando                                           |Matem&#225;ticas|4.25|
+|Lucia                                             |Ingl&#233;s|6.50|
+|Sergio                                            |Lengua|7.00|
+|Donna                                             |Lengua|5.00|
+|Luis                                              |Ingl&#233;s|7.00|
+|Orlando                                           |F&#237;sica|7.00|
+|Keith                                             |Lengua|8.00|
+
+
+<br>
+
+
+```sql
+SELECT a.Nombre, b.Asignatura , a.email
+FROM Profesores a
+JOIN Examenes b 
+ON a.ProfesorID = b.ProfesorID
+```
+
+|Nombre|Asignatura|email|
+|---|---|---|
+|Juan|Matem&#225;ticas|JuanPerez@colegio.es|
+|Garazi|Ingl&#233;s|GaraziGarcia@colegio.es|
+|Sonia|F&#237;sica|SoniDiaz@colegio.es|
+|Lucia|Lengua|LuciaPerez@colegio.es|
+|Garazi|Ingl&#233;s|GaraziGarcia@colegio.es|
+|Sonia|F&#237;sica|SoniDiaz@colegio.es|
+|Lucia|Lengua|LuciaPerez@colegio.es|
+|Garazi|Ingl&#233;s|GaraziGarcia@colegio.es|
+|Sonia|F&#237;sica|SoniDiaz@colegio.es|
+|Sonia|F&#237;sica|SoniDiaz@colegio.es|
+|Juan|Matem&#225;ticas|JuanPerez@colegio.es|
+|Garazi|Ingl&#233;s|GaraziGarcia@colegio.es|
+|Lucia|Lengua|LuciaPerez@colegio.es|
+|Lucia|Lengua|LuciaPerez@colegio.es|
+|Garazi|Ingl&#233;s|GaraziGarcia@colegio.es|
+|Sonia|F&#237;sica|SoniDiaz@colegio.es|
+|Lucia|Lengua|LuciaPerez@colegio.es|
+
+
+
+
+<br>
+
+
+```sql
+SELECT a.Nombre, b.Asignatura , a.Estudios, a.email, b.AlumnoID, b.Nota
+FROM Profesores a
+FULL OUTER JOIN Examenes b 
+ON a.ProfesorID = b.ProfesorID
+```
+
+|Nombre|Asignatura|Estudios|email|AlumnoID|Nota|
+|---|---|---|---|---|---|
+|Juan|Matem&#225;ticas|Matem&#225;ticas|JuanPerez@colegio.es|A2|6.70|
+|Juan|Matem&#225;ticas|Matem&#225;ticas|JuanPerez@colegio.es|A1|4.25|
+|Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|A2|5.25|
+|Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|A5|7.80|
+|Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|A10|4.00|
+|Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|A4|8.00|
+|Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|A1|7.00|
+|Lucia|Lengua|Lengua|LuciaPerez@colegio.es|A4|6.00|
+|Lucia|Lengua|Lengua|LuciaPerez@colegio.es|A7|5.50|
+|Lucia|Lengua|Lengua|LuciaPerez@colegio.es|A9|7.00|
+|Lucia|Lengua|Lengua|LuciaPerez@colegio.es|A3|5.00|
+|Lucia|Lengua|Lengua|LuciaPerez@colegio.es|A2|8.00|
+|Marcos|NULL|Biolog&#237;a|MarcosSanz@colegio.es|NULL|NULL|
+|Carlos|NULL|Educaci&#243;n F&#237;sica|CarlosFernandez@colegio.es|NULL|NULL|
+|Daniel|NULL|Geograf&#237;a|DanielOrtiz@colegio.es|NULL|NULL|
+|Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|A11|6.90|
+|Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|A6|7.20|
+|Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|A10|3.00|
+|Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|A7|6.50|
+|Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|A12|7.00|
+
+
+<br>
+
+
+```sql
+SELECT DISTINCT a.Nombre, b.Asignatura , a.Estudios, a.email
+FROM Profesores a
+FULL OUTER JOIN Examenes b 
+ON a.ProfesorID = b.ProfesorID
+```
+
+|Nombre|Asignatura|Estudios|email|
+|---|---|---|---|
+|Carlos|NULL|Educaci&#243;n F&#237;sica|CarlosFernandez@colegio.es|
+|Daniel|NULL|Geograf&#237;a|DanielOrtiz@colegio.es|
+|Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|
+|Juan|Matem&#225;ticas|Matem&#225;ticas|JuanPerez@colegio.es|
+|Lucia|Lengua|Lengua|LuciaPerez@colegio.es|
+|Marcos|NULL|Biolog&#237;a|MarcosSanz@colegio.es|
+|Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|
+
+
+
+<br>
+
+
+```sql
+SELECT a.Nombre, b.Asignatura , a.Estudios, a.email
+FROM Profesores a
+RIGHT JOIN Examenes b 
+ON a.ProfesorID = b.ProfesorID
+```
+
+|Nombre|Asignatura|Estudios|email|
+|---|---|---|---|
+|Juan|Matem&#225;ticas|Matem&#225;ticas|JuanPerez@colegio.es|
+|Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|
+|Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|
+|Lucia|Lengua|Lengua|LuciaPerez@colegio.es|
+|Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|
+|Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|
+|Lucia|Lengua|Lengua|LuciaPerez@colegio.es|
+|Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|
+|Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|
+|Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|
+|Juan|Matem&#225;ticas|Matem&#225;ticas|JuanPerez@colegio.es|
+|Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|
+|Lucia|Lengua|Lengua|LuciaPerez@colegio.es|
+|Lucia|Lengua|Lengua|LuciaPerez@colegio.es|
+|Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|
+|Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|
+|Lucia|Lengua|Lengua|LuciaPerez@colegio.es|
+
+
+
+<br>
+
+
+```sql
+SELECT DISTINCT a.Nombre, b.Asignatura , a.Estudios, a.email
+FROM Profesores a
+RIGHT JOIN Examenes b 
+ON a.ProfesorID = b.ProfesorID
+```
+
+|Nombre|Asignatura|Estudios|email|
+|---|---|---|---|
+|Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|
+|Juan|Matem&#225;ticas|Matem&#225;ticas|JuanPerez@colegio.es|
+|Lucia|Lengua|Lengua|LuciaPerez@colegio.es|
+|Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|
+
+
+
+
+<br>
+
+
+```sql
+SELECT a.Nombre, b.Asignatura, b.Nota, a.email
+FROM Alumnos a
+RIGHT JOIN Examenes b 
+ON a.AlumnoID = b.AlumnoID
+```
+
+|Nombre|Asignatura|Nota|email|
+|---|---|---|---|
+|Keith                                             |Matem&#225;ticas|6.70|keith0@adventure-works.com|
+|Ismael                                            |Ingl&#233;s|6.90|Isma98@gmail.com|
+|Keith                                             |F&#237;sica|5.25|keith0@adventure-works.com|
+|Janet                                             |Lengua|6.00|janet1@adventure-works.com|
+|Juan                                              |Ingl&#233;s|7.20||
+|Fabio                                             |F&#237;sica|7.80|fabio10@gmail.com|
+|Lucia                                             |Lengua|5.50|LuciaPerez@hotmail.com|
+|Grecia                                            |Ingl&#233;s|3.00|Grecia89@gmail.com|
+|Grecia                                            |F&#237;sica|4.00|Grecia89@gmail.com|
+|Janet                                             |F&#237;sica|8.00|janet1@adventure-works.com|
+|Orlando                                           |Matem&#225;ticas|4.25||
+|Lucia                                             |Ingl&#233;s|6.50|LuciaPerez@hotmail.com|
+|Sergio                                            |Lengua|7.00|sergio_as@gmail.com|
+|Donna                                             |Lengua|5.00|donna0@adventure-works.com|
+|Luis                                              |Ingl&#233;s|7.00|Luismiguel123@gmail.com|
+|Orlando                                           |F&#237;sica|7.00||
+|Keith                                             |Lengua|8.00|keith0@adventure-works.com|
+
+
+<br>
+
+
+```sql
+SELECT a.Nombre, b.Asignatura, b.Nota, a.email, a.AlumnoID
+FROM Alumnos a
+LEFT JOIN Examenes b 
+ON a.AlumnoID = b.AlumnoID
+```
+
+|Nombre|Asignatura|Nota|email|AlumnoID|
+|---|---|---|---|---|
+|Orlando                                           |Matem&#225;ticas|4.25||A1|
+|Orlando                                           |F&#237;sica|7.00||A1|
+|Grecia                                            |Ingl&#233;s|3.00|Grecia89@gmail.com|A10|
+|Grecia                                            |F&#237;sica|4.00|Grecia89@gmail.com|A10|
+|Ismael                                            |Ingl&#233;s|6.90|Isma98@gmail.com|A11|
+|Luis                                              |Ingl&#233;s|7.00|Luismiguel123@gmail.com|A12|
+|Pedro                                             |NULL|NULL|Pedro120@gmail.com|A13|
+|Keith                                             |Matem&#225;ticas|6.70|keith0@adventure-works.com|A2|
+|Keith                                             |F&#237;sica|5.25|keith0@adventure-works.com|A2|
+|Keith                                             |Lengua|8.00|keith0@adventure-works.com|A2|
+|Donna                                             |Lengua|5.00|donna0@adventure-works.com|A3|
+|Janet                                             |Lengua|6.00|janet1@adventure-works.com|A4|
+|Janet                                             |F&#237;sica|8.00|janet1@adventure-works.com|A4|
+|Fabio                                             |F&#237;sica|7.80|fabio10@gmail.com|A5|
+|Juan                                              |Ingl&#233;s|7.20||A6|
+|Lucia                                             |Lengua|5.50|LuciaPerez@hotmail.com|A7|
+|Lucia                                             |Ingl&#233;s|6.50|LuciaPerez@hotmail.com|A7|
+|Pedro                                             |NULL|NULL|Pedro99@gmail.com|A8|
+|Sergio                                            |Lengua|7.00|sergio_as@gmail.com|A9|
+
+<br>
+
+
+```sql
+SELECT a.Nombre, b.Asignatura , a.Estudios, a.email
+FROM Profesores a
+LEFT JOIN Examenes b 
+ON a.ProfesorID = b.ProfesorID
+```
+
+|Nombre|Asignatura|Estudios|email|
+|---|---|---|---|
+|Juan|Matem&#225;ticas|Matem&#225;ticas|JuanPerez@colegio.es|
+|Juan|Matem&#225;ticas|Matem&#225;ticas|JuanPerez@colegio.es|
+|Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|
+|Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|
+|Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|
+|Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|
+|Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|
+|Lucia|Lengua|Lengua|LuciaPerez@colegio.es|
+|Lucia|Lengua|Lengua|LuciaPerez@colegio.es|
+|Lucia|Lengua|Lengua|LuciaPerez@colegio.es|
+|Lucia|Lengua|Lengua|LuciaPerez@colegio.es|
+|Lucia|Lengua|Lengua|LuciaPerez@colegio.es|
+|Marcos|NULL|Biolog&#237;a|MarcosSanz@colegio.es|
+|Carlos|NULL|Educaci&#243;n F&#237;sica|CarlosFernandez@colegio.es|
+|Daniel|NULL|Geograf&#237;a|DanielOrtiz@colegio.es|
+|Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|
+|Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|
+|Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|
+|Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|
+|Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|
+
+
+
+<br>
+
+
+```sql
+SELECT DISTINCT a.Nombre, b.Asignatura , a.Estudios, a.email
+FROM Profesores a
+LEFT JOIN Examenes b 
+ON a.ProfesorID = b.ProfesorID
+```
+
+
+|Nombre|Asignatura|Estudios|email|
+|---|---|---|---|
+|Carlos|NULL|Educaci&#243;n F&#237;sica|CarlosFernandez@colegio.es|
+|Daniel|NULL|Geograf&#237;a|DanielOrtiz@colegio.es|
+|Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|
+|Juan|Matem&#225;ticas|Matem&#225;ticas|JuanPerez@colegio.es|
+|Lucia|Lengua|Lengua|LuciaPerez@colegio.es|
+|Marcos|NULL|Biolog&#237;a|MarcosSanz@colegio.es|
+|Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|
+
+
+<br>
+
+
+# Bibliography
+
+- Microsoft. (2021). Get Started Querying with Transact-SQL. https://learn.microsoft.com/es-es/training/paths/get-started-querying-with-transact-sql/
+
+
+<br>
 
 

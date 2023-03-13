@@ -23,7 +23,7 @@
 <meta name="author" content="Fabio Scielzo Ortiz" />
 
 
-<meta name="date" content="2023-03-11" />
+<meta name="date" content="2023-03-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -198,7 +198,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="inner-join" class="section level2 hasAnchor" number="17.1">
 <h2><span class="header-section-number">17.1</span> Inner Join<a href="join-data-frames-using-merge.html#inner-join" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The inner join operation applied to two data frames <span class="math inline">\(\hspace{0.01cm}DF_1\hspace{0.01cm}\)</span> and <span class="math inline">\(\hspace{0.01cm}DF_2\hspace{0.01cm}\)</span> produces another data frame consisting of the union of the rows of <span class="math inline">\(DF_1\)</span> and <span class="math inline">\(DF_2\)</span> that share the same value in the link column (share linking value).</p>
-<p><br></p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb78-1"><a href="join-data-frames-using-merge.html#cb78-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Examenes, Alumnos, on<span class="op">=</span><span class="st">&#39;AlumnoID&#39;</span>, how<span class="op">=</span><span class="st">&#39;inner&#39;</span>)  <span class="co"># equivalent to inner join</span></span></code></pre></div>
 <div style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
@@ -597,11 +596,11 @@ Lengua
 <p>The correct way to use <code>merge</code> when the names of link columns are different is:</p>
 <div class="sourceCode" id="cb80"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb80-1"><a href="join-data-frames-using-merge.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># df_merge = pd.merge(df1, df2, left_on=&#39;id1&#39; , right_on=&#39;id2&#39;, how=&#39;inner&#39;)</span></span></code></pre></div>
 <p><br></p>
+<p><br></p>
 </div>
 <div id="outer-join" class="section level2 hasAnchor" number="17.2">
 <h2><span class="header-section-number">17.2</span> Outer Join<a href="join-data-frames-using-merge.html#outer-join" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The outer join operation applied to two data frames <span class="math inline">\(\hspace{0.01cm}DF_1\hspace{0.01cm}\)</span> and <span class="math inline">\(\hspace{0.01cm}DF_2\hspace{0.01cm}\)</span> produces the same data frame of inner join, but adding the rows from <span class="math inline">\(DF_1\)</span> that don’t share linking value with any row from <span class="math inline">\(DF_2\)</span>, and the rows from <span class="math inline">\(DF_2\)</span> that don’t share linking value with any row form <span class="math inline">\(DF_1\)</span>.</p>
-<p><br></p>
 <div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb81-1"><a href="join-data-frames-using-merge.html#cb81-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Examenes, Alumnos, on<span class="op">=</span><span class="st">&#39;AlumnoID&#39;</span>, how<span class="op">=</span><span class="st">&#39;outer&#39;</span>)  <span class="co"># equivalent to outer join</span></span></code></pre></div>
 <div style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
@@ -1358,11 +1357,11 @@ Geografía
 </table>
 </div>
 <p><br></p>
+<p><br></p>
 </div>
 <div id="left-join" class="section level2 hasAnchor" number="17.3">
 <h2><span class="header-section-number">17.3</span> Left Join<a href="join-data-frames-using-merge.html#left-join" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The left join operation applied to two data frames <span class="math inline">\(\hspace{0.01cm}DF_1\hspace{0.01cm}\)</span> and <span class="math inline">\(\hspace{0.01cm}DF_2\hspace{0.01cm}\)</span> produces another data frame consisting of the rows of <span class="math inline">\(DF_1\)</span> and <span class="math inline">\(DF_2\)</span> that share link value, and the rest rows of <span class="math inline">\(DF_1\)</span>.</p>
-<p><br></p>
 <div class="sourceCode" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb83-1"><a href="join-data-frames-using-merge.html#cb83-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Examenes, Alumnos, on<span class="op">=</span><span class="st">&#39;AlumnoID&#39;</span>, how<span class="op">=</span><span class="st">&#39;left&#39;</span>)  <span class="co"># equivalent to left join</span></span></code></pre></div>
 <div style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">
@@ -2060,11 +2059,11 @@ NaN
 </table>
 </div>
 <p><br></p>
+<p><br></p>
 </div>
 <div id="right-join" class="section level2 hasAnchor" number="17.4">
 <h2><span class="header-section-number">17.4</span> Right Join<a href="join-data-frames-using-merge.html#right-join" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The right join operation applied to two data frames <span class="math inline">\(\hspace{0.01cm}DF_1\hspace{0.01cm}\)</span> and <span class="math inline">\(\hspace{0.01cm}DF_2\hspace{0.01cm}\)</span> produces another data frame consisting of the rows of <span class="math inline">\(DF_1\)</span> and <span class="math inline">\(DF_2\)</span> that share link value, and the rest rows of <span class="math inline">\(DF_2\)</span>.</p>
-<p><br></p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb85-1"><a href="join-data-frames-using-merge.html#cb85-1" aria-hidden="true" tabindex="-1"></a>pd.merge(Examenes, Alumnos, on<span class="op">=</span><span class="st">&#39;AlumnoID&#39;</span>, how<span class="op">=</span><span class="st">&#39;right&#39;</span>)  <span class="co"># equivalent to right join</span></span></code></pre></div>
 <div style="width: 100%; overflow-x: auto;">
 <table border="1" class="dataframe">

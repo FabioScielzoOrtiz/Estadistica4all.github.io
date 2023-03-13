@@ -8211,7 +8211,6 @@ concat([df1,df2] , axis=1)
 
 The inner join operation applied to two data frames $\hspace{0.01cm}DF_1\hspace{0.01cm}$ and $\hspace{0.01cm}DF_2\hspace{0.01cm}$ produces another data frame consisting of the union of the rows of $DF_1$ and $DF_2$ that share the same value in the link column (share linking value).
 
-<br>
 
 
 ```python
@@ -8407,13 +8406,16 @@ The correct way to use `merge` when the names of link columns are different is:
 
 <br>
 
+ 
+
+<br>
+
 
 ## Outer Join
 
  
 The outer join operation applied to two data frames $\hspace{0.01cm}DF_1\hspace{0.01cm}$ and $\hspace{0.01cm}DF_2\hspace{0.01cm}$ produces the same data frame of inner join, but adding the rows from $DF_1$ that don't share linking value with any row from $DF_2$, and the rows from $DF_2$ that don't share linking value with any row form $DF_1$.
 
-<br>
 
 ```python
 pd.merge(Examenes, Alumnos, on='AlumnoID', how='outer')  # equivalent to outer join
@@ -8734,13 +8736,16 @@ pd.merge(Examenes, Profesores, on='ProfesorID', how='outer')  # equivalent to ou
 
 <br>
 
+ 
+
+<br>
+
 
 ## Left Join
 
 The left join operation applied to two data frames $\hspace{0.01cm}DF_1\hspace{0.01cm}$ and $\hspace{0.01cm}DF_2\hspace{0.01cm}$ produces another data frame consisting of the rows of $DF_1$ and $DF_2$ that share link value, and the rest rows of $DF_1$.
 
 
-<br>
 
 ```python
 pd.merge(Examenes, Alumnos, on='AlumnoID', how='left')  # equivalent to left join
@@ -9040,11 +9045,14 @@ pd.merge(Alumnos, Examenes, on='AlumnoID', how='left')  # equivalent to left joi
 
 <br>
 
+ 
+
+<br>
+
 ## Right Join
 
 The right join operation applied to two data frames $\hspace{0.01cm}DF_1\hspace{0.01cm}$ and $\hspace{0.01cm}DF_2\hspace{0.01cm}$ produces another data frame consisting of the rows of $DF_1$ and $DF_2$ that share link value, and the rest rows of $DF_2$.
 
-<br>
 
 
 ```python
