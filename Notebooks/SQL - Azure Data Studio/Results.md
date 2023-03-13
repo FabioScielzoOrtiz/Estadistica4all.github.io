@@ -1,4 +1,6 @@
-|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
-|A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
-|A9|Sergio                                            |United States|New York|sergio_as@gmail.com||
+|Asignatura|Nota_Media|Nota_Min|Nota_Max|Nota_Var|
+|---|---|---|---|---|
+|F&#237;sica|6.410000|4.00|8.00|2,9905000000000044|
+|Ingl&#233;s|6.120000|3.00|7.20|3,1069999999999993|
+|Lengua|6.300000|5.00|8.00|1,4500000000000028|
+|Matem&#225;ticas|5.475000|4.25|6.70|3,001250000000006|
