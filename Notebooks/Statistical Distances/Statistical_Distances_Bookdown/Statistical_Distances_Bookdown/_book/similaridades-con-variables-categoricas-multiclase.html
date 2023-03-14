@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Similaridades con variables categoricas multiclase | Distancias Estadísticas</title>
+  <meta name="description" content="Esta es una introducción a las distancias estadísticas." />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Similaridades con variables categoricas multiclase | Distancias Estadísticas" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Esta es una introducción a las distancias estadísticas." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Similaridades con variables categoricas multiclase | Distancias Estadísticas" />
+  
+  <meta name="twitter:description" content="Esta es una introducción a las distancias estadísticas." />
+  
+
+<meta name="author" content="Fabio Scielzo Ortiz" />
+
+
+<meta name="date" content="2023-03-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="similaridades-con-variables-categoricas-binarias.html"/>
+<link rel="next" href="conjuntos-de-variables-estadisticas-de-tipo-mixto.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Distancias Estadísticas</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Data-sets</a></li>
+<li class="chapter" data-level="2" data-path="distancias.html"><a href="distancias.html"><i class="fa fa-check"></i><b>2</b> Distancias</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="distancias.html"><a href="distancias.html#casi-métrica"><i class="fa fa-check"></i><b>2.1</b> Casi-métrica</a></li>
+<li class="chapter" data-level="2.2" data-path="distancias.html"><a href="distancias.html#semi-métrica"><i class="fa fa-check"></i><b>2.2</b> Semi-métrica</a></li>
+<li class="chapter" data-level="2.3" data-path="distancias.html"><a href="distancias.html#métrica"><i class="fa fa-check"></i><b>2.3</b> Métrica</a></li>
+<li class="chapter" data-level="2.4" data-path="distancias.html"><a href="distancias.html#distancia"><i class="fa fa-check"></i><b>2.4</b> Distancia</a></li>
+<li class="chapter" data-level="2.5" data-path="distancias.html"><a href="distancias.html#matriz-de-distancias"><i class="fa fa-check"></i><b>2.5</b> Matriz de distancias</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html"><i class="fa fa-check"></i><b>3</b> Distancias con variables estadísticas cuantitativas</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-euclidea"><i class="fa fa-check"></i><b>3.1</b> Distancia Euclidea</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-euclidea-en-python"><i class="fa fa-check"></i><b>3.1.1</b> Distancia Euclidea en <code>Python</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-minkowski"><i class="fa fa-check"></i><b>3.2</b> Distancia de Minkowski</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#casos-particulares-de-la-distancia-de-minkowski"><i class="fa fa-check"></i><b>3.2.1</b> Casos particulares de la distancia de Minkowski</a></li>
+<li class="chapter" data-level="3.2.2" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-minkowski-en-python"><i class="fa fa-check"></i><b>3.2.2</b> Distancia de Minkowski en <code>Python</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-canberra"><i class="fa fa-check"></i><b>3.3</b> Distancia de Canberra</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-canberra-en-python"><i class="fa fa-check"></i><b>3.3.1</b> Distancia de Canberra en <code>Python</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-pearson"><i class="fa fa-check"></i><b>3.4</b> Distancia de Pearson</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-pearson-en-python"><i class="fa fa-check"></i><b>3.4.1</b> Distancia de Pearson en <code>Python</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-mahalanobis"><i class="fa fa-check"></i><b>3.5</b> Distancia de Mahalanobis</a></li>
+<li class="chapter" data-level="3.6" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-mahalanobis-en-python"><i class="fa fa-check"></i><b>3.6</b> Distancia de Mahalanobis en <code>Python</code> <a class="anchor" id="1"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="similaridades.html"><a href="similaridades.html"><i class="fa fa-check"></i><b>4</b> Similaridades</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="similaridades.html"><a href="similaridades.html#similaridad"><i class="fa fa-check"></i><b>4.1</b> Similaridad</a></li>
+<li class="chapter" data-level="4.2" data-path="similaridades.html"><a href="similaridades.html#pasar-de-similaridad-a-distancia"><i class="fa fa-check"></i><b>4.2</b> Pasar de similaridad a distancia</a></li>
+<li class="chapter" data-level="4.3" data-path="similaridades.html"><a href="similaridades.html#matriz-de-similaridades"><i class="fa fa-check"></i><b>4.3</b> Matriz de Similaridades <a class="anchor" id="49"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html"><i class="fa fa-check"></i><b>5</b> Similaridades con variables categoricas binarias</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#parámetros-a-b-c-y-d"><i class="fa fa-check"></i><b>5.1</b> Parámetros a, b , c y d</a></li>
+<li class="chapter" data-level="5.2" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#matrices-con-los-parámetros-a-b-c-y-d"><i class="fa fa-check"></i><b>5.2</b> Matrices con los parámetros a, b, c y d</a></li>
+<li class="chapter" data-level="5.3" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#cálculo-de-las-matrices-a-b-c-y-d-en-python"><i class="fa fa-check"></i><b>5.3</b> Cálculo de las matrices a, b , c y d en <code>Python</code></a></li>
+<li class="chapter" data-level="5.4" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#similaridad-de-sokal"><i class="fa fa-check"></i><b>5.4</b> Similaridad de Sokal</a></li>
+<li class="chapter" data-level="5.5" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#distancia-de-sokal"><i class="fa fa-check"></i><b>5.5</b> Distancia de Sokal</a></li>
+<li class="chapter" data-level="5.6" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#similaridad-de-sokal-en-python"><i class="fa fa-check"></i><b>5.6</b> Similaridad de Sokal en <code>Python</code></a></li>
+<li class="chapter" data-level="5.7" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#distancia-de-sokal-en-python"><i class="fa fa-check"></i><b>5.7</b> Distancia de Sokal en <code>Python</code></a></li>
+<li class="chapter" data-level="5.8" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#similaridad-de-jaccard"><i class="fa fa-check"></i><b>5.8</b> Similaridad de Jaccard</a></li>
+<li class="chapter" data-level="5.9" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#distancia-de-jaccard"><i class="fa fa-check"></i><b>5.9</b> Distancia de Jaccard</a></li>
+<li class="chapter" data-level="5.10" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#similaridad-de-jaccard-en-python"><i class="fa fa-check"></i><b>5.10</b> Similaridad de Jaccard en <code>Python</code> <a class="anchor" id="67"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="similaridades-con-variables-categoricas-multiclase.html"><a href="similaridades-con-variables-categoricas-multiclase.html"><i class="fa fa-check"></i><b>6</b> Similaridades con variables categoricas multiclase</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="similaridades-con-variables-categoricas-multiclase.html"><a href="similaridades-con-variables-categoricas-multiclase.html#parámetro-alpha"><i class="fa fa-check"></i><b>6.1</b> Parámetro alpha</a></li>
+<li class="chapter" data-level="6.2" data-path="similaridades-con-variables-categoricas-multiclase.html"><a href="similaridades-con-variables-categoricas-multiclase.html#similaridad-simple-matching"><i class="fa fa-check"></i><b>6.2</b> Similaridad simple matching</a></li>
+<li class="chapter" data-level="6.3" data-path="similaridades-con-variables-categoricas-multiclase.html"><a href="similaridades-con-variables-categoricas-multiclase.html#distancia-por-coincidencias"><i class="fa fa-check"></i><b>6.3</b> Distancia por coincidencias</a></li>
+<li class="chapter" data-level="6.4" data-path="similaridades-con-variables-categoricas-multiclase.html"><a href="similaridades-con-variables-categoricas-multiclase.html#similaridad-simple-matching-en-python"><i class="fa fa-check"></i><b>6.4</b> Similaridad simple matching en <code>Python</code> <a class="anchor" id="1"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="conjuntos-de-variables-estadisticas-de-tipo-mixto.html"><a href="conjuntos-de-variables-estadisticas-de-tipo-mixto.html"><i class="fa fa-check"></i><b>7</b> Conjuntos de variables estadisticas de tipo mixto</a></li>
+<li class="chapter" data-level="8" data-path="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><a href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><i class="fa fa-check"></i><b>8</b> Distancias con conjuntos de variables de tipo cuantitativo-binario-multiclase</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><a href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html#similaridad-de-gower"><i class="fa fa-check"></i><b>8.1</b> Similaridad de Gower</a></li>
+<li class="chapter" data-level="8.2" data-path="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><a href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html#distancia-de-gower"><i class="fa fa-check"></i><b>8.2</b> Distancia de Gower</a></li>
+<li class="chapter" data-level="8.3" data-path="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><a href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html#similaridad-de-gower-en-python"><i class="fa fa-check"></i><b>8.3</b> Similaridad de Gower en <code>Python</code></a></li>
+<li class="chapter" data-level="8.4" data-path="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><a href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html#distancia-de-gower-en-python"><i class="fa fa-check"></i><b>8.4</b> Distancia de Gower en <code>Python</code></a></li>
+<li class="chapter" data-level="8.5" data-path="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><a href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html#similaridad-de-gower-mahalanobis"><i class="fa fa-check"></i><b>8.5</b> Similaridad de Gower-Mahalanobis</a></li>
+<li class="chapter" data-level="8.6" data-path="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><a href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html#distancia-de-gower-mahalanobis"><i class="fa fa-check"></i><b>8.6</b> Distancia de Gower-Mahalanobis</a></li>
+<li class="chapter" data-level="8.7" data-path="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><a href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html#similaridad-de-gower-mahalanobis-en-python"><i class="fa fa-check"></i><b>8.7</b> Similaridad de Gower-Mahalanobis en <code>Python</code></a></li>
+<li class="chapter" data-level="8.8" data-path="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><a href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html#distancia-de-gower-mahalanobis-en-python"><i class="fa fa-check"></i><b>8.8</b> Distancia de Gower-Mahalanobis en <code>Python</code> <a class="anchor" id="1"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i><b>9</b> Bibliografía</a></li>
+<li class="chapter" data-level="10" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>10</b> Hello bookdown</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="hello-bookdown.html"><a href="hello-bookdown.html#a-section"><i class="fa fa-check"></i><b>10.1</b> A section</a>
+<ul>
+<li class="chapter" data-level="" data-path="hello-bookdown.html"><a href="hello-bookdown.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>11</b> Cross-references</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>11.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="11.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>11.2</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>12</b> Parts</a></li>
+<li class="chapter" data-level="13" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>13</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>13.1</b> Footnotes</a></li>
+<li class="chapter" data-level="13.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>13.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>14</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>14.1</b> Equations</a></li>
+<li class="chapter" data-level="14.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>14.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="14.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>14.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>15</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>15.1</b> Publishing</a></li>
+<li class="chapter" data-level="15.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>15.2</b> 404 pages</a></li>
+<li class="chapter" data-level="15.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>15.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://estadistica4all.com" target="blank">Estadistica4all.com</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Distancias Estadísticas</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="similaridades-con-variables-categoricas-multiclase" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> Similaridades con variables categoricas multiclase<a href="similaridades-con-variables-categoricas-multiclase.html#similaridades-con-variables-categoricas-multiclase" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="parámetro-alpha" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Parámetro alpha<a href="similaridades-con-variables-categoricas-multiclase.html#parámetro-alpha" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>El parámetro que habitualmente se usan para construir las similaridades con variables multiclase es el siguiente:</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<ul>
+<li><span class="math inline">\(\alpha(x_i, x_r) \hspace{0.05cm} =\hspace{0.05cm}\)</span> número de variables multiclase <span class="math inline">\(\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm}x_{ij} \hspace{0.05cm}=\hspace{0.05cm} x_{rj}\\\)</span></li>
+</ul>
+<p><span class="math display">\[\alpha(x_i, x_r) \hspace{0.09cm}=\hspace{0.09cm} \# \hspace{0.08cm} \bigl\{\hspace{0.1cm} j = 1,...,p \hspace{0.2cm} : \hspace{0.2cm} x_{ij} = x_{rj}  \hspace{0.1cm}\bigr\}  \hspace{0.25cm} \Rightarrow \hspace{0.25cm} \text{numero de coincidencias} \\[0.7cm]\]</span></p>
+<ul>
+<li><span class="math inline">\(p-\alpha(x_i, x_r) \hspace{0.05cm}=\hspace{0.05cm}\)</span> número de variables multiclase <span class="math inline">\(\hspace{0.1cm}\mathcal {X}_j\hspace{0.1cm}\)</span> tales que <span class="math inline">\(\hspace{0.1cm}x_{ij} \neq x_{rj} \\\)</span></li>
+</ul>
+<p><span class="math display">\[p - \alpha(x_i, x_r) \hspace{0.09cm}=\hspace{0.09cm} \# \hspace{0.09cm} \bigl\{ \hspace{0.1cm} j = 1,...,p \hspace{0.2cm} : \hspace{0.2cm} x_{ij} \neq x_{rj}  \hspace{0.1cm}\bigr\} \hspace{0.25cm} \Rightarrow \hspace{0.25cm} \text{numero de no coincidencias}\\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><strong>Observación:</strong></p>
+<p><span class="math display">\[\alpha(x_i, x_r) \hspace{0.05cm}=\hspace{0.05cm} a(x_i, x_r) + b(x_i, x_r)\]</span></p>
+<p><br></p>
+</div>
+<div id="similaridad-simple-matching" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Similaridad simple matching<a href="similaridades-con-variables-categoricas-multiclase.html#similaridad-simple-matching" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>La medida de similaridad mas común con variables categóricas multiclase es el coeficiente de similaridad simple matching.</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span>La similaridad simple matching entre el par de observaciones <span class="math inline">\(\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}\)</span> de las variables categóricas multiclase <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}\)</span> se define como: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[
+\phi(x_i,x_r)_{Matching}\hspace{0.08cm}=\hspace{0.08cm} \dfrac{\hspace{0.08cm}\alpha(x_i, x_r)\hspace{0.08cm}}{p}
+\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><strong>Observación:</strong></p>
+<p>La similaridad simple matching aplicada a variables binarias coincide con la similaridad de Sokal, ya que <span class="math inline">\(\hspace{0.1cm} \alpha(x_i, x_r)=a(x_i, x_r)+b(x_i, x_r)\hspace{0.08cm}\)</span>.</p>
+<p><br></p>
+<p><strong>Similaridad de Coincidencias entre vectores</strong></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de Coincidencias puede definirse de forma más general, sin estar sujeta a un contexto estadístico.</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dados dos vectores <strong>multiclase</strong> <span class="math inline">\(\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.07cm} ,\hspace{0.07cm} w=(w_1,...,w_p)^t \hspace{0.07cm}\in \hspace{0.07cm} \mathbb{R}^p\hspace{0.07cm} \\\)</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La similaridad entre <span class="math inline">\(\hspace{0.1cm}v\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}w\hspace{0.1cm}\)</span> es:</p>
+<p><span class="math display">\[
+\phi (v,w)_{Matching}  \hspace{0.07cm}=\hspace{0.07cm}  \dfrac{ \alpha(v,w) }{p} \\
+\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+</div>
+<div id="distancia-por-coincidencias" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Distancia por coincidencias<a href="similaridades-con-variables-categoricas-multiclase.html#distancia-por-coincidencias" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia por coincidencias entre el par de observaciones <span class="math inline">\(\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}\)</span> de las variables categoricas multiclase <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}\)</span> se obtiene como: <span class="math inline">\(\\[0.4cm]\)</span></p>
+<p><span class="math display">\[
+\delta(x_i,x_r)_{Matching} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ \hspace{0.1cm} \phi(x_i,x_i)_{Matching} \hspace{0.07cm}+\hspace{0.07cm} \phi(x_r,x_r)_{Matching} \hspace{0.07cm}-\hspace{0.07cm} 2\cdot \phi(x_i,x_r)_{Matching} \hspace{0.1cm}}
+\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+</div>
+<div id="similaridad-simple-matching-en-python" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Similaridad simple matching en <code>Python</code> <a class="anchor" id="1"></a><a href="similaridades-con-variables-categoricas-multiclase.html#similaridad-simple-matching-en-python" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb158"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb158-1"><a href="similaridades-con-variables-categoricas-multiclase.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> alpha(x_i, x_r):</span>
+<span id="cb158-2"><a href="similaridades-con-variables-categoricas-multiclase.html#cb158-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb158-3"><a href="similaridades-con-variables-categoricas-multiclase.html#cb158-3" aria-hidden="true" tabindex="-1"></a>    alpha <span class="op">=</span> <span class="bu">sum</span>(x_i <span class="op">==</span> x_r)</span>
+<span id="cb158-4"><a href="similaridades-con-variables-categoricas-multiclase.html#cb158-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb158-5"><a href="similaridades-con-variables-categoricas-multiclase.html#cb158-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(alpha)   </span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb159-1"><a href="similaridades-con-variables-categoricas-multiclase.html#cb159-1" aria-hidden="true" tabindex="-1"></a>Data_multiclass.iloc[<span class="dv">2</span>,:] </span></code></pre></div>
+<pre><code>quality_recode    2.0
+rating            5.0
+type              1.0
+Name: 2, dtype: float64</code></pre>
+<div class="sourceCode" id="cb161"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb161-1"><a href="similaridades-con-variables-categoricas-multiclase.html#cb161-1" aria-hidden="true" tabindex="-1"></a>Data_multiclass.iloc[<span class="dv">5</span>,:] </span></code></pre></div>
+<pre><code>quality_recode    2.0
+rating            5.0
+type              1.0
+Name: 5, dtype: float64</code></pre>
+<div class="sourceCode" id="cb163"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb163-1"><a href="similaridades-con-variables-categoricas-multiclase.html#cb163-1" aria-hidden="true" tabindex="-1"></a>alpha(x_i<span class="op">=</span>Data_multiclass.iloc[<span class="dv">2</span>,:] , x_r<span class="op">=</span>Data_multiclass.iloc[<span class="dv">5</span>,:])</span></code></pre></div>
+<pre><code>3</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb165-1"><a href="similaridades-con-variables-categoricas-multiclase.html#cb165-1" aria-hidden="true" tabindex="-1"></a>Data_multiclass.iloc[<span class="dv">15</span>,:] </span></code></pre></div>
+<pre><code>quality_recode    2.0
+rating            3.0
+type              2.0
+Name: 15, dtype: float64</code></pre>
+<div class="sourceCode" id="cb167"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb167-1"><a href="similaridades-con-variables-categoricas-multiclase.html#cb167-1" aria-hidden="true" tabindex="-1"></a>Data_multiclass.iloc[<span class="dv">14</span>,:]</span></code></pre></div>
+<pre><code>quality_recode    2.0
+rating            4.0
+type              1.0
+Name: 14, dtype: float64</code></pre>
+<div class="sourceCode" id="cb169"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb169-1"><a href="similaridades-con-variables-categoricas-multiclase.html#cb169-1" aria-hidden="true" tabindex="-1"></a>alpha(x_i<span class="op">=</span>Data_multiclass.iloc[<span class="dv">14</span>,:] , x_r<span class="op">=</span>Data_multiclass.iloc[<span class="dv">15</span>,:])</span></code></pre></div>
+<pre><code>1</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb171-1"><a href="similaridades-con-variables-categoricas-multiclase.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> matching_similarity(x_i, x_r, Data):</span>
+<span id="cb171-2"><a href="similaridades-con-variables-categoricas-multiclase.html#cb171-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-3"><a href="similaridades-con-variables-categoricas-multiclase.html#cb171-3" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> Data.shape[<span class="dv">1</span>]</span>
+<span id="cb171-4"><a href="similaridades-con-variables-categoricas-multiclase.html#cb171-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-5"><a href="similaridades-con-variables-categoricas-multiclase.html#cb171-5" aria-hidden="true" tabindex="-1"></a>    matching_similarity <span class="op">=</span> alpha(x_i, x_r) <span class="op">/</span> p</span>
+<span id="cb171-6"><a href="similaridades-con-variables-categoricas-multiclase.html#cb171-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-7"><a href="similaridades-con-variables-categoricas-multiclase.html#cb171-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(matching_similarity)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb172-1"><a href="similaridades-con-variables-categoricas-multiclase.html#cb172-1" aria-hidden="true" tabindex="-1"></a>matching_similarity(x_i<span class="op">=</span>Data_multiclass.iloc[<span class="dv">2</span>,:] , x_r<span class="op">=</span>Data_multiclass.iloc[<span class="dv">5</span>,:], Data<span class="op">=</span>Data_multiclass)</span></code></pre></div>
+<pre><code>1.0</code></pre>
+<div class="sourceCode" id="cb174"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb174-1"><a href="similaridades-con-variables-categoricas-multiclase.html#cb174-1" aria-hidden="true" tabindex="-1"></a>matching_similarity(x_i<span class="op">=</span>Data_multiclass.iloc[<span class="dv">14</span>,:] , x_r<span class="op">=</span>Data_multiclass.iloc[<span class="dv">15</span>,:], Data<span class="op">=</span>Data_multiclass)</span></code></pre></div>
+<pre><code>0.3333333333333333</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb176-1"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Sim_Matching(Data):</span>
+<span id="cb176-2"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb176-3"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-3" aria-hidden="true" tabindex="-1"></a>    Data <span class="op">=</span> Data.to_numpy()</span>
+<span id="cb176-4"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb176-5"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb176-6"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb176-7"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb176-8"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb176-9"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-9" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb176-10"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb176-11"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb176-12"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-12" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb176-13"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb176-14"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-14" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> i <span class="op">&gt;</span> r :</span>
+<span id="cb176-15"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-15" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb176-16"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-16" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb176-17"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-17" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb176-18"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-18" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> i <span class="op">==</span> r :</span>
+<span id="cb176-19"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-19" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb176-20"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-20" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb176-21"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-21" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb176-22"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-22" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span> :</span>
+<span id="cb176-23"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb176-24"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-24" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> matching_similarity(x_i<span class="op">=</span>Data[i,:], x_r<span class="op">=</span>Data[r,:], Data<span class="op">=</span>Data)</span>
+<span id="cb176-25"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-25" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb176-26"><a href="similaridades-con-variables-categoricas-multiclase.html#cb176-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb177-1"><a href="similaridades-con-variables-categoricas-multiclase.html#cb177-1" aria-hidden="true" tabindex="-1"></a>M_matching <span class="op">=</span> Matrix_Sim_Matching(Data<span class="op">=</span>Data_multiclass)</span>
+<span id="cb177-2"><a href="similaridades-con-variables-categoricas-multiclase.html#cb177-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb177-3"><a href="similaridades-con-variables-categoricas-multiclase.html#cb177-3" aria-hidden="true" tabindex="-1"></a>M_matching </span></code></pre></div>
+<pre><code>array([[1.        , 0.33333333, 0.33333333, ..., 0.33333333, 0.33333333,
+        0.33333333],
+       [0.        , 1.        , 0.66666667, ..., 1.        , 0.66666667,
+        0.        ],
+       [0.        , 0.        , 1.        , ..., 0.66666667, 0.66666667,
+        0.        ],
+       ...,
+       [0.        , 0.        , 0.        , ..., 1.        , 0.66666667,
+        0.        ],
+       [0.        , 0.        , 0.        , ..., 0.        , 1.        ,
+        0.        ],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.        ]])</code></pre>
+<div class="sourceCode" id="cb179"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb179-1"><a href="similaridades-con-variables-categoricas-multiclase.html#cb179-1" aria-hidden="true" tabindex="-1"></a>M_matching <span class="op">=</span> M_matching <span class="op">+</span> M_matching.T <span class="op">-</span> np.diag(np.repeat(<span class="dv">1</span> , <span class="bu">len</span>(M_matching)), k<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb179-2"><a href="similaridades-con-variables-categoricas-multiclase.html#cb179-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb179-3"><a href="similaridades-con-variables-categoricas-multiclase.html#cb179-3" aria-hidden="true" tabindex="-1"></a>M_matching</span></code></pre></div>
+<pre><code>array([[1.        , 0.33333333, 0.33333333, ..., 0.33333333, 0.33333333,
+        0.33333333],
+       [0.33333333, 1.        , 0.66666667, ..., 1.        , 0.66666667,
+        0.        ],
+       [0.33333333, 0.66666667, 1.        , ..., 0.66666667, 0.66666667,
+        0.        ],
+       ...,
+       [0.33333333, 1.        , 0.66666667, ..., 1.        , 0.66666667,
+        0.        ],
+       [0.33333333, 0.66666667, 0.66666667, ..., 0.66666667, 1.        ,
+        0.        ],
+       [0.33333333, 0.        , 0.        , ..., 0.        , 0.        ,
+        1.        ]])</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb181-1"><a href="similaridades-con-variables-categoricas-multiclase.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Matching(x_i, x_r, Data):</span>
+<span id="cb181-2"><a href="similaridades-con-variables-categoricas-multiclase.html#cb181-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-3"><a href="similaridades-con-variables-categoricas-multiclase.html#cb181-3" aria-hidden="true" tabindex="-1"></a>    Dist_Matching <span class="op">=</span> np.sqrt(matches_similarity(x_i, x_i, Data) <span class="op">+</span>  matches_similarity(x_r, x_r, Data) <span class="op">-</span> <span class="dv">2</span><span class="op">*</span>matches_similarity(x_i, x_r, Data) )</span>
+<span id="cb181-4"><a href="similaridades-con-variables-categoricas-multiclase.html#cb181-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-5"><a href="similaridades-con-variables-categoricas-multiclase.html#cb181-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>( Dist_Matching )</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb182-1"><a href="similaridades-con-variables-categoricas-multiclase.html#cb182-1" aria-hidden="true" tabindex="-1"></a>matching_similarity(x_i<span class="op">=</span>Data_multiclass.iloc[<span class="dv">2</span>,:] , x_r<span class="op">=</span>Data_multiclass.iloc[<span class="dv">5</span>,:], Data<span class="op">=</span>Data_multiclass)</span></code></pre></div>
+<pre><code>1.0</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb184"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb184-1"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Matching(Data):</span>
+<span id="cb184-2"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-3"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-3" aria-hidden="true" tabindex="-1"></a>    Data <span class="op">=</span> Data.to_numpy()</span>
+<span id="cb184-4"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-5"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb184-6"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-7"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb184-8"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-8" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb184-9"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb184-10"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-11"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-11" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb184-12"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-13"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-13" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
+<span id="cb184-14"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-14" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb184-15"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-15" aria-hidden="true" tabindex="-1"></a>                M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb184-16"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-17"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-17" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
+<span id="cb184-18"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb184-19"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-19" aria-hidden="true" tabindex="-1"></a>                M[i,r] <span class="op">=</span> Dist_Matching(x_i<span class="op">=</span>Data[i,:], x_r<span class="op">=</span>Data[r,:], Data<span class="op">=</span>Data)</span>
+<span id="cb184-20"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-20" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb184-21"><a href="similaridades-con-variables-categoricas-multiclase.html#cb184-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb185-1"><a href="similaridades-con-variables-categoricas-multiclase.html#cb185-1" aria-hidden="true" tabindex="-1"></a>M_Dist_Matching <span class="op">=</span> Matrix_Dist_Matching(Data<span class="op">=</span>Data_multiclass)</span>
+<span id="cb185-2"><a href="similaridades-con-variables-categoricas-multiclase.html#cb185-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb185-3"><a href="similaridades-con-variables-categoricas-multiclase.html#cb185-3" aria-hidden="true" tabindex="-1"></a>M_Dist_Matching</span></code></pre></div>
+<pre><code>array([[0.        , 1.15470054, 1.15470054, ..., 1.15470054, 1.15470054,
+        1.15470054],
+       [0.        , 0.        , 0.81649658, ..., 0.        , 0.81649658,
+        1.41421356],
+       [0.        , 0.        , 0.        , ..., 0.81649658, 0.81649658,
+        1.41421356],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 0.81649658,
+        1.41421356],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.41421356],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])</code></pre>
+<div class="sourceCode" id="cb187"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb187-1"><a href="similaridades-con-variables-categoricas-multiclase.html#cb187-1" aria-hidden="true" tabindex="-1"></a>M_Dist_Matching <span class="op">=</span> M_Dist_Matching <span class="op">+</span> M_Dist_Matching.T</span>
+<span id="cb187-2"><a href="similaridades-con-variables-categoricas-multiclase.html#cb187-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb187-3"><a href="similaridades-con-variables-categoricas-multiclase.html#cb187-3" aria-hidden="true" tabindex="-1"></a>M_Dist_Matching</span></code></pre></div>
+<pre><code>array([[0.        , 1.15470054, 1.15470054, ..., 1.15470054, 1.15470054,
+        1.15470054],
+       [1.15470054, 0.        , 0.81649658, ..., 0.        , 0.81649658,
+        1.41421356],
+       [1.15470054, 0.81649658, 0.        , ..., 0.81649658, 0.81649658,
+        1.41421356],
+       ...,
+       [1.15470054, 0.        , 0.81649658, ..., 0.        , 0.81649658,
+        1.41421356],
+       [1.15470054, 0.81649658, 0.81649658, ..., 0.81649658, 0.        ,
+        1.41421356],
+       [1.15470054, 1.41421356, 1.41421356, ..., 1.41421356, 1.41421356,
+        0.        ]])</code></pre>
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="similaridades-con-variables-categoricas-binarias.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conjuntos-de-variables-estadisticas-de-tipo-mixto.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://estadistica4all.com/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Distancias con variables estadísticas cuantitativas | Distancias Estadísticas</title>
+  <meta name="description" content="Esta es una introducción a las distancias estadísticas." />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Distancias con variables estadísticas cuantitativas | Distancias Estadísticas" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Esta es una introducción a las distancias estadísticas." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Distancias con variables estadísticas cuantitativas | Distancias Estadísticas" />
+  
+  <meta name="twitter:description" content="Esta es una introducción a las distancias estadísticas." />
+  
+
+<meta name="author" content="Fabio Scielzo Ortiz" />
+
+
+<meta name="date" content="2023-03-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="distancias.html"/>
+<link rel="next" href="similaridades.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Distancias Estadísticas</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Data-sets</a></li>
+<li class="chapter" data-level="2" data-path="distancias.html"><a href="distancias.html"><i class="fa fa-check"></i><b>2</b> Distancias</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="distancias.html"><a href="distancias.html#casi-métrica"><i class="fa fa-check"></i><b>2.1</b> Casi-métrica</a></li>
+<li class="chapter" data-level="2.2" data-path="distancias.html"><a href="distancias.html#semi-métrica"><i class="fa fa-check"></i><b>2.2</b> Semi-métrica</a></li>
+<li class="chapter" data-level="2.3" data-path="distancias.html"><a href="distancias.html#métrica"><i class="fa fa-check"></i><b>2.3</b> Métrica</a></li>
+<li class="chapter" data-level="2.4" data-path="distancias.html"><a href="distancias.html#distancia"><i class="fa fa-check"></i><b>2.4</b> Distancia</a></li>
+<li class="chapter" data-level="2.5" data-path="distancias.html"><a href="distancias.html#matriz-de-distancias"><i class="fa fa-check"></i><b>2.5</b> Matriz de distancias</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html"><i class="fa fa-check"></i><b>3</b> Distancias con variables estadísticas cuantitativas</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-euclidea"><i class="fa fa-check"></i><b>3.1</b> Distancia Euclidea</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-euclidea-en-python"><i class="fa fa-check"></i><b>3.1.1</b> Distancia Euclidea en <code>Python</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-minkowski"><i class="fa fa-check"></i><b>3.2</b> Distancia de Minkowski</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#casos-particulares-de-la-distancia-de-minkowski"><i class="fa fa-check"></i><b>3.2.1</b> Casos particulares de la distancia de Minkowski</a></li>
+<li class="chapter" data-level="3.2.2" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-minkowski-en-python"><i class="fa fa-check"></i><b>3.2.2</b> Distancia de Minkowski en <code>Python</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-canberra"><i class="fa fa-check"></i><b>3.3</b> Distancia de Canberra</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-canberra-en-python"><i class="fa fa-check"></i><b>3.3.1</b> Distancia de Canberra en <code>Python</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-pearson"><i class="fa fa-check"></i><b>3.4</b> Distancia de Pearson</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-pearson-en-python"><i class="fa fa-check"></i><b>3.4.1</b> Distancia de Pearson en <code>Python</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-mahalanobis"><i class="fa fa-check"></i><b>3.5</b> Distancia de Mahalanobis</a></li>
+<li class="chapter" data-level="3.6" data-path="distancias-con-variables-estadísticas-cuantitativas.html"><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-mahalanobis-en-python"><i class="fa fa-check"></i><b>3.6</b> Distancia de Mahalanobis en <code>Python</code> <a class="anchor" id="1"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="similaridades.html"><a href="similaridades.html"><i class="fa fa-check"></i><b>4</b> Similaridades</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="similaridades.html"><a href="similaridades.html#similaridad"><i class="fa fa-check"></i><b>4.1</b> Similaridad</a></li>
+<li class="chapter" data-level="4.2" data-path="similaridades.html"><a href="similaridades.html#pasar-de-similaridad-a-distancia"><i class="fa fa-check"></i><b>4.2</b> Pasar de similaridad a distancia</a></li>
+<li class="chapter" data-level="4.3" data-path="similaridades.html"><a href="similaridades.html#matriz-de-similaridades"><i class="fa fa-check"></i><b>4.3</b> Matriz de Similaridades <a class="anchor" id="49"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html"><i class="fa fa-check"></i><b>5</b> Similaridades con variables categoricas binarias</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#parámetros-a-b-c-y-d"><i class="fa fa-check"></i><b>5.1</b> Parámetros a, b , c y d</a></li>
+<li class="chapter" data-level="5.2" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#matrices-con-los-parámetros-a-b-c-y-d"><i class="fa fa-check"></i><b>5.2</b> Matrices con los parámetros a, b, c y d</a></li>
+<li class="chapter" data-level="5.3" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#cálculo-de-las-matrices-a-b-c-y-d-en-python"><i class="fa fa-check"></i><b>5.3</b> Cálculo de las matrices a, b , c y d en <code>Python</code></a></li>
+<li class="chapter" data-level="5.4" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#similaridad-de-sokal"><i class="fa fa-check"></i><b>5.4</b> Similaridad de Sokal</a></li>
+<li class="chapter" data-level="5.5" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#distancia-de-sokal"><i class="fa fa-check"></i><b>5.5</b> Distancia de Sokal</a></li>
+<li class="chapter" data-level="5.6" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#similaridad-de-sokal-en-python"><i class="fa fa-check"></i><b>5.6</b> Similaridad de Sokal en <code>Python</code></a></li>
+<li class="chapter" data-level="5.7" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#distancia-de-sokal-en-python"><i class="fa fa-check"></i><b>5.7</b> Distancia de Sokal en <code>Python</code></a></li>
+<li class="chapter" data-level="5.8" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#similaridad-de-jaccard"><i class="fa fa-check"></i><b>5.8</b> Similaridad de Jaccard</a></li>
+<li class="chapter" data-level="5.9" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#distancia-de-jaccard"><i class="fa fa-check"></i><b>5.9</b> Distancia de Jaccard</a></li>
+<li class="chapter" data-level="5.10" data-path="similaridades-con-variables-categoricas-binarias.html"><a href="similaridades-con-variables-categoricas-binarias.html#similaridad-de-jaccard-en-python"><i class="fa fa-check"></i><b>5.10</b> Similaridad de Jaccard en <code>Python</code> <a class="anchor" id="67"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="similaridades-con-variables-categoricas-multiclase.html"><a href="similaridades-con-variables-categoricas-multiclase.html"><i class="fa fa-check"></i><b>6</b> Similaridades con variables categoricas multiclase</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="similaridades-con-variables-categoricas-multiclase.html"><a href="similaridades-con-variables-categoricas-multiclase.html#parámetro-alpha"><i class="fa fa-check"></i><b>6.1</b> Parámetro alpha</a></li>
+<li class="chapter" data-level="6.2" data-path="similaridades-con-variables-categoricas-multiclase.html"><a href="similaridades-con-variables-categoricas-multiclase.html#similaridad-simple-matching"><i class="fa fa-check"></i><b>6.2</b> Similaridad simple matching</a></li>
+<li class="chapter" data-level="6.3" data-path="similaridades-con-variables-categoricas-multiclase.html"><a href="similaridades-con-variables-categoricas-multiclase.html#distancia-por-coincidencias"><i class="fa fa-check"></i><b>6.3</b> Distancia por coincidencias</a></li>
+<li class="chapter" data-level="6.4" data-path="similaridades-con-variables-categoricas-multiclase.html"><a href="similaridades-con-variables-categoricas-multiclase.html#similaridad-simple-matching-en-python"><i class="fa fa-check"></i><b>6.4</b> Similaridad simple matching en <code>Python</code> <a class="anchor" id="1"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="conjuntos-de-variables-estadisticas-de-tipo-mixto.html"><a href="conjuntos-de-variables-estadisticas-de-tipo-mixto.html"><i class="fa fa-check"></i><b>7</b> Conjuntos de variables estadisticas de tipo mixto</a></li>
+<li class="chapter" data-level="8" data-path="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><a href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><i class="fa fa-check"></i><b>8</b> Distancias con conjuntos de variables de tipo cuantitativo-binario-multiclase</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><a href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html#similaridad-de-gower"><i class="fa fa-check"></i><b>8.1</b> Similaridad de Gower</a></li>
+<li class="chapter" data-level="8.2" data-path="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><a href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html#distancia-de-gower"><i class="fa fa-check"></i><b>8.2</b> Distancia de Gower</a></li>
+<li class="chapter" data-level="8.3" data-path="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><a href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html#similaridad-de-gower-en-python"><i class="fa fa-check"></i><b>8.3</b> Similaridad de Gower en <code>Python</code></a></li>
+<li class="chapter" data-level="8.4" data-path="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><a href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html#distancia-de-gower-en-python"><i class="fa fa-check"></i><b>8.4</b> Distancia de Gower en <code>Python</code></a></li>
+<li class="chapter" data-level="8.5" data-path="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><a href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html#similaridad-de-gower-mahalanobis"><i class="fa fa-check"></i><b>8.5</b> Similaridad de Gower-Mahalanobis</a></li>
+<li class="chapter" data-level="8.6" data-path="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><a href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html#distancia-de-gower-mahalanobis"><i class="fa fa-check"></i><b>8.6</b> Distancia de Gower-Mahalanobis</a></li>
+<li class="chapter" data-level="8.7" data-path="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><a href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html#similaridad-de-gower-mahalanobis-en-python"><i class="fa fa-check"></i><b>8.7</b> Similaridad de Gower-Mahalanobis en <code>Python</code></a></li>
+<li class="chapter" data-level="8.8" data-path="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"><a href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html#distancia-de-gower-mahalanobis-en-python"><i class="fa fa-check"></i><b>8.8</b> Distancia de Gower-Mahalanobis en <code>Python</code> <a class="anchor" id="1"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i><b>9</b> Bibliografía</a></li>
+<li class="chapter" data-level="10" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>10</b> Hello bookdown</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="hello-bookdown.html"><a href="hello-bookdown.html#a-section"><i class="fa fa-check"></i><b>10.1</b> A section</a>
+<ul>
+<li class="chapter" data-level="" data-path="hello-bookdown.html"><a href="hello-bookdown.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>11</b> Cross-references</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>11.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="11.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>11.2</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>12</b> Parts</a></li>
+<li class="chapter" data-level="13" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>13</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>13.1</b> Footnotes</a></li>
+<li class="chapter" data-level="13.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>13.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>14</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>14.1</b> Equations</a></li>
+<li class="chapter" data-level="14.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>14.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="14.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>14.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>15</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>15.1</b> Publishing</a></li>
+<li class="chapter" data-level="15.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>15.2</b> 404 pages</a></li>
+<li class="chapter" data-level="15.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>15.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://estadistica4all.com" target="blank">Estadistica4all.com</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Distancias Estadísticas</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="distancias-con-variables-estadísticas-cuantitativas" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> Distancias con variables estadísticas cuantitativas<a href="distancias-con-variables-estadísticas-cuantitativas.html#distancias-con-variables-estadísticas-cuantitativas" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>El marco teórico en el que nos vamos a mover en esta sección es el siguiente:</p>
+<ul>
+<li><p>Tenemos una serie de variables estadísticas <strong>cuantitativas</strong> <span class="math inline">\(\hspace{0.03cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.05cm} .\)</span></p></li>
+<li><p>Para cada variable cuantitativa <span class="math inline">\(\hspace{0.03cm}\mathcal{X}_j\hspace{0.03cm}\)</span> tenemos una muestra de <span class="math inline">\(\hspace{0.03cm}n\hspace{0.03cm}\)</span> observaciones <span class="math inline">\(\hspace{0.03cm}X_j\hspace{0.05cm}.\)</span></p>
+<p>Es decir, tenemos la siguiente muestra:</p>
+<ul>
+<li><span class="math inline">\(X_j=(x_{1j},...,x_{nj})^t\hspace{0.03cm}\)</span> , para <span class="math inline">\(\hspace{0.03cm} j=1,...,p\)</span> <span class="math inline">\(\\\)</span></li>
+</ul>
+<p>Donde <span class="math inline">\(\hspace{0.03cm}x_{ij}\hspace{0.03cm}\)</span> es la <span class="math inline">\(\hspace{0.03cm} i\)</span>-esima observación de la variable <span class="math inline">\(\hspace{0.03cm}\mathcal{X}_j\hspace{0.02cm}\)</span> , para <span class="math inline">\(\hspace{0.03cm}j=1,...,p\hspace{0.06cm}\)</span> y <span class="math inline">\(\hspace{0.06cm}i=1,...,n \hspace{0.05cm} .\)</span> <span class="math inline">\(\\\)</span></p>
+<p>Por tanto :</p>
+<ul>
+<li><p><span class="math inline">\(X_j=(x_{1j},...,x_{nj})^t\hspace{0.04cm}\)</span> es el vector con las observaciones de la variable <span class="math inline">\(\hspace{0.03cm}\mathcal{X}_j\hspace{0.03cm}\)</span> , para <span class="math inline">\(\hspace{0.03cm}j=1,...,p\hspace{0.04cm}\)</span>.</p></li>
+<li><p><span class="math inline">\(x_i = (x_{i1} , x_{i2} ,..., x_{ip})^t\hspace{0.04cm}\)</span> es el vector con las <span class="math inline">\(\hspace{0.03cm} i\)</span>-esimas observaciones de las variables <span class="math inline">\(\hspace{0.03cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.03cm}\)</span> , para <span class="math inline">\(\hspace{0.03cm}i=1,...,n\hspace{0.04cm}\)</span>.</p></li>
+</ul></li>
+</ul>
+<p><br></p>
+<div id="distancia-euclidea" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Distancia Euclidea<a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-euclidea" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia <strong>Euclidea</strong> entre el par de observaciones <span class="math inline">\(\hspace{0.03cm}(x_i , x_r)\hspace{0.03cm}\)</span> de las variables cuantitativas <span class="math inline">\(\hspace{0.03cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.03cm}\)</span> se define como: <span class="math inline">\(\\\)</span></p>
+<p><span class="math display">\[
+\delta(x_i,x_r)_{Euclidea} \hspace{0.15cm} = \hspace{0.15cm} \sqrt{\sum_{k=1}^{p} (x_{ik} - x_{rk})\hspace{0.05cm}^2 \hspace{0.1cm} }  \hspace{0.15cm}=\hspace{0.15cm} \sqrt{(x_i - x_r)\hspace{0.05cm}^t\cdot (x_i - x_r)\hspace{0.1cm}}  \\[0.6cm]
+\]</span></p>
+<p><span class="math inline">\(\hspace{0.35cm}\)</span> para <span class="math inline">\(\hspace{0.15cm} i,r \hspace{0.08cm}=\hspace{0.08cm} 1,...,n \hspace{0.08cm} .\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<p><strong>Observaciones:</strong></p>
+<ul>
+<li><p><span class="math inline">\(\delta(x_i,x_r)_{Euclidea}\hspace{0.03cm}\)</span> puede interpretarse como la distancia Euclidea entre los individuos <span class="math inline">\(\hspace{0.03cm}i\hspace{0.03cm}\)</span> y <span class="math inline">\(\hspace{0.03cm}r\hspace{0.03cm}\)</span> respecto de las variables estadísticas <span class="math inline">\(\hspace{0.03cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.05cm}.\)</span></p>
+<p>Nos da una medida de distancia entre individuos basada en datos de esos individuos respecto a unas variables estadísticas.</p></li>
+</ul>
+<p><br></p>
+<p><strong>Distancia Euclidea entre vectores</strong></p>
+<p>La distancia Euclidea no se circunscribe solamente al campo de la estadística, una definición mas general que contiene a la anteriormente dada es la siguiente:</p>
+<p>Dados dos vectores <span class="math inline">\(\hspace{0.03cm}v=(v_1,...,v_n)^t\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}w=(w_1,...,w_n)^t\hspace{0.1cm}\)</span> de <span class="math inline">\(\hspace{0.04cm}\mathbb{R}^n\hspace{0.04cm}\)</span>.</p>
+<p>La distancia Euclidea entre esos vectores es: <span class="math inline">\(\\\)</span></p>
+<p><span class="math display">\[
+\hspace{0.25cm} \delta(v,w)_{Euclidea} \hspace{0.15cm}=\hspace{0.15cm}  \sqrt{ \hspace{0.1cm} \sum_{i=1}^{n} \hspace{0.08cm}  (v_{i} - w_{i})^2 \hspace{0.1cm}} \hspace{0.15cm} = \hspace{0.15cm} \sqrt{ \hspace{0.1cm} (v-w)^t \cdot (v-w) \hspace{0.1cm}} \\
+\]</span></p>
+</p>
+</p>
+</span>
+</div>
+<p><br></p>
+<p><strong>Observación:</strong></p>
+<p><span class="math inline">\(\delta(x_i,x_r)_{Euclidea}\hspace{0.03cm}\)</span> es la distancia Euclidea entre los vectores (de observaciones) <span class="math inline">\(\hspace{0.03cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.03cm}\)</span> de las variables estadísticas <span class="math inline">\(\hspace{0.03cm} \mathcal{X}_1,...,\mathcal{X}_p\hspace{0.05cm}\)</span>.</p>
+<p><br></p>
+<p><strong>Desventajas de la distancia Euclidea</strong></p>
+<p>Aunque es una de las distancias más usadas en la práctica, en muchos casos no es la más adecuada desde un punto de vista estadístico por las siguientes razones:</p>
+<ul>
+<li><p>Asume que las variables están incorreladas y tienen varianza uno.</p></li>
+<li><p>No es invariante ante cambios de escala de las variables.</p>
+<p>Vamos a ver que significa esto último con mayor detalle:</p>
+<p>Si cambiamos la escala de las variables, es decir, aplicamos la siguiente transformación sobre las variables:</p>
+<p><span class="math display">\[a\cdot \mathcal{X}_j + b\]</span></p>
+<p>con <span class="math inline">\(\hspace{0.1cm}a\neq 1\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}b\neq 0\)</span></p>
+<p>Ahora las observaciones de los elementos <span class="math inline">\(\hspace{0.1cm}i\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}r\hspace{0.1cm}\)</span> son <span class="math inline">\(\hspace{0.1cm}\hat{x}_i = a\cdot x_i + b\hspace{0.2cm}\)</span> y <span class="math inline">\(\hspace{0.2cm}\hat{x}_r = a\cdot x_r + b\)</span></p>
+<p>Por lo que la distancia Euclidea entre el par de observaciones <span class="math inline">\(\hat{x}_i\)</span> y <span class="math inline">\(\hat{x}_r\)</span> es:</p>
+<p><span class="math display">\[
+\delta(\hat{x}_i , \hat{x}_r)_{Euclidea} \hspace{0.1cm}=\hspace{0.1cm} \delta(a\cdot x_i + b \hspace{0.1cm},\hspace{0.1cm} a\cdot x_r + b)_{Euclidea} \hspace{0.1cm}=\hspace{0.1cm} \sqrt{ a^2 \cdot (x_i - x_r)^t\cdot (x_i - x_r) }\]</span></p></li>
+</ul>
+<p><br></p>
+<p><strong>Ventajas de la distancia Euclidea</strong></p>
+<ul>
+<li><p>Facilidad de cálculo.</p></li>
+<li><p>Facilidad de interpretación geométrica. Dados dos puntos en un espacio de dos o tres dimensiones, la distancia Euclidea entre ese par de puntos es la longitud del segmento que los une. Es una distancia fácil de visualizar e intuitiva.</p></li>
+</ul>
+<p><br></p>
+<p><br></p>
+<div id="distancia-euclidea-en-python" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Distancia Euclidea en <code>Python</code><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-euclidea-en-python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Euclidea(x_i, x_r):</span>
+<span id="cb8-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb8-3" aria-hidden="true" tabindex="-1"></a>        Dist_Euclidea <span class="op">=</span> ( ( x_i <span class="op">-</span> x_r )<span class="op">**</span><span class="dv">2</span> ).<span class="bu">sum</span>()</span>
+<span id="cb8-4"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb8-4" aria-hidden="true" tabindex="-1"></a>        Dist_Euclidea <span class="op">=</span> np.sqrt(Dist_Euclidea)</span>
+<span id="cb8-5"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb8-5" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb8-6"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> Dist_Euclidea</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb9-1" aria-hidden="true" tabindex="-1"></a>Dist_Euclidea(Data_quant.iloc[<span class="dv">2</span>,:] , Data_quant.iloc[<span class="dv">5</span>,:])</span></code></pre></div>
+<pre><code>1969900.0019225744</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Euclidea(Data):</span>
+<span id="cb11-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb11-3" aria-hidden="true" tabindex="-1"></a>    Data <span class="op">=</span> Data.to_numpy()</span>
+<span id="cb11-4"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb11-4" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb11-5"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb11-5" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb11-6"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb11-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-7"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb11-8"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb11-8" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb11-9"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb11-9" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
+<span id="cb11-10"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb11-10" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb11-11"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb11-11" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
+<span id="cb11-12"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb11-12" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Euclidea(Data[i,:] , Data[r,:])   </span>
+<span id="cb11-13"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb11-13" aria-hidden="true" tabindex="-1"></a>                 </span>
+<span id="cb11-14"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb12-1" aria-hidden="true" tabindex="-1"></a>M_Euclidean <span class="op">=</span> Matrix_Dist_Euclidea(Data<span class="op">=</span>Data_quant)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb13-1" aria-hidden="true" tabindex="-1"></a>M_Euclidean</span></code></pre></div>
+<pre><code>array([[      0.        ,  150000.00728238, 1550000.00212124, ...,
+         200000.01565902, 2025000.00024491, 1939113.00017324],
+       [      0.        ,       0.        , 1700000.00034859, ...,
+          50000.01055292, 2175000.00140691, 2089113.00126347],
+       [      0.        ,       0.        ,       0.        , ...,
+        1750000.00000111,  475000.01333737,  389113.0147095 ],
+       ...,
+       [      0.        ,       0.        ,       0.        , ...,
+              1.        , 2225000.00274952, 2139113.00257909],
+       [      0.        ,       0.        ,       0.        , ...,
+              2.        ,       0.        ,   85887.00018092],
+       [      0.        ,       0.        ,       0.        , ...,
+              3.        ,       0.        ,       0.        ]])</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb15-1" aria-hidden="true" tabindex="-1"></a>M_Euclidean <span class="op">=</span> M_Euclidean <span class="op">+</span> M_Euclidean.T</span>
+<span id="cb15-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb15-3" aria-hidden="true" tabindex="-1"></a>M_Euclidean</span></code></pre></div>
+<pre><code>array([[      0.        ,  150000.00728238, 1550000.00212124, ...,
+         200000.01565902, 2025000.00024491, 1939113.00017324],
+       [ 150000.00728238,       0.        , 1700000.00034859, ...,
+          50000.01055292, 2175000.00140691, 2089113.00126347],
+       [1550000.00212124, 1700000.00034859,       0.        , ...,
+        1750000.00000111,  475000.01333737,  389113.0147095 ],
+       ...,
+       [ 200000.01565902,   50000.01055292, 1750000.00000111, ...,
+              0.        , 2225000.00274952, 2139113.00257909],
+       [2025000.00024491, 2175000.00140691,  475000.01333737, ...,
+        2225000.00274952,       0.        ,   85887.00018092],
+       [1939113.00017324, 2089113.00126347,  389113.0147095 , ...,
+        2139113.00257909,   85887.00018092,       0.        ]])</code></pre>
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+<div id="distancia-de-minkowski" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Distancia de Minkowski<a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-minkowski" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de <strong>Minkowski</strong> con parametro <span class="math inline">\(\hspace{0.03cm} q=1,2,3,\dots \hspace{0.03cm}\)</span> entre el par de observaciones <span class="math inline">\(\hspace{0.03cm}(x_i , x_r)\hspace{0.03cm}\)</span> de las variables estadisticas <span class="math inline">\(\hspace{0.03cm} \mathcal{X}_1,. ..,\mathcal{X}_k\hspace{0.03cm}\)</span> se define como: <span class="math inline">\(\\\)</span></p>
+<p><span class="math display">\[
+\delta_q(x_i,x_r)_{Minkowski} \hspace{0.15cm} = \hspace{0.15cm}  \left(  \sum_{k=1}^{p} \hspace{0.08cm}  \mid x_{ik} - x_{rk} \mid  ^q  \right)^{(1/q)}     
+\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<p><strong>Distancia Minkowski entre vectores</strong></p>
+<p>La distancia de Minkowski puede definirse de un modo más general no sujeto al contexto estadístico.</p>
+<p>Dados dos vectores <span class="math inline">\(\hspace{0.1cm} v=(v_1,...,v_n)^t\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm} w=(w_1,...,w_n)^t\hspace{0.03cm}\)</span> de <span class="math inline">\(\hspace{0.1cm}\mathbb{R}^n\hspace{0.03cm}\)</span>.</p>
+<p>La distancia de Minkowski entre esos vectores se define como:</p>
+<p><span class="math display">\[
+\delta_q(v,w)_{Minkowski}   \hspace{0.15cm}=\hspace{0.15cm}  \left( \sum_{i=1}^{n}  \mid v_{i } - w_{i} \mid  ^q  \right)^{(1/q)} \\
+\]</span></p>
+<p><strong>Observación:</strong></p>
+<p><span class="math inline">\(\delta_q(x_i,x_r)_{Minkowski }\hspace{0.04cm}\)</span> es la distancia de Minkowski entre los vectores (de observaciones) <span class="math inline">\(\hspace{0.03cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.03cm}\)</span> de las variables estadísticas <span class="math inline">\(\hspace{0.03cm} \mathcal{X}_1,...,\mathcal{X}_p \hspace{0.07cm}.\)</span></p>
+<p><br></p>
+<p><strong>Desventajas de la distancia de Minkowski</strong></p>
+<ul>
+<li><p>Asume que las variables son incorreladas y tienen varianza uno.</p></li>
+<li><p>No es invariante ante cambios de escala (cambios en las unidades de medida) de las variables.</p></li>
+<li><p>Es difícilmente euclideanizable.</p></li>
+</ul>
+<p><br></p>
+<p><strong>Ventajas de la distancia de Minkowski</strong></p>
+<ul>
+<li>Es el caso general de varias distancias populares como la Euclidea o la Manhattan.</li>
+</ul>
+<p><br></p>
+<div id="casos-particulares-de-la-distancia-de-minkowski" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Casos particulares de la distancia de Minkowski<a href="distancias-con-variables-estadísticas-cuantitativas.html#casos-particulares-de-la-distancia-de-minkowski" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Distancia Euclidea</strong></p>
+<p><span class="math display">\[
+\delta_2(i,j)_{Minkowski }=\delta (i,j)_{Euclidea }   \hspace{1cm} (q=2) \\
+\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Distancia Manhattan</strong></p>
+<p><span class="math display">\[
+\delta_1(i,j)_{Minkowski } \hspace{0.1cm}=\hspace{0.1cm} \sum_{k=1}^{p}  \mid x_{ik} - x_{jk}  \mid   \hspace{1cm} (q=1) \\
+\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>Distancia Dominante</strong> <a class="anchor" id="23"></a></p>
+<p><span class="math display">\[
+\delta_{\infty}(i,j)_{Minkowski } \hspace{0.1cm}=\hspace{0.1cm} max \lbrace  \hspace{0.1cm} \mid x_{i1} - x_{j1} \mid \hspace{0.1cm},...,\hspace{0.1cm} \mid x_{ip} - x_{jp} \mid \hspace{0.1cm}  \rbrace \hspace{1cm} (q\rightarrow \infty)
+\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<p><br></p>
+</div>
+<div id="distancia-de-minkowski-en-python" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Distancia de Minkowski en <code>Python</code><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-minkowski-en-python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Minkowski(x_i, x_r, q):</span>
+<span id="cb17-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb17-3" aria-hidden="true" tabindex="-1"></a>    Dist_Minkowski <span class="op">=</span> ( ( ( <span class="bu">abs</span>( x_i <span class="op">-</span> x_r) )<span class="op">**</span>q ).<span class="bu">sum</span>() )<span class="op">**</span>(<span class="dv">1</span><span class="op">/</span>q)</span>
+<span id="cb17-4"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Dist_Minkowski</span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb18-1" aria-hidden="true" tabindex="-1"></a>Dist_Minkowski(Data_quant.iloc[<span class="dv">2</span>,:], Data_quant.iloc[<span class="dv">5</span>,:], q<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre><code>1969992.0102169998</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb20-1" aria-hidden="true" tabindex="-1"></a>Dist_Minkowski(Data_quant.iloc[<span class="dv">2</span>,:], Data_quant.iloc[<span class="dv">5</span>,:], q<span class="op">=</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>1969900.0019225744</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb22-1" aria-hidden="true" tabindex="-1"></a>Dist_Minkowski(Data_quant.iloc[<span class="dv">2</span>,:], Data_quant.iloc[<span class="dv">5</span>,:], q<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div>
+<pre><code>1969900.000000055</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb24-1" aria-hidden="true" tabindex="-1"></a>Dist_Minkowski(Data_quant.iloc[<span class="dv">2</span>,:], Data_quant.iloc[<span class="dv">5</span>,:], q<span class="op">=</span><span class="dv">10</span>)</span></code></pre></div>
+<pre><code>1969900.0000000016</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Minkowski(Data, q):</span>
+<span id="cb26-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb26-3" aria-hidden="true" tabindex="-1"></a>    Data <span class="op">=</span> Data.to_numpy()</span>
+<span id="cb26-4"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb26-4" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb26-5"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb26-5" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb26-6"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb26-8"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb26-8" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb26-9"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb26-9" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
+<span id="cb26-10"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb26-10" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb26-11"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb26-11" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
+<span id="cb26-12"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb26-12" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Minkowski(Data[i,:] , Data[r,:], q)  </span>
+<span id="cb26-13"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb26-13" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb26-14"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb26-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb27-1" aria-hidden="true" tabindex="-1"></a>M_Minkowski <span class="op">=</span> Matrix_Dist_Minkowski(Data<span class="op">=</span>Data_quant, q<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb27-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb27-3" aria-hidden="true" tabindex="-1"></a>M_Minkowski</span></code></pre></div>
+<pre><code>    array([[      0.      ,  150047.748877, 1550086.062526, ...,
+             200084.359869, 2025031.624379, 1939138.969796],
+           [      0.      ,       0.      , 1700038.338187, ...,
+              50036.62379 , 2175079.33592 , 2089186.681337],
+           [      0.      ,       0.      ,       0.      , ...,
+            1750002.301489,  475117.608205,  389224.964166],
+           ...,
+           [      0.      ,       0.      ,       0.      , ...,
+                  0.      , 2225115.802424, 2139223.298103],
+           [      0.      ,       0.      ,       0.      , ...,
+                  0.      ,       0.      ,   85892.654583],
+           [      0.      ,       0.      ,       0.      , ...,
+                  0.      ,       0.      ,       0.      ]])</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb29-1" aria-hidden="true" tabindex="-1"></a>M_Minkowski <span class="op">=</span> M_Minkowski <span class="op">+</span> M_Minkowski.T</span>
+<span id="cb29-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb29-3" aria-hidden="true" tabindex="-1"></a>M_Minkowski</span></code></pre></div>
+<pre><code>    array([[      0.      ,  150047.748877, 1550086.062526, ...,
+             200084.359869, 2025031.624379, 1939138.969796],
+           [ 150047.748877,       0.      , 1700038.338187, ...,
+              50036.62379 , 2175079.33592 , 2089186.681337],
+           [1550086.062526, 1700038.338187,       0.      , ...,
+            1750002.301489,  475117.608205,  389224.964166],
+           ...,
+           [ 200084.359869,   50036.62379 , 1750002.301489, ...,
+                  0.      , 2225115.802424, 2139223.298103],
+           [2025031.624379, 2175079.33592 ,  475117.608205, ...,
+            2225115.802424,       0.      ,   85892.654583],
+           [1939138.969796, 2089186.681337,  389224.964166, ...,
+            2139223.298103,   85892.654583,       0.      ]])</code></pre>
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+<div id="distancia-de-canberra" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Distancia de Canberra<a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-canberra" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de <strong>Canberra</strong> entre el par de observaciones <span class="math inline">\(\hspace{0.03cm}(x_i , x_r)\hspace{0.03cm}\)</span> de las variables estadísticas <span class="math inline">\(\hspace{0.03cm} \mathcal{X}_1,. ..,\mathcal{X}_k\hspace{0.03cm}\)</span> se define como: <span class="math inline">\(\\\)</span></p>
+<p><span class="math display">\[
+\delta(x_i,x_r)_{Canberra}\hspace{0.15cm}= \hspace{0.15cm} \sum_{k=1}^{p} \hspace{0.08cm} \dfrac{\hspace{0.08cm} \mid x_{ik} - x_{jk} \mid \hspace{0.08cm}}{\mid x_{ik} \mid + \mid x_{jk} \mid}  \\
+\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<p><strong>Distancia Canberra entre vectores</strong></p>
+<p>La distancia de Canberra se puede definir de forma más general no sujeta a un contexto estadístico.</p>
+<p>Dados dos vectores <span class="math inline">\(\hspace{0.03cm}v=(v_1,...,v_n)^t\hspace{0.08cm}\)</span> y <span class="math inline">\(\hspace{0.07cm}w=(w_1,...,w_n)^t\hspace{0.03cm}\)</span> de <span class="math inline">\(\hspace{0.03cm}\mathbb{R}^n\hspace{0.03cm}\)</span>.</p>
+<p>La distancia Canberra entre esos dos vectores es:</p>
+<p><span class="math display">\[
+\delta (v,w)_{Canberra}  \hspace{0.07cm}=\hspace{0.07cm}   \sum_{i=1}^{n}\hspace{0.07cm} \dfrac{\hspace{0.07cm} \mid v_i - w_i \mid \hspace{0.07cm}}{\mid v_i \mid + \mid w_i \mid} \\
+\]</span></p>
+<p><strong>Observación:</strong></p>
+<p><span class="math inline">\(\delta_q(x_i,x_r)_{Canberra}\hspace{0.1cm}\)</span> es la distancia de Canberra entre los vectores (de observaciones) <span class="math inline">\(\hspace{0.03cm} x_i=(x_{i1},x_{i2},...,x_{ip})\hspace{0.12cm}\)</span> y <span class="math inline">\(\hspace{0.12cm} x_r=(x_{r1},x_{r2},...,x_{rp})\hspace{0.03cm}\)</span> de las variables estadísticas <span class="math inline">\(\hspace{0.03cm} \mathcal{X}_1,...,\mathcal{X}_p\hspace{0.05cm}\)</span>.</p>
+<p><br></p>
+<p><strong>Desventajas de la distancia de Canberra</strong></p>
+<ul>
+<li>Asumen que las variables son incorreladas y tienen varianza uno.</li>
+</ul>
+<p><br></p>
+<p><strong>Ventajas de la distancia de Canberra</strong></p>
+<ul>
+<li>Es invariante ante cambios de escala (cambios en las unidades de medida) de las variables.</li>
+</ul>
+<p><br></p>
+<p><br></p>
+<div id="distancia-de-canberra-en-python" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Distancia de Canberra en <code>Python</code><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-canberra-en-python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Canberra(x_i, x_r):</span>
+<span id="cb31-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb31-3" aria-hidden="true" tabindex="-1"></a>    numerator <span class="op">=</span>  <span class="bu">abs</span>( x_i <span class="op">-</span> x_r )</span>
+<span id="cb31-4"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb31-4" aria-hidden="true" tabindex="-1"></a>    denominator <span class="op">=</span>  ( <span class="bu">abs</span>(x_i) <span class="op">+</span> <span class="bu">abs</span>(x_r) )</span>
+<span id="cb31-5"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb31-5" aria-hidden="true" tabindex="-1"></a>    numerator<span class="op">=</span>np.array([numerator], dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb31-6"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb31-6" aria-hidden="true" tabindex="-1"></a>    denominator<span class="op">=</span>np.array([denominator], dtype<span class="op">=</span><span class="bu">float</span>)</span>
+<span id="cb31-7"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb31-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The following code is to eliminate zero division problems</span></span>
+<span id="cb31-9"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb31-9" aria-hidden="true" tabindex="-1"></a>    Dist_Canberra <span class="op">=</span> ( np.divide( numerator , denominator , out<span class="op">=</span>np.zeros_like(numerator), where<span class="op">=</span>denominator<span class="op">!=</span><span class="dv">0</span>) ).<span class="bu">sum</span>() </span>
+<span id="cb31-10"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb31-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-11"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Dist_Canberra</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb32-1" aria-hidden="true" tabindex="-1"></a>Dist_Canberra(Data.iloc[<span class="dv">2</span>,:] , Data.iloc[<span class="dv">5</span>,:])</span></code></pre></div>
+<pre><code>8.8284791957755</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Canberra(Data):</span>
+<span id="cb34-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb34-3" aria-hidden="true" tabindex="-1"></a>    Data <span class="op">=</span> Data.to_numpy()</span>
+<span id="cb34-4"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb34-4" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb34-5"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb34-5" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb34-6"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb34-8"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb34-8" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb34-9"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb34-9" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
+<span id="cb34-10"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb34-10" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb34-11"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb34-11" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
+<span id="cb34-12"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb34-12" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Canberra(Data[i,:] , Data[r,:])   </span>
+<span id="cb34-13"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb34-13" aria-hidden="true" tabindex="-1"></a>                     </span>
+<span id="cb34-14"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb34-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb35-1" aria-hidden="true" tabindex="-1"></a>M_Canberra <span class="op">=</span> Matrix_Dist_Canberra(Data<span class="op">=</span>Data_quant)</span>
+<span id="cb35-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb35-3" aria-hidden="true" tabindex="-1"></a>M_Canberra</span></code></pre></div>
+<pre><code>array([[0.        , 0.5496257 , 1.61996314, ..., 1.25082356, 0.78797391,
+        0.70959891],
+       [0.        , 0.        , 1.15900459, ..., 0.74009173, 1.31434216,
+        1.24077176],
+       [0.        , 0.        , 0.        , ..., 0.44223489, 1.63990915,
+        1.55106392],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 2.00032192,
+        1.93106183],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.09956138],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb37-1" aria-hidden="true" tabindex="-1"></a>M_Canberra <span class="op">=</span> M_Canberra <span class="op">+</span> M_Canberra.T</span>
+<span id="cb37-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb37-3" aria-hidden="true" tabindex="-1"></a>M_Canberra</span></code></pre></div>
+<pre><code>array([[0.        , 0.5496257 , 1.61996314, ..., 1.25082356, 0.78797391,
+        0.70959891],
+       [0.5496257 , 0.        , 1.15900459, ..., 0.74009173, 1.31434216,
+        1.24077176],
+       [1.61996314, 1.15900459, 0.        , ..., 0.44223489, 1.63990915,
+        1.55106392],
+       ...,
+       [1.25082356, 0.74009173, 0.44223489, ..., 0.        , 2.00032192,
+        1.93106183],
+       [0.78797391, 1.31434216, 1.63990915, ..., 2.00032192, 0.        ,
+        0.09956138],
+       [0.70959891, 1.24077176, 1.55106392, ..., 1.93106183, 0.09956138,
+        0.        ]])</code></pre>
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+<div id="distancia-de-pearson" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Distancia de Pearson<a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-pearson" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dada una matriz de datos <span class="math inline">\(\hspace{0.1cm} X = (X_1,...,X_p)\hspace{0.1cm}\)</span> de las variables estadísticas <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}.\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de <strong>Pearson</strong> entre el par de observaciones <span class="math inline">\(\hspace{0.03cm}(x_i,x_r)\hspace{0.03cm}\)</span> de las variables estadísticas <span class="math inline">\(\hspace{0.03cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.03cm}\)</span> se define como: <span class="math inline">\(\\\)</span></p>
+<p><span class="math display">\[
+\delta(x_i,x_r)_{Pearson} \hspace{0.15cm}=\hspace{0.15cm} \sqrt{ \hspace{0.1cm} \sum_{k=1}^{p} \hspace{0.1cm} \dfrac{1}{s\hspace{0.03cm}^2_k} \cdot ( x_{ik} - x_{rk} )\hspace{0.03cm}^2 \hspace{0.1cm} } \hspace{0.12cm} =\hspace{0.12cm} \sqrt{\hspace{0.1cm}(x_i - x_r)\hspace{0.03cm}^t \cdot S_0^{-1} \cdot (x_i - x_r )\hspace{0.1cm}}   \\
+\]</span></p>
+<p><span class="math inline">\(\hspace{0.35cm}\)</span> Donde:</p>
+<ul>
+<li><p><span class="math inline">\(S_0 \hspace{0.1cm}=\hspace{0.1cm} \text{diag}(s_1 ^2 ,..., s_p ^2)\)</span></p></li>
+<li><p><span class="math inline">\(s_k ^2\hspace{0.1cm}\)</span> es la varianza de la muestra <span class="math inline">\(\hspace{0.08cm}X_k\hspace{0.08cm}\)</span> , es decir, <span class="math inline">\(\hspace{0.1cm} s_k ^2 \hspace{0.1cm}=\hspace{0.1cm} \dfrac{1}{n}\cdot \sum_{i=1}^n ( x_{ik} - \overline{X}_k )^2\hspace{0.07cm}.\)</span></p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<p><strong>Observación:</strong></p>
+<p>Con la distancia de Karl Pearson, el peso que se le da a la diferencia entre las observaciones de una variable para un par de individuos decrece cuanto mayor es la varianza de la variable, y aumenta cuanto menor es la varianza.</p>
+<p>Es decir, si la variable <span class="math inline">\(\hspace{0.03cm}\mathcal{X}_k\hspace{0.03cm}\)</span> tiene mucha varianza muestral, es decir, mucha <span class="math inline">\(\hspace{0.03cm}s_k ^2\hspace{0.03cm}\)</span> , entonces <span class="math inline">\(\hspace{0.03cm}(x_{ik} - x_{rk})\hspace{0.03cm}\)</span> tiene muy poco peso en la distancia de Pearson. Cuanto menor sea la varianza, mas peso tendrá, y a la inversa.</p>
+<p><br></p>
+<p><strong>Desventajas de la distancia de Pearson</strong></p>
+<ul>
+<li>Asume que las variables estan incorreladas y tienen varianza uno.</li>
+</ul>
+<p><br></p>
+<p><strong>Ventajas de la distancia de Pearson</strong></p>
+<ul>
+<li>La distancia de Pearson es invariante ante cambios de escala (cambios en las unidades de medida).</li>
+</ul>
+<p><br></p>
+<p><br></p>
+<div id="distancia-de-pearson-en-python" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> Distancia de Pearson en <code>Python</code><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-pearson-en-python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Pearson(x_i, x_r, variance) :</span>
+<span id="cb39-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb39-3" aria-hidden="true" tabindex="-1"></a>    Dist_Pearson <span class="op">=</span> ( ( x_i <span class="op">-</span> x_r )<span class="op">**</span><span class="dv">2</span> <span class="op">/</span> variance ).<span class="bu">sum</span>()</span>
+<span id="cb39-4"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb39-4" aria-hidden="true" tabindex="-1"></a>    Dist_Pearson <span class="op">=</span> np.sqrt(Dist_Pearson)</span>
+<span id="cb39-5"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-6"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb39-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Dist_Pearson</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb40-1" aria-hidden="true" tabindex="-1"></a>Dist_Pearson(x_i<span class="op">=</span>Data_quant.iloc[<span class="dv">2</span>,:], x_r<span class="op">=</span>Data_quant.iloc[<span class="dv">5</span>,:], variance <span class="op">=</span> np.var(Data_quant , axis<span class="op">=</span><span class="dv">0</span>, ddof<span class="op">=</span><span class="dv">1</span>))</span></code></pre></div>
+<pre><code>3.8239347754243425</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Pearson(Data):</span>
+<span id="cb42-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb42-3" aria-hidden="true" tabindex="-1"></a>    Data <span class="op">=</span> Data.to_numpy()</span>
+<span id="cb42-4"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb42-4" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb42-5"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb42-5" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb42-6"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb42-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb42-8"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb42-8" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb42-9"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb42-9" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
+<span id="cb42-10"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb42-10" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb42-11"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb42-11" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
+<span id="cb42-12"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb42-12" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Pearson(Data[i,:] , Data[r,:], variance<span class="op">=</span>np.var(Data, axis<span class="op">=</span><span class="dv">0</span>, ddof<span class="op">=</span><span class="dv">1</span>))   </span>
+<span id="cb42-13"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb42-13" aria-hidden="true" tabindex="-1"></a>                     </span>
+<span id="cb42-14"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb42-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb43-1" aria-hidden="true" tabindex="-1"></a>M_Pearson <span class="op">=</span> Matrix_Dist_Pearson(Data<span class="op">=</span>Data_quant)</span>
+<span id="cb43-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb43-3" aria-hidden="true" tabindex="-1"></a>M_Pearson</span></code></pre></div>
+<pre><code>array([[0.        , 1.21345279, 3.77819153, ..., 4.95085256, 1.66393723,
+        0.94314867],
+       [0.        , 0.        , 3.17880538, ..., 4.43821303, 2.03523139,
+        1.60958264],
+       [0.        , 0.        , 0.        , ..., 3.82999056, 4.01162596,
+        3.76955491],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 4.69603617,
+        5.13174853],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.09780835],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb45-1" aria-hidden="true" tabindex="-1"></a>M_Pearson <span class="op">=</span> M_Pearson <span class="op">+</span> M_Pearson.T</span>
+<span id="cb45-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb45-3" aria-hidden="true" tabindex="-1"></a>M_Pearson</span></code></pre></div>
+<pre><code>array([[0.        , 1.21345279, 3.77819153, ..., 4.95085256, 1.66393723,
+        0.94314867],
+       [1.21345279, 0.        , 3.17880538, ..., 4.43821303, 2.03523139,
+        1.60958264],
+       [3.77819153, 3.17880538, 0.        , ..., 3.82999056, 4.01162596,
+        3.76955491],
+       ...,
+       [4.95085256, 4.43821303, 3.82999056, ..., 0.        , 4.69603617,
+        5.13174853],
+       [1.66393723, 2.03523139, 4.01162596, ..., 4.69603617, 0.        ,
+        1.09780835],
+       [0.94314867, 1.60958264, 3.76955491, ..., 5.13174853, 1.09780835,
+        0.        ]])</code></pre>
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+<div id="distancia-de-mahalanobis" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Distancia de Mahalanobis<a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-mahalanobis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Dada una matriz de datos <span class="math inline">\(\hspace{0.1cm} X=(X_1,...,X_p)\hspace{0.1cm}\)</span> de las variables estadísticas <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de Mahalanobis entre el par de observaciones <span class="math inline">\(\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}\)</span> de las variables estadísticas <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\)</span> se define como: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[
+\delta(x_i,x_r)_{Mahalanobis} \hspace{0.1cm}= \hspace{0.1cm} \sqrt{\hspace{0.1cm}(x_i - x_r)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - x_r ) \hspace{0.1cm}}   \\[0.6cm]
+\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
+<p><span class="math inline">\(\hspace{0.4cm} S \hspace{0.08cm}\)</span> es la estimación de la matriz de covarianzas de las variables <span class="math inline">\(\hspace{0.08cm}(\mathcal{X}_1,\dots , \mathcal{X}_p)\hspace{0.08cm}\)</span> basada en la matriz de datos <span class="math inline">\(\hspace{0.08cm}X=(X_1,...,X_p)\)</span></p>
+<p><span class="math inline">\(\hspace{0.4cm}\)</span> Es decir:</p>
+<p><span class="math display">\[S  \hspace{0.1cm}= \hspace{0.1cm} \bigl(  \hspace{0.1cm} s_{jk}   \hspace{0.2cm} :  \hspace{0.2cm} j,k = 1,\dots , p  \hspace{0.1cm} \bigr)\]</span></p>
+<p><span class="math inline">\(\hspace{0.4cm}\)</span> donde:</p>
+<p><span class="math display">\[s_{jk}  \hspace{0.1cm}= \hspace{0.1cm} S(X_j, X_k)  \hspace{0.1cm}= \hspace{0.1cm} \dfrac{1}{n}\cdot \sum_{i=1}^n  \hspace{0.1cm} (x_{ij}-\overline{X}_j)\cdot (x_{ik}-\overline{X}_k)\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<p><strong>Ventajas</strong></p>
+<p>La distancia de Mahalanobis es adecuada como distancia estadística por las siguientes razones:</p>
+<ul>
+<li><p>Es invariante ante cambios de escala (cambios en las unidades de medida) de las variables. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+<li><p>Tiene en cuenta la correlación entre las variables. No aumenta al incrementar el número de variables observadas. Solo aumenta cuando estas nuevas variables no están correladas con las anteriores. Así que solo cuando las nuevas variables no son redundantes con respecto a la infromación provista por las anteriores, la distancia de Mahalanobis aumentará. <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+</ul>
+<p><strong>Observaciones</strong></p>
+<ul>
+<li><p>La distancia Euclidea es igual a la de Mahalanobis cuando <span class="math inline">\(\hspace{0.1cm} S=I \\\)</span></p></li>
+<li><p>La distancia de Pearson es igual a la de Mahalanobis cuando <span class="math inline">\(\hspace{0.1cm} S=\text{diag}(s_1^2 ,..., s_p^2)\)</span></p></li>
+</ul>
+<p><br></p>
+<p><strong>Distancia Mahalanobis entre vectores <span class="math inline">\(\hspace{0.1cm}x_i\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}v\hspace{0.1cm}\)</span></strong></p>
+<p>La distancia de Mahalanobis puede definirse de forma más general, para abordar el caso en el que uno de los vectores del par considerado no pertenecen a la matriz de datos a partir de la que se calcula la matriz de covarianzas <span class="math inline">\(\hspace{0.1cm}S\hspace{0.08cm}\)</span>.</p>
+<p>Dada una matriz de datos <span class="math inline">\(\hspace{0.1cm}X=(X_1,...,X_p)\hspace{0.1cm}\)</span> de las variables estadísticas <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}\)</span>.</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Dada una observación <span class="math inline">\(\hspace{0.1cm}x_i\hspace{0.1cm}\)</span> de esas variables estadísticas tal que <span class="math inline">\(\hspace{0.1cm}x_i = X[i,:]\hspace{0.1cm}\)</span> y dado un vector <span class="math inline">\(\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.07cm} \in \hspace{0.07cm}\mathbb{R}^p\hspace{0.07cm}\)</span> , que no está incluido en la matriz de datos <span class="math inline">\(\hspace{0.07cm}X\hspace{0.07cm}\)</span>.</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia Mahalanobis entre <span class="math inline">\(\hspace{0.1cm}x_i\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}v\hspace{0.1cm}\)</span> es: <span class="math inline">\(\\[0.7cm]\)</span></p>
+<p><span class="math display">\[
+\delta (x_i, v)_{Mahalanobis}  \hspace{0.09cm}=\hspace{0.09cm}  \sqrt{\hspace{0.07cm}(x_i - v)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - v) \hspace{0.07cm}} \\[0.8cm]
+\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Vamos a considerar dos alternativas para definir <span class="math inline">\(\hspace{0.1cm} S\hspace{0.07cm}\)</span> :</p>
+<ul>
+<li><p><span class="math inline">\(S\hspace{0.1cm}\)</span> es la matriz de covarianzas de la matriz de datos <span class="math inline">\(\hspace{0.1cm} X=(X_1,...,X_p) \\\)</span></p></li>
+<li><p><span class="math inline">\(S\hspace{0.1cm}\)</span> es la matriz de covarianzas de la matriz de datos <span class="math inline">\(\hspace{0.1cm} \begin{pmatrix}  X\\  v  \end{pmatrix}\)</span></p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<p><strong>Observaciones:</strong></p>
+<p>Esta ampliación de la distancia de Mahalanobis a vectores que no necesariamente forman parte de la matriz de datos permite ampliar su capacidad de aplicación. Vamos a dar varios ejemplos en donde la distancia de Gower definida estrictamente entre pares de observaciones de una matriz de datos no podria aplicarse, y que en cambio su versión ampliada si permite hacerlo.</p>
+<ul>
+<li><p>En el algoritmo KNN se requiere de una distancia que pueda aplicarse a un vector de observaciones de las variables que no pertenece a la matriz de datos de entrenamiento. Ese vector juega el papel de <span class="math inline">\(\hspace{0.1cm}v\hspace{0.1cm}\)</span> en la definición anterior. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p>En el algoritmo k-medias se requiere de una distancia que pueda aplicarse sobre el vector de medias <span class="math inline">\(\hspace{0.1cm}\overline{x}\hspace{0.1cm}\)</span> de la matriz de datos de entrenamiento. Tomando <span class="math inline">\(\hspace{0.1cm}v=\overline{x}\hspace{0.1cm}\)</span> se podría aplicar también en este caso la distancia de Mahalanobis.</p></li>
+</ul>
+<p>Además esto no solo amplia la aplicabilidad de la distancia de Mahalanobis, sino también aquellas relacionadas con ella, como la distancia de Gower-Mahalanobis, que veremos mas adelante.</p>
+<p>Por último señalar que las alternativas para definir <span class="math inline">\(\hspace{0.1cm}S\hspace{0.1cm}\)</span> son las que consideramos más razonables. En el caso de que <span class="math inline">\(\hspace{0.1cm}v\hspace{0.1cm}\)</span> fuese un vector de observaciones de las variables estadísticas, consideramos que los mas razonable es seguir la segunda definición. Pero en el caso de que <span class="math inline">\(\hspace{0.1cm}v\hspace{0.1cm}\)</span> fuese el vector de medias de las variables, lo más razonable sería seguir la primera definición.</p>
+<p><br></p>
+</div>
+<div id="distancia-de-mahalanobis-en-python" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Distancia de Mahalanobis en <code>Python</code> <a class="anchor" id="1"></a><a href="distancias-con-variables-estadísticas-cuantitativas.html#distancia-de-mahalanobis-en-python" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb47-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Mahalanobis_1(x_i, x_r, Data):</span>
+<span id="cb47-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb47-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># All the columns of Data must be type = &#39;float&#39; or &#39;int&#39; (specially not &#39;object&#39;), in other case we will find </span></span>
+<span id="cb47-5"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb47-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dimensional problems when Python compute   x @ S_inv @ x.T</span></span>
+<span id="cb47-6"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb47-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-7"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb47-7" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> (x_i <span class="op">-</span> x_r)</span>
+<span id="cb47-8"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb47-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-9"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb47-9" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.array([x]) <span class="co"># necessary step to transpose a 1D array</span></span>
+<span id="cb47-10"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb47-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-11"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb47-11" aria-hidden="true" tabindex="-1"></a>    S_inv <span class="op">=</span> np.linalg.inv( np.cov(Data , rowvar<span class="op">=</span><span class="va">False</span>) ) <span class="co"># inverse of covariance matrix</span></span>
+<span id="cb47-12"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb47-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-13"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb47-13" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> np.sqrt( x <span class="op">@</span> S_inv <span class="op">@</span> x.T )  <span class="co"># x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )</span></span>
+<span id="cb47-14"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb47-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-15"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb47-15" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> <span class="bu">float</span>(Dist_Maha)</span>
+<span id="cb47-16"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb47-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-17"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb47-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Dist_Maha</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb48-1" aria-hidden="true" tabindex="-1"></a>Dist_Mahalanobis_1(Data_quant.iloc[<span class="dv">2</span>,:] , Data_quant.iloc[<span class="dv">5</span>,:] , Data<span class="op">=</span>Data_quant)</span></code></pre></div>
+<pre><code>3.931396144771864</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Mahalanobis_2(x_i, x_r, S_inv):  <span class="co"># Más eficiente que la anterior</span></span>
+<span id="cb50-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb50-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># All the columns of Data must be type = &#39;float&#39; or &#39;int&#39; (specially not &#39;object&#39;), in other case we will find </span></span>
+<span id="cb50-4"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb50-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dimensional problems when Python compute   x @ S_inv @ x.T</span></span>
+<span id="cb50-5"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-6"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb50-6" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> x_i <span class="op">-</span> x_r</span>
+<span id="cb50-7"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb50-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-8"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb50-8" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.array([x]) <span class="co"># necessary step to transpose a 1D array</span></span>
+<span id="cb50-9"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb50-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-10"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb50-10" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> np.sqrt( x <span class="op">@</span> S_inv <span class="op">@</span> x.T )  <span class="co"># x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )</span></span>
+<span id="cb50-11"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb50-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-12"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb50-12" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> <span class="bu">float</span>(Dist_Maha)</span>
+<span id="cb50-13"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb50-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-14"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb50-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Dist_Maha</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb51-1" aria-hidden="true" tabindex="-1"></a>Dist_Mahalanobis_2(x_i <span class="op">=</span> Data_quant.iloc[<span class="dv">2</span>,:] , x_r <span class="op">=</span> Data_quant.iloc[<span class="dv">5</span>,:] , S_inv <span class="op">=</span> np.linalg.inv( np.cov(Data_quant, rowvar<span class="op">=</span><span class="va">False</span>) ) )</span></code></pre></div>
+<pre><code>3.931396144771864</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Dist_Mahalanobis(x, S_inv):  <span class="co"># Más eficiente que la anterior</span></span>
+<span id="cb53-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb53-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># All the columns of Data must be type = &#39;float&#39; or &#39;int&#39; (specially not &#39;object&#39;), in other case we will find </span></span>
+<span id="cb53-4"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb53-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># dimensional problems when Python compute   x @ S_inv @ x.T</span></span>
+<span id="cb53-5"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb53-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-6"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb53-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># x = (x_i - x_r)</span></span>
+<span id="cb53-7"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb53-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-8"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb53-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># x = np.array([x]) # necessary step to transpose a 1D array</span></span>
+<span id="cb53-9"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb53-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-10"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb53-10" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> np.sqrt( x <span class="op">@</span> S_inv <span class="op">@</span> x.T )  <span class="co"># x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )</span></span>
+<span id="cb53-11"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb53-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-12"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb53-12" aria-hidden="true" tabindex="-1"></a>    Dist_Maha <span class="op">=</span> <span class="bu">float</span>(Dist_Maha)</span>
+<span id="cb53-13"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb53-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-14"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb53-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Dist_Maha</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb54-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb54-1" aria-hidden="true" tabindex="-1"></a>Dist_Mahalanobis(x <span class="op">=</span> Data_quant.iloc[<span class="dv">2</span>,:] <span class="op">-</span> Data_quant.iloc[<span class="dv">5</span>,:] , S_inv<span class="op">=</span>np.linalg.inv( np.cov(Data_quant, rowvar<span class="op">=</span><span class="va">False</span>) ))</span></code></pre></div>
+<pre><code>3.931396144771864</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb56-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Mahalanobis_1(Data):</span>
+<span id="cb56-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-3" aria-hidden="true" tabindex="-1"></a>    Data <span class="op">=</span> Data.to_numpy()</span>
+<span id="cb56-4"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-5"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb56-6"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-7"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb56-8"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-9"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-9" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb56-10"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb56-11"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-12"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-12" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb56-13"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-14"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-14" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
+<span id="cb56-15"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-15" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb56-16"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-16" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb56-17"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-18"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-18" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
+<span id="cb56-19"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-20"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-20" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Mahalanobis_1(x_i <span class="op">=</span> Data[i,:] , x_r <span class="op">=</span> Data[r,:] , Data<span class="op">=</span>Data )</span>
+<span id="cb56-21"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-22"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-22" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb56-23"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb56-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb57-1" aria-hidden="true" tabindex="-1"></a>Matrix_Dist_Mahalanobis_1(Data<span class="op">=</span>Data_quant.iloc[<span class="dv">0</span>:<span class="dv">1000</span>, :]) <span class="co"># 2.25 mins</span></span></code></pre></div>
+<pre><code>array([[0.        , 2.16321817, 3.81131086, ..., 2.74083537, 3.84799958,
+        1.06041471],
+       [0.        , 0.        , 4.29953104, ..., 2.76698155, 2.78100414,
+        2.20791581],
+       [0.        , 0.        , 0.        , ..., 2.63546884, 4.34269664,
+        3.32469143],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 2.18534065,
+        1.8408748 ],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        3.09496075],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb59-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb59-1" aria-hidden="true" tabindex="-1"></a>Matrix_Dist_Mahalanobis_1(Data<span class="op">=</span>Data_quant) <span class="co"># 8.52 mins</span></span></code></pre></div>
+<pre><code>array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
+        1.10588047],
+       [0.        , 0.        , 4.35615967, ..., 4.93340427, 2.74011739,
+        2.12938584],
+       [0.        , 0.        , 0.        , ..., 3.17779509, 3.49432487,
+        3.23723317],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 3.58695453,
+        4.11275247],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.46894947],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb61-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Mahalanobis_2(Data):</span>
+<span id="cb61-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-3" aria-hidden="true" tabindex="-1"></a>    Data <span class="op">=</span> Data.to_numpy()</span>
+<span id="cb61-4"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-5"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb61-6"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-7"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb61-8"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-9"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-9" aria-hidden="true" tabindex="-1"></a>    S_inv <span class="op">=</span> np.linalg.inv( np.cov(Data , rowvar<span class="op">=</span><span class="va">False</span>) )</span>
+<span id="cb61-10"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-11"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-11" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb61-12"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb61-13"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-14"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-14" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb61-15"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-16"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-16" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
+<span id="cb61-17"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-17" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb61-18"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-18" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb61-19"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-20"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-20" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
+<span id="cb61-21"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-22"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-22" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Mahalanobis_2(x_i <span class="op">=</span> Data[i,:] , x_r <span class="op">=</span> Data[r,:] , S_inv <span class="op">=</span> S_inv  )</span>
+<span id="cb61-23"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-24"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-24" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb61-25"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb61-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb62-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb62-1" aria-hidden="true" tabindex="-1"></a>Matrix_Dist_Mahalanobis_2(Data<span class="op">=</span>Data_quant.iloc[<span class="dv">0</span>:<span class="dv">1000</span>, :]) <span class="co"># 6.8 seg</span></span></code></pre></div>
+<pre><code>array([[0.        , 2.16321817, 3.81131086, ..., 2.74083537, 3.84799958,
+        1.06041471],
+       [0.        , 0.        , 4.29953104, ..., 2.76698155, 2.78100414,
+        2.20791581],
+       [0.        , 0.        , 0.        , ..., 2.63546884, 4.34269664,
+        3.32469143],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 2.18534065,
+        1.8408748 ],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        3.09496075],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb64-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb64-1" aria-hidden="true" tabindex="-1"></a>Matrix_Dist_Mahalanobis_2(Data<span class="op">=</span>Data_quant) <span class="co"># 22.5 seg</span></span></code></pre></div>
+<pre><code>array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
+        1.10588047],
+       [0.        , 0.        , 4.35615967, ..., 4.93340427, 2.74011739,
+        2.12938584],
+       [0.        , 0.        , 0.        , ..., 3.17779509, 3.49432487,
+        3.23723317],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 3.58695453,
+        4.11275247],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.46894947],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb66-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Matrix_Dist_Mahalanobis(Data):</span>
+<span id="cb66-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-3" aria-hidden="true" tabindex="-1"></a>    Data <span class="op">=</span> Data.to_numpy()</span>
+<span id="cb66-4"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-5"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-5" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(Data)</span>
+<span id="cb66-6"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-7"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-7" aria-hidden="true" tabindex="-1"></a>    M <span class="op">=</span>  np.empty((n , n))</span>
+<span id="cb66-8"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-9"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-9" aria-hidden="true" tabindex="-1"></a>    S_inv<span class="op">=</span>np.linalg.inv( np.cov(Data , rowvar<span class="op">=</span><span class="va">False</span>) )</span>
+<span id="cb66-10"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-11"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-11" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb66-12"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb66-13"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-14"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-14" aria-hidden="true" tabindex="-1"></a>         <span class="cf">for</span> r <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, n):</span>
+<span id="cb66-15"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-16"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-16" aria-hidden="true" tabindex="-1"></a>             <span class="cf">if</span> i <span class="op">&gt;=</span> r :</span>
+<span id="cb66-17"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-17" aria-hidden="true" tabindex="-1"></a>               </span>
+<span id="cb66-18"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-18" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb66-19"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-20"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-20" aria-hidden="true" tabindex="-1"></a>             <span class="cf">else</span> :</span>
+<span id="cb66-21"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-22"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-22" aria-hidden="true" tabindex="-1"></a>                 M[i,r] <span class="op">=</span> Dist_Mahalanobis(x <span class="op">=</span> np.array([Data[i,:] <span class="op">-</span> Data[r,:]]) , S_inv<span class="op">=</span>S_inv ) </span>
+<span id="cb66-23"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-24"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-24" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb66-25"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb66-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> M </span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb67-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb67-1" aria-hidden="true" tabindex="-1"></a>Matrix_Dist_Mahalanobis(Data<span class="op">=</span>Data_quant.iloc[<span class="dv">0</span>:<span class="dv">1000</span>, :]) <span class="co"># 4.8 seg</span></span></code></pre></div>
+<pre><code>array([[0.        , 2.16321817, 3.81131086, ..., 2.74083537, 3.84799958,
+        1.06041471],
+       [0.        , 0.        , 4.29953104, ..., 2.76698155, 2.78100414,
+        2.20791581],
+       [0.        , 0.        , 0.        , ..., 2.63546884, 4.34269664,
+        3.32469143],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 2.18534065,
+        1.8408748 ],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        3.09496075],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])</code></pre>
+<p><br></p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb69-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb69-1" aria-hidden="true" tabindex="-1"></a>M_Mahalanobis <span class="op">=</span> Matrix_Dist_Mahalanobis(Data<span class="op">=</span>Data_quant) <span class="co"># 19.7 seg</span></span>
+<span id="cb69-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb69-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb69-3" aria-hidden="true" tabindex="-1"></a>M_Mahalanobis</span></code></pre></div>
+<pre><code>array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
+        1.10588047],
+       [0.        , 0.        , 4.35615967, ..., 4.93340427, 2.74011739,
+        2.12938584],
+       [0.        , 0.        , 0.        , ..., 3.17779509, 3.49432487,
+        3.23723317],
+       ...,
+       [0.        , 0.        , 0.        , ..., 0.        , 3.58695453,
+        4.11275247],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        1.46894947],
+       [0.        , 0.        , 0.        , ..., 0.        , 0.        ,
+        0.        ]])</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb71-1"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb71-1" aria-hidden="true" tabindex="-1"></a>M_Mahalanobis <span class="op">=</span> M_Mahalanobis <span class="op">+</span> M_Mahalanobis.T</span>
+<span id="cb71-2"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb71-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-3"><a href="distancias-con-variables-estadísticas-cuantitativas.html#cb71-3" aria-hidden="true" tabindex="-1"></a>M_Mahalanobis</span></code></pre></div>
+<pre><code>array([[0.        , 2.11289055, 3.7975463 , ..., 4.51559865, 2.31688444,
+        1.10588047],
+       [2.11289055, 0.        , 4.35615967, ..., 4.93340427, 2.74011739,
+        2.12938584],
+       [3.7975463 , 4.35615967, 0.        , ..., 3.17779509, 3.49432487,
+        3.23723317],
+       ...,
+       [4.51559865, 4.93340427, 3.17779509, ..., 0.        , 3.58695453,
+        4.11275247],
+       [2.31688444, 2.74011739, 3.49432487, ..., 3.58695453, 0.        ,
+        1.46894947],
+       [1.10588047, 2.12938584, 3.23723317, ..., 4.11275247, 1.46894947,
+        0.        ]])</code></pre>
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="distancias.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="similaridades.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://estadistica4all.com/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
