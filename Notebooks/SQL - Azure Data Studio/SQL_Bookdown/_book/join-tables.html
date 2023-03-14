@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 24 Join tables | Introduction to SQL in Azure Data Studio</title>
+  <title>Chapter 26 Join tables | Introduction to SQL in Azure Data Studio</title>
   <meta name="description" content="This article is an introduction to SQL in Azure Data Studio." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 24 Join tables | Introduction to SQL in Azure Data Studio" />
+  <meta property="og:title" content="Chapter 26 Join tables | Introduction to SQL in Azure Data Studio" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This article is an introduction to SQL in Azure Data Studio." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 24 Join tables | Introduction to SQL in Azure Data Studio" />
+  <meta name="twitter:title" content="Chapter 26 Join tables | Introduction to SQL in Azure Data Studio" />
   
   <meta name="twitter:description" content="This article is an introduction to SQL in Azure Data Studio." />
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Fabio Scielzo Ortiz" />
 
 
-<meta name="date" content="2023-03-13" />
+<meta name="date" content="2023-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -155,29 +155,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="number-of-columns.html"><a href="number-of-columns.html"><i class="fa fa-check"></i><b>9</b> Number of columns</a></li>
 <li class="chapter" data-level="10" data-path="number-of-rows.html"><a href="number-of-rows.html"><i class="fa fa-check"></i><b>10</b> Number of rows</a></li>
 <li class="chapter" data-level="11" data-path="head-of-a-table.html"><a href="head-of-a-table.html"><i class="fa fa-check"></i><b>11</b> Head of a table</a></li>
-<li class="chapter" data-level="12" data-path="select-columns-of-a-table.html"><a href="select-columns-of-a-table.html"><i class="fa fa-check"></i><b>12</b> Select columns of a table</a></li>
+<li class="chapter" data-level="12" data-path="select-columns-from-a-table.html"><a href="select-columns-from-a-table.html"><i class="fa fa-check"></i><b>12</b> Select columns from a table</a></li>
 <li class="chapter" data-level="13" data-path="assign-alias-to-a-column.html"><a href="assign-alias-to-a-column.html"><i class="fa fa-check"></i><b>13</b> Assign alias to a column</a></li>
-<li class="chapter" data-level="14" data-path="filter-rows-of-a-table.html"><a href="filter-rows-of-a-table.html"><i class="fa fa-check"></i><b>14</b> Filter rows of a table</a>
+<li class="chapter" data-level="14" data-path="filter-rows-from-a-table.html"><a href="filter-rows-from-a-table.html"><i class="fa fa-check"></i><b>14</b> Filter rows from a table</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="filter-rows-of-a-table.html"><a href="filter-rows-of-a-table.html#select-rows-by-strings-with-like-and-not-like"><i class="fa fa-check"></i><b>14.1</b> Select rows by strings with Like and Not Like</a></li>
+<li class="chapter" data-level="14.1" data-path="filter-rows-from-a-table.html"><a href="filter-rows-from-a-table.html#filtering-rows-by-conditions"><i class="fa fa-check"></i><b>14.1</b> Filtering rows by conditions</a></li>
+<li class="chapter" data-level="14.2" data-path="filter-rows-from-a-table.html"><a href="filter-rows-from-a-table.html#select-rows-with-strings-with-like-and-not-like"><i class="fa fa-check"></i><b>14.2</b> Select rows with strings with Like and Not Like</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="delete-rows-from-a-table.html"><a href="delete-rows-from-a-table.html"><i class="fa fa-check"></i><b>15</b> Delete rows from a table</a></li>
-<li class="chapter" data-level="16" data-path="delete-columns-from-a-table.html"><a href="delete-columns-from-a-table.html"><i class="fa fa-check"></i><b>16</b> Delete columns from a table</a></li>
-<li class="chapter" data-level="17" data-path="delete-a-table.html"><a href="delete-a-table.html"><i class="fa fa-check"></i><b>17</b> Delete a table</a></li>
-<li class="chapter" data-level="18" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html"><i class="fa fa-check"></i><b>18</b> Update columns of a table</a>
+<li class="chapter" data-level="15" data-path="creating-a-new-table-based-on-a-query.html"><a href="creating-a-new-table-based-on-a-query.html"><i class="fa fa-check"></i><b>15</b> Creating a new table based on a query</a></li>
+<li class="chapter" data-level="16" data-path="delete-rows-from-a-table.html"><a href="delete-rows-from-a-table.html"><i class="fa fa-check"></i><b>16</b> Delete rows from a table</a></li>
+<li class="chapter" data-level="17" data-path="delete-rows-from-a-table-that-meet-a-condition.html"><a href="delete-rows-from-a-table-that-meet-a-condition.html"><i class="fa fa-check"></i><b>17</b> Delete rows from a table that meet a condition</a></li>
+<li class="chapter" data-level="18" data-path="delete-columns-from-a-table.html"><a href="delete-columns-from-a-table.html"><i class="fa fa-check"></i><b>18</b> Delete columns from a table</a></li>
+<li class="chapter" data-level="19" data-path="delete-a-table.html"><a href="delete-a-table.html"><i class="fa fa-check"></i><b>19</b> Delete a table</a></li>
+<li class="chapter" data-level="20" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html"><i class="fa fa-check"></i><b>20</b> Update columns of a table</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html#setting-a-default-value-for-a-column"><i class="fa fa-check"></i><b>18.1</b> Setting a default value for a column</a></li>
+<li class="chapter" data-level="20.1" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html#setting-a-default-value-for-a-column"><i class="fa fa-check"></i><b>20.1</b> Setting a default value for a column</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="columns-calculated-from-others.html"><a href="columns-calculated-from-others.html"><i class="fa fa-check"></i><b>19</b> Columns calculated from others</a></li>
-<li class="chapter" data-level="20" data-path="concat-strings-from-different-columns.html"><a href="concat-strings-from-different-columns.html"><i class="fa fa-check"></i><b>20</b> Concat strings from different columns</a></li>
-<li class="chapter" data-level="21" data-path="sorting-a-table-by-columns.html"><a href="sorting-a-table-by-columns.html"><i class="fa fa-check"></i><b>21</b> Sorting a table by columns</a></li>
-<li class="chapter" data-level="22" data-path="minmun-maximun-sum-mean-quantiles.html"><a href="minmun-maximun-sum-mean-quantiles.html"><i class="fa fa-check"></i><b>22</b> Minmun, Maximun, Sum, Mean, Quantiles</a></li>
-<li class="chapter" data-level="23" data-path="group-by.html"><a href="group-by.html"><i class="fa fa-check"></i><b>23</b> Group by</a>
+<li class="chapter" data-level="21" data-path="columns-calculated-from-others.html"><a href="columns-calculated-from-others.html"><i class="fa fa-check"></i><b>21</b> Columns calculated from others</a></li>
+<li class="chapter" data-level="22" data-path="concatenate-strings-from-different-columns.html"><a href="concatenate-strings-from-different-columns.html"><i class="fa fa-check"></i><b>22</b> Concatenate strings from different columns</a></li>
+<li class="chapter" data-level="23" data-path="sorting-a-table-by-columns.html"><a href="sorting-a-table-by-columns.html"><i class="fa fa-check"></i><b>23</b> Sorting a table by columns</a></li>
+<li class="chapter" data-level="24" data-path="minimun-maximun-sum-mean-quantiles.html"><a href="minimun-maximun-sum-mean-quantiles.html"><i class="fa fa-check"></i><b>24</b> Minimun, Maximun, Sum, Mean, Quantiles</a></li>
+<li class="chapter" data-level="25" data-path="group-by.html"><a href="group-by.html"><i class="fa fa-check"></i><b>25</b> Group by</a>
 <ul>
-<li class="chapter" data-level="23.1" data-path="group-by.html"><a href="group-by.html#having"><i class="fa fa-check"></i><b>23.1</b> Having</a></li>
+<li class="chapter" data-level="25.1" data-path="group-by.html"><a href="group-by.html#having"><i class="fa fa-check"></i><b>25.1</b> Having</a></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="join-tables.html"><a href="join-tables.html"><i class="fa fa-check"></i><b>24</b> Join tables</a></li>
-<li class="chapter" data-level="25" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i><b>25</b> Bibliography</a></li>
+<li class="chapter" data-level="26" data-path="join-tables.html"><a href="join-tables.html"><i class="fa fa-check"></i><b>26</b> Join tables</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="join-tables.html"><a href="join-tables.html#inner-join"><i class="fa fa-check"></i><b>26.1</b> Inner Join</a></li>
+<li class="chapter" data-level="26.2" data-path="join-tables.html"><a href="join-tables.html#outer-join"><i class="fa fa-check"></i><b>26.2</b> Outer Join</a></li>
+<li class="chapter" data-level="26.3" data-path="join-tables.html"><a href="join-tables.html#right-join"><i class="fa fa-check"></i><b>26.3</b> Right Join</a></li>
+<li class="chapter" data-level="26.4" data-path="join-tables.html"><a href="join-tables.html#left-join"><i class="fa fa-check"></i><b>26.4</b> Left Join</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i><b>27</b> Bibliography</a></li>
 <li class="divider"></li>
 <li><a href="https://estadistica4all.com" target="blank">Estadistica4all.com</a></li>
 
@@ -198,8 +207,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="join-tables" class="section level1 hasAnchor" number="24">
-<h1><span class="header-section-number">Chapter 24</span> Join tables<a href="join-tables.html#join-tables" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="join-tables" class="section level1 hasAnchor" number="26">
+<h1><span class="header-section-number">Chapter 26</span> Join tables<a href="join-tables.html#join-tables" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="inner-join" class="section level2 hasAnchor" number="26.1">
+<h2><span class="header-section-number">26.1</span> Inner Join<a href="join-tables.html#inner-join" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The inner join operation applied to two data frames <span class="math inline">\(DF_1\)</span> and <span class="math inline">\(DF_2\)</span> produces another data frame consisting of the union of the rows of <span class="math inline">\(DF_1\)</span> and <span class="math inline">\(DF_2\)</span> that share the same value in the link column (share the same linking value).</p>
 <div class="sourceCode" id="cb83"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb83-1"><a href="join-tables.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> a.Nombre, b.Asignatura , b.Nota</span>
 <span id="cb83-2"><a href="join-tables.html#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Alumnos a</span>
 <span id="cb83-3"><a href="join-tables.html#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> Examenes b </span>
@@ -212,96 +224,96 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </colgroup>
 <thead>
 <tr class="header">
-<th>Nombre</th>
-<th>Asignatura</th>
-<th>Nota</th>
+<th align="left">Nombre</th>
+<th align="left">Asignatura</th>
+<th align="left">Nota</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Keith</td>
-<td>Matemáticas</td>
-<td>6.70</td>
+<td align="left">Keith</td>
+<td align="left">Matemáticas</td>
+<td align="left">6.70</td>
 </tr>
 <tr class="even">
-<td>Ismael</td>
-<td>Inglés</td>
-<td>6.90</td>
+<td align="left">Ismael</td>
+<td align="left">Inglés</td>
+<td align="left">6.90</td>
 </tr>
 <tr class="odd">
-<td>Keith</td>
-<td>Física</td>
-<td>5.25</td>
+<td align="left">Keith</td>
+<td align="left">Física</td>
+<td align="left">5.25</td>
 </tr>
 <tr class="even">
-<td>Janet</td>
-<td>Lengua</td>
-<td>6.00</td>
+<td align="left">Janet</td>
+<td align="left">Lengua</td>
+<td align="left">6.00</td>
 </tr>
 <tr class="odd">
-<td>Juan</td>
-<td>Inglés</td>
-<td>7.20</td>
+<td align="left">Juan</td>
+<td align="left">Inglés</td>
+<td align="left">7.20</td>
 </tr>
 <tr class="even">
-<td>Fabio</td>
-<td>Física</td>
-<td>7.80</td>
+<td align="left">Fabio</td>
+<td align="left">Física</td>
+<td align="left">7.80</td>
 </tr>
 <tr class="odd">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>5.50</td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">5.50</td>
 </tr>
 <tr class="even">
-<td>Grecia</td>
-<td>Inglés</td>
-<td>3.00</td>
+<td align="left">Grecia</td>
+<td align="left">Inglés</td>
+<td align="left">3.00</td>
 </tr>
 <tr class="odd">
-<td>Grecia</td>
-<td>Física</td>
-<td>4.00</td>
+<td align="left">Grecia</td>
+<td align="left">Física</td>
+<td align="left">4.00</td>
 </tr>
 <tr class="even">
-<td>Janet</td>
-<td>Física</td>
-<td>8.00</td>
+<td align="left">Janet</td>
+<td align="left">Física</td>
+<td align="left">8.00</td>
 </tr>
 <tr class="odd">
-<td>Orlando</td>
-<td>Matemáticas</td>
-<td>4.25</td>
+<td align="left">Orlando</td>
+<td align="left">Matemáticas</td>
+<td align="left">4.25</td>
 </tr>
 <tr class="even">
-<td>Lucia</td>
-<td>Inglés</td>
-<td>6.50</td>
+<td align="left">Lucia</td>
+<td align="left">Inglés</td>
+<td align="left">6.50</td>
 </tr>
 <tr class="odd">
-<td>Sergio</td>
-<td>Lengua</td>
-<td>7.00</td>
+<td align="left">Sergio</td>
+<td align="left">Lengua</td>
+<td align="left">7.00</td>
 </tr>
 <tr class="even">
-<td>Donna</td>
-<td>Lengua</td>
-<td>5.00</td>
+<td align="left">Donna</td>
+<td align="left">Lengua</td>
+<td align="left">5.00</td>
 </tr>
 <tr class="odd">
-<td>Luis</td>
-<td>Inglés</td>
-<td>7.00</td>
+<td align="left">Luis</td>
+<td align="left">Inglés</td>
+<td align="left">7.00</td>
 </tr>
 <tr class="even">
-<td>Orlando</td>
-<td>Física</td>
-<td>7.00</td>
+<td align="left">Orlando</td>
+<td align="left">Física</td>
+<td align="left">7.00</td>
 </tr>
 <tr class="odd">
-<td>Keith</td>
-<td>Lengua</td>
-<td>8.00</td>
+<td align="left">Keith</td>
+<td align="left">Lengua</td>
+<td align="left">8.00</td>
 </tr>
 </tbody>
 </table>
@@ -313,100 +325,107 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <table>
 <thead>
 <tr class="header">
-<th>Nombre</th>
-<th>Asignatura</th>
-<th>email</th>
+<th align="left">Nombre</th>
+<th align="left">Asignatura</th>
+<th align="left">email</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Juan</td>
-<td>Matemáticas</td>
-<td><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
+<td align="left">Juan</td>
+<td align="left">Matemáticas</td>
+<td align="left"><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Garazi</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Sonia</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Lucia</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Garazi</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Sonia</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Lucia</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Garazi</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Sonia</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Sonia</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Juan</td>
-<td>Matemáticas</td>
-<td><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
+<td align="left">Juan</td>
+<td align="left">Matemáticas</td>
+<td align="left"><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Garazi</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Lucia</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Lucia</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Garazi</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Sonia</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Lucia</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
+<p><br></p>
+</div>
+<div id="outer-join" class="section level2 hasAnchor" number="26.2">
+<h2><span class="header-section-number">26.2</span> Outer Join<a href="join-tables.html#outer-join" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The outer join operation applied to two data frames <span class="math inline">\(DF_1\)</span> and <span class="math inline">\(DF_2\)</span>
+produces the same data frame of inner join, but adding the rows from<br />
+<span class="math inline">\(DF_1\)</span> that don’t share linking value with any row from <span class="math inline">\(DF_2\)</span> , and the rows from <span class="math inline">\(DF_2\)</span> that don’t share linking value with any row form <span class="math inline">\(DF_1\)</span> .</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb85-1"><a href="join-tables.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> a.Nombre, b.Asignatura , a.Estudios, a.email, b.AlumnoID, b.Nota</span>
 <span id="cb85-2"><a href="join-tables.html#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Profesores a</span>
 <span id="cb85-3"><a href="join-tables.html#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FULL</span> <span class="kw">OUTER</span> <span class="kw">JOIN</span> Examenes b </span>
@@ -422,174 +441,174 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </colgroup>
 <thead>
 <tr class="header">
-<th>Nombre</th>
-<th>Asignatura</th>
-<th>Estudios</th>
-<th>email</th>
-<th>AlumnoID</th>
-<th>Nota</th>
+<th align="left">Nombre</th>
+<th align="left">Asignatura</th>
+<th align="left">Estudios</th>
+<th align="left">email</th>
+<th align="left">AlumnoID</th>
+<th align="left">Nota</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Juan</td>
-<td>Matemáticas</td>
-<td>Matemáticas</td>
-<td><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
-<td>A2</td>
-<td>6.70</td>
+<td align="left">Juan</td>
+<td align="left">Matemáticas</td>
+<td align="left">Matemáticas</td>
+<td align="left"><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
+<td align="left">A2</td>
+<td align="left">6.70</td>
 </tr>
 <tr class="even">
-<td>Juan</td>
-<td>Matemáticas</td>
-<td>Matemáticas</td>
-<td><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
-<td>A1</td>
-<td>4.25</td>
+<td align="left">Juan</td>
+<td align="left">Matemáticas</td>
+<td align="left">Matemáticas</td>
+<td align="left"><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
+<td align="left">A1</td>
+<td align="left">4.25</td>
 </tr>
 <tr class="odd">
-<td>Sonia</td>
-<td>Física</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
-<td>A2</td>
-<td>5.25</td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">A2</td>
+<td align="left">5.25</td>
 </tr>
 <tr class="even">
-<td>Sonia</td>
-<td>Física</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
-<td>A5</td>
-<td>7.80</td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">A5</td>
+<td align="left">7.80</td>
 </tr>
 <tr class="odd">
-<td>Sonia</td>
-<td>Física</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
-<td>A10</td>
-<td>4.00</td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">A10</td>
+<td align="left">4.00</td>
 </tr>
 <tr class="even">
-<td>Sonia</td>
-<td>Física</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
-<td>A4</td>
-<td>8.00</td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">A4</td>
+<td align="left">8.00</td>
 </tr>
 <tr class="odd">
-<td>Sonia</td>
-<td>Física</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
-<td>A1</td>
-<td>7.00</td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">A1</td>
+<td align="left">7.00</td>
 </tr>
 <tr class="even">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
-<td>A4</td>
-<td>6.00</td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">A4</td>
+<td align="left">6.00</td>
 </tr>
 <tr class="odd">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
-<td>A7</td>
-<td>5.50</td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">A7</td>
+<td align="left">5.50</td>
 </tr>
 <tr class="even">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
-<td>A9</td>
-<td>7.00</td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">A9</td>
+<td align="left">7.00</td>
 </tr>
 <tr class="odd">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
-<td>A3</td>
-<td>5.00</td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">A3</td>
+<td align="left">5.00</td>
 </tr>
 <tr class="even">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
-<td>A2</td>
-<td>8.00</td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">A2</td>
+<td align="left">8.00</td>
 </tr>
 <tr class="odd">
-<td>Marcos</td>
-<td>NULL</td>
-<td>Biología</td>
-<td><a href="mailto:MarcosSanz@colegio.es" class="email">MarcosSanz@colegio.es</a></td>
-<td>NULL</td>
-<td>NULL</td>
+<td align="left">Marcos</td>
+<td align="left">NULL</td>
+<td align="left">Biología</td>
+<td align="left"><a href="mailto:MarcosSanz@colegio.es" class="email">MarcosSanz@colegio.es</a></td>
+<td align="left">NULL</td>
+<td align="left">NULL</td>
 </tr>
 <tr class="even">
-<td>Carlos</td>
-<td>NULL</td>
-<td>Educación Física</td>
-<td><a href="mailto:CarlosFernandez@colegio.es" class="email">CarlosFernandez@colegio.es</a></td>
-<td>NULL</td>
-<td>NULL</td>
+<td align="left">Carlos</td>
+<td align="left">NULL</td>
+<td align="left">Educación Física</td>
+<td align="left"><a href="mailto:CarlosFernandez@colegio.es" class="email">CarlosFernandez@colegio.es</a></td>
+<td align="left">NULL</td>
+<td align="left">NULL</td>
 </tr>
 <tr class="odd">
-<td>Daniel</td>
-<td>NULL</td>
-<td>Geografía</td>
-<td><a href="mailto:DanielOrtiz@colegio.es" class="email">DanielOrtiz@colegio.es</a></td>
-<td>NULL</td>
-<td>NULL</td>
+<td align="left">Daniel</td>
+<td align="left">NULL</td>
+<td align="left">Geografía</td>
+<td align="left"><a href="mailto:DanielOrtiz@colegio.es" class="email">DanielOrtiz@colegio.es</a></td>
+<td align="left">NULL</td>
+<td align="left">NULL</td>
 </tr>
 <tr class="even">
-<td>Garazi</td>
-<td>Inglés</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
-<td>A11</td>
-<td>6.90</td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">A11</td>
+<td align="left">6.90</td>
 </tr>
 <tr class="odd">
-<td>Garazi</td>
-<td>Inglés</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
-<td>A6</td>
-<td>7.20</td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">A6</td>
+<td align="left">7.20</td>
 </tr>
 <tr class="even">
-<td>Garazi</td>
-<td>Inglés</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
-<td>A10</td>
-<td>3.00</td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">A10</td>
+<td align="left">3.00</td>
 </tr>
 <tr class="odd">
-<td>Garazi</td>
-<td>Inglés</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
-<td>A7</td>
-<td>6.50</td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">A7</td>
+<td align="left">6.50</td>
 </tr>
 <tr class="even">
-<td>Garazi</td>
-<td>Inglés</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
-<td>A12</td>
-<td>7.00</td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">A12</td>
+<td align="left">7.00</td>
 </tr>
 </tbody>
 </table>
@@ -601,58 +620,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <table>
 <thead>
 <tr class="header">
-<th>Nombre</th>
-<th>Asignatura</th>
-<th>Estudios</th>
-<th>email</th>
+<th align="left">Nombre</th>
+<th align="left">Asignatura</th>
+<th align="left">Estudios</th>
+<th align="left">email</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Carlos</td>
-<td>NULL</td>
-<td>Educación Física</td>
-<td><a href="mailto:CarlosFernandez@colegio.es" class="email">CarlosFernandez@colegio.es</a></td>
+<td align="left">Carlos</td>
+<td align="left">NULL</td>
+<td align="left">Educación Física</td>
+<td align="left"><a href="mailto:CarlosFernandez@colegio.es" class="email">CarlosFernandez@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Daniel</td>
-<td>NULL</td>
-<td>Geografía</td>
-<td><a href="mailto:DanielOrtiz@colegio.es" class="email">DanielOrtiz@colegio.es</a></td>
+<td align="left">Daniel</td>
+<td align="left">NULL</td>
+<td align="left">Geografía</td>
+<td align="left"><a href="mailto:DanielOrtiz@colegio.es" class="email">DanielOrtiz@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Garazi</td>
-<td>Inglés</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Juan</td>
-<td>Matemáticas</td>
-<td>Matemáticas</td>
-<td><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
+<td align="left">Juan</td>
+<td align="left">Matemáticas</td>
+<td align="left">Matemáticas</td>
+<td align="left"><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Marcos</td>
-<td>NULL</td>
-<td>Biología</td>
-<td><a href="mailto:MarcosSanz@colegio.es" class="email">MarcosSanz@colegio.es</a></td>
+<td align="left">Marcos</td>
+<td align="left">NULL</td>
+<td align="left">Biología</td>
+<td align="left"><a href="mailto:MarcosSanz@colegio.es" class="email">MarcosSanz@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Sonia</td>
-<td>Física</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
+<p><br></p>
+</div>
+<div id="right-join" class="section level2 hasAnchor" number="26.3">
+<h2><span class="header-section-number">26.3</span> Right Join<a href="join-tables.html#right-join" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The right join operation applied to two data frames <span class="math inline">\(DF_1\)</span> and <span class="math inline">\(DF_2\)</span>
+produces another data frame consisting of the rows of <span class="math inline">\(DF_1\)</span> and <span class="math inline">\(DF_2\)</span>
+that share link value, and the rest rows of <span class="math inline">\(DF_2\)</span> .</p>
 <div class="sourceCode" id="cb87"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb87-1"><a href="join-tables.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> a.Nombre, b.Asignatura , a.Estudios, a.email</span>
 <span id="cb87-2"><a href="join-tables.html#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Profesores a</span>
 <span id="cb87-3"><a href="join-tables.html#cb87-3" aria-hidden="true" tabindex="-1"></a><span class="kw">RIGHT</span> <span class="kw">JOIN</span> Examenes b </span>
@@ -660,114 +686,114 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <table>
 <thead>
 <tr class="header">
-<th>Nombre</th>
-<th>Asignatura</th>
-<th>Estudios</th>
-<th>email</th>
+<th align="left">Nombre</th>
+<th align="left">Asignatura</th>
+<th align="left">Estudios</th>
+<th align="left">email</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Juan</td>
-<td>Matemáticas</td>
-<td>Matemáticas</td>
-<td><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
+<td align="left">Juan</td>
+<td align="left">Matemáticas</td>
+<td align="left">Matemáticas</td>
+<td align="left"><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Garazi</td>
-<td>Inglés</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Sonia</td>
-<td>Física</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Garazi</td>
-<td>Inglés</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Sonia</td>
-<td>Física</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Garazi</td>
-<td>Inglés</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Sonia</td>
-<td>Física</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Sonia</td>
-<td>Física</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Juan</td>
-<td>Matemáticas</td>
-<td>Matemáticas</td>
-<td><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
+<td align="left">Juan</td>
+<td align="left">Matemáticas</td>
+<td align="left">Matemáticas</td>
+<td align="left"><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Garazi</td>
-<td>Inglés</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Garazi</td>
-<td>Inglés</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Sonia</td>
-<td>Física</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
 </tr>
 </tbody>
 </table>
@@ -779,36 +805,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <table>
 <thead>
 <tr class="header">
-<th>Nombre</th>
-<th>Asignatura</th>
-<th>Estudios</th>
-<th>email</th>
+<th align="left">Nombre</th>
+<th align="left">Asignatura</th>
+<th align="left">Estudios</th>
+<th align="left">email</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Garazi</td>
-<td>Inglés</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Juan</td>
-<td>Matemáticas</td>
-<td>Matemáticas</td>
-<td><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
+<td align="left">Juan</td>
+<td align="left">Matemáticas</td>
+<td align="left">Matemáticas</td>
+<td align="left"><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Sonia</td>
-<td>Física</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
 </tr>
 </tbody>
 </table>
@@ -826,118 +852,124 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </colgroup>
 <thead>
 <tr class="header">
-<th>Nombre</th>
-<th>Asignatura</th>
-<th>Nota</th>
-<th>email</th>
+<th align="left">Nombre</th>
+<th align="left">Asignatura</th>
+<th align="left">Nota</th>
+<th align="left">email</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Keith</td>
-<td>Matemáticas</td>
-<td>6.70</td>
-<td><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
+<td align="left">Keith</td>
+<td align="left">Matemáticas</td>
+<td align="left">6.70</td>
+<td align="left"><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
 </tr>
 <tr class="even">
-<td>Ismael</td>
-<td>Inglés</td>
-<td>6.90</td>
-<td><a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a></td>
+<td align="left">Ismael</td>
+<td align="left">Inglés</td>
+<td align="left">6.90</td>
+<td align="left"><a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a></td>
 </tr>
 <tr class="odd">
-<td>Keith</td>
-<td>Física</td>
-<td>5.25</td>
-<td><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
+<td align="left">Keith</td>
+<td align="left">Física</td>
+<td align="left">5.25</td>
+<td align="left"><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
 </tr>
 <tr class="even">
-<td>Janet</td>
-<td>Lengua</td>
-<td>6.00</td>
-<td><a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a></td>
+<td align="left">Janet</td>
+<td align="left">Lengua</td>
+<td align="left">6.00</td>
+<td align="left"><a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a></td>
 </tr>
 <tr class="odd">
-<td>Juan</td>
-<td>Inglés</td>
-<td>7.20</td>
-<td></td>
+<td align="left">Juan</td>
+<td align="left">Inglés</td>
+<td align="left">7.20</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td>Fabio</td>
-<td>Física</td>
-<td>7.80</td>
-<td><a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a></td>
+<td align="left">Fabio</td>
+<td align="left">Física</td>
+<td align="left">7.80</td>
+<td align="left"><a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a></td>
 </tr>
 <tr class="odd">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>5.50</td>
-<td><a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a></td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">5.50</td>
+<td align="left"><a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a></td>
 </tr>
 <tr class="even">
-<td>Grecia</td>
-<td>Inglés</td>
-<td>3.00</td>
-<td><a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a></td>
+<td align="left">Grecia</td>
+<td align="left">Inglés</td>
+<td align="left">3.00</td>
+<td align="left"><a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a></td>
 </tr>
 <tr class="odd">
-<td>Grecia</td>
-<td>Física</td>
-<td>4.00</td>
-<td><a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a></td>
+<td align="left">Grecia</td>
+<td align="left">Física</td>
+<td align="left">4.00</td>
+<td align="left"><a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a></td>
 </tr>
 <tr class="even">
-<td>Janet</td>
-<td>Física</td>
-<td>8.00</td>
-<td><a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a></td>
+<td align="left">Janet</td>
+<td align="left">Física</td>
+<td align="left">8.00</td>
+<td align="left"><a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a></td>
 </tr>
 <tr class="odd">
-<td>Orlando</td>
-<td>Matemáticas</td>
-<td>4.25</td>
-<td></td>
+<td align="left">Orlando</td>
+<td align="left">Matemáticas</td>
+<td align="left">4.25</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td>Lucia</td>
-<td>Inglés</td>
-<td>6.50</td>
-<td><a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a></td>
+<td align="left">Lucia</td>
+<td align="left">Inglés</td>
+<td align="left">6.50</td>
+<td align="left"><a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a></td>
 </tr>
 <tr class="odd">
-<td>Sergio</td>
-<td>Lengua</td>
-<td>7.00</td>
-<td><a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a></td>
+<td align="left">Sergio</td>
+<td align="left">Lengua</td>
+<td align="left">7.00</td>
+<td align="left"><a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a></td>
 </tr>
 <tr class="even">
-<td>Donna</td>
-<td>Lengua</td>
-<td>5.00</td>
-<td><a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a></td>
+<td align="left">Donna</td>
+<td align="left">Lengua</td>
+<td align="left">5.00</td>
+<td align="left"><a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a></td>
 </tr>
 <tr class="odd">
-<td>Luis</td>
-<td>Inglés</td>
-<td>7.00</td>
-<td><a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a></td>
+<td align="left">Luis</td>
+<td align="left">Inglés</td>
+<td align="left">7.00</td>
+<td align="left"><a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a></td>
 </tr>
 <tr class="even">
-<td>Orlando</td>
-<td>Física</td>
-<td>7.00</td>
-<td></td>
+<td align="left">Orlando</td>
+<td align="left">Física</td>
+<td align="left">7.00</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td>Keith</td>
-<td>Lengua</td>
-<td>8.00</td>
-<td><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
+<td align="left">Keith</td>
+<td align="left">Lengua</td>
+<td align="left">8.00</td>
+<td align="left"><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
+<p><br></p>
+</div>
+<div id="left-join" class="section level2 hasAnchor" number="26.4">
+<h2><span class="header-section-number">26.4</span> Left Join<a href="join-tables.html#left-join" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The left join operation applied to two data frames <span class="math inline">\(DF_1\)</span> and <span class="math inline">\(DF_2\)</span> produces another data frame consisting of the rows of <span class="math inline">\(DF_1\)</span> and <span class="math inline">\(DF_2\)</span>
+that share link value, and the rest rows of <span class="math inline">\(DF_1\)</span> .</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb90-1"><a href="join-tables.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> a.Nombre, b.Asignatura, b.Nota, a.email, a.AlumnoID</span>
 <span id="cb90-2"><a href="join-tables.html#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Alumnos a</span>
 <span id="cb90-3"><a href="join-tables.html#cb90-3" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> Examenes b </span>
@@ -952,146 +984,146 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </colgroup>
 <thead>
 <tr class="header">
-<th>Nombre</th>
-<th>Asignatura</th>
-<th>Nota</th>
-<th>email</th>
-<th>AlumnoID</th>
+<th align="left">Nombre</th>
+<th align="left">Asignatura</th>
+<th align="left">Nota</th>
+<th align="left">email</th>
+<th align="left">AlumnoID</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Orlando</td>
-<td>Matemáticas</td>
-<td>4.25</td>
-<td></td>
-<td>A1</td>
+<td align="left">Orlando</td>
+<td align="left">Matemáticas</td>
+<td align="left">4.25</td>
+<td align="left"></td>
+<td align="left">A1</td>
 </tr>
 <tr class="even">
-<td>Orlando</td>
-<td>Física</td>
-<td>7.00</td>
-<td></td>
-<td>A1</td>
+<td align="left">Orlando</td>
+<td align="left">Física</td>
+<td align="left">7.00</td>
+<td align="left"></td>
+<td align="left">A1</td>
 </tr>
 <tr class="odd">
-<td>Grecia</td>
-<td>Inglés</td>
-<td>3.00</td>
-<td><a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a></td>
-<td>A10</td>
+<td align="left">Grecia</td>
+<td align="left">Inglés</td>
+<td align="left">3.00</td>
+<td align="left"><a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a></td>
+<td align="left">A10</td>
 </tr>
 <tr class="even">
-<td>Grecia</td>
-<td>Física</td>
-<td>4.00</td>
-<td><a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a></td>
-<td>A10</td>
+<td align="left">Grecia</td>
+<td align="left">Física</td>
+<td align="left">4.00</td>
+<td align="left"><a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a></td>
+<td align="left">A10</td>
 </tr>
 <tr class="odd">
-<td>Ismael</td>
-<td>Inglés</td>
-<td>6.90</td>
-<td><a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a></td>
-<td>A11</td>
+<td align="left">Ismael</td>
+<td align="left">Inglés</td>
+<td align="left">6.90</td>
+<td align="left"><a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a></td>
+<td align="left">A11</td>
 </tr>
 <tr class="even">
-<td>Luis</td>
-<td>Inglés</td>
-<td>7.00</td>
-<td><a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a></td>
-<td>A12</td>
+<td align="left">Luis</td>
+<td align="left">Inglés</td>
+<td align="left">7.00</td>
+<td align="left"><a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a></td>
+<td align="left">A12</td>
 </tr>
 <tr class="odd">
-<td>Pedro</td>
-<td>NULL</td>
-<td>NULL</td>
-<td><a href="mailto:Pedro120@gmail.com" class="email">Pedro120@gmail.com</a></td>
-<td>A13</td>
+<td align="left">Pedro</td>
+<td align="left">NULL</td>
+<td align="left">NULL</td>
+<td align="left"><a href="mailto:Pedro120@gmail.com" class="email">Pedro120@gmail.com</a></td>
+<td align="left">A13</td>
 </tr>
 <tr class="even">
-<td>Keith</td>
-<td>Matemáticas</td>
-<td>6.70</td>
-<td><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
-<td>A2</td>
+<td align="left">Keith</td>
+<td align="left">Matemáticas</td>
+<td align="left">6.70</td>
+<td align="left"><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
+<td align="left">A2</td>
 </tr>
 <tr class="odd">
-<td>Keith</td>
-<td>Física</td>
-<td>5.25</td>
-<td><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
-<td>A2</td>
+<td align="left">Keith</td>
+<td align="left">Física</td>
+<td align="left">5.25</td>
+<td align="left"><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
+<td align="left">A2</td>
 </tr>
 <tr class="even">
-<td>Keith</td>
-<td>Lengua</td>
-<td>8.00</td>
-<td><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
-<td>A2</td>
+<td align="left">Keith</td>
+<td align="left">Lengua</td>
+<td align="left">8.00</td>
+<td align="left"><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
+<td align="left">A2</td>
 </tr>
 <tr class="odd">
-<td>Donna</td>
-<td>Lengua</td>
-<td>5.00</td>
-<td><a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a></td>
-<td>A3</td>
+<td align="left">Donna</td>
+<td align="left">Lengua</td>
+<td align="left">5.00</td>
+<td align="left"><a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a></td>
+<td align="left">A3</td>
 </tr>
 <tr class="even">
-<td>Janet</td>
-<td>Lengua</td>
-<td>6.00</td>
-<td><a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a></td>
-<td>A4</td>
+<td align="left">Janet</td>
+<td align="left">Lengua</td>
+<td align="left">6.00</td>
+<td align="left"><a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a></td>
+<td align="left">A4</td>
 </tr>
 <tr class="odd">
-<td>Janet</td>
-<td>Física</td>
-<td>8.00</td>
-<td><a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a></td>
-<td>A4</td>
+<td align="left">Janet</td>
+<td align="left">Física</td>
+<td align="left">8.00</td>
+<td align="left"><a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a></td>
+<td align="left">A4</td>
 </tr>
 <tr class="even">
-<td>Fabio</td>
-<td>Física</td>
-<td>7.80</td>
-<td><a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a></td>
-<td>A5</td>
+<td align="left">Fabio</td>
+<td align="left">Física</td>
+<td align="left">7.80</td>
+<td align="left"><a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a></td>
+<td align="left">A5</td>
 </tr>
 <tr class="odd">
-<td>Juan</td>
-<td>Inglés</td>
-<td>7.20</td>
-<td></td>
-<td>A6</td>
+<td align="left">Juan</td>
+<td align="left">Inglés</td>
+<td align="left">7.20</td>
+<td align="left"></td>
+<td align="left">A6</td>
 </tr>
 <tr class="even">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>5.50</td>
-<td><a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a></td>
-<td>A7</td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">5.50</td>
+<td align="left"><a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a></td>
+<td align="left">A7</td>
 </tr>
 <tr class="odd">
-<td>Lucia</td>
-<td>Inglés</td>
-<td>6.50</td>
-<td><a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a></td>
-<td>A7</td>
+<td align="left">Lucia</td>
+<td align="left">Inglés</td>
+<td align="left">6.50</td>
+<td align="left"><a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a></td>
+<td align="left">A7</td>
 </tr>
 <tr class="even">
-<td>Pedro</td>
-<td>NULL</td>
-<td>NULL</td>
-<td><a href="mailto:Pedro99@gmail.com" class="email">Pedro99@gmail.com</a></td>
-<td>A8</td>
+<td align="left">Pedro</td>
+<td align="left">NULL</td>
+<td align="left">NULL</td>
+<td align="left"><a href="mailto:Pedro99@gmail.com" class="email">Pedro99@gmail.com</a></td>
+<td align="left">A8</td>
 </tr>
 <tr class="odd">
-<td>Sergio</td>
-<td>Lengua</td>
-<td>7.00</td>
-<td><a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a></td>
-<td>A9</td>
+<td align="left">Sergio</td>
+<td align="left">Lengua</td>
+<td align="left">7.00</td>
+<td align="left"><a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a></td>
+<td align="left">A9</td>
 </tr>
 </tbody>
 </table>
@@ -1103,132 +1135,132 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <table>
 <thead>
 <tr class="header">
-<th>Nombre</th>
-<th>Asignatura</th>
-<th>Estudios</th>
-<th>email</th>
+<th align="left">Nombre</th>
+<th align="left">Asignatura</th>
+<th align="left">Estudios</th>
+<th align="left">email</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Juan</td>
-<td>Matemáticas</td>
-<td>Matemáticas</td>
-<td><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
+<td align="left">Juan</td>
+<td align="left">Matemáticas</td>
+<td align="left">Matemáticas</td>
+<td align="left"><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Juan</td>
-<td>Matemáticas</td>
-<td>Matemáticas</td>
-<td><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
+<td align="left">Juan</td>
+<td align="left">Matemáticas</td>
+<td align="left">Matemáticas</td>
+<td align="left"><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Sonia</td>
-<td>Física</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Sonia</td>
-<td>Física</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Sonia</td>
-<td>Física</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Sonia</td>
-<td>Física</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Sonia</td>
-<td>Física</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Marcos</td>
-<td>NULL</td>
-<td>Biología</td>
-<td><a href="mailto:MarcosSanz@colegio.es" class="email">MarcosSanz@colegio.es</a></td>
+<td align="left">Marcos</td>
+<td align="left">NULL</td>
+<td align="left">Biología</td>
+<td align="left"><a href="mailto:MarcosSanz@colegio.es" class="email">MarcosSanz@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Carlos</td>
-<td>NULL</td>
-<td>Educación Física</td>
-<td><a href="mailto:CarlosFernandez@colegio.es" class="email">CarlosFernandez@colegio.es</a></td>
+<td align="left">Carlos</td>
+<td align="left">NULL</td>
+<td align="left">Educación Física</td>
+<td align="left"><a href="mailto:CarlosFernandez@colegio.es" class="email">CarlosFernandez@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Daniel</td>
-<td>NULL</td>
-<td>Geografía</td>
-<td><a href="mailto:DanielOrtiz@colegio.es" class="email">DanielOrtiz@colegio.es</a></td>
+<td align="left">Daniel</td>
+<td align="left">NULL</td>
+<td align="left">Geografía</td>
+<td align="left"><a href="mailto:DanielOrtiz@colegio.es" class="email">DanielOrtiz@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Garazi</td>
-<td>Inglés</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Garazi</td>
-<td>Inglés</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Garazi</td>
-<td>Inglés</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Garazi</td>
-<td>Inglés</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Garazi</td>
-<td>Inglés</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
 </tr>
 </tbody>
 </table>
@@ -1240,58 +1272,59 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <table>
 <thead>
 <tr class="header">
-<th>Nombre</th>
-<th>Asignatura</th>
-<th>Estudios</th>
-<th>email</th>
+<th align="left">Nombre</th>
+<th align="left">Asignatura</th>
+<th align="left">Estudios</th>
+<th align="left">email</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Carlos</td>
-<td>NULL</td>
-<td>Educación Física</td>
-<td><a href="mailto:CarlosFernandez@colegio.es" class="email">CarlosFernandez@colegio.es</a></td>
+<td align="left">Carlos</td>
+<td align="left">NULL</td>
+<td align="left">Educación Física</td>
+<td align="left"><a href="mailto:CarlosFernandez@colegio.es" class="email">CarlosFernandez@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Daniel</td>
-<td>NULL</td>
-<td>Geografía</td>
-<td><a href="mailto:DanielOrtiz@colegio.es" class="email">DanielOrtiz@colegio.es</a></td>
+<td align="left">Daniel</td>
+<td align="left">NULL</td>
+<td align="left">Geografía</td>
+<td align="left"><a href="mailto:DanielOrtiz@colegio.es" class="email">DanielOrtiz@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Garazi</td>
-<td>Inglés</td>
-<td>Inglés</td>
-<td><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Juan</td>
-<td>Matemáticas</td>
-<td>Matemáticas</td>
-<td><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
+<td align="left">Juan</td>
+<td align="left">Matemáticas</td>
+<td align="left">Matemáticas</td>
+<td align="left"><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Lucia</td>
-<td>Lengua</td>
-<td>Lengua</td>
-<td><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
 </tr>
 <tr class="even">
-<td>Marcos</td>
-<td>NULL</td>
-<td>Biología</td>
-<td><a href="mailto:MarcosSanz@colegio.es" class="email">MarcosSanz@colegio.es</a></td>
+<td align="left">Marcos</td>
+<td align="left">NULL</td>
+<td align="left">Biología</td>
+<td align="left"><a href="mailto:MarcosSanz@colegio.es" class="email">MarcosSanz@colegio.es</a></td>
 </tr>
 <tr class="odd">
-<td>Sonia</td>
-<td>Física</td>
-<td>Física</td>
-<td><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
+</div>
 </div>
             </section>
 

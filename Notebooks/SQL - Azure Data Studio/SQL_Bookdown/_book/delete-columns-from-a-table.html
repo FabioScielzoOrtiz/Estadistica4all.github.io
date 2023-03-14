@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 16 Delete columns from a table | Introduction to SQL in Azure Data Studio</title>
+  <title>Chapter 18 Delete columns from a table | Introduction to SQL in Azure Data Studio</title>
   <meta name="description" content="This article is an introduction to SQL in Azure Data Studio." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 16 Delete columns from a table | Introduction to SQL in Azure Data Studio" />
+  <meta property="og:title" content="Chapter 18 Delete columns from a table | Introduction to SQL in Azure Data Studio" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This article is an introduction to SQL in Azure Data Studio." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 16 Delete columns from a table | Introduction to SQL in Azure Data Studio" />
+  <meta name="twitter:title" content="Chapter 18 Delete columns from a table | Introduction to SQL in Azure Data Studio" />
   
   <meta name="twitter:description" content="This article is an introduction to SQL in Azure Data Studio." />
   
@@ -23,14 +23,14 @@
 <meta name="author" content="Fabio Scielzo Ortiz" />
 
 
-<meta name="date" content="2023-03-13" />
+<meta name="date" content="2023-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="delete-rows-from-a-table.html"/>
+<link rel="prev" href="delete-rows-from-a-table-that-meet-a-condition.html"/>
 <link rel="next" href="delete-a-table.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -155,29 +155,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="number-of-columns.html"><a href="number-of-columns.html"><i class="fa fa-check"></i><b>9</b> Number of columns</a></li>
 <li class="chapter" data-level="10" data-path="number-of-rows.html"><a href="number-of-rows.html"><i class="fa fa-check"></i><b>10</b> Number of rows</a></li>
 <li class="chapter" data-level="11" data-path="head-of-a-table.html"><a href="head-of-a-table.html"><i class="fa fa-check"></i><b>11</b> Head of a table</a></li>
-<li class="chapter" data-level="12" data-path="select-columns-of-a-table.html"><a href="select-columns-of-a-table.html"><i class="fa fa-check"></i><b>12</b> Select columns of a table</a></li>
+<li class="chapter" data-level="12" data-path="select-columns-from-a-table.html"><a href="select-columns-from-a-table.html"><i class="fa fa-check"></i><b>12</b> Select columns from a table</a></li>
 <li class="chapter" data-level="13" data-path="assign-alias-to-a-column.html"><a href="assign-alias-to-a-column.html"><i class="fa fa-check"></i><b>13</b> Assign alias to a column</a></li>
-<li class="chapter" data-level="14" data-path="filter-rows-of-a-table.html"><a href="filter-rows-of-a-table.html"><i class="fa fa-check"></i><b>14</b> Filter rows of a table</a>
+<li class="chapter" data-level="14" data-path="filter-rows-from-a-table.html"><a href="filter-rows-from-a-table.html"><i class="fa fa-check"></i><b>14</b> Filter rows from a table</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="filter-rows-of-a-table.html"><a href="filter-rows-of-a-table.html#select-rows-by-strings-with-like-and-not-like"><i class="fa fa-check"></i><b>14.1</b> Select rows by strings with Like and Not Like</a></li>
+<li class="chapter" data-level="14.1" data-path="filter-rows-from-a-table.html"><a href="filter-rows-from-a-table.html#filtering-rows-by-conditions"><i class="fa fa-check"></i><b>14.1</b> Filtering rows by conditions</a></li>
+<li class="chapter" data-level="14.2" data-path="filter-rows-from-a-table.html"><a href="filter-rows-from-a-table.html#select-rows-with-strings-with-like-and-not-like"><i class="fa fa-check"></i><b>14.2</b> Select rows with strings with Like and Not Like</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="delete-rows-from-a-table.html"><a href="delete-rows-from-a-table.html"><i class="fa fa-check"></i><b>15</b> Delete rows from a table</a></li>
-<li class="chapter" data-level="16" data-path="delete-columns-from-a-table.html"><a href="delete-columns-from-a-table.html"><i class="fa fa-check"></i><b>16</b> Delete columns from a table</a></li>
-<li class="chapter" data-level="17" data-path="delete-a-table.html"><a href="delete-a-table.html"><i class="fa fa-check"></i><b>17</b> Delete a table</a></li>
-<li class="chapter" data-level="18" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html"><i class="fa fa-check"></i><b>18</b> Update columns of a table</a>
+<li class="chapter" data-level="15" data-path="creating-a-new-table-based-on-a-query.html"><a href="creating-a-new-table-based-on-a-query.html"><i class="fa fa-check"></i><b>15</b> Creating a new table based on a query</a></li>
+<li class="chapter" data-level="16" data-path="delete-rows-from-a-table.html"><a href="delete-rows-from-a-table.html"><i class="fa fa-check"></i><b>16</b> Delete rows from a table</a></li>
+<li class="chapter" data-level="17" data-path="delete-rows-from-a-table-that-meet-a-condition.html"><a href="delete-rows-from-a-table-that-meet-a-condition.html"><i class="fa fa-check"></i><b>17</b> Delete rows from a table that meet a condition</a></li>
+<li class="chapter" data-level="18" data-path="delete-columns-from-a-table.html"><a href="delete-columns-from-a-table.html"><i class="fa fa-check"></i><b>18</b> Delete columns from a table</a></li>
+<li class="chapter" data-level="19" data-path="delete-a-table.html"><a href="delete-a-table.html"><i class="fa fa-check"></i><b>19</b> Delete a table</a></li>
+<li class="chapter" data-level="20" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html"><i class="fa fa-check"></i><b>20</b> Update columns of a table</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html#setting-a-default-value-for-a-column"><i class="fa fa-check"></i><b>18.1</b> Setting a default value for a column</a></li>
+<li class="chapter" data-level="20.1" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html#setting-a-default-value-for-a-column"><i class="fa fa-check"></i><b>20.1</b> Setting a default value for a column</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="columns-calculated-from-others.html"><a href="columns-calculated-from-others.html"><i class="fa fa-check"></i><b>19</b> Columns calculated from others</a></li>
-<li class="chapter" data-level="20" data-path="concat-strings-from-different-columns.html"><a href="concat-strings-from-different-columns.html"><i class="fa fa-check"></i><b>20</b> Concat strings from different columns</a></li>
-<li class="chapter" data-level="21" data-path="sorting-a-table-by-columns.html"><a href="sorting-a-table-by-columns.html"><i class="fa fa-check"></i><b>21</b> Sorting a table by columns</a></li>
-<li class="chapter" data-level="22" data-path="minmun-maximun-sum-mean-quantiles.html"><a href="minmun-maximun-sum-mean-quantiles.html"><i class="fa fa-check"></i><b>22</b> Minmun, Maximun, Sum, Mean, Quantiles</a></li>
-<li class="chapter" data-level="23" data-path="group-by.html"><a href="group-by.html"><i class="fa fa-check"></i><b>23</b> Group by</a>
+<li class="chapter" data-level="21" data-path="columns-calculated-from-others.html"><a href="columns-calculated-from-others.html"><i class="fa fa-check"></i><b>21</b> Columns calculated from others</a></li>
+<li class="chapter" data-level="22" data-path="concatenate-strings-from-different-columns.html"><a href="concatenate-strings-from-different-columns.html"><i class="fa fa-check"></i><b>22</b> Concatenate strings from different columns</a></li>
+<li class="chapter" data-level="23" data-path="sorting-a-table-by-columns.html"><a href="sorting-a-table-by-columns.html"><i class="fa fa-check"></i><b>23</b> Sorting a table by columns</a></li>
+<li class="chapter" data-level="24" data-path="minimun-maximun-sum-mean-quantiles.html"><a href="minimun-maximun-sum-mean-quantiles.html"><i class="fa fa-check"></i><b>24</b> Minimun, Maximun, Sum, Mean, Quantiles</a></li>
+<li class="chapter" data-level="25" data-path="group-by.html"><a href="group-by.html"><i class="fa fa-check"></i><b>25</b> Group by</a>
 <ul>
-<li class="chapter" data-level="23.1" data-path="group-by.html"><a href="group-by.html#having"><i class="fa fa-check"></i><b>23.1</b> Having</a></li>
+<li class="chapter" data-level="25.1" data-path="group-by.html"><a href="group-by.html#having"><i class="fa fa-check"></i><b>25.1</b> Having</a></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="join-tables.html"><a href="join-tables.html"><i class="fa fa-check"></i><b>24</b> Join tables</a></li>
-<li class="chapter" data-level="25" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i><b>25</b> Bibliography</a></li>
+<li class="chapter" data-level="26" data-path="join-tables.html"><a href="join-tables.html"><i class="fa fa-check"></i><b>26</b> Join tables</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="join-tables.html"><a href="join-tables.html#inner-join"><i class="fa fa-check"></i><b>26.1</b> Inner Join</a></li>
+<li class="chapter" data-level="26.2" data-path="join-tables.html"><a href="join-tables.html#outer-join"><i class="fa fa-check"></i><b>26.2</b> Outer Join</a></li>
+<li class="chapter" data-level="26.3" data-path="join-tables.html"><a href="join-tables.html#right-join"><i class="fa fa-check"></i><b>26.3</b> Right Join</a></li>
+<li class="chapter" data-level="26.4" data-path="join-tables.html"><a href="join-tables.html#left-join"><i class="fa fa-check"></i><b>26.4</b> Left Join</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i><b>27</b> Bibliography</a></li>
 <li class="divider"></li>
 <li><a href="https://estadistica4all.com" target="blank">Estadistica4all.com</a></li>
 
@@ -198,79 +207,80 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="delete-columns-from-a-table" class="section level1 hasAnchor" number="16">
-<h1><span class="header-section-number">Chapter 16</span> Delete columns from a table<a href="delete-columns-from-a-table.html#delete-columns-from-a-table" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="sourceCode" id="cb42"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb42-1"><a href="delete-columns-from-a-table.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> dbo.Alumnos <span class="kw">DROP</span> <span class="kw">COLUMN</span> Nombre , Email;</span></code></pre></div>
-<div class="sourceCode" id="cb43"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb43-1"><a href="delete-columns-from-a-table.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Alumnos</span></code></pre></div>
+<div id="delete-columns-from-a-table" class="section level1 hasAnchor" number="18">
+<h1><span class="header-section-number">Chapter 18</span> Delete columns from a table<a href="delete-columns-from-a-table.html#delete-columns-from-a-table" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>We can delete specific columns from a table as follows :</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb44-1"><a href="delete-columns-from-a-table.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> dbo.Alumnos <span class="kw">DROP</span> <span class="kw">COLUMN</span> Nombre , Email;</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb45-1"><a href="delete-columns-from-a-table.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Alumnos</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
-<th>AlumnoID</th>
-<th>Pais</th>
-<th>Ciudad</th>
-<th>Telefono</th>
+<th align="left">AlumnoID</th>
+<th align="left">Pais</th>
+<th align="left">Ciudad</th>
+<th align="left">Telefono</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>A11</td>
-<td>España</td>
-<td>Madrid</td>
-<td>912234543</td>
+<td align="left">A11</td>
+<td align="left">España</td>
+<td align="left">Madrid</td>
+<td align="left">912234543</td>
 </tr>
 <tr class="even">
-<td>A12</td>
-<td>España</td>
-<td>Murcia</td>
-<td></td>
+<td align="left">A12</td>
+<td align="left">España</td>
+<td align="left">Murcia</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td>A13</td>
-<td>Argentina</td>
-<td>Buenos Aires</td>
-<td></td>
+<td align="left">A13</td>
+<td align="left">Argentina</td>
+<td align="left">Buenos Aires</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td>A2</td>
-<td>India</td>
-<td></td>
-<td></td>
+<td align="left">A2</td>
+<td align="left">India</td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td>A3</td>
-<td>Germany</td>
-<td>Berlin</td>
-<td>915547890</td>
+<td align="left">A3</td>
+<td align="left">Germany</td>
+<td align="left">Berlin</td>
+<td align="left">915547890</td>
 </tr>
 <tr class="even">
-<td>A4</td>
-<td>United States</td>
-<td>California</td>
-<td></td>
+<td align="left">A4</td>
+<td align="left">United States</td>
+<td align="left">California</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td>A6</td>
-<td>España</td>
-<td>Sevilla</td>
-<td>915869028</td>
+<td align="left">A6</td>
+<td align="left">España</td>
+<td align="left">Sevilla</td>
+<td align="left">915869028</td>
 </tr>
 <tr class="even">
-<td>A7</td>
-<td>España</td>
-<td></td>
-<td></td>
+<td align="left">A7</td>
+<td align="left">España</td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td>A8</td>
-<td>Italia</td>
-<td>Roma</td>
-<td>910007890</td>
+<td align="left">A8</td>
+<td align="left">Italia</td>
+<td align="left">Roma</td>
+<td align="left">910007890</td>
 </tr>
 <tr class="even">
-<td>A9</td>
-<td>United States</td>
-<td>New York</td>
-<td></td>
+<td align="left">A9</td>
+<td align="left">United States</td>
+<td align="left">New York</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -281,7 +291,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="delete-rows-from-a-table.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="delete-rows-from-a-table-that-meet-a-condition.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="delete-a-table.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

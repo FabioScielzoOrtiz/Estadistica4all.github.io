@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 23 Group by | Introduction to SQL in Azure Data Studio</title>
+  <title>Chapter 25 Group by | Introduction to SQL in Azure Data Studio</title>
   <meta name="description" content="This article is an introduction to SQL in Azure Data Studio." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 23 Group by | Introduction to SQL in Azure Data Studio" />
+  <meta property="og:title" content="Chapter 25 Group by | Introduction to SQL in Azure Data Studio" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This article is an introduction to SQL in Azure Data Studio." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 23 Group by | Introduction to SQL in Azure Data Studio" />
+  <meta name="twitter:title" content="Chapter 25 Group by | Introduction to SQL in Azure Data Studio" />
   
   <meta name="twitter:description" content="This article is an introduction to SQL in Azure Data Studio." />
   
@@ -23,14 +23,14 @@
 <meta name="author" content="Fabio Scielzo Ortiz" />
 
 
-<meta name="date" content="2023-03-13" />
+<meta name="date" content="2023-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="minmun-maximun-sum-mean-quantiles.html"/>
+<link rel="prev" href="minimun-maximun-sum-mean-quantiles.html"/>
 <link rel="next" href="join-tables.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -155,29 +155,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="number-of-columns.html"><a href="number-of-columns.html"><i class="fa fa-check"></i><b>9</b> Number of columns</a></li>
 <li class="chapter" data-level="10" data-path="number-of-rows.html"><a href="number-of-rows.html"><i class="fa fa-check"></i><b>10</b> Number of rows</a></li>
 <li class="chapter" data-level="11" data-path="head-of-a-table.html"><a href="head-of-a-table.html"><i class="fa fa-check"></i><b>11</b> Head of a table</a></li>
-<li class="chapter" data-level="12" data-path="select-columns-of-a-table.html"><a href="select-columns-of-a-table.html"><i class="fa fa-check"></i><b>12</b> Select columns of a table</a></li>
+<li class="chapter" data-level="12" data-path="select-columns-from-a-table.html"><a href="select-columns-from-a-table.html"><i class="fa fa-check"></i><b>12</b> Select columns from a table</a></li>
 <li class="chapter" data-level="13" data-path="assign-alias-to-a-column.html"><a href="assign-alias-to-a-column.html"><i class="fa fa-check"></i><b>13</b> Assign alias to a column</a></li>
-<li class="chapter" data-level="14" data-path="filter-rows-of-a-table.html"><a href="filter-rows-of-a-table.html"><i class="fa fa-check"></i><b>14</b> Filter rows of a table</a>
+<li class="chapter" data-level="14" data-path="filter-rows-from-a-table.html"><a href="filter-rows-from-a-table.html"><i class="fa fa-check"></i><b>14</b> Filter rows from a table</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="filter-rows-of-a-table.html"><a href="filter-rows-of-a-table.html#select-rows-by-strings-with-like-and-not-like"><i class="fa fa-check"></i><b>14.1</b> Select rows by strings with Like and Not Like</a></li>
+<li class="chapter" data-level="14.1" data-path="filter-rows-from-a-table.html"><a href="filter-rows-from-a-table.html#filtering-rows-by-conditions"><i class="fa fa-check"></i><b>14.1</b> Filtering rows by conditions</a></li>
+<li class="chapter" data-level="14.2" data-path="filter-rows-from-a-table.html"><a href="filter-rows-from-a-table.html#select-rows-with-strings-with-like-and-not-like"><i class="fa fa-check"></i><b>14.2</b> Select rows with strings with Like and Not Like</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="delete-rows-from-a-table.html"><a href="delete-rows-from-a-table.html"><i class="fa fa-check"></i><b>15</b> Delete rows from a table</a></li>
-<li class="chapter" data-level="16" data-path="delete-columns-from-a-table.html"><a href="delete-columns-from-a-table.html"><i class="fa fa-check"></i><b>16</b> Delete columns from a table</a></li>
-<li class="chapter" data-level="17" data-path="delete-a-table.html"><a href="delete-a-table.html"><i class="fa fa-check"></i><b>17</b> Delete a table</a></li>
-<li class="chapter" data-level="18" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html"><i class="fa fa-check"></i><b>18</b> Update columns of a table</a>
+<li class="chapter" data-level="15" data-path="creating-a-new-table-based-on-a-query.html"><a href="creating-a-new-table-based-on-a-query.html"><i class="fa fa-check"></i><b>15</b> Creating a new table based on a query</a></li>
+<li class="chapter" data-level="16" data-path="delete-rows-from-a-table.html"><a href="delete-rows-from-a-table.html"><i class="fa fa-check"></i><b>16</b> Delete rows from a table</a></li>
+<li class="chapter" data-level="17" data-path="delete-rows-from-a-table-that-meet-a-condition.html"><a href="delete-rows-from-a-table-that-meet-a-condition.html"><i class="fa fa-check"></i><b>17</b> Delete rows from a table that meet a condition</a></li>
+<li class="chapter" data-level="18" data-path="delete-columns-from-a-table.html"><a href="delete-columns-from-a-table.html"><i class="fa fa-check"></i><b>18</b> Delete columns from a table</a></li>
+<li class="chapter" data-level="19" data-path="delete-a-table.html"><a href="delete-a-table.html"><i class="fa fa-check"></i><b>19</b> Delete a table</a></li>
+<li class="chapter" data-level="20" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html"><i class="fa fa-check"></i><b>20</b> Update columns of a table</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html#setting-a-default-value-for-a-column"><i class="fa fa-check"></i><b>18.1</b> Setting a default value for a column</a></li>
+<li class="chapter" data-level="20.1" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html#setting-a-default-value-for-a-column"><i class="fa fa-check"></i><b>20.1</b> Setting a default value for a column</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="columns-calculated-from-others.html"><a href="columns-calculated-from-others.html"><i class="fa fa-check"></i><b>19</b> Columns calculated from others</a></li>
-<li class="chapter" data-level="20" data-path="concat-strings-from-different-columns.html"><a href="concat-strings-from-different-columns.html"><i class="fa fa-check"></i><b>20</b> Concat strings from different columns</a></li>
-<li class="chapter" data-level="21" data-path="sorting-a-table-by-columns.html"><a href="sorting-a-table-by-columns.html"><i class="fa fa-check"></i><b>21</b> Sorting a table by columns</a></li>
-<li class="chapter" data-level="22" data-path="minmun-maximun-sum-mean-quantiles.html"><a href="minmun-maximun-sum-mean-quantiles.html"><i class="fa fa-check"></i><b>22</b> Minmun, Maximun, Sum, Mean, Quantiles</a></li>
-<li class="chapter" data-level="23" data-path="group-by.html"><a href="group-by.html"><i class="fa fa-check"></i><b>23</b> Group by</a>
+<li class="chapter" data-level="21" data-path="columns-calculated-from-others.html"><a href="columns-calculated-from-others.html"><i class="fa fa-check"></i><b>21</b> Columns calculated from others</a></li>
+<li class="chapter" data-level="22" data-path="concatenate-strings-from-different-columns.html"><a href="concatenate-strings-from-different-columns.html"><i class="fa fa-check"></i><b>22</b> Concatenate strings from different columns</a></li>
+<li class="chapter" data-level="23" data-path="sorting-a-table-by-columns.html"><a href="sorting-a-table-by-columns.html"><i class="fa fa-check"></i><b>23</b> Sorting a table by columns</a></li>
+<li class="chapter" data-level="24" data-path="minimun-maximun-sum-mean-quantiles.html"><a href="minimun-maximun-sum-mean-quantiles.html"><i class="fa fa-check"></i><b>24</b> Minimun, Maximun, Sum, Mean, Quantiles</a></li>
+<li class="chapter" data-level="25" data-path="group-by.html"><a href="group-by.html"><i class="fa fa-check"></i><b>25</b> Group by</a>
 <ul>
-<li class="chapter" data-level="23.1" data-path="group-by.html"><a href="group-by.html#having"><i class="fa fa-check"></i><b>23.1</b> Having</a></li>
+<li class="chapter" data-level="25.1" data-path="group-by.html"><a href="group-by.html#having"><i class="fa fa-check"></i><b>25.1</b> Having</a></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="join-tables.html"><a href="join-tables.html"><i class="fa fa-check"></i><b>24</b> Join tables</a></li>
-<li class="chapter" data-level="25" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i><b>25</b> Bibliography</a></li>
+<li class="chapter" data-level="26" data-path="join-tables.html"><a href="join-tables.html"><i class="fa fa-check"></i><b>26</b> Join tables</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="join-tables.html"><a href="join-tables.html#inner-join"><i class="fa fa-check"></i><b>26.1</b> Inner Join</a></li>
+<li class="chapter" data-level="26.2" data-path="join-tables.html"><a href="join-tables.html#outer-join"><i class="fa fa-check"></i><b>26.2</b> Outer Join</a></li>
+<li class="chapter" data-level="26.3" data-path="join-tables.html"><a href="join-tables.html#right-join"><i class="fa fa-check"></i><b>26.3</b> Right Join</a></li>
+<li class="chapter" data-level="26.4" data-path="join-tables.html"><a href="join-tables.html#left-join"><i class="fa fa-check"></i><b>26.4</b> Left Join</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i><b>27</b> Bibliography</a></li>
 <li class="divider"></li>
 <li><a href="https://estadistica4all.com" target="blank">Estadistica4all.com</a></li>
 
@@ -198,70 +207,75 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="group-by" class="section level1 hasAnchor" number="23">
-<h1><span class="header-section-number">Chapter 23</span> Group by<a href="group-by.html#group-by" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div class="sourceCode" id="cb67"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb67-1"><a href="group-by.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Nombre, <span class="fu">COUNT</span>(Nombre) <span class="kw">as</span> Cantidad_Nombre</span>
-<span id="cb67-2"><a href="group-by.html#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Alumnos</span>
-<span id="cb67-3"><a href="group-by.html#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> Nombre</span></code></pre></div>
+<div id="group-by" class="section level1 hasAnchor" number="25">
+<h1><span class="header-section-number">Chapter 25</span> Group by<a href="group-by.html#group-by" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>We can group a table by the values ​​in a column and then calculate a metric based on those groups.</p>
+<p>We are going to see different examples.</p>
+<p>We can get the absolute frequency of each value in <strong>Nombre</strong> column in the <strong>Alumnos</strong> table :</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb67-1"><a href="group-by.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Nombre, <span class="fu">COUNT</span>(Nombre) </span>
+<span id="cb67-2"><a href="group-by.html#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="kw">as</span> Cantidad_Nombre</span>
+<span id="cb67-3"><a href="group-by.html#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Alumnos</span>
+<span id="cb67-4"><a href="group-by.html#cb67-4" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> Nombre</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
-<th>Nombre</th>
-<th>Cantidad_Nombre</th>
+<th align="left">Nombre</th>
+<th align="left">Cantidad_Nombre</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Donna</td>
-<td>1</td>
+<td align="left">Donna</td>
+<td align="left">1</td>
 </tr>
 <tr class="even">
-<td>Fabio</td>
-<td>1</td>
+<td align="left">Fabio</td>
+<td align="left">1</td>
 </tr>
 <tr class="odd">
-<td>Grecia</td>
-<td>1</td>
+<td align="left">Grecia</td>
+<td align="left">1</td>
 </tr>
 <tr class="even">
-<td>Ismael</td>
-<td>1</td>
+<td align="left">Ismael</td>
+<td align="left">1</td>
 </tr>
 <tr class="odd">
-<td>Janet</td>
-<td>1</td>
+<td align="left">Janet</td>
+<td align="left">1</td>
 </tr>
 <tr class="even">
-<td>Juan</td>
-<td>1</td>
+<td align="left">Juan</td>
+<td align="left">1</td>
 </tr>
 <tr class="odd">
-<td>Keith</td>
-<td>1</td>
+<td align="left">Keith</td>
+<td align="left">1</td>
 </tr>
 <tr class="even">
-<td>Lucia</td>
-<td>1</td>
+<td align="left">Lucia</td>
+<td align="left">1</td>
 </tr>
 <tr class="odd">
-<td>Luis</td>
-<td>1</td>
+<td align="left">Luis</td>
+<td align="left">1</td>
 </tr>
 <tr class="even">
-<td>Orlando</td>
-<td>1</td>
+<td align="left">Orlando</td>
+<td align="left">1</td>
 </tr>
 <tr class="odd">
-<td>Pedro</td>
-<td>2</td>
+<td align="left">Pedro</td>
+<td align="left">2</td>
 </tr>
 <tr class="even">
-<td>Sergio</td>
-<td>1</td>
+<td align="left">Sergio</td>
+<td align="left">1</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
+<p>We can get the mean, minimun, maximu and variance of <strong>Nota</strong> column after group <strong>Examenes</strong> table by <strong>Asignatura</strong> column :</p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb68-1"><a href="group-by.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Asignatura, <span class="fu">AVG</span>(Nota) <span class="kw">as</span> Nota_Media, <span class="fu">MIN</span>(Nota) <span class="kw">as</span> Nota_Min, <span class="fu">MAX</span>(Nota) <span class="kw">as</span> Nota_Max, VAR(Nota) <span class="kw">as</span> Nota_Var</span>
 <span id="cb68-2"><a href="group-by.html#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="kw">INTO</span> Tabla_Resumen</span>
 <span id="cb68-3"><a href="group-by.html#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Examenes</span>
@@ -270,45 +284,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <table>
 <thead>
 <tr class="header">
-<th>Asignatura</th>
-<th>Nota_Media</th>
-<th>Nota_Min</th>
-<th>Nota_Max</th>
-<th>Nota_Var</th>
+<th align="left">Asignatura</th>
+<th align="left">Nota_Media</th>
+<th align="left">Nota_Min</th>
+<th align="left">Nota_Max</th>
+<th align="left">Nota_Var</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Física</td>
-<td>6.410000</td>
-<td>4.00</td>
-<td>8.00</td>
-<td>2,9905000000000044</td>
+<td align="left">Física</td>
+<td align="left">6.410000</td>
+<td align="left">4.00</td>
+<td align="left">8.00</td>
+<td align="left">2,9905000000000044</td>
 </tr>
 <tr class="even">
-<td>Inglés</td>
-<td>6.120000</td>
-<td>3.00</td>
-<td>7.20</td>
-<td>3,1069999999999993</td>
+<td align="left">Inglés</td>
+<td align="left">6.120000</td>
+<td align="left">3.00</td>
+<td align="left">7.20</td>
+<td align="left">3,1069999999999993</td>
 </tr>
 <tr class="odd">
-<td>Lengua</td>
-<td>6.300000</td>
-<td>5.00</td>
-<td>8.00</td>
-<td>1,4500000000000028</td>
+<td align="left">Lengua</td>
+<td align="left">6.300000</td>
+<td align="left">5.00</td>
+<td align="left">8.00</td>
+<td align="left">1,4500000000000028</td>
 </tr>
 <tr class="even">
-<td>Matemáticas</td>
-<td>5.475000</td>
-<td>4.25</td>
-<td>6.70</td>
-<td>3,001250000000006</td>
+<td align="left">Matemáticas</td>
+<td align="left">5.475000</td>
+<td align="left">4.25</td>
+<td align="left">6.70</td>
+<td align="left">3,001250000000006</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
+<p>We can get the quantile of order 0.30, of <strong>Nota</strong> column after group <strong>Examenes</strong> table by <strong>Asignatura</strong> column :</p>
 <div class="sourceCode" id="cb70"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb70-1"><a href="group-by.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> Asignatura, <span class="fu">PERCENTILE_CONT</span>(<span class="fl">0.30</span>) </span>
 <span id="cb70-2"><a href="group-by.html#cb70-2" aria-hidden="true" tabindex="-1"></a>WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> Nota <span class="kw">ASC</span>) </span>
 <span id="cb70-3"><a href="group-by.html#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> Asignatura) <span class="kw">as</span> Nota_Q30</span>
@@ -316,30 +331,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <table>
 <thead>
 <tr class="header">
-<th>Asignatura</th>
-<th>Nota_Q30</th>
+<th align="left">Asignatura</th>
+<th align="left">Nota_Q30</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Física</td>
-<td>5,6000000000000005</td>
+<td align="left">Física</td>
+<td align="left">5,6000000000000005</td>
 </tr>
 <tr class="even">
-<td>Inglés</td>
-<td>6,58</td>
+<td align="left">Inglés</td>
+<td align="left">6,58</td>
 </tr>
 <tr class="odd">
-<td>Lengua</td>
-<td>5,6</td>
+<td align="left">Lengua</td>
+<td align="left">5,6</td>
 </tr>
 <tr class="even">
-<td>Matemáticas</td>
-<td>4,984999999999999</td>
+<td align="left">Matemáticas</td>
+<td align="left">4,984999999999999</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
+<p>We can get the quantile of order 0.25, of <strong>Nota</strong> column after group <strong>Examenes</strong> table by <strong>Asignatura</strong> column :</p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb71-1"><a href="group-by.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> Asignatura, <span class="fu">PERCENTILE_CONT</span>(<span class="fl">0.25</span>) WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> Nota <span class="kw">ASC</span>) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> Asignatura) <span class="kw">as</span> Nota_Q25</span>
 <span id="cb71-2"><a href="group-by.html#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="kw">INTO</span> Tabla_Q25</span>
 <span id="cb71-3"><a href="group-by.html#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Examenes</span></code></pre></div>
@@ -347,30 +363,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <table>
 <thead>
 <tr class="header">
-<th>Asignatura</th>
-<th>Nota_Q25</th>
+<th align="left">Asignatura</th>
+<th align="left">Nota_Q25</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Física</td>
-<td>5,25</td>
+<td align="left">Física</td>
+<td align="left">5,25</td>
 </tr>
 <tr class="even">
-<td>Inglés</td>
-<td>6,5</td>
+<td align="left">Inglés</td>
+<td align="left">6,5</td>
 </tr>
 <tr class="odd">
-<td>Lengua</td>
-<td>5,5</td>
+<td align="left">Lengua</td>
+<td align="left">5,5</td>
 </tr>
 <tr class="even">
-<td>Matemáticas</td>
-<td>4,8625</td>
+<td align="left">Matemáticas</td>
+<td align="left">4,8625</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
+<p>We can get the quantile of order 0.50, of <strong>Nota</strong> column after group <strong>Examenes</strong> table by <strong>Asignatura</strong> column :</p>
 <div class="sourceCode" id="cb73"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb73-1"><a href="group-by.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> Asignatura, <span class="fu">PERCENTILE_CONT</span>(<span class="fl">0.50</span>) WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> Nota <span class="kw">ASC</span>) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> Asignatura) <span class="kw">as</span> Nota_Q50</span>
 <span id="cb73-2"><a href="group-by.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="kw">INTO</span> Tabla_Q50</span>
 <span id="cb73-3"><a href="group-by.html#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Examenes</span></code></pre></div>
@@ -378,30 +395,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <table>
 <thead>
 <tr class="header">
-<th>Asignatura</th>
-<th>Nota_Q50</th>
+<th align="left">Asignatura</th>
+<th align="left">Nota_Q50</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Física</td>
-<td>7</td>
+<td align="left">Física</td>
+<td align="left">7</td>
 </tr>
 <tr class="even">
-<td>Inglés</td>
-<td>6,9</td>
+<td align="left">Inglés</td>
+<td align="left">6,9</td>
 </tr>
 <tr class="odd">
-<td>Lengua</td>
-<td>6</td>
+<td align="left">Lengua</td>
+<td align="left">6</td>
 </tr>
 <tr class="even">
-<td>Matemáticas</td>
-<td>5,475</td>
+<td align="left">Matemáticas</td>
+<td align="left">5,475</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
+<p>We can get the quantile of order 0.75, of <strong>Nota</strong> column after group <strong>Examenes</strong> table by <strong>Asignatura</strong> column :</p>
 <div class="sourceCode" id="cb75"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb75-1"><a href="group-by.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span> Asignatura, <span class="fu">PERCENTILE_CONT</span>(<span class="fl">0.75</span>) WITHIN <span class="kw">GROUP</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> Nota <span class="kw">ASC</span>) <span class="kw">OVER</span> (<span class="kw">PARTITION</span> <span class="kw">BY</span> Asignatura) <span class="kw">as</span> Nota_Q75</span>
 <span id="cb75-2"><a href="group-by.html#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="kw">INTO</span> Tabla_Q75</span>
 <span id="cb75-3"><a href="group-by.html#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Examenes</span></code></pre></div>
@@ -409,30 +427,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <table>
 <thead>
 <tr class="header">
-<th>Asignatura</th>
-<th>Nota_Q75</th>
+<th align="left">Asignatura</th>
+<th align="left">Nota_Q75</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Física</td>
-<td>7,8</td>
+<td align="left">Física</td>
+<td align="left">7,8</td>
 </tr>
 <tr class="even">
-<td>Inglés</td>
-<td>7</td>
+<td align="left">Inglés</td>
+<td align="left">7</td>
 </tr>
 <tr class="odd">
-<td>Lengua</td>
-<td>7</td>
+<td align="left">Lengua</td>
+<td align="left">7</td>
 </tr>
 <tr class="even">
-<td>Matemáticas</td>
-<td>6,0875</td>
+<td align="left">Matemáticas</td>
+<td align="left">6,0875</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
+<p>We can join <strong>Tabla_Resumen</strong>, <strong>Tabla_Q25</strong>, <strong>Tabla_Q50</strong> y <strong>Tabla_Q75</strong> as follows :</p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb77-1"><a href="group-by.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> e.Asignatura, e.Nota_Media, e.Nota_Min, e.Nota_Max, e.Nota_Var, c.Nota_Q25, d.Nota_Q50, f.Nota_Q75</span>
 <span id="cb77-2"><a href="group-by.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Tabla_Resumen e</span>
 <span id="cb77-3"><a href="group-by.html#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> Tabla_Q25 c <span class="kw">ON</span> e.Asignatura <span class="op">=</span> c.Asignatura</span>
@@ -440,22 +459,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb77-5"><a href="group-by.html#cb77-5" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> Tabla_Q75 f <span class="kw">ON</span> e.Asignatura <span class="op">=</span> f.Asignatura;</span></code></pre></div>
 <table>
 <colgroup>
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
-<col width="12%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th>Asignatura</th>
-<th>Nota_Media</th>
-<th>Nota_Min</th>
-<th>Nota_Max</th>
-<th>Nota_Var</th>
+<th align="left">Asignatura</th>
+<th align="left">Nota_Media</th>
+<th align="left">Nota_Min</th>
+<th align="left">Nota_Max</th>
+<th align="left">Nota_Var</th>
 <th>Nota_Q25</th>
 <th>Nota_Q50</th>
 <th>Nota_Q75</th>
@@ -463,41 +482,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </thead>
 <tbody>
 <tr class="odd">
-<td>Física</td>
-<td>6.410000</td>
-<td>4.00</td>
-<td>8.00</td>
-<td>2,9905000000000044</td>
+<td align="left">Física</td>
+<td align="left">6.410000</td>
+<td align="left">4.00</td>
+<td align="left">8.00</td>
+<td align="left">2,9905000000000044</td>
 <td>5,25</td>
 <td>7</td>
 <td>7,8</td>
 </tr>
 <tr class="even">
-<td>Inglés</td>
-<td>6.120000</td>
-<td>3.00</td>
-<td>7.20</td>
-<td>3,1069999999999993</td>
+<td align="left">Inglés</td>
+<td align="left">6.120000</td>
+<td align="left">3.00</td>
+<td align="left">7.20</td>
+<td align="left">3,1069999999999993</td>
 <td>6,5</td>
 <td>6,9</td>
 <td>7</td>
 </tr>
 <tr class="odd">
-<td>Lengua</td>
-<td>6.300000</td>
-<td>5.00</td>
-<td>8.00</td>
-<td>1,4500000000000028</td>
+<td align="left">Lengua</td>
+<td align="left">6.300000</td>
+<td align="left">5.00</td>
+<td align="left">8.00</td>
+<td align="left">1,4500000000000028</td>
 <td>5,5</td>
 <td>6</td>
 <td>7</td>
 </tr>
 <tr class="even">
-<td>Matemáticas</td>
-<td>5.475000</td>
-<td>4.25</td>
-<td>6.70</td>
-<td>3,001250000000006</td>
+<td align="left">Matemáticas</td>
+<td align="left">5.475000</td>
+<td align="left">4.25</td>
+<td align="left">6.70</td>
+<td align="left">3,001250000000006</td>
 <td>4,8625</td>
 <td>5,475</td>
 <td>6,0875</td>
@@ -505,70 +524,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p><br></p>
-<div id="having" class="section level2 hasAnchor" number="23.1">
-<h2><span class="header-section-number">23.1</span> Having<a href="group-by.html#having" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="having" class="section level2 hasAnchor" number="25.1">
+<h2><span class="header-section-number">25.1</span> Having<a href="group-by.html#having" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can use Having filter rows after applying Group By. Now, we are going to see several examples.</p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb78-1"><a href="group-by.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Nombre, <span class="fu">COUNT</span>(Nombre) <span class="kw">as</span> Cantidad_Nombre</span>
 <span id="cb78-2"><a href="group-by.html#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Alumnos</span>
 <span id="cb78-3"><a href="group-by.html#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> Nombre</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
-<th>Nombre</th>
-<th>Cantidad_Nombre</th>
+<th align="left">Nombre</th>
+<th align="left">Cantidad_Nombre</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Donna</td>
-<td>1</td>
+<td align="left">Donna</td>
+<td align="left">1</td>
 </tr>
 <tr class="even">
-<td>Fabio</td>
-<td>1</td>
+<td align="left">Fabio</td>
+<td align="left">1</td>
 </tr>
 <tr class="odd">
-<td>Grecia</td>
-<td>1</td>
+<td align="left">Grecia</td>
+<td align="left">1</td>
 </tr>
 <tr class="even">
-<td>Ismael</td>
-<td>1</td>
+<td align="left">Ismael</td>
+<td align="left">1</td>
 </tr>
 <tr class="odd">
-<td>Janet</td>
-<td>1</td>
+<td align="left">Janet</td>
+<td align="left">1</td>
 </tr>
 <tr class="even">
-<td>Juan</td>
-<td>1</td>
+<td align="left">Juan</td>
+<td align="left">1</td>
 </tr>
 <tr class="odd">
-<td>Keith</td>
-<td>1</td>
+<td align="left">Keith</td>
+<td align="left">1</td>
 </tr>
 <tr class="even">
-<td>Lucia</td>
-<td>1</td>
+<td align="left">Lucia</td>
+<td align="left">1</td>
 </tr>
 <tr class="odd">
-<td>Luis</td>
-<td>1</td>
+<td align="left">Luis</td>
+<td align="left">1</td>
 </tr>
 <tr class="even">
-<td>Orlando</td>
-<td>1</td>
+<td align="left">Orlando</td>
+<td align="left">1</td>
 </tr>
 <tr class="odd">
-<td>Pedro</td>
-<td>2</td>
+<td align="left">Pedro</td>
+<td align="left">2</td>
 </tr>
 <tr class="even">
-<td>Sergio</td>
-<td>1</td>
+<td align="left">Sergio</td>
+<td align="left">1</td>
 </tr>
 </tbody>
 </table>
-<p><br></p>
 <div class="sourceCode" id="cb79"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb79-1"><a href="group-by.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Nombre, <span class="fu">COUNT</span>(Nombre) <span class="kw">as</span> Cantidad_Nombre</span>
 <span id="cb79-2"><a href="group-by.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Alumnos</span>
 <span id="cb79-3"><a href="group-by.html#cb79-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> Nombre</span>
@@ -576,14 +595,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <table>
 <thead>
 <tr class="header">
-<th>Nombre</th>
-<th>Cantidad_Nombre</th>
+<th align="left">Nombre</th>
+<th align="left">Cantidad_Nombre</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Pedro</td>
-<td>2</td>
+<td align="left">Pedro</td>
+<td align="left">2</td>
 </tr>
 </tbody>
 </table>
@@ -594,45 +613,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <table>
 <thead>
 <tr class="header">
-<th>Asignatura</th>
-<th>Nota_Media</th>
-<th>Nota_Min</th>
-<th>Nota_Max</th>
-<th>Nota_Var</th>
+<th align="left">Asignatura</th>
+<th align="left">Nota_Media</th>
+<th align="left">Nota_Min</th>
+<th align="left">Nota_Max</th>
+<th align="left">Nota_Var</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Física</td>
-<td>6.410000</td>
-<td>4.00</td>
-<td>8.00</td>
-<td>2,9905000000000044</td>
+<td align="left">Física</td>
+<td align="left">6.410000</td>
+<td align="left">4.00</td>
+<td align="left">8.00</td>
+<td align="left">2,9905000000000044</td>
 </tr>
 <tr class="even">
-<td>Inglés</td>
-<td>6.120000</td>
-<td>3.00</td>
-<td>7.20</td>
-<td>3,1069999999999993</td>
+<td align="left">Inglés</td>
+<td align="left">6.120000</td>
+<td align="left">3.00</td>
+<td align="left">7.20</td>
+<td align="left">3,1069999999999993</td>
 </tr>
 <tr class="odd">
-<td>Lengua</td>
-<td>6.300000</td>
-<td>5.00</td>
-<td>8.00</td>
-<td>1,4500000000000028</td>
+<td align="left">Lengua</td>
+<td align="left">6.300000</td>
+<td align="left">5.00</td>
+<td align="left">8.00</td>
+<td align="left">1,4500000000000028</td>
 </tr>
 <tr class="even">
-<td>Matemáticas</td>
-<td>5.475000</td>
-<td>4.25</td>
-<td>6.70</td>
-<td>3,001250000000006</td>
+<td align="left">Matemáticas</td>
+<td align="left">5.475000</td>
+<td align="left">4.25</td>
+<td align="left">6.70</td>
+<td align="left">3,001250000000006</td>
 </tr>
 </tbody>
 </table>
-<p><br></p>
 <div class="sourceCode" id="cb81"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb81-1"><a href="group-by.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Asignatura, <span class="fu">AVG</span>(Nota) <span class="kw">as</span> Nota_Media, <span class="fu">MIN</span>(Nota) <span class="kw">as</span> Nota_Min , <span class="fu">MAX</span>(Nota) <span class="kw">as</span> Nota_Max , VAR(Nota) <span class="kw">as</span> Nota_Var</span>
 <span id="cb81-2"><a href="group-by.html#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Examenes</span>
 <span id="cb81-3"><a href="group-by.html#cb81-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> Asignatura</span>
@@ -640,31 +658,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <table>
 <thead>
 <tr class="header">
-<th>Asignatura</th>
-<th>Nota_Media</th>
-<th>Nota_Min</th>
-<th>Nota_Max</th>
-<th>Nota_Var</th>
+<th align="left">Asignatura</th>
+<th align="left">Nota_Media</th>
+<th align="left">Nota_Min</th>
+<th align="left">Nota_Max</th>
+<th align="left">Nota_Var</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Física</td>
-<td>6.410000</td>
-<td>4.00</td>
-<td>8.00</td>
-<td>2,9905000000000044</td>
+<td align="left">Física</td>
+<td align="left">6.410000</td>
+<td align="left">4.00</td>
+<td align="left">8.00</td>
+<td align="left">2,9905000000000044</td>
 </tr>
 <tr class="even">
-<td>Lengua</td>
-<td>6.300000</td>
-<td>5.00</td>
-<td>8.00</td>
-<td>1,4500000000000028</td>
+<td align="left">Lengua</td>
+<td align="left">6.300000</td>
+<td align="left">5.00</td>
+<td align="left">8.00</td>
+<td align="left">1,4500000000000028</td>
 </tr>
 </tbody>
 </table>
-<p><br></p>
 <div class="sourceCode" id="cb82"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb82-1"><a href="group-by.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Asignatura, <span class="fu">AVG</span>(Nota) <span class="kw">as</span> Nota_Media, <span class="fu">MIN</span>(Nota) <span class="kw">as</span> Nota_Min , <span class="fu">MAX</span>(Nota) <span class="kw">as</span> Nota_Max , VAR(Nota) <span class="kw">as</span> Nota_Var</span>
 <span id="cb82-2"><a href="group-by.html#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Examenes</span>
 <span id="cb82-3"><a href="group-by.html#cb82-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> Asignatura</span>
@@ -672,20 +689,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <table>
 <thead>
 <tr class="header">
-<th>Asignatura</th>
-<th>Nota_Media</th>
-<th>Nota_Min</th>
-<th>Nota_Max</th>
-<th>Nota_Var</th>
+<th align="left">Asignatura</th>
+<th align="left">Nota_Media</th>
+<th align="left">Nota_Min</th>
+<th align="left">Nota_Max</th>
+<th align="left">Nota_Var</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Lengua</td>
-<td>6.300000</td>
-<td>5.00</td>
-<td>8.00</td>
-<td>1,4500000000000028</td>
+<td align="left">Lengua</td>
+<td align="left">6.300000</td>
+<td align="left">5.00</td>
+<td align="left">8.00</td>
+<td align="left">1,4500000000000028</td>
 </tr>
 </tbody>
 </table>
@@ -697,7 +714,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="minmun-maximun-sum-mean-quantiles.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="minimun-maximun-sum-mean-quantiles.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="join-tables.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

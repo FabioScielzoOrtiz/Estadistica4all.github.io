@@ -16,7 +16,7 @@ github-repo: "rstudio/bookdown-demo"
 
 <center>
 
-![](SQL.jpg){width="45%"}
+![](SQL_intro.jpg){width="45%"}
 
 </center>
 
@@ -50,7 +50,7 @@ $\hspace{1.2cm}$ Scielzo Ortiz, F. (2023). Introducción a Pandas. Estadistica4a
  <br>
  
  
-This article is an introduction to SQL in Azure Data Studio.
+This article is an introduction to **SQL** in **Azure Data Studio**.
  
  
  <br>
@@ -351,7 +351,7 @@ GO
 ```
 
 |AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|:---|
 |A1|Orlando                                           |Australia|||917755028|
 |A10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
 |A11|Ismael                                            |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|
@@ -387,7 +387,7 @@ VALUES
 GO
 ```
 |ProfesorID|Nombre|Estudios|Email|
-|---|---|---|---|
+|:---|:---|:---|:---|
 |P1|Juan|Matem&#225;ticas|JuanPerez@colegio.es|
 |P2|Sonia|F&#237;sica|SoniDiaz@colegio.es|
 |P3|Lucia|Lengua|LuciaPerez@colegio.es|
@@ -416,7 +416,7 @@ GO
 ```
 
 |ExamenID|Nota|Asignatura|AlumnoID|ProfesorID|
-|---|---|---|---|---|
+|:---|:---|:---|:---|:---|
 |E1|6.70|Matem&#225;ticas|A2|P1|
 |E2|8.00|F&#237;sica|A4|P2|
 |E3|4.25|Matem&#225;ticas|A1|P1|
@@ -597,7 +597,7 @@ SELECT TOP (4) [neighborhood_recode]
 
 
 |price|no_of_bedrooms|no_of_bathrooms|quality_recode|size_in_m_2|
-|---|---|---|---|---|
+|:---|:---|:---|:---|:---|
 |460|1|2|20|100242337|
 |460|2|2|20|146972546|
 |360|3|5|20|181253753|
@@ -619,7 +619,7 @@ SELECT Nombre, Pais, Ciudad FROM dbo.Alumnos;
 
  
  |Nombre|Pais|Ciudad|
-|---|---|---|
+|:---|:---|:---|
 |Orlando                                           |Australia||
 |Grecia                                            |Peru|Lima|
 |Ismael                                            |Espa&#241;a|Madrid|
@@ -641,25 +641,25 @@ SELECT Nombre, Pais, Ciudad FROM dbo.Alumnos;
 Another example:
 
 ```sql
-SELECT quality_recode, balcony_recode,size_in_m_2, private_jacuzzi_recode, view_of_water_recode FROM House_Price_Regression
+SELECT quality_recode, balcony_recode,size_in_m_2, private_jacuzzi_recode FROM House_Price_Regression
 ```
  
-|quality_recode|balcony_recode|size_in_m_2|private_jacuzzi_recode|view_of_water_recode|
-|---|---|---|---|---|
-|20|10|100242337|0|10|
-|20|10|146972546|0|10|
-|20|10|181253753|10|10|
-|10|10|18766406|0|0|
-|20|0|47101821|0|10|
-|20|0|94296545|0|10|
-|0|0|191565986|0|10|
-|20|0|94296545|0|10|
-|10|0|203085958|0|0|
-|20|10|141305463|0|10|
-|10|10|178187954|0|10|
-|10|10|98291374|0|0|
-|10|0|56577927|0|0|
-|...|...|...|...|...|
+|quality_recode|balcony_recode|size_in_m_2|private_jacuzzi_recode|
+|:---|:---|:---|:---|
+|20|10|100242337|0| 
+|20|10|146972546|0| 
+|20|10|181253753|10| 
+|10|10|18766406|0| 
+|20|0|47101821|0| 
+|20|0|94296545|0| 
+|0|0|191565986|0| 
+|20|0|94296545|0| 
+|10|0|203085958|0| 
+|20|10|141305463|0|
+|10|10|178187954|0|
+|10|10|98291374|0| 
+|10|0|56577927|0| 
+|...|...|...|...| 
  
  
  
@@ -677,7 +677,7 @@ FROM dbo.Alumnos;
 ```
  
 |Nombre_Alumnos|
-|---|
+|:---|
 |Orlando                                           |
 |Grecia                                            |
 |Ismael                                            |
@@ -713,7 +713,7 @@ Filtering rows from **Examenes** table where **Nota** column is less than 7 :
 SELECT * FROM dbo.Examenes WHERE Nota < 7 ;
 ```
 |ExamenID|Nota|Asignatura|AlumnoID|ProfesorID|
-|---|---|---|---|---|
+|:---|:---|:---|:---|:---|
 |E1|6.70|Matem&#225;ticas|A2|P1|
 |E3|4.25|Matem&#225;ticas|A1|P1|
 |E4|6.50|Matem&#225;ticas|A7|P7|
@@ -729,7 +729,7 @@ SELECT * FROM dbo.Examenes WHERE Nota <= 7 ;
 ```
 
 |ExamenID|Nota|Asignatura|AlumnoID|ProfesorID|
-|---|---|---|---|---|
+|:---|:---|:---|:---|:---|
 |E1|6.70|Matem&#225;ticas|A2|P1|
 |E3|4.25|Matem&#225;ticas|A1|P1|
 |E4|6.50|Inglés|A7|P7|
@@ -745,7 +745,7 @@ SELECT AlumnoID, Nota FROM dbo.Examenes WHERE Nota < 7 ;
 ```
 
 |AlumnoID|Nota|
-|---|---|
+|:---|:---|
 |A2|6.70|
 |A1|4.25|
 |A7|6.50|
@@ -760,7 +760,7 @@ SELECT * FROM dbo.Alumnos WHERE Nombre = 'Fabio';
 ```
 
 |AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|:---|
 |A5|Fabio |Espa&#241;a|Madrid|fabio10@gmail.com||
 
 
@@ -773,7 +773,7 @@ SELECT * FROM dbo.Alumnos WHERE Nombre != 'Fabio';
 ```
 
 |AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|:---|
 |A1|Orlando                                           |Australia|||917755028|
 |A10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
 |A11|Ismael                                            |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|
@@ -797,7 +797,7 @@ SELECT * FROM dbo.Alumnos WHERE Nombre in ('Fabio','Pedro');
 ```
 
 |AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|:---|
 |A13|Pedro                                             |Argentina|Buenos Aires|Pedro120@gmail.com||
 |A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
 |A8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|
@@ -813,7 +813,7 @@ SELECT * FROM dbo.Alumnos WHERE Nombre not in ('Fabio','Pedro');
 ```
 
 |AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|:---|
 |A1|Orlando                                           |Australia|||917755028|
 |A10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
 |A11|Ismael                                            |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|
@@ -835,7 +835,7 @@ SELECT AlumnoID , Nota, ProfesorID FROM dbo.Examenes WHERE Nota < 7 AND Nota > 5
 ```
 
 |AlumnoID|Nota|ProfesorID|
-|---|---|---|
+|:---|:---|:---|
 |A2|6.70|P1|
 |A7|6.50|P7|
 
@@ -850,7 +850,7 @@ SELECT Nombre FROM dbo.Profesores WHERE Estudios = 'Inglés' OR Estudios = 'Geog
 ```
 
 |Nombre|
-|---|
+|:---|
 |Daniel|
 |Garazi|
 
@@ -864,7 +864,7 @@ Filtering rows from **Alumnos** table where **Nombre** column is nor null :
 SELECT*FROM Alumnos WHERE Nombre is NOT NULL
 ```
 |AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|:---|
 |A1|Orlando                                           |Australia|||917755028|
 |A10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
 |A11|Ismael                                            |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|
@@ -893,7 +893,7 @@ SELECT * FROM Alumnos WHERE Nombre like '%io%' ;
 ```
 
 |AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|:---|
 |A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
 |A9|Sergio                                            |United States|New York|sergio_as@gmail.com||
 
@@ -910,7 +910,7 @@ SELECT * FROM Alumnos WHERE Nombre like 'o%' ; -- starts by 'o'
 ```
 
 |AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|:---|
 |A1|Orlando                                           |Australia|||917755028|
 
  
@@ -924,7 +924,7 @@ SELECT * FROM Alumnos WHERE Nombre like '%o' ; -- ends by 'o'
 ```
  
 |AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|:---|
 |A1|Orlando                                           |Australia|||917755028|
 |A13|Pedro                                             |Argentina|Buenos Aires|Pedro120@gmail.com||
 |A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
@@ -944,7 +944,7 @@ SELECT * FROM Alumnos WHERE Nombre like '%ab%o' ; -- has 'ab' and ends by 'o'
 ```
 
 |AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|:---|
 |A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
 
 
@@ -960,7 +960,7 @@ SELECT * FROM dbo.Alumnos WHERE Nombre like '%F____' ; -- starts with 'F' follow
 ```
 
 |AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|:---|
 |A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||
 
 
@@ -975,11 +975,48 @@ SELECT * FROM dbo.Clientes WHERE Nombre like '%F__' ; -- empieza por 'F' seguida
 ```
  
 |AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|:---|
  
 
  
  
+<br>
+
+ 
+
+# Creating a new table based on a query
+
+
+We can create a new table based on a query as follows :
+
+```sql
+SELECT  Nombre, Email 
+INTO New_Table 
+FROM Alumnos ;
+```
+
+```sql
+SELECT*FROM New_Table ;
+```
+
+|Nombre|Email|
+|:---|:---|
+|Orlando                                           ||
+|Grecia                                            |Grecia89@gmail.com|
+|Ismael                                            |Isma98@gmail.com|
+|Luis                                              |Luismiguel123@gmail.com|
+|Pedro                                             |Pedro120@gmail.com|
+|Keith                                             |keith0@adventure-works.com|
+|Donna                                             |donna0@adventure-works.com|
+|Janet                                             |janet1@adventure-works.com|
+|Fabio                                             |fabio10@gmail.com|
+|Juan                                              ||
+|Lucia                                             |LuciaPerez@hotmail.com|
+|Pedro                                             |Pedro99@gmail.com|
+|Sergio                                            |sergio_as@gmail.com|
+
+
+
 <br>
  
 
@@ -1014,7 +1051,7 @@ Delete from Alumnos WHERE Nombre = 'Fabio'
 SELECT * FROM Alumnos
 ```
 |AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|:---|
 |A1|Orlando                                           |Australia|||917755028|
 |A10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
 |A11|Ismael                                            |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|
@@ -1044,7 +1081,7 @@ SELECT * FROM Alumnos
 
 
 |AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|:---|
 |A11|Ismael                                            |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|
 |A12|Luis                                              |Espa&#241;a|Murcia|Luismiguel123@gmail.com||
 |A13|Pedro                                             |Argentina|Buenos Aires|Pedro120@gmail.com||
@@ -1072,7 +1109,7 @@ SELECT * FROM Alumnos
 ```
 
 |AlumnoID|Pais|Ciudad|Telefono|
-|---|---|---|---|
+|:---|:---|:---|:---|
 |A11|Espa&#241;a|Madrid|912234543|
 |A12|Espa&#241;a|Murcia||
 |A13|Argentina|Buenos Aires||
@@ -1116,7 +1153,7 @@ UPDATE Alumnos  set  Nombre = 'Messi' WHERE AlumnoID = 'A2'
 SELECT * FROM Alumnos
 ```
 |AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|:---|
 |A1|Orlando                                           |Australia|||917755028|
 |A10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||
 |A11|Ismael                                            |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|
@@ -1146,7 +1183,7 @@ SELECT * FROM Alumnos
 ```
 
 |AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|
-|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|:---|
 |A1|Messi                                             |Australia|||917755028|
 |A10|Messi                                             |Peru|Lima|Grecia89@gmail.com||
 |A11|Messi                                             |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|
@@ -1198,7 +1235,7 @@ GO
 
 
 |Id|Nombre|Email|Telefono|
-|---|---|---|---|
+|:---|:---|:---|:---|
 |1|Juan|no tiene|desconocido|
 |2|Rodrigo|no tiene|915568799|
 |3|Sofia|no tiene|desconocido|
@@ -1230,7 +1267,6 @@ CREATE TABLE dbo.Ventas
 GO
 
 -- Insert rows
-
 INSERT INTO dbo.Ventas
  ([VentasId], [Producto], [Precio], [Descuento], [Cliente], [Proveedor])
 VALUES
@@ -1245,7 +1281,7 @@ GO
 
 
 |VentasId|Producto|Precio|Descuento|Cliente|Proveedor|
-|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|:---|
 |V1|Alfombra                                          |1500|0,5|C2|P1|
 |V2|Killim                                            |699,5|0,25|C3|P1|
 |V3|Killim                                            |475|0,1|C2|P3|
@@ -1266,7 +1302,7 @@ SELECT VentasId, Producto, Precio, Descuento, 'Precio_Final' = Precio - Precio*D
 ```
 
 |VentasId|Producto|Precio|Descuento|Precio_Final|Cliente|Proveedor|
-|---|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|:---|:---|
 |V1|Alfombra                                          |1500|0,5|750|C2|P1|
 |V2|Killim                                            |699,5|0,25|524,625|C3|P1|
 |V3|Killim                                            |475|0,1|427,5|C2|P3|
@@ -1279,15 +1315,15 @@ SELECT VentasId, Producto, Precio, Descuento, 'Precio_Final' = Precio - Precio*D
 <br>
 
 
-# Concat strings from different columns
+# Concatenate strings from different columns
 
-We can concat string form different columns as follows :
+We can concatenate string form different columns as follows :
 ```sql
 SELECT Nombre, 'Pais-Alumnos' = Pais + '-' + Ciudad FROM Alumnos
 ```
 
 |Nombre|Pais-Alumnos|
-|---|---|
+|:---|:---|
 |Orlando                                           |Australia-|
 |Grecia                                            |Peru-Lima|
 |Ismael                                            |Espa&#241;a-Madrid|
@@ -1316,7 +1352,7 @@ SELECT*FROM Examenes ORDER BY Nota ASC
 ```
 
 |ExamenID|Nota|Asignatura|AlumnoID|ProfesorID|
-|---|---|---|---|---|
+|:---|:---|:---|:---|:---|
 |E3|4.25|Matem&#225;ticas|A1|P1|
 |E4|6.50|Inglés|A7|P7|
 |E1|6.70|Matem&#225;ticas|A2|P1|
@@ -1332,7 +1368,7 @@ SELECT*FROM Examenes ORDER BY Nota DESC
 ```
 
 |ExamenID|Nota|Asignatura|AlumnoID|ProfesorID|
-|---|---|---|---|---|
+|:---|:---|:---|:---|:---|
 |E2|8.00|F&#237;sica|A4|P2|
 |E5|7.00|Lengua|A9|P3|
 |E1|6.70|Matem&#225;ticas|A2|P1|
@@ -1345,8 +1381,9 @@ SELECT*FROM Examenes ORDER BY Nota DESC
 
 <br>
 
-# Minmun, Maximun, Sum, Mean, Quantiles
+# Minimun, Maximun, Sum, Mean, Quantiles
 
+ 
 
 ```sql
 INSERT INTO dbo.Examenes
@@ -1372,7 +1409,7 @@ SELECT * FROM Examenes
 ```
 
 |ExamenID|Nota|Asignatura|AlumnoID|ProfesorID|
-|---|---|---|---|---|
+|:---|:---|:---|:---|:---|
 |E1|6.70|Matem&#225;ticas|A2|P1|
 |E10|6.90|Ingl&#233;s|A11|P7|
 |E11|5.25|F&#237;sica|A2|P2|
@@ -1394,36 +1431,42 @@ SELECT * FROM Examenes
 <br>
 
 
-```SQL
+We can get the minimum of a column as follows :
+
+```sql
 SELECT Min(Nota) as Nota_min FROM Examenes ;
 ```
 
 |Nota_min|
-|---|
+|:---|
 |3.00|
 
 
 
 <br>
 
-```SQL
+We can get the maximum of a column as follows :
+
+```sql
 SELECT Max(Nota) as Nota_max FROM Examenes ;
 ```
 
 |Nota_max|
-|---|
+|:---|
 |8.00|
 
 
 
 <br>
 
-```SQL
+We can get the mean (average) of a column as follows :
+
+```sql
 SELECT Avg(Nota) as Nota_mean FROM Examenes ;
 ```
 
 |Nota_mean|
-|---|
+|:---|
 |6.182352|
 
 
@@ -1431,29 +1474,34 @@ SELECT Avg(Nota) as Nota_mean FROM Examenes ;
 
 <br>
 
+We can get the variance of a column as follows :
+
 ```sql
 SELECT Var(Nota) as Nota_var FROM Examenes ;
 ```
 
 |Nota_var|
-|---|
+|:---|
 |2,1587316176470708|
 
 
 
 <br>
 
+We can get the standard deviation of a column as follows :
 
 ```sql
 SELECT Stdev(Nota) as Nota_std FROM Examenes ;
 ```
 
 |Nota_std|
-|---|
+|:---|
 |1,4692622698643938|
 
 
 <br>
+
+We can get the quantile 0.30 of a column as follows :
 
 ```sql
 SELECT TOP (1) PERCENTILE_DISC(0.30) 
@@ -1463,10 +1511,12 @@ FROM Examenes
 ```
 
 |Nota_Q30|
-|---|
+|:---|
 |5.50|
 
 <br>
+
+We can get the quantile 0.80 of a column as follows :
 
 ```sql
 SELECT TOP (1) PERCENTILE_DISC(0.80) 
@@ -1476,7 +1526,7 @@ FROM Examenes
 ```
 
 |Nota_Q80|
-|---|
+|:---|
 |7.20|
 
 
@@ -1485,14 +1535,24 @@ FROM Examenes
 
 # Group by
 
+
+We can group a table by the values ​​in a column and then calculate a metric based on those groups.
+
+We are going to see different examples.
+
+
+
+We can get the absolute frequency of each value in  **Nombre** column in the **Alumnos** table :
+
 ```sql
-SELECT Nombre, COUNT(Nombre) as Cantidad_Nombre
+SELECT Nombre, COUNT(Nombre) 
+as Cantidad_Nombre
 FROM Alumnos
 GROUP BY Nombre
 ```
 
 |Nombre|Cantidad_Nombre|
-|---|---|
+|:---|:---|
 |Donna                                             |1|
 |Fabio                                             |1|
 |Grecia                                            |1|
@@ -1511,6 +1571,8 @@ GROUP BY Nombre
 
  
 
+We can get the mean, minimun, maximu and variance of **Nota** column after group **Examenes** table by **Asignatura** column :
+
 ```sql
 SELECT Asignatura, AVG(Nota) as Nota_Media, MIN(Nota) as Nota_Min, MAX(Nota) as Nota_Max, VAR(Nota) as Nota_Var
 INTO Tabla_Resumen
@@ -1523,7 +1585,7 @@ SELECT * FROM Tabla_Resumen
 ```
 
 |Asignatura|Nota_Media|Nota_Min|Nota_Max|Nota_Var|
-|---|---|---|---|---|
+|:---|:---|:---|:---|:---|
 |F&#237;sica|6.410000|4.00|8.00|2,9905000000000044|
 |Ingl&#233;s|6.120000|3.00|7.20|3,1069999999999993|
 |Lengua|6.300000|5.00|8.00|1,4500000000000028|
@@ -1534,6 +1596,8 @@ SELECT * FROM Tabla_Resumen
 
 <br>
 
+We can get the quantile of order 0.30,  of **Nota** column after group **Examenes** table by **Asignatura** column :
+
 ```sql
 SELECT DISTINCT Asignatura, PERCENTILE_CONT(0.30) 
 WITHIN GROUP (ORDER BY Nota ASC) 
@@ -1542,7 +1606,7 @@ FROM Examenes
 ```
 
 |Asignatura|Nota_Q30|
-|---|---|
+|:---|:---|
 |F&#237;sica|5,6000000000000005|
 |Ingl&#233;s|6,58|
 |Lengua|5,6|
@@ -1550,6 +1614,8 @@ FROM Examenes
 
 
 <br>
+
+We can get the quantile of order 0.25,  of **Nota** column after group **Examenes** table by **Asignatura** column :
 
 ```sql
 SELECT DISTINCT Asignatura, PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY Nota ASC) OVER (PARTITION BY Asignatura) as Nota_Q25
@@ -1562,7 +1628,7 @@ SELECT * FROM Tabla_Q25
 ```
 
 |Asignatura|Nota_Q25|
-|---|---|
+|:---|:---|
 |F&#237;sica|5,25|
 |Ingl&#233;s|6,5|
 |Lengua|5,5|
@@ -1571,6 +1637,8 @@ SELECT * FROM Tabla_Q25
 
 
 <br>
+
+We can get the quantile of order 0.50,  of **Nota** column after group **Examenes** table by **Asignatura** column :
 
 ```sql
 SELECT DISTINCT Asignatura, PERCENTILE_CONT(0.50) WITHIN GROUP (ORDER BY Nota ASC) OVER (PARTITION BY Asignatura) as Nota_Q50
@@ -1583,7 +1651,7 @@ SELECT * FROM Tabla_Q50
 ```
 
 |Asignatura|Nota_Q50|
-|---|---|
+|:---|:---|
 |F&#237;sica|7|
 |Ingl&#233;s|6,9|
 |Lengua|6|
@@ -1592,6 +1660,8 @@ SELECT * FROM Tabla_Q50
 
 
 <br>
+
+We can get the quantile of order 0.75,  of **Nota** column after group **Examenes** table by **Asignatura** column :
 
 ```sql
 SELECT DISTINCT Asignatura, PERCENTILE_CONT(0.75) WITHIN GROUP (ORDER BY Nota ASC) OVER (PARTITION BY Asignatura) as Nota_Q75
@@ -1604,7 +1674,7 @@ SELECT * FROM Tabla_Q75
 ```
 
 |Asignatura|Nota_Q75|
-|---|---|
+|:---|:---|
 |F&#237;sica|7,8|
 |Ingl&#233;s|7|
 |Lengua|7|
@@ -1616,6 +1686,8 @@ SELECT * FROM Tabla_Q75
 
 <br>
 
+We can join **Tabla_Resumen**, **Tabla_Q25**, **Tabla_Q50** y **Tabla_Q75** as follows : 
+
 ```sql
 SELECT e.Asignatura, e.Nota_Media, e.Nota_Min, e.Nota_Max, e.Nota_Var, c.Nota_Q25, d.Nota_Q50, f.Nota_Q75
 FROM Tabla_Resumen e
@@ -1625,7 +1697,7 @@ JOIN Tabla_Q75 f ON e.Asignatura = f.Asignatura;
 ```
 
 |Asignatura|Nota_Media|Nota_Min|Nota_Max|Nota_Var|Nota_Q25|Nota_Q50|Nota_Q75|
-|---|---|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|---|---|---|
 |F&#237;sica|6.410000|4.00|8.00|2,9905000000000044|5,25|7|7,8|
 |Ingl&#233;s|6.120000|3.00|7.20|3,1069999999999993|6,5|6,9|7|
 |Lengua|6.300000|5.00|8.00|1,4500000000000028|5,5|6|7|
@@ -1640,6 +1712,7 @@ JOIN Tabla_Q75 f ON e.Asignatura = f.Asignatura;
 
 ## Having
 
+We can use Having filter rows after applying Group By. Now, we are going to see several examples.
 
 ```sql
 SELECT Nombre, COUNT(Nombre) as Cantidad_Nombre
@@ -1648,7 +1721,7 @@ GROUP BY Nombre
 ```
 
 |Nombre|Cantidad_Nombre|
-|---|---|
+|:---|:---|
 |Donna                                             |1|
 |Fabio                                             |1|
 |Grecia                                            |1|
@@ -1664,7 +1737,7 @@ GROUP BY Nombre
 
 
 
-<br>
+
 
 ```sql
 SELECT Nombre, COUNT(Nombre) as Cantidad_Nombre
@@ -1674,7 +1747,7 @@ HAVING COUNT(Nombre) > 1
 ```
 
 |Nombre|Cantidad_Nombre|
-|---|---|
+|:---|:---|
 |Pedro                                             |2|
 
 
@@ -1693,7 +1766,7 @@ GROUP BY Asignatura
 ```
 
 |Asignatura|Nota_Media|Nota_Min|Nota_Max|Nota_Var|
-|---|---|---|---|---|
+|:---|:---|:---|:---|:---|
 |F&#237;sica|6.410000|4.00|8.00|2,9905000000000044|
 |Ingl&#233;s|6.120000|3.00|7.20|3,1069999999999993|
 |Lengua|6.300000|5.00|8.00|1,4500000000000028|
@@ -1701,7 +1774,6 @@ GROUP BY Asignatura
 
 
 
-<br>
 
 ```sql
 SELECT Asignatura, AVG(Nota) as Nota_Media, MIN(Nota) as Nota_Min , MAX(Nota) as Nota_Max , VAR(Nota) as Nota_Var
@@ -1711,13 +1783,13 @@ HAVING AVG(Nota) > 6.2
 ```
 
 |Asignatura|Nota_Media|Nota_Min|Nota_Max|Nota_Var|
-|---|---|---|---|---|
+|:---|:---|:---|:---|:---|
 |F&#237;sica|6.410000|4.00|8.00|2,9905000000000044|
 |Lengua|6.300000|5.00|8.00|1,4500000000000028|
 
 
 
-<br>
+
 
 ```sql
 SELECT Asignatura, AVG(Nota) as Nota_Media, MIN(Nota) as Nota_Min , MAX(Nota) as Nota_Max , VAR(Nota) as Nota_Var
@@ -1727,7 +1799,7 @@ HAVING Min(Nota) >= 5
 ```
 
 |Asignatura|Nota_Media|Nota_Min|Nota_Max|Nota_Var|
-|---|---|---|---|---|
+|:---|:---|:---|:---|:---|
 |Lengua|6.300000|5.00|8.00|1,4500000000000028|
 
 
@@ -1743,7 +1815,11 @@ HAVING Min(Nota) >= 5
  
 # Join tables
 
+## Inner Join
 
+The inner join operation applied to two data frames  $DF_1$  and  $DF_2$   produces another data frame consisting of the union of the rows of $DF_1$  and  $DF_2$   that share the same value in the link column (share the same linking value).
+
+ 
 ```sql
 SELECT a.Nombre, b.Asignatura , b.Nota
 FROM Alumnos a
@@ -1752,7 +1828,7 @@ ON a.AlumnoID = b.AlumnoID
 ```
 
 |Nombre|Asignatura|Nota|
-|---|---|---|
+|:---|:---|:---|
 |Keith                                             |Matem&#225;ticas|6.70|
 |Ismael                                            |Ingl&#233;s|6.90|
 |Keith                                             |F&#237;sica|5.25|
@@ -1783,7 +1859,7 @@ ON a.ProfesorID = b.ProfesorID
 ```
 
 |Nombre|Asignatura|email|
-|---|---|---|
+|:---|:---|:---|
 |Juan|Matem&#225;ticas|JuanPerez@colegio.es|
 |Garazi|Ingl&#233;s|GaraziGarcia@colegio.es|
 |Sonia|F&#237;sica|SoniDiaz@colegio.es|
@@ -1801,12 +1877,18 @@ ON a.ProfesorID = b.ProfesorID
 |Garazi|Ingl&#233;s|GaraziGarcia@colegio.es|
 |Sonia|F&#237;sica|SoniDiaz@colegio.es|
 |Lucia|Lengua|LuciaPerez@colegio.es|
-
-
 
 
 <br>
 
+<br>
+
+
+## Outer Join
+
+The outer join operation applied to two data frames $DF_1$ and $DF_2$
+  produces the same data frame of inner join, but adding the rows from  
+$DF_1$  that don't share linking value with any row from   $DF_2$ , and the rows from  $DF_2$  that don't share linking value with any row form $DF_1$ .
 
 ```sql
 SELECT a.Nombre, b.Asignatura , a.Estudios, a.email, b.AlumnoID, b.Nota
@@ -1816,7 +1898,7 @@ ON a.ProfesorID = b.ProfesorID
 ```
 
 |Nombre|Asignatura|Estudios|email|AlumnoID|Nota|
-|---|---|---|---|---|---|
+|:---|:---|:---|:---|:---|:---|
 |Juan|Matem&#225;ticas|Matem&#225;ticas|JuanPerez@colegio.es|A2|6.70|
 |Juan|Matem&#225;ticas|Matem&#225;ticas|JuanPerez@colegio.es|A1|4.25|
 |Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|A2|5.25|
@@ -1850,7 +1932,7 @@ ON a.ProfesorID = b.ProfesorID
 ```
 
 |Nombre|Asignatura|Estudios|email|
-|---|---|---|---|
+|:---|:---|:---|:---|
 |Carlos|NULL|Educaci&#243;n F&#237;sica|CarlosFernandez@colegio.es|
 |Daniel|NULL|Geograf&#237;a|DanielOrtiz@colegio.es|
 |Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|
@@ -1859,11 +1941,17 @@ ON a.ProfesorID = b.ProfesorID
 |Marcos|NULL|Biolog&#237;a|MarcosSanz@colegio.es|
 |Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|
 
-
+<br>
 
 <br>
 
 
+## Right Join
+
+The right join operation applied to two data frames  $DF_1$  and $DF_2$
+  produces another data frame consisting of the rows of  $DF_1$ and $DF_2$
+  that share link value, and the rest rows of  $DF_2$ .
+  
 ```sql
 SELECT a.Nombre, b.Asignatura , a.Estudios, a.email
 FROM Profesores a
@@ -1872,7 +1960,7 @@ ON a.ProfesorID = b.ProfesorID
 ```
 
 |Nombre|Asignatura|Estudios|email|
-|---|---|---|---|
+|:---|:---|:---|:---|
 |Juan|Matem&#225;ticas|Matem&#225;ticas|JuanPerez@colegio.es|
 |Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|
 |Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|
@@ -1904,7 +1992,7 @@ ON a.ProfesorID = b.ProfesorID
 ```
 
 |Nombre|Asignatura|Estudios|email|
-|---|---|---|---|
+|:---|:---|:---|:---|
 |Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|
 |Juan|Matem&#225;ticas|Matem&#225;ticas|JuanPerez@colegio.es|
 |Lucia|Lengua|Lengua|LuciaPerez@colegio.es|
@@ -1924,7 +2012,7 @@ ON a.AlumnoID = b.AlumnoID
 ```
 
 |Nombre|Asignatura|Nota|email|
-|---|---|---|---|
+|:---|:---|:---|:---|
 |Keith                                             |Matem&#225;ticas|6.70|keith0@adventure-works.com|
 |Ismael                                            |Ingl&#233;s|6.90|Isma98@gmail.com|
 |Keith                                             |F&#237;sica|5.25|keith0@adventure-works.com|
@@ -1946,6 +2034,13 @@ ON a.AlumnoID = b.AlumnoID
 
 <br>
 
+<br>
+
+## Left Join
+
+The left join operation applied to two data frames  $DF_1$   and $DF_2$   produces another data frame consisting of the rows of  $DF_1$ and $DF_2$
+  that share link value, and the rest rows of  $DF_1$ .
+
 
 ```sql
 SELECT a.Nombre, b.Asignatura, b.Nota, a.email, a.AlumnoID
@@ -1955,7 +2050,7 @@ ON a.AlumnoID = b.AlumnoID
 ```
 
 |Nombre|Asignatura|Nota|email|AlumnoID|
-|---|---|---|---|---|
+|:---|:---|:---|:---|:---|
 |Orlando                                           |Matem&#225;ticas|4.25||A1|
 |Orlando                                           |F&#237;sica|7.00||A1|
 |Grecia                                            |Ingl&#233;s|3.00|Grecia89@gmail.com|A10|
@@ -1987,7 +2082,7 @@ ON a.ProfesorID = b.ProfesorID
 ```
 
 |Nombre|Asignatura|Estudios|email|
-|---|---|---|---|
+|:---|:---|:---|:---|
 |Juan|Matem&#225;ticas|Matem&#225;ticas|JuanPerez@colegio.es|
 |Juan|Matem&#225;ticas|Matem&#225;ticas|JuanPerez@colegio.es|
 |Sonia|F&#237;sica|F&#237;sica|SoniDiaz@colegio.es|
@@ -2023,7 +2118,7 @@ ON a.ProfesorID = b.ProfesorID
 
 
 |Nombre|Asignatura|Estudios|email|
-|---|---|---|---|
+|:---|:---|:---|:---|
 |Carlos|NULL|Educaci&#243;n F&#237;sica|CarlosFernandez@colegio.es|
 |Daniel|NULL|Geograf&#237;a|DanielOrtiz@colegio.es|
 |Garazi|Ingl&#233;s|Ingl&#233;s|GaraziGarcia@colegio.es|

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 19 Columns calculated from others | Introduction to SQL in Azure Data Studio</title>
+  <title>Chapter 21 Columns calculated from others | Introduction to SQL in Azure Data Studio</title>
   <meta name="description" content="This article is an introduction to SQL in Azure Data Studio." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 19 Columns calculated from others | Introduction to SQL in Azure Data Studio" />
+  <meta property="og:title" content="Chapter 21 Columns calculated from others | Introduction to SQL in Azure Data Studio" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This article is an introduction to SQL in Azure Data Studio." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 19 Columns calculated from others | Introduction to SQL in Azure Data Studio" />
+  <meta name="twitter:title" content="Chapter 21 Columns calculated from others | Introduction to SQL in Azure Data Studio" />
   
   <meta name="twitter:description" content="This article is an introduction to SQL in Azure Data Studio." />
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Fabio Scielzo Ortiz" />
 
 
-<meta name="date" content="2023-03-13" />
+<meta name="date" content="2023-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="update-columns-of-a-table.html"/>
-<link rel="next" href="concat-strings-from-different-columns.html"/>
+<link rel="next" href="concatenate-strings-from-different-columns.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -155,29 +155,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9" data-path="number-of-columns.html"><a href="number-of-columns.html"><i class="fa fa-check"></i><b>9</b> Number of columns</a></li>
 <li class="chapter" data-level="10" data-path="number-of-rows.html"><a href="number-of-rows.html"><i class="fa fa-check"></i><b>10</b> Number of rows</a></li>
 <li class="chapter" data-level="11" data-path="head-of-a-table.html"><a href="head-of-a-table.html"><i class="fa fa-check"></i><b>11</b> Head of a table</a></li>
-<li class="chapter" data-level="12" data-path="select-columns-of-a-table.html"><a href="select-columns-of-a-table.html"><i class="fa fa-check"></i><b>12</b> Select columns of a table</a></li>
+<li class="chapter" data-level="12" data-path="select-columns-from-a-table.html"><a href="select-columns-from-a-table.html"><i class="fa fa-check"></i><b>12</b> Select columns from a table</a></li>
 <li class="chapter" data-level="13" data-path="assign-alias-to-a-column.html"><a href="assign-alias-to-a-column.html"><i class="fa fa-check"></i><b>13</b> Assign alias to a column</a></li>
-<li class="chapter" data-level="14" data-path="filter-rows-of-a-table.html"><a href="filter-rows-of-a-table.html"><i class="fa fa-check"></i><b>14</b> Filter rows of a table</a>
+<li class="chapter" data-level="14" data-path="filter-rows-from-a-table.html"><a href="filter-rows-from-a-table.html"><i class="fa fa-check"></i><b>14</b> Filter rows from a table</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="filter-rows-of-a-table.html"><a href="filter-rows-of-a-table.html#select-rows-by-strings-with-like-and-not-like"><i class="fa fa-check"></i><b>14.1</b> Select rows by strings with Like and Not Like</a></li>
+<li class="chapter" data-level="14.1" data-path="filter-rows-from-a-table.html"><a href="filter-rows-from-a-table.html#filtering-rows-by-conditions"><i class="fa fa-check"></i><b>14.1</b> Filtering rows by conditions</a></li>
+<li class="chapter" data-level="14.2" data-path="filter-rows-from-a-table.html"><a href="filter-rows-from-a-table.html#select-rows-with-strings-with-like-and-not-like"><i class="fa fa-check"></i><b>14.2</b> Select rows with strings with Like and Not Like</a></li>
 </ul></li>
-<li class="chapter" data-level="15" data-path="delete-rows-from-a-table.html"><a href="delete-rows-from-a-table.html"><i class="fa fa-check"></i><b>15</b> Delete rows from a table</a></li>
-<li class="chapter" data-level="16" data-path="delete-columns-from-a-table.html"><a href="delete-columns-from-a-table.html"><i class="fa fa-check"></i><b>16</b> Delete columns from a table</a></li>
-<li class="chapter" data-level="17" data-path="delete-a-table.html"><a href="delete-a-table.html"><i class="fa fa-check"></i><b>17</b> Delete a table</a></li>
-<li class="chapter" data-level="18" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html"><i class="fa fa-check"></i><b>18</b> Update columns of a table</a>
+<li class="chapter" data-level="15" data-path="creating-a-new-table-based-on-a-query.html"><a href="creating-a-new-table-based-on-a-query.html"><i class="fa fa-check"></i><b>15</b> Creating a new table based on a query</a></li>
+<li class="chapter" data-level="16" data-path="delete-rows-from-a-table.html"><a href="delete-rows-from-a-table.html"><i class="fa fa-check"></i><b>16</b> Delete rows from a table</a></li>
+<li class="chapter" data-level="17" data-path="delete-rows-from-a-table-that-meet-a-condition.html"><a href="delete-rows-from-a-table-that-meet-a-condition.html"><i class="fa fa-check"></i><b>17</b> Delete rows from a table that meet a condition</a></li>
+<li class="chapter" data-level="18" data-path="delete-columns-from-a-table.html"><a href="delete-columns-from-a-table.html"><i class="fa fa-check"></i><b>18</b> Delete columns from a table</a></li>
+<li class="chapter" data-level="19" data-path="delete-a-table.html"><a href="delete-a-table.html"><i class="fa fa-check"></i><b>19</b> Delete a table</a></li>
+<li class="chapter" data-level="20" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html"><i class="fa fa-check"></i><b>20</b> Update columns of a table</a>
 <ul>
-<li class="chapter" data-level="18.1" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html#setting-a-default-value-for-a-column"><i class="fa fa-check"></i><b>18.1</b> Setting a default value for a column</a></li>
+<li class="chapter" data-level="20.1" data-path="update-columns-of-a-table.html"><a href="update-columns-of-a-table.html#setting-a-default-value-for-a-column"><i class="fa fa-check"></i><b>20.1</b> Setting a default value for a column</a></li>
 </ul></li>
-<li class="chapter" data-level="19" data-path="columns-calculated-from-others.html"><a href="columns-calculated-from-others.html"><i class="fa fa-check"></i><b>19</b> Columns calculated from others</a></li>
-<li class="chapter" data-level="20" data-path="concat-strings-from-different-columns.html"><a href="concat-strings-from-different-columns.html"><i class="fa fa-check"></i><b>20</b> Concat strings from different columns</a></li>
-<li class="chapter" data-level="21" data-path="sorting-a-table-by-columns.html"><a href="sorting-a-table-by-columns.html"><i class="fa fa-check"></i><b>21</b> Sorting a table by columns</a></li>
-<li class="chapter" data-level="22" data-path="minmun-maximun-sum-mean-quantiles.html"><a href="minmun-maximun-sum-mean-quantiles.html"><i class="fa fa-check"></i><b>22</b> Minmun, Maximun, Sum, Mean, Quantiles</a></li>
-<li class="chapter" data-level="23" data-path="group-by.html"><a href="group-by.html"><i class="fa fa-check"></i><b>23</b> Group by</a>
+<li class="chapter" data-level="21" data-path="columns-calculated-from-others.html"><a href="columns-calculated-from-others.html"><i class="fa fa-check"></i><b>21</b> Columns calculated from others</a></li>
+<li class="chapter" data-level="22" data-path="concatenate-strings-from-different-columns.html"><a href="concatenate-strings-from-different-columns.html"><i class="fa fa-check"></i><b>22</b> Concatenate strings from different columns</a></li>
+<li class="chapter" data-level="23" data-path="sorting-a-table-by-columns.html"><a href="sorting-a-table-by-columns.html"><i class="fa fa-check"></i><b>23</b> Sorting a table by columns</a></li>
+<li class="chapter" data-level="24" data-path="minimun-maximun-sum-mean-quantiles.html"><a href="minimun-maximun-sum-mean-quantiles.html"><i class="fa fa-check"></i><b>24</b> Minimun, Maximun, Sum, Mean, Quantiles</a></li>
+<li class="chapter" data-level="25" data-path="group-by.html"><a href="group-by.html"><i class="fa fa-check"></i><b>25</b> Group by</a>
 <ul>
-<li class="chapter" data-level="23.1" data-path="group-by.html"><a href="group-by.html#having"><i class="fa fa-check"></i><b>23.1</b> Having</a></li>
+<li class="chapter" data-level="25.1" data-path="group-by.html"><a href="group-by.html#having"><i class="fa fa-check"></i><b>25.1</b> Having</a></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="join-tables.html"><a href="join-tables.html"><i class="fa fa-check"></i><b>24</b> Join tables</a></li>
-<li class="chapter" data-level="25" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i><b>25</b> Bibliography</a></li>
+<li class="chapter" data-level="26" data-path="join-tables.html"><a href="join-tables.html"><i class="fa fa-check"></i><b>26</b> Join tables</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="join-tables.html"><a href="join-tables.html#inner-join"><i class="fa fa-check"></i><b>26.1</b> Inner Join</a></li>
+<li class="chapter" data-level="26.2" data-path="join-tables.html"><a href="join-tables.html#outer-join"><i class="fa fa-check"></i><b>26.2</b> Outer Join</a></li>
+<li class="chapter" data-level="26.3" data-path="join-tables.html"><a href="join-tables.html#right-join"><i class="fa fa-check"></i><b>26.3</b> Right Join</a></li>
+<li class="chapter" data-level="26.4" data-path="join-tables.html"><a href="join-tables.html#left-join"><i class="fa fa-check"></i><b>26.4</b> Left Join</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i><b>27</b> Bibliography</a></li>
 <li class="divider"></li>
 <li><a href="https://estadistica4all.com" target="blank">Estadistica4all.com</a></li>
 
@@ -198,8 +207,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="columns-calculated-from-others" class="section level1 hasAnchor" number="19">
-<h1><span class="header-section-number">Chapter 19</span> Columns calculated from others<a href="columns-calculated-from-others.html#columns-calculated-from-others" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="columns-calculated-from-others" class="section level1 hasAnchor" number="21">
+<h1><span class="header-section-number">Chapter 21</span> Columns calculated from others<a href="columns-calculated-from-others.html#columns-calculated-from-others" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div class="sourceCode" id="cb53"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb53-1"><a href="columns-calculated-from-others.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="cf">IF</span> OBJECT_ID(<span class="st">&#39;dbo.Ventas&#39;</span>, <span class="st">&#39;U&#39;</span>) <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
 <span id="cb53-2"><a href="columns-calculated-from-others.html#cb53-2" aria-hidden="true" tabindex="-1"></a> <span class="kw">DROP</span> <span class="kw">TABLE</span> dbo.Ventas;</span>
 <span id="cb53-3"><a href="columns-calculated-from-others.html#cb53-3" aria-hidden="true" tabindex="-1"></a>GO</span>
@@ -215,88 +224,88 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb53-13"><a href="columns-calculated-from-others.html#cb53-13" aria-hidden="true" tabindex="-1"></a>GO</span>
 <span id="cb53-14"><a href="columns-calculated-from-others.html#cb53-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-15"><a href="columns-calculated-from-others.html#cb53-15" aria-hidden="true" tabindex="-1"></a><span class="co">-- Insert rows</span></span>
-<span id="cb53-16"><a href="columns-calculated-from-others.html#cb53-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb53-17"><a href="columns-calculated-from-others.html#cb53-17" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> dbo.Ventas</span>
-<span id="cb53-18"><a href="columns-calculated-from-others.html#cb53-18" aria-hidden="true" tabindex="-1"></a> ([VentasId], [Producto], [Precio], [Descuento], [Cliente], [Proveedor])</span>
-<span id="cb53-19"><a href="columns-calculated-from-others.html#cb53-19" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span></span>
-<span id="cb53-20"><a href="columns-calculated-from-others.html#cb53-20" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;V1&#39;</span>, <span class="st">&#39;Alfombra&#39;</span>, <span class="dv">1500</span>, <span class="fl">0.5</span> ,<span class="st">&#39;C2&#39;</span> , <span class="st">&#39;P1&#39;</span>),</span>
-<span id="cb53-21"><a href="columns-calculated-from-others.html#cb53-21" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;V2&#39;</span>, <span class="st">&#39;Killim&#39;</span>, <span class="fl">699.50</span>, <span class="fl">0.25</span>, <span class="st">&#39;C3&#39;</span>, <span class="st">&#39;P1&#39;</span>),</span>
-<span id="cb53-22"><a href="columns-calculated-from-others.html#cb53-22" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;V3&#39;</span>, <span class="st">&#39;Killim&#39;</span>, <span class="dv">475</span>, <span class="fl">0.10</span>, <span class="st">&#39;C2&#39;</span>, <span class="st">&#39;P3&#39;</span>),</span>
-<span id="cb53-23"><a href="columns-calculated-from-others.html#cb53-23" aria-hidden="true" tabindex="-1"></a>  ( <span class="st">&#39;V4&#39;</span>, <span class="st">&#39;Alfombra&#39;</span>, <span class="dv">1500</span>, <span class="fl">0.5</span> ,<span class="st">&#39;C7&#39;</span> , <span class="st">&#39;P1&#39;</span>),</span>
-<span id="cb53-24"><a href="columns-calculated-from-others.html#cb53-24" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;V5&#39;</span>, <span class="st">&#39;Alfombra&#39;</span>, <span class="dv">5000</span>, <span class="fl">0.30</span>, <span class="st">&#39;C5&#39;</span>, <span class="st">&#39;P1&#39;</span>),</span>
-<span id="cb53-25"><a href="columns-calculated-from-others.html#cb53-25" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;V6&#39;</span>, <span class="st">&#39;Killim&#39;</span>, <span class="dv">250</span>, <span class="fl">0.10</span>, <span class="st">&#39;C9&#39;</span>, <span class="st">&#39;P3&#39;</span>)</span>
-<span id="cb53-26"><a href="columns-calculated-from-others.html#cb53-26" aria-hidden="true" tabindex="-1"></a>GO</span></code></pre></div>
+<span id="cb53-16"><a href="columns-calculated-from-others.html#cb53-16" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> dbo.Ventas</span>
+<span id="cb53-17"><a href="columns-calculated-from-others.html#cb53-17" aria-hidden="true" tabindex="-1"></a> ([VentasId], [Producto], [Precio], [Descuento], [Cliente], [Proveedor])</span>
+<span id="cb53-18"><a href="columns-calculated-from-others.html#cb53-18" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span></span>
+<span id="cb53-19"><a href="columns-calculated-from-others.html#cb53-19" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;V1&#39;</span>, <span class="st">&#39;Alfombra&#39;</span>, <span class="dv">1500</span>, <span class="fl">0.5</span> ,<span class="st">&#39;C2&#39;</span> , <span class="st">&#39;P1&#39;</span>),</span>
+<span id="cb53-20"><a href="columns-calculated-from-others.html#cb53-20" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;V2&#39;</span>, <span class="st">&#39;Killim&#39;</span>, <span class="fl">699.50</span>, <span class="fl">0.25</span>, <span class="st">&#39;C3&#39;</span>, <span class="st">&#39;P1&#39;</span>),</span>
+<span id="cb53-21"><a href="columns-calculated-from-others.html#cb53-21" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;V3&#39;</span>, <span class="st">&#39;Killim&#39;</span>, <span class="dv">475</span>, <span class="fl">0.10</span>, <span class="st">&#39;C2&#39;</span>, <span class="st">&#39;P3&#39;</span>),</span>
+<span id="cb53-22"><a href="columns-calculated-from-others.html#cb53-22" aria-hidden="true" tabindex="-1"></a>  ( <span class="st">&#39;V4&#39;</span>, <span class="st">&#39;Alfombra&#39;</span>, <span class="dv">1500</span>, <span class="fl">0.5</span> ,<span class="st">&#39;C7&#39;</span> , <span class="st">&#39;P1&#39;</span>),</span>
+<span id="cb53-23"><a href="columns-calculated-from-others.html#cb53-23" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;V5&#39;</span>, <span class="st">&#39;Alfombra&#39;</span>, <span class="dv">5000</span>, <span class="fl">0.30</span>, <span class="st">&#39;C5&#39;</span>, <span class="st">&#39;P1&#39;</span>),</span>
+<span id="cb53-24"><a href="columns-calculated-from-others.html#cb53-24" aria-hidden="true" tabindex="-1"></a> ( <span class="st">&#39;V6&#39;</span>, <span class="st">&#39;Killim&#39;</span>, <span class="dv">250</span>, <span class="fl">0.10</span>, <span class="st">&#39;C9&#39;</span>, <span class="st">&#39;P3&#39;</span>)</span>
+<span id="cb53-25"><a href="columns-calculated-from-others.html#cb53-25" aria-hidden="true" tabindex="-1"></a>GO</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
-<th>VentasId</th>
-<th>Producto</th>
-<th>Precio</th>
-<th>Descuento</th>
-<th>Cliente</th>
-<th>Proveedor</th>
+<th align="left">VentasId</th>
+<th align="left">Producto</th>
+<th align="left">Precio</th>
+<th align="left">Descuento</th>
+<th align="left">Cliente</th>
+<th align="left">Proveedor</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>V1</td>
-<td>Alfombra</td>
-<td>1500</td>
-<td>0,5</td>
-<td>C2</td>
-<td>P1</td>
+<td align="left">V1</td>
+<td align="left">Alfombra</td>
+<td align="left">1500</td>
+<td align="left">0,5</td>
+<td align="left">C2</td>
+<td align="left">P1</td>
 </tr>
 <tr class="even">
-<td>V2</td>
-<td>Killim</td>
-<td>699,5</td>
-<td>0,25</td>
-<td>C3</td>
-<td>P1</td>
+<td align="left">V2</td>
+<td align="left">Killim</td>
+<td align="left">699,5</td>
+<td align="left">0,25</td>
+<td align="left">C3</td>
+<td align="left">P1</td>
 </tr>
 <tr class="odd">
-<td>V3</td>
-<td>Killim</td>
-<td>475</td>
-<td>0,1</td>
-<td>C2</td>
-<td>P3</td>
+<td align="left">V3</td>
+<td align="left">Killim</td>
+<td align="left">475</td>
+<td align="left">0,1</td>
+<td align="left">C2</td>
+<td align="left">P3</td>
 </tr>
 <tr class="even">
-<td>V4</td>
-<td>Alfombra</td>
-<td>1500</td>
-<td>0,5</td>
-<td>C7</td>
-<td>P1</td>
+<td align="left">V4</td>
+<td align="left">Alfombra</td>
+<td align="left">1500</td>
+<td align="left">0,5</td>
+<td align="left">C7</td>
+<td align="left">P1</td>
 </tr>
 <tr class="odd">
-<td>V5</td>
-<td>Alfombra</td>
-<td>5000</td>
-<td>0,3</td>
-<td>C5</td>
-<td>P1</td>
+<td align="left">V5</td>
+<td align="left">Alfombra</td>
+<td align="left">5000</td>
+<td align="left">0,3</td>
+<td align="left">C5</td>
+<td align="left">P1</td>
 </tr>
 <tr class="even">
-<td>V6</td>
-<td>Killim</td>
-<td>250</td>
-<td>0,1</td>
-<td>C9</td>
-<td>P3</td>
+<td align="left">V6</td>
+<td align="left">Killim</td>
+<td align="left">250</td>
+<td align="left">0,1</td>
+<td align="left">C9</td>
+<td align="left">P3</td>
 </tr>
 <tr class="odd">
-<td>475</td>
-<td>0,1</td>
-<td>C2</td>
-<td>P3</td>
-<td></td>
-<td></td>
+<td align="left">475</td>
+<td align="left">0,1</td>
+<td align="left">C2</td>
+<td align="left">P3</td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
+<p>We can define a column based on operations between other columns as follows :</p>
 <div class="sourceCode" id="cb54"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb54-1"><a href="columns-calculated-from-others.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> VentasId, Producto, Precio, Descuento, <span class="st">&#39;Precio_Final&#39;</span> <span class="op">=</span> Precio <span class="op">-</span> Precio<span class="op">*</span>Descuento, Cliente, Proveedor <span class="kw">FROM</span> Ventas</span></code></pre></div>
 <table style="width:100%;">
 <colgroup>
@@ -310,69 +319,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </colgroup>
 <thead>
 <tr class="header">
-<th>VentasId</th>
-<th>Producto</th>
-<th>Precio</th>
-<th>Descuento</th>
-<th>Precio_Final</th>
-<th>Cliente</th>
-<th>Proveedor</th>
+<th align="left">VentasId</th>
+<th align="left">Producto</th>
+<th align="left">Precio</th>
+<th align="left">Descuento</th>
+<th align="left">Precio_Final</th>
+<th align="left">Cliente</th>
+<th align="left">Proveedor</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>V1</td>
-<td>Alfombra</td>
-<td>1500</td>
-<td>0,5</td>
-<td>750</td>
-<td>C2</td>
-<td>P1</td>
+<td align="left">V1</td>
+<td align="left">Alfombra</td>
+<td align="left">1500</td>
+<td align="left">0,5</td>
+<td align="left">750</td>
+<td align="left">C2</td>
+<td align="left">P1</td>
 </tr>
 <tr class="even">
-<td>V2</td>
-<td>Killim</td>
-<td>699,5</td>
-<td>0,25</td>
-<td>524,625</td>
-<td>C3</td>
-<td>P1</td>
+<td align="left">V2</td>
+<td align="left">Killim</td>
+<td align="left">699,5</td>
+<td align="left">0,25</td>
+<td align="left">524,625</td>
+<td align="left">C3</td>
+<td align="left">P1</td>
 </tr>
 <tr class="odd">
-<td>V3</td>
-<td>Killim</td>
-<td>475</td>
-<td>0,1</td>
-<td>427,5</td>
-<td>C2</td>
-<td>P3</td>
+<td align="left">V3</td>
+<td align="left">Killim</td>
+<td align="left">475</td>
+<td align="left">0,1</td>
+<td align="left">427,5</td>
+<td align="left">C2</td>
+<td align="left">P3</td>
 </tr>
 <tr class="even">
-<td>V4</td>
-<td>Alfombra</td>
-<td>1500</td>
-<td>0,5</td>
-<td>750</td>
-<td>C7</td>
-<td>P1</td>
+<td align="left">V4</td>
+<td align="left">Alfombra</td>
+<td align="left">1500</td>
+<td align="left">0,5</td>
+<td align="left">750</td>
+<td align="left">C7</td>
+<td align="left">P1</td>
 </tr>
 <tr class="odd">
-<td>V5</td>
-<td>Alfombra</td>
-<td>5000</td>
-<td>0,3</td>
-<td>3500</td>
-<td>C5</td>
-<td>P1</td>
+<td align="left">V5</td>
+<td align="left">Alfombra</td>
+<td align="left">5000</td>
+<td align="left">0,3</td>
+<td align="left">3500</td>
+<td align="left">C5</td>
+<td align="left">P1</td>
 </tr>
 <tr class="even">
-<td>V6</td>
-<td>Killim</td>
-<td>250</td>
-<td>0,1</td>
-<td>225</td>
-<td>C9</td>
-<td>P3</td>
+<td align="left">V6</td>
+<td align="left">Killim</td>
+<td align="left">250</td>
+<td align="left">0,1</td>
+<td align="left">225</td>
+<td align="left">C9</td>
+<td align="left">P3</td>
 </tr>
 </tbody>
 </table>
@@ -384,7 +393,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="update-columns-of-a-table.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="concat-strings-from-different-columns.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="concatenate-strings-from-different-columns.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

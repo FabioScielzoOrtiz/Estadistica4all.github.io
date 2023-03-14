@@ -476,8 +476,6 @@ SELECT DISTINCT Nombre, Email FROM dbo.Empleados  -- Se eliminan duplicados
 -------------------------------------------------------------------------
 
 
-https://learn.microsoft.com/es-es/training/modules/sort-filter-queries/6-filter-data
-
 -------------------------------------------------------------------------
 
 
