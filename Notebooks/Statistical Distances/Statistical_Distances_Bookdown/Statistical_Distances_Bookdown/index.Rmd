@@ -13,9 +13,14 @@ link-citations: yes
 github-repo: rstudio/bookdown-demo
 ---
 
+# Introducción
 
+<center>
 
- 
+![](dist.jpg){width="45%"}
+</center>
+
+ <br>
 
 <div class="warning" style='background-color:#FCF2EC; color: #000000; border-left: solid #FE9554 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
@@ -909,7 +914,7 @@ Aunque es una de las distancias más usadas en la práctica, en muchos casos no 
 ### Distancia Euclidea en `Python` 
 
 
-
+Definimos una función que calcula la distancia Euclidea entre dos observaciones dadas como argumento:
 
 ```python
 def Dist_Euclidea(x_i, x_r):
@@ -920,7 +925,9 @@ def Dist_Euclidea(x_i, x_r):
         return Dist_Euclidea
 ```
 
+<br>
 
+Probamos la función que acabamos de definir:
 ```python
 Dist_Euclidea(Data_quant.iloc[2,:] , Data_quant.iloc[5,:])
 ```
@@ -932,6 +939,8 @@ Dist_Euclidea(Data_quant.iloc[2,:] , Data_quant.iloc[5,:])
 
 
 <br>
+
+Definimos una función que calcula la matriz de distancias euclideas entre las observaciones de un data-set dado como argumento. La función devuelve la matriz triangular superior de distancias euclideas.
 
 ```python
 def Matrix_Dist_Euclidea(Data):
@@ -950,7 +959,9 @@ def Matrix_Dist_Euclidea(Data):
     return M 
 ```
 
+<br>
 
+Probamos la función:
 ```python
 M_Euclidean = Matrix_Dist_Euclidea(Data=Data_quant)
 ```
@@ -981,6 +992,8 @@ M_Euclidean
 
 <br>
 
+
+Completamos la matriz que hemos obtenido en el paso anterior, puesto que era solo la matriz triangular superior de distancias.
 ```python
 M_Euclidean = M_Euclidean + M_Euclidean.T
 
@@ -1163,7 +1176,7 @@ $$
 
 ### Distancia de Minkowski en `Python`
 
- 
+Definimos una función que calcula la distancia de Minkowski entre dos observaciones dadas como argumentos.
 ```python
 def Dist_Minkowski(x_i, x_r, q):
 
@@ -1174,6 +1187,7 @@ def Dist_Minkowski(x_i, x_r, q):
 
 <br>
 
+Probamos la función para $\hspace{0.03cm} q=1$ :
 ```python
 Dist_Minkowski(Data_quant.iloc[2,:], Data_quant.iloc[5,:], q=1)
 ```
@@ -1185,7 +1199,7 @@ Dist_Minkowski(Data_quant.iloc[2,:], Data_quant.iloc[5,:], q=1)
 
 <br>
 
-
+Probamos la función para $\hspace{0.03cm} q=2$ :
 ```python
 Dist_Minkowski(Data_quant.iloc[2,:], Data_quant.iloc[5,:], q=2)
 ```
@@ -1198,7 +1212,7 @@ Dist_Minkowski(Data_quant.iloc[2,:], Data_quant.iloc[5,:], q=2)
 
 <br>
 
-
+Probamos la función para $\hspace{0.03cm} q=3$ :
 ```python
 Dist_Minkowski(Data_quant.iloc[2,:], Data_quant.iloc[5,:], q=3)
 ```
@@ -1211,7 +1225,7 @@ Dist_Minkowski(Data_quant.iloc[2,:], Data_quant.iloc[5,:], q=3)
 
 <br>
 
-
+Probamos la función para $\hspace{0.03cm} q=10$ :
 ```python
 Dist_Minkowski(Data_quant.iloc[2,:], Data_quant.iloc[5,:], q=10)
 ```
@@ -1222,6 +1236,8 @@ Dist_Minkowski(Data_quant.iloc[2,:], Data_quant.iloc[5,:], q=10)
 ```
 
 <br>
+
+Definimos una función que calcula la matriz triangular superior de distancias de Minkowski entre las observaciones de un data-set pasado como argumento.
 
 ```python
 def Matrix_Dist_Minkowski(Data, q):
@@ -1240,7 +1256,9 @@ def Matrix_Dist_Minkowski(Data, q):
     return M 
 ```
 
+<br>
 
+Probamos la función:
 ```python
 M_Minkowski = Matrix_Dist_Minkowski(Data=Data_quant, q=1)
 
@@ -1268,6 +1286,7 @@ M_Minkowski
 
 <br>
 
+Completamos la matriz triangular superior de distancias obtenidas:
 ```python
 M_Minkowski = M_Minkowski + M_Minkowski.T
 
@@ -1374,6 +1393,7 @@ $\delta_q(x_i,x_r)_{Canberra}\hspace{0.1cm}$ es la distancia de Canberra entre l
 
 ### Distancia de Canberra en `Python`  
 
+Definimos una función que calcula la distancia de Canberra entre un par de observaciones pasadas como argumentos.
 ```python
 def Dist_Canberra(x_i, x_r):
 
@@ -1388,7 +1408,9 @@ def Dist_Canberra(x_i, x_r):
     return Dist_Canberra
 ```
 
+<br>
 
+Probamos la función:
 ```python
 Dist_Canberra(Data.iloc[2,:] , Data.iloc[5,:])
 ```
@@ -1401,6 +1423,7 @@ Dist_Canberra(Data.iloc[2,:] , Data.iloc[5,:])
 
 <br>
 
+Definimos una función que calcula la matriz triangular superior de distancias de Canberra entre las observaciones de un data-set pasado como argumento:
 ```python
 def Matrix_Dist_Canberra(Data):
 
@@ -1417,8 +1440,9 @@ def Matrix_Dist_Canberra(Data):
                      
     return M 
 ```
+<br>
 
-
+Probamos la función:
 ```python
 M_Canberra = Matrix_Dist_Canberra(Data=Data_quant)
 
@@ -1445,6 +1469,7 @@ M_Canberra
 
 <br>
 
+Completamos la matriz obtenida:
 ```python
 M_Canberra = M_Canberra + M_Canberra.T
 
@@ -1476,7 +1501,7 @@ M_Canberra
 
 ## Distancia de Pearson  
 
- Dada una matriz de datos $\hspace{0.1cm} X = (X_1,...,X_p)\hspace{0.1cm}$ de las variables estadísticas  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.1cm}.$
+ Dada una matriz de datos $\hspace{0.03cm} X = (X_1,...,X_p)\hspace{0.03cm}$ de las variables estadísticas  $\hspace{0.03cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.03cm}.$
  
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
@@ -1543,9 +1568,10 @@ Es decir, si la variable $\hspace{0.03cm}\mathcal{X}_k\hspace{0.03cm}$ tiene muc
 
 ### Distancia de Pearson en `Python`  
 
-
+Definimos una función que calcula la distancia de Pearson entre un par de observaciones pasadas como argumento.
 ```python
 def Dist_Pearson(x_i, x_r, variance) :
+# variance es un vector con las varianzas muestrales de las variables que se están considerando.
 
     Dist_Pearson = ( ( x_i - x_r )**2 / variance ).sum()
     Dist_Pearson = np.sqrt(Dist_Pearson)
@@ -1553,6 +1579,9 @@ def Dist_Pearson(x_i, x_r, variance) :
     return Dist_Pearson
 ```
 
+<br>
+
+Probamos la función:
 
 ```python
 Dist_Pearson(x_i=Data_quant.iloc[2,:], x_r=Data_quant.iloc[5,:], variance = np.var(Data_quant , axis=0, ddof=1))
@@ -1566,6 +1595,8 @@ Dist_Pearson(x_i=Data_quant.iloc[2,:], x_r=Data_quant.iloc[5,:], variance = np.v
 
 <br>
 
+
+Definimos una función que calcula la matriz triangular superior de distanciass de Pearson entre las observaciones de un data-set que se pasa como argumento.
 ```python
 def Matrix_Dist_Pearson(Data):
 
@@ -1583,7 +1614,9 @@ def Matrix_Dist_Pearson(Data):
     return M 
 ```
 
+<br>
 
+Probamos la función:
 ```python
 M_Pearson = Matrix_Dist_Pearson(Data=Data_quant)
 
@@ -1610,12 +1643,14 @@ M_Pearson
 
 <br>
 
+
+
+Completamos la matriz obtenida:
 ```python
 M_Pearson = M_Pearson + M_Pearson.T
 
 M_Pearson
 ```
-
 
 
 
@@ -1645,7 +1680,7 @@ M_Pearson
 
 ## Distancia de Mahalanobis  
 
-Dada una matriz de datos $\hspace{0.1cm} X=(X_1,...,X_p)\hspace{0.1cm}$ de las variables estadísticas  $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$
+Dada una matriz de datos $\hspace{0.03cm} X=(X_1,...,X_p)\hspace{0.03cm}$ de las variables estadísticas  $\hspace{0.03cm}\mathcal{X}_1,...,\mathcal{X}_p$
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -1654,30 +1689,34 @@ Dada una matriz de datos $\hspace{0.1cm} X=(X_1,...,X_p)\hspace{0.1cm}$ de las v
 <p style='margin-left:1em;'>
 
  
-$\hspace{0.25cm}$ La distancia de Mahalanobis entre el par de observaciones $\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$ se define como: $\\[0.5cm]$
+$\hspace{0.25cm}$ La distancia de Mahalanobis entre el par de observaciones $\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$ se define como: $\\$
 
  
 $$
- \delta(x_i,x_r)_{Mahalanobis} \hspace{0.1cm}= \hspace{0.1cm} \sqrt{\hspace{0.1cm}(x_i - x_r)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - x_r ) \hspace{0.1cm}}   \\[0.6cm]
+ \delta(x_i,x_r)_{Maha} \hspace{0.15cm}= \hspace{0.15cm} \sqrt{\hspace{0.1cm}(x_i - x_r)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - x_r ) \hspace{0.1cm}}   \\
 $$
-
-
-$\hspace{0.25cm}$ Donde:
-
-$\hspace{0.4cm} S \hspace{0.08cm}$ es la estimación de la matriz de covarianzas de las variables  $\hspace{0.08cm}(\mathcal{X}_1,\dots , \mathcal{X}_p)\hspace{0.08cm}$ basada en la matriz de datos $\hspace{0.08cm}X=(X_1,...,X_p)$
-
-$\hspace{0.4cm}$ Es decir: 
-
-$$S  \hspace{0.1cm}= \hspace{0.1cm} \bigl(  \hspace{0.1cm} s_{jk}   \hspace{0.2cm} :  \hspace{0.2cm} j,k = 1,\dots , p  \hspace{0.1cm} \bigr)$$
-
-$\hspace{0.4cm}$ donde:
-
-$$s_{jk}  \hspace{0.1cm}= \hspace{0.1cm} S(X_j, X_k)  \hspace{0.1cm}= \hspace{0.1cm} \dfrac{1}{n}\cdot \sum_{i=1}^n  \hspace{0.1cm} (x_{ij}-\overline{X}_j)\cdot (x_{ik}-\overline{X}_k)$$
 
 </p>
  
 </p></span>
 </div>
+
+<br>
+
+Donde:
+
+- $S \hspace{0.03cm}$ es la estimación de la matriz de covarianzas de las variables  $\hspace{0.03cm}(\mathcal{X}_1,\dots , \mathcal{X}_p)\hspace{0.03cm}$ basada en la matriz de datos $\hspace{0.03cm}X=(X_1,...,X_p)\hspace{0.03cm}.$
+
+  
+    Es decir: 
+
+    $$S  \hspace{0.1cm}= \hspace{0.1cm} \bigl(  \hspace{0.1cm} s_{jk}   \hspace{0.2cm} :  \hspace{0.2cm} j,k = 1,\dots , p  \hspace{0.1cm} \bigr)$$
+
+    donde:
+
+    $$s_{jk}  \hspace{0.1cm}= \hspace{0.1cm} S(X_j, X_k)  \hspace{0.1cm}= \hspace{0.1cm} \dfrac{1}{n}\cdot \sum_{i=1}^n  \hspace{0.1cm} (x_{ij}-\overline{X}_j)\cdot (x_{ik}-\overline{X}_k)$$
+
+
 
 
 
@@ -1688,60 +1727,52 @@ $$s_{jk}  \hspace{0.1cm}= \hspace{0.1cm} S(X_j, X_k)  \hspace{0.1cm}= \hspace{0.
 
 La distancia de Mahalanobis es adecuada como distancia estadística por las siguientes razones: 
 
-- Es invariante ante cambios de escala (cambios en las unidades de medida) de las variables. $\\[0.4cm]$
+- Es invariante ante cambios de escala (cambios en las unidades de medida) de las variables. 
 
-- Tiene en cuenta la correlación entre las variables. No aumenta al incrementar el número de variables observadas. Solo aumenta cuando estas nuevas variables no están correladas con las anteriores. Así que solo cuando las nuevas variables no son redundantes con respecto a la infromación provista por las anteriores, la distancia de Mahalanobis aumentará. $\\[0.4cm]$
+- Tiene en cuenta la correlación entre las variables. No aumenta al incrementar el número de variables observadas. Solo aumenta cuando estas nuevas variables no están correladas con las anteriores. Así que solo cuando las nuevas variables no son redundantes con respecto a la infromación provista por las anteriores, la distancia de Mahalanobis aumentará. 
 
  
+<br>
 
 **Observaciones**
 
-- La distancia Euclidea es igual a la de Mahalanobis cuando $\hspace{0.1cm} S=I \\$
+- La distancia Euclidea es igual a la de Mahalanobis cuando $\hspace{0.03cm} S=I$.
 
-- La distancia de Pearson es igual a la de Mahalanobis cuando $\hspace{0.1cm} S=\text{diag}(s_1^2 ,..., s_p^2)$
+- La distancia de Pearson es igual a la de Mahalanobis cuando $\hspace{0.03cm} S=\text{diag}(s_1^2 ,..., s_p^2)$.
 
 
 
 <br>
 
-**Distancia Mahalanobis entre vectores $\hspace{0.1cm}x_i\hspace{0.1cm}$ y $\hspace{0.1cm}v\hspace{0.1cm}$**
+**Distancia Mahalanobis entre los vectores $\hspace{0.05cm}x_i\hspace{0.1cm}$ y $\hspace{0.1cm}v\hspace{0.1cm}$**
 
-La distancia de Mahalanobis puede definirse de forma más general, para abordar el caso en el que uno de los vectores del par considerado no pertenecen a la matriz de datos a partir de la que se calcula la matriz de covarianzas $\hspace{0.1cm}S\hspace{0.08cm}$.
+La distancia de Mahalanobis puede definirse de forma más general, para abordar el caso en el que uno de los vectores del par considerado no pertenecen a la matriz de datos a partir de la que se calcula la matriz de covarianzas $\hspace{0.03cm}S\hspace{0.03cm}$.
 
-Dada una matriz de datos $\hspace{0.1cm}X=(X_1,...,X_p)\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.1cm}$.
+Dada una matriz de datos $\hspace{0.03cm}X=(X_1,...,X_p)\hspace{0.03cm}$ de las variables estadísticas $\hspace{0.03cm}\mathcal{X}_1,...,\mathcal{X}_n\hspace{0.03cm}$.
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
- 
-<p style='margin-left:1em;'>
-
- 
-$\hspace{0.25cm}$ Dada una observación $\hspace{0.1cm}x_i\hspace{0.1cm}$ de esas variables estadísticas tal que $\hspace{0.1cm}x_i = X[i,:]\hspace{0.1cm}$  y dado un vector  $\hspace{0.07cm}v=(v_1,...,v_p)^t\hspace{0.07cm} \in \hspace{0.07cm}\mathbb{R}^p\hspace{0.07cm}$ , que no está incluido en la matriz de datos $\hspace{0.07cm}X\hspace{0.07cm}$.
+Dada una observación $\hspace{0.03cm}x_i\hspace{0.03cm}$ de esas variables estadísticas tal que $\hspace{0.03cm}x_i = X[i,:]\hspace{0.1cm}$  y dado un vector  $\hspace{0.03cm}v=(v_1,...,v_p)^t\hspace{0.03cm} \in \hspace{0.03cm}\mathbb{R}^p\hspace{0.03cm}$ , que no está incluido en la matriz de datos $\hspace{0.03cm}X\hspace{0.03cm}$.
 
 
 
 
-$\hspace{0.25cm}$ La distancia Mahalanobis entre $\hspace{0.1cm}x_i\hspace{0.1cm}$ y $\hspace{0.1cm}v\hspace{0.1cm}$ es: $\\[0.7cm]$
+La distancia Mahalanobis entre $\hspace{0.03cm}x_i\hspace{0.1cm}$ y $\hspace{0.1cm}v\hspace{0.03cm}$ es: $\\$
 
 $$
-\delta (x_i, v)_{Mahalanobis}  \hspace{0.09cm}=\hspace{0.09cm}  \sqrt{\hspace{0.07cm}(x_i - v)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - v) \hspace{0.07cm}} \\[0.8cm]
+\delta (x_i, v)_{Mahalanobis}  \hspace{0.09cm}=\hspace{0.09cm}  \sqrt{\hspace{0.07cm}(x_i - v)\hspace{0.03cm}^t \cdot S^{-1} \cdot (x_i - v) \hspace{0.07cm}} \\
 $$
 
 
-$\hspace{0.25cm}$ Vamos a considerar dos alternativas para definir $\hspace{0.1cm} S\hspace{0.07cm}$ : 
+ Vamos a considerar dos alternativas para definir $\hspace{0.03cm} S\hspace{0.03cm}$ : 
 
-- $S\hspace{0.1cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.1cm} X=(X_1,...,X_p) \\$
+- $S\hspace{0.03cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.03cm} X=(X_1,...,X_p)$.
 
-- $S\hspace{0.1cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.1cm} \begin{pmatrix}
+- $S\hspace{0.03cm}$ es la matriz de covarianzas de la matriz de datos $\hspace{0.03cm} \begin{pmatrix}
     X\\
-    v
-    \end{pmatrix}$
+    v^t
+    \end{pmatrix}.$
     
   
-</p>
- 
-</p></span>
-</div>
+
 
 
 <br>
@@ -1752,45 +1783,41 @@ $\hspace{0.25cm}$ Vamos a considerar dos alternativas para definir $\hspace{0.1c
 
 Esta ampliación de la distancia de Mahalanobis a vectores que no necesariamente forman parte de la matriz de datos permite ampliar su capacidad de aplicación. Vamos a dar varios ejemplos en donde la distancia de Gower definida estrictamente entre pares de observaciones de una matriz de datos no podria aplicarse, y que en cambio su versión ampliada si permite hacerlo.
 
-- En el algoritmo KNN se requiere de una distancia que pueda aplicarse a un vector de observaciones de las variables que no pertenece a la matriz de datos de entrenamiento. Ese vector juega el papel de $\hspace{0.1cm}v\hspace{0.1cm}$ en la definición anterior. $\\[0.5cm]$
+- En el algoritmo KNN se requiere de una distancia que pueda aplicarse a un vector de observaciones de las variables que no pertenece a la matriz de datos de entrenamiento. Ese vector juega el papel de $\hspace{0.03cm}v\hspace{0.03cm}$ en la definición anterior. 
 
-- En el algoritmo k-medias se requiere de una distancia que pueda aplicarse sobre el vector de medias $\hspace{0.1cm}\overline{x}\hspace{0.1cm}$ de la matriz de datos de entrenamiento. Tomando $\hspace{0.1cm}v=\overline{x}\hspace{0.1cm}$ se podría aplicar también en este caso la distancia de Mahalanobis. 
+- En el algoritmo k-medias se requiere de una distancia que pueda aplicarse sobre el vector de medias $\hspace{0.03cm}\bar{x}\hspace{0.03cm}$ de la matriz de datos de entrenamiento. Tomando $\hspace{0.03cm}v=\bar{x}\hspace{0.03cm}$ se podría aplicar también en este caso la distancia de Mahalanobis. 
 
 Además esto no solo amplia la aplicabilidad de la distancia de Mahalanobis, sino también aquellas relacionadas con ella, como la distancia de Gower-Mahalanobis, que veremos mas adelante.
 
 
-Por último señalar que las alternativas para definir $\hspace{0.1cm}S\hspace{0.1cm}$ son las que consideramos más razonables. En el caso de que $\hspace{0.1cm}v\hspace{0.1cm}$ fuese un vector de observaciones de las variables estadísticas, consideramos que los mas razonable es seguir la segunda definición. Pero en el caso de que $\hspace{0.1cm}v\hspace{0.1cm}$ fuese el vector de medias de las variables, lo más razonable sería seguir la primera definición.
+Por último señalar que las alternativas para definir $\hspace{0.03cm}S\hspace{0.03cm}$ son las que consideramos más razonables. En el caso de que $\hspace{0.03cm}v\hspace{0.03cm}$ fuese un vector de observaciones de las variables estadísticas, consideramos que los mas razonable es seguir la segunda definición. Pero en el caso de que $\hspace{0.03cm}v\hspace{0.03cm}$ fuese el vector de medias de las variables, lo más razonable sería seguir la primera definición.
  
 <br>
 
+<br>
+
+### Distancia de Mahalanobis en `Python` 
 
 
-## Distancia de Mahalanobis en `Python`   <a class="anchor" id="1"></a>
-
-
-
-
+Definimos una función que calcula la distancia de Mahalanobis entre un par de observaciones pasadas como argumentos.
 ```python
-
 def Dist_Mahalanobis_1(x_i, x_r, Data):
 
-    # All the columns of Data must be type = 'float' or 'int' (specially not 'object'), in other case we will find 
-    # dimensional problems when Python compute   x @ S_inv @ x.T
+    # All the columns of Data must be type = 'float' or 'int' (specially not 'object') ,
+    # in other case we will find dimensional problems when Python compute   x @ S_inv @ x.T
 
     x = (x_i - x_r)
-
     x = np.array([x]) # necessary step to transpose a 1D array
-
     S_inv = np.linalg.inv( np.cov(Data , rowvar=False) ) # inverse of covariance matrix
-
     Dist_Maha = np.sqrt( x @ S_inv @ x.T )  # x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )
-
     Dist_Maha = float(Dist_Maha)
 
     return Dist_Maha
 ```
 
+<br>
 
+Probamos la función:
 ```python
 Dist_Mahalanobis_1(Data_quant.iloc[2,:] , Data_quant.iloc[5,:] , Data=Data_quant)
 ```
@@ -1804,7 +1831,7 @@ Dist_Mahalanobis_1(Data_quant.iloc[2,:] , Data_quant.iloc[5,:] , Data=Data_quant
 <br>
 
 
-
+Definimos otra función que calcula la distancia de Mahalanobis entre un par de observaciones pasadas como argumentos, en este caso es más eficiente computacionalmente que la anterior.
 ```python
 def Dist_Mahalanobis_2(x_i, x_r, S_inv):  # Más eficiente que la anterior
 
@@ -1812,17 +1839,16 @@ def Dist_Mahalanobis_2(x_i, x_r, S_inv):  # Más eficiente que la anterior
     # dimensional problems when Python compute   x @ S_inv @ x.T
 
     x = x_i - x_r
-
     x = np.array([x]) # necessary step to transpose a 1D array
-
     Dist_Maha = np.sqrt( x @ S_inv @ x.T )  # x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )
-
     Dist_Maha = float(Dist_Maha)
 
     return Dist_Maha
 ```
 
+<br>
 
+Probamos la función:
 ```python
 Dist_Mahalanobis_2(x_i = Data_quant.iloc[2,:] , x_r = Data_quant.iloc[5,:] , S_inv = np.linalg.inv( np.cov(Data_quant, rowvar=False) ) )
 ```
@@ -1835,24 +1861,24 @@ Dist_Mahalanobis_2(x_i = Data_quant.iloc[2,:] , x_r = Data_quant.iloc[5,:] , S_i
 <br>
 
 
+Definimos otra función que calcula la distancia de Mahalanobis entre un par de observaciones pasadas como argumentos, en este caso es más eficiente computacionalmente que las dos anteriores.
 ```python
 def Dist_Mahalanobis(x, S_inv):  # Más eficiente que la anterior
 
     # All the columns of Data must be type = 'float' or 'int' (specially not 'object'), in other case we will find 
     # dimensional problems when Python compute   x @ S_inv @ x.T
-
     # x = (x_i - x_r)
-
     # x = np.array([x]) # necessary step to transpose a 1D array
 
     Dist_Maha = np.sqrt( x @ S_inv @ x.T )  # x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )
-
     Dist_Maha = float(Dist_Maha)
 
     return Dist_Maha
 ```
 
+<br>
 
+Probamos la función:
 ```python
 Dist_Mahalanobis(x = Data_quant.iloc[2,:] - Data_quant.iloc[5,:] , S_inv=np.linalg.inv( np.cov(Data_quant, rowvar=False) ))
 ```
@@ -1866,34 +1892,27 @@ Dist_Mahalanobis(x = Data_quant.iloc[2,:] - Data_quant.iloc[5,:] , S_inv=np.lina
 
 <br>
 
-
+Definimos una función para calcular la matriz de distancias de Mahalanobis entre las observaciones de un data-set pasado como argumento, usando `Dist_Mahalanobis_1` como función interna para el cálculo de las distancias.
 ```python
 def Matrix_Dist_Mahalanobis_1(Data):
 
     Data = Data.to_numpy()
-
     n = len(Data)
-
     M =  np.empty((n , n))
 
-   
     for i in range(0, n):
-
          for r in range(0, n):
-
              if i >= r :
-               
                  M[i,r] = 0
-
              else :
-
                  M[i,r] = Dist_Mahalanobis_1(x_i = Data[i,:] , x_r = Data[r,:] , Data=Data )
 
-                      
     return M 
 ```
 
 <br>
+
+Probamos la función con un subconjunto del data-set original:
 ```python
 Matrix_Dist_Mahalanobis_1(Data=Data_quant.iloc[0:1000, :]) # 2.25 mins
 ```
@@ -1918,6 +1937,7 @@ Matrix_Dist_Mahalanobis_1(Data=Data_quant.iloc[0:1000, :]) # 2.25 mins
 
 <br>
 
+Probamos la función con todas las filas del data-set:
 ```python
 Matrix_Dist_Mahalanobis_1(Data=Data_quant) # 8.52 mins
 ```
@@ -1941,36 +1961,29 @@ Matrix_Dist_Mahalanobis_1(Data=Data_quant) # 8.52 mins
 
 <br>
 
-
+Definimos una función para calcular la matriz de distancias de Mahalanobis entre las observaciones de un data-set pasado como argumento, usando `Dist_Mahalanobis_2` como función interna para el cálculo de las distancias.
 ```python
 def Matrix_Dist_Mahalanobis_2(Data):
 
     Data = Data.to_numpy()
-
     n = len(Data)
-
     M =  np.empty((n , n))
-
     S_inv = np.linalg.inv( np.cov(Data , rowvar=False) )
 
-   
     for i in range(0, n):
-
          for r in range(0, n):
-
              if i >= r :
-               
                  M[i,r] = 0
-
              else :
-
                  M[i,r] = Dist_Mahalanobis_2(x_i = Data[i,:] , x_r = Data[r,:] , S_inv = S_inv  )
-
                       
     return M 
 ```
+
+
 <br>
 
+Probamos la función con un subconjunto del data-set original:
 ```python
 Matrix_Dist_Mahalanobis_2(Data=Data_quant.iloc[0:1000, :]) # 6.8 seg
 ```
@@ -1995,6 +2008,7 @@ Matrix_Dist_Mahalanobis_2(Data=Data_quant.iloc[0:1000, :]) # 6.8 seg
 
 <br>
 
+Probamos la función con un todas las filas del data-set original:
 ```python
 Matrix_Dist_Mahalanobis_2(Data=Data_quant) # 22.5 seg
 ```
@@ -2019,41 +2033,31 @@ Matrix_Dist_Mahalanobis_2(Data=Data_quant) # 22.5 seg
 
 <br>
 
+Definimos una función para calcular la matriz de distancias de Mahalanobis entre las observaciones de un data-set pasado como argumento, usando `Dist_Mahalanobis` como función interna para el cálculo de las distancias.
 ```python
 def Matrix_Dist_Mahalanobis(Data):
 
     Data = Data.to_numpy()
-
     n = len(Data)
-
     M =  np.empty((n , n))
-
     S_inv=np.linalg.inv( np.cov(Data , rowvar=False) )
-
    
     for i in range(0, n):
-
          for r in range(0, n):
-
              if i >= r :
-               
                  M[i,r] = 0
-
              else :
-
                  M[i,r] = Dist_Mahalanobis(x = np.array([Data[i,:] - Data[r,:]]) , S_inv=S_inv ) 
-
                       
     return M 
 ```
 
 <br>
 
+Probamos la función con un subconjunto del data-set original:
 ```python
 Matrix_Dist_Mahalanobis(Data=Data_quant.iloc[0:1000, :]) # 4.8 seg
 ```
-
-
 
 
     array([[0.        , 2.16321817, 3.81131086, ..., 2.74083537, 3.84799958,
@@ -2074,6 +2078,7 @@ Matrix_Dist_Mahalanobis(Data=Data_quant.iloc[0:1000, :]) # 4.8 seg
 
 <br>
 
+Probamos la función con todas las filas del data-set original:
 ```python
 M_Mahalanobis = Matrix_Dist_Mahalanobis(Data=Data_quant) # 19.7 seg
 
@@ -2098,8 +2103,9 @@ M_Mahalanobis
             0.        ]])
 
 
+<br>
 
-
+Completamos la matriz:
 ```python
 M_Mahalanobis = M_Mahalanobis + M_Mahalanobis.T
 
@@ -2126,16 +2132,9 @@ M_Mahalanobis
 
 
 
-
-
-
-
-
-
 <br>
 
-
-<br>
+ 
 
 # Similaridades
 
@@ -2143,21 +2142,19 @@ M_Mahalanobis
 
 Es un concepto que expresa la proximidad o similaridad entre un par de elementos cualesquiera.
 
-
+ Dado un conjunto cualquiera $\hspace{0.03cm}A\hspace{0.03cm}.$
+ 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
 <p style='margin-left:1em;'>
 
-$\hspace{0.25cm}$ Dado un conjunto cualquiera $\hspace{0.1cm}A\hspace{0.08cm}.$
 
+$\hspace{0.25cm}$ Se denomina similaridad a toda función $\hspace{0.04cm} \phi \hspace{0.08cm} : \hspace{0.08cm} A \hspace{0.08cm}\text{x}\hspace{0.08cm} A \hspace{0.08cm} \rightarrow\hspace{0.08cm} \mathbb{R}\hspace{0.03cm}$   tal que:
 
+- $\phi(i , r) \in [0,1] \hspace{0.3cm} , \hspace{0.3cm}  \forall \hspace{0.08cm} i,r \in A$
 
-$\hspace{0.25cm}$ Se denomina similaridad a toda función $\hspace{0.12cm} \phi \hspace{0.08cm} : \hspace{0.08cm} A \hspace{0.08cm}\text{x}\hspace{0.08cm} A \hspace{0.08cm} \rightarrow\hspace{0.08cm} \mathbb{R}\hspace{0.12cm}$   tal que:
-
-- $\phi(i , r) \in [0,1] \hspace{0.3cm} , \hspace{0.3cm}  \forall \hspace{0.08cm} i,r \in A \\$
-
-- $\phi(i, i) \hspace{0.08cm}=\hspace{0.08cm} 1  \hspace{0.3cm} , \hspace{0.3cm}  \forall \hspace{0.08cm} i,r \in A \\$
+- $\phi(i, i) \hspace{0.08cm}=\hspace{0.08cm} 1  \hspace{0.3cm} , \hspace{0.3cm}  \forall \hspace{0.08cm} i,r \in A$
 
 - $\phi(i , r) \hspace{0.08cm}=\hspace{0.08cm} \phi(r, i)  \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} i,r \in A$
 
@@ -2166,7 +2163,11 @@ $\hspace{0.25cm}$ Se denomina similaridad a toda función $\hspace{0.12cm} \phi 
 </p></span>
 </div>
 
+
 <br>
+
+<br>
+
 
 ## Pasar de similaridad a distancia  
 
@@ -2177,10 +2178,10 @@ Las siguientes transformaciones nos permiten pasar de una similaridad a una dist
  
 <p style='margin-left:1em;'>
 
-- $\delta(i,r) \hspace{0.08cm}=\hspace{0.08cm} 1- \phi(i,r) \\[0.4cm]$
+- $\delta(i,r) \hspace{0.08cm}=\hspace{0.08cm} 1- \phi(i,r)$
 
 
--  $\delta(i,r) \hspace{0.08cm}=\hspace{0.08cm} \sqrt{1-\phi(i,r)} \\[0.4cm]$
+-  $\delta(i,r) \hspace{0.08cm}=\hspace{0.08cm} \sqrt{1-\phi(i,r)}$
 
 - $\delta(i,r) \hspace{0.08cm}=\hspace{0.08cm} \sqrt{\hspace{0.08cm} \phi(i,i) \hspace{0.08cm}+\hspace{0.08cm} \phi(r,r) \hspace{0.08cm}-\hspace{0.08cm} 2\cdot \phi(i,r) \hspace{0.08cm}}$
 
@@ -2190,12 +2191,12 @@ Las siguientes transformaciones nos permiten pasar de una similaridad a una dist
 </div>
 
 
- 
+<br> 
 
 <br>
 
 
-## Matriz de Similaridades  <a class="anchor" id="49"></a>
+## Matriz de Similaridades   
 
 
  Dada una similaridad $\hspace{0.1cm}\phi\hspace{0.1cm}$ definida sobre el conjunto $\hspace{0.1cm}A=\lbrace a_1 ,..., a_n \rbrace\hspace{0.08cm}.$
@@ -2207,7 +2208,7 @@ Las siguientes transformaciones nos permiten pasar de una similaridad a una dist
 
  
 
-$\hspace{0.25cm}$ Se define la matriz de similaridades $\hspace{0.1cm}\phi\hspace{0.1cm}$ sobre el conjunto de elementos $\hspace{0.1cm} A\hspace{0.1cm}$ como: $\\[0.6cm]$
+$\hspace{0.25cm}$ Se define la matriz de similaridades $\hspace{0.1cm}\phi\hspace{0.1cm}$ sobre el conjunto de elementos $\hspace{0.1cm} A\hspace{0.1cm}$ como: $\\$
  
 
 $$
@@ -2223,7 +2224,7 @@ $$
 
 $\hspace{0.25cm}$ Donde:
 
-$\hspace{0.45cm} \phi_{ir} \hspace{0.08cm}=\hspace{0.08cm} \phi(a_i , a_r) \hspace{0.3cm} , \hspace{0.3cm}  \forall \hspace{0.08cm} i, j \in \lbrace 1,...,n\rbrace$
+$\hspace{0.5cm} \phi_{ir} \hspace{0.08cm}=\hspace{0.08cm} \phi(a_i , a_r) \hspace{0.3cm} , \hspace{0.3cm}  \forall \hspace{0.08cm} i, j \in \lbrace 1,...,n\rbrace$
 
 
 </p>
@@ -2245,7 +2246,7 @@ $\hspace{0.45cm} \phi_{ir} \hspace{0.08cm}=\hspace{0.08cm} \phi(a_i , a_r) \hspa
 
 ## Parámetros a, b , c y d
 
-Supongamos que las variables $\hspace{0.1cm}\mathcal{X}_1 , \dots , \mathcal{X}_p\hspace{0.1cm}$ son **categóricas binarias**.
+Supongamos que las variables $\hspace{0.03cm}\mathcal{X}_1 , \dots , \mathcal{X}_p\hspace{0.03cm}$ son **categóricas binarias**.
 
 
  Los principales coeficientes de similaridad involucran algunos de los siguientes parámetros:
@@ -2255,27 +2256,27 @@ Supongamos que las variables $\hspace{0.1cm}\mathcal{X}_1 , \dots , \mathcal{X}_
  
 <p style='margin-left:1em;'>
 
- -  $a(x_i, x_r) \hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm} x_{ij} = x_{rj}=1 \\$ 
+ -  $a(x_i, x_r) \hspace{0.03cm}=\hspace{0.03cm}$ nº de variables binarias $\hspace{0.03cm}\mathcal{X}_j\hspace{0.03cm}$ tales que $\hspace{0.03cm} x_{ij} = x_{rj}=1$ 
  
   
- $$a(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm}  j =  1,..,p \hspace{0.2cm} : \hspace{0.2cm} x_{ij}=x_{rj}=1  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{numero coincidencias (1,1)} \\[0.7cm]$$
+ $$a(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm}  j =  1,..,p \hspace{0.2cm} : \hspace{0.2cm} x_{ij}=x_{rj}=1  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{# coincidencias (1,1)} \\$$
 
- - $b(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº de variables binarias  $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=1 \\$ 
-
-
- $$b(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm}  j = 1,..,p \hspace{0.2cm} : \hspace{0.2cm} x_{ij}=0 \hspace{0.25cm}\text{y}\hspace{0.25cm} x_{rj}=1  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{numero no coincidencias (0,1)} \\[0.7cm]$$
+ - $b(x_i, x_r)\hspace{0.03cm}=\hspace{0.03cm}$ nº de variables binarias  $\hspace{0.03cm}\mathcal{X}_j\hspace{0.03cm}$ tales que $\hspace{0.03cm}x_{ij} =0\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=1$ 
 
 
- - $c(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =1\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+ $$b(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm}  j = 1,..,p \hspace{0.2cm} : \hspace{0.2cm} x_{ij}=0 \hspace{0.25cm}\text{y}\hspace{0.25cm} x_{rj}=1  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{# no coincidencias (0,1)} \\$$
 
 
- $$c(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm}  j =  1,..,p \hspace{0.2cm}:\hspace{0.2cm} x_{ij}=1 \hspace{0.25cm}\text{y}\hspace{0.25cm} x_{rj}=0  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{numero no coincidencias (1,0)} \\[0.7cm]$$
+ - $c(x_i, x_r)\hspace{0.03cm}=\hspace{0.03cm}$ nº  de variables binarias $\hspace{0.03cm}\mathcal{X}_j\hspace{0.03cm}$ tales que $\hspace{0.1cm}x_{ij} =1\hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0$
+
+
+ $$c(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm}  j =  1,..,p \hspace{0.2cm}:\hspace{0.2cm} x_{ij}=1 \hspace{0.25cm}\text{y}\hspace{0.25cm} x_{rj}=0  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{# no coincidencias (1,0)} \\$$
 
 
 
- - $d(x_i, x_r)\hspace{0.1cm}=\hspace{0.1cm}$ nº  de variables binarias $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ tales que $\hspace{0.1cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0 \\$
+ - $d(x_i, x_r)\hspace{0.03cm}=\hspace{0.03cm}$ nº  de variables binarias $\hspace{0.03cm}\mathcal{X}_j\hspace{0.03cm}$ tales que $\hspace{0.03cm}x_{ij} =0 \hspace{0.15cm}$ y $\hspace{0.15cm}x_{rj}=0$
  
- $$d(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm} j = 1,..,p \hspace{0.2cm}:\hspace{0.2cm} x_{ij}= x_{rj}=0  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{numero coincidencias (0,0)} \\[0.5cm]$$
+ $$d(x_i, x_r) \hspace{0.15cm} = \hspace{0.15cm} \#\hspace{0.1cm} \bigl\{ \hspace{0.1cm} j = 1,..,p \hspace{0.2cm}:\hspace{0.2cm} x_{ij}= x_{rj}=0  \hspace{0.1cm}  \bigr\}  \hspace{0.35cm} \Rightarrow \hspace{0.35cm} \text{# coincidencias (0,0)} \\$$
  
  
 
@@ -2285,10 +2286,12 @@ Supongamos que las variables $\hspace{0.1cm}\mathcal{X}_1 , \dots , \mathcal{X}_
 </div>
 
 
+<br>
+
 
 **Observación:**
 
-$$a(x_i, x_r) \hspace{0.08cm} +  \hspace{0.08cm} b(x_i, x_r)  \hspace{0.08cm} +  \hspace{0.08cm} c(x_i, x_r)  \hspace{0.08cm} +  \hspace{0.08cm} d(x_i, x_r)  \hspace{0.08cm} =  \hspace{0.08cm} p$$
+$$a(x_i, x_r) \hspace{0.08cm} +  \hspace{0.08cm} b(x_i, x_r)  \hspace{0.08cm} +  \hspace{0.08cm} c(x_i, x_r)  \hspace{0.08cm} +  \hspace{0.08cm} d(x_i, x_r)  \hspace{0.1cm} =  \hspace{0.1cm} p$$
 
 
 
@@ -2300,7 +2303,7 @@ $$a(x_i, x_r) \hspace{0.08cm} +  \hspace{0.08cm} b(x_i, x_r)  \hspace{0.08cm} + 
 
 ## Matrices con los parámetros a, b, c y d  
 
- Dada una matriz de datos $\hspace{0.1cm}X=(X_1,...,X_p )\hspace{0.1cm}$  de  variables  **categóricas binarias**.
+ Dada una matriz de datos $\hspace{0.03cm}X=(X_1,...,X_p )\hspace{0.03cm}$  de  variables  **categóricas binarias**.
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
@@ -2311,16 +2314,16 @@ $$a(x_i, x_r) \hspace{0.08cm} +  \hspace{0.08cm} b(x_i, x_r)  \hspace{0.08cm} + 
 
 
 $\hspace{0.25cm}$ Las matrices $\hspace{0.1cm}a \hspace{0.1cm},\hspace{0.1cm} b\hspace{0.1cm},\hspace{0.1cm} c\hspace{0.1cm}$ y $\hspace{0.1cm}d ,\hspace{0.12cm}$ tales que $\hspace{0.1cm} a[i,r]=a(x_i, x_r)  \hspace{0.1cm} ,  \hspace{0.1cm}b[i,r]=b(x_i, x_r)  \hspace{0.1cm},  \hspace{0.1cm} c[i,r]=c(x_i, x_r)\hspace{0.15cm}$ y  $\hspace{0.15cm}d[i,r]=d(x_i, x_r) ,\hspace{0.15cm}$  para $\hspace{0.15cm}i \hspace{0.1cm}, \hspace{0.1cm} r  \hspace{0.08cm}=\hspace{0.08cm} 1,...,n \hspace{0.2cm}$
-pueden expresarse del siguiente modo: $\\[0.4cm]$
+pueden expresarse del siguiente modo: $\\$
 
 
-- $\hspace{0.1cm} a \hspace{0.08cm}=\hspace{0.08cm} X\cdot X^t \\$
+- $\hspace{0.05cm} a \hspace{0.08cm}=\hspace{0.08cm} X\cdot X^t$
 
-- $\hspace{0.1cm} b\hspace{0.08cm}=\hspace{0.08cm}(\mathbf{1}_{nxp} - X)\cdot X\hspace{0.03cm}^t\\$
+- $\hspace{0.05cm} b\hspace{0.08cm}=\hspace{0.08cm}(\mathbf{1}_{nxp} - X)\cdot X\hspace{0.03cm}^t$
 
-- $\hspace{0.1cm} c\hspace{0.08cm}=\hspace{0.08cm}b\hspace{0.03cm}^t \\$
+- $\hspace{0.05cm} c\hspace{0.08cm}=\hspace{0.08cm}b\hspace{0.03cm}^t$
 
-- $\hspace{0.1cm} d\hspace{0.08cm}=\hspace{0.08cm}(\mathbf{1}_{nxp} - X)\cdot(1_{nxp} - X)\hspace{0.03cm}^t$
+- $\hspace{0.05cm} d\hspace{0.08cm}=\hspace{0.08cm}(\mathbf{1}_{nxp} - X)\cdot(1_{nxp} - X)\hspace{0.03cm}^t$
 
 </p>
  
@@ -2336,36 +2339,29 @@ pueden expresarse del siguiente modo: $\\[0.4cm]$
 
 
 
-## Cálculo de las matrices a, b , c y d en `Python`  
+### Cálculo de las matrices a, b , c y d en `Python`  
 
 
-
-
+Definimos una función que calcula las matrices $a$, $b$, $c$ y $d$, dandole un data-set como argumento.
 ```python
 def a_b_c_d_Matrix(Data):
 
     X = Data.to_numpy()
-
     a = X @ X.T
-
     n = X.shape[0]
-
     p = X.shape[1]
-
     ones_matrix = np.ones((n, p)) 
-
     b = (ones_matrix - X) @ X.T
-
     c = b.T
-
     d = (ones_matrix - X) @ (ones_matrix - X).T
 
     return a , b , c , d , p
 ```
 
 
+<br>
 
-
+Probamos la función. Para ello vamos a usar como ejemplo las observaciones 30, 40 y 1903 de las variables binarias.
 
 ```python
 Data_binary.iloc[[30,1903], :]
@@ -2374,20 +2370,7 @@ Data_binary.iloc[[30,1903], :]
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x: auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2418,6 +2401,7 @@ Data_binary.iloc[[30,1903], :]
 </div>
 
 
+<br>
 
 
 ```python
@@ -2425,20 +2409,7 @@ Data_binary.iloc[[40,1903], :]
 ```
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x: auto;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2471,11 +2442,14 @@ Data_binary.iloc[[40,1903], :]
 
 <br>
 
+Aplicamos la función al data-set con las variables binarias.
 ```python
 a, b, c, d, p = a_b_c_d_Matrix(Data_binary)
 ```
 
+<br>
 
+La matriz con los parámetros $a(x_i,x_j)$ esta contenida en el objeto $a$ :
 ```python
 a
 ```
@@ -2489,8 +2463,9 @@ a
            [1., 1., 1., ..., 1., 2., 1.],
            [1., 1., 1., ..., 1., 1., 1.]])
 
+<br>
 
-
+Comprobamos si el valor del parámetro $a(x_{30}, x_{1903})$, que es el número de coincidencias (1,1) en los vectores $x_{30}$ y $x_{1903}$ de observaciones de las variables binarias, es 1, ya que solo hay coincidencia (1,1) para la variable binaria *balcony_recode*.
 ```python
 a[30 , 1903]
 ```
@@ -2498,7 +2473,9 @@ a[30 , 1903]
     1.0
 
 
+<br>
 
+Comprobamos si el valor del parámetro $a(x_{40}, x_{1903})$, que es el número de coincidencias (1,1) en los vectores $x_{40}$ y $x_{1903}$ de observaciones de las variables binarias, es 1, ya que solo hay coincidencia (1,1) para la variable binaria *balcony_recode*.
 
 ```python
 a[40 , 1903]
@@ -2510,6 +2487,11 @@ a[40 , 1903]
 
 <br>
 
+---
+
+<br>
+
+La matriz con los parámetros $b(x_i,x_j)$ está contenida en el objeto $b$ :
 ```python
 b
 ```
@@ -2524,10 +2506,10 @@ b
            [0., 0., 1., ..., 0., 1., 0.]])
 
 
-
+<br>
  
 
-
+Comprobamos si el valor del parámetro $a(x_{30}, x_{1903})$, que es el número de no coincidencias (0,1) en los vectores $x_{30}$ y $x_{1903}$ de observaciones de las variables binarias, es 1, ya que solo hay no coincidencia (0,1) para la variable binaria *private_garden_recode*.
 ```python
 b[30 , 1903]
 ```
@@ -2535,10 +2517,10 @@ b[30 , 1903]
     1.0
 
 
- 
+<br>
 
 
-
+Comprobamos si el valor del parámetro $a(x_{40}, x_{1903})$, que es el número de no coincidencias (0,1) en los vectores $x_{40}$ y $x_{1903}$ de observaciones de las variables binarias, es 1, ya que solo hay no coincidencia (0,1) para la variable binaria *private_garden_recode*.
 ```python
 b[40,1903]
 ```
@@ -2549,7 +2531,11 @@ b[40,1903]
 
 <br>
 
+---
 
+<br>
+
+La matriz con los parámetros $c(x_i,x_j)$ esta contenida en el objeto $c$ :
 ```python
 c
 ```
@@ -2564,25 +2550,23 @@ c
            [0., 0., 0., ..., 0., 0., 0.]])
 
 
+<br>
 
-
+Comprobamos si el valor del parámetro $c(x_{30}, x_{1903})$, que es el número de no coincidencias (1,0) en los vectores $x_{30}$ y $x_{1903}$ de observaciones de las variables binarias, es 1, ya que solo hay no coincidencia (1,0) para la variable binaria *private_gym_recode*.
 ```python
 c[30, 1903]
 ```
 
 
-
-
     1.0
 
 
+<br>
 
- 
+Comprobamos si el valor del parámetro $c(x_{40}, x_{1903})$, que es el número de no coincidencias (1,0) en los vectores $x_{40}$ y $x_{1903}$ de observaciones de las variables binarias, es 0, ya que no hay no coincidencias (1,0) entre esos vectores de observaciones. 
 ```python
 c[40, 1903]
 ```
-
-
 
 
     0.0
@@ -2590,11 +2574,14 @@ c[40, 1903]
 
 <br>
 
+---
+
+<br>
+
+La matriz con los parámetros $d(x_i,x_j)$ esta contenida en el objeto $d$ :
 ```python
 d
 ```
-
-
 
 
     array([[3., 3., 2., ..., 3., 2., 3.],
@@ -2606,27 +2593,25 @@ d
            [3., 3., 2., ..., 3., 2., 3.]])
 
 
+<br>
 
 
+Comprobamos si el valor del parámetro $d(x_{30}, x_{1903})$, que es el número de   coincidencias (0,0) en los vectores $x_{30}$ y $x_{1903}$ de observaciones de las variables binarias, es 1, ya que solo hay  coincidencia (0,0) para la variable binaria *private_jacuzzi_recode*.
 ```python
 d[30,1903]
 ```
 
 
-
-
     1.0
 
 
-
+<br>
  
 
-
+Comprobamos si el valor del parámetro $d(x_{40}, x_{1903})$, que es el número de   coincidencias (0,0) en los vectores $x_{40}$ y $x_{1903}$ de observaciones de las variables binarias, es 2, ya que solo hay  coincidencia (0,0) para las variable binarias *private_gym_recode* y *private_jacuzzi_recode*.
 ```python
 d[40,1903]
 ```
-
-
 
 
     2.0
@@ -2635,10 +2620,7 @@ d[40,1903]
 
 
 
-
-
-
- 
+<br>
 
 <br>
 
@@ -2652,12 +2634,12 @@ d[40,1903]
 <p style='margin-left:1em;'>
 
 
-$\hspace{0.25cm}$ El coeficiente de similaridad de Sokal (o simplemente la similaridad de Sokal) entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables binarias $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ se define como: $\\[0.4cm]$
+$\hspace{0.25cm}$ El coeficiente de similaridad de Sokal (o simplemente la similaridad de Sokal) entre el par de observaciones $\hspace{0.03cm}(x_i , x_r)\hspace{0.03cm}$ de las variables binarias $\hspace{0.03cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.03cm}$ se define como: $\\$
 
 
 
 $$
-\hspace{0.35cm} \phi (x_i,x_r)_{Sokal}  =\dfrac{a(x_i,x_r) + d(x_i,x_r) }{ a(x_i,x_r) + b(x_i,x_r) + c(x_i,x_r) + d(x_i,x_r) } = \dfrac{a(x_i,x_r) + d(x_i,x_r) }{p} 
+\hspace{0.35cm} \phi (x_i,x_r)_{Sokal}  \hspace{0.1cm}=\hspace{0.1cm}\dfrac{a(x_i,x_r) + d(x_i,x_r) }{ a(x_i,x_r) + b(x_i,x_r) + c(x_i,x_r) + d(x_i,x_r) } = \dfrac{a(x_i,x_r) + d(x_i,x_r) }{p} \\
 $$
 
 </p>
@@ -2666,13 +2648,15 @@ $$
 </div>
 
 
+<br>
+
 
 **Observaciones:**
 
-- La similaridad de Sokal coincide con la similaridad simple matching aplicada a variables binarias. La similaridad simple matching es una medida de similaridad definida para variables categóricas multiclase, la cual veremos posteriormente. $\\[0.4cm]$
+- La similaridad de Sokal coincide con la similaridad simple matching aplicada a variables binarias. La similaridad simple matching es una medida de similaridad definida para variables categóricas multiclase, la cual veremos posteriormente.  
 
 
-- Es fácil ver que si $\hspace{0.15cm}x_i = x_r\hspace{0.15cm}$, entonces $\hspace{0.15cm}\phi(x_i, x_r)_{Sokal} = 1\hspace{0.15cm}$ , puesto que $\hspace{0.15cm}a(x_i,x_r)+d(x_i,x_r) = p\hspace{0.15cm}$.
+- Es fácil ver que si $\hspace{0.05cm}x_i = x_r\hspace{0.05cm}$, entonces $\hspace{0.05cm}\phi(x_i, x_r)_{Sokal} = 1\hspace{0.05cm}$ , puesto que $\hspace{0.05cm}a(x_i,x_r)+d(x_i,x_r) = p\hspace{0.09cm}.$
 
 
 <br>
@@ -2684,44 +2668,27 @@ $$
 La distancia de Sokal puede definirse de forma más general, sin estar sujeta a un contexto estadístico. 
 
 
- Dada una matriz de datos $\hspace{0.1cm}X=(X_1,...,X_p)\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.08cm}.$
+ Dada una matriz de datos $\hspace{0.05cm}X=(X_1,...,X_p)\hspace{0.05cm}$ de las variables estadísticas $\hspace{0.04cm}\mathcal{X}_1,...,\mathcal{X}_n \hspace{0.08cm}.$
 
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
-<span>
  
-<p style='margin-left:1em;'>
-
-
-$\hspace{0.25cm}$ Dados dos vectores **binarios**  $\hspace{0.1cm}v=(v_1,...,v_p)^t\hspace{0.15cm} ,\hspace{0.15cm} w=(w_1,...,w_p)^t \hspace{0.1cm}\in \hspace{0.1cm} \mathbb{R}^p\hspace{0.07cm}.$
+ Dados dos vectores **binarios**  $\hspace{0.1cm}v=(v_1,...,v_p)^t\hspace{0.15cm} ,\hspace{0.15cm} w=(w_1,...,w_p)^t \hspace{0.1cm}\in \hspace{0.1cm} \mathbb{R}^p\hspace{0.07cm}.$
 
 
 
 
-$\hspace{0.25cm}$ La similaridad entre los vectores binarios $\hspace{0.1cm}v\hspace{0.1cm}$ y $\hspace{0.1cm}w\hspace{0.1cm}$ es: $\\[0.6cm]$
-
-$$
-\phi (v,w)_{Sokal}  \hspace{0.09cm}=\hspace{0.09cm}  \dfrac{\hspace{0.1cm} a(v,w) + d(v,w) \hspace{0.1cm}}{p} \\
-$$
-
-
-
-</p>
+ La similaridad entre los vectores binarios $\hspace{0.1cm}v\hspace{0.1cm}$ y $\hspace{0.1cm}w\hspace{0.1cm}$ es: 
  
-</p></span>
-</div>
-
-
-
-
-
-
-
+$$
+\phi (v,w)_{Sokal}  \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{\hspace{0.1cm} a(v,w) + d(v,w) \hspace{0.1cm}}{p} 
+$$
 
 
 <br>
 
+<br>
 
-## Distancia de Sokal   
+
+### Distancia de Sokal   
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -2730,11 +2697,11 @@ $$
 <p style='margin-left:1em;'>
 
 
-$\hspace{0.25cm}$ Podemos obtener la distancia de Sokal entre el par de observaciones $\hspace{0.1cm}(x_i , x_r)\hspace{0.1cm}$ de las variables binarias $\hspace{0.1cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.1cm}$ como sigue:  $\\[0.4cm]$
+$\hspace{0.25cm}$ Podemos obtener la distancia de Sokal entre el par de observaciones $\hspace{0.03cm}(x_i , x_r)\hspace{0.03cm}$ de las variables binarias $\hspace{0.03cm}\mathcal{X}_1,..., \mathcal{X}_p\hspace{0.03cm}$ como sigue:  $\\$
 
 
 $$
-\delta(x_i,x_r)_{Sokal} \hspace{0.09cm}=\hspace{0.09cm} \sqrt{\hspace{0.09cm}\phi(x_i,x_i)_{Sokal} \hspace{0.09cm}+\hspace{0.09cm} \phi(x_r,x_r)_{Sokal} \hspace{0.09cm}-\hspace{0.09cm} 2\cdot \phi(x_i,x_r)_{Sokal} \hspace{0.12cm}}
+\delta(x_i,x_r)_{Sokal} \hspace{0.09cm}=\hspace{0.09cm} \sqrt{\hspace{0.09cm}\phi(x_i,x_i)_{Sokal} \hspace{0.09cm}+\hspace{0.09cm} \phi(x_r,x_r)_{Sokal} \hspace{0.09cm}-\hspace{0.09cm} 2\cdot \phi(x_i,x_r)_{Sokal} \hspace{0.12cm}} \\
 $$
 
 </p>
@@ -2743,34 +2710,30 @@ $$
 </div>
 
 
-
+<br>
 
 <br>
 
 
-##  Similaridad de Sokal en `Python` 
+###  Similaridad de Sokal en `Python` 
 
 
-
+Definimos una función que calcula la similaridad de Sokal entre vectores de observaciones de un data-set.
 ```python
 def Sokal_Similarity_1(i , r, Data):
 
     a, b, c, d, p = a_b_c_d_Matrix(Data)
-
     if a[i,r] + d[i,r] == 0 :
-
         Sokal_Similarity = 0
-
-        
     else :
-
         Sokal_Similarity = (a[i,r] + d[i,r]) / p
-        
 
     return Sokal_Similarity
 ```
 
+<br>
 
+Probamos la función:
 ```python
 Sokal_Similarity_1(i=1 , r=2, Data=Data_binary)
 ```
@@ -2783,24 +2746,21 @@ Sokal_Similarity_1(i=1 , r=2, Data=Data_binary)
 <br>
 
 
+
+Definimos una función que calcula la similaridad de Sokal entre vectores de observaciones de un data-set. Esta versión es computacionalmente más eficiente que la anterior.
 ```python
 def Sokal_Similarity_2(i , r, a , d, p):
 
-
     if a[i,r] + d[i,r] == 0 :
-
         Sokal_Similarity = 0
-
-        
     else :
-
         Sokal_Similarity = (a[i,r] + d[i,r]) / p
-        
 
     return Sokal_Similarity
 ```
+<br>
 
-
+Probamos la función:
 ```python
 a, b, c, d, p = a_b_c_d_Matrix(Data_binary)
 
@@ -2815,34 +2775,28 @@ Sokal_Similarity_2(i=1, r=2, a=a, d=d, p=p)
 
 <br>
 
+Definimos una función que calcula la matriz de similaridades de Sokal entre las observaciones de un data-set que se pasa como argumento, usando como función interna `Sokal_Similarity_1` :
 ```python
 def Matrix_Sim_Sokal_1(Data):
 
     n = len(Data)
-
     M =  np.empty((n , n))
-
    
     for i in range(0, n):
-
          for r in range(0, n):
-
             if i > r :
-               
                  M[i,r] = 0
-            
             elif i == r :
-               
                  M[i,r] = 1
-            
             else :
-
                  M[i,r] = Sokal_Similarity_1(i, r, Data)
                       
     return M 
 ```
 
+<br>
 
+Probamos la función para un subconjunto del data-set de variables binarias:
 ```python
 Matrix_Sim_Sokal_1(Data=Data_binary.iloc[0:300 , 0:300]) # 1.29 mins
 ```
@@ -2862,37 +2816,29 @@ Matrix_Sim_Sokal_1(Data=Data_binary.iloc[0:300 , 0:300]) # 1.29 mins
 
 <br>
 
-
+Definimos una función que calcula la matriz de similaridades de Sokal entre las observaciones de un data-set que se pasa como argumento, usando como función interna `Sokal_Similarity_2` :
 ```python
 def Matrix_Sim_Sokal_2(Data):
 
     n = len(Data)
-
     M =  np.empty((n , n))
-
     a, b, c, d, p = a_b_c_d_Matrix(Data)
-
    
     for i in range(0, n):
-
          for r in range(0, n):
-
             if i > r :
-               
                  M[i,r] = 0
-            
             elif i == r :
-               
                  M[i,r] = 1
-
             else :
-
                  M[i,r] = Sokal_Similarity_2(i=i, r=r, a=a, d=d, p=p)
                       
     return M 
 ```
 
+<br>
 
+Probamos la función para un subconjunto del data-set de variables binarias:
 ```python
 Matrix_Sim_Sokal_2(Data=Data_binary.iloc[0:500 , 0:500]) # 0.2 seg
 ```
@@ -2910,7 +2856,9 @@ Matrix_Sim_Sokal_2(Data=Data_binary.iloc[0:500 , 0:500]) # 0.2 seg
 
 
 
+<br>
 
+Probamos la función para con el data-set  de variables binarias completo:
 ```python
 M_Sim_Sokal = Matrix_Sim_Sokal_2(Data=Data_binary) # 3.4 seg
 
@@ -2929,8 +2877,9 @@ M_Sim_Sokal
            [0.  , 0.  , 0.  , ..., 0.  , 0.  , 1.  ]])
 
 
+<br>
 
-
+Completamos la matriz de similaridades obtenida:
 ```python
 M_Sim_Sokal = M_Sim_Sokal + M_Sim_Sokal.T - np.diag(np.repeat(1 , len(M_Sim_Sokal)), k=0)
 
@@ -2950,20 +2899,14 @@ M_Sim_Sokal
 
 
 
-
-
-
-
-
-
+<br>
 
 <br>
 
 
 ##  Distancia de Sokal en `Python`  
 
-
-
+Definimos una función que calcula la distancia de Sokal entre un par de observaciones de un data-set :
 ```python
 def Dist_Sokal(i, r, a, d, p):
 
@@ -2972,7 +2915,9 @@ def Dist_Sokal(i, r, a, d, p):
     return dist_Sokal  
 ```
 
+<br>
 
+Probamos la función:
 ```python
 a, b, c, d, p = a_b_c_d_Matrix(Data_binary)
 
@@ -2987,32 +2932,27 @@ Dist_Sokal(i=1, r=2, a=a, d=d, p=p)
 
 <br>
 
+Definimos una función que calcula la matriz de distancias de Sokal entre las observaciones de un data-set que se pasa como argumento, usando internamente la función `Dist_Sokal` :
 ```python
 def Matrix_Dist_Sokal(Data):
 
     n = len(Data)
-
     M =  np.empty((n , n))
-
     a, b, c, d, p = a_b_c_d_Matrix(Data)
-
    
     for i in range(0, n):
-
          for r in range(0, n):
-
              if i >= r :
-               
                  M[i,r] = 0
-
              else :
-
                  M[i,r] = Dist_Sokal(i=i, r=r, a=a, d=d, p=p)
                       
     return M 
 ```
 
+<br>
 
+Probamos la función:
 ```python
 M_Dist_Sokal = Matrix_Dist_Sokal(Data=Data_binary)
 
@@ -3037,8 +2977,9 @@ M_Dist_Sokal
             0.        ]])
 
 
+<br>
 
-
+Completamos la matriz de distancias:
 ```python
 M_Dist_Sokal = M_Dist_Sokal + M_Dist_Sokal.T
 
@@ -3066,9 +3007,7 @@ M_Dist_Sokal
 
 
 
-
-
- 
+<br>
 
 <br>
 

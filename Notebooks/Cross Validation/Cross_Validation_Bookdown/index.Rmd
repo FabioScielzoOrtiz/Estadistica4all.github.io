@@ -26,7 +26,7 @@ github-repo: rstudio/bookdown-demo
 
 <center>
 
-![](validacion_cruzada.jpg){width="60%"}
+![](validacion_cruzada.jpg){width="45%"}
 
 </center>
 
@@ -1819,7 +1819,6 @@ Además se probarán los algoritmos con el modelo KNN tanto en su versión para 
 
 ```python
 class NotRandomSimpleValidation :
-
     # D --> have to be a pandas data frame.
     # k --> is the proportion of observation of D that define D_train.
     # model --> object containing the initialized model to use.
@@ -1852,7 +1851,6 @@ class NotRandomSimpleValidation :
         elif self.metric == 'TAC':
             self.TAC_test = np.mean((self.Y_predict_test == self.Y_test))
             return self.TAC_test
-
 ```
 
 <br>
@@ -1930,7 +1928,6 @@ TAC_test_Not_Random_Simple_Validation
 
 ```python
 class RandomSimpleValidation :
-
     # D --> have to be a pandas data frame.
     # k --> is the proportion of observation of D that define D_train.
     # response --> have to be a string with the name of the response variable.
@@ -2043,7 +2040,6 @@ TAC_test_Random_Simple_Validation
 
 ```python
 class RepeatedRandomSimpleValidation :
-   
     # D --> It have to be a pandas data frame.
     # B --> It's the number of iterations of the Random Simple Validation algorithm.    
     # k --> It's the proportion of observation of D that define D_train.
@@ -2152,7 +2148,6 @@ TAC_test_Repeated_Random_Simple_Validation
 
 ```python
 class LeaveOneOutValidation:
-
   # D --> It have to be a pandas data frame.
     # response_name --> It have to be a string with the name of the response variable.
     # model --> It's an object containing the initialized model to use.
@@ -2177,11 +2172,10 @@ class LeaveOneOutValidation:
             Y_test = D_test.loc[response_name]
             self.model.fit(X_train, Y_train)
             Y_predict_test = self.model.predict(pd.DataFrame([X_test]))
-            if self.metric == 'ECM':
+            if self.metric == 'ECM': 
                 self.ECM_test_list.append(np.mean((Y_predict_test - Y_test)**2))
-            elif self.metric == 'TAC':
+            elif self.metric == 'TAC':  
                 self.TA_test_list.append(np.mean((Y_predict_test == Y_test)))
-
 
     def compute_metric(self):
         if self.metric == 'ECM':
@@ -2264,7 +2258,6 @@ TAC_test_leave_one_out
 
 ```python
 class KFoldCV:
-
     # D --> It have to be a pandas data frame.
     # K --> It's the number of folds of K-fold algorithm..
     # response_name --> It have to be a string with the name of the response variable.
@@ -2289,22 +2282,18 @@ class KFoldCV:
         sample = resample(range(0, len(self.D)), n_samples=len(self.D), replace=False)
         self.df_sample = pd.DataFrame({'index': range(0,len(self.D)) , 'sample':sample})
 
-
     def __get_quantiles(self):
         Q = []
         for q in np.arange(0 , 1 + 1/self.K , 1/self.K):
             Q.append( np.quantile( range(0, len(self.D)) , q ).round(0) )
         return Q
-    
    
     def __train_test_split(self, q, Q):
         X_test = self.D.loc[self.df_sample.loc[Q[q]:(math.floor(Q[q+1])-1), 'sample'] , self.D.columns != self.response_name ] 
         Y_test = self.D.loc[self.df_sample.loc[Q[q]:(math.floor(Q[q+1])-1), 'sample'] , self.D.columns == self.response_name ]
         X_train = self.D.loc[ : , self.D.columns != self.response_name ].drop(self.df_sample.loc[Q[q]:(math.floor(Q[q+1])-1), 'sample'] )        Y_train = self.D.loc[ : , self.D.columns == self.response_name ].drop(self.df_sample.loc[Q[q]:(math.floor(Q[q+1])-1), 'sample'])
         Y_test = Y_test.to_numpy()
-
         return X_test, Y_test, X_train, Y_train
-    
    
     def fit(self):
         self.__resample_df()
@@ -2313,11 +2302,10 @@ class KFoldCV:
             X_test, Y_test, X_train, Y_train = self.__train_test_split(j, Q)
             self.model.fit(X_train, Y_train)
             Y_predict_test = self.model.predict(X_test)
-            if self.metric == 'ECM':
-                 self.ECM_K_FOLDS_vector.append(np.mean((Y_predict_test - Y_test)**2))
-            elif self.metric == 'TAC':
-                 self.TA_K_FOLDS_vector.append(np.mean((Y_predict_test == Y_test)))
-
+            if self.metric == 'ECM':   
+                self.ECM_K_FOLDS_vector.append(np.mean((Y_predict_test - Y_test)**2))
+            elif self.metric == 'TAC':      
+                self.TA_K_FOLDS_vector.append(np.mean((Y_predict_test == Y_test)))
 
     def get_metric(self):
         if self.metric == 'ECM':
@@ -2410,7 +2398,6 @@ TAC_K_Folds
 
 ```python
 class RepeatedKFoldCV:
-
     # D --> It have to be a pandas data frame.
     # B --> It's the number of iterations of the K-Fold algorithm.    
     # K --> It's the number of folds of K-fold algorithm..
@@ -2430,7 +2417,6 @@ class RepeatedKFoldCV:
     def fit(self, D, response_name):
         self.Metric_Repeted_K_Folds_list = [ ]
         np.random.seed(self.random_seed)
-  
         for b in range(0, self.B):
               KFoldCV_init = KFoldCV(D=D, K=self.K, response_name=response_name, random_seed=123, metric=self.metric, model=self.model)
             KFoldCV_init.fit()

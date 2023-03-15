@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Similaridades | Distancias Estadísticas</title>
+  <title>Chapter 2 Data-sets | Distancias Estadísticas</title>
   <meta name="description" content="Esta es una introducción a las distancias estadísticas." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Similaridades | Distancias Estadísticas" />
+  <meta property="og:title" content="Chapter 2 Data-sets | Distancias Estadísticas" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Esta es una introducción a las distancias estadísticas." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Similaridades | Distancias Estadísticas" />
+  <meta name="twitter:title" content="Chapter 2 Data-sets | Distancias Estadísticas" />
   
   <meta name="twitter:description" content="Esta es una introducción a las distancias estadísticas." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="distancias-con-variables-estadísticas-cuantitativas.html"/>
-<link rel="next" href="similaridades-con-variables-categoricas-binarias.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="distancias.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -286,77 +286,1087 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="similaridades" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Similaridades<a href="similaridades.html#similaridades" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="similaridad" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Similaridad<a href="similaridades.html#similaridad" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Es un concepto que expresa la proximidad o similaridad entre un par de elementos cualesquiera.</p>
-<p>Dado un conjunto cualquiera <span class="math inline">\(\hspace{0.03cm}A\hspace{0.03cm}.\)</span></p>
-<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
-<p><span></p>
-<p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Se denomina similaridad a toda función <span class="math inline">\(\hspace{0.04cm} \phi \hspace{0.08cm} : \hspace{0.08cm} A \hspace{0.08cm}\text{x}\hspace{0.08cm} A \hspace{0.08cm} \rightarrow\hspace{0.08cm} \mathbb{R}\hspace{0.03cm}\)</span> tal que:</p>
-<ul>
-<li><p><span class="math inline">\(\phi(i , r) \in [0,1] \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.08cm} i,r \in A\)</span></p></li>
-<li><p><span class="math inline">\(\phi(i, i) \hspace{0.08cm}=\hspace{0.08cm} 1 \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.08cm} i,r \in A\)</span></p></li>
-<li><p><span class="math inline">\(\phi(i , r) \hspace{0.08cm}=\hspace{0.08cm} \phi(r, i) \hspace{0.3cm} , \hspace{0.3cm} \forall\hspace{0.08cm} i,r \in A\)</span></p></li>
-</ul>
+<div id="data-sets" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Data-sets<a href="data-sets.html#data-sets" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Vamos a cargar el data set con el que vamos a trabajar a lo largo de este artículo.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="data-sets.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="data-sets.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="data-sets.html#cb2-1" aria-hidden="true" tabindex="-1"></a>Data <span class="op">=</span> pd.read_csv(<span class="st">&#39;House_Price_Regression.csv&#39;</span>)</span>
+<span id="cb2-2"><a href="data-sets.html#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="data-sets.html#cb2-3" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">123</span>)</span>
+<span id="cb2-4"><a href="data-sets.html#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="data-sets.html#cb2-5" aria-hidden="true" tabindex="-1"></a>Data[<span class="st">&#39;type&#39;</span>] <span class="op">=</span> np.random.uniform(low<span class="op">=</span><span class="dv">0</span>, high<span class="op">=</span><span class="dv">3</span>, size<span class="op">=</span><span class="bu">len</span>(Data)).<span class="bu">round</span>()</span>
+<span id="cb2-6"><a href="data-sets.html#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="data-sets.html#cb2-7" aria-hidden="true" tabindex="-1"></a>Data[<span class="st">&#39;rating&#39;</span>] <span class="op">=</span> np.random.uniform(low<span class="op">=</span><span class="dv">0</span>, high<span class="op">=</span><span class="dv">5</span>, size<span class="op">=</span><span class="bu">len</span>(Data)).<span class="bu">round</span>()</span>
+<span id="cb2-8"><a href="data-sets.html#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="data-sets.html#cb2-9" aria-hidden="true" tabindex="-1"></a>Data.head()</span></code></pre></div>
+<div style="overflow-x: auto;">
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+neighborhood_recode
+</th>
+<th>
+latitude
+</th>
+<th>
+longitude
+</th>
+<th>
+price
+</th>
+<th>
+no_of_bedrooms
+</th>
+<th>
+no_of_bathrooms
+</th>
+<th>
+quality_recode
+</th>
+<th>
+maid_room_recode
+</th>
+<th>
+unfurnished_recode
+</th>
+<th>
+balcony_recode
+</th>
+<th>
+…
+</th>
+<th>
+private_jacuzzi_recode
+</th>
+<th>
+private_pool_recode
+</th>
+<th>
+security_recode
+</th>
+<th>
+shared_gym_recode
+</th>
+<th>
+shared_pool_recode
+</th>
+<th>
+shared_spa_recode
+</th>
+<th>
+view_of_water_recode
+</th>
+<th>
+size_in_m_2
+</th>
+<th>
+type
+</th>
+<th>
+rating
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+46.0
+</td>
+<td>
+25.113208
+</td>
+<td>
+55.138932
+</td>
+<td>
+2700000
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+<td>
+2.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+…
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+100.242337
+</td>
+<td>
+2.0
+</td>
+<td>
+3.0
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+46.0
+</td>
+<td>
+25.106809
+</td>
+<td>
+55.151201
+</td>
+<td>
+2850000
+</td>
+<td>
+2
+</td>
+<td>
+2
+</td>
+<td>
+2.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+…
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+146.972546
+</td>
+<td>
+1.0
+</td>
+<td>
+2.0
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+36.0
+</td>
+<td>
+25.063302
+</td>
+<td>
+55.137728
+</td>
+<td>
+1150000
+</td>
+<td>
+3
+</td>
+<td>
+5
+</td>
+<td>
+2.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+…
+</td>
+<td>
+1.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+181.253753
+</td>
+<td>
+1.0
+</td>
+<td>
+5.0
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+11.0
+</td>
+<td>
+25.227295
+</td>
+<td>
+55.341761
+</td>
+<td>
+2850000
+</td>
+<td>
+2
+</td>
+<td>
+3
+</td>
+<td>
+1.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+…
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+187.664060
+</td>
+<td>
+2.0
+</td>
+<td>
+5.0
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+46.0
+</td>
+<td>
+25.114275
+</td>
+<td>
+55.139764
+</td>
+<td>
+1729200
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+2.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+…
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+47.101821
+</td>
+<td>
+2.0
+</td>
+<td>
+1.0
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+5 rows × 31 columns
 </p>
-</p>
-<p></span></p>
 </div>
 <p><br></p>
 <p><br></p>
-</div>
-<div id="pasar-de-similaridad-a-distancia" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Pasar de similaridad a distancia<a href="similaridades.html#pasar-de-similaridad-a-distancia" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Las siguientes transformaciones nos permiten pasar de una similaridad a una distancia:</p>
-<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
-<p><span></p>
-<p style="margin-left:1em;">
-<ul>
-<li><p><span class="math inline">\(\delta(i,r) \hspace{0.08cm}=\hspace{0.08cm} 1- \phi(i,r)\)</span></p></li>
-<li><p><span class="math inline">\(\delta(i,r) \hspace{0.08cm}=\hspace{0.08cm} \sqrt{1-\phi(i,r)}\)</span></p></li>
-<li><p><span class="math inline">\(\delta(i,r) \hspace{0.08cm}=\hspace{0.08cm} \sqrt{\hspace{0.08cm} \phi(i,i) \hspace{0.08cm}+\hspace{0.08cm} \phi(r,r) \hspace{0.08cm}-\hspace{0.08cm} 2\cdot \phi(i,r) \hspace{0.08cm}}\)</span></p></li>
-</ul>
-</p>
-</p>
-<p></span></p>
+<p>Ahora vamos a hacer una distinción entre variables cuantitativas, binarias y multiclase (no binarias).</p>
+<p>Creamos un data-set con las variables <strong>cuantitativas</strong>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="data-sets.html#cb3-1" aria-hidden="true" tabindex="-1"></a>Data_quant <span class="op">=</span> Data.loc[: , [<span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;longitude&#39;</span>, <span class="st">&#39;price&#39;</span>, <span class="st">&#39;size_in_m_2&#39;</span>, <span class="st">&#39;no_of_bedrooms&#39;</span>, <span class="st">&#39;no_of_bathrooms&#39;</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="data-sets.html#cb4-1" aria-hidden="true" tabindex="-1"></a>Data_quant.head()</span></code></pre></div>
+<div style="overflow-x: auto;">
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+latitude
+</th>
+<th>
+longitude
+</th>
+<th>
+price
+</th>
+<th>
+size_in_m_2
+</th>
+<th>
+no_of_bedrooms
+</th>
+<th>
+no_of_bathrooms
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+25.113208
+</td>
+<td>
+55.138932
+</td>
+<td>
+2700000
+</td>
+<td>
+100.242337
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+25.106809
+</td>
+<td>
+55.151201
+</td>
+<td>
+2850000
+</td>
+<td>
+146.972546
+</td>
+<td>
+2
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+25.063302
+</td>
+<td>
+55.137728
+</td>
+<td>
+1150000
+</td>
+<td>
+181.253753
+</td>
+<td>
+3
+</td>
+<td>
+5
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+25.227295
+</td>
+<td>
+55.341761
+</td>
+<td>
+2850000
+</td>
+<td>
+187.664060
+</td>
+<td>
+2
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+25.114275
+</td>
+<td>
+55.139764
+</td>
+<td>
+1729200
+</td>
+<td>
+47.101821
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p><br></p>
 <p><br></p>
-</div>
-<div id="matriz-de-similaridades" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Matriz de Similaridades<a href="similaridades.html#matriz-de-similaridades" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Dada una similaridad <span class="math inline">\(\hspace{0.1cm}\phi\hspace{0.1cm}\)</span> definida sobre el conjunto <span class="math inline">\(\hspace{0.1cm}A=\lbrace a_1 ,..., a_n \rbrace\hspace{0.08cm}.\)</span></p>
-<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
-<p><span></p>
-<p style="margin-left:1em;">
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Se define la matriz de similaridades <span class="math inline">\(\hspace{0.1cm}\phi\hspace{0.1cm}\)</span> sobre el conjunto de elementos <span class="math inline">\(\hspace{0.1cm} A\hspace{0.1cm}\)</span> como: <span class="math inline">\(\\\)</span></p>
-<p><span class="math display">\[
-\mathcal{S}= \begin{pmatrix}
-\phi_{11} &amp;\phi_{12}&amp;...&amp;\phi_{1n}\\
-\phi_{21} &amp; \phi_{22}&amp;...&amp;\phi_{2n}\\
-...&amp;...&amp;...&amp;...\\
-\phi_{n1}&amp; \phi_{n2}&amp;...&amp; \phi_{nn}\\
-\end{pmatrix} \\
-\]</span></p>
-<p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
-<p><span class="math inline">\(\hspace{0.5cm} \phi_{ir} \hspace{0.08cm}=\hspace{0.08cm} \phi(a_i , a_r) \hspace{0.3cm} , \hspace{0.3cm} \forall \hspace{0.08cm} i, j \in \lbrace 1,...,n\rbrace\)</span></p>
-</p>
-</p>
-<p></span></p>
+<p>Creamos un data-set con las variables <strong>binarias</strong>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="data-sets.html#cb5-1" aria-hidden="true" tabindex="-1"></a>Data_binary <span class="op">=</span> Data.loc[: , [<span class="st">&#39;private_garden_recode&#39;</span>, <span class="st">&#39;private_gym_recode&#39;</span>, <span class="st">&#39;private_jacuzzi_recode&#39;</span>, <span class="st">&#39;balcony_recode&#39;</span>]]</span>
+<span id="cb5-2"><a href="data-sets.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="data-sets.html#cb5-3" aria-hidden="true" tabindex="-1"></a>Data_binary.head()</span></code></pre></div>
+<div style="overflow-x: auto;">
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+private_garden_recode
+</th>
+<th>
+private_gym_recode
+</th>
+<th>
+private_jacuzzi_recode
+</th>
+<th>
+balcony_recode
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p><br></p>
+<p><br></p>
+<p>Creamos un data-set con las variables <strong>multiclase</strong> (no binarias):</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="data-sets.html#cb6-1" aria-hidden="true" tabindex="-1"></a>Data_multiclass <span class="op">=</span> Data.loc[: , [<span class="st">&#39;quality_recode&#39;</span>, <span class="st">&#39;rating&#39;</span>, <span class="st">&#39;type&#39;</span>]]</span>
+<span id="cb6-2"><a href="data-sets.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="data-sets.html#cb6-3" aria-hidden="true" tabindex="-1"></a>Data_multiclass.head()</span></code></pre></div>
+<div style="overflow-x: auto;">
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+quality_recode
+</th>
+<th>
+rating
+</th>
+<th>
+type
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+2.0
+</td>
+<td>
+3.0
+</td>
+<td>
+2.0
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+2.0
+</td>
+<td>
+2.0
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+2.0
+</td>
+<td>
+5.0
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+1.0
+</td>
+<td>
+5.0
+</td>
+<td>
+2.0
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+2.0
+</td>
+<td>
+1.0
+</td>
+<td>
+2.0
+</td>
+</tr>
+</tbody>
+</table>
 </div>
+<p><br></p>
+<p><br></p>
+<p>Creamos un data-set que incluye las variables cuantitativas, binarias y multiclase que hemos considerado en los casos anteriores.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="data-sets.html#cb7-1" aria-hidden="true" tabindex="-1"></a>Data_mixed <span class="op">=</span> Data.loc[: , [<span class="st">&#39;latitude&#39;</span>, <span class="st">&#39;longitude&#39;</span>, <span class="st">&#39;price&#39;</span>, <span class="st">&#39;size_in_m_2&#39;</span>, <span class="st">&#39;no_of_bedrooms&#39;</span>, <span class="st">&#39;no_of_bathrooms&#39;</span>,<span class="st">&#39;private_garden_recode&#39;</span>, <span class="st">&#39;private_gym_recode&#39;</span>, <span class="st">&#39;private_jacuzzi_recode&#39;</span>, <span class="st">&#39;balcony_recode&#39;</span>,<span class="st">&#39;quality_recode&#39;</span>, <span class="st">&#39;rating&#39;</span>, <span class="st">&#39;type&#39;</span>]]</span>
+<span id="cb7-2"><a href="data-sets.html#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="data-sets.html#cb7-3" aria-hidden="true" tabindex="-1"></a>Data_mixed.head()</span></code></pre></div>
+<div style="overflow-x: auto;">
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+latitude
+</th>
+<th>
+longitude
+</th>
+<th>
+price
+</th>
+<th>
+size_in_m_2
+</th>
+<th>
+no_of_bedrooms
+</th>
+<th>
+no_of_bathrooms
+</th>
+<th>
+private_garden_recode
+</th>
+<th>
+private_gym_recode
+</th>
+<th>
+private_jacuzzi_recode
+</th>
+<th>
+balcony_recode
+</th>
+<th>
+quality_recode
+</th>
+<th>
+rating
+</th>
+<th>
+type
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+25.113208
+</td>
+<td>
+55.138932
+</td>
+<td>
+2700000
+</td>
+<td>
+100.242337
+</td>
+<td>
+1
+</td>
+<td>
+2
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+2.0
+</td>
+<td>
+3.0
+</td>
+<td>
+2.0
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+25.106809
+</td>
+<td>
+55.151201
+</td>
+<td>
+2850000
+</td>
+<td>
+146.972546
+</td>
+<td>
+2
+</td>
+<td>
+2
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+2.0
+</td>
+<td>
+2.0
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+25.063302
+</td>
+<td>
+55.137728
+</td>
+<td>
+1150000
+</td>
+<td>
+181.253753
+</td>
+<td>
+3
+</td>
+<td>
+5
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+2.0
+</td>
+<td>
+5.0
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+25.227295
+</td>
+<td>
+55.341761
+</td>
+<td>
+2850000
+</td>
+<td>
+187.664060
+</td>
+<td>
+2
+</td>
+<td>
+3
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+5.0
+</td>
+<td>
+2.0
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+25.114275
+</td>
+<td>
+55.139764
+</td>
+<td>
+1729200
+</td>
+<td>
+47.101821
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+0.0
+</td>
+<td>
+2.0
+</td>
+<td>
+1.0
+</td>
+<td>
+2.0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="distancias-con-variables-estadísticas-cuantitativas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="similaridades-con-variables-categoricas-binarias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="distancias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

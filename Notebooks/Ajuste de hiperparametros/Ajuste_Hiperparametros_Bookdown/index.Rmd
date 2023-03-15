@@ -20,7 +20,7 @@ github-repo: null
 
 <center>
 
-![](pic_ajuste.jpg){width="70%"}
+![](pic_ajuste.jpg){width="45%"}
 
 </center>
 
@@ -279,7 +279,6 @@ Estos algoritmos fueron tratados con detalle en el artículo sobre **algoritmos 
 
 ```python
 class RandomSimpleValidation :
-   
     # D --> have to be a pandas data frame.
     # k --> is the proportion of observation of D that define D_train.
     # response --> have to be a string with the name of the response variable.
@@ -289,52 +288,30 @@ class RandomSimpleValidation :
     # random_seed --> seed to replicate the random process.
     
     def __init__(self, k, metric, model, random_seed):
-
         self.k = k
-        
         self.metric = metric
-        
         self.model = model
-
         self.random_seed = random_seed
     
-
     def fit(self, D, response_name):
-    
         N = len(D)
-
         self.D_train = D.sample(frac=self.k, replace=False, random_state=self.random_seed)
-
         self.D_test = D.drop( self.D_train.index , )
-
         self.X_train = self.D_train.loc[: , self.D_train.columns != response_name]
         self.Y_train = self.D_train.loc[: , response_name]
-
         self.X_test = self.D_test.loc[: , self.D_test.columns != response_name]
         self.Y_test = self.D_test.loc[: , response_name]
-
-
         self.model.fit(self.X_train, self.Y_train)
         
-    
     def predict(self):
-    
         self.Y_predict_test = self.model.predict(self.X_test)
 
-    
     def compute_metric(self):
-    
         if self.metric == 'ECM':
-
             self.ECM_test = np.mean((self.Y_predict_test - self.Y_test) ** 2)
-            
             return self.ECM_test
-
-
         elif self.metric == 'TAC':
-
             self.TAC_test = np.mean((self.Y_predict_test == self.Y_test))
-
             return self.TAC_test
 ```
 
@@ -344,7 +321,6 @@ class RandomSimpleValidation :
 
 ```python
 class RepeatedRandomSimpleValidation :
-   
     # D --> It have to be a pandas data frame.
     # B --> It's the number of iterations of the Random Simple Validation algorithm.    
     # k --> It's the proportion of observation of D that define D_train.
@@ -355,48 +331,26 @@ class RepeatedRandomSimpleValidation :
     # random_seed --> It's the seed to replicate the random process
     
     def __init__(self, B, k, metric, model, random_seed):
-
         self.B = B
-
         self.k = k
-        
         self.metric = metric
-        
         self.model = model
-
         self.random_seed = random_seed
 
- 
-
     def fit(self, D, response_name):
-    
         self.D = D
-        
         self.response_name = response_name
-
         np.random.seed(self.random_seed)    
-
         self.seed_array = np.random.randint(9999999, size=(self.B))
  
-    
     def compute_metric(self):
-    
         Metric_test_list = [ ]
-
         for b in range(0,self.B) :
-
             RandomSimpleValidation_init = RandomSimpleValidation(k=self.k, metric=self.metric, model=self.model, random_seed=self.seed_array[b])
-
             RandomSimpleValidation_init.fit(D=self.D,  response_name=self.response_name)
-
             RandomSimpleValidation_init.predict()
-
             Metric_test_list.append( RandomSimpleValidation_init.compute_metric() )
-
-
-        self.Metric_test = np.mean(Metric_test_list)    
-
-        
+        self.Metric_test = np.mean(Metric_test_list)  
         return self.Metric_test
 ```
 
@@ -404,7 +358,6 @@ class RepeatedRandomSimpleValidation :
 
 ```python
 class KFoldCV:
-
     # D --> It have to be a pandas data frame.
     # K --> It's the number of folds of K-fold algorithm..
     # response_name --> It have to be a string with the name of the response variable.
@@ -414,92 +367,51 @@ class KFoldCV:
     # random_seed --> It's the seed to replicate the random process.
    
     def __init__(self, D, K, response_name, random_seed, metric, model):
-   
         self.D = D
-   
         self.K = K
-   
         self.response_name = response_name
-   
         self.random_seed = random_seed
-   
         self.metric = metric
-   
         self.model = model
-   
         self.ECM_K_FOLDS_vector = []
-   
         self.TA_K_FOLDS_vector = []
-   
         self.df_sample = None
 
-
     def __resample_df(self):
-   
         np.random.seed(self.random_seed)
-   
         sample = resample(range(0, len(self.D)), n_samples=len(self.D), replace=False)
-   
         self.df_sample = pd.DataFrame({'index': range(0,len(self.D)) , 'sample':sample})
 
-
     def __get_quantiles(self):
-   
         Q = []
-   
         for q in np.arange(0 , 1 + 1/self.K , 1/self.K):
-   
             Q.append( np.quantile( range(0, len(self.D)) , q ).round(0) )
-   
         return Q
-    
    
     def __train_test_split(self, q, Q):
-   
         X_test = self.D.loc[self.df_sample.loc[Q[q]:(math.floor(Q[q+1])-1), 'sample'] , self.D.columns != self.response_name ] 
-   
         Y_test = self.D.loc[self.df_sample.loc[Q[q]:(math.floor(Q[q+1])-1), 'sample'] , self.D.columns == self.response_name ]
-   
         X_train = self.D.loc[ : , self.D.columns != self.response_name ].drop(self.df_sample.loc[Q[q]:(math.floor(Q[q+1])-1), 'sample'] )
-   
         Y_train = self.D.loc[ : , self.D.columns == self.response_name ].drop(self.df_sample.loc[Q[q]:(math.floor(Q[q+1])-1), 'sample'])
-   
         Y_test = Y_test.to_numpy()
-   
         return X_test, Y_test, X_train, Y_train
-    
    
     def fit(self):
-   
         self.__resample_df()
-   
         Q = self.__get_quantiles()
-   
         for j in range(0, len(Q)-1):
-   
             X_test, Y_test, X_train, Y_train = self.__train_test_split(j, Q)
-   
             self.model.fit(X_train, Y_train)
-   
             Y_predict_test = self.model.predict(X_test)
-   
-            if self.metric == 'ECM':
-   
-                self.ECM_K_FOLDS_vector.append(np.mean((Y_predict_test - Y_test)**2))
-   
+            if self.metric == 'ECM':    
+               self.ECM_K_FOLDS_vector.append(np.mean((Y_predict_test - Y_test)**2))
             elif self.metric == 'TAC':
-   
-                self.TA_K_FOLDS_vector.append(np.mean((Y_predict_test == Y_test)))
-
+               self.TA_K_FOLDS_vector.append(np.mean((Y_predict_test == Y_test)))
 
     def get_metric(self):
-   
         if self.metric == 'ECM':
-   
             return np.mean(self.ECM_K_FOLDS_vector)
-   
         elif self.metric == 'TAC':
-   
             return np.mean(self.TA_K_FOLDS_vector)
 ```
 
@@ -507,7 +419,6 @@ class KFoldCV:
 
 ```python
 class RepeatedKFoldCV:
-
     # D --> It have to be a pandas data frame.
     # B --> It's the number of iterations of the K-Fold algorithm.    
     # K --> It's the number of folds of K-fold algorithm..
@@ -518,35 +429,21 @@ class RepeatedKFoldCV:
     # random_seed --> It's the seed to replicate the random process.
     
     def __init__(self, B, K, random_seed, metric, model):
-     
         self.B = B
-     
         self.K = K
-         
         self.random_seed = random_seed
-     
         self.metric = metric
-     
         self.model = model
-        
 
     def fit(self, D, response_name):
-       
         self.Metric_Repeted_K_Folds_list = [ ]
-       
         np.random.seed(self.random_seed)
-
         for b in range(0, self.B):
-       
             KFoldCV_init = KFoldCV(D=D, K=self.K, response_name=response_name, random_seed=123, metric=self.metric, model=self.model)
-
             KFoldCV_init.fit()
-
             self.Metric_Repeted_K_Folds_list.append( KFoldCV_init.get_metric() )
 
-
     def get_metric(self):
-
         return  np.mean(self.Metric_Repeted_K_Folds_list)
 ```
 
@@ -601,7 +498,6 @@ La clase con la que se ha  programado el algoritmo Grid Search es la siguiente:
 class GridSearch:
 
     def __init__(self, model, search_space, metric, random_search=False, n_random_samples=None, random_state = None):
-        
         self.model = model
         self.search_space = search_space
         self.metric = metric              
@@ -609,54 +505,31 @@ class GridSearch:
         self.random_state = random_state
         self.n_random_samples = n_random_samples
                
-
     def fit_KFoldCV(self, Data, response_name, K, random_seed):
-
         self.Data = Data
         self.response_name = response_name
         self.K = K
         self.random_seed = random_seed
         self.hyperparameter_combinations = list(itertools.product(self.search_space[0], self.search_space[1]))
         self.grid_search_metric_list = []
-
-        if self.random_search:
-
+        if self.random_search == True:
             self.hyperparameter_combinations = resample(self.hyperparameter_combinations, n_samples=self.n_random_samples, replace=False, random_state=self.random_state)
-        
-        else:  pass
-
-
+        else:  
+            pass
         if self.model == 'knn_regression' :
-
             for h in self.hyperparameter_combinations:
-            
-                knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=h[0], metric=h[1])
-
-                KFoldCV_init = KFoldCV(D=self.Data, K=self.K, response_name=self.response_name, 
-                                       random_seed=self.random_seed, metric=self.metric, model=knn_regression_init)
-
+               knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=h[0], metric=h[1])
+                KFoldCV_init = KFoldCV(D=self.Data, K=self.K, response_name=self.response_name, random_seed=self.random_seed, metric=self.metric, model=knn_regression_init)
                 KFoldCV_init.fit()
-
                 self.grid_search_metric_list.append(KFoldCV_init.get_metric())            
-
-
         elif self.model == 'knn_classification' :
-
             for h in self.hyperparameter_combinations:
-            
                 knn_classification_init = sklearn.neighbors.KNeighborsClassifier(n_neighbors=h[0], metric=h[1])
-
-                KFoldCV_init = KFoldCV(D=self.Data, K=self.K, response_name=self.response_name,
-                                       random_seed=self.random_seed, metric=self.metric, model=knn_classification_init)
-
+                KFoldCV_init = KFoldCV(D=self.Data, K=self.K, response_name=self.response_name, random_seed=self.random_seed, metric=self.metric, model=knn_classification_init)
                 KFoldCV_init.fit()
-
                 self.grid_search_metric_list.append(KFoldCV_init.get_metric()) 
 
-
-
     def fit_RepeatedRandomSimpleValidation(self, Data, response_name, k, B, random_seed):
-
         self.Data = Data
         self.response_name = response_name
         self.k = k
@@ -664,48 +537,24 @@ class GridSearch:
         self.random_seed = random_seed
         self.hyperparameter_combinations = list(itertools.product(self.search_space[0], self.search_space[1]))
         self.grid_search_metric_list = []
-
         if self.random_search:
-
             self.hyperparameter_combinations = resample(self.hyperparameter_combinations, n_samples=self.n_random_samples, replace=False, random_state=self.random_state)
-        
         else:
-
             pass
-
-
         if self.model == 'knn_regression' :
-
             for h in self.hyperparameter_combinations:
-            
                 knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=h[0], metric=h[1])
-
-                RepeatedRandomSimpleValidation_init = RepeatedRandomSimpleValidation(B=self.B, k=self.k, metric=self.metric, 
-                                                                                     model=knn_regression_init, random_seed=self.random_seed)
-
+                RepeatedRandomSimpleValidation_init = RepeatedRandomSimpleValidation(B=self.B, k=self.k, metric=self.metric, model=knn_regression_init, random_seed=self.random_seed)
                 RepeatedRandomSimpleValidation_init.fit(D=self.Data, response_name=self.response_name)
-
                 self.grid_search_metric_list.append(RepeatedRandomSimpleValidation_init.compute_metric())            
-
-
         elif self.model == 'knn_classification' :
-
             for h in self.hyperparameter_combinations:
-            
                 knn_classification_init = sklearn.neighbors.KNeighborsClassifier(n_neighbors=h[0], metric=h[1])
-
-                RepeatedRandomSimpleValidation_init = RepeatedRandomSimpleValidation(B=self.B, k=self.k, metric=self.metric,
-                                                                                     model=knn_classification_init, random_seed=self.random_seed)
-
+                RepeatedRandomSimpleValidation_init = RepeatedRandomSimpleValidation(B=self.B, k=self.k, metric=self.metric, model=knn_classification_init, random_seed=self.random_seed)
                 RepeatedRandomSimpleValidation_init.fit(D=self.Data, response_name=self.response_name)
-
                 self.grid_search_metric_list.append(RepeatedRandomSimpleValidation_init.compute_metric())            
-
-
-
 
     def fit_RepeatedKFoldCV(self, Data, response_name, K, B, random_seed):
-
         self.Data = Data
         self.response_name = response_name
         self.K = K
@@ -713,59 +562,31 @@ class GridSearch:
         self.random_seed = random_seed
         self.hyperparameter_combinations = list(itertools.product(self.search_space[0], self.search_space[1]))
         self.grid_search_metric_list = []
-
         if self.random_search:
-
             self.hyperparameter_combinations = resample(self.hyperparameter_combinations, n_samples=self.n_random_samples, 
-                                                        replace=False, random_state=self.random_state)
-        
+            replace=False, random_state=self.random_state)
         else:
-
             pass
-
-
         if self.model == 'knn_regression' :
-
             for h in self.hyperparameter_combinations:
-            
                 knn_regression_init = sklearn.neighbors.KNeighborsRegressor(n_neighbors=h[0], metric=h[1])
-
-                RepeatedKFoldCV_init = RepeatedKFoldCV(B=self.B, K=self.K, metric=self.metric, 
-                                                        model=knn_regression_init, random_seed=self.random_seed)
-
+                RepeatedKFoldCV_init = RepeatedKFoldCV(B=self.B, K=self.K, metric=self.metric, model=knn_regression_init, random_seed=self.random_seed)
                 RepeatedKFoldCV_init.fit(D=self.Data, response_name=self.response_name)
-
                 self.grid_search_metric_list.append(RepeatedKFoldCV_init.get_metric())            
-
-
         elif self.model == 'knn_classification' :
-
             for h in self.hyperparameter_combinations:
-            
                 knn_classification_init = sklearn.neighbors.KNeighborsClassifier(n_neighbors=h[0], metric=h[1])
-
-                RepeatedKFoldCV_init = RepeatedKFoldCV(B=self.B, K=self.K, metric=self.metric, 
-                                                                      model=knn_classification_init, random_seed=self.random_seed)
-
+                RepeatedKFoldCV_init = RepeatedKFoldCV(B=self.B, K=self.K, metric=self.metric, model=knn_classification_init, random_seed=self.random_seed)
                 RepeatedKFoldCV_init.fit(D=self.Data, response_name=self.response_name)
-
                 self.grid_search_metric_list.append(RepeatedKFoldCV_init.get_metric())             
 
-        
     def get_df_grid_search(self) :
-
             self.df_grid_search = pd.DataFrame({'(k, distance)': self.hyperparameter_combinations, self.metric: self.grid_search_metric_list})
-
             if self.metric == 'ECM':
-
                 self.df_grid_search = self.df_grid_search.sort_values(by=self.metric, ascending=True)
-        
             elif self.metric == 'TAC':
-        
                 self.df_grid_search = self.df_grid_search.sort_values(by=self.metric, ascending=False)
-
             return self.df_grid_search
-
 ```
 
 <br>
@@ -780,7 +601,7 @@ search_space = [range(1,100) , ['euclidean','cosine','cityblock','manhattan']]
 
 <br>
 
-### Grid Search K-Fold Regression
+### Grid Search - K-Fold - Regression
 
 Grid Search aplicado a KNN para regresión, usando el algoritmo K-Fold, con K=10, y la métrica de validación ECM.
 

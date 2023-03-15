@@ -5,7 +5,7 @@ cómo-definir-el-espacio-de-búsqueda-hspace0.03cmshspace0.03cm
 grid-search-y-random-search-programados-en-python
 algoritmos-de-validación-en-python
 grid-search-y-random-search-en-python
-grid-search-k-fold-regression
+grid-search---k-fold---regression
 random-search---k-fold---regression
 grid-search---k-fold---classification
 random-search---k-fold---classification
