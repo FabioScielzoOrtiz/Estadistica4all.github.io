@@ -232,7 +232,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1.1" data-path="anexo.html"><a href="anexo.html#versión-simple"><i class="fa fa-check"></i><b>10.1.1</b> Versión simple</a></li>
 <li class="chapter" data-level="10.1.2" data-path="anexo.html"><a href="anexo.html#versión-related-metric-scaling"><i class="fa fa-check"></i><b>10.1.2</b> Versión related metric scaling</a></li>
 </ul></li>
-<li class="chapter" data-level="10.2" data-path="anexo.html"><a href="anexo.html#distancia-de-mahalanobis-robusta"><i class="fa fa-check"></i><b>10.2</b> Distancia de Mahalanobis Robusta</a></li>
+<li class="chapter" data-level="10.2" data-path="anexo.html"><a href="anexo.html#distancia-de-gower-generalizada-en-python"><i class="fa fa-check"></i><b>10.2</b> Distancia de Gower Generalizada en <code>Python</code></a></li>
+<li class="chapter" data-level="10.3" data-path="anexo.html"><a href="anexo.html#distancia-de-mahalanobis-robusta"><i class="fa fa-check"></i><b>10.3</b> Distancia de Mahalanobis Robusta</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i><b>11</b> Bibliografía</a></li>
 <li class="divider"></li>
@@ -342,12 +343,12 @@ para cada una de las matrices de distancias <span class="math inline">\(D_1\)</s
 </ul>
 <p><br></p>
 <ul>
-<li><p>Se combinan las <span class="math inline">\(D_j^{(2)&#39;}\)</span> , para <span class="math inline">\(j=1,2,3,\)</span> para definir la <strong>matriz de distancias de Gower Generalizada simple</strong> para el conjunto de datos <span class="math inline">\(X=(X_Q,X_B,X_M)\)</span> :</p>
-<p><span class="math display">\[D_{GG}^{(2)} \hspace{0.1cm}=\hspace{0.1cm} \sum_{j=1}^n \hspace{0.03cm} D_j^{(2)&#39;} \hspace{0.1cm}=\hspace{0.1cm} \Bigl(\hspace{0.05cm} \delta^2_{GG}(x_i,x_r) \hspace{0.06cm}:\hspace{0.06cm} i,r=1,...,n \hspace{0.05cm}\Bigr) \\\]</span>
-La <strong>distancia de Gower Generalizada simple al cudrado</strong> es :</p>
-<p><span class="math display">\[\delta^2_{GG}(x_i,x_r) \hspace{0.12cm}=\hspace{0.12cm}  \dfrac{ \delta_1^2(x_i^Q,x_r^Q)}{VG_1} \hspace{0.08cm}+\hspace{0.08cm} \dfrac{ \delta_2^2(x_i^B,x_r^B)}{VG_2} \hspace{0.08cm}+\hspace{0.08cm} \dfrac{ \delta_3^2(x_i^M,x_r^M)}{VG_3} \\\]</span></p>
+<li><p>Se combinan las <span class="math inline">\(D_j^{(2)&#39;}\)</span> , para <span class="math inline">\(j=1,2,3,\)</span> para obtener la <strong>matriz de cuadrados de distancias de Gower Generalizada simple</strong> para el conjunto de datos <span class="math inline">\(X=(X_Q,X_B,X_M)\)</span> :</p>
+<p><span class="math display">\[D_{GG}^{(2)} \hspace{0.13cm}=\hspace{0.13cm} \sum_{j=1}^n \hspace{0.03cm} D_j^{(2)&#39;} \hspace{0.13cm}=\hspace{0.13cm} \Bigl(\hspace{0.05cm} \delta^2_{GG}(x_i,x_r) \hspace{0.06cm}:\hspace{0.06cm} i,r=1,...,n \hspace{0.05cm}\Bigr) \\\]</span></p>
+<p>La <strong>distancia de Gower Generalizada simple al cuadrado</strong> es :</p>
+<p><span class="math display">\[\delta^2_{GG}(x_i,x_r) \hspace{0.12cm}=\hspace{0.12cm}  \dfrac{ \delta_1^2(x_i^Q,x_r^Q)}{VG_1} \hspace{0.08cm}+\hspace{0.08cm} \dfrac{ \delta_2^2(x_i^B,x_r^B)}{VG_2} \hspace{0.08cm}+\hspace{0.08cm} \dfrac{ \delta_3^2(x_i^M,x_r^M)}{VG_3} \hspace{0.4cm} , \hspace{0.4cm} i,r = 1,...,n \\\]</span></p>
 <p>La <strong>distancia de Gower Generalizada simple</strong> es :</p>
-<p><span class="math display">\[\delta_{GG}(x_i,x_r) \hspace{0.12cm}=\hspace{0.12cm} \sqrt{\hspace{0.1cm}  \dfrac{ \delta_1^2(x_i^Q,x_r^Q)}{VG_1} \hspace{0.07cm}+\hspace{0.07cm} \dfrac{ \delta_2^2(x_i^B,x_r^B)}{VG_2} \hspace{0.07cm}+\hspace{0.07cm} \dfrac{ \delta_3^2(x_i^M,x_r^M)}{VG_3} \hspace{0.1cm}}\]</span></p></li>
+<p><span class="math display">\[\delta_{GG}(x_i,x_r) \hspace{0.12cm}=\hspace{0.12cm} \sqrt{\hspace{0.1cm}  \dfrac{ \delta_1^2(x_i^Q,x_r^Q)}{VG_1} \hspace{0.07cm}+\hspace{0.07cm} \dfrac{ \delta_2^2(x_i^B,x_r^B)}{VG_2} \hspace{0.07cm}+\hspace{0.07cm} \dfrac{ \delta_3^2(x_i^M,x_r^M)}{VG_3}  \hspace{0.4cm} , \hspace{0.4cm} i,r = 1,...,n\]</span></p></li>
 </ul>
 <p><br></p>
 <p><strong>¿Por qué estandarizamos usando la variabilidad geométrica?</strong></p>
@@ -411,18 +412,40 @@ para cada una de las matrices de distancias <span class="math inline">\(D_1\)</s
 <p><br></p>
 <ul>
 <li><p>Se calculan las matrices de Gram, <span class="math inline">\(G_j\)</span>, de las matrices de distancias al cuadrado estandarizadas <span class="math inline">\(\hspace{0.03cm}D_j^{(2)&#39;}\hspace{0.03cm},\)</span> para <span class="math inline">\(\hspace{0.03cm}j =1,2,3 \hspace{0.03cm}.\)</span></p>
-<p><span class="math display">\[G_j \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{-1}{2} \cdot H \cdot D_j^{(2)&#39;} \cdot H \hspace{0.4cm} ,  \hspace{0.4cm} j=1,2,3 \]</span></p>
-<p>Donde: <span class="math inline">\(\hspace{0.05cm} H \hspace{0.1cm}=\hspace{0.1cm} I \hspace{0.03cm}-\hspace{0.03cm} \dfrac{1}{n}\cdot \mathbb{1}\cdot \mathbb{1}^t\hspace{0.05cm}\)</span> es la matriz de centrado.</p></li>
-<li><p>Se calcula la matriz <span class="math inline">\(G\)</span> combinando las matrices <span class="math inline">\(G_1\)</span>, <span class="math inline">\(G_2\)</span> y <span class="math inline">\(G_3\)</span> del siguiente modo:</p>
-<p><span class="math display">\[G \hspace{0.1cm}=\hspace{0.1cm}  \]</span></p>
-<p>Donde:</p>
-<p><span class="math display">\[\hspace{0.05cm} \sum_{k\neq j =1,2,3}  \hspace{0.1cm}=\hspace{0.1cm} ???\]</span></p></li>
+<p><span class="math display">\[G_j \hspace{0.1cm}=\hspace{0.1cm}  -\dfrac{1}{2} \cdot H \cdot D_j^{(2)&#39;} \cdot H \hspace{0.4cm} ,  \hspace{0.4cm} j=1,2,3 \]</span></p>
+<p>Donde: <span class="math inline">\(\hspace{0.1cm} H \hspace{0.1cm}=\hspace{0.1cm} I \hspace{0.03cm}-\hspace{0.03cm} \dfrac{1}{n}\cdot \mathbf{1}\cdot \mathbf{1}^t\hspace{0.08cm}\)</span> es la matriz de centrado.</p></li>
 </ul>
+<p><br></p>
+<ul>
+<li><p>Se calcula la matriz <span class="math inline">\(\hspace{0.03cm}G\hspace{0.03cm}\)</span> combinando las matrices <span class="math inline">\(\hspace{0.03cm}G_1\hspace{0.03cm}\)</span>, <span class="math inline">\(\hspace{0.03cm}G_2\hspace{0.03cm}\)</span> y <span class="math inline">\(\hspace{0.03cm}G_3\hspace{0.03cm}\)</span> del siguiente modo:</p>
+<p><span class="math display">\[G \hspace{0.12cm}=\hspace{0.12cm}  \sum_{j=1}^3 \hspace{0.03cm} G_j  \hspace{0.05cm}-\hspace{0.05cm} \dfrac{1}{3} \cdot \sum_{k\neq j = 1}^3 G_k^{1/2} \cdot G_j^{1/2}\]</span></p>
+<p>Donde:</p>
+<p><span class="math display">\[\sum_{k\neq j =1}^{3}  G_k^{1/2} \cdot G_j^{1/2} \hspace{0.2cm}=\hspace{0.2cm} G_1^{1/2} \cdot G_2^{1/2} \hspace{0.07cm}+\hspace{0.07cm} G_1^{1/2} \cdot G_3^{1/2} \hspace{0.07cm} + \hspace{0.07cm} G_2^{1/2} \cdot G_1^{1/2} \hspace{0.05cm}+ \\[0.6cm] +\hspace{0.1cm} G_2^{1/2} \cdot G_3^{1/2} \hspace{0.07cm} +\hspace{0.07cm} G_3^{1/2} \cdot G_1^{1/2} \hspace{0.07cm}+\hspace{0.07cm} G_3^{1/2} \cdot G_2^{1/2}\]</span></p></li>
+</ul>
+<p><br></p>
+<ul>
+<li><p>Se calcula la <strong>matriz de cuadrados de distancias de Gower Generalizada related metric scaling</strong> para el conjunto de datos <span class="math inline">\(X=(X_Q,X_B,X_M)\)</span>, del siguiente modo:</p>
+<p><span class="math display">\[D^{(2)}_{GG} \hspace{0.13cm} = \hspace{0.13cm} \mathbf{g} \cdot \mathbf{1}^t + \mathbf{1}\cdot \mathbf{g}^t - 2\cdot G \hspace{0.13cm}=\hspace{0.13cm} \Bigl(\hspace{0.05cm} \delta^2_{GG}(x_i,x_r) \hspace{0.06cm}:\hspace{0.06cm} i,r=1,...,n \hspace{0.05cm}\Bigr)\]</span></p>
+<p>Donde: <span class="math inline">\(\hspace{0.1cm}\mathbf{g} \hspace{0.07cm}=\hspace{0.07cm} diag(G)\hspace{0.03cm}.\)</span></p>
+<p>A partir de esta matriz de cuadrados de distancias podemos obtener la <strong>distancia de Gower Generalizada related metric scaling al cuadrado</strong> del siguiente modo:</p>
+<p><span class="math display">\[\delta^2_{GG}(x_i,x_r) \hspace{0.07cm}=\hspace{0.07cm} D^{(2)}_{GG}[i,r] \hspace{0.4cm} , \hspace{0.4cm} i,r = 1,...,n\]</span></p>
+<p>A partir de esta matriz de cuadrados de distancias podemos obtener la <strong>distancia de Gower Generalizada related metric scaling</strong> del siguiente modo:</p>
+<p><span class="math display">\[\delta_{GG}(x_i,x_r) \hspace{0.07cm}=\hspace{0.07cm} \sqrt{\hspace{0.07cm}D^{(2)}_{GG}[i,r]\hspace{0.1cm}} \hspace{0.4cm} , \hspace{0.4cm} i,r = 1,...,n\]</span></p></li>
+</ul>
+<p><br></p>
+<p><strong>¿Por que related metric scaling?</strong></p>
+<p>Este procedimiento permite eliminar redundancia de información entre grupos de variables.</p>
+<p><br></p>
 <p><br></p>
 </div>
 </div>
-<div id="distancia-de-mahalanobis-robusta" class="section level2 hasAnchor" number="10.2">
-<h2><span class="header-section-number">10.2</span> Distancia de Mahalanobis Robusta<a href="anexo.html#distancia-de-mahalanobis-robusta" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="distancia-de-gower-generalizada-en-python" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Distancia de Gower Generalizada en <code>Python</code><a href="anexo.html#distancia-de-gower-generalizada-en-python" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><br></p>
+<p><br></p>
+</div>
+<div id="distancia-de-mahalanobis-robusta" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Distancia de Mahalanobis Robusta<a href="anexo.html#distancia-de-mahalanobis-robusta" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><br></p>
 <p><br></p>
 </div>

@@ -4827,17 +4827,19 @@ para cada una de las matrices de distancias $D_1$, $D_2$ y $D_3$ .
 
 <br>
 
-- Se combinan las $D_j^{(2)'}$ , para $j=1,2,3,$ para definir la **matriz de distancias de Gower Generalizada simple** para el conjunto de datos $X=(X_Q,X_B,X_M)$ :
+- Se combinan las $D_j^{(2)'}$ , para $j=1,2,3,$ para obtener la **matriz de cuadrados de distancias de Gower Generalizada simple** para el conjunto de datos $X=(X_Q,X_B,X_M)$ :
 
-    $$D_{GG}^{(2)} \hspace{0.1cm}=\hspace{0.1cm} \sum_{j=1}^n \hspace{0.03cm} D_j^{(2)'} \hspace{0.1cm}=\hspace{0.1cm} \Bigl(\hspace{0.05cm} \delta^2_{GG}(x_i,x_r) \hspace{0.06cm}:\hspace{0.06cm} i,r=1,...,n \hspace{0.05cm}\Bigr) \\$$
-    La **distancia de Gower Generalizada simple al cudrado** es :
+    $$D_{GG}^{(2)} \hspace{0.13cm}=\hspace{0.13cm} \sum_{j=1}^n \hspace{0.03cm} D_j^{(2)'} \hspace{0.13cm}=\hspace{0.13cm} \Bigl(\hspace{0.05cm} \delta^2_{GG}(x_i,x_r) \hspace{0.06cm}:\hspace{0.06cm} i,r=1,...,n \hspace{0.05cm}\Bigr) \\$$
     
-    $$\delta^2_{GG}(x_i,x_r) \hspace{0.12cm}=\hspace{0.12cm}  \dfrac{ \delta_1^2(x_i^Q,x_r^Q)}{VG_1} \hspace{0.08cm}+\hspace{0.08cm} \dfrac{ \delta_2^2(x_i^B,x_r^B)}{VG_2} \hspace{0.08cm}+\hspace{0.08cm} \dfrac{ \delta_3^2(x_i^M,x_r^M)}{VG_3} \\$$  
+    
+    La **distancia de Gower Generalizada simple al cuadrado** es :
+    
+    $$\delta^2_{GG}(x_i,x_r) \hspace{0.12cm}=\hspace{0.12cm}  \dfrac{ \delta_1^2(x_i^Q,x_r^Q)}{VG_1} \hspace{0.08cm}+\hspace{0.08cm} \dfrac{ \delta_2^2(x_i^B,x_r^B)}{VG_2} \hspace{0.08cm}+\hspace{0.08cm} \dfrac{ \delta_3^2(x_i^M,x_r^M)}{VG_3} \hspace{0.4cm} , \hspace{0.4cm} i,r = 1,...,n \\$$  
     
     
     La **distancia de Gower Generalizada simple** es :
     
-    $$\delta_{GG}(x_i,x_r) \hspace{0.12cm}=\hspace{0.12cm} \sqrt{\hspace{0.1cm}  \dfrac{ \delta_1^2(x_i^Q,x_r^Q)}{VG_1} \hspace{0.07cm}+\hspace{0.07cm} \dfrac{ \delta_2^2(x_i^B,x_r^B)}{VG_2} \hspace{0.07cm}+\hspace{0.07cm} \dfrac{ \delta_3^2(x_i^M,x_r^M)}{VG_3} \hspace{0.1cm}}$$ 
+    $$\delta_{GG}(x_i,x_r) \hspace{0.12cm}=\hspace{0.12cm} \sqrt{\hspace{0.1cm}  \dfrac{ \delta_1^2(x_i^Q,x_r^Q)}{VG_1} \hspace{0.07cm}+\hspace{0.07cm} \dfrac{ \delta_2^2(x_i^B,x_r^B)}{VG_2} \hspace{0.07cm}+\hspace{0.07cm} \dfrac{ \delta_3^2(x_i^M,x_r^M)}{VG_3}  \hspace{0.4cm} , \hspace{0.4cm} i,r = 1,...,n$$ 
 
 
 <br>
@@ -4934,25 +4936,67 @@ para cada una de las matrices de distancias $D_1$, $D_2$ y $D_3$ .
 - Se calculan las matrices de Gram, $G_j$, de las matrices de distancias al cuadrado estandarizadas $\hspace{0.03cm}D_j^{(2)'}\hspace{0.03cm},$  para $\hspace{0.03cm}j =1,2,3 \hspace{0.03cm}.$
 
 
-    $$G_j \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{-1}{2} \cdot H \cdot D_j^{(2)'} \cdot H \hspace{0.4cm} ,  \hspace{0.4cm} j=1,2,3 $$
+    $$G_j \hspace{0.1cm}=\hspace{0.1cm}  -\dfrac{1}{2} \cdot H \cdot D_j^{(2)'} \cdot H \hspace{0.4cm} ,  \hspace{0.4cm} j=1,2,3 $$
 
 
-    Donde: $\hspace{0.05cm} H \hspace{0.1cm}=\hspace{0.1cm} I \hspace{0.03cm}-\hspace{0.03cm} \dfrac{1}{n}\cdot \mathbb{1}\cdot \mathbb{1}^t\hspace{0.05cm}$ es la matriz de centrado.
+    Donde: $\hspace{0.1cm} H \hspace{0.1cm}=\hspace{0.1cm} I \hspace{0.03cm}-\hspace{0.03cm} \dfrac{1}{n}\cdot \mathbf{1}\cdot \mathbf{1}^t\hspace{0.08cm}$ es la matriz de centrado.
 
 
+<br>
 
-- Se calcula la matriz $G$ combinando las matrices $G_1$, $G_2$ y $G_3$ del siguiente modo:
+- Se calcula la matriz $\hspace{0.03cm}G\hspace{0.03cm}$ combinando las matrices $\hspace{0.03cm}G_1\hspace{0.03cm}$, $\hspace{0.03cm}G_2\hspace{0.03cm}$ y $\hspace{0.03cm}G_3\hspace{0.03cm}$ del siguiente modo:
 
 
-    $$G \hspace{0.1cm}=\hspace{0.1cm}  $$
+    $$G \hspace{0.12cm}=\hspace{0.12cm}  \sum_{j=1}^3 \hspace{0.03cm} G_j  \hspace{0.05cm}-\hspace{0.05cm} \dfrac{1}{3} \cdot \sum_{k\neq j = 1}^3 G_k^{1/2} \cdot G_j^{1/2}$$
 
 
     Donde: 
     
-    $$\hspace{0.05cm} \sum_{k\neq j =1,2,3}  \hspace{0.1cm}=\hspace{0.1cm} ???$$
+    $$\sum_{k\neq j =1}^{3}  G_k^{1/2} \cdot G_j^{1/2} \hspace{0.2cm}=\hspace{0.2cm} G_1^{1/2} \cdot G_2^{1/2} \hspace{0.07cm}+\hspace{0.07cm} G_1^{1/2} \cdot G_3^{1/2} \hspace{0.07cm} + \hspace{0.07cm} G_2^{1/2} \cdot G_1^{1/2} \hspace{0.05cm}+ \\[0.6cm] +\hspace{0.1cm} G_2^{1/2} \cdot G_3^{1/2} \hspace{0.07cm} +\hspace{0.07cm} G_3^{1/2} \cdot G_1^{1/2} \hspace{0.07cm}+\hspace{0.07cm} G_3^{1/2} \cdot G_2^{1/2}$$
+    
+<br>
+
+-  Se calcula la **matriz de cuadrados de distancias de Gower Generalizada related metric scaling** para el conjunto de datos $X=(X_Q,X_B,X_M)$, del siguiente modo:
 
 
+    $$D^{(2)}_{GG} \hspace{0.13cm} = \hspace{0.13cm} \mathbf{g} \cdot \mathbf{1}^t + \mathbf{1}\cdot \mathbf{g}^t - 2\cdot G \hspace{0.13cm}=\hspace{0.13cm} \Bigl(\hspace{0.05cm} \delta^2_{GG}(x_i,x_r) \hspace{0.06cm}:\hspace{0.06cm} i,r=1,...,n \hspace{0.05cm}\Bigr)$$
 
+    Donde: $\hspace{0.1cm}\mathbf{g} \hspace{0.07cm}=\hspace{0.07cm} diag(G)\hspace{0.03cm}.$
+    
+    
+    
+    A partir de esta matriz de cuadrados de distancias podemos obtener la **distancia de Gower Generalizada related metric scaling al cuadrado** del siguiente modo:
+    
+    
+    $$\delta^2_{GG}(x_i,x_r) \hspace{0.07cm}=\hspace{0.07cm} D^{(2)}_{GG}[i,r] \hspace{0.4cm} , \hspace{0.4cm} i,r = 1,...,n$$
+
+    A partir de esta matriz de cuadrados de distancias podemos obtener la **distancia de Gower Generalizada related metric scaling** del siguiente modo:
+    
+    
+    $$\delta_{GG}(x_i,x_r) \hspace{0.07cm}=\hspace{0.07cm} \sqrt{\hspace{0.07cm}D^{(2)}_{GG}[i,r]\hspace{0.1cm}} \hspace{0.4cm} , \hspace{0.4cm} i,r = 1,...,n$$
+    
+    
+<br>
+
+**¿Por que related metric scaling?**
+
+Este procedimiento permite eliminar redundancia de información entre grupos de variables.
+    
+    
+<br>
+
+<br>   
+    
+    
+## Distancia de Gower Generalizada en `Python`
+
+
+    
+    
+    
+    
+    
+<br>
 
 <br>
 

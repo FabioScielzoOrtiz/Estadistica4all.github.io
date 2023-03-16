@@ -57,3 +57,4 @@ distancia-de-gower-generalizada
 versión-simple
 versión-related-metric-scaling
 distancia-de-mahalanobis-robusta
+distancia-de-gower-generalizada-en-python
