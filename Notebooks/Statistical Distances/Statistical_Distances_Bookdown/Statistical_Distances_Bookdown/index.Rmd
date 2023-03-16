@@ -4,13 +4,11 @@ author: "Fabio Scielzo Ortiz"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib]
-# url: your book url like https://bookdown.org/yihui/bookdown
-# cover-image: path to the social sharing image like images/cover.jpg
+bibliography: book.bib
 description: |
   Esta es una introducción a las distancias estadísticas.
 link-citations: yes
-github-repo: rstudio/bookdown-demo
+github-repo: "rstudio/bookdown-demo"
 ---
 
 # Introducción
@@ -3896,7 +3894,6 @@ Distinguimos cuatro cuatro tipos de conjuntos de variables mixtos:
 # Distancias con conjuntos de variables de tipo cuantitativo-binario-multiclase 
 
 
-
 Tenemos un conjunto de variables estadísticas $\hspace{0.03cm}(\mathcal{X}_1,...,\mathcal{X}_p )\hspace{0.03cm}$ tales que las $\hspace{0.03cm}p_1\hspace{0.03cm}$ primeras son cuantitativas, las $\hspace{0.03cm}p_2\hspace{0.03cm}$ siguientes son binarias y las últimas $\hspace{0.03cm}p_3\hspace{0.03cm}$ son multiclase, es decir:  $\\$
 
 
@@ -3904,11 +3901,43 @@ Tenemos un conjunto de variables estadísticas $\hspace{0.03cm}(\mathcal{X}_1,..
 
 - $\mathcal{X}_{p_1 + 1},...,\mathcal{X}_{p_1 + p_2} \hspace{0.05cm}$ son **binarias**.
 
-- $\mathcal{X}_{p_1 + p_2 + 1},...,\mathcal{X}_{p_1 + p_2 + p_3} \hspace{0.05cm}$ son **multiclase** (no binarias).
+- $\mathcal{X}_{p_1 + p_2 + 1},...,\mathcal{X}_{p_1 + p_2 + p_3} \hspace{0.05cm}$ son **multiclase** (no binarias). $\\$
 
     
-Donde $\hspace{0.05cm} p=p_1 + p_2 + p_3$
+Donde: $\hspace{0.08cm} p=p_1 + p_2 + p_3\hspace{0.08cm}.$ $\\$
 
+Además, tenemos las siguientes muestras de datos para cada uno de los tipos de variables estadísticas:
+
+
+
+- Conjunto de datos de las variables **cuantitativas**: 
+
+    $$X_Q = (X_1,...,X_{p_1}) = ( x_i^Q \hspace{0.05cm}:\hspace{0.05cm} i=1,...,n )$$
+
+
+    - $\hspace{0.03cm}x_i^Q= (x_{i, 1},....,x_{i p_1})\hspace{0.1cm}$ es $i$-esimo vector de observaciones de las variables **cuantitativas**. $\\[0.75cm]$
+
+
+
+
+
+-  Conjunto de datos de las variables **binarias**: 
+
+    $$X_B = (X_{p_1 +1},..., X_{p_1+p_2})= ( x_i^B \hspace{0.05cm}:\hspace{0.05cm} i=1,...,n )$$
+
+
+    - $\hspace{0.03cm}x_i^B= (x_{i, (p_1+1)},....,x_{i (p_1+p_2)})\hspace{0.1cm}$ es el $i$-esimo vector de observaciones de las variables **binarias**. $\\[0.75cm]$
+
+-  Conjunto de datos de las variables **multiclase**: 
+
+    $$X_M = (X_{p_1+p_2+1},...,X_{p_1+p_2+p_3})= ( x_i^M   \hspace{0.05cm}: \hspace{0.05cm}  i=1,...,n )$$
+
+
+    - $\hspace{0.03cm}x_i^M= (x_{i, (p_1+p_2+1)},....,x_{i (p_1+p_2+p_3)})\hspace{0.1cm}$ es el $i$-esimo vector de observaciones de las variables **multiclase**. $\\$
+
+
+
+Donde: $\hspace{0.1cm} X_j = (x_{1j},...,x_{nj})^t\hspace{0.07cm}$  es una muestra de $n$ observaciones de la variable $X_j\hspace{0.05cm},$ para $\hspace{0.03cm}j=1,...,p\hspace{0.05cm}$.
 
 <br>
 
@@ -3943,11 +3972,6 @@ $\hspace{0.25cm}$ Donde:
 
 
 
-- $\hspace{0.1cm}x_i^Q= (x_{i 1},....,x_{i p_1})\hspace{0.03cm}$ es el $\hspace{0.03cm}i$-esimo vector de observaciones de las variables **cuantitativas**. 
-
-- $\hspace{0.1cm}x_i^B= ( \hspace{0.01cm} x_{i (p_1+1)},....,x_{i (p_1+p_2)} \hspace{0.01cm})\hspace{0.03cm}$ es el $\hspace{0.03cm}i$-esimo vector de observaciones de las variables **binarias**.
-
-- $\hspace{0.1cm}x_i^M = ( \hspace{0.01cm}x_{i (p_1+p_2+1)},...,x_{i (p_1+p_2+p_3)} \hspace{0.01cm})\hspace{0.03cm}$ es el $\hspace{0.03cm}i$-esimo vector de observaciones de las variables **multiclase**. 
 
 - $\hspace{0.1cm}G_j \hspace{0.1cm}=\hspace{0.1cm} Max(X_j) \hspace{0.03cm}-\hspace{0.03cm} Min(X_j)\hspace{0.03cm}$ es el rango de la muestra $\hspace{0.03cm}X_j\hspace{0.03cm}$. 
 
@@ -4250,7 +4274,8 @@ array([[1.        , 0.76928447, 0.61234779, ..., 0.61200705, 0.68768535,
 <br>
 
 
-### Distancia de Gower en `Python`  
+### Distancia de Gower en `Python` 
+
 Definimos una función que calcula la matriz de distancias de Gower entre las observaciones de un data-set de tipo mixto que es pasado como argumento.
 ```python
 def Matrix_Dist_Gower(Data, p1, p2, p3 ):
@@ -4476,13 +4501,6 @@ $\hspace{0.25cm}$ Donde:
 
  
 
-- $\hspace{0.1cm}x_i^Q= (x_{i, 1},....,x_{i p_1})\hspace{0.1cm}$ es $i$-esimo vector de observaciones de las variables **cuantitativas**.
-
-- $\hspace{0.1cm}x_i^B= (x_{i, (p_1+1)},....,x_{i (p_1+p_2)})\hspace{0.03cm}$ es el $i$-esimo vector de observaciones de las variables **binarias**.
-
-- $\hspace{0.1cm}x_i^M= (x_{i, (p_1+p_2+1)},....,x_{i (p_1+p_2+p_3)})\hspace{0.03cm}$ es el $i$-esimo vector de observaciones de las variables **multiclase**.
-
-
 - $\hspace{0.1cm}\delta(x_i^Q , x_r^Q)_{Maha} = \sqrt{ (x_i^Q - x_r^Q)^t \cdot S^{-1} \cdot (x_i^Q - x_r^Q) \hspace{0.25cm}}\hspace{0.05cm}$ 
 
 - $\hspace{0.1cm}S\hspace{0.03cm}$ es la estimación de matriz de covarianzas de las variables $\hspace{0.03cm}(\mathcal{X}_1,...,\mathcal{X}_{p_1})\hspace{0.03cm}$ en base a la matriz de datos  $\hspace{0.03cm}X^Q=(X_1,...,X_{p_1})\hspace{0.1cm}$.  
@@ -4681,16 +4699,268 @@ array([[0.        , 0.46011364, 0.54023301, ..., 0.47435704, 0.53328707,
 
 ## Distancia de Gower Generalizada
 
+Tenemos un conjunto de variables estadísticas $\hspace{0.03cm}(\mathcal{X}_1,...,\mathcal{X}_p )\hspace{0.03cm}$ tales que las $\hspace{0.03cm}p_1\hspace{0.03cm}$ primeras son cuantitativas, las $\hspace{0.03cm}p_2\hspace{0.03cm}$ siguientes son binarias y las últimas $\hspace{0.03cm}p_3\hspace{0.03cm}$ son multiclase, es decir:  $\\$
+
+
+- $\mathcal{X}_1,...,\mathcal{X}_{p_1} \hspace{0.05cm}$ son **cuantitativas**. 
+
+- $\mathcal{X}_{p_1 + 1},...,\mathcal{X}_{p_1 + p_2} \hspace{0.05cm}$ son **binarias**.
+
+- $\mathcal{X}_{p_1 + p_2 + 1},...,\mathcal{X}_{p_1 + p_2 + p_3} \hspace{0.05cm}$ son **multiclase** (no binarias). $\\$
+
+    
+Donde: $\hspace{0.1cm} p=p_1 + p_2 + p_3\hspace{0.08cm}.$ $\\$
+
+Además, tenemos las siguientes muestras de datos para cada uno de los tipos de variables estadísticas:
+
+
+
+- Conjunto de datos de las variables **cuantitativas**: 
+
+    $$X_Q = (X_1,...,X_{p_1}) = ( x_i^Q \hspace{0.05cm}:\hspace{0.05cm} i=1,...,n )$$
+
+
+    - $\hspace{0.03cm}x_i^Q= (x_{i, 1},....,x_{i p_1})\hspace{0.1cm}$ es $i$-esimo vector de observaciones de las variables **cuantitativas**. $\\[0.75cm]$
+
+
+
+
+
+-  Conjunto de datos de las variables **binarias**: 
+
+    $$X_B = (X_{p_1 +1},..., X_{p_1+p_2})= ( x_i^B \hspace{0.05cm}:\hspace{0.05cm} i=1,...,n )$$
+
+
+    - $\hspace{0.03cm}x_i^B= (x_{i, (p_1+1)},....,x_{i (p_1+p_2)})\hspace{0.1cm}$ es el $i$-esimo vector de observaciones de las variables **binarias**. $\\[0.75cm]$
+
+-  Conjunto de datos de las variables **multiclase**: 
+
+    $$X_M = (X_{p_1+p_2+1},...,X_{p_1+p_2+p_3})= ( x_i^M   \hspace{0.05cm}: \hspace{0.05cm}  i=1,...,n )$$
+
+
+    - $\hspace{0.03cm}x_i^M= (x_{i, (p_1+p_2+1)},....,x_{i (p_1+p_2+p_3)})\hspace{0.1cm}$ es el $i$-esimo vector de observaciones de las variables **multiclase**. $\\$
+
+
+
+Donde: $\hspace{0.1cm} X_j = (x_{1j},...,x_{nj})^t\hspace{0.07cm}$  es una muestra de $n$ observaciones de la variable $X_j\hspace{0.06cm},$ para $\hspace{0.03cm}j=1,...,p\hspace{0.08cm}$.
+
+<br>
+
+
+**Observación:**
+
+$\mathcal{X}_1,...,\mathcal{X}_p \hspace{0.1cm}$ forman un conjunto de variables de tipo **cuantitativo-binario-multiclase**.
+
+
+<br>
+
 
 ### Versión simple
 
+El algoritmo que define la versión simple de la distancia de Gower generalizada es el siguiente:
 
+
+- Se calcula una matriz de distancias para cada conjunto de datos $X_Q$ , $\hspace{0.05cm}X_B\hspace{0.06cm}$ y $\hspace{0.05cm}X_M\hspace{0.05cm}$.
+
+
+
+    - $D_1\hspace{0.05cm}$ es la matriz de distancias $\hspace{0.05cm}\delta_1\hspace{0.05cm}$ entre las observaciones de las variables cuantitativas, es decir, las observaciones de $\hspace{0.02cm}X_Q\hspace{0.05cm}$.
+    
+    $$D_1 \hspace{0.03cm}=\hspace{0.03cm} \Bigl( \hspace{0.05cm} \delta_1(x_i^Q, x_r^Q) \hspace{0.07cm} : \hspace{0.07cm} i,r=1,...,n \hspace{0.05cm}\Bigr)\\$$
+    
+    
+    - $D_2\hspace{0.05cm}$ es la matriz de distancias $\hspace{0.05cm}\delta_2\hspace{0.05cm}$ entre las observaciones de las variables cuantitativas, es decir, las observaciones de $\hspace{0.02cm}X_B\hspace{0.05cm}$.
+    
+    $$D_2 \hspace{0.03cm}=\hspace{0.03cm} \Bigl( \hspace{0.05cm} \delta_2(x_i^B, x_r^B) \hspace{0.07cm} : \hspace{0.07cm} i,r=1,...,n \hspace{0.05cm}\Bigr)\\$$
+    
+    
+    - $D_3\hspace{0.05cm}$ es la matriz de distancias $\hspace{0.05cm}\delta_3\hspace{0.05cm}$ entre las observaciones de las variables cuantitativas, es decir, las observaciones de $\hspace{0.02cm}X_M\hspace{0.05cm}$.
+    
+    $$D_3 \hspace{0.03cm}=\hspace{0.03cm} \Bigl( \hspace{0.05cm} \delta_3(x_i^M, x_r^M) \hspace{0.07cm} : \hspace{0.07cm} i,r=1,...,n \hspace{0.05cm}\Bigr)$$
+
+
+<br>
+
+
+- Se calculan las variabilidades geométricas
+para cada una de las matrices de distancias $D_1$, $D_2$ y $D_3$ .
+
+
+    - La variabilidad geométrica de $D_1$ es:
+     
+    $$VG_1  \hspace{0.05cm}=\hspace{0.05cm} \dfrac{1}{2\cdot n^2} \cdot \sum_{i=1}^n \sum_{r=1}^n \hspace{0.03cm}\delta_1^2 (x_i^Q , x_r^Q) \\$$
+     
+     
+    - La variabilidad geométrica de $D_2$ es:
+     
+    $$VG_2  \hspace{0.05cm}=\hspace{0.05cm} \dfrac{1}{2\cdot n^2} \cdot \sum_{i=1}^n \sum_{r=1}^n \hspace{0.03cm}\delta_2^2 (x_i^B , x_r^B) \\$$
+     
+     
+     
+    - La variabilidad geométrica de $D_3$ es:
+     
+    $$VG_3  \hspace{0.05cm}=\hspace{0.05cm}\dfrac{1}{2\cdot n^2} \cdot \sum_{i=1}^n \sum_{r=1}^n \hspace{0.03cm}\delta_3^2 (x_i^M , x_r^M)$$
+
+
+<br>
+
+
+- Se estandarizan las matrices de distancias al cuadrado $\hspace{0.02cm} D_j^{(2)} \hspace{0.02cm}$ a variabilidad geométrica uno, para $\hspace{0.03cm} j =1,2,3 \hspace{0.05cm} .$
+
+
+    - La estandarización de $\hspace{0.02cm} D_1^{(2)} \hspace{0.02cm}$ es :
+    
+    $$D_1^{(2)'} \hspace{0.05cm}=\hspace{0.05cm} \dfrac{1}{VG_1} \cdot D_1^{(2)} \hspace{0.05cm}=\hspace{0.05cm}  \Bigl( \hspace{0.05cm} \delta_1^2(x_i^Q,x_r^Q) \hspace{0.04cm}/\hspace{0.04cm} VG_1  \hspace{0.1cm}:\hspace{0.1cm} i,r=1,...,n \hspace{0.05cm}\Bigr)\\$$
+    
+    
+    
+    - La estandarización de $\hspace{0.02cm} D_2^{(2)} \hspace{0.02cm}$ es :
+    
+    $$D_2^{(2)'} \hspace{0.05cm}=\hspace{0.05cm} \dfrac{1}{VG_2} \cdot D_2^{(2)} \hspace{0.05cm}=\hspace{0.05cm}  \Bigl( \hspace{0.05cm} \delta_2^2(x_i^B,x_r^B) \hspace{0.04cm}/\hspace{0.04cm} VG_2  \hspace{0.1cm}:\hspace{0.1cm} i,r=1,...,n \hspace{0.05cm}\Bigr)\\$$
+    
+    
+    
+    - La estandarización de $\hspace{0.02cm} D_3^{(2)} \hspace{0.02cm}$ es :
+    
+    $$D_3^{(2)'} \hspace{0.05cm}=\hspace{0.05cm} \dfrac{1}{VG_3} \cdot D_3^{(2)} \hspace{0.05cm}=\hspace{0.05cm} \Bigl( \hspace{0.05cm} \delta_3^2(x_i^M,x_r^M) \hspace{0.04cm}/\hspace{0.04cm} VG_3  \hspace{0.1cm}:\hspace{0.1cm} i,r=1,...,n \hspace{0.05cm}\Bigr)\\$$
+
+
+<br>
+
+- Se combinan las $D_j^{(2)'}$ , para $j=1,2,3,$ para definir la **matriz de distancias de Gower Generalizada simple** para el conjunto de datos $X=(X_Q,X_B,X_M)$ :
+
+    $$D_{GG}^{(2)} \hspace{0.1cm}=\hspace{0.1cm} \sum_{j=1}^n \hspace{0.03cm} D_j^{(2)'} \hspace{0.1cm}=\hspace{0.1cm} \Bigl(\hspace{0.05cm} \delta^2_{GG}(x_i,x_r) \hspace{0.06cm}:\hspace{0.06cm} i,r=1,...,n \hspace{0.05cm}\Bigr) \\$$
+    La **distancia de Gower Generalizada simple al cudrado** es :
+    
+    $$\delta^2_{GG}(x_i,x_r) \hspace{0.12cm}=\hspace{0.12cm}  \dfrac{ \delta_1^2(x_i^Q,x_r^Q)}{VG_1} \hspace{0.08cm}+\hspace{0.08cm} \dfrac{ \delta_2^2(x_i^B,x_r^B)}{VG_2} \hspace{0.08cm}+\hspace{0.08cm} \dfrac{ \delta_3^2(x_i^M,x_r^M)}{VG_3} \\$$  
+    
+    
+    La **distancia de Gower Generalizada simple** es :
+    
+    $$\delta_{GG}(x_i,x_r) \hspace{0.12cm}=\hspace{0.12cm} \sqrt{\hspace{0.1cm}  \dfrac{ \delta_1^2(x_i^Q,x_r^Q)}{VG_1} \hspace{0.07cm}+\hspace{0.07cm} \dfrac{ \delta_2^2(x_i^B,x_r^B)}{VG_2} \hspace{0.07cm}+\hspace{0.07cm} \dfrac{ \delta_3^2(x_i^M,x_r^M)}{VG_3} \hspace{0.1cm}}$$ 
+
+
+<br>
+
+**¿Por qué estandarizamos usando la variabilidad geométrica?**
+
+Para que todas las matrices de distancia que se combinan sean directamente comparables, es decir, que todas tengan la misma dispersión.
+
+
+<br>
+
+**Observación:**
+
+Hay que notar que el algoritmo anterior requiere que las medidas de similitud empleadas para las variables binarias y multiclase sean transformadas a medidas de distancia, puesto que el algoritmo considera de partida matrices de distancia. Se puede ver como paso previo a la aplicación del algoritmo esta transformación de similaridades a distancias para el caso de las binarias y multiclase.
+
+
+
+<br>
 
 ### Versión related metric scaling
 
 
+El algoritmo que define la versión simple de la distancia de Gower generalizada es el siguiente:
+
+
+- Se calcula una matriz de distancias para cada conjunto de datos $X_Q$ , $\hspace{0.05cm}X_B\hspace{0.06cm}$ y $\hspace{0.05cm}X_M\hspace{0.05cm}$.
+
+
+
+    - $D_1\hspace{0.05cm}$ es la matriz de distancias $\hspace{0.05cm}\delta_1\hspace{0.05cm}$ entre las observaciones de las variables cuantitativas, es decir, las observaciones de $\hspace{0.02cm}X_Q\hspace{0.05cm}$.
+    
+    $$D_1 \hspace{0.03cm}=\hspace{0.03cm} \Bigl( \hspace{0.05cm} \delta_1(x_i^Q, x_r^Q) \hspace{0.07cm} : \hspace{0.07cm} i,r=1,...,n \hspace{0.05cm}\Bigr)\\$$
+    
+    
+    - $D_2\hspace{0.05cm}$ es la matriz de distancias $\hspace{0.05cm}\delta_2\hspace{0.05cm}$ entre las observaciones de las variables cuantitativas, es decir, las observaciones de $\hspace{0.02cm}X_B\hspace{0.05cm}$.
+    
+    $$D_2 \hspace{0.03cm}=\hspace{0.03cm} \Bigl( \hspace{0.05cm} \delta_2(x_i^B, x_r^B) \hspace{0.07cm} : \hspace{0.07cm} i,r=1,...,n \hspace{0.05cm}\Bigr)\\$$
+    
+    
+    - $D_3\hspace{0.05cm}$ es la matriz de distancias $\hspace{0.05cm}\delta_3\hspace{0.05cm}$ entre las observaciones de las variables cuantitativas, es decir, las observaciones de $\hspace{0.02cm}X_M\hspace{0.05cm}$.
+    
+    $$D_3 \hspace{0.03cm}=\hspace{0.03cm} \Bigl( \hspace{0.05cm} \delta_3(x_i^M, x_r^M) \hspace{0.07cm} : \hspace{0.07cm} i,r=1,...,n \hspace{0.05cm}\Bigr)$$
+
+
+<br>
+
+
+- Se calculan las variabilidades geométricas
+para cada una de las matrices de distancias $D_1$, $D_2$ y $D_3$ .
+
+
+    - La variabilidad geométrica de $D_1$ es:
+     
+    $$VG_1  \hspace{0.05cm}=\hspace{0.05cm} \dfrac{1}{2\cdot n^2} \cdot \sum_{i=1}^n \sum_{r=1}^n \hspace{0.03cm}\delta_1^2 (x_i^Q , x_r^Q) \\$$
+     
+     
+    - La variabilidad geométrica de $D_2$ es:
+     
+    $$VG_2  \hspace{0.05cm}=\hspace{0.05cm} \dfrac{1}{2\cdot n^2} \cdot \sum_{i=1}^n \sum_{r=1}^n \hspace{0.03cm}\delta_2^2 (x_i^B , x_r^B) \\$$
+     
+     
+     
+    - La variabilidad geométrica de $D_3$ es:
+     
+    $$VG_3  \hspace{0.05cm}=\hspace{0.05cm}\dfrac{1}{2\cdot n^2} \cdot \sum_{i=1}^n \sum_{r=1}^n \hspace{0.03cm}\delta_3^2 (x_i^M , x_r^M)$$
+
+
+<br>
+
+
+- Se estandarizan las matrices de distancias al cuadrado  $\hspace{0.02cm} D_j^{(2)} \hspace{0.02cm}$ a variabilidad geométrica uno, para $\hspace{0.03cm} j =1,2,3 \hspace{0.05cm} .$
+
+
+    - La estandarización de $\hspace{0.02cm} D_1^{(2)} \hspace{0.02cm}$ es :
+    
+    $$D_1^{(2)'} \hspace{0.05cm}=\hspace{0.05cm} \dfrac{1}{VG_1} \cdot D_1^{(2)} \hspace{0.05cm}=\hspace{0.05cm}  \Bigl( \hspace{0.05cm} \delta_1^2(x_i^Q,x_r^Q) \hspace{0.04cm}/\hspace{0.04cm} VG_1  \hspace{0.1cm}:\hspace{0.1cm} i,r=1,...,n \hspace{0.05cm}\Bigr)\\$$
+    
+    
+    
+    - La estandarización de $\hspace{0.02cm} D_2^{(2)} \hspace{0.02cm}$ es :
+    
+    $$D_2^{(2)'} \hspace{0.05cm}=\hspace{0.05cm} \dfrac{1}{VG_2} \cdot D_2^{(2)} \hspace{0.05cm}=\hspace{0.05cm}  \Bigl( \hspace{0.05cm} \delta_2^2(x_i^B,x_r^B) \hspace{0.04cm}/\hspace{0.04cm} VG_2  \hspace{0.1cm}:\hspace{0.1cm} i,r=1,...,n \hspace{0.05cm}\Bigr)\\$$
+    
+    
+    
+    - La estandarización de $\hspace{0.02cm} D_3^{(2)} \hspace{0.02cm}$ es :
+    
+    $$D_3^{(2)'} \hspace{0.05cm}=\hspace{0.05cm} \dfrac{1}{VG_3} \cdot D_3^{(2)} \hspace{0.05cm}=\hspace{0.05cm} \Bigl( \hspace{0.05cm} \delta_3^2(x_i^M,x_r^M) \hspace{0.04cm}/\hspace{0.04cm} VG_3  \hspace{0.1cm}:\hspace{0.1cm} i,r=1,...,n \hspace{0.05cm}\Bigr)\\$$
+
+
+<br>
+
+
+- Se calculan las matrices de Gram, $G_j$, de las matrices de distancias al cuadrado estandarizadas $\hspace{0.03cm}D_j^{(2)'}\hspace{0.03cm},$  para $\hspace{0.03cm}j =1,2,3 \hspace{0.03cm}.$
+
+
+    $$G_j \hspace{0.1cm}=\hspace{0.1cm}  \dfrac{-1}{2} \cdot H \cdot D_j^{(2)'} \cdot H \hspace{0.4cm} ,  \hspace{0.4cm} j=1,2,3 $$
+
+
+    Donde: $\hspace{0.05cm} H \hspace{0.1cm}=\hspace{0.1cm} I \hspace{0.03cm}-\hspace{0.03cm} \dfrac{1}{n}\cdot \mathbb{1}\cdot \mathbb{1}^t\hspace{0.05cm}$ es la matriz de centrado.
+
+
+
+- Se calcula la matriz $G$ combinando las matrices $G_1$, $G_2$ y $G_3$ del siguiente modo:
+
+
+    $$G \hspace{0.1cm}=\hspace{0.1cm}  $$
+
+
+    Donde: 
+    
+    $$\hspace{0.05cm} \sum_{k\neq j =1,2,3}  \hspace{0.1cm}=\hspace{0.1cm} ???$$
+
+
+
+
+<br>
+
 
 ## Distancia de Mahalanobis Robusta
+
+
+
 
 
 

@@ -23,7 +23,7 @@
 <meta name="author" content="Fabio Scielzo Ortiz" />
 
 
-<meta name="date" content="2023-03-15" />
+<meta name="date" content="2023-03-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -261,9 +261,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><p><span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_{p_1} \hspace{0.05cm}\)</span> son <strong>cuantitativas</strong>.</p></li>
 <li><p><span class="math inline">\(\mathcal{X}_{p_1 + 1},...,\mathcal{X}_{p_1 + p_2} \hspace{0.05cm}\)</span> son <strong>binarias</strong>.</p></li>
-<li><p><span class="math inline">\(\mathcal{X}_{p_1 + p_2 + 1},...,\mathcal{X}_{p_1 + p_2 + p_3} \hspace{0.05cm}\)</span> son <strong>multiclase</strong> (no binarias).</p></li>
+<li><p><span class="math inline">\(\mathcal{X}_{p_1 + p_2 + 1},...,\mathcal{X}_{p_1 + p_2 + p_3} \hspace{0.05cm}\)</span> son <strong>multiclase</strong> (no binarias). <span class="math inline">\(\\\)</span></p></li>
 </ul>
-<p>Donde <span class="math inline">\(\hspace{0.05cm} p=p_1 + p_2 + p_3\)</span></p>
+<p>Donde: <span class="math inline">\(\hspace{0.08cm} p=p_1 + p_2 + p_3\hspace{0.08cm}.\)</span> <span class="math inline">\(\\\)</span></p>
+<p>Además, tenemos las siguientes muestras de datos para cada uno de los tipos de variables estadísticas:</p>
+<ul>
+<li><p>Conjunto de datos de las variables <strong>cuantitativas</strong>:</p>
+<p><span class="math display">\[X_Q = (X_1,...,X_{p_1}) = ( x_i^Q \hspace{0.05cm}:\hspace{0.05cm} i=1,...,n )\]</span></p>
+<ul>
+<li><span class="math inline">\(\hspace{0.03cm}x_i^Q= (x_{i, 1},....,x_{i p_1})\hspace{0.1cm}\)</span> es <span class="math inline">\(i\)</span>-esimo vector de observaciones de las variables <strong>cuantitativas</strong>. <span class="math inline">\(\\[0.75cm]\)</span></li>
+</ul></li>
+<li><p>Conjunto de datos de las variables <strong>binarias</strong>:</p>
+<p><span class="math display">\[X_B = (X_{p_1 +1},..., X_{p_1+p_2})= ( x_i^B \hspace{0.05cm}:\hspace{0.05cm} i=1,...,n )\]</span></p>
+<ul>
+<li><span class="math inline">\(\hspace{0.03cm}x_i^B= (x_{i, (p_1+1)},....,x_{i (p_1+p_2)})\hspace{0.1cm}\)</span> es el <span class="math inline">\(i\)</span>-esimo vector de observaciones de las variables <strong>binarias</strong>. <span class="math inline">\(\\[0.75cm]\)</span></li>
+</ul></li>
+<li><p>Conjunto de datos de las variables <strong>multiclase</strong>:</p>
+<p><span class="math display">\[X_M = (X_{p_1+p_2+1},...,X_{p_1+p_2+p_3})= ( x_i^M   \hspace{0.05cm}: \hspace{0.05cm}  i=1,...,n )\]</span></p>
+<ul>
+<li><span class="math inline">\(\hspace{0.03cm}x_i^M= (x_{i, (p_1+p_2+1)},....,x_{i (p_1+p_2+p_3)})\hspace{0.1cm}\)</span> es el <span class="math inline">\(i\)</span>-esimo vector de observaciones de las variables <strong>multiclase</strong>. <span class="math inline">\(\\\)</span></li>
+</ul></li>
+</ul>
+<p>Donde: <span class="math inline">\(\hspace{0.1cm} X_j = (x_{1j},...,x_{nj})^t\hspace{0.07cm}\)</span> es una muestra de <span class="math inline">\(n\)</span> observaciones de la variable <span class="math inline">\(X_j\hspace{0.05cm},\)</span> para <span class="math inline">\(\hspace{0.03cm}j=1,...,p\hspace{0.05cm}\)</span>.</p>
 <p><br></p>
 <p><strong>Observación:</strong></p>
 <p><span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_p \hspace{0.1cm}\)</span> forman un conjunto de variables de tipo <strong>cuantitativo-binario-multiclase</strong>.</p>
@@ -280,9 +299,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 \]</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <ul>
-<li><p><span class="math inline">\(\hspace{0.1cm}x_i^Q= (x_{i 1},....,x_{i p_1})\hspace{0.03cm}\)</span> es el <span class="math inline">\(\hspace{0.03cm}i\)</span>-esimo vector de observaciones de las variables <strong>cuantitativas</strong>.</p></li>
-<li><p><span class="math inline">\(\hspace{0.1cm}x_i^B= ( \hspace{0.01cm} x_{i (p_1+1)},....,x_{i (p_1+p_2)} \hspace{0.01cm})\hspace{0.03cm}\)</span> es el <span class="math inline">\(\hspace{0.03cm}i\)</span>-esimo vector de observaciones de las variables <strong>binarias</strong>.</p></li>
-<li><p><span class="math inline">\(\hspace{0.1cm}x_i^M = ( \hspace{0.01cm}x_{i (p_1+p_2+1)},...,x_{i (p_1+p_2+p_3)} \hspace{0.01cm})\hspace{0.03cm}\)</span> es el <span class="math inline">\(\hspace{0.03cm}i\)</span>-esimo vector de observaciones de las variables <strong>multiclase</strong>.</p></li>
 <li><p><span class="math inline">\(\hspace{0.1cm}G_j \hspace{0.1cm}=\hspace{0.1cm} Max(X_j) \hspace{0.03cm}-\hspace{0.03cm} Min(X_j)\hspace{0.03cm}\)</span> es el rango de la muestra <span class="math inline">\(\hspace{0.03cm}X_j\hspace{0.03cm}\)</span>.</p></li>
 <li><p><span class="math inline">\(\hspace{0.1cm} a(x_i^B, x_r^B)\hspace{0.06cm}\)</span> es el número de coincidencias <span class="math inline">\(\hspace{0.03cm}(1,1)\hspace{0.03cm}\)</span> entre las observaciones <span class="math inline">\(\hspace{0.03cm} x_{ij}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}x_{rj}\hspace{0.03cm}\)</span> de las variables <strong>cuantitativas</strong>.</p></li>
 <li><p><span class="math inline">\(\hspace{0.1cm} d(x_i^B, x_r^B)\hspace{0.06cm}\)</span> es el número de coincidencias <span class="math inline">\(\hspace{0.03cm}(0,0)\hspace{0.03cm}\)</span> entre las observaciones <span class="math inline">\(\hspace{0.03cm} x_{ij}\hspace{0.1cm}\)</span> y <span class="math inline">\(\hspace{0.1cm}x_{rj}\hspace{0.03cm}\)</span> de las variables <strong>binarias</strong>.</p></li>
@@ -826,9 +842,6 @@ type
 \]</span></p>
 <p><span class="math inline">\(\hspace{0.25cm}\)</span> Donde:</p>
 <ul>
-<li><p><span class="math inline">\(\hspace{0.1cm}x_i^Q= (x_{i, 1},....,x_{i p_1})\hspace{0.1cm}\)</span> es <span class="math inline">\(i\)</span>-esimo vector de observaciones de las variables <strong>cuantitativas</strong>.</p></li>
-<li><p><span class="math inline">\(\hspace{0.1cm}x_i^B= (x_{i, (p_1+1)},....,x_{i (p_1+p_2)})\hspace{0.03cm}\)</span> es el <span class="math inline">\(i\)</span>-esimo vector de observaciones de las variables <strong>binarias</strong>.</p></li>
-<li><p><span class="math inline">\(\hspace{0.1cm}x_i^M= (x_{i, (p_1+p_2+1)},....,x_{i (p_1+p_2+p_3)})\hspace{0.03cm}\)</span> es el <span class="math inline">\(i\)</span>-esimo vector de observaciones de las variables <strong>multiclase</strong>.</p></li>
 <li><p><span class="math inline">\(\hspace{0.1cm}\delta(x_i^Q , x_r^Q)_{Maha} = \sqrt{ (x_i^Q - x_r^Q)^t \cdot S^{-1} \cdot (x_i^Q - x_r^Q) \hspace{0.25cm}}\hspace{0.05cm}\)</span></p></li>
 <li><p><span class="math inline">\(\hspace{0.1cm}S\hspace{0.03cm}\)</span> es la estimación de matriz de covarianzas de las variables <span class="math inline">\(\hspace{0.03cm}(\mathcal{X}_1,...,\mathcal{X}_{p_1})\hspace{0.03cm}\)</span> en base a la matriz de datos <span class="math inline">\(\hspace{0.03cm}X^Q=(X_1,...,X_{p_1})\hspace{0.1cm}\)</span>.</p></li>
 <li><p><span class="math inline">\(\hspace{0.1cm}D_{Maha} \hspace{0.1cm}=\hspace{0.1cm} \left(\hspace{0.1cm} \delta(x_i^Q , x_r^Q)_{Maha} \hspace{0.2cm} : \hspace{0.2cm} i,r=1,...,n \hspace{0.1cm}\right) \hspace{0.1cm}\)</span></p></li>
