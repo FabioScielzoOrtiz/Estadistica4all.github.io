@@ -1,15 +1,9 @@
-|Nombre|Email|
-|---|---|
-|Orlando                                           ||
-|Grecia                                            |Grecia89@gmail.com|
-|Ismael                                            |Isma98@gmail.com|
-|Luis                                              |Luismiguel123@gmail.com|
-|Pedro                                             |Pedro120@gmail.com|
-|Keith                                             |keith0@adventure-works.com|
-|Donna                                             |donna0@adventure-works.com|
-|Janet                                             |janet1@adventure-works.com|
-|Fabio                                             |fabio10@gmail.com|
-|Juan                                              ||
-|Lucia                                             |LuciaPerez@hotmail.com|
-|Pedro                                             |Pedro99@gmail.com|
-|Sergio                                            |sergio_as@gmail.com|
+|Nombre|Email|Pais|Nombre|Email|Estudios|
+|---|---|---|---|---|---|
+|Orlando                                           ||Australia|Juan|JuanPerez@colegio.es|Matem&#225;ticas|
+|Grecia                                            |Grecia89@gmail.com|Peru|Sonia|SoniDiaz@colegio.es|F&#237;sica|
+|Ismael                                            |Isma98@gmail.com|Espa&#241;a|Lucia|LuciaPerez@colegio.es|Lengua|
+|Luis                                              |Luismiguel123@gmail.com|Espa&#241;a|Marcos|MarcosSanz@colegio.es|Biolog&#237;a|
+|Pedro                                             |Pedro120@gmail.com|Argentina|Carlos|CarlosFernandez@colegio.es|Educaci&#243;n F&#237;sica|
+|Keith                                             |keith0@adventure-works.com|India|Daniel|DanielOrtiz@colegio.es|Geograf&#237;a|
+|Donna                                             |donna0@adventure-works.com|Germany|Garazi|GaraziGarcia@colegio.es|Ingl&#233;s|

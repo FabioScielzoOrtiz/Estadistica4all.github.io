@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Delete a database | Introduction to SQL in Azure Data Studio</title>
+  <title>Chapter 27 Concat tables by rows | Introduction to SQL in Azure Data Studio</title>
   <meta name="description" content="This article is an introduction to SQL in Azure Data Studio." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Delete a database | Introduction to SQL in Azure Data Studio" />
+  <meta property="og:title" content="Chapter 27 Concat tables by rows | Introduction to SQL in Azure Data Studio" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This article is an introduction to SQL in Azure Data Studio." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Delete a database | Introduction to SQL in Azure Data Studio" />
+  <meta name="twitter:title" content="Chapter 27 Concat tables by rows | Introduction to SQL in Azure Data Studio" />
   
   <meta name="twitter:description" content="This article is an introduction to SQL in Azure Data Studio." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="create-a-database.html"/>
-<link rel="next" href="create-a-table.html"/>
+<link rel="prev" href="join-tables.html"/>
+<link rel="next" href="concat-tables-by-columns.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -209,23 +209,128 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="delete-a-database" class="section level1 hasAnchor" number="4">
-<h1><span class="header-section-number">Chapter 4</span> Delete a database<a href="delete-a-database.html#delete-a-database" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>We can delete a database as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="delete-a-database.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Drop the database &#39;Base_Datos_Fabio&#39;</span></span>
-<span id="cb2-2"><a href="delete-a-database.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- Connect to the &#39;master&#39; database to run this snippet</span></span>
-<span id="cb2-3"><a href="delete-a-database.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">USE</span> <span class="kw">master</span></span>
-<span id="cb2-4"><a href="delete-a-database.html#cb2-4" aria-hidden="true" tabindex="-1"></a>GO</span>
-<span id="cb2-5"><a href="delete-a-database.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">-- Uncomment the ALTER DATABASE statement below to set the database to SINGLE_USER mode if the drop database command fails because the database is in use.</span></span>
-<span id="cb2-6"><a href="delete-a-database.html#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">ALTER</span> <span class="kw">DATABASE</span> Base_Datos_Fabio <span class="kw">SET</span> SINGLE_USER <span class="kw">WITH</span> <span class="kw">ROLLBACK</span> <span class="kw">IMMEDIATE</span>;</span>
-<span id="cb2-7"><a href="delete-a-database.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">-- Drop the database if it exists</span></span>
-<span id="cb2-8"><a href="delete-a-database.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="cf">IF</span> <span class="kw">EXISTS</span> (</span>
-<span id="cb2-9"><a href="delete-a-database.html#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> [name]</span>
-<span id="cb2-10"><a href="delete-a-database.html#cb2-10" aria-hidden="true" tabindex="-1"></a>   <span class="kw">FROM</span> sys.databases</span>
-<span id="cb2-11"><a href="delete-a-database.html#cb2-11" aria-hidden="true" tabindex="-1"></a>   <span class="kw">WHERE</span> [name] <span class="op">=</span> N<span class="st">&#39;Base_Datos_Fabio&#39;</span></span>
-<span id="cb2-12"><a href="delete-a-database.html#cb2-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-13"><a href="delete-a-database.html#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">DATABASE</span> Base_Datos_Fabio</span>
-<span id="cb2-14"><a href="delete-a-database.html#cb2-14" aria-hidden="true" tabindex="-1"></a>GO</span></code></pre></div>
+<div id="concat-tables-by-rows" class="section level1 hasAnchor" number="27">
+<h1><span class="header-section-number">Chapter 27</span> Concat tables by rows<a href="concat-tables-by-rows.html#concat-tables-by-rows" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>We can concatenate tables by rows using <code>UNION</code> as follows:</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb93-1"><a href="concat-tables-by-rows.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Nombre, Email, AlumnoID <span class="kw">as</span> <span class="kw">ID</span> <span class="kw">FROM</span> Alumnos</span>
+<span id="cb93-2"><a href="concat-tables-by-rows.html#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="kw">UNION</span></span>
+<span id="cb93-3"><a href="concat-tables-by-rows.html#cb93-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> Nombre, Email, ProfesorID <span class="kw">as</span> <span class="kw">ID</span> <span class="kw">FROM</span> Profesores;</span></code></pre></div>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Nombre</th>
+<th align="left">Email</th>
+<th align="left">ID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Carlos</td>
+<td align="left"><a href="mailto:CarlosFernandez@colegio.es" class="email">CarlosFernandez@colegio.es</a></td>
+<td align="left">P5</td>
+</tr>
+<tr class="even">
+<td align="left">Daniel</td>
+<td align="left"><a href="mailto:DanielOrtiz@colegio.es" class="email">DanielOrtiz@colegio.es</a></td>
+<td align="left">P6</td>
+</tr>
+<tr class="odd">
+<td align="left">Donna</td>
+<td align="left"><a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a></td>
+<td align="left">A3</td>
+</tr>
+<tr class="even">
+<td align="left">Fabio</td>
+<td align="left"><a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a></td>
+<td align="left">A5</td>
+</tr>
+<tr class="odd">
+<td align="left">Garazi</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">P7</td>
+</tr>
+<tr class="even">
+<td align="left">Grecia</td>
+<td align="left"><a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a></td>
+<td align="left">A10</td>
+</tr>
+<tr class="odd">
+<td align="left">Ismael</td>
+<td align="left"><a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a></td>
+<td align="left">A11</td>
+</tr>
+<tr class="even">
+<td align="left">Janet</td>
+<td align="left"><a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a></td>
+<td align="left">A4</td>
+</tr>
+<tr class="odd">
+<td align="left">Juan</td>
+<td align="left"></td>
+<td align="left">A6</td>
+</tr>
+<tr class="even">
+<td align="left">Juan</td>
+<td align="left"><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
+<td align="left">P1</td>
+</tr>
+<tr class="odd">
+<td align="left">Keith</td>
+<td align="left"><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
+<td align="left">A2</td>
+</tr>
+<tr class="even">
+<td align="left">Lucia</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">P3</td>
+</tr>
+<tr class="odd">
+<td align="left">Lucia</td>
+<td align="left"><a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a></td>
+<td align="left">A7</td>
+</tr>
+<tr class="even">
+<td align="left">Luis</td>
+<td align="left"><a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a></td>
+<td align="left">A12</td>
+</tr>
+<tr class="odd">
+<td align="left">Marcos</td>
+<td align="left"><a href="mailto:MarcosSanz@colegio.es" class="email">MarcosSanz@colegio.es</a></td>
+<td align="left">P4</td>
+</tr>
+<tr class="even">
+<td align="left">Orlando</td>
+<td align="left"></td>
+<td align="left">A1</td>
+</tr>
+<tr class="odd">
+<td align="left">Pedro</td>
+<td align="left"><a href="mailto:Pedro120@gmail.com" class="email">Pedro120@gmail.com</a></td>
+<td align="left">A13</td>
+</tr>
+<tr class="even">
+<td align="left">Pedro</td>
+<td align="left"><a href="mailto:Pedro99@gmail.com" class="email">Pedro99@gmail.com</a></td>
+<td align="left">A8</td>
+</tr>
+<tr class="odd">
+<td align="left">Sergio</td>
+<td align="left"><a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a></td>
+<td align="left">A9</td>
+</tr>
+<tr class="even">
+<td align="left">Sonia</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">P2</td>
+</tr>
+</tbody>
+</table>
 <p><br></p>
 </div>
             </section>
@@ -233,8 +338,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="create-a-database.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="create-a-table.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="join-tables.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="concat-tables-by-columns.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

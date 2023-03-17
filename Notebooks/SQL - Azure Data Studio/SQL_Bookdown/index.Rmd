@@ -2130,6 +2130,153 @@ ON a.ProfesorID = b.ProfesorID
 
 <br>
 
+# Concat tables by rows
+
+We can concatenate tables by rows using `UNION` as follows:
+
+```sql
+SELECT Nombre, Email, AlumnoID as ID FROM Alumnos
+UNION
+SELECT Nombre, Email, ProfesorID as ID FROM Profesores;
+```
+
+|Nombre|Email|ID|
+|:---|:---|:---|
+|Carlos|CarlosFernandez@colegio.es|P5|
+|Daniel|DanielOrtiz@colegio.es|P6|
+|Donna                                             |donna0@adventure-works.com|A3|
+|Fabio                                             |fabio10@gmail.com|A5|
+|Garazi|GaraziGarcia@colegio.es|P7|
+|Grecia                                            |Grecia89@gmail.com|A10|
+|Ismael                                            |Isma98@gmail.com|A11|
+|Janet                                             |janet1@adventure-works.com|A4|
+|Juan                                              ||A6|
+|Juan|JuanPerez@colegio.es|P1|
+|Keith                                             |keith0@adventure-works.com|A2|
+|Lucia|LuciaPerez@colegio.es|P3|
+|Lucia                                             |LuciaPerez@hotmail.com|A7|
+|Luis                                              |Luismiguel123@gmail.com|A12|
+|Marcos|MarcosSanz@colegio.es|P4|
+|Orlando                                           ||A1|
+|Pedro                                             |Pedro120@gmail.com|A13|
+|Pedro                                             |Pedro99@gmail.com|A8|
+|Sergio                                            |sergio_as@gmail.com|A9|
+|Sonia|SoniDiaz@colegio.es|P2|
+
+
+
+<br>
+
+# Concat tables by columns
+
+We can concatenate tables by rows using `JOIN` as follows:
+
+
+First we have to add a common column in both tables. We will call that column ID, which will be shared by both tables.
+
+The ID values will be the sequence 1,2,3,...,len(table), where len(table) is the number of rows of the table.
+
+In  **Alumnos** table we can do that as follows:
+```sql
+ALTER TABLE Alumnos
+ADD ID nvarchar(50) NULL;
+
+WITH cteAlumnos AS (
+  SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS rn, *
+  FROM Alumnos
+)
+UPDATE cteAlumnos
+SET ID = CAST(rn AS nvarchar(50));
+```
+
+We can see the results:
+```sql
+select*from Alumnos
+```
+
+|AlumnoID|Nombre|Pais|Ciudad|Email|Telefono|ID|
+|:---|:---|:---|:---|:---|:---|:---|
+|A1|Orlando                                           |Australia|||917755028|1|
+|A10|Grecia                                            |Peru|Lima|Grecia89@gmail.com||2|
+|A11|Ismael                                            |Espa&#241;a|Madrid|Isma98@gmail.com|912234543|3|
+|A12|Luis                                              |Espa&#241;a|Murcia|Luismiguel123@gmail.com||4|
+|A13|Pedro                                             |Argentina|Buenos Aires|Pedro120@gmail.com||5|
+|A2|Keith                                             |India||keith0@adventure-works.com||6|
+|A3|Donna                                             |Germany|Berlin|donna0@adventure-works.com|915547890|7|
+|A4|Janet                                             |United States|California|janet1@adventure-works.com||8|
+|A5|Fabio                                             |Espa&#241;a|Madrid|fabio10@gmail.com||9|
+|A6|Juan                                              |Espa&#241;a|Sevilla||915869028|10|
+|A7|Lucia                                             |Espa&#241;a||LuciaPerez@hotmail.com||11|
+|A8|Pedro                                             |Italia|Roma|Pedro99@gmail.com|910007890|12|
+|A9|Sergio                                            |United States|New York|sergio_as@gmail.com||13|
+
+
+
+<br>
+
+Now, we apply the same code to **Profesores** table:
+
+```sql
+ALTER TABLE Profesores
+ADD ID nvarchar(50) NULL;
+
+WITH cteProfesores AS (
+  SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS rn, *
+  FROM Profesores
+)
+UPDATE cteProfesores
+SET ID = CAST(rn AS nvarchar(50));
+```
+
+We can see the results:
+```sql
+SELECT*FROM Profesores
+```
+
+|ProfesorID|Nombre|Estudios|Email|ID|
+|:---|:---|:---|:---|:---|
+|P1|Juan|Matem&#225;ticas|JuanPerez@colegio.es|1|
+|P2|Sonia|F&#237;sica|SoniDiaz@colegio.es|2|
+|P3|Lucia|Lengua|LuciaPerez@colegio.es|3|
+|P4|Marcos|Biolog&#237;a|MarcosSanz@colegio.es|4|
+|P5|Carlos|Educaci&#243;n F&#237;sica|CarlosFernandez@colegio.es|5|
+|P6|Daniel|Geograf&#237;a|DanielOrtiz@colegio.es|6|
+|P7|Garazi|Ingl&#233;s|GaraziGarcia@colegio.es|7|
+
+
+
+<br>
+ 
+After these changes, we can concatenate both tables by columns using **ID** column as link column with `JOIN` operation.
+
+```sql
+SELECT a.Nombre, a.Email, a.Pais , b.Nombre, b.Email, b.Estudios
+FROM Alumnos a
+JOIN Profesores b 
+ON a.ID = b.ID ;
+```
+
+<div style="width: 100%; overflow-x: auto;">
+
+|Nombre|Email|Pais|Nombre|Email|Estudios|
+|:---|:---|:---|:---|:---|:---|
+|Orlando                                           ||Australia|Juan|JuanPerez@colegio.es|Matem&#225;ticas|
+|Grecia                                            |Grecia89@gmail.com|Peru|Sonia|SoniDiaz@colegio.es|F&#237;sica|
+|Ismael                                            |Isma98@gmail.com|Espa&#241;a|Lucia|LuciaPerez@colegio.es|Lengua|
+|Luis                                              |Luismiguel123@gmail.com|Espa&#241;a|Marcos|MarcosSanz@colegio.es|Biolog&#237;a|
+|Pedro                                             |Pedro120@gmail.com|Argentina|Carlos|CarlosFernandez@colegio.es|Educaci&#243;n F&#237;sica|
+|Keith                                             |keith0@adventure-works.com|India|Daniel|DanielOrtiz@colegio.es|Geograf&#237;a|
+|Donna                                             |donna0@adventure-works.com|Germany|Garazi|GaraziGarcia@colegio.es|Ingl&#233;s|
+
+</div>
+
+
+<br>
+
+As we can see, this table has only 7 rows. This is because the **Profesores** table has 7 rows and **Alumnos** has 13 rows. So, the join operation applied to both tables using ID as the link column gives us all rows of **Profesores** but only the first 7 rows of **Alumnos**. However, if both tables had the same number of rows, the resulting join would contain all rows from both tables.
+ 
+
+<br>
 
 # Bibliography
 

@@ -526,3 +526,76 @@ SELECT*FROM New_Table;
 
 -------------------------------------------------------------------------
 -------------------------------------------------------------------------
+
+-- Concatenar tablas por filas --> UNION
+
+SELECT Nombre, Email, AlumnoID as ID FROM Alumnos
+UNION
+SELECT Nombre, Email, ProfesorID as ID FROM Profesores;
+
+
+-------------------------------------------------------------------------
+-------------------------------------------------------------------------
+
+-- Concatenar tablas por columnas --> JOIN
+
+
+---Añadimos la columna ID a la tabla Alumnos, la cuales contiene la secuencia 1,2,...,len(Alumnos)
+
+ALTER TABLE Alumnos
+ADD ID nvarchar(50) NULL;
+
+
+-- Generar números consecutivos para cada fila de la tabla Alumnos
+WITH cteAlumnos AS (
+  SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS rn, *
+  FROM Alumnos
+)
+-- Actualizar la columna ID de la tabla Alumnos con los números generados
+UPDATE cteAlumnos
+SET ID = CAST(rn AS nvarchar(50));
+
+
+select*from Alumnos
+
+
+-----------
+
+--Añadimos la columna ID a la tabla Profesores, la cuales contiene la secuencia 1,2,...,len(Profesores)
+
+ALTER TABLE Profesores
+ADD ID nvarchar(50) NULL;
+
+
+-- Generar números consecutivos para cada fila de la tabla Alumnos
+WITH cteProfesores AS (
+  SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS rn, *
+  FROM Profesores
+)
+-- Actualizar la columna ID de la tabla Alumnos con los números generados
+UPDATE cteProfesores
+SET ID = CAST(rn AS nvarchar(50));
+
+
+select*from Profesores
+
+ 
+---------
+
+-- Ahora concatemaos por columnas las tablas Alumnos y Profesores usando ID como columna de enlace.
+
+SELECT a.Nombre, a.Email, a.Pais , b.Nombre, b.Email, b.Estudios
+FROM Alumnos a
+JOIN Profesores b 
+ON a.ID = b.ID ;
+
+-- Como la tabla profesores tiene 7 filas y la de Alumnos 13, la concatenacion por columnas de ambas tablas solo tiene 7 filas (todos los registros de Profesores, y solo los primeros 7 de Alumnos).
+
+
+
+
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+
+
+

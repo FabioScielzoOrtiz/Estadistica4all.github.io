@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 17 Delete rows from a table that meet a condition | Introduction to SQL in Azure Data Studio</title>
+  <title>Chapter 28 Concat tables by columns | Introduction to SQL in Azure Data Studio</title>
   <meta name="description" content="This article is an introduction to SQL in Azure Data Studio." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 17 Delete rows from a table that meet a condition | Introduction to SQL in Azure Data Studio" />
+  <meta property="og:title" content="Chapter 28 Concat tables by columns | Introduction to SQL in Azure Data Studio" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="This article is an introduction to SQL in Azure Data Studio." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 17 Delete rows from a table that meet a condition | Introduction to SQL in Azure Data Studio" />
+  <meta name="twitter:title" content="Chapter 28 Concat tables by columns | Introduction to SQL in Azure Data Studio" />
   
   <meta name="twitter:description" content="This article is an introduction to SQL in Azure Data Studio." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="delete-rows-from-a-table.html"/>
-<link rel="next" href="delete-columns-from-a-table.html"/>
+<link rel="prev" href="concat-tables-by-rows.html"/>
+<link rel="next" href="bibliography.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -209,19 +209,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="delete-rows-from-a-table-that-meet-a-condition" class="section level1 hasAnchor" number="17">
-<h1><span class="header-section-number">Chapter 17</span> Delete rows from a table that meet a condition<a href="delete-rows-from-a-table-that-meet-a-condition.html#delete-rows-from-a-table-that-meet-a-condition" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>We can also delete rows from a table that meet a specific condition as follows:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb40-1"><a href="delete-rows-from-a-table-that-meet-a-condition.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">Delete</span> <span class="kw">from</span> Alumnos <span class="kw">WHERE</span> Nombre <span class="op">=</span> <span class="st">&#39;Fabio&#39;</span></span></code></pre></div>
-<div class="sourceCode" id="cb41"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb41-1"><a href="delete-rows-from-a-table-that-meet-a-condition.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Alumnos</span></code></pre></div>
+<div id="concat-tables-by-columns" class="section level1 hasAnchor" number="28">
+<h1><span class="header-section-number">Chapter 28</span> Concat tables by columns<a href="concat-tables-by-columns.html#concat-tables-by-columns" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>We can concatenate tables by rows using <code>JOIN</code> as follows:</p>
+<p>First we have to add a common column in both tables. We will call that column ID, which will be shared by both tables.</p>
+<p>The ID values will be the sequence 1,2,3,…,len(table), where len(table) is the number of rows of the table.</p>
+<p>In <strong>Alumnos</strong> table we can do that as follows:</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb94-1"><a href="concat-tables-by-columns.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> Alumnos</span>
+<span id="cb94-2"><a href="concat-tables-by-columns.html#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ADD</span> <span class="kw">ID</span> <span class="dt">nvarchar</span>(<span class="dv">50</span>) <span class="kw">NULL</span>;</span>
+<span id="cb94-3"><a href="concat-tables-by-columns.html#cb94-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-4"><a href="concat-tables-by-columns.html#cb94-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> cteAlumnos <span class="kw">AS</span> (</span>
+<span id="cb94-5"><a href="concat-tables-by-columns.html#cb94-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> <span class="fu">ROW_NUMBER</span>() <span class="kw">OVER</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> (<span class="kw">SELECT</span> <span class="kw">NULL</span>)) <span class="kw">AS</span> rn, <span class="op">*</span></span>
+<span id="cb94-6"><a href="concat-tables-by-columns.html#cb94-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> Alumnos</span>
+<span id="cb94-7"><a href="concat-tables-by-columns.html#cb94-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb94-8"><a href="concat-tables-by-columns.html#cb94-8" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> cteAlumnos</span>
+<span id="cb94-9"><a href="concat-tables-by-columns.html#cb94-9" aria-hidden="true" tabindex="-1"></a><span class="kw">SET</span> <span class="kw">ID</span> <span class="op">=</span> <span class="fu">CAST</span>(rn <span class="kw">AS</span> <span class="dt">nvarchar</span>(<span class="dv">50</span>));</span></code></pre></div>
+<p>We can see the results:</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb95-1"><a href="concat-tables-by-columns.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="kw">select</span><span class="op">*</span><span class="kw">from</span> Alumnos</span></code></pre></div>
 <table style="width:100%;">
 <colgroup>
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
-<col width="16%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -231,6 +244,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <th align="left">Ciudad</th>
 <th align="left">Email</th>
 <th align="left">Telefono</th>
+<th align="left">ID</th>
 </tr>
 </thead>
 <tbody>
@@ -241,6 +255,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left"></td>
 <td align="left"></td>
 <td align="left">917755028</td>
+<td align="left">1</td>
 </tr>
 <tr class="even">
 <td align="left">A10</td>
@@ -249,6 +264,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Lima</td>
 <td align="left"><a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a></td>
 <td align="left"></td>
+<td align="left">2</td>
 </tr>
 <tr class="odd">
 <td align="left">A11</td>
@@ -257,6 +273,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Madrid</td>
 <td align="left"><a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a></td>
 <td align="left">912234543</td>
+<td align="left">3</td>
 </tr>
 <tr class="even">
 <td align="left">A12</td>
@@ -265,6 +282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Murcia</td>
 <td align="left"><a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a></td>
 <td align="left"></td>
+<td align="left">4</td>
 </tr>
 <tr class="odd">
 <td align="left">A13</td>
@@ -273,6 +291,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Buenos Aires</td>
 <td align="left"><a href="mailto:Pedro120@gmail.com" class="email">Pedro120@gmail.com</a></td>
 <td align="left"></td>
+<td align="left">5</td>
 </tr>
 <tr class="even">
 <td align="left">A2</td>
@@ -281,6 +300,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left"></td>
 <td align="left"><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
 <td align="left"></td>
+<td align="left">6</td>
 </tr>
 <tr class="odd">
 <td align="left">A3</td>
@@ -289,6 +309,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">Berlin</td>
 <td align="left"><a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a></td>
 <td align="left">915547890</td>
+<td align="left">7</td>
 </tr>
 <tr class="even">
 <td align="left">A4</td>
@@ -297,44 +318,137 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td align="left">California</td>
 <td align="left"><a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a></td>
 <td align="left"></td>
+<td align="left">8</td>
 </tr>
 <tr class="odd">
+<td align="left">A5</td>
+<td align="left">Fabio</td>
+<td align="left">España</td>
+<td align="left">Madrid</td>
+<td align="left"><a href="mailto:fabio10@gmail.com" class="email">fabio10@gmail.com</a></td>
+<td align="left"></td>
+<td align="left">9</td>
+</tr>
+<tr class="even">
 <td align="left">A6</td>
 <td align="left">Juan</td>
 <td align="left">España</td>
 <td align="left">Sevilla</td>
 <td align="left"></td>
 <td align="left">915869028</td>
+<td align="left">10</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">A7</td>
 <td align="left">Lucia</td>
 <td align="left">España</td>
 <td align="left"></td>
 <td align="left"><a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a></td>
 <td align="left"></td>
+<td align="left">11</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">A8</td>
 <td align="left">Pedro</td>
 <td align="left">Italia</td>
 <td align="left">Roma</td>
 <td align="left"><a href="mailto:Pedro99@gmail.com" class="email">Pedro99@gmail.com</a></td>
 <td align="left">910007890</td>
+<td align="left">12</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">A9</td>
 <td align="left">Sergio</td>
 <td align="left">United States</td>
 <td align="left">New York</td>
 <td align="left"><a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a></td>
 <td align="left"></td>
+<td align="left">13</td>
 </tr>
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb42-1"><a href="delete-rows-from-a-table-that-meet-a-condition.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="kw">Delete</span> <span class="kw">from</span> Alumnos <span class="kw">WHERE</span> Nombre <span class="kw">in</span> (<span class="st">&#39;Fabio&#39;</span>,<span class="st">&#39;Grecia&#39;</span>, <span class="st">&#39;Orlando&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb43"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb43-1"><a href="delete-rows-from-a-table-that-meet-a-condition.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Alumnos</span></code></pre></div>
+<p>Now, we apply the same code to <strong>Profesores</strong> table:</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb96-1"><a href="concat-tables-by-columns.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ALTER</span> <span class="kw">TABLE</span> Profesores</span>
+<span id="cb96-2"><a href="concat-tables-by-columns.html#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ADD</span> <span class="kw">ID</span> <span class="dt">nvarchar</span>(<span class="dv">50</span>) <span class="kw">NULL</span>;</span>
+<span id="cb96-3"><a href="concat-tables-by-columns.html#cb96-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-4"><a href="concat-tables-by-columns.html#cb96-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> cteProfesores <span class="kw">AS</span> (</span>
+<span id="cb96-5"><a href="concat-tables-by-columns.html#cb96-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> <span class="fu">ROW_NUMBER</span>() <span class="kw">OVER</span> (<span class="kw">ORDER</span> <span class="kw">BY</span> (<span class="kw">SELECT</span> <span class="kw">NULL</span>)) <span class="kw">AS</span> rn, <span class="op">*</span></span>
+<span id="cb96-6"><a href="concat-tables-by-columns.html#cb96-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">FROM</span> Profesores</span>
+<span id="cb96-7"><a href="concat-tables-by-columns.html#cb96-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb96-8"><a href="concat-tables-by-columns.html#cb96-8" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> cteProfesores</span>
+<span id="cb96-9"><a href="concat-tables-by-columns.html#cb96-9" aria-hidden="true" tabindex="-1"></a><span class="kw">SET</span> <span class="kw">ID</span> <span class="op">=</span> <span class="fu">CAST</span>(rn <span class="kw">AS</span> <span class="dt">nvarchar</span>(<span class="dv">50</span>));</span></code></pre></div>
+<p>We can see the results:</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb97-1"><a href="concat-tables-by-columns.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span><span class="op">*</span><span class="kw">FROM</span> Profesores</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="left">ProfesorID</th>
+<th align="left">Nombre</th>
+<th align="left">Estudios</th>
+<th align="left">Email</th>
+<th align="left">ID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">P1</td>
+<td align="left">Juan</td>
+<td align="left">Matemáticas</td>
+<td align="left"><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
+<td align="left">1</td>
+</tr>
+<tr class="even">
+<td align="left">P2</td>
+<td align="left">Sonia</td>
+<td align="left">Física</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">2</td>
+</tr>
+<tr class="odd">
+<td align="left">P3</td>
+<td align="left">Lucia</td>
+<td align="left">Lengua</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">3</td>
+</tr>
+<tr class="even">
+<td align="left">P4</td>
+<td align="left">Marcos</td>
+<td align="left">Biología</td>
+<td align="left"><a href="mailto:MarcosSanz@colegio.es" class="email">MarcosSanz@colegio.es</a></td>
+<td align="left">4</td>
+</tr>
+<tr class="odd">
+<td align="left">P5</td>
+<td align="left">Carlos</td>
+<td align="left">Educación Física</td>
+<td align="left"><a href="mailto:CarlosFernandez@colegio.es" class="email">CarlosFernandez@colegio.es</a></td>
+<td align="left">5</td>
+</tr>
+<tr class="even">
+<td align="left">P6</td>
+<td align="left">Daniel</td>
+<td align="left">Geografía</td>
+<td align="left"><a href="mailto:DanielOrtiz@colegio.es" class="email">DanielOrtiz@colegio.es</a></td>
+<td align="left">6</td>
+</tr>
+<tr class="odd">
+<td align="left">P7</td>
+<td align="left">Garazi</td>
+<td align="left">Inglés</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">7</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<p>After these changes, we can concatenate both tables by columns using <strong>ID</strong> column as link column with <code>JOIN</code> operation.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb98-1"><a href="concat-tables-by-columns.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> a.Nombre, a.Email, a.Pais , b.Nombre, b.Email, b.Estudios</span>
+<span id="cb98-2"><a href="concat-tables-by-columns.html#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> Alumnos a</span>
+<span id="cb98-3"><a href="concat-tables-by-columns.html#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="kw">JOIN</span> Profesores b </span>
+<span id="cb98-4"><a href="concat-tables-by-columns.html#cb98-4" aria-hidden="true" tabindex="-1"></a><span class="kw">ON</span> a.<span class="kw">ID</span> <span class="op">=</span> b.<span class="kw">ID</span> ;</span></code></pre></div>
+<div style="width: 100%; overflow-x: auto;">
 <table style="width:100%;">
 <colgroup>
 <col width="16%" />
@@ -346,105 +460,85 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">AlumnoID</th>
 <th align="left">Nombre</th>
-<th align="left">Pais</th>
-<th align="left">Ciudad</th>
 <th align="left">Email</th>
-<th align="left">Telefono</th>
+<th align="left">Pais</th>
+<th align="left">Nombre</th>
+<th align="left">Email</th>
+<th align="left">Estudios</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">A11</td>
-<td align="left">Ismael</td>
-<td align="left">España</td>
-<td align="left">Madrid</td>
-<td align="left"><a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a></td>
-<td align="left">912234543</td>
-</tr>
-<tr class="even">
-<td align="left">A12</td>
-<td align="left">Luis</td>
-<td align="left">España</td>
-<td align="left">Murcia</td>
-<td align="left"><a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a></td>
+<td align="left">Orlando</td>
 <td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">A13</td>
-<td align="left">Pedro</td>
-<td align="left">Argentina</td>
-<td align="left">Buenos Aires</td>
-<td align="left"><a href="mailto:Pedro120@gmail.com" class="email">Pedro120@gmail.com</a></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">A2</td>
-<td align="left">Keith</td>
-<td align="left">India</td>
-<td align="left"></td>
-<td align="left"><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">A3</td>
-<td align="left">Donna</td>
-<td align="left">Germany</td>
-<td align="left">Berlin</td>
-<td align="left"><a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a></td>
-<td align="left">915547890</td>
-</tr>
-<tr class="even">
-<td align="left">A4</td>
-<td align="left">Janet</td>
-<td align="left">United States</td>
-<td align="left">California</td>
-<td align="left"><a href="mailto:janet1@adventure-works.com" class="email">janet1@adventure-works.com</a></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">A6</td>
+<td align="left">Australia</td>
 <td align="left">Juan</td>
-<td align="left">España</td>
-<td align="left">Sevilla</td>
-<td align="left"></td>
-<td align="left">915869028</td>
+<td align="left"><a href="mailto:JuanPerez@colegio.es" class="email">JuanPerez@colegio.es</a></td>
+<td align="left">Matemáticas</td>
 </tr>
 <tr class="even">
-<td align="left">A7</td>
-<td align="left">Lucia</td>
-<td align="left">España</td>
-<td align="left"></td>
-<td align="left"><a href="mailto:LuciaPerez@hotmail.com" class="email">LuciaPerez@hotmail.com</a></td>
-<td align="left"></td>
+<td align="left">Grecia</td>
+<td align="left"><a href="mailto:Grecia89@gmail.com" class="email">Grecia89@gmail.com</a></td>
+<td align="left">Peru</td>
+<td align="left">Sonia</td>
+<td align="left"><a href="mailto:SoniDiaz@colegio.es" class="email">SoniDiaz@colegio.es</a></td>
+<td align="left">Física</td>
 </tr>
 <tr class="odd">
-<td align="left">A8</td>
-<td align="left">Pedro</td>
-<td align="left">Italia</td>
-<td align="left">Roma</td>
-<td align="left"><a href="mailto:Pedro99@gmail.com" class="email">Pedro99@gmail.com</a></td>
-<td align="left">910007890</td>
+<td align="left">Ismael</td>
+<td align="left"><a href="mailto:Isma98@gmail.com" class="email">Isma98@gmail.com</a></td>
+<td align="left">España</td>
+<td align="left">Lucia</td>
+<td align="left"><a href="mailto:LuciaPerez@colegio.es" class="email">LuciaPerez@colegio.es</a></td>
+<td align="left">Lengua</td>
 </tr>
 <tr class="even">
-<td align="left">A9</td>
-<td align="left">Sergio</td>
-<td align="left">United States</td>
-<td align="left">New York</td>
-<td align="left"><a href="mailto:sergio_as@gmail.com" class="email">sergio_as@gmail.com</a></td>
-<td align="left"></td>
+<td align="left">Luis</td>
+<td align="left"><a href="mailto:Luismiguel123@gmail.com" class="email">Luismiguel123@gmail.com</a></td>
+<td align="left">España</td>
+<td align="left">Marcos</td>
+<td align="left"><a href="mailto:MarcosSanz@colegio.es" class="email">MarcosSanz@colegio.es</a></td>
+<td align="left">Biología</td>
+</tr>
+<tr class="odd">
+<td align="left">Pedro</td>
+<td align="left"><a href="mailto:Pedro120@gmail.com" class="email">Pedro120@gmail.com</a></td>
+<td align="left">Argentina</td>
+<td align="left">Carlos</td>
+<td align="left"><a href="mailto:CarlosFernandez@colegio.es" class="email">CarlosFernandez@colegio.es</a></td>
+<td align="left">Educación Física</td>
+</tr>
+<tr class="even">
+<td align="left">Keith</td>
+<td align="left"><a href="mailto:keith0@adventure-works.com" class="email">keith0@adventure-works.com</a></td>
+<td align="left">India</td>
+<td align="left">Daniel</td>
+<td align="left"><a href="mailto:DanielOrtiz@colegio.es" class="email">DanielOrtiz@colegio.es</a></td>
+<td align="left">Geografía</td>
+</tr>
+<tr class="odd">
+<td align="left">Donna</td>
+<td align="left"><a href="mailto:donna0@adventure-works.com" class="email">donna0@adventure-works.com</a></td>
+<td align="left">Germany</td>
+<td align="left">Garazi</td>
+<td align="left"><a href="mailto:GaraziGarcia@colegio.es" class="email">GaraziGarcia@colegio.es</a></td>
+<td align="left">Inglés</td>
 </tr>
 </tbody>
 </table>
+</div>
+<p><br></p>
+<p>As we can see, this table has only 7 rows. This is because the <strong>Profesores</strong> table has 7 rows and <strong>Alumnos</strong> has 13 rows. So, the join operation applied to both tables using ID as the link column gives us all rows of <strong>Profesores</strong> but only the first 7 rows of <strong>Alumnos</strong>. However, if both tables had the same number of rows, the resulting join would contain all rows from both tables.</p>
+<p><br></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="delete-rows-from-a-table.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="delete-columns-from-a-table.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="concat-tables-by-rows.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bibliography.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -36,4 +36,6 @@ inner-join
 outer-join
 right-join
 left-join
+concat-tables-by-rows
+concat-tables-by-columns
 bibliography
