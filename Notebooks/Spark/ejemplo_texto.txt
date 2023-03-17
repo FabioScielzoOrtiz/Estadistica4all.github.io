@@ -1,0 +1,6 @@
+Este es un ejemplo de archivo de texto :)
+Esto es una frase de prueba 1.
+Esto es una frase de prueba 2.
+Esto es una frase de prueba 3.
+Esto es una frase de prueba 4.
+Esto es una frase de prueba 5.
