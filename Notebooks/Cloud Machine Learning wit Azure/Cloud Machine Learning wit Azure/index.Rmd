@@ -1,0 +1,95 @@
+--- 
+title: "Cloud Machine Learning with Azure"
+author: "Fabio Scielzo Ortiz"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+# url: your book url like https://bookdown.org/yihui/bookdown
+# cover-image: path to the social sharing image like images/cover.jpg
+description: |
+ This article is an introduction to **Cloud Machine Learning** in **Azure** environment.
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+---
+
+
+
+# Introduction  
+
+
+<center>
+
+![](Cloud_ML.jpg){width="45%"}
+
+</center>
+
+
+<br>
+
+
+<div class="warning" style='background-color:#FCF2EC; color: #000000; border-left: solid #FE9554 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:10em;'>
+
+
+- **More articles:    $\hspace{0.1cm}$ [Estadistica4all](https://estadistica4all.com/)**
+
+- **Author:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](https://estadistica4all.com/creador.html)
+
+- **If you use this article, please cite it:**
+
+$\hspace{1.2cm}$ Scielzo Ortiz, F. (2023). Introducción a Pandas. Estadistica4all. 
+
+
+- ***It is recommended to open the article on a computer or tablet.***
+
+</p>
+ 
+</p></span>
+</div>
+
+
+ <br>
+ 
+ 
+This article is an introduction to **Cloud Machine Learning** in **Azure** environment.
+ 
+ 
+ 
+<br>
+
+
+# Machine Learning Project Lifecycle
+
+
+
+
+
+<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
