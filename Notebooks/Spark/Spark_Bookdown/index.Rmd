@@ -1,0 +1,82 @@
+--- 
+title: "Introduction to Spark from PySpark"
+author: "Fabio Scielzo Ortiz"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib]
+# url: your book url like https://bookdown.org/yihui/bookdown
+# cover-image: path to the social sharing image like images/cover.jpg
+description: |
+  This is an introduction to Spark from the Python library PySpark.
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+---
+
+
+# Introduction
+
+
+<center>
+
+![](dist.jpg){width="45%"}
+</center>
+
+</center>
+
+<br>
+
+<div class="warning" style='background-color:#FCF2EC; color: #000000; border-left: solid #FE9554 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:10em;'>
+
+
+- **More articles:    $\hspace{0.1cm}$ [Estadistica4all](https://estadistica4all.com)**
+
+- **Author:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](https://estadistica4all.com/creador.html)
+
+- **If you use this article, please reference it.**
+
+$\hspace{0.75cm}$ Scielzo Ortiz, Fabio. (2023). Introduction to Spark from PySpark. Estadistica4all. 
+
+
+- ***It's recommended to open the article on a computer, tablet or in a smartphone with  desktop version.***
+
+</p>
+ 
+</p></span>
+</div>
+
+
+
+This is an introduction to **Spark** from the `Python` library **PySpark**.
+
+
+
+<br>
+
+# Installing Spark
+
+
+<center>
+
+![](p1.png){width="45%"}
+</center>
+
+</center>
+
+
+
+
+<br>
+
+# Defining a Spark session from PySpark
+
+
+
+
+
+
+
+
