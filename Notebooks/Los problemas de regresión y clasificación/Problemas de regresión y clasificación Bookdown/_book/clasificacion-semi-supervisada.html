@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Clasificacion semi-supervisada | Los problemas de regresión y clasificación</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Clasificacion semi-supervisada | Los problemas de regresión y clasificación" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Clasificacion semi-supervisada | Los problemas de regresión y clasificación" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Fabio Scielzo Ortiz" />
+
+
+<meta name="date" content="2023-03-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="problema-de-clasificación-no-supervisada.html"/>
+<link rel="next" href="regresión-no-supervisada.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Los problemas de regresión y clasificación</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="problema-de-regresión.html"><a href="problema-de-regresión.html"><i class="fa fa-check"></i><b>2</b> Problema de regresión</a></li>
+<li class="chapter" data-level="3" data-path="problema-de-clasificación-supervisada.html"><a href="problema-de-clasificación-supervisada.html"><i class="fa fa-check"></i><b>3</b> Problema de clasificación supervisada</a></li>
+<li class="chapter" data-level="4" data-path="problema-de-clasificación-no-supervisada.html"><a href="problema-de-clasificación-no-supervisada.html"><i class="fa fa-check"></i><b>4</b> Problema de clasificación no supervisada</a></li>
+<li class="chapter" data-level="5" data-path="clasificacion-semi-supervisada.html"><a href="clasificacion-semi-supervisada.html"><i class="fa fa-check"></i><b>5</b> Clasificacion semi-supervisada</a></li>
+<li class="chapter" data-level="6" data-path="regresión-no-supervisada.html"><a href="regresión-no-supervisada.html"><i class="fa fa-check"></i><b>6</b> ¿Regresión no supervisada?</a></li>
+<li class="chapter" data-level="7" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i><b>7</b> Bibliografía</a></li>
+<li class="divider"></li>
+<li><a href="https://estadistica4all.com" target="blank">Estadistica4all.com</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Los problemas de regresión y clasificación</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="clasificacion-semi-supervisada" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Clasificacion semi-supervisada<a href="clasificacion-semi-supervisada.html#clasificacion-semi-supervisada" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Un problema de clasificación semi-supervisada es un problema estadistico que consiste en predecir una variable respuesta <strong>categorica</strong> usando para ello <strong>información</strong> de unas <strong>variables predictoras</strong> y de la propia <strong>respuesta</strong>, pero en este caso la <strong>muestra de la que disponemos sobre la respuesta contiene mucho valores faltantes</strong>.</p>
+<p>El problema de <strong>clasificación semi-supervisada</strong> puede formalizarse como sigue:</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<ul>
+<li><p>Tenemos <span class="math inline">\(\hspace{0.02cm}p\hspace{0.02cm}\)</span> predictores <span class="math inline">\(\hspace{0.02cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.02cm}\)</span> y una variable respuesta <strong>categorica</strong> <span class="math inline">\(\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}\)</span> sobre la que disponemos ninguna muestra de datos con bastantes valores faltantes.</p></li>
+<li><p>Tenemos una muestra de tamaño <span class="math inline">\(\hspace{0.02cm}n\hspace{0.02cm}\)</span> de los <span class="math inline">\(\hspace{0.02cm}p\hspace{0.02cm}\)</span> predictores <span class="math inline">\(\hspace{0.02cm}\mathcal{X}_1,...,\mathcal{X}_p\hspace{0.02cm}\)</span> y de la respuesta <span class="math inline">\(\mathcal{\hspace{0.01cm}Y\hspace{0.01cm}}\)</span> , pero la muestra de la respuesta contiene muchos valores faltantes.</p>
+<p>Por tanto tenemos la siguiente matriz de datos:</p>
+<p><span class="math display">\[D=[X_1,...,X_p]=\begin{pmatrix}
+  x_{11}&amp;x_{12}&amp;...&amp;x_{1p} &amp; y_1\\
+  x_{21}&amp;x_{22}&amp;...&amp;x_{2p} &amp; y_2\\
+  ... &amp;...&amp; ...&amp;...&amp; ...\\
+  x_{n1}&amp;x_{n2}&amp;...&amp;x_{np} &amp; y_n
+  \end{pmatrix} = \begin{pmatrix}
+  x_{1} &amp; y_1\\
+  x_{2} &amp; y_2 \\
+   ... &amp; ...\\
+   x_{n} &amp; y_n
+  \end{pmatrix}\\\]</span></p>
+<p>Donde: <span class="math inline">\(\hspace{0.15cm}y_i\hspace{0.1cm}\)</span> es un valor faltante, para muchos <span class="math inline">\(\hspace{0.1cm}i\in \lbrace 1,...,n\rbrace\)</span>. <span class="math inline">\(\\\)</span></p></li>
+<li><p>La <strong>solución estadística</strong> al problema de clasificación semi-supervisada pasa por proponer un modelo o algoritmo que sea capaz usar la información muestral disponible <span class="math inline">\(\hspace{0.02cm}D\hspace{0.02cm}\)</span> de los predictores y de la respuesta para predecir los valores de la respuesta para cada vector de observaciones de los predictores que se considere.</p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="problema-de-clasificación-no-supervisada.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="regresión-no-supervisada.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://estadistica4all.comm/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

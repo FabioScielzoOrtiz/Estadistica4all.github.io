@@ -1,0 +1,7 @@
+introducción
+problema-de-regresión
+problema-de-clasificación-supervisada
+problema-de-clasificación-no-supervisada
+clasificacion-semi-supervisada
+regresión-no-supervisada
+bibliografía
