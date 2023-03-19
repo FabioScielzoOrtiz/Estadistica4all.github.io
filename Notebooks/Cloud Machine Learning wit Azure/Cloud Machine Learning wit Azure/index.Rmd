@@ -4,7 +4,7 @@ author: "Fabio Scielzo Ortiz"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography: [book.bib]
 # url: your book url like https://bookdown.org/yihui/bookdown
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
@@ -64,31 +64,108 @@ This article is an introduction to **Cloud Machine Learning** in **Azure** envir
 # Machine Learning Project Lifecycle
 
 
+<center>
+
+![](p0.png){width="80%"}
+
+</center>
 
 
+
+
+<center>
+
+![](p00.png){width="100%"}
+
+</center>
 
 <br>
 
 
 
 
+# Creating the AzureML workspace
+
+
+<center>
+
+![](p1.png){width="100%"}
+
+</center>
 
 
 
 
 
 
+<center>
+
+![](p2.png){width="100%"}
+
+</center>
+
+<center>
+
+![](p3.png){width="100%"}
+
+</center>
+
+
+<center>
+
+![](p4.png){width="100%"}
+
+</center>
+
+<center>
+
+![](p5.png){width="100%"}
+
+</center>
+
+
+<center>
+
+![](p6.png){width="100%"}
+
+</center>
 
 
 
 
+<center>
+
+![](p7.png){width="100%"}
+
+</center>
 
 
+<center>
+
+![](p8.png){width="100%"}
+
+</center>
 
 
+<center>
+
+![](p9.png){width="100%"}
+
+</center>
 
 
+<center>
 
+![](p10.png){width="100%"}
+
+</center>
+
+
+<center>
+
+![](p11.png){width="100%"}
+
+</center>
 
 
 
