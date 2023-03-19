@@ -621,31 +621,27 @@ Vamos a crear una función que replique el algoritmo KNN para clasificación sup
 
 **Primero definimos algunas de las funciones de distancia que usará nuestro algoritmo:**
 
+Para ver con más detalle estas funciones y conceptos se recomienda visitar el artículo dedicado a este tema que tenemos en nuestro blog: [distancias estadísticas](https://fabioscielzoortiz.github.io/Statisitcal_Distances_Bookdown/)
 
 - Definimos la distancia Euclidea y la matriz de distancias Euclideas:
 ```python
 def Dist_Euclidea(x_i, x_r):
-
         Dist_Euclidea = ( ( x_i - x_r )**2 ).sum()
         Dist_Euclidea = np.sqrt(Dist_Euclidea)
-
         return Dist_Euclidea
 ```
 
 
 ```python
 def Matrix_Dist_Euclidea(Data):
-    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
     n = len(Data)
     M =  np.empty((n , n))
-
     for i in range(0, n):
          for r in range(0, n):
              if i >= r :
                  M[i,r] = 0
              else :
                  M[i,r] = Dist_Euclidea(Data[i,:] , Data[r,:])
-                      
     return M 
 ```
 
@@ -661,7 +657,6 @@ def Dist_Minkowski(x_i, x_r, q):
 
 ```python
 def Matrix_Dist_Minkowski(Data, q):
-    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
     n = len(Data)
     M =  np.empty((n , n))
 
@@ -684,7 +679,6 @@ def Dist_Canberra(x_i, x_r):
     denominator =  ( abs(x_i) + abs(x_r) )
     numerator=np.array([numerator], dtype=float)
     denominator=np.array([denominator], dtype=float)
-    # The following code is to eliminate zero division problems
     Dist_Canberra = ( np.divide( numerator , denominator , out=np.zeros_like(numerator), where=denominator!=0) ).sum() 
     return Dist_Canberra
 ```
@@ -692,16 +686,14 @@ def Dist_Canberra(x_i, x_r):
 
 ```python
 def Matrix_Dist_Canberra(Data):
-    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
     n = len(Data)
     M =  np.empty((n , n))
-    
     for i in range(0, n):
          for r in range(0, n):
              if i >= r :
                  M[i,r] = 0
              else :
-                 M[i,r] = Dist_Canberra(Data[i,:] , Data[r,:])  
+                 M[i,r] = Dist_Canberra(Data[i,:] , Data[r,:]
     return M 
 ```
 
@@ -710,27 +702,17 @@ def Matrix_Dist_Canberra(Data):
 
 - Definimos la distancia Mahalanobis y la matriz de distancias de Mahalanobis:
 ```python
-def Dist_Mahalanobis_2(x_i, x_r, S_inv):  # Más eficiente que la anterior
-    # All the columns of Data must be type = 'float' or 'int' (specially not 'object'), in other case we will find 
-    # dimensional problems when Python compute   x @ S_inv @ x.T
+def Dist_Mahalanobis_2(x_i, x_r, S_inv):
     x = (x_i - x_r)
-    # x = np.array([x]) 
-    # En este caso este paso no será necesario por el tipo de estructura Python (una lista) que va a ser un medoid en el
-    # algoritmo que a continuación definiremos. De hecho si este paso no se suprimer salta un error al usar la distancia
-    # de Mahalanobis, puesto que la operacion x @ S_inv @ x.T no está bien definida.
-    Dist_Maha = np.sqrt( x @ S_inv @ x.T )  # x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )
+    Dist_Maha = np.sqrt( x @ S_inv @ x.T )  
     Dist_Maha = float(Dist_Maha)
     return Dist_Maha
 ```
 
 
 ```python
-def Dist_Mahalanobis_3(x, S_inv):  # Más eficiente que la anterior
-    # All the columns of Data must be type = 'float' or 'int' (specially not 'object'), in other case we will find 
-    # dimensional problems when Python compute   x @ S_inv @ x.T
-    # x = (x_i - x_r)
-    # x = np.array([x]) # necessary step to transpose a 1D array
-    Dist_Maha = np.sqrt( x @ S_inv @ x.T )  # x @ S_inv @ x.T = np.matmul( np.matmul(x , S_inv) , x.T )
+def Dist_Mahalanobis_3(x, S_inv):  #
+    Dist_Maha = np.sqrt( x @ S_inv @ x.T ) 
     Dist_Maha = float(Dist_Maha)
     return Dist_Maha
 ```
@@ -738,11 +720,9 @@ def Dist_Mahalanobis_3(x, S_inv):  # Más eficiente que la anterior
 
 ```python
 def Matrix_Dist_Mahalanobis_3(Data):
-    # Paso previo necesario si Data es pd.DataFrame  -->  Data = Data.to_numpy()
     n = len(Data)
     M =  np.empty((n , n))
     S_inv=np.linalg.inv( np.cov(Data , rowvar=False) )
-   
     for i in range(0, n):
          for r in range(0, n):
              if i >= r :
@@ -782,12 +762,6 @@ def alpha(x_i, x_r):
 
 ```python
 def Matrix_Gower_Similarity(Data, p1, p2, p3 ):
-    # Data tiene que ser un numpy array tal que:
-    # las primeras p1 tiene que ser variables cuantitativas, 
-    # las siguientes p2 binarias y las restantes p3 multicales
-    # Si Data no contiene variables cuantitativas --> p1=0
-    # Si Data no contiene variables binarias --> p2=0
-    # Si Data no contiene variables multiclase --> p3=0
     n = len(Data)
     M =  np.empty((n , n))
     G_vector = np.repeat(0.5, p1)
@@ -798,7 +772,6 @@ def Matrix_Gower_Similarity(Data, p1, p2, p3 ):
     Binary_Data = Data[: , (p1):(p1+p2)]
     Multiple_Data = Data[: , (p1+p2):(p1+p2+p3) ]
     a, b, c, d, p = a_b_c_d_Matrix(Binary_Data)
-
     for i in range(0, n):
          for r in range(0, n):
             if i > r :
@@ -806,7 +779,6 @@ def Matrix_Gower_Similarity(Data, p1, p2, p3 ):
             elif i == r :
                  M[i,r] = 1
             else :
-                # Calculo de la distancia de Gower entre las observaciones x_i y x_r
                 numerator_part_1 = ( ones - ( abs(Quant_Data[i,:] - Quant_Data[r,:]) / G_vector ) ).sum() 
                 numerator_part_2 = a[i,r] + alpha(Multiple_Data[i,:], Multiple_Data[r,:])
                 numerator = numerator_part_1 + numerator_part_2
@@ -831,12 +803,11 @@ def Matrix_Gower_Distance(Data, p1, p2, p3 ):
 
 <br>
 
-**Programamos el algoritmo KNN para clasificación supervisada:**
+- **Programamos el algoritmo KNN para clasificación supervisada:**
 
 ```python
 class KNNClassification:
-
- # k es el hiper-parametro del algoritmo KNN.
+# k es el hiper-parametro del algoritmo KNN.
 # 'Distance_Matrix_New_Data' debe contenere las distancias entre las nuevas observaciones de los predictores y las de train.
 # Su fila i-esima debe contener las distancias entre la i-esima nueva observacion de los predictores y las observaciones de train de los predictores.
 # X_train tiene que ser un data-frame con las observaciones de los predictores con las que se va a entrenar el modelo.
@@ -853,54 +824,41 @@ class KNNClassification:
         Y_predict_x_new_i_LIST = []
         for i in range(0, len(self.distance_matrix_new_data)):
             distancias_x_new_i = pd.DataFrame({'id_x_train': self.X_train.index, 'distancias': self.distance_matrix_new_data[i,:]})
-
             distancias_x_new_i_sort = distancias_x_new_i.sort_values(by=["distancias"]).reset_index(drop=True)
             knn_x_new_i = distancias_x_new_i_sort.iloc[0:self.k, 0]
             categorias_knn_x_new_i = []
-            for j in knn_x_new_i :            categorias_knn_x_new_i.append(self.Y_train[j])
+            for j in knn_x_new_i :
+               categorias_knn_x_new_i.append(self.Y_train[j])
             unique, counts = np.unique(categorias_knn_x_new_i , return_counts=True)
             unique_Y , counts_Y = np.unique(self.Y_train , return_counts=True)
             if len(unique) == len(unique_Y) :
-          proporciones_categorias_knn_x_new_i = pd.DataFrame({'prop_categoria': counts/self.k, 'categoria': unique_Y })
+               proporciones_categorias_knn_x_new_i = pd.DataFrame({'prop_categoria': counts/self.k, 'categoria': unique_Y })
             elif len(unique) < len(unique_Y) :
-          proporciones_categorias_knn_x_new_i = pd.DataFrame({'prop_categoria': counts/self.k, 'categoria': unique })
-            Y_predict_x_new_i = proporciones_categorias_knn_x_new_i.sort_values(by=["prop_categoria"], ascending=False).iloc[0 , :]['categoria']            Y_predict_x_new_i_LIST.append(Y_predict_x_new_i)
+               proporciones_categorias_knn_x_new_i = pd.DataFrame({'prop_categoria': counts/self.k, 'categoria': unique })
+            Y_predict_x_new_i = proporciones_categorias_knn_x_new_i.sort_values(by=["prop_categoria"], ascending=False).iloc[0 , :]['categoria']  
+            Y_predict_x_new_i_LIST.append(Y_predict_x_new_i)
         self.df_predictions = pd.DataFrame({'id_x_new':range(0, len(self.distance_matrix_new_data)) , 'Y_predict': Y_predict_x_new_i_LIST})
         self.predictions = self.df_predictions['Y_predict']
 ```
 
+<br>
 
-
-Probaremos la función con la distancia de **Gower**, ya que es una distancia que no está disponible en la implementación de `sklearn`. 
+Probaremos el algoritmo que acabamos de programar con la distancia de **Gower**, ya que es una distancia que no está disponible en la implementación de `sklearn`. 
 
 Para ello necesitamos calcular la matriz de distancias de Gower entre las nuevas observaciones y las observaciones de entrenamiento de los predictores. Esto lo podemos conseguir como sigue:
 
 
-Primero obtenemos el conjunto total de observaciones de los predicitores. Es decir, un data-frame que se puede construir a partir de la concatenación por filas de los data-frames `X_train` y `X_new` .
+Primero obtenemos el conjunto total de observaciones de los predicitores. Es decir, un data-frame que se puede construir a partir de la concatenación por filas de los data-frames `X_train` y `X_new`.
 
 ```python
 X = pd.concat([X_train , X_new])
-
 X.head()
 ```
 
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x: scroll;">
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -967,7 +925,7 @@ X.head()
 
 <br>
 
-Calculamos la matriz de distancias de gower del conjunto total de observaciones de los predictores.
+Calculamos la matriz de distancias de gower entre las observaciones totales (de train y new) de los predictores.
 
 ```python
 M_Gower = Matrix_Gower_Distance(Data=X.to_numpy(), p1=4, p2=2, p3=0)
@@ -991,17 +949,18 @@ M_Gower
 
 
 
+ Por un lado, nos quedamos con las filas de la 1524 (*len(X_train)*) a la 1904 (*len(X)*) , que son las correspondientes a las nuevas observaciones de los predictores.
+
+Por otro lado, nos quedamos con las columnas de la 0 a la 1524, que son las correspondientes a las observaciones de train de los predictores.
+
 
 ```python
 M_Gower_new_data = M_Gower[ len(X_train):len(X) , 0:len(X_train) ]  
-
-# Nos quedamos con las filas de la 1524 a la 1904 , que son las correspondientes a las nuevas observaciones de los predictores.
-# Nos queamos con las columnas de la 0 a la 1524, que son las correspondientes a las observaciones de train de los predictores.
-
-# 'M_new_data' contiene las distancias (de Gower) entre las nuevas observaciones de los predictores y las de entrenamiento.
-
-# Su fila i-esima contiene las distancias entre la i-esima nueva observacion de los predictores y las observaciones de entrenamiento.
 ```
+
+**M_Gower_new_data** contiene las distancias (de Gower) entre las nuevas observaciones de los predictores y las de entrenamiento (train).
+
+Su fila $i$-esima contiene las distancias entre la $i$-esima nueva observación de los predictores y cada una de las observaciones de entrenamiento.
 
 Podemos comprobar las dimensiones de esta matriz.
 
@@ -1013,11 +972,10 @@ M_Gower_new_data.shape
 
 <br>
 
-Aplicamos la función para la matriz de distancias de **Gower** entre las observaciones de train y las nuevas observaciones de los predictores. Fijaremos, además, **k=10** :
+Ejecutamos el algoritmo KNN que hemos programado con la distancia de **Gower**, es decir, usamos la matriz de distancias de Gower entre las observaciones de train y las nuevas observaciones de los predictores. Fijaremos, además, $k=10$ :
 
 ```python
 KNNClassification_init = KNNClassification(k=10, X_train=X_train, Y_train=Y_train, distance_matrix_new_data=M_Gower_new_data)
-
 KNNClassification_init.predict()
 ```
 
@@ -1029,88 +987,20 @@ KNNClassification_init.predict()
 KNNClassification_init.df_predictions
 ```
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+|    |   id_x_new |   Y_predict |
+|---:|-----------:|------------:|
+|  0 |          0 |           2 |
+|  1 |          1 |           2 |
+|  2 |          2 |           2 |
+|  3 |          3 |           1 |
+|  4 |          4 |           2 |
+| ... |        ... |         ... |
+| 376 |        376 |           2 |
+| 377 |        377 |           2 |
+| 378 |        378 |           2 |
+| 379 |        379 |           0 |
+| 380 |        380 |           2 |
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>id_x_new</th>
-      <th>Y_predict</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>3</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>4</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>376</th>
-      <td>376</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>377</th>
-      <td>377</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>378</th>
-      <td>378</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>379</th>
-      <td>379</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>380</th>
-      <td>380</td>
-      <td>2.0</td>
-    </tr>
-  </tbody>
-</table>
-<p>381 rows × 2 columns</p>
-</div>
 
 
 <br> 
@@ -1168,25 +1058,19 @@ Ahora probamos el algoritmo con la distancia **Euclidea**:
 
 ```python
 M_Euclidea = Matrix_Dist_Euclidea(Data=X.to_numpy())
-
 M_Euclidea  = M_Euclidea + M_Euclidea.T
-
 M_Euclidea_new_data = M_Euclidea[ len(X_train):len(X) , 0:len(X_train) ]  
 ```
 
 
 ```python
 KNNClassification_init = KNNClassification(k=10, X_train=X_train, Y_train=Y_train, distance_matrix_new_data=M_Euclidea_new_data)
-
 KNNClassification_init.predict()
 ```
-
 
 ```python
 KNNClassification_init.df_predictions
 ```
-
-
 
 
 <div>
