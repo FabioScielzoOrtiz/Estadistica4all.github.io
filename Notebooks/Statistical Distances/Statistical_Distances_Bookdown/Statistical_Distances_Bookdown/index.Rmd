@@ -4742,7 +4742,7 @@ Además, tenemos las siguientes muestras de datos para cada uno de los tipos de 
 
 
 
-Donde: $\hspace{0.1cm} X_j = (x_{1j},...,x_{nj})^t\hspace{0.07cm}$  es una muestra de $n$ observaciones de la variable $X_j\hspace{0.06cm},$ para $\hspace{0.03cm}j=1,...,p\hspace{0.08cm}$.
+Donde $\hspace{0.02cm} X_j = (x_{1j},...,x_{nj})^t\hspace{0.04cm}$  es una muestra de $n$ observaciones de la variable $X_j\hspace{0.06cm},$ para $\hspace{0.03cm}j=1,...,p\hspace{0.08cm}$.
 
 <br>
 
@@ -4839,7 +4839,7 @@ para cada una de las matrices de distancias $D_1$, $D_2$ y $D_3$ .
     
     La **distancia de Gower Generalizada simple** es :
     
-    $$\delta_{GG}(x_i,x_r) \hspace{0.12cm}=\hspace{0.12cm} \sqrt{\hspace{0.1cm}  \dfrac{ \delta_1^2(x_i^Q,x_r^Q)}{VG_1} \hspace{0.07cm}+\hspace{0.07cm} \dfrac{ \delta_2^2(x_i^B,x_r^B)}{VG_2} \hspace{0.07cm}+\hspace{0.07cm} \dfrac{ \delta_3^2(x_i^M,x_r^M)}{VG_3}  \hspace{0.4cm} , \hspace{0.4cm} i,r = 1,...,n$$ 
+    $$\delta_{GG}(x_i,x_r) \hspace{0.12cm}=\hspace{0.12cm} \sqrt{\hspace{0.1cm}  \dfrac{ \delta_1^2(x_i^Q,x_r^Q)}{VG_1} \hspace{0.07cm}+\hspace{0.07cm} \dfrac{ \delta_2^2(x_i^B,x_r^B)}{VG_2} \hspace{0.07cm}+\hspace{0.07cm} \dfrac{ \delta_3^2(x_i^M,x_r^M)}{VG_3} \hspace{0.03cm}}  \hspace{0.4cm} , \hspace{0.4cm} i,r = 1,...,n$$ 
 
 
 <br>
@@ -4959,7 +4959,7 @@ para cada una de las matrices de distancias $D_1$, $D_2$ y $D_3$ .
 -  Se calcula la **matriz de cuadrados de distancias de Gower Generalizada related metric scaling** para el conjunto de datos $X=(X_Q,X_B,X_M)$, del siguiente modo:
 
 
-    $$D^{(2)}_{GG} \hspace{0.13cm} = \hspace{0.13cm} \mathbf{g} \cdot \mathbf{1}^t + \mathbf{1}\cdot \mathbf{g}^t - 2\cdot G \hspace{0.13cm}=\hspace{0.13cm} \Bigl(\hspace{0.05cm} \delta^2_{GG}(x_i,x_r) \hspace{0.06cm}:\hspace{0.06cm} i,r=1,...,n \hspace{0.05cm}\Bigr)$$
+    $$D^{(2)}_{GG} \hspace{0.13cm} = \hspace{0.13cm} \mathbf{g} \cdot \mathbf{1}^t + \mathbf{1}\cdot \mathbf{g}^t - 2\cdot G \hspace{0.13cm}=\hspace{0.13cm} \Bigl(\hspace{0.07cm} \delta^2_{GG}(x_i,x_r) \hspace{0.12cm}:\hspace{0.12cm} i,r=1,...,n \hspace{0.07cm}\Bigr)$$
 
     Donde: $\hspace{0.1cm}\mathbf{g} \hspace{0.07cm}=\hspace{0.07cm} diag(G)\hspace{0.03cm}.$
     
@@ -4981,6 +4981,74 @@ para cada una de las matrices de distancias $D_1$, $D_2$ y $D_3$ .
 **¿Por que related metric scaling?**
 
 Este procedimiento permite eliminar redundancia de información entre grupos de variables.
+    
+    
+<br>
+
+**¿Cómo calcular $G^{1/2}_j$?**
+
+- ***Usando la descomposición en valores singulares (SVD)***
+
+    $G_j$ debe ser simétrica $(G_j = G_j^t)$ y semi-definida positiva (autovalores de $G_j$ son $\geq 0$).
+
+    En este caso, como $G_j$ es una matriz $n\text{x}q$ con $n \geq q=n$, entonces:
+
+    La **descomposición en valores singulares** (SVD) de $G_j$ es:
+
+    $$G_j \hspace{0.05cm} = \hspace{0.05cm} U \cdot \Sigma \cdot V^t$$
+    Usando la descomposición en valores singulares $\hspace{0.02cm}G_j\hspace{0.02cm}$ puede calcularse $\hspace{0.04cm}G_j^{1/2}\hspace{0.04cm}$ del siguiente modo:
+    
+    $$G_j^{1/2} \hspace{0.05cm} = \hspace{0.05cm} U \cdot \Sigma^{1/2} \cdot V^t \\$$
+    
+
+    Donde:
+
+    Si $\hspace{0.02cm}\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_n\hspace{0.02cm}$ son los autovalores de $\hspace{0.02cm}G_j\hspace{0.02cm}^t \cdot G_j\hspace{0.02cm}$ ordenados de mayor a menor, y $\hspace{0.02cm}w(\lambda_i)\hspace{0.02cm}$ es el autovector asociado al autovalor $\hspace{0.02cm}\lambda_i\hspace{0.02cm}$, entonces:
+
+    - Los valores singulares de $\hspace{0.02cm}G_j\hspace{0.02cm}$ son $\hspace{0.02cm}\sqrt{\lambda_1},...,\sqrt{\lambda_n}\hspace{0.02cm}$. 
+    
+    - La matriz $\hspace{0.02cm}\Sigma\hspace{0.02cm}$ se define como:
+    
+    $$\Sigma \hspace{0.04cm} = \hspace{0.04cm}  diag\bigl( \hspace{0.04cm}\sqrt{\lambda_1}\hspace{0.02cm},...,\hspace{0.02cm}\sqrt{\lambda_n} \hspace{0.04cm} \bigr)$$
+
+    - La matriz $\hspace{0.02cm}V\hspace{0.02cm}$ se define como:
+    
+    $$V \hspace{0.04cm} = \hspace{0.04cm} \Bigl(\hspace{0.03cm} w(\lambda_1) \hspace{0.02cm}\dots\hspace{0.02cm} w(\lambda_m) \hspace{0.03cm}\Bigr)$$
+    
+    
+    - La matriz $\hspace{0.02cm}U\hspace{0.02cm}$ se define como:
+    
+    $$U \hspace{0.04cm} = \hspace{0.04cm} G\cdot V \cdot \Sigma^{-1}$$
+    
+    
+<br>   
+    
+- ***Usando la descomposición espectral***
+
+    $G_j\hspace{0.02cm}$ debe ser cuadrada  $(n\text{x}n)$, simétrica, es decir $G_j = G_j^t$, y semi-definida positiva, es decir autovalores de $\hspace{0.02cm}G_j\hspace{0.02cm}$ son $\hspace{0.02cm}\geq 0\hspace{0.02cm}$ .
+    
+    La **descomposición espectral** de $\hspace{0.02cm}G_j\hspace{0.02cm}$ es:
+
+    $$G_j \hspace{0.05cm} = \hspace{0.05cm} Q \cdot \Lambda \cdot Q^t$$
+    Usando la descomposición espectral $\hspace{0.02cm}G_j\hspace{0.02cm}$ puede calcularse $\hspace{0.033cm}G_j^{1/2}\hspace{0.033cm}$ del siguiente modo:
+    
+    $$G_j^{1/2} \hspace{0.05cm} = \hspace{0.05cm} Q\cdot \Lambda^{1/2} \cdot Q^t$$
+    
+    
+    Donde:
+
+    Si $\hspace{0.02cm}\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_n\hspace{0.02cm}$ son los autovalores de $\hspace{0.02cm}G_j\hspace{0.02cm}$ ordenados de mayor a menor, y $\hspace{0.02cm}w(\lambda_i)\hspace{0.02cm}$ es el autovector asociado al autovalor $\hspace{0.02cm}\lambda_i\hspace{0.02cm}$, entonces:
+
+
+    La matriz $\hspace{0.02cm}\Lambda\hspace{0.02cm}$ se define como:
+
+    $$\Lambda \hspace{0.05cm}=\hspace{0.05cm} diag\bigl( \hspace{0.04cm} \lambda_1,...,\lambda_n \hspace{0.04cm}\bigr)$$
+
+    La matriz $\hspace{0.02cm}Q\hspace{0.02cm}$ se define como:
+
+    $$Q \hspace{0.05cm}=\hspace{0.05cm} \Bigl(\hspace{0.05cm} w(\lambda_1) \dots w(\lambda_n) \hspace{0.05cm}\Bigr)$$
+    
+    
     
     
 <br>

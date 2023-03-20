@@ -23,7 +23,7 @@
 <meta name="author" content="Fabio Scielzo Ortiz" />
 
 
-<meta name="date" content="2023-03-16" />
+<meta name="date" content="2023-03-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -285,7 +285,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">\(\hspace{0.03cm}x_i^M= (x_{i, (p_1+p_2+1)},....,x_{i (p_1+p_2+p_3)})\hspace{0.1cm}\)</span> es el <span class="math inline">\(i\)</span>-esimo vector de observaciones de las variables <strong>multiclase</strong>. <span class="math inline">\(\\\)</span></li>
 </ul></li>
 </ul>
-<p>Donde: <span class="math inline">\(\hspace{0.1cm} X_j = (x_{1j},...,x_{nj})^t\hspace{0.07cm}\)</span> es una muestra de <span class="math inline">\(n\)</span> observaciones de la variable <span class="math inline">\(X_j\hspace{0.06cm},\)</span> para <span class="math inline">\(\hspace{0.03cm}j=1,...,p\hspace{0.08cm}\)</span>.</p>
+<p>Donde <span class="math inline">\(\hspace{0.02cm} X_j = (x_{1j},...,x_{nj})^t\hspace{0.04cm}\)</span> es una muestra de <span class="math inline">\(n\)</span> observaciones de la variable <span class="math inline">\(X_j\hspace{0.06cm},\)</span> para <span class="math inline">\(\hspace{0.03cm}j=1,...,p\hspace{0.08cm}\)</span>.</p>
 <p><br></p>
 <p><strong>Observación:</strong></p>
 <p><span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_p \hspace{0.1cm}\)</span> forman un conjunto de variables de tipo <strong>cuantitativo-binario-multiclase</strong>.</p>
@@ -348,7 +348,7 @@ para cada una de las matrices de distancias <span class="math inline">\(D_1\)</s
 <p>La <strong>distancia de Gower Generalizada simple al cuadrado</strong> es :</p>
 <p><span class="math display">\[\delta^2_{GG}(x_i,x_r) \hspace{0.12cm}=\hspace{0.12cm}  \dfrac{ \delta_1^2(x_i^Q,x_r^Q)}{VG_1} \hspace{0.08cm}+\hspace{0.08cm} \dfrac{ \delta_2^2(x_i^B,x_r^B)}{VG_2} \hspace{0.08cm}+\hspace{0.08cm} \dfrac{ \delta_3^2(x_i^M,x_r^M)}{VG_3} \hspace{0.4cm} , \hspace{0.4cm} i,r = 1,...,n \\\]</span></p>
 <p>La <strong>distancia de Gower Generalizada simple</strong> es :</p>
-<p><span class="math display">\[\delta_{GG}(x_i,x_r) \hspace{0.12cm}=\hspace{0.12cm} \sqrt{\hspace{0.1cm}  \dfrac{ \delta_1^2(x_i^Q,x_r^Q)}{VG_1} \hspace{0.07cm}+\hspace{0.07cm} \dfrac{ \delta_2^2(x_i^B,x_r^B)}{VG_2} \hspace{0.07cm}+\hspace{0.07cm} \dfrac{ \delta_3^2(x_i^M,x_r^M)}{VG_3}  \hspace{0.4cm} , \hspace{0.4cm} i,r = 1,...,n\]</span></p></li>
+<p><span class="math display">\[\delta_{GG}(x_i,x_r) \hspace{0.12cm}=\hspace{0.12cm} \sqrt{\hspace{0.1cm}  \dfrac{ \delta_1^2(x_i^Q,x_r^Q)}{VG_1} \hspace{0.07cm}+\hspace{0.07cm} \dfrac{ \delta_2^2(x_i^B,x_r^B)}{VG_2} \hspace{0.07cm}+\hspace{0.07cm} \dfrac{ \delta_3^2(x_i^M,x_r^M)}{VG_3} \hspace{0.03cm}}  \hspace{0.4cm} , \hspace{0.4cm} i,r = 1,...,n\]</span></p></li>
 </ul>
 <p><br></p>
 <p><strong>¿Por qué estandarizamos usando la variabilidad geométrica?</strong></p>
@@ -425,7 +425,7 @@ para cada una de las matrices de distancias <span class="math inline">\(D_1\)</s
 <p><br></p>
 <ul>
 <li><p>Se calcula la <strong>matriz de cuadrados de distancias de Gower Generalizada related metric scaling</strong> para el conjunto de datos <span class="math inline">\(X=(X_Q,X_B,X_M)\)</span>, del siguiente modo:</p>
-<p><span class="math display">\[D^{(2)}_{GG} \hspace{0.13cm} = \hspace{0.13cm} \mathbf{g} \cdot \mathbf{1}^t + \mathbf{1}\cdot \mathbf{g}^t - 2\cdot G \hspace{0.13cm}=\hspace{0.13cm} \Bigl(\hspace{0.05cm} \delta^2_{GG}(x_i,x_r) \hspace{0.06cm}:\hspace{0.06cm} i,r=1,...,n \hspace{0.05cm}\Bigr)\]</span></p>
+<p><span class="math display">\[D^{(2)}_{GG} \hspace{0.13cm} = \hspace{0.13cm} \mathbf{g} \cdot \mathbf{1}^t + \mathbf{1}\cdot \mathbf{g}^t - 2\cdot G \hspace{0.13cm}=\hspace{0.13cm} \Bigl(\hspace{0.07cm} \delta^2_{GG}(x_i,x_r) \hspace{0.12cm}:\hspace{0.12cm} i,r=1,...,n \hspace{0.07cm}\Bigr)\]</span></p>
 <p>Donde: <span class="math inline">\(\hspace{0.1cm}\mathbf{g} \hspace{0.07cm}=\hspace{0.07cm} diag(G)\hspace{0.03cm}.\)</span></p>
 <p>A partir de esta matriz de cuadrados de distancias podemos obtener la <strong>distancia de Gower Generalizada related metric scaling al cuadrado</strong> del siguiente modo:</p>
 <p><span class="math display">\[\delta^2_{GG}(x_i,x_r) \hspace{0.07cm}=\hspace{0.07cm} D^{(2)}_{GG}[i,r] \hspace{0.4cm} , \hspace{0.4cm} i,r = 1,...,n\]</span></p>
@@ -435,6 +435,47 @@ para cada una de las matrices de distancias <span class="math inline">\(D_1\)</s
 <p><br></p>
 <p><strong>¿Por que related metric scaling?</strong></p>
 <p>Este procedimiento permite eliminar redundancia de información entre grupos de variables.</p>
+<p><br></p>
+<p><strong>¿Cómo calcular <span class="math inline">\(G^{1/2}_j\)</span>?</strong></p>
+<ul>
+<li><p><strong><em>Usando la descomposición en valores singulares (SVD)</em></strong></p>
+<p><span class="math inline">\(G_j\)</span> debe ser simétrica <span class="math inline">\((G_j = G_j^t)\)</span> y semi-definida positiva (autovalores de <span class="math inline">\(G_j\)</span> son <span class="math inline">\(\geq 0\)</span>).</p>
+<p>En este caso, como <span class="math inline">\(G_j\)</span> es una matriz <span class="math inline">\(n\text{x}q\)</span> con <span class="math inline">\(n \geq q=n\)</span>, entonces:</p>
+<p>La <strong>descomposición en valores singulares</strong> (SVD) de <span class="math inline">\(G_j\)</span> es:</p>
+<p><span class="math display">\[G_j \hspace{0.05cm} = \hspace{0.05cm} U \cdot \Sigma \cdot V^t\]</span>
+Usando la descomposición en valores singulares <span class="math inline">\(\hspace{0.02cm}G_j\hspace{0.02cm}\)</span> puede calcularse <span class="math inline">\(\hspace{0.04cm}G_j^{1/2}\hspace{0.04cm}\)</span> del siguiente modo:</p>
+<p><span class="math display">\[G_j^{1/2} \hspace{0.05cm} = \hspace{0.05cm} U \cdot \Sigma^{1/2} \cdot V^t \\\]</span></p>
+<p>Donde:</p>
+<p>Si <span class="math inline">\(\hspace{0.02cm}\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_n\hspace{0.02cm}\)</span> son los autovalores de <span class="math inline">\(\hspace{0.02cm}G_j\hspace{0.02cm}^t \cdot G_j\hspace{0.02cm}\)</span> ordenados de mayor a menor, y <span class="math inline">\(\hspace{0.02cm}w(\lambda_i)\hspace{0.02cm}\)</span> es el autovector asociado al autovalor <span class="math inline">\(\hspace{0.02cm}\lambda_i\hspace{0.02cm}\)</span>, entonces:</p>
+<ul>
+<li><p>Los valores singulares de <span class="math inline">\(\hspace{0.02cm}G_j\hspace{0.02cm}\)</span> son <span class="math inline">\(\hspace{0.02cm}\sqrt{\lambda_1},...,\sqrt{\lambda_n}\hspace{0.02cm}\)</span>.</p></li>
+<li><p>La matriz <span class="math inline">\(\hspace{0.02cm}\Sigma\hspace{0.02cm}\)</span> se define como:</p></li>
+</ul>
+<p><span class="math display">\[\Sigma \hspace{0.04cm} = \hspace{0.04cm}  diag\bigl( \hspace{0.04cm}\sqrt{\lambda_1}\hspace{0.02cm},...,\hspace{0.02cm}\sqrt{\lambda_n} \hspace{0.04cm} \bigr)\]</span></p>
+<ul>
+<li>La matriz <span class="math inline">\(\hspace{0.02cm}V\hspace{0.02cm}\)</span> se define como:</li>
+</ul>
+<p><span class="math display">\[V \hspace{0.04cm} = \hspace{0.04cm} \Bigl(\hspace{0.03cm} w(\lambda_1) \hspace{0.02cm}\dots\hspace{0.02cm} w(\lambda_m) \hspace{0.03cm}\Bigr)\]</span></p>
+<ul>
+<li>La matriz <span class="math inline">\(\hspace{0.02cm}U\hspace{0.02cm}\)</span> se define como:</li>
+</ul>
+<p><span class="math display">\[U \hspace{0.04cm} = \hspace{0.04cm} G\cdot V \cdot \Sigma^{-1}\]</span></p></li>
+</ul>
+<p><br></p>
+<ul>
+<li><p><strong><em>Usando la descomposición espectral</em></strong></p>
+<p><span class="math inline">\(G_j\hspace{0.02cm}\)</span> debe ser cuadrada <span class="math inline">\((n\text{x}n)\)</span>, simétrica, es decir <span class="math inline">\(G_j = G_j^t\)</span>, y semi-definida positiva, es decir autovalores de <span class="math inline">\(\hspace{0.02cm}G_j\hspace{0.02cm}\)</span> son <span class="math inline">\(\hspace{0.02cm}\geq 0\hspace{0.02cm}\)</span> .</p>
+<p>La <strong>descomposición espectral</strong> de <span class="math inline">\(\hspace{0.02cm}G_j\hspace{0.02cm}\)</span> es:</p>
+<p><span class="math display">\[G_j \hspace{0.05cm} = \hspace{0.05cm} Q \cdot \Lambda \cdot Q^t\]</span>
+Usando la descomposición espectral <span class="math inline">\(\hspace{0.02cm}G_j\hspace{0.02cm}\)</span> puede calcularse <span class="math inline">\(\hspace{0.033cm}G_j^{1/2}\hspace{0.033cm}\)</span> del siguiente modo:</p>
+<p><span class="math display">\[G_j^{1/2} \hspace{0.05cm} = \hspace{0.05cm} Q\cdot \Lambda^{1/2} \cdot Q^t\]</span></p>
+<p>Donde:</p>
+<p>Si <span class="math inline">\(\hspace{0.02cm}\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_n\hspace{0.02cm}\)</span> son los autovalores de <span class="math inline">\(\hspace{0.02cm}G_j\hspace{0.02cm}\)</span> ordenados de mayor a menor, y <span class="math inline">\(\hspace{0.02cm}w(\lambda_i)\hspace{0.02cm}\)</span> es el autovector asociado al autovalor <span class="math inline">\(\hspace{0.02cm}\lambda_i\hspace{0.02cm}\)</span>, entonces:</p>
+<p>La matriz <span class="math inline">\(\hspace{0.02cm}\Lambda\hspace{0.02cm}\)</span> se define como:</p>
+<p><span class="math display">\[\Lambda \hspace{0.05cm}=\hspace{0.05cm} diag\bigl( \hspace{0.04cm} \lambda_1,...,\lambda_n \hspace{0.04cm}\bigr)\]</span></p>
+<p>La matriz <span class="math inline">\(\hspace{0.02cm}Q\hspace{0.02cm}\)</span> se define como:</p>
+<p><span class="math display">\[Q \hspace{0.05cm}=\hspace{0.05cm} \Bigl(\hspace{0.05cm} w(\lambda_1) \dots w(\lambda_n) \hspace{0.05cm}\Bigr)\]</span></p></li>
+</ul>
 <p><br></p>
 <p><br></p>
 </div>
