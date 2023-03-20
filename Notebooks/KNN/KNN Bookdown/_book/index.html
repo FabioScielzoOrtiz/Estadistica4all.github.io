@@ -5,31 +5,25 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Algoritmo K vecinos más cercanos</title>
-  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="description" content="Esta es una introducción al algoritmo de regresión y clasificación supervisada KNN." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Algoritmo K vecinos más cercanos" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta property="og:description" content="Esta es una introducción al algoritmo de regresión y clasificación supervisada KNN." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Algoritmo K vecinos más cercanos" />
   
-  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="twitter:description" content="Esta es una introducción al algoritmo de regresión y clasificación supervisada KNN." />
   
 
 <meta name="author" content="Fabio Scielzo Ortiz" />
 
 
-<meta name="date" content="2023-03-19" />
+<meta name="date" content="2023-03-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -125,28 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -161,7 +133,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">KNN</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
@@ -175,42 +147,11 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="knn-como-algoritmo-de-regresión.html"><a href="knn-como-algoritmo-de-regresión.html"><i class="fa fa-check"></i><b>5</b> KNN como algoritmo de regresión</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="knn-como-algoritmo-de-regresión.html"><a href="knn-como-algoritmo-de-regresión.html#knn-para-regresión-con-sklearn"><i class="fa fa-check"></i><b>5.1</b> KNN para regresión con <code>sklearn</code></a></li>
-<li class="chapter" data-level="5.2" data-path="knn-como-algoritmo-de-regresión.html"><a href="knn-como-algoritmo-de-regresión.html#knn-para-regresión-programado-en-python"><i class="fa fa-check"></i><b>5.2</b> KNN para regresión programado en <code>Python</code> <a class="anchor" id="7"></a></a></li>
+<li class="chapter" data-level="5.2" data-path="knn-como-algoritmo-de-regresión.html"><a href="knn-como-algoritmo-de-regresión.html#knn-para-regresión-programado-en-python"><i class="fa fa-check"></i><b>5.2</b> KNN para regresión programado en <code>Python</code></a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i><b>6</b> Bibliografía</a></li>
-<li class="chapter" data-level="7" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>7</b> Hello bookdown</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="hello-bookdown.html"><a href="hello-bookdown.html#a-section"><i class="fa fa-check"></i><b>7.1</b> A section</a>
-<ul>
-<li class="chapter" data-level="" data-path="hello-bookdown.html"><a href="hello-bookdown.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>8</b> Cross-references</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>8.1</b> Chapters and sub-chapters</a></li>
-<li class="chapter" data-level="8.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>8.2</b> Captioned figures and tables</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>9</b> Parts</a></li>
-<li class="chapter" data-level="10" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>10</b> Footnotes and citations</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>10.1</b> Footnotes</a></li>
-<li class="chapter" data-level="10.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>10.2</b> Citations</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>11</b> Blocks</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>11.1</b> Equations</a></li>
-<li class="chapter" data-level="11.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>11.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="11.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>11.3</b> Callout blocks</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>12</b> Sharing your book</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>12.1</b> Publishing</a></li>
-<li class="chapter" data-level="12.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>12.2</b> 404 pages</a></li>
-<li class="chapter" data-level="12.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>12.3</b> Metadata for sharing</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://estadistica4all.com" target="blank">Estadistica4all.com</a></li>
 
 </ul>
 
@@ -232,7 +173,7 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">Algoritmo K vecinos más cercanos</h1>
 <p class="author"><em>Fabio Scielzo Ortiz</em></p>
-<p class="date"><em>2023-03-19</em></p>
+<p class="date"><em>2023-03-20</em></p>
 </div>
 <div id="introducción" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Introducción<a href="index.html#introducción" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -256,6 +197,7 @@ div.csl-indent {
 </p>
 <p></span></p>
 </div>
+<p>Esta es una introducción al algoritmo de regresión y clasificación supervisada KNN.</p>
 <p><br></p>
 </div>
             </section>
@@ -295,7 +237,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"link": "https://estadistica4all.com/index.Rmd",
 "text": "Edit"
 },
 "history": {

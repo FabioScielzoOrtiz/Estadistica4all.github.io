@@ -5,7 +5,7 @@ bookdown::gitbook:
       before: |
         <li><a href="./">KNN</a></li>
       after: |
-        <li><a href="https://estadistica4all.com" target="blank">Published with bookdown</a></li>
+        <li><a href="https://estadistica4all.com" target="blank">Estadistica4all.com</a></li>
     edit: https://estadistica4all.com/%s
     download: ["pdf", "epub"]
 bookdown::pdf_book:

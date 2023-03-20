@@ -5,31 +5,25 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 KNN como algoritmo de clasificación supervisada | Algoritmo K vecinos más cercanos</title>
-  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="description" content="Esta es una introducción al algoritmo de regresión y clasificación supervisada KNN." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 KNN como algoritmo de clasificación supervisada | Algoritmo K vecinos más cercanos" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta property="og:description" content="Esta es una introducción al algoritmo de regresión y clasificación supervisada KNN." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Chapter 3 KNN como algoritmo de clasificación supervisada | Algoritmo K vecinos más cercanos" />
   
-  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="twitter:description" content="Esta es una introducción al algoritmo de regresión y clasificación supervisada KNN." />
   
 
 <meta name="author" content="Fabio Scielzo Ortiz" />
 
 
-<meta name="date" content="2023-03-19" />
+<meta name="date" content="2023-03-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -125,28 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -161,7 +133,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">KNN</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
@@ -175,42 +147,11 @@ div.csl-indent {
 <li class="chapter" data-level="5" data-path="knn-como-algoritmo-de-regresión.html"><a href="knn-como-algoritmo-de-regresión.html"><i class="fa fa-check"></i><b>5</b> KNN como algoritmo de regresión</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="knn-como-algoritmo-de-regresión.html"><a href="knn-como-algoritmo-de-regresión.html#knn-para-regresión-con-sklearn"><i class="fa fa-check"></i><b>5.1</b> KNN para regresión con <code>sklearn</code></a></li>
-<li class="chapter" data-level="5.2" data-path="knn-como-algoritmo-de-regresión.html"><a href="knn-como-algoritmo-de-regresión.html#knn-para-regresión-programado-en-python"><i class="fa fa-check"></i><b>5.2</b> KNN para regresión programado en <code>Python</code> <a class="anchor" id="7"></a></a></li>
+<li class="chapter" data-level="5.2" data-path="knn-como-algoritmo-de-regresión.html"><a href="knn-como-algoritmo-de-regresión.html#knn-para-regresión-programado-en-python"><i class="fa fa-check"></i><b>5.2</b> KNN para regresión programado en <code>Python</code></a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i><b>6</b> Bibliografía</a></li>
-<li class="chapter" data-level="7" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>7</b> Hello bookdown</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="hello-bookdown.html"><a href="hello-bookdown.html#a-section"><i class="fa fa-check"></i><b>7.1</b> A section</a>
-<ul>
-<li class="chapter" data-level="" data-path="hello-bookdown.html"><a href="hello-bookdown.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>8</b> Cross-references</a>
-<ul>
-<li class="chapter" data-level="8.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>8.1</b> Chapters and sub-chapters</a></li>
-<li class="chapter" data-level="8.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>8.2</b> Captioned figures and tables</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>9</b> Parts</a></li>
-<li class="chapter" data-level="10" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>10</b> Footnotes and citations</a>
-<ul>
-<li class="chapter" data-level="10.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>10.1</b> Footnotes</a></li>
-<li class="chapter" data-level="10.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>10.2</b> Citations</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>11</b> Blocks</a>
-<ul>
-<li class="chapter" data-level="11.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>11.1</b> Equations</a></li>
-<li class="chapter" data-level="11.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>11.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="11.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>11.3</b> Callout blocks</a></li>
-</ul></li>
-<li class="chapter" data-level="12" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>12</b> Sharing your book</a>
-<ul>
-<li class="chapter" data-level="12.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>12.1</b> Publishing</a></li>
-<li class="chapter" data-level="12.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>12.2</b> 404 pages</a></li>
-<li class="chapter" data-level="12.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>12.3</b> Metadata for sharing</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://estadistica4all.com" target="blank">Estadistica4all.com</a></li>
 
 </ul>
 
@@ -994,49 +935,30 @@ Name: quality_recode, dtype: float64</code></pre>
 <span id="cb38-14"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-15"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> predict(<span class="va">self</span>):</span>
 <span id="cb38-16"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-16" aria-hidden="true" tabindex="-1"></a>        Y_predict_x_new_i_LIST <span class="op">=</span> []</span>
-<span id="cb38-17"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-17" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb38-18"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(<span class="va">self</span>.distance_matrix_new_data)):</span>
-<span id="cb38-19"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-19" aria-hidden="true" tabindex="-1"></a>            distancias_x_new_i <span class="op">=</span> pd.DataFrame({<span class="st">&#39;id_x_train&#39;</span>: <span class="va">self</span>.X_train.index, <span class="st">&#39;distancias&#39;</span>: <span class="va">self</span>.distance_matrix_new_data[i,:]})</span>
-<span id="cb38-20"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-20" aria-hidden="true" tabindex="-1"></a>            distancias_x_new_i_sort <span class="op">=</span> distancias_x_new_i.sort_values(by<span class="op">=</span>[<span class="st">&quot;distancias&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb38-21"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-21" aria-hidden="true" tabindex="-1"></a>            knn_x_new_i <span class="op">=</span> distancias_x_new_i_sort.iloc[<span class="dv">0</span>:<span class="va">self</span>.k, <span class="dv">0</span>]</span>
-<span id="cb38-22"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-22" aria-hidden="true" tabindex="-1"></a>            categorias_knn_x_new_i <span class="op">=</span> []</span>
-<span id="cb38-23"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-23" aria-hidden="true" tabindex="-1"></a>           </span>
-<span id="cb38-24"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-24" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> j <span class="kw">in</span> knn_x_new_i :</span>
-<span id="cb38-25"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-25" aria-hidden="true" tabindex="-1"></a>               categorias_knn_x_new_i.append(<span class="va">self</span>.Y_train[j])</span>
-<span id="cb38-26"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-26" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb38-27"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-27" aria-hidden="true" tabindex="-1"></a>            unique, counts <span class="op">=</span> np.unique(categorias_knn_x_new_i , return_counts<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb38-28"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-28" aria-hidden="true" tabindex="-1"></a>            unique_Y , counts_Y <span class="op">=</span> np.unique(<span class="va">self</span>.Y_train , return_counts<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb38-29"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-29" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb38-30"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-30" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(unique) <span class="op">==</span> <span class="bu">len</span>(unique_Y) :</span>
-<span id="cb38-31"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-31" aria-hidden="true" tabindex="-1"></a>               proporciones_categorias_knn_x_new_i <span class="op">=</span> pd.DataFrame({<span class="st">&#39;prop_categoria&#39;</span>: counts<span class="op">/</span><span class="va">self</span>.k, <span class="st">&#39;categoria&#39;</span>: unique_Y })</span>
-<span id="cb38-32"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-32" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> <span class="bu">len</span>(unique) <span class="op">&lt;</span> <span class="bu">len</span>(unique_Y) :</span>
-<span id="cb38-33"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-33" aria-hidden="true" tabindex="-1"></a>               proporciones_categorias_knn_x_new_i <span class="op">=</span> pd.DataFrame({<span class="st">&#39;prop_categoria&#39;</span>: counts<span class="op">/</span><span class="va">self</span>.k, <span class="st">&#39;categoria&#39;</span>: unique })</span>
-<span id="cb38-34"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-34" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb38-35"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-35" aria-hidden="true" tabindex="-1"></a>            Y_predict_x_new_i <span class="op">=</span> proporciones_categorias_knn_x_new_i.sort_values(by<span class="op">=</span>[<span class="st">&quot;prop_categoria&quot;</span>], ascending<span class="op">=</span><span class="va">False</span>).iloc[<span class="dv">0</span> , :][<span class="st">&#39;categoria&#39;</span>]  </span>
-<span id="cb38-36"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-36" aria-hidden="true" tabindex="-1"></a>            Y_predict_x_new_i_LIST.append(Y_predict_x_new_i)</span>
-<span id="cb38-37"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-37" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb38-38"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-38" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.df_predictions <span class="op">=</span> pd.DataFrame({<span class="st">&#39;id_x_new&#39;</span>:<span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(<span class="va">self</span>.distance_matrix_new_data)) , <span class="st">&#39;Y_predict&#39;</span>: Y_predict_x_new_i_LIST})</span>
-<span id="cb38-39"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-39" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.predictions <span class="op">=</span> <span class="va">self</span>.df_predictions[<span class="st">&#39;Y_predict&#39;</span>]</span></code></pre></div>
-<p>Probaremos la función con la distancia de <strong>Gower</strong>, ya que es una distancia que no está disponible en la implementación de <code>sklearn</code>.</p>
+<span id="cb38-17"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(<span class="va">self</span>.distance_matrix_new_data)):</span>
+<span id="cb38-18"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-18" aria-hidden="true" tabindex="-1"></a>            distancias_x_new_i <span class="op">=</span> pd.DataFrame({<span class="st">&#39;id_x_train&#39;</span>: <span class="va">self</span>.X_train.index, <span class="st">&#39;distancias&#39;</span>: <span class="va">self</span>.distance_matrix_new_data[i,:]})</span>
+<span id="cb38-19"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-19" aria-hidden="true" tabindex="-1"></a>            distancias_x_new_i_sort <span class="op">=</span> distancias_x_new_i.sort_values(by<span class="op">=</span>[<span class="st">&quot;distancias&quot;</span>]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb38-20"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-20" aria-hidden="true" tabindex="-1"></a>            knn_x_new_i <span class="op">=</span> distancias_x_new_i_sort.iloc[<span class="dv">0</span>:<span class="va">self</span>.k, <span class="dv">0</span>]</span>
+<span id="cb38-21"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-21" aria-hidden="true" tabindex="-1"></a>            categorias_knn_x_new_i <span class="op">=</span> []</span>
+<span id="cb38-22"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-22" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> j <span class="kw">in</span> knn_x_new_i :</span>
+<span id="cb38-23"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-23" aria-hidden="true" tabindex="-1"></a>               categorias_knn_x_new_i.append(<span class="va">self</span>.Y_train[j])</span>
+<span id="cb38-24"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-24" aria-hidden="true" tabindex="-1"></a>            unique, counts <span class="op">=</span> np.unique(categorias_knn_x_new_i , return_counts<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb38-25"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-25" aria-hidden="true" tabindex="-1"></a>            unique_Y , counts_Y <span class="op">=</span> np.unique(<span class="va">self</span>.Y_train , return_counts<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb38-26"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-26" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="bu">len</span>(unique) <span class="op">==</span> <span class="bu">len</span>(unique_Y) :</span>
+<span id="cb38-27"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-27" aria-hidden="true" tabindex="-1"></a>               proporciones_categorias_knn_x_new_i <span class="op">=</span> pd.DataFrame({<span class="st">&#39;prop_categoria&#39;</span>: counts<span class="op">/</span><span class="va">self</span>.k, <span class="st">&#39;categoria&#39;</span>: unique_Y })</span>
+<span id="cb38-28"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-28" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> <span class="bu">len</span>(unique) <span class="op">&lt;</span> <span class="bu">len</span>(unique_Y) :</span>
+<span id="cb38-29"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-29" aria-hidden="true" tabindex="-1"></a>               proporciones_categorias_knn_x_new_i <span class="op">=</span> pd.DataFrame({<span class="st">&#39;prop_categoria&#39;</span>: counts<span class="op">/</span><span class="va">self</span>.k, <span class="st">&#39;categoria&#39;</span>: unique })</span>
+<span id="cb38-30"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-30" aria-hidden="true" tabindex="-1"></a>            Y_predict_x_new_i <span class="op">=</span> proporciones_categorias_knn_x_new_i.sort_values(by<span class="op">=</span>[<span class="st">&quot;prop_categoria&quot;</span>], ascending<span class="op">=</span><span class="va">False</span>).iloc[<span class="dv">0</span> , :][<span class="st">&#39;categoria&#39;</span>]  </span>
+<span id="cb38-31"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-31" aria-hidden="true" tabindex="-1"></a>            Y_predict_x_new_i_LIST.append(Y_predict_x_new_i)</span>
+<span id="cb38-32"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-32" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.df_predictions <span class="op">=</span> pd.DataFrame({<span class="st">&#39;id_x_new&#39;</span>:<span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(<span class="va">self</span>.distance_matrix_new_data)) , <span class="st">&#39;Y_predict&#39;</span>: Y_predict_x_new_i_LIST})</span>
+<span id="cb38-33"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb38-33" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.predictions <span class="op">=</span> <span class="va">self</span>.df_predictions[<span class="st">&#39;Y_predict&#39;</span>]</span></code></pre></div>
+<p><br></p>
+<p>Probaremos el algoritmo que acabamos de programar con la distancia de <strong>Gower</strong>, ya que es una distancia que no está disponible en la implementación de <code>sklearn</code>.</p>
 <p>Para ello necesitamos calcular la matriz de distancias de Gower entre las nuevas observaciones y las observaciones de entrenamiento de los predictores. Esto lo podemos conseguir como sigue:</p>
-<p>Primero obtenemos el conjunto total de observaciones de los predicitores. Es decir, un data-frame que se puede construir a partir de la concatenación por filas de los data-frames <code>X_train</code> y <code>X_new</code> .</p>
+<p>Primero obtenemos el conjunto total de observaciones de los predicitores. Es decir, un data-frame que se puede construir a partir de la concatenación por filas de los data-frames <code>X_train</code> y <code>X_new</code>.</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb39-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> pd.concat([X_train , X_new])</span>
-<span id="cb39-2"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-3"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb39-3" aria-hidden="true" tabindex="-1"></a>X.head()</span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<span id="cb39-2"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb39-2" aria-hidden="true" tabindex="-1"></a>X.head()</span></code></pre></div>
+<div style="overflow-x: scroll;">
 <table border="1" class="dataframe">
 <thead>
 <tr style="text-align: right;">
@@ -1182,7 +1104,7 @@ private_garden_recode
 </table>
 </div>
 <p><br></p>
-<p>Calculamos la matriz de distancias de gower del conjunto total de observaciones de los predictores.</p>
+<p>Calculamos la matriz de distancias de gower entre las observaciones totales (de train y new) de los predictores.</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb40-1" aria-hidden="true" tabindex="-1"></a>M_Gower <span class="op">=</span> Matrix_Gower_Distance(Data<span class="op">=</span>X.to_numpy(), p1<span class="op">=</span><span class="dv">4</span>, p2<span class="op">=</span><span class="dv">2</span>, p3<span class="op">=</span><span class="dv">0</span>)</span>
 <span id="cb40-2"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb40-2" aria-hidden="true" tabindex="-1"></a>M_Gower</span></code></pre></div>
 <pre><code>array([[0.        , 0.64817837, 0.76118906, ..., 0.70588672, 0.62389777,
@@ -1198,180 +1120,87 @@ private_garden_recode
         0.45160134],
        [0.76544317, 0.53192923, 0.20821652, ..., 0.33432523, 0.45160134,
         0.        ]])</code></pre>
-<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb42-1" aria-hidden="true" tabindex="-1"></a>M_Gower_new_data <span class="op">=</span> M_Gower[ <span class="bu">len</span>(X_train):<span class="bu">len</span>(X) , <span class="dv">0</span>:<span class="bu">len</span>(X_train) ]  </span>
-<span id="cb42-2"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Nos quedamos con las filas de la 1524 a la 1904 , que son las correspondientes a las nuevas observaciones de los predictores.</span></span>
-<span id="cb42-4"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Nos queamos con las columnas de la 0 a la 1524, que son las correspondientes a las observaciones de train de los predictores.</span></span>
-<span id="cb42-5"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb42-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-6"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;M_new_data&#39; contiene las distancias (de Gower) entre las nuevas observaciones de los predictores y las de entrenamiento.</span></span>
-<span id="cb42-7"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb42-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-8"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb42-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Su fila i-esima contiene las distancias entre la i-esima nueva observacion de los predictores y las observaciones de entrenamiento.</span></span></code></pre></div>
+<p>Por un lado, nos quedamos con las filas de la 1524 (<em>len(X_train)</em>) a la 1904 (<em>len(X)</em>) , que son las correspondientes a las nuevas observaciones de los predictores.</p>
+<p>Por otro lado, nos quedamos con las columnas de la 0 a la 1524, que son las correspondientes a las observaciones de train de los predictores.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb42-1" aria-hidden="true" tabindex="-1"></a>M_Gower_new_data <span class="op">=</span> M_Gower[ <span class="bu">len</span>(X_train):<span class="bu">len</span>(X) , <span class="dv">0</span>:<span class="bu">len</span>(X_train) ]  </span></code></pre></div>
+<p><strong>M_Gower_new_data</strong> contiene las distancias (de Gower) entre las nuevas observaciones de los predictores y las de entrenamiento (train).</p>
+<p>Su fila <span class="math inline">\(i\)</span>-esima contiene las distancias entre la <span class="math inline">\(i\)</span>-esima nueva observación de los predictores y cada una de las observaciones de entrenamiento.</p>
 <p>Podemos comprobar las dimensiones de esta matriz.</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb43-1" aria-hidden="true" tabindex="-1"></a>M_Gower_new_data.shape</span></code></pre></div>
 <pre><code>(381, 1524)</code></pre>
 <p><br></p>
-<p>Aplicamos la función para la matriz de distancias de <strong>Gower</strong> entre las observaciones de train y las nuevas observaciones de los predictores. Fijaremos, además, <strong>k=10</strong> :</p>
+<p>Ejecutamos el algoritmo KNN que hemos programado con la distancia de <strong>Gower</strong>, es decir, usamos la matriz de distancias de Gower entre las observaciones de train y las nuevas observaciones de los predictores. Fijaremos, además, <span class="math inline">\(k=10\)</span> :</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb45-1" aria-hidden="true" tabindex="-1"></a>KNNClassification_init <span class="op">=</span> KNNClassification(k<span class="op">=</span><span class="dv">10</span>, X_train<span class="op">=</span>X_train, Y_train<span class="op">=</span>Y_train, distance_matrix_new_data<span class="op">=</span>M_Gower_new_data)</span>
-<span id="cb45-2"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-3"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb45-3" aria-hidden="true" tabindex="-1"></a>KNNClassification_init.predict()</span></code></pre></div>
+<span id="cb45-2"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb45-2" aria-hidden="true" tabindex="-1"></a>KNNClassification_init.predict()</span></code></pre></div>
 <p><br></p>
 <p><code>KNNClassification_init.df_predictions</code> almacena un data-frame que contiene la predicción de la variable respuesta para cada una de las nuevas observaciones de los predictores, es decir, para cada nuevo “individuo”.</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb46-1" aria-hidden="true" tabindex="-1"></a>KNNClassification_init.df_predictions</span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
+<table>
 <thead>
-<tr style="text-align: right;">
-<th>
-</th>
-<th>
-id_x_new
-</th>
-<th>
-Y_predict
-</th>
+<tr class="header">
+<th align="right"></th>
+<th align="right">id_x_new</th>
+<th align="right">Y_predict</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<th>
-0
-</th>
-<td>
-0
-</td>
-<td>
-2.0
-</td>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">2</td>
 </tr>
-<tr>
-<th>
-1
-</th>
-<td>
-1
-</td>
-<td>
-2.0
-</td>
+<tr class="even">
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">2</td>
 </tr>
-<tr>
-<th>
-2
-</th>
-<td>
-2
-</td>
-<td>
-2.0
-</td>
+<tr class="odd">
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">2</td>
 </tr>
-<tr>
-<th>
-3
-</th>
-<td>
-3
-</td>
-<td>
-1.0
-</td>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">1</td>
 </tr>
-<tr>
-<th>
-4
-</th>
-<td>
-4
-</td>
-<td>
-2.0
-</td>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">4</td>
+<td align="right">2</td>
 </tr>
-<tr>
-<th>
-…
-</th>
-<td>
-…
-</td>
-<td>
-…
-</td>
+<tr class="even">
+<td align="right">…</td>
+<td align="right">…</td>
+<td align="right">…</td>
 </tr>
-<tr>
-<th>
-376
-</th>
-<td>
-376
-</td>
-<td>
-2.0
-</td>
+<tr class="odd">
+<td align="right">376</td>
+<td align="right">376</td>
+<td align="right">2</td>
 </tr>
-<tr>
-<th>
-377
-</th>
-<td>
-377
-</td>
-<td>
-2.0
-</td>
+<tr class="even">
+<td align="right">377</td>
+<td align="right">377</td>
+<td align="right">2</td>
 </tr>
-<tr>
-<th>
-378
-</th>
-<td>
-378
-</td>
-<td>
-2.0
-</td>
+<tr class="odd">
+<td align="right">378</td>
+<td align="right">378</td>
+<td align="right">2</td>
 </tr>
-<tr>
-<th>
-379
-</th>
-<td>
-379
-</td>
-<td>
-0.0
-</td>
+<tr class="even">
+<td align="right">379</td>
+<td align="right">379</td>
+<td align="right">0</td>
 </tr>
-<tr>
-<th>
-380
-</th>
-<td>
-380
-</td>
-<td>
-2.0
-</td>
+<tr class="odd">
+<td align="right">380</td>
+<td align="right">380</td>
+<td align="right">2</td>
 </tr>
 </tbody>
 </table>
-<p>
-381 rows × 2 columns
-</p>
-</div>
 <p><br></p>
 <p>También podemos acceder directamente a las predicciones generadas por el algoritmo con <code>KNNClassification_init.predictions</code>.</p>
 <div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb47-1" aria-hidden="true" tabindex="-1"></a>KNNClassification_init.predictions</span></code></pre></div>
@@ -1395,28 +1224,12 @@ Name: Y_predict, Length: 381, dtype: float64</code></pre>
 <p><br></p>
 <p>Ahora probamos el algoritmo con la distancia <strong>Euclidea</strong>:</p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb51-1" aria-hidden="true" tabindex="-1"></a>M_Euclidea <span class="op">=</span> Matrix_Dist_Euclidea(Data<span class="op">=</span>X.to_numpy())</span>
-<span id="cb51-2"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-3"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb51-3" aria-hidden="true" tabindex="-1"></a>M_Euclidea  <span class="op">=</span> M_Euclidea <span class="op">+</span> M_Euclidea.T</span>
-<span id="cb51-4"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb51-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-5"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb51-5" aria-hidden="true" tabindex="-1"></a>M_Euclidea_new_data <span class="op">=</span> M_Euclidea[ <span class="bu">len</span>(X_train):<span class="bu">len</span>(X) , <span class="dv">0</span>:<span class="bu">len</span>(X_train) ]  </span></code></pre></div>
+<span id="cb51-2"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb51-2" aria-hidden="true" tabindex="-1"></a>M_Euclidea  <span class="op">=</span> M_Euclidea <span class="op">+</span> M_Euclidea.T</span>
+<span id="cb51-3"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb51-3" aria-hidden="true" tabindex="-1"></a>M_Euclidea_new_data <span class="op">=</span> M_Euclidea[ <span class="bu">len</span>(X_train):<span class="bu">len</span>(X) , <span class="dv">0</span>:<span class="bu">len</span>(X_train) ]  </span></code></pre></div>
 <div class="sourceCode" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb52-1"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb52-1" aria-hidden="true" tabindex="-1"></a>KNNClassification_init <span class="op">=</span> KNNClassification(k<span class="op">=</span><span class="dv">10</span>, X_train<span class="op">=</span>X_train, Y_train<span class="op">=</span>Y_train, distance_matrix_new_data<span class="op">=</span>M_Euclidea_new_data)</span>
-<span id="cb52-2"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-3"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb52-3" aria-hidden="true" tabindex="-1"></a>KNNClassification_init.predict()</span></code></pre></div>
+<span id="cb52-2"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb52-2" aria-hidden="true" tabindex="-1"></a>KNNClassification_init.predict()</span></code></pre></div>
 <div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb53-1" aria-hidden="true" tabindex="-1"></a>KNNClassification_init.df_predictions</span></code></pre></div>
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
+<div style="overflow-x: scroll;">
 <table border="1" class="dataframe">
 <thead>
 <tr style="text-align: right;">
@@ -1558,12 +1371,12 @@ Y_predict
 381 rows × 2 columns
 </p>
 </div>
+<p><br></p>
+<p>Calculamos la tasa de acierto de la clasificación:</p>
 <div class="sourceCode" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb54-1"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb54-1" aria-hidden="true" tabindex="-1"></a>TA <span class="op">=</span> <span class="bu">sum</span>( KNNClassification_init.predictions <span class="op">==</span> Y_new.reset_index().quality_recode ) <span class="op">/</span> <span class="bu">len</span>(Y_new)</span>
 <span id="cb54-2"><a href="knn-como-algoritmo-de-clasificación-supervisada.html#cb54-2" aria-hidden="true" tabindex="-1"></a>TA</span></code></pre></div>
 <pre><code>0.5958005249343832</code></pre>
 <p>Como se puede comprobar se obtiene la misma tasa de acierto que con el algoritmo aplicado con <code>sklearn</code>, usando también la distancia Euclidea.</p>
-<p><br></p>
-<hr />
 <p><br></p>
 </div>
 </div>
@@ -1604,7 +1417,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"link": "https://estadistica4all.com/index.Rmd",
 "text": "Edit"
 },
 "history": {
