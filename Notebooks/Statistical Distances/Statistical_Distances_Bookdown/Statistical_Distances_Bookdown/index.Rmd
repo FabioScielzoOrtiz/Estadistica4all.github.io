@@ -4558,7 +4558,12 @@ $$
 Definimos una función que calcula la matriz de similaridades de Gower-Mahalanobis entre las observaciones de un data-set de tipo mixto que es pasado como argumento.
 ```python
 def Matrix_Gower_Maha_Similarity(Data, p1, p2, p3):
-
+    # Data tiene que ser un pandas data-frame tal que:
+    # las primeras p1 tiene que ser variables cuantitativas, 
+    # las siguientes p2 binarias y las restantes p3 multiclase.
+    # Si Data no contiene variables cuantitativas --> p1=0
+    # Si Data no contiene variables binarias --> p2=0
+    # Si Data no contiene variables multiclase --> p3=0
     Data_pd = Data
     Data = Data.to_numpy()
     n = len(Data)
