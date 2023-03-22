@@ -58,3 +58,14 @@ versión-simple
 versión-related-metric-scaling
 distancia-de-mahalanobis-robusta
 distancia-de-gower-generalizada-en-python
+distancia-de-mahalanobis-robusta-en-python
+estimación-robusta-de-la-matriz-de-covarianzas
+estimación-robusta-de-la-varianza
+propuesta-1-desviación-absoluta-mediana
+propuesta-2-varianza-recortada
+propuesta-3-varianza-winsorizada
+estimación-robusta-de-la-correlación
+estimación-robusta-de-la-covarianza
+estimación-robusta-de-la-matriz-de-correlaciones
+estimación-robusta-de-la-matriz-de-covarianzas-1
+inversa-de-la-estimación-robusta-de-la-matriz-de-covarianzas

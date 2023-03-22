@@ -3144,11 +3144,11 @@ Jaccard_Similarity_1(i=2, r=5, Data=Data_binary)
 
 Definimos una función que calcula la similaridad de Jaccard entre un par de observaciones de variables binarias. Esta versión es computacionalmente más eficiente que la anterior.
 ```python
-def Jaccard_Similarity_2(i , r, a , b, c):
+def Jaccard_Similarity_2(i , r, a, d, p):
 
     if a[i,r] == 0 and  (p-d[i,r]) == 0 :
         Jaccard_Similarity = 1
-    else :
+    else 
         Jaccard_Similarity = a[i,r] / (p-d[i,r])
 
     return Jaccard_Similarity
@@ -3160,7 +3160,7 @@ Probamos la función:
 ```python
 a, b, c, d, p = a_b_c_d_Matrix(Data=Data_binary)
 
-Jaccard_Similarity_2(i=2, r=5, a=a , b=b, c=c)
+Jaccard_Similarity_2(i=2, r=5, a=a , d=d, p=p)
 ```
 
     0
@@ -3223,7 +3223,7 @@ def Matrix_Sim_Jaccard_2(Data):
             elif i == r :
                  M[i,r] = 1
             else :
-                 M[i,r] = Jaccard_Similarity_2(i , r , a , b , c)
+                 M[i,r] = Jaccard_Similarity_2(i, r, a, d, p)
                       
     return M 
 ```
@@ -3311,7 +3311,7 @@ Definimos una función que calcula la distancia de Jaccard entre un par de obser
 ```python
 def Dist_Jaccard(i , r, a , b, c):
 
-    Dist_Jaccard = np.sqrt( Jaccard_Similarity_2(i , i, a , b, c) + Jaccard_Similarity_2(r , r, a , b, c) - 2*Jaccard_Similarity_2(i , r, a , b, c) )
+    Dist_Jaccard = np.sqrt( Jaccard_Similarity_2(i , i, a, d, p) + Jaccard_Similarity_2(r , r, a, d, p) - 2*Jaccard_Similarity_2(i , r, a, d, p) )
 
     return Dist_Jaccard  
 ```
@@ -3322,7 +3322,7 @@ Probamos la función:
 ```python
 a, b, c, d, p = a_b_c_d_Matrix(Data_binary)
 
-Dist_Jaccard(i=2 , r=5, a=a , b=b, c=c)
+Dist_Jaccard(i=2 , r=5, a=a, d=d, p=p)
 ```
 
 
@@ -3347,7 +3347,7 @@ def Matrix_Dist_Jaccard(Data):
              if i >= r :
                  M[i,r] = 0
              else :
-                 M[i,r] = Dist_Jaccard(i=i, r=r, a=a, b=b, c=c)
+                 M[i,r] = Dist_Jaccard(i=i, r=r, a=a, d=d, p=p)
                       
     return M 
 ```
@@ -4701,8 +4701,7 @@ array([[0.        , 0.46011364, 0.54023301, ..., 0.47435704, 0.53328707,
 
 # Anexo
 
-
-## Distancia de Gower Generalizada
+# Distancia de Gower Generalizada
 
 Tenemos un conjunto de variables estadísticas $\hspace{0.03cm}(\mathcal{X}_1,...,\mathcal{X}_p )\hspace{0.03cm}$ tales que las $\hspace{0.03cm}p_1\hspace{0.03cm}$ primeras son cuantitativas, las $\hspace{0.03cm}p_2\hspace{0.03cm}$ siguientes son binarias y las últimas $\hspace{0.03cm}p_3\hspace{0.03cm}$ son multiclase, es decir:  $\\$
 
@@ -4760,7 +4759,7 @@ $\mathcal{X}_1,...,\mathcal{X}_p \hspace{0.1cm}$ forman un conjunto de variables
 <br>
 
 
-### Versión simple
+## Versión simple
 
 El algoritmo que define la versión simple de la distancia de Gower generalizada es el siguiente:
 
@@ -4864,7 +4863,7 @@ Hay que notar que el algoritmo anterior requiere que las medidas de similitud em
 
 <br>
 
-### Versión related metric scaling
+## Versión related metric scaling
 
 
 El algoritmo que define la versión simple de la distancia de Gower generalizada es el siguiente:
@@ -4994,7 +4993,7 @@ Este procedimiento permite eliminar redundancia de información entre grupos de 
 
 - ***Usando la descomposición en valores singulares (SVD)***
 
-    $G_j$ debe ser simétrica $(G_j = G_j^t)$ y semi-definida positiva (autovalores de $G_j$ son $\geq 0$).
+    $G_j$ debe ser simétrica $(G_j = G_j^t)$ y semi-definida positiva (autovalores de $G_j$ son $> 0$ y alguno $=0$).
 
     En este caso, como $G_j$ es una matriz $n\text{x}q$ con $n \geq q=n$, entonces:
 
@@ -5008,7 +5007,7 @@ Este procedimiento permite eliminar redundancia de información entre grupos de 
 
     Donde:
 
-    Si $\hspace{0.02cm}\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_n\hspace{0.02cm}$ son los autovalores de $\hspace{0.02cm}G_j\hspace{0.02cm}^t \cdot G_j\hspace{0.02cm}$ ordenados de mayor a menor, y $\hspace{0.02cm}w(\lambda_i)\hspace{0.02cm}$ es el autovector asociado al autovalor $\hspace{0.02cm}\lambda_i\hspace{0.02cm}$, entonces:
+    Si $\hspace{0.03cm}\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_n\hspace{0.03cm}$ son los autovalores de $\hspace{0.03cm}G_j\hspace{0.02cm}^t \cdot G_j\hspace{0.03cm}$ ordenados de mayor a menor, y $\hspace{0.02cm}w(\lambda_i)\hspace{0.02cm}$ es el autovector asociado al autovalor $\hspace{0.02cm}\lambda_i\hspace{0.02cm}$, entonces:
 
     - Los valores singulares de $\hspace{0.02cm}G_j\hspace{0.02cm}$ son $\hspace{0.02cm}\sqrt{\lambda_1},...,\sqrt{\lambda_n}\hspace{0.02cm}$. 
     
@@ -5030,7 +5029,7 @@ Este procedimiento permite eliminar redundancia de información entre grupos de 
     
 - ***Usando la descomposición espectral***
 
-    $G_j\hspace{0.02cm}$ debe ser cuadrada  $(n\text{x}n)$, simétrica, es decir $G_j = G_j^t$, y semi-definida positiva, es decir autovalores de $\hspace{0.02cm}G_j\hspace{0.02cm}$ son $\hspace{0.02cm}\geq 0\hspace{0.02cm}$ .
+    $G_j\hspace{0.02cm}$ debe ser cuadrada  $(n\text{x}n)$, simétrica, es decir $G_j = G_j^t$, y semi-definida positiva, es decir autovalores de $\hspace{0.02cm}G_j\hspace{0.02cm}$ son $\hspace{0.02cm}> 0\hspace{0.02cm}$ excepto alguno que es $=0$ .
     
     La **descomposición espectral** de $\hspace{0.02cm}G_j\hspace{0.02cm}$ es:
 
@@ -5042,7 +5041,7 @@ Este procedimiento permite eliminar redundancia de información entre grupos de 
     
     Donde:
 
-    Si $\hspace{0.02cm}\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_n\hspace{0.02cm}$ son los autovalores de $\hspace{0.02cm}G_j\hspace{0.02cm}$ ordenados de mayor a menor, y $\hspace{0.02cm}w(\lambda_i)\hspace{0.02cm}$ es el autovector asociado al autovalor $\hspace{0.02cm}\lambda_i\hspace{0.02cm}$, entonces:
+    Si $\hspace{0.03cm}\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_n\hspace{0.03cm}$ son los autovalores de $\hspace{0.03cm}G_j\hspace{0.03cm}$ ordenados de mayor a menor, y $\hspace{0.02cm}w(\lambda_i)\hspace{0.02cm}$ es el autovector asociado al autovalor $\hspace{0.02cm}\lambda_i\hspace{0.02cm}$, entonces:
 
 
     La matriz $\hspace{0.02cm}\Lambda\hspace{0.02cm}$ se define como:
@@ -5074,11 +5073,189 @@ Este procedimiento permite eliminar redundancia de información entre grupos de 
 <br>
 
 
-## Distancia de Mahalanobis Robusta
+# Distancia de Mahalanobis Robusta
+
+Dada una matriz de datos $\hspace{0.03cm} X=(X_1,...,X_p)\hspace{0.03cm}$ de las variables estadísticas  $\hspace{0.03cm}\mathcal{X}_1,...,\mathcal{X}_p$
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+ 
+$\hspace{0.25cm}$ La distancia de Mahalanobis **robusta** entre el par de observaciones $\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}$ de las variables estadísticas $\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p$ se define como: $\\$
+
+ 
+$$
+ \delta(x_i,x_r)_{Maha} \hspace{0.15cm}= \hspace{0.15cm} \sqrt{\hspace{0.1cm}(x_i - x_r)\hspace{0.03cm}^t \cdot S^{-1}_R \cdot (x_i - x_r ) \hspace{0.1cm}}   \\
+$$
+
+</p>
+ 
+</p></span>
+</div>
+
+<br>
+
+Donde:
+
+- $S_R \hspace{0.03cm}$ es la estimación **robusta** de la matriz de covarianzas de las variables  $\hspace{0.03cm}(\mathcal{X}_1,\dots , \mathcal{X}_p)\hspace{0.03cm}$ basada en la matriz de datos $\hspace{0.03cm}X=(X_1,...,X_p)\hspace{0.03cm}.$
+
+<br>
+
+## Estimación robusta de la matriz de covarianzas  
+    
+### Estimación robusta de la varianza
+
+#### Propuesta 1: Desviación absoluta mediana
+
+Siguiendo esta propuesta;
+
+Dada la muestra $X_j$ de la variable estadística $\mathcal{X}_j$,
+
+ La estimación robusta de la varianza de $\mathcal{X}_j$
+ se define como:
+ 
+ $$\sigma^2_R(X_j) \hspace{0.05cm} = \hspace{0.05cm} MAD(X_j)^2 \hspace{0.05cm} = \hspace{0.05cm} Me\hspace{0.05cm} \Bigl[ \hspace{0.05cm} \bigl( \hspace{0.1cm} | \hspace{0.1cm}  x_{ij} - Me(X_j) \hspace{0.1cm} |  \hspace{0.1cm} : \hspace{0.1cm} i = 1,...,n \hspace{0.1cm} \bigr)  \hspace{0.05cm} \Bigr]$$
+ 
+ 
+ <br>
+ 
+ 
+#### Propuesta 2: Varianza recortada
+
+
+Siguiendo esta propuesta;
+
+Dada la muestra $X_j$ de la variable estadística $\mathcal{X}_j$,
+
+
+La muestra $\alpha$-recortada de $X_j$ se define como:
+
+$$X_j^\alpha \hspace{0.07cm}=\hspace{0.07cm} \Bigl(\hspace{0.1cm} x_{ij} \hspace{0.3cm} \mathbf{:} \hspace{0.3cm} i\in \lbrace 1,...,n \rbrace \hspace{0.12cm} , \hspace{0.15cm}  x_{ij} \hspace{0.05cm}\geq\hspace{0.05cm} Q(\alpha/2\hspace{0.05cm} ,\hspace{0.05cm} X_j) \hspace{0.12cm} , \hspace{0.15cm} x_{ij} \hspace{0.05cm}\leq\hspace{0.05cm} Q(1-\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j)   \hspace{0.1cm} \Bigr)$$
+
+ La estimación robusta de la varianza de $\mathcal{X}_j$
+ se define como:
+ 
+ $$\sigma^2_R(X_j) \hspace{0.07cm} = \hspace{0.07cm} \sigma^2(X_j^\alpha) \hspace{0.07cm} = \hspace{0.07cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.05cm} \Bigl( \hspace{0.05cm} x_{ij} - \overline{X}_j^\alpha \hspace{0.05cm} \Bigr)^2$$
+
+
+#### Propuesta 3: Varianza Winsorizada
+
+
+Siguiendo esta propuesta;
+
+Dada la muestra $X_j$ de la variable estadística $\mathcal{X}_j$,
+
+
+La muestra $\alpha$-winsorizada de $X_j$ se define como:
+
+
+
+$$X_j^w \hspace{0.07cm}=\hspace{0.07cm} \Bigl(\hspace{0.1cm} g(x) \hspace{0.25cm} \mathbf{:} \hspace{0.25cm}  x \in X_j  \hspace{0.1cm} \Bigr)$$
+Donde:
+
+- $g$ es una función definida del siguiente modo:
+
+\begin{equation*}
+  g(x) \hspace{0.05cm} = \hspace{0.05cm}
+  \begin{cases}
+    a  \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm} x \in A \\
+    b \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   x \in B \\
+    x \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   x \not\in A,B \hspace{0.2cm} , \hspace{0.2cm} x\in X_j
+  \end{cases}
+\end{equation*}
+
+
+- Los conjunto $A$ y $B$ son definidos como sigue:
+
+$$A \hspace{0.05cm}=\hspace{0.05cm} \lbrace \hspace{0.1cm} x_{ij} \hspace{0.2cm}:\hspace{0.2cm} x_{ij} \hspace{0.05cm}\leq\hspace{0.05cm} Q(\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j) \hspace{0.1cm}\rbrace$$
+$$B \hspace{0.05cm}=\hspace{0.05cm} \lbrace \hspace{0.1cm} x_{ij} \hspace{0.2cm}:\hspace{0.2cm} x_{ij} \hspace{0.05cm}\leq\hspace{0.05cm} Q(\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j) \hspace{0.1cm}\rbrace$$
+
+- Los valores $a$ y $b$ se definen de la siguiente manera:
+
+$a$ es el valor de $X_j$ que es inmediatamente superior a $Q(\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j)$
+
+
+$b$ es el valor de $X_j$ que es inmediatamente inferior a $Q(1-\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j)$
+
+
+
+ La estimación robusta de la varianza de $\mathcal{X}_j$
+ se define como:
+ 
+ $$\sigma^2_R(X_j) \hspace{0.07cm} = \hspace{0.07cm} \sigma^2(X_j^w) \hspace{0.07cm} = \hspace{0.07cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.05cm} \Bigl( \hspace{0.05cm} x_{ij} - \overline{X}_j^w \hspace{0.05cm} \Bigr)^2$$
+
+<br>
+
+## Estimación robusta de la correlación
+
+Sean $X_j$  y $X_k$ muestras de las variable estadística $\mathcal{X_j}$ y  $\mathcal{X_k}$, respectivamente.
+
+Se define la muestra auxiliar $Z_j$ como  $Z_j = \dfrac{X_j}{ \sqrt{\sigma^2_R(X_j)} }$.
+
+La estimación robusta del coeficiente de correlación lineal entre $\mathcal{X}_j$ y $\mathcal{X}_k$ se define como :
+
+$$r\hspace{0.05cm}(X_j,X_k)_R \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.2cm}\sigma^2_R(Z_j+Z_k)\hspace{0.1cm}-\hspace{0.1cm}\sigma^2_R(Z_j-Z_k)\hspace{0.2cm}}{\sigma^2_R(Z_j+Z_k)\hspace{0.1cm}+\hspace{0.1cm}\sigma^2_R(Z_j-Z_k)}$$
+
+
+<br>
+
+## Estimación robusta de la covarianza
+
+Sean $X_j$  y $X_k$ muestras de las variable estadística $\mathcal{X_j}$ y  $\mathcal{X_k}$, respectivamente.
+
+Usando la anterior definición de estimación robusta del coeficiente de correlación lineal y la relación existente entre la correlación y la covarianza, se tiene lo siguiente.
+
+La estimación robusta de la covarianza entre $\mathcal{X}_j$ y $\mathcal{X}_k$ es:
+
+$$s\hspace{0.05cm}(X_j,X_k)_R \hspace{0.1cm}=\hspace{0.1cm} r\hspace{0.05cm}(X_j,X_k)_R \cdot \sqrt{ \hspace{0.06cm}\sigma_R^2(X_j) \cdot \sigma_R^2(X_k) \hspace{0.1cm}  }$$
+
+<br>
+
+## Estimación robusta de la matriz de correlaciones
+
+Usando la aproximación anterior para estimar de forma robusta el coeficiente de correlación lineal, la estimación robusta de la matriz de correlaciones entre $p$ variables estadísticas $\mathcal{X}_1,...,\mathcal{X}_p$ sería la  matriz formada por tales estimaciones robustas del coeficiente de correlación entre cada par de esas variables, es decir, la siguiente matriz:
+
+$$R_R \hspace{0.1cm}=\hspace{0.1cm} \Bigr( \hspace{0.1cm}  r(X_j, X_k)_R  \hspace{0.2cm}:\hspace{0.2cm} k,j = 1,...,p  \hspace{0.1cm}\Bigl)$$
+
+<br>
+
+## Estimación robusta de la matriz de covarianzas
+
+Usando la aproximación anterior para estimar de forma robusta la covarianza, la estimación robusta de la matriz de covarianzas entre $p$ variables estadísticas $\mathcal{X}_1,...,\mathcal{X}_p$ sería la  matriz formada por tales estimaciones robustas de la covarianza entre cada par de esas variables, es decir, la siguiente matriz:
+
+$$S_R \hspace{0.1cm}=\hspace{0.1cm} \Bigr( \hspace{0.1cm}  s(X_j, X_k)_R  \hspace{0.2cm}:\hspace{0.2cm} k,j = 1,...,p  \hspace{0.1cm}\Bigl)$$
+
+<br>
+
+## Inversa de la estimación robusta de la matriz de covarianzas
+
+Para calcular la distancia de Mahalanobis robusta es necesario calcular $S_R^{-1}$.
+
+
+
+- Si $S_R$ es **definida positiva** (autovalores $> 0$) $\Rightarrow$ tiene inversa $(\exists \hspace{0.15cm} S_R^{-1})$ 
+
+- Si es  $S_R$ es semi-definida positiva (autovalores $> 0$ y alguno $= 0$) $\Rightarrow$ no tiene inversa $(\neg\hspace{0.1cm} \exists \hspace{0.15cm} S_R^{-1})$ , pero se podría calcular la g-inversa o pseudo-inversa.
+
+- Si $S_R$ es no definida positiva (algún autovalor $< 0$) $\Rightarrow$ puede ser invertible (si no tiene autovalores $=0$) o no invertible ( si no tiene autovalores $=0$). Pero aún en el primer caso, pese a que tuviera inversa, al usarla con la distancia de Mahalanobis podrían salir distancias negativas  o incluso imaginarias, lo que no tendría sentido.
 
 
 
 
+
+**Observación:**
+
+- La condición para que una matriz sea invertible (o no singular) es que su determinante sea diferente de cero. En otras palabras, una matriz es invertible si y solo si todos sus autovalores son distintos de cero.
+
+- Que sea $R_R$ definida positiva equivale a que $S_R$ tambien lo es.
+
+<br>
+
+
+### Distancia de Mahalanobis Robusta en `Python`
 
 
 

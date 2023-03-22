@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 10 Anexo | Distancias Estadísticas</title>
+  <title>Chapter 12 Distancia de Mahalanobis Robusta | Distancias Estadísticas</title>
   <meta name="description" content="Esta es una introducción a las distancias estadísticas." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 10 Anexo | Distancias Estadísticas" />
+  <meta property="og:title" content="Chapter 12 Distancia de Mahalanobis Robusta | Distancias Estadísticas" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Esta es una introducción a las distancias estadísticas." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 10 Anexo | Distancias Estadísticas" />
+  <meta name="twitter:title" content="Chapter 12 Distancia de Mahalanobis Robusta | Distancias Estadísticas" />
   
   <meta name="twitter:description" content="Esta es una introducción a las distancias estadísticas." />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html"/>
-<link rel="next" href="distancia-de-gower-generalizada.html"/>
+<link rel="prev" href="distancia-de-gower-generalizada.html"/>
+<link rel="next" href="bibliografía.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -268,16 +268,140 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="anexo" class="section level1 hasAnchor" number="10">
-<h1><span class="header-section-number">Chapter 10</span> Anexo<a href="anexo.html#anexo" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="distancia-de-mahalanobis-robusta" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">Chapter 12</span> Distancia de Mahalanobis Robusta<a href="distancia-de-mahalanobis-robusta.html#distancia-de-mahalanobis-robusta" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Dada una matriz de datos <span class="math inline">\(\hspace{0.03cm} X=(X_1,...,X_p)\hspace{0.03cm}\)</span> de las variables estadísticas <span class="math inline">\(\hspace{0.03cm}\mathcal{X}_1,...,\mathcal{X}_p\)</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> La distancia de Mahalanobis <strong>robusta</strong> entre el par de observaciones <span class="math inline">\(\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}\)</span> de las variables estadísticas <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_1,...,\mathcal{X}_p\)</span> se define como: <span class="math inline">\(\\\)</span></p>
+<p><span class="math display">\[
+\delta(x_i,x_r)_{Maha} \hspace{0.15cm}= \hspace{0.15cm} \sqrt{\hspace{0.1cm}(x_i - x_r)\hspace{0.03cm}^t \cdot S^{-1}_R \cdot (x_i - x_r ) \hspace{0.1cm}}   \\
+\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<p>Donde:</p>
+<ul>
+<li><span class="math inline">\(S_R \hspace{0.03cm}\)</span> es la estimación <strong>robusta</strong> de la matriz de covarianzas de las variables <span class="math inline">\(\hspace{0.03cm}(\mathcal{X}_1,\dots , \mathcal{X}_p)\hspace{0.03cm}\)</span> basada en la matriz de datos <span class="math inline">\(\hspace{0.03cm}X=(X_1,...,X_p)\hspace{0.03cm}.\)</span></li>
+</ul>
+<p><br></p>
+<div id="estimación-robusta-de-la-matriz-de-covarianzas" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Estimación robusta de la matriz de covarianzas<a href="distancia-de-mahalanobis-robusta.html#estimación-robusta-de-la-matriz-de-covarianzas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="estimación-robusta-de-la-varianza" class="section level3 hasAnchor" number="12.1.1">
+<h3><span class="header-section-number">12.1.1</span> Estimación robusta de la varianza<a href="distancia-de-mahalanobis-robusta.html#estimación-robusta-de-la-varianza" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="propuesta-1-desviación-absoluta-mediana" class="section level4 hasAnchor" number="12.1.1.1">
+<h4><span class="header-section-number">12.1.1.1</span> Propuesta 1: Desviación absoluta mediana<a href="distancia-de-mahalanobis-robusta.html#propuesta-1-desviación-absoluta-mediana" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Siguiendo esta propuesta;</p>
+<p>Dada la muestra <span class="math inline">\(X_j\)</span> de la variable estadística <span class="math inline">\(\mathcal{X}_j\)</span>,</p>
+<p>La estimación robusta de la varianza de <span class="math inline">\(\mathcal{X}_j\)</span>
+se define como:</p>
+<p><span class="math display">\[\sigma^2_R(X_j) \hspace{0.05cm} = \hspace{0.05cm} MAD(X_j)^2 \hspace{0.05cm} = \hspace{0.05cm} Me\hspace{0.05cm} \Bigl[ \hspace{0.05cm} \bigl( \hspace{0.1cm} | \hspace{0.1cm}  x_{ij} - Me(X_j) \hspace{0.1cm} |  \hspace{0.1cm} : \hspace{0.1cm} i = 1,...,n \hspace{0.1cm} \bigr)  \hspace{0.05cm} \Bigr]\]</span></p>
+<p><br></p>
+</div>
+<div id="propuesta-2-varianza-recortada" class="section level4 hasAnchor" number="12.1.1.2">
+<h4><span class="header-section-number">12.1.1.2</span> Propuesta 2: Varianza recortada<a href="distancia-de-mahalanobis-robusta.html#propuesta-2-varianza-recortada" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Siguiendo esta propuesta;</p>
+<p>Dada la muestra <span class="math inline">\(X_j\)</span> de la variable estadística <span class="math inline">\(\mathcal{X}_j\)</span>,</p>
+<p>La muestra <span class="math inline">\(\alpha\)</span>-recortada de <span class="math inline">\(X_j\)</span> se define como:</p>
+<p><span class="math display">\[X_j^\alpha \hspace{0.07cm}=\hspace{0.07cm} \Bigl(\hspace{0.1cm} x_{ij} \hspace{0.3cm} \mathbf{:} \hspace{0.3cm} i\in \lbrace 1,...,n \rbrace \hspace{0.12cm} , \hspace{0.15cm}  x_{ij} \hspace{0.05cm}\geq\hspace{0.05cm} Q(\alpha/2\hspace{0.05cm} ,\hspace{0.05cm} X_j) \hspace{0.12cm} , \hspace{0.15cm} x_{ij} \hspace{0.05cm}\leq\hspace{0.05cm} Q(1-\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j)   \hspace{0.1cm} \Bigr)\]</span></p>
+<p>La estimación robusta de la varianza de <span class="math inline">\(\mathcal{X}_j\)</span>
+se define como:</p>
+<p><span class="math display">\[\sigma^2_R(X_j) \hspace{0.07cm} = \hspace{0.07cm} \sigma^2(X_j^\alpha) \hspace{0.07cm} = \hspace{0.07cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.05cm} \Bigl( \hspace{0.05cm} x_{ij} - \overline{X}_j^\alpha \hspace{0.05cm} \Bigr)^2\]</span></p>
+</div>
+<div id="propuesta-3-varianza-winsorizada" class="section level4 hasAnchor" number="12.1.1.3">
+<h4><span class="header-section-number">12.1.1.3</span> Propuesta 3: Varianza Winsorizada<a href="distancia-de-mahalanobis-robusta.html#propuesta-3-varianza-winsorizada" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Siguiendo esta propuesta;</p>
+<p>Dada la muestra <span class="math inline">\(X_j\)</span> de la variable estadística <span class="math inline">\(\mathcal{X}_j\)</span>,</p>
+<p>La muestra <span class="math inline">\(\alpha\)</span>-winsorizada de <span class="math inline">\(X_j\)</span> se define como:</p>
+<p><span class="math display">\[X_j^w \hspace{0.07cm}=\hspace{0.07cm} \Bigl(\hspace{0.1cm} g(x) \hspace{0.25cm} \mathbf{:} \hspace{0.25cm}  x \in X_j  \hspace{0.1cm} \Bigr)\]</span>
+Donde:</p>
+<ul>
+<li><span class="math inline">\(g\)</span> es una función definida del siguiente modo:</li>
+</ul>
+<p><span class="math display">\[\begin{equation*}
+  g(x) \hspace{0.05cm} = \hspace{0.05cm}
+  \begin{cases}
+    a  \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm} x \in A \\
+    b \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   x \in B \\
+    x \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   x \not\in A,B \hspace{0.2cm} , \hspace{0.2cm} x\in X_j
+  \end{cases}
+\end{equation*}\]</span></p>
+<ul>
+<li>Los conjunto <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son definidos como sigue:</li>
+</ul>
+<p><span class="math display">\[A \hspace{0.05cm}=\hspace{0.05cm} \lbrace \hspace{0.1cm} x_{ij} \hspace{0.2cm}:\hspace{0.2cm} x_{ij} \hspace{0.05cm}\leq\hspace{0.05cm} Q(\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j) \hspace{0.1cm}\rbrace\]</span>
+<span class="math display">\[B \hspace{0.05cm}=\hspace{0.05cm} \lbrace \hspace{0.1cm} x_{ij} \hspace{0.2cm}:\hspace{0.2cm} x_{ij} \hspace{0.05cm}\leq\hspace{0.05cm} Q(\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j) \hspace{0.1cm}\rbrace\]</span></p>
+<ul>
+<li>Los valores <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> se definen de la siguiente manera:</li>
+</ul>
+<p><span class="math inline">\(a\)</span> es el valor de <span class="math inline">\(X_j\)</span> que es inmediatamente superior a <span class="math inline">\(Q(\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j)\)</span></p>
+<p><span class="math inline">\(b\)</span> es el valor de <span class="math inline">\(X_j\)</span> que es inmediatamente inferior a <span class="math inline">\(Q(1-\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j)\)</span></p>
+<p>La estimación robusta de la varianza de <span class="math inline">\(\mathcal{X}_j\)</span>
+se define como:</p>
+<p><span class="math display">\[\sigma^2_R(X_j) \hspace{0.07cm} = \hspace{0.07cm} \sigma^2(X_j^w) \hspace{0.07cm} = \hspace{0.07cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.05cm} \Bigl( \hspace{0.05cm} x_{ij} - \overline{X}_j^w \hspace{0.05cm} \Bigr)^2\]</span></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="estimación-robusta-de-la-correlación" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> Estimación robusta de la correlación<a href="distancia-de-mahalanobis-robusta.html#estimación-robusta-de-la-correlación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sean <span class="math inline">\(X_j\)</span> y <span class="math inline">\(X_k\)</span> muestras de las variable estadística <span class="math inline">\(\mathcal{X_j}\)</span> y <span class="math inline">\(\mathcal{X_k}\)</span>, respectivamente.</p>
+<p>Se define la muestra auxiliar <span class="math inline">\(Z_j\)</span> como <span class="math inline">\(Z_j = \dfrac{X_j}{ \sqrt{\sigma^2_R(X_j)} }\)</span>.</p>
+<p>La estimación robusta del coeficiente de correlación lineal entre <span class="math inline">\(\mathcal{X}_j\)</span> y <span class="math inline">\(\mathcal{X}_k\)</span> se define como :</p>
+<p><span class="math display">\[r\hspace{0.05cm}(X_j,X_k)_R \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.2cm}\sigma^2_R(Z_j+Z_k)\hspace{0.1cm}-\hspace{0.1cm}\sigma^2_R(Z_j-Z_k)\hspace{0.2cm}}{\sigma^2_R(Z_j+Z_k)\hspace{0.1cm}+\hspace{0.1cm}\sigma^2_R(Z_j-Z_k)}\]</span></p>
+<p><br></p>
+</div>
+<div id="estimación-robusta-de-la-covarianza" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> Estimación robusta de la covarianza<a href="distancia-de-mahalanobis-robusta.html#estimación-robusta-de-la-covarianza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sean <span class="math inline">\(X_j\)</span> y <span class="math inline">\(X_k\)</span> muestras de las variable estadística <span class="math inline">\(\mathcal{X_j}\)</span> y <span class="math inline">\(\mathcal{X_k}\)</span>, respectivamente.</p>
+<p>Usando la anterior definición de estimación robusta del coeficiente de correlación lineal y la relación existente entre la correlación y la covarianza, se tiene lo siguiente.</p>
+<p>La estimación robusta de la covarianza entre <span class="math inline">\(\mathcal{X}_j\)</span> y <span class="math inline">\(\mathcal{X}_k\)</span> es:</p>
+<p><span class="math display">\[s\hspace{0.05cm}(X_j,X_k)_R \hspace{0.1cm}=\hspace{0.1cm} r\hspace{0.05cm}(X_j,X_k)_R \cdot \sqrt{ \hspace{0.06cm}\sigma_R^2(X_j) \cdot \sigma_R^2(X_k) \hspace{0.1cm}  }\]</span></p>
+<p><br></p>
+</div>
+<div id="estimación-robusta-de-la-matriz-de-correlaciones" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">12.4</span> Estimación robusta de la matriz de correlaciones<a href="distancia-de-mahalanobis-robusta.html#estimación-robusta-de-la-matriz-de-correlaciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Usando la aproximación anterior para estimar de forma robusta el coeficiente de correlación lineal, la estimación robusta de la matriz de correlaciones entre <span class="math inline">\(p\)</span> variables estadísticas <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_p\)</span> sería la matriz formada por tales estimaciones robustas del coeficiente de correlación entre cada par de esas variables, es decir, la siguiente matriz:</p>
+<p><span class="math display">\[R_R \hspace{0.1cm}=\hspace{0.1cm} \Bigr( \hspace{0.1cm}  r(X_j, X_k)_R  \hspace{0.2cm}:\hspace{0.2cm} k,j = 1,...,p  \hspace{0.1cm}\Bigl)\]</span></p>
+<p><br></p>
+</div>
+<div id="estimación-robusta-de-la-matriz-de-covarianzas-1" class="section level2 hasAnchor" number="12.5">
+<h2><span class="header-section-number">12.5</span> Estimación robusta de la matriz de covarianzas<a href="distancia-de-mahalanobis-robusta.html#estimación-robusta-de-la-matriz-de-covarianzas-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Usando la aproximación anterior para estimar de forma robusta la covarianza, la estimación robusta de la matriz de covarianzas entre <span class="math inline">\(p\)</span> variables estadísticas <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_p\)</span> sería la matriz formada por tales estimaciones robustas de la covarianza entre cada par de esas variables, es decir, la siguiente matriz:</p>
+<p><span class="math display">\[S_R \hspace{0.1cm}=\hspace{0.1cm} \Bigr( \hspace{0.1cm}  s(X_j, X_k)_R  \hspace{0.2cm}:\hspace{0.2cm} k,j = 1,...,p  \hspace{0.1cm}\Bigl)\]</span></p>
+<p><br></p>
+</div>
+<div id="inversa-de-la-estimación-robusta-de-la-matriz-de-covarianzas" class="section level2 hasAnchor" number="12.6">
+<h2><span class="header-section-number">12.6</span> Inversa de la estimación robusta de la matriz de covarianzas<a href="distancia-de-mahalanobis-robusta.html#inversa-de-la-estimación-robusta-de-la-matriz-de-covarianzas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Para calcular la distancia de Mahalanobis robusta es necesario calcular <span class="math inline">\(S_R^{-1}\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(S_R\)</span> es <strong>definida positiva</strong> (autovalores <span class="math inline">\(&gt; 0\)</span>) <span class="math inline">\(\Rightarrow\)</span> tiene inversa <span class="math inline">\((\exists \hspace{0.15cm} S_R^{-1})\)</span></p></li>
+<li><p>Si es <span class="math inline">\(S_R\)</span> es semi-definida positiva (autovalores <span class="math inline">\(&gt; 0\)</span> y alguno <span class="math inline">\(= 0\)</span>) <span class="math inline">\(\Rightarrow\)</span> no tiene inversa <span class="math inline">\((\neg\hspace{0.1cm} \exists \hspace{0.15cm} S_R^{-1})\)</span> , pero se podría calcular la g-inversa o pseudo-inversa.</p></li>
+<li><p>Si <span class="math inline">\(S_R\)</span> es no definida positiva (algún autovalor <span class="math inline">\(&lt; 0\)</span>) <span class="math inline">\(\Rightarrow\)</span> puede ser invertible (si no tiene autovalores <span class="math inline">\(=0\)</span>) o no invertible ( si no tiene autovalores <span class="math inline">\(=0\)</span>). Pero aún en el primer caso, pese a que tuviera inversa, al usarla con la distancia de Mahalanobis podrían salir distancias negativas o incluso imaginarias, lo que no tendría sentido.</p></li>
+</ul>
+<p><strong>Observación:</strong></p>
+<ul>
+<li><p>La condición para que una matriz sea invertible (o no singular) es que su determinante sea diferente de cero. En otras palabras, una matriz es invertible si y solo si todos sus autovalores son distintos de cero.</p></li>
+<li><p>Que sea <span class="math inline">\(R_R\)</span> definida positiva equivale a que <span class="math inline">\(S_R\)</span> tambien lo es.</p></li>
+</ul>
+<p><br></p>
+<div id="distancia-de-mahalanobis-robusta-en-python" class="section level3 hasAnchor" number="12.6.1">
+<h3><span class="header-section-number">12.6.1</span> Distancia de Mahalanobis Robusta en <code>Python</code><a href="distancia-de-mahalanobis-robusta.html#distancia-de-mahalanobis-robusta-en-python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><br></p>
+<p><br></p>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="distancias-con-conjuntos-de-variables-de-tipo-cuantitativo-binario-multiclase.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="distancia-de-gower-generalizada.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="distancia-de-gower-generalizada.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bibliografía.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
