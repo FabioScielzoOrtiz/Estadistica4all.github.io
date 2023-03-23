@@ -23,7 +23,7 @@
 <meta name="author" content="Fabio Scielzo Ortiz" />
 
 
-<meta name="date" content="2023-03-22" />
+<meta name="date" content="2023-03-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -242,9 +242,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.3" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#estimación-robusta-de-la-covarianza"><i class="fa fa-check"></i><b>12.3</b> Estimación robusta de la covarianza</a></li>
 <li class="chapter" data-level="12.4" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#estimación-robusta-de-la-matriz-de-correlaciones"><i class="fa fa-check"></i><b>12.4</b> Estimación robusta de la matriz de correlaciones</a></li>
 <li class="chapter" data-level="12.5" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#estimación-robusta-de-la-matriz-de-covarianzas-1"><i class="fa fa-check"></i><b>12.5</b> Estimación robusta de la matriz de covarianzas</a></li>
-<li class="chapter" data-level="12.6" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#inversa-de-la-estimación-robusta-de-la-matriz-de-covarianzas"><i class="fa fa-check"></i><b>12.6</b> Inversa de la estimación robusta de la matriz de covarianzas</a>
+<li class="chapter" data-level="12.6" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#inversa-de-la-estimación-robusta-de-la-matriz-de-covarianzas"><i class="fa fa-check"></i><b>12.6</b> Inversa de la estimación robusta de la matriz de covarianzas</a></li>
+<li class="chapter" data-level="12.7" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#transformación-de-delvin-para-obtener-s_r-definida-positiva"><i class="fa fa-check"></i><b>12.7</b> Transformación de Delvin para obtener <span class="math inline">\(S_R\)</span> definida positiva</a>
 <ul>
-<li class="chapter" data-level="12.6.1" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#distancia-de-mahalanobis-robusta-en-python"><i class="fa fa-check"></i><b>12.6.1</b> Distancia de Mahalanobis Robusta en <code>Python</code></a></li>
+<li class="chapter" data-level="12.7.1" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#algoritmo-de-delvin-para-obtener-s_r-definida-positiva"><i class="fa fa-check"></i><b>12.7.1</b> Algoritmo de Delvin para obtener <span class="math inline">\(S_R\)</span> definida positiva</a></li>
+<li class="chapter" data-level="12.7.2" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#distancia-de-mahalanobis-robusta-en-python"><i class="fa fa-check"></i><b>12.7.2</b> Distancia de Mahalanobis Robusta en <code>Python</code></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="bibliografía.html"><a href="bibliografía.html"><i class="fa fa-check"></i><b>13</b> Bibliografía</a></li>
@@ -376,20 +378,78 @@ se define como:</p>
 </div>
 <div id="inversa-de-la-estimación-robusta-de-la-matriz-de-covarianzas" class="section level2 hasAnchor" number="12.6">
 <h2><span class="header-section-number">12.6</span> Inversa de la estimación robusta de la matriz de covarianzas<a href="distancia-de-mahalanobis-robusta.html#inversa-de-la-estimación-robusta-de-la-matriz-de-covarianzas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Para calcular la distancia de Mahalanobis robusta es necesario calcular <span class="math inline">\(S_R^{-1}\)</span>.</p>
+<p>Para calcular la distancia de Mahalanobis robusta es necesario calcular la inversa de <span class="math inline">\(S_R\)</span>, es decir, <span class="math inline">\(S_R^{-1}\)</span>.</p>
 <ul>
-<li><p>Si <span class="math inline">\(S_R\)</span> es <strong>definida positiva</strong> (autovalores <span class="math inline">\(&gt; 0\)</span>) <span class="math inline">\(\Rightarrow\)</span> tiene inversa <span class="math inline">\((\exists \hspace{0.15cm} S_R^{-1})\)</span></p></li>
-<li><p>Si es <span class="math inline">\(S_R\)</span> es semi-definida positiva (autovalores <span class="math inline">\(&gt; 0\)</span> y alguno <span class="math inline">\(= 0\)</span>) <span class="math inline">\(\Rightarrow\)</span> no tiene inversa <span class="math inline">\((\neg\hspace{0.1cm} \exists \hspace{0.15cm} S_R^{-1})\)</span> , pero se podría calcular la g-inversa o pseudo-inversa.</p></li>
-<li><p>Si <span class="math inline">\(S_R\)</span> es no definida positiva (algún autovalor <span class="math inline">\(&lt; 0\)</span>) <span class="math inline">\(\Rightarrow\)</span> puede ser invertible (si no tiene autovalores <span class="math inline">\(=0\)</span>) o no invertible ( si no tiene autovalores <span class="math inline">\(=0\)</span>). Pero aún en el primer caso, pese a que tuviera inversa, al usarla con la distancia de Mahalanobis podrían salir distancias negativas o incluso imaginarias, lo que no tendría sentido.</p></li>
-</ul>
-<p><strong>Observación:</strong></p>
-<ul>
-<li><p>La condición para que una matriz sea invertible (o no singular) es que su determinante sea diferente de cero. En otras palabras, una matriz es invertible si y solo si todos sus autovalores son distintos de cero.</p></li>
-<li><p>Que sea <span class="math inline">\(R_R\)</span> definida positiva equivale a que <span class="math inline">\(S_R\)</span> tambien lo es.</p></li>
+<li><p>Si <span class="math inline">\(S_R\)</span> es <strong>definida positiva</strong> (autovalores <span class="math inline">\(&gt; 0\)</span>) <span class="math inline">\(\hspace{0.15cm}\Rightarrow\hspace{0.1cm}\)</span> tiene inversa <span class="math inline">\(\bigl( \hspace{0.05cm} \exists \hspace{0.15cm} S_R^{-1} \hspace{0.05cm} \bigr)\)</span></p></li>
+<li><p>Si es <span class="math inline">\(S_R\)</span> es <strong>semidefinida positiva</strong> (autovalores <span class="math inline">\(&gt; 0\)</span> y alguno <span class="math inline">\(= 0\)</span>) <span class="math inline">\(\hspace{0.15cm}\Rightarrow\hspace{0.1cm}\)</span> no tiene inversa <span class="math inline">\(\bigl( \hspace{0.05cm} \neg\hspace{0.1cm} \exists \hspace{0.15cm} S_R^{-1}\hspace{0.05cm} \bigr)\)</span> , pero se podría calcular la g-inversa o pseudo-inversa.</p></li>
+<li><p>Si <span class="math inline">\(S_R\)</span> es <strong>no definida positiva</strong> (algún autovalor <span class="math inline">\(&lt; 0\)</span>) <span class="math inline">\(\hspace{0.15cm}\Rightarrow\hspace{0.1cm}\)</span> puede ser invertible (si no tiene autovalores <span class="math inline">\(=0\)</span>) o no invertible ( si tiene autovalores <span class="math inline">\(=0\)</span>). Pero aún en el primer caso, pese a que tuviera inversa, al usarla con la distancia de Mahalanobis podrían salir distancias negativas o incluso imaginarias, lo que no tendría sentido.</p></li>
 </ul>
 <p><br></p>
-<div id="distancia-de-mahalanobis-robusta-en-python" class="section level3 hasAnchor" number="12.6.1">
-<h3><span class="header-section-number">12.6.1</span> Distancia de Mahalanobis Robusta en <code>Python</code><a href="distancia-de-mahalanobis-robusta.html#distancia-de-mahalanobis-robusta-en-python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Observación:</strong></p>
+<ul>
+<li>La condición para que una matriz sea invertible es que su determinante sea diferente de cero, y como el determinante de una matriz se puede descomponer en el producto de sus autovalores, entonces, una matriz es invertible si y solo si todos sus autovalores son distintos de cero.</li>
+</ul>
+<p><span class="math display">\[\exists \hspace{0.15cm} S_R^{-1} \hspace{0.15cm}\Leftrightarrow\hspace{0.15cm} det(S_R) = \lambda_1 \cdot ... \cdot \lambda_n \neq 0   \hspace{0.15cm}\Leftrightarrow\hspace{0.15cm} \\[0.3cm]
+\hspace{0.15cm}\Leftrightarrow\hspace{0.15cm} \neg \hspace{0.06cm} \exists \hspace{0.05cm} i =1,...,n \hspace{0.05cm},\hspace{0.05cm} \lambda_i = 0 \hspace{0.15cm}\Leftrightarrow \\[0.3cm]
+\hspace{0.15cm}\Leftrightarrow\hspace{0.15cm}\hspace{0.15cm} S_R \hspace{0.15cm} \text{no tiene autovalores iguales a cero} \\\]</span></p>
+<ul>
+<li>Que sea <span class="math inline">\(R_R\)</span> definida positiva equivale a que <span class="math inline">\(S_R\)</span> también lo es.</li>
+</ul>
+<p><br></p>
+</div>
+<div id="transformación-de-delvin-para-obtener-s_r-definida-positiva" class="section level2 hasAnchor" number="12.7">
+<h2><span class="header-section-number">12.7</span> Transformación de Delvin para obtener <span class="math inline">\(S_R\)</span> definida positiva<a href="distancia-de-mahalanobis-robusta.html#transformación-de-delvin-para-obtener-s_r-definida-positiva" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Como hemos visto en la sección anterior es importante que <span class="math inline">\(S_R\)</span> sea definida positiva para poder calcular su inversa y que no encontrar problemas en el cálculo de la distancia de Mahalanobis.</p>
+<p>Delvin et al. (1975) proponen una transformación para cuando <span class="math inline">\(S_R\)</span> no es definida positiva, obtener una transformación que sea definida positiva.</p>
+<p>La transformación <span class="math inline">\(G\)</span> de <span class="math inline">\(R_R\)</span> propuesta es el siguiente:</p>
+<p><span class="math display">\[G(R_R) = \Bigl( \hspace{0.15cm}  g \hspace{0.05cm} \bigl( \hspace{0.1 cm} r(X_j,X_k)_R \hspace{0.1 cm} \bigr)  \hspace{0.15cm} : \hspace{0.15cm} k,j=1,...,p  \hspace{0.15cm} \Bigr)\]</span>
+Donde:</p>
+<p><span class="math display">\[r_{jk}^R \hspace{0.1 cm} =\hspace{0.1 cm}  r(X_j,X_k)_R\]</span></p>
+<p><span class="math display">\[g \hspace{0.05cm} \bigl( \hspace{0.1 cm} r_{j,k}^R \hspace{0.1 cm} \bigr)  \hspace{0.15cm}
+\hspace{0.05cm} = \hspace{0.05cm}
+  \begin{cases}
+    0  \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm} | \hspace{0.1cm} r_{j,k}^R \hspace{0.1cm} | \hspace{0.1cm}\leq\hspace{0.1cm} z(\Delta)   \\
+    z^{-1}(\hspace{0.1cm} z(\hspace{0.05cm}r_{j,k}^R\hspace{0.05cm})  \hspace{0.1cm}+\hspace{0.1cm} \Delta\hspace{0.1cm}) \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   r_{j,k}^R \hspace{0.1cm}&lt;\hspace{0.1cm} -z(\Delta) \\
+     z^{-1}(\hspace{0.1cm} z(\hspace{0.05cm}r_{j,k}^R\hspace{0.05cm})  \hspace{0.1cm}-\hspace{0.1cm} \Delta\hspace{0.1cm}) \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   r_{j,k}^R \hspace{0.1cm} &gt; \hspace{0.1cm} z(\Delta)
+  \end{cases}
+\]</span></p>
+<p><span class="math inline">\(\Delta\)</span> es un número positivo pequeño, por ejemplo, <span class="math inline">\(\Delta=0\)</span></p>
+<p><span class="math display">\[z \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} tan \hspace{0.1cm} h\hspace{0.05cm} ^{-1}\hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} arc \hspace{0.1cm} tan\hspace{0.05cm} h\hspace{0.05cm}(x) \hspace{0.1cm}= \hspace{0.1cm} \dfrac{1}{2} \cdot log \left(\dfrac{1+x}{1-x}\right)\]</span>
+<span class="math display">\[z^{-1} \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} tan \hspace{0.1cm} h\hspace{0.05cm} \hspace{0.01cm} (x)\]</span></p>
+<p><span class="math display">\[z(\Delta) = z(0.05) \approx 0.05\]</span></p>
+<ul>
+<li><p>¿Cómo funciona la transformación <span class="math inline">\(g\)</span>?</p>
+<ul>
+<li><p>Si <span class="math inline">\(r_{jk}&gt;0.05\)</span>, entonces, <span class="math inline">\(g(r_{jk}) = r_{jk} - \varepsilon\)</span>, con <span class="math inline">\(\varepsilon &gt;0\)</span> pequeño. Es decir, <span class="math inline">\(g\)</span> transforma <span class="math inline">\(r_{jk}\)</span> en una correlación un poco menor.</p></li>
+<li><p>Si <span class="math inline">\(r_{jk}&lt;-0.05\)</span>, entonces, <span class="math inline">\(g(r_{jk}) = r_{jk} + \varepsilon\)</span>, con <span class="math inline">\(\varepsilon &gt;0\)</span> pequeño. Es decir, <span class="math inline">\(g\)</span> transforma <span class="math inline">\(r_{jk}\)</span> en una correlación un poco mayor.</p></li>
+<li><p>Si <span class="math inline">\(r_{jk} \in [-0.05,0.05]\)</span>, entonces, <span class="math inline">\(g(r_{jk}) =0\)</span>. Es decir, <span class="math inline">\(g\)</span> transforma <span class="math inline">\(r_{jk}\)</span> en cero.</p></li>
+</ul></li>
+</ul>
+<p>Este comportamiento podría ser ilustrado con algunos ejemplos.</p>
+<p><br></p>
+<div id="algoritmo-de-delvin-para-obtener-s_r-definida-positiva" class="section level3 hasAnchor" number="12.7.1">
+<h3><span class="header-section-number">12.7.1</span> Algoritmo de Delvin para obtener <span class="math inline">\(S_R\)</span> definida positiva<a href="distancia-de-mahalanobis-robusta.html#algoritmo-de-delvin-para-obtener-s_r-definida-positiva" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>El siguiente algoritmo utiliza la transformación de Delvin para, dada la matriz <span class="math inline">\(S_R\)</span>, obtener una transformación que se definida positva, y por tanto invertible, y que por ello pueda usarse sin problemas para el cálculo de la distancia de Mahalanobis robusta.</p>
+<ul>
+<li><p>Se calcula <span class="math inline">\(G(R_R)\)</span> .</p></li>
+<li><p>Se comprueba si <span class="math inline">\(G(R_R)\)</span> es definida positiva.</p>
+<ul>
+<li><p>Si <span class="math inline">\(G(R_R)\)</span> es definida positiva, entonces:</p>
+<ul>
+<li><p>Se obtiene la transformacion definida positiva de <span class="math inline">\(\hspace{0.06cm}S_R\hspace{0.06cm}\)</span> como <span class="math inline">\(\hspace{0.06cm}T\cdot G(R_R) \cdot T\)</span> , donde <span class="math inline">\(\hspace{0.06cm}T=diag\bigl( \hspace{0.06cm}\sigma_R(X_1),...,\sigma_R(X_p)\hspace{0.061cm}\bigr)\hspace{0.06cm}\)</span> y <span class="math inline">\(\hspace{0.06cm}\sigma_R(X_j) = \sqrt{\sigma_R^2(X_j)}\)</span>.</p></li>
+<li><p>Se detiene el algoritmo.</p></li>
+</ul></li>
+<li><p>Si <span class="math inline">\(G(R_R)\)</span> no es definida positiva, entonces:</p>
+<ul>
+<li><p>Se actualiza: <span class="math inline">\(\hspace{0.1cm}R_R \leftarrow G(R_R)\)</span></p></li>
+<li><p>Se vuelve al paso inicial del algoritmo.</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><br></p>
+</div>
+<div id="distancia-de-mahalanobis-robusta-en-python" class="section level3 hasAnchor" number="12.7.2">
+<h3><span class="header-section-number">12.7.2</span> Distancia de Mahalanobis Robusta en <code>Python</code><a href="distancia-de-mahalanobis-robusta.html#distancia-de-mahalanobis-robusta-en-python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><br></p>
 <p><br></p>
 </div>

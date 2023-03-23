@@ -69,3 +69,6 @@ estimación-robusta-de-la-covarianza
 estimación-robusta-de-la-matriz-de-correlaciones
 estimación-robusta-de-la-matriz-de-covarianzas-1
 inversa-de-la-estimación-robusta-de-la-matriz-de-covarianzas
+transformacion-de-delvin-para-obtener-s_r-definida-positiva
+transformación-de-delvin-para-obtener-s_r-definida-positiva
+algoritmo-de-delvin-para-obtener-s_r-definida-positiva

@@ -5232,30 +5232,114 @@ $$S_R \hspace{0.1cm}=\hspace{0.1cm} \Bigr( \hspace{0.1cm}  s(X_j, X_k)_R  \hspac
 
 ## Inversa de la estimación robusta de la matriz de covarianzas
 
-Para calcular la distancia de Mahalanobis robusta es necesario calcular $S_R^{-1}$.
+Para calcular la distancia de Mahalanobis robusta es necesario calcular la inversa de $S_R$, es decir,  $S_R^{-1}$.
 
 
 
-- Si $S_R$ es **definida positiva** (autovalores $> 0$) $\Rightarrow$ tiene inversa $(\exists \hspace{0.15cm} S_R^{-1})$ 
+- Si $S_R$ es **definida positiva** (autovalores $> 0$) $\hspace{0.15cm}\Rightarrow\hspace{0.1cm}$ tiene inversa $\bigl( \hspace{0.05cm} \exists \hspace{0.15cm} S_R^{-1} \hspace{0.05cm} \bigr)$ 
 
-- Si es  $S_R$ es semi-definida positiva (autovalores $> 0$ y alguno $= 0$) $\Rightarrow$ no tiene inversa $(\neg\hspace{0.1cm} \exists \hspace{0.15cm} S_R^{-1})$ , pero se podría calcular la g-inversa o pseudo-inversa.
+- Si es  $S_R$ es **semidefinida positiva** (autovalores $> 0$ y alguno $= 0$) $\hspace{0.15cm}\Rightarrow\hspace{0.1cm}$ no tiene inversa $\bigl( \hspace{0.05cm} \neg\hspace{0.1cm} \exists \hspace{0.15cm} S_R^{-1}\hspace{0.05cm} \bigr)$ , pero se podría calcular la g-inversa o pseudo-inversa.
 
-- Si $S_R$ es no definida positiva (algún autovalor $< 0$) $\Rightarrow$ puede ser invertible (si no tiene autovalores $=0$) o no invertible ( si no tiene autovalores $=0$). Pero aún en el primer caso, pese a que tuviera inversa, al usarla con la distancia de Mahalanobis podrían salir distancias negativas  o incluso imaginarias, lo que no tendría sentido.
+- Si $S_R$ es **no definida positiva** (algún autovalor $< 0$) $\hspace{0.15cm}\Rightarrow\hspace{0.1cm}$ puede ser invertible (si no tiene autovalores $=0$) o no invertible ( si tiene autovalores $=0$). Pero aún en el primer caso, pese a que tuviera inversa, al usarla con la distancia de Mahalanobis podrían salir distancias negativas  o incluso imaginarias, lo que no tendría sentido.
 
 
-
+<br>
 
 
 **Observación:**
 
-- La condición para que una matriz sea invertible (o no singular) es que su determinante sea diferente de cero. En otras palabras, una matriz es invertible si y solo si todos sus autovalores son distintos de cero.
+- La condición para que una matriz sea invertible es que su determinante sea diferente de cero, y como el determinante de una matriz se puede descomponer en el producto de sus autovalores, entonces, una matriz es invertible si y solo si todos sus autovalores son distintos de cero.
 
-- Que sea $R_R$ definida positiva equivale a que $S_R$ tambien lo es.
+
+$$\exists \hspace{0.15cm} S_R^{-1} \hspace{0.15cm}\Leftrightarrow\hspace{0.15cm} det(S_R) = \lambda_1 \cdot ... \cdot \lambda_n \neq 0   \hspace{0.15cm}\Leftrightarrow\hspace{0.15cm} \\[0.3cm]
+\hspace{0.15cm}\Leftrightarrow\hspace{0.15cm} \neg \hspace{0.06cm} \exists \hspace{0.05cm} i =1,...,n \hspace{0.05cm},\hspace{0.05cm} \lambda_i = 0 \hspace{0.15cm}\Leftrightarrow \\[0.3cm]
+\hspace{0.15cm}\Leftrightarrow\hspace{0.15cm}\hspace{0.15cm} S_R \hspace{0.15cm} \text{no tiene autovalores iguales a cero} \\$$
+
+
+- Que sea $R_R$ definida positiva equivale a que $S_R$ también lo es.
+
+
+
+<br>
+
+
+## Transformación  de Delvin para obtener $S_R$ definida positiva
+
+Como hemos visto en la sección anterior es importante que $S_R$ sea definida positiva para poder calcular su inversa y que no encontrar problemas en el cálculo de la distancia de Mahalanobis.
+
+Delvin et al. (1975) proponen una transformación para cuando $S_R$ no es definida positiva, obtener una transformación que sea definida positiva.
+
+
+
+
+La transformación $G$ de $R_R$  propuesta es el siguiente:
+
+ 
+
+$$G(R_R) = \Bigl( \hspace{0.15cm}  g \hspace{0.05cm} \bigl( \hspace{0.1 cm} r(X_j,X_k)_R \hspace{0.1 cm} \bigr)  \hspace{0.15cm} : \hspace{0.15cm} k,j=1,...,p  \hspace{0.15cm} \Bigr)$$
+Donde:
+
+$$r_{jk}^R \hspace{0.1 cm} =\hspace{0.1 cm}  r(X_j,X_k)_R$$
+
+$$g \hspace{0.05cm} \bigl( \hspace{0.1 cm} r_{j,k}^R \hspace{0.1 cm} \bigr)  \hspace{0.15cm}
+\hspace{0.05cm} = \hspace{0.05cm}
+  \begin{cases}
+    0  \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm} | \hspace{0.1cm} r_{j,k}^R \hspace{0.1cm} | \hspace{0.1cm}\leq\hspace{0.1cm} z(\Delta)   \\
+    z^{-1}(\hspace{0.1cm} z(\hspace{0.05cm}r_{j,k}^R\hspace{0.05cm})  \hspace{0.1cm}+\hspace{0.1cm} \Delta\hspace{0.1cm}) \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   r_{j,k}^R \hspace{0.1cm}<\hspace{0.1cm} -z(\Delta) \\
+     z^{-1}(\hspace{0.1cm} z(\hspace{0.05cm}r_{j,k}^R\hspace{0.05cm})  \hspace{0.1cm}-\hspace{0.1cm} \Delta\hspace{0.1cm}) \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   r_{j,k}^R \hspace{0.1cm} > \hspace{0.1cm} z(\Delta)
+  \end{cases}
+$$
+
+$\Delta$ es un número positivo pequeño, por ejemplo, $\Delta=0$
+
+$$z \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} tan \hspace{0.1cm} h\hspace{0.05cm} ^{-1}\hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} arc \hspace{0.1cm} tan\hspace{0.05cm} h\hspace{0.05cm}(x) \hspace{0.1cm}= \hspace{0.1cm} \dfrac{1}{2} \cdot log \left(\dfrac{1+x}{1-x}\right)$$
+$$z^{-1} \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} tan \hspace{0.1cm} h\hspace{0.05cm} \hspace{0.01cm} (x)$$
+
+$$z(\Delta) = z(0.05) \approx 0.05$$
+
+- ¿Cómo funciona la transformación $g$?
+
+    - Si $r_{jk}>0.05$, entonces, $g(r_{jk}) = r_{jk} - \varepsilon$, con $\varepsilon >0$ pequeño. Es decir, $g$ transforma $r_{jk}$ en una correlación un poco menor.
+
+
+    - Si $r_{jk}<-0.05$, entonces, $g(r_{jk}) = r_{jk} + \varepsilon$, con $\varepsilon >0$ pequeño.  Es decir, $g$ transforma $r_{jk}$ en una correlación un poco mayor.
+
+
+    - Si $r_{jk} \in [-0.05,0.05]$, entonces, $g(r_{jk}) =0$. Es decir, $g$ transforma $r_{jk}$ en cero.
+
+
+Este comportamiento podría ser ilustrado con algunos ejemplos.
+
+<br>
+
+
+### Algoritmo de Delvin para obtener $S_R$ definida positiva
+
+El siguiente algoritmo utiliza la transformación de Delvin para, dada la matriz $S_R$, obtener una transformación que se definida positva, y por tanto invertible, y que por ello pueda usarse sin problemas para el cálculo de la distancia de Mahalanobis robusta.
+
+
+- Se calcula $G(R_R)$ .
+
+- Se comprueba si $G(R_R)$ es definida positiva.
+
+    - Si $G(R_R)$ es definida positiva, entonces:
+    
+        - Se obtiene la transformacion definida positiva de $\hspace{0.06cm}S_R\hspace{0.06cm}$ como  $\hspace{0.06cm}T\cdot G(R_R) \cdot  T$ , donde $\hspace{0.06cm}T=diag\bigl( \hspace{0.06cm}\sigma_R(X_1),...,\sigma_R(X_p)\hspace{0.061cm}\bigr)\hspace{0.06cm}$ y $\hspace{0.06cm}\sigma_R(X_j) = \sqrt{\sigma_R^2(X_j)}$.
+        
+        - Se detiene el algoritmo.
+    
+    - Si $G(R_R)$ no es definida positiva, entonces:
+    
+        - Se actualiza: $\hspace{0.1cm}R_R \leftarrow G(R_R)$
+        
+        - Se vuelve al paso inicial del algoritmo.
+
 
 <br>
 
 
 ### Distancia de Mahalanobis Robusta en `Python`
+
 
 
 
