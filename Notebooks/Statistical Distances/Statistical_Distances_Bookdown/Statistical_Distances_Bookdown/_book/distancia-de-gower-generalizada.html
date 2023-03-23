@@ -242,7 +242,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.3" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#estimación-robusta-de-la-covarianza"><i class="fa fa-check"></i><b>12.3</b> Estimación robusta de la covarianza</a></li>
 <li class="chapter" data-level="12.4" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#estimación-robusta-de-la-matriz-de-correlaciones"><i class="fa fa-check"></i><b>12.4</b> Estimación robusta de la matriz de correlaciones</a></li>
 <li class="chapter" data-level="12.5" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#estimación-robusta-de-la-matriz-de-covarianzas-1"><i class="fa fa-check"></i><b>12.5</b> Estimación robusta de la matriz de covarianzas</a></li>
-<li class="chapter" data-level="12.6" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#inversa-de-la-estimación-robusta-de-la-matriz-de-covarianzas"><i class="fa fa-check"></i><b>12.6</b> Inversa de la estimación robusta de la matriz de covarianzas</a></li>
+<li class="chapter" data-level="12.6" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#inversa-de-la-estimación-robusta-de-la-matriz-de-covarianzas"><i class="fa fa-check"></i><b>12.6</b> Inversa de la estimación robusta de la matriz de covarianzas</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#pseudo-inversa-de-moore-penrose"><i class="fa fa-check"></i><b>12.6.1</b> Pseudo inversa de Moore-Penrose</a></li>
+<li class="chapter" data-level="12.6.2" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#inversa-generalizada"><i class="fa fa-check"></i><b>12.6.2</b> Inversa generalizada</a></li>
+</ul></li>
 <li class="chapter" data-level="12.7" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#transformación-de-delvin-para-obtener-s_r-definida-positiva"><i class="fa fa-check"></i><b>12.7</b> Transformación de Delvin para obtener <span class="math inline">\(S_R\)</span> definida positiva</a>
 <ul>
 <li class="chapter" data-level="12.7.1" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#algoritmo-de-delvin-para-obtener-s_r-definida-positiva"><i class="fa fa-check"></i><b>12.7.1</b> Algoritmo de Delvin para obtener <span class="math inline">\(S_R\)</span> definida positiva</a></li>
@@ -452,7 +456,7 @@ para cada una de las matrices de distancias <span class="math inline">\(D_1\)</s
 <ul>
 <li><p><strong><em>Usando la descomposición en valores singulares (SVD)</em></strong></p>
 <p><span class="math inline">\(G_j\)</span> debe ser simétrica <span class="math inline">\((G_j = G_j^t)\)</span> y semi-definida positiva (autovalores de <span class="math inline">\(G_j\)</span> son <span class="math inline">\(&gt; 0\)</span> y alguno <span class="math inline">\(=0\)</span>).</p>
-<p>En este caso, como <span class="math inline">\(G_j\)</span> es una matriz <span class="math inline">\(n\text{x}q\)</span> con <span class="math inline">\(n \geq q=n\)</span>, entonces:</p>
+<p>En este caso, como <span class="math inline">\(G_j\)</span> es una matriz <span class="math inline">\(n\text{x}n\)</span>, entonces:</p>
 <p>La <strong>descomposición en valores singulares</strong> (SVD) de <span class="math inline">\(G_j\)</span> es:</p>
 <p><span class="math display">\[G_j \hspace{0.05cm} = \hspace{0.05cm} U \cdot \Sigma \cdot V^t\]</span>
 Usando la descomposición en valores singulares <span class="math inline">\(\hspace{0.02cm}G_j\hspace{0.02cm}\)</span> puede calcularse <span class="math inline">\(\hspace{0.04cm}G_j^{1/2}\hspace{0.04cm}\)</span> del siguiente modo:</p>
@@ -467,11 +471,11 @@ Usando la descomposición en valores singulares <span class="math inline">\(\hsp
 <ul>
 <li>La matriz <span class="math inline">\(\hspace{0.02cm}V\hspace{0.02cm}\)</span> se define como:</li>
 </ul>
-<p><span class="math display">\[V \hspace{0.04cm} = \hspace{0.04cm} \Bigl(\hspace{0.03cm} w(\lambda_1) \hspace{0.02cm}\dots\hspace{0.02cm} w(\lambda_m) \hspace{0.03cm}\Bigr)\]</span></p>
+<p><span class="math display">\[V \hspace{0.04cm} = \hspace{0.04cm} \Bigl(\hspace{0.03cm} w(\lambda_1) \hspace{0.02cm}\dots\hspace{0.02cm} w(\lambda_n) \hspace{0.03cm}\Bigr)\]</span></p>
 <ul>
 <li>La matriz <span class="math inline">\(\hspace{0.02cm}U\hspace{0.02cm}\)</span> se define como:</li>
 </ul>
-<p><span class="math display">\[U \hspace{0.04cm} = \hspace{0.04cm} G\cdot V \cdot \Sigma^{-1}\]</span></p></li>
+<p><span class="math display">\[U \hspace{0.04cm} = \hspace{0.04cm} G\cdot V \cdot \Sigma^{-1/2}\]</span></p></li>
 </ul>
 <p><br></p>
 <ul>

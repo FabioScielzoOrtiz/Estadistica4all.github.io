@@ -4995,7 +4995,7 @@ Este procedimiento permite eliminar redundancia de información entre grupos de 
 
     $G_j$ debe ser simétrica $(G_j = G_j^t)$ y semi-definida positiva (autovalores de $G_j$ son $> 0$ y alguno $=0$).
 
-    En este caso, como $G_j$ es una matriz $n\text{x}q$ con $n \geq q=n$, entonces:
+    En este caso, como $G_j$ es una matriz $n\text{x}n$, entonces:
 
     La **descomposición en valores singulares** (SVD) de $G_j$ es:
 
@@ -5017,12 +5017,12 @@ Este procedimiento permite eliminar redundancia de información entre grupos de 
 
     - La matriz $\hspace{0.02cm}V\hspace{0.02cm}$ se define como:
     
-    $$V \hspace{0.04cm} = \hspace{0.04cm} \Bigl(\hspace{0.03cm} w(\lambda_1) \hspace{0.02cm}\dots\hspace{0.02cm} w(\lambda_m) \hspace{0.03cm}\Bigr)$$
+    $$V \hspace{0.04cm} = \hspace{0.04cm} \Bigl(\hspace{0.03cm} w(\lambda_1) \hspace{0.02cm}\dots\hspace{0.02cm} w(\lambda_n) \hspace{0.03cm}\Bigr)$$
     
     
     - La matriz $\hspace{0.02cm}U\hspace{0.02cm}$ se define como:
     
-    $$U \hspace{0.04cm} = \hspace{0.04cm} G\cdot V \cdot \Sigma^{-1}$$
+    $$U \hspace{0.04cm} = \hspace{0.04cm} G\cdot V \cdot \Sigma^{-1/2}$$
     
     
 <br>   
@@ -5174,15 +5174,15 @@ Dada la muestra $X_j$ de la variable estadística $\mathcal{X}_j$,
 
 
 
-    $$X_j^{w,\alpha} \hspace{0.07cm}=\hspace{0.07cm}   \Bigl(\hspace{0.1cm} g(x) \hspace{0.25cm} \mathbf{:} \hspace{0.25cm}  x \in X_j  \hspace{0.1cm} \Bigr)$$
+    $$X_j^{\alpha} \hspace{0.08cm}=\hspace{0.08cm}   \Bigl(\hspace{0.1cm} h(x) \hspace{0.25cm} \mathbf{:} \hspace{0.25cm}  x \in X_j  \hspace{0.1cm} \Bigr)$$
     Donde:
 
-    - $g$ es una función definida del siguiente modo:
+    - $h$ es una función definida del siguiente modo:
 
-    $$g(x) \hspace{0.05cm} = \hspace{0.05cm}  \begin{cases}
+    $$h(x) \hspace{0.05cm} = \hspace{0.05cm}  \begin{cases}
     a  \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm} x \in A \\
     b \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   x \in B \\
-    x \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   x \not\in A,B \hspace{0.12cm} \text{y} \hspace{0.12cm} x\in X_j  \end{cases}$$
+    x \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   x \not\in A,B \hspace{0.15cm} \text{y} \hspace{0.15cm} x\in X_j  \end{cases}$$
 
 
     - Los conjunto $A$ y $B$ son definidos como sigue:
@@ -5208,7 +5208,7 @@ Dada la muestra $X_j$ de la variable estadística $\mathcal{X}_j$,
 - La estimación robusta de la varianza de $\mathcal{X}_j$
  se define como:
  
- $$\sigma^2_R(X_j) \hspace{0.07cm} = \hspace{0.07cm} \sigma^2(X_j^w) \hspace{0.07cm} = \hspace{0.07cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.05cm} \Bigl( \hspace{0.05cm} x_{ij} - \overline{X}_j^w \hspace{0.05cm} \Bigr)^2$$
+ $$\sigma^2_R(X_j) \hspace{0.1cm} = \hspace{0.1cm} \sigma^2(X_j^{\alpha}) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.05cm} \Bigl( \hspace{0.05cm} x_{ij} - \overline{X_j^{\alpha}} \hspace{0.05cm} \Bigr)^2$$
  </p>
  
 </p></span>
@@ -5220,7 +5220,7 @@ Dada la muestra $X_j$ de la variable estadística $\mathcal{X}_j$,
 
 Sean $X_j$  y $X_k$ muestras de las variable estadística $\mathcal{X_j}$ y  $\mathcal{X_k}$, respectivamente.
 
-Se define la muestra auxiliar $Z_j$ como  $Z_j = \dfrac{X_j}{ \sqrt{\sigma^2_R(X_j)} }$.
+Se define la muestra auxiliar $Z_j$ como  $Z_j = \dfrac{X_j}{ \sqrt{\sigma^2_R(X_j)} }\hspace{0.1cm}$. $\\$
 
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -5228,9 +5228,9 @@ Se define la muestra auxiliar $Z_j$ como  $Z_j = \dfrac{X_j}{ \sqrt{\sigma^2_R(X
  
 <p style='margin-left:1em;'>
 
-- La estimación robusta del coeficiente de correlación lineal entre $\mathcal{X}_j$ y $\mathcal{X}_k$ se define como :
+- La estimación robusta del coeficiente de correlación lineal entre $\mathcal{X}_j\hspace{0.05cm}$ y $\hspace{0.05cm}\mathcal{X}_k$ se define como :
 
-$$r\hspace{0.05cm}(X_j,X_k)_R \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.2cm}\sigma^2_R(Z_j+Z_k)\hspace{0.1cm}-\hspace{0.1cm}\sigma^2_R(Z_j-Z_k)\hspace{0.2cm}}{\sigma^2_R(Z_j+Z_k)\hspace{0.1cm}+\hspace{0.1cm}\sigma^2_R(Z_j-Z_k)}$$
+$$r_{jk}^R \hspace{0.1cm}=\hspace{0.1cm} R\hspace{0.05cm}(X_j,X_k)_R \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.3cm}\sigma^2_R(Z_j+Z_k)\hspace{0.1cm}-\hspace{0.1cm}\sigma^2_R(Z_j-Z_k)\hspace{0.3cm}}{\sigma^2_R(Z_j+Z_k)\hspace{0.1cm}+\hspace{0.1cm}\sigma^2_R(Z_j-Z_k)}$$
 
 
  </p>
@@ -5238,11 +5238,13 @@ $$r\hspace{0.05cm}(X_j,X_k)_R \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.2cm
 </p></span>
 </div>
 
+
 <br>
+
 
 ## Estimación robusta de la covarianza
 
-Sean $X_j$  y $X_k$ muestras de las variable estadística $\mathcal{X_j}$ y  $\mathcal{X_k}$, respectivamente.
+Sean $X_j\hspace{0.02cm}$  y $\hspace{0.02cm}X_k$ muestras de las variable estadística $\mathcal{X_j}\hspace{0.02cm}$ y  $\hspace{0.02cm}\mathcal{X_k}$, respectivamente.
 
 Usando la anterior definición de estimación robusta del coeficiente de correlación lineal y la relación existente entre la correlación y la covarianza, se tiene lo siguiente.
 
@@ -5253,9 +5255,9 @@ Usando la anterior definición de estimación robusta del coeficiente de correla
  
 <p style='margin-left:1em;'>
 
-- La estimación robusta de la covarianza entre $\mathcal{X}_j$ y $\mathcal{X}_k$ es:
+- La estimación robusta de la covarianza entre $\mathcal{X}_j\hspace{0.02cm}$ y $\hspace{0.02cm}\mathcal{X}_k$ es:
 
-$$s\hspace{0.05cm}(X_j,X_k)_R \hspace{0.1cm}=\hspace{0.1cm} r\hspace{0.05cm}(X_j,X_k)_R \cdot \sqrt{ \hspace{0.06cm}\sigma_R^2(X_j) \cdot \sigma_R^2(X_k) \hspace{0.1cm}  }$$
+$$S\hspace{0.05cm}(X_j,X_k)_R \hspace{0.12cm}=\hspace{0.12cm} R\hspace{0.05cm}(X_j,X_k)_R \cdot \sqrt{ \hspace{0.1cm}\sigma_R^2(X_j) \cdot \sigma_R^2(X_k) \hspace{0.2cm}  }$$
  </p>
  
 </p></span>
@@ -5266,34 +5268,39 @@ $$s\hspace{0.05cm}(X_j,X_k)_R \hspace{0.1cm}=\hspace{0.1cm} r\hspace{0.05cm}(X_j
 
 ## Estimación robusta de la matriz de correlaciones
 
-Usando la aproximación anterior para estimar de forma robusta el coeficiente de correlación lineal, la estimación robusta de la matriz de correlaciones entre $p$ variables estadísticas $\mathcal{X}_1,...,\mathcal{X}_p$ sería la  matriz formada por tales estimaciones robustas del coeficiente de correlación entre cada par de esas variables, es decir, la siguiente matriz:
+Usando la aproximación anterior para estimar de forma robusta el coeficiente de correlación lineal, la estimación robusta de la matriz de correlaciones entre $p$ variables estadísticas $\mathcal{X}_1,...,\mathcal{X}_p$ sería la  matriz formada por tales estimaciones robustas del coeficiente de correlación entre cada par de esas variables, es decir, la siguiente matriz: $\\$
 
-$$R_R \hspace{0.1cm}=\hspace{0.1cm} \Bigr( \hspace{0.1cm}  r(X_j, X_k)_R  \hspace{0.2cm}:\hspace{0.2cm} k,j = 1,...,p  \hspace{0.1cm}\Bigl)$$
+$$R_R \hspace{0.1cm}=\hspace{0.1cm} \Bigr( \hspace{0.1cm} r_{jk}^R \hspace{0.2cm}:\hspace{0.2cm} j,k = 1,...,p  \hspace{0.1cm}\Bigl)$$
+
+Donde: $\hspace{0.1cm} r_{jk}^R \hspace{0.08cm}=\hspace{0.08cm} R(X_j, X_k)_R$ 
 
 <br>
 
 ## Estimación robusta de la matriz de covarianzas
 
-Usando la aproximación anterior para estimar de forma robusta la covarianza, la estimación robusta de la matriz de covarianzas entre $p$ variables estadísticas $\mathcal{X}_1,...,\mathcal{X}_p$ sería la  matriz formada por tales estimaciones robustas de la covarianza entre cada par de esas variables, es decir, la siguiente matriz:
+Usando la aproximación anterior para estimar de forma robusta la covarianza, la estimación robusta de la matriz de covarianzas entre $p$ variables estadísticas $\mathcal{X}_1,...,\mathcal{X}_p$ sería la  matriz formada por tales estimaciones robustas de la covarianza entre cada par de esas variables, es decir, la siguiente matriz: $\\$
 
-$$S_R \hspace{0.1cm}=\hspace{0.1cm} \Bigr( \hspace{0.1cm}  s(X_j, X_k)_R  \hspace{0.2cm}:\hspace{0.2cm} k,j = 1,...,p  \hspace{0.1cm}\Bigl)$$
+$$S_R \hspace{0.1cm}=\hspace{0.1cm} \Bigr( \hspace{0.1cm}  s_{jk}^R  \hspace{0.2cm}:\hspace{0.2cm} k,j = 1,...,p  \hspace{0.1cm}\Bigl)$$
+
+
+Donde: $\hspace{0.1cm} s_{jk}^R \hspace{0.08cm}=\hspace{0.08cm} S(X_j, X_k)_R$ 
 
 <br>
 
 ## Inversa de la estimación robusta de la matriz de covarianzas
 
-Para calcular la distancia de Mahalanobis robusta es necesario calcular la inversa de $S_R$, es decir,  $S_R^{-1}$.
+Para calcular la distancia de Mahalanobis robusta es necesario calcular la inversa de $S_R$, es decir, es necessario calcular $S_R^{-1}$.
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
  
 <p style='margin-left:1em;'>
 
-- Si $S_R$ es **definida positiva** (autovalores $> 0$) $\hspace{0.15cm}\Rightarrow\hspace{0.1cm}$ tiene inversa $\bigl( \hspace{0.05cm} \exists \hspace{0.15cm} S_R^{-1} \hspace{0.05cm} \bigr)$ 
+- Si $\hspace{0.02cm}S_R\hspace{0.02cm}$ es **definida positiva** (autovalores $> 0$) $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **tiene inversa** $\bigl( \hspace{0.05cm} \exists \hspace{0.15cm} S_R^{-1} \hspace{0.05cm} \bigr)$ 
 
-- Si es  $S_R$ es **semidefinida positiva** (autovalores $> 0$ y alguno $= 0$) $\hspace{0.15cm}\Rightarrow\hspace{0.1cm}$ no tiene inversa $\bigl( \hspace{0.05cm} \neg\hspace{0.1cm} \exists \hspace{0.15cm} S_R^{-1}\hspace{0.05cm} \bigr)$ , pero se podría calcular la g-inversa o pseudo-inversa.
+- Si es  $S_R$ es **semidefinida positiva** (autovalores $> 0$ y alguno $= 0$) $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ **no tiene inversa** $\bigl( \hspace{0.05cm} \neg\hspace{0.1cm} \exists \hspace{0.15cm} S_R^{-1}\hspace{0.05cm} \bigr)$ , pero se podría calcular la **pseudo-inversa de Moore-Penrose**  o la **inversa generalizada** .
 
-- Si $S_R$ es **no definida positiva** (algún autovalor $< 0$) $\hspace{0.15cm}\Rightarrow\hspace{0.1cm}$ puede ser invertible (si no tiene autovalores $=0$) o no invertible ( si tiene autovalores $=0$). Pero aún en el primer caso, pese a que tuviera inversa, al usarla con la distancia de Mahalanobis podrían salir distancias negativas  o incluso imaginarias, lo que no tendría sentido.
+- Si $S_R$ es **no definida positiva** (algún autovalor $< 0$) $\hspace{0.2cm}\Rightarrow\hspace{0.2cm}$ puede ser invertible (si no tiene autovalores $=0$) o no invertible ( si tiene autovalores $=0$). Pero aún en el primer caso, pese a que tuviera inversa, al usarla con la distancia de Mahalanobis podrían obtenerse distancias negativas  o incluso imaginarias, lo que no tendría sentido. Por tanto, **este es el caso más problemático**.
 
  </p>
  
@@ -5304,14 +5311,14 @@ Para calcular la distancia de Mahalanobis robusta es necesario calcular la inver
 <br>
 
 
-**Observación:**
+**Observaciones:**
 
 - La condición para que una matriz sea invertible es que su determinante sea diferente de cero, y como el determinante de una matriz se puede descomponer en el producto de sus autovalores, entonces, una matriz es invertible si y solo si todos sus autovalores son distintos de cero.
 
 
-$$\exists \hspace{0.15cm} S_R^{-1} \hspace{0.15cm}\Leftrightarrow\hspace{0.15cm} det(S_R) = \lambda_1 \cdot ... \cdot \lambda_n \neq 0   \hspace{0.15cm}\Leftrightarrow\hspace{0.15cm} \\[0.3cm]
-\hspace{0.15cm}\Leftrightarrow\hspace{0.15cm} \neg \hspace{0.06cm} \exists \hspace{0.05cm} i =1,...,n \hspace{0.05cm},\hspace{0.05cm} \lambda_i = 0 \hspace{0.15cm}\Leftrightarrow \\[0.3cm]
-\hspace{0.15cm}\Leftrightarrow\hspace{0.15cm}\hspace{0.15cm} S_R \hspace{0.15cm} \text{no tiene autovalores iguales a cero} \\$$
+$$\exists \hspace{0.15cm} S_R^{-1} \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm} det(S_R) \hspace{0.086cm}=\hspace{0.08cm} \lambda_1 \cdot ... \cdot \lambda_n \hspace{0.08cm}\neq\hspace{0.08cm} 0   \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm} \\[0.45cm]
+\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm} \neg \hspace{0.1cm} \exists \hspace{0.15cm} i =1,...,n \hspace{0.2cm},\hspace{0.2cm} \lambda_i = 0 \hspace{0.2cm}\Leftrightarrow \\[0.45cm]
+\hspace{0.15cm}\Leftrightarrow\hspace{0.2cm}\hspace{0.15cm} S_R \hspace{0.2cm} \text{no tiene autovalores iguales a cero.} \\$$
 
 
 - Que sea $R_R$ definida positiva equivale a que $S_R$ también lo es.
@@ -5320,6 +5327,61 @@ $$\exists \hspace{0.15cm} S_R^{-1} \hspace{0.15cm}\Leftrightarrow\hspace{0.15cm}
 
 <br>
 
+### Pseudo inversa de Moore-Penrose
+
+**DEfinición tórica:**
+
+A nivel teórico, la pseudo inversa de Moore-Penrose, denotada como $A^+$, se define para cualquier matriz $A$ de dimensiones $m\times n$ y satisface las siguientes cuatro propiedades:
+
+$AA^+A = A$: La matriz producto $AA^+A$ es igual a la matriz original $A$.
+$A^+AA^+ = A^+$: La matriz producto $A^+AA^+$ es igual a la pseudo inversa $A^+$.
+$(AA^+)^T = AA^+$: La matriz producto $AA^+$ es hermítica, es decir, su traspuesta conjugada es igual a la matriz misma. En el caso de matrices reales, esto significa que $(AA^+)^T = AA^+$.
+$(A^+A)^T = A^+A$: La matriz producto $A^+A$ es hermítica, es decir, su traspuesta conjugada es igual a la matriz misma. En el caso de matrices reales, esto significa que $(A^+A)^T = A^+A$.
+
+La pseudo inversa de Moore-Penrose es una generalización de la matriz inversa para matrices que pueden no ser cuadradas o de rango completo. Proporciona una solución óptima en el sentido de mínimos cuadrados a problemas de sistemas lineales sobredeterminados, subdeterminados o de rango deficiente.
+
+<br>
+
+**Cálculo de la pseudo-inversa a través de SVD:**
+
+La pseudo inversa de Moore-Penrose de $S_R$ ,   se puede calcular utilizando la descomposición en valores singulares (SVD) de la matriz $S_R$. La expresión general de la pseudo inversa de Moore-Penrose es:
+
+$$S_R^+ \hspace{0.1cm} = \hspace{0.1cm} V \cdot \Sigma^+ \cdot U^t$$
+
+Donde $U$ y $V$ son las matrices de la descomposición en valores singulares de $S_R$. 
+
+La matriz $\Sigma^+$ se define como sigue:
+
+Sea  $\lambda_i$   el $i$-esimo autovalor de $S_R^t\cdot S_R$. Entonces, $\sqrt{\lambda_i}$ es $i$-esimo valor singular de $S_R$.
+
+Si los autovalores mayores que cero son $\lambda_1,..., \lambda_r$, entonces:
+
+$$\Sigma^+ \hspace{0.1cm}=\hspace{0.1cm} diag\left(\hspace{0.02cm}\frac{1}{\sqrt{\hspace{0.05cm}\lambda_1\hspace{0.1cm}}}\hspace{0.1cm},...,\hspace{0.1cm} \frac{1}{\sqrt{\hspace{0.05cm}\lambda_r\hspace{0.1cm}}}\hspace{0.1cm},\hspace{0.1cm}0\hspace{0.1cm},...,\hspace{0.1cm}0 \hspace{0.02cm}\right)$$
+
+Si alguno de los autovalores pese a ser positivo fuese muy pequeño, esto podría dar lugar a problemas numéricos. Esto puede evitarse usando el siguiente procedimiento de truncamiento, que es el empleado en la librería `numpy` de `Python` :
+
+Dado un nivel de tolerancia $t>0$, si  los autovalores mayores que $t$ son $\lambda_1,..., \lambda_q$, entonces: 
+
+$$\Sigma^+ \hspace{0.1cm}=\hspace{0.1cm} diag\left(\hspace{0.02cm}\frac{1}{\sqrt{\hspace{0.05cm}\lambda_1\hspace{0.1cm}}}\hspace{0.1cm},...,\hspace{0.1cm} \frac{1}{\sqrt{\hspace{0.05cm}\lambda_q\hspace{0.1cm}}}\hspace{0.1cm},\hspace{0.1cm}0\hspace{0.1cm},...,\hspace{0.1cm}0 \hspace{0.02cm}\right)$$
+Notese que $q \leq r$.
+
+ 
+
+ 
+
+
+
+<br>
+
+### Inversa generalizada
+
+
+
+
+
+
+
+<br>
 
 ## Transformación  de Delvin para obtener $S_R$ definida positiva
 
@@ -5354,6 +5416,13 @@ Delvin et al. (1975) proponen una transformación para cuando $S_R$ no es defini
     $$z^{-1} \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} tan \hspace{0.1cm} h\hspace{0.05cm} \hspace{0.01cm} (x)$$
 
     $$z(\Delta) = z(0.05) \approx 0.05$$
+
+ </p>
+ 
+</p></span>
+</div>
+
+
 <br>
 
 - ¿Cómo funciona la transformación $g$?
@@ -5414,6 +5483,12 @@ El siguiente algoritmo utiliza la transformación de Delvin para, dada la matriz
 
 - Grané, A., Manzi, G. and Salini, S. (2021) *Smart visualization of mixed data*. Stats 4(2), 472-485; https://doi.org/10.3390/stats4020029 (S.I. Robust Statistics in Action).
 
+
+- Gnadesikan
+
+- Algun manual de referencia de algebra lineal
+
+- etc
 
 <br>
 

@@ -242,7 +242,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.3" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#estimación-robusta-de-la-covarianza"><i class="fa fa-check"></i><b>12.3</b> Estimación robusta de la covarianza</a></li>
 <li class="chapter" data-level="12.4" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#estimación-robusta-de-la-matriz-de-correlaciones"><i class="fa fa-check"></i><b>12.4</b> Estimación robusta de la matriz de correlaciones</a></li>
 <li class="chapter" data-level="12.5" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#estimación-robusta-de-la-matriz-de-covarianzas-1"><i class="fa fa-check"></i><b>12.5</b> Estimación robusta de la matriz de covarianzas</a></li>
-<li class="chapter" data-level="12.6" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#inversa-de-la-estimación-robusta-de-la-matriz-de-covarianzas"><i class="fa fa-check"></i><b>12.6</b> Inversa de la estimación robusta de la matriz de covarianzas</a></li>
+<li class="chapter" data-level="12.6" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#inversa-de-la-estimación-robusta-de-la-matriz-de-covarianzas"><i class="fa fa-check"></i><b>12.6</b> Inversa de la estimación robusta de la matriz de covarianzas</a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#pseudo-inversa-de-moore-penrose"><i class="fa fa-check"></i><b>12.6.1</b> Pseudo inversa de Moore-Penrose</a></li>
+<li class="chapter" data-level="12.6.2" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#inversa-generalizada"><i class="fa fa-check"></i><b>12.6.2</b> Inversa generalizada</a></li>
+</ul></li>
 <li class="chapter" data-level="12.7" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#transformación-de-delvin-para-obtener-s_r-definida-positiva"><i class="fa fa-check"></i><b>12.7</b> Transformación de Delvin para obtener <span class="math inline">\(S_R\)</span> definida positiva</a>
 <ul>
 <li class="chapter" data-level="12.7.1" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#algoritmo-de-delvin-para-obtener-s_r-definida-positiva"><i class="fa fa-check"></i><b>12.7.1</b> Algoritmo de Delvin para obtener <span class="math inline">\(S_R\)</span> definida positiva</a></li>
@@ -340,15 +344,15 @@ se define como:</li>
 <p>Dada la muestra <span class="math inline">\(X_j\)</span> de la variable estadística <span class="math inline">\(\mathcal{X}_j\)</span>,</p>
 <ul>
 <li><p>La muestra <span class="math inline">\(\alpha\)</span>-winsorizada de <span class="math inline">\(X_j\)</span> se define como:</p>
-<p><span class="math display">\[X_j^{w,\alpha} \hspace{0.07cm}=\hspace{0.07cm}   \Bigl(\hspace{0.1cm} g(x) \hspace{0.25cm} \mathbf{:} \hspace{0.25cm}  x \in X_j  \hspace{0.1cm} \Bigr)\]</span>
+<p><span class="math display">\[X_j^{\alpha} \hspace{0.08cm}=\hspace{0.08cm}   \Bigl(\hspace{0.1cm} h(x) \hspace{0.25cm} \mathbf{:} \hspace{0.25cm}  x \in X_j  \hspace{0.1cm} \Bigr)\]</span>
 Donde:</p>
 <ul>
-<li><span class="math inline">\(g\)</span> es una función definida del siguiente modo:</li>
+<li><span class="math inline">\(h\)</span> es una función definida del siguiente modo:</li>
 </ul>
-<p><span class="math display">\[g(x) \hspace{0.05cm} = \hspace{0.05cm}  \begin{cases}
+<p><span class="math display">\[h(x) \hspace{0.05cm} = \hspace{0.05cm}  \begin{cases}
   a  \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm} x \in A \\
   b \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   x \in B \\
-  x \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   x \not\in A,B \hspace{0.12cm} \text{y} \hspace{0.12cm} x\in X_j  \end{cases}\]</span></p>
+  x \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   x \not\in A,B \hspace{0.15cm} \text{y} \hspace{0.15cm} x\in X_j  \end{cases}\]</span></p>
 <ul>
 <li>Los conjunto <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son definidos como sigue:</li>
 </ul>
@@ -370,7 +374,7 @@ Donde:</p>
 <li>La estimación robusta de la varianza de <span class="math inline">\(\mathcal{X}_j\)</span>
 se define como:</li>
 </ul>
-<span class="math display">\[\sigma^2_R(X_j) \hspace{0.07cm} = \hspace{0.07cm} \sigma^2(X_j^w) \hspace{0.07cm} = \hspace{0.07cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.05cm} \Bigl( \hspace{0.05cm} x_{ij} - \overline{X}_j^w \hspace{0.05cm} \Bigr)^2\]</span>
+<span class="math display">\[\sigma^2_R(X_j) \hspace{0.1cm} = \hspace{0.1cm} \sigma^2(X_j^{\alpha}) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.05cm} \Bigl( \hspace{0.05cm} x_{ij} - \overline{X_j^{\alpha}} \hspace{0.05cm} \Bigr)^2\]</span>
 </p>
 </p>
 <p></span></p>
@@ -382,14 +386,14 @@ se define como:</li>
 <div id="estimación-robusta-de-la-correlación" class="section level2 hasAnchor" number="12.2">
 <h2><span class="header-section-number">12.2</span> Estimación robusta de la correlación<a href="distancia-de-mahalanobis-robusta.html#estimación-robusta-de-la-correlación" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Sean <span class="math inline">\(X_j\)</span> y <span class="math inline">\(X_k\)</span> muestras de las variable estadística <span class="math inline">\(\mathcal{X_j}\)</span> y <span class="math inline">\(\mathcal{X_k}\)</span>, respectivamente.</p>
-<p>Se define la muestra auxiliar <span class="math inline">\(Z_j\)</span> como <span class="math inline">\(Z_j = \dfrac{X_j}{ \sqrt{\sigma^2_R(X_j)} }\)</span>.</p>
+<p>Se define la muestra auxiliar <span class="math inline">\(Z_j\)</span> como <span class="math inline">\(Z_j = \dfrac{X_j}{ \sqrt{\sigma^2_R(X_j)} }\hspace{0.1cm}\)</span>. <span class="math inline">\(\\\)</span></p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
 <ul>
-<li>La estimación robusta del coeficiente de correlación lineal entre <span class="math inline">\(\mathcal{X}_j\)</span> y <span class="math inline">\(\mathcal{X}_k\)</span> se define como :</li>
+<li>La estimación robusta del coeficiente de correlación lineal entre <span class="math inline">\(\mathcal{X}_j\hspace{0.05cm}\)</span> y <span class="math inline">\(\hspace{0.05cm}\mathcal{X}_k\)</span> se define como :</li>
 </ul>
-<p><span class="math display">\[r\hspace{0.05cm}(X_j,X_k)_R \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.2cm}\sigma^2_R(Z_j+Z_k)\hspace{0.1cm}-\hspace{0.1cm}\sigma^2_R(Z_j-Z_k)\hspace{0.2cm}}{\sigma^2_R(Z_j+Z_k)\hspace{0.1cm}+\hspace{0.1cm}\sigma^2_R(Z_j-Z_k)}\]</span></p>
+<p><span class="math display">\[r_{jk}^R \hspace{0.1cm}=\hspace{0.1cm} R\hspace{0.05cm}(X_j,X_k)_R \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.3cm}\sigma^2_R(Z_j+Z_k)\hspace{0.1cm}-\hspace{0.1cm}\sigma^2_R(Z_j-Z_k)\hspace{0.3cm}}{\sigma^2_R(Z_j+Z_k)\hspace{0.1cm}+\hspace{0.1cm}\sigma^2_R(Z_j-Z_k)}\]</span></p>
 </p>
 </p>
 <p></span></p>
@@ -398,15 +402,15 @@ se define como:</li>
 </div>
 <div id="estimación-robusta-de-la-covarianza" class="section level2 hasAnchor" number="12.3">
 <h2><span class="header-section-number">12.3</span> Estimación robusta de la covarianza<a href="distancia-de-mahalanobis-robusta.html#estimación-robusta-de-la-covarianza" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Sean <span class="math inline">\(X_j\)</span> y <span class="math inline">\(X_k\)</span> muestras de las variable estadística <span class="math inline">\(\mathcal{X_j}\)</span> y <span class="math inline">\(\mathcal{X_k}\)</span>, respectivamente.</p>
+<p>Sean <span class="math inline">\(X_j\hspace{0.02cm}\)</span> y <span class="math inline">\(\hspace{0.02cm}X_k\)</span> muestras de las variable estadística <span class="math inline">\(\mathcal{X_j}\hspace{0.02cm}\)</span> y <span class="math inline">\(\hspace{0.02cm}\mathcal{X_k}\)</span>, respectivamente.</p>
 <p>Usando la anterior definición de estimación robusta del coeficiente de correlación lineal y la relación existente entre la correlación y la covarianza, se tiene lo siguiente.</p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
 <ul>
-<li>La estimación robusta de la covarianza entre <span class="math inline">\(\mathcal{X}_j\)</span> y <span class="math inline">\(\mathcal{X}_k\)</span> es:</li>
+<li>La estimación robusta de la covarianza entre <span class="math inline">\(\mathcal{X}_j\hspace{0.02cm}\)</span> y <span class="math inline">\(\hspace{0.02cm}\mathcal{X}_k\)</span> es:</li>
 </ul>
-<span class="math display">\[s\hspace{0.05cm}(X_j,X_k)_R \hspace{0.1cm}=\hspace{0.1cm} r\hspace{0.05cm}(X_j,X_k)_R \cdot \sqrt{ \hspace{0.06cm}\sigma_R^2(X_j) \cdot \sigma_R^2(X_k) \hspace{0.1cm}  }\]</span>
+<span class="math display">\[S\hspace{0.05cm}(X_j,X_k)_R \hspace{0.12cm}=\hspace{0.12cm} R\hspace{0.05cm}(X_j,X_k)_R \cdot \sqrt{ \hspace{0.1cm}\sigma_R^2(X_j) \cdot \sigma_R^2(X_k) \hspace{0.2cm}  }\]</span>
 </p>
 </p>
 <p></span></p>
@@ -415,51 +419,81 @@ se define como:</li>
 </div>
 <div id="estimación-robusta-de-la-matriz-de-correlaciones" class="section level2 hasAnchor" number="12.4">
 <h2><span class="header-section-number">12.4</span> Estimación robusta de la matriz de correlaciones<a href="distancia-de-mahalanobis-robusta.html#estimación-robusta-de-la-matriz-de-correlaciones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Usando la aproximación anterior para estimar de forma robusta el coeficiente de correlación lineal, la estimación robusta de la matriz de correlaciones entre <span class="math inline">\(p\)</span> variables estadísticas <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_p\)</span> sería la matriz formada por tales estimaciones robustas del coeficiente de correlación entre cada par de esas variables, es decir, la siguiente matriz:</p>
-<p><span class="math display">\[R_R \hspace{0.1cm}=\hspace{0.1cm} \Bigr( \hspace{0.1cm}  r(X_j, X_k)_R  \hspace{0.2cm}:\hspace{0.2cm} k,j = 1,...,p  \hspace{0.1cm}\Bigl)\]</span></p>
+<p>Usando la aproximación anterior para estimar de forma robusta el coeficiente de correlación lineal, la estimación robusta de la matriz de correlaciones entre <span class="math inline">\(p\)</span> variables estadísticas <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_p\)</span> sería la matriz formada por tales estimaciones robustas del coeficiente de correlación entre cada par de esas variables, es decir, la siguiente matriz: <span class="math inline">\(\\\)</span></p>
+<p><span class="math display">\[R_R \hspace{0.1cm}=\hspace{0.1cm} \Bigr( \hspace{0.1cm} r_{jk}^R \hspace{0.2cm}:\hspace{0.2cm} j,k = 1,...,p  \hspace{0.1cm}\Bigl)\]</span></p>
+<p>Donde: <span class="math inline">\(\hspace{0.1cm} r_{jk}^R \hspace{0.08cm}=\hspace{0.08cm} R(X_j, X_k)_R\)</span></p>
 <p><br></p>
 </div>
 <div id="estimación-robusta-de-la-matriz-de-covarianzas-1" class="section level2 hasAnchor" number="12.5">
 <h2><span class="header-section-number">12.5</span> Estimación robusta de la matriz de covarianzas<a href="distancia-de-mahalanobis-robusta.html#estimación-robusta-de-la-matriz-de-covarianzas-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Usando la aproximación anterior para estimar de forma robusta la covarianza, la estimación robusta de la matriz de covarianzas entre <span class="math inline">\(p\)</span> variables estadísticas <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_p\)</span> sería la matriz formada por tales estimaciones robustas de la covarianza entre cada par de esas variables, es decir, la siguiente matriz:</p>
-<p><span class="math display">\[S_R \hspace{0.1cm}=\hspace{0.1cm} \Bigr( \hspace{0.1cm}  s(X_j, X_k)_R  \hspace{0.2cm}:\hspace{0.2cm} k,j = 1,...,p  \hspace{0.1cm}\Bigl)\]</span></p>
+<p>Usando la aproximación anterior para estimar de forma robusta la covarianza, la estimación robusta de la matriz de covarianzas entre <span class="math inline">\(p\)</span> variables estadísticas <span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_p\)</span> sería la matriz formada por tales estimaciones robustas de la covarianza entre cada par de esas variables, es decir, la siguiente matriz: <span class="math inline">\(\\\)</span></p>
+<p><span class="math display">\[S_R \hspace{0.1cm}=\hspace{0.1cm} \Bigr( \hspace{0.1cm}  s_{jk}^R  \hspace{0.2cm}:\hspace{0.2cm} k,j = 1,...,p  \hspace{0.1cm}\Bigl)\]</span></p>
+<p>Donde: <span class="math inline">\(\hspace{0.1cm} s_{jk}^R \hspace{0.08cm}=\hspace{0.08cm} S(X_j, X_k)_R\)</span></p>
 <p><br></p>
 </div>
 <div id="inversa-de-la-estimación-robusta-de-la-matriz-de-covarianzas" class="section level2 hasAnchor" number="12.6">
 <h2><span class="header-section-number">12.6</span> Inversa de la estimación robusta de la matriz de covarianzas<a href="distancia-de-mahalanobis-robusta.html#inversa-de-la-estimación-robusta-de-la-matriz-de-covarianzas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Para calcular la distancia de Mahalanobis robusta es necesario calcular la inversa de <span class="math inline">\(S_R\)</span>, es decir, <span class="math inline">\(S_R^{-1}\)</span>.</p>
+<p>Para calcular la distancia de Mahalanobis robusta es necesario calcular la inversa de <span class="math inline">\(S_R\)</span>, es decir, es necessario calcular <span class="math inline">\(S_R^{-1}\)</span>.</p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
 <ul>
-<li><p>Si <span class="math inline">\(S_R\)</span> es <strong>definida positiva</strong> (autovalores <span class="math inline">\(&gt; 0\)</span>) <span class="math inline">\(\hspace{0.15cm}\Rightarrow\hspace{0.1cm}\)</span> tiene inversa <span class="math inline">\(\bigl( \hspace{0.05cm} \exists \hspace{0.15cm} S_R^{-1} \hspace{0.05cm} \bigr)\)</span></p></li>
-<li><p>Si es <span class="math inline">\(S_R\)</span> es <strong>semidefinida positiva</strong> (autovalores <span class="math inline">\(&gt; 0\)</span> y alguno <span class="math inline">\(= 0\)</span>) <span class="math inline">\(\hspace{0.15cm}\Rightarrow\hspace{0.1cm}\)</span> no tiene inversa <span class="math inline">\(\bigl( \hspace{0.05cm} \neg\hspace{0.1cm} \exists \hspace{0.15cm} S_R^{-1}\hspace{0.05cm} \bigr)\)</span> , pero se podría calcular la g-inversa o pseudo-inversa.</p></li>
-<li><p>Si <span class="math inline">\(S_R\)</span> es <strong>no definida positiva</strong> (algún autovalor <span class="math inline">\(&lt; 0\)</span>) <span class="math inline">\(\hspace{0.15cm}\Rightarrow\hspace{0.1cm}\)</span> puede ser invertible (si no tiene autovalores <span class="math inline">\(=0\)</span>) o no invertible ( si tiene autovalores <span class="math inline">\(=0\)</span>). Pero aún en el primer caso, pese a que tuviera inversa, al usarla con la distancia de Mahalanobis podrían salir distancias negativas o incluso imaginarias, lo que no tendría sentido.</p></li>
+<li><p>Si <span class="math inline">\(\hspace{0.02cm}S_R\hspace{0.02cm}\)</span> es <strong>definida positiva</strong> (autovalores <span class="math inline">\(&gt; 0\)</span>) <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <strong>tiene inversa</strong> <span class="math inline">\(\bigl( \hspace{0.05cm} \exists \hspace{0.15cm} S_R^{-1} \hspace{0.05cm} \bigr)\)</span></p></li>
+<li><p>Si es <span class="math inline">\(S_R\)</span> es <strong>semidefinida positiva</strong> (autovalores <span class="math inline">\(&gt; 0\)</span> y alguno <span class="math inline">\(= 0\)</span>) <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> <strong>no tiene inversa</strong> <span class="math inline">\(\bigl( \hspace{0.05cm} \neg\hspace{0.1cm} \exists \hspace{0.15cm} S_R^{-1}\hspace{0.05cm} \bigr)\)</span> , pero se podría calcular la <strong>pseudo-inversa de Moore-Penrose</strong> o la <strong>inversa generalizada</strong> .</p></li>
+<li><p>Si <span class="math inline">\(S_R\)</span> es <strong>no definida positiva</strong> (algún autovalor <span class="math inline">\(&lt; 0\)</span>) <span class="math inline">\(\hspace{0.2cm}\Rightarrow\hspace{0.2cm}\)</span> puede ser invertible (si no tiene autovalores <span class="math inline">\(=0\)</span>) o no invertible ( si tiene autovalores <span class="math inline">\(=0\)</span>). Pero aún en el primer caso, pese a que tuviera inversa, al usarla con la distancia de Mahalanobis podrían obtenerse distancias negativas o incluso imaginarias, lo que no tendría sentido. Por tanto, <strong>este es el caso más problemático</strong>.</p></li>
 </ul>
 </p>
 </p>
 <p></span></p>
 </div>
 <p><br></p>
-<p><strong>Observación:</strong></p>
+<p><strong>Observaciones:</strong></p>
 <ul>
 <li>La condición para que una matriz sea invertible es que su determinante sea diferente de cero, y como el determinante de una matriz se puede descomponer en el producto de sus autovalores, entonces, una matriz es invertible si y solo si todos sus autovalores son distintos de cero.</li>
 </ul>
-<p><span class="math display">\[\exists \hspace{0.15cm} S_R^{-1} \hspace{0.15cm}\Leftrightarrow\hspace{0.15cm} det(S_R) = \lambda_1 \cdot ... \cdot \lambda_n \neq 0   \hspace{0.15cm}\Leftrightarrow\hspace{0.15cm} \\[0.3cm]
-\hspace{0.15cm}\Leftrightarrow\hspace{0.15cm} \neg \hspace{0.06cm} \exists \hspace{0.05cm} i =1,...,n \hspace{0.05cm},\hspace{0.05cm} \lambda_i = 0 \hspace{0.15cm}\Leftrightarrow \\[0.3cm]
-\hspace{0.15cm}\Leftrightarrow\hspace{0.15cm}\hspace{0.15cm} S_R \hspace{0.15cm} \text{no tiene autovalores iguales a cero} \\\]</span></p>
+<p><span class="math display">\[\exists \hspace{0.15cm} S_R^{-1} \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm} det(S_R) \hspace{0.086cm}=\hspace{0.08cm} \lambda_1 \cdot ... \cdot \lambda_n \hspace{0.08cm}\neq\hspace{0.08cm} 0   \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm} \\[0.45cm]
+\hspace{0.2cm}\Leftrightarrow\hspace{0.2cm} \neg \hspace{0.1cm} \exists \hspace{0.15cm} i =1,...,n \hspace{0.2cm},\hspace{0.2cm} \lambda_i = 0 \hspace{0.2cm}\Leftrightarrow \\[0.45cm]
+\hspace{0.15cm}\Leftrightarrow\hspace{0.2cm}\hspace{0.15cm} S_R \hspace{0.2cm} \text{no tiene autovalores iguales a cero.} \\\]</span></p>
 <ul>
 <li>Que sea <span class="math inline">\(R_R\)</span> definida positiva equivale a que <span class="math inline">\(S_R\)</span> también lo es.</li>
 </ul>
 <p><br></p>
+<div id="pseudo-inversa-de-moore-penrose" class="section level3 hasAnchor" number="12.6.1">
+<h3><span class="header-section-number">12.6.1</span> Pseudo inversa de Moore-Penrose<a href="distancia-de-mahalanobis-robusta.html#pseudo-inversa-de-moore-penrose" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>DEfinición tórica:</strong></p>
+<p>A nivel teórico, la pseudo inversa de Moore-Penrose, denotada como <span class="math inline">\(A^+\)</span>, se define para cualquier matriz <span class="math inline">\(A\)</span> de dimensiones <span class="math inline">\(m\times n\)</span> y satisface las siguientes cuatro propiedades:</p>
+<p><span class="math inline">\(AA^+A = A\)</span>: La matriz producto <span class="math inline">\(AA^+A\)</span> es igual a la matriz original <span class="math inline">\(A\)</span>.
+<span class="math inline">\(A^+AA^+ = A^+\)</span>: La matriz producto <span class="math inline">\(A^+AA^+\)</span> es igual a la pseudo inversa <span class="math inline">\(A^+\)</span>.
+<span class="math inline">\((AA^+)^T = AA^+\)</span>: La matriz producto <span class="math inline">\(AA^+\)</span> es hermítica, es decir, su traspuesta conjugada es igual a la matriz misma. En el caso de matrices reales, esto significa que <span class="math inline">\((AA^+)^T = AA^+\)</span>.
+<span class="math inline">\((A^+A)^T = A^+A\)</span>: La matriz producto <span class="math inline">\(A^+A\)</span> es hermítica, es decir, su traspuesta conjugada es igual a la matriz misma. En el caso de matrices reales, esto significa que <span class="math inline">\((A^+A)^T = A^+A\)</span>.</p>
+<p>La pseudo inversa de Moore-Penrose es una generalización de la matriz inversa para matrices que pueden no ser cuadradas o de rango completo. Proporciona una solución óptima en el sentido de mínimos cuadrados a problemas de sistemas lineales sobredeterminados, subdeterminados o de rango deficiente.</p>
+<p><br></p>
+<p><strong>Cálculo de la pseudo-inversa a través de SVD:</strong></p>
+<p>La pseudo inversa de Moore-Penrose de <span class="math inline">\(S_R\)</span> , se puede calcular utilizando la descomposición en valores singulares (SVD) de la matriz <span class="math inline">\(S_R\)</span>. La expresión general de la pseudo inversa de Moore-Penrose es:</p>
+<p><span class="math display">\[S_R^+ \hspace{0.1cm} = \hspace{0.1cm} V \cdot \Sigma^+ \cdot U^t\]</span></p>
+<p>Donde <span class="math inline">\(U\)</span> y <span class="math inline">\(V\)</span> son las matrices de la descomposición en valores singulares de <span class="math inline">\(S_R\)</span>.</p>
+<p>La matriz <span class="math inline">\(\Sigma^+\)</span> se define como sigue:</p>
+<p>Sea <span class="math inline">\(\lambda_i\)</span> el <span class="math inline">\(i\)</span>-esimo autovalor de <span class="math inline">\(S_R^t\cdot S_R\)</span>. Entonces, <span class="math inline">\(\sqrt{\lambda_i}\)</span> es <span class="math inline">\(i\)</span>-esimo valor singular de <span class="math inline">\(S_R\)</span>.</p>
+<p>Si los autovalores mayores que cero son <span class="math inline">\(\lambda_1,..., \lambda_r\)</span>, entonces:</p>
+<p><span class="math display">\[\Sigma^+ \hspace{0.1cm}=\hspace{0.1cm} diag\left(\hspace{0.02cm}\frac{1}{\sqrt{\hspace{0.05cm}\lambda_1\hspace{0.1cm}}}\hspace{0.1cm},...,\hspace{0.1cm} \frac{1}{\sqrt{\hspace{0.05cm}\lambda_r\hspace{0.1cm}}}\hspace{0.1cm},\hspace{0.1cm}0\hspace{0.1cm},...,\hspace{0.1cm}0 \hspace{0.02cm}\right)\]</span></p>
+<p>Si alguno de los autovalores pese a ser positivo fuese muy pequeño, esto podría dar lugar a problemas numéricos. Esto puede evitarse usando el siguiente procedimiento de truncamiento, que es el empleado en la librería <code>numpy</code> de <code>Python</code> :</p>
+<p>Dado un nivel de tolerancia <span class="math inline">\(t&gt;0\)</span>, si los autovalores mayores que <span class="math inline">\(t\)</span> son <span class="math inline">\(\lambda_1,..., \lambda_q\)</span>, entonces:</p>
+<p><span class="math display">\[\Sigma^+ \hspace{0.1cm}=\hspace{0.1cm} diag\left(\hspace{0.02cm}\frac{1}{\sqrt{\hspace{0.05cm}\lambda_1\hspace{0.1cm}}}\hspace{0.1cm},...,\hspace{0.1cm} \frac{1}{\sqrt{\hspace{0.05cm}\lambda_q\hspace{0.1cm}}}\hspace{0.1cm},\hspace{0.1cm}0\hspace{0.1cm},...,\hspace{0.1cm}0 \hspace{0.02cm}\right)\]</span>
+Notese que <span class="math inline">\(q \leq r\)</span>.</p>
+<p><br></p>
+</div>
+<div id="inversa-generalizada" class="section level3 hasAnchor" number="12.6.2">
+<h3><span class="header-section-number">12.6.2</span> Inversa generalizada<a href="distancia-de-mahalanobis-robusta.html#inversa-generalizada" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><br></p>
+</div>
 </div>
 <div id="transformación-de-delvin-para-obtener-s_r-definida-positiva" class="section level2 hasAnchor" number="12.7">
 <h2><span class="header-section-number">12.7</span> Transformación de Delvin para obtener <span class="math inline">\(S_R\)</span> definida positiva<a href="distancia-de-mahalanobis-robusta.html#transformación-de-delvin-para-obtener-s_r-definida-positiva" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Como hemos visto en la sección anterior es importante que <span class="math inline">\(S_R\)</span> sea definida positiva para poder calcular su inversa y que no encontrar problemas en el cálculo de la distancia de Mahalanobis.</p>
 <p>Delvin et al. (1975) proponen una transformación para cuando <span class="math inline">\(S_R\)</span> no es definida positiva, obtener una transformación que sea definida positiva.</p>
-<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
-<p style='margin-left:1em;'>
+<p style="margin-left:1em;">
 <ul>
 <li><p>La transformación <span class="math inline">\(G\)</span> de <span class="math inline">\(R_R\)</span> propuesta es el siguiente:</p>
 <p><span class="math display">\[G(R_R) = \Bigl( \hspace{0.15cm}  g \hspace{0.05cm} \bigl( \hspace{0.1 cm} r(X_j,X_k)_R \hspace{0.1 cm} \bigr)  \hspace{0.15cm} : \hspace{0.15cm} k,j=1,...,p  \hspace{0.15cm} \Bigr)\]</span>
@@ -472,8 +506,14 @@ Donde:</p>
 <p><span class="math inline">\(\Delta\)</span> es un número positivo pequeño, por ejemplo, <span class="math inline">\(\Delta=0\)</span></p>
 <p><span class="math display">\[z \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} tan \hspace{0.1cm} h\hspace{0.05cm} ^{-1}\hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} arc \hspace{0.1cm} tan\hspace{0.05cm} h\hspace{0.05cm}(x) \hspace{0.1cm}= \hspace{0.1cm} \dfrac{1}{2} \cdot log \left(\dfrac{1+x}{1-x}\right)\]</span>
 <span class="math display">\[z^{-1} \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} tan \hspace{0.1cm} h\hspace{0.05cm} \hspace{0.01cm} (x)\]</span></p>
-<p><span class="math display">\[z(\Delta) = z(0.05) \approx 0.05\]</span>
-<br></p></li>
+<p><span class="math display">\[z(\Delta) = z(0.05) \approx 0.05\]</span></p></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<ul>
 <li><p>¿Cómo funciona la transformación <span class="math inline">\(g\)</span>?</p>
 <ul>
 <li><p>Si <span class="math inline">\(r_{jk}&gt;0.05\)</span>, entonces, <span class="math inline">\(g(r_{jk}) = r_{jk} - \varepsilon\)</span>, con <span class="math inline">\(\varepsilon &gt;0\)</span> pequeño. Es decir, <span class="math inline">\(g\)</span> transforma <span class="math inline">\(r_{jk}\)</span> en una correlación un poco menor.</p></li>

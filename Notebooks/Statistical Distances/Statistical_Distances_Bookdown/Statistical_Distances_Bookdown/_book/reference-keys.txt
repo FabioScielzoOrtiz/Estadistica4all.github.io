@@ -72,3 +72,6 @@ inversa-de-la-estimación-robusta-de-la-matriz-de-covarianzas
 transformacion-de-delvin-para-obtener-s_r-definida-positiva
 transformación-de-delvin-para-obtener-s_r-definida-positiva
 algoritmo-de-delvin-para-obtener-s_r-definida-positiva
+g-inversa-psuedo-inversa
+pseudo-inversa-de-moore-penrose
+inversa-generalizada
