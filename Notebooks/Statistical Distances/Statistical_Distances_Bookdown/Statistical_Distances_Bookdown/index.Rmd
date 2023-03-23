@@ -5112,13 +5112,23 @@ Donde:
 
 Siguiendo esta propuesta;
 
-Dada la muestra $X_j$ de la variable estadística $\mathcal{X}_j$,
+Dada la muestra $\hspace{0.03cm} X_j\hspace{0.03cm}$ de la variable estadística $\mathcal{X}_j\hspace{0.03cm}$,
 
- La estimación robusta de la varianza de $\mathcal{X}_j$
- se define como:
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+- La estimación robusta de la varianza de $\mathcal{X}_j$
+ se define como: 
  
  $$\sigma^2_R(X_j) \hspace{0.05cm} = \hspace{0.05cm} MAD(X_j)^2 \hspace{0.05cm} = \hspace{0.05cm} Me\hspace{0.05cm} \Bigl[ \hspace{0.05cm} \bigl( \hspace{0.1cm} | \hspace{0.1cm}  x_{ij} - Me(X_j) \hspace{0.1cm} |  \hspace{0.1cm} : \hspace{0.1cm} i = 1,...,n \hspace{0.1cm} \bigr)  \hspace{0.05cm} \Bigr]$$
+ </p>
  
+</p></span>
+</div>
  
  <br>
  
@@ -5128,18 +5138,29 @@ Dada la muestra $X_j$ de la variable estadística $\mathcal{X}_j$,
 
 Siguiendo esta propuesta;
 
-Dada la muestra $X_j$ de la variable estadística $\mathcal{X}_j$,
+Dada la muestra $\hspace{0.03cm}X_j\hspace{0.03cm}$ de la variable estadística $\hspace{0.03cm}\mathcal{X}_j\hspace{0.03cm}$,
 
 
-La muestra $\alpha$-recortada de $X_j$ se define como:
 
-$$X_j^\alpha \hspace{0.07cm}=\hspace{0.07cm} \Bigl(\hspace{0.1cm} x_{ij} \hspace{0.3cm} \mathbf{:} \hspace{0.3cm} i\in \lbrace 1,...,n \rbrace \hspace{0.12cm} , \hspace{0.15cm}  x_{ij} \hspace{0.05cm}\geq\hspace{0.05cm} Q(\alpha/2\hspace{0.05cm} ,\hspace{0.05cm} X_j) \hspace{0.12cm} , \hspace{0.15cm} x_{ij} \hspace{0.05cm}\leq\hspace{0.05cm} Q(1-\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j)   \hspace{0.1cm} \Bigr)$$
+- La muestra $\alpha$-recortada de $X_j$ se define como: 
 
- La estimación robusta de la varianza de $\mathcal{X}_j$
- se define como:
+$$X_j^\alpha \hspace{0.1cm}=\hspace{0.1cm} \Bigl(\hspace{0.1cm} x_{ij} \hspace{0.3cm} \mathbf{:} \hspace{0.3cm} i\in \lbrace 1,...,n \rbrace \hspace{0.12cm} , \hspace{0.15cm}  x_{ij} \hspace{0.05cm}\geq\hspace{0.05cm} Q(\alpha/2\hspace{0.05cm} ,\hspace{0.05cm} X_j) \hspace{0.12cm} , \hspace{0.15cm} x_{ij} \hspace{0.05cm}\leq\hspace{0.05cm} Q(1-\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j)   \hspace{0.1cm} \Bigr) \\$$
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
  
- $$\sigma^2_R(X_j) \hspace{0.07cm} = \hspace{0.07cm} \sigma^2(X_j^\alpha) \hspace{0.07cm} = \hspace{0.07cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.05cm} \Bigl( \hspace{0.05cm} x_{ij} - \overline{X}_j^\alpha \hspace{0.05cm} \Bigr)^2$$
+<p style='margin-left:1em;'>
 
+- La estimación robusta de la varianza de $\mathcal{X}_j$
+ se define como:  
+ 
+ $$\sigma^2_R(X_j) \hspace{0.07cm} = \hspace{0.07cm} \sigma^2(X_j^\alpha) \hspace{0.07cm} = \hspace{0.07cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.05cm} \Bigl( \hspace{0.05cm} x_{ij} - \overline{X_j^\alpha} \hspace{0.05cm} \Bigr)^2$$
+
+ </p>
+ 
+</p></span>
+</div>
+
+<br>
 
 #### Propuesta 3: Varianza Winsorizada
 
@@ -5149,43 +5170,49 @@ Siguiendo esta propuesta;
 Dada la muestra $X_j$ de la variable estadística $\mathcal{X}_j$,
 
 
-La muestra $\alpha$-winsorizada de $X_j$ se define como:
+- La muestra $\alpha$-winsorizada de $X_j$ se define como:
 
 
 
-$$X_j^w \hspace{0.07cm}=\hspace{0.07cm} \Bigl(\hspace{0.1cm} g(x) \hspace{0.25cm} \mathbf{:} \hspace{0.25cm}  x \in X_j  \hspace{0.1cm} \Bigr)$$
-Donde:
+    $$X_j^{w,\alpha} \hspace{0.07cm}=\hspace{0.07cm}   \Bigl(\hspace{0.1cm} g(x) \hspace{0.25cm} \mathbf{:} \hspace{0.25cm}  x \in X_j  \hspace{0.1cm} \Bigr)$$
+    Donde:
 
-- $g$ es una función definida del siguiente modo:
+    - $g$ es una función definida del siguiente modo:
 
-\begin{equation*}
-  g(x) \hspace{0.05cm} = \hspace{0.05cm}
-  \begin{cases}
+    $$g(x) \hspace{0.05cm} = \hspace{0.05cm}  \begin{cases}
     a  \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm} x \in A \\
     b \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   x \in B \\
-    x \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   x \not\in A,B \hspace{0.2cm} , \hspace{0.2cm} x\in X_j
-  \end{cases}
-\end{equation*}
+    x \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   x \not\in A,B \hspace{0.12cm} \text{y} \hspace{0.12cm} x\in X_j  \end{cases}$$
 
 
-- Los conjunto $A$ y $B$ son definidos como sigue:
+    - Los conjunto $A$ y $B$ son definidos como sigue:
 
-$$A \hspace{0.05cm}=\hspace{0.05cm} \lbrace \hspace{0.1cm} x_{ij} \hspace{0.2cm}:\hspace{0.2cm} x_{ij} \hspace{0.05cm}\leq\hspace{0.05cm} Q(\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j) \hspace{0.1cm}\rbrace$$
-$$B \hspace{0.05cm}=\hspace{0.05cm} \lbrace \hspace{0.1cm} x_{ij} \hspace{0.2cm}:\hspace{0.2cm} x_{ij} \hspace{0.05cm}\leq\hspace{0.05cm} Q(\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j) \hspace{0.1cm}\rbrace$$
+    $$A \hspace{0.05cm}=\hspace{0.05cm} \lbrace \hspace{0.1cm} x_{ij} \hspace{0.15cm}:\hspace{0.15cm} x_{ij} \hspace{0.05cm}\leq\hspace{0.05cm} Q(\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j) \hspace{0.1cm}\rbrace$$
+    $$B \hspace{0.05cm}=\hspace{0.05cm} \lbrace \hspace{0.1cm} x_{ij} \hspace{0.15cm}:\hspace{0.15cm} x_{ij} \hspace{0.05cm}\leq\hspace{0.05cm} Q(\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j) \hspace{0.1cm}\rbrace$$
 
-- Los valores $a$ y $b$ se definen de la siguiente manera:
+    - Los valores $a$ y $b$ se definen de la siguiente manera:
 
-$a$ es el valor de $X_j$ que es inmediatamente superior a $Q(\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j)$
-
-
-$b$ es el valor de $X_j$ que es inmediatamente inferior a $Q(1-\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j)$
+      - $a$ es el valor de $X_j$ que es inmediatamente superior a $\hspace{0.05cm}Q(\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j)$
 
 
+      - $b$ es el valor de $X_j$ que es inmediatamente inferior a $\hspace{0.05cm}Q(1-\alpha/2 \hspace{0.05cm},\hspace{0.05cm} X_j)$
 
- La estimación robusta de la varianza de $\mathcal{X}_j$
+
+<br>
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+- La estimación robusta de la varianza de $\mathcal{X}_j$
  se define como:
  
  $$\sigma^2_R(X_j) \hspace{0.07cm} = \hspace{0.07cm} \sigma^2(X_j^w) \hspace{0.07cm} = \hspace{0.07cm} \dfrac{1}{n} \cdot \sum_{i=1}^n \hspace{0.05cm} \Bigl( \hspace{0.05cm} x_{ij} - \overline{X}_j^w \hspace{0.05cm} \Bigr)^2$$
+ </p>
+ 
+</p></span>
+</div>
 
 <br>
 
@@ -5195,10 +5222,21 @@ Sean $X_j$  y $X_k$ muestras de las variable estadística $\mathcal{X_j}$ y  $\m
 
 Se define la muestra auxiliar $Z_j$ como  $Z_j = \dfrac{X_j}{ \sqrt{\sigma^2_R(X_j)} }$.
 
-La estimación robusta del coeficiente de correlación lineal entre $\mathcal{X}_j$ y $\mathcal{X}_k$ se define como :
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+- La estimación robusta del coeficiente de correlación lineal entre $\mathcal{X}_j$ y $\mathcal{X}_k$ se define como :
 
 $$r\hspace{0.05cm}(X_j,X_k)_R \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.2cm}\sigma^2_R(Z_j+Z_k)\hspace{0.1cm}-\hspace{0.1cm}\sigma^2_R(Z_j-Z_k)\hspace{0.2cm}}{\sigma^2_R(Z_j+Z_k)\hspace{0.1cm}+\hspace{0.1cm}\sigma^2_R(Z_j-Z_k)}$$
 
+
+ </p>
+ 
+</p></span>
+</div>
 
 <br>
 
@@ -5208,9 +5246,21 @@ Sean $X_j$  y $X_k$ muestras de las variable estadística $\mathcal{X_j}$ y  $\m
 
 Usando la anterior definición de estimación robusta del coeficiente de correlación lineal y la relación existente entre la correlación y la covarianza, se tiene lo siguiente.
 
-La estimación robusta de la covarianza entre $\mathcal{X}_j$ y $\mathcal{X}_k$ es:
+
+
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
+
+- La estimación robusta de la covarianza entre $\mathcal{X}_j$ y $\mathcal{X}_k$ es:
 
 $$s\hspace{0.05cm}(X_j,X_k)_R \hspace{0.1cm}=\hspace{0.1cm} r\hspace{0.05cm}(X_j,X_k)_R \cdot \sqrt{ \hspace{0.06cm}\sigma_R^2(X_j) \cdot \sigma_R^2(X_k) \hspace{0.1cm}  }$$
+ </p>
+ 
+</p></span>
+</div>
+
 
 <br>
 
@@ -5234,13 +5284,21 @@ $$S_R \hspace{0.1cm}=\hspace{0.1cm} \Bigr( \hspace{0.1cm}  s(X_j, X_k)_R  \hspac
 
 Para calcular la distancia de Mahalanobis robusta es necesario calcular la inversa de $S_R$, es decir,  $S_R^{-1}$.
 
-
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'>
 
 - Si $S_R$ es **definida positiva** (autovalores $> 0$) $\hspace{0.15cm}\Rightarrow\hspace{0.1cm}$ tiene inversa $\bigl( \hspace{0.05cm} \exists \hspace{0.15cm} S_R^{-1} \hspace{0.05cm} \bigr)$ 
 
 - Si es  $S_R$ es **semidefinida positiva** (autovalores $> 0$ y alguno $= 0$) $\hspace{0.15cm}\Rightarrow\hspace{0.1cm}$ no tiene inversa $\bigl( \hspace{0.05cm} \neg\hspace{0.1cm} \exists \hspace{0.15cm} S_R^{-1}\hspace{0.05cm} \bigr)$ , pero se podría calcular la g-inversa o pseudo-inversa.
 
 - Si $S_R$ es **no definida positiva** (algún autovalor $< 0$) $\hspace{0.15cm}\Rightarrow\hspace{0.1cm}$ puede ser invertible (si no tiene autovalores $=0$) o no invertible ( si tiene autovalores $=0$). Pero aún en el primer caso, pese a que tuviera inversa, al usarla con la distancia de Mahalanobis podrían salir distancias negativas  o incluso imaginarias, lo que no tendría sentido.
+
+ </p>
+ 
+</p></span>
+</div>
 
 
 <br>
@@ -5271,31 +5329,32 @@ Delvin et al. (1975) proponen una transformación para cuando $S_R$ no es defini
 
 
 
+<div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
+<span>
+ 
+<p style='margin-left:1em;'> 
 
-La transformación $G$ de $R_R$  propuesta es el siguiente:
+- La transformación $G$ de $R_R$  propuesta es el siguiente:
 
  
 
-$$G(R_R) = \Bigl( \hspace{0.15cm}  g \hspace{0.05cm} \bigl( \hspace{0.1 cm} r(X_j,X_k)_R \hspace{0.1 cm} \bigr)  \hspace{0.15cm} : \hspace{0.15cm} k,j=1,...,p  \hspace{0.15cm} \Bigr)$$
-Donde:
+    $$G(R_R) = \Bigl( \hspace{0.15cm}  g \hspace{0.05cm} \bigl( \hspace{0.1 cm} r(X_j,X_k)_R \hspace{0.1 cm} \bigr)  \hspace{0.15cm} : \hspace{0.15cm} k,j=1,...,p  \hspace{0.15cm} \Bigr)$$
+    Donde:
 
-$$r_{jk}^R \hspace{0.1 cm} =\hspace{0.1 cm}  r(X_j,X_k)_R$$
+    $$r_{jk}^R \hspace{0.1 cm} =\hspace{0.1 cm}  r(X_j,X_k)_R$$
 
-$$g \hspace{0.05cm} \bigl( \hspace{0.1 cm} r_{j,k}^R \hspace{0.1 cm} \bigr)  \hspace{0.15cm}
-\hspace{0.05cm} = \hspace{0.05cm}
-  \begin{cases}
+    $$g \hspace{0.05cm} \bigl( \hspace{0.1 cm} r_{j,k}^R \hspace{0.1 cm} \bigr)  \hspace{0.15cm} \hspace{0.05cm} = \hspace{0.05cm}  \begin{cases}
     0  \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm} | \hspace{0.1cm} r_{j,k}^R \hspace{0.1cm} | \hspace{0.1cm}\leq\hspace{0.1cm} z(\Delta)   \\
     z^{-1}(\hspace{0.1cm} z(\hspace{0.05cm}r_{j,k}^R\hspace{0.05cm})  \hspace{0.1cm}+\hspace{0.1cm} \Delta\hspace{0.1cm}) \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   r_{j,k}^R \hspace{0.1cm}<\hspace{0.1cm} -z(\Delta) \\
-     z^{-1}(\hspace{0.1cm} z(\hspace{0.05cm}r_{j,k}^R\hspace{0.05cm})  \hspace{0.1cm}-\hspace{0.1cm} \Delta\hspace{0.1cm}) \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   r_{j,k}^R \hspace{0.1cm} > \hspace{0.1cm} z(\Delta)
-  \end{cases}
-$$
+     z^{-1}(\hspace{0.1cm} z(\hspace{0.05cm}r_{j,k}^R\hspace{0.05cm})  \hspace{0.1cm}-\hspace{0.1cm} \Delta\hspace{0.1cm}) \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   r_{j,k}^R \hspace{0.1cm} > \hspace{0.1cm} z(\Delta)   \end{cases}$$
 
-$\Delta$ es un número positivo pequeño, por ejemplo, $\Delta=0$
+    $\Delta$ es un número positivo pequeño, por ejemplo, $\Delta=0$
 
-$$z \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} tan \hspace{0.1cm} h\hspace{0.05cm} ^{-1}\hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} arc \hspace{0.1cm} tan\hspace{0.05cm} h\hspace{0.05cm}(x) \hspace{0.1cm}= \hspace{0.1cm} \dfrac{1}{2} \cdot log \left(\dfrac{1+x}{1-x}\right)$$
-$$z^{-1} \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} tan \hspace{0.1cm} h\hspace{0.05cm} \hspace{0.01cm} (x)$$
+    $$z \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} tan \hspace{0.1cm} h\hspace{0.05cm} ^{-1}\hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} arc \hspace{0.1cm} tan\hspace{0.05cm} h\hspace{0.05cm}(x) \hspace{0.1cm}= \hspace{0.1cm} \dfrac{1}{2} \cdot log \left(\dfrac{1+x}{1-x}\right)$$
+    $$z^{-1} \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} tan \hspace{0.1cm} h\hspace{0.05cm} \hspace{0.01cm} (x)$$
 
-$$z(\Delta) = z(0.05) \approx 0.05$$
+    $$z(\Delta) = z(0.05) \approx 0.05$$
+<br>
 
 - ¿Cómo funciona la transformación $g$?
 
@@ -5308,7 +5367,7 @@ $$z(\Delta) = z(0.05) \approx 0.05$$
     - Si $r_{jk} \in [-0.05,0.05]$, entonces, $g(r_{jk}) =0$. Es decir, $g$ transforma $r_{jk}$ en cero.
 
 
-Este comportamiento podría ser ilustrado con algunos ejemplos.
+    Este comportamiento podría ser ilustrado con algunos ejemplos.
 
 <br>
 
