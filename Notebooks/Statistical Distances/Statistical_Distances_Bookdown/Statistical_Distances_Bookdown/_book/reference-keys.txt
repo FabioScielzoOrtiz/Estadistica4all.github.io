@@ -75,3 +75,5 @@ algoritmo-de-delvin-para-obtener-s_r-definida-positiva
 g-inversa-psuedo-inversa
 pseudo-inversa-de-moore-penrose
 inversa-generalizada
+distancia-de-mahalanobis-robusta-1
+definición

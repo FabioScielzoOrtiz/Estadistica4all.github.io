@@ -5075,6 +5075,8 @@ Este procedimiento permite eliminar redundancia de información entre grupos de 
 
 # Distancia de Mahalanobis Robusta
 
+## Definición 
+
 Dada una matriz de datos $\hspace{0.03cm} X=(X_1,...,X_p)\hspace{0.03cm}$ de las variables estadísticas  $\hspace{0.03cm}\mathcal{X}_1,...,\mathcal{X}_p$
 
 
@@ -5463,8 +5465,10 @@ El siguiente algoritmo utiliza la transformación de Delvin para, dada la matriz
         - Se vuelve al paso inicial del algoritmo.
 
 
-<br>
 
+
+
+<br>
 
 ### Distancia de Mahalanobis Robusta en `Python`
 
