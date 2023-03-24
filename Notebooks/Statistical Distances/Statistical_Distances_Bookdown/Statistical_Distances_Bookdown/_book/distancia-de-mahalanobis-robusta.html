@@ -246,7 +246,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.7" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#inversa-de-la-estimación-robusta-de-la-matriz-de-covarianzas"><i class="fa fa-check"></i><b>12.7</b> Inversa de la estimación robusta de la matriz de covarianzas</a>
 <ul>
 <li class="chapter" data-level="12.7.1" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#pseudo-inversa-de-moore-penrose"><i class="fa fa-check"></i><b>12.7.1</b> Pseudo inversa de Moore-Penrose</a></li>
-<li class="chapter" data-level="12.7.2" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#inversa-generalizada"><i class="fa fa-check"></i><b>12.7.2</b> Inversa generalizada</a></li>
 </ul></li>
 <li class="chapter" data-level="12.8" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html#transformación-de-delvin-para-obtener-s_r-definida-positiva"><i class="fa fa-check"></i><b>12.8</b> Transformación de Delvin para obtener <span class="math inline">\(S_R\)</span> definida positiva</a>
 <ul>
@@ -465,7 +464,7 @@ se define como:</li>
 <div id="pseudo-inversa-de-moore-penrose" class="section level3 hasAnchor" number="12.7.1">
 <h3><span class="header-section-number">12.7.1</span> Pseudo inversa de Moore-Penrose<a href="distancia-de-mahalanobis-robusta.html#pseudo-inversa-de-moore-penrose" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>DEfinición tórica:</strong></p>
-<p>A nivel teórico, la pseudo inversa de Moore-Penrose, denotada como <span class="math inline">\(A^+\)</span>, se define para cualquier matriz <span class="math inline">\(A\)</span> de dimensiones <span class="math inline">\(m\times n\)</span> y satisface las siguientes cuatro propiedades:</p>
+<p>A nivel teórico, la pseudo inversa de Moore-Penrose de <span class="math inline">\(A\)</span>, denotada como <span class="math inline">\(A^+\)</span>, se define para cualquier matriz <span class="math inline">\(A\)</span> de dimensiones <span class="math inline">\(m\times n\)</span> y satisface las siguientes cuatro propiedades:</p>
 <p><span class="math inline">\(AA^+A = A\)</span>: La matriz producto <span class="math inline">\(AA^+A\)</span> es igual a la matriz original <span class="math inline">\(A\)</span>.
 <span class="math inline">\(A^+AA^+ = A^+\)</span>: La matriz producto <span class="math inline">\(A^+AA^+\)</span> es igual a la pseudo inversa <span class="math inline">\(A^+\)</span>.
 <span class="math inline">\((AA^+)^T = AA^+\)</span>: La matriz producto <span class="math inline">\(AA^+\)</span> es hermítica, es decir, su traspuesta conjugada es igual a la matriz misma. En el caso de matrices reales, esto significa que <span class="math inline">\((AA^+)^T = AA^+\)</span>.
@@ -486,10 +485,6 @@ se define como:</li>
 Notese que <span class="math inline">\(q \leq r\)</span>.</p>
 <p><br></p>
 </div>
-<div id="inversa-generalizada" class="section level3 hasAnchor" number="12.7.2">
-<h3><span class="header-section-number">12.7.2</span> Inversa generalizada<a href="distancia-de-mahalanobis-robusta.html#inversa-generalizada" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><br></p>
-</div>
 </div>
 <div id="transformación-de-delvin-para-obtener-s_r-definida-positiva" class="section level2 hasAnchor" number="12.8">
 <h2><span class="header-section-number">12.8</span> Transformación de Delvin para obtener <span class="math inline">\(S_R\)</span> definida positiva<a href="distancia-de-mahalanobis-robusta.html#transformación-de-delvin-para-obtener-s_r-definida-positiva" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -500,17 +495,15 @@ Notese que <span class="math inline">\(q \leq r\)</span>.</p>
 <p style="margin-left:1em;">
 <ul>
 <li><p>La transformación <span class="math inline">\(G\)</span> de <span class="math inline">\(R_R\)</span> propuesta es el siguiente:</p>
-<p><span class="math display">\[G(R_R) = \Bigl( \hspace{0.15cm}  g \hspace{0.05cm} \bigl( \hspace{0.1 cm} r(X_j,X_k)_R \hspace{0.1 cm} \bigr)  \hspace{0.15cm} : \hspace{0.15cm} k,j=1,...,p  \hspace{0.15cm} \Bigr)\]</span>
-Donde:</p>
-<p><span class="math display">\[r_{jk}^R \hspace{0.1 cm} =\hspace{0.1 cm}  r(X_j,X_k)_R\]</span></p>
-<p><span class="math display">\[g \hspace{0.05cm} \bigl( \hspace{0.1 cm} r_{j,k}^R \hspace{0.1 cm} \bigr)  \hspace{0.15cm} \hspace{0.05cm} = \hspace{0.05cm}  \begin{cases}
-  0  \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm} | \hspace{0.1cm} r_{j,k}^R \hspace{0.1cm} | \hspace{0.1cm}\leq\hspace{0.1cm} z(\Delta)   \\
-  z^{-1}(\hspace{0.1cm} z(\hspace{0.05cm}r_{j,k}^R\hspace{0.05cm})  \hspace{0.1cm}+\hspace{0.1cm} \Delta\hspace{0.1cm}) \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   r_{j,k}^R \hspace{0.1cm}&lt;\hspace{0.1cm} -z(\Delta) \\
-   z^{-1}(\hspace{0.1cm} z(\hspace{0.05cm}r_{j,k}^R\hspace{0.05cm})  \hspace{0.1cm}-\hspace{0.1cm} \Delta\hspace{0.1cm}) \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   r_{j,k}^R \hspace{0.1cm} &gt; \hspace{0.1cm} z(\Delta)   \end{cases}\]</span></p>
-<p><span class="math inline">\(\Delta\)</span> es un número positivo pequeño, por ejemplo, <span class="math inline">\(\Delta=0\)</span></p>
-<p><span class="math display">\[z \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} tan \hspace{0.1cm} h\hspace{0.05cm} ^{-1}\hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} arc \hspace{0.1cm} tan\hspace{0.05cm} h\hspace{0.05cm}(x) \hspace{0.1cm}= \hspace{0.1cm} \dfrac{1}{2} \cdot log \left(\dfrac{1+x}{1-x}\right)\]</span>
-<span class="math display">\[z^{-1} \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} tan \hspace{0.1cm} h\hspace{0.05cm} \hspace{0.01cm} (x)\]</span></p>
-<p><span class="math display">\[z(\Delta) = z(0.05) \approx 0.05\]</span></p></li>
+<p><span class="math display">\[G(R_R) = \Bigl( \hspace{0.1cm}  g \hspace{0.05cm} \bigl( \hspace{0.07 cm} r_{jk}^R \hspace{0.07 cm} \bigr)  \hspace{0.15cm} : \hspace{0.15cm} k,j=1,...,p  \hspace{0.1cm} \Bigr)\]</span></p>
+<p>Donde:</p>
+<ul>
+<li><p><span class="math inline">\(g \hspace{0.05cm} \bigl( \hspace{0.1 cm} r_{j,k}^R \hspace{0.1 cm} \bigr) \hspace{0.15cm} \hspace{0.05cm} = \hspace{0.05cm} \begin{cases}  0 \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm} | \hspace{0.1cm} r_{j,k}^R \hspace{0.1cm} | \hspace{0.1cm}\leq\hspace{0.1cm} z(\Delta) \\  z^{-1}(\hspace{0.1cm} z(\hspace{0.05cm}r_{j,k}^R\hspace{0.05cm}) \hspace{0.1cm}+\hspace{0.1cm} \Delta\hspace{0.1cm}) \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm} r_{j,k}^R \hspace{0.1cm}&lt;\hspace{0.1cm} -z(\Delta) \\  z^{-1}(\hspace{0.1cm} z(\hspace{0.05cm}r_{j,k}^R\hspace{0.05cm}) \hspace{0.1cm}-\hspace{0.1cm} \Delta\hspace{0.1cm}) \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm} r_{j,k}^R \hspace{0.1cm} &gt; \hspace{0.1cm} z(\Delta) \end{cases}\)</span></p></li>
+<li><p><span class="math inline">\(\Delta\)</span> es un número positivo pequeño, por ejemplo, <span class="math inline">\(\Delta=0\)</span></p></li>
+<li><p><span class="math inline">\(z \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} tan \hspace{0.1cm} h\hspace{0.05cm} ^{-1}\hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} arc \hspace{0.1cm} tan\hspace{0.05cm} h\hspace{0.05cm}(x) \hspace{0.1cm}= \hspace{0.1cm} \dfrac{1}{2} \cdot log \left(\dfrac{1+x}{1-x}\right)\)</span>$
+$<span class="math inline">\(z^{-1} \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} tan \hspace{0.1cm} h\hspace{0.05cm} \hspace{0.01cm} (x)\)</span></p></li>
+<li><p><span class="math inline">\(z(\Delta) \hspace{0.1cm}=\hspace{0.1cm} z(0.05) \hspace{0.1cm} \approx \hspace{0.1cm} 0.05\)</span></p></li>
+</ul></li>
 </ul>
 </p>
 </p>

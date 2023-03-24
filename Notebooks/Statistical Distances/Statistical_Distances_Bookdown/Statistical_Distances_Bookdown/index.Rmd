@@ -5333,7 +5333,7 @@ $$\exists \hspace{0.15cm} S_R^{-1} \hspace{0.2cm}\Leftrightarrow\hspace{0.2cm} d
 
 **DEfinición tórica:**
 
-A nivel teórico, la pseudo inversa de Moore-Penrose, denotada como $A^+$, se define para cualquier matriz $A$ de dimensiones $m\times n$ y satisface las siguientes cuatro propiedades:
+A nivel teórico, la pseudo inversa de Moore-Penrose de $A$, denotada como $A^+$, se define para cualquier matriz $A$ de dimensiones $m\times n$ y satisface las siguientes cuatro propiedades:
 
 $AA^+A = A$: La matriz producto $AA^+A$ es igual a la matriz original $A$.
 $A^+AA^+ = A^+$: La matriz producto $A^+AA^+$ es igual a la pseudo inversa $A^+$.
@@ -5369,17 +5369,6 @@ Notese que $q \leq r$.
 
  
 
- 
-
-
-
-<br>
-
-### Inversa generalizada
-
-
-
-
 
 
 
@@ -5402,22 +5391,24 @@ Delvin et al. (1975) proponen una transformación para cuando $S_R$ no es defini
 
  
 
-    $$G(R_R) = \Bigl( \hspace{0.15cm}  g \hspace{0.05cm} \bigl( \hspace{0.1 cm} r(X_j,X_k)_R \hspace{0.1 cm} \bigr)  \hspace{0.15cm} : \hspace{0.15cm} k,j=1,...,p  \hspace{0.15cm} \Bigr)$$
+    $$G(R_R) = \Bigl( \hspace{0.1cm}  g \hspace{0.05cm} \bigl( \hspace{0.07 cm} r_{jk}^R \hspace{0.07 cm} \bigr)  \hspace{0.15cm} : \hspace{0.15cm} k,j=1,...,p  \hspace{0.1cm} \Bigr)$$
+    
+    
     Donde:
 
-    $$r_{jk}^R \hspace{0.1 cm} =\hspace{0.1 cm}  r(X_j,X_k)_R$$
+ 
 
-    $$g \hspace{0.05cm} \bigl( \hspace{0.1 cm} r_{j,k}^R \hspace{0.1 cm} \bigr)  \hspace{0.15cm} \hspace{0.05cm} = \hspace{0.05cm}  \begin{cases}
+    - $g \hspace{0.05cm} \bigl( \hspace{0.1 cm} r_{j,k}^R \hspace{0.1 cm} \bigr)  \hspace{0.15cm} \hspace{0.05cm} = \hspace{0.05cm}  \begin{cases}
     0  \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm} | \hspace{0.1cm} r_{j,k}^R \hspace{0.1cm} | \hspace{0.1cm}\leq\hspace{0.1cm} z(\Delta)   \\
     z^{-1}(\hspace{0.1cm} z(\hspace{0.05cm}r_{j,k}^R\hspace{0.05cm})  \hspace{0.1cm}+\hspace{0.1cm} \Delta\hspace{0.1cm}) \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   r_{j,k}^R \hspace{0.1cm}<\hspace{0.1cm} -z(\Delta) \\
-     z^{-1}(\hspace{0.1cm} z(\hspace{0.05cm}r_{j,k}^R\hspace{0.05cm})  \hspace{0.1cm}-\hspace{0.1cm} \Delta\hspace{0.1cm}) \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   r_{j,k}^R \hspace{0.1cm} > \hspace{0.1cm} z(\Delta)   \end{cases}$$
+     z^{-1}(\hspace{0.1cm} z(\hspace{0.05cm}r_{j,k}^R\hspace{0.05cm})  \hspace{0.1cm}-\hspace{0.1cm} \Delta\hspace{0.1cm}) \hspace{0.2cm},\hspace{0.2cm} \text{si }\hspace{0.2cm}   r_{j,k}^R \hspace{0.1cm} > \hspace{0.1cm} z(\Delta)   \end{cases}$
 
-    $\Delta$ es un número positivo pequeño, por ejemplo, $\Delta=0$
+    - $\Delta$ es un número positivo pequeño, por ejemplo, $\Delta=0$
 
-    $$z \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} tan \hspace{0.1cm} h\hspace{0.05cm} ^{-1}\hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} arc \hspace{0.1cm} tan\hspace{0.05cm} h\hspace{0.05cm}(x) \hspace{0.1cm}= \hspace{0.1cm} \dfrac{1}{2} \cdot log \left(\dfrac{1+x}{1-x}\right)$$
-    $$z^{-1} \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} tan \hspace{0.1cm} h\hspace{0.05cm} \hspace{0.01cm} (x)$$
+    - $z \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} tan \hspace{0.1cm} h\hspace{0.05cm} ^{-1}\hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} arc \hspace{0.1cm} tan\hspace{0.05cm} h\hspace{0.05cm}(x) \hspace{0.1cm}= \hspace{0.1cm} \dfrac{1}{2} \cdot log \left(\dfrac{1+x}{1-x}\right)$$
+    $$z^{-1} \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0.1cm} tan \hspace{0.1cm} h\hspace{0.05cm} \hspace{0.01cm} (x)$
 
-    $$z(\Delta) = z(0.05) \approx 0.05$$
+    - $z(\Delta) \hspace{0.1cm}=\hspace{0.1cm} z(0.05) \hspace{0.1cm} \approx \hspace{0.1cm} 0.05$
 
  </p>
  
