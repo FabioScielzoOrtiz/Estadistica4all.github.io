@@ -81,3 +81,4 @@ cómo-calcular-g12_j
 usando-la-descomposición-en-valores-singulares-svd
 usando-la-descomposición-espectral
 cómo-calcular-la-raiz-cuadrada-de-g_j
+pruebas-del-programa
