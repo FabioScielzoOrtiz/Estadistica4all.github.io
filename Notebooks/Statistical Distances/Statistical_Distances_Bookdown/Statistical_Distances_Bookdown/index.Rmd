@@ -5378,7 +5378,7 @@ Notese que $q \leq r$.
 
 Como hemos visto en la sección anterior es importante que $S_R$ sea definida positiva para poder calcular su inversa y que no encontrar problemas en el cálculo de la distancia de Mahalanobis.
 
-Delvin et al. (1975) proponen una transformación para cuando $S_R$ no es definida positiva, obtener una transformación que sea definida positiva.
+Delvin et al. (1975) proponen una transformación para cuando $S_R$ no es definida positiva, obtener una transformación que sea definida positiva o que al menos esté más cerca de serlo.
 
 
 
@@ -5416,6 +5416,8 @@ Delvin et al. (1975) proponen una transformación para cuando $S_R$ no es defini
 </div>
 
 
+
+
 <br>
 
 - ¿Cómo funciona la transformación $g$?
@@ -5430,13 +5432,20 @@ Delvin et al. (1975) proponen una transformación para cuando $S_R$ no es defini
 
 
     Este comportamiento podría ser ilustrado con algunos ejemplos.
+    
+   
+<br>
+
+**Observación:**
+
+Aunque en este articulo hemos presentado la transformación de Delvin ligada al contexto que nos ocupa, esta transformación es aplicable a cualquier matriz, y en particular a matrices que no son definidas positivas. 
 
 <br>
 
 
 ### Algoritmo de Delvin para obtener $S_R$ definida positiva
 
-El siguiente algoritmo utiliza la transformación de Delvin para, dada la matriz $S_R$, obtener una transformación que se definida positva, y por tanto invertible, y que por ello pueda usarse sin problemas para el cálculo de la distancia de Mahalanobis robusta.
+El siguiente algoritmo utiliza la transformación de Delvin para, dada la matriz $S_R$, en el caso de que sea no definida positiva, obtener una transformación que sea definida positva, y por tanto invertible, y que por ello pueda usarse sin problemas para el cálculo de la distancia de Mahalanobis robusta.
 
 
 - Se calcula $G(R_R)$ .
@@ -5455,8 +5464,11 @@ El siguiente algoritmo utiliza la transformación de Delvin para, dada la matriz
         
         - Se vuelve al paso inicial del algoritmo.
 
+<br>
 
+**Observación:**
 
+Aunque en este articulo hemos presentado el algoritmo de Delvin ligada al contexto que nos ocupa, este algoritmo es aplicable a cualquier matriz, y es de particular utilidad para el caso de matrices que no son definidas positivas, puesto que el algoritmo las transforma, usando la transformación de Delvin tanto como sea oportuno, hasta obtener matrices definidas positivas.
 
 
 <br>
@@ -5479,7 +5491,7 @@ El siguiente algoritmo utiliza la transformación de Delvin para, dada la matriz
 - Grané, A., Manzi, G. and Salini, S. (2021) *Smart visualization of mixed data*. Stats 4(2), 472-485; https://doi.org/10.3390/stats4020029 (S.I. Robust Statistics in Action).
 
 
-- Gnadesikan
+- Gnanadesikan
 
 - Algun manual de referencia de algebra lineal
 

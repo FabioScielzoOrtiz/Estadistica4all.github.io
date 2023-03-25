@@ -23,7 +23,7 @@
 <meta name="author" content="Fabio Scielzo Ortiz" />
 
 
-<meta name="date" content="2023-03-24" />
+<meta name="date" content="2023-03-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -489,7 +489,7 @@ Notese que <span class="math inline">\(q \leq r\)</span>.</p>
 <div id="transformación-de-delvin-para-obtener-s_r-definida-positiva" class="section level2 hasAnchor" number="12.8">
 <h2><span class="header-section-number">12.8</span> Transformación de Delvin para obtener <span class="math inline">\(S_R\)</span> definida positiva<a href="distancia-de-mahalanobis-robusta.html#transformación-de-delvin-para-obtener-s_r-definida-positiva" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Como hemos visto en la sección anterior es importante que <span class="math inline">\(S_R\)</span> sea definida positiva para poder calcular su inversa y que no encontrar problemas en el cálculo de la distancia de Mahalanobis.</p>
-<p>Delvin et al. (1975) proponen una transformación para cuando <span class="math inline">\(S_R\)</span> no es definida positiva, obtener una transformación que sea definida positiva.</p>
+<p>Delvin et al. (1975) proponen una transformación para cuando <span class="math inline">\(S_R\)</span> no es definida positiva, obtener una transformación que sea definida positiva o que al menos esté más cerca de serlo.</p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <p style="margin-left:1em;">
@@ -520,9 +520,12 @@ $<span class="math inline">\(z^{-1} \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0
 <p>Este comportamiento podría ser ilustrado con algunos ejemplos.</p></li>
 </ul>
 <p><br></p>
+<p><strong>Observación:</strong></p>
+<p>Aunque en este articulo hemos presentado la transformación de Delvin ligada al contexto que nos ocupa, esta transformación es aplicable a cualquier matriz, y en particular a matrices que no son definidas positivas.</p>
+<p><br></p>
 <div id="algoritmo-de-delvin-para-obtener-s_r-definida-positiva" class="section level3 hasAnchor" number="12.8.1">
 <h3><span class="header-section-number">12.8.1</span> Algoritmo de Delvin para obtener <span class="math inline">\(S_R\)</span> definida positiva<a href="distancia-de-mahalanobis-robusta.html#algoritmo-de-delvin-para-obtener-s_r-definida-positiva" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>El siguiente algoritmo utiliza la transformación de Delvin para, dada la matriz <span class="math inline">\(S_R\)</span>, obtener una transformación que se definida positva, y por tanto invertible, y que por ello pueda usarse sin problemas para el cálculo de la distancia de Mahalanobis robusta.</p>
+<p>El siguiente algoritmo utiliza la transformación de Delvin para, dada la matriz <span class="math inline">\(S_R\)</span>, en el caso de que sea no definida positiva, obtener una transformación que sea definida positva, y por tanto invertible, y que por ello pueda usarse sin problemas para el cálculo de la distancia de Mahalanobis robusta.</p>
 <ul>
 <li><p>Se calcula <span class="math inline">\(G(R_R)\)</span> .</p></li>
 <li><p>Se comprueba si <span class="math inline">\(G(R_R)\)</span> es definida positiva.</p>
@@ -539,6 +542,9 @@ $<span class="math inline">\(z^{-1} \hspace{0.05cm} (x) \hspace{0.1cm}=\hspace{0
 </ul></li>
 </ul></li>
 </ul>
+<p><br></p>
+<p><strong>Observación:</strong></p>
+<p>Aunque en este articulo hemos presentado el algoritmo de Delvin ligada al contexto que nos ocupa, este algoritmo es aplicable a cualquier matriz, y es de particular utilidad para el caso de matrices que no son definidas positivas, puesto que el algoritmo las transforma, usando la transformación de Delvin tanto como sea oportuno, hasta obtener matrices definidas positivas.</p>
 <p><br></p>
 </div>
 <div id="distancia-de-mahalanobis-robusta-en-python" class="section level3 hasAnchor" number="12.8.2">
