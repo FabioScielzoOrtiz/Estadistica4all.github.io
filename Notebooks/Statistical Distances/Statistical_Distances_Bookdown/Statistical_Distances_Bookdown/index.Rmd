@@ -5156,10 +5156,10 @@ class GeneralizedGowerDistance:
                 ##################################################################################
                 if G_1_SDP and G_2_SDP and G_3_SDP and G_1_symmetric and G_2_symmetric and G_3_symmetric :
                     sqrtG1 = W1 @ np.diag(np.sqrt(v1)) @ W1.T ; sqrtG2 = W2 @ np.diag(np.sqrt(v2)) @ W2.T ; sqrtG3 = W3 @ np.diag(np.sqrt(v3)) @ W3.T
-                 else :
-                    conditions = [(not G1_SDP, 'G_1 no es semi-definida positiva --> No puede aplicarse la descomposición espectral para calcular la raiz G_1', v1),
-                                  (not G2_SDP, 'G_2 no es semi-definida positiva --> No puede aplicarse la descomposición espectral para calcular la raiz G_2', v2),
-                                  (not G3_SDP, 'G_3 no es semi-definida positiva --> No puede aplicarse la descomposición espectral para calcular la raiz G_3', v3),
+                else :
+                    conditions = [(not G_1_SDP, 'G_1 no es semi-definida positiva --> No puede aplicarse la descomposición espectral para calcular la raiz G_1', v1),
+                                  (not G_2_SDP, 'G_2 no es semi-definida positiva --> No puede aplicarse la descomposición espectral para calcular la raiz G_2', v2),
+                                  (not G_3_SDP, 'G_3 no es semi-definida positiva --> No puede aplicarse la descomposición espectral para calcular la raiz G_3', v3),
                                   (not G_1_symmetric, 'G_1 no es simétrica --> No puede aplicarse la descomposición espectral para calcular la raiz G_1', G_1),
                                   (not G_2_symmetric, 'G_2 no es simétrica --> No puede aplicarse la descomposición espectral para calcular la raiz G_2', G_2),
                                   (not G_3_symmetric, 'G_3 no es simétrica --> No puede aplicarse la descomposición espectral para calcular la raiz G_3', G_3)]
