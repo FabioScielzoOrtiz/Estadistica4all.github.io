@@ -5186,7 +5186,7 @@ class GeneralizedGowerDistance:
 
 
     
-    
+    POR COMPLETAR
     
 
 
