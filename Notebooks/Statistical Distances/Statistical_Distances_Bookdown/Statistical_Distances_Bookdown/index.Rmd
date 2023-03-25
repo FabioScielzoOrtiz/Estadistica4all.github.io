@@ -4703,14 +4703,14 @@ array([[0.        , 0.46011364, 0.54023301, ..., 0.47435704, 0.53328707,
 
 # Distancia de Gower Generalizada
 
-Tenemos un conjunto de variables estadísticas $\hspace{0.03cm}(\mathcal{X}_1,...,\mathcal{X}_p )\hspace{0.03cm}$ tales que las $\hspace{0.03cm}p_1\hspace{0.03cm}$ primeras son cuantitativas, las $\hspace{0.03cm}p_2\hspace{0.03cm}$ siguientes son binarias y las últimas $\hspace{0.03cm}p_3\hspace{0.03cm}$ son multiclase, es decir:  $\\$
+Tenemos un conjunto de variables estadísticas $\hspace{0.03cm}(\mathcal{X}_1,...,\mathcal{X}_p )\hspace{0.03cm}$ tales que las $\hspace{0.03cm}p_1\hspace{0.03cm}$ primeras son cuantitativas, las $\hspace{0.03cm}p_2\hspace{0.03cm}$ siguientes son binarias y las últimas $\hspace{0.03cm}p_3\hspace{0.03cm}$ son multiclase, es decir:  
 
 
 - $\mathcal{X}_1,...,\mathcal{X}_{p_1} \hspace{0.05cm}$ son **cuantitativas**. 
 
 - $\mathcal{X}_{p_1 + 1},...,\mathcal{X}_{p_1 + p_2} \hspace{0.05cm}$ son **binarias**.
 
-- $\mathcal{X}_{p_1 + p_2 + 1},...,\mathcal{X}_{p_1 + p_2 + p_3} \hspace{0.05cm}$ son **multiclase** (no binarias). $\\$
+- $\mathcal{X}_{p_1 + p_2 + 1},...,\mathcal{X}_{p_1 + p_2 + p_3} \hspace{0.05cm}$ son **multiclase** (no binarias). 
 
     
 Donde: $\hspace{0.1cm} p=p_1 + p_2 + p_3\hspace{0.08cm}.$ $\\$
@@ -4746,7 +4746,7 @@ Además, tenemos las siguientes muestras de datos para cada uno de los tipos de 
 
 
 
-Donde $\hspace{0.02cm} X_j = (x_{1j},...,x_{nj})^t\hspace{0.04cm}$  es una muestra de $n$ observaciones de la variable $X_j\hspace{0.06cm},$ para $\hspace{0.03cm}j=1,...,p\hspace{0.08cm}$.
+Donde: $\hspace{0.033cm} X_j = (x_{1j},...,x_{nj})^t\hspace{0.04cm}$  es una muestra de $n$ observaciones de la variable $X_j\hspace{0.06cm},$ para $\hspace{0.03cm}j=1,...,p\hspace{0.08cm}$.
 
 <br>
 
@@ -4989,66 +4989,65 @@ Este procedimiento permite eliminar redundancia de información entre grupos de 
     
 <br>
 
-**¿Cómo calcular $G^{1/2}_j$?**
+### ¿ Cómo calcular la raiz cuadrada de $G_j$ ?
 
-- ***Usando la descomposición en valores singulares (SVD)***
+#### Usando la descomposición en valores singulares (SVD)
 
-    $G_j$ debe ser simétrica $(G_j = G_j^t)$ y semi-definida positiva (autovalores de $G_j$ son $> 0$ y alguno $=0$).
+$G_j\hspace{0.02cm}$ debe ser simétrica, es decir, $\hspace{0.02cm}G_j = G_j^t\hspace{0.02cm}$, y semi-definida positiva, es decir, sus autovalores tienen que ser alguno $\hspace{0.02cm}=0\hspace{0.02cm}$ y el resto $\hspace{0.02cm}> 0\hspace{0.02cm}$.
 
-    En este caso, como $G_j$ es una matriz $n\text{x}n$, entonces:
+En este caso, como $\hspace{0.02cm}G_j\hspace{0.02cm}$ es una matriz $\hspace{0.02cm}n\text{x}n\hspace{0.02cm}$, entonces:
 
-    La **descomposición en valores singulares** (SVD) de $G_j$ es:
+- La **descomposición en valores singulares** (SVD) de $\hspace{0.02}G_j\hspace{0.02}$ es:
 
-    $$G_j \hspace{0.05cm} = \hspace{0.05cm} U \cdot \Sigma \cdot V^t$$
-    Usando la descomposición en valores singulares $\hspace{0.02cm}G_j\hspace{0.02cm}$ puede calcularse $\hspace{0.04cm}G_j^{1/2}\hspace{0.04cm}$ del siguiente modo:
+    $$G_j \hspace{0.07cm} = \hspace{0.07cm} U \cdot \Sigma \cdot V^t$$
+- Usando la descomposición en valores singulares $\hspace{0.02cm}G_j\hspace{0.02cm}$ puede calcularse $\hspace{0.04cm}G_j^{1/2}\hspace{0.04cm}$ del siguiente modo:
     
-    $$G_j^{1/2} \hspace{0.05cm} = \hspace{0.05cm} U \cdot \Sigma^{1/2} \cdot V^t \\$$
+    $$G_j^{1/2} \hspace{0.07cm} = \hspace{0.07cm} U \cdot \Sigma^{1/2} \cdot V^t \\$$
     
 
     Donde:
 
-    Si $\hspace{0.03cm}\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_n\hspace{0.03cm}$ son los autovalores de $\hspace{0.03cm}G_j\hspace{0.02cm}^t \cdot G_j\hspace{0.03cm}$ ordenados de mayor a menor, y $\hspace{0.02cm}w(\lambda_i)\hspace{0.02cm}$ es el autovector asociado al autovalor $\hspace{0.02cm}\lambda_i\hspace{0.02cm}$, entonces:
+    Si $\hspace{0.03cm}\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_n\hspace{0.03cm}$ son los autovalores de $\hspace{0.03cm}G_j\hspace{0.02cm}^t \cdot G_j\hspace{0.03cm}$ ordenados de mayor a menor, y $\hspace{0.03cm}w(\lambda_i)\hspace{0.03cm}$ es el autovector asociado al autovalor $\hspace{0.02cm}\lambda_i\hspace{0.02cm}$, entonces:
 
     - Los valores singulares de $\hspace{0.02cm}G_j\hspace{0.02cm}$ son $\hspace{0.02cm}\sqrt{\lambda_1},...,\sqrt{\lambda_n}\hspace{0.02cm}$. 
     
     - La matriz $\hspace{0.02cm}\Sigma\hspace{0.02cm}$ se define como:
     
-    $$\Sigma \hspace{0.04cm} = \hspace{0.04cm}  diag\bigl( \hspace{0.04cm}\sqrt{\lambda_1}\hspace{0.02cm},...,\hspace{0.02cm}\sqrt{\lambda_n} \hspace{0.04cm} \bigr)$$
+    $$\Sigma \hspace{0.06cm} = \hspace{0.06cm}  diag\bigl( \hspace{0.03cm}\sqrt{\lambda_1}\hspace{0.02cm},...,\hspace{0.02cm}\sqrt{\lambda_n} \hspace{0.05cm} \bigr)$$
 
     - La matriz $\hspace{0.02cm}V\hspace{0.02cm}$ se define como:
     
-    $$V \hspace{0.04cm} = \hspace{0.04cm} \Bigl(\hspace{0.03cm} w(\lambda_1) \hspace{0.02cm}\dots\hspace{0.02cm} w(\lambda_n) \hspace{0.03cm}\Bigr)$$
+    $$V \hspace{0.06cm} = \hspace{0.06cm} \Bigl(\hspace{0.03cm} w(\lambda_1) \hspace{0.02cm}\dots\hspace{0.02cm} w(\lambda_n) \hspace{0.03cm}\Bigr)$$
     
     
     - La matriz $\hspace{0.02cm}U\hspace{0.02cm}$ se define como:
     
-    $$U \hspace{0.04cm} = \hspace{0.04cm} G\cdot V \cdot \Sigma^{-1/2}$$
+    $$U \hspace{0.07cm} = \hspace{0.07cm} G\cdot V \cdot \Sigma^{-1/2}$$
     
     
 <br>   
     
-- ***Usando la descomposición espectral***
+#### Usando la descomposición espectral
 
-    $G_j\hspace{0.02cm}$ debe ser cuadrada  $(n\text{x}n)$, simétrica, es decir $G_j = G_j^t$, y semi-definida positiva, es decir autovalores de $\hspace{0.02cm}G_j\hspace{0.02cm}$ son $\hspace{0.02cm}> 0\hspace{0.02cm}$ excepto alguno que es $=0$ .
+$G_j\hspace{0.02cm}$ debe ser cuadrada, por ejemplo $\hspace{0.02cm}n\text{x} n)\hspace{0.02cm}$, simétrica, es decir, $\hspace{0.02cm}G_j = G_j^t\hspace{0.02cm}$, y semi-definida positiva, es decir, tiene que tener algun autovalor $\hspace{0.02cm}=0\hspace{0.02cm}$ y el resto $\hspace{0.02cm} >0\hspace{0.02cm}$.
     
-    La **descomposición espectral** de $\hspace{0.02cm}G_j\hspace{0.02cm}$ es:
+- La **descomposición espectral** de $\hspace{0.02cm}G_j\hspace{0.02cm}$ es:
 
     $$G_j \hspace{0.05cm} = \hspace{0.05cm} Q \cdot \Lambda \cdot Q^t$$
-    Usando la descomposición espectral $\hspace{0.02cm}G_j\hspace{0.02cm}$ puede calcularse $\hspace{0.033cm}G_j^{1/2}\hspace{0.033cm}$ del siguiente modo:
+- Usando la descomposición espectral $\hspace{0.02cm}G_j\hspace{0.02cm}$ puede calcularse $\hspace{0.033cm}G_j^{1/2}\hspace{0.033cm}$ del siguiente modo:
     
     $$G_j^{1/2} \hspace{0.05cm} = \hspace{0.05cm} Q\cdot \Lambda^{1/2} \cdot Q^t$$
-    
     
     Donde:
 
     Si $\hspace{0.03cm}\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_n\hspace{0.03cm}$ son los autovalores de $\hspace{0.03cm}G_j\hspace{0.03cm}$ ordenados de mayor a menor, y $\hspace{0.02cm}w(\lambda_i)\hspace{0.02cm}$ es el autovector asociado al autovalor $\hspace{0.02cm}\lambda_i\hspace{0.02cm}$, entonces:
 
 
-    La matriz $\hspace{0.02cm}\Lambda\hspace{0.02cm}$ se define como:
+    - La matriz $\hspace{0.02cm}\Lambda\hspace{0.02cm}$ se define como:
 
     $$\Lambda \hspace{0.05cm}=\hspace{0.05cm} diag\bigl( \hspace{0.04cm} \lambda_1,...,\lambda_n \hspace{0.04cm}\bigr)$$
 
-    La matriz $\hspace{0.02cm}Q\hspace{0.02cm}$ se define como:
+    - La matriz $\hspace{0.02cm}Q\hspace{0.02cm}$ se define como:
 
     $$Q \hspace{0.05cm}=\hspace{0.05cm} \Bigl(\hspace{0.05cm} w(\lambda_1) \dots w(\lambda_n) \hspace{0.05cm}\Bigr)$$
     

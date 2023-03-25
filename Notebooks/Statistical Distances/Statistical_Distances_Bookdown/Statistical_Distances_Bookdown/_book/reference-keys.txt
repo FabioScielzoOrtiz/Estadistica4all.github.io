@@ -77,3 +77,7 @@ pseudo-inversa-de-moore-penrose
 inversa-generalizada
 distancia-de-mahalanobis-robusta-1
 definición
+cómo-calcular-g12_j
+usando-la-descomposición-en-valores-singulares-svd
+usando-la-descomposición-espectral
+cómo-calcular-la-raiz-cuadrada-de-g_j

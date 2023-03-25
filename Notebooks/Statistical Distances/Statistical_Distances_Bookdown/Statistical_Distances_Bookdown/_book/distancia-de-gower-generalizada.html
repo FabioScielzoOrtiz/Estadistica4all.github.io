@@ -229,7 +229,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11" data-path="distancia-de-gower-generalizada.html"><a href="distancia-de-gower-generalizada.html"><i class="fa fa-check"></i><b>11</b> Distancia de Gower Generalizada</a>
 <ul>
 <li class="chapter" data-level="11.1" data-path="distancia-de-gower-generalizada.html"><a href="distancia-de-gower-generalizada.html#versión-simple"><i class="fa fa-check"></i><b>11.1</b> Versión simple</a></li>
-<li class="chapter" data-level="11.2" data-path="distancia-de-gower-generalizada.html"><a href="distancia-de-gower-generalizada.html#versión-related-metric-scaling"><i class="fa fa-check"></i><b>11.2</b> Versión related metric scaling</a></li>
+<li class="chapter" data-level="11.2" data-path="distancia-de-gower-generalizada.html"><a href="distancia-de-gower-generalizada.html#versión-related-metric-scaling"><i class="fa fa-check"></i><b>11.2</b> Versión related metric scaling</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="distancia-de-gower-generalizada.html"><a href="distancia-de-gower-generalizada.html#cómo-calcular-la-raiz-cuadrada-de-g_j"><i class="fa fa-check"></i><b>11.2.1</b> ¿ Cómo calcular la raiz cuadrada de <span class="math inline">\(G_j\)</span> ?</a></li>
+</ul></li>
 <li class="chapter" data-level="11.3" data-path="distancia-de-gower-generalizada.html"><a href="distancia-de-gower-generalizada.html#distancia-de-gower-generalizada-en-python"><i class="fa fa-check"></i><b>11.3</b> Distancia de Gower Generalizada en <code>Python</code></a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="distancia-de-mahalanobis-robusta.html"><a href="distancia-de-mahalanobis-robusta.html"><i class="fa fa-check"></i><b>12</b> Distancia de Mahalanobis Robusta</a>
@@ -276,11 +279,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="distancia-de-gower-generalizada" class="section level1 hasAnchor" number="11">
 <h1><span class="header-section-number">Chapter 11</span> Distancia de Gower Generalizada<a href="distancia-de-gower-generalizada.html#distancia-de-gower-generalizada" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Tenemos un conjunto de variables estadísticas <span class="math inline">\(\hspace{0.03cm}(\mathcal{X}_1,...,\mathcal{X}_p )\hspace{0.03cm}\)</span> tales que las <span class="math inline">\(\hspace{0.03cm}p_1\hspace{0.03cm}\)</span> primeras son cuantitativas, las <span class="math inline">\(\hspace{0.03cm}p_2\hspace{0.03cm}\)</span> siguientes son binarias y las últimas <span class="math inline">\(\hspace{0.03cm}p_3\hspace{0.03cm}\)</span> son multiclase, es decir: <span class="math inline">\(\\\)</span></p>
+<p>Tenemos un conjunto de variables estadísticas <span class="math inline">\(\hspace{0.03cm}(\mathcal{X}_1,...,\mathcal{X}_p )\hspace{0.03cm}\)</span> tales que las <span class="math inline">\(\hspace{0.03cm}p_1\hspace{0.03cm}\)</span> primeras son cuantitativas, las <span class="math inline">\(\hspace{0.03cm}p_2\hspace{0.03cm}\)</span> siguientes son binarias y las últimas <span class="math inline">\(\hspace{0.03cm}p_3\hspace{0.03cm}\)</span> son multiclase, es decir:</p>
 <ul>
 <li><p><span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_{p_1} \hspace{0.05cm}\)</span> son <strong>cuantitativas</strong>.</p></li>
 <li><p><span class="math inline">\(\mathcal{X}_{p_1 + 1},...,\mathcal{X}_{p_1 + p_2} \hspace{0.05cm}\)</span> son <strong>binarias</strong>.</p></li>
-<li><p><span class="math inline">\(\mathcal{X}_{p_1 + p_2 + 1},...,\mathcal{X}_{p_1 + p_2 + p_3} \hspace{0.05cm}\)</span> son <strong>multiclase</strong> (no binarias). <span class="math inline">\(\\\)</span></p></li>
+<li><p><span class="math inline">\(\mathcal{X}_{p_1 + p_2 + 1},...,\mathcal{X}_{p_1 + p_2 + p_3} \hspace{0.05cm}\)</span> son <strong>multiclase</strong> (no binarias).</p></li>
 </ul>
 <p>Donde: <span class="math inline">\(\hspace{0.1cm} p=p_1 + p_2 + p_3\hspace{0.08cm}.\)</span> <span class="math inline">\(\\\)</span></p>
 <p>Además, tenemos las siguientes muestras de datos para cada uno de los tipos de variables estadísticas:</p>
@@ -301,7 +304,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">\(\hspace{0.03cm}x_i^M= (x_{i, (p_1+p_2+1)},....,x_{i (p_1+p_2+p_3)})\hspace{0.1cm}\)</span> es el <span class="math inline">\(i\)</span>-esimo vector de observaciones de las variables <strong>multiclase</strong>. <span class="math inline">\(\\\)</span></li>
 </ul></li>
 </ul>
-<p>Donde <span class="math inline">\(\hspace{0.02cm} X_j = (x_{1j},...,x_{nj})^t\hspace{0.04cm}\)</span> es una muestra de <span class="math inline">\(n\)</span> observaciones de la variable <span class="math inline">\(X_j\hspace{0.06cm},\)</span> para <span class="math inline">\(\hspace{0.03cm}j=1,...,p\hspace{0.08cm}\)</span>.</p>
+<p>Donde: <span class="math inline">\(\hspace{0.033cm} X_j = (x_{1j},...,x_{nj})^t\hspace{0.04cm}\)</span> es una muestra de <span class="math inline">\(n\)</span> observaciones de la variable <span class="math inline">\(X_j\hspace{0.06cm},\)</span> para <span class="math inline">\(\hspace{0.03cm}j=1,...,p\hspace{0.08cm}\)</span>.</p>
 <p><br></p>
 <p><strong>Observación:</strong></p>
 <p><span class="math inline">\(\mathcal{X}_1,...,\mathcal{X}_p \hspace{0.1cm}\)</span> forman un conjunto de variables de tipo <strong>cuantitativo-binario-multiclase</strong>.</p>
@@ -452,48 +455,58 @@ para cada una de las matrices de distancias <span class="math inline">\(D_1\)</s
 <p><strong>¿Por que related metric scaling?</strong></p>
 <p>Este procedimiento permite eliminar redundancia de información entre grupos de variables.</p>
 <p><br></p>
-<p><strong>¿Cómo calcular <span class="math inline">\(G^{1/2}_j\)</span>?</strong></p>
+<div id="cómo-calcular-la-raiz-cuadrada-de-g_j" class="section level3 hasAnchor" number="11.2.1">
+<h3><span class="header-section-number">11.2.1</span> ¿ Cómo calcular la raiz cuadrada de <span class="math inline">\(G_j\)</span> ?<a href="distancia-de-gower-generalizada.html#cómo-calcular-la-raiz-cuadrada-de-g_j" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="usando-la-descomposición-en-valores-singulares-svd" class="section level4 hasAnchor" number="11.2.1.1">
+<h4><span class="header-section-number">11.2.1.1</span> Usando la descomposición en valores singulares (SVD)<a href="distancia-de-gower-generalizada.html#usando-la-descomposición-en-valores-singulares-svd" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math inline">\(G_j\hspace{0.02cm}\)</span> debe ser simétrica, es decir, <span class="math inline">\(\hspace{0.02cm}G_j = G_j^t\hspace{0.02cm}\)</span>, y semi-definida positiva, es decir, sus autovalores tienen que ser alguno <span class="math inline">\(\hspace{0.02cm}=0\hspace{0.02cm}\)</span> y el resto <span class="math inline">\(\hspace{0.02cm}&gt; 0\hspace{0.02cm}\)</span>.</p>
+<p>En este caso, como <span class="math inline">\(\hspace{0.02cm}G_j\hspace{0.02cm}\)</span> es una matriz <span class="math inline">\(\hspace{0.02cm}n\text{x}n\hspace{0.02cm}\)</span>, entonces:</p>
 <ul>
-<li><p><strong><em>Usando la descomposición en valores singulares (SVD)</em></strong></p>
-<p><span class="math inline">\(G_j\)</span> debe ser simétrica <span class="math inline">\((G_j = G_j^t)\)</span> y semi-definida positiva (autovalores de <span class="math inline">\(G_j\)</span> son <span class="math inline">\(&gt; 0\)</span> y alguno <span class="math inline">\(=0\)</span>).</p>
-<p>En este caso, como <span class="math inline">\(G_j\)</span> es una matriz <span class="math inline">\(n\text{x}n\)</span>, entonces:</p>
-<p>La <strong>descomposición en valores singulares</strong> (SVD) de <span class="math inline">\(G_j\)</span> es:</p>
-<p><span class="math display">\[G_j \hspace{0.05cm} = \hspace{0.05cm} U \cdot \Sigma \cdot V^t\]</span>
-Usando la descomposición en valores singulares <span class="math inline">\(\hspace{0.02cm}G_j\hspace{0.02cm}\)</span> puede calcularse <span class="math inline">\(\hspace{0.04cm}G_j^{1/2}\hspace{0.04cm}\)</span> del siguiente modo:</p>
-<p><span class="math display">\[G_j^{1/2} \hspace{0.05cm} = \hspace{0.05cm} U \cdot \Sigma^{1/2} \cdot V^t \\\]</span></p>
+<li><p>La <strong>descomposición en valores singulares</strong> (SVD) de <span class="math inline">\(\hspace{0.02}G_j\hspace{0.02}\)</span> es:</p>
+<p><span class="math display">\[G_j \hspace{0.07cm} = \hspace{0.07cm} U \cdot \Sigma \cdot V^t\]</span></p></li>
+<li><p>Usando la descomposición en valores singulares <span class="math inline">\(\hspace{0.02cm}G_j\hspace{0.02cm}\)</span> puede calcularse <span class="math inline">\(\hspace{0.04cm}G_j^{1/2}\hspace{0.04cm}\)</span> del siguiente modo:</p>
+<p><span class="math display">\[G_j^{1/2} \hspace{0.07cm} = \hspace{0.07cm} U \cdot \Sigma^{1/2} \cdot V^t \\\]</span></p>
 <p>Donde:</p>
-<p>Si <span class="math inline">\(\hspace{0.03cm}\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_n\hspace{0.03cm}\)</span> son los autovalores de <span class="math inline">\(\hspace{0.03cm}G_j\hspace{0.02cm}^t \cdot G_j\hspace{0.03cm}\)</span> ordenados de mayor a menor, y <span class="math inline">\(\hspace{0.02cm}w(\lambda_i)\hspace{0.02cm}\)</span> es el autovector asociado al autovalor <span class="math inline">\(\hspace{0.02cm}\lambda_i\hspace{0.02cm}\)</span>, entonces:</p>
+<p>Si <span class="math inline">\(\hspace{0.03cm}\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_n\hspace{0.03cm}\)</span> son los autovalores de <span class="math inline">\(\hspace{0.03cm}G_j\hspace{0.02cm}^t \cdot G_j\hspace{0.03cm}\)</span> ordenados de mayor a menor, y <span class="math inline">\(\hspace{0.03cm}w(\lambda_i)\hspace{0.03cm}\)</span> es el autovector asociado al autovalor <span class="math inline">\(\hspace{0.02cm}\lambda_i\hspace{0.02cm}\)</span>, entonces:</p>
 <ul>
 <li><p>Los valores singulares de <span class="math inline">\(\hspace{0.02cm}G_j\hspace{0.02cm}\)</span> son <span class="math inline">\(\hspace{0.02cm}\sqrt{\lambda_1},...,\sqrt{\lambda_n}\hspace{0.02cm}\)</span>.</p></li>
 <li><p>La matriz <span class="math inline">\(\hspace{0.02cm}\Sigma\hspace{0.02cm}\)</span> se define como:</p></li>
 </ul>
-<p><span class="math display">\[\Sigma \hspace{0.04cm} = \hspace{0.04cm}  diag\bigl( \hspace{0.04cm}\sqrt{\lambda_1}\hspace{0.02cm},...,\hspace{0.02cm}\sqrt{\lambda_n} \hspace{0.04cm} \bigr)\]</span></p>
+<p><span class="math display">\[\Sigma \hspace{0.06cm} = \hspace{0.06cm}  diag\bigl( \hspace{0.03cm}\sqrt{\lambda_1}\hspace{0.02cm},...,\hspace{0.02cm}\sqrt{\lambda_n} \hspace{0.05cm} \bigr)\]</span></p>
 <ul>
 <li>La matriz <span class="math inline">\(\hspace{0.02cm}V\hspace{0.02cm}\)</span> se define como:</li>
 </ul>
-<p><span class="math display">\[V \hspace{0.04cm} = \hspace{0.04cm} \Bigl(\hspace{0.03cm} w(\lambda_1) \hspace{0.02cm}\dots\hspace{0.02cm} w(\lambda_n) \hspace{0.03cm}\Bigr)\]</span></p>
+<p><span class="math display">\[V \hspace{0.06cm} = \hspace{0.06cm} \Bigl(\hspace{0.03cm} w(\lambda_1) \hspace{0.02cm}\dots\hspace{0.02cm} w(\lambda_n) \hspace{0.03cm}\Bigr)\]</span></p>
 <ul>
 <li>La matriz <span class="math inline">\(\hspace{0.02cm}U\hspace{0.02cm}\)</span> se define como:</li>
 </ul>
-<p><span class="math display">\[U \hspace{0.04cm} = \hspace{0.04cm} G\cdot V \cdot \Sigma^{-1/2}\]</span></p></li>
+<p><span class="math display">\[U \hspace{0.07cm} = \hspace{0.07cm} G\cdot V \cdot \Sigma^{-1/2}\]</span></p></li>
 </ul>
 <p><br></p>
+</div>
+<div id="usando-la-descomposición-espectral" class="section level4 hasAnchor" number="11.2.1.2">
+<h4><span class="header-section-number">11.2.1.2</span> Usando la descomposición espectral<a href="distancia-de-gower-generalizada.html#usando-la-descomposición-espectral" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><span class="math inline">\(G_j\hspace{0.02cm}\)</span> debe ser cuadrada, por ejemplo <span class="math inline">\(\hspace{0.02cm}n\text{x} n)\hspace{0.02cm}\)</span>, simétrica, es decir, <span class="math inline">\(\hspace{0.02cm}G_j = G_j^t\hspace{0.02cm}\)</span>, y semi-definida positiva, es decir, tiene que tener algun autovalor <span class="math inline">\(\hspace{0.02cm}=0\hspace{0.02cm}\)</span> y el resto <span class="math inline">\(\hspace{0.02cm} &gt;0\hspace{0.02cm}\)</span>.</p>
 <ul>
-<li><p><strong><em>Usando la descomposición espectral</em></strong></p>
-<p><span class="math inline">\(G_j\hspace{0.02cm}\)</span> debe ser cuadrada <span class="math inline">\((n\text{x}n)\)</span>, simétrica, es decir <span class="math inline">\(G_j = G_j^t\)</span>, y semi-definida positiva, es decir autovalores de <span class="math inline">\(\hspace{0.02cm}G_j\hspace{0.02cm}\)</span> son <span class="math inline">\(\hspace{0.02cm}&gt; 0\hspace{0.02cm}\)</span> excepto alguno que es <span class="math inline">\(=0\)</span> .</p>
-<p>La <strong>descomposición espectral</strong> de <span class="math inline">\(\hspace{0.02cm}G_j\hspace{0.02cm}\)</span> es:</p>
-<p><span class="math display">\[G_j \hspace{0.05cm} = \hspace{0.05cm} Q \cdot \Lambda \cdot Q^t\]</span>
-Usando la descomposición espectral <span class="math inline">\(\hspace{0.02cm}G_j\hspace{0.02cm}\)</span> puede calcularse <span class="math inline">\(\hspace{0.033cm}G_j^{1/2}\hspace{0.033cm}\)</span> del siguiente modo:</p>
+<li><p>La <strong>descomposición espectral</strong> de <span class="math inline">\(\hspace{0.02cm}G_j\hspace{0.02cm}\)</span> es:</p>
+<p><span class="math display">\[G_j \hspace{0.05cm} = \hspace{0.05cm} Q \cdot \Lambda \cdot Q^t\]</span></p></li>
+<li><p>Usando la descomposición espectral <span class="math inline">\(\hspace{0.02cm}G_j\hspace{0.02cm}\)</span> puede calcularse <span class="math inline">\(\hspace{0.033cm}G_j^{1/2}\hspace{0.033cm}\)</span> del siguiente modo:</p>
 <p><span class="math display">\[G_j^{1/2} \hspace{0.05cm} = \hspace{0.05cm} Q\cdot \Lambda^{1/2} \cdot Q^t\]</span></p>
 <p>Donde:</p>
 <p>Si <span class="math inline">\(\hspace{0.03cm}\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_n\hspace{0.03cm}\)</span> son los autovalores de <span class="math inline">\(\hspace{0.03cm}G_j\hspace{0.03cm}\)</span> ordenados de mayor a menor, y <span class="math inline">\(\hspace{0.02cm}w(\lambda_i)\hspace{0.02cm}\)</span> es el autovector asociado al autovalor <span class="math inline">\(\hspace{0.02cm}\lambda_i\hspace{0.02cm}\)</span>, entonces:</p>
-<p>La matriz <span class="math inline">\(\hspace{0.02cm}\Lambda\hspace{0.02cm}\)</span> se define como:</p>
+<ul>
+<li>La matriz <span class="math inline">\(\hspace{0.02cm}\Lambda\hspace{0.02cm}\)</span> se define como:</li>
+</ul>
 <p><span class="math display">\[\Lambda \hspace{0.05cm}=\hspace{0.05cm} diag\bigl( \hspace{0.04cm} \lambda_1,...,\lambda_n \hspace{0.04cm}\bigr)\]</span></p>
-<p>La matriz <span class="math inline">\(\hspace{0.02cm}Q\hspace{0.02cm}\)</span> se define como:</p>
+<ul>
+<li>La matriz <span class="math inline">\(\hspace{0.02cm}Q\hspace{0.02cm}\)</span> se define como:</li>
+</ul>
 <p><span class="math display">\[Q \hspace{0.05cm}=\hspace{0.05cm} \Bigl(\hspace{0.05cm} w(\lambda_1) \dots w(\lambda_n) \hspace{0.05cm}\Bigr)\]</span></p></li>
 </ul>
 <p><br></p>
 <p><br></p>
+</div>
+</div>
 </div>
 <div id="distancia-de-gower-generalizada-en-python" class="section level2 hasAnchor" number="11.3">
 <h2><span class="header-section-number">11.3</span> Distancia de Gower Generalizada en <code>Python</code><a href="distancia-de-gower-generalizada.html#distancia-de-gower-generalizada-en-python" class="anchor-section" aria-label="Anchor link to header"></a></h2>
