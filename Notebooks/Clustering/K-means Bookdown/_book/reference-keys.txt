@@ -23,3 +23,6 @@ publishing
 pages
 metadata-for-sharing
 introduction
+k-means
+k-means-programmed-in-python
+k-means-with-sklearn

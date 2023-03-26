@@ -37,7 +37,7 @@ set in the _output.yml file.</p>" />
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="k-medias.html"/>
+<link rel="next" href="k-means.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -102,13 +102,13 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="unsupervised-classification-problem.html"><a href="unsupervised-classification-problem.html"><i class="fa fa-check"></i><b>2</b> Unsupervised Classification Problem</a></li>
-<li class="chapter" data-level="3" data-path="k-medias.html"><a href="k-medias.html"><i class="fa fa-check"></i><b>3</b> k-medias</a>
+<li class="chapter" data-level="3" data-path="k-means.html"><a href="k-means.html"><i class="fa fa-check"></i><b>3</b> k-means</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="k-medias.html"><a href="k-medias.html#interpretación-de-los-clusters"><i class="fa fa-check"></i><b>3.1</b> Interpretación de los clusters</a></li>
-<li class="chapter" data-level="3.2" data-path="k-medias.html"><a href="k-medias.html#validación-de-algoritmos-de-clustering"><i class="fa fa-check"></i><b>3.2</b> Validación de algoritmos de clustering</a></li>
-<li class="chapter" data-level="3.3" data-path="k-medias.html"><a href="k-medias.html#ajuste-del-hiper-parametro-k"><i class="fa fa-check"></i><b>3.3</b> Ajuste del hiper-parametro k</a></li>
-<li class="chapter" data-level="3.4" data-path="k-medias.html"><a href="k-medias.html#k-medias-en-python-con-algoritmo-de-creación-propia"><i class="fa fa-check"></i><b>3.4</b> k-medias en <code>Python</code> con algoritmo de creación propia <a class="anchor" id="2"></a></a></li>
-<li class="chapter" data-level="3.5" data-path="k-medias.html"><a href="k-medias.html#k-medias-en-python-con-sklearn"><i class="fa fa-check"></i><b>3.5</b> k-medias en <code>Python</code> con <code>sklearn</code></a></li>
+<li class="chapter" data-level="3.1" data-path="k-means.html"><a href="k-means.html#interpretación-de-los-clusters"><i class="fa fa-check"></i><b>3.1</b> Interpretación de los clusters</a></li>
+<li class="chapter" data-level="3.2" data-path="k-means.html"><a href="k-means.html#validación-de-algoritmos-de-clustering"><i class="fa fa-check"></i><b>3.2</b> Validación de algoritmos de clustering</a></li>
+<li class="chapter" data-level="3.3" data-path="k-means.html"><a href="k-means.html#ajuste-del-hiper-parametro-k"><i class="fa fa-check"></i><b>3.3</b> Ajuste del hiper-parametro k</a></li>
+<li class="chapter" data-level="3.4" data-path="k-means.html"><a href="k-means.html#k-means-programmed-in-python"><i class="fa fa-check"></i><b>3.4</b> K-means programmed in <code>Python</code></a></li>
+<li class="chapter" data-level="3.5" data-path="k-means.html"><a href="k-means.html#k-means-with-sklearn"><i class="fa fa-check"></i><b>3.5</b> K-means with <code>sklearn</code></a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>4</b> Hello bookdown</a>
 <ul>
@@ -166,10 +166,10 @@ div.csl-indent {
 <p>An unsupervised classification problem is an statistical problem that consist on predict a <strong>categorical</strong> response variable, using only information about ones predictor variables, because there isn´t data about the response.</p>
 <p>Unsupervised classification problems are also called <strong>clustering</strong> problems.</p>
 <ul>
-<li><p>Tenemos <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.1cm}\)</span> y una variable respuesta <strong>categorica</strong> <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> sobre la que <strong>no disponemos ninguna muestra de datos</strong>.</p></li>
-<li><p>Tenemos una muestra de tamaño <span class="math inline">\(\hspace{0.1cm}n\hspace{0.1cm}\)</span> de los <span class="math inline">\(\hspace{0.1cm}p\hspace{0.1cm}\)</span> predictores <span class="math inline">\(\hspace{0.1cm}X_1,...,X_p\hspace{0.1cm}\)</span> pero no tenemos muestra de la respuesta (elemento diferencial de la clasificación no supervisada), tampoco conocemos su recorrido, es decir, las categorias que la definen.</p></li>
+<li><p>We have <span class="math inline">\(\hspace{0.02cm}p\hspace{0.02cm}\)</span> predictors <span class="math inline">\(\hspace{0.02cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.02cm}\)</span> and a <strong>categorical</strong> response variable <span class="math inline">\(\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}\)</span> for which we haven’t any data sample.</p></li>
+<li><p>We have an <span class="math inline">\(\hspace{0.02cm}n\hspace{0.02cm}\)</span> size sample of the <span class="math inline">\(\hspace{0.02cm}p\hspace{0.02cm}\)</span> predictors <span class="math inline">\(\hspace{0.02cm}X_1,...,X_p\hspace{0.02cm}\)</span> but we haven’t a sample for the response, and we also don’t know it’s range.</p></li>
 </ul>
-<p>Por tanto tenemos la siguiente matriz de datos: <span class="math inline">\(\\[0.8cm]\)</span></p>
+<p>Therefore, we have the following data matrix:</p>
 <p><span class="math display">\[D=[X_1,...,X_p]=\begin{pmatrix}
     x_{11}&amp;x_{12}&amp;...&amp;x_{1p} \\
     x_{21}&amp;x_{22}&amp;...&amp;x_{2p} \\
@@ -182,7 +182,7 @@ div.csl-indent {
      x_{n}
     \end{pmatrix}\]</span></p>
 <ul>
-<li>El <strong>objetivo</strong> es <strong>predecir</strong> la respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> para cualquier vector de observaciones de los predictores, usando la información muestral disponible sobre los predictores.</li>
+<li>The goal is tio predict the response variable <span class="math inline">\(\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}\)</span> for any observations vector of the predictors, using only the available sample information about the predictors.</li>
 </ul>
 <p><br></p>
 <p><br></p>
@@ -193,7 +193,7 @@ div.csl-indent {
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="k-medias.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="k-means.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
