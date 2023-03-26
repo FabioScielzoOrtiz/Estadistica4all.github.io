@@ -26,3 +26,6 @@ introduction
 k-means
 k-means-programmed-in-python
 k-means-with-sklearn
+clusters-interpretation
+clustering-validation-algorithms
+bibliographi

@@ -34,7 +34,7 @@ github-repo: rstudio/bookdown-demo
 
 - **Author:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](https://estadistica4all.com/creador.html)
 
-- **It`s recommended to open the article on a computer, tablet or on a phone in desktop version.**
+- **It's recommended to open the article on a computer, tablet or on a phone in desktop version.**
 
 </p>
  
@@ -62,9 +62,9 @@ An unsupervised classification problem is an statistical problem that consist on
 
 - We have an $\hspace{0.02cm}n\hspace{0.02cm}$ size sample of the $\hspace{0.02cm}p\hspace{0.02cm}$ predictors $\hspace{0.02cm}X_1,...,X_p\hspace{0.02cm}$  but we haven't a sample for the response, and we also don't know it's range.
 
-Therefore, we have the following data matrix:
+    Therefore, we have the following data matrix:
 
-$$D=[X_1,...,X_p]=\begin{pmatrix}
+     $$D=[X_1,...,X_p]=\begin{pmatrix}
     x_{11}&x_{12}&...&x_{1p} \\
     x_{21}&x_{22}&...&x_{2p} \\
     ... &...& ...&...\\
@@ -74,10 +74,10 @@ $$D=[X_1,...,X_p]=\begin{pmatrix}
     x_{2}  \\
      ...\\
      x_{n} 
-    \end{pmatrix}$$
+    \end{pmatrix}\\$$
     
 
-- The goal is tio predict the response variable   $\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}$ for any observations vector of the predictors, using only the available sample information about the predictors.
+- The goal is to predict the response variable   $\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}$ for any observations vector of the predictors, using only the available sample information about the predictors.
 
 
 <br>
@@ -271,36 +271,36 @@ Next, a formal description of the algorithm will be made. But first, it should b
 
  
 
-- **Los predictores en k-medias deben ser cuantitativos**
+- **K-means predictors should be quantitative**
 
 
-    - ¿Por qué?  $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ Por como se definen los centroides, son medias de variables, y la media solo deberia aplicarse a variables cuantitativas.
-
-<br>
-
-
-- **¿Qué medidas de distancias pueden usarse en k-medias ?**
-
-    - Como k-medias solo debe usarse con variables cuantitativas, solo deben usarse distancias adecuadas para variables cuantitativas.  Por tanto, ejemplos de distancias que podrían usarse son la Euclidea, Minkowski, Canberra, Pearson y Mahalanobis.
-
-
-<br>
-
-## Interpretación de los clusters
-
-
-
-
-
+    - Why? \hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ Due to the centroid definition as mean vector. The mean should only be applied to quantitative variables.
 
 <br>
 
 
-## Validación de algoritmos de clustering
+- **What distance metrics should be used in K-means?**
 
-Uno de los métodos de validación de algoritmos de clustering más populares es el método silhouette.
+    - Due to K-means is only for quantitative variables, only quantitative distance metric should  be used, such as Euclidea, Minkowski, Canberra, Pearson or Mahalanobis.
 
-Se tratará este tema en un articulo sobre métodos de validación de modelos de aprendizaje no supervisado (modelos de clustering).
+
+<br>
+
+## Clusters interpretation
+
+
+The mean could be compute for the quantitative variables grouped by each optimal cluster. And the mode for the categorical ones, grouped by the same. Then we can make an interpretation of each cluster comparing these values.
+
+
+
+<br>
+
+
+## Clustering validation algorithms 
+
+One of the most popular clustering validation algorithm is the Silhouette.
+
+This topic will be seen in an specific article about clustering validation.
 
 
 
@@ -309,9 +309,11 @@ Se tratará este tema en un articulo sobre métodos de validación de modelos de
 
 ## Ajuste del hiper-parametro k
 
-Usando el método silhouette se puede realizar una selección óptima del hiper-parametro $k$
+An optimal fit of the hyper-parameter $k$ can be done using the Silhouette algorithm.
 
-Se tratará este tema en un artículo sobre ajuste de hiper-parametros de modelos de aprendizaje no supervisado (modelos de clustering).
+As before, this question will be addressed in future articles.
+
+ 
 
 
 <br>
@@ -342,7 +344,9 @@ Se tratará este tema en un artículo sobre ajuste de hiper-parametros de modelo
  
  
  
- 
+# Bibliographi
+
+- Park and Jun paper
  
  
  
