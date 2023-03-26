@@ -1,0 +1,5276 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Data preprocessing | Exploratory Data Analysis</title>
+  <meta name="description" content="This is an article about exploratory data analysis, with applications in Python." />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Data preprocessing | Exploratory Data Analysis" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This is an article about exploratory data analysis, with applications in Python." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Data preprocessing | Exploratory Data Analysis" />
+  
+  <meta name="twitter:description" content="This is an article about exploratory data analysis, with applications in Python." />
+  
+
+<meta name="author" content="Fabio Scielzo Ortiz" />
+
+
+<meta name="date" content="2023-03-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="statistical-description.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="data-preprocessing.html"><a href="data-preprocessing.html"><i class="fa fa-check"></i><b>2</b> Data preprocessing</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="data-preprocessing.html"><a href="data-preprocessing.html#import-data-set"><i class="fa fa-check"></i><b>2.1</b> Import data-set</a></li>
+<li class="chapter" data-level="2.2" data-path="data-preprocessing.html"><a href="data-preprocessing.html#data-set-conceptual-description"><i class="fa fa-check"></i><b>2.2</b> Data-set conceptual description</a></li>
+<li class="chapter" data-level="2.3" data-path="data-preprocessing.html"><a href="data-preprocessing.html#data-set-size"><i class="fa fa-check"></i><b>2.3</b> Data-set size</a></li>
+<li class="chapter" data-level="2.4" data-path="data-preprocessing.html"><a href="data-preprocessing.html#info-method"><i class="fa fa-check"></i><b>2.4</b> info() method</a></li>
+<li class="chapter" data-level="2.5" data-path="data-preprocessing.html"><a href="data-preprocessing.html#column-types"><i class="fa fa-check"></i><b>2.5</b> Column types</a></li>
+<li class="chapter" data-level="2.6" data-path="data-preprocessing.html"><a href="data-preprocessing.html#change-column-types"><i class="fa fa-check"></i><b>2.6</b> Change column types</a></li>
+<li class="chapter" data-level="2.7" data-path="data-preprocessing.html"><a href="data-preprocessing.html#unique-values-of-a-variable"><i class="fa fa-check"></i><b>2.7</b> Unique values of a variable</a></li>
+<li class="chapter" data-level="2.8" data-path="data-preprocessing.html"><a href="data-preprocessing.html#nan-identification"><i class="fa fa-check"></i><b>2.8</b> NaN identification</a></li>
+<li class="chapter" data-level="2.9" data-path="data-preprocessing.html"><a href="data-preprocessing.html#variable-scaling"><i class="fa fa-check"></i><b>2.9</b> Variable Scaling</a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="data-preprocessing.html"><a href="data-preprocessing.html#standard-scaling"><i class="fa fa-check"></i><b>2.9.1</b> Standard Scaling</a></li>
+<li class="chapter" data-level="2.9.2" data-path="data-preprocessing.html"><a href="data-preprocessing.html#standardization-01"><i class="fa fa-check"></i><b>2.9.2</b> Standardization (0,1)</a></li>
+<li class="chapter" data-level="2.9.3" data-path="data-preprocessing.html"><a href="data-preprocessing.html#standardization-ab"><i class="fa fa-check"></i><b>2.9.3</b> Standardization (a,b)</a></li>
+<li class="chapter" data-level="2.9.4" data-path="data-preprocessing.html"><a href="data-preprocessing.html#standardization-ab-in-python"><i class="fa fa-check"></i><b>2.9.4</b> Standardization (a,b) in <code>Python</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="data-preprocessing.html"><a href="data-preprocessing.html#standard-recoding-of-categorical-variables"><i class="fa fa-check"></i><b>2.10</b> Standard Recoding of Categorical Variables</a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="data-preprocessing.html"><a href="data-preprocessing.html#standard-recoding-of-categorical-variables-in-python"><i class="fa fa-check"></i><b>2.10.1</b> Standard Recoding of Categorical Variables in <code>Python</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="data-preprocessing.html"><a href="data-preprocessing.html#categorization-of-quantitative-variables"><i class="fa fa-check"></i><b>2.11</b> Categorization of Quantitative Variables</a>
+<ul>
+<li class="chapter" data-level="2.11.1" data-path="data-preprocessing.html"><a href="data-preprocessing.html#mean-rule"><i class="fa fa-check"></i><b>2.11.1</b> Mean Rule</a></li>
+<li class="chapter" data-level="2.11.2" data-path="data-preprocessing.html"><a href="data-preprocessing.html#median-rule"><i class="fa fa-check"></i><b>2.11.2</b> Median Rule</a></li>
+<li class="chapter" data-level="2.11.3" data-path="data-preprocessing.html"><a href="data-preprocessing.html#quartiles-rule"><i class="fa fa-check"></i><b>2.11.3</b> Quartile’s Rule</a></li>
+<li class="chapter" data-level="2.11.4" data-path="data-preprocessing.html"><a href="data-preprocessing.html#deciles-rule"><i class="fa fa-check"></i><b>2.11.4</b> Decile’s Rule</a></li>
+<li class="chapter" data-level="2.11.5" data-path="data-preprocessing.html"><a href="data-preprocessing.html#quantiles-rule"><i class="fa fa-check"></i><b>2.11.5</b> Quantile’s Rule</a></li>
+<li class="chapter" data-level="2.11.6" data-path="data-preprocessing.html"><a href="data-preprocessing.html#categorization-of-quantitative-variables-in-python"><i class="fa fa-check"></i><b>2.11.6</b> Categorization of Quantitative Variables in <code>Python</code></a></li>
+<li class="chapter" data-level="2.11.7" data-path="data-preprocessing.html"><a href="data-preprocessing.html#using-quantiles-rule"><i class="fa fa-check"></i><b>2.11.7</b> Using quantiles rule</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="data-preprocessing.html"><a href="data-preprocessing.html#dummification-of-categorical-variables"><i class="fa fa-check"></i><b>2.12</b> Dummification of Categorical Variables</a>
+<ul>
+<li class="chapter" data-level="2.12.1" data-path="data-preprocessing.html"><a href="data-preprocessing.html#dummification-of-categorical-variables-in-python"><i class="fa fa-check"></i><b>2.12.1</b> Dummification of Categorical Variables in <code>Python</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.13" data-path="data-preprocessing.html"><a href="data-preprocessing.html#dealing-with-nan"><i class="fa fa-check"></i><b>2.13</b> Dealing with NaN <a class="anchor" id="1"></a></a>
+<ul>
+<li class="chapter" data-level="2.13.1" data-path="data-preprocessing.html"><a href="data-preprocessing.html#deleting-rows-with-nan"><i class="fa fa-check"></i><b>2.13.1</b> Deleting Rows with NaN</a></li>
+<li class="chapter" data-level="2.13.2" data-path="data-preprocessing.html"><a href="data-preprocessing.html#deleting-columns-with-nan"><i class="fa fa-check"></i><b>2.13.2</b> Deleting Columns with NaN</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="statistical-description.html"><a href="statistical-description.html"><i class="fa fa-check"></i><b>3</b> Statistical Description</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="statistical-description.html"><a href="statistical-description.html#statistical-variable"><i class="fa fa-check"></i><b>3.1</b> Statistical variable</a></li>
+<li class="chapter" data-level="3.2" data-path="statistical-description.html"><a href="statistical-description.html#range-of-a-statistical-variable"><i class="fa fa-check"></i><b>3.2</b> Range of a statistical variable</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="statistical-description.html"><a href="statistical-description.html#statistical-variable-types-quantitative-and-categorical"><i class="fa fa-check"></i><b>3.2.1</b> Statistical variable types: quantitative and categorical</a></li>
+<li class="chapter" data-level="3.2.2" data-path="statistical-description.html"><a href="statistical-description.html#quantitative-variable-types-continuous-and-discrete"><i class="fa fa-check"></i><b>3.2.2</b> Quantitative variable types: continuous and discrete</a></li>
+<li class="chapter" data-level="3.2.3" data-path="statistical-description.html"><a href="statistical-description.html#categorical-variable-types-r-ary"><i class="fa fa-check"></i><b>3.2.3</b> Categorical variable types: r-ary</a></li>
+<li class="chapter" data-level="3.2.4" data-path="statistical-description.html"><a href="statistical-description.html#categorical-variable-types-nominal-and-ordinal"><i class="fa fa-check"></i><b>3.2.4</b> Categorical variable types: nominal and ordinal</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="statistical-description.html"><a href="statistical-description.html#sample-of-a-statistical-variable"><i class="fa fa-check"></i><b>3.3</b> Sample of a statistical variable</a></li>
+<li class="chapter" data-level="3.4" data-path="statistical-description.html"><a href="statistical-description.html#arithmetic-mean"><i class="fa fa-check"></i><b>3.4</b> Arithmetic Mean</a></li>
+<li class="chapter" data-level="3.5" data-path="statistical-description.html"><a href="statistical-description.html#weighted-mean"><i class="fa fa-check"></i><b>3.5</b> Weighted Mean</a></li>
+<li class="chapter" data-level="3.6" data-path="statistical-description.html"><a href="statistical-description.html#geometric-mean"><i class="fa fa-check"></i><b>3.6</b> Geometric Mean</a></li>
+<li class="chapter" data-level="3.7" data-path="statistical-description.html"><a href="statistical-description.html#median"><i class="fa fa-check"></i><b>3.7</b> Median</a></li>
+<li class="chapter" data-level="3.8" data-path="statistical-description.html"><a href="statistical-description.html#mode"><i class="fa fa-check"></i><b>3.8</b> Mode</a></li>
+<li class="chapter" data-level="3.9" data-path="statistical-description.html"><a href="statistical-description.html#variance"><i class="fa fa-check"></i><b>3.9</b> Variance</a></li>
+<li class="chapter" data-level="3.10" data-path="statistical-description.html"><a href="statistical-description.html#median-absolute-deviation"><i class="fa fa-check"></i><b>3.10</b> Median Absolute Deviation</a></li>
+<li class="chapter" data-level="3.11" data-path="statistical-description.html"><a href="statistical-description.html#quantiles"><i class="fa fa-check"></i><b>3.11</b> Quantiles</a></li>
+<li class="chapter" data-level="3.12" data-path="statistical-description.html"><a href="statistical-description.html#kurtosis"><i class="fa fa-check"></i><b>3.12</b> Kurtosis</a></li>
+<li class="chapter" data-level="3.13" data-path="statistical-description.html"><a href="statistical-description.html#skewness"><i class="fa fa-check"></i><b>3.13</b> Skewness</a></li>
+<li class="chapter" data-level="3.14" data-path="statistical-description.html"><a href="statistical-description.html#outliers"><i class="fa fa-check"></i><b>3.14</b> Outliers</a></li>
+<li class="chapter" data-level="3.15" data-path="statistical-description.html"><a href="statistical-description.html#data-matrix"><i class="fa fa-check"></i><b>3.15</b> Data Matrix</a></li>
+<li class="chapter" data-level="3.16" data-path="statistical-description.html"><a href="statistical-description.html#covariance"><i class="fa fa-check"></i><b>3.16</b> Covariance</a>
+<ul>
+<li class="chapter" data-level="3.16.1" data-path="statistical-description.html"><a href="statistical-description.html#properties-of-covariance"><i class="fa fa-check"></i><b>3.16.1</b> Properties of covariance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.17" data-path="statistical-description.html"><a href="statistical-description.html#covariance-matrix"><i class="fa fa-check"></i><b>3.17</b> Covariance Matrix</a></li>
+<li class="chapter" data-level="3.18" data-path="statistical-description.html"><a href="statistical-description.html#correlation"><i class="fa fa-check"></i><b>3.18</b> Correlation</a>
+<ul>
+<li class="chapter" data-level="3.18.1" data-path="statistical-description.html"><a href="statistical-description.html#properties-of-pearson-linear-correlation"><i class="fa fa-check"></i><b>3.18.1</b> Properties of Pearson linear correlation <a class="anchor" id="47"></a></a></li>
+</ul></li>
+<li class="chapter" data-level="3.19" data-path="statistical-description.html"><a href="statistical-description.html#pearson-correlation-matrix"><i class="fa fa-check"></i><b>3.19</b> Pearson Correlation Matrix</a></li>
+<li class="chapter" data-level="3.20" data-path="statistical-description.html"><a href="statistical-description.html#absolute-frequency"><i class="fa fa-check"></i><b>3.20</b> Absolute Frequency</a>
+<ul>
+<li class="chapter" data-level="3.20.1" data-path="statistical-description.html"><a href="statistical-description.html#absolute-frequency-of-an-element"><i class="fa fa-check"></i><b>3.20.1</b> Absolute Frequency of an element</a></li>
+<li class="chapter" data-level="3.20.2" data-path="statistical-description.html"><a href="statistical-description.html#absolute-frequency-of-a-set"><i class="fa fa-check"></i><b>3.20.2</b> Absolute frequency of a set</a></li>
+</ul></li>
+<li class="chapter" data-level="3.21" data-path="statistical-description.html"><a href="statistical-description.html#relative-frequency"><i class="fa fa-check"></i><b>3.21</b> Relative Frequency</a>
+<ul>
+<li class="chapter" data-level="3.21.1" data-path="statistical-description.html"><a href="statistical-description.html#relative-frequency-of-an-element"><i class="fa fa-check"></i><b>3.21.1</b> Relative frequency of an element</a></li>
+<li class="chapter" data-level="3.21.2" data-path="statistical-description.html"><a href="statistical-description.html#relative-frequency-of-a-set"><i class="fa fa-check"></i><b>3.21.2</b> Relative frequency of a set</a></li>
+</ul></li>
+<li class="chapter" data-level="3.22" data-path="statistical-description.html"><a href="statistical-description.html#cumulative-absolute-frequency"><i class="fa fa-check"></i><b>3.22</b> Cumulative Absolute Frequency</a></li>
+<li class="chapter" data-level="3.23" data-path="statistical-description.html"><a href="statistical-description.html#cumulative-relative-frequency"><i class="fa fa-check"></i><b>3.23</b> Cumulative Relative Frequency</a></li>
+<li class="chapter" data-level="3.24" data-path="statistical-description.html"><a href="statistical-description.html#frequency-table"><i class="fa fa-check"></i><b>3.24</b> Frequency Table</a>
+<ul>
+<li class="chapter" data-level="3.24.1" data-path="statistical-description.html"><a href="statistical-description.html#frequency-table-in-python"><i class="fa fa-check"></i><b>3.24.1</b> Frequency Table in <code>Python</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="statistical-description-protocol-for-quantitative-variables.html"><a href="statistical-description-protocol-for-quantitative-variables.html"><i class="fa fa-check"></i><b>4</b> Statistical Description Protocol for Quantitative Variables</a></li>
+<li class="chapter" data-level="5" data-path="statistical-description-protocol-for-categorical-variables.html"><a href="statistical-description-protocol-for-categorical-variables.html"><i class="fa fa-check"></i><b>5</b> Statistical Description Protocol for Categorical Variables</a></li>
+<li class="chapter" data-level="6" data-path="statistical-description-protocol-for-variable-crossings-cruces-de-variables-cuantis-categoricas-categroicas-categoricas-cuantis-cuantis.html"><a href="statistical-description-protocol-for-variable-crossings-cruces-de-variables-cuantis-categoricas-categroicas-categoricas-cuantis-cuantis.html"><i class="fa fa-check"></i><b>6</b> Statistical Description Protocol for Variable Crossings (cruces de variables cuantis-categoricas, categroicas-categoricas, cuantis-cuantis) <a class="anchor" id="1"></a></a></li>
+<li class="chapter" data-level="7" data-path="statistical-visualization.html"><a href="statistical-visualization.html"><i class="fa fa-check"></i><b>7</b> Statistical visualization</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="statistical-visualization.html"><a href="statistical-visualization.html#visualization-protocol-for-quantitative-variables"><i class="fa fa-check"></i><b>7.1</b> Visualization Protocol for Quantitative Variables</a></li>
+<li class="chapter" data-level="7.2" data-path="statistical-visualization.html"><a href="statistical-visualization.html#visualization-protocol-for-categorical-variables"><i class="fa fa-check"></i><b>7.2</b> Visualization Protocol for Categorical Variables</a></li>
+<li class="chapter" data-level="7.3" data-path="statistical-visualization.html"><a href="statistical-visualization.html#visualization-protocol-for-quantitative-categorical"><i class="fa fa-check"></i><b>7.3</b> Visualization Protocol for Quantitative-Categorical</a></li>
+<li class="chapter" data-level="7.4" data-path="statistical-visualization.html"><a href="statistical-visualization.html#visualization-protocol-for-categorical-categorical"><i class="fa fa-check"></i><b>7.4</b> Visualization Protocol for Categorical-Categorical</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="descripción-estadistica-básica.html"><a href="descripción-estadistica-básica.html"><i class="fa fa-check"></i><b>8</b> Descripción Estadistica Básica</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="descripción-estadistica-básica.html"><a href="descripción-estadistica-básica.html#estadisticos-básicos-para-las-variables-cuantitativas"><i class="fa fa-check"></i><b>8.1</b> Estadisticos básicos para las variables cuantitativas</a></li>
+<li class="chapter" data-level="8.2" data-path="descripción-estadistica-básica.html"><a href="descripción-estadistica-básica.html#estadisticos-básicos-para-las-variables-categóricas"><i class="fa fa-check"></i><b>8.2</b> Estadisticos básicos para las variables categóricas</a></li>
+<li class="chapter" data-level="8.3" data-path="descripción-estadistica-básica.html"><a href="descripción-estadistica-básica.html#gráficos-conjuntos-para-las-variables-cuantitativas"><i class="fa fa-check"></i><b>8.3</b> Gráficos conjuntos para las variables cuantitativas</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="descripción-estadistica-básica.html"><a href="descripción-estadistica-básica.html#histograma-conjunto-de-las-variables-cuantitativas"><i class="fa fa-check"></i><b>8.3.1</b> Histograma conjunto de las variables cuantitativas</a></li>
+<li class="chapter" data-level="8.3.2" data-path="descripción-estadistica-básica.html"><a href="descripción-estadistica-básica.html#box-plot-conjunto-de-las-variables-cuantitativas"><i class="fa fa-check"></i><b>8.3.2</b> Box-Plot conjunto de las variables cuantitativas</a></li>
+<li class="chapter" data-level="8.3.3" data-path="descripción-estadistica-básica.html"><a href="descripción-estadistica-básica.html#empirical-cumulative-distribution-function-plot-conjunto-de-las-variables-cuantitativas"><i class="fa fa-check"></i><b>8.3.3</b> Empirical-Cumulative-Distribution-Function-Plot conjunto de las variables cuantitativas</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="descripción-estadistica-básica.html"><a href="descripción-estadistica-básica.html#gráficos-conjuntos-para-las-variables-categoricas"><i class="fa fa-check"></i><b>8.4</b> Gráficos conjuntos para las variables categoricas</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="descripción-estadistica-básica.html"><a href="descripción-estadistica-básica.html#bar-plot-conjunto-de-las-variables-categóricas"><i class="fa fa-check"></i><b>8.4.1</b> Bar-plot conjunto de las variables categóricas</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="análisis-estadístico.html"><a href="análisis-estadístico.html"><i class="fa fa-check"></i><b>9</b> Análisis Estadístico</a></li>
+<li class="chapter" data-level="10" data-path="hello-bookdown.html"><a href="hello-bookdown.html"><i class="fa fa-check"></i><b>10</b> Hello bookdown</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="hello-bookdown.html"><a href="hello-bookdown.html#a-section"><i class="fa fa-check"></i><b>10.1</b> A section</a>
+<ul>
+<li class="chapter" data-level="" data-path="hello-bookdown.html"><a href="hello-bookdown.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>11</b> Cross-references</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="cross.html"><a href="cross.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>11.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="11.2" data-path="cross.html"><a href="cross.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>11.2</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>12</b> Parts</a></li>
+<li class="chapter" data-level="13" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>13</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>13.1</b> Footnotes</a></li>
+<li class="chapter" data-level="13.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>13.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>14</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>14.1</b> Equations</a></li>
+<li class="chapter" data-level="14.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>14.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="14.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>14.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>15</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>15.1</b> Publishing</a></li>
+<li class="chapter" data-level="15.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>15.2</b> 404 pages</a></li>
+<li class="chapter" data-level="15.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>15.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploratory Data Analysis</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-preprocessing" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Data preprocessing<a href="data-preprocessing.html#data-preprocessing" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="import-data-set" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Import data-set<a href="data-preprocessing.html#import-data-set" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>First of all, we import the data-set with which we will work.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="data-preprocessing.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="data-preprocessing.html#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="data-preprocessing.html#cb1-3" aria-hidden="true" tabindex="-1"></a>Netflix_Data <span class="op">=</span> pd.read_csv(<span class="st">&#39;titles.csv&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="data-preprocessing.html#cb2-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data</span></code></pre></div>
+<div style="overflow-x: auto;">
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+id
+</th>
+<th>
+title
+</th>
+<th>
+type
+</th>
+<th>
+description
+</th>
+<th>
+release_year
+</th>
+<th>
+age_certification
+</th>
+<th>
+runtime
+</th>
+<th>
+genres
+</th>
+<th>
+production_countries
+</th>
+<th>
+seasons
+</th>
+<th>
+imdb_id
+</th>
+<th>
+imdb_score
+</th>
+<th>
+imdb_votes
+</th>
+<th>
+tmdb_popularity
+</th>
+<th>
+tmdb_score
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+ts300399
+</td>
+<td>
+Five Came Back: The Reference Films
+</td>
+<td>
+SHOW
+</td>
+<td>
+This collection includes 12 World War II-era p…
+</td>
+<td>
+1945.0
+</td>
+<td>
+TV-MA
+</td>
+<td>
+51
+</td>
+<td>
+[‘documentation’]
+</td>
+<td>
+[‘US’]
+</td>
+<td>
+1.0
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+0.600
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+tm84618
+</td>
+<td>
+Taxi Driver
+</td>
+<td>
+MOVIE
+</td>
+<td>
+A mentally unstable Vietnam War veteran works …
+</td>
+<td>
+1976.0
+</td>
+<td>
+R
+</td>
+<td>
+114
+</td>
+<td>
+[‘drama’, ‘crime’]
+</td>
+<td>
+[‘US’]
+</td>
+<td>
+NaN
+</td>
+<td>
+tt0075314
+</td>
+<td>
+8.2
+</td>
+<td>
+808582.0
+</td>
+<td>
+40.965
+</td>
+<td>
+8.179
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+tm154986
+</td>
+<td>
+Deliverance
+</td>
+<td>
+MOVIE
+</td>
+<td>
+Intent on seeing the Cahulawassee River before…
+</td>
+<td>
+1972.0
+</td>
+<td>
+R
+</td>
+<td>
+109
+</td>
+<td>
+[‘drama’, ‘action’, ‘thriller’, ‘european’]
+</td>
+<td>
+[‘US’]
+</td>
+<td>
+NaN
+</td>
+<td>
+tt0068473
+</td>
+<td>
+7.7
+</td>
+<td>
+107673.0
+</td>
+<td>
+10.010
+</td>
+<td>
+7.300
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+tm127384
+</td>
+<td>
+Monty Python and the Holy Grail
+</td>
+<td>
+MOVIE
+</td>
+<td>
+King Arthur, accompanied by his squire, recrui…
+</td>
+<td>
+1975.0
+</td>
+<td>
+PG
+</td>
+<td>
+91
+</td>
+<td>
+[‘fantasy’, ‘action’, ‘comedy’]
+</td>
+<td>
+[‘GB’]
+</td>
+<td>
+NaN
+</td>
+<td>
+tt0071853
+</td>
+<td>
+8.2
+</td>
+<td>
+534486.0
+</td>
+<td>
+15.461
+</td>
+<td>
+7.811
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+tm120801
+</td>
+<td>
+The Dirty Dozen
+</td>
+<td>
+MOVIE
+</td>
+<td>
+12 American military prisoners in World War II…
+</td>
+<td>
+1967.0
+</td>
+<td>
+NaN
+</td>
+<td>
+150
+</td>
+<td>
+[‘war’, ‘action’]
+</td>
+<td>
+[‘GB’, ‘US’]
+</td>
+<td>
+NaN
+</td>
+<td>
+tt0061578
+</td>
+<td>
+7.7
+</td>
+<td>
+72662.0
+</td>
+<td>
+20.398
+</td>
+<td>
+7.600
+</td>
+</tr>
+<tr>
+<th>
+…
+</th>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+</tr>
+<tr>
+<th>
+5845
+</th>
+<td>
+tm1014599
+</td>
+<td>
+Fine Wine
+</td>
+<td>
+MOVIE
+</td>
+<td>
+A beautiful love story that can happen between…
+</td>
+<td>
+2021.0
+</td>
+<td>
+NaN
+</td>
+<td>
+100
+</td>
+<td>
+[‘romance’, ‘drama’]
+</td>
+<td>
+[‘NG’]
+</td>
+<td>
+NaN
+</td>
+<td>
+tt13857480
+</td>
+<td>
+6.8
+</td>
+<td>
+45.0
+</td>
+<td>
+1.466
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+5846
+</th>
+<td>
+tm898842
+</td>
+<td>
+C/O Kaadhal
+</td>
+<td>
+MOVIE
+</td>
+<td>
+A heart warming film that explores the concept…
+</td>
+<td>
+2021.0
+</td>
+<td>
+NaN
+</td>
+<td>
+134
+</td>
+<td>
+[‘drama’]
+</td>
+<td>
+[]
+</td>
+<td>
+NaN
+</td>
+<td>
+tt11803618
+</td>
+<td>
+7.7
+</td>
+<td>
+348.0
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+5847
+</th>
+<td>
+tm1059008
+</td>
+<td>
+Lokillo
+</td>
+<td>
+MOVIE
+</td>
+<td>
+A controversial TV host and comedian who has b…
+</td>
+<td>
+2021.0
+</td>
+<td>
+NaN
+</td>
+<td>
+90
+</td>
+<td>
+[‘comedy’]
+</td>
+<td>
+[‘CO’]
+</td>
+<td>
+NaN
+</td>
+<td>
+tt14585902
+</td>
+<td>
+3.8
+</td>
+<td>
+68.0
+</td>
+<td>
+26.005
+</td>
+<td>
+6.300
+</td>
+</tr>
+<tr>
+<th>
+5848
+</th>
+<td>
+tm1035612
+</td>
+<td>
+Dad Stop Embarrassing Me - The Afterparty
+</td>
+<td>
+MOVIE
+</td>
+<td>
+Jamie Foxx, David Alan Grier and more from the…
+</td>
+<td>
+2021.0
+</td>
+<td>
+PG-13
+</td>
+<td>
+37
+</td>
+<td>
+[]
+</td>
+<td>
+[‘US’]
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+1.296
+</td>
+<td>
+10.000
+</td>
+</tr>
+<tr>
+<th>
+5849
+</th>
+<td>
+ts271048
+</td>
+<td>
+Mighty Little Bheem: Kite Festival
+</td>
+<td>
+SHOW
+</td>
+<td>
+With winter behind them, Bheem and his townspe…
+</td>
+<td>
+2021.0
+</td>
+<td>
+NaN
+</td>
+<td>
+7
+</td>
+<td>
+[‘family’, ‘animation’, ‘comedy’]
+</td>
+<td>
+[]
+</td>
+<td>
+1.0
+</td>
+<td>
+tt13711094
+</td>
+<td>
+7.8
+</td>
+<td>
+18.0
+</td>
+<td>
+2.289
+</td>
+<td>
+10.000
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+5850 rows × 15 columns
+</p>
+</div>
+<p><br></p>
+</div>
+<div id="data-set-conceptual-description" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Data-set conceptual description<a href="data-preprocessing.html#data-set-conceptual-description" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This data-set has information about 15 variables on 5850 Netflix titles.</p>
+<p>Next table has a brief conceptual description about data-set variables:</p>
+<table>
+<colgroup>
+<col width="36%" />
+<col width="31%" />
+<col width="31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Variable</th>
+<th align="center">Descripción</th>
+<th align="center">Tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">id</td>
+<td align="center">The title ID on JustWatch</td>
+<td align="center">Identifier</td>
+</tr>
+<tr class="even">
+<td align="center">title</td>
+<td align="center">The name of the title</td>
+<td align="center">Text</td>
+</tr>
+<tr class="odd">
+<td align="center">type</td>
+<td align="center">TV show or movie</td>
+<td align="center">Categorical</td>
+</tr>
+<tr class="even">
+<td align="center">description</td>
+<td align="center">A brief description</td>
+<td align="center">Text</td>
+</tr>
+<tr class="odd">
+<td align="center">release_year</td>
+<td align="center">release year</td>
+<td align="center">Quantitative</td>
+</tr>
+<tr class="even">
+<td align="center">age_certification</td>
+<td align="center">age rating</td>
+<td align="center">Categorical</td>
+</tr>
+<tr class="odd">
+<td align="center">runtime</td>
+<td align="center">the number of episodes (show), the duration time in minutes (movie)</td>
+<td align="center">Quantitative</td>
+</tr>
+<tr class="even">
+<td align="center">genres</td>
+<td align="center">A list of genres</td>
+<td align="center">Categorical</td>
+</tr>
+<tr class="odd">
+<td align="center">production_countries</td>
+<td align="center">A list of countries that produced the title</td>
+<td align="center">Categorical</td>
+</tr>
+<tr class="even">
+<td align="center">seasons</td>
+<td align="center">Number of seasons if it’s a SHOW</td>
+<td align="center">Quantitative</td>
+</tr>
+<tr class="odd">
+<td align="center">imdb_id</td>
+<td align="center">The title ID on IMDB</td>
+<td align="center">Identifier</td>
+</tr>
+<tr class="even">
+<td align="center">imdb_score</td>
+<td align="center">Rating on IMDB</td>
+<td align="center">Quantitative</td>
+</tr>
+<tr class="odd">
+<td align="center">imdb_votes</td>
+<td align="center">number of votes on IMDB</td>
+<td align="center">Quantitative</td>
+</tr>
+<tr class="even">
+<td align="center">tmdb_popularity</td>
+<td align="center">Popularity on TMDB</td>
+<td align="center">Quantitative</td>
+</tr>
+<tr class="odd">
+<td align="center">tmdb_score</td>
+<td align="center">Rating on TMDB</td>
+<td align="center">Quantitative</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+</div>
+<div id="data-set-size" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Data-set size<a href="data-preprocessing.html#data-set-size" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can get the data-set size as the number of rows and columns of the data-set.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="data-preprocessing.html#cb3-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data.shape</span></code></pre></div>
+<pre><code>(5850, 15)</code></pre>
+<p>As discussed above, the data-set has 5850 rows and 15 columns.</p>
+<p><br></p>
+</div>
+<div id="info-method" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> info() method<a href="data-preprocessing.html#info-method" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>info()</code> method gives us the column names, the number of the non null values in each column and column type.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="data-preprocessing.html#cb5-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data.info()</span></code></pre></div>
+<pre><code>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 5850 entries, 0 to 5849
+Data columns (total 15 columns):
+ #   Column                Non-Null Count  Dtype  
+---  ------                --------------  -----  
+ 0   id                    5850 non-null   object 
+ 1   title                 5849 non-null   object 
+ 2   type                  5850 non-null   object 
+ 3   description           5832 non-null   object 
+ 4   release_year          5850 non-null   int64  
+ 5   age_certification     3231 non-null   object 
+ 6   runtime               5850 non-null   int64  
+ 7   genres                5850 non-null   object 
+ 8   production_countries  5850 non-null   object 
+ 9   seasons               2106 non-null   float64
+ 10  imdb_id               5447 non-null   object 
+ 11  imdb_score            5368 non-null   float64
+ 12  imdb_votes            5352 non-null   float64
+ 13  tmdb_popularity       5759 non-null   float64
+ 14  tmdb_score            5539 non-null   float64
+dtypes: float64(5), int64(2), object(8)
+memory usage: 685.7+ KB</code></pre>
+<p><br></p>
+</div>
+<div id="column-types" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Column types<a href="data-preprocessing.html#column-types" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There is another way to get column types.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="data-preprocessing.html#cb7-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data.dtypes</span></code></pre></div>
+<pre><code>id                       object
+title                    object
+type                     object
+description              object
+release_year              int64
+age_certification        object
+runtime                   int64
+genres                   object
+production_countries     object
+seasons                 float64
+imdb_id                  object
+imdb_score              float64
+imdb_votes              float64
+tmdb_popularity         float64
+tmdb_score              float64
+dtype: object</code></pre>
+<p><code>Object</code> is the typical type of categorical variables, identifier or text.</p>
+<p><code>Float64</code> and <code>int64</code> is the typical type of quantitative variables, <code>float64</code> for continuous one, and <code>int64</code> for discrete one.</p>
+<p><br></p>
+</div>
+<div id="change-column-types" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Change column types<a href="data-preprocessing.html#change-column-types" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can change the type of a column with <code>astype()</code> method.</p>
+<p>First, we check type of <strong>release_year</strong> variable is <code>int64</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="data-preprocessing.html#cb9-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data.dtypes[<span class="st">&#39;release_year&#39;</span>]</span></code></pre></div>
+<pre><code>dtype(&#39;int64&#39;)</code></pre>
+<p><br></p>
+<p>Now, we can change that type to <code>float64</code> using the following function:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="data-preprocessing.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> change_type(Data, Variable_name, New_type):</span>
+<span id="cb11-2"><a href="data-preprocessing.html#cb11-2" aria-hidden="true" tabindex="-1"></a>    Data[Variable_name] <span class="op">=</span> Data[Variable_name].astype(New_type)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="data-preprocessing.html#cb12-1" aria-hidden="true" tabindex="-1"></a>change_type(Data<span class="op">=</span>Netflix_Data, Variable_name<span class="op">=</span><span class="st">&#39;release_year&#39;</span>, New_type<span class="op">=</span><span class="st">&#39;float64&#39;</span>)</span></code></pre></div>
+<p>We can check if the changes have been done correctly:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="data-preprocessing.html#cb13-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data.dtypes[<span class="st">&#39;release_year&#39;</span>]</span></code></pre></div>
+<pre><code>dtype(&#39;float64&#39;)</code></pre>
+<p><br></p>
+</div>
+<div id="unique-values-of-a-variable" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Unique values of a variable<a href="data-preprocessing.html#unique-values-of-a-variable" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can get the uniques values of a variable with the <code>unique()</code> method.</p>
+<p>We can get the uniques values of <code>type</code> as following :</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="data-preprocessing.html#cb15-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data[<span class="st">&#39;type&#39;</span>].unique()</span></code></pre></div>
+<pre><code>array([&#39;SHOW&#39;, &#39;MOVIE&#39;], dtype=object)</code></pre>
+<p><span class="math inline">\(\\\)</span></p>
+<p>We can get the unique values of <code>age_certification</code> as following :</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="data-preprocessing.html#cb17-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data[<span class="st">&#39;age_certification&#39;</span>].unique()</span></code></pre></div>
+<pre><code>array([&#39;TV-MA&#39;, &#39;R&#39;, &#39;PG&#39;, nan, &#39;TV-14&#39;, &#39;PG-13&#39;, &#39;TV-PG&#39;, &#39;TV-Y&#39;, &#39;TV-G&#39;, &#39;TV-Y7&#39;, &#39;G&#39;, &#39;NC-17&#39;], dtype=object)</code></pre>
+<p><span class="math inline">\(\\\)</span></p>
+<p>We can get the uniques values of <code>production_countries</code> as following :</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="data-preprocessing.html#cb19-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data[<span class="st">&#39;production_countries&#39;</span>].unique()     </span></code></pre></div>
+<pre><code>array([&quot;[&#39;US&#39;]&quot;, &quot;[&#39;GB&#39;]&quot;, &quot;[&#39;GB&#39;, &#39;US&#39;]&quot;, &quot;[&#39;EG&#39;]&quot;, &quot;[&#39;DE&#39;]&quot;, &quot;[&#39;IN&#39;]&quot;,
+       &quot;[&#39;SU&#39;, &#39;IN&#39;]&quot;, &quot;[&#39;LB&#39;, &#39;CA&#39;, &#39;FR&#39;]&quot;, &#39;[]&#39;, &quot;[&#39;LB&#39;]&quot;,
+       &quot;[&#39;DZ&#39;, &#39;EG&#39;]&quot;, &quot;[&#39;CA&#39;, &#39;FR&#39;, &#39;LB&#39;]&quot;, &quot;[&#39;US&#39;, &#39;GB&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;IT&#39;]&quot;, &quot;[&#39;JP&#39;]&quot;, &quot;[&#39;AR&#39;]&quot;, &quot;[&#39;FR&#39;, &#39;EG&#39;]&quot;, &quot;[&#39;FR&#39;, &#39;LB&#39;]&quot;,
+       &quot;[&#39;CA&#39;, &#39;US&#39;]&quot;, &quot;[&#39;US&#39;, &#39;FR&#39;]&quot;, &quot;[&#39;JP&#39;, &#39;US&#39;]&quot;, &quot;[&#39;US&#39;, &#39;CA&#39;]&quot;,
+       &quot;[&#39;DE&#39;, &#39;US&#39;]&quot;, &quot;[&#39;PE&#39;, &#39;US&#39;, &#39;BR&#39;]&quot;, &quot;[&#39;IT&#39;, &#39;US&#39;, &#39;FR&#39;]&quot;,
+       &quot;[&#39;IE&#39;, &#39;GB&#39;, &#39;DE&#39;, &#39;FR&#39;]&quot;, &quot;[&#39;HK&#39;, &#39;US&#39;]&quot;, &quot;[&#39;AU&#39;]&quot;, &quot;[&#39;FR&#39;]&quot;,
+       &quot;[&#39;DE&#39;, &#39;GH&#39;, &#39;GB&#39;, &#39;US&#39;, &#39;BF&#39;]&quot;, &quot;[&#39;MX&#39;]&quot;, &quot;[&#39;ES&#39;, &#39;AR&#39;]&quot;,
+       &quot;[&#39;CO&#39;]&quot;, &quot;[&#39;PS&#39;, &#39;US&#39;, &#39;FR&#39;, &#39;DE&#39;]&quot;, &quot;[&#39;FR&#39;, &#39;NO&#39;, &#39;LB&#39;, &#39;BE&#39;]&quot;,
+       &quot;[&#39;BE&#39;, &#39;FR&#39;, &#39;IT&#39;, &#39;LB&#39;]&quot;, &quot;[&#39;TR&#39;]&quot;, &quot;[&#39;IN&#39;, &#39;SU&#39;]&quot;, &quot;[&#39;DK&#39;]&quot;,
+       &quot;[&#39;CA&#39;]&quot;, &quot;[&#39;DE&#39;, &#39;GB&#39;, &#39;US&#39;, &#39;BS&#39;, &#39;CZ&#39;]&quot;, &quot;[&#39;MT&#39;, &#39;GB&#39;, &#39;US&#39;]&quot;,
+       &quot;[&#39;AU&#39;, &#39;DE&#39;, &#39;GB&#39;, &#39;US&#39;]&quot;, &quot;[&#39;US&#39;, &#39;JP&#39;]&quot;, &quot;[&#39;BE&#39;, &#39;US&#39;]&quot;,
+       &quot;[&#39;HK&#39;]&quot;, &quot;[&#39;IT&#39;]&quot;, &quot;[&#39;US&#39;, &#39;FR&#39;, &#39;DE&#39;, &#39;GB&#39;]&quot;,
+       &quot;[&#39;GB&#39;, &#39;US&#39;, &#39;FR&#39;, &#39;DE&#39;]&quot;, &quot;[&#39;IT&#39;, &#39;US&#39;]&quot;, &quot;[&#39;US&#39;, &#39;ZA&#39;]&quot;,
+       &quot;[&#39;GB&#39;, &#39;ES&#39;]&quot;, &quot;[&#39;GB&#39;, &#39;US&#39;, &#39;JP&#39;]&quot;, &quot;[&#39;HK&#39;, &#39;CN&#39;]&quot;,
+       &quot;[&#39;GB&#39;, &#39;US&#39;, &#39;BG&#39;]&quot;, &quot;[&#39;RU&#39;]&quot;, &quot;[&#39;KR&#39;]&quot;, &quot;[&#39;CA&#39;, &#39;US&#39;, &#39;IN&#39;]&quot;,
+       &quot;[&#39;CN&#39;]&quot;, &quot;[&#39;JP&#39;, &#39;HK&#39;]&quot;, &quot;[&#39;CA&#39;, &#39;GB&#39;, &#39;US&#39;]&quot;,
+       &quot;[&#39;FR&#39;, &#39;MX&#39;, &#39;ES&#39;]&quot;, &quot;[&#39;IN&#39;, &#39;US&#39;]&quot;, &quot;[&#39;AR&#39;, &#39;ES&#39;]&quot;, &quot;[&#39;CL&#39;]&quot;,
+       &quot;[&#39;FR&#39;, &#39;MA&#39;, &#39;DE&#39;, &#39;PS&#39;]&quot;, &quot;[&#39;AR&#39;, &#39;DE&#39;, &#39;UY&#39;, &#39;ES&#39;]&quot;,
+       &quot;[&#39;CL&#39;, &#39;AR&#39;]&quot;, &quot;[&#39;CZ&#39;, &#39;GB&#39;, &#39;DK&#39;, &#39;NL&#39;, &#39;SE&#39;]&quot;, &quot;[&#39;TW&#39;]&quot;,
+       &quot;[&#39;SG&#39;]&quot;, &quot;[&#39;NG&#39;]&quot;, &quot;[&#39;MY&#39;]&quot;, &quot;[&#39;Lebanon&#39;]&quot;,
+       &quot;[&#39;BE&#39;, &#39;FR&#39;, &#39;ES&#39;, &#39;CH&#39;, &#39;PS&#39;]&quot;, &quot;[&#39;ZA&#39;]&quot;, &quot;[&#39;NG&#39;, &#39;US&#39;]&quot;,
+       &quot;[&#39;LB&#39;, &#39;FR&#39;]&quot;, &quot;[&#39;CN&#39;, &#39;HK&#39;]&quot;, &quot;[&#39;PH&#39;]&quot;, &quot;[&#39;LB&#39;, &#39;GB&#39;, &#39;FR&#39;]&quot;,
+       &quot;[&#39;FR&#39;, &#39;DE&#39;, &#39;KW&#39;, &#39;PS&#39;]&quot;, &quot;[&#39;PS&#39;]&quot;,
+       &quot;[&#39;GB&#39;, &#39;US&#39;, &#39;AT&#39;, &#39;FR&#39;, &#39;DE&#39;, &#39;NG&#39;]&quot;, &quot;[&#39;XX&#39;]&quot;, &quot;[&#39;AE&#39;, &#39;US&#39;]&quot;,
+       &quot;[&#39;DK&#39;, &#39;US&#39;]&quot;, &quot;[&#39;FR&#39;, &#39;US&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;HU&#39;, &#39;US&#39;, &#39;CA&#39;]&quot;,
+       &quot;[&#39;NO&#39;]&quot;, &quot;[&#39;GB&#39;, &#39;FR&#39;, &#39;DE&#39;]&quot;, &quot;[&#39;US&#39;, &#39;HU&#39;, &#39;IT&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;ZA&#39;, &#39;DE&#39;]&quot;, &quot;[&#39;IN&#39;, &#39;DE&#39;]&quot;, &quot;[&#39;SA&#39;]&quot;, &quot;[&#39;ID&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;LB&#39;, &#39;AE&#39;]&quot;, &quot;[&#39;PS&#39;, &#39;NL&#39;, &#39;US&#39;, &#39;AE&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;FR&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;US&#39;, &#39;DE&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;GB&#39;, &#39;ZA&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;CA&#39;, &#39;CL&#39;]&quot;, &quot;[&#39;US&#39;, &#39;GB&#39;, &#39;CN&#39;, &#39;CA&#39;]&quot;,
+       &quot;[&#39;AU&#39;, &#39;CH&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;ES&#39;]&quot;, &quot;[&#39;FI&#39;]&quot;, &quot;[&#39;IL&#39;]&quot;, &quot;[&#39;FR&#39;, &#39;US&#39;]&quot;,
+       &quot;[&#39;AU&#39;, &#39;US&#39;]&quot;, &quot;[&#39;CA&#39;, &#39;US&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;AT&#39;]&quot;, &quot;[&#39;CD&#39;, &#39;GB&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;BR&#39;]&quot;, &quot;[&#39;CA&#39;, &#39;JP&#39;, &#39;US&#39;]&quot;, &quot;[&#39;CA&#39;, &#39;KR&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;EG&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;BR&#39;]&quot;, &quot;[&#39;PL&#39;]&quot;, &quot;[&#39;VE&#39;, &#39;AR&#39;]&quot;, &quot;[&#39;RO&#39;]&quot;,
+       &quot;[&#39;IL&#39;, &#39;NO&#39;, &#39;ZA&#39;, &#39;AE&#39;, &#39;GB&#39;, &#39;IS&#39;, &#39;IE&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;CN&#39;, &#39;DE&#39;, &#39;SG&#39;, &#39;UA&#39;]&quot;, &quot;[&#39;DE&#39;, &#39;IT&#39;, &#39;PS&#39;, &#39;FR&#39;]&quot;,
+       &quot;[&#39;AE&#39;, &#39;LB&#39;]&quot;, &quot;[&#39;LB&#39;, &#39;AE&#39;]&quot;, &quot;[&#39;US&#39;, &#39;ES&#39;]&quot;, &quot;[&#39;NZ&#39;]&quot;,
+       &quot;[&#39;GB&#39;, &#39;US&#39;, &#39;FR&#39;]&quot;, &quot;[&#39;US&#39;, &#39;FR&#39;, &#39;LU&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;FR&#39;, &#39;BE&#39;]&quot;,
+       &quot;[&#39;IT&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;US&#39;, &#39;CA&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;CA&#39;, &#39;FR&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;CN&#39;]&quot;, &quot;[&#39;UA&#39;]&quot;, &quot;[&#39;MX&#39;, &#39;ZA&#39;, &#39;US&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;GB&#39;, &#39;ES&#39;]&quot;, &quot;[&#39;BE&#39;, &#39;DK&#39;, &#39;DE&#39;, &#39;GB&#39;, &#39;US&#39;]&quot;,
+       &quot;[&#39;GB&#39;, &#39;IR&#39;, &#39;JO&#39;, &#39;QA&#39;]&quot;, &quot;[&#39;CH&#39;, &#39;US&#39;]&quot;, &quot;[&#39;CA&#39;, &#39;DE&#39;, &#39;GB&#39;]&quot;,
+       &quot;[&#39;GH&#39;, &#39;US&#39;]&quot;, &quot;[&#39;IE&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;CN&#39;, &#39;US&#39;]&quot;,
+       &quot;[&#39;UA&#39;, &#39;GB&#39;, &#39;US&#39;]&quot;, &quot;[&#39;IE&#39;, &#39;ZA&#39;]&quot;, &quot;[&#39;US&#39;, &#39;FR&#39;, &#39;MT&#39;]&quot;,
+       &quot;[&#39;BG&#39;]&quot;, &quot;[&#39;GB&#39;, &#39;FR&#39;]&quot;, &quot;[&#39;BY&#39;]&quot;, &quot;[&#39;IE&#39;]&quot;, &quot;[&#39;IS&#39;]&quot;,
+       &quot;[&#39;AU&#39;, &#39;FR&#39;, &#39;DE&#39;]&quot;, &quot;[&#39;CN&#39;, &#39;FR&#39;, &#39;CA&#39;]&quot;, &quot;[&#39;FR&#39;, &#39;QA&#39;]&quot;,
+       &quot;[&#39;SE&#39;]&quot;, &quot;[&#39;FR&#39;, &#39;ES&#39;]&quot;, &quot;[&#39;NL&#39;]&quot;, &quot;[&#39;HR&#39;]&quot;, &quot;[&#39;FR&#39;, &#39;MA&#39;]&quot;,
+       &quot;[&#39;RU&#39;, &#39;US&#39;, &#39;FR&#39;]&quot;, &quot;[&#39;SY&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;AT&#39;, &#39;US&#39;]&quot;, &quot;[&#39;CD&#39;]&quot;,
+       &quot;[&#39;FR&#39;, &#39;CL&#39;]&quot;, &quot;[&#39;AU&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;TN&#39;]&quot;, &quot;[&#39;AE&#39;]&quot;, &quot;[&#39;SE&#39;, &#39;NO&#39;]&quot;,
+       &quot;[&#39;GL&#39;, &#39;FR&#39;]&quot;, &quot;[&#39;LB&#39;, &#39;DE&#39;]&quot;, &quot;[&#39;PT&#39;, &#39;SE&#39;, &#39;DK&#39;, &#39;BR&#39;, &#39;FR&#39;]&quot;,
+       &quot;[&#39;QA&#39;, &#39;LB&#39;]&quot;, &quot;[&#39;GB&#39;, &#39;AU&#39;, &#39;US&#39;]&quot;, &quot;[&#39;ES&#39;, &#39;DK&#39;]&quot;,
+       &quot;[&#39;AE&#39;, &#39;FR&#39;, &#39;JO&#39;, &#39;LB&#39;, &#39;QA&#39;, &#39;PS&#39;]&quot;, &quot;[&#39;US&#39;, &#39;CA&#39;, &#39;JP&#39;]&quot;,
+       &quot;[&#39;PK&#39;]&quot;, &quot;[&#39;IN&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;PS&#39;, &#39;FR&#39;, &#39;DE&#39;]&quot;, &quot;[&#39;CZ&#39;]&quot;,
+       &quot;[&#39;CA&#39;, &#39;NG&#39;]&quot;, &quot;[&#39;VN&#39;]&quot;, &quot;[&#39;NL&#39;, &#39;GB&#39;]&quot;,
+       &quot;[&#39;CA&#39;, &#39;HU&#39;, &#39;MX&#39;, &#39;ES&#39;, &#39;GB&#39;, &#39;US&#39;]&quot;, &quot;[&#39;FR&#39;, &#39;GB&#39;, &#39;US&#39;]&quot;,
+       &quot;[&#39;FR&#39;, &#39;NL&#39;, &#39;GB&#39;, &#39;US&#39;]&quot;, &quot;[&#39;CN&#39;, &#39;CA&#39;, &#39;US&#39;]&quot;, &quot;[&#39;CA&#39;, &#39;GB&#39;]&quot;,
+       &quot;[&#39;KR&#39;, &#39;US&#39;]&quot;, &quot;[&#39;FR&#39;, &#39;RO&#39;, &#39;GB&#39;, &#39;BE&#39;, &#39;DE&#39;]&quot;, &quot;[&#39;US&#39;, &#39;MX&#39;]&quot;,
+       &quot;[&#39;HK&#39;, &#39;IS&#39;, &#39;US&#39;]&quot;, &quot;[&#39;IN&#39;, &#39;CN&#39;, &#39;US&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;BE&#39;, &#39;FR&#39;]&quot;,
+       &quot;[&#39;PR&#39;, &#39;US&#39;, &#39;GB&#39;, &#39;CN&#39;]&quot;, &quot;[&#39;GB&#39;, &#39;DE&#39;]&quot;, &quot;[&#39;US&#39;, &#39;PR&#39;]&quot;,
+       &quot;[&#39;IT&#39;, &#39;CH&#39;, &#39;FR&#39;]&quot;, &quot;[&#39;IT&#39;, &#39;ES&#39;, &#39;FR&#39;]&quot;, &quot;[&#39;US&#39;, &#39;IS&#39;, &#39;NO&#39;]&quot;,
+       &quot;[&#39;IQ&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;HU&#39;]&quot;, &quot;[&#39;US&#39;, &#39;AU&#39;, &#39;GB&#39;]&quot;,
+       &quot;[&#39;CZ&#39;, &#39;GB&#39;, &#39;US&#39;]&quot;, &quot;[&#39;US&#39;, &#39;IE&#39;, &#39;CA&#39;]&quot;, &quot;[&#39;TH&#39;]&quot;,
+       &quot;[&#39;IR&#39;, &#39;US&#39;, &#39;FR&#39;]&quot;, &quot;[&#39;BE&#39;]&quot;,
+       &quot;[&#39;GB&#39;, &#39;ID&#39;, &#39;CA&#39;, &#39;CN&#39;, &#39;SG&#39;, &#39;US&#39;]&quot;, &quot;[&#39;ES&#39;, &#39;FR&#39;]&quot;,
+       &quot;[&#39;SG&#39;, &#39;GB&#39;, &#39;US&#39;]&quot;, &quot;[&#39;GE&#39;, &#39;DE&#39;, &#39;FR&#39;]&quot;, &quot;[&#39;CA&#39;, &#39;US&#39;, &#39;DE&#39;]&quot;,
+       &quot;[&#39;CA&#39;, &#39;IE&#39;]&quot;, &quot;[&#39;NL&#39;, &#39;BE&#39;]&quot;, &quot;[&#39;US&#39;, &#39;KH&#39;]&quot;, &quot;[&#39;FR&#39;, &#39;JP&#39;]&quot;,
+       &quot;[&#39;PR&#39;]&quot;, &quot;[&#39;US&#39;, &#39;CA&#39;, &#39;CN&#39;]&quot;, &quot;[&#39;CN&#39;, &#39;US&#39;, &#39;ES&#39;]&quot;,
+       &quot;[&#39;CU&#39;, &#39;US&#39;]&quot;, &quot;[&#39;BG&#39;, &#39;US&#39;]&quot;, &quot;[&#39;US&#39;, &#39;BG&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;DK&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;ES&#39;, &#39;IT&#39;]&quot;, &quot;[&#39;TR&#39;, &#39;US&#39;]&quot;,
+       &quot;[&#39;PE&#39;, &#39;DE&#39;, &#39;NO&#39;]&quot;, &quot;[&#39;LU&#39;, &#39;US&#39;, &#39;FR&#39;]&quot;,
+       &quot;[&#39;IL&#39;, &#39;MA&#39;, &#39;US&#39;, &#39;BG&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;AR&#39;, &#39;CL&#39;]&quot;,
+       &quot;[&#39;AR&#39;, &#39;ES&#39;, &#39;UY&#39;]&quot;, &quot;[&#39;JP&#39;, &#39;CN&#39;]&quot;, &quot;[&#39;US&#39;, &#39;AU&#39;]&quot;,
+       &quot;[&#39;QA&#39;, &#39;TN&#39;, &#39;FR&#39;]&quot;, &quot;[&#39;ES&#39;, &#39;MX&#39;]&quot;, &quot;[&#39;PH&#39;, &#39;SG&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;AE&#39;]&quot;, &quot;[&#39;DE&#39;, &#39;DK&#39;, &#39;NL&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;NL&#39;, &#39;MX&#39;]&quot;,
+       &quot;[&#39;CA&#39;, &#39;CN&#39;]&quot;, &quot;[&#39;NO&#39;, &#39;SE&#39;, &#39;DK&#39;, &#39;NL&#39;]&quot;, &quot;[&#39;US&#39;, &#39;DE&#39;, &#39;ZA&#39;]&quot;,
+       &quot;[&#39;IS&#39;, &#39;SE&#39;, &#39;BE&#39;]&quot;, &quot;[&#39;DE&#39;, &#39;ES&#39;]&quot;, &quot;[&#39;CN&#39;, &#39;FR&#39;, &#39;TW&#39;, &#39;US&#39;]&quot;,
+       &quot;[&#39;KH&#39;]&quot;, &quot;[&#39;BE&#39;, &#39;FR&#39;, &#39;IT&#39;]&quot;, &quot;[&#39;DE&#39;, &#39;CH&#39;]&quot;,
+       &quot;[&#39;JP&#39;, &#39;KR&#39;, &#39;FR&#39;]&quot;, &quot;[&#39;DE&#39;, &#39;NZ&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;PE&#39;]&quot;,
+       &quot;[&#39;MX&#39;, &#39;US&#39;]&quot;, &quot;[&#39;US&#39;, &#39;DK&#39;]&quot;, &quot;[&#39;PL&#39;, &#39;US&#39;]&quot;, &quot;[&#39;KE&#39;]&quot;, &quot;[&#39;GH&#39;]&quot;,
+       &quot;[&#39;IT&#39;, &#39;CH&#39;, &#39;VA&#39;, &#39;FR&#39;, &#39;DE&#39;]&quot;, &quot;[&#39;PE&#39;, &#39;GB&#39;, &#39;US&#39;, &#39;IL&#39;, &#39;IT&#39;]&quot;,
+       &quot;[&#39;SA&#39;, &#39;SY&#39;, &#39;AE&#39;]&quot;, &quot;[&#39;US&#39;, &#39;KR&#39;]&quot;, &quot;[&#39;IN&#39;, &#39;FR&#39;]&quot;,
+       &quot;[&#39;RS&#39;, &#39;PL&#39;, &#39;RU&#39;]&quot;, &quot;[&#39;CL&#39;, &#39;NL&#39;, &#39;FR&#39;]&quot;, &quot;[&#39;IE&#39;, &#39;CA&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;NL&#39;]&quot;, &quot;[&#39;TZ&#39;]&quot;, &quot;[&#39;IT&#39;, &#39;ES&#39;]&quot;, &quot;[&#39;ID&#39;, &#39;MY&#39;, &#39;SG&#39;]&quot;,
+       &quot;[&#39;FR&#39;, &#39;LU&#39;, &#39;CA&#39;]&quot;, &quot;[&#39;FR&#39;, &#39;QA&#39;, &#39;TN&#39;, &#39;BE&#39;]&quot;,
+       &quot;[&#39;PL&#39;, &#39;CH&#39;, &#39;AL&#39;, &#39;IT&#39;]&quot;, &quot;[&#39;CZ&#39;, &#39;US&#39;]&quot;, &quot;[&#39;AR&#39;, &#39;FR&#39;]&quot;,
+       &quot;[&#39;DE&#39;, &#39;IT&#39;]&quot;, &quot;[&#39;IT&#39;, &#39;FR&#39;]&quot;, &quot;[&#39;MX&#39;, &#39;FI&#39;]&quot;, &quot;[&#39;CA&#39;, &#39;BR&#39;]&quot;,
+       &quot;[&#39;IN&#39;, &#39;MX&#39;]&quot;, &quot;[&#39;BR&#39;, &#39;DK&#39;, &#39;FR&#39;, &#39;DE&#39;, &#39;PL&#39;, &#39;AR&#39;]&quot;,
+       &quot;[&#39;ZA&#39;, &#39;US&#39;, &#39;CA&#39;]&quot;, &quot;[&#39;ES&#39;, &#39;BE&#39;]&quot;, &quot;[&#39;PY&#39;]&quot;, &quot;[&#39;US&#39;, &#39;NG&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;BE&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;ZW&#39;]&quot;, &quot;[&#39;IT&#39;, &#39;AR&#39;]&quot;,
+       &quot;[&#39;AT&#39;, &#39;IQ&#39;, &#39;US&#39;]&quot;, &quot;[&#39;GE&#39;]&quot;, &quot;[&#39;AR&#39;, &#39;IT&#39;]&quot;, &quot;[&#39;NG&#39;, &#39;NO&#39;]&quot;,
+       &quot;[&#39;IS&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;MX&#39;, &#39;CO&#39;]&quot;, &quot;[&#39;AR&#39;, &#39;US&#39;]&quot;, &quot;[&#39;KW&#39;]&quot;,
+       &quot;[&#39;JP&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;TW&#39;, &#39;US&#39;]&quot;, &quot;[&#39;NP&#39;, &#39;IN&#39;]&quot;,
+       &quot;[&#39;AU&#39;, &#39;US&#39;, &#39;CN&#39;]&quot;, &quot;[&#39;FR&#39;, &#39;IN&#39;, &#39;SG&#39;]&quot;, &quot;[&#39;LB&#39;, &#39;PS&#39;]&quot;,
+       &quot;[&#39;JP&#39;, &#39;US&#39;, &#39;CA&#39;]&quot;, &quot;[&#39;CM&#39;]&quot;, &quot;[&#39;BD&#39;, &#39;IN&#39;]&quot;, &quot;[&#39;CA&#39;, &#39;ZA&#39;]&quot;,
+       &quot;[&#39;FR&#39;, &#39;PS&#39;, &#39;CH&#39;, &#39;QA&#39;]&quot;, &quot;[&#39;NL&#39;, &#39;JO&#39;, &#39;DE&#39;]&quot;,
+       &quot;[&#39;GB&#39;, &#39;DK&#39;, &#39;GR&#39;]&quot;, &quot;[&#39;MX&#39;, &#39;AR&#39;]&quot;, &quot;[&#39;US&#39;, &#39;CL&#39;, &#39;MX&#39;]&quot;,
+       &quot;[&#39;KG&#39;]&quot;, &quot;[&#39;CH&#39;]&quot;, &quot;[&#39;BD&#39;]&quot;, &quot;[&#39;LU&#39;]&quot;, &quot;[&#39;ZA&#39;, &#39;GB&#39;]&quot;,
+       &quot;[&#39;BT&#39;, &#39;CN&#39;]&quot;, &quot;[&#39;CA&#39;, &#39;HU&#39;, &#39;US&#39;]&quot;, &quot;[&#39;BE&#39;, &#39;LT&#39;, &#39;NL&#39;]&quot;,
+       &quot;[&#39;IT&#39;, &#39;MC&#39;, &#39;US&#39;, &#39;CA&#39;]&quot;, &quot;[&#39;CN&#39;, &#39;US&#39;, &#39;AU&#39;, &#39;CA&#39;]&quot;,
+       &quot;[&#39;BE&#39;, &#39;SE&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;GB&#39;, &#39;CZ&#39;, &#39;FR&#39;]&quot;, &quot;[&#39;US&#39;, &#39;MW&#39;, &#39;GB&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;CY&#39;]&quot;, &quot;[&#39;BE&#39;, &#39;FR&#39;, &#39;SN&#39;]&quot;, &quot;[&#39;BR&#39;, &#39;FR&#39;, &#39;ES&#39;, &#39;BE&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;CH&#39;]&quot;, &quot;[&#39;US&#39;, &#39;IL&#39;]&quot;, &quot;[&#39;FR&#39;, &#39;LT&#39;, &#39;GB&#39;]&quot;,
+       &quot;[&#39;GB&#39;, &#39;IE&#39;]&quot;, &quot;[&#39;GB&#39;, &#39;IT&#39;]&quot;, &quot;[&#39;JO&#39;, &#39;TH&#39;, &#39;US&#39;, &#39;AL&#39;]&quot;,
+       &quot;[&#39;PT&#39;, &#39;US&#39;]&quot;, &quot;[&#39;IL&#39;, &#39;US&#39;, &#39;FR&#39;, &#39;DE&#39;]&quot;, &quot;[&#39;TW&#39;, &#39;MY&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;CA&#39;, &#39;FR&#39;, &#39;ES&#39;]&quot;, &quot;[&#39;FI&#39;, &#39;NO&#39;]&quot;, &quot;[&#39;US&#39;, &#39;FR&#39;, &#39;JP&#39;]&quot;,
+       &quot;[&#39;GB&#39;, &#39;JP&#39;]&quot;, &quot;[&#39;US&#39;, &#39;CN&#39;, &#39;GB&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;FR&#39;, &#39;SE&#39;, &#39;GB&#39;, &#39;DE&#39;, &#39;DK&#39;, &#39;CA&#39;]&quot;, &quot;[&#39;DE&#39;, &#39;AT&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;TH&#39;]&quot;, &quot;[&#39;PH&#39;, &#39;US&#39;]&quot;, &quot;[&#39;BR&#39;, &#39;MX&#39;]&quot;, &quot;[&#39;NO&#39;, &#39;CA&#39;]&quot;,
+       &quot;[&#39;CO&#39;, &#39;ES&#39;]&quot;, &quot;[&#39;CN&#39;, &#39;DE&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;NO&#39;, &#39;DE&#39;]&quot;,
+       &quot;[&#39;ES&#39;, &#39;PT&#39;]&quot;, &quot;[&#39;IL&#39;, &#39;US&#39;]&quot;, &quot;[&#39;ES&#39;, &#39;BE&#39;, &#39;DE&#39;]&quot;,
+       &quot;[&#39;TH&#39;, &#39;US&#39;]&quot;, &quot;[&#39;US&#39;, &#39;FR&#39;, &#39;ES&#39;]&quot;, &quot;[&#39;ES&#39;, &#39;FR&#39;, &#39;AR&#39;]&quot;,
+       &quot;[&#39;NL&#39;, &#39;PL&#39;, &#39;UA&#39;, &#39;GB&#39;, &#39;US&#39;]&quot;, &quot;[&#39;QA&#39;, &#39;PS&#39;]&quot;,
+       &quot;[&#39;RS&#39;, &#39;UY&#39;, &#39;AR&#39;]&quot;, &quot;[&#39;FR&#39;, &#39;IT&#39;]&quot;, &quot;[&#39;CA&#39;, &#39;LK&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;AR&#39;]&quot;, &quot;[&#39;EG&#39;, &#39;US&#39;]&quot;, &quot;[&#39;US&#39;, &#39;IN&#39;]&quot;,
+       &quot;[&#39;FR&#39;, &#39;LU&#39;, &#39;BE&#39;, &#39;KH&#39;]&quot;, &quot;[&#39;US&#39;, &#39;BE&#39;, &#39;ES&#39;]&quot;,
+       &quot;[&#39;CA&#39;, &#39;FR&#39;, &#39;JP&#39;, &#39;GB&#39;, &#39;US&#39;]&quot;, &quot;[&#39;AT&#39;, &#39;DE&#39;]&quot;,
+       &quot;[&#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;]&quot;, &quot;[&#39;FR&#39;, &#39;MX&#39;, &#39;CO&#39;]&quot;, &quot;[&#39;BR&#39;, &#39;FR&#39;]&quot;,
+       &quot;[&#39;JO&#39;]&quot;, &quot;[&#39;FR&#39;, &#39;IN&#39;, &#39;QA&#39;]&quot;, &quot;[&#39;AR&#39;, &#39;PE&#39;]&quot;, &quot;[&#39;MU&#39;]&quot;,
+       &quot;[&#39;DE&#39;, &#39;DK&#39;, &#39;EG&#39;]&quot;, &quot;[&#39;US&#39;, &#39;IE&#39;]&quot;, &quot;[&#39;IO&#39;]&quot;, &quot;[&#39;TW&#39;, &#39;CN&#39;]&quot;,
+       &quot;[&#39;FR&#39;, &#39;NL&#39;, &#39;SG&#39;]&quot;, &quot;[&#39;SN&#39;]&quot;, &quot;[&#39;UY&#39;]&quot;, &quot;[&#39;DE&#39;, &#39;IN&#39;, &#39;AT&#39;]&quot;,
+       &quot;[&#39;MA&#39;, &#39;FR&#39;, &#39;QA&#39;]&quot;, &quot;[&#39;PS&#39;, &#39;PH&#39;]&quot;, &quot;[&#39;EG&#39;, &#39;SA&#39;]&quot;,
+       &quot;[&#39;ES&#39;, &#39;CN&#39;]&quot;, &quot;[&#39;CL&#39;, &#39;AR&#39;, &#39;CA&#39;]&quot;, &quot;[&#39;AR&#39;, &#39;CO&#39;]&quot;,
+       &quot;[&#39;GT&#39;, &#39;UY&#39;]&quot;, &quot;[&#39;AF&#39;, &#39;DE&#39;, &#39;PS&#39;]&quot;, &quot;[&#39;ZA&#39;, &#39;AO&#39;]&quot;,
+       &quot;[&#39;HK&#39;, &#39;PH&#39;]&quot;, &quot;[&#39;SG&#39;, &#39;MY&#39;]&quot;, &quot;[&#39;SE&#39;, &#39;US&#39;]&quot;,
+       &quot;[&#39;LB&#39;, &#39;US&#39;, &#39;NL&#39;, &#39;CA&#39;]&quot;, &quot;[&#39;NL&#39;, &#39;PS&#39;, &#39;US&#39;, &#39;LB&#39;]&quot;,
+       &quot;[&#39;DK&#39;, &#39;LB&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;UY&#39;, &#39;MX&#39;, &#39;ES&#39;]&quot;, &quot;[&#39;PH&#39;, &#39;JP&#39;]&quot;,
+       &quot;[&#39;CN&#39;, &#39;JP&#39;, &#39;US&#39;]&quot;, &quot;[&#39;NA&#39;]&quot;, &quot;[&#39;LB&#39;, &#39;QA&#39;, &#39;SY&#39;, &#39;FR&#39;]&quot;,
+       &quot;[&#39;PS&#39;, &#39;DK&#39;, &#39;LB&#39;]&quot;, &quot;[&#39;US&#39;, &#39;CZ&#39;]&quot;,
+       &quot;[&#39;GB&#39;, &#39;AU&#39;, &#39;CA&#39;, &#39;GR&#39;, &#39;NZ&#39;]&quot;, &quot;[&#39;GR&#39;, &#39;GB&#39;, &#39;US&#39;]&quot;,
+       &quot;[&#39;DE&#39;, &#39;FR&#39;]&quot;, &quot;[&#39;NL&#39;, &#39;US&#39;]&quot;, &quot;[&#39;AT&#39;, &#39;GB&#39;, &#39;US&#39;]&quot;,
+       &quot;[&#39;CH&#39;, &#39;DE&#39;]&quot;, &quot;[&#39;GB&#39;, &#39;US&#39;, &#39;DE&#39;]&quot;, &quot;[&#39;DK&#39;, &#39;IS&#39;]&quot;,
+       &quot;[&#39;FR&#39;, &#39;DE&#39;, &#39;US&#39;]&quot;, &quot;[&#39;US&#39;, &#39;JP&#39;, &#39;TH&#39;]&quot;, &quot;[&#39;FR&#39;, &#39;DE&#39;]&quot;,
+       &quot;[&#39;RO&#39;, &#39;US&#39;]&quot;, &quot;[&#39;ES&#39;, &#39;KN&#39;]&quot;, &quot;[&#39;SE&#39;, &#39;GB&#39;]&quot;,
+       &quot;[&#39;SG&#39;, &#39;US&#39;, &#39;IN&#39;]&quot;, &quot;[&#39;DE&#39;, &#39;AU&#39;]&quot;, &quot;[&#39;GB&#39;, &#39;CA&#39;]&quot;,
+       &quot;[&#39;IE&#39;, &#39;US&#39;, &#39;CA&#39;]&quot;, &quot;[&#39;PT&#39;]&quot;, &quot;[&#39;US&#39;, &#39;PL&#39;, &#39;KR&#39;]&quot;,
+       &quot;[&#39;LU&#39;, &#39;FR&#39;]&quot;, &quot;[&#39;IT&#39;, &#39;BR&#39;]&quot;, &quot;[&#39;GB&#39;, &#39;HU&#39;, &#39;NL&#39;, &#39;CH&#39;]&quot;,
+       &quot;[&#39;BR&#39;, &#39;DE&#39;, &#39;QA&#39;, &#39;MX&#39;, &#39;US&#39;, &#39;CH&#39;, &#39;AR&#39;]&quot;, &quot;[&#39;ES&#39;, &#39;PE&#39;]&quot;,
+       &quot;[&#39;BE&#39;, &#39;GB&#39;, &#39;DE&#39;]&quot;, &quot;[&#39;ZA&#39;, &#39;GB&#39;, &#39;US&#39;]&quot;, &quot;[&#39;CL&#39;, &#39;PE&#39;]&quot;,
+       &quot;[&#39;CA&#39;, &#39;CN&#39;, &#39;US&#39;]&quot;, &quot;[&#39;SG&#39;, &#39;US&#39;]&quot;, &quot;[&#39;BR&#39;, &#39;US&#39;]&quot;,
+       &quot;[&#39;BE&#39;, &#39;NL&#39;]&quot;, &quot;[&#39;RU&#39;, &#39;US&#39;]&quot;, &quot;[&#39;ES&#39;, &#39;US&#39;]&quot;, &quot;[&#39;CZ&#39;, &#39;DE&#39;]&quot;,
+       &quot;[&#39;NZ&#39;, &#39;HK&#39;]&quot;, &quot;[&#39;MA&#39;, &#39;SA&#39;, &#39;TN&#39;, &#39;EG&#39;, &#39;LB&#39;]&quot;, &quot;[&#39;CN&#39;, &#39;GB&#39;]&quot;,
+       &quot;[&#39;AF&#39;]&quot;, &quot;[&#39;BE&#39;, &#39;LU&#39;]&quot;, &quot;[&#39;BE&#39;, &#39;DE&#39;]&quot;, &quot;[&#39;SE&#39;, &#39;RO&#39;]&quot;,
+       &quot;[&#39;ZA&#39;, &#39;US&#39;]&quot;, &quot;[&#39;GB&#39;, &#39;IN&#39;]&quot;, &quot;[&#39;HU&#39;, &#39;CA&#39;]&quot;, &quot;[&#39;NG&#39;, &#39;CA&#39;]&quot;,
+       &quot;[&#39;TZ&#39;, &#39;GB&#39;]&quot;, &quot;[&#39;PH&#39;, &#39;FO&#39;]&quot;], dtype=object)
+</code></pre>
+<p><br></p>
+</div>
+<div id="nan-identification" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> NaN identification<a href="data-preprocessing.html#nan-identification" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A NaN is a not a number value. <strong>NaN</strong> is equivalent to <strong>missing value</strong>.</p>
+<p>We are going to calculate, for each variable, the proportion of missing values over the total number of observations. We can do it using <code>isnull()</code> method :</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="data-preprocessing.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Prop_NaN(Data):</span>
+<span id="cb21-2"><a href="data-preprocessing.html#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="data-preprocessing.html#cb21-3" aria-hidden="true" tabindex="-1"></a>    df_prop_nan <span class="op">=</span> Data.isnull().<span class="bu">sum</span>() <span class="op">/</span> <span class="bu">len</span>(Data)</span>
+<span id="cb21-4"><a href="data-preprocessing.html#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="data-preprocessing.html#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df_prop_nan</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="data-preprocessing.html#cb22-1" aria-hidden="true" tabindex="-1"></a>Prop_NaN(Data<span class="op">=</span>Netflix_Data)</span></code></pre></div>
+<pre><code>id                      0.000000
+title                   0.000171
+type                    0.000000
+description             0.003077
+release_year            0.000000
+age_certification       0.447692
+runtime                 0.000000
+genres                  0.000000
+production_countries    0.000000
+seasons                 0.640000
+imdb_id                 0.068889
+imdb_score              0.082393
+imdb_votes              0.085128
+tmdb_popularity         0.015556
+tmdb_score              0.053162
+dtype: float64</code></pre>
+<p>We can see that there are variables with a high proportion of missing values, as <code>age_certification</code> (44.77%).</p>
+<p><code>season</code> would be the variable with higher proportion of missing values, but it is because of <code>season</code> only is defined for <code>type=SHOW</code>.</p>
+<p><br></p>
+</div>
+<div id="variable-scaling" class="section level2 hasAnchor" number="2.9">
+<h2><span class="header-section-number">2.9</span> Variable Scaling<a href="data-preprocessing.html#variable-scaling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Scaling a variable is applying a transformation, in order to obtain new properties for the transformed variable, properties that the original variable doesn’t have.</p>
+<p>In this article, we will focus on three scaling methods: standard scaling, normalization (0,1), and normalization (a,b).</p>
+<p>In any case, there are more procedures that will not be explored here, so for a more extensive list, it is recommended to consult the <code>sklearn</code> documentation on this topic: <a href="https://scikit-learn.org/stable/modules/preprocessing.html" class="uri">https://scikit-learn.org/stable/modules/preprocessing.html</a></p>
+<p>Some of the concepts that appear in this secction will be explained with more details in Statistical Description section, such as the concept of statistical variable, sample, mean and variance.</p>
+<p><br></p>
+<div id="standard-scaling" class="section level3 hasAnchor" number="2.9.1">
+<h3><span class="header-section-number">2.9.1</span> Standard Scaling<a href="data-preprocessing.html#standard-scaling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Given a <strong>quantitative</strong> statistical variable <span class="math inline">\(\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}\)</span>, and a sample <span class="math inline">\(\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}\)</span> of that statistical variable.</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> The <strong>standard scaling</strong> version of <span class="math inline">\(\hspace{0.07cm} X_k\hspace{0.07cm}\)</span> is defined as: <span class="math inline">\(\\[0.25cm]\)</span></p>
+<p><span class="math display">\[X_k^{std} \hspace{0.1cm} =\hspace{0.1cm} \dfrac{X_k - \overline{X}_k}{\sigma(X_k)} \\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><strong>Properties:</strong></p>
+<ul>
+<li><p><span class="math inline">\(\hspace{0.1cm} \overline{\hspace{0.01cm}X\hspace{0.07cm}}_k^{\hspace{0.07cm}std} \hspace{0.1cm} =\hspace{0.1cm} 0 \\[0.8cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.2cm} \sigma\left(\hspace{0.07cm} X_k^{\hspace{0.07cm}std} \hspace{0.07cm}\right)^2 \hspace{0.1cm} =\hspace{0.1cm} 1 \\\)</span></p></li>
+</ul>
+<p><strong>Proof :</strong></p>
+<ul>
+<li><p><span class="math inline">\(\overline{X}_k ^{\hspace{0.07cm}std} \hspace{0.1cm} =\hspace{0.1cm} \overline{ \left( \dfrac{X_k - \overline{X_k}}{\sigma(X_j)} \right) } \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{\sigma(X_j)} \cdot \left( \hspace{0.12cm} \overline{ \hspace{0.08cm} X_j - \overline{X_k} \hspace{0.08cm} } \hspace{0.12cm} \right) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{\sigma(X_j)} \cdot \left( \hspace{0.12cm} \overline{X_j} - \overline{ \hspace{0.08cm} \overline{X_j} \hspace{0.08cm} } \hspace{0.12cm} \right) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{1}{\sigma(X_j)} \cdot \left( \hspace{0.08cm} \overline{X_j} - \overline{X_j} \hspace{0.08cm} \right) \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{\sigma(X_j)} \hspace{0.07cm}\cdot \hspace{0.07cm} 0 \hspace{0.1cm}=\hspace{0.1cm} 0 \\[0.8cm]\)</span> <span class="math inline">\(\\[0.6cm]\)</span></p></li>
+<li><p><span class="math inline">\(\sigma\left( X_k^{\hspace{0.07cm}std} \right)^2 \hspace{0.1cm} =\hspace{0.1cm} \sigma\left( \dfrac{X_k - \overline{X_k} }{\sigma(X_k)} \right)^2 \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{\sigma(X_k)^2} \cdot \sigma\left( \hspace{0.08cm} X_k - \overline{X_k} \hspace{0.08cm} \right)^2 \hspace{0.1cm} =\hspace{0.1cm} \dfrac{1}{\sigma(X_k)^2} \cdot \sigma( \hspace{0.08cm} X_j \hspace{0.08cm} )^2 \hspace{0.1cm}=\hspace{0.1cm} 1\)</span></p></li>
+</ul>
+<p><br></p>
+<div id="standard-scaling-in-python" class="section level4 hasAnchor" number="2.9.1.1">
+<h4><span class="header-section-number">2.9.1.1</span> Standard Scaling in <code>Python</code><a href="data-preprocessing.html#standard-scaling-in-python" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="data-preprocessing.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> preprocessing</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="data-preprocessing.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> standard_scaling(Data, Variable_name):</span>
+<span id="cb25-2"><a href="data-preprocessing.html#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="data-preprocessing.html#cb25-3" aria-hidden="true" tabindex="-1"></a>    scaler <span class="op">=</span> preprocessing.StandardScaler().fit(Data[[Variable_name]])</span>
+<span id="cb25-4"><a href="data-preprocessing.html#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="data-preprocessing.html#cb25-5" aria-hidden="true" tabindex="-1"></a>    Data[Variable_name <span class="op">+</span> <span class="st">&#39;_std_scaling&#39;</span>] <span class="op">=</span> scaler.transform(Netflix_Data[[Variable_name]])</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="data-preprocessing.html#cb26-1" aria-hidden="true" tabindex="-1"></a>standard_scaling(Data<span class="op">=</span>Netflix_Data, Variable_name<span class="op">=</span><span class="st">&#39;release_year&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="data-preprocessing.html#cb27-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data[[<span class="st">&#39;release_year&#39;</span>, <span class="st">&#39;release_year_std_scaling&#39;</span>]]</span></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+release_year
+</th>
+<th>
+release_year_std_scaling
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+1945.0
+</td>
+<td>
+-10.294901
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+1976.0
+</td>
+<td>
+-5.826196
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+1972.0
+</td>
+<td>
+-6.402803
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+1975.0
+</td>
+<td>
+-5.970348
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+1967.0
+</td>
+<td>
+-7.123562
+</td>
+</tr>
+<tr>
+<th>
+…
+</th>
+<td>
+…
+</td>
+<td>
+…
+</td>
+</tr>
+<tr>
+<th>
+5845
+</th>
+<td>
+2021.0
+</td>
+<td>
+0.660634
+</td>
+</tr>
+<tr>
+<th>
+5846
+</th>
+<td>
+2021.0
+</td>
+<td>
+0.660634
+</td>
+</tr>
+<tr>
+<th>
+5847
+</th>
+<td>
+2021.0
+</td>
+<td>
+0.660634
+</td>
+</tr>
+<tr>
+<th>
+5848
+</th>
+<td>
+2021.0
+</td>
+<td>
+0.660634
+</td>
+</tr>
+<tr>
+<th>
+5849
+</th>
+<td>
+2021.0
+</td>
+<td>
+0.660634
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+5850 rows × 2 columns
+</p>
+</div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="data-preprocessing.html#cb28-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data[<span class="st">&#39;release_year_std_scaling&#39;</span>].mean()</span></code></pre></div>
+<pre><code>-1.010549668636587e-14</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="data-preprocessing.html#cb30-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data[<span class="st">&#39;release_year_std_scaling&#39;</span>].std()</span></code></pre></div>
+<pre><code>1.0000854810447344</code></pre>
+<p><br></p>
+</div>
+</div>
+<div id="standardization-01" class="section level3 hasAnchor" number="2.9.2">
+<h3><span class="header-section-number">2.9.2</span> Standardization (0,1)<a href="data-preprocessing.html#standardization-01" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Given a <strong>quantitative</strong> statistical variable <span class="math inline">\(\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}\)</span>, and a sample <span class="math inline">\(\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}\)</span> of that statistical variable.</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> The standardization a <span class="math inline">\(\hspace{0.05cm}(0,1)\hspace{0.05cm}\)</span> version of <span class="math inline">\(\hspace{0.07cm}X_k\hspace{0.07cm}\)</span> is defined as: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[X_k^{std(0,1)} \hspace{0.07cm}=\hspace{0.07cm} \dfrac{\hspace{0.07cm} X_k - Min(X_k) \hspace{0.07cm}}{Max(X_k) - Min(X_k)} \\\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><strong>Properties :</strong></p>
+<ul>
+<li><p><span class="math inline">\(\hspace{0.1cm} Max \left(X_j^{std(0,1)} \right) \hspace{0.1cm}=\hspace{0.1cm} 1 \\[0.8cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm} Min \left( X_j^{std(0,1)} \right) \hspace{0.1cm}=\hspace{0.1cm} 0 \\\)</span></p></li>
+</ul>
+<p><strong>Proof :</strong></p>
+<ul>
+<li><p><span class="math inline">\(\hspace{0.1cm} Max \left( X_k^{std(0,1)} \right) \hspace{0.1cm} = \hspace{0.1cm} \dfrac{\hspace{0.07cm} Max(X_k) - Min(X_k) \hspace{0.07cm}}{Max(X_k) - Min(X_k)} \hspace{0.1cm}=\hspace{0.1cm} 1 \\[0.8cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm} Min \left( X_k^{std(0,1)} \right) \hspace{0.1cm}=\hspace{0.1cm} \dfrac{\hspace{0.07cm} Min(X_k) - Min(X_k) \hspace{0.07cm}}{Max(X_k) - Min(X_k)} \hspace{0.1cm}=\hspace{0.1cm} 0\)</span></p></li>
+</ul>
+<p><br></p>
+<div id="standardization-01-in-python" class="section level4 hasAnchor" number="2.9.2.1">
+<h4><span class="header-section-number">2.9.2.1</span> Standardization (0,1) in <code>Python</code><a href="data-preprocessing.html#standardization-01-in-python" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="data-preprocessing.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Normalization(Data, Variable_name, <span class="bu">min</span>, <span class="bu">max</span>):</span>
+<span id="cb32-2"><a href="data-preprocessing.html#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="data-preprocessing.html#cb32-3" aria-hidden="true" tabindex="-1"></a>    min_max_scaler <span class="op">=</span> preprocessing.MinMaxScaler(feature_range<span class="op">=</span>(<span class="bu">min</span>,<span class="bu">max</span>))</span>
+<span id="cb32-4"><a href="data-preprocessing.html#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="data-preprocessing.html#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">min</span> <span class="op">=</span> <span class="bu">str</span>(<span class="bu">min</span>)</span>
+<span id="cb32-6"><a href="data-preprocessing.html#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">max</span> <span class="op">=</span> <span class="bu">str</span>(<span class="bu">max</span>)</span>
+<span id="cb32-7"><a href="data-preprocessing.html#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="data-preprocessing.html#cb32-8" aria-hidden="true" tabindex="-1"></a>    Data[Variable_name <span class="op">+</span> <span class="st">&#39;_norm_&#39;</span> <span class="op">+</span> <span class="bu">min</span> <span class="op">+</span> <span class="st">&#39;_&#39;</span> <span class="op">+</span> <span class="bu">max</span>] <span class="op">=</span> min_max_scaler.fit_transform(Data[[Variable_name]])</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="data-preprocessing.html#cb33-1" aria-hidden="true" tabindex="-1"></a>Normalization(Data<span class="op">=</span>Netflix_Data, Variable_name<span class="op">=</span><span class="st">&#39;release_year&#39;</span>, <span class="bu">min</span><span class="op">=</span><span class="dv">0</span>, <span class="bu">max</span><span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="data-preprocessing.html#cb34-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data[[<span class="st">&#39;release_year&#39;</span>, <span class="st">&#39;release_year_norm_0_1&#39;</span>]]</span></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+release_year
+</th>
+<th>
+release_year_norm_0_1
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+1945.0
+</td>
+<td>
+0.000000
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+1976.0
+</td>
+<td>
+0.402597
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+1972.0
+</td>
+<td>
+0.350649
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+1975.0
+</td>
+<td>
+0.389610
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+1967.0
+</td>
+<td>
+0.285714
+</td>
+</tr>
+<tr>
+<th>
+…
+</th>
+<td>
+…
+</td>
+<td>
+…
+</td>
+</tr>
+<tr>
+<th>
+5845
+</th>
+<td>
+2021.0
+</td>
+<td>
+0.987013
+</td>
+</tr>
+<tr>
+<th>
+5846
+</th>
+<td>
+2021.0
+</td>
+<td>
+0.987013
+</td>
+</tr>
+<tr>
+<th>
+5847
+</th>
+<td>
+2021.0
+</td>
+<td>
+0.987013
+</td>
+</tr>
+<tr>
+<th>
+5848
+</th>
+<td>
+2021.0
+</td>
+<td>
+0.987013
+</td>
+</tr>
+<tr>
+<th>
+5849
+</th>
+<td>
+2021.0
+</td>
+<td>
+0.987013
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+5850 rows × 2 columns
+</p>
+</div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="data-preprocessing.html#cb35-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data[<span class="st">&#39;release_year_norm_0_1&#39;</span>].<span class="bu">min</span>()</span></code></pre></div>
+<pre><code>0.0</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="data-preprocessing.html#cb37-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data[<span class="st">&#39;release_year_norm_0_1&#39;</span>].<span class="bu">max</span>()</span></code></pre></div>
+<pre><code>1.0</code></pre>
+<p><br></p>
+</div>
+</div>
+<div id="standardization-ab" class="section level3 hasAnchor" number="2.9.3">
+<h3><span class="header-section-number">2.9.3</span> Standardization (a,b)<a href="data-preprocessing.html#standardization-ab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Given a <strong>quantitative</strong> statistical variable <span class="math inline">\(\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}\)</span>, and a sample <span class="math inline">\(\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}\)</span> of that statistical variable.</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> The standardization a <span class="math inline">\(\hspace{0.05cm}(a,b)\hspace{0.05cm}\)</span> version of <span class="math inline">\(\hspace{0.07cm}X_k\hspace{0.07cm}\)</span> is defined as: <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p><span class="math display">\[X_k^{std(a,b)} \hspace{0.07cm}=\hspace{0.07cm} X_k^{std(0,1)} \cdot (b - a) + a \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> where: <span class="math inline">\(a, b \in \mathbb{R} \\\)</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><strong>Properties :</strong></p>
+<ul>
+<li><p><span class="math inline">\(\hspace{0.1cm} Max \left(X_k^{std(a,b)} \right) = b \\[0.8cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm} Min \left( X_k^{std(a,b)} \right) = a \\\)</span></p></li>
+</ul>
+<p><strong>Proof :</strong></p>
+<ul>
+<li><p><span class="math inline">\(\hspace{0.1cm} Max \left(X_k^{std(a,b)} \right) \hspace{0.07cm}=\hspace{0.07cm} Max \left(X_k^{std(0,1)} \right)\cdot (a-b)+b \hspace{0.07cm}=\hspace{0.07cm} 1\cdot (b-a)+a \hspace{0.07cm}=\hspace{0.07cm} b \\[0.8cm]\)</span></p></li>
+<li><p><span class="math inline">\(\hspace{0.1cm} Min \left(X_k^{std(a,b)} \right) \hspace{0.07cm}=\hspace{0.07cm} Min \left(X_k^{std(0,1)} \right)\cdot (a-b)+b \hspace{0.07cm}=\hspace{0.07cm} 0\cdot (b-a)+a \hspace{0.07cm}=\hspace{0.07cm} a\)</span></p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="standardization-ab-in-python" class="section level3 hasAnchor" number="2.9.4">
+<h3><span class="header-section-number">2.9.4</span> Standardization (a,b) in <code>Python</code><a href="data-preprocessing.html#standardization-ab-in-python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="data-preprocessing.html#cb39-1" aria-hidden="true" tabindex="-1"></a>Normalization(Data<span class="op">=</span>Netflix_Data, Variable_name<span class="op">=</span><span class="st">&#39;release_year&#39;</span>, <span class="bu">min</span><span class="op">=</span><span class="dv">2</span>, <span class="bu">max</span><span class="op">=</span><span class="dv">7</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="data-preprocessing.html#cb40-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data[[<span class="st">&#39;release_year&#39;</span>, <span class="st">&#39;release_year_norm_2_7&#39;</span>]]</span></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+release_year
+</th>
+<th>
+release_year_norm_2_7
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+1945.0
+</td>
+<td>
+2.000000
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+1976.0
+</td>
+<td>
+4.012987
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+1972.0
+</td>
+<td>
+3.753247
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+1975.0
+</td>
+<td>
+3.948052
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+1967.0
+</td>
+<td>
+3.428571
+</td>
+</tr>
+<tr>
+<th>
+…
+</th>
+<td>
+…
+</td>
+<td>
+…
+</td>
+</tr>
+<tr>
+<th>
+5845
+</th>
+<td>
+2021.0
+</td>
+<td>
+6.935065
+</td>
+</tr>
+<tr>
+<th>
+5846
+</th>
+<td>
+2021.0
+</td>
+<td>
+6.935065
+</td>
+</tr>
+<tr>
+<th>
+5847
+</th>
+<td>
+2021.0
+</td>
+<td>
+6.935065
+</td>
+</tr>
+<tr>
+<th>
+5848
+</th>
+<td>
+2021.0
+</td>
+<td>
+6.935065
+</td>
+</tr>
+<tr>
+<th>
+5849
+</th>
+<td>
+2021.0
+</td>
+<td>
+6.935065
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+5850 rows × 2 columns
+</p>
+</div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="data-preprocessing.html#cb41-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data[<span class="st">&#39;release_year_norm_2_7&#39;</span>].<span class="bu">min</span>()</span></code></pre></div>
+<pre><code>2.0</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="data-preprocessing.html#cb43-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data[<span class="st">&#39;release_year_norm_2_7&#39;</span>].<span class="bu">max</span>()</span></code></pre></div>
+<pre><code>6.999999999999986</code></pre>
+<p><br></p>
+</div>
+</div>
+<div id="standard-recoding-of-categorical-variables" class="section level2 hasAnchor" number="2.10">
+<h2><span class="header-section-number">2.10</span> Standard Recoding of Categorical Variables<a href="data-preprocessing.html#standard-recoding-of-categorical-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Given a <strong>categorical</strong> statistical variable <span class="math inline">\(\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}\)</span> with range <span class="math inline">\(\hspace{0.07cm}R( X_k) = \lbrace g_1, g_2 , ..., g_h \rbrace\hspace{0.07cm}\)</span>, and a sample <span class="math inline">\(\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}\)</span> of that statistical variable.</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> The standard recode of <span class="math inline">\(\hspace{0.07cm}X_k\hspace{0.07cm}\)</span> consists of obtaining a new sample <span class="math inline">\(\hspace{0.1cm}X_k^{cod}\hspace{0.1cm}\)</span> defined as :</p>
+<p><span class="math display">\[x_{ik}^{\hspace{0.07cm}cod} =  \left\lbrace\begin{array}{l} 0 \hspace{0.2cm} ,  \hspace{0.2cm} \text{ if} \hspace{0.3cm} x_{ik} = g_1 \\
+1 \hspace{0.2cm} ,  \hspace{0.2cm} \text{ if}  \hspace{0.3cm} x_{ik} = g_2 \\
+... \\
+h-1  \hspace{0.2cm} ,  \hspace{0.2cm} \text{ if}  \hspace{0.3cm} x_{ik} = g_h \end{array}\right. \\
+\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><strong>Properties :</strong></p>
+<ul>
+<li><span class="math inline">\(\hspace{0.1cm}R( X_k^{cod}) = \lbrace 0,1,..., h-1 \rbrace\)</span></li>
+</ul>
+<p><br></p>
+<div id="standard-recoding-of-categorical-variables-in-python" class="section level3 hasAnchor" number="2.10.1">
+<h3><span class="header-section-number">2.10.1</span> Standard Recoding of Categorical Variables in <code>Python</code><a href="data-preprocessing.html#standard-recoding-of-categorical-variables-in-python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="data-preprocessing.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> OrdinalEncoder</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="data-preprocessing.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Standard_recoding(Data, Variable_name) :</span>
+<span id="cb46-2"><a href="data-preprocessing.html#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="data-preprocessing.html#cb46-3" aria-hidden="true" tabindex="-1"></a>    Data[Variable_name <span class="op">+</span> <span class="st">&#39;_recode&#39;</span>] <span class="op">=</span> OrdinalEncoder().fit_transform(Data[[Variable_name]])</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="data-preprocessing.html#cb47-1" aria-hidden="true" tabindex="-1"></a>Standard_recoding(Data<span class="op">=</span>Netflix_Data , Variable_name <span class="op">=</span> <span class="st">&#39;type&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="data-preprocessing.html#cb48-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data.loc[ : , [<span class="st">&#39;type&#39;</span>,<span class="st">&#39;type_recode&#39;</span>]].head()</span></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+type
+</th>
+<th>
+type_recode
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+SHOW
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+MOVIE
+</td>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+MOVIE
+</td>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+MOVIE
+</td>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+MOVIE
+</td>
+<td>
+0.0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="data-preprocessing.html#cb49-1" aria-hidden="true" tabindex="-1"></a>Standard_recoding(Data<span class="op">=</span>Netflix_Data , Variable_name <span class="op">=</span> <span class="st">&#39;age_certification&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="data-preprocessing.html#cb50-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb50-2"><a href="data-preprocessing.html#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="data-preprocessing.html#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">11</span>):</span>
+<span id="cb50-4"><a href="data-preprocessing.html#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-5"><a href="data-preprocessing.html#cb50-5" aria-hidden="true" tabindex="-1"></a>    df2 <span class="op">=</span> Netflix_Data.loc[ Netflix_Data[<span class="st">&#39;age_certification_recode&#39;</span>] <span class="op">==</span> i , [<span class="st">&#39;age_certification&#39;</span>,<span class="st">&#39;age_certification_recode&#39;</span>]  ].head(<span class="dv">1</span>)</span>
+<span id="cb50-6"><a href="data-preprocessing.html#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-7"><a href="data-preprocessing.html#cb50-7" aria-hidden="true" tabindex="-1"></a>    df1 <span class="op">=</span> pd.concat([df1 , df2], axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="data-preprocessing.html#cb51-1" aria-hidden="true" tabindex="-1"></a>df1</span></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+age_certification
+</th>
+<th>
+age_certification_recode
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+162
+</th>
+<td>
+G
+</td>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<th>
+198
+</th>
+<td>
+NC-17
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+PG
+</td>
+<td>
+2.0
+</td>
+</tr>
+<tr>
+<th>
+11
+</th>
+<td>
+PG-13
+</td>
+<td>
+3.0
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+R
+</td>
+<td>
+4.0
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+TV-14
+</td>
+<td>
+5.0
+</td>
+</tr>
+<tr>
+<th>
+46
+</th>
+<td>
+TV-G
+</td>
+<td>
+6.0
+</td>
+</tr>
+<tr>
+<th>
+0
+</th>
+<td>
+TV-MA
+</td>
+<td>
+7.0
+</td>
+</tr>
+<tr>
+<th>
+35
+</th>
+<td>
+TV-PG
+</td>
+<td>
+8.0
+</td>
+</tr>
+<tr>
+<th>
+45
+</th>
+<td>
+TV-Y
+</td>
+<td>
+9.0
+</td>
+</tr>
+<tr>
+<th>
+95
+</th>
+<td>
+TV-Y7
+</td>
+<td>
+10.0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+</div>
+</div>
+<div id="categorization-of-quantitative-variables" class="section level2 hasAnchor" number="2.11">
+<h2><span class="header-section-number">2.11</span> Categorization of Quantitative Variables<a href="data-preprocessing.html#categorization-of-quantitative-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Given a <strong>quantitative</strong> statistical variable <span class="math inline">\(\hspace{0.05cm}\mathcal{X}_k\hspace{0.05cm}\)</span>, and a sample <span class="math inline">\(\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}\)</span> of that statistical variable.</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Categorization of <span class="math inline">\(\hspace{0.1cm}X_k\hspace{0.1cm}\)</span> consist of obtaining a new sample <span class="math inline">\(\hspace{0.1cm}X_k^{cat}\hspace{0.1cm}\)</span> defined as: <span class="math inline">\(\\[0.3cm]\)</span></p>
+<p><span class="math display">\[x_{ik}^{cat} =  \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in [L_0 , L_1) \\
+1 \hspace{0.3cm} , \hspace{0.3cm} \text{if}  \hspace{0.3cm} x_{ik} \in [L_1 , L_2)  \\
+... \\
+h-1  \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in [L_{h-1} , L_h) \end{array}\right. \\[1.3cm]
+\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> Another way of expressing it is: <span class="math inline">\(\\[0.3cm]\)</span></p>
+<p><span class="math display">\[x_{ik}^{cat} = r \hspace{0.3cm}  \Leftrightarrow \hspace{0.3cm}  x_{ik} \in [L_r , L_{r+1}) \\\]</span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> where:</p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <span class="math inline">\([L_0 , L_1) \hspace{0.03cm} , \hspace{0.03cm} [L_1 , L_2) \hspace{0.03cm}, \dots ,\hspace{0.03cm} [L_{h-1} , L_h] \hspace{0.12cm}\)</span> are called the categorization intervals of <span class="math inline">\(\hspace { 0.07cm}X_k\hspace{0.07cm}\)</span> , and are intervals with the following properties:</p>
+<ul>
+<li><p>They are disjoint two by two, that is, they do not share elements. <span class="math inline">\(\\[0.3cm]\)</span></p></li>
+<li><p>Every observation in the sample <span class="math inline">\(\hspace{0.1cm}X_k\hspace{0.1cm}\)</span> belongs to some interval.</p></li>
+</ul>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> As a consequence:</p>
+<ul>
+<li>Each element of <span class="math inline">\(\hspace{0.1cm}X_k\hspace{0.1cm}\)</span> belongs to a single interval. <span class="math inline">\(\\[0.15cm]\)</span></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<ul>
+<li><p><strong>¿How to define the categorization intervals?</strong></p>
+<p>There are different procedures to define the categorization intervals. Some of the most common are quantile-based rules.</p>
+<p>Next, we are going to expose some procedures based on quantiles and another alternative, Scott’s rule.</p></li>
+</ul>
+<p><br></p>
+<div id="mean-rule" class="section level3 hasAnchor" number="2.11.1">
+<h3><span class="header-section-number">2.11.1</span> Mean Rule<a href="data-preprocessing.html#mean-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Following the mean rule, the categorization intervals of a quantitative variable <span class="math inline">\(\hspace{0.1cm} X_k\hspace{0.1cm}\)</span> would be the following: <span class="math inline">\(\\[0.2cm]\)</span></p>
+<p><span class="math display">\[
+\left(\hspace{0.1cm} Min(X_k) \hspace{0.07cm}-\hspace{0.07cm} c \hspace{0.1cm} ,\hspace{0.1cm} \overline{X}_k \hspace{0.1cm}\right] \hspace{0.1cm},\hspace{0.1cm} \left(\hspace{0.1cm} \overline{X}_k \hspace{0.1cm},\hspace{0.1cm} Max(X_k) \hspace{0.1cm}\right] \\[0.6cm]
+\]</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> With the mean rule, the categorical version of <span class="math inline">\(\hspace{0.07cm}X_k\hspace{0.07cm}\)</span> is defined as: <span class="math inline">\(\\[0.3cm]\)</span></p>
+<p><span class="math display">\[x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \left(\hspace{0.1cm}Min(X_k)\hspace{0.1cm},\hspace{0.1cm} \overline{X}_k \hspace{0.1cm}\right]  \\
+1  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \left(\hspace{0.1cm}\overline{X}_k \hspace{0.1cm},\hspace{0.1cm} Max(X_j)\hspace{0.1cm}\right] \end{array}\right. \\[1cm]
+\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+</div>
+<div id="median-rule" class="section level3 hasAnchor" number="2.11.2">
+<h3><span class="header-section-number">2.11.2</span> Median Rule<a href="data-preprocessing.html#median-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Following the median rule, the categorization intervals of a quantitative variable <span class="math inline">\(\hspace{0.1cm} X_k\hspace{0.1cm}\)</span> would be the following: <span class="math inline">\(\\[0.2cm]\)</span></p>
+<p><span class="math display">\[
+\Bigl(\hspace{0.1cm} Min(X_k) \hspace{0.07cm}-\hspace{0.07cm} c \hspace{0.1cm} ,\hspace{0.1cm} Me({X}_k) \hspace{0.1cm}\Bigr] \hspace{0.1cm},\hspace{0.1cm} \Bigl(\hspace{0.1cm} Me({X}_k) \hspace{0.1cm},\hspace{0.1cm} Max(X_k) \hspace{0.1cm}\Bigr] \\[0.6cm]
+\]</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> With the mean rule, the categorical version of <span class="math inline">\(\hspace{0.07cm}X_k\hspace{0.07cm}\)</span> is defined as: <span class="math inline">\(\\[0.3cm]\)</span></p>
+<p><span class="math display">\[x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \Bigl(\hspace{0.1cm}Min(X_k)\hspace{0.1cm},\hspace{0.1cm} Me({X}_k) \hspace{0.1cm}\Bigr]  \\
+1  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl(\hspace{0.1cm} Me({X}_k) \hspace{0.1cm},\hspace{0.1cm} Max(X_j)\hspace{0.1cm}\Bigr] \end{array}\right. \\[1cm]
+\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+</div>
+<div id="quartiles-rule" class="section level3 hasAnchor" number="2.11.3">
+<h3><span class="header-section-number">2.11.3</span> Quartile’s Rule<a href="data-preprocessing.html#quartiles-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Following the quartile rule, the categorization intervals of a quantitative variable <span class="math inline">\(\hspace{0.1cm} X_k\hspace{0.1cm}\)</span> would be the following: <span class="math inline">\(\\[0.2cm]\)</span></p>
+<p><span class="math display">\[
+\Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.07cm}-\hspace{0.07cm} c \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr] \hspace{0.1cm},\hspace{0.1cm} \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr] \hspace{0.1cm},\hspace{0.1cm} \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.75 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr] \hspace{0.1cm},\hspace{0.1cm} \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.75 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Max(X_k) \hspace{0.1cm}\Bigr] \\[0.6cm]
+\]</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> With the mean rule, the categorical version of <span class="math inline">\(\hspace{0.07cm}X_k\hspace{0.07cm}\)</span> is defined as: <span class="math inline">\(\\[0.3cm]\)</span></p>
+<p><span class="math display">\[x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \Bigl(\hspace{0.1cm} Min(X_k) \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr)  \\[0.15cm]
+1  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.25 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\[0.15cm]
+2  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.50 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.75 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\[0.15cm]
+3  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.75 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Max(X_k) \hspace{0.1cm}\Bigr]
+\end{array}\right. \\[0.5cm]
+\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+</div>
+<div id="deciles-rule" class="section level3 hasAnchor" number="2.11.4">
+<h3><span class="header-section-number">2.11.4</span> Decile’s Rule<a href="data-preprocessing.html#deciles-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Following the quartile rule, the categorization intervals of a quantitative variable <span class="math inline">\(\hspace{0.1cm} X_k\hspace{0.1cm}\)</span> would be the following: <span class="math inline">\(\\[0.2cm]\)</span></p>
+<p><span class="math display">\[
+\Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.07cm}-\hspace{0.07cm} c \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr] \hspace{0.1cm},\hspace{0.1cm} \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.2 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr] \hspace{0.1cm},\hspace{0.1cm} \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.2 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.3 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr] \hspace{0.1cm}, \dots ,\hspace{0.1cm} \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.9 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr] \\[0.6cm]
+\]</span></p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p style="margin-left:1em;">
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> With the mean rule, the categorical version of <span class="math inline">\(\hspace{0.07cm}X_k\hspace{0.07cm}\)</span> is defined as: <span class="math inline">\(\\[0.3cm]\)</span></p>
+<p><span class="math display">\[x_{ik}^{\hspace{0.07cm}cat} \hspace{0.07cm}= \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ij} \in \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm} ,\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr)  \\[0.15cm]
+1  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.2 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\[0.15cm]
+2  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.2 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm}0.3 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr) \\
+\dots \\
+9  \hspace{0.3cm}  , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \in \Bigl(\hspace{0.1cm} Q(\hspace{0.03cm}0.9 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm},\hspace{0.1cm} Q(\hspace{0.03cm} 1 \hspace{0.03cm},\hspace{0.03cm} {X}_k \hspace{0.03cm}) \hspace{0.1cm}\Bigr]
+\end{array}\right. \\[0.5cm]
+\]</span></p>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+</div>
+<div id="quantiles-rule" class="section level3 hasAnchor" number="2.11.5">
+<h3><span class="header-section-number">2.11.5</span> Quantile’s Rule<a href="data-preprocessing.html#quantiles-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This rule is a generalization of the last two.</p>
+<p>Following quantile rule we have the following series of categorization intervals of <span class="math inline">\(\hspace{0.07cm}X_k\hspace{0.07cm}\)</span> : <span class="math inline">\(\\[0.25cm]\)</span></p>
+<p><span class="math display">\[\begin{align}
+&amp; \biggl\{ \hspace{0.1cm} \Bigl(   \hspace{0.07cm} Q(  \hspace{0.07cm} q_{\hspace{0.07cm}i}  \hspace{0.07cm} , X_k  \hspace{0.07cm} )  \hspace{0.07cm} - \hspace{0.07cm} c_i  \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}q_{\hspace{0.07cm}i+1} \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr] \hspace{0.2cm} : \hspace{0.2cm} i \in \lbrace 1,2,...,h \rbrace  \hspace{0.1cm} \biggr\} \hspace{0.2cm} = \\[0.5cm]  = \hspace{0.2cm} &amp;\biggl\{ \hspace{0.1cm} \Bigl(   \hspace{0.07cm} Q(  \hspace{0.07cm} q_1  \hspace{0.07cm} , X_k  \hspace{0.07cm} ) \hspace{0.07cm}+ \hspace{0.07cm} c      \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}q_{2} \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr] \hspace{0.1cm} , \hspace{0.1cm}  \Bigl(   \hspace{0.07cm} Q(  \hspace{0.07cm} q_2  \hspace{0.07cm} , X_k  \hspace{0.07cm} )     \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}q_{3} \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]         
+\hspace{0.1cm} , \hspace{0.1cm}  \dots  \hspace{0.1cm} , \hspace{0.1cm}
+\Bigl(   \hspace{0.07cm} Q(  \hspace{0.07cm} q_h  \hspace{0.07cm} , X_k  \hspace{0.07cm} )     \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}q_{h+1} \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]
+\hspace{0.1cm} \biggr\}
+\end{align}\]</span> <span class="math inline">\(\\[0.25cm]\)</span></p>
+<p>where:</p>
+<ul>
+<li><p><span class="math inline">\(t \in (0 , 1)\hspace{0.07cm}\)</span> is a parameter chosen by the analyst. <span class="math inline">\(\\[0.5cm]\)</span></p></li>
+<li><p><span class="math inline">\(q_{\hspace{0.07cm}i}\hspace{0.07cm}\)</span> is defined as follows:</p></li>
+</ul>
+<p><span class="math display">\[q_{\hspace{0.07cm}i} \hspace{0.07cm} = \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.4cm} i=1  \\[0.15cm]
+1 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.4cm} i\hspace{0.07cm}=\hspace{0.07cm}h+1  \\[0.15cm]
+  q_{\hspace{0.07cm} i-1} \hspace{0.07cm}+\hspace{0.07cm} t \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.4cm} i \in \lbrace 2,3,...,h \rbrace  
+\end{array}\right. \]</span> <span class="math inline">\(\\[0.5cm]\)</span></p>
+<ul>
+<li><span class="math inline">\(h\hspace{0.07cm}\)</span> is defined as follows:</li>
+</ul>
+<p><span class="math display">\[h \hspace{0.07cm} = \hspace{0.07cm} \left\lceil \dfrac{1}{t}\right\rceil\]</span> <span class="math inline">\(\\[0.5cm]\)</span></p>
+<ul>
+<li><span class="math inline">\(c_{\hspace{0.07cm}i} \hspace{0.07cm}\)</span> is defined as follows:</li>
+</ul>
+<p><span class="math display">\[c_{\hspace{0.07cm}i} \hspace{0.07cm} = \hspace{0.07cm} \left\lbrace\begin{array}{l} 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.4cm} i\neq 1  \\[0.15cm]
+c &gt; 0 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.4cm} i\hspace{0.07cm}=\hspace{0.07cm}1
+\end{array}\right. \]</span> <span class="math inline">\(\\[0.5cm]\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\lbrace \hspace{0.07cm}q_ i \hspace{0.07cm}:\hspace{0.07cm} i=1,...,h \hspace{0.07cm}\rbrace \hspace{0.07cm} = \hspace{0.07cm} \lbrace \hspace{0.07cm}q_1\hspace{0.07cm},\hspace{0.07cm} q_2\hspace{0.07cm}, \dots ,\hspace{0.07cm} q_h \hspace{0.07cm}\rbrace \hspace{0.2cm}\)</span> is an ordered set containing numbers between <span class="math inline">\(\hspace{0.07cm}0\hspace{0.07cm}\)</span> and <span class="math inline">\(\hspace{0.07cm}1\hspace{0.07cm}\)</span>, starting at <span class="math inline">\(\hspace{0.07cm}0\hspace{0.07cm}\)</span> and with a space of degree <span class="math inline">\(\hspace{0.07cm}t\hspace{0.07cm}\)</span> between them. That is, it is an ordered set with numbers between <span class="math inline">\(\hspace{0.07cm}0\hspace{0.07cm}\)</span> and <span class="math inline">\(\hspace{0.07cm}1\hspace{0.07cm}\)</span>, that starts at zero and its numbers are equispaced in degree <span class="math inline">\(\hspace{0.07cm}t\hspace{0.07cm}\)</span>.</p>
+<p>Formally, It’s an ordered set that starts at zero and it’s also a subset of <span class="math inline">\(\hspace{0.07cm}[0,1]\hspace{0.07cm}\)</span> because <span class="math inline">\(\hspace{0.12cm} q_1 = 0 \hspace{0.07cm}\leq\hspace{0.07cm} q_2 \hspace{0.07cm}\leq \dots \leq\hspace{0.07cm} q_h \hspace{0.07cm}\leq\hspace{0.07cm} 1\hspace{0.12cm}\)</span>. In the other hand, It’s equispaced in degree <span class="math inline">\(\hspace{0.07cm}t\hspace{0.07cm}\)</span> because <span class="math inline">\(\hspace{0.12cm}q_i - q_{i-1} = t\hspace{0.12cm}\)</span> , for <span class="math inline">\(\hspace{0.12cm}i = 2,...,h\)</span>.</p>
+<p>For example, if <span class="math inline">\(\hspace{0.12cm}t=0.15\hspace{0.12cm}\)</span>, then <span class="math inline">\(\lbrace\hspace{0.1cm} q_ i \hspace{0.1cm}:\hspace{0.1cm} i=1,...,h \hspace{0.07cm}\rbrace \hspace{0.07cm}=\hspace{0.07cm} \lbrace\hspace{0.07cm} 0\hspace{0.07cm},\hspace{0.07cm} 0.15\hspace{0.07cm},\hspace{0.07cm} 0.3\hspace{0.07cm},\hspace{0.07cm} 0.45\hspace{0.07cm},\hspace{0.07cm} 0.6\hspace{0.07cm},\hspace{0.07cm} 0.75\hspace{0.07cm},\hspace{0.07cm} 0.9 \hspace{0.07cm}\rbrace\)</span> <span class="math inline">\(\\[0.4cm]\)</span></p></li>
+</ul>
+<p>In order to understand in a better way this rule, we are going to derive manually the categorization intervals for two examples of <span class="math inline">\(\hspace{0.07cm}t\hspace{0.07cm}\)</span>. <span class="math inline">\(\\[0.35cm]\)</span></p>
+<p><strong>Example one: <span class="math inline">\(\hspace{0.2cm}t=0.15\)</span></strong> <span class="math inline">\(\\[0.45cm]\)</span></p>
+<ul>
+<li><p><span class="math inline">\(h = \left\lceil \dfrac{1}{0.15}\right\rceil = 7\)</span> <span class="math inline">\(\\[1cm]\)</span></p></li>
+<li><p><span class="math inline">\(q_1 = 0\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(q_2 = q_0 + t = 0 + 0.15 = 0.15\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(q_3 = q_1 + t = 0.15 + 0.15 = 0.3\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(q_4 = q_2 + t = 0.3 + 0.15 = 0.45\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(q_5 = q_3 + t = 0.45 + 0.15 = 0.6\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(q_6 = q_4 + t = 0.6 + 0.15 = 0.75\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(q_h = q_7 = q_7 + t = 0.75 + 0.15 = 0.9\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(q_{h+1} = q_8 = 1\)</span> <span class="math inline">\(\\[1cm]\)</span></p></li>
+<li><p>Therefore, the categorization intervals would be the following:</p></li>
+</ul>
+<p><span class="math display">\[\Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0  \hspace{0.07cm} , X_k  \hspace{0.07cm} )  \hspace{0.07cm}- \hspace{0.07cm} c \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm} 0.15 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]    \hspace{0.1cm} , \hspace{0.1cm}
+\Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0.15  \hspace{0.07cm} , X_k  \hspace{0.07cm} )     \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}0.3 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]  \hspace{0.1cm} , \hspace{0.1cm}
+\Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0.3  \hspace{0.07cm} , X_k  \hspace{0.07cm} )     \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}0.45 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]      \hspace{0.07cm} , \hspace{0.07cm} \dots \hspace{0.07cm} , \hspace{0.07cm} \Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0.9  \hspace{0.07cm} , X_k  \hspace{0.07cm} )     \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}1 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]    
+\]</span></p>
+<p><br></p>
+<p><strong>Example two: <span class="math inline">\(\hspace{0.1cm}t=0.25\)</span></strong></p>
+<p>We are going to see that in this case we will obtain the same categorization intervals as with the quartile rule.</p>
+<ul>
+<li><p><span class="math inline">\(h = \left\lceil \dfrac{1}{0.25}\right\rceil = 4\)</span> <span class="math inline">\(\\[1cm]\)</span></p></li>
+<li><p><span class="math inline">\(q_1 = 0\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(q_2 = q_0 + t = 0 + 0.25 = 0.25\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(q_3 = q_1 + t = 0.25 + 0.25 = 0.5\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(q_h = q_4 = q_2 + t = 0.5 + 0.25 = 0.75\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p><span class="math inline">\(q_{h+1} = q_5 = 1\)</span> <span class="math inline">\(\\[0.45cm]\)</span></p></li>
+<li><p>Therefore, the categorization intervals would be the following:</p></li>
+</ul>
+<p><span class="math display">\[\Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0  \hspace{0.07cm} , X_k  \hspace{0.07cm} )  \hspace{0.07cm}- \hspace{0.07cm} c \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm} 0.25 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]    \hspace{0.1cm} , \hspace{0.1cm}
+\Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0.25  \hspace{0.07cm} , X_k  \hspace{0.07cm} )     \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}0.5 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]  \hspace{0.1cm} , \hspace{0.1cm}
+\Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0.5  \hspace{0.07cm} , X_k  \hspace{0.07cm} )     \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}0.75 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]    \hspace{0.07cm} , \hspace{0.07cm} \Bigl( \hspace{0.07cm} Q(  \hspace{0.07cm} 0.75  \hspace{0.07cm} , X_k  \hspace{0.07cm} )    \hspace{0.12cm}, \hspace{0.12cm} Q( \hspace{0.07cm}1 \hspace{0.07cm}, \hspace{0.07cm} X_k \hspace{0.07cm})  \hspace{0.07cm} \Bigr]    
+\]</span> <span class="math inline">\(\\[0.5cm]\)</span></p>
+<p>Also It’s easy to see that if we had used <span class="math inline">\(t=0.1\)</span> we would have obtained the same categorization intervals as with the decile rule.</p>
+<p><br></p>
+</div>
+<div id="categorization-of-quantitative-variables-in-python" class="section level3 hasAnchor" number="2.11.6">
+<h3><span class="header-section-number">2.11.6</span> Categorization of Quantitative Variables in <code>Python</code><a href="data-preprocessing.html#categorization-of-quantitative-variables-in-python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="using-python-specific-rule" class="section level4 hasAnchor" number="2.11.6.1">
+<h4><span class="header-section-number">2.11.6.1</span> Using <code>Python</code> specific rule<a href="data-preprocessing.html#using-python-specific-rule" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb52-1"><a href="data-preprocessing.html#cb52-1" aria-hidden="true" tabindex="-1"></a>pd.cut(x<span class="op">=</span>Netflix_Data[<span class="st">&#39;release_year&#39;</span>] , bins<span class="op">=</span><span class="dv">5</span> )</span></code></pre></div>
+<pre><code>0       (1944.923, 1960.4]
+1         (1975.8, 1991.2]
+2         (1960.4, 1975.8]
+3         (1960.4, 1975.8]
+4         (1960.4, 1975.8]
+               ...        
+5845      (2006.6, 2022.0]
+5846      (2006.6, 2022.0]
+5847      (2006.6, 2022.0]
+5848      (2006.6, 2022.0]
+5849      (2006.6, 2022.0]
+Name: release_year, Length: 5850, dtype: category
+Categories (5, interval[float64, right]): [(1944.923, 1960.4] &lt; (1960.4, 1975.8] &lt; (1975.8, 1991.2] &lt; (1991.2, 2006.6] &lt; (2006.6, 2022.0]]</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb54-1"><a href="data-preprocessing.html#cb54-1" aria-hidden="true" tabindex="-1"></a>pd.cut(x<span class="op">=</span>Netflix_Data[<span class="st">&#39;release_year&#39;</span>] , bins<span class="op">=</span><span class="dv">5</span> , labels<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+<pre><code>0       0
+1       2
+2       1
+3       1
+4       1
+       ..
+5845    4
+5846    4
+5847    4
+5848    4
+5849    4
+Name: release_year, Length: 5850, dtype: int64</code></pre>
+</div>
+<div id="using-the-median-rule-in-python" class="section level4 hasAnchor" number="2.11.6.2">
+<h4><span class="header-section-number">2.11.6.2</span> Using the median rule in <code>Python</code><a href="data-preprocessing.html#using-the-median-rule-in-python" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb56"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb56-1"><a href="data-preprocessing.html#cb56-1" aria-hidden="true" tabindex="-1"></a>intervals <span class="op">=</span> [Netflix_Data[<span class="st">&#39;release_year&#39;</span>].<span class="bu">min</span>() <span class="op">-</span> <span class="fl">0.5</span> , Netflix_Data[<span class="st">&#39;release_year&#39;</span>].median(), Netflix_Data[<span class="st">&#39;release_year&#39;</span>].<span class="bu">max</span>() ]</span>
+<span id="cb56-2"><a href="data-preprocessing.html#cb56-2" aria-hidden="true" tabindex="-1"></a>intervals</span></code></pre></div>
+<pre><code>[1944.5, 2018.0, 2022.0]</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb58-1"><a href="data-preprocessing.html#cb58-1" aria-hidden="true" tabindex="-1"></a>pd.cut(x<span class="op">=</span>Netflix_Data[<span class="st">&#39;release_year&#39;</span>], bins<span class="op">=</span>intervals )</span></code></pre></div>
+<pre><code>0       (1944.5, 2018.0]
+1       (1944.5, 2018.0]
+2       (1944.5, 2018.0]
+3       (1944.5, 2018.0]
+4       (1944.5, 2018.0]
+              ...       
+5845    (2018.0, 2022.0]
+5846    (2018.0, 2022.0]
+5847    (2018.0, 2022.0]
+5848    (2018.0, 2022.0]
+5849    (2018.0, 2022.0]
+Name: release_year, Length: 5850, dtype: category
+Categories (2, interval[float64, right]): [(1944.5, 2018.0] &lt; (2018.0, 2022.0]]</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb60-1"><a href="data-preprocessing.html#cb60-1" aria-hidden="true" tabindex="-1"></a>pd.cut(x<span class="op">=</span>Netflix_Data[<span class="st">&#39;release_year&#39;</span>], bins<span class="op">=</span>intervals, labels<span class="op">=</span><span class="va">False</span> )</span></code></pre></div>
+<pre><code>0       0
+1       0
+2       0
+3       0
+4       0
+       ..
+5845    1
+5846    1
+5847    1
+5848    1
+5849    1
+Name: release_year, Length: 5850, dtype: int64</code></pre>
+</div>
+<div id="using-quartiles-rule" class="section level4 hasAnchor" number="2.11.6.3">
+<h4><span class="header-section-number">2.11.6.3</span> Using quartile’s rule<a href="data-preprocessing.html#using-quartiles-rule" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb62-1"><a href="data-preprocessing.html#cb62-1" aria-hidden="true" tabindex="-1"></a>intervals <span class="op">=</span> [Netflix_Data[<span class="st">&#39;release_year&#39;</span>].<span class="bu">min</span>() <span class="op">-</span> <span class="dv">1</span> , Netflix_Data[<span class="st">&#39;release_year&#39;</span>].quantile(<span class="fl">0.25</span>), Netflix_Data[<span class="st">&#39;release_year&#39;</span>].quantile(<span class="fl">0.5</span>), Netflix_Data[<span class="st">&#39;release_year&#39;</span>].quantile(<span class="fl">0.75</span>), Netflix_Data[<span class="st">&#39;release_year&#39;</span>].<span class="bu">max</span>()]</span>
+<span id="cb62-2"><a href="data-preprocessing.html#cb62-2" aria-hidden="true" tabindex="-1"></a>intervals</span></code></pre></div>
+<pre><code>[1944.0, 2016.0, 2018.0, 2020.0, 2022.0]</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb64-1"><a href="data-preprocessing.html#cb64-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data[<span class="st">&#39;release_year_cat_int_1&#39;</span>] <span class="op">=</span> pd.cut(x<span class="op">=</span>Netflix_Data[<span class="st">&#39;release_year&#39;</span>], bins<span class="op">=</span>intervals )</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb65-1"><a href="data-preprocessing.html#cb65-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data[<span class="st">&#39;release_year_cat_1&#39;</span>] <span class="op">=</span> pd.cut(x<span class="op">=</span>Netflix_Data[<span class="st">&#39;release_year&#39;</span>], bins<span class="op">=</span>intervals, labels<span class="op">=</span><span class="va">False</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb66-1"><a href="data-preprocessing.html#cb66-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data.loc[: , [<span class="st">&#39;release_year&#39;</span>,<span class="st">&#39;release_year_cat_int_1&#39;</span>,<span class="st">&#39;release_year_cat_1&#39;</span>]]</span></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+release_year
+</th>
+<th>
+release_year_cat_int
+</th>
+<th>
+release_year_cat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+1945.0
+</td>
+<td>
+(1944.0, 2016.0]
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+1976.0
+</td>
+<td>
+(1944.0, 2016.0]
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+1972.0
+</td>
+<td>
+(1944.0, 2016.0]
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+1975.0
+</td>
+<td>
+(1944.0, 2016.0]
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+1967.0
+</td>
+<td>
+(1944.0, 2016.0]
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+…
+</th>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+</tr>
+<tr>
+<th>
+5845
+</th>
+<td>
+2021.0
+</td>
+<td>
+(2020.0, 2022.0]
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<th>
+5846
+</th>
+<td>
+2021.0
+</td>
+<td>
+(2020.0, 2022.0]
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<th>
+5847
+</th>
+<td>
+2021.0
+</td>
+<td>
+(2020.0, 2022.0]
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<th>
+5848
+</th>
+<td>
+2021.0
+</td>
+<td>
+(2020.0, 2022.0]
+</td>
+<td>
+3
+</td>
+</tr>
+<tr>
+<th>
+5849
+</th>
+<td>
+2021.0
+</td>
+<td>
+(2020.0, 2022.0]
+</td>
+<td>
+3
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+5850 rows × 3 columns
+</p>
+</div>
+</div>
+<div id="using-deciles-rule" class="section level4 hasAnchor" number="2.11.6.4">
+<h4><span class="header-section-number">2.11.6.4</span> Using deciles rule<a href="data-preprocessing.html#using-deciles-rule" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb67-1"><a href="data-preprocessing.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb68-1"><a href="data-preprocessing.html#cb68-1" aria-hidden="true" tabindex="-1"></a>intervals <span class="op">=</span> []</span>
+<span id="cb68-2"><a href="data-preprocessing.html#cb68-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-3"><a href="data-preprocessing.html#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> q <span class="kw">in</span> np.arange(<span class="dv">0</span>, <span class="dv">1</span>, step<span class="op">=</span><span class="fl">0.1</span>) :</span>
+<span id="cb68-4"><a href="data-preprocessing.html#cb68-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-5"><a href="data-preprocessing.html#cb68-5" aria-hidden="true" tabindex="-1"></a>    intervals.append( Netflix_Data[<span class="st">&#39;imdb_score&#39;</span>].quantile(q))</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb69-1"><a href="data-preprocessing.html#cb69-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">0</span>, <span class="dv">1</span>, step<span class="op">=</span><span class="fl">0.1</span>)</span></code></pre></div>
+<pre><code>array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])</code></pre>
+<div class="sourceCode" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb71-1"><a href="data-preprocessing.html#cb71-1" aria-hidden="true" tabindex="-1"></a>intervals</span></code></pre></div>
+<pre><code>[1.5, 5.0, 5.6, 6.0, 6.3, 6.6, 6.9, 7.2, 7.5, 7.9]</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb73-1"><a href="data-preprocessing.html#cb73-1" aria-hidden="true" tabindex="-1"></a>intervals[<span class="dv">0</span>] <span class="op">=</span> intervals[<span class="dv">0</span>] <span class="op">-</span> <span class="fl">0.5</span> <span class="co"># El primer extremo debe ser Q(0) - c</span></span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb74-1"><a href="data-preprocessing.html#cb74-1" aria-hidden="true" tabindex="-1"></a>intervals.append(Netflix_Data[<span class="st">&#39;imdb_score&#39;</span>].quantile(<span class="dv">1</span>)) <span class="co"># El ultimo extremo debe ser Q(1)</span></span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb75-1"><a href="data-preprocessing.html#cb75-1" aria-hidden="true" tabindex="-1"></a>intervals</span></code></pre></div>
+<pre><code>[1.0, 5.0, 5.6, 6.0, 6.3, 6.6, 6.9, 7.2, 7.5, 7.9, 9.6]</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb77-1"><a href="data-preprocessing.html#cb77-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data[<span class="st">&#39;imdb_score_cat_int_1&#39;</span>] <span class="op">=</span> pd.cut(x<span class="op">=</span>Netflix_Data[<span class="st">&#39;imdb_score&#39;</span>], bins<span class="op">=</span>intervals )</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb78-1"><a href="data-preprocessing.html#cb78-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data[<span class="st">&#39;imdb_score_cat_1&#39;</span>] <span class="op">=</span> pd.cut(x<span class="op">=</span>Netflix_Data[<span class="st">&#39;imdb_score&#39;</span>], bins<span class="op">=</span>intervals, labels<span class="op">=</span><span class="va">False</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb79-1"><a href="data-preprocessing.html#cb79-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data.loc[: , [<span class="st">&#39;imdb_score&#39;</span>,<span class="st">&#39;imdb_score_cat_int_1&#39;</span>,<span class="st">&#39;imdb_score_cat_1&#39;</span>]]</span></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+imdb_score
+</th>
+<th>
+imdb_score_cat_int_1
+</th>
+<th>
+imdb_score_cat_1
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+8.2
+</td>
+<td>
+(7.9, 9.6]
+</td>
+<td>
+9.0
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+7.7
+</td>
+<td>
+(7.5, 7.9]
+</td>
+<td>
+8.0
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+8.2
+</td>
+<td>
+(7.9, 9.6]
+</td>
+<td>
+9.0
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+7.7
+</td>
+<td>
+(7.5, 7.9]
+</td>
+<td>
+8.0
+</td>
+</tr>
+<tr>
+<th>
+…
+</th>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+</tr>
+<tr>
+<th>
+5845
+</th>
+<td>
+6.8
+</td>
+<td>
+(6.6, 6.9]
+</td>
+<td>
+5.0
+</td>
+</tr>
+<tr>
+<th>
+5846
+</th>
+<td>
+7.7
+</td>
+<td>
+(7.5, 7.9]
+</td>
+<td>
+8.0
+</td>
+</tr>
+<tr>
+<th>
+5847
+</th>
+<td>
+3.8
+</td>
+<td>
+(1.0, 5.0]
+</td>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<th>
+5848
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+5849
+</th>
+<td>
+7.8
+</td>
+<td>
+(7.5, 7.9]
+</td>
+<td>
+8.0
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+5850 rows × 3 columns
+</p>
+</div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb80-1"><a href="data-preprocessing.html#cb80-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb80-2"><a href="data-preprocessing.html#cb80-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-3"><a href="data-preprocessing.html#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(Netflix_Data[<span class="st">&#39;imdb_score_cat_1&#39;</span>].unique())):</span>
+<span id="cb80-4"><a href="data-preprocessing.html#cb80-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-5"><a href="data-preprocessing.html#cb80-5" aria-hidden="true" tabindex="-1"></a>    df2 <span class="op">=</span> Netflix_Data.loc[ Netflix_Data.imdb_score_cat_1 <span class="op">==</span> i , [<span class="st">&#39;imdb_score_cat_int_1&#39;</span>,<span class="st">&#39;imdb_score_cat_1&#39;</span>]  ].head(<span class="dv">1</span>)</span>
+<span id="cb80-6"><a href="data-preprocessing.html#cb80-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-7"><a href="data-preprocessing.html#cb80-7" aria-hidden="true" tabindex="-1"></a>    df1 <span class="op">=</span> pd.concat([df1 , df2], axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb81-1"><a href="data-preprocessing.html#cb81-1" aria-hidden="true" tabindex="-1"></a>df1</span></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+imdb_score_cat_int_1
+</th>
+<th>
+imdb_score_cat_1
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+19
+</th>
+<td>
+(1.0, 5.0]
+</td>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<th>
+29
+</th>
+<td>
+(5.0, 5.6]
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+9
+</th>
+<td>
+(5.6, 6.0]
+</td>
+<td>
+2.0
+</td>
+</tr>
+<tr>
+<th>
+16
+</th>
+<td>
+(6.0, 6.3]
+</td>
+<td>
+3.0
+</td>
+</tr>
+<tr>
+<th>
+25
+</th>
+<td>
+(6.3, 6.6]
+</td>
+<td>
+4.0
+</td>
+</tr>
+<tr>
+<th>
+23
+</th>
+<td>
+(6.6, 6.9]
+</td>
+<td>
+5.0
+</td>
+</tr>
+<tr>
+<th>
+17
+</th>
+<td>
+(6.9, 7.2]
+</td>
+<td>
+6.0
+</td>
+</tr>
+<tr>
+<th>
+10
+</th>
+<td>
+(7.2, 7.5]
+</td>
+<td>
+7.0
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+(7.5, 7.9]
+</td>
+<td>
+8.0
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+(7.9, 9.6]
+</td>
+<td>
+9.0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="using-quantiles-rule" class="section level3 hasAnchor" number="2.11.7">
+<h3><span class="header-section-number">2.11.7</span> Using quantiles rule<a href="data-preprocessing.html#using-quantiles-rule" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb82"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb82-1"><a href="data-preprocessing.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Categorization_quantiles_rule(Data, Variable_name, t):</span>
+<span id="cb82-2"><a href="data-preprocessing.html#cb82-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb82-3"><a href="data-preprocessing.html#cb82-3" aria-hidden="true" tabindex="-1"></a>    intervals <span class="op">=</span> []</span>
+<span id="cb82-4"><a href="data-preprocessing.html#cb82-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb82-5"><a href="data-preprocessing.html#cb82-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> q <span class="kw">in</span> np.arange(<span class="dv">0</span>, <span class="dv">1</span>, step<span class="op">=</span>t) :</span>
+<span id="cb82-6"><a href="data-preprocessing.html#cb82-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb82-7"><a href="data-preprocessing.html#cb82-7" aria-hidden="true" tabindex="-1"></a>        intervals.append( Data[Variable_name].quantile(q))</span>
+<span id="cb82-8"><a href="data-preprocessing.html#cb82-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb82-9"><a href="data-preprocessing.html#cb82-9" aria-hidden="true" tabindex="-1"></a>    intervals[<span class="dv">0</span>] <span class="op">=</span> intervals[<span class="dv">0</span>] <span class="op">-</span> <span class="fl">0.5</span></span>
+<span id="cb82-10"><a href="data-preprocessing.html#cb82-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb82-11"><a href="data-preprocessing.html#cb82-11" aria-hidden="true" tabindex="-1"></a>    intervals.append(Data[Variable_name].quantile(<span class="dv">1</span>))</span>
+<span id="cb82-12"><a href="data-preprocessing.html#cb82-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb82-13"><a href="data-preprocessing.html#cb82-13" aria-hidden="true" tabindex="-1"></a>    Data[Variable_name <span class="op">+</span> <span class="st">&#39;_cat_interval&#39;</span>] <span class="op">=</span> pd.cut(x<span class="op">=</span>Data[Variable_name], bins<span class="op">=</span>intervals)</span>
+<span id="cb82-14"><a href="data-preprocessing.html#cb82-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb82-15"><a href="data-preprocessing.html#cb82-15" aria-hidden="true" tabindex="-1"></a>    Data[Variable_name <span class="op">+</span> <span class="st">&#39;_cat&#39;</span>] <span class="op">=</span> pd.cut(x<span class="op">=</span>Data[Variable_name], bins<span class="op">=</span>intervals, labels<span class="op">=</span><span class="va">False</span>) </span>
+<span id="cb82-16"><a href="data-preprocessing.html#cb82-16" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb83-1"><a href="data-preprocessing.html#cb83-1" aria-hidden="true" tabindex="-1"></a>Categorization_quantiles_rule(Data<span class="op">=</span>Netflix_Data, Variable_name<span class="op">=</span><span class="st">&#39;imdb_score&#39;</span>, t<span class="op">=</span><span class="fl">0.05</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb84-1"><a href="data-preprocessing.html#cb84-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data.loc[: , [<span class="st">&#39;imdb_score&#39;</span>,<span class="st">&#39;imdb_score_cat_int&#39;</span>,<span class="st">&#39;imdb_score_cat&#39;</span>]]</span></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+imdb_score
+</th>
+<th>
+imdb_score_cat_int_2
+</th>
+<th>
+imdb_score_cat_2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+8.2
+</td>
+<td>
+(7.9, 8.2]
+</td>
+<td>
+18.0
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+7.7
+</td>
+<td>
+(7.5, 7.7]
+</td>
+<td>
+16.0
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+8.2
+</td>
+<td>
+(7.9, 8.2]
+</td>
+<td>
+18.0
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+7.7
+</td>
+<td>
+(7.5, 7.7]
+</td>
+<td>
+16.0
+</td>
+</tr>
+<tr>
+<th>
+…
+</th>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+</tr>
+<tr>
+<th>
+5845
+</th>
+<td>
+6.8
+</td>
+<td>
+(6.6, 6.8]
+</td>
+<td>
+10.0
+</td>
+</tr>
+<tr>
+<th>
+5846
+</th>
+<td>
+7.7
+</td>
+<td>
+(7.5, 7.7]
+</td>
+<td>
+16.0
+</td>
+</tr>
+<tr>
+<th>
+5847
+</th>
+<td>
+3.8
+</td>
+<td>
+(1.0, 4.4]
+</td>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<th>
+5848
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+5849
+</th>
+<td>
+7.8
+</td>
+<td>
+(7.7, 7.9]
+</td>
+<td>
+17.0
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+5850 rows × 3 columns
+</p>
+</div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb85-1"><a href="data-preprocessing.html#cb85-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb85-2"><a href="data-preprocessing.html#cb85-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-3"><a href="data-preprocessing.html#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(Netflix_Data[<span class="st">&#39;imdb_score_cat_2&#39;</span>].unique())):</span>
+<span id="cb85-4"><a href="data-preprocessing.html#cb85-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-5"><a href="data-preprocessing.html#cb85-5" aria-hidden="true" tabindex="-1"></a>    df2 <span class="op">=</span> Netflix_Data.loc[ Netflix_Data.imdb_score_cat <span class="op">==</span> i , [<span class="st">&#39;imdb_score_cat_int_2&#39;</span>,<span class="st">&#39;imdb_score_cat_2&#39;</span>]  ].head(<span class="dv">1</span>)</span>
+<span id="cb85-6"><a href="data-preprocessing.html#cb85-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-7"><a href="data-preprocessing.html#cb85-7" aria-hidden="true" tabindex="-1"></a>    df1 <span class="op">=</span> pd.concat([df1 , df2], axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb86-1"><a href="data-preprocessing.html#cb86-1" aria-hidden="true" tabindex="-1"></a>df1 </span></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+imdb_score_cat_int_2
+</th>
+<th>
+imdb_score_cat_2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+19
+</th>
+<td>
+(1.0, 4.4]
+</td>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<th>
+33
+</th>
+<td>
+(4.4, 5.0]
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+29
+</th>
+<td>
+(5.0, 5.3]
+</td>
+<td>
+2.0
+</td>
+</tr>
+<tr>
+<th>
+74
+</th>
+<td>
+(5.3, 5.6]
+</td>
+<td>
+3.0
+</td>
+</tr>
+<tr>
+<th>
+9
+</th>
+<td>
+(5.6, 5.8]
+</td>
+<td>
+4.0
+</td>
+</tr>
+<tr>
+<th>
+69
+</th>
+<td>
+(5.8, 6.0]
+</td>
+<td>
+5.0
+</td>
+</tr>
+<tr>
+<th>
+16
+</th>
+<td>
+(6.0, 6.2]
+</td>
+<td>
+6.0
+</td>
+</tr>
+<tr>
+<th>
+79
+</th>
+<td>
+(6.2, 6.3]
+</td>
+<td>
+7.0
+</td>
+</tr>
+<tr>
+<th>
+25
+</th>
+<td>
+(6.3, 6.5]
+</td>
+<td>
+8.0
+</td>
+</tr>
+<tr>
+<th>
+31
+</th>
+<td>
+(6.5, 6.6]
+</td>
+<td>
+9.0
+</td>
+</tr>
+<tr>
+<th>
+23
+</th>
+<td>
+(6.6, 6.8]
+</td>
+<td>
+10.0
+</td>
+</tr>
+<tr>
+<th>
+44
+</th>
+<td>
+(6.8, 6.9]
+</td>
+<td>
+11.0
+</td>
+</tr>
+<tr>
+<th>
+46
+</th>
+<td>
+(6.9, 7.1]
+</td>
+<td>
+12.0
+</td>
+</tr>
+<tr>
+<th>
+17
+</th>
+<td>
+(7.1, 7.2]
+</td>
+<td>
+13.0
+</td>
+</tr>
+<tr>
+<th>
+11
+</th>
+<td>
+(7.2, 7.3]
+</td>
+<td>
+14.0
+</td>
+</tr>
+<tr>
+<th>
+10
+</th>
+<td>
+(7.3, 7.5]
+</td>
+<td>
+15.0
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+(7.5, 7.7]
+</td>
+<td>
+16.0
+</td>
+</tr>
+<tr>
+<th>
+32
+</th>
+<td>
+(7.7, 7.9]
+</td>
+<td>
+17.0
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+(7.9, 8.2]
+</td>
+<td>
+18.0
+</td>
+</tr>
+<tr>
+<th>
+5
+</th>
+<td>
+(8.2, 9.6]
+</td>
+<td>
+19.0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="math inline">\(\\\)</span></p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb87-1"><a href="data-preprocessing.html#cb87-1" aria-hidden="true" tabindex="-1"></a>Categorization_quantiles_rule(Data<span class="op">=</span>Netflix_Data, Variable_name<span class="op">=</span><span class="st">&#39;imdb_score&#39;</span>, t<span class="op">=</span><span class="fl">0.25</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb88-1"><a href="data-preprocessing.html#cb88-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data.loc[: , [<span class="st">&#39;imdb_score&#39;</span>,<span class="st">&#39;imdb_score_cat_interval&#39;</span>,<span class="st">&#39;imdb_score_cat&#39;</span>]]</span></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+imdb_score
+</th>
+<th>
+imdb_score_cat_interval
+</th>
+<th>
+imdb_score_cat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+8.2
+</td>
+<td>
+(7.3, 9.6]
+</td>
+<td>
+3.0
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+7.7
+</td>
+<td>
+(7.3, 9.6]
+</td>
+<td>
+3.0
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+8.2
+</td>
+<td>
+(7.3, 9.6]
+</td>
+<td>
+3.0
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+7.7
+</td>
+<td>
+(7.3, 9.6]
+</td>
+<td>
+3.0
+</td>
+</tr>
+<tr>
+<th>
+…
+</th>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+</tr>
+<tr>
+<th>
+5845
+</th>
+<td>
+6.8
+</td>
+<td>
+(6.6, 7.3]
+</td>
+<td>
+2.0
+</td>
+</tr>
+<tr>
+<th>
+5846
+</th>
+<td>
+7.7
+</td>
+<td>
+(7.3, 9.6]
+</td>
+<td>
+3.0
+</td>
+</tr>
+<tr>
+<th>
+5847
+</th>
+<td>
+3.8
+</td>
+<td>
+(1.0, 5.8]
+</td>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<th>
+5848
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+5849
+</th>
+<td>
+7.8
+</td>
+<td>
+(7.3, 9.6]
+</td>
+<td>
+3.0
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+5850 rows × 3 columns
+</p>
+</div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb89-1"><a href="data-preprocessing.html#cb89-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb89-2"><a href="data-preprocessing.html#cb89-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-3"><a href="data-preprocessing.html#cb89-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(Netflix_Data[<span class="st">&#39;imdb_score_cat&#39;</span>].unique())):</span>
+<span id="cb89-4"><a href="data-preprocessing.html#cb89-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-5"><a href="data-preprocessing.html#cb89-5" aria-hidden="true" tabindex="-1"></a>    df2 <span class="op">=</span> Netflix_Data.loc[ Netflix_Data.imdb_score_cat <span class="op">==</span> i , [<span class="st">&#39;imdb_score_cat_interval&#39;</span>,<span class="st">&#39;imdb_score_cat&#39;</span>]  ].head(<span class="dv">1</span>)</span>
+<span id="cb89-6"><a href="data-preprocessing.html#cb89-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-7"><a href="data-preprocessing.html#cb89-7" aria-hidden="true" tabindex="-1"></a>    df1 <span class="op">=</span> pd.concat([df1 , df2], axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb90-1"><a href="data-preprocessing.html#cb90-1" aria-hidden="true" tabindex="-1"></a>df1</span></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+imdb_score_cat_interval
+</th>
+<th>
+imdb_score_cat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+9
+</th>
+<td>
+(1.0, 5.8]
+</td>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<th>
+16
+</th>
+<td>
+(5.8, 6.6]
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+11
+</th>
+<td>
+(6.6, 7.3]
+</td>
+<td>
+2.0
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+(7.3, 9.6]
+</td>
+<td>
+3.0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="math inline">\(\\\)</span></p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb91-1"><a href="data-preprocessing.html#cb91-1" aria-hidden="true" tabindex="-1"></a>Categorization_quantiles_rule(Data<span class="op">=</span>Netflix_Data, Variable_name<span class="op">=</span><span class="st">&#39;imdb_score&#39;</span>, t<span class="op">=</span><span class="fl">0.1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb92-1"><a href="data-preprocessing.html#cb92-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data.loc[: , [<span class="st">&#39;imdb_score&#39;</span>,<span class="st">&#39;imdb_score_cat_interval&#39;</span>,<span class="st">&#39;imdb_score_cat&#39;</span>]]</span></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+imdb_score
+</th>
+<th>
+imdb_score_cat_interval
+</th>
+<th>
+imdb_score_cat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+8.2
+</td>
+<td>
+(7.9, 9.6]
+</td>
+<td>
+9.0
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+7.7
+</td>
+<td>
+(7.5, 7.9]
+</td>
+<td>
+8.0
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+8.2
+</td>
+<td>
+(7.9, 9.6]
+</td>
+<td>
+9.0
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+7.7
+</td>
+<td>
+(7.5, 7.9]
+</td>
+<td>
+8.0
+</td>
+</tr>
+<tr>
+<th>
+…
+</th>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+</tr>
+<tr>
+<th>
+5845
+</th>
+<td>
+6.8
+</td>
+<td>
+(6.6, 6.9]
+</td>
+<td>
+5.0
+</td>
+</tr>
+<tr>
+<th>
+5846
+</th>
+<td>
+7.7
+</td>
+<td>
+(7.5, 7.9]
+</td>
+<td>
+8.0
+</td>
+</tr>
+<tr>
+<th>
+5847
+</th>
+<td>
+3.8
+</td>
+<td>
+(1.0, 5.0]
+</td>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<th>
+5848
+</th>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+</tr>
+<tr>
+<th>
+5849
+</th>
+<td>
+7.8
+</td>
+<td>
+(7.5, 7.9]
+</td>
+<td>
+8.0
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+5850 rows × 3 columns
+</p>
+</div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb93-1"><a href="data-preprocessing.html#cb93-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb93-2"><a href="data-preprocessing.html#cb93-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-3"><a href="data-preprocessing.html#cb93-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="bu">len</span>(Netflix_Data[<span class="st">&#39;imdb_score_cat&#39;</span>].unique())):</span>
+<span id="cb93-4"><a href="data-preprocessing.html#cb93-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-5"><a href="data-preprocessing.html#cb93-5" aria-hidden="true" tabindex="-1"></a>    df2 <span class="op">=</span> Netflix_Data.loc[ Netflix_Data.imdb_score_cat <span class="op">==</span> i , [<span class="st">&#39;imdb_score_cat_interval&#39;</span>,<span class="st">&#39;imdb_score_cat&#39;</span>]  ].head(<span class="dv">1</span>)</span>
+<span id="cb93-6"><a href="data-preprocessing.html#cb93-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-7"><a href="data-preprocessing.html#cb93-7" aria-hidden="true" tabindex="-1"></a>    df1 <span class="op">=</span> pd.concat([df1 , df2], axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb94-1"><a href="data-preprocessing.html#cb94-1" aria-hidden="true" tabindex="-1"></a>df1</span></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+imdb_score_cat_interval
+</th>
+<th>
+imdb_score_cat
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+19
+</th>
+<td>
+(1.0, 5.0]
+</td>
+<td>
+0.0
+</td>
+</tr>
+<tr>
+<th>
+29
+</th>
+<td>
+(5.0, 5.6]
+</td>
+<td>
+1.0
+</td>
+</tr>
+<tr>
+<th>
+9
+</th>
+<td>
+(5.6, 6.0]
+</td>
+<td>
+2.0
+</td>
+</tr>
+<tr>
+<th>
+16
+</th>
+<td>
+(6.0, 6.3]
+</td>
+<td>
+3.0
+</td>
+</tr>
+<tr>
+<th>
+25
+</th>
+<td>
+(6.3, 6.6]
+</td>
+<td>
+4.0
+</td>
+</tr>
+<tr>
+<th>
+23
+</th>
+<td>
+(6.6, 6.9]
+</td>
+<td>
+5.0
+</td>
+</tr>
+<tr>
+<th>
+17
+</th>
+<td>
+(6.9, 7.2]
+</td>
+<td>
+6.0
+</td>
+</tr>
+<tr>
+<th>
+10
+</th>
+<td>
+(7.2, 7.5]
+</td>
+<td>
+7.0
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+(7.5, 7.9]
+</td>
+<td>
+8.0
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+(7.9, 9.6]
+</td>
+<td>
+9.0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><br></p>
+</div>
+</div>
+<div id="dummification-of-categorical-variables" class="section level2 hasAnchor" number="2.12">
+<h2><span class="header-section-number">2.12</span> Dummification of Categorical Variables<a href="data-preprocessing.html#dummification-of-categorical-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Given a <strong>categorical</strong> statistical variable <span class="math inline">\(\hspace{0.06cm}\mathcal{X}_k\hspace{0.05cm}\)</span> with range <span class="math inline">\(\hspace{0.06cm}R(\mathcal{X}_k)=\lbrace g_1 ,..., g_h \rbrace\hspace{0.06cm}\)</span> , and a sample <span class="math inline">\(\hspace{0.05cm}X_k \hspace{0.05cm} = \hspace{0.05cm} \left( \hspace{0.01cm} x_{1k} \hspace{0.01cm} , \hspace{0.01cm}x_{2k}\hspace{0.01cm},\dots ,\hspace{0.01cm} x_{nk} \hspace{0.01cm}\right)^t\hspace{0.05cm}\)</span> of that statistical variable.</p>
+<p>Dummify <span class="math inline">\(\hspace{0.06cm}X_k\hspace{0.06cm}\)</span> consist of obtaining the new dummy samples <span class="math inline">\(\hspace{0.06cm}X_{k\hspace{0.06cm}0}\hspace{0.06cm},\hspace{0.06cm}X_{k\hspace{0.06cm}1}\hspace{0.06cm},...,\hspace{0.06cm}X_{k \hspace{0.06cm}h-1}\hspace{0.06cm}\)</span>, where <span class="math inline">\(\hspace{0.06cm}X_{kj}\hspace{0.06cm}\)</span> is defined as:</p>
+<p><span class="math display">\[x_{i,kj} = \left\lbrace\begin{array}{l} 1 \hspace{0.3cm} , \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} = j \\[0.1cm] 0 \hspace{0.25cm}, \hspace{0.3cm} \text{ if} \hspace{0.3cm} x_{ik} \neq j  \end{array}\right.\]</span></p>
+<p>for <span class="math inline">\(\hspace{0.06cm}j\in \lbrace 0\hspace{0.06cm},\hspace{0.06cm}1\hspace{0.06cm},\dots ,\hspace{0.06cm}h-1 \rbrace\)</span></p>
+<p><br></p>
+<div id="dummification-of-categorical-variables-in-python" class="section level3 hasAnchor" number="2.12.1">
+<h3><span class="header-section-number">2.12.1</span> Dummification of Categorical Variables in <code>Python</code><a href="data-preprocessing.html#dummification-of-categorical-variables-in-python" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb95"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb95-1"><a href="data-preprocessing.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dummies(Data, Variable_name, drop_first<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb95-2"><a href="data-preprocessing.html#cb95-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-3"><a href="data-preprocessing.html#cb95-3" aria-hidden="true" tabindex="-1"></a>    df_dummies <span class="op">=</span> pd.get_dummies(Data[Variable_name], drop_first<span class="op">=</span>drop_first)</span>
+<span id="cb95-4"><a href="data-preprocessing.html#cb95-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-5"><a href="data-preprocessing.html#cb95-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df_dummies</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb96-1"><a href="data-preprocessing.html#cb96-1" aria-hidden="true" tabindex="-1"></a>dummies(Data<span class="op">=</span>Netflix_Data, Variable_name<span class="op">=</span><span class="st">&#39;type&#39;</span>)</span></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+MOVIE
+</th>
+<th>
+SHOW
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+0
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+1
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+1
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+1
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+1
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+…
+</th>
+<td>
+…
+</td>
+<td>
+…
+</td>
+</tr>
+<tr>
+<th>
+5845
+</th>
+<td>
+1
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+5846
+</th>
+<td>
+1
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+5847
+</th>
+<td>
+1
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+5848
+</th>
+<td>
+1
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+5849
+</th>
+<td>
+0
+</td>
+<td>
+1
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+5850 rows × 2 columns
+</p>
+</div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb97-1"><a href="data-preprocessing.html#cb97-1" aria-hidden="true" tabindex="-1"></a>dummies(Data<span class="op">=</span>Netflix_Data, Variable_name<span class="op">=</span><span class="st">&#39;age_certification&#39;</span>)</span></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+G
+</th>
+<th>
+NC-17
+</th>
+<th>
+PG
+</th>
+<th>
+PG-13
+</th>
+<th>
+R
+</th>
+<th>
+TV-14
+</th>
+<th>
+TV-G
+</th>
+<th>
+TV-MA
+</th>
+<th>
+TV-PG
+</th>
+<th>
+TV-Y
+</th>
+<th>
+TV-Y7
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+…
+</th>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+</tr>
+<tr>
+<th>
+5845
+</th>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+5846
+</th>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+5847
+</th>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+5848
+</th>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+5849
+</th>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+5850 rows × 11 columns
+</p>
+</div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb98-1"><a href="data-preprocessing.html#cb98-1" aria-hidden="true" tabindex="-1"></a>dummies(Data<span class="op">=</span>Netflix_Data, Variable_name<span class="op">=</span><span class="st">&#39;age_certification&#39;</span>, drop_first<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>
+</th>
+<th>
+NC-17
+</th>
+<th>
+PG
+</th>
+<th>
+PG-13
+</th>
+<th>
+R
+</th>
+<th>
+TV-14
+</th>
+<th>
+TV-G
+</th>
+<th>
+TV-MA
+</th>
+<th>
+TV-PG
+</th>
+<th>
+TV-Y
+</th>
+<th>
+TV-Y7
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+…
+</th>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+<td>
+…
+</td>
+</tr>
+<tr>
+<th>
+5845
+</th>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+5846
+</th>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+5847
+</th>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+5848
+</th>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+1
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<th>
+5849
+</th>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+5850 rows × 10 columns
+</p>
+</div>
+<p><br></p>
+</div>
+</div>
+<div id="dealing-with-nan" class="section level2 hasAnchor" number="2.13">
+<h2><span class="header-section-number">2.13</span> Dealing with NaN <a class="anchor" id="1"></a><a href="data-preprocessing.html#dealing-with-nan" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="deleting-rows-with-nan" class="section level3 hasAnchor" number="2.13.1">
+<h3><span class="header-section-number">2.13.1</span> Deleting Rows with NaN<a href="data-preprocessing.html#deleting-rows-with-nan" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="deleting-columns-with-nan" class="section level3 hasAnchor" number="2.13.2">
+<h3><span class="header-section-number">2.13.2</span> Deleting Columns with NaN<a href="data-preprocessing.html#deleting-columns-with-nan" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><br></p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="statistical-description.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
