@@ -335,11 +335,145 @@ div.csl-indent {
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="data-preprocessing.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="data-preprocessing.html#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="data-preprocessing.html#cb1-3" aria-hidden="true" tabindex="-1"></a>Netflix_Data <span class="op">=</span> pd.read_csv(<span class="st">&#39;titles.csv&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="data-preprocessing.html#cb2-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="data-preprocessing.html#cb2-1" aria-hidden="true" tabindex="-1"></a>Netflix_Data.head(<span class="dv">5</span>)</span></code></pre></div>
 <div style="overflow-x: auto;">
-<table border="1" class="dataframe">
+<table>
+<colgroup>
+<col width="1%" />
+<col width="3%" />
+<col width="11%" />
+<col width="1%" />
+<col width="32%" />
+<col width="3%" />
+<col width="4%" />
+<col width="2%" />
+<col width="13%" />
+<col width="6%" />
+<col width="2%" />
+<col width="3%" />
+<col width="3%" />
+<col width="3%" />
+<col width="4%" />
+<col width="3%" />
+</colgroup>
 <thead>
-<tr style="text-align: right;">
+<tr class="header">
+<th align="right"></th>
+<th align="left">id</th>
+<th align="left">title</th>
+<th align="left">type</th>
+<th align="left">description</th>
+<th>release_year</th>
+<th>age_certification</th>
+<th align="right">runtime</th>
+<th align="left">genres</th>
+<th align="left">production_countries</th>
+<th align="right">seasons</th>
+<th align="left">imdb_id</th>
+<th align="right">imdb_score</th>
+<th align="right">imdb_votes</th>
+<th align="right">tmdb_popularity</th>
+<th align="right">tmdb_score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="left">ts300399</td>
+<td align="left">Five Came Back: The Reference Films</td>
+<td align="left">SHOW</td>
+<td align="left">This collection includes 12 World War II-era propaganda films directed by Frank Capra, John Huston and other Hollywood greats.</td>
+<td>1945.0</td>
+<td>TV-MA</td>
+<td align="right">51</td>
+<td align="left">[‘documentation’]</td>
+<td align="left">[‘US’]</td>
+<td align="right">1</td>
+<td align="left">NaN</td>
+<td align="right">NaN</td>
+<td align="right">NaN</td>
+<td align="right">0.600</td>
+<td align="right">NaN</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="left">tm84618</td>
+<td align="left">Taxi Driver</td>
+<td align="left">MOVIE</td>
+<td align="left">A mentally unstable Vietnam War veteran works as a nighttime taxi driver in New York City where the perceived decadence and sleaze feeds his urge for violent action.</td>
+<td>1976.0</td>
+<td>R</td>
+<td align="right">114</td>
+<td align="left">[‘drama’, ‘crime’]</td>
+<td align="left">[‘US’]</td>
+<td align="right">NaN</td>
+<td align="left">tt0075314</td>
+<td align="right">8.2</td>
+<td align="right">808582.0</td>
+<td align="right">40.965</td>
+<td align="right">8.179</td>
+</tr>
+<tr class="odd">
+<td align="right">2</td>
+<td align="left">tm154986</td>
+<td align="left">Deliverance</td>
+<td align="left">MOVIE</td>
+<td align="left">Intent on seeing the Cahulawassee River before it’s dammed and turned into a lake, outdoor fanatic Lewis Medlock takes his friends on a river-rafting trip they’ll never forget.</td>
+<td>1972.0</td>
+<td>R</td>
+<td align="right">109</td>
+<td align="left">[‘drama’, ‘action’, ‘thriller’, ‘european’]</td>
+<td align="left">[‘US’]</td>
+<td align="right">NaN</td>
+<td align="left">tt0068473</td>
+<td align="right">7.7</td>
+<td align="right">107673.0</td>
+<td align="right">10.010</td>
+<td align="right">7.300</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="left">tm127384</td>
+<td align="left">Monty Python and the Holy Grail</td>
+<td align="left">MOVIE</td>
+<td align="left">King Arthur, accompanied by his squire, recruits his Knights of the Round Table, including Sir Bedevere the Wise, Sir Lancelot the Brave, Sir Robin the Not-Quite-So-Brave-as-Sir-Launcelot and Sir Galahad the Pure.</td>
+<td>1975.0</td>
+<td>PG</td>
+<td align="right">91</td>
+<td align="left">[‘fantasy’, ‘action’, ‘comedy’]</td>
+<td align="left">[‘GB’]</td>
+<td align="right">NaN</td>
+<td align="left">tt0071853</td>
+<td align="right">8.2</td>
+<td align="right">534486.0</td>
+<td align="right">15.461</td>
+<td align="right">7.811</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="left">tm120801</td>
+<td align="left">The Dirty Dozen</td>
+<td align="left">MOVIE</td>
+<td align="left">A US Army Major is assigned a dozen convicted murderers to train and lead them into a mass assassination mission of German officers in World War II.</td>
+<td>1967.0</td>
+<td>NaN</td>
+<td align="right">150</td>
+<td align="left">[‘war’, ‘action’]</td>
+<td align="left">[‘GB’, ‘US’]</td>
+<td align="right">NaN</td>
+<td align="left">tt0061578</td>
+<td align="right">7.7</td>
+<td align="right">72662.0</td>
+<td align="right">20.398</td>
+<td align="right">7.600</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="overflow-x: auto;">
+<table border="1" class="dataframe" style="text-align: center !important;">
+<thead>
+<tr style="text-align: center;">
 <th>
 </th>
 <th>
