@@ -4,13 +4,13 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 k-means | K-means</title>
+  <title>Chapter 3 K-means | K-means</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 k-means | K-means" />
+  <meta property="og:title" content="Chapter 3 K-means | K-means" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
@@ -19,7 +19,7 @@ set in the _output.yml file.</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 k-means | K-means" />
+  <meta name="twitter:title" content="Chapter 3 K-means | K-means" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
@@ -29,7 +29,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Fabio Scielzo Ortiz" />
 
 
-<meta name="date" content="2023-03-26" />
+<meta name="date" content="2023-03-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -80,13 +80,14 @@ set in the _output.yml file.</p>" />
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="unsupervised-classification-problem.html"><a href="unsupervised-classification-problem.html"><i class="fa fa-check"></i><b>2</b> Unsupervised Classification Problem</a></li>
-<li class="chapter" data-level="3" data-path="k-means.html"><a href="k-means.html"><i class="fa fa-check"></i><b>3</b> k-means</a>
+<li class="chapter" data-level="3" data-path="k-means.html"><a href="k-means.html"><i class="fa fa-check"></i><b>3</b> K-means</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="k-means.html"><a href="k-means.html#clusters-interpretation"><i class="fa fa-check"></i><b>3.1</b> Clusters interpretation</a></li>
-<li class="chapter" data-level="3.2" data-path="k-means.html"><a href="k-means.html#clustering-validation-algorithms"><i class="fa fa-check"></i><b>3.2</b> Clustering validation algorithms</a></li>
-<li class="chapter" data-level="3.3" data-path="k-means.html"><a href="k-means.html#ajuste-del-hiper-parametro-k"><i class="fa fa-check"></i><b>3.3</b> Ajuste del hiper-parametro k</a></li>
-<li class="chapter" data-level="3.4" data-path="k-means.html"><a href="k-means.html#k-means-programmed-in-python"><i class="fa fa-check"></i><b>3.4</b> K-means programmed in <code>Python</code></a></li>
-<li class="chapter" data-level="3.5" data-path="k-means.html"><a href="k-means.html#k-means-with-sklearn"><i class="fa fa-check"></i><b>3.5</b> K-means with <code>sklearn</code></a></li>
+<li class="chapter" data-level="3.1" data-path="k-means.html"><a href="k-means.html#k-means-algorithm"><i class="fa fa-check"></i><b>3.1</b> K-means algorithm</a></li>
+<li class="chapter" data-level="3.2" data-path="k-means.html"><a href="k-means.html#clusters-interpretation"><i class="fa fa-check"></i><b>3.2</b> Clusters interpretation</a></li>
+<li class="chapter" data-level="3.3" data-path="k-means.html"><a href="k-means.html#clustering-validation-algorithms"><i class="fa fa-check"></i><b>3.3</b> Clustering validation algorithms</a></li>
+<li class="chapter" data-level="3.4" data-path="k-means.html"><a href="k-means.html#ajuste-del-hiper-parametro-k"><i class="fa fa-check"></i><b>3.4</b> Ajuste del hiper-parametro k</a></li>
+<li class="chapter" data-level="3.5" data-path="k-means.html"><a href="k-means.html#k-means-programmed-in-python"><i class="fa fa-check"></i><b>3.5</b> K-means programmed in <code>Python</code></a></li>
+<li class="chapter" data-level="3.6" data-path="k-means.html"><a href="k-means.html#k-means-with-sklearn"><i class="fa fa-check"></i><b>3.6</b> K-means with <code>sklearn</code></a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="bibliographi.html"><a href="bibliographi.html"><i class="fa fa-check"></i><b>4</b> Bibliographi</a></li>
 <li class="divider"></li>
@@ -110,89 +111,105 @@ set in the _output.yml file.</p>" />
 
             <section class="normal" id="section-">
 <div id="k-means" class="section level1 hasAnchor" number="3">
-<h1><span class="header-section-number">Chapter 3</span> k-means<a href="k-means.html#k-means" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<h1><span class="header-section-number">Chapter 3</span> K-means<a href="k-means.html#k-means" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>K-means is an unsupervised classification algorithm, in the sense that it allows solving unsupervised classification problems.</p>
 <p>Next, a formal description of the algorithm will be made. But first, it should be noted that there are several versions of K-means, and here, the version proposed by Park and Jun in the paper referenced in the bibliography, will be taken .</p>
 <p><br></p>
-<p><strong>K-means</strong></p>
+<div id="k-means-algorithm" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> K-means algorithm<a href="k-means.html#k-means-algorithm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The response variable <span class="math inline">\(\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}\)</span> is considered to have <span class="math inline">\(\hspace{0.02cm} k\hspace{0.02cm}\)</span> categories <span class="math inline">\(\hspace{0.02cm } g_1,...,g_k\hspace{0.01 cm}\)</span> .</p>
 <div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
 <p><span></p>
 <ul>
-<li><p>It’s considered that the response variable <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> has <span class="math inline">\(\hspace{0.1cm} k\hspace{0.1cm}\)</span> categories <span class="math inline">\(\hspace{0.1cm}g_1,...,g_k\)</span></p></li>
-<li><p><strong>Initial clusters definition.</strong></p></li>
-<li><p>The available observations of the predictors are randomly assigned to one of the response categories, this is how the the initial clusters <span class="math inline">\(\hspace{0.1cm} C_1,...,C_k\hspace{0.1cm}\)</span> are built.</p>
+<li><p><strong>1) Initial clusters definition.</strong></p>
 <ul>
-<li>The clusters must be of similar size, all the observations in the sample must belong to some cluster, and two different clusters must not contain the same observation.</li>
-</ul>
-<p>Formally, the clusters will be defined as follows:</p>
-<p><span class="math display">\[C_r = \Bigl( \hspace{0.12cm} x_i^t = (x_{i1},...,x_{ip}) \hspace{0.2cm}: \hspace{0.2cm} i \in I_r \subset \lbrace 1,...,n \rbrace \hspace{0.12cm} \Bigr)^t \\\]</span></p>
-<p>Where:</p>
-<p><span class="math display">\[\# I(C_r) \hspace{0.1cm} \approx \hspace{0.1cm} \# I(C_h) \hspace{0.25cm} , \hspace{0.25cm}  \forall r\neq h \in \lbrace 1,...,n\rbrace\]</span></p>
-<p><span class="math display">\[\overset{n}{\underset{r=1}{\cup}}  I(C_r) \hspace{0.1cm}=\hspace{0.1cm} \lbrace 1,...,n\rbrace \\\]</span></p>
-<p><span class="math display">\[I(C_r) \cap I(C_h) \hspace{0.1cm}=\hspace{0.1cm} \varnothing \hspace{0.25cm} , \hspace{0.25cm}  \forall r\neq h \in \lbrace 1,...,n\rbrace\]</span></p>
-<pre><code>$I_r$ is randomly defined in this first stage. 
-
-
-
-- $I(C_r)\hspace{0.1cm}$ es el conjunto de indices de las observaciones de los predictores que pertenecen al cluster $\hspace{0.1cm}C_r$. $\hspace{0.08cm}$ Por lo que puede verse como el conjunto de los individuos de la muestra que están asociados al cluster $\hspace{0.1cm} C_r \\$
-
-
--  $C_r\hspace{0.1cm}$ es un vector cuyas componentes son vectores fila, luego es una matriz. Como además estos vectores fila son observaciones de variables estadisticas, puede verse como una matriz de datos. </code></pre></li>
-<li><p><strong>Computing the centroids of the initial clusters</strong></p>
+<li><p>The available observations of the predictors are randomly assigned to one of the response categories, this is how the the initial clusters <span class="math inline">\(\hspace{0.1cm} C_1,...,C_k\hspace{0.1cm}\)</span> are built.</p></li>
+<li><p>The clusters must be of similar size, all the observations in the sample must belong to some cluster, and two different clusters must not contain the same observation.</p></li>
+<li><p>Formally, the cluster <span class="math inline">\(C_r\)</span> will be defined as follows:</p>
+<p><span class="math display">\[C_r = \Bigl( \hspace{0.12cm} x_i^t = (x_{i1},...,x_{ip}) \hspace{0.2cm}: \hspace{0.2cm} i \in I_r \subset \lbrace 1,...,n \rbrace \hspace{0.12cm} \Bigr)^t\]</span></p>
+<p>where:</p>
 <ul>
-<li>The centroids of the initial clusters are computed.</li>
-</ul>
-<p>The <strong>centroid</strong> of the cluster <span class="math inline">\(\hspace{0.1cm} C_r\hspace{0.1cm}\)</span> is defined in K-means as the mean of the cluster observation. if the observation are <span class="math inline">\(\hspace{0.1cm}p\)</span>-dimensional, the centroid will be a mean vector.</p>
-<p>The <strong>centroid</strong> of the cluster <span class="math inline">\(\hspace{0.1cm}C_r\hspace{0.1cm}\)</span> is defined as <span class="math inline">\(\hspace{0.2cm}\overline{x}_{C_r} = \left( \overline{X \hspace{0.1cm}}_{1, C_r} ,...,\overline{X\hspace{0.1cm}}_{p, C_r} \right)\)</span></p>
-<p>Where:</p>
-<p><span class="math display">\[X_{j , C_r } = (\hspace{0.1cm} x_{ij} \hspace{0.1cm}/\hspace{0.1cm} i\in I_r \hspace{0.1cm})  \hspace{0.2cm} , \hspace{0.2cm} \forall j\in \lbrace 1,...,p \rbrace\]</span></p>
-<p>is the sample observations if the variable <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}\)</span> that belong to the cluster <span class="math inline">\(\hspace{0.1cm}C_r\)</span> <span class="math inline">\(\\[0.8cm]\)</span></p>
-<p><span class="math inline">\(\hspace{1cm}\)</span> Therefore, <span class="math inline">\(\hspace{0.1cm}\overline{X \hspace{0.1cm}}_{j, C_r}\hspace{0.1cm}\)</span> is the mean of the observations of <span class="math inline">\(\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}\)</span> that belong to the cluster <span class="math inline">\(\hspace{0.1cm}C_r\)</span> .</p></li>
-<li><p><strong>Computing the sum of intra-clusters variances</strong></p>
-<p>Given a distance measure <span class="math inline">\(\hspace{0.1cm}\delta\hspace{0.1cm}\)</span> defined for each pair <span class="math inline">\(\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}\)</span> of observations of the predictors, the <strong>sum if intra-clusters variances</strong> for the clusters configuration <span class="math inline">\(\hspace{0.1cm}C_1,...,C_k\hspace{0.1cm}\)</span> is defined as follows:</p>
-<p><span class="math display">\[V(C_1,...,C_k) = \sum_{r=1}^{k} \hspace{0.2cm} \sum_{i \in I_r} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_r}) \\\]</span></p>
-<p><span class="math inline">\(\hspace{0.12cm}V(C_1,...,C_k)\hspace{0.12cm}\)</span>, is the metric based on which the stopping criteria will be defined.</p>
-<ul>
-<li>Measures how similar are the observations that belong to the same cluster. The lower it is, the more similar they are, and vice versa.</li>
+<li><p><span class="math inline">\(\# I_r \hspace{0.1cm} \approx \hspace{0.1cm} \# I_h \hspace{0.25cm} , \hspace{0.25cm} \forall r\neq h \in \lbrace 1,...,n\rbrace\)</span></p></li>
+<li><p><span class="math inline">\(\overset{n}{\underset{r=1}{\cup}} I_r \hspace{0.1cm}=\hspace{0.1cm} \lbrace 1,...,n\rbrace\)</span></p></li>
+<li><p><span class="math inline">\(I_r \cap I_h \hspace{0.1cm}=\hspace{0.1cm} \varnothing \hspace{0.25cm} , \hspace{0.25cm} \forall r\neq h \in \lbrace 1,...,n\rbrace\)</span></p></li>
+<li><p><span class="math inline">\(I_r\hspace{0.05cm}\)</span> is the set with the index of the predictors observations that belongs to the cluster <span class="math inline">\(\hspace{0.02cm}C_r\hspace{0.02cm}\)</span>. So, it can be seen as the set of the individuals associated to the cluster <span class="math inline">\(\hspace{0.02cm} C_r\)</span> .</p></li>
+<li><p><span class="math inline">\(I_r\hspace{0.05cm}\)</span> is randomly defined in this first stage.</p></li>
+<li><p><span class="math inline">\(C_r\hspace{0.05cm}\)</span> is a vector whose components are row vectors, so, is a matrix. As in addition that vectors are observations of the predictors, it can be seen as a data matrix.</p></li>
 </ul></li>
-<li><p><strong>Reassignment of observations to clusters</strong></p>
-<ul>
-<li><p><span class="math inline">\(\hspace{0.12cm} \delta(x_i , \overline{x}_{C_r}) \hspace{0.02cm}\)</span> is computed.</p></li>
-<li><p><span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> is reassigned to it’s nearest cluster.</p></li>
-<li><p>Formally, <span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> is reassigned to the cluster <span class="math inline">\(\hspace{0.12cm}C_{r^*}\)</span></p></li>
+</ul></li>
 </ul>
-<p>Where:</p>
-<p><span class="math display">\[r^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{r}{Min} \hspace{0.16cm} \delta(x_i , \overline{x}_{C_r} )\]</span></p>
+<p><br></p>
 <ul>
-<li><p>Then, <span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> es is reassigned to the cluster <span class="math inline">\(\hspace{0.12cm}C_{r^*}\hspace{0.12cm}\)</span>, which could be the same cluster that it already belonged to, or not.</p></li>
-<li><p>Once all the observations <span class="math inline">\(\hspace{0.12cm}x_1,...,x_n\hspace{0.12cm}\)</span> have been reassigned, a new configuration of clusters <span class="math inline">\(\hspace{0.12cm}C_1^{1 },... is obtained. ,C_k^{1 }\hspace{0.12cm}\)</span> , which, in general, will be different from the previous one.</p></li>
+<li><p><strong>2) Computing the centroids of the initial clusters.</strong></p>
+<p>In this step,the centroids of the initial clusters are computed.</p>
+<ul>
+<li><p>The <strong>centroid</strong> of the cluster <span class="math inline">\(\hspace{0.02cm} C_r\hspace{0.02cm}\)</span> is defined in K-means as the mean of the cluster observations. So, if the observation are <span class="math inline">\(\hspace{0.02cm}p\)</span>-dimensional, the centroid will be a mean vector.</p></li>
+<li><p>Formally, the <strong>centroid</strong> of the cluster <span class="math inline">\(\hspace{0.02cm}C_r\hspace{0.02cm}\)</span> is defined as <span class="math inline">\(\hspace{0.05cm}\overline{x}_{C_r} = \left(\hspace{0.04cm} \overline{X \hspace{0.1cm}}_{1, C_r} ,...,\overline{X\hspace{0.1cm}}_{p, C_r}\hspace{0.02cm} \right)\)</span></p>
+<p>where:</p>
+<p><span class="math display">\[X_{j , C_r } = \bigl(\hspace{0.1cm} x_{ij} \hspace{0.15cm}:\hspace{0.15cm} i\in I_r \hspace{0.1cm} \bigr)  \hspace{0.3cm} , \hspace{0.3cm} \forall j\in \lbrace 1,...,p \rbrace\]</span></p>
+<p>is the sample of observations of the variable <span class="math inline">\(\hspace{0.02cm}\mathcal{X}_j\hspace{0.02cm}\)</span> that belong to the cluster <span class="math inline">\(\hspace{0.02cm}C_r\hspace{0.02cm}\)</span>.</p>
+<p>Therefore, <span class="math inline">\(\hspace{0.02cm}\overline{X \hspace{0.01cm}}_{j, C_r}\hspace{0.04cm}\)</span> is the mean of the observations of <span class="math inline">\(\hspace{0.02cm}\mathcal{X}_j\hspace{0.02cm}\)</span> that belong to the cluster <span class="math inline">\(\hspace{0.02cm}C_r\)</span> .</p></li>
+</ul></li>
 </ul>
+<p><br></p>
+<ul>
+<li><p><strong>3) Computing the sum of intra-clusters variances.</strong></p>
+<ul>
+<li><p>Given a distance measure <span class="math inline">\(\hspace{0.02cm}\delta\hspace{0.02cm}\)</span> defined for each pair <span class="math inline">\(\hspace{0.2cm}(x_i,x_r)\hspace{0.2cm}\)</span> of observations of the predictors, the <strong>sum of intra-clusters variances</strong> for the clusters configuration <span class="math inline">\(\hspace{0.02cm}C_1,...,C_k\hspace{0.02cm}\)</span> is defined as follows:</p>
+<p><span class="math display">\[V(C_1,...,C_k)  \hspace{0.1cm}= \hspace{0.1cm} \sum_{r=1}^{k} \hspace{0.2cm} \sum_{i \in I_r} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_r}) \\\]</span></p>
+<p><span class="math inline">\(V(C_1,...,C_k)\hspace{0.12cm}\)</span>, is the metric based on which the stopping criteria will be defined.</p></li>
+<li><p>It measures how similar are the observations that belong to a same cluster. The lower it is, the more similar they are, and vice versa.</p></li>
+</ul></li>
+</ul>
+<p><br></p>
+<ul>
+<li><p><strong>4) Reassignment of observations to clusters.</strong></p>
+<ul>
+<li><p><span class="math inline">\(\hspace{0.03cm} \delta(x_i , \overline{x}_{C_r}) \hspace{0.02cm}\)</span> is computed.</p></li>
+<li><p><span class="math inline">\(\hspace{0.03cm}x_i\hspace{0.12cm}\)</span> is reassigned to it’s nearest cluster.</p></li>
+<li><p>Formally, <span class="math inline">\(\hspace{0.02cm}x_i\hspace{0.02cm}\)</span> is reassigned to the cluster <span class="math inline">\(\hspace{0.02cm}C_{r^*}\)</span></p>
+<p>where:</p>
+<p><span class="math display">\[r^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.14cm} \underset{r }{Min} \hspace{0.16cm} \delta(x_i , \overline{x}_{C_r} ) \hspace{0.3cm} ,  \hspace{0.3cm} h \in \lbrace 1,..., k \rbrace\]</span></p>
+<p>Then, <span class="math inline">\(\hspace{0.02cm}x_i\hspace{0.02cm}\)</span> es is reassigned to the cluster <span class="math inline">\(\hspace{0.02cm}C_{r^*}\hspace{0.02cm}\)</span>, which could be the same cluster that it already belonged to, or not.</p></li>
+<li><p>Once all the observations <span class="math inline">\(\hspace{0.02cm}x_1,...,x_n\hspace{0.02cm}\)</span> have been reassigned, a new configuration of clusters <span class="math inline">\(\hspace{0.02cm}C_1^{1 },... ,C_k^{1 }\hspace{0.02cm}\)</span> is obtained. , which, in general, will be different from the previous one.</p>
 <p>The superscript 1 indicates that this new cluster configuration was obtained in the first iteration of the algorithm.</p></li>
-<li><p><strong>Computing the centroids of the new clusters</strong></p>
-<ul>
-<li>The centroids of the new clusters are computed :</li>
-</ul>
-<p><span class="math display">\[\overline{x}_{C_r^1} = \left( \overline{X \hspace{0.1cm}}_{1, C_r^1} ,...,\overline{X\hspace{0.1cm}}_{p, C_r^1} \right)\]</span></p>
-<p>for <span class="math inline">\(\hspace{0.1cm} r\in \lbrace 1,..., k \rbrace\)</span></p></li>
-<li><p><strong>Computing the sum of the intra-clusters variances for the new clusters</strong></p>
-<ul>
-<li>The sum of intra-clusters variances is competed for the new clusters configuration, that was obtained in the previous step:</li>
-</ul>
-<p><span class="math display">\[V(C_1^{1 },...,C_k^{1 })\]</span></p></li>
-<li><p><strong>Iterate steps 4) , 5) and 6)</strong></p>
-<ul>
-<li>Steps <strong>4)</strong> , <strong>5)</strong> and <strong>6)</strong> are iterate a number <span class="math inline">\(\hspace{0.1cm}b\hspace{0.1cm}\)</span> of times, so are obtained <span class="math inline">\(\hspace{0.1cm}b\hspace{0.1cm}\)</span> clusters configurations, and with it <span class="math inline">\(\hspace{0.1cm}b\hspace{0.1cm}\)</span> values of the sum of the intra-clusters variances.</li>
 </ul></li>
+</ul>
+<p><br></p>
+<ul>
+<li><p><strong>5) Computing the centroids of the new clusters.</strong></p>
+<ul>
+<li><p>The centroids of the new clusters are computed:</p>
+<p><span class="math display">\[\overline{x}_{C_r^1} \hspace{0.1cm}=\hspace{0.1cm} \left(\hspace{0.04cm} \overline{X \hspace{0.01cm}}_{1, C_r^1} ,...,\overline{X\hspace{0.01cm}}_{p, C_r^1} \right) \hspace{0.3cm} , \hspace{0.3cm} r\in \lbrace 1,..., k \rbrace\]</span></p></li>
+</ul></li>
+</ul>
+<p><br></p>
+<ul>
+<li><p><strong>6) Computing the sum of the intra-clusters variances for the new clusters.</strong></p>
+<ul>
+<li><p>The sum of intra-clusters variances is competed for the new clusters configuration, that was obtained in the previous step:</p>
+<p><span class="math display">\[V(C_1^{1 },...,C_k^{1 })\]</span></p></li>
+</ul></li>
+</ul>
+<p><br></p>
+<ul>
+<li><p><strong>7) Iterate steps 4) , 5) and 6).</strong></p>
+<ul>
+<li>Steps <strong>4)</strong> , <strong>5)</strong> and <strong>6)</strong> are iterate a <span class="math inline">\(\hspace{0.02cm}b\hspace{0.02cm}\)</span> times, so are obtained <span class="math inline">\(\hspace{0.02cm}b\hspace{0.02cm}\)</span> clusters configurations, and with it <span class="math inline">\(\hspace{0.02cm}b\hspace{0.02cm}\)</span> values of the sum of the intra-clusters variances.</li>
+</ul></li>
+</ul>
+<p><br></p>
+<ul>
 <li><p><strong>8) Selecting the optimal clusters configuration</strong></p>
 <ul>
-<li>Once the previous steps are done, a total of b+2$ clusters configurations have been obtained <span class="math inline">\(\hspace{0.1cm}\Rightarrow \hspace{0.1cm} b\hspace{0.1cm}\)</span> in step <strong>5)</strong> , <span class="math inline">\(1\)</span> in step <strong>1)</strong> and <span class="math inline">\(1\)</span> in step <strong>4)</strong>.</li>
+<li>Once the previous steps are done, a total of <span class="math inline">\(\hspace{0.02cm}b+2\hspace{0.02cm}\)</span> clusters configurations have been obtained <span class="math inline">\(\hspace{0.1cm}\Rightarrow \hspace{0.1cm} b\hspace{0.1cm}\)</span> in step <strong>5)</strong> , <span class="math inline">\(1\)</span> in step <strong>1)</strong> and <span class="math inline">\(1\)</span> in step <strong>4)</strong>:</li>
 </ul>
-<p><span class="math display">\[\left\lbrace \hspace{0.15cm} V(C_1^{h},....,C_k^h) \hspace{0.12cm} / \hspace{0.12cm} h \in \lbrace 1,...,b+2\rbrace \hspace{0.15cm} \right\rbrace\]</span></p>
+<p><span class="math display">\[\Bigl\lbrace \hspace{0.1cm} V(C_1^{h},....,C_k^h) \hspace{0.15cm} : \hspace{0.15cm} h \in \lbrace 1,...,b+2\rbrace \hspace{0.1cm} \Bigr\rbrace\]</span></p>
 <ul>
 <li><p>The clusters configuration that minimize the sum of intra-clusters variances is selected as optimal configuration.</p></li>
-<li><p>Formally, the clusters configuration <span class="math inline">\(\hspace{0.1cm} C_1^{h^*},...,C_k^{h^*}\)</span> is selected as optimal.</p></li>
-<li><p>Where:</p>
-<p><span class="math display">\[h^*  \hspace{0.15cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{h}{Min} \hspace{0.16cm} V(C_1^{h},....,C_k^h)\]</span></p></li>
+<li><p>Formally, the clusters configuration <span class="math inline">\(\hspace{0.1cm} C_1^{h^*},...,C_k^{h^*}\)</span> is selected as optimal.</p>
+<p>where:</p>
+<p>$<span class="math inline">\(h^* \hspace{0.15cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{h }{Min} \hspace{0.16cm} V(C_1^{h},....,C_k^h) \hspace{0.3cm} , \hspace{0.3cm} h \in \lbrace 1,..., b+2 \rbrace\)</span></p></li>
 </ul></li>
 </ul>
 </p>
@@ -215,29 +232,30 @@ set in the _output.yml file.</p>" />
 </ul></li>
 </ul>
 <p><br></p>
-<div id="clusters-interpretation" class="section level2 hasAnchor" number="3.1">
-<h2><span class="header-section-number">3.1</span> Clusters interpretation<a href="k-means.html#clusters-interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="clusters-interpretation" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Clusters interpretation<a href="k-means.html#clusters-interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The mean could be compute for the quantitative variables grouped by each optimal cluster. And the mode for the categorical ones, grouped by the same. Then we can make an interpretation of each cluster comparing these values.</p>
 <p><br></p>
 </div>
-<div id="clustering-validation-algorithms" class="section level2 hasAnchor" number="3.2">
-<h2><span class="header-section-number">3.2</span> Clustering validation algorithms<a href="k-means.html#clustering-validation-algorithms" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="clustering-validation-algorithms" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Clustering validation algorithms<a href="k-means.html#clustering-validation-algorithms" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>One of the most popular clustering validation algorithm is the Silhouette.</p>
 <p>This topic will be seen in an specific article about clustering validation.</p>
 <p><br></p>
 </div>
-<div id="ajuste-del-hiper-parametro-k" class="section level2 hasAnchor" number="3.3">
-<h2><span class="header-section-number">3.3</span> Ajuste del hiper-parametro k<a href="k-means.html#ajuste-del-hiper-parametro-k" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="ajuste-del-hiper-parametro-k" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Ajuste del hiper-parametro k<a href="k-means.html#ajuste-del-hiper-parametro-k" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>An optimal fit of the hyper-parameter <span class="math inline">\(k\)</span> can be done using the Silhouette algorithm.</p>
 <p>As before, this question will be addressed in future articles.</p>
 <p><br></p>
 </div>
-<div id="k-means-programmed-in-python" class="section level2 hasAnchor" number="3.4">
-<h2><span class="header-section-number">3.4</span> K-means programmed in <code>Python</code><a href="k-means.html#k-means-programmed-in-python" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="k-means-programmed-in-python" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> K-means programmed in <code>Python</code><a href="k-means.html#k-means-programmed-in-python" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><br></p>
 </div>
-<div id="k-means-with-sklearn" class="section level2 hasAnchor" number="3.5">
-<h2><span class="header-section-number">3.5</span> K-means with <code>sklearn</code><a href="k-means.html#k-means-with-sklearn" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="k-means-with-sklearn" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> K-means with <code>sklearn</code><a href="k-means.html#k-means-with-sklearn" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><br></p>
 </div>
 </div>

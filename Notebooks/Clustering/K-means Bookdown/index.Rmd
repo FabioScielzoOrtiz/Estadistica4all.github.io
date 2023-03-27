@@ -32,7 +32,7 @@ github-repo: rstudio/bookdown-demo
 
 - **More articles: $\hspace{0.1cm}$ [Estadistica4all](https://estadistica4all.com/)**
 
-- **Author:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](https://estadistica4all.com/creador.html)
+- **Author:** $\hspace{0.1cm}$ [Fabio Scielzo Ortiz](https:/estadistica4all.com/creador.html)
 
 - **It's recommended to open the article on a computer, tablet or on a phone in desktop version.**
 
@@ -57,7 +57,7 @@ An unsupervised classification problem is an statistical problem that consist on
 
 
 
-- We have $\hspace{0.02cm}p\hspace{0.02cm}$ predictors  $\hspace{0.02cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.02cm}$ and a **categorical** response variable $\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}$ for which we haven't any data sample. 
+- We have $\hspace{0.02cm}p\hspace{0.02cm}$ predictors  $\hspace{0.02cm}\mathcal{X}_1 ,...,\mathcal{X}_p\hspace{0.02cm}$ and a **categorical** response variable $\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}$ for which we haven't any data sample. 
 
 
 - We have an $\hspace{0.02cm}n\hspace{0.02cm}$ size sample of the $\hspace{0.02cm}p\hspace{0.02cm}$ predictors $\hspace{0.02cm}X_1,...,X_p\hspace{0.02cm}$  but we haven't a sample for the response, and we also don't know it's range.
@@ -86,7 +86,7 @@ An unsupervised classification problem is an statistical problem that consist on
 <br>
 
 
-# k-means
+# K-means 
 
 K-means is an unsupervised classification algorithm, in the sense that it allows solving unsupervised classification problems.
 
@@ -99,150 +99,151 @@ Next, a formal description of the algorithm will be made. But first, it should b
 
 <br>
 
+## K-means algorithm
 
-**K-means**    
-
+The response variable $\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}$ is considered to have $\hspace{0.02cm} k\hspace{0.02cm}$ categories $\hspace{0.02cm } g_1,...,g_k\hspace{0.01 cm}$ .
 
 <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
 <span>
 
- 
-- It's considered that the response variable  $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ has $\hspace{0.1cm} k\hspace{0.1cm}$ categories $\hspace{0.1cm}g_1,...,g_k$ 
 
+- **1) Initial clusters definition.**
 
-- **Initial clusters definition.**
-
- - The available observations of the predictors are randomly assigned to one of the response categories, this is how the the initial clusters $\hspace{0.1cm} C_1,...,C_k\hspace{0.1cm}$ are built.
+    - The available observations of the predictors are randomly assigned to one of the response categories, this is how the the initial clusters $\hspace{0.1cm} C_1,...,C_k\hspace{0.1cm}$ are built.
 
     - The clusters must be of similar size, all the observations in the sample must belong to some cluster, and two different clusters must not contain the same observation.  
 
        
-    Formally, the clusters will be defined as follows:
+    - Formally, the cluster $C_r$ will be defined as follows:
 
-    $$C_r = \Bigl( \hspace{0.12cm} x_i^t = (x_{i1},...,x_{ip}) \hspace{0.2cm}: \hspace{0.2cm} i \in I_r \subset \lbrace 1,...,n \rbrace \hspace{0.12cm} \Bigr)^t \\$$
+      $$C_r = \Bigl( \hspace{0.12cm} x_i^t = (x_{i1},...,x_{ip}) \hspace{0.2cm}: \hspace{0.2cm} i \in I_r \subset \lbrace 1,...,n \rbrace \hspace{0.12cm} \Bigr)^t$$
 
-    Where: 
+      where: 
 
-    $$\# I(C_r) \hspace{0.1cm} \approx \hspace{0.1cm} \# I(C_h) \hspace{0.25cm} , \hspace{0.25cm}  \forall r\neq h \in \lbrace 1,...,n\rbrace$$
+      - $\# I_r \hspace{0.1cm} \approx \hspace{0.1cm} \# I_h \hspace{0.25cm} , \hspace{0.25cm}  \forall r\neq h \in \lbrace 1,...,n\rbrace$
 
-    $$\overset{n}{\underset{r=1}{\cup}}  I(C_r) \hspace{0.1cm}=\hspace{0.1cm} \lbrace 1,...,n\rbrace \\$$
+      - $\overset{n}{\underset{r=1}{\cup}}  I_r \hspace{0.1cm}=\hspace{0.1cm} \lbrace 1,...,n\rbrace$
 
-      $$I(C_r) \cap I(C_h) \hspace{0.1cm}=\hspace{0.1cm} \varnothing \hspace{0.25cm} , \hspace{0.25cm}  \forall r\neq h \in \lbrace 1,...,n\rbrace$$
+      - $I_r \cap I_h \hspace{0.1cm}=\hspace{0.1cm} \varnothing \hspace{0.25cm} , \hspace{0.25cm}  \forall r\neq h \in \lbrace 1,...,n\rbrace$
+      
+      - $I_r\hspace{0.05cm}$ is the set with the index of the predictors observations that belongs to the cluster $\hspace{0.02cm}C_r\hspace{0.02cm}$. So, it can be seen as the set of the individuals associated to the cluster  $\hspace{0.02cm} C_r$ .
 
-       $I_r$ is randomly defined in this first stage. 
-
-
-
-       - $I(C_r)\hspace{0.1cm}$ es el conjunto de indices de las observaciones de los predictores que pertenecen al cluster $\hspace{0.1cm}C_r$. $\hspace{0.08cm}$ Por lo que puede verse como el conjunto de los individuos de la muestra que están asociados al cluster $\hspace{0.1cm} C_r \\$
+      - $I_r\hspace{0.05cm}$   is randomly defined in this first stage.  
 
 
-       -  $C_r\hspace{0.1cm}$ es un vector cuyas componentes son vectores fila, luego es una matriz. Como además estos vectores fila son observaciones de variables estadisticas, puede verse como una matriz de datos. 
+       -  $C_r\hspace{0.05cm}$ is a vector whose components are row vectors, so, is a matrix. As in addition that vectors are  observations of the predictors, it can be seen as a data matrix.  
        
 
+<br>
 
 
-
-- **Computing the centroids of the initial clusters**
-
-
-    -  The centroids of the initial clusters are computed.
-
-    The **centroid** of the cluster $\hspace{0.1cm} C_r\hspace{0.1cm}$ is defined in K-means as the mean of the cluster observation.  if the observation are  $\hspace{0.1cm}p$-dimensional, the centroid will be a mean vector.
+- **2) Computing the centroids of the initial clusters.**
 
 
-    The **centroid** of the  cluster $\hspace{0.1cm}C_r\hspace{0.1cm}$ is defined as $\hspace{0.2cm}\overline{x}_{C_r} = \left( \overline{X \hspace{0.1cm}}_{1, C_r} ,...,\overline{X\hspace{0.1cm}}_{p, C_r} \right)$
+    In this step,the centroids of the initial clusters are computed.
 
-    Where:
+    - The **centroid** of the cluster $\hspace{0.02cm} C_r\hspace{0.02cm}$ is defined in K-means as the mean of the cluster observations. So, if the observation are  $\hspace{0.02cm}p$-dimensional, the centroid will be a mean vector.
 
-    $$X_{j , C_r } = (\hspace{0.1cm} x_{ij} \hspace{0.1cm}/\hspace{0.1cm} i\in I_r \hspace{0.1cm})  \hspace{0.2cm} , \hspace{0.2cm} \forall j\in \lbrace 1,...,p \rbrace$$
 
-    is the sample observations if the variable $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ that belong to the cluster $\hspace{0.1cm}C_r$ $\\[0.8cm]$
+    - Formally, the **centroid** of the  cluster $\hspace{0.02cm}C_r\hspace{0.02cm}$ is defined as $\hspace{0.05cm}\overline{x}_{C_r} = \left(\hspace{0.04cm} \overline{X \hspace{0.1cm}}_{1, C_r} ,...,\overline{X\hspace{0.1cm}}_{p, C_r}\hspace{0.02cm} \right)$
+
+      where:
+
+      $$X_{j , C_r } = \bigl(\hspace{0.1cm} x_{ij} \hspace{0.15cm}:\hspace{0.15cm} i\in I_r \hspace{0.1cm} \bigr)  \hspace{0.3cm} , \hspace{0.3cm} \forall j\in \lbrace 1,...,p \rbrace$$
+
+      is the  sample of observations   of the variable $\hspace{0.02cm}\mathcal{X}_j\hspace{0.02cm}$ that belong to the cluster $\hspace{0.02cm}C_r\hspace{0.02cm}$.  
     
-    $\hspace{1cm}$ Therefore,   $\hspace{0.1cm}\overline{X \hspace{0.1cm}}_{j, C_r}\hspace{0.1cm}$ is the mean of the observations of $\hspace{0.1cm}\mathcal{X}_j\hspace{0.1cm}$ that belong to the cluster $\hspace{0.1cm}C_r$ .
+      Therefore,   $\hspace{0.02cm}\overline{X \hspace{0.01cm}}_{j, C_r}\hspace{0.04cm}$ is the mean of the observations of $\hspace{0.02cm}\mathcal{X}_j\hspace{0.02cm}$ that belong to the cluster $\hspace{0.02cm}C_r$ .
 
 
- 
+ <br>
 
 
-- **Computing the sum of intra-clusters variances**
+- **3) Computing the sum of intra-clusters variances.**
 
 
-    Given a distance measure $\hspace{0.1cm}\delta\hspace{0.1cm}$ defined for each pair $\hspace{0.1cm}(x_i,x_r)\hspace{0.1cm}$ of observations of the predictors, the **sum if intra-clusters variances** for the clusters configuration $\hspace{0.1cm}C_1,...,C_k\hspace{0.1cm}$ is defined as follows:
+    - Given a distance measure $\hspace{0.02cm}\delta\hspace{0.02cm}$ defined for each pair $\hspace{0.2cm}(x_i,x_r)\hspace{0.2cm}$ of observations of the predictors, the **sum of intra-clusters variances** for the clusters configuration $\hspace{0.02cm}C_1,...,C_k\hspace{0.02cm}$ is defined as follows:
 
 
-    $$V(C_1,...,C_k) = \sum_{r=1}^{k} \hspace{0.2cm} \sum_{i \in I_r} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_r}) \\$$
-
-
-
-    $\hspace{0.12cm}V(C_1,...,C_k)\hspace{0.12cm}$, is the metric based on which the stopping criteria will be defined.
+      $$V(C_1,...,C_k)  \hspace{0.1cm}= \hspace{0.1cm} \sum_{r=1}^{k} \hspace{0.2cm} \sum_{i \in I_r} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_r}) \\$$
 
 
 
-    - Measures how similar are the observations that belong to the same cluster. The lower it is, the more similar they are, and vice versa.
-
- 
-
-- **Reassignment of observations to clusters**
+      $V(C_1,...,C_k)\hspace{0.12cm}$, is the metric based on which the stopping criteria will be defined.
 
 
-    -  $\hspace{0.12cm} \delta(x_i , \overline{x}_{C_r}) \hspace{0.02cm}$ is computed.
+
+    - It measures how similar are the observations that belong to a same cluster. The lower it is, the more similar they are, and vice versa.
 
 
-    -  $\hspace{0.12cm}x_i\hspace{0.12cm}$ is reassigned to it's nearest cluster.
+<br> 
 
-    - Formally, $\hspace{0.12cm}x_i\hspace{0.12cm}$ is reassigned to the cluster $\hspace{0.12cm}C_{r^*}$
+
+- **4) Reassignment of observations to clusters.**
+
+
+    -  $\hspace{0.03cm} \delta(x_i , \overline{x}_{C_r}) \hspace{0.02cm}$ is computed.
+
+
+    -  $\hspace{0.03cm}x_i\hspace{0.12cm}$ is reassigned to it's nearest cluster.
+
+    - Formally, $\hspace{0.02cm}x_i\hspace{0.02cm}$ is reassigned to the cluster $\hspace{0.02cm}C_{r^*}$
     
-    Where:
+      where:
 
-    $$r^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{r}{Min} \hspace{0.16cm} \delta(x_i , \overline{x}_{C_r} )$$
+      $$r^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.14cm} \underset{r }{Min} \hspace{0.16cm} \delta(x_i , \overline{x}_{C_r} ) \hspace{0.3cm} ,  \hspace{0.3cm} h \in \lbrace 1,..., k \rbrace$$
 
-    - Then, $\hspace{0.12cm}x_i\hspace{0.12cm}$ es is reassigned to the cluster $\hspace{0.12cm}C_{r^*}\hspace{0.12cm}$, which could be the same cluster that it already belonged to, or not. 
+      Then, $\hspace{0.02cm}x_i\hspace{0.02cm}$ es is reassigned to the cluster $\hspace{0.02cm}C_{r^*}\hspace{0.02cm}$, which could be the same cluster that it already belonged to, or not. 
 
 
-    - Once all the observations $\hspace{0.12cm}x_1,...,x_n\hspace{0.12cm}$ have been reassigned, a new configuration of clusters $\hspace{0.12cm}C_1^{1 },... is obtained. ,C_k^{1 }\hspace{0.12cm}$ , which, in general, will be different from the previous one.
+    - Once all the observations $\hspace{0.02cm}x_1,...,x_n\hspace{0.02cm}$ have been reassigned, a new configuration of clusters $\hspace{0.02cm}C_1^{1 },... ,C_k^{1 }\hspace{0.02cm}$ is obtained. , which, in general, will be different from the previous one.
 
-    The superscript 1 indicates that this new cluster configuration was obtained in the first iteration of the algorithm.
+      The superscript 1 indicates that this new cluster configuration was obtained in the first iteration of the algorithm.
 
+
+<br>
 
  
-- **Computing the centroids of the new clusters**
+- **5) Computing the centroids of the new clusters.**
 
 
 
-    - The centroids of the new clusters are computed :  
+    - The centroids of the new clusters are computed:  
 
-    $$\overline{x}_{C_r^1} = \left( \overline{X \hspace{0.1cm}}_{1, C_r^1} ,...,\overline{X\hspace{0.1cm}}_{p, C_r^1} \right)$$
-
-    for $\hspace{0.1cm} r\in \lbrace 1,..., k \rbrace$
+       $$\overline{x}_{C_r^1} \hspace{0.1cm}=\hspace{0.1cm} \left(\hspace{0.04cm} \overline{X \hspace{0.01cm}}_{1, C_r^1} ,...,\overline{X\hspace{0.01cm}}_{p, C_r^1} \right) \hspace{0.3cm} , \hspace{0.3cm} r\in \lbrace 1,..., k \rbrace$$
 
 
-  
+<br>
 
 
-- **Computing the sum of the intra-clusters variances for the new clusters**
+- **6) Computing the sum of the intra-clusters variances for the new clusters.**
 
     - The sum of intra-clusters variances is competed for the new clusters configuration, that was obtained in the previous step:
 
-    $$V(C_1^{1 },...,C_k^{1 })$$
+      $$V(C_1^{1 },...,C_k^{1 })$$
+
+ 
+ <br>
 
  
 
-- **Iterate steps 4) , 5) and 6)**
+- **7) Iterate steps 4) , 5) and 6).**
 
 
-    - Steps **4)** , **5)** and **6)** are iterate a number $\hspace{0.1cm}b\hspace{0.1cm}$ of times, so are obtained $\hspace{0.1cm}b\hspace{0.1cm}$ clusters configurations, and with it  $\hspace{0.1cm}b\hspace{0.1cm}$ values of the sum of the intra-clusters variances.
+    - Steps **4)** , **5)** and **6)** are iterate a  $\hspace{0.02cm}b\hspace{0.02cm}$  times, so are obtained $\hspace{0.02cm}b\hspace{0.02cm}$ clusters configurations, and with it  $\hspace{0.02cm}b\hspace{0.02cm}$ values of the sum of the intra-clusters variances.
 
 
  
+<br>
 
 - **8) Selecting the optimal clusters configuration**
 
 
-    - Once the previous steps are done, a total of \hspace{0.1cm}b+2\hspace{0.1cm}$ clusters configurations have been obtained $\hspace{0.1cm}\Rightarrow \hspace{0.1cm} b\hspace{0.1cm}$ in step **5)** , $1$ in step **1)** and $1$ in step **4)**.
+    - Once the previous steps are done, a total of $\hspace{0.02cm}b+2\hspace{0.02cm}$ clusters configurations have been obtained $\hspace{0.1cm}\Rightarrow \hspace{0.1cm} b\hspace{0.1cm}$ in step **5)** , $1$ in step **1)** and $1$ in step **4)**:
 
 
 
-    $$\left\lbrace \hspace{0.15cm} V(C_1^{h},....,C_k^h) \hspace{0.12cm} / \hspace{0.12cm} h \in \lbrace 1,...,b+2\rbrace \hspace{0.15cm} \right\rbrace$$
+    $$\Bigl\lbrace \hspace{0.1cm} V(C_1^{h},....,C_k^h) \hspace{0.15cm} : \hspace{0.15cm} h \in \lbrace 1,...,b+2\rbrace \hspace{0.1cm} \Bigr\rbrace$$
 
 
 
@@ -251,9 +252,9 @@ Next, a formal description of the algorithm will be made. But first, it should b
 
     -  Formally, the clusters configuration $\hspace{0.1cm} C_1^{h^*},...,C_k^{h^*}$ is selected as optimal.
 
-     - Where:
+       where:
      
-       $$h^*  \hspace{0.15cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{h}{Min} \hspace{0.16cm} V(C_1^{h},....,C_k^h)$$ 
+       $$h^*  \hspace{0.15cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{h }{Min} \hspace{0.16cm} V(C_1^{h},....,C_k^h) \hspace{0.3cm} ,  \hspace{0.3cm} h \in \lbrace 1,..., b+2 \rbrace$ 
     
 
 </p>

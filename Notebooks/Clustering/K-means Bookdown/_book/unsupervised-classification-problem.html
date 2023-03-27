@@ -29,7 +29,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Fabio Scielzo Ortiz" />
 
 
-<meta name="date" content="2023-03-26" />
+<meta name="date" content="2023-03-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -80,13 +80,14 @@ set in the _output.yml file.</p>" />
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="unsupervised-classification-problem.html"><a href="unsupervised-classification-problem.html"><i class="fa fa-check"></i><b>2</b> Unsupervised Classification Problem</a></li>
-<li class="chapter" data-level="3" data-path="k-means.html"><a href="k-means.html"><i class="fa fa-check"></i><b>3</b> k-means</a>
+<li class="chapter" data-level="3" data-path="k-means.html"><a href="k-means.html"><i class="fa fa-check"></i><b>3</b> K-means</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="k-means.html"><a href="k-means.html#clusters-interpretation"><i class="fa fa-check"></i><b>3.1</b> Clusters interpretation</a></li>
-<li class="chapter" data-level="3.2" data-path="k-means.html"><a href="k-means.html#clustering-validation-algorithms"><i class="fa fa-check"></i><b>3.2</b> Clustering validation algorithms</a></li>
-<li class="chapter" data-level="3.3" data-path="k-means.html"><a href="k-means.html#ajuste-del-hiper-parametro-k"><i class="fa fa-check"></i><b>3.3</b> Ajuste del hiper-parametro k</a></li>
-<li class="chapter" data-level="3.4" data-path="k-means.html"><a href="k-means.html#k-means-programmed-in-python"><i class="fa fa-check"></i><b>3.4</b> K-means programmed in <code>Python</code></a></li>
-<li class="chapter" data-level="3.5" data-path="k-means.html"><a href="k-means.html#k-means-with-sklearn"><i class="fa fa-check"></i><b>3.5</b> K-means with <code>sklearn</code></a></li>
+<li class="chapter" data-level="3.1" data-path="k-means.html"><a href="k-means.html#k-means-algorithm"><i class="fa fa-check"></i><b>3.1</b> K-means algorithm</a></li>
+<li class="chapter" data-level="3.2" data-path="k-means.html"><a href="k-means.html#clusters-interpretation"><i class="fa fa-check"></i><b>3.2</b> Clusters interpretation</a></li>
+<li class="chapter" data-level="3.3" data-path="k-means.html"><a href="k-means.html#clustering-validation-algorithms"><i class="fa fa-check"></i><b>3.3</b> Clustering validation algorithms</a></li>
+<li class="chapter" data-level="3.4" data-path="k-means.html"><a href="k-means.html#ajuste-del-hiper-parametro-k"><i class="fa fa-check"></i><b>3.4</b> Ajuste del hiper-parametro k</a></li>
+<li class="chapter" data-level="3.5" data-path="k-means.html"><a href="k-means.html#k-means-programmed-in-python"><i class="fa fa-check"></i><b>3.5</b> K-means programmed in <code>Python</code></a></li>
+<li class="chapter" data-level="3.6" data-path="k-means.html"><a href="k-means.html#k-means-with-sklearn"><i class="fa fa-check"></i><b>3.6</b> K-means with <code>sklearn</code></a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="bibliographi.html"><a href="bibliographi.html"><i class="fa fa-check"></i><b>4</b> Bibliographi</a></li>
 <li class="divider"></li>
@@ -114,7 +115,7 @@ set in the _output.yml file.</p>" />
 <p>An unsupervised classification problem is an statistical problem that consist on predict a <strong>categorical</strong> response variable, using only information about ones predictor variables, because there isn´t data about the response.</p>
 <p>Unsupervised classification problems are also called <strong>clustering</strong> problems.</p>
 <ul>
-<li><p>We have <span class="math inline">\(\hspace{0.02cm}p\hspace{0.02cm}\)</span> predictors <span class="math inline">\(\hspace{0.02cm}(\mathcal{X}_1 ,...,\mathcal{X}_p)\hspace{0.02cm}\)</span> and a <strong>categorical</strong> response variable <span class="math inline">\(\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}\)</span> for which we haven’t any data sample.</p></li>
+<li><p>We have <span class="math inline">\(\hspace{0.02cm}p\hspace{0.02cm}\)</span> predictors <span class="math inline">\(\hspace{0.02cm}\mathcal{X}_1 ,...,\mathcal{X}_p\hspace{0.02cm}\)</span> and a <strong>categorical</strong> response variable <span class="math inline">\(\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}\)</span> for which we haven’t any data sample.</p></li>
 <li><p>We have an <span class="math inline">\(\hspace{0.02cm}n\hspace{0.02cm}\)</span> size sample of the <span class="math inline">\(\hspace{0.02cm}p\hspace{0.02cm}\)</span> predictors <span class="math inline">\(\hspace{0.02cm}X_1,...,X_p\hspace{0.02cm}\)</span> but we haven’t a sample for the response, and we also don’t know it’s range.</p>
 <p>Therefore, we have the following data matrix:</p>
 <p><span class="math display">\[D=[X_1,...,X_p]=\begin{pmatrix}
