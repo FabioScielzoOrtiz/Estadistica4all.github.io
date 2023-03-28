@@ -165,7 +165,7 @@ The response variable $\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}$ is considered 
     - Given a distance measure $\hspace{0.02cm}\delta\hspace{0.02cm}$ defined for each pair $\hspace{0.2cm}(x_i,x_r)\hspace{0.2cm}$ of observations of the predictors, the **sum of intra-clusters variances** for the clusters configuration $\hspace{0.02cm}C_1,...,C_k\hspace{0.02cm}$ is defined as follows:
 
 
-      $$V(C_1,...,C_k)  \hspace{0.1cm}= \hspace{0.1cm} \sum_{r=1}^{k} \hspace{0.2cm} \sum_{i \in I_r} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_r}) \\$$
+      $$V(C_1,...,C_k)  \hspace{0.1cm}= \hspace{0.1cm} \sum_{r=1}^{k} \hspace{0.2cm} \sum_{i \in I_r} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_r})^2 \\$$
 
 
 
@@ -191,7 +191,7 @@ The response variable $\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}$ is considered 
     
       where:
 
-      $$r^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.14cm} \underset{r }{Min} \hspace{0.16cm} \delta(x_i , \overline{x}_{C_r} ) \hspace{0.3cm} ,  \hspace{0.3cm} h \in \lbrace 1,..., k \rbrace$$
+      $$r^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.14cm} \underset{r }{Min} \hspace{0.16cm} \delta(x_i , \overline{x}_{C_r} ) \hspace{0.3cm} ,  \hspace{0.3cm} r \in \lbrace 1,..., k \rbrace$$
 
       Then, $\hspace{0.02cm}x_i\hspace{0.02cm}$ es is reassigned to the cluster $\hspace{0.02cm}C_{r^*}\hspace{0.02cm}$, which could be the same cluster that it already belonged to, or not. 
 
@@ -254,7 +254,7 @@ The response variable $\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}$ is considered 
 
        where:
      
-       $$h^*  \hspace{0.15cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{h }{Min} \hspace{0.16cm} V(C_1^{h},....,C_k^h) \hspace{0.3cm} ,  \hspace{0.3cm} h \in \lbrace 1,..., b+2 \rbrace$ 
+       $$h^*  \hspace{0.15cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{h }{Min} \hspace{0.16cm} V(C_1^{h},....,C_k^h) \hspace{0.3cm} ,  \hspace{0.3cm} h \in \lbrace 1,..., b+2 \rbrace$$
     
 
 </p>
@@ -268,16 +268,16 @@ The response variable $\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}$ is considered 
 <br>
 
 
-***Observations:***
+**Observations:**
 
  
 
 - **K-means predictors should be quantitative**
 
 
-    - Why? \hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ Due to the centroid definition as mean vector. The mean should only be applied to quantitative variables.
+    - Why? $\hspace{0.15cm}\Rightarrow\hspace{0.15cm}$ Due to the centroid definition as mean vector. The mean should only be applied to quantitative variables.
 
-<br>
+ 
 
 
 - **What distance metrics should be used in K-means?**
@@ -310,7 +310,7 @@ This topic will be seen in an specific article about clustering validation.
 
 ## Ajuste del hiper-parametro k
 
-An optimal fit of the hyper-parameter $k$ can be done using the Silhouette algorithm.
+An optimal tuning of the hyper-parameter $k$ can be performed using the Silhouette algorithm.
 
 As before, this question will be addressed in future articles.
 
