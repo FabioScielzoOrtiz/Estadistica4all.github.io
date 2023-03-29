@@ -1,5 +1,5 @@
 --- 
-title: "K-means"
+title: "K-Means"
 author: "Fabio Scielzo Ortiz"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -86,7 +86,7 @@ An unsupervised classification problem is an statistical problem that consist on
 <br>
 
 
-# K-means 
+# K-Means 
 
 K-means is an unsupervised classification algorithm, in the sense that it allows solving unsupervised classification problems.
 
@@ -107,7 +107,7 @@ The response variable $\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}$ is considered 
 <span>
 
 
-- **1) Initial clusters definition.**
+$\hspace{0.2cm}$ **1) Initial clusters definition.**
 
     - The available observations of the predictors are randomly assigned to one of the response categories, this is how the the initial clusters $\hspace{0.1cm} C_1,...,C_k\hspace{0.1cm}$ are built.
 
@@ -137,7 +137,7 @@ The response variable $\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}$ is considered 
 <br>
 
 
-- **2) Computing the centroids of the initial clusters.**
+$\hspace{0.2cm}$ **2) Computing the centroids of the initial clusters.**
 
 
     In this step,the centroids of the initial clusters are computed.
@@ -159,7 +159,7 @@ The response variable $\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}$ is considered 
  <br>
 
 
-- **3) Computing the sum of intra-clusters variances.**
+$\hspace{0.2cm}$ **3) Computing the sum of intra-clusters variances.**
 
 
     - Given a distance measure $\hspace{0.02cm}\delta\hspace{0.02cm}$ defined for each pair $\hspace{0.2cm}(x_i,x_r)\hspace{0.2cm}$ of observations of the predictors, the **sum of intra-clusters variances** for the clusters configuration $\hspace{0.02cm}C_1,...,C_k\hspace{0.02cm}$ is defined as follows:
@@ -179,7 +179,7 @@ The response variable $\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}$ is considered 
 <br> 
 
 
-- **4) Reassignment of observations to clusters.**
+$\hspace{0.2cm}$ **4) Reassignment of observations to clusters.**
 
 
     -  $\hspace{0.03cm} \delta(x_i , \overline{x}_{C_r}) \hspace{0.02cm}$ is computed.
@@ -204,7 +204,7 @@ The response variable $\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}$ is considered 
 <br>
 
  
-- **5) Computing the centroids of the new clusters.**
+$\hspace{0.2cm}$ **5) Computing the centroids of the new clusters.**
 
 
 
@@ -216,7 +216,7 @@ The response variable $\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}$ is considered 
 <br>
 
 
-- **6) Computing the sum of the intra-clusters variances for the new clusters.**
+$\hspace{0.2cm}$ **6) Computing the sum of the intra-clusters variances for the new clusters.**
 
     - The sum of intra-clusters variances is competed for the new clusters configuration, that was obtained in the previous step:
 
@@ -227,7 +227,7 @@ The response variable $\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}$ is considered 
 
  
 
-- **7) Iterate steps 4) , 5) and 6).**
+$\hspace{0.2cm}$ **7) Iterate steps 4) , 5) and 6).**
 
 
     - Steps **4)** , **5)** and **6)** are iterate a  $\hspace{0.02cm}b\hspace{0.02cm}$  times, so are obtained $\hspace{0.02cm}b\hspace{0.02cm}$ clusters configurations, and with it  $\hspace{0.02cm}b\hspace{0.02cm}$ values of the sum of the intra-clusters variances.
@@ -236,7 +236,7 @@ The response variable $\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}$ is considered 
  
 <br>
 
-- **8) Selecting the optimal clusters configuration**
+$\hspace{0.2cm}$ **8) Selecting the optimal clusters configuration**
 
 
     - Once the previous steps are done, a total of $\hspace{0.02cm}b+2\hspace{0.02cm}$ clusters configurations have been obtained $\hspace{0.1cm}\Rightarrow \hspace{0.1cm} b\hspace{0.1cm}$ in step **5)** , $1$ in step **1)** and $1$ in step **4)**:

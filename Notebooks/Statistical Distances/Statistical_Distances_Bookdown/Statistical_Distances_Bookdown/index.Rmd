@@ -4699,7 +4699,7 @@ array([[0.        , 0.46011364, 0.54023301, ..., 0.47435704, 0.53328707,
 
 
 
-# Anexo
+# ANEXO
 
 # Distancia de Gower Generalizada
 
@@ -4866,7 +4866,7 @@ Hay que notar que el algoritmo anterior requiere que las medidas de similitud em
 ## Versión related metric scaling
 
 
-El algoritmo que define la versión simple de la distancia de Gower generalizada es el siguiente:
+El algoritmo que define la versión RMS (related metric scaling) de la distancia de Gower generalizada es el siguiente:
 
 
 - Se calcula una matriz de distancias para cada conjunto de datos $X_Q$ , $\hspace{0.05cm}X_B\hspace{0.06cm}$ y $\hspace{0.05cm}X_M\hspace{0.05cm}$.

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 K-Medoids | K-Medoids</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 K-Medoids | K-Medoids" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 K-Medoids | K-Medoids" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Fabio Scielzo Ortiz" />
+
+
+<meta name="date" content="2023-03-30" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="problema-de-clasificación-no-supervisada.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="problema-de-clasificación-no-supervisada.html"><a href="problema-de-clasificación-no-supervisada.html"><i class="fa fa-check"></i><b>2</b> Problema de clasificación no supervisada</a></li>
+<li class="chapter" data-level="3" data-path="k-medoids.html"><a href="k-medoids.html"><i class="fa fa-check"></i><b>3</b> K-Medoids</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">K-Medoids</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="k-medoids" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> K-Medoids<a href="k-medoids.html#k-medoids" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Es un algoritmo de clasificación no supervisada, en el sentido de que permite resolver problemas de clasificación no supervisada.</p>
+<p><strong><em>K-medoids: algoritmo de Park &amp; Jun con definición aleatoria de los clusters iniciales.</em></strong></p>
+<p>Se considera que la variable respuesta <span class="math inline">\(\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}\)</span> que queremos predecir y sobbre la que no tenemos información tiene <span class="math inline">\(\hspace{0.02cm} k\hspace{0.02cm}\)</span> categorias <span class="math inline">\(\hspace{0.02cm}g_1,...,g_k\)</span> .</p>
+<p>El algoritmo tiene los siguientes pasos:</p>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>1) Definición de los clusters iniciales</strong></p>
+<ul>
+<li><p>Se asignan aleatoriamente las observaciones disponibles <span class="math inline">\(\hspace{0.1cm}x_1,...,x_n\hspace{0.1cm}\)</span> de los <span class="math inline">\(p\)</span> predictores a dichas categorias, formandose los <strong>clusters</strong> (o grupos) <strong>iniciales</strong> de observaciones <span class="math inline">\(\hspace{0.02cm} C_1,...,C_k\hspace{0.02cm}\)</span> .</p>
+<ul>
+<li><p>Tienen que ser tales que tengan un tamaño similar, contengan todas las obersaciones del conjunto de datos y no haya observaciones contenidas en dos clusters diferentes.</p></li>
+<li><p>Formalmente vamos a definir los clusters del siguiente modo:</p></li>
+</ul>
+<p><span class="math display">\[C_r \hspace{0.04cm}=\hspace{0.04cm} \bigl( \hspace{0.12cm} x_i^t = (x_{i1},...,x_{ip}) \hspace{0.15cm} : \hspace{0.15cm} i \in I(C_r) \subset \lbrace 1,...,n \rbrace \hspace{0.12cm} \bigr)^t\]</span></p>
+<ul>
+<li><p>Cumpliendose lo siguiente:</p>
+<ul>
+<li><p><span class="math inline">\(\# I_r \hspace{0.1cm} \approx \hspace{0.1cm} \# I_h \hspace{0.25cm} , \hspace{0.25cm} \forall r\neq h \in \lbrace 1,...,n\rbrace\)</span></p></li>
+<li><p><span class="math inline">\(\overset{n}{\underset{r=1}{\cup}} I_r \hspace{0.1cm}=\hspace{0.1cm} \lbrace 1,...,n\rbrace\)</span></p></li>
+<li><p><span class="math inline">\(I_r \cap I_h \hspace{0.1cm}=\hspace{0.1cm} \varnothing \hspace{0.25cm} , \hspace{0.25cm} \forall r\neq h \in \lbrace 1,...,n\rbrace\)</span></p></li>
+<li><p><span class="math inline">\(I_r \hspace{0.03cm}\)</span> es el conjunto de indices de las observaciones de los predictores que pertenecen al cluster <span class="math inline">\(\hspace{0.03cm}C_r\)</span>. <span class="math inline">\(\hspace{0.03cm}\)</span> Por lo que puede verse como el conjunto de los individuos de la muestra que están asociados al cluster <span class="math inline">\(\hspace{0.03cm} C_r\)</span> .</p></li>
+<li><p><span class="math inline">\(C_r\hspace{0.03cm}\)</span> es un vector cuyas componentes son vectores fila, luego es una matriz. Como además estos vectores fila son observaciones de variables estadisticas, puede verse como una matriz de datos.</p></li>
+<li><p><span class="math inline">\(I_r \hspace{0.03cm}\)</span> es definido <strong>aleatoriamente</strong> en esta primera etapa.</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>2) Cálculo de los medoids de los clusters iniciales</strong></p>
+<ul>
+<li><p>Se calculan los <strong>medoids</strong> de los clusters.</p></li>
+<li><p>Dada una medida de distancia <span class="math inline">\(\hspace{0.02cm}\delta\hspace{0.02cm}\)</span> defindida para cada par <span class="math inline">\(\hspace{0.02cm}(x_i,x_r)\hspace{0.02cm}\)</span> de observaciones de los predictores, el <strong>medoid</strong> del cluster <span class="math inline">\(\hspace{0.02cm}C_r\hspace{0.02cm}\)</span> se define del siguiete modo:</p>
+<p><span class="math display">\[\overline{x}_{C_r} = x_i^*\]</span></p>
+<ul>
+<li>Donde:</li>
+</ul>
+<p><span class="math display">\[i^* \hspace{0.1cm}=\hspace{0.1cm} arg \hspace{0.1cm} \underset{i \in I_r}{Min} \hspace{0.1cm}\sum_{j \in I_r} \hspace{0.06cm}\delta(x_i , x_j)\]</span></p></li>
+</ul>
+<p><br></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>3) Cálculo de la suma de varianzas intra-cluster</strong></p>
+<ul>
+<li>Dada una medida de distancia <span class="math inline">\(\hspace{0.02cm}\delta\hspace{0.02cm}\)</span> defindida para cada par <span class="math inline">\(\hspace{0.02cm}(x_i,x_r)\hspace{0.02cm}\)</span> de observaciones de los predictores, la <strong>suma de varianzas intra-cluster</strong> para la configuración de clusters <span class="math inline">\(\hspace{0.02cm}C_1,...,C_k\hspace{0.02cm}\)</span> se define como sigue:</li>
+</ul>
+<p><span class="math display">\[V(C_1,...,C_k) \hspace{0.06cm} =  \hspace{0.05cm}\sum_{r=1}^{k} \hspace{0.2cm} \sum_{i \in I_r} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_r}) \\\]</span></p>
+<ul>
+<li><p>Se calcula <span class="math inline">\(\hspace{0.02cm}V(C_1,...,C_k)\hspace{0.02cm}\)</span>, puesto que será la métrica en base a la cual se define el criterio de parada.</p>
+<ul>
+<li>Es una medida de lo similares que son entre si las observaciones contenidas en un mismo cluster. Cuanto menor sea, mas similares son, y viceversa.</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>4) Re-asignación de las observaciones a los clusters</strong></p>
+<ul>
+<li><p>Se calcula <span class="math inline">\(\hspace{0.02cm} \delta(x_i , \overline{x}_{C_r}) \hspace{0.02cm}\)</span>.</p></li>
+<li><p>Se re-asigna <span class="math inline">\(\hspace{0.02cm}x_i\hspace{0.12cm}\)</span> al cluster que le quede más cerca.</p></li>
+<li><p>Formalmente, <span class="math inline">\(\hspace{0.02cm}x_i\hspace{0.02cm}\)</span> es re-asignado al cluster <span class="math inline">\(\hspace{0.02cm}C_{r^*}\)</span>.</p>
+<p><span class="math display">\[r^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.15cm} \underset{r}{Min} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_r} )\]</span></p>
+<ul>
+<li>Por tanto, <span class="math inline">\(\hspace{0.02cm}x_i\hspace{0.02cm}\)</span> es re-asignado al cluster <span class="math inline">\(\hspace{0.02cm}C_{r^*}\hspace{0.02cm}\)</span>, que podria ser el cluster al que ya estaba asignada, o no.</li>
+</ul></li>
+<li><p>Tras re-asignar todas las observaciones <span class="math inline">\(\hspace{0.02cm}x_1,...,x_n\hspace{0.02cm}\)</span> se obtiene una <strong>nueva</strong> configuracion de clusters <span class="math inline">\(\hspace{0.02cm}C_1^{1 },...,C_k^{1 }\hspace{0.02cm}\)</span> , que generalmente será diferente de la anterior, aunque no necesariamente.</p></li>
+<li><p>El super-indice 1 indica que esta nueva configuración de clusters es la obtenida con la iteración 1 del algoritmo.</p></li>
+</ul>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>5) Calculo de los medoids de los nuevos clusters</strong></p>
+<ul>
+<li><p>Se calculan los medoids de los nuevos clusters :</p>
+<p><span class="math display">\[\overline{x}_{C_r^1}  = x_i^*\]</span></p>
+<ul>
+<li>Donde:</li>
+</ul>
+<p><span class="math display">\[i^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.14cm} \underset{i \in I(C_r^1)}{Min} \sum_{j \in I(C_r^1)}\delta(x_i , x_j)\]</span></p>
+<p>para <span class="math inline">\(\hspace{0.1cm} r\in \lbrace 1,..., k \rbrace\)</span></p></li>
+</ul>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>6) Cálculo de la varianza intra-cluster de los nuevos clusters</strong></p>
+<ul>
+<li>Se calcula la suma de varianzas intra-cluster para la nueva configuración de clusters obtenida en el paso anterior:</li>
+</ul>
+<p><span class="math display">\[V(C_1^{1 },...,C_k^{1 })\]</span></p>
+<p><br></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>7) Iterar los pasos 4) , 5) y 6)</strong></p>
+<ul>
+<li>Se iteran los pasos <strong>4)</strong> , <strong>5)</strong> y <strong>6)</strong> un número <span class="math inline">\(\hspace{0.02cm}b\hspace{0.02cm}\)</span> de veces, asi se obtienen <span class="math inline">\(\hspace{0.02cm}b\hspace{0.02cm}\)</span> configuraciones de clusters, y con ello <span class="math inline">\(\hspace{0.02cm}b\hspace{0.02cm}\)</span> valores de la suma de varianzas intra-cluster.</li>
+</ul>
+<p><br></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>8) Selección de la configuracion de clusters definitiva</strong></p>
+<ul>
+<li>Tras los pasos anteriores se habrán obtenido un total de <span class="math inline">\(\hspace{0.02cm}b+2\hspace{0.02cm}\)</span> configuraciones de clusters <span class="math inline">\(\hspace{0.1cm}\Rightarrow \hspace{0.1cm} b\hspace{0.02cm}\)</span> en el paso <strong>5)</strong> , <span class="math inline">\(1\)</span> en el paso <strong>1)</strong> y <span class="math inline">\(1\)</span> en el paso <strong>4)</strong>.</li>
+</ul>
+<p><span class="math display">\[\left\lbrace \hspace{0.15cm} V(C_1^{h},....,C_k^h) \hspace{0.12cm} / \hspace{0.12cm} h \in \lbrace 1,...,b+2\rbrace \hspace{0.15cm} \right\rbrace\]</span></p>
+<ul>
+<li><p>Se selecciona como configuración de clusters <strong>definitiva</strong> aquella que minimiza la suma de varianzas intra-cluster, de entre las <span class="math inline">\(\hspace{0.02cm} b+2 \hspace{0.02cm}\)</span> obtenidas.</p></li>
+<li><p>Formalmente, se seleccionan la configuración de clusters <span class="math inline">\(\hspace{0.02cm} C_1^{h^*},...,C_k^{h^*}\)</span></p>
+<ul>
+<li><p>Donde:</p>
+<p><span class="math display">\[h^*  \hspace{0.15cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{h}{Min} \hspace{0.16cm} V(C_1^{h},....,C_k^h)\]</span></p></li>
+</ul></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+<p><br></p>
+<p><strong><em>K-Medoids: versión original Park &amp; Jun.</em></strong></p>
+<ul>
+<li>Se considera que la variable respuesta <span class="math inline">\(\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}\)</span> tiene <span class="math inline">\(\hspace{0.1cm} k\hspace{0.1cm}\)</span> categorias <span class="math inline">\(\hspace{0.1cm}g_1,...,g_k\)</span></li>
+</ul>
+<div class="warning" style="background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;">
+<p><span></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>1) Definición de los clusters iniciales</strong></p>
+<ul>
+<li><p>Dada una medida de distancia <span class="math inline">\(\hspace{0.02cm}\delta\hspace{0.02cm}\)</span> definida para cada par <span class="math inline">\(\hspace{0.02cm}(x_i , x_r)\hspace{0.02cm}\)</span> de observaciones de los predictores.</p>
+<ul>
+<li>Se calcula <span class="math inline">\(\hspace{0.02cm}\delta(x_i, x_r) \hspace{0.2 cm} , \hspace{0.2 cm} \forall\hspace{0.1cm} i,r \in \lbrace 1,...,n \rbrace\)</span> .</li>
+</ul></li>
+<li><p>Se define la siguiente cantidad:</p></li>
+</ul>
+<p><span class="math display">\[v_r \hspace{0.15cm} = \hspace{0.15cm} \sum_{i=1}^n \dfrac{d(x_r , x_i)}{\sum_{h=1}^n d(x_h,x_i)} \hspace{0.15cm} = \hspace{0.15cm} \dfrac{d(x_r , x_1)}{\sum_{h=1}^n d(x_h,x_1)}+\dots +\dfrac{d(x_r , x_n)}{\sum_{h=1}^n d(x_h,x_n)}\]</span></p>
+<p>para <span class="math inline">\(\hspace{0.03cm} r \in \lbrace 1,...,n \rbrace\)</span>.</p>
+<ul>
+<li><p>Se ordenan de menor a mayor las cantidades <span class="math inline">\(\hspace{0.03cm} v_1,...,v_n \hspace{0.2cm} \Rightarrow \hspace{0.2cm} v_{(1)} &lt; v_{(2)} &lt; \dots &lt; v_{(n)}\)</span>.</p></li>
+<li><p>Los medoids de los clusters iniciales se definen como las observaciones asociadas a las cantidades <span class="math inline">\(\hspace{0.03cm}v_{(1)}, v_{(2)},..., v_{(k)}\)</span>.</p>
+<ul>
+<li>El medoid del cluster <span class="math inline">\(\hspace{0.03cm}C_r\hspace{0.03cm}\)</span> es <span class="math inline">\(\hspace{0.03cm}\overline{x}_{C_r} = x_{(r)}\hspace{0.03cm}\)</span> , para <span class="math inline">\(\hspace{0.03cm}r\in \lbrace 1,...,k \rbrace\hspace{0.03cm}\)</span> con <span class="math inline">\(\hspace{0.03cm}r&lt;k\)</span></li>
+</ul></li>
+<li><p>Se obtienen los clusters iniciales asignando cada observación <span class="math inline">\(\hspace{0.03cm}x_1,...,x_n\hspace{0.03cm}\)</span> al medoid que le queda más cercano.</p></li>
+<li><p>Formalmente, <span class="math inline">\(x_i\)</span> es asignado al cluster <span class="math inline">\(C_{r^*}\)</span></p>
+<ul>
+<li>Donde:</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[r^* = arg Min \delta(x_i , \overline{x}_{C_r})\]</span></p>
+<p><br></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>3) Cálculo de la suma de varianzas intra-cluster</strong></p>
+<ul>
+<li>Dada una medida de distancia <span class="math inline">\(\hspace{0.03cm}\delta\hspace{0.03cm}\)</span> , la suma de varianzas intra-cluster para la configuración de clusters <span class="math inline">\(\hspace{0.03cm}C_1,...,C_k\hspace{0.03cm}\)</span> se define como sigue:</li>
+</ul>
+<p><span class="math display">\[V(C_1,...,C_k) = \sum_{r=1}^{k} \hspace{0.2cm} \sum_{i \in I_r} \hspace{0.2cm} \delta(x_i , \overline{x}_{C_r}) \\\]</span></p>
+<ul>
+<li><p>Se calcula <span class="math inline">\(\hspace{0.03cm}V(C_1,...,C_k)\hspace{0.03cm}\)</span>, puesto que será la métrica en base a la cual se define el criterio de parada.</p>
+<ul>
+<li>Es una medida de lo similares que son entre si las observaciones contenidas en un mismo cluster. Cuanto menor sea, mas similares son, y viceversa.</li>
+</ul></li>
+</ul>
+<p><br></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>4) Re-asignación de las observaciones a los clusters</strong></p>
+<ul>
+<li><p>Se calcula <span class="math inline">\(\hspace{0.03cm} \delta(x_i , \overline{x}_{C_r}) \hspace{0.03cm}\)</span>.</p></li>
+<li><p>Se re-asigna <span class="math inline">\(\hspace{0.03cm}x_i\hspace{0.03cm}\)</span> al cluster que le quede más cerca.</p></li>
+<li><p>Formalmente, <span class="math inline">\(\hspace{0.03cm}x_i\hspace{0.03cm}\)</span> es re-asignado al cluster <span class="math inline">\(\hspace{0.03cm}C_{r^*}\)</span>.</p>
+<p><span class="math display">\[r^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{r}{Min} \hspace{0.16cm} \delta(x_i , \overline{x}_{C_r} )\]</span></p>
+<ul>
+<li>Por tanto, <span class="math inline">\(\hspace{0.12cm}x_i\hspace{0.12cm}\)</span> es re-asignado al cluster <span class="math inline">\(\hspace{0.12cm}C_{r^*}\hspace{0.12cm}\)</span>, que podria ser el cluster al que ya estaba asignada, o no.</li>
+</ul></li>
+<li><p>Tras re-asignar todas las observaciones <span class="math inline">\(\hspace{0.03cm}x_1,...,x_n\hspace{0.03cm}\)</span> se obtiene una <strong>nueva</strong> configuracion de clusters <span class="math inline">\(\hspace{0.03cm}C_1^{1 },...,C_k^{1 }\hspace{0.03cm}\)</span> , que generalmente será diferente de la anterior, aunque no necesariamente.</p></li>
+<li><p>El super-indice 1 indica que esta nueva configuración de clusters es la obtenida con la iteración 1 del algoritmo.</p></li>
+</ul>
+<p><span class="math inline">\(\hspace{0.45cm}\)</span> <strong>4.1) Calculo de los medoids de los nuevos clusters</strong></p>
+<ul>
+<li><p>Se calculan los medoids de los nuevos clusters :</p>
+<p><span class="math display">\[\overline{x}_{C_r^1}  = x_i^*\]</span></p>
+<ul>
+<li>Donde:</li>
+</ul>
+<p><span class="math display">\[i^* \hspace{0.12cm}=\hspace{0.12cm} arg \hspace{0.14cm} \underset{i \in I(C_r^1)}{Min} \sum_{j \in I(C_r^1)}\delta(x_i , x_j)\]</span></p>
+<p>para <span class="math inline">\(\hspace{0.1cm} r\in \lbrace 1,..., k \rbrace\)</span></p></li>
+</ul>
+<p><span class="math inline">\(\hspace{0.45cm}\)</span> <strong>4.2) Cálculo de la varianza intra-cluster de los nuevos clusters</strong></p>
+<ul>
+<li>Se calcula la suma de varianzas intra-cluster para la nueva configuración de clusters obtenida en el paso anterior:</li>
+</ul>
+<p><span class="math display">\[V(C_1^{1 },...,C_k^{1 })\]</span></p>
+<p><br></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>7) Iterar los pasos 4) , 5) y 6)</strong></p>
+<ul>
+<li>Se iteran los pasos <strong>4)</strong> , <strong>5)</strong> y <strong>6)</strong> un número <span class="math inline">\(\hspace{0.03cm}b\hspace{0.03cm}\)</span> de veces, asi se obtienen <span class="math inline">\(\hspace{0.03cm}b\hspace{0.03cm}\)</span> configuraciones de clusters, y con ello <span class="math inline">\(\hspace{0.03cm}b\hspace{0.03cm}\)</span> valores de la suma de varianzas intra-cluster.</li>
+</ul>
+<p><br></p>
+<p><span class="math inline">\(\hspace{0.25cm}\)</span> <strong>8) Selección de la configuracion de clusters definitiva</strong></p>
+<ul>
+<li>Tras los pasos anteriores se habrán obtenido un total de <span class="math inline">\(\hspace{0.03cm}b+2\hspace{0.03cm}\)</span> configuraciones de clusters <span class="math inline">\(\hspace{0.1cm}\Rightarrow \hspace{0.1cm} b\hspace{0.03cm}\)</span> en el paso <strong>5)</strong> , <span class="math inline">\(1\)</span> en el paso <strong>1)</strong> y <span class="math inline">\(1\)</span> en el paso <strong>4)</strong>.</li>
+</ul>
+<p><span class="math display">\[\Bigl\{ \hspace{0.05cm} V(C_1^{h},....,C_k^h) \hspace{0.15cm} : \hspace{0.15cm} h \in \lbrace 1,...,b+2\rbrace \hspace{0.05cm} \Bigr\}\]</span></p>
+<ul>
+<li><p>Se selecciona como configuración de clusters <strong>definitiva</strong> aquella que minimiza la suma de varianzas intra-cluster, de entre las <span class="math inline">\(\hspace{0.02cm} b+2 \hspace{0.02cm}\)</span> obtenidas.</p></li>
+<li><p>Formalmente, se seleccionan la configuración de clusters <span class="math inline">\(\hspace{0.02cm} C_1^{h^*},...,C_k^{h^*}\)</span></p>
+<ul>
+<li><p>Donde:</p>
+<p><span class="math display">\[h^*  \hspace{0.15cm}=\hspace{0.12cm} arg \hspace{0.12cm} \underset{h}{Min} \hspace{0.16cm} V(C_1^{h},....,C_k^h)\]</span></p></li>
+</ul></li>
+</ul>
+</p>
+</p>
+<p></span></p>
+</div>
+<p><br></p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="problema-de-clasificación-no-supervisada.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
