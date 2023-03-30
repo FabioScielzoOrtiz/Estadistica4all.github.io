@@ -232,7 +232,7 @@ $\hspace{0.25cm}$ **8) Selección de la configuracion de clusters definitiva**
 
 
 
-$$\left\lbrace \hspace{0.15cm} V(C_1^{h},....,C_k^h) \hspace{0.12cm} / \hspace{0.12cm} h \in \lbrace 1,...,b+2\rbrace \hspace{0.15cm} \right\rbrace$$
+$$\Bigl\{ \hspace{0.05cm} V(C_1^{h},....,C_k^h) \hspace{0.15cm} : \hspace{0.15cm} h \in \lbrace 1,...,b+2\rbrace \hspace{0.05cm} \Bigr\}$$
 
 
 
@@ -269,7 +269,7 @@ $$\left\lbrace \hspace{0.15cm} V(C_1^{h},....,C_k^h) \hspace{0.12cm} / \hspace{0
 ***K-Medoids: versión original Park & Jun.***
 
 
-- Se considera que la variable respuesta $\hspace{0.1cm}\mathcal{Y}\hspace{0.1cm}$ tiene $\hspace{0.1cm} k\hspace{0.1cm}$ categorias $\hspace{0.1cm}g_1,...,g_k$ 
+- Se considera que la variable respuesta $\hspace{0.02cm}\mathcal{Y}\hspace{0.02cm}$ tiene $\hspace{0.02cm} k\hspace{0.02cm}$ categorias $\hspace{0.02cm}g_1,...,g_k\hspace{0.02cm}$ .
 
 
  <div class="warning" style='background-color:#F7EBE8; color: #030000; border-left: solid #CA0B0B 7px; border-radius: 3px; size:1px ; padding:0.1em;'>
@@ -351,7 +351,7 @@ $\hspace{0.25cm}$ **4) Re-asignación de las observaciones a los clusters**
 
  
 
-$\hspace{0.45cm}$ **4.1) Calculo de los medoids de los nuevos clusters**
+$\hspace{0.25cm}$ **5) Cálculo de los medoids de los nuevos clusters**
 
 
 
@@ -370,7 +370,7 @@ $\hspace{0.45cm}$ **4.1) Calculo de los medoids de los nuevos clusters**
  
 
 
-$\hspace{0.45cm}$ **4.2) Cálculo de la varianza intra-cluster de los nuevos clusters**
+$\hspace{0.45cm}$ **6) Cálculo de la varianza intra-cluster de los nuevos clusters**
 
 - Se calcula la suma de varianzas intra-cluster para la nueva configuración de clusters obtenida en el paso anterior:
 

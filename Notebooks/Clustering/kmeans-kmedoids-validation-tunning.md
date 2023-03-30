@@ -4062,6 +4062,7 @@ mean_silhouette
 
 **PROBAR CON MAS DISTANCIAS. RECORDAR QUE AHORA SE PUEDEN UAR DATOS DE TIPO MIXTO (y con ello distancias tipo mixto)**
 
+<br>
 
 
 ## K-Medoids con libreria `Kmedoids`
@@ -6086,7 +6087,8 @@ silhouette_score(D_euclidean, kmedoids_sk_init.labels_, metric='precomputed')
 
 
 
-## Hyperparameter tunning (using Silhouette and TAC as validation method)
+
+
 
 
 ```python
@@ -6095,8 +6097,7 @@ import kmedoids
 from sklearn.metrics import silhouette_score
 ```
 
-**AÑADIR KMEDOIDS DE `sklearn`**
-
+ 
 
 ```python
 class GridSearch:
