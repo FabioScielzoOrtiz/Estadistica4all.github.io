@@ -4993,7 +4993,16 @@ Este procedimiento permite eliminar redundancia de información entre grupos de 
 
 #### Usando la descomposición en valores singulares (SVD)
 
-$G_j\hspace{0.02cm}$ debe ser simétrica, es decir, $\hspace{0.02cm}G_j = G_j^t\hspace{0.02cm}$, y semi-definida positiva, es decir, sus autovalores tienen que ser alguno $\hspace{0.02cm}=0\hspace{0.02cm}$ y el resto $\hspace{0.02cm}> 0\hspace{0.02cm}$.
+Dada una matriz $A$ de tamaño $nxm$ y con $Rango(A) = k \leq min(n,m)$.
+
+La descomposición en valores singulares de una matriz $A$ es;
+
+$$A = U \cdot \Sigma \cdot V^t$$
+Donde:
+
+Si $\hspace{0.03cm}\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_n\hspace{0.03cm}$ son los autovalores de $\hspace{0.03cm}A\hspace{0.02cm}^t \cdot A\hspace{0.03cm}$ ordenados de mayor a menor, y $\hspace{0.03cm}w(\lambda_i)\hspace{0.03cm}$ es el autovector asociado al autovalor $\hspace{0.02cm}\lambda_i\hspace{0.02cm}$, entonces:
+
+
 
 En este caso, como $\hspace{0.02cm}G_j\hspace{0.02cm}$ es una matriz $\hspace{0.02cm}n\text{x}n\hspace{0.02cm}$, entonces:
 
@@ -5028,6 +5037,9 @@ En este caso, como $\hspace{0.02cm}G_j\hspace{0.02cm}$ es una matriz $\hspace{0.
 <br>   
     
 #### Usando la descomposición espectral
+
+$G_j\hspace{0.02cm}$ debe ser simétrica y semi-definida positiva, es decir, sus autovalores tienen que ser $\hspace{0.02cm}\geq 0\hspace{0.02cm}$.
+
 
 $G_j\hspace{0.02cm}$ debe ser cuadrada, por ejemplo $\hspace{0.02cm}n\text{x} n)\hspace{0.02cm}$, simétrica, es decir, $\hspace{0.02cm}G_j = G_j^t\hspace{0.02cm}$, y semi-definida positiva, es decir, tiene que tener algun autovalor $\hspace{0.02cm}=0\hspace{0.02cm}$ y el resto $\hspace{0.02cm} >0\hspace{0.02cm}$.
     
@@ -5607,6 +5619,8 @@ Aunque en este articulo hemos presentado el algoritmo de Delvin ligada al contex
 # Bibliografía
 
 - Grané, A. (2022). *Distancias Estadisticas* [Presentación de PowerPoint]. Aula Global UC3M. 
+
+- Grané, A. (2022). *Resultados de Álgebra Lineal* [Presentación de PowerPoint]. Aula Global UC3M. 
 
 - Grané, A., Manzi, G. and Salini, S. (2021) *Smart visualization of mixed data*. Stats 4(2), 472-485; https://doi.org/10.3390/stats4020029 (S.I. Robust Statistics in Action).
 
