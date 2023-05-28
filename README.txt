@@ -1,1 +1,1 @@
-Estadistica4all.com es un blog de divulgación sobre estadística, machine learning y ciencia de datos.
+Estadistica4all.com is an outreach blog about Statistics, Machine Learning and Data Science.
